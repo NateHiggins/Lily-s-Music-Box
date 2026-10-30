@@ -3156,3 +3156,33 @@ city budget is claimed. Original first run exited115s before gameplay with
 **-805306369**,Windows Application Hang1002,empty stderr/no contract. Cause is
 undetermined; original logs are retained rather than promoted by the retry.
 The combined physical survey remains queued.
+
+
+### October30 works/bank composed qualification, static candidate still pending
+
+Evidence class: **INERT**. Actual scoped results; no whole-city/artistic claim.
+
+The subsequent physical-only composed run completes **651/0**,257.463s
+test/283s wrapper,empty stderr,including root teardown on the pinned patched
+Vulkan4.7.1 engine. Inventory: **29,136 draws/18,336 meshes/6,380 materials/
+542 textures**. UV/PBR/mips and composition pass; no fire-service or other-family
+interaction rerun,save reconstruction or full-city acceptance is inferred.
+V2 import policy checks1474 referenced textures and needs0 repairs.
+
+The new packet uses the original test-written contract,matching wrapper/logs
+and four actually inspected3440x1440 frames: current bookcase,works front,bank
+front and clear roadside arcade lamp. The first three city frames come from the
+successful warm route with unchanged rendered sources through the physical
+survey. Independent packet qualification passes0 defects before publication;
+the existing atomic publisher preserves the preceding packet. No runtime receipt
+is repinned. Source/runtime/visual evidence remains distinct. Original startup
+closure and full route proof are indexed in **northeast_composed_intake.zip**;
+the owning native/isolated archive remains separately indexed.
+
+This qualifies the two changed technical building studies,bringing the current
+count to **21/149,128 remaining**. It does not promote ledger spaces or replace
+the broader continuous450m street/ground,station,save,performance or artistic
+coverage. The next narrow-pair grade/footprint research,including architect's
+report-only **3cc0c194**, is reconciled as forward work,not another completed
+pair. Current main's mystery wiring **fb6851f2** is preserved. Final clean
+candidate comparison against that exact baseline remains to run.

@@ -1,0 +1,57 @@
+{
+	"checks": 651,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"surface_requirements": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 317.6,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"interaction_programmes": {
+		"fire_service": {
+			"executed": false,
+			"scope": "separate interaction programme; physical draws remain in the inventory"
+		},
+		"other_family_programmes": {
+			"executed": false,
+			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
+		}
+	},
+	"inventory_sha256": "d2fc9f5b0bf87538f37d3a0a13cf0a7744ffb316c322e6296e8c4f634cb61214",
+	"lamp_context_review": {
+		"executed": false,
+		"scope": "Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."
+	},
+	"production_runtime": true,
+	"qualification_mode": "physical_surfaces_only",
+	"schema_version": 2,
+	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
+	"selector": "v2",
+	"source": {
+		"repository_head": "398f67c4e19256a570ff8580f5427847d99509a5",
+		"runtime_inputs_sha256": "b945f2d532ffbab770137188ee44edbb87d7314e06084b7e625724ccdeb373d8",
+		"test_path": "game/tests/orison_v2_surface_inventory.gd",
+		"test_sha256": "55e2cfd50ae8469f770f7413026e1a9e0729c6bf06f3e787500bbc6e6626bdc1"
+	},
+	"surface_inputs_sha256": "7d448985c4622a0b26114b30df0dbac3b4f44f162e5440c5f138554be87e7605"
+}

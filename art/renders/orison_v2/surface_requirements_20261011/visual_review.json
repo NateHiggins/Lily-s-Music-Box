@@ -1,26 +1,32 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "surface_inputs_sha256": "7d448985c4622a0b26114b30df0dbac3b4f44f162e5440c5f138554be87e7605",
-  "scope": "Three actual3440x1440 frames inspected. Two changed-frontage controller frames validly reused after byte-identical native replay; current bookcase frame from physical run. Technical composition/surfaces/teardown only,not full-city/access/save/performance or human artistic acceptance.",
+  "surface_inputs_sha256": "127e0da6c52db6f5d6a77efb5b4e85e85d1015c9bca44b4afbbaadc7db508d36",
+  "scope": "Four actual3440x1440 rendered frames inspected. Technical composed surfaces/teardown and separately scoped route only; no saves,full-city performance or human artistic acceptance.",
   "images": [
     {
-      "file": "northeast_workshop_standing.png",
-      "sha256": "adf787f0b8c9ce212224d074d1ae4d2863781a651608d914c9da0b4c4516d9ca",
-      "observation": "Actual normal-controller standing frontage detail under retained elevated structure; close upward framing is not full-facade/district artistic acceptance.",
-      "origin": "Reused from original successful canonical_city_intake_01 six-leg route. Subsequent owning native replay proves all five GLBs byte-identical; runtime materials/loader unchanged. Original route/source scope retained."
+      "file": "terracotta_works_standing.png",
+      "sha256": "f39249a521d478386f05813a8701244ed32573169f3fa8b4c954c80e50b2b439",
+      "observation": "Actual standing night fa\u00e7ade: curved brick bay, stone sills and stepped-gable context under retained elevated structure; close upward framing is not full-facade artistic acceptance.",
+      "origin": "Actual canonical_northeast2_01 eight-leg route retry; unchanged sources through physical survey."
     },
     {
-      "file": "northeast_oriel_standing.png",
-      "sha256": "60c40fdd2706233ee0bbb0c33d040de72ead7ac339842f310c2e61b959e69436",
-      "observation": "Actual normal-controller standing frontage detail under retained elevated structure; close upward framing is not full-facade/district artistic acceptance.",
-      "origin": "Reused from original successful canonical_city_intake_01 six-leg route. Subsequent owning native replay proves all five GLBs byte-identical; runtime materials/loader unchanged. Original route/source scope retained."
+      "file": "bank_front_standing.png",
+      "sha256": "ba31fb52566444be1658fda6b272443d54d10a29ce3a0c02c2d3106d8128eed2",
+      "observation": "Actual standing night bank fa\u00e7ade and supported bow balcony/order; retained companion lamp supplies local illumination. Not a district-wide lighting judgment.",
+      "origin": "Actual canonical_northeast2_01 eight-leg route retry; unchanged sources through physical survey."
+    },
+    {
+      "file": "arcade_lamp_roadside_night.png",
+      "sha256": "53d3e0291dbea120d6e79b6ab584ab70a2a703ce0e8116401b530528c66dd8c1",
+      "observation": "Separate floor/capsule-validated roadside fixture shows arcade post and head with unfiltered clear sightline. Not continuous access from bank or complete night-art acceptance.",
+      "origin": "Actual canonical_northeast2_01 eight-leg route retry; unchanged sources through physical survey."
     },
     {
       "file": "bookcase.png",
-      "sha256": "c16136172adcbc788ec7aa1a9838790699e594e97ea057e2e96656563997bce2",
-      "observation": "Current combined physical-run timber/glass library frame inspected; sparse shelf dressing remains open. No book handling/print-layout acceptance.",
-      "origin": "Actual canonical_city_intake_02 physical-only frame."
+      "sha256": "15fdf06503bd5810fae028a850c20720400a60a4fcfe0eb1a740860d21539ff2",
+      "observation": "Current physical-survey timber/glass library frame inspected. Sparse shelf dressing remains open; no book handling or print-layout acceptance.",
+      "origin": "Actual canonical_northeast2_01 physical-only capture."
     }
   ]
 }

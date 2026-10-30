@@ -7420,5 +7420,139 @@
       }
     },
     "scope": "Eight actual CPU native frames including original crop; first and revised native logs, derivative/stock checks and actual two-level Blender reimport. External native/GLBs not duplicated. No reference photos, runtime integration, gameplay or artistic acceptance."
+  },
+  "northeast_composed_intake": {
+    "evidence_class": "INERT",
+    "archive": "northeast_composed_intake.zip",
+    "bytes": 13877846,
+    "sha256": "d61303cafa283e87d6e26ef10988f2c51499edc23fa09eccd787dc1926e60248",
+    "members": {
+      "batch.json": {
+        "bytes": 998,
+        "sha256": "b2705f92175f29090021825b70cc8c4e8cec8303ce29932e2955c271b244e8cc"
+      },
+      "host_during_startup.json": {
+        "bytes": 1701,
+        "sha256": "1b4f3b17fb95444fd6be291eacb7744a737c35eac22ced3c5eac4271121240a9"
+      },
+      "import.log": {
+        "bytes": 4316,
+        "sha256": "ba1d020a620174c29f549c61bba9728c8b6f106b53260dcff19e1d4cf1588142"
+      },
+      "import.log.receipt.json": {
+        "bytes": 2746,
+        "sha256": "0345f79d9f66e5195d38df61174e92a6dae02c71391b845052f78ed55625c85f"
+      },
+      "import.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "parser.log": {
+        "bytes": 228,
+        "sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "parser.log.receipt.json": {
+        "bytes": 2949,
+        "sha256": "d73b6e0276f05b8f5b3eeb6616acb3b07d6ccaaf9335290691311398242a403e"
+      },
+      "parser.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "physical.log": {
+        "bytes": 2579,
+        "sha256": "1dacda05eb6f32cc5bafb32122c3de6004641bda9a6f273516265d8334df23e0"
+      },
+      "physical.log.receipt.json": {
+        "bytes": 3029,
+        "sha256": "356f4b59abbe66117f91f996cad31a9d5ef66b2b6e9f53155c56dc06d232d89b"
+      },
+      "physical.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "physical_batch.json": {
+        "bytes": 481,
+        "sha256": "bd604e941fab535c999f6e4a4d3a428a4a1d6dad21e047081b01f9d46f08b3e0"
+      },
+      "publication_result.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "qualification_before_publication.json": {
+        "bytes": 160,
+        "sha256": "9779e39ba1e42efd463af554e1a18873f2b9cb1b018131ea53bfd287d8a1d03c"
+      },
+      "retry_batch.json": {
+        "bytes": 488,
+        "sha256": "2f3020c8a268043348eac149e29a4573d9c99f39322bfcae334332c644a47c16"
+      },
+      "route.log": {
+        "bytes": 1339,
+        "sha256": "ed33c321773b4113b15a4666b52416921231afcc7beb4e207f38e1ebf48f069a"
+      },
+      "route.log.receipt.json": {
+        "bytes": 2947,
+        "sha256": "cadcc968663dd99445eb52aac6692bd4182773eeff8c67197fdb23a93b2b5c9d"
+      },
+      "route.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "route_analysis.json": {
+        "bytes": 740,
+        "sha256": "f59cbd3ef110341e68b065833b3880e47fd5e1661cd0f6ecbd8a085aac712152"
+      },
+      "route_before.gd": {
+        "bytes": 50567,
+        "sha256": "505b85818265c4f3cb79d2523c4a0a550f85b73d7ad2150cf5e30e110745016f"
+      },
+      "route_retry/arcade_lamp_roadside_night.png": {
+        "bytes": 4829505,
+        "sha256": "53d3e0291dbea120d6e79b6ab584ab70a2a703ce0e8116401b530528c66dd8c1"
+      },
+      "route_retry/bank_front_standing.png": {
+        "bytes": 2128004,
+        "sha256": "ba31fb52566444be1658fda6b272443d54d10a29ce3a0c02c2d3106d8128eed2"
+      },
+      "route_retry/bank_side_passage.png": {
+        "bytes": 2544684,
+        "sha256": "75286d4923cfab23f544b865e013a0f46c46125623eb1ae88579d4b8210d48f4"
+      },
+      "route_retry/terracotta_works_standing.png": {
+        "bytes": 2023610,
+        "sha256": "f39249a521d478386f05813a8701244ed32573169f3fa8b4c954c80e50b2b439"
+      },
+      "route_retry/works_bank_frontage_contract.json": {
+        "bytes": 122057,
+        "sha256": "827be1bce499411e31cdaa50d7c9d3ee3be14579fba99bad58610efab1f5ddd9"
+      },
+      "route_retry/works_bank_pair_standing_frontage.png": {
+        "bytes": 2292222,
+        "sha256": "ed7cce772461dadeb043361bc726e08c1fa2e7a5c2c194562b946a172f5b103c"
+      },
+      "route_retry.log": {
+        "bytes": 8258,
+        "sha256": "b3d00e836ce9d96d1af20d93a488e09fa88a26168291c03550a976e8d2fe1de6"
+      },
+      "route_retry.log.receipt.json": {
+        "bytes": 2933,
+        "sha256": "b22a27827bd72a7589923c3013d0d295c1cae0c5481c8e930578f81ff31f0be8"
+      },
+      "route_retry.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "spatial_before.json": {
+        "bytes": 4426,
+        "sha256": "25d5476e3020f603ea3b6e3a8648c4b9b6c81862a30d57cf637ca0cdb96e8c20"
+      },
+      "startup_failure_assessment.json": {
+        "bytes": 882,
+        "sha256": "937252229f0b8ef7493d6c45a99fb5990b9a191f1cfdb9e0485e05247e37ac8c"
+      }
+    },
+    "scope": "Source-bound actual223/eight/0 route and matching wrapper; original115s Windows hang with no contract preserved. Current physical651/0 packet published separately. No full-city,save or artistic acceptance.",
+    "baseline_commit": "fb6851f29beeef44ac4aa3b346940ed809053467"
   }
 }
