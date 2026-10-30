@@ -2096,3 +2096,22 @@ local city checkpoint,335/10/39/45 focused results,14 technical studies,
 This follow-up now requires a fresh candidate comparison before push. No main
 merge or completed-city claim. The next three background bodies remain the
 Engine258,Ottendorfer and Hampton Court studies described above.
+
+
+Candidate comparison02 subsequently completed at2026-10-30T13:36:59Z for
+**4282de16751af820dd00f776eded252b11c81cd5**:zero regressions,zero improvements,
+zero accepted regressions,17/17 protected paths unchanged,V2 selector,zero
+lint errors,no ledger/requirement changes and a clean checked tree. Its three
+gate-file diffs were reviewed: one additive test-camera classification,exact
+independent grade/occupancy controls and expanded rendering-source invalidation
+coverage. No gate predicates were weakened. All baseline failures remain;
+--no-godot was deliberate reuse of the separately executed native/bench/route/
+physical runtime evidence. Fresh-checkout import behavior and coordinated main
+integration remain outside this in-place result. The original failed comparison
+and corrected result are preserved in **northwest_verification_followup.zip**,
+indexed with raw hashes in the existing review manifest. This report/index-only
+follow-up reuses that unchanged rendering/runtime qualification; no extra walk,
+Blender rebuild or full gate-board repetition is needed for prose/archive data.
+
+MERGE-CANDIDATE 4282de16751af820dd00f776eded252b11c81cd5 (static comparison only;
+no main merge authorized or performed; broader city/artistic work remains open).

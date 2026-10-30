@@ -3970,5 +3970,54 @@
         "raw_sha256": "6a399b473c0690a961c07be22c894567d8c148c014d89bc4f5123c75e588b1c5"
       }
     }
+  },
+  "northwest_verification_followup_archive": {
+    "evidence_class": "INERT",
+    "file": "northwest_verification_followup.zip",
+    "bytes": 71687,
+    "sha256": "ab56bbcd8492dcd9ce2cc467cae86e2a4b4e774dbfd6593e496c953de6793a6e",
+    "scope": "Preserved original failed and corrected candidate comparisons, source-only scope proof, physical packet qualification and parser receipts. Raw physical runtime packet is separately installed in existing surface_requirements_20261011; no duplicate image or asset payloads.",
+    "members": {
+      "nw_candidate_verification_01/verification.json": {
+        "bytes": 301180,
+        "raw_sha256": "67afdac80ba25cba75ff68863b4d80eb6064fe6244a74fdd966333bc6f2a3b68"
+      },
+      "nw_candidate_verification_01/verification.md": {
+        "bytes": 2861,
+        "raw_sha256": "b2b037dec6ea4d57eb37ff342cdb76651c57767698efd53423d6314a75987a30"
+      },
+      "nw_candidate_verification_02/verification.json": {
+        "bytes": 300830,
+        "raw_sha256": "5af523f5868bee6dea6b3e23751af8ec1908e04975668df19b6753adb1900156"
+      },
+      "nw_candidate_verification_02/verification.md": {
+        "bytes": 1748,
+        "raw_sha256": "c2983a3e2c2c41969edbc34fdf27a3ee047f743e443cab51cbd0a1dc69c20531"
+      },
+      "nw_spatial_fixture_classification_01.json": {
+        "bytes": 1322,
+        "raw_sha256": "de9f9ad4a9e44fcea53df4f0c57156c257c0cc6f6e252e85c09cb5dea305502c"
+      },
+      "nw_physical_only_source_comparison_01.json": {
+        "bytes": 938,
+        "raw_sha256": "b04fcfb35fe816b86af3819cec384ea19600eb2bb4fb203ffd39119fc04e4250"
+      },
+      "nw_physical_packet_qualification_01.json": {
+        "bytes": 172,
+        "raw_sha256": "77a34a07bb8de5049170232bdf07cabed07a4df2720947741d462e305341d113"
+      },
+      "nw_physical_parser_01.log": {
+        "bytes": 232,
+        "raw_sha256": "0e54642bc4a4861ab488aea3618f28a55d8db70b8b54adcb9db357089e854c8d"
+      },
+      "nw_physical_parser_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "nw_physical_parser_01.log.receipt.json": {
+        "bytes": 1739,
+        "raw_sha256": "a7114cf125a5b705b61b34928450f6566f49afe9d1d61f25d191d0e61d39a63e"
+      }
+    }
   }
 }
