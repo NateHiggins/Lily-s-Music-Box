@@ -25,6 +25,14 @@ PAPERS = ("record", "speaker")
 LEAD_WORDS = (50, 100)
 COLUMN_WORDS = (22, 62)
 COLUMNS = 3
+# The optional back page: four typed columns and a one-line foot. Optional until
+# all 730 exist; --require-back then makes a missing one a failure.
+BACK_COLUMNS = 4
+BACK_HEADLINE = 90
+BACK_KINDS = {
+    "record": {"news", "notices", "sport", "weather", "markets", "classified"},
+    "speaker": {"news", "sport", "pun_derby", "ask_operator", "listening_lady", "classified"},
+}
 # The Speaker's Saturday editorial, The Editor's Chair: Barnaby Grail on the
 # woman who calls herself Lilith (design/ORISON_LILITH_2026-10-24.md).
 EDITORIAL_WORDS = (100, 140)
@@ -58,6 +66,39 @@ def slices() -> list[tuple[str, dt.date, dt.date]]:
 
 def words(text: str) -> int:
     return len(re.findall(r"[A-Za-z0-9'’]+", text))
+
+
+def check_back(back: object, paper: str, where: str, failures: list[str]) -> None:
+    if not isinstance(back, dict):
+        failures.append(f"{where}: back page is not an object")
+        return
+    columns = back.get("columns", [])
+    if not isinstance(columns, list) or len(columns) != BACK_COLUMNS:
+        failures.append(f"{where}: back page wants exactly {BACK_COLUMNS} columns")
+    else:
+        classified = 0
+        for i, column in enumerate(columns):
+            if not isinstance(column, dict) or not str(column.get("headline", "")).strip() \
+                    or not str(column.get("body", "")).strip():
+                failures.append(f"{where}: back column {i} needs headline and body")
+                continue
+            kind = str(column.get("kind", ""))
+            if kind not in BACK_KINDS[paper]:
+                failures.append(f"{where}: back column {i} kind {kind!r} is not the {paper}'s")
+            classified += kind == "classified"
+            headline = str(column["headline"])
+            if len(headline) >= BACK_HEADLINE:
+                failures.append(f"{where}: back column {i} headline {len(headline)} characters (want under {BACK_HEADLINE})")
+            if headline.isupper() and len(headline) > 8:
+                failures.append(f"{where}: back column {i} headline shouted in capitals")
+            n = words(str(column["body"]))
+            if not COLUMN_WORDS[0] <= n <= COLUMN_WORDS[1]:
+                failures.append(f"{where}: back column {i} body {n} words (want {COLUMN_WORDS[0]}-{COLUMN_WORDS[1]})")
+        if classified > 1:
+            failures.append(f"{where}: at most one classified column on a back page")
+    foot = str(back.get("foot", ""))
+    if not foot.strip() or "\n" in foot:
+        failures.append(f"{where}: back-page foot must be one non-empty line")
 
 
 def check_page(page: object, where: str, failures: list[str]) -> None:
@@ -123,9 +164,9 @@ def check_page(page: object, where: str, failures: list[str]) -> None:
             failures.append(f"{where}: names a resident ('{name}')")
 
 
-def audit(only: str | None) -> tuple[list[str], dict]:
+def audit(only: str | None, require_back: bool = False) -> tuple[list[str], dict]:
     failures: list[str] = []
-    stats = {"issues": 0, "files": 0}
+    stats = {"issues": 0, "files": 0, "back_pages": 0}
     mastheads = DATA / "papers.json"
     if not mastheads.exists():
         failures.append("papers.json missing")
@@ -172,6 +213,12 @@ def audit(only: str | None) -> tuple[list[str], dict]:
                     failures.append(f"{where}: missing the {paper}")
                     continue
                 check_page(issue[paper], f"{where} {paper}", failures)
+                if isinstance(issue[paper], dict):
+                    if "back" in issue[paper]:
+                        stats["back_pages"] += 1
+                        check_back(issue[paper]["back"], paper, f"{where} {paper}", failures)
+                    elif require_back:
+                        failures.append(f"{where} {paper}: no back page")
                 weekly = paper == "speaker" and weekday == "Saturday"
                 if isinstance(issue[paper], dict) and ("editorial" in issue[paper]) != weekly:
                     failures.append(f"{where} {paper}: the editorial runs in the Speaker on Saturdays only")
@@ -182,13 +229,16 @@ def audit(only: str | None) -> tuple[list[str], dict]:
 
 
 def main(argv: list[str]) -> int:
-    only = argv[1] if len(argv) > 1 else None
-    failures, stats = audit(only)
+    require_back = "--require-back" in argv
+    rest = [arg for arg in argv[1:] if arg != "--require-back"]
+    only = rest[0] if rest else None
+    failures, stats = audit(only, require_back)
     for line in failures[:200]:
         print("  FAIL", line)
     if len(failures) > 200:
         print(f"  ... {len(failures) - 200} more")
     print(f"NEWSPAPER AUDIT: {stats['issues']} issues in {stats['files']} files; "
+          f"{stats['back_pages']} back pages; "
           f"{len(failures)} failures -> {'PASS' if not failures else 'FAIL'}")
     return 0 if not failures else 1
 
