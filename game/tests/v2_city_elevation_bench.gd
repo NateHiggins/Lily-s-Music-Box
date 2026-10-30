@@ -140,7 +140,7 @@ func _run() -> void:
 	check(contacts>=1205 and shells.size()==fixture.parts.size() and draws>600,"nonempty complete family inventory")
 	var factory_studies: Array=fixture.get("architecture_checks",[])
 	check(factory_studies.size()==1,"one explicit factory study, not a promotion of all height repairs")
-	check(fixture.portals.size()==26,"twenty-five retained passive portals and one new recessed studio leaf")
+	check(fixture.portals.size()==25,"twenty-four retained city portals and one studio leaf; Bodega remains separately owned")
 	var factory_portals:=0
 	var terrace_portals:=0
 	var court_portals:=0
@@ -159,7 +159,7 @@ func _run() -> void:
 				and str(shells.get(hit.collider.get_rid(),"")).ends_with("__door_paint"),"raised portal leaf has real closed backing")
 	check(factory_portals==2 and terrace_portals==1 and court_portals==7,"original portals remain nonempty alongside seven passive apartment entries")
 	for identity: String in commercial_portals:
-		check(int(commercial_portals[identity])==(3 if identity=="site_ne1" else 2 if identity=="site_sw3" else 1),"explicitly counted genuinely closed scenic leaves: "+identity)
+		check(int(commercial_portals[identity])==(0 if identity=="site_nbr_e" else 3 if identity=="site_ne1" else 2 if identity=="site_sw3" else 1),"explicitly counted genuinely closed scenic leaves: "+identity)
 	var commercial_panes: Dictionary={"site_nw1":0,"site_nw3":0,"site_nw4":0,"site_se3":0,"site_sw3":0,"site_far_nw":0,"site_ne1":0,"site_ne2":0,"site_ne3":0,"site_ne4":0,"site_nbr_w":0,"site_nbr_e":0,"site_sw2":0}
 	var paired_attic_control:=0
 	for window: Dictionary in fixture.window_rows:
@@ -179,7 +179,7 @@ func _run() -> void:
 			var solid:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(center+normal*.1,center-normal*.4,1,exclude))
 			check(not solid.is_empty() and solid.position.distance_to(center-normal*.1)<.0001 and str(shells.get(solid.collider.get_rid(),"")).ends_with("__door_paint"),"paired attic center is a solid mullion, not a falsely clear pane")
 			paired_attic_control+=1
-	check(commercial_panes=={"site_nw1":21,"site_nw3":39,"site_nw4":19,"site_se3":28,"site_sw3":26,"site_far_nw":175,"site_ne1":57,"site_ne2":67,"site_ne3":19,"site_ne4":61,"site_nbr_w":16,"site_nbr_e":16,"site_sw2":33} and paired_attic_control==1,"all577 studied panes and the obstructed center control execute")
+	check(commercial_panes=={"site_nw1":21,"site_nw3":39,"site_nw4":19,"site_se3":28,"site_sw3":26,"site_far_nw":175,"site_ne1":57,"site_ne2":67,"site_ne3":19,"site_ne4":61,"site_nbr_w":16,"site_nbr_e":14,"site_sw2":33} and paired_attic_control==1,"all575 studied panes and the obstructed center control execute")
 	var court_details: Array=fixture.court_details
 	check(court_details.size()==6,"six real open recesses across five court-building identities")
 	var expected_courts: Dictionary={"site_far_se":"elm","site_far_w":"cambridge","site_far_n":"greystone","site_far_sw":"laburnum","site_far_ne":"towers"}

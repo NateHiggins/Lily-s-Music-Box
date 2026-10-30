@@ -4,12 +4,39 @@ Germania, Robbins & Appleton and Scheffel are explicit architectural adaptations
 The caller retains registration, physical roof bearings, materials and collision.
 No gameplay, access, clock or save authority is created here.
 """
-import bisect,math,re
+import bisect,math,re,json
+from pathlib import Path
 import bpy,bmesh
 from mathutils import Vector,Matrix
 from frame_mitre_geometry import frame_parts,interface_points
 
 class CommercialFronts:
+    def retained_bodega(self, x, y, X):
+        """Read the existing shop reservation; never replace its physical owners.
+
+        This deliberately supports only the measured identity street frame.
+        A changed resolver frame must be surveyed rather than silently guessed.
+        """
+        root=Path(__file__).resolve().parents[3]
+        regions=json.loads((root/'game/data/orison_v2/exterior/regions.json').read_text())
+        geometry=json.loads((root/'game/data/orison_v2/exterior/exterior_geometry.json').read_text())
+        shop=next(r for r in regions['instances'] if r['id']=='SHOP_BODEGA')
+        street=next(r for r in regions['instances'] if r['id']==shop['owner_instance_id'])
+        assert street['id']=='STREET_ORISON_01' and not street['owner_instance_id']
+        assert street['offset_uvn_m']==[0,0,0] and street['local_yaw_degrees']==shop['local_yaw_degrees']==0
+        surface=next(s for t in regions['surface_templates'] if t['id']==street['template_id'] for s in t['surfaces'] if s['id']==shop['owner_surface_id'])
+        assert surface['u_axis']==[1,0,0] and surface['v_axis']==[0,0,1] and surface['normal']==[0,1,0]
+        u,v,n=shop['offset_uvn_m'];p=surface['point_m'];origin=(p[0]+u,p[1]+n,p[2]+v)
+        template=next(t for t in regions['surface_templates'] if t['id']==shop['template_id'])
+        boxes={b['id']:b for t in geometry['templates'] if t['id']==shop['template_id'] for b in t['boxes']}
+        assert all(b.get('yaw_degrees',0)==0 for b in boxes.values())
+        ceiling=origin[1]+boxes['shop_ceiling']['position_m'][1]+boxes['shop_ceiling']['size_m'][1]/2
+        facade=max(origin[1]+boxes[k]['position_m'][1]+boxes[k]['size_m'][1]/2 for k in ['facade_head','facade_left_pier','facade_right_pier'])
+        l,back,r,front=template['boundary_xz_m'];sy=-origin[2]-9.795
+        assert abs(origin[0]-(x+X)/2)<1e-6 and abs(origin[0]+l-x)<1e-6 and abs(origin[0]+r-X)<1e-6
+        assert abs(sy-front-y)<1e-6 and abs(ceiling-3.25)<1e-6 and abs(facade-3.55)<1e-6
+        return dict(id=shop['id'],rear_y=sy-back+.02,ceiling=ceiling,facade=facade,threshold_y=sy)
+
     def __init__(self, profiles, records, original, rings, helpers, detail_level=0):
         assert detail_level in [0,1]
         self.profile_steps = [12,6][detail_level]
@@ -990,6 +1017,8 @@ class CommercialFronts:
         first=bodies[0];x,y,X,Y=first['rect'];dx=first['registration_offset_x'];x+=dx;X+=dx
         width=X-x;depth=Y-y;top=first['z0']+first['h']
         assert abs(width-4.4)<1e-5 and abs(spec['eave']-top)<1e-5
+        retained=self.retained_bodega(x,y,X) if a.get('retained_shop_id')=='SHOP_BODEGA' else None
+        assert not hayden or retained, 'Hayden ground floor belongs to the installed Bodega'
         for record in records:
             if record['id'][len(name)+1:].startswith(('bulk','hut','c')):
                 self.original_stock(name,'roof_bitumen' if record['id'][len(name)+1:].startswith('c') else record['key'],self.original[record['id']])
@@ -999,15 +1028,23 @@ class CommercialFronts:
         # Three closed slabs leave the lower stair well genuinely open. A
         # full rectangular slab at zero would bury the first west treads.
         door_l=x+width*.25-.56;door_r=x+width*.25+.56
-        for lo,hi in [((x+.2,y+.2,-.65),(door_l,Y-.2,0)),
+        slabs=[((x+.2,retained['rear_y'],-.65),(X-.2,Y-.2,0))] if retained else [((x+.2,y+.2,-.65),(door_l,Y-.2,0)),
                       ((door_r,y+.2,-.65),(X-.2,Y-.2,0)),
-                      ((door_l,y+1.40,-.65),(door_r,Y-.2,0))]:
+                      ((door_l,y+1.40,-.65),(door_r,Y-.2,0))]
+        for lo,hi in slabs:
             self.box(name,'concrete',lo,hi)
         levels=[0.]
         for h in spec['front_heights']:levels.append(levels[-1]+h)
         u=Vector((1,0,0));out=Vector((0,-1,0));origin=Vector((x,y,0))
         pitch=width/2;door_center=pitch*.5;wl=door_center-.56;wr=door_center+.56
         for floor,(z0,z1) in enumerate(zip(levels,levels[1:])):
+            if retained and floor==0:
+                # The existing shop supplies its operable leaf, glass, piers,
+                # bulkheads and threshold. Only the upper transfer course is ours.
+                assert abs(z1-retained['facade'])<1e-6
+                self.local_box(name,'concrete',origin,u,out,(0,-.48,z1),(width,-.14,z1+.24))
+                self.local_box(name,'limestone',origin,u,out,(0,-.16,z1),(width,-.08,z1+.24))
+                continue
             for bay in range(2):
                 center=(bay+.5)*pitch;left=center-.56;right=center+.56
                 low=z0+(.18 if floor==0 else .64);high=z1-.52
@@ -1073,7 +1110,12 @@ class CommercialFronts:
         # walls, with slight limewashed repair strips; no borrowed-light rows.
         for side_x,sign in [(x,1),(X,-1)]:
             low=-.65
-            self.box(name,'arcade_brick_bond',(min(side_x,side_x+sign*.28),y+.48,low), (max(side_x,side_x+sign*.28),Y-.48,top))
+            l=min(side_x,side_x+sign*.28);r=max(side_x,side_x+sign*.28)
+            if retained:
+                self.box(name,'arcade_brick_bond',(l,retained['rear_y'],low),(r,Y-.48,retained['ceiling']))
+                self.box(name,'arcade_brick_bond',(l,y+.48,retained['ceiling']),(r,Y-.48,top))
+            else:
+                self.box(name,'arcade_brick_bond',(l,y+.48,low),(r,Y-.48,top))
         rear=Vector((X,Y,0));ru=Vector((-1,0,0));rn=Vector((0,1,0))
         for floor,(z0,z1) in enumerate(zip(levels,levels[1:])):
             self.register(name,'arcade_brick_bond',rear,ru,rn,width,z0,z1,2,.94,'rect',False,'limestone')
@@ -1094,6 +1136,10 @@ class CommercialFronts:
                 for L,R,B,T in [(l,r,top-.59,top-.55),(l,r,top-.30,top-.26),(l,l+.035,top-.55,top-.30),(r-.035,r,top-.55,top-.30)]:
                     self.local_box(name,'wood_dark',origin,u,out,(L,-.085,B),(R,-.055,T))
         self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=[x,y,X,Y],assembly_translation_m=plan.get('assembly_translation_m',[0,0,0]),eave=top,body_top=top,roof_deck_top=top+.26,entry_ground_m=a['entry_ground_m'],entry_recess_m=a['entry_recess_m'],entry_run_start_m=a['entry_run_start_m'],entry_risers=max(1,math.ceil((.18-float(a['entry_ground_m']))/.17))))
+        if retained:
+            row=self.building_rows[-1]
+            for key in ['entry_ground_m','entry_recess_m','entry_run_start_m','entry_risers']:row.pop(key)
+            row['retained_shop']=retained
 
     def delano126(self,name):
         """AU four-bay1916 carriagehouse studio, fitted to the installed SW parcel.
@@ -1125,7 +1171,7 @@ class CommercialFronts:
         # Individually laid ashlar plinth blocks cover the retained foundation
         # collar while leaving the raised landing continuous across the entry.
         for i in range(14):
-            self.local_box(name,'limestone',origin,u,out,(i*width/14+.001,-.48,-.65),((i+1)*width/14-.001,.03,.18))
+            self.local_box(name,'limestone',origin,u,out,(i*width/14+.001,-.48,-.65),((i+1)*width/14-.001,.03,.175))
         z0,z1,z2,z3=0.,3.3,7.2,9.8
         for bay in range(4):
             center=(bay+.5)*pitch;wl=center-(.66 if bay==3 else .78);wr=center+(.66 if bay==3 else .78)
@@ -1135,14 +1181,21 @@ class CommercialFronts:
                 low=.18;high=2.95;spring=high-.66;recess=.90
                 # Continuous deep stone reveal, then the real recessed closed leaf.
                 for l,r in [(wl-.1,wl),(wr,wr+.1)]:
-                    self.local_box(name,'limestone',origin,u,out,(l,-recess-.48,-.65),(r,-.2,spring))
+                    self.local_box(name,'limestone',origin,u,out,(l,-recess-.48,-.65),(r,-.205,spring))
                 self.local_box(name,spec['wall'],origin,u,out,(wl,-.48,high),(wr,-.2,z1))
                 for i in range(self.profile_steps):
                     t=i*math.pi/self.profile_steps;T=(i+1)*math.pi/self.profile_steps
                     A=center-.66*math.cos(t);B=center-.66*math.cos(T)
                     Z=spring+.66*math.sin(t);H=spring+.66*math.sin(T)
                     self.profile_stock(name,spec['wall'],origin,u,out,[(A,Z),(B,H),(B,high+.02),(A,high+.02)],-.48,-.20)
-                self.arch_stock(name,'limestone',origin,u,out,center,spring,.66,.66,.10,-recess-.48,-.20,self.profile_steps)
+                self.arch_stock(name,'limestone',origin,u,out,center,spring,.66,.66,.10,-recess-.48,-.205,self.profile_steps)
+                # Proud outer archivolt and jamb courses seat in the plaster,
+                # while the deep barrel continues behind the face without a
+                # coplanar duplicate. Keystone clears the balcony underside.
+                self.arch_stock(name,'limestone',origin,u,out,center,spring,.66,.66,.13,-.26,-.04,self.profile_steps)
+                for l,r in [(wl-.13,wl),(wr,wr+.13)]:
+                    self.local_box(name,'limestone',origin,u,out,(l,-.26,-.65),(r,-.04,spring))
+                self.profile_stock(name,'limestone',origin,u,out,[(center-.075,high-.02),(center+.075,high-.02),(center+.06,high+.17),(center-.06,high+.17)],-.27,-.015)
                 self.opening(name,spec['wall'],origin-out*recess,u,out,wl,wr,0,z1,low,high,'round',True,'limestone',False,bay=bay)
                 self.portal_rows[-1]['point'][2]=low+.8
                 # A manufactured fanlight grille seats in the rear arch, clear of
