@@ -2043,3 +2043,56 @@ Decision needed from owner: none for this bounded checkpoint. Next background
 construction proposal is recorded above; no main merge is requested now.
 
 BLOCKED candidate static verification and coordinated main integration pending
+
+
+### 2026-10-30 northwest qualification follow-up (INERT)
+
+Construction candidate **41aaffbdfc360525c45e868d8284fe8369a99cba** failed its
+first candidate comparison: seven regression rows. The original
+**nw_candidate_verification_01/** is preserved unchanged. Protected paths were
+17/17 unchanged, selector V2, document lint passed and ledger statuses did not
+change. The findings were one newly reported test camera (two comparison rows)
+and stale surface evidence (five rows), not a missing body LOD or accepted
+regression. No push or main merge followed that failed comparison.
+
+The spatial manifest now classifies exactly the new opposite-sidewalk camera
+record; no previous record or audit rule changes. **nw_spatial_full_02.json**
+reports clean, zero new reported/failing records. The fixture remains test-only.
+
+An explicit **ORISON_SURFACE_PHYSICAL_ONLY=1** mode in the existing surface test
+retains production composition, complete loaded geometry/material inventory,
+UV/PBR/mipmap/filter evaluation, native library controls, representative renders
+and teardown. Default programme execution is unchanged; incompatible mode flags
+are rejected. Separate interaction programmes are explicitly NOT_EXECUTED in
+the physical-only receipt. The canonical prologue owner's fire-picker fix must
+survive later integration; this city change does not replace their checkout.
+
+**nw_physical_surface_01/** completed:651 checks,zero failures,29,111 draws,
+18,296 meshes,6,342 materials,536 textures. Wrapper elapsed261.42s; test-owned
+elapsed241.233s; empty stderr. Independent evaluation reports
+PASS_TECHNICAL_ONLY,zero unresolved surfaces. Native library controls retain ten
+cases,three loose collections and61 copies. Nine actual3440x1440 captures were
+inspected: F02 main,F03 bath,F06 kitchen,bookcase,mail bank,signal terminal,roof
+tank,installed anatomy and flowing residue. Materials are present; dark mail/
+roof exposure,strong light boundaries,irregular shadows and kitchen stippled
+glare remain limitations. No interior,lighting,companion or weather edits follow.
+
+The existing publication helper qualified and installed the unchanged raw test
+contract/inventory,wrapper,compressed raw logs and reviewed images under
+**art/renders/orison_v2/surface_requirements_20261011/**. Previous evidence is
+preserved in **nw_physical_publication_01/previous_surface_packet/**. Qualification
+reports PASS with zero defects. This is loaded-surface technical qualification,
+not full-city,interaction or artistic acceptance. All eight consumed surface
+reader/helper methods and class initializers remain byte-identical to candidate
+41; **nw_physical_only_source_comparison_01.json** records that source proof.
+The earlier335-check route contract remains immutable; its whole-file helper
+hash is historical after orchestration changes,not rewritten or re-run merely
+for the unconsumed programme branch.
+
+The shared project tracker was updated by its coordinated sole editor and
+read back at sequence41,retaining43 blocks and four images. It records the
+local city checkpoint,335/10/39/45 focused results,14 technical studies,
+135 remaining,measured stalls and the first verifier's seven regressions.
+This follow-up now requires a fresh candidate comparison before push. No main
+merge or completed-city claim. The next three background bodies remain the
+Engine258,Ottendorfer and Hampton Court studies described above.

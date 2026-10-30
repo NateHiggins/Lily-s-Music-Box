@@ -322677,6 +322677,37 @@
       "rationale": "Isolated traffic-height fixture restores its probe off-road after flat/graded and transformed-owner contact controls; no playable coordinate or authority.",
       "resolved_target": null,
       "target_exists": null
+    },
+    {
+      "key": "6422412044f27838",
+      "kind": "vector3_coordinate",
+      "token": "_run_northwest",
+      "file": "game/tests/v2_city_transport_route.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run_northwest"
+      ],
+      "lines": [
+        107
+      ],
+      "count": 1,
+      "context": [
+        "if point.x==-40.:await _station_view(\"northwest_row_from_south_walk\",Vector3(-42,-6.2,8))"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
     }
   ]
 }
