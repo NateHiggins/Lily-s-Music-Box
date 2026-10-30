@@ -68,7 +68,18 @@ class LaunchObserver extends Node:
 				checks["loading_veil_retires_after_actual_opening_starts"] = shell.find_child("OpeningLoadingVeil", false, false) == null
 				# Let the real presentation run, rather than seeking its clock or
 				# treating a startup flag as proof of the camera/input handoff.
-				if is_instance_valid(opening) and is_instance_valid(opening.waking):
+				if OS.get_environment("PROLOGUE_TITLE_FULL_SEQUENCE")=="1":
+					var route:=preload("res://tests/prologue_tutorial_route.gd").new()
+					route.externally_managed=true;route.use_installed_director=true
+					route.world=world;route.player=world.player
+					get_tree().root.add_child(route)
+					await route._route()
+					checks["actual_title_full_input_route_passes"]=route.failures.is_empty() and is_instance_valid(route.frame_trace) and route.frame_trace.complete
+					checks["full_opening_keeps_installed_director"]=is_same(opening,route.director) and world.prologue_director==opening
+					checks["full_opening_acknowledges_intro_without_inventing_shift"]=opening.state.phase=="prologue_complete" and bool(RealityState.data.intro_complete) and RealityState.data.maintenance_jobs.is_empty() and RealityState.data.first_shift in [{},{"phase":FirstShiftDirector.PHASE_ARRIVED}]
+					checks["full_title_route_has_no_failed_interactions"]=route.interaction_checks.all(func(row:Dictionary)->bool:return row.ok) and route.trace.size()>0
+					route.queue_free();await get_tree().process_frame
+				elif is_instance_valid(opening) and is_instance_valid(opening.waking):
 					await get_tree().create_timer(6.0).timeout
 					await _capture("dream")
 					await get_tree().create_timer(11.0).timeout
@@ -138,6 +149,9 @@ func _ready() -> void:
 	OS.set_environment("TITLE_SCREEN_SILENT", "1")
 	var action := OS.get_environment("TITLE_ACTUAL_ACTION")
 	if action.is_empty(): action = "continue"
+	if OS.get_environment("PROLOGUE_TITLE_FULL_SEQUENCE")=="1":
+		if action!="begin":get_tree().quit(2);return
+		OS.set_environment("PROLOGUE_FULL_SEQUENCE","1")
 	if action not in ["continue", "begin", "new"]:
 		get_tree().quit(2)
 		return

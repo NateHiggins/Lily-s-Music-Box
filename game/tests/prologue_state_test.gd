@@ -191,6 +191,11 @@ func _test_clock_handoff(opening:Dictionary) -> void:
 	RealityState.load_game()
 	check(clock.datetime_string()=="1928-11-10T00:00:15" and absf(clock.elapsed_minutes()-elapsed_before-1.25)<.00001,"reload preserves annual projection without resetting campaign progress")
 	_test_handoff_elapsed_edges(opening)
+	var snapshot:Dictionary=RealityState.data.duplicate(true)
+	var detached:=preload("res://scripts/game/prologue_temporal_sky.gd").RenderClock.new()
+	check(detached.seek_utc(float(State.LOOP_START_UTC+2*State.LOOP_SECONDS)),"detached render clock accepts an unsupported-year negative control")
+	check(int(detached.local_datetime().year)==1930 and not CampaignWeather.has_date(CampaignWeather.date_key(detached.local_datetime())),"detached civil projection is not wrapped by the acknowledged live annual clock")
+	check(RealityState.data==snapshot,"detached unsupported-year projection cannot mutate campaign facts")
 	RealityState.data=original
 
 func review_annual_destination() -> void:

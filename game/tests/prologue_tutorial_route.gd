@@ -6,6 +6,7 @@ const Household := preload("res://scripts/building/orison_v2_household_state.gd"
 var director: Node
 var frame_trace:Node
 var contact_optical:Array[Dictionary]=[]
+var use_installed_director := false
 
 class FrameTrace extends Node:
 	var director:Node
@@ -72,8 +73,12 @@ func _route() -> void:
 	if OS.get_environment("ORISON_BATH_REPAIR_REVIEW")=="1":
 		await _review_installed_bath()
 		return
-	director=Director.new();world.add_child(director)
-	if not _require(director.configure(world),"actual 4B fixture and wall supports bound: "+str(director.errors)): return
+	if use_installed_director:
+		director=world.prologue_director
+		if not _require(is_instance_valid(director) and director.get_parent()==world and director.errors.is_empty(),"title route uses the single installed production director"):return
+	else:
+		director=Director.new();world.add_child(director)
+		if not _require(director.configure(world),"actual 4B fixture and wall supports bound: "+str(director.errors)): return
 	frame_trace=FrameTrace.new();frame_trace.director=director
 	frame_trace.process_priority=1000;frame_trace.process_mode=Node.PROCESS_MODE_ALWAYS
 	frame_trace.settings={"viewport":str(get_viewport().size),"msaa_3d":get_viewport().msaa_3d,
@@ -1107,7 +1112,9 @@ func _shot(name_: String) -> void:
 
 func _full_sequence_wake() -> bool:
 	# No reducer advancement, seek or skip: use the public production shot owner.
-	if not _require(director.resume_opening(preload("res://assets/props/prologue_wake_cover.glb")),"full sequence begins actual DREAM through public resume"):return false
+	if use_installed_director:
+		if not _require(director.state.phase=="dream" and is_instance_valid(director.waking) and director.waking.active,"actual title launch already owns the natural DREAM"):return false
+	elif not _require(director.resume_opening(preload("res://assets/props/prologue_wake_cover.glb")),"full sequence begins actual DREAM through public resume"):return false
 	var deadline:=Time.get_ticks_msec()+30000
 	var captured:=false
 	while director.state.phase in ["dream","awakening"] and Time.get_ticks_msec()<deadline:

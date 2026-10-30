@@ -365,21 +365,33 @@ func review_cutaway(target:Dictionary) -> void:
 	# authoritative annual destination or inventing a new Tardi presence rule.
 	var clock:CampaignClock=world.campaign_clock
 	var outside:=TemporalSky.RenderClock.new()
-	outside.seek_utc(float(Opening.LOOP_START_UTC+2*Opening.LOOP_SECONDS))
+	check(outside.seek_utc(float(Opening.LOOP_START_UTC+2*Opening.LOOP_SECONDS)) and not CampaignWeather.has_date(CampaignWeather.date_key(outside.local_datetime())),"unsupported-date control actually projects outside the authored calendar")
 	world.campaign_clock=outside
-	await get_tree().create_timer(.35).timeout
+	await _wait_temporal_presence(ending.controller,true)
 	check(ending.controller._temporal_hidden and not ending.controller.visible and ending.controller.critters.size()==population,"detached unsupported date still withholds the historical animal without a lifecycle event")
 	outside.seek_utc(float(Opening.LOOP_START_UTC+18*3600))
-	await get_tree().create_timer(.35).timeout
+	await _wait_temporal_presence(ending.controller,false)
 	check(not ending.controller._temporal_hidden and ending.controller.visible and ending.controller.companion.specimen_id==int(ending.specimen.id),"returning to the historical year restores the same specimen through normal polling")
 	world.campaign_clock=clock
-	await get_tree().create_timer(.35).timeout
+	await _wait_temporal_presence(ending.controller,false)
 	var current:Dictionary=RealityState.data.campaign_clock
 	var same_epoch:=true
 	for key:String in present:
 		if key!="elapsed_minutes":same_epoch=same_epoch and current.get(key)==present[key]
 	var elapsed_delta:float=float(current.elapsed_minutes)-float(present.elapsed_minutes)
 	check(not ending.controller._temporal_hidden and ending.controller.visible and same_epoch and elapsed_delta>=0 and elapsed_delta<5,"returning to annual present restores normal ecology while only the real clock driver advances elapsed time")
+
+func _wait_temporal_presence(controller:Node,hidden:bool) -> void:
+	# The owner polls in physics, not the idle timer used by the old fixture.
+	# Wait for ordinary processing; never call the refresh or set its result.
+	var began:=Engine.get_physics_frames()
+	var deadline:=Time.get_ticks_msec()+3000
+	while Engine.get_physics_frames()-began<60 and Time.get_ticks_msec()<deadline:
+		await get_tree().physics_frame
+		await get_tree().process_frame
+		if controller._temporal_hidden==hidden and controller.visible!=hidden:break
+	print("TEMPORAL PRESENCE POLL ",JSON.stringify({"expected_hidden":hidden,"hidden":controller._temporal_hidden,"visible":controller.visible,"physics_ticks":Engine.get_physics_frames()-began,"poll_remaining":controller._temporal_poll,"enabled":controller.enabled,"processing":controller.is_physics_processing(),"can_process":controller.can_process(),"world_mode":world.process_mode,"clock":world.campaign_clock.local_datetime(),"applied":RealityState.data.prologue.effects.clock_applied}))
+
 
 func review_cutaway_optics(ending:Node) -> void:
 	var lamp:Node=ending.lamp_air
