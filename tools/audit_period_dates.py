@@ -32,6 +32,9 @@ EXPECTED_CONSUMERS = {
     # Bible VIII.5.p: detached render projection of the already captured target;
     # no host read, campaign bind/write, weather publication or dated reporting.
     "game/scripts/game/prologue_temporal_sky.gd": "prologue_render_only_utc_projection_no_publication",
+    # Physical readout formats only validated command/borrowed-clock UTC inputs.
+    # No host read, inferred death date, campaign mutation or news publication.
+    "game/scripts/device/companion_temporal_register.gd": "command_owned_temporal_readout_only",
     # Pure dated projection of CampaignClock, with as-of press dispatches.
     "game/scripts/game/campaign_weather.gd": "authored_campaign_weather_and_issued_forecasts",
     "game/scripts/game/historical_radio_notice.gd": "observed_printed_historical_notice",

@@ -323932,6 +323932,36 @@
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "fbe76acdb72d8a83",
+   "kind": "generated_name",
+   "token": "configure",
+   "file": "game/scripts/device/companion_temporal_register.gd",
+   "tier": "production",
+   "subsystem": "device",
+   "symbols": [
+    "configure"
+   ],
+   "lines": [
+    71
+   ],
+   "count": 1,
+   "context": [
+    "\"Temporal\" + row"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
