@@ -7335,8 +7335,8 @@
   "bridge_native_study": {
     "evidence_class": "INERT",
     "archive": "bridge_native_study.zip",
-    "bytes": 13071656,
-    "sha256": "83cbb54f5cacc8c89a9e8b67757a264e336d749a968ebaecf6577348eacffdd6",
+    "bytes": 13079985,
+    "sha256": "3648e6c7df7da6bddd7c4ea5c08a4bfb2e9ec74ccb6f08f39080c2d8a7edb4e6",
     "members": {
       "native/city_bridge_construction.json": {
         "bytes": 6261832,
@@ -7417,15 +7417,19 @@
       "roundtrip_02.py": {
         "bytes": 1680,
         "sha256": "e11142168f837920cc799892eb56ed6e8f076bc741f8593a642e10046d633b0b"
+      },
+      "bridge_corridor_screen_01.json": {
+        "bytes": 74339,
+        "sha256": "337873b432b72f8bd645075a5c3361ae7b16282620e4a14a9ccf82ed11e96255"
       }
     },
-    "scope": "Eight actual CPU native frames including original crop; first and revised native logs, derivative/stock checks and actual two-level Blender reimport. External native/GLBs not duplicated. No reference photos, runtime integration, gameplay or artistic acceptance."
+    "scope": "Eight actual CPU native frames including original crop; first and revised native logs, derivative/stock checks and actual two-level Blender reimport. External native/GLBs not duplicated. No reference photos, runtime integration, gameplay or artistic acceptance. Additional conservative149-body corridor screening is INERT forward work,not accepted siting; it changes no installed footprint."
   },
   "northeast_composed_intake": {
     "evidence_class": "INERT",
     "archive": "northeast_composed_intake.zip",
-    "bytes": 13877846,
-    "sha256": "d61303cafa283e87d6e26ef10988f2c51499edc23fa09eccd787dc1926e60248",
+    "bytes": 13910600,
+    "sha256": "337671bf078d9f214ddd6c195987a747e086c85e63ec0d46e34f8cd143e30574",
     "members": {
       "batch.json": {
         "bytes": 998,
@@ -7550,9 +7554,21 @@
       "startup_failure_assessment.json": {
         "bytes": 882,
         "sha256": "937252229f0b8ef7493d6c45a99fb5990b9a191f1cfdb9e0485e05247e37ac8c"
+      },
+      "verification/verification.json": {
+        "bytes": 286952,
+        "sha256": "8f8992f2e34ef17eb7b3532887092c3b6896b85bfef5cd71b3ae187221d97751"
+      },
+      "verification/verification.md": {
+        "bytes": 1774,
+        "sha256": "06e374ab1227b9666965095b4347c78c22956e243fdd1cbfc5de790d9cb03261"
+      },
+      "publication_completed.json": {
+        "bytes": 172,
+        "sha256": "de1f1f21e05e42fe676b9097551e814bbd71542d191886f255cb96537c85f971"
       }
     },
-    "scope": "Source-bound actual223/eight/0 route and matching wrapper; original115s Windows hang with no contract preserved. Current physical651/0 packet published separately. No full-city,save or artistic acceptance.",
+    "scope": "Source-bound actual223/eight/0 route and matching wrapper; original115s Windows hang with no contract preserved. Current physical651/0 packet published separately. No full-city,save or artistic acceptance. Final static verification is raw f14307a7/clean exactfb baseline:117gates,0regressions,4improvements,17protected unchanged,no waiver/promotion. Original empty publication_result.json is a during-publication snapshot; publication_completed.json holds the completed publisher result.",
     "baseline_commit": "fb6851f29beeef44ac4aa3b346940ed809053467"
   }
 }

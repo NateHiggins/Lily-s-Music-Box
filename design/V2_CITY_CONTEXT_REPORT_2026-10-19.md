@@ -3186,3 +3186,26 @@ coverage. The next narrow-pair grade/footprint research,including architect's
 report-only **3cc0c194**, is reconciled as forward work,not another completed
 pair. Current main's mystery wiring **fb6851f2** is preserved. Final clean
 candidate comparison against that exact baseline remains to run.
+
+
+Final candidate **f14307a7cc66ea0ba6db6afa8f19da1db8a0098f** passes the
+clean exact-**fb6851f2** comparison: **117 gates,0 regressions/4 improvements**,
+all17 protected paths unchanged,V2,no document-lint errors,waivers,requirement
+promotions or report contradictions. Four improvements all concern the renewed
+surface gate (FAIL→PASS,2→0 defects and its two stale-evidence findings).
+Ledger blocker counts remain7/8/110/42/134/136. The verifier uses **--no-godot**
+and reuses this cohort's separately executed route/physical contracts; it does
+not claim another runtime run or fresh-checkout import. Raw verification JSON/
+Markdown and completed publisher output are appended to the indexed cohort
+archive without modifying any original members. The original empty publisher
+output snapshot is retained separately from its completed result.
+
+This final follow-up changes only queue/report and evidence archives/indexes;
+rendering/game/test/native inputs remain those of the verified candidate. All
+archived member hashes and ZIP CRCs were rechecked. Cold startup's original
+Windows hang is now also carried in **K-V2-FIRST-VIEW-HITCH**,cause unresolved.
+Bridge corridor screening remains an external149-body conservative AABB study
+with explicit frame/terrain/equipment/support limits,not an accepted placement.
+The next city work is the architect's grade-aware narrow pair and the bridge's
+supported approach/shoreline registration; full-city/save/art acceptance stays
+open. No other contributor's imports,UIDs,branches or geometry were discarded.
