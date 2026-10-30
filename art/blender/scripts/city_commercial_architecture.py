@@ -1095,7 +1095,159 @@ class CommercialFronts:
                     self.local_box(name,'wood_dark',origin,u,out,(L,-.085,B),(R,-.055,T))
         self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=[x,y,X,Y],assembly_translation_m=plan.get('assembly_translation_m',[0,0,0]),eave=top,body_top=top,roof_deck_top=top+.26,entry_ground_m=a['entry_ground_m'],entry_recess_m=a['entry_recess_m'],entry_run_start_m=a['entry_run_start_m'],entry_risers=max(1,math.ceil((.18-float(a['entry_ground_m']))/.17))))
 
+    def delano126(self,name):
+        """AU four-bay1916 carriagehouse studio, fitted to the installed SW parcel.
+
+        Source: LPC LP2102,p113/p153. Three stories and a skylight attic.
+        This is a wider transposition, with retained service bulkhead/roof plant.
+        """
+        from mathutils.bvhtree import BVHTree
+        spec=self.specs[name];plan=self.plans[name];a=plan['architecture']
+        records=[r for r in self.records if r['id'].startswith(name+'_')]
+        bodies=[r for r in records if re.search('_s\\d+$',r['id'])]
+        assert len(bodies)==1
+        first=bodies[0];x,y,X,Y=first['rect'];dx=first['registration_offset_x'];x+=dx;X+=dx
+        width=X-x;depth=Y-y;top=first['z0']+first['h'];pitch=width/4
+        assert abs(top-9.8)<1e-5 and abs(spec['eave']-top)<1e-5
+        cap=self.original[name+'_c0']
+        for record in records:
+            suffix=record['id'][len(name)+1:]
+            if suffix.startswith(('bulk','hut','c')):
+                self.original_stock(name,'roof_bitumen' if suffix.startswith('c') else record['key'],self.original[record['id']])
+        self.original_stock(name,'limestone',self.rings[name])
+        origin=Vector((X,Y,0));u=Vector((-1,0,0));out=Vector((0,1,0))
+        door_c=3.5*pitch;left=door_c-.66;right=door_c+.66;door_x=X-door_c
+        # Leave the recessed entry channel open rather than burying its flight.
+        L=door_x-.66;R=door_x+.66
+        for lo,hi in [((x+.2,y+.2,-.65),(L,Y-.2,0)),
+                      ((R,y+.2,-.65),(X-.2,Y-.2,0)),
+                      ((L,y+.2,-.65),(R,Y-1.40,0))]:self.box(name,'concrete',lo,hi)
+        # Individually laid ashlar plinth blocks cover the retained foundation
+        # collar while leaving the raised landing continuous across the entry.
+        for i in range(14):
+            self.local_box(name,'limestone',origin,u,out,(i*width/14+.001,-.48,-.65),((i+1)*width/14-.001,.03,.18))
+        z0,z1,z2,z3=0.,3.3,7.2,9.8
+        for bay in range(4):
+            center=(bay+.5)*pitch;wl=center-(.66 if bay==3 else .78);wr=center+(.66 if bay==3 else .78)
+            self.local_box(name,spec['wall'],origin,u,out,(bay*pitch,-.48,-.65),(wl,-.20,z1))
+            self.local_box(name,spec['wall'],origin,u,out,(wr,-.48,-.65),((bay+1)*pitch,-.20,z1))
+            if bay==3:
+                low=.18;high=2.95;spring=high-.66;recess=.90
+                # Continuous deep stone reveal, then the real recessed closed leaf.
+                for l,r in [(wl-.1,wl),(wr,wr+.1)]:
+                    self.local_box(name,'limestone',origin,u,out,(l,-recess-.48,-.65),(r,-.2,spring))
+                self.local_box(name,spec['wall'],origin,u,out,(wl,-.48,high),(wr,-.2,z1))
+                for i in range(self.profile_steps):
+                    t=i*math.pi/self.profile_steps;T=(i+1)*math.pi/self.profile_steps
+                    A=center-.66*math.cos(t);B=center-.66*math.cos(T)
+                    Z=spring+.66*math.sin(t);H=spring+.66*math.sin(T)
+                    self.profile_stock(name,spec['wall'],origin,u,out,[(A,Z),(B,H),(B,high+.02),(A,high+.02)],-.48,-.20)
+                self.arch_stock(name,'limestone',origin,u,out,center,spring,.66,.66,.10,-recess-.48,-.20,self.profile_steps)
+                self.opening(name,spec['wall'],origin-out*recess,u,out,wl,wr,0,z1,low,high,'round',True,'limestone',False,bay=bay)
+                self.portal_rows[-1]['point'][2]=low+.8
+                # A manufactured fanlight grille seats in the rear arch, clear of
+                # the existing pane sample in its upper-right segment.
+                back=origin-out*recess
+                for i in range(1,6):
+                    theta=math.pi*i/6;end=Vector((center+.66*math.cos(theta),spring+.66*math.sin(theta)))
+                    start=Vector((center,spring));axis=(end-start).normalized();normal=Vector((-axis.y,axis.x))*.008
+                    self.profile_stock(name,'iron_blackened',back,u,out,[tuple(start-normal),tuple(end-normal),tuple(end+normal),tuple(start+normal)],-.31,-.275)
+                ground=float(a['entry_ground_m']);run=float(a['entry_projection_m'])
+                for i in range(3):
+                    front=run-i*run/3;rear=front-run/3
+                    self.local_box(name,'limestone',origin,u,out,(wl-.10,rear,-.65),(wr+.10,front,ground+(low-ground)*(i+1)/3))
+                self.local_box(name,'limestone',origin,u,out,(wl,-1.38,-.65),(wr,0,low))
+                # Square-section iron handrails: two embedded posts and a sloping
+                # continuous top bar on each side of the three shallow risers.
+                for edge in [wl-.07,wr+.07]:
+                    self.local_box(name,'iron_blackened',origin,u,out,(edge-.016,.60,ground+(low-ground)/3-.025),(edge+.016,.632,ground+(low-ground)/3+.82))
+                    self.local_box(name,'iron_blackened',origin,u,out,(edge-.016,-.12,low-.025),(edge+.016,-.088,low+.82))
+                    profile=[(-.16,low+.80),(.72,ground+(low-ground)/3+.80),(.72,ground+(low-ground)/3+.84),(-.16,low+.84)]
+                    self.profile_stock(name,'iron_blackened',origin+u*edge,out,u,profile,-.018,.018)
+            else:
+                self.opening(name,spec['wall'],origin,u,out,wl,wr,0,z1,.74,2.80,'rect',False,'limestone',bay=bay)
+                self.local_box(name,'door_paint',origin,u,out,(center-.025,-.42,.74),(center+.025,-.32,2.80))
+                self.local_box(name,'door_paint',origin,u,out,(wl,-.42,2.38),(wr,-.32,2.43))
+            # Tall double casements with transoms behind a full supported balcony.
+            wl=center-.96;wr=center+.96;low=3.48;high=6.68
+            self.local_box(name,spec['wall'],origin,u,out,(bay*pitch,-.48,z1),(wl,-.20,z2))
+            self.local_box(name,spec['wall'],origin,u,out,(wr,-.48,z1),((bay+1)*pitch,-.20,z2))
+            self.opening(name,spec['wall'],origin,u,out,wl,wr,z1,z2,low,high,'segment',False,'limestone',bay=bay)
+            self.local_box(name,'door_paint',origin,u,out,(center-.025,-.42,low),(center+.025,-.32,high-.23))
+            self.local_box(name,'door_paint',origin,u,out,(wl,-.42,low+2.36),(wr,-.32,low+2.41))
+            self.profile_stock(name,'limestone',origin,u,out,[(center-.10,high-.04),(center+.10,high-.04),(center+.075,high+.16),(center-.075,high+.16)],-.19,.005)
+            self.oculus(name,spec['wall'],origin,u,out,(bay*pitch,z2,(bay+1)*pitch,z3),center,8.36,.48)
+            for z in [8.335,8.36]:
+                if z==8.335:self.local_box(name,'door_paint',origin,u,out,(center-.48,-.42,z),(center+.48,-.32,z+.05))
+                else:self.local_box(name,'door_paint',origin,u,out,(center-.025,-.42,z-.48),(center+.025,-.32,z+.48))
+            # Sample the actual upper-right glass quadrant, clear of both muntins.
+            self.window_samples[-1]['point'][2]+=.15;self.window_rows[-1]['pane_sample'][2]+=.15
+        # Side/rear light is fitted to actual neighbors. The west wall is .6m
+        # from the taller firehouse; the east is exposed to the cross street.
+        self.box(name,'arcade_brick_bond',(x,y+.48,-.65),(x+.28,Y-.48,top))
+        for O,U,N,length,bays in [(Vector((X,y,0)),Vector((0,1,0)),Vector((1,0,0)),depth,3),
+                                  (Vector((x,y,0)),Vector((1,0,0)),Vector((0,-1,0)),width,4)]:
+            for A,B in [(z0,z1),(z1,z2),(z2,z3)]:self.register(name,'arcade_brick_bond',O,U,N,length,A,B,bays,1.10,'rect',False,'limestone')
+        # Four individual balcony slabs bear on continuous steel rails and five
+        # cast wall brackets; wall plates and square-headed anchors are explicit.
+        deck=3.32;bottom=deck-.13
+        for i in range(4):
+            self.local_box(name,'limestone',origin,u,out,(i*pitch+.003,-.18,bottom),((i+1)*pitch-.003,.66,deck))
+        for d in [-.17,.54]:self.local_box(name,'iron_blackened',origin,u,out,(0,d,bottom-.10),(width,d+.07,bottom))
+        for c in [.15,pitch,2*pitch,3*pitch,width-.15]:
+            self.local_box(name,'iron_blackened',origin,u,out,(c-.08,-.225,bottom-.78),(c+.08,-.15,bottom))
+            self.profile_stock(name,'iron_blackened',origin+u*c,out,u,[(-.15,bottom-.72),(-.15,bottom),(.61,bottom)],-.025,.025)
+            for A in [c-.044,c+.044]:
+                for Z in [bottom-.16,bottom-.62]:
+                    self.local_box(name,'iron_blackened',origin,u,out,(A-.006,-.32,Z-.006),(A+.006,-.13,Z+.006))
+                    self.local_box(name,'iron_blackened',origin,u,out,(A-.015,-.15,Z-.015),(A+.015,-.115,Z+.015))
+        # Wrought rail: supported top/bottom rails, primary posts and close pickets.
+        for z in [deck+.12,deck+.94]:self.local_box(name,'iron_blackened',origin,u,out,(0,.59,z),(width,.63,z+.032))
+        n=max(1,round(width/.14))
+        for i in range(n+1):
+            c=.03+(width-.06)*i/n
+            self.local_box(name,'iron_blackened',origin,u,out,(c-.009,.595,deck+.10),(c+.009,.62,deck+.972))
+        for c in [0,pitch,2*pitch,3*pitch,width]:
+            self.local_box(name,'iron_blackened',origin,u,out,(c-.018,.58,deck-.015),(c+.018,.64,deck+1.0))
+        for c in [0,width]:
+            for z in [deck+.12,deck+.94]:self.local_box(name,'iron_blackened',origin,u,out,(c-.016,-.18,z),(c+.016,.63,z+.032))
+        # Built-up stone/stucco cornice with restrained cast rosettes, not lettering.
+        for A,B,D,E in [(9.10,9.23,-.26,.02),(9.23,9.52,-.26,-.05),(9.52,9.60,-.48,.18),(9.60,9.69,-.05,.25),(9.69,9.8,-.48,.29)]:
+            self.local_box(name,'limestone',origin,u,out,(0,D,A),(width,E,B))
+        for i in range(4):
+            center=(i+.5)*pitch;steps=24 if self.profile_steps==12 else 12
+            points=[]
+            for k in range(steps):
+                t=math.tau*k/steps;r=.080+.019*math.cos(4*t)
+                points.append((center+r*math.cos(t),9.375+r*math.sin(t)))
+            self.profile_stock(name,'limestone',origin,u,out,points,-.055,-.015)
+        # The shallow pitched glazed attic stays in a measured clear front strip.
+        # Check real retained cap support before adding any new curb stock.
+        vertices=[cap.matrix_world@v.co for v in cap.data.vertices]
+        bvh=BVHTree.FromPolygons(vertices,[tuple(f.vertices) for f in cap.data.polygons])
+        skylight=[-44.8,-30.30,-34.8,-28.70];l,b,r,t=skylight;seat=10.06
+        supports=[]
+        for xx,yy in [(l,b),(r,b),(r,t),(l,t),(l,(b+t)/2),(r,(b+t)/2)]:
+            point=Vector((xx,yy,seat));hit,*_=bvh.ray_cast(point+Vector((0,0,.05)),Vector((0,0,-1)),.10)
+            assert hit is not None and (hit-point).length<.0001,('skylightseat',name,list(point))
+            supports.append(list(point))
+        for lo,hi in [((l-.05,b-.05,seat),(r+.05,b+.05,seat+.10)),((l-.05,t-.05,seat),(r+.05,t+.05,seat+.10)),((l-.05,b+.05,seat),(l+.05,t-.05,seat+.10)),((r-.05,b+.05,seat),(r+.05,t-.05,seat+.10))]:self.box(name,'galvanized_roof',lo,hi)
+        ridge=(b+t)/2;eave=seat+.10;peak=eave+.70
+        for i in range(10):
+            A=l+(r-l)*i/10+.025;B=l+(r-l)*(i+1)/10-.025
+            for y0,y1,Z0,Z1 in [(b+.025,ridge-.025,eave+.021875,peak-.021875),(ridge+.025,t-.025,peak-.021875,eave+.021875)]:
+                self.roof_panel(name,'mirror_aged',[(A,y0,Z0+.025),(B,y0,Z0+.025),(B,y1,Z1+.025),(A,y1,Z1+.025)],thickness=.012)
+        for i in range(11):
+            xx=l+(r-l)*i/10
+            for y0,y1,Z0,Z1 in [(b,ridge,eave,peak),(ridge,t,peak,eave)]:
+                self.profile_stock(name,'galvanized_roof',Vector((xx,0,0)),Vector((0,1,0)),Vector((1,0,0)),[(y0,Z0),(y1,Z1),(y1,Z1+.05),(y0,Z0+.05)],-.025,.025)
+        self.box(name,'galvanized_roof',(l-.05,ridge-.028,peak),(r+.05,ridge+.028,peak+.05))
+        for xx in [l,r]:self.profile_stock(name,'galvanized_roof',Vector((xx,0,0)),Vector((0,1,0)),Vector((1,0,0)),[(b,eave),(t,eave),(ridge,peak)],-.025,.025)
+        self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=[x,y,X,Y],assembly_translation_m=plan.get('assembly_translation_m',[0,0,0]),eave=top,body_top=top,roof_deck_top=top+.26,balcony_brackets=5,entry_ground_m=a['entry_ground_m'],entry_risers=3,entry_projection_m=a['entry_projection_m'],skylight_seat_samples=supports))
+
     def build(self, name):
+        if self.specs[name]['style']=='delano126':
+            return self.delano126(name)
         if self.specs[name]['style'] in ['linford119','hayden113']:
             return self.narrow_house(name)
         if self.specs[name]['style'] == 'terracotta_works':

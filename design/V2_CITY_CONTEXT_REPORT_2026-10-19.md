@@ -3281,3 +3281,40 @@ sources. Reference photographs,PDFs and duplicate production meshes are excluded
 The included nearby controller-fit guide is INERT; its starts/landing targets
 still require actual unfiltered support/full-capsule and traversal checks.
 All member bytes and ZIP CRCs were verified; no runtime receipt was repinned.
+
+### October30 southwest carriagehouse native WIP
+
+After frozen **fe4899a5**, canonical merged that cohort and released the
+own-worktree producer hold. **site_sw2** now has an actual four-bay French
+studio front adapted from LPC LP2102,p113/p153,126 East38th Street's1916
+Delano&Aldrich carriagehouse alteration. The source says three stories AND
+attic,not three floors alone. This AU12.4x9.68m parcel retains9.8m body datum
+and all original roof/bulkhead/equipment bearings. Cement-stucco form uses
+registered coated plaster/limestone,33 genuine panes,full bracketed balcony,
+circular upper windows and a pitched glazed attic strip. The west party wall
+faces the taller firehouse across.6m; the east remains exposed to the cross
+street. Three shallow entrance risers use measured-.27225m pavement to+.18m
+landing,with nominal3.706m sidewalk depth remaining. No new interior,shop,
+clock,weather,save or narrative owner is introduced.
+
+The normal closure→near→lower→streets replay completes and four fixture
+preflights pass. Source-bound native checks:1205 bearings/2559 windows/126 roof
+faces/12 returns,0 failures;1139 new near closed positive stocks;complete lower
+family10834 stocks/555 bearings/577 panes,0 failures. Six new skylight-seat rays
+pass against the actual retained cap. Body near/lower **15530/12410 triangles**,
+12 material parts each. All266 unaffected near and143 prior lower exported
+parts retain exact attributes/indices/transforms;24 other source profiles and
+three contextual GLBs are exact. Seven actual native images are inspected,
+including the existing firehouse,roof hardware and real street context.
+
+Initial entry review finds a bounded repair before Godot:the outer arch/reveal
+trim ends on the plaster face and needs a proud molding/jamb course;plinth
+tops need a5mm recess under the landing to eliminate coincident faces. Preserve
+these initial views and source/native state. A detached pre-check earlier failed
+its cap-seat ray before any export;the normal registered-scene producer passes
+that guard. Do not treat the detached failure as accepted construction or
+assert its cause without proof. A baseline setup also stopped on missingstruct
+import before any production edit;its subsequent missing-runner failure is kept.
+No Godot check or normal standing-controller proof exists for this new body yet.
+Technical qualified count stays **21/149,128 remaining** while canonical
+prepares the previous pair/bridge cohort.
