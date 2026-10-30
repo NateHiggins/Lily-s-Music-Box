@@ -212,3 +212,29 @@ captured frame of the panel over the real shop; the design doc and the
 drafts doc cross-referenced. Opinions for every resident per §7, audited. Not done by this brief: no newsboys, no
 delivery to the door, no back pages, no classifieds beyond the one the
 Orison places.
+
+## 9. Back pages (2026-10-30)
+
+Owner ruling, 2026-10-29: an issue may gain a back page, so new items need not
+displace a canon column. **The format exists; no back page has been written.**
+
+- **Data.** Each paper in an issue may carry an optional **back**: exactly four
+  **columns**, each with **kind**, **headline** and **body**, and a one-line
+  **foot**. The Record's kinds are news, notices, sport, weather, markets and
+  classified. The Speaker's are news, sport, pun_derby, ask_operator,
+  listening_lady and classified.
+- **Loader.** **NewspaperCatalog** refuses a malformed back page at load, and an
+  absent one is ordinary.
+- **Panel.** Where a back page exists, the sheet's lower corner curls. Click takes
+  it, leftward motion carries the sheet over, the next click lets go (RUL-013).
+  Past halfway it settles on the other side.
+- **Audit.** **tools/audit_newspapers.py** applies the front's word limits,
+  headlines under 90 characters, and at most one classified a page. It reports
+  how many back pages exist. `--require-back` makes a missing one a failure, for
+  when all 730 are written.
+- **Companion.** It still witnesses the edition shown, not a page's contents, and
+  reports nothing from a back page.
+
+The first items are the mystery's, in
+**design/THE_YEAR_YOU_DIED_TREATMENT_2026-10-30.md** section 7. They stay out of
+the data until that treatment's wording settles.
