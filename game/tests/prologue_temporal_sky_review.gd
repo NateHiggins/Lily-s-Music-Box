@@ -93,10 +93,13 @@ func run() -> void:
 	var started:bool=director.begin_temporal_sky()
 	if not check(started,"actual window-to-sky cinematic starts: "+str(director.temporal_sky.failure if is_instance_valid(director.temporal_sky) else "no scope")):finish();return
 	var clip:Node=director.temporal_sky
+	var register:Node=world.service_set_carrier.rig.temporal_register
+	check(register._owner!=null and register._owner.get_ref()==clip and register._target==Opening.annual_destination(target),"sky borrows the installed temporal register with the original immutable destination")
 	var frozen:Dictionary=RealityState.data.campaign_clock.duplicate(true)
 	for stamp:float in [0.0,3.5,4.5,6.5,9.0,15.0,24.0,29.8]:
 		clip.seek(stamp)
 		check(clip.sampled_utc>=Opening.LOOP_START_UTC and clip.sampled_utc<Opening.LOOP_START_UTC+Opening.LOOP_SECONDS,"actual detached sky sample stays in the authored year: "+str(stamp))
+		check(register.labels.Passing.text=="PASS "+register._date(clip.sampled_utc,-300) and register.labels.Departure.text=="DEPARTURE  UNKNOWN","physical passing row follows the actual borrowed sky clock without inventing departure: "+str(stamp))
 		await frames(3)
 		await capture("sky_%02d.png"%int(stamp*10))
 	# Isolate the observed centre seam at a fixed sky/camera/time.
@@ -120,6 +123,7 @@ func run() -> void:
 	check(clip.age==age and player.text_input_owner==clip,"pause holds cinematic time and its input lease")
 	get_tree().paused=false
 	clip.cancel()
+	check(register._owner==null and register.phase=="idle" and register.capacitor.get_shader_parameter("capacitor_charge")==0.0,"cancelled cinematic releases register and capacitor without stale presentation")
 	check(world.process_mode==mode and player.text_input_owner==null and player.camera.is_current() and not world.service_set_carrier.is_story_absent(),"cancellation restores world, player camera, input and companion visibility")
 	# Repeat the actual full32-second clip without screenshot stalls.
 	if not check(director.begin_temporal_sky(),"cancelled clip can restart without a new destination"):finish();return
