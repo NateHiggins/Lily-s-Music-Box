@@ -214108,7 +214108,7 @@
    "count": 2,
    "context": [
     "const LEVELS := {\"B1\":-2.8, \"F01\":0.0, \"F02\":3.2, \"F03\":6.4,",
-    "var street := \"STREET LEVEL \u2193\" if fid != \"F01\" else \"STREET LEVEL \u2014 THIS FLOOR\""
+    "var street := \"STREET LEVEL ↓\" if fid != \"F01\" else \"STREET LEVEL — THIS FLOOR\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -223154,7 +223154,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
+    "{\"label\": \"kettle · polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
     "if unit == \"1A\":"
    ],
    "gameplay_binding": false,
@@ -223227,7 +223227,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 aged copper\", \"properties\": {\"unit\": \"3D\"}},",
+    "{\"label\": \"kettle · aged copper\", \"properties\": {\"unit\": \"3D\"}},",
     "_body_color = BODY_COPPER if unit in [\"3D\", \"4C\", \"6C\"] else BODY_NICKEL"
    ],
    "gameplay_binding": false,
@@ -276347,7 +276347,7 @@
    ],
    "count": 1,
    "context": [
-    "await _owner_shot(\"05_night_register\", \"F01_NIGHT_REGISTER\", \"NIGHT REGISTER \u00b7 PRODUCTION AUTHORITY\")"
+    "await _owner_shot(\"05_night_register\", \"F01_NIGHT_REGISTER\", \"NIGHT REGISTER · PRODUCTION AUTHORITY\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -276378,7 +276378,7 @@
    ],
    "count": 1,
    "context": [
-    "await _owner_shot(\"06_signal_register\", \"F01_SIGNAL_REGISTER\", \"SIGNAL REGISTER \u00b7 PRODUCTION AUTHORITY\")"
+    "await _owner_shot(\"06_signal_register\", \"F01_SIGNAL_REGISTER\", \"SIGNAL REGISTER · PRODUCTION AUTHORITY\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -276409,7 +276409,7 @@
    ],
    "count": 1,
    "context": [
-    "await _owner_shot(\"07_tour_key_guard\", \"F01_TOUR_KEY_GUARD\", \"TOUR KEY GUARD \u00b7 COMPOSED PROP\")"
+    "await _owner_shot(\"07_tour_key_guard\", \"F01_TOUR_KEY_GUARD\", \"TOUR KEY GUARD · COMPOSED PROP\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -276440,7 +276440,7 @@
    ],
    "count": 1,
    "context": [
-    "await _owner_shot(\"04_watchman_detector\", \"F01_WATCHMAN_DETECTOR\", \"WATCHMAN DETECTOR \u00b7 PRODUCTION AUTHORITY\")"
+    "await _owner_shot(\"04_watchman_detector\", \"F01_WATCHMAN_DETECTOR\", \"WATCHMAN DETECTOR · PRODUCTION AUTHORITY\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -305673,8 +305673,8 @@
    "count": 3,
    "context": [
     "_check(line.contains(\"2A\") and line.contains(\"2B\") and line.contains(\"2C\"),",
-    "_check(_side_label(plate, \"\u2190\").contains(\"2A\"),",
-    "and not _side_label(plate, \"\u2192\").contains(\"2A\"),"
+    "_check(_side_label(plate, \"←\").contains(\"2A\"),",
+    "and not _side_label(plate, \"→\").contains(\"2A\"),"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -305736,7 +305736,7 @@
    "count": 2,
    "context": [
     "_check(line.contains(\"2A\") and line.contains(\"2B\") and line.contains(\"2C\"),",
-    "_check(_side_label(plate, \"\u2192\").contains(\"2C\")"
+    "_check(_side_label(plate, \"→\").contains(\"2C\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -324038,6 +324038,58 @@
    "count": 1,
    "context": [
     "player.global_position=occupied_world.adapter.root.to_global(Vector3(-8.4,9.62,4.75))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a929f3a7d9e8a6c4",
+   "kind": "vector3_coordinate",
+   "token": "_run_opposing",
+   "file": "game/tests/v2_city_transport_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run_opposing"
+   ],
+   "lines": [
+    112,
+    112,
+    112,
+    112,
+    112,
+    112,
+    113,
+    113,
+    113,
+    113,
+    113,
+    113,
+    114,
+    114,
+    114,
+    114,
+    114,
+    114,
+    122
+   ],
+   "count": 19,
+   "context": [
+    "{\"id\":\"site_sw3\",\"start\":Vector3(-56.8,-26.5,0),\"points\":[Vector3(-47.8,-26.5,0),Vector3(-55,-26.5,0),Vector3(-55,-13,0),Vector3(-55,-26.5,0)],\"target\":Vector3(",
+    "{\"id\":\"site_se3\",\"start\":Vector3(46,-26.5,0),\"points\":[Vector3(51.55,-26.5,0),Vector3(57,-26.5,0),Vector3(51.55,-26.5,0),Vector3(46,-26.5,0)],\"target\":Vector3(5",
+    "{\"id\":\"site_far_nw\",\"start\":Vector3(-92,27,0),\"points\":[Vector3(-88,27,0),Vector3(-80,27,0),Vector3(-72,27,0),Vector3(-92,27,0)],\"target\":Vector3(-80,30,8)}]",
+    "if str(programme.id)==\"site_sw3\" and point.y==-13.:await _station_view(\"firehouse_from_opposite_walk\",Vector3(-52.3,-28.32,8))"
    ],
    "gameplay_binding": true,
    "authority": [

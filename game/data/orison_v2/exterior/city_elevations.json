@@ -242,15 +242,15 @@
       "id": "site_sw3",
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.86,
-        0.82,
-        0.75,
+        0.69,
+        0.59,
+        0.51,
         1
       ],
       "frame_tint": [
-        0.65,
-        0.59,
-        0.48,
+        0.22,
+        0.28,
+        0.25,
         1
       ]
     },
@@ -275,8 +275,8 @@
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
         0.78,
-        0.72,
-        0.65,
+        0.58,
+        0.43,
         1
       ],
       "frame_tint": [
@@ -332,15 +332,15 @@
       "id": "site_far_nw",
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.95,
-        0.92,
-        0.86,
+        0.7,
+        0.56,
+        0.46,
         1
       ],
       "frame_tint": [
-        0.3,
-        0.33,
-        0.3,
+        0.82,
+        0.79,
+        0.7,
         1
       ]
     },
@@ -588,6 +588,16 @@
   ],
   "body_lod": {
     "parts": [
+      "site_far_nw__arcade_brick_bond",
+      "site_far_nw__brick",
+      "site_far_nw__bronze_sheet",
+      "site_far_nw__concrete",
+      "site_far_nw__door_paint",
+      "site_far_nw__limestone",
+      "site_far_nw__linen",
+      "site_far_nw__mirror_aged",
+      "site_far_nw__roof_bitumen",
+      "site_far_nw__wood_dark",
       "site_nw1__arcade_brick_bond",
       "site_nw1__brass_mesh",
       "site_nw1__brick",
@@ -626,7 +636,29 @@
       "site_nw4__roof_bitumen",
       "site_nw4__soot",
       "site_nw4__terracotta",
-      "site_nw4__wood_dark"
+      "site_nw4__wood_dark",
+      "site_se3__arcade_brick_bond",
+      "site_se3__brick",
+      "site_se3__bronze_sheet",
+      "site_se3__concrete",
+      "site_se3__door_paint",
+      "site_se3__limestone",
+      "site_se3__linen",
+      "site_se3__mirror_aged",
+      "site_se3__roof_bitumen",
+      "site_se3__soot",
+      "site_se3__terracotta",
+      "site_se3__wood_dark",
+      "site_sw3__arcade_brick_bond",
+      "site_sw3__bronze_sheet",
+      "site_sw3__concrete",
+      "site_sw3__door_paint",
+      "site_sw3__galvanized_roof",
+      "site_sw3__limestone",
+      "site_sw3__linen",
+      "site_sw3__mirror_aged",
+      "site_sw3__roof_bitumen",
+      "site_sw3__wood_dark"
     ],
     "error_m": 0.2
   }

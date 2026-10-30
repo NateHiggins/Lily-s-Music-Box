@@ -129,13 +129,13 @@ func _run() -> void:
 	check(contacts>=1205 and shells.size()==fixture.parts.size() and draws>600,"nonempty complete family inventory")
 	var factory_studies: Array=fixture.get("architecture_checks",[])
 	check(factory_studies.size()==1,"one explicit factory study, not a promotion of all height repairs")
-	check(fixture.portals.size()==13,"ten original passive portals and three new commercial leaves")
+	check(fixture.portals.size()==17,"ten original passive portals,three northwest leaves and four new opposite/background leaves")
 	var factory_portals:=0
 	var terrace_portals:=0
 	var court_portals:=0
-	var commercial_portals: Dictionary={"site_nw1":0,"site_nw3":0,"site_nw4":0}
+	var commercial_portals: Dictionary={"site_nw1":0,"site_nw3":0,"site_nw4":0,"site_se3":0,"site_sw3":0,"site_far_nw":0}
 	for portal: Dictionary in fixture.portals:
-		check(str(portal.building) in ["site_far_e","site_nw2","site_far_se","site_far_w","site_far_n","site_far_sw","site_far_ne","site_far_s","site_nw1","site_nw3","site_nw4"],"portal belongs to an explicitly adapted building")
+		check(str(portal.building) in ["site_far_e","site_nw2","site_far_se","site_far_w","site_far_n","site_far_sw","site_far_ne","site_far_s","site_nw1","site_nw3","site_nw4","site_se3","site_sw3","site_far_nw"],"portal belongs to an explicitly adapted building")
 		if str(portal.building)=="site_far_e":factory_portals+=1
 		elif str(portal.building)=="site_nw2":terrace_portals+=1
 		elif commercial_portals.has(str(portal.building)):commercial_portals[str(portal.building)]+=1
@@ -148,16 +148,17 @@ func _run() -> void:
 				and str(shells.get(hit.collider.get_rid(),"")).ends_with("__door_paint"),"raised portal leaf has real closed backing")
 	check(factory_portals==2 and terrace_portals==1 and court_portals==7,"original portals remain nonempty alongside seven passive apartment entries")
 	for identity: String in commercial_portals:
-		check(int(commercial_portals[identity])==1,"one genuinely closed commercial leaf: "+identity)
-	var commercial_panes: Dictionary={"site_nw1":0,"site_nw3":0,"site_nw4":0}
+		check(int(commercial_portals[identity])==(2 if identity=="site_sw3" else 1),"explicitly counted genuinely closed scenic leaves: "+identity)
+	var commercial_panes: Dictionary={"site_nw1":0,"site_nw3":0,"site_nw4":0,"site_se3":0,"site_sw3":0,"site_far_nw":0}
 	var paired_attic_control:=0
 	for window: Dictionary in fixture.window_rows:
 		var identity:=str(window.building)
 		if not commercial_panes.has(identity):continue
 		var a: Array=window.pane_sample
-		var normal:=Vector3.BACK if int(window.side)==0 else Vector3.FORWARD
+		var source_normal: Array=window.get("normal",[[0,-1,0],[1,0,0],[0,1,0],[-1,0,0]][int(window.side)])
+		var normal: Vector3=city.global_basis*Vector3(source_normal[0],source_normal[2],-source_normal[1])
 		var point:=city.to_global(Vector3(a[0],a[2],-a[1]))
-		var expected:=point-normal*(float(window.recess_m)+.044)
+		var expected:=point-normal*float(window.get("pane_depth_m",float(window.recess_m)+.044))
 		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+normal*.1,point-normal*.4,1,exclude))
 		check(not hit.is_empty() and hit.position.distance_to(expected)<.0001 and str(shells.get(hit.collider.get_rid(),"")).ends_with("__mirror_aged"),"actual commercial pane remains behind its masonry and joinery: "+identity)
 		commercial_panes[identity]+=1
@@ -167,7 +168,7 @@ func _run() -> void:
 			var solid:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(center+normal*.1,center-normal*.4,1,exclude))
 			check(not solid.is_empty() and solid.position.distance_to(center-normal*.1)<.0001 and str(shells.get(solid.collider.get_rid(),"")).ends_with("__door_paint"),"paired attic center is a solid mullion, not a falsely clear pane")
 			paired_attic_control+=1
-	check(commercial_panes=={"site_nw1":21,"site_nw3":39,"site_nw4":19} and paired_attic_control==1,"all79 commercial panes and the obstructed center control execute")
+	check(commercial_panes=={"site_nw1":21,"site_nw3":39,"site_nw4":19,"site_se3":28,"site_sw3":26,"site_far_nw":175} and paired_attic_control==1,"all308 studied panes and the obstructed center control execute")
 	var court_details: Array=fixture.court_details
 	check(court_details.size()==6,"six real open recesses across five court-building identities")
 	var expected_courts: Dictionary={"site_far_se":"elm","site_far_w":"cambridge","site_far_n":"greystone","site_far_sw":"laburnum","site_far_ne":"towers"}
@@ -179,10 +180,10 @@ func _run() -> void:
 		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(start,start-Vector3.UP*(float(detail.roof_height)+1.),1,exclude))
 		check(not hit.is_empty() and hit.position.y<=city.global_position.y+float(detail.porch_top)+.001,"court is genuinely sky-open above the porch, no hidden roof slab")
 	var roofs: Array=fixture.roof_details
-	check(roofs.size()==5,"two original roof families and three commercial adaptations")
+	check(roofs.size()==8,"two original roof families and six distinct commercial/apartment adaptations")
 	var roof_owners: Dictionary={}
 	var original_roofs:=0
-	var commercial_roofs: Dictionary={"site_nw1":"germania","site_nw3":"robbins","site_nw4":"scheffel"}
+	var commercial_roofs: Dictionary={"site_nw1":"germania","site_nw3":"robbins","site_nw4":"scheffel","site_se3":"ottendorfer","site_sw3":"engine258","site_far_nw":"hampton"}
 	var found_commercial: Dictionary={}
 	for roof: Dictionary in roofs:
 		roof_owners[str(roof.building)]=true
@@ -214,10 +215,28 @@ func _run() -> void:
 			original_roofs+=1
 			check(str(roof.building)=="site_far_s" and str(roof.finish)=="city_slate" and int(roof.dormers)==4 and float(roof.knee_height)>float(roof.mansard_base)+2.,"slate mansard keeps its steep lower pitch and four dormers")
 		elif commercial_roofs.has(str(roof.building)):
-			check(commercial_roofs[str(roof.building)]==str(roof.style) and bool(roof.edited_legacy_roof) and float(roof.roof_top)>float(roof.mansard_base),"commercial roof has its distinct authored profile and a real raised slope")
+			check(commercial_roofs[str(roof.building)]==str(roof.style) and float(roof.roof_top)>float(roof.mansard_base),"distinct adapted roof retains a physical deck above its wall datum")
+			check(bool(roof.edited_legacy_roof)==(str(roof.style)!="ottendorfer"),"retained library roof is distinguished from reconstructed roof studies")
 			found_commercial[str(roof.building)]=true
 		else:check(false,"unexpected roof identity")
-	check(original_roofs==2 and found_commercial.size()==3 and roof_owners.size()==5,"both original roof studies remain alongside three distinct commercial owners")
+	check(original_roofs==2 and found_commercial.size()==6 and roof_owners.size()==8,"both original roof studies remain alongside six individually owned adaptations")
+	for x: float in [-53.1,-51.5]:
+		var point:=city.to_global(Vector3(x,17.25,28.52))
+		var normal:=city.global_basis*Vector3.FORWARD
+		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+normal*.10,point-normal*.30,1,exclude))
+		check(not hit.is_empty() and hit.position.distance_to(point)<.0001 and str(shells.get(hit.collider.get_rid(),""))=="site_sw3__arcade_brick_bond","outside the firehouse arch remains real masonry,not an unfilled rectangular corner")
+	var openwork_controls:=0
+	for panel_center: float in [-91.7,-80.,-68.3]:
+		for shift: float in [-.8,0.,.8]:
+			var center:=city.to_global(Vector3(panel_center+shift,17.27,-30.15))
+			var normal:=city.global_basis*Vector3.BACK
+			var hole:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(center+normal*.10,center-normal*.40,1,exclude))
+			check(hole.is_empty(),"Hampton openwork ellipse is real air through the parapet")
+			var ring:=center+city.global_basis*Vector3(.34,0,0)
+			var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(ring+normal*.10,ring-normal*.40,1,exclude))
+			check(not hit.is_empty() and hit.position.distance_to(ring)<.0001 and str(shells.get(hit.collider.get_rid(),""))=="site_far_nw__limestone","adjacent openwork ring is actual supported stone")
+			openwork_controls+=1
+	check(openwork_controls==9,"all nine openwork holes have adjacent solid controls")
 	var roof_probes:=0
 	for sample: Dictionary in fixture.roof_samples:
 		var a: Array=sample.point;var b: Array=sample.normal
@@ -327,6 +346,7 @@ func _run() -> void:
 			var target := Vector3((bounds[0]+bounds[2])*.5,top*.48,-(bounds[1]+bounds[3])*.5)
 			var span := maxf(float(bounds[2]-bounds[0]),float(bounds[3]-bounds[1]))
 			var toward_city := Vector3.BACK if str(building.id)=="site_nw2" or commercial_roofs.has(str(building.id)) else Vector3(-target.x,0.,-target.z).normalized()
+			if str(building.id) in ["site_se3","site_sw3"]:toward_city=Vector3.FORWARD
 			var tangent := Vector3(toward_city.z,0.,-toward_city.x)
 			var offset := toward_city*span*1.35+tangent*span*.5+Vector3.UP*float(building.roof_height)*.35
 			if str(building.id)=="site_nw2" or commercial_roofs.has(str(building.id)):offset=toward_city*span*1.35+Vector3.UP*float(building.roof_height)*.1
@@ -407,7 +427,7 @@ func _profile_natural(_city: Node3D,camera: Camera3D,draws: Array,identity: Stri
 	var points: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
 	var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
 	var indices: PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
-	var direction: Vector3=(Vector3.BACK+Vector3.RIGHT*.18+Vector3.UP*.12).normalized()
+	var direction: Vector3=((Vector3.FORWARD if identity in ["site_se3","site_sw3"] else Vector3.BACK)+Vector3.RIGHT*.18+Vector3.UP*.12).normalized()
 	var bounds:=focus.get_aabb()
 	var center:=focus.global_transform*bounds.get_center()
 	var best:=INF
@@ -465,6 +485,11 @@ func _profile_commercial(city: Node3D) -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
 	check(not directory.is_empty(),"render profiling requires an explicit image/diagnostic directory")
 	if directory.is_empty():return
+	var profile_scope:=OS.get_environment("ORISON_CITY_PROFILE_SCOPE")
+	if profile_scope.is_empty():profile_scope="northwest"
+	check(profile_scope in ["northwest","opposing"],"known explicit city profiling scope")
+	if profile_scope not in ["northwest","opposing"]:return
+	var selected: Array=["site_se3","site_sw3","site_far_nw"] if profile_scope=="opposing" else ["site_nw1","site_nw3","site_nw4"]
 	var sources:=_profile_sources(city)
 	var draws: Array=city.find_children("*","MeshInstance3D",true,false)
 	var visibility: Dictionary={}
@@ -478,7 +503,7 @@ func _profile_commercial(city: Node3D) -> void:
 	var profiles: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/exterior/city_elevations.json"))
 	for profile: Dictionary in profiles.buildings:
 		var identity:=str(profile.id)
-		if identity not in ["site_nw1","site_nw3","site_nw4"]:continue
+		if identity not in selected:continue
 		var bounds:=AABB();var first:=true
 		for draw: MeshInstance3D in draws:
 			draw.visible=str(draw.name).begins_with(identity+"__")
@@ -486,7 +511,7 @@ func _profile_commercial(city: Node3D) -> void:
 				bounds=draw.global_transform*draw.get_aabb() if first else bounds.merge(draw.global_transform*draw.get_aabb())
 				first=false
 		check(not first,"profile includes actual building and retained equipment: "+identity)
-		var center:=bounds.get_center();var direction: Vector3=(Vector3.BACK+Vector3.RIGHT*.18+Vector3.UP*.12).normalized()
+		var center:=bounds.get_center();var direction: Vector3=((Vector3.FORWARD if identity in ["site_se3","site_sw3"] else Vector3.BACK)+Vector3.RIGHT*.18+Vector3.UP*.12).normalized()
 		var distance_m:=bounds.size.length()*.5/sin(deg_to_rad(37.5))*1.25
 		camera.fov=75.;camera.global_position=center+direction*distance_m;camera.look_at(center)
 		var family_rows: Array[Dictionary]=[]
@@ -502,10 +527,10 @@ func _profile_commercial(city: Node3D) -> void:
 			family_rows.append(row);observations.append(row)
 			if str(spec.id) in ["near","far"]:check(viewport.get_texture().get_image().save_png(directory.path_join(identity+"_profile_"+str(spec.id)+".png"))==OK,"actual complete building profile capture saved")
 		check(int(family_rows[1].primitives)<int(family_rows[0].primitives),"far rendering actually uses fewer complete-body indices: "+identity)
-		transitions[identity]=await _profile_natural(city,camera,draws,identity,str(profile.wall_key),directory)
+		transitions[identity]=await _profile_natural(city,camera,draws,identity,"limestone" if identity=="site_far_nw" else str(profile.wall_key),directory)
 	for draw: MeshInstance3D in draws:draw.visible=bool(visibility[draw])
 	check(sources==_profile_sources(city),"profile sources remain unchanged through measurement")
-	var record: Dictionary={"evidence_class":"INERT","scope":"Isolated current imported buildings/equipment,90 warmed uncapped frames per case, repeated near/far and actual material-body LOD transitions. Screenshots excluded from timings. No matched baseline, whole-world performance, route contract or artistic acceptance.","observations":observations,"natural_transitions":transitions,"source_hashes":sources,"checks":checks,"failures":failures,"settings":{"resolution":str(viewport.get_visible_rect().size),"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps}}
+	var record: Dictionary={"evidence_class":"INERT","scope":"Isolated current imported buildings/equipment,90 warmed uncapped frames per case, repeated near/far and actual material-body LOD transitions. Screenshots excluded from timings. No matched baseline, whole-world performance, route contract or artistic acceptance.","profile_scope":profile_scope,"observations":observations,"natural_transitions":transitions,"source_hashes":sources,"checks":checks,"failures":failures,"settings":{"resolution":str(viewport.get_visible_rect().size),"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps}}
 	var file:=FileAccess.open(directory.path_join("city_elevation_profile.json"),FileAccess.WRITE)
 	check(file!=null,"test-written rendering diagnostic opens")
 	record["checks"]=checks

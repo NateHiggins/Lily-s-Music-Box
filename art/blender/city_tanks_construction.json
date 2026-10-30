@@ -2240,112 +2240,112 @@
     "site_back_e__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        16.864400977740296,
-        -14.895791963569696
+        16.86440097774022,
+        -14.895791963569698
       ],
       "cavity_vertices_checked": 1337
     },
     "site_far_e__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        11.428317272559367,
-        -9.928888678892642
+        11.428317272559392,
+        -9.928888678892648
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_n__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        -16.89966406669653,
-        18.95622938460178
+        18.956229384601745,
+        -16.89966406669647
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_ne__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        9.341802559440914,
-        -8.01716977764339
+        9.341802559440884,
+        -8.017169777643387
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_nw__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        17.502803099796324,
-        -15.54696149662196
+        17.502803099796353,
+        -15.546961496621968
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_s__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        20.411244322740373,
-        -18.256403351768707
+        20.411244322740266,
+        -18.256403351768668
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_se__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        11.584200239594097,
-        -10.072172510172793
+        11.584200239594209,
+        -10.072172510172761
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_sw__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        17.826697969089043,
-        -15.8481814756507
+        17.826697969089132,
+        -15.848181475650653
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_w__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        -12.112640373751628,
-        13.797992003884955
+        13.797992003884943,
+        -12.112640373751601
       ],
       "cavity_vertices_checked": 1341
     },
     "site_ne2__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        9.731940944840773,
-        -8.373698011485878
+        9.73194094484082,
+        -8.373698011485864
       ],
       "cavity_vertices_checked": 1341
     },
     "site_ne4__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        21.26730347723752,
-        -19.033564707520096
+        21.267303477237476,
+        -19.033564707520068
       ],
       "cavity_vertices_checked": 1341
     },
     "site_nw3__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        10.446656308747512,
-        -9.027990617108587
+        10.446656308747517,
+        -9.027990617108552
       ],
       "cavity_vertices_checked": 1341
     },
     "site_se2__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        10.478838365365174,
-        -9.159998350440988
+        10.478838365365167,
+        -9.15999835044097
       ],
       "cavity_vertices_checked": 1339
     },
     "site_sw3__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        17.616155792953652,
-        -15.652358327329017
+        17.616155792953563,
+        -15.65235832732895
       ],
       "cavity_vertices_checked": 1339
     }
@@ -8664,7 +8664,7 @@
       "site_ne4": 5.579999999999998,
       "site_far_sw": -4.830000000000005
     },
-    "historical_blockout_binding_stale": false
+    "historical_blockout_binding_stale": true
   },
   "asset_sha256": "0737c5d39222baabab875292541a506be3ee5dc77b37df0dc3ffe7fb39789e05",
   "source_bindings": {
@@ -8672,17 +8672,17 @@
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
     "art/blender/city_shells_registration.json": "e849a2b44e8f4eea2d6a17b73fce43c5bc99ffcc654a9c4303f338793af35282",
     "art/blender/city_shells.blend": "cb8e3cd6f1553a809ae7e2d33f17b24b9a7ac62859340312f35805f24af208b9",
-    "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
+    "game/data/orison_v2_blockout.json": "6e00cca60be64c26bbc46013ffaf7550963ee988614fc38e2c2a9c0474df0630",
     "art/blender/scripts/build_city_tanks.py": "df7d72beeb4e88b6e7ce3490d2e304282bd92292c77125b462b66ee9f65f39e1",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/city_registration.py": "c2e7cd1a8dfd981bb9f68c5c834a202626c42851efc8b40fb1a2dc551522b5ca",
     "art/blender/scripts/city_closure_source.py": "44c4ce354ef863f3791fed2cc5ac8b56920741174bb03b56036143d03695f2cc",
-    "art/data/city_elevations/source_plan.json": "21e390479a625408944e9b00cd2f248bdd949e01de80fb8fc8ff572e99982a82",
+    "art/data/city_elevations/source_plan.json": "19fab570df42e724fadde06bdcddc78bf4ab189e314458c488f01035ff5a2498",
     "game/data/runtime_material_sets.json": "053761fac29499e8bc9a80a62f37d7411226157919b5cdc5421b9686569d38cc",
     "art/tools/build_tank_staves.py": "8667b8eb11768f7a7f605b8298fcc988fcdf4f7486482997877715888555e3c5",
     "art/textures/procedural/tank_staves/material.json": "2805d241bff5c43de380d87533f40e90a0b1fd0eab4d2395fa52ab66939767d6",
-    "art/blender/city_masts.blend": "1ba9f63eed82102a4d0c2cf1057b1e05620425f1aeff505e36a6c90ee823a588",
-    "art/blender/city_aerials.blend": "91286f1f85fb9906057f9da4ea7a7e59582c9d2f407bcd726779ca2c5c0287f3",
+    "art/blender/city_masts.blend": "1ea80f872ca517a5594fbc281f861f50aad1d2763231b54ece5e0ccd3407866e",
+    "art/blender/city_aerials.blend": "de0780a7dc73933c59b250c95131418f92701048bc86014e6c7c675e813f07c6",
     "art/textures/procedural/tank_staves/albedo.png": "1b7939b22a61b51b015ea061a655c293e6ff035f6ba395a39173bd8e8d6cc8bf",
     "art/textures/procedural/tank_staves/roughness.png": "35c4bf990aeac4f41297dabc40f553770a1ccc1d75445cc63b345d8f3dce4fde",
     "art/textures/procedural/tank_staves/height.png": "ecccd957681d9f3d392c88bdcae9cbc7d6758621d5e99847022a67bf50f40108",

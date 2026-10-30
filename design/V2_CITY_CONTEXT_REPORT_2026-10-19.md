@@ -2115,3 +2115,301 @@ Blender rebuild or full gate-board repetition is needed for prose/archive data.
 
 MERGE-CANDIDATE 4282de16751af820dd00f776eded252b11c81cd5 (static comparison only;
 no main merge authorized or performed; broader city/artistic work remains open).
+
+
+### 2026-10-30 library construction in progress (INERT)
+
+Pushed city branch now ends at **988f731bbf2f434ce54e6c95241fe233df54ffe6**;
+remote equality was checked. Coordinating prologue chat is reconciling that
+frozen checkpoint only. Subsequent library work below remains isolated,
+uncommitted and outside its runtime qualification. No main merge by city.
+
+The next parcel **site_se3** now has an authored Ottendorfer-inspired body:
+three floors,elliptical glazed entrance with a closed2.2m door pair,two upper
+three-axis round-headed registers,horizontal mineral cornices and sparse
+voussoirs/corbels. All existing roof cap/parapet,bulkhead,mast/aerial contacts,
+parcel and assembly placement are retained. Materials use catalogue brick,
+terracotta,limestone,paint,bronze and existing glazing/linen/backing. No library
+interior,service,lettering or new access authority. Specific precedent remains
+the1917 published photograph and LP-0969,not a claim of exact historical fit.
+
+First native export **library_production_01/** passed1,205 roof bearings,
+3,057 pane samples,94 roof samples and12 existing return samples at the
+unchanged0.1mm predicate. Its244 untouched parts across24 other buildings
+retain exact float32 attributes,indices and transforms. Initial library was
+8,186 near/7,178 lower triangles across12 parts,with28 actual pane samples;
+all39 existing northwest lower parts stayed exact and metric UV checks passed.
+These initial numbers precede the frame repair and are not final runtime cost.
+
+Actual native/round-trip image review caught coplanar frame intersections and
+corbel/arch contacts. Shared full-depth45-degree frame stock replaced the
+intersecting head/jambs; rails now terminate at stiles and corbels clear the
+arch blocks. Lower02 then correctly failed on inward frame winding. Original
+sources,failed output and frames remain under the external library01/02
+records. The local placement reflection now produces positive signed volume;
+the shared helper and strict volume predicate are unchanged. Diagnostic
+**library_frame_winding_diagnostic_01.json** records both signs and exact caps.
+Native03 high and lower builds pass; its first two inspected frames show the
+door's black joint artifacts removed. Final remaining native images and export
+comparison are pending before any Godot check. No new technical-study count,
+loaded-mipmap,walk/access,LOD-transition,performance or artistic promotion yet.
+The intended firehouse/Hampton work has not been authored. Batch their native
+work before a combined focused engine check; do not repeat the district tour.
+
+
+Library native03 review subsequently completed. All eight selected near/lower
+native and same-level glTF round-trip images were actually inspected; their
+hashes and limitations are in **library_production_03/actual_native_inspection.json**.
+The repaired door joints are clean in the actual entry frames; no unresolved
+missing material is observed. Coarse lower arch segmentation is intentionally
+visible in these close diagnostic views and still needs runtime transition
+review. Source UV/float32 comparison03 passes for all12 parts at each level;
+measured final counts are8,198 near/7,190 lower triangles. All244 unrelated near
+parts and all39 prior northwest lower parts retain exact attributes/indices/
+transforms. Complete closed-stock,170 selected roof-bearing and107 selected
+pane samples pass in the lower producer. High checks remain1,205/3,057/94/12
+bearings/panes/roof/returns,zero failures. The library's original flat roof is
+explicitly marked retained rather than an edited mansard. No Godot launched,
+no added runtime-study promotion and no new source-bound surface acceptance.
+
+
+### 2026-10-30 opposing/background batch WIP (INERT)
+
+Native batch01 now includes library,Engine258-inspired firehouse and Hampton
+Court-inspired apartment. All25 city reservations and assembly placements remain.
+Fast lower-producer preflight03 passes5,303 closed positive-volume stocks,
+290 retained bearing samples and308 panes across71 material parts for six
+complete replacement bodies. The first slanted fire-pane preflight failed
+with masonry-depth joinery; thin bronze sash with direct pane depths now passes.
+Original failed source/output is preserved in **opposing_geometry_preflight_01/**.
+
+Owning serial masts/aerials/tanks/beacons/closure/elevations/lower/streets replay
+and both targeted native render programmes completed. Eight retained GLB payloads
+remain byte-identical; unaffected near/lower arrays,indices and transforms,
+including library03,are exact in **opposing_batch_01/retention_comparison_01.json**.
+High native checks:1,205 roof bearings,3,064 panes,113 roof samples,12 return
+samples,zero failures. Lower export:71 parts,69,940 triangles,290 bearings,
+308 panes,zero failures. These are executed native results,not engine budgets.
+
+Actual first native views expose an unacceptable firehouse metal visor that
+obscures the stepped gable. Hampton overview framing crops its body; its stone
+openwork also needs continuous bearing spandrels rather than point contacts.
+Correct these before new runtime qualification. Original native sources/logs/
+images remain external under **opposing_batch_01/**. First six near views were
+inspected; no claim that the four lower images were inspected yet. The existing
+city bench source now explicitly covers17 closed scenic leaves,308 panes with
+actual angled normals/depths,nine openwork holes/adjacent solid controls,and an
+opposing-only measured LOD selection. That edited harness has NOT run yet.
+
+This local named-path WIP preserves construction before fetching/reconciling
+main,as coordinated with the prologue owner. Their merged039fb64a/codeb4413984
+and reportbdada656 include the frozen prior city checkpoint. No mainline merge
+or canonical checkout modification by this city task. No added runtime-study,
+full-city,450m ground-access,performance or artistic promotion follows. Keep
+14 technically qualified studies/135 remaining until this new batch qualifies.
+
+### 2026-10-30 opposing batch native04 and main reconciliation (INERT)
+
+Local city HEAD **7899c803** merges verified main **bdada656** into the isolated
+city branch after named-path native WIP **aa7270a5**. The canonical checkout and
+its index were not modified. Six generated binding conflicts were preserved in
+the external **opposing_main_merge_conflicts_01.json**, resolved to the local
+native metadata, then renewed by owning producers. No merge into main or push
+of this unfinished batch has occurred.
+
+The preceding native01 defects are now repaired and reviewed. Firehouse has a
+transverse pitched front roof and closed stepped crown above the retained rear
+plant deck; its 20.12m crown and 19.25m peak are authored alternate-universe fits,
+not historical elevation claims. Hampton has finite rectangular stone stocks
+around nine elliptical openings. Its overview cameras now frame actual object
+bounds. Native03 fire-crown close views revealed two empty arch spandrel corners;
+the original independent two-ray control misses are preserved. The unchanged
+control hits actual brick at both positions after native04. No tolerance was
+relaxed to obtain these results.
+
+Final high production has 25 buildings,258 parts and3,064 panes;1,205 roof-bearing,
+3,064 pane,100 roof-surface and12 return checks pass. Complete lower bodies have
+71 parts and70,324 triangles,290 bearing checks and308 pane checks,zero failures.
+The three new bodies total49,862 near/46,214 lower triangles: library8,198/7,190,
+firehouse7,892/6,668,Hampton33,772/32,356. These are exported mesh counts rather
+than measured rendering savings. Fast native preflight07 checks5,336 closed
+positive-volume stocks with zero failures.
+
+External **opposing_batch_04/final_export_comparison.json** records eight retained
+GLB payloads byte-identical and238 prior near/51 prior lower parts exact. The
+last spandrel repair changes only the firehouse brick part:257 near/70 lower
+parts remain exact against native03. All32 new parts at both levels pass the
+existing float32 UV predicate. **opposing_batch_04/actual_native_inspection.json**
+identifies19 actually inspected current or explicitly reused native images:
+eight library03,five Hampton02,four firehouse03 full-form and two firehouse04
+crown repairs. Native review grants no engine,walkability or artistic acceptance.
+
+Both post-reconciliation imports completed. The existing parser harness then
+passed all three affected scripts with empty stderr, recorded by
+**opposing_parser_01.log.receipt.json**. This proves compilation only. The
+opposing family bench and12-leg production route have not executed yet. Measured
+render timing is deferred while the prologue owner finishes CPU-heavy static
+verification. Fresh ground ownership discovery is the next nonmeasured run.
+The count remains14 technically qualified studies/135 remaining. The city goal
+remains open, including the wider district,transport geography and art acceptance.
+
+### 2026-10-30 opposing engine bench and local street qualification (INERT)
+
+Fresh **opposing_grade_survey_01** completes207s,573 aligned boxes,zero failures.
+The candidate matches every previous physical bound and reservation; only18
+solid/eight exclusion anonymous allocation ids differ. Owning foundation,
+ground,apron and horizon replay preserves all five GLB payloads byte-for-byte,
+with identical runtime terrain data. **opposing_ground_replay_01/comparison.json**
+records the comparison. This renews source discovery,not city art acceptance.
+
+Original **opposing_elevation_bench_01** fails one unchanged eight-height-repair
+count. The commercial branch omitted Hampton's historical38m roof metadata;
+its actual retained16.7m body had not lost a repair. Original failed sources,
+logs,receipt and profile remain preserved. The producer now emits that existing
+field for vertically adapted commercial bodies. Owning native05 replay leaves
+both elevation GLBs,both street GLBs and runtime elevation data byte-identical.
+No expected count or spatial tolerance was changed. Corrected bench02 passes
+6,604 checks,1,205 roof-bearing samples,1,044 draws,zero failures in32.22s with
+empty stderr. All21 fullscreen3440x1440 captures were actually inspected.
+
+The isolated full-building near/far primitive counts are library13,190/12,182,
+firehouse41,278/36,322,Hampton64,003/62,508,including retained roof equipment.
+Most repeated GPU medians are0.638–0.695ms. Firehouse's first near median4.6875ms
+and13.913ms maximum wall sample differ markedly from its0.638ms repeated near
+median; this unexplained first-pass discrepancy is preserved,not called an LOD
+gain. Natural selected-material transitions occur at exploration radii187.336m,
+167.419m and151.960m respectively; narrower FOV and inward return restore near
+indices. Material-only transition images intentionally hide other parts and do
+not demonstrate a complete building disappearing. Forced-far close arch
+faceting,thin roof-wire loss,dark fronts and bright trim remain appearance limits.
+
+**opposing_focused_route_01/opposing_frontage_contract.json** is an unchanged
+test-written schema-2 runtime contract:279 checks,12 normal-controller legs,
+zero failures,production composition,32 selected loaded material parts and
+world-root retirement pass. Wrapper200s,empty stderr. Three independent nearby
+test starts are explicitly separate fixtures: firehouse on the western sidewalk,
+library on station paving,Hampton on actual soil. They do not prove continuous
+travel between those starts or a finished sidewalk at Hampton. All four actual
+standing/across-street PNGs were inspected. No movement speed,deadline,crouch,
+noclip or safety-rescue exemption was added.
+
+The1,466 walking samples have wall median20.474ms,p9537.423ms,max197.325ms;
+main-viewport GPU median6.3805ms,p9514.651ms,max18.488ms. Main CPU median2.199ms,
+p9517.305ms,max107.126ms. Startup is122.306s; a first rendered settle frame takes
+8,301.119ms. Setup,settles and PNG writes are excluded from walking statistics,
+not erased from the receipt. Engine global draw/primitive counters include
+other viewports and are not main-camera budgets. Raw samples and inspection
+notes remain in the two test output directories. Physical packet renewal is
+still pending here; no whole-city performance or artistic acceptance follows.
+
+The subsequent physical-only renewal completes231.92s wrapper/214.583s test,
+651 checks,zero failures,empty stderr:29,122 draws,18,322 meshes,6,367 materials,
+542 textures,10 native-library cases,three loose cases and61 copies. Nine
+representative actual captures were inspected. The existing packet publisher
+preserves the previous raw packet externally before installing the new untouched
+runtime contract,inventory,wrapper receipt and logs. Prepublication and installed
+qualification both PASS with zero defects. Mechanical/fire-service/save
+programmes remain explicitly NOT_EXECUTED; no fresh interaction claim follows.
+
+This raises individual technical architecture studies to17/149,with132 still
+remaining. It does not complete the city,450m continuous ground exploration,
+finished Hampton pavement,transport geography,render budgets or artistic review.
+The candidate comparison/push remain pending at this entry. Only the isolated
+city branch has been modified; current main's later voice/narrative work has not
+been copied into these frozen source-bound runs.
+
+### Opposing construction candidate — October30
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Branch / HEAD / origin/main / merge-base: **codex/v2-city-20261029**;
+**8bac893c43679c2a5200cbd712df9e61b97f3831**; observed remote **73eed86f**;
+comparison base/merge-base **b4413984841d1a18b2fd341a69eb56f3c4956f1d**.
+The clean115-gate baseline is the prologue owner's actual b441 candidate board,
+with exact commit/tree provenance preserved externally. Later main voice work
+is outside this frozen candidate and requires separate integration coordination.
+
+Worktree clean at candidate verification: yes. Protected17/17: yes. Selector:V2.
+Ledger before → after:7/8/110/42/134/136 →7/8/110/42/134/136;
+requirements_changed:[]; design lint errors:0; regressions:0; waived regressions:0.
+All115 static gates/tools tests are recorded with actual results in archived
+**opposing_candidate_verification_01/verification.json**. Existing known main
+failures remain; this is a comparison,not an all-green claim. The sole gate-file
+change is one explicitly reviewed test-only route coordinate record,52 added
+manifest lines; production dependency classifications and gate predicates remain.
+
+Executed Godot suites and their LogPath receipts are the **opposing_parser_01**,
+**opposing_grade_survey_01**,failed **opposing_elevation_bench_01**,passing
+**opposing_elevation_bench_02**,**opposing_focused_route_01** and
+**opposing_physical_surface_01** records above. Their original failures and
+test-written contracts are preserved. No Godot rerun for this report-only follow-up.
+Post-clean qualification still passes and production inputs still match the route
+contract. Named cleanup preserved1,658 EOL-only imports and638 generated UIDs
+before removing only proven own-worktree noise; canonical checkout untouched.
+
+Numbers management asked for:17 individual technical studies/132 remaining;
+6,604/0 engine checks;279/0 street checks over12 normal legs;32 loaded new parts,
+39 actual textures; physical651/0; measured spikes and limits stated above.
+Changes outside expected boundary: owning unchanged ground/roof source bindings
+were renewed after main reconciliation; five ground GLBs and retained terrain
+data are exact. No apartment,companion,Tardi,weather,clock,narrative or save owner
+was edited by this city construction. Native assets and registered materials
+remain authoritative; no reference photographs are committed.
+
+Evidence lives in the existing review directory: **opposing_architecture_qualification.zip**
+(276 members,62,366,121 bytes,SHA256 **e97eb6f4b5bf6b23e4e1bbad08749ee469ad2679027dd64770bf66ebfb80fb47**)
+and the small verification/reproducer follow-up indexed by the existing manifest.
+The physical packet remains in its existing canonical evidence directory.
+
+Open findings not fixed:132 building studies,finished Hampton pavement,wider
+bridge/Manhattan and yard/waterfront geography,period street/gaslight detail,
+450m continuous ground access,first-draw/first-pass spikes and artistic acceptance.
+Decision needed from owner:none for continued isolated construction. No merge
+into main is performed or implied by this candidate result.
+
+MERGE-CANDIDATE **8bac893c43679c2a5200cbd712df9e61b97f3831**
+
+
+### Combined main reconciliation — October30
+
+Canonical source8ae1f26c and immutable city **fbf0e73cb974e8d86cccda179a9f76e53d93383f**
+are reconciled without changing current companion,prologue,Tardi,weather,audio,
+clock,input or save scripts. The only runtime data change is city_elevations.json;
+the two runtime mesh payloads are the near and complete lower city elevations.
+All11,048 previous spatial records remain exact; one incoming test-fixture
+record is appended. Current voice PCM attributes and all four incoming city
+attributes are retained. The current task queue/prologue evidence are preserved.
+
+Both premerge coherent surface packets are preserved externally with source
+commits and exact member hashes. Historical auxiliary files remain in Git at
+the original commits rather than being copied into another large history tree.
+Incoming qualification archive hash/CRC checks pass; its unchanged schema2
+street contract records279/0,12 legs and loaded selected surfaces. Canonical
+review independently inspected its three standing-frontage captures. Those
+remain branch-source evidence,not repinned current-main route receipts.
+Seven affected native fixture preflights and366 retained physical import
+sources pass. No gate predicate or spatial tolerance changed.
+
+Combined run **C:/ov/reports/prologue_20261028/city_main_integration_01/**:
+**import.log.receipt.json** passes23s. **physical.log.receipt.json** passes
+274.52s wrapper/251.202s test,651/0,empty shutdown stderr. The untouched test
+schema2 contract passes composition,physical surfaces and runtime-owned
+teardown. Save reconstruction and every interaction programme remain
+NOT_EXECUTED. Inventory:29,122 draws,18,322 meshes,6,367 materials,542 textures;
+10 native cases,three loose cases,61 copies,zero unresolved surfaces.
+
+Three current native3440×1440 views were inspected: apartment F02_A_MAIN,
+bookcase and roof_tank_uv. Existing projector retirement,sparse shelf dressing,
+strong shadows/cloud and distant-city appearance remain debt. All18 current
+captures stay external. Independent prepublication and installed packet checks
+both PASS,zero defects. Existing atomic publication preserves the prior packet;
+no receipt was edited or repinned. Only nine proven LF-equivalent microscopy
+import sidecars were restored by named paths; unrelated UIDs remain untouched.
+
+This is a combined physical renewal,not a new full city walk,performance gain,
+prologue playthrough,save matrix or artistic acceptance. Previous unchanged
+interaction/intro evidence retains its original scope. City native authoring
+could overlap this nonperformance run; no timing baseline is claimed. The
+three new buildings raise the technical study count to17/149,132 remaining.
+Hampton paving/access repairs are separate work after frozenfbf0. The merge's
+clean static candidate comparison is still pending at this entry.
