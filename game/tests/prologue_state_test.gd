@@ -121,6 +121,8 @@ func _test_clock_handoff(opening:Dictionary) -> void:
 	var original:Dictionary=RealityState.data.duplicate(true)
 	var clock:=CampaignClock.new()
 	check(clock.configure_date(1928,11,10,1380),"handoff fixture retains the historical source through the visual transition")
+	clock.advance_to(2.83) # Existing elapsed consumers must not be rewound by adoption.
+	var elapsed_before_handoff:float=clock.elapsed_minutes()
 	RealityState.data.prologue=opening.duplicate(true)
 	var before:Dictionary=JSON.parse_string(JSON.stringify(RealityState.data))
 	RealityState.save_write_blocked=true
@@ -132,6 +134,7 @@ func _test_clock_handoff(opening:Dictionary) -> void:
 	check(clock.apply_prologue_destination(),"campaign clock accepts the completed prologue destination")
 	RealityState.state_changed.disconnect(observer)
 	var utc:Dictionary=clock.utc_datetime()
+	check(clock.elapsed_minutes()>=elapsed_before_handoff and clock.elapsed_minutes()<elapsed_before_handoff+1.0,"adoption keeps elapsed deadlines monotonic within the existing minute epoch resolution")
 	check(int(Time.get_unix_time_from_datetime_dict(utc))==int(State.annual_destination(opening.target).utc_unix_seconds),"clock adopts the projected historical second despite a non-hour host offset")
 	check(RealityState.data.campaign_clock.utc_offset_minutes==-300 and RealityState.data.campaign_clock.timezone=="America/New_York","host timezone does not relocate Queens or replace its clock convention")
 	check(observed.size()==1 and observed[0].prologue.effects.clock_applied and CampaignClock.validate_snapshot(observed[0].clock).ok,"state observers receive clock and acknowledgement atomically")
@@ -181,6 +184,7 @@ func _test_clock_handoff(opening:Dictionary) -> void:
 	check(RealityState.save_game(),"validated save retains the wrapped calendar and monotonic elapsed counter")
 	RealityState.load_game()
 	check(clock.datetime_string()=="1928-11-10T00:00:15" and absf(clock.elapsed_minutes()-elapsed_before-1.25)<.00001,"reload preserves annual projection without resetting campaign progress")
+	_test_handoff_elapsed_edges(opening)
 	RealityState.data=original
 
 func review_annual_destination() -> void:
@@ -206,3 +210,15 @@ func review_annual_destination() -> void:
 		aligned=aligned and absf(State.wrap_loop_utc(ending)-destination)<.001
 	check(bounded and aligned,"all365 destinations get a bounded full seasonal lap and the exact final historical instant")
 	check(State.wrap_loop_utc(State.LOOP_START_UTC+State.LOOP_SECONDS)==State.LOOP_START_UTC and State.wrap_loop_utc(State.LOOP_START_UTC-1)==State.LOOP_START_UTC+State.LOOP_SECONDS-1,"annual seam wraps both directions without a366th date")
+
+
+func _test_handoff_elapsed_edges(opening:Dictionary) -> void:
+	for minutes:float in [2.83,1440.93,576000.93]:
+		for stamp:String in ["1928-11-10T05:00:02","1929-11-10T04:59:59","1929-03-01T05:00:01"]:
+			var clock:=CampaignClock.new()
+			clock.configure_date(1928,11,10,1200);clock.advance_to(minutes)
+			var fixture:Dictionary=opening.duplicate(true)
+			fixture.target={"utc_unix_seconds":Time.get_unix_time_from_datetime_string(stamp),"local_bias_minutes":-300,"local_zone":"Queens EST"}
+			RealityState.data.prologue=fixture
+			check(clock.apply_prologue_destination(),"elapsed-cursor handoff accepts annual seam: "+stamp+" / "+str(minutes))
+			check(int(Time.get_unix_time_from_datetime_dict(clock.utc_datetime()))==int(State.annual_destination(fixture.target).utc_unix_seconds) and clock.elapsed_minutes()>=minutes and clock.elapsed_minutes()<minutes+1.0,"exact civil destination and monotonic elapsed agree across midnight, year wrap and long prelude")

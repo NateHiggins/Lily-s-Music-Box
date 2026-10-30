@@ -180,8 +180,17 @@ func apply_prologue_destination() -> bool:
 	var local_seconds:int=int(destination.utc_unix_seconds)-18000
 	if local_seconds<PrologueState.MIN_UNIX or local_seconds>PrologueState.MAX_UNIX:return false
 	var local:=Time.get_datetime_dict_from_unix_time(local_seconds)
-	var candidate:=_civil_record({"year":local.year,"month":local.month,"day_of_month":local.day},int(local.hour)*60+int(local.minute))
-	candidate.elapsed_minutes=float(local.second)/60.0
+	# Keep elapsed gameplay cursors monotonic while changing the civil epoch.
+	# The saved epoch is minute-granular: preserve elapsed to within one forward
+	# minute and align its fractional part with the exact destination second.
+	var previous_elapsed:=float(saved.elapsed_minutes)
+	var retained_elapsed:=floorf(previous_elapsed)+float(local.second)/60.0
+	if retained_elapsed<previous_elapsed:retained_elapsed+=1.0
+	var epoch_seconds:=PrologueState.wrap_loop_utc(float(local_seconds)+18000.0-roundf(retained_elapsed*60.0))-18000.0
+	var epoch:=Time.get_datetime_dict_from_unix_time(int(round(epoch_seconds)))
+	if int(epoch.second)!=0:return false
+	var candidate:=_civil_record({"year":epoch.year,"month":epoch.month,"day_of_month":epoch.day},int(epoch.hour)*60+int(epoch.minute))
+	candidate.elapsed_minutes=retained_elapsed
 	if not validate_snapshot(candidate).ok:return false
 	var acknowledged:=PrologueState.applied(opening,"clock_applied")
 	if acknowledged.is_empty():return false
