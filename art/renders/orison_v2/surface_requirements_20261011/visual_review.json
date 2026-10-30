@@ -1,26 +1,26 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "surface_inputs_sha256": "ee6ed75f4000948922c7f0187867334ae5f688d89c9acface3dd94b7d5f15517",
-  "scope": "Three actual native3440x1440 captures inspected after combined tap presentation and Hampton footway integration. Physical surfaces/composition/teardown only. No interaction,save,performance or artistic acceptance; original fixture and city route evidence remains separately scoped.",
+  "surface_inputs_sha256": "5f077291b9739b3c81fff78900c234b913e10e41df3c9adadccdecc757208d3b",
+  "scope": "Three actual native3440x1440 combined captures inspected. Physical composition/surfaces/teardown qualify technically; fixed-camera lamp daytime-context only. Clock/gating,navigation and native night controls retain their original separate source/scope. No whole-game,save,performance or human/art acceptance.",
   "images": [
     {
-      "file": "F02_A_MAIN.png",
-      "sha256": "7ab80ef9583ed9acebe1c5d7aea9731b0d0e42500b35232f3709578fc5c28cac",
-      "observation": "Retained current companion and apartment PBR surfaces render. Original projector remains relocation debt; sparse shelves and lighting are unaccepted.",
-      "origin": "Inspected sink_footway_physical_03/raw actual capture."
+      "file": "lamps_pavement_context.png",
+      "sha256": "72f680ccd703c98164db635f174395893bd819d00c975e9f67f5656571179135",
+      "observation": "Actual fixed-camera pavement view: new lamp silhouette/glazing appears under elevated structure beside retained facade,traffic and companion. This frames daytime sky only; lamp clock gating/night atmosphere and continuous access are separate evidence.",
+      "origin": "Inspected canopy_lamp_combined_02/raw actual capture."
+    },
+    {
+      "file": "lamps_crook_context.png",
+      "sha256": "d279516c33aa7c860061c8bb5d1a07e5eecedf915efa33b6081e125c927f63ab",
+      "observation": "New crook,head,glazing and mantle are visible against sky and retained city geometry,without target occlusion by companion. This fixed camera is not a physical capsule access claim or artistic acceptance.",
+      "origin": "Inspected canopy_lamp_combined_02/raw actual capture."
     },
     {
       "file": "bookcase.png",
-      "sha256": "c4ba6ebbb24c18c0ddb4fc724d9b4be6780379a96d3f0f33b745d9c2c4f8afc4",
-      "observation": "Existing timber/glass shelves and several books render without missing maps. Sparse dressing remains open; this does not exercise book handling or print layout.",
-      "origin": "Inspected sink_footway_physical_03/raw actual capture."
-    },
-    {
-      "file": "roof_tank_uv.png",
-      "sha256": "e6199966391f9c3b6f2c368a2d7453ef606e8044e3434bc251e983c81164d749",
-      "observation": "Retained tank,closed supports,parapet and city backdrop render. Cloud relief and distant-city appearance remain unaccepted.",
-      "origin": "Inspected sink_footway_physical_03/raw actual capture."
+      "sha256": "86d9181184fc6bfd2bb7bfc2bd4e343c12df01013766002effe6eee23cf5d11d",
+      "observation": "Retained timber/glass bookcase and a few books render with maps; sparse dressing remains an open repair. No book handling or print-layout acceptance.",
+      "origin": "Inspected canopy_lamp_combined_02/raw actual capture."
     }
   ]
 }

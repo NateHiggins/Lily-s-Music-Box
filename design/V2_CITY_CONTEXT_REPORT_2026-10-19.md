@@ -2548,3 +2548,91 @@ artistic acceptance were not repeated or inferred. Combined runtime and static
 receipts are indexed in **design/V2_PROLOGUE_2026-10-28.md**, under idle sink
 presentation and Hampton footway joint qualification. This is still17 building
 studies/132 remaining,not a new whole-city acceptance.
+
+### October30 next construction: complete gaslamp replacement body
+
+Evidence class remains **INERT**. City continuation starts from pushed
+**bb81a68fe9693288c1e3ef9f853a0290b7062b6f**; immutable footway construction is
+**a1c32fa2945916a03eea5d9ccf20b1c17c0c51dd**. Canonical owns its combined
+physical/static qualification. City has no competing Godot run. Coordination
+assigns the delivered municipal gaslamp replacement and LOD to this isolated
+city branch; entrance lantern/portal remains canonical. Existing placement,
+crossing signal box,collision,clock,weather,gas and light authorities remain.
+
+External **C:/ov/reports/city_streets_20261029/gaslamp_lod_01/** contains a
+completed native replacement-body study from the unchanged114-stock donor.
+Six complete finish partitions reduce22,444 to7,502 triangles. All114 closed
+manufacturing stocks remain: no decorative-stock deletion. Service aperture,
+solid-shell negative control,exhaust,intake and rain-hood probes pass along
+with the explicit stock roster; final exported derivatives pass with minimum
+tangent agreement0.999999959. Bidirectional vertex-to-triangle samples across
+all114 stocks measure maximum9.251mm error; this is not a continuous Hausdorff
+bound. Original donor SHA256 **c371738e8fdb52f42af425ebfedbb9c0bc0bd2c4a7e8a351042152a0e4c5a8a4**
+is unchanged.
+
+Four actual two-thread CPU renders of near/lower assembly and head were
+inspected. Both retain base,shaft,crook,scroll,head,keepers and mantle pair.
+The enlarged lower body visibly facets the base,roof and scroll; runtime
+transition distance remains to be qualified. Donor preview glass/illumination
+is not runtime optical acceptance. Source,controls,render hashes and actual
+inspection notes are retained externally. No production asset or loader has
+changed yet. Loaded precision,mips,glass,clocked mantle,access,LOD transitions,
+rendering cost and combined surfaces remain open. Native work overlapped the
+canonical nonperformance physical survey by explicit coordination; no timing
+or uncontended-host inference follows. The tracker retains17 building studies
+and132 remaining; neither paving nor a lamp is another completed building.
+
+
+### October30 gaslamp native and isolated engine checkpoint
+
+Evidence class remains **INERT**. Work began at **95122fd34afcb42ccb471bf4aaa0b4be1fc369ba**
+in **C:/ov/city**. The native producer now retains114 municipal manufacturing
+stocks in the existing family blend and rebuilds without its external donor.
+It exports22,444 near and7,502 lower triangles in six complete finish partitions,
+plus eight retained signal-box partitions. All eight retained draw arrays,
+indices,normals,UVs and tangents match the original exactly. Generated-table
+comparison preserves every original non-finish field and all eight original
+finishes; only two LOD fields and six local registered-key finish aliases are
+added. Placement,cylinder dimensions,clock/weather/gas and four light/shadow
+allocations remain with their existing authorities. Clear glass uses the existing
+expressive owner; dielectric paint and clocked mantle are local bindings.
+
+Original native failures are preserved: procedural regeneration reordered one
+Bakelite partition; reviewed native draw retention fixes it. Append-source save
+refusal is corrected by a temporary source snapshot. First engine bench refused
+far-stock names suffixed by Blender; explicit **bishops_crook_lod1** fixes the
+name ABI without changing any of14 near/six lower mesh arrays. Native images
+are reused only after exact array identity. Bench02 then rejects default lower
+compression: maximum17.1327% chart stretch,98.359 micrometres UV excess and198
+bad derivatives. The measured single-asset precision registration changes no
+predicate/tolerance; native exports already pass. Original logs,receipts and
+failed frames remain under **gaslamp_integration_01/** beside the prior city reports.
+
+Bench03 passes164/0. Bench05 adds natural/default-threshold and optical review,
+passing175/0 in14.08s with empty stderr. Imported metric/tangent checks cover near
+and lower stock; all26 installed fixture surfaces sample loaded mapped mip chains.
+Three plain posts own18 replacement surfaces; the crossing variant owns none.
+Four existing lights and the separate milk-glass/mantle emissions follow the
+existing clock. These are isolated parameter/gating checks,not composed access
+or campaign-time progression. Actual default LOD bracket is9.3828125/9.38671875m;
+narrow5-degree view from the same far observer position restores22,444 triangles,
+as does moving inward. The narrow review was corrected to aim at physical head
+stock; the original shaft-only frame is retained. Close lit/unlit views use fixed
+fixture environment lighting. Eleven actual loaded images were inspected; nine
+unchanged final images reuse exact byte-identical earlier frames.
+
+One visible plain post measures22,444/7,502 primitives and six draws at both
+levels. Bench03 near/lower GPU medians0.961/0.869ms,repeats0.888/0.870ms; first
+near maximum wall38.755ms,repeats1.357/1.425ms. Four90-frame raw arrays remain.
+Concurrent QEMU CPU load is recorded: these are exploratory isolated costs,
+not a matched old-lamp comparison,whole-world budget or speedup. Reader NEW0;
+source-only spatial scan is clean and adds only reviewed camera record
+**43586038846998d0**,preserving inherited cleanup entries.
+
+The previous Hampton/sink candidate **4a04279e** is now canonically qualified:
+651 physical checks/zero failures,zero packet defects,and116 static gates with
+zero regressions against **374c2792**; report/push **ed014d9f**. This does not
+qualify the newer gaslamp. Canonical owns one future combined canopy/lamp physical
+renewal and static comparison after its matched route. No old receipt is repinned.
+Actual street composition,continuous access,composed optics and artistic acceptance
+remain pending. All own native/Godot jobs are terminal; no long city tour was run.

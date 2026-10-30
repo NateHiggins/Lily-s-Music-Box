@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 272.08,
+  "elapsed_s": 296.77,
   "exit_code": 0,
-  "finished_utc": "2026-10-30T18:10:31Z",
-  "started_utc": "2026-10-30T18:05:59Z",
+  "finished_utc": "2026-10-30T19:02:19Z",
+  "started_utc": "2026-10-30T18:57:22Z",
   "timed_out": false
  },
  "log": {
@@ -13,35 +13,36 @@
   "fail_lines": [],
   "pass_count": 1,
   "pass_lines": [
-   "V2 SURFACE QUALIFICATION: PASS; 651 checks; 0 failures"
+   "V2 SURFACE QUALIFICATION: PASS; 652 checks; 0 failures"
   ],
   "script_error_count": 0,
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/prologue_20261028/sink_footway_physical_03/physical.log.stderr",
+  "stderr": "C:/ov/reports/prologue_20261028/canopy_lamp_combined_02/physical.log.stderr",
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "stdout": "C:/ov/reports/prologue_20261028/sink_footway_physical_03/physical.log",
-  "stdout_sha256": "f0d34b7fd7d4cfcf977d8f5ecec6e2818f9e8577eb524343640fc0658a58f5b7"
+  "stdout": "C:/ov/reports/prologue_20261028/canopy_lamp_combined_02/physical.log",
+  "stdout_sha256": "e298606455ccf06bee4abba6d507f43b6ef0daa731493f9d9000509a0099b46c"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\ov\\reports\\prologue_20261028\\sink_footway_physical_03\\raw",
+ "shot_dir": "C:\\ov\\reports\\prologue_20261028\\canopy_lamp_combined_02\\raw",
  "source": {
-  "dirty_paths": 666,
+  "dirty_paths": 667,
   "dirty_sample": [
    "M .agents/skills/godot-development/SKILL.md",
-   "M  TASKS.md",
-   "M  art/blender/city_streets.blend",
-   "M  art/blender/city_streets_construction.json",
-   " M art/blender/city_transport_construction.json",
-   "M  art/blender/scripts/build_city_streets.py",
-   "M  art/blender/scripts/review_city_streets.py",
-   "M  art/data/city_streets/source_plan.json",
+   "MM TASKS.md",
+   "M  art/blender/scripts/build_v2_street_lamps.py",
+   "M  art/blender/scripts/review_v2_street_lamps.py",
+   "M  art/blender/v2_street_lamps.blend",
+   "A  art/blender/v2_street_lamps_construction.json",
+   "M  art/tools/fix_v2_mesh_imports.py",
+   " M design/AUDIT_UNUSED_SYSTEMS_REPORT.md",
    "M  design/V2_CITY_CONTEXT_REPORT_2026-10-19.md",
+   " M design/V2_PROLOGUE_2026-10-28.md",
    " M game/assets/dream/microscopy/tardigrade_membrane/albedo.png.import",
    " M game/assets/dream/microscopy/tardigrade_membrane/normal.png.import",
    " M game/assets/dream/microscopy/tardigrade_membrane/roughness.png.import",
@@ -51,14 +52,13 @@
    " M game/assets/dream/microscopy/tardigrade_organ/albedo.png.import",
    " M game/assets/dream/microscopy/tardigrade_organ/normal.png.import",
    " M game/assets/dream/microscopy/tardigrade_organ/roughness.png.import",
-   "M  game/assets/props/city_streets.glb",
-   "M  game/assets/props/city_streets_lod1.glb"
+   "M  game/assets/props/v2_street_lamps.glb"
   ],
-  "repository_head": "c4249f2999f4a93b0235e73d83552b7fb47ff65f",
-  "repository_tree": "ba6cb523782e80a4717d580980b00fb7c4b80ff0",
-  "runtime_inputs_sha256": "b15c805fa0291e28163c2fb909c169c5b597ff65c52f2c2cd688c107842c67c1",
+  "repository_head": "c5b3139830d7b036a02da210166fdb1366ca28ba",
+  "repository_tree": "fb93781e5431bf0c0779844a92868636aa16aa9c",
+  "runtime_inputs_sha256": "9288ea71429e6909ea07a5a9ae737071a6efdd0dc4471055cd056dbfe3a2ee9e",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
-  "test_sha256": "2559e63200d9a9632226cf91ea4d71c5b816609afbeaf6a88318ddb1b17c615e"
+  "test_sha256": "55e2cfd50ae8469f770f7413026e1a9e0729c6bf06f3e787500bbc6e6626bdc1"
  },
  "windowed": true
 }

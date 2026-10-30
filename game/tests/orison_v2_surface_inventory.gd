@@ -412,6 +412,20 @@ func _run() -> void:
 		review_camera.look_at(actor.to_global(station[2]),Vector3.UP)
 		review_camera.make_current()
 		await shot(str(station[3]))
+	var lamp_context := OS.get_environment("ORISON_SURFACE_LAMP_CONTEXT")=="1"
+	if lamp_context:
+		# Reuse the composed world and existing lamp camera helper, rather than
+		# paying for another world startup. This is fixed-camera daytime optics,
+		# not continuous access, night atmosphere or gameplay acceptance.
+		var lamp_review:=preload("res://tests/orison_v2_street_lamps_shot.gd").new()
+		lamp_review.world=world;lamp_review.directory=directory;lamp_review.externally_managed=true;add_child(lamp_review)
+		var street: Node3D=world.exterior_cell.instance_node("STREET_ORISON_01")
+		check(street!=null and street.get_node_or_null("StreetLamps")!=null,"composed street lamp context owners exist")
+		if street!=null:
+			world.player.camera.make_current()
+			await lamp_review._view(street,"lamps_pavement_context",Vector3(-6.0,1.62,2.6),Vector3(12.0,2.6,5.0))
+			await lamp_review._view(street,"lamps_crook_context",Vector3(5.6,1.7,2.2),Vector3(8.1,3.9,4.8))
+		lamp_review.free()
 	manager.set_process(weather_processing)
 	if not physical_only:
 		await finish_review.run(world,self)
@@ -476,6 +490,7 @@ func _run() -> void:
 		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(path),"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":str(digest[0]).strip_edges() if not digest.is_empty() else ""},
 		"surface_inputs_sha256":after.get("sha256",""),"inventory_sha256":FileAccess.get_sha256(directory.path_join("surface-inventory.json")),
 		"qualification_mode":"physical_surfaces_only" if physical_only else "full_programmes",
+		"lamp_context_review":{"executed":lamp_context,"scope":"Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."},
 		"interaction_programmes":{"fire_service":{"executed":fire_interactions,"scope":"separate interaction programme; physical draws remain in the inventory"},"other_family_programmes":{"executed":not physical_only,"scope":"Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."}},
 		"contracts":{"production_composition":{"executed":true,"status":status},"surface_requirements":{"executed":true,"status":status},"save_reconstruction":{"executed":false,"status":"NOT_EXECUTED"},"teardown":{"executed":true,"status":status,"measurement_scope":"runtime_owned"}},
 		"checks":batch_checks,"failures":failures}

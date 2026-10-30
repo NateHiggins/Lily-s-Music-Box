@@ -324137,6 +324137,37 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "43586038846998d0",
+   "kind": "vector3_coordinate",
+   "token": "_isolated",
+   "file": "game/tests/orison_v2_street_lamps_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_isolated"
+   ],
+   "lines": [
+    210
+   ],
+   "count": 1,
+   "context": [
+    "camera.position=center+Vector3(5,0,8);camera.look_at(center)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

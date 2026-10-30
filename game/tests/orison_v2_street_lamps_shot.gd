@@ -6,13 +6,21 @@ extends Node
 const Selector := preload("res://scripts/building/building_root_selector.gd")
 const Lamps := preload("res://scripts/building/orison_v2_street_lamps.gd")
 var directory: String
+var externally_managed:=false
 var world: OrisonV2RuntimeRoot
 var failures := 0
 var summary := {"checks": [], "captures": []}
 
+class BenchStreet extends RefCounted:
+	var street: Node3D
+	func instance_node(_identity: String) -> Node3D: return street
+
+class BenchHost extends Node3D:
+	var exterior_cell := BenchStreet.new()
+
 
 func _ready() -> void:
-	_run.call_deferred()
+	if not externally_managed:_run.call_deferred()
 
 
 func check(ok: bool, label: String) -> void:
@@ -29,6 +37,13 @@ func _run() -> void:
 		push_error("Street lamp review requires windowed capture and SHOT_DIR")
 		get_tree().quit(1)
 		return
+	var scope := OS.get_environment("ORISON_STREET_LAMP_SCOPE")
+	if scope == "isolated":
+		await _isolated()
+		return
+	if not scope.is_empty():
+		push_error("Unknown ORISON_STREET_LAMP_SCOPE: " + scope)
+		get_tree().quit(64);return
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	CampaignTime.set_frozen_for_tests(true)
@@ -125,3 +140,142 @@ func _view(street: Node3D, label: String, at: Vector3, target: Vector3) -> void:
 		await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(directory.path_join(label + ".png"))
 	summary.captures.append(label + ".png")
+
+
+func _isolated() -> void:
+	RealityState.persistence_enabled = false
+	var fixture := BenchHost.new()
+	var street := Node3D.new()
+	fixture.exterior_cell.street = street
+	fixture.add_child(street);add_child(fixture)
+	var data := Lamps.load_table()
+	check(not data.is_empty(), "generated lamp table loads")
+	for lamp: Dictionary in data.lamps:
+		for identity: String in lamp.replaces:
+			var placeholder := MeshInstance3D.new()
+			placeholder.mesh = BoxMesh.new()
+			placeholder.set_meta("authored_record_id", identity)
+			street.add_child(placeholder)
+		if not str(lamp.authored_light).is_empty():
+			var light := OmniLight3D.new()
+			light.set_meta("authored_record_id", str(lamp.authored_light))
+			street.add_child(light)
+	var mounted := Lamps.mount(fixture)
+	check(mounted != null, "actual lamp owner mounts on isolated placeholder interface")
+	if mounted == null:
+		fixture.queue_free();get_tree().quit(1);return
+	var metrics := preload("res://tests/orison_v2_domestic_native_test.gd").new()
+	var source := (load(str(data.lod_stock)) as PackedScene).instantiate()
+	for draw: MeshInstance3D in source.find_children("*", "MeshInstance3D", true, false):
+		metrics._check_cap_mapping(draw.mesh, true)
+	source.free()
+	var focus: MeshInstance3D
+	var parts := 0
+	var lod_surfaces := 0
+	for lamp: Dictionary in data.lamps:
+		var post := mounted.get_node(str(lamp.id)) as MeshInstance3D
+		check(post.position.is_equal_approx(Vector3(lamp.at[0],lamp.at[1],lamp.at[2])), "retained placement " + str(lamp.id))
+		var collider := post.get_node("Collision/" + str(post.get_node("Collision").get_child(0).name)) as CollisionShape3D
+		check(collider.shape is CylinderShape3D and is_equal_approx(collider.shape.radius,.22) and is_equal_approx(collider.shape.height,2.4), "retained cylinder " + str(lamp.id))
+		metrics._check_cap_mapping(post.mesh, true)
+		for surface in post.mesh.get_surface_count():
+			parts += 1
+			var mesh_surface := RenderingServer.mesh_get_surface(post.mesh.get_rid(), surface)
+			var lods: Array = mesh_surface.get("lods", [])
+			check(lods.size() == (1 if str(lamp.stock)=="bishops_crook" else 0), "replacement body only on plain gaslamp " + str(lamp.id) + "/" + str(surface))
+			lod_surfaces += lods.size()
+			var mat := post.mesh.surface_get_material(surface) as StandardMaterial3D
+			var maps := [mat.albedo_texture,mat.normal_texture,mat.roughness_texture]
+			check(not mat.uv1_triplanar and mat.normal_enabled and mat.texture_filter==BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC, "authored UV and anisotropic normal finish")
+			for texture: Texture2D in maps:
+				check(texture != null and texture.get_image().has_mipmaps(), "loaded physical map has mip chain")
+			if str(mat.get_meta("v2_street_lamp_finish")) == "gas_glass":
+				check(mat.refraction_enabled and mat.transparency==BaseMaterial3D.TRANSPARENCY_ALPHA and is_zero_approx(mat.metallic), "registered clear expressive envelope")
+			if str(mat.get_meta("v2_street_lamp_finish")) == "gas_paint":
+				check(is_zero_approx(mat.metallic), "local dielectric paint")
+		if str(lamp.id)=="lamp_orison_mid":focus=post
+	check(parts==26 and lod_surfaces==18, "four retained posts,26 surfaces,18 complete replacement surfaces")
+	check(metrics.failures.is_empty(), "loaded near/lower UV metric and derivative checks " + str(metrics.failures))
+	metrics.free()
+	var clock := mounted.get_node("LampClock")
+	for minute: int in [720,1260]:
+		clock.clock_override={"valid":true,"month":11,"minute_of_day":float(minute)}
+		clock.refresh()
+		check(clock.lights.size()==4 and clock.globe!=null and clock.mantle!=null, "retained light and emission owners")
+		for light: OmniLight3D in clock.lights:
+			check(light.visible==(minute==1260), "existing day/night light gating")
+		check(is_zero_approx(clock.mantle.emission_energy_multiplier) if minute==720 else clock.mantle.emission_energy_multiplier>0., "mantle follows existing lamp clock")
+	for draw: MeshInstance3D in street.find_children("*","MeshInstance3D",true,false): draw.visible=draw==focus
+	var camera := Camera3D.new();fixture.add_child(camera);camera.make_current()
+	var center := focus.global_transform*focus.get_aabb().get_center()
+	camera.position=center+Vector3(5,0,8);camera.look_at(center)
+	var environment := WorldEnvironment.new();environment.environment=Environment.new()
+	environment.environment.background_mode=Environment.BG_COLOR
+	environment.environment.background_color=Color(.08,.1,.14)
+	environment.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR
+	environment.environment.ambient_light_energy=.6
+	fixture.add_child(environment)
+	var sun := DirectionalLight3D.new();sun.rotation_degrees=Vector3(-45,-30,0);fixture.add_child(sun)
+	var viewport := get_viewport()
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED);Engine.max_fps=0
+	RenderingServer.viewport_set_measure_render_time(viewport.get_viewport_rid(),true)
+	var observations: Array = []
+	for row: Dictionary in [{"id":"near","threshold":0.},{"id":"lower","threshold":10000.},{"id":"near_repeat","threshold":0.},{"id":"lower_repeat","threshold":10000.}]:
+		viewport.mesh_lod_threshold=float(row.threshold)
+		for frame in 12: await RenderingServer.frame_post_draw
+		var samples: Array=[]
+		var previous := Time.get_ticks_usec()
+		for frame in 90:
+			await RenderingServer.frame_post_draw
+			var now := Time.get_ticks_usec()
+			samples.append([(now-previous)/1000.,RenderingServer.viewport_get_measured_render_time_cpu(viewport.get_viewport_rid()),RenderingServer.viewport_get_measured_render_time_gpu(viewport.get_viewport_rid()),RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME),RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME)])
+			previous=now
+		row["samples"]=samples;observations.append(row)
+		check(viewport.get_texture().get_image().save_png(directory.path_join(str(row.id)+".png"))==OK,"actual imported body capture")
+	viewport.mesh_lod_threshold=1.
+	camera.fov=75.
+	var direction := Vector3(.3,.05,1.).normalized()
+	var probes: Array=[]
+	var last_near := 0.
+	var first_far := 0.
+	for distance_m: float in [2.,4.,8.,12.,16.,24.,32.,48.,64.,96.]:
+		camera.position=center+direction*distance_m;camera.look_at(center)
+		for frame in 4: await RenderingServer.frame_post_draw
+		var primitives := RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME)
+		probes.append({"distance_m":distance_m,"primitives":primitives})
+		if primitives==22444:last_near=distance_m
+		if primitives==7502:
+			first_far=distance_m;break
+	check(last_near>0. and first_far>last_near,"natural distance chooses both complete replacement bodies")
+	if last_near>0. and first_far>last_near:
+		for iteration in 10:
+			var distance_m := (last_near+first_far)*.5
+			camera.position=center+direction*distance_m;camera.look_at(center)
+			for frame in 4:await RenderingServer.frame_post_draw
+			var primitives := RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME)
+			probes.append({"distance_m":distance_m,"primitives":primitives})
+			if primitives==22444:last_near=distance_m
+			elif primitives==7502:first_far=distance_m
+			else:check(false,"natural LOD selects a complete source body")
+		for spec: Dictionary in [{"id":"natural_before","distance":last_near,"fov":75.,"triangles":22444},{"id":"natural_after","distance":first_far,"fov":75.,"triangles":7502},{"id":"natural_narrow_recovery","distance":first_far,"fov":5.,"triangles":22444},{"id":"natural_inward_return","distance":last_near*.8,"fov":75.,"triangles":22444}]:
+			camera.position=center+direction*float(spec.distance);camera.look_at(center);camera.fov=float(spec.fov)
+			if str(spec.id)=="natural_narrow_recovery":
+				# Keep the same far observer position; aim the narrow lens at
+				# physical head stock rather than cropping it above the shaft.
+				camera.look_at(focus.to_global(Vector3(0,3.86,.84)))
+			for frame in 4:await RenderingServer.frame_post_draw
+			check(RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME)==int(spec.triangles),"natural full-body selection "+str(spec.id))
+			check(viewport.get_texture().get_image().save_png(directory.path_join(str(spec.id)+".png"))==OK,"natural body image "+str(spec.id))
+	camera.fov=65.;viewport.mesh_lod_threshold=0.
+	camera.global_position=focus.to_global(Vector3(.9,4.05,2.))
+	camera.look_at(focus.to_global(Vector3(0,3.86,.84)))
+	for minute: int in [720,1260]:
+		clock.clock_override={"valid":true,"month":11,"minute_of_day":float(minute)};clock.refresh()
+		for frame in 6:await RenderingServer.frame_post_draw
+		check(viewport.get_texture().get_image().save_png(directory.path_join("head_day.png" if minute==720 else "head_night.png"))==OK,"loaded clear-envelope and mantle close view")
+	var record := {"evidence_class":"INERT","scope":"Isolated actual lamp mount, imported near/lower metrics/maps/mips, clock gating, original cylinder parameters, natural-distance/narrow-FOV replacement bodies and repeated90frame timings; no composed access/save or artistic acceptance.","checks":summary.checks,"failures":failures,"observations":observations,"natural_transition":{"last_near_m":last_near,"first_far_m":first_far,"probes":probes}}
+	var file := FileAccess.open(directory.path_join("isolated_lamps.json"),FileAccess.WRITE)
+	file.store_string(JSON.stringify(record,"\t")+"\n");file.close()
+	fixture.free();await get_tree().process_frame
+	print("ISOLATED STREET LAMPS: ",summary.checks.size()," checks; ",failures," failures")
+	get_tree().quit(0 if failures==0 else 1)

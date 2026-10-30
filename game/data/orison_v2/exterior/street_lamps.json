@@ -3,6 +3,8 @@
  "frame": "ORISON_FRONT_DOOR_THRESHOLD",
  "street_instance": "STREET_ORISON_01",
  "stock": "res://assets/props/v2_street_lamps.glb",
+ "lod_stock": "res://assets/props/v2_street_lamps_lod1.glb",
+ "lod_error_m": 0.009252,
  "globe_local": [
   0.0,
   3.86,
@@ -154,6 +156,86 @@
    ],
    "normal": 1.0,
    "roughness": 1.0
+  },
+  {
+   "id": "gas_paint",
+   "catalog_key": "iron_blackened",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 0.6,
+   "roughness": 1.0,
+   "metallic": 0.0
+  },
+  {
+   "id": "gas_iron",
+   "catalog_key": "cast_iron",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 0.6,
+   "roughness": 1.0
+  },
+  {
+   "id": "gas_brass",
+   "catalog_key": "brass_dull",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 0.4,
+   "roughness": 1.0
+  },
+  {
+   "id": "gas_ceramic",
+   "catalog_key": "porcelain",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 0.3,
+   "roughness": 1.0
+  },
+  {
+   "id": "gas_mantle",
+   "catalog_key": "porcelain",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 0.25,
+   "roughness": 1.0,
+   "emission": [
+    1.0,
+    0.78,
+    0.48,
+    2.2
+   ]
+  },
+  {
+   "id": "gas_glass",
+   "catalog_key": "glass_drawn_expressive",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 0.12,
+   "roughness": 1.0,
+   "metallic": 0.0
   }
  ],
  "lamps": [

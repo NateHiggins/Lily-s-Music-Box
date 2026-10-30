@@ -122,6 +122,19 @@ readability, and feel.
 
 ## Reuse demonstrated project lessons
 
+- **Yield boundaries:** capture immutable layout and source guards before the
+  first cooperative yield. Taking a snapshot after validation can bless an
+  intervening mutation. Test cancellation and source/layout/pose changes at
+  each added boundary, plus exact final geometry/material/collision output.
+  Measure operation durations inside the stage; subtracting timestamps across
+  yields includes waiting frames. See the prologue ledger's canopy preparation
+  candidate and its retained original/equivalence controls.
+
+- **Reusing scene-test helpers:** inspect _ready and deferred startup before
+  add_child. Set an explicit externally managed mode before attachment so a
+  camera helper cannot compose a second world. Exercise a small lifecycle
+  control before the expensive combined run. See the prologue ledger's retained
+  canopy/lamp combined01 failure; standalone defaults must remain unchanged.
 - **Composed fixture readiness:** a startup marker can precede the first normal
   process/draw. Before timing an installed mechanism, await real physics/draw
   registration. If it appears stuck, record frame count, callback clock, power,

@@ -40,6 +40,7 @@ ASSETS = (
     "props/city_transport_lod1.glb", # Same bench: replacement charts stretch9.98%, with3888 bad derivatives under default compression.
     "props/city_streets.glb", # street bench_04: default compression stretches near charts2.509% and fails6 UV tangent derivatives; native export passes.
     "props/city_streets_lod1.glb", # Same bench: replacement charts stretch8.679% and fail12 derivatives; retain strict loaded metric gates.
+    "props/v2_street_lamps_lod1.glb", # isolated lamp bench02: compressed small charts stretch17.133%, exceed98 micrometres and fail198 tangent derivatives; native export passes.
     "props/city_elevations.glb", # Preserve the validated metric charts of retained cap bevels and recessed window stock.
     "props/arcade_clock.glb", # bench2: fine dial/hand charts deform by up to 64% under default import quantization.
     "props/arcade_lantern.glb", # Folded 2 mm roof skin and small closed seams retain metric charts.
