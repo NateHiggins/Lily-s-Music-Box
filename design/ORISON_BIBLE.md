@@ -1183,6 +1183,15 @@ Keep elapsed/deadline time monotonic while the civil/weather calendar repeats.
 The historical Tardi cutaway keeps its exact17-second timeline and does not
 rewrite the annual destination or the existing ecology's dated presence rules.
 
+**Prologue release direction,2026-10-30.** The polished prologue is the teaser;
+prepare its Patreon/itch.io/Discord distribution and Butler build delivery to be
+ready alongside it, without waiting for all V2 construction. This is a narrow
+exception to the retired funding/marketing programme, not its wholesale return.
+No date is set; appearance, audio, responsiveness, saves and honest verification
+remain release requirements. Account setup, entitlement rules and build tracing
+are tracked in **design/EARLY_ACCESS_GO_TO_MARKET_PROJECT.md**; proposed platform
+channels do not establish qualified builds or live subscriptions.
+
 The signal-bound companion may have a folding temporal readout and an original
 three-branch flux-capacitor homage, manufactured in its existing mechanical
 language. References inform form, not copied labels/textures or a new nuclear

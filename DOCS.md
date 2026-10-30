@@ -38,6 +38,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Storefront refit plan: six reference cards into a shop_frontage kit, slices and owner decisions (INERT) | `design/V2_STOREFRONT_REFIT_PLAN_2026-10-29.md` |
 | Creature acceptance, installed Tardi visibility and acoustic-branch integration to main (INERT) | `design/CREATURE_MAIN_INTEGRATION_2026-10-26.md` |
 | New V2 prologue: An Unfortunate Development; production target, ownership and unfinished implementation | `design/V2_PROLOGUE_2026-10-28.md` |
+| Prologue teaser Patreon/itch.io/Discord distribution, Butler delivery, build identity and provider limitations; retired broader charter retained | `design/EARLY_ACCESS_GO_TO_MARKET_PROJECT.md` |
 | Helical Resonance canon, ordered temporal channel, source/destination and scientific boundaries | `design/ORISON_BIBLE.md` §VIII.2; implementation/status in `design/V2_PROLOGUE_2026-10-28.md` |
 | Post-V2 big goal: The Year You Died and temporal-forensics boundaries; queued V2 Skywatcher Club and relief Moon | `design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md` |
 | Approved task trimming, deferred scope, source provenance and city-first sequencing (INERT) | `design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md` |
