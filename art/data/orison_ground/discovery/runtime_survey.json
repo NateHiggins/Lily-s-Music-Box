@@ -20679,13 +20679,13 @@
 	],
 	"scope": "Actual aligned static boxes only. Unaligned boxes and all other shapes require separate native/source classification, never AABB solid substitution.",
 	"skipped_shapes": {
-		"ConcavePolygonShape3D": 11042,
+		"ConcavePolygonShape3D": 11090,
 		"ConvexPolygonShape3D": 2049,
 		"CylinderShape3D": 43
 	},
 	"source": {
-		"runtime_inputs_sha256": "c0965c4726903e59895bfc080e659d8f3f95d47174121b3af8c05c99668b01dc",
-		"surface_inputs_sha256": "bab109029e7dcc21a395a73d97ab5b976ebbaaa5005983118244aaf951d4f2b9",
+		"runtime_inputs_sha256": "bbf382baa26dafb0d3d16dc8674a930d5c0c76f088d6f2b37c56405b2f9e0433",
+		"surface_inputs_sha256": "6a15ba40c223b1b7f96326cef7d11344477b4461b286f3bbd74a5c87a6a64e6d",
 		"test_dependencies": {
 			"game/tests/V2GradeOwnerSurvey.tscn": "fe51e750ce2bc5e2a5d45ac0e34f679b99fc57fd9026eb2f8e2cba845e5f3f71",
 			"game/tests/v2_grade_owner_survey.gd": "f825e6e7e15cd6a2ee4f98c783e10f6a5ee840e3fb75816f8335d10df2e882ca",

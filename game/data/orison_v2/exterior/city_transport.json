@@ -4,6 +4,7 @@
     {
       "alias": "structure",
       "catalog_key": "iron_neutral",
+      "metallic": 0.0,
       "tint": [
         0.3,
         0.34,
@@ -16,7 +17,8 @@
     },
     {
       "alias": "rail",
-      "catalog_key": "metal",
+      "catalog_key": "iron_neutral",
+      "metallic": 1.0,
       "tint": [
         0.67,
         0.65,
@@ -68,7 +70,7 @@
     },
     {
       "alias": "sleeper",
-      "catalog_key": "wood_dark",
+      "catalog_key": "timber",
       "tint": [
         0.42,
         0.37,

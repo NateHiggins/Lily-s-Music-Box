@@ -8,13 +8,26 @@ ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot'
 sys.path.insert(0,str(ROOT/'art/blender/scripts'))
 from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_overlap,building_outline,extrusion,cornice_ring,floor_intervals,offset_outline
 from fabrication_native_batch import material,partition,export
-from city_ground_apron_geometry import exported_bounds
+from city_ground_apron_geometry import exported_bounds,relief_height
 plan_path=ROOT/'art/data/city_horizon/source_plan.json';plan=json.loads(plan_path.read_text())
 grade_path=ROOT/'art/blender/city_ground_apron_construction.json';grade=json.loads(grade_path.read_text())
 validate_plan(plan,grade['retained_ground_bounds'])
 catalog_path=ROOT/'game/data/runtime_material_sets.json';catalog=json.loads(catalog_path.read_text())['materials']
 OUT=ROOT/'tmp/v2-city-polish-20261018/horizon_native';OUT.mkdir(parents=True,exist_ok=True)
-all_rows=[];all_windows=[];all_bearings=[];assets={};native_checks={}
+all_rows=[];all_windows=[];all_bearings=[];assets={};native_checks={};grade_seats=[]
+for row in plan['buildings']:
+    outline=building_outline(row)
+    samples=[(x,-y) for x,y in outline]
+    for p,q in zip(outline,outline[1:]+outline[:1]):
+        if abs(q[0]-p[0])<1e-12:continue
+        for x,_ in grade['relief']['west_profile']:
+            t=(x-p[0])/(q[0]-p[0])
+            if 0<t<1:samples.append((x,-(p[1]+t*(q[1]-p[1]))))
+    heights=[relief_height(x,z,-.02,grade['relief']) for x,z in samples]
+    # Passive complete assemblies follow the uphill parcel datum. Their bases
+    # stay buried by .26m there; a short foundation seats the downhill edge.
+    row['grade_datum_m']=max(heights)+.02
+    row['grade_low_m']=min(heights)
 
 for family in ['near','far']:
     bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -103,7 +116,7 @@ for family in ['near','far']:
                     left=bay*pitch;right=left+pitch;cx=(left+right)*.5
                     first=origin+tangent*left+out*.02;last=origin+tangent*right+out*.02
                     axis_aligned=abs(tangent.x)<1e-8 or abs(tangent.y)<1e-8
-                    if axis_aligned and party_wall_overlap((first.x,-first.y),(last.x,-last.y),bottom,[r for r in rows if r['id']!=name]):
+                    if axis_aligned and party_wall_overlap((first.x,-first.y),(last.x,-last.y),bottom+row['grade_datum_m'],[r for r in rows if r['id']!=name]):
                         local_box(name,row['wall_key'],origin,tangent,out,(left,-depth,bottom),(right,0,top))
                         continue
                     entrance=study.get('entrance',{})
@@ -169,6 +182,21 @@ for family in ['near','far']:
                     if row['typology']=='factory':
                         local_box(name,joinery,origin,tangent,out,(cx-.018,-recess+.025,low),(cx+.018,-recess+.06,high))
                     windows.append(dict(building=name,side=side,point=list(origin+tangent*(cx+w*.22)+Vector((0,0,(low+high)*.5+wh*.2))),normal=list(out),recess_m=recess))
+    for row in rows:
+        name=row['id'];datum=float(row['grade_datum_m'])
+        if datum:
+            for (owner,key),(vertices,faces) in buffers.items():
+                if owner==name:vertices[:]=[(x,y,z+datum) for x,y,z in vertices]
+            for window in windows:
+                if window['building']==name:window['point'][2]+=datum
+            for bearing in bearings:
+                if bearing['building']==name:
+                    bearing['point'][2]+=datum;bearing['outside_probe'][2]+=datum
+        bottom=float(row['grade_low_m'])-.2;top=datum-.28
+        if bottom<top-1e-7:
+            vv,ff=extrusion(building_outline(row),bottom,top);add(name,'concrete',vv,ff)
+        grade_seats.append(dict(building=name,assembly_datum_m=datum,soil_low_m=row['grade_low_m'],soil_high_m=datum-.02,
+                                base_bottom_m=top,foundation_bottom_m=bottom if bottom<top-1e-7 else None))
     mats={};draws=[];closed_stocks=0
     for (name,key),(vertices,faces) in sorted(buffers.items()):
         row=by_id[name];tint=row['wall_tint'] if key==row['wall_key'] else row.get('joinery_tint',[1,1,1,1]) if key in ['door_paint','cast_iron'] else [.16,.20,.23,1] if key=='mirror_aged' else [1,1,1,1]
@@ -234,10 +262,10 @@ for row in all_rows:
 runtime.write_text(json.dumps(dict(schema=1,frame=plan['frame'],buildings=runtime_rows),indent=2)+'\n',encoding='utf-8',newline='\n')
 paths=[plan_path,grade_path,catalog_path,runtime,Path(__file__),ROOT/'game/scripts/building/orison_v2_city_horizon.gd']
 paths += [ROOT/'art/blender/scripts'/p for p in ['city_horizon_geometry.py','city_ground_apron_geometry.py','fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']]
-for key in {r['wall_key'] for r in all_rows}|{'mirror_aged','galvanized_roof','limestone','cast_iron','door_paint'}:paths.extend(ROOT/'game/assets/building/textures'/p for p in catalog[key]['files'])
+for key in {r['wall_key'] for r in all_rows}|{'mirror_aged','galvanized_roof','limestone','cast_iron','door_paint','concrete'}:paths.extend(ROOT/'game/assets/building/textures'/p for p in catalog[key]['files'])
 def sha(path):
     raw=path.read_bytes();return hashlib.sha256(raw.replace(b'\r\n',b'\n') if path.suffix in ['.json','.py','.gd'] else raw).hexdigest()
-report=dict(evidence_class='INERT',scope=plan['scope'],frame=plan['frame'],buildings=all_rows,windows=len(all_windows),window_rows=all_windows,parapet_contacts=all_bearings,assets=assets,native_checks=native_checks,
+report=dict(evidence_class='INERT',scope=plan['scope'],frame=plan['frame'],buildings=all_rows,windows=len(all_windows),window_rows=all_windows,parapet_contacts=all_bearings,grade_seats=grade_seats,assets=assets,native_checks=native_checks,
     angular_coverage=dict(scope='Source-only synthetic horizontal rays; ground continuity required, open sky above period rooflines expected. Not runtime or played proof.',rays=rays,ground_gaps=ground_gaps,open_sky_above_roofs=coverage),source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in paths})
 for relative in ['art/blender/city_horizon_construction.json','game/tests/fixtures/orison_city_horizon.json']:
     (ROOT/relative).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')

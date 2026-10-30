@@ -1,6 +1,6 @@
 """Reopen saved station stock: native walk/headroom/road checks and honest previews."""
 from pathlib import Path
-import hashlib,json,math,os,re
+import hashlib,json,math,os,re,sys
 import bpy,bmesh
 from mathutils import Vector,Matrix
 from mathutils.bvhtree import BVHTree
@@ -79,6 +79,9 @@ for a,b in zip(s['bent_x_m'],s['bent_x_m'][1:]):
                         check(hit is not None and (hit-point).length<.0001 and n.z>.99,label,point=list(point),hit=list(hit) if hit is not None else None)
 (OUT/'native_geometry_checks.json').write_text(json.dumps(dict(evidence_class='INERT',source_hashes=hashes,checks=checks,failures=failures),indent=2)+'\n',encoding='utf-8',newline='\n')
 assert not failures,failures[:12]
+if os.environ.get('CITY_TRANSPORT_GEOMETRY_ONLY')=='1':
+    print('CITY TRANSPORT GEOMETRY:',len(checks),'checks;',len(failures),'failures; no new render claim')
+    sys.exit(0)
 
 # Reopen the retained near-city source for contextual views. The new public
 # paving is real stock; surrounding soil and foundations await their replay.

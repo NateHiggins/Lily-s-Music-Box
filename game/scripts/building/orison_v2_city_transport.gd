@@ -27,6 +27,9 @@ static func mount(city: Node3D) -> Node3D:
 		material.albedo_color = Color(tint[0], tint[1], tint[2], tint[3])
 		material.normal_scale = float(spec.normal)
 		material.roughness *= float(spec.roughness)
+		# The substrate recipe also supplies unpainted iron. Its pigment coat
+		# is dielectric; bare rail heads retain the metallic source response.
+		material.metallic = float(spec.get("metallic", material.metallic))
 		materials[alias] = material
 	var seen: Array[String] = []
 	for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):

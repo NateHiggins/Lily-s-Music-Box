@@ -1,56 +1,62 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "surface_inputs_sha256": "03d19f893139075c93187f3d717c10b50b48066034b2cedc579c5a35e6770e30",
-  "scope": "Representative technical inspection of actual fullscreen 3440x1440 patched-Vulkan captures. No whole-city, human artistic, weather, narrative or save-reconstruction acceptance.",
+  "surface_inputs_sha256": "d12f359b8854bd6517639fa4e610c8ae08d34a7cb9a02e6016435c4b5f585667",
+  "scope": "Representative technical review of nine actual fullscreen3440x1440 patched-Vulkan captures. No whole-city, artistic, narrative, weather implementation, fire interaction or save acceptance.",
   "images": [
     {
       "file": "city_open_west_frontage.png",
-      "sha256": "2be0f95b2fddf78998baba1c9e49d499f71744b68b482e3697229701c6760f6f",
-      "observation": "Retired barricade is absent; retained brick/plaster rows, surrounds, cornices and roof tanks remain. Generic distant stock, unfinished streets and dark exposure remain city presentation debt.",
-      "origin": "Agent inspected this actual surface_final_03 capture; no generated or substituted image."
-    },
-    {
-      "file": "construction_closure_carried.png",
-      "sha256": "be91a1f1e479ae766bf85a5b658cf132d13d5a1e84c88d1a748ee139d72d7b3f",
-      "observation": "Former closure is open beneath the retained scaffold, with seated timber posts and grain; station stairs/steel remain beyond. Raw dark street surfaces remain unfinished.",
-      "origin": "Agent inspected this actual surface_final_03 capture; no generated or substituted image."
-    },
-    {
-      "file": "street_paving.png",
-      "sha256": "45fe2de98c38f441e27621c591a60eb35d3df5d7ed7372e2bab812fe4f6e9e2e",
-      "observation": "Retained brick, curb profiles, joints, damp film, gas lamps, drainpipe, bodega access and period traffic remain together beneath station steel. Dark exposure and placeholder props remain limitations.",
-      "origin": "Agent inspected this actual surface_final_03 capture; no generated or substituted image."
-    },
-    {
-      "file": "front_restored_entrance.png",
-      "sha256": "31e413d0b8f07a22575befe93a6a0f36f14c2ee13dab0d81ea4adfe269a43e6e",
-      "observation": "Installed door, brass pulls, glazed marquee, Orison blade, masonry, sash and blinds remain in place. This is the installed entrance, not the reserved entrance prototype.",
-      "origin": "Agent inspected this actual surface_final_03 capture; no generated or substituted image."
-    },
-    {
-      "file": "public_arcade_hall.png",
-      "sha256": "bb22942cd47289c2c0f5d4ae8c925ebe4441929a96953ef390d0b8b7daf29ad0",
-      "observation": "Retained luncheonette, laundry, storefronts, handcart, bench, glass/iron canopy and paving remain together. Bright upper fascia remains an existing lighting limitation; no new shop authority acceptance.",
-      "origin": "Agent inspected this actual surface_final_03 capture; no generated or substituted image."
+      "observation": "Open west frontage remains accessible in composition, with the new continuous curb/sidewalk against retained elevations. Generic distant masses, sparse street fittings and dark exposure remain unfinished.",
+      "sha256": "7af63d4aff14cc68a300017b450db52794d99b9166f78d267b28494d86c699b8",
+      "origin": "Agent inspected this actual full_surface_03 capture; no substituted or generated image."
     },
     {
       "file": "city_weather_storm.png",
-      "sha256": "1794b0b04ce9e40e04b00e52bcc38fcf708c12745d8f42a89f5ac2f9bafd1610",
-      "observation": "Tank and aerial silhouettes remain low against warm grey haze. The flat, low-contrast sky is not weather artistic acceptance; weather implementation is unchanged.",
-      "origin": "Agent inspected this actual surface_final_03 capture; no generated or substituted image."
+      "observation": "Retained rooftop tanks, aerials and silhouettes remain visible through the existing storm atmosphere. This upward view does not qualify ground access or weather implementation.",
+      "sha256": "b38703a0e048a594b63a52e0ef54d95f61d9615a3eb325d19e2e7f60e7f5f4b9",
+      "origin": "Agent inspected this actual full_surface_03 capture; no substituted or generated image."
+    },
+    {
+      "file": "street_paving.png",
+      "observation": "Retained pavement joints, curb, gaslight, drainpipe, scaffold footings and bodega approach remain together under station steel. Dark undercroft exposure and unfinished street detail remain.",
+      "sha256": "15802f5672b81ced92ecf09f8f5037e4dc295f34d3bc94fe366831b512ad7d8f",
+      "origin": "Agent inspected this actual full_surface_03 capture; no substituted or generated image."
+    },
+    {
+      "file": "front_restored_entrance.png",
+      "observation": "Installed Orison door, brass pulls, glazing/marquee, blade sign, masonry, sash and blinds remain together. This is the installed entrance; no replacement or narrative authority was added.",
+      "sha256": "57b5e2c631de7ef604d491091849be81e8dffa473064c2cc2e096a5f554ed2db",
+      "origin": "Agent inspected this actual full_surface_03 capture; no substituted or generated image."
+    },
+    {
+      "file": "street_from_arcade_line.png",
+      "observation": "Installed arcade approach opens onto retained Orison and bodega fronts with existing road traffic. The traffic owner omits wheels outside its fixed detail zone; no terrain-penetration or vehicle-art acceptance is inferred.",
+      "sha256": "f0bef635c4adeb973edb9333ce16d633472d1314b6e0da60791f4aba37239ad5",
+      "origin": "Agent inspected this actual full_surface_03 capture; no substituted or generated image."
     },
     {
       "file": "front_gallery_05.png",
-      "sha256": "6b935738221b45c0f8e9efb4cf09b726c23171488ed5d5bf4f95493b4b58bf6c",
-      "observation": "Retained timber panels, plaster, speckled floor, curtains, blinds and benches remain distinct. Strong ceiling glare remains an existing limitation; interiors are unchanged.",
-      "origin": "Agent inspected this actual surface_final_03 capture; no generated or substituted image."
+      "observation": "Retained gallery joinery, curtains, blinds, benches, fittings and exterior view remain visible. Existing bright ceiling hotspots remain; no interior construction change is claimed.",
+      "sha256": "0226a6f96ea7d672f83663738e934ddb804e9204d5536007864b65ceaeed1e9e",
+      "origin": "Agent inspected this actual full_surface_03 capture; no substituted or generated image."
     },
     {
-      "file": "tile_F02_A_BATH_corner.png",
-      "sha256": "29b49febb5300b60c76249b9b988bc6a48e892a4c62a49c9cadf24ff00858cff",
-      "observation": "Unchanged subway tile, hexagonal floor, glazed basin, plumbing, curtain rings and door remain distinct. No new apartment or bathroom interaction acceptance.",
-      "origin": "Agent inspected this actual surface_final_03 capture; no generated or substituted image."
+      "file": "city_ground_seam.png",
+      "observation": "Retained western building base and graded surrounding ground are visible in a dark oblique view. Independent bearing probes supply separate support proof. Flat sparse ground and repeated distant forms remain unfinished.",
+      "sha256": "64815110bf856dc143fccdb28d7a82a07c6cb62760e8c24c38c09b77dbd52ae4",
+      "origin": "Agent inspected this actual full_surface_03 capture; no substituted or generated image."
+    },
+    {
+      "file": "street_arcade_hall_current.png",
+      "observation": "Current installed arcade retains the shop fronts, bench, cart, paving joints and glass/iron canopy. Strong bright fascia/ceiling patches remain an existing lighting limitation. No new shop or access authority acceptance.",
+      "sha256": "3cc360492d6b90d029631db478ed944c914f16909c4de0e12c3e7f5d9c105561",
+      "origin": "Agent inspected this actual full_surface_03 capture; no substituted or generated image."
+    },
+    {
+      "file": "street_arcade_throat_current.png",
+      "observation": "The current arcade throat retains fitted paving, masonry, columns, glazing and sightline into the installed hall. This representative render supplements the separate exact bearing probes; it does not alone prove collision or continuous support.",
+      "sha256": "991657ae431d1706881286136203ab8bdd42e3108592e6d2b46a4b9c4070d02e",
+      "origin": "Agent inspected this actual full_surface_03 capture; no substituted or generated image."
     }
   ]
 }

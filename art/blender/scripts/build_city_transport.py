@@ -8,8 +8,12 @@ ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot'
 sys.path.insert(0,str(ROOT/'art/blender/scripts'))
 from fabrication_native_batch import material, partition, export
 from check_exported_tangents import validate as validate_export
+from city_street_geometry import topology,rectangle,cut,bounds
 PLAN=ROOT/'art/data/city_transport/source_plan.json'
 plan=json.loads(PLAN.read_text(encoding='utf-8'));s=plan['station'];plaza=plan['plaza']
+street_plan_path=ROOT/'art/data/city_streets/source_plan.json'
+street_plan=json.loads(street_plan_path.read_text())
+street_shape=topology(street_plan,json.loads((ROOT/'game/data/orison_v2/exterior/street_traffic.json').read_text()),json.loads((ROOT/'game/data/orison_v2/exterior/street_frame.json').read_text()),plan)
 assert plan['schema']=='orison.city-transport.v1' and plan['frame']=='CITY_ELEVATIONS_SOURCE'
 assert len(s['track_y_m'])==4 and len(s['platform_top_m'])==2
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
@@ -38,6 +42,10 @@ def box(name,key,lo,hi,role,bevel=.002):
     assert all(b>a for a,b in zip(lo,hi)),name
     x,y,z=lo;X,Y,Z=hi
     return mesh_stock(name,key,[(x,y,z),(X,y,z),(X,Y,z),(x,Y,z),(x,y,Z),(X,y,Z),(X,Y,Z),(x,Y,Z)],[(0,3,2,1),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)],role,bevel)
+
+def paving_polygon(name,p,low,high):
+    n=len(p);verts=[(x,y,z) for z in [low,high] for x,y in p]
+    return mesh_stock(name,'paving',verts,[tuple(reversed(range(n))),tuple(range(n,2*n))]+[(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)],'public_paving',0)
 def extrude(name,key,profile,a,b,role,bevel=.002):
     a=Vector(a);b=Vector(b);axis=(b-a).normalized()
     side=Vector((-axis.y,axis.x,0)).normalized() if abs(axis.z)<.99 else Vector((1,0,0))
@@ -265,12 +273,11 @@ for LOD in range(2):
             bottom=s['footing_top_m'] if over_footing else plaza['slab_bottom_m']
             joint=plaza['joint_m'] if LOD==0 else 0.
             if min(c-a,d-b)>joint:
-                box(f'Plaza_{side}_{i}','paving',(a+joint/2,b+joint/2,bottom),(c-joint/2,d-joint/2,plaza['surface_top_m']),'public_paving',0)
-        curb_y=(-14.91,-14.75) if side==0 else (-23.894,-23.734)
-        count=math.ceil((plaza['x_ends_m'][1]-plaza['x_ends_m'][0])/plaza['joint_pitch_m'])
-        for i in range(count):
-            a=plaza['x_ends_m'][0]+i*plaza['joint_pitch_m'];b=min(plaza['x_ends_m'][1],a+plaza['joint_pitch_m'])
-            box(f'Curb_{side}_{i}','paving',(a+.002,curb_y[0],-.18),(b-.002,curb_y[1],0),'curb',.003)
+                p=rectangle([a+joint/2,b+joint/2,c-joint/2,d-joint/2])
+                for j,q in enumerate(cut(p,street_shape['road'])):
+                    paving_polygon(f'Plaza_{side}_{i}_{j}',q,bottom,plaza['surface_top_m'])
+        # The continuous street family owns the curb courses and curved
+        # intersection returns. Retain this family's public slabs and piers.
 
 # Each LOD is a replacement body, sharing a material/chunk ABI. Local origins
 # keep exported floats and metre charts bounded; closed source stocks remain.
@@ -290,7 +297,7 @@ proof1=validate_export(low_path)
 assert proof1['triangles']<proof0['triangles']
 def sha(p):
     raw=p.read_bytes();return hashlib.sha256(raw if p.suffix in ['.blend','.glb','.png'] else raw.replace(b'\r\n',b'\n')).hexdigest()
-bindings=[PLAN,Path(__file__),ROOT/'game/data/runtime_material_sets.json',ROOT/'art/blender/city_transport.blend']+[ROOT/'art/blender/scripts'/n for n in ['fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']]
+bindings=[PLAN,Path(__file__),street_plan_path,ROOT/'art/blender/scripts/city_street_geometry.py',ROOT/'game/data/orison_v2/exterior/street_traffic.json',ROOT/'game/data/orison_v2/exterior/street_frame.json',ROOT/'game/data/runtime_material_sets.json',ROOT/'art/blender/city_transport.blend']+[ROOT/'art/blender/scripts'/n for n in ['fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']]
 report=dict(evidence_class='INERT',scope=plan['scope'],source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in bindings},asset_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in [ROOT/'game/assets/props/city_transport.glb',low_path]},exports=[proof0,proof1],stocks=records,contacts=contacts,stair_routes=stair_routes,platform_voids={str(k):v for k,v in holes.items()},failures=[])
 for p in ['art/blender/city_transport_construction.json','game/tests/fixtures/orison_city_transport.json']:(ROOT/p).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 runtime=dict(schema=1,finishes=[dict(alias=k,**v) for k,v in finishes.items()],lod_error_m=s['lod_error_m'],parts=[o.name for o in exports[0].objects])

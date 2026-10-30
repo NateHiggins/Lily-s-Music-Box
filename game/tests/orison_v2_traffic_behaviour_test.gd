@@ -9,6 +9,12 @@ const DT := 1.0 / 60.0
 var failures := 0
 var checks := 0
 
+class ContactProbe:
+	extends Node3D
+	var impulses: Array[Vector3] = []
+	func stagger(impulse: Vector3) -> void:
+		impulses.append(impulse)
+
 
 func _ready() -> void:
 	_run.call_deferred()
@@ -40,7 +46,7 @@ func _kind(traffic: OrisonV2StreetTraffic, id: String) -> Dictionary:
 
 
 func _run() -> void:
-	var person := Node3D.new()
+	var person := ContactProbe.new()
 	add_child(person)
 	person.position = Vector3(0, 0, -50)
 	var traffic := _fresh(person)
@@ -241,5 +247,41 @@ func _run() -> void:
 			junctions[signf(float(c.x))] = true
 	check(most >= 3 and headings.size() == 2 and junctions.size() == 2,
 			"both cross streets carry traffic both ways (up to %d at once)" % most)
+	_height_contacts(traffic, person, model_a, lane_east)
+	var directory := OS.get_environment("SHOT_DIR")
+	if not directory.is_empty():
+		DirAccess.make_dir_recursive_absolute(directory)
+		var sources := {}
+		for path: String in ["res://tests/orison_v2_traffic_behaviour_test.gd", "res://scripts/building/orison_v2_street_traffic.gd", "res://scripts/building/orison_v2_city_streets.gd", "res://data/orison_v2/exterior/street_traffic.json", "res://data/orison_v2/exterior/city_streets.json"]:
+			sources[path] = FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text()
+		FileAccess.open(directory.path_join("traffic_behaviour.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":"Isolated real traffic-owner simulation; ground/elevated contact controls. No composed-world, visual, save or artistic acceptance.", "checks":checks, "failures":failures, "source_hashes":sources}, "\t"))
 	print("TRAFFIC BEHAVIOUR: %d checks, %d failures" % [checks, failures])
 	get_tree().quit(0 if failures == 0 else 1)
+
+
+func _height_contacts(traffic: OrisonV2StreetTraffic, person: ContactProbe, kind: Dictionary, lane: float) -> void:
+	var original_transform := traffic.transform
+	# Repeat in a translated/rotated owner: the street's local frame matters.
+	for transformed in [false, true]:
+		traffic.transform = Transform3D(Basis(Vector3.UP, .5), Vector3(17, 2, -31)) if transformed else original_transform
+		# Independent authored street anchors, not the production height helper.
+		for datum: Vector2 in [Vector2(0, 0), Vector2(-55, -.4305)]:
+			for height: float in [-.1, 0., 6.2, 11.38, -3.]:
+				var ground := height in [-.1, 0.]
+				traffic.stage([{"id":"model_a_tudor", "lane_west":false, "x":datum.x-float(kind.extent[1])-3., "speed":8.}])
+				var vehicle: Dictionary = traffic._live[0]
+				person.global_position = traffic.to_global(Vector3(datum.x, datum.y+height, lane))
+				var front := float(vehicle.p)+float(kind.extent[1])
+				var ahead := traffic._person_ahead(vehicle, kind, front)
+				check(absf(ahead-2.65)<.001 if ground else is_inf(ahead), "height-aware yielding retains ground person and ignores separated level %s/%s/%s" % [transformed, datum.x, height])
+				traffic.stage([{"id":"model_a_tudor", "lane_west":false, "x":datum.x, "speed":8.}])
+				traffic._shove_cooldown = 0.
+				person.impulses.clear()
+				traffic._check_shove()
+				check(person.impulses.size()==(1 if ground else 0), "height-aware shove retains ground challenge and ignores separated level %s/%s/%s" % [transformed, datum.x, height])
+				if ground:
+					check(person.impulses[0].is_equal_approx(traffic.global_transform.basis*Vector3(3.4,0,0)), "ground shove keeps its original impulse")
+					traffic._check_shove()
+					check(person.impulses.size()==1, "ground shove keeps its cooldown")
+	traffic.transform = original_transform
+	person.position = Vector3(0,0,-50)

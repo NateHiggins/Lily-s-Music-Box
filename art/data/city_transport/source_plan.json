@@ -131,7 +131,7 @@
       9.8
     ],
     "surface_top_m": 0.0,
-    "slab_bottom_m": -0.22,
+    "slab_bottom_m": -0.3,
     "joint_pitch_m": 2.0,
     "joint_m": 0.004,
     "south_y_ends_m": [
@@ -142,6 +142,7 @@
   "finishes": {
     "structure": {
       "catalog_key": "iron_neutral",
+      "metallic": 0.0,
       "tint": [
         0.3,
         0.34,
@@ -153,7 +154,8 @@
       "pigment": 1.0
     },
     "rail": {
-      "catalog_key": "metal",
+      "catalog_key": "iron_neutral",
+      "metallic": 1.0,
       "tint": [
         0.67,
         0.65,
@@ -201,7 +203,7 @@
       "pigment": 1.0
     },
     "sleeper": {
-      "catalog_key": "wood_dark",
+      "catalog_key": "timber",
       "tint": [
         0.42,
         0.37,

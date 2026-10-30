@@ -3287,3 +3287,28 @@ game/tests/v2_city_transport_bench.gd -text
 game/tests/V2CityTransportBench.tscn -text
 game/tests/v2_city_transport_route.gd -text
 game/tests/V2CityTransportRoute.tscn -text
+
+# Continuous native street and fitted station crossing.
+art/data/city_streets/source_plan.json -text
+art/blender/scripts/city_street_geometry.py -text
+art/blender/scripts/build_city_streets.py -text
+art/blender/scripts/review_city_streets.py -text
+art/blender/city_streets.blend -text
+art/blender/city_streets_construction.json -text
+game/assets/props/city_streets.glb -text
+game/assets/props/city_streets_lod1.glb -text
+game/data/orison_v2/exterior/city_streets.json -text
+game/tests/fixtures/orison_city_streets.json -text
+game/scripts/building/orison_v2_city_streets.gd -text
+
+# Immutable city street diagnostic bytes and archive integrity manifest.
+art/reviews/city_streets_20261029/diagnostics.zip -text
+art/reviews/city_streets_20261029/exterior_qualification.zip -text
+art/reviews/city_streets_20261029/manifest.json -text
+art/reviews/city_streets_20261029/traffic_height_qualification.zip -text
+game/tests/orison_v2_traffic_behaviour_test.gd -text
+game/scripts/building/orison_v2_street_traffic.gd -text
+game/tests/orison_v2_roof_bulkhead_caps_test.gd -text
+tools/tests/test_city_ground_apron.py -text
+tools/tests/test_v2_surface_requirements.py -text
+game/data/orison_v2/exterior/city_ground_relief.json -text

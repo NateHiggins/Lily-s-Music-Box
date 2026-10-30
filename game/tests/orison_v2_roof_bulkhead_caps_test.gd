@@ -98,14 +98,16 @@ func _run() -> void:
 # A source partition may contain only its upper quad and one real aperture
 # edge. Inspect complete indexed native triangles rather than requiring the
 # closed-duct helper's nine-vertex minimum. All UV/basis/derivative checks stay.
-func _check_cap_mapping(mesh: Mesh, check_derivatives: bool=false) -> void:
+func _check_cap_mapping(mesh: Mesh, check_derivatives: bool=false, triangle_surfaces: bool=false) -> void:
 	for surface in mesh.get_surface_count():
 		var arrays:=mesh.surface_get_arrays(surface)
 		var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
 		var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
 		var uv: PackedVector2Array=arrays[Mesh.ARRAY_TEX_UV]
 		var tangents: PackedFloat32Array=arrays[Mesh.ARRAY_TANGENT]
-		check(vertices.size()>=4 and normals.size()==vertices.size() and uv.size()==vertices.size() and tangents.size()==vertices.size()*4,"planar quad has active UV, normal and tangent on every imported vertex")
+		# Clipped terrain partitions may be a single real triangle. Roof-cap
+		# callers retain the quad minimum unless they explicitly opt in.
+		check(vertices.size()>=(3 if triangle_surfaces else 4) and normals.size()==vertices.size() and uv.size()==vertices.size() and tangents.size()==vertices.size()*4,"planar surface has active UV, normal and tangent on every imported vertex")
 		var valid:=true
 		for i in vertices.size():
 			valid=valid and vertices[i].is_finite() and uv[i].is_finite() and absf(normals[i].length()-1)<.001
@@ -114,7 +116,7 @@ func _check_cap_mapping(mesh: Mesh, check_derivatives: bool=false) -> void:
 				valid=valid and tangent.is_finite() and absf(tangent.length()-1)<.001 and absf(tangent.dot(normals[i]))<.001 and absf(absf(tangents[i*4+3])-1)<.001
 		check(valid,"finite unit normals and orthogonal tangent handedness")
 		var indices: PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
-		check(indices.size()>=6 and indices.size()%3==0,"planar surface has complete native indexed triangles")
+		check(indices.size()>=(3 if triangle_surfaces else 6) and indices.size()%3==0,"planar surface has complete native indexed triangles")
 		var mapped:=true
 		var widest:=0.0
 		var excess:=0.0

@@ -86,6 +86,7 @@ func _ready() -> void:
 	preload("res://scripts/building/orison_v2_city_tanks.gd").mount(self)
 	preload("res://scripts/building/orison_v2_city_beacons.gd").mount(self)
 	preload("res://scripts/building/orison_v2_city_transport.gd").mount(self)
+	preload("res://scripts/building/orison_v2_city_streets.gd").mount(self)
 
 func _process(delta: float) -> void:
 	_clock_elapsed+=delta

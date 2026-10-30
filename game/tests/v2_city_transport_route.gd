@@ -5,6 +5,9 @@ var programme_before: Dictionary = {}
 var _exploration_samples: Array = []
 var _collect_exploration := false
 var _previous_exploration_usec := 0
+# Independent expected AU soil datums, in the registered building frame.
+# These are route assertions, not a runtime terrain/movement authority.
+const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[92.,-1.0055],[140.,-1.7255],[290.,-3.9755],[330.,-4.2],[365.,-4.6],[390.,-4.8],[395.,-8.],[500.,-8.]]
 
 func _ready() -> void:
 	super._ready()
@@ -24,6 +27,8 @@ func _programme_sources() -> Dictionary:
 		result[path] = FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text() if path.get_extension() in ["gd", "json"] else FileAccess.get_sha256(path)
 	for path: String in ["res://assets/props/construction_shed.glb","res://assets/props/city_ground_apron.glb","res://assets/props/city_horizon_near.glb","res://assets/props/city_horizon_far.glb"]:
 		result[path] = FileAccess.get_sha256(path)
+	for path: String in ["res://assets/props/city_streets.glb","res://assets/props/city_streets_lod1.glb","res://tests/fixtures/orison_city_streets.json"]:
+		result[path] = FileAccess.get_sha256(path)
 	return result
 
 func _run() -> void:
@@ -32,13 +37,15 @@ func _run() -> void:
 	await super._run()
 
 func _evidence_scope() -> String:
-	return "Production controller through open frontage, retained crossing/door hands, native scaffold, both station levels/islands and a wider street tour. Separate explicit airborne controller fixtures test the450m temporary radius and restored negative control; they are not continuous walking routes. No train service, sleep/bed event, save reconstruction, whole city or artistic acceptance."
+	return "Production controller through open frontage, retained crossing/door hands, native scaffold, both station levels/islands, both new street junctions/sidewalks and a wider street tour. Separate explicit airborne controller fixtures test the450m temporary radius and restored negative control; they are not continuous walking routes. No train service, sleep/bed event, save reconstruction, whole city or artistic acceptance."
 
 func _evidence_file() -> String:
 	return "city_exterior_contract.json"
 
 func _city_walk(point: Vector3) -> bool:
 	var city := world.get_node("CityShells") as Node3D
+	if is_zero_approx(point.z):
+		point.z = preload("res://scripts/building/orison_v2_city_streets.gd").surface_height(point.x)
 	print("CITY STATION WALK: source target ",point)
 	var reached := await _walk(world.adapter.root.to_local(city.to_global(GameBoot.b2g([point.x, point.y, point.z]))))
 	print("CITY STATION WALK: reached=",reached," actual world=",player.global_position)
@@ -79,6 +86,11 @@ func _route() -> void:
 		if not await _walk(point): return
 	if not await _open_front_entrance(): return
 	if not await _walk(Vector3(0,0,-12.2)): return
+	# Exercise the newly constructed block before the longer retained station
+	# and distant tours, so a new street obstruction fails without spending
+	# those unchanged route legs first.
+	await _street_block_tour()
+	if not failures.is_empty(): return
 	# Walk through the actual reopened scaffold, including the former closure.
 	for point: Vector3 in [Vector3(0,0,3),Vector3(14,0,3),Vector3(19.5,0,3),Vector3(24,0,3),Vector3(24,0,-4),Vector3(30,0,-4),Vector3(30,0,3)]:
 		if not await _walk(world.adapter.root.to_local(point)): return
@@ -139,6 +151,24 @@ func _route() -> void:
 func lane_from_route(route: Dictionary) -> float:
 	return float(route.to_m[1]) - float(route.from_m[1])
 
+func _street_block_tour() -> void:
+	var start := trace.size()
+	var recoveries_before := world.safety_net.recoveries
+	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
+	for point: Vector3 in [Vector3(0,-13,0),Vector3(-55,-13,0),Vector3(-76,-13,0),Vector3(-75.4,24,0),Vector3(-63.8,24,0),Vector3(-63.8,-13,0),Vector3(-55,-13,0),Vector3(0,-13,0),Vector3(40,-13,0),Vector3(64.3,-13,0),Vector3(64.3,24,0),Vector3(74.6,24,0),Vector3(74.6,8,0),Vector3(80,8,0),Vector3(80,-13,0),Vector3(110,-13,0),Vector3(110,-26.5,0),Vector3(80,-26.5,0),Vector3(68.8,-35,0),Vector3(64.3,-35,0),Vector3(64.3,-26.5,0),Vector3(40,-26.5,0),Vector3(20,-26.5,0),Vector3(20,-24.5,0),Vector3(-2,-24.5,0),Vector3(-2,-26.5,0),Vector3(-40,-26.5,0),Vector3(-70,-26.5,0),Vector3(-70,-35,0),Vector3(-75.4,-35,0),Vector3(-75.4,-26.5,0),Vector3(-85,-26.5,0),Vector3(-85,-13,0),Vector3(-55,-13,0),Vector3(0,-13,0)]:
+		_previous_exploration_usec = 0
+		_collect_exploration = true
+		var reached := await _city_walk(point)
+		_collect_exploration = false
+		if not reached: break
+		if point == Vector3(-76,-13,0): await _station_view("street_west_junction",Vector3(-68,-22,1))
+		if point == Vector3(64.3,24,0): await _station_view("street_east_narrow_walk",Vector3(66,-13,1))
+		if point == Vector3(80,-26.5,0): await _station_view("street_pier_islands",Vector3(73,-27.45,1))
+	check(world.safety_net.recoveries == recoveries_before,"new street block walking uses actual floors without rescue")
+	city_observations["street_block"] = {"waypoints":trace.size()-start,"samples":_exploration_samples.duplicate(),"scope":"Actual controller through both junctions, north/south street walks, both cross-street ends and east1.62m pinch; unchanged live traffic. Captures excluded from timings. No matched before/after speed claim."}
+	_exploration_samples.clear()
+	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),false)
+
 func _wide_street_tour() -> void:
 	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
 	var start := trace.size()
@@ -149,7 +179,9 @@ func _wide_street_tour() -> void:
 		_previous_exploration_usec = 0
 		_collect_exploration = true
 		print("CITY EXTERIOR TOUR: target ",point)
-		var reached := await _walk(world.adapter.root.to_local(point))
+		var local_target: Vector3 = world.adapter.root.to_local(point)
+		local_target.y = _expected_western_soil_height(local_target.x)
+		var reached := await _walk(local_target)
 		_collect_exploration = false
 		if not reached: break
 		if point.x in [-280.,280.]:
@@ -160,6 +192,15 @@ func _wide_street_tour() -> void:
 	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),false)
 	check(world.safety_net.recoveries == recoveries_before,"wide real-floor walk is not limited by safety-net rescue")
 	city_observations["wider_street"] = {"waypoints":trace.size()-start,"columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives"],"samples":_exploration_samples,"scope":"Normal controller walking to280m east and west, using existing street gaps around physical blocks. Captures excluded; live NPC/traffic uncontrolled; counters are global and GPU timers cover the main viewport. No matched before/after speed claim."}
+
+func _expected_western_soil_height(x: float) -> float:
+	if x <= float(WESTERN_SOIL_PROFILE[0][0]): return -.02
+	for i in WESTERN_SOIL_PROFILE.size()-1:
+		var a: Array = WESTERN_SOIL_PROFILE[i]
+		var b: Array = WESTERN_SOIL_PROFILE[i+1]
+		if x <= float(b[0]):
+			return lerpf(float(a[1]),float(b[1]),(x-float(a[0]))/(float(b[0])-float(a[0])))
+	return float(WESTERN_SOIL_PROFILE[-1][1])
 
 func _radius_controller_fixtures() -> void:
 	var boundary := world.get_node("StreetBoundaries") as Node3D

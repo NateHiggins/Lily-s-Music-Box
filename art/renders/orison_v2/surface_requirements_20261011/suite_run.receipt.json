@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 982.26,
+  "elapsed_s": 843.01,
   "exit_code": 0,
-  "finished_utc": "2026-10-29T20:28:29Z",
-  "started_utc": "2026-10-29T20:12:06Z",
+  "finished_utc": "2026-10-30T06:01:01Z",
+  "started_utc": "2026-10-30T05:46:58Z",
   "timed_out": false
  },
  "log": {
@@ -13,52 +13,52 @@
   "fail_lines": [],
   "pass_count": 1,
   "pass_lines": [
-   "V2 SURFACE QUALIFICATION: PASS; 42550 checks; 0 failures"
+   "V2 SURFACE QUALIFICATION: PASS; 42667 checks; 0 failures"
   ],
   "script_error_count": 0,
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/city_transport_20261029/surface_final_03.log.stderr",
+  "stderr": "C:/ov/reports/city_streets_20261029/full_surface_03.log.stderr",
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "stdout": "C:/ov/reports/city_transport_20261029/surface_final_03.log",
-  "stdout_sha256": "18b02e3322a93bde16cd68ea4d369b62a43989415513ead9509f1431e51c4636"
+  "stdout": "C:/ov/reports/city_streets_20261029/full_surface_03.log",
+  "stdout_sha256": "ce49883e9780c41436f0f1746979e86654b3145b8e23b0704c953f8d15f79764"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/city_transport_20261029/surface_final_03",
+ "shot_dir": "C:\\ov\\reports\\city_streets_20261029\\full_surface_03",
  "source": {
-  "dirty_paths": 2313,
+  "dirty_paths": 87,
   "dirty_sample": [
-   "M art/blender/city_foundations.blend",
+   "MM .gitattributes",
+   " M art/blender/city_elevations.blend",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/city_foundations.blend",
    " M art/blender/city_foundations_construction.json",
-   " M art/blender/city_frontage.blend",
-   " M art/blender/city_frontage_construction.json",
    " M art/blender/city_ground_apron.blend",
    " M art/blender/city_ground_apron_construction.json",
    " M art/blender/city_horizon_construction.json",
    " M art/blender/city_horizon_far.blend",
    " M art/blender/city_horizon_near.blend",
-   " M art/blender/front_pavement_construction.json",
+   "AM art/blender/city_streets.blend",
+   "AM art/blender/city_streets_construction.json",
+   "MM art/blender/city_transport.blend",
+   "MM art/blender/city_transport_construction.json",
    " M art/blender/orison_ground.blend",
    " M art/blender/orison_ground_construction.json",
-   " M art/blender/scripts/inspect_front_pavement.py",
-   " M art/blender/street_paving_details.blend",
-   " M art/blender/street_paving_details_construction.json",
-   " M art/data/orison_ground/discovery/native_sources.json",
-   " M art/data/orison_ground/retained_grade_source.json",
-   " M design/V2_CITY_CONTEXT_REPORT_2026-10-19.md",
-   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
-   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import"
+   " M art/blender/scripts/build_city_horizon.py",
+   "AM art/blender/scripts/build_city_streets.py",
+   "M  art/blender/scripts/build_city_transport.py",
+   " M art/blender/scripts/build_orison_ground.py"
   ],
-  "repository_head": "2345975ca403457a9cd66db201a1a8de71e5c583",
-  "repository_tree": "0f3c681cb78c6b1e20e924683367ddc16b094c4e",
-  "runtime_inputs_sha256": "c0965c4726903e59895bfc080e659d8f3f95d47174121b3af8c05c99668b01dc",
+  "repository_head": "f734a173610df6fabc439e43d8bedb425c50d934",
+  "repository_tree": "08a238ece82952a3c4a582a8837ff11e1cc65e8d",
+  "runtime_inputs_sha256": "8e67e10232e459d2cfd2a70c5a2db1f9376ea4c1ef36bdeb2d5cf3062cf2ecb2",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
-  "test_sha256": "0f023cab4cd9823e532765894e7b0dbdc1196cd026c6fcb8b49b55726e21e9bf"
+  "test_sha256": "8450a458e4c4852261b70249452b587b71d5109112764a021262c5c4ca64bcdb"
  },
  "windowed": true
 }

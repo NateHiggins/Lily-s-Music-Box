@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "grade_profile_m": [
+    [
+      -92.0,
+      -0.9855
+    ],
+    [
+      -32.3,
+      -0.09
+    ],
+    [
+      -28.3,
+      -0.04
+    ],
+    [
+      -24.3,
+      -0.01
+    ],
+    [
+      -20.3,
+      0.0
+    ],
+    [
+      115.0,
+      0.0
+    ]
+  ],
+  "finishes": [
+    {
+      "alias": "road",
+      "catalog_key": "asphalt",
+      "tint": [
+        0.73,
+        0.72,
+        0.68,
+        1
+      ],
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    {
+      "alias": "walk",
+      "catalog_key": "concrete",
+      "tint": [
+        0.65,
+        0.63,
+        0.56,
+        1
+      ],
+      "normal": 0.45,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    {
+      "alias": "curb",
+      "catalog_key": "limestone",
+      "tint": [
+        0.72,
+        0.7,
+        0.63,
+        1
+      ],
+      "normal": 0.25,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    {
+      "alias": "cap",
+      "catalog_key": "concrete",
+      "tint": [
+        0.92,
+        0.9,
+        0.84,
+        1
+      ],
+      "normal": 0.17,
+      "roughness": 0.93,
+      "pigment": 1.0
+    }
+  ],
+  "lod_error_m": 0.025,
+  "parts": [
+    "Street_1_L0__road",
+    "Street_2_L0__road",
+    "Street_3_L0__road",
+    "Street_4_L0__road",
+    "Street_5_L0__road",
+    "Street_6_L0__road",
+    "Street_7_L0__road",
+    "Street_-6_L0__road",
+    "Street_-5_L0__road",
+    "Street_-4_L0__road",
+    "Street_-3_L0__road",
+    "Street_-2_L0__road",
+    "Street_-6_L0__walk",
+    "Street_-5_L0__walk",
+    "Street_-4_L0__walk",
+    "Street_-3_L0__walk",
+    "Street_-2_L0__walk",
+    "Street_-1_L0__walk",
+    "Street_0_L0__walk",
+    "Street_1_L0__walk",
+    "Street_6_L0__walk",
+    "Street_7_L0__walk",
+    "Street_3_L0__walk",
+    "Street_4_L0__walk",
+    "Street_-5_L0__curb",
+    "Street_-4_L0__curb",
+    "Street_3_L0__curb",
+    "Street_4_L0__curb",
+    "Street_-6_L0__curb",
+    "Street_-3_L0__curb",
+    "Street_-2_L0__curb",
+    "Street_1_L0__curb",
+    "Street_2_L0__curb",
+    "Street_5_L0__curb",
+    "Street_6_L0__curb",
+    "Street_7_L0__curb",
+    "Street_-5_L0__cap",
+    "Street_-4_L0__cap",
+    "Street_3_L0__cap",
+    "Street_4_L0__cap",
+    "Street_-6_L0__cap",
+    "Street_-3_L0__cap",
+    "Street_-2_L0__cap",
+    "Street_1_L0__cap",
+    "Street_2_L0__cap",
+    "Street_5_L0__cap",
+    "Street_6_L0__cap",
+    "Street_7_L0__cap"
+  ]
+}

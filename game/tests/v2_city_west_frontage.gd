@@ -145,12 +145,18 @@ func _route() -> void:
 	city_observations["foundation_probes"] = base_observations
 	var ground: Node3D = world.adapter.root.get_node("Ground")
 	var grade_samples: Array = []
-	for source: Vector2 in [Vector2(-20.6,-10),Vector2(-26.5,-10),Vector2(-35.2,-10),Vector2(-45.25,-10),Vector2(-56.25,-10),Vector2(-21,20),Vector2(-93,-1)]:
-		var point := city.to_global(Vector3(source.x,0,-source.y))
+	# Keep the original rays at y=-10: they lie in the authored 4 mm slab
+	# joints and must hit the soil 2 cm below the walk, not invented concrete.
+	# Adjacent field rays separately require the real full-height sidewalk.
+	for source: Vector2 in [Vector2(-20.6,-10),Vector2(-26.5,-10),Vector2(-35.2,-10),Vector2(-45.25,-10),Vector2(-56.25,-10),Vector2(-20.6,-10.1),Vector2(-26.5,-10.1),Vector2(-35.2,-10.1),Vector2(-45.25,-10.1),Vector2(-56.25,-10.1),Vector2(-21,20),Vector2(-93,-1)]:
+		var public_walk := source.y < -10.
+		var expected_owner: Node = city.get_node("ContinuousStreetBlock") if public_walk else ground
+		var expected_height := preload("res://scripts/building/orison_v2_city_streets.gd").surface_height(source.x)+(0. if public_walk else -.02)
+		var point := city.to_global(Vector3(source.x,expected_height,-source.y))
 		var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+Vector3.UP*.3,point-Vector3.UP*.3,1,[player.get_rid()]))
-		var valid := not hit.is_empty() and ground.is_ancestor_of(hit.collider) and absf(hit.position.y+.02)<.0001
-		check(valid, "vacated site has rebuilt grade, not a stale excavation: "+str(source))
-		grade_samples.append({"source":str(source),"height":hit.position.y if not hit.is_empty() else null,"owner":str(hit.collider.get_path()) if not hit.is_empty() else ""})
+		var valid := not hit.is_empty() and expected_owner.is_ancestor_of(hit.collider) and absf(hit.position.y-point.y)<.0001
+		check(valid, "vacated site has its actual sidewalk field, open joint or retained grade: "+str(source))
+		grade_samples.append({"source":str(source),"role":"sidewalk_field" if public_walk else ("open_slab_joint" if source.y == -10. else "retained_grade"),"height":hit.position.y if not hit.is_empty() else null,"expected_world_height":point.y,"owner":str(hit.collider.get_path()) if not hit.is_empty() else ""})
 	city_observations["vacated_grade"] = grade_samples
 	await _paired_view_cost(city)
 	var directory := OS.get_environment("SHOT_DIR")

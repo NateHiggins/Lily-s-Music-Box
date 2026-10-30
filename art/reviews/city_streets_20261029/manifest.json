@@ -1,0 +1,2387 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Terminal native/import/research diagnostics only. Failures, old-grid controls and obsolete attempts remain diagnostic; no full-city, runtime_contract or artistic acceptance grant.",
+  "baseline_repository_head": "f734a173610df6fabc439e43d8bedb425c50d934",
+  "archive_sha256": "70f6d29d7e8c2969f3b9214599658829139a4697ca3f12c612e901a719ab83ae",
+  "members": {
+    "native_construction/build_06.log": {
+      "bytes": 10538,
+      "raw_sha256": "f673365aa58d460e70845e489a97937679ea97e8a5aa22202cf5255a452cf04f"
+    },
+    "native_construction/build_07.log": {
+      "bytes": 10145,
+      "raw_sha256": "bf9fe3098620a23fe5357315362b19b5ccfcc189d707fc90d97002ad2dc7215b"
+    },
+    "native_construction/build_08.log": {
+      "bytes": 10146,
+      "raw_sha256": "8517880026377cc44a65e723e0e2fca51890e8a7b6d26d3f9dce2fef6147af88"
+    },
+    "native_construction/executed_native_review_01.py": {
+      "bytes": 8469,
+      "raw_sha256": "d2e856d83c42fca6fcc76160704b33ec4213687a828b15cabd61fee7647ca214",
+      "lf_sha256": "d2e856d83c42fca6fcc76160704b33ec4213687a828b15cabd61fee7647ca214"
+    },
+    "native_construction/executed_native_review_02.py": {
+      "bytes": 8469,
+      "raw_sha256": "d2e856d83c42fca6fcc76160704b33ec4213687a828b15cabd61fee7647ca214",
+      "lf_sha256": "d2e856d83c42fca6fcc76160704b33ec4213687a828b15cabd61fee7647ca214"
+    },
+    "native_construction/native_build_01.log": {
+      "bytes": 5448,
+      "raw_sha256": "2231a874a88c26d71812247805bc3b928ae46e398f5b8bfe4155ae8a19366fce"
+    },
+    "native_construction/native_build_02.log": {
+      "bytes": 5841,
+      "raw_sha256": "d3ada3ab2bfd862cb2abc0d6de1aea2036262d40b8b0c8e8b9c8cf848714272d"
+    },
+    "native_construction/native_build_03.log": {
+      "bytes": 5841,
+      "raw_sha256": "e3434d5cc8bd0e1788b2078b9b693e26492a9b4d5ce254faab58807f01457111"
+    },
+    "native_construction/native_build_04.log": {
+      "bytes": 7808,
+      "raw_sha256": "a9aa2fbc0f4ede44e1b15e736f44c8d402eebd4e6483c37ec9d5932d0cce6c33"
+    },
+    "native_construction/native_failed_01_sources.zip": {
+      "bytes": 1153281,
+      "raw_sha256": "045abd4f7bf6ea04e65202d9b733a6cf3573bfcb5aa039530fd63dfdbd0f5201"
+    },
+    "native_construction/native_failed_06_sources.zip": {
+      "bytes": 1894010,
+      "raw_sha256": "1a7b898820c7db9e2dafbe50db0139133bc9aae5538331ddc8f78b444392617a"
+    },
+    "native_construction/native_review_01.log": {
+      "bytes": 2298,
+      "raw_sha256": "7b2ac4e834038f414b22e90bc5db988d172f66d1cdd8e4ee979b4709f33a269f"
+    },
+    "native_construction/native_review_01/native_geometry_checks.json": {
+      "bytes": 398331,
+      "raw_sha256": "e55e504efdeb6b97a0a34678f05042b3f8f403b9055a4ad40b6c3ed3236d879a",
+      "lf_sha256": "a1c759d836b47178fe008da7db065415ff07f0c5593cc0bde6e96537c7c3fbeb"
+    },
+    "native_construction/native_review_02.log": {
+      "bytes": 2222,
+      "raw_sha256": "7d958eeb2d0b3cafc25a41053ee2d761d89f466ca71cb04918f8e58cdbcb1984"
+    },
+    "native_construction/native_review_02/native_geometry_checks.json": {
+      "bytes": 384071,
+      "raw_sha256": "654539f096eac9180bf6fb8dbb565bb7e75b382ca6b2cd22358d9830eff6ed40",
+      "lf_sha256": "62081f65b265eb4b110925eb46dc2bca45f352a42615c7594347a66be955bcc2"
+    },
+    "native_construction/native_review_03.log": {
+      "bytes": 1155,
+      "raw_sha256": "ebfbe4cb03c08bccb3b2fe5c0a9a1005843b8b47175706824b83b5b7853201db"
+    },
+    "native_construction/native_review_03/native_geometry_checks.json": {
+      "bytes": 357040,
+      "raw_sha256": "5c400f64e1fb1e295318a02aa31ecc74b1aafc4078cde19ad809d6ec9871fe1c",
+      "lf_sha256": "9c2db428f990d910afa324d36a0167a654ac45a189725e37f19a907a2d2097a2"
+    },
+    "native_construction/native_review_03/native_review.json": {
+      "bytes": 1453,
+      "raw_sha256": "72e0caee7df100cfedc37b91b2b76354c70b4f570aaebb1c47908a971e5c6ea6",
+      "lf_sha256": "871a31978ce25f4869de4a5c7f2016272215c336f4e6a2ccbc0b4ed1fc66b92c"
+    },
+    "native_construction/native_review_04.log": {
+      "bytes": 1155,
+      "raw_sha256": "bdf47763cd61cc8155b1f1e50afc339b55d3069a6e8d3ee8a77a3fc0cd9774ac"
+    },
+    "native_construction/native_review_04/native_geometry_checks.json": {
+      "bytes": 375027,
+      "raw_sha256": "341afb60224115221c95f998bb80f6ea95ba06dfa2c6a2904ab78376ca2da5d6",
+      "lf_sha256": "65efb86429ca7428e50ad4d2d0096c6a9dde9b93836c88abf564fdf6f30c6148"
+    },
+    "native_construction/native_review_04/native_review.json": {
+      "bytes": 1453,
+      "raw_sha256": "da52fe81b9db6cd1f1679688688ea496f11040e66e81c157ae427c4a3b12fb91",
+      "lf_sha256": "c91d61854b5f27b3b25b0be3356f1633dffca7570127820cd7bffbd67f07f73b"
+    },
+    "native_construction/native_review_05.log": {
+      "bytes": 1387,
+      "raw_sha256": "9513c720fdab8a1f3ab0c583d8d588eb3bec804f340ad3c7f520e3e468e6d7f5"
+    },
+    "native_construction/native_review_05/native_geometry_checks.json": {
+      "bytes": 375027,
+      "raw_sha256": "53cbd3186a8fc33f37e18052a9ad986a3abfbe8123339e2f88bdf354d720355b",
+      "lf_sha256": "0dd4ab61710726194c7ef5d2ffdea1b66503a1a48bf9b64c1d321e62d2422877"
+    },
+    "native_construction/native_review_05/native_review.json": {
+      "bytes": 1532,
+      "raw_sha256": "f0e536707e3fe42d5fd0cbb6a67c88ab0cee4eb93b776f8a4d851f571421ce78",
+      "lf_sha256": "d9f564579f389e0495f69dca0a897ad4f35ca52c1439eae7b6497e23d6d478ce"
+    },
+    "native_construction/native_review_06.log": {
+      "bytes": 2309,
+      "raw_sha256": "c46b5292f311e87df64fbfd7ca06cc2af1687d46f8c64c0dd8739d263e685c11"
+    },
+    "native_construction/native_review_06/native_geometry_checks.json": {
+      "bytes": 724276,
+      "raw_sha256": "52840ec5f19cc6b91b76cd7c58b2eb663036580b7b6c6605b0e6633a6281cbfe",
+      "lf_sha256": "d313375a80154d04c4add37cf2259cc2063fb23adbd52c8d7cf4351aa1cdb5c8"
+    },
+    "native_construction/native_review_07.log": {
+      "bytes": 1388,
+      "raw_sha256": "8b2276f9f2ab8efabf30b9d5235e29a135a0cd5f312513f9d24cc79ebcef5400"
+    },
+    "native_construction/native_review_07/native_geometry_checks.json": {
+      "bytes": 632175,
+      "raw_sha256": "479938d792e8277d3e4686ff46aadcf9aea6d14b1a48972cb9e2d02886427401",
+      "lf_sha256": "90a770eb9dd76f8678f9f9e41ce5c824d32795af8561d27dcfde365f4a9e62d5"
+    },
+    "native_construction/native_review_07/native_review.json": {
+      "bytes": 1532,
+      "raw_sha256": "83442b88a9c3ba84b8b5be3905d63490873028d72265cc3be54db684b71e586b",
+      "lf_sha256": "36529c2b5892ace9a00a75ce998711df5ad62fa32c03acae6fa29c5bc8603157"
+    },
+    "native_construction/native_review_08.log": {
+      "bytes": 1388,
+      "raw_sha256": "e8ba16bf26736f460867c36d1fba7ff2f9decf8694c2b40d15c547cbf2d9bd07"
+    },
+    "native_construction/native_review_08/block_overview.png": {
+      "bytes": 2026188,
+      "raw_sha256": "e38e0b26c5777371106e5a8c9ae48e2d09627fccee681a82d897f79e185d601e"
+    },
+    "native_construction/native_review_08/curb_grazing.png": {
+      "bytes": 1774438,
+      "raw_sha256": "2fc5c372967c808178f18767f92f316c758dfd3b90611ec356057b40986f7584"
+    },
+    "native_construction/native_review_08/east_intersection.png": {
+      "bytes": 2033243,
+      "raw_sha256": "43f6b86838d27d2c921e8f5997cb333289601ab8381b8c376ebc5dfe38bf96c6"
+    },
+    "native_construction/native_review_08/east_north_walk.png": {
+      "bytes": 1941083,
+      "raw_sha256": "6ddf40d47487d74fff864512cd2a50e2086b64b7ca8306f815858661697e8453"
+    },
+    "native_construction/native_review_08/native_geometry_checks.json": {
+      "bytes": 809900,
+      "raw_sha256": "a820ed8c80752c26afc6c3f8d0dc763a1b456675bfd6dbf6cf04529ebcd9d987",
+      "lf_sha256": "60169a14e1daa401f402d60a824b02ee92a491d6b0e85f6ce4022b4f07e93848"
+    },
+    "native_construction/native_review_08/native_review.json": {
+      "bytes": 1532,
+      "raw_sha256": "a669d677ea3b6a6c8c9663c618e4f9a09498b314bdcf1a28f5faede19ad1a845",
+      "lf_sha256": "26d006ec0b918691b2b2bd2db1aafe4ab3bf76babea3f5f33414a791a7d8fb74"
+    },
+    "native_construction/native_review_08/replacement_curb.png": {
+      "bytes": 1772097,
+      "raw_sha256": "c077b1b305f71d6238bc9dc3138787a1d42e69a89880fd8acd25c7079156d62e"
+    },
+    "native_construction/native_review_08/replacement_overview.png": {
+      "bytes": 2026626,
+      "raw_sha256": "2d229495f73196499a4575fb7ddc56d039c92ba2dc6301b84241d7e5ff448f56"
+    },
+    "native_construction/native_review_08/west_corner.png": {
+      "bytes": 2038648,
+      "raw_sha256": "3201f628a8296c73e901f87895c3d82109014c322380b04f2f5e7fdd82341490"
+    },
+    "native_construction/station_geometry_01.log": {
+      "bytes": 225,
+      "raw_sha256": "561b4b0c4bbbf033e332333ea55b847cbaf77a6a7cb787baa389f57c2758679c"
+    },
+    "native_construction/station_geometry_02.log": {
+      "bytes": 225,
+      "raw_sha256": "052e509f91042756f0d8be328b1bfa4c04b14a14690bc8d04c83129c4960719b"
+    },
+    "native_construction/station_rebuild_01.log": {
+      "bytes": 6922,
+      "raw_sha256": "9862c0a82b883c6dbc157a68dfda92ba76fb9ae2d82893af7ae754eb9dfa4a3a"
+    },
+    "native_construction/station_rebuild_02.log": {
+      "bytes": 6920,
+      "raw_sha256": "de33d26e504c309325ebcf6c1323e89e2abe5a1b9c8405218f223a9404434420"
+    },
+    "native_construction/station_rebuild_03.log": {
+      "bytes": 6921,
+      "raw_sha256": "c57b3e9e9165c9a85c9918bd54fc684b0f94831824ff4161a9f1f48040d913e5"
+    },
+    "native_construction/transport_material_build_01.log": {
+      "bytes": 6921,
+      "raw_sha256": "811773bc811d7267f5958f8ec7fc893a414dbf2242205b9b595fc06848c48793"
+    },
+    "native_construction/transport_material_review_01.log": {
+      "bytes": 1546,
+      "raw_sha256": "8fffb3f19a5237c6d7b4a7e73bd20559dbd5fa64aa950765eea667bd4d901737"
+    },
+    "native_construction/transport_material_review_01/body_lod0.png": {
+      "bytes": 1583202,
+      "raw_sha256": "be508f1c224b11d38bf67bee4335b710a5dfa15e11fdbdfbff1e27422b11be56"
+    },
+    "native_construction/transport_material_review_01/body_lod1.png": {
+      "bytes": 1580919,
+      "raw_sha256": "4154e449e73fdb1bffc9ad3dc89627f483ec602bdafe8d088394bc594c3d2983"
+    },
+    "native_construction/transport_material_review_01/east_back.png": {
+      "bytes": 1580794,
+      "raw_sha256": "8819d4e34c1298fde72e5897968c40f1968ec16b725a9558b9fdd3fa974cea91"
+    },
+    "native_construction/transport_material_review_01/lower_platform.png": {
+      "bytes": 1671062,
+      "raw_sha256": "3b1e00c2e4b6ca75a855263db756f91037bfd988b20acd8200204f2dc9c41207"
+    },
+    "native_construction/transport_material_review_01/lower_well.png": {
+      "bytes": 1859410,
+      "raw_sha256": "dc4f64b879fd588c5836312a7997954317425886010c1c8ae616233627cd25ee"
+    },
+    "native_construction/transport_material_review_01/native_geometry_checks.json": {
+      "bytes": 2075977,
+      "raw_sha256": "7777ee18d7a6b01c85e4ef8751e9a4e9179abe16fe56d353bb37d1ac99fa300d",
+      "lf_sha256": "7777ee18d7a6b01c85e4ef8751e9a4e9179abe16fe56d353bb37d1ac99fa300d"
+    },
+    "native_construction/transport_material_review_01/native_review.json": {
+      "bytes": 2076931,
+      "raw_sha256": "af03666eb5ed14c095e1098832ac1888c2f268ab8123593863d7b3333095d52e",
+      "lf_sha256": "af03666eb5ed14c095e1098832ac1888c2f268ab8123593863d7b3333095d52e"
+    },
+    "native_construction/transport_material_review_01/public_stair.png": {
+      "bytes": 1905691,
+      "raw_sha256": "2ba194fb702487ab8c1c04a89873057d3acded773652a060ef32017719d213c8"
+    },
+    "native_construction/transport_material_review_01/roof_structure.png": {
+      "bytes": 1771855,
+      "raw_sha256": "2f8c28e4616d7c99c2e25da725f3b6b76b8fb316806cec4c4c5d58ccb4d79f78"
+    },
+    "native_construction/transport_material_review_01/upper_platform.png": {
+      "bytes": 1561424,
+      "raw_sha256": "567b1c650805bb0d0f5bdfaf831e14ff816eb4c5c8f0566d5887a24f1ba4cbcb"
+    },
+    "native_construction/transport_material_review_01/west_approach.png": {
+      "bytes": 1716422,
+      "raw_sha256": "11e28cc87b8891831c04a7edc44ce8929f1ded8a5732324fc1d79c554b63244d"
+    },
+    "street_import_failure_and_repair/bench_03.log": {
+      "bytes": 223,
+      "raw_sha256": "98552acc7a3605d7115015e594ec92d2224a821f89629d37dfa43f787c293045"
+    },
+    "street_import_failure_and_repair/bench_03.log.receipt.json": {
+      "bytes": 2696,
+      "raw_sha256": "d13b8f42b852644f8c1b5c095972b1a220ce60234cbbefc1e47458a707919928",
+      "lf_sha256": "d13b8f42b852644f8c1b5c095972b1a220ce60234cbbefc1e47458a707919928"
+    },
+    "street_import_failure_and_repair/bench_03.log.stderr": {
+      "bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "street_import_failure_and_repair/bench_04.log": {
+      "bytes": 22524,
+      "raw_sha256": "5f84ad4bddb8bee1581da526a54011c0b014f4e4e3a15d56f0bc2ae6cf42258d"
+    },
+    "street_import_failure_and_repair/bench_04.log.receipt.json": {
+      "bytes": 2591,
+      "raw_sha256": "5d86180572f42911bb83dea15ec6dfe753bc34e31fa0c57c6d21e9dec650b497",
+      "lf_sha256": "5d86180572f42911bb83dea15ec6dfe753bc34e31fa0c57c6d21e9dec650b497"
+    },
+    "street_import_failure_and_repair/bench_04.log.stderr": {
+      "bytes": 51561,
+      "raw_sha256": "17e1d95eee6a55717c0ead473780784530c846ea3a391d77f4fe9f06755428cb"
+    },
+    "street_import_failure_and_repair/bench_04/curb_grazing.png": {
+      "bytes": 3824734,
+      "raw_sha256": "24c003311f2567ca13ca0ab8205c9cde2bacaee73ef14362f755f26b209d4f9b"
+    },
+    "street_import_failure_and_repair/bench_04/east_crossing.png": {
+      "bytes": 3866632,
+      "raw_sha256": "4157ac142a427baf12540cdd968450877a44ef9f799222e4693c9f99dee9aeac"
+    },
+    "street_import_failure_and_repair/bench_04/forced_far.png": {
+      "bytes": 43445,
+      "raw_sha256": "1a63db130368d835caece8bf77aa3e8e49958afac4bd727d7a02d9ffa4c8064a"
+    },
+    "street_import_failure_and_repair/bench_04/forced_near.png": {
+      "bytes": 43845,
+      "raw_sha256": "5c471a1dbbd930c9dd48864c41c5e5436d2d87d1fa78f852cc52e3c0b3c7762c"
+    },
+    "street_import_failure_and_repair/bench_04/narrow.png": {
+      "bytes": 39353,
+      "raw_sha256": "18e1c639bb438baaa3b8fdd726b166774d376594448445e6a3a1ff905f5a2bca"
+    },
+    "street_import_failure_and_repair/bench_04/transport_bench.json": {
+      "bytes": 74472,
+      "raw_sha256": "3e16dcc68426fb7b6313af9e3b81a1ffecf62e159f05ab2fe00a6c657b080824",
+      "lf_sha256": "3e16dcc68426fb7b6313af9e3b81a1ffecf62e159f05ab2fe00a6c657b080824"
+    },
+    "street_import_failure_and_repair/bench_04/wide.png": {
+      "bytes": 17386,
+      "raw_sha256": "11440d4ecdf6aa45ffadccb1eb07389b7298f72a2949ac6393c695681474efe1"
+    },
+    "street_import_failure_and_repair/bench_05.log": {
+      "bytes": 19700,
+      "raw_sha256": "bfca77220e3b641e928f22d36dbc5ffbdaa5dc157ce0e9a6c4ef65e1b7aa614b"
+    },
+    "street_import_failure_and_repair/bench_05.log.receipt.json": {
+      "bytes": 2591,
+      "raw_sha256": "3e7a52838d11192819eb3381ecc3fd1d8a06bac6a6f223e3c9867504b9ef43ec",
+      "lf_sha256": "3e7a52838d11192819eb3381ecc3fd1d8a06bac6a6f223e3c9867504b9ef43ec"
+    },
+    "street_import_failure_and_repair/bench_05.log.stderr": {
+      "bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "street_import_failure_and_repair/bench_05/curb_grazing.png": {
+      "bytes": 3823586,
+      "raw_sha256": "f3441d1f561ef9c4fb74533566bd9d2837c8d46d891f12cae2d21fca9c5d1a79"
+    },
+    "street_import_failure_and_repair/bench_05/east_crossing.png": {
+      "bytes": 3865392,
+      "raw_sha256": "e84cf1ef32549681d1325646433d54260e5305af322a7d07459a637753b04867"
+    },
+    "street_import_failure_and_repair/bench_05/forced_far.png": {
+      "bytes": 43335,
+      "raw_sha256": "cbb12caeba9185ea1bcebda470cac6e93c9cb943514fe560a0125dffff0424a4"
+    },
+    "street_import_failure_and_repair/bench_05/forced_near.png": {
+      "bytes": 43892,
+      "raw_sha256": "f64a84b8071bca9874eb6b7d7963aa1986be4313785c06fab9f1366dcf201b6b"
+    },
+    "street_import_failure_and_repair/bench_05/narrow.png": {
+      "bytes": 39352,
+      "raw_sha256": "1aba4684ca05802469f0b504052d46bc5f34c7cdc9f06197fb7bfe0aba90b631"
+    },
+    "street_import_failure_and_repair/bench_05/transport_bench.json": {
+      "bytes": 68258,
+      "raw_sha256": "e1c5a4c16a5d7c854e405a9b603bd0b817930082e1c9c104f0f956765cb425e3",
+      "lf_sha256": "e1c5a4c16a5d7c854e405a9b603bd0b817930082e1c9c104f0f956765cb425e3"
+    },
+    "street_import_failure_and_repair/bench_05/wide.png": {
+      "bytes": 17390,
+      "raw_sha256": "aa46ae3e5e1b6f5687b854c161d7aaf50bde3a48f99d83f57a526b9c1677e639"
+    },
+    "street_import_failure_and_repair/bench_failed_04_sources.zip": {
+      "bytes": 1775370,
+      "raw_sha256": "7248872b3f092a756097c1c081aaef01f885c8edd1f6a6ff13d5a5f36c956ada"
+    },
+    "street_import_failure_and_repair/frozen_bench_03.gd": {
+      "bytes": 11340,
+      "raw_sha256": "d3ca2fdb5487570cd5d02bed95cec1681e567094cfd9b924dbb86e10e1b0258c",
+      "lf_sha256": "d3ca2fdb5487570cd5d02bed95cec1681e567094cfd9b924dbb86e10e1b0258c"
+    },
+    "street_import_failure_and_repair/frozen_bench_04.gd": {
+      "bytes": 11201,
+      "raw_sha256": "452809c310aaafca0a198a60ff204ddaec383ff4a771d0c743a77a7d1ca9b4f5",
+      "lf_sha256": "452809c310aaafca0a198a60ff204ddaec383ff4a771d0c743a77a7d1ca9b4f5"
+    },
+    "street_import_failure_and_repair/frozen_bench_05.gd": {
+      "bytes": 11201,
+      "raw_sha256": "452809c310aaafca0a198a60ff204ddaec383ff4a771d0c743a77a7d1ca9b4f5",
+      "lf_sha256": "452809c310aaafca0a198a60ff204ddaec383ff4a771d0c743a77a7d1ca9b4f5"
+    },
+    "street_import_failure_and_repair/frozen_street_owner_03.gd": {
+      "bytes": 3406,
+      "raw_sha256": "36e797134075e8f70fe795cc7604827a7ec391927272c589f18adce8037182f9",
+      "lf_sha256": "36e797134075e8f70fe795cc7604827a7ec391927272c589f18adce8037182f9"
+    },
+    "street_import_failure_and_repair/import_01.log": {
+      "bytes": 403340,
+      "raw_sha256": "ac26d710cf110c078f5b74a7997810fb0474d9ca5f7ef746566011b6bb945583"
+    },
+    "street_import_failure_and_repair/import_01.log.receipt.json": {
+      "bytes": 2631,
+      "raw_sha256": "bd799403716fcb25076635eab2ba0ce60aa4e506f3df0c22307648ac632d5286",
+      "lf_sha256": "bd799403716fcb25076635eab2ba0ce60aa4e506f3df0c22307648ac632d5286"
+    },
+    "street_import_failure_and_repair/import_01.log.stderr": {
+      "bytes": 123866,
+      "raw_sha256": "ec8e8962993f4d0f97a74f5210b4007200bf483571ae27172ac001afa0ded36f"
+    },
+    "street_import_failure_and_repair/import_02.log": {
+      "bytes": 1309,
+      "raw_sha256": "676df68ac58281a678eb91d5c0355d001d9d522fddb07ac8814c6c30a86db72d"
+    },
+    "street_import_failure_and_repair/import_02.log.receipt.json": {
+      "bytes": 2629,
+      "raw_sha256": "05766cb10661c77b921ea6e1793b04cd8af32dd15cc06adf622ad1cf65faed45",
+      "lf_sha256": "05766cb10661c77b921ea6e1793b04cd8af32dd15cc06adf622ad1cf65faed45"
+    },
+    "street_import_failure_and_repair/import_02.log.stderr": {
+      "bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "street_import_failure_and_repair/import_04.log": {
+      "bytes": 4588,
+      "raw_sha256": "c814ffaae4f399ea54aeb608492202fccdbce5329f890967deb2ad0f071aefd6"
+    },
+    "street_import_failure_and_repair/import_04.log.receipt.json": {
+      "bytes": 2513,
+      "raw_sha256": "4e55eea15681e40530843022355415c4f87bf4cdd43b064fcdfd41f0d81abe32",
+      "lf_sha256": "4e55eea15681e40530843022355415c4f87bf4cdd43b064fcdfd41f0d81abe32"
+    },
+    "street_import_failure_and_repair/import_04.log.stderr": {
+      "bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "street_import_failure_and_repair/import_05.log": {
+      "bytes": 3019,
+      "raw_sha256": "ec9d542e07037bc1b4829af0e864d23c2f0b307cf74c09e05179a77679130bd4"
+    },
+    "street_import_failure_and_repair/import_05.log.receipt.json": {
+      "bytes": 2414,
+      "raw_sha256": "d2787667913ba9f283c8b71828b0ddae97eab2b69c861c1add9335fef146b092",
+      "lf_sha256": "d2787667913ba9f283c8b71828b0ddae97eab2b69c861c1add9335fef146b092"
+    },
+    "street_import_failure_and_repair/import_05.log.stderr": {
+      "bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "street_import_failure_and_repair/import_bench_batch_01.json": {
+      "bytes": 606,
+      "raw_sha256": "8d2c93f92934500b6308238667d21cca3ed035e4181fb88afedfa92c1fb352ea",
+      "lf_sha256": "8d2c93f92934500b6308238667d21cca3ed035e4181fb88afedfa92c1fb352ea"
+    },
+    "street_import_failure_and_repair/import_bench_batch_02.json": {
+      "bytes": 465,
+      "raw_sha256": "31914dbb4c6a25793aa5f4d2c80b50bd8c22fd7fc0e7250c6bee9c583cadc412",
+      "lf_sha256": "31914dbb4c6a25793aa5f4d2c80b50bd8c22fd7fc0e7250c6bee9c583cadc412"
+    },
+    "street_import_failure_and_repair/import_bench_batch_03.json": {
+      "bytes": 1220,
+      "raw_sha256": "f854f32f4344a3ba131b9627060fbe886d5c47a4f184280114e0620e3828c8d7",
+      "lf_sha256": "99ffdf805677d6a3eab79e65815b62905350b0a2a9d40e84cd85a0267f2e911e"
+    },
+    "street_import_failure_and_repair/street_bench_batch_04.json": {
+      "bytes": 432,
+      "raw_sha256": "f404d7a392a4ba76a118bcd46242a091ba7e205604d73eb57fbfa69277420d65",
+      "lf_sha256": "0a1231d065ec6a29d2a757a4fe834c747d2c3bfbd344f5372bdce726d17a4180"
+    },
+    "street_import_failure_and_repair/street_bench_batch_05.json": {
+      "bytes": 660,
+      "raw_sha256": "45dd735a394d00f74e051977a1f9afc075b320cf2e3b75cb58eefca4ce19ab48",
+      "lf_sha256": "f6fbb6465b81540517fa68e2b544e1b20b3cf919728a75763b9b31d25874dae6"
+    },
+    "grade_source_preparation/grade_clip_diagnostic.json": {
+      "bytes": 1362,
+      "raw_sha256": "6f6f01788de4aa9328713ed03e0196c0aaa9a32de4f91593a2ed01af9cb314c2",
+      "lf_sha256": "7fac21d7597f904f61e1781215d0be774cc6615d171367067da54819ae363f3e"
+    },
+    "grade_source_preparation/grade_clip_diagnostic.py": {
+      "bytes": 2413,
+      "raw_sha256": "a7599391911e9ccc3979d4450c5f35e8814bb96d559eb0193a71273219743c72",
+      "lf_sha256": "a7599391911e9ccc3979d4450c5f35e8814bb96d559eb0193a71273219743c72"
+    },
+    "grade_source_preparation/grade_clip_masked_controls.json": {
+      "bytes": 1081,
+      "raw_sha256": "945a9165e3a9ef1f5271da699f1fea99ce60d7e99f0c613da26e25987f0daf5a",
+      "lf_sha256": "492450a28fd0e5e27aa70f9f376d4f6a2c4cbb58b0825f9c0d6200ecd2e7ddba"
+    },
+    "grade_source_preparation/grade_clip_masked_controls.log": {
+      "bytes": 507,
+      "raw_sha256": "b2614c333940e5c900484bbc9d3fd0927f7c16c22ba5ab8691c4273c34488844"
+    },
+    "grade_source_preparation/grade_clip_masked_controls.py": {
+      "bytes": 2679,
+      "raw_sha256": "f239cd86902361215d685ef4187e9aabe402988f604d8e085788f8f206285510",
+      "lf_sha256": "f239cd86902361215d685ef4187e9aabe402988f604d8e085788f8f206285510"
+    },
+    "grade_source_preparation/grade_clip_native_controls.json": {
+      "bytes": 1473,
+      "raw_sha256": "11b716a5aa7e3a5077d4ecafeef6040a947b3028fdfdd9957b845d664f62ba7a",
+      "lf_sha256": "f4249f3bc2b720a2c473b4aeed1b13a7c9ff0ebe435921e95150527b8a3a8069"
+    },
+    "grade_source_preparation/grade_clip_native_controls.log": {
+      "bytes": 2016,
+      "raw_sha256": "0015efc072a35cd241481ea69886f47dbde727d0af381b2547e1248f748564c4"
+    },
+    "grade_source_preparation/grade_clip_native_controls.py": {
+      "bytes": 2386,
+      "raw_sha256": "32646bc3363cd21fc82eb70762ce645199fbaae4e7135b0c1dfee1d8f9dd27f9",
+      "lf_sha256": "32646bc3363cd21fc82eb70762ce645199fbaae4e7135b0c1dfee1d8f9dd27f9"
+    },
+    "grade_source_preparation/grade_clip_site_failed_01_sources.zip": {
+      "bytes": 8791,
+      "raw_sha256": "c0eb048e4a0063f1cfa3f130a16d7692499b507f9af2270f657134903e43ad13"
+    },
+    "grade_source_preparation/grade_clip_site_failed_02_sources.zip": {
+      "bytes": 8896,
+      "raw_sha256": "12bfedbc7015ec92adfac781ba467c0f94e6c7095fd30adbdd184e484875204d"
+    },
+    "grade_source_preparation/grade_clip_site_scale_01.log": {
+      "bytes": 763,
+      "raw_sha256": "77c7f8a285c19c813003c2c969f56d031a805ba121f6f4d43b943d60317a6e20"
+    },
+    "grade_source_preparation/grade_clip_site_scale_01.py": {
+      "bytes": 2496,
+      "raw_sha256": "eb89aa8bb03b1884bb34eb6463498165da233c3bbee562109ab3e2cb0286a7ac",
+      "lf_sha256": "eb89aa8bb03b1884bb34eb6463498165da233c3bbee562109ab3e2cb0286a7ac"
+    },
+    "grade_source_preparation/grade_clip_site_scale_02.log": {
+      "bytes": 905,
+      "raw_sha256": "1e8ca5539c13540c32735fe9cde886f17557aa06dff43ee5cf9f90634866fd12"
+    },
+    "grade_source_preparation/grade_clip_site_scale_02.py": {
+      "bytes": 2498,
+      "raw_sha256": "e7077a9d8f357cb60915ed96086efd3ffdd0ac5337ef87bf2bbd0aa2434d2219",
+      "lf_sha256": "13a0dca73456cc543e9c5b92f2c6bddf681f179f7a3abcefb5154eb6eda9010b"
+    },
+    "grade_source_preparation/grade_clip_site_scale_03.json": {
+      "bytes": 242,
+      "raw_sha256": "b147aadff5190eae58e48a7e0d839e46e83a634047c1da8fc9e0387422517aff",
+      "lf_sha256": "4e21aa303823ecc25de92fd3ed8a4d6f4b6f824e83c90be53e1cef1ecbc1f253"
+    },
+    "grade_source_preparation/grade_clip_site_scale_03.log": {
+      "bytes": 316,
+      "raw_sha256": "bed12463a2cda23ea4c179bdfa40e5130386e5ff01687e59e02104fb3a693c39"
+    },
+    "grade_source_preparation/grade_clip_site_scale_03.py": {
+      "bytes": 2535,
+      "raw_sha256": "8d046e11a2b56dfa4b3815dae5bf2d01040a8b51ea1d8aef4acbb0eb7b686541",
+      "lf_sha256": "9fb0b28139433d8d66e5c0d32eeea35b0e4b3f51d31577ddbe886117d2390350"
+    },
+    "grade_source_preparation/grade_previous_grid_diagnostic.json": {
+      "bytes": 416,
+      "raw_sha256": "4b196759f67c9d55c671c5621f80ce98f177603b090de5d017ff668bdec45bd5",
+      "lf_sha256": "12a1ebc9c4797df76126b2bf37c06c403348753ba3dfc420c73bf7d4c07ba7c7"
+    },
+    "grade_source_preparation/grade_previous_native_cut_01.json": {
+      "bytes": 1226,
+      "raw_sha256": "508181440487fce645c8e0641b052e68fe1ec83da2d1e1b0c9326f737866625d",
+      "lf_sha256": "e7431850a1b5bd69c6513d2f41c54713f8a85e46892e75fee42158619b67f862"
+    },
+    "grade_source_preparation/grade_previous_native_cut_01.log": {
+      "bytes": 1665,
+      "raw_sha256": "7255dbbb8a35db4121d94538ee4c19e8cba2946a4b7dd093798fc767fb916aea"
+    },
+    "grade_source_preparation/grade_previous_native_cut_01.py": {
+      "bytes": 2679,
+      "raw_sha256": "66ed9d4e33237b6ebb4fc864c364f32ecbe7c0fa750927bdca73924285e2cc4c",
+      "lf_sha256": "66ed9d4e33237b6ebb4fc864c364f32ecbe7c0fa750927bdca73924285e2cc4c"
+    },
+    "grade_source_preparation/grade_previous_native_review_01.json": {
+      "bytes": 369,
+      "raw_sha256": "44145a07dfedcdb1b80be421c71e12a75385cb1634597299b66720fb8c36a542",
+      "lf_sha256": "7c549a4738011cc96d24d6b7ea79e51ef0685db79b06fe4aaa59e04e0a50c900"
+    },
+    "grade_source_preparation/grade_previous_native_review_01.log": {
+      "bytes": 2112,
+      "raw_sha256": "76fb53d55bed46f4d7331b1f2b69d9ddc8234fdc0bb6dcfb53d3ffa2191dc818"
+    },
+    "grade_source_preparation/grade_previous_native_review_01.py": {
+      "bytes": 5768,
+      "raw_sha256": "099d598b9f1696fd3b2427c6eea9f50f3d076940143f481993ead1c9cfc29d9e",
+      "lf_sha256": "7ad88632f0d001757f2b7609dd5a43d70881cc19e6c56dfa2d31d5d20e90bd8a"
+    },
+    "grade_source_preparation/grade_previous_native_review_01_geometry.json": {
+      "bytes": 1226,
+      "raw_sha256": "a302d4697faedfd7c0d1449769ce9e0d9ddb59dc63dff590d5199ff6c305b714",
+      "lf_sha256": "6495f94b2d1c678c17268ffcd4afa9e744fc6b202a8ce3f0aaf9d5c90d9a1967"
+    },
+    "grade_source_preparation/horizon_geometry_before.json": {
+      "bytes": 27407,
+      "raw_sha256": "44becdee447176fc1990286160e4bf7c7766f4a98b5843713c78ed3da017ba2e",
+      "lf_sha256": "3641c14bcf2058ae14394181a3af72798a8f7976378e1cf426f143b78735bd80"
+    },
+    "grade_source_preparation/horizon_geometry_snapshot.py": {
+      "bytes": 2671,
+      "raw_sha256": "37d2fb3914c17c5541bfcda87c262e91111b92043785c72f8288f0f2831ecc65",
+      "lf_sha256": "37d2fb3914c17c5541bfcda87c262e91111b92043785c72f8288f0f2831ecc65"
+    },
+    "grade_source_preparation/previous_grid_west_end.png": {
+      "bytes": 1045149,
+      "raw_sha256": "4c6df84cb5471263841bf2d33e7646cb05be076dea8f92b76376b1281b18f841"
+    },
+    "grade_source_preparation/previous_grid_west_junction.png": {
+      "bytes": 1064009,
+      "raw_sha256": "ff3f0b45ef32222d9f091ce1948ac3077b9e53582bbc3cf2ffe57ee96f2b7d77"
+    },
+    "research_review/research_coverage.json": {
+      "bytes": 89346,
+      "raw_sha256": "14362ed78ce05dd475d27c338f31ed1e2a77284b883b42604deb1c09d36d3d7e",
+      "lf_sha256": "14362ed78ce05dd475d27c338f31ed1e2a77284b883b42604deb1c09d36d3d7e"
+    },
+    "research_review/research_coverage.py": {
+      "bytes": 12939,
+      "raw_sha256": "aa51a09712137f39e1127c7697b20a2c28b3245e6bf317780c8c2dffd0fe3672",
+      "lf_sha256": "aa51a09712137f39e1127c7697b20a2c28b3245e6bf317780c8c2dffd0fe3672"
+    },
+    "source_checks/native_pixel_comparison_07_08.json": {
+      "bytes": 1706,
+      "raw_sha256": "5c5dc4aebad807625693caf9bf58603f760a33f870fdf322ff39c5ffa09e5b91",
+      "lf_sha256": "2bfb9de2d78fcbd1a9495295ab8e8239d53790ea1ddcedec9ebc2fc4a48e6ccc"
+    },
+    "source_checks/native_preflight_01.txt": {
+      "bytes": 122,
+      "raw_sha256": "71ea1f16623d96d14fa6e451fbae332f98f83e7bc072a7f091d33c8dda154a98",
+      "lf_sha256": "4a327a56fdc9cba6b30f1df7d06ef725cb56f2530e34e7d2397f2a53ce596604"
+    },
+    "source_checks/native_preflight_all_01.txt": {
+      "bytes": 503,
+      "raw_sha256": "82d7f0b9bc25f4b083bb913f6440039cc350fddce2e7abfdc76cfbd0c8dbe799",
+      "lf_sha256": "daff7298356d2aff17e56f3e637d3898d105d8bd91c45ed065cf42b89470fe94"
+    },
+    "source_checks/reader_01.txt": {
+      "bytes": 172,
+      "raw_sha256": "804264e56784868d2b0816e69d185c97324c946573a676ab17a069f6e565e2ad",
+      "lf_sha256": "b8b15f9b994c475234b68dd992efae5f9166f2bb076cc87191adba66f59e56e3"
+    },
+    "source_checks/reader_02.txt": {
+      "bytes": 172,
+      "raw_sha256": "804264e56784868d2b0816e69d185c97324c946573a676ab17a069f6e565e2ad",
+      "lf_sha256": "b8b15f9b994c475234b68dd992efae5f9166f2bb076cc87191adba66f59e56e3"
+    },
+    "source_checks/spatial_01.json": {
+      "bytes": 3633,
+      "raw_sha256": "7bf8b9d1b4c1d0fd1d5556594b027fc718e2f9e9798e90e531ed37431802612f",
+      "lf_sha256": "00e286beda5fd815513da1eeb17ece50a99fa47216eed80bbb57a79a6822230a"
+    },
+    "source_checks/spatial_02.json": {
+      "bytes": 2559,
+      "raw_sha256": "ebfec3178c6dad8ea5eb38caa43f47e3e9b9b4c6142f2e4901d733c04e0c4e2b",
+      "lf_sha256": "b10c7f6bd3144562e66cac2fdfa7f6c417e1275ba9d2c5680e2aed61d4f6ed5f"
+    },
+    "source_checks/spatial_03.txt": {
+      "bytes": 198,
+      "raw_sha256": "ade509f27750302754891725714fd8b25b12a2e04f2a56d91a663e5c7bdf5abe",
+      "lf_sha256": "9a2d31a2acdb5fea5fe8bdc6dba27ec8a7521b9d336197a0b0c9c6e2f80fa34d"
+    },
+    "source_checks/spatial_audit_03.json": {
+      "bytes": 2559,
+      "raw_sha256": "82b69486d67706cbf7f3c6edebe2e4d2d0f408dd3ebeb445c14d0a71c0d3c80d",
+      "lf_sha256": "50625240f14014bcb39443536a35a34abb64299d4ec36a642213ed5cd0349fa9"
+    },
+    "street_import_failure_and_repair/import05_inputs/art/tools/fix_v2_mesh_imports.py": {
+      "bytes": 7846,
+      "raw_sha256": "035ec55ac6763dbf34685f6b4d7e586d2438c15c5e1fb70c60b462a2bffb57ed",
+      "lf_sha256": "035ec55ac6763dbf34685f6b4d7e586d2438c15c5e1fb70c60b462a2bffb57ed"
+    },
+    "street_import_failure_and_repair/import05_inputs/game/assets/props/city_streets.glb.import": {
+      "bytes": 1163,
+      "raw_sha256": "43495f428ce2cbed39330daa0199b581dc0c0bc6402f3fc46454762352d6b3ce",
+      "lf_sha256": "43495f428ce2cbed39330daa0199b581dc0c0bc6402f3fc46454762352d6b3ce"
+    },
+    "street_import_failure_and_repair/import05_inputs/game/assets/props/city_streets_lod1.glb.import": {
+      "bytes": 1178,
+      "raw_sha256": "0673336944359967b16345f59d652749bc58ff17c359be6feb549152b6494e13",
+      "lf_sha256": "0673336944359967b16345f59d652749bc58ff17c359be6feb549152b6494e13"
+    },
+    "station_and_fresh_survey/station_material_bench_02.log": {
+      "bytes": 13033,
+      "raw_sha256": "41d605e149cfa7b734f12d1f33417cf90c8eb9ebfa5447e4f0b3b2c2810c01f1"
+    },
+    "station_and_fresh_survey/station_material_bench_02.log.stderr": {
+      "bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "station_and_fresh_survey/station_material_bench_02.log.receipt.json": {
+      "bytes": 2642,
+      "raw_sha256": "e7ed607737ea3f115fc253f9d6a3e535ade093a7f825d4391fbfe0c234bbeaa5",
+      "lf_sha256": "e7ed607737ea3f115fc253f9d6a3e535ade093a7f825d4391fbfe0c234bbeaa5"
+    },
+    "station_and_fresh_survey/grade_survey_01.log": {
+      "bytes": 2727,
+      "raw_sha256": "a1b9a3b5549b19f55a48c04cb06db8b19cf31f8489427dd043f07682428c09cc"
+    },
+    "station_and_fresh_survey/grade_survey_01.log.stderr": {
+      "bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "station_and_fresh_survey/grade_survey_01.log.receipt.json": {
+      "bytes": 2664,
+      "raw_sha256": "ee49154a22939bbc1eb2d388e090f0a3ee769b448184f30c07829e1d6e8fe000",
+      "lf_sha256": "ee49154a22939bbc1eb2d388e090f0a3ee769b448184f30c07829e1d6e8fe000"
+    },
+    "station_and_fresh_survey/station_survey_batch_06.json": {
+      "bytes": 907,
+      "raw_sha256": "3e9865455a95e64462776d44c9abc3598a7bf9c2e1c2999950a838410005904b",
+      "lf_sha256": "2b39afa8e48dff40b11689fe357b1c570af9c0256dd5a1b68dc349751dd0ea2d"
+    },
+    "station_and_fresh_survey/frozen06_v2_city_transport_bench.gd": {
+      "bytes": 11201,
+      "raw_sha256": "452809c310aaafca0a198a60ff204ddaec383ff4a771d0c743a77a7d1ca9b4f5",
+      "lf_sha256": "452809c310aaafca0a198a60ff204ddaec383ff4a771d0c743a77a7d1ca9b4f5"
+    },
+    "station_and_fresh_survey/frozen06_v2_grade_owner_survey.gd": {
+      "bytes": 4233,
+      "raw_sha256": "f825e6e7e15cd6a2ee4f98c783e10f6a5ee840e3fb75816f8335d10df2e882ca",
+      "lf_sha256": "f825e6e7e15cd6a2ee4f98c783e10f6a5ee840e3fb75816f8335d10df2e882ca"
+    },
+    "station_and_fresh_survey/frozen06_orison_v2_city_transport.gd": {
+      "bytes": 3898,
+      "raw_sha256": "9cbdaa69d48c809dd165a388556103bbdbbbbbe9e73367f5c0f0ac3dce2301d7",
+      "lf_sha256": "9cbdaa69d48c809dd165a388556103bbdbbbbbe9e73367f5c0f0ac3dce2301d7"
+    },
+    "station_and_fresh_survey/station_material_bench_02/forced_far.png": {
+      "bytes": 47089,
+      "raw_sha256": "558671f3e8cb8a0ae26edf460d0c10477146281d9d869365129bb98ef4a09109"
+    },
+    "station_and_fresh_survey/station_material_bench_02/forced_near.png": {
+      "bytes": 49134,
+      "raw_sha256": "5249ba657da4f7b47e438982fa50749936abb0e2fc95ad23940ca04cb1d390b6"
+    },
+    "station_and_fresh_survey/station_material_bench_02/lower_platform.png": {
+      "bytes": 3158046,
+      "raw_sha256": "be9b901a74749d1fc63be15f0523eeb3f09e6ae0f61b235eeac96e03435d035b"
+    },
+    "station_and_fresh_survey/station_material_bench_02/narrow.png": {
+      "bytes": 2826956,
+      "raw_sha256": "3d0fb502fdf36f8e1c3694618f0332a24d1456e14fd44f83dcf739cc922ebaa6"
+    },
+    "station_and_fresh_survey/station_material_bench_02/public_stair.png": {
+      "bytes": 2643750,
+      "raw_sha256": "d02e2f16c43b321470688d5f90e12249cba64e4f8270d9ea8821acb19d3ba3ee"
+    },
+    "station_and_fresh_survey/station_material_bench_02/transport_bench.json": {
+      "bytes": 68057,
+      "raw_sha256": "82ce274e8464bb2f6730aaa96d44c6169751e91c170a40aec836d32cbd9d3629",
+      "lf_sha256": "82ce274e8464bb2f6730aaa96d44c6169751e91c170a40aec836d32cbd9d3629"
+    },
+    "station_and_fresh_survey/station_material_bench_02/wide.png": {
+      "bytes": 47089,
+      "raw_sha256": "558671f3e8cb8a0ae26edf460d0c10477146281d9d869365129bb98ef4a09109"
+    },
+    "station_and_fresh_survey/grade_survey_01/grade_owners.json": {
+      "bytes": 336795,
+      "raw_sha256": "9bb0158bcda7a77b84b6affd3e7c901e1fe940e7600bb3fc5ad27c6ab649345e",
+      "lf_sha256": "9bb0158bcda7a77b84b6affd3e7c901e1fe940e7600bb3fc5ad27c6ab649345e"
+    },
+    "fresh_grade_plan/native_grade_sources_02.json": {
+      "bytes": 1653877,
+      "raw_sha256": "bc8418dac55d85ff078b7ec033ff413304d9c05f4649f02fd8c0b829094d1653",
+      "lf_sha256": "bc8418dac55d85ff078b7ec033ff413304d9c05f4649f02fd8c0b829094d1653"
+    },
+    "fresh_grade_plan/native_grade_sources_02.log": {
+      "bytes": 241,
+      "raw_sha256": "74832a7c12edd454a41edcfc14745f13fed55c8375ab193415a3cbcb03592788"
+    },
+    "fresh_grade_plan/grade_plan_01.json": {
+      "bytes": 17080,
+      "raw_sha256": "5d553505cfb74eaf8dab069053ec2ab2fa204022906d2d84079adbcb7a4a6e21",
+      "lf_sha256": "5d553505cfb74eaf8dab069053ec2ab2fa204022906d2d84079adbcb7a4a6e21"
+    },
+    "fresh_grade_plan/grade_build_sources_01.zip": {
+      "bytes": 216441,
+      "raw_sha256": "02816803b147b58d81fc2b473fa63ef75e7a967dd5e56f64ffeb48917000072c"
+    },
+    "fresh_grade_plan/grade_assets_before_01.json": {
+      "bytes": 681,
+      "raw_sha256": "76054dfb3948a745741651d8f0a3ca81f60a0ba1b6886969225fd50d209e207b",
+      "lf_sha256": "1a154ab60cdfe9a15212f73d5b66fec153c9287a3d71a300dafb88f557a093ba"
+    },
+    "retained_grade_phase_03/apron_rebuild_01.log": {
+      "bytes": 2014,
+      "raw_sha256": "3c7bd371676d593dd6a49398f7bda368f17dd60944ffd2554b4a2ad8a100ef9c"
+    },
+    "retained_grade_phase_03/elevation_rebuild_02.log": {
+      "bytes": 26986,
+      "raw_sha256": "56e4998f399fc053a825e8b9c1a7b01c876dff66a988e72cf8f6dea353e93540"
+    },
+    "retained_grade_phase_03/grid_coalesce_controls_01.json": {
+      "bytes": 310,
+      "raw_sha256": "503c12e289307d7a66f42d15e88cf880d289aaa6975a7910493c02a2995c4f5f",
+      "lf_sha256": "cb0d9e2560132c8e184c8284fc6bce036dbca3f7144eb77a562317e13f0028a0"
+    },
+    "retained_grade_phase_03/grid_coalesce_controls_01.py": {
+      "bytes": 3142,
+      "raw_sha256": "256c4de43b8404db434aaa983c9ef93ce491f745a0ccbc51745b506a0cbbe4df",
+      "lf_sha256": "256c4de43b8404db434aaa983c9ef93ce491f745a0ccbc51745b506a0cbbe4df"
+    },
+    "retained_grade_phase_03/grid_stream_controls_01.json": {
+      "bytes": 337,
+      "raw_sha256": "643c76e59513511857342cc5ba9dbebe8184641599a7ef57232e65d55d554e6f",
+      "lf_sha256": "63ba3a3c90bc0ba168fece7557c05b7f1325fef355b31b8a8a109b8e7b9769e5"
+    },
+    "retained_grade_phase_03/grid_stream_controls_01.py": {
+      "bytes": 1994,
+      "raw_sha256": "2f465447d8ddfd73de1652c75787d71d2afe9dcb5c25e9dc1b6ef4838e34a059",
+      "lf_sha256": "2f465447d8ddfd73de1652c75787d71d2afe9dcb5c25e9dc1b6ef4838e34a059"
+    },
+    "retained_grade_phase_03/ground_boundary_counts_02.json": {
+      "bytes": 281,
+      "raw_sha256": "2366151bf3f1939bfe5763a79c381504d74d5291d3f955b6a36f638b00033987",
+      "lf_sha256": "8ffb9a51c6e1e019e6203015e368720fdc9bbe97e760ec5457772f13c8328136"
+    },
+    "retained_grade_phase_03/ground_contact_failed_02_sources.zip": {
+      "bytes": 4255898,
+      "raw_sha256": "54b7eb98b89399325d1846e8c78022f1074bfcb36a8116fbefcfa81ca770c9c4"
+    },
+    "retained_grade_phase_03/ground_failed_03_sources.zip": {
+      "bytes": 15937,
+      "raw_sha256": "2a44a777296f2ca5cb61a1ed3520f69d29a928f501cd5dfc2fc9abe8f1a2418d"
+    },
+    "retained_grade_phase_03/ground_failed_04_sources.zip": {
+      "bytes": 16119,
+      "raw_sha256": "dba318b4b6747627bbff15cc1c7581d21f5960733b15cb73978174b537a11afe"
+    },
+    "retained_grade_phase_03/ground_failed_05_sources.zip": {
+      "bytes": 3556465,
+      "raw_sha256": "eb2747313e23fcfd4c715194d26b91797327878d5b41c194b5496f3b9642d277"
+    },
+    "retained_grade_phase_03/ground_failed_06_sources.zip": {
+      "bytes": 3681834,
+      "raw_sha256": "270491a8a2f6b6359e68b8f0bace1aafe0f007a2e4eab417faef561dfa7cfeae"
+    },
+    "retained_grade_phase_03/ground_grid_identity_02.json": {
+      "bytes": 247,
+      "raw_sha256": "1f58c7ff4a513bf1444824cb754411a23077c405bb10245ff0002a8fa7ec334c",
+      "lf_sha256": "afd6257925edc5899adeb076ad582e68198ac628f788e8f30c29124b44127c85"
+    },
+    "retained_grade_phase_03/ground_incomplete_01_observation.json": {
+      "bytes": 1308,
+      "raw_sha256": "693e2c75e834bd27b42d50101a8788dc22fec1adaa79a9193d99b8fdf918fa22",
+      "lf_sha256": "07755fd9bb499500615326309056d7f534a916d2347bb3999a1a352ba77dba5f"
+    },
+    "retained_grade_phase_03/ground_incomplete_01_sources.zip": {
+      "bytes": 296714,
+      "raw_sha256": "04446c4a2254e3752bc28071c2b249bb9a64a48dd5184e939ae89a25e27a4930"
+    },
+    "retained_grade_phase_03/ground_inspection_failed_01_sources.zip": {
+      "bytes": 4817,
+      "raw_sha256": "47978c013298c54bb16c6e203106cea9323b9808c2e7985e044db1075010f2bd"
+    },
+    "retained_grade_phase_03/ground_local_precision_control_01.json": {
+      "bytes": 797,
+      "raw_sha256": "6b210e3436ad255613167cb455f522ade800e4ed908340b9a8977e6fa60b1b83",
+      "lf_sha256": "b2c5d2bf2c2812f31bb026b58835981f0fe2104349706f238fbd31d73430ce9c"
+    },
+    "retained_grade_phase_03/ground_local_precision_control_01.py": {
+      "bytes": 2050,
+      "raw_sha256": "8860786abd02767f523ec2f5e8b532254a3c9ed5be366c9ae24c36eb775690fd",
+      "lf_sha256": "8860786abd02767f523ec2f5e8b532254a3c9ed5be366c9ae24c36eb775690fd"
+    },
+    "retained_grade_phase_03/ground_native_inspection_01.log": {
+      "bytes": 820,
+      "raw_sha256": "f23ab7eacf868f7163ff98d6097a589cae2c2c635d8a42fcd346b70dce1af7ff"
+    },
+    "retained_grade_phase_03/ground_native_inspection_02.log": {
+      "bytes": 785,
+      "raw_sha256": "b0d1e2b41809420b4bc11c0b5e6d4aa3cb3f2786528f7f06bf486f75ae1929cd"
+    },
+    "retained_grade_phase_03/ground_native_inspection_03.json": {
+      "bytes": 1114166,
+      "raw_sha256": "8c186868a5f2f025602551cc8daa9d6d5698b5d82992f97245acf83424a366ab",
+      "lf_sha256": "a5a9d4713dd1994d385bcffc1144155cc5306bbf093518ff674f3173a4257cb8"
+    },
+    "retained_grade_phase_03/ground_native_inspection_03.log": {
+      "bytes": 961,
+      "raw_sha256": "101f36400d6ce5d1df7621cbd693ae78fdba00663cdfe0d00214751b1611ddb8"
+    },
+    "retained_grade_phase_03/ground_native_inspection_03.png": {
+      "bytes": 1391246,
+      "raw_sha256": "4e81c6d6fd31eff373f3ac6378286e3f61cbc5e8c759e2f08447da473b055415"
+    },
+    "retained_grade_phase_03/ground_ngon_tangent_control_01.json": {
+      "bytes": 1360,
+      "raw_sha256": "044efb1579b2d8337d11791ecd2aaef1a3a3a3c5321b5e4f5cd6fd2ca6075b32",
+      "lf_sha256": "a5f90b2270030e97e335493960efad3471b38c0d7cd2a9f522932dff63d0a940"
+    },
+    "retained_grade_phase_03/ground_ngon_tangent_control_01.log": {
+      "bytes": 1224,
+      "raw_sha256": "df34cfc8fb155d76e4c2650161b1b3460fef92b0b5beae2b8282c98077aee2b2"
+    },
+    "retained_grade_phase_03/ground_ngon_tangent_control_01.py": {
+      "bytes": 1387,
+      "raw_sha256": "cde9d92a1ad3c97b843a0b43bc2253b6b519d25de996e08f941fb32635316128",
+      "lf_sha256": "cde9d92a1ad3c97b843a0b43bc2253b6b519d25de996e08f941fb32635316128"
+    },
+    "retained_grade_phase_03/ground_parcel_control_01.json": {
+      "bytes": 520,
+      "raw_sha256": "fbfa7385b6651fa8c8124a8bb9fc8132c51e99eea8645ad32ef9d6b5e30388a4",
+      "lf_sha256": "38f4b3ee77082c6a164f3d6f2d9d8a464365aeb0fb0f533a4108b6b818681dcd"
+    },
+    "retained_grade_phase_03/ground_parcel_control_01.log": {
+      "bytes": 941,
+      "raw_sha256": "f9055b2c4076cc94a772febc3591c62ed7012e823349ea4a3a8961209fcb55af"
+    },
+    "retained_grade_phase_03/ground_parcel_control_01.py": {
+      "bytes": 3283,
+      "raw_sha256": "ad85430e885285db757a61115d93ab983eba99e3144885cec8b9041abd7ff597",
+      "lf_sha256": "ad85430e885285db757a61115d93ab983eba99e3144885cec8b9041abd7ff597"
+    },
+    "retained_grade_phase_03/ground_rebuild_01.log": {
+      "bytes": 87,
+      "raw_sha256": "68407e635487b922785999207e64762dd5dea04b5339b5a5da594974c3e16b2c"
+    },
+    "retained_grade_phase_03/ground_rebuild_02.log": {
+      "bytes": 87,
+      "raw_sha256": "68407e635487b922785999207e64762dd5dea04b5339b5a5da594974c3e16b2c"
+    },
+    "retained_grade_phase_03/ground_rebuild_03.log": {
+      "bytes": 1670,
+      "raw_sha256": "811f51f5cd31e515d05c8fea58bc0ff5ead7e55b3116c16930e4981f7c144bd5"
+    },
+    "retained_grade_phase_03/ground_rebuild_04.log": {
+      "bytes": 2054,
+      "raw_sha256": "5d9e2db487dcc26639e295f3b4ee4344f3224f5ad02e906d42439eb7e6f54386"
+    },
+    "retained_grade_phase_03/ground_rebuild_05.log": {
+      "bytes": 347753,
+      "raw_sha256": "1e2c26ebbab1656455182c97e51735ad085659e9e9f04ace802781b212631ca1"
+    },
+    "retained_grade_phase_03/ground_rebuild_06.log": {
+      "bytes": 346759,
+      "raw_sha256": "e7374fbb9404b6f09f7cf1529bc6b5d1c26aa925a4f8760f63aebf8dbd45f105"
+    },
+    "retained_grade_phase_03/ground_rebuild_07.log": {
+      "bytes": 346356,
+      "raw_sha256": "589aac82a42fb41ede71690b16a5fb6f80b64bc47aedc0bd0fd5f0cd76914111"
+    },
+    "retained_grade_phase_03/ground_rebuild_08.log": {
+      "bytes": 330693,
+      "raw_sha256": "6072cadaf6c529884688c882522055632dd888a1cfdb147491e6c1b3ecb23b97"
+    },
+    "retained_grade_phase_03/ground_stopped_02_observation.json": {
+      "bytes": 372,
+      "raw_sha256": "1c1cc2c1c80e625032f67a5c20a718cee4bdd7df55f2063f4de6ed82d13da2a5",
+      "lf_sha256": "0d7b935d93beea57cc90a8cb46d7fd3a74cb278dd29ebddd4cd01ca0609dc846"
+    },
+    "retained_grade_phase_03/ground_stopped_02_sources.zip": {
+      "bytes": 14804,
+      "raw_sha256": "519bcd8748999c58f99b35769e5157d2096fc54859db48ba0c4cf14f3a456c59"
+    },
+    "retained_grade_phase_03/horizon_failed_01_sources.zip": {
+      "bytes": 13120,
+      "raw_sha256": "0c12f0d2285020fdf9505a14169510eb27134de9c9f7748e8ebc90896f69657c"
+    },
+    "retained_grade_phase_03/horizon_geometry_before.json": {
+      "bytes": 27407,
+      "raw_sha256": "44becdee447176fc1990286160e4bf7c7766f4a98b5843713c78ed3da017ba2e",
+      "lf_sha256": "3641c14bcf2058ae14394181a3af72798a8f7976378e1cf426f143b78735bd80"
+    },
+    "retained_grade_phase_03/horizon_geometry_comparison.json": {
+      "bytes": 316,
+      "raw_sha256": "eac958bac2596f654e1ecb98f3479378023194ea3377bd475d13e85711b809ab",
+      "lf_sha256": "18d2a3b6f5a761a63d6c985838c67135daba65b33fd707d49930a71b2db082b6"
+    },
+    "retained_grade_phase_03/horizon_geometry_snapshot.py": {
+      "bytes": 2671,
+      "raw_sha256": "37d2fb3914c17c5541bfcda87c262e91111b92043785c72f8288f0f2831ecc65",
+      "lf_sha256": "37d2fb3914c17c5541bfcda87c262e91111b92043785c72f8288f0f2831ecc65"
+    },
+    "retained_grade_phase_03/horizon_rebuild_01.log": {
+      "bytes": 753,
+      "raw_sha256": "9d70f34201c5d6dd7c211e9d80c9a1eca380692fbe98ea9742fbfc0b0c3cf18e"
+    },
+    "retained_grade_phase_03/horizon_rebuild_02.log": {
+      "bytes": 77830,
+      "raw_sha256": "758f4dfbedd23954337244985751859bb3155af7a89562880e0437f6b21d9edd"
+    },
+    "retained_grade_phase_03/native_fixture_preflight_04.txt": {
+      "bytes": 565,
+      "raw_sha256": "902b16d3c469d67494819b6c78954dba1e80149f70f98c65c2e74ac5ea252870",
+      "lf_sha256": "995d723b1a36f6dd88dcf7bf4f180d8ced2e7ab54b0f15894009c22d2c3482ff"
+    },
+    "retained_grade_phase_03/native_fixture_preflight_05.txt": {
+      "bytes": 488,
+      "raw_sha256": "422454db661c00844408ac1d8092cedee8642a26d3582bcf57bdaf532a394a3f",
+      "lf_sha256": "b81111c47b3e30abb32955580bf8cb090adbac3ae6c42cc57ce593ba086207a0"
+    },
+    "retained_grade_phase_03/native_ground_context_01/block_overview.png": {
+      "bytes": 2418424,
+      "raw_sha256": "ede984c2778e8eaf3e10c86071f7854b806932c818d03b2a8e98a081a0451255"
+    },
+    "retained_grade_phase_03/native_ground_context_01/curb_grazing.png": {
+      "bytes": 1918420,
+      "raw_sha256": "086541f5a617be280d17ff540734ab67d830b8bd46d3cafe01fb02017b5ee508"
+    },
+    "retained_grade_phase_03/native_ground_context_01/east_intersection.png": {
+      "bytes": 2041123,
+      "raw_sha256": "01741854c0dc5e5a8fd37c344a3b51700fb13b4eb5d51d27367894ca240cf2b7"
+    },
+    "retained_grade_phase_03/native_ground_context_01/east_north_walk.png": {
+      "bytes": 1934713,
+      "raw_sha256": "066f2187ec6be4a6c27bfdf12587d8856fd3b711fa443a08697c719e8109def9"
+    },
+    "retained_grade_phase_03/native_ground_context_01/native_geometry_checks.json": {
+      "bytes": 809900,
+      "raw_sha256": "1599663abbed953da4168d452c5e219d2fce78b5830957c92ad9c651e6a066ce",
+      "lf_sha256": "f2b3d72649ad4d08b09564dc3f3b9f89d02635ace97d18de309c0a77c39c0d3a"
+    },
+    "retained_grade_phase_03/native_ground_context_01/native_review.json": {
+      "bytes": 2188,
+      "raw_sha256": "f89bbc9d5566bec61c021ccd0db2e47746a521cc2828f7cdc1140d3f7a7ea8af",
+      "lf_sha256": "771cb7c310347f5cbd68a17746845a7fc704507151a8b39c86ba00e1b128a818"
+    },
+    "retained_grade_phase_03/native_ground_context_01/replacement_curb.png": {
+      "bytes": 1915424,
+      "raw_sha256": "13bc8f5972fdd4a5d20793697494b375afaa06a3ec952e88173bdf6751271110"
+    },
+    "retained_grade_phase_03/native_ground_context_01/replacement_overview.png": {
+      "bytes": 2418031,
+      "raw_sha256": "e4a099bba2cc707ed953b32c0d1417d29613763af5281368c905227c05866e62"
+    },
+    "retained_grade_phase_03/native_ground_context_01/retained_west_foundation.png": {
+      "bytes": 1964228,
+      "raw_sha256": "b100f4285afaa356d98e8604251f53330cddcc5c3049bf9f4e1ee499c67fbdc7"
+    },
+    "retained_grade_phase_03/native_ground_context_01/west_corner.png": {
+      "bytes": 2110773,
+      "raw_sha256": "21891a37d35b3aee159f090f781b61572735c367f8e427f55080b3953e6c14ba"
+    },
+    "retained_grade_phase_03/native_ground_context_01/west_walk_end.png": {
+      "bytes": 2020539,
+      "raw_sha256": "f9498b5294881941e4ac9c8812008a127989238b7d3fe1227d8f199278f8f6c6"
+    },
+    "retained_grade_phase_03/native_ground_context_01.log": {
+      "bytes": 1693,
+      "raw_sha256": "a607b260958cd1edf5cfb2c1d441d1014d6b69f08af1e82be6783826d0155153"
+    },
+    "retained_grade_phase_03/street_replay_01.log": {
+      "bytes": 10145,
+      "raw_sha256": "45889f9b3c43625409d4a22727cfaab49a2f9ddbeddcbd8b1819e79c836794c5"
+    },
+    "retained_grade_phase_03/street_replay_before_01.json": {
+      "bytes": 384,
+      "raw_sha256": "1421aee5ac43d6cfd81c89325961cad7da300c6c8ee0d6a83d263756aab27e95",
+      "lf_sha256": "4e7234b9ecabffef77e5b4caf6f14ed00fcabd7585258b76421e0d8b6d5c7e5e"
+    },
+    "retained_grade_phase_03/street_replay_identity_01.txt": {
+      "bytes": 52,
+      "raw_sha256": "7c6db7dcd357eb51958dccbdfe0ca05a66566160c6c86cb8d5831490cf11a4ce",
+      "lf_sha256": "d73946d1f115a9c542d3fea3861514256cc25eb9c84f89f6c5f0d9911e930304"
+    },
+    "retained_footway_failure_phase_04/full_surface_failed_01_sources.zip": {
+      "bytes": 6410575,
+      "raw_sha256": "dc36ae089b3af2c3099b17a4c313dbfbd38a17101602d42ed2d447e706dd6c9a"
+    },
+    "street_log_consolidation_phase_05/original_in_progress_report.md": {
+      "bytes": 146850,
+      "raw_sha256": "c982ef78ccedc02716a95768d6c867ec4aed89965edfa231d516318271e188ff"
+    },
+    "retained_provider_repair_phase_06/provider_dependency_preflight_failed_06.zip": {
+      "bytes": 424860,
+      "raw_sha256": "493c35b35d2c9ec244c4918d6aaaaa32e3d892c6e0aecd90ab4fa4e5b76bf1ba"
+    },
+    "retained_provider_repair_phase_06/ground_source_preflight_failed_09.zip": {
+      "bytes": 282825,
+      "raw_sha256": "c797e3a090552de8bd4b7cb68e79c13017e718f37a11b58e248396b3e107fcc4"
+    },
+    "retained_provider_repair_phase_06/provider_repair_before_replay.json": {
+      "bytes": 564,
+      "raw_sha256": "41013b9166c0ba92d3cf903e4fb1d56b17d8be8f215c0c982d6858abadfb2435"
+    },
+    "retained_provider_repair_phase_06/provider_repair_replay_identity_01.json": {
+      "bytes": 336,
+      "raw_sha256": "15d3676fce2b99d0aaad97633ad821d9c9cd92a1084fec6d9fea8e7db74641d2"
+    },
+    "retained_provider_repair_phase_06/provider_repair_before_dependency_replay_02.json": {
+      "bytes": 898,
+      "raw_sha256": "a7cc587116a031e2caa62c8cd72d2bd0369c2f51f1cc83f058b849df71a2673a"
+    },
+    "retained_provider_repair_phase_06/provider_dependency_replay_identity_02.json": {
+      "bytes": 493,
+      "raw_sha256": "c4a92f1c1ff51839d29e03506f2ea664408a43e3df8e74943bff0c4aff9ae453"
+    },
+    "retained_provider_repair_phase_06/native_fixture_preflight_06.txt": {
+      "bytes": 556,
+      "raw_sha256": "49d57ecd8f747fd46aeaa0630ed677de7d509320efa1aeb11e35b8cbefab75ce"
+    },
+    "retained_provider_repair_phase_06/native_fixture_preflight_07.txt": {
+      "bytes": 488,
+      "raw_sha256": "422454db661c00844408ac1d8092cedee8642a26d3582bcf57bdaf532a394a3f"
+    },
+    "retained_provider_repair_phase_06/grade_source_deep_preflight_01.json": {
+      "bytes": 26917,
+      "raw_sha256": "1fd5b2b112f634c761b6a8cedb325cf34f7e64138b22400bce4832ed839c4908"
+    },
+    "retained_provider_repair_phase_06/grade_source_deep_preflight_02.json": {
+      "bytes": 26916,
+      "raw_sha256": "1ce405eb030323f17edd6c792f206e4370488c97d3dbbaf306e963612a264cfb"
+    },
+    "retained_provider_repair_phase_06/retained_footway_overlap_01.json": {
+      "bytes": 16092,
+      "raw_sha256": "06bcacdf4cc2e75c95090f3fa980679c9b39575485b8e9b9a9bdfcc6e76a72e8"
+    },
+    "retained_provider_repair_phase_06/retained_footway_overlap_02.json": {
+      "bytes": 3792,
+      "raw_sha256": "6b060872b703362d90c7339c122002c31c78e5f64826622815d677332f975986"
+    },
+    "retained_provider_repair_phase_06/street_provider_repair_01.log": {
+      "bytes": 10146,
+      "raw_sha256": "2ef9ac6b2140e2d06cb60bf99a61e935d8db882c1fc9a75d67f6e7613de19f5a"
+    },
+    "retained_provider_repair_phase_06/street_provider_repair_02.log": {
+      "bytes": 10146,
+      "raw_sha256": "c1d67542e43379942477deca5c5205d6ae78f94f1f605dee77c298a5217efb6a"
+    },
+    "retained_provider_repair_phase_06/native_provider_repair_01.log": {
+      "bytes": 1583,
+      "raw_sha256": "ebc9544db194798e801c8867d563ebb36483a70cbc2a58bae747419f776ab9dc"
+    },
+    "retained_provider_repair_phase_06/native_provider_repair_01/native_geometry_checks.json": {
+      "bytes": 822800,
+      "raw_sha256": "18197042fdc2a37db8d9f115f129f5faa85263b4ef51060ebe92b475e8811a9c"
+    },
+    "retained_provider_repair_phase_06/native_provider_repair_01/native_review.json": {
+      "bytes": 1856,
+      "raw_sha256": "fd5c72591e1e8ba1b2076db58b52df9cfcfbdd7c2f4164d0fa335acfe088d819"
+    },
+    "retained_provider_repair_phase_06/native_provider_ground_context_02.log": {
+      "bytes": 1914,
+      "raw_sha256": "3d4c98c777212b1999e8680f1576d661b9808db1e6711f675abab2756c6a4c6b"
+    },
+    "retained_provider_repair_phase_06/native_provider_ground_context_02/native_geometry_checks.json": {
+      "bytes": 822800,
+      "raw_sha256": "0ba98f9337470828540b97670b9c105489658e91aec99ee53187fde7acf52988"
+    },
+    "retained_provider_repair_phase_06/native_provider_ground_context_02/native_review.json": {
+      "bytes": 2472,
+      "raw_sha256": "b24d20b672665b8f63586f61b5064d4af829f52afa6b71303d5913184c4a8e84"
+    },
+    "retained_provider_repair_phase_06/station_provider_replay_01.log": {
+      "bytes": 6922,
+      "raw_sha256": "fd42e3580e4f5e26710a7a01a8afe6d3eee816cbe5514093322f2c9edb81ac91"
+    },
+    "retained_provider_repair_phase_06/native_grade_sources_04.log": {
+      "bytes": 241,
+      "raw_sha256": "9dfd40b79ef3a143dd3b058a38644f28a61bfe4c821f9c27b8219e9735e24f04"
+    },
+    "retained_provider_repair_phase_06/grade_plan_03.json": {
+      "bytes": 17080,
+      "raw_sha256": "e86048e0656e4530433e88bd688163c7c35fc822ef2b85f67806e05fb8694e8e"
+    },
+    "retained_provider_repair_phase_06/foundation_provider_replay_02.log": {
+      "bytes": 120196,
+      "raw_sha256": "9d692c8a8172ed3869dd314315b663bb9c88404417ba077edfac52942586d56d"
+    },
+    "retained_provider_repair_phase_06/ground_rebuild_11.log": {
+      "bytes": 330579,
+      "raw_sha256": "7e2d99e45e328513debe655979ccd02a0a376e3324ebca8a0d25626427a5aec8"
+    },
+    "retained_provider_repair_phase_06/apron_provider_replay_02.log": {
+      "bytes": 2014,
+      "raw_sha256": "ec1db74667b211a571447d3a2f86bc93a726d828ea6e661d0804285b86deca84"
+    },
+    "retained_provider_repair_phase_06/horizon_provider_replay_02.log": {
+      "bytes": 77830,
+      "raw_sha256": "2dbfa8ab778d290d4efed1852818140013f4c35cfc6827d0048208e6fb5a2814"
+    },
+    "retained_provider_repair_phase_06/ground_native_inspection_04.log": {
+      "bytes": 958,
+      "raw_sha256": "418820f24ad19cb7e0181caab27a2ee4fadba4e1d5539cfd5a962399cd59283a"
+    },
+    "retained_provider_repair_phase_06/ground_native_inspection_04.json": {
+      "bytes": 1104963,
+      "raw_sha256": "dbb01af54788627fbbf7f06167d5c8bb55b71fb6f27503ad5158fe2037d82151"
+    },
+    "retained_provider_repair_phase_06/street_bench04_frame_summary.json": {
+      "bytes": 4011,
+      "raw_sha256": "b711876b41b05407ae3d33ab39b7e5c41ea9fe47365206fb321e1e7b4faf82a0"
+    },
+    "retained_provider_repair_phase_06/provider_repair_visual_index_01.json": {
+      "bytes": 7848,
+      "raw_sha256": "ec9b04dbce2820a977b00300e5e4a82dd04e90b1247f7c9300da5e6d415f359a"
+    }
+  },
+  "phase_01": {
+    "native_final": "native_review_08:4775/0; transport_material_review_01:8682/0",
+    "import_original_failure": "bench04:365 checks/1 aggregate failure, retained verbatim",
+    "import_repair": "bench05:365/0",
+    "grade_preparation": "Previous-mask and synthetic controls only; fresh runtime survey/rebuild pending",
+    "research": "Bounded compiled guidance review:13 packets;50 entries;55 named figures; originals not universally authenticated",
+    "visual_review": "Native08 seven; station nine; bench04 six; bench05 six; previous-grid two actually inspected. No raw reference photographs included.",
+    "failures": "Native01/02/06, mislaunch03, imported04 and synthetic site01/02 remain preserved. Static SOURCES preflight03 used the wrong scope; appropriate coordinate audit03 clean."
+  },
+  "phase_01_archive_sha256": "438440798626783639049ef095ff1c4c0f6e89f3d5f18067729779259b49b565",
+  "phase_02": {
+    "station": "204/0 isolated imported checks; six actual images inspected; empty stderr; first-near GPU spike18.012ms remains unattributed",
+    "survey": "0 failures;573 aligned boxes; non-box shapes separately counted;262.91s; INERT construction discovery, not runtime_contract",
+    "native_export": "5465 classified records; fresh plan5518 retained;269 redundant runtime boxes omitted",
+    "scope": "Fresh discovery/plan only; rebuilt terrain and horizon not qualified."
+  },
+  "phase_03": {
+    "previous_archive_sha256": "ff84e0772d8547727637546d89d4862d534396d66ec0f706c53286188e7aa133",
+    "previous_members_unchanged": 168,
+    "native_ground": "rebuild08 and independent inspection03 PASS; earlier failures retained",
+    "native_context": "4775/0; all nine actual images inspected; installed Orison omitted",
+    "native_replays": "elevations02 and streets01 byte-identical geometry; renewed authoring bindings",
+    "external_large_grid": {
+      "path": "C:\\ov\\reports\\city_streets_20261029\\ground_incomplete_01_cells.npz",
+      "raw_sha256": "742385647b646664e8a73067512f015d79bf32d7784d34242c691eaddb74f0c1",
+      "note": "Preserved external unchanged grid; seven NPY stream hashes retained in archived original observation and identity report."
+    },
+    "scope": "INERT native diagnostics; current runtime qualification pending"
+  },
+  "exterior_qualification_archive": {
+    "file": "exterior_qualification.zip",
+    "bytes": 94429490,
+    "raw_sha256": "25148e2a1798c717ef9a1458ebb97c2f89acfe76cbe216c6e7db627341a5edd6",
+    "members": {
+      "exterior_route_05.log": {
+        "bytes": 223,
+        "raw_sha256": "98552acc7a3605d7115015e594ec92d2224a821f89629d37dfa43f787c293045"
+      },
+      "exterior_route_05.log.receipt.json": {
+        "bytes": 2791,
+        "raw_sha256": "24659d4a0f4380c0e193ae60a926880ceeea3c5cee802f36b554e15254e14b57",
+        "lf_sha256": "24659d4a0f4380c0e193ae60a926880ceeea3c5cee802f36b554e15254e14b57"
+      },
+      "exterior_route_05.log.stderr": {
+        "bytes": 351,
+        "raw_sha256": "9b05739d01ff6e614c82811d9fff22e0faee8c305fde5708d129ba29848c2ca0"
+      },
+      "exterior_route_06.log": {
+        "bytes": 177,
+        "raw_sha256": "5be560a7058d3407d1d4d92891903ad63f1db17e06fbddd511ccecee4b358b22"
+      },
+      "exterior_route_06.log.receipt.json": {
+        "bytes": 2556,
+        "raw_sha256": "ba67a2322d7feb4e7b81a3fe12369627a6ee9763aa8329381c3eb4885b053c48",
+        "lf_sha256": "ba67a2322d7feb4e7b81a3fe12369627a6ee9763aa8329381c3eb4885b053c48"
+      },
+      "exterior_route_06.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exterior_route_06_termination_note.txt": {
+        "bytes": 252,
+        "raw_sha256": "a53210b3fe1962700296ae8d83361f8d28b2492d49f519481172746c95d5e63b",
+        "lf_sha256": "1f231c25d4816b6a1d9ec7221ba6b4c30b99dda5cc540f22d00d143d75bb7bff"
+      },
+      "exterior_route_07/city_exterior_contract.json": {
+        "bytes": 176510,
+        "raw_sha256": "6bb5b10e3daa8cff133cbab34d793ef0844a5184e67fc3a30aef36800e75e8cc",
+        "lf_sha256": "6bb5b10e3daa8cff133cbab34d793ef0844a5184e67fc3a30aef36800e75e8cc"
+      },
+      "exterior_route_07/west_from_front_walk.png": {
+        "bytes": 3624037,
+        "raw_sha256": "790e4e55430261844c639db018ad85d538b37875056b7fc0b3f8586c4f98b526"
+      },
+      "exterior_route_07/west_restored_blocker_control.png": {
+        "bytes": 3574301,
+        "raw_sha256": "482848784fe4d94f482132d4ee314bbb3242398d463df573b1c7891dc2edebdd"
+      },
+      "exterior_route_07.log": {
+        "bytes": 2878,
+        "raw_sha256": "d82cf65eb3901f99eee0ef3f9709982fec7f1f2bcd2b23771cec1ee77d1f3696"
+      },
+      "exterior_route_07.log.receipt.json": {
+        "bytes": 2557,
+        "raw_sha256": "ef3eace6b9854dc7198be5e0c95c0d6efc5e667f52f38c404ad34e05ffe3c674",
+        "lf_sha256": "ef3eace6b9854dc7198be5e0c95c0d6efc5e667f52f38c404ad34e05ffe3c674"
+      },
+      "exterior_route_07.log.stderr": {
+        "bytes": 1642,
+        "raw_sha256": "9ab25ccd2b2a72a2b585a544eb4019ea988291fd8a8b12127954f2a8d515526a"
+      },
+      "exterior_route_08/city_exterior_contract.json": {
+        "bytes": 1378070,
+        "raw_sha256": "b33eb20cc91ffd62d82868edd1dd4bb378bfd01221bef21d183e44ba7a04388b",
+        "lf_sha256": "b33eb20cc91ffd62d82868edd1dd4bb378bfd01221bef21d183e44ba7a04388b"
+      },
+      "exterior_route_08/street_east_narrow_walk.png": {
+        "bytes": 3249215,
+        "raw_sha256": "95d65615ab3aa79f61444ae14ccc7fb0e421107ced80cf292ca91f487fc5702c"
+      },
+      "exterior_route_08/street_pier_islands.png": {
+        "bytes": 3473541,
+        "raw_sha256": "fffc81baeccf460c5273143baadf703a3ad32c6ab3d21514777eab4a0041b47c"
+      },
+      "exterior_route_08/street_west_junction.png": {
+        "bytes": 3807668,
+        "raw_sha256": "195975ec63df5188b830109ca8e9651eefaeba1160e6addf2a462f3b4b1a080f"
+      },
+      "exterior_route_08/west_from_front_walk.png": {
+        "bytes": 3654056,
+        "raw_sha256": "b0d86eda7bf605348ec17138b70b527d528606bec418f4cb5fd01d6fe8c90fc8"
+      },
+      "exterior_route_08/west_restored_blocker_control.png": {
+        "bytes": 3537664,
+        "raw_sha256": "09281aa1c3edadbc7d682f46893294b3c9eb9c6de384cf0bbcb9260dec1f2b80"
+      },
+      "exterior_route_08.log": {
+        "bytes": 24976,
+        "raw_sha256": "98710edef9c924a47972741432abef9ce5697a0b590006950885e74955208679"
+      },
+      "exterior_route_08.log.receipt.json": {
+        "bytes": 2556,
+        "raw_sha256": "6f65ba21a454694bc621445cc4b324f9caef365d2eb384e176651674a532230f",
+        "lf_sha256": "6f65ba21a454694bc621445cc4b324f9caef365d2eb384e176651674a532230f"
+      },
+      "exterior_route_08.log.stderr": {
+        "bytes": 276,
+        "raw_sha256": "790f68cb259ebeb2d264af73f06c66963c4483d2b1db38621e09ca78185b81da"
+      },
+      "exterior_route_09/city_exterior_contract.json": {
+        "bytes": 5439828,
+        "raw_sha256": "6c409a77aabdd046593817ddea55cb0ba6b114654e15592bd6e3a6e047eea4c0",
+        "lf_sha256": "6c409a77aabdd046593817ddea55cb0ba6b114654e15592bd6e3a6e047eea4c0"
+      },
+      "exterior_route_09/lower_platform_0.png": {
+        "bytes": 2485439,
+        "raw_sha256": "f77987a08599f606059eb9d53acff215f98c64340daa37ddffafd182dc0bb600"
+      },
+      "exterior_route_09/lower_platform_1.png": {
+        "bytes": 2681342,
+        "raw_sha256": "59a42ef8dc28e1c16a4a274cda22c4de5d803403be8a5377e0e17610631e8c8d"
+      },
+      "exterior_route_09/plaza_approach.png": {
+        "bytes": 2917707,
+        "raw_sha256": "ce9a61f94ee041cd7d8d896a909f461b559cb9b25713ac5d559efa1563ef16a0"
+      },
+      "exterior_route_09/public_entry.png": {
+        "bytes": 3144469,
+        "raw_sha256": "cc5ac984f0e9da93a4a03ccfc919d965af5a78822128cec8c1ac88ff7d5632a2"
+      },
+      "exterior_route_09/street_-280.png": {
+        "bytes": 2506249,
+        "raw_sha256": "1fff742ad50fa2a4bbafb392df64847a587d3e2cebf6571cae21b15caceb5ad8"
+      },
+      "exterior_route_09/street_280.png": {
+        "bytes": 3907755,
+        "raw_sha256": "d933fdaf90d914bb4cc1b912191c96d946792311de9a266c19311ab74252375a"
+      },
+      "exterior_route_09/street_east_narrow_walk.png": {
+        "bytes": 3306134,
+        "raw_sha256": "a95bbeba98fc9751e89e44593e4792d096f32e949b5a686a63e18fd25c1d46f5"
+      },
+      "exterior_route_09/street_pier_islands.png": {
+        "bytes": 3417212,
+        "raw_sha256": "b5c97b0b32924c8534ebbfd8a6083238748148c2cd9e98b034989cf5160bd626"
+      },
+      "exterior_route_09/street_west_junction.png": {
+        "bytes": 3879557,
+        "raw_sha256": "ae761dbd2f7a6b02c577715e18c0d1dcc99e61a98e7ee8ab5e9fe4f0b6a365fb"
+      },
+      "exterior_route_09/upper_platform_0.png": {
+        "bytes": 2360247,
+        "raw_sha256": "3b086d3d06d56c288764f6ff5b681c3b2f6e7be68e14f6d1a8b932f73135ebc3"
+      },
+      "exterior_route_09/upper_platform_1.png": {
+        "bytes": 2403227,
+        "raw_sha256": "5435da5020d6b8af43f026aa551844989c56c4bc2237b5b278705d9d84d7ceaa"
+      },
+      "exterior_route_09/west_from_front_walk.png": {
+        "bytes": 3597944,
+        "raw_sha256": "b3596d2c013b6832e547f59f4395bafcf3b472cf041b2dcea85b1f8a22850619"
+      },
+      "exterior_route_09/west_restored_blocker_control.png": {
+        "bytes": 3604574,
+        "raw_sha256": "38b222f3afe0aff0fda1bc650bca21ceddce023a4b76eea0eebc27f05727f677"
+      },
+      "exterior_route_09.log": {
+        "bytes": 18567,
+        "raw_sha256": "d77e90808d5e0677d3c4dbbcf4f63a1255ee75b6127fe223ace0d27391561acf"
+      },
+      "exterior_route_09.log.receipt.json": {
+        "bytes": 2558,
+        "raw_sha256": "e27c54441f8037b59d641f7bb4379169050d9cb31e025a741ee5b62e0b36a68c",
+        "lf_sha256": "e27c54441f8037b59d641f7bb4379169050d9cb31e025a741ee5b62e0b36a68c"
+      },
+      "exterior_route_09.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exterior_route_failed_05_sources.zip": {
+        "bytes": 13683,
+        "raw_sha256": "69be5a80063868f5dc29e248db9dfb832386dff7d836437f503fb943a78746cd"
+      },
+      "exterior_route_failed_07_sources.zip": {
+        "bytes": 171181,
+        "raw_sha256": "027964d710664fc84bd6d6ce3598c3a7968c7b1ad3c50fb27eab951ab968f889"
+      },
+      "exterior_route_failed_08_sources.zip": {
+        "bytes": 274685,
+        "raw_sha256": "3084c05af72c92f87e115a8bd3ad3632fdc350be6c137e32bfc57f3b7db9fa39"
+      },
+      "horizon_bench_03.log": {
+        "bytes": 663917,
+        "raw_sha256": "dee810c3f46ad4a7af27622e16e4321fc589671ccfa98e0ae8fd95afaeab7816"
+      },
+      "horizon_bench_03.log.receipt.json": {
+        "bytes": 2608,
+        "raw_sha256": "6e6cc035eee6fecb757886dd5ba2ad48c706125f2ab3ea89d34bac61ca313618",
+        "lf_sha256": "6e6cc035eee6fecb757886dd5ba2ad48c706125f2ab3ea89d34bac61ca313618"
+      },
+      "horizon_bench_03.log.stderr": {
+        "bytes": 2138,
+        "raw_sha256": "7bb1d5107deb1383c2ce48cc6872b0a3ce37a0a1cafc26ffc65dac1016f351ed"
+      },
+      "horizon_bench_04.log": {
+        "bytes": 663917,
+        "raw_sha256": "d89efdb75a1c631a472e559cb6ac880e297696414ad4f81c1b685485b57d7d5b"
+      },
+      "horizon_bench_04.log.receipt.json": {
+        "bytes": 2608,
+        "raw_sha256": "50b6b1b4fabd4a874b1b1ef6cbbdf7721ff947313bea500403e1464c496bc142",
+        "lf_sha256": "50b6b1b4fabd4a874b1b1ef6cbbdf7721ff947313bea500403e1464c496bc142"
+      },
+      "horizon_bench_04.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "horizon_bench_failed_03_sources.zip": {
+        "bytes": 148612,
+        "raw_sha256": "2eaa9f8516e5dd94f87b1eea98b73b9ac0f362068e7f09585ae482d319363234"
+      },
+      "import_06.log": {
+        "bytes": 4696,
+        "raw_sha256": "a82737d180abafddd0de51b4f07f399a9b4e116f53156af3e900298197a1f210"
+      },
+      "import_06.log.receipt.json": {
+        "bytes": 2358,
+        "raw_sha256": "ca1425594d57c013a23130cc079048618ceac9c96a204fd51a0566e780e7626d",
+        "lf_sha256": "ca1425594d57c013a23130cc079048618ceac9c96a204fd51a0566e780e7626d"
+      },
+      "import_06.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "route07_frame_summary.json": {
+        "bytes": 5900,
+        "raw_sha256": "ee78febd365e192a203721ac5d6eb472e2805cdbc06cbff91d23f493f68461fc",
+        "lf_sha256": "ee78febd365e192a203721ac5d6eb472e2805cdbc06cbff91d23f493f68461fc"
+      },
+      "route09_frame_summary.json": {
+        "bytes": 11895,
+        "raw_sha256": "f381ba45b9d6029d1a82e9466f3aba4f3b02ed0afa771000528de71bf20d5d09",
+        "lf_sha256": "f381ba45b9d6029d1a82e9466f3aba4f3b02ed0afa771000528de71bf20d5d09"
+      },
+      "street_joint_probe_control_01.json": {
+        "bytes": 2278,
+        "raw_sha256": "e9d5e3c5475afbee306651e00724f727373078aac1fe4c112fe4fbff67cb9c35",
+        "lf_sha256": "ad0425be185e34b3c4eb7f79b15e16450bb86d37d33df7da1ba4be0e37b87617"
+      },
+      "street_joint_probe_control_01.py": {
+        "bytes": 1218,
+        "raw_sha256": "f1cc92707162435f3f850efb54deb2b059b0650d3680c833887f4b4ff6eea0e6",
+        "lf_sha256": "32daab268a93ea7300ae5e3c982f3ee956ddb5fa0d983aa8b31685b8c972d825"
+      },
+      "summarize_route07.py": {
+        "bytes": 1450,
+        "raw_sha256": "918a9691896a8e0dfd8c6ef8047bfe1443376c9d5249cef0ec96d823a9bafc06",
+        "lf_sha256": "7733ab5ab4a4bad8f862782ab921a8ece55f2462daa7ff7cc47df7f649d0df8b"
+      },
+      "summarize_route09.py": {
+        "bytes": 2139,
+        "raw_sha256": "6de81b1b3ec63c581d2c1eee05f10e1908f2f8369d49f8d25a52da2c200309d8",
+        "lf_sha256": "740ac43000efaf301c74771d62f29eba9f37a0251a4ec05d041991f177a8c779"
+      },
+      "executed_sources/game/tests/v2_city_transport_route.gd": {
+        "bytes": 18028,
+        "raw_sha256": "d4902170ea9debe8a2d1fcf67d84c3f967fe089aadae1d9a3245c18c5148ed40",
+        "lf_sha256": "d4902170ea9debe8a2d1fcf67d84c3f967fe089aadae1d9a3245c18c5148ed40"
+      },
+      "executed_sources/game/tests/v2_city_west_frontage.gd": {
+        "bytes": 15467,
+        "raw_sha256": "50eeea4c3c30a6a291c0dee46829743c8987f5633a5f95d8d52933edfb1c4f97",
+        "lf_sha256": "50eeea4c3c30a6a291c0dee46829743c8987f5633a5f95d8d52933edfb1c4f97"
+      },
+      "executed_sources/game/tests/v2_city_horizon_bench.gd": {
+        "bytes": 10257,
+        "raw_sha256": "6020a78574cf347c25803487bc76b73902ae9885edb41fd79312192b09cae0f3",
+        "lf_sha256": "6020a78574cf347c25803487bc76b73902ae9885edb41fd79312192b09cae0f3"
+      },
+      "executed_sources/game/tests/orison_v2_roof_bulkhead_caps_test.gd": {
+        "bytes": 11883,
+        "raw_sha256": "1c7d4e84d69c4fea36525e9ec44652ff4a5b40f1afd5dfcb0f52587c710ed3df",
+        "lf_sha256": "53a32dbee0c6fb728aa750b215ce016a0b75645166264b20746474d8972296ad"
+      },
+      "static_and_lod_phase_02/candidate_static_02.log": {
+        "bytes": 266,
+        "raw_sha256": "d0f77e2c9b9caebaedb6b48fd683b264f69d2981299279415ce010313385c644"
+      },
+      "static_and_lod_phase_02/candidate_static_02/board.json": {
+        "bytes": 171323,
+        "raw_sha256": "9350a8557068b77087401939b3f84ea61948b5c4ad8f0384c337e8ca4920cc9d",
+        "lf_sha256": "9350a8557068b77087401939b3f84ea61948b5c4ad8f0384c337e8ca4920cc9d"
+      },
+      "static_and_lod_phase_02/candidate_static_02/board.md": {
+        "bytes": 255,
+        "raw_sha256": "5d27de9825805cfa1ff303153b602f7aa030ded50d91a6988ff5e49cff5b760d"
+      },
+      "static_and_lod_phase_02/candidate_static_03.log": {
+        "bytes": 473,
+        "raw_sha256": "6d79e5f65886c95ae1ee8a4e50a6afa2b9c080ac7288b605fdacb9ab38f67c5d"
+      },
+      "static_and_lod_phase_02/candidate_static_03/board.json": {
+        "bytes": 243572,
+        "raw_sha256": "fe72a8ced6db9cb4db5f27b09d3f01e6b3f5948378fc989a6f2bd7a9a8aae224",
+        "lf_sha256": "fe72a8ced6db9cb4db5f27b09d3f01e6b3f5948378fc989a6f2bd7a9a8aae224"
+      },
+      "static_and_lod_phase_02/candidate_static_03/board.md": {
+        "bytes": 459,
+        "raw_sha256": "dd548c27764c59a2381610a40792e16efb3ec50421550a4ea57464ef53a67c61"
+      },
+      "static_and_lod_phase_02/executed_sources/game/tests/v2_city_transport_bench.gd": {
+        "bytes": 17180,
+        "raw_sha256": "c3fb6301df5c0e8fa1df6774e06f6519525b9c647b38a7b3161cbe9e6af2ae13",
+        "lf_sha256": "c3fb6301df5c0e8fa1df6774e06f6519525b9c647b38a7b3161cbe9e6af2ae13"
+      },
+      "static_and_lod_phase_02/executed_sources/tools/tests/test_city_ground_apron.py": {
+        "bytes": 7596,
+        "raw_sha256": "d9dfff0de98a740ae187ebaa6320792b6a0328d06c24d390e59ca58914c74672",
+        "lf_sha256": "7e3ab49783461bc41888db7a2f0786490648953a37890ad45993bf7704c0d22a"
+      },
+      "static_and_lod_phase_02/ground_apron_static_02.log": {
+        "bytes": 108,
+        "raw_sha256": "9dc8b255eea327466075989557136f5286d47df12192719667b30fa022f0b2e2"
+      },
+      "static_and_lod_phase_02/lod_script_check_02.log": {
+        "bytes": 69,
+        "raw_sha256": "fea7fdb582953206683f4e6a631535a4afb00d1664dda5c993cd2eb79ff3a54f"
+      },
+      "static_and_lod_phase_02/lod_script_check_02.log.receipt.json": {
+        "bytes": 2562,
+        "raw_sha256": "c3eb415b76b9e1964e819b42f0885d065161ba56ec6150e7b6a32cc201c5520e",
+        "lf_sha256": "c3eb415b76b9e1964e819b42f0885d065161ba56ec6150e7b6a32cc201c5520e"
+      },
+      "static_and_lod_phase_02/lod_script_check_02.log.stderr": {
+        "bytes": 302,
+        "raw_sha256": "e5c5f74b577ac48f19822200922cdc0edb7e77d8e9e7f20d3514540eaef7cd66"
+      },
+      "static_and_lod_phase_02/lod_script_check_02_batch.json": {
+        "bytes": 296,
+        "raw_sha256": "657914fd2ddc99957893a6a9e0bd89d4791a8bb0bf22b74f322a64e68b914949",
+        "lf_sha256": "ae5c88cd1dfa3ea96e966a6af2e19a366f93cdfe19e4e452b9caca6b48953420"
+      },
+      "static_and_lod_phase_02/lod_transition_optical_02_sources.zip": {
+        "bytes": 4775336,
+        "raw_sha256": "26fc7921e9cc1fdc33edb5401bd05cb2fb0449f00cb544c8410635afbaaf5076"
+      },
+      "static_and_lod_phase_02/lod_transition_parse_failed_01_sources.zip": {
+        "bytes": 9577,
+        "raw_sha256": "24c435e189814ee810b7feade0606f5e9a8baaf0d5f65fb3ce8e184c74916cff"
+      },
+      "static_and_lod_phase_02/static_failed_01_sources.zip": {
+        "bytes": 37734,
+        "raw_sha256": "12b76b6e665a9099ed8a6353a6c62dc7f0ba3153a91a9f2a1c6ec6f8a49a464d"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03.log": {
+        "bytes": 13033,
+        "raw_sha256": "bc9f1187d51e1455f0e3a8bbc832a28bde7b9a4554175110abf9520fb6f676d2"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03.log.receipt.json": {
+        "bytes": 2582,
+        "raw_sha256": "73c1c10d19c598540c3311065b678f382f8542bd1897e9a70f2cea06ed169387",
+        "lf_sha256": "73c1c10d19c598540c3311065b678f382f8542bd1897e9a70f2cea06ed169387"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03/forced_far.png": {
+        "bytes": 47089,
+        "raw_sha256": "558671f3e8cb8a0ae26edf460d0c10477146281d9d869365129bb98ef4a09109",
+        "new_visual_inspection": "unchanged family viewpoint; prior asset review reused, no new whole-family artistic acceptance"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03/forced_near.png": {
+        "bytes": 49134,
+        "raw_sha256": "5249ba657da4f7b47e438982fa50749936abb0e2fc95ad23940ca04cb1d390b6",
+        "new_visual_inspection": "unchanged family viewpoint; prior asset review reused, no new whole-family artistic acceptance"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03/lower_platform.png": {
+        "bytes": 3158057,
+        "raw_sha256": "33923ef079b69041721765b0945becf3c5c074efb59218dc9292351f2c8f9fa5",
+        "new_visual_inspection": "unchanged family viewpoint; prior asset review reused, no new whole-family artistic acceptance"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03/narrow.png": {
+        "bytes": 2826956,
+        "raw_sha256": "3d0fb502fdf36f8e1c3694618f0332a24d1456e14fd44f83dcf739cc922ebaa6",
+        "new_visual_inspection": "unchanged family viewpoint; prior asset review reused, no new whole-family artistic acceptance"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03/natural_after.png": {
+        "bytes": 94497,
+        "raw_sha256": "28072e44a0462fc0396347a1a822c5308a5e1eb81f1acc6ec1941694da66b716",
+        "new_visual_inspection": "actual viewed"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03/natural_before.png": {
+        "bytes": 102200,
+        "raw_sha256": "1eebda7267ddc901242b3b07c25b1249d0305efd645fee0209762d34fd3a8078",
+        "new_visual_inspection": "actual viewed"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03/natural_narrow.png": {
+        "bytes": 4542862,
+        "raw_sha256": "3ea25cab008bc7180d51e23bb2146a4127f77a74c29ba2c0395a16d6e9cf2897",
+        "new_visual_inspection": "actual viewed"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03/natural_return.png": {
+        "bytes": 102200,
+        "raw_sha256": "1eebda7267ddc901242b3b07c25b1249d0305efd645fee0209762d34fd3a8078",
+        "new_visual_inspection": "actual viewed"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03/public_stair.png": {
+        "bytes": 2643776,
+        "raw_sha256": "63987917a60233e23ff5ba644e2a8f48e85f0b00d6cb33395e55316a09fa4645",
+        "new_visual_inspection": "unchanged family viewpoint; prior asset review reused, no new whole-family artistic acceptance"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03/transport_bench.json": {
+        "bytes": 71027,
+        "raw_sha256": "b2ef3ba74350163fb25a6520b88b74476b6fd75f3a49054cb8495b37c28dd319",
+        "lf_sha256": "b2ef3ba74350163fb25a6520b88b74476b6fd75f3a49054cb8495b37c28dd319"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03/wide.png": {
+        "bytes": 47089,
+        "raw_sha256": "558671f3e8cb8a0ae26edf460d0c10477146281d9d869365129bb98ef4a09109",
+        "new_visual_inspection": "unchanged family viewpoint; prior asset review reused, no new whole-family artistic acceptance"
+      },
+      "static_and_lod_phase_02/station_lod_transition_03_batch.json": {
+        "bytes": 460,
+        "raw_sha256": "2fe2b402cd9e6fe49ba59a4f8383b7741759aa502bd6b53507b992ed0751d615",
+        "lf_sha256": "4b54e21cebb3bbd32f8241f80047bd0643a8346ad32c6f7ce653ae6ef978115e"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03.log": {
+        "bytes": 19700,
+        "raw_sha256": "b74659f15f3f39c21e162d1803eef667ee3234f84ca9aedcf356d37d3cbe5e02"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03.log.receipt.json": {
+        "bytes": 2579,
+        "raw_sha256": "09a00a27608c577b70d40fddbf45ba7def8f1c2e918023c32487af8b351a54a0",
+        "lf_sha256": "09a00a27608c577b70d40fddbf45ba7def8f1c2e918023c32487af8b351a54a0"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03/curb_grazing.png": {
+        "bytes": 3825558,
+        "raw_sha256": "1694d42fec01c679b1199e4b1cc3a0e080ca59d86ae44af71281d3c9942a0c08",
+        "new_visual_inspection": "unchanged family viewpoint; prior asset review reused, no new whole-family artistic acceptance"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03/east_crossing.png": {
+        "bytes": 3865283,
+        "raw_sha256": "b09dcca166f614c60eebe4e692841c1175b50dc1b76bdfbfab45f01a9ede7eab",
+        "new_visual_inspection": "unchanged family viewpoint; prior asset review reused, no new whole-family artistic acceptance"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03/forced_far.png": {
+        "bytes": 43335,
+        "raw_sha256": "cbb12caeba9185ea1bcebda470cac6e93c9cb943514fe560a0125dffff0424a4",
+        "new_visual_inspection": "unchanged family viewpoint; prior asset review reused, no new whole-family artistic acceptance"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03/forced_near.png": {
+        "bytes": 43892,
+        "raw_sha256": "f64a84b8071bca9874eb6b7d7963aa1986be4313785c06fab9f1366dcf201b6b",
+        "new_visual_inspection": "unchanged family viewpoint; prior asset review reused, no new whole-family artistic acceptance"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03/narrow.png": {
+        "bytes": 39352,
+        "raw_sha256": "1aba4684ca05802469f0b504052d46bc5f34c7cdc9f06197fb7bfe0aba90b631",
+        "new_visual_inspection": "unchanged family viewpoint; prior asset review reused, no new whole-family artistic acceptance"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03/natural_after.png": {
+        "bytes": 23304,
+        "raw_sha256": "a2338cfdece46603d04464c7880bd641c935ed0c49700c6d98237509c440ec84",
+        "new_visual_inspection": "actual viewed"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03/natural_before.png": {
+        "bytes": 23312,
+        "raw_sha256": "e20c06d23101e83a824e113cd9a16b39b8e09b112f2823ca11287d212e848a29",
+        "new_visual_inspection": "actual viewed"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03/natural_narrow.png": {
+        "bytes": 480946,
+        "raw_sha256": "656f830d0f4cc00b8cf0feb53e788d6a09c647cc56ee1e1fc37cdc969bfe40f5",
+        "new_visual_inspection": "actual viewed"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03/natural_return.png": {
+        "bytes": 23312,
+        "raw_sha256": "e20c06d23101e83a824e113cd9a16b39b8e09b112f2823ca11287d212e848a29",
+        "new_visual_inspection": "actual viewed"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03/transport_bench.json": {
+        "bytes": 71247,
+        "raw_sha256": "3631b670686dfdd843110332d33e17a322b45ec6cb8cf7149332e75312225211",
+        "lf_sha256": "3631b670686dfdd843110332d33e17a322b45ec6cb8cf7149332e75312225211"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03/wide.png": {
+        "bytes": 17390,
+        "raw_sha256": "aa46ae3e5e1b6f5687b854c161d7aaf50bde3a48f99d83f57a526b9c1677e639",
+        "new_visual_inspection": "unchanged family viewpoint; prior asset review reused, no new whole-family artistic acceptance"
+      },
+      "static_and_lod_phase_02/street_lod_transition_03_batch.json": {
+        "bytes": 458,
+        "raw_sha256": "279c7515ee6159c0b9e33d43913b8eab4295c69d430e00200831e0c4996c0213",
+        "lf_sha256": "8984187e673e4f6f421a9083ba45002d5a7d65e34c856ae63e56cd6dacefec1d"
+      },
+      "provider_repair_imported_phase_03/provider_repair_benches_01_batch.json": {
+        "bytes": 1157,
+        "raw_sha256": "db92a1618eadc2726c59f1735fb0c59a00d3bdff631888d3eb2f99dc6f3791a7"
+      },
+      "provider_repair_imported_phase_03/provider_repair_benches_01.log": {
+        "bytes": 611,
+        "raw_sha256": "5028ff394a952e9194965e791595fe690d0d4f7edd2404efbbea75d5246cf95b"
+      },
+      "provider_repair_imported_phase_03/import_07.log": {
+        "bytes": 4451,
+        "raw_sha256": "8d916cd9b7b6eeeb404b02ab71a54bf77b25edcc3181d468aa7befa3f3ef1eec"
+      },
+      "provider_repair_imported_phase_03/import_07.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_repair_imported_phase_03/import_07.log.receipt.json": {
+        "bytes": 2357,
+        "raw_sha256": "db67fe489b0f6c97d5856e2a9c1a9e316f8ea70a1b8e588f7c8c0f5936b9f683"
+      },
+      "provider_repair_imported_phase_03/street_lod_transition_04.log": {
+        "bytes": 19723,
+        "raw_sha256": "a4966e99c5d3fefc94cd7f2719e972f29e4251865dadaa28265f9ebbabc36edd"
+      },
+      "provider_repair_imported_phase_03/street_lod_transition_04.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_repair_imported_phase_03/street_lod_transition_04.log.receipt.json": {
+        "bytes": 2583,
+        "raw_sha256": "32ed59bfcd414e68dce91419f373692311f705394be344a4710dc6263168c0b5"
+      },
+      "provider_repair_imported_phase_03/street_lod_transition_04/transport_bench.json": {
+        "bytes": 71286,
+        "raw_sha256": "12dd6fcf3ae0f7808a6cac03f1d39e72388841e5e97eb895207182d9d9a25610"
+      },
+      "provider_repair_imported_phase_03/street_bench04_frame_summary.json": {
+        "bytes": 4011,
+        "raw_sha256": "b711876b41b05407ae3d33ab39b7e5c41ea9fe47365206fb321e1e7b4faf82a0"
+      },
+      "provider_repair_imported_phase_03/horizon_bench_05.log": {
+        "bytes": 663916,
+        "raw_sha256": "42e020716065e292be43f62f2a35f642e31184ef33a983ce57e8c7a7886d9aa6"
+      },
+      "provider_repair_imported_phase_03/horizon_bench_05.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_repair_imported_phase_03/horizon_bench_05.log.receipt.json": {
+        "bytes": 2612,
+        "raw_sha256": "8c5f58240e9179b6616c0bd86e88276917855a0a9814c312a6b58071d8e80ce7"
+      },
+      "provider_repair_imported_phase_03/street_lod_transition_04/natural_before.png": {
+        "bytes": 23312,
+        "raw_sha256": "e20c06d23101e83a824e113cd9a16b39b8e09b112f2823ca11287d212e848a29"
+      },
+      "provider_repair_imported_phase_03/street_lod_transition_04/natural_after.png": {
+        "bytes": 23304,
+        "raw_sha256": "a2338cfdece46603d04464c7880bd641c935ed0c49700c6d98237509c440ec84"
+      },
+      "provider_repair_imported_phase_03/street_lod_transition_04/natural_narrow.png": {
+        "bytes": 480946,
+        "raw_sha256": "656f830d0f4cc00b8cf0feb53e788d6a09c647cc56ee1e1fc37cdc969bfe40f5"
+      },
+      "provider_repair_imported_phase_03/street_lod_transition_04/natural_return.png": {
+        "bytes": 23312,
+        "raw_sha256": "e20c06d23101e83a824e113cd9a16b39b8e09b112f2823ca11287d212e848a29"
+      },
+      "provider_repair_imported_phase_03/street_bench04_visual_index.json": {
+        "bytes": 3745,
+        "raw_sha256": "8d0b1940aec875ae1f285455d27f6041baa78a4ae4ad140a0be94f597b57adec"
+      }
+    },
+    "index_evidence_class": "INERT",
+    "scope": "Exact original failed03/05/06/07/08 artifacts and passing imported04/composed09 artifacts. Raw test-written schema2 runtime_contract is preserved without edits; this index grants no additional authority. No full-surface, save, whole-city or artistic acceptance.",
+    "route09": "237 checks/199 waypoints/0 failures;1229.64s wrapper;empty stderr;13 original actual captures inspected",
+    "radius_scope": "Five airborne fixtures at150m;450m radial wall.280m east/west routes are the actual wider ground walks.",
+    "phase_02": {
+      "previous_raw_sha256": "c867c5c6ce93b400ac9105ef6d18806f5b08650a5e48e98d9af06aabcda2096a",
+      "prior_members_unchanged": 62,
+      "static": "Full board01 original failures preserved; corrected three-gate03 PASS; empty selected02 rejected; five apron unit tests include1152 grid cases",
+      "natural_transition": "Final street03:399/0,13.91s; station03:238/0,18.79s; all eight actual natural views inspected; native assets unchanged",
+      "failures": "Original parse01, standalone check-only autoload scope failure02 and primitive-count-only optical target defect02 retained without edits",
+      "scope": "INERT index; no new full-surface, save, whole-city or artistic acceptance"
+    },
+    "native_primary_archive_sha256_when_exterior_created": "76c0357e56fa5828a6ba44df2d1f3affa56502052afd1dc1869438d5a1daaf29",
+    "phase_03": {
+      "scope": "Terminal import07/street04/horizon05 diagnostics, original raw logs/receipts, actual natural4 images and an external-image review index. No runtime-contract promotion.",
+      "previous_archive_sha256": "b51b67d96a1782ddf6cdae4037e3337588757e403efbcf81e77b7ecf18d88664",
+      "members_added": [
+        "provider_repair_imported_phase_03/provider_repair_benches_01_batch.json",
+        "provider_repair_imported_phase_03/provider_repair_benches_01.log",
+        "provider_repair_imported_phase_03/import_07.log",
+        "provider_repair_imported_phase_03/import_07.log.stderr",
+        "provider_repair_imported_phase_03/import_07.log.receipt.json",
+        "provider_repair_imported_phase_03/street_lod_transition_04.log",
+        "provider_repair_imported_phase_03/street_lod_transition_04.log.stderr",
+        "provider_repair_imported_phase_03/street_lod_transition_04.log.receipt.json",
+        "provider_repair_imported_phase_03/street_lod_transition_04/transport_bench.json",
+        "provider_repair_imported_phase_03/street_bench04_frame_summary.json",
+        "provider_repair_imported_phase_03/horizon_bench_05.log",
+        "provider_repair_imported_phase_03/horizon_bench_05.log.stderr",
+        "provider_repair_imported_phase_03/horizon_bench_05.log.receipt.json",
+        "provider_repair_imported_phase_03/street_lod_transition_04/natural_before.png",
+        "provider_repair_imported_phase_03/street_lod_transition_04/natural_after.png",
+        "provider_repair_imported_phase_03/street_lod_transition_04/natural_narrow.png",
+        "provider_repair_imported_phase_03/street_lod_transition_04/natural_return.png",
+        "provider_repair_imported_phase_03/street_bench04_visual_index.json"
+      ]
+    }
+  },
+  "phase_04": {
+    "previous_archive_sha256": "76c0357e56fa5828a6ba44df2d1f3affa56502052afd1dc1869438d5a1daaf29",
+    "prior_members_unchanged": 230,
+    "scope": "Original failing full_surface_01 contract/logs/receipt and exact street+ground native/export assets/sources retained;42667 checks,3 retained east-slab bearing failures;no repair or acceptance claim",
+    "diagnosis": "Native new walk overlaps about5.30m2 of existing passage_pavement_slab_east; also millimetre edge strips. Existing authorities unchanged.",
+    "inventory": "Original full inventory remains external with exact path/bytes/hash in nested index."
+  },
+  "phase_05": {
+    "scope": "INERT preservation of the exact progress report before consolidating the current street log. No evidence status promotion.",
+    "previous_archive_sha256": "7934bb334122d83ebc016c4bdc96b3627b0d3014f294e21a85e96902b9f7f72d",
+    "members_added": [
+      "street_log_consolidation_phase_05/original_in_progress_report.md"
+    ]
+  },
+  "phase_06": {
+    "scope": "Original early binding/diagnostic failures, actual producer replay logs, byte comparisons and inspected native-view index. No runtime or artistic acceptance. Original232 members unchanged.",
+    "previous_archive_sha256": "047b9d0257c29842498f88a6665ec8d2c9aa6dd33a59ac98907685b5266ff571",
+    "members_added": [
+      "retained_provider_repair_phase_06/provider_dependency_preflight_failed_06.zip",
+      "retained_provider_repair_phase_06/ground_source_preflight_failed_09.zip",
+      "retained_provider_repair_phase_06/provider_repair_before_replay.json",
+      "retained_provider_repair_phase_06/provider_repair_replay_identity_01.json",
+      "retained_provider_repair_phase_06/provider_repair_before_dependency_replay_02.json",
+      "retained_provider_repair_phase_06/provider_dependency_replay_identity_02.json",
+      "retained_provider_repair_phase_06/native_fixture_preflight_06.txt",
+      "retained_provider_repair_phase_06/native_fixture_preflight_07.txt",
+      "retained_provider_repair_phase_06/grade_source_deep_preflight_01.json",
+      "retained_provider_repair_phase_06/grade_source_deep_preflight_02.json",
+      "retained_provider_repair_phase_06/retained_footway_overlap_01.json",
+      "retained_provider_repair_phase_06/retained_footway_overlap_02.json",
+      "retained_provider_repair_phase_06/street_provider_repair_01.log",
+      "retained_provider_repair_phase_06/street_provider_repair_02.log",
+      "retained_provider_repair_phase_06/native_provider_repair_01.log",
+      "retained_provider_repair_phase_06/native_provider_repair_01/native_geometry_checks.json",
+      "retained_provider_repair_phase_06/native_provider_repair_01/native_review.json",
+      "retained_provider_repair_phase_06/native_provider_ground_context_02.log",
+      "retained_provider_repair_phase_06/native_provider_ground_context_02/native_geometry_checks.json",
+      "retained_provider_repair_phase_06/native_provider_ground_context_02/native_review.json",
+      "retained_provider_repair_phase_06/station_provider_replay_01.log",
+      "retained_provider_repair_phase_06/native_grade_sources_04.log",
+      "retained_provider_repair_phase_06/grade_plan_03.json",
+      "retained_provider_repair_phase_06/foundation_provider_replay_02.log",
+      "retained_provider_repair_phase_06/ground_rebuild_11.log",
+      "retained_provider_repair_phase_06/apron_provider_replay_02.log",
+      "retained_provider_repair_phase_06/horizon_provider_replay_02.log",
+      "retained_provider_repair_phase_06/ground_native_inspection_04.log",
+      "retained_provider_repair_phase_06/ground_native_inspection_04.json",
+      "retained_provider_repair_phase_06/street_bench04_frame_summary.json",
+      "retained_provider_repair_phase_06/provider_repair_visual_index_01.json"
+    ]
+  },
+  "traffic_height_qualification_archive": {
+    "file": "traffic_height_qualification.zip",
+    "index_evidence_class": "INERT",
+    "scope": "Original route10 failure, isolated traffic-height controls and repaired route11 qualification are preserved without editing their test-written receipts. This INERT index grants no extra runtime, whole-city or artistic acceptance.",
+    "bytes": 69385987,
+    "raw_sha256": "f723c008c1bf5611bea7aaafffc9a889d31da67ca55764866c3c196d597a3846",
+    "members": {
+      "executed_sources/art/data/city_streets/source_plan.json": {
+        "bytes": 1644,
+        "raw_sha256": "3a71fdafa14fe72a51e8116db680b086cabd51e1a4183955426a73415a73115f"
+      },
+      "executed_sources/game/data/orison_v2/exterior/street_traffic.json": {
+        "bytes": 34075,
+        "raw_sha256": "53e81ead12c24f3afa48ce6f9182570d64b21fbd76bb7b023996fc7e8a9ac199"
+      },
+      "executed_sources/game/scripts/building/orison_v2_city_streets.gd": {
+        "bytes": 3406,
+        "raw_sha256": "36e797134075e8f70fe795cc7604827a7ec391927272c589f18adce8037182f9"
+      },
+      "executed_sources/game/scripts/building/orison_v2_street_traffic.gd": {
+        "bytes": 39809,
+        "raw_sha256": "d96d205b0735231e6c661d0c53ce3e9803805ce83a3fc52cb5961e3b80863d94"
+      },
+      "executed_sources/game/tests/V2CityTransportRoute.tscn": {
+        "bytes": 190,
+        "raw_sha256": "580bcb59005769d5071bed8b18ed62ec3fcd8922155a5d6c7aab016238715044"
+      },
+      "executed_sources/game/tests/fixtures/orison_city_foundations_construction.json": {
+        "bytes": 476141,
+        "raw_sha256": "db3c7a40fbaafba4ddc9d0c2211917e9f31fa59be4672805a461aad6be82e914"
+      },
+      "executed_sources/game/tests/fixtures/orison_city_streets.json": {
+        "bytes": 2521157,
+        "raw_sha256": "5e21d197fd32ec861d9a27be0ddbf5c1f27b71fd7a185ce5a53c549bd68889e1"
+      },
+      "executed_sources/game/tests/fixtures/orison_city_transport.json": {
+        "bytes": 4304721,
+        "raw_sha256": "d4b225a5b0ca4bc275f4b57e1b72666801b0d23e2689c4c456c14a10184d2d9c"
+      },
+      "executed_sources/game/tests/orison_v2_first_slice_contract_test.gd": {
+        "bytes": 50174,
+        "raw_sha256": "b60d51319e153d7c2d5c2987ed3dd2c332591e9410b3dc025e451301d53be528"
+      },
+      "executed_sources/game/tests/orison_v2_street_crossing_test.gd": {
+        "bytes": 1666,
+        "raw_sha256": "b394b13eaa5dd94321cffda1214686da82e8a2c6402504c179b483f97efe7f8d"
+      },
+      "executed_sources/game/tests/orison_v2_vertical_route_test.gd": {
+        "bytes": 10505,
+        "raw_sha256": "3eb5749f6b9f934f5ec0a987545227b189d916ee00f073d1f3e3d626aa6f0123"
+      },
+      "executed_sources/game/tests/v2_city_transport_route.gd": {
+        "bytes": 18028,
+        "raw_sha256": "d4902170ea9debe8a2d1fcf67d84c3f967fe089aadae1d9a3245c18c5148ed40"
+      },
+      "executed_sources/game/tests/v2_city_west_frontage.gd": {
+        "bytes": 15467,
+        "raw_sha256": "50eeea4c3c30a6a291c0dee46829743c8987f5633a5f95d8d52933edfb1c4f97"
+      },
+      "failed_route10/city_exterior_contract.json": {
+        "bytes": 1763274,
+        "raw_sha256": "6b997f8886b61967b288bb3c8ea863aa377802c6703126cf33b495e4ae189d7a"
+      },
+      "failed_route10/exterior_route_10.log": {
+        "bytes": 28368,
+        "raw_sha256": "08d5261529d0c9027f3e2ee8b7c1309f1247f0009d32c3f460cf7bd83b18a9e6"
+      },
+      "failed_route10/exterior_route_10.log.receipt.json": {
+        "bytes": 2561,
+        "raw_sha256": "525aba411b905c23a1ae9df98db7e5e327c8e6f7b863ed39e33c09f6a43e15b7"
+      },
+      "failed_route10/exterior_route_10.log.stderr": {
+        "bytes": 272,
+        "raw_sha256": "4f800e3e6e428da8c03338c9484fd3a4d163ee8772701f551ce6e994993454d5"
+      },
+      "failed_route10/exterior_route_batch_10.json": {
+        "bytes": 451,
+        "raw_sha256": "9a8fd2edeae6d866335941580e297b0f36cd90f24dc28021d85d828cb7020fa6"
+      },
+      "failed_route10/lower_platform_0.png": {
+        "bytes": 2514732,
+        "raw_sha256": "28e728faf671ba912d0601b03d714097eaaa5a02385ec75c3cd8f1edb88c6962"
+      },
+      "failed_route10/plaza_approach.png": {
+        "bytes": 2900522,
+        "raw_sha256": "e28d6858acfe132eb73028f668184cd81bc389f87b24461b4962b7be42209337"
+      },
+      "failed_route10/public_entry.png": {
+        "bytes": 3100052,
+        "raw_sha256": "7fdcc3fb97d72deba75a45958fda9c6f16890f7d4399ed1bb6d62cec3d0197c8"
+      },
+      "failed_route10/route10_inspected_capture_observations.json": {
+        "bytes": 2343,
+        "raw_sha256": "59ee882ab0f13a7c42f3c9ea480bd94b1a53c7c60a23750f0342703eee18b73a"
+      },
+      "failed_route10/street_east_narrow_walk.png": {
+        "bytes": 3328054,
+        "raw_sha256": "fe4409d6a144aef12f3c5b26e5615cf97786a53be71772cff314779126514bc4"
+      },
+      "failed_route10/street_pier_islands.png": {
+        "bytes": 3435611,
+        "raw_sha256": "3f1ad5730d616ee5f5b9d011f7346e19abfff5afaf16be9ba2db4042dc3ff9e5"
+      },
+      "failed_route10/street_west_junction.png": {
+        "bytes": 3838907,
+        "raw_sha256": "c03af6607e14d1e84c586f86745fd41b125d611424fdf72a6bdca8837451a381"
+      },
+      "failed_route10/west_from_front_walk.png": {
+        "bytes": 3642857,
+        "raw_sha256": "f10da21be02858a4aa43d1e8c30e9bc8b2f4fcbf5afe1099b9c12eb58b74ee7b"
+      },
+      "failed_route10/west_restored_blocker_control.png": {
+        "bytes": 3582523,
+        "raw_sha256": "a3bd66f834e7cf153ae95f4c846dc435961ffd605be3c7a8110e2e9236198b19"
+      },
+      "preceding_surface02/publication_validation.json": {
+        "bytes": 172,
+        "raw_sha256": "bfc2c2b65bb8cbe1067d30b7d61fcb040aac84e44cf28c45fd14c6bbc8fa3cf9"
+      },
+      "preceding_surface02/runtime_contract.json": {
+        "bytes": 1394,
+        "raw_sha256": "57a76bd2cf27af6138acdbb2450edf524f7ba7e331b995fc7467a4438986aa48"
+      },
+      "preceding_surface02/suite_run.receipt.json": {
+        "bytes": 2627,
+        "raw_sha256": "f431c7d225ecee6dae7be8cf4cd6809cf23d7a3f9b355ed63966d31f6bf04a72"
+      },
+      "preceding_surface02/suite_run.stderr.log.gz": {
+        "bytes": 20,
+        "raw_sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e"
+      },
+      "preceding_surface02/suite_run.stdout.log.gz": {
+        "bytes": 28664,
+        "raw_sha256": "607d774ac5a77c1fe5de6a1b1bfa7a3ce946f0aed12b1b7bd67ed85f8aeb5a5b"
+      },
+      "preceding_surface02/surface-inventory.json": {
+        "bytes": 22203424,
+        "raw_sha256": "527d51dbc73484d4318c3ed8c5327520056b84ea7436a25979632d7d0bc16eeb"
+      },
+      "preceding_surface02/visual_review.json": {
+        "bytes": 4858,
+        "raw_sha256": "c1431a8bda7a5abe3cc3c7546fcd0fac8daaaa80d2a8979efbb2f336cab64d73"
+      },
+      "focused_height_repair/traffic_height_bench_01_batch.json": {
+        "bytes": 315,
+        "raw_sha256": "4f430b91f5a0c65d738511b54623bcc83cea1f76c92e9fdbd72b5a6ce50fb7f6"
+      },
+      "focused_height_repair/traffic_height_bench_01_lane.log": {
+        "bytes": 1476,
+        "raw_sha256": "9f4c42b6391780f01733a1bde9940e35fdd6b2105f3cc0ae5b69e93e603b1b2e"
+      },
+      "focused_height_repair/traffic_height_bench_01.log": {
+        "bytes": 10194,
+        "raw_sha256": "37d76d5e5991ef6d39f72a0d0bda1d1d7819dc60236065ed2e1a675897a5700d"
+      },
+      "focused_height_repair/traffic_height_bench_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "focused_height_repair/traffic_height_bench_01.log.receipt.json": {
+        "bytes": 2597,
+        "raw_sha256": "207ede9bb730c17abbb201d113047a32e58a6a5a0a09ed312a8865589abc9cbb"
+      },
+      "focused_height_repair/traffic_height_bench_01/traffic_behaviour.json": {
+        "bytes": 838,
+        "raw_sha256": "38779760c14db4252dea519e05231fdf1ab26172295c5b98f623eb9065667a49"
+      },
+      "focused_height_repair/executed_sources/game/scripts/building/orison_v2_street_traffic.gd": {
+        "bytes": 40482,
+        "raw_sha256": "3453569b9eb9f04e46f2852ec3d240c305f373dccb7789a48f954b67682540c6"
+      },
+      "focused_height_repair/executed_sources/game/tests/orison_v2_traffic_behaviour_test.gd": {
+        "bytes": 15198,
+        "raw_sha256": "dd547d4d0307dd292d6edad640d9bdcbccf608330aa38047bb9a82ab98b19a35"
+      },
+      "repaired_route11/city_exterior_contract.json": {
+        "bytes": 6234591,
+        "raw_sha256": "637c4d6651a4b3973280c2917996ffa40c5f0b7df2a12106ca984585f209213a"
+      },
+      "repaired_route11/lower_platform_0.png": {
+        "bytes": 2521764,
+        "raw_sha256": "f5199a3a679ff8656de9c0ec9d559bcc51a6741b814cdccc6c82d662946f06d0"
+      },
+      "repaired_route11/lower_platform_1.png": {
+        "bytes": 2667235,
+        "raw_sha256": "05a4c55d6ebbd180cea2c94684fefa521df064935e08ad3666853d132d391b00"
+      },
+      "repaired_route11/plaza_approach.png": {
+        "bytes": 2872853,
+        "raw_sha256": "f640c064843279f82dbc7832fd4c6970e30e3d4fa37b687608d4f2827f799069"
+      },
+      "repaired_route11/public_entry.png": {
+        "bytes": 3100233,
+        "raw_sha256": "147f6ce07533199bab230fd5984492d65bd3c24bd1df636379b61e9d492de3f7"
+      },
+      "repaired_route11/street_-280.png": {
+        "bytes": 2564274,
+        "raw_sha256": "7250e9af5d771994fd42f9b2dd5a77ea87c05f92430a56e530742e8ce12682f0"
+      },
+      "repaired_route11/street_280.png": {
+        "bytes": 3925020,
+        "raw_sha256": "b13d8cb773edc6c3f8d6d78a11857a7ad14ac2af42ea47ba2e2b54fafb4f92d7"
+      },
+      "repaired_route11/street_east_narrow_walk.png": {
+        "bytes": 3330504,
+        "raw_sha256": "f12d85ba59859e4e2b599ff4af75a5b4fa88d616ea8fafef49f0bdd6e7a5bd03"
+      },
+      "repaired_route11/street_pier_islands.png": {
+        "bytes": 3472616,
+        "raw_sha256": "772b269bf1b8ef934bd3e1e2da252812272a071dd419449cc739afd9b6e26fa5"
+      },
+      "repaired_route11/street_west_junction.png": {
+        "bytes": 3773147,
+        "raw_sha256": "73850ee5c7ac39413e3e4c946b3d13d5ba6726a350b41582c800354faecbffc6"
+      },
+      "repaired_route11/upper_platform_0.png": {
+        "bytes": 2356633,
+        "raw_sha256": "746443f511709d9cb51451e1d36fb9f2b31b3aad374d77a372ddb54ee0c0eb38"
+      },
+      "repaired_route11/upper_platform_1.png": {
+        "bytes": 2404252,
+        "raw_sha256": "070c057b1d865368e266f0473294f57ad6d672dcc65231f0d04e8d1e4cf25db7"
+      },
+      "repaired_route11/west_from_front_walk.png": {
+        "bytes": 3462367,
+        "raw_sha256": "facb65b6671b6b1ef07901389b8354dc43f8139d66603323bf71fb2ac49d9dc8"
+      },
+      "repaired_route11/west_restored_blocker_control.png": {
+        "bytes": 3581779,
+        "raw_sha256": "f906af7014403c781397fd939cad72d3baa8ddcd4cc6031780386988b0fd9355"
+      },
+      "repaired_route11/exterior_route_11.log": {
+        "bytes": 18527,
+        "raw_sha256": "71d6093c01d6c7b091be47b47e88f69d0a77e87f33d542c0bd823bf56fe6518c"
+      },
+      "repaired_route11/exterior_route_11.log.receipt.json": {
+        "bytes": 2562,
+        "raw_sha256": "6eeee9d49035e114e1d01a166419ea338c450ffad31a674d07762ffa277bfc0d"
+      },
+      "repaired_route11/exterior_route_batch_11.json": {
+        "bytes": 451,
+        "raw_sha256": "8e6902ce49f9356d67b30501f7da93a922a46918bae9ea725b171e59ed09db41"
+      },
+      "repaired_route11/route11_inspected_capture_observations.json": {
+        "bytes": 4276,
+        "raw_sha256": "44159fa962049cce67175e9446a21a920a05a14833a5d2e09b8409e6081cac5e"
+      },
+      "repaired_route11/route11_environment_notes.json": {
+        "bytes": 638,
+        "raw_sha256": "ddedf2607bf3bc5c2cd3ed01d9389255dd2b4cf460aed9c7a828405c445a80cb"
+      },
+      "repaired_route11/route11_frame_summary.json": {
+        "bytes": 2610,
+        "raw_sha256": "b30d3cf89f8fb2f23579cdb35c2d4743c0af3e6681dc631eb17958fe2f49eef7"
+      },
+      "repaired_route11/route11_programme_source_check.json": {
+        "bytes": 1856,
+        "raw_sha256": "4c71f38ebbbcefbb96dbf36a4d5c1e3c16bc3db448d8cbb5e85ba126becd36fe"
+      },
+      "repaired_route11/hash_bound_line_endings_01.json": {
+        "bytes": 2142,
+        "raw_sha256": "7d49595b0d84191c3297deada9ae727afda9775a05099a84333f784763c2db8a"
+      },
+      "repaired_route11/native_fixture_preflight_08.txt": {
+        "bytes": 488,
+        "raw_sha256": "422454db661c00844408ac1d8092cedee8642a26d3582bcf57bdaf532a394a3f"
+      },
+      "repaired_route11/grade_source_deep_preflight_03.json": {
+        "bytes": 39706,
+        "raw_sha256": "839415f045bf61adf5ffdc1747c70c4eef44d979d354a904cb18b652bf586aad"
+      },
+      "repaired_route11/generated_noise_cleanup_01.json": {
+        "bytes": 167997,
+        "raw_sha256": "7d6ce2002e00baa6d6cafdbb7dc3109cf243df74a1b5879ae02f4ea531821aec"
+      },
+      "repaired_route11/generated_noise_cleanup_02.json": {
+        "bytes": 133222,
+        "raw_sha256": "4b1a5f6d0e758931d9da9b36b6ea45a8a0f8538ab028500e79d0990a5db93bd8"
+      },
+      "repaired_route11/current_sources_after_lf_normalization/.gitattributes": {
+        "bytes": 165024,
+        "raw_sha256": "d505defbbcdd27c4bd95648e499c68ffc54bb52b19ef3b3b554701c1585dcddd"
+      },
+      "repaired_route11/current_sources_after_lf_normalization/game/scripts/building/orison_v2_street_traffic.gd": {
+        "bytes": 39464,
+        "raw_sha256": "52fb73f22eebd40d122a022c4d886f458416293ae60b35701d3e5f2013dc207a"
+      },
+      "static_and_publication_phase_04/candidate_static_04/board.json": {
+        "bytes": 84553,
+        "raw_sha256": "3d7ed66079ba24ae5c563ab571ecd3dfd7ee0e3113a73ce937d15ccbd1b82141"
+      },
+      "static_and_publication_phase_04/candidate_static_04.log": {
+        "bytes": 7020,
+        "raw_sha256": "bac6883dacd94e5d7d316de1944900727c111aba6ffef22693942945be5ce5d6"
+      },
+      "static_and_publication_phase_04/spatial_actual_04.json": {
+        "bytes": 3305,
+        "raw_sha256": "564105e20399a2b274b86e743de02275e058201fb47e129a7ee456d78b236321"
+      },
+      "static_and_publication_phase_04/spatial_manifest_before04.json": {
+        "bytes": 7852788,
+        "raw_sha256": "39c6fdf8a3deadd65e636211af397c21385da43bee5bf2d3831b6bb389cfa994"
+      },
+      "static_and_publication_phase_04/candidate_static_05/board.json": {
+        "bytes": 12840,
+        "raw_sha256": "3d3dffc2f24b5fd9ee4a58c7529cc137ca1d762c077b5a818565050eec61dfdd"
+      },
+      "static_and_publication_phase_04/candidate_static_05.log": {
+        "bytes": 6872,
+        "raw_sha256": "55d936cbecdaf414ddef7cdabddef92db36d661ba278eb12ba7846d0a7322b87"
+      },
+      "static_and_publication_phase_04/surface_packet_03_prepublication.json": {
+        "bytes": 172,
+        "raw_sha256": "bfc2c2b65bb8cbe1067d30b7d61fcb040aac84e44cf28c45fd14c6bbc8fa3cf9"
+      },
+      "static_and_publication_phase_04/surface_packet_03_publication.json": {
+        "bytes": 172,
+        "raw_sha256": "bfc2c2b65bb8cbe1067d30b7d61fcb040aac84e44cf28c45fd14c6bbc8fa3cf9"
+      }
+    },
+    "focused_phase_02": {
+      "scope": "Isolated traffic-owner simulation96/0,1.64s, empty stderr; flat/graded and transformed owner ground positives and elevated/underground negatives. No composed-world/runtime-contract promotion.",
+      "previous_archive_sha256": "b07bcdc1e3772589b7bd033aa2c747154bf2c394d155cda05ee6565c1d7a15d3",
+      "members_added": [
+        "focused_height_repair/traffic_height_bench_01_batch.json",
+        "focused_height_repair/traffic_height_bench_01_lane.log",
+        "focused_height_repair/traffic_height_bench_01.log",
+        "focused_height_repair/traffic_height_bench_01.log.stderr",
+        "focused_height_repair/traffic_height_bench_01.log.receipt.json",
+        "focused_height_repair/traffic_height_bench_01/traffic_behaviour.json",
+        "focused_height_repair/executed_sources/game/scripts/building/orison_v2_street_traffic.gd",
+        "focused_height_repair/executed_sources/game/tests/orison_v2_traffic_behaviour_test.gd"
+      ]
+    },
+    "route11_phase_03": {
+      "scope": "Original test-written schema2 route11 contract237 checks/199 waypoints/0 failures,1236.24s wrapper, empty stderr. All13 current captures inspected. Runtime digest and18 programme hashes checked against current files; LF-normalization and generated-noise cleanup preserve bindings. Frame timings include external CPU/disk load. No full-surface renewal, complete city or artistic acceptance.",
+      "previous_archive_sha256": "ca2888a63a41c21e17146ae1e0d8ffc32bf09075071b6fb2c7e6ed6d4762cffb",
+      "members_added": [
+        "repaired_route11/city_exterior_contract.json",
+        "repaired_route11/lower_platform_0.png",
+        "repaired_route11/lower_platform_1.png",
+        "repaired_route11/plaza_approach.png",
+        "repaired_route11/public_entry.png",
+        "repaired_route11/street_-280.png",
+        "repaired_route11/street_280.png",
+        "repaired_route11/street_east_narrow_walk.png",
+        "repaired_route11/street_pier_islands.png",
+        "repaired_route11/street_west_junction.png",
+        "repaired_route11/upper_platform_0.png",
+        "repaired_route11/upper_platform_1.png",
+        "repaired_route11/west_from_front_walk.png",
+        "repaired_route11/west_restored_blocker_control.png",
+        "repaired_route11/exterior_route_11.log",
+        "repaired_route11/exterior_route_11.log.receipt.json",
+        "repaired_route11/exterior_route_batch_11.json",
+        "repaired_route11/route11_inspected_capture_observations.json",
+        "repaired_route11/route11_environment_notes.json",
+        "repaired_route11/route11_frame_summary.json",
+        "repaired_route11/route11_programme_source_check.json",
+        "repaired_route11/hash_bound_line_endings_01.json",
+        "repaired_route11/native_fixture_preflight_08.txt",
+        "repaired_route11/grade_source_deep_preflight_03.json",
+        "repaired_route11/generated_noise_cleanup_01.json",
+        "repaired_route11/generated_noise_cleanup_02.json",
+        "repaired_route11/current_sources_after_lf_normalization/.gitattributes",
+        "repaired_route11/current_sources_after_lf_normalization/game/scripts/building/orison_v2_street_traffic.gd"
+      ],
+      "artifacts": {
+        "repaired_route11/city_exterior_contract.json": {
+          "member": "repaired_route11/city_exterior_contract.json",
+          "raw_sha256": "637c4d6651a4b3973280c2917996ffa40c5f0b7df2a12106ca984585f209213a",
+          "bytes": 6234591
+        },
+        "repaired_route11/lower_platform_0.png": {
+          "member": "repaired_route11/lower_platform_0.png",
+          "raw_sha256": "f5199a3a679ff8656de9c0ec9d559bcc51a6741b814cdccc6c82d662946f06d0",
+          "bytes": 2521764
+        },
+        "repaired_route11/lower_platform_1.png": {
+          "member": "repaired_route11/lower_platform_1.png",
+          "raw_sha256": "05a4c55d6ebbd180cea2c94684fefa521df064935e08ad3666853d132d391b00",
+          "bytes": 2667235
+        },
+        "repaired_route11/plaza_approach.png": {
+          "member": "repaired_route11/plaza_approach.png",
+          "raw_sha256": "f640c064843279f82dbc7832fd4c6970e30e3d4fa37b687608d4f2827f799069",
+          "bytes": 2872853
+        },
+        "repaired_route11/public_entry.png": {
+          "member": "repaired_route11/public_entry.png",
+          "raw_sha256": "147f6ce07533199bab230fd5984492d65bd3c24bd1df636379b61e9d492de3f7",
+          "bytes": 3100233
+        },
+        "repaired_route11/street_-280.png": {
+          "member": "repaired_route11/street_-280.png",
+          "raw_sha256": "7250e9af5d771994fd42f9b2dd5a77ea87c05f92430a56e530742e8ce12682f0",
+          "bytes": 2564274
+        },
+        "repaired_route11/street_280.png": {
+          "member": "repaired_route11/street_280.png",
+          "raw_sha256": "b13d8cb773edc6c3f8d6d78a11857a7ad14ac2af42ea47ba2e2b54fafb4f92d7",
+          "bytes": 3925020
+        },
+        "repaired_route11/street_east_narrow_walk.png": {
+          "member": "repaired_route11/street_east_narrow_walk.png",
+          "raw_sha256": "f12d85ba59859e4e2b599ff4af75a5b4fa88d616ea8fafef49f0bdd6e7a5bd03",
+          "bytes": 3330504
+        },
+        "repaired_route11/street_pier_islands.png": {
+          "member": "repaired_route11/street_pier_islands.png",
+          "raw_sha256": "772b269bf1b8ef934bd3e1e2da252812272a071dd419449cc739afd9b6e26fa5",
+          "bytes": 3472616
+        },
+        "repaired_route11/street_west_junction.png": {
+          "member": "repaired_route11/street_west_junction.png",
+          "raw_sha256": "73850ee5c7ac39413e3e4c946b3d13d5ba6726a350b41582c800354faecbffc6",
+          "bytes": 3773147
+        },
+        "repaired_route11/upper_platform_0.png": {
+          "member": "repaired_route11/upper_platform_0.png",
+          "raw_sha256": "746443f511709d9cb51451e1d36fb9f2b31b3aad374d77a372ddb54ee0c0eb38",
+          "bytes": 2356633
+        },
+        "repaired_route11/upper_platform_1.png": {
+          "member": "repaired_route11/upper_platform_1.png",
+          "raw_sha256": "070c057b1d865368e266f0473294f57ad6d672dcc65231f0d04e8d1e4cf25db7",
+          "bytes": 2404252
+        },
+        "repaired_route11/west_from_front_walk.png": {
+          "member": "repaired_route11/west_from_front_walk.png",
+          "raw_sha256": "facb65b6671b6b1ef07901389b8354dc43f8139d66603323bf71fb2ac49d9dc8",
+          "bytes": 3462367
+        },
+        "repaired_route11/west_restored_blocker_control.png": {
+          "member": "repaired_route11/west_restored_blocker_control.png",
+          "raw_sha256": "f906af7014403c781397fd939cad72d3baa8ddcd4cc6031780386988b0fd9355",
+          "bytes": 3581779
+        },
+        "repaired_route11/exterior_route_11.log": {
+          "member": "repaired_route11/exterior_route_11.log",
+          "raw_sha256": "71d6093c01d6c7b091be47b47e88f69d0a77e87f33d542c0bd823bf56fe6518c",
+          "bytes": 18527
+        },
+        "repaired_route11/exterior_route_11.log.stderr": {
+          "member": "focused_height_repair/traffic_height_bench_01.log.stderr",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        "repaired_route11/exterior_route_11.log.receipt.json": {
+          "member": "repaired_route11/exterior_route_11.log.receipt.json",
+          "raw_sha256": "6eeee9d49035e114e1d01a166419ea338c450ffad31a674d07762ffa277bfc0d",
+          "bytes": 2562
+        },
+        "repaired_route11/exterior_route_batch_11.json": {
+          "member": "repaired_route11/exterior_route_batch_11.json",
+          "raw_sha256": "8e6902ce49f9356d67b30501f7da93a922a46918bae9ea725b171e59ed09db41",
+          "bytes": 451
+        },
+        "repaired_route11/route11_inspected_capture_observations.json": {
+          "member": "repaired_route11/route11_inspected_capture_observations.json",
+          "raw_sha256": "44159fa962049cce67175e9446a21a920a05a14833a5d2e09b8409e6081cac5e",
+          "bytes": 4276
+        },
+        "repaired_route11/route11_environment_notes.json": {
+          "member": "repaired_route11/route11_environment_notes.json",
+          "raw_sha256": "ddedf2607bf3bc5c2cd3ed01d9389255dd2b4cf460aed9c7a828405c445a80cb",
+          "bytes": 638
+        },
+        "repaired_route11/route11_frame_summary.json": {
+          "member": "repaired_route11/route11_frame_summary.json",
+          "raw_sha256": "b30d3cf89f8fb2f23579cdb35c2d4743c0af3e6681dc631eb17958fe2f49eef7",
+          "bytes": 2610
+        },
+        "repaired_route11/route11_programme_source_check.json": {
+          "member": "repaired_route11/route11_programme_source_check.json",
+          "raw_sha256": "4c71f38ebbbcefbb96dbf36a4d5c1e3c16bc3db448d8cbb5e85ba126becd36fe",
+          "bytes": 1856
+        },
+        "repaired_route11/hash_bound_line_endings_01.json": {
+          "member": "repaired_route11/hash_bound_line_endings_01.json",
+          "raw_sha256": "7d49595b0d84191c3297deada9ae727afda9775a05099a84333f784763c2db8a",
+          "bytes": 2142
+        },
+        "repaired_route11/native_fixture_preflight_08.txt": {
+          "member": "repaired_route11/native_fixture_preflight_08.txt",
+          "raw_sha256": "422454db661c00844408ac1d8092cedee8642a26d3582bcf57bdaf532a394a3f",
+          "bytes": 488
+        },
+        "repaired_route11/grade_source_deep_preflight_03.json": {
+          "member": "repaired_route11/grade_source_deep_preflight_03.json",
+          "raw_sha256": "839415f045bf61adf5ffdc1747c70c4eef44d979d354a904cb18b652bf586aad",
+          "bytes": 39706
+        },
+        "repaired_route11/generated_noise_cleanup_01.json": {
+          "member": "repaired_route11/generated_noise_cleanup_01.json",
+          "raw_sha256": "7d6ce2002e00baa6d6cafdbb7dc3109cf243df74a1b5879ae02f4ea531821aec",
+          "bytes": 167997
+        },
+        "repaired_route11/generated_noise_cleanup_02.json": {
+          "member": "repaired_route11/generated_noise_cleanup_02.json",
+          "raw_sha256": "4b1a5f6d0e758931d9da9b36b6ea45a8a0f8538ab028500e79d0990a5db93bd8",
+          "bytes": 133222
+        },
+        "repaired_route11/current_sources_after_lf_normalization/.gitattributes": {
+          "member": "repaired_route11/current_sources_after_lf_normalization/.gitattributes",
+          "raw_sha256": "d505defbbcdd27c4bd95648e499c68ffc54bb52b19ef3b3b554701c1585dcddd",
+          "bytes": 165024
+        },
+        "repaired_route11/current_sources_after_lf_normalization/game/scripts/building/orison_v2_street_traffic.gd": {
+          "member": "repaired_route11/current_sources_after_lf_normalization/game/scripts/building/orison_v2_street_traffic.gd",
+          "raw_sha256": "52fb73f22eebd40d122a022c4d886f458416293ae60b35701d3e5f2013dc207a",
+          "bytes": 39464
+        },
+        "repaired_route11/current_sources_after_lf_normalization/game/tests/orison_v2_traffic_behaviour_test.gd": {
+          "member": "focused_height_repair/executed_sources/game/tests/orison_v2_traffic_behaviour_test.gd",
+          "raw_sha256": "dd547d4d0307dd292d6edad640d9bdcbccf608330aa38047bb9a82ab98b19a35",
+          "bytes": 15198
+        }
+      }
+    },
+    "static_phase_04": {
+      "scope": "Preserves original single new spatial test-coordinate finding and its manifest; additive registration yields spatial05 zero regressions. Reader NEW=0,5 terrain tests pass. Surface03 published with zero defects after9 actual captures inspected. No complete city or artistic acceptance.",
+      "previous_archive_sha256": "b9d9de74edcd0da51c57d97a5027548dd1970c3405371118bdbb4d3822575c5a",
+      "members_added": [
+        "static_and_publication_phase_04/candidate_static_04/board.json",
+        "static_and_publication_phase_04/candidate_static_04.log",
+        "static_and_publication_phase_04/spatial_actual_04.json",
+        "static_and_publication_phase_04/spatial_manifest_before04.json",
+        "static_and_publication_phase_04/candidate_static_05/board.json",
+        "static_and_publication_phase_04/candidate_static_05.log",
+        "static_and_publication_phase_04/surface_packet_03_prepublication.json",
+        "static_and_publication_phase_04/surface_packet_03_publication.json"
+      ]
+    }
+  },
+  "current_surface_packet": {
+    "index_evidence_class": "INERT",
+    "path": "art/renders/orison_v2/surface_requirements_20261011",
+    "scope": "Current surface03 raw test-written proof is in the published packet; this index adds no acceptance.",
+    "runtime_contract_raw_sha256": "d59481bfd9157e025eb8e88a1f4ce1f988206c7457859f2f10ea00a76c6ac56b",
+    "surface_inputs_sha256": "d12f359b8854bd6517639fa4e610c8ae08d34a7cb9a02e6016435c4b5f585667",
+    "reviewed_images": 9
+  }
+}
