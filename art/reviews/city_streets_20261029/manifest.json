@@ -1845,8 +1845,8 @@
     "file": "traffic_height_qualification.zip",
     "index_evidence_class": "INERT",
     "scope": "Original route10 failure, isolated traffic-height controls and repaired route11 qualification are preserved without editing their test-written receipts. This INERT index grants no extra runtime, whole-city or artistic acceptance.",
-    "bytes": 69385987,
-    "raw_sha256": "f723c008c1bf5611bea7aaafffc9a889d31da67ca55764866c3c196d597a3846",
+    "bytes": 69419606,
+    "raw_sha256": "6bc3555347d689640b1c15b922abfd83cfc76fd99c650c821e2c5762f64c684b",
     "members": {
       "executed_sources/art/data/city_streets/source_plan.json": {
         "bytes": 1644,
@@ -2159,6 +2159,14 @@
       "static_and_publication_phase_04/surface_packet_03_publication.json": {
         "bytes": 172,
         "raw_sha256": "bfc2c2b65bb8cbe1067d30b7d61fcb040aac84e44cf28c45fd14c6bbc8fa3cf9"
+      },
+      "candidate_verification_phase_05/verification.json": {
+        "bytes": 297354,
+        "raw_sha256": "1e8e438a132898b9956c92853fca7b10755a59ff0837b0d9551a19755ebd41d7"
+      },
+      "candidate_verification_phase_05/verification.md": {
+        "bytes": 1748,
+        "raw_sha256": "5b302e175ca6d5d7523330d09702dd4971b54dcc20a13afe7aaa697d5392efc7"
       }
     },
     "focused_phase_02": {
@@ -2373,6 +2381,14 @@
         "static_and_publication_phase_04/candidate_static_05.log",
         "static_and_publication_phase_04/surface_packet_03_prepublication.json",
         "static_and_publication_phase_04/surface_packet_03_publication.json"
+      ]
+    },
+    "verification_phase_05": {
+      "scope": "Complete in-place candidate verifier for6e5e9a7a against clean3ea80715 baseline:114 gates,zero regressions,17/17 protected,V2 selector,unchanged ledger counts. Existing baseline failures remain. No main merge or complete-city acceptance.",
+      "previous_archive_sha256": "f723c008c1bf5611bea7aaafffc9a889d31da67ca55764866c3c196d597a3846",
+      "members_added": [
+        "candidate_verification_phase_05/verification.json",
+        "candidate_verification_phase_05/verification.md"
       ]
     }
   },

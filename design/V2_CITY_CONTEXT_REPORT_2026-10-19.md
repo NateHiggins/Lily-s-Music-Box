@@ -1338,7 +1338,7 @@ the current station paving. Fit the road, curb returns and protected pier
 islands to the fixed traffic/entrance/access datums before claiming a continuous
 street. This discovery is not a new collision or construction pass.
 
-## Continuous street construction — October29–30, qualification in progress
+## Continuous street construction — October29–30, technical checkpoint
 
 Evidence class: **INERT**. This batch starts at city checkpoint **f734a173**,
 on **codex/v2-city-20261029** in **C:/ov/city**. Its original branch base is
@@ -1587,7 +1587,7 @@ Selected board04 has passing reader (NEW=0) and five terrain tests, but reports
 one new spatial test coordinate: the traffic probe's off-road restoration. Its
 original board/report and manifest are preserved externally. Registering that
 exact diagnostic record, without changing runtime code, yields spatial05 with
-zero regressions. Full candidate verification and commit/push remain pending.
+zero regressions. Complete candidate verification qualifies6e5e9a7a with zero regressions; that code checkpoint is committed and pushed. Main integration remains pending.
 
 Full static board01 completes114 gates against the clean original-base board.
 Its non-surface regression was an obsolete flat-apron assertion: independent AU
@@ -1609,11 +1609,9 @@ its original108 and adding the repaired imported diagnostics. Captures, captions
 and these archives do not grant acceptance.
 
 **traffic_height_qualification.zip** retains the original route10 failure,
-focused96-check controls and successful route11 contract with all13 current
-captures: 78 members/69,385,987 bytes. Earlier members remain unchanged;
-identical artifacts reuse stored members. Current source checks, host-load notes
-and cleanup proofs are indexed alongside the original raw test receipts. The
-preceding surface02 images remain at their original indexed external paths.
+focused controls, successful route11 contract/all13 captures and full candidate
+verification: 80 members/69,419,606 bytes. Earlier members are unchanged.
+Exact archive/member hashes are indexed by the existing INERT manifest.
 
 The city inventory is25 near elevations plus124 horizon buildings,149 total;
 23 foundation-contact parcels are a separate inventory. Eleven individual
@@ -1623,3 +1621,55 @@ waterfront/Dutch Kills relief, individual architectural form and measured whole-
 scene rendering remain open. The next construction must continue this full
 scope after the coherent street checkpoint, rather than treating technical
 surface coverage as a completed cityscape.
+
+### REPORT - V2-CITY-STREETS - 2026-10-30
+
+Branch / verified HEAD / origin/main / merge-base:
+**codex/v2-city-20261029 / 6e5e9a7a96e46d4925dd5197ea05a25afde276ec /
+0498b86107ff045b76937e5df75da22b3efd1e66 / 3ea80715bd201738d5566dea18bc17d4353ca867**.
+Verification explicitly uses the original clean **3ea80715** baseline. The
+in-place verifier runs only in **C:/ov/city**, not the canonical prologue tree.
+
+Worktree clean at verified code candidate: **yes**. This follow-up changes only
+the report and its evidence index/archive; no rendering or gameplay input changes.
+Protected17/17: **yes**. Selector: **v2**, explicit V1 rollback retained.
+Ledger before -> after, in FIRST_SLICE_TECHNICAL,FULL_BUILDING_RUNTIME,
+FULL_BUILDING_STRUCTURAL,GOLDEN_SHIFT_V2,PRODUCTION_CUTOVER,V1_RETIREMENT order:
+**[7, 42, 110, 8, 134, 136] -> [7, 42, 110, 8, 134, 136]**; requirements_changed: **[]**.
+
+Gates: **114 compared / zero regressions**. Completeness remains **INCOMPLETE,
+exit2**, matching baseline. Spatial/systemic/period/reader/surface qualification
+exit0; reader NEW=0. Of102 tools-test gates,97 exit0 and five baseline failures
+remain unchanged: **test_interaction_implementors, test_interaction_prompt_carriers, test_m11c1_floor01_source_ownership, test_m11c2_floor01_production_export, test_orison_v2_completeness**. The committed original verifier JSON/Markdown
+are in **traffic_height_qualification.zip**, phase05; no accepted-regression
+exception was used. The original external **verification.json** and source log
+are under **C:/ov/reports/city_streets_20261029/street_checkpoint_verify_01**.
+
+Godot evidence: **V2 CITY EXTERIOR:237 checks;199 waypoints;0 failures** in
+**exterior_route_11.log.receipt.json**; **TRAFFIC BEHAVIOUR:96 checks,0 failures**
+in **traffic_height_bench_01.log.receipt.json**; **V2 SURFACE QUALIFICATION:
+PASS;42667 checks;0 failures** in **full_surface_03.log.receipt.json**. Original
+test-written contracts and exact receipt/log hashes are preserved. Diagnostics,
+scoped runtime qualification and artistic acceptance remain distinct.
+
+Numbers requested:207m street;19,752/8,184 exported near/replacement triangles;
+48 draw parts;2,388 closed native stocks;4,778 native review checks. Actual
+isolated near/far GPU medians.590/.545ms; occupied-route distributions and host
+concurrency limitations appear above. These are measured costs, not budgets.
+
+Changes outside the immediate mesh boundary: the coordinated traffic height
+adapter and additive city mount, opt-in single-triangle mapping check, two
+compression import exceptions, source-expiry guards and supporting tests/metadata.
+No apartment, companion,Tardi,weather implementation,campaign,narrative or save
+authority was changed. The canonical checkout/index/outstanding work are untouched.
+
+Open findings:complete-body camera-relative traffic LODs;138/149 individual
+building studies;bridge/Manhattan views,yard/steam,waterfront,Dutch Kills and
+remaining period street/drain/gaslight construction. Film-tent installation is
+still unqualified on this branch. No completed-city or artistic acceptance.
+Decision needed from owner: **none to continue construction**. Main promotion
+requires joint prologue/city source reconciliation and renewed combined binding;
+no main merge is performed here. Fresh-worktree import is not tested by this
+in-place verifier. Continue the full city goal after this technical checkpoint.
+
+MERGE-CANDIDATE 6e5e9a7a96e46d4925dd5197ea05a25afde276ec
