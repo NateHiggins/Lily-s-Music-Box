@@ -55,6 +55,7 @@ var _contact_reading_before:=false
 var _contact_owns:=false
 var _contact_copies:Array[int]=[]
 var waking:Node
+var _opening_cover:PackedScene
 
 
 func _ready() -> void:
@@ -121,8 +122,7 @@ func _claim_waking_presentation() -> bool:
 	return true
 
 func begin_opening(cover_scene:PackedScene) -> bool:
-	# Real DREAM/wake candidate. Normal entry remains gated until its occupied
-	# optical/input/reload qualification; the preview below is never a substitute.
+	# Resume the real DREAM/wake shot; the preview below is never a substitute.
 	if world==null or not errors.is_empty() or state.phase not in ["dream","awakening"] or is_instance_valid(waking) or get_tree().paused or RealityState.save_write_blocked:return false
 	waking=preload("res://scripts/game/prologue_waking.gd").new();add_child(waking)
 	if not waking.start(self,cover_scene):
@@ -135,6 +135,7 @@ func begin_opening(cover_scene:PackedScene) -> bool:
 		waking.cancel();waking.queue_free();waking=null
 		return false
 	world.player_avatar.hide()
+	_opening_cover=cover_scene
 	waking.finished.connect(func(_completed:bool):
 		if is_instance_valid(waking):waking.queue_free()
 		waking=null)
@@ -159,6 +160,7 @@ func resume_opening(cover_scene:PackedScene) -> bool:
 		# Keep the saved phase retryable instead of reporting an idle clip ready.
 		return begin_temporal_sky() if state.phase in ["temporal_synchronization","title_reveal"] else true
 	if not _claim_waking_presentation():return false
+	_opening_cover=cover_scene
 	_enter_phase()
 	if state.phase=="title_reveal":return begin_temporal_sky()
 	return errors.is_empty()
@@ -349,6 +351,16 @@ func _process(delta: float) -> void:
 	if not _running or player.call_locked or player.mouse_released or RealityState.save_write_blocked: return
 	if not is_same(_document,RealityState.data): return
 	var step:=maxf(delta,0.0)
+	if state.phase in ["dream","awakening"]:
+		# A legitimate successor can cancel the transient shot. Once it releases
+		# input/view ownership, restage the saved phase rather than stranding play.
+		# Reuse the existing cadence and resume guards; never accumulate story time.
+		if not is_instance_valid(waking) and _opening_cover!=null:
+			_poll+=step
+			if _poll>=PERIOD:
+				_poll=0.0
+				resume_opening(_opening_cover)
+		return
 	_phase_age+=step
 	if state.phase=="mirror_condensation":
 		if not _withdrawal_seen:_phase_age=minf(_phase_age,1.5)
@@ -580,6 +592,7 @@ func shutdown() -> void:
 	mirror_crossing=null
 	_end_visitor()
 	_running=false;set_process(false)
+	_opening_cover=null
 	if is_instance_valid(_knock):_knock.stop();_knock.queue_free()
 	_knock=null
 	if is_instance_valid(mirror):

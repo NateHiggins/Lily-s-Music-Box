@@ -118,6 +118,9 @@ readability, and feel.
   into the incoming owner's real readiness state. A protected observation pose
   may not yet permit typing; do not force a mechanism or weaken its constraints
   to satisfy a guessed delay. Bound retries and preserve accepted-command state.
+  A public resume API does not prove automatic recovery: cancel through a real
+  successor, release it, and exercise validated reload without a manual restart.
+  Retire recovery at shutdown and preserve foreign input/camera ownership.
 - **Clock coordinates:** separate reversible calendar presentation from
   monotonic elapsed/deadline counters. An annual civil loop must not wrap a
   service deadline. Derive paper, sky and adopted destination from one immutable

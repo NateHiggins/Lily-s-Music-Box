@@ -790,26 +790,32 @@ func _review_waking() -> void:
 	clip=director.waking
 	player.call_locked=true
 	await get_tree().process_frame;await get_tree().process_frame
+	await get_tree().create_timer(.25).timeout
 	var protection_preserved:bool=player.protected_input_active()
 	player.call_locked=false
 	if not _require(protection_preserved and director.waking==null and player.text_input_owner==null and director.state.phase=="dream","protected conversation cancels the shot without clearing its lock or advancing story"):return
-	if not _require(director.begin_opening(scene),"opening can resume after protected conversation releases input"):return
+	await get_tree().create_timer(.3).timeout
+	if not _require(is_instance_valid(director.waking) and director.waking.active,"opening automatically resumes after protected conversation releases input"):return
 	var foreign_camera:=Camera3D.new();add_child(foreign_camera)
 	foreign_camera.global_transform=player.camera.global_transform;foreign_camera.make_current()
 	if not _require(not director.resume_opening(scene) and foreign_camera.is_current(),"resume refuses a foreign camera even while its old shot still owns input"):return
 	await get_tree().process_frame;await get_tree().process_frame
+	await get_tree().create_timer(.25).timeout
 	var foreign_view_preserved:bool=foreign_camera.is_current()
 	player.camera.make_current();foreign_camera.queue_free()
 	if not _require(foreign_view_preserved and director.waking==null and player.text_input_owner==null and director.state.phase=="dream","camera takeover cancels without restoring over the new view"):return
-	if not _require(director.begin_opening(scene),"opening can resume after camera takeover"):return
+	await get_tree().create_timer(.3).timeout
+	if not _require(is_instance_valid(director.waking) and director.waking.active,"opening automatically resumes after camera takeover releases its view"):return
 	clip=director.waking
 	player.release_text_input(clip)
 	if not _require(player.acquire_text_input(self),"fixture editor takes a legitimately released input lease"):return
 	await get_tree().process_frame;await get_tree().process_frame
+	await get_tree().create_timer(.25).timeout
 	var foreign_input_preserved:bool=player.text_input_owner==self
 	player.release_text_input(self)
 	if not _require(foreign_input_preserved and director.waking==null and director.state.phase=="dream","cancelled shot preserves a successor editor's lease"):return
-	if not _require(director.begin_opening(scene),"opening can resume after successor editor releases input"):return
+	await get_tree().create_timer(.3).timeout
+	if not _require(is_instance_valid(director.waking) and director.waking.active,"opening automatically resumes after successor editor releases input"):return
 	clip=director.waking;clip.set_process(false);clip.seek(6.4)
 	var old_path:String=RealityState.save_path
 	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("waking_reload.json")
@@ -817,9 +823,9 @@ func _review_waking() -> void:
 	var saved:=RealityState.save_game()
 	RealityState.load_game()
 	RealityState.persistence_enabled=false;RealityState.save_path=old_path
-	await get_tree().process_frame;await get_tree().process_frame
-	if not _require(saved and director.state.phase=="dream" and player.text_input_owner==null,"validated DREAM reload cancels transient input without inventing awakening"):return
-	if not _require(director.begin_opening(scene),"DREAM can restage from saved phase"):return
+	await get_tree().create_timer(.3).timeout
+	if not _require(saved and director.state.phase=="dream" and is_instance_valid(director.waking) and player.text_input_owner==director.waking,"validated DREAM reload automatically restages without inventing awakening"):return
+	if not _require(director.waking.active and director.waking.age<1.0,"automatic DREAM restaging starts at its saved phase"):return
 	clip=director.waking;clip.set_process(false);clip.seek(11.2)
 	if not _require(director.state.phase=="awakening","actual shot acknowledges awakening at its handoff"):return
 	await _shot("wake_first_person.png")
@@ -828,8 +834,8 @@ func _review_waking() -> void:
 	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("awakening_reload.json")
 	RealityState.persistence_enabled=true;saved=RealityState.save_game();RealityState.load_game()
 	RealityState.persistence_enabled=false;RealityState.save_path=old_path
-	await get_tree().process_frame;await get_tree().process_frame
-	if not _require(saved and director.state.phase=="awakening" and director.begin_opening(scene),"validated awakening reload resumes the first-person segment"):return
+	await get_tree().create_timer(.3).timeout
+	if not _require(saved and director.state.phase=="awakening" and is_instance_valid(director.waking) and director.waking.active and director.waking.age>=11.0 and director.waking.age<12.0,"validated awakening reload automatically resumes the first-person segment"):return
 	# Let the real frame-driven handoff finish; seeking alone is not proof of
 	# pause/lifecycle completion or actual camera/input restoration.
 	await get_tree().create_timer(6.5).timeout
@@ -862,7 +868,6 @@ func _review_waking() -> void:
 	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("waking_reload.json")
 	RealityState.persistence_enabled=true;RealityState.load_game()
 	RealityState.persistence_enabled=false;RealityState.save_path=old_path
-	await get_tree().process_frame;await get_tree().process_frame
 	var continuous_begin:int=frame_trace.rows.size()
 	var continuous_started:=Time.get_ticks_usec()
 	var transitions:Array[Dictionary]=[]
@@ -885,8 +890,9 @@ func _review_waking() -> void:
 	var continuous_frames:Array=frame_trace.rows.slice(continuous_begin,continuous_end)
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("waking_continuous_frames.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","columns":["phase","fps_cap","process_delta_ms","wall_ms","process_monitor_ms","physics_monitor_ms","draw_calls"],"frames":continuous_frames,"transitions":transitions,"wall_s":continuous_wall_s,"settings":frame_trace.settings,"limits":"One occupied, warmed DREAM playback including synchronous setup and handoff. No screenshot readbacks, seeks, pause or disk operations inside the measured interval. CPU monitors overlap/lag; no separated GPU/compiler/loading attribution or matched optimization claim."},"\t"))
 	director.shutdown()
+	await get_tree().create_timer(.3).timeout
 	_require(carrier.session.draft=="Unsubmitted waking draft.","waking does not alter typed drafts")
-	_require(player.text_input_owner==null and not carrier.is_story_absent(),"shutdown releases only opening presentation/input leases")
+	_require(player.text_input_owner==null and not carrier.is_story_absent() and director.waking==null and not director.is_processing(),"shutdown releases opening leases without an automatic restart")
 	carrier.session.draft=draft_before
 	frame_trace.complete=failures.is_empty()
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("waking_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","failures":failures,"state":director.state,"imported_scene_load_ms":imported_load_ms,"start_costs_ms":start_costs,"limits":"Focused occupied DREAM/wake imported-cover, camera, pause, input and validated-reload diagnostic. Synchronous timings exclude deferred renderer/compiler work. Does not prove normal entry, full prologue, frame-time qualification or human artistic acceptance."},"\t"))
