@@ -84,7 +84,7 @@ class CommercialFronts:
         if abs(out.x)>1e-6 and abs(out.y)>1e-6:
             self.window_rows[-1]['normal']=list(out)
 
-    def opening(self, name, wall, origin, u, out, left, right, z0, z1, low, high, shape='rect', door=False, trim='limestone', wall_fill=True, bay=0):
+    def opening(self, name, wall, origin, u, out, left, right, z0, z1, low, high, shape='rect', door=False, trim='limestone', wall_fill=True, bay=0, frame_finish='door_paint'):
         """A genuine pierced wall, deep jambs, closed pane/door and attached joinery."""
         back, front = (-0.48, -0.2)
         if wall_fill:
@@ -132,10 +132,10 @@ class CommercialFronts:
                 self.local_box(name,'linen',origin,u,out,(left+.035,-.466,shade_bottom),(right-.035,-.458,shade_top))
             self.record_window(name,origin,u,out,left,right,low,high,(low+spring)/2+.15,bay)
         for x in [left, right - 0.055]:
-            self.local_box(name, 'door_paint', origin, u, out, (x, -0.42, low), (x + 0.055, -0.32, spring))
+            self.local_box(name, frame_finish, origin, u, out, (x, -0.42, low), (x + 0.055, -0.32, spring))
         for z in [low, low + (spring - low) * 0.52]:
             inset=.055 if name in ['site_se3','site_sw3','site_far_nw'] else 0.
-            self.local_box(name, 'door_paint', origin, u, out, (left+inset, -0.42, z), (right-inset, -0.32, z + 0.055))
+            self.local_box(name, frame_finish, origin, u, out, (left+inset, -0.42, z), (right-inset, -0.32, z + 0.055))
         if shape in ['segment', 'round', 'ellipse']:
             self.arch_stock(name, trim, origin, u, out, (left + right) / 2, spring, (right - left) / 2, rise, 0.12, -0.26, -0.04, self.profile_steps)
         else:
@@ -147,7 +147,7 @@ class CommercialFronts:
             self.local_box(name, trim, origin, u, out, (x, -0.28, low - 0.06), (x + 0.12, -0.05, spring))
         self.local_box(name, 'limestone' if wall == 'arcade_brick_bond' else trim, origin, u, out, (left - 0.16, -0.3, low - 0.12), (right + 0.16, -0.02, low))
 
-    def register(self, name, wall, origin, u, out, width, z0, z1, bays, opening_width, shape='rect', ground=False, trim='limestone', attic=False):
+    def register(self, name, wall, origin, u, out, width, z0, z1, bays, opening_width, shape='rect', ground=False, trim='limestone', attic=False, frame_finish='door_paint'):
         pitch = width / bays
         for bay in range(bays):
             center = (bay + 0.5) * pitch
@@ -157,13 +157,13 @@ class CommercialFronts:
             high = z1 - 0.52
             self.local_box(name, wall, origin, u, out, (bay * pitch, -0.48, z0), (left, -0.2, z1))
             self.local_box(name, wall, origin, u, out, (right, -0.48, z0), ((bay + 1) * pitch, -0.2, z1))
-            self.opening(name, wall, origin, u, out, left, right, z0, z1, low, high, shape, ground and bay == 0, trim, bay=bay)
+            self.opening(name, wall, origin, u, out, left, right, z0, z1, low, high, shape, ground and bay == 0, trim, bay=bay,frame_finish=frame_finish)
             if ground and bay > 0:
                 rail = low + 2.35
-                self.local_box(name, 'door_paint', origin, u, out, (left, -0.42, rail), (right, -0.3, rail + 0.07))
+                self.local_box(name, frame_finish, origin, u, out, (left, -0.42, rail), (right, -0.3, rail + 0.07))
                 for i in [1, 2]:
                     at = left + (right - left) * i / 3
-                    self.local_box(name, 'door_paint', origin, u, out, (at - 0.025, -0.42, rail + 0.07), (at + 0.025, -0.32, high))
+                    self.local_box(name, frame_finish, origin, u, out, (at - 0.025, -0.42, rail + 0.07), (at + 0.025, -0.32, high))
 
     def cornice(self, name, origin, u, out, width, z, key='limestone', depth=0.16):
         for low, high, front in [(z - 0.18, z - 0.09, -0.12), (z - 0.09, z + 0.015, -0.045), (z + 0.015, z + 0.1, 0.0)]:
@@ -550,7 +550,220 @@ class CommercialFronts:
             'assembly_translation_m':self.plans[name].get('assembly_translation_m',[0,0,0]),
             'eave':top,'body_top':top,'roof_deck_top':top+.26})
 
+    def mitered_course(self,name,key,rect,profile):
+        """Four closed roof boards, joined at45 degrees through the profile.
+
+        Each board remains a separate stock, so the shared timber charts can
+        follow its long axis instead of treating an entire ring as one grain.
+        """
+        x,y,X,Y=rect
+        for origin,tangent,out,length in [
+            (Vector((x,y,0)),Vector((1,0,0)),Vector((0,-1,0)),X-x),
+            (Vector((X,y,0)),Vector((0,1,0)),Vector((1,0,0)),Y-y),
+            (Vector((X,Y,0)),Vector((-1,0,0)),Vector((0,1,0)),X-x),
+            (Vector((x,Y,0)),Vector((0,-1,0)),Vector((-1,0,0)),Y-y)]:
+            n=len(profile)
+            vertices=[tuple(origin+tangent*((-depth) if end==0 else length+depth)+out*depth+Vector((0,0,z))) for end in [0,1] for depth,z in profile]
+            faces=[tuple(range(n)),tuple(reversed(range(n,2*n)))]
+            faces.extend((i,n+i,n+(i+1)%n,(i+1)%n) for i in range(n))
+            self.add(name,key,vertices,faces)
+
+    def faber(self,name):
+        """Four-storey neo-Grec workshop; short3-bay/long8-bay proportions."""
+        spec=self.specs[name]
+        records=[r for r in self.records if r['id'].startswith(name+'_')]
+        bodies=sorted([r for r in records if re.search('_s\\d+$',r['id'])],key=lambda r:r['z0'])
+        first,last=bodies[0],bodies[-1]
+        x,y,X,Y=first['rect'];dx=first['registration_offset_x'];x+=dx;X+=dx
+        top=last['z0']+last['h'];width=X-x;depth=Y-y
+        assert len(spec['front_heights'])==4 and abs(spec['eave']-top)<1e-6
+        capid=name+'_c'+last['id'].rsplit('_s',1)[1]
+        for record in records:
+            if record['id'][len(name)+1:].startswith(('bulk','hut')):
+                self.original_stock(name,record['key'],self.original[record['id']])
+            elif record['id']==capid:
+                self.original_stock(name,'roof_bitumen',self.original[record['id']])
+        self.original_stock(name,spec['wall'],self.rings[name])
+        self.box(name,'concrete',(x,y,-.12),(X,Y,0))
+        levels=[0.]
+        for height in spec['front_heights']:levels.append(levels[-1]+height)
+        sides=[
+            (Vector((x,y,0)),Vector((1,0,0)),Vector((0,-1,0)),width,3),
+            (Vector((X,y,0)),Vector((0,1,0)),Vector((1,0,0)),depth,8),
+            (Vector((X,Y,0)),Vector((-1,0,0)),Vector((0,1,0)),width,3),
+            (Vector((x,Y,0)),Vector((0,-1,0)),Vector((-1,0,0)),depth,8)]
+        for side,(origin,u,out,length,bays) in enumerate(sides):
+            for floor,(z0,z1) in enumerate(zip(levels,levels[1:])):
+                count=5 if side in [1,3] and floor==0 else bays
+                if side==1:
+                    # The adjoining NE2 wall is only0.6m away and ends2.5m
+                    # before ours. Use a fire wall, with one genuine rear bay
+                    # beyond that neighbour, rather than impossible borrowed
+                    # light through a complete row of adjacent windows.
+                    count=bays
+                    for bay in range(count):
+                        cell=length/count
+                        if bay==count-1:
+                            self.register(name,spec['wall'],origin+u*(bay*cell),u,out,cell,z0,z1,1,1.30,'rect',False,'terracotta')
+                        else:
+                            self.local_box(name,spec['wall'],origin,u,out,(bay*cell,-.48,z0),((bay+1)*cell,-.2,z1))
+                            self.local_box(name,spec['wall'],origin,u,out,(bay*cell+.03,-.23,z0), (bay*cell+.18,-.12,z1))
+                else:
+                    self.register(name,spec['wall'],origin,u,out,length,z0,z1,count,1.30,'rect',floor==0,'terracotta')
+                pitch=length/count
+                for bay in range(count):
+                    if side==1 and bay<count-1:continue
+                    center=(bay+.5)*pitch;head=z1-.52
+                    # Separate incised lintel fascia and bracketed sill stocks.
+                    # Fired clay is an explicit AU substitute for brownstone;
+                    # there is no trademark, copied lettering or photo texture.
+                    self.local_box(name,'terracotta',origin,u,out,(center-.83,-.24,head),(center+.83,-.02,head+.22))
+                    for sign in [-1,1]:
+                        a=center+sign*.47
+                        self.profile_stock(name,'terracotta',origin,u,out,[(a-.12,head+.045),(a+.12,head+.045),(a+.07,head+.12),(a-.07,head+.12)],-.02,.004)
+                    if floor>0:
+                        low=z0+.64
+                        for sign in [-1,1]:
+                            a=center+sign*.43
+                            self.profile_stock(name,'terracotta',origin,u,out,[(a-.055,low-.12),(a+.055,low-.12),(a+.055,low-.27),(a-.025,low-.23)],-.22,-.035)
+            self.local_box(name,'limestone',origin,u,out,(0,-.48,0),(length,-.18,.18))
+            # Individual cornice consoles follow each face; all are retained
+            # in the lower body, with reduced curve tessellation only.
+            count=bays*2
+            for i in range(count):
+                center=(i+.5)*length/count
+                points=[(-.22,top-.70),(-.22,top-.13),(.34,top-.13)]
+                points += [(.34-.56*t,top-.13-.57*(1-math.cos(t*math.pi/2))) for t in [j/self.profile_steps for j in range(1,self.profile_steps)]]
+                self.profile_stock(name,'wood_dark',origin+u*center,out,u,points,-.06,.06)
+        # Thin built-up cap, moulded fascia, soffit and frieze boards leave
+        # an actual cavity; this is not a metre-wide solid timber cornice.
+        self.mitered_course(name,'wood_dark',[x,y,X,Y],[(-.48,top+.005),(.46,top+.005),(.46,top+.035),(-.48,top+.035)])
+        self.mitered_course(name,'wood_dark',[x,y,X,Y],[(.33,top-.19),(.39,top-.19),(.46,top-.09),(.46,top+.005),(.42,top+.005),(.42,top-.07)])
+        self.mitered_course(name,'wood_dark',[x,y,X,Y],[(-.48,top-.13),(.39,top-.13),(.39,top-.10),(-.48,top-.10)])
+        self.mitered_course(name,'wood_dark',[x,y,X,Y],[(-.085,top-.68),(-.05,top-.68),(-.05,top-.13),(-.085,top-.13)])
+        self.building_rows.append({'id':name,'style':spec['style'],'registered_rect':[x,y,X,Y],
+            'assembly_translation_m':self.plans[name].get('assembly_translation_m',[0,0,0]),
+            'eave':top,'body_top':top,'roof_deck_top':top+.26})
+
+    def fulton(self,name):
+        """Six-storey AU instrument house, preserving the real17.5m roof step."""
+        spec=self.specs[name];wall=spec['wall']
+        records=[r for r in self.records if r['id'].startswith(name+'_')]
+        bodies=sorted([r for r in records if re.search('_s\\d+$',r['id'])],key=lambda r:r['z0'])
+        first,last=bodies[0],bodies[-1]
+        dx=first['registration_offset_x'];x,y,X,Y=first['rect'];x+=dx;X+=dx
+        rx,ry,rX,rY=last['rect'];rx+=dx;rX+=dx
+        width=X-x;depth=Y-y;top=last['z0']+last['h'];step=last['z0']
+        levels=[0.]
+        for height in spec['front_heights']:levels.append(levels[-1]+height)
+        assert len(levels)==7 and abs(levels[-1]-top)<1e-6 and abs(levels[5]-step)<1e-6
+        caps={r['id']:r for r in records if re.fullmatch(name+'_c\\d+',r['id'])}
+        for record in records:
+            suffix=record['id'][len(name)+1:]
+            if suffix.startswith(('bulk','hut')):
+                self.original_stock(name,record['key'],self.original[record['id']])
+            elif record['id'] in caps:
+                # Preserve both the real lower terrace and final plant deck.
+                self.original_stock(name,'roof_bitumen',self.original[record['id']])
+        self.original_stock(name,wall,self.rings[name])
+        self.box(name,'concrete',(x,y,-.12),(X,Y,0))
+        origin=Vector((x,y,0));u=Vector((1,0,0));out=Vector((0,-1,0));cx=width/2
+        for floor in [0,1]:
+            self.register(name,'iron_blackened',origin,u,out,width,levels[floor],levels[floor+1],3,2.05,
+                'round' if floor==1 else 'rect',floor==0,'bronze_sheet',frame_finish='bronze_sheet')
+        for at in [.16,width/3,width*2/3,width-.16]:
+            self.turned_stock(name,'iron_blackened',origin+u*at+out*(-.06),
+                [(.12,.14),(.28,.14),(.38,.085),(levels[2]-.40,.085),(levels[2]-.22,.15),(levels[2]-.10,.15)],self.profile_steps)
+        self.cornice(name,origin,u,out,width,levels[2],'bronze_sheet')
+        left,right=cx-1.90,cx+1.90
+        for floor in [2,3]:
+            a,b=levels[floor],levels[floor+1]
+            self.register(name,wall,origin,u,out,left,a,b,1,.78,'rect',False,'terracotta',frame_finish='bronze_sheet')
+            self.register(name,wall,origin+u*right,u,out,width-right,a,b,1,.78,'rect',False,'terracotta',frame_finish='bronze_sheet')
+        self.opening(name,wall,origin,u,out,left,right,levels[2],levels[4],levels[2]+.30,levels[4]-.35,
+            'round',False,'terracotta',bay=0,frame_finish='bronze_sheet')
+        self.local_box(name,'bronze_sheet',origin,u,out,(left,-.42,levels[3]-.13),(right,-.28,levels[3]+.13))
+        crown=levels[4]-.35
+        self.profile_stock(name,'terracotta',origin,u,out,[(cx-.17,crown-.08),(cx+.17,crown-.08),(cx+.26,crown+.26),(cx-.26,crown+.26)],-.28,.02)
+        for z in [levels[2]+.30,levels[4]-.35-1.90]:
+            self.local_box(name,'terracotta',origin,u,out,(left-.15,-.26,z-.10),(right+.15,-.04,z))
+        for floor in [2,3]:
+            a,b=levels[floor],levels[floor+1]
+            for at in [.08,width-.18]:
+                self.local_box(name,'terracotta',origin,u,out,(at,-.24,a+.06),(at+.10,-.05,b-.08))
+        # A fixed angle line defines both oriel storeys. The upper wall steps
+        # back, exposing more of the same side facet rather than rotating it.
+        rear=-(ry-y)-.48;front=.65;back_x=cx-2.4;front_x=cx-1.7
+        def edge_at(depth):return back_x+(front_x-back_x)*(depth-rear)/(front-rear)
+        def outline(depth):
+            a=edge_at(depth)
+            return [(a,depth),(front_x,front),(width-front_x,front),(width-a,depth)]
+        def plate(depth,z,thickness,key='bronze_sheet'):
+            self.roof_panel(name,key,[origin+u*a+out*b+Vector((0,0,z)) for a,b in outline(depth)],thickness=thickness)
+        plate(-.48,levels[4],.16,'iron_blackened')
+        lower_cap=caps[name+'_c'+first['id'].rsplit('_s',1)[1]]
+        plate(y-lower_cap['rect'][1],step,.26,'iron_blackened')
+        final_cap=caps[name+'_c'+last['id'].rsplit('_s',1)[1]]
+        plate(y-final_cap['rect'][1],top+final_cap['h'],final_cap['h'])
+        for floor in [4,5]:
+            a,b=levels[floor],levels[floor+1]
+            face_y=y if floor==4 else ry
+            offset=y-face_y
+            edge=edge_at(offset-.20)
+            ox=x if floor==4 else rx;ex=X if floor==4 else rX
+            for lo,hi in [(ox,x+edge),(X-edge,ex)]:
+                self.local_box(name,wall,Vector((lo,face_y,0)),u,out,(0,-.48,a),(hi-lo,-.20,b))
+                self.local_box(name,'terracotta',Vector((lo,face_y,0)),u,out,(.02,-.22,a+.06),(hi-lo-.02,-.07,a+.20))
+            polygon=outline(offset-.20)
+            for index,(p,q) in enumerate(zip(polygon,polygon[1:])):
+                start=origin+u*p[0]+out*p[1];finish=origin+u*q[0]+out*q[1]
+                tangent=(finish-start).normalized();normal=tangent.cross(Vector((0,0,1)))
+                length=(finish-start).length
+                self.cant_sash(name,start,tangent,normal,length,low=a+.32,height=b-a-.62)
+                self.window_rows[-1]['floor']=floor
+                self.local_box(name,'bronze_sheet',start,tangent,normal,(0,-.10,a),(length,.015,a+.26))
+                self.local_box(name,'bronze_sheet',start,tangent,normal,(0,-.10,b-.20),(length,.02,b))
+        # Forged consoles root in the solid arch spandrel below the oriel;
+        # their front tips actually meet the projecting bay floor plate.
+        for at in [cx-1.65,cx+1.65]:
+            self.profile_stock(name,'iron_blackened',origin+u*at,out,u,
+                [(-.43,levels[4]-.55),(-.43,levels[4]-.02),(.58,levels[4]-.02),(.20,levels[4]-.18),(-.18,levels[4]-.55)],-.10,.10)
+        self.cornice(name,origin,u,out,width,levels[4],'terracotta')
+        # Front balustrade is on the extended bay roof, while the exact old
+        # inner plant parapet remains available to every retained guy anchor.
+        roof=top+final_cap['h'];rail_top=roof+.62
+        for p,q in zip(outline(y-final_cap['rect'][1]),outline(y-final_cap['rect'][1])[1:]):
+            start=origin+u*p[0]+out*p[1];finish=origin+u*q[0]+out*q[1]
+            tangent=(finish-start).normalized();normal=tangent.cross(Vector((0,0,1)));length=(finish-start).length
+            self.local_box(name,'terracotta',start,tangent,normal,(0,-.075,roof),(length,.075,roof+.08))
+            self.local_box(name,'terracotta',start,tangent,normal,(0,-.09,rail_top-.10),(length,.09,rail_top))
+            count=max(2,round(length/.30))
+            for i in range(count):
+                point=start+tangent*((i+.5)*length/count)
+                self.turned_stock(name,'terracotta',point,[(roof+.08,.045),(roof+.14,.045),(roof+.20,.027),(rail_top-.20,.032),(rail_top-.10,.045)],self.profile_steps)
+        # Real rear and party-wall elevations retain the installed upper step.
+        for floor in range(5):
+            a,b=levels[floor],levels[floor+1]
+            self.register(name,wall,Vector((X,Y,0)),Vector((-1,0,0)),Vector((0,1,0)),width,a,b,3,1.15,'rect',False,'terracotta')
+            for side_origin,tangent,normal in [(Vector((X,y,0)),Vector((0,1,0)),Vector((1,0,0))),
+                (Vector((x,Y,0)),Vector((0,-1,0)),Vector((-1,0,0)))]:
+                exposed=(floor>=3 and normal.x>0) or floor==4
+                if exposed:self.register(name,wall,side_origin,tangent,normal,depth,a,b,7,1.10,'rect',False,'terracotta')
+                else:self.local_box(name,wall,side_origin,tangent,normal,(0,-.48,a),(depth,-.2,b))
+        for side_origin,tangent,normal,length,bays in [
+            (Vector((rX,rY,0)),Vector((-1,0,0)),Vector((0,1,0)),rX-rx,2),
+            (Vector((rX,ry,0)),Vector((0,1,0)),Vector((1,0,0)),rY-ry,6),
+            (Vector((rx,rY,0)),Vector((0,-1,0)),Vector((-1,0,0)),rY-ry,6)]:
+            self.register(name,wall,side_origin,tangent,normal,length,step,top,bays,1.05,'rect',False,'terracotta')
+        self.building_rows.append({'id':name,'style':spec['style'],'registered_rect':[x,y,X,Y],
+            'assembly_translation_m':self.plans[name].get('assembly_translation_m',[0,0,0]),
+            'eave':top,'body_top':top,'roof_deck_top':top+final_cap['h']})
+
     def build(self, name):
+        if self.specs[name]['style'] == 'fulton':
+            return self.fulton(name)
+        if self.specs[name]['style'] == 'faber':
+            return self.faber(name)
         if self.specs[name]['style'] == 'hampton':
             return self.hampton(name)
         if self.specs[name]['style'] == 'engine258':

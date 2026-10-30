@@ -136,7 +136,7 @@
         "terraces": 1
       },
       "precedent": {
-        "name": "21-13 45th Avenue, Root and Rust, 1871\u201372",
+        "name": "21-13 45th Avenue, Root and Rust, 1871–72",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
         "pdf_pages": [
           3,
@@ -290,24 +290,24 @@
     },
     {
       "id": "site_ne1",
-      "description": "Broad-window workshop and tenanted upper storeys",
+      "description": "Four-storey neo-Grec workshop derived from37Greenpoint Avenue;3short-face and8long-face upper bays,incised fired-clay lintels and joined timber cornice",
       "massing": "straight_eave",
       "storey_height": 3.02,
       "bay_pitch": 2.38,
-      "window_width": 1.37,
-      "window_height": 1.91,
+      "window_width": 1.3,
+      "window_height": 2.42,
       "sash": "door_paint",
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.78,
-        0.72,
-        0.65,
+        0.84,
+        0.68,
+        0.58,
         1
       ],
       "frame_tint": [
-        0.65,
-        0.59,
-        0.48,
+        0.27,
+        0.3,
+        0.25,
         1
       ],
       "window_recess": 0.17,
@@ -323,28 +323,43 @@
         0,
         24,
         0
-      ]
+      ],
+      "floor_heights": [
+        3.9,
+        3.6,
+        3.6,
+        3.6
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "faber",
+        "front_side": 0,
+        "front_floor_count": 4,
+        "front_bays": 3,
+        "roof_depth_m": 0.0,
+        "precedent": "37Greenpoint Avenue/90-96West Street,c1881;LPC LP-2264 pp16-17. Fictional Queens workshop adaptation,retained parcel/roofplant;registered terracotta substitutes for incised brownstone,modern shutters and trademark omitted. Timber cornice uses separate45-degree joined boards."
+      }
     },
     {
       "id": "site_ne2",
-      "description": "Older brick flats with slender sash and uneven roller shades",
+      "description": "Six-storey AU instrument house derived from Keuffel and Esser;arched iron base,double-height recessed arch,angled metal oriel and retained upper roof setback",
       "massing": "single_upper_setback",
       "storey_height": 2.86,
       "bay_pitch": 2.22,
-      "window_width": 1.0,
-      "window_height": 1.76,
+      "window_width": 1.15,
+      "window_height": 2.15,
       "sash": "door_paint",
-      "wall_key": "limestone",
+      "wall_key": "city_grey_brick",
       "wall_tint": [
         1,
-        1,
-        1,
+        0.91,
+        0.76,
         1
       ],
       "frame_tint": [
-        0.3,
-        0.33,
-        0.3,
+        0.32,
+        0.29,
+        0.22,
         1
       ],
       "window_recess": 0.17,
@@ -360,7 +375,24 @@
         0,
         24,
         0
-      ]
+      ],
+      "floor_heights": [
+        4.2,
+        3.5,
+        3.3,
+        3.3,
+        3.2,
+        4.0
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "fulton",
+        "front_side": 0,
+        "front_floor_count": 6,
+        "front_bays": 3,
+        "roof_depth_m": 0.0,
+        "precedent": "Keuffel and Esser,127Fulton Street,1892-93;LPC LP-2178. Six-storey fictional Queens adaptation of an eight-storey reference,retaining three distinctive two-storey compositions plus the installed17.5m upper step/21.5m plant roof. Existing grey-brick recipe receives authored warm tint;cast-iron base/bronze bay are geometry,not copied lettering or new retail authority."
+      }
     },
     {
       "id": "site_ne3",
@@ -746,7 +778,7 @@
         3.3
       ],
       "precedent": {
-        "name": "Hampton Court, 35-16 79th Street, George H. Wells, 1919\u201321",
+        "name": "Hampton Court, 35-16 79th Street, George H. Wells, 1919–21",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           129
@@ -809,7 +841,7 @@
         3.25
       ],
       "precedent": {
-        "name": "Greystone Apartments, 35-15 80th Street, George H. Wells, 1916\u201318",
+        "name": "Greystone Apartments, 35-15 80th Street, George H. Wells, 1916–18",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           30,
@@ -922,7 +954,7 @@
         3.2
       ],
       "precedent": {
-        "name": "The Towers, 33-51 80th Street, Andrew J. Thomas, 1923\u201325",
+        "name": "The Towers, 33-51 80th Street, Andrew J. Thomas, 1923–25",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           143,
@@ -1058,7 +1090,7 @@
     },
     {
       "id": "site_far_se",
-      "description": "Elm Court, 34-27 79th Street, George H. Wells, 1921\u201322 \u2014 authored four-storey passive study; actual shallow open court, seated entry assembly and distinct upper stair glazing",
+      "description": "Elm Court, 34-27 79th Street, George H. Wells, 1921–22 — authored four-storey passive study; actual shallow open court, seated entry assembly and distinct upper stair glazing",
       "massing": "single_upper_setback",
       "storey_height": 2.95,
       "bay_pitch": 2.8,
@@ -1101,7 +1133,7 @@
         3.3
       ],
       "precedent": {
-        "name": "Elm Court, 34-27 79th Street, George H. Wells, 1921\u201322",
+        "name": "Elm Court, 34-27 79th Street, George H. Wells, 1921–22",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           136
@@ -1166,7 +1198,7 @@
         3.3
       ],
       "precedent": {
-        "name": "The Chateau, 34-01\u201334-05 80th Street, Andrew J. Thomas, 1922",
+        "name": "The Chateau, 34-01–34-05 80th Street, Andrew J. Thomas, 1922",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           145,
@@ -1228,7 +1260,7 @@
         3.3
       ],
       "precedent": {
-        "name": "Laburnum Court, 37-15 79th Street, George H. Wells, 1921\u201322",
+        "name": "Laburnum Court, 37-15 79th Street, George H. Wells, 1921–22",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           138,
@@ -1285,7 +1317,7 @@
     },
     {
       "id": "site_far_w",
-      "description": "Cambridge Court, 37-14 86th Street, George H. Wells, 1922 \u2014 authored four-storey passive study; actual shallow open court, seated entry assembly and distinct upper stair glazing",
+      "description": "Cambridge Court, 37-14 86th Street, George H. Wells, 1922 — authored four-storey passive study; actual shallow open court, seated entry assembly and distinct upper stair glazing",
       "massing": "single_upper_setback",
       "storey_height": 2.86,
       "bay_pitch": 2.7,
