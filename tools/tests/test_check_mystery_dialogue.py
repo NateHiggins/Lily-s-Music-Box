@@ -46,7 +46,7 @@ class MysteryDialogueTests(unittest.TestCase):
         self.assertIn("speaks from after her death", self.failures())
 
     def test_a_withheld_bank_line_fails(self):
-        self.edit("rhea_sato", lambda d: d["nodes"]["rs_s2"].update(bank="JF011-A01"))
+        self.edit("rhea_sato", lambda d: d["nodes"]["rs_s2"].update(bank="JF027-A01"))
         self.assertIn("excluded bank line", self.failures())
 
     def test_a_choice_without_silence_fails(self):
@@ -54,7 +54,7 @@ class MysteryDialogueTests(unittest.TestCase):
         self.assertIn("no authored silence", self.failures())
 
     def test_a_requirement_cycle_is_caught(self):
-        self.edit("cam_ortiz", lambda d: d["threads"][1].update(requires=["m_route_book"]))
+        self.edit("cam_ortiz", lambda d: next(t for t in d["threads"] if t["id"] == "co_route").update(requires=["m_route_book"]))
         self.assertIn("can never open", self.failures())
 
     def test_the_letter_needs_the_route_book(self):

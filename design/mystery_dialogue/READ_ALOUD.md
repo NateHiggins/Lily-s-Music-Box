@@ -69,6 +69,18 @@ The living woman, met on visited dates before 19 July 1929. Every line here is g
   - > It's her face. → av_r2
   - (silence) → av_r2
 
+### "Who hung these?"
+
+1928-11-10 to 1929-07-19 · REVIEW
+
+- **ADELA VOSS** (av_h1): I asked for somebody to help hang my pictures. One proposed marriage, one proposed a duel, and the third actually brought a hammer. I hired the third. He's crooked on the left. I've kept it, it annoys the right sort of person.
+
+### "She left in a hurry."
+
+1928-11-10 to 1929-07-19 · REVIEW
+
+- **ADELA VOSS** (av_m1): She'd come for her plates and stayed for the Pleasure Man crowd. "One cannot trust a man who admires another man." I said you say that, madam, and you have married three of them. She'll be back. She's got two more husbands to have copied.
+
 ### "You wanted the roof."
 
 1929-07-11 to 1929-07-11 · needs **m_adela_wants_roof** · REVIEW
@@ -77,6 +89,9 @@ The living woman, met on visited dates before 19 July 1929. Every line here is g
   - > Sign here. "A.V., roof." → av_k2
   - (silence) → av_k2
 - **ADELA VOSS** (av_k2): Your capitals are terrible. Look, hold it like a grease pencil, from up here. You'd be surprised how much of a person's character is in the E.
+  - > You know that's a lightning rod you'll be standing by. → av_k3
+  - (silence) → av_k3
+- **ADELA VOSS** (av_k3): I do not enter the lion's den on the assumption of divine protection. I have a bill for the lion.
 
 ### "Evening, Miss Voss."
 
@@ -151,6 +166,12 @@ Route and delivery. No rate for thoughts. Directional, impatient with preamble. 
 - **CAM ORTIZ** (co_e2): I deliver envelopes. Nobody's offered a rate for thoughts.
 - **CAM ORTIZ** (co_e3): The lady across the road. Walked it over to me herself and paid for the stairs. Six flights, a nickel, she says to me it's a nickel because I'm charging for the view. She was funny. Is that it?
 - **CAM ORTIZ** (co_e1s): I've got eleven more and the bridge is backing up. Walk with me or don't.
+
+### "Omar says he learned who owned the windmill."
+
+1928-11-10 to 1929-11-09 · needs **m_heard_windmill**
+
+- **CAM ORTIZ** (co_w1): If the windmill has enemies, I'd appreciate their addresses. I'm trying to be a supportive friend. I can have them there by four.
 
 ### "What did you carry down from there?"
 
@@ -581,7 +602,7 @@ A handling instruction more alarming than the object warrants. Named by a simile
 - **NOEL PRICE** (np_k1): They tell me it is of no practical value. That is the finest thing anyone has said about it. Please don't breathe on it. I don't mean it unkindly.
   - > You don't let people in much. → np_k2
   - (silence) → np_k2
-- **NOEL PRICE** (np_k2): The room is kept at sixty-two degrees and forty percent. I am told this is not the same thing. It has been written up.
+- **NOEL PRICE** (np_k2): I wrote six months of condition reports on that door. Hinges, draught, hours of use. The woman across the landing asked whether I had considered knocking on it. It has been written up.
 
 ### "Is this kid?"
 
@@ -608,6 +629,12 @@ Offense at workmanship; an economical answer. Spare shop key, the recorder, the 
   - > And that cable? → ob_w2
   - (silence) → ob_w2
 - **OMAR BELL** (ob_w2): Fella at the Vantry shop told me there's a direction in which every knot comes loose. I've searched the workshop and can't find it. Hold that end. Not like that. You hold it like it owes you something.
+
+### "That wall's out of true again."
+
+1928-11-10 to 1929-11-09
+
+- **OMAR BELL** (ob_v1): It was plumb on Tuesday. I checked it Tuesday. The clergyman says God is in the walls. I should like to speak to Him about the rent.
 
 ### ""Photo Supplies, door trigger." That's your tag."
 
@@ -704,6 +731,27 @@ Manages how a moment appears until a plain objection arrives. A real privacy cla
   - > I heard a sheet of tin. → rs_s2
   - (silence) → rs_s2
 - **RHEA SATO** (rs_s2): That was thunder! Fifteen years of stagecraft, and she laughs harder when the effects man rattles a sheet of tin. My own mother. I could hear her from the studio, I swear to you, in Queens.
+
+### "Did you find anyone for the part?"
+
+1928-11-10 to 1929-11-09
+
+- **RHEA SATO** (rs_c1): I put out a notice for a scene partner. What I received were three invitations to dinner and a trained pigeon. The pigeon knew its lines. It has also asked about billing.
+
+### "Why is one of the Guests holding a sack?"
+
+1928-11-10 to 1929-11-09
+
+- **RHEA SATO** (rs_h1): We are ignoring the sack. From the top. "Let him who is without sin cast the first..." Good heavens, what have you brought in that pillowcase?
+  - > Say nothing, and look in the sack. → rs_h2
+  - (silence) → rs_h2
+- **GUESTS** (rs_h2): Custards. — Four of them. — We were told there was to be a stoning. — We didn't like to come with nothing.
+
+### "You look tired, Miss Sato."
+
+1928-11-10 to 1929-11-09 · needs **m_rhea_claim**
+
+- **RHEA SATO** (rs_d1): I had prepared myself for a life of extravagant romance. Nobody mentioned the need for clean sheets, punctuality, or not eating the entire pie first. You may close the door. From the outside.
 
 ### "You sat for her, at the Arcade."
 
@@ -817,7 +865,7 @@ Agree with different questions; a concrete question separates them. Their agreem
 
 1928-11-10 to 1929-11-09
 
-- **THE GUESTS** (tg_r1): We had an appointment. — We were told to wait. — It's very good, the waiting here. — It's why we came.
+- **THE GUESTS** (tg_r1): I explained to the doctor my dread of being abandoned. — He checked his watch and said our time was up. — It was your time. — I said our.
   - > What about the mirror on four? [needs m_mirror_seen] → tg_r2
   - (silence) → tg_r2
 - **THE GUESTS** (tg_r2): The mirror showed me Tuesday, Thursday, and a gentleman who looked disappointed in all three. — That's the wardrobe. — I thought we agreed about the wardrobe.

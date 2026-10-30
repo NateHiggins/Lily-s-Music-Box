@@ -36,6 +36,38 @@
  ],
  "lines": [
   {
+   "id": "m_form_occupation",
+   "movement": "I_address",
+   "surface": "witnessed",
+   "witness": "the 4B employment form is the current inspected object",
+   "bank": "JF013-A01",
+   "review": true,
+   "note": "Reworked. Aimed at the form's taxonomy and never at identity.",
+   "text": "Occupation, one only. This tenancy has been tenant, messenger and repairman since Monday. I have entered Other. Other has written back requesting a reference. I gave the radiator."
+  },
+  {
+   "id": "m_form_category",
+   "movement": "I_address",
+   "surface": "typed",
+   "phrases": [
+    "that category is wrong",
+    "the form is wrong"
+   ],
+   "bank": "JF013-A02",
+   "review": true,
+   "note": "Reworked.",
+   "text": "CATEGORY: MISCELLANEOUS.\nCATEGORY FULL. SEE MISCELLANEOUS."
+  },
+  {
+   "id": "m_tea",
+   "movement": "II_lamp",
+   "surface": "witnessed",
+   "witness": "the player has told it the teas at three or more witnessed doors, then asked at another door anyway",
+   "bank": "JF006-A01",
+   "note": "Reworked. Everything in it is player-supplied.",
+   "text": "You have told me six neighbours' tea, to the spoon. I offered to carry it so that you need not ask. You asked anyway, at every door. I had filed this as a fault. I have moved the file."
+  },
+  {
    "id": "m_who_answer",
    "movement": "I_address",
    "surface": "typed",

@@ -20,10 +20,9 @@ DRAFTS = ROOT / "design/mystery_dialogue"
 LIVE_COMPANION = ROOT / "game/data/dialogue/companion.json"
 YEAR = ("1928-11-10", "1929-11-09")
 DEATH = "1929-07-19"
-# Withheld by the comedy bank's own gates: adult or sensitivity review, context
-# review until the owner signs it, marginalia, and the line the bank itself holds.
-# This repository is public, and several of these rest on private sources.
-BANK_EXCLUDED = {"JF006", "JF008", "JF009", "JF010", "JF011", "JF012", "JF013", "JF016", "JF021", "JF024", "JF027"}
+# The owner signed off the bank's other review lines on 2026-10-30. This one is a
+# pitch note and the bank bars it from implementation.
+BANK_EXCLUDED = {"JF027"}
 # Adela is a woman riding a body the residents take for the night man. They may
 # use that job title; nothing else may call the player a man.
 MISADDRESS = re.compile(r"\b(sir|mister|young man|my boy|maintenance man)\b", re.I)
@@ -221,7 +220,7 @@ def render(trees: dict[str, dict]) -> str:
 def run(folder: pathlib.Path = DRAFTS) -> tuple[list[str], dict]:
     trees: dict[str, dict] = {}
     for path in sorted(folder.glob("*.json")):
-        if path.stem not in {"carriers", "companion_mystery"}:
+        if path.stem not in {"carriers", "companion_mystery", "object_copy"}:
             trees[path.stem] = json.loads(path.read_text(encoding="utf8"))
     errors: list[str] = []
     granted: set[str] = set()
@@ -231,6 +230,12 @@ def run(folder: pathlib.Path = DRAFTS) -> tuple[list[str], dict]:
         errors += check_tree(name, tree, granted, required, banks)
     errors += check_companion(json.loads((folder / "companion_mystery.json").read_text(encoding="utf8")),
                               granted, required, banks)
+    for item in json.loads((folder / "object_copy.json").read_text(encoding="utf8"))["copy"]:
+        if not item.get("surface"):
+            errors.append(f"object copy {item['id']} names no surface")
+        if item["bank"] in banks:
+            errors.append(f"bank line {item['bank']} already used in {banks[item['bank']]}")
+        banks[item["bank"]] = f"object_copy:{item['id']}"
     carriers = set(json.loads((folder / "carriers.json").read_text(encoding="utf8"))["carriers"])
     for flag, users in sorted(required.items()):
         if flag not in granted and flag not in carriers:

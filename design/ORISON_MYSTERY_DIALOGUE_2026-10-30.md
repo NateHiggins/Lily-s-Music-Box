@@ -15,13 +15,14 @@ note and the treatment disagree, the treatment wins.
 
 | Piece | Where |
 |---|---|
-| Trees for 23 speakers: 59 threads, 201 nodes | `design/mystery_dialogue/<speaker>.json` |
-| Companion addendum: 44 lines, 5 branches, 4 movements | `design/mystery_dialogue/companion_mystery.json` |
+| Trees for 23 speakers: 66 threads, 210 nodes | `design/mystery_dialogue/<speaker>.json` |
+| Companion addendum: 47 lines, 5 branches, 4 movements | `design/mystery_dialogue/companion_mystery.json` |
 | The 17 things the world must hand the player | `design/mystery_dialogue/carriers.json` |
+| Printed copy with no speaker | `design/mystery_dialogue/object_copy.json` |
 | A readable version of every tree | `design/mystery_dialogue/READ_ALOUD.md` |
 | The checker, and what it refuses | `tools/check_mystery_dialogue.py` |
 
-This is a first pass, about 5,300 spoken words. The live door trees run about
+This is a first pass, about 5,600 spoken words. The live door trees run about
 19,000. It covers each person's hold on the case and one comic or human beat, so
 the owner can judge the shape before more is written.
 
@@ -55,7 +56,7 @@ Four movements, keyed to what has been witnessed and never to a timer.
 
 | Movement | What it does | Running material |
 |---|---|---|
-| I. It has her name | She tests whether a correct form is all it can do. It reviews its own opening ("more enthusiasm than method") | Forms, the four expressions, her routine |
+| I. It has her name | She tests whether a correct form is all it can do. It reviews its own opening ("more enthusiasm than method") | Forms, the four expressions, the occupation form |
 | II. Hold the lamp lower | Two trades correct each other. She teaches it to light a thing. It teaches her to keep an observation away from a conclusion | The lamp ladder, "We have the date. We have not looked there", the sky, the bar joke |
 | III. The objection is filed | She reads the wrong account of herself. It opens the only department that will hear her: objections from the deceased | The objections file, her sevens, reviews she can't answer, the rescue exchanges |
 | IV. Whoever reads this | They learn the paper has another reader. It starts leaving the margins wider. It stays | "RECEIVED. I DID NOT WITNESS THIS", who it works for, the last joke |
@@ -118,28 +119,31 @@ note can be got on 22 July or any day after, so missing that visit strands nothi
 
 ## 5. What happened to her comedy bank
 
-The bank has 45 proposed lines across 28 ideas. **16 are placed**, each once, with
-its id on the node. All 16 passed the bank's own review gate or carry no private source.
+The bank has 45 proposed lines across 28 ideas. **32 are placed**, each once, with
+its id on the node. The owner answered the review questionnaire on 2026-10-30: seven
+held lines used as written, five reworked, four withheld lines put back on the table,
+and public is fine. The four are placed as proposals with the bank's cautions on the
+thread, and **JF012-A01** also goes to the trans-reader and a queer-history read.
 
 | Disposition | Lines |
 |---|---|
 | Placed in trees (13) | **JF001-A01**, **JF002-A01**, **JF003-A01**, **JF004-A01**, **JF005-A01**, **JF005-A02**, **JF007-A01**, **JF007-A02**, **JF014-A02**, **JF015-A01**, **JF018-A01**, **JF019-A01**, **JF022-A01** |
+| Owner: use as written (7) | **JF008-A01**, **JF008-A02**, **JF009-A01**, **JF009-A02**, **JF010-A01**, **JF021-A01** in trees; **JF016-A01** as object copy |
+| Owner: reworked (5) | **JF006-A02**, **JF021-A02** in trees; **JF006-A01**, **JF013-A01**, **JF013-A02** on the companion |
+| Owner: back on the table (4) | **JF011-A01**, **JF012-A01**, **JF024-A01** in trees; **JF011-A02** as object copy |
 | Placed on the companion (3) | **JF002-A02**, **JF015-A02**, **JF018-A02** |
 | Next pass, needs its surface (4) | **JF001-A02** (a Derby entry), **JF003-A02**, **JF004-A02**, **JF017-A02** (back pages) |
 | Next pass, fits a resident (2) | **JF017-A01** (Juno), **JF014-A01** (a note in Adela's contact sheet; trans-reader) |
-| Waiting on Lily: marked context or sensitivity review (12) | **JF006-A01**, **JF006-A02**, **JF008-A01**, **JF008-A02**, **JF009-A01**, **JF009-A02**, **JF010-A01**, **JF013-A01**, **JF013-A02**, **JF016-A01**, **JF021-A01**, **JF021-A02** |
 | Spare alternates and duplicates (5) | **JF020-A01**, **JF023-A01**, **JF025-A01**, **JF026-A01**, **JF028-A01** |
-| Not used: its own gates withhold it (5) | **JF011-A01**, **JF011-A02**, **JF012-A01**, **JF024-A01**, **JF027-A01** |
+| Not used: a pitch note, barred by the bank (1) | **JF027-A01** |
 | Not used: breaks a ruling (1) | **JF010-A02**. It wants to be a received copy, and there are exactly six |
 
 **Privacy.** The SQLite file and the source CSV hold private excerpts, and the
 bundle's own README says not to share them. I queried the catalogue and adaptation
 fields and never opened the excerpt text. Neither file is in this repository, and
 neither is the bank itself. No line is presented as a quotation of the owner.
-This repository is public, so nothing marked for context or sensitivity review is
-placed here until she signs it, and the checker refuses those ids. The best of them
-for this story are **JF006-A01** (the companion and the tea), **JF006-A02** (Noel
-and the knock) and **JF013-A01** (the occupation form).
+This repository is public, and the owner ruled on 2026-10-30 that the lines she
+passed may be here, unattributed.
 
 ## 6. Rules the checker enforces
 
@@ -152,7 +156,7 @@ and the knock) and **JF013-A01** (the occupation form).
 - No resident says "the Tenant", "instrument" or "Signal Pro". The companion cannot
   name what it serves.
 - A thread entirely before her death can't speak from after it.
-- Withheld and unsigned bank lines fail, and no bank line is used twice.
+- The barred bank line fails, and no bank line is used twice.
 
 It cannot tell whether a line is funny, or right for Adela. Those stay with people.
 
@@ -197,8 +201,8 @@ stand: the read-aloud, the period-law check, and the Mina hold.
 
 **For Lily.**
 
-1. Does the core idea work: she cannot correct anyone, and the companion keeps the
-   file?
-2. The twelve held bank lines, especially **JF006-A01**, **JF006-A02** and **JF013-A01**.
-3. Is the last bar joke too sentimental? It is the line most likely to be either
-   the best in the file or a mistake.
+1. Read the thread placements in `READ_ALOUD.md`.
+2. Do the five reworks and the four placements land? They are the only lines here
+   she has not read in this form.
+
+**Ruled 2026-10-30.** The core idea stands. The last bar joke stays.

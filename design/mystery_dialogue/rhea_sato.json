@@ -9,6 +9,9 @@
  },
  "entries": {
   "rs_serial": "rs_s1",
+  "rs_casting": "rs_c1",
+  "rs_rehearsal": "rs_h1",
+  "rs_dressing": "rs_d1",
   "rs_portrait": "rs_p1"
  },
  "threads": [
@@ -19,6 +22,33 @@
    "topic": "Your programme was on again.",
    "source": "World and comedy. Pick one bank line per scene.",
    "root": "rs_s1"
+  },
+  {
+   "id": "rs_casting",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "Did you find anyone for the part?",
+   "source": "JF008-A02. Absurd self-roast.",
+   "root": "rs_c1"
+  },
+  {
+   "id": "rs_rehearsal",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "Why is one of the Guests holding a sack?",
+   "source": "JF021. The Association pageant, in the lobby. The sack is on stage before the line, and a real prop is owed. JF021-A02 reworked.",
+   "root": "rs_h1"
+  },
+  {
+   "id": "rs_dressing",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "You look tired, Miss Sato.",
+   "requires": [
+    "m_rhea_claim"
+   ],
+   "source": "JF011-A01. Owner put it back on the table. Her dressing room, late, after trust; the bank's caution stands: not a stand-in for anyone's disability or sexual behaviour.",
+   "root": "rs_d1"
   },
   {
    "id": "rs_portrait",
@@ -45,6 +75,30 @@
   "rs_s2": {
    "bank": "JF005-A01",
    "line": "That was thunder! Fifteen years of stagecraft, and she laughs harder when the effects man rattles a sheet of tin. My own mother. I could hear her from the studio, I swear to you, in Queens."
+  },
+  "rs_c1": {
+   "bank": "JF008-A02",
+   "line": "I put out a notice for a scene partner. What I received were three invitations to dinner and a trained pigeon. The pigeon knew its lines. It has also asked about billing."
+  },
+  "rs_h1": {
+   "bank": "JF021-A01",
+   "silence_goto": "rs_h2",
+   "line": "We are ignoring the sack. From the top. \"Let him who is without sin cast the first...\" Good heavens, what have you brought in that pillowcase?",
+   "choices": [
+    {
+     "label": "Say nothing, and look in the sack.",
+     "goto": "rs_h2"
+    }
+   ]
+  },
+  "rs_h2": {
+   "speaker": "GUESTS",
+   "bank": "JF021-A02",
+   "line": "Custards. — Four of them. — We were told there was to be a stoning. — We didn't like to come with nothing."
+  },
+  "rs_d1": {
+   "bank": "JF011-A01",
+   "line": "I had prepared myself for a life of extravagant romance. Nobody mentioned the need for clean sheets, punctuality, or not eating the entire pie first. You may close the door. From the outside."
   },
   "rs_p1": {
    "silence_goto": "rs_p1s",

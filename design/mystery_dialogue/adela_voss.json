@@ -12,6 +12,8 @@
   "av_derby": "av_d1",
   "av_science": "av_s1",
   "av_rhea": "av_r1",
+  "av_hang": "av_h1",
+  "av_madam": "av_m1",
   "av_key11": "av_k1",
   "av_nineteen": "av_n1"
  },
@@ -51,6 +53,24 @@
    "review": true,
    "source": "WR-07. She is wrong here and half knows it. S06 is its scene.",
    "root": "av_r1"
+  },
+  {
+   "id": "av_hang",
+   "from": "1928-11-10",
+   "until": "1929-07-19",
+   "topic": "Who hung these?",
+   "review": true,
+   "source": "JF008-A01. First talk about working with anyone. Nobody in the house is implied.",
+   "root": "av_h1"
+  },
+  {
+   "id": "av_madam",
+   "from": "1928-11-10",
+   "until": "1929-07-19",
+   "topic": "She left in a hurry.",
+   "review": true,
+   "source": "JF012-A01. Owner put it back on the table. The target is the customer's hypocrisy and never the men she means. Needs the trans-reader and a queer-history read for plausibility, on the Pleasure Man talk of that winter. Cut if either reader objects.",
+   "root": "av_m1"
   },
   {
    "id": "av_key11",
@@ -220,6 +240,14 @@
   "av_r3": {
    "line": "Thank you, that's what I've been telling myself. You'd think it would sound better from a stranger."
   },
+  "av_h1": {
+   "bank": "JF008-A01",
+   "line": "I asked for somebody to help hang my pictures. One proposed marriage, one proposed a duel, and the third actually brought a hammer. I hired the third. He's crooked on the left. I've kept it, it annoys the right sort of person."
+  },
+  "av_m1": {
+   "bank": "JF012-A01",
+   "line": "She'd come for her plates and stayed for the Pleasure Man crowd. \"One cannot trust a man who admires another man.\" I said you say that, madam, and you have married three of them. She'll be back. She's got two more husbands to have copied."
+  },
   "av_k1": {
    "silence_goto": "av_k2",
    "line": "Tonight? You're a prince of the service stair. Give me that and put me in your book. I'll be up there till the sky stops being interesting, and I'll sign for it like a citizen.",
@@ -232,7 +260,18 @@
   },
   "av_k2": {
    "flag": "m_key_loan_11",
-   "line": "Your capitals are terrible. Look, hold it like a grease pencil, from up here. You'd be surprised how much of a person's character is in the E."
+   "silence_goto": "av_k3",
+   "line": "Your capitals are terrible. Look, hold it like a grease pencil, from up here. You'd be surprised how much of a person's character is in the E.",
+   "choices": [
+    {
+     "label": "You know that's a lightning rod you'll be standing by.",
+     "goto": "av_k3"
+    }
+   ]
+  },
+  "av_k3": {
+   "bank": "JF009-A01",
+   "line": "I do not enter the lion's den on the assumption of divine protection. I have a bill for the lion."
   },
   "av_n1": {
    "silence_goto": "av_n1s",

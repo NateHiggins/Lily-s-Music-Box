@@ -9,6 +9,7 @@
  },
  "entries": {
   "co_envelope": "co_e1",
+  "co_windmill": "co_w1",
   "co_route": "co_r1"
  },
  "threads": [
@@ -19,6 +20,17 @@
    "topic": "You took something to 6C that Friday.",
    "source": "S08, B08. The first rescue lever is on the day itself.",
    "root": "co_e1"
+  },
+  {
+   "id": "co_windmill",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "Omar says he learned who owned the windmill.",
+   "requires": [
+    "m_heard_windmill"
+   ],
+   "source": "JF024-A01. Owner put it back. The bank wanted it only instead of JF001; here it answers that line in another scene, so the beat is not doubled.",
+   "root": "co_w1"
   },
   {
    "id": "co_route",
@@ -56,6 +68,10 @@
   },
   "co_e3": {
    "line": "The lady across the road. Walked it over to me herself and paid for the stairs. Six flights, a nickel, she says to me it's a nickel because I'm charging for the view. She was funny. Is that it?"
+  },
+  "co_w1": {
+   "bank": "JF024-A01",
+   "line": "If the windmill has enemies, I'd appreciate their addresses. I'm trying to be a supportive friend. I can have them there by four."
   },
   "co_r1": {
    "silence_goto": "co_r1s",
