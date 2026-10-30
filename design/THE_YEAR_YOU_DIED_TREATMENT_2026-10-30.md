@@ -57,6 +57,28 @@ The owner's answers to this treatment's open items:
   sketch (section 10.1). It is **not canon**. B and C are kept briefly as not
   chosen.
 
+## Outside review, 2026-10-30
+
+An outside editorial review was folded in. Its factual claims were checked before
+use. The settled decisions (Adela, Mae, the lease, the dark hours, the snap-back,
+the closed loop, both endings, the final line, and Option A as the chosen proposal)
+were not reopened. All new lines and facts are **PROPOSED**.
+
+| # | Finding | Disposition | Where |
+|---|---|---|---|
+| 1 | The convergence proves concealment better than the push; test against "stole the evidence after an accidental fall" | **Partly fixed.** New positive fact: white kid under Adela's nails in Teresa's note, meeting three independent carriers. Vantry's vantage, timing and identification tightened. Mae's route made hidden. The accident story is tested, not eliminated: whose hand moved first stays reconstructed | §4.5 |
+| 2 | Option A can read as a woman's suffering becoming material for a man's awakening | **Fixed in the text; the cumulative test needs the trans-reader.** "Essential" is now a limit of the Tenant's machinery. She was whole alive. Her release is her act. His continuation is a consequence | §10.1 A.1, A.2, A.4; §12 |
+| 3 | Date handoffs rest on hunches (boiler report, "Sacha keeps duplicates", "Tuesday") | **Fixed.** All 25 beats audited. Each has a carrier naming its date, readable outside route order | §3.1; B23 |
+| 4 | Killing the photographer cannot erase the lease | **Fixed for the story; law stays pending.** Her calculation is separated from the deed's actual effect | §3, "What Mae thinks she can stop" |
+| 5 | M4 dated before the card it reports | **Fixed.** The act is on 19 Oct, the copy on 20 Oct; the duplicate's discovery stays on the 18th | §8; B22 |
+| 6 | The watch proves agreement, not the clock's error; 18:00 against 18:05; Cal's counter | **Fixed.** All 18:05. The error and Cal's counter are both tied to the station pips. "About 9:03" stays an estimate | §4.4, §4.1; B08 |
+| 7 | The replay doesn't exclude a rebroadcast or show Mae's absence | **Fixed.** Repeatable marks (the door, the disc's tick), the listing, Cal's log. It defeats exactly one claim | §4.6; B19; S13 |
+| 8 | M3–M5 report acts the player may not have witnessed | **Fixed.** Received report, not witnessed fact. Delivery follows presence, not the calendar | §8 |
+| 9 | A letter cannot reach New York two days after the vote | **Fixed.** It arrives on or about 28 Oct; the transit time is plausible but unverified | §7; B22 |
+| 10 | N6, N14, the Ninety-Nines, the Persons Case | **Fixed.** N14's location and the Act's date verified against sources. The parliament.uk page refused a direct fetch, so it was checked through a parliament mirror and other sources | §7.1 |
+| 11 | Too many residents share one polished voice | **Partly fixed.** B05, B07, B13, B16, B17 and B19 revised. **The full mouth pass still needs the read-aloud.** Mina's canon reconciliation stays a hold | §3; §9 |
+| 12 | Every insult gets an immaculate correction; repeated telephone wording | **Fixed in the text; whether it is funny needs the owner.** Window varied, one losing joke shown, and the Texas scene names the racism | §7; §9 S03, S04 |
+
 ## 0. Status: what is canon, what is proposed
 
 **Canon on main.** The owner ruled the murder canon on 2026-10-29: "Put it in."
@@ -250,6 +272,37 @@ period property-law review) [WR-03]:
   her claim to custody of the building's story. That is why she sent for them.
   [WR-03]
 
+**What Mae thinks she can stop** (**PROPOSED**; her calculation, not the law)
+[outside review 4]. Killing the photographer cannot erase the lease. The deed
+stays on file at the Register's, and Mr. Ewald and Peter's firm hold copies. Mae
+knows that. What she is trying to stop is the reading, for thirteen days.
+
+- **Nobody else has read it for this.** Ewald commissioned the copy for the
+  Arcade's rent; he wants the conveyance, not an adjoining parcel in the
+  schedule. Peter's firm has read it and files nothing. Only Adela has connected
+  the clause to the Orison's tenants.
+- **The disclosure depends on her.**
+  - On Monday 22 July she will put her marked enlargement in front of Nadia and
+    Ewald together.
+  - Nadia chairs the tenants' association (canon Saturday meeting), which can
+    meet on Saturday 27 July and resolve to hold the rent.
+  - Rents fall due on Thursday 1 August.
+- **What removing her and her copies does.** No marked enlargement, no meeting
+  on the 22nd, and nobody telling Nadia where to look. Mae expects the deed to go
+  back to sleep in a file for long enough.
+- **What she believes thirteen days buys.**
+  - One August rent, paid and accepted as usual.
+  - She has read Judge Hanrahan's ruling that rent taken waives notices (Record
+    1929-05-28, **DATA**), and she said so herself: "Accept the money, lose the
+    quarrel" (`mk_op_waiver`, **DATA**).
+  - She reasons that a tenancy still being paid is a tenancy still standing.
+- **Why stealing alone won't do.** She asked for the negatives on 13 June and was
+  refused. A woman who has lost her plates can still say "read the schedule".
+- **She is desperate, and she may be wrong.** The treatment does not say the
+  calculation is sound. The duplicate in Sacha's box and Peter's copy mean it
+  was never safe, and the real legal effect stays pending period-law review.
+  Adela's note of 18:10 ("before the tenants do on Monday") gives her the date.
+
 ### The example route
 
 Dates and carriers are from v3/v4. Disposition, staging and voice drafts are
@@ -265,26 +318,26 @@ resident holds.
 | B02 | Thu 11 Jul 1929, roof | Plate 12; the roof key; Juno's mic under the coping | Adela at work, enjoying it. Sacha's lit darkroom proves that light was on that night, nothing about the 19th | Juno (a recorder on the roof) | ADELA: "Twelve. If the Lord wants a copy, He can stop moving the light." |
 | B03 | Sat 8 Jun 1929, Photo Supplies | Deed negatives and schedule | The parcel and the reversion clause [WR-03]. Timing fix: Bondfield (8 June) cannot be read here; only the published election news can (Record 1929-06-01, column 2) | Peter (his firm's copy) | PETER: "The copy is correct. I haven't said the collection is." [S05] |
 | B04 | Thu 13 Jun 1929, 6C | Tea; Mae learns of the deed; the copy order | Mae's knowledge and motive. Her bigotry is named and wrong, separate from evidence | Nadia (she told Mae) | NADIA: "Miss Voss. You have managed the other names." [S04] |
-| B05 | Mon 4 Feb 1929, Photo Supplies | The ledger box at the edge of a certificate negative | Mae's custody of the Estate's lease copy. Evelyn's ordering and Mae's edge-of-frame alarm do the work | Evelyn (carried the box) | EVELYN: "I put the instructions in order." ADELA: "The box moved them." |
+| B05 | Mon 4 Feb 1929, Photo Supplies | The ledger box at the edge of a certificate negative | Mae's custody of the Estate's lease copy. Evelyn's ordering and Mae's edge-of-frame alarm do the work | Evelyn (carried the box) | EVELYN, re-squaring the objects on the table while Adela works: "Your seven is open at the top. Someone will read it as a nine." (Mae's box is where Evelyn put it. Adela moves it. Evelyn moves it back.) |
 | B06 | Sat 20 Apr 1929, the Arcade | Ash wall; Rhea's disputed proofs | Rhea's real privacy claim. Adela concedes the window but keeps the negatives [WR-07] | Rhea (a claim on negatives later stolen) | RHEA: "You may keep the negative. You may not keep putting me in the window." [S06] |
-| B07 | Tue 14 May 1929, Photo Supplies | Omar's bell-triggered recorder; his spare key | Exactly what a triggered recording can and cannot identify | Omar (a key and the recorder) | OMAR: "Bell starts it. Bell doesn't tell it who came in." [S07] |
-| B08 | Fri 19 Jul 1929, 18:00, lobby | Adela sets her watch by the lobby clock; Cam's envelope to 6C | The four-minute offset, witnessed. Delivery proved; the reader's action is not. The first rescue lever | Cam (carried the envelope) | CAM: "Six C. In her hand. Nobody's offered a rate for thoughts." [S08] |
+| B07 | Tue 14 May 1929, Photo Supplies | Omar's bell-triggered recorder; his spare key | Exactly what a triggered recording can and cannot identify | Omar (a key and the recorder) | OMAR: "Bell starts it. That's all it does." [S07, kept for his precision] |
+| B08 | Fri 19 Jul 1929, 18:05–18:10, lobby | Adela sets her watch by the lobby clock at 18:05; Cam's envelope to 6C at 18:10 | The watch now agrees with that clock (its error is checked separately, §4.4). Delivery proved; the reader's action is not. The first rescue lever | Cam (carried the envelope) | CAM: "Six C. In her hand. Nobody's offered a rate for thoughts." [S08] |
 | B09 | Fri 19 Jul, 18:25, roof | Plate 13 set; compost; St Elmo's fire | Mutual correction and pleasure in the storm. Malcolm is a roof user, not a suspect by default | Malcolm (last on the roof with her before dark) | MALCOLM: "Mind the cutting." ADELA: "Mind the sky. Yours will wait." |
 | B10 | Fri 19 Jul, to the boundary | The last recorded interval; Cal at the bulkhead | One clean interruption at the boundary (section 4) | Cal (near the bulkhead before the boundary) | PAPER: "NO RECORD. 21:01 TO 03:02. THE BUILDING DID NOT HEAR THESE HOURS." [S10] |
-| B11 | Sat 20 Jul, 03:02 | Teresa; the body; later the patrolman's sheet | Reconciled per section 4. A friend names her before a form categorises her | Teresa (found her); the Guests (the "lodger" statement) | TERESA: "Adela. Get a blanket." |
+| B11 | Sat 20 Jul, 03:02 | Teresa; the body; her written note (with what was under the nails, §4.5); later the patrolman's sheet | Reconciled per section 4. A friend names her before a form categorises her | Teresa (found her); the Guests (the "lodger" statement) | TERESA: "Adela. Get a blanket." |
 | B12 | Sat 20 Jul, early, F02 | The bag; the intact purse; Lena's basket | Custody, not guilt | Lena (has the bag) | LENA: "I was going to mend the strap." Then she stops. |
-| B13 | Sat 20 Jul, 13:00, roof | Iris's sketch; the chalk; the hat | Existing paint versus marks introduced around the camera | Iris (paint on the coping) | IRIS: "That red is mine. The chalk isn't." [S09] |
+| B13 | Sat 20 Jul, 13:00, roof | Iris's sketch; the chalk; the hat | Existing paint versus marks introduced around the camera | Iris (paint on the coping) | IRIS: "That's cadmium, that's mine, I can't afford it now. What are those? Somebody ticks like a bookkeeper." [S09, revised] |
 | B14 | Sun 21 Jul | The wrong back-page notice (N16) | Compare the sources without a lecture; the item's size and place stay visible | the Guests (named as the source) | PAPER, on request: "They have a source for the lodging. It is the Guests. We can ask them." |
 | B15 | Mon 22 Jul, Photo Supplies | The empty drawer; the shop cylinder; Emil | Hold on Emil and the prints. The next prompt waits until the player turns back to the work | Mina (her struck log entry) | EMIL: "These can come home." No companion reply. [S11] |
-| B16 | Tue 6 Aug, 6B | Jonah's page; the borrowed drama line | What he heard against what he composed. "Museum-white" is his comparison, not an identification of Noel | Jonah (a witness who composed); Noel (named by a simile) | JONAH: "I improved the sentence." PLAYER: "Which part did you hear?" [S09] |
-| B17 | Wed 7 Aug, rear yard | The glove scrap and pearl button; drain access through an ordinary repair | Compare material and construction. No compulsory full shift | — | NOEL: "Mine have no buttons. Put them side by side." |
+| B16 | Tue 6 Aug, 6B | Jonah's page; the borrowed drama line | What he heard against what he composed. "Museum-white" is his comparison, not an identification of Noel | Jonah (a witness who composed); Noel (named by a simile) | JONAH, defending it first: "Don't touch 'white.' It took me an hour." PLAYER: "Which part did you hear?" JONAH: "It wants two beats there. You can hear that." [S09, revised; the admission comes only if she keeps asking] |
+| B17 | Wed 7 Aug, rear yard | The glove scrap and pearl button; drain access through an ordinary repair | Compare material and construction. No compulsory full shift | — | NOEL: "Not on the blotter. Who let you bring that in wet?" (The gloves come out only after the cloth does.) |
 | B18 | Tue 20 Aug | Crosson street scene; Juno's preserved recordings | Straight memorial. Listening follows at its own pace. Timing fix: the Record's window carries the wire bulletin of the search; the N11 obituary is readable from 21 Aug | — | (No line at the card.) JUNO: "I have the tape. We don't have to play it now." [S12] |
-| B19 | Sat 24 Aug, 5B | Replay of last week's episode | Audio proves a replay; a body alibi still needs corroboration | Mae (the drama was a disc) | CAL: "You heard it on the nineteenth. It was broadcast on the twelfth." [S13] |
+| B19 | Sat 24 Aug, 5B | Replay of last week's episode | The door and the tick (§4.6) defeat "she was heard, so she was home". They do not place her anywhere | Mae (the drama was a disc) | CAL, playing the 12th: "Wait. There. Door. Every time." He plays it again without being asked. [S13, revised] |
 | B20 | Mon 16 Sep | Wiggins; Lena's dated button book | Straight memorial. The book is evidence on request, not a grief-unlocked confession | Mae (the glove) | LENA: "Six C. For a glove. I wrote it down that morning." [S12] |
 | B21 | Mon 23 Sep, B1 | Damaged plate and slide in the ash | Salvage, separated from destruction | Omar (has the plate) | OMAR: "Glass doesn't burn with the rubbish. It makes you deal with it after." |
-| B22 | Fri 18 Oct, 6A | Sacha's duplicate negative; the Berlin letter | The motive on glass. Timing fix: the Persons news is printed 19 Oct, so Nadia's card goes up on the 19th; the discovery date stays the 18th | Mae (the lease) | SACHA: "The duplicate is here. The letter is Nadia's to open." |
-| B23 | Tue 29 Oct, 6A darkroom | Surviving half of plate 13 | Partial image only (section 4). Timing fix: the N14 radium item (31 Oct) is read later, not in this room | Mae (convergent) | SACHA: "This part survived. I haven't repaired the rest into it." [S13] |
-| B24 | Sat 2 Nov, the Arcade | Vantry's bounded testimony | A later testimonial carrier for the murder-night sighting; never a flashback. Timing fix: the Ninety-Nines item (N15, 4 Nov) is not yet printed, so Nadia's card goes up on the 4th | Mae (Vantry's sighting) | VANTRY: "I thought saying nothing would keep me out of it." PAPER, if asked: "It kept you out of the report." |
+| B22 | Fri 18 Oct, 6A | Sacha's duplicate negative | The motive on glass. Timing fix: the Persons news is printed 19 Oct, so Nadia's card goes up on the 19th, and the night man's own small card with it (reported by M4 on the 20th); the discovery date stays the 18th | Mae (the lease) | SACHA: "The duplicate is here. I wrote the date on the sleeve." |
+| B23 | Tue 29 Oct, 6A darkroom | Surviving half of plate 13 | Partial image only (section 4). Sacha set the date on the 18th: "Tuesday the twenty-ninth." Timing fix: the N14 radium item (31 Oct) is read later, not in this room | Mae (convergent) | SACHA: "This part survived. I haven't repaired the rest into it." [S13] |
+| B24 | Sat 2 Nov, the Arcade | Vantry's bounded testimony (§4.5) | A later testimonial carrier for the murder-night sighting; never a flashback. It places a gloved woman leaving the roof, not at the fall. Timing fix: the Ninety-Nines item (N15, 4 Nov) is not yet printed, so Nadia's card goes up on the 4th | Mae (Vantry's sighting) | VANTRY: "I thought saying nothing would keep me out of it." PAPER, if asked: "It kept you out of the report." |
 | B25 | Sat 9 Nov | Mae's box; the supported correction | Converges without a confession. Followed by the two codas only when intentionally entered | Mae | MAE: "Those are private papers." ADELA: "Mine are in there." [S14] |
 
 **When the ending can be entered.** 9 November remains an ordinarily visitable
@@ -303,6 +356,49 @@ player.
   is addressed to 4B (canon carrier note "TRY 4B, THEY ANSWER THINGS").
 - Visiting 10 November 1928 is one possible lead, not a startup requirement.
   [WR-01]
+
+### 3.1 How each date can be found [outside review 3]
+
+A date must come from something a person wrote or printed, not from the example
+route's order. Every carrier below names its date outright. Any of them can be
+found on any later visit, so a player arriving from elsewhere can still reach
+the date. All are **PROPOSED** unless marked **DATA**. Where the earlier link
+was only a hunch, the table says what replaced it.
+
+| Beat | Date | Carrier that names it | Where it can be read | Replaces |
+|---|---|---|---|---|
+| B01 | 10 Nov 1928 | Window log, first entry: "Sat. 10 Nov. Mrs. Owen" | Photo Supplies, any later date | — |
+| B02 | 11 Jul 1929 | Key book: "11 July, A.V., roof". O1's headline fragment and the sky record (**DATA**) | 4B desk; box 4B | — |
+| B03 | 8 Jun 1929 | Negatives register: "Deed, for Mr. E., exposed 6 June, developed Sat. 8 June" | Photo Supplies | "the week they swore in Miss Bondfield" |
+| B04 | 13 Jun 1929 | Appointment book: "Thurs. 13th, 4.30, 6C" | Photo Supplies | — |
+| B05 | 4 Feb 1929 | Register: "Mrs. K., certificate plates, Mon. 4 Feb." | Photo Supplies | — |
+| B06 | 20 Apr 1929 | Register: "Miss S., 3D, sat Sat. 20 April. DO NOT PRINT" | Photo Supplies | — |
+| B07 | 14 May 1929 | Omar's job tag: "Photo Supplies, door trigger, Tues. 14 May" | Omar's bench; window log | — |
+| B08–B10 | 19 Jul 1929 | Key book: "19 July, A.V., roof, storm". The Record's ear, "Storms tonight" (**DATA**) | 4B desk; news rack | — |
+| B11 | 20 Jul, 03:02 | The companion's slip, "NO RECORD. 21:01 TO 03:02"; Omar's panel log, "breaker reset 3:02" | Paper; B1 panel | — |
+| B12 | 20 Jul, 05:00 | Lena's mending ticket: "bag, clasp, off the chair, 20 July" | 2B basket | — |
+| B13 | 20 Jul, 13:00 | Iris's sketch, dated in its corner | 5C | — |
+| B14 | 21 Jul | N16 itself, by its issue date | News rack; shelf | — |
+| B15 | 22 Jul, 10:00 | Appointment book: "Mon. 22nd, 10.00, Miss Q., Mr. E." | Photo Supplies; Ewald's diary | — |
+| B16 | 6 Aug | Jonah's composition books, dated on their spines: "19 July", "6 Aug." | 6B shelf | "he writes in storms" alone |
+| B17 | 7 Aug | The night man's work order: "Yard drain, clear after storm, Wed. 7 Aug." | 4B work orders | "Omar clears it next morning" |
+| B18 | 20 Aug | The Record's lead on the tone's absence (**DATA**). Juno's reel box: "July 19, wall. Play on a quiet day" | News rack; 2C | — |
+| B19 | 24 Aug | Juno's trade log: "Sat. 24 Aug., 3 p.m., C.D.: WLBQ 12 and 19 July." Their Saturday trade is canon | 2C | — |
+| B20 | 16 Sep | N13, by its issue date. The button book's own entry is dated 20 July and can be read any time after | News rack; 2B | "when something breaks her heart" |
+| B21 | 23 Sep | The boiler sheet in B1: "First fire Sat. 21 Sept. Rake ash pit Mon. 23 Sept., 8 a.m." Omar's later bench tag: "Glass, dark slide, A.V. 13, from ash, 23 Sept." | B1; Omar's bench | **The courthouse-boiler report.** It stays as background only and sends nobody to B1 |
+| B22 | 18 Oct | Sacha's backup ledger: "Quarterly sleeve check, Fri. 18 Oct., 7.45." Adela's register notes the duplicate "to S.R., June" | 6A; Photo Supplies | "Sacha keeps duplicates" |
+| B23 | 29 Oct | Sacha's darkroom book: "Tues. 29 Oct., A.V. 13, from O.B." Sacha says "Tuesday the twenty-ninth", not "Tuesday" | 6A; Omar's tag | "Tuesday" said on Friday the 18th, which would mean the 22nd |
+| B24 | 2 Nov | Nadia's continuation of the window log: "Sat. 19 Oct., 26 Oct., 3.40: the man in the grey coat again." The next Saturday follows | Photo Supplies | "On Saturdays at 3:40" as hearsay |
+| B25 | 9 Nov | Mr. Ewald's note to Nadia: "Will call at 6C on Sat. 9 Nov., 4 p.m., with the correction." Mae's sale day ends at 15:00 (canon) | Shop; Ewald's diary | "the last day of the year" |
+
+**Why a date is never only reachable in order.**
+
+- **Dated sources are not gated.** The register, the key book, the job tags and
+  the papers are readable whenever the player stands in front of them. Nothing
+  requires an earlier beat to have been played.
+- **Most evidence is not date-locked either.** Once an object exists, it exists
+  on every later date in someone's custody: Omar's bench, Lena's book, Jonah's
+  shelf, Mae's box. The named date is when it can be seen *happening*.
 
 ---
 
@@ -324,7 +420,8 @@ interval.
   **21:01** and ends at **03:02**. There is no visible or audible instant
   inside 21:01–03:02.
 - **The first stroke and the house going deaf are one event, at 21:01.** Cal's
-  tape logs the hum's drop at its 21:01 mark, by Cal's counter; that is a
+  tape logs the hum's drop at its 21:01 mark, by Cal's counter (tied to the
+  station's pips, §4.4); that is a
   private carrier and not the house. Every other "21:01:15" in v3–v6 is
   withdrawn.
 - **The visit ends at the last frame before 21:01.** A white-out transition at
@@ -381,12 +478,22 @@ inside it.
 - **The stopped watch: an estimate with a reason.**
   - The patrolman's list records the crystal shattered and the balance stopped
     by the impact. That is why the hands stand at 9:07.
-  - The four-minute offset was witnessed at 18:05, when Adela set the watch by
-    the lobby master clock in front of the player (B08).
-  - Together they support **about 9:03**, a reconstructed estimate, consistent
-    with Cal's tape (she was alive at the parapet before 21:01) and with
-    Teresa's attributed estimate ("some six hours"). The watch is not an
-    eyewitness.
+  - **What 18:05 shows.** Adela set the watch by the lobby master clock in front
+    of the player (B08). That proves the watch agreed with that clock, and
+    nothing about the clock's error.
+  - **The clock's error needs its own reference.** It is the station time pips:
+    the same signal Mae sets her own clocks against on Sundays (canon schedule).
+    Anyone can stand in the lobby with a set on any day and hear the pips four
+    minutes behind the master. Canon §VIII.5.e rules the error; this is how a
+    player can check it.
+  - **Cal's counter is tied to the same reference.** His tapes start on the
+    station's eight o'clock pips, so his marks are elapsed time from a known
+    civil time, good to about a minute (**PROPOSED**). They are not a second
+    clock of his own.
+  - Together they support **about 9:03**, a reconstructed estimate, assuming the
+    watch kept time for three hours. It is consistent with Cal's sighting of her
+    at the parapet before 21:01 and with Teresa's attributed estimate ("some six
+    hours"). The watch is not an eyewitness.
 - **N16's "after a lightning stroke" is not "struck by lightning".**
   - The paper recorded a storm and assumed an accident. The correction answers
     that assumption with "The paper gave no eyewitness for its account of an
@@ -403,13 +510,112 @@ inside it.
     edge; at that edge, a pale raised shape consistent with a gloved hand.
   - **No brooch, face or gesture is restored into it** [WR-04]. v4–v6's brooch
     silhouette is withdrawn. The identification of Mae does not rest on the
-    plate. It rests on convergence:
-    1. the disc alibi (B19);
-    2. the button and the mended glove (B17, B20);
-    3. the brass squeak on the cylinder, beside her known habit of drawing a
-       gloved finger along the mail-bank brass (canon schedule);
-    4. Vantry's sighting (B24);
-    5. the box's contents and the August receipt (B25, WR-03).
+    plate. See section 4.5.
+
+### 4.5 The case against Mae, tested [outside review 1]
+
+**The competing story.** "Adela fell by accident in the storm. Mae found the bag
+and the plate on the roof, panicked about the lease, and stole the evidence."
+Concealment alone fits that story. The case has to reach further than
+concealment, and it stays short of a confession or a clean photograph.
+
+**The new positive fact** (**PROPOSED**, on existing carriers): **Teresa's note
+records shreds of white kid leather under the nails of Adela's right hand.**
+
+- She wrote it at about 03:10 on 20 July, on the ward habit, before anyone was
+  looking for a glove. It is a note about what the hand held, not about Adela's
+  body or history.
+- The patrolman's sheet copies "nails torn" and omits the rest. Nobody compares
+  it for eighteen days.
+- **Independent carriers that meet it:**
+  1. the pearl button on a scrap of white kid leather from the yard drain (7
+     August, B17), found by a repair job, not by anyone looking;
+  2. Lena's button book, "20 July — one pearl — 6C, for a glove", written that
+     same morning (B20);
+  3. the mended glove in Mae's box, its button not matching its fellows (B25).
+- **What it establishes.** A glove of that kind was in Adela's grip when she
+  went over. It places the wearer **with Adela at the fall**, not merely on the
+  roof afterwards.
+- **What it does not establish.** Whose hand moved first. "She snatched at Mae,
+  who was trying to catch her" is still possible on this evidence alone.
+
+**What separates a push from a failed rescue.** No single item. The accident
+story has to explain all of these together:
+
+| Item | Carrier | What the accident story must then claim |
+|---|---|---|
+| Her flat was already sounding occupied | The disc (B19; limits in §4.6) | She happened to leave a recording of last week's drama running while she went up a fire stair in a storm |
+| She came by the back way | Vantry; Cal's "someone at the tank" | She climbed to the roof by the rear iron stair, not the house stair, for no reason she has ever given |
+| She had read what lightning does | The 26 June Record, kept in her box with the lightning item marked | Coincidence |
+| She had a reason that date | Adela's note of 18:10, in her box (B25) | She received it and went up to talk |
+| She reported nothing, then or later | No call on the porter board; the patrolman's sheet | A rescuer who failed said nothing for four months, took the plate and bag, and emptied a dead woman's drawer |
+
+**Mae's route** (**PROPOSED**; geometry to check against the V2 layout). She
+leaves 6C by the kitchen window onto the rear fire stair and goes up behind the
+tank.
+
+- That is why a visitor in the corridors or on the roof stair before 21:01
+  never sees her pass. The drama goes on behind her door. It also keeps the
+  evening's boundary intact.
+- Cal, at the bulkhead, hears "someone at the tank" and takes it for the tank
+  ticking.
+
+**Vantry, tightened** (**PROPOSED**).
+
+- **Vantage.** The rear window and fire-stair landing of 3C, three floors below
+  6C on the same iron stair. He stepped out at about 21:05 to close his shutter
+  against the rain.
+- **Timing.** About 21:07 by his own watch. He is a man who says "Correct": he
+  keeps it by the time signal, and it is not set by the lobby clock.
+- **What he saw.** In the lightning, a woman in pale gloves coming down the
+  ladder from the roof to the sixth-floor landing, with something flat under
+  her arm and a bag on her wrist, and going in at a kitchen window.
+- **Identification, bounded.** He does not swear to a face at three floors in a
+  flash. He swears to the window: the sixth floor, third along, the line he can
+  count from his own. And he knows the walk. He sat across a table from Mae
+  Kessler in the spring of 1928 (`mk_vantry`, **DATA**).
+- **Limits.** A hidden man with his own reasons, speaking fifteen weeks late.
+  He saw her leaving. He saw no fall and says so.
+
+**The finding.** "Mae Kessler pushed her" is the case's supported conclusion: the
+wearer was at the fall, the evening was prepared, the route was hidden, the motive
+was dated, and everything afterwards was concealed. The partial plate adds only
+a gloved shape at the tank. There is no confession. It is a case finding, not a
+court judgment (section 7).
+
+### 4.6 What the replayed drama does and doesn't prove [outside review 7]
+
+**The claim it defeats, and only that one:** "Hearing the programme through the
+wall proves Mae stayed in her room."
+
+**The identifying features** (**PROPOSED**). A repeated line alone could be a
+rebroadcast, so the recordings carry marks that can be checked by playing them
+again.
+
+- **The door.** In the 12 July broadcast a studio door bangs on the word "fast"
+  in "Inspector, the clock is four minutes fast", and the actor goes on. Cal's
+  12 July tape has it, every time he plays it.
+- **The tick.** Mae's home disc, cut off the air that night, has the same bang,
+  and a scratch that ticks once a turn. Cal's tape has no tick.
+- **Jonah's page,** about 21:05 on 19 July: "The set died at four minutes to
+  nine and the wall went on talking, ticking as it talked: 'Inspector, the clock
+  is four minutes fast,' and somebody slammed a door on it." He thought the tick
+  was the play's clock. It is the best thing on the page, and he did not know
+  what he had.
+
+**Excluding a rebroadcast.**
+
+- Cal's 19 July tape has WLBQ in static from 20:56, by his pips.
+- The station's listing gives a different episode for 19 July (Record back page,
+  notices kind, **PROPOSED**).
+- Cal's night-dial log shows no other station carrying the serial. He would know.
+
+**What it does not prove.** Where Mae was. A disc plays with nobody in the room,
+and also with somebody in the room. The disc only removes the wall as her alibi.
+Her presence with Adela rests on section 4.5.
+
+**Who else this limit binds** [WR-02]. Any recording: Juno's tapes, the shop
+cylinder, Rhea's take. A running recorder is not a person.
 
 ---
 
@@ -533,25 +739,29 @@ After a witnessed failed rescue, if asked:
 
 **Speaker items.** The seven Speaker items (N1, N3, N6, N7, N8, N9, N10) take
 the packet's tighter drafts, in their existing date, paper and back-slot
-positions. [packet §6]
+positions, revised after outside review [packet §6; outside review 10, 12]. Full
+texts are in section 7.1.
 
-- The patronising voice now sits in Grail's paper asking a single fussy
-  question. Adela's and Nadia's window answers do the correcting.
-- All seven are **PROPOSED** and inside budget (manifest: headlines 60–71
-  characters, bodies 45–48 words).
+- The patronising voice sits in Grail's paper, asking a single fussy question.
+- **The telephone pun is kept where it earns itself.** "Holds the line" (N3) stays
+  because it is the game's title. "New line", "franchise line", "Cabinet line" and
+  "long connection" are gone, so the items no longer sound centrally scripted.
+- **Not every insult gets an immaculate answer.** The window now varies: a good
+  card, a plain factual one, an unanswered clipping, a bad pun she loves, and one
+  joke she takes down.
 
-| Id | Date · paper · back slot | Headline | Window answer |
+| Id | Date · paper · back slot | Headline | What the window does |
 |---|---|---|---|
-| N1 | 1928-11-10 · Speaker · col 0 | Florida gets a new line in Congress; the House checks its hat rack | THE SEAT IS MARKED MEMBER. THE HAT CAN MANAGE. |
-| N3 | 1929-01-31 · Speaker · col 0 | Girl flier holds the line thirteen hours; supper waits for instructions | SUPPER WAS NOT THE POINT. THIRTEEN HOURS AND SIXTEEN MINUTES WAS. |
-| N6 | 1929-05-31 · Speaker · col 0 | Britain extends the franchise line; Parliament remains upright | THE INSTRUCTIONS FIT ON THE PAPER. PERHAPS SEND HIM ONE. |
-| N7 | 1929-06-10 · Speaker · col 0 | Miss Bondfield gets a Cabinet line; ministers inspect their cuffs | SHE HAS A DEPARTMENT. ASK ABOUT THE WORK. |
-| N8 | 1929-06-13 · Speaker · col 0 | Texas finds the White House tea too strong for its constitution | MRS. DE PRIEST TOOK TEA. TEXAS WAS NOT INVITED TO DECIDE. |
-| N9 | 1929-07-06 · Speaker · col 3 | Miss Wills keeps the title; our smile inquiry gets no return | SIX-ONE, SIX-TWO. THE SCOREBOARD HAS GIVEN ITS OPINION. |
-| N10 | 1929-08-19 · Speaker · col 3 | Twenty lady fliers make a long connection; our desk attends to powder | (Nadia's later hand) PLEASE SEND AN AVIATION EDITOR. |
+| N1 | 1928-11-10 · Speaker · col 0 | Florida sends a lady to Congress, and the House checks its hat rack | A good card: THE SEAT IS MARKED MEMBER. THE HAT CAN MANAGE. |
+| N3 | 1929-01-31 · Speaker · col 0 | Girl flier holds the line thirteen hours; supper waits for instructions | A good card: SUPPER WAS NOT THE POINT. THIRTEEN HOURS AND SIXTEEN MINUTES WAS. |
+| N6 | 1929-05-31 · Speaker · col 0 | British women vote at twenty-one, and Parliament remains upright | A plain correction: THE ACT WAS LAST YEAR. THIS IS THE FIRST ELECTION UNDER IT. |
+| N7 | 1929-06-10 · Speaker · col 0 | Miss Bondfield joins the Cabinet; ministers inspect their cuffs | Unanswered. The clipping is pinned crooked beside her photograph, and no card goes up. She was busy |
+| N8 | 1929-06-13 · Speaker · col 0 | Texas finds the White House tea too strong for its constitution | No joke: MRS. OSCAR DE PRIEST. TEA AT THE WHITE HOUSE, 12 JUNE. TEXAS PASSED A RESOLUTION ABOUT THE COLOR OF HER SKIN. (See S04.) |
+| N9 | 1929-07-06 · Speaker · col 3 | Miss Wills keeps the title; our smile inquiry gets no return | A bad pun she is delighted with: WILLS POWER. Evelyn adds, in red: "See me." |
+| N10 | 1929-08-19 · Speaker · col 3 | Twenty lady fliers leave for Cleveland; our desk attends to powder | (Nadia's later hand) PLEASE SEND AN AVIATION EDITOR. It comes down for the Crosson card [S12] |
 
-The bodies are as drafted in the packet's §6. The comic card under N10 comes
-down for the Crosson card [S12].
+All window cards are **PROPOSED** and *for trans-reader review before shipping*
+where they are Adela's.
 
 **Record items: no jokes.** N2, N4, N5, N11, N12, N13, N14 and N15 keep their
 latest texts:
@@ -563,7 +773,16 @@ latest texts:
 
 **N16, the death notice.** It stays as written in the Record's back column 2 for
 21 July, with its four errors as evidence (v3 step 14, read through §4.4 above).
-The Berlin letter says the committee voted "narrowly".
+
+**The Berlin letter** [outside review 9]. A letter cannot reach New York two days
+after a 16 October vote by ordinary post.
+
+- It is posted in Berlin after the vote and reaches the shop **on or about Mon
+  28 October**, by a fast liner (**PROPOSED**; the transit time is plausible but
+  unverified).
+- It says the committee voted "narrowly", with no count. It is affectionate, and
+  addressed to a woman who cannot read it.
+- Nadia keeps it. It is not evidence.
 
 **Timing fixes, so no page appears before it is published** [packet §8]:
 
@@ -601,6 +820,51 @@ Printing it changes no old edition and proves nothing by being printed.
 evidence references, through the existing reading and case owners. That grants
 no conviction, refund, inventory item or quest completion.
 
+### 7.1 The sixteen back-page items, as they stand [outside review 10]
+
+These supersede the bodies in v3–v6 and the packet. Ids are author-facing and
+do not go into the data. All are **PROPOSED**.
+
+**Checked against the audit's own rules,** read from `tools/audit_newspapers.py`
+on `origin/main` with its word rule, its **FORBIDDEN** list and its **RESIDENTS**
+list: 16 items, 0 failures. Bodies run 37–59 words (limit 22–62). Headlines run
+56–81 characters (limit under 90). None names a resident or contains the
+building's name.
+
+| Id | Date · paper · back col · kind | Headline | Body |
+|---|---|---|---|
+| N1 | 1928-11-10 · Speaker · 0 · news | Florida sends a lady to Congress, and the House checks its hat rack | Mrs. Ruth Bryan Owen has won a seat in Congress from Florida after a campaign of five hundred speeches. Our parliamentary adviser asks where the lady will hang her hat. Mrs. Owen appears to have mistaken the House for a place in which to work. We await clarification. |
+| N2 | 1929-01-15 · Record · 0 · news | Miss Frances Perkins named State Industrial Commissioner | Governor Roosevelt yesterday named Miss Frances Perkins Industrial Commissioner, at the head of the State Labor Department, Albany states. Miss Perkins has sat on the State Industrial Commission since 1919. She will direct factory inspection throughout the State. |
+| N3 | 1929-01-31 · Speaker · 0 · news | Girl flier holds the line thirteen hours; supper waits for instructions | Miss Elinor Smith, seventeen, of Freeport, has stayed aloft over Long Island for thirteen hours and sixteen minutes, a record for a lady alone. Our domestic editor asks who kept supper warm. We shall pursue the supper angle when the aviation desk has finished counting the minutes. |
+| N4 | 1929-04-16 · Record · 0 · news | Police raid a Manhattan birth control clinic; five of its staff held | Police yesterday entered the Birth Control Clinical Research Bureau on West Fifteenth Street, arrested two physicians and three nurses, and removed the clinic's case records, the Police Department states. Mrs. Margaret Sanger was not arrested. The five will appear at the Jefferson Market Court on Friday. |
+| N5 | 1929-05-15 · Record · 0 · news | Magistrate discharges the five arrested at the birth control clinic | Magistrate Abraham Rosenbluth yesterday discharged the five members of the staff of the Birth Control Clinical Research Bureau arrested on April 15, finding the evidence insufficient. He cited the ruling that a physician may prescribe for the prevention of disease. Counsel for the clinic has asked for its records. |
+| N6 | 1929-05-31 · Speaker · 0 · news | British women vote at twenty-one, and Parliament remains upright | British women over twenty-one voted yesterday in the first general election on the same terms as men, under last year's Act, the young women for the first time. Our London adviser reports that Parliament remains standing. He is waiting for a lady voter to explain how she managed the ballot without assistance. |
+| N7 | 1929-06-10 · Speaker · 0 · news | Miss Bondfield joins the Cabinet; ministers inspect their cuffs | Miss Margaret Bondfield, once a draper's assistant, has become Britain's Minister of Labour, the first woman in a British Cabinet and on the Privy Council. Our correspondent asks whether the ministers will now mind their language. We have forwarded the inquiry to the department concerned. |
+| N8 | 1929-06-13 · Speaker · 0 · news | Texas finds the White House tea too strong for its constitution | Mrs. Hoover entertained Mrs. Oscar De Priest and other congressmen's wives at the White House yesterday. Texas legislators object to the invitation and have a resolution in prospect. Our society desk has inspected the affair by wire and can report no damage to the cups. |
+| N9 | 1929-07-06 · Speaker · 3 · sport | Miss Wills keeps the title; our smile inquiry gets no return | Miss Helen Wills beat Miss Helen Jacobs six-one, six-two and retained her Wimbledon title, the wire states. Our sporting editor asks whether a lady champion ought to look pleased. We have put the question to London and are keeping the line open for a suitable reply. |
+| N10 | 1929-08-19 · Speaker · 3 · sport | Twenty lady fliers leave for Cleveland; our desk attends to powder | Twenty women fliers left Santa Monica yesterday for Cleveland in the transcontinental air derby, which Mr. Will Rogers has named the Powder Puff Derby. The route runs two thousand eight hundred miles. Our aviation editor is prepared to report on powder as soon as a correspondent finds any. |
+| N11 | 1929-08-21 · Record · 0 · news | Miss Marvel Crosson found dead in Arizona; a competitor in the women's air derby | Miss Marvel Crosson, a competitor in the women's air derby from Santa Monica to Cleveland, was found dead yesterday near her machine in a ravine by the Gila River near Wellton, Arizona, the wire states. She had not arrived at Phoenix on Monday. The derby continues. |
+| N12 | 1929-08-27 · Record · 3 · sport | Mrs. Louise Thaden first at Cleveland in the women's air derby | Mrs. Louise Thaden landed first at Cleveland yesterday in the women's air derby from Santa Monica, flying a Travel Air in the heavier class, the wire states. The derby was nine days on the way. One flier was killed in Arizona and several were forced down; most reached Cleveland. |
+| N13 | 1929-09-16 · Record · 0 · news | Mrs. Ella May Wiggins shot dead on the way to a union meeting near Gastonia | Mrs. Ella May Wiggins, a mill worker and mother of five, was shot dead on Saturday when the truck carrying her and other union members to a meeting near Gastonia, North Carolina, was fired upon, the wire states. She wrote the songs the strikers sing. |
+| N14 | 1929-10-31 · Record · 0 · news | President gives Mme. Curie a draft for a gram of radium from the women of America | President Hoover yesterday handed Mme. Marie Curie, at the National Academy of Sciences building in Washington, a draft for 50,000 dollars to buy one gram of radium for her institute at Warsaw, the gift of the women of America, Washington states. Her remarks were recorded. |
+| N15 | 1929-11-04 · Record · 0 · news | Twenty-six women fliers meet at Curtiss Field to form an association | Twenty-six licensed women pilots met in a hangar at Curtiss Field, Valley Stream, on Saturday afternoon to form an association of women fliers, the meeting states. All 117 licensed women pilots in the country were invited. |
+| N16 | 1929-07-21 · Record · 2 · news | Woman photographer killed in fall from roof during Friday's storm | Miss Adela Voss, 38, photographer, of the Vantry Arcade, was found dead early yesterday in the yard of a reopened walk-up on the ash road, where she lodged, the 109th Precinct states. She fell from the roof at 9:07 p.m. while photographing the storm, it is believed after a lightning stroke. Her camera lay beside her. |
+
+**History corrections made** [outside review 10, each checked against a source]:
+
+- **N6.** "Britain extends the franchise line" wrongly suggested a new extension
+  in May 1929. The Equal Franchise Act became law on 2 July 1928; 30 May 1929 was
+  the first general election on equal terms. Headline and body corrected.
+- **N14.** "At the White House" was wrong. Hoover's presentation at 4 p.m. on 30
+  October was at the National Academy of Sciences and National Research Council
+  Building (American Presidency Project). The $50,000 draft stands.
+- **N15.** It reports the 26 who met and the 117 invited, and nothing else. The
+  **99 charter members** who gave the club its name came later and are not in the
+  item. Its unsourced "chosen by letter" clause is removed.
+- **The Persons Case.** It stays tied to **Senate eligibility**, as both canon
+  papers report it, not to women first becoming legal persons generally. Nadia's
+  card keeps to that: "PERSONS, FOR THE SENATE AT OTTAWA."
+
 ---
 
 ## 8. Received copies and release slips [WR handoff 5; v6 §3–§4]
@@ -612,7 +876,7 @@ no conviction, refund, inventory item or quest completion.
 | M1 | first moments in 4B | CONVEYANCE ACCEPTED. SPAN: UNTIL RELEASED. |
 | M2 | 20 Jul, 03:02 | 21:01 TO 03:02 NOT HEARD HERE EITHER. |
 | M3 | 23 Sep | INSTRUMENT AT THE ARCADE WINDOW, SUNDAY 22 SEPTEMBER, 13:10 TO 14:00. NOT SENT. |
-| M4 | 18 Oct | INSTRUMENT WROTE "QUALIFIED" ON A CARD IN A WINDOW. INSTRUMENT IS NOT QUALIFIED. INSTRUMENT IS NOT. |
+| M4 | Sun 20 Oct, reporting Sat 19 Oct | INSTRUMENT WROTE "QUALIFIED" ON A CARD IN A WINDOW. INSTRUMENT IS NOT QUALIFIED. INSTRUMENT IS NOT. |
 | M5 | 2 Nov | INSTRUMENT SAID GOOD MORNING TO THE GUESTS. THE GUESTS AGREED. THE GUESTS ALWAYS AGREE. WHY DID IT ASK. |
 | M6 | 9 Nov, 23:40 | SUBJECT RELEASED BUT ONE. BRIDGE CLOSES 24:00. INSTRUMENT TO BE RETIRED. INSTRUMENT, ACKNOWLEDGE. |
 
@@ -626,8 +890,21 @@ needing the companion owner's confirmation).
   Tenant's message body, under the companion's own serial. It is the Tenant's
   own count of its six messages, not the inbox's.
 - No missing deliveries are invented to fill the gap between the two numbers.
-- M3, M4 and M5 attribute only what the copy itself states. The Tenant does not
-  narrate scenes the player never witnessed.
+- **A received report is not a witnessed fact** [outside review 8].
+  - M3, M4 and M5 report the night man's acts. They are the Tenant's claims,
+    attributed to it, and the player may never have seen those acts.
+  - The companion files them as received: "RECEIVED. I DID NOT WITNESS THIS."
+    (**PROPOSED**; on request only, in its existing voice.) They add nothing to
+    the player's witnessed knowledge and grant no shared memory.
+  - **Delivery follows presence, not the calendar.** A copy prints the first
+    time the player is present on or after its date, and never earlier. A fixed
+    date alone delivers nothing.
+  - **If the player was there.** If she happened to ride the night man at that
+    window on that Sunday, the report is simply true of her, and "NOT SENT" still
+    stands: the Tenant did not send her either. If she was not, the act is the
+    construct's own.
+  - **Corroboration is ordinary.** Nadia can confirm a card, and the Guests a good
+    morning, if asked. Neither is told why it matters.
 
 **Release slips stay quiet** (v6 §3) [WR-06].
 
@@ -673,6 +950,34 @@ endings and the morning after are **for trans-reader review before shipping**.
 visit. The ordinary debt is the stool's short leg, "Solvent." It gives the late
 recognition an ordinary shared object, not a password.
 
+It also shows one of her losing jokes [outside review 12]. Her pleasure matters
+more than its quality. *For trans-reader review before shipping.*
+
+> ADELA: What did the plate say to the darkroom? "I'm nothing without you, but leave the door shut."
+> NADIA: That isn't a pun.
+> ADELA: It's got a door in it.
+
+It does not place. She pins the rejection up beside the others.
+
+**S04, added: the Texas item names what it is** [outside review 12]. *Adela's
+line is for trans-reader review before shipping.*
+
+> MAE, reading: "Texas has expressed its concern."
+> NADIA: Its concern is the color of Mrs. De Priest's skin. They wrote it into a resolution.
+
+Later, at her window, there is no perfect answer:
+
+> ADELA: I had a joke for that one. I took it down.
+
+**Voices** [outside review 11]. Residents should not all summarise evidence and
+its limits in one polished voice. Limits belong to the treatment's notes and the
+companion's comparisons. Residents answer from what they care about, incompletely
+and sometimes inconveniently. Omar's practical precision and Sacha's dry
+photographic language stay. The lines in section 3 are revised for B05, B07, B13,
+B16, B17 and B19. **A full mouth pass remains for the read-aloud** (style guide
+§7). Speakers should be identifiable without labels. Mina's reconciliation with
+her authored canon stays a real hold.
+
 **S04 (tea), S05 (Peter), S06 (Rhea), S07 (Omar), S08 (Cam and the Guests), S09
 (Jonah, Noel, Iris, Mina) — adopted** at their beats in section 3.
 
@@ -687,7 +992,15 @@ recognition an ordinary shared object, not a password.
 release announcement in either memorial. Another woman's death never unlocks a
 clue.
 
-**S13 (Cal's playback; Sacha's partial plate) — adopted:**
+**S13 (Cal's playback; Sacha's partial plate) — adopted, Cal revised.** He shows
+the door and lets the player compare; he does not summarise (§4.6):
+
+> PLAYER: That's the line Jonah wrote down.
+> CAL: Wait. There. Door. Every time.
+> PLAYER: And the nineteenth?
+> CAL: Static from four minutes to nine. You want to hear static, I've got an hour of it.
+
+Sacha:
 
 > SACHA: I can make it larger. I can't make it more there.
 
@@ -867,8 +1180,10 @@ V2".
 - **People hold one life and hear it in order.** They lose the rest.
 - **PROPOSED:** the aliens ignore both. Neither a building nor a person can yet
   be addressed as a whole.
-- **The interpreter is a listener that can be both:** one that has carried a
-  single human life from inside, end to end, and then put it down.
+- **The interpreter is the Tenant's attempt at both:** a listener assembled from
+  what it can read of one human life from inside.
+  - That describes the limits of the Tenant's apparatus. It says nothing about
+    what makes a life complete. **Adela was whole while she was alive.**
   - It is not a body, a voice or a machine in the year.
   - In 1928–29 it exists only as a sequence of words on the companion's
     phosphor paper.
@@ -882,12 +1197,18 @@ V2".
 
 - **Canon.** The shadow "learns a vocabulary from what she resolves and
   releases, borrows her gestures" (Bible §I).
-- **PROPOSED rule: a word enters the vocabulary only when it is let go.** Each
-  "RELEASED:" slip (THE ROOF, THE SHOP, EMIL, THE WINDOW, THE NEGATIVES, PLATE
-  13, MRS. KESSLER, NADIA…) prints one noun on the paper the Tenant holds in the
-  future.
-  - A thing still held cannot be named to a listener that ignores what it
-    cannot hold whole. A thing let go can be.
+- **PROPOSED rule: the Tenant can only read a word once it has been let go.**
+  Each "RELEASED:" slip (THE ROOF, THE SHOP, EMIL, THE WINDOW, THE NEGATIVES,
+  PLATE 13, MRS. KESSLER, NADIA…) prints one noun on the paper the Tenant holds
+  in the future.
+  - This is a defect of the Tenant's reading. What Adela still holds is not less
+    real for being illegible to it.
+- **Her release is her act.** She lets go for her own reasons, in her own order,
+  or not yet. She does not do it for the Tenant, the interpreter or the night
+  man. Nobody asks her to, and nothing in the game tells her it is useful.
+- **The Tenant reads over her shoulder.** It collects the words as a by-product,
+  without her leave. The story never presents that as her purpose or as
+  compensation.
 - **The order is the player's own.** Releases follow the player's actual route
   (section 8), so every player's interpreter learns a different first lexicon.
   There is no forced sequence, no tally and no score.
@@ -895,13 +1216,20 @@ V2".
   lobby clock, the grease-pencil capitals, the Sunday window, lending a key)
   land in the night man.
   - The received copies M3–M5 are the Tenant noticing that they have.
-- **Her death is essential, and nobody arranged it.**
-  - Only a life that ends can be released whole.
-  - **PROPOSED:** only a death in the building's blind spot can be carried by a
-    bridge built on the building's record without being copied. The bridge has
-    no record of 21:01–03:02 to duplicate.
-  - The Tenant did not cause the death. Mae did, for the lease. The machinery is
-    what the building made of an ordinary crime.
+- **"Essential" names a limit of the machinery, never a worth of her death.**
+  The brief says the death is "an essential component of the conspiracy's
+  machinery". In this option that means only this:
+  - **PROPOSED:** the bridge is built on the building's record, so the Tenant's
+    apparatus could reach a consciousness only from an hour it had failed to
+    hear. That is a flaw in how the machine was built. Nothing about her required
+    it.
+  - The Tenant did not cause the death. Mae did, for the lease. The Tenant used
+    what a crime left within its reach.
+  - **Nothing here makes her death worthwhile,** necessary to anyone's growth, or
+    a fair price. No character, copy or ending says so.
+- **The night man's continuation is a consequence, not her life's purpose.** He
+  learns from being carried. His wish is his own. Her life was not for him, and
+  it would have been complete had he never existed.
 - **The case is solvable without any of this.** The solve still rests on the
   evidence chain alone (sections 3 and 4). The release slips stay quiet, not
   progress, and not read by any game system during the year (section 8).
@@ -947,6 +1275,8 @@ then the construct's own "I WOULD LIKE TO". They differ only after that.
 - **What is the same.** Adela is released in both. Neither ending is labelled
   good or bad, and the stakes are not presented as equal [WR-09]. The choice
   never changes the murder, the evidence or the snap-back.
+- **What the choice is not.** Finishing the line is a last kindness she may do or
+  decline, not the thing her life was for. Her release does not wait on it.
 
 #### A.5 Sequencing and work it needs
 
@@ -1072,6 +1402,14 @@ edits in §I, verified in memory by `verify_canon_patch_2.py`.
 - **Trans-reader review:** all of Adela's lines, S01, S15 (Nadia), S16 and both
   endings, the morning after, and her section-1 background (Yorkville, the
   *Pleasure Man* crowd, Rockland Palace, the Berlin letter).
+- **Trans-reader review, the cumulative concern** [outside review 2]: read the
+  whole of Option A and the ending together, and ask whether **a woman's
+  suffering becomes useful material for a man's awakening**. That includes her
+  death being "essential", the Tenant harvesting her releases as a vocabulary, and
+  the male-addressed construct gaining a future from them. The treatment now
+  frames all of this as the Tenant's limitation, her release as her own act, and
+  his continuation as a consequence, but the reviewer should test the sum, not
+  only the lines.
 - **Read aloud:** the Adela and Nadia scene and the final request. Mark lines
   that feel too polished or insufficiently her [handoff].
 - **Pronouns:** the construct pronoun question stays with that review.
@@ -1112,6 +1450,7 @@ edits in §I, verified in memory by `verify_canon_patch_2.py`.
 | packet §6–§8 | packet | Seven Speaker drafts and window answers; correction template; timing boundaries |
 | handoff | `WRITERS_ROOM_REVISION/CLAUDE_HANDOFF.md` | Integration order 1–8 |
 | manifest | `WRITERS_ROOM_REVISION/REVIEW_MANIFEST.json` | Speaker draft budget checks; source fingerprints |
+| outside review | Editorial review, 2026-10-30, relayed by the coordinator; findings verified before use | Table above; §3, §3.1, §4.1, §4.4–§4.6, §7, §7.1, §8, §9, §10.1, §12 |
 | style | `design/ORISON_OWNER_VOICE_STYLE_GUIDE.md`, `design/ORISON_CAST_VOICE_MAP.md` (main) | Voice tuning in section 5; evidence and limit discipline |
 | prologue | `design/V2_PROLOGUE_2026-10-28.md` (branch `codex/v2-prologue-20261028`, not main) | Fixed lines; the projected landing date; no insertion inside the prologue |
 | session | Coordinator's notes, 2026-10-29 | PR 83 merged; the companion wording is a proposal; the earlier newspaper rulings stand |
