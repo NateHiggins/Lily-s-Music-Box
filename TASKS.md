@@ -1140,6 +1140,16 @@ do not treat this as cancellation of installed ecology or approved future people
   rights recheck and contextual assignments remain open, with uncertain archival
   clips held out. The original synthetic sketch is also unaccepted. No blanket
   legal clearance or artistic approval is implied.
+
+October30 own-voice research is ingested at
+  **C:/ov/reports/friendly_mechanical_voice_research_20261030/**:
+  **RESEARCH_BRIEF.md**, twelve original designs in **VOICE_GESTURES.csv** and
+  **SOURCE_REGISTER.csv**. Warm source/filter babble is a proposed audition
+  direction; no audio or renderer exists from this packet. Keep pronunciation,
+  heard-word provenance, semantic knowledge and current speaking permission
+  separate; exclude own speech, recordings, echoes and audition playback at
+  source. The proposed offline listening sheet remains separate from arbitrary
+  learned-word synthesis and validated persistence. No prologue timing changes.
 - **MX3/MX4 — Retain actual material-ingest and rollout gaps.** Verify calibrated
   height/relief, tile scale, ORM/detail/mask authoring and still-unaccepted classes
   against the installed pipeline. Recheck old missing-map/42-height assertions;
