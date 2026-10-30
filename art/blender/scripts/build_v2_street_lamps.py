@@ -4,7 +4,8 @@ Design packet: design/V2_STREET_LAMPS_2026-10-24.md.
 
 A street lamp carries power, not signal (Bible VIII.2), so it is the city's
 ordinary cast-iron post, painted black, with a pendant acorn globe on the
-crook and an incandescent lamp inside. Sodium lighting is five years away.
+crook. The plain posts use the reviewed alternate-universe gas mantle head;
+the retained signal-box variant keeps its installed incandescent globe.
 The exception rides on one post: a police signal box strapped to the shaft.
 Boxes on lampposts are period; this one is Vantry-grade signal gear, with a
 Bakelite face, a brass speaking grille, a lit standby lamp and
@@ -18,13 +19,14 @@ Godot +Z), ground at Z 0. Never hand-edit the outputs; rerun:
     blender -b -P art/blender/scripts/build_v2_street_lamps.py
 """
 from pathlib import Path
-import sys, json, math
-import bpy
+import sys, json, math, hashlib, os, shutil
+import bpy, bmesh
 from mathutils import Matrix
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(Path(__file__).parent))
 from fabrication_native_batch import material, partition, export
+from check_exported_tangents import validate as validate_export
 import build_v2_period_traffic as kit
 
 FAMILY = "v2_street_lamps"
@@ -38,6 +40,19 @@ FINISHES = {
     "standby_lamp": {"catalog_key": "milk_glass", "tint": [.7, .95, .75, 1], "normal": .5, "roughness": 1., "emission": [0.45, 0.95, 0.55, 1.2]},
     "silk_flex": {"catalog_key": "fabric_warm", "tint": [0.55, 0.13, 0.08, 1], "normal": 1., "roughness": 1.},
 }
+GAS_FINISHES = {
+    "paint": ("gas_paint", "iron_blackened", .6),
+    "bare_iron": ("gas_iron", "cast_iron", .6),
+    "brass": ("gas_brass", "brass_dull", .4),
+    "ceramic": ("gas_ceramic", "porcelain", .3),
+    "mantle": ("gas_mantle", "porcelain", .25),
+    "glass": ("gas_glass", "glass_drawn_expressive", .12),
+}
+for source, (alias, key, normal) in GAS_FINISHES.items():
+    FINISHES[alias] = {"catalog_key": key, "tint": [1,1,1,1], "normal": normal, "roughness": 1.}
+FINISHES["gas_paint"]["metallic"] = 0.
+FINISHES["gas_glass"]["metallic"] = 0.
+FINISHES["gas_mantle"]["emission"] = [1., .78, .48, 2.2]
 for spec in FINISHES.values():
     spec.setdefault("pigment", 1.0)
 
@@ -133,13 +148,89 @@ LAMPS = [
 ]
 
 
+def gas_stocks():
+    """Bootstrap the reviewed delivery once; subsequent builds use our saved stocks."""
+    args=sys.argv[sys.argv.index("--")+1:] if "--" in sys.argv else []
+    if "--gas-source" in args:
+        path=Path(args[args.index("--gas-source")+1]).resolve()
+        assert hashlib.sha256(path.read_bytes()).hexdigest()=="c371738e8fdb52f42af425ebfedbb9c0bc0bd2c4a7e8a351042152a0e4c5a8a4"
+        collection_name="01_EDITABLE_Stocks"
+    else:
+        path=ROOT/"art/blender/v2_street_lamps.blend"
+        collection_name="MunicipalGasStocks"
+        # Blender keeps an append-source library record even for local IDs;
+        # append from a scratch snapshot so saving the authoring file is legal.
+        snapshot=ROOT/'tmp/native_exports'/f'gas_source_{os.getpid()}.blend'
+        snapshot.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(path,snapshot);path=snapshot
+    with bpy.data.libraries.load(str(path),link=False) as (available,loaded):
+        assert collection_name in available.collections, "Gas manufacturing source missing; bootstrap reviewed donor with --gas-source"
+        loaded.collections=[collection_name]
+    collection=loaded.collections[0]
+    collection.name="MunicipalGasStocks"
+    bpy.context.scene.collection.children.link(collection)
+    stocks=[o for o in collection.objects if o.type=="MESH"]
+    assert len(stocks)==114
+    for obj in stocks:
+        if "gas_finish" not in obj:
+            obj["gas_finish"]=GAS_FINISHES[obj.data.materials[0].name.split('.')[0]][0]
+        assert obj["gas_finish"] in FINISHES
+    return collection,stocks
+
+
+def retained_signal(exports,mats):
+    args=sys.argv[sys.argv.index("--")+1:] if "--" in sys.argv else []
+    path=Path(args[args.index("--signal-source")+1]).resolve() if "--signal-source" in args else ROOT/'art/blender/v2_street_lamps.blend'
+    if path.resolve()==(ROOT/'art/blender/v2_street_lamps.blend').resolve():
+        snapshot=ROOT/'tmp/native_exports'/f'signal_source_{os.getpid()}.blend'
+        snapshot.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(path,snapshot);path=snapshot
+    with bpy.data.libraries.load(str(path),link=False) as (available,loaded):
+        loaded.objects=[name for name in available.objects if name.startswith('signal_box_crook__')]
+    assert len(loaded.objects)==8
+    for obj in loaded.objects:
+        alias=obj.name.split('__')[-1]
+        obj.data.materials.clear();obj.data.materials.append(mats[alias])
+        exports.objects.link(obj)
+    return sum(len(obj.data.polygons) for obj in loaded.objects)
+
+
+def gas_partition(stocks, exports, mats, catalog, lower=False):
+    groups={};temporary=[];rows=[]
+    for original in stocks:
+        obj=original.copy();obj.data=original.data.copy();kit.scratch.objects.link(obj)
+        obj.name=("LOD1_" if lower else "Near_")+original.name
+        obj.data.transform(obj.matrix_world);obj.matrix_world=Matrix.Identity(4)
+        before=len(obj.data.polygons)
+        if lower and before>64:
+            obj.hide_set(False);bpy.context.view_layer.objects.active=obj
+            mod=obj.modifiers.new("Replacement body tessellation","DECIMATE")
+            mod.ratio=max(.24,48/before);mod.use_collapse_triangulate=True
+            bpy.ops.object.modifier_apply(modifier=mod.name)
+        bm=bmesh.new();bm.from_mesh(obj.data)
+        assert all(edge.is_manifold for edge in bm.edges),obj.name
+        bm.free()
+        alias=str(original["gas_finish"])
+        groups.setdefault(alias,[]).append(obj);temporary.append(obj)
+        rows.append({"stock":original.name,"near_triangles":before,"triangles":len(obj.data.polygons),"closed":True})
+    for alias,objects in sorted(groups.items()):
+        stock="bishops_crook_lod1" if lower else "bishops_crook"
+        partition(exports,stock+"__"+alias,objects,FINISHES[alias],mats[alias],Matrix.Identity(4),catalog)
+    if not lower:
+        for obj in temporary:bpy.data.objects.remove(obj,do_unlink=True)
+    return rows
+
+
 def main():
     bpy.ops.wm.read_factory_settings(use_empty=True)
+    native_source,gas=gas_stocks()
     catalog = json.loads((ROOT / "game/data/runtime_material_sets.json").read_text())["materials"]
     kit.scratch = bpy.data.collections.new("EditableLampParts")
     bpy.context.scene.collection.children.link(kit.scratch)
     exports = bpy.data.collections.new("StreetLampExport")
     bpy.context.scene.collection.children.link(exports)
+    lower=bpy.data.collections.new("StreetLampLOD1Export")
+    bpy.context.scene.collection.children.link(lower)
     mats = {}
     for fid, spec in FINISHES.items():
         mats[fid] = material(ROOT, fid, spec, catalog)
@@ -147,21 +238,34 @@ def main():
             node = mats[fid].node_tree.nodes["Principled BSDF"]
             node.inputs["Emission Color"].default_value = spec["emission"][:3] + [1.0]
             node.inputs["Emission Strength"].default_value = spec["emission"][3]
-    triangles = {}
-    for name, build in STOCKS.items():
-        triangles[name] = 0
-        for fid, objs in build().items():
-            obj = partition(exports, f"{name}__{fid}", objs, FINISHES[fid], mats[fid], Matrix.Identity(4), catalog)
-            triangles[name] += len(obj.data.polygons)
+    # Preserve the reviewed signal equipment's actual native draw arrays.
+    # Re-running its older sphere generator can reorder triangles at a pole.
+    triangles = {"signal_box_crook":retained_signal(exports,mats)}
+    high_rows=gas_partition(gas,exports,mats,catalog)
+    low_rows=gas_partition(gas,lower,mats,catalog,lower=True)
+    triangles["bishops_crook"]=sum(row["triangles"] for row in high_rows)
+    for obj in gas:
+        obj.data.materials.clear();obj.data.materials.append(mats[str(obj["gas_finish"])])
+    native_source.hide_render=True;native_source.hide_viewport=True
     kit.scratch.hide_render = True
     kit.scratch.hide_viewport = True
+    lower.hide_render=True
+    bpy.ops.outliner.orphans_purge(do_local_ids=True,do_linked_ids=False,do_recursive=True)
     proof = export(ROOT, FAMILY, exports, material_names_only=True, staged_output=True)
-    keys = ("catalog_key", "tint", "normal", "roughness", "emission")
+    bpy.ops.object.select_all(action='DESELECT')
+    for obj in lower.objects:obj.select_set(True)
+    low_path=ROOT/'game/assets/props/v2_street_lamps_lod1.glb'
+    staged=ROOT/'tmp/native_exports'/f'v2_street_lamps_lod1_{os.getpid()}.glb'
+    bpy.ops.export_scene.gltf(filepath=str(staged),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True,export_materials='EXPORT')
+    low_proof=validate_export(staged);os.replace(staged,low_path);low_proof['asset']=str(low_path)
+    keys = ("catalog_key", "tint", "normal", "roughness", "emission", "metallic")
     table = {
         "schema": "orison.v2.street-lamps.v1",
         "frame": "ORISON_FRONT_DOOR_THRESHOLD",
         "street_instance": "STREET_ORISON_01",
         "stock": "res://assets/props/v2_street_lamps.glb",
+        "lod_stock": "res://assets/props/v2_street_lamps_lod1.glb",
+        "lod_error_m": .009252,
         "globe_local": [0.0, GLOBE_Z, REACH],
         "post_radius_m": 0.22,
         "light": LIGHT,
@@ -173,7 +277,9 @@ def main():
         "lamps": LAMPS,
     }
     (ROOT / "game/data/orison_v2/exterior/street_lamps.json").write_text(json.dumps(table, indent=1) + "\n", newline="\n")
-    print(json.dumps({"proof": proof, "triangles": triangles}))
+    construction={"evidence_class":"INERT","source_stocks":high_rows,"lower_stocks":low_rows,"proof":proof,"lower_proof":low_proof,"limits":"Native export; loaded surfaces, optics, LOD transitions, rendering cost and artistic acceptance remain separate."}
+    (ROOT/'art/blender/v2_street_lamps_construction.json').write_text(json.dumps(construction,indent=1)+'\n',encoding='utf8',newline='\n')
+    print(json.dumps({"proof": proof, "lower_proof":low_proof,"triangles": triangles}))
 
 
 if __name__ == "__main__":

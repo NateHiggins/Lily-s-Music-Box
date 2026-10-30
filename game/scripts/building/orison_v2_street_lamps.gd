@@ -16,6 +16,7 @@ class LampClock extends Node:
 	const CLOCK_PERIOD := 4.0
 	var lights: Array[OmniLight3D] = []
 	var globe: StandardMaterial3D
+	var mantle: StandardMaterial3D
 	var energy := 1.0
 	var dusk: Array = []
 	var dawn: Array = []
@@ -73,6 +74,8 @@ class LampClock extends Node:
 			pillar_material.set_shader_parameter("lamp_level",lit)
 		if globe != null:
 			globe.emission_energy_multiplier = float(globe.get_meta("lamp_energy", 1.0)) * lit
+		if mantle != null:
+			mantle.emission_energy_multiplier = float(mantle.get_meta("lamp_energy", 1.0)) * lit
 
 
 static func load_table(path := DATA) -> Dictionary:
@@ -82,10 +85,12 @@ static func load_table(path := DATA) -> Dictionary:
 	if source is not Dictionary or source.get("schema") != SCHEMA \
 			or source.get("frame") != "ORISON_FRONT_DOOR_THRESHOLD":
 		return {}
-	for key: String in ["street_instance", "stock", "globe_local", "post_radius_m", "light", "finishes", "lamps",
+	for key: String in ["street_instance", "stock", "lod_stock", "lod_error_m", "globe_local", "post_radius_m", "light", "finishes", "lamps",
 			"dusk", "dawn"]:
 		if not source.has(key):
 			return {}
+	if float(source.lod_error_m) <= 0.:
+		return {}
 	if (source.dusk as Array).size() != 12 or (source.dawn as Array).size() != 12:
 		return {}
 	# Finish records go to the shared stock binder; refuse a malformed one here.
@@ -98,6 +103,39 @@ static func load_table(path := DATA) -> Dictionary:
 	return source
 
 
+static func _lamp_meshes(data: Dictionary, materials: Dictionary) -> Dictionary:
+	# Traffic's stock assembler intentionally discards importer LODs. Preserve
+	# its retained signal-box stock and append complete plain-lamp bodies here.
+	var meshes := OrisonV2StreetTraffic.stock_meshes(str(data.stock), materials)
+	var low := OrisonV2StreetTraffic.stock_meshes(str(data.lod_stock), materials)
+	assert(meshes.has("bishops_crook") and low.has("bishops_crook_lod1"))
+	var near: ArrayMesh = meshes.bishops_crook
+	var far: ArrayMesh = low.bishops_crook_lod1
+	assert(near.get_surface_count() == 6 and far.get_surface_count() == 6)
+	var lower_surfaces := {}
+	for surface in far.get_surface_count():
+		lower_surfaces[far.surface_get_material(surface).get_meta("v2_street_lamp_finish")] = surface
+	var result := ArrayMesh.new()
+	for surface in near.get_surface_count():
+		var material := near.surface_get_material(surface)
+		var alias: String = material.get_meta("v2_street_lamp_finish")
+		assert(lower_surfaces.has(alias))
+		var arrays := near.surface_get_arrays(surface)
+		var replacement := far.surface_get_arrays(int(lower_surfaces[alias]))
+		var offset: int = arrays[Mesh.ARRAY_VERTEX].size()
+		for channel: int in [Mesh.ARRAY_VERTEX, Mesh.ARRAY_NORMAL, Mesh.ARRAY_TANGENT, Mesh.ARRAY_TEX_UV]:
+			var values: Variant = arrays[channel]
+			values.append_array(replacement[channel])
+			arrays[channel] = values
+		var indices: PackedInt32Array = replacement[Mesh.ARRAY_INDEX].duplicate()
+		assert(indices.size() < arrays[Mesh.ARRAY_INDEX].size())
+		for index in indices.size(): indices[index] += offset
+		result.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays, [], {float(data.lod_error_m): indices})
+		result.surface_set_material(surface, material)
+	meshes.bishops_crook = result
+	return meshes
+
+
 static func mount(world: Node) -> Node3D:
 	var data := load_table()
 	if data.is_empty():
@@ -107,8 +145,16 @@ static func mount(world: Node) -> Node3D:
 		return null
 	var materials := {}
 	for finish: Dictionary in data.finishes:
-		materials[str(finish.id)] = OrisonV2StreetTraffic.stock_material(finish)
-	var meshes := OrisonV2StreetTraffic.stock_meshes(str(data.stock), materials)
+		var material := OrisonV2StreetTraffic.stock_material(finish)
+		if str(finish.id) == "gas_glass":
+			material = preload("res://scripts/building/orison_v2_expressive_glass.gd").make(str(finish.catalog_key))
+			material.normal_scale = float(finish.normal)
+			material.roughness = float(finish.roughness)
+			material.set_meta("v2_surface_stock", str(finish.catalog_key))
+		material.metallic = float(finish.get("metallic", material.metallic))
+		material.set_meta("v2_street_lamp_finish", str(finish.id))
+		materials[str(finish.id)] = material
+	var meshes := _lamp_meshes(data, materials)
 	var lights := {}
 	for light: OmniLight3D in street.find_children("*", "OmniLight3D", true, false):
 		lights[str(light.get_meta("authored_record_id", ""))] = light
@@ -117,6 +163,7 @@ static func mount(world: Node) -> Node3D:
 	var clock := LampClock.new()
 	clock.name = "LampClock"
 	clock.globe = materials.get("globe_lit")
+	clock.mantle = materials.get("gas_mantle")
 	clock.energy = float(data.light.energy)
 	clock.dusk = data.dusk
 	clock.dawn = data.dawn
