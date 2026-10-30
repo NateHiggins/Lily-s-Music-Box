@@ -2827,3 +2827,39 @@ Keep17 qualified technical studies/132 remaining until intake qualification.
 NE3 terra-cotta office/NE4 bank remain researched, not built. Broader landmark,
 continuous450m exterior ground/access and cityscape commitments remain open.
 No repeated world tour was used; canonical owns composition/intake/tank LOD.
+
+
+### October30 next northeast pair: native construction WIP
+
+Evidence class: **INERT**. Native source progress; no new qualification.
+
+**site_ne3** now has a two-storey terra-cotta office front, off-centre
+semicircular bay, stepped gable, tiled roof and three hollow pots. The retained
+rear service annex/deck is an explicit AU fit, not a claim about the historical
+building's entire form. **site_ne4** adapts the four-storey Jamaica bank with
+real ocular apertures,12-flute giant order, supported bow balcony and stone
+crown; the0.9m upper service step and both decks remain. Registered materials,
+all bearings and existing nonvisual authorities are retained. Primary photos
+LP-1304/LP-2109 were reinspected externally and supply no committed pixels.
+
+Near native probes:1205 bearings/2710 windows/106 roof/12 returns,zero failures;
+all1645 new near stocks pass manifold/positive-volume controls. Complete lower
+bodies pass9224 stocks,480 bearings and512 pane samples. NE3 body5914/5290
+triangles,NE4 body18,962/16,086,near/lower respectively. The244 unaffected near
+parts and92 previous lower parts are exact in exported attributes/indices/poses.
+Only these two additional source profiles changed. Eighteen actual native frames
+were inspected: the first10 preserve the1cm pot-lip overlap and brick corner-strip
+defects; corrected8 show2cm pot-lip clearance and side-wall returns behind the
+stone front at both levels. Sources,logs and original frames remain externally
+under **northeast_block_01/next_pair_build_01/** pending the portable checkpoint.
+
+Fourteen city static tests pass and reader NEW0. No loaded-engine,controller,
+composed runtime or artistic acceptance yet. Before first engine checks, reconcile
+canonical's tank/import and provenance checkpoint, then run owning closure→near→
+lower→streets replay and compare actual unchanged payloads. Full-file binding
+drift cannot be closed by a consumed-field diagnostic or by repinning old runtime
+receipts. The previous pair's canonical six-leg route now passes184/0; its first
+physical run refused stale dependent-native bindings before world startup.
+Canonical preserved the refusal and replayed owning natives, with five GLBs and
+541 mesh payloads exact, before its next physical run. Building count remains17
+qualified/132 open until source-bound composed qualification is complete.

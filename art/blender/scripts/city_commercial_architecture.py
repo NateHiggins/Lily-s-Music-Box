@@ -759,7 +759,228 @@ class CommercialFronts:
             'assembly_translation_m':self.plans[name].get('assembly_translation_m',[0,0,0]),
             'eave':top,'body_top':top,'roof_deck_top':top+final_cap['h']})
 
+    def oculus(self,name,wall,origin,u,out,bounds,cx,cz,r,trim='limestone'):
+        """A round aperture through closed radial wall stocks, with real backing."""
+        left,low,right,high=bounds
+        assert left<cx-r and right>cx+r and low<cz-r and high>cz+r
+        # Include each rectangle corner in the radial schedule. Joining two
+        # adjacent rays across a corner would otherwise leave a wall sliver open.
+        angles=[i*math.tau/self.oculus_steps for i in range(self.oculus_steps)]
+        angles += [math.atan2(z-cz,x-cx)%math.tau for x,z in [(left,low),(right,low),(right,high),(left,high)]]
+        clean=[]
+        for angle in sorted(angles):
+            if not clean or angle-clean[-1]>1e-9:clean.append(angle)
+        count=len(clean);inner=[];outer=[]
+        for a in clean:
+            dx,dz=math.cos(a),math.sin(a)
+            limit=min((right-cx)/dx if dx>1e-9 else (left-cx)/dx if dx<-1e-9 else math.inf,
+                (high-cz)/dz if dz>1e-9 else (low-cz)/dz if dz<-1e-9 else math.inf)
+            inner.append((cx+r*dx,cz+r*dz));outer.append((cx+limit*dx,cz+limit*dz))
+        for i in range(count):
+            j=(i+1)%count
+            self.profile_stock(name,wall,origin,u,out,[inner[i],outer[i],outer[j],inner[j]],-.48,-.20)
+            a,b=clean[i],clean[j]
+            for back,front,thickness in [(-.26,-.04,.12),(-.42,-.32,.045)]:
+                self.profile_stock(name,trim if thickness>.1 else 'door_paint',origin,u,out,
+                    [inner[i],inner[j],(cx+(r+thickness)*math.cos(b),cz+(r+thickness)*math.sin(b)),
+                     (cx+(r+thickness)*math.cos(a),cz+(r+thickness)*math.sin(a))],back,front)
+        self.profile_stock(name,'mirror_aged',origin,u,out,inner,-.425,-.419)
+        self.profile_stock(name,'wood_dark',origin,u,out,inner,-.49,-.485)
+        self.record_window(name,origin,u,out,cx-r,cx+r,cz-r,cz+r,cz,0)
+
+    def jamaica(self,name):
+        """Four-storey AU bank front; retained low service step is not a floor."""
+        spec=self.specs[name];wall=spec['wall'];records=[r for r in self.records if r['id'].startswith(name+'_')]
+        bodies=sorted([r for r in records if re.search('_s\\d+$',r['id'])],key=lambda r:r['z0'])
+        first,last=bodies[0],bodies[-1];dx=first['registration_offset_x']
+        x,y,X,Y=first['rect'];x+=dx;X+=dx;rx,ry,rX,rY=last['rect'];rx+=dx;rX+=dx
+        width=X-x;depth=Y-y;top=last['z0']+last['h'];levels=[0.]
+        for height in spec['front_heights']:levels.append(levels[-1]+height)
+        eave=levels[-1];assert abs(eave-(first['z0']+first['h']))<1e-6 and len(levels)==5
+        for r in records:
+            suffix=r['id'][len(name)+1:]
+            if suffix.startswith(('bulk','hut')):self.original_stock(name,r['key'],self.original[r['id']])
+            elif re.fullmatch('c\\d+',suffix):self.original_stock(name,'roof_bitumen',self.original[r['id']])
+        self.original_stock(name,wall,self.rings[name])
+        self.box(name,'concrete',(x,y,-.12),(X,Y,0))
+        origin=Vector((x,y,0));u=Vector((1,0,0));out=Vector((0,-1,0));cx=width/2
+        # Broad central entry and two genuine ocular windows over the side sash.
+        left,right=cx-1.8,cx+1.8
+        self.register(name,wall,origin+u*left,u,out,right-left,0,levels[1],1,2.25,'ellipse',True)
+        for start,end in [(0,left),(right,width)]:
+            center=(start+end)/2;wl,wr=center-.62,center+.62
+            for a,b in [(start,wl),(wr,end)]:self.local_box(name,wall,origin,u,out,(a,-.48,0),(b,-.2,2.8))
+            self.opening(name,wall,origin,u,out,wl,wr,0,2.8,.72,2.55,'rect',False)
+            self.oculus(name,wall,origin,u,out,(start,2.8,end,levels[1]),center,3.7,.61)
+        # Separate rusticated pier courses leave the door and ocular apertures open.
+        for a,b in [(0,.57),(2.13,left),(left,left+.50),(right-.50,right),(right,6.87),(8.43,width)]:
+            for course in range(10):
+                lo=.03+course*.47;hi=min(levels[1]-.03,lo+.435)
+                self.local_box(name,wall,origin,u,out,(a,-.25,lo),(b,-.10,hi))
+        for z in [levels[1],levels[3],eave]:self.cornice(name,origin,u,out,width,z,wall)
+        for floor in [1,2]:
+            a,b=levels[floor],levels[floor+1]
+            for start,end in [(0,left),(right,width)]:
+                self.register(name,wall,origin+u*start,u,out,end-start,a,b,1,1.24,'rect',False)
+            for lo,hi in [(left,cx-.9),(cx+.9,right)]:
+                self.local_box(name,wall,origin,u,out,(lo,-.48,a),(hi,-.2,b))
+            self.opening(name,wall,origin,u,out,cx-.9,cx+.9,a,b,a+.30,b-.62,'ellipse' if floor==1 else 'segment')
+            for at in [.20,width-.20]:
+                self.local_box(name,wall,origin,u,out,(at-.12,-.25,a),(at+.12,-.06,b))
+        # Giant-order engaged columns retain twelve physical flutes at both levels.
+        for at in [left,right]:
+            center=origin+u*at+out*(-.06)
+            self.turned_stock(name,wall,center,[(levels[1]+.06,.32),(levels[1]+.20,.32),
+                (levels[1]+.28,.24),(levels[1]+.37,.24)],self.profile_steps*2)
+            self.turned_stock(name,wall,center,[(levels[1]+.37,.22),(levels[3]-.50,.185)],24,flute=.12)
+            self.turned_stock(name,wall,center,[(levels[3]-.50,.19),(levels[3]-.30,.28),
+                (levels[3]-.18,.31),(levels[3]-.06,.31)],self.profile_steps*2)
+            for sign in [-1,1]:
+                self.local_box(name,wall,origin,u,out,(at+sign*.22-.10,-.25,levels[3]-.29),
+                    (at+sign*.22+.10,-.01,levels[3]-.08))
+        # Supported bow-front stone balcony and a wrought rail, with closed stock.
+        balcony=levels[2]+.30;half=1.17;projection=1.02;segments=8
+        front=[(cx+half*math.cos(math.pi-i*math.pi/segments),.03+projection*math.sin(i*math.pi/segments)) for i in range(segments+1)]
+        polygon=[(cx-half,-.48)]+front+[(cx+half,-.48)]
+        self.roof_panel(name,wall,[origin+u*a+out*b+Vector((0,0,balcony)) for a,b in polygon],thickness=.22)
+        for at in [cx-.72,cx+.72]:
+            self.profile_stock(name,wall,origin+u*at,out,u,[(-.35,balcony-.8),(-.35,balcony-.18),
+                (.82,balcony-.18),(.56,balcony-.36),(.03,balcony-.78)],-.13,.13)
+        for p,q in zip(front,front[1:]):
+            start=origin+u*p[0]+out*p[1];finish=origin+u*q[0]+out*q[1];tangent=(finish-start).normalized()
+            normal=tangent.cross(Vector((0,0,1)));length=(finish-start).length
+            for z in [balcony+.10,balcony+.86]:
+                self.local_box(name,'iron_blackened',start,tangent,normal,(0,-.025,z),(length,.025,z+.04))
+            for k in range(2):
+                at=(k+.5)*length/2
+                self.local_box(name,'iron_blackened',start,tangent,normal,(at-.012,-.018,balcony),
+                    (at+.012,.018,balcony+.9))
+        # Segmental third-storey pediment, then a distinct short fourth register.
+        spring=levels[3]+.02;half_p=2.02;rise=.67
+        profile=[(cx-half_p,spring-.20),(cx+half_p,spring-.20)]+[(cx+half_p*math.cos(i*math.pi/self.crown_steps),spring+rise*math.sin(i*math.pi/self.crown_steps)) for i in range(self.crown_steps+1)]
+        self.profile_stock(name,wall,origin,u,out,profile,-.28,.05)
+        self.arch_stock(name,wall,origin,u,out,cx,spring,half_p,rise,.12,-.12,.16,self.crown_steps)
+        self.register(name,wall,origin,u,out,width,levels[3],eave,3,1.32,'rect',False)
+        # Blank stone panels and turned balusters substitute for carved signage.
+        for bay in range(3):
+            center=(bay+.5)*width/3
+            for k in range(5):
+                point=origin+u*(center-.65+k*.325)+out*(-.10)
+                self.turned_stock(name,wall,point,[(levels[3]+.05,.045),(levels[3]+.12,.045),
+                    (levels[3]+.22,.026),(levels[3]+.50,.035),(levels[3]+.57,.045)],self.profile_steps)
+        for i in range(19):
+            at=(i+.5)*width/19
+            self.local_box(name,wall,origin,u,out,(at-.075,-.26,eave-.22),(at+.075,.05,eave-.08))
+        crown=top+.26
+        self.local_box(name,wall,origin,u,out,(0,-.42,eave),(width,-.20,crown))
+        self.cornice(name,origin,u,out,width,crown,wall)
+        for sign in [-1,1]:
+            self.profile_stock(name,wall,origin,u,out,[(cx+sign*.32,crown),(cx+sign*1.32,crown),
+                (cx+sign*.98,crown+.28),(cx+sign*.32,crown+.52)],-.25,-.04)
+        self.profile_stock(name,wall,origin,u,out,[(cx-.32,crown),(cx+.32,crown),
+            (cx+.38,crown+.50),(cx,crown+.75),(cx-.38,crown+.50)],-.28,.02)
+        # Rear and exposed eastern street side; west remains a genuine party wall.
+        for floor in range(4):
+            a,b=levels[floor],levels[floor+1]
+            self.register(name,'arcade_brick_bond',Vector((X,Y,0)),Vector((-1,0,0)),Vector((0,1,0)),width,a,b,3,1.1)
+            for side_origin,tangent,normal in [(Vector((X,y+.48,0)),Vector((0,1,0)),Vector((1,0,0))),
+                (Vector((x,Y,0)),Vector((0,-1,0)),Vector((-1,0,0)))]:
+                if normal.x>0 or floor==3:self.register(name,'arcade_brick_bond',side_origin,tangent,normal,depth-.48,a,b,7,1.05)
+                else:self.local_box(name,'arcade_brick_bond',side_origin,tangent,normal,(0,-.48,a),(depth-.48,-.2,b))
+        self.box(name,'arcade_brick_bond',(rx,ry,eave),(rX,rY,top))
+        self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=[x,y,X,Y],
+            assembly_translation_m=self.plans[name].get('assembly_translation_m',[0,0,0]),
+            eave=eave,body_top=top,roof_deck_top=top+.26))
+
+    def hollow_turn(self,name,key,center,profile,sides):
+        """Closed annular stock with an actual open bore; cyclic radial section."""
+        vertices=[tuple(center+Vector((r*math.cos(i*math.tau/sides),r*math.sin(i*math.tau/sides),z))) for r,z in profile for i in range(sides)]
+        faces=[]
+        for j in range(len(profile)):
+            k=(j+1)%len(profile)
+            faces.extend((j*sides+i,j*sides+(i+1)%sides,k*sides+(i+1)%sides,k*sides+i) for i in range(sides))
+        self.add(name,key,vertices,faces)
+
+    def terracotta_works(self,name):
+        """Short-front AU transposition; pitched front and retained rear plant deck."""
+        spec=self.specs[name];wall=spec['wall'];records=[r for r in self.records if r['id'].startswith(name+'_')]
+        bodies=sorted([r for r in records if re.search('_s\\d+$',r['id'])],key=lambda r:r['z0'])
+        first,last=bodies[0],bodies[-1];dx=first['registration_offset_x'];x,y,X,Y=first['rect'];x+=dx;X+=dx
+        width=X-x;depth=Y-y;top=last['z0']+last['h'];eave=spec['eave'];cut=y+spec['roof_depth']
+        assert abs(eave-6.8)<1e-6 and abs(top-11.2)<1e-6
+        for r in records:
+            suffix=r['id'][len(name)+1:]
+            if suffix.startswith(('bulk','hut')):self.original_stock(name,r['key'],self.original[r['id']])
+            elif re.fullmatch('c\\d+',suffix):self.original_stock(name,'roof_bitumen',self.original[r['id']],cut)
+        self.original_stock(name,wall,self.rings[name],cut)
+        self.box(name,'concrete',(x,y,-.12),(X,Y,0))
+        origin=Vector((x,y,0));u=Vector((1,0,0));out=Vector((0,-1,0));cx=width*.39;r=1.30
+        left,right=cx-r,cx+r;levels=[0.,3.4,6.8]
+        # One short-front door is an explicit adaptation of the original long
+        # facade's two entries; there is no new interior or retail authority.
+        for floor in range(2):
+            a,b=levels[floor],levels[floor+1]
+            self.register(name,wall,origin,u,out,left,a,b,1,1.12,'rect',False,'terracotta')
+            self.register(name,wall,origin+u*right,u,out,width-right,a,b,2,1.12,'rect',floor==0,'terracotta')
+        count=8;arc=[(cx-r*math.cos(i*math.pi/count),-.20+r*math.sin(i*math.pi/count)) for i in range(count+1)]
+        for i,(p,q) in enumerate(zip(arc,arc[1:])):
+            start=origin+u*p[0]+out*p[1];finish=origin+u*q[0]+out*q[1]
+            tangent=(finish-start).normalized();normal=tangent.cross(Vector((0,0,1)));length=(finish-start).length
+            for floor in range(2):
+                a,b=levels[floor],levels[floor+1]
+                if i in [0,count-1]:self.register(name,wall,start,tangent,normal,length,a,b,1,.28,'rect',False,'terracotta')
+                else:self.local_box(name,wall,start,tangent,normal,(0,-.48,a),(length,-.20,b))
+            for z in [3.08,eave-.22]:
+                self.local_box(name,'terracotta',start,tangent,normal,(0,-.23,z),(length,-.04,z+.18))
+        self.local_box(name,'terracotta',origin,u,out,(cx-.34,r-.35,1.30),(cx+.34,r-.13,2.25))
+        self.local_box(name,'terracotta',origin,u,out,(cx-.34,r-.35,4.65),(cx+.34,r-.13,5.42))
+        for lo,hi in [(0,left),(right,width)]:
+            for z in [3.08,eave-.22]:self.local_box(name,'terracotta',origin,u,out,(lo,-.24,z),(hi,-.04,z+.18))
+        # Blind party walls and a rear service loft preserve the existing tall
+        # flat plant envelope; the street-facing portion is genuinely two floors.
+        for side_origin,tangent,normal in [(Vector((X,y,0)),Vector((0,1,0)),Vector((1,0,0))),
+            (Vector((x,Y,0)),Vector((0,-1,0)),Vector((-1,0,0)))]:
+            self.local_box(name,wall,side_origin,tangent,normal,(0,-.48,0),(depth,-.20,eave))
+        rear=Vector((X,Y,0))
+        for a,b in [(0,3.4),(3.4,eave),(eave,top)]:self.register(name,wall,rear,Vector((-1,0,0)),Vector((0,1,0)),width,a,b,3,1.10)
+        self.local_box(name,wall,Vector((x,cut,0)),u,out,(0,-.48,eave),(width,-.20,top))
+        for side_origin,tangent,normal in [(Vector((X,cut,0)),Vector((0,1,0)),Vector((1,0,0))),
+            (Vector((x,Y,0)),Vector((0,-1,0)),Vector((-1,0,0)))]:
+            self.local_box(name,wall,side_origin,tangent,normal,(0,-.48,eave),(Y-cut,-.20,top))
+        # Stepped front gable, with individual coping courses and real tile roof.
+        half=width/2;rise=top-eave;steps=6;left_steps=[]
+        for i in range(steps):
+            z=eave+(i+1)*rise/steps+.12
+            left_steps.extend([(i*half/steps,z),((i+1)*half/steps,z)])
+        outline=left_steps+[(width-a,z) for a,z in reversed(left_steps[:-1])]
+        self.profile_stock(name,wall,origin,u,out,[(0,eave),(width,eave)]+list(reversed(outline)),-.48,-.20)
+        for (a,z),(b,Z) in zip(outline,outline[1:]):
+            if abs(z-Z)<1e-8:self.local_box(name,'limestone',origin,u,out,(a,-.32,z),(b,.01,z+.10))
+            else:self.local_box(name,'limestone',origin,u,out,(a-.04,-.32,min(z,Z)),(a+.04,.01,max(z,Z)+.10))
+        for edge in [x-.10,X+.10]:
+            self.roof_panel(name,'city_roof_clay',[Vector((edge,y-.12,eave)),Vector((x+half,y-.12,top)),
+                Vector((x+half,cut+.48,top)),Vector((edge,cut+.48,eave))],thickness=.10)
+        # Semi-conical bay roof is closed along its real back chord.
+        rings=[];roof_steps=self.profile_steps*2
+        for z,radius in [(eave,1.43),(8.10,.17)]:
+            rings.extend(tuple(origin+u*(cx-radius*math.cos(i*math.pi/roof_steps))+out*(-.20+radius*math.sin(i*math.pi/roof_steps))+Vector((0,0,z))) for i in range(roof_steps+1))
+        m=roof_steps+1;faces=[tuple(reversed(range(m))),tuple(range(m,2*m))]
+        faces.extend((i,(i+1)%m,m+(i+1)%m,m+i) for i in range(m))
+        self.add(name,'city_roof_clay',rings,faces)
+        # A through-roof chimney carries three genuinely hollow Tudor pots.
+        self.local_box(name,wall,origin,u,out,(cx-.44,-.48,7.92),(cx+.44,.24,11.80))
+        self.local_box(name,'terracotta',origin,u,out,(cx-.50,-.54,11.80),(cx+.50,.30,12.00))
+        tube=[(.13,0),(.15,.12),(.10,.24),(.12,.78),(.16,.90),(.16,1.00),(.085,1.00),(.07,0)]
+        for at in [cx-.34,cx,cx+.34]:self.hollow_turn(name,'terracotta',origin+u*at+out*(-.12)+Vector((0,0,12.)),tube,self.profile_steps*2)
+        self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=[x,y,X,Y],
+            assembly_translation_m=self.plans[name].get('assembly_translation_m',[0,0,0]),
+            eave=eave,body_top=top,roof_deck_top=top+.26))
+
     def build(self, name):
+        if self.specs[name]['style'] == 'terracotta_works':
+            return self.terracotta_works(name)
+        if self.specs[name]['style'] == 'jamaica':
+            return self.jamaica(name)
         if self.specs[name]['style'] == 'fulton':
             return self.fulton(name)
         if self.specs[name]['style'] == 'faber':
