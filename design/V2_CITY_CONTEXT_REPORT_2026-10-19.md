@@ -2317,3 +2317,54 @@ finished Hampton pavement,transport geography,render budgets or artistic review.
 The candidate comparison/push remain pending at this entry. Only the isolated
 city branch has been modified; current main's later voice/narrative work has not
 been copied into these frozen source-bound runs.
+
+### Opposing construction candidate — October30
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Branch / HEAD / origin/main / merge-base: **codex/v2-city-20261029**;
+**8bac893c43679c2a5200cbd712df9e61b97f3831**; observed remote **73eed86f**;
+comparison base/merge-base **b4413984841d1a18b2fd341a69eb56f3c4956f1d**.
+The clean115-gate baseline is the prologue owner's actual b441 candidate board,
+with exact commit/tree provenance preserved externally. Later main voice work
+is outside this frozen candidate and requires separate integration coordination.
+
+Worktree clean at candidate verification: yes. Protected17/17: yes. Selector:V2.
+Ledger before → after:7/8/110/42/134/136 →7/8/110/42/134/136;
+requirements_changed:[]; design lint errors:0; regressions:0; waived regressions:0.
+All115 static gates/tools tests are recorded with actual results in archived
+**opposing_candidate_verification_01/verification.json**. Existing known main
+failures remain; this is a comparison,not an all-green claim. The sole gate-file
+change is one explicitly reviewed test-only route coordinate record,52 added
+manifest lines; production dependency classifications and gate predicates remain.
+
+Executed Godot suites and their LogPath receipts are the **opposing_parser_01**,
+**opposing_grade_survey_01**,failed **opposing_elevation_bench_01**,passing
+**opposing_elevation_bench_02**,**opposing_focused_route_01** and
+**opposing_physical_surface_01** records above. Their original failures and
+test-written contracts are preserved. No Godot rerun for this report-only follow-up.
+Post-clean qualification still passes and production inputs still match the route
+contract. Named cleanup preserved1,658 EOL-only imports and638 generated UIDs
+before removing only proven own-worktree noise; canonical checkout untouched.
+
+Numbers management asked for:17 individual technical studies/132 remaining;
+6,604/0 engine checks;279/0 street checks over12 normal legs;32 loaded new parts,
+39 actual textures; physical651/0; measured spikes and limits stated above.
+Changes outside expected boundary: owning unchanged ground/roof source bindings
+were renewed after main reconciliation; five ground GLBs and retained terrain
+data are exact. No apartment,companion,Tardi,weather,clock,narrative or save owner
+was edited by this city construction. Native assets and registered materials
+remain authoritative; no reference photographs are committed.
+
+Evidence lives in the existing review directory: **opposing_architecture_qualification.zip**
+(276 members,62,366,121 bytes,SHA256 **e97eb6f4b5bf6b23e4e1bbad08749ee469ad2679027dd64770bf66ebfb80fb47**)
+and the small verification/reproducer follow-up indexed by the existing manifest.
+The physical packet remains in its existing canonical evidence directory.
+
+Open findings not fixed:132 building studies,finished Hampton pavement,wider
+bridge/Manhattan and yard/waterfront geography,period street/gaslight detail,
+450m continuous ground access,first-draw/first-pass spikes and artistic acceptance.
+Decision needed from owner:none for continued isolated construction. No merge
+into main is performed or implied by this candidate result.
+
+MERGE-CANDIDATE **8bac893c43679c2a5200cbd712df9e61b97f3831**
