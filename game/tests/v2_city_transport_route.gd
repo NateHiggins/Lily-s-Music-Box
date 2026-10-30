@@ -13,7 +13,7 @@ const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[
 func _ready() -> void:
 	_route_scope=OS.get_environment("ORISON_CITY_ROUTE_SCOPE")
 	if _route_scope.is_empty():_route_scope="full"
-	if _route_scope not in ["full","northwest","opposing","hampton"]:
+	if _route_scope not in ["full","northwest","opposing","hampton","gaslamps"]:
 		push_error("Unknown ORISON_CITY_ROUTE_SCOPE: "+_route_scope)
 		get_tree().quit(64)
 		return
@@ -21,6 +21,9 @@ func _ready() -> void:
 	route_label = "V2 CITY NORTHWEST" if _route_scope=="northwest" else "V2 CITY EXTERIOR"
 	if _route_scope=="opposing":route_label="V2 CITY OPPOSING"
 	if _route_scope=="hampton":route_label="V2 CITY HAMPTON FOOTWAY"
+	if _route_scope=="gaslamps":
+		route_label="V2 CITY NIGHT GASLAMPS"
+		OS.set_environment("DAYNIGHT_FORCE","21:00")
 
 func _process(_delta: float) -> void:
 	if not _collect_exploration: return
@@ -51,6 +54,9 @@ func _programme_sources() -> Dictionary:
 	return result
 
 func _run() -> void:
+	if _route_scope=="gaslamps":
+		await _run_gaslamps()
+		return
 	if _route_scope=="hampton":
 		await _run_hampton()
 		return
@@ -64,6 +70,74 @@ func _run() -> void:
 	city_observations["programme_sources"] = programme_before
 	city_observations["route_scope"]="full"
 	await super._run()
+
+func _run_gaslamps() -> void:
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"night street evidence directory exists")
+	if not failures.is_empty():get_tree().quit(1);return
+	source_before=_digest();programme_before=_programme_sources()
+	city_observations["programme_sources"]=programme_before
+	city_observations["route_scope"]="gaslamps"
+	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
+	CampaignTime.set_frozen_for_tests(true);CampaignClock.new().configure_date(1928,11,10,1260)
+	var started:=Time.get_ticks_usec()
+	world=Runtime.instantiate();add_child(world)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	check(not world.startup_failed and world.player!=null,"production city starts for short nighttime frontage/crossing")
+	if not world.startup_failed and world.player!=null:
+		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+		city_observations["startup_ms"]=(Time.get_ticks_usec()-started)/1000.
+		var data:=preload("res://scripts/building/orison_v2_street_lamps.gd").load_table()
+		var street: Node3D=world.exterior_cell.instance_node(str(data.street_instance))
+		var lamps:=street.get_node("StreetLamps") as Node3D
+		var clock:=lamps.get_node("LampClock")
+		check(clock.lights.size()==4 and is_equal_approx(float(clock.lit),1.),"all four original lamp pools use actual production night clock")
+		var collisions: Array=[]
+		for record: Dictionary in data.lamps:
+			var post:=lamps.get_node(str(record.id)) as MeshInstance3D
+			var at: Array=record.at
+			var center:=Vector3(at[0],at[1]+.8,at[2])
+			var hit:=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(street.to_global(center+Vector3(.5,0,0)),street.to_global(center-Vector3(.5,0,0)),1,[player.get_rid()]))
+			var actual: bool=not hit.is_empty() and hit.collider==post.get_node("Collision")
+			if actual:actual=absf(street.to_local(hit.position).x-center.x-.22)<.0001
+			check(actual,"unfiltered actual retained post cylinder contact "+str(record.id))
+			collisions.append({"lamp":record.id,"hit":str(hit),"radius_m":.22})
+		city_observations["actual_post_collision_rays"]=collisions
+		var recoveries_before: int=int(world.safety_net.recoveries)
+		# B2G converts this independent street-local XY fixture once. Every
+		# following leg uses the original production controller and tolerances.
+		if await _opposing_start(street,Vector3(-14,-3,0),"retained_orison_sidewalk"):
+			var points: Array[Vector3]=[Vector3(-8,0,3),Vector3(12,0,3),Vector3(14,0,3),Vector3(14,0,4.2),Vector3(14,-.1,8),Vector3(14,-.1,13.6),Vector3(14,0,15),Vector3(14,0,18.2)]
+			for index in points.size():
+				RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
+				_previous_exploration_usec=0;_collect_exploration=true
+				var reached:=await _walk(world.adapter.root.to_local(street.to_global(points[index])))
+				_collect_exploration=false
+				RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),false)
+				if not reached:break
+				if index in [0,1,6,7]:
+					var view: Dictionary={0:{"id":"night_west_post","target":Vector3(-9.6,3.86,4.815)},1:{"id":"night_orison_post","target":Vector3(8.1,3.86,4.815)},6:{"id":"night_crossing_signal","target":Vector3(13.3,2.4,3.975)},7:{"id":"night_arcade_post","target":Vector3(-4.2,3.86,13.98)}}[index]
+					player.face_world_point(street.to_global(view.target))
+					for frame in 6:await RenderingServer.frame_post_draw
+					check(get_viewport().get_texture().get_image().save_png(directory.path_join(str(view.id)+".png"))==OK,"actual standing night street capture "+str(view.id))
+		check(trace.size()==8,"eight continuous normal-controller legs past Orison lamps and across retained road to arcade")
+		check(world.safety_net.recoveries==recoveries_before,"night frontage/crossing uses no safety-net rescue")
+		check(not player.noclip and not player.crouched and is_equal_approx(player.STANDING_HEIGHT,1.524),"night frontage uses original standing body")
+		city_observations["walking_timing"]={"columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives"],"samples":_exploration_samples,"scope":"Eight walking legs only; nearby fixture,startup,settles and capture writes excluded. No matched old-lamp/world speedup claim."}
+	Input.action_release("move_forward");world.shutdown_for_tests();world.free()
+	await get_tree().physics_frame
+	var source_after:=_digest()
+	check(not source_after.is_empty() and source_before==source_after and programme_before==_programme_sources(),"night route production/test sources remain frozen")
+	var passed:=failures.is_empty()
+	var receipt: Dictionary={"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
+		"scope":"One explicit nearby actual-floor fixture,then eight normal-controller sidewalk/retained-road crossing legs. Unfiltered four original cylinder contacts,night lamp gating and four standing street views. No close arcade-lamp access,door/shop operations,save,clock progression,whole-city or artistic acceptance.",
+		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
+		"source":{"test_path":"game/tests/v2_city_transport_route.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after},
+		"contracts":{"production_composition":{"executed":true,"passed":passed},"night_frontage_crossing":{"executed":not trace.is_empty(),"passed":passed and trace.size()==8,"waypoints":trace.size()},"actual_lamp_collisions":{"executed":city_observations.has("actual_post_collision_rays"),"passed":passed},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
+		"checks":city_checks,"failures":failures,"trace":trace,"observations":city_observations}
+	FileAccess.open(directory.path_join("gaslamp_street_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
+	print("%s: %d checks; %d waypoints; %d failures"%[route_label,city_checks,trace.size(),failures.size()])
+	get_tree().quit(0 if passed else 1)
 
 func _run_hampton() -> void:
 	var directory:=OS.get_environment("SHOT_DIR")

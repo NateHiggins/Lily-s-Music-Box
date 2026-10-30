@@ -2636,3 +2636,59 @@ qualify the newer gaslamp. Canonical owns one future combined canopy/lamp physic
 renewal and static comparison after its matched route. No old receipt is repinned.
 Actual street composition,continuous access,composed optics and artistic acceptance
 remain pending. All own native/Godot jobs are terminal; no long city tour was run.
+
+
+Frozen native/isolated construction checkpoint is pushed **52828b7af038863fa195df6e9f72a23529b3f408**.
+The explicit named follow-up includes the ignored lower import sidecar; the
+complete checkpoint must be used. Portable **gaslamp_native_isolated_qualification.zip**
+contains112 members/7,707,422 bytes,SHA256 **d6eb4cfc054e7a0c8452edc7977693d2ce482a982bcbff1bc1460732aa499963**.
+The existing review manifest indexes every raw member. It retains original
+name/precision/save failures and receipts,reviewed native/loaded frames,raw
+samples and LF source snapshots,without duplicating mesh/material-image assets.
+This archive adds no acceptance scope and changes no rendering input.
+
+Named own-worktree cleanup preserves638 generated UIDs before removing only
+those verified files; no tracked import needed restoration. Original guard
+refusals and backup remain external. Production input closure and the final
+bench05 test hash still match the preserved qualification; no receipt is repinned.
+
+
+### October30 actual nighttime frontage and road crossing
+
+Evidence class remains **INERT**. Test-only continuation from **1277336b** adds
+**gaslamps** to the existing transport-route selector. One actual unfiltered
+street-floor fixture at local(-14,0,3) precedes eight continuous normal-controller
+legs past the Orison posts and across the retained x14 road crossing to the
+arcade. The unchanged test-written schema-2 **gaslamp_street_contract.json**
+passes17 checks/8 legs/0 failures,including all four unfiltered original cylinder
+contacts at100-micrometre tolerance,production night-clock gating and world-root
+retirement. No rescue,noclip,crouch,speed/deadline/tolerance change,door/shop
+operation,save or clock progression is used. November10,1928 at21:00 is a frozen
+test fixture,not a campaign change. Wrapper213s,empty stderr; root startup prints
+147.446s while the full test startup/initial readiness measures155.508s.
+
+All four actual3440x1440 night street images were inspected. West and middle
+gaslamp heads plus the retained crossing signal post are clear in their actual
+street context. The distant arcade-lamp aim from the final entry stance is
+occluded by the real shop corner. That frame is retained and **not accepted as
+lamp visibility**. The next already-needed world cohort should capture it from
+the clear roadside stance before entering the arcade; no whole-world rerun is
+queued solely for that image. No close arcade-post access or artistic acceptance
+is claimed. Existing held companion and other scene authorities are untouched.
+
+The522 walking-frame samples measure wall median25.722/p9545.730/max210.021ms,
+main CPU median10.751/p9520.848/max89.158ms and main GPU median12.924/p9516.926/
+max21.282ms. Startup,settles and PNG writes stay outside those walking samples.
+Global draws/primitives include private viewports. No uncontended baseline,
+whole-world budget or speedup follows. Source-only spatial audit is clean;
+reviewed camera record **688290a67a03e8b9** is appended without deleting inherited
+entries. The exact receipt remains bound to this city source closure; it is not
+repinned to canonical's newer canopy candidate. Combined current physical/static
+qualification remains independently pending with the canonical owner.
+
+Portable **gaslamp_night_route_qualification.zip** retains14 members/15,432,754
+bytes,SHA256 **5401f8a3aef6071af2abe060ad22f486708d24d37514acf33334685d676d58a6**,
+indexed by the existing review manifest. It preserves the original runtime
+contract,wrapper/parser receipts,all four frames including the occluded one,
+raw timing/trace data,inspection notes and LF test source. No ledger promotion
+or broader proof is implied by this INERT report or archive index.
