@@ -2706,3 +2706,47 @@ building studies/132 remaining,not whole-city,save,performance or artistic
 acceptance. Detailed combined failures,receipts and source binding are indexed
 in **design/V2_PROLOGUE_2026-10-28.md**. Separate FIFO compiler smoke passes
 22.62s without repeating a city/world tour.
+
+
+### October30 tracker reconciliation and northeast construction in progress
+
+Evidence class: **INERT**. Source progress, not construction acceptance.
+
+City work remains isolated in **C:/ov/city**, branch **codex/v2-city-20261029**,
+original base **3ea80715bd201738d5566dea18bc17d4353ca867**. Qualified final
+main **5505b0416d33d604c0fa1bac5773aab9a9dcc913** was merged into this branch
+at **8d0da7c0** after preserving source WIP **3c0615ac**. Canonical checkout,
+index and outstanding work were untouched. The combined652/0 physical and
+117-gate zero-regression results above remain scoped to their original candidate.
+
+The next bounded construction is **site_ne1/site_ne2**, authored together in
+existing **city_commercial_architecture.py** and **source_plan.json**. The
+four-storey workshop adapts the Eberhard Faber factory's three-bay short front,
+eight-bay long rhythm, incised lintels and bracketed timber cornice. The
+six-storey Fulton adaptation uses an arched iron base, tall central round arch
+and angled metal oriel. It deliberately differs from the eight-storey source,
+retaining the installed17.5m upper step,21.5m roof, full plant decks and anchors.
+Existing registered materials are reused; no new lettering or retail authority.
+
+Official LPC reports LP-2264 and LP-2178 guide form; reference pages were
+inspected externally and no photograph pixels are incorporated. LP-2109 and
+LP-1304 were also reviewed for later northeast bank/terra-cotta work, which
+has not been built. Modern maps and provisional elevations establish no1928
+layout or implementation acceptance. Actual installed footprints and access
+remain controlling alongside the owner's newer V2 direction.
+
+Current source includes closed mitred workshop cornice stocks and complete
+lower-detail bodies rather than decorative deletion. Native generation/review,
+UV/export controls, unchanged-building comparisons, loaded materials/mipmaps,
+LOD transition/rendering measurements and focused playable checks are still
+pending. No new building has been counted:17 technical studies/132 remaining.
+The450m temporary radius remains; continuous exterior support/access, bridge,
+yard, waterfront, broader composition and human artistic acceptance remain open.
+
+Heavy native work is waiting for canonical's announced responsiveness sampling;
+source-only preparation continues. Subsequent walking will start near the changed
+block and use bounded normal-controller legs. The previously occluded arcade
+lamp view remains unaccepted and will be corrected in the next necessary world
+cohort, not by repeating a full tour solely for that image. Original failures,
+raw timings and test-written receipts remain preserved under the existing review
+archives; research, diagnostics and wrapper receipts grant no runtime acceptance.
