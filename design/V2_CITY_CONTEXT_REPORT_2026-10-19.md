@@ -2692,3 +2692,17 @@ indexed by the existing review manifest. It preserves the original runtime
 contract,wrapper/parser receipts,all four frames including the occluded one,
 raw timing/trace data,inspection notes and LF test source. No ledger promotion
 or broader proof is implied by this INERT report or archive index.
+
+
+Canonical reconciled **d238bc36** now qualifies the combined lamp/canopy
+checkpoint:652 physical checks,zero unresolved surfaces,empty stderr and zero
+packet defects; two actual fixed-camera daytime street/head views inspected.
+Clean117-gate comparison against exact PR93 mainb98b6d6c has zero regressions,
+17 protected paths unchanged and no requirement promotions/waivers. Native175
+and original night17/eight-leg evidence keep their source scope; the occluded
+arcade night frame remains unaccepted. The existing body,clock/weather/gas,
+collision and four light/shadow authorities remain. Current stage is still17
+building studies/132 remaining,not whole-city,save,performance or artistic
+acceptance. Detailed combined failures,receipts and source binding are indexed
+in **design/V2_PROLOGUE_2026-10-28.md**. Separate FIFO compiler smoke passes
+22.62s without repeating a city/world tour.

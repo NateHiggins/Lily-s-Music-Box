@@ -173,3 +173,14 @@ A future bounded archival batch must preserve referenced originals and resolve
 producer destinations/indexed path lookup before clearing the local copies.
 The four nested .claude worktrees appear in Git's registered worktree list;
 no owner or unique-work audit has yet authorized their removal.
+
+
+Byte totals above sum file lengths; they are not allocated/deduplicated disk
+usage. A read-only **git count-objects -vH** and **git prune-packed -n** finds
+80,240 loose objects/24.95GiB,54,163 packed objects/17.74GiB,five packs and534
+loose copies already represented in packs. Git also reports59 temporary files
+as garbage (365.12MiB); they were not removed or presumed ownerless. No Git
+storage mutation was performed during qualification. A bounded duplicate-only
+cleanup remains a candidate; preserve recoverability and coordinate shared
+repository writes before executing it. [Official Git command scope](https://git-scm.com/docs/git-prune-packed)
+distinguishes already-packed duplicate cleanup from unreachable-object pruning.
