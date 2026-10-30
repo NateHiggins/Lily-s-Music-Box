@@ -3130,3 +3130,42 @@ zero grade is not valid westward. **site_nbr_e** occupies[16.455,-12,20.855,12]
 and neighbors the retained front footway. Source/reference selection grants
 no new footprint or access authority. No new geometry has yet been authored
 for this pair.975 stays frozen for canonical office/bank intake.
+
+### October30 narrow-house native construction WIP, entry repair open
+
+The next two generic4.4x24m masses now have source-specific four-storey
+fronts: **site_nbr_w** adapts119 East35th Street's Linford two-bay Italianate
+segmental heads, pedimented entry and bracketed cornice; **site_nbr_e** adapts
+113 East35th Street's Hayden round-arched ground order, pilasters and paneled
+cornice. Both retain12.8m body/roof plant datums, cap/bulkhead/roof hardware,
+original footprints and assembly offsets. Coated plaster and limestone are
+explicit registered AU material substitutions, not a new brownstone recipe.
+Long blind brick party walls and genuine recessed panes replace generic
+fenestration. Closed scenic doors add no interior or gameplay authority.
+
+Near body triangles: **5702 west/4894 east**; replacement lower bodies
+**4694/4390**,13 material parts each. All713 new near construction stocks
+are manifold with positive volume. Native producer reports1205 bearing,2574
+window,106 roof and12 return probes with0 failures; complete lower family
+9877 closed stocks,520 bearings and544 panes,0 failures. Exported UV audit
+has0 failed surfaces.248 unaffected near parts and117 existing lower parts
+retain exact exported attributes/indices/poses;23 other source profiles and
+three contextual GLBs are exact. Four fixture preflights,14 city static tests
+and reader NEW0 pass. These diagnostics are not runtime or artistic acceptance.
+
+Original producer failures remain external under **narrow_neighbors_01**:
+roof-cap material metadata initially omitted the expected bitumen group; the
+round-headed scenic door's old probe intersected its midrail instead of its
+stile. Both causes were repaired without weakening the actual leaf check.
+First native images also exposed incorrectly registered native support context
+and backlighting; the next review imports the actual exported solid supports
+and uses a front key. All first six images remain preserved and inspected.
+
+Entry repair remains open before Godot:50 actual exported ground sections plus
+a denser ten-point west entry section establish soil around-.476m at the door
+center and retained foundation top-.2m beginning betweenfront+.30/.40m. The
+current stair begins+.20m and its first tread is partly buried. Move the run
+forward.20m within the same footprint, then review the actual corrected support
+and lower silhouette. No shared foundation/ground/access producer edit is
+required. The newer pair is unqualified; no whole-city count is promoted.
+External evidence root: **C:/ov/reports/city_streets_20261029/narrow_neighbors_01**.

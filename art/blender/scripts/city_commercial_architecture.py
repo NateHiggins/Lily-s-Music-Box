@@ -976,7 +976,122 @@ class CommercialFronts:
             assembly_translation_m=self.plans[name].get('assembly_translation_m',[0,0,0]),
             eave=eave,body_top=top,roof_deck_top=top+.26))
 
+    def narrow_house(self,name):
+        """Two source-specific Italianate fronts on retained narrow parcels.
+
+        The entry's ground level comes from an exported installed-solid section,
+        not a city-wide zero assumption. All stair stock stays inside the parcel.
+        """
+        spec=self.specs[name];plan=self.plans[name];a=plan['architecture']
+        hayden=spec['style']=='hayden113'
+        records=[r for r in self.records if r['id'].startswith(name+'_')]
+        bodies=sorted([r for r in records if re.search('_s\\d+$',r['id'])],key=lambda r:r['z0'])
+        assert len(bodies)==1
+        first=bodies[0];x,y,X,Y=first['rect'];dx=first['registration_offset_x'];x+=dx;X+=dx
+        width=X-x;depth=Y-y;top=first['z0']+first['h']
+        assert abs(width-4.4)<1e-5 and abs(spec['eave']-top)<1e-5
+        for record in records:
+            if record['id'][len(name)+1:].startswith(('bulk','hut','c')):
+                self.original_stock(name,'roof_bitumen' if record['id'][len(name)+1:].startswith('c') else record['key'],self.original[record['id']])
+        self.original_stock(name,spec['wall'],self.rings[name])
+        # Retained foundations carry this closed ground slab; the front plinth
+        # descends into the measured soil rather than floating at zero.
+        self.box(name,'concrete',(x+.2,y+.2,-.65),(X-.2,Y-.2,0))
+        levels=[0.]
+        for h in spec['front_heights']:levels.append(levels[-1]+h)
+        u=Vector((1,0,0));out=Vector((0,-1,0));origin=Vector((x,y,0))
+        pitch=width/2;door_center=pitch*.5;wl=door_center-.56;wr=door_center+.56
+        for floor,(z0,z1) in enumerate(zip(levels,levels[1:])):
+            for bay in range(2):
+                center=(bay+.5)*pitch;left=center-.56;right=center+.56
+                low=z0+(.18 if floor==0 else .64);high=z1-.52
+                shape='round' if hayden and floor==0 else 'segment' if not hayden and floor>0 else 'rect'
+                self.local_box(name,spec['wall'],origin,u,out,(bay*pitch,-.48,z0), (left,-.2,z1))
+                self.local_box(name,spec['wall'],origin,u,out,(right,-.48,z0), ((bay+1)*pitch,-.2,z1))
+                if floor==0 and bay==0:
+                    # The deep reveal has continuous stone jambs/soffit. Door
+                    # joinery is genuinely behind it; no pane seals the front.
+                    recess=float(a['entry_recess_m']);back=origin-out*recess
+                    spring=high-(right-left)/2 if shape=='round' else high
+                    self.local_box(name,spec['wall'],origin,u,out,(left,-.48,high),(right,-.2,z1))
+                    for l,r in [(left-.10,left),(right,right+.10)]:
+                        self.local_box(name,'limestone',origin,u,out,(l,-recess-.48,-.65),(r,-.2,spring))
+                    if shape=='round':
+                        half=(right-left)/2
+                        for i in range(self.profile_steps):
+                            t=i*math.pi/self.profile_steps;T=(i+1)*math.pi/self.profile_steps
+                            L=center-half*math.cos(t);R=center-half*math.cos(T)
+                            z=spring+half*math.sin(t);Z=spring+half*math.sin(T)
+                            self.profile_stock(name,spec['wall'],origin,u,out,[(L,z),(R,Z),(R,high+.02),(L,high+.02)],-.48,-.2)
+                        self.arch_stock(name,'limestone',origin,u,out,center,spring,half,half,.10,-recess-.48,-.2,self.profile_steps)
+                    else:
+                        self.local_box(name,'limestone',origin,u,out,(left,-recess-.48,high-.10),(right,-.2,high))
+                    self.opening(name,spec['wall'],back,u,out,left,right,z0,z1,low,high,shape,True,'limestone',False,bay=bay)
+                    # Sample the door stile clear of the round-head midrail;
+                    # its height differs from the rectangular entry's rail.
+                    self.portal_rows[-1]['point'][2]=low+.8
+                    # Four shallow risers west, one east: final landing reaches
+                    # the scenic door sill. Bottom is embedded in retained solid.
+                    ground=float(a['entry_ground_m']);n=max(1,math.ceil((low-ground)/.17));run=.96/n
+                    for i in range(n):
+                        start=.2+i*run;end=.2+(i+1)*run
+                        self.local_box(name,'limestone',origin,u,out,(left,-end,-.65),(right,-start,ground+(low-ground)*(i+1)/n))
+                    self.local_box(name,'limestone',origin,u,out,(left,-1.38,-.65),(right,-1.16,low))
+                    if not hayden:
+                        # Bracketed entry entablature and actual triangular cap.
+                        self.local_box(name,'limestone',origin,u,out,(left-.20,-.31,high+.02),(right+.20,.035,high+.14))
+                        self.profile_stock(name,'limestone',origin,u,out,[(left-.28,high+.14),(right+.28,high+.14),(center,high+.45)],-.28,.05)
+                        for sign in [-1,1]:
+                            c=center+sign*.68
+                            self.profile_stock(name,'limestone',origin,u,out,[(c-.065,high-.17),(c+.065,high-.17),(c+.065,high+.05),(c-.025,high+.05)],-.24,-.005)
+                else:
+                    self.opening(name,spec['wall'],origin,u,out,left,right,z0,z1,low,high,shape,False,'limestone',bay=bay)
+                    if not hayden and floor>0:
+                        # Segmental moulding with projecting keystone, paired
+                        # supporting consoles at the projecting sill.
+                        self.local_box(name,'limestone',origin,u,out,(center-.065,-.18,high-.055),(center+.065,.045,high+.16))
+                        for sign in [-1,1]:
+                            c=center+sign*.43
+                            self.profile_stock(name,'limestone',origin,u,out,[(c-.055,low-.12),(c+.055,low-.12),(c+.055,low-.29),(c-.02,low-.25)],-.24,-.035)
+                    if hayden and floor>0:
+                        self.local_box(name,'limestone',origin,u,out,(left-.14,-.24,high),(right+.14,-.025,high+.12))
+            if floor==0 and hayden:
+                for center in [.18,pitch,width-.18]:
+                    self.local_box(name,'limestone',origin,u,out,(center-.10,-.25,0),(center+.10,-.08,2.89))
+                    self.local_box(name,'limestone',origin,u,out,(center-.15,-.29,2.89),(center+.15,-.015,3.05))
+                    self.local_box(name,'limestone',origin,u,out,(center-.15,-.29,0),(center+.15,-.015,.16))
+                self.local_box(name,'limestone',origin,u,out,(0,-.30,3.05),(width,-.04,3.22))
+            if floor>0:
+                self.local_box(name,'limestone',origin,u,out,(0,-.25,z0+.04),(width,-.12,z0+.11))
+        # The street is the short front. Long walls remain credible blind party
+        # walls, with slight limewashed repair strips; no borrowed-light rows.
+        for side_x,sign in [(x,1),(X,-1)]:
+            low=-.65
+            self.box(name,'arcade_brick_bond',(min(side_x,side_x+sign*.28),y+.48,low), (max(side_x,side_x+sign*.28),Y-.48,top))
+        rear=Vector((X,Y,0));ru=Vector((-1,0,0));rn=Vector((0,1,0))
+        for floor,(z0,z1) in enumerate(zip(levels,levels[1:])):
+            self.register(name,'arcade_brick_bond',rear,ru,rn,width,z0,z1,2,.94,'rect',False,'limestone')
+        # Wood cornice consists of manufactured boards and curve-cut consoles,
+        # with all principal silhouette stocks retained in the replacement body.
+        for z0,z1,d0,d1 in [(top-.62,top-.18,-.24,-.08),(top-.18,top-.13,-.48,.34),(top-.13,top-.07,.27,.36),(top-.07,top,-.48,.42)]:
+            self.local_box(name,'wood_dark',origin,u,out,(0,d0,z0),(width,d1,z1))
+        count=5 if hayden else 6
+        for i in range(count):
+            c=.12+(width-.24)*i/(count-1)
+            profile=[(-.22,top-.61),(-.22,top-.18),(.31,top-.18)]
+            profile += [(.31-.53*t,top-.18-.43*(1-math.cos(t*math.pi/2))) for t in [j/self.profile_steps for j in range(1,self.profile_steps)]]
+            self.profile_stock(name,'wood_dark',origin+u*c,out,u,profile,-.055,.055)
+        if hayden:
+            for i in range(4):
+                l=.28+i*(width-.56)/4;r=.28+(i+1)*(width-.56)/4
+                # Raised panel frame rather than an engraved texture.
+                for L,R,B,T in [(l,r,top-.59,top-.55),(l,r,top-.30,top-.26),(l,l+.035,top-.55,top-.30),(r-.035,r,top-.55,top-.30)]:
+                    self.local_box(name,'wood_dark',origin,u,out,(L,-.085,B),(R,-.055,T))
+        self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=[x,y,X,Y],assembly_translation_m=plan.get('assembly_translation_m',[0,0,0]),eave=top,body_top=top,roof_deck_top=top+.26,entry_ground_m=a['entry_ground_m'],entry_recess_m=a['entry_recess_m'],entry_risers=max(1,math.ceil((.18-float(a['entry_ground_m']))/.17))))
+
     def build(self, name):
+        if self.specs[name]['style'] in ['linford119','hayden113']:
+            return self.narrow_house(name)
         if self.specs[name]['style'] == 'terracotta_works':
             return self.terracotta_works(name)
         if self.specs[name]['style'] == 'jamaica':
