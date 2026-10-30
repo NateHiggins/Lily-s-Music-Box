@@ -1143,8 +1143,7 @@ do not treat this as cancellation of installed ecology or approved future people
   October30 own-voice research is ingested at
   **C:/ov/reports/friendly_mechanical_voice_research_20261030/**:
   **RESEARCH_BRIEF.md**, twelve original designs in **VOICE_GESTURES.csv** and
-  **SOURCE_REGISTER.csv**. Warm source/filter babble is a proposed audition
-  direction; no audio or renderer exists from this packet. Keep pronunciation,
+  **SOURCE_REGISTER.csv**. Owner selected original friendly LPC-style voice on2026-10-30: rounded180Hz body,8kHz ten-order all-pole core,25ms parameter targets,reconstructed48kHz; careful pauses,soft endings and self-directed correction persist as English improves. Four external audition packets are delivered (comparison,babble,learning,sentences); see the prologue ledger intake for exact paths. Start with a small offline-rendered original WAV gesture set through existing AudioPolicy/Voice ownership; do not ship Python authoring tools or audition reels. No runtime voice or learning renderer is installed yet. Keep pronunciation,
   heard-word provenance, semantic knowledge and current speaking permission
   separate; exclude own speech, recordings, echoes and audition playback at
   source. The proposed offline listening sheet remains separate from arbitrary
