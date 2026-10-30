@@ -12,7 +12,7 @@ from fabrication_native_batch import material,partition,export
 source=ROOT/'art/blender/scripts/build_city_elevations.py'
 # These geometry functions belong to the elevation producer. Extract definitions
 # explicitly; importing that executable would rebuild the entire high city.
-names={'box','local_box','profile_stock','arch_stock','turned_stock','roof_panel','clip_roof_polygon','roof_metric_charts'}
+names={'box','local_box','profile_stock','arch_stock','turned_stock','roof_panel','clip_roof_polygon','roof_metric_charts','wood_stock_charts'}
 tree=ast.parse(source.read_text(encoding='utf-8'))
 definitions=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in names]
 assert {n.name for n in definitions}==names
@@ -70,9 +70,17 @@ for (name,key),(vv,ff) in sorted(buffers.items()):
     t=frames[identity];center=Vector((t[0],-t[2],t[1]))
     mesh=bpy.data.meshes.new('Raw');mesh.from_pydata(vv,[],ff);mesh.update()
     for v in mesh.vertices:v.co-=center
+    # Match the near producer's exact-zero cleanup at its float32 export frame.
+    # Retained bevel/parapet stock may contain a triangle that collapses here;
+    # source manifold/volume and bearing checks above remain unchanged.
+    bm=bmesh.new();bm.from_mesh(mesh);bmesh.ops.triangulate(bm,faces=list(bm.faces))
+    zero=[f for f in bm.faces if (f.verts[1].co-f.verts[0].co).cross(f.verts[2].co-f.verts[0].co).length_squared==0]
+    if zero:bmesh.ops.delete(bm,geom=zero,context='FACES_ONLY')
+    bm.to_mesh(mesh);bm.free()
     stock=bpy.data.objects.new('Raw',mesh)
     obj=partition(exports,identity,[stock],finish,mat,Matrix.Translation(center),catalog)
     if key in ['city_slate','city_roof_clay']:roof_metric_charts(obj)
+    if name=='site_ne1' and key=='wood_dark':wood_stock_charts(obj,catalog[key]['files'][0])
     bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
     parts.append({'name':identity,'triangles':len(obj.data.polygons),'near_translation_gltf':t})
 assert {r['name'] for r in parts}==set(programme['parts'])
@@ -82,6 +90,7 @@ def sha(path):
 paths=[Path(__file__),source,ROOT/'art/blender/scripts/city_commercial_architecture.py',ROOT/'art/blender/scripts/fabrication_native_batch.py',ROOT/'art/blender/scripts/fabrication_uvs.py',ROOT/'art/blender/scripts/fabrication_normals.py',ROOT/'art/data/city_elevations/source_plan.json',ROOT/'art/blender/city_closure.blend',ROOT/'art/blender/city_closure_construction.json',ROOT/'game/assets/props/city_elevations.glb',ROOT/'game/data/orison_v2/exterior/city_elevations.json',ROOT/'game/data/runtime_material_sets.json']
 paths.extend(ROOT/f'game/tests/fixtures/orison_city_{family}.json' for family in ['masts','aerials','tanks'])
 paths.append(ROOT/'art/blender/scripts/frame_mitre_geometry.py')
+paths.append(ROOT/'art/blender/scripts/fabrication_grain.py')
 paths.extend(ROOT/'game/assets/building/textures'/file for key in {key for name,key in buffers} for file in catalog[key]['files'])
 report={'evidence_class':'INERT','scope':'Complete closed lower commercial bodies with authored UVs, retained panes/blinds/doors/roofs and original near export frames. Near city meshes retain all collision. No runtime transition, rendering-cost or artistic acceptance.','buildings':owner.building_rows,'parts':parts,'closed_stocks':len(stocks),'bearing_samples':bearings,'pane_samples':panes,'error_m':programme['error_m'],'triangles':sum(r['triangles'] for r in parts),'export_check':proof,'asset_sha256':sha(ROOT/'game/assets/props/city_elevations_lod1.glb'),'source_bindings':{p.relative_to(ROOT).as_posix():sha(p) for p in paths},'failures':[]}
 for relative in ['art/blender/city_elevations_lod1_construction.json','game/tests/fixtures/orison_city_elevations_lod1.json']:(ROOT/relative).write_text(json.dumps(report,indent=2)+'\n',newline='\n')

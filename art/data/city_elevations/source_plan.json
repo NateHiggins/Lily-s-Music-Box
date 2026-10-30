@@ -342,24 +342,24 @@
     },
     {
       "id": "site_ne2",
-      "description": "Older brick flats with slender sash and uneven roller shades",
+      "description": "Six-storey AU instrument house derived from Keuffel and Esser;arched iron base,double-height recessed arch,angled metal oriel and retained upper roof setback",
       "massing": "single_upper_setback",
       "storey_height": 2.86,
       "bay_pitch": 2.22,
-      "window_width": 1.0,
-      "window_height": 1.76,
+      "window_width": 1.15,
+      "window_height": 2.15,
       "sash": "door_paint",
-      "wall_key": "limestone",
+      "wall_key": "city_grey_brick",
       "wall_tint": [
         1,
-        1,
-        1,
+        0.91,
+        0.76,
         1
       ],
       "frame_tint": [
-        0.3,
-        0.33,
-        0.3,
+        0.32,
+        0.29,
+        0.22,
         1
       ],
       "window_recess": 0.17,
@@ -375,7 +375,24 @@
         0,
         24,
         0
-      ]
+      ],
+      "floor_heights": [
+        4.2,
+        3.5,
+        3.3,
+        3.3,
+        3.2,
+        4.0
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "fulton",
+        "front_side": 0,
+        "front_floor_count": 6,
+        "front_bays": 3,
+        "roof_depth_m": 0.0,
+        "precedent": "Keuffel and Esser,127Fulton Street,1892-93;LPC LP-2178. Six-storey fictional Queens adaptation of an eight-storey reference,retaining three distinctive two-storey compositions plus the installed17.5m upper step/21.5m plant roof. Existing grey-brick recipe receives authored warm tint;cast-iron base/bronze bay are geometry,not copied lettering or new retail authority."
+      }
     },
     {
       "id": "site_ne3",

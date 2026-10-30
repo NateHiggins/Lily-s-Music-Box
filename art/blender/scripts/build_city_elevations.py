@@ -667,8 +667,8 @@ for name,p in groups.items():
             old_last=next(r for r in source_rows if r['id']==last['id'])
             stats[-1]['previous_roof_height']=old_last['z0']+old_last['h']
         roof_details.append(dict(building=name,style=commercial.specs[name]['style'],body_height=top,
-            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key in {'ottendorfer':('roof_bitumen',),'engine258':('galvanized_roof','roof_bitumen'),'hampton':('roof_bitumen',)}.get(commercial.specs[name]['style'],('city_slate',)) for v in vv),
-            edited_legacy_roof=commercial.specs[name]['style']!='ottendorfer'))
+            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key in {'ottendorfer':('roof_bitumen',),'engine258':('galvanized_roof','roof_bitumen'),'hampton':('roof_bitumen',),'faber':('roof_bitumen',),'fulton':('roof_bitumen',)}.get(commercial.specs[name]['style'],('city_slate',)) for v in vv),
+            edited_legacy_roof=commercial.specs[name]['style'] not in ['ottendorfer','faber','fulton']))
         continue
     for r in rr:
         suffix=r['id'][len(name)+1:]
@@ -782,6 +782,31 @@ def roof_metric_charts(obj):
     mesh.attributes['_tangent_guide'].data.foreach_set('vector',np.asarray(guides,dtype=np.float32))
 
 
+def wood_stock_charts(obj,albedo):
+    """Preserve independent construction-stock grain after material batching."""
+    from fabrication_grain import stock_grain_frame,stock_grain_chart
+    mesh=obj.data;neighbors=[set() for _ in mesh.vertices]
+    for edge in mesh.edges:
+        a,b=edge.vertices;neighbors[a].add(b);neighbors[b].add(a)
+    unseen=set(range(len(mesh.vertices)));frames={};owners={};stock=0
+    while unseen:
+        start=next(iter(unseen));pending=[start];members=[];unseen.remove(start)
+        while pending:
+            vertex=pending.pop();members.append(vertex);owners[vertex]=stock
+            for other in neighbors[vertex]:
+                if other in unseen:unseen.remove(other);pending.append(other)
+        frames[stock]=stock_grain_frame([mesh.vertices[i].co[:] for i in members],albedo);stock+=1
+    charts=[];guides=[]
+    for face in mesh.polygons:
+        assert len(face.vertices)==3
+        owner=owners[face.vertices[0]];assert all(owners[i]==owner for i in face.vertices)
+        points=np.array([mesh.vertices[i].co[:] for i in face.vertices])
+        normal,tangent,uv,fallback=stock_grain_chart(points,np.zeros(3),1.,frames[owner])
+        charts.extend(uv.ravel());guides.extend([tangent[0],tangent[2],-tangent[1]]*3)
+    mesh.uv_layers.active.data.foreach_set('uv',np.asarray(charts,dtype=np.float32))
+    mesh.attributes['_tangent_guide'].data.foreach_set('vector',np.asarray(guides,dtype=np.float32))
+
+
 materials={};draws=[]
 for (name,key),(vv,ff) in sorted(buffers.items()):
     p=groups[name.split('__')[0]];tint=p['wall_tint'] if key==p['wall_key'] else p['frame_tint'] if key=='door_paint' else [.18,.23,.25,1] if key=='mirror_aged' else [1,1,1,1]
@@ -803,6 +828,7 @@ for (name,key),(vv,ff) in sorted(buffers.items()):
     bm.to_mesh(mesh);bm.free()
     obj=partition(exports,name+'__'+key,[stock],finish,mat,Matrix.Translation(center),catalog)
     if key in ['city_slate','city_roof_clay']:roof_metric_charts(obj)
+    if name=='site_ne1' and key=='wood_dark':wood_stock_charts(obj,catalog[key]['files'][0])
     assert obj.name==name+'__'+key,(name,key,obj.name)
     obj.hide_render=False;obj.hide_set(False);draws.append(obj)
     bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
@@ -889,6 +915,7 @@ projection=ROOT/'game/data/orison_v2/exterior/city_elevations.json'
 projection.write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8',newline='\n')
 bindings=[ROOT/p for p in ['art/data/city_elevations/source_plan.json','art/blender/city_closure.blend','art/blender/city_closure_construction.json','art/blender/city_shells.blend','art/blender/city_shells_registration.json','game/data/runtime_material_sets.json','game/data/orison_v2/exterior/city_elevations.json','game/tests/fixtures/orison_city_masts.json','game/tests/fixtures/orison_city_aerials.json','game/tests/fixtures/orison_city_tanks.json','game/scripts/building/orison_v2_city_shells.gd','game/scripts/building/orison_v2_city_placement.gd','art/blender/scripts/city_horizon_geometry.py','art/blender/scripts/fabrication_native_batch.py','art/blender/scripts/fabrication_normals.py','art/blender/scripts/fabrication_uvs.py']]+[Path(__file__)]
 bindings.append(ROOT/'art/blender/scripts/city_commercial_architecture.py')
+bindings.append(ROOT/'art/blender/scripts/fabrication_grain.py')
 bindings.append(ROOT/'art/blender/scripts/frame_mitre_geometry.py')
 for key in {key for name,key in buffers}:
     bindings.extend(ROOT/'game/assets/building/textures'/f for f in catalog[key]['files'])
