@@ -1,0 +1,39 @@
+{
+  "schema": "orison.city-bridge.v1",
+  "evidence_class": "INERT",
+  "scope": "Queensboro-derived full-scale engineering-frame native study. No installed siting, access, structural rating, historical paint specification or runtime acceptance.",
+  "frame": "BRIDGE_ENGINEERING_X_MANHATTAN_TO_QUEENS_Z_HIGH_WATER",
+  "references": [
+    {"source": "William H. Burr, Queensboro Bridge: Report on Design and Construction, 1908", "url": "https://www.loc.gov/item/09009940/", "pages": "PDF11-12 and figure3/PDF23", "use": "Unequal span chain, paired truss centres, revised two-level section; superseded four-elevated-track proposal excluded."},
+    {"source": "City engineering drawing4347/4357/4936", "packet": "C:/ov/reports/bridge_research_20261028/", "use": "Four steel tower frames, chord-centre depth185ft, Queens approach3.4percent; inspected primary drawings and research register, not a surveyed fictional parcel."}
+  ],
+  "spans_m": [143.1036, 360.2736, 192.024, 299.9232, 139.9032],
+  "truss_centres_m": 18.288,
+  "outer_envelope_m": 26.2128,
+  "road_width_m": 16.2306,
+  "upper_base_rail_offset_m": 6.6421,
+  "tower_chord_depth_m": 56.388,
+  "central_level_length_m": 518.16,
+  "end_grade": 0.034,
+  "approach_length_m": 451.7261,
+  "rail_gauge_m": 1.435,
+  "authored": {
+    "road_mid_crown_m": 44.5,
+    "anchor_chord_depth_m": 9.0,
+    "channel_meeting_depth_m": 9.0,
+    "island_meeting_depth_m": 39.0,
+    "panel_target_m": 12.0,
+    "chunk_length_m": 64.0,
+    "crest_height_m": 6.0,
+    "pier_bottom_m": -6.0,
+    "paint_note": "Restrained gray-brown trial, not a documented1928 paint match.",
+    "shape_note": "Intermediate chord curves, panel divisions, sections, connection plates and crest are authored approximations guided by the primary elevation. Native high-water zero is not game ASL. Siting and supported shoreline/island continuation remain open."
+  },
+  "finishes": {
+    "painted_steel": {"catalog_key": "iron_neutral", "metallic": 0.0, "tint": [0.34, 0.35, 0.32, 1.0], "normal": 0.45, "roughness": 1.0, "pigment": 1.0},
+    "rail": {"catalog_key": "iron_neutral", "metallic": 1.0, "tint": [0.65, 0.64, 0.60, 1.0], "normal": 0.25, "roughness": 0.85, "pigment": 1.0},
+    "paving": {"catalog_key": "asphalt", "metallic": 0.0, "tint": [0.38, 0.37, 0.34, 1.0], "normal": 0.55, "roughness": 1.0, "pigment": 1.0},
+    "stone": {"catalog_key": "limestone", "metallic": 0.0, "tint": [0.53, 0.51, 0.46, 1.0], "normal": 0.65, "roughness": 1.0, "pigment": 1.0},
+    "timber": {"catalog_key": "timber", "metallic": 0.0, "tint": [0.34, 0.29, 0.23, 1.0], "normal": 0.45, "roughness": 1.0, "pigment": 1.0}
+  }
+}
