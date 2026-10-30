@@ -5,6 +5,10 @@ extends RefCounted
 ## an invented test tone leaking into the shipped soundscape.
 
 const RECORDED := {
+	# Original offline-rendered LPC-style synthesis; never eligible teacher speech.
+	"companion_babble_acknowledgement": "res://assets/audio/companion/acknowledgement.wav",
+	"companion_babble_confusion": "res://assets/audio/companion/confusion.wav",
+	"companion_babble_concern": "res://assets/audio/companion/concern.wav",
 	"ambient_city_loop":
 		"res://assets/audio/freesound/processed/beds/ambient_city_night.ogg",
 	"ambient_building_loop":

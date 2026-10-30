@@ -56,6 +56,9 @@ DYNAMIC_MAP_PATHS_BY_SCHEMA = {
 # These declarations classify record identities only. They grant neither a
 # FILE reader nor a reader for any field in a record value.
 DYNAMIC_MAP_PATHS_BY_FILE = {
+    # OrisonAudioPolicy._load_catalog iterates cues[cue_id]; values still
+    # require readers for bus, stream_key, limits, captions and every new field.
+    "audio_cues.json": frozenset({"cues"}),
     # Readable library cache resolves authored stock/finish/plate identities;
     # record values still need ordinary production field readers.
     "orison_v2/readable_library.json": frozenset({"parts", "books", "cases", "bookends", "finishes", "illustrations", "page_designs", "formats", "publishers", "publication_layouts", "decorations"}),

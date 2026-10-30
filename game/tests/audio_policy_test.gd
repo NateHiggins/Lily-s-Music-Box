@@ -11,7 +11,7 @@ func _ready() -> void:
 	var master_before := AudioServer.get_bus_volume_db(
 			AudioServer.get_bus_index("Master"))
 	_check("catalog and bus tree build", policy.setup())
-	_check("catalog owns thirty-one semantic cues", int(policy.census().catalog_size) == 31)
+	_check("catalog owns forty semantic cues", int(policy.census().catalog_size) == 40)
 	_check("voice allocation is bounded at sixteen",
 			int(policy.census().voices) == PolicyScript.VOICE_CAP
 			and policy.find_children("*", "AudioStreamPlayer3D", true, false).size()
@@ -20,6 +20,12 @@ func _ready() -> void:
 		var index := AudioServer.get_bus_index(str(spec[0]))
 		_check("bus %s has canonical parent %s" % [spec[0], spec[1]],
 				index >= 0 and AudioServer.get_bus_send(index) == str(spec[1]))
+	for gesture: String in ["acknowledgement", "confusion", "concern"]:
+		var own: Dictionary = policy.cue(StringName("companion_babble_"+gesture))
+		_check("original babble uses bounded Dialogue policy: "+gesture,
+			str(own.bus)=="Dialogue" and not bool(own.graph_transmitted)
+			and int(own.max_instances)==1 and float(own.cooldown)>=6.0
+			and PropAudio.get_stream(str(own.stream_key)) is AudioStreamWAV)
 	var nav: Dictionary = policy.cue(&"nav.vantry_fault")
 	_check("Vantry is navigation, unique and not a generic tick",
 			str(nav.purpose) == "navigation" and str(nav.bus) == "Navigation"
@@ -142,7 +148,7 @@ func _ready() -> void:
 	policy.clear_diagnostics()
 	_check("diagnostic reset changes no catalog or mix truth",
 			int(policy.census().history) == 0
-			and int(policy.census().catalog_size) == 31
+			and int(policy.census().catalog_size) == 40
 			and int(policy.census().mix_requests) == 0)
 	# Expired slots are reused: the first owner's old cache references must
 	# still retire even when another source now occupies its former slot.
