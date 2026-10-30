@@ -121,7 +121,9 @@ readability, and feel.
   A public resume API does not prove automatic recovery: cancel through a real
   successor, release it, and exercise validated reload without a manual restart.
   Test reloads after completion has disabled processing too. Retire recovery at
-  shutdown and preserve foreign input/camera ownership.
+  shutdown and preserve foreign input/camera ownership. Test each transient
+  phase owner: DREAM recovery does not establish synchronization or title retry.
+  A camera-only successor needs protection even when no text editor is active.
 - **Clock coordinates:** separate reversible calendar presentation from
   monotonic elapsed/deadline counters. An annual civil loop must not wrap a
   service deadline. Derive paper, sky and adopted destination from one immutable

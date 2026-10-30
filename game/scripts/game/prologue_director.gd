@@ -207,6 +207,7 @@ func _temporal_finished(completed:bool) -> void:
 func begin_temporal_sky() -> bool:
 	if world==null or not is_same(_document,RealityState.data) or state.get("phase","") not in ["temporal_synchronization","title_reveal"]:return false
 	if is_instance_valid(temporal_sky) and (temporal_sky.active or temporal_sky.holding):return false
+	if get_tree().paused or RealityState.save_write_blocked or player.call_locked or player.mouse_released or not player.camera.is_current():return false
 	if state.phase=="temporal_synchronization" and state.effects.clock_applied:
 		if not finish_temporal_synchronization():return false
 	if is_instance_valid(temporal_sky):temporal_sky.queue_free()
@@ -374,6 +375,15 @@ func _process(delta: float) -> void:
 		# input/view ownership, restage the saved phase rather than stranding play.
 		# Reuse the existing cadence and resume guards; never accumulate story time.
 		if not is_instance_valid(waking) and _opening_cover!=null:
+			_poll+=step
+			if _poll>=PERIOD:
+				_poll=0.0
+				resume_opening(_opening_cover)
+		return
+	if state.phase in ["temporal_synchronization","title_reveal"]:
+		# Reload or a legitimate successor can cancel/refuse this transient
+		# owner. Retry through the public guards, without advancing story time.
+		if _opening_cover!=null and (not is_instance_valid(temporal_sky) or (not temporal_sky.active and not temporal_sky.holding)):
 			_poll+=step
 			if _poll>=PERIOD:
 				_poll=0.0

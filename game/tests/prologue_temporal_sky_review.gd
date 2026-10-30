@@ -67,6 +67,8 @@ func run() -> void:
 	for frame in 120:await frames(1)
 	var target:=Opening.sample_destination()
 	if not check(stage(target),"historical 4B wall and finale owners bind"):finish();return
+	if OS.get_environment("PROLOGUE_LATE_RELOAD_REVIEW")=="1":
+		await review_interrupted_reload(target);finish();return
 	var clock:=CampaignClock.new()
 	var before:Dictionary=RealityState.data.campaign_clock.duplicate(true)
 	var projection:=TemporalSky.RenderClock.new()
@@ -178,6 +180,54 @@ func run() -> void:
 		Input.parse_input_event(press);Input.flush_buffered_events();await frames(2)
 		check(director.state.phase=="prologue_complete" and director.temporal_sky.was_skipped and player.text_input_owner==null,"actual skip input completes through the same clock owner and releases its lease")
 	finish()
+
+func review_interrupted_reload(target:Dictionary) -> void:
+	# Synthetic validated late-phase staging; earlier opening beats not played.
+	var player:=world.player
+	var carrier:Node=world.service_set_carrier
+	carrier.session.draft="Keep this unfinished temporal question."
+	var draft:String=carrier.session.draft
+	if not check(director.resume_opening(preload("res://assets/props/prologue_wake_cover.glb")),"saved synchronization resumes through public campaign entry"):return
+	if not check(is_instance_valid(director.temporal_sky) and director.temporal_sky.active,"synchronization owns a real sky presentation before interruption"):return
+	director.temporal_sky.cancel()
+	RealityState.save_path=directory.path_join("late_sync_reload.json");RealityState.persistence_enabled=true
+	if not check(RealityState.save_game(),"validated save records interrupted synchronization"):return
+	var foreign:=Node.new();add_child(foreign)
+	if not check(player.acquire_text_input(foreign),"successor editor acquires input before reload"):return
+	RealityState.load_game()
+	await frames(3)
+	check(player.text_input_owner==foreign and player.camera.is_current() and not director.temporal_sky.active,"synchronization reload preserves successor editor and camera")
+	player.release_text_input(foreign);foreign.queue_free()
+	await frames(45)
+	if not check(is_instance_valid(director.temporal_sky) and director.temporal_sky.active,"saved synchronization automatically retries after successor editor release"):return
+	check(director.state.target==target and not director.state.effects.clock_applied and carrier.session.draft==draft,"automatic retry preserves destination, unapplied clock and typed draft")
+	await capture("sync_after_editor_reload.png")
+	director.temporal_sky.cancel()
+	var foreign_camera:=Camera3D.new();add_child(foreign_camera)
+	foreign_camera.global_transform=player.camera.global_transform;foreign_camera.make_current()
+	RealityState.load_game();await frames(3)
+	check(foreign_camera.is_current() and player.text_input_owner==null and not director.temporal_sky.active,"synchronization reload does not steal a foreign camera without an editor")
+	player.camera.make_current();foreign_camera.queue_free();await frames(45)
+	if not check(director.temporal_sky.active,"saved synchronization retries after foreign camera release"):return
+	director.temporal_sky.seek(32)
+	if not check(director.state.phase=="title_reveal" and director.state.effects.clock_applied and director.temporal_sky.holding,"real transition acknowledgement reaches the historical cutaway"):return
+	director.temporal_sky.cancel()
+	RealityState.save_path=directory.path_join("late_title_reload.json")
+	if not check(RealityState.save_game(),"validated save records the already-applied historical cutaway"):return
+	foreign=Node.new();add_child(foreign)
+	if not check(player.acquire_text_input(foreign),"successor editor acquires input before title reload"):return
+	RealityState.load_game();await frames(3)
+	check(player.text_input_owner==foreign and not director.temporal_sky.holding,"title reload preserves successor editor")
+	get_tree().paused=true;player.release_text_input(foreign);foreign.queue_free();await frames(10)
+	check(not director.temporal_sky.holding and director.state.phase=="title_reveal","pending cutaway retry stays dormant while paused")
+	get_tree().paused=false;await frames(45)
+	if not check(director.temporal_sky.holding and not director.temporal_sky.active,"saved historical cutaway automatically resumes after pause and editor release"):return
+	check(director.state.target==target and director.state.effects.clock_applied and carrier.session.draft==draft,"historical retry preserves adopted target, clock acknowledgement and draft")
+	await capture("title_after_editor_reload.png")
+	var press:=InputEventAction.new();press.action="ui_accept";press.pressed=true
+	Input.parse_input_event(press);Input.flush_buffered_events();await frames(2)
+	check(director.state.phase=="prologue_complete" and player.text_input_owner==null,"actual skip from resumed cutaway completes and releases input")
+
 
 func review_time_curve() -> void:
 	for span:float in [1.0,86400.0,31536000.0,3090000000.0,-3090000000.0]:
