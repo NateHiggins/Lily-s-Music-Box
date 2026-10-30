@@ -1010,10 +1010,16 @@ func _process(delta: float) -> void:
 	for i in mini(_handles.size(), 2):
 		_handle_turns[i] = targets[i] if _held_valve == i else move_toward(_handle_turns[i], targets[i], delta * 3.0)
 		var turn := _handle_turns[i]*PI*.5
+		var previous_rotation:Vector3 = _handles[i].rotation
+		var next_rotation:Vector3 = previous_rotation
 		if _handle_wall_mounted[i]:
-			_handles[i].rotation.z = -turn
+			next_rotation.z = -turn
 		else:
-			_handles[i].rotation.y = turn
+			next_rotation.y = turn
+		# Compare the actual float32 pose, not approximate valve values. Node3D
+		# otherwise invalidates this entire native branch even when unchanged.
+		if previous_rotation != next_rotation:
+			_handles[i].rotation = next_rotation
 	var openings := _effective_openings()
 	var flowing := openings.x > .0001 or openings.y > .0001
 	var inflow := .075*minf(1.0,openings.x+openings.y) if flowing else 0.0
@@ -1023,12 +1029,15 @@ func _process(delta: float) -> void:
 		_basin_water.visible = _water_level > 0.01
 		# Water has one surface; it rises from the drain rather than growing
 		# into a thick translucent lid fixed just below the rolled rim.
-		_basin_water.position.y = lerpf(
-				_water_empty_y, _water_full_y, _water_level)
+		var next_position:Vector3 = _basin_water.position
+		next_position.y = lerpf(_water_empty_y, _water_full_y, _water_level)
+		if _basin_water.position != next_position:
+			_basin_water.position = next_position
 		var spread := lerpf(0.52, 1.0, _water_level)
-		_basin_water.scale.x = _water_full_scale.x * spread
-		_basin_water.scale.y = _water_full_scale.y
-		_basin_water.scale.z = _water_full_scale.z * spread
+		var next_scale := Vector3(_water_full_scale.x * spread,
+				_water_full_scale.y, _water_full_scale.z * spread)
+		if _basin_water.scale != next_scale:
+			_basin_water.scale = next_scale
 	# A hot shower fogs only while it is physically hot; this state is kept
 	# for the director without adding a supernatural electrical affordance.
 	if fixture == "shower" and _hot:
