@@ -3,6 +3,50 @@
 Evidence class: **INERT**. Authoring plan and native integration record;
 runtime qualification and artistic acceptance are reported separately below.
 
+## October30 research reconciliation — proposal only
+
+Read the external **facade_window_research_20261028/AUDIT.md** and
+**candidate_inventory.md** alongside current authorities and the storefront
+plan. LF-normalized comparison against their51 source records finds39 unchanged,
+12 changed, none missing. All99 window records still match the researched
+dimensions, centres, room/level owners and axes. Seven bathroom windows remain;
+the4B opening into the4C studio and the compressed eastern bay remain repair
+leads. The18 surround/pier overlaps are metadata findings requiring current
+native/imported contact checks, not18 newly verified triangle intersections.
+
+The provenance packet's older68-part/37,687-triangle baseline and its statement
+that no newer ornate candidate exists are superseded. The installed inventory
+now binds633 stocks,59 parts and41,302 triangles to the exact current GLB hash;
+the October29 selective integration below preserves its original authorities.
+Keep that improved portal. Do not restore deleted snapshots or reauthor its leaf.
+
+Proposed construction order, after current qualification repairs:
+
+1. Resurvey the current wall/aperture owners, both occupied rooms beside4B,
+   restoration stone, canopy bearings, ventilation and below-grade boiler inlet.
+   Draw one full-depth entrance/slab/canopy section before changing stock.
+2. Resolve the seven windowless-bathroom conflicts through their authoring
+   owners with supported opaque wall and matching interior finish. Preserve
+   rooms, partitions, floors, stairs and the four ventilation stacks. Reconcile
+   existing bathroom curtain/inspection behavior before retiring any opening;
+   the temporal finale already uses the bedroom exterior window.
+3. Fit the narrow service-window surrounds to the retained pier; compose the
+   main gallery rhythm and subordinate service bay without imposing uniform
+   spacing or moving occupied partitions. Reuse installed portal/hardware,
+   glass, stone profiles and full-depth mitre helpers wherever compatible.
+4. Coordinate only the immediate frontage interfaces with the shared storefront
+   kit in **V2_STOREFRONT_REFIT_PLAN_2026-10-29.md**. Background city-body work is
+   separate; freeze shared ground/frontage envelopes before native authoring.
+
+Unresolved: native severity of the18 metadata overlaps; the boiler inlet's
+actual exterior lightwell; the bathroom curtain/inspection migration; and the
+canonical/V2 basement datum discrepancy. None authorizes moving a floor or
+removing an installed interaction in this research pass. Verify changed stock
+in native sections and a small imported bench, then use nearby standing views,
+real affected door/window input and targeted reload checks. Reuse unchanged
+qualified routes; no whole-city walk or full survey per cosmetic iteration.
+No geometry, gameplay or acceptance status changes in this reconciliation.
+
 ## Owner direction and form references
 
 Build one coherent, ornate luxury Queens entrance from the owner's alternatives:
