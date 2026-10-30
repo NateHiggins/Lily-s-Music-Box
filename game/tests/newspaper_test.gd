@@ -147,19 +147,41 @@ func _back_page(catalog: NewspaperCatalog) -> void:
 	long_foot.foot = "Two\nlines"
 	_check("a two-line foot is refused", not catalog._valid_back(long_foot, "speaker", "test"))
 	catalog.errors.resize(errors_before)
+	var boxes := catalog.ads_for("speaker", "1928-11-10")
+	_check("the back carries six advertisements, the same ones each time the day is read",
+			boxes.size() == NewspaperCatalog.ADS_PER_PAGE and boxes == catalog.ads_for("speaker", "1928-11-10"))
+	_check("no advertisement runs in the wrong paper", catalog.ads_for("record", "1928-11-10").all(
+			func(ad): return str(ad.paper) in ["record", "both"]))
+	_check("only the Speaker runs the cartoon", catalog.cartoon_for("record", "1928-11-11").is_empty())
+	_check("the first Sunday has its drawn cartoon", ResourceLoader.exists(str(catalog.cartoon_for("speaker", "1928-11-11").get("image", ""))))
 	var panel := NewspaperPanel.new()
 	add_child(panel)
 	panel.open(null, catalog, "speaker", "1928-11-10")
 	await get_tree().process_frame
-	_check("no corner to turn without a back page", not panel._corner.visible)
+	var plain_corner: Vector2 = panel._corner.get_global_rect().get_center()
+	_check("every published sheet curls its corner", panel._corner.visible)
+	await _press(plain_corner)
+	await _drag(Vector2(-220, 0))
+	await _press(plain_corner)
+	await get_tree().process_frame
+	var plain_back := _texts(panel)
+	_check("a back with no columns of its own still carries the advertising", panel.side == "back"
+			and _set_in(plain_back, str(boxes[0].headline)) and _set_in(plain_back, str(boxes[0].body)))
+	var set_firm := catalog.firm_for(boxes[0])
+	_check("each advertisement names its firm and says how to reach it",
+			_set_in(plain_back, str(set_firm.name)) and _set_in(plain_back, str(set_firm.address))
+			and _set_in(plain_back, str(set_firm.telephone)))
+	_check("every style the book uses can be set", _every_style_sets(catalog))
 	panel.close()
 	await get_tree().process_frame
 	catalog.issues["1928-11-10"].speaker.back = good
+	catalog._cartoons["1928-11-10"] = {"image": "res://assets/ui/telegram/telegram_paper_stock_v1.png",
+			"caption": "A sample caption under the drawing."}
 	panel = NewspaperPanel.new()
 	add_child(panel)
 	panel.open(null, catalog, "speaker", "1928-11-10")
 	await get_tree().process_frame
-	_check("a back page curls the sheet's corner", panel._corner.visible and panel.side == "front")
+	_check("a sheet opens on its front", panel._corner.visible and panel.side == "front")
 	var corner: Vector2 = panel._corner.get_global_rect().get_center()
 	print("NEWSPAPER INPUT GEOMETRY ",JSON.stringify({"viewport":str(get_viewport().get_visible_rect()),"corner":str(panel._corner.get_global_rect()),"outside_click":str(Vector2(40,40))}))
 	_check("outside click and corner are distinct visible targets",not panel._corner.get_global_rect().has_point(Vector2(40,40)) and get_viewport().get_visible_rect().has_point(corner))
@@ -181,6 +203,10 @@ func _back_page(catalog: NewspaperCatalog) -> void:
 			and texts.has("A NEWS HEADLINE") and texts.has("A classified body.")
 			and texts.has("One line at the foot."))
 	_check("the front has gone from the sheet", not texts.has("HOOVER WINS BY A HAIR, LOSES BY A WIRE"))
+	_check("the week's cartoon hangs over its caption", panel._page.find_child("Cartoon", true, false) is TextureRect
+			and texts.has("A sample caption under the drawing."))
+	_check("the advertising is boxed on the back", panel._page.find_child("Advertising", true, false) != null
+			and _set_in(texts, str(boxes[0].headline)))
 	var shots:=OS.get_environment("SHOT_DIR")
 	if not shots.is_empty() and DisplayServer.get_name()!="headless":
 		DirAccess.make_dir_recursive_absolute(shots)
@@ -194,6 +220,7 @@ func _back_page(catalog: NewspaperCatalog) -> void:
 			and _texts(panel).has("HOOVER WINS BY A HAIR, LOSES BY A WIRE"))
 	panel.close()
 	catalog.issues["1928-11-10"].speaker.erase("back")
+	catalog._cartoons.erase("1928-11-10")
 	await get_tree().process_frame
 
 
@@ -272,3 +299,18 @@ func _input_ownership(catalog: NewspaperCatalog) -> void:
 	panel.queue_free();await get_tree().process_frame
 	_check("external reader retirement releases only its own input lock",not reader.call_locked and Input.mouse_mode==before)
 	reader.free()
+
+
+## Typesetting may change a line's case or join it to another; the words stay.
+func _set_in(texts: Array, wanted: String) -> bool:
+	var plain := " ".join(PackedStringArray(texts)).to_lower()
+	return plain.contains(wanted.to_lower())
+
+
+func _every_style_sets(catalog: NewspaperCatalog) -> bool:
+	for ad: Dictionary in catalog._ads:
+		var set_ad: Control = NewspaperAd.build(ad, catalog.firm_for(ad))
+		if set_ad == null or set_ad.get_child_count() == 0:
+			return false
+		set_ad.free()
+	return true

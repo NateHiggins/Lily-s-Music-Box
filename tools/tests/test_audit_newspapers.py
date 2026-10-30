@@ -60,5 +60,55 @@ class BackPageTests(unittest.TestCase):
         self.assertEqual(sum(line.endswith("no back page") for line in required), expected)
 
 
+class AdvertisingTests(unittest.TestCase):
+    FIRM = {"name": "Otis & Son", "mark": "O", "mark_shape": "ring", "id_line": "Est. 1889", "address": "The Arcade",
+            "telephone": "Havemeyer 2120", "hours": "", "slogan": ""}
+
+    def ad(self, **overrides):
+        ad = {"paper": "both", "firm": "Otis & Son", "style": "card", "size": "S", "headline": "A headline",
+              "body": " ".join(["word"] * 20), "image": "res://data/newspapers/papers.json"}
+        ad.update(overrides)
+        return ad
+
+    def page(self, **overrides):
+        return [self.ad(size=size, **overrides) for size in ("S", "S", "S", "S", "W", "W", "T", "B")]
+
+    def run_ads(self, ads):
+        found = []
+        audit.check_ads({"firms": {"Otis & Son": self.FIRM}, "ads": ads}, found)
+        return found
+
+    def test_good_ads_pass(self):
+        self.assertEqual(self.run_ads(self.page()), [])
+
+    def test_each_paper_needs_a_full_page_of_ads(self):
+        self.assertTrue(self.run_ads([self.ad()] * 6))
+        self.assertTrue(self.run_ads(self.page(paper="record")))
+
+    def test_limits_and_forbidden_words(self):
+        for bad in (self.ad(headline="x" * 40), self.ad(body="too short"), self.ad(paper="gazette"),
+                    self.ad(body=" ".join(["word"] * 20) + " at the orison"),
+                    self.ad(firm="Nobody Inc."), self.ad(style="poster"), self.ad(size="X"),
+                    self.ad(image="res://nope.png")):
+            self.assertTrue(self.run_ads([bad] + self.page()), bad)
+
+    def test_a_firm_must_say_who_it_is_and_how_to_reach_it(self):
+        for field, value in (("telephone", ""), ("address", ""), ("id_line", ""), ("name", "Mae Kessler")):
+            found = []
+            audit.check_ads({"firms": {"Otis & Son": dict(self.FIRM, **{field: value})}, "ads": self.page()}, found)
+            self.assertTrue(found, field)
+
+    def test_cartoons_run_on_sundays_with_a_real_image(self):
+        image = "res://data/newspapers/papers.json"
+        good = {"date": "1928-11-11", "image": image, "caption": "A caption."}
+        found = []
+        audit.check_cartoons({"cartoons": [good]}, found)
+        self.assertEqual(found, [])
+        for bad in (dict(good, date="1928-11-12"), dict(good, image="res://nope.png"), dict(good, caption="")):
+            found = []
+            audit.check_cartoons({"cartoons": [bad]}, found)
+            self.assertTrue(found, bad)
+
+
 if __name__ == "__main__":
     unittest.main()

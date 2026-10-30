@@ -29,6 +29,19 @@ COLUMNS = 3
 # all 730 exist; --require-back then makes a missing one a failure.
 BACK_COLUMNS = 4
 BACK_HEADLINE = 90
+# The advertising on the back of every sheet; the catalogue shows ADS_PER_PAGE.
+ADS_PER_PAGE = 6
+AD_HEADLINE = 40
+AD_ADVERTISER = 30
+AD_WORDS = (12, 35)
+AD_FIELDS = {"paper", "firm", "style", "size", "headline", "body", "image"}
+AD_OPTIONAL = {"items", "offer", "signed"}
+FIRM_FIELDS = {"name", "mark", "mark_shape", "id_line", "address", "telephone", "hours", "slogan"}
+AD_MARK_SHAPES = {"ring", "oval", "diamond", "shield"}
+AD_STYLES = {"bill", "card", "coupon", "notice", "testimonial", "deco", "reason", "trade", "black", "typed", "banner"}
+AD_SIZES = {"S", "W", "T", "B"}
+# The most any of the catalogue's page plans asks for.
+AD_SIZE_NEEDED = {"S": 4, "W": 2, "T": 1, "B": 1}
 BACK_KINDS = {
     "record": {"news", "notices", "sport", "weather", "markets", "classified"},
     "speaker": {"news", "sport", "pun_derby", "ask_operator", "listening_lady", "classified"},
@@ -66,6 +79,103 @@ def slices() -> list[tuple[str, dt.date, dt.date]]:
 
 def words(text: str) -> int:
     return len(re.findall(r"[A-Za-z0-9'’]+", text))
+
+
+def forbidden_in(text: str, where: str, failures: list[str]) -> None:
+    blob = text.lower()
+    for word in FORBIDDEN:
+        if re.search(r"\b" + re.escape(word.strip()) + (r"\b" if not word.strip().endswith("televis") else ""), blob):
+            failures.append(f"{where}: forbidden word '{word.strip()}'")
+    for name in RESIDENTS:
+        if name in blob:
+            failures.append(f"{where}: names a resident ('{name}')")
+
+
+def check_firms(firms: object, failures: list[str]) -> None:
+    """Every advertiser has an identity and a way to reach it."""
+    if not isinstance(firms, dict) or not firms:
+        failures.append("advertisements.json: no firms")
+        return
+    for name, firm in firms.items():
+        where = f"advertisements.json firm {name!r}"
+        if not isinstance(firm, dict) or set(firm) != FIRM_FIELDS:
+            failures.append(f"{where}: wants exactly {sorted(FIRM_FIELDS)}")
+            continue
+        for field in ("name", "id_line", "address", "telephone"):
+            if not str(firm[field]).strip():
+                failures.append(f"{where}: {field} is empty")
+        if len(name) >= AD_ADVERTISER:
+            failures.append(f"{where}: name wants 1-{AD_ADVERTISER - 1} characters")
+        if firm["mark"] and firm["mark_shape"] not in AD_MARK_SHAPES:
+            failures.append(f"{where}: mark shape {firm['mark_shape']!r}")
+        forbidden_in(json.dumps(firm, ensure_ascii=False), where, failures)
+
+
+def check_ads(doc: object, failures: list[str]) -> int:
+    ads = doc.get("ads") if isinstance(doc, dict) else None
+    if not isinstance(ads, list) or not ads:
+        failures.append("advertisements.json: no ads list")
+        return 0
+    firms = doc.get("firms")
+    check_firms(firms, failures)
+    for i, ad in enumerate(ads):
+        where = f"advertisements.json ad {i}"
+        if not isinstance(ad, dict) or not AD_FIELDS <= set(ad) or set(ad) - AD_FIELDS - AD_OPTIONAL:
+            failures.append(f"{where}: wants {sorted(AD_FIELDS)}, optionally {sorted(AD_OPTIONAL)}")
+            continue
+        if ad["paper"] not in ("record", "speaker", "both"):
+            failures.append(f"{where}: paper {ad['paper']!r}")
+        if not isinstance(firms, dict) or ad["firm"] not in firms:
+            failures.append(f"{where}: firm {ad['firm']!r} is not in the book")
+        if ad["style"] not in AD_STYLES:
+            failures.append(f"{where}: style {ad['style']!r}")
+        if ad["size"] not in AD_SIZES:
+            failures.append(f"{where}: size {ad['size']!r}")
+        if not str(ad["headline"]).strip() or len(str(ad["headline"])) >= AD_HEADLINE:
+            failures.append(f"{where}: headline wants 1-{AD_HEADLINE - 1} characters")
+        image = str(ad["image"])
+        if not image.startswith("res://") or not (REPO / "game" / image[6:]).exists():
+            failures.append(f"{where}: image {image!r} does not exist")
+        n = words(str(ad["body"]))
+        if not AD_WORDS[0] <= n <= AD_WORDS[1]:
+            failures.append(f"{where}: body {n} words (want {AD_WORDS[0]}-{AD_WORDS[1]})")
+        forbidden_in(json.dumps(ad, ensure_ascii=False), where, failures)
+    for paper in PAPERS:
+        running = [ad for ad in ads if isinstance(ad, dict) and ad.get("paper") in (paper, "both")]
+        for size, needed in AD_SIZE_NEEDED.items():
+            if sum(ad.get("size") == size for ad in running) < needed:
+                failures.append(f"advertisements.json: the {paper} needs at least {needed} ads of size {size}")
+    return len(ads)
+
+
+def check_cartoons(doc: object, failures: list[str]) -> int:
+    cartoons = doc.get("cartoons") if isinstance(doc, dict) else None
+    if not isinstance(cartoons, list):
+        failures.append("cartoons.json: no cartoons list")
+        return 0
+    seen: set[str] = set()
+    for i, cartoon in enumerate(cartoons):
+        where = f"cartoons.json cartoon {i}"
+        if not isinstance(cartoon, dict) or set(cartoon) != {"date", "image", "caption"}:
+            failures.append(f"{where}: wants exactly date, image and caption")
+            continue
+        try:
+            day = dt.date.fromisoformat(str(cartoon["date"]))
+        except ValueError:
+            failures.append(f"{where}: bad date {cartoon['date']!r}")
+            continue
+        if day.weekday() != 6:
+            failures.append(f"{where}: {day} is not a Sunday; the cartoon runs weekly on Sundays")
+        if str(day) in seen:
+            failures.append(f"{where}: {day} printed twice")
+        seen.add(str(day))
+        image = str(cartoon["image"])
+        if not image.startswith("res://") or not (REPO / "game" / image[6:]).exists():
+            failures.append(f"{where}: image {image!r} does not exist")
+        if not str(cartoon["caption"]).strip():
+            failures.append(f"{where}: caption empty")
+        forbidden_in(str(cartoon["caption"]), where, failures)
+    return len(cartoons)
 
 
 def check_back(back: object, paper: str, where: str, failures: list[str]) -> None:
@@ -166,10 +276,16 @@ def check_page(page: object, where: str, failures: list[str]) -> None:
 
 def audit(only: str | None, require_back: bool = False) -> tuple[list[str], dict]:
     failures: list[str] = []
-    stats = {"issues": 0, "files": 0, "back_pages": 0}
+    stats = {"issues": 0, "files": 0, "back_pages": 0, "ads": 0, "cartoons": 0}
     mastheads = DATA / "papers.json"
     if not mastheads.exists():
         failures.append("papers.json missing")
+    for name, check, stat in (("advertisements.json", check_ads, "ads"), ("cartoons.json", check_cartoons, "cartoons")):
+        path = DATA / name
+        if not path.exists():
+            failures.append(f"{name} missing")
+        else:
+            stats[stat] = check(json.loads(path.read_text(encoding="utf-8")), failures)
     seen: dict[str, str] = {}
     for key, first, last in slices():
         if only and key != only:
@@ -238,7 +354,7 @@ def main(argv: list[str]) -> int:
     if len(failures) > 200:
         print(f"  ... {len(failures) - 200} more")
     print(f"NEWSPAPER AUDIT: {stats['issues']} issues in {stats['files']} files; "
-          f"{stats['back_pages']} back pages; "
+          f"{stats['back_pages']} back pages; {stats['ads']} ads; {stats['cartoons']} cartoons; "
           f"{len(failures)} failures -> {'PASS' if not failures else 'FAIL'}")
     return 0 if not failures else 1
 

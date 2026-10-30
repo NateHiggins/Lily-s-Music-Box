@@ -101,6 +101,8 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     # The daily papers: papers keyed by id; every issue field is read by the
     # catalogue's validator and printed by the panel.
     "newspapers/papers.json": frozenset({"papers"}),
+    # The advertising book: firms keyed by name, read by NewspaperAd.
+    "newspapers/advertisements.json": frozenset({"firms"}),
     # The mystery threads: nodes and entries keyed by id, read by ResidentConversations.
     "mystery/adela_voss.json": frozenset({"entries", "nodes"}),
     "mystery/cal_dwyer.json": frozenset({"entries", "nodes"}),
