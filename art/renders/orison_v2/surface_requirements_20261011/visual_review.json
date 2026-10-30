@@ -1,26 +1,26 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "surface_inputs_sha256": "5f077291b9739b3c81fff78900c234b913e10e41df3c9adadccdecc757208d3b",
-  "scope": "Three actual native3440x1440 combined captures inspected. Physical composition/surfaces/teardown qualify technically; fixed-camera lamp daytime-context only. Clock/gating,navigation and native night controls retain their original separate source/scope. No whole-game,save,performance or human/art acceptance.",
+  "surface_inputs_sha256": "7d448985c4622a0b26114b30df0dbac3b4f44f162e5440c5f138554be87e7605",
+  "scope": "Three actual3440x1440 frames inspected. Two changed-frontage controller frames validly reused after byte-identical native replay; current bookcase frame from physical run. Technical composition/surfaces/teardown only,not full-city/access/save/performance or human artistic acceptance.",
   "images": [
     {
-      "file": "lamps_pavement_context.png",
-      "sha256": "72f680ccd703c98164db635f174395893bd819d00c975e9f67f5656571179135",
-      "observation": "Actual fixed-camera pavement view: new lamp silhouette/glazing appears under elevated structure beside retained facade,traffic and companion. This frames daytime sky only; lamp clock gating/night atmosphere and continuous access are separate evidence.",
-      "origin": "Inspected canopy_lamp_combined_02/raw actual capture."
+      "file": "northeast_workshop_standing.png",
+      "sha256": "adf787f0b8c9ce212224d074d1ae4d2863781a651608d914c9da0b4c4516d9ca",
+      "observation": "Actual normal-controller standing frontage detail under retained elevated structure; close upward framing is not full-facade/district artistic acceptance.",
+      "origin": "Reused from original successful canonical_city_intake_01 six-leg route. Subsequent owning native replay proves all five GLBs byte-identical; runtime materials/loader unchanged. Original route/source scope retained."
     },
     {
-      "file": "lamps_crook_context.png",
-      "sha256": "d279516c33aa7c860061c8bb5d1a07e5eecedf915efa33b6081e125c927f63ab",
-      "observation": "New crook,head,glazing and mantle are visible against sky and retained city geometry,without target occlusion by companion. This fixed camera is not a physical capsule access claim or artistic acceptance.",
-      "origin": "Inspected canopy_lamp_combined_02/raw actual capture."
+      "file": "northeast_oriel_standing.png",
+      "sha256": "60c40fdd2706233ee0bbb0c33d040de72ead7ac339842f310c2e61b959e69436",
+      "observation": "Actual normal-controller standing frontage detail under retained elevated structure; close upward framing is not full-facade/district artistic acceptance.",
+      "origin": "Reused from original successful canonical_city_intake_01 six-leg route. Subsequent owning native replay proves all five GLBs byte-identical; runtime materials/loader unchanged. Original route/source scope retained."
     },
     {
       "file": "bookcase.png",
-      "sha256": "86d9181184fc6bfd2bb7bfc2bd4e343c12df01013766002effe6eee23cf5d11d",
-      "observation": "Retained timber/glass bookcase and a few books render with maps; sparse dressing remains an open repair. No book handling or print-layout acceptance.",
-      "origin": "Inspected canopy_lamp_combined_02/raw actual capture."
+      "sha256": "c16136172adcbc788ec7aa1a9838790699e594e97ea057e2e96656563997bce2",
+      "observation": "Current combined physical-run timber/glass library frame inspected; sparse shelf dressing remains open. No book handling/print-layout acceptance.",
+      "origin": "Actual canonical_city_intake_02 physical-only frame."
     }
   ]
 }

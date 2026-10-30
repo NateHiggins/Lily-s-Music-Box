@@ -79,6 +79,33 @@ completed route; no second walk is needed. The physical-only rerun is under
 **canonical_city_intake_02/**. It remains pending at this record; source/mesh
 equivalence is not substituted for its test-written result.
 
+The rerun subsequently completes in350s at native3440x1440 fullscreen on the
+pinned patched Vulkan4.7.1 engine:651 checks/zero failures,empty stderr,
+29,130 draws/18,330 meshes/6,376 materials/542 textures. The test-written
+**canonical_city_intake_02/raw/runtime_contract.json** executes production
+composition,surface requirements and teardown; save reconstruction and interaction
+programmes are **NOT_EXECUTED**. Its measured contract interval is317.6s,
+distinct from the wrapper's350s. The previous652 count additionally included an
+optional fixed-camera lamp-context check; that unchanged capture programme was
+not repeated here. No predicate was removed.
+
+The reviewed packet is published with the existing atomic publisher,retaining
+the previous packet under **canonical_city_intake_02/publication/**. Independent
+qualification returns PASS/zero defects. Rendering-input digest is
+**7d448985c4622a0b26114b30df0dbac3b4f44f162e5440c5f138554be87e7605**.
+The current bookcase frame was inspected,with sparse dressing explicitly still
+open. The two actual northeast route frames are reused with their original
+origin/scope after byte-identical native replay; close upward frontage detail
+does not supply a full-facade or district-wide aesthetic verdict. No contract
+or old image is repinned to claim a new run. Clean final candidate comparison
+and publication to main remain pending at this entry.
+
+The374 walking frames measure wall median20.418/p9553.424/p9968.491/max316.861ms;
+main GPU median6.750/p9517.362/max18.693ms. These are descriptive local-route
+measurements,not a matched speedup or a city frame budget. Global rendering
+counters include private viewports; CPU/native host overlap is not fully excluded.
+The316.861ms stall and broader performance qualification remain open.
+
 ## October30 cityscape priority and district review
 
 Evidence class: **INERT**. Lily's latest direction is to finish the cityscape
