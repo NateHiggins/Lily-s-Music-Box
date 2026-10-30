@@ -1,7 +1,7 @@
 # V2 shop mechanics and appearance overhaul: proposal
 
-Evidence class: **INERT**. A proposal for the owner's decision, dated 2026-10-30.
-Nothing here is built, rendered or accepted. All stock and prices are in
+Evidence class: **INERT**. A proposal with the owner's rulings in section 9, dated
+2026-10-30. Nothing here is built, rendered or accepted. All stock and prices are in
 **design/V2_SHOP_CATALOGUE_2026-10-30.md**.
 
 Owner direction, 2026-10-30: every shop needs a gameplay purpose; fill out each
@@ -66,11 +66,11 @@ run for it.
 
 ## 3. The research
 
-I found one recent research packet on shops, **C:/ov/reports/storefront_research_20261028**
-(six reference cards and a source register), plus item 7 of
-**C:/ov/reports/research_agenda_20261028/RESEARCH_AGENDA.md**. These folders don't
-say who wrote them. Lily's ChatGPT project tracker isn't readable from here, so any
-gameplay research that exists only there was not used.
+The recent research on shops is **C:/ov/reports/storefront_research_20261028** (six
+reference cards, a source register, a kit drawing and a dimension schedule), plus item 7
+of **C:/ov/reports/research_agenda_20261028/RESEARCH_AGENDA.md**. The owner confirmed on
+2026-10-30 that this is the research there is: historical cards and authored adaptations
+for frontages, with no comprehensive interior packet.
 
 **What it gives this proposal:** six distinct frontage compositions (grocery =
 canopy and crates; hardware = tall tools; news = hatch and paper tiers; pharmacy =
@@ -126,7 +126,7 @@ as the owner directed:
   bodega sales work unattended on the terminal, as the radio note proposes.
 - **Anonymous stick figures** browse and serve as background
   (**K-V2-BACKGROUND-STICKFIGURES**). They create no facts.
-- **Named residents** only where a person matters: see section 9, decision 3.
+- **Named residents** only where a person matters: see section 9, ruling 3.
 
 **4.6 Stock simulation.** One S1 bucket per shop, extending
 **orison_v2_shop_simulation.gd** and its existing no-second-clock catch-up.
@@ -240,10 +240,10 @@ Hours are as installed unless marked.
 ### Shoe Rebuilding. *How loud you are.*
 - **Purpose:** your soles decide how the building hears you at night.
 - **Mechanic:** set the boot on the bench, choose leather (lasts, loud on terrazzo) or
-  rubber (quiet, wears faster). Boots are gone while the work is done, so you get
+  rubber (quiet). Boots are gone while the work is done, so you get
   them back tomorrow, and you go about in borrowed slippers in the meantime.
 - **Ties in:** footstep audio per surface. It matters for anyone asleep in the dark
-  hours. Worn soles get louder and slip on wet stair treads.
+  hours.
 - **Shown:** the common-shaft finisher running, racks of ticketed shoes, the smell
   joke from the ad as a wisp over the machine.
 
@@ -256,7 +256,7 @@ Hours are as installed unless marked.
 - **Ties in:** the carried set, parts for Vantry sets as advertised. The bench
   may notice 1610 is there but, like the papers, never explains it. An
   upgrade never gates a companion conversation.
-- **Shown:** an open chassis that changes as sets come and go; valve shelves glow.
+- **Shown:** an open chassis that changes as sets come and go; the valve shelves thin out.
 
 ### Photo Supplies. *Evidence, and Adela's window.*
 - **Purpose:** the heart of the Arcade. Canon makes photographs dear and rare, so a
@@ -351,20 +351,59 @@ gate NEW 0, a draw-call measurement on the Arcade route, and a playable pass for
 Any script or data change expires main's surface receipt, so slices merge in batches
 with a merge hold for the renewal.
 
-## 9. Decisions for Lily
+## 9. Owner rulings, 2026-10-30
 
-1. **Who runs Photo Supplies after July?** The treatment has Adela, then Nadia keeping
-   the window. The radio note's staff table puts Sacha there. I recommend the treatment.
-2. **Should coin ever change hands?** Your radio-settlement ruling says no, and I've
-   followed it, but papers and pool stakes feel like coin. I recommend staying with
-   radio, plus a Harukiya slate.
-3. **Which residents work?** The radio note proposes Omar at Radio, Iris at Paint, Mae
-   at Pawn, Sacha at Photo, Lena at mending and Cam on restock. Mae at Pawn would change
-   what she can do and when in the murder plot, so it needs your read. Lena's mending has no shop yet: the Laundry could carry it.
-4. **Does rent get teeth?** Today it has no penalty. A notice under the door and a
-   grumbling landlord would make money matter. Eviction would not fit. I recommend the
-   notice.
-5. **Are clean uniforms and sole noise too fussy?** They add small upkeep. Cut them
-   first if the game starts to feel like chores.
-6. **Is the ChatGPT research elsewhere?** If there's gameplay research in your tracker,
-   paste it and I'll fold it in.
+These settle the open questions. Sections 4 and 5 read with them.
+
+1. **Photo Supplies after July:** Nadia keeps it, as in the treatment. The older staff
+   table's Sacha at Photo is retired.
+2. **Money:** radio settlement everywhere, plus the slate at Harukiya. No coin dish.
+3. **Staff:** all four proposals go ahead: Omar at Radio, Iris at Paint, Mae at the
+   Pawnbroker, Lena's mending at the Laundry, and Cam on restock.
+4. **Rent:** notices, then lost perks. Late notices come under the door and grow more
+   pointed. After that, tenants stop signing spare-key permissions until you pay.
+5. **Upkeep:** sole noise and the clean uniform both stay. The sole-wear answer
+   conflicted (both "wear" and "no wear" were chosen), so the first build has **no sole
+   wear**: the choice of sole matters and needs no upkeep. Wear can be added later
+   without changing the data.
+6. **Funeral Parlour:** paid per booked service, with no timer or talking.
+7. **Order:** shared systems, then Hardware, Bodega and News, as in section 8.
+8. **Research:** no gameplay research exists beyond what section 3 lists. There is no
+   comprehensive historical interior packet for the thirteen shops. Follow current
+   Bible and owner direction over the older research scope.
+
+**What these rulings require:**
+
+- **Spare-key perks never touch the mystery.** Rule 2 of section 1 wins. Treatment keys
+  (**m_spare_key**, **m_key_loan_11**, **m_key_loan_19**) and any door the case needs
+  stay outside the rent penalty.
+- **Mae at the Pawnbroker needs a timeline check before it ships.** Her schedule must
+  hold her dark-hours alibi, the rent receipt and her sale day. The job is a reason to
+  be seen in the Arcade and a reason to know who is short of money. It adds no clue and
+  no confession.
+- **Lena's button book and mending ticket stay hers** when her mending moves to the
+  Laundry: **m_button_book** and **m_bag_ticket** read the same. The Laundry gains a
+  mending counter, and her 2B basket remains a carrier.
+- **Cam on restock** must not disturb **m_route_book**. Deliveries are additional runs.
+
+## 10. What is already modelled
+
+From the fitting guides under **art/blender/**. Reuse these first. Their guides call them
+passive, so none sells anything yet, and each needs a sale owner.
+
+| Shop | Already built | What it changes here |
+|---|---|---|
+| Hardware | 35 drawers, beam balance, unloaded paint shaker, mixing paddle, 36 trays of washers, bolts, couplings and nails, 7 paint tins | The drawer, weighing and shaking actions need no new props, only motion |
+| News | Four candy jars, pipe rack, punchboard, racing-form shelf, 16 cigars, cash drawer, open hatch frame | The catalogue gains candy, pipes, the punchboard and racing forms. The cash drawer stays passive under the radio ruling |
+| Bodega | Tins, packets, produce crates, passive weighing dial, icebox, handcart | The handcart can be the delivery prop |
+| Luncheonette | Empty griddle, five-pump fountain, 8 stools, urns | The griddle needs food on it when ordered |
+| Otis | 4 stools, fountain, carboys, drawers, mortar | The tap needs motion |
+| Photo | 15 cartons on the lower three decks; the upper two shelves are deliberately empty | Stock states have room to grow; cartons don't show contents |
+| Radio | 14 stored opal valves with no emissive or electrical behaviour | Section 5's "valve shelves glow" is dropped: they stay unlit |
+| Pawnbroker | 24 parcels, violin case, sewing machine, hanging coat, safe, balance, loupe, telescope, pocket watch, field glasses. **The two wall cases are deliberately empty** | The empty cases are where dated pledges appear |
+| Funeral | 16 chairs, 2 benches, all static source records | Movable chairs are new work, the only real geometry cost in slice 5 |
+| Harukiya | Its reference notes already call for a drink order with physical preparation | Matches the glass-and-slate proposal |
+
+**Interior references.** The guides record what was built. They are not historical
+evidence for what a 1929 shop stocked. If interiors or the seven uncarded frontages
+need that evidence, it needs its own packet.

@@ -216,7 +216,10 @@ Orison places.
 ## 9. Back pages (2026-10-30)
 
 Owner ruling, 2026-10-29: an issue may gain a back page, so new items need not
-displace a canon column. **The format exists; no back page has been written.**
+displace a canon column. **Sixteen back pages are written, the chain days of
+the treatment's section 7.1; all sixteen items are PROPOSED. The advertising
+and 52 Sunday cartoons run.** The other columns on those pages are ordinary
+borough filler.
 
 - **Data.** Each paper in an issue may carry an optional **back**: exactly four
   **columns**, each with **kind**, **headline** and **body**, and a one-line
@@ -225,7 +228,7 @@ displace a canon column. **The format exists; no back page has been written.**
   listening_lady and classified.
 - **Loader.** **NewspaperCatalog** refuses a malformed back page at load, and an
   absent one is ordinary.
-- **Panel.** Where a back page exists, the sheet's lower corner curls. Click takes
+- **Panel.** Every published sheet's lower corner curls. Click takes
   it, leftward motion carries the sheet over, the next click lets go (RUL-013).
   Past halfway it settles on the other side.
 - **Audit.** **tools/audit_newspapers.py** applies the front's word limits,
@@ -234,6 +237,16 @@ displace a canon column. **The format exists; no back page has been written.**
   when all 730 are written.
 - **Companion.** It still witnesses the edition shown, not a page's contents, and
   reports nothing from a back page.
+
+- **Advertising.** Every published sheet has a back, because every back carries six boxed
+  advertisements, chosen by date from **game/data/newspapers/advertisements.json**. Each is a
+  one-bit woodblock with the words in live text. They sell what the world already sells (the
+  Arcade's counters, the bodega) and what it diverged into (Bible section VIII.2: uncannily
+  good listening gear in a house with ice on the inside of the window). Sources and drawing
+  briefs: **art/data/newspaper_ad_briefs.json**. Art: **art/tools/build_woodblock_ads.py**.
+- **The cartoon.** The Speaker runs one on Sundays from **game/data/newspapers/cartoons.json**.
+  No drawing has been made yet; gags and briefs are in
+  **design/ORISON_NEWSPAPER_CARTOON_BRIEFS_2026-10-30.md**.
 
 The first items are the mystery's, in
 **design/THE_YEAR_YOU_DIED_TREATMENT_2026-10-30.md** section 7. They stay out of

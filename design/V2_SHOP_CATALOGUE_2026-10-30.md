@@ -34,6 +34,8 @@ Items that exist only in this world are marked **world**.
 | Machine oil, can | 15 | goods | sundries | |
 | Pipe dope, tin | 20 | part | sundries | |
 | Faucet washers, card | 5 | part | sundries | |
+| Hex bolts, by the pound | 18 | goods | bins | Already in the trays |
+| Flanged brass coupling | 20 | part | bins | Already in the trays |
 | Soap flakes | 12 | goods | sundries | **live** |
 | Scouring powder | 10 | goods | sundries | **live** |
 | Kitchen matches | 5 | goods | sundries | **live** |
@@ -69,6 +71,10 @@ Items that exist only in this world are marked **world**.
 | Postal cards, hundred | 100 | goods | stationery | **ad**, for the Pun Derby |
 | Postage stamp | 2 | consumed | stationery | for coupon orders |
 | Pencil | 2 | goods | stationery | |
+| Stick candy, from the jars | 1 | goods | counter | Four jars are modelled |
+| Briar pipe | 50 | goods | tobacco | The pipe rack is modelled |
+| Racing form | 10 | goods | papers | The lower shelf is modelled |
+| Punchboard, one punch | 5 | wager | counter | Period chance game, already modelled; small prizes only |
 
 ### Mail order, from the back page
 
@@ -145,7 +151,7 @@ The 12 spices and bicarbonate stay at their **live** prices.
 | Shirt, finished | 15 | service | none | |
 | Collar | 3 | service | none | |
 | Bundle, wet wash | 25 | service | none | For resident errands |
-| Mending, per piece | 10 | service | none | If Lena's work moves here |
+| Mending, per piece | 10 | service | none | Lena's counter, per the owner's ruling |
 | Unclaimed parcel | none | none | wall | Read and matched; not sold |
 
 ## Shoe Rebuilding
@@ -153,7 +159,7 @@ The 12 spices and bicarbonate stay at their **live** prices.
 | Item | Cents | Kind | Group | Note |
 |---|---|---|---|---|
 | Half soles, leather | 100 | service | none | Durable, loud on terrazzo |
-| Half soles, rubber | 85 | service | none | Quiet, wears faster |
+| Half soles, rubber | 85 | service | none | Quiet |
 | Heels, rubber | 40 | service | none | |
 | Shine | 5 | consumed | bench | Stand and wait |
 | Polish, tin | 10 | goods | counter | |
@@ -191,15 +197,20 @@ Canon: recording is cheap and photography is dear. Prices are high on purpose.
 
 ## Pawnbroker
 
-Named objects, not groups. Rate: an authored 3 percent a month. Current New York law
+Named objects, not groups. Mae runs the counter (owner ruling). The two wall cases are
+empty until pledges fill them. Rate: an authored 3 percent a month. Current New York law
 caps pawn interest at 4 percent a month; no period rate was found.
 
 | Item | Cents | Note |
 |---|---|---|
 | Used valve | 10 | **ad**: "a used valve has seen things"; may hum |
 | Second-hand Vantry service set | 750 | **ad**; a spare, not a replacement |
-| Violin | 800 | **ad** cut; a resident's dated pledge |
-| Sewing machine | 900 | **ad** cut |
+| Violin, in its case | 800 | Already modelled; a resident's dated pledge |
+| Sewing machine | 900 | Already modelled |
+| Telescope, collapsed | 500 | Already in the window |
+| Pocket watch and chain | 350 | Already in the window |
+| Field glasses | 600 | Already in the window |
+| Coat, hanging | 150 | Already modelled |
 | Folding camera | 1200 | Rare, as canon wants |
 | Mantel clock | 400 | Static, per the existing rule |
 | Wedding ring | 300 | A dated resident pledge; no joke |

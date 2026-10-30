@@ -18,6 +18,9 @@ const MARGIN := 48
 ## Pixels of leftward travel that carry the sheet fully over.
 const TURN_TRAVEL_PX := 320.0
 const CORNER_SIZE := 72.0
+## The Sunday cartoon is the same one-bit print, three times its native 96.
+const CARTOON_HEIGHT := 288.0
+const AD_GAP := 12
 
 var catalog: NewspaperCatalog
 var paper_id := ""
@@ -173,10 +176,10 @@ func _show(paper: String, issue_date: String, page_side := "front") -> void:
 		var carrier: Node = _player.carried_device
 		if carrier.get("witness") != null:
 			carrier.witness.paper_shown(catalog, paper, issue_date)
-	var back: Variant = page.get("back", null)
-	_corner.visible = back is Dictionary
-	if side == "back" and back is Dictionary:
-		_show_back(meta, back)
+	# Every published sheet has a back: at the least, the advertising.
+	_corner.visible = true
+	if side == "back":
+		_show_back(meta, page.get("back", {}))
 		return
 	var red: bool = str(meta.get("ink", "black")) == "red"
 	# Masthead.
@@ -247,25 +250,92 @@ func _show(paper: String, issue_date: String, page_side := "front") -> void:
 	_label("ESC closes the paper", 12, INK_SOFT, _italic, HORIZONTAL_ALIGNMENT_RIGHT)
 
 
-## The back of the sheet: a running head, four typed columns, the foot.
+## The back of the sheet: a running head, the four typed columns where this
+## issue has them, the week's cartoon, the advertising, and the foot.
 func _show_back(meta: Dictionary, back: Dictionary) -> void:
 	_label("%s   %s" % [str(meta.get("name", paper_id)), catalog.long_date(date)], 14, INK_SOFT, _italic,
 			HORIZONTAL_ALIGNMENT_CENTER)
 	_rule(2)
-	var columns := HBoxContainer.new()
-	columns.add_theme_constant_override("separation", 24)
-	_page.add_child(columns)
-	for column: Dictionary in back.get("columns", []):
-		var box := VBoxContainer.new()
-		box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		box.add_theme_constant_override("separation", 6)
-		columns.add_child(box)
-		_label_into(box, str(column.get("kind", "")).replace("_", " ").to_upper(), 12, INK_SOFT, _italic)
-		_label_into(box, str(column.get("headline", "")).to_upper(), 16, INK, _bold)
-		_label_into(box, str(column.get("body", "")), 15, INK)
-	_rule(1)
-	_label(str(back.get("foot", "")), 14, INK_SOFT, _italic)
+	if not back.is_empty():
+		var columns := HBoxContainer.new()
+		columns.add_theme_constant_override("separation", 24)
+		_page.add_child(columns)
+		for column: Dictionary in back.get("columns", []):
+			var box := VBoxContainer.new()
+			box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			box.add_theme_constant_override("separation", 6)
+			columns.add_child(box)
+			_label_into(box, str(column.get("kind", "")).replace("_", " ").to_upper(), 12, INK_SOFT, _italic)
+			_label_into(box, str(column.get("headline", "")).to_upper(), 16, INK, _bold)
+			_label_into(box, str(column.get("body", "")), 15, INK)
+		_rule(1)
+	var cartoon := catalog.cartoon_for(paper_id, date)
+	if not cartoon.is_empty():
+		var drawing := TextureRect.new()
+		drawing.name = "Cartoon"
+		drawing.texture = load(str(cartoon.image))
+		drawing.custom_minimum_size = Vector2(0, CARTOON_HEIGHT)
+		drawing.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		drawing.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		drawing.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		_page.add_child(drawing)
+		_label(str(cartoon.caption), 15, INK, _italic, HORIZONTAL_ALIGNMENT_CENTER)
+		_rule(1)
+	_page.add_child(_advertising(catalog.ads_for(paper_id, date), catalog.ad_plan_for(paper_id, date)))
+	if not back.is_empty():
+		_rule(1)
+		_label(str(back.get("foot", "")), 14, INK_SOFT, _italic)
 	_label("ESC closes the paper", 12, INK_SOFT, _italic, HORIZONTAL_ALIGNMENT_RIGHT)
+
+
+## The page's advertising in one of the catalogue's plans, each ad a different size.
+func _advertising(ads: Array[Dictionary], plan: int) -> VBoxContainer:
+	var page := VBoxContainer.new()
+	page.name = "Advertising"
+	page.add_theme_constant_override("separation", AD_GAP)
+	var set_ad := func(i: int, stretch: float) -> Control:
+		if i >= ads.size():
+			return Control.new()
+		var ad := NewspaperAd.build(ads[i], catalog.firm_for(ads[i]))
+		ad.size_flags_stretch_ratio = stretch
+		return ad
+	match plan:
+		0:
+			var right := _ad_stack([_ad_row([set_ad.call(1, 1.0), set_ad.call(2, 1.0)]), set_ad.call(3, 1.0)])
+			right.size_flags_stretch_ratio = 2.0
+			page.add_child(_ad_row([set_ad.call(0, 1.0), right]))
+			page.add_child(_ad_row([set_ad.call(4, 2.0), set_ad.call(5, 1.0)]))
+		1:
+			var left := _ad_stack([set_ad.call(0, 1.0), _ad_row([set_ad.call(1, 1.0), set_ad.call(3, 1.0)])])
+			left.size_flags_stretch_ratio = 2.0
+			page.add_child(_ad_row([left, set_ad.call(2, 1.0)]))
+			page.add_child(_ad_row([set_ad.call(4, 1.0), set_ad.call(5, 2.0)]))
+		_:
+			page.add_child(_ad_row([set_ad.call(0, 1.0), set_ad.call(1, 1.0), set_ad.call(2, 1.0)]))
+			page.add_child(_ad_row([set_ad.call(3, 2.0), set_ad.call(4, 1.0)]))
+			page.add_child(_ad_row([set_ad.call(5, 1.0)]))
+	return page
+
+
+func _ad_row(parts: Array) -> HBoxContainer:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", AD_GAP)
+	row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	for part: Control in parts:
+		part.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(part)
+	return row
+
+
+func _ad_stack(parts: Array) -> VBoxContainer:
+	var stack := VBoxContainer.new()
+	stack.add_theme_constant_override("separation", AD_GAP)
+	stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	for part: Control in parts:
+		part.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		stack.add_child(part)
+	return stack
 
 
 func _empty_shelf() -> void:
