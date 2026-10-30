@@ -1673,3 +1673,445 @@ no main merge is performed here. Fresh-worktree import is not tested by this
 in-place verifier. Continue the full city goal after this technical checkpoint.
 
 MERGE-CANDIDATE 6e5e9a7a96e46d4925dd5197ea05a25afde276ec
+
+### Native continuation - complete traffic body replacements, 2026-10-30
+
+This is an **INERT, unintegrated native study**, not another runtime checkpoint.
+Shared integration sources remain frozen at **9aece84e** during prologue/city
+reconciliation. The city checkout and canonical checkout receive no vehicle
+rendering or gameplay change from this study.
+
+Reused the existing owner Model A delivery; independently verified all63
+delivery-file hashes. Closed manufactured stocks supply442 assembled stock
+instances, including four wheels, spare, chassis, interior and driver. The
+actual complete replacement bodies contain **29,662 /12,378 /7,600 triangles**.
+All33 exported parts retain their native triangle count and exactly match
+round-trip triangle-position multisets. Exported maximum relative metric UV
+edge error is **0.000055535**; minimum tangent agreement **0.999999704**.
+These are geometry measurements, not rendering-cost measurements.
+
+Original global simplification and subsequent export-face-loss failures are
+preserved. The producer now rejects invalid, flattened/zero-volume or excessively
+distorted stock, retaining complete replacement bodies rather than omitting
+wheels or figures. Sampled accepted vertex deviations are at most16.606mm and
+53.461mm for the two lower levels; these do not prove continuous silhouette error.
+Actual inspection covered14 rendered views: five native and five corrected
+round-trip views remain current; four original round-trip views had an incorrect
+preview UV-layer lookup and are retained as superseded diagnostics. The source
+delivery itself remains byte-identical.
+
+Editable study, exports, original failures, raw measurements and inspected-view
+index remain under **C:/ov/reports/city_streets_20261029**, specifically
+**tudor_stock_lod_study_05**. The current study producer is
+**tudor_stock_lod_study_03.py**; the original failed version is separately retained.
+Runtime integration, camera-relative selection, other vehicle kinds, imported
+precision, loaded mipmaps, optical glass, signal-arm/wheel motion, collision,
+graded-road appearance, actual rendering cost and transition distances remain
+open. Coarse tyre/lamp/spare silhouettes and strong existing paint wear are
+visible close up. Regional tyre-envelope minima span approximately-2.106mm to
++5.029mm relative to the authored road plane; no continuous contact proof.
+No artistic acceptance or completed-city claim follows from this study.
+
+### Northwest commercial fronts in construction — 2026-10-30
+
+**INERT work in progress**, based on city HEAD **39c8753e**. The city branch
+started from **3ea80715bd201738d5566dea18bc17d4353ca867**; the canonical prologue
+checkout and index remain untouched. Three source-fitted fronts now replace
+the generic **site_nw1**, **site_nw3** and **site_nw4** forms: Germania's narrow
+brick/segmental-arch front and grouped dormer, Robbins & Appleton's painted
+cast-iron orders and mansard, and Scheffel's mineral orders and scroll gable.
+These are alternate-universe adaptations, not relocated historical businesses.
+Existing footprints, all25 assembly translations, passive closure/access,
+foundations and roof-equipment bearings remain authoritative.
+
+Evidence and open defects, under **C:/ov/reports/city_streets_20261029**:
+
+| Observation | Evidence / next action |
+|---|---|
+| Native production02:1205 bearing,3077 pane,94 roof-surface and12 return checks; zero failures | **nw_production_02**. Actual float32 comparison preserves all213 untouched material parts in22 buildings. New fronts contain30,478 triangles in36 parts; counts are not performance claims. |
+| First imported bench:5956 checks,48 failures | **nw_elevation_bench_01** originals, including executed source, retained. All48 failures concern existing street weather shaders rejected by a stale StandardMaterial-only test. Test now unwraps the existing weather-source metadata and checks the adapter; retry is queued. No production weather change. |
+| Most aggressive generated LOD destroys façade stock | Forced-far captures actually inspected. First natural body-material transitions occur at roughly2063m,2014m and1048m, beyond the450m walking radius. This is not useful playable-area body LOD qualification or artistic acceptance. |
+| Timber window backing reads as boarded glazing | External **nw_architecture_study_09** replaces it with dark backing and32 closed linen blinds:30,862 triangles,39 parts,1802 closed stocks,135 bearing and79 pane samples; native checks pass. This refinement is not yet installed. |
+| Original external preview hid the blinds | Study09 omitted the production glass alpha. Two original Germania images were inspected; they are superseded for optical judgment, not deleted. **nw_window_review_10** uses the production preview finish; all eight front/street/row/roof captures actually inspected, with exact39-part native/export round-trip geometry. Runtime optics remain unverified. |
+| Complete body replacements built externally | **nw_architecture_body_lod_study_02** retains39 material parts,1610 closed stocks, all79 panes, all32 blinds, every dentil and the original roofs/bearings:24,110 triangles versus30,862 near. All eight corrected **nw_body_lod_review_02** captures actually inspected, including oblique/row/roof views. Coarser curves are visible close up; these are distance replacements, not a near replacement. No runtime installation or transition qualification yet. |
+| Lower-body sampled deviation | **nw_body_lod_review_02/surface_deviation.json** measures bidirectional vertices and triangle centres per material: maximum54.0331mm. This is not a continuous Hausdorff bound or an accepted LOD threshold. **nw_profile_equivalence_11/equivalence.json** proves the parameterized helper exactly preserves the executed1802/1610-stock geometry, roof/window/portal samples and building metadata at its two detail levels. |
+| Consumed placement/roof source unchanged | **nw_consumed_inputs_01.json** proves identical complete helper-projected roof layout and25 assembly placements. Original nine-asset mesh signatures and producer metadata preserved in **nw_dependency_replay_01/before** before replay. |
+| Full fixture preflight has two stale families | **nw_full_source_preflight_01.log**:4 scripts,12 fixtures; closure and streets fail their source bindings. Replay owning producers and compare actual arrays before renewing qualification. Do not blanket-repin them. |
+
+Runtime retry and fresh grade discovery wait through the shared lane. Rendering
+inputs remain frozen for those queued runs; external native window review does
+not change them. Two-thread CPU review overlap with the canonical prologue
+batch is recorded in **nw_review09_host_timing.json** and
+**nw_review10_host_timing.json**; no isolated wall-time claim follows.
+Previous street/traffic qualification stays scoped to its original inputs.
+New full-surface, occupied-route and candidate verification remain open; these
+three fronts do not yet increase the eleven qualified individual studies.
+
+Failed bench01 still provides current-only rendering diagnostics, summarized in
+**nw_bench01_diagnostic_summary.json**, retaining all1350 raw warmed frame
+samples and the original failure status. At3440x1440,MSAA8,uncapped/vsync-off on
+the patched Vulkan RTX4080 run, isolated near complete-building-plus-roof
+draw/primitive counts were **27/16,880**, **49/52,168**, **27/10,308**. Main GPU
+median/p95 values were **.655/5.930ms**, **.637/.648ms**, **.627/.633ms**;
+the first case includes an unattributed6.506ms GPU/14.723ms wall maximum.
+These are neither matched old/new performance nor composed-city frame times.
+The destructive forced-far result is not an accepted optimization.
+
+#### Production integration update — October30, runtime renewal pending
+
+The reviewed window refinement and complete body replacements are now installed
+in the isolated city tree. **nw_production_03** contains the owning native
+rebuild:25 buildings,3077 panes,252 near material parts. The three near fronts
+contain30,862 triangles; the new **city_elevations_lod1.glb** contains24,110
+triangles in39 matching material parts. Its raw SHA256 is
+**ca3b4d88187aaad85b78e124a8c1a662f7d356271a664be14c53688741d155b8**.
+The shared transport mesh-LOD adapter supplies complete lower bodies to these
+39 parts; original near meshes still supply collision. Other22 buildings and
+all clock logic are retained. The authored **0.2m selection error** remains
+provisional until actual distance/FOV transitions are measured inside the
+registered exploration wall; it is not a proven continuous geometry bound.
+
+All eight lower production front/street/row/roof views and four automatic
+near-city views were actually inspected before reopening Godot. The latter
+largely show retained neighbors/partial fronts, not whole-city acceptance.
+**lower_export_comparison_02.json** matches all39 lower parts to the reviewed
+native geometry and passes the existing source metric UV predicate;
+**export_comparison_04.json** matches all39 refined near parts.
+**nw_dependency_replay_01/comparison_nw.json** proves byte-identical replay of
+all eight retained assets, including streets and foundations, and exact arrays,
+indices and transforms for all213 untouched elevation parts.
+
+Original recovery evidence is retained. **nw_masts_replay_01** stopped before
+asset writing at a historical whole-plan registration hash; five dependent
+producers now admit facade-only fields through their existing exact consumed
+height projection and335 saved native-bound checks. The historical registration
+is unchanged. Subsequent actual producer replays pass. The first lower-producer
+fixture incorrectly LF-normalized PNG bytes; **nw_full_source_preflight_02.log**
+and **nw_lod_source_hash_failure_01** preserve that failure. Its owning hash
+function now normalizes text only; the rebuilt lower GLB is byte-identical.
+
+**nw_full_source_preflight_03.log** passes4 scripts and13 fixtures.
+**nw_static_03/board.json** passes the five early gates with zero regressions
+and reader NEW=0; the other109 gates were not run on that board. The exterior
+route now includes six additional real-controller frontage waypoints, three
+standing close captures and an opposite-sidewalk row capture; execution remains
+pending. Earlier unstarted broker10112 was canceled with no city Godot process
+or output; **nw_first_runtime_03_cancelled.json** records it. Current
+**nw_runtime_04.json** queues imports04/05, elevation bench02 and fresh grade
+survey01, with production rendering inputs frozen. No new runtime contract,
+candidate verification, commit/push or artistic acceptance is claimed yet.
+
+Patched imports04/05 subsequently completed cleanly in37.40/8.31s with zero
+script errors. Bench02 failed to load at an inferred Boolean test variable;
+**nw_bench02_executed_source.gd**, raw logs, original wrapper receipt and
+**nw_bench02_cancellation.json** preserve it. Only this chat's failed GUI was
+closed; receipt exit-1 after187.53s, no test-written profile, no grade survey.
+The declaration now has an explicit Boolean type. **nw_runtime_05.json** retries
+only bench03 and the still-unstarted grade survey, reusing unchanged imports
+and native review. The existing five consumed-geometry negative-control tests
+pass in **nw_consumed_geometry_guard_tests_01.log**. No runtime promotion follows.
+
+The external **nw_checkpoint_packet_01.zip** preserves215 terminal native,
+import and failure artifacts in51,740,058 bytes, with every raw member hash and
+ZIP CRC verified. Its INERT manifest explicitly excludes live bench03/grade01,
+reference photographs and duplicate mesh payloads. This is preparation for the
+coherent checkpoint archive, not a new runtime or artistic acceptance claim.
+
+**nw_old_grade_guard_01.log** confirms that the previous runtime discovery is
+rejected against current production inputs. Fresh discovery remains required;
+no test-written fingerprint was repinned. **nw_ground_replay_01/before.json**
+now preserves full GLB signatures for foundations, ground, apron and both
+horizon levels, with14 original source/fixture files copied byte-identically.
+These are before-replay controls, not results of a new ground build.
+
+Shared-host context: **nw_host_memory_01.json**,11:05:26Z, records1552MiB
+available,110,292,557,824 committed bytes against111,544,246,272 limit, and1435
+pages-in/s. The active foreign Godot process had11,685.79MiB working set and
+21,002.29MiB private bytes. This city's retry had not started. The owner also
+reports Claude's local image generator; its process/outputs remain untouched.
+These observations establish concurrency/pressure, not causal attribution.
+**nw_glb_payload_audit_01.json** is a separate source-header census: current
+near/lower elevations embed no images; four unchanged legacy roof families
+embed PNG payloads. Compressed source bytes are not loaded CPU/GPU memory or
+frame-time proof. No resource or geometry change follows from that census.
+
+**watch_nw_resources_01.ps1** is an external read-only observer targeting only
+this worktree's patched elevation bench and grade scenes. It records process,
+host and GPU-memory counters every5s with PID/creation-time checks. Polling
+overhead and missed peaks are explicit; process totals cannot assign memory to
+the body LODs. It has no authority to launch/stop Godot or alter the lane.
+
+Owner clarification,2026-10-30: current V2 work and established V2 decisions
+take precedence over earlier designs. Historical construction research remains
+reference guidance where compatible; it does not authorize reverting completed
+V2 geometry, access or programme to an older design.
+
+Patched fullscreen elevation bench03 completed in40.90s,6,231 checks,
+1,205 roof samples,1,038 draws,zero failures and empty stderr; original
+wrapper receipt and test-written INERT profile are preserved. All21 frames
+were inspected: three fronts,six complete-building near/far views,and twelve
+isolated-material natural-transition/recovery views. Sampled body reductions
+occur at180.551/182.084/182.694m in the registered exploration frame; narrow
+FOV restores higher indices and inward return reproduces the near image.
+Complete fronts retain panes,blinds,doors,cornices and roofs under forced far.
+Existing roof antenna automatic LOD still drops thin wires at the extreme
+forced threshold; this body replacement does not repair that separate family.
+
+**nw_bench03_diagnostic_summary.json** preserves all1,350 raw frame samples
+through their source hash and summarizes90 warmed frames/case. Near complete
+building/equipment draws/primitives:28/17,024;50/52,264;28/10,452. Near GPU
+median/p95:0.658/5.500;0.640/0.649;0.628/0.638ms. First NW1 maxima were
+5.881ms GPU/16.166ms wall; its near repeat measured0.607/0.617ms GPU
+median/p95. The transient is unattributed. These current isolated measurements
+are neither a matched old/new comparison nor whole-world performance proof.
+Fresh grade01 and combined surface/controller qualification remain pending.
+
+Forced far building/equipment primitives are15,866/44,815/9,796 with the same
+28/50/28 draw counts. Near-repeat versus far-repeat GPU medians are
+0.607/0.607;0.640/0.636;0.628/0.628ms. The reduced index counts therefore
+do not establish a material GPU-time improvement in these isolated views.
+
+Fresh grade01 subsequently passed573 aligned boxes/zero failures in189.22s,
+empty stderr. Its receipt and source hashes were validated before native
+discovery produced5,412 classified records. The resulting candidate retains
+all5,465 solids,4,243 surface exclusions,57 occupation reservations,soil,
+asphalt,region and method exactly. Only12 solid/two exclusion anonymous
+runtime allocation ids differ; full owners,kinds and bounds are identical.
+**nw_ground_replay_01/candidate_physical_comparison.json** preserves that exact
+comparison. The fresh plan is installed; owning ground-family replay remains
+pending,so those dependent source bindings are not yet renewed.
+
+**nw_resources_summary_01.json** summarizes the completed read-only observer:
+six bench samples reached2,732,474,368B working set/4,932,796,416B private;
+29 full-world grade samples reached12,124,106,752B working set/
+16,046,596,096B private,3,382,861,824B dedicated GPU and551,284,736B shared
+GPU. Minimum sampled host availability was514,320KiB. These are sampled
+process/host totals,not continuous peaks or family attribution. After the
+lane handoff,the canonical resource diagnostic started normally. Native
+ground replay and the full gate board are held during that agreed measurement
+to avoid adding substantial CPU/RAM pressure; low-cost records work continues.
+
+Owner priority,2026-10-30: reduce long walking sessions and pointless repeats.
+The city route now has an explicit **ORISON_CITY_ROUTE_SCOPE=northwest** mode:
+one nearby test-only start fixture,ten subsequent production-controller
+waypoints through the three fronts and opposite sidewalk,and four captures.
+It writes its own **northwest_frontage_contract.json** with no entrance,
+station,distant-street or full-city claim. Walking frame samples exclude
+captures. Default full mode retains its prior route and deadlines. This new
+mode is not yet parsed or executed; no runtime result follows from authoring.
+Use focused iteration and verified unchanged geometry/evidence; a broad route
+requires a concrete remaining integration risk,not every asset/report change.
+The earlier external **nw_exterior_route_01_batch.json** is unstarted and is
+not an automatic next step. **nw_focused_route_01_batch.json** is the intended
+changed-area run after native replay and a short parser check.
+
+The canonical coordinator released the profiling-only hold after the long-walk
+observer ended. Serial two-thread native foundations,bar reservations,ground,
+apron and horizon replay then completed without failures. All five GLBs are
+byte-identical to their originals,including every array,index,node transform
+and ground/horizon runtime projection. Existing native visual reviews remain
+applicable; **nw_ground_replay_01/comparison.json** records the identity,not a
+new runtime acceptance. **nw_source_preflight_04.log** passes all eight city
+fixture source bindings. Native review is finished before the focused Godot run.
+
+The focused run also reuses the existing surface inventory's readers on only
+the39 changed production body parts: actual active owner-finish shaders,
+physical UV/normal/tangent checks,custom primary maps,loaded mip levels and
+mip-capable Standard/shader filtering. It does not execute the inventory's
+whole-world/interior/fire route. This remains authored and unexecuted pending
+the lane/parser check. The exact22-line focused-run priority section from
+canonical Godot-skill commit **62678ed3** is mirrored into the existing city
+skill. Full-file copying would add a link to a prologue ledger absent here;
+that broader skill delta is deferred to integration. Full surface/walking
+runs are not automatic checkpoint steps.
+
+### Additional October28 research and next bounded construction target
+
+The city chat has now read the four external entrance/storefront packets in
+full: **facade_window_research_20261028/AUDIT.md**, **candidate_inventory.md**,
+**storefront_research_20261028/REFERENCE_CARDS.md** and **sources.md**, all under
+**C:/ov/reports/**. They remain INERT historical/source-fit guidance. Their
+bathroom-infill proposal does not override the owner's current-V2 priority or
+authorize city changes to the99 Orison apertures,seven bathroom records,rooms,
+stairs or service authorities. Keep the single outer leaf,unhung inner opening,
+boiler hopper/light well,and existing street bodega/Harukiya and four arcade
+shop locations. Proposed awning/fascia dimensions are authored fit ranges;
+later survivor photographs do not establish1928 details. Source photos stay
+external and lettering remains separately authored.
+
+The packets'563-stock/68-draw/37,687-triangle portal is the older city-branch
+installation. The canonical coordinator reports a newer633-stock/59-draw/
+41,302-triangle installation. That newer portal must be preserved at eventual
+coordinated integration; it is not yet present on this city branch. No entrance
+or shop reconstruction is part of the current39 background-body changes.
+Their retained source X ranges are **[-61.2,-51.3]**, **[-50.7,-39.8]** and
+**[-30.6,-23.4]**, with front sourceY **-6.2** after the existing8m translation.
+All57 occupied-space reservations and ground-family geometry remain exact.
+
+Before further geometry authoring,the proposed next background batch is the
+remaining three researched masses: **site_sw3**,adapted from Engine258 at
+10-40 47th Avenue; **site_se3**,Ottendorfer Library; and **site_far_nw**,Hampton
+Court at35-16 79th Street. Preserve each installed footprint,placement,grade,
+roof plant and access; develop distinct supported openings,roof forms and
+material stock from those examples,with complete replacement-body LOD where
+useful. First inspect actual source envelopes/contacts,then native review,
+then one focused changed-area production run. No new shop/interior/service
+authority,awning or entrance work is proposed; shared frontage conflicts must
+be coordinated before editing. This is the next construction proposal,not
+implementation or acceptance of those three masses.
+
+### Northwest commercial checkpoint — October30
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Branch / HEAD / origin/main / merge-base: **codex/v2-city-20261029**;
+phase parent **39c8753e13cc3011a091070759c6c45f764d2d18**;
+observed origin/main **e5d35450eec68a6d783938f9c3c6dfee3c1948a6**;
+initial city base/merge-base **3ea80715bd201738d5566dea18bc17d4353ca867**.
+Candidate SHA and final static comparison are pending the named-path commit.
+
+Worktree clean at end: not yet committed. Only reviewed construction/evidence
+paths are staged. Test-written noise was preserved externally before restoring
+1,658 named EOL-only imports and deleting627 local generated UID files; each
+resolved path stayed in this worktree and staged construction was untouched.
+The first cleanup diagnostic stopped before mutation because normalized Git
+diff omitted those status-only changes; its original source is preserved.
+
+Protected17/17: pending candidate verifier. Selector: V2,with explicit V1
+rollback retained. No apartment,companion,Tardi,weather implementation,clock,
+narrative or save-authority change is requested. Ledger before:
+**[7,42,110,8,134,136]**; after pending static comparison; no promotion requested.
+
+Gates: current eight city-fixture source bindings pass; design-doc lint passes.
+The full114-gate candidate comparison is pending and will reuse the validated
+clean merge-base board. Runtime evidence is **nw_focused_route_02/**:
+test-written schema2 contract,335 checks,ten actual controller waypoints,
+39 changed production mesh parts,45 loaded texture resources,zero failures,
+empty stderr; wrapper **204.02s**. Setup/12-frame settle was133.003s.
+The first focused run's182.00s failed contract remains unchanged: six walking
+legs passed,but three PNGs failed because the harness created its directory
+too late; the opposite-walk legs were skipped and the ten-waypoint check
+failed. Directory creation now precedes startup. Direct check-only parser01
+failed on absent autoload names; existing autoload-aware parser02/03/04 passed
+without a composed world. No native rebuild/import/full walk was repeated for
+that harness fix.
+
+Numbers: three authored fronts total30,862 near/24,110 replacement triangles
+across39 parts,retaining79 panes. Native bearing/window checks and6,231-check
+bench03 pass. Dominant-material LOD brackets lie at registered radii
+180.551/182.084/182.694m; narrow-FOV/inward recovery pass. Current production
+walk samples:1,614; wall median 20.305ms,p95 53.269ms,max 306.13ms; main-viewport
+GPU median 6.403ms,p95 19.389ms,max 29.334ms. Settings:3440×1440,MSAA8,TAA on,
+VSync on,uncapped application. Global rendering counters include private
+viewports and are not the main-view draw/triangle budget. This is no matched
+before/after performance comparison or attribution of the306.13ms spike.
+Normal traffic shoved the player during the return; all waypoints still
+passed without a safety-net rescue or changed movement deadline.
+
+All four production captures were inspected. The opposite-sidewalk view reads
+the three distinct complete fronts and retained Hunters Point; close views are
+shaded surface/framing observations. Native and controlled engine views provide
+separate form/LOD evidence. Artistic acceptance remains open. Foundations,
+ground,apron and both horizon assets are byte-identical after owning replay;
+reuse their unchanged native/route evidence. The new focused mode executes
+only affected frontage/surface work; it does not run the whole-world surface
+suite's unrelated interaction families.
+
+**northwest_architecture_qualification.zip** contains297 verified raw members,
+68,058,428 bytes,SHA256
+**a355685cacc9e3b0bfcbb960926344922e365a6795d1dc201e1059f1f589d7e3**.
+The existing INERT manifest indexes every member and preserves original
+failures,receipts,source controls and inspected views. No source photographs or
+duplicate blend/glTF payloads are included.
+
+Changes outside the expected asset boundary: the existing city harness gained
+the explicit focused fixture and current surface readers; the Godot skill
+mirrors the owner's22-line run-efficiency priority; TASKS updates only its city
+row. Dependent source metadata was regenerated by its owning native producers.
+The canonical prologue checkout/index and all foreign processes remain untouched.
+
+Open findings:135 individual studies remain; bridge/Manhattan,yard/steam,
+waterfront/Dutch Kills and broader period street/gaslight work remain. The450m
+wall has component fixtures,not a continuous450m ground walk. The newer
+canonical entrance must survive eventual integration. Old antenna automatic
+LOD loses thin wires at an extreme forced threshold. The0.2m body selection
+error remains provisional; sampled54mm geometry deviation is not a continuous
+Hausdorff bound. Isolated triangle reductions did not show a material GPU-time
+gain. Loaded surfaces/access do not imply full-city or artistic acceptance.
+
+Decision needed from owner: none for this bounded checkpoint. Next background
+construction proposal is recorded above; no main merge is requested now.
+
+BLOCKED candidate static verification and coordinated main integration pending
+
+
+### 2026-10-30 northwest qualification follow-up (INERT)
+
+Construction candidate **41aaffbdfc360525c45e868d8284fe8369a99cba** failed its
+first candidate comparison: seven regression rows. The original
+**nw_candidate_verification_01/** is preserved unchanged. Protected paths were
+17/17 unchanged, selector V2, document lint passed and ledger statuses did not
+change. The findings were one newly reported test camera (two comparison rows)
+and stale surface evidence (five rows), not a missing body LOD or accepted
+regression. No push or main merge followed that failed comparison.
+
+The spatial manifest now classifies exactly the new opposite-sidewalk camera
+record; no previous record or audit rule changes. **nw_spatial_full_02.json**
+reports clean, zero new reported/failing records. The fixture remains test-only.
+
+An explicit **ORISON_SURFACE_PHYSICAL_ONLY=1** mode in the existing surface test
+retains production composition, complete loaded geometry/material inventory,
+UV/PBR/mipmap/filter evaluation, native library controls, representative renders
+and teardown. Default programme execution is unchanged; incompatible mode flags
+are rejected. Separate interaction programmes are explicitly NOT_EXECUTED in
+the physical-only receipt. The canonical prologue owner's fire-picker fix must
+survive later integration; this city change does not replace their checkout.
+
+**nw_physical_surface_01/** completed:651 checks,zero failures,29,111 draws,
+18,296 meshes,6,342 materials,536 textures. Wrapper elapsed261.42s; test-owned
+elapsed241.233s; empty stderr. Independent evaluation reports
+PASS_TECHNICAL_ONLY,zero unresolved surfaces. Native library controls retain ten
+cases,three loose collections and61 copies. Nine actual3440x1440 captures were
+inspected: F02 main,F03 bath,F06 kitchen,bookcase,mail bank,signal terminal,roof
+tank,installed anatomy and flowing residue. Materials are present; dark mail/
+roof exposure,strong light boundaries,irregular shadows and kitchen stippled
+glare remain limitations. No interior,lighting,companion or weather edits follow.
+
+The existing publication helper qualified and installed the unchanged raw test
+contract/inventory,wrapper,compressed raw logs and reviewed images under
+**art/renders/orison_v2/surface_requirements_20261011/**. Previous evidence is
+preserved in **nw_physical_publication_01/previous_surface_packet/**. Qualification
+reports PASS with zero defects. This is loaded-surface technical qualification,
+not full-city,interaction or artistic acceptance. All eight consumed surface
+reader/helper methods and class initializers remain byte-identical to candidate
+41; **nw_physical_only_source_comparison_01.json** records that source proof.
+The earlier335-check route contract remains immutable; its whole-file helper
+hash is historical after orchestration changes,not rewritten or re-run merely
+for the unconsumed programme branch.
+
+The shared project tracker was updated by its coordinated sole editor and
+read back at sequence41,retaining43 blocks and four images. It records the
+local city checkpoint,335/10/39/45 focused results,14 technical studies,
+135 remaining,measured stalls and the first verifier's seven regressions.
+This follow-up now requires a fresh candidate comparison before push. No main
+merge or completed-city claim. The next three background bodies remain the
+Engine258,Ottendorfer and Hampton Court studies described above.
+
+
+Candidate comparison02 subsequently completed at2026-10-30T13:36:59Z for
+**4282de16751af820dd00f776eded252b11c81cd5**:zero regressions,zero improvements,
+zero accepted regressions,17/17 protected paths unchanged,V2 selector,zero
+lint errors,no ledger/requirement changes and a clean checked tree. Its three
+gate-file diffs were reviewed: one additive test-camera classification,exact
+independent grade/occupancy controls and expanded rendering-source invalidation
+coverage. No gate predicates were weakened. All baseline failures remain;
+--no-godot was deliberate reuse of the separately executed native/bench/route/
+physical runtime evidence. Fresh-checkout import behavior and coordinated main
+integration remain outside this in-place result. The original failed comparison
+and corrected result are preserved in **northwest_verification_followup.zip**,
+indexed with raw hashes in the existing review manifest. This report/index-only
+follow-up reuses that unchanged rendering/runtime qualification; no extra walk,
+Blender rebuild or full gate-board repetition is needed for prose/archive data.
+
+MERGE-CANDIDATE 4282de16751af820dd00f776eded252b11c81cd5 (static comparison only;
+no main merge authorized or performed; broader city/artistic work remains open).

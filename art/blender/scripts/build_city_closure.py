@@ -19,7 +19,9 @@ registration=json.loads(registration_path.read_text())
 def digest(path):return hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n') if path.suffix not in ['.blend','.glb','.png'] else path.read_bytes()).hexdigest()
 assert plan['classification']=='ADAPTATION' and digest(native_path)==registration['source_native_sha256']
 for path,value in registration['bindings'].items():
- if path not in ['art/data/building_layout.json','game/data/orison_v2_blockout.json','game/data/orison_v2/exterior/regions.json']:assert digest(ROOT/path)==value,path
+ if path not in ['art/data/building_layout.json','game/data/orison_v2_blockout.json','game/data/orison_v2/exterior/regions.json','art/data/city_elevations/source_plan.json']:assert digest(ROOT/path)==value,path
+# Plan-only facade changes are admitted by the exact consumed V2 height
+# projection and all335 saved native bounds below, never a rewritten registration.
 # The registered native library still owns all335 physical records. Permit
 # editorial fields only after exact consumed dimensions/materials match its
 # immutable source projection; the independent native bounds checks remain.

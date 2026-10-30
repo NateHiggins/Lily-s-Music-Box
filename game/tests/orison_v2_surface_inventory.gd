@@ -9,6 +9,10 @@ var shader_filter_cache := {}
 
 func _run() -> void:
 	var started := Time.get_ticks_msec()
+	var physical_only: bool=OS.get_environment("ORISON_SURFACE_PHYSICAL_ONLY")=="1"
+	if physical_only and (OS.get_environment("ORISON_SURFACE_FIRE_ONLY")=="1" or OS.get_environment("ORISON_SURFACE_CITY_ONLY")=="1"):
+		push_error("Physical surface mode cannot be combined with fire-only/city-only diagnostics")
+		get_tree().quit(2);return
 	var directory := OS.get_environment("SHOT_DIR")
 	if directory.is_empty() or DirAccess.make_dir_recursive_absolute(directory) != OK or DisplayServer.get_name() == "headless":
 		push_error("Surface qualification requires writable SHOT_DIR and -Windowed")
@@ -16,7 +20,7 @@ func _run() -> void:
 		return
 	var root := ProjectSettings.globalize_path("res://..").simplify_path()
 	var binding_args: Array[String]=[root.path_join("tools/preflight_spatial_test_bindings.py"),"--root",root]
-	for fixture: String in ["orison_bodega_frontage.json","orison_city_closure.json","orison_city_frontage.json","orison_city_elevations.json","orison_city_transport.json","orison_city_streets.json","orison_city_ground_apron.json","orison_city_horizon.json","orison_front_pavement_construction.json","orison_front_pavement_review.json","orison_street_paving_details.json","passage_shop_leaves.json"]:
+	for fixture: String in ["orison_bodega_frontage.json","orison_city_closure.json","orison_city_frontage.json","orison_city_elevations.json","orison_city_elevations_lod1.json","orison_city_transport.json","orison_city_streets.json","orison_city_ground_apron.json","orison_city_horizon.json","orison_front_pavement_construction.json","orison_front_pavement_review.json","orison_street_paving_details.json","passage_shop_leaves.json"]:
 		binding_args.append_array(["--fixture","game/tests/fixtures/"+fixture])
 	var binding_output: Array=[]
 	if OS.execute("python",binding_args,binding_output)!=0:
@@ -59,7 +63,7 @@ func _run() -> void:
 	# Validate the changed hand/stock family in this same production world
 	# alongside the remaining surface programmes.
 	var fire_review := preload("res://tests/v2_fire_service_review.gd").new()
-	var fire_interactions := OS.get_environment("ORISON_SURFACE_SKIP_FIRE_INTERACTION")!="1"
+	var fire_interactions := not physical_only and OS.get_environment("ORISON_SURFACE_SKIP_FIRE_INTERACTION")!="1"
 	if fire_interactions:await fire_review.run(world,self)
 	# Retain every fire failure, but collect the remaining world surfaces in
 	# this same run. A failed fitting must not suppress the defect inventory.
@@ -69,154 +73,174 @@ func _run() -> void:
 		if fire_interactions:fire_review.after_teardown(self)
 		print("V2 FIRE PREFLIGHT: ","PASS" if failures.is_empty() else "FAIL"," checks=",batch_checks," failures=",failures.size(),"; fire-only scope, not full surface acceptance")
 		get_tree().quit(0 if failures.is_empty() else 1);return
-	await preload("res://tests/v2_city_elevation_review.gd").new().run(world,self)
-	if OS.get_environment("ORISON_SURFACE_CITY_ONLY")=="1":
-		world.shutdown_for_tests();world.free()
-		for frame in 4:await RenderingServer.frame_post_draw
-		print("V2 CITY DIAGNOSTIC: checks=",batch_checks," failures=",failures.size(),"; city/camera only, no full surface contract")
-		get_tree().quit(0 if failures.is_empty() else 1);return
-	var furnishing_review := preload("res://tests/v2_furnishing_clearance_review.gd").new()
-	furnishing_review.set_meta("shared_world_validation",true);add_child(furnishing_review)
-	await furnishing_review.validate_in_world(world)
-	batch_checks+=furnishing_review.batch_checks
-	for failure: String in furnishing_review.failures:failures.append(failure)
-	furnishing_review.free()
-	var front_review := preload("res://tests/v2_front_restoration_review.gd").new()
-	add_child(front_review)
-	await front_review.run(world,self)
-	front_review.free()
-	var pavement_review := preload("res://tests/orison_v2_front_pavement_test.gd").new()
-	pavement_review.batch_mode=true;pavement_review.capture_enabled=true;add_child(pavement_review)
-	var pavement_result: Dictionary=await pavement_review.validate_in_world(world)
-	if not pavement_result.has_all(["checks","failures"]):
-		check(false,"pavement validation aborted without a complete result")
-		world.shutdown_for_tests();world.free();get_tree().quit(1);return
-	batch_checks+=int(pavement_result.checks)
-	for failure: String in pavement_result.failures:failures.append(failure)
-	pavement_review.free()
-	var street_pose:=world.player.global_transform;var street_camera:=world.player.camera.transform
-	var paving_review := preload("res://tests/orison_v2_street_paving_details_test.gd").new()
-	paving_review.batch_mode=true;paving_review.capture_enabled=true;add_child(paving_review)
-	var paving_result: Dictionary=await paving_review.validate_in_world(world)
-	if not paving_result.has_all(["checks","failures"]):
-		check(false,"street validation aborted without a complete result")
-		world.shutdown_for_tests();world.free();get_tree().quit(1);return
-	batch_checks+=int(paving_result.checks)
-	for failure: String in paving_result.failures:failures.append(failure)
-	paving_review.free()
-	world.player.global_transform=street_pose;world.player.camera.transform=street_camera;world.player.velocity=Vector3.ZERO
-	var public_review := preload("res://tests/public_region_walk_probe.gd").new()
-	public_review.externally_managed=true;add_child(public_review)
-	await public_review.run(world,self)
-	public_review.free()
-	var construction_review := preload("res://tests/v2_construction_shed_review.gd").new()
-	add_child(construction_review)
-	await construction_review.run(world,self)
-	construction_review.free()
-	var street_review := preload("res://tests/v2_street_optics_probe.gd").new()
-	street_review.externally_managed=true;add_child(street_review)
-	await street_review.run(world,self)
-	street_review.free()
-	var glazing_review := preload("res://tests/v2_glazing_optical_probe.gd").new()
-	glazing_review.externally_managed=true;add_child(glazing_review)
-	await glazing_review.run(world,self)
-	glazing_review.free()
-	var arcade_review := preload("res://tests/v2_arcade_fabric_review.gd").new()
-	add_child(arcade_review)
-	await arcade_review.run(world,self)
-	arcade_review.free()
-	var bodega_frontage := preload("res://tests/orison_v2_bodega_frontage_test.gd").new()
-	bodega_frontage.batch_mode=true;bodega_frontage.capture_enabled=false;add_child(bodega_frontage)
-	var bodega_result: Dictionary=await bodega_frontage.validate_in_world(world)
-	batch_checks+=int(bodega_result.checks)
-	for failure: String in bodega_result.failures:failures.append(failure)
-	bodega_frontage.free()
-	var sign_review := preload("res://tests/orison_v2_signage_test.gd").new()
-	sign_review.capture_enabled=false;add_child(sign_review)
-	var sign_result: Dictionary=await sign_review.validate_in_world(world)
-	batch_checks+=int(sign_result.checks)
-	for failure: String in sign_result.failures:failures.append(failure)
-	var bedding_review := preload("res://tests/orison_v2_bedding_test.gd").new()
-	bedding_review.batch_mode=true;add_child(bedding_review)
-	var bedding_result: Dictionary=await bedding_review.validate_in_world(world)
-	batch_checks+=int(bedding_result.checks)
-	for failure: String in bedding_result.failures:failures.append(failure)
-	bedding_review.free()
-	var fixed_review := preload("res://tests/orison_v2_fixed_lighting_test.gd").new()
-	fixed_review.capture_enabled=false; add_child(fixed_review)
-	var fixed_result: Dictionary=await fixed_review.validate_in_world(world)
-	batch_checks+=int(fixed_result.checks)
-	for failure: String in fixed_result.failures:failures.append(failure)
-	var patrol := preload("res://tests/orison_v2_patrol_stations_test.gd").new()
-	patrol.set_meta("shared_world_validation",true);add_child(patrol)
-	await patrol.validate_in_world(world)
-	batch_checks+=patrol.batch_checks
-	for failure: String in patrol.failures:failures.append(failure)
-	patrol.free()
-	var entrance_review := preload("res://tests/orison_v2_front_facade_test.gd").new()
-	entrance_review.set_meta("shared_world_validation",true)
-	entrance_review.capture_prefix="entrance_";add_child(entrance_review)
-	var entrance_result: Dictionary=await entrance_review.validate_in_world(world)
-	batch_checks+=int(entrance_result.checks)
-	for failure: String in entrance_result.failures:failures.append(failure)
-	entrance_review.free()
-	await preload("res://tests/v2_kitchen_sink_review.gd").new().run(world,self)
-	await preload("res://tests/v2_bathroom_tile_review.gd").new().run(world,self)
-	await preload("res://tests/v2_watch_stations_review.gd").new().run(world,self)
-	await preload("res://tests/v2_window_treatments_review.gd").new().run(world,self)
-	await preload("res://tests/v2_millwork_weather_review.gd").new().run(world,self)
-	await preload("res://tests/v2_mail_bank_review.gd").new().run(world,self)
-	var media_review := preload("res://tests/v2_active_media_review.gd").new()
-	add_child(media_review)
-	var media_result: Dictionary = await media_review.validate_in_world(world)
-	batch_checks += int(media_result.checks)
-	for failure: String in media_result.failures: failures.append(failure)
-	# Reuse this production world for changed instrument geometry and its
-	# retained service owners, then measure retirement after the same audit.
-	var electrical_review := preload("res://tests/v2_electrical_service_review.gd").new()
-	await electrical_review.run(world,self)
-	var connections_review := preload("res://tests/v2_electrical_connections_review.gd").new()
-	await connections_review.run(world,self)
-	var domestic_review := preload("res://tests/orison_v2_domestic_objects_test.gd").new()
-	domestic_review.capture_enabled=false;add_child(domestic_review)
-	var domestic_result: Dictionary=await domestic_review.validate_in_world(world)
-	batch_checks+=int(domestic_result.checks)
-	for failure: String in domestic_result.failures:failures.append(failure)
-	# Inspect all shared seating copies and capture the five native variants
-	# inside this already-loaded production world rather than booting another.
-	var seating_review := preload("res://tests/orison_v2_domestic_seating_test.gd").new()
-	add_child(seating_review)
-	var seating_result: Dictionary=await seating_review.validate_in_world(world)
-	batch_checks+=int(seating_result.checks)
-	for failure: String in seating_result.failures:failures.append(failure)
-	var storage_review := preload("res://tests/orison_v2_domestic_storage_test.gd").new()
-	storage_review.capture_enabled=false;add_child(storage_review)
-	var storage_result: Dictionary=await storage_review.validate_in_world(world)
-	batch_checks+=int(storage_result.checks)
-	for failure: String in storage_result.failures:failures.append(failure)
-	var instruments := preload("res://tests/orison_v2_service_instruments_test.gd").new()
-	instruments.capture_enabled = false
-	add_child(instruments)
-	var instrument_result: Dictionary = await instruments.validate_in_world(world)
-	batch_checks += int(instrument_result.checks)
-	for failure: String in instrument_result.failures: failures.append(failure)
-	world.player.global_position = world.adapter.root.to_global(Vector3(-4., .02, -5.))
-	for frame in 600:
-		if world.passage_region.residency.state == "RESIDENT": break
-		await get_tree().process_frame
-	# The owner retired playable cabinets. Inspect their exact source retirement
-	# in this world; historical embedded-game qualifications remain historical.
-	var retirement_review := preload("res://tests/v2_arcade_retirement_review.gd").new()
-	retirement_review.batch_mode=true;add_child(retirement_review)
-	var retirement_result: Dictionary=await retirement_review.validate_in_world(world)
-	if not retirement_result.has_all(["checks","failures"]):
-		check(false,"retirement validation aborted without a complete result")
-		world.shutdown_for_tests();world.free();get_tree().quit(1);return
-	batch_checks+=int(retirement_result.checks)
-	for failure: String in retirement_result.failures:failures.append(failure)
-	check(int(retirement_result.checks)>900,"surface review executes the complete current cabinet-retirement validator")
-	retirement_review.free()
-	await get_tree().process_frame; await get_tree().process_frame
+	var fixed_review
+	var sign_review
+	var instruments
+	var electrical_review
+	var connections_review
+	var domestic_review
+	var seating_review
+	var storage_review
+	var media_review
+	var sign_result: Dictionary={}
+	var instrument_result: Dictionary={}
+	var seating_result: Dictionary={}
+	var storage_result: Dictionary={}
+	var media_result: Dictionary={}
+	if not physical_only:
+		await preload("res://tests/v2_city_elevation_review.gd").new().run(world,self)
+		if OS.get_environment("ORISON_SURFACE_CITY_ONLY")=="1":
+			world.shutdown_for_tests();world.free()
+			for frame in 4:await RenderingServer.frame_post_draw
+			print("V2 CITY DIAGNOSTIC: checks=",batch_checks," failures=",failures.size(),"; city/camera only, no full surface contract")
+			get_tree().quit(0 if failures.is_empty() else 1);return
+		var furnishing_review := preload("res://tests/v2_furnishing_clearance_review.gd").new()
+		furnishing_review.set_meta("shared_world_validation",true);add_child(furnishing_review)
+		await furnishing_review.validate_in_world(world)
+		batch_checks+=furnishing_review.batch_checks
+		for failure: String in furnishing_review.failures:failures.append(failure)
+		furnishing_review.free()
+		var front_review := preload("res://tests/v2_front_restoration_review.gd").new()
+		add_child(front_review)
+		await front_review.run(world,self)
+		front_review.free()
+		var pavement_review := preload("res://tests/orison_v2_front_pavement_test.gd").new()
+		pavement_review.batch_mode=true;pavement_review.capture_enabled=true;add_child(pavement_review)
+		var pavement_result: Dictionary=await pavement_review.validate_in_world(world)
+		if not pavement_result.has_all(["checks","failures"]):
+			check(false,"pavement validation aborted without a complete result")
+			world.shutdown_for_tests();world.free();get_tree().quit(1);return
+		batch_checks+=int(pavement_result.checks)
+		for failure: String in pavement_result.failures:failures.append(failure)
+		pavement_review.free()
+		var street_pose:=world.player.global_transform;var street_camera:=world.player.camera.transform
+		var paving_review := preload("res://tests/orison_v2_street_paving_details_test.gd").new()
+		paving_review.batch_mode=true;paving_review.capture_enabled=true;add_child(paving_review)
+		var paving_result: Dictionary=await paving_review.validate_in_world(world)
+		if not paving_result.has_all(["checks","failures"]):
+			check(false,"street validation aborted without a complete result")
+			world.shutdown_for_tests();world.free();get_tree().quit(1);return
+		batch_checks+=int(paving_result.checks)
+		for failure: String in paving_result.failures:failures.append(failure)
+		paving_review.free()
+		world.player.global_transform=street_pose;world.player.camera.transform=street_camera;world.player.velocity=Vector3.ZERO
+		var public_review := preload("res://tests/public_region_walk_probe.gd").new()
+		public_review.externally_managed=true;add_child(public_review)
+		await public_review.run(world,self)
+		public_review.free()
+		var construction_review := preload("res://tests/v2_construction_shed_review.gd").new()
+		add_child(construction_review)
+		await construction_review.run(world,self)
+		construction_review.free()
+		var street_review := preload("res://tests/v2_street_optics_probe.gd").new()
+		street_review.externally_managed=true;add_child(street_review)
+		await street_review.run(world,self)
+		street_review.free()
+		var glazing_review := preload("res://tests/v2_glazing_optical_probe.gd").new()
+		glazing_review.externally_managed=true;add_child(glazing_review)
+		await glazing_review.run(world,self)
+		glazing_review.free()
+		var arcade_review := preload("res://tests/v2_arcade_fabric_review.gd").new()
+		add_child(arcade_review)
+		await arcade_review.run(world,self)
+		arcade_review.free()
+		var bodega_frontage := preload("res://tests/orison_v2_bodega_frontage_test.gd").new()
+		bodega_frontage.batch_mode=true;bodega_frontage.capture_enabled=false;add_child(bodega_frontage)
+		var bodega_result: Dictionary=await bodega_frontage.validate_in_world(world)
+		batch_checks+=int(bodega_result.checks)
+		for failure: String in bodega_result.failures:failures.append(failure)
+		bodega_frontage.free()
+		sign_review=preload("res://tests/orison_v2_signage_test.gd").new()
+		sign_review.capture_enabled=false;add_child(sign_review)
+		sign_result=await sign_review.validate_in_world(world)
+		batch_checks+=int(sign_result.checks)
+		for failure: String in sign_result.failures:failures.append(failure)
+		var bedding_review := preload("res://tests/orison_v2_bedding_test.gd").new()
+		bedding_review.batch_mode=true;add_child(bedding_review)
+		var bedding_result: Dictionary=await bedding_review.validate_in_world(world)
+		batch_checks+=int(bedding_result.checks)
+		for failure: String in bedding_result.failures:failures.append(failure)
+		bedding_review.free()
+		fixed_review=preload("res://tests/orison_v2_fixed_lighting_test.gd").new()
+		fixed_review.capture_enabled=false; add_child(fixed_review)
+		var fixed_result: Dictionary=await fixed_review.validate_in_world(world)
+		batch_checks+=int(fixed_result.checks)
+		for failure: String in fixed_result.failures:failures.append(failure)
+		var patrol := preload("res://tests/orison_v2_patrol_stations_test.gd").new()
+		patrol.set_meta("shared_world_validation",true);add_child(patrol)
+		await patrol.validate_in_world(world)
+		batch_checks+=patrol.batch_checks
+		for failure: String in patrol.failures:failures.append(failure)
+		patrol.free()
+		var entrance_review := preload("res://tests/orison_v2_front_facade_test.gd").new()
+		entrance_review.set_meta("shared_world_validation",true)
+		entrance_review.capture_prefix="entrance_";add_child(entrance_review)
+		var entrance_result: Dictionary=await entrance_review.validate_in_world(world)
+		batch_checks+=int(entrance_result.checks)
+		for failure: String in entrance_result.failures:failures.append(failure)
+		entrance_review.free()
+		await preload("res://tests/v2_kitchen_sink_review.gd").new().run(world,self)
+		await preload("res://tests/v2_bathroom_tile_review.gd").new().run(world,self)
+		await preload("res://tests/v2_watch_stations_review.gd").new().run(world,self)
+		await preload("res://tests/v2_window_treatments_review.gd").new().run(world,self)
+		await preload("res://tests/v2_millwork_weather_review.gd").new().run(world,self)
+		await preload("res://tests/v2_mail_bank_review.gd").new().run(world,self)
+		media_review=preload("res://tests/v2_active_media_review.gd").new()
+		add_child(media_review)
+		media_result=await media_review.validate_in_world(world)
+		batch_checks += int(media_result.checks)
+		for failure: String in media_result.failures: failures.append(failure)
+		# Reuse this production world for changed instrument geometry and its
+		# retained service owners, then measure retirement after the same audit.
+		electrical_review=preload("res://tests/v2_electrical_service_review.gd").new()
+		await electrical_review.run(world,self)
+		connections_review=preload("res://tests/v2_electrical_connections_review.gd").new()
+		await connections_review.run(world,self)
+		domestic_review=preload("res://tests/orison_v2_domestic_objects_test.gd").new()
+		domestic_review.capture_enabled=false;add_child(domestic_review)
+		var domestic_result: Dictionary=await domestic_review.validate_in_world(world)
+		batch_checks+=int(domestic_result.checks)
+		for failure: String in domestic_result.failures:failures.append(failure)
+		# Inspect all shared seating copies and capture the five native variants
+		# inside this already-loaded production world rather than booting another.
+		seating_review=preload("res://tests/orison_v2_domestic_seating_test.gd").new()
+		add_child(seating_review)
+		seating_result=await seating_review.validate_in_world(world)
+		batch_checks+=int(seating_result.checks)
+		for failure: String in seating_result.failures:failures.append(failure)
+		storage_review=preload("res://tests/orison_v2_domestic_storage_test.gd").new()
+		storage_review.capture_enabled=false;add_child(storage_review)
+		storage_result=await storage_review.validate_in_world(world)
+		batch_checks+=int(storage_result.checks)
+		for failure: String in storage_result.failures:failures.append(failure)
+		instruments=preload("res://tests/orison_v2_service_instruments_test.gd").new()
+		instruments.capture_enabled = false
+		add_child(instruments)
+		instrument_result=await instruments.validate_in_world(world)
+		batch_checks += int(instrument_result.checks)
+		for failure: String in instrument_result.failures: failures.append(failure)
+		world.player.global_position = world.adapter.root.to_global(Vector3(-4., .02, -5.))
+		for frame in 600:
+			if world.passage_region.residency.state == "RESIDENT": break
+			await get_tree().process_frame
+		# The owner retired playable cabinets. Inspect their exact source retirement
+		# in this world; historical embedded-game qualifications remain historical.
+		var retirement_review := preload("res://tests/v2_arcade_retirement_review.gd").new()
+		retirement_review.batch_mode=true;add_child(retirement_review)
+		var retirement_result: Dictionary=await retirement_review.validate_in_world(world)
+		if not retirement_result.has_all(["checks","failures"]):
+			check(false,"retirement validation aborted without a complete result")
+			world.shutdown_for_tests();world.free();get_tree().quit(1);return
+		batch_checks+=int(retirement_result.checks)
+		for failure: String in retirement_result.failures:failures.append(failure)
+		check(int(retirement_result.checks)>900,"surface review executes the complete current cabinet-retirement validator")
+		retirement_review.free()
+		await get_tree().process_frame; await get_tree().process_frame
+	else:
+		world.player.global_position = world.adapter.root.to_global(Vector3(-4., .02, -5.))
+		for frame in 600:
+			if world.passage_region.residency.state == "RESIDENT": break
+			await get_tree().process_frame
 	# The encounter is normally dormant. Qualify its actual loaded physical
 	# anatomy in this composed world rather than silently omitting it.
 	var gang_target := world.find_child(ServiceRoundDirector.RADIATOR_ID,true,false) as RadiatorProp
@@ -289,7 +313,7 @@ func _run() -> void:
 		world.free()
 		get_tree().quit(1)
 		return
-	var report := {"schema":"orison.v2-surface-inventory.v1", "evidence_class":"INERT", "acceptance":"Inventory; acceptance requires passing runtime contract and reviewed renders.", "coverage":{"production_world":true,"space_count":world.layout.spaces.size(),"resident_cells":world.passage_region.cell_nodes.size()}, "passage_state":world.passage_region.residency.state, "draws":draws, "meshes":mesh_rows, "materials":material_rows, "textures":texture_rows,"unhandled_geometry":unhandled_geometry}
+	var report := {"schema":"orison.v2-surface-inventory.v1", "evidence_class":"INERT", "acceptance":"Inventory; acceptance requires passing runtime contract and reviewed renders.", "qualification_mode":"physical_surfaces_only" if physical_only else "full_programmes", "coverage":{"production_world":true,"space_count":world.layout.spaces.size(),"resident_cells":world.passage_region.cell_nodes.size()}, "passage_state":world.passage_region.residency.state, "draws":draws, "meshes":mesh_rows, "materials":material_rows, "textures":texture_rows,"unhandled_geometry":unhandled_geometry}
 	var file := FileAccess.open(directory.path_join("surface-inventory.json"), FileAccess.WRITE)
 	if file == null:
 		push_error("Cannot write surface inventory")
@@ -389,54 +413,57 @@ func _run() -> void:
 		review_camera.make_current()
 		await shot(str(station[3]))
 	manager.set_process(weather_processing)
-	await finish_review.run(world,self)
-	await preload("res://tests/radiator_joint_review.gd").new().run(world,self)
+	if not physical_only:
+		await finish_review.run(world,self)
+		await preload("res://tests/radiator_joint_review.gd").new().run(world,self)
 	var after := _input_snapshot(root)
 	check(before.get("sha256","") == after.get("sha256","changed"),"rendering inputs stayed fixed during qualification")
 	var owner_ref: WeakRef = weakref(world)
 	world.shutdown_for_tests()
 	world.free()
-	fixed_review.free()
+	if not physical_only:fixed_review.free()
 	for frame in 3: await get_tree().process_frame
 	await RenderingServer.frame_post_draw
-	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR").path_join("signage"))
-	var sign_retired: Dictionary=await sign_review.validate_after_teardown()
-	batch_checks+=int(sign_retired.checks)-int(sign_result.checks)
-	for failure: String in sign_retired.failures:
-		if not failures.has(failure):failures.append(failure)
-	sign_review.free()
+	if not physical_only:
+		DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR").path_join("signage"))
+		var sign_retired: Dictionary=await sign_review.validate_after_teardown()
+		batch_checks+=int(sign_retired.checks)-int(sign_result.checks)
+		for failure: String in sign_retired.failures:
+			if not failures.has(failure):failures.append(failure)
+		sign_review.free()
 	for row: Dictionary in shared_uv_defaults:
 		check(row.stock.uv1_triplanar==row.uv1 and row.stock.uv2_triplanar==row.uv2,
 			"shared catalogue projection defaults restore after V2 teardown")
 	check(owner_ref.get_ref() == null,"production world retires after inspection")
-	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR").path_join("service_instruments"))
-	var instrument_post: Dictionary = await instruments.validate_after_teardown()
-	batch_checks += int(instrument_post.checks)-int(instrument_result.checks)
-	for failure: String in instrument_post.failures:
-		if not failure in failures: failures.append(failure)
-	instruments.free()
-	if fire_interactions:fire_review.after_teardown(self)
-	electrical_review.after_teardown(self)
-	connections_review.after_teardown(self)
-	var domestic_retired: Dictionary=domestic_review.validate_after_teardown()
-	for failure: String in domestic_retired.failures:
-		if not failures.has(failure):failures.append(failure)
-	domestic_review.free()
-	var seating_retired: Dictionary=seating_review.validate_after_teardown()
-	batch_checks+=int(seating_retired.checks)-int(seating_result.checks)
-	for failure: String in seating_retired.failures:
-		if not failures.has(failure):failures.append(failure)
-	seating_review.free()
-	var storage_retired: Dictionary=storage_review.validate_after_teardown()
-	batch_checks+=int(storage_retired.checks)-int(storage_result.checks)
-	for failure: String in storage_retired.failures:
-		if not failures.has(failure): failures.append(failure)
-	storage_review.free()
-	var media_retired: Dictionary = media_review.validate_after_teardown()
-	batch_checks += int(media_retired.checks)-int(media_result.checks)
-	for failure: String in media_retired.failures:
-		if not failures.has(failure): failures.append(failure)
-	media_review.free()
+	if not physical_only:
+		DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR").path_join("service_instruments"))
+		var instrument_post: Dictionary = await instruments.validate_after_teardown()
+		batch_checks += int(instrument_post.checks)-int(instrument_result.checks)
+		for failure: String in instrument_post.failures:
+			if not failure in failures: failures.append(failure)
+		instruments.free()
+		if fire_interactions:fire_review.after_teardown(self)
+		electrical_review.after_teardown(self)
+		connections_review.after_teardown(self)
+		var domestic_retired: Dictionary=domestic_review.validate_after_teardown()
+		for failure: String in domestic_retired.failures:
+			if not failures.has(failure):failures.append(failure)
+		domestic_review.free()
+		var seating_retired: Dictionary=seating_review.validate_after_teardown()
+		batch_checks+=int(seating_retired.checks)-int(seating_result.checks)
+		for failure: String in seating_retired.failures:
+			if not failures.has(failure):failures.append(failure)
+		seating_review.free()
+		var storage_retired: Dictionary=storage_review.validate_after_teardown()
+		batch_checks+=int(storage_retired.checks)-int(storage_result.checks)
+		for failure: String in storage_retired.failures:
+			if not failures.has(failure): failures.append(failure)
+		storage_review.free()
+		var media_retired: Dictionary = media_review.validate_after_teardown()
+		batch_checks += int(media_retired.checks)-int(media_result.checks)
+		for failure: String in media_retired.failures:
+			if not failures.has(failure): failures.append(failure)
+		media_review.free()
 	var head: Array=[]; var digest: Array=[]
 	check(OS.execute("git",["-C",root,"rev-parse","HEAD"],head)==0,"record repository head")
 	check(OS.execute("python",[root.path_join("tools/run_receipt.py"),"digest","--root",root],digest)==0,"record runtime input digest")
@@ -448,7 +475,8 @@ func _run() -> void:
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.},
 		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(path),"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":str(digest[0]).strip_edges() if not digest.is_empty() else ""},
 		"surface_inputs_sha256":after.get("sha256",""),"inventory_sha256":FileAccess.get_sha256(directory.path_join("surface-inventory.json")),
-		"interaction_programmes":{"fire_service":{"executed":fire_interactions,"scope":"separate interaction programme; physical draws remain in the inventory"}},
+		"qualification_mode":"physical_surfaces_only" if physical_only else "full_programmes",
+		"interaction_programmes":{"fire_service":{"executed":fire_interactions,"scope":"separate interaction programme; physical draws remain in the inventory"},"other_family_programmes":{"executed":not physical_only,"scope":"Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."}},
 		"contracts":{"production_composition":{"executed":true,"status":status},"surface_requirements":{"executed":true,"status":status},"save_reconstruction":{"executed":false,"status":"NOT_EXECUTED"},"teardown":{"executed":true,"status":status,"measurement_scope":"runtime_owned"}},
 		"checks":batch_checks,"failures":failures}
 	FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(contract,"\t"))

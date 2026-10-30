@@ -1,63 +1,62 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
+  "surface_inputs_sha256": "d9f84437c7dd2fdea93fb377fe79f3db4eea807e91839ca7a599cc92ec526010",
+  "scope": "Representative technical surface review of nine actual 3440x1440 patched-Vulkan captures. Physical-only orchestration retains composed-world geometry, UV/PBR/mipmap inventory, native library controls and teardown. Interaction programmes are explicitly unexecuted. No artistic, full-city, apartment, weather, narrative or save acceptance. Existing lighting and glare limitations remain.",
   "images": [
     {
-      "file": "city_street_skyline.png",
-      "sha256": "6620fb9bb1df99affb47b5f0db14fec9940b46c44922bc6bf450e17295f13612",
-      "observation": "Current combined street view shows brick relief, stone sill/lintel stock, separate slatted blinds, canopy, lamp and rooftop tank. This posed view does not prove city access, NPC routes or facade artistic acceptance."
+      "file": "F02_A_MAIN.png",
+      "sha256": "acd4dd6be8239763f23c1ac9693511707785f3e4c05875057c15934ecf0498ed",
+      "observation": "Retained timber floor, curtains, upholstery, plaster and joinery render without missing materials. Strong light boundaries remain a presentation limitation.",
+      "origin": "Actual nw_physical_surface_01 native-resolution runtime capture inspected by agent."
     },
     {
-      "file": "city_east_roof.png",
-      "sha256": "ac51ec530fb2652908d4c8693df0fa16e35cb43bee5c9f723b462768838ede06",
-      "observation": "Rooftop tanks and aerials are visible against broad pale cloud sheets. Cloud relief is weak in this view; it does not demonstrate painterly cloud-depth or annual-weather acceptance."
+      "file": "F03_B_BATH_reflection_repair.png",
+      "sha256": "97ada7599c6f45b7760b89d093c2872a89d292c7cf3915bdda232435da9ecbba",
+      "observation": "Retained bathroom tile and plumbing materials render. This is a surface observation, not apartment or reflection-system acceptance.",
+      "origin": "Actual nw_physical_surface_01 native-resolution runtime capture inspected by agent."
     },
     {
-      "file": "city_west_roof.png",
-      "sha256": "e3a8aff0ace4bd22b00fdf2ab37e4c44acf15cea605a33764b92a8a42042fd81",
-      "observation": "Near roof tank/aerial/chimney silhouettes and the background building grid are visible. Generic distant window repetition remains visible; this is not final city diversity or LOD-transition acceptance."
+      "file": "F06_B_KITCHEN_reflection_repair.png",
+      "sha256": "8ed8fbb4af854b868be3a605142595e10bf180b6cf9fa1178e6d06ddae492830",
+      "observation": "Retained kitchen surfaces render; stippled glare remains visible and unresolved. No interior or lighting change is claimed.",
+      "origin": "Actual nw_physical_surface_01 native-resolution runtime capture inspected by agent."
     },
     {
-      "file": "front_restored_entrance.png",
-      "sha256": "b1b36293219ec4a69dbd4e4b7ed612ff5013b93a392c602f560233b032a91f03",
-      "observation": "Installed carved leaf, brass pull/mail slot, stone arch, canopy and retained Orison signage are visible together. The leaf is dark in this lighting; full facade/window composition and artistic acceptance remain open."
+      "file": "bookcase.png",
+      "sha256": "1e679e420762b2b14bed6c679819ae3627e9531e199c9324d7de6da34b8fb3c1",
+      "observation": "Timber grain, framed glass, books, floor and retained door render. Glass is dark; no interaction acceptance is inferred.",
+      "origin": "Actual nw_physical_surface_01 native-resolution runtime capture inspected by agent."
     },
     {
-      "file": "front_gallery_05.png",
-      "sha256": "3f80ee1b683e6ef0777fb240eb44a44e8d1fce4f4d266d800819c20410ace57b",
-      "observation": "Four window/blind/curtain assemblies, continuous timber wainscot, benches, conduits and ceiling fittings are present. Strong practical-light ceiling hotspots remain; this does not grant lighting acceptance."
+      "file": "mail_bank.png",
+      "sha256": "3e482b41bd9572e9e95bedd5f06ffc2eb993e088c00eaec5748e99f5af935e41",
+      "observation": "Brass mail doors, timber surround and dark masonry render together. Undercroft exposure is very dark; lettering is retained scene content.",
+      "origin": "Actual nw_physical_surface_01 native-resolution runtime capture inspected by agent."
     },
     {
-      "file": "city_weather_storm.png",
-      "sha256": "6c6b660d9a152186cdbd7b068608707526a30e365e18bb631f3d58cb4b12bfb8",
-      "observation": "Roof tanks/aerials and distant outlines remain visible below a nearly uniform grey/sepia ceiling. Convincing storm-cloud relief is not demonstrated; dramatic and whole-year artistic qualification remain open."
+      "file": "signal_terminal.png",
+      "sha256": "02155fce8350157b2d4f687822cbba99b11a9440d48ed6e1f82d3864c6262343",
+      "observation": "Retained terminal frame, lamps, timber table and floor render with mapped surfaces. Hard irregular wall shadows remain a lighting limitation.",
+      "origin": "Actual nw_physical_surface_01 native-resolution runtime capture inspected by agent."
     },
     {
-      "file": "street_paving.png",
-      "sha256": "70e7ce0bafc4b938b2e19c3e436882a0bf372f5da52c36efac6732db52d403be",
-      "observation": "Combined scene shows scored concrete paving, kerb/road, retained drainpipe and scaffold feet under the expanded elevated structure. No obvious open seam is visible from this stance; collision and continuous walking remain separate evidence."
+      "file": "roof_tank_uv.png",
+      "sha256": "51160cfeaf1de5bc34bc23d6e15a417a6e8387a2fc72411bc53c24d588787796",
+      "observation": "Tank body, safety rail, support steel, parapet and roof render alongside distinct northwest fronts. Dark roof exposure remains; no tank interaction or ground-access claim.",
+      "origin": "Actual nw_physical_surface_01 native-resolution runtime capture inspected by agent."
     },
     {
-      "file": "public_arcade_hall.png",
-      "sha256": "08eec45d95f5cc25ea67570c7a4afc61d6cea867775e8a4d3f49b1cce043b289",
-      "observation": "Composed arcade glazing, brick, stone piers, wainscot, signs and overhead ironwork are visible under coloured lighting. This image alone does not prove shop interaction, circulation, lighting polish or artistic acceptance."
+      "file": "tentacle_installed_surfaces.png",
+      "sha256": "29480c086dcbb2149d18454b26dc9e9e9d0cac7f423ef842f0e46274240f9d04",
+      "observation": "Installed physical anatomy and adjacent radiator, floor and furnishings render with glossy surface separation. No companion, narrative or interaction qualification.",
+      "origin": "Actual nw_physical_surface_01 native-resolution runtime capture inspected by agent."
     },
     {
-      "file": "4B_wake_bed_bedding_0.png",
-      "sha256": "e2f7229c01ec35ae1e5fc5cab889e49adc0b40a035ee527bc82f4676d850a26f",
-      "observation": "Installed 4B waking bed frame, mattress, pillows and cover show separate cloth surfaces with visible folds and contacts. A still frame does not qualify waking motion, creature timing or full opening interaction."
-    },
-    {
-      "file": "tile_F02_A_BATH_corner.png",
-      "sha256": "1e5e4485eb1aa4ab26f3ba3101f42e7076fca33965bc586ee34b26157ada3639",
-      "observation": "2A bathroom shows half-height tile with termination beside the door frame, hexagonal floor, separate sink fittings, cloth, shower rail and rings. This posed corner does not qualify wet-state mirrors, physical controls or artistic lighting."
-    },
-    {
-      "file": "tile_F04_B_BATH_corner.png",
-      "sha256": "833f1da3de1aab750d8ba4f3f0e98662d87c77d3e28efee7910435b1014b383c",
-      "observation": "Current4B corner shows the tub edge, separate shower/window curtains, rail/rings, exposed plumbing, tile border and switch wholly above the tile termination. Curtain motion, mirror viewing and whole-room atmosphere require their actual input review."
+      "file": "tentacle_flowing_residue.png",
+      "sha256": "70470ebdd68ecc25b050acd11285a40754bec040bab84bf83f1e9b5e0a4bb38b",
+      "observation": "Flowing residue displays its iridescent surface and dark lobes against mapped timber. This qualifies visible material presence only; artistic acceptance remains open.",
+      "origin": "Actual nw_physical_surface_01 native-resolution runtime capture inspected by agent."
     }
-  ],
-  "limits": "Eleven individually inspected current composed technical observations; atmosphere/lighting/window-diversity artistic limits are retained in the image notes. No human acceptance, full-opening input/save proof or whole V2 completion.",
-  "surface_inputs_sha256": "4ed32dc3a3db81c47889a641abca8d1b93843c156c3335a00b10651b03fb889e"
+  ]
 }
