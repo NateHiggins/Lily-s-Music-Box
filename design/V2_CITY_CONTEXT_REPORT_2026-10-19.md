@@ -2369,6 +2369,57 @@ into main is performed or implied by this candidate result.
 
 MERGE-CANDIDATE **8bac893c43679c2a5200cbd712df9e61b97f3831**
 
+
+### Combined main reconciliation — October30
+
+Canonical source8ae1f26c and immutable city **fbf0e73cb974e8d86cccda179a9f76e53d93383f**
+are reconciled without changing current companion,prologue,Tardi,weather,audio,
+clock,input or save scripts. The only runtime data change is city_elevations.json;
+the two runtime mesh payloads are the near and complete lower city elevations.
+All11,048 previous spatial records remain exact; one incoming test-fixture
+record is appended. Current voice PCM attributes and all four incoming city
+attributes are retained. The current task queue/prologue evidence are preserved.
+
+Both premerge coherent surface packets are preserved externally with source
+commits and exact member hashes. Historical auxiliary files remain in Git at
+the original commits rather than being copied into another large history tree.
+Incoming qualification archive hash/CRC checks pass; its unchanged schema2
+street contract records279/0,12 legs and loaded selected surfaces. Canonical
+review independently inspected its three standing-frontage captures. Those
+remain branch-source evidence,not repinned current-main route receipts.
+Seven affected native fixture preflights and366 retained physical import
+sources pass. No gate predicate or spatial tolerance changed.
+
+Combined run **C:/ov/reports/prologue_20261028/city_main_integration_01/**:
+**import.log.receipt.json** passes23s. **physical.log.receipt.json** passes
+274.52s wrapper/251.202s test,651/0,empty shutdown stderr. The untouched test
+schema2 contract passes composition,physical surfaces and runtime-owned
+teardown. Save reconstruction and every interaction programme remain
+NOT_EXECUTED. Inventory:29,122 draws,18,322 meshes,6,367 materials,542 textures;
+10 native cases,three loose cases,61 copies,zero unresolved surfaces.
+
+Three current native3440×1440 views were inspected: apartment F02_A_MAIN,
+bookcase and roof_tank_uv. Existing projector retirement,sparse shelf dressing,
+strong shadows/cloud and distant-city appearance remain debt. All18 current
+captures stay external. Independent prepublication and installed packet checks
+both PASS,zero defects. Existing atomic publication preserves the prior packet;
+no receipt was edited or repinned. Only nine proven LF-equivalent microscopy
+import sidecars were restored by named paths; unrelated UIDs remain untouched.
+
+This is a combined physical renewal,not a new full city walk,performance gain,
+prologue playthrough,save matrix or artistic acceptance. Previous unchanged
+interaction/intro evidence retains its original scope. City native authoring
+could overlap this nonperformance run; no timing baseline is claimed. The
+three new buildings raise the technical study count to17/149,132 remaining.
+Hampton paving/access repairs are separate work after frozenfbf0. Clean merged candidate **374c2792296e34be9bb1db88dd94529ee6666e3a**
+passes116 gates against the exact verifiedbd4cde97 baseline:zero regressions
+or improvements,17 protected paths unchanged,V2,zero lint errors,no requirement
+promotions or accepted exceptions. The sole gate-file diff is the reviewed
+append-only test-fixture record. Raw comparison and explicit gate review are
+under **city_main_integration_01/candidate/comparison/**. The in-place verifier
+uses **--no-godot** with the separately executed combined physical run above;
+fresh-checkout import,whole-game and artistic acceptance remain outside scope.
+
 ### Hampton public footway and stoop WIP — October30 (INERT)
 
 After the prologue owner released the isolated source freeze,the next construction

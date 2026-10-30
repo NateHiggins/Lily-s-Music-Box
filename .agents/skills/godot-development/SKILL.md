@@ -97,6 +97,10 @@ checkpoints or changes whose dependency coverage genuinely requires them.
 Reuse valid unchanged route evidence instead of repeating it for each repair,
 visual adjustment, report edit or diagnostic. A performance experiment should
 measure a short, repeatable representative segment, excluding unrelated travel.
+For performance captures, coordinate CPU-heavy native construction and rendering
+as well as GPU work with other agents. Record concurrent host load; a free Godot
+lane alone does not establish an uncontended timing baseline. Callback counts
+identify candidates, not cost: use reversible controls before reducing fidelity.
 Do not shorten runs by raising player speed, relaxing deadlines/tolerances,
 bypassing affected interactions or weakening acceptance. An interrupted run is
 partial evidence even if closing its window returns exit zero: require the
@@ -118,6 +122,11 @@ readability, and feel.
 
 ## Reuse demonstrated project lessons
 
+- **Composed fixture readiness:** a startup marker can precede the first normal
+  process/draw. Before timing an installed mechanism, await real physics/draw
+  registration. If it appears stuck, record frame count, callback clock, power,
+  pause and ancestor processing modes before extending a timeout. Use a fresh
+  log directory for every retry; archive original failures before any reuse.
 - **Runtime branches:** parsing and successful instantiation do not execute
   conditional branches. Exercise the changed branch with actual values. On the
   pinned Godot build, a ternary producing an untyped Array can fail when assigned
@@ -129,6 +138,11 @@ readability, and feel.
 - **Physical UI:** stored text and a finished print flag do not establish
   readable output. Inspect the delivered glyphs against glass, moving covers,
   keyboards and actual camera framing; wait for the real delivery motion.
+  Continuous playthrough checks must inspect nested helpers too: differential
+  captures may deliberately pause or hide the subject. Keep those controls in
+  a separate recovery/optical programme and review ordinary captures in the
+  uninterrupted route; never silently waive the interruption. See the prologue
+  ledger's continuous actual-title programme.
   Validate optical checks against known obscured/hidden controls. A positive
   colour count is not proof if unrelated emissive hardware can satisfy it.
   Let the real lamp and pose transitions settle before freezing a capture;

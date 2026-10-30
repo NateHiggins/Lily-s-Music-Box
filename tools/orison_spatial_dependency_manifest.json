@@ -214108,7 +214108,7 @@
    "count": 2,
    "context": [
     "const LEVELS := {\"B1\":-2.8, \"F01\":0.0, \"F02\":3.2, \"F03\":6.4,",
-    "var street := \"STREET LEVEL \u2193\" if fid != \"F01\" else \"STREET LEVEL \u2014 THIS FLOOR\""
+    "var street := \"STREET LEVEL ↓\" if fid != \"F01\" else \"STREET LEVEL — THIS FLOOR\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -223154,7 +223154,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
+    "{\"label\": \"kettle · polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
     "if unit == \"1A\":"
    ],
    "gameplay_binding": false,
@@ -223227,7 +223227,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 aged copper\", \"properties\": {\"unit\": \"3D\"}},",
+    "{\"label\": \"kettle · aged copper\", \"properties\": {\"unit\": \"3D\"}},",
     "_body_color = BODY_COPPER if unit in [\"3D\", \"4C\", \"6C\"] else BODY_NICKEL"
    ],
    "gameplay_binding": false,
@@ -276347,7 +276347,7 @@
    ],
    "count": 1,
    "context": [
-    "await _owner_shot(\"05_night_register\", \"F01_NIGHT_REGISTER\", \"NIGHT REGISTER \u00b7 PRODUCTION AUTHORITY\")"
+    "await _owner_shot(\"05_night_register\", \"F01_NIGHT_REGISTER\", \"NIGHT REGISTER · PRODUCTION AUTHORITY\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -276378,7 +276378,7 @@
    ],
    "count": 1,
    "context": [
-    "await _owner_shot(\"06_signal_register\", \"F01_SIGNAL_REGISTER\", \"SIGNAL REGISTER \u00b7 PRODUCTION AUTHORITY\")"
+    "await _owner_shot(\"06_signal_register\", \"F01_SIGNAL_REGISTER\", \"SIGNAL REGISTER · PRODUCTION AUTHORITY\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -276409,7 +276409,7 @@
    ],
    "count": 1,
    "context": [
-    "await _owner_shot(\"07_tour_key_guard\", \"F01_TOUR_KEY_GUARD\", \"TOUR KEY GUARD \u00b7 COMPOSED PROP\")"
+    "await _owner_shot(\"07_tour_key_guard\", \"F01_TOUR_KEY_GUARD\", \"TOUR KEY GUARD · COMPOSED PROP\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -276440,7 +276440,7 @@
    ],
    "count": 1,
    "context": [
-    "await _owner_shot(\"04_watchman_detector\", \"F01_WATCHMAN_DETECTOR\", \"WATCHMAN DETECTOR \u00b7 PRODUCTION AUTHORITY\")"
+    "await _owner_shot(\"04_watchman_detector\", \"F01_WATCHMAN_DETECTOR\", \"WATCHMAN DETECTOR · PRODUCTION AUTHORITY\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -305673,8 +305673,8 @@
    "count": 3,
    "context": [
     "_check(line.contains(\"2A\") and line.contains(\"2B\") and line.contains(\"2C\"),",
-    "_check(_side_label(plate, \"\u2190\").contains(\"2A\"),",
-    "and not _side_label(plate, \"\u2192\").contains(\"2A\"),"
+    "_check(_side_label(plate, \"←\").contains(\"2A\"),",
+    "and not _side_label(plate, \"→\").contains(\"2A\"),"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -305736,7 +305736,7 @@
    "count": 2,
    "context": [
     "_check(line.contains(\"2A\") and line.contains(\"2B\") and line.contains(\"2C\"),",
-    "_check(_side_label(plate, \"\u2192\").contains(\"2C\")"
+    "_check(_side_label(plate, \"→\").contains(\"2C\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -323979,6 +323979,65 @@
    "count": 1,
    "context": [
     "if point.x==-40.:await _station_view(\"northwest_row_from_south_walk\",Vector3(-42,-6.2,8))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c155b4ef903f2cce",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/prologue_voice_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    22
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7ecf7f6106453d88",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/prologue_voice_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    35
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position=occupied_world.adapter.root.to_global(Vector3(-8.4,9.62,4.75))"
    ],
    "gameplay_binding": true,
    "authority": [

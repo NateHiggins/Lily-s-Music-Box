@@ -1,5 +1,5 @@
 extends "res://tests/orison_v2_4b_door_route_test.gd"
-## Actual waking/shower/mirror/cabinet/visitor slice; physical crossing and full opening remain unqualified.
+## Actual input route; recovery controls and a separate continuous title programme.
 const Director := preload("res://scripts/game/prologue_director.gd")
 const BathCurtain := preload("res://scripts/props/clawfoot_curtain_motion.gd")
 const Household := preload("res://scripts/building/orison_v2_household_state.gd")
@@ -7,6 +7,9 @@ var director: Node
 var frame_trace:Node
 var contact_optical:Array[Dictionary]=[]
 var use_installed_director := false
+
+func _uninterrupted() -> bool:
+	return OS.get_environment("PROLOGUE_UNINTERRUPTED")=="1"
 
 class FrameTrace extends Node:
 	var director:Node
@@ -18,9 +21,18 @@ class FrameTrace extends Node:
 	var film_captures:Array=[]
 	var sample_cap:=16384
 	var total_frames:=0
+	var campaign_document:Dictionary
+	var document_replacements:=0
+	var paused_frames:=0
+	var voice_events:Array[Dictionary]=[]
 	func _ready() -> void:
+		campaign_document=RealityState.data
+		AudioPolicy.cue_presented.connect(_voice_presented)
 		if OS.get_environment("PROLOGUE_FULL_SEQUENCE")=="1":sample_cap=65536
 		if OS.get_environment("PROLOGUE_FILM_CAPTURE")=="1":RenderingServer.frame_post_draw.connect(_capture_film)
+	func _voice_presented(cue_id:StringName,snapshot:Dictionary) -> void:
+		if not str(snapshot.get("source_id","")).begins_with("companion_output:own_babble:prologue:") or voice_events.size()>=16:return
+		voice_events.append({"cue_id":str(cue_id),"phase":str(director.state.phase),"message":str(director.message_id),"usec":Time.get_ticks_usec()})
 	func _capture_film() -> void:
 		if film_captures.size()>=40 or not is_instance_valid(director) or director.state.phase!="mirror_condensation" or not director._withdrawal_seen or director._phase_age<3 or director._phase_age>5:return
 		var pane:MeshInstance3D=director.mirror.mirror_surface()
@@ -35,6 +47,9 @@ class FrameTrace extends Node:
 	func _process(delta:float) -> void:
 		var now:=Time.get_ticks_usec()
 		total_frames+=1
+		if not is_same(campaign_document,RealityState.data):
+			document_replacements+=1;campaign_document=RealityState.data
+		if get_tree().paused:paused_frames+=1
 		if previous>0 and rows.size()<sample_cap:
 			var phase:String=str(director.state.phase) if is_instance_valid(director) else "retired"
 			rows.append([phase,Engine.max_fps,delta*1000.0,float(now-previous)/1000.0,
@@ -57,7 +72,7 @@ class FrameTrace extends Node:
 		if file==null:return
 		file.store_string(JSON.stringify({"evidence_class":"INERT","complete":complete,"sample_cap":sample_cap,"total_frames":total_frames,"truncated":maxi(0,total_frames-1)>rows.size(),
 			"film_captures":film_captures,"film_columns":["phase_age","poll","progress","passes_identical","paused","call_locked"],"film_frames":film_rows,
-			"settings":settings,"columns":["phase","fps_cap","process_delta_ms","wall_ms","process_monitor_ms","physics_monitor_ms","draw_calls"],"frames":rows,
+			"settings":settings,"document_replacements":document_replacements,"paused_frames":paused_frames,"voice_events":voice_events,"columns":["phase","fps_cap","process_delta_ms","wall_ms","process_monitor_ms","physics_monitor_ms","draw_calls"],"frames":rows,
 			"limits":"Occupied route starts after world construction; process/physics monitors overlap and lag. GPU/render-thread, compilation, loading and streaming costs are not independently attributed. Capture stalls and cap changes are retained; compare matched phases/caps, not an aggregate FPS."},"\t",true,true))
 
 func _init() -> void:
@@ -69,6 +84,7 @@ func _prepare_player_start() -> void:
 
 func _route() -> void:
 	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR"))
+	if _uninterrupted() and not _require(use_installed_director and OS.get_environment("PROLOGUE_FULL_SEQUENCE")=="1","continuous mode requires the actual title owner and full natural sequence"):return
 	if not _check_return_anchor_resolution():return
 	if OS.get_environment("ORISON_BATH_REPAIR_REVIEW")=="1":
 		await _review_installed_bath()
@@ -104,9 +120,10 @@ func _route() -> void:
 	if OS.get_environment("PROLOGUE_FULL_SEQUENCE")=="1":
 		if not await _full_sequence_wake():return
 	elif not _require(director.begin_waking_preview(),"explicit waking-only slice begins without fake dream acceptance"): return
-	carrier.release_story_absence(world) # An unrelated caller cannot reveal it.
-	carrier.set_capture_hidden(true)
-	carrier.set_capture_hidden(false) # Review visibility cannot defeat story absence.
+	if not _uninterrupted():
+		carrier.release_story_absence(world) # An unrelated caller cannot reveal it.
+		carrier.set_capture_hidden(true)
+		carrier.set_capture_hidden(false) # Review visibility cannot defeat story absence.
 	var read_press := InputEventAction.new()
 	read_press.action="teletype_read";read_press.pressed=true
 	var reading_before: bool=carrier.reading
@@ -155,10 +172,11 @@ func _route() -> void:
 	if not _require(window!=null,"actual bathroom window curtain owner exists"): return
 	# Household restore is not a witnessed player gesture and must not trigger
 	# the joke. The physical opening below must leave the shower gate unfinished.
-	var saved: Dictionary=window.settings_snapshot()
-	window.set_settings(window.raised,window.tilt_degrees,.8,0.0)
-	if not _require(director.message_id=="curtain_open","programmatic window change cannot invent wrong-curtain interaction"): return
-	window.restore_settings(saved)
+	if not _uninterrupted():
+		var saved: Dictionary=window.settings_snapshot()
+		window.set_settings(window.raised,window.tilt_degrees,.8,0.0)
+		if not _require(director.message_id=="curtain_open","programmatic window change cannot invent wrong-curtain interaction"): return
+		window.restore_settings(saved)
 	if not await _walk(Vector3(-6.9,9.6,4.75)): return
 	var extent: float=(window.width+.24)*.38
 	if not await _drag_part(window,window.get_node("CurtainControl").global_position,extent,"prologue_wrong_curtain"): return
@@ -222,7 +240,61 @@ func _turn_at(point:Vector3) -> void:
 		Input.parse_input_event(motion);Input.flush_buffered_events()
 		await get_tree().process_frame
 
+func _wait_natural_phase(phase:String,seconds:float) -> bool:
+	var deadline:=Time.get_ticks_msec()+int(seconds*1000)
+	while director.state.phase!=phase and Time.get_ticks_msec()<deadline:
+		await get_tree().process_frame
+	return _require(director.state.phase==phase,"continuous opening naturally reaches "+phase+" from "+str(director.state.phase))
+
+func _natural_mirror() -> bool:
+	var cabinet:MedicineCabinetProp=director.mirror
+	var at:Vector3=cabinet.mirror_center()+cabinet.mirror_normal()*.85
+	at.y=player.global_position.y
+	if not await _walk_world(at):return false
+	await _turn_at(cabinet.mirror_center())
+	if not await _wait_natural_phase("protagonist_reveal",15):return false
+	await _shot("continuous_mirror_reveal.png")
+	if not _require(world.player_avatar.visible and world.player_avatar.reflected and world.mirror_renderer.active_mirror()==cabinet,"continuous reveal uses the real reflected player"):return false
+	if not await _wait_natural_phase("cabinet_inspection",12):return false
+	if not await _drag_part(cabinet,cabinet.mirror_center()+cabinet.mirror_normal()*.02,cabinet.DOOR_ANGLE,"continuous_medicine_open"):return false
+	if not _require("cabinet_opened" in director.state.events and cabinet.inventory_names()==["aspirin","iodine","razor"],"continuous real cabinet opening retains ordinary contents"):return false
+	await _shot("continuous_cabinet_contents.png")
+	if not await _drag_part(cabinet,cabinet.mirror_center()+cabinet.mirror_normal()*.02,0.0,"continuous_medicine_close"):return false
+	return _require(director.state.phase=="reflection_visitor" and "cabinet_closed" in director.state.events,"continuous cabinet closure reaches visitor without a restore or reload")
+
+func _natural_visitor() -> bool:
+	var carrier:Node=world.service_set_carrier
+	var rig_id:int=carrier.rig.get_instance_id()
+	await _turn_at(director.mirror.mirror_center())
+	await get_tree().create_timer(1.2).timeout
+	if not _require("visitor_seen" in director.state.events and carrier.is_story_absent(),"continuous mirror gaze witnesses the private visitor"):return false
+	await _shot("continuous_visitor_first.png")
+	await _turn_at(director._visitor_center)
+	await get_tree().create_timer(.5).timeout
+	if not _require("looked_behind" in director.state.events and not carrier.rig.visible,"continuous mouse look finds the actual room empty"):return false
+	await _turn_at(director.mirror.mirror_center())
+	await get_tree().create_timer(1.2).timeout
+	if not _require("visitor_seen_again" in director.state.events and carrier.rig.get_instance_id()==rig_id,"continuous return finds the same machine"):return false
+	await _shot("continuous_visitor_return.png")
+	return await _wait_natural_phase("companion_crossing",22)
+
+func _natural_crossing() -> bool:
+	var carrier:Node=world.service_set_carrier
+	var rig_id:int=carrier.rig.get_instance_id()
+	var draft:String=carrier.session.draft
+	if not await _crossing_age(2):return false
+	_require(carrier.is_story_absent() and player.text_input_owner==director.mirror_crossing,"continuous private approach owns input before arrival")
+	await _shot("continuous_crossing_tunnel.png")
+	if not await _crossing_age(4.8):return false
+	_require(director.mirror_crossing.world_stage and carrier.is_story_absent() and not director.state.effects.companion_materialized,"continuous world emergence precedes acknowledged arrival")
+	await _shot("continuous_crossing_emergence.png")
+	if not await _wait_natural_phase("first_contact",25):return false
+	_require(director.state.effects.companion_materialized and not carrier.is_story_absent() and carrier.rig.get_instance_id()==rig_id and carrier.session.draft==draft,"continuous arrival retains the original machine and draft")
+	_require(player.text_input_owner in [null,director] and carrier._world_story_draws.is_empty() and not carrier._story_reflection,"continuous arrival releases crossing ownership and temporary layers")
+	return failures.is_empty()
+
 func _review_visitor() -> bool:
+	if _uninterrupted():return await _natural_visitor()
 	var carrier:Node=world.service_set_carrier
 	var device_id:int=carrier.device.get_instance_id()
 	var rig_id:int=carrier.rig.get_instance_id()
@@ -309,6 +381,7 @@ func _crossing_age(target:float) -> bool:
 	return _require(false,"crossing reaches authored age "+str(target))
 
 func _review_crossing() -> bool:
+	if _uninterrupted():return await _natural_crossing()
 	var carrier:Node=world.service_set_carrier
 	var rig_id:int=carrier.rig.get_instance_id()
 	var draft:String=carrier.session.draft
@@ -506,6 +579,7 @@ func _contact_ink_pixels(paper:Node) -> int:
 	return green
 
 func _review_mirror_reveal() -> bool:
+	if _uninterrupted():return await _natural_mirror()
 	var cabinet:MedicineCabinetProp=director.mirror
 	player.face_world_point(player.camera.global_position+Vector3.UP*3)
 	await get_tree().create_timer(3.0).timeout
@@ -1152,7 +1226,12 @@ func _full_sequence_ending() -> void:
 		var copy:String=" ".join(str(paper.ink.text).replace("\n"," ").split(" ",false))
 		if paper.copy_delivered() and expected.has(copy) and not seen.has(copy):
 			seen.append(copy)
-			_require(await _contact_ink_pixels(paper)>copy.length()*4,"full sequence delivers visible physical copy: "+copy)
+			if _uninterrupted():
+				# The differential optical check deliberately pauses and hides ink.
+				# Keep it in the recovery programme; inspect these normal captures.
+				_require(paper.ink.is_visible_in_tree(),"continuous sequence delivers physical copy for rendered review: "+copy)
+			else:
+				_require(await _contact_ink_pixels(paper)>copy.length()*4,"full sequence delivers visible physical copy: "+copy)
 			await _shot("full_sequence_contact_%d.png"%seen.size())
 		if phase=="title_reveal" and is_instance_valid(director.temporal_sky):
 			var clip:Node=director.temporal_sky
@@ -1169,8 +1248,18 @@ func _full_sequence_ending() -> void:
 	_require(director.state.effects.clock_applied and director.state.effects.companion_materialized and carrier.rig.get_instance_id()==rig_id and carrier.session.draft==draft,"one companion and its typed draft survive natural temporal completion")
 	_require(player.camera.is_current() and player.text_input_owner==null and not director.is_processing(),"completed sequence releases cinematic camera, input and director polling")
 	_require(world.shop_simulation.advance_current() and not world.shop_simulation.failed,"existing shop authority accepts the adopted clock without a future elapsed cursor")
-	if failures.is_empty():await _reload_completed_sequence(carrier,rig_id)
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("full_sequence_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"One occupied world, public DREAM/wake owner, actual bed-to-bath movement and gestures, existing witnessed-visitor/crossing reload controls, natural first-contact/arm/sky/stinger and completed validated reload. No uninterrupted no-reload run, complete save-boundary matrix or human acceptance.","actual_title_launch":use_installed_director,"phases":phase_trace,"lines":seen,"cutaway_samples":captured_cutaway,"initial_clock":start_clock,"final_clock":RealityState.data.campaign_clock,"state":director.state,"failures":failures},"\t"))
+	var scope:="One occupied world, public DREAM/wake owner, actual bed-to-bath movement and gestures, existing witnessed-visitor/crossing reload controls, natural first-contact/arm/sky/stinger and completed validated reload. No uninterrupted no-reload run, complete save-boundary matrix or human acceptance."
+	if _uninterrupted():
+		_require(frame_trace.document_replacements==0 and frame_trace.paused_frames==0,"continuous opening has no campaign document replacement or paused frame")
+		var cues:Array=[]
+		var voice_valid:=true
+		for event:Dictionary in frame_trace.voice_events:
+			if not cues.has(event.cue_id):cues.append(event.cue_id)
+			voice_valid=voice_valid and event.phase in ["first_contact","identity_mystery"] and event.message!="contact_connect"
+		_require(cues.size()==3 and voice_valid,"natural printed contact presents all three babble gestures and stays silent after the final line")
+		scope="Actual title launch, continuous natural DREAM/wake, real movement and grabs, mirror/visitor/crossing, physical first-contact paper and babble, arm/annual sky and exact stinger. No test reload, pause, foreign camera, seek or skip. Scripted input and image readbacks remain; not human or performance acceptance, nor complete save-boundary coverage."
+	elif failures.is_empty():await _reload_completed_sequence(carrier,rig_id)
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("full_sequence_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":scope,"uninterrupted":_uninterrupted(),"document_replacements":frame_trace.document_replacements,"paused_frames":frame_trace.paused_frames,"voice_events":frame_trace.voice_events,"actual_title_launch":use_installed_director,"phases":phase_trace,"lines":seen,"cutaway_samples":captured_cutaway,"initial_clock":start_clock,"final_clock":RealityState.data.campaign_clock,"state":director.state,"failures":failures},"\t"))
 	frame_trace.complete=failures.is_empty()
 
 

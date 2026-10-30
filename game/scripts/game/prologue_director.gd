@@ -10,6 +10,12 @@ const TemporalSky:=preload("res://scripts/game/prologue_temporal_sky.gd")
 const WORDS := "res://data/dialogue/prologue.json"
 const PERIOD := 0.1
 const COMFORT := Vector2(0.30,0.57)
+const CONTACT_VOICE := {
+	"contact_sorry": &"companion_babble_concern",
+	"contact_murder": &"companion_babble_acknowledgement",
+	"contact_bigger": &"companion_babble_confusion",
+	"contact_who": &"companion_babble_confusion",
+}
 var world: Node3D
 var player: PlayerController
 var shower: TapProp
@@ -57,6 +63,30 @@ var _contact_copies:Array[int]=[]
 var waking:Node
 var _opening_cover:PackedScene
 var _resume_pending:=false
+var _voice_seen:Dictionary={}
+
+func _voice_source() -> StringName:
+	# Presentation provenance, never an external utterance or learning event.
+	return StringName("companion_output:own_babble:prologue:%d" % get_instance_id())
+
+func _contact_voice(id:String) -> bool:
+	if id == "contact_connect":
+		if not _voice_seen.has(id):
+			_voice_seen[id]=true
+			AudioPolicy.release_source(_voice_source())
+		return false
+	if _voice_seen.has("contact_connect"):return false
+	if not CONTACT_VOICE.has(id) or _voice_seen.has(id):return false
+	# A denied/obsolete reaction is dropped, not saved for the next free moment.
+	_voice_seen[id]=true
+	if get_tree().paused or not _contact_owns or not is_instance_valid(_carrier):return false
+	if not is_same(_document,RealityState.data) or RealityState.save_write_blocked:return false
+	if state.get("phase","") not in ["first_contact","identity_mystery"]:return false
+	if not _carrier.device.radio_powered or not _carrier.session.chatter_enabled:return false
+	if player.protected_input_active() or _carrier.device.incoming_call:return false
+	if player.text_input_owner!=self or not player.camera.is_current():return false
+	if AudioPolicy.active_voice(_voice_source())!=null:return false
+	return AudioPolicy.present_3d(CONTACT_VOICE[id],_carrier.motion.global_position,1.0,_voice_source())
 
 
 func _ready() -> void:
@@ -450,6 +480,7 @@ func _crossing_finished(completed:bool) -> void:
 		if _store(State.applied(state,"companion_materialized")):_advance("first_contact")
 
 func _release_contact(keep_reading:=false) -> void:
+	AudioPolicy.release_source(_voice_source())
 	if not _contact_owns:return
 	_contact_owns=false
 	if is_instance_valid(player):player.release_text_input(self)
@@ -483,6 +514,7 @@ func _contact_tick(delta:float) -> void:
 	if state.phase=="identity_mystery" and "identity_question_presented" in state.events and _contact_index<2:_contact_index=2
 	var paper:Node=_carrier.device.teletype
 	if _contact_serial>=0 and paper._serial!=_contact_serial:
+		AudioPolicy.release_source(_voice_source())
 		_contact_serial=-1;_contact_age=0;_contact_thinking_age=0 # A real field copy took priority.
 	if _contact_serial<0:
 		if paper.printing or _carrier.arm_busy():return
@@ -493,6 +525,7 @@ func _contact_tick(delta:float) -> void:
 	elif _contact_emotion.is_empty():_contact_face(expressions[_contact_index])
 	_carrier.rig.request_keyboard(false)
 	if not paper.copy_delivered():return
+	_contact_voice(ids[_contact_index])
 	_contact_age+=maxf(0,delta)
 	var emotion:String=expressions[_contact_index]
 	if state.phase=="identity_mystery" and _contact_index==0 and _contact_age>=2.0:

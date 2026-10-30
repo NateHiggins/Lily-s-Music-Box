@@ -1,0 +1,134 @@
+{
+ "meta": {
+  "resident_id": "omar_bell",
+  "speaker_default": "OMAR BELL",
+  "voice_prefix": "m_ob_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Offense at workmanship; an economical answer. Spare shop key, the recorder, the salvaged plate. Comic engine: professional offense at metaphysics. Teaches the limit that later binds Mae's drama."
+ },
+ "entries": {
+  "ob_windmill": "ob_w1",
+  "ob_walls": "ob_v1",
+  "ob_bell": "ob_b1",
+  "ob_breaker": "ob_p1",
+  "ob_ash": "ob_a1"
+ },
+ "threads": [
+  {
+   "id": "ob_windmill",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "That motor's gone again.",
+   "source": "World. Second reading sits there and nobody points at it.",
+   "root": "ob_w1"
+  },
+  {
+   "id": "ob_walls",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "That wall's out of true again.",
+   "source": "JF009-A02. Both readings stay open; nobody says what is in the wall.",
+   "root": "ob_v1"
+  },
+  {
+   "id": "ob_bell",
+   "from": "1929-05-15",
+   "until": "1929-11-09",
+   "topic": "\"Photo Supplies, door trigger.\" That's your tag.",
+   "source": "S07, B07. On or after the job. If she is alive it is her shop; after, it's his cylinder.",
+   "root": "ob_b1"
+  },
+  {
+   "id": "ob_breaker",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "Who reset the house that night?",
+   "source": "B11. The panel log.",
+   "root": "ob_p1"
+  },
+  {
+   "id": "ob_ash",
+   "from": "1929-09-23",
+   "until": "1929-11-09",
+   "topic": "What's in the ash pit?",
+   "requires": [
+    "m_boiler_sheet"
+   ],
+   "source": "B21. Salvage. Glass makes you deal with it after.",
+   "root": "ob_a1"
+  }
+ ],
+ "nodes": {
+  "ob_w1": {
+   "bank": "JF001-A01",
+   "flag": "m_heard_windmill",
+   "silence_goto": "ob_w2",
+   "line": "Third time. Brushes are fine, bearing's fine, I put it right and it goes wrong the same way, like it's been told. I used to laugh at a man for fighting a windmill. Then I grew up and learned who owned it.",
+   "choices": [
+    {
+     "label": "And that cable?",
+     "goto": "ob_w2"
+    }
+   ]
+  },
+  "ob_w2": {
+   "bank": "JF019-A01",
+   "line": "Fella at the Vantry shop told me there's a direction in which every knot comes loose. I've searched the workshop and can't find it. Hold that end. Not like that. You hold it like it owes you something."
+  },
+  "ob_v1": {
+   "bank": "JF009-A02",
+   "line": "It was plumb on Tuesday. I checked it Tuesday. The clergyman says God is in the walls. I should like to speak to Him about the rent."
+  },
+  "ob_b1": {
+   "silence_goto": "ob_b2",
+   "line": "Bell starts it. Wet cell keeps it going if the house goes out. That's all it does.",
+   "choices": [
+    {
+     "label": "So it tells you who came in.",
+     "goto": "ob_b2"
+    },
+    {
+     "label": "You kept a key?",
+     "goto": "ob_b3"
+    }
+   ]
+  },
+  "ob_b2": {
+   "flag": "m_recorder_limit",
+   "line": "It tells you the bell rang. She said that too. Paid extra for the bell. I said now you can prove you have one. She laughed at that for a while, considering."
+  },
+  "ob_b3": {
+   "flag": "m_spare_key",
+   "line": "For the cell. Wet cells want topping and she's a woman who forgets a thing's alive unless it's got a face. Hook behind my bench. It's there now. Go look at it, it's not a confession."
+  },
+  "ob_p1": {
+   "flag": "m_panel_log",
+   "silence_goto": "ob_p2",
+   "line": "Me. \"Breaker reset, three-oh-two.\" I was down at three for the check and the board was out, and I stood in the dark with a good flashlight and a bad feeling and I reset it. That's the job. It came up and there she was, you could hear her through the wall. Teresa. Saying it.",
+   "choices": [
+    {
+     "label": "What tripped it?",
+     "goto": "ob_p2"
+    }
+   ]
+  },
+  "ob_p2": {
+   "line": "A stroke on the tank at nine-oh-one, is what I wrote. It's what you'd write. The cut-out's rated for it. It shouldn't have stayed out. Six hours is bad work and I'd like to know whose."
+  },
+  "ob_a1": {
+   "flag": "m_plate_salvaged",
+   "silence_goto": "ob_a2",
+   "line": "First fire Saturday, I rake Monday, eight a.m., like the sheet says. And here's a dark slide. Warped. Glass doesn't burn with the rubbish. It makes you deal with it after. \"A.V. 13.\" Somebody shovelled that in with the slack and thought it'd go.",
+   "choices": [
+    {
+     "label": "Can you get anything off it?",
+     "goto": "ob_a2"
+    }
+   ]
+  },
+  "ob_a2": {
+   "line": "I can get it out without breaking it. Anything past that, you want someone who's paid to look. Six A. Carry it flat. Flat. Give it here, I'll carry it."
+  }
+ }
+}

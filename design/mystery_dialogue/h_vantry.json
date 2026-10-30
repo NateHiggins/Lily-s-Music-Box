@@ -1,0 +1,80 @@
+{
+ "meta": {
+  "resident_id": "h_vantry",
+  "speaker_default": "H. VANTRY",
+  "voice_prefix": "m_hv_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Long-delayed plain speech after a life of indirect carriers. Says \"Correct.\" Does not explain the conspiracy, the Hum, or himself."
+ },
+ "entries": {
+  "hv_saturday": "hv_1"
+ },
+ "threads": [
+  {
+   "id": "hv_saturday",
+   "from": "1929-11-02",
+   "until": "1929-11-02",
+   "topic": "You stand here every Saturday.",
+   "requires": [
+    "m_grey_coat"
+   ],
+   "hours": [
+    "15:40",
+    "16:30"
+   ],
+   "source": "B24, section 4.5. A gloved woman leaving the roof, not the fall.",
+   "root": "hv_1"
+  }
+ ],
+ "nodes": {
+  "hv_1": {
+   "silence_goto": "hv_1s",
+   "line": "Three-forty. Correct. I keep it by the time signal. You'll be the one who is reading Miss Quell's log.",
+   "choices": [
+    {
+     "label": "What did you see on the nineteenth of July?",
+     "goto": "hv_2"
+    },
+    {
+     "label": "Whose side are you on?",
+     "goto": "hv_3"
+    }
+   ]
+  },
+  "hv_1s": {
+   "silence_goto": "hv_2",
+   "line": "You can stand there. It is a free pavement. I had a hand in that.",
+   "choices": [
+    {
+     "label": "What did you see on the nineteenth of July?",
+     "goto": "hv_2"
+    }
+   ]
+  },
+  "hv_2": {
+   "flag": "m_vantry_saw",
+   "silence_goto": "hv_4",
+   "line": "I thought saying nothing would keep me out of it. About seven minutes past nine by my watch. In the lightning, a woman in pale gloves coming down the ladder to the top landing, something flat under her arm and a bag on her wrist. In at the one window on that landing. I sat across a table from Mae Kessler for an afternoon. I know the walk.",
+   "choices": [
+    {
+     "label": "Why were you on the stair?",
+     "goto": "hv_4"
+    },
+    {
+     "label": "She lay thirty feet from the foot of it. You didn't look down?",
+     "goto": "hv_5"
+    }
+   ]
+  },
+  "hv_3": {
+   "line": "I am on no one's. It has been very expensive."
+  },
+  "hv_4": {
+   "line": "Air. I am not supposed to be in that house. That stretch of the wall has no window in it. I built a great many listening rooms and I know what a blank wall is worth."
+  },
+  "hv_5": {
+   "line": "No. That is the question and that is the answer. I saw her leave. I saw no fall. I'll say that to anyone with a pencil."
+  }
+ }
+}

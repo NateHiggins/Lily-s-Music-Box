@@ -1,0 +1,243 @@
+{
+ "meta": {
+  "resident_id": "nadia_quell",
+  "speaker_default": "NADIA QUELL",
+  "voice_prefix": "m_nq_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "A plan that includes everybody before asking anybody. Chairs the tenants' association. Told Mae about the deed at tea, and has to go on living in that sentence. She keeps the window afterwards. Late recognition, one scene only. Never a password."
+ },
+ "entries": {
+  "nq_stool": "nq_s1",
+  "nq_told": "nq_t1",
+  "nq_window": "nq_w1",
+  "nq_telling": "nq_c1"
+ },
+ "threads": [
+  {
+   "id": "nq_stool",
+   "from": "1929-03-03",
+   "until": "1929-03-31",
+   "topic": "That stool's short a leg.",
+   "source": "S03. Sunday visit. Adela speaks; Nadia owes. No later scene explains this one.",
+   "root": "nq_s1"
+  },
+  {
+   "id": "nq_told",
+   "from": "1929-07-22",
+   "until": "1929-11-09",
+   "topic": "You took tea at 6C in June.",
+   "requires": [
+    "m_tea_seen"
+   ],
+   "source": "B04. Her guilt arrives as an org chart.",
+   "root": "nq_t1"
+  },
+  {
+   "id": "nq_window",
+   "from": "1929-07-29",
+   "until": "1929-11-09",
+   "topic": "Who keeps the window now?",
+   "source": "B15, B22, B24. Her cards are not as good and she knows it.",
+   "root": "nq_w1"
+  },
+  {
+   "id": "nq_telling",
+   "from": "1929-11-09",
+   "until": "1929-11-09",
+   "topic": "Give me the pencil.",
+   "requires": [
+    "m_nadia_card"
+   ],
+   "hours": [
+    "21:30",
+    "23:20"
+   ],
+   "source": "S15. Intentionally entered. Nothing follows \"No.\" Do not edit in passing.",
+   "root": "nq_c1"
+  }
+ ],
+ "nodes": {
+  "nq_s1": {
+   "speaker": "ADELA",
+   "silence_goto": "nq_s2",
+   "line": "Your account is that stool. The short leg is what you owe me.",
+   "choices": [
+    {
+     "label": "Fix the stool?",
+     "goto": "nq_s2"
+    }
+   ]
+  },
+  "nq_s2": {
+   "silence_goto": "nq_s3",
+   "line": "Then put them under it. Night man, leave it, she's solvent when it wobbles. It's how I know she's paying attention.",
+   "choices": [
+    {
+     "label": "Is that going to the Derby?",
+     "goto": "nq_s3"
+    }
+   ]
+  },
+  "nq_s3": {
+   "speaker": "ADELA",
+   "flag": "m_seen_stool",
+   "silence_goto": "nq_s4",
+   "line": "What did the plate say to the darkroom? \"I'm nothing without you, but leave the door shut.\"",
+   "choices": [
+    {
+     "label": "Say nothing.",
+     "goto": "nq_s4"
+    }
+   ]
+  },
+  "nq_s4": {
+   "silence_goto": "nq_s5",
+   "line": "That isn't a pun.",
+   "choices": [
+    {
+     "label": "Say nothing.",
+     "goto": "nq_s5"
+    }
+   ]
+  },
+  "nq_s5": {
+   "speaker": "ADELA",
+   "line": "It's got a door in it."
+  },
+  "nq_t1": {
+   "silence_goto": "nq_t1s",
+   "line": "The association's correspondence shows I raised the clause with the owner as a courtesy, in the presence of the person who found it, so that the owner could not say she was ambushed. I laid that out in three steps. I would like you to find the step where I ought to have kept my mouth shut, because I have had the plans out since July.",
+   "choices": [
+    {
+     "label": "You told her what the clause meant.",
+     "goto": "nq_t2",
+     "trust": 1
+    },
+    {
+     "label": "You couldn't have known.",
+     "goto": "nq_t3",
+     "trust": -1
+    }
+   ]
+  },
+  "nq_t1s": {
+   "line": "Don't stand there being tactful. It's a load-bearing silence and I didn't sign for it."
+  },
+  "nq_t2": {
+   "flag": "m_nadia_told",
+   "line": "Yes. In her own parlour. With the date. Six weeks later I'm reading a schedule on a dead woman's bench with a borrowed glass. Put the wrench down or use it."
+  },
+  "nq_t3": {
+   "line": "I know exactly what I could have known. That's the whole of my profession. Don't do that."
+  },
+  "nq_w1": {
+   "flag": "m_grey_coat",
+   "silence_goto": "nq_w2",
+   "line": "I do. Her log, her pins, my lettering, which comes out like a fire notice. Saturdays I write down what's in the street, because she did. Three-forty, the man in the grey coat. Again. I've scheduled a talk with him for whenever I stop being afraid of his tailor.",
+   "choices": [
+    {
+     "label": "Why keep it up?",
+     "goto": "nq_w2"
+    },
+    {
+     "label": "\"Please send an aviation editor.\" That's you.",
+     "goto": "nq_w3",
+     "requires": [
+      "m_aviation_card"
+     ]
+    }
+   ]
+  },
+  "nq_w2": {
+   "line": "Because the Speaker patronised somebody on Monday and nothing happened to him. That was not acceptable in April and it isn't now."
+  },
+  "nq_w3": {
+   "line": "It came down for Miss Crosson. Don't compliment it. I know what a card looks like when it's trying."
+  },
+  "nq_c1": {
+   "silence_goto": "nq_c2",
+   "line": "I can't get the card right.",
+   "choices": [
+    {
+     "label": "Take the pencil. Write it.",
+     "goto": "nq_c2"
+    }
+   ]
+  },
+  "nq_c2": {
+   "silence_goto": "nq_c3",
+   "line": "You wrote the roof notice like that. In July.",
+   "choices": [
+    {
+     "label": "Say nothing.",
+     "goto": "nq_c3"
+    }
+   ]
+  },
+  "nq_c3": {
+   "silence_goto": "nq_c4",
+   "line": "I thought she'd done it for you.",
+   "choices": [
+    {
+     "label": "I did.",
+     "goto": "nq_c4"
+    }
+   ]
+  },
+  "nq_c4": {
+   "silence_goto": "nq_c5",
+   "line": "The roof key?",
+   "choices": [
+    {
+     "label": "I lent it to myself. I didn't know.",
+     "goto": "nq_c5"
+    }
+   ]
+  },
+  "nq_c5": {
+   "silence_goto": "nq_c6",
+   "line": "She looks from the capitals to the hand.",
+   "choices": [
+    {
+     "label": "You still owe me for the March plates.",
+     "goto": "nq_c6"
+    }
+   ]
+  },
+  "nq_c6": {
+   "silence_goto": "nq_c7",
+   "line": "They were on my account.",
+   "choices": [
+    {
+     "label": "Under the short leg.",
+     "goto": "nq_c7"
+    }
+   ]
+  },
+  "nq_c7": {
+   "silence_goto": "nq_c8",
+   "line": "Adela.",
+   "choices": [
+    {
+     "label": "Hello.",
+     "goto": "nq_c8"
+    }
+   ]
+  },
+  "nq_c8": {
+   "silence_goto": "nq_c9",
+   "line": "Can you stay?",
+   "choices": [
+    {
+     "label": "No.",
+     "goto": "nq_c9"
+    }
+   ]
+  },
+  "nq_c9": {
+   "flag": "m_told_nadia",
+   "line": "She keeps the pencil."
+  }
+ }
+}

@@ -1,0 +1,149 @@
+{
+ "meta": {
+  "resident_id": "rhea_sato",
+  "speaker_default": "RHEA SATO",
+  "voice_prefix": "m_rs_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Manages how a moment appears until a plain objection arrives. A real privacy claim on negatives later stolen. Privacy never reads as guilt. She is right about the window."
+ },
+ "entries": {
+  "rs_serial": "rs_s1",
+  "rs_casting": "rs_c1",
+  "rs_rehearsal": "rs_h1",
+  "rs_dressing": "rs_d1",
+  "rs_portrait": "rs_p1"
+ },
+ "threads": [
+  {
+   "id": "rs_serial",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "Your programme was on again.",
+   "source": "World and comedy. Pick one bank line per scene.",
+   "root": "rs_s1"
+  },
+  {
+   "id": "rs_casting",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "Did you find anyone for the part?",
+   "source": "JF008-A02. Absurd self-roast.",
+   "root": "rs_c1"
+  },
+  {
+   "id": "rs_rehearsal",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "Why is one of the Guests holding a sack?",
+   "source": "JF021. The Association pageant, in the lobby. The sack is on stage before the line, and a real prop is owed. JF021-A02 reworked.",
+   "root": "rs_h1"
+  },
+  {
+   "id": "rs_dressing",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "You look tired, Miss Sato.",
+   "requires": [
+    "m_rhea_claim"
+   ],
+   "source": "JF011-A01. Owner put it back on the table. Her dressing room, late, after trust; the bank's caution stands: not a stand-in for anyone's disability or sexual behaviour.",
+   "root": "rs_d1"
+  },
+  {
+   "id": "rs_portrait",
+   "from": "1929-07-22",
+   "until": "1929-11-09",
+   "topic": "You sat for her, at the Arcade.",
+   "source": "S06, B06. Adela concedes the window and keeps the negatives. The player is hearing the complaint against herself and may only ask.",
+   "root": "rs_p1"
+  }
+ ],
+ "nodes": {
+  "rs_s1": {
+   "bank": "JF004-A01",
+   "silence_goto": "rs_s2",
+   "line": "Thirty writers, six orchestras, and a new electric transmitter. And tonight the hero meets the same villain he met last Thursday. I'd complain, but I am the villain's wife, and I've got the good scarf.",
+   "choices": [
+    {
+     "label": "I heard a sheet of tin.",
+     "goto": "rs_s2"
+    }
+   ]
+  },
+  "rs_s2": {
+   "bank": "JF005-A01",
+   "line": "That was thunder! Fifteen years of stagecraft, and she laughs harder when the effects man rattles a sheet of tin. My own mother. I could hear her from the studio, I swear to you, in Queens."
+  },
+  "rs_c1": {
+   "bank": "JF008-A02",
+   "line": "I put out a notice for a scene partner. What I received were three invitations to dinner and a trained pigeon. The pigeon knew its lines. It has also asked about billing."
+  },
+  "rs_h1": {
+   "bank": "JF021-A01",
+   "silence_goto": "rs_h2",
+   "line": "We are ignoring the sack. From the top. \"Let him who is without sin cast the first...\" Good heavens, what have you brought in that pillowcase?",
+   "choices": [
+    {
+     "label": "Say nothing, and look in the sack.",
+     "goto": "rs_h2"
+    }
+   ]
+  },
+  "rs_h2": {
+   "speaker": "GUESTS",
+   "bank": "JF021-A02",
+   "line": "Custards. — Four of them. — We were told there was to be a stoning. — We didn't like to come with nothing."
+  },
+  "rs_d1": {
+   "bank": "JF011-A01",
+   "line": "I had prepared myself for a life of extravagant romance. Nobody mentioned the need for clean sheets, punctuality, or not eating the entire pie first. You may close the door. From the outside."
+  },
+  "rs_p1": {
+   "silence_goto": "rs_p1s",
+   "line": "\"Sat.\" I asked for a portrait, not an engagement. She got me between one face and the next, and put that in a window on Jackson Avenue. My name on the card. I've spent twenty years deciding what's seen of me, and a woman with a rubber bulb takes it in a fiftieth of a second.",
+   "choices": [
+    {
+     "label": "It's a good picture.",
+     "goto": "rs_p2",
+     "trust": -1
+    },
+    {
+     "label": "What did you ask her for?",
+     "goto": "rs_p3"
+    }
+   ]
+  },
+  "rs_p1s": {
+   "line": "You're doing that very well. Most people fill that gap with their opinion of my eyes."
+  },
+  "rs_p2": {
+   "flag": "m_rhea_defended_picture",
+   "silence_goto": "rs_p2s",
+   "line": "Of course it's a good picture! That's what's wrong with it! And you said that exactly how she did.",
+   "choices": [
+    {
+     "label": "What did you ask her for?",
+     "goto": "rs_p3"
+    }
+   ]
+  },
+  "rs_p2s": {
+   "line": "Now you've gone red. Why have you gone red?"
+  },
+  "rs_p3": {
+   "flag": "m_rhea_claim",
+   "silence_goto": "rs_p4",
+   "line": "Destroy them. She took it down. She said it wouldn't go in that window or anyone else's, and she kept the plates anyway, and she told me it was the most reasonable she got. I went round on the twenty-second to ask again. Do you know, somebody'd saved me the trouble?",
+   "choices": [
+    {
+     "label": "Where were you that Friday?",
+     "goto": "rs_p4"
+    }
+   ]
+  },
+  "rs_p4": {
+   "line": "At home, with the booth shut. I recorded a take for my own files at ten, which I shall not be playing you. Ask me who heard it. Nobody. That's what the booth is for. You may keep your suspicion. You may not keep putting me in the window."
+  }
+ }
+}

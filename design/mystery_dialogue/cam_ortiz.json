@@ -1,0 +1,102 @@
+{
+ "meta": {
+  "resident_id": "cam_ortiz",
+  "speaker_default": "CAM ORTIZ",
+  "voice_prefix": "m_co_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Route and delivery. No rate for thoughts. Directional, impatient with preamble. Marks every held piece across the flap. Mae has never read a carrier's book. He does not know what he carried."
+ },
+ "entries": {
+  "co_envelope": "co_e1",
+  "co_windmill": "co_w1",
+  "co_route": "co_r1"
+ },
+ "threads": [
+  {
+   "id": "co_envelope",
+   "from": "1929-07-19",
+   "until": "1929-11-09",
+   "topic": "You took something to 6C that Friday.",
+   "source": "S08, B08. The first rescue lever is on the day itself.",
+   "root": "co_e1"
+  },
+  {
+   "id": "co_windmill",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "Omar says he learned who owned the windmill.",
+   "requires": [
+    "m_heard_windmill"
+   ],
+   "source": "JF024-A01. Owner put it back. The bank wanted it only instead of JF001; here it answers that line in another scene, so the beat is not doubled.",
+   "root": "co_w1"
+  },
+  {
+   "id": "co_route",
+   "from": "1929-07-19",
+   "until": "1929-11-09",
+   "topic": "What did you carry down from there?",
+   "requires": [
+    "m_envelope_delivered"
+   ],
+   "source": "4.5. A concrete question gets the book.",
+   "root": "co_r1"
+  }
+ ],
+ "nodes": {
+  "co_e1": {
+   "silence_goto": "co_e1s",
+   "line": "Ten past six. Six C. In her hand.",
+   "choices": [
+    {
+     "label": "Did she read it?",
+     "goto": "co_e2"
+    },
+    {
+     "label": "Who sent it?",
+     "goto": "co_e3"
+    }
+   ]
+  },
+  "co_e1s": {
+   "line": "I've got eleven more and the bridge is backing up. Walk with me or don't."
+  },
+  "co_e2": {
+   "flag": "m_envelope_delivered",
+   "line": "I deliver envelopes. Nobody's offered a rate for thoughts."
+  },
+  "co_e3": {
+   "line": "The lady across the road. Walked it over to me herself and paid for the stairs. Six flights, a nickel, she says to me it's a nickel because I'm charging for the view. She was funny. Is that it?"
+  },
+  "co_w1": {
+   "bank": "JF024-A01",
+   "line": "If the windmill has enemies, I'd appreciate their addresses. I'm trying to be a supportive friend. I can have them there by four."
+  },
+  "co_r1": {
+   "silence_goto": "co_r1s",
+   "line": "Which time? It's a route. You want Friday, say Friday.",
+   "choices": [
+    {
+     "label": "Friday the nineteenth. After six.",
+     "goto": "co_r2"
+    },
+    {
+     "label": "Did she give you anything to hold?",
+     "goto": "co_r3"
+    }
+   ]
+  },
+  "co_r1s": {
+   "line": "You're doing the thing where you stand there. I've got that from a dog on Vernon Boulevard. It doesn't work on me either."
+  },
+  "co_r2": {
+   "flag": "m_route_book",
+   "line": "Book says. \"Fri. 19 Jul., 6.40 p.m., 6C to Mr. Ewald, hold, first run Sat.\" She gave it me at the door. I put it on the rack, pencil across the flap, C.O., six-forty, so nobody can say I opened it. She does it about once a month, it's an estate, they love a Saturday. First run, down the road, eight-fifty. Done."
+  },
+  "co_r3": {
+   "flag": "m_route_book",
+   "line": "Everybody gives me stuff to hold. That's not a question, that's my life. Friday? Here. Six-forty, six C to Ewald, first run Saturday. Read it yourself, it's not a secret, it's just nobody ever reads it."
+  }
+ }
+}
