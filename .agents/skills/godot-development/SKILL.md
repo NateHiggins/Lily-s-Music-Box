@@ -185,6 +185,9 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   shader compilation and render costs before assigning a cause or a speedup.
   A small timed reader/presenter excludes only its synchronous work; report
   deferred engine costs separately rather than clearing the whole feature.
+  Time the same invocation as the spike, not a previous instance's setup.
+  Awaiting the next process frame before post-draw can miss an immediate draw
+  after reload; retain that observation gap and sample the triggering iteration.
   Check counter semantics in the pinned engine: its process/physics monitors
   publish one-second peaks, not independent per-frame script/physics times.
   The local script debugger needs **both** `--debug --profiling`; require its

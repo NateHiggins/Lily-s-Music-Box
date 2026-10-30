@@ -64,6 +64,7 @@ func _prepare_player_start() -> void:
 
 func _route() -> void:
 	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR"))
+	if not _check_return_anchor_resolution():return
 	if OS.get_environment("ORISON_BATH_REPAIR_REVIEW")=="1":
 		await _review_installed_bath()
 		return
@@ -863,6 +864,8 @@ func _review_waking() -> void:
 	if not _require(director.resume_opening(scene) and director._phase_age==2.0 and director.message_id=="wake_passed","repeated resume preserves live phase age and surface writing"):return
 	_require(not world.player_avatar.visible and carrier.is_story_absent() and player.camera.is_current() and player.text_input_owner==null,"resumed bedroom preserves concealment and player-owned exploration")
 	await _shot("wake_bedroom_resumed.png")
+	if OS.get_environment("PROLOGUE_WAKE_START_PROFILE")=="1":
+		if not await _profile_waking_start(scene):return
 	# Replay the saved DREAM boundary once without seeking, screenshots or disk
 	# work inside the interval. Keep every raw frame, including setup/handoff.
 	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("waking_reload.json")
@@ -877,6 +880,8 @@ func _review_waking() -> void:
 	director.phase_changed.connect(observe_phase)
 	if not _require(director.begin_opening(scene),"uninterrupted DREAM starts from the validated saved boundary"):return
 	clip=director.waking
+	var continuous_start_call_ms:float=(Time.get_ticks_usec()-continuous_started)/1000.0
+	var continuous_start_costs:Dictionary=clip.start_costs.duplicate(true)
 	var concealed:=true
 	while is_instance_valid(clip) and clip.active and Time.get_ticks_usec()-continuous_started<26000000:
 		concealed=concealed and not world.player_avatar.visible and carrier.is_story_absent() and player.text_input_owner==clip
@@ -890,7 +895,7 @@ func _review_waking() -> void:
 	for transition:Dictionary in transitions:phases.append(str(transition.phase))
 	_require(phases==["awakening","bedroom_exploration"],"continuous playback acknowledges each phase once in order")
 	var continuous_frames:Array=frame_trace.rows.slice(continuous_begin,continuous_end)
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("waking_continuous_frames.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","columns":["phase","fps_cap","process_delta_ms","wall_ms","process_monitor_ms","physics_monitor_ms","draw_calls"],"frames":continuous_frames,"transitions":transitions,"wall_s":continuous_wall_s,"preceding_frame_tail_ms":preceding_frame_tail_ms,"settings":frame_trace.settings,"limits":"One occupied, warmed DREAM playback including synchronous setup and handoff. Wall counter starts at the interval boundary; preceding_frame_tail_ms retains the excluded pre-boundary tail including reload. No screenshot readbacks, seeks, pause or disk operations inside the measured interval. CPU monitors overlap/lag; no separated GPU/compiler/loading attribution or matched optimization claim."},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("waking_continuous_frames.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","columns":["phase","fps_cap","process_delta_ms","wall_ms","process_monitor_ms","physics_monitor_ms","draw_calls"],"frames":continuous_frames,"transitions":transitions,"wall_s":continuous_wall_s,"preceding_frame_tail_ms":preceding_frame_tail_ms,"start_call_sync_ms":continuous_start_call_ms,"same_clip_start_costs_ms":continuous_start_costs,"settings":frame_trace.settings,"limits":"One occupied, warmed DREAM playback including synchronous setup and handoff. Wall counter starts at the interval boundary; preceding_frame_tail_ms retains the excluded pre-boundary tail including reload. No screenshot readbacks, seeks, pause or disk operations inside the measured interval. CPU monitors overlap/lag; no separated GPU/compiler/loading attribution or matched optimization claim."},"\t"))
 	# Synthetic completed-save boundary only: this does not claim the finale
 	# was played, apply a clock jump, or fabricate earned gameplay observations.
 	var completed:Dictionary=director.state.duplicate(true)
@@ -946,6 +951,82 @@ func _review_waking() -> void:
 	carrier.session.draft=draft_before
 	frame_trace.complete=failures.is_empty()
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("waking_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","failures":failures,"state":director.state,"imported_scene_load_ms":imported_load_ms,"start_costs_ms":start_costs,"limits":"Focused occupied DREAM/wake imported-cover, camera, pause, input and validated-reload diagnostic. Synchronous timings exclude deferred renderer/compiler work. Does not prove normal entry, full prologue, frame-time qualification or human artistic acceptance."},"\t"))
+
+func _check_return_anchor_resolution() -> bool:
+	var fixture:=Node3D.new();add_child(fixture)
+	fixture.position=Vector3(2,3,4);fixture.rotation.y=.7
+	var stance:=Node3D.new();stance.name="F04_B_BEDSIDE_RETURN";fixture.add_child(stance)
+	stance.position=Vector3(1,2,3)
+	var bed:=Node3D.new();bed.name="F04_B_BED";fixture.add_child(bed)
+	var adapter:=preload("res://scripts/building/orison_v2_anchor_adapter.gd").new(fixture)
+	var resolved:Dictionary=adapter.resolve_return_anchor("F04_B_BED")
+	var ok:=_require(resolved.position==stance.global_position and resolved.facing_position==bed.global_position+Vector3.UP*.2,"return anchor keeps actual transformed stance and bed facing")
+	stance.position+=Vector3.ONE
+	ok=_require(adapter.resolve_return_anchor("F04_B_BED").position==stance.global_position,"return anchor reads moved markers without stale caching") and ok
+	var group:=Node3D.new();fixture.add_child(group)
+	var duplicate_bed:=Node3D.new();duplicate_bed.name="F04_B_BED";group.add_child(duplicate_bed)
+	resolved=adapter.resolve_return_anchor("F04_B_BED")
+	ok=_require(resolved.position==stance.global_position and not resolved.has("facing_position"),"ambiguous bed preserves stance but supplies no invented facing") and ok
+	var duplicate_stance:=Node3D.new();duplicate_stance.name="F04_B_BEDSIDE_RETURN";group.add_child(duplicate_stance)
+	ok=_require(adapter.resolve_return_anchor("F04_B_BED").is_empty(),"ambiguous return stance refuses resolution") and ok
+	group.free();stance.free()
+	var wrong_kind:=Node.new();wrong_kind.name="F04_B_BEDSIDE_RETURN";fixture.add_child(wrong_kind)
+	ok=_require(adapter.resolve_return_anchor("F04_B_BED").is_empty(),"nonspatial return stance refuses resolution") and ok
+	ok=_require(adapter.resolve_return_anchor("unrelated").is_empty(),"return-anchor resolver does not adopt an unrelated identity") and ok
+	fixture.free()
+	return ok
+
+func _profile_waking_start(scene:PackedScene) -> bool:
+	# Diagnostic controls only. Keep reload/shot owners intact and never use
+	# disabled presentation as a production optimization or acceptance route.
+	var trials:Array=[]
+	var old_path:String=RealityState.save_path
+	var viewport:RID=get_viewport().get_viewport_rid()
+	RenderingServer.viewport_set_measure_render_time(viewport,true)
+	var compile_infos:Array[int]=[RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_CANVAS,
+		RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_MESH,
+		RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_SURFACE,
+		RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_DRAW,
+		RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_SPECIALIZATION]
+	for presentation:bool in [false,true,true,false]:
+		if is_instance_valid(director.waking):director.waking.cancel()
+		director.set_process(false)
+		await get_tree().process_frame;await get_tree().process_frame
+		var began:=Time.get_ticks_usec()
+		RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("waking_reload.json")
+		RealityState.persistence_enabled=true;RealityState.load_game()
+		RealityState.persistence_enabled=false;RealityState.save_path=old_path
+		var loaded:=Time.get_ticks_usec()
+		var trial:Dictionary={"presentation":presentation,"reload_sync_ms":(loaded-began)/1000.0,"frames":[]}
+		var start_began:=Time.get_ticks_usec()
+		if presentation:
+			if not _require(director.begin_opening(scene),"profile control starts the real waking owner"):return false
+			trial.same_clip_start_costs_ms=director.waking.start_costs.duplicate(true)
+		trial.start_call_sync_ms=(Time.get_ticks_usec()-start_began)/1000.0
+		var previous_wall:=start_began
+		for frame in 32:
+			await get_tree().process_frame
+			var process_at:=Time.get_ticks_usec()
+			await RenderingServer.frame_post_draw
+			var post_at:=Time.get_ticks_usec()
+			var counters:Array=[]
+			for info:int in compile_infos:counters.append(RenderingServer.get_rendering_info(info))
+			trial.frames.append({"index":frame,"engine_drawn":Engine.get_frames_drawn(),
+				"wall_ms":(post_at-previous_wall)/1000.0,"process_to_post_draw_ms":(post_at-process_at)/1000.0,
+				"render_setup_cpu_ms":RenderingServer.get_frame_setup_time_cpu(),
+				"main_viewport_cpu_ms":RenderingServer.viewport_get_measured_render_time_cpu(viewport),
+				"main_viewport_gpu_ms":RenderingServer.viewport_get_measured_render_time_gpu(viewport),
+				"pipeline_totals":counters})
+			previous_wall=post_at
+		trial.phase_after=director.state.phase
+		trials.append(trial)
+	if is_instance_valid(director.waking):director.waking.cancel()
+	director.set_process(true)
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("waking_start_controls.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","trials":trials,"settings":frame_trace.settings,
+		"pipeline_columns":["canvas","mesh","surface","draw","specialization"],
+		"limits":"ABBA reload-without-shot / reload-with-shot controls in one occupied world. Only automatic presentation is held in no-shot controls; the real save/read, camera and renderer owners still run. Main viewport timings exclude private viewports and can lag; draw signal wall time is not GPU time. Pipeline counters are cumulative correlation. Extra timing instrumentation affects these diagnostics; not runtime or artistic acceptance."},"\t"))
+	return _require(trials.size()==4 and director.state.phase=="dream","ABBA controls retain the same saved DREAM without fabricated progression")
 
 func _shot(name_: String) -> void:
 	await RenderingServer.frame_post_draw
