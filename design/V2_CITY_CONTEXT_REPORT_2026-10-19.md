@@ -2624,3 +2624,18 @@ qualify the newer gaslamp. Canonical owns one future combined canopy/lamp physic
 renewal and static comparison after its matched route. No old receipt is repinned.
 Actual street composition,continuous access,composed optics and artistic acceptance
 remain pending. All own native/Godot jobs are terminal; no long city tour was run.
+
+
+Frozen native/isolated construction checkpoint is pushed **52828b7af038863fa195df6e9f72a23529b3f408**.
+The explicit named follow-up includes the ignored lower import sidecar; the
+complete checkpoint must be used. Portable **gaslamp_native_isolated_qualification.zip**
+contains112 members/7,707,422 bytes,SHA256 **d6eb4cfc054e7a0c8452edc7977693d2ce482a982bcbff1bc1460732aa499963**.
+The existing review manifest indexes every raw member. It retains original
+name/precision/save failures and receipts,reviewed native/loaded frames,raw
+samples and LF source snapshots,without duplicating mesh/material-image assets.
+This archive adds no acceptance scope and changes no rendering input.
+
+Named own-worktree cleanup preserves638 generated UIDs before removing only
+those verified files; no tracked import needed restoration. Original guard
+refusals and backup remain external. Production input closure and the final
+bench05 test hash still match the preserved qualification; no receipt is repinned.
