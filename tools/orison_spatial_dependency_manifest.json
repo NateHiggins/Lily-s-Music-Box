@@ -323993,6 +323993,58 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "a929f3a7d9e8a6c4",
+   "kind": "vector3_coordinate",
+   "token": "_run_opposing",
+   "file": "game/tests/v2_city_transport_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run_opposing"
+   ],
+   "lines": [
+    112,
+    112,
+    112,
+    112,
+    112,
+    112,
+    113,
+    113,
+    113,
+    113,
+    113,
+    113,
+    114,
+    114,
+    114,
+    114,
+    114,
+    114,
+    122
+   ],
+   "count": 19,
+   "context": [
+    "{\"id\":\"site_sw3\",\"start\":Vector3(-56.8,-26.5,0),\"points\":[Vector3(-47.8,-26.5,0),Vector3(-55,-26.5,0),Vector3(-55,-13,0),Vector3(-55,-26.5,0)],\"target\":Vector3(",
+    "{\"id\":\"site_se3\",\"start\":Vector3(46,-26.5,0),\"points\":[Vector3(51.55,-26.5,0),Vector3(57,-26.5,0),Vector3(51.55,-26.5,0),Vector3(46,-26.5,0)],\"target\":Vector3(5",
+    "{\"id\":\"site_far_nw\",\"start\":Vector3(-92,27,0),\"points\":[Vector3(-88,27,0),Vector3(-80,27,0),Vector3(-72,27,0),Vector3(-92,27,0)],\"target\":Vector3(-80,30,8)}]",
+    "if str(programme.id)==\"site_sw3\" and point.y==-13.:await _station_view(\"firehouse_from_opposite_walk\",Vector3(-52.3,-28.32,8))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

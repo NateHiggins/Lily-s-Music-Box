@@ -22,7 +22,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 257.086,
+		"elapsed_s": 214.583,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -37,17 +37,17 @@
 			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
 		}
 	},
-	"inventory_sha256": "3303dbdbe3ac04ebd4e6484478d890bc1e06bec8d2d45214e7dc85ca27b4fd80",
+	"inventory_sha256": "66007df04373e0492a63d71b649bf95121d9060f1203898d392509f88d7cd0fd",
 	"production_runtime": true,
 	"qualification_mode": "physical_surfaces_only",
 	"schema_version": 2,
 	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
 	"selector": "v2",
 	"source": {
-		"repository_head": "26e769e81bc66e97aa9e1c7900575801785d865a",
-		"runtime_inputs_sha256": "1a7a885433a93dc19c1e39763ec9d4139c67475f172a32e88c88a6403db56749",
+		"repository_head": "7899c803eb9a86a823973c002d39e1e8d5f7fa0f",
+		"runtime_inputs_sha256": "b8c6dda724ecbbea18c39573d80d6e55523a7d190f916c97827f022f4f03720f",
 		"test_path": "game/tests/orison_v2_surface_inventory.gd",
 		"test_sha256": "2559e63200d9a9632226cf91ea4d71c5b816609afbeaf6a88318ddb1b17c615e"
 	},
-	"surface_inputs_sha256": "d81698457a450c6c198fd085b12a010939e50119c7e9ddc3fe87a81e37b12e6e"
+	"surface_inputs_sha256": "750026115a0f3e8eb8fcdac51eb68b5fcef528501af8c4b208924ae68e242e68"
 }

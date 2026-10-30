@@ -8073,7 +8073,7 @@
       "site_ne4": 5.579999999999998,
       "site_far_sw": -4.830000000000005
     },
-    "historical_blockout_binding_stale": false
+    "historical_blockout_binding_stale": true
   },
   "asset_sha256": "4e28bbe4c586da66b0d2d72e7a53c3ae57f1495410cfc28fe5d626940f850b9e",
   "source_bindings": {
@@ -8087,12 +8087,12 @@
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
     "art/blender/city_shells_registration.json": "e849a2b44e8f4eea2d6a17b73fce43c5bc99ffcc654a9c4303f338793af35282",
     "art/blender/city_shells.blend": "cb8e3cd6f1553a809ae7e2d33f17b24b9a7ac62859340312f35805f24af208b9",
-    "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
+    "game/data/orison_v2_blockout.json": "6e00cca60be64c26bbc46013ffaf7550963ee988614fc38e2c2a9c0474df0630",
     "art/blender/scripts/build_city_masts.py": "9ff8395814fdce3993277e9fbe9ae29490c57978e2883ccdc22202ddee4c659c",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/city_registration.py": "c2e7cd1a8dfd981bb9f68c5c834a202626c42851efc8b40fb1a2dc551522b5ca",
     "art/blender/scripts/city_closure_source.py": "44c4ce354ef863f3791fed2cc5ac8b56920741174bb03b56036143d03695f2cc",
-    "art/data/city_elevations/source_plan.json": "e9fc92fa6814b54c3185afd273a8130f5353902bc7d7d6cacc937ba24855dd29",
+    "art/data/city_elevations/source_plan.json": "19fab570df42e724fadde06bdcddc78bf4ab189e314458c488f01035ff5a2498",
     "game/data/runtime_material_sets.json": "053761fac29499e8bc9a80a62f37d7411226157919b5cdc5421b9686569d38cc"
   },
   "open_work": "Other authored aerials and rooftop tank parts remain separate batches. This restores supported original masts and guys with no new control, occupied building, service penetration or simulation. Broader city weather and material acceptance remain open."

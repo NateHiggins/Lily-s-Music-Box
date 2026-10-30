@@ -258,8 +258,8 @@ class CommercialFronts:
                     normal=tangent.cross(Vector((0,0,1))).normalized()
                     self.bay_masonry_panel(name,points[i],tangent,normal,(points[i+1]-points[i]).length,z0,z1,floor)
                 z0=z1
-            for z in [.04,top+.26]:
-                self.roof_panel(name,'roof_bitumen',[tuple(p+Vector((0,0,z))) for p in points])
+            # The full concrete base and extended roof slab already cap
+            # these in-parcel bays; avoid coincident duplicate top sheets.
         # Rear and side sash stay distinct from the three-faced front stacks.
         for at,tangent,normal,length,bays in [
             (Vector((X,Y,0)),Vector((-1,0,0)),Vector((0,1,0)),width,8),
@@ -284,10 +284,19 @@ class CommercialFronts:
             center_z=seat+.31
             for k in range(3):
                 cx=left+.4+k*.8
-                for i in range(self.oculus_steps):
-                    a=i*math.tau/self.oculus_steps;b=(i+1)*math.tau/self.oculus_steps
-                    poly=[(cx+rx*math.cos(t),center_z+rz*math.sin(t))
-                        for rx,rz,t in [(.28,.125,a),(.28,.125,b),(.40,.19,b),(.40,.19,a)]]
+                corner=math.atan2(.19,.4)
+                angles=sorted(set([i*math.tau/self.oculus_steps for i in range(self.oculus_steps)]+
+                    [corner,math.pi-corner,math.pi+corner,math.tau-corner]))
+                def outer(t):
+                    c,s=math.cos(t),math.sin(t)
+                    radius=min(.4/abs(c) if abs(c)>1e-8 else math.inf,
+                               .19/abs(s) if abs(s)>1e-8 else math.inf)
+                    return (cx+radius*c,center_z+radius*s)
+                for a,b in zip(angles,angles[1:]+[math.tau]):
+                    # The outer boundary is a full rectangular stone cell.
+                    # Its top/bottom faces bear over finite areas on the bars.
+                    poly=[(cx+.28*math.cos(a),center_z+.125*math.sin(a)),
+                          (cx+.28*math.cos(b),center_z+.125*math.sin(b)),outer(b),outer(a)]
                     self.profile_stock(name,'limestone',front,u,out,poly,-.28,0)
             cursor=right
         self.local_box(name,wall,front,u,out,(cursor,-.28,seat),(width,0,crest))
@@ -326,7 +335,7 @@ class CommercialFronts:
         bodies=sorted([r for r in rr if re.search('_s\\d+$',r['id'])],key=lambda r:r['z0'])
         first,last=bodies[0],bodies[-1]
         x,y,X,Y=first['rect'];dx=first['registration_offset_x'];x+=dx;X+=dx
-        width=X-x;depth=Y-y;top=last['z0']+last['h'];cut=Y-2.
+        width=X-x;depth=Y-y;top=last['z0']+last['h'];wing_depth=spec['roof_depth'];cut=Y-wing_depth
         assert abs(width-11.4)<1e-6 and abs(top-18.5)<1e-6
         capid=name+'_c'+last['id'].rsplit('_s',1)[1]
         cap=next(r for r in rr if r['id']==capid)
@@ -388,13 +397,16 @@ class CommercialFronts:
         # Five square steps each side and a narrow central crown; every
         # coping bears on closed brick and all roof strips have real depth.
         stops=[i*1.02 for i in range(6)]+[6.3+i*1.02 for i in range(6)]
-        heights=[13.3,14.2,15.1,16.,16.9,18.30,16.9,16.,15.1,14.2,13.3]
+        # The source mass's 18.5 m datum belongs to the retained plant deck.
+        # A taller decorative front restores the Gilbert gable silhouette
+        # above that AU service block without lifting a single plant bearing.
+        heights=[15.3,16.2,17.1,18.,18.9,20.0,18.9,18.,17.1,16.2,15.3]
         assert abs(stops[-1]-width)<1e-6
         profile=[(0,12.5),(width,12.5),(width,heights[-1])]
         for i in reversed(range(len(heights))):
             profile.append((stops[i],heights[i]))
             if i:profile.append((stops[i],heights[i-1]))
-        wl,wr=center-.90,center+.90;low,high=13.05,16.35
+        wl,wr=center-.90,center+.90;low,high=14.05,17.35
         remaining=[Vector((a,b,0)) for a,b in profile]
         for axis,limit,greater in [(0,wl,True),(0,wr,False),(1,low,True),(1,high,False)]:
             outside=self.clip_roof_polygon(remaining,axis,limit,not greater)
@@ -402,19 +414,43 @@ class CommercialFronts:
                 self.profile_stock(name,wall,origin,u,out,[(v.x,v.y) for v in outside],-.48,-.2)
             remaining=self.clip_roof_polygon(remaining,axis,limit,greater)
         self.opening(name,wall,origin,u,out,wl,wr,low-.1,high+.1,low,high,'round',False,stone,False)
+        # The gable was clipped around a rectangular aperture. Fill the two
+        # upper corners outside its real arch, without filling the glazing.
+        # Each strip is independently closed; peak duplicates become triangles.
+        half=(wr-wl)/2;spring=high-half
+        arc=[(center-half*math.cos(i*math.pi/self.profile_steps),spring+half*math.sin(i*math.pi/self.profile_steps)) for i in range(self.profile_steps+1)]
+        for a,b in zip(arc,arc[1:]):
+            polygon=[a,b,(b[0],high),(a[0],high)];clean=[]
+            for point in polygon:
+                if not clean or math.dist(point,clean[-1])>1e-9:clean.append(point)
+            if len(clean)>2 and math.dist(clean[0],clean[-1])<1e-9:clean.pop()
+            if len(clean)>=3:self.profile_stock(name,wall,origin,u,out,clean,-.48,-.2)
         self.local_box(name,'door_paint',origin,u,out,(center-.045,-.42,low),(center+.045,-.30,high-.9))
+        crown=frame_parts(.76,.86,.17,.20);interface_points(crown)
+        for stock in crown.values():
+            vv=[tuple(origin+u*(center+a)+out*(-.18+b)+Vector((0,0,18.42+c))) for a,b,c in stock['vertices']]
+            self.add(name,stone,vv,stock['faces'])
+        self.local_box(name,stone,origin,u,out,(center-.55,-.28,18.25),(center+.55,-.08,18.42))
+        self.local_box(name,wall,origin,u,out,(center-.38,-.27,18.42),(center+.38,-.15,19.25))
+        self.local_box(name,stone,origin,u,out,(center-.82,-.35,19.40),(center+.82,0,19.48))
+        self.arch_stock(name,stone,origin,u,out,center,19.45,.70,.28,.12,-.28,-.05,self.profile_steps)
         for i,h in enumerate(heights):
             a,b=stops[i],stops[i+1]
             self.local_box(name,stone,origin,u,out,(a,-.5,h),(b,0.,h+.12))
-            # A closed longitudinal wedge supports each stepped roof strip.
-            base=origin+u*a-out*.50
-            self.profile_stock(name,wall,base,-out,u,
-                [(0,12.5),(1.50,12.5),(1.50,top+.18),(0,h-.10)],0,b-a)
+        # A real transverse pitched roof sits below the stepped front. The
+        # retained higher plant deck belongs to the recessed rear service
+        # block, not an array of metal visors above every gable step.
+        ridge=19.25;eave=14.30
+        for a,b,za,zb in [(0,width/2,eave,ridge),(width/2,width,ridge,eave)]:
             self.roof_panel(name,'galvanized_roof',[
-                tuple(origin+u*a-out*.50+Vector((0,0,h-.02))),
-                tuple(origin+u*b-out*.50+Vector((0,0,h-.02))),
-                tuple(origin+u*b-out*2.+Vector((0,0,top+.26))),
-                tuple(origin+u*a-out*2.+Vector((0,0,top+.26)))])
+                tuple(origin+u*a-out*.47+Vector((0,0,za))),
+                tuple(origin+u*b-out*.47+Vector((0,0,zb))),
+                tuple(origin+u*b-out*wing_depth+Vector((0,0,zb))),
+                tuple(origin+u*a-out*wing_depth+Vector((0,0,za)))])
+        self.local_box(name,wall,origin-out*wing_depth,u,out,(0,-.32,12.5),(width,0,top))
+        half=(ridge-top)/(ridge-eave)*width/2
+        self.profile_stock(name,wall,origin-out*wing_depth,u,out,
+            [(center-half,top),(center+half,top),(center,ridge)],-.32,0)
         # Four rear registers and blank party-wall returns are separate from
         # the shallow stepped front; no extra yard extension is introduced.
         rear=Vector((x,y,0));z=0.
@@ -422,7 +458,7 @@ class CommercialFronts:
             self.register(name,wall,rear,Vector((1,0,0)),Vector((0,-1,0)),width,z,z+height,3,1.05)
             z+=height
         self.local_box(name,wall,rear,Vector((1,0,0)),Vector((0,-1,0)),(0,-.48,z),(width,0,top))
-        side_profile=[(0,0),(depth,0),(depth,top),(2.,top+.18),(.5,13.20),(0,12.5)]
+        side_profile=[(0,0),(depth,0),(depth,top),(wing_depth,top),(wing_depth,eave),(0,eave)]
         for at,normal in [(Vector((x,Y,0)),Vector((-1,0,0))),(Vector((X,Y,0)),Vector((1,0,0)))]:
             self.profile_stock(name,wall,at,Vector((0,-1,0)),normal,side_profile,-.32,0)
         self.building_rows.append({'id':name,'style':spec['style'],'registered_rect':[x,y,X,Y],

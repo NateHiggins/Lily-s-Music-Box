@@ -663,8 +663,11 @@ for name,p in groups.items():
         stats.append(dict(id=name,old_setbacks=len(ss)-1,new_setbacks=int(p['massing']=='single_upper_setback'),
             windows=len(window_rows)-first_window,roof_height=top,shaft_bottom=0.,shaft_top=eave,
             setback_height=eave,original_roof_rect=final_rect,main_rect=rect0,floor_heights=p['floor_heights']))
+        if 'vertical_profile' in p:
+            old_last=next(r for r in source_rows if r['id']==last['id'])
+            stats[-1]['previous_roof_height']=old_last['z0']+old_last['h']
         roof_details.append(dict(building=name,style=commercial.specs[name]['style'],body_height=top,
-            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key==({'ottendorfer':'roof_bitumen','engine258':'galvanized_roof','hampton':'roof_bitumen'}.get(commercial.specs[name]['style'],'city_slate')) for v in vv),
+            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key in {'ottendorfer':('roof_bitumen',),'engine258':('galvanized_roof','roof_bitumen'),'hampton':('roof_bitumen',)}.get(commercial.specs[name]['style'],('city_slate',)) for v in vv),
             edited_legacy_roof=commercial.specs[name]['style']!='ottendorfer'))
         continue
     for r in rr:

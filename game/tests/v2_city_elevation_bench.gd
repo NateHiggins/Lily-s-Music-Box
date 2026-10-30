@@ -220,6 +220,11 @@ func _run() -> void:
 			found_commercial[str(roof.building)]=true
 		else:check(false,"unexpected roof identity")
 	check(original_roofs==2 and found_commercial.size()==6 and roof_owners.size()==8,"both original roof studies remain alongside six individually owned adaptations")
+	for x: float in [-53.1,-51.5]:
+		var point:=city.to_global(Vector3(x,17.25,28.52))
+		var normal:=city.global_basis*Vector3.FORWARD
+		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+normal*.10,point-normal*.30,1,exclude))
+		check(not hit.is_empty() and hit.position.distance_to(point)<.0001 and str(shells.get(hit.collider.get_rid(),""))=="site_sw3__arcade_brick_bond","outside the firehouse arch remains real masonry,not an unfilled rectangular corner")
 	var openwork_controls:=0
 	for panel_center: float in [-91.7,-80.,-68.3]:
 		for shift: float in [-.8,0.,.8]:
