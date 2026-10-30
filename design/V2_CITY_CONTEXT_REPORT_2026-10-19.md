@@ -3169,3 +3169,40 @@ forward.20m within the same footprint, then review the actual corrected support
 and lower silhouette. No shared foundation/ground/access producer edit is
 required. The newer pair is unqualified; no whole-city count is promoted.
 External evidence root: **C:/ov/reports/city_streets_20261029/narrow_neighbors_01**.
+
+### October30 published office/bank count and corrected entry diagnosis
+
+Fetched exact canonical **c574d0b8d6d3cb3f0e5b8f8355e500de5676b1ca** and read
+its committed report. Qualified candidate **f14307a7** plus final follow-up
+records223 checks/eight actual controller legs/0 failures,651/0 composed
+physical checks,empty stderr and independent surface packet0 defects. Final
+117-gate comparison against exactfb6851f2 has0 regressions/4 surface-gate
+improvements,17 protected paths unchanged and no waivers/promotions. The
+scoped technical count is now **21/149,128 remaining**; original Windows hang
+remains unexplained. Canonical's sole-editor project Page is updated. These
+are canonical publication facts, not new runtime runs in this worktree.
+Unrelated incoming mystery authorities have not been merged into this city
+branch. New narrow-house WIP is not included in that qualified cohort.
+
+The newer entry investigation corrects an incomplete earlier diagnosis: our
+new full ground slab also buried lower treads. Three closed slabs now leave
+the well open, and717 new near stocks pass. Onlywest limestone and both new
+concrete parts change againstb9cd9997;271 near/140 lower parts retain exact
+exported attributes/indices/poses. Combined vertical sections34/0 distinguish
+treads from closed-leaf controls. The original expectation failure mistook
+the east's first of two9cm risers and the door's55mm rail for landing levels;
+it remains preserved.
+
+Actual native sight rays reveal a separate blocking face invisible to vertical
+floor sections: retainedwest foundation front atcity-sourceY23.008 reachesZ0,
+obscuring/obstructing the two lower negative-height treads. First hits are the
+foundation,while the two upper treads/landing are clear. Floor-only success is
+therefore not approach acceptance. Preserve the foundation and fit a four-riser
+external stoop on actual soil: **[-57.26,22.04,-56.14,23.0]**,1.12m wide/.96m
+run,164mm risers from-.476 to+.18m. The+.18 landing clears the retained face.
+This is a measured construction correction under the city scope,not a footprint
+reservation inferred from historical research. Main building mass/roof/assembly
+and east retained footway stay fixed; canonical bridge/district owner was
+notified of the stoop extent. Source authoring and native/capsule review for
+this corrected projection are next,not yet acceptance. Original images,rays
+and source/native WIP remain preserved.
