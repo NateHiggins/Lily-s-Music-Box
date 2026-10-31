@@ -211,6 +211,11 @@ readability, and feel.
   geometry artifacts. The entrance review's white streak disappears with the
   first-person mask; preserve the mirror's separate inclusion of the avatar.
   Derive test stances through the actual owner's frame, not raw layout numbers.
+  Inspect the exact record shape before using it for capture placement: a runtime
+  palette table may omit dimensions retained in the construction fixture. Use
+  that fixture and validate selected records before an expensive world startup.
+  Compilation does not execute an opt-in capture branch; retain its original
+  failure and require the corrected branch's actual images and completed receipt.
   For LOD optics, a small end-cap arris can become subpixel even when indices
   switch correctly. Choose a resolvable actual structural face and retain the
   image-coverage assertion and blank control. A physics visibility ray can also
