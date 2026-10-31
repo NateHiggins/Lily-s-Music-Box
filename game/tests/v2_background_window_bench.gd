@@ -36,7 +36,7 @@ func _ready() -> void:
 	arrays[Mesh.ARRAY_TEX_UV2] = PackedVector2Array([Vector2(0,0), Vector2(1,0), Vector2(1,1), Vector2(0,1)])
 	arrays[Mesh.ARRAY_INDEX] = PackedInt32Array([0,1,2, 0,2,3])
 	var pane := ArrayMesh.new()
-	pane.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	pane.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays, [], {4.0: PackedInt32Array([0, 1, 2])})
 	var projected: ArrayMesh = Factory.project(pane)
 	var projected_arrays := projected.surface_get_arrays(0)
 	for channel in [Mesh.ARRAY_VERTEX, Mesh.ARRAY_NORMAL, Mesh.ARRAY_TANGENT, Mesh.ARRAY_TEX_UV, Mesh.ARRAY_INDEX]:
@@ -44,6 +44,8 @@ func _ready() -> void:
 			result.failures.append("optical projection changed physical channel %d" % channel)
 	if int(projected.get_meta("optical_faces", 0)) != 1:
 		result.failures.append("single pane optical face discovery")
+	if RenderingServer.mesh_get_surface(pane.get_rid(), 0).get("lods", []) != RenderingServer.mesh_get_surface(projected.get_rid(), 0).get("lods", []):
+		result.failures.append("optical projection changed original LOD index bytes")
 	var backing := MeshInstance3D.new()
 	var box := BoxMesh.new()
 	box.size = Vector3(31, 10.0, 0.3)

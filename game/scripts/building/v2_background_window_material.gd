@@ -4,6 +4,11 @@ extends RefCounted
 ## Apply only to opaque, noninteractive background panes, not real inhabited rooms.
 const InteriorShader = preload("res://shaders/v2_background_window_interior.gdshader")
 
+static func kind_for(typology: String) -> int:
+	if typology == "factory": return 2
+	if typology == "commercial": return 1
+	return 0
+
 static func create(identity: String, kind: int, size_metres: Vector2) -> ShaderMaterial:
 	assert(kind >= 0 and kind <= 3 and size_metres.x > 0.0 and size_metres.y > 0.0)
 	var glass: StandardMaterial3D = MatLib.get_mat("mirror_aged")

@@ -65,9 +65,9 @@ func run() -> void:
 	add_child(camera)
 	camera.global_position = world.adapter.root.to_global(Vector3(14, 22.8, -9))
 	camera.make_current()
-	var downward := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(camera.global_position, camera.global_position - Vector3.UP * 8.0, 1))
+	var downward: Dictionary = world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(camera.global_position, camera.global_position - Vector3.UP * 8.0, 1))
 	check(not downward.is_empty(), "posed camera has actual Orison roof beneath it")
-	var horizon := world.get_node("CityShells/CityHorizon") if world.has_node("CityShells/CityHorizon") else world.find_child("CityHorizon", true, false)
+	var horizon: Node3D = world.get_node("CityShells/CityHorizon") if world.has_node("CityShells/CityHorizon") else world.find_child("CityHorizon", true, false)
 	check(horizon != null, "production horizon mounted")
 	var bindings := 0
 	if horizon != null:
