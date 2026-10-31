@@ -4417,3 +4417,26 @@ existing small canonical-review archive; reader NEW0. This integration check
 does not repeat the unchanged renderer timings or full-world movement tour.
 New nearby southern construction is batched with this candidate before a fresh
 combined physical/candidate checkpoint; maina08ed155 stays the published boundary.
+
+
+### Four cardinal rooftop views — October30 owner request
+
+Evidence class: **INERT**. Sourcebea8d062 adds an opt-in **cardinal** mode to
+the existing transport test. One current-world startup renders8 actual3440x1440
+frames,two civil times per true compass direction,100-degree horizontal field,
+from a posed camera2m above an independently floor/capsule-validated roof eye.
+It copies the first-person cull mask,hides the device using its capture owner,
+turns the personal lamp off and leaves the mouse visible. No walking tour,
+controller constraint bypass,weather rewrite or second world is introduced.
+The actual campaign clock and authored November10,1928 weather drive each view.
+
+Import/compiler pass; actual capture wrapper222s,8views/zero failures,empty
+stderr,source guards unchanged. All8 images were inspected. Selected views are
+north16:40,east07:00,south15:30,west16:40. The original alternate times remain
+external/hash-indexed. The existing review manifest indexes one portable archive
+with the4selected original PNGs,actual logs/wrappers,source and camera/weather
+metadata. No raster edits or AI replacement sky is applied. Current unfinished
+roof housings/repeated distant masses/cloud polish remain visible. Local Laurel
+construction is unmerged; these pictures neither renew the physical receipt nor
+promote the main25-study tally,roof-access route or artistic acceptance.
+External originals: **C:/ov/reports/city_streets_20261029/rooftop_cardinals_20261030/frames**.

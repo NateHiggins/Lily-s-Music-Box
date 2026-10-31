@@ -11277,5 +11277,82 @@
         "sha256": "40fc9c8acda0edd6711795e415c8c0cfc9751f95e3344af99e69356658464299"
       }
     }
+  },
+  "rooftop_cardinal_views": {
+    "archive": "art/reviews/city_streets_20261029/rooftop_cardinal_views.zip",
+    "bytes": 8550131,
+    "sha256": "57ff1dc36cf1f60626461b0f964b378463dd5317f4c5e429a036da5a3762dffb",
+    "evidence_class": "INERT",
+    "scope": "Actual current local production world; posed roof camera2m above validated standing roof eye,100degree horizontal field,geographic N/E/S/W,Nov10 1928 authored calendar weather/time. Device overlay hidden,personal lamp off. No AI image modification,walked roof access,full-city qualification or artistic acceptance.",
+    "members": {
+      "north_1640.png": {
+        "bytes": 2129399,
+        "sha256": "d0119c2bfec4efc53c621636789c4cff2490ba8f0052703348dd3246f3a0a9cc"
+      },
+      "east_0700.png": {
+        "bytes": 2054510,
+        "sha256": "175436aaed4f888f0dd220533b23b529841dd29fe95b0d0db467f66d2f672814"
+      },
+      "south_1530.png": {
+        "bytes": 2218698,
+        "sha256": "c60b642b701425a6dea46e200a981dbc3129ab3d906bdb91f08cb90d0ca9fe6b"
+      },
+      "west_1640.png": {
+        "bytes": 2113203,
+        "sha256": "9c525f0c00a14189776b0a9ccc08bb651f6619f0fd42d82eac46c9739eaa2d14"
+      },
+      "import_01.log": {
+        "bytes": 5441,
+        "sha256": "baf295889b5c3ade233722afcb8400d8d916b02404712819975ef6edd21edae1"
+      },
+      "import_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "import_01.log.receipt.json": {
+        "bytes": 2765,
+        "sha256": "24f6b6c6a869ce2f589376c816008e3a3631ddff12661855beee0f149cad1481"
+      },
+      "compiler_01.log": {
+        "bytes": 228,
+        "sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "compiler_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "compiler_01.log.receipt.json": {
+        "bytes": 2981,
+        "sha256": "a7045f8dc6623346b0c2f30962534f2729e5401c4e923acbd1c1b67c416693ba"
+      },
+      "capture_01.log": {
+        "bytes": 2311,
+        "sha256": "23aea521c683dc7dda6c53a03d9342be96882a9f643f2669c3b3c325fda6312c"
+      },
+      "capture_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "capture_01.log.receipt.json": {
+        "bytes": 2974,
+        "sha256": "f13a7f6e9aa72640291980e279e676b87a53efa663f7afecb3199e76675f3174"
+      },
+      "cardinal_views.json": {
+        "bytes": 29142,
+        "sha256": "eb081a32d152a250e3621365b8b8fc52565aa2963bb8338d1a35c16bf2257a59"
+      },
+      "batch_01.json": {
+        "bytes": 999,
+        "sha256": "1cfb4d7f27ae5e2ec51da82823193da3c8f1999e06b477f1989e3d586922a473"
+      },
+      "executed_source/v2_city_transport_route.gd": {
+        "bytes": 75844,
+        "sha256": "6110bf40d7d27145a57378b6b3e1f79b57f2c8cd85643d19aace7ab9f9e1f622"
+      },
+      "review.json": {
+        "bytes": 1865,
+        "sha256": "c70800e32ca7f78afe8dde13e033a8ad2ee3f47f76ebdf05db068d87c3f5b356"
+      }
+    }
   }
 }
