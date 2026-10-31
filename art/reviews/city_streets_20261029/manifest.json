@@ -8769,5 +8769,175 @@
         "raw_sha256": "9e99a0a2fdca844a1a8f282cfaab20613b69d2352982acceb477b13c94261647"
       }
     }
+  },
+  "rear_apartment_native_archive": {
+    "path": "art/reviews/city_streets_20261029/rear_apartment_native_review.zip",
+    "sha256": "9ca183f662cc6ca813409ed50373ae4056a561ba0ee75dd269823550706ac459",
+    "members": 40,
+    "bytes": 11964676,
+    "evidence_class": "INERT",
+    "scope": "Native rear-west architecture and exact retained lower geometry proof. No current loaded/route/render-cost or artistic acceptance.",
+    "files": {
+      "actual_native_inspection_01.json": {
+        "bytes": 3718,
+        "raw_sha256": "119b393e46f994055a91287b4297aa7922efd508141356c1cadcc6ba49a3ee2d"
+      },
+      "archive_native_checkpoint_01.py": {
+        "bytes": 11051,
+        "raw_sha256": "2e76d6ade1ac4c96df3e45392681c01ecfd942474fab6ce978f75839aa1c0725"
+      },
+      "baseline_01.json": {
+        "bytes": 370005,
+        "raw_sha256": "2dd275fe0a23d850f936bc906c0fb321da81edca0345ca3c4f3f113649f74fd9"
+      },
+      "build_city_closure.py.log": {
+        "bytes": 9364,
+        "raw_sha256": "f53cc5ad3911679cba1e80005581a0e0d0a69907216583122d6eeefef05ba798"
+      },
+      "build_city_elevation_lods.py.log": {
+        "bytes": 17491,
+        "raw_sha256": "af2985608a6dc7d2f66793251b9be92a68ac9dfe9003a1755e1cc4db74ba04d9"
+      },
+      "build_city_elevations.py.log": {
+        "bytes": 30368,
+        "raw_sha256": "be8675f3161030390a42cebcd88d69136f5ac1565508bff1edf2c0f6fce2fc3a"
+      },
+      "build_city_streets.py.log": {
+        "bytes": 10784,
+        "raw_sha256": "75877b8286e52ce6e6d24687560237e5265e8aa833f4bf7f8961f525bead0b7f"
+      },
+      "check_near_closed_stocks_01.log": {
+        "bytes": 299,
+        "raw_sha256": "d8b3f21f28d4d7f64e1789748308a29fccaf2d503c4b2d84fa051fc76e3a13eb"
+      },
+      "check_near_closed_stocks_01.py": {
+        "bytes": 3603,
+        "raw_sha256": "33c4387e9b4b5a2ba7f8409b8712bc4499cb4ea4b8eb8a3e96b35ff3d8f578b0"
+      },
+      "check_preservation_01.py": {
+        "bytes": 3582,
+        "raw_sha256": "7de0560dba9c0e948c7b67ac0fcb09504de87d21c954f89e614dbda58ab5c759"
+      },
+      "check_preservation_02.py": {
+        "bytes": 4349,
+        "raw_sha256": "c061f704a2d067c602cc1c7fe379384b2960790ad6e2adc5869af31db497993f"
+      },
+      "city_elevations_front_whole_01.png": {
+        "bytes": 1772915,
+        "raw_sha256": "5c1fc79af275d2d49f319d5dd62521be1d7815946e2aeb9622db96bd019d78ab"
+      },
+      "city_elevations_lod1_front_whole_01.png": {
+        "bytes": 1773349,
+        "raw_sha256": "2f0d1863954678f24ef1593dd2b5a1a21e00ab55a74d819c54a9b3440100f67e"
+      },
+      "city_elevations_lod1_open_crown_01.png": {
+        "bytes": 1991450,
+        "raw_sha256": "fc4eaff44977c8fc6d5351c74443e2fefdbe3dfa383181600283272b88e6dafb"
+      },
+      "city_elevations_open_crown_01.png": {
+        "bytes": 1991201,
+        "raw_sha256": "64579ca552db2d3373d734aaa087685f98c59e25b41a87266f5b43f598e2723f"
+      },
+      "city_elevations_retained_lower_01.png": {
+        "bytes": 1714782,
+        "raw_sha256": "a127ba6c81f530fc5935308d36d7fb8e66a0da33808a31d582abe95b271b7d1c"
+      },
+      "city_elevations_upper_order_01.png": {
+        "bytes": 2397863,
+        "raw_sha256": "9847a8c3ade733fd68493d9306ce5045a5ff86105999a054b4e7337ad6eb8e15"
+      },
+      "frozen_sources/art/blender/scripts/build_city_closure.py": {
+        "bytes": 20048,
+        "raw_sha256": "af747604ef82124f629259a7ab3f23969106fca2c42b2f5fbe51f441d319d4e2"
+      },
+      "frozen_sources/art/blender/scripts/build_city_elevation_lods.py": {
+        "bytes": 8646,
+        "raw_sha256": "8e859bac7fc2020050eeb0ffef0e3cbb6273858449761db18aacf22ee856283a"
+      },
+      "frozen_sources/art/blender/scripts/build_city_elevations.py": {
+        "bytes": 71885,
+        "raw_sha256": "c80100cf807d970de28bdf1265dc681843cfdf2ad0e20235778c915189f56471"
+      },
+      "frozen_sources/art/blender/scripts/city_commercial_architecture.py": {
+        "bytes": 109659,
+        "raw_sha256": "936b3ffcfdd36fd6e8a859efa7f40b7d57ff946ca016bbcb39ff7051ae0e51ba"
+      },
+      "frozen_sources/art/data/city_elevations/source_plan.json": {
+        "bytes": 41919,
+        "raw_sha256": "08dec71e4f4545c3123abf625ed3952180d1d9ca010203325be2e6a0035217cd"
+      },
+      "frozen_sources/game/data/orison_v2/exterior/city_elevations.json": {
+        "bytes": 14347,
+        "raw_sha256": "8edcee779b21b3c50849082adf1c65537c0fc1cbd09bf23e99069dad36c70c68"
+      },
+      "frozen_sources/game/tests/fixtures/orison_city_elevations.json": {
+        "bytes": 1165300,
+        "raw_sha256": "e1cfc83c188c758e6a27d2dc378ad31dc4e21b006f6626bfd1ac24ff5afe1f4b"
+      },
+      "frozen_sources/game/tests/fixtures/orison_city_elevations_lod1.json": {
+        "bytes": 46095,
+        "raw_sha256": "271f95d28b97b04ec4086b24f1aa42ab9ee0d01100a1860fa7c0ecfbdd87de57"
+      },
+      "frozen_sources/game/tests/v2_city_elevation_bench.gd": {
+        "bytes": 45166,
+        "raw_sha256": "383021eb461571de2b6d86f7c4da099778561fa2bcd1ec6874761334731dd977"
+      },
+      "installed_city_and_roof_survey_01.json": {
+        "bytes": 172721,
+        "raw_sha256": "ad7b13d898f3e0c2490672d890682ad0d0bbdb622a8b33adfd537747120c2273"
+      },
+      "lower_preservation_failure_01.json": {
+        "bytes": 183,
+        "raw_sha256": "c11ce8a67c4a9d0ea3af45110f2426d8fdb762b5a4e2d930f4f1a1fceddbfefd"
+      },
+      "native_build_01.json": {
+        "bytes": 948,
+        "raw_sha256": "302faadad59adda0462f1f50c475dcec4e64cdb951934ad67606c0e809525d6c"
+      },
+      "native_review_01.json": {
+        "bytes": 5887,
+        "raw_sha256": "dbc56552770239c463b399f444ab038e098d1416afe8e9756db3696b0852d754"
+      },
+      "near_closed_stocks_01.json": {
+        "bytes": 216881,
+        "raw_sha256": "f8a1b83decf7aa28caaec3288e3349ee27e906c58462537fc5d9ec90dac1e32f"
+      },
+      "owner_photo_fetch_failure_01.json": {
+        "bytes": 118,
+        "raw_sha256": "11f661b4a2e81aac610372e18108dcec892b74bcb9e56664b8b493dbf5a15b42"
+      },
+      "preservation_02.json": {
+        "bytes": 3173,
+        "raw_sha256": "6346358f416170367ca4ecd1d656ea25c42cd2ba009aae71c542a4f4ee961e7e"
+      },
+      "reference_binding_01.json": {
+        "bytes": 559,
+        "raw_sha256": "67672ac886d3ebdcd536be9de2b28cddb62c10dc348a599020c2b361501c1f2c"
+      },
+      "review_native_01.log": {
+        "bytes": 31137,
+        "raw_sha256": "6b20f0fbb136f9aa129f95dff53c527b1931446c425ba9f9b1996ba1a7bac611"
+      },
+      "review_native_01.py": {
+        "bytes": 5676,
+        "raw_sha256": "6b4a8b59a503d27121f99bc20551a71a984f2e8bd0143aab60179b163d3a4421"
+      },
+      "run_native_build_01.py": {
+        "bytes": 1014,
+        "raw_sha256": "23239a8f946b1ef492eb6ff3c9a59e74ab2dc8839a6b2886c49c337f0d86e464"
+      },
+      "setup_construction_01.py": {
+        "bytes": 2242,
+        "raw_sha256": "fd74c3f3556e42358bda1c6416147ba90f530fb39025cb7a78ab43c4829f4fc6"
+      },
+      "setup_native_checks_01.py": {
+        "bytes": 1815,
+        "raw_sha256": "61768dc0ca9802a7506bfa5587410f7a839a9171bde9d7f8855a98a4ae91e0f8"
+      },
+      "uv_audit_01.json": {
+        "bytes": 116045,
+        "raw_sha256": "237424221a14c38808522aa46ccad3d7824585ab000bde9e25acf012785e9f2b"
+      }
+    }
   }
 }

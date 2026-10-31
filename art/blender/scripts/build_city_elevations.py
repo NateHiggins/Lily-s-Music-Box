@@ -642,7 +642,15 @@ def facade(name,p,rect,z0,z1):
                 window_rows.append(dict(building=name,side=side,floor=floor,bay=bay,center=list(origin+tangent*cx+Vector((0,0,(low+high)/2))),width=w,height=h,recess_m=recess,
                     pane_sample=list(origin+tangent*(cx+w*.22)+Vector((0,0,high-.14 if portal and p.get('_entry',False) else (low+high)/2+h*.2)))))
     return count
-commercial=CommercialFronts(groups,rows,original,rings,dict(add=add,box=box,
+def retained_facade(name,p,rect,z0,z1):
+    """Reuse the installed lower facade recipe, without duplicating its rows."""
+    first=len(window_rows);portals=len(portal_rows)
+    facade(name,p,rect,z0,z1)
+    assert len(portal_rows)==portals, 'Retained lower facade must not add a new door'
+    result=window_rows[first:];del window_rows[first:]
+    return result
+
+commercial=CommercialFronts(groups,rows,original,rings,dict(add=add,box=box,retained_facade=retained_facade,
     profile_stock=profile_stock,arch_stock=arch_stock,turned_stock=turned_stock,
     roof_panel=roof_panel,clip_roof_polygon=clip_roof_polygon))
 for name,p in groups.items():
@@ -667,8 +675,8 @@ for name,p in groups.items():
             old_last=next(r for r in source_rows if r['id']==last['id'])
             stats[-1]['previous_roof_height']=old_last['z0']+old_last['h']
         roof_details.append(dict(building=name,style=commercial.specs[name]['style'],body_height=top,
-            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key in {'ottendorfer':('roof_bitumen',),'engine258':('galvanized_roof','roof_bitumen'),'hampton':('roof_bitumen',),'delano126':('roof_bitumen','galvanized_roof','mirror_aged'),'linford119':('roof_bitumen',),'hayden113':('roof_bitumen',),'faber':('roof_bitumen',),'fulton':('roof_bitumen',),'jamaica':('roof_bitumen',),'terracotta_works':('city_roof_clay','roof_bitumen')}.get(commercial.specs[name]['style'],('city_slate',)) for v in vv),
-            edited_legacy_roof=commercial.specs[name]['style'] not in ['ottendorfer','faber','fulton','jamaica','linford119','hayden113','delano126']))
+            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key in {'ottendorfer':('roof_bitumen',),'engine258':('galvanized_roof','roof_bitumen'),'hampton':('roof_bitumen',),'delano126':('roof_bitumen','galvanized_roof','mirror_aged'),'linford119':('roof_bitumen',),'hayden113':('roof_bitumen',),'hawthorne':('roof_bitumen',),'faber':('roof_bitumen',),'fulton':('roof_bitumen',),'jamaica':('roof_bitumen',),'terracotta_works':('city_roof_clay','roof_bitumen')}.get(commercial.specs[name]['style'],('city_slate',)) for v in vv),
+            edited_legacy_roof=commercial.specs[name]['style'] not in ['ottendorfer','faber','fulton','jamaica','linford119','hayden113','delano126','hawthorne']))
         continue
     for r in rr:
         suffix=r['id'][len(name)+1:]
@@ -828,7 +836,7 @@ for (name,key),(vv,ff) in sorted(buffers.items()):
     bm.to_mesh(mesh);bm.free()
     obj=partition(exports,name+'__'+key,[stock],finish,mat,Matrix.Translation(center),catalog)
     if key in ['city_slate','city_roof_clay']:roof_metric_charts(obj)
-    if name in ['site_ne1','site_nbr_w','site_nbr_e','site_sw2'] and key=='wood_dark':wood_stock_charts(obj,catalog[key]['files'][0])
+    if name in ['site_ne1','site_nbr_w','site_nbr_e','site_sw2','site_back_w'] and key=='wood_dark':wood_stock_charts(obj,catalog[key]['files'][0])
     assert obj.name==name+'__'+key,(name,key,obj.name)
     obj.hide_render=False;obj.hide_set(False);draws.append(obj)
     bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)

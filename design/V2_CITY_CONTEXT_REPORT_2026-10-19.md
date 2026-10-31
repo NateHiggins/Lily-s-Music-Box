@@ -3449,3 +3449,61 @@ Canonical's narrower E/Bodega+west cohort independently reports7086/0 isolated
 and256 checks/eight actual movement legs/0,including real door grab/move/release
 and inside/outside. That is not SW2 qualification; original234/6/2 remains.
 Published tally stays21/149 until canonical renewal/publication is complete.
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Evidence class: **INERT**. Rear-west native construction,not runtime acceptance.
+
+Starting checkpoint **d3bff66e16baff758922ef3b4480bd49380054fb**. The installed
+rear-west18x6.4m apartment lies X[-30,-12]/Y[24.1,30.5],after its retained+6Y
+assembly; raw sourceY[18.1,24.5] is not the installed placement. Two retained
+lower storeys remain below5.94m. Three owned upper floors end15.4m;old deck
+15.4..15.66,bulkhead and9 mast/aerial/beacon contacts keep their original seats.
+
+The AU upper form derives from Hawthorne Court,George H.Wells1921-22:
+LPC **LP1831**,PDF124/125 (printed117/118) describes quoined central sections,
+arched fifth-storey glazing,modillion cornices and roof balustrades. PDF64 is
+an explicitly c1940 entrance detail,not a1928 photograph;no full upper-elevation
+photograph was inspected. Exact dimensions follow the installed fictional
+parcel. Registered running-bond brick substitutes for described Flemish bond;
+no historical bond/height/condition claim. Source photos/PDFs remain external.
+
+Actual native construction includes a slightly projecting centre and closed
+returns,alternating stone quoins,six-over-one upper sash,real round-head top
+apertures,modillion cornice and an open front stone balustrade with closed
+manufactured balusters/posts/rails. Rear/side parapets and old deck remain.
+Lower windows use the unchanged existing facade recipe;copying the original
+closure base would instead have filled them. No new door,occupied interior,
+shop/access/weather/narrative/save/clock/companion authority or material key.
+
+Actual near/lower bodies have **31184/28048 triangles**,nine material parts each.
+All6 native views were inspected;18 near/export/lower part comparisons match
+exact float32 triangle-position multisets.1692 new near stocks are closed and
+positive. Complete lower12421 stocks/595 bearings/669 panes pass;near1205
+bearings/2551 panes/126 roof/12 return samples pass. Two GLB UV audits,four
+source preflights,14 Python city tools tests,reader NEW0 and17 protected paths
+pass/remain unchanged. These are native/static diagnostics,not runtime proof.
+
+Actual retained lower volume preserves **12894 exact world-space triangles**
+and two limestone top-course triangles. The first predicate incorrectly counted
+120 retired upper-wall sole-cap triangles on the shared5.94m plane as lower
+construction;its original failure/script are preserved. Corrected comparison
+isolates the lower volume and independently checks the limestone top course;
+no tolerance increase or runtime waiver.270 unrelated near and155 existing
+lower parts,24 other profiles and five ground/street assets are exact.
+
+Existing isolated bench now expects94 rear panes,zero new portals,and open
+balustrade gap/post/rail controls in the installed+6Y placement. It has NOT yet
+been compiled/run. Godot/render cost,loaded materials/mips,LOD transitions,
+standing collision/access and composed lighting/artistic qualification remain
+open. Canonical whole-surface renewal separately failed after255seconds with
+Vulkan OUT_OF_DEVICE_MEMORY/native0xc0000005 and no runtime_contract;original
+logs/partialframes stay canonical-owned. Do not promote that failure or assign
+it to this new native asset. No new texture atlas was allocated here.
+
+Portable **rear_apartment_native_review.zip** indexes every member hash in the
+existing manifest;CRC/member bytes verified. Six actual native images,original
+comparison failure,source/provenance and UV evidence retained. Source reference
+pixels/PDFs and duplicate production meshes excluded. External source evidence
+is **C:/ov/reports/city_streets_20261029/rear_apartment_01**. Published tally remains
+**21/149** until required canonical publication/qualification is actually done.

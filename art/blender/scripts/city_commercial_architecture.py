@@ -1298,7 +1298,102 @@ class CommercialFronts:
         for xx in [l,r]:self.profile_stock(name,'galvanized_roof',Vector((xx,0,0)),Vector((0,1,0)),Vector((1,0,0)),[(b,eave),(t,eave),(ridge,peak)],-.025,.025)
         self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=[x,y,X,Y],assembly_translation_m=plan.get('assembly_translation_m',[0,0,0]),eave=top,body_top=top,roof_deck_top=top+.26,balcony_brackets=5,entry_ground_m=a['entry_ground_m'],entry_risers=3,entry_projection_m=a['entry_projection_m'],skylight_seat_samples=supports))
 
+    def hawthorne(self,name):
+        """Three owned upper floors over the unchanged two-storey lower recipe.
+
+        Hawthorne Court's quoined centre, arched crown and modillion order are
+        adapted to this installed parcel; no new entrance or occupied room.
+        """
+        spec=self.specs[name];plan=self.plans[name];a=plan['architecture']
+        records=[r for r in self.records if r['id'].startswith(name+'_')]
+        bodies=[r for r in records if re.search('_s\\d+$',r['id'])];assert len(bodies)==1
+        first=bodies[0];x,y,X,Y=first['rect'];dx=first['registration_offset_x'];x+=dx;X+=dx
+        bottom=first['z0'];top=bottom+first['h'];width=X-x;depth=Y-y
+        assert abs(bottom-5.94)<1e-5 and abs(top-15.4)<1e-5 and abs(spec['eave']-top)<1e-5
+        # Reproduce every lower stock through the existing recipe. Copying the
+        # original closure base would silently replace its windows with a solid.
+        lower=dict(plan);lower.pop('architecture');lower.pop('floor_heights')
+        for r in records:
+            suffix=r['id'][len(name)+1:]
+            if suffix.startswith('base'):
+                l,b,R,T=r['rect'];l+=dx;R+=dx
+                self.box(name,'limestone',(l,b,r['z0']),(R,T,r['z0']+.2))
+                rows=self.retained_facade(name,dict(lower,wall_key='limestone'),[l,b,R,T],r['z0']+.2,r['z0']+r['h'])
+                for row in rows:
+                    normal=[Vector((0,-1,0)),Vector((1,0,0)),Vector((0,1,0)),Vector((-1,0,0))][row['side']]
+                    actual=Vector(row['pane_sample'])-normal*(row['recess_m']+.044)
+                    self.window_samples.append(dict(building=name,point=list(actual),normal=list(normal),finish='mirror_aged'))
+                    self.window_rows.append(row)
+            elif suffix=='bcorn':self.original_stock(name,'limestone',self.original[r['id']])
+            elif suffix.startswith(('c','bulk','hut')):
+                self.original_stock(name,'roof_bitumen' if suffix.startswith('c') else r['key'],self.original[r['id']])
+        # Rear and side parapets stay; the front becomes an actual open railing.
+        # Roof deck and every original equipment bearing surface are unchanged.
+        self.original_stock(name,spec['wall'],self.rings[name],cut_y=y+.38)
+        levels=[0.]
+        for h in spec['front_heights']:levels.append(levels[-1]+h)
+        assert abs(levels[1]-bottom)<1e-5
+        origin=Vector((x,y,0));u=Vector((1,0,0));out=Vector((0,-1,0));pitch=width/7
+        section_l=width*.5-1.5;section_r=width*.5+1.5
+        for floor,(z0,z1) in enumerate(zip(levels[1:],levels[2:])):
+            for bay in range(7):
+                center=(bay+.5)*pitch;middle=bay==3
+                base=origin-out*(0 if middle else .16)
+                left=center-(.70 if middle else .61);right=center+(.70 if middle else .61)
+                low=z0+(.42 if middle else .66);high=z1-.62
+                l=section_l if middle else 0 if bay==0 else bay*pitch
+                r=section_r if middle else width if bay==6 else (bay+1)*pitch
+                if bay==2:r=section_l
+                if bay==4:l=section_r
+                self.local_box(name,spec['wall'],base,u,out,(l,-.48,z0),(left,-.2,z1))
+                self.local_box(name,spec['wall'],base,u,out,(right,-.48,z0),(r,-.2,z1))
+                self.opening(name,spec['wall'],base,u,out,left,right,z0,z1,low,high,'round' if floor==2 else 'rect',False,'limestone',bay=bay)
+                # Six lights in the upper sash, a single clear lower sash. Keep
+                # their stock behind the pane diagnostic's upper-right sample.
+                spring=high-(right-left)*.5 if floor==2 else high
+                rail=low+(spring-low)*.52+.055
+                for t in [center-(right-left)/6,center+(right-left)/6]:
+                    self.local_box(name,'door_paint',base,u,out,(t-.012,-.39,rail-.005),(t+.012,-.32,high-.08))
+                cross=rail+(high-rail)*.50
+                self.local_box(name,'door_paint',base,u,out,(left+.04,-.39,cross-.012),(right-.04,-.32,cross+.012))
+                # Probe lower sash, clear of the additional upper muntins.
+                point=self.window_samples[-1]['point'];point[2]=low+(high-low)*.25
+                self.window_rows[-1]['pane_sample'][2]=point[2]
+                if floor<2:
+                    self.profile_stock(name,'limestone',base,u,out,[(left-.12,high),(right+.12,high),(right+.18,high+.14),(left-.18,high+.14)],-.25,-.035)
+                    self.profile_stock(name,'limestone',base,u,out,[(center-.065,high-.025),(center+.065,high-.025),(center+.08,high+.19),(center-.08,high+.19)],-.26,-.015)
+        # Closed returns connect the recessed wings to the projecting centre.
+        for edge in [section_l,section_r]:
+            self.local_box(name,spec['wall'],origin,u,out,(edge-.075,-.64,bottom),(edge+.075,-.20,top-.30))
+            for i in range(int((top-bottom-.40)/.34)):
+                z=bottom+i*.34;half=.17 if i%2==0 else .11
+                self.local_box(name,'limestone',origin,u,out,(edge-half,-.25,z),(edge+half,-.075,z+.322))
+        # Upper back and exposed narrow ends have their own useful domestic
+        # glazing rather than a borrowed copy of the principal centre section.
+        for O,U,N,length,bays in [(Vector((X,Y,0)),Vector((-1,0,0)),Vector((0,1,0)),width,7),
+                                  (Vector((X,y,0)),Vector((0,1,0)),Vector((1,0,0)),depth,2),
+                                  (Vector((x,Y,0)),Vector((0,-1,0)),Vector((-1,0,0)),depth,2)]:
+            for z0,z1 in zip(levels[1:],levels[2:]):self.register(name,spec['wall'],O,U,N,length,z0,z1,bays,1.05,'rect',False,'limestone')
+        for z0,z1,back,front in [(top-.42,top-.20,-.50,.025),(top-.20,top-.13,-.50,.10),(top-.13,top,-.50,.14)]:
+            self.local_box(name,'limestone',origin,u,out,(0,back,z0),(width,front,z1))
+        for i in range(30):
+            center=(i+.5)*width/30
+            self.profile_stock(name,'limestone',origin+u*center,out,u,[(-.48,top-.58),(-.48,top-.18),(.10,top-.18),(.08,top-.26),(-.08,top-.29),(-.22,top-.43)],-.045,.045)
+        deck=top+.26;rail_top=deck+.62
+        for lo,hi in [((-.10,-.28,deck),(width+.10,.10,deck+.08)),((-.10,-.28,rail_top-.08),(width+.10,.10,rail_top))]:
+            self.local_box(name,'limestone',origin,u,out,lo,hi)
+        for center in [.08,width*.25,width*.5,width*.75,width-.08]:
+            self.local_box(name,'limestone',origin,u,out,(center-.12,-.38,deck),(center+.12,.10,rail_top))
+        count=40
+        for i in range(count):
+            center=.24+(width-.48)*(i+.5)/count
+            if min(abs(center-v) for v in [.08,width*.25,width*.5,width*.75,width-.08])<.20:continue
+            self.turned_stock(name,'limestone',origin+u*center+out*(-.09),[(deck+.08,.07),(deck+.12,.075),(deck+.19,.044),(deck+.30,.063),(deck+.39,.034),(deck+.50,.07),(deck+.54,.07)],8 if self.profile_steps==12 else 4)
+        self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=[x,y,X,Y],assembly_translation_m=plan.get('assembly_translation_m',[0,0,0]),retained_lower_top=bottom,body_top=top,eave=top,roof_deck_top=deck,parapet_top=rail_top,upper_floor_heights=spec['front_heights'][1:],front_bays=7,new_portals=0))
+
     def build(self, name):
+        if self.specs[name]['style']=='hawthorne':
+            return self.hawthorne(name)
         if self.specs[name]['style']=='delano126':
             return self.delano126(name)
         if self.specs[name]['style'] in ['linford119','hayden113']:
