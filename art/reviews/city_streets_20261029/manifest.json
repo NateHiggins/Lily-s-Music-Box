@@ -9386,11 +9386,11 @@
   },
   "laurel_apartment_native_archive": {
     "path": "art/reviews/city_streets_20261029/laurel_apartment_native_review.zip",
-    "sha256": "b7f0eaa5f5188cc29c818762b3b032ad8fe305ba4c9ff9666160780cd90a13a9",
-    "members": 54,
-    "bytes": 12234537,
+    "sha256": "e85ee103077e76f69f64a69c573aa18cabe81f0be1d22fefaad169d1b0746a89",
+    "members": 77,
+    "bytes": 13992160,
     "evidence_class": "INERT",
-    "scope": "Laurel-derived rear-east native construction, original pane failure, complete lower-body replacement and current/historical native reviews; no loaded/controller/composed/artistic acceptance.",
+    "scope": "Laurel-derived rear-east native and isolated loaded construction/LOD checkpoint. Original pane failure and historical/current native images retained; no standing-controller/composed/artistic qualification.",
     "files": {
       "actual_native_inspection_01.json": {
         "bytes": 4454,
@@ -9463,6 +9463,98 @@
       "identical_evidence_aliases.json": {
         "bytes": 146,
         "raw_sha256": "8103c1f9bee6aceb7c89b1990c27fae3ce67024849fdaebcd91f7909524707ca"
+      },
+      "loaded_01/actual_loaded_inspection_01.json": {
+        "bytes": 1804,
+        "raw_sha256": "7cfb8e85b97801c3818d7168b68e5e5513d079ed4b5961d6e3c000dde5357967"
+      },
+      "loaded_01/bench_01.log": {
+        "bytes": 294236,
+        "raw_sha256": "c6269c6c2fd297a059202044ba3e9b7379faba6326dff0661dad2cf6422c90d0"
+      },
+      "loaded_01/bench_01.log.receipt.json": {
+        "bytes": 2862,
+        "raw_sha256": "9cf30f5df6f93050cac5247acbccdef3edc3238a2a814180976650483431f850"
+      },
+      "loaded_01/bench_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "loaded_01/bench_01/city_elevation_profile.json": {
+        "bytes": 86768,
+        "raw_sha256": "0b7cfa7be69ae66073198c97f27a49e2e79cb152029975fd0b699712ee527269"
+      },
+      "loaded_01/bench_01/site_back_e.png": {
+        "bytes": 842709,
+        "raw_sha256": "b7e1169415a46d0930850a9104dee3da7c24db3890d61bd521dac493874554e8"
+      },
+      "loaded_01/bench_01/site_back_e_natural_after.png": {
+        "bytes": 22609,
+        "raw_sha256": "1fd5e6d64a9ba6eeb5b8b952f1dc6df054d9b1843fc9d2ea0fa28ae9df6b7143"
+      },
+      "loaded_01/bench_01/site_back_e_natural_before.png": {
+        "bytes": 23099,
+        "raw_sha256": "5ab0b251129cf7b7b879e8e28f78d9b58f843f867455c99c8f98ddb396186916"
+      },
+      "loaded_01/bench_01/site_back_e_natural_narrow.png": {
+        "bytes": 147582,
+        "raw_sha256": "a536268ad91fed89f60701f6cfebfcb5dffc0633a015a8208820277016b52420"
+      },
+      "loaded_01/bench_01/site_back_e_profile_far.png": {
+        "bytes": 367838,
+        "raw_sha256": "593beaea0f79d326bd8164e60d4520f5b593ca93f8508407c7692d7d18f50d57"
+      },
+      "loaded_01/bench_01/site_back_e_profile_near.png": {
+        "bytes": 368678,
+        "raw_sha256": "440023300970ac3085d295d443fe7e8b2703aaab8c1d7dd84622f22dd06b1d6f"
+      },
+      "loaded_01/bench_01_gpu_after.csv": {
+        "bytes": 154,
+        "raw_sha256": "b32051114054f186abcd35222f3894f733d47c1aeb86949d6f1b49318cad7117"
+      },
+      "loaded_01/bench_01_gpu_before.csv": {
+        "bytes": 153,
+        "raw_sha256": "c4d2675fd3afae8d1b65b81df31d008314b5434366bf4ddfc312fb07001ae863"
+      },
+      "loaded_01/bench_01_host_memory_before.json": {
+        "bytes": 152,
+        "raw_sha256": "4a6a50f830e8d9acf9be21e2b96f350e2e00002c8bcd3582df641c4b02fd6c8a"
+      },
+      "loaded_01/bench_01_summary.json": {
+        "bytes": 6286,
+        "raw_sha256": "9dffe22100705b846c663156d7406b7669dd274c19adb8ac3aeefb6fc5b788d9"
+      },
+      "loaded_01/identical_evidence_aliases.json": {
+        "bytes": 231,
+        "raw_sha256": "298f01d5cc96e7dafa190ad0487d913f7ae2284690b521b52a0990eba8a1f312"
+      },
+      "loaded_01/import_01.log": {
+        "bytes": 3254,
+        "raw_sha256": "3d70c5d48b027e8f31001ef3046f6e88f8346f4f3ac3d56479e74c22e376c3ae"
+      },
+      "loaded_01/import_01.log.receipt.json": {
+        "bytes": 2664,
+        "raw_sha256": "4f51c394b7935f307ecfa6a2a33b981c07cf0a91f3539d5ae5f1fbe75280ba0b"
+      },
+      "loaded_01/import_01.log.stderr": {
+        "bytes": 126454,
+        "raw_sha256": "493359099d6543268a6f13a7215edcdabed7fe22888c63c4a4470db33bcafc5c"
+      },
+      "loaded_01/loaded_batch_01.json": {
+        "bytes": 990,
+        "raw_sha256": "11387b519352c7426868535e3b15d2a95ff390ce9699a1ef9b0334d6a02499ea"
+      },
+      "loaded_01/parser_01.log": {
+        "bytes": 228,
+        "raw_sha256": "b34a0016e6ce616495d083b2e51d4915fa985210f3192a4e44c6662241a3122f"
+      },
+      "loaded_01/parser_01.log.receipt.json": {
+        "bytes": 2876,
+        "raw_sha256": "1523510717d57951021350c65667011569ecd61dd51f212ecd3997ada8a3d9e0"
+      },
+      "loaded_01/uid_cleanup_01.json": {
+        "bytes": 105048,
+        "raw_sha256": "8429ed3d5431598a317b08f3593e41b1d5ef312954057d8f686937f7e62ea324"
       },
       "lod_body_replacement_01.json": {
         "bytes": 558,

@@ -3659,3 +3659,46 @@ CRC and every member byte verified; source reference pixels/PDFs and duplicate
 production meshes excluded. Loaded checks remain pending behind the active
 canonical renewal, whose newer main-line merge does not qualify this separate
 candidate. No runtime, complete-city or artistic acceptance is claimed.
+
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Evidence class: **INERT**. Rear-east native and isolated loaded checkpoint.
+Frozen source **04cde038** passes the patched-engine fullscreen bench with
+**7,444 checks / 1,205 roof samples / 1,071 family draws / zero failures** in
+**33.94 s**. All seven loaded captures inspected; all 207 test-recorded source
+hashes match the declared LF-text/raw-binary policy. Compiler checks one script
+with zero failures. Import stderr preserves 126,454 bytes of 638 UID-cache
+recreation warnings only; compiler and bench stderr are empty. Wrapper receipts
+and the INERT profile do not constitute a schema-2 runtime contract.
+
+The isolated building/equipment group measures 53 draws and 63,532 near versus
+59,282 forced-lower primitives. Five cases each record 90 warmed uncapped frames,
+3440 × 1440 fullscreen, MSAA enum3, TAA off and vsync off. First near GPU median
+0.707 ms, p95 5.56825 ms, maximum 5.877 ms; wall median 1.0425 ms, p95 6.35205 ms,
+maximum **15.783 ms**. No sampled frame exceeds 16.667 ms. Later far/natural/
+far-repeat/near-repeat GPU medians are 0.680/0.647/0.645/0.6455 ms and wall maxima
+1.121/1.003/1.169/0.975 ms. Canonical static verification was active on the host.
+These are not quiet-host, matched-baseline or causal results; previous 39.436 ms
+and full-world spikes remain unresolved. Host/GPU snapshots are not peak samples.
+
+The natural-transition diagnostic isolates the complete linen part: 8,764 to
+4,828 primitives across 190.8919494/190.9107103 m, with narrow-FOV and inward
+recovery to 8,764. Whole near/far images retain every body and roof-equipment
+partition. Current composed lighting, standing-controller access and artistic
+qualification remain open. Canonical 221-check/14-leg and 651-check packets
+reported for the preceding SW2/rear-west cohort do not qualify this separate
+rear-east source. No main merge or published building tally promotion here.
+
+Existing archive **laurel_apartment_native_review.zip** now has 77 members / 13992160 bytes;
+SHA256 **e85ee103077e76f69f64a69c573aa18cabe81f0be1d22fefaad169d1b0746a89**. Manifest/CRC/member bytes verified; original native
+pane failure, historical/current native views, loaded frames, source, receipts
+and profile retained. No reference pixels/PDFs or duplicate production meshes.
+The 638 own untracked UID files were individually removed after terminal Godot,
+only after exact byte matching to the previously preserved archive.
+
+Next collision check: reuse the existing direct PlayerController construction
+from **v2_step_contact_test.gd**, with the production ground and resolver-derived
+world registration, inside the city bench. This is not yet implemented. It can
+check local climb/landing/closed-leaf/descent without another full-world startup;
+composed actor/access authority proof stays with the coordinated integration run.
