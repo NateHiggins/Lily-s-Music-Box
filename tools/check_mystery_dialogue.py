@@ -62,8 +62,10 @@ def check_tree(name: str, tree: dict, granted: set[str], required: dict, seen_ba
         ids.add(tid)
         if not (YEAR[0] <= thread["from"] <= thread["until"] <= YEAR[1]):
             errors.append(f"{name}: {tid} dates fall outside the year or run backwards")
-        for flag in thread.get("requires", []):
+        for flag in thread.get("requires", []) + thread.get("requires_any", []):
             required.setdefault(flag, []).append(f"{name}:{tid}")
+        if "requires_any" in thread and len(thread["requires_any"]) < 2:
+            errors.append(f"{name}: {tid} requires_any names fewer than two flags")
         stack, walk = [thread["root"]], set()
         while stack:
             node_id = stack.pop()
@@ -155,6 +157,11 @@ def check_companion(doc: dict, granted: set[str], required: dict, seen_banks: di
     return errors
 
 
+def thread_open(thread: dict, held: set[str]) -> bool:
+    any_of = thread.get("requires_any", [])
+    return set(thread.get("requires", [])) <= held and (not any_of or bool(set(any_of) & held))
+
+
 def unlocks(trees: dict[str, dict], carriers: set[str], companion_lines: set[str]) -> set[str]:
     """Every flag a player can come to hold, ignoring dates: visits are free, so
     only a cycle of requirements can make evidence unreachable."""
@@ -164,7 +171,7 @@ def unlocks(trees: dict[str, dict], carriers: set[str], companion_lines: set[str
         changed = False
         for tree in trees.values():
             for thread in tree["threads"]:
-                if not set(thread.get("requires", [])) <= held:
+                if not thread_open(thread, held):
                     continue
                 stack, walk = [thread["root"]], set()
                 while stack:
@@ -196,6 +203,8 @@ def render(trees: dict[str, dict]) -> str:
                 tags.append("-".join(thread["hours"]))
             if thread.get("requires"):
                 tags.append("needs " + ", ".join(f"**{f}**" for f in thread["requires"]))
+            if thread.get("requires_any"):
+                tags.append("needs any of " + ", ".join(f"**{f}**" for f in thread["requires_any"]))
             if thread.get("hold"):
                 tags.append("HOLD")
             out += [f"### \"{thread['topic']}\"", "", " · ".join(tags), ""]
@@ -260,7 +269,7 @@ def run(folder: pathlib.Path = DRAFTS) -> tuple[list[str], dict]:
         errors.append(f"flag {flag} can never be earned: its requirements form a cycle")
     for name, tree in trees.items():
         for thread in tree["threads"]:
-            if not set(thread.get("requires", [])) <= held:
+            if not thread_open(thread, held):
                 errors.append(f"{name}: thread {thread['id']} can never open")
     for flag in SOLVE:
         if flag not in held:

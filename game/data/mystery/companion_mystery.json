@@ -618,6 +618,86 @@
    "text": "Entered, on your word: you wanted nothing from 6C that week. Also entered, on yours: you kept a drawer. The file holds both. It does not add them up. That wants someone with hands."
   },
   {
+   "id": "m_theory_noel",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "it was noel",
+    "noel did it",
+    "noel pushed her",
+    "noel price did it"
+   ],
+   "requires": [
+    "m_noel_landing"
+   ],
+   "note": "Suspect chain. The game suspects nobody.",
+   "text": "Entered, on your word. Nobody else's."
+  },
+  {
+   "id": "m_theory_peter",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "it was peter",
+    "peter did it",
+    "peter pushed her",
+    "peter wren did it"
+   ],
+   "requires": [
+    "m_search_stub"
+   ],
+   "note": "Suspect chain. The game suspects nobody.",
+   "text": "Entered, on your word. Nobody else's."
+  },
+  {
+   "id": "m_door_shut",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "the door stayed shut",
+    "she never left her room",
+    "she was in her room",
+    "noel watched the door"
+   ],
+   "requires": [
+    "m_noel_reports"
+   ],
+   "note": "The wrong distrust from the Prices. A watched door forces the back way.",
+   "text": "Entered, on your word: a door shut, and a man watching it until 8.58. I have no column for windows."
+  },
+  {
+   "id": "m_recall",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "the book can be recalled",
+    "she could have recalled it",
+    "a held piece can be recalled",
+    "the route book is soft"
+   ],
+   "requires": [
+    "m_book_recalled"
+   ],
+   "note": "The wrong distrust from Peter. A recall writes a strike.",
+   "text": "Entered, on your word: a recall leaves a strike and a time. You have shown me one of each. I have no column for the strike you have not shown me."
+  },
+  {
+   "id": "m_keys",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "where are my keys",
+    "the keys are gone",
+    "who has my keys",
+    "no keys in the bag"
+   ],
+   "requires": [
+    "m_bag_no_keys"
+   ],
+   "note": "Kept from a cut chain.",
+   "text": "Entered, on your word: a purse stayed and a ring of keys did not. I have no column for thrift."
+  },
+  {
    "id": "m_end_keep",
    "movement": "IV_line",
    "surface": "witnessed",

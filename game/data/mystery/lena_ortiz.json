@@ -52,7 +52,10 @@
   },
   "lo_b3": {
    "flag": "m_bag_ticket",
-   "line": "\"Bag, clasp, off the chair, twentieth July.\" Purse is still in it. Nobody took a purse. So you can ask yourself what kind of a thief that is, and then you can ask me about your cuffs."
+   "line": "\"Bag, clasp, off the chair, twentieth July.\" Purse is still in it. No keys. Nobody took a purse. So you can ask yourself what kind of a thief that is, and then you can ask me about your cuffs.",
+   "flags": [
+    "m_bag_no_keys"
+   ]
   },
   "lo_k1": {
    "silence_goto": "lo_k1s",

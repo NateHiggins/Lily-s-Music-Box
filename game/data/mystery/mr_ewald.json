@@ -11,7 +11,8 @@
   "ew_monday": "ew_1",
   "ew_note": "ew_n1",
   "ew_lease": "ew_l1",
-  "ew_letter": "ew_lt1"
+  "ew_letter": "ew_lt1",
+  "ew_times": "ew_t1"
  },
  "threads": [
   {
@@ -56,6 +57,17 @@
    ],
    "source": "B25 and section 4.5. The conclusive beat. He does the reading; the finding is not his to state.",
    "root": "ew_lt1"
+  },
+  {
+   "id": "ew_times",
+   "from": "1929-07-22",
+   "until": "1929-11-09",
+   "topic": "Does your clerk's book agree with the Ortiz boy's?",
+   "requires": [
+    "m_route_book"
+   ],
+   "source": "Kept from a cut chain. Proves the book where the letter needs it.",
+   "root": "ew_t1"
   }
  ],
  "nodes": {
@@ -133,6 +145,10 @@
   "ew_lt2": {
    "flag": "m_letter_compared",
    "line": "Friday. She was up on that roof at six-forty on Friday with a camera. I saw her buy the sandwich. This says last night's storm. Sit down. No. I'll sit down. I have had that on my file for a long time, as bad manners."
+  },
+  "ew_t1": {
+   "flag": "m_times_checked",
+   "line": "My clerk stamps what this office takes, and the Ortiz boy pencils what he holds. Bring the book, sit there, read me the summer. Sixty-odd pieces, and not a minute between them that I could bill for. In a witness I would call that a fault. I looked."
   }
  }
 }
