@@ -169,3 +169,39 @@ is LF-byte-identical to pre-install **f0bf4491**: that stale binding predates th
 installation on the integration branch. The original board is not rewritten or
 called green. Existing whole-game gate failures, source debt and runtime
 qualification remain open; this checkpoint is not merged into main as accepted V2.
+
+## All neighbouring buildings and restrained variation
+
+Lily then requested every windowed building except the Orison and more realistic
+variation. The 25 retained near-city elevation assemblies now join the 124
+horizon assemblies: **149 window partitions / six shared materials**. The
+Orison, its occupied interiors and its shop glazing are outside this installation.
+Near-city scenic panes formerly used transparent glass over decorative backing;
+they now use the opaque optical-room presentation. Their original physical
+geometry, backing/curtain stock, collision and authored body LODs remain intact.
+Projection also handles sloping/horizontal glazing, retaining small edge faces
+as ordinary glass. Building clocks retain their existing pose and time authority.
+
+Fixed per-pane traits vary room depth **2.85–4.75 m**, bed versus desk/chair
+arrangements, desaturated cloth/plaster colours, rounded lamp shades, curtain
+openings and roller blinds. Lamp colour spans a warm, approximately
+**2300–3300 K** artistic palette; intensity spans **0.35–1.25 relative units**.
+These are restrained rendering parameters, not calibrated temperature/lux
+measurements. The hash traits are flat vertex outputs, avoiding interpolated
+seed noise and repeated fragment hashes. No additional lights, textures,
+per-window callbacks or gameplay occupants were added.
+
+The focused family bench and a single composed-world review completed with
+empty failure lists and stderr. The composed review checks all 149 bindings,
+original position/UV0/index/LOD data, loaded mips, authoritative time, and that
+no Orison draw uses this shader. Native-fullscreen night captures and close
+family views were inspected. **17 focused tooling tests passed**, reader NEW
+remains zero, and the focused spatial audit has no drift. Two elevation GLBs
+are byte-exact to **12aac6d7**; four native metadata bindings were reconciled
+with 118 fixture checks and no new source errors. No runtime receipt was renewed.
+
+Original and current evidence share the existing window review ZIP, under an
+added **all_buildings/** prefix; prior members remain byte-exact. Full loose
+receipts/captures are at **C:/ov/reports/window_all_buildings_20261031/**.
+The previous full static board and broader qualification limits remain as
+recorded above; no additional full-year or whole-game acceptance is claimed.

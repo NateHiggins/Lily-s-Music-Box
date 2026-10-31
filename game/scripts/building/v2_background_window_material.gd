@@ -9,6 +9,21 @@ static func kind_for(typology: String) -> int:
 	if typology == "commercial": return 1
 	return 0
 
+static func neighbour_kind(identity: String) -> int:
+	# Optical uses informed by the existing source-card adaptations, not new NPCs.
+	if identity in ["site_nw3", "site_ne1", "site_ne3", "site_sw3"]: return 2
+	if identity in ["site_nw1", "site_ne2", "site_ne4", "site_se2", "site_se3"]: return 1
+	return 0
+
+static func glazing_is_bound(draw: MeshInstance3D) -> bool:
+	var optical := draw.material_override as ShaderMaterial
+	var source := draw.get_meta("v2_window_source_material", null) as StandardMaterial3D
+	if optical == null or source == null or optical.shader != InteriorShader: return false
+	return optical.get_shader_parameter("glass_albedo") == source.albedo_texture \
+		and optical.get_shader_parameter("glass_roughness") == source.roughness_texture \
+		and optical.get_shader_parameter("glass_normal") == source.normal_texture \
+		and optical.get_shader_parameter("physical_uv_scale") == Vector2(source.uv1_scale.x, source.uv1_scale.y)
+
 static func create(identity: String, kind: int, size_metres: Vector2) -> ShaderMaterial:
 	assert(kind >= 0 and kind <= 3 and size_metres.x > 0.0 and size_metres.y > 0.0)
 	var glass: StandardMaterial3D = MatLib.get_mat("mirror_aged")
@@ -82,19 +97,21 @@ static func project(source: Mesh, building_identity := "") -> ArrayMesh:
 		custom.resize(positions.size() * 4)
 		for root: int in groups:
 			var normal := normals[root].normalized()
-			if absf(normal.y) > 0.15: continue
-			var right := Vector3.UP.cross(normal).normalized()
+			var right := Vector3.UP.cross(normal)
+			if right.length_squared() < 0.001: right = Vector3.RIGHT
+			right = right.normalized()
+			var up := normal.cross(right).normalized()
 			var lo := Vector2(INF, INF)
 			var hi := Vector2(-INF, -INF)
 			for i: int in groups[root]:
-				var p := Vector2(positions[i].dot(right), positions[i].y)
+				var p := Vector2(positions[i].dot(right), positions[i].dot(up))
 				lo = lo.min(p); hi = hi.max(p)
 			var size := hi - lo
 			if size.x < 0.2 or size.y < 0.3: continue
 			var centre := (lo + hi) * 0.5
 			var identity := float((building_identity + str(centre.snapped(Vector2(0.001, 0.001))) + str(normal.snapped(Vector3.ONE * 0.001)) + str(snappedf(normal.dot(positions[root]), 0.001))).hash() & 0xffff)
 			for i: int in groups[root]:
-				var p := (Vector2(positions[i].dot(right), positions[i].y) - lo) / size
+				var p := (Vector2(positions[i].dot(right), positions[i].dot(up)) - lo) / size
 				uv[i] = Vector2(p.x, 1.0 - p.y)
 				custom[i * 4] = identity
 				custom[i * 4 + 1] = size.x

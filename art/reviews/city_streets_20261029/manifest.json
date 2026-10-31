@@ -15165,11 +15165,11 @@
   },
   "window_optics_review": {
     "path": "art/reviews/city_streets_20261029/window_optics_review.zip",
-    "sha256": "36652f539d63eeb170b75c098b336700961ff554740e87acc0476cc2a32440f1",
-    "bytes": 4284124,
-    "members": 46,
+    "sha256": "a8b445464b0e54a3027418b37f7d13c5170dffe5ef013fa608a5a46172d0c4fc",
+    "bytes": 7734749,
+    "members": 63,
     "evidence_class": "INERT",
-    "scope": "Installed124 background-window draws; three shared materials; actual1929-02-23T19:30 posed Orison-roof100degree/65degree views; original dim-Moon reference retained. No walked route,full-surface qualification,annual sky or artistic acceptance. Original static-board regression and focused disposition retained.",
+    "scope": "149 non-Orison background-building window partitions; six shared materials, bounded lamp/decor/layout variation. Original124-window packet retained byte-exact. Focused family and composed night review, no full qualification or artistic acceptance.",
     "files": {
       "before_night_radiance/game/shaders/queens_weather_math.gdshaderinc": {
         "bytes": 15582,
@@ -15354,6 +15354,74 @@
       "static_disposition.json": {
         "bytes": 2831,
         "raw_sha256": "28623520b8884d1f52e9879b2501ad09daf526fbacf5bfb3bfdb154ef00f04c8"
+      },
+      "all_buildings/city/orison_starlit_city_moon.png": {
+        "bytes": 1500326,
+        "raw_sha256": "a2651ee5551305de43b9e5998ed62fb0b1207844a4ac9ca5c7d26486438d09ff"
+      },
+      "all_buildings/city/night_review.json": {
+        "bytes": 3198,
+        "raw_sha256": "9e28075133cd7e27500fd624659699e65cbcbc917a4ed24eb0b1e2ce0f549372"
+      },
+      "all_buildings/family/close_evening.png": {
+        "bytes": 1923925,
+        "raw_sha256": "cc006c409791768a2980293edb99a610949d1904f6bec91b9c024aa98edbde55"
+      },
+      "all_buildings/family/diagnostic.json": {
+        "bytes": 1734,
+        "raw_sha256": "0a6350ad5ebbabc30388b3efbf9849512c0ad3c8d08b8c32d60e685de8c1974b"
+      },
+      "all_buildings/source_reconciliation.json": {
+        "bytes": 67893,
+        "raw_sha256": "13f0f10801562cfa8870eafab5ed0fb83cc5d8d19322c52824e0f5932c59655f"
+      },
+      "all_buildings/spatial.json": {
+        "bytes": 1771,
+        "raw_sha256": "3d71b5acf9ad73d35757312e5006b374457839826a5d9680ddc6526b6ae226ca"
+      },
+      "all_buildings/reconcile.py": {
+        "bytes": 2717,
+        "raw_sha256": "b43053b29bd8aca4bc8f932365cf98105cf713ccf12c6729ec3c968a5563a55b"
+      },
+      "all_buildings/runs/city.log": {
+        "bytes": 4763,
+        "raw_sha256": "9af94eab59fbb8e8f4ac298c1d6c28b35ed300612ab22640ec6503bfbd3ad55b"
+      },
+      "all_buildings/runs/city.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_buildings/runs/city.log.receipt.json": {
+        "bytes": 2740,
+        "raw_sha256": "ee91aea262bb5ab72dfbb4aef7fb4e620c595ac6b93f8e1811410c781f508c4f"
+      },
+      "all_buildings/runs/family.log": {
+        "bytes": 1558,
+        "raw_sha256": "c552b46e935384f0b8ef09c442f4379d44310f87d785c5cab72d72a670af9830"
+      },
+      "all_buildings/runs/family.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_buildings/runs/family.log.receipt.json": {
+        "bytes": 2746,
+        "raw_sha256": "b53c3542b31600082a64e4d4c85dfc84e28b861f80d845e6fd04c4f7d990cbe8"
+      },
+      "all_buildings/source/game/scripts/building/orison_v2_city_shells.gd": {
+        "bytes": 7836,
+        "raw_sha256": "53dea9f71a7d3207ce42aa3bc2ed1dae1176cd1201da4a2b118420330d9cdf3a"
+      },
+      "all_buildings/source/game/scripts/building/v2_background_window_material.gd": {
+        "bytes": 6546,
+        "raw_sha256": "3730dceb5f5e36794d94bff980b0ca6601e0593935d3d52dfd591c5ca5f21d19"
+      },
+      "all_buildings/source/game/shaders/v2_background_window_interior.gdshader": {
+        "bytes": 9850,
+        "raw_sha256": "6502f78eb581ecba485ac7eae4f1ba9f8e27d01f3ca387a03a2c3f22d9efa0e6"
+      },
+      "all_buildings/source/game/tests/v2_window_city_night_review.gd": {
+        "bytes": 8291,
+        "raw_sha256": "06f7c1e9ffc734f8b44a27b97834d15fb5decd486a08537003b9ec5bd332250f"
       }
     }
   }

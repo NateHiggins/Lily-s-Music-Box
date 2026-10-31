@@ -70,11 +70,15 @@ func run() -> void:
 	var horizon: Node3D = world.get_node("CityShells/CityHorizon") if world.has_node("CityShells/CityHorizon") else world.find_child("CityHorizon", true, false)
 	check(horizon != null, "production horizon mounted")
 	var bindings := 0
+	var near_bindings := 0
+	var city: Node3D = world.get_node("CityShells")
 	var seen_materials := {}
 	if horizon != null:
 		record["optical_preparation_ms"] = horizon.get_meta("window_optical_preparation_ms", -1)
-		for draw: MeshInstance3D in horizon.find_children("*", "MeshInstance3D", true, false):
+		for draw: MeshInstance3D in city.find_children("*", "MeshInstance3D", true, false):
 			if not str(draw.name).ends_with("__mirror_aged"): continue
+			if not horizon.is_ancestor_of(draw) and not draw.get_meta("retained_city_shell", false): continue
+			if draw.get_meta("retained_city_shell", false): near_bindings += 1
 			check(draw.material_override is ShaderMaterial and draw.material_override.shader.resource_path.ends_with("v2_background_window_interior.gdshader"), "installed optical binding " + str(draw.name))
 			if draw.material_override is ShaderMaterial and not seen_materials.has(draw.material_override.get_instance_id()):
 				seen_materials[draw.material_override.get_instance_id()] = true
@@ -92,7 +96,14 @@ func run() -> void:
 				check(RenderingServer.mesh_get_surface(source.get_rid(), 0).get("lods", []) == RenderingServer.mesh_get_surface(draw.mesh.get_rid(), 0).get("lods", []), "LOD index bytes retained")
 			bindings += 1
 	check(bindings > 50, "background windows installed across the city")
+	check(near_bindings == 25, "all twenty-five neighbouring building window partitions installed")
+	for draw: MeshInstance3D in world.find_children("*", "MeshInstance3D", true, false):
+		if city.is_ancestor_of(draw) or draw.mesh == null: continue
+		for surface in draw.mesh.get_surface_count():
+			var material := draw.get_active_material(surface) as ShaderMaterial
+			check(material == null or material.shader != preload("res://shaders/v2_background_window_interior.gdshader"), "Orison and its occupied windows remain outside optical installation")
 	record["window_draw_bindings"] = bindings
+	record["near_window_draw_bindings"] = near_bindings
 	record["shared_window_materials"] = seen_materials.size()
 	record["world_startup_ms"] = world.startup_ms
 	var sky: ShaderMaterial = world.get_node("WakingAtmosphere").sky_material

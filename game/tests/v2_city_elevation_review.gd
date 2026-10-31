@@ -20,6 +20,9 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 		suite.check(physical!=null and physical.get_faces()==faces and shape.global_transform.is_equal_approx(draw.global_transform),"city visible faces have identical physical backing: "+str(draw.name))
 		bodies[body.get_rid()]=str(draw.name)
 		var source: Material=draw.get_meta("v2_city_roof_source",draw.material_override)
+		if draw.has_meta("v2_window_source_material"):
+			suite.check(preload("res://scripts/building/v2_background_window_material.gd").glazing_is_bound(draw), "optical glazing samples the original catalogue PBR charts")
+			source = draw.get_meta("v2_window_source_material")
 		var stock := source as StandardMaterial3D
 		suite.check(stock!=null and not stock.uv1_triplanar and stock.normal_enabled,"city source consumes authored UVs and enabled normal maps: "+str(draw.name))
 		if stock!=null:
