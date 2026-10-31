@@ -147,7 +147,7 @@ np.savez_compressed(work / 'orison-ground-cells.npz', solid=solid,
                     parcel_protection=parcel_protection,parcel_rects=np.asarray(parcel_rects,dtype=np.float64))
 print('COURTYARD TRIAL GRID:', size, 'solid cells', int(solid.sum()), 'asphalt cells', int(asphalt.sum()), flush=True)
 
-bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
+bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.context.preferences.filepaths.save_version = 0
 source_collection = bpy.data.collections.new('OrisonGroundConstruction')
 bpy.context.scene.collection.children.link(source_collection)
@@ -210,7 +210,7 @@ if street_specs:
     print('STREET SOIL CUT: expected removal',removed,'m3; native Boolean begins',flush=True)
     source_obj=next(obj for obj in source_collection.objects if obj.data==mesh)
     street_cavity,street_proof=apply_soil_cuts(source_obj,source_collection,street_specs,removed)
-    street_proof.update(expected_final_volume_m3=expected_volume-removed,source_region_m=[a,b,c,d],method='Exact collection Boolean of the closed soil; independent polygon/profile integral retains every original void. Existing render faces are clipped separately, preserving unrelated local precision.')
+    street_proof.update(expected_final_volume_m3=expected_volume-removed,source_region_m=[a,b,c,d],method='Sequential manifold Boolean of compact closed union-outline cutters; independent polygon/profile integral retains every original void. Existing render faces are clipped separately, preserving unrelated local precision.')
 non_manifold=0;bad_edges=[None]*edge_contacts
 print('COURTYARD CLOSED SOURCE:',len(complete_faces),'original cell faces;',len(source_rectangles),'exact conforming rectangles',flush=True)
 

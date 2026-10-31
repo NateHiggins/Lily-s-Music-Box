@@ -1,6 +1,7 @@
 """Build closed mapped distant grade from the actual retained ground export."""
 from pathlib import Path
 import hashlib,json,sys,os
+import numpy as np
 import bpy,bmesh
 from mathutils import Matrix,Vector
 
@@ -10,6 +11,7 @@ from city_ground_apron_geometry import exported_bounds,apron_boxes,relief_stock,
 from ground_closed_union import apply_soil_cuts
 from city_street_geometry import overlap
 from fabrication_native_batch import material,partition,export
+from fabrication_uvs import chart_for_triangle,_representable
 
 plan_path=ROOT/'art/data/city_ground_apron/source_plan.json'
 plan=json.loads(plan_path.read_text());assert plan['schema']=='orison.city-ground-apron.v1'
@@ -37,15 +39,58 @@ mats={key:material(ROOT,'Horizon_'+key,spec,catalog) for key,spec in finishes.it
 sources=bpy.data.collections.new('EditableReliefStocks');bpy.context.scene.collection.children.link(sources)
 sources.hide_render=True;sources.hide_viewport=True
 buildings=json.loads((ROOT/'art/data/city_horizon/source_plan.json').read_text())['buildings']
+phase_recharts=0;phase_local_fallbacks=0
 def horizontal_phase(part,origin,key):
+    global phase_recharts,phase_local_fallbacks
     tile=float(catalog[key]['meters_per_tile'])
     for face in part.data.polygons:
         if face.normal.z<.999:continue
-        for loop in face.loop_indices:
-            p=part.data.vertices[part.data.loops[loop].vertex_index].co
-            part.data.uv_layers.active.data[loop].uv=(p.x+origin.x%tile,1+p.y+origin.y%tile)
-            part.data.attributes['_tangent_guide'].data[loop].vector=(1,0,0)
-parts=[];street_proofs=[];street_cavity=[]
+        points=np.asarray([part.data.vertices[part.data.loops[i].vertex_index].co[:] for i in face.loop_indices],dtype=np.float64)
+        values=points[:,:2]+[origin.x%tile,1+origin.y%tile]
+        normal=np.cross(points[1]-points[0],points[2]-points[0]);normal/=np.linalg.norm(normal)
+        tangent=np.array([1.,0.,0.]);tangent-=normal*np.dot(tangent,normal);tangent/=np.linalg.norm(tangent)
+        encoded=values.astype(np.float32);encoded[:,1]=np.float32(1)-encoded[:,1]
+        a,b=encoded[1]-encoded[0],encoded[2]-encoded[0]
+        determinant=float(a[0])*float(b[1])-float(b[0])*float(a[1])
+        guide=(1,0,0)
+        if determinant>=-1e-12 or not _representable(points,normal,tangent,values):
+            _,u,values,local=chart_for_triangle(points,np.array([origin.x%tile,1+origin.y%tile,0.]),tile)
+            guide=(float(u[0]),float(u[2]),-float(u[1]))
+            phase_recharts+=1;phase_local_fallbacks+=int(local)
+        for corner,loop in enumerate(face.loop_indices):
+            part.data.uv_layers.active.data[loop].uv=values[corner]
+            part.data.attributes['_tangent_guide'].data[loop].vector=guide
+
+collapsed_skinny_edges=0;max_skinny_shift_m=0.
+def triangulate_cut_draw(bm):
+    global collapsed_skinny_edges,max_skinny_shift_m
+    # Float32 can collapse a clipping seam to a line. Remove only exactly
+    # zero-area triangles after representation; keep every positive surface.
+    bmesh.ops.triangulate(bm,faces=list(bm.faces))
+    # A one-ULP-wide tall sliver has no usable Blender corner-normal space.
+    # Merge only that representational step to an existing endpoint; record
+    # its actual displacement instead of waiving normal/UV requirements.
+    for face in list(bm.faces):
+        if not face.is_valid:continue
+        edges=sorted(face.edges,key=lambda e:e.calc_length())
+        short,long=edges[0].calc_length(),edges[-1].calc_length()
+        if short<=0 or long/short<=10000.:continue
+        p=np.asarray([v.co[:] for v in face.verts],dtype=np.float32)
+        step=float(np.max(np.abs(np.spacing(p))))
+        if short>step:continue
+        a,b=edges[0].verts;target=a.co.copy()
+        max_skinny_shift_m=max(max_skinny_shift_m,float((b.co-target).length))
+        bmesh.ops.pointmerge(bm,verts=[a,b],merge_co=target)
+        collapsed_skinny_edges+=1
+    bm.normal_update()
+    zero=[]
+    for face in bm.faces:
+        p=np.asarray([v.co[:] for v in face.verts],dtype=np.float64)
+        if np.linalg.norm(np.cross(p[1]-p[0],p[2]-p[0]))==0.:zero.append(face)
+    if zero:bmesh.ops.delete(bm,geom=zero,context='FACES_ONLY')
+    return len(zero)
+
+parts=[];street_proofs=[];street_cavity=[];collapsed_draw_triangles=0
 for row in boxes:
     vertices,faces,keys=relief_stock(row['bounds'],plan['relief'])
     water_vertices,water_faces=water_stock(vertices,faces,plan['relief']['water_scene_y_m'])
@@ -97,6 +142,7 @@ for row in boxes:
             # edges before charting. The editable closed stock stays untouched.
             bm=bmesh.new();bm.from_mesh(patch)
             bmesh.ops.dissolve_limit(bm,angle_limit=1e-6,verts=list(bm.verts),edges=list(bm.edges),use_dissolve_boundaries=False)
+            if local_prisms:collapsed_draw_triangles+=triangulate_cut_draw(bm)
             bm.to_mesh(patch);bm.free();patch.update()
             stock=bpy.data.objects.new('TemporaryFinish',patch)
             part=partition(collection,'Horizon_'+row['id']+'__'+key,[stock],finishes[key],mats[key],Matrix.Translation(origin),catalog)
@@ -110,17 +156,19 @@ for (ix,iz),faces in sorted(chunk_soil_faces(street_cavity).items()):
         first=len(vertices);vertices.extend((x-float(origin.x),-z-float(origin.y),y) for x,y,z in face)
         indices.append(tuple(range(first,len(vertices))))
     mesh=bpy.data.meshes.new('TemporaryStreetCut');mesh.from_pydata(vertices,[],indices);mesh.update()
+    bm=bmesh.new();bm.from_mesh(mesh);collapsed_draw_triangles+=triangulate_cut_draw(bm)
+    bm.to_mesh(mesh);bm.free();mesh.update()
     stock=bpy.data.objects.new(mesh.name,mesh)
     part=partition(collection,'Horizon_StreetCut_%d_%d__soil'%(ix,iz),[stock],finishes['soil'],mats['soil'],Matrix.Translation(origin),catalog)
     horizontal_phase(part,origin,'soil')
     parts.append({'name':part.name,'finish':'soil','triangles':len(part.data.polygons)})
     bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
-proof=export(ROOT,'city_ground_apron',collection)
+proof=export(ROOT,'city_ground_apron',collection,staged_output=True)
 actual=exported_bounds((ROOT/'game/assets/props/city_ground_apron.glb').read_bytes())
 assert max(abs(a-b) for a,b in zip([actual[i] for i in [0,2,3,5]],plan['outer_rect']))<.0001
 assert abs(actual[4]-bounds[4])<.0001
 paths=[plan_path,retained_path,grade_path,finish_path,catalog_path,Path(__file__),ROOT/'game/scripts/building/orison_v2_ground.gd',ROOT/'art/data/city_horizon/source_plan.json']
-paths += [ROOT/'art/blender/scripts'/p for p in ['city_ground_apron_geometry.py','ground_closed_union.py','fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']]+street_paths
+paths += [ROOT/'art/blender/scripts'/p for p in ['city_ground_apron_geometry.py','ground_closed_union.py','fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_uvs.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']]+street_paths
 paths += [ROOT/'game/assets/building/textures'/p for key in finishes for p in catalog[key]['files']]
 projection={'schema':1,'frame':plan['frame'],'street_asl_m':plan['relief']['street_asl_m'],'water_scene_y_m':plan['relief']['water_scene_y_m'],
     'finishes':[{k:spec[k] for k in ['catalog_key','tint','normal','roughness']} for spec in finishes.values()]}
@@ -132,7 +180,9 @@ def sha(path):
 report=dict(evidence_class='INERT',scope=plan['scope'],frame=plan['frame'],retained_ground_bounds=bounds,outer_bounds=actual,
     surface_phase='Registered metre axes, with each local origin reduced by whole asphalt tiles; matches retained ground.',
     boxes=boxes,parts=parts,relief=plan['relief'],retained_ground_sha256=sha(retained_path),asset_sha256=sha(ROOT/'game/assets/props/city_ground_apron.glb'),
-    street_soil_cuts=street_proofs,
+    street_soil_cuts=street_proofs,discarded_zero_area_draw_triangles=collapsed_draw_triangles,
+    single_ulp_skinny_draw_edges=collapsed_skinny_edges,max_skinny_draw_vertex_shift_m=max_skinny_shift_m,
+    horizontal_phase_recharts=phase_recharts,local_chart_fallbacks=phase_local_fallbacks,
     source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in paths},export_check=proof)
 for relative in ['art/blender/city_ground_apron_construction.json','game/tests/fixtures/orison_city_ground_apron.json']:
     (ROOT/relative).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')

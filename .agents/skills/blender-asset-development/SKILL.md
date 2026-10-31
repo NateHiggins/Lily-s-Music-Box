@@ -20,6 +20,12 @@ version: older README examples are not proof of the installed API. Determine
 which file actually drives the game before replacing a plausible-looking asset.
 Keep mechanical, collision, inventory, save and narrative owners intact.
 
+In the installed Blender 5.2, a viewport-hidden collection can leave a newly
+placed object's `matrix_world` at identity despite `view_layer.update()`.
+Evaluate the owner with its collection visible before measuring posed bounds,
+then restore visibility. Include a hidden, translated stock in native controls;
+an origin-centred toy will miss this registration failure.
+
 Measure the occupied opening, support faces, neighboring geometry, player
 clearance and moving-part pivots. Use project metre coordinates and its existing
 Blender-to-Godot conversion once. A floor-contact ray does not prove continuous
@@ -32,6 +38,18 @@ support, bearing to shaft, coupling to receiving seat. Intersecting primitives
 alone do not explain manufacture. Keep meaningful closed stocks and working
 partitions editable; batch static exports by material where ownership permits.
 Use mesh/BMesh construction for repeated stock instead of thousands of operators.
+
+For large native cuts, measure the operand arrangement and memory before scaling
+a toy Boolean to the whole site. Overlapping rounded stock can produce an
+expensive interior arrangement. Where the geometry permits, derive compact
+closed union boundaries while retaining an independent area/volume calculation,
+original voids and the existing acceptance tolerances. Filter proof inputs by
+conservative overlap before multiplying height slices across unrelated cavities.
+
+A very tall, one-coordinate-step-wide sliver can encode zero corner normals
+despite correct face and authored normals. Inspect the saved mesh and final
+glTF derivatives. Repair the represented topology, record any vertex motion,
+and retain strict normal/UV/tangent checks rather than forcing a shading normal.
 
 Spend geometry on silhouettes, near-camera relief, cast shadows and operable
 parts. Bake smaller relief only where it survives the intended viewing distance.

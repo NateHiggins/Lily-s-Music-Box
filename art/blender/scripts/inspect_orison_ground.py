@@ -1,13 +1,16 @@
 """Read the saved native trial, compare its closed volume and render its parts."""
 from pathlib import Path
-import json,hashlib
+import json,hashlib,os
 import bpy
 import bmesh
 import numpy as np
 from mathutils import Vector
 
 root = next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
-base = root / 'tmp/roof-drainage-review/ground-native';base.mkdir(parents=True,exist_ok=True)
+output_override=os.environ.get('ORISON_GROUND_REVIEW_DIR','')
+base=Path(output_override) if output_override else root/'tmp/roof-drainage-review/ground-native'
+base.mkdir(parents=True,exist_ok=not bool(output_override))
+render_enabled=os.environ.get('ORISON_GROUND_VERIFY_ONLY')!='1'
 bpy.ops.wm.open_mainfile(filepath=str(root / 'art/blender/orison_ground.blend'))
 cells = np.load(root / 'tmp/orison-ground/orison-ground-cells.npz')
 solid = cells['solid']
@@ -124,53 +127,54 @@ for obj in foundation_collection.objects:
         foundation_contacts.append({'owner':obj.name,'native_underside':[float(v) for v in at],
                                     'soil_contact':[float(v) for v in point],'distance_m':abs(float(point.z-at.z))})
 print('INERT REAL NATIVE FOUNDATION/SOIL SEATS:',len(foundation_contacts),'unshifted face probes',flush=True)
-for family, names, tile in [
-    ('asphalt', ['albedo', 'rough', 'normal'], 2.5),
-    ('soil', ['albedo', 'rough', 'normal'], .35),
-]:
-    material = bpy.data.materials[family]
-    material.use_nodes = True
-    nodes = material.node_tree.nodes; links = material.node_tree.links
-    nodes.clear()
-    output = nodes.new('ShaderNodeOutputMaterial')
-    shader = nodes.new('ShaderNodeBsdfPrincipled')
-    links.new(shader.outputs['BSDF'], output.inputs['Surface'])
-    uv = nodes.new('ShaderNodeTexCoord')
-    scale = nodes.new('ShaderNodeVectorMath'); scale.operation = 'SCALE'
-    scale.inputs[3].default_value = 1 / tile
-    links.new(uv.outputs['UV'], scale.inputs[0])
-    maps = []
-    for index, name in enumerate(names):
-        texture = nodes.new('ShaderNodeTexImage')
-        texture.image = bpy.data.images.load(str(root / 'game/assets/building/textures'
-                                    / ('T_ai_materials_%s_%s.png' % (family, name))))
-        if index: texture.image.colorspace_settings.name = 'Non-Color'
-        links.new(scale.outputs['Vector'], texture.inputs['Vector']); maps.append(texture)
-    links.new(maps[0].outputs['Color'], shader.inputs['Base Color'])
-    channels=nodes.new('ShaderNodeSeparateColor')
-    links.new(maps[1].outputs['Color'],channels.inputs['Color'])
-    links.new(channels.outputs['Green'], shader.inputs['Roughness'])
-    normal = nodes.new('ShaderNodeNormalMap'); normal.inputs['Strength'].default_value = .35
-    links.new(maps[2].outputs['Color'], normal.inputs['Color'])
-    links.new(normal.outputs['Normal'], shader.inputs['Normal'])
-scene = bpy.context.scene
-scene.render.engine = 'CYCLES'; scene.cycles.samples = 32
-scene.render.resolution_x = 1280; scene.render.resolution_y = 960
-scene.render.resolution_percentage = 100
-scene.world.use_nodes = True
-scene.world.node_tree.nodes['Background'].inputs['Color'].default_value = (.65, .73, .85, 1)
-scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value = .55
-light_data = bpy.data.lights.new('InspectionSun', 'SUN'); light_data.energy = 3
-light = bpy.data.objects.new('InspectionSun', light_data); scene.collection.objects.link(light);bpy.context.view_layer.update()
-light.rotation_euler = (.4, -.5, -.6)
-camera_data = bpy.data.cameras.new('InspectionCamera')
-camera = bpy.data.objects.new('InspectionCamera', camera_data)
-scene.collection.objects.link(camera);bpy.context.view_layer.update(); scene.camera = camera
-camera_data.type = 'ORTHO'; camera_data.ortho_scale = 245
-camera.location = (-150, 145, 140)
-camera.rotation_euler = (Vector((0, 20, -.4)) - camera.location).to_track_quat('-Z', 'Y').to_euler()
-scene.render.filepath = str(base / 'city-ground-native-overview.png')
-bpy.ops.render.render(write_still=True)
+if render_enabled:
+    for family, names, tile in [
+        ('asphalt', ['albedo', 'rough', 'normal'], 2.5),
+        ('soil', ['albedo', 'rough', 'normal'], .35),
+    ]:
+        material = bpy.data.materials[family]
+        material.use_nodes = True
+        nodes = material.node_tree.nodes; links = material.node_tree.links
+        nodes.clear()
+        output = nodes.new('ShaderNodeOutputMaterial')
+        shader = nodes.new('ShaderNodeBsdfPrincipled')
+        links.new(shader.outputs['BSDF'], output.inputs['Surface'])
+        uv = nodes.new('ShaderNodeTexCoord')
+        scale = nodes.new('ShaderNodeVectorMath'); scale.operation = 'SCALE'
+        scale.inputs[3].default_value = 1 / tile
+        links.new(uv.outputs['UV'], scale.inputs[0])
+        maps = []
+        for index, name in enumerate(names):
+            texture = nodes.new('ShaderNodeTexImage')
+            texture.image = bpy.data.images.load(str(root / 'game/assets/building/textures'
+                                        / ('T_ai_materials_%s_%s.png' % (family, name))))
+            if index: texture.image.colorspace_settings.name = 'Non-Color'
+            links.new(scale.outputs['Vector'], texture.inputs['Vector']); maps.append(texture)
+        links.new(maps[0].outputs['Color'], shader.inputs['Base Color'])
+        channels=nodes.new('ShaderNodeSeparateColor')
+        links.new(maps[1].outputs['Color'],channels.inputs['Color'])
+        links.new(channels.outputs['Green'], shader.inputs['Roughness'])
+        normal = nodes.new('ShaderNodeNormalMap'); normal.inputs['Strength'].default_value = .35
+        links.new(maps[2].outputs['Color'], normal.inputs['Color'])
+        links.new(normal.outputs['Normal'], shader.inputs['Normal'])
+    scene = bpy.context.scene
+    scene.render.engine = 'CYCLES'; scene.cycles.samples = 32
+    scene.render.resolution_x = 1280; scene.render.resolution_y = 960
+    scene.render.resolution_percentage = 100
+    scene.world.use_nodes = True
+    scene.world.node_tree.nodes['Background'].inputs['Color'].default_value = (.65, .73, .85, 1)
+    scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value = .55
+    light_data = bpy.data.lights.new('InspectionSun', 'SUN'); light_data.energy = 3
+    light = bpy.data.objects.new('InspectionSun', light_data); scene.collection.objects.link(light);bpy.context.view_layer.update()
+    light.rotation_euler = (.4, -.5, -.6)
+    camera_data = bpy.data.cameras.new('InspectionCamera')
+    camera = bpy.data.objects.new('InspectionCamera', camera_data)
+    scene.collection.objects.link(camera);bpy.context.view_layer.update(); scene.camera = camera
+    camera_data.type = 'ORTHO'; camera_data.ortho_scale = 245
+    camera.location = (-150, 145, 140)
+    camera.rotation_euler = (Vector((0, 20, -.4)) - camera.location).to_track_quat('-Z', 'Y').to_euler()
+    scene.render.filepath = str(base / 'city-ground-native-overview.png')
+    bpy.ops.render.render(write_still=True)
 result = {'evidence_class': 'INERT',
           'native_sha256':hashlib.sha256((root/'art/blender/orison_ground.blend').read_bytes()).hexdigest(),
           'asset_sha256':hashlib.sha256((root/'game/assets/props/orison_ground.glb').read_bytes()).hexdigest(),
@@ -181,8 +185,8 @@ result = {'evidence_class': 'INERT',
           'exterior_roof_cut':roof_cut,
           'roof_vertex_intrusion_m':roof_vertex_intrusion,'roof_contacts':roof_contacts,
           'reservation_checks': mask_checks, 'foundation_contacts': foundation_contacts,
-          'render': 'city-ground-native-overview.png',
+          'render': 'city-ground-native-overview.png' if render_enabled else None,
           'note': 'Installed bounded ground only. Native volume and reservation checks do not establish drainage, weather closure, soil capacity or full site continuity.'}
 (base / 'city-ground-native-inspection.json').write_text(json.dumps(result, indent=2) + '\n')
 print('INERT COURTYARD NATIVE INSPECTION:', native_volume, 'm3;', len(mask_checks),
-      'retained/reserved volumes clear;', 'render completed', flush=True)
+      'retained/reserved volumes clear;', 'render completed' if render_enabled else 'verify-only; no capture', flush=True)

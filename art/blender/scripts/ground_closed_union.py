@@ -15,8 +15,16 @@ def apply_soil_cuts(obj,collection,specifications,expected_removed):
  """
  from city_ground_apron_geometry import soil_cut_prisms,convex_union_boundaries
  from city_street_geometry import overlap
- bpy.context.view_layer.update()
- points=[obj.matrix_world@Vector(p) for p in obj.bound_box]
+ # A viewport-hidden collection leaves newly assigned object transforms
+ # unevaluated even after view_layer.update(). Evaluate the real stock pose
+ # before filtering cutters; otherwise a translated apron loses valid cuts.
+ hidden=collection.hide_viewport;object_hidden=obj.hide_get()
+ try:
+  collection.hide_viewport=False;obj.hide_set(False)
+  bpy.context.view_layer.update()
+  points=[obj.matrix_world@Vector(p) for p in obj.bound_box]
+ finally:
+  collection.hide_viewport=hidden;obj.hide_set(object_hidden)
  box=[min(p.x for p in points),-max(p.y for p in points),max(p.x for p in points),-min(p.y for p in points)]
  prisms=[p for p in soil_cut_prisms(specifications) if overlap(box,p['bounds'])]
  if not prisms:
@@ -37,6 +45,13 @@ def apply_soil_cuts(obj,collection,specifications,expected_removed):
   assert all(e.is_manifold for e in bm.edges),'Native soil Boolean opened a boundary'
   result=bm.calc_volume(signed=True);bm.free();return result
  before=volume()
+ # Make represented affine surfaces explicit before CSG. Large n-gons can
+ # be slightly nonplanar after float32 storage; retain the original volume
+ # while fixing their interpretation to this triangulation.
+ bm=bmesh.new();bm.from_mesh(obj.data)
+ bmesh.ops.triangulate(bm,faces=list(bm.faces))
+ bm.to_mesh(obj.data);bm.free();obj.data.update()
+ assert abs(volume()-before)<.00001,'Triangulation changed original soil volume'
  mats=[]
  for i in range(5):
   name='NativeSoilCut'+str(i);mat=bpy.data.materials.get(name) or bpy.data.materials.new(name)
@@ -51,6 +66,10 @@ def apply_soil_cuts(obj,collection,specifications,expected_removed):
   vertices=[(x,-z,prism['slope']*x+prism['intercept']) for x,z in p]+[(x,-z,1.) for x,z in p]
   faces=[tuple(range(n)),tuple(reversed(range(n,2*n)))]+[(j,i,i+n,j+n) for i in range(n) for j in [(i+1)%n]]
   mesh=bpy.data.meshes.new('StreetCut'+str(index));mesh.from_pydata(vertices,[],faces);mesh.update()
+  bm=bmesh.new();bm.from_mesh(mesh)
+  bmesh.ops.triangulate(bm,faces=list(bm.faces));bm.normal_update()
+  assert all(e.is_manifold for e in bm.edges) and bm.calc_volume(signed=True)>0,'Invalid represented native cutter'
+  bm.to_mesh(mesh);bm.free();mesh.update()
   for mat in mats:mesh.materials.append(mat)
   for face in mesh.polygons:face.material_index=4
   operand=bpy.data.objects.new(mesh.name,mesh);cutters.objects.link(operand);operands.append(operand)
@@ -58,10 +77,15 @@ def apply_soil_cuts(obj,collection,specifications,expected_removed):
  try:
   collection.hide_viewport=False;obj.hide_set(False)
   bpy.context.view_layer.update();bpy.context.view_layer.objects.active=obj
-  modifier=obj.modifiers.new('SourceOwnedStreetCut','BOOLEAN')
-  modifier.operation='DIFFERENCE';modifier.operand_type='COLLECTION';modifier.collection=cutters
-  modifier.solver='EXACT';modifier.use_self=True;modifier.material_mode='INDEX'
-  bpy.ops.object.modifier_apply(modifier=modifier.name)
+  # Disjoint compact operands permit sequential difference. Keep each affine
+  # floor separate instead of asking collection CSG to resolve coincident
+  # profile-break walls as part of an overlapping aggregate.
+  for index,operand in enumerate(operands):
+   modifier=obj.modifiers.new('SourceOwnedStreetCut','BOOLEAN')
+   modifier.operation='DIFFERENCE';modifier.operand_type='OBJECT';modifier.object=operand
+   modifier.solver='MANIFOLD';modifier.use_self=False;modifier.material_mode='INDEX'
+   bpy.ops.object.modifier_apply(modifier=modifier.name)
+   print('NATIVE STREET CUT OPERAND:',index+1,'of',len(operands),'faces',len(obj.data.polygons),flush=True)
   after=volume()
   assert abs((before-after)-expected_removed)<.001,('Independent native street cut volume',before-after,expected_removed)
   bm=bmesh.new();bm.from_mesh(obj.data)
@@ -75,7 +99,8 @@ def apply_soil_cuts(obj,collection,specifications,expected_removed):
    cavity.append([(p.x,p.z,-p.y) for p in points])
   report={'expected_removed_m3':expected_removed,'actual_removed_m3':before-after,
           'before_m3':before,'after_m3':after,'volume_error_m3':abs(before-after-expected_removed),
-          'closed':True,'source_prisms':source_prisms,'operand_prisms':len(prisms),'new_triangles':len(cavity)}
+          'closed':True,'solver':'MANIFOLD','operation':'sequential closed-union-outline difference',
+          'source_prisms':source_prisms,'operand_prisms':len(prisms),'new_triangles':len(cavity)}
   print('SOURCE-OWNED STREET SOIL CUT',report,flush=True)
   return cavity,report
  finally:
