@@ -5,7 +5,7 @@ import bpy,bmesh
 from mathutils import Vector,Matrix
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
 sys.path.insert(0,str(Path(__file__).parent))
-from city_street_geometry import area,bounds,rectangle,cut,intersection,triangles,topology,grade_at
+from city_street_geometry import area,bounds,rectangle,cut,intersection,triangles,topology,grade_at,district_topology
 from fabrication_native_batch import material,partition,export
 from check_exported_tangents import validate
 
@@ -52,9 +52,10 @@ elevations=read('game/tests/fixtures/orison_city_elevations.json');offsets={r['i
 for row in elevations['buildings']:
     a,b,c,d=row['main_rect'];x,y,z=offsets[row['id']];retained.append([a+x,b+y,c+x,d+y])
 
-def emit_stock(name,key,p,low,high,lod,physical_name,physical_polygon,graded=True,district=None):
+def emit_stock(name,key,p,low,high,lod,physical_name,physical_polygon,graded=True,district=None,profile=None):
     assert high>low and area(p)>1e-10
-    n=len(p);verts=[(x,y,z+(grade_at(x,plan['grade_profile_m']) if graded else 0.)) for z in [low,high] for x,y in p]
+    profile=plan['grade_profile_m'] if profile is None else profile
+    n=len(p);verts=[(x,y,z+(grade_at(x,profile) if graded else 0.)) for z in [low,high] for x,y in p]
     faces=[tuple(reversed(range(n))),tuple(range(n,2*n))]+[(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)]
     bm=bmesh.new();vv=[bm.verts.new(v) for v in verts]
     for face in faces:bm.faces.new([vv[i] for i in face])
@@ -64,20 +65,21 @@ def emit_stock(name,key,p,low,high,lod,physical_name,physical_polygon,graded=Tru
     b=bounds(p);cell=math.floor((b[0]+b[2])*.5/plan['chunk_length_m'])
     group=(lod,cell,key)+((district,) if district else ())
     groups[group].append(obj)
-    grade_low=min(grade_at(x,plan['grade_profile_m']) for x,y in p) if graded else 0.;grade_high=max(grade_at(x,plan['grade_profile_m']) for x,y in p) if graded else 0.
+    grade_low=min(grade_at(x,profile) for x,y in p) if graded else 0.;grade_high=max(grade_at(x,profile) for x,y in p) if graded else 0.
     records.append(dict(id=name,physical_id=physical_name,physical_polygon=physical_polygon,lod=lod,chunk=cell,finish=key,polygon=p,bottom_m=low,top_m=high,surface_low_m=high+grade_low,surface_high_m=high+grade_high,bounds=[b[0],b[1],low+grade_low,b[2],b[3],high+grade_high]))
 
-def emit(name,key,p,low,high,lod,district=None):
+def emit(name,key,p,low,high,lod,district=None,profile=None,graded=True):
     # Both replacement bodies use identical spatial chunk boundaries. A long
     # far curb must not collapse several near chunk identities into one part.
     a,b,c,d=bounds(p);pitch=plan['chunk_length_m']
     for cell in range(math.floor(a/pitch),math.ceil(c/pitch)):
         q=intersection(p,rectangle([cell*pitch,b,(cell+1)*pitch,d]))
         if not q:continue
-        breaks=[max(a,cell*pitch)]+[x for x,h in plan['grade_profile_m'] if max(a,cell*pitch)<x<min(c,(cell+1)*pitch)]+[min(c,(cell+1)*pitch)]
+        grade_profile=plan['grade_profile_m'] if profile is None else profile
+        breaks=[max(a,cell*pitch)]+[x for x,h in grade_profile if max(a,cell*pitch)<x<min(c,(cell+1)*pitch)]+[min(c,(cell+1)*pitch)]
         for i,(left,right) in enumerate(zip(breaks,breaks[1:])):
             piece=intersection(q,rectangle([left,b,right,d]))
-            if piece:emit_stock(name+'_C'+str(cell)+'_G'+str(i),key,piece,low,high,lod,name,p,district=district)
+            if piece:emit_stock(name+'_C'+str(cell)+'_G'+str(i),key,piece,low,high,lod,name,p,graded=graded,district=district,profile=profile)
 
 def cells(rect,pitch):
     a,b,c,d=rect;xs=[a]+[i*pitch for i in range(math.floor(a/pitch)+1,math.ceil(c/pitch))]+[c];ys=[b]+[i*pitch for i in range(math.floor(b/pitch)+1,math.ceil(d/pitch))]+[d]
@@ -153,6 +155,59 @@ for footway in plan.get('public_footways',[]):
             p=rectangle([a,front,c,back]);height=start+(step+1)*rise
             emit_stock(f'Stoop_{identity}_L{lod}_{step}','curb',p,base,height,lod,f'Stoop_{identity}_{step}',p,graded=False,district=identity)
 
+district_records=[]
+if plan.get('districts'):
+    connection=read('game/data/orison_v2/world_connection.json')
+    regions=read('game/data/orison_v2/exterior/regions.json')
+    street_instance=next(r for r in regions['instances'] if r['id']==connection['instance_id'])
+    threshold_surface=next(s for t in regions['surface_templates'] if t['id']==connection['template_id'] for s in t['surfaces'] if s['id']==connection['surface_id'])
+    assert street_instance['offset_uvn_m']==[0,0,0] and street_instance['local_yaw_degrees']==0
+    assert threshold_surface['point_m']==[0,0,0] and threshold_surface['normal']==[0,0,1] and door['center'][0]==0
+for district in plan.get('districts',[]):
+    identity=district['id'];assert identity.isalnum()
+    def emit_district(name,key,p,low,high,lod,profile=None,graded=True):
+        # New north/south streets get the same16m spatial bounds in both axes.
+        # Legacy groups/arrays keep their original identities and construction.
+        a,b,c,d=bounds(p);pitch=plan['chunk_length_m']
+        for cell in range(math.floor(b/pitch),math.ceil(d/pitch)):
+            piece=intersection(p,rectangle([a,cell*pitch,c,(cell+1)*pitch]))
+            if piece:emit(name+'_Y'+str(cell),key,piece,low,high,lod,identity+'Y'+str(cell),profile,graded)
+    for lod in range(2):
+        result=district_topology(district,[12,8][lod],plan['curb_width_m'],plan['curb_cap_overhang_m'])
+        assert result['maximum_curve_sagitta_m']<plan['lod_error_m']
+        for i,p in enumerate(result['road']):
+            for j,q in enumerate(cut(p,[rectangle(r) for r in retained]+shape['road'])):
+                emit_district(f'Road_{identity}_L{lod}_{i}_{j}','road',q,district['road_bottom_m'],district['road_top_m'],lod,district['road_profile_m'])
+        for role,polygons,key,low,high in [
+            ('Curb',result['curbs'],'curb',district['curb_bottom_m'],district['curb_top_m']),
+            ('Cap',result['curb_caps'],'cap',district['curb_top_m'],district['cap_top_m'])]:
+            for i,p in enumerate(polygons):
+                # Actual small construction joints disappear in replacement
+                # bodies; every curb/cap course and rounded return remains.
+                envelope=bounds(p)
+                for j,cell in enumerate(cells(envelope,plan['joint_pitch_m'] if not lod else 8.)):
+                    a,b,c,d=cell;gap=plan['joint_m']*.5 if not lod else 0.
+                    gx=min(gap,(c-a)*.25);gy=min(gap,(d-b)*.25)
+                    q=intersection(p,rectangle([a+(gx if a>envelope[0]+1e-8 else 0.),b+(gy if b>envelope[1]+1e-8 else 0.),c-(gx if c<envelope[2]-1e-8 else 0.),d-(gy if d<envelope[3]-1e-8 else 0.)]))
+                    if not q:continue
+                    for k,piece in enumerate(cut(q,[rectangle(r) for r in retained]+result['reserved'])):
+                        emit_district(f'{role}_{identity}_L{lod}_{i}_{j}_{k}',key,piece,low,high,lod,district['curb_profile_m'])
+        for i,p in enumerate(result['walk']):
+            envelope=bounds(p)
+            for j,cell in enumerate(cells(envelope,plan['joint_pitch_m'] if not lod else 8.)):
+                a,b,c,d=cell;gap=plan['joint_m']*.5 if not lod else 0.
+                gx=min(gap,(c-a)*.25);gy=min(gap,(d-b)*.25)
+                q=intersection(p,rectangle([a+(gx if a>envelope[0]+1e-8 else 0.),b+(gy if b>envelope[1]+1e-8 else 0.),c-(gx if c<envelope[2]-1e-8 else 0.),d-(gy if d<envelope[3]-1e-8 else 0.)]))
+                if not q:continue
+                for k,piece in enumerate(cut(q,[rectangle(r) for r in retained])):
+                    emit_district(f'Walk_{identity}_L{lod}_{i}_{j}_{k}','walk',piece,district['walk_bottom_m'],district['walk_top_m'],lod,graded=False)
+        district_records.append(dict(id=identity,lod=lod,curve_sagitta_m=result['maximum_curve_sagitta_m'],
+            required_ground_cut_polygons=result['road']+result['curb_caps'],required_ground_cut_profile_m=district['ground_cut_profile_m'],
+            required_ground_frame_cut_polygons=[[[-x,y+building_z] for x,y in p] for p in result['road']+result['curb_caps']],
+            required_ground_frame_cut_profile_m=sorted([[-x,h] for x,h in district['ground_cut_profile_m']]),
+            required_ground_cut_padding_m=plan['lod_error_m']+plan['joint_m'],
+            ground_cut_implemented=False,reserved_rects_m=district['reserved_rects_m']))
+
 provider_overlaps=[]
 for row in records:
     if not row['id'].startswith('Walk_'):continue
@@ -175,7 +230,9 @@ low_path=ROOT/'game/assets/props/city_streets_lod1.glb'
 bpy.ops.export_scene.gltf(filepath=str(low_path),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True,export_materials='PLACEHOLDER')
 proof1=validate(low_path);assert proof1['triangles']<proof0['triangles']
 paths=[plan_path,provider_path,'art/blender/scripts/build_city_streets.py','art/blender/scripts/city_street_geometry.py','game/data/orison_v2/exterior/street_traffic.json','game/data/orison_v2/exterior/street_frame.json','art/data/city_transport/source_plan.json','game/data/orison_v2_blockout.json','game/tests/fixtures/orison_city_elevations.json','art/data/city_elevations/source_plan.json','game/data/runtime_material_sets.json','art/blender/city_streets.blend']+['art/blender/scripts/'+n for n in ['fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']]
-report=dict(evidence_class='INERT',scope=plan['scope'],source_bindings={p:sha(p) for p in paths},asset_sha256={p:sha(p) for p in ['game/assets/props/city_streets.glb','game/assets/props/city_streets_lod1.glb']},exports=[proof0,proof1],stocks=records,topology=shape,retained_footprints=retained,retained_pavement_providers=providers,retained_provider_overlaps=provider_overlaps,walk_envelopes=walk_envelopes,failures=[])
+if district_records:
+    paths += ['art/data/city_horizon/source_plan.json','art/blender/city_horizon_construction.json','art/blender/scripts/city_industrial_architecture.py','game/scripts/building/orison_v2_world_connection.gd','game/data/orison_v2/world_connection.json','game/data/orison_v2/exterior/regions.json']
+report=dict(evidence_class='INERT',scope=plan['scope'],source_bindings={p:sha(p) for p in paths},asset_sha256={p:sha(p) for p in ['game/assets/props/city_streets.glb','game/assets/props/city_streets_lod1.glb']},exports=[proof0,proof1],stocks=records,topology=shape,retained_footprints=retained,retained_pavement_providers=providers,retained_provider_overlaps=provider_overlaps,walk_envelopes=walk_envelopes,districts=district_records,failures=[])
 for p in ['art/blender/city_streets_construction.json','game/tests/fixtures/orison_city_streets.json']:(ROOT/p).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 runtime=dict(schema=1,grade_profile_m=plan['grade_profile_m'],finishes=[dict(alias=k,**v) for k,v in finishes.items()],lod_error_m=plan['lod_error_m'],parts=[o.name for o in exports[0].objects])
 (ROOT/'game/data/orison_v2/exterior/city_streets.json').write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8',newline='\n')

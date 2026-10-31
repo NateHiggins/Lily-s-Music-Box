@@ -11272,5 +11272,39 @@
       "Native street/ground reservations,loaded Godot materials/mips/LODs,actual access,performance and full-city acceptance."
     ],
     "original_industrial_archive_unchanged": true
+  },
+  "eastern_street_native_archive": {
+    "evidence_class": "INERT",
+    "scope": "Native paving geometry/export/UV/context review; original failed library registration controls preserved. Ground cut unimplemented;no loaded runtime,collision/access,mipmap,rendering-cost or artistic acceptance.",
+    "archive": "art/reviews/city_streets_20261029/eastern_street_native_review.zip",
+    "bytes": 26293445,
+    "sha256": "9f95d8aaa564cc83066d1f345b4ecde8148ff3efd64a7948061bde4cdd0622fb",
+    "member_count": 74,
+    "asset_bindings": {
+      "art/blender/city_streets.blend": {
+        "bytes": 3370269,
+        "sha256": "7c7f3f4b57c5ddac4f62fe4ce2347b604f21a852441f522c3e6e83250884454f"
+      },
+      "art/blender/city_streets_construction.json": {
+        "bytes": 7927716,
+        "sha256": "6771143f150d354c31551308057a16734e2ca41524a6f161b02613cf9579af61"
+      },
+      "game/assets/props/city_streets.glb": {
+        "bytes": 6667828,
+        "sha256": "f4b4f8d0d451aef69417800a9cdcbd485a53863b114c89d78523545bc2c237cb"
+      },
+      "game/assets/props/city_streets_lod1.glb": {
+        "bytes": 2600280,
+        "sha256": "97760d6e26876282073b6e3734ad38fa42ef24f241e9d80f07485979a68f9244"
+      },
+      "game/data/orison_v2/exterior/city_streets.json": {
+        "bytes": 7756,
+        "sha256": "1ef5739da255a7920060126896ce1a06e886862710a6d61021d7cb28f8615bd6"
+      },
+      "game/tests/fixtures/orison_city_streets.json": {
+        "bytes": 7927716,
+        "sha256": "6771143f150d354c31551308057a16734e2ca41524a6f161b02613cf9579af61"
+      }
+    }
   }
 }
