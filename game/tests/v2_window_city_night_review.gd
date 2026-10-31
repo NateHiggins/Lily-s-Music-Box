@@ -83,7 +83,7 @@ func run() -> void:
 			if draw.material_override is ShaderMaterial and not seen_materials.has(draw.material_override.get_instance_id()):
 				seen_materials[draw.material_override.get_instance_id()] = true
 				check(is_equal_approx(float(draw.material_override.get_shader_parameter("minute_of_day")), clock.minute_of_day()), "installed windows read authoritative frozen clock")
-				for key in ["glass_albedo", "glass_roughness", "glass_normal", "wall_albedo", "wood_albedo"]:
+				for key in ["albedo_tex", "rough_tex", "normal_tex", "wall_albedo", "wood_albedo"]:
 					var texture: Texture2D = draw.material_override.get_shader_parameter(key)
 					check(texture != null and texture.get_image().has_mipmaps(), "installed optical map has loaded mips " + key)
 			var source: Mesh = draw.get_meta("v2_window_source_mesh", null)

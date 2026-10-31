@@ -7,6 +7,8 @@ var accepted_count:=0
 var contact_keys:Array[String]=[]
 
 func _ready() -> void:
+	if OS.get_environment("ORISON_REVIEW_FULLSCREEN")=="1":
+		GameBoot.settings.fullscreen=true;GameBoot.apply_user_settings()
 	_run.call_deferred()
 	get_tree().create_timer(240.0).timeout.connect(func():
 		if not finished:check(false,"temporal diagnostic deadline");finish())
@@ -43,7 +45,7 @@ func additional_checks() -> void:
 	check(not console.returned and accepted_count==0 and "destination_accepted" not in director.state.events,"partial command cannot accept the date")
 	check(paper.pages[0].contains(console.text.substr(0,8)) and paper.printing,"physical paper consumes actual contact characters")
 	var register:Node=carrier.rig.temporal_register
-	check(register.phase=="open" and register._target==destination and register.labels.Departure.text=="DEPARTURE  UNKNOWN","physical register presents immutable destination without inventing departure")
+	check(register.phase=="idle" and register._target.is_empty() and register.capacitor.get_shader_parameter("capacitor_charge")==0.0,"ordinary command typing keeps temporal visor and capacitor dark")
 	var visible_rows:=true
 	var frame:Node=carrier.screen_frame
 	var aperture:=Rect2(Vector2.ZERO,Vector2(frame.view.size)).grow(-1)

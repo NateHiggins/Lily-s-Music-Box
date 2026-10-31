@@ -319,7 +319,8 @@ func _run() -> void:
 		world.free()
 		get_tree().quit(1)
 		return
-	var report := {"schema":"orison.v2-surface-inventory.v1", "evidence_class":"INERT", "acceptance":"Inventory; acceptance requires passing runtime contract and reviewed renders.", "qualification_mode":"physical_surfaces_and_civic_access" if physical_only and civic_enabled else "physical_surfaces_only" if physical_only else "full_programmes", "coverage":{"production_world":true,"space_count":world.layout.spaces.size(),"resident_cells":world.passage_region.cell_nodes.size()}, "passage_state":world.passage_region.residency.state, "draws":draws, "meshes":mesh_rows, "materials":material_rows, "textures":texture_rows,"unhandled_geometry":unhandled_geometry}
+	var report := {"schema":"orison.v2-surface-inventory.v1", "evidence_class":"INERT", "acceptance":"Inventory; acceptance requires passing runtime contract and reviewed renders.", "companion_sequence":companion_sequence,
+		"qualification_mode":"physical_surfaces_and_civic_access" if physical_only and civic_enabled else "physical_surfaces_only" if physical_only else "full_programmes", "coverage":{"production_world":true,"space_count":world.layout.spaces.size(),"resident_cells":world.passage_region.cell_nodes.size()}, "passage_state":world.passage_region.residency.state, "draws":draws, "meshes":mesh_rows, "materials":material_rows, "textures":texture_rows,"unhandled_geometry":unhandled_geometry}
 	var file := FileAccess.open(directory.path_join("surface-inventory.json"), FileAccess.WRITE)
 	if file == null:
 		push_error("Cannot write surface inventory")
@@ -464,6 +465,22 @@ func _run() -> void:
 	if not physical_only:
 		await finish_review.run(world,self)
 		await preload("res://tests/radiator_joint_review.gd").new().run(world,self)
+	var companion_sequence:Dictionary={"executed":false}
+	if OS.get_environment("ORISON_SURFACE_COMPANION_SEQUENCE")=="1":
+		# Reuse this composed world. No second startup, shortened route, omitted
+		# physical draw or repeated unchanged fire-service programme.
+		var sequence:=preload("res://tests/prologue_temporal_sky_review.gd").new()
+		sequence.batch_mode=true;sequence.world=world;sequence.directory=directory
+		add_child(sequence)
+		world.player.global_position=world.adapter.root.to_global(Vector3(-8.4,9.62,4.75))
+		world.player.velocity=Vector3.ZERO;world.player.camera.make_current();world.player.camera.fov=78
+		world.player.camera.look_at(world.adapter.root.to_global(Vector3(-5.9,11.5,4.75)))
+		Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+		await sequence.compact_sequence(preload("res://scripts/game/prologue_state.gd").sample_destination())
+		for row:Dictionary in sequence.checks:check(bool(row.passed),"batched companion: "+str(row.name))
+		companion_sequence={"executed":true,"checks":sequence.checks.duplicate(true),"scope":"Real final line/command/stow/32-second jump/17-second ending; prior opening beats staged. Offline movie is not a performance or artistic acceptance claim."}
+		if is_instance_valid(sequence.director):sequence.director.shutdown()
+		sequence.free()
 	var after := _input_snapshot(root)
 	check(before.get("sha256","") == after.get("sha256","changed"),"rendering inputs stayed fixed during qualification")
 	var owner_ref: WeakRef = weakref(world)
@@ -523,6 +540,7 @@ func _run() -> void:
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.},
 		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(path),"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":str(digest[0]).strip_edges() if not digest.is_empty() else ""},
 		"surface_inputs_sha256":after.get("sha256",""),"inventory_sha256":FileAccess.get_sha256(directory.path_join("surface-inventory.json")),
+		"companion_sequence":companion_sequence,
 		"qualification_mode":"physical_surfaces_and_civic_access" if physical_only and civic_enabled else "physical_surfaces_only" if physical_only else "full_programmes",
 		"civic_world_access":civic_access,
 		"lamp_context_review":{"executed":lamp_context,"scope":"Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."},

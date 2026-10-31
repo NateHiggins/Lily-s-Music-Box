@@ -3,9 +3,9 @@ render_mode cull_back;
 
 // Optical room projection: UV2 is a normalized pane chart; UV remains physical PBR.
 // Opaque background panes only. Do not replace interactive or transparent glazing.
-uniform sampler2D glass_albedo : source_color, filter_linear_mipmap_anisotropic;
-uniform sampler2D glass_roughness : filter_linear_mipmap_anisotropic;
-uniform sampler2D glass_normal : hint_normal, filter_linear_mipmap_anisotropic;
+uniform sampler2D albedo_tex : source_color, filter_linear_mipmap_anisotropic;
+uniform sampler2D rough_tex : filter_linear_mipmap_anisotropic;
+uniform sampler2D normal_tex : hint_normal, filter_linear_mipmap_anisotropic;
 uniform sampler2D wall_albedo : source_color, filter_linear_mipmap_anisotropic;
 uniform sampler2D wood_albedo : source_color, filter_linear_mipmap_anisotropic;
 uniform vec3 glass_tint : source_color = vec3(0.12, 0.16, 0.18);
@@ -78,9 +78,9 @@ void vertex() {
 void fragment() {
     float depth = room_depth * mix(0.75, 1.25, room_traits.z);
     vec2 physical_uv = UV * physical_uv_scale;
-    vec3 glaze = texture(glass_albedo, physical_uv).rgb * glass_tint;
-    ROUGHNESS = clamp(texture(glass_roughness, physical_uv).r * 0.65 + 0.2, 0.25, 0.9);
-    NORMAL_MAP = texture(glass_normal, physical_uv).rgb;
+    vec3 glaze = texture(albedo_tex, physical_uv).rgb * glass_tint;
+    ROUGHNESS = clamp(texture(rough_tex, physical_uv).r * 0.65 + 0.2, 0.25, 0.9);
+    NORMAL_MAP = texture(normal_tex, physical_uv).rgb;
     NORMAL_MAP_DEPTH = 0.12;
     METALLIC = 0.0;
     SPECULAR = 0.45;

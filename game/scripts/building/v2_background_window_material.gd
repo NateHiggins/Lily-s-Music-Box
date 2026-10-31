@@ -19,9 +19,9 @@ static func glazing_is_bound(draw: MeshInstance3D) -> bool:
 	var optical := draw.material_override as ShaderMaterial
 	var source := draw.get_meta("v2_window_source_material", null) as StandardMaterial3D
 	if optical == null or source == null or optical.shader != InteriorShader: return false
-	return optical.get_shader_parameter("glass_albedo") == source.albedo_texture \
-		and optical.get_shader_parameter("glass_roughness") == source.roughness_texture \
-		and optical.get_shader_parameter("glass_normal") == source.normal_texture \
+	return optical.get_shader_parameter("albedo_tex") == source.albedo_texture \
+		and optical.get_shader_parameter("rough_tex") == source.roughness_texture \
+		and optical.get_shader_parameter("normal_tex") == source.normal_texture \
 		and optical.get_shader_parameter("physical_uv_scale") == Vector2(source.uv1_scale.x, source.uv1_scale.y)
 
 static func create(identity: String, kind: int, size_metres: Vector2) -> ShaderMaterial:
@@ -31,9 +31,9 @@ static func create(identity: String, kind: int, size_metres: Vector2) -> ShaderM
 	var wood: StandardMaterial3D = MatLib.get_mat("wood_dark")
 	var material := ShaderMaterial.new()
 	material.shader = InteriorShader
-	material.set_shader_parameter("glass_albedo", glass.albedo_texture)
-	material.set_shader_parameter("glass_roughness", glass.roughness_texture)
-	material.set_shader_parameter("glass_normal", glass.normal_texture)
+	material.set_shader_parameter("albedo_tex", glass.albedo_texture)
+	material.set_shader_parameter("rough_tex", glass.roughness_texture)
+	material.set_shader_parameter("normal_tex", glass.normal_texture)
 	material.set_shader_parameter("wall_albedo", wall.albedo_texture)
 	material.set_shader_parameter("wood_albedo", wood.albedo_texture)
 	material.set_shader_parameter("physical_uv_scale", Vector2(glass.uv1_scale.x, glass.uv1_scale.y))

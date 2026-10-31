@@ -56,7 +56,7 @@ func _ready() -> void:
 	for kind in range(4):
 		var material: ShaderMaterial = Factory.create("optical-bench-%d" % kind, kind, Vector2(1.2, 1.8))
 		materials.append(material)
-		for key in ["glass_albedo", "glass_roughness", "glass_normal", "wall_albedo", "wood_albedo"]:
+		for key in ["albedo_tex", "rough_tex", "normal_tex", "wall_albedo", "wood_albedo"]:
 			var texture: Texture2D = material.get_shader_parameter(key)
 			if texture == null or not texture.get_image().has_mipmaps():
 				result.failures.append("missing loaded mips: %s" % key)

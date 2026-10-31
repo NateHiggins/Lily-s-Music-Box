@@ -35,8 +35,6 @@ func start(owner_carrier:Node,destination:Dictionary) -> bool:
 	_internal_copy=false
 	if not opened:return false
 	if not carrier.rig.typing_arm.begin(_keys):paper.abort_keyed_copy(self);return false
-	if carrier.rig.temporal_register != null and not carrier.rig.temporal_register.begin(self,target):
-		paper.abort_keyed_copy(self);carrier.rig.typing_arm.cancel();return false
 	_started=true;active=true;_campaign=RealityState.data
 	carrier.rig.typing_arm.key_pressed.connect(_key)
 	carrier.rig.typing_arm.finished.connect(_arm_finished)
@@ -61,11 +59,12 @@ func _arm_finished(completed:bool) -> void:
 	if not active:return
 	if not completed or not returned:cancel();return
 	_arm_done=true
+	carrier.rig.request_keyboard(false)
 
 func _process(_delta:float) -> void:
 	if not active:return
 	if not is_same(_campaign,RealityState.data) or not carrier._arm_permitted():cancel();return
-	if returned and _arm_done and not carrier.device.teletype.printing:
+	if returned and _arm_done and not carrier.device.teletype.printing and carrier.rig.temporal_register.safe_to_reveal():
 		active=false;succeeded=true;set_process(false);_disconnect()
 		if carrier.rig.temporal_register != null:carrier.rig.temporal_register.release(self)
 		finished.emit(true)

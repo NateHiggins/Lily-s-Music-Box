@@ -55,7 +55,8 @@ func additional_checks() -> void:
 	get_tree().paused=true;arm.advance(1.0);get_tree().paused=false
 	check(arm.elapsed==before and player.text_input_owner==arm,"pause retains the exact automatic pose and lease")
 	player.call_locked=true;arm.advance(.016)
-	check(not arm.active() and player.text_input_owner==null and player.protected_input_active() and carrier.session.draft==draft_before,"protected conversation cancels waiting arm without unlocking the call or changing the draft")
+	check(player.text_input_owner==null and player.protected_input_active() and carrier.session.draft==draft_before,"protected conversation immediately retires only the arm input lease")
+	check(await wait_for(func():return not arm.active(),3.0) and player.protected_input_active() and carrier.session.draft==draft_before,"protected conversation permits only bounded safe garage stow without unlocking the call")
 	player.call_locked=false
 	check(arm.begin(automatic_keys),"physical automatic cycle starts on the live foreground companion")
 	var captured:=false
@@ -68,5 +69,8 @@ func additional_checks() -> void:
 	carrier.rig.request_keyboard(false)
 	carrier.rig.keyboard_open=0;carrier.rig._apply_keyboard()
 	check(arm.begin(automatic_keys),"stalled keyboard control begins with an owned input lease")
+	arm.advance(0);arm.advance(arm.PREOPEN_END) # Garage clears; keyboard callback deliberately stalled.
 	arm.advance(8.1)
-	check(not arm.active() and player.text_input_owner==null and carrier.session.draft==draft_before,"stalled keyboard releases only its own lease at the bounded opening deadline")
+	check(player.text_input_owner==null and carrier.session.draft==draft_before,"stalled keyboard releases only its own lease at the bounded opening deadline")
+	for frame in 200:carrier.rig._advance_mechanism(1.0/120);arm.advance(1.0/120)
+	check(not arm.active(),"stalled deployment closes its garage after releasing focus")

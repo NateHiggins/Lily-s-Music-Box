@@ -49,6 +49,9 @@ func _run() -> void:
 	var keys:Array[String]=[];keys.assign(rig._key_names)
 	check(arm.begin(keys),"all43 keys accepted as a bounded physical program")
 	arm.set_process(false)
+	for frame in 50:
+		rig._advance_mechanism(1.0/120);arm.advance(1.0/120)
+	check(rig.keyboard_open==0 and arm.phase=="preopen","garage pre-opens before any keyboard travel")
 	var captured:=false
 	for frame in 12000:
 		rig._advance_mechanism(1.0/120);arm.advance(1.0/120)
@@ -57,6 +60,16 @@ func _run() -> void:
 		if not arm.active():break
 	check(not arm.active() and contacts.size()==43,"full43-key cycle retracts without omitted or duplicate presses")
 	check(not arm.is_processing(),"stowed arm has no idle processing")
+	check(rig.keyboard_open<=.001 and arm.case_time==0,"keyboard withdraws before garage reseats")
+	# Human keyboard uses the same mechanical interlock without starting typing.
+	rig.request_keyboard(true)
+	for frame in 50:rig._advance_mechanism(1.0/120)
+	check(rig.keyboard_open==0 and not arm.active(),"ordinary typing waits for garage clearance")
+	for frame in 70:rig._advance_mechanism(1.0/120)
+	check(rig.typing_ready(),"ordinary keyboard opens after garage clears")
+	rig.request_keyboard(false)
+	for frame in 130:rig._advance_mechanism(1.0/120)
+	check(rig.keyboard_open<=.001 and arm.case_time==0,"ordinary keyboard closes then garage reseats")
 	await shot("retracted")
 	allowed=false;check(not arm.begin(keys),"protected/power permission refusal has no cycle")
 	allowed=true;check(arm.begin(keys),"next cycle can start after retraction")
