@@ -4974,3 +4974,81 @@ instrument review are appended to the existing composed archive, preserving
 every preceding member. No full-city,save,fresh-checkout or artistic completion
 is claimed. The checkpoint is qualified for a normal fast-forward publication;
 the preceding non-fast-forward rejection remains preserved in this record.
+
+### Laurel cold-turn attribution and rendering preparation, 2026-10-31
+
+Evidence class: **INERT**. Three short diagnostics in the actual composed
+world at **bbe6b519**, not runtime qualification or a shipping optimization.
+The existing transport-route scene now accepts **stutter_probe**: one original
+unfiltered floor/full standing-capsule fixture beside Laurel, then three
+continuous two-leg normal-controller round trips. No speed, collision guard,
+safety net, campaign, inventory or save authority is bypassed. Camera headings
+are deterministic fixture turns, not measured mouse-to-display latency.
+
+All runs use 3440×1440, FOV72, MSAA3/8x, TAA, scale1, VSync49.987Hz,
+November10 1928 noon, seed1928 and network weather disabled. Retain every
+walking sample. Warm driver caches, sequential run order and one host-load
+snapshot per run limit causal precision; this is not randomized ABBA or a
+cold-driver benchmark. The architect held heavy native work during each run.
+
+| Treatment | Checks / legs / failures | Walking samples | Wall p50 / p95 / p99 / max ms | Frames >100ms | Late surface / specialization counts |
+|---|---|---:|---|---:|---|
+| Original rendering | 17 / 6 / 0 | 225 | 20.301 / 46.740 / 158.510 / 202.354 | 3 | 96 / 193 |
+| Diner reflection hidden, then restored; diagnostic only | 20 / 6 / 0 | 232 | 20.332 / 44.912 / 54.194 / 193.494 | 1 | 0 / 159 |
+| Original rendering plus unswapped preparation | 19 / 6 / 0 | 235 | 20.324 / 46.039 / 50.836 / 55.259 | 0 | 0 / 26 |
+
+All three wrappers complete with empty shutdown stderr, frozen production
+inputs and six actual controller legs. Their test-written outputs are explicitly
+INERT, not schema-2 runtime contracts. Latest compiler passes1/0 in9.07s;
+third wrapper160s. Exact executed test variants, raw timings, logs/receipts,
+host snapshots, launch batches and reproducible **compare_controls.py** live
+under **stutter_attribution_01/** in the existing composed archive. Raw hashes
+are checked against each wrapper's executed test hash before analysis.
+
+The baseline's cold return contains202.354/197.878/158.510ms frames and
+186.449/176.426/142.473ms render-signal intervals. Process/physics brackets
+remain much shorter (baseline maxima7.170/2.476ms). Room-probe refresh count
+is0 and passage residency stays RESIDENT. This excludes neither every asset
+loading path nor the separate diner capture. Household/hand timing lists are
+empty; player-only physics records are thresholded above1ms, not all physics.
+Pipeline counters identify activity, not independent compilation durations.
+Measured main/private viewport timings can lag the corresponding wall frame;
+nested and asynchronous observations must not be added.
+
+The diner control removes96 surface additions and two large pauses but retains
+a193.494ms pause. Matching pinned engine source enables reflection-probe
+features during actual capture and regenerates surface pipelines after global
+feature changes. The production diner probe remains intact: removing chrome
+reflections is not the remedy. See [official pipeline guidance](https://docs.godotengine.org/en/stable/tutorials/performance/pipeline_compilations.html).
+
+The preparation control leaves SceneTree camera/player poses unchanged. From
+outside the frame-post-draw signal stack it renders four horizontal camera-RID
+headings twice each without swapping, restores the original RID pose, renders
+twice and synchronizes once. These10 draws cost449.456ms before timed movement;
+there is no per-frame synchronization. Original reflections and quality stay
+enabled. [RenderingServer documents these operations](https://docs.godotengine.org/en/stable/classes/class_renderingserver.html#class-renderingserver-method-force-draw).
+This moves substantial cold work before movement; it does not remove that work.
+The preparation programme remains test-only until an actual loading/entry owner
+can protect input, cancellation, camera restoration, pause and reconstruction.
+Earlier rejected warmup treatments remain in **V2_REFLECTION_PIPELINE_WARMUP_2026-10-23.md**;
+this result does not retroactively accept them.
+
+Sustained return-view cost remains: preparation-run return medians43.069,
+44.564 and42.952ms; main render CPU medians21.530–22.476ms and GPU
+medians15.129–15.955ms. The largest prepared render bracket is44.091ms,
+process6.994ms,physics2.955ms; observer median30µs/max86µs. These are
+separate observations, not a summed frame budget or proof of whole-city FPS.
+Startup115.671s remains debt, not a controlled improvement over earlier runs.
+
+The three actual starting views were inspected. They are upward facade
+diagnostics taken before preparation, not post-preparation restoration optics
+or architectural acceptance. Laurel's thin dark pediment seams and companion
+readability remain visible debts. No new full-city, save or artistic claim.
+The diagnostic-only edits leave the published physical rendering signature
+**cba08e34374a6a9dfe84fc61622eed6ad6dca036808d679f6d6fe6e53e46cb25**
+unchanged; reuse its existing survey rather than repeat unrelated interactions.
+
+Next: integrate a bounded loading-owned preparation with real entry/reload
+restoration checks, separately reduce the sustained return-view rendering cost,
+and continue the eastern street's two-provider native ground repair. The five
+new eastern buildings remain isolated native work, not intaken city coverage.

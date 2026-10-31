@@ -11752,10 +11752,10 @@
   },
   "southern_pair_composed_checks": {
     "archive": "art/reviews/city_streets_20261029/southern_pair_composed_checks.zip",
-    "bytes": 78279144,
-    "sha256": "fd236f29bd4a3f4986fae1496df1db0aabcfb737585b44763ac2bc2a32d98f1b",
+    "bytes": 91054478,
+    "sha256": "74f5b2fab87d4acb015579d7b9a9742f8b63e36c78405307e714f921190f5c76",
     "evidence_class": "INERT",
-    "scope": "Original FAILED current-world seven-leg attempt at1ea34698,265checks/4attempted legs/2failures. Existing castiron post blocks the straight fixture path; actual source, failure contract/log/wrapper/4views retained. Startup wall milestones are diagnostic, not acceptance. Subsequent commerce/physical not started. Failure02 atd3a38474:167s/265checks/4attempts/2failures;detour overlaps raised curb,body stillairborne+0.202m at horizontalstop. Original data/source retained; no aggregate acceptance. Commerce/physical still notexecuted.",
+    "scope": "Original FAILED current-world seven-leg attempt at1ea34698,265checks/4attempted legs/2failures. Existing castiron post blocks the straight fixture path; actual source, failure contract/log/wrapper/4views retained. Startup wall milestones are diagnostic, not acceptance. Subsequent commerce/physical not started. Failure02 atd3a38474:167s/265checks/4attempts/2failures;detour overlaps raised curb,body stillairborne+0.202m at horizontalstop. Original data/source retained; no aggregate acceptance. Commerce/physical still notexecuted. Stutter attribution: three INERT six-leg actual-world controls at bbe6b519, original17/0, diner-hidden20/0 and original-visuals renderer preparation19/0; raw executed sources, metrics, logs, wrappers and analysis preserved. No production performance or artistic acceptance.",
     "members": {
       "failure_01/frames/site_back_e_approach.png": {
         "bytes": 4182391,
@@ -12536,6 +12536,190 @@
       "combined_pr103_01/candidate_instrument_review.json": {
         "bytes": 849,
         "sha256": "f36aedbdd905bf9aff8dba3b7a8b8dc6cda3a4dc693f8b36e0d6fbbad63033df"
+      },
+      "stutter_attribution_01/archive_controls.py": {
+        "bytes": 2414,
+        "sha256": "594d0b5a5c4ccf77f21075f772697ad764d79b45e8609e1f9fb91307599a4e55"
+      },
+      "stutter_attribution_01/baseline_analysis.json": {
+        "bytes": 9785,
+        "sha256": "67d210f43e37748fa0b4dfbbf831d71b09a95367a43408e246be9c44e8df2da9"
+      },
+      "stutter_attribution_01/batch.json": {
+        "bytes": 508,
+        "sha256": "da93a456b9429aee383d7ede90f649d04d2e6ac666345e4c875dcac283d8831a"
+      },
+      "stutter_attribution_01/compare_controls.py": {
+        "bytes": 4675,
+        "sha256": "815dedb1e74961d9d47dfa3cd653b6b3f4f73dbe012a8da5f65a496a92220fbb"
+      },
+      "stutter_attribution_01/compiler.log": {
+        "bytes": 286,
+        "sha256": "7db21a211808f856ba3f167ec41e5b784545cc21fb0373ddddef739b12ef5be8"
+      },
+      "stutter_attribution_01/compiler.log.receipt.json": {
+        "bytes": 2863,
+        "sha256": "52399d2256e7570067da69cf28d000a79e626aae00b74a26cbf0f25bcafd93af"
+      },
+      "stutter_attribution_01/compiler.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stutter_attribution_01/control_compiler.log": {
+        "bytes": 228,
+        "sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "stutter_attribution_01/control_compiler.log.receipt.json": {
+        "bytes": 2878,
+        "sha256": "e04435643b600fb55f4bcb542fb976ed0d6546f936b460d4d3080f351109fd9f"
+      },
+      "stutter_attribution_01/control_compiler.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stutter_attribution_01/diner_control_analysis.json": {
+        "bytes": 1459,
+        "sha256": "6195e7edecdd65b3c25df625b17b73fae3589f56e2e39a62204faaf4a14c8c9d"
+      },
+      "stutter_attribution_01/diner_hidden_02.log": {
+        "bytes": 3077,
+        "sha256": "057a9e196050c2f7ae1f5c65d5d418d5f1943540eb6fa8ac0ab0a3e22a95b248"
+      },
+      "stutter_attribution_01/diner_hidden_02.log.receipt.json": {
+        "bytes": 2894,
+        "sha256": "9518e152d37729b12925e8f82d778e01a3c84fe5d5360f1b8a8d3f09d94f7b1d"
+      },
+      "stutter_attribution_01/diner_hidden_02.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stutter_attribution_01/diner_hidden_02/stutter_laurel_start.png": {
+        "bytes": 4180770,
+        "sha256": "24b6fb2b7512d678da7c22670c2e003200b8c35610056c8db5eaa5070ed61820"
+      },
+      "stutter_attribution_01/diner_hidden_02/stutter_probe.json": {
+        "bytes": 90042,
+        "sha256": "d44b3337a97f98e6ce2f4c6ba63c6eb78166154fb98f1b8f764315222082c0da"
+      },
+      "stutter_attribution_01/diner_hidden_02/stutter_work.json": {
+        "bytes": 314211,
+        "sha256": "af8807b89b405377a06bf6f792b9138b3e960cd905dd0d27a3073bd964fa26ff"
+      },
+      "stutter_attribution_01/diner_hidden_batch_02.json": {
+        "bytes": 528,
+        "sha256": "e3e4a9efb395697ec062ab8c454e0bda4eb12bb5c35241b1287d58790500daa9"
+      },
+      "stutter_attribution_01/executed_control_02.gd": {
+        "bytes": 89867,
+        "sha256": "4c821e6b36ff0c6dfd0acb7b6643c4174de99a62fe5638115d68948974fd5ac9"
+      },
+      "stutter_attribution_01/executed_prepared_03.gd": {
+        "bytes": 91291,
+        "sha256": "f4dbe09eea27c48b4c484890279d0e79e13ffb405f50b4d106b6c3dd2a6cc94a"
+      },
+      "stutter_attribution_01/executed_route_01.gd": {
+        "bytes": 88954,
+        "sha256": "becd4e972bd2e23cd1776f0dd220bd977e00c0ad576219a6bebb8025d647ce89"
+      },
+      "stutter_attribution_01/host_before.json": {
+        "bytes": 205,
+        "sha256": "fb3b70db4933d3a03bd8a94505c31707c7d953a9ed6de624ff672f8b474db688"
+      },
+      "stutter_attribution_01/host_control_before.json": {
+        "bytes": 205,
+        "sha256": "dde647e010ce1091a402cb1f8932438a228c740dd613bae061bb6a6e0d6b5b36"
+      },
+      "stutter_attribution_01/host_prepared_before.json": {
+        "bytes": 204,
+        "sha256": "53525e54c3ab4c3adeb396ab454af240e984085388187384fea74a3fcb08df57"
+      },
+      "stutter_attribution_01/preparation_compiler.log": {
+        "bytes": 228,
+        "sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "stutter_attribution_01/preparation_compiler.log.receipt.json": {
+        "bytes": 2886,
+        "sha256": "8789d3a5391a0b00416b5f6ffba8ade47fb4836959d06b151e80e7c8615b374b"
+      },
+      "stutter_attribution_01/preparation_compiler.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stutter_attribution_01/preparation_final_compiler.log": {
+        "bytes": 228,
+        "sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "stutter_attribution_01/preparation_final_compiler.log.receipt.json": {
+        "bytes": 2898,
+        "sha256": "e5c1842c4ea3e281f586200fcd79335d330a48db24537cfbbb1763865efe8ccf"
+      },
+      "stutter_attribution_01/preparation_final_compiler.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stutter_attribution_01/prepared_03.log": {
+        "bytes": 3077,
+        "sha256": "8b7fc7311888919870ec4a9bda2c3af0fc60253792da94571587d2503b88628d"
+      },
+      "stutter_attribution_01/prepared_03.log.receipt.json": {
+        "bytes": 2876,
+        "sha256": "03e91a4b30b90fa6c1d61ea2037cc0594b594ff4bd39cf3e10bf39063b75232e"
+      },
+      "stutter_attribution_01/prepared_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stutter_attribution_01/prepared_03/stutter_laurel_start.png": {
+        "bytes": 4187184,
+        "sha256": "816b81c1d2ac610f572155ee86d96e7c922f81320df938e7f5d6dfd726bffbac"
+      },
+      "stutter_attribution_01/prepared_03/stutter_probe.json": {
+        "bytes": 91034,
+        "sha256": "4bb1ed8cdbcf4ed7fbd8b0a7e64a812e03d4ba08edfa98adf49ea907d4c6bf58"
+      },
+      "stutter_attribution_01/prepared_03/stutter_work.json": {
+        "bytes": 316810,
+        "sha256": "2cc9f5d0ef65799f179f0c02ae18d9bc18d773505ef62a58aa20bce97dc31582"
+      },
+      "stutter_attribution_01/prepared_batch_03.json": {
+        "bytes": 510,
+        "sha256": "1801b7958b1693b09283065df28b62340fdf3b8e35fbcc697c4d29a07291c46e"
+      },
+      "stutter_attribution_01/route.log": {
+        "bytes": 3077,
+        "sha256": "9ac081d14f435f851219da1a3c03f15effe1018cb8eab2537ee73ddb32d65ca3"
+      },
+      "stutter_attribution_01/route.log.receipt.json": {
+        "bytes": 2864,
+        "sha256": "f8295591b0dddeb3bff2cbc7e238b2e5a7a35a22ff933c680cee0d55c2706afd"
+      },
+      "stutter_attribution_01/route.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stutter_attribution_01/route/stutter_laurel_start.png": {
+        "bytes": 4176229,
+        "sha256": "e069c12d6088ddc1d62a6c8f69d89a7588509e07b0f42182a1003dd282b77e24"
+      },
+      "stutter_attribution_01/route/stutter_probe.json": {
+        "bytes": 87334,
+        "sha256": "bfcf8d9e5d5a2a30317f93861ad0089eb809fa82f6accef65490596aa4d0533e"
+      },
+      "stutter_attribution_01/route/stutter_work.json": {
+        "bytes": 307592,
+        "sha256": "b1be27dcecede6059e6c1c2617dee67b35adbd1620d8235ad0c31e9339796caf"
+      },
+      "stutter_attribution_01/spatial.json": {
+        "bytes": 1771,
+        "sha256": "8586a039cbcf71084d1b4018ebba8b40dfecad6914a279b1ec8ff35af94e2139"
+      },
+      "stutter_attribution_01/systemic.json": {
+        "bytes": 123853,
+        "sha256": "77685007d942c373ad3612436cd77f765f7fd6ac8d965323814d7bb49f22dee5"
+      },
+      "stutter_attribution_01/three_control_comparison.json": {
+        "bytes": 19996,
+        "sha256": "cd52efc1a20bf2e05d85ea59625d3cbb54cd345d3ca1f644fb63040ecee93909"
       }
     },
     "footway_diagnostics": "INERT:01 outputdirectory/nullFileAccess failure and original teardown errors retained;02 normal-controller sixleg local originalstreet/gateway fixture20checks/0/empty stderr but7cm deadzone earlystop; not composed qualification. Exact02 source matches wrapperSHA. No production collision change. 03 actual20checks/0,714samples,14.280786s,empty stderr; all6 endpoints <5mm after deadzone-aware input. Exact raw consumed3scripts retained before LF normalization. No wholeworld/performance/artistic acceptance.",

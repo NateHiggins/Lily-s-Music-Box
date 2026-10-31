@@ -6,6 +6,10 @@ var _exploration_samples: Array = []
 var _collect_exploration := false
 var _previous_exploration_usec := 0
 var _route_scope := "full"
+var profile_active := false
+var profile_phase := ""
+var _stutter_frames: Array = []
+var _stutter_shadow := RID()
 # Independent expected AU soil datums, in the registered building frame.
 # These are route assertions, not a runtime terrain/movement authority.
 const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[92.,-1.0055],[140.,-1.7255],[290.,-3.9755],[330.,-4.2],[365.,-4.6],[390.,-4.8],[395.,-8.],[500.,-8.]]
@@ -13,7 +17,7 @@ const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[
 func _ready() -> void:
 	_route_scope=OS.get_environment("ORISON_CITY_ROUTE_SCOPE")
 	if _route_scope.is_empty():_route_scope="full"
-	if _route_scope not in ["full","northwest","opposing","northeast","northeast2","narrow","bridge","hampton","gaslamps","southwest","southwest_rear","cardinal","southern_laurel"]:
+	if _route_scope not in ["full","northwest","opposing","northeast","northeast2","narrow","bridge","hampton","gaslamps","southwest","southwest_rear","cardinal","southern_laurel","stutter_probe"]:
 		push_error("Unknown ORISON_CITY_ROUTE_SCOPE: "+_route_scope)
 		get_tree().quit(64)
 		return
@@ -41,6 +45,8 @@ func _process(_delta: float) -> void:
 	if _previous_exploration_usec > 0:
 		var viewport := get_viewport().get_viewport_rid()
 		_exploration_samples.append([(now-_previous_exploration_usec)/1000.,RenderingServer.viewport_get_measured_render_time_cpu(viewport),RenderingServer.viewport_get_measured_render_time_gpu(viewport),Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)])
+		if _route_scope=="stutter_probe":
+			_stutter_frames.append({"usec":now,"process_frame":Engine.get_process_frames(),"physics_frame":Engine.get_physics_frames(),"phase":profile_phase,"wall_render_draws_primitives":_exploration_samples[-1],"process_ms":Performance.get_monitor(Performance.TIME_PROCESS)*1000.,"physics_ms":Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000.,"lamp_render_cpu_gpu_ms":[RenderingServer.viewport_get_measured_render_time_cpu(_stutter_shadow),RenderingServer.viewport_get_measured_render_time_gpu(_stutter_shadow)] if _stutter_shadow.is_valid() else []})
 	_previous_exploration_usec = now
 
 func _programme_sources() -> Dictionary:
@@ -67,6 +73,9 @@ func _programme_sources() -> Dictionary:
 	return result
 
 func _run() -> void:
+	if _route_scope=="stutter_probe":
+		await _run_stutter_probe()
+		return
 	if _route_scope=="southern_laurel":
 		await _run_southern_laurel()
 		return
@@ -92,6 +101,112 @@ func _run() -> void:
 	city_observations["programme_sources"] = programme_before
 	city_observations["route_scope"]="full"
 	await super._run()
+
+func _prepare_render_camera(camera: Camera3D) -> Dictionary:
+	# Main-thread rendering only: leave SceneTree camera/player poses alone,
+	# render without presenting the intermediate views, then restore the RID.
+	var pose:=camera.get_camera_transform()
+	var node_pose:=camera.global_transform
+	var camera_rid:=camera.get_camera_rid()
+	var started:=Time.get_ticks_usec()
+	for angle in [0.,90.,180.,270.]:
+		RenderingServer.camera_set_transform(camera_rid,Transform3D(Basis(Vector3.UP,deg_to_rad(angle)),pose.origin))
+		for frame in 2:RenderingServer.force_draw(false)
+	RenderingServer.camera_set_transform(camera_rid,pose)
+	for frame in 2:RenderingServer.force_draw(false)
+	RenderingServer.force_sync()
+	return {"elapsed_ms":(Time.get_ticks_usec()-started)/1000.,"render_calls":10,"node_pose_unchanged":camera.global_transform.is_equal_approx(node_pose)}
+
+func _run_stutter_probe() -> void:
+	# One original nearby fixture, then three continuous normal-controller
+	# round trips. This writes diagnostics, never a runtime qualification.
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"stutter probe has a writable output directory")
+	if not failures.is_empty():get_tree().quit(1);return
+	source_before=_digest()
+	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
+	CampaignTime.set_frozen_for_tests(true)
+	seed(1928)
+	check(CampaignClock.new().configure_date(1928,11,10,720),"stutter probe uses the existing campaign calendar")
+	world=Runtime.instantiate();add_child(world)
+	var reflection_control: Array=[]
+	var hide_diner:=OS.get_environment("ORISON_CITY_STUTTER_HIDE_DINER_REFLECTION")=="1"
+	if hide_diner:
+		var probes:=world.find_children("DinerFinishReflection","ReflectionProbe",true,false)
+		check(probes.size()==1,"reflection control identifies exactly the existing diner capture")
+		for capture: ReflectionProbe in probes:
+			reflection_control.append({"node":weakref(capture),"visible":capture.visible,"path":str(capture.get_path())})
+			check(capture.visible,"reflection control changes a previously visible capture")
+			capture.visible=false
+	await get_tree().physics_frame;await get_tree().physics_frame
+	while world.startup_ms<=0. and not world.startup_failed:await get_tree().process_frame
+	check(not world.startup_failed and world.player!=null,"production world starts for the short stutter probe")
+	var legs: Array=[]
+	var settings: Dictionary={}
+	var preparation: Dictionary={}
+	if not world.startup_failed and world.player!=null:
+		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+		var city:=world.get_node("CityShells") as Node3D
+		var programme: Dictionary=southern_laurel_programmes()[0]
+		var recoveries_before: int=world.safety_net.recoveries
+		if await _opposing_start(city,programme.start,"stutter_laurel_start",true):
+			await _station_view("stutter_laurel_start",programme.target)
+			if OS.get_environment("ORISON_CITY_STUTTER_PREPARE_RENDER")=="1":
+				check(not hide_diner,"only one rendering control is selected")
+				if not hide_diner:
+					# Leave frame_post_draw's signal stack before forcing redraws.
+					await get_tree().process_frame
+					preparation=_prepare_render_camera(player.camera)
+					check(preparation.node_pose_unchanged,"render preparation leaves the camera node pose unchanged")
+			var probe:=preload("res://tests/v2_frame_work_probe.gd").new()
+			probe.host=self;add_child(probe)
+			world.household_state.profiling=true
+			player.profile_physics=true;player._grab.profiling=true
+			var shadow: Node3D=world.get_node("LampAtmosphere").scene_shadow
+			_stutter_shadow=shadow.viewport.get_viewport_rid()
+			RenderingServer.viewport_set_measure_render_time(_stutter_shadow,true)
+			var viewport:=get_viewport()
+			settings={"resolution":str(viewport.get_visible_rect().size),"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"scaling_3d_scale":viewport.scaling_3d_scale,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"screen_refresh_hz":DisplayServer.screen_get_refresh_rate(),"camera_fov":player.camera.fov,"daynight_force":OS.get_environment("DAYNIGHT_FORCE"),"weather_network_enabled":GameBoot.settings.weather_network_enabled,"seed":1928}
+			settings["hide_diner_reflection_diagnostic_only"]=hide_diner
+			settings["render_preparation_diagnostic_only"]=not preparation.is_empty()
+			for cycle in 3:
+				if not failures.is_empty():break
+				for index in programme.points.size():
+					profile_phase="cycle_%d_leg_%d"%[cycle,index]
+					var first:=_stutter_frames.size()
+					profile_active=true
+					var reached: bool=await _city_walk(programme.points[index],true)
+					await RenderingServer.frame_post_draw
+					profile_active=false
+					for frame in 12:await get_tree().physics_frame
+					var point: Vector3=programme.points[index]
+					check(reached and player.is_on_floor() and absf(city.to_local(player.global_position).y-point.z)<.025,"profile leg reaches its real floor with ordinary input")
+					legs.append({"phase":profile_phase,"sample_first":first,"sample_count":_stutter_frames.size()-first,"reached":reached})
+					if not failures.is_empty():break
+			RenderingServer.viewport_set_measure_render_time(_stutter_shadow,false)
+			check(legs.size()==6 and trace.size()==6,"short probe completes three continuous two-leg round trips")
+			check(world.safety_net.recoveries==recoveries_before,"short probe requires no safety-net rescue")
+			check(not player.noclip and not player.crouched and is_equal_approx(player._capsule.height,1.524) and is_equal_approx(player._capsule.radius,.33) and not player._profile_disable_step_guard and not player._profile_disable_step_up,"short probe retains the full standing body and collision guards")
+			probe.write(directory.path_join("stutter_work.json"))
+			probe.queue_free()
+			world.household_state.profiling=false
+			player.profile_physics=false;player._grab.profiling=false
+		Input.action_release("move_forward")
+		for entry: Dictionary in reflection_control:
+			var capture: ReflectionProbe=entry.node.get_ref()
+			check(is_instance_valid(capture),"controlled diner capture remains owned by its original cell")
+			if is_instance_valid(capture):capture.visible=bool(entry.visible)
+		var data: Dictionary={"evidence_class":"INERT","scope":"Instrumented six-leg Laurel stair/turn replay in the actual composed world, one validated nearby starting placement. Camera headings are deterministic fixture turns; movement uses the normal input/controller. Callback brackets, observed engine monitors and asynchronous main/lamp render timings are separate observations, not additive costs, input-to-display latency or an uninstrumented before/after comparison. No durable saves, new access, full-city, artistic or performance acceptance. Residency/pipeline counters identify observed activity, not causal loading/compiler duration.","checks":city_checks,"failures":failures,"settings":settings,"legs":legs,"frames":_stutter_frames,"trace":trace,"startup_ms":world.startup_ms,"startup_milestones":world.startup_milestones,"source_before":source_before}
+		data["render_preparation"]=preparation
+		world.shutdown_for_tests();world.free();await get_tree().physics_frame
+		var after:=_digest()
+		check(source_before==after,"short probe production inputs remain frozen")
+		data["source_after"]=after;data["checks"]=city_checks;data["failures"]=failures
+		FileAccess.open(directory.path_join("stutter_probe.json"),FileAccess.WRITE).store_string(JSON.stringify(data,"\t")+"\n")
+	else:
+		world.shutdown_for_tests();world.free();await get_tree().physics_frame
+	print("CITY STUTTER PROBE: %d checks; %d legs; %d failures"%[city_checks,legs.size(),failures.size()])
+	get_tree().quit(0 if failures.is_empty() else 1)
 
 static func southern_laurel_programmes() -> Array:
 	# Three independent near-frontage fixtures, not a continuous city tour.
@@ -741,12 +856,12 @@ func _city_walk(point: Vector3,literal_height: bool=false) -> bool:
 	if is_zero_approx(point.z) and not literal_height:
 		point.z = preload("res://scripts/building/orison_v2_city_streets.gd").surface_height(point.x)
 	print("CITY STATION WALK: source target ",point)
-	var focused: bool=_route_scope in ["northwest","opposing","northeast","northeast2","narrow","bridge","hampton","southwest","southwest_rear","southern_laurel"]
+	var focused: bool=_route_scope in ["northwest","opposing","northeast","northeast2","narrow","bridge","hampton","southwest","southwest_rear","southern_laurel","stutter_probe"]
 	if focused:
 		RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
 		_previous_exploration_usec=0
 		_collect_exploration=true
-	var reached := await _walk(world.adapter.root.to_local(city.to_global(GameBoot.b2g([point.x, point.y, point.z]))),.005 if _route_scope=="southern_laurel" else .1)
+	var reached := await _walk(world.adapter.root.to_local(city.to_global(GameBoot.b2g([point.x, point.y, point.z]))),.005 if _route_scope in ["southern_laurel","stutter_probe"] else .1)
 	if focused:
 		_collect_exploration=false
 		RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),false)
