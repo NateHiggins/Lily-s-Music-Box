@@ -9,6 +9,7 @@ var shader_filter_cache := {}
 
 func _run() -> void:
 	var started := Time.get_ticks_msec()
+	var city_context_views: Array=[]
 	var physical_only: bool=OS.get_environment("ORISON_SURFACE_PHYSICAL_ONLY")=="1"
 	if physical_only and (OS.get_environment("ORISON_SURFACE_FIRE_ONLY")=="1" or OS.get_environment("ORISON_SURFACE_CITY_ONLY")=="1"):
 		push_error("Physical surface mode cannot be combined with fire-only/city-only diagnostics")
@@ -412,6 +413,31 @@ func _run() -> void:
 		review_camera.look_at(actor.to_global(station[2]),Vector3.UP)
 		review_camera.make_current()
 		await shot(str(station[3]))
+	var city_context_ids:=OS.get_environment("ORISON_SURFACE_CITY_CONTEXT_IDS").split(",",false)
+	if not city_context_ids.is_empty():
+		# Reuse this frozen composed world for affected-city optics; these
+		# explicit review-camera poses grant no walking/access acceptance.
+		var horizon:=world.get_node_or_null("CityShells/CityHorizon") as Node3D
+		check(horizon!=null,"composed city context has its installed horizon owner")
+		var profiles: Dictionary={}
+		var city_data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_horizon.json"))
+		for row: Dictionary in city_data.buildings:profiles[str(row.id)]=row
+		var prior_fov:=review_camera.fov
+		review_camera.fov=110.
+		for identity: String in city_context_ids:
+			check(horizon!=null and profiles.has(identity),"requested composed city profile exists: "+identity)
+			if horizon==null or not profiles.has(identity):continue
+			var profile: Dictionary=profiles[identity]
+			var rect: Array=profile.rect
+			var middle: float=(float(rect[1])+float(rect[3]))*.5
+			var eye:=horizon.to_global(GameBoot.b2g([float(rect[2])+12.,middle,1.62]))
+			var aim:=horizon.to_global(GameBoot.b2g([float(rect[2])-5.,middle,float(profile.height_m)*.45]))
+			review_camera.global_position=eye;review_camera.look_at(aim,Vector3.UP);review_camera.make_current()
+			await get_tree().create_timer(.5).timeout
+			var label:="city_context_"+identity
+			await shot(label)
+			city_context_views.append({"building":identity,"file":label+".png","eye_world":str(eye),"aim_world":str(aim),"fov":review_camera.fov})
+		review_camera.fov=prior_fov
 	var lamp_context := OS.get_environment("ORISON_SURFACE_LAMP_CONTEXT")=="1"
 	if lamp_context:
 		# Reuse the composed world and existing lamp camera helper, rather than
@@ -491,6 +517,7 @@ func _run() -> void:
 		"surface_inputs_sha256":after.get("sha256",""),"inventory_sha256":FileAccess.get_sha256(directory.path_join("surface-inventory.json")),
 		"qualification_mode":"physical_surfaces_only" if physical_only else "full_programmes",
 		"lamp_context_review":{"executed":lamp_context,"scope":"Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."},
+		"city_context_review":{"views":city_context_views,"scope":"Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance."},
 		"interaction_programmes":{"fire_service":{"executed":fire_interactions,"scope":"separate interaction programme; physical draws remain in the inventory"},"other_family_programmes":{"executed":not physical_only,"scope":"Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."}},
 		"contracts":{"production_composition":{"executed":true,"status":status},"surface_requirements":{"executed":true,"status":status},"save_reconstruction":{"executed":false,"status":"NOT_EXECUTED"},"teardown":{"executed":true,"status":status,"measurement_scope":"runtime_owned"}},
 		"checks":batch_checks,"failures":failures}
