@@ -1,9 +1,12 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
 
-Evidence class: **INERT**. Published main **a08ed155** retains the qualified
-cohort below. The local Laurel cohort adds reviewed stock and its opt-in stair diagnostic for a later
-batched renewal; its current composed qualification is pending.
+Evidence class: **INERT**. Published main **402b4f6c** reconciles the eastern
+street/ground and frozen house/court work with PR109/PR110. The complete
+comparison against frozen main **4c913975** has zero regressions and all17
+protected paths unchanged. Physical656/0 receipts retain their executed source;
+the later newspaper/key-counter source leaves global surface renewal open.
+Historical cohorts and original failures below retain their original scopes.
 
 Qualified candidate **6ba6622d** versus exact
 **94605245** passes117 gates/zero regressions/four improvements,17 protected
@@ -5315,3 +5318,16 @@ The current packet passes independent qualification0defects. All664previously pr
 Exact-main **9c1d5dd8** baseline completes117gates with dirty0: five pre-existing tools failures, incomplete ledger and stale physical evidence remain. This is a comparison baseline, not a green result. After the current renewal, main advanced to **4c913975 / PR109**, adding newspaper illustrations/data without script changes. Preserve and reconcile that work; the existing source-bound receipt must remain scoped to125ad639. Do not repin it or describe later newspaper assets as qualified. Another unchanged city survey is deferred to a meaningful broader renewal; exact-main candidate comparison and explicit stale-surface reporting still apply.
 
 The architect's next five-body native cohort is separate and not yet accepted here. Its near-city GLB is reported at99,958,788bytes; the export publication ceiling changed95-to100MiB after an original refusal. This does not change geometry/UV/support tests or establish runtime affordability. Before further native city growth, block-shard whole-body exports and coordinate the loader/material/source/LOD contracts; do not raise the file ceiling again.
+
+
+### Published integration and candidate comparison — October 31
+
+Evidence class: **INERT**. **402b4f6c7b896c0a689fd1f7a30b4731b39ed0e0** is fast-forwarded to origin/main after rechecking remote **41d0b76b / PR110**. It preserves the newspaper PR109 and key-cutting/rent PR110 work alongside this city cohort. Complete candidate verification compares the combined PR110/city delta against the clean frozen-main **4c913975** board: **117 baseline /118 candidate gates,0regressions,0improvements,17/17protected unchanged,V2,0lint errors,no waivers,no requirement promotions**. The additional street-geometry gate passes. This comparison is not claimed against a newly captured41d0 board. Two redundant/incorrect own static starts were stopped with process identity checks; they supply no baseline evidence. Their metadata and the preserved detached merge remain recoverable.
+
+The existing clean attached checkout was reused solely for static boards/verifier; actual engine runs used **C:/PleaseRemainOnTheLine**. The verifier's generic clean-canonical wording does not establish fresh-checkout engine/import behavior. No Godot run was performed by the verifier. Reused actual evidence remains source-scoped: eastern47checks/16legs/0, general loaded27,493/0 and combined loaded27,848/0, then two actual physical656/0 runs. Court3,263/0 and98/0 retain their separate original input scope. Original failures are unchanged. Both complete-body/runtime UV/PBR review and the fixed city cameras remain technical evidence, not artistic or whole-city acceptance.
+
+The four gate/input-manifest changes in the combined comparison were reviewed: two add/expand native geometry tests without removing the old assertions; PR110 removes the retired whole-object key-copy counter entry in favor of the directly manipulated cutter carriage and refreshes spatial dependencies. The roof predicate retains0.1mm/front-face controls and adds underside checks; city cameras are opt-in and alter no default interaction programme. No gate or acceptance waiver is used.
+
+The global surface gate deliberately remains stale for later newspaper/key-counter inputs, with the same two defects as the frozen baseline; its test-written receipts are never repinned. Five pre-existing tools gates and the incomplete ledger remain red. No fresh played-save, continuous450m city route, current-main full physical renewal, frame-time improvement or owner artistic acceptance is established. Main publication does not close those tasks. The next isolated five-body cohort remains outside this publication, pending its actual access/optical work; further growth requires block-sharded native exports.
+
+The bounded qualification archive now contains100members/82,057,185bytes/SHA256 **bf3754a9d62592e10636c352d8c76263a3af79b71ec4a49033b9f3e851168653**, preserving all91previous members and adding both comparison records and the exact baseline. See **CANDIDATE_COMPARISON_INDEX.json** inside it. This final ledger/archive update is nonrendering documentation only; unchanged runtime/gate results are reused rather than rerun.

@@ -1,10 +1,10 @@
 {
   "evidence_class": "INERT",
   "archive": "art/reviews/city_streets_20261029/canonical_qualification_review.zip",
-  "members": 91,
-  "bytes": 81965419,
-  "sha256": "15f10b1377f15d62cae298e2d71f69fd1e936d6bfc15d136de25b21e1ae43561",
-  "previous_archive_sha256": "e6d1f45aad5cdc6682dbe2cfc7c1c7d003d9ef5c1daab3d489d8a6319cca1bc5",
-  "previous_members_preserved": 58,
-  "scope": "Post-PR108 qualification656/0 and exact9c1d baseline; previous passing packet preserved. Reviewed current frames live in canonical packet. Does not cover later PR109 newspaper image additions."
+  "members": 100,
+  "bytes": 82057185,
+  "sha256": "bf3754a9d62592e10636c352d8c76263a3af79b71ec4a49033b9f3e851168653",
+  "previous_archive_sha256": "15f10b1377f15d62cae298e2d71f69fd1e936d6bfc15d136de25b21e1ae43561",
+  "previous_members_preserved": 91,
+  "scope": "Complete static comparison includes city plus later-main PR110; no runtime receipt repinning. 117 baseline/118 candidate gates, zero regressions, 17 protected unchanged, no waivers or requirement promotions. In-place verification used existing clean static checkout; actual Godot runs used canonical tree."
 }
