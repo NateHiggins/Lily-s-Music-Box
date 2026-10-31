@@ -13,6 +13,9 @@ Sections below this checkpoint are historical context, not the current queue.
 - Current branch: `codex/v2-civic-intake-20261031`; runtime checkpoint
   `3312654e`. Main reconciled through `fc6c5c47` in `9cefcd11`, then through
   `b0708b7e` (editorial/size proposals; no runtime input changes).
+  PR #118 is open. First candidate f5082fcf had one new reported test-only
+  spatial station (two explicit fourth-floor camera/player coordinates). Its
+  exact reviewed fixture record is now registered; rerun comparison is pending.
   Commit, push and merge are separate states: final publication/merge is pending
   until recorded below. Preserve newer main work when reconciling again.
 - City/window work: 34 whole-building exports, 149 non-Orison window partitions

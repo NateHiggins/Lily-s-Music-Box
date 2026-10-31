@@ -432,3 +432,8 @@ before borrowing input/world state; test power, pause and interrupted re-entry.
 See the [current prologue ledger](../../../design/V2_PROLOGUE_2026-10-28.md).
 Use [developer continuity](../developer-continuity/SKILL.md) for a fresh-session
 intake or handoff; keep current hashes/status in the handoff rather than here.
+
+New fixed camera/player stations in tests are spatial dependencies too. Run the
+spatial audit as well as receipt-closure preflight before a merge checkpoint;
+review and register only the exact new fixture record, retaining its coordinates
+and disposition. Do not regenerate the entire manifest or waive unknown drift.
