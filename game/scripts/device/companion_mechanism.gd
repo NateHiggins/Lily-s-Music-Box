@@ -5,7 +5,9 @@ signal keyboard_settled(open: bool)
 const DATA := "res://data/device/service_companion_v2.json"
 const KEY_TRAVEL:=.0014
 var typing_arm:Node
+var _closed_keyboard_hold:WeakRef
 var temporal_register:Node
+var feed_replacement_draws:Array[MeshInstance3D]=[]
 var _automatic_key:=-1
 var _automatic_depth:=0.0
 var device: ServiceSetProp
@@ -59,6 +61,7 @@ func build() -> bool:
 	add_child(device)
 	if not device.presentation_ready: return _fail("Original radio/printer presentation failed to bind")
 	model = device.teletype.model
+	if not _install_feed_knobs():return _fail("Native feed-knob replacement refused")
 	# Excited phosphor marks are opaque, so put their masked glyphs into the opaque
 	# scene before the reading glass samples it. Keep ordinary depth testing.
 	for label: Label3D in [device.teletype.ink, device.teletype.heading, device.teletype.footer]:
@@ -198,12 +201,61 @@ func set_glass_moisture(inside: float, outside: float) -> void:
 	_glass_inside = inside
 	_glass_outside = outside
 
+## Replace manufactured draws only; teletype/feed-hand retain the original
+## wheel pivots, rotation and paper-motion references in the original frame.
+func _install_feed_knobs() -> bool:
+	var source:=load("res://assets/props/companion_feed_knobs.glb") as PackedScene
+	if source==null:return false
+	var replacement:=source.instantiate()
+	var valid:=true
+	for name:String in ["FeedWheel0","FeedWheel1"]:
+		var old:=model.find_child(name,true,false) as Node3D
+		var proposed:=replacement.find_child(name,true,false) as Node3D
+		valid=valid and old!=null and proposed!=null and old.transform.is_equal_approx(proposed.transform)
+	var key_material:Material
+	for draw:MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+		for surface in draw.mesh.get_surface_count():
+			if draw.mesh.surface_get_material(surface).resource_name=="CompanionKeys":key_material=draw.get_active_material(surface)
+	if key_material==null:replacement.free();return false
+	var swaps:Array=[]
+	for draw:MeshInstance3D in replacement.find_children("*","MeshInstance3D",true,false):
+		var lookup:=str(draw.name).replace("__CompanionKeys","__Steel")
+		var old:=model.find_child(lookup,true,false) as MeshInstance3D
+		if old==null or not old.transform.is_equal_approx(draw.transform) or old.mesh.get_surface_count()!=draw.mesh.get_surface_count():valid=false;break
+		swaps.append([old,draw.mesh,key_material if str(draw.name).ends_with("__CompanionKeys") else old.get_active_material(0)])
+	if valid and swaps.size()==5:
+		for swap:Array in swaps:
+			var old:MeshInstance3D=swap[0]
+			old.mesh=swap[1];old.set_surface_override_material(0,swap[2]);feed_replacement_draws.append(old)
+	else:valid=false
+	replacement.free()
+	return valid
+
+func hold_keyboard_closed(owner:Node) -> bool:
+	if not is_instance_valid(owner) or not owner.is_inside_tree() or (typing_arm!=null and typing_arm.active()):return false
+	if _closed_keyboard_hold!=null and is_instance_valid(_closed_keyboard_hold.get_ref()) and _closed_keyboard_hold.get_ref()!=owner:return false
+	_closed_keyboard_hold=weakref(owner);request_keyboard(false)
+	return true
+
+func release_keyboard_hold(owner:Node) -> void:
+	if _closed_keyboard_hold!=null and _closed_keyboard_hold.get_ref()==owner:_closed_keyboard_hold=null
+
 func request_keyboard(open: bool) -> void:
-	if not open and typing_arm!=null and typing_arm.active():
-		typing_arm.cancel();return
+	if open and _closed_keyboard_hold!=null:
+		if is_instance_valid(_closed_keyboard_hold.get_ref()):return
+		_closed_keyboard_hold=null
+	if typing_arm!=null and typing_arm.active():
+		if not open:typing_arm.cancel(false)
+		return # Only automated_keyboard may change travel during an arm cycle.
 	if keyboard_requested == open: return
 	keyboard_requested = open
 	_settled = false
+
+## Only the current physical arm may withdraw the keyboard without cancelling
+## its own return. Human requests retain the normal cancellation path.
+func automated_keyboard(owner:Node,open:bool) -> void:
+	if owner!=typing_arm:return
+	if keyboard_requested!=open:keyboard_requested=open;_settled=false
 
 func typing_ready() -> bool:
 	return keyboard_requested and keyboard_open >= .999 and failures.is_empty()
@@ -233,11 +285,13 @@ func _advance_mechanism(delta: float) -> void:
 	_reaction_clock += maxf(0.0, delta)
 	if reaction_player != null and not reaction_player.current.is_empty() and (not device.radio_powered or device.teletype.printing or keyboard_requested):
 		reaction_player.cancel(device.radio_powered and not keyboard_requested)
-	var target := 1.0 if keyboard_requested else 0.0
+	if typing_arm!=null:typing_arm.advance_idle_case(delta)
+	var clear:bool=typing_arm==null or typing_arm.keyboard_case_clear()
+	var target := 1.0 if keyboard_requested and clear else 0.0
 	var previous := keyboard_open
 	keyboard_open = move_toward(keyboard_open, target, delta / .24)
 	if previous != keyboard_open: _apply_keyboard()
-	if not _settled and is_equal_approx(keyboard_open, target):
+	if not _settled and is_equal_approx(keyboard_open, target) and (not keyboard_requested or clear):
 		_settled = true
 		keyboard_settled.emit(keyboard_requested)
 	var active := clampf(propulsion, 0.0, 2.0)

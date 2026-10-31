@@ -169,7 +169,7 @@ vec3 celestial_base(vec3 direction,out vec3 point_stars) {
 	color += skywatch_planet_light(direction,normalize(sun_direction))*(1.0-lunar_occlusion);
 	color += celestial_color * celestial_strength * halo * 0.42 * obscured;
 	color += celestial_color * lunar_surface * celestial_strength
-			* core * 0.48 * obscured;
+			* core * (moon_phase_enabled ? 9.0 : 0.48) * obscured;
 	// Rare, vague fingers belong to the same hidden source. Cloud density
 	// breaks them up; no crisp radial god-ray fan survives the rain.
 	float fingers = pow(max(0.0, sin((u * 18.0 + cloud_phase) * 2.0 * PI)), 12.0);

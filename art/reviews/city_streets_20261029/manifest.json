@@ -14547,5 +14547,940 @@
         "sha256": "b2afd36677e02555f3afa1d9f0a22732b4f424c04a5bc8a8370798a05feab7eb"
       }
     }
+  },
+  "eastern_civic_archive": {
+    "evidence_class": "INERT",
+    "scope": "Five civic-block adaptations,complete replacement LODs. Native84roundtrips/56receivingcontrols/15inspectedviews. Schema2 contracts qualify only declared isolated loaded geometry/PBR/mips/LOD and connected controller route. All58final runtime frames inspected;original failures/captures retained with byte-exact aliases. Capsule support400mm isnot continuous-floor-on-stairs. Archive/index INERT. Not composed campaign,traffic/save,matched/wholecity performance or artistic acceptance.",
+    "archive": "art/reviews/city_streets_20261029/eastern_civic_review.zip",
+    "bytes": 57717402,
+    "sha256": "8c532f59d24ac76da6f8792c5a6274056d3392f72fb288b02d85e6c762311028",
+    "member_count": 254,
+    "byte_exact_reused_image_aliases": {
+      "execution/access_02/HORIZON_NEAR_2_3_P0R0_row_landing.png": {
+        "retained_member": "execution/access_01/HORIZON_NEAR_2_3_P0R0_row_landing.png",
+        "sha256": "afb20907b8b78423b44a39c0af44db23bded87da2bf0149e29ce22faad643d47"
+      },
+      "execution/access_02/HORIZON_NEAR_2_3_P0R1_row_landing.png": {
+        "retained_member": "execution/access_01/HORIZON_NEAR_2_3_P0R1_row_landing.png",
+        "sha256": "069539e2b5e5f5a96c15790d59aa52cec1eb69909b8833f86d05e2a33be2b6cb"
+      },
+      "execution/access_02/HORIZON_NEAR_2_3_P0R2_lane_corner.png": {
+        "retained_member": "execution/access_01/HORIZON_NEAR_2_3_P0R2_lane_corner.png",
+        "sha256": "30c719581355bd932fd1397ff9f254c67d7a480e3ec23733e998513d6c8c3c6e"
+      },
+      "execution/access_02/HORIZON_NEAR_2_3_P0R2_row_landing.png": {
+        "retained_member": "execution/access_01/HORIZON_NEAR_2_3_P0R2_row_landing.png",
+        "sha256": "abdd5c55525ea2a0fa4214c978b10dbfabe9bb0f3d58d0fa0487199f337decf6"
+      },
+      "execution/access_02/HORIZON_NEAR_2_3_P1_school_landing_-1.png": {
+        "retained_member": "execution/access_01/HORIZON_NEAR_2_3_P1_school_landing_-1.png",
+        "sha256": "9e038754f837a364fc822d84cef90b2e380c43565fb3390edd6341863df59387"
+      },
+      "execution/access_02/HORIZON_NEAR_2_3_P1_school_landing_1.png": {
+        "retained_member": "execution/access_01/HORIZON_NEAR_2_3_P1_school_landing_1.png",
+        "sha256": "5c549b494cc842b9a844d13880367d4a8b69695d38be0558b9c1065e3e069996"
+      },
+      "execution/access_02/HORIZON_NEAR_2_3_P2_factory_landing.png": {
+        "retained_member": "execution/access_01/HORIZON_NEAR_2_3_P2_factory_landing.png",
+        "sha256": "cef45955a4f77732d7f012626f45a7fe7b40d3ae8e69ddd46caa0b7d574dc238"
+      },
+      "execution/access_02/HORIZON_NEAR_2_3_P2_lane_end.png": {
+        "retained_member": "execution/access_01/HORIZON_NEAR_2_3_P2_lane_end.png",
+        "sha256": "e30d4dbc524ad79ee271a3ea91d30156f0cfc7b0724e85dbeeb6a7b3a2c3f4d9"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_before_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_narrow_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_return.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_before.png",
+        "sha256": "7d240719a68ed03c373e5771ae531ae0911444311b8d27d1d1659f7397fa7f11"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_return_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R1_natural_after_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R1_natural_before_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R1_natural_narrow_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R1_natural_return.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R1_natural_before.png",
+        "sha256": "998f9a3f458ca14f5fb38807e38aa32fe2e46128c17172c65ca2bc1b503b951f"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R1_natural_return_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R2_natural_after_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R2_natural_before_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R2_natural_narrow_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R2_natural_return.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R2_natural_before.png",
+        "sha256": "1f324b2bc0f5f658c25530bd9e24d669d53267f465fc8cc3bcd708ab9c29502d"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P0R2_natural_return_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P1_natural_after_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P1_natural_before_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P1_natural_narrow_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P1_natural_return.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P1_natural_before.png",
+        "sha256": "85674054b45b96edee005a36523cef687d8c9171b3d324b17a4658acf6154641"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P1_natural_return_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P2_natural_after_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P2_natural_before_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P2_natural_narrow_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P2_natural_return.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P2_natural_before.png",
+        "sha256": "8b073851dba7c6cbcea92cd8b601c9e33e9010c74f1837717c58c94faecf32f9"
+      },
+      "execution/bench_01/HORIZON_NEAR_2_3_P2_natural_return_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R0_natural_after.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after.png",
+        "sha256": "f7a60f58b9934599abd5fcf0b9973b9955a8fed9f509da84c50b9d9b5c2bb9bd"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R0_natural_after_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R0_natural_before.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_before.png",
+        "sha256": "7d240719a68ed03c373e5771ae531ae0911444311b8d27d1d1659f7397fa7f11"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R0_natural_before_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R0_natural_narrow.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_narrow.png",
+        "sha256": "d0e69a13113d25664a7ce49b0c551e14faa1970cccf23122a46765a72f051222"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R0_natural_narrow_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R0_natural_return.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_before.png",
+        "sha256": "7d240719a68ed03c373e5771ae531ae0911444311b8d27d1d1659f7397fa7f11"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R0_natural_return_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R0_profile_far.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_profile_far.png",
+        "sha256": "c0c84fb8d5af0365c6e333f0fc08856bbd2614f97759143606bec6a453207767"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R0_profile_near.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_profile_near.png",
+        "sha256": "a32c9a9ce90993b1653915b2988b437f91b946d1f8a1ec5c3f06f9761dcbdd08"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R1_natural_after.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R1_natural_after.png",
+        "sha256": "9c52981f9405d011f4f67fea0c0362b518c33a43989fa8a2e6ec86803ebde3f4"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R1_natural_after_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R1_natural_before.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R1_natural_before.png",
+        "sha256": "998f9a3f458ca14f5fb38807e38aa32fe2e46128c17172c65ca2bc1b503b951f"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R1_natural_before_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R1_natural_narrow.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R1_natural_narrow.png",
+        "sha256": "87c57456a1d7b0d605680774208563e07d53a58094abc624b4d91e4750cc277d"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R1_natural_narrow_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R1_natural_return.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R1_natural_before.png",
+        "sha256": "998f9a3f458ca14f5fb38807e38aa32fe2e46128c17172c65ca2bc1b503b951f"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R1_natural_return_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R1_profile_far.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R1_profile_far.png",
+        "sha256": "392a47c54978d704aae3e4f75a7a5334d7e70005aa1b03af2827cdc8b0e3d4ba"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R1_profile_near.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R1_profile_near.png",
+        "sha256": "286f6ccb62c02eb2189523933b86afeda71504734e9db1f1c098e30443e6b1c5"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R2_natural_after.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R2_natural_after.png",
+        "sha256": "78813667610ed61cd51d6904edd7a532dacbef8ed3e63e609884239f46d57be6"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R2_natural_after_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R2_natural_before.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R2_natural_before.png",
+        "sha256": "1f324b2bc0f5f658c25530bd9e24d669d53267f465fc8cc3bcd708ab9c29502d"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R2_natural_before_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R2_natural_narrow.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R2_natural_narrow.png",
+        "sha256": "22a838cb0bf97fde80c37bcb88eead3ff245b4ff05d33c75d91935e96933d46f"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R2_natural_narrow_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R2_natural_return.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R2_natural_before.png",
+        "sha256": "1f324b2bc0f5f658c25530bd9e24d669d53267f465fc8cc3bcd708ab9c29502d"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R2_natural_return_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R2_profile_far.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R2_profile_far.png",
+        "sha256": "0c2b44cdb258f5cd761d50d51942d9aaa6fc073ed8a7401356e3c09818260370"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P0R2_profile_near.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R2_profile_near.png",
+        "sha256": "7c20a345890827590fed25451190dac5b313bd8826627f243aca1e49db668599"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P1_natural_after.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P1_natural_after.png",
+        "sha256": "112f67c11feaf9b800437cc8773372511727662d947160aa72270cae8ef84f66"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P1_natural_after_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P1_natural_before.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P1_natural_before.png",
+        "sha256": "85674054b45b96edee005a36523cef687d8c9171b3d324b17a4658acf6154641"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P1_natural_before_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P1_natural_narrow.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P1_natural_narrow.png",
+        "sha256": "08b5140d4582462e191dce35c5ea14aa0832ae748fff2c551bb8c3ae7151c31e"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P1_natural_narrow_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P1_natural_return.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P1_natural_before.png",
+        "sha256": "85674054b45b96edee005a36523cef687d8c9171b3d324b17a4658acf6154641"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P1_natural_return_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P1_profile_far.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P1_profile_far.png",
+        "sha256": "9ed54b9353850cc63d816c477799dc9dcb6dc77fac534b277e044c3a5aefbb07"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P1_profile_near.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P1_profile_near.png",
+        "sha256": "f204eecc6a7e526ec3912f1b64e8955466d912ba476a82d988fd83d3ed4ab125"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P2_natural_after_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P2_natural_before_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P2_natural_narrow_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P2_natural_return.png": {
+        "retained_member": "execution/bench_02/HORIZON_NEAR_2_3_P2_natural_before.png",
+        "sha256": "a286583e4e141e1d3d7b44ffd02299f004786926a8920af0447f9e6401343337"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P2_natural_return_background.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P0R0_natural_after_background.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P2_profile_far.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P2_profile_far.png",
+        "sha256": "30ff711f059ab71e5b8b77bcf0bb018dcb1d7eda3bacf814a5f234ffeb138f33"
+      },
+      "execution/bench_02/HORIZON_NEAR_2_3_P2_profile_near.png": {
+        "retained_member": "execution/bench_01/HORIZON_NEAR_2_3_P2_profile_near.png",
+        "sha256": "0e1baa3710c781b9c8253ae2a68e2840682c2ff09777a6c3cb85b0d315b3f7d2"
+      }
+    },
+    "runtime_source_count": 135,
+    "runtime_contracts": {
+      "bench": {
+        "member": "execution/bench_02/civic_loaded.runtime.json",
+        "checks": 3716
+      },
+      "access": {
+        "member": "execution/access_02/civic_access.runtime.json",
+        "checks": 141
+      }
+    },
+    "asset_bindings": {
+      "art/blender/city_horizon_near.blend": {
+        "bytes": 21040316,
+        "sha256": "221683c97bb8aa384094684d8208a737e08b9a678dd2cb76c963b460401dbdc8"
+      },
+      "art/blender/city_horizon_far.blend": {
+        "bytes": 18762966,
+        "sha256": "6390a81d35bc8a9990f18611991100c94dd6bb467fbe7410e609f5ede156de2e"
+      },
+      "art/blender/city_horizon_lod1.blend": {
+        "bytes": 8179193,
+        "sha256": "25ce079da5c26ceb92e5dbe2e6b0e36e78254504aa33a98cc26aae6f748dcb00"
+      },
+      "art/blender/city_horizon_construction.json": {
+        "bytes": 5483465,
+        "sha256": "a05932a50ad447c75bb14b00d584cd89b22c92b954b7bf7b2a5cf59d8ce25d55"
+      },
+      "game/assets/props/city_horizon_near.glb": {
+        "bytes": 99958788,
+        "sha256": "93129ad528d9df7197a9c5c0924ac3e79fc038db76590285f46ba1e9d867bff2"
+      },
+      "game/assets/props/city_horizon_far.glb": {
+        "bytes": 98530480,
+        "sha256": "8aea35dc13aba413052b187f6d4759e4cd88d391a90032c367744a1c291343d7"
+      },
+      "game/assets/props/city_horizon_lod1.glb": {
+        "bytes": 39174400,
+        "sha256": "688efd2c4d2fe67d7ddaad3f424cc5b7b11afdb807e4edcef4123bc41e8c04d0"
+      },
+      "game/data/orison_v2/exterior/city_horizon.json": {
+        "bytes": 31168,
+        "sha256": "6216ba93e4533deed404b7ad275d131a71e8bb86cceca18e8d94bdd29fd2d156"
+      },
+      "game/tests/fixtures/orison_city_horizon.json": {
+        "bytes": 5483465,
+        "sha256": "a05932a50ad447c75bb14b00d584cd89b22c92b954b7bf7b2a5cf59d8ce25d55"
+      }
+    }
+  },
+  "canonical_civic_intake": {
+    "evidence_class": "INERT",
+    "archive": "art/reviews/city_streets_20261029/eastern_street_native_review.zip",
+    "members": 309,
+    "bytes": 68646431,
+    "sha256": "aab69056da15d54fa7e829fb3706fa0606fbd339265769b1065401fab3306b02",
+    "preserved_members": 292,
+    "previous_archive_sha256": "ef8290c47cdf4bdde28c35df78796c36d1d651f85d5d677a63f159a005256a11",
+    "incoming_archive_sha256": "8c532f59d24ac76da6f8792c5a6274056d3392f72fb288b02d85e6c762311028",
+    "scope": "Source and selected-original optical intake only. Isolated3716/0 and141/0 contracts retain old ground/benchmark and no current composed claim. Raw images stay in immutable civic packet; no duplicated PNG payload."
+  },
+  "horizon_shards_archive": {
+    "evidence_class": "INERT",
+    "scope": "Transport-only34-block export/loader checkpoint. All938nativeattributes/rootframes+938nativeworldtriangle roundtrips exact;3nativeassemblyviews inspected. Original10420/0runtime data/corona parity retainedwith6rejectedcameraimages;corrected1545/0rootviewportcontract independentlyqualifies6body/6hiddenviews.172originalruntimebindings,40assets,allpriorarchivesexact. Sourceonly13requiredfixturepreflightsPASS;widerbarcatalog/bridgeaprondebtremainred. First119gateboard2newmetadataregressions andsecondboard1transitiveNookregression preserved;unchangedmaterial/partition projections andunchangedLibraryclosed-stockprojection fixonly3dependencydigests.Finalboardincluded. Originalfailedsourceclosure,compiler,staging andcleanupguards retained. Index/archiveINERT;notplayed/composedcity,weather,matchedperformancegain orartisticacceptance.",
+    "archive": "art/reviews/city_streets_20261029/city_horizon_shards_review.zip",
+    "bytes": 15502608,
+    "sha256": "69a07bcfb75c245df811f04a4a1cdc7964fc4726f3179123785bba4f7fea5b22",
+    "member_count": 270,
+    "runtime_source_count": 172,
+    "asset_bindings": {
+      "art/blender/city_horizon_construction.json": {
+        "bytes": 5516616,
+        "sha256": "831ab91190e3eb17554780afe45fac02e7bf7b23b3c747e361ee012bdf12dab4"
+      },
+      "art/blender/city_horizon_far.blend": {
+        "bytes": 18762880,
+        "sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      },
+      "art/blender/city_horizon_lod1.blend": {
+        "bytes": 8179005,
+        "sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
+      },
+      "art/blender/city_horizon_near.blend": {
+        "bytes": 21040445,
+        "sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      },
+      "game/assets/props/city_horizon_far_0_0.glb": {
+        "bytes": 7852848,
+        "sha256": "d6ccdc58da4b415229ff3d2eb43f17268e3ffb936e484b3dcce44b7f60f91406"
+      },
+      "game/assets/props/city_horizon_far_0_1.glb": {
+        "bytes": 8121496,
+        "sha256": "1c26123dfab7d78be1f55ac06459b41e8451e68b3de40b8f85d68052ff3024a3"
+      },
+      "game/assets/props/city_horizon_far_1_0.glb": {
+        "bytes": 9885336,
+        "sha256": "66d5ea40908935e2bceba845a5ba48ab8ea443f0429dc7f5706c920b82f9812c"
+      },
+      "game/assets/props/city_horizon_far_1_1.glb": {
+        "bytes": 9067248,
+        "sha256": "d8c5c619cd032a506db929ff22cc655ad061369eda7c5d2ae27b4f293ce285d7"
+      },
+      "game/assets/props/city_horizon_far_2_0.glb": {
+        "bytes": 7063584,
+        "sha256": "f0b2580996cb637f9ed82092f43bc0bca69ba674a3946723a3e3ed392ae86977"
+      },
+      "game/assets/props/city_horizon_far_2_1.glb": {
+        "bytes": 19576588,
+        "sha256": "33e80b151c5ce92d3a438299f1df8e8286e4fb10f17c4683d7e3db15563a334f"
+      },
+      "game/assets/props/city_horizon_far_2_1_lod1.glb": {
+        "bytes": 7523744,
+        "sha256": "d308168c0db8a26b3a2823a069187223d27776807f5ea7b7ac2755a3afe47106"
+      },
+      "game/assets/props/city_horizon_far_3_0.glb": {
+        "bytes": 10667524,
+        "sha256": "cd163828867691973486c70bb2174254c5886236d1f5aea4a57319b68decc25d"
+      },
+      "game/assets/props/city_horizon_far_3_1.glb": {
+        "bytes": 8188892,
+        "sha256": "8ccd3e63555d76c77ec1dd6e35fd20031fdb0d954294fb5f08feb5583de133d8"
+      },
+      "game/assets/props/city_horizon_near_0_0.glb": {
+        "bytes": 3283028,
+        "sha256": "e05e4b67bb6a1bfda84d007c5ff9bc06cb39a1cb9078d384cff8d41b402c575d"
+      },
+      "game/assets/props/city_horizon_near_0_1.glb": {
+        "bytes": 5856228,
+        "sha256": "c1b6b9d219ea35d4f1d5ffcd0cb7d0f7a21f5f17e3560be9b97221775a83502c"
+      },
+      "game/assets/props/city_horizon_near_0_1_lod1.glb": {
+        "bytes": 3135956,
+        "sha256": "7613ab8d01222e590acf7bf21731fe661fd9b8b203780bbbb344f006e1b0f8cc"
+      },
+      "game/assets/props/city_horizon_near_0_2.glb": {
+        "bytes": 3574068,
+        "sha256": "b400d1bb4b8b994d5bacc3a060137eb79071e59603d9741ccd8a6976629d07de"
+      },
+      "game/assets/props/city_horizon_near_0_3.glb": {
+        "bytes": 3325528,
+        "sha256": "57861eacd3755804aa2874e21a043f8d8fd4f4410cce6e03a73518194b8b9620"
+      },
+      "game/assets/props/city_horizon_near_1_0.glb": {
+        "bytes": 3677628,
+        "sha256": "55983f78396505aab6c72bd0bb8b1763b7d8f213c909c46c659b39e8a79812c7"
+      },
+      "game/assets/props/city_horizon_near_1_1.glb": {
+        "bytes": 2769976,
+        "sha256": "0e310a2da39ae516377a31dc337f91dfaa28141d95e333584b45b9057340eae9"
+      },
+      "game/assets/props/city_horizon_near_1_2.glb": {
+        "bytes": 3574040,
+        "sha256": "fc9914965477d88709ba4b9d4036ef8f738b21aba7224de9a9443f1ee74a0e2d"
+      },
+      "game/assets/props/city_horizon_near_1_3.glb": {
+        "bytes": 3325496,
+        "sha256": "4744ab7bbe2480ea5a39f0fa129eafb264b219317eea31db4899266c913c5337"
+      },
+      "game/assets/props/city_horizon_near_2_0.glb": {
+        "bytes": 13181072,
+        "sha256": "ed360e00ef5b6f59493053f6ce4ee40a3a7286533022747ee65b569e247e8061"
+      },
+      "game/assets/props/city_horizon_near_2_0_lod1.glb": {
+        "bytes": 7090996,
+        "sha256": "a4de95b3c8d408f6314d07d90359f709948bc63acb2570246c7333835d8fed19"
+      },
+      "game/assets/props/city_horizon_near_2_1.glb": {
+        "bytes": 12272664,
+        "sha256": "2c941377ce6b8af3ee16b6ff7a0fe1aa275f95754ecd4525b60d70d8758155f7"
+      },
+      "game/assets/props/city_horizon_near_2_1_lod1.glb": {
+        "bytes": 5859368,
+        "sha256": "f4e8794d62f06eea20480758a3286f2dae6f58721d95686636b7e1afbb7ffe7a"
+      },
+      "game/assets/props/city_horizon_near_2_2.glb": {
+        "bytes": 14660084,
+        "sha256": "540280fa5a7a3353ef78f914b2d882982ea1dde51e76a71dd0c510a7313831fd"
+      },
+      "game/assets/props/city_horizon_near_2_2_lod1.glb": {
+        "bytes": 8724132,
+        "sha256": "95e58410d8ad5bcc00bc590d3967550be668953d6e20e0b10e7c016a3a3e3c63"
+      },
+      "game/assets/props/city_horizon_near_2_3.glb": {
+        "bytes": 17559808,
+        "sha256": "c2c6b0a9023a87ea53839da692620e560bb7c2b6e4feec2a391348b35bfa4545"
+      },
+      "game/assets/props/city_horizon_near_2_3_lod1.glb": {
+        "bytes": 6843800,
+        "sha256": "a2b16045e43d20b8cb552e6ede3d111d950fbb47d0e33fdb74abadee82d2b927"
+      },
+      "game/assets/props/city_horizon_near_3_0.glb": {
+        "bytes": 3445140,
+        "sha256": "d1591949adb42f5b49555d0f696d3961604b3e45aed49d51c15f561ee0178d82"
+      },
+      "game/assets/props/city_horizon_near_3_1.glb": {
+        "bytes": 3049788,
+        "sha256": "992a14ce2b1a52d6889c8aec800dac0881fe081781591f0e324bc2a3473cea92"
+      },
+      "game/assets/props/city_horizon_near_3_2.glb": {
+        "bytes": 3714004,
+        "sha256": "12a4c9cf3d8fce69d804fc48fbff0bb30b7a7c25b44d1b0a7c91ef146b6ed5d0"
+      },
+      "game/assets/props/city_horizon_near_3_3.glb": {
+        "bytes": 3408240,
+        "sha256": "046c517da0bd72dc9600ee6b94ab3f1f2f52a1a7312f9a907bf9546a7cf7ea04"
+      },
+      "game/assets/props/city_horizon_street_end_0.glb": {
+        "bytes": 4625764,
+        "sha256": "1c5ff8bfd0f505773b486a45583b76b193d122837cc4b7d9e9e044599bc2fe62"
+      },
+      "game/assets/props/city_horizon_street_end_1.glb": {
+        "bytes": 4375356,
+        "sha256": "cb6e9491b44306f187899cf866959821b3e110e2c6c9908b808be935079e8496"
+      },
+      "game/assets/props/city_horizon_street_end_2.glb": {
+        "bytes": 5046572,
+        "sha256": "f4a8ea00030992c718a817d07b9aff77d00e2866993663c1d8581c9a96d2f092"
+      },
+      "game/assets/props/city_horizon_street_end_3.glb": {
+        "bytes": 4399740,
+        "sha256": "c2cf57e1cf9cbf7d7085a12130a7d572a2cf9db42738e30f46137cd88415d22c"
+      },
+      "game/data/orison_v2/exterior/city_horizon.json": {
+        "bytes": 84475,
+        "sha256": "0bb8cd1b6983d6ef0f4ea902db11fd42fbf142ce5ca6a27f6f57b692ddf28e78"
+      },
+      "game/tests/fixtures/orison_city_horizon.json": {
+        "bytes": 5516616,
+        "sha256": "831ab91190e3eb17554780afe45fac02e7bf7b23b3c747e361ee012bdf12dab4"
+      }
+    },
+    "byte_exact_reused_image_aliases": {
+      "execution/equivalence_01/legacy_return.png": {
+        "retained_member": "execution/equivalence_01/legacy_near.png",
+        "sha256": "5c2e55d166be22847c385b6640ddf46e8c87e55cb2bff4de5c5ef746b5e1c8f1"
+      },
+      "execution/equivalence_01/shards_lower.png": {
+        "retained_member": "execution/equivalence_01/legacy_lower.png",
+        "sha256": "5ecb95a29335c56bb8b02a2e9d0dec85a99f13ddb8b7281cb820c577deaeddf5"
+      },
+      "execution/equivalence_01/shards_near.png": {
+        "retained_member": "execution/equivalence_01/legacy_near.png",
+        "sha256": "5c2e55d166be22847c385b6640ddf46e8c87e55cb2bff4de5c5ef746b5e1c8f1"
+      },
+      "execution/equivalence_01/shards_return.png": {
+        "retained_member": "execution/equivalence_01/legacy_near.png",
+        "sha256": "5c2e55d166be22847c385b6640ddf46e8c87e55cb2bff4de5c5ef746b5e1c8f1"
+      },
+      "execution/render_03/legacy_near_hidden.png": {
+        "retained_member": "execution/render_03/legacy_lower_hidden.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/render_03/legacy_return.png": {
+        "retained_member": "execution/render_03/legacy_near.png",
+        "sha256": "44b56830353a1df36d2c769171a0a9f80e2b7942d57f1c260a987398c0524e6a"
+      },
+      "execution/render_03/legacy_return_hidden.png": {
+        "retained_member": "execution/render_03/legacy_lower_hidden.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/render_03/shards_lower_hidden.png": {
+        "retained_member": "execution/render_03/legacy_lower_hidden.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/render_03/shards_near_hidden.png": {
+        "retained_member": "execution/render_03/legacy_lower_hidden.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "execution/render_03/shards_return.png": {
+        "retained_member": "execution/render_03/shards_near.png",
+        "sha256": "dd99aa40929f30ed2df40a1747c490c654ade4580c982145d8c9c5ee1c860c52"
+      },
+      "execution/render_03/shards_return_hidden.png": {
+        "retained_member": "execution/render_03/legacy_lower_hidden.png",
+        "sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      }
+    },
+    "runtime_contracts": {
+      "equivalence": {
+        "path": "equivalence_01/shards_equivalence.runtime.json",
+        "sha256": "b575549f35abe939339022f0cc960dd6f43c0a9f2fe1108e52a6c5700a4260b7",
+        "checks": 10420
+      },
+      "render": {
+        "path": "render_03/shards_render.runtime.json",
+        "sha256": "8fbfdd9387a0b106f3d1c40941d4ba12588e3f8c2846dd5d7ee3ad74673abbe8",
+        "checks": 1545
+      }
+    }
+  },
+  "window_optics_review": {
+    "path": "art/reviews/city_streets_20261029/window_optics_review.zip",
+    "sha256": "3b931d07c4ac2c2066a94ce6b421125299e273edb9223e53b2377af026b6a692",
+    "bytes": 14598552,
+    "members": 74,
+    "evidence_class": "INERT",
+    "scope": "149 non-Orison background-building window partitions; six shared materials, bounded lamp/decor/layout variation. Original124-window packet retained byte-exact. Focused family and composed night review, no full qualification or artistic acceptance.",
+    "files": {
+      "before_night_radiance/game/shaders/queens_weather_math.gdshaderinc": {
+        "bytes": 15582,
+        "raw_sha256": "923bfaa907e5b904d00d90c01039542bd571b19f8abfa604f6f14cdca3bed7b4"
+      },
+      "before_night_radiance/game/shaders/queens_weather_sky.gdshader": {
+        "bytes": 27022,
+        "raw_sha256": "29404fd4409dcad37176d7e496c4ed769b5fbf0f8dc585b1c7d29ad939956963"
+      },
+      "city01/night_review.json": {
+        "bytes": 3110,
+        "raw_sha256": "b2a539aed922a893281033ad8cd8421e5de0b38f2c32980a9a6b882a5f04bb6f"
+      },
+      "city01/orison_starlit_city_moon.png": {
+        "bytes": 1464630,
+        "raw_sha256": "be51721b1bb9a946a9d3946aee1bc9290d2053facca257c3fafa2f06dd4377d0"
+      },
+      "city02/night_review.json": {
+        "bytes": 3101,
+        "raw_sha256": "ac8af9e479c24eeb193cdb52bfd618cee97abe067e38f60df2e1e37557276d9f"
+      },
+      "city02/orison_starlit_city_detail.png": {
+        "bytes": 1247794,
+        "raw_sha256": "e583d31f57fd828c184a4de2b058750bc6a64a6abd28c7ac0b2c94c4256b9e88"
+      },
+      "city02/orison_starlit_city_moon.png": {
+        "bytes": 1461734,
+        "raw_sha256": "aa28b98ac7b236ef5782d389fac8b4264c4cadc25d941a45c6b6b7b9b8bef0a8"
+      },
+      "gate_board/board.json": {
+        "bytes": 170077,
+        "raw_sha256": "9d58db31ac2fcb1f9f3006584f516b61cdfe5e7ba66fc0764a34eacfe6a3f66d"
+      },
+      "gate_board/board.md": {
+        "bytes": 9245,
+        "raw_sha256": "f94d8d29a398383a509f7e177e886226b2478ea2162712061967bd3c635229af"
+      },
+      "import_churn.json": {
+        "bytes": 14491,
+        "raw_sha256": "58b23584afe4e2b448fe160e786262831bcd0baacdd8fe746ab4212717f51ef1"
+      },
+      "installed_source/design/V2_BACKGROUND_WINDOW_OPTICS_2026-10-31.md": {
+        "bytes": 10400,
+        "raw_sha256": "57d3282796fa0cc177ed19f0bb36762d02e6ec34eb306dbf2d80b82fcf1142cd"
+      },
+      "installed_source/game/scripts/building/orison_v2_city_horizon.gd": {
+        "bytes": 10443,
+        "raw_sha256": "e5bbdc969394e2d1b0177be204502fcefcc27c52027b1788a82814a38c9e3ca6"
+      },
+      "installed_source/game/scripts/building/v2_background_window_material.gd": {
+        "bytes": 5502,
+        "raw_sha256": "ca1b9bde8124c9d76ad87b1ebbe0d3e5ea68259bda4a60b3c847a532a164ad1e"
+      },
+      "installed_source/game/shaders/queens_weather_math.gdshaderinc": {
+        "bytes": 16044,
+        "raw_sha256": "53cdc12354440920c695b615942d2a9a27912455aad1706f002db9a14120d0e8"
+      },
+      "installed_source/game/shaders/queens_weather_sky.gdshader": {
+        "bytes": 27051,
+        "raw_sha256": "9be786e036e4c37cb97e684d5b53077061b7f8089f5bfa8f0585a1a1fb59cb38"
+      },
+      "installed_source/game/shaders/v2_background_window_interior.gdshader": {
+        "bytes": 8182,
+        "raw_sha256": "402ce7526ba928724d0b4dd463e6252d29c17052de08785b261b7dc95766aeba"
+      },
+      "installed_source/game/tests/v2_window_city_night_review.gd": {
+        "bytes": 7449,
+        "raw_sha256": "45c4e57c63cb82d1939fc3d0336417361134388cca3030b7b5426fb2b1a3b823"
+      },
+      "reconcile_sources.py": {
+        "bytes": 4384,
+        "raw_sha256": "fcf5b7ff5521bbdff21022170b759046af542eb5f26b83bf38a1e5e2cc12b2a2"
+      },
+      "runs/city01.log": {
+        "bytes": 4684,
+        "raw_sha256": "30a34e001cab95d93475e237c117ccde4e0a5da7b6d31cdd083f23be6a7cddf2"
+      },
+      "runs/city01.log.receipt.json": {
+        "bytes": 2891,
+        "raw_sha256": "0733e7cc5d2ac512485410433176625e146d1526ff9cc93cfe6561272d60c326"
+      },
+      "runs/city01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runs/city02.log": {
+        "bytes": 4675,
+        "raw_sha256": "f90c07915c9799cb2b6621af2f2b2188b54b6db73dfe1f491e1be1e1b83a4057"
+      },
+      "runs/city02.log.receipt.json": {
+        "bytes": 2887,
+        "raw_sha256": "1156526002a6852091dba09d82e5b1a791309495ccdb378c79ac8319fa008ca6"
+      },
+      "runs/city02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runs/compile01.log": {
+        "bytes": 391,
+        "raw_sha256": "c748273269de79278bac0d9dc1c6a7bbf41c40b0dd75b4052402c84b3c05e9b1"
+      },
+      "runs/compile01.log.receipt.json": {
+        "bytes": 3417,
+        "raw_sha256": "d8efcd50495fd8c959a1fb99e8a205543953e9629666db1bf534c2beedb17fc1"
+      },
+      "runs/compile01.log.stderr": {
+        "bytes": 1403,
+        "raw_sha256": "e91651c8a1c46d033d832d45701b3814fa6259bc94ef3af106cb07db4a792a7e"
+      },
+      "runs/compile02.log": {
+        "bytes": 383,
+        "raw_sha256": "444784527b0647e32a93adea6fe390738feffad15e5d35a76e433d4018802765"
+      },
+      "runs/compile02.log.receipt.json": {
+        "bytes": 2921,
+        "raw_sha256": "21e6db3798a24bec952ab296224168d5b80542028484daea6148d44df8bb3661"
+      },
+      "runs/compile02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runs/family03.log": {
+        "bytes": 1537,
+        "raw_sha256": "4feb14ccc98c9343958c5a1ad5b564eb333257d7f51d00ee1345e8341c1b9e6e"
+      },
+      "runs/family03.log.receipt.json": {
+        "bytes": 2897,
+        "raw_sha256": "cbcdb7b315718046861852fc282f0dbb9217df49f097dd2b1667d7372278d265"
+      },
+      "runs/family03.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runs/import02.log": {
+        "bytes": 111835,
+        "raw_sha256": "2ad5d291c83af037248e2cb398be1208bc0339057c402f07edb969505105852f"
+      },
+      "runs/import02.log.receipt.json": {
+        "bytes": 2708,
+        "raw_sha256": "9b38d17846c06ddc987486fa0e5c852826066b4880382ce89eccd704c376782e"
+      },
+      "runs/import02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runs/preflight01.log": {
+        "bytes": 177,
+        "raw_sha256": "5be560a7058d3407d1d4d92891903ad63f1db17e06fbddd511ccecee4b358b22"
+      },
+      "runs/preflight01.log.receipt.json": {
+        "bytes": 2853,
+        "raw_sha256": "45fb3b036d39bd9bbcde7f1c1ecc4e47b6bc5319296aa5aafeae164587a17251"
+      },
+      "runs/preflight01.log.stderr": {
+        "bytes": 1836,
+        "raw_sha256": "0c8b996290ad8c3c740a1a23c2cb2e5b6fdb39566e8222d3cadc69612390c51b"
+      },
+      "runs/preflight02.log": {
+        "bytes": 1535,
+        "raw_sha256": "324c0dbc93b75959ec630be939c131ece95d509bb588840b92a223d7e27f253d"
+      },
+      "runs/preflight02.log.receipt.json": {
+        "bytes": 2767,
+        "raw_sha256": "2c376ad8be1a8119b179626a7992b57352084ea56650a03bb7d3df32eea147e6"
+      },
+      "runs/preflight02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "source_reconciliation.json": {
+        "bytes": 74524,
+        "raw_sha256": "35c1268597ace8bf69ef2e1a0dc00f9001ca11949d24a1efcc430109629be6e5"
+      },
+      "spatial01.json": {
+        "bytes": 4139,
+        "raw_sha256": "2529803f86121e1149e1b6366bd319387c60472cf48e1d07c23015ac9894d3bb"
+      },
+      "spatial02.json": {
+        "bytes": 1771,
+        "raw_sha256": "06816b576d9945ef53a62ffbf693fa9bddcba85e1ead1b20b3370f01e4a96734"
+      },
+      "static_disposition.json": {
+        "bytes": 2831,
+        "raw_sha256": "28623520b8884d1f52e9879b2501ad09daf526fbacf5bfb3bfdb154ef00f04c8"
+      },
+      "all_buildings/city/orison_starlit_city_moon.png": {
+        "bytes": 1500326,
+        "raw_sha256": "a2651ee5551305de43b9e5998ed62fb0b1207844a4ac9ca5c7d26486438d09ff"
+      },
+      "all_buildings/city/night_review.json": {
+        "bytes": 3198,
+        "raw_sha256": "9e28075133cd7e27500fd624659699e65cbcbc917a4ed24eb0b1e2ce0f549372"
+      },
+      "all_buildings/family/close_evening.png": {
+        "bytes": 1923925,
+        "raw_sha256": "cc006c409791768a2980293edb99a610949d1904f6bec91b9c024aa98edbde55"
+      },
+      "all_buildings/family/diagnostic.json": {
+        "bytes": 1734,
+        "raw_sha256": "0a6350ad5ebbabc30388b3efbf9849512c0ad3c8d08b8c32d60e685de8c1974b"
+      },
+      "all_buildings/source_reconciliation.json": {
+        "bytes": 67893,
+        "raw_sha256": "13f0f10801562cfa8870eafab5ed0fb83cc5d8d19322c52824e0f5932c59655f"
+      },
+      "all_buildings/spatial.json": {
+        "bytes": 1771,
+        "raw_sha256": "3d71b5acf9ad73d35757312e5006b374457839826a5d9680ddc6526b6ae226ca"
+      },
+      "all_buildings/reconcile.py": {
+        "bytes": 2717,
+        "raw_sha256": "b43053b29bd8aca4bc8f932365cf98105cf713ccf12c6729ec3c968a5563a55b"
+      },
+      "all_buildings/runs/city.log": {
+        "bytes": 4763,
+        "raw_sha256": "9af94eab59fbb8e8f4ac298c1d6c28b35ed300612ab22640ec6503bfbd3ad55b"
+      },
+      "all_buildings/runs/city.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_buildings/runs/city.log.receipt.json": {
+        "bytes": 2740,
+        "raw_sha256": "ee91aea262bb5ab72dfbb4aef7fb4e620c595ac6b93f8e1811410c781f508c4f"
+      },
+      "all_buildings/runs/family.log": {
+        "bytes": 1558,
+        "raw_sha256": "c552b46e935384f0b8ef09c442f4379d44310f87d785c5cab72d72a670af9830"
+      },
+      "all_buildings/runs/family.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_buildings/runs/family.log.receipt.json": {
+        "bytes": 2746,
+        "raw_sha256": "b53c3542b31600082a64e4d4c85dfc84e28b861f80d845e6fd04c4f7d990cbe8"
+      },
+      "all_buildings/source/game/scripts/building/orison_v2_city_shells.gd": {
+        "bytes": 7836,
+        "raw_sha256": "53dea9f71a7d3207ce42aa3bc2ed1dae1176cd1201da4a2b118420330d9cdf3a"
+      },
+      "all_buildings/source/game/scripts/building/v2_background_window_material.gd": {
+        "bytes": 6546,
+        "raw_sha256": "3730dceb5f5e36794d94bff980b0ca6601e0593935d3d52dfd591c5ca5f21d19"
+      },
+      "all_buildings/source/game/shaders/v2_background_window_interior.gdshader": {
+        "bytes": 9850,
+        "raw_sha256": "6502f78eb581ecba485ac7eae4f1ba9f8e27d01f3ca387a03a2c3f22d9efa0e6"
+      },
+      "all_buildings/source/game/tests/v2_window_city_night_review.gd": {
+        "bytes": 8291,
+        "raw_sha256": "06f7c1e9ffc734f8b44a27b97834d15fb5decd486a08537003b9ec5bd332250f"
+      },
+      "postcards/01_moonlit_east_wide.png": {
+        "bytes": 1349902,
+        "raw_sha256": "1abd94b69a90d931c6e8fdc416b2cdca58cde3f0a35ec222fe153f3d477191ed"
+      },
+      "postcards/02_blue_hour_west_wide.png": {
+        "bytes": 1896784,
+        "raw_sha256": "29b09e2a8c94116cdfe87fc79591d49f33e433f7f48c870b6cbb88f9a681643c"
+      },
+      "postcards/03_autumn_dawn_alternate.png": {
+        "bytes": 2021261,
+        "raw_sha256": "e5940d1c0470f9a193a7acbd8563f5ca372bba31ce4d940df43cc3a292c43bce"
+      },
+      "postcards/04_winter_afternoon_alternate.png": {
+        "bytes": 1586277,
+        "raw_sha256": "e868c6c496e5d12bdf3c531a34700ae0e48d1a7bd1406e70eceb3def2c28a88d"
+      },
+      "postcards/selected_postcards.json": {
+        "bytes": 4683,
+        "raw_sha256": "d6b89b8e26a47fa69156028ef011d6d8ef4a819c3d68b4322b12ac7d45d023c9"
+      },
+      "postcards/night_review.json": {
+        "bytes": 8903,
+        "raw_sha256": "c888168fcb0d5f1eb44d1d1f9cbcbefa8837bfcb264e463c8f4bce3f411afcd0"
+      },
+      "postcards/gallery.log": {
+        "bytes": 9120,
+        "raw_sha256": "18c59fe0839749369081e2c83819bfce4f14faad993d4c44fc7f5b33113a9c0d"
+      },
+      "postcards/gallery.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "postcards/gallery.log.receipt.json": {
+        "bytes": 2753,
+        "raw_sha256": "2ae34a5c99cb0a2d87fdb091b29173741e34ec62960c45f8b511c968646e2a44"
+      },
+      "postcards/spatial_after.json": {
+        "bytes": 1771,
+        "raw_sha256": "1b7b830e2d675bf0c5d2065a0b33f8d5f147a5823add39f3e636918704169e7e"
+      },
+      "postcards/capture_source.gd": {
+        "bytes": 9921,
+        "raw_sha256": "3cd8d7092c76c94104c93997fdc96461ccc5e65e7dfc213e8b75ced973966470"
+      }
+    },
+    "postcard_selection": {
+      "evidence_class": "INERT",
+      "resolution": [
+        3440,
+        1440
+      ],
+      "frames": [
+        "01_moonlit_east_wide.png",
+        "02_blue_hour_west_wide.png",
+        "03_autumn_dawn_alternate.png",
+        "04_winter_afternoon_alternate.png"
+      ],
+      "scope": "Four unretouched agent-curated roof views from one composed-world run; all63 prior archive members retained byte-exact."
+    }
   }
 }

@@ -4,6 +4,7 @@ const Runtime:=preload("res://scenes/building/orison_v2_runtime.tscn")
 const Opening:=preload("res://scripts/game/prologue_state.gd")
 const Director:=preload("res://scripts/game/prologue_director.gd")
 const TemporalSky:=preload("res://scripts/game/prologue_temporal_sky.gd")
+var batch_mode:=false
 var world:OrisonV2RuntimeRoot
 var director:Node
 var checks:Array[Dictionary]=[]
@@ -17,6 +18,9 @@ func check(ok:bool,label:String) -> bool:
 	return ok
 
 func _ready() -> void:
+	if batch_mode:return
+	if OS.get_environment("ORISON_REVIEW_FULLSCREEN")=="1":
+		GameBoot.settings.fullscreen=true;GameBoot.apply_user_settings()
 	process_mode=Node.PROCESS_MODE_ALWAYS
 	directory=OS.get_environment("SHOT_DIR")
 	if directory.is_empty():get_tree().quit(2);return
@@ -66,6 +70,8 @@ func run() -> void:
 	# another camera. The earlier cold diagnostic did not exercise that view.
 	for frame in 120:await frames(1)
 	var target:=Opening.sample_destination()
+	if OS.get_environment("ORISON_COMPACT_DEMO")=="1":
+		await compact_sequence(target);finish();return
 	if not check(stage(target),"historical 4B wall and finale owners bind"):finish();return
 	if OS.get_environment("PROLOGUE_LATE_RELOAD_REVIEW")=="1":
 		await review_interrupted_reload(target);finish();return
@@ -96,10 +102,10 @@ func run() -> void:
 	var register:Node=world.service_set_carrier.rig.temporal_register
 	check(register._owner!=null and register._owner.get_ref()==clip and register._target==Opening.annual_destination(target),"sky borrows the installed temporal register with the original immutable destination")
 	var frozen:Dictionary=RealityState.data.campaign_clock.duplicate(true)
-	for stamp:float in [0.0,3.5,4.5,6.5,9.0,15.0,24.0,29.8]:
+	for stamp:float in [0.0,1.9,3.5,4.5,6.5,9.0,15.0,24.0,29.8]:
 		clip.seek(stamp)
 		check(clip.sampled_utc>=Opening.LOOP_START_UTC and clip.sampled_utc<Opening.LOOP_START_UTC+Opening.LOOP_SECONDS,"actual detached sky sample stays in the authored year: "+str(stamp))
-		check(register.labels.Passing.text=="PASS "+register._date(clip.sampled_utc,-300) and register.labels.Departure.text=="DEPARTURE  UNKNOWN","physical passing row follows the actual borrowed sky clock without inventing departure: "+str(stamp))
+		check(register.row_values[1]==register._date(clip.sampled_utc,-300) and register.row_values[0].is_empty() and register.labels.Unknown.text=="UNKNOWN","physical passing row follows the actual borrowed sky clock without inventing departure: "+str(stamp))
 		await frames(3)
 		await capture("sky_%02d.png"%int(stamp*10))
 	# Isolate the observed centre seam at a fixed sky/camera/time.
@@ -192,6 +198,95 @@ func run() -> void:
 		Input.parse_input_event(press);Input.flush_buffered_events();await frames(2)
 		check(director.state.phase=="prologue_complete" and director.temporal_sky.was_skipped and player.text_input_owner==null,"actual skip input completes through the same clock owner and releases its lease")
 	finish()
+
+## One unaccelerated loaded-world sequence. Earlier bathroom beats are staged,
+## not claimed as played. Normal director/printer/arm/sky/stinger own every beat.
+func compact_sequence(_initial_target:Dictionary) -> void:
+	CampaignClock.new().configure_date(1928,11,10,18*60)
+	var value:=Opening.request_skip(Opening.initial())
+	while value.phase!="identity_mystery":
+		if value.phase=="companion_crossing":value=Opening.applied(value,"companion_materialized")
+		value=Opening.advance(value,Opening.PHASES[Opening.PHASES.find(value.phase)+1])
+	value=Opening.observe(value,"identity_question_presented")
+	if not check(Opening.valid(value) and value.phase=="identity_mystery" and value.effects.companion_materialized,"late fixture is a valid materialized companion state before resume"):return
+	RealityState.data.prologue=value
+	director=Director.new();add_child(director)
+	if not check(director.configure(world),"compact fixture binds real occupied-world director"):return
+	if not check(director.resume_opening(preload("res://assets/props/prologue_wake_cover.glb")),"public resume presents final communicated line"):return
+	var carrier:Node=world.service_set_carrier
+	var player:PlayerController=world.player
+	var register:Node=carrier.rig.temporal_register
+	var began:=Time.get_ticks_msec();var start_frame:=Engine.get_process_frames()
+	# Offline movie writing runs fixed simulation steps below real time. Its
+	# authoring wall-clock budget is separate from normal interaction deadlines.
+	var wall_budget:=600000 if OS.get_cmdline_args().has("--write-movie") else 180000
+	var saw_typing:=false;var dark_while_typing:=true;var saw_reveal:=false;var safely_revealed:=true
+	var reveal_visible:=false;var saw_stinger:=false;var event_frames:Dictionary={}
+	while director.state.phase!="prologue_complete" and Time.get_ticks_msec()-began<wall_budget:
+		await frames(1)
+		if carrier.arm_busy():
+			saw_typing=true
+			dark_while_typing=dark_while_typing and register.phase=="idle" and register.capacitor.get_shader_parameter("capacitor_charge")==0.0
+			if not event_frames.has("typing"):event_frames.typing=Engine.get_process_frames()
+		if is_instance_valid(director.temporal_sky) and director.temporal_sky.active:
+			var clip:Node=director.temporal_sky
+			if not event_frames.has("jump"):event_frames.jump=Engine.get_process_frames()
+			saw_reveal=true;safely_revealed=safely_revealed and not carrier.arm_busy() and carrier.rig.keyboard_open<=.001
+			if clip.age>=2.5 and clip.age<3.5 and not reveal_visible:
+				reveal_visible=player.camera.is_current() and not carrier.is_story_absent() and register.opening>.99
+				await capture("accepted_jump_register.png")
+		if is_instance_valid(director.temporal_sky) and director.temporal_sky.holding:
+			saw_stinger=true
+			if not event_frames.has("stinger"):event_frames.stinger=Engine.get_process_frames()
+	check(saw_typing and dark_while_typing,"real command contacts keep both temporal devices dark")
+	check(saw_reveal and safely_revealed,"accepted reveal follows arm parking, keyboard withdrawal and garage closure")
+	check(reveal_visible,"accepted register has a readable interval with its actual player observer")
+	check(saw_stinger and director.state.phase=="prologue_complete","natural32-second jump and17-second stinger finish through their owners")
+	check(register.phase=="idle" and register._owner==null and register.capacitor.get_shader_parameter("capacitor_charge")==0.0,"completed sequence retires both amber displays")
+	FileAccess.open(directory.path_join("sequence_frames.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","start_frame":start_frame,"end_frame":Engine.get_process_frames(),"events":event_frames,"target":director.state.target,"scope":"Actual loaded-world final line, physical typing and accepted jump. Prior prologue beats staged. Movie fixed-step capture, if requested, is not performance evidence."},"\t"))
+
+	# The recorded sequence ends above. Additional ownership controls are not
+	# part of the prologue or any published end-title clip.
+	for stamp:float in [0.0,5.0]:
+		if not check(await begin_staged_sky(director.state.target.duplicate(true)),"camera takeover control starts at "+str(stamp)):continue
+		var clip:Node=director.temporal_sky;clip.seek(stamp)
+		var foreign:=Camera3D.new();add_child(foreign);foreign.global_transform=clip.camera.global_transform;foreign.make_current()
+		clip._process(.01)
+		check(not clip.active and foreign.is_current() and world.player.text_input_owner==null,"foreign camera retains ownership across departure boundary "+str(stamp))
+		world.player.camera.make_current();foreign.free()
+	var quiet_before:bool=bool(GameBoot.settings.get("reduce_flashing",false))
+	GameBoot.settings.reduce_flashing=true
+	if check(await begin_staged_sky(director.state.target.duplicate(true)),"reduced-flash reading interval uses the same jump owner"):
+		var clip:Node=director.temporal_sky;clip.seek(3)
+		check(world.player.camera.is_current() and clip._veil.color.a==0,"reduced-flash mode preserves the initial readable register")
+		clip.seek(15);check(clip._veil.color.a>.99,"reduced-flash mode still masks rapid seasonal cycles")
+		clip.cancel()
+	GameBoot.settings.reduce_flashing=quiet_before
+
+	var fixed_target:Dictionary=director.state.target.duplicate(true)
+	if check(stage(fixed_target),"power/stow entry control binds its fixed accepted target"):
+		var frozen_clock:Dictionary=RealityState.data.campaign_clock.duplicate(true)
+		carrier.device.set_radio_powered(false)
+		check(not director.begin_temporal_sky() and player.text_input_owner==null and world.process_mode!=Node.PROCESS_MODE_DISABLED and RealityState.data.campaign_clock==frozen_clock,"unpowered entry cannot borrow input/world or apply the accepted clock")
+		carrier.device.set_radio_powered(true);carrier.reading=true;carrier.rig.request_keyboard(true)
+		var open_deadline:=Time.get_ticks_msec()+4000
+		while not carrier.rig.typing_ready() and Time.get_ticks_msec()<open_deadline:await frames(1)
+		check(carrier.rig.typing_ready(),"entry repair control uses a genuinely opened reading keyboard")
+		var started:bool=director.begin_temporal_sky()
+		check(not started and player.text_input_owner==null,"open keyboard entry waits for real stow without taking input")
+		var end:=Time.get_ticks_msec()+4000
+		while not started and Time.get_ticks_msec()<end:
+			await frames(1);started=director.begin_temporal_sky()
+		check(started and register._owner!=null and register._owner.get_ref()==director.temporal_sky,"existing retry starts with the actual powered register owner after stow")
+		if started:director.temporal_sky.cancel()
+
+func begin_staged_sky(target:Dictionary) -> bool:
+	if not stage(target):return false
+	var end:=Time.get_ticks_msec()+4000
+	while Time.get_ticks_msec()<end:
+		if director.begin_temporal_sky():return true
+		await frames(1)
+	return false
 
 func review_interrupted_reload(target:Dictionary) -> void:
 	# Synthetic validated late-phase staging; earlier opening beats not played.

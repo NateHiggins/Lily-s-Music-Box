@@ -30,16 +30,18 @@ func run() -> void:
 	var bodies: Dictionary = {}
 	var metrics := preload("res://tests/orison_v2_domestic_native_test.gd").new()
 	var lower_counts: Dictionary={}
-	var lower_proof: Dictionary=fixture.assets.get("body_lod",{})
-	if not lower_proof.is_empty():
+	for lower_proof: Dictionary in fixture.assets.values():
+		if str(lower_proof.role)!="body_lod":continue
 		var lower: Node3D=(load("res://"+str(lower_proof.asset).trim_prefix("game/")) as PackedScene).instantiate()
-		for part: Dictionary in lower_proof.parts:lower_counts[str(part.name)]=int(part.triangles)
+		for part: Dictionary in lower_proof.parts:
+			check(not lower_counts.has(str(part.name)),"replacement part appears in only one block: "+str(part.name))
+			lower_counts[str(part.name)]=int(part.triangles)
 		var low_seen:=0
 		for part: MeshInstance3D in lower.find_children("*","MeshInstance3D",true,false):
 			metrics._check_cap_mapping(part.mesh,true)
 			check(lower_counts.has(str(part.name)) and part.mesh.surface_get_array_index_len(0)==int(lower_counts.get(str(part.name),-1))*3,"actual complete imported industrial replacement: "+str(part.name))
 			low_seen+=1
-		check(low_seen==lower_counts.size() and low_seen>0,"nonempty complete industrial replacement roster")
+		check(low_seen==lower_proof.parts.size() and low_seen>0,"nonempty complete industrial replacement block roster")
 		lower.free()
 	var industrial_parts:=0
 	for model: Node3D in horizon.get_children():
@@ -60,6 +62,15 @@ func run() -> void:
 				var reduces: bool=int(lower_counts[str(draw.name)])*3<draw.mesh.surface_get_array_index_len(0)
 				check(lods.size()==1 if reduces else lods.is_empty(),"authored replacement without automatic industrial tail: "+str(draw.name))
 				var loaded: Material=draw.get_meta("v2_city_roof_source",draw.material_override)
+				if draw.has_meta("v2_window_source_material"):
+					var optical := draw.material_override as ShaderMaterial
+					var glazing := draw.get_meta("v2_window_source_material") as StandardMaterial3D
+					check(optical != null and optical.shader == preload("res://shaders/v2_background_window_interior.gdshader"), "known background optical shader")
+					if optical != null and glazing != null:
+						for pair in [["glass_albedo", glazing.albedo_texture], ["glass_roughness", glazing.roughness_texture], ["glass_normal", glazing.normal_texture]]:
+							check(optical.get_shader_parameter(pair[0]) == pair[1], "optical glazing samples original catalogue map")
+						check(optical.get_shader_parameter("physical_uv_scale") == Vector2(glazing.uv1_scale.x, glazing.uv1_scale.y), "optical glazing retains physical chart scale")
+					loaded = glazing
 				var stock:=loaded.get_meta("v2_weather_source",loaded) as StandardMaterial3D
 				check(stock!=null and not stock.uv1_triplanar,"industrial source-owned authored material: "+str(draw.name))
 				if stock!=null:
@@ -236,8 +247,9 @@ func _industrial_sources(horizon: Node3D) -> Dictionary:
 	var paths: Dictionary={}
 	for path: String in ["res://tests/v2_city_horizon_bench.gd","res://scripts/building/orison_v2_city_horizon.gd","res://scripts/building/orison_v2_city_transport.gd","res://scripts/building/orison_v2_native_faces.gd","res://scripts/building/orison_v2_owner_finishes.gd","res://scripts/material_library.gd","res://data/runtime_material_sets.json","res://data/orison_v2/exterior/city_horizon.json","res://tests/fixtures/orison_city_horizon.json"]:
 		paths[path]=_profile_sha(path)
-	for family: String in ["city_horizon_near","city_horizon_far","city_horizon_lod1"]:
-		for path: String in ["res://assets/props/"+family+".glb","res://assets/props/"+family+".glb.import"]:paths[path]=_profile_sha(path)
+	var source: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(Horizon.FINISHES))
+	for asset: String in Horizon.asset_paths(source):
+		for path: String in [asset,asset+".import"]:paths[path]=_profile_sha(path)
 	for draw: MeshInstance3D in horizon.find_children("*","MeshInstance3D",true,false):
 		var loaded: Material=draw.get_meta("v2_city_roof_source",draw.material_override)
 		var stock:=loaded.get_meta("v2_weather_source",loaded) as StandardMaterial3D

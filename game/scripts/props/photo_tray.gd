@@ -40,7 +40,12 @@ func configure(pivot: Node3D, shop_hours: Node, picture: Texture2D) -> void:
 	var paper := MeshInstance3D.new()
 	paper.name = "Paper"
 	paper.mesh = _plate_mesh(Vector2(0.16, 0.2))
-	_paper = StandardMaterial3D.new()
+	_paper = MatLib.get_mat("paper").duplicate() as StandardMaterial3D
+	_paper.resource_name="paper"
+	_paper.uv1_triplanar=false;_paper.uv1_world_triplanar=false
+	_paper.uv1_scale=Vector3.ONE/float(MatLib.SETS["paper"][3])
+	_paper.normal_enabled=true
+	_paper.texture_filter=BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	_paper.albedo_color = Color(.9, .87, .78)
 	_paper.roughness = 0.45
 	paper.material_override = _paper
@@ -49,8 +54,13 @@ func configure(pivot: Node3D, shop_hours: Node, picture: Texture2D) -> void:
 	image.name = "Image"
 	image.mesh = _plate_mesh(Vector2(0.14, 0.18))
 	image.position = Vector3(0.0, 0.0006, 0.0)
-	_image = StandardMaterial3D.new()
-	_image.albedo_texture = picture
+	_image = _paper.duplicate() as StandardMaterial3D
+	# The paper's metric UV0 keeps grain/roughness at catalogue scale. The
+	# photograph is a full-sheet UV2 detail, independent of that physical scale.
+	_image.detail_enabled=true
+	_image.detail_uv_layer=BaseMaterial3D.DETAIL_UV_2
+	_image.detail_blend_mode=BaseMaterial3D.BLEND_MODE_MIX
+	_image.detail_albedo=picture
 	_image.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	_image.roughness = 0.45
 	image.material_override = _image
@@ -72,9 +82,14 @@ func _pan_height(pivot: Node3D) -> float:
 	return top
 
 
-func _plate_mesh(size: Vector2) -> PlaneMesh:
-	var mesh := PlaneMesh.new()
-	mesh.size = size
+func _plate_mesh(size: Vector2) -> ArrayMesh:
+	var plane:=PlaneMesh.new();plane.size=size
+	var arrays:=plane.get_mesh_arrays()
+	var uv:PackedVector2Array=arrays[Mesh.ARRAY_TEX_UV]
+	arrays[Mesh.ARRAY_TEX_UV2]=uv.duplicate()
+	for index in uv.size():uv[index]*=size
+	arrays[Mesh.ARRAY_TEX_UV]=uv
+	var mesh:=ArrayMesh.new();mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
 	return mesh
 
 

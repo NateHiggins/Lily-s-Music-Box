@@ -13,6 +13,9 @@ func check(ok: bool, label: String) -> void:
 	if not ok: failures.append(label)
 
 func _ready() -> void:
+	if OS.get_environment("ORISON_REVIEW_FULLSCREEN")=="1":
+		GameBoot.settings.fullscreen=true;GameBoot.apply_user_settings()
+	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR"))
 	_run.call_deferred()
 
 func _run() -> void:
@@ -21,14 +24,21 @@ func _run() -> void:
 	rig = preload("res://scripts/device/companion_mechanism.gd").new(); add_child(rig)
 	if not rig.build(): check(false, "installed companion builds"); finish(); return
 	rig.scale = Vector3.ONE * .42; rig.set_process(false)
+	var arm:=preload("res://scripts/device/companion_typing_arm.gd").new();rig.add_child(arm);rig.typing_arm=arm
+	if not arm.configure(rig,null,func()->bool:return true):check(false,"actual garage mounts");finish();return
 	register = Register.new(); rig.add_child(register); rig.temporal_register = register
 	if not register.configure(rig): check(false, "native accessory binds"); finish(); return
 	check(register.native.global_basis.get_scale().distance_to(Vector3.ONE) < .00001, "phone scale applied once")
 	var audit := preload("res://tests/clawfoot_bath_hand_bench.gd").new()
 	for draw: MeshInstance3D in register.native.find_children("*", "MeshInstance3D", true, false):
 		for surface in draw.mesh.get_surface_count(): audit.check_surface(draw, surface, draw.get_active_material(surface))
-	check(audit.failures.is_empty(), "all seven imported stocks retain UV metrics, tangents and loaded PBR mips")
+	check(audit.failures.is_empty(), "all fourteen imported stocks retain UV metrics, tangents and loaded PBR mips")
 	audit.free()
+	var knob_audit:=preload("res://tests/clawfoot_bath_hand_bench.gd").new()
+	for draw:MeshInstance3D in rig.feed_replacement_draws:knob_audit.check_surface(draw,0,draw.get_active_material(0))
+	check(rig.feed_replacement_draws.size()==5 and knob_audit.failures.is_empty(),"five refined feed/shaft partitions retain loaded metric PBR")
+	knob_audit.free()
+	check(rig.device.teletype.feed_wheels[0]==rig.model.find_child("FeedWheel0",true,false) and rig.device.teletype.feed_wheels[1]==rig.model.find_child("FeedWheel1",true,false),"original feed-hand and printer retain their actual wheel owners")
 	var source := MatLib.get_mat("glass_drawn_expressive")
 	check(source.uv1_triplanar and source.albedo_color == Color.WHITE and not source.refraction_enabled, "catalogue glass remains unchanged")
 	var environment := WorldEnvironment.new(); var state := Environment.new()
@@ -40,15 +50,25 @@ func _run() -> void:
 	add_child(camera); camera.position = Vector3(.09, .02, .30); camera.look_at(Vector3(0, -.025, .015)); camera.make_current()
 	await shot("stowed")
 	var target := {"utc_unix_seconds": State.LOOP_START_UTC + 86300, "local_bias_minutes": -300, "local_zone": "EST"}
+	rig.typing_arm.case_time=rig.typing_arm.PREOPEN_END
+	check(not register.begin(self,target),"garage must stow before accepted reveal")
+	rig.typing_arm.case_time=0
 	check(register.begin(self, target), "validated command opens register without input lease")
 	check(register.capacitor.get_shader_parameter("capacitor_charge") == 1.0 and register.emission_counts[1] > 0 and register.emission_counts[2] > 0 and register.emission_counts[3] > 0, "native three core tags drive powered emission")
 	register.set_process(false)
 	for frame in 240: register.advance(1.0 / 120)
-	check(register.phase == "open" and register.hinge.basis.is_equal_approx(Basis(Vector3.RIGHT, deg_to_rad(-210))), "absolute authored open stop")
+	check(register.phase == "open" and register.hinge.basis.is_equal_approx(Basis(Vector3.RIGHT, deg_to_rad(-100))), "absolute authored open stop")
 	print("REGISTER ANGLE open ", register.hinge.rotation, " basis ", register.hinge.basis)
-	check(register.labels.Departure.text == "DEPARTURE  UNKNOWN", "staged date never invents death time")
+	check(register.labels.Unknown.text == "UNKNOWN" and register.row_values[0].is_empty(), "staged date never invents death time")
 	register.sample_clock(self, State.LOOP_START_UTC + 3600)
-	check(register.labels.Passing.text == "PASS 11/10/1928 01.00", "passing row uses supplied historical clock")
+	check(register.row_values[1] == "11/10/1928 01.00", "passing row uses supplied historical clock")
+	var updates:int=register.mask_updates
+	register.sample_clock(self,State.LOOP_START_UTC+3659)
+	check(register.mask_updates==updates,"sub-minute clock sampling does not rebuild digit masks")
+	var masked:=true
+	for digit in 12:masked=masked and register.digit_masks[digit]==0
+	check(masked and register.led.get_shader_parameter("row_valid").x==0,"unknown departure has no lit digits or punctuation")
+	check(register.led.get_shader_parameter("amber_linear")==register.capacitor.get_shader_parameter("amber_linear"),"display and capacitor share one amber profile")
 	check(register.labels.Passing.pixel_size > register.labels.Departure.pixel_size, "larger passing aperture has larger text")
 	await shot("open_front")
 	camera.position = Vector3(-.07, .035, -.23); camera.look_at(Vector3(-.002, .018, -.021))
@@ -73,13 +93,33 @@ func _run() -> void:
 	for frame in 240: register.advance(1.0 / 120)
 	check(register.phase == "idle" and not register.is_processing(), "released accessory settles and stops idle callbacks")
 	check(register.capacitor.get_shader_parameter("capacitor_charge") == 0.0, "released command retires emission")
-	check(register.hinge.basis.is_equal_approx(Basis(Vector3.RIGHT, deg_to_rad(-90))), "absolute authored stowed stop")
+	check(register.hinge.basis.is_equal_approx(Basis.IDENTITY), "absolute authored stowed stop")
 	print("REGISTER ANGLE closed ", register.hinge.rotation, " basis ", register.hinge.basis)
 	check(RealityState.data == campaign, "presentation makes no campaign writes")
 	camera.position = Vector3(-.08, .04, -.28); camera.look_at(Vector3(0, -.015, .01))
 	await shot("capacitor_rear")
+	await photo_surface_controls(camera)
 	await world_controls(target)
 	finish()
+
+func photo_surface_controls(camera:Camera3D) -> void:
+	var pose:=camera.transform
+	rig.hide()
+	var photo:=preload("res://scripts/props/photo_tray.gd").new();add_child(photo)
+	var pivot:=Node3D.new();photo.add_child(pivot)
+	var picture:=load("res://assets/textures/photo/own_plate.png") as Texture2D
+	photo.configure(pivot,null,picture)
+	var audit:=preload("res://tests/clawfoot_bath_hand_bench.gd").new()
+	for draw:MeshInstance3D in photo.sheet.find_children("*","MeshInstance3D",true,false):audit.check_surface(draw,0,draw.get_active_material(0))
+	check(audit.failures.is_empty(),"photo paper and image retain metric charts, private PBR and loaded mips")
+	audit.free()
+	check(photo._image.detail_albedo==picture and photo._image.detail_uv_layer==BaseMaterial3D.DETAIL_UV_2 and picture.get_image().has_mipmaps(),"full photograph uses independent normalized detail UVs with loaded mips")
+	photo.progress=0;photo._show();check(photo._image.albedo_color.a==0,"unexposed photo remains invisible")
+	photo.progress=1;photo._show();photo.sheet.visible=true
+	check(photo._image.albedo_color==Color.WHITE,"development owner still reaches the exact full-image state")
+	camera.position=Vector3(0,.28,0);camera.look_at(Vector3(0,-.012,0),Vector3.FORWARD)
+	await shot("photo_print_ready")
+	photo.free();rig.show();camera.transform=pose
 
 func world_controls(target: Dictionary) -> void:
 	rig.queue_free(); await get_tree().process_frame
@@ -91,8 +131,14 @@ func world_controls(target: Dictionary) -> void:
 	if not carrier.world_ready: check(false, "production carrier mounts accessory"); return
 	carrier.set_process(false); carrier.rig.set_process(false); carrier.motion.set_physics_process(false)
 	carrier.motion.motion_intensity = 0
-	carrier.reading = true; carrier.rig.keyboard_open = 1; carrier.rig._apply_keyboard()
+	carrier.reading = true; carrier.rig.keyboard_requested=false;carrier.rig.keyboard_open = 0; carrier.rig._apply_keyboard()
 	register = carrier.rig.temporal_register
+	check(carrier.rig.hold_keyboard_closed(self),"temporal preparation holds ordinary keyboard requests closed")
+	carrier.rig.request_keyboard(true)
+	check(not carrier.rig.keyboard_requested,"normal reading cannot override the stow holder")
+	carrier.rig.release_keyboard_hold(self);carrier.rig.request_keyboard(true)
+	check(not register.begin(self,target),"a requested keyboard opening also refuses unsafe reveal")
+	carrier.rig.request_keyboard(false)
 	check(register.begin(self, target), "real carrier accepts accessory presentation")
 	register.set_process(false)
 	for index in 240: register.advance(1.0 / 120)

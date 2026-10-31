@@ -1,3 +1,87 @@
+# Current handoff — 2026-10-31 compact companion and city checkpoint
+
+Evidence class: **INERT**. Current-session index, not acceptance evidence.
+
+Owner: **Lily**. Normal development checkout: **C:/PleaseRemainOnTheLine**.
+The app-attached `v2-baseline` checkout can be stale; do not develop there.
+Read DOCS.md, AGENTS.md and
+[developer-continuity](.agents/skills/developer-continuity/SKILL.md) first.
+Sections below this checkpoint are historical context, not the current queue.
+
+## Where work stands
+
+- Current branch: `codex/v2-civic-intake-20261031`; runtime checkpoint
+  `3312654e`. Main reconciled through `fc6c5c47` in `9cefcd11`, then through
+  `b0708b7e` (editorial/size proposals; no runtime input changes).
+  PR #118 is open. First candidate f5082fcf had one new reported test-only
+  spatial station (two explicit fourth-floor camera/player coordinates). Its
+  exact reviewed fixture record is now registered; rerun comparison is pending.
+  Commit, push and merge are separate states: final publication/merge is pending
+  until recorded below. Preserve newer main work when reconciling again.
+- City/window work: 34 whole-building exports, 149 non-Orison window partitions
+  with deterministic occupied-room optics and variation. Orison is excluded.
+  Four rooftop postcards and the moonlit tracker illustration are retained.
+  See [window ledger](design/V2_BACKGROUND_WINDOW_OPTICS_2026-10-31.md).
+- Compact companion revision7 is integrated: garage-mounted amber temporal
+  register/capacitor, arm and replacement feed knobs. Green phosphor, printer,
+  body, keyboard, propulsion and gameplay authorities are preserved. Garage
+  clears before keyboard travel; mechanical return completes before closure.
+  Temporal presentation waits for accepted command, power and safe stow.
+- The first four seconds of the existing 32-second sky sequence retain the
+  reading view. Foreign camera takeover cancels safely. The exact 17-second
+  Tardi ending is unchanged. Transient keyboard ownership releases on reload.
+- Newly merged photo-tray paper now has metric registered PBR and normalized
+  image UV2; original development, purchase, inventory and save owners remain.
+- Canonical editable source is `art/blender/companion_typing_arm.blend`, the
+  combined 1.69 MB source-only delivery, not the 41 MB packed review scene.
+  External packet: `C:/ov/asset-prototypes/companion-compact-reveal-20261031/`.
+  All 386 manifest hashes matched; native checks alone did not qualify runtime.
+
+## Evidence and remaining limits
+
+Read [the prologue ledger](design/V2_PROLOGUE_2026-10-28.md), compact revision7
+and combined-main sections. Raw runs remain external at
+`C:/ov/reports/companion_rev7_20261031/`.
+
+- Arm3 passed all 43 contacts and loaded/interlock checks. Register10 passed
+  1,735 checks. Console5 passed 125 actual-input/validated-reload controls with
+  empty stderr, including backward reload during pending keyboard stow.
+- Qualified3 passed 671 checks: occupied physical census, actual final line,
+  typing, safe return, accepted reveal, 32-second sky and 17-second ending,
+  including reduced-flash, power and foreign-camera controls. It predates the
+  final reload lifecycle correction; do not repin it to newer inputs.
+- Final source-bound physical renewal (`qualified4`) passed 651 checks, zero
+  failures and empty stderr. Its test-written schema2 contract and reviewed
+  native frames are published in the canonical surface packet. It skipped
+  unchanged interaction programmes, not physical draws; save reconstruction
+  is explicitly NOT_EXECUTED in this particular contract.
+- Original failures are preserved. `companion_sequence_review.mp4` is an actual
+  75.6-second illustration from qualified1, which failed two repaired photo
+  materials. Its writer initialized 1280x720; native PNGs are 3440x1440. It is
+  neither a qualification receipt nor a polished teaser master.
+- Full ordinary prologue/golden-shift playtesting, broader FOV/readability,
+  wrist manufacturing/contact review, artistic acceptance, annual weather
+  qualification and general performance stalls remain open. City access WIP
+  is a diagnostic, not continuous-access acceptance. Do not repeat unchanged
+  firehose programmes or long walks to verify an unrelated changed part.
+
+## Next session
+
+Finish publication/candidate verification and merge if still pending below;
+otherwise inspect TASKS.md and continue the authorized prologue/architect
+priorities. Lily requested no new development after this checkpoint before
+handoff. Do not interpret an archive as V2 completion.
+
+Use the shared first-come lane for Godot/GPU work and the hash-pinned patched
+Vulkan engine in `.godot-engine.json`; read `tools/engine_patches/README.md`.
+Full-screen review is authorized at native 3440x1440. Preserve unrelated
+untracked UIDs, `.codex-attachments` and all other agents' worktrees. Stage named
+paths only. Never hide unrelated files to obtain a clean verifier result.
+
+---
+
+## Historical handoff (retained for provenance)
+
 # Handoff — Orison Apartments build (local continuation)
 
 This document briefs a fresh Claude (or human) instance picking up the

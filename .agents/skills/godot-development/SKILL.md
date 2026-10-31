@@ -129,6 +129,10 @@ original failures. Distinguish diagnostics, runtime qualification, and human
 acceptance under the repository's evidence rules. Headless parsing and automated
 tests do not prove visual presentation, interaction, or game feel.
 
+Write hash-bound text with explicit LF newlines or normalized bytes. On Windows,
+`-text` prevents Git from correcting a writer's default CRLF conversion; compare
+content and staged whitespace before publishing a hash-bearing manifest.
+
 If Godot, graphics, target hardware, or required assets are unavailable, finish
 independent work and name the precise limitation. Never claim a playtest from
 static inspection or headless checks. Technical checks establish functionality;
@@ -414,3 +418,22 @@ Revise obsolete advice when contrary evidence appears. Keep detailed findings
 in their existing subsystem ledger and texture/native authoring in the linked
 skills. Validate skill structure and links after edits; documentation-only
 maintenance does not require another Godot launch or gameplay acceptance claim.
+
+
+## Presentation handoffs learned in the compact-companion integration
+
+A disabled/borrowed world cannot animate its descendants through their normal
+process callbacks. Drive its presentation from the existing cinematic timeline,
+keep the actual reading observer until departure, and make camera handoff once.
+Test foreign-camera takeover on both sides; never reacquire a successor's view.
+Mechanical stow needs exclusive transient presentation ownership so normal
+reading cannot repeatedly reopen a returning keyboard. Check a callee's refusal
+before borrowing input/world state; test power, pause and interrupted re-entry.
+See the [current prologue ledger](../../../design/V2_PROLOGUE_2026-10-28.md).
+Use [developer continuity](../developer-continuity/SKILL.md) for a fresh-session
+intake or handoff; keep current hashes/status in the handoff rather than here.
+
+New fixed camera/player stations in tests are spatial dependencies too. Run the
+spatial audit as well as receipt-closure preflight before a merge checkpoint;
+review and register only the exact new fixture record, retaining its coordinates
+and disposition. Do not regenerate the entire manifest or waive unknown drift.

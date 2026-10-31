@@ -66,6 +66,7 @@ var _outward:Vector3
 var _publish_age:=-INF
 var _published_utc:=INF
 var _published_camera:=Vector3(INF,INF,INF)
+var _view_departed:=false
 var _carrier:Node
 var _quiet:=false
 var _veil:ColorRect
@@ -145,7 +146,7 @@ func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Ca
 	camera=Camera3D.new();camera.name="TemporalWindowCamera";add_child(camera)
 	camera.fov=_old_camera.fov;camera.environment=_old_camera.environment;camera.cull_mask=_old_camera.cull_mask
 	camera.near=_old_camera.near;camera.far=_old_camera.far;camera.keep_aspect=_old_camera.keep_aspect
-	camera.global_transform=_start;camera.make_current()
+	camera.global_transform=_start # Retain the real reading observer until departure.
 	_quiet=bool(GameBoot.settings.get("reduce_flashing",false))
 	var layer:=CanvasLayer.new();layer.layer=80;add_child(layer)
 	_veil=ColorRect.new();layer.add_child(_veil);_veil.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -162,7 +163,8 @@ func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Ca
 	_above=_window+_outward*2.0+Vector3.UP*12.0
 	_window_start=Transform3D(Basis.looking_at(_outward,Vector3.UP),_window-_outward*1.45)
 	active=true;age=0;_publish_age=-INF
-	if _carrier.rig.temporal_register != null:_carrier.rig.temporal_register.begin(self,opening.target)
+	if _carrier.rig.temporal_register==null or not _carrier.rig.temporal_register.begin(self,opening.target):
+		_cleanup();return _refuse("temporal hardware is not safely powered and stowed")
 	set_process(true);set_process_unhandled_input(true);seek(0)
 	return true
 
@@ -198,23 +200,33 @@ func seek(seconds:float) -> void:
 	age=clampf(seconds,0,DURATION)
 	sampled_utc=destination_utc if age>=30 else State.wrap_loop_utc(time_at(age,source_utc,_travel_destination))
 	if not view_clock.seek_utc(sampled_utc):cancel();return
-	if _carrier.rig.temporal_register != null:_carrier.rig.temporal_register.sample_clock(self,sampled_utc)
-	var entering:=smoothstep(2.6,4.3,age)
-	var crossing:=smoothstep(4.3,5.7,age)
-	var rising:=smoothstep(5.7,7.5,age)
+	if _carrier.rig.temporal_register != null:
+		var register:Node=_carrier.rig.temporal_register
+		register.sample_clock(self,sampled_utc)
+		# The world is borrowed/disabled: use this existing cinematic clock for
+		# the reveal instead of leaving an inert process callback behind it.
+		register._set_opening(clampf(age/(register.OPEN_END-register.OPEN_START),0,1))
+	var entering:=smoothstep(4.0,5.0,age)
+	var crossing:=smoothstep(5.0,6.2,age)
+	var rising:=smoothstep(6.2,8.0,age)
 	# Stay parallel to the slats until outside the complete wall reveal.
 	# A deliberate cut after the suspended bathroom hold avoids crossing
 	# rooms, doors or closed walls on the way to the verified exterior.
-	var start_view:=_start if age<2 else _window_start
+	var start_view:=_start if age<4 else _window_start
 	var at:=start_view.origin.lerp(_window-_outward*_crossing_distance,entering)
 	at=at.lerp(_window+_outward*_crossing_distance,crossing).lerp(_above,rising)
 	var aim:=Basis.looking_at((_outward+Vector3.UP*lerpf(.03,.55,rising)).normalized(),Vector3.UP)
 	camera.global_transform=Transform3D(start_view.basis.slerp(aim,entering),at)
-	camera.near=lerpf(_old_camera.near,.002,smoothstep(2,4,age)*(1-smoothstep(5.8,7.5,age)))
-	if age>=1.5 and not _carrier.is_story_absent():_carrier.acquire_story_absence(self)
+	camera.near=lerpf(_old_camera.near,.002,smoothstep(4,5,age)*(1-smoothstep(6.2,8.0,age)))
+	if age>=4.0:
+		if not _view_departed:
+			if not _old_camera.is_current() and not camera.is_current():cancel();return
+			camera.make_current();_view_departed=true
+		if not _carrier.is_story_absent():_carrier.acquire_story_absence(self)
+	elif camera.is_current():_old_camera.make_current();_view_departed=false
 	# Normal presentation crosses the actual opening without a blackout.
 	# Reduced-flash presentation still protects against rapid day/night cycles.
-	_veil.color.a=(smoothstep(2,4,age)*(1-smoothstep(29,31,age))) if _quiet else 0.0
+	_veil.color.a=(smoothstep(4,6,age)*(1-smoothstep(29,31,age))) if _quiet else 0.0
 	# Bounded morphology/ephemeris work, independent of elapsed campaign days.
 	if (sampled_utc!=_published_utc or camera.global_position!=_published_camera) and (age-_publish_age>=.05 or age<_publish_age or (age>=30 and _publish_age<30)):
 		_publish_age=age;_published_utc=sampled_utc;_published_camera=camera.global_position;_publish()
@@ -249,6 +261,8 @@ func _publish() -> void:
 
 func _process(delta:float) -> void:
 	if not active or get_tree().paused:return
+	var expected:Camera3D=camera if _view_departed else _old_camera
+	if get_viewport().get_camera_3d()!=expected:cancel();return
 	if not is_same(_campaign,RealityState.data) or RealityState.save_write_blocked or player.protected_input_active() or player.text_input_owner!=self:cancel();return
 	seek(age+delta)
 

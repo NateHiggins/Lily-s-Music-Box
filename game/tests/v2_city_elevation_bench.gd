@@ -70,6 +70,9 @@ func _run() -> void:
 		metrics._check_cap_mapping(draw.mesh,true)
 		draws += 1
 		var stock: Material=draw.get_meta("v2_city_roof_source",draw.material_override)
+		if draw.has_meta("v2_window_source_material"):
+			check(preload("res://scripts/building/v2_background_window_material.gd").glazing_is_bound(draw), "optical glazing retains catalogue PBR sampling")
+			stock = draw.get_meta("v2_window_source_material")
 		stock=stock.get_meta("v2_weather_source",stock)
 		if draw.get_meta("v2_city_streets",false):
 			var loaded:=draw.material_override as ShaderMaterial

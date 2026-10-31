@@ -2,6 +2,8 @@ extends Node
 var failures: Array[String]=[]
 var batch_checks := 0
 func _ready() -> void:
+	if OS.get_environment("ORISON_REVIEW_FULLSCREEN")=="1":
+		GameBoot.settings.fullscreen=true;GameBoot.apply_user_settings()
 	if not bool(get_meta("shared_world_validation",false)): call_deferred("_run")
 func check(ok: bool, message: String) -> void:
 	batch_checks += 1

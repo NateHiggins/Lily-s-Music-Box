@@ -29,6 +29,8 @@ func check(ok: bool, label: String) -> bool:
 	return ok
 
 func _ready() -> void:
+	if OS.get_environment("ORISON_REVIEW_FULLSCREEN")=="1":
+		GameBoot.settings.fullscreen=true;GameBoot.apply_user_settings()
 	_run.call_deferred()
 	get_tree().create_timer(145.0).timeout.connect(func():
 		if not finished: check(false, "diagnostic deadline"); finish())

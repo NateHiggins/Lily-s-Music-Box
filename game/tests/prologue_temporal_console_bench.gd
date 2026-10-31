@@ -7,6 +7,8 @@ var accepted_count:=0
 var contact_keys:Array[String]=[]
 
 func _ready() -> void:
+	if OS.get_environment("ORISON_REVIEW_FULLSCREEN")=="1":
+		GameBoot.settings.fullscreen=true;GameBoot.apply_user_settings()
 	_run.call_deferred()
 	get_tree().create_timer(240.0).timeout.connect(func():
 		if not finished:check(false,"temporal diagnostic deadline");finish())
@@ -43,7 +45,7 @@ func additional_checks() -> void:
 	check(not console.returned and accepted_count==0 and "destination_accepted" not in director.state.events,"partial command cannot accept the date")
 	check(paper.pages[0].contains(console.text.substr(0,8)) and paper.printing,"physical paper consumes actual contact characters")
 	var register:Node=carrier.rig.temporal_register
-	check(register.phase=="open" and register._target==destination and register.labels.Departure.text=="DEPARTURE  UNKNOWN","physical register presents immutable destination without inventing departure")
+	check(register.phase=="idle" and register._target.is_empty() and register.capacitor.get_shader_parameter("capacitor_charge")==0.0,"ordinary command typing keeps temporal visor and capacitor dark")
 	var visible_rows:=true
 	var frame:Node=carrier.screen_frame
 	var aperture:=Rect2(Vector2.ZERO,Vector2(frame.view.size)).grow(-1)
@@ -122,6 +124,20 @@ func additional_checks() -> void:
 			var clock:=CampaignClock.new()
 			check(director.state.phase=="title_reveal" and director.state.effects.clock_applied and int(Time.get_unix_time_from_datetime_dict(clock.utc_datetime()))==int(destination.utc_unix_seconds),"live director advances only with exact clock-owner acknowledgement")
 	director.shutdown();director.queue_free()
+	# Validated backward reload while the new transient stow holder is alive.
+	# Use the real storage owner, then adopt it through the director's reload path.
+	var stow_owner:Node=mount_director(late_phase())
+	check(carrier.rig.hold_keyboard_closed(stow_owner),"live director can own a pending mechanical stow")
+	var stow_path_before:String=RealityState.save_path
+	var stow_enabled_before:bool=RealityState.persistence_enabled
+	RealityState.save_path=directory.path_join("pending_stow_reload.json");RealityState.persistence_enabled=true
+	RealityState.data.prologue=Opening.initial()
+	if check(RealityState.save_game(),"validated storage records an earlier prologue boundary during pending stow"):
+		RealityState.load_game();stow_owner._restore()
+		carrier.rig.request_keyboard(true)
+		check(await wait_for(func():return carrier.rig.typing_ready(),4.0),"backward reload releases stale stow ownership and permits actual keyboard travel")
+	stow_owner.shutdown();stow_owner.queue_free()
+	RealityState.save_path=stow_path_before;RealityState.persistence_enabled=stow_enabled_before
 	FileAccess.open(directory.path_join("temporal_contacts.json"),FileAccess.WRITE).store_string(JSON.stringify({"destination":destination,"contacts":contact_keys,"accepted":accepted_count},"\t"))
 
 func record_contact(character:String) -> void:

@@ -120,6 +120,11 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
 
 ## Tools
 
+For session recovery, context resets and handoffs, use
+[developer-continuity](.agents/skills/developer-continuity/SKILL.md). It routes to
+the current Git state, handoff and evidence owners rather than treating old chat
+history or an INERT report as completed work.
+
 For Blender modeling, repair, UV/PBR authoring and export, use
 [blender-asset-development](.agents/skills/blender-asset-development/SKILL.md).
 It routes to the shared batch workflow and existing fabrication helpers; example

@@ -58,3 +58,12 @@ limits in [the prologue ledger](../../../design/V2_PROLOGUE_2026-10-28.md) and
 [face-reaction notes](../../../design/V2_COMPANION_FACE_REACTIONS_2026-10-25.md).
 Update this skill with demonstrated lessons; keep detailed receipts in those
 owners instead of appending a session diary here.
+
+
+For physical segmented readouts, keep row/digit/segment identity separate from
+preview colours. Use one batch and update masks only when authoritative content
+changes. Preserve UNKNOWN instead of inventing timestamps; an all-eights factory
+pattern is not gameplay data. Shared corners may need triangle-level semantic
+binding; route that work through the texture/shader skill. Inspect native-sized
+frames through the actual glazing, observer and power/pose owner. Keep the face's
+ongoing expression owner separate from a temporal register's accepted-jump state.

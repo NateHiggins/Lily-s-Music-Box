@@ -234,17 +234,32 @@ func _temporal_finished(completed:bool) -> void:
 	if completed and is_same(_document,RealityState.data) and state.phase=="temporal_command" and "destination_accepted" in state.events:
 		_advance("temporal_synchronization")
 
+func _release_temporal_keyboard_hold() -> void:
+	if is_instance_valid(_carrier) and is_instance_valid(_carrier.rig):_carrier.rig.release_keyboard_hold(self)
+
 func begin_temporal_sky() -> bool:
-	if world==null or not is_same(_document,RealityState.data) or state.get("phase","") not in ["temporal_synchronization","title_reveal"]:return false
+	if world==null or not is_same(_document,RealityState.data) or state.get("phase","") not in ["temporal_synchronization","title_reveal"]:
+		_release_temporal_keyboard_hold();return false
 	if is_instance_valid(temporal_sky) and (temporal_sky.active or temporal_sky.holding):return false
-	if get_tree().paused or RealityState.save_write_blocked or player.call_locked or player.mouse_released or not player.camera.is_current():return false
+	if get_tree().paused or RealityState.save_write_blocked or player.call_locked or player.mouse_released or not player.camera.is_current() or player.text_input_owner!=null:
+		_release_temporal_keyboard_hold();return false
 	if state.phase=="temporal_synchronization" and state.effects.clock_applied:
-		if not finish_temporal_synchronization():return false
+		if not finish_temporal_synchronization():_release_temporal_keyboard_hold();return false
+	_carrier=world.service_set_carrier
+	if state.phase=="temporal_synchronization":
+		if not is_instance_valid(_carrier) or not _carrier.device.radio_powered:
+			_release_temporal_keyboard_hold();return false
+		# A cancelled/reloaded reading view can have an open keyboard. Keep the
+		# ordinary reading callback from fighting this short, transient stow.
+		if not _carrier.rig.hold_keyboard_closed(self):return false
+		if not _carrier.rig.temporal_register.safe_to_reveal():return false
 	if is_instance_valid(temporal_sky):temporal_sky.queue_free()
 	temporal_sky=TemporalSky.new();add_child(temporal_sky)
-	return temporal_sky.start(world,func() -> bool:
+	var begun:bool=temporal_sky.start(world,func() -> bool:
 		if temporal_sky.was_skipped and not _store(State.request_skip(state)):return false
 		return finish_temporal_synchronization(),finish_historical_cutaway)
+	_release_temporal_keyboard_hold()
+	return begun
 
 func finish_historical_cutaway(skipped:bool) -> bool:
 	if not is_same(_document,RealityState.data):return false
@@ -268,7 +283,8 @@ func _restore() -> void:
 	if _publishing: return
 	var replaced := not is_same(_document,RealityState.data)
 	if replaced and is_instance_valid(waking):waking.cancel()
-	if replaced:_release_contact()
+	if replaced:
+		_release_temporal_keyboard_hold();_release_contact()
 	if replaced and is_instance_valid(temporal_console):temporal_console.cancel()
 	if replaced and is_instance_valid(temporal_sky):temporal_sky.cancel()
 	if replaced and is_instance_valid(mirror_crossing):mirror_crossing.cancel()
@@ -308,6 +324,7 @@ func _advance(next: String) -> bool:
 	_enter_phase();return true
 
 func _enter_phase() -> void:
+	_release_temporal_keyboard_hold()
 	_release_contact(state.phase in ["identity_mystery","temporal_command"])
 	_contact_index=0;_contact_age=0;_contact_thinking_age=0;_contact_serial=-1
 	if _visitor_active and state.phase!="companion_crossing":_end_visitor()
@@ -644,6 +661,7 @@ func _cabinet_released(before:float,after:float) -> void:
 
 
 func shutdown() -> void:
+	_release_temporal_keyboard_hold()
 	# cancel emits finished synchronously; its callback can clear `waking`.
 	var old_waking:Node=waking
 	waking=null

@@ -4,6 +4,9 @@ extends Node3D
 const ASSET := preload("res://assets/props/city_elevations.glb")
 const BODY_LOD := preload("res://assets/props/city_elevations_lod1.glb")
 const FINISHES := "res://data/orison_v2/exterior/city_elevations.json"
+const WindowOptics := preload("res://scripts/building/v2_background_window_material.gd")
+var _window_materials: Dictionary = {}
+var _window_minute := -INF
 var _clock := CampaignClock.new()
 var _clock_hands: Array[Dictionary] = []
 var _clock_elapsed := 0.0
@@ -80,6 +83,17 @@ func _ready() -> void:
 			mesh.mesh=preload("res://scripts/building/orison_v2_city_transport.gd")._with_lod(collision_mesh,replacement.mesh,float(body_programme.error_m))
 			mesh.set_meta("v2_city_body_lod",true)
 			lower_parts.erase(str(mesh.name))
+		if key == "mirror_aged":
+			var kind := WindowOptics.neighbour_kind(building)
+			if not _window_materials.has(kind):
+				var optical: ShaderMaterial = WindowOptics.create("neighbour-type-%d" % kind, kind, Vector2(1.2, 1.8))
+				optical.set_shader_parameter("optical_vertex_data", true)
+				optical.set_shader_parameter("glass_tint", Vector3(.18, .23, .25))
+				_window_materials[kind] = optical
+			mesh.set_meta("v2_window_source_mesh", mesh.mesh)
+			mesh.set_meta("v2_window_source_material", materials[cache_key])
+			mesh.mesh = WindowOptics.project(mesh.mesh, building)
+			mesh.material_override = _window_materials[kind]
 		var body := StaticBody3D.new()
 		body.set_meta("retained_city_shell",true)
 		body.name = str(mesh.name)+"Collision"
@@ -101,7 +115,7 @@ func _ready() -> void:
 	lower.free()
 	assert(_clock_hands.size()==hands.size())
 	refresh_clock_from_campaign()
-	set_process(not _clock_hands.is_empty())
+	set_process(not _clock_hands.is_empty() or not _window_materials.is_empty())
 	preload("res://scripts/building/orison_v2_city_masts.gd").mount(self)
 	preload("res://scripts/building/orison_v2_city_aerials.gd").mount(self)
 	preload("res://scripts/building/orison_v2_city_tanks.gd").mount(self)
@@ -116,6 +130,11 @@ func _process(delta: float) -> void:
 	refresh_clock_from_campaign()
 
 func refresh_clock_from_campaign() -> bool:
+	if not _window_materials.is_empty() and _clock.bind_state():
+		var minute := floorf(_clock.calendar_minutes())
+		if minute != _window_minute:
+			for material: ShaderMaterial in _window_materials.values(): WindowOptics.sync_clock(material, _clock)
+			_window_minute = minute
 	if not _profile_clock:return _project_clock_from_campaign()
 	var started:=Time.get_ticks_usec()
 	var result:=_project_clock_from_campaign()

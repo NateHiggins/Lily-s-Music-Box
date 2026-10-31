@@ -155,3 +155,15 @@ Read only what the task needs; these are evidence and examples, not blanket budg
 - [Astra creature rebuild](../../../design/astra/DREAM_CRITTER_BLENDER_REBUILD_2026-09-19.md): rooted anatomy, per-component topology, LOD/pose checks and existing-controller presentation.
 - [Claude lived-in pass](../../../design/CLAUDE_APARTMENT_LIVED_IN_PASS.md): resident specificity with bounded draws/obstruction; visual, simulated and interactive functionality are separate claims.
 - [Passage pull and oak](../../../design/V2_PASSAGE_PULL_AND_OAK_2026-10-25.md): hardware seated on real stock, resolved physical grain scale, actual first-event hand motion.
+
+
+For source-only handoffs, remove installed/reference duplicates and embedded
+copies of existing catalogue maps only in a separate delivery. Preserve editable
+stocks, pivots, attributes and animation; reopen and compare them exactly, list
+external map hashes/colour spaces, and leave the original packet untouched.
+Verify revisions per artifact: an older dimensions report can coexist with a
+newer manifest/export. Declare baked-phone versus original-frame parts and
+parent-relative mounts explicitly; do not apply scale compensation twice.
+Native marker names/extras and custom attributes still need loaded Godot checks.
+The compact companion's source-only packaging reduced41MB to1.69MB; that is an
+example, not a universal size budget. Keep current provenance in its ledger.

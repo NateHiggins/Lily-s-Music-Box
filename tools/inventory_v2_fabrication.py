@@ -8,6 +8,7 @@ from pathlib import Path
 import argparse
 import json
 import re
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 STRUCTURE = ('spaces', 'doors', 'openings', 'windows', 'envelopes', 'fixtures',
@@ -108,6 +109,11 @@ def index(root):
     for path in sorted((root/'game/scripts/building').glob('orison_v2*.gd')):
         assets = sorted(set(re.findall(r'res://assets/[^"\s]+', path.read_text(encoding='utf-8'))))
         if assets: references[path.relative_to(root).as_posix()] = assets
+    horizon=root/'game/data/orison_v2/exterior/city_horizon.json'
+    if horizon.is_file():
+        sys.path.insert(0,str(ROOT/'art/blender/scripts'))
+        from city_horizon_assets import manifest_paths
+        references['game/scripts/building/orison_v2_city_horizon.gd']=sorted(manifest_paths(json.loads(horizon.read_text(encoding='utf-8'))))
     generators = [p.relative_to(root).as_posix() for p in sorted(
         (root/'art/blender/scripts').glob('build_*.py'))]
     return dict(evidence_class='INERT', schema='orison.fabrication-work-index.v1',

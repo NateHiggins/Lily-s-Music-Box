@@ -135,3 +135,24 @@ not replace the loaded-mipmap requirement for world PBR maps.
 - [Resource lifetime](../../../design/V2_PORTRAIT_RELOAD_AND_UV_LIFETIME_2026-10-24.md): reconstruction and retired resources.
 - [Tardi microscopy](../../../design/V2_TARDIGRADE_MICROSCOPY_2026-10-25.md): shared lamp optics and isolated review limits.
 - [Living Sky](../../../design/V2_SKY_WEATHER_INTEGRATION_2026-10-24.md): scheduled presentation, actual coverage and remaining artistic qualification.
+
+
+## Native semantic and small-stock intake findings
+
+- Godot can strip custom glTF attributes or sanitize punctuation in marker names.
+  Verify actual imported bindings. Unique marker positions can recover original
+  glTF identities once; shared segment corners require whole-triangle identity
+  and private corner splits. Preserve loaded positions, winding, normals, UVs and
+  tangents; never rewrite the GLB or rebuild semantic meshes every frame.
+- Tiny manufactured parts can lose metric UV/tangent accuracy to import
+  compression. Compare loaded edge ratios and tangent derivatives with the
+  exported values. Disable compression only for demonstrated affected assets,
+  not as a global quality prescription.
+- Use the maintained PBR sampler ABI when extending physical shaders. A
+  photograph can use a normalized secondary chart while its paper keeps metric
+  primary UVs and registered roughness/normal maps. Keep alpha/development state
+  with its existing mechanism; an image is not a blanket PBR exemption.
+- Movie output dimensions can initialize before later fullscreen changes.
+  Inspect both the native viewport capture and encoded movie; a cropped or
+  differently sized movie does not prove the game's framing. Separate offline
+  fixed-step recording budgets from real-time interaction/performance checks.

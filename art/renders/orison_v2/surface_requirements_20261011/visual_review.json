@@ -1,38 +1,32 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "scope": "Technical rendered review after main PR108 reconciliation. All five images inspected directly; dark frontages and generic neighbors remain. Not performance, save/reload, interaction or artistic acceptance.",
-  "surface_inputs_sha256": "7d8d99a179b346c32b6fc32d04011d52423b74ef7393ecf19338bd0317ef2f34",
+  "scope": "Technical direct inspection of four native 3440x1440 captures from final source-bound physical-only survey. All physical draws included; unchanged interaction programmes skipped. Not whole-game, performance or artistic acceptance.",
+  "surface_inputs_sha256": "8bbb9b0109b7ccd2a737105a0c1ce9e28e64ab8941df93e5591e85135766c7b8",
   "images": [
     {
       "file": "bookcase.png",
-      "sha256": "f25e645a71048d0bd40a393eea7581d1206379c9922f8cae59265034caa2484c",
-      "observation": "Current composed interior control: wood framing, dark retained glass and floor grain render. Shelf sparsity and complete room art acceptance are outside this city qualification.",
-      "origin": "Actual pinned-engine fullscreen3440x1440 qualification_03 capture after PR108; directly inspected."
+      "sha256": "218de53915c18e8183c6938a3017dd8975d70a0e433edec277736d219d6c402f",
+      "observation": "Composed interior control: wood grain, retained glazing, books and flooring render. Shelf sparsity and room art acceptance remain open.",
+      "origin": "qualified4, pinned patched Vulkan, fullscreen 3440x1440; directly inspected."
     },
     {
-      "file": "city_context_HORIZON_NEAR_2_1_P1.png",
-      "sha256": "5d7f6eba56ff58ed72bfbfa121e69ce4def4ffdb1a4c400066d41833efd2e91e",
-      "observation": "Actual composed wide daytime frontage: court setbacks, projecting entrances, cornice and neighboring factory visible; no missing draw evident. Facade remains dark. Fixed review camera is not walking/access or artistic acceptance.",
-      "origin": "Actual pinned-engine fullscreen3440x1440 qualification_03 capture after PR108; directly inspected."
+      "file": "F03_B_BATH_reflection_repair.png",
+      "sha256": "ed7d7b9bbe4e082e11957aacc669e4b58726f0619d8c0eb566e8ae315e5744f2",
+      "observation": "Bathroom control: tiled wainscot, curtain weave and companion green phosphor/face remain visible. Flashlight hotspot and limited framing do not establish bathroom art acceptance or mirror interaction.",
+      "origin": "qualified4, pinned patched Vulkan, fullscreen 3440x1440; directly inspected."
     },
     {
-      "file": "city_context_HORIZON_NEAR_2_1_P2.png",
-      "sha256": "ff11dd3793ab8232f8f74e10f20fa166b11efdbdb2fba830fe7fe13a7b61cce9",
-      "observation": "Actual composed factory and adjoining court: factory tiers, window banks and near return remain visible against sky; dark lighting and generic neighbors remain. Wide 110-degree framing is a diagnostic, not a player pose.",
-      "origin": "Actual pinned-engine fullscreen3440x1440 qualification_03 capture after PR108; directly inspected."
+      "file": "signal_terminal.png",
+      "sha256": "527a0c66b9a49f99ca685eed2bcf006b7728c843fbc52471d17e1104a547b76a",
+      "observation": "Loaded terminal, glazing and paperboard render with floor grain and surrounding furniture. No missing draw apparent; this fixed camera does not prove gameplay access.",
+      "origin": "qualified4, pinned patched Vulkan, fullscreen 3440x1440; directly inspected."
     },
     {
-      "file": "city_context_HORIZON_NEAR_2_2_P1.png",
-      "sha256": "bb108ecb414341e2b9ff26bd8f3a3a0b944a5039c21722424639bf4a7b6938f6",
-      "observation": "Actual composed recessed court frontage and factory: recessed center and projecting wings readable, ground seam visible. Generic neighbor and lighting polish remain open; no stair or court traversal acceptance.",
-      "origin": "Actual pinned-engine fullscreen3440x1440 qualification_03 capture after PR108; directly inspected."
-    },
-    {
-      "file": "city_context_HORIZON_NEAR_2_2_P2.png",
-      "sha256": "6d66205f77b061e7ea87a9343ed43a6fb4b38ec978011ce271a74017c4037aa6",
-      "observation": "Actual composed court/right neighbor: entry recess, return and neighboring full-height walls visible. Generic adjacent facade and dark exposure remain debt. No claim of finished city or continuous access.",
-      "origin": "Actual pinned-engine fullscreen3440x1440 qualification_03 capture after PR108; directly inspected."
+      "file": "roof_tank_uv.png",
+      "sha256": "92b45e23c8a52b12dcc110091d2c8e28fcf9eb26283e8f69151c285890901c16",
+      "observation": "Roof tank, metal railing and city/window background render. Roof exposure is dark and cloud forms remain stylized; no annual sky or city-access acceptance is claimed.",
+      "origin": "qualified4, pinned patched Vulkan, fullscreen 3440x1440; directly inspected."
     }
   ]
 }
