@@ -33,7 +33,16 @@ class ResidentialHouses(MillLofts):
         return super().add(key,vertices,faces)
 
     def wall_stock(self,O,U,N,lo,hi,length):
-        if self.style!='gable_2136' or self.basement:return super().wall_stock(O,U,N,lo,hi,length)
+        if self.style!='gable_2136':
+            l,back,z=lo;r,front,Z=hi
+            if abs(l)<1e-7 or abs(r-length)<1e-7:
+                return super().wall_stock(O,U,N,lo,hi,length)
+            # These are abutting structural wall panels, not separate trim.
+            # Rounding every panel's U/Z corners leaves14mm roof-seat notches
+            # at internal bay joints. Preserve the flat receiving cap instead.
+            self.profile(self.row['wall_key'],O,U,N,[(l,z),(r,z),(r,Z),(l,Z)],back,front)
+            return
+        if self.basement:return super().wall_stock(O,U,N,lo,hi,length)
         # Closed sheathing beneath individual lapped boards. Cut each board at
         # the same real opening; do not texture a window onto a solid wall.
         l,back,z=lo;r,front,Z=hi

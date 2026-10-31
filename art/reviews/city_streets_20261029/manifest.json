@@ -11352,5 +11352,53 @@
         "sha256": "ba8f0c10fde551077aaafcf8b911b8f51d8733b090eefcdf32758f2ba6124073"
       }
     }
+  },
+  "houses_loaded_archive": {
+    "evidence_class": "INERT",
+    "scope": "Native repair68 exact roundtrips/42 near+lower receiving controls/8 inspected renders;passed test-written schema2 isolated production family05 1660/0,80 inspected captures. Original failed04 1634/6 andharness/native failures preserved. Archive/report/analysis remain INERT;only embedded runtime_contract hasits exact scope. No composedground,ordinaryplayeraccess,actors,saves,wholecity budget orartistic acceptance.",
+    "archive": "art/reviews/city_streets_20261029/houses_loaded_review.zip",
+    "bytes": 62842043,
+    "sha256": "e9eb5a9568e0101c8d59c877e7faf5fa9420f66caba4e889bceae9868f4fdf9f",
+    "member_count": 335,
+    "runtime_contract": "execution/bench_05/houses_loaded.runtime.json",
+    "runtime_contract_sha256": "0f6a23c5379407fe9089b1219c209e3f9451bcd4800fd9834f438bf4b54bb91f",
+    "asset_bindings": {
+      "art/blender/city_horizon_near.blend": {
+        "bytes": 13278032,
+        "sha256": "43c9caddf9e5a04bf4fbf2b149794621f5df6b2ec64aa0760c55797ee11d8766"
+      },
+      "art/blender/city_horizon_far.blend": {
+        "bytes": 18762958,
+        "sha256": "35b0ec844e93edf86c33c656955e4f5500c4eaaf2a605e178001bcb1a4782bd7"
+      },
+      "art/blender/city_horizon_lod1.blend": {
+        "bytes": 4518144,
+        "sha256": "f47ece3efc286653910b956bffd3eb4e9e2fca4440b94d46f23ae95e28fb5d7f"
+      },
+      "art/blender/city_horizon_construction.json": {
+        "bytes": 4587822,
+        "sha256": "e687999c348d6d307d9cbe3d6c846a68640c3aa2e3f79fcd72c7dc0bde84de7a"
+      },
+      "game/assets/props/city_horizon_near.glb": {
+        "bytes": 70504996,
+        "sha256": "d9c2304c2737bd68eb11fe523c66b394efcb1dcc2cdd8a8b703680ce6660a50e"
+      },
+      "game/assets/props/city_horizon_far.glb": {
+        "bytes": 98530480,
+        "sha256": "8aea35dc13aba413052b187f6d4759e4cd88d391a90032c367744a1c291343d7"
+      },
+      "game/assets/props/city_horizon_lod1.glb": {
+        "bytes": 21045796,
+        "sha256": "7e69e8dc16898de0d549c17eb4574fa9c7c657d12535f53f2b269641d021eb05"
+      },
+      "game/data/orison_v2/exterior/city_horizon.json": {
+        "bytes": 25960,
+        "sha256": "de12549984f12ab4cece57c65735eef960474a22ab8e88fda7a2d4a194c24210"
+      },
+      "game/tests/fixtures/orison_city_horizon.json": {
+        "bytes": 4587822,
+        "sha256": "e687999c348d6d307d9cbe3d6c846a68640c3aa2e3f79fcd72c7dc0bde84de7a"
+      }
+    }
   }
 }
