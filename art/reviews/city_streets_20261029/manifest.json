@@ -14384,5 +14384,36 @@
         "sha256": "84343cb61ca7df2330913b5cfb5a03c5dd14c85d3b04a9aae862db74b7fcb772"
       }
     }
+  },
+  "transport_projection_closure": {
+    "evidence_class": "INERT",
+    "archive": "art/reviews/city_streets_20261029/eastern_street_native_review.zip",
+    "sha256": "bacef4372df46cd68cc72550ff87dfa6ee819821f0e08e35dd0cc1d18907c581",
+    "bytes": 67802682,
+    "member_count": 281,
+    "preserved_prior_members": 275,
+    "scope": "All13 declared surface fixtures now pass source preflight. Transport original pure helper AST and complete107-road topology identical; other bindings/GLBs exact. Source closure only, no runtime renewal. Original refusal retained.",
+    "members": {
+      "canonical_integration_02/close_transport_projection_08.py": {
+        "bytes": 2999,
+        "sha256": "6cfd2085d8d663868f60f73adeebbedc2eb891512d0bdea9c875a1d0929400e8"
+      },
+      "canonical_integration_02/transport_projection_reconciliation_08.json": {
+        "bytes": 1259,
+        "sha256": "95cbcb666b4e44aa5680ab240cd6881a941f1b93071a82eb3e1aff2a03efae1d"
+      },
+      "canonical_integration_02/all_surface_fixture_preflight_08.log": {
+        "bytes": 669,
+        "sha256": "d4479f66482f687a6dfbe90bb7b0ec0d73d14e32e342c78c104b4bf37ba0d0d3"
+      },
+      "canonical_integration_02/all_surface_fixture_preflight_09.log": {
+        "bytes": 528,
+        "sha256": "8af3f7dc0f3472fc5fcbe89021669517441a8eb2705079adffbd0761dead2f91"
+      },
+      "canonical_integration_02/pack_transport_closure_09.py": {
+        "bytes": 2075,
+        "sha256": "9da20f381ccc9ba2daccfc7b83a0310c2189c3c84d09f164807d030c8be12287"
+      }
+    }
   }
 }
