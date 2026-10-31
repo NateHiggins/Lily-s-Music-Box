@@ -5,6 +5,7 @@ signal keyboard_settled(open: bool)
 const DATA := "res://data/device/service_companion_v2.json"
 const KEY_TRAVEL:=.0014
 var typing_arm:Node
+var _closed_keyboard_hold:WeakRef
 var temporal_register:Node
 var feed_replacement_draws:Array[MeshInstance3D]=[]
 var _automatic_key:=-1
@@ -230,7 +231,19 @@ func _install_feed_knobs() -> bool:
 	replacement.free()
 	return valid
 
+func hold_keyboard_closed(owner:Node) -> bool:
+	if not is_instance_valid(owner) or not owner.is_inside_tree() or (typing_arm!=null and typing_arm.active()):return false
+	if _closed_keyboard_hold!=null and is_instance_valid(_closed_keyboard_hold.get_ref()) and _closed_keyboard_hold.get_ref()!=owner:return false
+	_closed_keyboard_hold=weakref(owner);request_keyboard(false)
+	return true
+
+func release_keyboard_hold(owner:Node) -> void:
+	if _closed_keyboard_hold!=null and _closed_keyboard_hold.get_ref()==owner:_closed_keyboard_hold=null
+
 func request_keyboard(open: bool) -> void:
+	if open and _closed_keyboard_hold!=null:
+		if is_instance_valid(_closed_keyboard_hold.get_ref()):return
+		_closed_keyboard_hold=null
 	if typing_arm!=null and typing_arm.active():
 		if not open:typing_arm.cancel(false)
 		return # Only automated_keyboard may change travel during an arm cycle.

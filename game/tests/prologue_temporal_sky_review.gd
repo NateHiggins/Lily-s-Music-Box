@@ -248,7 +248,7 @@ func compact_sequence(_initial_target:Dictionary) -> void:
 	# The recorded sequence ends above. Additional ownership controls are not
 	# part of the prologue or any published end-title clip.
 	for stamp:float in [0.0,5.0]:
-		if not check(stage(director.state.target.duplicate(true)) and director.begin_temporal_sky(),"camera takeover control starts at "+str(stamp)):continue
+		if not check(await begin_staged_sky(director.state.target.duplicate(true)),"camera takeover control starts at "+str(stamp)):continue
 		var clip:Node=director.temporal_sky;clip.seek(stamp)
 		var foreign:=Camera3D.new();add_child(foreign);foreign.global_transform=clip.camera.global_transform;foreign.make_current()
 		clip._process(.01)
@@ -256,12 +256,37 @@ func compact_sequence(_initial_target:Dictionary) -> void:
 		world.player.camera.make_current();foreign.free()
 	var quiet_before:bool=bool(GameBoot.settings.get("reduce_flashing",false))
 	GameBoot.settings.reduce_flashing=true
-	if check(stage(director.state.target.duplicate(true)) and director.begin_temporal_sky(),"reduced-flash reading interval uses the same jump owner"):
+	if check(await begin_staged_sky(director.state.target.duplicate(true)),"reduced-flash reading interval uses the same jump owner"):
 		var clip:Node=director.temporal_sky;clip.seek(3)
 		check(world.player.camera.is_current() and clip._veil.color.a==0,"reduced-flash mode preserves the initial readable register")
 		clip.seek(15);check(clip._veil.color.a>.99,"reduced-flash mode still masks rapid seasonal cycles")
 		clip.cancel()
 	GameBoot.settings.reduce_flashing=quiet_before
+
+	var fixed_target:Dictionary=director.state.target.duplicate(true)
+	if check(stage(fixed_target),"power/stow entry control binds its fixed accepted target"):
+		var frozen_clock:Dictionary=RealityState.data.campaign_clock.duplicate(true)
+		carrier.device.set_radio_powered(false)
+		check(not director.begin_temporal_sky() and player.text_input_owner==null and world.process_mode!=Node.PROCESS_MODE_DISABLED and RealityState.data.campaign_clock==frozen_clock,"unpowered entry cannot borrow input/world or apply the accepted clock")
+		carrier.device.set_radio_powered(true);carrier.reading=true;carrier.rig.request_keyboard(true)
+		var open_deadline:=Time.get_ticks_msec()+4000
+		while not carrier.rig.typing_ready() and Time.get_ticks_msec()<open_deadline:await frames(1)
+		check(carrier.rig.typing_ready(),"entry repair control uses a genuinely opened reading keyboard")
+		var started:=director.begin_temporal_sky()
+		check(not started and player.text_input_owner==null,"open keyboard entry waits for real stow without taking input")
+		var end:=Time.get_ticks_msec()+4000
+		while not started and Time.get_ticks_msec()<end:
+			await frames(1);started=director.begin_temporal_sky()
+		check(started and register._owner!=null and register._owner.get_ref()==director.temporal_sky,"existing retry starts with the actual powered register owner after stow")
+		if started:director.temporal_sky.cancel()
+
+func begin_staged_sky(target:Dictionary) -> bool:
+	if not stage(target):return false
+	var end:=Time.get_ticks_msec()+4000
+	while Time.get_ticks_msec()<end:
+		if director.begin_temporal_sky():return true
+		await frames(1)
+	return false
 
 func review_interrupted_reload(target:Dictionary) -> void:
 	# Synthetic validated late-phase staging; earlier opening beats not played.

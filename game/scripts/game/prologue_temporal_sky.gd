@@ -163,7 +163,8 @@ func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Ca
 	_above=_window+_outward*2.0+Vector3.UP*12.0
 	_window_start=Transform3D(Basis.looking_at(_outward,Vector3.UP),_window-_outward*1.45)
 	active=true;age=0;_publish_age=-INF
-	if _carrier.rig.temporal_register != null:_carrier.rig.temporal_register.begin(self,opening.target)
+	if _carrier.rig.temporal_register==null or not _carrier.rig.temporal_register.begin(self,opening.target):
+		_cleanup();return _refuse("temporal hardware is not safely powered and stowed")
 	set_process(true);set_process_unhandled_input(true);seek(0)
 	return true
 

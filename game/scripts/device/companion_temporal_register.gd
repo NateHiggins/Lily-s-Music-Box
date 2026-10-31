@@ -129,7 +129,7 @@ func follow_door() -> void:
 	if hatch!=null:_door_mount.global_transform=hatch.global_transform*Transform3D(Basis.IDENTITY,Vector3(.0082,-.0146,.00095))
 
 func safe_to_reveal() -> bool:
-	return _mechanism.keyboard_open<=.001 and (_mechanism.typing_arm==null or (not _mechanism.typing_arm.active() and _mechanism.typing_arm.case_time<=.00001))
+	return not _mechanism.keyboard_requested and _mechanism.keyboard_open<=.001 and (_mechanism.typing_arm==null or (not _mechanism.typing_arm.active() and _mechanism.typing_arm.case_time<=.00001))
 
 func begin(owner: Node, destination: Dictionary) -> bool:
 	if not is_instance_valid(owner) or not owner.is_inside_tree() or not State.valid_target(destination): return false

@@ -133,6 +133,12 @@ func world_controls(target: Dictionary) -> void:
 	carrier.motion.motion_intensity = 0
 	carrier.reading = true; carrier.rig.keyboard_requested=false;carrier.rig.keyboard_open = 0; carrier.rig._apply_keyboard()
 	register = carrier.rig.temporal_register
+	check(carrier.rig.hold_keyboard_closed(self),"temporal preparation holds ordinary keyboard requests closed")
+	carrier.rig.request_keyboard(true)
+	check(not carrier.rig.keyboard_requested,"normal reading cannot override the stow holder")
+	carrier.rig.release_keyboard_hold(self);carrier.rig.request_keyboard(true)
+	check(not register.begin(self,target),"a requested keyboard opening also refuses unsafe reveal")
+	carrier.rig.request_keyboard(false)
 	check(register.begin(self, target), "real carrier accepts accessory presentation")
 	register.set_process(false)
 	for index in 240: register.advance(1.0 / 120)
