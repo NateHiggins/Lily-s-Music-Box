@@ -319,7 +319,7 @@ func _run() -> void:
 		world.free()
 		get_tree().quit(1)
 		return
-	var report := {"schema":"orison.v2-surface-inventory.v1", "evidence_class":"INERT", "acceptance":"Inventory; acceptance requires passing runtime contract and reviewed renders.", "companion_sequence":companion_sequence,
+	var report := {"schema":"orison.v2-surface-inventory.v1", "evidence_class":"INERT", "acceptance":"Inventory; acceptance requires passing runtime contract and reviewed renders.",
 		"qualification_mode":"physical_surfaces_and_civic_access" if physical_only and civic_enabled else "physical_surfaces_only" if physical_only else "full_programmes", "coverage":{"production_world":true,"space_count":world.layout.spaces.size(),"resident_cells":world.passage_region.cell_nodes.size()}, "passage_state":world.passage_region.residency.state, "draws":draws, "meshes":mesh_rows, "materials":material_rows, "textures":texture_rows,"unhandled_geometry":unhandled_geometry}
 	var file := FileAccess.open(directory.path_join("surface-inventory.json"), FileAccess.WRITE)
 	if file == null:
