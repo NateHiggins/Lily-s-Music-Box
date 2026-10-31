@@ -118,6 +118,33 @@
     "order": "schematic_lesson",
     "days": 2
    }
+  },
+  {
+   "id": "rent_notice_1",
+   "kind": "letter",
+   "title": "NOTICE — RENT, BOX 4B",
+   "body": "One instalment of your rent is owing. The office assumes an oversight, and files the assumption. Five dollars, at your convenience, which the office asks you to make soon.",
+   "when": {
+    "rent_due": 1
+   }
+  },
+  {
+   "id": "rent_notice_2",
+   "kind": "letter",
+   "title": "SECOND NOTICE — RENT, BOX 4B",
+   "body": "Two instalments are owing. The office has told the floors, in case they wondered. You may find tenants less ready to sign things for you. The office did not ask them to be. It only mentioned it.",
+   "when": {
+    "rent_due": 2
+   }
+  },
+  {
+   "id": "rent_notice_3",
+   "kind": "letter",
+   "title": "THIRD NOTICE — RENT, BOX 4B",
+   "body": "Three instalments. The office has stopped assuming. Nobody here is going to put you out, as the building needs its night man and knows it. The office would just like you to know that it knows it too.",
+   "when": {
+    "rent_due": 3
+   }
   }
  ]
 }

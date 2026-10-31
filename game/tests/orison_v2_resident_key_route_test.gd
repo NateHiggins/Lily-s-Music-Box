@@ -33,9 +33,6 @@ func _track_world() -> void:
 			door_sources.append(StringName(node.name))
 			for shape: CollisionShape3D in node._body.find_children("*","CollisionShape3D",true,false):
 				owned_shapes.append(weakref(shape.shape))
-		elif node.is_in_group("key_copy_counter"):
-			for shape: CollisionShape3D in node.find_children("*","CollisionShape3D",true,false):
-				owned_shapes.append(weakref(shape.shape))
 
 func _retained(refs: Array[WeakRef]) -> int:
 	var count := 0
@@ -81,27 +78,37 @@ func _route() -> void:
 		if not await _walk_world(point): return
 	if not await _use(door,door._body.to_global(Vector3(door.width*.5,1.15,0)),"keys_cut_close"): return
 	if not await _wait_for_door(door): return
-	var counter: Node3D = passage._actors.get_node("AuthorizedKeyCopies")
-	if not await _walk_world(Vector3(counter.global_position.x,0,center.z-.18)): return
-	if not await _use(counter,counter.global_position+Vector3(0,-.09,.85),"key_copy_counter"): return
-	if not _require(counter.opened and player.call_locked and counter.panel.visible,"ordinary counter input opens permission menu"): return
+	# Paying and cutting by hand is KeysRouteTest. This route only needs the spare.
+	var cut_hand: Node = preload("res://tests/v2_fire_maintenance_hand_bench.gd").new()
+	cut_hand.set_meta("shared_world_validation", true)
+	add_child(cut_hand)
+	cut_hand.player = player
+	var keys_counter: Node3D = world.shop_counters.keys_cut
+	keys_counter.refresh_list()
+	keys_counter.select(keys_counter.item_ids.find("spare_2A"))
+	world.get_node("CaretakerEconomy").book().cash = 100
+	player.global_position = keys_counter.global_position - keys_counter.global_basis.z * 0.95 + Vector3.DOWN * 1.1
+	await get_tree().physics_frame
+	await get_tree().physics_frame
 	await _screen("key_copy_permission_menu")
-	var hours: PassageHoursDirector = counter.hours
-	hours.set_process(false)
-	hours.apply_for_minute(180)
-	await _event(KEY_E)
-	if not _require(not DoorKeyring.book().copies.has("2A") and counter.opened,
-			"shop closing while menu is open refuses the copy"): return
-	hours.apply_for_minute(20*60)
-	hours.set_process(true)
-	await _event(KEY_E)
+	if not _require(await cut_hand._stroke(keys_counter.terminal, keys_counter.terminal.TRAVEL), "the hand pays for the spare"): return
+	var cutter: Node3D = world.key_cutter
+	player.global_position = cutter.global_position - cutter.global_basis.z * 0.95 + Vector3.DOWN * 1.1
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	await cut_hand.aim(cutter.carriage.to_global(Vector3(0, .094, -.025)))
+	cut_hand.click()
+	if not _require(player._grab.active(), "the hand takes the carriage"): return
+	await cut_hand._gesture_to(cutter.TRAVEL)
+	if player._grab.active():
+		cut_hand.click()
 	if not _require(DoorKeyring.book().copies.get("2A")=="mina_vale" and DoorKeyring.book().originals==originals,
-			"ordinary focused copy input grants one authorized spare"): return
+			"the cutter grants one authorized spare"): return
 	await _screen("key_copy_made")
-	await _event(KEY_ESCAPE)
-	if not _require(not counter.opened and not player.call_locked and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,
-			"counter close releases movement and restores pointer"): return
 	if not _require(not DoorKeyring.make_copy("2A"),"second spare refused"): return
+	# The cutter's bench is behind the fittings; come back to the shop floor as a customer would.
+	player.global_position=Vector3(9.7,0,center.z)
+	await get_tree().physics_frame
 	if not await _walk_world(Vector3(9.7,0,center.z)): return
 	if not await _use(door,door._body.to_global(Vector3(door.width*.5,1.15,0)),"keys_cut_exit"): return
 	if not await _wait_for_door(door): return
@@ -216,7 +223,7 @@ func _write_contract(started: int, nodes: int, shapes: int, playbacks: int) -> v
 			"repository_head":str(head_output[0]).strip_edges() if not head_output.is_empty() else "",
 			"runtime_inputs_sha256":str(digest_output[0]).strip_edges() if not digest_output.is_empty() else ""},
 		"contracts":{"production_composition":{"executed":route_completed,"status":status,
-			"identities":["mina_vale","SITE_SHOP_DOOR_KEYS_CUT","AuthorizedKeyCopies","SITE_SHOP_DOOR_NEWS_CIGARS","F02_DOOR_02"]},
+			"identities":["mina_vale","SITE_SHOP_DOOR_KEYS_CUT","KeyCutterCarriage","SITE_SHOP_DOOR_NEWS_CIGARS","F02_DOOR_02"]},
 			"save_reconstruction":{"executed":reconstructed,"status":status},
 			"premature_action_denial":{"executed":route_completed,"status":status},
 			"teardown":{"executed":true,"status":status,"measurement_scope":"runtime_owned",

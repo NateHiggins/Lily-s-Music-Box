@@ -109,6 +109,7 @@ var shop_stock: ShopStock
 var shop_clearing: RefCounted
 var carried_case_view: CanvasLayer
 var shop_counters: Dictionary = {}
+var key_cutter: Node3D
 var shop_simulation: Node
 var day_night_director: DayNightDirector
 var light_rig: LightRig
@@ -896,6 +897,10 @@ func _compose_authorities() -> void:
 	if news_stand!=null:
 		news_stand.sales=ShopSales.new("news_cigars",shop_catalogue,shop_stock,shop_clearing)
 	item_use.pawn_point=shop_counters.pawnbroker
+	key_cutter=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_cutter(self)
+	if key_cutter==null:
+		startup_failed=true;push_error("ORISON V2 RUNTIME: key cutter refused");return
+	shop_counters.keys_cut.sold.connect(func(_item: String): key_cutter.refresh())
 	exterior_cell.stock_presence=_shop_has_stock
 	if conversations!=null and conversations.errands!=null:
 		conversations.errands.economy=economy

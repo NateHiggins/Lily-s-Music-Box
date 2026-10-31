@@ -108,15 +108,35 @@ static func player_has_key(door: Node) -> bool:
 	var unit := unit_for(door)
 	return unit.is_empty() or PersonInventory.has_key(PersonInventory.PLAYER, unit)
 
+## Two months behind, a tenant stops signing. A tenant whose case is enabled still signs,
+## because rent must never close a case or anything the mystery needs. Every resident has a
+## case definition, so it's the enabled flag that matters.
+const RENT_MONTHS_BEHIND := 2
+const RENT_REFUSAL := "Ask again when the rent is paid"
+
+static func _behind_on_rent(resident: String) -> bool:
+	var case_id := RealityCases.case_for_resident(resident)
+	if case_id != "" and bool(RealityCases.definition(case_id).get("enabled", false)):
+		return false
+	var ledger: Variant = RealityState.data.get("caretaker_economy")
+	if ledger is not Dictionary:
+		return false
+	var elapsed := CampaignClock.new().elapsed_minutes()
+	var cycles := int((elapsed - float(ledger.started)) / 43200.0) - int(ledger.rent_paid)
+	return cycles >= RENT_MONTHS_BEHIND
+
 static func copy_prompt(resident: String) -> String:
 	var value := book()
 	if value.is_empty() or resident not in _policy.copy_allowed_residents: return ""
+	if not value.permissions.has(_residents[resident]) and _behind_on_rent(resident): return RENT_REFUSAL
 	return "Key copy authorized" if value.permissions.has(_residents[resident]) else "Ask permission for a spare key"
 
 static func request_copy(resident: String) -> Dictionary:
 	var value := book()
 	if value.is_empty() or resident not in _policy.copy_allowed_residents or RealityState.save_write_blocked: return {}
 	var unit: String = _residents[resident]
+	if not value.permissions.has(unit) and _behind_on_rent(resident):
+		return {"title":"KEY COPY REFUSED", "body":"%s WILL NOT SIGN WHILE THE RENT IS OWING." % resident.replace("_"," ").to_upper(), "condition":"RENT OWING", "stamp":"SERVICE NOTE"}
 	if not value.permissions.has(unit):
 		value.permissions[unit] = resident
 		RealityState.commit()

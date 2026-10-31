@@ -207566,16 +207566,14 @@
    "symbols": [
     "_mount_markers",
     "_mount_counters",
-    "_mount_key_counter",
     "_mount_news_stand"
    ],
    "lines": [
-    350,
-    412,
-    446,
-    467
+    349,
+    411,
+    447
    ],
-   "count": 4,
+   "count": 3,
    "context": [
     "if floor.id != \"F01\": continue"
    ],
@@ -207603,7 +207601,7 @@
     "_mount_markers"
    ],
    "lines": [
-    383
+    382
    ],
    "count": 1,
    "context": [
@@ -207623,36 +207621,6 @@
    "target_exists": true
   },
   {
-   "key": "abe48ffa10f5543f",
-   "kind": "id_reference",
-   "token": "storm_shop_keys_cut_counter_top",
-   "file": "game/scripts/building/orison_v2_passage_region.gd",
-   "tier": "production",
-   "subsystem": "building",
-   "symbols": [
-    "_mount_key_counter"
-   ],
-   "lines": [
-    448
-   ],
-   "count": 1,
-   "context": [
-    "if item.id == \"storm_shop_keys_cut_counter_top\": matches.append(item)"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "F01/furniture",
-   "target_exists": true
-  },
-  {
    "key": "9ef0c20bea07ff9e",
    "kind": "id_reference",
    "token": "storm_shop_news_cigars_counter_top",
@@ -207663,7 +207631,7 @@
     "_mount_news_stand"
    ],
    "lines": [
-    469
+    449
    ],
    "count": 1,
    "context": [
@@ -209519,7 +209487,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1244
+    1249
    ],
    "count": 1,
    "context": [
@@ -209549,8 +209517,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1324,
-    1327
+    1329,
+    1332
    ],
    "count": 2,
    "context": [
@@ -209581,7 +209549,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    803
+    804
    ],
    "count": 1,
    "context": [
@@ -209791,7 +209759,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1472
+    1477
    ],
    "count": 1,
    "context": [
@@ -209852,9 +209820,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1238,
-    1241,
-    1303
+    1243,
+    1246,
+    1308
    ],
    "count": 3,
    "context": [
@@ -209886,7 +209854,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1253
+    1258
    ],
    "count": 1,
    "context": [
@@ -209916,7 +209884,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1245
+    1250
    ],
    "count": 1,
    "context": [
@@ -209946,7 +209914,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1262
+    1267
    ],
    "count": 1,
    "context": [
@@ -209976,7 +209944,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1470
+    1475
    ],
    "count": 1,
    "context": [
@@ -210036,7 +210004,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1254
+    1259
    ],
    "count": 1,
    "context": [
@@ -210066,7 +210034,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1466
+    1471
    ],
    "count": 1,
    "context": [
@@ -210096,7 +210064,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1468
+    1473
    ],
    "count": 1,
    "context": [
@@ -210126,7 +210094,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    715
+    716
    ],
    "count": 1,
    "context": [
@@ -210156,7 +210124,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1468
+    1473
    ],
    "count": 1,
    "context": [
@@ -210186,7 +210154,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1466
+    1471
    ],
    "count": 1,
    "context": [
@@ -210216,7 +210184,7 @@
     "_ready"
    ],
    "lines": [
-    184
+    185
    ],
    "count": 1,
    "context": [
@@ -210246,7 +210214,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    716
+    717
    ],
    "count": 1,
    "context": [
@@ -210276,7 +210244,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    716
+    717
    ],
    "count": 1,
    "context": [
@@ -210306,7 +210274,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1466
+    1471
    ],
    "count": 1,
    "context": [
@@ -210336,7 +210304,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1466
+    1471
    ],
    "count": 1,
    "context": [
@@ -210366,7 +210334,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    715
+    716
    ],
    "count": 1,
    "context": [
@@ -210426,9 +210394,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1321,
-    1325,
-    1328
+    1326,
+    1330,
+    1333
    ],
    "count": 3,
    "context": [
@@ -210460,7 +210428,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    504
+    505
    ],
    "count": 1,
    "context": [
@@ -210490,7 +210458,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    504
+    505
    ],
    "count": 1,
    "context": [
@@ -210520,7 +210488,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    503
+    504
    ],
    "count": 1,
    "context": [
@@ -210550,7 +210518,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    503
+    504
    ],
    "count": 1,
    "context": [
@@ -210580,7 +210548,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1229
+    1234
    ],
    "count": 1,
    "context": [
@@ -210610,7 +210578,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1230
+    1235
    ],
    "count": 1,
    "context": [
@@ -210640,7 +210608,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    504
+    505
    ],
    "count": 1,
    "context": [
@@ -210730,7 +210698,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1131
+    1136
    ],
    "count": 1,
    "context": [
@@ -210760,7 +210728,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    555
+    556
    ],
    "count": 1,
    "context": [
@@ -210791,8 +210759,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1003,
-    1116
+    1008,
+    1121
    ],
    "count": 2,
    "context": [
@@ -210823,7 +210791,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1117
+    1122
    ],
    "count": 1,
    "context": [
@@ -210943,7 +210911,7 @@
     "_ready"
    ],
    "lines": [
-    236
+    237
    ],
    "count": 1,
    "context": [
@@ -210973,7 +210941,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1287
+    1292
    ],
    "count": 1,
    "context": [
@@ -211003,7 +210971,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1288
+    1293
    ],
    "count": 1,
    "context": [
@@ -211033,7 +211001,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1289
+    1294
    ],
    "count": 1,
    "context": [
@@ -211063,7 +211031,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1286
+    1291
    ],
    "count": 1,
    "context": [
@@ -211124,7 +211092,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    547
+    548
    ],
    "count": 1,
    "context": [
@@ -211156,8 +211124,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1222,
-    1287
+    1227,
+    1292
    ],
    "count": 2,
    "context": [
@@ -211190,8 +211158,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1225,
-    1288
+    1230,
+    1293
    ],
    "count": 2,
    "context": [
@@ -211224,8 +211192,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1228,
-    1289
+    1233,
+    1294
    ],
    "count": 2,
    "context": [
@@ -211258,8 +211226,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1219,
-    1286
+    1224,
+    1291
    ],
    "count": 2,
    "context": [
@@ -211291,7 +211259,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    545
+    546
    ],
    "count": 1,
    "context": [
@@ -211322,7 +211290,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    421
+    422
    ],
    "count": 1,
    "context": [
@@ -211354,8 +211322,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    231,
-    426
+    232,
+    427
    ],
    "count": 2,
    "context": [
@@ -211387,7 +211355,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    552
+    553
    ],
    "count": 1,
    "context": [
@@ -211418,7 +211386,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    429
+    430
    ],
    "count": 1,
    "context": [
@@ -211450,8 +211418,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    545,
-    1327
+    546,
+    1332
    ],
    "count": 2,
    "context": [
@@ -211482,7 +211450,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1186
+    1191
    ],
    "count": 1,
    "context": [
@@ -211512,7 +211480,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1187
+    1192
    ],
    "count": 1,
    "context": [
@@ -211752,7 +211720,7 @@
     "_row"
    ],
    "lines": [
-    59
+    88
    ],
    "count": 1,
    "context": [
@@ -211782,7 +211750,7 @@
     "_place"
    ],
    "lines": [
-    69
+    98
    ],
    "count": 1,
    "context": [
@@ -211812,11 +211780,71 @@
     "<module>"
    ],
    "lines": [
-    14
+    17
    ],
    "count": 1,
    "context": [
     "const HARDWARE_ROW := \"storm_shop_hardware_paint_counter_top\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c679316630bec258",
+   "kind": "id_reference",
+   "token": "storm_shop_keys_cut_counter_top",
+   "file": "game/scripts/building/orison_v2_shop_counters.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "const KEYS_ROW := \"storm_shop_keys_cut_counter_top\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "78f50fd409b7b185",
+   "kind": "id_reference",
+   "token": "storm_shop_keys_cut_cutter_vise0",
+   "file": "game/scripts/building/orison_v2_shop_counters.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "const CUTTER_ROW := \"storm_shop_keys_cut_cutter_vise0\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -211842,7 +211870,7 @@
     "<module>"
    ],
    "lines": [
-    16
+    19
    ],
    "count": 1,
    "context": [
@@ -211872,7 +211900,7 @@
     "<module>"
    ],
    "lines": [
-    9
+    12
    ],
    "count": 1,
    "context": [
@@ -247856,6 +247884,36 @@
    "target_exists": null
   },
   {
+   "key": "6572dcedd34b8d0e",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/keys_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    32
+   ],
+   "count": 1,
+   "context": [
+    "var unit := \"2A\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "380fdff621dfc6c4",
    "kind": "asset_path",
    "token": "res://scenes/building/orison_root.tscn",
@@ -282421,7 +282479,7 @@
     "_receiver_reload"
    ],
    "lines": [
-    93
+    68
    ],
    "count": 1,
    "context": [
@@ -282436,38 +282494,6 @@
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "d86dae19cd6de9a2",
-   "kind": "unit_reference",
-   "token": "2A",
-   "file": "game/tests/orison_v2_owner_shop_finish_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "validate_in_world"
-   ],
-   "lines": [
-    54,
-    55
-   ],
-   "count": 2,
-   "context": [
-    "check(DoorKeyring.book().copies.get(\"2A\") == \"mina_vale\" and DoorKeyring.book().originals == originals,\"focused E creates authorized spare and preserves residen",
-    "check(not DoorKeyring.make_copy(\"2A\"),\"duplicate spare refused by original authority\")"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "unit",
    "target_exists": true
   },
   {
@@ -288898,14 +288924,14 @@
     "_write_contract"
    ],
    "lines": [
-    152,
-    189,
-    219
+    159,
+    196,
+    226
    ],
    "count": 3,
    "context": [
     "var opening := world.adapter.resolve(\"F02_DOOR_02\") as Node3D",
-    "\"identities\":[\"mina_vale\",\"SITE_SHOP_DOOR_KEYS_CUT\",\"AuthorizedKeyCopies\",\"SITE_SHOP_DOOR_NEWS_CIGARS\",\"F02_DOOR_02\"]},"
+    "\"identities\":[\"mina_vale\",\"SITE_SHOP_DOOR_KEYS_CUT\",\"KeyCutterCarriage\",\"SITE_SHOP_DOOR_NEWS_CIGARS\",\"F02_DOOR_02\"]},"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -288932,13 +288958,13 @@
     "_write_contract"
    ],
    "lines": [
-    73,
-    219
+    70,
+    226
    ],
    "count": 2,
    "context": [
     "var door: DoorProp = passage.doors.get(\"SITE_SHOP_DOOR_KEYS_CUT\")",
-    "\"identities\":[\"mina_vale\",\"SITE_SHOP_DOOR_KEYS_CUT\",\"AuthorizedKeyCopies\",\"SITE_SHOP_DOOR_NEWS_CIGARS\",\"F02_DOOR_02\"]},"
+    "\"identities\":[\"mina_vale\",\"SITE_SHOP_DOOR_KEYS_CUT\",\"KeyCutterCarriage\",\"SITE_SHOP_DOOR_NEWS_CIGARS\",\"F02_DOOR_02\"]},"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -288965,13 +288991,13 @@
     "_write_contract"
    ],
    "lines": [
-    110,
-    219
+    117,
+    226
    ],
    "count": 2,
    "context": [
     "var news: DoorProp = passage.doors.get(\"SITE_SHOP_DOOR_NEWS_CIGARS\")",
-    "\"identities\":[\"mina_vale\",\"SITE_SHOP_DOOR_KEYS_CUT\",\"AuthorizedKeyCopies\",\"SITE_SHOP_DOOR_NEWS_CIGARS\",\"F02_DOOR_02\"]},"
+    "\"identities\":[\"mina_vale\",\"SITE_SHOP_DOOR_KEYS_CUT\",\"KeyCutterCarriage\",\"SITE_SHOP_DOOR_NEWS_CIGARS\",\"F02_DOOR_02\"]},"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -288998,8 +289024,8 @@
     "_save_rebuild"
    ],
    "lines": [
-    153,
-    190
+    160,
+    197
    ],
    "count": 2,
    "context": [
@@ -289031,18 +289057,17 @@
     "_route"
    ],
    "lines": [
-    60,
-    61,
-    93,
-    98,
-    104
+    57,
+    58,
+    105,
+    108
    ],
-   "count": 5,
+   "count": 4,
    "context": [
     "if not _require(DoorKeyring.book().permissions.get(\"2A\")==\"mina_vale\"",
     "and not DoorKeyring.book().copies.has(\"2A\") and DoorKeyring.book().originals==originals,",
-    "if not _require(not DoorKeyring.book().copies.has(\"2A\") and counter.opened,",
-    "if not _require(DoorKeyring.book().copies.get(\"2A\")==\"mina_vale\" and DoorKeyring.book().originals==originals,"
+    "if not _require(DoorKeyring.book().copies.get(\"2A\")==\"mina_vale\" and DoorKeyring.book().originals==originals,",
+    "if not _require(not DoorKeyring.make_copy(\"2A\"),\"second spare refused\"): return"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -289068,26 +289093,26 @@
     "_route"
    ],
    "lines": [
+    49,
+    49,
+    49,
     52,
     52,
     52,
-    55,
-    55,
-    55,
-    63,
-    63,
-    63,
-    67,
-    67,
-    67,
-    68,
-    68,
-    68,
-    69,
-    69,
-    136,
+    60,
+    60,
+    60,
+    64,
+    64,
+    64,
+    65,
+    65,
+    65,
+    66,
+    66,
     143,
-    143
+    150,
+    150
    ],
    "count": 29,
    "context": [

@@ -29,33 +29,8 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 							if texture != null: maps[texture.resource_path] = texture
 	check(owners >= 20 and changed_slots > 100,"shop finishes deployed across native families")
 	for texture: Texture2D in maps.values(): check(texture.get_image().has_mipmaps(),"scoped shop map has actual mips: "+texture.resource_path.get_file())
-	var counter: Area3D = world.passage_region._actors.get_node("AuthorizedKeyCopies")
-	retained.append(weakref(counter))
-	for layer: CanvasLayer in counter.find_children("*","CanvasLayer",true,false): layer.show()
-	var originals: Dictionary = DoorKeyring.book().originals.duplicate(true)
-	check(not DoorKeyring.request_copy("mina_vale").is_empty(),"existing resident permission permits this isolated copy-input regression")
-	var feet := Vector3(counter.global_position.x,.03,counter.global_position.z+1.85)
-	check(_city_clear_station(world,feet),"copy counter station remains floor-supported and clear")
-	world.player.global_position = feet
-	world.player.velocity = Vector3.ZERO
-	world.player.face_world_point(counter.global_position+Vector3(0,-.09,.85))
-	world.player.set_mouse_released(false)
-	await get_tree().physics_frame
-	await get_tree().physics_frame
-	var ray := PhysicsRayQueryParameters3D.create(world.player.camera.global_position,world.player.camera.global_position-world.player.camera.global_basis.z*2.1,1,[world.player.get_rid()])
-	ray.collide_with_areas = true
-	var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
-	check(hit.get("collider") == counter,"ordinary standing interaction ray reaches retained copy counter")
-	if hit.get("collider") == counter:
-		await _shop_key(KEY_E)
-		check(counter.opened and world.player.call_locked,"ordinary E opens existing copy menu")
-		if counter.opened:
-			await _shop_key(KEY_E)
-			check(DoorKeyring.book().copies.get("2A") == "mina_vale" and DoorKeyring.book().originals == originals,"focused E creates authorized spare and preserves resident originals")
-			check(not DoorKeyring.make_copy("2A"),"duplicate spare refused by original authority")
-			await _shop_key(KEY_ESCAPE)
-			check(not counter.opened and not world.player.call_locked,"copy menu releases player")
-	for layer: CanvasLayer in counter.find_children("*","CanvasLayer",true,false): layer.hide()
+	# Keys Cut's own route, including the hand at the cutter, is KeysRouteTest.
+	check(world.shop_counters.has("keys_cut") and world.key_cutter != null,"Keys Cut has its counter and cutter")
 	await _receiver_reload(world,owners)
 	validation_completed = true
 	return {"checks":checks,"failures":failures,"owners":owners,"changed_slots":changed_slots,"loaded_texture_maps":maps.size()}
