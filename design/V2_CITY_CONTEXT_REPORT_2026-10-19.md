@@ -4927,3 +4927,30 @@ street/footway proposal. Shared ground reservations, registered-frame seams,
 existing corner-house steps/railings and runtime integration remain protected.
 The actor's original western/eastern frame comparison was withdrawn; only the
 correct full WorldConnection frame may inform this next construction.
+
+
+### Newer newspaper main preserved during publication, 2026-10-31
+
+Evidence class: **INERT**. Publishing the verified **0309b6a1** checkpoint
+was correctly rejected because main advanced to **ec30aba9**/PR103. The
+verified checkpoint is safe on the recovery branch; main was never forced.
+The newer newspaper scripts, print shader and36 images are merged intact at
+**b95dc06e**. Generated image sidecars are normally ignored: only these36
+known new images receive named tracked import settings, with explicit -text
+attributes. No source image, story content or newspaper authority is changed.
+
+Import26s and four-script compilation pass with empty stderr. All13 native
+fixture preflights pass before the new survey. Actual **ed3584af** composed
+physical-only survey passes **651checks/0**,261.65s wrapper/239.302s test,
+empty shutdown stderr. Its actual schema-2 surface input is
+**cba08e34374a6a9dfe84fc61622eed6ad6dca036808d679f6d6fe6e53e46cb25**.
+Three fresh room/bookcase images inspected; loaded materials remain visible,
+with existing bright lighting,sparse dressing and companion readability debt.
+The publisher preserves the preceding packet and returns PASS/zero defects.
+No receipt is repinned. The unchanged case,industrial and played-route checks
+are reused; newspaper reading/artistic review stays with its existing owner.
+
+Exact **ec30aba9** baseline completes117 gates on a clean static-only checkout
+with no timeouts. Current candidate comparison remains pending. Startup121.200s
+is measured debt, not a matched improvement. No new save/full-city/artistic
+acceptance follows; previous760 verification remains valid only for its snapshot.
