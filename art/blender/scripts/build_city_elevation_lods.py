@@ -12,11 +12,11 @@ from fabrication_native_batch import material,partition,export
 source=ROOT/'art/blender/scripts/build_city_elevations.py'
 # These geometry functions belong to the elevation producer. Extract definitions
 # explicitly; importing that executable would rebuild the entire high city.
-names={'box','local_box','profile_stock','arch_stock','turned_stock','roof_panel','clip_roof_polygon','roof_metric_charts','wood_stock_charts'}
+names={'box','local_box','profile_stock','arch_stock','turned_stock','roof_panel','clip_roof_polygon','roof_metric_charts','wood_stock_charts','facade','facade_frames','curtain_panel','retained_facade'}
 tree=ast.parse(source.read_text(encoding='utf-8'))
 definitions=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in names]
 assert {n.name for n in definitions}==names
-buffers=collections.defaultdict(lambda:([],[]));stocks=[];roof_samples=[]
+buffers=collections.defaultdict(lambda:([],[]));stocks=[];roof_samples=[];window_rows=[];portal_rows=[]
 def add(name,key,verts,faces):
     vv,ff=buffers[name,key];offset=len(vv);vv.extend(verts);ff.extend(tuple(offset+i for i in f) for f in faces)
     stocks.append((name,key,verts,faces))
@@ -30,7 +30,7 @@ programme=runtime['body_lod'];assert programme['parts'] and float(programme['err
 bpy.ops.wm.open_mainfile(filepath=str(ROOT/'art/blender/city_closure.blend'))
 original={o.name.removesuffix('__RetainedStock'):o for o in bpy.data.collections['ClosedConstruction'].objects}
 rings={o.name.removesuffix('__JoinedParapet'):o for o in bpy.data.collections['ClosedParapets'].objects}
-owner=CommercialFronts(profiles,records,original,rings,dict(add=add,box=box,profile_stock=profile_stock,arch_stock=arch_stock,turned_stock=turned_stock,roof_panel=roof_panel,clip_roof_polygon=clip_roof_polygon),detail_level=1)
+owner=CommercialFronts(profiles,records,original,rings,dict(add=add,box=box,retained_facade=retained_facade,profile_stock=profile_stock,arch_stock=arch_stock,turned_stock=turned_stock,roof_panel=roof_panel,clip_roof_polygon=clip_roof_polygon),detail_level=1)
 for identity in profiles:owner.build(identity)
 vertices=[];faces=[]
 for index,(name,key,vv,ff) in enumerate(stocks):
@@ -80,7 +80,7 @@ for (name,key),(vv,ff) in sorted(buffers.items()):
     stock=bpy.data.objects.new('Raw',mesh)
     obj=partition(exports,identity,[stock],finish,mat,Matrix.Translation(center),catalog)
     if key in ['city_slate','city_roof_clay']:roof_metric_charts(obj)
-    if name in ['site_ne1','site_nbr_w','site_nbr_e','site_sw2'] and key=='wood_dark':wood_stock_charts(obj,catalog[key]['files'][0])
+    if name in ['site_ne1','site_nbr_w','site_nbr_e','site_sw2','site_back_w'] and key=='wood_dark':wood_stock_charts(obj,catalog[key]['files'][0])
     bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
     parts.append({'name':identity,'triangles':len(obj.data.polygons),'near_translation_gltf':t})
 assert {r['name'] for r in parts}==set(programme['parts'])

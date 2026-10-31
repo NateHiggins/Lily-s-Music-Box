@@ -743,7 +743,7 @@
     },
     {
       "id": "site_back_w",
-      "description": "Narrow-bay brick apartment block with gathered household curtains",
+      "description": "Five-storey AU Hawthorne-derived apartment with centred columned street entrance,two shallow risers,seven-axis lower frontage,quoined projecting uppercentre,arched top sash and open roof balustrade",
       "massing": "straight_eave",
       "storey_height": 2.95,
       "bay_pitch": 2.15,
@@ -776,7 +776,24 @@
         0,
         6,
         0
-      ]
+      ],
+      "floor_heights": [
+        5.94,
+        3.14,
+        3.16,
+        3.16
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "hawthorne",
+        "front_side": 0,
+        "front_floor_count": 4,
+        "front_bays": 7,
+        "roof_depth_m": 0,
+        "precedent": "INERT:LPC LP1831 PDF124/125,printed117/118,Hawthorne Court,George H.Wells1921-22,five stories. PDF64/printed57 is c1940 entrance detail,not1928view. Upper quoined centre,arched fifth-storey sash,modillion cornice and roof balustrade adapted to18x6.4m parcel. Retained lower two-storey recipe and all original roof deck/plant datums govern the AU transposition. Registered running-bond brick explicitly substitutes for described Flemish bond; no reference pixels,lettering,new entrance or occupied-room authority. Ground front refitted after source-only224space/13registeredshop/alley/grade survey;currentworkingowners unchanged. Two160.875mmrisers lead from actualsoil-.02175m to.30mland;existingrear/side lower recipe andtransfercourse retained.",
+        "entry_ground_m": -0.02175,
+        "entry_landing_m": 0.3
+      }
     },
     {
       "id": "site_back_e",

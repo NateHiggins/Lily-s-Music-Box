@@ -3925,3 +3925,181 @@ Canonical's narrower E/Bodega+west cohort independently reports7086/0 isolated
 and256 checks/eight actual movement legs/0,including real door grab/move/release
 and inside/outside. That is not SW2 qualification; original234/6/2 remains.
 Published tally stays21/149 until canonical renewal/publication is complete.
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Evidence class: **INERT**. Rear-west native construction,not runtime acceptance.
+
+Starting checkpoint **d3bff66e16baff758922ef3b4480bd49380054fb**. The installed
+rear-west18x6.4m apartment lies X[-30,-12]/Y[24.1,30.5],after its retained+6Y
+assembly; raw sourceY[18.1,24.5] is not the installed placement. Two retained
+lower storeys remain below5.94m. Three owned upper floors end15.4m;old deck
+15.4..15.66,bulkhead and9 mast/aerial/beacon contacts keep their original seats.
+
+The AU upper form derives from Hawthorne Court,George H.Wells1921-22:
+LPC **LP1831**,PDF124/125 (printed117/118) describes quoined central sections,
+arched fifth-storey glazing,modillion cornices and roof balustrades. PDF64 is
+an explicitly c1940 entrance detail,not a1928 photograph;no full upper-elevation
+photograph was inspected. Exact dimensions follow the installed fictional
+parcel. Registered running-bond brick substitutes for described Flemish bond;
+no historical bond/height/condition claim. Source photos/PDFs remain external.
+
+Actual native construction includes a slightly projecting centre and closed
+returns,alternating stone quoins,six-over-one upper sash,real round-head top
+apertures,modillion cornice and an open front stone balustrade with closed
+manufactured balusters/posts/rails. Rear/side parapets and old deck remain.
+Lower windows use the unchanged existing facade recipe;copying the original
+closure base would instead have filled them. No new door,occupied interior,
+shop/access/weather/narrative/save/clock/companion authority or material key.
+
+Actual near/lower bodies have **31184/28048 triangles**,nine material parts each.
+All6 native views were inspected;18 near/export/lower part comparisons match
+exact float32 triangle-position multisets.1692 new near stocks are closed and
+positive. Complete lower12421 stocks/595 bearings/669 panes pass;near1205
+bearings/2551 panes/126 roof/12 return samples pass. Two GLB UV audits,four
+source preflights,14 Python city tools tests,reader NEW0 and17 protected paths
+pass/remain unchanged. These are native/static diagnostics,not runtime proof.
+
+Actual retained lower volume preserves **12894 exact world-space triangles**
+and two limestone top-course triangles. The first predicate incorrectly counted
+120 retired upper-wall sole-cap triangles on the shared5.94m plane as lower
+construction;its original failure/script are preserved. Corrected comparison
+isolates the lower volume and independently checks the limestone top course;
+no tolerance increase or runtime waiver.270 unrelated near and155 existing
+lower parts,24 other profiles and five ground/street assets are exact.
+
+Existing isolated bench now expects94 rear panes,zero new portals,and open
+balustrade gap/post/rail controls in the installed+6Y placement. It has NOT yet
+been compiled/run. Godot/render cost,loaded materials/mips,LOD transitions,
+standing collision/access and composed lighting/artistic qualification remain
+open. Canonical whole-surface renewal separately failed after255seconds with
+Vulkan OUT_OF_DEVICE_MEMORY/native0xc0000005 and no runtime_contract;original
+logs/partialframes stay canonical-owned. Do not promote that failure or assign
+it to this new native asset. No new texture atlas was allocated here.
+
+Portable **rear_apartment_native_review.zip** indexes every member hash in the
+existing manifest;CRC/member bytes verified. Six actual native images,original
+comparison failure,source/provenance and UV evidence retained. Source reference
+pixels/PDFs and duplicate production meshes excluded. External source evidence
+is **C:/ov/reports/city_streets_20261029/rear_apartment_01**. Published tally remains
+**21/149** until required canonical publication/qualification is actually done.
+
+
+### Rear-west complete front in progress — 2026-10-30
+
+Evidence class: **INERT**. Supersedes the upper-only prototype's unchanged-front
+claim for the current uncommitted construction, not its preserved checkpoint.
+Starting checkpoint **1a6b09d2** is pushed. The current Hawthorne-derived body
+now has seven aligned front axes, a closed scenic entrance leaf, columned
+portico, landing and two nominal 160.875mm risers. The landing is +0.30m;
+actual unchanged approach grade varies with X around -0.02175m. No live door,
+room, shop, save or narrative authority was added. Rear and side lower facades,
+roof deck and nine plant contacts remain the intended preservation boundary.
+
+Current near/lower meshes contain 31412/28020 triangles and eleven registered
+material parts each. Five current native views were inspected;22 native/export
+part comparisons match. Near1699 closed stocks pass; lower12428 stocks,
+595 bearings and667 panes pass. Near1205 bearings/2549 panes/126 roof/12 return
+checks and both UV audits pass. Actual installed-coordinate diagnostics pass
+30 support sections and8 optical rays. These rays are not capsule/walk proof.
+The original constant-grade diagnostic failure is retained; the correction
+samples independently unchanged terrain at each X rather than raising tolerance.
+
+Preservation verification found equal retained vertex sets and area but a
+2.261mm surface discrepancy on the inherited beveled transfer cornice after
+combined triangulation. It remains an unresolved construction issue; no
+acceptance or tolerance waiver. Unrelated270 near/155 lower parts,24 profiles
+and five ground/street assets remain exact against the prior checkpoint.
+
+The first upper-only loaded bench failed two assertions (stale roof count and
+JSON numeric-array type comparison), despite7285 checks. Original source,
+wrapper receipt, profile and captures remain external under
+**C:/ov/reports/city_streets_20261029/rear_apartment_01/bench_01** and adjacent
+files. Corrections and current entry counts await a new frozen native boundary
+and rerun. No runtime qualification or accepted performance claim follows from
+that failed run. Current loaded appearance/mipmaps/LOD/collision, composed
+lighting and artistic acceptance remain open. Canonical published tally stays
+21/149; full-city completion remains the active objective.
+
+
+Retained-surface diagnostic continuation: the 2.261mm BVH reading is a query
+precision error, not an observed physical gap. The source cornice BEAUTY
+triangulation matches all44 frozen old triangles. Its bounded copy now freezes
+that stock before the material batch. Independent float64 point-to-triangle
+projection plus clamped edge distances measures the first disputed point at
+0.000001146m. The complete bidirectional check passes208512 samples at the
+unchanged0.0001m tolerance, with exact retained vertex sets/equal areas and
+508 changed coplanar diagonals. Original strict comparisons, BVH failures and
+diagnostic-script setup/serialization failures remain external. No physical
+acceptance or tolerance increase. Final native re-review is in progress before
+another loaded run;14 city tools tests and reader NEW0 pass again.
+
+
+Complete-front native freeze: all five rebuilt near/lower views inspected and
+22 native/export part comparisons exact after the bounded cornice copy change.
+Both final UV audits pass;1699 near closed stocks pass. Portable existing
+**rear_apartment_native_review.zip** now retains original checkpoint/failures
+and current full-front review:134 members,34471199 bytes,SHA256
+**0fa3f82935d760705366dc18cb130692c118f7383ea8d7a8d88ec677e0aeaa29**.
+Identical evidence bytes are stored once with37 explicit path aliases. Reference
+photographs/PDFs and duplicate production meshes are excluded. This is a native
+checkpoint, not runtime or artistic acceptance. The import/compiler batch waits
+FIFO behind canonical transport-route work; current loaded/LOD/capsule checks
+remain pending. No shared integration file or protected authority was edited.
+
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Evidence class: **INERT**. Complete rear-west native and isolated loaded checkpoint.
+Native/source freeze **7dec75d9**, following tracker-only **c4854e7e** and
+upper-only **1a6b09d2**. Current import27.48s/compiler1script pass,empty stderr.
+The previous import's126454-byte stderr contains638 UID-cache recreation
+warnings; it was not empty. Current import/compiler diagnostics are not contracts.
+
+Corrected fullscreen isolated bench **7299 checks/1205 roof samples/1070 family
+draws/0 failures**,wrapper37.74s,empty stderr. All seven actual captures inspected.
+Current near/far wholefront keeps the seven axes,entrance/steps and roof plant;
+the four natural-transition images deliberately isolate one brick material part.
+The latter changes3068 to2900 primitives across195.5328574/195.5489163m;
+5-degree FOV recovery and inward return restore3068. This is not a wholecity
+LOD or composed appearance qualification. All207 test-recorded source inputs
+still match its LF-text/raw-binary policy. An initial raw-only checker wrongly
+flagged seven unchanged CRLF source files; original failures are listed in the
+binding check. Seventeen protected paths remain unchanged versus1a6b09d2.
+
+Measured isolated group35 draws/42808 near and39107 forced-lower primitives,
+including original roof equipment. Five cases each record90 warmed frames,
+3440x1440 fullscreen,MSAA3,TAAoff,vsyncoff,uncapped. First near GPU median0.690ms,
+p950.695ms,max0.748ms;wallmedian1.009ms,p951.255ms,max**39.436ms**,four frames
+over16.667ms. Later far/natural/far-repeat/near-repeat GPU medians
+0.686/0.665/0.635/0.636ms and wall maxima1.205/1.098/1.087/1.104ms.
+No matched baseline,quiet-host control,causal spike explanation or wholecity
+performance-budget claim. Host GPU snapshots are not peak-resource measurements.
+The current isolated bench/profile is INERT,not a schema2 runtime_contract.
+Standing controller approach/step collision,composed light/mip/surface renewal
+and artistic acceptance remain open for coordinated canonical qualification.
+Original7285-check/two-selector failure and all native diagnostic failures remain.
+
+Existing portable rear-apartment archive now has151 members/36532742 bytes,
+SHA256 **af96df6ab0a5e68f87996f14d1b47257b9e19db9a28bc43a53a064c582e11ed0**;
+manifest hashes and member CRC/bytes verified. Earlier native members are retained;
+identical new evidence bytes use explicit aliases. No reference image/PDF or
+production mesh duplicates included.638 generated untracked UID files individually
+cleaned only after own Godot terminal and exact matching to their prior archive.
+No main merge,shared integration edit or published149-building tally promotion.
+
+
+### Canonical southwest/rear-west combined intake — October30
+
+Evidence class: **INERT**. Frozen rear-west **812b93b6** is reconciled with
+SW2 **d3bff66e**, current canonical route fixture **6805be3d** and upstream
+PR99 **ae8e69b1**. Native near/lower views and loaded whole/forced-level
+views were inspected; native archive hashes/CRC verified before intake.
+This is not current combined-world or artistic acceptance. The original SW2
+route failure, exact executed source and independent road-height proof remain
+in **canonical_southwest_01/**. All eight controller legs executed; the
+expected overview height mistakenly omitted the road stock's100mm offset.
+The corrected literal is−.3025m, with no tolerance or collision change.
+The first physical renewal never started because that batch stopped on failure.
+Next run combines both nearby entry programmes before a physical-only renewal;
+no unrelated hose or whole-city tour is added. Published counts remain unchanged.
