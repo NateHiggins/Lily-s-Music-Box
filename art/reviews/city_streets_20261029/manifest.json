@@ -11448,5 +11448,84 @@
         "sha256": "b1e29165e856e1284a35a5051768a19f9984b3fe693fa2626df91b0122fdd4b5"
       }
     }
+  },
+  "eastern_courts_archive": {
+    "evidence_class": "INERT",
+    "scope": "Three apartment-court adaptations and renewed adjoining factory. Native72roundtrips/82receivingcontrols/12current inspectedviews plus2factorynear exactreuse. Embedded schema2 contracts only qualify their declared loaded geometry/material/LOD and independent controller-route scopes. Original strict preservation/localization failures and stopped native jobs retained. Archive/index INERT. Not continuous campaign/traffic/save,matched performance or artistic acceptance.",
+    "archive": "art/reviews/city_streets_20261029/eastern_courts_review.zip",
+    "bytes": 99765684,
+    "sha256": "260a7d2a51e6e1f7c27987483a6f8d644065eb1abeb3cbfae900d20ab6ae4201",
+    "member_count": 283,
+    "byte_exact_reused_image_aliases": {
+      "execution/native_review_02/city_horizon_near_HORIZON_NEAR_2_1_P1.png": {
+        "retained_member": "execution/native_review_03/city_horizon_near_HORIZON_NEAR_2_1_P1.png",
+        "sha256": "84e21f14b5a68481570e894a76024fdfa76b734bca7ff1fc426b151928730f02"
+      },
+      "execution/native_review_02/city_horizon_near_HORIZON_NEAR_2_1_P1_detail.png": {
+        "retained_member": "execution/native_review_03/city_horizon_near_HORIZON_NEAR_2_1_P1_detail.png",
+        "sha256": "f4de752ea2cbf1836ebed7d36de30c425e0de1b1a56b48c7102debf621c2bd4d"
+      },
+      "execution/native_review_02/city_horizon_near_HORIZON_NEAR_2_2_P1.png": {
+        "retained_member": "execution/native_review_03/city_horizon_near_HORIZON_NEAR_2_2_P1.png",
+        "sha256": "379b473e8681edc82c16aef9a89881b04bc639438e6e7354424f0eeae99c7900"
+      },
+      "execution/native_review_02/city_horizon_near_HORIZON_NEAR_2_2_P1_detail.png": {
+        "retained_member": "execution/native_review_03/city_horizon_near_HORIZON_NEAR_2_2_P1_detail.png",
+        "sha256": "459e49b6827a82c1d88bd70ee312349daa2153cb6de917b5c7652c3460c60934"
+      },
+      "execution/native_review_02/city_horizon_near_HORIZON_NEAR_2_2_P2.png": {
+        "retained_member": "execution/native_review_03/city_horizon_near_HORIZON_NEAR_2_2_P2.png",
+        "sha256": "d87a7723cb6b42be745625aa23cf9c6283d5d88260244d8cb3dd04acd7132ff4"
+      }
+    },
+    "runtime_source_count": 135,
+    "runtime_contracts": {
+      "bench": {
+        "member": "execution/bench_01/courts_loaded.runtime.json",
+        "checks": 3263
+      },
+      "access": {
+        "member": "execution/access_02/courts_access.runtime.json",
+        "checks": 98
+      }
+    },
+    "asset_bindings": {
+      "art/blender/city_horizon_near.blend": {
+        "bytes": 17279491,
+        "sha256": "f74721193a2b5fdd2d9fbc5a3b38ffdebd429be76e3e192d7a0a028fde4f9228"
+      },
+      "art/blender/city_horizon_far.blend": {
+        "bytes": 18762999,
+        "sha256": "76c4628dad23145a9cb186674d8ae91fdfda1c524ec0c6511147e40d49f20d2e"
+      },
+      "art/blender/city_horizon_lod1.blend": {
+        "bytes": 6834707,
+        "sha256": "90950a645fda8a46d63a3e1f1c68de0578448deec5d22481e40d85e04e80757d"
+      },
+      "art/blender/city_horizon_construction.json": {
+        "bytes": 5295985,
+        "sha256": "cf4f759293967121144e4b985a08b610ad82983f4f48e8052502534c38dc16af"
+      },
+      "game/assets/props/city_horizon_near.glb": {
+        "bytes": 85606752,
+        "sha256": "fc6ee0aa6eb51cb74ca2cee3cb252100d5b3ece42750afff6426d205fa1ecb4c"
+      },
+      "game/assets/props/city_horizon_far.glb": {
+        "bytes": 98530480,
+        "sha256": "8aea35dc13aba413052b187f6d4759e4cd88d391a90032c367744a1c291343d7"
+      },
+      "game/assets/props/city_horizon_lod1.glb": {
+        "bytes": 32331840,
+        "sha256": "7035da5831bd7661bcd829e3104e8f9cb82ea990df97611547f3adfe86d7ae4a"
+      },
+      "game/data/orison_v2/exterior/city_horizon.json": {
+        "bytes": 28918,
+        "sha256": "8403ea92587ef71281d3e67a51b71053bea0ec823f4dd8ba45f5d3b6cbc2917c"
+      },
+      "game/tests/fixtures/orison_city_horizon.json": {
+        "bytes": 5295985,
+        "sha256": "cf4f759293967121144e4b985a08b610ad82983f4f48e8052502534c38dc16af"
+      }
+    }
   }
 }
