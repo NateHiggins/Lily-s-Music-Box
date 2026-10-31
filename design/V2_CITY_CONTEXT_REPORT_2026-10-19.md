@@ -3399,3 +3399,53 @@ and sidewalk clear passage remain open. External evidence stays under
 failures and original/revised native images. No runtime,loaded mips,LOD timing
 or artistic acceptance from the new native checkpoint. Published count stays
 **21/149** until canonical source-bound controller/composed qualification.
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Evidence class: **INERT**. SW2 native/isolated diagnostics, not acceptance.
+
+The actual current patched-Vulkan fullscreen3440x1440 bench passes **7162/0**,
+1205 roof samples and1067 family draws. The unmodified wrapper receipt
+**southwest_carriagehouse_01/bench_01.log.receipt.json** records41.72seconds,
+completed/exit0/no timeout and empty stderr. It is **suite_run**,not a schema-2
+runtime_contract. Seven current loaded images were inspected,eleven native
+images indexed,and207 loaded source hashes match after the run. UV/PBR/loaded
+mipmap checks pass in this isolated scene. Production lighting and whole-city
+artistic acceptance remain open.
+
+At MSAA3/TAAoff,uncapped/vsyncoff,the SW2+equipment group uses25 draws:
+20550 near and16943 forced-lower primitives. Five cases each retain90 warmed
+frames. First near viewport GPU median1.199/p951.51305/max1.692ms;wall
+median1.6865/p952.5371/max**39.929ms**,four frames above16.667ms. Subsequent
+far/natural/far-repeat/near-repeat GPU medians.771/.775/.769/.668ms and wall
+maxima1.323/1.531/1.558/1.273ms. Original samples remain intact. First-case
+wall spikes are unexplained; no quiet-host,matched baseline,causal speedup,
+cold-start or whole-city performance claim. Existing316.861ms composed spike
+and Windows startup hang remain separate unresolved findings.
+
+Actual limewash material-body transition occurs between189.2158219 and
+189.2315820metres,2036 to1292primitives. Five-degree FOV recovers2036;
+inward return restores the original before-PNG bytes exactly. This proves a
+single material-body transition,not an entire-world LOD/artistic threshold.
+All retained body parts,including limestone entrance and glazed skylight,keep
+full replacement body meshes. No detail-only deletion substitutes for the LOD.
+
+Import25.61seconds and compiler14.76seconds completed normally. Import stderr
+retains126454bytes of638 missing-UID/cache-recreation warnings;all lines were
+inspected and contain only those warnings/location lines. An earlier message
+incorrectly said both logs were empty; corrected without rerunning. Compiler
+stderr is empty.1474 texture import policies are correct,four source preflights
+pass. Own638 generated untracked UID bytes exactly match the existing raw ZIP;
+after own Godot terminal they were individually guarded and removed. No tracked
+UID or unrelated checkout/index/process changed.
+
+Portable **southwest_carriagehouse_native_isolated_review.zip** indexes every
+member hash in the existing manifest;CRC/member bytes verified. It retains
+original native/setup/low-footline failures,raw loaded timings and original
+wrapper receipts. Reference pixels/PDFs and duplicate production meshes are
+excluded. Current source checkpoint is **a3bdb703**. SW2 standing-body step-up,
+ascent/descent,footway and composed physical qualification remain open.
+Canonical's narrower E/Bodega+west cohort independently reports7086/0 isolated
+and256 checks/eight actual movement legs/0,including real door grab/move/release
+and inside/outside. That is not SW2 qualification; original234/6/2 remains.
+Published tally stays21/149 until canonical renewal/publication is complete.

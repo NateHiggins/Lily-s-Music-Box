@@ -8363,5 +8363,411 @@
         "raw_sha256": "dc918603c8bb25e1bbd4286900db92325cc9d211afea42498063504c3a9f9120"
       }
     }
+  },
+  "southwest_carriagehouse_native_isolated_archive": {
+    "path": "art/reviews/city_streets_20261029/southwest_carriagehouse_native_isolated_review.zip",
+    "sha256": "c0d4dbe17e18d70b1f9337bb2151bc51c03dcfd7d85ef25956e08b6f426e1415",
+    "bytes": 19846843,
+    "members": 99,
+    "evidence_class": "INERT",
+    "scope": "SW2 actual native and isolated loaded geometry/material/mip/LOD/timing diagnostics; original failures retained. No standing controller/composed/artistic acceptance.",
+    "files": {
+      "actual_bench_inspection_01.json": {
+        "bytes": 8137,
+        "raw_sha256": "da93c9f52ad18a2788f014f3fe4b7e6cddb0e9490d1ca387a7f861ab6796ccf6"
+      },
+      "actual_entry_sections_03.json": {
+        "bytes": 10600,
+        "raw_sha256": "4688ff8cebb5924588478231c92cacb17a0b0653e16f3d0c2ba35f21c186b471"
+      },
+      "actual_native_inspection_01.json": {
+        "bytes": 1861,
+        "raw_sha256": "e8a97af710c395eab6a89856b06874d369b54e0a880519f8cb402b0b6aa6891a"
+      },
+      "actual_native_inspection_02.json": {
+        "bytes": 2349,
+        "raw_sha256": "03987d592021b83d08db2400736062b2084b5d86d048a9ed78ff206235631add"
+      },
+      "archive_loaded_checkpoint_01.py": {
+        "bytes": 7499,
+        "raw_sha256": "8e8bca6262130f0e7bd4e0d323e473a8576f65fa8e0525455443357c37c386cb"
+      },
+      "baseline_01.json": {
+        "bytes": 691174,
+        "raw_sha256": "621039a2c5d211bfc22bbf7246b9a46ef9556d60d482b883d6bda290f81238c7"
+      },
+      "bench_01.log": {
+        "bytes": 288954,
+        "raw_sha256": "02893c8b543bd209c352911433c5c92a7427395e31bff22e43179f70bd457cda"
+      },
+      "bench_01.log.receipt.json": {
+        "bytes": 2883,
+        "raw_sha256": "aec455e218839cbea3ddd150f07545a329baec597e5341420be08bb9f38b020a"
+      },
+      "bench_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "bench_01/city_elevation_profile.json": {
+        "bytes": 86822,
+        "raw_sha256": "9897bf2238d180ecd14f6b535e80eaa297c61aa748d84ecfdb903c5033653434"
+      },
+      "bench_01/site_sw2.png": {
+        "bytes": 569320,
+        "raw_sha256": "fb574314c36c727e395316bbbbc9840240e1c7523ff0dcabc45c291a36777e29"
+      },
+      "bench_01/site_sw2_natural_after.png": {
+        "bytes": 20863,
+        "raw_sha256": "d86bdc7ca3249cad327ca668ada8d91daf355ccfb080d6ed9666de167166daa3"
+      },
+      "bench_01/site_sw2_natural_before.png": {
+        "bytes": 20894,
+        "raw_sha256": "abc2df1d9775f1df109d6d66f64195f4b7c38afd489e189ef554d35b32bbc156"
+      },
+      "bench_01/site_sw2_natural_narrow.png": {
+        "bytes": 270788,
+        "raw_sha256": "052d1b3bdd924fac78c17fd61d8424b067c518ab69215cd116b88b986bda5e41"
+      },
+      "bench_01/site_sw2_natural_return.png": {
+        "bytes": 20894,
+        "raw_sha256": "abc2df1d9775f1df109d6d66f64195f4b7c38afd489e189ef554d35b32bbc156"
+      },
+      "bench_01/site_sw2_profile_far.png": {
+        "bytes": 324896,
+        "raw_sha256": "83244e0452414f181b8beada0f0490e097da96a6901899c37c836247620af5d7"
+      },
+      "bench_01/site_sw2_profile_near.png": {
+        "bytes": 325288,
+        "raw_sha256": "87fd0df68c8b4eab1899a4a6a684590c183cf99f358ee86f72c0402b3a363cd4"
+      },
+      "bench_01_batch.json": {
+        "bytes": 470,
+        "raw_sha256": "069d3596cf44487687b6a6241f16ca7d4c575cebb749307d854abd7502257d59"
+      },
+      "build_city_closure.py.log": {
+        "bytes": 9365,
+        "raw_sha256": "4173100af6555d2fc2b99f7427fb982a6d99bbfab0517247b3810b3aa8e23c73"
+      },
+      "build_city_elevation_lods.py.log": {
+        "bytes": 16563,
+        "raw_sha256": "dc76bdce8568070c9cd95bd2fada2a81f99060b95c602177fd11e5ab7dffc0a7"
+      },
+      "build_city_elevations.py.log": {
+        "bytes": 30263,
+        "raw_sha256": "e09cbb8e19392723a52d9446c2ccfec1ee72f9406bbf700502fd816eee3cd01d"
+      },
+      "build_city_streets.py.log": {
+        "bytes": 10783,
+        "raw_sha256": "47419fa5577bdd8972c3fd4b8d855aa6dbd720e8c1f23d35877c6242668a87b3"
+      },
+      "build_detached_study_01.py": {
+        "bytes": 6784,
+        "raw_sha256": "d3e6bd0bb309c9bd269cd199a8e2ab5fcbf1dad3a79a1bfcf5842674c09e4011"
+      },
+      "check_entry_sections_02.failure.log": {
+        "bytes": 916,
+        "raw_sha256": "b00d6b3c16c4c41ca9cce9e62e77d3eadb20a4b7bd49719cf391324b469b61e8"
+      },
+      "check_entry_sections_02.py": {
+        "bytes": 2595,
+        "raw_sha256": "d3108a879fd19c700e1bf9b8bc31adad5373765efc9baf99443bf9f6b9d30813"
+      },
+      "check_entry_sections_03.py": {
+        "bytes": 2694,
+        "raw_sha256": "79e15c86017eca905f648154f23418c2b8a2ae31387116351e8fa6f3f32d07b1"
+      },
+      "check_near_closed_stocks_01.py": {
+        "bytes": 3188,
+        "raw_sha256": "25f7ab8f79944878282b9fac29bc56cfbf9ac880052e16b68f7d6c1e8e4bba46"
+      },
+      "check_near_closed_stocks_01.py.log": {
+        "bytes": 298,
+        "raw_sha256": "ac1449a5c779688ef05382296cc1b7aaa264399b1c60f430cf000d76111c346a"
+      },
+      "check_near_closed_stocks_02.log": {
+        "bytes": 302,
+        "raw_sha256": "fdf5c21331a080a10ca8d425c5c7bc23ceed0c516ebac9560e390da24526cbfe"
+      },
+      "check_near_closed_stocks_02.py": {
+        "bytes": 3188,
+        "raw_sha256": "d0c380e47872b35c0dfe248d45128e604210499eedfdf8fbf5b58b66426c055c"
+      },
+      "check_preservation_02.py": {
+        "bytes": 1544,
+        "raw_sha256": "0f185a3a83ad29f05015d43d456fa55a681b283015214900f053a15f020a0cc3"
+      },
+      "commit_native_02.py": {
+        "bytes": 4227,
+        "raw_sha256": "2054cadeba6bf6599132aa10fc31a87e89d429e7ad1a2deb618ebd9f91b6c5ba"
+      },
+      "delano126_method_01.py": {
+        "bytes": 11485,
+        "raw_sha256": "16cdb1f66340ce6c468315fcf181f25ccd3745ae34e579e39f77dbbee8379b1d"
+      },
+      "detached_native_build_01.log": {
+        "bytes": 813,
+        "raw_sha256": "90a52757a55f8dcaa1cd45e01c7eec32d8d1d390c56c3e03fab9ca6b26490b10"
+      },
+      "frozen_sources/art/blender/scripts/build_city_closure.py": {
+        "bytes": 20048,
+        "raw_sha256": "af747604ef82124f629259a7ab3f23969106fca2c42b2f5fbe51f441d319d4e2"
+      },
+      "frozen_sources/art/blender/scripts/build_city_elevation_lods.py": {
+        "bytes": 8511,
+        "raw_sha256": "5fcda6db4cdc1851d46819346381ecde347d4e1f2c84ffb7973b95d5d4ae4134"
+      },
+      "frozen_sources/art/blender/scripts/build_city_elevations.py": {
+        "bytes": 71434,
+        "raw_sha256": "689a85aca3ef3b73894318dff963eb4f7dd635cd3c71c78e433fdc27640ea303"
+      },
+      "frozen_sources/art/blender/scripts/build_city_streets.py": {
+        "bytes": 14522,
+        "raw_sha256": "4935d8daa05bc3b10ecfe29e9271486a127c0c590637594dc4b008b4b6f836fe"
+      },
+      "frozen_sources/art/blender/scripts/city_commercial_architecture.py": {
+        "bytes": 102345,
+        "raw_sha256": "d5934dc4ecd5bcd7af3166d0a1e016e93bdf17a21da6b2300eaf55e528e1f23b"
+      },
+      "frozen_sources/art/data/city_elevations/source_plan.json": {
+        "bytes": 40979,
+        "raw_sha256": "616fbe69b58fdd49226a2912d5de322d78e629c02f3f89d9388b8def493b0203"
+      },
+      "frozen_sources/game/data/orison_v2/exterior/city_elevations.json": {
+        "bytes": 14058,
+        "raw_sha256": "aa2a78954357dedda257e26a9605a9240de62784f585d8d5c13eec1a3c5a74b6"
+      },
+      "frozen_sources/game/tests/fixtures/orison_city_elevations.json": {
+        "bytes": 1164699,
+        "raw_sha256": "3ec04a9b6dcd7c6de26ced66098e1339bf8c43b6cec2ff155bb677c4f46c0ac1"
+      },
+      "frozen_sources/game/tests/fixtures/orison_city_elevations_lod1.json": {
+        "bytes": 44018,
+        "raw_sha256": "5e7d5e4269d3f97e7d542b1cdf56b52becdbe4943fc29a23eda1e9ccdc0d31ef"
+      },
+      "frozen_sources/game/tests/v2_city_elevation_bench.gd": {
+        "bytes": 43925,
+        "raw_sha256": "6586d0911b3ea254038981578737c466099e00ce768a752ef9ac409ad7e18029"
+      },
+      "generated_uid_cleanup_01.json": {
+        "bytes": 114820,
+        "raw_sha256": "cc159dee36d70b75bc29919fcbd5a33a23d664454a4627eed8f20be6df582f97"
+      },
+      "generated_uid_preservation_01.json": {
+        "bytes": 114729,
+        "raw_sha256": "867e038b7722c05a3c69949aa1a56ff90abce461ea6da67b86a38e0b7230bcb4"
+      },
+      "import_01.log": {
+        "bytes": 3254,
+        "raw_sha256": "3d70c5d48b027e8f31001ef3046f6e88f8346f4f3ac3d56479e74c22e376c3ae"
+      },
+      "import_01.log.receipt.json": {
+        "bytes": 2678,
+        "raw_sha256": "27010cbb030e792989edf74812642054b15f5887ac78e48bf0cd7098d0de311a"
+      },
+      "import_01.log.stderr": {
+        "bytes": 126454,
+        "raw_sha256": "493359099d6543268a6f13a7215edcdabed7fe22888c63c4a4470db33bcafc5c"
+      },
+      "import_parser_01_batch.json": {
+        "bytes": 514,
+        "raw_sha256": "b7fb58b102c656ac1e398939c3312f8742afb78c6925c724dd9a880b7be44b57"
+      },
+      "import_preflight_summary_01.json": {
+        "bytes": 1233,
+        "raw_sha256": "227c547bc668bd4139fc10472abbebf384da2930fa4793033d62cc45758eb57f"
+      },
+      "installed_sections_01.json": {
+        "bytes": 55769,
+        "raw_sha256": "1845919bfb23911cae4340ee044a2c2fb1e9c16970cdda9f75d4813c005224d7"
+      },
+      "lower_native_review_01/block_corner.png": {
+        "bytes": 1843818,
+        "raw_sha256": "284ee3c8e8dce9be643bca3854142aef68c9b92cbd30a01961ab5bad2b083db8"
+      },
+      "lower_native_review_01/entry_ground.png": {
+        "bytes": 1395965,
+        "raw_sha256": "1dcd0c052b0255e0122b53499934993d9babacbe65228e01fde4c2d0020380d4"
+      },
+      "lower_native_review_01/native_review.json": {
+        "bytes": 4695,
+        "raw_sha256": "41fefc9c7f1aa4e7162af1ca396881d68860838966f24339ee705993adbcdc70"
+      },
+      "lower_native_review_01/skylight_roof.png": {
+        "bytes": 1593148,
+        "raw_sha256": "9cad5e867ae96dd591ef9c34ba6880bbb4657b1e972dfeed8c1411537c5e8193"
+      },
+      "lower_native_review_02/block_corner.png": {
+        "bytes": 1843548,
+        "raw_sha256": "4792d550b1e4739b40d21e8197c0b89b3cdba5273aa30e53dc97d54fa6cb49d7"
+      },
+      "lower_native_review_02/entry_ground.png": {
+        "bytes": 1432421,
+        "raw_sha256": "f484a451cb211a39a741af4e950684594f09cd4ab37dc52b4ad423614f954ccd"
+      },
+      "lower_native_review_02/native_review.json": {
+        "bytes": 4241,
+        "raw_sha256": "2c2b8fb6204b048f170a07f0d474c0fc529163303440e6e811c50e1ba33867d9"
+      },
+      "measure_hardware_envelope_01.py": {
+        "bytes": 2375,
+        "raw_sha256": "48ce7d6c67f3cd1f43aac6dd4a55a43e0950b0af0750a56fefb997e6cdd8caca"
+      },
+      "measure_installed_sections_01.py": {
+        "bytes": 5375,
+        "raw_sha256": "41a193f314619933b809fc770d2a9b60c4338e7665c6360a21ffe59a5bddbee5"
+      },
+      "measured_construction_constraints_01.json": {
+        "bytes": 2544,
+        "raw_sha256": "3aaf5829d8b699d65f7e2120c5fe412587dff9cd1715c940bf9708876fcd9cb7"
+      },
+      "merge_repair_and_entry_02.py": {
+        "bytes": 3938,
+        "raw_sha256": "a388c71ce41de9d8fefcabcdb5595e75e88be56586ef813dad142605ee57e2a1"
+      },
+      "native_build_01.json": {
+        "bytes": 986,
+        "raw_sha256": "acdacea5f70e4055209d8dd499d13628bb0ce4eb43205cc6e3fa2f50d5015505"
+      },
+      "native_review_run_01.json": {
+        "bytes": 325,
+        "raw_sha256": "d7e13f5a746fcf8f2647dca659f2d85908f7f7ec6f2e21e078c12130fc1ce748"
+      },
+      "near_closed_stocks_01.json": {
+        "bytes": 183061,
+        "raw_sha256": "38b4efc626f4f2c88d52d553508e4defa83090565cb86bce313839f386211a9b"
+      },
+      "near_closed_stocks_02.json": {
+        "bytes": 185458,
+        "raw_sha256": "08476c348a43068c220aa77054dac0026f4fe66e65173a65d916ba3536794cd2"
+      },
+      "near_native_review_01/balcony_order.png": {
+        "bytes": 1602831,
+        "raw_sha256": "f8c75cbf34499f67576c48e9b5983b888689053901ccbcd18d58f420c35fc7ae"
+      },
+      "near_native_review_01/block_corner.png": {
+        "bytes": 1843301,
+        "raw_sha256": "9aae4aadea3b4d29d8ca0232e6c4c7ae7418a100529c38283331003631dbba51"
+      },
+      "near_native_review_01/entry_ground.png": {
+        "bytes": 1395921,
+        "raw_sha256": "31d9029e529dd866642ec83b94a711fffa679947cf1fe28ad1d6881b88b7b58f"
+      },
+      "near_native_review_01/native_review.json": {
+        "bytes": 5165,
+        "raw_sha256": "ae1bd35837d83a247182a165b477f6ec970115598c81cb8b4f2997693b6c3222"
+      },
+      "near_native_review_01/skylight_roof.png": {
+        "bytes": 1593411,
+        "raw_sha256": "b4b6ed33ebb5a0c3497be6e99f16c64ecd314ca04146a12d409750890365822b"
+      },
+      "near_native_review_02/block_corner.png": {
+        "bytes": 1842962,
+        "raw_sha256": "57fb960d32f0c4c1368933e9deb579159491b2c6a0d982c75afdf9463829686f"
+      },
+      "near_native_review_02/entry_ground.png": {
+        "bytes": 1433260,
+        "raw_sha256": "991464f3148cb4fe2d186b27020e670a45f5a5fb4549382b2bce706f7b0924a7"
+      },
+      "near_native_review_02/native_review.json": {
+        "bytes": 4232,
+        "raw_sha256": "1414c2e66673e2dbeb4863ec3a721cbf72dafe71b63471d0e7b0b450a4b1a275"
+      },
+      "parser_01.log": {
+        "bytes": 228,
+        "raw_sha256": "b34a0016e6ce616495d083b2e51d4915fa985210f3192a4e44c6662241a3122f"
+      },
+      "parser_01.log.receipt.json": {
+        "bytes": 2890,
+        "raw_sha256": "fcec277ea28a68ef2e8a3911ac57112cc6a1358641d9d82f9b557fc092746463"
+      },
+      "parser_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "preservation_01.json": {
+        "bytes": 398,
+        "raw_sha256": "66fcb8643263f60faa74803bd060fb7d0194a52e4422b69fd247ba4e84f48b87"
+      },
+      "preservation_02.json": {
+        "bytes": 734,
+        "raw_sha256": "6f0979c6d88e4519eb6f7e572dd9f370081bea5c1966b2764e6732a60b03c811"
+      },
+      "producer/construction.json": {
+        "bytes": 1013430,
+        "raw_sha256": "c0ceb2672ff27b4d80c27473becda38b4a9b96df2c254359274210fce8a61555"
+      },
+      "reference_binding_01.json": {
+        "bytes": 475,
+        "raw_sha256": "1c501da67c270dec9af74518de565c40cbaa783fad6e184dd0abafa7e226d9ea"
+      },
+      "retained_hardware_envelope_01.json": {
+        "bytes": 5462,
+        "raw_sha256": "c87d77a0b9f43e09f7fb72a8f053bb6fb69db0ede20bc3a1bc55b79fbf8b8a1e"
+      },
+      "retained_roof_contacts_01.json": {
+        "bytes": 6894,
+        "raw_sha256": "2a35188827977928d3c1a15abbdb73f4bac8b07a14a778c6c9238ba423662841"
+      },
+      "review_lower_01.py": {
+        "bytes": 7983,
+        "raw_sha256": "b63cb1bb76eabea19abcdd8bbb59b421020fc23866c24cbdcf96433465afa582"
+      },
+      "review_lower_01.py.log": {
+        "bytes": 303088,
+        "raw_sha256": "ae48558b9fc5a67c9c6cc6729d354b28328a166a162734c9baf7d353fa4f523d"
+      },
+      "review_lower_02.log": {
+        "bytes": 302945,
+        "raw_sha256": "4a816d0501c9b1b381f8ebae7809324ae5378f85df6d60100cb4cf5df952fc23"
+      },
+      "review_lower_02.py": {
+        "bytes": 7894,
+        "raw_sha256": "b4442ce3f9c325ad1cc0695c85932834de8da5289d7ec6b3f7d353d309e952db"
+      },
+      "review_near_01.py": {
+        "bytes": 8038,
+        "raw_sha256": "d49bca226fcfcbbc48baa0e3b6e7b714e209b2a2dadb66ebd985e40aea16d8d7"
+      },
+      "review_near_01.py.log": {
+        "bytes": 311929,
+        "raw_sha256": "f5b3e74219f19d72a3924817c0ea765b40d7bd084863435c9e5876aeebbcf223"
+      },
+      "review_near_02.log": {
+        "bytes": 311644,
+        "raw_sha256": "7ce6b79ab9816ebb9aa4c60fa2b3a1becc4d164a28d9d7221afa99f8b04c8fe9"
+      },
+      "review_near_02.py": {
+        "bytes": 7857,
+        "raw_sha256": "b4c4b01f30717ac9185eb0e63b19c25a762d1db12ac04fdb8c1211b7f4e7acf9"
+      },
+      "run_entry_review_02.py": {
+        "bytes": 801,
+        "raw_sha256": "12e47fe62d6322164fea6aad79afb9ac818acaeb7a7c5e72b2a6b6cb6855f8c2"
+      },
+      "run_native_build_01.py": {
+        "bytes": 1014,
+        "raw_sha256": "23239a8f946b1ef492eb6ff3c9a59e74ab2dc8839a6b2886c49c337f0d86e464"
+      },
+      "section_plot_setup_failure_01.json": {
+        "bytes": 248,
+        "raw_sha256": "64a608919a2c22dd54d42f519b70c16fc6cdcfe0c0fd2e19f6c57e533941b68c"
+      },
+      "setup_failure_01.json": {
+        "bytes": 229,
+        "raw_sha256": "6e9262d9886b83778aeee0036dbee00e9695def610b07cec8b3859bd0ecc93b8"
+      },
+      "setup_production_01.py": {
+        "bytes": 4328,
+        "raw_sha256": "cad12e1f5020cdfa95e1a9f18cac7798c1dcba1b0b149f479ef8ea2ef9b3403b"
+      },
+      "summarize_loaded_01.py": {
+        "bytes": 3297,
+        "raw_sha256": "6f647d8692415d372511eeadf05119fff8421bd0b8fd319a96f8fe7792db9756"
+      },
+      "uv_audit_02.json": {
+        "bytes": 113430,
+        "raw_sha256": "9e99a0a2fdca844a1a8f282cfaab20613b69d2352982acceb477b13c94261647"
+      }
+    }
   }
 }
