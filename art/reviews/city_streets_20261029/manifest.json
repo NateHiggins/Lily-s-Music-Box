@@ -10817,5 +10817,30 @@
         "sha256": "7e29a41427bcb94b4978bd43f39dbd0b7bf539c1ca35d5fbcb41431bd1ff3dd8"
       }
     }
+  },
+  "southwest_rear_candidate_verification": {
+    "archive": "art/reviews/city_streets_20261029/southwest_rear_candidate_verification.zip",
+    "bytes": 49990,
+    "sha256": "4a528b998699ae46dcb8dca26716783dcdfb9452161455d264be75a5fcf65996",
+    "evidence_class": "INERT",
+    "scope": "Candidate6ba6622d against exact94605245 clean117-gatebaseline;0 regressions/4improvements,17protectedunchanged,V2,no ledgerpromotions/waivers. Staticcandidatecheck; actualruntimeevidenceis separate03/04cohorts.",
+    "members": {
+      "verification.json": {
+        "bytes": 288644,
+        "sha256": "36e4ae278724e0ed953eae89cd7935b171ee709e3e985eb2884bcb3ea41d08a5"
+      },
+      "verification.md": {
+        "bytes": 1960,
+        "sha256": "0b43ab1fed9c88ff789d29734f60c505fb19186717238f353d83e5b1a1abe110"
+      },
+      "baseline_board.json": {
+        "bytes": 131034,
+        "sha256": "2665b80bc482f678b0fe93d2eb644a50cf0af564b80dce413e7d2dff67005c7b"
+      },
+      "manifest_union_verification.json": {
+        "bytes": 227,
+        "sha256": "d4c7c1462e3b3a1fa4130d75f96e8ebb0a6ae5d91d2a3e33319dd80fdab495c4"
+      }
+    }
   }
 }

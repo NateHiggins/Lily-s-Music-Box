@@ -1,16 +1,15 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
 
-Evidence class: **INERT**. Current combined source **6f71734a** includes
-upstream PR99/ae8e69b1, frozen SW2/rear-west and PR100/94605245 shops/case.
-Final compiler/commerce/physical renewal and exact946 candidate comparison are
-pending. Frozen **33ad8879** passed7299 building checks,221 actual checks/14
-controller legs and651 physical checks, with five current composed views
-inspected. These receipts predate PR100; no runtime hash is repinned.
-The last fully compared qualified source remains74f29ebb versus e145b129
-(117 gates/zero regressions). Its23-study tally remains the publication boundary
-for this branch until current candidate checks finish; last canonical published
-city boundary is21/149. Technical checks are not artistic acceptance.
+Evidence class: **INERT**. Qualified candidate **6ba6622d** versus exact
+**94605245** passes117 gates/zero regressions/four improvements,17 protected
+paths unchanged,V2,no waivers or ledger promotions. It reconciles PR99,PR100
+and frozen SW2/rear-west. Actual source-scoped runtime evidence:7299 building
+checks,221 checks/14 controller legs with five inspected composed views,then
+current combined651/0 physical renewal with empty stderr and packet0defects.
+This establishes25 technical building studies/124 remaining,not artistic or
+full-city acceptance. Original failures and older qualified cohorts remain below.
+Separate rear-east04cde038 is excluded from this publication checkpoint.
 
 
 ### Canonical northeast intake and tank LOD repair — October30
@@ -4185,3 +4184,33 @@ closed in this physical survey; its own actual input/optical acceptance and the
 next mounted shop-counter slice are not inferred. Original allocation failures,
 startup/frame spikes, full save/access/city/artistic work remain open. Separate
 rear-east04cde038 is intentionally excluded to avoid restarting this cohort.
+
+
+### Candidate verification and publication boundary — October30
+
+Evidence class: **INERT**. Candidate **6ba6622db1b0f3e123a91158271dad97571bd572**
+versus exact clean **9460524545b6326ca320cad2a92fd2c5a28dc704** is
+MERGE-CANDIDATE:117 gates,zero regressions/four improvements,17 protected paths
+unchanged,V2,zero design lint errors and unchanged completeness counts
+7/8/110/42/134/136. No accepted regression,suite waiver or requirement promotion.
+The four improvements are the actual fresh surface qualification/stale-review
+failures resolved. Verifier is explicitly --no-godot; actual windowed tests and
+renders are the separately retained03/04 cohorts above, not invented verifier runs.
+In-place verification excludes fresh-checkout import/autocrlf qualification.
+
+The three changed gate files were inspected: lane_common adds terminating read
+errors so the existing catch tolerates a disappearing waiter; its added private
+queue regression preserves FIFO/mutex/no-preemption. The spatial manifest is the
+exact incoming PR100 manifest plus the previously reviewed single bridge-bench
+TEST_CONTRACT record. No general spatial exception or authored source is waived.
+All656 temporarily preserved files(651 generated UIDs/five chat attachments)
+were restored byte-exact after terminal comparison. Nine named import files were
+restored only after LF-normalized equality and byte-verified archival. Recovery
+and previous packets remain retained; no unrelated contributor branch is removed.
+
+Portable southwest_rear_candidate_verification.zip contains the full comparison,
+both117-gate boards and manifest-union proof. Remaining engineering/creative work
+is unchanged: city connected access/landmarks,stable frame-time and startup,
+full saves/new counter/case presentation,weather/prologue polish and owner review.
+No full-city,V2 or artistic completion is declared. Rear-east intake follows this
+coherent publication checkpoint; no new runtime replay is needed for this report.
