@@ -4871,3 +4871,32 @@ source hash is renewed in the native construction record and test fixture,
 after those checks; no geometry, generator, tolerances or runtime receipt is
 changed. Ground fixture preflight now passes. Actual combined surface
 qualification remains pending, with no technical tally or artistic promotion.
+
+
+### Combined industrial physical qualification, 2026-10-31
+
+Evidence class: **INERT**. A second source preflight correctly found the
+transitive horizon-to-ground-record binding. The unchanged ground payload
+was verified independently from its binding metadata; both horizon source
+records were renewed. All13 fixture checks pass before the final engine run.
+Both refused startup receipts are retained; neither is runtime qualification.
+
+Actual combined **59b9f32d** physical-only survey passes **651checks/0** with
+empty shutdown stderr:300.45s wrapper,266.916s test. The test-written schema-2
+contract binds **15691d29115d36d25988ce8190f3c2637508d7a3cfa1a3eb66ce456712182b7b**.
+Inventory29,326draws/18,514meshes/6,552materials/542textures. Three fresh
+room/bookcase frames independently inspected; loaded finishes remain visible.
+Strong room lighting, sparse shelves and companion readability remain artistic
+debt. Save reconstruction is explicitly NOT_EXECUTED in this scoped survey.
+
+The existing publisher preserves the previous packet before installing the
+actual contract, matching raw logs/wrapper and reviewed images. The industrial
+GLBs and loader remain identical to architect03d204dd; isolated25,852 checks and
+18 controller checks retain their original executed-source scope. This combined
+surface pass adds no street access, full-city or performance acceptance.
+Startup131.950s remains measured debt, not a claimed speedup.
+
+The exact **2d7a0772** baseline completed117 gates, clean before/after, with
+zero timeouts. All42 surface tooling tests pass, including lower native source
+mutation. Final candidate comparison is next. Published technical tally remains
+25/149 until that checkpoint closes; next street construction remains held.

@@ -11752,8 +11752,8 @@
   },
   "southern_pair_composed_checks": {
     "archive": "art/reviews/city_streets_20261029/southern_pair_composed_checks.zip",
-    "bytes": 76180195,
-    "sha256": "a773ae2ffffb225a518bd4463b577895ce2c7dc4fe67c32081f7fd261c91c791",
+    "bytes": 78194647,
+    "sha256": "2d8178c5dd419cf341471c59375b32cd15e1d92855bfaff995883b3ab7264328",
     "evidence_class": "INERT",
     "scope": "Original FAILED current-world seven-leg attempt at1ea34698,265checks/4attempted legs/2failures. Existing castiron post blocks the straight fixture path; actual source, failure contract/log/wrapper/4views retained. Startup wall milestones are diagnostic, not acceptance. Subsequent commerce/physical not started. Failure02 atd3a38474:167s/265checks/4attempts/2failures;detour overlaps raised curb,body stillairborne+0.202m at horizontalstop. Original data/source retained; no aggregate acceptance. Commerce/physical still notexecuted.",
     "members": {
@@ -12340,6 +12340,118 @@
       "minimal_guard_resolution/candidate_gate_fixed_01/verification.md": {
         "bytes": 2000,
         "sha256": "006ee15addfce92f1ff300d7c6cb013c75edbeb08f2d5a14c67dbc8284e2bb03"
+      },
+      "combined_industrial_01/ground_dependency_projection_01.json": {
+        "bytes": 4463,
+        "sha256": "1cce322b86ebc832d829815708cc8f559515ea4be274c96afa9a400298807d89"
+      },
+      "combined_industrial_01/all_fixture_preflight_03.log": {
+        "bytes": 528,
+        "sha256": "8af3f7dc0f3472fc5fcbe89021669517441a8eb2705079adffbd0761dead2f91"
+      },
+      "combined_industrial_01/batch.json": {
+        "bytes": 1551,
+        "sha256": "b796da863512b89dad0f2a0e804594a1334fe3b444a5133934e47fc0da816527"
+      },
+      "combined_industrial_01/retry_batch_02.json": {
+        "bytes": 536,
+        "sha256": "b72ffa2e62eb85b6dc765706c164a5957396f7c1d3e6b77eee5aad5cb2dc070b"
+      },
+      "combined_industrial_01/retry_batch_03.json": {
+        "bytes": 536,
+        "sha256": "f3de9bf695ff4d31f109c762b2b794bed3aa2c2d2bf7b58201ff280e1e540391"
+      },
+      "combined_industrial_01/case/case_open.png": {
+        "bytes": 2023555,
+        "sha256": "938f410aa7547ab6f6b73ef929185a72379888d121183f06c7908651272a5376"
+      },
+      "combined_industrial_01/case/case_retirement.json": {
+        "bytes": 1228,
+        "sha256": "2baade3702e4e83d899e63571a8fde2c6daecc5b0625eb7ba602ace9f7571ba0"
+      },
+      "combined_industrial_01/final_import_churn.json": {
+        "bytes": 657,
+        "sha256": "d5bc7ded4c9a0b62f15f8e83840ed5a0dc51104330f035017b8d4f955922c6e3"
+      },
+      "combined_industrial_01/import.log": {
+        "bytes": 6806,
+        "sha256": "e272bcbad0efa9937b0f728b4abaea2f66135382344cbca96d7229784edd88b5"
+      },
+      "combined_industrial_01/import.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "combined_industrial_01/import.log.receipt.json": {
+        "bytes": 2786,
+        "sha256": "5d34bbb7bb087b54967b363f4d05918cb4fae08e4fd24f93443071098d43d255"
+      },
+      "combined_industrial_01/compiler.log": {
+        "bytes": 416,
+        "sha256": "cef56b5cc47cc140d4336b213cf6d0f0952a116acc665036fc47c834b819734f"
+      },
+      "combined_industrial_01/compiler.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "combined_industrial_01/compiler.log.receipt.json": {
+        "bytes": 3002,
+        "sha256": "f173361685bfa29e65f5641c9fe514420ba6bbe88648d7d874a4d68da780eede"
+      },
+      "combined_industrial_01/case.log": {
+        "bytes": 1063,
+        "sha256": "5a3193283c31cec7fba3b8f82977d4dc2c97ead2a2f0f3283a5e6b4b16965127"
+      },
+      "combined_industrial_01/case.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "combined_industrial_01/case.log.receipt.json": {
+        "bytes": 2993,
+        "sha256": "fe8ecf4ec9b1bf3548ce13ae9dd045a3a64f19da71375b79485aabd4709904c9"
+      },
+      "combined_industrial_01/physical.log": {
+        "bytes": 177,
+        "sha256": "5be560a7058d3407d1d4d92891903ad63f1db17e06fbddd511ccecee4b358b22"
+      },
+      "combined_industrial_01/physical.log.stderr": {
+        "bytes": 877,
+        "sha256": "0931e47ca3c96f35b2d96e43dbd26ab6344e6114016a754c01077fb3e152ea1b"
+      },
+      "combined_industrial_01/physical.log.receipt.json": {
+        "bytes": 4505,
+        "sha256": "c0727ced6dda154487526d480dc34059ab11a060af631295acb3f346cfc6ada0"
+      },
+      "combined_industrial_01/physical_retry_02.log": {
+        "bytes": 177,
+        "sha256": "5be560a7058d3407d1d4d92891903ad63f1db17e06fbddd511ccecee4b358b22"
+      },
+      "combined_industrial_01/physical_retry_02.log.stderr": {
+        "bytes": 886,
+        "sha256": "8350f9178e1bc7b68c694e05006c5b3c3ad89be254d2ca10a3585d1e7b13395f"
+      },
+      "combined_industrial_01/physical_retry_02.log.receipt.json": {
+        "bytes": 4550,
+        "sha256": "ae32c9e3606cb5ae7bf47cb372e3946d8d0f632a5b8eda527ffb93c67fd89a2b"
+      },
+      "combined_industrial_01/physical_retry_03.log": {
+        "bytes": 2579,
+        "sha256": "8f019a3e94b89b23d543e3d8ec2e1a5a133f05cd9dff32e21d19fcacf4accb52"
+      },
+      "combined_industrial_01/physical_retry_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "combined_industrial_01/physical_retry_03.log.receipt.json": {
+        "bytes": 3110,
+        "sha256": "1bc554361bd5bb617e2714de680ed2461576c36b30812b59db5baf6fed88d94e"
+      },
+      "combined_industrial_01/physical_retry_03/runtime_contract.json": {
+        "bytes": 1829,
+        "sha256": "c72a034d3ae22aa057d0f535f730b8acd23e625c7d14fe7dc762e15e40314dc1"
+      },
+      "combined_industrial_01/publication_03/visual_review.json": {
+        "bytes": 1681,
+        "sha256": "6858433d5ce1e4456be4ec997607d6e72ba147499a99fc0e347f3a471b7856a3"
       }
     },
     "footway_diagnostics": "INERT:01 outputdirectory/nullFileAccess failure and original teardown errors retained;02 normal-controller sixleg local originalstreet/gateway fixture20checks/0/empty stderr but7cm deadzone earlystop; not composed qualification. Exact02 source matches wrapperSHA. No production collision change. 03 actual20checks/0,714samples,14.280786s,empty stderr; all6 endpoints <5mm after deadzone-aware input. Exact raw consumed3scripts retained before LF normalization. No wholeworld/performance/artistic acceptance.",
@@ -12347,7 +12459,8 @@
     "pr102_before_case_repair": "Merged7e281f3e:import26s,compiler4/0,itemlogic0failures196s BUT realteardownRID/errors in stdoutandstderr preserved; physical651/0 in260s empty stderr does not exercise case. No clean case retirement claimed. Small originalowner-control pending, source frozen.",
     "case_repair_verified": "e990f795:isolatedactualkeyopen/close+openownerdestroy9checks/0,2cycles25templates/0survivors,20.55s,empty stderrandno stdoutRIDerrors;actualcaseframeinspected. Finalcomposedphysical651/0,354swrapper,empty stderr,threecurrentframesreviewed. Originalfullitemuseleakandsouthernroutefailuresretained. No newfullworlditemusewalk/save/artisticacceptance.",
     "gate_repair": "HISTORICAL PEER-REJECTED ATTEMPT; superseded by minimal_guard_resolution. Original117gatecandidatea479BLOCKED6regressions/4improvements,17protected/V2/lintpass/no requirementpromotions,retained. Exactly3newTEST_CONTRACTassetrowsregistered,alloldrecordsunchanged. MonotonicelapsedproseinJSONscopewasmisreadasdurablewrite; lexicalrepairretainsactualtimestampkeys/RealityState/data/commit/saveescaping and arbitraryobject.save_png,onlyconcreteviewportImageexportisnonworld. Originalcontrolfails;fullsystemic63/spatial59testsPASS;actualsystemic29matchesbaseline and removesONLYnewf748finding,spatialnew0;surfacepacketPASS0. Newfullcandidatecomparisonpending.",
-    "minimal_guard_resolution": "bcd automated green is PEER-REJECTED: misses StringName and apostrophe-containing timestamp keys. Original clock checker restored byte-exact; seven timestamp mutation controls added. Remove only unused diagnostic timer/elapsed field. Actual footway20/0; extra physical651/0 has identical input projection, so original published packet retained. New main reconciliation still pending; no full-city acceptance."
+    "minimal_guard_resolution": "bcd automated green is PEER-REJECTED: misses StringName and apostrophe-containing timestamp keys. Original clock checker restored byte-exact; seven timestamp mutation controls added. Remove only unused diagnostic timer/elapsed field. Actual footway20/0; extra physical651/0 has identical input projection, so original published packet retained. New main reconciliation still pending; no full-city acceptance.",
+    "combined_industrial_01": "59b9f32d actual combined physical-only651/0,300.45s wrapper/266.916s test,stderr0,three currentframes inspected and source-qualified packet published. Import36/compiler4PASS/case9/0in16.01s withactualframe inspected. Two original sourcepreflight failures retained; corrected consumed-projection binding verified. 117-gate exact2d7 baseline clean/no timeouts; candidate comparison pending. No full-city/save/performance/artistic acceptance."
   },
   "eastern_industrial_native_archive": {
     "evidence_class": "INERT",

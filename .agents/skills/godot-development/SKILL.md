@@ -99,6 +99,13 @@ before queueing. Confirm the resulting contract/profile names the requested
 scope; a default-mode pass does not prove that a profiling branch ran. Preserve
 mislaunched diagnostics and correct only the launch configuration when code is
 unchanged.
+Run the complete affected source-fixture preflight closure outside Godot after
+renewing a dependency; a repaired record can invalidate a downstream record.
+Reuse exact consumed-projection checks only when geometry and all other inputs
+remain unchanged; preserve the original failures and never repin runtime proof.
+When a required full gate board already covers tooling tests, avoid an additional
+full test-file run unless an early failure needs isolation.
+
 Combine closely related checks when this saves startup cost without creating
 an oversized failure-prone suite. Reserve full played routes for integration
 checkpoints or changes whose dependency coverage genuinely requires them.
