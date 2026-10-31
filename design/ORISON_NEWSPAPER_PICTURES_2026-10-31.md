@@ -19,6 +19,12 @@ period sources, and then chose all five test pages on 2026-10-31.
 - **The Photo Drama** runs on the back of Saturday's Speaker: three posed stills, one line
   under each.
 
+## What runs through the year
+
+87 front pictures (about one a week per paper), a Brown Section on all 52 Sundays, and a
+Photo Drama on 52 of the 53 Saturdays. The last Saturday, 9 November 1929, has none. Fashion
+and sport line cuts stayed at two; the other back pages have no feature picture.
+
 ## How it is built
 
 `art/data/newspaper_picture_book.json` holds every prompt, chosen seed and caption.
