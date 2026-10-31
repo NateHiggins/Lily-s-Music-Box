@@ -1,14 +1,16 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
 
-Evidence class: **INERT**. Latest qualified source checkpoint **74f29ebb**
-passes117 gates/0 regressions against exacte145b129,651 physical checks and256
-checks/eight actual controller legs. This branch supports23 technical building
-studies/126 remaining,not artistic acceptance. Latest upstream **ae8e69b1**
-(PR99 newspaper cartoons/UI) arrived during verification and is not yet
-combined-source-qualified. Last pushed canonical city boundary remains21/149.
-Preserve the verified cohort; merge/batch the upstream update with the next
-SW2 city capture before main publication. Do not repin the old runtime contract.
+Evidence class: **INERT**. Current combined source **6f71734a** includes
+upstream PR99/ae8e69b1, frozen SW2/rear-west and PR100/94605245 shops/case.
+Final compiler/commerce/physical renewal and exact946 candidate comparison are
+pending. Frozen **33ad8879** passed7299 building checks,221 actual checks/14
+controller legs and651 physical checks, with five current composed views
+inspected. These receipts predate PR100; no runtime hash is repinned.
+The last fully compared qualified source remains74f29ebb versus e145b129
+(117 gates/zero regressions). Its23-study tally remains the publication boundary
+for this branch until current candidate checks finish; last canonical published
+city boundary is21/149. Technical checks are not artistic acceptance.
 
 
 ### Canonical northeast intake and tank LOD repair — October30
@@ -4103,3 +4105,56 @@ The corrected literal is−.3025m, with no tolerance or collision change.
 The first physical renewal never started because that batch stopped on failure.
 Next run combines both nearby entry programmes before a physical-only renewal;
 no unrelated hose or whole-city tour is added. Published counts remain unchanged.
+
+
+### Southwest and rear-west runtime cohort; later shop reconciliation — October30
+
+Evidence class: **INERT**. Owner: canonical Codex; native construction: city
+architect. Source33ad8879 retains the current main newspaper work and frozen
+SW2d3bff66e/rear-west812b93b6. No inventory, shop, resident, calendar or save
+owner is replaced by this city programme.
+
+**Implemented:** a separate southwest_rear test mode uses two independently
+floor/full-capsule validated nearby starts and14 actual normal-controller legs.
+It climbs/stands/descends SW2's three150.75mm risers and the rear-west two
+160.875mm risers, retains both scenic leaves closed, validates23 loaded body
+partitions and retires the world. This is not continuous access between starts,
+operable scenic doors, interior access, save reconstruction or full-city acceptance.
+
+**Execution/evidence:** import24s and compiler pass; rear building bench7299
+checks/1205roof samples/1070draws/zero failures in30.17s. Its seven images are
+byte-identical to the inspected native delivery's loaded images, including the
+explicit single-material natural-LOD probe. Current actual route completes221
+checks/14 legs/zero failures in195.10s; all five composed views inspected. The
+physical-only test completes651/0 in301s wrapper/282.673s test, empty stderr,
+completed schema2 contract,29302draws/18502meshes/6537materials/542textures.
+Original failed SW2 route/source and incorrect-launch diagnostic remain in the
+same portable archive; no predicate, clearance, movement speed or deadline was
+relaxed. The correct expected road datum is independently measured−.3025m.
+
+**Performance limits:** actual walking669samples at3440x1440,8xMSAA/TAA,
+VSync1 and49.987Hz: wall median20.399ms,p9541.314,p9948.880,max184.290;
+main-render CPU median2.204/p9520.084/max87.170ms;GPU median6.052/p9514.164/
+max16.886ms. Root startup138.977s remains debt. This different route is not a
+matched speedup or a quiet/full-city budget. Raw host/GPU samples are preserved;
+the earlier allocation crash is not fixed by this pass.
+
+**Provenance/storage:** southwest_rear_composed_checks.zip retains57 members,
+21,755,073bytes,SHA256e560eaa185c34301764c00ab4c55545c4373e2d34e244b8df3e0489ce8931106.
+It preserves logs, wrappers, test-written contracts, executed sources, exact
+failure/datum proof, raw timing/memory and actual route images. Repeated native
+images reuse the prior archive with byte comparisons; other raw physical images
+remain externally hash-indexed, not newly artistically accepted or deleted.
+
+**Intervening main/blockers/next:** PR100/94605245 merged shared shops/case after
+the above run began. Reconciliation6f71734a preserves all11051 incoming manifest
+records plus the single existing city TEST_CONTRACT addition; spatial audit clean,
+reader NEW0. A failed guard initially allowed shell continuation and a merge with
+unresolved manifest text; immediate correction precedes all new Godot execution.
+The original history is retained. The exact clean946 baseline records117 gates;
+its stale surface receipt is expected. Final import/compiler/shared-commerce and
+physical-only renewal are FIFO queued behind Claude's shop import/route. Reuse
+unchanged14-leg city evidence with its source scope; do not repeat an unrelated
+walk or repin the old global contract. Preserve city-first direction, separate
+rear-east construction, remaining450m/landmark/save/LOD/performance and artistic
+work. No deadline or whole-V2 completion claim.

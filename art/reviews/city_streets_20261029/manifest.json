@@ -10487,5 +10487,242 @@
         "raw_sha256": "237424221a14c38808522aa46ccad3d7824585ab000bde9e25acf012785e9f2b"
       }
     }
+  },
+  "southwest_rear_composed_checks": {
+    "archive": "art/reviews/city_streets_20261029/southwest_rear_composed_checks.zip",
+    "bytes": 21755073,
+    "sha256": "e560eaa185c34301764c00ab4c55545c4373e2d34e244b8df3e0489ce8931106",
+    "evidence_class": "INERT",
+    "scope": "Original failed SW2 route and exact source preserved; corrected combined source33ad8879 passes7299isolated/221checks14legs/651physical. Five current actual route03 images inspected. Current rear isolated7images byte-identical delivery; natural material probe only. Raw physical03 images are retained externally and indexed, not newly artistically accepted. Source predates PR100; not current-main broad qualification.",
+    "members": {
+      "batch_01.json": {
+        "bytes": 1942,
+        "sha256": "c9718c6749db91a7d42297f05f0f7efd0fd1ebfe27e9f8891731c2406a215e9c"
+      },
+      "batch_03.json": {
+        "bytes": 1942,
+        "sha256": "c61ed51062485d2f201f64061933966835174abbb576fdf81c7aa76532f52f0e"
+      },
+      "batch_completion_01.json": {
+        "bytes": 70,
+        "sha256": "dd6c7932212b433622fd2a59f7c2db7bd951c071853ab495ce4fb8d6201a0fb5"
+      },
+      "batch_completion_03.json": {
+        "bytes": 75,
+        "sha256": "bab55e1755a9ddee2f4639d4338f3903a0b57df13c21aeca31383ad3849385b8"
+      },
+      "combined_memory_01.jsonl": {
+        "bytes": 10816,
+        "sha256": "a94a2dee1945f3630fcf3117512e5194246b04f9f8aabef95e99d017e0fb25af"
+      },
+      "combined_memory_03.jsonl": {
+        "bytes": 20188,
+        "sha256": "1b282a3db31ca66b297b82b87e3212b9395c7b7dd08fb40e2c0e480f8337a923"
+      },
+      "executed_source_33ad8879/v2_city_transport_route.gd": {
+        "bytes": 71699,
+        "sha256": "0cc2dad2ae72f4f5e9f0fe8e3a5a72e761532b8123e57eb38a3a4f1e84049947"
+      },
+      "import_01.log": {
+        "bytes": 16174,
+        "sha256": "66764975f47f6902b245a356c29c9f0c3d481f2c4e51a8be92920f48ecb65bbf"
+      },
+      "import_01.log.receipt.json": {
+        "bytes": 2713,
+        "sha256": "1c121d66aeb87f209acf4fcf13a6ff9b5dfa40cd6ba0c8c29bc4ab861b9bec54"
+      },
+      "import_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "import_03.log": {
+        "bytes": 3647,
+        "sha256": "17e05435c5ae59e3569b8153aa2746db5d96a3914a58f230eaa8ef00386b41be"
+      },
+      "import_03.log.receipt.json": {
+        "bytes": 2757,
+        "sha256": "c2660c4584697724e90e39d6a8bab3d5f9cf539b67f349ce36e576cc80e47e0a"
+      },
+      "import_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "isolated_01.log": {
+        "bytes": 288954,
+        "sha256": "fc47d197ee38810f63fe06080202eb72a9707e8e09725f7be14c46a8b04a2a18"
+      },
+      "isolated_01.log.receipt.json": {
+        "bytes": 2923,
+        "sha256": "06c67a98f85ae874767b7e8798ea4e410e8ecddec8d345377acc961b6253c6d6"
+      },
+      "isolated_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "isolated_03.log": {
+        "bytes": 291868,
+        "sha256": "6d4cfe614d4366e6aab2d92911fa6195d30f8809f4e9d1aee6cb65a6802509fc"
+      },
+      "isolated_03.log.receipt.json": {
+        "bytes": 2968,
+        "sha256": "c856d24c29492e164f845395c9919baab4a8f5222e30c26912aad0681b3a9e77"
+      },
+      "isolated_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "isolated_03/city_elevation_profile.json": {
+        "bytes": 86841,
+        "sha256": "2201660dbbaf7830db6fa05d51f50a067341b40ed6ade96dc95a52ff77b4152b"
+      },
+      "loaded_current_comparison_03.json": {
+        "bytes": 1748,
+        "sha256": "264bafb615fdb0071c1ae23debbc8ca35d0bbdf047c11be1ebdb54247cdc3f6b"
+      },
+      "original_route_01.gd": {
+        "bytes": 70359,
+        "sha256": "b9de2b29aec5f25e5191288e83d588474de4311710488f2ccfc850a00d4cbc68"
+      },
+      "parser_01.log": {
+        "bytes": 349,
+        "sha256": "a3194c60eafd7296fb91d3e814994e98f45c2650403c52a569840d997f3a7cf8"
+      },
+      "parser_01.log.receipt.json": {
+        "bytes": 2925,
+        "sha256": "4d13363854454efc83c7dfa465b6be1d46a4eef18284e93d1720b2ac1a9658bd"
+      },
+      "parser_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "parser_03.log": {
+        "bytes": 349,
+        "sha256": "a3194c60eafd7296fb91d3e814994e98f45c2650403c52a569840d997f3a7cf8"
+      },
+      "parser_03.log.receipt.json": {
+        "bytes": 2970,
+        "sha256": "370a90b822d3fc9aeb1903c45026f2321b4037e6ea94dab88a2d4d99fa2d754e"
+      },
+      "parser_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "physical_03.log": {
+        "bytes": 2580,
+        "sha256": "16f90f2f8014a4ae110ef5722f6ff71e0915b03aa6ef47a95131f74b16c24ba3"
+      },
+      "physical_03.log.receipt.json": {
+        "bytes": 3035,
+        "sha256": "01b2c0bf5fa9523841b186b041fadd12d5048ff73ceaf3807a6868286a9a08e8"
+      },
+      "physical_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "physical_03/runtime_contract.json": {
+        "bytes": 1829,
+        "sha256": "5b9ba3d6c697de6621a1260f1152fccb4bfd9cbd8e2126d6b58306a23f6ce57f"
+      },
+      "physical_03/surface-inventory.json": {
+        "bytes": 22508675,
+        "sha256": "0c1fc746b7603aa3e28079927716bf9c8c95369ba1b834df6a73ddca163fb016"
+      },
+      "profile_02.log": {
+        "bytes": 288954,
+        "sha256": "02893c8b543bd209c352911433c5c92a7427395e31bff22e43179f70bd457cda"
+      },
+      "profile_02.log.receipt.json": {
+        "bytes": 2919,
+        "sha256": "7df5c7c46dd6656aeff33b6bb33bbd3a7107c82d58666f43dfb3461f30a18be1"
+      },
+      "profile_02.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "profile_02/city_elevation_profile.json": {
+        "bytes": 86707,
+        "sha256": "b00c725645982c7e6a30ba061b0477251df3dcb50ab32ead07753e644721238c"
+      },
+      "profile_batch_02.json": {
+        "bytes": 484,
+        "sha256": "d21cfa3a8d1bd22e9e589fd7513feb1c2d07c1a86cb193152ae5a6fdd3249017"
+      },
+      "profile_launch_correction.json": {
+        "bytes": 558,
+        "sha256": "9d2777274170ed504761ec817cf03fea6ee97517df59153f5d06f1fc5a30efea"
+      },
+      "review_and_external_image_index.json": {
+        "bytes": 9558,
+        "sha256": "121440bc201229314bd726defc72c74400b0d9c7d1b171c7265e050dcd646a13"
+      },
+      "route_01.log": {
+        "bytes": 5704,
+        "sha256": "204d8a5c79b7eba6a98583124a9c848aeb15a0e5092af8fa09517871d6bf36d4"
+      },
+      "route_01.log.receipt.json": {
+        "bytes": 2915,
+        "sha256": "59f97a013637789bbd0ebf88f8aeef795d881d3dba9221aba8e5091cbb2ec1df"
+      },
+      "route_01.log.stderr": {
+        "bytes": 940,
+        "sha256": "d9557536619a58fb598f359a27b55174a5969be3f04156bcc9216e5a3c5a742a"
+      },
+      "route_01/carriagehouse_frontage_contract.json": {
+        "bytes": 85155,
+        "sha256": "6c0629125ff977869df3ba5d4c0f890a7857d236a1cd31dbc6199c6150387c87"
+      },
+      "route_01/carriagehouse_stoop_landing.png": {
+        "bytes": 2268779,
+        "sha256": "0d1dcabd80ff2feebf360af6620d1e0b4bcaa15cb7651ba0d9164b92f477bf3f"
+      },
+      "route_01/carriagehouse_street_overview.png": {
+        "bytes": 3065201,
+        "sha256": "0a5aa6c35aac2ae730e0c107355ee2b2c344accdbe8c67af0ee5a13218a8f77c"
+      },
+      "route_03.log": {
+        "bytes": 8652,
+        "sha256": "d7682058189be5a07cc3a1964f82070a4abb9ffc4f3c0f94dcb6109c5c6f5485"
+      },
+      "route_03.log.receipt.json": {
+        "bytes": 2959,
+        "sha256": "39bf99ae19e5078c6151368fd31ef0f7f1dd3b61615ed153f07d0e85681741ac"
+      },
+      "route_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "route_03/site_back_w_standing_frontage.png": {
+        "bytes": 4244655,
+        "sha256": "378275a57123ccb88d126ca45ca598f27e284011b5031a6493bffc702a046405"
+      },
+      "route_03/site_back_w_stoop_landing.png": {
+        "bytes": 2335561,
+        "sha256": "b996878461899f6c83fc9c6e35805f60737a705275ae611ba7c57d44c7760539"
+      },
+      "route_03/site_sw2_standing_frontage.png": {
+        "bytes": 3378971,
+        "sha256": "83099e741b28122528410358032e04515c44c1a2b66bd7cce1e1716c26f76e08"
+      },
+      "route_03/site_sw2_stoop_landing.png": {
+        "bytes": 2268736,
+        "sha256": "c95206e686deb90a6c253001accbba81f1c5a7995dbcef1b78bb3ffa0ddccd8a"
+      },
+      "route_03/site_sw2_street_overview.png": {
+        "bytes": 3083853,
+        "sha256": "2c1cfe65b1f8b68bafecf370298fa439851b0aab21eb1e17b9234e8599f7e48f"
+      },
+      "route_03/southwest_rear_frontage_contract.json": {
+        "bytes": 107808,
+        "sha256": "bdf968c2a0e03ba41c7bc57ebc04b4be5b27605c50e2d6a7ebf72fef8dc79c4e"
+      },
+      "route_03_distributions.json": {
+        "bytes": 1468,
+        "sha256": "1af628d143664dca519a317b6893d3da2ae31152ed6a9eb03b53355dbe60fde2"
+      },
+      "street_overview_datum_01.json": {
+        "bytes": 1316,
+        "sha256": "66f0cb1e7c58afed37d7683eabb4ebb9dba13612b6d2503dcc29cda77db06f40"
+      }
+    }
   }
 }

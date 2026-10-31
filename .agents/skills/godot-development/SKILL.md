@@ -91,6 +91,11 @@ Use static checks or an existing small family bench before composing the world.
 Inspect the suite's actual programme, not its name: a surface survey may also
 run unrelated interaction families. Prefer its existing scoped modes when they
 cover the change, and verify the resulting contract states exactly what ran.
+Verify the exact scoped environment names and required opt-in flags in source
+before queueing. Confirm the resulting contract/profile names the requested
+scope; a default-mode pass does not prove that a profiling branch ran. Preserve
+mislaunched diagnostics and correct only the launch configuration when code is
+unchanged.
 Combine closely related checks when this saves startup cost without creating
 an oversized failure-prone suite. Reserve full played routes for integration
 checkpoints or changes whose dependency coverage genuinely requires them.
