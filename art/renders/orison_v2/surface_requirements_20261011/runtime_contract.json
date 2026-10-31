@@ -1,37 +1,15 @@
 {
-	"checks": 656,
+	"checks": 651,
 	"city_context_review": {
 		"scope": "Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance.",
-		"views": [
-			{
-				"aim_world": "(155.0, 6.435, -47.64999)",
-				"building": "HORIZON_NEAR_2_1_P1",
-				"eye_world": "(138.0, 1.62, -47.64999)",
-				"file": "city_context_HORIZON_NEAR_2_1_P1.png",
-				"fov": 110.0
-			},
-			{
-				"aim_world": "(155.0, 8.415, -27.64999)",
-				"building": "HORIZON_NEAR_2_1_P2",
-				"eye_world": "(138.0, 1.62, -27.64999)",
-				"file": "city_context_HORIZON_NEAR_2_1_P2.png",
-				"fov": 110.0
-			},
-			{
-				"aim_world": "(155.0, 7.65, 32.85001)",
-				"building": "HORIZON_NEAR_2_2_P1",
-				"eye_world": "(138.0, 1.62, 32.85001)",
-				"file": "city_context_HORIZON_NEAR_2_2_P1.png",
-				"fov": 110.0
-			},
-			{
-				"aim_world": "(155.0, 7.515, 54.51668)",
-				"building": "HORIZON_NEAR_2_2_P2",
-				"eye_world": "(138.0, 1.62, 54.51668)",
-				"file": "city_context_HORIZON_NEAR_2_2_P2.png",
-				"fov": 110.0
-			}
-		]
+		"views": []
+	},
+	"civic_world_access": {
+		"executed": false,
+		"passed": false
+	},
+	"companion_sequence": {
+		"executed": false
 	},
 	"contracts": {
 		"production_composition": {
@@ -55,7 +33,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 300.405,
+		"elapsed_s": 196.4,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -70,7 +48,7 @@
 			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
 		}
 	},
-	"inventory_sha256": "af72df45772a4af25c2e0145751da19218e5bf807991966f411451d2bb976e83",
+	"inventory_sha256": "18579150a77c88360097973d20dceacf8c9d3f3f206d864c5882dd3cf3fd7689",
 	"lamp_context_review": {
 		"executed": false,
 		"scope": "Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."
@@ -81,10 +59,10 @@
 	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
 	"selector": "v2",
 	"source": {
-		"repository_head": "125ad63961485840c653c43961e36ede1735922d",
-		"runtime_inputs_sha256": "3155a6a8e62663dca9dcb1cfae3c68f90da3ae4ca4201231421866d220af9390",
+		"repository_head": "0b993ffd43e68a6b5f4787bf35bad6b01711c6c9",
+		"runtime_inputs_sha256": "0ff22bce6756a3b7ef4c89dd4c51e21778aa2eb2d475eef596699c73b2175c16",
 		"test_path": "game/tests/orison_v2_surface_inventory.gd",
-		"test_sha256": "2827e9997efabc822023b42da5c48e4c2a218b472b5f4c3a9b5d11b043ece5bd"
+		"test_sha256": "40346a3036187b81dfabb7fe8783c4fb4bcbb6eb289b334fa1ae34b86f7e56c5"
 	},
-	"surface_inputs_sha256": "7d8d99a179b346c32b6fc32d04011d52423b74ef7393ecf19338bd0317ef2f34"
+	"surface_inputs_sha256": "8bbb9b0109b7ccd2a737105a0c1ce9e28e64ab8941df93e5591e85135766c7b8"
 }

@@ -1,5 +1,7 @@
 # Current handoff — 2026-10-31 compact companion and city checkpoint
 
+Evidence class: **INERT**. Current-session index, not acceptance evidence.
+
 Owner: **Lily**. Normal development checkout: **C:/PleaseRemainOnTheLine**.
 The app-attached `v2-baseline` checkout can be stale; do not develop there.
 Read DOCS.md, AGENTS.md and
@@ -9,7 +11,8 @@ Sections below this checkpoint are historical context, not the current queue.
 ## Where work stands
 
 - Current branch: `codex/v2-civic-intake-20261031`; runtime checkpoint
-  `3312654e`. Main reconciled through `fc6c5c47` in `9cefcd11`.
+  `3312654e`. Main reconciled through `fc6c5c47` in `9cefcd11`, then through
+  `b0708b7e` (editorial/size proposals; no runtime input changes).
   Commit, push and merge are separate states: final publication/merge is pending
   until recorded below. Preserve newer main work when reconciling again.
 - City/window work: 34 whole-building exports, 149 non-Orison window partitions
@@ -44,9 +47,11 @@ and combined-main sections. Raw runs remain external at
   typing, safe return, accepted reveal, 32-second sky and 17-second ending,
   including reduced-flash, power and foreign-camera controls. It predates the
   final reload lifecycle correction; do not repin it to newer inputs.
-- Final source-bound physical renewal (`qualified4`) is underway at this
-  checkpoint. It skips unchanged interaction programmes, not physical draws.
-  Its result and publication must be recorded before claiming renewal.
+- Final source-bound physical renewal (`qualified4`) passed 651 checks, zero
+  failures and empty stderr. Its test-written schema2 contract and reviewed
+  native frames are published in the canonical surface packet. It skipped
+  unchanged interaction programmes, not physical draws; save reconstruction
+  is explicitly NOT_EXECUTED in this particular contract.
 - Original failures are preserved. `companion_sequence_review.mp4` is an actual
   75.6-second illustration from qualified1, which failed two repaired photo
   materials. Its writer initialized 1280x720; native PNGs are 3440x1440. It is
