@@ -9,12 +9,15 @@ sys.path.insert(0,str(ROOT/'art/blender/scripts'))
 from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_overlap,building_outline,extrusion,cornice_ring,floor_intervals,offset_outline
 from fabrication_native_batch import material,partition,export
 from city_ground_apron_geometry import exported_bounds,relief_height
+from city_industrial_architecture import IndustrialBuildings
 plan_path=ROOT/'art/data/city_horizon/source_plan.json';plan=json.loads(plan_path.read_text())
 grade_path=ROOT/'art/blender/city_ground_apron_construction.json';grade=json.loads(grade_path.read_text())
 validate_plan(plan,grade['retained_ground_bounds'])
 catalog_path=ROOT/'game/data/runtime_material_sets.json';catalog=json.loads(catalog_path.read_text())['materials']
 OUT=ROOT/'tmp/v2-city-polish-20261018/horizon_native';OUT.mkdir(parents=True,exist_ok=True)
 all_rows=[];all_windows=[];all_bearings=[];assets={};native_checks={};grade_seats=[]
+replacement_buffers=collections.defaultdict(lambda:([],[]))
+industrial_checks=[]
 for row in plan['buildings']:
     outline=building_outline(row)
     samples=[(x,-y) for x,y in outline]
@@ -56,6 +59,22 @@ for family in ['near','far']:
         name=row['id'];a,b,c,d=row['rect'];x,y,X,Y=a,-d,c,-b
         h=float(row['height_m']);depth=float(row['reveal_m']);recess=float(row['glass_recess_m'])
         study=row.get('architecture',{});outline=building_outline(row)
+        if study.get('type')=='industrial_front':
+            neighbours=[r for r in rows if r['id']!=name]
+            authored=IndustrialBuildings(row,add,neighbours).build()
+            windows.extend(authored['windows']);bearings.extend(authored['bearings'])
+            def lower_add(owner,key,vertices,faces):
+                vv,ff=replacement_buffers[(owner,key)];start=len(vv)
+                vv.extend(vertices);ff.extend(tuple(start+i for i in f) for f in faces)
+            lower=IndustrialBuildings(row,lower_add,neighbours,lower=True).build()
+            industrial_checks.append(dict(building=name,style=authored['style'],
+                near_closed_stocks=authored['closed_stocks'],lower_closed_stocks=lower['closed_stocks'],
+                near_min_stock_volume_m3=authored['min_closed_stock_volume_m3'],
+                lower_min_stock_volume_m3=lower['min_closed_stock_volume_m3'],
+                near_panes=len(authored['windows']),lower_panes=len(lower['windows']),
+                entries=authored['entries'],lower_entries=lower['entries'],mitre_seams=authored['mitre_seams']))
+            assert authored['entries']==lower['entries'] and len(authored['windows'])==len(lower['windows'])
+            continue
         if study:
             vv,ff=extrusion(outline,-.28,0);add(name,row['wall_key'],vv,ff)
             vv,ff=extrusion(outline,h,h+.18);add(name,'galvanized_roof',vv,ff)
@@ -192,9 +211,13 @@ for family in ['near','far']:
             for bearing in bearings:
                 if bearing['building']==name:
                     bearing['point'][2]+=datum;bearing['outside_probe'][2]+=datum
+            for (owner,key),(vertices,faces) in replacement_buffers.items():
+                if owner==name:vertices[:]=[(x,y,z+datum) for x,y,z in vertices]
         bottom=float(row['grade_low_m'])-.2;top=datum-.28
         if bottom<top-1e-7:
             vv,ff=extrusion(building_outline(row),bottom,top);add(name,'concrete',vv,ff)
+            if row.get('architecture',{}).get('type')=='industrial_front':
+                lower_add(name,'concrete',vv,ff)
         grade_seats.append(dict(building=name,assembly_datum_m=datum,soil_low_m=row['grade_low_m'],soil_high_m=datum-.02,
                                 base_bottom_m=top,foundation_bottom_m=bottom if bottom<top-1e-7 else None))
     mats={};draws=[];closed_stocks=0
@@ -245,6 +268,32 @@ for family in ['near','far']:
     native_checks[family]=dict(window_samples=len(windows),parapet_samples=len(bearings),parapet_outside_controls=len(bearings),failures=[],tolerance_m=.0001)
     all_rows.extend(rows);all_windows.extend(windows);all_bearings.extend(bearings)
     print('CITY HORIZON',family,len(rows),'blocks',len(windows),'recessed opaque panes',asset.stat().st_size,'bytes',flush=True)
+# A small source-owned replacement asset contains the three complete authored
+# industrial bodies. Existing121 other horizon meshes/imported LODs are retained.
+bpy.ops.wm.read_factory_settings(use_empty=True)
+collection=bpy.data.collections.new('CityHorizonReplacementBodies');bpy.context.scene.collection.children.link(collection)
+profiles_by_id={r['id']:r for r in all_rows};lower_draws=[];lower_mats={}
+for (name,key),(vertices,faces) in sorted(replacement_buffers.items()):
+    row=profiles_by_id[name]
+    tint=row['wall_tint'] if key==row['wall_key'] else row.get('joinery_tint',[1,1,1,1]) if key in ['door_paint','cast_iron'] else [.16,.20,.23,1] if key=='mirror_aged' else [1,1,1,1]
+    finish=dict(catalog_key=key,tint=tint,pigment=1.,normal=.12 if key=='mirror_aged' else .55,roughness=.45 if key=='mirror_aged' else 1.)
+    if key=='mirror_aged':finish['metallic']=0.
+    cache=(key,tuple(tint))
+    if cache not in lower_mats:lower_mats[cache]=material(ROOT,name+'__'+key,finish,catalog)
+    center=Vector(((min(v[0] for v in vertices)+max(v[0] for v in vertices))*.5,(min(v[1] for v in vertices)+max(v[1] for v in vertices))*.5,0))
+    mesh=bpy.data.meshes.new(name);mesh.from_pydata([Vector(v)-center for v in vertices],[],faces);mesh.update()
+    bm=bmesh.new();bm.from_mesh(mesh);assert all(e.is_manifold and e.is_contiguous for e in bm.edges),name
+    assert bm.calc_volume(signed=True)>0,name;bm.free()
+    stock=bpy.data.objects.new(name,mesh)
+    obj=partition(collection,name+'__'+key,[stock],finish,lower_mats[cache],Matrix.Translation(center),catalog);lower_draws.append(obj)
+    bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
+assert lower_draws and len(industrial_checks)==3
+proof=export(ROOT,'city_horizon_lod1',collection,staged_output=True)
+native=ROOT/'art/blender/city_horizon_lod1.blend';bpy.ops.wm.save_as_mainfile(filepath=str(native),compress=True)
+asset=ROOT/'game/assets/props/city_horizon_lod1.glb'
+assets['body_lod']=dict(asset=asset.relative_to(ROOT).as_posix(),sha256=hashlib.sha256(asset.read_bytes()).hexdigest(),bytes=asset.stat().st_size,
+    native=native.relative_to(ROOT).as_posix(),native_sha256=hashlib.sha256(native.read_bytes()).hexdigest(),bounds=exported_bounds(asset.read_bytes()),export_check=proof,
+    parts=[dict(name=o.name,key=o.name.split('__')[-1],triangles=len(o.data.polygons)) for o in lower_draws])
 coverage=[];rays=0
 for origin in [(0,0),(-45,-65),(-45,45),(45,-65),(45,45)]:
     for height in [1.6,20.8,30.8]:
@@ -259,13 +308,17 @@ for row in all_rows:
     profile={k:row[k] for k in ['id','wall_key','wall_tint']}
     if 'joinery_tint' in row:profile['joinery_tint']=row['joinery_tint']
     runtime_rows.append(profile)
-runtime.write_text(json.dumps(dict(schema=1,frame=plan['frame'],buildings=runtime_rows),indent=2)+'\n',encoding='utf-8',newline='\n')
+body_lod=dict(asset='res://assets/props/city_horizon_lod1.glb',error_m=float(plan['body_lod_error_m']),parts=[o.name for o in lower_draws])
+assert body_lod['error_m']>0.
+runtime.write_text(json.dumps(dict(schema=1,frame=plan['frame'],buildings=runtime_rows,body_lod=body_lod),indent=2)+'\n',encoding='utf-8',newline='\n')
 paths=[plan_path,grade_path,catalog_path,runtime,Path(__file__),ROOT/'game/scripts/building/orison_v2_city_horizon.gd']
 paths += [ROOT/'art/blender/scripts'/p for p in ['city_horizon_geometry.py','city_ground_apron_geometry.py','fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']]
-for key in {r['wall_key'] for r in all_rows}|{'mirror_aged','galvanized_roof','limestone','cast_iron','door_paint','concrete'}:paths.extend(ROOT/'game/assets/building/textures'/p for p in catalog[key]['files'])
+paths.append(ROOT/'art/blender/scripts/city_industrial_architecture.py')
+paths.append(ROOT/'art/blender/scripts/frame_mitre_geometry.py')
+for key in {part['key'] for asset in assets.values() for part in asset['parts']}:paths.extend(ROOT/'game/assets/building/textures'/p for p in catalog[key]['files'])
 def sha(path):
     raw=path.read_bytes();return hashlib.sha256(raw.replace(b'\r\n',b'\n') if path.suffix in ['.json','.py','.gd'] else raw).hexdigest()
-report=dict(evidence_class='INERT',scope=plan['scope'],frame=plan['frame'],buildings=all_rows,windows=len(all_windows),window_rows=all_windows,parapet_contacts=all_bearings,grade_seats=grade_seats,assets=assets,native_checks=native_checks,
+report=dict(evidence_class='INERT',scope=plan['scope'],frame=plan['frame'],buildings=all_rows,windows=len(all_windows),window_rows=all_windows,parapet_contacts=all_bearings,grade_seats=grade_seats,assets=assets,native_checks=native_checks,industrial_checks=industrial_checks,
     angular_coverage=dict(scope='Source-only synthetic horizontal rays; ground continuity required, open sky above period rooflines expected. Not runtime or played proof.',rays=rays,ground_gaps=ground_gaps,open_sky_above_roofs=coverage),source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in paths})
 for relative in ['art/blender/city_horizon_construction.json','game/tests/fixtures/orison_city_horizon.json']:
     (ROOT/relative).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')

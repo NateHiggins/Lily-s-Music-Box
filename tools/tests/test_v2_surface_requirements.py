@@ -146,6 +146,7 @@ class Requirements(unittest.TestCase):
             'art/data/city_horizon/source_plan.json',
             'art/blender/city_horizon_near.blend',
             'art/blender/city_horizon_far.blend',
+            'art/blender/city_horizon_lod1.blend',
             'art/blender/city_horizon_construction.json',
             'art/data/city_transport/source_plan.json',
             'art/blender/city_transport.blend',

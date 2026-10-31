@@ -1,5 +1,5 @@
 extends Node3D
-## Passive distant stock in the retained building/grade frame. No new play area.
+## Passive stock in the retained building/grade frame and temporary walk radius.
 const ASSETS := [preload("res://assets/props/city_horizon_near.glb"), preload("res://assets/props/city_horizon_far.glb")]
 const FINISHES := "res://data/orison_v2/exterior/city_horizon.json"
 
@@ -8,6 +8,17 @@ func _ready() -> void:
 	assert(int(source.schema) == 1 and str(source.frame) == "ORISON_V2_BUILDING_FRAME")
 	var profiles: Dictionary = {}
 	for row: Dictionary in source.buildings: profiles[str(row.id)] = row
+	var replacement: Dictionary=source.get("body_lod",{})
+	var lower: Node3D=null
+	var lower_parts: Dictionary={}
+	if not replacement.is_empty():
+		assert(float(replacement.error_m)>0. and not (replacement.parts as Array).is_empty())
+		lower=(load(str(replacement.asset)) as PackedScene).instantiate() as Node3D
+		for draw: MeshInstance3D in lower.find_children("*","MeshInstance3D",true,false):
+			assert(str(draw.name) in replacement.parts and not lower_parts.has(str(draw.name)))
+			lower_parts[str(draw.name)]=draw
+		assert(lower_parts.size()==replacement.parts.size())
+	var replaced:=0
 	var materials: Dictionary = {}
 	var roof_finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd").new()
 	# Every block's chimney cap is the top of its limestone stock: St. Elmo's tips.
@@ -22,6 +33,15 @@ func _ready() -> void:
 			var key: String = pieces[-1]
 			assert(profiles.has(identity) and MatLib.SETS.has(key))
 			var profile: Dictionary = profiles[identity]
+			var collision_mesh:=draw.mesh
+			if lower_parts.has(str(draw.name)):
+				var far_draw: MeshInstance3D=lower_parts[str(draw.name)]
+				assert(draw.transform.is_equal_approx(far_draw.transform))
+				# Reuse the installed source-owned complete-body LOD assembler.
+				# It copies both physical attribute sets and removes importer tails.
+				draw.mesh=preload("res://scripts/building/orison_v2_city_transport.gd")._with_lod(collision_mesh,far_draw.mesh,float(replacement.error_m))
+				draw.set_meta("v2_city_horizon_body_lod",true)
+				replaced+=1
 			var tint: Array = profile.wall_tint if key == str(profile.wall_key) else profile.get("joinery_tint",[1,1,1,1]) if key in ["door_paint","cast_iron"] else [.16,.20,.23,1] if key == "mirror_aged" else [1,1,1,1]
 			var cache_key := key + "|" + str(tint)
 			if not materials.has(cache_key):
@@ -45,7 +65,9 @@ func _ready() -> void:
 			draw.add_child(body)
 			var shape := CollisionShape3D.new()
 			var native := ConcavePolygonShape3D.new()
-			native.set_faces(preload("res://scripts/building/orison_v2_native_faces.gd").read(draw.mesh))
+			native.set_faces(preload("res://scripts/building/orison_v2_native_faces.gd").read(collision_mesh))
 			shape.shape = native
 			body.add_child(shape)
+	assert(replaced==lower_parts.size())
+	if lower!=null:lower.free()
 	add_child(StElmo.new(tips, 2.6))

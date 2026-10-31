@@ -35,6 +35,7 @@ ASSETS = (
     "props/fire_joint_stock.glb", # joint_stock1: loaded small thread charts stretch by up to32.6% under default compression.
     "props/house_switchboard.glb", # stock2: loaded jack UVs collapse and small stock metrics stretch under default compression.
     "props/city_horizon_near.glb", "props/city_horizon_far.glb", # The same thin closed pane/reveal metre charts as validated city stock.
+    "props/city_horizon_lod1.glb", # industrial bench_01: default compression adds 1.94 mm UV excess, stretches fine charts13.0745% and corrupts tangent derivatives on eight parts.
     "props/city_ground_apron.glb", # source_bench1: default import stretches thin-edge metre charts by 1.69%.
     "props/city_frontage.glb", # imported_bench_01: default quantization stretches barricade stock charts by 6.07%, beyond the retained 0.5% metric gate.
     "props/city_transport.glb", # transport bench_01: default compression stretches small bevel charts99.97% and fails UV tangent derivatives; native export passes.
