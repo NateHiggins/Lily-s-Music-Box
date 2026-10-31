@@ -141,6 +141,8 @@ func _valid(doc: Dictionary, path: String, ingredients: Dictionary) -> bool:
 			fail.call("item %s has an unknown form" % id)
 		if str(record.get("kind", "")) == "post" and str(record.get("order", "")) == "":
 			fail.call("item %s posts no order" % id)
+		if record.has("from") and str(record.from).length() != 10:
+			fail.call("item %s has a bad date" % id)
 		if record.has("use") and str(record.use) not in ItemUse.VERBS:
 			fail.call("item %s has an unknown use" % id)
 		if record.has("gift") and record.gift is not bool:

@@ -18,6 +18,14 @@ func _init(shop: String, shops: ShopCatalogue, levels: ShopStock, network: RefCo
 	clearing = network
 
 
+## What the counter's selector walks, in order.
+func listing() -> Array[String]:
+	var out: Array[String] = []
+	for record: Dictionary in catalogue.counter_items(shop_id):
+		out.append(str(record.id))
+	return out
+
+
 func stock_record(item_id: String) -> Dictionary:
 	var record: Dictionary = catalogue.item(shop_id, item_id).duplicate()
 	if record.is_empty():

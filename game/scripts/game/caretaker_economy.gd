@@ -180,6 +180,17 @@ func purchase_repeat(merchant: String, item: String, cents: int, deliver: Callab
 	_purchasing=false
 	return delivered
 
+## Money coming in over a counter, such as a pawn loan. Saved with what caused it.
+func receive(identity: String, cents: int) -> bool:
+	if RealityState.save_write_blocked or identity.is_empty() or cents<=0: return false
+	var ledger:=book()
+	if not ledger.has("sales"): ledger.sales={}
+	var row: Dictionary=ledger.sales.get(identity,{"count":0,"cents":0})
+	ledger.cash=int(ledger.cash)+cents
+	ledger.sales[identity]={"count":int(row.count)+1,"cents":int(row.cents)+cents}
+	RealityState.commit()
+	return true
+
 func purchase_receipt(identity: String) -> Dictionary:
 	var receipt: Dictionary=book().get("purchases",{}).get(identity,{}).duplicate(true)
 	# JSON numbers reload as floats; the public money ABI remains integer cents.
