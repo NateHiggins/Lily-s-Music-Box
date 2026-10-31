@@ -4666,3 +4666,26 @@ been changed. Current physical receipts must be renewed after a verified repair.
 Exact new-main baseline **cb1a69c6**, tree18cf37ee3f0b07e7087a4440d93eafc8afe6e2b3,
 completed117 static gates from a clean detached existing checkout. Known red debt
 remains; candidate comparison is pending. Earlier825 baseline remains preserved.
+
+
+### Case-template lifetime repair — runtime pending, 2026-10-31
+
+Evidence class: **INERT**. The original full-world item-use teardown already
+reproduces the defect. The queued duplicate original-owner control was canceled
+before any engine child existed, after checking its exact waiter PID/command;
+no test started and no runtime receipt is claimed for it. No foreign job touched.
+
+The candidate keeps native Form_ template draws beneath a hidden **FormTemplates**
+Node3D in the case's existing private viewport root. Reparenting preserves their
+local transform; visible goods are duplicated under the existing Goods parent,
+so the template parent's hidden state does not hide the goods. Normal close or
+owner destruction now has a scene-tree lifetime owner for those template Nodes.
+No inventory, item-use, gifts, audio, save or interaction rules were changed.
+
+An opt-in branch of the existing ItemUseRouteTest checks actual key opening and
+closing, nonempty parented templates, independently visible seeded goods and weak
+references after close and open-owner destruction. This deliberately small
+fixture is diagnostic, not a composed playtest or artistic acceptance. It and the
+final physical renewal are queued together through the shared FIFO. Outcomes
+remain pending. Reader audit NEW0 and whitespace/design lint pass; those checks
+do not establish that rendering or retirement is repaired in the engine.

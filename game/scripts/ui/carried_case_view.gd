@@ -208,6 +208,12 @@ func _build() -> bool:
 	_goods.name = "Goods"
 	_goods.transform = Transform3D(Basis(Vector3.RIGHT, deg_to_rad(OPEN_DEGREES)), _hinge).affine_inverse()
 	_lid.add_child(_goods)
+	# Template Nodes need a lifetime owner even while hidden. Dictionary.clear()
+	# releases references, but does not free detached MeshInstance3D nodes.
+	var form_library:=Node3D.new()
+	form_library.name="FormTemplates"
+	form_library.visible=false
+	root.add_child(form_library)
 	for part: Dictionary in data.parts:
 		var draw := asset.find_child(str(part.name), true, false) as MeshInstance3D
 		if draw == null:
@@ -229,7 +235,7 @@ func _build() -> bool:
 			var form := assembly.trim_prefix("Form_")
 			if not _forms.has(form):
 				_forms[form] = []
-			draw.get_parent().remove_child(draw)
+			draw.reparent(form_library,false)
 			_forms[form].append(draw)
 	_card = _label(root, CARD_PIXEL, 34)
 	_card.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
