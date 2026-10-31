@@ -108,6 +108,15 @@
    "note": "no fee to read it",
    "group": "counter",
    "form": "packet"
+  },
+  {
+   "id": "line_tell",
+   "name": "Line tell",
+   "cents": 125,
+   "kind": "upgrade",
+   "source": "authored",
+   "group": "parts",
+   "note": "A small needle on the set that twitches when a line is being listened to. Sold under the counter; the Listening Act says nothing about it. No behaviour yet"
   }
  ]
 }

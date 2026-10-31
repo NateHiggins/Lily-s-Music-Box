@@ -55,6 +55,23 @@ The owner's answers to this treatment's open items:
   sketch (section 10.1). It is **not canon**. B and C are kept briefly as not
   chosen.
 
+**Owner rulings, 2026-10-31 (lore pass,
+`design/ORISON_LORE_ADVERSARIAL_PASS_2026-10-31.md`).**
+
+- **Adela kept a drawer.** She has squeezed people with power using prints from plates brought
+  to her to develop, and they know she keeps them: two aldermen, a landlord, a man from the Board
+  of Estimate. Nobody across the road or in the arcade. She says so plainly from the first date. It
+  is not a reveal, and it adds no suspects in the house.
+- **Why it matters to the murder.** Sending Mae the copy was still decent. Mae knows of the drawer
+  from a landlord she knows, and denies opening anything from that counter. The player can infer how a
+  dated copy looked to her. Mae's motive stays the lease. Adela cannot correct the reading; the
+  companion files both facts on her word (**PROPOSED** lines).
+- **Mae took the prints.** The empty drawer of B15 is the bottom drawer: she came for the deed's
+  negatives and took everything in it. They go in her ledger box, so "Mine are in there" (S14) means
+  more than she knows. **PROPOSED:** she does not use them in the year, and they add no clue.
+- **Prohibition exists and is loosely enforced.**
+- **The Berlin letter stays about the vote and friendship.** No medical thread.
+
 **Owner ruling, 2026-10-30 (reading the draft).** The trans-reader gate is removed.
 Lily is trans and will read every line herself by playtesting the first draft.
 

@@ -59,6 +59,18 @@
    ],
    "source": "S14, B25. Access stays with the existing owners; this tree opens nothing. Stops on Nadia's line.",
    "root": "mk_b1"
+  },
+  {
+   "id": "mk_copy",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "You knew what she kept in that drawer.",
+   "requires": [
+    "m_adela_drawer",
+    "m_envelope_delivered"
+   ],
+   "source": "Owner ruling 2026-10-31. She denies opening anything, so B08 and the note's discovery stand. The player infers how a dated copy read to her. Not a confession.",
+   "root": "mk_c1"
   }
  ],
  "nodes": {
@@ -193,6 +205,20 @@
    "speaker": "NADIA",
    "flag": "m_mae_answered",
    "line": "Adela Voss."
+  },
+  "mk_c1": {
+   "silence_goto": "mk_c2",
+   "line": "A landlord of my acquaintance found the money for those lamps after one of that counter's courtesies. He told me so at length. Anything from that counter I return unopened.",
+   "choices": [
+    {
+     "label": "She wasn't asking for anything.",
+     "goto": "mk_c2"
+    }
+   ]
+  },
+  "mk_c2": {
+   "flag": "m_mae_knew_drawer",
+   "line": "Who has been reading you my acquaintance's accounts? The gloves are by the door."
   }
  }
 }
