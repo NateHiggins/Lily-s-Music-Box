@@ -10102,12 +10102,91 @@
   },
   "eastern_industrial_native_archive": {
     "evidence_class": "INERT",
-    "scope": "Native construction/review only. Original first-review floating flue/corner bands and subsequent combined-BVH ownership assertion preserved. Final 11 views actually inspected; separate actual roof/stock controls pass at unchanged 100-micrometre tolerance. Loaded Godot/controller/performance/runtime/artistic acceptance pending.",
+    "scope": "Native plus isolated loaded industrial construction,chart/PBR/mipmap/LOD/timing and real-controller diagnostics. Both original failed runs retained;no composed-world/runtime_contract/artistic or tally promotion.",
     "path": "art/reviews/city_streets_20261029/eastern_industrial_native_review.zip",
-    "bytes": 41479866,
-    "sha256": "9a4b4bc635fc456bd19770610c70f7ec243535d124b815818bb23a2773521fd4",
-    "members": 52,
+    "bytes": 82059764,
+    "sha256": "12d94e9dac2a843e323d6c4de1a4dd91c7b928311c8506810b8e2c32dfe927e0",
+    "members": 126,
+    "original_native_archive": {
+      "bytes": 41479866,
+      "sha256": "9a4b4bc635fc456bd19770610c70f7ec243535d124b815818bb23a2773521fd4",
+      "members": 52
+    },
+    "original_native_members_preserved": 52,
+    "recoverable_image_aliases": 32,
     "member_index": {
+      "baseline_01.json": {
+        "bytes": 581988,
+        "raw_sha256": "209dafdee68e90c4393f427b2a036734b0c586e709ab0379d5351574079d4bd6"
+      },
+      "build_city_horizon_01.log": {
+        "bytes": 81622,
+        "raw_sha256": "7174a78cf4202db346bf59828fca44d5ed37cf0044b580c8be5b8b7f2774a884"
+      },
+      "build_city_horizon_02.log": {
+        "bytes": 81620,
+        "raw_sha256": "622198314847c59423ff1f21c88836def25d33bbda6681367eb0199468d9b418"
+      },
+      "check_dependent_party_wall_01.py": {
+        "bytes": 2481,
+        "raw_sha256": "ecdf43bbd5468d63a51a95572ea2ffa3ddf8c48d8e658866e5b7066efc20d6bf"
+      },
+      "check_preservation_01.py": {
+        "bytes": 1897,
+        "raw_sha256": "dd434f982905969e0e4adde2b124adcdcbfaf84dad1277f447e1a3cb79925a02"
+      },
+      "city_industrial_architecture_before_native_review_01.py": {
+        "bytes": 15960,
+        "raw_sha256": "64a04c9fba8625076cb2c87724b635c66ffd95a70e612b23f98f28db4081d95c"
+      },
+      "dependent_party_wall_01.json": {
+        "bytes": 1530,
+        "raw_sha256": "a97a0468e16b3b502dee9eaa4555c7916e40bd300a9c689ab7276e5705e751ff"
+      },
+      "executed_source/art/blender/scripts/build_city_horizon.py": {
+        "bytes": 25500,
+        "raw_sha256": "594d4f7107470d6d9f1ad7fd5ea1d69c398053995531f4375fcaacaa1a0b709b"
+      },
+      "executed_source/art/blender/scripts/city_industrial_architecture.py": {
+        "bytes": 17397,
+        "raw_sha256": "6472d786341d5d844ebd1688b1a1d9c99aae93600a179812056031af22dfb204"
+      },
+      "executed_source/art/data/city_horizon/source_plan.json": {
+        "bytes": 74908,
+        "raw_sha256": "68b8f06215c6e44ab951b0e176120d4985f473f5f6648e26ad57f4a5e2322398"
+      },
+      "executed_source/game/scripts/building/orison_v2_city_horizon.gd": {
+        "bytes": 3901,
+        "raw_sha256": "e80e7cdb584990f2c1d89c6bb6fef50ffc58b53bfdedeec4659be29a1c58bb2a"
+      },
+      "executed_source/game/tests/v2_city_horizon_bench.gd": {
+        "bytes": 29443,
+        "raw_sha256": "43d17be974898659cb19e43468744258bfd2cca47a8a29634e7c83b77d5e3ad3"
+      },
+      "member_index.json": {
+        "bytes": 8838,
+        "raw_sha256": "978247f616afb2be62b211347543e04c47fc21eadf4e165ae67710a4f0a41428"
+      },
+      "native_build_01.json": {
+        "bytes": 210,
+        "raw_sha256": "4cff4c7678ea64e75fe28e03e0e20bab7de2c119ed714731993cd2b5cc49a8b3"
+      },
+      "native_build_02.json": {
+        "bytes": 209,
+        "raw_sha256": "cb8924dcb5427cde3f1fe19c206c3b010c3e27b48829fbf41e421cc6d3b92f01"
+      },
+      "native_controls_03/lower_controls_03.json": {
+        "bytes": 4986,
+        "raw_sha256": "6fefc283dc70d31737ff8a50a13af5ccc88a7b4e130a184412cc152a058a96b7"
+      },
+      "native_controls_03/native_controls_03.json": {
+        "bytes": 9677,
+        "raw_sha256": "afc46b25e2e0e1cd8040c899c4c184bd153460a64a228db0a07a917212ddc960"
+      },
+      "native_inspection_01.json": {
+        "bytes": 7335,
+        "raw_sha256": "e4f8d63f95d2224688d0a83efaba6b898bac35b34fbe009d85d6b343958c75e6"
+      },
       "native_review_01/HORIZON_FAR_2_1_P1_city_horizon_far_facade.png": {
         "bytes": 2098106,
         "raw_sha256": "9629773df9603d27140c47b9ee7aebb11e371e2aee943de692ee214004093530"
@@ -10200,33 +10279,25 @@
         "bytes": 1795681,
         "raw_sha256": "c31d2b249e5e6e58a1b29aa98d09ba3951e615d4ea5077d418af613ad49a35a0"
       },
-      "native_controls_03/lower_controls_03.json": {
-        "bytes": 4986,
-        "raw_sha256": "6fefc283dc70d31737ff8a50a13af5ccc88a7b4e130a184412cc152a058a96b7"
+      "preservation_01.json": {
+        "bytes": 2029,
+        "raw_sha256": "9aea092c16f964d9613c7a51a6c18ef6be25967899e2fd6e6692571ae81f1d2f"
       },
-      "native_controls_03/native_controls_03.json": {
-        "bytes": 9677,
-        "raw_sha256": "afc46b25e2e0e1cd8040c899c4c184bd153460a64a228db0a07a917212ddc960"
+      "review_native_01.log": {
+        "bytes": 57352,
+        "raw_sha256": "d5bd3bdf7d34414e517df08a684540a141bc95b3c703579d12e181dfffd4b508"
       },
-      "baseline_01.json": {
-        "bytes": 581988,
-        "raw_sha256": "209dafdee68e90c4393f427b2a036734b0c586e709ab0379d5351574079d4bd6"
+      "review_native_01.py": {
+        "bytes": 5893,
+        "raw_sha256": "c721298f82d65f2c9d2d0d6aaa6b358b620cdedb043fd8ad5c75e6ebba29e7b6"
       },
-      "native_build_01.json": {
-        "bytes": 210,
-        "raw_sha256": "4cff4c7678ea64e75fe28e03e0e20bab7de2c119ed714731993cd2b5cc49a8b3"
+      "review_native_02.log": {
+        "bytes": 58081,
+        "raw_sha256": "bde17315ae8cff3083cde2df2f424329ccd4bed58b33ea1d6818746f261dbcf4"
       },
-      "native_build_02.json": {
-        "bytes": 209,
-        "raw_sha256": "cb8924dcb5427cde3f1fe19c206c3b010c3e27b48829fbf41e421cc6d3b92f01"
-      },
-      "build_city_horizon_01.log": {
-        "bytes": 81622,
-        "raw_sha256": "7174a78cf4202db346bf59828fca44d5ed37cf0044b580c8be5b8b7f2774a884"
-      },
-      "build_city_horizon_02.log": {
-        "bytes": 81620,
-        "raw_sha256": "622198314847c59423ff1f21c88836def25d33bbda6681367eb0199468d9b418"
+      "review_native_02.py": {
+        "bytes": 8254,
+        "raw_sha256": "1ead9279647c507ea66ea3c4efcf444febc2cc32eff7474307522d8029a0f71c"
       },
       "run_native_build_01.py": {
         "bytes": 903,
@@ -10236,34 +10307,6 @@
         "bytes": 903,
         "raw_sha256": "6da8638080831a87ab1d45a7f95f35b54302243dc39764dc39f603cffb64363a"
       },
-      "review_native_01.py": {
-        "bytes": 5893,
-        "raw_sha256": "c721298f82d65f2c9d2d0d6aaa6b358b620cdedb043fd8ad5c75e6ebba29e7b6"
-      },
-      "review_native_02.py": {
-        "bytes": 8254,
-        "raw_sha256": "1ead9279647c507ea66ea3c4efcf444febc2cc32eff7474307522d8029a0f71c"
-      },
-      "review_native_01.log": {
-        "bytes": 57352,
-        "raw_sha256": "d5bd3bdf7d34414e517df08a684540a141bc95b3c703579d12e181dfffd4b508"
-      },
-      "review_native_02.log": {
-        "bytes": 58081,
-        "raw_sha256": "bde17315ae8cff3083cde2df2f424329ccd4bed58b33ea1d6818746f261dbcf4"
-      },
-      "verify_native_controls_03.py": {
-        "bytes": 6232,
-        "raw_sha256": "21fe02b9c03640581714b9101910c8dec9e9776e010fb9edb2f79cd4c6b483b2"
-      },
-      "verify_native_controls_03.log": {
-        "bytes": 55191,
-        "raw_sha256": "478ab6975c22c965643513b91265359a16bbe8ea3bafdeb59b1ff64b86863160"
-      },
-      "city_industrial_architecture_before_native_review_01.py": {
-        "bytes": 15960,
-        "raw_sha256": "64a04c9fba8625076cb2c87724b635c66ffd95a70e612b23f98f28db4081d95c"
-      },
       "uv_audit_01.json": {
         "bytes": 191629,
         "raw_sha256": "8b3b373575f191172c99b014aa0896903a8532baf64cfe9c8231c8365839c2a0"
@@ -10272,45 +10315,309 @@
         "bytes": 191629,
         "raw_sha256": "c3479ee47f82977c341ad7650efa6a2990854060238777472a2106cc279ec9fa"
       },
-      "check_preservation_01.py": {
-        "bytes": 1897,
-        "raw_sha256": "dd434f982905969e0e4adde2b124adcdcbfaf84dad1277f447e1a3cb79925a02"
+      "verify_native_controls_03.log": {
+        "bytes": 55191,
+        "raw_sha256": "478ab6975c22c965643513b91265359a16bbe8ea3bafdeb59b1ff64b86863160"
       },
-      "preservation_01.json": {
-        "bytes": 2029,
-        "raw_sha256": "9aea092c16f964d9613c7a51a6c18ef6be25967899e2fd6e6692571ae81f1d2f"
+      "verify_native_controls_03.py": {
+        "bytes": 6232,
+        "raw_sha256": "21fe02b9c03640581714b9101910c8dec9e9776e010fb9edb2f79cd4c6b483b2"
       },
-      "check_dependent_party_wall_01.py": {
-        "bytes": 2481,
-        "raw_sha256": "ecdf43bbd5468d63a51a95572ea2ffa3ddf8c48d8e658866e5b7066efc20d6bf"
+      "bench_01/city_industrial_profile.json": {
+        "bytes": 179025,
+        "raw_sha256": "c71377cb03db83cbab554a44c5723c1a2868acc196936042fb9d072772a0679b"
       },
-      "dependent_party_wall_01.json": {
-        "bytes": 1530,
-        "raw_sha256": "a97a0468e16b3b502dee9eaa4555c7916e40bd300a9c689ab7276e5705e751ff"
+      "bench_01/HORIZON_FAR_2_1_P1.png": {
+        "bytes": 3025919,
+        "raw_sha256": "78fe5b7b971a9c3d4ed8ef3d02ee3defc4ece62d7e6b4d847ac6c92082d9af54"
       },
-      "native_inspection_01.json": {
-        "bytes": 7335,
-        "raw_sha256": "e4f8d63f95d2224688d0a83efaba6b898bac35b34fbe009d85d6b343958c75e6"
+      "bench_01/HORIZON_FAR_2_1_P1_natural_after.png": {
+        "bytes": 126161,
+        "raw_sha256": "a5bdf3e1f40a400793c343e06c1cac16b38121b70aeb1d0d535c15abccfbf33f"
       },
-      "executed_source/art/blender/scripts/build_city_horizon.py": {
-        "bytes": 25500,
-        "raw_sha256": "594d4f7107470d6d9f1ad7fd5ea1d69c398053995531f4375fcaacaa1a0b709b"
+      "bench_01/HORIZON_FAR_2_1_P1_natural_before.png": {
+        "bytes": 125996,
+        "raw_sha256": "7334c8952aff0a6597d83363e92d63a9aa259cd38cd5ab4af1234f6312563cfc"
       },
-      "executed_source/art/blender/scripts/city_industrial_architecture.py": {
-        "bytes": 17397,
-        "raw_sha256": "6472d786341d5d844ebd1688b1a1d9c99aae93600a179812056031af22dfb204"
+      "bench_01/HORIZON_FAR_2_1_P1_natural_narrow.png": {
+        "bytes": 3632864,
+        "raw_sha256": "355572f8a6152ecd513a6497ec78430d4ab07ded94425407eecf82cc98f8117b"
       },
-      "executed_source/art/data/city_horizon/source_plan.json": {
-        "bytes": 74908,
-        "raw_sha256": "68b8f06215c6e44ab951b0e176120d4985f473f5f6648e26ad57f4a5e2322398"
+      "bench_01/HORIZON_FAR_2_1_P1_profile_far.png": {
+        "bytes": 302587,
+        "raw_sha256": "ae75df87389eb505a4b755f94ecd38ba8eddd3850dc55967e354a0e4c551dd2c"
       },
-      "executed_source/game/scripts/building/orison_v2_city_horizon.gd": {
-        "bytes": 3901,
-        "raw_sha256": "e80e7cdb584990f2c1d89c6bb6fef50ffc58b53bfdedeec4659be29a1c58bb2a"
+      "bench_01/HORIZON_FAR_2_1_P1_profile_near.png": {
+        "bytes": 302670,
+        "raw_sha256": "244e1eff81d9eaf77ecc48fdcdbf93eff8225d4c969107250255c5745a5111c1"
       },
-      "executed_source/game/tests/v2_city_horizon_bench.gd": {
+      "bench_01/HORIZON_NEAR_2_0_P1.png": {
+        "bytes": 3419782,
+        "raw_sha256": "4b5a045fc259db1701f00ddec580728a5a53fd44aa8315ae017639340bd11209"
+      },
+      "bench_01/HORIZON_NEAR_2_0_P1_natural_after.png": {
+        "bytes": 66119,
+        "raw_sha256": "b6983a8316fa27a0a417f82c50d1ea5b34a3578a738da5fb40dfe3605cf36817"
+      },
+      "bench_01/HORIZON_NEAR_2_0_P1_natural_before.png": {
+        "bytes": 65901,
+        "raw_sha256": "b12608e99bf4f6c6ed6afb751691488ad97569c920d02b26d022d9336d3edf81"
+      },
+      "bench_01/HORIZON_NEAR_2_0_P1_natural_narrow.png": {
+        "bytes": 3827748,
+        "raw_sha256": "2720c9ffd901c744851f5fcc029df68ac417afb9feff99562ea6979fe93aeb91"
+      },
+      "bench_01/HORIZON_NEAR_2_0_P1_profile_far.png": {
+        "bytes": 449954,
+        "raw_sha256": "bf209da319833779d6c02a5edb55b4b8532835264b730ef1f053d8dd70073fde"
+      },
+      "bench_01/HORIZON_NEAR_2_0_P1_profile_near.png": {
+        "bytes": 449400,
+        "raw_sha256": "c7e9f020d045f980ba0ccc333fb6db36a1169cad4cf54388e261f22948284237"
+      },
+      "bench_01/HORIZON_NEAR_2_1_P2.png": {
+        "bytes": 3288015,
+        "raw_sha256": "b72e481368d1a9d9d7e86d68ee80071f61c73cb204709a671910316bc151c52a"
+      },
+      "bench_01/HORIZON_NEAR_2_1_P2_natural_after.png": {
+        "bytes": 75362,
+        "raw_sha256": "cca941e1f069f10b8eb9d0c65648b4954112a734e70776f54ad1e5ee179ec5d4"
+      },
+      "bench_01/HORIZON_NEAR_2_1_P2_natural_before.png": {
+        "bytes": 75376,
+        "raw_sha256": "1bab2fc8168da2be41c7e89ddda0d539c11d05a7de6e212019b10092278004b4"
+      },
+      "bench_01/HORIZON_NEAR_2_1_P2_natural_narrow.png": {
+        "bytes": 3066949,
+        "raw_sha256": "a550c0292474e6a1e2658d5f5afca6f31069b1e89ac4ba1d0325c16305b3fad3"
+      },
+      "bench_01/HORIZON_NEAR_2_1_P2_profile_far.png": {
+        "bytes": 359188,
+        "raw_sha256": "aee08ce3264439e1a7f6907e692d3d406ae5cfb9655fb2dd7b165e37b4defe64"
+      },
+      "bench_01/HORIZON_NEAR_2_1_P2_profile_near.png": {
+        "bytes": 359158,
+        "raw_sha256": "141e166b98e1b0ebffcde9105ca3ec28de4d900fcfc64daa26cbd5b923b3b79b"
+      },
+      "bench_01/industrial_passage_diagnostic.json": {
+        "bytes": 155997,
+        "raw_sha256": "d65a969b29a960d411d5db2cbbf41745500a61b9127b811ebdd932e6bb0a1d55"
+      },
+      "bench_01/industrial_passage_far_approach.png": {
+        "bytes": 5207367,
+        "raw_sha256": "faf6140c1cb2be0e738999e94ffb423e98cb9f3f73924bcbf971f0cebee1d3a8"
+      },
+      "bench_01/industrial_passage_middle.png": {
+        "bytes": 3710417,
+        "raw_sha256": "7215ce54b810d9714d2cb45e34f60184b2bc1d4fc926b0579b41c9487ed57092"
+      },
+      "bench_01/industrial_passage_return.png": {
+        "bytes": 5241825,
+        "raw_sha256": "80ac9bf583f4540815f8b3ef682d10ae1aa3fdb0df68dc21c8833f31cad1a36c"
+      },
+      "bench_02/city_industrial_profile.json": {
+        "bytes": 209710,
+        "raw_sha256": "a06eb8c186745e80fe69a1134d46461a62349667eb687a48744172b86698ff88"
+      },
+      "bench_02/HORIZON_FAR_2_1_P1_natural_after.png": {
+        "bytes": 126093,
+        "raw_sha256": "94e188f7ddfd45cbb1967ceb4401e96c3ce40e9be31a1c5a66a315c51920aeea"
+      },
+      "bench_02/HORIZON_FAR_2_1_P1_natural_after_background.png": {
+        "bytes": 17140,
+        "raw_sha256": "0b6efe860088e0cb6b07b251fee359e37ee5e48e37eb53b297a46ee1aafab2a1"
+      },
+      "bench_02/HORIZON_FAR_2_1_P1_profile_far.png": {
+        "bytes": 302717,
+        "raw_sha256": "c0d3fafabd18fd453f598d2260cb25cf445ba8179c83cc3f8fb5ec105534ceba"
+      },
+      "bench_02/HORIZON_NEAR_2_0_P1_natural_after.png": {
+        "bytes": 66012,
+        "raw_sha256": "30d2ebb37a0d7099142f7ac2ed2780a57f1576eff0bbb2ffc627971b4ff5ee45"
+      },
+      "bench_02/HORIZON_NEAR_2_0_P1_profile_far.png": {
+        "bytes": 450543,
+        "raw_sha256": "06a3cffb37bd4a99bce28c5fb9c4ac134e17dd5cd22957b3f5261bdbb2315d89"
+      },
+      "bench_02/HORIZON_NEAR_2_1_P2_natural_after.png": {
+        "bytes": 75318,
+        "raw_sha256": "67a123e119f1342f2a34ac3d3bd0f64293712b3fde7a3f734a379aadaebf7d88"
+      },
+      "bench_02/HORIZON_NEAR_2_1_P2_profile_far.png": {
+        "bytes": 359111,
+        "raw_sha256": "3f6e2cbab069233f396d35b256adef2c95e5137bd0d5dca1fdc000f7c1427028"
+      },
+      "bench_02/industrial_passage_diagnostic.json": {
+        "bytes": 155997,
+        "raw_sha256": "ce1f74b2c268f1f3bac5b320f83af475f7f4cfc3d8dc7c8ba5e255cda3e24e86"
+      },
+      "loaded_inspection_01.json": {
+        "bytes": 25079,
+        "raw_sha256": "502858f89d3ab6c5a061b4b0130555acd2c10972946926c7fb5b03b322875534"
+      },
+      "loaded_inspection_02.json": {
+        "bytes": 78871,
+        "raw_sha256": "a9c078477f10fe1a6b5452d36978a64dc07132cc06c641fd80173fe7f2301e89"
+      },
+      "bench_01_executed_source.gd": {
         "bytes": 29443,
         "raw_sha256": "43d17be974898659cb19e43468744258bfd2cca47a8a29634e7c83b77d5e3ad3"
+      },
+      "city_horizon_lod1_before_compression_01.import": {
+        "bytes": 1179,
+        "raw_sha256": "d44b0f52ba85f65fe3fa4c77817ef8d42e5ec8aeed72c5e57721bddd156c73e9"
+      },
+      "compressed_import_01.scn": {
+        "bytes": 2225035,
+        "raw_sha256": "5187428bd3720e0f5bf6aa30bab0a81170746658762540a7fff1d8e7fcd61c6f"
+      },
+      "compressed_import_01.json": {
+        "bytes": 676,
+        "raw_sha256": "1c0c6d23a5424f7c726393879c3d8d0f208159dd59ea9296ca5bfa57df4e2e1a"
+      },
+      "canonical_native_optical_review_01.json": {
+        "bytes": 4858,
+        "raw_sha256": "dc718680dbc10fba9fc08c949507d20117057fdfc33a050b83557c0bd909a708"
+      },
+      "summarize_loaded_01.py": {
+        "bytes": 3747,
+        "raw_sha256": "7e0d29c3bcf82ae006f323d3bcb301458574e7365676cd6c40a4d1c2054e195b"
+      },
+      "summarize_loaded_02.py": {
+        "bytes": 4440,
+        "raw_sha256": "390ae542e9d94e22e472dc0caa993c7e24063466d133e64dd2d277bb46efe7dc"
+      },
+      "preserve_compressed_import_01.py": {
+        "bytes": 1461,
+        "raw_sha256": "d1a8e1a432eb60383311592c1e431e3cbc9005a2f95394e0c1953bbc4e15fcd6"
+      },
+      "generated_uids_import_03.zip": {
+        "bytes": 121338,
+        "raw_sha256": "b963f7a54f92c08e46c02d02f6ee1d970171c1b79978455a8e948fd9733b84f8"
+      },
+      "generated_uids_import_03.json": {
+        "bytes": 78469,
+        "raw_sha256": "83f9317546de404376fa14dfcda94c2e4bf8bd1f13220488ad2a496859ada4fe"
+      },
+      "uid_cleanup_03.json": {
+        "bytes": 102602,
+        "raw_sha256": "2034ce3654bde7f160d3d291f527e32cd500eb8f7910d9ce9af071326b996465"
+      },
+      "systemic_01.json": {
+        "bytes": 126551,
+        "raw_sha256": "d56b802dd6723e7abb1b334af53c579aed870d56430d9a410717cffab40ac849"
+      },
+      "static_01/board.json": {
+        "bytes": 166427,
+        "raw_sha256": "ab428be2abe6ee7c1c5515a1cedcaf94240028c3324403ecc617c3cb3a5ed505"
+      },
+      "static_01/board.md": {
+        "bytes": 8592,
+        "raw_sha256": "bb2ac4db09d882a2940c5e615f57e0e84fef269c28919eceeb9be31c2b377bc4"
+      },
+      "loaded_batch_01.json": {
+        "bytes": 948,
+        "raw_sha256": "d9d5ab9ed2e35b1ac7bd081e485beacc5c49e9b8c052682884953ce16ea973c3"
+      },
+      "loaded_batch_02.json": {
+        "bytes": 948,
+        "raw_sha256": "10cac60a75f9cb8b5420e3834f25df1c475641247df08888b6368b3a7c655c89"
+      },
+      "run_loaded_01.ps1": {
+        "bytes": 529,
+        "raw_sha256": "5dc7a78d1720aa0e065665d558c588159881fb3d1a6a64e24809537d0590c3f5"
+      },
+      "run_loaded_02.ps1": {
+        "bytes": 529,
+        "raw_sha256": "62c9a1b6f85da1fdd4d583f6b2a9eb7f6967b0b83591f336b59506672ec4ff0b"
+      },
+      "import_01.log": {
+        "bytes": 3825,
+        "raw_sha256": "cacc696272a6e41cd9848fbfa6adbbcc7f2d4a10d9ab08c5e1217766e908c4f1"
+      },
+      "import_01.log.stderr": {
+        "bytes": 126060,
+        "raw_sha256": "fc3a12a0034b45d7a8f0d2c08002446d2ece682a175d6d1598e033319a2dfbc8"
+      },
+      "import_01.log.receipt.json": {
+        "bytes": 2662,
+        "raw_sha256": "b98f841b84c9422593b058300d6ec75b779ac0888993c563536b44781d918b49"
+      },
+      "parser_01.log": {
+        "bytes": 298,
+        "raw_sha256": "2e188545765bb6a42e06392d78f257f6de55795a3063483c414507d6b3209c6d"
+      },
+      "parser_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "parser_01.log.receipt.json": {
+        "bytes": 2874,
+        "raw_sha256": "85b3a76bffcac00654f7b4e65f3a5e451753b1d835d1a9cb3c9fe5c4224727b6"
+      },
+      "bench_01.log": {
+        "bytes": 679754,
+        "raw_sha256": "12ac37d5afaae549f3506ab9744b067005315c51469f39d637df85355bb1c423"
+      },
+      "bench_01.log.stderr": {
+        "bytes": 12495,
+        "raw_sha256": "247d11a5e4e9cf0fd287297e23329a51d5065aaa0ad198045986820c334c7989"
+      },
+      "bench_01.log.receipt.json": {
+        "bytes": 2914,
+        "raw_sha256": "fbe97e92149329d17ce4d42b0e49a106ff36ef5241f4f3b11730442d8b08e2c7"
+      },
+      "import_02.log": {
+        "bytes": 2285,
+        "raw_sha256": "f956cdf1b020091fe8389055610929050a73c207e1a66989d8a19efaeb36edcc"
+      },
+      "import_02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "import_02.log.receipt.json": {
+        "bytes": 2609,
+        "raw_sha256": "0373e07d70d286007b40533a03ba6a1e2e0899bbeaf5697ca3200ba2484aaea6"
+      },
+      "parser_02.log": {
+        "bytes": 298,
+        "raw_sha256": "2e188545765bb6a42e06392d78f257f6de55795a3063483c414507d6b3209c6d"
+      },
+      "parser_02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "parser_02.log.receipt.json": {
+        "bytes": 2821,
+        "raw_sha256": "f0a8308d9a036764b04bf1f3d364c1a5d1edc5bf698899ccfdaf50bbcdea4b8a"
+      },
+      "bench_02.log": {
+        "bytes": 673432,
+        "raw_sha256": "3ee74b32dd82d203e40e1ebccc037878aaef5f6ea397b0d855e2161077fe760c"
+      },
+      "bench_02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "bench_02.log.receipt.json": {
+        "bytes": 2861,
+        "raw_sha256": "eef32be0012f8ce44a39820f8d435c94f0db395eedc42c51a6cdd9d6be8ba609"
+      },
+      "executed_source_loaded_02/game/tests/v2_city_horizon_bench.gd": {
+        "bytes": 32634,
+        "raw_sha256": "53d7b271b6e27611ed8eb0fe171e2eb7ab95859396efcd3541a5f7926bac9614"
+      },
+      "executed_source_loaded_02/art/tools/fix_v2_mesh_imports.py": {
+        "bytes": 8366,
+        "raw_sha256": "79d9696c491d6009cbec0b6cc4c0c93cf90c6a43a5c3960391b8eba98c1c20eb"
+      },
+      "executed_source_loaded_02/game/assets/props/city_horizon_lod1.glb.import": {
+        "bytes": 1178,
+        "raw_sha256": "605510255f2266e8e9d731a671bccf84160f8b0ea452b9f2d9ab1da61afd90e5"
+      },
+      "loaded_addendum_index_02.json": {
+        "bytes": 19629,
+        "raw_sha256": "98f6d3d742a90b5dfb9e0fa1abf0de0d2cf8b563feaf950d08793f210e9bf739"
       }
     }
   }

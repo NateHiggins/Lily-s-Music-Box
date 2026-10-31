@@ -15,6 +15,7 @@ func _ready() -> void:
 func run() -> void:
 	RealityState.persistence_enabled=false
 	RealityState.reset_campaign_for_tests()
+	CampaignTime.set_frozen_for_tests(true)
 	var fixture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_horizon.json"))
 	for asset: Dictionary in fixture.assets.values():
 		check(FileAccess.get_sha256("res://"+str(asset.asset).trim_prefix("game/"))==str(asset.sha256),"installed horizon asset matches its native source binding")
@@ -66,6 +67,7 @@ func run() -> void:
 						check(texture!=null and texture.get_image().has_mipmaps(),"actual loaded industrial PBR/mips: "+str(draw.name))
 	check(industrial_parts==lower_counts.size(),"every industrial replacement part installed once")
 	check(metrics.failures.is_empty(), "loaded metric charts and tangents across both asset/material families")
+	var before_ground_failures:=metrics.failures.size()
 	var ground_parts := 0
 	for draw: MeshInstance3D in ground.find_children("*","MeshInstance3D",true,false):
 		ground_parts += 1
@@ -76,7 +78,7 @@ func run() -> void:
 		if material != null:
 			for texture: Texture2D in [material.albedo_texture,material.roughness_texture,material.normal_texture]:
 				check(texture != null and texture.get_image().has_mipmaps(),"actual loaded ground PBR mip chain: "+str(draw.name))
-	check(ground_parts>0 and metrics.failures.is_empty(),"complete imported ground charts and derivatives")
+	check(ground_parts>0 and metrics.failures.size()==before_ground_failures,"complete imported ground charts and derivatives")
 	metrics.free()
 	check(bounds.size() == fixture.buildings.size(), "all authored building identities loaded once")
 	for row: Dictionary in fixture.buildings:
@@ -222,6 +224,32 @@ func _industrial_sources(horizon: Node3D) -> Dictionary:
 				if not paths.has(path) and FileAccess.file_exists(path):paths[path]=_profile_sha(path)
 	return paths
 
+func _industrial_optics() -> Dictionary:
+	var result: Dictionary={"campaign_minute":CampaignClock.new().absolute_minutes()}
+	for node: Node in get_children():
+		if node is DirectionalLight3D:
+			result["sun:"+str(node.name)]={"transform":str(node.global_transform),"color":str(node.light_color),"energy":node.light_energy,"shadows":node.shadow_enabled}
+		elif node is WorldEnvironment:
+			var state: Environment=node.environment
+			result["environment:"+str(node.name)]={"background":str(state.background_color),"mode":state.background_mode,"ambient_color":str(state.ambient_light_color),"ambient_energy":state.ambient_light_energy}
+	return result
+
+func _industrial_materials(horizon: Node3D) -> Dictionary:
+	var result: Dictionary={}
+	for draw: MeshInstance3D in horizon.find_children("*","MeshInstance3D",true,false):
+		if not draw.get_meta("v2_city_horizon_body_lod",false):continue
+		var loaded: Material=draw.get_meta("v2_city_roof_source",draw.material_override)
+		var stock:=loaded.get_meta("v2_weather_source",loaded) as StandardMaterial3D
+		if stock==null:continue
+		var maps: Dictionary={}
+		for channel: String in ["albedo","roughness","normal"]:
+			var texture: Texture2D=stock.get(channel+"_texture")
+			if texture==null:continue
+			var pixels:=texture.get_image()
+			maps[channel]={"path":texture.resource_path,"dimensions":[pixels.get_width(),pixels.get_height()],"format":pixels.get_format(),"has_mipmaps":pixels.has_mipmaps(),"mipmap_count":pixels.get_mipmap_count()}
+		result[str(draw.name)]={"texture_filter":stock.texture_filter,"triplanar":stock.uv1_triplanar,"metallic":stock.metallic,"roughness":stock.roughness,"normal_scale":stock.normal_scale,"maps":maps}
+	return result
+
 func _profile_industrial(horizon: Node3D,ground: Node3D,camera: Camera3D,fixture: Dictionary,directory: String) -> void:
 	var sources:=_industrial_sources(horizon)
 	var visibility: Dictionary={}
@@ -264,7 +292,7 @@ func _profile_industrial(horizon: Node3D,ground: Node3D,camera: Camera3D,fixture
 	for draw: MeshInstance3D in draws:draw.visible=bool(visibility[draw])
 	ground.visible=ground_visible
 	check(sources==_industrial_sources(horizon),"industrial loaded sources unchanged through measured frames")
-	var record: Dictionary={"evidence_class":"INERT","scope":"Isolated current imported industrial bodies,90 warmed uncapped frames per case,repeated near/far and actual material-body LOD transitions. No matched baseline,wholeworld performance,played access or artistic acceptance. Ground hidden for isolated body timings;captures excluded from timing windows.","observations":observations,"natural_transitions":transitions,"source_hashes":sources,"checks":checks,"failures":failures,"settings":{"resolution":str(viewport.get_visible_rect().size),"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps}}
+	var record: Dictionary={"evidence_class":"INERT","scope":"Isolated current imported industrial bodies,90 warmed uncapped frames per case,repeated near/far and actual material-body LOD transitions. No matched baseline,wholeworld performance,played access or artistic acceptance. Ground hidden for isolated body timings;captures excluded from timing windows.","observations":observations,"natural_transitions":transitions,"loaded_materials":_industrial_materials(horizon),"source_hashes":sources,"checks":checks,"failures":failures,"settings":{"resolution":str(viewport.get_visible_rect().size),"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps}}
 	var file:=FileAccess.open(directory.path_join("city_industrial_profile.json"),FileAccess.WRITE)
 	check(file!=null,"industrial rendering diagnostic opens")
 	if file!=null:
@@ -373,6 +401,7 @@ func _profile_natural(_city: Node3D,camera: Camera3D,draws: Array,identity: Stri
 		before=row
 	check(not after.is_empty(),"actual distance selects a replacement body LOD: "+identity)
 	var images: Array[Dictionary]=[]
+	var controls: Array[Dictionary]=[]
 	if not after.is_empty():
 		for i in 12:
 			var row:=await _profile_probe(camera,center,direction,(float(before.distance_m)+float(after.distance_m))*.5)
@@ -385,10 +414,23 @@ func _profile_natural(_city: Node3D,camera: Camera3D,draws: Array,identity: Stri
 			var expected:=int(row.primitives)>=int(spec.minimum) if str(spec.id)=="narrow" else int(row.primitives)==int(spec.minimum)
 			check(int(row.draws)==1 and expected,"natural transition, narrow optical recovery and inward return: "+identity+"/"+str(spec.id))
 			var frame:=get_viewport().get_texture().get_image()
-			var pixel:=frame.get_pixel(frame.get_width()/2,frame.get_height()/2);var background:=frame.get_pixel(0,0)
+			var pose:=camera.global_transform;var fov:=camera.fov;var optics:=_industrial_optics()
+			focus.visible=false
+			for tick in 4:await RenderingServer.frame_post_draw
+			var negative:=get_viewport().get_texture().get_image()
+			check(camera.global_transform.is_equal_approx(pose) and is_equal_approx(camera.fov,fov),"hidden-target optical control retains the same camera pose and FOV")
+			check(optics==_industrial_optics(),"hidden-target optical control retains the same campaign clock and fixed bench lighting")
+			var background:=negative.get_pixel(negative.get_width()/2,negative.get_height()/2)
+			var corner:=negative.get_pixel(0,0)
+			check(Vector3(background.r-corner.r,background.g-corner.g,background.b-corner.b).length()<.00001,"hidden-target optical control contains uniform fixed bench background")
+			var control_file:=identity+"_natural_"+str(spec.id)+"_background.png"
+			check(negative.save_png(directory.path_join(control_file))==OK,"same-pose hidden-target background control saved")
+			controls.append({"id":spec.id,"file":control_file,"distance_m":spec.distance,"fov":fov,"background_rgb":[background.r,background.g,background.b],"optics":optics})
+			focus.visible=true
+			var pixel:=frame.get_pixel(frame.get_width()/2,frame.get_height()/2)
 			var contrast:=Vector3(pixel.r-background.r,pixel.g-background.g,pixel.b-background.b).length()
 			check(contrast>.02,"physical structural stock remains at image center: "+identity+"/"+str(spec.id))
 			row["file"]=identity+"_natural_"+str(spec.id)+".png";row["fov"]=camera.fov;row["center_contrast"]=contrast
 			check(frame.save_png(directory.path_join(str(row.file)))==OK,"natural industrial image saved")
 			images.append(row)
-	return {"part":str(focus.name),"scope":"One whole material body part, default pixel threshold1, bisected first observed distance reduction, narrow-FOV recovery and inward return. Not a whole-building/world LOD or artistic acceptance.","before":before,"after":after,"probes":probes,"images":images}
+	return {"part":str(focus.name),"scope":"One whole material body part, default pixel threshold1, bisected first observed distance reduction, narrow-FOV recovery and inward return. Same-pose hidden-target background controls use fixed bench lighting with no weather or campaign clock. Not a whole-building/world LOD or artistic acceptance.","before":before,"after":after,"probes":probes,"images":images,"hidden_target_controls":controls}
