@@ -475,6 +475,13 @@ func pending() -> Array:
 ## and talked that many times, counted across every resident; a delivery
 ## with only that condition is due once it is met.
 func _due(when: Dictionary) -> bool:
+	# A rent notice waits on how many months are owing, read from the ledger.
+	if when.has("rent_due"):
+		var ledger: Variant = RealityState.data.get("caretaker_economy")
+		if ledger is not Dictionary:
+			return false
+		var owing := int((CampaignClock.new().elapsed_minutes() - float(ledger.started)) / 43200.0) - int(ledger.rent_paid)
+		return owing >= int(when.rent_due)
 	if when.has("order"):
 		return MailOrders.arrived(str(when.order), int(when.get("days", 0)))
 	if int(when.get("min_conversations", 0)) > conversations_total():
