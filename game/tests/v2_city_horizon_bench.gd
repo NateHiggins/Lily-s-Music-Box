@@ -124,16 +124,40 @@ func run() -> void:
 	var court:=Vector3(-95,30,-151.5)
 	var court_hit:=ground.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(court,Vector3(court.x,-.2,court.z),1))
 	check(not court_hit.is_empty() and ground.is_ancestor_of(court_hit.collider) and absf(court_hit.position.y+.02)<.0001,"recessed entrance court is genuinely open above the ground, without a rectangular roof crossing it")
+	var profiles: Dictionary={}
+	for row: Dictionary in fixture.buildings:profiles[str(row.id)]=row
 	for contact: Dictionary in fixture.parapet_contacts:
 		var p: Array=contact.point
 		var point:=Vector3(p[0],p[2],-p[1])
+		var profile: Dictionary=profiles[str(contact.building)]
+		var architecture: Dictionary=profile.get("architecture",{})
+		var residential: bool=str(architecture.get("type",""))=="residential_front"
+		var support:=point
+		if residential:
+			var style:=str(architecture.get("style",""))
+			check(style in ["italianate_2109","mansard_2153","gable_2136"],"receiving-wall schedule has a known authored roof construction")
+			var heights: Array=architecture.floor_heights_m
+			support.y=float(profile.grade_datum_m)
+			for index in (heights.size() if style=="italianate_2109" else heights.size()-1):support.y+=float(heights[index])
 		for direction: float in [-1.,1.]:
-			var query:=PhysicsRayQueryParameters3D.create(point+Vector3.UP*.025*direction,point-Vector3.UP*.025*direction,1)
+			# A sheet rests on a receiving wall; it is not a parapet starting
+			# at the sheet's top. Keep the original generic underside control.
+			var at:=support if residential and direction<0. else point
+			var ray_direction:=1. if residential else direction
+			var query:=PhysicsRayQueryParameters3D.create(at+Vector3.UP*.025*ray_direction,at-Vector3.UP*.025*ray_direction,1)
 			query.hit_back_faces=false
 			var hit:=horizon.get_world_3d().direct_space_state.intersect_ray(query)
 			var draw: MeshInstance3D=bodies.get(hit.collider.get_rid()) if not hit.is_empty() else null
 			var expected_key: String=contact.wall_key if direction<0 else "galvanized_roof"
-			check(draw!=null and str(draw.name)==str(contact.building)+"__"+expected_key and hit.position.distance_to(point)<.0001,"actual parapet bottom and roof top meet over the bearing wall: "+str(contact.building)+" "+expected_key)
+			check(draw!=null and str(draw.name)==str(contact.building)+"__"+expected_key and hit.position.distance_to(at)<.0001,"actual receiving wall/parapet and roof top: "+str(contact.building)+" "+expected_key+"; actual="+(str(draw.name) if draw!=null else "missing")+"; hit="+str(hit.get("position"))+"; expected="+str(at)+"; direction="+str(direction))
+		if residential:
+			# Independently reject a floating sheet: its underside must touch
+			# the receiving plane, with the same front-face and 0.1 mm rule.
+			var underside:=PhysicsRayQueryParameters3D.create(support-Vector3.UP*.025,support+Vector3.UP*.025,1)
+			underside.hit_back_faces=false
+			var bottom:=horizon.get_world_3d().direct_space_state.intersect_ray(underside)
+			var sheet: MeshInstance3D=bodies.get(bottom.collider.get_rid()) if not bottom.is_empty() else null
+			check(sheet!=null and str(sheet.name)==str(contact.building)+"__galvanized_roof" and bottom.position.distance_to(support)<.0001,"roof sheet underside meets its receiving wall: "+str(contact.building)+"; actual="+(str(sheet.name) if sheet!=null else "missing")+"; hit="+str(bottom.get("position"))+"; expected="+str(support))
 		var outside: Array=contact.outside_probe
 		var probe:=Vector3(outside[0],outside[2],-outside[1])
 		var query:=PhysicsRayQueryParameters3D.create(probe+Vector3.UP*.025,probe-Vector3.UP*.025,1)

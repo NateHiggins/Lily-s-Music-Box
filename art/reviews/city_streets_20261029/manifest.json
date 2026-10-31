@@ -14321,5 +14321,68 @@
         "sha256": "b78dc9180129f3392ffd1c37625ca701a058a004844a6a024b83a2ec7ddcc607"
       }
     }
+  },
+  "northern_roof_bearing_repair": {
+    "evidence_class": "INERT",
+    "archive": "art/reviews/city_streets_20261029/eastern_street_native_review.zip",
+    "bytes": 67797602,
+    "sha256": "e084279cfdbbf73b670b15a357c029cebb2f396d2b6ea7264cf3066550907ab1",
+    "member_count": 275,
+    "preserved_prior_members": 261,
+    "scope": "Existing loaded horizon/ground bench, not a runtime_contract. Original generic parapet/top/outside controls retained. Three known residential roof styles additionally check real receiving wall and sheet underside at same XY/front-face/.1mm tolerances. No geometry/material/fixture/authority change. Original27477/8 retained. Compiler1/0 and both shutdown stderr empty. Cancelled label-only replay never launched Godot; forfeited queue position before corrected run.",
+    "members": {
+      "canonical_integration_02/runtime_01/loaded_repair_source.gd": {
+        "bytes": 34454,
+        "sha256": "0160bb242d9c92b85c96d7fb223e71df10851455981b9d2f34f66a61a7d1046d"
+      },
+      "canonical_integration_02/runtime_01/loaded_repair_batch.json": {
+        "bytes": 826,
+        "sha256": "320843d68826e670acf31620eb34b86116e889a68a38dee7d390134c9c76a44e"
+      },
+      "canonical_integration_02/runtime_01/loaded_repair_analysis.json": {
+        "bytes": 638,
+        "sha256": "990d54d5046384b0c1cfbf0c1716f32c26274e50f41819c23baac5dce9fe9075"
+      },
+      "canonical_integration_02/runtime_01/loaded_diagnostic_source.gd": {
+        "bytes": 32693,
+        "sha256": "4dcc572bb7ab7f31122260409d89a9b96d4e03ae7a20129b3335fe482c721391"
+      },
+      "canonical_integration_02/runtime_01/loaded_diagnostic_batch.json": {
+        "bytes": 560,
+        "sha256": "a1f273c3f59bad94e4c6c53fc012e0b5bd6b7cc618a6fc0491aeb3aa9ae232e0"
+      },
+      "canonical_integration_02/runtime_01/queued_diagnostic_cancellation.json": {
+        "bytes": 363,
+        "sha256": "d19a0f8d4cf63b80690848b33a56ce3e672329c19a82c48c45b5353b72b4c9b9"
+      },
+      "canonical_integration_02/runtime_01/loaded_repair_compile.log": {
+        "bytes": 226,
+        "sha256": "25facc266c3a633815724538c5078dcbb6b380b8cf4dd7ab756f57e3c156d4e5"
+      },
+      "canonical_integration_02/runtime_01/loaded_repair_compile.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "canonical_integration_02/runtime_01/loaded_repair_compile.log.receipt.json": {
+        "bytes": 2915,
+        "sha256": "df8eef059c196699b25c5eb0f8dc4419f61a829bd9d5ac8ccbf8bb41f46e5e79"
+      },
+      "canonical_integration_02/runtime_01/loaded_repair.log": {
+        "bytes": 780033,
+        "sha256": "8c2cf893b6a80596bd1ae5bb8ad630e35d9c165c484e018b5e18973db491fccc"
+      },
+      "canonical_integration_02/runtime_01/loaded_repair.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "canonical_integration_02/runtime_01/loaded_repair.log.receipt.json": {
+        "bytes": 2983,
+        "sha256": "5c4a6857387043553b54e5e7ab48e4b543c0b51b5ec8749ae85bcbec261f37cf"
+      },
+      "canonical_integration_02/pack_roof_repair_07.py": {
+        "bytes": 3268,
+        "sha256": "84343cb61ca7df2330913b5cfb5a03c5dd14c85d3b04a9aae862db74b7fcb772"
+      }
+    }
   }
 }
