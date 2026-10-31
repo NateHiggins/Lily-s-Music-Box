@@ -14194,5 +14194,132 @@
         "sha256": "8544ae2b622fa8e180022df598b5b8a65246d680777a3419029c6915a4e72518"
       }
     }
+  },
+  "eastern_controller_review": {
+    "evidence_class": "INERT",
+    "archive": "art/reviews/city_streets_20261029/eastern_street_native_review.zip",
+    "bytes": 67734008,
+    "sha256": "d91b93ecfce7bd57b95b17350de842dafbe072fba31bdfda91fbe992e7388f31",
+    "member_count": 261,
+    "preserved_prior_members": 231,
+    "scope": "Actual eastern controller47/16/0 and8inspected frames; wrapper import/compiler passes; original loaded diagnostic27477/8 failures; exactmain117gate baseline with5failed tools gates. Only embedded test-written runtime_contract grants its named scope. No continuous city/stair ascent/material-family/fullcity/saves/artistic acceptance.",
+    "members": {
+      "canonical_integration_02/runtime_01/batch.json": {
+        "bytes": 1100,
+        "sha256": "10b5989ba6d20b4554de97026fcd15742285a5a479745646f05ec005ef9feac0"
+      },
+      "canonical_integration_02/runtime_01/frozen_inputs.json": {
+        "bytes": 263,
+        "sha256": "c2492d1f6ddf2c335d2dd8b46a7d5953e9837a653a683e9394bc964c1486922c"
+      },
+      "canonical_integration_02/runtime_01/route_analysis.json": {
+        "bytes": 2114,
+        "sha256": "2a36291466a50ed59b7a8125e7c34986d16762e4ac90df5fe4116a30d48bcc0c"
+      },
+      "canonical_integration_02/runtime_01/executed_route_source.gd": {
+        "bytes": 97869,
+        "sha256": "f459043fc94b5e3c31791a0581c1568e094a41f8698bbb56beb6d0afa9792267"
+      },
+      "canonical_integration_02/runtime_01/original_failed_loaded_bench.gd": {
+        "bytes": 32546,
+        "sha256": "48e79c3c9e62d8710cc352912f1383e0f8b12292a1eb15ac05645075fb22ee90"
+      },
+      "canonical_integration_02/runtime_01/loaded_batch.json": {
+        "bytes": 538,
+        "sha256": "fcfd51d849bd5f2a54ce60b01d0ff30c465e3841fc29c6977cbe1bb24fe6fb7c"
+      },
+      "canonical_integration_02/runtime_01/import.log": {
+        "bytes": 4387,
+        "sha256": "964cdfea021f745abc1cbde349a3288cd7cae0f53cb9d579f0e14368b84e8078"
+      },
+      "canonical_integration_02/runtime_01/import.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "canonical_integration_02/runtime_01/import.log.receipt.json": {
+        "bytes": 2675,
+        "sha256": "837f9bf67c5a139c475691996402ef508c30d258f62fa20998f0ba9e6955af5f"
+      },
+      "canonical_integration_02/runtime_01/compile.log": {
+        "bytes": 228,
+        "sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "canonical_integration_02/runtime_01/compile.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "canonical_integration_02/runtime_01/compile.log.receipt.json": {
+        "bytes": 2889,
+        "sha256": "017ab10c9d35c4e8de9fc8d791745723a42ea6c8f1386b225783a18de5bdf183"
+      },
+      "canonical_integration_02/runtime_01/route.log": {
+        "bytes": 4392,
+        "sha256": "5ed34eb7dd990e38736ff1adab107daa560de79f1f22bbefee6fdf1b25c4074a"
+      },
+      "canonical_integration_02/runtime_01/route.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "canonical_integration_02/runtime_01/route.log.receipt.json": {
+        "bytes": 2907,
+        "sha256": "f3a34d6e169eaa01183bd1f1110256753850131250e66419231825d18f771b01"
+      },
+      "canonical_integration_02/runtime_01/loaded.log": {
+        "bytes": 780033,
+        "sha256": "0b484e7ee5760512f2b34fc58c8955b9e866097607f3901de61e78f3983f7c96"
+      },
+      "canonical_integration_02/runtime_01/loaded.log.stderr": {
+        "bytes": 2842,
+        "sha256": "b2a6b27f9f57616cc9abc03bab8bbd33c481b1262917b8dcd517d05f7f49c75e"
+      },
+      "canonical_integration_02/runtime_01/loaded.log.receipt.json": {
+        "bytes": 2964,
+        "sha256": "8d0caebc3dea191991945132390005987c7db62c0050b69e923aa76152ca5f78"
+      },
+      "canonical_integration_02/runtime_01/route/eastern_corner_approach.png": {
+        "bytes": 2798236,
+        "sha256": "ea3cf6967a00dc7efdf8412637666fc8347c6b46ced1357d1eda62db1d6fd347"
+      },
+      "canonical_integration_02/runtime_01/route/eastern_corner_standing_detail.png": {
+        "bytes": 2726320,
+        "sha256": "5bd21d81ae3603a451166c866f6c9d5ceaa22ad398d5b029a7f183a2ffd05ffd"
+      },
+      "canonical_integration_02/runtime_01/route/eastern_far_footway_approach.png": {
+        "bytes": 3162672,
+        "sha256": "aabdbc153467e0ffda8dfde839ef981c7e063360fc1d26431be7927570490f01"
+      },
+      "canonical_integration_02/runtime_01/route/eastern_far_footway_standing_detail.png": {
+        "bytes": 2680261,
+        "sha256": "6d2dcc09fafc3e0c9a842fb2d5b5906f3360d36a0be077476666353f875ee392"
+      },
+      "canonical_integration_02/runtime_01/route/eastern_frontage_contract.json": {
+        "bytes": 214867,
+        "sha256": "2428d7d893f09b997e1e7a2bc518938aa0ec52494c01c8a3fc4808354574b76a"
+      },
+      "canonical_integration_02/runtime_01/route/eastern_return_approach.png": {
+        "bytes": 2520672,
+        "sha256": "2c6aa5310e9712c8ac7bff60022bb9f94ef73d17b309936aff280fea0c9888a2"
+      },
+      "canonical_integration_02/runtime_01/route/eastern_return_standing_detail.png": {
+        "bytes": 2788937,
+        "sha256": "a9d8d905ca6b90614be6ceda757cb18c1dcf67932050528b5cc367d522a9e443"
+      },
+      "canonical_integration_02/runtime_01/route/eastern_seam_approach.png": {
+        "bytes": 3001387,
+        "sha256": "303b24dbb85bba60eeb11ed9f841577bed99b0a10fed0c7679afb10b5010b5e7"
+      },
+      "canonical_integration_02/runtime_01/route/eastern_seam_standing_detail.png": {
+        "bytes": 2909530,
+        "sha256": "4f319b9d53337dcc648416613d32081b1663088d306a467faf9fb2c0ede861b9"
+      },
+      "canonical_integration_02/baseline_a880/board.json": {
+        "bytes": 131032,
+        "sha256": "5fd0aec38483c6d79ea272ee780941fa3799cd0ae0afc69a5bdcec77b3461402"
+      },
+      "canonical_integration_02/pack_runtime_06.py": {
+        "bytes": 3401,
+        "sha256": "b78dc9180129f3392ffd1c37625ca701a058a004844a6a024b83a2ec7ddcc607"
+      }
+    }
   }
 }
