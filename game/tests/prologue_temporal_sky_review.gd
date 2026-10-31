@@ -245,6 +245,24 @@ func compact_sequence(_initial_target:Dictionary) -> void:
 	check(register.phase=="idle" and register._owner==null and register.capacitor.get_shader_parameter("capacitor_charge")==0.0,"completed sequence retires both amber displays")
 	FileAccess.open(directory.path_join("sequence_frames.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","start_frame":start_frame,"end_frame":Engine.get_process_frames(),"events":event_frames,"target":director.state.target,"scope":"Actual loaded-world final line, physical typing and accepted jump. Prior prologue beats staged. Movie fixed-step capture, if requested, is not performance evidence."},"\t"))
 
+	# The recorded sequence ends above. Additional ownership controls are not
+	# part of the prologue or any published end-title clip.
+	for stamp:float in [0.0,5.0]:
+		if not check(stage(director.state.target.duplicate(true)) and director.begin_temporal_sky(),"camera takeover control starts at "+str(stamp)):continue
+		var clip:Node=director.temporal_sky;clip.seek(stamp)
+		var foreign:=Camera3D.new();add_child(foreign);foreign.global_transform=clip.camera.global_transform;foreign.make_current()
+		clip._process(.01)
+		check(not clip.active and foreign.is_current() and world.player.text_input_owner==null,"foreign camera retains ownership across departure boundary "+str(stamp))
+		world.player.camera.make_current();foreign.free()
+	var quiet_before:bool=bool(GameBoot.settings.get("reduce_flashing",false))
+	GameBoot.settings.reduce_flashing=true
+	if check(stage(director.state.target.duplicate(true)) and director.begin_temporal_sky(),"reduced-flash reading interval uses the same jump owner"):
+		var clip:Node=director.temporal_sky;clip.seek(3)
+		check(world.player.camera.is_current() and clip._veil.color.a==0,"reduced-flash mode preserves the initial readable register")
+		clip.seek(15);check(clip._veil.color.a>.99,"reduced-flash mode still masks rapid seasonal cycles")
+		clip.cancel()
+	GameBoot.settings.reduce_flashing=quiet_before
+
 func review_interrupted_reload(target:Dictionary) -> void:
 	# Synthetic validated late-phase staging; earlier opening beats not played.
 	var player:=world.player

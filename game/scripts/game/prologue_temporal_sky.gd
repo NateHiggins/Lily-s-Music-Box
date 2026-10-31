@@ -66,6 +66,7 @@ var _outward:Vector3
 var _publish_age:=-INF
 var _published_utc:=INF
 var _published_camera:=Vector3(INF,INF,INF)
+var _view_departed:=false
 var _carrier:Node
 var _quiet:=false
 var _veil:ColorRect
@@ -217,9 +218,11 @@ func seek(seconds:float) -> void:
 	camera.global_transform=Transform3D(start_view.basis.slerp(aim,entering),at)
 	camera.near=lerpf(_old_camera.near,.002,smoothstep(4,5,age)*(1-smoothstep(6.2,8.0,age)))
 	if age>=4.0:
-		if not camera.is_current():camera.make_current()
+		if not _view_departed:
+			if not _old_camera.is_current() and not camera.is_current():cancel();return
+			camera.make_current();_view_departed=true
 		if not _carrier.is_story_absent():_carrier.acquire_story_absence(self)
-	elif camera.is_current():_old_camera.make_current()
+	elif camera.is_current():_old_camera.make_current();_view_departed=false
 	# Normal presentation crosses the actual opening without a blackout.
 	# Reduced-flash presentation still protects against rapid day/night cycles.
 	_veil.color.a=(smoothstep(4,6,age)*(1-smoothstep(29,31,age))) if _quiet else 0.0
@@ -257,6 +260,8 @@ func _publish() -> void:
 
 func _process(delta:float) -> void:
 	if not active or get_tree().paused:return
+	var expected:Camera3D=camera if _view_departed else _old_camera
+	if get_viewport().get_camera_3d()!=expected:cancel();return
 	if not is_same(_campaign,RealityState.data) or RealityState.save_write_blocked or player.protected_input_active() or player.text_input_owner!=self:cancel();return
 	seek(age+delta)
 

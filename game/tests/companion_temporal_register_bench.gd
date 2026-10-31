@@ -98,8 +98,28 @@ func _run() -> void:
 	check(RealityState.data == campaign, "presentation makes no campaign writes")
 	camera.position = Vector3(-.08, .04, -.28); camera.look_at(Vector3(0, -.015, .01))
 	await shot("capacitor_rear")
+	await photo_surface_controls(camera)
 	await world_controls(target)
 	finish()
+
+func photo_surface_controls(camera:Camera3D) -> void:
+	var pose:=camera.transform
+	rig.hide()
+	var photo:=preload("res://scripts/props/photo_tray.gd").new();add_child(photo)
+	var pivot:=Node3D.new();photo.add_child(pivot)
+	var picture:=load("res://assets/textures/photo/own_plate.png") as Texture2D
+	photo.configure(pivot,null,picture)
+	var audit:=preload("res://tests/clawfoot_bath_hand_bench.gd").new()
+	for draw:MeshInstance3D in photo.sheet.find_children("*","MeshInstance3D",true,false):audit.check_surface(draw,0,draw.get_active_material(0))
+	check(audit.failures.is_empty(),"photo paper and image retain metric charts, private PBR and loaded mips")
+	audit.free()
+	check(photo._image.detail_albedo==picture and photo._image.detail_uv_layer==BaseMaterial3D.DETAIL_UV_2 and picture.get_image().has_mipmaps(),"full photograph uses independent normalized detail UVs with loaded mips")
+	photo.progress=0;photo._show();check(photo._image.albedo_color.a==0,"unexposed photo remains invisible")
+	photo.progress=1;photo._show();photo.sheet.visible=true
+	check(photo._image.albedo_color==Color.WHITE,"development owner still reaches the exact full-image state")
+	camera.position=Vector3(0,.28,0);camera.look_at(Vector3(0,-.012,0),Vector3.FORWARD)
+	await shot("photo_print_ready")
+	photo.free();rig.show();camera.transform=pose
 
 func world_controls(target: Dictionary) -> void:
 	rig.queue_free(); await get_tree().process_frame
