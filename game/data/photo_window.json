@@ -1,0 +1,24 @@
+{
+ "schema_version": 1,
+ "cards": [
+  {"id": "n1_hat", "letter": 0.03, "from": "1928-11-10", "until": "1929-01-30", "hand": "adela", "at": [0.0, 0.0], "size": [0.42, 0.2], "text": "THE SEAT IS MARKED MEMBER. THE HAT CAN MANAGE."},
+  {"id": "n3_supper", "letter": 0.027, "from": "1929-01-31", "until": "1929-05-30", "hand": "adela", "at": [0.0, 0.0], "size": [0.46, 0.22], "text": "SUPPER WAS NOT THE POINT. THIRTEEN HOURS AND SIXTEEN MINUTES WAS."},
+  {"id": "n6_act", "letter": 0.027, "from": "1929-05-31", "until": "1929-06-09", "hand": "adela", "at": [0.0, 0.0], "size": [0.46, 0.2], "text": "THE ACT WAS LAST YEAR. THIS IS THE FIRST ELECTION UNDER IT."},
+  {"id": "n7_clipping", "from": "1929-06-10", "until": "1929-06-12", "hand": "adela", "at": [0.0, 0.0], "tilt": -7, "size": [0.3, 0.2], "letter": 0.011, "colour": "#3a342b", "text": "Miss Bondfield joins the Cabinet; ministers inspect their cuffs"},
+  {"id": "n8_tea", "letter": 0.023, "from": "1929-06-13", "until": "1929-07-05", "hand": "adela", "at": [0.0, 0.0], "size": [0.5, 0.26], "text": "MRS. OSCAR DE PRIEST. TEA AT THE WHITE HOUSE, 12 JUNE. TEXAS PASSED A RESOLUTION ABOUT THE COLOR OF HER SKIN."},
+  {"id": "n9_wills", "letter": 0.042, "from": "1929-07-06", "until": "1929-08-18", "hand": "adela", "at": [0.0, 0.0], "size": [0.36, 0.16], "text": "WILLS POWER."},
+  {"id": "n9_see_me", "from": "1929-07-06", "until": "1929-08-18", "hand": "adela", "at": [0.14, -0.05], "size": [0.13, 0.05], "letter": 0.012, "colour": "#9c1f14", "text": "See me."},
+  {"id": "n10_aviation", "letter": 0.03, "from": "1929-08-19", "until": "1929-08-19", "hand": "nadia", "at": [0.0, 0.0], "size": [0.42, 0.18], "flag": "m_aviation_card", "text": "PLEASE SEND AN AVIATION EDITOR"},
+  {"id": "crosson", "letter": 0.03, "from": "1929-08-20", "until": "1929-10-18", "hand": "nadia", "at": [0.0, 0.0], "size": [0.36, 0.16], "text": "MISS MARVEL CROSSON. PILOT."},
+  {"id": "persons", "letter": 0.03, "from": "1929-10-19", "until": "1929-11-08", "hand": "nadia", "at": [0.0, 0.0], "size": [0.42, 0.18], "text": "PERSONS, FOR THE SENATE AT OTTAWA."},
+  {"id": "qualified", "from": "1929-10-19", "until": "1929-11-09", "hand": "night", "at": [0.3, -0.08], "tilt": 2, "size": [0.15, 0.05], "letter": 0.013, "text": "QUALIFIED"},
+  {"id": "armistice", "letter": 0.03, "from": "1929-11-09", "until": "1929-11-09", "hand": "nadia", "at": [0.0, 0.0], "tilt": -2, "size": [0.42, 0.18], "flag": "m_nadia_card", "text": "MONDAY THE 11TH. ELEVEN YEARS AND"}
+ ],
+ "register": [
+  {"from": "1928-12-03", "text": "Mr. O., Borden Ave., four plates, views."},
+  {"from": "1929-02-04", "text": "Mrs. K., certificate plates, Mon. 4 Feb."},
+  {"from": "1929-04-20", "text": "Miss S., 3D, sat Sat. 20 April. DO NOT PRINT"},
+  {"from": "1929-06-08", "text": "Deed, for Mr. E., exposed 6 June, developed Sat. 8 June"},
+  {"from": "1929-06-08", "text": "Duplicate of same, to S.R., June", "flag": "m_backup_ledger"}
+ ]
+}

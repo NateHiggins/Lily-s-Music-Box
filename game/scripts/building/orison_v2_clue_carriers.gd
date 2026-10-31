@@ -22,7 +22,7 @@ static func mount(world: Node3D, adapter: Variant) -> Dictionary:
 	var drain := _clean_out(world, switch)
 	if books == null or drain == null:
 		return {}
-	return {"notebooks": books, "drain": drain}
+	return {"notebooks": books, "drain": drain, "book_stock": books.get_meta("stock")}
 
 
 static func _notebooks(world: Node3D, shelf: Node3D) -> Node3D:
@@ -74,6 +74,7 @@ static func _notebooks(world: Node3D, shelf: Node3D) -> Node3D:
 		if index == 1:
 			moving = book
 	prop.configure(moving)
+	prop.set_meta("stock", stock)
 	refresh_spines(prop)
 	return prop
 

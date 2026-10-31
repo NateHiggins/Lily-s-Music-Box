@@ -376,7 +376,15 @@ the wall cases, and Mae behind the counter, which still needs its timeline check
 Keys Cut is built: a permission puts a spare on the counter's list at 25 cents, and the hand draws
 the carriage past the wheel to cut it. Not built: a key that sticks after a rushed pass, and the
 readable copy book. Rent has its consequences: notices at one, two and three months, and from two
-months tenants without an enabled case stop signing. Spares already cut stay. Photo is next.
+months tenants without an enabled case stop signing. Spares already cut stay.
+
+Photo Supplies is built. The terminal sells its goods. Printed at the counter a plate comes back at
+once, in whoever's hand keeps the shop. An hour in the darkroom takes a plate, a sheet and the chemicals:
+the hand rocks a working tray on the rack, the picture comes up, and the hand lifts the sheet out,
+thin, good or lost. Sittings stop on 19 July. The negatives register is drawn across the counter and
+reads to today, granting **m_register**. The window's cards change on their authored dates, and two
+of them are read from the street (**m_aviation_card**, **m_nadia_card**). Not built: exposing a plate
+yourself, so every print shows the same street, and any use for a print beyond keeping it.
 
 Each slice owes: real grabbing and release in tests, a schema-2 runtime receipt, reader
 gate NEW 0, a draw-call measurement on the Arcade route, and a playable pass for Lily.
