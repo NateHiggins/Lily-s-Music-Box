@@ -116,6 +116,31 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
   - (silence) → av_n2
 - **ADELA VOSS** (av_n4b): Don't thank me, you'll give me the idea I've done something. Go on. Mind your pipes.
 
+### "What's in the bottom drawer?"
+
+1928-11-10 to 1929-07-19
+
+- **ADELA VOSS** (av_b1): Two aldermen, a landlord and a man from the Board of Estimate. People bring me plates to develop and forget I can read. I keep a print, and they know I keep it.
+  - > You sell those? → av_b2
+  - > That's a crime. → av_b3
+  - (silence) → av_b2
+- **ADELA VOSS** (av_b2): I don't sell anything. I keep it where the sitter can think about it. Jackson Avenue got its lamps in an afternoon, and I have never once had to say a number.
+  - > Say nothing. → av_b4
+  - (silence) → av_b4
+- **ADELA VOSS** (av_b3): It is. So was what he did with the lamp money. Jackson Avenue got its lamps in an afternoon, and I sleep very well.
+  - > Say nothing. → av_b4
+  - (silence) → av_b4
+- **ADELA VOSS** (av_b4): Nobody across the road, mind, and nobody in this arcade. You don't squeeze people you borrow sugar from.
+
+### "You're a long way from the Arcade."
+
+1929-03-16 to 1929-03-16 · 10:00-16:00
+
+- **ADELA VOSS** (av_a1): Everyone's come to look at the sky. It's the only time you get a whole crowd with its mouth open and nobody posing. I've got one plate, so I'm being very rude about who stands in front of me.
+  - > You could be home by dark. → av_a2
+  - (silence) → av_a2
+- **ADELA VOSS** (av_a2): I could be, and I'd have a window full of plucky girls who flew somewhere. I'd like one who's only standing by a wing and thinking about her lunch. Hold my bag.
+
 ## CAL DWYER
 
 Controls, repeatability, a grudge against bad reception. Near the bulkhead before the boundary; the two tapes. His voice at 21:00:40 clears him of nothing and he is simply not where the evidence meets. Does not summarise. Tunes around the noun.
@@ -433,6 +458,15 @@ Ownership spoken as grammar. Offended at the handling before the accusation. Her
   - (silence) → mk_b5
 - **NADIA** (mk_b5): Adela Voss.
 
+### "You knew what she kept in that drawer."
+
+1929-07-20 to 1929-11-09 · needs **m_adela_drawer**, **m_envelope_delivered**
+
+- **MAE KESSLER** (mk_c1): A landlord of my acquaintance found the money for those lamps after one of that counter's courtesies. He told me so at length. Anything from that counter I return unopened.
+  - > She wasn't asking for anything. → mk_c2
+  - (silence) → mk_c2
+- **MAE KESSLER** (mk_c2): Who has been reading you my acquaintance's accounts? The gloves are by the door.
+
 ## MALCOLM REED
 
 Time measured by what can grow; a very possessive pot. Last on the roof with her before dark. Roof user, not a suspect by default. Quiet oldest fact.
@@ -590,6 +624,15 @@ A plan that includes everybody before asking anybody. Chairs the tenants' associ
   - > No. → nq_c9
   - (silence) → nq_c9
 - **NADIA QUELL** (nq_c9): She keeps the pencil.
+
+### "What happens to the rent now?"
+
+1929-08-03 to 1929-11-09 · needs **m_lease_read**
+
+- **NADIA QUELL** (nq_h1): There's a motion to pay the rent to the Municipal Court clerk until somebody shows a title. It has sat on the table since August. It wants a second, a ledger and nobody saying the word strike in front of Mr. Wren. I have the ledger.
+  - > Would you hold yours? → nq_h2
+  - (silence) → nq_h2
+- **NADIA QUELL** (nq_h2): The chair can't second. So the chair will step out for as long as that takes. I've already paid for one sentence in that parlour. I can pay for this one at the clerk's window, and get a receipt.
 
 ## NOEL PRICE
 

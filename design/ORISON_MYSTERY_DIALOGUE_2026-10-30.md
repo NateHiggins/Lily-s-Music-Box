@@ -15,8 +15,8 @@ note and the treatment disagree, the treatment wins.
 
 | Piece | Where |
 |---|---|
-| Trees for 23 speakers: 66 threads, 210 nodes | `game/data/mystery/<speaker>.json` |
-| Companion addendum: 47 lines, 5 branches, 4 movements | `game/data/mystery/companion_mystery.json` |
+| Trees for 23 speakers: 70 threads, 220 nodes | `game/data/mystery/<speaker>.json` |
+| Companion addendum: 53 lines, 5 branches, 4 movements | `game/data/mystery/companion_mystery.json` |
 | The 17 things the world must hand the player | `game/data/mystery/carriers.json` |
 | Printed copy with no speaker | `game/data/mystery/object_copy.json` |
 | A readable version of every tree | `design/mystery_dialogue/READ_ALOUD.md` |

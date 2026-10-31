@@ -1,8 +1,8 @@
 # Queens 1928-29: adversarial lore pass
 
-Evidence class: **INERT**. A writers' room proposal for the owner, dated 2026-10-31.
-Nothing here is canon until she rules. Under the Bible's precedence, its rulings win
-until she amends them. Sources are at the end.
+Evidence class: **INERT**. A writers' room proposal for the owner, dated 2026-10-31. Her
+rulings on it are in section 6. Anything she hasn't ruled on is not canon. Sources are at
+the end.
 
 The input is an outside reference packet, "Queens 1928-29". The room ran two passes. The
 first gave each idea its best case, attacked it and kept what survived. A second reader,
@@ -42,7 +42,9 @@ tenants' rent hold. So little needs adding, and most new plot weight broke somet
 
 Each of these was in my first draft as an adoption, and each is now cut or reduced.
 
-**Adela's negatives as blackmail: cut.** I called it the best idea in the packet. It isn't.
+**Adela's negatives as blackmail: I cut this, and the owner overruled me.** Section 6 has
+her ruling and how it now works. The objections below are kept because the design has to
+answer them.
 - A trans woman secretly holding her neighbours' secrets is the predatory, deceptive figure
   the story exists to refuse, and "learned late" brings back a late reveal about her character.
 - It makes her decency into a threat. "Being decent, she sent Mae Kessler a copy first" drives the
@@ -52,8 +54,8 @@ Each of these was in my first draft as an adoption, and each is now cut or reduc
   reverses that.
 - Juno says she moved the microphone "nicely" and "never told a soul".
 
-The vices that remain are already canon: she keeps the negative and won't hand it over, she's a sharp
-edit, she loses the Pun Derby, and she is sometimes wrong about who a picture belongs to (WR-07).
+Her other vices are already canon: she keeps the negative and won't hand it over, she's a sharp edit, she
+loses the Pun Derby, and she is sometimes wrong about who a picture belongs to (WR-07).
 
 **A printed "passion theory": cut.** It sexualises her death and makes it about what she is, and
 its carve-out swallowed the law in **AL-01**. Today's errors in the record are banal: lodging and cause
@@ -77,7 +79,7 @@ Adela up there makes five weeks of silence about the clause hard to explain.
 **The shop cylinder as "what they said behind her back": cut.** Omar says "Bell starts it... That's all it
 does." It holds a bell, footsteps and drawers. I'd invented Adela leaving it running.
 
-**The Berlin prescription: recommended cut, and your call.** The Berlin letter's stated matter is the
+**The Berlin prescription: cut, by owner ruling.** The Berlin letter's stated matter is the
 Paragraph 175 vote. Making it medicine turns a friendship into a supply line, and "it isn't a clue" can't
 hold when players read dated books as evidence. The treatment protects her from "body or history" records.
 
@@ -170,14 +172,49 @@ Nadia's, after Adela's death, so they don't support this. It's a small new idea,
 | Berlin institute and hormones | The Science Museum supports hormone therapy there in outline. Which preparation existed in 1928 is unverified |
 | "Murder hours" audio | Ruled out by Bible §VIII.5.o |
 
-## 6. Decisions for Lily
+## 6. Owner rulings, 2026-10-31
 
-1. **Does Prohibition exist in this world?** The papers mention liquor only once, on 4 November 1929, the Jones Law is unprinted, and the Bodega sells Peerless lager at twelve cents. It was left open in an earlier report and I found no later ruling. Everything about Harukiya's legal status, and any pact or raid, hangs on it.
-2. **The Berlin prescription.** I recommend no. It's yours because it touches her body's care.
-3. **Do you actually want the packet's protagonist?** If so, that's a Bible amendment and this document changes completely. I recommend no.
-4. **Blackmail.** The packet wants real vices, and I've cut this as a trope. If you see it differently, you're the reader who decides. Her remaining vices are stubbornness and grudges.
-5. **House slang.** Keep or drop "glad-rag royalty" and "the sisterhood"?
-6. **The rent hold, the heat dressing and Holmes Airport** need new writing. Should they go in the next draft?
+1. **Prohibition exists and is loosely enforced.** It is the law, and nobody in Queens acts like it.
+   Near beer on the shelf and a wink at Harukiya. Recorded in the Bible, §VIII.5.
+2. **The Berlin prescription is cut.** The Berlin letter stays about the Paragraph 175 vote and friendship.
+3. **Adela's blackmail stays.** She did it.
+4. **The rent hold, the heat dressing, the Holmes Airport visit and the wire-listening item all go in the
+   next draft.**
+
+Still open: the packet's protagonist stays rejected as recommended unless she says otherwise, the house
+slang ("glad-rag royalty", "the sisterhood") hasn't been ruled on, and nothing yet says what became of the
+drawer's prints after her death. Emil's "drawer the thief didn't want" and Mae's "emptied a dead woman's
+drawer" need squaring with that.
+
+### How the blackmail works
+
+These are the room's answers to the objections in section 2. All are **PROPOSED** for her read.
+
+- **She says it herself, plainly and early.** **av_drawer** opens from the first date, so it can't work as a
+  late reveal about her character. The player is Adela, and she knows what she did.
+- **Only people with power, and they know.** Aldermen, a landlord, a man from the Board of Estimate. People
+  bring her plates to develop, she keeps a print, and they know it. She isn't the bait in anyone's trap. "You
+  don't squeeze people you borrow sugar from." Nobody across the road or in the arcade is in it, so "privacy
+  never reads as guilt" stands, and Juno's "she never told a soul" still holds.
+- **It adds no suspects in the house.** The four men gain a motive, but they have no access and no thread. The
+  treatment's rule for residents stands.
+- **It makes the plot better, not lighter.** "Being decent, she sent Mae Kessler a copy first" stays true. Mae
+  knows about the drawer, from a landlord she knows. The player can infer how a dated copy looked to her. Her
+  motive is still the lease. Adela knows she wanted nothing, and she can't tell anyone. The set files both facts,
+  on her word, and doesn't weigh them (**m_not_a_demand**).
+- **Not a confession.** Mae says she returns anything from that counter unopened. So the evidence chain, including
+  what she did with the note, stands as written.
+
+### What went into the draft
+
+| Ruling | Where | Status |
+|---|---|---|
+| Blackmail | **av_drawer**, **mk_copy**, **m_drawer**, **m_not_a_demand** | First-draft lines |
+| Rent hold | **nq_hold**: a motion, with no mechanic and no effect on the player's own rent | First-draft lines |
+| Holmes Airport | **av_holmes**, 16 March 1929, reachable only by the playtest panel | First-draft lines |
+| Wire-listening | **line_tell** in the Radio Service catalogue | Data only, no behaviour and not on sale |
+| Heat dressing | Not built. Art work, in **TASKS.md** | Not started |
+| Prohibition | Bible ruling. The Jones Law paper item is held until the newspaper work in PR 103 lands | Item not written |
 
 ## 7. Sources
 

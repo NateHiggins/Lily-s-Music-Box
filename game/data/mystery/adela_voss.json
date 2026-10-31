@@ -88,6 +88,26 @@
    ],
    "source": "B08 to B10 and the O2 branches. Each flag writes one line in the key book. Never shows her going up after agreeing not to.",
    "root": "av_n1"
+  },
+  {
+   "id": "av_drawer",
+   "from": "1928-11-10",
+   "until": "1929-07-19",
+   "topic": "What's in the bottom drawer?",
+   "source": "Owner ruling 2026-10-31: she did it. Told plainly and early by her, so it is never a reveal. Only people with power; nobody at either address. Plates brought to her for developing, so she is never the bait.",
+   "root": "av_b1"
+  },
+  {
+   "id": "av_holmes",
+   "from": "1929-03-16",
+   "until": "1929-03-16",
+   "hours": [
+    "10:00",
+    "16:00"
+   ],
+   "topic": "You're a long way from the Arcade.",
+   "source": "Holmes Airport opened Saturday 16 March 1929. She has a plate and a Saturday. Has no door yet; read through the playtest panel.",
+   "root": "av_a1"
   }
  ],
  "nodes": {
@@ -336,6 +356,57 @@
   "av_n6": {
    "flag": "m_o2_brought_monday",
    "line": "Half past six? For a schedule to a deed? You've read it, haven't you. Nobody reads it. All right, night man, go and get them, and if they bring Mrs. Kessler I'm charging her for the chair."
+  },
+  "av_b1": {
+   "silence_goto": "av_b2",
+   "line": "Two aldermen, a landlord and a man from the Board of Estimate. People bring me plates to develop and forget I can read. I keep a print, and they know I keep it.",
+   "choices": [
+    {
+     "label": "You sell those?",
+     "goto": "av_b2"
+    },
+    {
+     "label": "That's a crime.",
+     "goto": "av_b3"
+    }
+   ]
+  },
+  "av_b2": {
+   "silence_goto": "av_b4",
+   "line": "I don't sell anything. I keep it where the sitter can think about it. Jackson Avenue got its lamps in an afternoon, and I have never once had to say a number.",
+   "choices": [
+    {
+     "label": "Say nothing.",
+     "goto": "av_b4"
+    }
+   ]
+  },
+  "av_b3": {
+   "silence_goto": "av_b4",
+   "line": "It is. So was what he did with the lamp money. Jackson Avenue got its lamps in an afternoon, and I sleep very well.",
+   "choices": [
+    {
+     "label": "Say nothing.",
+     "goto": "av_b4"
+    }
+   ]
+  },
+  "av_a1": {
+   "silence_goto": "av_a2",
+   "line": "Everyone's come to look at the sky. It's the only time you get a whole crowd with its mouth open and nobody posing. I've got one plate, so I'm being very rude about who stands in front of me.",
+   "choices": [
+    {
+     "label": "You could be home by dark.",
+     "goto": "av_a2"
+    }
+   ]
+  },
+  "av_a2": {
+   "line": "I could be, and I'd have a window full of plucky girls who flew somewhere. I'd like one who's only standing by a wing and thinking about her lunch. Hold my bag."
+  },
+  "av_b4": {
+   "flag": "m_adela_drawer",
+   "line": "Nobody across the road, mind, and nobody in this arcade. You don't squeeze people you borrow sugar from."
   }
  }
 }
