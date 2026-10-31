@@ -189194,24 +189194,31 @@
     }
   ],
   "assets": {
-    "near": {
-      "asset": "game/assets/props/city_horizon_near.glb",
-      "sha256": "93129ad528d9df7197a9c5c0924ac3e79fc038db76590285f46ba1e9d867bff2",
-      "bytes": 99958788,
-      "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "221683c97bb8aa384094684d8208a737e08b9a678dd2cb76c963b460401dbdc8",
+    "city_horizon_near_0_0": {
+      "role": "base",
+      "block": "HORIZON_NEAR_0_0",
+      "buildings": [
+        "HORIZON_NEAR_0_0_P0R0",
+        "HORIZON_NEAR_0_0_P0R1",
+        "HORIZON_NEAR_0_0_P0R2",
+        "HORIZON_NEAR_0_0_P1",
+        "HORIZON_NEAR_0_0_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_0_0.glb",
+      "sha256": "e05e4b67bb6a1bfda84d007c5ff9bc06cb39a1cb9078d384cff8d41b402c575d",
+      "bytes": 3283028,
       "bounds": [
-        -170.16000366210938,
-        -2.375499963760376,
+        -150.3800048828125,
+        -0.2800000011920929,
         -170.3800048828125,
-        170.01199340820312,
-        23.799999237060547,
-        170.01199340820312
+        -83.62000274658203,
+        14.399999618530273,
+        -148.11000061035156
       ],
       "export_check": {
-        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near.glb",
-        "primitives": 508,
-        "triangles": 979228,
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_0_0.glb",
+        "primitives": 26,
+        "triangles": 31960,
         "minimum_tangent_agreement": 0.9999999640313171,
         "status": "PASS"
       },
@@ -189345,7 +189352,40 @@
           "name": "HORIZON_NEAR_0_0_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1140
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_0_1": {
+      "role": "base",
+      "block": "HORIZON_NEAR_0_1",
+      "buildings": [
+        "HORIZON_NEAR_0_1_P0R0",
+        "HORIZON_NEAR_0_1_P0R1",
+        "HORIZON_NEAR_0_1_P0R2",
+        "HORIZON_NEAR_0_1_P1",
+        "HORIZON_NEAR_0_1_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_0_1.glb",
+      "sha256": "c1b6b9d219ea35d4f1d5ffcd0cb7d0f7a21f5f17e3560be9b97221775a83502c",
+      "bytes": 5856228,
+      "bounds": [
+        -66.31999969482422,
+        -0.2800000011920929,
+        -170.32000732421875,
+        -5.98799991607666,
+        17.399999618530273,
+        -149.98800659179688
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_0_1.glb",
+        "primitives": 38,
+        "triangles": 56732,
+        "minimum_tangent_agreement": 0.9999999724757571,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_0_1_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -189535,7 +189575,40 @@
           "name": "HORIZON_NEAR_0_1_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 864
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_0_2": {
+      "role": "base",
+      "block": "HORIZON_NEAR_0_2",
+      "buildings": [
+        "HORIZON_NEAR_0_2_P0R0",
+        "HORIZON_NEAR_0_2_P0R1",
+        "HORIZON_NEAR_0_2_P0R2",
+        "HORIZON_NEAR_0_2_P1",
+        "HORIZON_NEAR_0_2_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_0_2.glb",
+      "sha256": "b400d1bb4b8b994d5bacc3a060137eb79071e59603d9741ccd8a6976629d07de",
+      "bytes": 3574068,
+      "bounds": [
+        11.98799991607666,
+        -0.9804999828338623,
+        -170.01199340820312,
+        77.01200103759766,
+        20.164499282836914,
+        -149.98800659179688
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_0_2.glb",
+        "primitives": 28,
+        "triangles": 34968,
+        "minimum_tangent_agreement": 0.9999999999999998,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_0_2_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -189675,7 +189748,40 @@
           "name": "HORIZON_NEAR_0_2_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1656
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_0_3": {
+      "role": "base",
+      "block": "HORIZON_NEAR_0_3",
+      "buildings": [
+        "HORIZON_NEAR_0_3_P0R0",
+        "HORIZON_NEAR_0_3_P0R1",
+        "HORIZON_NEAR_0_3_P0R2",
+        "HORIZON_NEAR_0_3_P1",
+        "HORIZON_NEAR_0_3_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_0_3.glb",
+      "sha256": "57861eacd3755804aa2874e21a043f8d8fd4f4410cce6e03a73518194b8b9620",
+      "bytes": 3325528,
+      "bounds": [
+        94.98799896240234,
+        -2.075500011444092,
+        -170.01199340820312,
+        150.01199340820312,
+        19.019500732421875,
+        -149.98800659179688
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_0_3.glb",
+        "primitives": 30,
+        "triangles": 32428,
+        "minimum_tangent_agreement": 0.9999999999999643,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_0_3_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -189825,7 +189931,40 @@
           "name": "HORIZON_NEAR_0_3_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1512
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_1_0": {
+      "role": "base",
+      "block": "HORIZON_NEAR_1_0",
+      "buildings": [
+        "HORIZON_NEAR_1_0_P0R0",
+        "HORIZON_NEAR_1_0_P0R1",
+        "HORIZON_NEAR_1_0_P0R2",
+        "HORIZON_NEAR_1_0_P1",
+        "HORIZON_NEAR_1_0_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_1_0.glb",
+      "sha256": "55983f78396505aab6c72bd0bb8b1763b7d8f213c909c46c659b39e8a79812c7",
+      "bytes": 3677628,
+      "bounds": [
+        -150.01199340820312,
+        -0.2800000011920929,
+        149.98800659179688,
+        -83.98799896240234,
+        23.799999237060547,
+        170.01199340820312
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_1_0.glb",
+        "primitives": 25,
+        "triangles": 36216,
+        "minimum_tangent_agreement": 1.0,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_1_0_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -189950,7 +190089,40 @@
           "name": "HORIZON_NEAR_1_0_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1656
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_1_1": {
+      "role": "base",
+      "block": "HORIZON_NEAR_1_1",
+      "buildings": [
+        "HORIZON_NEAR_1_1_P0R0",
+        "HORIZON_NEAR_1_1_P0R1",
+        "HORIZON_NEAR_1_1_P0R2",
+        "HORIZON_NEAR_1_1_P1",
+        "HORIZON_NEAR_1_1_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_1_1.glb",
+      "sha256": "0e310a2da39ae516377a31dc337f91dfaa28141d95e333584b45b9057340eae9",
+      "bytes": 2769976,
+      "bounds": [
+        -66.01200103759766,
+        -0.2800000011920929,
+        149.98800659179688,
+        -5.98799991607666,
+        17.399999618530273,
+        170.01199340820312
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_1_1.glb",
+        "primitives": 24,
+        "triangles": 27200,
+        "minimum_tangent_agreement": 1.0,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_1_1_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -190070,7 +190242,40 @@
           "name": "HORIZON_NEAR_1_1_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 648
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_1_2": {
+      "role": "base",
+      "block": "HORIZON_NEAR_1_2",
+      "buildings": [
+        "HORIZON_NEAR_1_2_P0R0",
+        "HORIZON_NEAR_1_2_P0R1",
+        "HORIZON_NEAR_1_2_P0R2",
+        "HORIZON_NEAR_1_2_P1",
+        "HORIZON_NEAR_1_2_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_1_2.glb",
+      "sha256": "fc9914965477d88709ba4b9d4036ef8f738b21aba7224de9a9443f1ee74a0e2d",
+      "bytes": 3574040,
+      "bounds": [
+        11.98799991607666,
+        -0.9804999828338623,
+        149.98800659179688,
+        77.01200103759766,
+        20.164499282836914,
+        170.01199340820312
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_1_2.glb",
+        "primitives": 28,
+        "triangles": 34968,
+        "minimum_tangent_agreement": 0.9999999999999998,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_1_2_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -190210,7 +190415,40 @@
           "name": "HORIZON_NEAR_1_2_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1656
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_1_3": {
+      "role": "base",
+      "block": "HORIZON_NEAR_1_3",
+      "buildings": [
+        "HORIZON_NEAR_1_3_P0R0",
+        "HORIZON_NEAR_1_3_P0R1",
+        "HORIZON_NEAR_1_3_P0R2",
+        "HORIZON_NEAR_1_3_P1",
+        "HORIZON_NEAR_1_3_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_1_3.glb",
+      "sha256": "4744ab7bbe2480ea5a39f0fa129eafb264b219317eea31db4899266c913c5337",
+      "bytes": 3325496,
+      "bounds": [
+        94.98799896240234,
+        -2.075500011444092,
+        149.98800659179688,
+        150.01199340820312,
+        19.019500732421875,
+        170.01199340820312
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_1_3.glb",
+        "primitives": 30,
+        "triangles": 32428,
+        "minimum_tangent_agreement": 0.9999999999999643,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_1_3_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -190360,7 +190598,40 @@
           "name": "HORIZON_NEAR_1_3_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1512
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_2_0": {
+      "role": "base",
+      "block": "HORIZON_NEAR_2_0",
+      "buildings": [
+        "HORIZON_NEAR_2_0_P0R0",
+        "HORIZON_NEAR_2_0_P0R1",
+        "HORIZON_NEAR_2_0_P0R2",
+        "HORIZON_NEAR_2_0_P1",
+        "HORIZON_NEAR_2_0_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_2_0.glb",
+      "sha256": "ed360e00ef5b6f59493053f6ce4ee40a3a7286533022747ee65b569e247e8061",
+      "bytes": 13181072,
+      "bounds": [
+        -170.1199951171875,
+        -0.2800000011920929,
+        -150.1199951171875,
+        -149.2340087890625,
+        21.399999618530273,
+        -83.92500305175781
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_2_0.glb",
+        "primitives": 39,
+        "triangles": 130708,
+        "minimum_tangent_agreement": 0.99999996496627,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_2_0_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -190555,7 +190826,40 @@
           "name": "HORIZON_NEAR_2_0_P2__timber",
           "key": "timber",
           "triangles": 336
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_2_1": {
+      "role": "base",
+      "block": "HORIZON_NEAR_2_1",
+      "buildings": [
+        "HORIZON_NEAR_2_1_P0R0",
+        "HORIZON_NEAR_2_1_P0R1",
+        "HORIZON_NEAR_2_1_P0R2",
+        "HORIZON_NEAR_2_1_P1",
+        "HORIZON_NEAR_2_1_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_2_1.glb",
+      "sha256": "2c941377ce6b8af3ee16b6ff7a0fe1aa275f95754ecd4525b60d70d8758155f7",
+      "bytes": 12272664,
+      "bounds": [
+        -170.1199951171875,
+        -0.2800000011920929,
+        -66.01200103759766,
+        -149.60000610351562,
+        20.899999618530273,
+        -5.934999465942383
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_2_1.glb",
+        "primitives": 33,
+        "triangles": 119272,
+        "minimum_tangent_agreement": 0.9999999656742995,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_2_1_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -190720,7 +191024,40 @@
           "name": "HORIZON_NEAR_2_1_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 756
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_2_2": {
+      "role": "base",
+      "block": "HORIZON_NEAR_2_2",
+      "buildings": [
+        "HORIZON_NEAR_2_2_P0R0",
+        "HORIZON_NEAR_2_2_P0R1",
+        "HORIZON_NEAR_2_2_P0R2",
+        "HORIZON_NEAR_2_2_P1",
+        "HORIZON_NEAR_2_2_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_2_2.glb",
+      "sha256": "540280fa5a7a3353ef78f914b2d882982ea1dde51e76a71dd0c510a7313831fd",
+      "bytes": 14660084,
+      "bounds": [
+        -170.1199951171875,
+        -0.2800000011920929,
+        11.880000114440918,
+        -150.0,
+        18.1200008392334,
+        77.12000274658203
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_2_2.glb",
+        "primitives": 46,
+        "triangles": 142188,
+        "minimum_tangent_agreement": 0.9999999700671878,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_2_2_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -190950,7 +191287,40 @@
           "name": "HORIZON_NEAR_2_2_P2__timber",
           "key": "timber",
           "triangles": 220
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_2_3": {
+      "role": "base",
+      "block": "HORIZON_NEAR_2_3",
+      "buildings": [
+        "HORIZON_NEAR_2_3_P0R0",
+        "HORIZON_NEAR_2_3_P0R1",
+        "HORIZON_NEAR_2_3_P0R2",
+        "HORIZON_NEAR_2_3_P1",
+        "HORIZON_NEAR_2_3_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_2_3.glb",
+      "sha256": "c2c6b0a9023a87ea53839da692620e560bb7c2b6e4feec2a391348b35bfa4545",
+      "bytes": 17559808,
+      "bounds": [
+        -170.16000366210938,
+        -0.2800000011920929,
+        94.91000366210938,
+        -149.91000366210938,
+        19.68000030517578,
+        150.1199951171875
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_2_3.glb",
+        "primitives": 42,
+        "triangles": 166720,
+        "minimum_tangent_agreement": 0.9999999688329378,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_2_3_P0R0__bronze_sheet",
           "key": "bronze_sheet",
@@ -191160,7 +191530,40 @@
           "name": "HORIZON_NEAR_2_3_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 840
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_3_0": {
+      "role": "base",
+      "block": "HORIZON_NEAR_3_0",
+      "buildings": [
+        "HORIZON_NEAR_3_0_P0R0",
+        "HORIZON_NEAR_3_0_P0R1",
+        "HORIZON_NEAR_3_0_P0R2",
+        "HORIZON_NEAR_3_0_P1",
+        "HORIZON_NEAR_3_0_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_3_0.glb",
+      "sha256": "d1591949adb42f5b49555d0f696d3961604b3e45aed49d51c15f561ee0178d82",
+      "bytes": 3445140,
+      "bounds": [
+        149.98800659179688,
+        -2.375499963760376,
+        -150.01199340820312,
+        170.01199340820312,
+        18.74449920654297,
+        -83.98799896240234
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_3_0.glb",
+        "primitives": 30,
+        "triangles": 33880,
+        "minimum_tangent_agreement": 1.0,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_3_0_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -191310,7 +191713,40 @@
           "name": "HORIZON_NEAR_3_0_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1824
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_3_1": {
+      "role": "base",
+      "block": "HORIZON_NEAR_3_1",
+      "buildings": [
+        "HORIZON_NEAR_3_1_P0R0",
+        "HORIZON_NEAR_3_1_P0R1",
+        "HORIZON_NEAR_3_1_P0R2",
+        "HORIZON_NEAR_3_1_P1",
+        "HORIZON_NEAR_3_1_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_3_1.glb",
+      "sha256": "992a14ce2b1a52d6889c8aec800dac0881fe081781591f0e324bc2a3473cea92",
+      "bytes": 3049788,
+      "bounds": [
+        149.98800659179688,
+        -2.375499963760376,
+        -66.01200103759766,
+        170.01199340820312,
+        18.344499588012695,
+        -5.98799991607666
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_3_1.glb",
+        "primitives": 29,
+        "triangles": 29832,
+        "minimum_tangent_agreement": 0.9999999999999483,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_3_1_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -191455,7 +191891,40 @@
           "name": "HORIZON_NEAR_3_1_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1080
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_3_2": {
+      "role": "base",
+      "block": "HORIZON_NEAR_3_2",
+      "buildings": [
+        "HORIZON_NEAR_3_2_P0R0",
+        "HORIZON_NEAR_3_2_P0R1",
+        "HORIZON_NEAR_3_2_P0R2",
+        "HORIZON_NEAR_3_2_P1",
+        "HORIZON_NEAR_3_2_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_3_2.glb",
+      "sha256": "12a4c9cf3d8fce69d804fc48fbff0bb30b7a7c25b44d1b0a7c91ef146b6ed5d0",
+      "bytes": 3714004,
+      "bounds": [
+        149.98800659179688,
+        -2.375499963760376,
+        11.98799991607666,
+        170.01199340820312,
+        18.74449920654297,
+        77.01200103759766
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_3_2.glb",
+        "primitives": 30,
+        "triangles": 36392,
+        "minimum_tangent_agreement": 1.0,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_3_2_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -191605,7 +192074,40 @@
           "name": "HORIZON_NEAR_3_2_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1728
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+    },
+    "city_horizon_near_3_3": {
+      "role": "base",
+      "block": "HORIZON_NEAR_3_3",
+      "buildings": [
+        "HORIZON_NEAR_3_3_P0R0",
+        "HORIZON_NEAR_3_3_P0R1",
+        "HORIZON_NEAR_3_3_P0R2",
+        "HORIZON_NEAR_3_3_P1",
+        "HORIZON_NEAR_3_3_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_3_3.glb",
+      "sha256": "046c517da0bd72dc9600ee6b94ab3f1f2f52a1a7312f9a907bf9546a7cf7ea04",
+      "bytes": 3408240,
+      "bounds": [
+        149.98800659179688,
+        -2.375499963760376,
+        94.98799896240234,
+        170.01199340820312,
+        18.74449920654297,
+        150.01199340820312
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_3_3.glb",
+        "primitives": 30,
+        "triangles": 33336,
+        "minimum_tangent_agreement": 0.9999999999999483,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_3_3_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -191756,27 +192258,35 @@
           "key": "mirror_aged",
           "triangles": 1584
         }
-      ]
+      ],
+      "native": "art/blender/city_horizon_near.blend",
+      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
     },
-    "far": {
-      "asset": "game/assets/props/city_horizon_far.glb",
-      "sha256": "8aea35dc13aba413052b187f6d4759e4cd88d391a90032c367744a1c291343d7",
-      "bytes": 98530480,
-      "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "6390a81d35bc8a9990f18611991100c94dd6bb467fbe7410e609f5ede156de2e",
+    "city_horizon_far_0_0": {
+      "role": "base",
+      "block": "HORIZON_FAR_0_0",
+      "buildings": [
+        "HORIZON_FAR_0_0_P0",
+        "HORIZON_FAR_0_0_P1",
+        "HORIZON_FAR_0_0_P2",
+        "HORIZON_FAR_0_0_P3"
+      ],
+      "asset": "game/assets/props/city_horizon_far_0_0.glb",
+      "sha256": "d6ccdc58da4b415229ff3d2eb43f17268e3ffb936e484b3dcce44b7f60f91406",
+      "bytes": 7852848,
       "bounds": [
-        -272.0119934082031,
-        -3.9054999351501465,
-        -272.0119934082031,
-        272.0119934082031,
-        34.68949890136719,
-        272.0119934082031
+        -225.01199340820312,
+        -0.2800000011920929,
+        -225.01199340820312,
+        -11.987998962402344,
+        20.600000381469727,
+        -206.98800659179688
       ],
       "export_check": {
-        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_far.glb",
-        "primitives": 241,
-        "triangles": 966604,
-        "minimum_tangent_agreement": 0.9999999656742995,
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_far_0_0.glb",
+        "primitives": 19,
+        "triangles": 77172,
+        "minimum_tangent_agreement": 1.0,
         "status": "PASS"
       },
       "parts": [
@@ -191874,7 +192384,39 @@
           "name": "HORIZON_FAR_0_0_P3__mirror_aged",
           "key": "mirror_aged",
           "triangles": 2256
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_far.blend",
+      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+    },
+    "city_horizon_far_0_1": {
+      "role": "base",
+      "block": "HORIZON_FAR_0_1",
+      "buildings": [
+        "HORIZON_FAR_0_1_P0",
+        "HORIZON_FAR_0_1_P1",
+        "HORIZON_FAR_0_1_P2",
+        "HORIZON_FAR_0_1_P3"
+      ],
+      "asset": "game/assets/props/city_horizon_far_0_1.glb",
+      "sha256": "1c26123dfab7d78be1f55ac06459b41e8451e68b3de40b8f85d68052ff3024a3",
+      "bytes": 8121496,
+      "bounds": [
+        11.987998962402344,
+        -3.200500011444092,
+        -225.01199340820312,
+        225.01199340820312,
+        17.399999618530273,
+        -206.98800659179688
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_far_0_1.glb",
+        "primitives": 24,
+        "triangles": 79764,
+        "minimum_tangent_agreement": 0.9999999999999662,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_FAR_0_1_P0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -191994,7 +192536,39 @@
           "name": "HORIZON_FAR_0_1_P3__mirror_aged",
           "key": "mirror_aged",
           "triangles": 2400
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_far.blend",
+      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+    },
+    "city_horizon_far_1_0": {
+      "role": "base",
+      "block": "HORIZON_FAR_1_0",
+      "buildings": [
+        "HORIZON_FAR_1_0_P0",
+        "HORIZON_FAR_1_0_P1",
+        "HORIZON_FAR_1_0_P2",
+        "HORIZON_FAR_1_0_P3"
+      ],
+      "asset": "game/assets/props/city_horizon_far_1_0.glb",
+      "sha256": "66d5ea40908935e2bceba845a5ba48ab8ea443f0429dc7f5706c920b82f9812c",
+      "bytes": 9885336,
+      "bounds": [
+        -225.01199340820312,
+        -0.2800000011920929,
+        206.98800659179688,
+        -11.987998962402344,
+        20.600000381469727,
+        225.01199340820312
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_far_1_0.glb",
+        "primitives": 19,
+        "triangles": 97176,
+        "minimum_tangent_agreement": 1.0,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_FAR_1_0_P0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -192089,7 +192663,39 @@
           "name": "HORIZON_FAR_1_0_P3__mirror_aged",
           "key": "mirror_aged",
           "triangles": 3384
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_far.blend",
+      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+    },
+    "city_horizon_far_1_1": {
+      "role": "base",
+      "block": "HORIZON_FAR_1_1",
+      "buildings": [
+        "HORIZON_FAR_1_1_P0",
+        "HORIZON_FAR_1_1_P1",
+        "HORIZON_FAR_1_1_P2",
+        "HORIZON_FAR_1_1_P3"
+      ],
+      "asset": "game/assets/props/city_horizon_far_1_1.glb",
+      "sha256": "d8c5c619cd032a506db929ff22cc655ad061369eda7c5d2ae27b4f293ce285d7",
+      "bytes": 9067248,
+      "bounds": [
+        11.987998962402344,
+        -3.200500011444092,
+        206.98800659179688,
+        225.01199340820312,
+        23.215749740600586,
+        225.01199340820312
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_far_1_1.glb",
+        "primitives": 24,
+        "triangles": 89112,
+        "minimum_tangent_agreement": 0.9999999999999662,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_FAR_1_1_P0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -192209,7 +192815,39 @@
           "name": "HORIZON_FAR_1_1_P3__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1920
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_far.blend",
+      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+    },
+    "city_horizon_far_2_0": {
+      "role": "base",
+      "block": "HORIZON_FAR_2_0",
+      "buildings": [
+        "HORIZON_FAR_2_0_P0",
+        "HORIZON_FAR_2_0_P1",
+        "HORIZON_FAR_2_0_P2",
+        "HORIZON_FAR_2_0_P3"
+      ],
+      "asset": "game/assets/props/city_horizon_far_2_0.glb",
+      "sha256": "f0b2580996cb637f9ed82092f43bc0bca69ba674a3946723a3e3ed392ae86977",
+      "bytes": 7063584,
+      "bounds": [
+        -225.01199340820312,
+        -0.2800000011920929,
+        -207.0,
+        -206.98800659179688,
+        17.399999618530273,
+        -11.987998962402344
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_far_2_0.glb",
+        "primitives": 19,
+        "triangles": 69312,
+        "minimum_tangent_agreement": 1.0,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_FAR_2_0_P0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -192304,7 +192942,39 @@
           "name": "HORIZON_FAR_2_0_P3__mirror_aged",
           "key": "mirror_aged",
           "triangles": 2580
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_far.blend",
+      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+    },
+    "city_horizon_far_2_1": {
+      "role": "base",
+      "block": "HORIZON_FAR_2_1",
+      "buildings": [
+        "HORIZON_FAR_2_1_P0",
+        "HORIZON_FAR_2_1_P1",
+        "HORIZON_FAR_2_1_P2",
+        "HORIZON_FAR_2_1_P3"
+      ],
+      "asset": "game/assets/props/city_horizon_far_2_1.glb",
+      "sha256": "33e80b151c5ce92d3a438299f1df8e8286e4fb10f17c4683d7e3db15563a334f",
+      "bytes": 19576588,
+      "bounds": [
+        -225.0749969482422,
+        -0.2800000011920929,
+        11.924999237060547,
+        -206.60000610351562,
+        21.700000762939453,
+        207.0
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_far_2_1.glb",
+        "primitives": 26,
+        "triangles": 187772,
+        "minimum_tangent_agreement": 0.9999999656742995,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_FAR_2_1_P0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -192434,7 +193104,39 @@
           "name": "HORIZON_FAR_2_1_P3__mirror_aged",
           "key": "mirror_aged",
           "triangles": 2592
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_far.blend",
+      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+    },
+    "city_horizon_far_3_0": {
+      "role": "base",
+      "block": "HORIZON_FAR_3_0",
+      "buildings": [
+        "HORIZON_FAR_3_0_P0",
+        "HORIZON_FAR_3_0_P1",
+        "HORIZON_FAR_3_0_P2",
+        "HORIZON_FAR_3_0_P3"
+      ],
+      "asset": "game/assets/props/city_horizon_far_3_0.glb",
+      "sha256": "cd163828867691973486c70bb2174254c5886236d1f5aea4a57319b68decc25d",
+      "bytes": 10667524,
+      "bounds": [
+        206.98800659179688,
+        -3.200500011444092,
+        -207.0,
+        225.01199340820312,
+        34.68949890136719,
+        -11.987998962402344
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_far_3_0.glb",
+        "primitives": 23,
+        "triangles": 104612,
+        "minimum_tangent_agreement": 1.0,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_FAR_3_0_P0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -192549,7 +193251,39 @@
           "name": "HORIZON_FAR_3_0_P3__mirror_aged",
           "key": "mirror_aged",
           "triangles": 2064
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_far.blend",
+      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+    },
+    "city_horizon_far_3_1": {
+      "role": "base",
+      "block": "HORIZON_FAR_3_1",
+      "buildings": [
+        "HORIZON_FAR_3_1_P0",
+        "HORIZON_FAR_3_1_P1",
+        "HORIZON_FAR_3_1_P2",
+        "HORIZON_FAR_3_1_P3"
+      ],
+      "asset": "game/assets/props/city_horizon_far_3_1.glb",
+      "sha256": "8ccd3e63555d76c77ec1dd6e35fd20031fdb0d954294fb5f08feb5583de133d8",
+      "bytes": 8188892,
+      "bounds": [
+        206.98800659179688,
+        -3.200500011444092,
+        11.987998962402344,
+        225.01199340820312,
+        21.089500427246094,
+        207.0
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_far_3_1.glb",
+        "primitives": 24,
+        "triangles": 80380,
+        "minimum_tangent_agreement": 1.0,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_FAR_3_1_P0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -192669,7 +193403,38 @@
           "name": "HORIZON_FAR_3_1_P3__mirror_aged",
           "key": "mirror_aged",
           "triangles": 2160
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_far.blend",
+      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+    },
+    "city_horizon_street_end_0": {
+      "role": "base",
+      "block": "HORIZON_STREET_END_0",
+      "buildings": [
+        "HORIZON_STREET_END_0_P0",
+        "HORIZON_STREET_END_0_P1",
+        "HORIZON_STREET_END_0_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_street_end_0.glb",
+      "sha256": "1c5ff8bfd0f505773b486a45583b76b193d122837cc4b7d9e9e044599bc2fe62",
+      "bytes": 4625764,
+      "bounds": [
+        -48.012001037597656,
+        -0.5454999804496765,
+        -272.0119934082031,
+        48.012001037597656,
+        20.600000381469727,
+        -251.98800659179688
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_street_end_0.glb",
+        "primitives": 15,
+        "triangles": 45460,
+        "minimum_tangent_agreement": 1.0,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_STREET_END_0_P0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -192744,7 +193509,38 @@
           "name": "HORIZON_STREET_END_0_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1944
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_far.blend",
+      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+    },
+    "city_horizon_street_end_1": {
+      "role": "base",
+      "block": "HORIZON_STREET_END_1",
+      "buildings": [
+        "HORIZON_STREET_END_1_P0",
+        "HORIZON_STREET_END_1_P1",
+        "HORIZON_STREET_END_1_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_street_end_1.glb",
+      "sha256": "cb6e9491b44306f187899cf866959821b3e110e2c6c9908b808be935079e8496",
+      "bytes": 4375356,
+      "bounds": [
+        -48.012001037597656,
+        -0.5454999804496765,
+        251.98800659179688,
+        48.012001037597656,
+        20.600000381469727,
+        272.0119934082031
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_street_end_1.glb",
+        "primitives": 16,
+        "triangles": 43016,
+        "minimum_tangent_agreement": 1.0,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_STREET_END_1_P0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -192824,7 +193620,38 @@
           "name": "HORIZON_STREET_END_1_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1152
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_far.blend",
+      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+    },
+    "city_horizon_street_end_2": {
+      "role": "base",
+      "block": "HORIZON_STREET_END_2",
+      "buildings": [
+        "HORIZON_STREET_END_2_P0",
+        "HORIZON_STREET_END_2_P1",
+        "HORIZON_STREET_END_2_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_street_end_2.glb",
+      "sha256": "f4a8ea00030992c718a817d07b9aff77d00e2866993663c1d8581c9a96d2f092",
+      "bytes": 5046572,
+      "bounds": [
+        -272.0119934082031,
+        -0.2800000011920929,
+        -48.012001037597656,
+        -251.98800659179688,
+        20.600000381469727,
+        48.012001037597656
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_street_end_2.glb",
+        "primitives": 15,
+        "triangles": 49584,
+        "minimum_tangent_agreement": 1.0,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_STREET_END_2_P0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -192899,7 +193726,38 @@
           "name": "HORIZON_STREET_END_2_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 1920
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_far.blend",
+      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+    },
+    "city_horizon_street_end_3": {
+      "role": "base",
+      "block": "HORIZON_STREET_END_3",
+      "buildings": [
+        "HORIZON_STREET_END_3_P0",
+        "HORIZON_STREET_END_3_P1",
+        "HORIZON_STREET_END_3_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_street_end_3.glb",
+      "sha256": "c2cf57e1cf9cbf7d7085a12130a7d572a2cf9db42738e30f46137cd88415d22c",
+      "bytes": 4399740,
+      "bounds": [
+        251.98800659179688,
+        -3.9054999351501465,
+        -48.012001037597656,
+        272.0119934082031,
+        16.81450080871582,
+        48.012001037597656
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_street_end_3.glb",
+        "primitives": 17,
+        "triangles": 43244,
+        "minimum_tangent_agreement": 0.999999999999992,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_STREET_END_3_P0__cast_iron",
           "key": "cast_iron",
@@ -192985,27 +193843,33 @@
           "key": "mirror_aged",
           "triangles": 1920
         }
-      ]
+      ],
+      "native": "art/blender/city_horizon_far.blend",
+      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
     },
-    "body_lod": {
-      "asset": "game/assets/props/city_horizon_lod1.glb",
-      "sha256": "688efd2c4d2fe67d7ddaad3f424cc5b7b11afdb807e4edcef4123bc41e8c04d0",
-      "bytes": 39174400,
-      "native": "art/blender/city_horizon_lod1.blend",
-      "native_sha256": "25ce079da5c26ceb92e5dbe2e6b0e36e78254504aa33a98cc26aae6f748dcb00",
+    "city_horizon_far_2_1_lod1": {
+      "role": "body_lod",
+      "block": "HORIZON_FAR_2_1",
+      "buildings": [
+        "HORIZON_FAR_2_1_P0",
+        "HORIZON_FAR_2_1_P1"
+      ],
+      "asset": "game/assets/props/city_horizon_far_2_1_lod1.glb",
+      "sha256": "d308168c0db8a26b3a2823a069187223d27776807f5ea7b7ac2755a3afe47106",
+      "bytes": 7523744,
       "bounds": [
         -225.0749969482422,
         -0.2800000011920929,
-        -170.32000732421875,
-        -45.880001068115234,
+        11.924999237060547,
+        -206.60000610351562,
         21.700000762939453,
-        150.1199951171875
+        109.5
       ],
       "export_check": {
-        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_lod1.glb",
-        "primitives": 189,
-        "triangles": 378992,
-        "minimum_tangent_agreement": 0.99999996496627,
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_far_2_1_lod1.glb",
+        "primitives": 16,
+        "triangles": 72756,
+        "minimum_tangent_agreement": 0.9999999828857289,
         "status": "PASS"
       },
       "parts": [
@@ -193088,7 +193952,38 @@
           "name": "HORIZON_FAR_2_1_P1__mirror_aged",
           "key": "mirror_aged",
           "triangles": 948
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_lod1.blend",
+      "native_sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
+    },
+    "city_horizon_near_0_1_lod1": {
+      "role": "body_lod",
+      "block": "HORIZON_NEAR_0_1",
+      "buildings": [
+        "HORIZON_NEAR_0_1_P0R0",
+        "HORIZON_NEAR_0_1_P0R1",
+        "HORIZON_NEAR_0_1_P0R2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_0_1_lod1.glb",
+      "sha256": "7613ab8d01222e590acf7bf21731fe661fd9b8b203780bbbb344f006e1b0f8cc",
+      "bytes": 3135956,
+      "bounds": [
+        -66.31999969482422,
+        -0.2800000011920929,
+        -170.32000732421875,
+        -45.880001068115234,
+        10.59000015258789,
+        -150.12001037597656
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_0_1_lod1.glb",
+        "primitives": 28,
+        "triangles": 30096,
+        "minimum_tangent_agreement": 0.9999999714033775,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_0_1_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -193228,7 +194123,40 @@
           "name": "HORIZON_NEAR_0_1_P0R2__timber",
           "key": "timber",
           "triangles": 936
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_lod1.blend",
+      "native_sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
+    },
+    "city_horizon_near_2_0_lod1": {
+      "role": "body_lod",
+      "block": "HORIZON_NEAR_2_0",
+      "buildings": [
+        "HORIZON_NEAR_2_0_P0R0",
+        "HORIZON_NEAR_2_0_P0R1",
+        "HORIZON_NEAR_2_0_P0R2",
+        "HORIZON_NEAR_2_0_P1",
+        "HORIZON_NEAR_2_0_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_2_0_lod1.glb",
+      "sha256": "a4de95b3c8d408f6314d07d90359f709948bc63acb2570246c7333835d8fed19",
+      "bytes": 7090996,
+      "bounds": [
+        -170.1199951171875,
+        -0.2800000011920929,
+        -150.1199951171875,
+        -149.2340087890625,
+        21.399999618530273,
+        -83.92500305175781
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_2_0_lod1.glb",
+        "primitives": 39,
+        "triangles": 68996,
+        "minimum_tangent_agreement": 0.99999996496627,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_2_0_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -193423,7 +194351,37 @@
           "name": "HORIZON_NEAR_2_0_P2__timber",
           "key": "timber",
           "triangles": 336
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_lod1.blend",
+      "native_sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
+    },
+    "city_horizon_near_2_1_lod1": {
+      "role": "body_lod",
+      "block": "HORIZON_NEAR_2_1",
+      "buildings": [
+        "HORIZON_NEAR_2_1_P1",
+        "HORIZON_NEAR_2_1_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_2_1_lod1.glb",
+      "sha256": "f4e8794d62f06eea20480758a3286f2dae6f58721d95686636b7e1afbb7ffe7a",
+      "bytes": 5859368,
+      "bounds": [
+        -170.1199951171875,
+        -0.2800000011920929,
+        -46.119998931884766,
+        -149.60000610351562,
+        20.899999618530273,
+        -5.934999465942383
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_2_1_lod1.glb",
+        "primitives": 18,
+        "triangles": 56572,
+        "minimum_tangent_agreement": 0.9999999697340409,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_2_1_P1__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -193513,7 +194471,40 @@
           "name": "HORIZON_NEAR_2_1_P2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 756
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_lod1.blend",
+      "native_sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
+    },
+    "city_horizon_near_2_2_lod1": {
+      "role": "body_lod",
+      "block": "HORIZON_NEAR_2_2",
+      "buildings": [
+        "HORIZON_NEAR_2_2_P0R0",
+        "HORIZON_NEAR_2_2_P0R1",
+        "HORIZON_NEAR_2_2_P0R2",
+        "HORIZON_NEAR_2_2_P1",
+        "HORIZON_NEAR_2_2_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_2_2_lod1.glb",
+      "sha256": "95e58410d8ad5bcc00bc590d3967550be668953d6e20e0b10e7c016a3a3e3c63",
+      "bytes": 8724132,
+      "bounds": [
+        -170.1199951171875,
+        -0.2800000011920929,
+        11.880000114440918,
+        -150.0,
+        18.1200008392334,
+        77.12000274658203
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_2_2_lod1.glb",
+        "primitives": 46,
+        "triangles": 84652,
+        "minimum_tangent_agreement": 0.999999981720421,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_2_2_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -193743,7 +194734,40 @@
           "name": "HORIZON_NEAR_2_2_P2__timber",
           "key": "timber",
           "triangles": 220
-        },
+        }
+      ],
+      "native": "art/blender/city_horizon_lod1.blend",
+      "native_sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
+    },
+    "city_horizon_near_2_3_lod1": {
+      "role": "body_lod",
+      "block": "HORIZON_NEAR_2_3",
+      "buildings": [
+        "HORIZON_NEAR_2_3_P0R0",
+        "HORIZON_NEAR_2_3_P0R1",
+        "HORIZON_NEAR_2_3_P0R2",
+        "HORIZON_NEAR_2_3_P1",
+        "HORIZON_NEAR_2_3_P2"
+      ],
+      "asset": "game/assets/props/city_horizon_near_2_3_lod1.glb",
+      "sha256": "a2b16045e43d20b8cb552e6ede3d111d950fbb47d0e33fdb74abadee82d2b927",
+      "bytes": 6843800,
+      "bounds": [
+        -170.16000366210938,
+        -0.2800000011920929,
+        94.91000366210938,
+        -149.91000366210938,
+        19.68000030517578,
+        150.1199951171875
+      ],
+      "export_check": {
+        "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_2_3_lod1.glb",
+        "primitives": 42,
+        "triangles": 65920,
+        "minimum_tangent_agreement": 0.9999999678501615,
+        "status": "PASS"
+      },
+      "parts": [
         {
           "name": "HORIZON_NEAR_2_3_P0R0__bronze_sheet",
           "key": "bronze_sheet",
@@ -193954,7 +194978,9 @@
           "key": "mirror_aged",
           "triangles": 840
         }
-      ]
+      ],
+      "native": "art/blender/city_horizon_lod1.blend",
+      "native_sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
     }
   },
   "native_checks": {
@@ -283025,14 +284051,14 @@
   },
   "source_bindings": {
     "art/data/city_horizon/source_plan.json": "8cba89166f204e1b69c73a6da39f53d6204519aa14fd441e335e26b942e40061",
-    "art/blender/city_ground_apron_construction.json": "724182569f3befdda90c0d9fb298442ce11bbc0bc50731aa9aac3843861e7618",
+    "art/blender/city_ground_apron_construction.json": "b9bf87633e751733140868b2de8402b6f2cc8c3673435ec21d8577787f050696",
     "game/data/runtime_material_sets.json": "053761fac29499e8bc9a80a62f37d7411226157919b5cdc5421b9686569d38cc",
-    "game/data/orison_v2/exterior/city_horizon.json": "6216ba93e4533deed404b7ad275d131a71e8bb86cceca18e8d94bdd29fd2d156",
-    "art/blender/scripts/build_city_horizon.py": "b9824c2f17a4649d92eb6e22d22975511d8415557a888eed48e4886643c8a455",
-    "game/scripts/building/orison_v2_city_horizon.gd": "e80e7cdb584990f2c1d89c6bb6fef50ffc58b53bfdedeec4659be29a1c58bb2a",
+    "game/data/orison_v2/exterior/city_horizon.json": "0bb8cd1b6983d6ef0f4ea902db11fd42fbf142ce5ca6a27f6f57b692ddf28e78",
+    "art/blender/scripts/build_city_horizon.py": "e103c96350a6e7da9e8b1b4bfcb7f65a13b6db0032e3b16ad5b9de4eef673d8a",
+    "game/scripts/building/orison_v2_city_horizon.gd": "f1f09f7d1e4d1e242651fcdafee3aea3b1db80ea6bfbee42ad2e7f7876e3d78a",
     "art/blender/scripts/city_horizon_geometry.py": "7fe077736647274ed7721bfe18eefcf290e387f8310f5ad5565463b4748bfcf1",
     "art/blender/scripts/city_ground_apron_geometry.py": "05d1c3f1eed60276eb2eccfd570f2f4711127a6bb4f1f0fa3d39470ad2e9383a",
-    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/fabrication_native_batch.py": "01f6c38f360f2f97a1e2937438f92d878cd9831cc2a8209a4f87cf26d428aa15",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
@@ -283040,58 +284066,48 @@
     "art/blender/scripts/city_industrial_architecture.py": "98573266c9b41da690f1e2cc22b68bf34ab725ce24b1a3cb264fea38be66004f",
     "art/blender/scripts/city_residential_architecture.py": "fdcb0387da883041799cb14ed7955cb02f2fb0e5dbecd7f0d618c7dc3259b68a",
     "art/blender/scripts/frame_mitre_geometry.py": "b470bd89fe11f87c7da20bb016ceeca762d7b3d8dfd8ecb843d57f8f708f6bdc",
+    "art/blender/scripts/city_horizon_assets.py": "81925fbb3ba509b3b36cd02450d563b9d444aaeeb0c24e482a7f14a4edcf33f2",
     "game/assets/building/textures/T_ai_materials_soil_albedo.png": "0a4e2ed4d7ec6229a7340fa39b203cf70d847c2d0e4f7a6329f426cc228015e0",
     "game/assets/building/textures/T_ai_materials_soil_rough.png": "e29884dd5f10beb17db26aa5996845f6041884f9ec31975419ff1145cfbc33ae",
     "game/assets/building/textures/T_ai_materials_soil_normal.png": "946fbd61cd42445375570d2b1951214a13c811d83a1edc99f282487b8afa1aed",
-    "game/assets/building/textures/T_ai_materials_city_roof_clay_albedo.png": "13e01c560e45e50026cf9cccc3c0e6a34625949eca1149936a097428217ede7e",
-    "game/assets/building/textures/T_ai_materials_city_roof_clay_rough.png": "43556ebf8af6d266e8b93e15836ee2963fb7f3b51dee5ceecf9e41043cc3e1c4",
-    "game/assets/building/textures/T_ai_materials_city_roof_clay_normal.png": "d861f0a0d652f38613e46a9fd2a73acd56eda78c88dfe3b0c274ae89a72c8e93",
+    "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
+    "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
+    "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
+    "game/assets/building/textures/T_ai_materials_limestone_albedo.png": "98dc560a3b41c71fdac9e0fcc4d78410a7f48377c22152dfe9f18c1d284d2d91",
+    "game/assets/building/textures/T_ai_materials_limestone_rough.png": "dc2118543d957385564364c56a9f000377d530ce4c07b30e66273014a1b16b16",
+    "game/assets/building/textures/T_ai_materials_limestone_normal.png": "160a35cceaa8b2b296f34a28f9c3e8929f16f813986ab3f0503bf7e7eb4c22c4",
     "game/assets/building/textures/T_ai_materials_concrete_albedo.png": "ff9788841dbf3c791f1c031cdeb15d516e57858f5490a8a8223161cb79430237",
     "game/assets/building/textures/T_ai_materials_concrete_rough.png": "a003c68088e072bc58b4cb0da97217908d410a7dd5b37c9259f05afb06b36c2f",
     "game/assets/building/textures/T_ai_materials_concrete_normal.png": "7b579bc100dd5ef450130141ca028f75f918dfcc1e2be147c2adbf46a4a3af79",
-    "game/assets/building/textures/T_ai_materials_city_slate_albedo.png": "3a250aa366d3b92367e3eb5a76cd05432b05bc39dbfa9d4f2be5c2bbaa29f4c3",
-    "game/assets/building/textures/T_ai_materials_city_slate_rough.png": "7434112acf770c09577d6a69bb4ad586f0f53ae8bb5f9c5e64e51ed1318ff2d2",
-    "game/assets/building/textures/T_ai_materials_city_slate_normal.png": "804d23b925298958935f2b502066f99fd391b62698e38236c237dfd1750dcd09",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png": "b8eeb6d6334ce7a3b4341a85d30d9921319035a12c714df004794ca2fffcb4d1",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png": "8b31d1b5452167fedcff25f765efdc3cb97a4340e15d37c848c763dfd60d8222",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d",
     "game/assets/building/textures/T_ai_materials_galvanized_roof_albedo.png": "4f5200041f815f4e58eec3607a61dc014291743f807029e958eee2f35ed8f429",
     "game/assets/building/textures/T_ai_materials_galvanized_roof_rough.png": "4aaf1617b32a3c3fcfe8494cead7a50a963fb55f6dfadaa9095e37f09db30f7b",
     "game/assets/building/textures/T_ai_materials_galvanized_roof_normal.png": "7a9573c366d01395fb428ae29d300fbecaca3b1b8905ecd26d7332e931347ebf",
+    "game/assets/building/textures/T_ai_materials_city_grey_brick_albedo.png": "f38f9cffbb9e007f0eb0513b2867b7d23773b13fa72ba2b9b904f94a15e3b0b0",
+    "game/assets/building/textures/T_ai_materials_city_grey_brick_rough.png": "ea90cde3a877606b48744d343273d68be736e01452912593141a5467c8187e82",
+    "game/assets/building/textures/T_ai_materials_city_grey_brick_normal.png": "1b5fc43ea910eb306fb3c6991cbc5f9a4eacd789bbfcc602482a35fb4c3cf716",
+    "game/assets/building/textures/T_ai_materials_cast_iron_albedo.png": "1da42ae7a87c9842f38c8222ef07f56dd79ce60e1fba3ce5e9ec0dc3e955f2f3",
+    "game/assets/building/textures/T_ai_materials_cast_iron_rough.png": "a2f31fa683810d0b852c5496407685f372f263459f9235eff76d21bc0ecb3049",
+    "game/assets/building/textures/T_ai_materials_cast_iron_normal.png": "feb42ac91b00a637203592c38eb425eba1ebafe942c335122f850561dddda894",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
+    "game/assets/building/textures/T_ai_materials_city_slate_albedo.png": "3a250aa366d3b92367e3eb5a76cd05432b05bc39dbfa9d4f2be5c2bbaa29f4c3",
+    "game/assets/building/textures/T_ai_materials_city_slate_rough.png": "7434112acf770c09577d6a69bb4ad586f0f53ae8bb5f9c5e64e51ed1318ff2d2",
+    "game/assets/building/textures/T_ai_materials_city_slate_normal.png": "804d23b925298958935f2b502066f99fd391b62698e38236c237dfd1750dcd09",
     "game/assets/building/textures/T_ai_materials_terracotta_albedo.png": "b347747cd57b9720ef6cd7f187356d4a4f8f619c4def3dcc71b37302826f09ef",
     "game/assets/building/textures/T_ai_materials_terracotta_rough.png": "a79208b2b89bd63d199c89f6d756853c9f54e054b67fedc987b6d03ae52c318c",
     "game/assets/building/textures/T_ai_materials_terracotta_normal.png": "3f506e18a888f232658bc2a741d74768de9497eca813dd7c43546853034113da",
     "game/assets/building/textures/T_ai_materials_arcade_brick_bond_albedo.png": "b30bf3cff86c0718b3d9e1424739caacc388635289b2dd821ac9fbe5f947e14d",
     "game/assets/building/textures/T_ai_materials_arcade_brick_bond_rough.png": "e5521a01503ef13b22bd53900bc8e7a7bde5b3bf0c0e17e61b79a0c93f7aa258",
     "game/assets/building/textures/T_ai_materials_arcade_brick_bond_normal.png": "bd48e9cb520637eca05c09fc774962a8ea191424eed92cb639bb20ab0357736b",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
-    "game/assets/building/textures/T_ai_materials_cast_iron_albedo.png": "1da42ae7a87c9842f38c8222ef07f56dd79ce60e1fba3ce5e9ec0dc3e955f2f3",
-    "game/assets/building/textures/T_ai_materials_cast_iron_rough.png": "a2f31fa683810d0b852c5496407685f372f263459f9235eff76d21bc0ecb3049",
-    "game/assets/building/textures/T_ai_materials_cast_iron_normal.png": "feb42ac91b00a637203592c38eb425eba1ebafe942c335122f850561dddda894",
-    "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
-    "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
-    "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
-    "game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png": "b8eeb6d6334ce7a3b4341a85d30d9921319035a12c714df004794ca2fffcb4d1",
-    "game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png": "8b31d1b5452167fedcff25f765efdc3cb97a4340e15d37c848c763dfd60d8222",
-    "game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d",
-    "game/assets/building/textures/T_ai_materials_city_grey_brick_albedo.png": "f38f9cffbb9e007f0eb0513b2867b7d23773b13fa72ba2b9b904f94a15e3b0b0",
-    "game/assets/building/textures/T_ai_materials_city_grey_brick_rough.png": "ea90cde3a877606b48744d343273d68be736e01452912593141a5467c8187e82",
-    "game/assets/building/textures/T_ai_materials_city_grey_brick_normal.png": "1b5fc43ea910eb306fb3c6991cbc5f9a4eacd789bbfcc602482a35fb4c3cf716",
-    "game/assets/building/textures/T_ai_materials_limestone_albedo.png": "98dc560a3b41c71fdac9e0fcc4d78410a7f48377c22152dfe9f18c1d284d2d91",
-    "game/assets/building/textures/T_ai_materials_limestone_rough.png": "dc2118543d957385564364c56a9f000377d530ce4c07b30e66273014a1b16b16",
-    "game/assets/building/textures/T_ai_materials_limestone_normal.png": "160a35cceaa8b2b296f34a28f9c3e8929f16f813986ab3f0503bf7e7eb4c22c4",
+    "game/assets/building/textures/T_ai_materials_city_roof_clay_albedo.png": "13e01c560e45e50026cf9cccc3c0e6a34625949eca1149936a097428217ede7e",
+    "game/assets/building/textures/T_ai_materials_city_roof_clay_rough.png": "43556ebf8af6d266e8b93e15836ee2963fb7f3b51dee5ceecf9e41043cc3e1c4",
+    "game/assets/building/textures/T_ai_materials_city_roof_clay_normal.png": "d861f0a0d652f38613e46a9fd2a73acd56eda78c88dfe3b0c274ae89a72c8e93",
     "game/assets/building/textures/T_ai_materials_door_paint_albedo.png": "3a68fb4497fb0f5b56edfcd168a4d05593b760b0437c20aa4b2ec4e97f19616f",
     "game/assets/building/textures/T_ai_materials_door_paint_rough.png": "31232d24578d907132c6a97ff15fe93939ab644529968fdad466551647cf83d0",
     "game/assets/building/textures/T_ai_materials_door_paint_normal.png": "660c2582ee91be3aae0746662cc7c24bf9eb77467cbde8aece2104f920127cc5"
-  },
-  "source_ground_reconciliation": {
-    "evidence_class": "INERT",
-    "source": "81d2988e",
-    "scope": "Apron envelope/relief and three consumed helper ASTs unchanged; all124 new-outline grade seats recomputed. No runtime renewal.",
-    "grade_records": 124,
-    "consumed_functions": [
-      "exported_bounds",
-      "relief_height",
-      "profile_height"
-    ]
   }
 }

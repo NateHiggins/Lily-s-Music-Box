@@ -55,10 +55,11 @@ def partition(collection,name,objects,finish,mat,frame,catalog):
     obj=bpy.data.objects.new(name,mesh);collection.objects.link(obj);obj.matrix_world=frame
     return obj
 
-def export(root,family,exports,material_names_only=False,staged_output=False):
+def export(root,family,exports,material_names_only=False,staged_output=False,save_native=True):
     for image in bpy.data.images:
         if image.source=='FILE':image.filepath=bpy.path.relpath(image.filepath,start=str(root/'art/blender'))
-    bpy.ops.wm.save_as_mainfile(filepath=str(root/'art/blender'/f'{family}.blend'))
+    if save_native:
+        bpy.ops.wm.save_as_mainfile(filepath=str(root/'art/blender'/f'{family}.blend'))
     bpy.ops.object.select_all(action='DESELECT')
     for obj in exports.objects:obj.select_set(True)
     class ExportUVHandedness:

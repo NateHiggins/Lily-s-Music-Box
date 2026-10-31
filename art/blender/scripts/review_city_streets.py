@@ -138,7 +138,10 @@ if ground_context:
     load('art/blender/city_ground_apron.blend',[r['name'] for r in read('game/tests/fixtures/orison_city_ground_apron.json')['parts']],'OuterGroundContext',root_to_city)
     horizon=read('game/tests/fixtures/orison_city_horizon.json')
     for family in ['near','far']:
-        load('art/blender/city_horizon_'+family+'.blend',[r['name'] for r in horizon['assets'][family]['parts']],'HorizonContext_'+family,root_to_city)
+        native='art/blender/city_horizon_'+family+'.blend'
+        parts=[r['name'] for a in horizon['assets'].values() if a['native']==native and a['role']=='base' for r in a['parts']]
+        assert parts and len(parts)==len(set(parts)),native
+        load(native,parts,'HorizonContext_'+family,root_to_city)
 bpy.context.view_layer.update();scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=12
 scene.render.resolution_x=1600;scene.render.resolution_y=900;scene.render.resolution_percentage=100
 scene.world=bpy.data.worlds.new('DiagnosticNativeWorld');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.55,.65,.8,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7

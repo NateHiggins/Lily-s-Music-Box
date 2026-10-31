@@ -34,8 +34,6 @@ ASSETS = (
     "props/fire_nozzle_hose.glb", # nozzle_stock2: default import stretches native hose/socket metre charts by up to2.74%.
     "props/fire_joint_stock.glb", # joint_stock1: loaded small thread charts stretch by up to32.6% under default compression.
     "props/house_switchboard.glb", # stock2: loaded jack UVs collapse and small stock metrics stretch under default compression.
-    "props/city_horizon_near.glb", "props/city_horizon_far.glb", # The same thin closed pane/reveal metre charts as validated city stock.
-    "props/city_horizon_lod1.glb", # industrial bench_01: default compression adds 1.94 mm UV excess, stretches fine charts13.0745% and corrupts tangent derivatives on eight parts.
     "props/city_ground_apron.glb", # source_bench1: default import stretches thin-edge metre charts by 1.69%.
     "props/city_frontage.glb", # imported_bench_01: default quantization stretches barricade stock charts by 6.07%, beyond the retained 0.5% metric gate.
     "props/city_transport.glb", # transport bench_01: default compression stretches small bevel charts99.97% and fails UV tangent derivatives; native export passes.
@@ -73,14 +71,20 @@ ASSETS = (
 
 def main():
     missing, wrong, fixed = [], [], []
-    for asset in ASSETS:
+    # These are the same exact city chart stocks, split into whole-building
+    # blocks. Default compression's demonstrated derivative defect is unchanged.
+    sys.path.insert(0,str(ROOT/'art/blender/scripts'))
+    from city_horizon_assets import manifest_paths
+    city=json.loads((ROOT/'game/data/orison_v2/exterior/city_horizon.json').read_text(encoding='utf-8'))
+    assets=(*ASSETS,*(p.removeprefix('res://assets/') for p in manifest_paths(city)))
+    for asset in assets:
         path = ROOT / "game/assets" / (asset + ".import")
         if not path.is_file(): missing.append(asset); continue
         if "meshes/force_disable_compression=true" in path.read_text(): continue
         wrong.append(asset)
         if "--check" not in sys.argv and patch(path, {"meshes/force_disable_compression":"true"}):
             fixed.append(asset)
-    print(json.dumps({"scope":"v2_uv_precision","referenced":len(ASSETS),
+    print(json.dumps({"scope":"v2_uv_precision","referenced":len(assets),
                       "missing":missing,"wrong":wrong,"fixed":fixed}))
     return int(bool(missing or ("--check" in sys.argv and wrong)))
 

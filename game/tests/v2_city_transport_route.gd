@@ -63,8 +63,12 @@ func _programme_sources() -> Dictionary:
 		result[path]=FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text() if path.get_extension() in ["json","import"] else FileAccess.get_sha256(path)
 	for path: String in ["res://tests/v2_city_transport_route.gd", "res://tests/v2_city_west_frontage.gd", "res://tests/orison_v2_street_crossing_test.gd", "res://tests/orison_v2_vertical_route_test.gd", "res://tests/orison_v2_first_slice_contract_test.gd", "res://tests/fixtures/orison_city_transport.json", "res://assets/props/city_transport.glb", "res://assets/props/city_transport_lod1.glb", "res://assets/props/orison_ground.glb", "res://assets/props/city_foundations.glb", "res://assets/props/city_elevations.glb"]:
 		result[path] = FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text() if path.get_extension() in ["gd", "json"] else FileAccess.get_sha256(path)
-	for path: String in ["res://assets/props/construction_shed.glb","res://assets/props/city_ground_apron.glb","res://assets/props/city_horizon_near.glb","res://assets/props/city_horizon_far.glb"]:
+	for path: String in ["res://assets/props/construction_shed.glb","res://assets/props/city_ground_apron.glb"]:
 		result[path] = FileAccess.get_sha256(path)
+	var horizon_source: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/exterior/city_horizon.json"))
+	for path: String in preload("res://scripts/building/orison_v2_city_horizon.gd").asset_paths(horizon_source):
+		result[path]=FileAccess.get_sha256(path)
+		result[path+".import"]=FileAccess.get_file_as_string(path+".import").replace("\r\n","\n").sha256_text()
 	for path: String in ["res://assets/props/city_streets.glb","res://assets/props/city_streets_lod1.glb","res://tests/fixtures/orison_city_streets.json"]:
 		result[path] = FileAccess.get_sha256(path)
 	if _route_scope in ["narrow","bridge","cardinal"]:
