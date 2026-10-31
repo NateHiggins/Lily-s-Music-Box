@@ -482,6 +482,12 @@ func _due(when: Dictionary) -> bool:
 			return false
 		var owing := int((CampaignClock.new().elapsed_minutes() - float(ledger.started)) / 43200.0) - int(ledger.rent_paid)
 		return owing >= int(when.rent_due)
+	if when.has("from_date"):
+		var clock := CampaignClock.new()
+		if not clock.bind_state():
+			return false
+		var now := clock.local_datetime()
+		return not now.is_empty() and "%04d-%02d-%02d" % [int(now.year), int(now.month), int(now.day)] >= str(when.from_date)
 	if when.has("order"):
 		return MailOrders.arrived(str(when.order), int(when.get("days", 0)))
 	if int(when.get("min_conversations", 0)) > conversations_total():

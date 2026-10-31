@@ -190,9 +190,9 @@ What was built, and what the chains still lean on:
   **m_c_gloved_lady** and **m_c_boxes**, and the table in `companion_witness.gd` takes more papers. The route book's entries are
   lines from Cam. Sacha's sighting replaces a timed placement of Noel, because residents talk only through a
   knock. Nine typed companion lines enter a theory or answer a wrong distrust, and suspect nobody.
-- **Still unbuilt.** Most entries on **carriers.json** have no runtime, including **m_notebook_spine** and
-  **m_glove_scrap**. So Jonah's page and the glove clearing reach the player only through the F9 playtest panel.
-  Sacha's sighting, Noel's reports, Evelyn, Peter, Cam, Nadia's log and Ewald's letter all open in ordinary play.
+- **Sources.** **m_notebook_spine** is the 19 July book on top of Jonah's case: the hand draws it off the stack.
+  **m_glove_scrap** is the clean-out on the boiler room wall, where the 7 August work order sends the player,
+  because the yard isn't built. Most other entries on **carriers.json** still have no runtime. Sacha's sighting, Noel's reports, Evelyn, Peter, Cam, Nadia's log and Ewald's letter all open in ordinary play.
 - **Checked.** The mystery checker walks reachability over the real data. Hours and dates are held by the wiring
   test's gates, and the chain threads all open from the 20th, after the gap. The pitch's 20,000-order run was on
   the six-chain draft and wasn't repeated.
