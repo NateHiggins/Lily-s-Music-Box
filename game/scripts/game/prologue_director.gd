@@ -283,7 +283,8 @@ func _restore() -> void:
 	if _publishing: return
 	var replaced := not is_same(_document,RealityState.data)
 	if replaced and is_instance_valid(waking):waking.cancel()
-	if replaced:_release_contact()
+	if replaced:
+		_release_temporal_keyboard_hold();_release_contact()
 	if replaced and is_instance_valid(temporal_console):temporal_console.cancel()
 	if replaced and is_instance_valid(temporal_sky):temporal_sky.cancel()
 	if replaced and is_instance_valid(mirror_crossing):mirror_crossing.cancel()
@@ -323,6 +324,7 @@ func _advance(next: String) -> bool:
 	_enter_phase();return true
 
 func _enter_phase() -> void:
+	_release_temporal_keyboard_hold()
 	_release_contact(state.phase in ["identity_mystery","temporal_command"])
 	_contact_index=0;_contact_age=0;_contact_thinking_age=0;_contact_serial=-1
 	if _visitor_active and state.phase!="companion_crossing":_end_visitor()

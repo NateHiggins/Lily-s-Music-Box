@@ -124,6 +124,20 @@ func additional_checks() -> void:
 			var clock:=CampaignClock.new()
 			check(director.state.phase=="title_reveal" and director.state.effects.clock_applied and int(Time.get_unix_time_from_datetime_dict(clock.utc_datetime()))==int(destination.utc_unix_seconds),"live director advances only with exact clock-owner acknowledgement")
 	director.shutdown();director.queue_free()
+	# Validated backward reload while the new transient stow holder is alive.
+	# Use the real storage owner, then adopt it through the director's reload path.
+	var stow_owner:Node=mount_director(late_phase())
+	check(carrier.rig.hold_keyboard_closed(stow_owner),"live director can own a pending mechanical stow")
+	var stow_path_before:String=RealityState.save_path
+	var stow_enabled_before:bool=RealityState.persistence_enabled
+	RealityState.save_path=directory.path_join("pending_stow_reload.json");RealityState.persistence_enabled=true
+	RealityState.data.prologue=Opening.initial()
+	if check(RealityState.save_game(),"validated storage records an earlier prologue boundary during pending stow"):
+		RealityState.load_game();stow_owner._restore()
+		carrier.rig.request_keyboard(true)
+		check(await wait_for(func():return carrier.rig.typing_ready(),4.0),"backward reload releases stale stow ownership and permits actual keyboard travel")
+	stow_owner.shutdown();stow_owner.queue_free()
+	RealityState.save_path=stow_path_before;RealityState.persistence_enabled=stow_enabled_before
 	FileAccess.open(directory.path_join("temporal_contacts.json"),FileAccess.WRITE).store_string(JSON.stringify({"destination":destination,"contacts":contact_keys,"accepted":accepted_count},"\t"))
 
 func record_contact(character:String) -> void:
