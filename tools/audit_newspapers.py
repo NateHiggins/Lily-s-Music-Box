@@ -178,6 +178,43 @@ def check_cartoons(doc: object, failures: list[str]) -> int:
     return len(cartoons)
 
 
+def check_pictures(doc: object, failures: list[str]) -> int:
+    """Every printed picture exists, is dated in the year, and its caption obeys the brief."""
+    if not isinstance(doc, dict):
+        failures.append("pictures.json: not an object")
+        return 0
+    count = 0
+
+    def one(picture: object, date: str, where: str) -> None:
+        nonlocal count
+        count += 1
+        if not isinstance(picture, dict) or not str(picture.get("caption", "")):
+            failures.append(f"{where}: a picture needs a caption")
+            return
+        image = str(picture.get("image", ""))
+        if not image.startswith("res://") or not (REPO / "game" / image[6:]).exists():
+            failures.append(f"{where}: no image {image}")
+        forbidden_in(str(picture["caption"]), where, failures)
+        if not START.isoformat() <= date <= END.isoformat():
+            failures.append(f"{where}: {date} is outside the year")
+
+    for section in ("fronts", "features"):
+        for item in doc.get(section, []):
+            one(item, str(item.get("date", "")), f"pictures {section} {item.get('date', '')}")
+    for drama in doc.get("dramas", []):
+        date = str(drama.get("date", ""))
+        forbidden_in(f"{drama.get('title', '')} {drama.get('byline', '')} {drama.get('next', '')}", f"pictures drama {date}", failures)
+        for still in drama.get("stills", []):
+            one(still, date, f"pictures drama {date}")
+    for sheet in doc.get("sections", []):
+        date = str(sheet.get("date", ""))
+        if dt.date.fromisoformat(date).weekday() != 6:
+            failures.append(f"pictures section {date}: the Brown Section is a Sunday's")
+        for picture in sheet.get("pictures", []):
+            one(picture, date, f"pictures section {date}")
+    return count
+
+
 def check_back(back: object, paper: str, where: str, failures: list[str]) -> None:
     if not isinstance(back, dict):
         failures.append(f"{where}: back page is not an object")
@@ -276,11 +313,12 @@ def check_page(page: object, where: str, failures: list[str]) -> None:
 
 def audit(only: str | None, require_back: bool = False) -> tuple[list[str], dict]:
     failures: list[str] = []
-    stats = {"issues": 0, "files": 0, "back_pages": 0, "ads": 0, "cartoons": 0}
+    stats = {"issues": 0, "files": 0, "back_pages": 0, "ads": 0, "cartoons": 0, "pictures": 0}
     mastheads = DATA / "papers.json"
     if not mastheads.exists():
         failures.append("papers.json missing")
-    for name, check, stat in (("advertisements.json", check_ads, "ads"), ("cartoons.json", check_cartoons, "cartoons")):
+    for name, check, stat in (("advertisements.json", check_ads, "ads"), ("cartoons.json", check_cartoons, "cartoons"),
+                              ("pictures.json", check_pictures, "pictures")):
         path = DATA / name
         if not path.exists():
             failures.append(f"{name} missing")
@@ -354,7 +392,7 @@ def main(argv: list[str]) -> int:
     if len(failures) > 200:
         print(f"  ... {len(failures) - 200} more")
     print(f"NEWSPAPER AUDIT: {stats['issues']} issues in {stats['files']} files; "
-          f"{stats['back_pages']} back pages; {stats['ads']} ads; {stats['cartoons']} cartoons; "
+          f"{stats['back_pages']} back pages; {stats['ads']} ads; {stats['cartoons']} cartoons; {stats['pictures']} pictures; "
           f"{len(failures)} failures -> {'PASS' if not failures else 'FAIL'}")
     return 0 if not failures else 1
 

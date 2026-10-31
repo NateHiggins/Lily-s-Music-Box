@@ -39,6 +39,20 @@ const SLICE_PATHS: Array[String] = [
 ]
 const ADS_PATH := "res://data/newspapers/advertisements.json"
 const CARTOONS_PATH := "res://data/newspapers/cartoons.json"
+const PICTURES_PATH := "res://data/newspapers/pictures.json"
+const FRONT_FORMS: Array[String] = ["wide", "column", "portrait"]
+const TREATMENTS: Array[String] = ["halftone", "gravure", "ink"]
+const DRAMA_STILLS := 3
+const BROWN_PICTURES := 4
+const FURNITURE := "res://assets/ui/newspaper/furniture/"
+## The woodcut in the Record's ear: the first word its forecast names, in this order.
+const WEATHER_WORDS := [["snow", "snow"], ["sleet", "snow"], ["flurr", "snow"], ["thunder", "storm"], ["storm", "storm"],
+		["gale", "storm"], ["rain", "rain"], ["shower", "rain"], ["drizzle", "rain"], ["fog", "fog"], ["mist", "fog"],
+		["haz", "heat"], ["hot", "heat"], ["heat", "heat"], ["humid", "heat"], ["cloud", "cloud"], ["overcast", "cloud"],
+		["cold", "cold"], ["freez", "cold"], ["ice", "cold"], ["wind", "wind"], ["fair", "fair"], ["clear", "fair"],
+		["sun", "fair"], ["mild", "fair"], ["cool", "cloud"], ["warm", "fair"]]
+const BANDS: Array[String] = ["band_borough", "band_wire", "band_garden", "band_street", "band_river"]
+const LADY_PLATES: Array[String] = ["lady_door", "lady_trumpet", "lady_stair", "lady_window"]
 ## How many boxed advertisements the back of the sheet carries.
 const ADS_PER_PAGE := 6
 ## How six advertisements fill a page; the panel lays them out in this order.
@@ -67,6 +81,10 @@ var errors: Array[String] = []
 var _ads: Array[Dictionary] = []
 var _firms: Dictionary = {}  # firm name -> identity and contact lines
 var _cartoons: Dictionary = {}  # "YYYY-MM-DD" -> the Speaker's weekly cartoon
+var _fronts: Dictionary = {}  # "paper:date" -> the picture on that front
+var _dramas: Dictionary = {}  # "paper:date" -> a photo drama
+var _sections: Dictionary = {}  # "paper:date" -> a Sunday picture section
+var _features: Dictionary = {}  # "paper:date" -> a line cut on the back
 var _clock: CampaignClock
 var _sky := SkyPhenomena.new()
 
@@ -82,6 +100,7 @@ func load_all() -> void:
 	_load_papers()
 	_load_slices()
 	_load_advertising()
+	_load_pictures()
 	if not _sky.load_schedule():
 		for problem in _sky.errors: errors.append("sky phenomena: %s" % problem)
 
@@ -128,6 +147,50 @@ func cartoon_for(paper_id: String, date: String) -> Dictionary:
 	if paper_id != "speaker":
 		return {}
 	return _cartoons.get(date, {})
+
+
+## The picture on this front, where it has one: {form, treatment, image, caption}.
+func front_picture(paper_id: String, date: String) -> Dictionary:
+	return _fronts.get(key_of(paper_id, date), {})
+
+
+## The photo drama behind this front: {title, byline, next, stills}.
+func drama_for(paper_id: String, date: String) -> Dictionary:
+	return _dramas.get(key_of(paper_id, date), {})
+
+
+## The Sunday picture section folded into this issue: {pictures}.
+func brown_for(paper_id: String, date: String) -> Dictionary:
+	return _sections.get(key_of(paper_id, date), {})
+
+
+## A line cut on the back of this sheet: {treatment, image, caption}.
+func feature_for(paper_id: String, date: String) -> Dictionary:
+	return _features.get(key_of(paper_id, date), {})
+
+
+## The woodcut for an ear's forecast, or empty if the word for it has no block yet.
+func weather_block(ear: String) -> String:
+	var words := ear.to_lower()
+	for pair: Array in WEATHER_WORDS:
+		if words.contains(pair[0]):
+			return _furniture("weather_%s" % pair[1])
+	return _furniture("weather_cloud")
+
+
+## Which drawing of herself the Listening Lady signs with today.
+func lady_plate(date: String) -> String:
+	return _furniture(LADY_PLATES[absi(hash(date)) % LADY_PLATES.size()])
+
+
+## The woodcut band over this sheet's back columns.
+func band_for(paper_id: String, date: String) -> String:
+	return _furniture(BANDS[absi(hash(date + paper_id)) % BANDS.size()])
+
+
+func _furniture(block: String) -> String:
+	var path := FURNITURE + block + ".webp"
+	return path if ResourceLoader.exists(path) else ""
 
 
 func has_issue(date: String) -> bool:
@@ -332,6 +395,55 @@ func _load_advertising() -> void:
 			errors.append("%s: a cartoon needs date, caption and an image that exists" % CARTOONS_PATH)
 			continue
 		_cartoons[str(cartoon.date)] = cartoon
+
+
+## Every picture printed in the papers. Absent from a date is ordinary; present
+## and malformed is a startup message, and that picture is not printed.
+func _load_pictures() -> void:
+	_fronts.clear()
+	_dramas.clear()
+	_sections.clear()
+	_features.clear()
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(PICTURES_PATH))
+	if parsed is not Dictionary:
+		errors.append("pictures unreadable: %s" % PICTURES_PATH)
+		return
+	for front: Dictionary in parsed.get("fronts", []):
+		if _valid_picture(front, "front") and str(front.get("form", "")) in FRONT_FORMS:
+			_fronts[key_of(str(front.paper), str(front.date))] = front
+		else:
+			errors.append("%s: a front picture on %s needs a form" % [PICTURES_PATH, front.get("date", "")])
+	for cut: Dictionary in parsed.get("features", []):
+		if _valid_picture(cut, "feature"):
+			_features[key_of(str(cut.paper), str(cut.date))] = cut
+	for drama: Dictionary in parsed.get("dramas", []):
+		var stills: Variant = drama.get("stills", null)
+		if str(drama.get("title", "")) == "" or str(drama.get("byline", "")) == "" or str(drama.get("next", "")) == "" \
+				or stills is not Array or stills.size() != DRAMA_STILLS \
+				or not stills.all(func(still): return _has_image_and_caption(still)):
+			errors.append("%s: the drama on %s needs a title, byline, next and %d stills" % [PICTURES_PATH, drama.get("date", ""), DRAMA_STILLS])
+			continue
+		_dramas[key_of(str(drama.get("paper", "speaker")), str(drama.get("date", "")))] = drama
+	for section: Dictionary in parsed.get("sections", []):
+		var pictures: Variant = section.get("pictures", null)
+		if pictures is not Array or pictures.size() != BROWN_PICTURES \
+				or not pictures.all(func(picture): return _has_image_and_caption(picture)):
+			errors.append("%s: the section on %s needs %d captioned pictures" % [PICTURES_PATH, section.get("date", ""), BROWN_PICTURES])
+			continue
+		_sections[key_of(str(section.get("paper", "speaker")), str(section.get("date", "")))] = section
+
+
+func _valid_picture(picture: Dictionary, what: String) -> bool:
+	if not _has_image_and_caption(picture) or str(picture.get("treatment", "")) not in TREATMENTS \
+			or str(picture.get("paper", "")) not in PAPER_IDS or str(picture.get("date", "")) == "":
+		errors.append("%s: a %s picture needs paper, date, treatment, image and caption" % [PICTURES_PATH, what])
+		return false
+	return true
+
+
+func _has_image_and_caption(picture: Variant) -> bool:
+	return picture is Dictionary and str(picture.get("caption", "")) != "" \
+			and ResourceLoader.exists(str(picture.get("image", "")))
 
 
 ## An issue's optional back page: four typed columns and a one-line foot.

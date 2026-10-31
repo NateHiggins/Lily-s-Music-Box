@@ -1,0 +1,580 @@
+{
+ "furniture": [
+  {
+   "id": "speaker_horn",
+   "src": "mh_speaker",
+   "seed": 0,
+   "style": "line",
+   "prompt": "a big gramophone horn loudspeaker shouting radiating jagged lightning bolts in both directions, woodcut, bold, symmetrical, plain white background",
+   "shown": 300,
+   "width": 1344,
+   "height": 512,
+   "quality": 80,
+   "crop": [
+    380,
+    0,
+    964,
+    512
+   ]
+  },
+  {
+   "id": "weather_fair",
+   "src": "we_sun",
+   "seed": 3,
+   "style": "line",
+   "prompt": "1920s newspaper woodcut, bold simple lines, a blazing sun over rooftops",
+   "shown": 300,
+   "width": 768,
+   "height": 768,
+   "quality": 80
+  },
+  {
+   "id": "weather_rain",
+   "src": "we_rain",
+   "seed": 3,
+   "style": "line",
+   "prompt": "1920s newspaper woodcut, bold simple lines, a rain cloud and slanting rain over rooftops",
+   "shown": 300,
+   "width": 768,
+   "height": 768,
+   "quality": 80,
+   "crop": [
+    100,
+    0,
+    760,
+    660
+   ]
+  },
+  {
+   "id": "weather_snow",
+   "src": "we_snow",
+   "seed": 2,
+   "style": "line",
+   "prompt": "1920s newspaper woodcut, bold simple lines, snow falling on a lamp post and rooftops",
+   "shown": 300,
+   "width": 768,
+   "height": 768,
+   "quality": 80
+  },
+  {
+   "id": "weather_cloud",
+   "src": "weather_cloud",
+   "seed": 3,
+   "style": "line",
+   "prompt": "1920s newspaper woodcut, bold simple lines, a heavy bank of grey clouds over city rooftops and water tanks",
+   "shown": 300,
+   "width": 768,
+   "height": 768,
+   "quality": 80
+  },
+  {
+   "id": "weather_fog",
+   "src": "weather_fog",
+   "seed": 1,
+   "style": "line",
+   "prompt": "1920s newspaper woodcut, bold simple lines, thick fog over a street, a lamp post and rooftops fading away, horizontal fog lines",
+   "shown": 300,
+   "width": 768,
+   "height": 768,
+   "quality": 80
+  },
+  {
+   "id": "weather_storm",
+   "src": "weather_storm",
+   "seed": 3,
+   "style": "line",
+   "prompt": "1920s newspaper woodcut, bold simple lines, jagged lightning from a black storm cloud over rooftops, slanting rain",
+   "shown": 300,
+   "width": 768,
+   "height": 768,
+   "quality": 80
+  },
+  {
+   "id": "weather_heat",
+   "src": "weather_heat",
+   "seed": 0,
+   "style": "line",
+   "prompt": "1920s newspaper woodcut, bold simple lines, huge blazing sun with long rays over a city stoop, an electric fan, wavy heat lines",
+   "shown": 300,
+   "width": 768,
+   "height": 768,
+   "quality": 80
+  },
+  {
+   "id": "weather_cold",
+   "src": "weather_cold",
+   "seed": 3,
+   "style": "line",
+   "prompt": "1920s newspaper woodcut, bold simple lines, frozen river with ice floes, icicles on a bridge, bare trees, cold moon",
+   "shown": 300,
+   "width": 768,
+   "height": 768,
+   "quality": 80
+  },
+  {
+   "id": "weather_wind",
+   "src": "weather_wind",
+   "seed": 2,
+   "style": "line",
+   "prompt": "1920s newspaper woodcut, bold simple lines, strong wind bending a tree, a hat flying away, sweeping curved wind lines over rooftops",
+   "shown": 300,
+   "width": 768,
+   "height": 768,
+   "quality": 80
+  },
+  {
+   "id": "lady_door",
+   "src": "pn_lady",
+   "seed": 3,
+   "style": "line",
+   "prompt": "single-figure panel, slender society woman in a cloche hat and fur collar, hand cupped to her ear, listening at a door, simple clean brush line, elegant art deco",
+   "shown": 460,
+   "width": 832,
+   "height": 1024,
+   "quality": 80
+  },
+  {
+   "id": "lady_trumpet",
+   "src": "pn_lady2",
+   "seed": 2,
+   "style": "line",
+   "prompt": "single-figure panel, slender society woman in a cloche hat holding a lorgnette and an ear trumpet, simple clean brush line, elegant art deco",
+   "shown": 460,
+   "width": 832,
+   "height": 1024,
+   "quality": 80
+  },
+  {
+   "id": "lady_stair",
+   "src": "lady_stair",
+   "seed": 2,
+   "style": "line",
+   "prompt": "single-figure panel, slender society woman in a cloche hat and fur collar leaning over a banister, listening, simple clean brush line, elegant art deco",
+   "shown": 460,
+   "width": 832,
+   "height": 1024,
+   "quality": 80
+  },
+  {
+   "id": "lady_window",
+   "src": "lady_window",
+   "seed": 3,
+   "style": "line",
+   "prompt": "single-figure panel, slender society woman in a cloche hat at an open window, one hand cupped to her ear, simple clean brush line, elegant art deco",
+   "shown": 460,
+   "width": 832,
+   "height": 1024,
+   "quality": 80
+  },
+  {
+   "id": "band_borough",
+   "src": "band_borough",
+   "seed": 2,
+   "style": "line",
+   "prompt": "wide narrow decorative woodcut band, long row of Queens rooftops, water tanks and an elevated railway running left to right",
+   "shown": 1100,
+   "width": 1344,
+   "height": 320,
+   "quality": 80
+  },
+  {
+   "id": "band_wire",
+   "src": "band_wire",
+   "seed": 0,
+   "style": "line",
+   "prompt": "wide narrow decorative woodcut band, telephone poles and many wires running left to right with perched birds",
+   "shown": 1100,
+   "width": 1344,
+   "height": 320,
+   "quality": 80
+  },
+  {
+   "id": "band_garden",
+   "src": "band_garden",
+   "seed": 0,
+   "style": "line",
+   "prompt": "wide narrow decorative woodcut band, climbing roses along a low fence running left to right",
+   "shown": 1100,
+   "width": 1344,
+   "height": 320,
+   "quality": 80
+  },
+  {
+   "id": "band_street",
+   "src": "band_street",
+   "seed": 2,
+   "style": "line",
+   "prompt": "wide narrow decorative woodcut band, a busy street seen side on, ice wagon, trolley, delivery boy and shop awnings without signs",
+   "shown": 1100,
+   "width": 1344,
+   "height": 320,
+   "quality": 80
+  },
+  {
+   "id": "band_river",
+   "src": "band_river",
+   "seed": 0,
+   "style": "line",
+   "prompt": "wide narrow decorative woodcut band, the East River seen side on, tugboats, barges and a steel bridge",
+   "shown": 1100,
+   "width": 1344,
+   "height": 320,
+   "quality": 80
+  }
+ ],
+ "fronts": [
+  {
+   "paper": "speaker",
+   "date": "1929-08-25",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "NELL AND THE HAT. A Speaker composograph: the hat is hers, the head under it was unavailable for the sitting.",
+   "cut": {
+    "id": "nell",
+    "prompt": "old white mare wearing a wide straw hat, harnessed to an ice wagon on a city street, ice man in leather apron feeding her a carrot",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 3,
+    "src": "ph_nell2",
+    "paste": {
+     "id": "hat",
+     "seed": 2,
+     "ellipses": [
+      [
+       26,
+       318,
+       948,
+       680
+      ],
+      [
+       328,
+       128,
+       712,
+       440
+      ]
+     ],
+     "height": 163,
+     "at": [
+      850,
+      95
+     ],
+     "rotate": -10,
+     "prompt": "a single wide-brimmed woven straw hat, seen from the side and slightly above, plain white studio background"
+    }
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-09-21",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "A SPEAKER COMPOSOGRAPH. No camera went down to the boiler room. The figure was posed in our art room from the description; the flue is the flue.",
+   "cut": {
+    "id": "widow_flue",
+    "prompt": "tall stone courthouse chimney against a night sky, heavy smoke rising, city rooftops",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 3,
+    "src": "cp_bg_flue",
+    "paste": {
+     "id": "cp_fig_widow",
+     "seed": 0,
+     "threshold": 80,
+     "height": 560,
+     "at": [
+      440,
+      656
+     ],
+     "clear": [
+      [
+       0,
+       0,
+       66,
+       1216
+      ],
+      [
+       600,
+       0,
+       832,
+       1216
+      ],
+      [
+       0,
+       0,
+       832,
+       30
+      ],
+      [
+       0,
+       1176,
+       832,
+       1216
+      ],
+      [
+       458,
+       0,
+       832,
+       365
+      ]
+     ],
+     "prompt": "full figure of a mourning woman in a cloche hat and long dark coat, standing, seen from behind looking up, plain white studio background"
+    }
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-04-21",
+   "form": "portrait",
+   "treatment": "ink",
+   "caption": "MRS. HATTIE BRENNAN",
+   "cut": {
+    "id": "hattie",
+    "prompt": "head and shoulders portrait of an elderly woman telephone operator, white hair, high collar, kindly stern face, oval vignette, plain white background",
+    "style": "line",
+    "width": 832,
+    "height": 1024,
+    "shown": 512,
+    "seed": 2,
+    "src": "po_operator",
+    "crop": [
+     36,
+     0,
+     780,
+     1024
+    ]
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-09-22",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The boiler room of the Long Island City courthouse, where the record was burned.",
+   "cut": {
+    "id": "boiler",
+    "prompt": "basement boiler room, open furnace door glowing, a stoker with shovel, a woman in a cloche hat and overcoat watching, two lawyers in suits, dark",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 2,
+    "src": "ph_boiler"
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-01-12",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "VALVES GO UP. The glass shop at Newark, six alarms.",
+   "cut": {
+    "id": "f_valve_fire",
+    "prompt": "factory burning at night, firemen with hoses, smoke, broken glass windows",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 3,
+    "src": "ph_fire"
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-04-12",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Beardstown. Twelve hundred men on the bank, six inches below the crown.",
+   "cut": {
+    "id": "f_sandbags",
+    "prompt": "hundreds of men in work clothes stacking sandbags on a river levee, flood water, overcast",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1,
+    "src": "ph_levee"
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-09-03",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "About 9,400 marching, the Exchange's operators among them.",
+   "cut": {
+    "id": "f_labor_day",
+    "prompt": "labor day parade down a wide street, banners without writing, marching men in straw hats",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1,
+    "src": "ro_parade"
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-09-30",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "SHE STAYED. The Division's men pack up at Port Washington; Sixteen-Ten does not.",
+   "cut": {
+    "id": "f_hut",
+    "prompt": "small wooden hut by a harbour at dawn, two men in overcoats loading a box into an old motor car, a cat in the window",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 2,
+    "src": "ph_hut"
+   }
+  }
+ ],
+ "features": [
+  {
+   "paper": "speaker",
+   "date": "1929-10-09",
+   "treatment": "ink",
+   "caption": "AT THE PLATE. Drawn from the wire description, the Speaker's man being unable to see past the pillar.",
+   "cut": {
+    "id": "ft_batter",
+    "src": "cu_batter",
+    "seed": 3,
+    "style": "line",
+    "width": 1024,
+    "height": 1024,
+    "shown": 512,
+    "prompt": "baseball batter in baggy 1920s uniform swinging at the plate, catcher behind, action lines, plain white background"
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-09-12",
+   "treatment": "ink",
+   "caption": "FOR THE FALL. The wide hats go out with the summer; the cloche stays.",
+   "cut": {
+    "id": "ft_plate_fall",
+    "src": "cu_plate",
+    "seed": 3,
+    "style": "line",
+    "width": 832,
+    "height": 1216,
+    "shown": 512,
+    "prompt": "fashion plate, two slender women in 1929 cloche hats and drop-waist coats, elegant, plain white background"
+   }
+  }
+ ],
+ "dramas": [
+  {
+   "paper": "speaker",
+   "date": "1929-08-24",
+   "title": "Heard Through the Wall",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next week: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"That voice! But Harold said he was at the lodge!\"",
+     "cut": {
+      "id": "dr_wall_a",
+      "src": "dr_a",
+      "seed": 0,
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "woman in a kitchen pressing her ear to the wall, shocked"
+     }
+    },
+    {
+     "caption": "\"Who taught you to listen at walls, Mabel Doyle?\"",
+     "cut": {
+      "id": "dr_wall_b",
+      "src": "dr_b",
+      "seed": 3,
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "husband in shirt sleeves bursting into a kitchen pointing accusingly at his wife"
+     }
+    },
+    {
+     "caption": "\"Keep the set. I have heard enough for one lifetime.\"",
+     "cut": {
+      "id": "dr_wall_c",
+      "src": "dr_c",
+      "seed": 3,
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "woman weeping at a table beside a large radio cabinet, man with hat leaving through the door"
+     }
+    }
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "date": "1929-08-25",
+   "pictures": [
+    {
+     "caption": "Nell's last week. Twenty summers up Steinway Street, and the children of the route bring carrots.",
+     "cut": {
+      "id": "br_nell",
+      "src": "ro_nell",
+      "seed": 0,
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "children in summer clothes feeding carrots to an old white ice horse, sunny street"
+     }
+    },
+    {
+     "caption": "Above the El. A rooftop, the first cool evening, and something good on the portable.",
+     "cut": {
+      "id": "br_roof",
+      "src": "ro_cover",
+      "seed": 3,
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "young woman in a 1929 summer dress and cloche hat on a rooftop at dusk listening to a portable radio, tall city behind"
+     }
+    },
+    {
+     "caption": "Sunday at the board. The exchange answers, holiday or no.",
+     "cut": {
+      "id": "br_board",
+      "src": "ro_switch",
+      "seed": 3,
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "row of women telephone operators at a switchboard, headsets, long room"
+     }
+    },
+    {
+     "caption": "The bridge at lamp time, from the Queens side.",
+     "cut": {
+      "id": "br_bridge",
+      "src": "ro_bridge",
+      "seed": 3,
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "Queensboro bridge seen from a Queens rooftop at dusk, water tanks, smoke"
+     }
+    }
+   ]
+  }
+ ]
+}
