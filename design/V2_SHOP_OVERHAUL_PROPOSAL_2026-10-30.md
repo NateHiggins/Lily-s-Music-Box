@@ -368,6 +368,12 @@ can't, and door errands are in. Not built in slice 2: a modelled
 price card and selector, and the Bodega's list-and-bag props.
 Hardware's drawers and ladder are not yet operable.
 
+**Slice 3 so far.** The Pawnbroker is built: pledge at the grille by carrying a stack off the
+shelf, redeem within thirty days at an authored 3 percent a month, lapsed tickets go on the shelf
+at twice the loan, and four residents' dated pledges appear and sell once. Not built: objects in
+the wall cases, and Mae behind the counter, which still needs its timeline check. Keys and Photo
+are next.
+
 Each slice owes: real grabbing and release in tests, a schema-2 runtime receipt, reader
 gate NEW 0, a draw-call measurement on the Arcade route, and a playable pass for Lily.
 

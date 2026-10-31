@@ -207,7 +207,7 @@ static func carry_goods(holder: String, item: String, shown_name: String, form :
 	if not value.holders.has(holder):
 		value.holders[holder] = {}
 	var id := "goods:" + item
-	var record: Dictionary = value.holders[holder].get(id, {"kind": "goods", "item": item, "name": shown_name, "qty": 0})
+	var record: Dictionary = value.holders[holder].get(id, {"kind": "goods", "item": item, "name": shown_name, "form": form, "qty": 0})
 	record.qty = int(record.qty) + 1
 	value.holders[holder][id] = record
 	return true

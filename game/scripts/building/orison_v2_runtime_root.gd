@@ -895,6 +895,7 @@ func _compose_authorities() -> void:
 	var news_stand: Node=passage_region.transaction_actor_root().get_node_or_null("NewsStand")
 	if news_stand!=null:
 		news_stand.sales=ShopSales.new("news_cigars",shop_catalogue,shop_stock,shop_clearing)
+	item_use.pawn_point=shop_counters.pawnbroker
 	exterior_cell.stock_presence=_shop_has_stock
 	if conversations!=null and conversations.errands!=null:
 		conversations.errands.economy=economy
