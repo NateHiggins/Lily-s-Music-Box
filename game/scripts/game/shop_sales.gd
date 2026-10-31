@@ -37,6 +37,12 @@ func transaction_status(item_id: String) -> String:
 	var record := catalogue.item(shop_id, item_id)
 	if record.is_empty() or str(record.kind) not in ShopCatalogue.COUNTER_KINDS:
 		return "invalid_quote"
+	if str(record.kind) == "post":
+		if MailOrders.posted(str(record.order)):
+			return "already_posted"
+		if not MailOrders.torn(str(record.order)):
+			return "no_coupon"
+		return clearing.settlement_status(shop_id, int(record.cents))
 	if record.has("group") and stock.units(shop_id, str(record.group)) < 1.0:
 		return "out_of_stock"
 	if str(record.kind) not in ["consumed", "grocery"] and str(record.get("sold_by", "")) != "rack" and not PersonInventory.can_carry_goods(PersonInventory.PLAYER, item_id, str(record.get("form", "packet"))):
@@ -52,6 +58,8 @@ func transact(item_id: String, shop: String) -> bool:
 
 
 func _deliver(record: Dictionary) -> bool:
+	if str(record.kind) == "post":
+		return MailOrders.post(str(record.order))
 	var group := str(record.get("group", ""))
 	if group != "" and not stock.take(shop_id, group):
 		return false
