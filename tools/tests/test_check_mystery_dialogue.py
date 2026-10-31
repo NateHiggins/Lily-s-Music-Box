@@ -37,6 +37,15 @@ class MysteryDialogueTests(unittest.TestCase):
         self.edit("cam_ortiz", lambda d: d["nodes"]["co_e2"].update(line="Yes, sir."))
         self.assertIn("misaddresses the player", self.failures())
 
+    def test_a_modern_term_fails(self):
+        data = self.folder.parent / "data"
+        (data / "dialogue").mkdir(parents=True)
+        (data / "dialogue" / "x.json").write_text('{"line": "She was transgender."}', encoding="utf8")
+        self.assertIn("transgender", "\n".join(checker.check_modern_terms(data)))
+
+    def test_the_game_text_has_no_modern_terms(self):
+        self.assertEqual(checker.check_modern_terms(checker.ROOT / "game/data"), [])
+
     def test_a_flag_nothing_grants_fails(self):
         self.edit("cam_ortiz", lambda d: d["threads"][0].update(requires=["m_nobody_grants_this"]))
         self.assertIn("m_nobody_grants_this", self.failures())
