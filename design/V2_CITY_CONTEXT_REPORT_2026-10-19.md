@@ -3702,3 +3702,44 @@ from **v2_step_contact_test.gd**, with the production ground and resolver-derive
 world registration, inside the city bench. This is not yet implemented. It can
 check local climb/landing/closed-leaf/descent without another full-world startup;
 composed actor/access authority proof stays with the coordinated integration run.
+
+
+### Faster local stair diagnostic — 2026-10-30
+
+Evidence class: **INERT**. From **63ad3504**, the existing city bench now has an
+opt-in **ORISON_CITY_ENTRY_CHECK=1** mode. It mounts the production ground through
+WorldConnection's resolver-derived registration and uses the actual PlayerController
+with its 1.524 m height / 0.33 m radius. No controller, physics, save, narrative,
+weather, public-spawn or shared spatial-manifest authority was changed. Only the
+initial test placement is explicit; subsequent motion uses normal input.
+
+Corrected run **entry_02** completes **7,429 aggregate checks / zero failures**
+in **34.38 s**. Its test-written local diagnostic records **15 checks / zero
+failures**, **89 movement samples**, and **7.948272 s** for the local programme.
+Actual source-frame foot heights are −0.020404 m initially, +0.300813 m on the
+landing, +0.300821 m against the blocking leaf and −0.019163 m on return. Both
+production step guards remain enabled and noclip remains false. Tread centres
+are not assumed to be standing-foot datums: each 300 mm tread is shorter than
+the capsule diameter. The existing 2 mm settled-height and 80 mm path-target
+checks were not changed between attempts.
+
+Original **entry_01** failed two assertions after an incorrect harness action
+name, **move_backward**, prevented return movement. Its source, stderr, receipt,
+INERT diagnostic and images are retained. The correction uses the existing
+**move_back** action; no geometry, collision, probe or tolerance changed. Current
+compiler and bench stderr are empty. All 234 test-recorded source hashes match;
+source-only spatial audit is clean with no manifest edits, and reader NEW0.
+Both current eye views were inspected. No new import or native rebuild was needed
+for this test-only edit, and no render timing suite was repeated.
+
+This is local fixture evidence: other occupied-world actors are absent, lighting
+is isolated, and no schema-2 runtime_contract is emitted. It does not replace
+composed actor/access/surface or artistic qualification. Canonical publication
+**a08ed155** separately qualifies 25 technical building studies with 124 remaining;
+this rear-east candidate stays outside that tally until actual integration.
+The next construction batch is the two remaining nearby southern bodies, retaining
+bar/arcade ground owners and all original roof equipment, before combined renewal.
+
+The existing rear-east archive now contains 95 members / 24022743 bytes,
+SHA256 **8cd28b994891efea68156f115fc27d18df58283b6b97d2918fb381af91fca5ea**. Member bytes/CRC and manifest hashes verified;
+all earlier members retained, identical new evidence bytes stored once with aliases.

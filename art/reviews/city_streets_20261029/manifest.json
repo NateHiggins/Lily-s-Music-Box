@@ -9386,11 +9386,11 @@
   },
   "laurel_apartment_native_archive": {
     "path": "art/reviews/city_streets_20261029/laurel_apartment_native_review.zip",
-    "sha256": "e85ee103077e76f69f64a69c573aa18cabe81f0be1d22fefaad169d1b0746a89",
-    "members": 77,
-    "bytes": 13992160,
+    "sha256": "8cd28b994891efea68156f115fc27d18df58283b6b97d2918fb381af91fca5ea",
+    "members": 95,
+    "bytes": 24022743,
     "evidence_class": "INERT",
-    "scope": "Laurel-derived rear-east native and isolated loaded construction/LOD checkpoint. Original pane failure and historical/current native images retained; no standing-controller/composed/artistic qualification.",
+    "scope": "Rear-east native/isolated loaded LOD and opt-in production-controller stair diagnostics, including original pane and harness failures. No occupied-world/composed/artistic acceptance.",
     "files": {
       "actual_native_inspection_01.json": {
         "bytes": 4454,
@@ -9555,6 +9555,78 @@
       "loaded_01/uid_cleanup_01.json": {
         "bytes": 105048,
         "raw_sha256": "8429ed3d5431598a317b08f3593e41b1d5ef312954057d8f686937f7e62ea324"
+      },
+      "local_controller/actual_entry_inspection_02.json": {
+        "bytes": 1979,
+        "raw_sha256": "c8f090dfb264a4f7209b90c4166a8b26a918d5007c55ace455b1e1cef18836fa"
+      },
+      "local_controller/entry_01.log": {
+        "bytes": 294236,
+        "raw_sha256": "283f08cae1b1604b6ef53fbc283a26590585efd97c4408db6fe400876107bda9"
+      },
+      "local_controller/entry_01.log.receipt.json": {
+        "bytes": 1683,
+        "raw_sha256": "dafe95ccff748940be4364c9273d4e1ddd52b5fb2db7935ac07c4053153fcddc"
+      },
+      "local_controller/entry_01.log.stderr": {
+        "bytes": 1293,
+        "raw_sha256": "d67ec95aae0c149bd08f407d8d2710aaef926c53c0d2ecf699054e7bd8662c05"
+      },
+      "local_controller/entry_01/city_entry_diagnostic.json": {
+        "bytes": 77543,
+        "raw_sha256": "713be502436b01f06ec3356aa1b92da06b77dd5f420f8790f2a92712011808c5"
+      },
+      "local_controller/entry_01/entry_court.png": {
+        "bytes": 6762744,
+        "raw_sha256": "50aedfc231a869b8b9eeb1968fbd598a1501b7fbc5a4db7d19ea6c00bc5bdb73"
+      },
+      "local_controller/entry_01/entry_landing.png": {
+        "bytes": 3151569,
+        "raw_sha256": "2897ecd62b3558f5d1fd97886edba574d444c8dfcaa9d905754c19d7d8801c4a"
+      },
+      "local_controller/entry_01_frozen_source.gd": {
+        "bytes": 52688,
+        "raw_sha256": "18fd02fa4db6a08758d5ec912ca7d75525de5414be738560164d589cb739bf94"
+      },
+      "local_controller/entry_02.log": {
+        "bytes": 294236,
+        "raw_sha256": "a0ac1cf6576d180b5898481c9e346b2f4eac96b7b2d15f1f560fb792668da27e"
+      },
+      "local_controller/entry_02.log.receipt.json": {
+        "bytes": 1683,
+        "raw_sha256": "4af2bd19464faae9433d4010f196c7f79221c65be7393a9bce35576f290ca487"
+      },
+      "local_controller/entry_02/city_entry_diagnostic.json": {
+        "bytes": 44977,
+        "raw_sha256": "8bdf53b2e71d7d3175ab3fcf0a811ff7b7ecc8dba3d5cca694b7a12d00c3dffb"
+      },
+      "local_controller/entry_02_frozen_source.gd": {
+        "bytes": 52684,
+        "raw_sha256": "f117306d8bba1e5b753b5a881be70e1dc954544ae3dfd65b3c05e78063eced67"
+      },
+      "local_controller/entry_batch_01.json": {
+        "bytes": 727,
+        "raw_sha256": "99ca61428c013ce64b688d8d787721445da465cd04df962f98eb9ef55f3098c9"
+      },
+      "local_controller/entry_batch_02.json": {
+        "bytes": 727,
+        "raw_sha256": "db7da099f15ff20ee8c840137424a605977129c1447e8cc657a1540e7c2b4d1f"
+      },
+      "local_controller/entry_parser_01.log.receipt.json": {
+        "bytes": 1709,
+        "raw_sha256": "1c4113590a87487468888a4c14983392afed5a7c012d26a7789867e31af1e463"
+      },
+      "local_controller/entry_parser_02.log.receipt.json": {
+        "bytes": 1707,
+        "raw_sha256": "98c991735222e304aa35e3b55e95a6eee5b1cdfbb5a76182354c8bb742d9e9d1"
+      },
+      "local_controller/entry_spatial_summary_01.json": {
+        "bytes": 1877,
+        "raw_sha256": "02202936097bf1880c5b58d5e313a3f7410bf024fe81d2b777cbd3b4e24b7151"
+      },
+      "local_controller/identical_evidence_aliases.json": {
+        "bytes": 989,
+        "raw_sha256": "bfa5b6916a3ebec853789f24777e85c6af3d11a1839f6da64bc35878cb462579"
       },
       "lod_body_replacement_01.json": {
         "bytes": 558,
