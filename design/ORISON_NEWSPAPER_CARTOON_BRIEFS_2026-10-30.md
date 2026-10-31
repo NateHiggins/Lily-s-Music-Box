@@ -9,6 +9,10 @@ with the optional columns, six boxed ads and the foot.
 All captions are **PROPOSED**. Each gag riffs on a headline from `origin/main`'s
 `game/data/newspapers/`, in that Sunday's issue.
 
+**The drawings.** The local generator drew them from these briefs. The prompts and chosen seeds are in
+`art/data/newspaper_cartoon_book.json`, and `art/tools/build_cartoon_book.py` inks them. The generator keeps the
+scene better than the gag, so a drawing may lose a small detail the brief names. The caption still carries the joke.
+
 **Rules held throughout.**
 
 - **The drawing carries no lettering at all** (RUL-008). No signs, tickets, tape,
