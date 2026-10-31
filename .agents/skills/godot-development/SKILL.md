@@ -131,6 +131,13 @@ readability, and feel.
   body is an explicit interim cost; keep a complete replacement-body task open.
   See the city report's canonical northeast intake/tank repair.
 
+- **Allocation failures:** retain the first renderer error as well as the final
+  crash and missing completion contract. Vulkan allocation failure can cascade
+  through invalid textures/uniforms into readback. Sample GPU use and host commit
+  headroom during a controlled retry; post-crash free memory is not a peak, and a
+  pass under changed host conditions does not establish a fix. Scope exhaustive
+  survey memory separately from ordinary play. Avoid blind repeated runs.
+
 - **Yield boundaries:** capture immutable layout and source guards before the
   first cooperative yield. Taking a snapshot after validation can bless an
   intervening mutation. Test cancellation and source/layout/pose changes at

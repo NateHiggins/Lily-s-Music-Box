@@ -1,5 +1,16 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+
+Evidence class: **INERT**. Latest qualified source checkpoint **74f29ebb**
+passes117 gates/0 regressions against exacte145b129,651 physical checks and256
+checks/eight actual controller legs. This branch supports23 technical building
+studies/126 remaining,not artistic acceptance. Latest upstream **ae8e69b1**
+(PR99 newspaper cartoons/UI) arrived during verification and is not yet
+combined-source-qualified. Last pushed canonical city boundary remains21/149.
+Preserve the verified cohort; merge/batch the upstream update with the next
+SW2 city capture before main publication. Do not repin the old runtime contract.
+
+
 ### Canonical northeast intake and tank LOD repair — October30
 
 Evidence class: **INERT**. Frozen architect checkpoint **b9732450** with
@@ -3758,3 +3769,33 @@ classification waiver,layout change or test weakening. Targeted spatial audit
 now has0 new failing/reported records. Original blocked verification is preserved;
 final exact-e145 comparison is rerun for the corrected candidate. No additional
 Godot run is required: production,test rendering sources and settings are exact.
+
+
+### Verified checkpoint and concurrent upstream boundary
+
+Evidence class: **INERT**. Corrected clean **74f29ebb** is MERGE-CANDIDATE
+against exact **e145b129**:117 gates,**0 regressions/4 improvements**,all17
+protected paths unchanged,V2 selector,0 doc lint errors,no requirement changes,
+waivers,promotions or accepted regressions. Completion-ledger counts remain
+7/8/110/42/134/136; the whole game is not green/complete. Gate changes manually
+reviewed: private queue regression and terminating waiter read preserveFIFO;
+one additive TEST_CONTRACT asset-prefix manifest row preserves every older
+record and classification. **bridge_candidate_verification.zip** retains the
+original blocked comparison and corrected complete boards/reports/targeted audit.
+
+Together with the source-bound7086/0 loaded family,256/eight/0 actual controller
+and651/0 composed physical evidence,this checkpoint adds the two narrow houses
+to the branch's technical-study tally: **23/149,126 remaining**. The bridge adds
+landmark geometry,not a149-building study or walking access. Artistic acceptance,
+normal-entry/save/full-city routes and serious startup/frame/memory debt remain.
+All648 temporarily archived untracked files (643 generated UIDs and5app
+attachments) were restored byte-for-byte after verification; no unrelated work
+was discarded. Nine normalized-identical imports retain separate byte backups.
+
+Before main publication,fetch finds new **ae8e69b1 /PR99**:52 newspaper drawings,
+authoring records and UI height/filter changes. Preserve them. Their broad
+script/image source binding expires the previous qualification on merge,even
+though city geometry/door authorities are unchanged. Preserve this verified
+checkpoint remotely and batch the mandatory combined renewal with the next
+already-started SW2 actual controller capture,rather than repeat an unrelated
+walk or manually repin receipts. Latest-main qualification is not claimed.
