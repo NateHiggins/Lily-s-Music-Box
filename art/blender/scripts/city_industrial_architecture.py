@@ -595,6 +595,26 @@ class EasternRows(MillLofts):
             self.bearings.append(dict(building=self.name,wall_key=self.row['wall_key'],point=list(foot),outside_probe=list(outside)))
         for distance,width,z0,z1 in [(-.22,.24,height-.16,height-.04),(-.10,.22,height-.04,height+.10)]:
             v,f=cornice_ring(offset_outline(outline,distance),width,z0,z1)
+            # A neighbouring higher roof must not receive this house's cornice
+            # through its parapet. Keep the ring's inner seat; terminate only
+            # the projecting outer skin at actual touching parcel planes.
+            a,b,c,d=self.row['rect'];limits={}
+            for row in self.neighbours:
+                if height+self.row.get('grade_datum_m',0.)>=row['height_m']+row.get('grade_datum_m',0.)+.65:continue
+                e,g,h,j=row['rect']
+                if min(d,j)-max(b,g)>.0001:
+                    if abs(a-h)<1e-7:limits['min_x']=a
+                    if abs(c-e)<1e-7:limits['max_x']=c
+                if min(c,h)-max(a,e)>.0001:
+                    if abs(b-j)<1e-7:limits['max_y']=-b
+                    if abs(d-g)<1e-7:limits['min_y']=-d
+            for index in list(range(n,2*n))+list(range(3*n,4*n)):
+                x,y,z=v[index]
+                if 'min_x' in limits:x=max(x,limits['min_x'])
+                if 'max_x' in limits:x=min(x,limits['max_x'])
+                if 'min_y' in limits:y=max(y,limits['min_y'])
+                if 'max_y' in limits:y=min(y,limits['max_y'])
+                v[index]=(x,y,z)
             self.add('door_paint' if self.style!='beauxarts_3001' else 'limestone',v,f)
 
     def bow_terrace(self,height):

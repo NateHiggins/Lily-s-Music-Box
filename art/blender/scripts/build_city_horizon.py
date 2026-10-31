@@ -10,6 +10,7 @@ from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_o
 from fabrication_native_batch import material,partition,export
 from city_ground_apron_geometry import exported_bounds,relief_height
 from city_industrial_architecture import IndustrialBuildings,MillLofts,EasternRows
+from city_residential_architecture import ResidentialHouses,EasternHouses
 plan_path=ROOT/'art/data/city_horizon/source_plan.json';plan=json.loads(plan_path.read_text())
 grade_path=ROOT/'art/blender/city_ground_apron_construction.json';grade=json.loads(grade_path.read_text())
 validate_plan(plan,grade['retained_ground_bounds'])
@@ -59,9 +60,10 @@ for family in ['near','far']:
         name=row['id'];a,b,c,d=row['rect'];x,y,X,Y=a,-d,c,-b
         h=float(row['height_m']);depth=float(row['reveal_m']);recess=float(row['glass_recess_m'])
         study=row.get('architecture',{});outline=building_outline(row)
-        if study.get('type') in ['industrial_front','mill_front','eastern_row']:
+        if study.get('type') in ['industrial_front','mill_front','eastern_row','residential_front']:
             neighbours=[r for r in rows if r['id']!=name]
-            constructor={'industrial_front':IndustrialBuildings,'mill_front':MillLofts,'eastern_row':EasternRows}[study['type']]
+            constructor={'industrial_front':IndustrialBuildings,'mill_front':MillLofts,'eastern_row':EasternRows,'residential_front':ResidentialHouses}[study['type']]
+            if study.get('style') in EasternHouses.STYLES:constructor=EasternHouses
             authored=constructor(row,add,neighbours).build()
             windows.extend(authored['windows']);bearings.extend(authored['bearings'])
             def lower_add(owner,key,vertices,faces):
@@ -217,7 +219,7 @@ for family in ['near','far']:
         bottom=float(row['grade_low_m'])-.2;top=datum-.28
         if bottom<top-1e-7:
             vv,ff=extrusion(building_outline(row),bottom,top);add(name,'concrete',vv,ff)
-            if row.get('architecture',{}).get('type') in ['industrial_front','mill_front','eastern_row']:
+            if row.get('architecture',{}).get('type') in ['industrial_front','mill_front','eastern_row','residential_front']:
                 lower_add(name,'concrete',vv,ff)
         grade_seats.append(dict(building=name,assembly_datum_m=datum,soil_low_m=row['grade_low_m'],soil_high_m=datum-.02,
                                 base_bottom_m=top,foundation_bottom_m=bottom if bottom<top-1e-7 else None))
@@ -288,7 +290,8 @@ for (name,key),(vertices,faces) in sorted(replacement_buffers.items()):
     stock=bpy.data.objects.new(name,mesh)
     obj=partition(collection,name+'__'+key,[stock],finish,lower_mats[cache],Matrix.Translation(center),catalog);lower_draws.append(obj)
     bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
-assert lower_draws and len(industrial_checks)==8
+expected_bodies={row['id'] for row in plan['buildings'] if row.get('architecture',{}).get('type') in ['industrial_front','mill_front','eastern_row','residential_front']}
+assert lower_draws and {row['building'] for row in industrial_checks}==expected_bodies and len(industrial_checks)==len(expected_bodies)
 proof=export(ROOT,'city_horizon_lod1',collection,staged_output=True)
 native=ROOT/'art/blender/city_horizon_lod1.blend';bpy.ops.wm.save_as_mainfile(filepath=str(native),compress=True)
 asset=ROOT/'game/assets/props/city_horizon_lod1.glb'
@@ -315,6 +318,7 @@ runtime.write_text(json.dumps(dict(schema=1,frame=plan['frame'],buildings=runtim
 paths=[plan_path,grade_path,catalog_path,runtime,Path(__file__),ROOT/'game/scripts/building/orison_v2_city_horizon.gd']
 paths += [ROOT/'art/blender/scripts'/p for p in ['city_horizon_geometry.py','city_ground_apron_geometry.py','fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']]
 paths.append(ROOT/'art/blender/scripts/city_industrial_architecture.py')
+paths.append(ROOT/'art/blender/scripts/city_residential_architecture.py')
 paths.append(ROOT/'art/blender/scripts/frame_mitre_geometry.py')
 for key in {part['key'] for asset in assets.values() for part in asset['parts']}:paths.extend(ROOT/'game/assets/building/textures'/p for p in catalog[key]['files'])
 def sha(path):
