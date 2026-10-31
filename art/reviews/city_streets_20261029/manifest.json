@@ -10104,9 +10104,9 @@
     "evidence_class": "INERT",
     "scope": "Native plus isolated loaded industrial construction,chart/PBR/mipmap/LOD/timing and real-controller diagnostics. Both original failed runs retained;no composed-world/runtime_contract/artistic or tally promotion.",
     "path": "art/reviews/city_streets_20261029/eastern_industrial_native_review.zip",
-    "bytes": 82079907,
-    "sha256": "72310f857abe38b89a77c6d06c5a009a7e4f5a3380b6de13f05b4844a7a0bb2f",
-    "members": 130,
+    "bytes": 82111164,
+    "sha256": "8062f3e7d1b108d8435eb0d1ff978d8713b7fc294e6da0a75c0731f8bc5a8cb3",
+    "members": 140,
     "original_native_archive": {
       "bytes": 41479866,
       "sha256": "9a4b4bc635fc456bd19770610c70f7ec243535d124b815818bb23a2773521fd4",
@@ -10634,6 +10634,46 @@
       "static_addendum_index_02.json": {
         "bytes": 591,
         "raw_sha256": "5af63847cd7fa9c2e1c031566d1a0585fb251ed8bb283babcc92fd004c7d8a76"
+      },
+      "metadata_cleanup_delta_03.json": {
+        "bytes": 3502,
+        "raw_sha256": "393f5ef64bbf9e1e5722070197ea3d34911174f09333f37acf642a935bfdaded"
+      },
+      "metadata_cleanup_review_03.json": {
+        "bytes": 4412,
+        "raw_sha256": "d3c51d65fe0b9139c56abba96312270ee510e207f1537b0cefe4a64f2548df62"
+      },
+      "cleanup_passage_metadata_03.py": {
+        "bytes": 2679,
+        "raw_sha256": "b23b4a474ba8502426ad710f590a99b124162f6cbe298f278e41b5bf74231d46"
+      },
+      "parser_03.log": {
+        "bytes": 226,
+        "raw_sha256": "25facc266c3a633815724538c5078dcbb6b380b8cf4dd7ab756f57e3c156d4e5"
+      },
+      "parser_03.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "parser_03.log.receipt.json": {
+        "bytes": 1693,
+        "raw_sha256": "67c23c5827527e0beaec09f2bc80a931084d3bc54afc9fdc0174e331f4d3a730"
+      },
+      "run_compile_03.ps1": {
+        "bytes": 367,
+        "raw_sha256": "f12137fb458c989c07edd4f02c0834d894c10486ddd0eb93556fd5de4d352e4b"
+      },
+      "systemic_03.json": {
+        "bytes": 124849,
+        "raw_sha256": "69b48d0d852974bc2d69e4442c99b2bd325d26b5d3ded6ed973bdcb211fac134"
+      },
+      "executed_source_metadata_03/game/tests/v2_city_horizon_bench.gd": {
+        "bytes": 32546,
+        "raw_sha256": "48e79c3c9e62d8710cc352912f1383e0f8b12292a1eb15ac05645075fb22ee90"
+      },
+      "metadata_addendum_index_03.json": {
+        "bytes": 1778,
+        "raw_sha256": "b11a834354f178f2683eea0b9bf31cab82a1ab9e40b050c15e5447a4adaaede5"
       }
     },
     "previous_loaded_archive": {
@@ -10641,6 +10681,13 @@
       "sha256": "12d94e9dac2a843e323d6c4de1a4dd91c7b928311c8506810b8e2c32dfe927e0",
       "members": 126
     },
-    "complete_static_board_commit": "962f4fc84adf8043a8257061dc2a5274e7a84ba1"
+    "complete_static_board_commit": "962f4fc84adf8043a8257061dc2a5274e7a84ba1",
+    "pre_metadata_archive": {
+      "bytes": 82079907,
+      "sha256": "72310f857abe38b89a77c6d06c5a009a7e4f5a3380b6de13f05b4844a7a0bb2f",
+      "members": 130
+    },
+    "metadata_cleanup_compile_only": true,
+    "current_bench_sha256": "48e79c3c9e62d8710cc352912f1383e0f8b12292a1eb15ac05645075fb22ee90"
   }
 }

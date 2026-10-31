@@ -314,7 +314,7 @@ func _drive_industrial(player: PlayerController,target_x: float,samples: Array) 
 	check(absf(player.global_position.x-target_x)<.08,"normal-input industrial passage target reached")
 
 func _industrial_passage(horizon: Node3D,ground: Node3D,fixture: Dictionary,directory: String) -> void:
-	var started:=Time.get_ticks_usec();var first_check:=checks;var first_failure:=failures.size()
+	var first_check:=checks;var first_failure:=failures.size()
 	var portal: Dictionary={};var datum:=0.
 	for study: Dictionary in fixture.industrial_checks:
 		for entry: Dictionary in study.entries:
@@ -343,7 +343,7 @@ func _industrial_passage(horizon: Node3D,ground: Node3D,fixture: Dictionary,dire
 		check(get_viewport().get_texture().get_image().save_png(directory.path_join("industrial_passage_"+str(spec.id)+".png"))==OK,"actual standing passage eye saved")
 	check(not player.noclip and not player._profile_disable_step_guard and not player._profile_disable_step_up,"passage retains gravity,collision and both production step guards")
 	check(sources==_industrial_entry_sources(horizon,ground),"passage rendering/controller/ground inputs remain frozen")
-	var record: Dictionary={"evidence_class":"INERT","scope":"Isolated actual production-controller roundtrip through the authored annex and retained ground;one initial placement,normal input thereafter,no rescue/noclip/step overrides. No occupied-world actors,authority,save or artistic acceptance.","building":portal.building,"checks":checks-first_check,"failures":failures.slice(first_failure),"elapsed_s":(Time.get_ticks_usec()-started)/1000000.,"stages":stages,"movement_samples":samples,"source_hashes":sources}
+	var record: Dictionary={"evidence_class":"INERT","scope":"Isolated actual production-controller roundtrip through the authored annex and retained ground;one initial placement,normal input thereafter,no rescue/noclip/step overrides. No occupied-world actors,authority,save or artistic acceptance.","building":portal.building,"checks":checks-first_check,"failures":failures.slice(first_failure),"stages":stages,"movement_samples":samples,"source_hashes":sources}
 	var file:=FileAccess.open(directory.path_join("industrial_passage_diagnostic.json"),FileAccess.WRITE)
 	check(file!=null,"passage diagnostic opens")
 	if file!=null:file.store_string(JSON.stringify(record,"\t"))
