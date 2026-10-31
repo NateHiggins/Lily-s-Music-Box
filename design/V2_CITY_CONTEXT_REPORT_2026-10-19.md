@@ -5052,3 +5052,20 @@ Next: integrate a bounded loading-owned preparation with real entry/reload
 restoration checks, separately reduce the sustained return-view rendering cost,
 and continue the eastern street's two-provider native ground repair. The five
 new eastern buildings remain isolated native work, not intaken city coverage.
+
+Candidate **53bdd482** against exact **bbe6b519** completes117 gates with
+zero regressions/four improvements,17 protected unchanged,V2,zero lint errors,
+no changed gate instruments,no requirement promotions and no waivers.
+This in-place no-Godot comparison reuses the actual three diagnostics above;
+it adds no playtest or fresh-checkout claim. All664 temporarily preserved
+untracked originals are restored byte-exact from their existing verified
+backup. The candidate's physical evidence gate passes with zero defects;
+the clean static-only baseline's two stale-packet defects are retained in
+the exact comparison, not silently repaired or waived.
+
+Additional analysis retains all three runs' aggregate draw counts. Prepared
+upward views show approximately1,118–1,121 median aggregate draws versus
+35,573–36,689 on the return. These include multiple render passes; they are
+not isolated main-camera visible draws. Next separate visible/shadow/private
+viewport counters before any measured fidelity tradeoff. No lighting, mesh,
+material or rendering policy has changed in this diagnostic checkpoint.

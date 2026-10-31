@@ -153,6 +153,14 @@ readability, and feel.
   pass under changed host conditions does not establish a fix. Scope exhaustive
   survey memory separately from ordinary play. Avoid blind repeated runs.
 
+- **Rendering preparation controls:** record preparation wall time separately
+  from the following route's distribution. Unswapped draws can move cold work
+  before interaction without removing its cost. Retain original reflections and
+  quality in the matched control; a hidden-feature experiment is attribution,
+  not a shipping repair. SceneTree camera-pose equality does not establish that
+  its RenderingServer view was restored: inspect the restored presentation
+  before production integration. See the [city ledger's Laurel cold-turn controls](../../../design/V2_CITY_CONTEXT_REPORT_2026-10-19.md).
+
 - **Yield boundaries:** capture immutable layout and source guards before the
   first cooperative yield. Taking a snapshot after validation can bless an
   intervening mutation. Test cancellation and source/layout/pose changes at
