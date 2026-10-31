@@ -1,0 +1,75 @@
+{
+ "schema_version": 1,
+ "shop_id": "bodega",
+ "name": "Bodega & Notions",
+ "closed": [],
+ "groups": {
+  "notions": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  }
+ },
+ "events": [],
+ "items": [
+  {
+   "id": "receiving_valve_sleeve_of_six",
+   "name": "Receiving valve, sleeve of six",
+   "cents": 100,
+   "kind": "part",
+   "source": "live",
+   "note": "Bible: beside the cigarettes",
+   "group": "notions",
+   "form": "box"
+  },
+  {
+   "id": "needle_and_thread",
+   "name": "Needle and thread",
+   "cents": 5,
+   "kind": "goods",
+   "source": "authored",
+   "group": "notions",
+   "form": "card"
+  },
+  {
+   "id": "shoelaces",
+   "name": "Shoelaces",
+   "cents": 5,
+   "kind": "goods",
+   "source": "authored",
+   "group": "notions",
+   "form": "card"
+  },
+  {
+   "id": "safety_pins_card",
+   "name": "Safety pins, card",
+   "cents": 5,
+   "kind": "goods",
+   "source": "authored",
+   "group": "notions",
+   "form": "card"
+  },
+  {
+   "id": "candles_two",
+   "name": "Candles, two",
+   "cents": 5,
+   "kind": "goods",
+   "source": "authored",
+   "group": "notions",
+   "form": "packet"
+  },
+  {
+   "id": "cigarettes_pack",
+   "name": "Cigarettes, pack",
+   "cents": 13,
+   "kind": "goods",
+   "source": "authored",
+   "group": "notions",
+   "form": "packet"
+  }
+ ]
+}

@@ -101,6 +101,15 @@ share one price.
 stack counts and a bound. MaintenanceInventory stays as it is. The player's goods
 stay in pockets and are listed on the pocket ledger, which is already there.
 
+**The carried case.** Owner direction, 2026-10-30: goods live in a physical case, in
+the spirit of the Resident Evil attache case. Tab opens a forward-folding dispensary
+valise over the live world (**art/blender/carried_case.md**). The fold-down shelf is
+stitched into a 10 by 6 grid, and each good has one of eleven shapes and footprints.
+Click grabs a stack, motion carries it, the next click sets it down, and right click
+or R turns it. The arrangement saves in **carried_case**. Only bought goods take up
+room: keys, parts, groceries, cash and rent are on the lid's card, so a full case
+cannot block a job or the mystery. Using an item from the case is not built yet.
+
 **4.3 One way to pay.** The owner already ruled that every point of sale settles
 over the handheld by radio (**design/V2_RADIO_SHOP_NETWORK_2026-10-22.md**). So:
 extend **RadioClearingNetwork** past its hard-coded hose items, and mount

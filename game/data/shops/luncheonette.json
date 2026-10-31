@@ -1,0 +1,165 @@
+{
+ "schema_version": 1,
+ "shop_id": "luncheonette",
+ "name": "Luncheonette",
+ "closed": [
+  120,
+  390
+ ],
+ "groups": {
+  "urns": {
+   "capacity": 40,
+   "per_day": 25,
+   "delivery": {
+    "every_days": 1,
+    "at_minute": 360,
+    "units": 40
+   }
+  },
+  "case": {
+   "capacity": 16,
+   "per_day": 10,
+   "delivery": {
+    "every_days": 1,
+    "at_minute": 390,
+    "units": 16
+   }
+  },
+  "griddle": {
+   "capacity": 24,
+   "per_day": 15,
+   "delivery": {
+    "every_days": 1,
+    "at_minute": 390,
+    "units": 24
+   }
+  },
+  "back": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "fountain": {
+   "capacity": 40,
+   "per_day": 15,
+   "delivery": {
+    "every_days": 1,
+    "at_minute": 480,
+    "units": 40
+   }
+  }
+ },
+ "events": [
+  {
+   "group": "fountain",
+   "from": "1929-07-01",
+   "until": "1929-08-31",
+   "factor": 2.0,
+   "why": "Summer heat at the counter"
+  }
+ ],
+ "items": [
+  {
+   "id": "coffee",
+   "name": "Coffee",
+   "cents": 5,
+   "kind": "consumed",
+   "source": "authored",
+   "group": "urns"
+  },
+  {
+   "id": "slice_of_pie",
+   "name": "Slice of pie",
+   "cents": 10,
+   "kind": "consumed",
+   "source": "authored",
+   "group": "case"
+  },
+  {
+   "id": "coffee_and_pie",
+   "name": "Coffee and pie",
+   "cents": 15,
+   "kind": "consumed",
+   "source": "ad",
+   "group": "case"
+  },
+  {
+   "id": "egg_sandwich",
+   "name": "Egg sandwich",
+   "cents": 15,
+   "kind": "consumed",
+   "source": "authored",
+   "group": "griddle"
+  },
+  {
+   "id": "blue_plate",
+   "name": "Blue plate",
+   "cents": 35,
+   "kind": "consumed",
+   "source": "authored",
+   "note": "changes by weekday",
+   "group": "griddle"
+  },
+  {
+   "id": "the_melancholy_special",
+   "name": "The Melancholy Special",
+   "cents": 40,
+   "kind": "consumed",
+   "source": "authored",
+   "note": "**JF016-A01**",
+   "group": "griddle"
+  },
+  {
+   "id": "yesterdays_rolls",
+   "name": "Yesterday's rolls",
+   "cents": 5,
+   "kind": "goods",
+   "source": "live",
+   "group": "case",
+   "grocery": "day_old_rolls",
+   "form": "packet"
+  },
+  {
+   "id": "gingersnaps",
+   "name": "Gingersnaps",
+   "cents": 10,
+   "kind": "goods",
+   "source": "live",
+   "group": "case",
+   "grocery": "gingersnaps",
+   "form": "packet"
+  },
+  {
+   "id": "beef_dripping",
+   "name": "Beef dripping",
+   "cents": 8,
+   "kind": "goods",
+   "source": "live",
+   "group": "back",
+   "grocery": "beef_dripping",
+   "form": "jar"
+  },
+  {
+   "id": "spent_coffee_grounds",
+   "name": "Spent coffee grounds",
+   "cents": 0,
+   "kind": "goods",
+   "source": "live",
+   "group": "back",
+   "grocery": "spent_coffee",
+   "form": "packet"
+  },
+  {
+   "id": "soda_from_the_carbonator",
+   "name": "Soda, from the carbonator",
+   "cents": 5,
+   "kind": "consumed",
+   "source": "ad",
+   "group": "fountain"
+  }
+ ]
+}
