@@ -3809,3 +3809,119 @@ is advanced from e145b129 to exactae8e69b1; its new117-gate board is running
 without Godot. Capture the terminal board before using it. Next intake remains
 commit-pinned SW2d3bff66e,followed by its nearby actual controller/composed cohort;
 back_w's later entry repair remains excluded until frozen/reviewed.
+
+
+### October30 southwest carriagehouse native WIP
+
+After frozen **fe4899a5**, canonical merged that cohort and released the
+own-worktree producer hold. **site_sw2** now has an actual four-bay French
+studio front adapted from LPC LP2102,p113/p153,126 East38th Street's1916
+Delano&Aldrich carriagehouse alteration. The source says three stories AND
+attic,not three floors alone. This AU12.4x9.68m parcel retains9.8m body datum
+and all original roof/bulkhead/equipment bearings. Cement-stucco form uses
+registered coated plaster/limestone,33 genuine panes,full bracketed balcony,
+circular upper windows and a pitched glazed attic strip. The west party wall
+faces the taller firehouse across.6m; the east remains exposed to the cross
+street. Three shallow entrance risers use measured-.27225m pavement to+.18m
+landing,with nominal3.706m sidewalk depth remaining. No new interior,shop,
+clock,weather,save or narrative owner is introduced.
+
+The normal closure→near→lower→streets replay completes and four fixture
+preflights pass. Source-bound native checks:1205 bearings/2559 windows/126 roof
+faces/12 returns,0 failures;1139 new near closed positive stocks;complete lower
+family10834 stocks/555 bearings/577 panes,0 failures. Six new skylight-seat rays
+pass against the actual retained cap. Body near/lower **15530/12410 triangles**,
+12 material parts each. All266 unaffected near and143 prior lower exported
+parts retain exact attributes/indices/transforms;24 other source profiles and
+three contextual GLBs are exact. Seven actual native images are inspected,
+including the existing firehouse,roof hardware and real street context.
+
+Initial entry review finds a bounded repair before Godot:the outer arch/reveal
+trim ends on the plaster face and needs a proud molding/jamb course;plinth
+tops need a5mm recess under the landing to eliminate coincident faces. Preserve
+these initial views and source/native state. A detached pre-check earlier failed
+its cap-seat ray before any export;the normal registered-scene producer passes
+that guard. Do not treat the detached failure as accepted construction or
+assert its cause without proof. A baseline setup also stopped on missingstruct
+import before any production edit;its subsequent missing-runner failure is kept.
+No Godot check or normal standing-controller proof exists for this new body yet.
+Technical qualified count stays **21/149,128 remaining** while canonical
+prepares the previous pair/bridge cohort.
+
+
+SW2 native continuation after Bodega repair intake: merged **99398ee7** source
+into the saved city branch, preserving both evidence sections and regenerating
+closure,near,lower and street derivatives. No canonical checkout edits.
+The carriagehouse outer archivolt/jamb courses now project beyond the plaster;
+its deep barrel ends behind the facade, with a separate proud keystone clear
+of the balcony. Plinth tops recess5mm below the landing. Native near/lower
+entry and complete firehouse-block views were inspected (four new views);
+unchanged balcony/skylight views from the first review remain applicable.
+Actual export multisets match native geometry for all12 SW2 material parts.
+SW2 near/lower **15710/12518 triangles**;1154 new near stocks are closed and
+positive. Full lower10771 stocks/555 bearings/575 panes pass. Near126 roof,
+12 return,1205 bearing and2557 pane samples pass. Four source preflights and
+two-asset UV audit pass. Compared with the repair checkpoint,all266 near and
+143 lower non-SW2 parts are exact,including the complete E/Bodega fix. Compared
+with the first SW2 WIP,all11 non-limestone SW2 parts are exact at both levels.
+
+Combined exported support diagnostics pass36 tread/landing sections and12
+review-camera sight rays. The first attempted low footline rays correctly hit
+the stair risers; that is an invalid straight-line walk criterion,not a failed
+standing-controller run. Original script/trace are retained. Revised optical
+rays establish visibility only; production step-up/full-capsule ascent/descent
+and sidewalk clear passage remain open. External evidence stays under
+**southwest_carriagehouse_01**, including the original detached cap-seat/setup
+failures and original/revised native images. No runtime,loaded mips,LOD timing
+or artistic acceptance from the new native checkpoint. Published count stays
+**21/149** until canonical source-bound controller/composed qualification.
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Evidence class: **INERT**. SW2 native/isolated diagnostics, not acceptance.
+
+The actual current patched-Vulkan fullscreen3440x1440 bench passes **7162/0**,
+1205 roof samples and1067 family draws. The unmodified wrapper receipt
+**southwest_carriagehouse_01/bench_01.log.receipt.json** records41.72seconds,
+completed/exit0/no timeout and empty stderr. It is **suite_run**,not a schema-2
+runtime_contract. Seven current loaded images were inspected,eleven native
+images indexed,and207 loaded source hashes match after the run. UV/PBR/loaded
+mipmap checks pass in this isolated scene. Production lighting and whole-city
+artistic acceptance remain open.
+
+At MSAA3/TAAoff,uncapped/vsyncoff,the SW2+equipment group uses25 draws:
+20550 near and16943 forced-lower primitives. Five cases each retain90 warmed
+frames. First near viewport GPU median1.199/p951.51305/max1.692ms;wall
+median1.6865/p952.5371/max**39.929ms**,four frames above16.667ms. Subsequent
+far/natural/far-repeat/near-repeat GPU medians.771/.775/.769/.668ms and wall
+maxima1.323/1.531/1.558/1.273ms. Original samples remain intact. First-case
+wall spikes are unexplained; no quiet-host,matched baseline,causal speedup,
+cold-start or whole-city performance claim. Existing316.861ms composed spike
+and Windows startup hang remain separate unresolved findings.
+
+Actual limewash material-body transition occurs between189.2158219 and
+189.2315820metres,2036 to1292primitives. Five-degree FOV recovers2036;
+inward return restores the original before-PNG bytes exactly. This proves a
+single material-body transition,not an entire-world LOD/artistic threshold.
+All retained body parts,including limestone entrance and glazed skylight,keep
+full replacement body meshes. No detail-only deletion substitutes for the LOD.
+
+Import25.61seconds and compiler14.76seconds completed normally. Import stderr
+retains126454bytes of638 missing-UID/cache-recreation warnings;all lines were
+inspected and contain only those warnings/location lines. An earlier message
+incorrectly said both logs were empty; corrected without rerunning. Compiler
+stderr is empty.1474 texture import policies are correct,four source preflights
+pass. Own638 generated untracked UID bytes exactly match the existing raw ZIP;
+after own Godot terminal they were individually guarded and removed. No tracked
+UID or unrelated checkout/index/process changed.
+
+Portable **southwest_carriagehouse_native_isolated_review.zip** indexes every
+member hash in the existing manifest;CRC/member bytes verified. It retains
+original native/setup/low-footline failures,raw loaded timings and original
+wrapper receipts. Reference pixels/PDFs and duplicate production meshes are
+excluded. Current source checkpoint is **a3bdb703**. SW2 standing-body step-up,
+ascent/descent,footway and composed physical qualification remain open.
+Canonical's narrower E/Bodega+west cohort independently reports7086/0 isolated
+and256 checks/eight actual movement legs/0,including real door grab/move/release
+and inside/outside. That is not SW2 qualification; original234/6/2 remains.
+Published tally stays21/149 until canonical renewal/publication is complete.

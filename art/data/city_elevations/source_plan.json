@@ -569,24 +569,24 @@
     },
     {
       "id": "site_sw2",
-      "description": "Broad-window workshop and tenanted upper storeys",
+      "description": "Four-bay AU carriagehouse studio with bracketed balcony,tall segmental French casements,circular upper windows and pitched glazed attic;retained service bulkhead and plant",
       "massing": "straight_eave",
-      "storey_height": 3.02,
+      "storey_height": 3.3,
       "bay_pitch": 2.38,
       "window_width": 1.37,
       "window_height": 1.91,
       "sash": "door_paint",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "limewash_plaster",
       "wall_tint": [
-        1,
-        1,
-        1,
+        0.86,
+        0.84,
+        0.76,
         1
       ],
       "frame_tint": [
-        0.3,
-        0.33,
-        0.3,
+        0.18,
+        0.22,
+        0.2,
         1
       ],
       "window_recess": 0.17,
@@ -597,7 +597,23 @@
       "window_treatment": "mixed",
       "sill_projection": 0.14,
       "lintel_height": 0.18,
-      "variation_seed": 2115
+      "variation_seed": 2115,
+      "floor_heights": [
+        3.3,
+        3.9,
+        2.6
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "delano126",
+        "front_side": 2,
+        "front_floor_count": 3,
+        "front_bays": 4,
+        "roof_depth_m": 0,
+        "entry_ground_m": -0.27225,
+        "entry_projection_m": 0.72,
+        "precedent": "INERT:LPC LP2102,p113/p153,126 East38th Street,Delano&Aldrich1916 alteration,c1869carriagehouse,three storiesANDattic,cementstucco. Explicit AUfour-bay12.4m frontage/9.8m body with retained roofplant;not exact1928height/condition. Blindwestpartywall/exposedeastcrossstreet,three shallow risers on measuredpavement;glazedfrontatticstrip clears7roofcontacts/13hardwareparts. No lettering/interior/shop authority."
+      }
     },
     {
       "id": "site_sw3",
