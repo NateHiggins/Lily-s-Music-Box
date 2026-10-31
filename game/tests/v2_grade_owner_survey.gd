@@ -8,6 +8,9 @@ func _run() -> void:
 	GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC;Selector.reset_for_tests("v2")
 	var world: OrisonV2RuntimeRoot=(load(Selector.scene_path()) as PackedScene).instantiate()
 	add_child(world);await get_tree().physics_frame;await get_tree().physics_frame
+	# The runtime's ready path yields during companion composition. Two physics
+	# ticks alone do not establish that every retained static owner exists yet.
+	while world.startup_ms<=0. and not world.startup_failed:await get_tree().process_frame
 	_check(not world.startup_failed,"current production-selected V2 starts for grade survey")
 	if world.startup_failed:world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	var root: Node3D=world.adapter.root

@@ -1,6 +1,294 @@
 """Read actual exported ground bounds and derive a disjoint outer apron."""
-import json,struct
+import json,struct,math
+from functools import lru_cache
 import numpy as np
+
+
+def rounded_convex_offset(polygon, radius, segments=64):
+    """Bounded Euclidean clearance, not an acute-corner mitre extension.
+
+    The circumscribed regular disk contains the requested clearance circle;
+    its maximum excess is radius*(sec(pi/segments)-1). A convex hull computes
+    the Minkowski sum. Union distributes over this operation, so callers may
+    offset the actual convex near/lower stocks without offsetting their tiny
+    triangulation ears by unbounded mitres.
+    """
+    assert radius > 0 and segments >= 16 and segments % 4 == 0
+    assert len(polygon) >= 3
+    cross = lambda a,b,c: (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])
+    signed = sum(a[0]*b[1]-a[1]*b[0] for a,b in zip(polygon,polygon[1:]+polygon[:1]))
+    assert signed > 0 and all(cross(polygon[i-1],polygon[i],polygon[(i+1)%len(polygon)]) >= -1e-9 for i in range(len(polygon))), 'Expected a counterclockwise convex stock'
+    circumradius = radius/math.cos(math.pi/segments)
+    disk = [(circumradius*math.cos(2*math.pi*i/segments),circumradius*math.sin(2*math.pi*i/segments)) for i in range(segments)]
+    points = sorted(set((float(x+dx),float(y+dy)) for x,y in polygon for dx,dy in disk))
+    def half(points):
+        result=[]
+        for p in points:
+            while len(result)>=2 and cross(result[-2],result[-1],p)<=1e-12:result.pop()
+            result.append(p)
+        return result
+    return half(points)[:-1]+half(list(reversed(points)))[:-1]
+
+
+def street_cut_footprints(plan, frame, layout):
+    """Derive both native LODs' padded cuts in the existing building frame.
+
+    This is an authoring projection of the street owner, never a second grade
+    or collision authority. Actual soil subtraction and support are separate.
+    Open edges must be outer bounds: an internal clipping plane could cut off
+    another arm of a concave district and is refused rather than guessed.
+    """
+    from city_street_geometry import district_topology, split, clean
+    door=next(row for row in layout['doors'] if row['id']=='F01_DOOR_06')
+    offset=float(door['center'][1])+float(frame['source_threshold_z'])
+    padding=float(plan['lod_error_m'])+float(plan['joint_m'])
+    assert padding>0
+    result=[]
+    for district in plan.get('districts',[]):
+        outline=district['road_outline_m']
+        topologies=[district_topology(district,n,plan['curb_width_m'],plan['curb_cap_overhang_m']) for n in (12,8)]
+        source_stocks=[t['road']+t['curb_caps'] for t in topologies]
+        edges=[]
+        for edge in district['open_edges']:
+            axis=int(edge['axis']);value=float(edge['value_m'])
+            assert axis in (0,1)
+            lo=min(p[axis] for p in outline);hi=max(p[axis] for p in outline)
+            assert abs(value-lo)<1e-8 or abs(value-hi)<1e-8,'Open continuation must be an outer plane'
+            keep_high=abs(value-lo)<1e-8
+            # The real cap returns project beyond the nominal road end by
+            # their stock width/overhang. Preserve that actual terminal plane,
+            # rather than discarding authored cap vertices at the road datum.
+            coordinates=[p[axis] for stocks in source_stocks for stock in stocks for p in stock]
+            stock_end=min(coordinates) if keep_high else max(coordinates)
+            edges.append((axis,stock_end,keep_high))
+        polygons=[];seen=set();counts=[]
+        for stocks in source_stocks:
+            counts.append(len(stocks))
+            for stock in stocks:
+                p=rounded_convex_offset(stock,padding)
+                for axis,value,keep_high in edges:
+                    # split retains the left side of its directed line.
+                    a,b=([(value,1.),(value,0.)] if keep_high else [(value,0.),(value,1.)]) if axis==0 else ([(0.,value),(1.,value)] if keep_high else [(1.,value),(0.,value)])
+                    p,_=split(p,a,b)
+                    if not p:break
+                if not p:continue
+                p=clean([(-x,y+offset) for x,y in p])
+                first=min(range(len(p)),key=lambda i:p[i]);p=p[first:]+p[:first]
+                key=tuple(p)
+                if key in seen:continue
+                seen.add(key);polygons.append(p)
+        result.append({'id':district['id'],'polygons':polygons,'subgrade_profile_m':sorted([[-float(x),float(h)] for x,h in district['ground_cut_profile_m']]),
+                       'padding_m':padding,'padding_max_excess_m':padding*(1/math.cos(math.pi/64)-1),
+                       'source_lod_stock_counts':counts,'offset_z_m':offset,'open_edges':district['open_edges'],
+                       'open_stock_planes':edges})
+    return result
+
+
+def disjoint_cut_regions(polygons):
+    """Keep a union once for independent volume integration and cap creation."""
+    return _disjoint_cut_regions(tuple(tuple(tuple(v) for v in p) for p in polygons))
+
+
+@lru_cache(maxsize=4)
+def _disjoint_cut_regions(polygons):
+    from city_street_geometry import bounds, overlap, area, cut
+    result=[];originals=[];boxes=[]
+    for p in sorted(polygons,key=lambda p:-area(p)):
+        box=bounds(p)
+        # Subtract the original convex stocks, whose union is identical to
+        # the accepted fragments. Reusing fragments as masks needlessly
+        # multiplies clipping work and slivers along prior partition lines.
+        masks=[q for b,q in zip(boxes,originals) if overlap(box,b)]
+        pieces=cut(p,masks)
+        result.extend(pieces);originals.append(p);boxes.append(box)
+    return tuple(tuple(p) for p in result)
+
+
+def convex_union_boundaries(polygons):
+    """Visible directed edges of convex stocks; no interior arrangement mesh."""
+    from city_street_geometry import bounds,area
+    assert all(len(p)>=3 and area(p)>0 for p in polygons),'Expected counterclockwise stocks'
+    boxes=[bounds(p) for p in polygons];segments=[]
+    for i,p in enumerate(polygons):
+        for a,b in zip(p,p[1:]+p[:1]):
+            vx,vy=b[0]-a[0],b[1]-a[1]
+            if math.hypot(vx,vy)<1e-9:continue
+            box=[min(a[0],b[0]),min(a[1],b[1]),max(a[0],b[0]),max(a[1],b[1])]
+            hidden=[]
+            for j,q in enumerate(polygons):
+                if i==j:continue
+                B=boxes[j]
+                if box[0]>B[2]+1e-8 or box[2]<B[0]-1e-8 or box[1]>B[3]+1e-8 or box[3]<B[1]-1e-8:continue
+                lo,hi=0.,1.;same=False
+                for u,v in zip(q,q[1:]+q[:1]):
+                    dx,dy=v[0]-u[0],v[1]-u[1];length=math.hypot(dx,dy)
+                    c=(dx*(a[1]-u[1])-dy*(a[0]-u[0]))/length
+                    d=(dx*vy-dy*vx)/length
+                    if abs(d)<1e-10:
+                        if c < -1e-8:hi=-1.;break
+                        if abs(c)<1e-8 and dx*vx+dy*vy>0:same=True
+                    elif d>0:lo=max(lo,-c/d)
+                    else:hi=min(hi,-c/d)
+                    if hi<=lo:break
+                if hi>lo+1e-12 and not (same and i<j):hidden.append((max(0.,lo),min(1.,hi)))
+            start=0.
+            for lo,hi in sorted(hidden):
+                if hi<=start:continue
+                if lo>start+1e-11:segments.append(((a[0]+start*vx,a[1]+start*vy),(a[0]+lo*vx,a[1]+lo*vy)))
+                start=max(start,hi)
+            if start<1.-1e-11:segments.append(((a[0]+start*vx,a[1]+start*vy),b))
+    # Stitch independently evaluated edge intersections at 0.1 micrometre.
+    # Actual closed-stock volume is still checked at the original 0.001 m3.
+    def key(p):return tuple(round(v,7) for v in p)
+    edges={};incoming={}
+    for a,b in segments:
+        a,b=key(a),key(b)
+        if a==b:continue
+        assert a not in edges,('branch',a,edges.get(a),b)
+        edges[a]=b;incoming[b]=incoming.get(b,0)+1
+    assert set(edges)==set(incoming) and all(n==1 for n in incoming.values()),('open',len(edges),len(incoming),list(set(edges)-set(incoming))[:5],list(set(incoming)-set(edges))[:5])
+    loops=[]
+    while edges:
+        first=next(iter(edges));p=[];at=first
+        while True:
+            p.append(at);at=edges.pop(at)
+            if at==first:break
+        assert area(p)>0,('hole',area(p))
+        loops.append(p)
+    return loops
+
+
+def soil_cut_prisms(specifications):
+    """Convex vertical cutters, split at every real subgrade-profile break."""
+    from city_street_geometry import split,bounds
+    result=[]
+    for row in specifications:
+        profile=row['subgrade_profile_m']
+        for polygon in row['polygons']:
+            lo,_,hi,_=bounds(polygon)
+            stations=sorted(set([lo,hi]+[x for x,h in profile if lo<x<hi]))
+            for a,b in zip(stations,stations[1:]):
+                p,_=split(polygon,(a,1.),(a,0.))
+                if p:p,_=split(p,(b,0.),(b,1.))
+                if not p:continue
+                h,H=profile_height(a,profile),profile_height(b,profile)
+                slope=(H-h)/(b-a);intercept=h-slope*a
+                planes=[]
+                for u,v in zip(p,p[1:]+p[:1]):
+                    dx,dz=v[0]-u[0],v[1]-u[1]
+                    planes.append((dz,0.,-dx,dx*u[1]-dz*u[0]))
+                planes.append((slope,-1.,0.,intercept))
+                result.append({'polygon':p,'bounds':bounds(p),'slope':slope,'intercept':intercept,
+                               'minimum_y':min(h,H),'planes':planes})
+    return result
+
+
+def clip_soil_face(face,prisms):
+    """Remove only cutter interiors from a render face, retaining its winding.
+
+    Unlike a Boolean of an open draw mesh this cannot invent a solid side or
+    a cap. New cavity faces come separately from the closed native soil union.
+    Unaffected double-precision source faces remain untouched.
+    """
+    from city_street_geometry import overlap
+    parts=[face]
+    for prism in prisms:
+        kept=[]
+        for p in parts:
+            box=[min(v[0] for v in p),min(v[2] for v in p),max(v[0] for v in p),max(v[2] for v in p)]
+            if max(v[1] for v in p)<=prism['minimum_y'] or not overlap(box,prism['bounds']):
+                kept.append(p);continue
+            remaining=list(p)
+            for nx,ny,nz,d in prism['planes']:
+                distance=lambda v:nx*v[0]+ny*v[1]+nz*v[2]+d
+                values=[distance(v) for v in remaining]
+                if max(values)<=0.:continue
+                if min(values)>=0.:
+                    kept.append(remaining);remaining=[];break
+                outside=_clip_plane(remaining,lambda v:-distance(v))
+                if outside:kept.append(outside)
+                remaining=_clip_plane(remaining,distance)
+                if not remaining:break
+        parts=kept
+        if not parts:break
+    return parts
+
+
+def _area_xmoment(p):
+    """Stable area and first X moment; avoid far-origin shoelace cancellation."""
+    a=p[0];areas=[];moments=[]
+    for b,c in zip(p[1:-1],p[2:]):
+        area=((b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]))*.5
+        areas.append(area);moments.append(area*(a[0]+((b[0]-a[0])+(c[0]-a[0]))/3.))
+    return math.fsum(areas),math.fsum(moments)
+
+
+def removed_flat_soil_volume(specifications,region,top,reservations):
+    """Independent exact polygon/profile integral, including original voids.
+
+    Valid only where the original soil roof is flat. Callers verify that
+    restriction against the actual grade before invoking the native Boolean.
+    No mesh Boolean result or measured output volume enters this calculation.
+    """
+    from city_street_geometry import rectangle,intersection,bounds,overlap,cut,split
+    assert len(specifications)<=1,'Combine district overlaps before independent soil-volume proof'
+    total=[]
+    for row in specifications:
+        profile=row['subgrade_profile_m'];floor=min(h for x,h in profile)
+        clipped=[p for polygon in row['polygons'] if (p:=intersection(polygon,rectangle(region)))]
+        if not clipped:continue
+        cut_boxes=[bounds(p) for p in clipped]
+        union=disjoint_cut_regions(clipped)
+        # Unrelated building cavities must not multiply height slices across
+        # every fragment of this street. A conservative per-stock box test
+        # rejects only reservations that cannot meet any clipped cutter;
+        # exact polygon subtraction below still decides actual overlap.
+        relevant=[r['bounds'] for r in reservations if r['bounds'][1]<top and r['bounds'][4]>floor and any(overlap([r['bounds'][0],r['bounds'][2],r['bounds'][3],r['bounds'][5]],box) for box in cut_boxes)]
+        heights=sorted(set([floor,top]+[v for b in relevant for v in [b[1],b[4]] if floor<v<top]))
+        for y,Y in zip(heights,heights[1:]):
+            masks=[rectangle([b[0],b[2],b[3],b[5]]) for b in relevant if b[1]<(y+Y)*.5<b[4]]
+            for p in union:
+                box=bounds(p)
+                local=[m for m in masks if overlap(box,bounds(m))]
+                for q in cut(p,local):
+                    lo,_,hi,_=bounds(q)
+                    stations=[lo,hi]+[x for x,h in profile if lo<x<hi]
+                    for (a,h),(b,H) in zip(profile,profile[1:]):
+                        if abs(H-h)<1e-15:continue
+                        for level in (y,Y):
+                            x=a+(level-h)*(b-a)/(H-h)
+                            if a<x<b and lo<x<hi:stations.append(x)
+                    stations=sorted(set(stations))
+                    for a,b in zip(stations,stations[1:]):
+                        face,_=split(q,(a,1.),(a,0.))
+                        if face:face,_=split(face,(b,0.),(b,1.))
+                        if not face:continue
+                        h,H=profile_height(a,profile),profile_height(b,profile)
+                        middle=(h+H)*.5
+                        if middle>=Y:continue
+                        area,moment=_area_xmoment(face)
+                        if middle<=y:total.append(area*(Y-y))
+                        else:
+                            slope=(H-h)/(b-a)
+                            total.append(area*(Y-h+slope*a)-slope*moment)
+    return math.fsum(total)
+
+
+def chunk_soil_faces(faces,pitch=4.):
+    """Split convex cavity faces on the existing ground draw-chunk planes."""
+    result={}
+    for face in faces:
+        low=[min(p[a] for p in face) for a in (0,2)]
+        high=[max(p[a] for p in face) for a in (0,2)]
+        for ix in range(math.floor(low[0]/pitch),math.floor(high[0]/pitch)+1):
+            for iz in range(math.floor(low[1]/pitch),math.floor(high[1]/pitch)+1):
+                p=list(face)
+                for distance in [lambda p:ix*pitch-p[0],lambda p:p[0]-(ix+1)*pitch,
+                                 lambda p:iz*pitch-p[2],lambda p:p[2]-(iz+1)*pitch]:
+                    p=_clip_plane(p,distance)
+                    if not p:break
+                if p:result.setdefault((ix,iz),[]).append(p)
+    return result
 
 
 def exposed_grid_faces(solid, retained):

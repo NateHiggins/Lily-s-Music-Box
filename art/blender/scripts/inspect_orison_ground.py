@@ -37,6 +37,18 @@ if roof_cut:
             h,H=height(c),height(d)
             weights=positive_integral(h,H,cells['ys'][:-1],d-c)-positive_integral(h,H,cells['ys'][1:],d-c)
             expected+=float(weights@(lengths-protected)+np.diff(cells['ys'])*(d-c)@protected)
+metadata=json.loads((root/'art/blender/orison_ground_construction.json').read_text(encoding='utf-8'))
+if metadata.get('street_soil_cut'):
+    import sys
+    sys.path.insert(0,str(root/'art/blender/scripts'))
+    from city_ground_apron_geometry import street_cut_footprints,removed_flat_soil_volume
+    specifications=street_cut_footprints(*[json.loads((root/p).read_text(encoding='utf-8')) for p in ['art/data/city_streets/source_plan.json','game/data/orison_v2/exterior/street_frame.json','game/data/orison_v2_blockout.json']])
+    plan=metadata['source_plan']
+    represented=lambda v:float(np.float32(round(v,5)))
+    masks=[{'bounds':[represented(v) for v in r['bounds']]} for r in plan['retained_solids']+plan['occupation_reservations']]
+    removed=removed_flat_soil_volume(specifications,[float(cells['xs'][0]),float(cells['zs'][0]),float(cells['xs'][-1]),float(cells['zs'][-1])],float(cells['ys'][-1]),masks)
+    expected-=removed
+    print('INDEPENDENT STREET VOID INTEGRAL:',removed,'m3; original grid/grade proof minus source-derived native cut',flush=True)
 source = bpy.data.objects['OrisonGroundClosedUnion']
 bm = bmesh.new(); bm.from_mesh(source.data)
 non_manifold = sum(not edge.is_manifold for edge in bm.edges)

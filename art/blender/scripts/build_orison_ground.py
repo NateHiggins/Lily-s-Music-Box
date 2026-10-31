@@ -24,7 +24,8 @@ sys.path.insert(0,str(root/'tools'))
 from grade_source_snapshot import validate as validate_grade_snapshot
 validate_grade_snapshot(plan,root)
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from city_ground_apron_geometry import profile_height,clip_profile_face,profile_roof_caps,profile_grid_volume,coalesced_grid_planes,parcel_transition_cells
+from city_ground_apron_geometry import profile_height,clip_profile_face,profile_roof_caps,profile_grid_volume,coalesced_grid_planes,parcel_transition_cells,street_cut_footprints,soil_cut_prisms,removed_flat_soil_volume,clip_soil_face,chunk_soil_faces
+from city_street_geometry import overlap
 from fabrication_chart_batch import triangle_charts
 from fabrication_native_batch import export as export_native
 relief_path=root/'art/data/city_ground_apron/source_plan.json'
@@ -72,6 +73,10 @@ plan['bindings'][union_helper.relative_to(root).as_posix()]=hashlib.sha256(union
 for filename in ['fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_uvs.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']:
     helper=Path(__file__).with_name(filename)
     plan['bindings'][helper.relative_to(root).as_posix()]=hashlib.sha256(helper.read_bytes().replace(b'\r\n',b'\n')).hexdigest()
+street_paths=[root/p for p in ['art/data/city_streets/source_plan.json','art/blender/scripts/city_street_geometry.py','game/data/orison_v2/exterior/street_frame.json','game/data/orison_v2_blockout.json']]
+street_specs=street_cut_footprints(*[json.loads(p.read_text(encoding='utf-8')) for p in [street_paths[0],street_paths[2],street_paths[3]]])
+street_prisms=soil_cut_prisms(street_specs)
+for path in street_paths:plan['bindings'][path.relative_to(root).as_posix()]=hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n')).hexdigest()
 for relative, expected in plan['bindings'].items():
     path = root / relative
     raw = path.read_bytes() if path.suffix in ['.blend','.glb','.bin'] else path.read_text(encoding='utf-8').replace('\r\n', '\n').encode()
@@ -193,9 +198,19 @@ if roof_cut:
     print('EXTERIOR ROOF CUT:',len(roof_caps),'cap faces; independent cropped-cell volume',expected_volume,flush=True)
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from ground_closed_union import build_closed_ground
+from ground_closed_union import build_closed_ground,apply_soil_cuts
 mesh,native_area,edge_contacts,split_fans=build_closed_ground(source_rectangles,source_collection,expected_volume,sloped=roof_cut)
 closed_volume_proof={key:mesh.get(key) for key in ['pre_storage_volume_m3','represented_volume_error_m3']} if roof_cut else {}
+street_cavity=[];street_proof={}
+if street_specs:
+    assert all(abs(profile_height(x,roof_profile)-top)<1e-7 for spec in street_specs for p in spec['polygons'] for x,z in p),'Independent street-cut proof requires the original flat eastern grade'
+    represented_masks=[{'bounds':[native_coordinate(v) for v in row['bounds']]} for row in masks]
+    print('STREET SOIL CUT: independent retained-ground void integral begins',flush=True)
+    removed=removed_flat_soil_volume(street_specs,[a,b,c,d],top,represented_masks)
+    print('STREET SOIL CUT: expected removal',removed,'m3; native Boolean begins',flush=True)
+    source_obj=next(obj for obj in source_collection.objects if obj.data==mesh)
+    street_cavity,street_proof=apply_soil_cuts(source_obj,source_collection,street_specs,removed)
+    street_proof.update(expected_final_volume_m3=expected_volume-removed,source_region_m=[a,b,c,d],method='Exact collection Boolean of the closed soil; independent polygon/profile integral retains every original void. Existing render faces are clipped separately, preserving unrelated local precision.')
 non_manifold=0;bad_edges=[None]*edge_contacts
 print('COURTYARD CLOSED SOURCE:',len(complete_faces),'original cell faces;',len(source_rectangles),'exact conforming rectangles',flush=True)
 
@@ -205,6 +220,8 @@ for ((ix, iz), family, reserved), faces in sorted(groups.items()):
     name = '%s_%s_%s_%s' % ('Seat' if reserved else 'Court',family, 'P%d' % ix if ix >= 0 else 'N%d' % -ix,
                               'P%d' % iz if iz >= 0 else 'N%d' % -iz)
     if roof_cut and not reserved: faces=[part for face in faces for part in clip_profile_face(face,roof_profile)]
+    local_prisms=[p for p in street_prisms if overlap([ix*4.,iz*4.,(ix+1)*4.,(iz+1)*4.],p['bounds'])]
+    if local_prisms:faces=[part for face in faces for part in clip_soil_face(face,local_prisms)]
     if faces: render_groups.append((name,family,faces,source_face_count))
 cap_groups=collections.defaultdict(list)
 for face in roof_caps:
@@ -214,6 +231,8 @@ for face in roof_caps:
 for (ix,iz),faces in sorted(cap_groups.items()):
     name='GradeCut_soil_%s_%s'%('P%d'%ix if ix>=0 else 'N%d'%-ix,'P%d'%iz if iz>=0 else 'N%d'%-iz)
     render_groups.append((name,'soil',faces,len(faces)))
+for (ix,iz),faces in sorted(chunk_soil_faces(street_cavity).items()):
+    render_groups.append(('StreetCut_soil_%s_%s'%('P%d'%ix if ix>=0 else 'N%d'%-ix,'P%d'%iz if iz>=0 else 'N%d'%-iz),'soil',faces,len(faces)))
 for name,family,faces,source_face_count in render_groups:
     lo = [min(point[axis] for face in faces for point in face) for axis in range(3)]
     hi = [max(point[axis] for face in faces for point in face) for axis in range(3)]
@@ -266,6 +285,7 @@ assert storage['decoded_bytes_identical'] and storage['target_bytes']<100*1024*1
 os.replace(packed,out)
 metadata = {'evidence_class': 'INERT', 'source_plan': plan, 'parts': reports,
             'export_check':export_check,
+            'street_soil_cut':street_proof,
             'exterior_roof_cut':{'active':roof_cut,'profile_m':roof_profile,'new_cap_faces':len(roof_caps),'expected_remaining_volume_m3':expected_volume,
                                  'protected_foundation_parcels':parcel_rects,'unretained_transition_cells':transitions,
                                  'volume_proof':closed_volume_proof,'method':'Remove soil above shared authored west profile; original cavities and foundation coordinates never move.'},

@@ -7,6 +7,84 @@ import bisect,collections,math
 import bpy,bmesh
 from mathutils import Vector
 
+def apply_soil_cuts(obj,collection,specifications,expected_removed):
+ """Cut the closed native soil, and return only genuinely new cavity faces.
+
+ Existing render faces are clipped independently in float64 by the shared
+ geometry helper. They never round-trip through this global float32 proof mesh.
+ """
+ from city_ground_apron_geometry import soil_cut_prisms,convex_union_boundaries
+ from city_street_geometry import overlap
+ bpy.context.view_layer.update()
+ points=[obj.matrix_world@Vector(p) for p in obj.bound_box]
+ box=[min(p.x for p in points),-max(p.y for p in points),max(p.x for p in points),-min(p.y for p in points)]
+ prisms=[p for p in soil_cut_prisms(specifications) if overlap(box,p['bounds'])]
+ if not prisms:
+  assert abs(expected_removed)<.00001
+  return [],{'expected_removed_m3':expected_removed,'actual_removed_m3':0.,'new_triangles':0}
+ # The source LOD stocks intentionally overlap. Feeding their entire interior
+ # arrangement to EXACT with use_self exhausted physical RAM on the full site.
+ # Keep only the actual directed union boundary per affine floor. Five compact
+ # closed cutters replace hundreds of overlapping solids without filling gaps.
+ source_prisms=len(prisms);groups=collections.defaultdict(list)
+ for prism in prisms:groups[(prism['slope'],prism['intercept'])].append(prism['polygon'])
+ prisms=[{'polygon':polygon,'slope':slope,'intercept':intercept}
+         for (slope,intercept),polygons in groups.items()
+         for polygon in convex_union_boundaries(polygons)]
+ print('NATIVE STREET CUT BOUNDARIES:',source_prisms,'overlapping source prisms ->',len(prisms),'closed union-outline cutters',flush=True)
+ def volume():
+  bm=bmesh.new();bm.from_mesh(obj.data);bm.normal_update()
+  assert all(e.is_manifold for e in bm.edges),'Native soil Boolean opened a boundary'
+  result=bm.calc_volume(signed=True);bm.free();return result
+ before=volume()
+ mats=[]
+ for i in range(5):
+  name='NativeSoilCut'+str(i);mat=bpy.data.materials.get(name) or bpy.data.materials.new(name)
+  mats.append(mat)
+ obj.data.materials.clear()
+ for mat in mats:obj.data.materials.append(mat)
+ for face in obj.data.polygons:face.material_index=0
+ cutters=bpy.data.collections.new('NativeStreetSubgradeCut');bpy.context.scene.collection.children.link(cutters)
+ operands=[]
+ for index,prism in enumerate(prisms):
+  p=prism['polygon'];n=len(p)
+  vertices=[(x,-z,prism['slope']*x+prism['intercept']) for x,z in p]+[(x,-z,1.) for x,z in p]
+  faces=[tuple(range(n)),tuple(reversed(range(n,2*n)))]+[(j,i,i+n,j+n) for i in range(n) for j in [(i+1)%n]]
+  mesh=bpy.data.meshes.new('StreetCut'+str(index));mesh.from_pydata(vertices,[],faces);mesh.update()
+  for mat in mats:mesh.materials.append(mat)
+  for face in mesh.polygons:face.material_index=4
+  operand=bpy.data.objects.new(mesh.name,mesh);cutters.objects.link(operand);operands.append(operand)
+ hidden=collection.hide_viewport;object_hidden=obj.hide_get()
+ try:
+  collection.hide_viewport=False;obj.hide_set(False)
+  bpy.context.view_layer.update();bpy.context.view_layer.objects.active=obj
+  modifier=obj.modifiers.new('SourceOwnedStreetCut','BOOLEAN')
+  modifier.operation='DIFFERENCE';modifier.operand_type='COLLECTION';modifier.collection=cutters
+  modifier.solver='EXACT';modifier.use_self=True;modifier.material_mode='INDEX'
+  bpy.ops.object.modifier_apply(modifier=modifier.name)
+  after=volume()
+  assert abs((before-after)-expected_removed)<.001,('Independent native street cut volume',before-after,expected_removed)
+  bm=bmesh.new();bm.from_mesh(obj.data)
+  selected=[f for f in bm.faces if f.material_index==4]
+  bmesh.ops.triangulate(bm,faces=selected)
+  bm.to_mesh(obj.data);bm.free();obj.data.update()
+  cavity=[]
+  for face in obj.data.polygons:
+   if face.material_index!=4:continue
+   points=[obj.matrix_world@obj.data.vertices[i].co for i in face.vertices]
+   cavity.append([(p.x,p.z,-p.y) for p in points])
+  report={'expected_removed_m3':expected_removed,'actual_removed_m3':before-after,
+          'before_m3':before,'after_m3':after,'volume_error_m3':abs(before-after-expected_removed),
+          'closed':True,'source_prisms':source_prisms,'operand_prisms':len(prisms),'new_triangles':len(cavity)}
+  print('SOURCE-OWNED STREET SOIL CUT',report,flush=True)
+  return cavity,report
+ finally:
+  collection.hide_viewport=hidden;obj.hide_set(object_hidden)
+  for operand in operands:
+   mesh=operand.data;bpy.data.objects.remove(operand,do_unlink=True)
+   bpy.data.meshes.remove(mesh)
+  bpy.data.collections.remove(cutters)
+
 def build_closed_ground(rectangles,collection,expected_volume,sloped=False):
  def line_key(axis,p):return (axis,)+tuple(p[i] for i in range(3) if i!=axis)
  def general_line(a,b):
