@@ -1538,7 +1538,179 @@ class CommercialFronts:
             self.local_box(name,'galvanized_roof',origin,u,out,(at-.045,-.22,top-.34),(at+.045,.09,top-.12))
         self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=[x,y,X,Y],assembly_translation_m=plan.get('assembly_translation_m',[0,0,0]),retained_lower_top=bottom,body_top=top,eave=top,roof_deck_top=last['z0']+last['h']+.26,upper_floor_heights=spec['front_heights'][1:],front_single_bays=3,front_three_sided_oriels=2,oriel_projection_m=.75,new_portals=1,entry_ground_m=ground,entry_landing_m=landing,entry_risers=2,entry_rise_m=(landing-ground)/2,entry_front_projection_m=1.0,entry_width_m=3.0))
 
+    def southern_retained(self,name,entry=False):
+        """Retain lower owners and roof stock for the two southern adaptations.
+
+        The bar starts above its existing 3.55m ceiling/soffit. Only the other,
+        source-cleared frontage receives a new closed scenic entrance.
+        """
+        plan=self.plans[name];spec=self.specs[name]
+        records=[r for r in self.records if r['id'].startswith(name+'_')]
+        bodies=sorted([r for r in records if re.search(r'_s\d+$',r['id'])],key=lambda r:r['z0'])
+        first=bodies[0];x,y,X,Y=first['rect'];dx=first['registration_offset_x'];x+=dx;X+=dx
+        lower=dict(plan);lower.pop('architecture');lower.pop('floor_heights')
+        if self.profile_steps==6:lower['_curtain_steps']=6
+        def retain_windows(profile,rect,z0,z1,portal_sink=None):
+            rows=self.retained_facade(name,profile,rect,z0,z1,portal_sink=portal_sink)
+            for row in rows:
+                normal=[Vector((0,-1,0)),Vector((1,0,0)),Vector((0,1,0)),Vector((-1,0,0))][row['side']]
+                actual=Vector(row['pane_sample'])-normal*(row['recess_m']+.044)
+                self.window_samples.append(dict(building=name,point=list(actual),normal=list(normal),finish='mirror_aged'))
+                self.window_rows.append(row)
+        for r in records:
+            suffix=r['id'][len(name)+1:]
+            if suffix.startswith('base'):
+                l,b,R,T=r['rect'];l+=dx;R+=dx
+                self.box(name,'limestone',(l,b,r['z0']),(R,T,r['z0']+.2))
+                if not entry:
+                    retain_windows(dict(lower,wall_key='limestone'),[l,b,R,T],r['z0']+.2,r['z0']+r['h'])
+                else:
+                    D=float(lower['reveal_depth'])
+                    frames=[(0,(Vector((R,b,0)),Vector((-1,0,0)),Vector((0,-1,0)),R-l)),
+                            (1,(Vector((R,T-D,0)),Vector((0,-1,0)),Vector((1,0,0)),T-b-2*D)),
+                            (3,(Vector((l,b+D,0)),Vector((0,1,0)),Vector((-1,0,0)),T-b-2*D))]
+                    retain_windows(dict(lower,wall_key='limestone',_frames=frames),[l,b,R,T],r['z0']+.2,r['z0']+r['h'])
+                    front=dict(lower,wall_key='limestone',_frames=[(2,(Vector((l,T,0)),Vector((1,0,0)),Vector((0,1,0)),R-l))],_bays=3,_entry=True,_entry_width=1.12,_entry_height=2.4)
+                    retain_windows(front,[l,b,R,T],r['z0']+.2,r['z0']+r['h'],self.portal_rows)
+            elif suffix.startswith('s') and r is not first and re.fullmatch('s[0-9]+',suffix):
+                l,b,R,T=r['rect'];l+=dx;R+=dx
+                retain_windows(lower,[l,b,R,T],r['z0'],r['z0']+r['h'])
+            elif suffix=='bcorn':self.original_stock(name,'limestone',self.original[r['id']],freeze_triangles=True)
+            elif suffix.startswith(('c','bulk','hut','soffit')):
+                self.original_stock(name,'roof_bitumen' if re.fullmatch('c[0-9]+',suffix) else r['key'],self.original[r['id']])
+        self.original_stock(name,spec['wall'],self.rings[name])
+        return bodies,(x,y,X,Y)
+
+    def elks_palazzo(self,name):
+        """Five-bay palazzo order from the Ballinger lodge's 1926 plate.
+
+        Keep the working bar and all lower fabric; no new lodge programme,
+        clock, terrace, doorway, occupied room or lettering is introduced.
+        """
+        spec=self.specs[name];bodies,rect=self.southern_retained(name)
+        assert len(bodies)==1
+        x,y,X,Y=rect;width=X-x;depth=Y-y;bottom=bodies[0]['z0'];top=spec['eave']
+        assert abs(bottom-5.94)<1e-5 and abs(top-15.44)<1e-5
+        origin=Vector((x,Y,0));u=Vector((1,0,0));out=Vector((0,1,0));levels=[bottom]
+        for h in spec['front_heights'][1:]:levels.append(levels[-1]+h)
+        assert abs(levels[-1]-top)<1e-5
+        for floor,(z0,z1) in enumerate(zip(levels,levels[1:])):
+            w=1.30 if floor<2 else 1.05;low=z0+(.45 if floor<2 else .30);high=z1-(.78 if floor<2 else .58)
+            for bay in range(5):
+                at=(bay+.5)*width/5;left=at-w*.5;right=at+w*.5
+                self.local_box(name,spec['wall'],origin,u,out,(bay*width/5,-.48,z0),(left,-.2,z1))
+                self.local_box(name,spec['wall'],origin,u,out,(right,-.48,z0),((bay+1)*width/5,-.2,z1))
+                self.opening(name,spec['wall'],origin,u,out,left,right,z0,z1,low,high,'rect',False,'limestone',bay=bay)
+                if floor<2:
+                    # Paired timber casements, with their divided transom.
+                    self.local_box(name,'door_paint',origin,u,out,(at-.022,-.39,low+.055),(at+.022,-.32,high-.055))
+                    for edge in [left,right]:
+                        self.local_box(name,'limestone',origin,u,out,(edge-.14,-.25,high-.08),(edge+.14,.005,high+.12))
+                    if floor==0:
+                        self.arch_stock(name,'limestone',origin,u,out,at,high+.13,w*.64,.25,.065,-.22,.09,steps=self.profile_steps)
+                        # Seated miniature balustrade, below the pane sample.
+                        self.local_box(name,'limestone',origin,u,out,(left-.12,-.18,low-.08),(right+.12,.18,low+.015))
+                        self.local_box(name,'limestone',origin,u,out,(left-.12,-.18,low+.39),(right+.12,.18,low+.46))
+                        for i in range(4):
+                            c=origin+u*(left+.13+i*(w-.26)/3)+out*.025
+                            self.turned_stock(name,'limestone',c,[(low+.015,.055),(low+.07,.06),(low+.16,.035),(low+.24,.05),(low+.32,.03),(low+.39,.055)],8 if self.profile_steps==12 else 4)
+                    else:
+                        self.local_box(name,'limestone',origin,u,out,(at-.08,-.24,high-.03),(at+.08,.035,high+.16))
+                        self.arch_stock(name,'limestone',origin,u,out,at,high+.44,.57,-.18,.045,-.20,.035,steps=self.profile_steps)
+                elif bay<4:
+                    c=(bay+1)*width/5
+                    self.local_box(name,'limestone',origin,u,out,(c-.23,-.25,low+.07),(c+.23,-.055,high-.07))
+            if floor<2:self.local_box(name,'limestone',origin,u,out,(0,-.49,z1-.07),(width,-.08,z1+.015))
+        for O,U,N,length,bays in [(Vector((X,Y,0)),Vector((0,-1,0)),Vector((1,0,0)),depth,3),
+                                  (Vector((X,y,0)),Vector((-1,0,0)),Vector((0,-1,0)),width,5),
+                                  (Vector((x,y,0)),Vector((0,1,0)),Vector((-1,0,0)),depth,3)]:
+            for floor,(z0,z1) in enumerate(zip(levels,levels[1:])):
+                self.register(name,spec['wall'],O,U,N,length,z0,z1,bays,1.05,'rect',False,'limestone',attic=floor==2)
+        # Four closed trapezoids share full-depth 45-degree corner joints.
+        # Do not stack overlapping coplanar boxes at the visible roof corners.
+        for a,b,front in [(top-.40,top-.22,-.04),(top-.22,top-.10,.08),(top-.10,top,.18)]:
+            ox,oy,oX,oY=x-front,y-front,X+front,Y+front
+            ix,iy,iX,iY=x+.50,y+.50,X-.50,Y-.50
+            for polygon in [[(ox,oY),(ix,iY),(iX,iY),(oX,oY)],[(oX,oY),(iX,iY),(iX,iy),(oX,oy)],
+                            [(oX,oy),(iX,iy),(ix,iy),(ox,oy)],[(ox,oy),(ix,iy),(ix,iY),(ox,oY)]]:
+                vv=[(l,d,z) for z in [a,b] for l,d in polygon]
+                ff=[(3,2,1,0),(4,5,6,7)]+[(i,(i+1)%4,(i+1)%4+4,i+4) for i in range(4)]
+                self.add(name,'limestone',vv,ff)
+        for O,U,N,length in [(origin,u,out,width),(Vector((X,Y,0)),Vector((0,-1,0)),Vector((1,0,0)),depth),
+                              (Vector((X,y,0)),Vector((-1,0,0)),Vector((0,-1,0)),width),(Vector((x,y,0)),Vector((0,1,0)),Vector((-1,0,0)),depth)]:
+            count=max(4,round(length/.62))
+            for i in range(count):
+                at=(i+.5)*length/count
+                self.local_box(name,'limestone',O,U,N,(at-.045,-.20,top-.38),(at+.045,.10,top-.10))
+        self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=list(rect),retained_lower_top=bottom,body_top=top,eave=top,upper_floor_heights=spec['front_heights'][1:],front_side=2,front_bays=5,new_portals=0,retained_bar_ceiling_m=3.55))
+
+    def ridgewood_headhouse(self,name):
+        """Three-bay terracotta order, retaining the existing AU rooftop studio.
+
+        LP2325's 2009 photograph guides surviving 1916 ornament only. It is
+        not a period image; modern windows, marquee and lettering are excluded.
+        This passive building gains no theatre, projection or venue authority.
+        """
+        spec=self.specs[name];plan=self.plans[name];a=plan['architecture'];bodies,rect=self.southern_retained(name,entry=True)
+        assert len(bodies)==2
+        x,y,X,Y=rect;width=X-x;depth=Y-y;bottom=bodies[0]['z0'];top=spec['eave']
+        assert abs(bottom-7.14)<1e-5 and abs(top-16.64)<1e-5
+        origin=Vector((x,Y,0));u=Vector((1,0,0));out=Vector((0,1,0));centre=width*.5
+        ground=float(a['entry_ground_m']);landing=float(a['entry_landing_m'])
+        assert abs(ground)<1e-6 and abs(landing-.30)<1e-6
+        # The plaza paving is a separate retained transport owner at datum0.
+        for back,front,high in [(.70,1.0,ground+(landing-ground)*.5),(.40,.70,landing),(-.22,.40,landing)]:
+            self.local_box(name,'limestone',origin,u,out,(centre-1.30,back,ground-.06),(centre+1.30,front,high))
+        for sign in [-1,1]:
+            at=centre+sign*.86
+            self.local_box(name,'limestone',origin,u,out,(at-.12,-.18,landing),(at+.12,.10,2.78))
+        self.local_box(name,'limestone',origin,u,out,(centre-1.04,-.18,2.78),(centre+1.04,.15,2.92))
+        levels=[bottom]
+        for h in spec['front_heights'][1:]:levels.append(levels[-1]+h)
+        assert abs(levels[-1]-top)<1e-5
+        edge=.88;span=width-2*edge
+        for floor,(z0,z1) in enumerate(zip(levels,levels[1:])):
+            low=z0+.65;high=z1-.70
+            self.local_box(name,'terracotta',origin,u,out,(0,-.48,z0),(edge,-.18,z1))
+            self.local_box(name,'terracotta',origin,u,out,(width-edge,-.48,z0),(width,-.18,z1))
+            for bay in range(3):
+                at=edge+(bay+.5)*span/3;left=at-1.25;right=at+1.25
+                self.local_box(name,'terracotta',origin,u,out,(edge+bay*span/3,-.48,z0),(left,-.20,z1))
+                self.local_box(name,'terracotta',origin,u,out,(right,-.48,z0),(edge+(bay+1)*span/3,-.20,z1))
+                self.opening(name,'terracotta',origin,u,out,left,right,z0,z1,low,high,'rect',False,'terracotta',bay=bay)
+                self.local_box(name,'door_paint',origin,u,out,(at-.028,-.39,low+.055),(at+.028,-.32,high-.055))
+                transom=low+(high-low)*.79
+                self.local_box(name,'door_paint',origin,u,out,(left+.055,-.39,transom-.025),(right-.055,-.32,transom+.025))
+                # Keep the pane control in the broad lower casement.
+                self.window_samples[-1]['point'][2]=low+(high-low)*.30
+                self.window_rows[-1]['pane_sample'][2]=self.window_samples[-1]['point'][2]
+                if floor==0:
+                    for sign in [-1,1]:
+                        self.profile_stock(name,'terracotta',origin,u,out,[(at+sign*.12,z1-.12),(at+sign*1.30,z1+.40),(at+sign*1.30,z1+.49),(at+sign*.12,z1+.02)],-.21,-.06)
+                    self.profile_stock(name,'terracotta',origin,u,out,[(at-.17,z1+.20),(at+.17,z1+.20),(at+.14,z1-.09),(at,z1-.23),(at-.14,z1-.09)],-.17,.045)
+        for at in [.44,width-.44]:
+            self.local_box(name,'terracotta',origin,u,out,(at-.44,-.50,bottom),(at+.44,-.08,top+.10))
+            for i in range(8):
+                z=bottom+.40+i*(top-bottom-.9)/8
+                self.profile_stock(name,'terracotta',origin,u,out,[(at,z),(at+.15,z+.34),(at,z+.68),(at-.15,z+.34)],-.09,.035)
+            z=top-.15;steps=self.oculus_steps
+            crest=[(at-.40*math.cos(i*math.pi/steps),z+.35+.45*math.sin(i*math.pi/steps)) for i in range(steps+1)]+[(at+.32,z-.05),(at,z-.28),(at-.32,z-.05)]
+            self.profile_stock(name,'terracotta',origin,u,out,crest,-.50,.045)
+            self.profile_stock(name,'terracotta',origin,u,out,[(at+(l-at)*.65,z+.15+(h-z-.15)*.65) for l,h in crest],.045,.10)
+        # Blank geometric frieze: source lettering stays out of the surfaces.
+        self.local_box(name,'terracotta',origin,u,out,(.88,-.50,top-.48),(width-.88,.02,top-.14))
+        self.local_box(name,'terracotta',origin,u,out,(.78,-.50,top-.14),(width-.78,.12,top))
+        for O,U,N,length,bays in [(Vector((X,Y,0)),Vector((0,-1,0)),Vector((1,0,0)),depth,3),
+                                  (Vector((X,y,0)),Vector((-1,0,0)),Vector((0,-1,0)),width,3),
+                                  (Vector((x,y,0)),Vector((0,1,0)),Vector((-1,0,0)),depth,3)]:
+            for z0,z1 in zip(levels,levels[1:]):self.register(name,spec['wall'],O,U,N,length,z0,z1,bays,1.25,'rect',False,'limestone')
+        self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=list(rect),retained_lower_top=bottom,body_top=top,eave=top,upper_floor_heights=spec['front_heights'][1:],front_side=2,front_bays=3,new_portals=1,entry_ground_m=ground,entry_landing_m=landing,entry_risers=2,entry_rise_m=.15,entry_front_projection_m=1.0,entry_width_m=2.6))
+
     def build(self, name):
+        if self.specs[name]['style']=='elks878':
+            return self.elks_palazzo(name)
+        if self.specs[name]['style']=='ridgewood1916':
+            return self.ridgewood_headhouse(name)
         if self.specs[name]['style']=='laurel':
             return self.laurel(name)
         if self.specs[name]['style']=='hawthorne':
