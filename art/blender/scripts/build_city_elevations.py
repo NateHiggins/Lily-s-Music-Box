@@ -642,11 +642,15 @@ def facade(name,p,rect,z0,z1):
                 window_rows.append(dict(building=name,side=side,floor=floor,bay=bay,center=list(origin+tangent*cx+Vector((0,0,(low+high)/2))),width=w,height=h,recess_m=recess,
                     pane_sample=list(origin+tangent*(cx+w*.22)+Vector((0,0,high-.14 if portal and p.get('_entry',False) else (low+high)/2+h*.2)))))
     return count
-def retained_facade(name,p,rect,z0,z1):
+def retained_facade(name,p,rect,z0,z1,portal_sink=None):
     """Reuse the installed lower facade recipe, without duplicating its rows."""
     first=len(window_rows);portals=len(portal_rows)
     facade(name,p,rect,z0,z1)
-    assert len(portal_rows)==portals, 'Retained lower facade must not add a new door'
+    if portal_sink is None:
+        assert len(portal_rows)==portals, 'Retained lower facade must not add a new door'
+    else:
+        portal_sink.extend(portal_rows[portals:])
+    del portal_rows[portals:]
     result=window_rows[first:];del window_rows[first:]
     return result
 

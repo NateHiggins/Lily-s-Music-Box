@@ -140,7 +140,7 @@ func _run() -> void:
 	check(contacts>=1205 and shells.size()==fixture.parts.size() and draws>600,"nonempty complete family inventory")
 	var factory_studies: Array=fixture.get("architecture_checks",[])
 	check(factory_studies.size()==1,"one explicit factory study, not a promotion of all height repairs")
-	check(fixture.portals.size()==25,"twenty-four retained city portals and one studio leaf; Bodega remains separately owned")
+	check(fixture.portals.size()==26,"twenty-five retained city portals and one rear apartment scenic leaf; Bodega remains separately owned")
 	var factory_portals:=0
 	var terrace_portals:=0
 	var court_portals:=0
@@ -159,7 +159,7 @@ func _run() -> void:
 				and str(shells.get(hit.collider.get_rid(),"")).ends_with("__door_paint"),"raised portal leaf has real closed backing")
 	check(factory_portals==2 and terrace_portals==1 and court_portals==7,"original portals remain nonempty alongside seven passive apartment entries")
 	for identity: String in commercial_portals:
-		check(int(commercial_portals[identity])==(0 if identity in ["site_nbr_e","site_back_w"] else 3 if identity=="site_ne1" else 2 if identity=="site_sw3" else 1),"explicitly counted genuinely closed scenic leaves: "+identity)
+		check(int(commercial_portals[identity])==(0 if identity=="site_nbr_e" else 3 if identity=="site_ne1" else 2 if identity=="site_sw3" else 1),"explicitly counted genuinely closed scenic leaves: "+identity)
 	var commercial_panes: Dictionary={"site_nw1":0,"site_nw3":0,"site_nw4":0,"site_se3":0,"site_sw3":0,"site_far_nw":0,"site_ne1":0,"site_ne2":0,"site_ne3":0,"site_ne4":0,"site_nbr_w":0,"site_nbr_e":0,"site_sw2":0,"site_back_w":0}
 	var paired_attic_control:=0
 	for window: Dictionary in fixture.window_rows:
@@ -179,7 +179,7 @@ func _run() -> void:
 			var solid:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(center+normal*.1,center-normal*.4,1,exclude))
 			check(not solid.is_empty() and solid.position.distance_to(center-normal*.1)<.0001 and str(shells.get(solid.collider.get_rid(),"")).ends_with("__door_paint"),"paired attic center is a solid mullion, not a falsely clear pane")
 			paired_attic_control+=1
-	check(commercial_panes=={"site_nw1":21,"site_nw3":39,"site_nw4":19,"site_se3":28,"site_sw3":26,"site_far_nw":175,"site_ne1":57,"site_ne2":67,"site_ne3":19,"site_ne4":61,"site_nbr_w":16,"site_nbr_e":14,"site_sw2":33,"site_back_w":94} and paired_attic_control==1,"all669 studied panes and the obstructed center control execute")
+	check(commercial_panes=={"site_nw1":21,"site_nw3":39,"site_nw4":19,"site_se3":28,"site_sw3":26,"site_far_nw":175,"site_ne1":57,"site_ne2":67,"site_ne3":19,"site_ne4":61,"site_nbr_w":16,"site_nbr_e":14,"site_sw2":33,"site_back_w":92} and paired_attic_control==1,"all667 studied panes and the obstructed center control execute")
 	var court_details: Array=fixture.court_details
 	check(court_details.size()==6,"six real open recesses across five court-building identities")
 	var expected_courts: Dictionary={"site_far_se":"elm","site_far_w":"cambridge","site_far_n":"greystone","site_far_sw":"laburnum","site_far_ne":"towers"}
@@ -191,7 +191,7 @@ func _run() -> void:
 		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(start,start-Vector3.UP*(float(detail.roof_height)+1.),1,exclude))
 		check(not hit.is_empty() and hit.position.y<=city.global_position.y+float(detail.porch_top)+.001,"court is genuinely sky-open above the porch, no hidden roof slab")
 	var roofs: Array=fixture.roof_details
-	check(roofs.size()==15,"two original roof families and thirteen distinct commercial/apartment adaptations")
+	check(roofs.size()==16,"two original roof families and fourteen distinct commercial/apartment adaptations")
 	var roof_owners: Dictionary={}
 	var original_roofs:=0
 	var commercial_roofs: Dictionary={"site_nw1":"germania","site_nw3":"robbins","site_nw4":"scheffel","site_se3":"ottendorfer","site_sw3":"engine258","site_far_nw":"hampton","site_ne1":"faber","site_ne2":"fulton","site_ne3":"terracotta_works","site_ne4":"jamaica","site_nbr_w":"linford119","site_nbr_e":"hayden113","site_sw2":"delano126","site_back_w":"hawthorne"}
@@ -236,7 +236,8 @@ func _run() -> void:
 	var rear_profile: Dictionary={}
 	for row: Dictionary in body_data.buildings:
 		if str(row.id)=="site_back_w":rear_profile=row
-	check(rear_profile.get("assembly_translation_m",[])==[0,6,0],"rear apartment retains its installed six-metre assembly shift")
+	var rear_at: Array=rear_profile.get("assembly_translation_m",[])
+	check(rear_at.size()==3 and Vector3(float(rear_at[0]),float(rear_at[1]),float(rear_at[2]))==Vector3(0,6,0),"rear apartment retains its installed six-metre assembly shift")
 	var rear_controls: Array=[
 		{"point":Vector3(-29.322,15.97,-24.0),"open":true},
 		{"point":Vector3(-29.92,15.97,-24.0),"open":false},

@@ -3557,3 +3557,16 @@ unchanged0.0001m tolerance, with exact retained vertex sets/equal areas and
 diagnostic-script setup/serialization failures remain external. No physical
 acceptance or tolerance increase. Final native re-review is in progress before
 another loaded run;14 city tools tests and reader NEW0 pass again.
+
+
+Complete-front native freeze: all five rebuilt near/lower views inspected and
+22 native/export part comparisons exact after the bounded cornice copy change.
+Both final UV audits pass;1699 near closed stocks pass. Portable existing
+**rear_apartment_native_review.zip** now retains original checkpoint/failures
+and current full-front review:134 members,34471199 bytes,SHA256
+**0fa3f82935d760705366dc18cb130692c118f7383ea8d7a8d88ec677e0aeaa29**.
+Identical evidence bytes are stored once with37 explicit path aliases. Reference
+photographs/PDFs and duplicate production meshes are excluded. This is a native
+checkpoint, not runtime or artistic acceptance. The import/compiler batch waits
+FIFO behind canonical transport-route work; current loaded/LOD/capsule checks
+remain pending. No shared integration file or protected authority was edited.
