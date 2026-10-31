@@ -11536,5 +11536,38 @@
         "raw_sha256": "cd4ccf090ee51b758e26095be556ebc45c78af72a1db8423b573201fc4e8b7fc"
       }
     }
+  },
+  "southern_pair_canonical_review": {
+    "archive": "art/reviews/city_streets_20261029/southern_pair_canonical_review.zip",
+    "bytes": 23522,
+    "sha256": "c8b6160187a6ecc24a337f636005343f6e012f319f23d6c6be08efb334a91e4b",
+    "evidence_class": "INERT",
+    "scope": "Frozen92093219 independent43member/8binary/5source/11retained asset verification,11 inspected native views,264near/176lower exact non-target fingerprints,canonical UV0 and spatialclean. No runtime or artistic acceptance.",
+    "members": {
+      "canonical_intake_review_01.json": {
+        "bytes": 2251,
+        "sha256": "51ab66b5c7858ecee418ff9ae77898f9874ae83cb441e94cc3207b444057e584"
+      },
+      "canonical_southern_unrelated_review.json": {
+        "bytes": 45919,
+        "sha256": "018ee66dab0579952eb45867e90277620138e88b9f1b433faf1582d30ede51d8"
+      },
+      "canonical_uv_audit_01.json": {
+        "bytes": 125712,
+        "sha256": "cd4ccf090ee51b758e26095be556ebc45c78af72a1db8423b573201fc4e8b7fc"
+      },
+      "canonical_route_spatial_03.json": {
+        "bytes": 1771,
+        "sha256": "e82658f201786d8568594c52dd48a0afcd1ab159ce76f3952bf34e5c646ae888"
+      },
+      "canonical_intake_check.py": {
+        "bytes": 2761,
+        "sha256": "b8c97d6257bc1daae02455530a04315c8c9ed14c65144cfb7f2a1d60435fd8a3"
+      },
+      "canonical_verify_unrelated.py": {
+        "bytes": 2564,
+        "sha256": "0b2e288343bcdb3e3dda84c8614ed151bc98975c6997bca9c7231e6294e4d30d"
+      }
+    }
   }
 }

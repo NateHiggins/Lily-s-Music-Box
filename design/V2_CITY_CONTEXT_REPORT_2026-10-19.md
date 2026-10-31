@@ -4477,3 +4477,24 @@ Preservation compares264 unrelated near/176 lower parts,23 profiles and11 other 
 Eleven native images inspected,including actual station/plaza context;40 exact float32 part roundtrips. Four whole views frame body/roof equipment; other views are deliberate details/context crops. Station decks strongly screen the upper facade and shade the approach; composed lighting/visibility remains open. Initial review harness failed before rendering on an omitted zero assembly translation; default-zero correction changed no mesh/probe/tolerance. Original source/log retained.
 
 Archive **southern_pair_native_review.zip**:43 members /17,081,338 bytes,SHA256 **718ea19fdf4984fca89431424d02a7e193334f9c2a7b4d8079d563d0f5f2ba86**;CRC/member bytes and manifest verified. No production-mesh duplicates or reference pixels. Native review finished before queuing one combined import/compiler/loaded-LOD/local-entrance bench. That run is waiting in the shared lane; no new loaded mips,render-cost,frame-spike,played,composed or artistic acceptance claimed. Published tally remains25/149 until canonical qualification. Broader skyline,landmarks,450m support and performance scope stays open.
+
+Canonical intakes frozen **92093219** at **3a61cae1**, preserving PR101,
+the cardinal capture programme and every existing review-manifest entry.
+Independent review verifies all43 archived members, eight binary inputs against
+frozen Git blobs, five LF-normalized frozen sources and eleven retained assets.
+All eleven native images were inspected. Separate decoded comparisons confirm
+264 unrelated near and176 lower semantic meshes retain exact attribute/index,
+material and local-transform fingerprints against **c2a3db2d**. Both canonical
+GLBs pass the exported-UV audit with zero failing surfaces. Spatial audit is
+clean, reader NEW0 and14 city tools tests pass. These compact independent records
+and reproduction scripts are indexed in **southern_pair_canonical_review.zip**;
+the original donor archive is unchanged.
+
+PR101 adds a previously unimported script class. The old canonical compile-only
+request was cancelled while still queued, before any engine launched; its broker
+and request were independently identified. Replacement is a shared-lane editor
+import followed by compilation, not another world tour. No foreign job was
+interrupted. The author's local loaded check remains separately queued, and the
+combined seven-leg composed route waits for that result. No new runtime pass,
+surface renewal, tally promotion, save qualification or artistic acceptance is
+claimed by this intake.
