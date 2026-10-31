@@ -414,7 +414,7 @@ was only a hunch, the table says what replaced it.
 | B14 | 21 Jul | N16 itself, by its issue date | News rack; shelf | — |
 | B15 | 22 Jul, 10:00 | Appointment book: "Mon. 22nd, 10.00, Miss Q., Mr. E." | Photo Supplies; Ewald's diary | — |
 | B16 | 6 Aug | Jonah's composition books, dated on their spines: "19 July", "6 Aug." | 6B shelf | "he writes in storms" alone |
-| B17 | 7 Aug | The night man's work order: "Yard drain, clear after storm, Wed. 7 Aug." | 4B work orders | "Omar clears it next morning" |
+| B17 | 7 Aug | The night man's work order: "Yard drain, clear after storm, Wed. 7 Aug." The yard isn't built, so the drain's clean-out comes through the boiler room wall (built 2026-10-31) | 4B work orders | "Omar clears it next morning" |
 | B18 | 20 Aug | The Record's lead on the tone's absence (**DATA**). Juno's reel box: "July 19, wall. Play on a quiet day" | News rack; 2C | — |
 | B19 | 24 Aug | Juno's trade log: "Sat. 24 Aug., 3 p.m., C.D.: WLBQ 12 and 19 July." Their Saturday trade is canon | 2C | — |
 | B20 | 16 Sep | N13, by its issue date. The button book's own entry is dated 20 July and can be read any time after | News rack; 2B | "when something breaks her heart" |
