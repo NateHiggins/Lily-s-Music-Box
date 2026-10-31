@@ -462,6 +462,10 @@ func pending() -> Array:
 	for item in deliveries:
 		if str(item.id) in taken:
 			continue
+		# Parcels wait in the box until the case has room for them.
+		if item.has("goods") and not PersonInventory.can_carry_goods(PersonInventory.PLAYER,
+				str(item.goods.id), str(item.goods.form)):
+			continue
 		if _due(item.get("when", {})):
 			due.append(item)
 	return due
@@ -471,6 +475,8 @@ func pending() -> Array:
 ## and talked that many times, counted across every resident; a delivery
 ## with only that condition is due once it is met.
 func _due(when: Dictionary) -> bool:
+	if when.has("order"):
+		return MailOrders.arrived(str(when.order), int(when.get("days", 0)))
 	if int(when.get("min_conversations", 0)) > conversations_total():
 		return false
 	# A part delivery waits until the named part has been taken from stock.
@@ -534,6 +540,8 @@ func _take(item: Dictionary,physical := false) -> void:
 	var knowledge := str(item.get("knowledge", ""))
 	if knowledge != "":
 		RealityState.grant_knowledge(knowledge)
+	if item.has("goods"):
+		PersonInventory.carry_goods(PersonInventory.PLAYER, str(item.goods.id), str(item.goods.name), str(item.goods.form))
 	var part := str(item.get("part", ""))
 	if part != "" and inventory != null:
 		inventory.grant(part, "mail_box_" + PLAYER_UNIT.to_lower())

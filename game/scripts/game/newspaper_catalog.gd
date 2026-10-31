@@ -310,6 +310,8 @@ func _load_advertising() -> void:
 				if _firms[firm_name] is not Dictionary or not _firms[firm_name].has(field):
 					errors.append("%s: firm %s has no %s" % [ADS_PATH, firm_name, field])
 		for ad in parsed.ads:
+			if ad is Dictionary and ad.has("order") and str(ad.order) == "":
+				errors.append("%s: %s has an empty order" % [ADS_PATH, ad.get("headline", "")])
 			if ad is Dictionary and ((ad.has("items") and ad.items is not Array)
 					or (ad.has("offer") and str(ad.offer) == "") or (ad.has("signed") and str(ad.signed) == "")):
 				errors.append("%s: %s has a malformed items, offer or signed" % [ADS_PATH, ad.get("headline", "")])

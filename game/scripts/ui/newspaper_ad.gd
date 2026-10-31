@@ -5,6 +5,7 @@ extends RefCounted
 
 const INK := Color(0.11, 0.098, 0.086)
 const PAPER := Color(0.91, 0.88, 0.80)
+const COUPON_NODE := "Coupon"
 const STYLES := ["bill", "card", "coupon", "notice", "testimonial", "deco", "reason", "trade", "black", "typed", "banner"]
 const FACE := {
 	"caslon": preload("res://assets/fonts/librecaslontext/LibreCaslonText[wght].ttf"),
@@ -81,8 +82,13 @@ func _set_coupon() -> Control:
 		_text(box, str(_ad.offer).to_upper(), "old_bold", 15, HORIZONTAL_ALIGNMENT_CENTER)
 	_spring(box)
 	var coupon := PanelContainer.new()
+	coupon.name = COUPON_NODE
 	coupon.add_theme_stylebox_override("panel", _dashed())
 	box.add_child(coupon)
+	# An order's coupon can be torn off once; after that this copy has a hole too.
+	if _ad.has("order"):
+		coupon.set_meta("order", str(_ad.order))
+		coupon.visible = not MailOrders.torn(str(_ad.order))
 	var slip := VBoxContainer.new()
 	slip.add_theme_constant_override("separation", 3)
 	coupon.add_child(slip)

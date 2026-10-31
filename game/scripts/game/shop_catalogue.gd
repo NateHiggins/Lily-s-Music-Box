@@ -22,8 +22,8 @@ const PATHS: Array[String] = [
 	"res://data/shops/shoe_rebuilding.json",
 ]
 const GROCERIES_PATH := "res://data/kitchen/groceries.json"
-const KINDS := ["goods", "consumed", "part", "service", "upgrade", "loan", "wager", "grocery"]
-const COUNTER_KINDS := ["goods", "consumed", "part", "grocery"]
+const KINDS := ["goods", "consumed", "part", "service", "upgrade", "loan", "wager", "grocery", "post"]
+const COUNTER_KINDS := ["goods", "consumed", "part", "grocery", "post"]
 const SOURCES := ["live", "ad", "authored"]
 
 var shops: Dictionary = {}
@@ -139,6 +139,8 @@ func _valid(doc: Dictionary, path: String, ingredients: Dictionary) -> bool:
 			fail.call("item %s names an unknown group" % id)
 		if record.has("form") and not CarriedCase.has_form(str(record.form)):
 			fail.call("item %s has an unknown form" % id)
+		if str(record.get("kind", "")) == "post" and str(record.get("order", "")) == "":
+			fail.call("item %s posts no order" % id)
 		if record.has("use") and str(record.use) not in ItemUse.VERBS:
 			fail.call("item %s has an unknown use" % id)
 		if record.has("gift") and record.gift is not bool:

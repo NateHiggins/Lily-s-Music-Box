@@ -207,6 +207,38 @@
    "source": "authored",
    "note": "Period chance game, already modelled; small prizes only",
    "group": "counter"
+  },
+  {
+   "id": "post_party_line_manners",
+   "name": "Post coupon: Party-line manners",
+   "cents": 12,
+   "kind": "post",
+   "source": "ad",
+   "order": "party_line_manners"
+  },
+  {
+   "id": "post_felt_bedpost_pads",
+   "name": "Post coupon: Felt pads",
+   "cents": 27,
+   "kind": "post",
+   "source": "ad",
+   "order": "felt_bedpost_pads"
+  },
+  {
+   "id": "post_home_cycle_meter",
+   "name": "Post coupon: Home cycle meter",
+   "cents": 2,
+   "kind": "post",
+   "source": "ad",
+   "order": "home_cycle_meter"
+  },
+  {
+   "id": "post_schematic_lesson",
+   "name": "Post coupon: Schematic lesson",
+   "cents": 2,
+   "kind": "post",
+   "source": "ad",
+   "order": "schematic_lesson"
   }
  ]
 }

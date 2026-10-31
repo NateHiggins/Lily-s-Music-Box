@@ -26,6 +26,9 @@ BANK_EXCLUDED = {"JF027"}
 # Adela is a woman riding a body the residents take for the night man. They may
 # use that job title; nothing else may call the player a man.
 MISADDRESS = re.compile(r"\b(sir|mister|young man|my boy|maintenance man)\b", re.I)
+# No word here reached anyone in 1929. The owner's lore pass, 2026-10-31.
+MODERN_TERMS = re.compile(r"\b(transgender|cisgender|pansexual|transfemme|lgbt\w*|non-binary)\b", re.I)
+GAME_TEXT = ("dialogue", "mystery", "opinions", "newspapers")
 RESIDENT_FORBIDDEN = re.compile(r"\b(the tenant|signal pro|instrument)\b", re.I)
 PRE_DEATH = re.compile(r"\b(late miss|was killed|her death|funeral|the body|she fell|she died)\b", re.I)
 # The conclusive chain of section 4.5 and the one telling.
@@ -215,6 +218,16 @@ def render(trees: dict[str, dict]) -> str:
     return "\n".join(out) + "\n"
 
 
+def check_modern_terms(data: pathlib.Path) -> list[str]:
+    errors: list[str] = []
+    for part in GAME_TEXT:
+        for path in sorted((data / part).glob("*.json")):
+            match = MODERN_TERMS.search(path.read_text(encoding="utf8"))
+            if match:
+                errors.append(f"{part}/{path.name}: {match.group(0)!r} is not a word of the period")
+    return errors
+
+
 def run(folder: pathlib.Path = DRAFTS) -> tuple[list[str], dict]:
     trees: dict[str, dict] = {}
     for path in sorted(folder.glob("*.json")):
@@ -264,6 +277,7 @@ def main() -> int:
     parser.add_argument("--render", type=pathlib.Path)
     args = parser.parse_args()
     errors, stats = run()
+    errors += check_modern_terms(ROOT / "game/data")
     for error in errors:
         print("FAIL", error)
     print(f"{stats['speakers']} speakers, {stats['threads']} threads, {stats['nodes']} nodes, "
