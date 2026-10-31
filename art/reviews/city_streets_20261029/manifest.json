@@ -10104,9 +10104,9 @@
     "evidence_class": "INERT",
     "scope": "Native plus isolated loaded industrial construction,chart/PBR/mipmap/LOD/timing and real-controller diagnostics. Both original failed runs retained;no composed-world/runtime_contract/artistic or tally promotion.",
     "path": "art/reviews/city_streets_20261029/eastern_industrial_native_review.zip",
-    "bytes": 82059764,
-    "sha256": "12d94e9dac2a843e323d6c4de1a4dd91c7b928311c8506810b8e2c32dfe927e0",
-    "members": 126,
+    "bytes": 82079907,
+    "sha256": "72310f857abe38b89a77c6d06c5a009a7e4f5a3380b6de13f05b4844a7a0bb2f",
+    "members": 130,
     "original_native_archive": {
       "bytes": 41479866,
       "sha256": "9a4b4bc635fc456bd19770610c70f7ec243535d124b815818bb23a2773521fd4",
@@ -10618,7 +10618,29 @@
       "loaded_addendum_index_02.json": {
         "bytes": 19629,
         "raw_sha256": "98f6d3d742a90b5dfb9e0fa1abf0de0d2cf8b563feaf950d08793f210e9bf739"
+      },
+      "static_02/board.json": {
+        "bytes": 131132,
+        "raw_sha256": "f3333d90ab51512a1074cd2779e1a1887e0860200440f6a1e207ecaea8f2fc0c"
+      },
+      "static_02/board.md": {
+        "bytes": 8612,
+        "raw_sha256": "32c08ee31c2f6b593b5a5ca7d03e4c6472a82aa5f062fcedbbe5ebef734565b8"
+      },
+      "static_summary_02.json": {
+        "bytes": 4781,
+        "raw_sha256": "19723a9241941bf01ad54dff0bdde668de1b0d2b695dc59d0f984aa13cd2d082"
+      },
+      "static_addendum_index_02.json": {
+        "bytes": 591,
+        "raw_sha256": "5af63847cd7fa9c2e1c031566d1a0585fb251ed8bb283babcc92fd004c7d8a76"
       }
-    }
+    },
+    "previous_loaded_archive": {
+      "bytes": 82059764,
+      "sha256": "12d94e9dac2a843e323d6c4de1a4dd91c7b928311c8506810b8e2c32dfe927e0",
+      "members": 126
+    },
+    "complete_static_board_commit": "962f4fc84adf8043a8257061dc2a5274e7a84ba1"
   }
 }
