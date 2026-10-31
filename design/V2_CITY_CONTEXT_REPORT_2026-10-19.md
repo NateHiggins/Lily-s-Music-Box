@@ -4900,3 +4900,30 @@ The exact **2d7a0772** baseline completed117 gates, clean before/after, with
 zero timeouts. All42 surface tooling tests pass, including lower native source
 mutation. Final candidate comparison is next. Published technical tally remains
 25/149 until that checkpoint closes; next street construction remains held.
+
+
+### Exact-main combined checkpoint verified, 2026-10-31
+
+Evidence class: **INERT**. Candidate **760bfcb7** against exact clean
+**2d7a0772** passes117 gates with **zero regressions/four improvements**;
+all17 protected paths unchanged,V2 selected,zero design lint errors,no waived
+regressions and no requirement promotions. The unchanged original clock
+checker, seven added timestamp controls, three appended diagnostic spatial
+records, and lower-native evidence binding/mutation were manually reviewed.
+All664 temporarily preserved untracked originals are restored byte-exact.
+
+The actual651/0 composed physical and9/0 case checks remain separate from
+this no-Godot static comparison. Existing routes and industrial25,852/0 plus
+18/0 passage checks retain their source-qualified scope. Fresh-checkout import,
+complete save boundaries, continuous450m access and artistic acceptance remain
+unproven. The construction-study tally is now31/149 with bounded technical
+evidence;118 still lack this specific architectural treatment. This does not
+claim31 complete playable/artistically accepted buildings.
+
+Completed historical queue clauses are consolidated into the current city gap
+list; exact prior text remains in **760bfcb7:TASKS.md** and preceding reports.
+Next isolated native batch is released for five eastern forms and a continuous
+street/footway proposal. Shared ground reservations, registered-frame seams,
+existing corner-house steps/railings and runtime integration remain protected.
+The actor's original western/eastern frame comparison was withdrawn; only the
+correct full WorldConnection frame may inform this next construction.
