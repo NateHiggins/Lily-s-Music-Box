@@ -129,6 +129,10 @@ original failures. Distinguish diagnostics, runtime qualification, and human
 acceptance under the repository's evidence rules. Headless parsing and automated
 tests do not prove visual presentation, interaction, or game feel.
 
+Write hash-bound text with explicit LF newlines or normalized bytes. On Windows,
+`-text` prevents Git from correcting a writer's default CRLF conversion; compare
+content and staged whitespace before publishing a hash-bearing manifest.
+
 If Godot, graphics, target hardware, or required assets are unavailable, finish
 independent work and name the precise limitation. Never claim a playtest from
 static inspection or headless checks. Technical checks establish functionality;
