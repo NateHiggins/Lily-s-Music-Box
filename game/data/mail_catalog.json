@@ -1,57 +1,123 @@
 {
-  "deliveries": [
-    {
-      "id": "welcome_note",
-      "kind": "letter",
-      "title": "FROM THE MANAGEMENT OFFICE",
-      "body": "New maintenance tenant, box 4B. Welcome to the Orison. Work orders, notices and parts arrive here — check it between shifts. The box is brass because everything in this lobby was installed by people who expected the building to outlive them. It has. — Management",
-      "when": {"always": true}
-    },
-    {
-      "id": "notice_hum",
-      "kind": "letter",
-      "title": "TENANT NOTICE — RE: THE HUM",
-      "body": "Several tenants have asked about the low electrical hum. The hum is normal. The building has always hummed. If the hum stops, please contact maintenance immediately, at any hour. Do not investigate the quiet yourself. — Management",
-      "when": {"always": true}
-    },
-    {
-      "id": "pkg_contact_mic",
-      "kind": "package",
-      "title": "PACKAGE — SEV TECHNICAL SALVAGE",
-      "body": "One (1) contact microphone, piezo, hard-wired, with alligator clip and a hand-wound coil of shielded cable. Invoice marked PAID — DESK ACCOUNT. A note in pencil on the packing slip: 'For listening to what the pipes say when they think you're a wall. You'll want this before you go downstairs. — S.'",
-      "upgrade": "contact_mic",
-      "when": {"case": "mina_caption_crisis", "min_repairs": 1}
-    },
-    {
-      "id": "mina_keepsake",
-      "kind": "package",
-      "title": "PARCEL — M. VALE, 2A",
-      "body": "A stenographer's notebook, hard blue covers, spiral bound. Every page is blank. On the flyleaf, typed: PROPERTY LOG — CONTENTS ACCURATE AS WRITTEN. Nothing else is written.",
-      "when": {"case": "mina_caption_crisis", "resolved": true}
-    },
-    {
-      "id": "vantry_final_demand",
-      "kind": "letter",
-      "title": "MISDELIVERED \u2014 H. VANTRY, 3C",
-      "body": "A final demand from the Queens Gas Company, the third this year by its own count, addressed to H. Vantry, 3C. Across the corner in carrier's pencil: 3C EMPTY SINCE SPRING. NO FORWARDING. TRY 4B, THEY ANSWER THINGS. Under that, in a different pencil, smaller: they do not.",
-      "knowledge": "vantry_in_3c",
-      "when": {"min_conversations": 1}
-    },
-    {
-      "id": "wors_programme_card",
-      "kind": "letter",
-      "title": "WORS 1610 \u2014 PROGRAMME CARD",
-      "body": "A printed card, one side, from the Orison Community Service Frequency. Programme for the week: the hour of announcements, the hour of music by request, the hour of silence kept on purpose. At the foot, in smaller type and older ink: ON THE NIGHT THE STATION WENT QUIET NO PROGRAMME WAS MISSED. THE PROGRAMME WAS THE QUIET. Listeners are asked not to write in about it.",
-      "knowledge": "station_went_quiet",
-      "when": {"min_conversations": 2}
-    },
-    {
-      "id": "pkg_gas_mantles",
-      "kind": "package",
-      "title": "FROM THE MANAGEMENT OFFICE — SPARE MANTLES",
-      "body": "A second dozen gas mantles for the workroom carton, since the first are spent. The hardware counter has no more of this pattern, and neither has the company. Make these last. — Management",
-      "part": "gas_mantle_carton_2",
-      "when": {"part_taken": "gas_mantle_12"}
-    }
-  ]
+ "deliveries": [
+  {
+   "id": "welcome_note",
+   "kind": "letter",
+   "title": "FROM THE MANAGEMENT OFFICE",
+   "body": "New maintenance tenant, box 4B. Welcome to the Orison. Work orders, notices and parts arrive here — check it between shifts. The box is brass because everything in this lobby was installed by people who expected the building to outlive them. It has. — Management",
+   "when": {
+    "always": true
+   }
+  },
+  {
+   "id": "notice_hum",
+   "kind": "letter",
+   "title": "TENANT NOTICE — RE: THE HUM",
+   "body": "Several tenants have asked about the low electrical hum. The hum is normal. The building has always hummed. If the hum stops, please contact maintenance immediately, at any hour. Do not investigate the quiet yourself. — Management",
+   "when": {
+    "always": true
+   }
+  },
+  {
+   "id": "pkg_contact_mic",
+   "kind": "package",
+   "title": "PACKAGE — SEV TECHNICAL SALVAGE",
+   "body": "One (1) contact microphone, piezo, hard-wired, with alligator clip and a hand-wound coil of shielded cable. Invoice marked PAID — DESK ACCOUNT. A note in pencil on the packing slip: 'For listening to what the pipes say when they think you're a wall. You'll want this before you go downstairs. — S.'",
+   "upgrade": "contact_mic",
+   "when": {
+    "case": "mina_caption_crisis",
+    "min_repairs": 1
+   }
+  },
+  {
+   "id": "mina_keepsake",
+   "kind": "package",
+   "title": "PARCEL — M. VALE, 2A",
+   "body": "A stenographer's notebook, hard blue covers, spiral bound. Every page is blank. On the flyleaf, typed: PROPERTY LOG — CONTENTS ACCURATE AS WRITTEN. Nothing else is written.",
+   "when": {
+    "case": "mina_caption_crisis",
+    "resolved": true
+   }
+  },
+  {
+   "id": "vantry_final_demand",
+   "kind": "letter",
+   "title": "MISDELIVERED — H. VANTRY, 3C",
+   "body": "A final demand from the Queens Gas Company, the third this year by its own count, addressed to H. Vantry, 3C. Across the corner in carrier's pencil: 3C EMPTY SINCE SPRING. NO FORWARDING. TRY 4B, THEY ANSWER THINGS. Under that, in a different pencil, smaller: they do not.",
+   "knowledge": "vantry_in_3c",
+   "when": {
+    "min_conversations": 1
+   }
+  },
+  {
+   "id": "wors_programme_card",
+   "kind": "letter",
+   "title": "WORS 1610 — PROGRAMME CARD",
+   "body": "A printed card, one side, from the Orison Community Service Frequency. Programme for the week: the hour of announcements, the hour of music by request, the hour of silence kept on purpose. At the foot, in smaller type and older ink: ON THE NIGHT THE STATION WENT QUIET NO PROGRAMME WAS MISSED. THE PROGRAMME WAS THE QUIET. Listeners are asked not to write in about it.",
+   "knowledge": "station_went_quiet",
+   "when": {
+    "min_conversations": 2
+   }
+  },
+  {
+   "id": "pkg_gas_mantles",
+   "kind": "package",
+   "title": "FROM THE MANAGEMENT OFFICE — SPARE MANTLES",
+   "body": "A second dozen gas mantles for the workroom carton, since the first are spent. The hardware counter has no more of this pattern, and neither has the company. Make these last. — Management",
+   "part": "gas_mantle_carton_2",
+   "when": {
+    "part_taken": "gas_mantle_12"
+   }
+  },
+  {
+   "id": "order_party_line_manners",
+   "kind": "package",
+   "title": "PARCEL — ARCADE TOY & STATIONERY",
+   "body": "Party-Line Manners, forty pages. Rule one: Announce yourself. Rule two: Do not announce anyone else. Rule nineteen: If the second voice is your own, hang up first and be gracious about it. Approved by no one.",
+   "when": {
+    "order": "party_line_manners",
+    "days": 2
+   }
+  },
+  {
+   "id": "order_felt_bedpost_pads",
+   "kind": "package",
+   "title": "PARCEL — SLUMBERFELT CO., BROOKLYN",
+   "body": "Four felt pads in a paper band. A slip reads: These will not quiet the Hum. They will stop the bed from joining in. Do not write to us about the Hum.",
+   "goods": {
+    "id": "felt_bedpost_pads",
+    "name": "Felt bedpost pads",
+    "form": "packet"
+   },
+   "when": {
+    "order": "felt_bedpost_pads",
+    "days": 3
+   }
+  },
+  {
+   "id": "order_home_cycle_meter",
+   "kind": "package",
+   "title": "PARCEL — RASTIN-PATTERN METER CO.",
+   "body": "One home cycle meter, on ten days' trial. The card says: It will read forty-one. If it reads anything else, return it at once and do not tell the neighbours. No bill follows. The company does not explain why.",
+   "goods": {
+    "id": "home_cycle_meter",
+    "name": "Home cycle meter",
+    "form": "box"
+   },
+   "when": {
+    "order": "home_cycle_meter",
+    "days": 5
+   }
+  },
+  {
+   "id": "order_schematic_lesson",
+   "kind": "letter",
+   "title": "ALBANY HOME STUDY INSTITUTE — LESSON ONE",
+   "body": "Lesson One. Every set made has its drawing pasted in the lid. Look at the drawing. Now look at the set. They disagree. Write and tell us which is wrong; nineteen lessons remain, at a dollar, and the answer is in none of them.",
+   "when": {
+    "order": "schematic_lesson",
+    "days": 2
+   }
+  }
+ ]
 }

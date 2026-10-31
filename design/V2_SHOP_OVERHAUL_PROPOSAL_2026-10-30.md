@@ -359,10 +359,12 @@ argument. Renew the surface packet once per batch, not per shop.
 | 5 | Radio, Funeral, Harukiya | Set upgrades, wage work and wagers |
 | 6 | Appearance batches | After the refit kit proves itself on Otis |
 
-**Status, 2026-10-30.** Slice 1 and the carried case are built. Slice 2 is built except
-coupons and mail order: Hardware, News and Bodega sell through one terminal per counter
+**Status, 2026-10-31.** Slice 1, the carried case and slice 2 are built. Four coupons can
+be torn off the back page, posted at News and received in the 4B box. Sev Technical
+Salvage's coupon is deliberately not orderable, because its contact microphone already
+has its own arrival rule. Hardware, News and Bodega sell through one terminal per counter
 with a selector, News charges for a paper and falls back to the desk account when it
-can't, and door errands are in. Not built in slice 2: coupons and mail order, a modelled
+can't, and door errands are in. Not built in slice 2: a modelled
 price card and selector, and the Bodega's list-and-bag props.
 Hardware's drawers and ladder are not yet operable.
 

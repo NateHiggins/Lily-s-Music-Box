@@ -22,6 +22,7 @@ const SHELF_WIDTH := 300
 const SHEET_INSET := 58
 ## Pixels of leftward travel that carry the sheet fully over.
 const TURN_TRAVEL_PX := 320.0
+const TEAR_TRAVEL_PX := 110.0
 const CORNER_SIZE := 72.0
 ## The Sunday cartoon is the same one-bit print, three times its native 96.
 const CARTOON_HEIGHT := 380.0
@@ -34,6 +35,8 @@ var side := "front"
 var _sheet: Control
 var _scroll: ScrollContainer
 var _corner: Control
+var _coupon: Control = null
+var _tear := 0.0
 var _gripped := false
 var _grip_from := "front"
 var _turn := 0.0
@@ -366,15 +369,25 @@ func _on_shelf_selected(index: int) -> void:
 ## next click lets go (RUL-013). Past halfway it settles on the other side.
 func _input(event: InputEvent) -> void:
 	if _closed or _corner == null: return
+	if _coupon != null and event is InputEventMouseMotion:
+		_pull_coupon(event.relative)
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if _gripped:
+		if _coupon != null:
+			_let_go_of_coupon()
+		elif _gripped:
 			_release_corner()
 		elif _corner.visible and _corner.get_global_rect().has_point(event.position):
 			_gripped = true
 			_grip_from = side
 			_turn = 0.0
 		else:
-			return
+			var found := _coupon_at(event.position)
+			if found == null:
+				return
+			_coupon = found
+			_tear = 0.0
 		get_viewport().set_input_as_handled()
 	elif _gripped and event is InputEventMouseMotion:
 		_turn = clampf(_turn - event.relative.x / TURN_TRAVEL_PX, 0.0, 1.0)
@@ -386,6 +399,34 @@ func _input(event: InputEvent) -> void:
 		_sheet.pivot_offset = _sheet.size * 0.5
 		_sheet.scale.x = maxf(absf(1.0 - 2.0 * _turn), 0.02)
 		get_viewport().set_input_as_handled()
+
+
+## A coupon on the page that can be taken, under the cursor and not scrolled away.
+func _coupon_at(position: Vector2) -> Control:
+	if not _scroll.get_global_rect().has_point(position):
+		return null
+	for found: Node in _page.find_children(NewspaperAd.COUPON_NODE, "PanelContainer", true, false):
+		var coupon := found as Control
+		if coupon.visible and coupon.has_meta("order") and coupon.get_global_rect().has_point(position):
+			return coupon
+	return null
+
+
+## The paper gives along its perforations as the hand pulls, then comes away.
+func _pull_coupon(relative: Vector2) -> void:
+	_tear += relative.length()
+	_coupon.pivot_offset = Vector2(0, _coupon.size.y)
+	_coupon.rotation = -minf(_tear / TEAR_TRAVEL_PX, 1.0) * 0.14
+	if _tear < TEAR_TRAVEL_PX:
+		return
+	MailOrders.tear(str(_coupon.get_meta("order")))
+	_coupon.visible = false
+	_coupon = null
+
+
+func _let_go_of_coupon() -> void:
+	_coupon.rotation = 0.0
+	_coupon = null
 
 
 func _release_corner() -> void:
