@@ -698,6 +698,72 @@
    "text": "Entered, on your word: a purse stayed and a ring of keys did not. I have no column for thrift."
   },
   {
+   "id": "m_theory_men",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "one of them took the drawer",
+    "they sent a man up the fire escape",
+    "it was one of the four",
+    "the aldermen did it",
+    "it was the landlord"
+   ],
+   "requires": [
+    "m_drawer_empty"
+   ],
+   "note": "Suspect chain. The game suspects nobody.",
+   "text": "Entered, on your word. Nobody else's."
+  },
+  {
+   "id": "m_boxes",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "they are still looking",
+    "he is still looking",
+    "they have the prints back",
+    "he has his print back",
+    "box 61",
+    "box 74"
+   ],
+   "requires": [
+    "m_c_boxes"
+   ],
+   "note": "The clearing. It clears the theory and not any man's evening.",
+   "text": "Entered, on your word: Box 61, Box 74, two hundred dollars, no questions. I have no column for a man advertising for what he has."
+  },
+  {
+   "id": "m_landlord_plant",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "the landlord framed her",
+    "he wrote her letter",
+    "the letter is a plant",
+    "the letter is forged"
+   ],
+   "requires": [
+    "m_landlord_letter"
+   ],
+   "note": "The wrong distrust. The phrase is hers first, and Cam had the letter from her hand.",
+   "text": "Entered, on your word: two people write alike. Against it, on the flap, C.O., 6.40. I have no column for who caught it from whom."
+  },
+  {
+   "id": "m_deed_why",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "why would an alderman want a deed",
+    "why take the deed",
+    "why did they take the deed plates"
+   ],
+   "requires": [
+    "m_deed_gone"
+   ],
+   "note": "Points back at the lease without saying so.",
+   "text": "Entered, on your word: a drawer emptied by someone who took a deed. I have no column for a man who has no use for it."
+  },
+  {
    "id": "m_end_keep",
    "movement": "IV_line",
    "surface": "witnessed",

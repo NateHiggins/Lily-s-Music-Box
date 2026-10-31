@@ -12,7 +12,8 @@
   "ew_note": "ew_n1",
   "ew_lease": "ew_l1",
   "ew_letter": "ew_lt1",
-  "ew_times": "ew_t1"
+  "ew_times": "ew_t1",
+  "ew_landlord": "ew_ll1"
  },
  "threads": [
   {
@@ -68,6 +69,18 @@
    ],
    "source": "Kept from a cut chain. Proves the book where the letter needs it.",
    "root": "ew_t1"
+  },
+  {
+   "id": "ew_landlord",
+   "from": "1929-07-30",
+   "until": "1929-11-09",
+   "topic": "Has anyone written to you about her plates?",
+   "requires_any": [
+    "m_saw_kessler_note",
+    "m_men_asked"
+   ],
+   "source": "Suspect chain, the four men. The false doubt about the letter, and its answer.",
+   "root": "ew_ll1"
   }
  ],
  "nodes": {
@@ -149,6 +162,20 @@
   "ew_t1": {
    "flag": "m_times_checked",
    "line": "My clerk stamps what this office takes, and the Ortiz boy pencils what he holds. Bring the book, sit there, read me the summer. Sixty-odd pieces, and not a minute between them that I could bill for. In a witness I would call that a fault. I looked."
+  },
+  "ew_ll1": {
+   "flag": "m_landlord_letter",
+   "silence_goto": "ew_ll2",
+   "line": "Pinned, naturally. A landlord on Borden Avenue. \"Any material held by the person who kept the counter, to be returned unexamined.\" You'll notice he and the lady upstairs write alike.",
+   "choices": [
+    {
+     "label": "Could he have written hers?",
+     "goto": "ew_ll2"
+    }
+   ]
+  },
+  "ew_ll2": {
+   "line": "Forty years of landlords, and they catch it off each other like a cough. Who caught it from whom I couldn't tell you. I can tell you the Ortiz boy had hers from her own hand. I don't charge for that one, it's no use to me."
   }
  }
 }
