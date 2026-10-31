@@ -4,18 +4,23 @@ extends Node3D
 ##
 ##   - "counter": the News & Cigars counter top. Interacting offers the two
 ##     papers for today and the few days the rack keeps; a paper taken is
-##     collected at once and may be read there. Papers go on the desk account
-##     like the mail: no coin changes hands.
+##     collected at once and may be read there. A paper is settled at its price
+##     over the set; with no credit or no carrier it goes on the desk account, so
+##     being broke never keeps a player from the news.
 ##   - "shelf": the player's bookshelf in 4B. Interacting opens the kept
 ##     papers, newest first.
 ##
 ## The rack owns no newsprint: the catalogue answers what is on sale and what
 ## is kept; the panel reads.
 
+const SALE_ITEMS := {"record": "the_borough_record", "speaker": "the_loud_speaker"}
+
 var mode := "counter"
 ## The arcade's hours owner (PassageHoursDirector); the stand is shuttered
 ## with the grilles. Null on the shelf and in bare tests.
 var hours: Node = null
+## The counter's sales, when the world mounts one. Null on the shelf and in tests.
+var sales: ShopSales = null
 var _panel: NewspaperPanel
 var _chooser: CaseDialoguePanel
 var _reach := Vector3(0.9, 0.3, 0.6)
@@ -115,6 +120,10 @@ static func offers_for(catalog: NewspaperCatalog, date: String, published_only :
 
 func _take(player: Node, catalog: NewspaperCatalog, paper_id: String, date: String) -> void:
 	if not catalog.published_now(paper_id,date): return
+	if sales != null and not catalog.is_collected(paper_id, date):
+		var item_id := SALE_ITEMS.get(paper_id, "") as String
+		if item_id != "":
+			sales.transact(item_id, sales.shop_id)
 	catalog.collect(paper_id, date)
 	_open_panel(player, catalog, paper_id, date)
 

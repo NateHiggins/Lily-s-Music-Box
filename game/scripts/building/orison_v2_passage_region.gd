@@ -476,10 +476,12 @@ func _mount_news_stand() -> bool:
 	var stand := NewsRackProp.new()
 	stand.name = "NewsStand"
 	stand.hours = finish.hours_director
+	# The customer-side strip of the top is the shop's sale point.
+	var rack_front: float = float(rect[1]) + 0.18
 	stand.setup("counter", Vector3(absf(float(rect[2]) - float(rect[0])), 0.3,
-			absf(float(rect[3]) - float(rect[1]))))
+			absf(float(rect[3]) - rack_front)))
 	stand.position = GameBoot.b2g([(float(rect[0]) + float(rect[2])) * 0.5,
-			(float(rect[1]) + float(rect[3])) * 0.5, float(top.z0) + float(top.h) + 0.15])
+			(rack_front + float(rect[3])) * 0.5, float(top.z0) + float(top.h) + 0.15])
 	_actors.add_child(stand)
 	return true
 

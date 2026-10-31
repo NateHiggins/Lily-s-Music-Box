@@ -12,6 +12,24 @@
     "at_minute": 480,
     "units": 12
    }
+  },
+  "icebox": {
+   "capacity": 48,
+   "per_day": 18,
+   "delivery": {
+    "every_days": 1,
+    "at_minute": 330,
+    "units": 30
+   }
+  },
+  "pantry": {
+   "capacity": 120,
+   "per_day": 18,
+   "delivery": {
+    "every_days": 3,
+    "at_minute": 420,
+    "units": 60
+   }
   }
  },
  "events": [],
@@ -71,5 +89,6 @@
    "group": "notions",
    "form": "packet"
   }
- ]
+ ],
+ "sells_groceries": true
 }
