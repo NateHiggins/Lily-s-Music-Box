@@ -324,7 +324,6 @@ func _ready() -> void:
 	for sign_prop: ShopSignProp in _signs:
 		sign_prop.bind_hours_director(finish.hours_director)
 	_mount_counters()
-	if not _mount_key_counter(): return
 	if not _mount_news_stand(): return
 	preload("res://scripts/building/v2_legacy_material_stock.gd").apply(self)
 	add_to_group("orison_v2_passage_region")
@@ -439,25 +438,6 @@ func transaction_counter_available(shop_id: String) -> bool:
 	return not startup_failed and shop_id in _counter_ids and shop_service!=null \
 			and is_instance_valid(shop_service.counter(shop_id))
 
-
-func _mount_key_counter() -> bool:
-	var matches: Array[Dictionary] = []
-	for floor: Dictionary in source_layout.floors:
-		if floor.id != "F01": continue
-		for item: Dictionary in floor.furniture:
-			if item.id == "storm_shop_keys_cut_counter_top": matches.append(item)
-	if matches.size()!=1:
-		_fail("ambiguous Keys Cut counter source")
-		return false
-	var source: Dictionary = matches[0]
-	var rect: Array = source.rect
-	var counter := preload("res://scripts/props/key_copy_counter.gd").new()
-	counter.name = "AuthorizedKeyCopies"
-	counter.hours = finish.hours_director
-	counter.size = Vector3(float(rect[2])-float(rect[0]),.30,float(rect[3])-float(rect[1]))
-	counter.position = GameBoot.b2g([(float(rect[0])+float(rect[2]))*.5,(float(rect[1])+float(rect[3]))*.5,float(source.z0)+float(source.h)+.15])
-	_actors.add_child(counter)
-	return true
 
 ## News & Cigars sells over its counter (design/ORISON_NEWSPAPERS_2026-10-23.md
 ## section 6): the papers control sits on the authored counter top.

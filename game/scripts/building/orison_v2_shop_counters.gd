@@ -6,6 +6,9 @@ extends RefCounted
 
 const SalePoint := preload("res://scripts/props/shop_sale_point.gd")
 ## The terminal's lettering faces local -Z, toward whoever is buying.
+const KEYS_ROW := "storm_shop_keys_cut_counter_top"
+const CUTTER_ROW := "storm_shop_keys_cut_cutter_vise0"
+const KEYS_ALONG := -51.1
 const PAWN_ROW := "storm_shop_pawnbroker_grille_top"
 ## On the customer side of the grille, clear of the ledger and balance.
 const PAWN_ACROSS := 21.3
@@ -35,6 +38,14 @@ static func mount(world: Node3D) -> Dictionary:
 	var news_top := float(news.z0) + float(news.h)
 	points["news_cigars"] = _place(world, "news_cigars", passage.transaction_actor_root(),
 			passage.global_transform * Transform3D(Basis(Vector3.UP, PI), GameBoot.b2g([NEWS_ALONG, NEWS_ACROSS, news_top])))
+	var keys := _row(passage, KEYS_ROW)
+	if keys.is_empty():
+		return {}
+	var keys_top := float(keys.z0) + float(keys.h)
+	var keys_x := (float(keys.rect[0]) + float(keys.rect[2])) * 0.5
+	points["keys_cut"] = _place(world, "keys_cut", passage.transaction_actor_root(),
+			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
+			GameBoot.b2g([keys_x, KEYS_ALONG, keys_top])))
 	var pawn := _row(passage, PAWN_ROW)
 	if pawn.is_empty():
 		return {}
@@ -54,6 +65,24 @@ static func mount(world: Node3D) -> Dictionary:
 	return points
 
 
+## The carriage stands on the cutter's vises, worked from the shop floor side.
+static func mount_cutter(world: Node3D) -> Node3D:
+	var passage: Node3D = world.passage_region
+	var vise := _row(passage, CUTTER_ROW)
+	if vise.is_empty():
+		return null
+	var cutter: Node3D = preload("res://scripts/props/key_cutter_carriage.gd").new()
+	cutter.name = "KeyCutterCarriage"
+	passage.transaction_actor_root().add_child(cutter)
+	var top := float(vise.z0) + float(vise.h)
+	var at: Vector3 = GameBoot.b2g([(float(vise.rect[0]) + float(vise.rect[2])) * 0.5 - 0.06, -51.0, top])
+	cutter.global_transform = passage.global_transform * Transform3D(Basis(Vector3.UP, PI), at)
+	if not cutter.configure(passage.finish.hours_director):
+		cutter.free()
+		return null
+	return cutter
+
+
 static func _row(passage: Node3D, identity: String) -> Dictionary:
 	for floor: Dictionary in passage.source_layout.floors:
 		if str(floor.id) != "F01":
@@ -70,7 +99,9 @@ static func _place(world: Node3D, shop_id: String, parent: Node3D, at: Transform
 	parent.add_child(point)
 	point.global_transform = at
 	var sales: ShopSales
-	if shop_id == "pawnbroker":
+	if shop_id == "keys_cut":
+		sales = KeysSales.new(shop_id, world.shop_catalogue, world.shop_stock, world.shop_clearing)
+	elif shop_id == "pawnbroker":
 		sales = PawnSales.new(world.shop_catalogue, world.shop_stock, world.shop_clearing, world.get_node("CaretakerEconomy"))
 	else:
 		sales = ShopSales.new(shop_id, world.shop_catalogue, world.shop_stock, world.shop_clearing)
