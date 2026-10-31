@@ -11539,10 +11539,10 @@
   },
   "southern_pair_canonical_review": {
     "archive": "art/reviews/city_streets_20261029/southern_pair_canonical_review.zip",
-    "bytes": 23522,
-    "sha256": "c8b6160187a6ecc24a337f636005343f6e012f319f23d6c6be08efb334a91e4b",
+    "bytes": 52209,
+    "sha256": "04fdbb7d1ca1435e37c10ea1b965d3dec95efb6903034d149aaf3e23dd016d05",
     "evidence_class": "INERT",
-    "scope": "Frozen92093219 independent43member/8binary/5source/11retained asset verification,11 inspected native views,264near/176lower exact non-target fingerprints,canonical UV0 and spatialclean. No runtime or artistic acceptance.",
+    "scope": "Frozen92093219 independent43member/8binary/5source/11retained asset verification,11 inspected native views,264near/176lower exact non-target fingerprints,canonical UV0 and spatialclean. No runtime or artistic acceptance. Extended: isolated207profile/234entry input proof,16loaded images(14unique) inspected,canonical editor import41s and3script compilationPASS. No composed qualification or artistic acceptance.",
     "members": {
       "canonical_intake_review_01.json": {
         "bytes": 2251,
@@ -11567,6 +11567,42 @@
       "canonical_verify_unrelated.py": {
         "bytes": 2564,
         "sha256": "0b2e288343bcdb3e3dda84c8614ed151bc98975c6997bca9c7231e6294e4d30d"
+      },
+      "canonical_loaded_review_01.json": {
+        "bytes": 105189,
+        "sha256": "b53d63809f6619836ab1b07da1cffc00d61b6fc5a40888f550916da04f80a9bf"
+      },
+      "canonical_verify_loaded.py": {
+        "bytes": 2420,
+        "sha256": "d22360abcd66589a47e11bf7f10be9df5131b241514137386833556ed1ed4ac2"
+      },
+      "canonical_preflight_batch_01.json": {
+        "bytes": 501,
+        "sha256": "2c7145a2ed25dd3575fec03ad2a5bdddd8fbf0eba6d5ac8e0208891a8edbdcf0"
+      },
+      "canonical_import_01.log": {
+        "bytes": 6354,
+        "sha256": "ae31955c61703129cc3945d4bc0523cef959bb0562f1ccf3a660c4a28acb7076"
+      },
+      "canonical_import_01.log.receipt.json": {
+        "bytes": 2766,
+        "sha256": "4bd13a090689dd92de803057774d459afb3c81963a275c5c84dd2a1f19e21c9b"
+      },
+      "canonical_import_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "canonical_route_compiler_02.log": {
+        "bytes": 362,
+        "sha256": "4fe6e084f1d445dd2175c973781351e6505eb6fc3b5c4f31e0a72516e28b2738"
+      },
+      "canonical_route_compiler_02.log.receipt.json": {
+        "bytes": 2994,
+        "sha256": "216ec724d345a237350f04826af80bd07a7ff7c462374719af800fbb78381aca"
+      },
+      "canonical_route_compiler_02.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       }
     }
   }

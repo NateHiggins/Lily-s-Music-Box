@@ -4510,3 +4510,27 @@ timer, yield, state writer or extra world run. The retained cardinal run recorde
 observations are prepared to locate it in the next already-required city run.
 Spatial audit stays clean and reader NEW0. Compilation and runtime measurement
 remain queued; no startup improvement is claimed from these authored probes.
+
+Canonical preflight subsequently passes editor import in41s and compilation of
+the transport route, runtime controller and PR101 resident-errand class, with
+empty stderr. This supersedes only the pending compilation status above; the
+startup timestamps have not yet been measured in a composed run. The separate
+author bench reports7691 checks/1205 roof samples/1073 family draws/zero failures
+in49.93s. Independent verification matches all207 profile and234 local-entry
+inputs against frozen **92093219** plus its exact external test source. Sixteen
+loaded images were inspected (fourteen unique; two return images are exact
+aliases). The natural-LOD captures isolate single limestone/terracotta parts,
+and the SE2 local eye fixture hides other station draws; neither is composed
+station visibility. Its actual normal-input entry diagnostic passes16 checks
+in11.173266s, retaining both150mm risers, the closed leaf and full standing body.
+The author is committing that passed test/archive extension before full-world
+freeze. The existing canonical-review archive now preserves all six initial
+members plus these loaded-source checks and actual preflight logs/receipts:
+15 members/52,209 bytes. No current composed, save, art or performance claim.
+
+Exact-main static comparison baseline is now captured from the existing clean
+detached baseline checkout at **82526a32**:117 gates, zero dirty paths before
+and after. This is the current PR101 source, not the architect's older source
+baseline or a substituted control. Existing main failures/incomplete gates
+remain in the board. Its path is
+**C:/ov/reports/city_streets_20261029/southern_pair_01/baseline_825/board.json**.
