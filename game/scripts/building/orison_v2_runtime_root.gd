@@ -651,6 +651,7 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: bookshelves refused: %s" % [bookshelves.errors])
 		return
+	_record_startup_milestone("household_props_radios_and_bookshelves_ready")
 	var fire_service := preload("res://scripts/building/orison_v2_native_fire_service.gd").new()
 	if not fire_service.mount(adapter,_blockout.layout):
 		startup_failed = true
@@ -697,6 +698,7 @@ func _compose_authorities() -> void:
 		push_error("V2 front trim fittings refused: %s" % [front_trim.errors])
 		return
 	adapter.root.set_meta("v2_native_front_trim_fittings",front_trim)
+	_record_startup_milestone("fire_electrical_front_supplies_and_trim_ready")
 	var service_instruments := preload("res://scripts/building/orison_v2_native_service_instruments.gd").new()
 	if not service_instruments.mount(self):
 		startup_failed = true
@@ -709,6 +711,7 @@ func _compose_authorities() -> void:
 		push_error("ORISON V2 RUNTIME: bar instrument fabrication refused: %s" % [bar_instruments.errors])
 		return
 	adapter.root.set_meta("v2_native_bar_instruments",bar_instruments)
+	_record_startup_milestone("service_instruments_ready")
 	for identity in ["F01_WATCHMAN_DETECTOR_BODY","F01_NIGHT_REGISTER_BODY",
 			"F01_SIGNAL_REGISTER_BODY","F01_TOUR_KEY_GUARD_BODY"]:
 		_retire_blockout_fixture(identity)
@@ -821,6 +824,7 @@ func _compose_authorities() -> void:
 			exterior_cell.shop_bucket_registry, Callable(exterior_cell, "refresh_shop_presentation")):
 		startup_failed = true
 		return
+	_record_startup_milestone("resident_routes_and_shop_simulation_ready")
 	open_shift_ecosystem.setup(work_orders, open_shift_radiator,
 			service_round, Callable(campaign_clock, "absolute_minutes"),
 			observation_ledger, null, Callable(), "campaign_absolute_minutes")

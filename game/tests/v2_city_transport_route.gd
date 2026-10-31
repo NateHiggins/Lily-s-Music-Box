@@ -98,7 +98,10 @@ func _run_southern_laurel() -> void:
 	# Laurel's +46Y assembly offset is already included in these city coordinates.
 	var programmes: Array=[
 		{"id":"site_back_e","start":Vector3(21.5,61.6,-.02),"points":[Vector3(21.5,63.8,.30),Vector3(21.5,61.6,-.02)],"target":Vector3(21.5,64.1,4.)},
-		{"id":"site_nbr_s2","start":Vector3(-9.,-26.3,0.),"points":[Vector3(-2.8,-26.3,0.),Vector3(4.,-26.3,0.),Vector3(-9.,-26.3,0.)],"target":Vector3(-2.8,-28.32,8.)},
+		# Keep the existing cast-iron arcade post and entrance clear. The
+		# measured northern edge is -24.97Y; -24.3Y stays on the retained
+		# continuous datum-zero pavement beyond the full .33m body radius.
+		{"id":"site_nbr_s2","start":Vector3(-9.,-26.3,0.),"points":[Vector3(-2.8,-26.3,0.),Vector3(-2.8,-24.3,0.),Vector3(4.,-24.3,0.),Vector3(-2.8,-24.3,0.),Vector3(-2.8,-26.3,0.),Vector3(-9.,-26.3,0.)],"target":Vector3(-2.8,-28.32,8.)},
 		{"id":"site_se2","start":Vector3(38.55,-26.3,0.),"points":[Vector3(38.55,-28.02,.30),Vector3(38.55,-26.3,0.)],"target":Vector3(38.55,-28.32,5.)}]
 	var directory:=OS.get_environment("SHOT_DIR")
 	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"southern/Laurel output directory exists")
@@ -138,7 +141,7 @@ func _run_southern_laurel() -> void:
 			if not failures.is_empty():break
 			check(trace.size()-first==programme.points.size(),"all normal-controller legs execute: "+str(programme.id))
 			completed+=1
-		check(completed==3 and trace.size()==7,"three independent fixtures execute seven actual controller legs")
+		check(completed==3 and trace.size()==10,"three independent fixtures execute ten actual controller legs")
 		check(world.safety_net.recoveries==recoveries_before,"changed fronts require no safety-net rescue")
 		check(not player.noclip and not player.crouched and is_equal_approx(player._capsule.height,1.524) and is_equal_approx(player._capsule.radius,.33) and not player._profile_disable_step_guard and not player._profile_disable_step_up,"full standing body retains gravity, collision and both step guards")
 		city_observations["walking_timing"]={"columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives"],"samples":_exploration_samples,"scope":"Actual controller walking only; fixtures, settling and PNG captures excluded. No matched speedup or full-city performance claim."}
@@ -148,10 +151,10 @@ func _run_southern_laurel() -> void:
 	check(not source_after.is_empty() and source_before==source_after and programme_before==_programme_sources(),"southern/Laurel production and test inputs stayed frozen")
 	var passed:=failures.is_empty()
 	var receipt: Dictionary={"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"Three independently floor/full-capsule-validated nearby fixtures; seven normal-controller legs, Laurel and SE2 two-riser landing ascent/descent, bar-front footway, thirty loaded complete-body parts and six actual eye views. No continuous travel between fixtures, scenic door operation, new interiors, saves, full-city or artistic acceptance.",
+		"scope":"Three independently floor/full-capsule-validated nearby fixtures; ten normal-controller legs, Laurel and SE2 two-riser landing ascent/descent, bar-front pavement roundtrip around the retained arcade post, thirty loaded complete-body parts and six actual eye views. No continuous travel between fixtures, scenic door operation, new interiors, saves, full-city or artistic acceptance.",
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
 		"source":{"test_path":"game/tests/v2_city_transport_route.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after},
-		"contracts":{"production_composition":{"executed":true,"passed":passed},"southern_laurel_local_walks":{"executed":not trace.is_empty(),"passed":passed and completed==3 and trace.size()==7,"waypoints":trace.size()},"southern_laurel_surfaces":{"executed":city_observations.has("southern_laurel_surfaces"),"passed":passed},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
+		"contracts":{"production_composition":{"executed":true,"passed":passed},"southern_laurel_local_walks":{"executed":not trace.is_empty(),"passed":passed and completed==3 and trace.size()==10,"waypoints":trace.size()},"southern_laurel_surfaces":{"executed":city_observations.has("southern_laurel_surfaces"),"passed":passed},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
 		"checks":city_checks,"failures":failures,"trace":trace,"observations":city_observations}
 	FileAccess.open(directory.path_join("southern_laurel_frontage_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
 	print("SOUTHERN/LAUREL: %d checks; %d waypoints; %d failures"%[city_checks,trace.size(),failures.size()])

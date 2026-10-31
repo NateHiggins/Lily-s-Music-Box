@@ -4535,6 +4535,28 @@ baseline or a substituted control. Existing main failures/incomplete gates
 remain in the board. Its path is
 **C:/ov/reports/city_streets_20261029/southern_pair_01/baseline_825/board.json**.
 
+### Combined city attempt01 — failed route retained; measured correction
+
+Evidence class: **INERT**. Actual **1ea34698** composed attempt terminates in
+194s with265 checks, four attempted movement legs and two failures. The straight
+bar-front fixture crosses an existing cast-iron gateway post; the next aggregate
+leg-count check also fails. Commerce and physical renewal did not start. Exact
+executed test/runtime source, failed contract, wrapper/log/stderr and four actual
+eye captures are retained in **southern_pair_composed_checks.zip** (13 members,
+15,176,512 bytes). The failed aggregate grants no route/body acceptance.
+
+| Location | Reproduction / severity | Evidence | Repair / verification |
+| --- | --- | --- | --- |
+| Bar-front test path at sourceY-26.3 | Normal movement from sourceX-2.8 toward4 strikes retained arcade cast iron. Qualification blocker; not a new body defect. | Actual collision owner ends **gateway_cast_iron-col/StaticBody3D**, west contactX-0.205. Source/frame survey conservatively projects the blocking stock throughY-24.97. | Keep all collision. Route around it on retained datum-zero paving atY-24.3, providing0.34m clearance beyond the0.33m radius. Source box union covers the full detour; current unfiltered controller retry remains required. Corrected three-fixture programme has ten legs. |
+| Runtime startup / first publication |124,974.114ms before startup completes; first local-fixture draw interval6836.859ms. Performance debt remains high. | Twelve monotonic milestones: city shells/roof apparatus/transport/streets3264.651ms, horizon1567.350ms; companion-ready to remaining-authorities-ready55657.666ms. No engine process/physics frame advances between these startup marks. | Add four bounded milestones inside that large authority interval for the already-required retry. No speedup, shader-compilation attribution or ordinary-play budget acceptance is claimed. |
+
+The corrected route preserves all floor-height tolerances, the full standing
+capsule, step guards, scenic leaves and three independent fixtures. It crosses
+the same frontage width along the actual public pavement, without entering the
+gateway's opening. The source-only detour support/binary/frame bindings are in
+**gateway_post_detour_support_02.json** beside the original external run.
+Startup diagnostics now have16 milestones; no timer, yield or gameplay change.
+
 
 
 
