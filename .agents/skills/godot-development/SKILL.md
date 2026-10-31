@@ -418,3 +418,17 @@ Revise obsolete advice when contrary evidence appears. Keep detailed findings
 in their existing subsystem ledger and texture/native authoring in the linked
 skills. Validate skill structure and links after edits; documentation-only
 maintenance does not require another Godot launch or gameplay acceptance claim.
+
+
+## Presentation handoffs learned in the compact-companion integration
+
+A disabled/borrowed world cannot animate its descendants through their normal
+process callbacks. Drive its presentation from the existing cinematic timeline,
+keep the actual reading observer until departure, and make camera handoff once.
+Test foreign-camera takeover on both sides; never reacquire a successor's view.
+Mechanical stow needs exclusive transient presentation ownership so normal
+reading cannot repeatedly reopen a returning keyboard. Check a callee's refusal
+before borrowing input/world state; test power, pause and interrupted re-entry.
+See the [current prologue ledger](../../../design/V2_PROLOGUE_2026-10-28.md).
+Use [developer continuity](../developer-continuity/SKILL.md) for a fresh-session
+intake or handoff; keep current hashes/status in the handoff rather than here.
