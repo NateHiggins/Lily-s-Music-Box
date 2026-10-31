@@ -11160,5 +11160,26 @@
         "raw_sha256": "406feef3f82163ceec8d9c054d01dd6cf67344164ccd5dd59b929bdde2c3be38"
       }
     }
+  },
+  "laurel_canonical_intake_review": {
+    "archive": "art/reviews/city_streets_20261029/laurel_canonical_intake_review.zip",
+    "bytes": 29168,
+    "sha256": "0c2f186b0f36fec4c3e37333be2ddc6125810f4bbd37676b4ef558f3345e0c2b",
+    "evidence_class": "INERT",
+    "scope": "Frozen63ad3504 independent207-input proof,five native/seven loaded image inspection,272near/166lower non-target exact array/index/material/local-transform comparison and twoasset UV audit. Not composed/controller/artistic acceptance.",
+    "members": {
+      "canonical_delivery_review.json": {
+        "bytes": 45340,
+        "sha256": "40f4f75c335a61efbec80736f0f7433b94c6dbaa78f6ad12b8b7c1472dfdf1a8"
+      },
+      "canonical_unrelated_preservation.json": {
+        "bytes": 45614,
+        "sha256": "c61d1b4524e377ef79a51688a7b51428d25da8118316a0317ca5c516c914ed7d"
+      },
+      "canonical_uv_audit.json": {
+        "bytes": 119995,
+        "sha256": "406feef3f82163ceec8d9c054d01dd6cf67344164ccd5dd59b929bdde2c3be38"
+      }
+    }
   }
 }

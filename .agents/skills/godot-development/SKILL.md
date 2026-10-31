@@ -86,6 +86,9 @@ cost from existing receipts. Do not repeat long walks through unchanged areas
 to reach the work. Use an explicit test-only starting fixture near the affected
 area, then exercise its real controller, input, collision and state owners.
 Keep that fixture separate from production spawning; report its narrower scope.
+Read the registered InputMap names before driving synthetic actions. A misspelled
+action can leave movement idle despite a valid scene and successful approach;
+preserve that driver failure and correct the action rather than the geometry.
 
 Use static checks or an existing small family bench before composing the world.
 Inspect the suite's actual programme, not its name: a surface survey may also

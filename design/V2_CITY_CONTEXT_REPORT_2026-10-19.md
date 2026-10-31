@@ -1,7 +1,11 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
 
-Evidence class: **INERT**. Qualified candidate **6ba6622d** versus exact
+Evidence class: **INERT**. Published main **a08ed155** retains the qualified
+cohort below. Current local **eab18066** adds reviewed Laurel stock for a later
+batched renewal; its current composed qualification is pending.
+
+Qualified candidate **6ba6622d** versus exact
 **94605245** passes117 gates/zero regressions/four improvements,17 protected
 paths unchanged,V2,no waivers or ledger promotions. It reconciles PR99,PR100
 and frozen SW2/rear-west. Actual source-scoped runtime evidence:7299 building
@@ -4331,3 +4335,14 @@ unchanged hose/city routes. No inventory, residents, case, reading, clock,
 weather or save authority changes are included. Original pane failure remains
 in the archive. Source53-draw/63532near/59282far isolated results are not a
 quiet-host, matched or complete-world performance claim.
+
+
+Canonical read-only preservation check independently confirms every non-Laurel
+semantic mesh:272 near and166 lower parts retain exact vertex attributes,
+indices, material assignment and local transforms against maina08ed155. Both
+current exported assets pass the UV audit with zero failing surfaces. Fourteen
+existing city source/ground/horizon tests pass; reader NEW0. These checks are
+recorded under **canonical_laurel_01/** and do not substitute for current
+loaded/controller/composed verification. The new local fixture's actual action
+names must be checked against InputMap; an invalid return action is a test-driver
+fault, not permission to bypass a closed leaf or loosen collision tolerances.
