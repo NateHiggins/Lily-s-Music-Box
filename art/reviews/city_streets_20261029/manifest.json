@@ -9240,5 +9240,58 @@
         "sha256": "65212ab99d2552f251bc1e31ce877ea70caca4de6f224637f4bf45c702b92447"
       }
     }
+  },
+  "bridge_surface_failed01": {
+    "archive": "bridge_surface_failed01.zip",
+    "evidence_class": "INERT",
+    "scope": "Native allocation failure before completion; no runtime contract or qualification. Monitored retry remains separate.",
+    "bytes": 343064,
+    "sha256": "6e216722dda13b5f290a6fb7d6913e263703743805001dc8e26947fe67812280",
+    "members": {
+      "executed_source/game/scripts/building/orison_v2_city_bridge.gd": {
+        "bytes": 3769,
+        "sha256": "a07e18ab8e9322ba6e570229d962fc232fdcfadd3b2c6adf1f47afe044405b37"
+      },
+      "executed_source/game/tests/orison_v2_floor_surface_test.gd": {
+        "bytes": 10727,
+        "sha256": "dc0a993f67bdd197ceba0c7a65e5f5917935ad11f1e32c8f6ac8089307afdb8f"
+      },
+      "executed_source/game/tests/orison_v2_surface_inventory.gd": {
+        "bytes": 39136,
+        "sha256": "55e2cfd50ae8469f770f7413026e1a9e0729c6bf06f3e787500bbc6e6626bdc1"
+      },
+      "failure_scope.json": {
+        "bytes": 420,
+        "sha256": "fe1ddaf94b065bcdb27a61d9d4d277a77f37d4a6e493a5acb5dcfbc2c67e0144"
+      },
+      "host_after_physical_crash.json": {
+        "bytes": 1449,
+        "sha256": "67c5f7d123c0ce5ba950e23c8ef8b3023ab57bd2627f15cbb52d466efe132538"
+      },
+      "partial_raw/tentacle_flowing_residue.png": {
+        "bytes": 175346,
+        "sha256": "3669ae87230d22d6c19384461c21ccd74f8f4251b4f5d2bf877ca345d7a99c7a"
+      },
+      "partial_raw/tentacle_installed_surfaces.png": {
+        "bytes": 179818,
+        "sha256": "c6042c40b4e91d832874b4cc011025e4ad3105a3e9f8d4be0f7e39843d324341"
+      },
+      "physical.log": {
+        "bytes": 2338,
+        "sha256": "c0a46ea28a2a4bba455c85a6ed9bf89bdc3acafb618aa3a183c6991c2ce60fd1"
+      },
+      "physical.log.receipt.json": {
+        "bytes": 2959,
+        "sha256": "40f1685777a9eb751c56faf150b409467c8362635511c7e17b03a0e11b5be897"
+      },
+      "physical.log.stderr": {
+        "bytes": 19823,
+        "sha256": "8fe4746b10ac50e20d2518d2672899c98802c0301c30a8b3a9449bd998f39394"
+      },
+      "physical_batch.json": {
+        "bytes": 463,
+        "sha256": "6c50af42bdab4362e1423f3c49fb13259e014327cb23571da8abb1271717f5f0"
+      }
+    }
   }
 }

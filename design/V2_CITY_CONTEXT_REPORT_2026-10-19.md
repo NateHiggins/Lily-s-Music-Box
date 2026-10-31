@@ -3681,3 +3681,25 @@ display probe and review scope. Manifest records each original byte hash. Origin
 failed234-check route is separately retained,not replaced. Current-source
 physical renewal and final candidate/static comparison are still pending at
 this entry; do not treat these isolated/route results as whole-game acceptance.
+
+
+### Physical renewal first failure (2026-10-30)
+
+Evidence class: **INERT**. First combined physical-only survey fails in255s
+with native exit **-1073741819 /0xc0000005** and no completed runtime contract.
+The first stderr error is Vulkan **texture_create VkResult-2
+OUT_OF_DEVICE_MEMORY**,followed by invalid render textures/uniforms and a native
+crash in the inventory's **_texture/get_image**,line577. Windows Application
+Error1000 corroborates the patched engine/ucrtbase access violation. The wrapper
+process-completed field is not a passed test. Two partial images do not qualify.
+
+Original source,raw logs,wrapper and partial frames are preserved in
+**bridge_surface_failed01.zip**,with member hashes in the existing manifest.
+Post-crash host snapshot has118.557GB committed/137.243GB limit,7.637GB available
+physical;two foreign QEMU processes account for~73.72GB private memory. A later
+GPU query has2243/16376MiB used while another agent's Godot is running. These
+post-crash observations do not establish the failed run's peak or blame a
+particular asset/foreign process. No foreign processes are stopped. One unchanged
+source/settings retry is queued with independent five-second GPU and periodic
+host-memory sampling. No mesh,surface predicate or shader is weakened to pass.
+Current source packet remains stale; candidate stays local and tally21/149.
