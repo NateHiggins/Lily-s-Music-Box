@@ -19,7 +19,7 @@ import json
 import pathlib
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter, ImageOps
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageOps
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 BOOK = ROOT / "art/data/newspaper_picture_book.json"
@@ -78,14 +78,19 @@ def source(cuts: pathlib.Path, cut: dict) -> Image.Image:
 def paste_figure(scene: Image.Image, cuts: pathlib.Path, paste: dict) -> Image.Image:
     """Cut the dark figure from a studio plate and paste it on, seam showing."""
     plate = source(cuts, paste)
+    outline = None
     if "ellipses" in paste:
-        alpha = Image.new("L", plate.size, 0)
-        draw = ImageDraw.Draw(alpha)
+        outline = Image.new("L", plate.size, 0)
+        draw = ImageDraw.Draw(outline)
         for box in paste["ellipses"]:
             draw.ellipse(tuple(box), fill=255)
-    else:
+    if outline is None or "threshold" in paste:
         dark = (np.asarray(plate) < paste.get("threshold", 80)).astype(np.uint8) * 255
         alpha = Image.fromarray(dark).filter(ImageFilter.MaxFilter(9)).filter(ImageFilter.MinFilter(9))
+        if outline is not None:
+            alpha = ImageChops.multiply(alpha, outline)
+    else:
+        alpha = outline
     for box in paste.get("clear", []):
         ImageDraw.Draw(alpha).rectangle(tuple(box), fill=0)
     box = alpha.getbbox()
