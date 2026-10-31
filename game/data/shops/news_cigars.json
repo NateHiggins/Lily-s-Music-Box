@@ -76,7 +76,8 @@
    "source": "live",
    "group": "counter",
    "grocery": "quell_tonic",
-   "form": "bottle"
+   "form": "bottle",
+   "use": "drink"
   },
   {
    "id": "bar_of_chocolate",
@@ -86,7 +87,9 @@
    "source": "live",
    "group": "counter",
    "grocery": "chocolate",
-   "form": "packet"
+   "form": "packet",
+   "use": "eat",
+   "gift": true
   },
   {
    "id": "cigar_nickel",
@@ -96,7 +99,9 @@
    "source": "authored",
    "note": "gift",
    "group": "tobacco",
-   "form": "box"
+   "form": "box",
+   "use": "smoke",
+   "gift": true
   },
   {
    "id": "cigar_ten_cent",
@@ -106,7 +111,9 @@
    "source": "authored",
    "note": "better gift",
    "group": "tobacco",
-   "form": "box"
+   "form": "box",
+   "use": "smoke",
+   "gift": true
   },
   {
    "id": "cigarettes_pack",
@@ -116,7 +123,9 @@
    "source": "authored",
    "note": "a 1933 report has 12 to 13 cents",
    "group": "tobacco",
-   "form": "packet"
+   "form": "packet",
+   "use": "smoke",
+   "gift": true
   },
   {
    "id": "pipe_tobacco_tin",
@@ -125,7 +134,8 @@
    "kind": "goods",
    "source": "authored",
    "group": "tobacco",
-   "form": "tin"
+   "form": "tin",
+   "gift": true
   },
   {
    "id": "postal_cards_hundred",
@@ -135,7 +145,8 @@
    "source": "ad",
    "note": "for the Pun Derby",
    "group": "stationery",
-   "form": "box"
+   "form": "box",
+   "gift": true
   },
   {
    "id": "postage_stamp",
@@ -163,7 +174,9 @@
    "source": "authored",
    "note": "Four jars are modelled",
    "group": "counter",
-   "form": "jar"
+   "form": "jar",
+   "use": "eat",
+   "gift": true
   },
   {
    "id": "briar_pipe",
@@ -173,7 +186,8 @@
    "source": "authored",
    "note": "The pipe rack is modelled",
    "group": "tobacco",
-   "form": "tool"
+   "form": "tool",
+   "gift": true
   },
   {
    "id": "racing_form",

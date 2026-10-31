@@ -116,6 +116,7 @@ const PLAYTEST_ENV := "ORISON_MYSTERY_PLAYTEST"
 const ERRAND_ASK := "errand:ask"
 const ERRAND_THANKS := "errand:thanks"
 const ERRAND_WAIT := "errand:wait"
+const GIFT_PREFIX := "gift:"
 
 ## Trust at which a resident moves on from first contact, and at which the one
 ## quiet integration beat is offered. Mina's case uses its own stages.
@@ -129,6 +130,7 @@ var notes: Dictionary = {}
 var opinions: Dictionary = {}   # resident_id -> {hook, hook_line, opinions: [..]}
 var mystery: Dictionary = {}    # resident_id -> {meta, entries, threads, nodes}
 var errands: ResidentErrands
+var gifts: ResidentGifts
 ## Set only by the playtest panel: read the threads as of this date and minute,
 ## with held threads open, without moving the clock or anything that reads it.
 var playtest_date := ""
@@ -237,8 +239,8 @@ func start(resident_id: String) -> bool:
 			RealityCases.interact_with_resident(resident_id)
 			return true
 		return false
-	var tree: Dictionary = with_errand(resident_id, with_weather(resident_id,with_opinions(resident_id,
-			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today())))
+	var tree: Dictionary = with_gifts(resident_id, with_errand(resident_id, with_weather(resident_id,with_opinions(resident_id,
+			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today()))))
 	var entry_id := entry_for(resident_id)
 	var entries: Dictionary = tree.get("entries", {})
 	var node_id := str(entries.get(entry_id, entries.get("first_stable", "")))
@@ -300,6 +302,9 @@ func _record(resident_id: String, flag: String, trust: int) -> void:
 		errands.deliver(resident_id)
 		return
 	if flag == ERRAND_WAIT:
+		return
+	if flag.begins_with(GIFT_PREFIX):
+		gifts.give(resident_id, flag.trim_prefix(GIFT_PREFIX))
 		return
 	if flag.begins_with("wx:") or flag.begins_with(MYSTERY_FLAG_PREFIX) \
 			or flag.begins_with(MYSTERY_HEARD_PREFIX):
@@ -518,6 +523,33 @@ func with_errand(resident_id: String, tree: Dictionary) -> Dictionary:
 		var choices: Array = node.get("choices", [])
 		if not choices.any(func(c): return str(c.get("goto", "")) == node_id):
 			choices.append({"label": topic, "goto": node_id})
+		node["choices"] = choices
+	return copy
+
+
+## A copy of the tree offering what the player carries that can be given. One gift
+## a day. Nothing changes hands until the reply is chosen.
+func with_gifts(resident_id: String, tree: Dictionary) -> Dictionary:
+	if gifts == null:
+		return tree
+	var offers := gifts.offers(resident_id)
+	if offers.is_empty():
+		return tree
+	var copy: Dictionary = tree.duplicate(true)
+	var entries: Dictionary = copy.get("entries", {})
+	var home := str(entries.get(entry_for(resident_id), entries.get("first_stable", "")))
+	for offer: Dictionary in offers:
+		copy.nodes[GIFT_PREFIX + str(offer.id)] = {"line": "For me? Well. Thank you.",
+			"flag": GIFT_PREFIX + str(offer.id), "choices": [{"label": "...", "goto": home}], "silence_goto": home}
+	for entry: Variant in entries.values():
+		var node: Dictionary = copy.nodes.get(str(entry), {})
+		if node.is_empty():
+			continue
+		var choices: Array = node.get("choices", [])
+		for offer: Dictionary in offers:
+			var goto_id := GIFT_PREFIX + str(offer.id)
+			if not choices.any(func(c): return str(c.get("goto", "")) == goto_id):
+				choices.append({"label": "I brought you %s." % str(offer.name).to_lower(), "goto": goto_id})
 		node["choices"] = choices
 	return copy
 

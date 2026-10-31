@@ -15,6 +15,8 @@ const OPEN_SECONDS := 0.45
 const CLOSE_SECONDS := 0.3
 const LIFT := 0.045
 const FLOOR := 0.0
+## How far past the shelf's front edge, in cells, a stack counts as taken out.
+const OUT_OF_CASE := 0.4
 ## The stays' pins, in the case's own frame, from the native mechanism check.
 const STAY_ROOT := Vector3(0, 0.208, -0.280)
 const STAY_SHELF_OPEN := Vector3(0, 0.004, 0.060)
@@ -30,6 +32,7 @@ const CARD_LINES := 6
 
 var player: PlayerController
 var economy: Node
+var item_use: ItemUse
 var opened := false
 var settled := false
 var held_item := ""
@@ -286,6 +289,8 @@ func _contents_card() -> String:
 		lines.append("CASH  %s" % economy.money(int(economy.book().cash)))
 		var due: int = economy.rent_cycles_due()
 		lines.append("RENT  %s" % ("%d DUE" % due if due > 0 else "PAID"))
+	if item_use != null and item_use.ears_stopped():
+		lines.append("EARS STOPPED")
 	for line: String in PersonInventory.pocket_lines():
 		if not line.begins_with("POCKET:"):
 			lines.append(line)
@@ -351,6 +356,11 @@ func _point(position: Vector2) -> void:
 	if held_item != "":
 		var stack: Node3D = _stacks[held_item]
 		stack.position = Vector3(at.x, FLOOR + LIFT, at.z)
+		if _past_front(at):
+			_tag.text = _verb_tag(held_item)
+			_tag.position = stack.position + Vector3(0, 0.05, -0.02)
+			_tag.visible = true
+			return
 		var target := _target_cell(at)
 		_show_tag(held_item, stack.position, not CarriedCase.fits(held_item, str(CarriedCase.place_of(held_item).form), target.x, target.y, _held_turned))
 		return
@@ -385,12 +395,42 @@ func _click() -> void:
 			_held_turned = bool(CarriedCase.place_of(held_item).turned)
 			_point(_pointer)
 		return
+	if _past_front(at):
+		_take_out(held_item)
+		return
 	var target := _target_cell(at)
 	# Set down only where it fits; otherwise the hand keeps it.
 	if CarriedCase.move(held_item, target.x, target.y, _held_turned):
 		_settle(held_item)
 		held_item = ""
 		_tag.visible = false
+
+
+func _past_front(at: Vector3) -> bool:
+	return _cell_at(at).y >= CarriedCase.grid().y + OUT_OF_CASE
+
+
+func _verb_tag(item: String) -> String:
+	if item_use == null:
+		return "NOTHING TO DO WITH IT"
+	if item_use.use_of(item) == "earplugs" and item_use.ears_stopped():
+		return "THEY ARE ALREADY IN"
+	return item_use.verb_for(item)
+
+
+## A use spends one. The rest of the stack goes back to its square, and the last one
+## leaves the case. Something with no use stays in the hand.
+func _take_out(item: String) -> void:
+	if item_use == null or not item_use.use(item):
+		return
+	held_item = ""
+	_tag.visible = false
+	if PersonInventory.goods_count(PersonInventory.PLAYER, item) > 0:
+		_settle(item)
+	else:
+		_stacks[item].queue_free()
+		_stacks.erase(item)
+	_card.text = _contents_card()
 
 
 func _turn() -> void:
