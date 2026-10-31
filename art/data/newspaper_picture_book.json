@@ -366,6 +366,304 @@
    }
   },
   {
+   "paper": "record",
+   "date": "1928-11-11",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The two minutes, on a Queens street corner. Traffic halted at eleven.",
+   "cut": {
+    "id": "f_silence",
+    "prompt": "men in overcoats standing bareheaded on a Queens street holding their hats, stopped wagon behind them, November morning",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-11-14",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THE WALLS HAVE IT. A Speaker composograph of the Senator's bill, five dollars a year.",
+   "cut": {
+    "id": "f_wall_ear",
+    "prompt": "a brick tenement wall seen straight on, windows with drawn blinds, evening",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 0,
+    "paste": {
+     "id": "p_ear",
+     "ellipses": [
+      [
+       430,
+       340,
+       620,
+       620
+      ]
+     ],
+     "height": 420,
+     "at": [
+      210,
+      300
+     ],
+     "prompt": "a single large human ear, side view, very high contrast, plain white background",
+     "seed": 2
+    }
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1928-11-17",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "A burst main on the first hard morning of the season. Nineteen degrees at dawn.",
+   "cut": {
+    "id": "f_frost",
+    "prompt": "burst water pipe frozen in great icicles down the front of a tenement, a plumber on a ladder, dawn",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-11-19",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "ON HOLD AT THE PLAZA. Forty-eight minutes, and no music.",
+   "cut": {
+    "id": "f_plaza",
+    "prompt": "elevated railway train stopped on a steel viaduct in the cold, passengers in overcoats and hats walking along the catwalk",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-11-21",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "HE KNEW THE NUMBER. Seven miles from Whitestone with nobody asking him.",
+   "cut": {
+    "id": "f_horse_home",
+    "prompt": "old work horse standing alone at a closed stable door at night, one street lamp, cobbles",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1928-11-25",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Three inches, and the quietest night on the exchange since 1924.",
+   "cut": {
+    "id": "f_snow",
+    "prompt": "quiet Queens street under fresh snow at night, one man shovelling by a stoop, lit windows",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1928-11-26",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The dogs ashore at Dunedin, ninety-five of them.",
+   "cut": {
+    "id": "f_dogs",
+    "prompt": "sled dogs on leads being led along a wharf beside a wooden sailing ship, men in heavy coats",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-12-08",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "A SPEAKER COMPOSOGRAPH. Party Line at Position 12, from the description of the night staff.",
+   "cut": {
+    "id": "f_cat_board",
+    "prompt": "long telephone switchboard with many cords and jacks, empty operator's chair, night lamp",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1,
+    "paste": {
+     "id": "p_cat",
+     "ellipses": [
+      [
+       170,
+       70,
+       450,
+       370
+      ],
+      [
+       230,
+       280,
+       880,
+       980
+      ]
+     ],
+     "height": 300,
+     "at": [
+      290,
+      290
+     ],
+     "prompt": "a striped grey tabby cat sitting upright, full figure, plain white studio background",
+     "seed": 5
+    }
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1928-12-05",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The Sound ice harvest at full strength. Four hundred and ten men on three fields.",
+   "cut": {
+    "id": "f_ice_field",
+    "prompt": "gang of men in heavy coats cutting ice on a frozen bay with long saws, horses and sledges, flat grey sky",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1928-12-14",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "St. Rita's shepherds hear their rehearsal played back.",
+   "cut": {
+    "id": "f_pageant",
+    "prompt": "children dressed as shepherds in robes on a small parish hall stage listening to a gramophone horn, a nun beside them",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-12-20",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THE ANSWERING DOLL has arrived, and three of them talk back too much.",
+   "cut": {
+    "id": "f_dolls",
+    "prompt": "long shelf of identical porcelain dolls in white dresses with their mouths slightly open, shop counter, eerie",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1928-12-20",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Married at College Point under an arch of twenty-four saws.",
+   "cut": {
+    "id": "f_saw_arch",
+    "prompt": "wedding party outdoors in winter, bride and groom in coats walking under an arch of long ice saws held up by men in work clothes, frozen bay",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-12-25",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "SILENT NIGHT, THIN WALLS. Posed by a Speaker player. Christmas Eve as heard next door.",
+   "cut": {
+    "id": "f_thin_wall",
+    "prompt": "woman in a nightdress and shawl holding a drinking glass to a papered wall, small Christmas tree behind her, lamp light",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-12-30",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "FAN MAIL. Party Line receives the sardines from Corona. No return address.",
+   "cut": {
+    "id": "f_cat_tins",
+    "prompt": "striped grey tabby cat sitting on a wooden desk beside a stack of small sardine tins and brown paper wrapping, telephone beside",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 5
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-01-01",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Midnight at the Plaza, before the Society's recorders.",
+   "cut": {
+    "id": "f_new_year",
+    "prompt": "huge crowd of men and women in winter coats blowing horns on a city street at midnight, elevated railway overhead",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-01-06",
+   "form": "portrait",
+   "treatment": "ink",
+   "caption": "MISS HONORA QUIGLEY, from a sketch",
+   "cut": {
+    "id": "f_quigley",
+    "prompt": "head and shoulders portrait of a very old woman telephone operator from the 1880s, white hair in a bun, lace collar, oval vignette, plain white background",
+    "style": "line",
+    "width": 832,
+    "height": 1024,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
    "paper": "speaker",
    "date": "1929-01-12",
    "form": "wide",
@@ -384,6 +682,287 @@
   },
   {
    "paper": "record",
+   "date": "1929-01-18",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Waiting since five for the Jamaica dealer's sleeves.",
+   "cut": {
+    "id": "f_queue",
+    "prompt": "long queue of men in overcoats and flat caps on a cold dark street before dawn outside a shop with blank awning",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-01-25",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "A SPEAKER COMPOSOGRAPH. Duke is sworn. Counsel objected, and was barked at.",
+   "cut": {
+    "id": "f_terrier_stand",
+    "prompt": "empty wooden witness box in a courtroom, judge's bench behind, tall windows",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 0,
+    "paste": {
+     "id": "p_terrier",
+     "threshold": 110,
+     "ellipses": [
+      [
+       371,
+       51,
+       717,
+       384
+      ],
+      [
+       154,
+       282,
+       678,
+       1011
+      ]
+     ],
+     "height": 270,
+     "at": [
+      480,
+      170
+     ],
+     "prompt": "a small dark terrier dog sitting upright, full figure, plain white studio background",
+     "seed": 2
+    }
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-01-28",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Mountains east of Little America, from a sketch by the wire description.",
+   "cut": {
+    "id": "f_mountains",
+    "prompt": "men and dog teams small on a vast antarctic snowfield with a far range of mountains, low sun",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-02-06",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THE BAND IS A RECORD, and it never skips a beat. Jamaica Arena, first night.",
+   "cut": {
+    "id": "f_marathon",
+    "prompt": "exhausted dance marathon couples leaning on each other on an arena floor, a big gramophone horn on a stand, onlookers on benches",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-02-14",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "A speaking valentine at the Arcade booth. Eighteen hundred and sixty were cut.",
+   "cut": {
+    "id": "f_valentine_booth",
+    "prompt": "young couple in winter coats speaking into the horn of a recording booth in a shopping arcade, clerk watching",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-02-21",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "DOWN UNDER THE EL. The carters are getting on their high horse about it.",
+   "cut": {
+    "id": "f_mare_down",
+    "prompt": "a big draught horse in harness lying on its side on icy cobbles, its head and four legs plainly visible, carters in heavy coats standing round it under an elevated railway",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 5
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-02-24",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The ships clear of the pack. Forty-two men stay behind.",
+   "cut": {
+    "id": "f_pack_ice",
+    "prompt": "wooden barque sailing ship working through broken pack ice, grey sea, no people",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-03-04",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Inauguration Day. A wet crowd at the Capitol, far from the portico.",
+   "cut": {
+    "id": "f_oath_rain",
+    "prompt": "great crowd under black umbrellas in heavy rain seen from far behind, a domed building tiny in the distance",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-03-07",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "SERGEANT MORAN CALLS. Party Line would not put him through. Posed.",
+   "cut": {
+    "id": "f_sergeant",
+    "prompt": "police sergeant in 1920s uniform bending down to speak to a striped grey tabby cat on a telephone switchboard, operators hiding their smiles",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 5
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-03-16",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Roosevelt Avenue by hand. Thirteen hundred doors on the first day.",
+   "cut": {
+    "id": "f_by_hand",
+    "prompt": "two men carrying blocks of ice and sacks of coal by hand along a street under an elevated railway, loaded on their shoulders",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-03-17",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THE PARADE MARCHES PAST TWICE, and the cheering falls short of the record.",
+   "cut": {
+    "id": "f_parade",
+    "prompt": "street parade with marching band and banners without writing, crowd on both sides, a man with a recording horn on a platform, spring",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-03-24",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THE RIVER CALLS AHEAD. New Madrid picks up, forty minutes early.",
+   "cut": {
+    "id": "f_levee",
+    "prompt": "men in oilskins at night on a river levee, one kneeling with headphones and a wire into the bank, lanterns, flood water",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-03-25",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The Vantry Arcade. Ten of eleven tenants have declined to sign.",
+   "cut": {
+    "id": "f_arcade",
+    "prompt": "interior of a small glass-roofed shopping arcade, shuttered shop fronts with blank signs, a single shopkeeper in an apron",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-03-31",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THE EASTER HATS GO OUT ON THE WIRE. A Speaker composograph.",
+   "cut": {
+    "id": "f_hats_wire",
+    "prompt": "wide-brimmed flowered ladies' Easter hats caught on overhead telephone wires, seen from below against a pale spring sky, a telephone pole",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 6
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-04-04",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The Governor's pen, 3:15 p.m. Licences required from July.",
+   "cut": {
+    "id": "f_pen",
+    "prompt": "a man's hand signing a long document with a dip pen on a big desk, inkwell, close up, no writing visible",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-04-01",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "FOUND! Sixteen-Ten up the Speaker's own chimney, and on the air all along.",
+   "cut": {
+    "id": "f_chimney",
+    "prompt": "man in shirt sleeves on a city rooftop peering down into a brick chimney holding a wireless receiver and headphones, smoke, water tanks",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
    "date": "1929-04-12",
    "form": "column",
    "treatment": "halftone",
@@ -397,6 +976,502 @@
     "shown": 512,
     "seed": 1,
     "src": "ph_levee"
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-04-19",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THIRTY-ONE ON THE NEEDLE. The Stadium's crowd, as measured.",
+   "cut": {
+    "id": "f_stadium",
+    "prompt": "huge crowd in straw hats and suits in the stands of a big baseball stadium, seen from the field, flags without writing",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-04-24",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "BOTH DOWN TOGETHER. The four hundred and thirteenth hour at Jamaica.",
+   "cut": {
+    "id": "f_marathon_end",
+    "prompt": "two exhausted dance marathon couples collapsed on an arena floor at night, a judge bending over them, sawdust",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-05-02",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The march to Astoria Park. Six speeches, taken down by two machines.",
+   "cut": {
+    "id": "f_may_day",
+    "prompt": "long march of workers in caps carrying plain banners without writing to a city park, spring trees",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-05-05",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "MAJOR RECONNECTS. Eleven miles from Bayside, and back on the route.",
+   "cut": {
+    "id": "f_major_dawn",
+    "prompt": "old harness horse walking alone up an empty city street at dawn, milk bottles on stoops, tram wires",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-05-09",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THE FIRST WARM NIGHT. The whole block is on a party line.",
+   "cut": {
+    "id": "f_windows",
+    "prompt": "front of a tenement on a warm night, every window open and lit, people leaning on sills talking across the air shaft",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-05-09",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Dr. Rastin's meter in the nave of St. Mary's, from 9:20 p.m.",
+   "cut": {
+    "id": "f_nave",
+    "prompt": "man in a suit crouching with a box instrument in the empty nave of a stone church at night, one lamp, pews",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-05-12",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The long-distance board, the Sunday before Mother's Day.",
+   "cut": {
+    "id": "f_mothers",
+    "prompt": "busy telephone exchange room, dozens of women operators at long boards, supervisor walking behind on roller skates",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-05-15",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THE GREY COAT, and all the Speaker's man could get of him.",
+   "cut": {
+    "id": "f_grey_coat",
+    "prompt": "a tall man in a long grey overcoat and hat seen from behind, walking away down a courthouse corridor, face unseen, motion blur",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-05-29",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "GONE BY TWO. Ninety-one degrees, and the wagon empty.",
+   "cut": {
+    "id": "f_ice_out",
+    "prompt": "line of women in summer dresses with pails and baskets waiting at an empty ice wagon in a hot street, the ice man shrugging",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-05-30",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Taps at Cypress Hills, eleven o'clock.",
+   "cut": {
+    "id": "f_taps",
+    "prompt": "a lone bugler in an old uniform playing among rows of white gravestones, veterans standing bareheaded behind",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-06-09",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "RASTIN ROWS OUT, three miles, and the Hum stays on the same frequency.",
+   "cut": {
+    "id": "f_rowing",
+    "prompt": "man in a suit and straw hat rowing a small boat at dawn on flat water, a box instrument on the thwart, far shoreline",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-06-14",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Newtown's class of 1929, four hundred and twelve.",
+   "cut": {
+    "id": "f_graduates",
+    "prompt": "rows of high school graduates in dark gowns standing on the steps of a brick school, parents watching, June",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-06-16",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The capsule goes under the reading room floor at Flushing.",
+   "cut": {
+    "id": "f_capsule",
+    "prompt": "workmen in caps lowering a copper box into a hole in a library's stone floor, reading tables and bookshelves, a woman in a dark hat watching",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-06-19",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "MOVING DAY. Queens takes to the fire escape, and the whole block's on the line.",
+   "cut": {
+    "id": "f_fire_escape",
+    "prompt": "adults in summer clothes sitting and sleeping on the iron fire escapes of a tenement at night, a radio on a sill, seen from the street",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-06-22",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The Society at Alley Pond. Eighty-five minutes of the dawn.",
+   "cut": {
+    "id": "f_dawn_marsh",
+    "prompt": "two men in coats with a large recording horn on a tripod in a marsh at dawn, mist, reeds",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-06-27",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "NO CREAM. The borough rings every fountain, and gets a cold reception.",
+   "cut": {
+    "id": "f_soda",
+    "prompt": "crowded soda fountain counter in summer, a soda jerk spreading his empty hands, men and women in straw hats, no signs",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-07-02",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "An inspector's first call, with a cold welcome in Elmhurst.",
+   "cut": {
+    "id": "f_inspectors",
+    "prompt": "two men in suits with bags and a meter standing at a tenement door, a housewife with folded arms blocking the way",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-07-05",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "LOUDEST IN THE CITY. The Fourth, from a Queens roof.",
+   "cut": {
+    "id": "f_fireworks",
+    "prompt": "fireworks bursting over dark city rooftops, silhouettes of families on a roof, water tanks",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-07-08",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Ninety-five at 3:10. The park at midnight, full.",
+   "cut": {
+    "id": "f_park_sleep",
+    "prompt": "men and women in light clothes sleeping on blankets on the grass of a city park at night, lamp posts, heat",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-07-11",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "FIVE THOUSAND TONS BY NOON, and the wagons get a warm reception.",
+   "cut": {
+    "id": "f_ice_wagons",
+    "prompt": "a line of many horse-drawn ice wagons on a dry city street in blazing July sun, ice men in shirt sleeves with tongs, deep shadows, summer leaves",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 3
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-07-18",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "ONE DOG, TWO NAMES. He answers to both, and neither man will hang up.",
+   "cut": {
+    "id": "f_two_owners",
+    "prompt": "exactly two angry men facing each other on a street, tugging one single dog lead between them, one small terrier sitting between them looking away",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 3
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-07-19",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The ticker, twenty-one minutes behind the floor.",
+   "cut": {
+    "id": "f_ticker",
+    "prompt": "clerks in shirt sleeves bent round a stock ticker machine, ribbon of paper tape spilling to the floor, office, close",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-07-24",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Ditmars Avenue. Eleven house systems heard it before the first alarm.",
+   "cut": {
+    "id": "f_ditmars",
+    "prompt": "tenement fire at night, smoke from upper windows, neighbours in the street, firemen arriving",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-07-22",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "A MILLION AT CONEY, and every one of them heard by somebody.",
+   "cut": {
+    "id": "f_boardwalk",
+    "prompt": "great summer crowd in hats and light dresses walking on a boardwalk beside amusement towers and a roller coaster",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-08-04",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The Navy's Montauk station, 1:12 a.m. Engines heard before she was seen.",
+   "cut": {
+    "id": "f_montauk",
+    "prompt": "two navy men with headphones at a radio receiver in a wooden hut on a coast at night, one lamp, sea through the window",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-08-05",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "LAKEHURST PICKS UP. Twenty thousand hear her come in.",
+   "cut": {
+    "id": "f_graf",
+    "prompt": "a giant airship moored at a mast on a flat field at dusk, a huge crowd behind ropes, no writing on the hull",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-08-07",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Twenty-four degrees in ninety minutes. The storm from Queensboro Plaza.",
+   "cut": {
+    "id": "f_lightning",
+    "prompt": "lightning over a dark city skyline, rain on a wide street, a lone trolley, night",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-08-10",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THE STREET DROPS THE RECEIVER, and the margin calls come through Queens.",
+   "cut": {
+    "id": "f_margin",
+    "prompt": "crowd of anxious men in straw hats on a narrow financial district street between tall stone buildings, messengers running",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-08-16",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The prize record, Ridgewood. Her grandmother's lullaby.",
+   "cut": {
+    "id": "f_child_horn",
+    "prompt": "a small girl of nine in a plain dress and hair bow, serious, standing at the horn of a recording machine, a kind old woman sitting beside her",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-08-18",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "HE WASN'T ASKED. The terrier at the Halloran wedding, in full voice.",
+   "cut": {
+    "id": "f_terrier_wedding",
+    "prompt": "a formal wedding party on church steps in 1929 clothes, all turning to look at a small terrier dog barking on the top step",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-08-29",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The Graf over the city, as the Exchange's roof saw her.",
+   "cut": {
+    "id": "f_graf_city",
+    "prompt": "a giant airship in the sky over a city skyline, crowds on roofs, seen from far below",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 0
    }
   },
   {
@@ -418,6 +1493,124 @@
   },
   {
    "paper": "speaker",
+   "date": "1929-09-01",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "CALLED BACK, EVERY ONE. Fourteen on the holiday Saturday.",
+   "cut": {
+    "id": "f_lost_children",
+    "prompt": "lifeguard in a dark wool suit and shirt holding a small fully dressed child's hand beside a horn loudspeaker on a boardwalk, a mother in a hat running up",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-09-10",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Roll call in Queens. The system entered more answers than the register.",
+   "cut": {
+    "id": "f_classroom",
+    "prompt": "rows of children in plain school clothes at wooden desks, a teacher frowning at a small horn set on the wall",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-09-15",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "HIS STREET, at three in the morning, for a week.",
+   "cut": {
+    "id": "f_boy_street",
+    "prompt": "a boy in a cap and coat seen from behind with a small box recorder on an empty city street at three in the morning, lamp posts, wet cobbles",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-09-26",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "The Maspeth board at 2:14 a.m.",
+   "cut": {
+    "id": "f_night_board",
+    "prompt": "a single woman telephone operator at an empty long switchboard at night, one lamp, the room dark behind her",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 2
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-09-27",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "A SPEAKER COMPOSOGRAPH. The coal horse on the El stairs at Corona, by popular request.",
+   "cut": {
+    "id": "f_coal_horse",
+    "prompt": "steep iron stairway up to an elevated railway station, seen from the street, passengers staring up",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 2,
+    "paste": {
+     "id": "p_horse",
+     "threshold": 105,
+     "ellipses": [
+      [
+       77,
+       26,
+       512,
+       435
+      ],
+      [
+       256,
+       205,
+       986,
+       614
+      ],
+      [
+       333,
+       512,
+       486,
+       973
+      ],
+      [
+       819,
+       512,
+       998,
+       934
+      ]
+     ],
+     "height": 340,
+     "at": [
+      430,
+      220
+     ],
+     "rotate": -25,
+     "prompt": "a very dark heavy draught horse alone in harness, side view, whole body with all four legs, no rider, no people, plain pale studio backdrop",
+     "seed": 6
+    }
+   }
+  },
+  {
+   "paper": "speaker",
    "date": "1929-09-30",
    "form": "wide",
    "treatment": "halftone",
@@ -431,6 +1624,206 @@
     "shown": 1024,
     "seed": 2,
     "src": "ph_hut"
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-10-04",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "A brokers' room, fourteen points down, the ticker thirty-one minutes behind.",
+   "cut": {
+    "id": "f_board_room",
+    "prompt": "crowded brokers' customer room, men in hats watching a tall chalk quotation board with blank panels, clerks on ladders",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-10-05",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THE PILLOW HAS NOT HELPED. Posed by a Speaker player.",
+   "cut": {
+    "id": "f_pillow",
+    "prompt": "a man in striped pajamas sitting up in an iron bed at night with a pillow clamped over his ears, wife beside him awake, lamp",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-10-09",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Shibe Park, the first game. Thirteen strike-outs.",
+   "cut": {
+    "id": "f_series_crowd",
+    "prompt": "crowd in overcoats and hats filling a baseball grandstand in October sun, seen from the field, flags without writing",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-10-13",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "A SPEAKER COMPOSOGRAPH. Danko, dog, reports for duty on every third strike.",
+   "cut": {
+    "id": "f_dog_dugout",
+    "prompt": "a baseball dugout seen from the field, bench of players in baggy uniforms, no numbers",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1,
+    "paste": {
+     "id": "p_terrier",
+     "threshold": 110,
+     "ellipses": [
+      [
+       371,
+       51,
+       717,
+       384
+      ],
+      [
+       154,
+       282,
+       678,
+       1011
+      ]
+     ],
+     "height": 300,
+     "at": [
+      330,
+      470
+     ],
+     "seed": 2
+    }
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-10-22",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "One minute, at the hour of Mr. Edison's lamp. The street lamps of Queens, out.",
+   "cut": {
+    "id": "f_lamps_out",
+    "prompt": "a city street at night with every street lamp out but one, neighbours standing on their stoops looking up",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-10-24",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THE TICKER LOSES ITS VOICE, and the Street gets the busy signal.",
+   "cut": {
+    "id": "f_panic",
+    "prompt": "huge crowd of men in dark hats and overcoats packed on a narrow financial district street before a columned building, policemen",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-10-30",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "Sixteen million shares. The Street at the opening.",
+   "cut": {
+    "id": "f_steps",
+    "prompt": "crowd of men in dark overcoats on the steps of a columned federal building and filling the street, grey morning",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-10-31",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "QUEENS HANGS OUT ITS LANTERN, and leaves the Street to itself.",
+   "cut": {
+    "id": "f_lanterns",
+    "prompt": "carved pumpkin lanterns lit on the stoops of a row of brick houses at dusk, autumn leaves, fully dressed children in home-made costumes",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 0
+   }
+  },
+  {
+   "paper": "record",
+   "date": "1929-11-03",
+   "form": "column",
+   "treatment": "halftone",
+   "caption": "A savings bank on Saturday. Deposits above withdrawals for the week.",
+   "cut": {
+    "id": "f_savings",
+    "prompt": "an orderly line of working people in hats and coats inside a marble savings bank, tellers' cages without writing",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 512,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-11-05",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "QUEENS GOES TO THE POLLS, and the wire stands by to call it.",
+   "cut": {
+    "id": "f_polls",
+    "prompt": "men and women in hats queueing at a neighbourhood polling place in a barber shop, bunting without writing, a policeman, autumn",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 1
+   }
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-11-08",
+   "form": "wide",
+   "treatment": "halftone",
+   "caption": "THIRTY-TWO FRIDAYS. Party Line holds, and Corona still has not returned her call.",
+   "cut": {
+    "id": "f_cat_alone",
+    "prompt": "striped grey tabby cat sitting on an operator's chair at a long dark switchboard at night, one lamp",
+    "style": "photo",
+    "width": 1216,
+    "height": 832,
+    "shown": 1024,
+    "seed": 5
    }
   }
  ],
@@ -516,9 +1909,4477 @@
      }
     }
    ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-11-10",
+   "title": "The Wrong Number",
+   "byline": "Posed by Speaker players. The names have been changed, and the wallpaper",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Bert? No, this is Bert's wife. And who, pray, is this?\"",
+     "cut": {
+      "id": "d_281110_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young woman in a hallway holding a candlestick telephone, startled",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"I, er. I was calling about the ice.\"",
+     "cut": {
+      "id": "d_281110_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young man in a straw hat in a phone booth, sweating, tugging his collar",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Then here is your ice, Bert Noonan.\"",
+     "cut": {
+      "id": "d_281110_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "wife in a parlour holding a block of ice in tongs, husband backing away",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-11-17",
+   "title": "The Lodger's Secret",
+   "byline": "Posed by Speaker players, from a letter received",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Every night at ten he talks to someone. And no one goes in!\"",
+     "cut": {
+      "id": "d_281117_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "landlady in an apron listening at a closed door on a boarding-house landing",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Come in, Sixteen-Ten. Come in.\"",
+     "cut": {
+      "id": "d_281117_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "thin lodger in shirt sleeves bent over a home-made radio set on a table, headphones",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"She's got a lovely voice, whoever she is. Another cup?\"",
+     "cut": {
+      "id": "d_281117_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "landlady and lodger both wearing headphones at the table, smiling, teapot beside them",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-11-24",
+   "title": "Love on the Trunk Line",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Number, please. Oh, it's you again.\"",
+     "cut": {
+      "id": "d_281124_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "pretty telephone operator with a headset at a switchboard, smiling to herself",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"I've tested this line eleven times. It's still fine, Miss.\"",
+     "cut": {
+      "id": "d_281124_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "shy young lineman up a telephone pole, with a test handset, grinning",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"And now, Miss, I'd like to make a permanent connection.\"",
+     "cut": {
+      "id": "d_281124_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "lineman and operator at a soda fountain sharing one soda with two straws",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-12-01",
+   "title": "The Burglar and the Parlour",
+   "byline": "Posed by Speaker players, as told to the Drama Editor",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Nobody home, and the good silver on the sideboard.\"",
+     "cut": {
+      "id": "d_281201_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "burglar in a cap and mask climbing through a parlour window at night with a sack, torch",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Who said that? Who's there?\"",
+     "cut": {
+      "id": "d_281201_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "burglar frozen in fear looking at a large wall-mounted horn, moonlight, parlour",
+      "seed": 5
+     }
+    },
+    {
+     "caption": "\"It heard you say 'good silver,' my lad. Twice.\"",
+     "cut": {
+      "id": "d_281201_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "policeman holding a burglar by the collar in the parlour, the homeowner pointing to the horn in the wall",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-12-08",
+   "title": "Her Husband's Voice",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"He said he'd always be here.\"",
+     "cut": {
+      "id": "d_281208_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young widow in black sitting by a gramophone, a framed wedding photo on it, candle",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Must he be on, Martha? While I propose?\"",
+     "cut": {
+      "id": "d_281208_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "older suitor in a good suit holding a hat in a parlour, looking uneasily at a gramophone",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"He'd want me to hang up now, Walter.\"",
+     "cut": {
+      "id": "d_281208_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "widow gently closing a gramophone lid, suitor smiling, sunlight through a window",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-12-15",
+   "title": "The Telltale Bill",
+   "byline": "Posed by Speaker players. The names have been changed, and the wallpaper",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Forty calls to Newark, George. Forty.\"",
+     "cut": {
+      "id": "d_281215_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "wife at a kitchen table opening a long telephone bill, husband reading a paper behind her",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"It's the company's error, Lil! A crossed wire!\"",
+     "cut": {
+      "id": "d_281215_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "husband on his feet talking fast and waving his hands, wife with folded arms, kitchen",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Your mother's come to stay. She says thank you for the calls.\"",
+     "cut": {
+      "id": "d_281215_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "wife holding up a pair of tickets, husband hanging his head, an old lady with a suitcase at the door",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-12-22",
+   "title": "The Doll That Told",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Listen, Mama. Dolly says Papa has a lady in Flushing.\"",
+     "cut": {
+      "id": "d_281222_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "little girl in a smock holding a large porcelain doll up to her mother's ear in a parlour",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Six words it knew at the shop, Ed! Six!\"",
+     "cut": {
+      "id": "d_281222_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "husband in a hat looking horrified at a doll on a table, wife with arms folded",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"The lady in Flushing is your mother, you goose.\"",
+     "cut": {
+      "id": "d_281222_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "husband on his knees with a bouquet, wife holding the doll, laughing",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1928-12-29",
+   "title": "The Night Operator",
+   "byline": "Posed by Speaker players. The names have been changed, and the wallpaper",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Hello? Hello, who is breathing on this line?\"",
+     "cut": {
+      "id": "d_281229_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "lone woman telephone operator at a switchboard late at night, startled, hand on her headset",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Help. Number nine. Astoria.\"",
+     "cut": {
+      "id": "d_281229_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "old man collapsed in a chair by a wall telephone, the receiver dangling, at night",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"She never left the line till the doctor came.\"",
+     "cut": {
+      "id": "d_281229_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "doctor and old man in bed, operator in her coat beside him holding his hand, morning light",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-01-05",
+   "title": "A Wire From the Ice",
+   "byline": "Posed by Speaker players, from a letter received",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"All well. Fifty-eight below. Love to the dog.\"",
+     "cut": {
+      "id": "d_290105_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young wife at a kitchen table reading a telegram form, blank page, a sailor's picture on the wall",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"He has asked for the dog three times, and me once.\"",
+     "cut": {
+      "id": "d_290105_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "big dog asleep by a stove in a kitchen, a child's hand patting it, winter light",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Which of you shall I kiss first? No need to ask, Fred.\"",
+     "cut": {
+      "id": "d_290105_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "a sailor in a parka hugging both the wife and the dog at a dock, ship behind",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-01-12",
+   "title": "Sister Knows Best",
+   "byline": "Posed by Speaker players, from a letter received",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"That's not his wife, Vi. I've heard his wife.\"",
+     "cut": {
+      "id": "d_290112_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "two sisters in cloche hats on a stoop whispering, one pointing up the street",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"You can't see her face. But you can hear her coming.\"",
+     "cut": {
+      "id": "d_290112_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "man in a smart hat and a woman in a veil at a florist's, seen through a window, no signs",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"My aunt from Cleveland, ladies. Good evening.\"",
+     "cut": {
+      "id": "d_290112_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the same woman lifts her veil on a stoop, revealing it is a kindly old mother, sisters blushing",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-01-19",
+   "title": "The Valve Thief",
+   "byline": "Posed by Speaker players. The names have been changed, and the wallpaper",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Ned! The valves are gone, and the fight on tonight!\"",
+     "cut": {
+      "id": "d_290119_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "worried wife in an apron looking into the empty back of a radio cabinet, parlour",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Please, Mister, what'll you give for one like new?\"",
+     "cut": {
+      "id": "d_290119_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "small boy in short trousers and a cap at a shop window pressing his nose, a glass valve in his hand",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"You sold the set for a dog? Well. He'll bark for free.\"",
+     "cut": {
+      "id": "d_290119_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "father and son on a stoop, father with arm around the boy, a small puppy in the boy's coat",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-01-26",
+   "title": "The Hum in Apartment Six",
+   "byline": "Posed by Speaker players, from a letter received",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"There it is, Joe. Can't you hear it?\"",
+     "cut": {
+      "id": "d_290126_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young couple in bed in a dim bedroom awake staring up, iron bed, nightclothes buttoned",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Comes from below, Peg. Or above.\"",
+     "cut": {
+      "id": "d_290126_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "man in pajamas with his ear to the floor of an apartment, a flashlight, a wife holding a lamp",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"You get used to it, the landlord said. They did not.\"",
+     "cut": {
+      "id": "d_290126_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the couple asleep at last, wife with cotton in her ears, husband with a pillow on his head, morning",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-02-02",
+   "title": "The Coal Man's Valentine",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Every Tuesday, a ton of coal, and never a word.\"",
+     "cut": {
+      "id": "d_290202_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "coal man in a cap covered in dust, pale face, handing a sack down a cellar chute, a woman at a window watching",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"He'll want something for the road.\"",
+     "cut": {
+      "id": "d_290202_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the woman in a neat kitchen wrapping a piece of cake in paper by a coal scuttle",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Do I know you?\" \"Tuesdays, Ma'am.\"",
+     "cut": {
+      "id": "d_290202_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the coal man scrubbed clean, in a Sunday suit, at the woman's door with flowers, she doesn't recognise him",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-02-09",
+   "title": "The Speaking Valentine",
+   "byline": "Posed by Speaker players, as told to the Drama Editor",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Go ahead, Sir. Twenty seconds.\"",
+     "cut": {
+      "id": "d_290209_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "shy young man in a recording booth holding a heart-shaped box, a clerk waiting at the horn",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"He used nineteen of them for breathing.\"",
+     "cut": {
+      "id": "d_290209_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the young man silent, sweating, at the horn, clerk looking at the clock",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"That's the nicest thing anybody has never said to me.\"",
+     "cut": {
+      "id": "d_290209_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young woman at a gramophone with an elderly aunt, both listening, young woman with a hand on her heart",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-02-16",
+   "title": "The Marathon Baby",
+   "byline": "Posed by Speaker players, as told to the Drama Editor",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Eddie's been up three weeks. He doesn't know what day it is.\"",
+     "cut": {
+      "id": "d_290216_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young wife in a plain coat at a dance arena rail, holding a wrapped baby, anxious",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"You've a son, Eddie. Do you hear? A son!\"",
+     "cut": {
+      "id": "d_290216_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "dance marathon man half asleep hanging on his partner, a nurse leaning to speak to him",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"He ran the first lap of his life that morning.\"",
+     "cut": {
+      "id": "d_290216_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "man in dance shoes running up a street carrying his hat, dawn, delighted, a milk wagon",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-02-23",
+   "title": "Father's Day in Court",
+   "byline": "Posed by Speaker players, from a letter received",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"She's all I have, Your Honor.\"",
+     "cut": {
+      "id": "d_290223_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "father in a shabby suit in a courtroom holding a child's hand, child in Sunday clothes, judge's bench",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Play back the part where he sang to her.\"",
+     "cut": {
+      "id": "d_290223_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "judge in robes leaning down from his bench listening to a horn on a stand, court staff",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"The record has it, Mr. Dunn. Go home.\"",
+     "cut": {
+      "id": "d_290223_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "father carrying a smiling child down the steps of a courthouse, sunshine, fully dressed",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-03-02",
+   "title": "Beneath the El",
+   "byline": "Posed by Speaker players, as told to the Drama Editor",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Get up, old girl. Get up. They've done it to us again.\"",
+     "cut": {
+      "id": "d_290302_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "a carter in a heavy coat kneeling by a fallen work horse on an icy street under an elevated railway",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Are we men or are we drippings?\"",
+     "cut": {
+      "id": "d_290302_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "carter standing on a crate speaking to a crowd of men in caps, horses behind",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Sand, Dolly. We won you sand.\"",
+     "cut": {
+      "id": "d_290302_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "carter feeding an apple to his horse on a sanded street, sand spreading from a cart",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-03-09",
+   "title": "The Long Silence",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"They had not spoken in eleven years.\"",
+     "cut": {
+      "id": "d_290309_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "old couple at a breakfast table, each behind a newspaper, not speaking, clock on the wall",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"That waltz. Bensonhurst, 1894.\"",
+     "cut": {
+      "id": "d_290309_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "old man with headphones at a wireless cabinet, a tear on his cheek, a dance tune on the set",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Well, Hannah. Shall we?\"",
+     "cut": {
+      "id": "d_290309_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the old couple slowly waltzing in a kitchen, a small radio on the shelf",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-03-16",
+   "title": "Two Girls From Corona",
+   "byline": "Posed by Speaker players, as told to the Drama Editor",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"You'll have him by Sunday, Bea. He's soft on you.\"",
+     "cut": {
+      "id": "d_290316_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "two young women in cheap hats at a factory gate, laughing, arm in arm, evening",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"But it was you that answered the telephone!\"",
+     "cut": {
+      "id": "d_290316_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young man at a stoop giving flowers to the wrong girl, the other watching from a window",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"You can have the roses. We'll have the evening.\"",
+     "cut": {
+      "id": "d_290316_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the two girls together on a stoop sharing the flowers, laughing, the young man leaving sadly",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-03-23",
+   "title": "The Wall Remembers",
+   "byline": "Posed by Speaker players. The names have been changed, and the wallpaper",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"He's been gone six years, and every night he says good night.\"",
+     "cut": {
+      "id": "d_290323_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "old woman alone in a shabby parlour, ear to a wall with a wide smile, faded wallpaper",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Rip it out. The new tenants want a clean wire.\"",
+     "cut": {
+      "id": "d_290323_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "workman in overalls with a crowbar in the same parlour, a landlord pointing at the wall",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Not this wall, Mister. Not this one.\"",
+     "cut": {
+      "id": "d_290323_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "old woman standing between the workman and the wall, arms spread, workman taking off his cap",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-03-30",
+   "title": "Her Easter Hat",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Four dollars! But it's the very thing, Madame.\"",
+     "cut": {
+      "id": "d_290330_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young woman at a milliner's mirror trying on a huge flowered hat, a sales woman admiring",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"That was the rent, Dot! That was the coal!\"",
+     "cut": {
+      "id": "d_290330_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "husband in a parlour with an empty pay envelope, wife in the huge hat, both shocked",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"A flower a nickel, ladies, and the rent by Friday.\"",
+     "cut": {
+      "id": "d_290330_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "huge flowered hat on a trestle table with a grocer's sign without writing, wife selling hat flowers to neighbours, laughing",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-04-06",
+   "title": "Ten Cents a Dance",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Four hundred hours, and he still steps on my feet.\"",
+     "cut": {
+      "id": "d_290406_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "tired dance hall girl in a beaded dress sitting on a bench holding off her shoe, dance hall",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Stay up, Tommy! Stay up! The rent's in the thousand!\"",
+     "cut": {
+      "id": "d_290406_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young man in a rumpled suit asleep on his partner's shoulder on a dance floor, a judge with a bell",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Marry me, Rose. I can't dance another step.\"",
+     "cut": {
+      "id": "d_290406_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "exhausted couple sharing a sandwich on a stoop at dawn, dancing shoes in hand",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-04-13",
+   "title": "The Piano Lesson",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Again, Miss Lucy. And this time, the left hand.\"",
+     "cut": {
+      "id": "d_290413_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "stern piano teacher in black beside a girl of ten in a plain dress at an upright piano, parlour",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Four years of the same waltz, the whole block could sing it.\"",
+     "cut": {
+      "id": "d_290413_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "whole tenement airshaft of neighbours at open windows listening, wincing, evening",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"And when she played it right, they stood and cheered.\"",
+     "cut": {
+      "id": "d_290413_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the girl in her good dress at a small hall piano, neighbours in the rows applauding proudly",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-04-20",
+   "title": "The Sixth Sense",
+   "byline": "Posed by Speaker players. The names have been changed, and the wallpaper",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"This house has a wrong note, Mrs. Hale. It isn't the piano.\"",
+     "cut": {
+      "id": "d_290420_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "blind piano tuner in dark glasses at an old upright piano, head tilted, parlour, a woman watching",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"There's a man in your cellar. He's been there since Tuesday.\"",
+     "cut": {
+      "id": "d_290420_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the tuner with one hand on a wall, listening, the woman frightened, a man's hat on a chair",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"A flat note, Officer, and a cough.\"",
+     "cut": {
+      "id": "d_290420_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "policemen leading a dusty man up cellar stairs, the tuner tipping his hat",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-04-27",
+   "title": "A Bad Connection",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"I said I LOVE YOU, Elsie!\"",
+     "cut": {
+      "id": "d_290427_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "man in a telephone booth shouting into the mouthpiece, a queue of angry people outside",
+      "seed": 4
+     }
+    },
+    {
+     "caption": "\"So did the whole of Greenpoint.\"",
+     "cut": {
+      "id": "d_290427_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "whole crowded shop staring at the booth, a butcher with a cleaver in the air, laughing",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Well, you needn't have told Greenpoint first!\"",
+     "cut": {
+      "id": "d_290427_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "Elsie in a hat arriving in the shop, crowd pushing the blushing man forward",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-05-04",
+   "title": "Mother's Recipe",
+   "byline": "Posed by Speaker players, as told to the Drama Editor",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"A little of this. You'll know it by the sound.\"",
+     "cut": {
+      "id": "d_290504_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "old woman at a stove with a young bride in an apron, the recipe unwritten, kitchen",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Mother said it should sound like that.\"",
+     "cut": {
+      "id": "d_290504_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the young bride alone holding a gramophone horn near a sputtering pan, frowning",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"That's it, Nora! That's the sound of Sunday!\"",
+     "cut": {
+      "id": "d_290504_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "husband with a fork and a look of bliss at the table, bride beaming, the old woman's picture on the wall",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-05-11",
+   "title": "A Mother's Cold Reception",
+   "byline": "Posed by Speaker players, as told to the Drama Editor",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Three years, and not one call from Cleveland.\"",
+     "cut": {
+      "id": "d_290511_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "elderly mother in a shawl sitting by a silent telephone, looking at a framed photograph",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Get me Long Island City, operator. It's been too long.\"",
+     "cut": {
+      "id": "d_290511_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "businessman at an office desk, picking up a telephone, looking guilty, calendar on wall without numbers",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"I'd have come sooner, Ma. The line was busy.\"",
+     "cut": {
+      "id": "d_290511_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "mother and grown son embracing on a stoop, suitcase beside them",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-05-18",
+   "title": "The Mare Comes Home",
+   "byline": "Posed by Speaker players, from a letter received",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"She's twenty-two. Be kind to her.\"",
+     "cut": {
+      "id": "d_290518_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "old carter in a worn coat handing a horse's lead to a farmer at a city stable, tears",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Eleven miles. And no one had told her the way.\"",
+     "cut": {
+      "id": "d_290518_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "work horse trotting up a city street at dawn, a milkman staring",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Well, then. I never did like the country either.\"",
+     "cut": {
+      "id": "d_290518_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "old carter at his stable door hugging a horse's neck at sunrise",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-05-25",
+   "title": "Grandpa's Record",
+   "byline": "Posed by Speaker players, from a letter received",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Say something for 1978, sir.\"",
+     "cut": {
+      "id": "d_290525_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "old grandfather in a stiff collar sitting before a recording horn, a young technician beside",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"He said nothing for a whole minute.\"",
+     "cut": {
+      "id": "d_290525_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "old man silent, the wax turning, the technician looks at his watch, a family in the doorway",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"And for 1978 that minute may be the best thing we've saved.\"",
+     "cut": {
+      "id": "d_290525_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "a family listening at a gramophone in a parlour, solemn, candle",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-06-01",
+   "title": "Rent Day",
+   "byline": "Posed by Speaker players. The names have been changed, and the wallpaper",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Who is it collects it? Who has ever seen him?\"",
+     "cut": {
+      "id": "d_290601_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "frightened shopkeeper in an apron counting coins at a counter, a shadow of a man in a long coat on the door glass",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Paid. Paid, and no one came!\"",
+     "cut": {
+      "id": "d_290601_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "hand laying a plain envelope on a counter, a shopkeeper's astonished face behind, glass roof",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"And so they sat up with the rent till morning.\"",
+     "cut": {
+      "id": "d_290601_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "shopkeepers in aprons in a glass-roofed arcade gathered round a lit stove at night, talking low",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-06-08",
+   "title": "The Ice Man's Daughter",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"She could carry fifty pounds, and did.\"",
+     "cut": {
+      "id": "d_290608_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "pretty young woman in a plain frock carrying a small block of ice with tongs, a street, summer",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Who is that, Mother? And how much ice do we need?\"",
+     "cut": {
+      "id": "d_290608_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "smart young man in a white suit on a stoop watching her go by, hat in hand",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Three flights, Mr. Lyle. Mind your trousers.\"",
+     "cut": {
+      "id": "d_290608_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young man carrying the block badly, she laughing beside him, water down his suit",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-06-15",
+   "title": "The Bride Wore Static",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"A house system, dears! So you'll never miss a word!\"",
+     "cut": {
+      "id": "d_290615_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "bride and groom on church steps, an aunt handing them a boxed gift, relatives smiling",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"There. Now we shan't be heard at all.\"",
+     "cut": {
+      "id": "d_290615_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "groom in pajamas on a ladder cutting wires in a bedroom wall, bride laughing in a robe",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"It stopped the first night. These new things never last.\"",
+     "cut": {
+      "id": "d_290615_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the aunt in the street below looking up at a window, holding a broken horn, puzzled",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-06-22",
+   "title": "The Picnic",
+   "byline": "Posed by Speaker players. The names have been changed, and the wallpaper",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Quiet, all of you! The game's coming through!\"",
+     "cut": {
+      "id": "d_290622_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "family on a blanket in a park with a basket, a big portable radio on a chair, a father fiddling with the dial, summer",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"The sandwiches went to Flushing. He did not notice.\"",
+     "cut": {
+      "id": "d_290622_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "mother and children chasing a paper plate in a gust of wind, laughing, father still at the set",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"The final score was never known.\"",
+     "cut": {
+      "id": "d_290622_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "father alone asleep under a tree with headphones on, a small dog eating his sandwich",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-06-29",
+   "title": "The Understudy",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Tell them I'll go on. I always go on.\"",
+     "cut": {
+      "id": "d_290629_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "elderly actress at a dressing mirror with a telephone, looking old, theatre lamps",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Just once. Let her miss just one.\"",
+     "cut": {
+      "id": "d_290629_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young understudy in a shabby coat in a dark theatre wing, watching, longing",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"They shared the bill at the Jamaica till Christmas.\"",
+     "cut": {
+      "id": "d_290629_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the old actress and young woman hand in hand bowing on a small stage, flowers",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-07-06",
+   "title": "The Inspector Calls",
+   "byline": "Posed by Speaker players. The names have been changed, and the wallpaper",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Licence, Madam? For the wall?\"",
+     "cut": {
+      "id": "d_290706_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "man in a suit with a bag and a meter on a doorstep, a nervous housewife in the doorway",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"That's only Mother's picture, Mr. Inspector.\"",
+     "cut": {
+      "id": "d_290706_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "woman hurrying to hang a picture over a small horn set in a parlour wall, inspector behind her in the doorway",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"I'll put it down as a draught.\"",
+     "cut": {
+      "id": "d_290706_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "inspector in a kitchen eating pie at a table with the housewife pouring coffee, his form forgotten",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-07-13",
+   "title": "The Heat Wave",
+   "byline": "Posed by Speaker players, from a letter received",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Ninety-six, and your mother snores.\"",
+     "cut": {
+      "id": "d_290713_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "man in an undershirt on a fire escape at night fanning himself, tenement, a wife at the window",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Lemonade, neighbor? It's the only thing we've ever said.\"",
+     "cut": {
+      "id": "d_290713_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "woman on the next fire escape in a modest nightdress looking across, kindly, handing over a pitcher",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Eleven years, and it took a heat wave.\"",
+     "cut": {
+      "id": "d_290713_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "two families on neighboring fire escapes sharing a meal across the gap, summer evening",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-07-20",
+   "title": "Under the Pier",
+   "byline": "Posed by Speaker players. The names have been changed, and the wallpaper",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"We're alone at last, Madge.\"",
+     "cut": {
+      "id": "d_290720_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young man in a straw hat and a girl in a summer dress on a pier at dusk, a horn loudspeaker on a pole above",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"So the beach's recorder told the whole of Rockaway.\"",
+     "cut": {
+      "id": "d_290720_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the same pair startled, looking up, a crowd on the boardwalk turned to look at them, laughing",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Well, since they've heard the first part...\"",
+     "cut": {
+      "id": "d_290720_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the young man on one knee on the pier, crowd applauding, the girl hiding her face",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-07-27",
+   "title": "Crossed Wires",
+   "byline": "Posed by Speaker players, as told to the Drama Editor",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"And when she comes out at nine, Lou, you do it.\"",
+     "cut": {
+      "id": "d_290727_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "man at a wall telephone, startled, listening, a sinister look on his face, hallway",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"I heard it on the party line! Nine o'clock!\"",
+     "cut": {
+      "id": "d_290727_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "man running to a police station doorway, cop at a desk, night",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Surprise,\" said Lou. \"Do what, Officer? Bring the cake.\"",
+     "cut": {
+      "id": "d_290727_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "an embarrassed couple at a stoop with a big birthday cake, police, and neighbors laughing",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-08-03",
+   "title": "The Fortune Teller",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"I see a tall stranger. I see a long wire.\"",
+     "cut": {
+      "id": "d_290803_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "fortune teller woman in a shawl with a crystal ball at a carnival table, a nervous young man",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"It came true by Tuesday.\"",
+     "cut": {
+      "id": "d_290803_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the young man on a stoop at night, listening to a girl's voice from an open window",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"And she heard it all from Mrs. Gaffney's line, for a nickel.\"",
+     "cut": {
+      "id": "d_290803_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the fortune teller at home in an ordinary kitchen, on a party-line phone, listening, grinning",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-08-10",
+   "title": "Stage Struck",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Station WLBQ presents... Miss Gloria Dunn!\"",
+     "cut": {
+      "id": "d_290810_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young woman at a boarding-house mirror with a hairbrush as if a microphone",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Too much breath, sister. Next.\"",
+     "cut": {
+      "id": "d_290810_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "radio director in a bow tie in a studio shaking his head, young woman at a big microphone",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Number, please!\" And all Queens asked her to say it again.",
+     "cut": {
+      "id": "d_290810_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young woman at a switchboard with a headset, delighted, a man in hat at a counter charmed",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-08-17",
+   "title": "The Old Trunk",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Grandfather's, from before the wires.\"",
+     "cut": {
+      "id": "d_290817_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young couple in an attic opening an old steamer trunk, dust, a lamp",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"He wrote her every day for a year. On paper, Jim!\"",
+     "cut": {
+      "id": "d_290817_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the young wife reading old letters by a window, bundle tied in ribbon, moved",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Dear Clara, I am across the room.\"",
+     "cut": {
+      "id": "d_290817_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the young husband at a small table writing with a pen, his wife behind him laughing, the telephone unplugged on the floor",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-08-31",
+   "title": "The Lost Child",
+   "byline": "Posed by Speaker players. The names have been changed, and the wallpaper",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Georgie! Has anyone seen a little boy in a sailor blouse?\"",
+     "cut": {
+      "id": "d_290831_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "distraught young mother on a crowded boardwalk, hat askew, calling out, hand to her mouth",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"A lady on the boardwalk would like her Georgie.\"",
+     "cut": {
+      "id": "d_290831_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "lifeguard in a dark wool suit speaking into a big horn on a pole, boardwalk",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"I wasn't lost, Mama. You were.\"",
+     "cut": {
+      "id": "d_290831_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "mother kneeling, hugging a small fully dressed boy with an ice cream, crowd smiling",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-09-07",
+   "title": "The Newsboy's Wager",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Buy on margin, kid. Everybody does.\"",
+     "cut": {
+      "id": "d_290907_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "newsboy in a cap on a corner handing a paper to a broker in a fine suit, stock prices on a blank chalk board behind",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Six dollars, and it's the first I ever had.\"",
+     "cut": {
+      "id": "d_290907_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "newsboy stacking coins on a curb, counting, serious, night lamp",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Here, Mister. A paper's still two cents.\"",
+     "cut": {
+      "id": "d_290907_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "broker sitting on a curb with a blank paper, newsboy handing him a sandwich",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-09-14",
+   "title": "Behind the Blackboard",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Who answered? I did not call that name.\"",
+     "cut": {
+      "id": "d_290914_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young teacher writing at a blank blackboard, a classroom of fully dressed children, she turns frowning",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Present,\" it said. Every morning. \"Present.\"",
+     "cut": {
+      "id": "d_290914_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the teacher alone after school with an ear to the classroom's wall horn, late light",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"That's little Annie Moss, Miss. She had that desk in '09.\"",
+     "cut": {
+      "id": "d_290914_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the teacher at a graveyard gate in a coat with an old janitor pointing to an old stone",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-09-21",
+   "title": "The Wrong Parlour",
+   "byline": "Posed by Speaker players. The names have been changed, and the wallpaper",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"I'm home, Mabel!\"",
+     "cut": {
+      "id": "d_290921_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "man in a hat in a parlour hanging his hat, calling up the stairs, not noticing unfamiliar furniture",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Mabel moved in '26!\"",
+     "cut": {
+      "id": "d_290921_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "strange woman in curlers at the top of the stairs with a rolling pin, shocked",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"They do build them alike in Sunnyside.\"",
+     "cut": {
+      "id": "d_290921_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the same man on a stoop looking at two identical row houses, scratching his head, his wife waving next door",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-09-28",
+   "title": "Two Thermoses",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Thirty-six nights, Pike says. Thirty-six.\"",
+     "cut": {
+      "id": "d_290928_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "two men in overcoats in a small wooden hut at night by a radio set, two thermos flasks, one yawning",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "\"Well, somebody's listening.\"",
+     "cut": {
+      "id": "d_290928_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "black cat on the set, one man pouring milk from a thermos into its saucer",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"And at 11:03 Sixteen-Ten came on, and only the cat heard.\"",
+     "cut": {
+      "id": "d_290928_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "both men asleep with their heads on the table, the cat wearing headphones, lamp",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-10-05",
+   "title": "The Last Ice Wagon",
+   "byline": "Posed by Speaker players, from a letter received",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Forty years up these stairs. And she says, 'not today.'\"",
+     "cut": {
+      "id": "d_291005_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "old ice man with a horse and wagon beside a shiny new electric icebox being carried into a house",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"I'll still want a bit for lemonade,\" said the smallest customer.",
+     "cut": {
+      "id": "d_291005_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "little girl in a pinafore and coat giving the horse a carrot, the old ice man smiling",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"He had ten years of carrots owing.\"",
+     "cut": {
+      "id": "d_291005_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "old ice man in Sunday clothes sitting on a bench beside the same horse in a country field",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-10-12",
+   "title": "A Knock at Three",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Who knocks at three in the morning, Frank?\"",
+     "cut": {
+      "id": "d_291012_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "young wife in a robe sitting up in bed at night, a knock heard, a clock, lamp",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Your dog, Sir. He's been reported as a tone.\"",
+     "cut": {
+      "id": "d_291012_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "husband in a robe at an apartment door, opening, a policeman holding a dripping sheepdog",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"And it never hummed in Apartment Six again.\"",
+     "cut": {
+      "id": "d_291012_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "sheepdog on a bed between the couple, all three asleep, morning",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-10-19",
+   "title": "Who Hung Up?",
+   "byline": "Posed by Speaker players, from a true account",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"She always left it off the hook for him.\"",
+     "cut": {
+      "id": "d_291019_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "woman asleep in a chair by a telephone with its receiver off the hook, a man's hat on the table, evening",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Busy. For nine years, busy.\"",
+     "cut": {
+      "id": "d_291019_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "man in a smart office looking at a telephone, puzzled, dialing again, calendar on wall without numbers",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"I thought you'd hung up, Tom.\" \"I thought you had.\"",
+     "cut": {
+      "id": "d_291019_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "two old people meeting by chance on a bench in a park, recognising each other, autumn",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-10-26",
+   "title": "Home by the Late Train",
+   "byline": "Posed by Speaker players, as told to the Drama Editor",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"He had missed the stop every night that year.\"",
+     "cut": {
+      "id": "d_291026_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "tired father in a work coat asleep in an elevated car at night, lunch pail on his knee",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Flushing, Mac. Again.\"",
+     "cut": {
+      "id": "d_291026_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the conductor shaking him awake at the end of the line, empty car, far lights",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"She kept it warm. Thirty-one years, she kept it warm.\"",
+     "cut": {
+      "id": "d_291026_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the father coming in at a kitchen door at midnight to a table with a covered plate and a sleepy wife in a robe",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "paper": "speaker",
+   "date": "1929-11-02",
+   "title": "Margin Call",
+   "byline": "Posed by Speaker players, from a letter received",
+   "next": "Next Saturday: another true account. Letters to the Drama Editor.",
+   "stills": [
+    {
+     "caption": "\"Sell? At what, man? Sell at what?\"",
+     "cut": {
+      "id": "d_291102_0",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "man in a good suit at home with a telephone, wife behind him in an evening gown, alarmed",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"Pearls are only pearls, Arthur.\"",
+     "cut": {
+      "id": "d_291102_1",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the wife taking off a pearl necklace and setting it on the table, husband with his head in his hands",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "\"And they found the flat in Sunnyside had better reception.\"",
+     "cut": {
+      "id": "d_291102_2",
+      "style": "drama",
+      "width": 1024,
+      "height": 832,
+      "shown": 512,
+      "prompt": "the couple cheerfully packing a modest kitchen together, moving boxes, sunlight",
+      "seed": 1
+     }
+    }
+   ]
   }
  ],
  "sections": [
+  {
+   "date": "1928-11-11",
+   "pictures": [
+    {
+     "caption": "Ten years on. The Astoria post passes the stone at eleven o'clock.",
+     "cut": {
+      "id": "b_281111_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "veterans in old uniforms and overcoats marching past a Queens war memorial, November, bare trees",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He has stood on this corner every Armistice since the first.",
+     "cut": {
+      "id": "b_281111_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "an old soldier in a bowler hat and medals standing alone at attention on a street corner",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Poppies at Jackson Avenue, a nickel, and nobody asks for change.",
+     "cut": {
+      "id": "b_281111_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "woman selling paper poppies from a tray to men on a street",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The last of the leaves goes up on Thirtieth Avenue.",
+     "cut": {
+      "id": "b_281111_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "autumn leaves being raked and burned on a quiet Queens street, smoke, men in caps",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1928-11-18",
+   "pictures": [
+    {
+     "caption": "Newtown and Bryant, in the mud, with one point to spare.",
+     "cut": {
+      "id": "b_281118_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "high school football game in the mud, leather helmets, crowd in raccoon coats on the sideline",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Miss Newtown of the bleachers. The coat is her brother's.",
+     "cut": {
+      "id": "b_281118_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "young woman in a raccoon coat and cloche hat cheering with a pennant without writing, stands behind her",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The eleven, before the mud got to them.",
+     "cut": {
+      "id": "b_281118_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a football team of boys in leather helmets posing on a field, autumn",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The cheap seats, Dexter Park.",
+     "cut": {
+      "id": "b_281118_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "boys in caps and sweaters watching a game through a gap in a board fence",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1928-11-25",
+   "pictures": [
+    {
+     "caption": "Three inches, and Astoria Park's hill is open for business.",
+     "cut": {
+      "id": "b_281125_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "children in coats and mittens pulling sleds on a snowy Queens hill, row houses behind",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The first shovel of the season. He says it is also the last.",
+     "cut": {
+      "id": "b_281125_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "man in overcoat shovelling snow from the stoop of a brick house, tall figure, snow falling",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The milk gets through. It usually does.",
+     "cut": {
+      "id": "b_281125_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "horse-drawn milk wagon in fresh snow at dawn, milkman with bottles",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The quietest platform in Queens, Sunday morning.",
+     "cut": {
+      "id": "b_281125_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "snow on the iron stairs and tracks of an elevated station, one passenger",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1928-12-02",
+   "pictures": [
+    {
+     "caption": "Two thousand dinners, and somebody has to carve.",
+     "cut": {
+      "id": "b_281202_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "a long table at a parish hall set for dinner, volunteer women in aprons carving turkeys",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The butcher's best, unsold on Wednesday noon and proud of it.",
+     "cut": {
+      "id": "b_281202_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "butcher in an apron holding up a very large turkey outside his shop, no signs",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Hot chestnuts under the El, and the first cold hands.",
+     "cut": {
+      "id": "b_281202_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "street vendor selling chestnuts from a cart to people in overcoats, smoke, winter",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The Saturday market, Steinway way.",
+     "cut": {
+      "id": "b_281202_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "women with string bags in a crowded winter street market, pushcarts, no signs",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1928-12-09",
+   "pictures": [
+    {
+     "caption": "Kissena Lake at eight degrees, and the ice is in fine voice.",
+     "cut": {
+      "id": "b_281209_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "frozen pond in a city park crowded with ice skaters in long coats and caps, low winter sun",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Queens' best figure of eight, by general agreement.",
+     "cut": {
+      "id": "b_281209_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "young woman on ice skates in a fur-trimmed coat and knitted hat, standing, smiling, frozen pond behind",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Sound fishermen keep their own hours and their own counsel.",
+     "cut": {
+      "id": "b_281209_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "men on the frozen Sound fishing through holes beside small shanties",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The coal man's busy season.",
+     "cut": {
+      "id": "b_281209_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "coal delivery man carrying a sack on his shoulder down a cellar chute, snow, wagon behind",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1928-12-16",
+   "pictures": [
+    {
+     "caption": "Fifty cents a tree under the El, and the seller will argue.",
+     "cut": {
+      "id": "b_281216_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "Christmas trees for sale on a city sidewalk under an elevated railway, a family choosing one, snow",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He says he hears everything. So does the Arcade.",
+     "cut": {
+      "id": "b_281216_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "department store Santa Claus in a red suit standing, grey beard, holding a bell, tall figure, winter street",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The window at the Arcade toy counter, all day long.",
+     "cut": {
+      "id": "b_281216_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "shoppers crowding a shop window full of toys and dolls, faces lit, no signs",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "A cornet in the cold, Queens Plaza.",
+     "cut": {
+      "id": "b_281216_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "Salvation Army band playing brass instruments on a snowy corner, a kettle on a tripod",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1928-12-23",
+   "pictures": [
+    {
+     "caption": "College Point rehearses, and the walls take it down.",
+     "cut": {
+      "id": "b_281223_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "church choir in white surplices singing carols by candlelight in a stone church",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Delivered, for a dime and a slice of something.",
+     "cut": {
+      "id": "b_281223_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "boy in a Sunday suit carrying a Christmas tree on his shoulder up a snowy street, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The Long Island City sorters have stopped counting.",
+     "cut": {
+      "id": "b_281223_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "post office sorting room piled high with parcels and mail sacks, clerks in shirt sleeves",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Christmas, tuned in.",
+     "cut": {
+      "id": "b_281223_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a family around a small lit Christmas tree and a cabinet radio in a parlour, adults and children dressed in best",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1928-12-30",
+   "pictures": [
+    {
+     "caption": "Rehearsing for Monday night on the Flushing line.",
+     "cut": {
+      "id": "b_281230_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "revellers in paper hats blowing tin horns on a crowded elevated platform at night",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Father Time, Astoria branch. He has the sash from the Elks.",
+     "cut": {
+      "id": "b_281230_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "an old man in a long white beard and a robe with a sash carrying a scythe, a costume, standing on a city street, snow",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The Jamaica Arms makes ready for 1929.",
+     "cut": {
+      "id": "b_281230_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "waiters setting long tables in a hotel ballroom hung with paper streamers",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The last leaf, or nearly.",
+     "cut": {
+      "id": "b_281230_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a man on a ladder changing the big calendar on a bank wall, no numbers visible",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-01-06",
+   "pictures": [
+    {
+     "caption": "An old picture of the old board. Queens remembers its first voices.",
+     "cut": {
+      "id": "b_290106_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "row of old telephone operators in dark dresses and high collars posing before an early switchboard, 1880s look",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The exchange's oldest pensioner, on a quiet morning.",
+     "cut": {
+      "id": "b_290106_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "very old woman in black sitting by a window with folded hands, lace curtains, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Out with the old, at a nickel a load.",
+     "cut": {
+      "id": "b_290106_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "men clearing Christmas trees from a snowy curb onto a wagon",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The new year, seen through a thumb-hole in the frost.",
+     "cut": {
+      "id": "b_290106_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "frost patterns on a tenement window with a child's clean face looking through, wearing a wool hat",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-01-13",
+   "pictures": [
+    {
+     "caption": "The men who blow the valves. Newark has fewer of them this week.",
+     "cut": {
+      "id": "b_290113_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "glassblowers at work in a factory, furnace glow, long pipes, men in aprons",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "One valve. A sleeve of six now costs what a shirt does.",
+     "cut": {
+      "id": "b_290113_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "young woman factory worker in a smock holding up a glass radio valve to the light, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The set will have to wait, says the set man.",
+     "cut": {
+      "id": "b_290113_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "radio repairman at a cluttered bench with sets stacked on shelves, soldering iron, no signs",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "An evening without the set. Some people remember how.",
+     "cut": {
+      "id": "b_290113_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "family gathered by an unlit radio cabinet in a parlour, reading newspapers instead",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-01-20",
+   "pictures": [
+    {
+     "caption": "Steinway's faithful, walking in the old way.",
+     "cut": {
+      "id": "b_290120_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "a small brick church in the snow on Sunday morning, congregation arriving in dark coats",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The microphone stays, and the sermon goes out by mouth.",
+     "cut": {
+      "id": "b_290120_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "clergyman in a black coat and collar standing beside a broadcast microphone on a stand, tall figure",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Third rail or no third rail, the street has its own troubles.",
+     "cut": {
+      "id": "b_290120_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "ice wagon stuck in the snow on a city street, men pushing, horse steaming",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Knocking off the ice at Queensboro Plaza.",
+     "cut": {
+      "id": "b_290120_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "elevated train covered in icicles at a station, men with long poles knocking ice off",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-01-27",
+   "pictures": [
+    {
+     "caption": "Six hundred dine at the Jamaica Arms, and every plate was hot.",
+     "cut": {
+      "id": "b_290127_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "grand hotel banquet hall full of men in dinner jackets at long tables, a speaker far off on a dais",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He has heard all the speeches, he says, and will say nothing of them.",
+     "cut": {
+      "id": "b_290127_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "waiter in a white jacket standing with a tray of glasses, tall figure, hotel corridor",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The most honest count of the evening.",
+     "cut": {
+      "id": "b_290127_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "cloakroom with hundreds of hats and overcoats on racks, a girl handing a ticket",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Home by midnight, in the snow.",
+     "cut": {
+      "id": "b_290127_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "men in dinner jackets leaving a hotel into falling snow, waiting for motor cars",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-02-03",
+   "pictures": [
+    {
+     "caption": "He would not come to the telephone.",
+     "cut": {
+      "id": "b_290203_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "groundhog sitting up at its burrow in thin snow, wild animal photograph",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "A man of Bayside who has checked the shadow forty years running.",
+     "cut": {
+      "id": "b_290203_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "old farmer in overalls and a heavy coat holding a lantern, snowy field at dawn, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Sixty-one thousand tons housed against the summer.",
+     "cut": {
+      "id": "b_290203_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "ice house on a lake with men sliding big blocks up a ramp into a tall wooden barn",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "They are keeping the line warm.",
+     "cut": {
+      "id": "b_290203_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "sparrows on a telephone wire in hard frost, close, city behind",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-02-10",
+   "pictures": [
+    {
+     "caption": "The Athletic Club five in action. The Visitations had more of it.",
+     "cut": {
+      "id": "b_290210_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "basketball game in a small gym with balcony, players in short trunks and shirts, crowd leaning over the rail",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Long Island City's long man.",
+     "cut": {
+      "id": "b_290210_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "basketball player of the 1920s in a sleeveless team jersey without writing holding a leather ball, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Tuesday nights at Newtown: new citizens, old desks.",
+     "cut": {
+      "id": "b_290210_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "night school class of grown men in work clothes at desks, a teacher at a blackboard with nothing written",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The borough with its breath showing.",
+     "cut": {
+      "id": "b_290210_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "coal smoke and rooftops of Long Island City in bright winter sun, factories, bridge in distance",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-02-17",
+   "pictures": [
+    {
+     "caption": "The custody of the ears begins, and so does Lent.",
+     "cut": {
+      "id": "b_290217_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "women coming out of a stone church on Ash Wednesday in dark coats, winter",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Sister calls with the soup at noon, in any weather.",
+     "cut": {
+      "id": "b_290217_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "nun in a full habit standing in a snowy convent garden with a covered basket, tall figure",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Round the clock at Jamaica. The judges check their pulses.",
+     "cut": {
+      "id": "b_290217_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "couple asleep leaning on each other on an arena floor, marathon dancers, judge with a bell in the background",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Friday's trade, on any day now.",
+     "cut": {
+      "id": "b_290217_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "fishmonger in an apron selling fish from a marble slab to a line of women in coats",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-02-24",
+   "pictures": [
+    {
+     "caption": "Ships home from the ice, and a long winter for those who stayed.",
+     "cut": {
+      "id": "b_290224_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "sailing ship coming into a harbour past a lighthouse in a heavy sea, spray, no people",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He would go again, he says. He has not said it to his wife.",
+     "cut": {
+      "id": "b_290224_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "a sailor in a heavy jersey and knit cap standing by a coil of rope on a dock, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The week's washing, standing by itself.",
+     "cut": {
+      "id": "b_290224_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "washing frozen stiff on a line behind tenements, a woman trying to fold a shirt like a board",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The carters' council meets beneath the drip.",
+     "cut": {
+      "id": "b_290224_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "two carters in heavy coats drinking coffee from cans beside their horses, steam, under an elevated railway",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-03-03",
+   "pictures": [
+    {
+     "caption": "Queens reads about Tuesday's oath before it happens.",
+     "cut": {
+      "id": "b_290303_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "people on a city street reading the newspapers from a stand in the rain, umbrellas",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He can do it in two languages, one of them Speaker.",
+     "cut": {
+      "id": "b_290303_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "newsboy in cap and short coat shouting on a corner with papers under his arm, blank pages, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Washington's birthday's over. They are practising for the oath.",
+     "cut": {
+      "id": "b_290303_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "schoolchildren in coats and caps waving small paper flags without writing in a classroom, teacher",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Borough Hall gets out the bunting.",
+     "cut": {
+      "id": "b_290303_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "flags and bunting without writing being hung from a brick town hall, men on ladders",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-03-10",
+   "pictures": [
+    {
+     "caption": "Kissena Park reports crocuses, on the record.",
+     "cut": {
+      "id": "b_290310_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "first buds and crocuses in a city park, an old couple on a bench with their coats open",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The canary goes out on the first warm day.",
+     "cut": {
+      "id": "b_290310_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "young woman in a light coat holding a bird cage on a stoop, tall figure, March sun",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "What the winter left of Roosevelt Avenue.",
+     "cut": {
+      "id": "b_290310_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "men with shovels repairing an icy cobbled street, a steam roller, puddles",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He cut his first record on Sunday, with the Society present.",
+     "cut": {
+      "id": "b_290310_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "robin on a bare branch close up, soft city background",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-03-17",
+   "pictures": [
+    {
+     "caption": "The pipes on Queens Boulevard, loud enough for two recordings.",
+     "cut": {
+      "id": "b_290317_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "street parade with pipers in kilts and men in sashes on a city avenue, crowds, banners without writing, shamrock decorations",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Sergeant, and proud of it, and on duty, he says.",
+     "cut": {
+      "id": "b_290317_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "policeman in a dress uniform with a sprig pinned on, grinning, standing, parade crowd behind",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The best seats are free.",
+     "cut": {
+      "id": "b_290317_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "children in Sunday clothes sitting on a curb watching a parade, feet in the gutter",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The Ladies' Auxiliary, in step at last.",
+     "cut": {
+      "id": "b_290317_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "band of older women in hats marching with a plain banner, spring avenue",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-03-24",
+   "pictures": [
+    {
+     "caption": "The river, this month, from the bluffs. Two thousand miles from Queens.",
+     "cut": {
+      "id": "b_290324_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "wide muddy river in flood at sunset over bottom land, a farmhouse up to its windows",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He says it comes through the ground first.",
+     "cut": {
+      "id": "b_290324_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "a levee watchman in oilskins and boots with a lantern, tall figure, night, rain",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Moving out by the road, or what was the road.",
+     "cut": {
+      "id": "b_290324_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "men and mules dragging a flatboat along a flooded road",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "And in Queens, the other great annual upheaval.",
+     "cut": {
+      "id": "b_290324_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "spring cleaning, women beating carpets over the rails of fire escapes in a tenement yard",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-03-31",
+   "pictures": [
+    {
+     "caption": "Kew Gardens walks out in its Easter best.",
+     "cut": {
+      "id": "b_290331_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "Easter parade of women in spectacular hats and spring coats on a wide avenue, men in morning coats, church behind",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The hat is from Paris, by way of Jamaica Avenue.",
+     "cut": {
+      "id": "b_290331_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "elegant woman in a 1929 spring coat and enormous flowered hat, standing, church steps, tall figure",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The week before: the hat girls of Jackson Avenue.",
+     "cut": {
+      "id": "b_290331_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "milliner's workroom, young women sewing flowers on hats, racks of hat forms",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Egg hunt at St. Mary's. Nobody was recorded.",
+     "cut": {
+      "id": "b_290331_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "children in Sunday best hunting eggs on a lawn behind a church, fully dressed, spring",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-04-07",
+   "pictures": [
+    {
+     "caption": "Spring by the sidewalk, chalked and counted.",
+     "cut": {
+      "id": "b_290407_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "girls in spring coats playing hopscotch and jump rope on a Queens sidewalk, row houses",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "He has a licence for nothing yet, and flies it anyway.",
+     "cut": {
+      "id": "b_290407_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "kite flying from a city rooftop, a young man in shirt sleeves holding the string, water tanks, tall figure",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Forty-nine couples, and the band plays on, being a record.",
+     "cut": {
+      "id": "b_290407_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "couples dancing, exhausted, a marathon arena at 2 a.m., a nurse with smelling salts, benches",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The spring clear-out goes by cart.",
+     "cut": {
+      "id": "b_290407_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a rag and bottle man with a horse and cart in a back street, housewife at a window",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-04-14",
+   "pictures": [
+    {
+     "caption": "The sandlots open before the Stadium does.",
+     "cut": {
+      "id": "b_290414_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "baseball spring practice, boys in caps playing sandlot ball on a vacant lot with factories behind",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He has been called every name in Queens, and answers to none.",
+     "cut": {
+      "id": "b_290414_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "old baseball umpire in dark suit and cap holding a whisk broom, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Dexter Park gets its coat of paint.",
+     "cut": {
+      "id": "b_290414_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "men painting the wooden grandstand of a small ball park, ladders, spring",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Queens files, up to the last possible second.",
+     "cut": {
+      "id": "b_290414_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "woman in hat at a bank-like window with a tax clerk behind a grille, a long queue behind",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-04-21",
+   "pictures": [
+    {
+     "caption": "The Astoria board pays its respects.",
+     "cut": {
+      "id": "b_290421_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "row of white-haired telephone operators in dark dresses at a funeral outside a church, hats, spring",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Major, in his first week of doing nothing at all.",
+     "cut": {
+      "id": "b_290421_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "a work horse in old harness looking over a pasture fence, tall photograph, spring meadow",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The blossom in Forest Park, gone by Thursday.",
+     "cut": {
+      "id": "b_290421_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "cherry blossom in a city park, nursemaids with big prams on a path",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Corona's other weather.",
+     "cut": {
+      "id": "b_290421_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "ash and smoke on the horizon beyond wooden houses at Corona, women taking in washing",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-04-28",
+   "pictures": [
+    {
+     "caption": "A seder in Kew Gardens, and a record of it for Cleveland.",
+     "cut": {
+      "id": "b_290428_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "Passover table in a Queens apartment, an extended family in their best clothes around a long table with candles",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "He has no system, and sees no need of one.",
+     "cut": {
+      "id": "b_290428_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "elderly rabbi with a white beard in a dark coat and hat, standing at a synagogue door, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Done. Four hundred and thirteen hours, and the prize waits on a recording.",
+     "cut": {
+      "id": "b_290428_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "the end of a dance marathon, two exhausted couples being helped up, spectators on benches, sawdust",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Woodhaven's best operator picks up on the second ring.",
+     "cut": {
+      "id": "b_290428_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "dog sitting on a kitchen chair beside a wall telephone, a housewife laughing",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-05-05",
+   "pictures": [
+    {
+     "caption": "The other May Day, at P.S. 7.",
+     "cut": {
+      "id": "b_290505_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "May Day dance in a schoolyard, girls in white dresses with ribbons around a maypole, teachers watching",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Lilacs by the bunch, the Elmhurst lady's own.",
+     "cut": {
+      "id": "b_290505_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "old flower seller with a basket of lilacs, a woman in shawl, tall figure, spring street",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The first of the month, and half of Queens has moved.",
+     "cut": {
+      "id": "b_290505_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "moving day, a family loading furniture onto a horse-drawn van, mattresses, a canary cage",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Business as usual, with nine notices in the drawer.",
+     "cut": {
+      "id": "b_290505_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a shopkeeper in an apron washing his window in the Arcade, glass roof overhead, no signs",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-05-12",
+   "pictures": [
+    {
+     "caption": "Long distance from Cleveland, three minutes, and worth it.",
+     "cut": {
+      "id": "b_290512_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "elderly mother in a hat seated in a parlour holding a telephone receiver, smiling, grown son beside her",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Carnations, white for the absent, by the corner boy's rule.",
+     "cut": {
+      "id": "b_290512_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "a young woman holding a large bunch of carnations on a stoop, tall figure, Sunday dress",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "A dollar a dozen on Saturday, a dollar fifty by noon.",
+     "cut": {
+      "id": "b_290512_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "florist's shop crowded with customers, buckets of flowers, no signs",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The hour the Exchange could sit down.",
+     "cut": {
+      "id": "b_290512_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "women operators at a long-distance board taking off headsets, end of a shift, tired, laughing",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-05-19",
+   "pictures": [
+    {
+     "caption": "A girl of nine gets a birthday message from the bottom of the world.",
+     "cut": {
+      "id": "b_290519_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "a birthday party on a Sunnyside stoop, girls in party dresses with a cake and a radio set in the window",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Home on leave, and the block knows it by noon.",
+     "cut": {
+      "id": "b_290519_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "a young sailor in dress whites with a sea bag walking up a city street, tall figure",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Tomatoes in by Decoration Day, or so the fence says.",
+     "cut": {
+      "id": "b_290519_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "garden allotments behind row houses, a man in a vest planting tomatoes, a neighbour talking over a fence",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The Woodside league, in season.",
+     "cut": {
+      "id": "b_290519_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "men at a corner pitching horseshoes in a vacant lot, shirt sleeves, evening",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-05-26",
+   "pictures": [
+    {
+     "caption": "The last of the Queens Grand Army, seven of them, in a borrowed Packard.",
+     "cut": {
+      "id": "b_290526_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "old Civil War veterans in blue uniforms riding in an open touring car in a parade, flags without writing",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "She has been told to wave. She has been waving since nine.",
+     "cut": {
+      "id": "b_290526_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "little girl in a white dress holding a small paper flag at a parade curb, tall figure, fully dressed",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Cypress Hills, the Saturday before.",
+     "cut": {
+      "id": "b_290526_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "people placing flowers on graves in a big cemetery, flags, spring trees",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The cornets of Newtown, nearly together.",
+     "cut": {
+      "id": "b_290526_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "marching school band of boys in caps and capes, parade, spring",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-06-02",
+   "pictures": [
+    {
+     "caption": "You can hear it from Queens on a south wind, and last Sunday you could.",
+     "cut": {
+      "id": "b_290602_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "Coney Island amusement park opening day, roller coaster, crowds in hats and spring clothes, no signs",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He can be heard in Flatbush, and has been asked about it.",
+     "cut": {
+      "id": "b_290602_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "barker in a straw hat and striped jacket with a cane, standing on a platform, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The horses go round, and so do the records.",
+     "cut": {
+      "id": "b_290602_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a merry-go-round with carved horses, adults and fully dressed children, close",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The other way to spend a Sunday.",
+     "cut": {
+      "id": "b_290602_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "men in rowboats fishing on Jamaica Bay on a calm morning",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-06-09",
+   "pictures": [
+    {
+     "caption": "June in Queens: forty-one weddings by the Saturday count.",
+     "cut": {
+      "id": "b_290609_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "bride and groom on church steps in June sunshine, thrown rice, relatives in hats",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The bride, who was told not to speak near the wall.",
+     "cut": {
+      "id": "b_290609_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "bride in a 1929 drop-waist gown and long veil, holding lilies, standing, tall figure, church doorway",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "And a toast from the machine, by request of the late father.",
+     "cut": {
+      "id": "b_290609_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a wedding breakfast at a long table, a gramophone horn on a sideboard, guests listening",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Dr. Rastin's second row, in search of a note.",
+     "cut": {
+      "id": "b_290609_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "men in a rowing boat on the Sound at dawn with a small instrument box",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-06-16",
+   "pictures": [
+    {
+     "caption": "Newtown's class files out, each name on the record until 1954.",
+     "cut": {
+      "id": "b_290616_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "high school graduates in dark gowns throwing nothing, walking in a long line across a school lawn, parents in hats",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "One of four hundred and twelve. He would like a job.",
+     "cut": {
+      "id": "b_290616_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "young man in a dark graduation gown and square cap holding a rolled diploma, tall figure, brick school",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Flushing Free Library, above the capsule.",
+     "cut": {
+      "id": "b_290616_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "library reading room with green lamps, people at long tables reading, tall shelves",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "School is out. The East River is open.",
+     "cut": {
+      "id": "b_290616_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "boys in caps and shirts fishing from a pier on the East River, skyline behind",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-06-23",
+   "pictures": [
+    {
+     "caption": "Twenty-five cents to Rockaway, and no room to sit.",
+     "cut": {
+      "id": "b_290623_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "an excursion steamer leaving a pier crowded with people in summer hats, band on deck, no writing",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The boardwalk, Rockaway, a calm evening in June.",
+     "cut": {
+      "id": "b_290623_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "woman in a 1929 summer frock and straw hat with a parasol on a boardwalk, tall figure",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The Society at Alley Pond, up before the band.",
+     "cut": {
+      "id": "b_290623_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "dawn over a salt marsh with reeds and birds, men with recording horn far off",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Reception's fine tonight, and it's too hot to go inside.",
+     "cut": {
+      "id": "b_290623_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a Queens street at dusk, men on stoops in shirt sleeves, women fanning, a radio in a window",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-06-30",
+   "pictures": [
+    {
+     "caption": "And in Mexico, after three years, the bells. Heard here by wire.",
+     "cut": {
+      "id": "b_290630_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "church bells being rung by ropes in a tall belfry, men in shirt sleeves pulling",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He has rung St. Mary's for thirty years, without a licence.",
+     "cut": {
+      "id": "b_290630_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "tall old sexton with keys in a long coat at a church door, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The last of the cream, by two o'clock.",
+     "cut": {
+      "id": "b_290630_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a soda fountain clerk handing out ice-cream cones through a window to a line of people in summer clothes",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "It's a cold drink, and that's all anyone will say.",
+     "cut": {
+      "id": "b_290630_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "men unloading blocks of ice from a wagon at a saloon-like cafe door, no signs, summer",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-07-07",
+   "pictures": [
+    {
+     "caption": "The Fourth on the roof, with every wall in Queens taking it down.",
+     "cut": {
+      "id": "b_290707_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "families in summer clothes watching fireworks from a rooftop, flags without writing, dusk",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "One sparkler, one nickel, and about a minute.",
+     "cut": {
+      "id": "b_290707_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "boy in a straw hat and fully buttoned shirt holding a sparkler at dusk, tall figure, stoop",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Block party on Thirty-First Street, with the Street's permission.",
+     "cut": {
+      "id": "b_290707_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a Queens street decorated with bunting, tables along the curb, a block party, adults and children dressed up",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The Elks' band, in the Park, in the heat.",
+     "cut": {
+      "id": "b_290707_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a bandstand in a city park at evening, brass band in uniforms, crowd on benches",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-07-14",
+   "pictures": [
+    {
+     "caption": "The East Side's bathing place, licensed by nobody.",
+     "cut": {
+      "id": "b_290714_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "an open fire hydrant spraying a Queens street, men and women in summer clothes standing around it, tenements",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Five thousand tons, a cake at a time.",
+     "cut": {
+      "id": "b_290714_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "ice man in a leather shoulder apron holding a big block with tongs, tall figure, summer street",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Nobody sleeps in Queens this week; they just lie down further up.",
+     "cut": {
+      "id": "b_290714_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "tenement roof at night with people sleeping on mattresses in summer clothes, skyline",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Even the horses have their hats.",
+     "cut": {
+      "id": "b_290714_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "horse with a straw hat and wet sponge on its head drawing a cart, driver mopping his brow, hot street",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-07-21",
+   "pictures": [
+    {
+     "caption": "Juniper Valley opens, and six thousand try it on the first day.",
+     "cut": {
+      "id": "b_290721_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "huge public swimming pool building, brick bathhouse, a crowd of adults seen from far off",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He has a loud whistle and a louder voice.",
+     "cut": {
+      "id": "b_290721_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "lifeguard in a dark full wool bathing suit holding a whistle, standing tall on a pool deck",
+      "seed": 3
+     }
+    },
+    {
+     "caption": "A nickel for the locker, and a long wait in the sun.",
+     "cut": {
+      "id": "b_290721_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "long line of men and women with towels waiting at a bathhouse door, summer clothes",
+      "seed": 3
+     }
+    },
+    {
+     "caption": "The barber's is the coolest room in Woodside.",
+     "cut": {
+      "id": "b_290721_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a mechanical fan in a barber shop, a man asleep in the chair with a hot towel, summer",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-07-28",
+   "pictures": [
+    {
+     "caption": "Corona's carnival, a full house till midnight.",
+     "cut": {
+      "id": "b_290728_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "carnival at night, a ferris wheel with lights, crowd in straw hats, no signs",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The nickel booth talks back, and has been asked to stop.",
+     "cut": {
+      "id": "b_290728_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "fortune teller booth with a mechanical figure in a turban behind glass, no writing, night, tall photograph",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He rang it. His wife has the prize.",
+     "cut": {
+      "id": "b_290728_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "man trying a strength tester at a carnival, swinging a mallet, crowd laughing",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Clams at Corona, and very little regret.",
+     "cut": {
+      "id": "b_290728_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "people in summer clothes eating at a long counter under carnival lights, no signs",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-08-04",
+   "pictures": [
+    {
+     "caption": "Long Island turned its face up this week.",
+     "cut": {
+      "id": "b_290804_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "giant airship flying over a long pier and bay, boats, crowds on deck, no writing on the hull",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "He saw her first, and has told the whole block.",
+     "cut": {
+      "id": "b_290804_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "boy in a cap on a rooftop looking through a home-made telescope, tall figure, summer sky, fully dressed",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Three hundred and fifty sailors, and one rope each.",
+     "cut": {
+      "id": "b_290804_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "navy men handling mooring ropes in a big field under a huge shadow, hundreds of men",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The Lakehurst road on Sunday. Bring sandwiches.",
+     "cut": {
+      "id": "b_290804_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a family picnicking on a car's running board at the edge of an airfield, dusk",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-08-11",
+   "pictures": [
+    {
+     "caption": "Twenty-four degrees in ninety minutes, and the block ran.",
+     "cut": {
+      "id": "b_290811_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "sudden summer storm, people running under newspapers on a Queens street, rain, an awning",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The storm did half his work, and he says he's grateful.",
+     "cut": {
+      "id": "b_290811_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "wet street cleaner in a white uniform with a push broom, standing, after rain, tall figure",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The Street, nearer the middle of the week than anyone likes.",
+     "cut": {
+      "id": "b_290811_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "brokers' messenger boys running on a narrow financial street, men in straw hats",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The dog war comes before the magistrate.",
+     "cut": {
+      "id": "b_290811_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "three owners and a terrier at a neighbourhood court, men gesturing, a magistrate",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-08-18",
+   "pictures": [
+    {
+     "caption": "Seven thousand entered, and most of them had a mother along.",
+     "cut": {
+      "id": "b_290818_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "children's recording contest, a queue of fully dressed children with parents outside a hall, summer",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The winner's grandmother. It was her lullaby.",
+     "cut": {
+      "id": "b_290818_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "old grandmother in a dark dress holding a framed picture, tall figure, kitchen, summer light",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The terrier was not invited to the breakfast either.",
+     "cut": {
+      "id": "b_290818_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "wedding breakfast in a garden, a small dog under the table being fed, guests in hats",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The Flushing line stood one minute for its own.",
+     "cut": {
+      "id": "b_290818_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "funeral of an elevated guard, men in railway uniforms on a platform, a train standing",
+      "seed": 1
+     }
+    }
+   ]
+  },
   {
    "date": "1929-08-25",
    "pictures": [
@@ -572,6 +6433,536 @@
       "height": 832,
       "shown": 520,
       "prompt": "Queensboro bridge seen from a Queens rooftop at dusk, water tanks, smoke"
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-09-01",
+   "pictures": [
+    {
+     "caption": "The Exchange's operators form up for Monday.",
+     "cut": {
+      "id": "b_290901_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "Labor Day parade preparation, women telephone operators in matching white dresses forming ranks on a street",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The last Saturday at Rockaway. She had found him twice.",
+     "cut": {
+      "id": "b_290901_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "a tired mother in a summer dress with a sleeping child on her shoulder, fully dressed, on a boardwalk, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The end of the season, by the 6:15.",
+     "cut": {
+      "id": "b_290901_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "families carrying suitcases and folding chairs from an excursion train, hot station",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Rockaway puts itself away.",
+     "cut": {
+      "id": "b_290901_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "beach umbrella and deck chair folded and stacked for the year, an empty boardwalk, late light",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-09-08",
+   "pictures": [
+    {
+     "caption": "A million and more go back on Monday.",
+     "cut": {
+      "id": "b_290908_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "schoolchildren in new clothes and satchels walking up the steps of a big brick school, mothers at the gate",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "She has forty-one in the room, and the wall thinks more.",
+     "cut": {
+      "id": "b_290908_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "young schoolteacher in a 1929 dress at a classroom door holding a register, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The last thing that happens before school.",
+     "cut": {
+      "id": "b_290908_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "boy having his hair cut on a kitchen chair by his mother, fully dressed, a towel round his neck",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Nobody has told them about school.",
+     "cut": {
+      "id": "b_290908_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "two old men playing checkers at a stoop table, Sunday clothes",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-09-15",
+   "pictures": [
+    {
+     "caption": "Forest Hills, the last Saturday. The court's record is a clear one.",
+     "cut": {
+      "id": "b_290915_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "tennis match on a grass court at Forest Hills, big crowd in stands, players in white long trousers from afar",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "A lady of the West Side Club, resting between sets.",
+     "cut": {
+      "id": "b_290915_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "woman tennis player in a long white 1929 dress and head band with a wooden racket, standing, tall figure",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "A street, by itself, for the Society's records.",
+     "cut": {
+      "id": "b_290915_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a quiet street at three in the morning, a single lamp, a cat crossing",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "After the crowd.",
+     "cut": {
+      "id": "b_290915_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "ball boys in white sweeping a grass court with a wide broom at evening, empty stands",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-09-22",
+   "pictures": [
+    {
+     "caption": "The coal man's first call of the year, and he has no comment on the summer.",
+     "cut": {
+      "id": "b_290922_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "coal yard, carters loading sacks, heaps of coal, horses, dust, late September",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Summer hangs up tomorrow. He has been waiting.",
+     "cut": {
+      "id": "b_290922_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "the coal man himself, a pale man in a cap, coal dust on his coat, sack on his shoulder, standing, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The awnings come down on Thirty-Fourth Avenue.",
+     "cut": {
+      "id": "b_290922_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "woman taking in the awning of a brownstone window on a pole, cool day",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Forest Park, turning.",
+     "cut": {
+      "id": "b_290922_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "first leaves turning in a city park, a nursemaid with a pram, cool light",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-09-29",
+   "pictures": [
+    {
+     "caption": "The ice man goes to three days a week. Steinway Street notices.",
+     "cut": {
+      "id": "b_290929_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "ice wagon on a street at autumn, last daily delivery, a woman at a door with coins, old ice man",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The holy days begin in Queens, with fourteen systems switched off.",
+     "cut": {
+      "id": "b_290929_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "synagogue elder in a prayer shawl standing at a door, autumn leaves, tall figure",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "A booth in the yard at Kew Gardens.",
+     "cut": {
+      "id": "b_290929_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "a family at a harvest table in a backyard under a booth of branches, autumn",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Rockaway, boarded up to April.",
+     "cut": {
+      "id": "b_290929_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "man closing a summer cottage at the shore, boarding the window with planks, rowboat upturned",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-10-06",
+   "pictures": [
+    {
+     "caption": "The Series by wire, on Jackson Avenue, and a man to chalk it.",
+     "cut": {
+      "id": "b_291006_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "crowd of men in hats on a city street watching a big blank scoreboard hung on a building, autumn afternoon, hands on hats",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The Speaker's own chalker. He has not been wrong today.",
+     "cut": {
+      "id": "b_291006_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "man on a ladder with chalk at a big blank board on a brick wall, tall figure, crowd below",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "Bayside's last truck farms come to town.",
+     "cut": {
+      "id": "b_291006_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "pumpkin and apple stand on a roadside in Queens, wagon, a farmer with a pipe",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Philadelphia, nine. Woodside, nine.",
+     "cut": {
+      "id": "b_291006_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "boys in caps playing sandlot ball in autumn among burning leaves",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-10-13",
+   "pictures": [
+    {
+     "caption": "Newtown takes the field again.",
+     "cut": {
+      "id": "b_291013_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "high school football game on a sunny afternoon, boys in leather helmets, stands full of people in overcoats",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He barked on every third strike, and Queens believes it.",
+     "cut": {
+      "id": "b_291013_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "terrier on a lead sitting beside a seated man at a ball game, the man in a straw hat, tall photograph",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "A long October for the ticker.",
+     "cut": {
+      "id": "b_291013_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "clerks in sleeve garters reading a ticker tape in a brokers' office, dim light",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "October on Steinway Street.",
+     "cut": {
+      "id": "b_291013_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "yellow leaves on a wet street, a sweeper with a horse-drawn cart",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-10-20",
+   "pictures": [
+    {
+     "caption": "Fifty years of the lamp, and the light company takes its bow.",
+     "cut": {
+      "id": "b_291020_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "a family gathered round a single electric lamp in a dark parlour, older people in their best, looking up at it",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He remembers the other way, and will tell you.",
+     "cut": {
+      "id": "b_291020_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "old lamplighter with a long pole on an evening street, gas lamp, overcoat, tall figure",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "The men who keep the current. They have not heard a thing.",
+     "cut": {
+      "id": "b_291020_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "electric company linemen on a pole against a wide autumn sky, wires",
+      "seed": 0
+     }
+    },
+    {
+     "caption": "The lantern walk at P.S. 12.",
+     "cut": {
+      "id": "b_291020_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "children in home-made autumn costumes carrying paper lanterns along a sidewalk, fully dressed",
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-10-27",
+   "pictures": [
+    {
+     "caption": "The ride home, this week. Very little talk.",
+     "cut": {
+      "id": "b_291027_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "crowded elevated train platform at evening, men in overcoats reading newspapers with blank pages",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He has been at the telephone since Thursday.",
+     "cut": {
+      "id": "b_291027_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "broker's clerk in a rumpled suit sitting on a stoop with his collar undone, tall figure, evening",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Queens counts its pennies, and finds them there.",
+     "cut": {
+      "id": "b_291027_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "quiet savings bank on a Saturday with a small orderly line, marble, no writing",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "There is still pie.",
+     "cut": {
+      "id": "b_291027_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "woman peeling apples on a back step, autumn sun, a cat beside her",
+      "seed": 1
+     }
+    }
+   ]
+  },
+  {
+   "date": "1929-11-03",
+   "pictures": [
+    {
+     "caption": "Queens checks its balance, and can still stand up.",
+     "cut": {
+      "id": "b_291103_0",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 680,
+      "prompt": "a Queens front parlour in autumn, a woman reading a newspaper by a window, cat on the sill",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "He has run this district since McKinley.",
+     "cut": {
+      "id": "b_291103_1",
+      "style": "gravure",
+      "width": 832,
+      "height": 1216,
+      "shown": 360,
+      "prompt": "election worker in a sash without writing standing outside a barber shop polling place, tall figure, autumn",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Last Thursday, on Thirtieth Avenue.",
+     "cut": {
+      "id": "b_291103_2",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "children in home-made ghost and witch costumes on a stoop with pumpkin lanterns, fully dressed, dusk",
+      "seed": 1
+     }
+    },
+    {
+     "caption": "Long Island City, twelve. Dexter Park, a great deal of mud.",
+     "cut": {
+      "id": "b_291103_3",
+      "style": "gravure",
+      "width": 1216,
+      "height": 832,
+      "shown": 520,
+      "prompt": "football game, muddy, Dexter Park, a cold crowd in overcoats",
+      "seed": 1
      }
     }
    ]
