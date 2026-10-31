@@ -3799,3 +3799,13 @@ though city geometry/door authorities are unchanged. Preserve this verified
 checkpoint remotely and batch the mandatory combined renewal with the next
 already-started SW2 actual controller capture,rather than repeat an unrelated
 walk or manually repin receipts. Latest-main qualification is not claimed.
+
+
+Upstream reconciliation is now local at **7ce87ba1**,without conflicts or lost
+newspaper changes. This combined source is not yet qualified/pushed to main.
+The qualified source/report checkpoint **9523f280** is pushed on
+**codex/v2-city-bridge-intake-20261030**. Existing clean static baseline checkout
+is advanced from e145b129 to exactae8e69b1; its new117-gate board is running
+without Godot. Capture the terminal board before using it. Next intake remains
+commit-pinned SW2d3bff66e,followed by its nearby actual controller/composed cohort;
+back_w's later entry repair remains excluded until frozen/reviewed.
