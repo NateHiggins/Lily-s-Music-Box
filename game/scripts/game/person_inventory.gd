@@ -150,6 +150,20 @@ static func carry(holder: String, item: String, amount: float) -> void:
 	RealityState.commit()
 
 
+## Taking groceries back out of a bag; a spent line leaves it.
+static func lose(holder: String, item: String, amount: float) -> void:
+	var value := book()
+	var id := "grocery:" + item
+	if value.is_empty() or RealityState.save_write_blocked or not items(holder).has(id):
+		return
+	var left := float(value.holders[holder][id].qty) - amount
+	if left <= 0.0001:
+		value.holders[holder].erase(id)
+	else:
+		value.holders[holder][id].qty = left
+	RealityState.commit()
+
+
 static func carried(holder: String, item: String) -> float:
 	return float(items(holder).get("grocery:" + item, {}).get("qty", 0.0))
 

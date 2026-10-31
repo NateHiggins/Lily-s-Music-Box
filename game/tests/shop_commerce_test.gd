@@ -144,13 +144,14 @@ func _run() -> void:
 	var shop := "news_cigars"
 	var item_id := ""
 	for record: Dictionary in catalogue.shops[shop].items:
-		if str(record.kind) == "goods" and record.has("group"):
+		if str(record.kind) == "goods" and record.has("group") and not record.has("sold_by"):
 			item_id = str(record.id)
 			break
 	var sales := ShopSales.new(shop, catalogue, stock, clearing)
 	var point: Node3D = SalePoint.new()
 	add_child(point)
-	_check("a sale point mounts", point.configure(sales, item_id))
+	var list: Array[String] = [item_id]
+	_check("a sale point mounts", point.configure(sales, list))
 	var record: Dictionary = sales.stock_record(item_id)
 	var group_id := str(record.group)
 	economy.book().cash = 1000

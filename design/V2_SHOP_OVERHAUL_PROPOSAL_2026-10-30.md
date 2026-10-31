@@ -354,6 +354,13 @@ argument. Renew the surface packet once per batch, not per shop.
 | 5 | Radio, Funeral, Harukiya | Set upgrades, wage work and wagers |
 | 6 | Appearance batches | After the refit kit proves itself on Otis |
 
+**Status, 2026-10-30.** Slice 1 and the carried case are built. Slice 2 is built except
+coupons and mail order: Hardware, News and Bodega sell through one terminal per counter
+with a selector, News charges for a paper and falls back to the desk account when it
+can't, and door errands are in. Not built in slice 2: coupons and mail order, using goods
+from the case, a modelled price card and selector, and the Bodega's list-and-bag props.
+Hardware's drawers and ladder are not yet operable.
+
 Each slice owes: real grabbing and release in tests, a schema-2 runtime receipt, reader
 gate NEW 0, a draw-call measurement on the Arcade route, and a playable pass for Lily.
 
