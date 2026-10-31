@@ -19,7 +19,7 @@ const MARGIN := 48
 const TURN_TRAVEL_PX := 320.0
 const CORNER_SIZE := 72.0
 ## The Sunday cartoon is the same one-bit print, three times its native 96.
-const CARTOON_HEIGHT := 288.0
+const CARTOON_HEIGHT := 380.0
 const AD_GAP := 12
 
 var catalog: NewspaperCatalog
@@ -277,7 +277,6 @@ func _show_back(meta: Dictionary, back: Dictionary) -> void:
 		drawing.custom_minimum_size = Vector2(0, CARTOON_HEIGHT)
 		drawing.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		drawing.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		drawing.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		_page.add_child(drawing)
 		_label(str(cartoon.caption), 15, INK, _italic, HORIZONTAL_ALIGNMENT_CENTER)
 		_rule(1)
