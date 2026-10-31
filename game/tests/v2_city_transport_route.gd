@@ -13,7 +13,7 @@ const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[
 func _ready() -> void:
 	_route_scope=OS.get_environment("ORISON_CITY_ROUTE_SCOPE")
 	if _route_scope.is_empty():_route_scope="full"
-	if _route_scope not in ["full","northwest","opposing","northeast","northeast2","narrow","bridge","hampton","gaslamps","southwest","southwest_rear","cardinal"]:
+	if _route_scope not in ["full","northwest","opposing","northeast","northeast2","narrow","bridge","hampton","gaslamps","southwest","southwest_rear","cardinal","southern_laurel"]:
 		push_error("Unknown ORISON_CITY_ROUTE_SCOPE: "+_route_scope)
 		get_tree().quit(64)
 		return
@@ -67,6 +67,9 @@ func _programme_sources() -> Dictionary:
 	return result
 
 func _run() -> void:
+	if _route_scope=="southern_laurel":
+		await _run_southern_laurel()
+		return
 	if _route_scope=="cardinal":
 		await _run_cardinal()
 		return
@@ -89,6 +92,68 @@ func _run() -> void:
 	city_observations["programme_sources"] = programme_before
 	city_observations["route_scope"]="full"
 	await super._run()
+
+func _run_southern_laurel() -> void:
+	# Three independent near-frontage fixtures, not a continuous city tour.
+	# Laurel's +46Y assembly offset is already included in these city coordinates.
+	var programmes: Array=[
+		{"id":"site_back_e","start":Vector3(21.5,61.6,-.02),"points":[Vector3(21.5,63.8,.30),Vector3(21.5,61.6,-.02)],"target":Vector3(21.5,64.1,4.)},
+		{"id":"site_nbr_s2","start":Vector3(-9.,-26.3,0.),"points":[Vector3(-2.8,-26.3,0.),Vector3(4.,-26.3,0.),Vector3(-9.,-26.3,0.)],"target":Vector3(-2.8,-28.32,8.)},
+		{"id":"site_se2","start":Vector3(38.55,-26.3,0.),"points":[Vector3(38.55,-28.02,.30),Vector3(38.55,-26.3,0.)],"target":Vector3(38.55,-28.32,5.)}]
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"southern/Laurel output directory exists")
+	if not failures.is_empty():get_tree().quit(1);return
+	source_before=_digest();programme_before=_programme_sources()
+	city_observations["programme_sources"]=programme_before
+	city_observations["route_scope"]=_route_scope
+	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
+	CampaignTime.set_frozen_for_tests(true)
+	check(CampaignClock.new().configure_date(1928,11,10,720),"southern/Laurel uses the campaign clock")
+	world=Runtime.instantiate();add_child(world)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	while world.startup_ms<=0. and not world.startup_failed:await get_tree().process_frame
+	check(not world.startup_failed and world.player!=null,"production world starts for three changed frontages")
+	var completed:=0
+	if not world.startup_failed and world.player!=null:
+		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+		var city:=world.get_node("CityShells") as Node3D
+		city_observations["startup_ms"]=world.startup_ms
+		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"screen_refresh_hz":DisplayServer.screen_get_refresh_rate()}
+		_check_frontage_surfaces(city,["site_back_e","site_nbr_s2","site_se2"],30,"southern_laurel_surfaces")
+		var recoveries_before: int=int(world.safety_net.recoveries)
+		for programme: Dictionary in programmes:
+			if not failures.is_empty():break
+			if not await _opposing_start(city,programme.start,str(programme.id),true):break
+			await _station_view(str(programme.id)+"_approach",programme.target)
+			var first:=trace.size()
+			for index in programme.points.size():
+				var point: Vector3=programme.points[index]
+				if not await _city_walk(point,true):break
+				# Give ordinary gravity/step settling its normal physics ticks.
+				for frame in 12:await get_tree().physics_frame
+				check(player.is_on_floor() and absf(city.to_local(player.global_position).y-point.z)<.025,"standing body reaches the measured source floor/landing: "+str(programme.id))
+				if index==0:await _station_view(str(programme.id)+"_standing_detail",programme.target)
+			if not failures.is_empty():break
+			check(trace.size()-first==programme.points.size(),"all normal-controller legs execute: "+str(programme.id))
+			completed+=1
+		check(completed==3 and trace.size()==7,"three independent fixtures execute seven actual controller legs")
+		check(world.safety_net.recoveries==recoveries_before,"changed fronts require no safety-net rescue")
+		check(not player.noclip and not player.crouched and is_equal_approx(player._capsule.height,1.524) and is_equal_approx(player._capsule.radius,.33) and not player._profile_disable_step_guard and not player._profile_disable_step_up,"full standing body retains gravity, collision and both step guards")
+		city_observations["walking_timing"]={"columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives"],"samples":_exploration_samples,"scope":"Actual controller walking only; fixtures, settling and PNG captures excluded. No matched speedup or full-city performance claim."}
+	Input.action_release("move_forward")
+	world.shutdown_for_tests();world.free();await get_tree().physics_frame
+	var source_after:=_digest()
+	check(not source_after.is_empty() and source_before==source_after and programme_before==_programme_sources(),"southern/Laurel production and test inputs stayed frozen")
+	var passed:=failures.is_empty()
+	var receipt: Dictionary={"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
+		"scope":"Three independently floor/full-capsule-validated nearby fixtures; seven normal-controller legs, Laurel and SE2 two-riser landing ascent/descent, bar-front footway, thirty loaded complete-body parts and six actual eye views. No continuous travel between fixtures, scenic door operation, new interiors, saves, full-city or artistic acceptance.",
+		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
+		"source":{"test_path":"game/tests/v2_city_transport_route.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after},
+		"contracts":{"production_composition":{"executed":true,"passed":passed},"southern_laurel_local_walks":{"executed":not trace.is_empty(),"passed":passed and completed==3 and trace.size()==7,"waypoints":trace.size()},"southern_laurel_surfaces":{"executed":city_observations.has("southern_laurel_surfaces"),"passed":passed},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
+		"checks":city_checks,"failures":failures,"trace":trace,"observations":city_observations}
+	FileAccess.open(directory.path_join("southern_laurel_frontage_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
+	print("SOUTHERN/LAUREL: %d checks; %d waypoints; %d failures"%[city_checks,trace.size(),failures.size()])
+	get_tree().quit(0 if passed else 1)
 
 func _run_cardinal() -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
@@ -668,7 +733,7 @@ func _city_walk(point: Vector3,literal_height: bool=false) -> bool:
 	if is_zero_approx(point.z) and not literal_height:
 		point.z = preload("res://scripts/building/orison_v2_city_streets.gd").surface_height(point.x)
 	print("CITY STATION WALK: source target ",point)
-	var focused: bool=_route_scope in ["northwest","opposing","northeast","northeast2","narrow","bridge","hampton","southwest","southwest_rear"]
+	var focused: bool=_route_scope in ["northwest","opposing","northeast","northeast2","narrow","bridge","hampton","southwest","southwest_rear","southern_laurel"]
 	if focused:
 		RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
 		_previous_exploration_usec=0

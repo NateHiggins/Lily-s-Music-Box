@@ -4440,3 +4440,23 @@ roof housings/repeated distant masses/cloud polish remain visible. Local Laurel
 construction is unmerged; these pictures neither renew the physical receipt nor
 promote the main25-study tally,roof-access route or artistic acceptance.
 External originals: **C:/ov/reports/city_streets_20261029/rooftop_cardinals_20261030/frames**.
+
+### Bounded southern/Laurel composed programme — prepared, not qualified
+
+Evidence class: **INERT**. The existing transport route now has an opt-in
+**southern_laurel** programme: three independent nearby fixtures, seven ordinary
+controller legs, both newly fitted two-riser landing roundtrips and the retained
+bar-front footway. It checks thirty explicit loaded body partitions and records
+six actual eye views when executed. Each initial fixture requires an unfiltered
+static floor and full production standing capsule; no step guard, collision or
+scenic-door authority is bypassed. Laurel coordinates include its existing
+46-metre assembly translation. SE2's ground datum comes from the separate
+retained transport-plaza owner, not the incomplete earlier ground subset.
+
+Preparation passes the source spatial audit and reader NEW0. Compilation is
+queued through the shared lane; no composed execution or pass is claimed here.
+The southern native pair is still under its author's visual review. Wait for
+that frozen delivery and reconcile the new main PR101 shop/errand owners before
+running this combined programme. It does not replace full-city travel, saves,
+performance comparison or artistic acceptance. The published25-study count is
+unchanged. Original failed evidence and all previous capture archives remain.
