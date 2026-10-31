@@ -452,12 +452,18 @@
     },
     {
       "id": "HORIZON_NEAR_2_0_P1",
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.83,
-        0.79,
-        0.69,
-        1
+        0.68,
+        0.47,
+        0.32,
+        1.0
+      ],
+      "joinery_tint": [
+        0.17,
+        0.2,
+        0.18,
+        1.0
       ]
     },
     {
@@ -512,12 +518,18 @@
     },
     {
       "id": "HORIZON_NEAR_2_1_P2",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "concrete",
       "wall_tint": [
+        0.78,
+        0.76,
         0.7,
-        0.6,
-        0.53,
-        1
+        1.0
+      ],
+      "joinery_tint": [
+        0.17,
+        0.2,
+        0.18,
+        1.0
       ]
     },
     {
@@ -1035,9 +1047,15 @@
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
         0.78,
-        0.66,
-        0.55,
-        1
+        0.65,
+        0.46,
+        1.0
+      ],
+      "joinery_tint": [
+        0.17,
+        0.2,
+        0.18,
+        1.0
       ]
     },
     {
@@ -1260,5 +1278,34 @@
         1
       ]
     }
-  ]
+  ],
+  "body_lod": {
+    "asset": "res://assets/props/city_horizon_lod1.glb",
+    "error_m": 0.08,
+    "parts": [
+      "HORIZON_FAR_2_1_P1__arcade_brick_bond",
+      "HORIZON_FAR_2_1_P1__bronze_sheet",
+      "HORIZON_FAR_2_1_P1__cast_iron",
+      "HORIZON_FAR_2_1_P1__concrete",
+      "HORIZON_FAR_2_1_P1__door_paint",
+      "HORIZON_FAR_2_1_P1__galvanized_roof",
+      "HORIZON_FAR_2_1_P1__limestone",
+      "HORIZON_FAR_2_1_P1__mirror_aged",
+      "HORIZON_NEAR_2_0_P1__arcade_brick_bond",
+      "HORIZON_NEAR_2_0_P1__bronze_sheet",
+      "HORIZON_NEAR_2_0_P1__cast_iron",
+      "HORIZON_NEAR_2_0_P1__concrete",
+      "HORIZON_NEAR_2_0_P1__door_paint",
+      "HORIZON_NEAR_2_0_P1__galvanized_roof",
+      "HORIZON_NEAR_2_0_P1__limestone",
+      "HORIZON_NEAR_2_0_P1__mirror_aged",
+      "HORIZON_NEAR_2_1_P2__bronze_sheet",
+      "HORIZON_NEAR_2_1_P2__cast_iron",
+      "HORIZON_NEAR_2_1_P2__concrete",
+      "HORIZON_NEAR_2_1_P2__door_paint",
+      "HORIZON_NEAR_2_1_P2__galvanized_roof",
+      "HORIZON_NEAR_2_1_P2__limestone",
+      "HORIZON_NEAR_2_1_P2__mirror_aged"
+    ]
+  }
 }
