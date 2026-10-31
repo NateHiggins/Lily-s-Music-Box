@@ -9,7 +9,8 @@
  },
  "entries": {
   "jp_page": "jp_p1",
-  "jp_book": "jp_f1"
+  "jp_book": "jp_f1",
+  "jp_sill": "jp_s1"
  },
  "threads": [
   {
@@ -30,6 +31,17 @@
    "topic": "How's the book?",
    "source": "Character. Comedy, ending withheld.",
    "root": "jp_f1"
+  },
+  {
+   "id": "jp_sill",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "Why is there a sill in your book?",
+   "requires": [
+    "m_noel_reports"
+   ],
+   "source": "Suspect chain, the Prices. The accusation is the only proof either knows the other is there.",
+   "root": "jp_s1"
   }
  ],
  "nodes": {
@@ -87,6 +99,23 @@
   },
   "jp_f2": {
    "line": "It isn't finished."
+  },
+  "jp_s1": {
+   "silence_goto": "jp_s1s",
+   "line": "It wants a sill. I don't know why it wants a sill. There's a draught under that door, it comes and goes, I've put it in four chapters.",
+   "choices": [
+    {
+     "label": "It comes when Noel comes. He tests it with his hand.",
+     "goto": "jp_s2"
+    }
+   ]
+  },
+  "jp_s1s": {
+   "line": "You've got the look of someone with a better sentence. Everyone has one. Nobody brings it up the stairs."
+  },
+  "jp_s2": {
+   "flag": "m_sill_read",
+   "line": "He... cotton, I suppose, with the little tape. Every night? I gave those hands an hour. I thought it was a figure. Two flights, and he could knock. He won't, and I wouldn't answer. Don't put that anywhere."
   }
  }
 }

@@ -10,7 +10,9 @@
  "entries": {
   "co_envelope": "co_e1",
   "co_windmill": "co_w1",
-  "co_route": "co_r1"
+  "co_route": "co_r1",
+  "co_recall": "co_rc1",
+  "co_blanks": "co_b1"
  },
  "threads": [
   {
@@ -42,6 +44,28 @@
    ],
    "source": "4.5. A concrete question gets the book.",
    "root": "co_r1"
+  },
+  {
+   "id": "co_recall",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "Can a sender take back a held piece?",
+   "requires": [
+    "m_route_book"
+   ],
+   "source": "Suspect chain, Peter. Makes the route book look soft, then proves it.",
+   "root": "co_rc1"
+  },
+  {
+   "id": "co_blanks",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "What else went up to 6C that week?",
+   "requires": [
+    "m_route_book"
+   ],
+   "source": "Kept from a cut chain. Blank discs on the eve of the cut.",
+   "root": "co_b1"
   }
  ],
  "nodes": {
@@ -97,6 +121,27 @@
   "co_r3": {
    "flag": "m_route_book",
    "line": "Everybody gives me stuff to hold. That's not a question, that's my life. Friday? Here. Six-forty, six C to Ewald, first run Saturday. Read it yourself, it's not a secret, it's just nobody ever reads it."
+  },
+  "co_rc1": {
+   "flag": "m_book_recalled",
+   "silence_goto": "co_rc1s",
+   "line": "Sender can. Comes down, says give it here, I strike it and write the time. Same Friday, look. \"4A to Miss Q., hold.\" Struck. \"Recalled 5.55.\" Mr. Wren. Twenty-five minutes. Something about a comma.",
+   "choices": [
+    {
+     "label": "Is there a strike on six-forty?",
+     "goto": "co_rc2"
+    }
+   ]
+  },
+  "co_rc1s": {
+   "line": "I don't charge for the book. I charge for standing here."
+  },
+  "co_rc2": {
+   "line": "You've got the book. A strike's a strike. There isn't one. Nobody came down."
+  },
+  "co_b1": {
+   "flag": "m_blanks_slip",
+   "line": "\"Thu. 11 Jul., Fass to 6C, one box blanks, forty cents.\" Flat box, no weight in it, up six flights, and she checks the seal like I'd been at it. Is that it?"
   }
  }
 }

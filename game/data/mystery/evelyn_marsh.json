@@ -9,7 +9,9 @@
  },
  "entries": {
   "em_seven": "em_s1",
-  "em_after": "em_a1"
+  "em_after": "em_a1",
+  "em_drafts": "em_d1",
+  "em_drafts_after": "em_da1"
  },
  "threads": [
   {
@@ -30,6 +32,26 @@
    ],
    "source": "Comic hurt. The player cannot correct a dead woman's sevens, because the player is the dead woman.",
    "root": "em_a1"
+  },
+  {
+   "id": "em_drafts",
+   "from": "1929-06-08",
+   "until": "1929-07-19",
+   "topic": "Mr. Wren was at your door with a paper.",
+   "source": "Suspect chain, Peter. Comedy first.",
+   "root": "em_d1"
+  },
+  {
+   "id": "em_drafts_after",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "Mr. Wren says you have his drafts.",
+   "requires_any": [
+    "m_peter_memo",
+    "m_book_recalled"
+   ],
+   "source": "Suspect chain, Peter. The same comedy, after. She dates everything she marks.",
+   "root": "em_da1"
   }
  ],
  "nodes": {
@@ -75,6 +97,24 @@
   "em_a3": {
    "flag": "m_box_slip_kept",
    "line": "A slip is kept until the thing is returned. It came back the same day, by another hand, and nobody signed for it. I do not like an open slip. I have been told this is the whole of my character, and by whom you'd be surprised."
+  },
+  "em_d1": {
+   "flag": "m_red_drafts",
+   "line": "A memorandum, and he brought it to me as if I had set it. He has come to me about commas since he was eleven. It is dated, because I date what I mark. It is not yet good. It is not yet anything. I have told him so in red."
+  },
+  "em_da1": {
+   "flag": "m_red_drafts",
+   "silence_goto": "em_da2",
+   "line": "Seven, dated, the first on the eighth of June. The grammar was mine to correct and the first of August was not. The fourth draft was good enough. I marked it anyway.",
+   "choices": [
+    {
+     "label": "If you had passed the fourth?",
+     "goto": "em_da2"
+    }
+   ]
+  },
+  "em_da2": {
+   "line": "I beg your pardon? He would have sent it in June. I am aware of the date. See me if you wish to improve."
   }
  }
 }

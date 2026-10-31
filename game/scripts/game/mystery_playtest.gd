@@ -149,7 +149,7 @@ func _all_flags() -> Array:
 		found[str(flag)] = true
 	for record in conversations.mystery.values():
 		for thread in record.threads:
-			for flag in thread.get("requires", []):
+			for flag in thread.get("requires", []) + thread.get("requires_any", []):
 				found[str(flag)] = true
 		for node in record.nodes.values():
 			if node.has("flag"):

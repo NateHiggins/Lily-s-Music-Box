@@ -595,6 +595,9 @@ func active_threads(resident_id: String, date: String, minute: int) -> Array[Dic
 		for flag in thread.get("requires", []):
 			if not RealityState.has_knowledge(str(flag)):
 				ready = false
+		var any_of: Array = thread.get("requires_any", [])
+		if not any_of.is_empty() and not any_of.any(func(flag): return RealityState.has_knowledge(str(flag))):
+			ready = false
 		if ready:
 			out.append(thread)
 	return out

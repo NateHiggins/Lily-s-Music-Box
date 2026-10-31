@@ -276,8 +276,10 @@ leads, not prerequisites. [WR-01]
   reasonable competing explanations.
 - It does **not** need to prove seventeen other people physically incapable.
 - Every resident stays in the story, but each holds one useful thing (access, a
-  custody, a sighting, a disputed interval, a reason to ask) instead of taking
-  a turn at "implicated" and "cleared".
+  custody, a sighting, a disputed interval, a reason to ask). The player may
+  wrongly suspect a resident; the game never does, and each is cleared only for
+  what its evidence clears (owner, 2026-10-31,
+  `design/ORISON_SUSPECT_CHAINS_2026-10-31.md`).
 - "Cleared for this interval" is reserved for corroborated evidence that really
   excludes an action in that interval.
 
@@ -791,9 +793,9 @@ lines.
 | Malcolm Reed, 3A | Last on the roof with her before dark | Time measured by what can grow; a very possessive pot |
 | Omar Bell, 3B | Spare shop key; the recorder; the salvaged plate | Offense at workmanship; an economical answer |
 | Rhea Sato, 3D | A real privacy claim on negatives that were stolen | Manages how a moment appears until a plain objection arrives. Privacy never reads as guilt |
-| Peter Wren, 4A | His firm's copy of the deed | A qualification that suddenly leaves him responsible for the answer |
+| Peter Wren, 4A | His firm's copy of the deed; the warning memo he recalled over a comma | A qualification that suddenly leaves him responsible for the answer |
 | Cam Ortiz, 4C | Delivered the envelope to 6C; took her sealed letter at 18:40 and marked its flap | Route and delivery; no rate for thoughts |
-| Noel Price, 4C | Named by a simile; his gloves have no buttons | A handling instruction more alarming than the object warrants |
+| Noel Price, 4C | Named by a simile; his gloves have no buttons; his condition reports on 6B's door | A handling instruction more alarming than the object warrants |
 | Transient Guests, 4D | The "lodger" statement; the 22:50 sighting | Agree with different questions; a concrete question separates them |
 | Nadia Quell, 5A | Told Mae; keeps the window afterwards | A plan that includes everybody before asking anybody |
 | Cal Dwyer, 5B | Near the bulkhead before the boundary; the two tapes | Controls, repeatability, a grudge against bad reception |

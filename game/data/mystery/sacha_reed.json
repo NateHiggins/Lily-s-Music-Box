@@ -10,7 +10,8 @@
  "entries": {
   "sr_thursday": "sr_t1",
   "sr_duplicate": "sr_d1",
-  "sr_plate": "sr_p1"
+  "sr_plate": "sr_p1",
+  "sr_landing": "sr_l1"
  },
  "threads": [
   {
@@ -45,6 +46,14 @@
    ],
    "source": "B23, S13.",
    "root": "sr_p1"
+  },
+  {
+   "id": "sr_landing",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "Was anyone on your landing, that Friday evening?",
+   "source": "Suspect chain, the Prices. A true sighting before the gap, and an edge of a frame.",
+   "root": "sr_l1"
   }
  ],
  "nodes": {
@@ -96,6 +105,20 @@
   },
   "sr_p3": {
    "line": "She's at the edge of her own picture. She'd have cropped it. I won't."
+  },
+  "sr_l1": {
+   "flag": "m_noel_landing",
+   "silence_goto": "sr_l2",
+   "line": "Twenty to nine. My door was open a hand for the fumes. White gloves, at the bottom of 6B, stooping, the back of one hand to the sill. That's the edge of it. I can't tell you what's in the middle.",
+   "choices": [
+    {
+     "label": "Whose gloves?",
+     "goto": "sr_l2"
+    }
+   ]
+  },
+  "sr_l2": {
+   "line": "Mr. Price, from the fourth floor. Not his door. He looked round and I shut mine. That proves I shut mine."
   }
  }
 }
