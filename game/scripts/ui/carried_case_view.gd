@@ -295,6 +295,8 @@ func _contents_card() -> String:
 		lines.append("CASH  %s" % economy.money(int(economy.book().cash)))
 		var due: int = economy.rent_cycles_due()
 		lines.append("RENT  %s" % ("%d DUE" % due if due > 0 else "PAID"))
+	if not PawnSales.book().tickets.is_empty():
+		lines.append("PAWN TICKETS: %d" % PawnSales.book().tickets.size())
 	if not MailOrders.held().is_empty():
 		lines.append("COUPONS TO POST: %d" % MailOrders.held().size())
 	if item_use != null and item_use.ears_stopped():
