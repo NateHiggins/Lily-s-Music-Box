@@ -13,7 +13,7 @@ const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[
 func _ready() -> void:
 	_route_scope=OS.get_environment("ORISON_CITY_ROUTE_SCOPE")
 	if _route_scope.is_empty():_route_scope="full"
-	if _route_scope not in ["full","northwest","opposing","northeast","northeast2","narrow","bridge","hampton","gaslamps"]:
+	if _route_scope not in ["full","northwest","opposing","northeast","northeast2","narrow","bridge","hampton","gaslamps","southwest"]:
 		push_error("Unknown ORISON_CITY_ROUTE_SCOPE: "+_route_scope)
 		get_tree().quit(64)
 		return
@@ -27,6 +27,7 @@ func _ready() -> void:
 	if _route_scope=="bridge":route_label="V2 CITY BRIDGE ROOF"
 	if _route_scope=="narrow":route_label="V2 CITY NARROW NEIGHBORS"
 	if _route_scope=="hampton":route_label="V2 CITY HAMPTON FOOTWAY"
+	if _route_scope=="southwest":route_label="V2 CITY CARRIAGEHOUSE FOOTWAY"
 	if _route_scope=="gaslamps":
 		route_label="V2 CITY NIGHT GASLAMPS"
 		OS.set_environment("DAYNIGHT_FORCE","21:00")
@@ -72,7 +73,7 @@ func _run() -> void:
 	if _route_scope=="hampton":
 		await _run_hampton()
 		return
-	if _route_scope in ["opposing","northeast","northeast2","narrow"]:
+	if _route_scope in ["opposing","northeast","northeast2","narrow","southwest"]:
 		await _run_opposing(_route_scope)
 		return
 	if _route_scope=="northwest":
@@ -238,10 +239,11 @@ func _run_opposing(selection: String="opposing") -> void:
 	var narrow:=selection=="narrow"
 	var northeast:=selection=="northeast"
 	var northeast2:=selection=="northeast2"
-	var expected_legs:=8 if northeast2 or narrow else 6 if northeast else 12
-	var expected_programmes:=2 if narrow else 1 if northeast or northeast2 else 3
-	var surface_key:="narrow_neighbor_surfaces" if narrow else "works_bank_surfaces" if northeast2 else "northeast_surfaces" if northeast else "opposing_surfaces"
-	var walk_key:="narrow_neighbor_walks" if narrow else "works_bank_connected_walk" if northeast2 else "northeast_connected_walk" if northeast else "opposing_local_walks"
+	var southwest:=selection=="southwest"
+	var expected_legs:=8 if northeast2 or narrow or southwest else 6 if northeast else 12
+	var expected_programmes:=2 if narrow else 1 if northeast or northeast2 or southwest else 3
+	var surface_key:="carriagehouse_surfaces" if southwest else "narrow_neighbor_surfaces" if narrow else "works_bank_surfaces" if northeast2 else "northeast_surfaces" if northeast else "opposing_surfaces"
+	var walk_key:="carriagehouse_connected_walk" if southwest else "narrow_neighbor_walks" if narrow else "works_bank_connected_walk" if northeast2 else "northeast_connected_walk" if northeast else "opposing_local_walks"
 	var directory:=OS.get_environment("SHOT_DIR")
 	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"selected frontage evidence directory exists before startup/captures")
 	if not failures.is_empty():get_tree().quit(1);return
@@ -256,6 +258,9 @@ func _run_opposing(selection: String="opposing") -> void:
 	world=Runtime.instantiate();add_child(world)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
+	if southwest:
+		while world.startup_ms<=0.0 and not world.startup_failed:
+			await get_tree().process_frame
 	check(not world.startup_failed and world.player!=null,"production composition starts for selected frontage programme")
 	if not world.startup_failed and world.player!=null:
 		player=world.player
@@ -263,7 +268,8 @@ func _run_opposing(selection: String="opposing") -> void:
 		var city:=world.get_node("CityShells") as Node3D
 		city_observations["startup_ms"]=(Time.get_ticks_usec()-started)/1000.
 		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold,"screen_refresh_hz":DisplayServer.screen_get_refresh_rate(),"window_focused":DisplayServer.window_is_focused()}
-		if narrow:_check_frontage_surfaces(city,["site_nbr_w","site_nbr_e"],26,surface_key)
+		if southwest:_check_frontage_surfaces(city,["site_sw2"],12,surface_key)
+		elif narrow:_check_frontage_surfaces(city,["site_nbr_w","site_nbr_e"],26,surface_key)
 		elif northeast2:_check_frontage_surfaces(city,["site_ne3","site_ne4"],25,surface_key)
 		elif northeast:_check_frontage_surfaces(city,["site_ne1","site_ne2"],21,surface_key)
 		else:_check_frontage_surfaces(city,["site_se3","site_sw3","site_far_nw"],32,surface_key)
@@ -283,22 +289,30 @@ func _run_opposing(selection: String="opposing") -> void:
 			# normal production input; these placements are not continuous travel.
 			programmes=[{"id":"narrow_west","start":Vector3(-56.7,21.3,-.476),"points":[Vector3(-56.7,23.75,.18),Vector3(-56.7,21.3,-.476)],"target":Vector3(-56.7,24.28,2.2)},
 				{"id":"narrow_east","start":Vector3(14.5,-13.3,0),"points":[Vector3(18.655,-13.3,0),Vector3(22,-13.3,0),Vector3(18.655,-13.3,0),Vector3(18.655,-10.5,0),Vector3(18.655,-13.3,0),Vector3(14.5,-13.3,0)],"target":Vector3(18.655,-11.92,3.5),"shop":"SHOP_BODEGA"}]
+		if southwest:
+			# Measured AU pavement grades and three 150.75mm risers. The landing
+			# stance stays clear of the recessed closed scenic leaf; no interior.
+			programmes=[{"id":"site_sw2","start":Vector3(-44.45,-26.4,-.27225),"points":[Vector3(-45.4,-26.4,-.2865),Vector3(-44.45,-26.4,-.27225),Vector3(-44.45,-28.9,.18),Vector3(-44.45,-26.4,-.27225),Vector3(-35.1,-26.4,-.132),Vector3(-44.45,-26.4,-.27225),Vector3(-39.8,-22.,-.3025),Vector3(-44.45,-26.4,-.27225)],"target":Vector3(-39.8,-28.32,3.8)}]
 		var completed:=0
 		for programme: Dictionary in programmes:
 			if not failures.is_empty():break
-			if not await _opposing_start(city,programme.start,str(programme.id),northeast2 or narrow):break
+			if not await _opposing_start(city,programme.start,str(programme.id),northeast2 or narrow or southwest):break
 			var first:=trace.size()
 			for point_index in programme.points.size():
 				var point: Vector3=programme.points[point_index]
 				if narrow and programme.has("shop") and point_index==3:
 					if not await _move_bodega_front(true):break
-				if not await _city_walk(point,narrow):break
+				if not await _city_walk(point,narrow or southwest):break
 				if narrow and programme.has("shop") and point_index==3:await _station_view("bodega_inside_after_native_repair",Vector3(17.4,-9.8,.9))
 				if narrow and programme.has("shop") and point_index==4:
 					if not await _move_bodega_front(false):break
 				if narrow:
 					check(player.is_on_floor() and absf(city.to_local(player.global_position).y-point.z)<.025,"actual standing narrow-neighbor floor/landing height: "+str(point))
 					if point.z==.18:await _station_view(str(programme.id)+"_landing",programme.target)
+				if southwest:
+					check(player.is_on_floor() and absf(city.to_local(player.global_position).y-point.z)<.025,"actual standing carriagehouse pavement/landing height: "+str(point))
+					if point_index==2:await _station_view("carriagehouse_stoop_landing",Vector3(-44.45,-29.5,1.5))
+					if point_index==6:await _station_view("carriagehouse_street_overview",programme.target)
 				if northeast2 and point.x==49.:await _station_view("terracotta_works_standing",Vector3(48.58,9.8,5))
 				if northeast2 and point.x==60.:await _station_view("bank_front_standing",Vector3(59.08,9.8,7))
 				if northeast2 and point.y==22.:await _station_view("bank_side_passage",Vector3(63.58,16,5))
@@ -322,13 +336,13 @@ func _run_opposing(selection: String="opposing") -> void:
 	check(not source_after.is_empty() and source_before==source_after and programme_before==_programme_sources(),"selected production/test/asset sources remain frozen")
 	var passed:=failures.is_empty()
 	var receipt: Dictionary={"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"Two independent full-capsule/floor-validated nearby starts, eight normal-controller legs: west four-riser ascent/descent,east retained footway and actual central Bodega door grab/mouse/release with inside/outside passage;26 loaded body partitions. The false left residential door and duplicate slab/walls were retired around the retained shop,not made traversable by a collision bypass. Separate full-capsule/floor-validated roof fixture checks a bridge optical sightline excluding only the exact nonrendered travel boundary and captures ordinary/narrow views with same-pose bridge-visible/hidden ABBA frame samples. No continuous travel between fixture starts,roof access,scenic door/interior operation,station/radius,save/full-city/artistic acceptance." if narrow else "One full-capsule/floor-validated nearby start,eight continuous production-controller plaza/side-passage legs and25 loaded works/bank body partitions. Separately labelled roadside lamp-view placement with unfiltered sightline at21:00. No continuous travel to that view,interior/door operation,station/distant/radius,save/full-city/artistic acceptance." if northeast2 else "One nearby floor-validated start,six continuous production-controller plaza legs past both changed northeast fronts and21 loaded body partitions. No entrance/station/distant/radius,door operation,save/full-city/artistic acceptance." if northeast else "Three independent floor-validated nearby starts,twelve actual production-controller legs and changed32-body-part surfaces. Includes retained x=-55 crossing roundtrip. No continuous access between starts,entrance/station/distant/radius/save/full-city/artistic acceptance.",
+		"scope":"One full-capsule/floor-validated nearby start,eight continuous normal-controller legs along the carriagehouse footway,three-riser ascent/standing landing/descent,and nearby public-street overview/return;12 loaded complete-body parts. Scenic leaf stays closed. No interior/door operation,station/radius,save/full-city or artistic acceptance." if southwest else "Two independent full-capsule/floor-validated nearby starts, eight normal-controller legs: west four-riser ascent/descent,east retained footway and actual central Bodega door grab/mouse/release with inside/outside passage;26 loaded body partitions. The false left residential door and duplicate slab/walls were retired around the retained shop,not made traversable by a collision bypass. Separate full-capsule/floor-validated roof fixture checks a bridge optical sightline excluding only the exact nonrendered travel boundary and captures ordinary/narrow views with same-pose bridge-visible/hidden ABBA frame samples. No continuous travel between fixture starts,roof access,scenic door/interior operation,station/radius,save/full-city/artistic acceptance." if narrow else "One full-capsule/floor-validated nearby start,eight continuous production-controller plaza/side-passage legs and25 loaded works/bank body partitions. Separately labelled roadside lamp-view placement with unfiltered sightline at21:00. No continuous travel to that view,interior/door operation,station/distant/radius,save/full-city/artistic acceptance." if northeast2 else "One nearby floor-validated start,six continuous production-controller plaza legs past both changed northeast fronts and21 loaded body partitions. No entrance/station/distant/radius,door operation,save/full-city/artistic acceptance." if northeast else "Three independent floor-validated nearby starts,twelve actual production-controller legs and changed32-body-part surfaces. Includes retained x=-55 crossing roundtrip. No continuous access between starts,entrance/station/distant/radius/save/full-city/artistic acceptance.",
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
 		"source":{"test_path":"game/tests/v2_city_transport_route.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after},
 		"contracts":{"production_composition":{"executed":true,"passed":passed},walk_key:{"executed":not trace.is_empty(),"passed":passed and trace.size()==expected_legs,"waypoints":trace.size()},surface_key:{"executed":city_observations.has(surface_key),"passed":passed},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
 		"checks":city_checks,"failures":failures,"trace":trace,"observations":city_observations}
 	if narrow:receipt.contracts["bridge_roof_views"]={"executed":city_observations.has("bridge_roof"),"passed":passed and city_observations.has("bridge_roof")}
-	FileAccess.open(directory.path_join("narrow_neighbors_contract.json" if narrow else "works_bank_frontage_contract.json" if northeast2 else "northeast_frontage_contract.json" if northeast else "opposing_frontage_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
+	FileAccess.open(directory.path_join("carriagehouse_frontage_contract.json" if southwest else "narrow_neighbors_contract.json" if narrow else "works_bank_frontage_contract.json" if northeast2 else "northeast_frontage_contract.json" if northeast else "opposing_frontage_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
 	print("%s: %d checks; %d waypoints; %d failures"%[route_label,city_checks,trace.size(),failures.size()])
 	get_tree().quit(0 if passed else 1)
 
@@ -597,7 +611,7 @@ func _city_walk(point: Vector3,literal_height: bool=false) -> bool:
 	if is_zero_approx(point.z) and not literal_height:
 		point.z = preload("res://scripts/building/orison_v2_city_streets.gd").surface_height(point.x)
 	print("CITY STATION WALK: source target ",point)
-	var focused: bool=_route_scope in ["northwest","opposing","northeast","northeast2","narrow","bridge","hampton"]
+	var focused: bool=_route_scope in ["northwest","opposing","northeast","northeast2","narrow","bridge","hampton","southwest"]
 	if focused:
 		RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
 		_previous_exploration_usec=0
