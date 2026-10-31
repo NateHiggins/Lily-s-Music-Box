@@ -10,14 +10,16 @@ Sections below this checkpoint are historical context, not the current queue.
 
 ## Where work stands
 
-- Current branch: `codex/v2-civic-intake-20261031`; runtime checkpoint
-  `3312654e`. Main reconciled through `fc6c5c47` in `9cefcd11`, then through
-  `b0708b7e` (editorial/size proposals; no runtime input changes).
-  PR #118 is open. First candidate f5082fcf had one new reported test-only
-  spatial station (two explicit fourth-floor camera/player coordinates). Its
-  exact reviewed fixture record is now registered; rerun comparison is pending.
-  Commit, push and merge are separate states: final publication/merge is pending
-  until recorded below. Preserve newer main work when reconciling again.
+- **Merged and pushed:** [PR #118](https://github.com/NateHiggins/Lily-s-Music-Box/pull/118),
+  merge `7d1f16b53cf98ab099c24bba30bf951ecbf410d4`. Canonical checkout is now **main**.
+  Integration branch `codex/v2-civic-intake-20261031` is retained for recovery.
+  Fresh candidate `1c3b214b` passed against `b0708b7e`: zero regressions, no
+  waivers, all 17 protected paths unchanged, selector V2, zero design-lint errors.
+  The two changed gate files were reviewed. Management used `--no-godot`;
+  canonical actual-engine receipts below are separate evidence. The first
+  blocked `f5082fcf` report is preserved; its exact test-camera spatial record
+  was reviewed and declared. No runtime input changed for that correction.
+  This final documentation/archive follow-up does not rerun unchanged suites.
 - City/window work: 34 whole-building exports, 149 non-Orison window partitions
   with deterministic occupied-room optics and variation. Orison is excluded.
   Four rooftop postcards and the moonlit tracker illustration are retained.
@@ -67,10 +69,9 @@ and combined-main sections. Raw runs remain external at
 
 ## Next session
 
-Finish publication/candidate verification and merge if still pending below;
-otherwise inspect TASKS.md and continue the authorized prologue/architect
-priorities. Lily requested no new development after this checkpoint before
-handoff. Do not interpret an archive as V2 completion.
+Publication, candidate verification and PR #118 merge are complete. Inspect
+TASKS.md and current Git before continuing authorized prologue/architect work. Lily requested no new development after this checkpoint before
+handoff; Codex is stopping here. Do not interpret an archive as V2 completion.
 
 Use the shared first-come lane for Godot/GPU work and the hash-pinned patched
 Vulkan engine in `.godot-engine.json`; read `tools/engine_patches/README.md`.
