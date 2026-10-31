@@ -11357,11 +11357,11 @@
   },
   "southern_pair_native_archive": {
     "path": "art/reviews/city_streets_20261029/southern_pair_native_review.zip",
-    "sha256": "718ea19fdf4984fca89431424d02a7e193334f9c2a7b4d8079d563d0f5f2ba86",
-    "members": 43,
-    "bytes": 17081338,
+    "sha256": "026bb00af8db46dd1d937dc3c3bf65f9b7273fb04cb93de18deee59dce9fde31",
+    "members": 79,
+    "bytes": 28177023,
     "evidence_class": "INERT",
-    "scope": "Southern pair native source/export/UV and preservation diagnostics with11 inspected images,including original review harness failure. No loaded,played,composed,performance or artistic acceptance.",
+    "scope": "Southern pair native/isolated loaded material-LOD and local production-controller diagnostics. Original43 native members and review failure retained. Static board and explicitly corrected next-source research remain INERT; no composed/runtime_contract/artistic acceptance.",
     "files": {
       "actual_native_inspection_01.json": {
         "bytes": 3805,
@@ -11422,6 +11422,150 @@
       "frozen_sources/game/data/orison_v2/exterior/city_elevations.json": {
         "bytes": 15374,
         "raw_sha256": "5c54e4d85d3858e7ffbb75c025195a14284e1cd47ae0f70c4f5e3e7bdb15ddb6"
+      },
+      "loaded_01/actual_loaded_inspection_01.json": {
+        "bytes": 17080,
+        "raw_sha256": "4caf8da98e2d9277a1d99fd4c816fc11fc3c0cbbb7a3c22761a615c26cf8e6c6"
+      },
+      "loaded_01/bench_01.log": {
+        "bytes": 298633,
+        "raw_sha256": "10d242121c9e6c766fc85998f6690427bed862ea0db77207922ec7d3b5a4d315"
+      },
+      "loaded_01/bench_01.log.receipt.json": {
+        "bytes": 2832,
+        "raw_sha256": "2a4de056c79d4ae12cd1bb0440b5162482196cdf2261664f6dddf024475e442b"
+      },
+      "loaded_01/bench_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "loaded_01/bench_01/city_elevation_profile.json": {
+        "bytes": 143944,
+        "raw_sha256": "7fe1f31bcaffb912f8ac7ca3a05b379dad4e8a795dc140ffd32d561c66e2f623"
+      },
+      "loaded_01/bench_01/city_entry_diagnostic.json": {
+        "bytes": 46144,
+        "raw_sha256": "2f9c658e77e1764002da5cf7406e2c072c15c55bbc941b2d11acd0f5dac66f51"
+      },
+      "loaded_01/bench_01/entry_court.png": {
+        "bytes": 5170179,
+        "raw_sha256": "0131684c2257ef3f08d55b0f6c5b62a21e98dc56b9b0fea6b99f57d334429870"
+      },
+      "loaded_01/bench_01/entry_landing.png": {
+        "bytes": 1591576,
+        "raw_sha256": "e63ae20a04319b76dc8986f9dbe563c04049853dc6f50688c3ce0b7f7ba11bce"
+      },
+      "loaded_01/bench_01/site_nbr_s2.png": {
+        "bytes": 743333,
+        "raw_sha256": "9452429487e1b98b5d730886aa97532b01f6c5f1dcb3414b5fd7b6b58c4a314b"
+      },
+      "loaded_01/bench_01/site_nbr_s2_natural_after.png": {
+        "bytes": 26525,
+        "raw_sha256": "6d229f5e6ac6dbac57078e444b2c3d9e7748e2709d48dcbe3b8abacd4061bd28"
+      },
+      "loaded_01/bench_01/site_nbr_s2_natural_before.png": {
+        "bytes": 26539,
+        "raw_sha256": "4390a6202b0471a9528248d2cbc384c55aee147da745c0bfc7945c3d879fe298"
+      },
+      "loaded_01/bench_01/site_nbr_s2_natural_narrow.png": {
+        "bytes": 1235766,
+        "raw_sha256": "b2b4b6a2ab9dedde396774cb5f18a90096876740b53bb3009cbfc01cc666b815"
+      },
+      "loaded_01/bench_01/site_nbr_s2_profile_far.png": {
+        "bytes": 410983,
+        "raw_sha256": "84018e19e1ba5b188cb63bab69a19b9485206578cd64e52fc38e4cdf22d49f7f"
+      },
+      "loaded_01/bench_01/site_nbr_s2_profile_near.png": {
+        "bytes": 410903,
+        "raw_sha256": "153bc5dd52e71667cfe10556a603fb60ef6aedbf10b450a5d63482122c5f6921"
+      },
+      "loaded_01/bench_01/site_se2.png": {
+        "bytes": 409551,
+        "raw_sha256": "91726e6dbf96cae61312c3ae8f7c311aab2c3cd626d1cb34e1a083d448b95e29"
+      },
+      "loaded_01/bench_01/site_se2_natural_after.png": {
+        "bytes": 18964,
+        "raw_sha256": "bf88f8fcd0ccf72f47b44a68ef5a35504b3f346e0a1524d402137241c38f0f72"
+      },
+      "loaded_01/bench_01/site_se2_natural_before.png": {
+        "bytes": 18967,
+        "raw_sha256": "dfb5ebe6c93dd1af95f7e99ebf6b8c16670940add9b5f9d95d845d932cf48500"
+      },
+      "loaded_01/bench_01/site_se2_natural_narrow.png": {
+        "bytes": 557783,
+        "raw_sha256": "82dd2768744a6896b32e0029bc7db76ebc3121b7146a503707f9838afc593757"
+      },
+      "loaded_01/bench_01/site_se2_profile_far.png": {
+        "bytes": 277960,
+        "raw_sha256": "8b0a044e96604121acdb559df393b0730af3c9456ac6451590bed5790cc2888c"
+      },
+      "loaded_01/bench_01/site_se2_profile_near.png": {
+        "bytes": 277984,
+        "raw_sha256": "164e3f614b6f08d26d4e529024d6c45d389aa2b3410d8e6a9179872c5b0a1a22"
+      },
+      "loaded_01/bench_01_frozen_source.gd": {
+        "bytes": 53689,
+        "raw_sha256": "2358988ebb046ca2d46b53b177943648805812649f6c62aac254b8c91ecbc4c2"
+      },
+      "loaded_01/frozen_inputs_01.json": {
+        "bytes": 12491,
+        "raw_sha256": "9a93eb033d81f8f335724863a989f63c66cebe2cbad52e37a9c06356b635fc99"
+      },
+      "loaded_01/identical_evidence_aliases.json": {
+        "bytes": 440,
+        "raw_sha256": "17890883572ba6eae2e5b98951571fad7f696c5a3945a791d8f405e5ee18fcdd"
+      },
+      "loaded_01/import_01.log": {
+        "bytes": 3254,
+        "raw_sha256": "3d70c5d48b027e8f31001ef3046f6e88f8346f4f3ac3d56479e74c22e376c3ae"
+      },
+      "loaded_01/import_01.log.receipt.json": {
+        "bytes": 2637,
+        "raw_sha256": "0c682f74b50f03d7332eea66d8b87970c9ffbd2dc77c31a54b34b7ec07bdac71"
+      },
+      "loaded_01/import_01.log.stderr": {
+        "bytes": 126454,
+        "raw_sha256": "493359099d6543268a6f13a7215edcdabed7fe22888c63c4a4470db33bcafc5c"
+      },
+      "loaded_01/loaded_batch_01.json": {
+        "bytes": 942,
+        "raw_sha256": "65370aafef0a95103ccc6a5883c0548eb596c6441282c20b7e9a7d6ec88806b6"
+      },
+      "loaded_01/next_horizon_source_survey_01.json": {
+        "bytes": 5045,
+        "raw_sha256": "1257cfb13617d06576166cd9f1429e869c155c79b3a9d87b2478b9b0a575fd78"
+      },
+      "loaded_01/next_horizon_source_survey_02.json": {
+        "bytes": 6904,
+        "raw_sha256": "f8b26c724bb858c07c53faf8a9e6d660ee434f84651e40533103757f941d598b"
+      },
+      "loaded_01/parser_01.log": {
+        "bytes": 228,
+        "raw_sha256": "b34a0016e6ce616495d083b2e51d4915fa985210f3192a4e44c6662241a3122f"
+      },
+      "loaded_01/parser_01.log.receipt.json": {
+        "bytes": 2849,
+        "raw_sha256": "c7a8befded6ec3382efcd16cbb10053f652a6580f0f2c90a9aefb5eea75d160c"
+      },
+      "loaded_01/static_01/board.json": {
+        "bytes": 131138,
+        "raw_sha256": "d56f2593d93049ed9fab810794851c02f869fda7c54b18ac92404537a419d3ca"
+      },
+      "loaded_01/static_01/board.md": {
+        "bytes": 8607,
+        "raw_sha256": "81a1d957ddc61e358206e5b573d66c7d2a92664705dadf603c2c43e3a749cff3"
+      },
+      "loaded_01/static_compare_946_01.log": {
+        "bytes": 9070,
+        "raw_sha256": "f97b0bda3d87b5fd9581ea605ea78e0c3f57f8017a20df34164147b4aae6c1ad"
+      },
+      "loaded_01/static_summary_01.json": {
+        "bytes": 4810,
+        "raw_sha256": "d54ba1b500b5d305764328b62300a5684bcbb1b8c21c1a0006ec9f112bdf75c9"
+      },
+      "loaded_01/uid_cleanup_01.json": {
+        "bytes": 102688,
+        "raw_sha256": "eecfd46e9c2db95c1bf773bf8c4b4c27038eb754f33703de07bc497ca2d2827c"
       },
       "lower_authority_projection_01.json": {
         "bytes": 44353,

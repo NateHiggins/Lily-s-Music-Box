@@ -4534,3 +4534,22 @@ and after. This is the current PR101 source, not the architect's older source
 baseline or a substituted control. Existing main failures/incomplete gates
 remain in the board. Its path is
 **C:/ov/reports/city_streets_20261029/southern_pair_01/baseline_825/board.json**.
+
+
+
+
+### Southern pair — isolated loaded and controller diagnostic, 2026-10-30
+
+Evidence class: **INERT**. Native **92093219** stays unchanged. One combined patched-engine batch completed: import40s,compilerPASS,fullscreen3440x1440 bench **7,691 checks /1,205 roof samples /1,073 family draws /zero failures in49.93s**. Compiler and bench stderr empty. Loaded charts/basis/tangent and PBR/mipmap checks execute on actual production materials. All16 rendered files inspected (14unique;two inward-return images are identical aliases),207 profile and234 entrance source hashes verified exactly. No repeated native generation or long district walk.
+
+Two complete groups retain equipment: bar32draws,32,756→28,554 primitives;SE2 34draws,43,024→42,832. Across900 warmed uncapped frames,MSAAenum3/TAAoff/VSync0,initial bar near GPUmedian4.3205/p956.1736/max7.45ms,wallmedian5.021/p957.40175/max15.803ms. Repeated bar near GPUmedian0.6555/max0.674ms and wallmax1.136ms;far-repeat GPUmedian0.653/wallmax1.309ms. SE2 near/far GPUmedians0.640/0.639ms,wallmax1.001/1.207ms;repeat-near wallmax1.353ms. No sampled wallframe exceeds16.667ms. Strong initial-case drift,unmeasured host peaks and no matched baseline prevent causal speedup,quiet-host or wholecity-budget claims. Earlier39.436ms and composed-world spikes/startup remain unresolved.
+
+Natural material-body transitions reduce bar limestone9,108→7,428 indices-as-primitives across189.534862/189.556523m and SE2 terracotta1,416→1,224 across189.412785/189.428423m;inward/narrow-FOV controls recover near counts. These images deliberately isolate one whole material part,not an incomplete building. Whole near/far images retain the bodies and plant.
+
+Opt-in SE2 diagnostic uses actual PlayerController,registered production ground and existing station/plaza collision: **16checks/0**,89 ordinary movement samples,11.173266s including setup/captures. Settled source-frame feet:−0.000067m approach,+0.300509m landing,+0.300860m against closed leaf,+0.000255m return. No noclip,step-guard override,rescue or later placement. The initial visibility set hides other station geometry,so these eyes do not establish composed station visibility. Native station context is separate. Other occupied-world actors/rooms are absent;no schema-2 runtime_contract,access-authority or artistic promotion.
+
+Full static board:117gates,110PASS/6FAIL/1INCOMPLETE,no timeouts. Surface qualification is stale;ledger and interaction/M11/completeness failures remain recorded. Diagnostic comparison against newer94605245 reports three differences (unread1060→1061,material-catalogue files field,newspaper test count13→8). This is not the city branch merge-base;the material JSON,reader script and newspaper tests are independently unchanged since southern sourcebasee8e456c9. Do not claim zero regressions from that comparison. Current own reader NEW0;canonical owns exact integrated/current-main comparison. No baseline changes or waivers.
+
+Original43 native archive members and original review failure preserved. Expanded archive **southern_pair_native_review.zip**:79members /28,177,023bytes,SHA256 **026bb00af8db46dd1d937dc3c3bf65f9b7273fb04cb93de18deee59dce9fde31**. CRC/member/alias bytes verified. After terminal run/no own live Godot,638 own generated UIDs individually removed only after byte matching the retained recovery archive. Explicit ZIP -text binding added in coordination with canonical. No geometry changed after920.
+
+Next read-only research uses [Dutch Kills assessment](https://www.nyc.gov/assets/planning/download/pdf/applicants/env-review/dutch_kills/appendm_feis.pdf),PDF135–139:40-18 concrete grid/office annex,40-24 brick paired casements/fluted piers,40-36 brick-faced Kahn piers. Modern photographs guide surviving structure,not1928 layout or colour. Installed180degree registration makes east negative localX;corrected targets **HORIZON_NEAR_2_0_P1**,**HORIZON_NEAR_2_1_P2**,**HORIZON_FAR_2_1_P1** lie before the actual rail cut and outside the canal band. Original wrong-side research survey retained and corrected before authoring. No new horizon geometry yet;121 horizon profiles still lack individual adaptation. Canonical composed/physical renewal,landmarks,continuous450m support,save and artistic work remain open.
