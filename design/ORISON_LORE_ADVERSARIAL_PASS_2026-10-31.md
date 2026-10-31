@@ -202,7 +202,8 @@ These are the room's answers to the objections in section 2. All are **PROPOSED*
   bring her plates to develop, she keeps a print, and they know it. She isn't the bait in anyone's trap. "You
   don't squeeze people you borrow sugar from." Nobody across the road or in the arcade is in it, so "privacy
   never reads as guilt" stands, and Juno's "she never told a soul" still holds.
-- **It adds no suspects in the house.** The four men gain a motive, but they have no access and no thread. The
+- **It adds no suspects in the house.** The four men gain a motive, but they have no access, and one outside thread that clears them (owner,
+  later on 31 October, `design/ORISON_SUSPECT_CHAINS_2026-10-31.md`). The
   treatment's rule for residents stands.
 - **It makes the plot better, not lighter.** "Being decent, she sent Mae Kessler a copy first" stays true. Mae
   knows about the drawer, from a landlord she knows. The player can infer how a dated copy looked to her. Her

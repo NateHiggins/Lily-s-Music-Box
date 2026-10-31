@@ -597,6 +597,15 @@ Arcade tenants' counsel. Commissioned the deed copy for the Arcade's rent and re
 
 - **MR. EWALD** (ew_t1): My clerk stamps what this office takes, and the Ortiz boy pencils what he holds. Bring the book, sit there, read me the summer. Sixty-odd pieces, and not a minute between them that I could bill for. In a witness I would call that a fault. I looked.
 
+### "Has anyone written to you about her plates?"
+
+1929-07-30 to 1929-11-09 · needs any of **m_saw_kessler_note**, **m_men_asked**
+
+- **MR. EWALD** (ew_ll1): Pinned, naturally. A landlord on Borden Avenue. "Any material held by the person who kept the counter, to be returned unexamined." You'll notice he and the lady upstairs write alike.
+  - > Could he have written hers? → ew_ll2
+  - (silence) → ew_ll2
+- **MR. EWALD** (ew_ll2): Forty years of landlords, and they catch it off each other like a cough. Who caught it from whom I couldn't tell you. I can tell you the Ortiz boy had hers from her own hand. I don't charge for that one, it's no use to me.
+
 ## NADIA QUELL
 
 A plan that includes everybody before asking anybody. Chairs the tenants' association. Told Mae about the deed at tea, and has to go on living in that sentence. She keeps the window afterwards. Late recognition, one scene only. Never a password.
@@ -680,6 +689,16 @@ A plan that includes everybody before asking anybody. Chairs the tenants' associ
   - > Would you hold yours? → nq_h2
   - (silence) → nq_h2
 - **NADIA QUELL** (nq_h2): The chair can't second. So the chair will step out for as long as that takes. I've already paid for one sentence in that parlour. I can pay for this one at the clerk's window, and get a receipt.
+
+### "Has anyone been asking after the shop?"
+
+1929-07-29 to 1929-11-09
+
+- **NADIA QUELL** (nq_l1): Her log, so you get my capitals. "Sat. 27 Jul., 3.10. Gentleman asks Mr. Ewald what is left in the bottom drawer. Good hat. No name." He's the third this fortnight. Nobody asks that about a shop unless they know what a shop keeps.
+  - > What is left in it? → nq_l2
+  - (silence) → nq_l1s
+- **NADIA QUELL** (nq_l2): Nothing. I looked, after the third one. A clean bottom drawer, and you'd have to know to open it. I don't know what it held. Her register has the deed's plates filed to it, and those aren't anywhere either. I tell every good hat the same. None of them believes me.
+- **NADIA QUELL** (nq_l1s): If you came to dust, the pins are in the tin. Mind the card in the corner. I haven't finished being rude to it.
 
 ## NOEL PRICE
 

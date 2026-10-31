@@ -1,7 +1,9 @@
 extends Node
 ## Bounded observations of existing owners. No duplicate raycasts, catalogue
 ## scans, discovery grants, route invention or interpretation of saved prose.
-const PAPER_CLUES := {"record|1929-06-15": "m_c_gloved_lady"}
+const PAPER_CLUES := {"record|1929-06-15": "m_c_gloved_lady",
+	"record|1929-07-27": "m_c_boxes", "record|1929-08-10": "m_c_boxes",
+	"speaker|1929-08-22": "m_c_boxes", "record|1929-09-16": "m_c_boxes"}
 
 var session: Node
 var player: PlayerController

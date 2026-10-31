@@ -61,7 +61,9 @@ The owner's answers to this treatment's open items:
 - **Adela kept a drawer.** She has squeezed people with power using prints from plates brought
   to her to develop, and they know she keeps them: two aldermen, a landlord, a man from the Board
   of Estimate. Nobody across the road or in the arcade. She says so plainly from the first date. It
-  is not a reveal, and it adds no suspects in the house.
+  is not a reveal, and it adds no suspects in the house. The four men have no access and one outside
+  thread, which clears the theory that they took the drawer (owner, 2026-10-31,
+  `design/ORISON_SUSPECT_CHAINS_2026-10-31.md`).
 - **Why it matters to the murder.** Sending Mae the copy was still decent. Mae knows of the drawer
   from a landlord she knows, and denies opening anything from that counter. The player can infer how a
   dated copy looked to her. Mae's motive stays the lease. Adela cannot correct the reading; the
