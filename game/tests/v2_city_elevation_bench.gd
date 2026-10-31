@@ -407,10 +407,99 @@ func _run() -> void:
 					check(get_viewport().get_texture().get_image().save_png(OS.get_environment("SHOT_DIR").path_join("factory_clock_%04d.png"%minute))==OK,"actual rendered clock pose saved")
 				check(clock.configure_date(1928,11,10,0) and city.refresh_clock_from_campaign(),"clock returns from optical review time")
 	if OS.get_environment("ORISON_CITY_PROFILE")=="1":await _profile_commercial(city)
+	if OS.get_environment("ORISON_CITY_ENTRY_CHECK")=="1":await _check_isolated_entry(city,fixture)
 	city.free()
 	await get_tree().process_frame
 	print("CITY NATIVE BENCH: %d checks, %d roof samples, %d draws, %d failures" % [checks,contacts,draws,failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _entry_drive(player: PlayerController, target_z: float, samples: Array) -> void:
+	# One initial placement only; every subsequent leg uses ordinary movement.
+	var direction:=signf(target_z-player.global_position.z)
+	var action:= "move_forward" if direction<0. else "move_back"
+	Input.action_press(action)
+	for frame in 300:
+		await get_tree().physics_frame
+		samples.append({"position":[player.global_position.x,player.global_position.y,player.global_position.z],"on_floor":player.is_on_floor(),"noclip":player.noclip})
+		var remaining:=target_z-player.global_position.z
+		if absf(remaining)<.025 or signf(remaining)!=direction:break
+	Input.action_release(action)
+	for frame in 12:await get_tree().physics_frame
+	check(absf(player.global_position.z-target_z)<.08,"local entry normal-input target reached")
+
+func _check_isolated_entry(city: Node3D, fixture: Dictionary) -> void:
+	## Fast fitted-stair diagnostic, not occupied-world access qualification.
+	var started:=Time.get_ticks_usec()
+	var first_check:=checks
+	var first_failure:=failures.size()
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty(),"isolated entry requires an explicit diagnostic directory")
+	if directory.is_empty():return
+	var building: Dictionary={}
+	for row: Dictionary in fixture.buildings:
+		if str(row.id)=="site_back_e":building=row
+	check(not building.is_empty(),"isolated entry selects the installed rear-east fixture")
+	if building.is_empty():return
+	var connector:=preload("res://scripts/building/orison_v2_world_connection.gd")
+	var resolver: Variant=preload("res://scripts/building/orison_v2_exterior_spatial_resolver.gd").load_default()
+	var connection: Dictionary=connector.prepare(connector.read_object("res://data/orison_v2_blockout.json"),connector.read_object("res://data/orison_v2/exterior/exterior_geometry.json"),resolver,connector.read_object(connector.CONFIG_PATH))
+	check(not connection.is_empty(),"local ground uses the production world-registration owner")
+	if connection.is_empty():return
+	var ground_root:=Node3D.new()
+	ground_root.transform=connection.interior_transform
+	add_child(ground_root)
+	var ground:=preload("res://scripts/building/orison_v2_ground.gd").new()
+	ground_root.add_child(ground)
+	var rect: Array=building.main_rect # placed_fixture already applies +46Y.
+	var center_x: float=(float(rect[0])+float(rect[2]))*.5
+	var front_y: float=float(rect[1])
+	var player:=PlayerController.new()
+	player.position=city.to_global(Vector3(center_x,.03,-(front_y-2.5)))
+	add_child(player)
+	player.set_lamp_enabled(false)
+	player.camera.make_current()
+	for frame in 30:await get_tree().physics_frame
+	var samples: Array=[]
+	var stages: Array=[]
+	var local:=city.to_local(player.global_position)
+	check(player.is_on_floor() and absf(local.y+.02)<.002,"actual registered court supports the standing capsule at minus20mm")
+	check(is_equal_approx(player._capsule.height,1.524) and is_equal_approx(player._capsule.radius,.33),"production five-foot capsule remains unmodified")
+	stages.append({"stage":"court","position":[local.x,local.y,local.z]})
+	for frame in 2:await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(directory.path_join("entry_court.png"))==OK,"local approach eye capture saved")
+	# Treads are shorter than the capsule diameter: assert the final landing,
+	# rather than inventing a standing-foot datum at each tread's centre.
+	await _entry_drive(player,city.to_global(Vector3(center_x,0.,-(front_y-.30))).z,samples)
+	local=city.to_local(player.global_position)
+	check(player.is_on_floor() and absf(local.y-.30)<.002,"normal input climbs both160mm risers and stands on the landing")
+	check(absf(local.x-center_x)<.01,"pilasters leave the measured capsule corridor clear")
+	stages.append({"stage":"landing","position":[local.x,local.y,local.z]})
+	for frame in 2:await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(directory.path_join("entry_landing.png"))==OK,"actual standing landing eye capture saved")
+	var before:=player.global_position
+	Input.action_press("move_forward")
+	for frame in 90:await get_tree().physics_frame
+	Input.action_release("move_forward")
+	for frame in 12:await get_tree().physics_frame
+	local=city.to_local(player.global_position)
+	check(player.global_position.distance_to(before)<.15 and -local.z<front_y-.24,"closed scenic leaf physically blocks ordinary forward travel")
+	check(player.is_on_floor() and absf(local.y-.30)<.002,"blocked leaf cannot drop the capsule through its landing")
+	stages.append({"stage":"closed_leaf","position":[local.x,local.y,local.z]})
+	await _entry_drive(player,city.to_global(Vector3(center_x,0.,-(front_y-2.5))).z,samples)
+	local=city.to_local(player.global_position)
+	check(player.is_on_floor() and absf(local.y+.02)<.002,"normal backward input descends to the original court")
+	check(not player.noclip and not player._profile_disable_step_guard and not player._profile_disable_step_up,"movement retains gravity,collision and both production step guards")
+	stages.append({"stage":"court_return","position":[local.x,local.y,local.z]})
+	var sources:=_profile_sources(city)
+	sources.merge(_profile_sources(ground_root),true)
+	for path: String in ["res://scripts/player/player_controller.gd","res://scripts/building/orison_v2_ground.gd","res://scripts/building/orison_v2_native_faces.gd","res://scripts/building/orison_v2_world_connection.gd","res://scripts/building/orison_v2_frame_contract.gd","res://data/orison_v2_blockout.json","res://data/orison_v2/world_connection.json","res://data/orison_v2/exterior/regions.json","res://data/orison_v2/exterior/exterior_geometry.json","res://data/orison_v2/ground_finish.json","res://data/orison_v2/exterior/city_ground_relief.json","res://assets/props/orison_ground.glb","res://assets/props/orison_ground.glb.import","res://assets/props/city_ground_apron.glb","res://assets/props/city_ground_apron.glb.import"]:
+		sources[path]=_profile_sha(path)
+	var record: Dictionary={"evidence_class":"INERT","scope":"Opt-in isolated production-controller, registered production ground and city collision diagnostic. One initial placement; ordinary forward/backward input, no teleport,rescue,noclip or step-guard overrides. Other occupied-world actors are absent. Not runtime_contract, composed access, artistic or wholecity performance acceptance.","checks":checks-first_check,"failures":failures.slice(first_failure),"elapsed_s":(Time.get_ticks_usec()-started)/1000000.,"stages":stages,"movement_samples":samples,"source_hashes":sources}
+	var file:=FileAccess.open(directory.path_join("city_entry_diagnostic.json"),FileAccess.WRITE)
+	check(file!=null,"local entry diagnostic output opens")
+	if file!=null:file.store_string(JSON.stringify(record,"\t"))
+	player.free()
+	ground_root.free()
 
 func _profile_sha(path: String) -> String:
 	if path.get_extension() in ["gd","json","gdshader","gdshaderinc","import"]:

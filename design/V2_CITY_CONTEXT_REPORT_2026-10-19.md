@@ -2,7 +2,7 @@
 
 
 Evidence class: **INERT**. Published main **a08ed155** retains the qualified
-cohort below. Current local **eab18066** adds reviewed Laurel stock for a later
+cohort below. The local Laurel cohort adds reviewed stock and its opt-in stair diagnostic for a later
 batched renewal; its current composed qualification is pending.
 
 Qualified candidate **6ba6622d** versus exact
@@ -4358,3 +4358,53 @@ failure remains preserved; move_back corrects only that action. The new driver
 is awaiting its author's final commit/intake. This is isolated fit evidence,
 explicitly INERT,not a runtime contract or occupied-world access/art approval.
 Canonical launched no duplicate full-world run for this review.
+
+
+
+
+### Faster local stair diagnostic — 2026-10-30
+
+Evidence class: **INERT**. From **63ad3504**, the existing city bench now has an
+opt-in **ORISON_CITY_ENTRY_CHECK=1** mode. It mounts the production ground through
+WorldConnection's resolver-derived registration and uses the actual PlayerController
+with its 1.524 m height / 0.33 m radius. No controller, physics, save, narrative,
+weather, public-spawn or shared spatial-manifest authority was changed. Only the
+initial test placement is explicit; subsequent motion uses normal input.
+
+Corrected run **entry_02** completes **7,429 aggregate checks / zero failures**
+in **34.38 s**. Its test-written local diagnostic records **15 checks / zero
+failures**, **89 movement samples**, and **7.948272 s** for the local programme.
+Actual source-frame foot heights are −0.020404 m initially, +0.300813 m on the
+landing, +0.300821 m against the blocking leaf and −0.019163 m on return. Both
+production step guards remain enabled and noclip remains false. Tread centres
+are not assumed to be standing-foot datums: each 300 mm tread is shorter than
+the capsule diameter. The existing 2 mm settled-height and 80 mm path-target
+checks were not changed between attempts.
+
+Original **entry_01** failed two assertions after an incorrect harness action
+name, **move_backward**, prevented return movement. Its source, stderr, receipt,
+INERT diagnostic and images are retained. The correction uses the existing
+**move_back** action; no geometry, collision, probe or tolerance changed. Current
+compiler and bench stderr are empty. All 234 test-recorded source hashes match;
+source-only spatial audit is clean with no manifest edits, and reader NEW0.
+Both current eye views were inspected. No new import or native rebuild was needed
+for this test-only edit, and no render timing suite was repeated.
+
+This is local fixture evidence: other occupied-world actors are absent, lighting
+is isolated, and no schema-2 runtime_contract is emitted. It does not replace
+composed actor/access/surface or artistic qualification. Canonical publication
+**a08ed155** separately qualifies 25 technical building studies with 124 remaining;
+this rear-east candidate stays outside that tally until actual integration.
+The next construction batch is the two remaining nearby southern bodies, retaining
+bar/arcade ground owners and all original roof equipment, before combined renewal.
+
+The existing rear-east archive now contains 95 members / 24022743 bytes,
+SHA256 **8cd28b994891efea68156f115fc27d18df58283b6b97d2918fb381af91fca5ea**. Member bytes/CRC and manifest hashes verified;
+all earlier members retained, identical new evidence bytes stored once with aliases.
+
+
+Canonical subsequently intakes frozen **e8e456c9**. All95 archive members and
+CRC/hash match; all77 prior members remain byte-exact. Its committed bench
+source matches the passed entry02 driver hash, so no uncommitted source is
+substituted. The opt-in remains unset by default. This is a local diagnostic
+intake, not current composed qualification or a tally promotion.
