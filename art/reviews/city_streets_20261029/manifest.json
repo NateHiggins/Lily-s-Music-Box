@@ -14415,5 +14415,137 @@
         "sha256": "9da20f381ccc9ba2daccfc7b83a0310c2189c3c84d09f164807d030c8be12287"
       }
     }
+  },
+  "eastern_courts_archive": {
+    "evidence_class": "INERT",
+    "scope": "Three apartment-court adaptations and renewed adjoining factory. Native72roundtrips/82receivingcontrols/12current inspectedviews plus2factorynear exactreuse. Embedded schema2 contracts only qualify their declared loaded geometry/material/LOD and independent controller-route scopes. Original strict preservation/localization failures and stopped native jobs retained. Archive/index INERT. Not continuous campaign/traffic/save,matched performance or artistic acceptance.",
+    "archive": "art/reviews/city_streets_20261029/eastern_courts_review.zip",
+    "bytes": 99765684,
+    "sha256": "260a7d2a51e6e1f7c27987483a6f8d644065eb1abeb3cbfae900d20ab6ae4201",
+    "member_count": 283,
+    "byte_exact_reused_image_aliases": {
+      "execution/native_review_02/city_horizon_near_HORIZON_NEAR_2_1_P1.png": {
+        "retained_member": "execution/native_review_03/city_horizon_near_HORIZON_NEAR_2_1_P1.png",
+        "sha256": "84e21f14b5a68481570e894a76024fdfa76b734bca7ff1fc426b151928730f02"
+      },
+      "execution/native_review_02/city_horizon_near_HORIZON_NEAR_2_1_P1_detail.png": {
+        "retained_member": "execution/native_review_03/city_horizon_near_HORIZON_NEAR_2_1_P1_detail.png",
+        "sha256": "f4de752ea2cbf1836ebed7d36de30c425e0de1b1a56b48c7102debf621c2bd4d"
+      },
+      "execution/native_review_02/city_horizon_near_HORIZON_NEAR_2_2_P1.png": {
+        "retained_member": "execution/native_review_03/city_horizon_near_HORIZON_NEAR_2_2_P1.png",
+        "sha256": "379b473e8681edc82c16aef9a89881b04bc639438e6e7354424f0eeae99c7900"
+      },
+      "execution/native_review_02/city_horizon_near_HORIZON_NEAR_2_2_P1_detail.png": {
+        "retained_member": "execution/native_review_03/city_horizon_near_HORIZON_NEAR_2_2_P1_detail.png",
+        "sha256": "459e49b6827a82c1d88bd70ee312349daa2153cb6de917b5c7652c3460c60934"
+      },
+      "execution/native_review_02/city_horizon_near_HORIZON_NEAR_2_2_P2.png": {
+        "retained_member": "execution/native_review_03/city_horizon_near_HORIZON_NEAR_2_2_P2.png",
+        "sha256": "d87a7723cb6b42be745625aa23cf9c6283d5d88260244d8cb3dd04acd7132ff4"
+      }
+    },
+    "runtime_source_count": 135,
+    "runtime_contracts": {
+      "bench": {
+        "member": "execution/bench_01/courts_loaded.runtime.json",
+        "checks": 3263
+      },
+      "access": {
+        "member": "execution/access_02/courts_access.runtime.json",
+        "checks": 98
+      }
+    },
+    "asset_bindings": {
+      "art/blender/city_horizon_near.blend": {
+        "bytes": 17279491,
+        "sha256": "f74721193a2b5fdd2d9fbc5a3b38ffdebd429be76e3e192d7a0a028fde4f9228"
+      },
+      "art/blender/city_horizon_far.blend": {
+        "bytes": 18762999,
+        "sha256": "76c4628dad23145a9cb186674d8ae91fdfda1c524ec0c6511147e40d49f20d2e"
+      },
+      "art/blender/city_horizon_lod1.blend": {
+        "bytes": 6834707,
+        "sha256": "90950a645fda8a46d63a3e1f1c68de0578448deec5d22481e40d85e04e80757d"
+      },
+      "art/blender/city_horizon_construction.json": {
+        "bytes": 5295985,
+        "sha256": "cf4f759293967121144e4b985a08b610ad82983f4f48e8052502534c38dc16af"
+      },
+      "game/assets/props/city_horizon_near.glb": {
+        "bytes": 85606752,
+        "sha256": "fc6ee0aa6eb51cb74ca2cee3cb252100d5b3ece42750afff6426d205fa1ecb4c"
+      },
+      "game/assets/props/city_horizon_far.glb": {
+        "bytes": 98530480,
+        "sha256": "8aea35dc13aba413052b187f6d4759e4cd88d391a90032c367744a1c291343d7"
+      },
+      "game/assets/props/city_horizon_lod1.glb": {
+        "bytes": 32331840,
+        "sha256": "7035da5831bd7661bcd829e3104e8f9cb82ea990df97611547f3adfe86d7ae4a"
+      },
+      "game/data/orison_v2/exterior/city_horizon.json": {
+        "bytes": 28918,
+        "sha256": "8403ea92587ef71281d3e67a51b71053bea0ec823f4dd8ba45f5d3b6cbc2917c"
+      },
+      "game/tests/fixtures/orison_city_horizon.json": {
+        "bytes": 5295985,
+        "sha256": "cf4f759293967121144e4b985a08b610ad82983f4f48e8052502534c38dc16af"
+      }
+    }
+  },
+  "canonical_court_intake": {
+    "evidence_class": "INERT",
+    "archive": "art/reviews/city_streets_20261029/eastern_street_native_review.zip",
+    "bytes": 67817211,
+    "sha256": "ef8290c47cdf4bdde28c35df78796c36d1d651f85d5d677a63f159a005256a11",
+    "member_count": 292,
+    "preserved_prior_members": 281,
+    "incoming_commit": "05f5df70d6b0e3f8488653e1fb99e5b79ec16093",
+    "incoming_archive_sha256": "260a7d2a51e6e1f7c27987483a6f8d644065eb1abeb3cbfae900d20ab6ae4201",
+    "scope": "Frozen283-member court delivery intake:282 indexed hashes,5 exact imagealiases,9 assets,135 original runtimebindings verified. Eight existing images inspected without duplication. Reconciled source projections andall13preflights; no newruntime acceptance.",
+    "members": {
+      "canonical_court_intake_01/verify_intake.py": {
+        "bytes": 2971,
+        "sha256": "87f31c5f09883827b4cafff97cc0b26f62a2ba575af5eea1f6e3ed5e2363dc2a"
+      },
+      "canonical_court_intake_01/intake_verification.json": {
+        "bytes": 2202,
+        "sha256": "db318c9bcdee0e787c5f490b6d84ac2edaac664ff74c9cb0beb11b61cc3292b2"
+      },
+      "canonical_court_intake_01/resolve_merge.py": {
+        "bytes": 2844,
+        "sha256": "1e21578f690fc4bb19ca5e6d98161962ce6f4d39c3ed81c7934a6ae4321767d6"
+      },
+      "canonical_court_intake_01/merge_resolution.json": {
+        "bytes": 1545,
+        "sha256": "8098c14838b22f5f220deefe320dae1e3ffc5e47f5c7b03c0b80fdf68d0286c9"
+      },
+      "canonical_court_intake_01/renew_projections.py": {
+        "bytes": 5547,
+        "sha256": "4a63cc6f936c1a0d45d6bb245ff84f4b13b96bfac342d6b49a9c141e32961267"
+      },
+      "canonical_court_intake_01/failed_binary_digest_projection.py": {
+        "bytes": 5349,
+        "sha256": "960373d204c3795cad3059f3bcd46000a24c51dcd8b30aa8ece3a53bf56b85f1"
+      },
+      "canonical_court_intake_01/projection_reconciliation.json": {
+        "bytes": 1867,
+        "sha256": "77478532da01c7685dd64387c2f47a0c9cab818f5a29e8b7de62c90901fbcc88"
+      },
+      "canonical_court_intake_01/surface_fixture_preflight.log": {
+        "bytes": 528,
+        "sha256": "8af3f7dc0f3472fc5fcbe89021669517441a8eb2705079adffbd0761dead2f91"
+      },
+      "canonical_court_intake_01/optical_intake.json": {
+        "bytes": 1530,
+        "sha256": "230a60a01011eb8d697d599d96fa8d095e4332af85fa7cc6053b2c6972c18c01"
+      },
+      "canonical_court_intake_01/pack_intake.py": {
+        "bytes": 3244,
+        "sha256": "b2afd36677e02555f3afa1d9f0a22732b4f424c04a5bc8a8370798a05feab7eb"
+      }
+    }
   }
 }

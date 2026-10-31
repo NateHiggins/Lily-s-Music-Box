@@ -352,3 +352,188 @@ class EasternHouses(EasternRows):
         assert len(self.entries)==1,(self.name,'missing scenic entry',self.entries)
         return dict(windows=self.windows,bearings=self.bearings,entries=self.entries,mitre_seams=self.seams,
                     closed_stocks=self.parts,min_closed_stock_volume_m3=self.min_volume,style=self.style)
+
+
+class CourtApartments(EasternRows):
+    """LPC1831 Cedar C-plan,Plymouth modified T,andWillow H-plan adaptations.
+
+    Courts are real open exterior volumes,not dark rectangles on a solid slab.
+    Passive leaves retain no occupied apartment or new gameplay authority.
+    """
+    STYLES={'cedar_8301','plymouth_3516','willow_3535'}
+
+    def __init__(self,row,emit,neighbours,lower=False):
+        super().__init__(row,emit,neighbours,lower)
+        self.steps=1 if lower else 2;self.stone_base=False;self.stone_stock=False
+
+    def add(self,key,vertices,faces):
+        if self.stone_stock and key==self.row['wall_key']:key='limestone'
+        return super().add(key,vertices,faces)
+
+    def wall_stock(self,O,U,N,lo,hi,length):
+        self.stone_stock=self.stone_base
+        super().wall_stock(O,U,N,lo,hi,length)
+        self.stone_stock=False
+
+    def round_stock(self,key,center,radius,bottom,top):
+        steps=8 if self.lower else 16
+        ring=[(center.x+radius*math.cos(i*math.tau/steps),center.y+radius*math.sin(i*math.tau/steps)) for i in range(steps)]
+        self.add(key,[(x,y,z) for z in [bottom,top] for x,y in ring],
+                 [tuple(reversed(range(steps))),tuple(range(steps,2*steps))]+
+                 [(i,(i+1)%steps,(i+1)%steps+steps,i+steps) for i in range(steps)])
+
+    def entry_stoop(self,O,U,N,center,height):
+        if self.style!='plymouth_3516':return super().entry_stoop(O,U,N,center,height)
+        # The column bases stand on the broad porch landing,not on a lower
+        # stair tread. The source frontage reserves the complete2.58m run.
+        count=round(height/.15);landing=1.08;run=.25
+        assert count>0 and .12<height/count<.18
+        self.stock('limestone',O,U,N,(center-1.24,-.10,-.12),(center+1.24,landing,height),.008)
+        for i in range(count):
+            self.stock('limestone',O,U,N,(center-.77,landing+i*run,-.12),
+                       (center+.77,landing+(i+1)*run,height*(count-i)/count),.008)
+        for at in [center-.74,center+.74]:
+            for i in [0,count]:
+                depth=landing+(.5 if i==0 else count-.5)*run;top=height if i==0 else height/count
+                self.stock('cast_iron',O,U,N,(at-.022,depth-.022,top),(at+.022,depth+.022,top+.90),.002)
+            a=O+U*at+N*(landing+.5*run)+Vector((0,0,height+.90));b=O+U*at+N*(landing+(count-.5)*run)+Vector((0,0,height/count+.90))
+            axis=(b-a).normalized();side=Vector((axis.y,-axis.x,0)).normalized();up=axis.cross(side)
+            v=[tuple(p+side*s+up*t) for p in [a,b] for s,t in [(-.023,-.023),(.023,-.023),(.023,.023),(-.023,.023)]]
+            self.add('cast_iron',v,[(3,2,1,0),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)])
+
+    def aperture(self,O,U,N,l,r,z,Z,length,door=False,basement=False,loggia=False):
+        width=min(1.50 if door else 1.35,r-l-.65);assert width>.5,(self.name,l,r)
+        center=(l+r)/2;left=center-width/2;right=center+width/2
+        low=z if door else z+(.18 if basement else .66)
+        high=z+2.45 if door else Z-(.17 if basement else .52)
+        arched=loggia or self.style=='cedar_8301' and door
+        rise=.40 if arched else 0.;spring=high-rise
+        for a,b in [((l,-.28,z),(left,0,Z)),((right,-.28,z),(r,0,Z)),
+                    ((left,-.28,z),(right,0,low)),((left,-.28,high),(right,0,Z))]:
+            if b[2]>a[2]+1e-8:self.wall_stock(O,U,N,a,b,length)
+        head=[(left,high),(right,high)]
+        if arched:
+            head=[(center-width/2*math.cos(i*math.pi/self.arch_steps),spring+rise*math.sin(i*math.pi/self.arch_steps)) for i in range(self.arch_steps+1)]
+            for a,b in zip(head,head[1:]):
+                points=[a,b,(b[0],high),(a[0],high)];points=[v for i,v in enumerate(points) if v!=points[i-1]]
+                if len(points)>2:self.profile(self.row['wall_key'],O,U,N,points,-.28,0.)
+            self.arch('limestone',O,U,N,center,spring,width/2,rise,.09,-.08,.11)
+        if loggia:
+            # An open arcade has a real deck,guard and recessed backing facade.
+            self.stock('cast_iron',O,U,N,(left,-.12,z+.88),(right,.015,z+.925),.003)
+            for i in range(max(2,round(width/.14))+1):
+                at=left+i*width/max(2,round(width/.14))
+                self.stock('cast_iron',O,U,N,(at-.011,-.08,z+.02),(at+.011,-.045,z+.90),.002)
+            return
+        self.profile('door_paint' if door else 'mirror_aged',O,U,N,
+                     [(left+.02,low+.02),(right-.02,low+.02)]+[(x,h-.02) for x,h in reversed(head)],-.205,-.17)
+        self.wood_frame(O,U,N,left,right,low,high)
+        self.stock('limestone',O,U,N,(left-.08,-.20,low-.08),(right+.08,.09,low),.008)
+        if not arched:
+            head_height=.12 if basement else .22;key_height=.145 if basement else .245
+            assert high+max(head_height,key_height)<=Z-.015,(self.name,'lintel crosses storey',z,Z,high)
+            header='limestone' if self.style=='plymouth_3516' or self.style=='willow_3535' and basement else self.row['wall_key']
+            self.profile(header,O,U,N,
+                         [(left-.08,high),(right+.08,high),(right+.22,high+head_height),(left-.22,high+head_height)],-.12,.055)
+            self.profile('limestone',O,U,N,[(center-.055,high-.025),(center+.055,high-.025),(center+.09,high+key_height),(center-.09,high+key_height)],-.13,.075)
+        if door:
+            self.stock('door_paint',O,U,N,(center-.03,-.20,low+.02),(center+.03,-.075,high-.02),.004)
+            for at in [center-.13,center+.13]:self.stock('bronze_sheet',O,U,N,(at-.012,-.075,low+.95),(at+.012,-.025,low+1.20),.003)
+            self.entry_stoop(O,U,N,center,low)
+            if self.style=='plymouth_3516':
+                # Seated Doric portico columns,plinths,capitals and entablature.
+                for at in [left-.22,right+.22]:
+                    self.stock('limestone',O,U,N,(at-.23,.48,low),(at+.23,.94,low+.15),.009)
+                    axis=O+U*at+N*.71;self.round_stock('limestone',axis,.155,low+.15,low+2.63)
+                    self.stock('limestone',O,U,N,(at-.23,.48,low+2.63),(at+.23,.94,low+2.80),.009)
+                self.stock('limestone',O,U,N,(left-.47,-.10,low+2.80),(right+.47,1.03,low+3.04),.012)
+            else:
+                for at in [left-.12,right+.12]:self.stock('limestone',O,U,N,(at-.07,-.08,high+.10),(at+.07,.30,high+.32),.009)
+                self.profile('limestone',O,U,N,[(left-.27,high+.32),(right+.27,high+.32),(center,high+.66)],-.10,.36)
+            self.entries.append(dict(building=self.name,point=list(O+U*center+Vector((0,0,low+1.2))),kind='closed_scenic_leaf'))
+        else:
+            middle=(low+spring)/2
+            self.stock('door_paint',O,U,N,(left+.055,-.20,middle-.025),(right-.055,-.075,middle+.025),.003)
+            if not basement:
+                for at in [left+width/3,left+2*width/3]:self.stock('door_paint',O,U,N,(at-.012,-.19,middle+.025),(at+.012,-.085,spring-.055),.002)
+            self.windows.append(dict(building=self.name,point=list(O+U*(left+width*.27)+Vector((0,0,low+(spring-low)*.28))),normal=list(N),recess_m=.17))
+
+    def crown(self,outline,height):
+        self.row_roof(outline,height)
+        for p,q in zip(outline,outline[1:]+outline[:1]):
+            O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
+            if N.x<.65 or length<1.:continue
+            count=max(1,round(length/.85))
+            for i in range(count):
+                at=(i+.5)*length/count
+                self.stock('limestone',O,U,N,(at-.075,-.04,height-.27),(at+.075,.19,height-.07),.008)
+            if self.style=='willow_3535':
+                count=max(1,round(length/1.1));pitch=length/count
+                for i in range(count):
+                    at=(i+.5)*pitch;half=pitch*.36;left=at-half;right=at+half
+                    bottom=height+.58;low=height+.64;spring=height+.94;top=height+1.34
+                    # A masonry arcade,not free U-shaped railing arches:
+                    # closed piers/spandrels carry a continuous stone coping.
+                    for l,r in [(i*pitch,left),(right,(i+1)*pitch)]:
+                        self.profile(self.row['wall_key'],O,U,N,[(l,bottom),(r,bottom),(r,top),(l,top)],-.18,0.)
+                    self.profile(self.row['wall_key'],O,U,N,[(left,bottom),(right,bottom),(right,low),(left,low)],-.18,0.)
+                    head=[(at-half*math.cos(j*math.pi/self.arch_steps),spring+.24*math.sin(j*math.pi/self.arch_steps)) for j in range(self.arch_steps+1)]
+                    for a,b in zip(head,head[1:]):self.profile(self.row['wall_key'],O,U,N,[a,b,(b[0],top),(a[0],top)],-.18,0.)
+                    self.arch('limestone',O,U,N,at,spring,half,.24,.055,-.10,.035)
+                self.stock('limestone',O,U,N,(0.,-.21,height+1.34),(length,.045,height+1.42),.008)
+            elif self.style=='plymouth_3516':
+                for i in range(max(1,round(length/3.))):
+                    at=(i+.5)*length/max(1,round(length/3.))
+                    # Raised stone swag panel: four closed curved ribbon stocks.
+                    for j in range(4):
+                        a=-.40+j*.20;b=a+.20;za=height+.38-.18*(1-(a/.4)**2);zb=height+.38-.18*(1-(b/.4)**2)
+                        self.profile('limestone',O,U,N,[(at+a,za),(at+b,zb),(at+b,zb+.045),(at+a,za+.045)],-.015,.035)
+        if self.style=='cedar_8301':
+            a,b,c,d=self.row['rect'];front=c-1.9
+            for low,high in [(b+.12,b+5.88),(d-5.88,d-.12)]:
+                # Four closed hip slopes remove the open triangular ends of
+                # the initial two-plane roof. A continuous timber curb seats
+                # on the flat deck/parapet and supports the eaves all around.
+                x=front-3.1;X=front+.10;y=-high;Y=-low;z=height+.58;ridge=(y+Y)/2
+                perimeter=[(X,y),(x,y),(x,Y),(X,Y)]
+                v,f=cornice_ring(offset_outline(perimeter,-.14),.14,height+.18,z);self.add('door_paint',v,f)
+                r=(x+.65,ridge,z+.88);R=(X-.65,ridge,z+.88)
+                for points in [[(x,y,z),(X,y,z),R,r],[r,R,(X,Y,z),(x,Y,z)],
+                               [(x,Y,z),(x,y,z),r],[(X,y,z),(X,Y,z),R]]:
+                    ResidentialHouses.roof_sheet(self,points,'city_roof_clay')
+
+    def build(self):
+        outline=self.outline(True);inside=offset_outline(outline,-.28)
+        entries=self.study['entry_sides']
+        for floor,(z,Z) in enumerate(zip(self.levels,self.levels[1:])):
+            v,f=extrusion(outline if floor==0 else offset_outline(outline,-.14),-.28 if floor==0 else z-.16,0. if floor==0 else z)
+            self.add('concrete' if floor==0 else 'timber',v,f)
+            self.stone_base=self.style=='plymouth_3516' and floor==1 or self.style=='willow_3535' and floor==0
+            for side,(p,q) in enumerate(zip(outline,outline[1:]+outline[:1])):
+                O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
+                self.tapers=((Vector((*inside[side],0))-O).dot(U),length-(Vector((*inside[(side+1)%len(outline)],0))-O).dot(U))
+                count=self.study['side_bays'][side];loggia=self.style=='cedar_8301' and floor==len(self.levels)-2 and side in [3,7]
+                for bay in range(count):
+                    l=bay*length/count;r=(bay+1)*length/count;entry=side in entries and bay==count//2
+                    if length<.7 or floor==0 and entry or self.covered(O,U,N,l,r,z,[]):self.wall_stock(O,U,N,(l,-.28,z),(r,0,Z),length)
+                    else:self.aperture(O,U,N,l,r,z,Z,length,entry and floor==1,floor==0,loggia)
+                if loggia:
+                    self.tapers=(.28,.28)
+                    for bay in range(count):self.aperture(O-N*2.35,U,N,bay*length/count,(bay+1)*length/count,z,Z,length)
+            self.stone_base=False
+        self.crown(outline,self.levels[-1])
+        # Each open court receives a real paved surface,with buried sub-base.
+        for x,y,X,Y in self.study['court_paving_m']:
+            self.box('concrete',(x,-Y,-.12),(X,-y,0.))
+        if self.style=='cedar_8301':
+            a,b,c,d=self.row['rect'];front=c-1.9;middle=(b+d)/2
+            # Winter garden beds leave both side stoops and a3.6m axial walk
+            # open. The wrought gateway has a permanent3.2m clear opening.
+            for low,high in [(b+6.30,middle-1.8),(middle+1.8,d-6.30)]:
+                for x,X in [(front-6.8,front-4.5),(front-3.0,front-2.0)]:
+                    self.box('soil',(x,-high,.005),(X,-low,.055))
+            for z in [middle-1.6,middle+1.6]:
+                self.round_stock('cast_iron',Vector((front+.35,-z,0)),.055,0,1.22)
+        assert len(self.entries)==len(entries),(self.name,'scenic entry roster',self.entries)
+        return dict(windows=self.windows,bearings=self.bearings,entries=self.entries,mitre_seams=self.seams,
+                    closed_stocks=self.parts,min_closed_stock_volume_m3=self.min_volume,style=self.style)

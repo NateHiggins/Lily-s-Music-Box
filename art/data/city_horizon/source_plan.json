@@ -1856,23 +1856,111 @@
         -150,
         -26.0
       ],
-      "height_m": 16,
+      "height_m": 14.299999999999999,
       "storey_m": 3.2,
       "bay_pitch_m": 2.65,
-      "window_width_m": 1.03,
-      "window_height_m": 1.9,
+      "window_width_m": 1.35,
+      "window_height_m": 2.0,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.9,
-        0.82,
-        0.65,
-        1
+        0.64,
+        0.43,
+        0.31,
+        1.0
       ],
       "variation_seed": 122,
       "typology": "walkup",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "joinery_tint": [
+        0.32,
+        0.35,
+        0.29,
+        1.0
+      ],
+      "architecture": {
+        "type": "eastern_row",
+        "style": "cedar_8301",
+        "precedent": "Cedar Court,83-01 to83-09 35thAvenue,AndrewJ.Thomas,1924-25:fourmainstories+basement,Cplan openingtogarden,stairhalltowers,open top-story loggias andSpanish-clay roofs.",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
+        "source_pdf_pages": [
+          95
+        ],
+        "adaptation": "AU individual study inexisting20m-deep/20to21.667m-frontage reservation. C/T/Hsilhouettes followLPCtext andactual1916plans;dimensions,colors,courtpaving,storeyheights andgeographicplacement areauthored,not surveyedreplicas. ModernPlymouthphotograph informsformonly;no moderncars/alterations copied. Exteriorcourts stayopen. Scenic leaves addnooccupiedapartment interiors ornewaccessauthority. No referencepixels inassets.",
+        "floor_heights_m": [
+          0.9,
+          3.5,
+          3.3,
+          3.3,
+          3.3
+        ],
+        "front_side": 4,
+        "entry_sides": [
+          4,
+          5,
+          6
+        ],
+        "court_paving_m": [
+          [
+            -159.4,
+            -40.0,
+            -151.9,
+            -32.0
+          ],
+          [
+            -151.9,
+            -46.0,
+            -150,
+            -26.0
+          ]
+        ],
+        "cornice_key": "door_paint",
+        "outline_m": [
+          [
+            -151.9,
+            -26.0
+          ],
+          [
+            -170,
+            -26.0
+          ],
+          [
+            -170,
+            -46.0
+          ],
+          [
+            -151.9,
+            -46.0
+          ],
+          [
+            -151.9,
+            -40.0
+          ],
+          [
+            -159.4,
+            -40.0
+          ],
+          [
+            -159.4,
+            -32.0
+          ],
+          [
+            -151.9,
+            -32.0
+          ]
+        ],
+        "side_bays": [
+          6,
+          6,
+          6,
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      }
     },
     {
       "id": "HORIZON_NEAR_2_1_P2",
@@ -2180,23 +2268,146 @@
         -150,
         55.333333333333336
       ],
-      "height_m": 16,
+      "height_m": 17.0,
       "storey_m": 3.2,
       "bay_pitch_m": 2.65,
-      "window_width_m": 1.03,
-      "window_height_m": 1.9,
+      "window_width_m": 1.35,
+      "window_height_m": 2.0,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.9,
-        0.82,
-        0.65,
-        1
+        0.68,
+        0.55,
+        0.43,
+        1.0
       ],
       "variation_seed": 135,
       "typology": "walkup",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "joinery_tint": [
+        0.32,
+        0.35,
+        0.29,
+        1.0
+      ],
+      "architecture": {
+        "type": "eastern_row",
+        "style": "plymouth_3516",
+        "precedent": "Plymouth Apartments,35-16 82ndStreet,GeorgeH.Wells,1916:five mainstories+basement,modifiedT/pavilionplan withside lightcourts,rusticated banding,Doriccolumned porch andparapet swags.",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
+        "source_pdf_pages": [
+          29,
+          30,
+          58,
+          59,
+          169
+        ],
+        "adaptation": "AU individual study inexisting20m-deep/20to21.667m-frontage reservation. C/T/Hsilhouettes followLPCtext andactual1916plans;dimensions,colors,courtpaving,storeyheights andgeographicplacement areauthored,not surveyedreplicas. ModernPlymouthphotograph informsformonly;no moderncars/alterations copied. Exteriorcourts stayopen. Scenic leaves addnooccupiedapartment interiors ornewaccessauthority. No referencepixels inassets.",
+        "floor_heights_m": [
+          0.9,
+          3.35,
+          3.2,
+          3.2,
+          3.2,
+          3.15
+        ],
+        "front_side": 9,
+        "entry_sides": [
+          9
+        ],
+        "court_paving_m": [
+          [
+            -170,
+            33.66666666666667,
+            -159.3,
+            38.46666666666667
+          ],
+          [
+            -170,
+            50.53333333333334,
+            -159.3,
+            55.333333333333336
+          ],
+          [
+            -152.8,
+            33.66666666666667,
+            -150,
+            55.333333333333336
+          ],
+          [
+            -153.10000000000002,
+            38.16666666666667,
+            -152.8,
+            50.833333333333336
+          ]
+        ],
+        "cornice_key": "door_paint",
+        "outline_m": [
+          [
+            -152.8,
+            55.333333333333336
+          ],
+          [
+            -159.3,
+            55.333333333333336
+          ],
+          [
+            -159.3,
+            50.53333333333334
+          ],
+          [
+            -170,
+            50.53333333333334
+          ],
+          [
+            -170,
+            38.46666666666667
+          ],
+          [
+            -159.3,
+            38.46666666666667
+          ],
+          [
+            -159.3,
+            33.66666666666667
+          ],
+          [
+            -152.8,
+            33.66666666666667
+          ],
+          [
+            -152.8,
+            38.16666666666667
+          ],
+          [
+            -153.10000000000002,
+            38.16666666666667
+          ],
+          [
+            -153.10000000000002,
+            50.833333333333336
+          ],
+          [
+            -152.8,
+            50.833333333333336
+          ]
+        ],
+        "side_bays": [
+          2,
+          1,
+          3,
+          4,
+          3,
+          1,
+          2,
+          2,
+          1,
+          5,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "HORIZON_NEAR_2_2_P2",
@@ -2206,23 +2417,139 @@
         -150,
         77.0
       ],
-      "height_m": 19.2,
+      "height_m": 16.7,
       "storey_m": 3.2,
       "bay_pitch_m": 2.65,
-      "window_width_m": 1.03,
-      "window_height_m": 1.9,
+      "window_width_m": 1.35,
+      "window_height_m": 2.0,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "city_grey_brick",
       "wall_tint": [
-        0.7,
-        0.6,
-        0.53,
-        1
+        0.78,
+        0.65,
+        0.47,
+        1.0
       ],
       "variation_seed": 140,
       "typology": "walkup",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "joinery_tint": [
+        0.32,
+        0.35,
+        0.29,
+        1.0
+      ],
+      "architecture": {
+        "type": "eastern_row",
+        "style": "willow_3535",
+        "precedent": "Willow Court,35-35 82ndStreet,GeorgeH.Wells,1915:five mainstories+basement,Hplan withtwo openlightcourts,brickabove stonebase,keyedupperenframements,pedimented entry andarcadedparapet.",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
+        "source_pdf_pages": [
+          30,
+          60,
+          164,
+          165
+        ],
+        "adaptation": "AU individual study inexisting20m-deep/20to21.667m-frontage reservation. C/T/Hsilhouettes followLPCtext andactual1916plans;dimensions,colors,courtpaving,storeyheights andgeographicplacement areauthored,not surveyedreplicas. ModernPlymouthphotograph informsformonly;no moderncars/alterations copied. Exteriorcourts stayopen. Scenic leaves addnooccupiedapartment interiors ornewaccessauthority. No referencepixels inassets.",
+        "floor_heights_m": [
+          0.9,
+          3.3,
+          3.15,
+          3.15,
+          3.15,
+          3.05
+        ],
+        "front_side": 9,
+        "entry_sides": [
+          9
+        ],
+        "court_paving_m": [
+          [
+            -170,
+            61.333333333333336,
+            -162.8,
+            71.0
+          ],
+          [
+            -158.4,
+            61.333333333333336,
+            -151.2,
+            71.0
+          ],
+          [
+            -151.2,
+            55.333333333333336,
+            -150,
+            77.0
+          ]
+        ],
+        "cornice_key": "door_paint",
+        "outline_m": [
+          [
+            -151.2,
+            77.0
+          ],
+          [
+            -170,
+            77.0
+          ],
+          [
+            -170,
+            71.0
+          ],
+          [
+            -162.8,
+            71.0
+          ],
+          [
+            -162.8,
+            61.333333333333336
+          ],
+          [
+            -170,
+            61.333333333333336
+          ],
+          [
+            -170,
+            55.333333333333336
+          ],
+          [
+            -151.2,
+            55.333333333333336
+          ],
+          [
+            -151.2,
+            61.333333333333336
+          ],
+          [
+            -158.4,
+            61.333333333333336
+          ],
+          [
+            -158.4,
+            71.0
+          ],
+          [
+            -151.2,
+            71.0
+          ]
+        ],
+        "side_bays": [
+          6,
+          2,
+          2,
+          3,
+          2,
+          2,
+          6,
+          2,
+          2,
+          3,
+          2,
+          2
+        ]
+      }
     },
     {
       "id": "HORIZON_NEAR_2_3_P0R0",
