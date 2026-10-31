@@ -137,3 +137,69 @@ def topology(plan,traffic,frame,transport):
         curbs.extend([rectangle([a,b,c,b+w]),rectangle([a,d-w,c,d]),rectangle([a,b+w,a+w,d-w]),rectangle([c-w,b+w,c,d-w])])
         caps.extend([rectangle([a,b,c,b+w]),rectangle([a,d-w,c,d]),rectangle([a,b+w,a+w,d-w]),rectangle([c-w,b+w,c,d-w])])
     return dict(road=road,curbs=curbs,curb_caps=caps,corners=corners,islands=islands,north=north,south=south,junction_x=xs,cross_x_bounds=cross_bounds)
+
+
+def offset_polygon(polygon,distance):
+    """Parallel boundary with real mitres; input/output counterclockwise."""
+    p=clean(polygon);result=[]
+    for i,at in enumerate(p):
+        previous=p[i-1];following=p[(i+1)%len(p)]
+        ax,ay=at[0]-previous[0],at[1]-previous[1];length=math.hypot(ax,ay);ax/=length;ay/=length
+        bx,by=following[0]-at[0],following[1]-at[1];length=math.hypot(bx,by);bx/=length;by/=length
+        det=ax*by-ay*bx
+        if abs(det)<1e-10:
+            assert ax*bx+ay*by>.999999,'Reversing boundary'
+            result.append((at[0]+ay*distance,at[1]-ax*distance));continue
+        dx=(by-ay)*distance;dy=(ax-bx)*distance
+        along=(dx*by-dy*bx)/det
+        result.append((at[0]+ay*distance+ax*along,at[1]-ax*distance+ay*along))
+    assert area(result)>0
+    return result
+
+
+def district_topology(spec,segments,curb_width,cap_overhang):
+    """Native added road/footway geometry, including open continuation ends.
+
+    This consumes CITY_ELEVATIONS_SOURCE coordinates. It makes no ground cut
+    or runtime access claim: the required subgrade is emitted by the builder.
+    """
+    polygon=clean(spec['road_outline_m']);radius=float(spec['corner_radius_m'])
+    assert segments>=4 and radius>0 and curb_width>0
+    def is_open(a,b):
+        return any(abs(a[int(row['axis'])]-row['value_m'])<1e-7 and
+                   abs(b[int(row['axis'])]-row['value_m'])<1e-7 for row in spec['open_edges'])
+    rounded=[]
+    for i,p in enumerate(polygon):
+        a=polygon[i-1];b=polygon[(i+1)%len(polygon)]
+        ux,uy=p[0]-a[0],p[1]-a[1];before=math.hypot(ux,uy);ux/=before;uy/=before
+        vx,vy=b[0]-p[0],b[1]-p[1];after=math.hypot(vx,vy);vx/=after;vy/=after
+        angle=math.atan2(ux*vy-uy*vx,ux*vx+uy*vy)
+        if is_open(a,p) or is_open(p,b) or abs(angle)<1e-8:
+            rounded.append(p);continue
+        trim=radius*math.tan(abs(angle)*.5)
+        assert trim<min(before,after)*.45,('Fillet exceeds adjacent street',p)
+        start=(p[0]-ux*trim,p[1]-uy*trim);sign=1 if angle>0 else -1
+        center=(start[0]-uy*radius*sign,start[1]+ux*radius*sign)
+        phase=math.atan2(start[1]-center[1],start[0]-center[0])
+        for step in range(segments+1):
+            turn=phase+angle*step/segments
+            rounded.append((center[0]+radius*math.cos(turn),center[1]+radius*math.sin(turn)))
+    rounded=clean(rounded);outer=offset_polygon(rounded,curb_width)
+    cap_inner=offset_polygon(rounded,-cap_overhang);cap_outer=offset_polygon(rounded,curb_width+cap_overhang)
+    curbs=[];caps=[]
+    for i,p in enumerate(rounded):
+        j=(i+1)%len(rounded);q=rounded[j]
+        if is_open(p,q):continue
+        curb=clean([p,q,outer[j],outer[i]]);cap=clean([cap_inner[i],cap_inner[j],cap_outer[j],cap_outer[i]])
+        assert curb and cap
+        curbs.extend(triangles(curb));caps.extend(triangles(cap))
+    road=triangles(rounded);walk=[];masks=[rectangle(r) for r in spec['reserved_rects_m']]
+    # Disjoint subjects prevent stacked public floor providers at the three
+    # junctions. Curbs and preserved stairs keep their physical ownership.
+    occupied=road+caps+masks
+    for rect in spec['walk_rects_m']:
+        pieces=cut(rectangle(rect),occupied)
+        walk.extend(pieces);occupied.append(rectangle(rect))
+    return dict(road=road,curbs=curbs,curb_caps=caps,walk=walk,
+                rounded_road_outline=rounded,reserved=masks,
+                maximum_curve_sagitta_m=radius*(1-math.cos(math.pi/(4*segments))))

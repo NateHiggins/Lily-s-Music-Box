@@ -9,7 +9,7 @@ sys.path.insert(0,str(ROOT/'art/blender/scripts'))
 from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_overlap,building_outline,extrusion,cornice_ring,floor_intervals,offset_outline
 from fabrication_native_batch import material,partition,export
 from city_ground_apron_geometry import exported_bounds,relief_height
-from city_industrial_architecture import IndustrialBuildings
+from city_industrial_architecture import IndustrialBuildings,MillLofts,EasternRows
 plan_path=ROOT/'art/data/city_horizon/source_plan.json';plan=json.loads(plan_path.read_text())
 grade_path=ROOT/'art/blender/city_ground_apron_construction.json';grade=json.loads(grade_path.read_text())
 validate_plan(plan,grade['retained_ground_bounds'])
@@ -59,14 +59,15 @@ for family in ['near','far']:
         name=row['id'];a,b,c,d=row['rect'];x,y,X,Y=a,-d,c,-b
         h=float(row['height_m']);depth=float(row['reveal_m']);recess=float(row['glass_recess_m'])
         study=row.get('architecture',{});outline=building_outline(row)
-        if study.get('type')=='industrial_front':
+        if study.get('type') in ['industrial_front','mill_front','eastern_row']:
             neighbours=[r for r in rows if r['id']!=name]
-            authored=IndustrialBuildings(row,add,neighbours).build()
+            constructor={'industrial_front':IndustrialBuildings,'mill_front':MillLofts,'eastern_row':EasternRows}[study['type']]
+            authored=constructor(row,add,neighbours).build()
             windows.extend(authored['windows']);bearings.extend(authored['bearings'])
             def lower_add(owner,key,vertices,faces):
                 vv,ff=replacement_buffers[(owner,key)];start=len(vv)
                 vv.extend(vertices);ff.extend(tuple(start+i for i in f) for f in faces)
-            lower=IndustrialBuildings(row,lower_add,neighbours,lower=True).build()
+            lower=constructor(row,lower_add,neighbours,lower=True).build()
             industrial_checks.append(dict(building=name,style=authored['style'],
                 near_closed_stocks=authored['closed_stocks'],lower_closed_stocks=lower['closed_stocks'],
                 near_min_stock_volume_m3=authored['min_closed_stock_volume_m3'],
@@ -216,7 +217,7 @@ for family in ['near','far']:
         bottom=float(row['grade_low_m'])-.2;top=datum-.28
         if bottom<top-1e-7:
             vv,ff=extrusion(building_outline(row),bottom,top);add(name,'concrete',vv,ff)
-            if row.get('architecture',{}).get('type')=='industrial_front':
+            if row.get('architecture',{}).get('type') in ['industrial_front','mill_front','eastern_row']:
                 lower_add(name,'concrete',vv,ff)
         grade_seats.append(dict(building=name,assembly_datum_m=datum,soil_low_m=row['grade_low_m'],soil_high_m=datum-.02,
                                 base_bottom_m=top,foundation_bottom_m=bottom if bottom<top-1e-7 else None))
@@ -268,8 +269,8 @@ for family in ['near','far']:
     native_checks[family]=dict(window_samples=len(windows),parapet_samples=len(bearings),parapet_outside_controls=len(bearings),failures=[],tolerance_m=.0001)
     all_rows.extend(rows);all_windows.extend(windows);all_bearings.extend(bearings)
     print('CITY HORIZON',family,len(rows),'blocks',len(windows),'recessed opaque panes',asset.stat().st_size,'bytes',flush=True)
-# A small source-owned replacement asset contains the three complete authored
-# industrial bodies. Existing121 other horizon meshes/imported LODs are retained.
+# A source-owned replacement asset contains complete authored industrial bodies.
+# Other horizon meshes/imported LODs retain their existing source construction.
 bpy.ops.wm.read_factory_settings(use_empty=True)
 collection=bpy.data.collections.new('CityHorizonReplacementBodies');bpy.context.scene.collection.children.link(collection)
 profiles_by_id={r['id']:r for r in all_rows};lower_draws=[];lower_mats={}
@@ -287,7 +288,7 @@ for (name,key),(vertices,faces) in sorted(replacement_buffers.items()):
     stock=bpy.data.objects.new(name,mesh)
     obj=partition(collection,name+'__'+key,[stock],finish,lower_mats[cache],Matrix.Translation(center),catalog);lower_draws.append(obj)
     bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
-assert lower_draws and len(industrial_checks)==3
+assert lower_draws and len(industrial_checks)==8
 proof=export(ROOT,'city_horizon_lod1',collection,staged_output=True)
 native=ROOT/'art/blender/city_horizon_lod1.blend';bpy.ops.wm.save_as_mainfile(filepath=str(native),compress=True)
 asset=ROOT/'game/assets/props/city_horizon_lod1.glb'

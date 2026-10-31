@@ -1261,14 +1261,63 @@
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.78,
-        0.66,
-        0.55,
+        0.69,
+        0.48,
+        0.34,
         1
       ],
       "variation_seed": 104,
       "typology": "rowhouse",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "joinery_tint": [
+        0.38,
+        0.4,
+        0.34,
+        1
+      ],
+      "architecture": {
+        "type": "eastern_row",
+        "style": "tinshop_2810",
+        "precedent": "28-10 38th Avenue tin shop,built1898-1915;three bays,three storeys,pressed-metal display cornices and semicircular parapet",
+        "source": "https://www.nyc.gov/assets/planning/download/pdf/applicants/env-review/dutch_kills/appendm_feis.pdf",
+        "source_pdf_pages": [
+          127,
+          128,
+          129
+        ],
+        "adaptation": "AU parcel,dimensions and finishes. Houses retain two main storeys over low raised basements;1.35m front setback accommodates real stairs and bays. Modern photographs are form guidance,not1928 parcels,colors or sash evidence.37-32 construction date is not established here;use as an AU form adaptation,not a dated historical replica. Scenic closed leaves create no occupied programme or access authority.",
+        "floor_heights_m": [
+          3.5,
+          3.1,
+          3.0
+        ],
+        "front_side": 1,
+        "cornice_key": "door_paint",
+        "outline_m": [
+          [
+            -150,
+            -142.66666666666666
+          ],
+          [
+            -170,
+            -142.66666666666666
+          ],
+          [
+            -170,
+            -150.0
+          ],
+          [
+            -150,
+            -150.0
+          ]
+        ],
+        "side_bays": [
+          6,
+          2,
+          6,
+          3
+        ]
+      }
     },
     {
       "id": "HORIZON_NEAR_2_0_P0R1",
@@ -1278,23 +1327,91 @@
         -150,
         -135.33333333333334
       ],
-      "height_m": 9.6,
+      "height_m": 7.5,
       "storey_m": 3.2,
       "bay_pitch_m": 2.35,
       "window_width_m": 0.94,
       "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "limestone",
       "wall_tint": [
-        0.9,
         0.82,
-        0.65,
+        0.79,
+        0.69,
         1
       ],
       "variation_seed": 105,
       "typology": "rowhouse",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "joinery_tint": [
+        0.38,
+        0.4,
+        0.34,
+        1
+      ],
+      "architecture": {
+        "type": "eastern_row",
+        "style": "beauxarts_3001",
+        "precedent": "30-01 39th Avenue,circa1910 Beaux-Arts dwelling;two storeys above raised basement,stone cladding,bow terrace and raised double-leaf entrance",
+        "source": "https://www.nyc.gov/assets/planning/download/pdf/applicants/env-review/dutch_kills/appendm_feis.pdf",
+        "source_pdf_pages": [
+          126,
+          127
+        ],
+        "adaptation": "AU parcel,dimensions and finishes. Houses retain two main storeys over low raised basements;1.35m front setback accommodates real stairs and bays. Modern photographs are form guidance,not1928 parcels,colors or sash evidence.37-32 construction date is not established here;use as an AU form adaptation,not a dated historical replica. Scenic closed leaves create no occupied programme or access authority.",
+        "floor_heights_m": [
+          1.05,
+          3.25,
+          3.2
+        ],
+        "front_side": 1,
+        "cornice_key": "door_paint",
+        "outline_m": [
+          [
+            -151.35,
+            -135.33333333333334
+          ],
+          [
+            -170,
+            -135.33333333333334
+          ],
+          [
+            -170,
+            -142.66666666666666
+          ],
+          [
+            -151.35,
+            -142.66666666666666
+          ],
+          [
+            -151.35,
+            -139.56666666666666
+          ],
+          [
+            -150.7,
+            -138.91666666666666
+          ],
+          [
+            -150.7,
+            -136.51666666666665
+          ],
+          [
+            -151.35,
+            -135.86666666666665
+          ]
+        ],
+        "side_bays": [
+          6,
+          2,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "HORIZON_NEAR_2_0_P0R2",
@@ -1304,23 +1421,91 @@
         -150,
         -128.0
       ],
-      "height_m": 9.6,
+      "height_m": 7.3,
       "storey_m": 3.2,
       "bay_pitch_m": 2.35,
       "window_width_m": 0.94,
       "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "city_grey_brick",
       "wall_tint": [
-        0.7,
-        0.6,
-        0.53,
-        1
+        1.0,
+        0.9,
+        0.68,
+        1.0
       ],
       "variation_seed": 106,
       "typology": "rowhouse",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "joinery_tint": [
+        0.38,
+        0.4,
+        0.34,
+        1
+      ],
+      "architecture": {
+        "type": "eastern_row",
+        "style": "renaissance_3732",
+        "precedent": "37-32 28th Street Renaissance Revival dwelling;two storeys,buff brick,full-height bay,side-hall stoop and foliated metal cornice;construction date unresolved in reviewed assessment",
+        "source": "https://www.nyc.gov/assets/planning/download/pdf/applicants/env-review/dutch_kills/appendm_feis.pdf",
+        "source_pdf_pages": [
+          130,
+          131
+        ],
+        "adaptation": "AU parcel,dimensions and finishes. Houses retain two main storeys over low raised basements;1.35m front setback accommodates real stairs and bays. Modern photographs are form guidance,not1928 parcels,colors or sash evidence.37-32 construction date is not established here;use as an AU form adaptation,not a dated historical replica. Scenic closed leaves create no occupied programme or access authority.",
+        "floor_heights_m": [
+          0.9,
+          3.25,
+          3.15
+        ],
+        "front_side": 1,
+        "cornice_key": "door_paint",
+        "outline_m": [
+          [
+            -151.35,
+            -128.0
+          ],
+          [
+            -170,
+            -128.0
+          ],
+          [
+            -170,
+            -135.33333333333334
+          ],
+          [
+            -151.35,
+            -135.33333333333334
+          ],
+          [
+            -151.35,
+            -135.08333333333334
+          ],
+          [
+            -150.93,
+            -134.43333333333334
+          ],
+          [
+            -150.93,
+            -131.53333333333336
+          ],
+          [
+            -151.35,
+            -130.88333333333335
+          ]
+        ],
+        "side_bays": [
+          6,
+          2,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "id": "HORIZON_NEAR_2_0_P1",
@@ -1404,7 +1589,39 @@
       ],
       "variation_seed": 114,
       "typology": "walkup",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "architecture": {
+        "type": "mill_front",
+        "source": "https://www.nyc.gov/assets/planning/download/pdf/applicants/env-review/dutch_kills/appendm_feis.pdf",
+        "source_pdf_pages": [
+          135,
+          136
+        ],
+        "adaptation": "Five-storey brick bearing walls,heavy-timber floors,narrow six-over-six double-hung sash and individual stone lintels/sills. AU dimensions,bay schedule and finishes;modern sash/paint and contemporary parcel placement are not1928 proof. Alder source documents30.5x21.3m;this48.75x18m parcel adapts the rhythm,not a stretched replica. Closed scenic leaves introduce no shop/access authority.",
+        "floor_heights_m": [
+          4.0,
+          3.8,
+          3.8,
+          3.8,
+          3.8
+        ],
+        "front_side": 1,
+        "cornice_key": "limestone",
+        "style": "mill_2102",
+        "precedent": "21-02 40th Avenue, circa1912 brick-and-mill factory/loft; H.S.Karp / Touroff & Karp attribution",
+        "side_bays": [
+          6,
+          7,
+          6,
+          7
+        ]
+      },
+      "joinery_tint": [
+        0.28,
+        0.3,
+        0.25,
+        1.0
+      ]
     },
     {
       "id": "HORIZON_NEAR_2_1_P0R0",
@@ -2892,7 +3109,39 @@
       ],
       "variation_seed": 273,
       "typology": "walkup",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "architecture": {
+        "type": "mill_front",
+        "source": "https://www.nyc.gov/assets/planning/download/pdf/applicants/env-review/dutch_kills/appendm_feis.pdf",
+        "source_pdf_pages": [
+          135,
+          136
+        ],
+        "adaptation": "Five-storey brick bearing walls,heavy-timber floors,narrow six-over-six double-hung sash and individual stone lintels/sills. AU dimensions,bay schedule and finishes;modern sash/paint and contemporary parcel placement are not1928 proof. Alder source documents30.5x21.3m;this48.75x18m parcel adapts the rhythm,not a stretched replica. Closed scenic leaves introduce no shop/access authority.",
+        "floor_heights_m": [
+          4.0,
+          3.8,
+          3.8,
+          3.8,
+          3.8
+        ],
+        "front_side": 1,
+        "cornice_key": "limestone",
+        "style": "alder_2122",
+        "precedent": "21-22 40th Avenue,1911 Alder Veneer Company brick-and-mill loft; H.S.Karp / Touroff & Karp attribution",
+        "side_bays": [
+          5,
+          15,
+          5,
+          15
+        ]
+      },
+      "joinery_tint": [
+        0.28,
+        0.3,
+        0.25,
+        1.0
+      ]
     },
     {
       "id": "HORIZON_FAR_2_1_P1",
