@@ -11752,8 +11752,8 @@
   },
   "southern_pair_composed_checks": {
     "archive": "art/reviews/city_streets_20261029/southern_pair_composed_checks.zip",
-    "bytes": 53807247,
-    "sha256": "6bb4a31d94d313d9fbb33d85e412439f47056be1e5599a91c1fce66cc3e0e059",
+    "bytes": 73940902,
+    "sha256": "c6cfd7e58d683a3274105eaf1ffaffe8a6715faa6c741b1e520bd75a1248e4a3",
     "evidence_class": "INERT",
     "scope": "Original FAILED current-world seven-leg attempt at1ea34698,265checks/4attempted legs/2failures. Existing castiron post blocks the straight fixture path; actual source, failure contract/log/wrapper/4views retained. Startup wall milestones are diagnostic, not acceptance. Subsequent commerce/physical not started. Failure02 atd3a38474:167s/265checks/4attempts/2failures;detour overlaps raised curb,body stillairborne+0.202m at horizontalstop. Original data/source retained; no aggregate acceptance. Commerce/physical still notexecuted.",
     "members": {
@@ -12060,9 +12060,102 @@
       "passed_03/frames/southern_laurel_frontage_contract.json": {
         "bytes": 111164,
         "sha256": "b142378901c552a7e5b38efc35730122bb09e7dd732ea52731711a0ca82b17e2"
+      },
+      "pr102_before_case_repair/combined_pr102_compiler_01.log": {
+        "bytes": 410,
+        "sha256": "5a7c34ba7d0c26bdc1f26ede1bc9d2c2459ce3056a9155aaca2592f5b7ea94f2"
+      },
+      "pr102_before_case_repair/combined_pr102_compiler_01.log.receipt.json": {
+        "bytes": 2991,
+        "sha256": "a90063b59c6b1d2b08581e5154fd1b685bf63273b48c3e30e1e9bb4396ee097b"
+      },
+      "pr102_before_case_repair/combined_pr102_compiler_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pr102_before_case_repair/combined_pr102_import_01.log": {
+        "bytes": 4753,
+        "sha256": "2880e3ed77d21d76fa1ec550e86b5b7e0dece76b4bff575d9fb3831583678053"
+      },
+      "pr102_before_case_repair/combined_pr102_import_01.log.receipt.json": {
+        "bytes": 2776,
+        "sha256": "7f176f24ec7a3f8e3ee3fe16d5e5c0b49f287289bbe50ff0a42d3443e0e00be4"
+      },
+      "pr102_before_case_repair/combined_pr102_import_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pr102_before_case_repair/combined_pr102_item_use_01.log": {
+        "bytes": 4349,
+        "sha256": "2331192b0e1f597b56325b65ecf178693b1810db2019e26f83e977a12dbe03ab"
+      },
+      "pr102_before_case_repair/combined_pr102_item_use_01.log.receipt.json": {
+        "bytes": 2988,
+        "sha256": "83154d6d4f6dfc28d4bff7136ae750e38f3acdd3151739909d93301a947f9474"
+      },
+      "pr102_before_case_repair/combined_pr102_item_use_01.log.stderr": {
+        "bytes": 6807,
+        "sha256": "276e27b818de33ca8ef42678c91e707ad29739de89e8952e3a423d604641cc93"
+      },
+      "pr102_before_case_repair/combined_pr102_physical_01.log": {
+        "bytes": 2578,
+        "sha256": "3cfde371d001bbbab4d1831ecb367330618a8fce2e5120ac4d74eb8e69613068"
+      },
+      "pr102_before_case_repair/combined_pr102_physical_01.log.receipt.json": {
+        "bytes": 3067,
+        "sha256": "d5778e44e6289cd9954a66eee29475c755158438527b033c9bccef5d4de2ff8f"
+      },
+      "pr102_before_case_repair/combined_pr102_physical_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pr102_before_case_repair/combined_pr102_batch_01.json": {
+        "bytes": 1472,
+        "sha256": "170a7deffe4c36434cae0a6a003235cde5b9bc97bb968e04a805faa06747ad96"
+      },
+      "pr102_before_case_repair/case_retirement_original_test.gd": {
+        "bytes": 4509,
+        "sha256": "b20a296ca185d55c1c5897cef8414344ec389d72a54645e92f686d50628ce944"
+      },
+      "pr102_before_case_repair/case_retirement_original_owner.gd": {
+        "bytes": 15943,
+        "sha256": "d7c01ccb7ec3029b2d56fae8235eb3b50fd9572bb266307d4fbf369fdc0ae506"
+      },
+      "pr102_before_case_repair/physical/runtime_contract.json": {
+        "bytes": 1829,
+        "sha256": "de2a4b691ae0c12ab7938020fc5c349f0daebf53284e76547b40793670aa6140"
+      },
+      "pr102_before_case_repair/physical/technical_findings.json": {
+        "bytes": 40563,
+        "sha256": "36df8849a7494fd3428a9431aa61b6ca695d8c2d48e16884bfc59ea9959435df"
+      },
+      "pr102_before_case_repair/item_use/item_use_after.png": {
+        "bytes": 4280839,
+        "sha256": "22d386f6edb194210b5c63df140498f4a760cd9f48f1114ac7fc450c3bc9f1aa"
+      },
+      "pr102_before_case_repair/item_use/item_use_bar_of_chocolate.png": {
+        "bytes": 4269150,
+        "sha256": "01c2b077efc05348c138978e2775e85923229a7a5d427e85d7c2d0967fdcfd81"
+      },
+      "pr102_before_case_repair/item_use/item_use_earplugs_wax_pair.png": {
+        "bytes": 4315557,
+        "sha256": "d0bbf9366f84a6b5529bd3c5923ed99f95c949e9730a1c3f48c16228d2effa33"
+      },
+      "pr102_before_case_repair/item_use/item_use_padlock.png": {
+        "bytes": 4292122,
+        "sha256": "b42c8f51164413701d6fb29fa3325e483bf980b391939e38cb4cf0bd3b0f54a2"
+      },
+      "pr102_before_case_repair/item_use/last_position.png": {
+        "bytes": 2945056,
+        "sha256": "0ef5ad007a7e7d0c3f7f2dfe87ae3a6bc1bbf32a2f3985bdb015ea666634744c"
+      },
+      "pr102_before_case_repair/item_use/route.json": {
+        "bytes": 35,
+        "sha256": "dfd3e751903238283a251f8e5e91a45dc6b7c782caabc22ebd98af4f97fc82cd"
       }
     },
     "footway_diagnostics": "INERT:01 outputdirectory/nullFileAccess failure and original teardown errors retained;02 normal-controller sixleg local originalstreet/gateway fixture20checks/0/empty stderr but7cm deadzone earlystop; not composed qualification. Exact02 source matches wrapperSHA. No production collision change. 03 actual20checks/0,714samples,14.280786s,empty stderr; all6 endpoints <5mm after deadzone-aware input. Exact raw consumed3scripts retained before LF normalization. No wholeworld/performance/artistic acceptance.",
-    "passed_03": "Actual current-world279checks/10normal-controllerlegs/0,3independent validated starts,6inspected eyes,source beforePR102. Compiler4/0,ShopCommerce0failures,empty stderr. Source/raw failures01/02 and smallfixtures intact. Physical651/0 separately published. No continuouscity/save/artistic/performance acceptance."
+    "passed_03": "Actual current-world279checks/10normal-controllerlegs/0,3independent validated starts,6inspected eyes,source beforePR102. Compiler4/0,ShopCommerce0failures,empty stderr. Source/raw failures01/02 and smallfixtures intact. Physical651/0 separately published. No continuouscity/save/artistic/performance acceptance.",
+    "pr102_before_case_repair": "Merged7e281f3e:import26s,compiler4/0,itemlogic0failures196s BUT realteardownRID/errors in stdoutandstderr preserved; physical651/0 in260s empty stderr does not exercise case. No clean case retirement claimed. Small originalowner-control pending, source frozen."
   }
 }

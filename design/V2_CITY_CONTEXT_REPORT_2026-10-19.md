@@ -4640,3 +4640,29 @@ During qualification, origin/main advanced from82526a32 to **cb1a69c6** (PR102,
 item use/resident gifts). This passing checkpoint is preserved before reconciling
 that work. Its source remains explicit; a combined current-source surface renewal
 and exact new-main static comparison are required before publication to main.
+
+
+### New-main reconciliation and case-retirement finding, 2026-10-31
+
+Evidence class: **INERT**. **cb1a69c6**/PR102 reconciled cleanly at **7e281f3e**;
+all19 donor paths and the city's sixteen observational startup milestones retained.
+Warm import26s and compiler4/0 pass. Actual ItemUseRouteTest reports0 failures
+in196s: seeded case use/stack removal, unavailable-use retention, earplug mix and
+expiration, gift availability/spend-on-choice and daily bounds execute. However,
+the actual shutdown is not clean: stdout reports50Mesh/33Material/2Shader/
+24Texture/25Instance RIDs; stderr includes geometry allocator/dependency errors.
+A wrapper exit0 does not clear these failures. Original full logs, test source,
+owner source and input captures are preserved in the existing composed archive.
+
+The separate combined physical-only survey passes651/0 in260s with empty stderr;
+it never opens the case and therefore cannot establish case retirement. The new
+case finding remains a release blocker for this checkpoint. Source inspection
+finds template MeshInstance3D nodes detached from their parent during case build;
+close clears their dictionary without freeing those detached Nodes. A small
+original-owner fixture is queued to reproduce close and open-owner retirement
+without another composed-world walk. No inventory, gift, quest or save owner has
+been changed. Current physical receipts must be renewed after a verified repair.
+
+Exact new-main baseline **cb1a69c6**, tree18cf37ee3f0b07e7087a4440d93eafc8afe6e2b3,
+completed117 static gates from a clean detached existing checkout. Known red debt
+remains; candidate comparison is pending. Earlier825 baseline remains preserved.

@@ -78,3 +78,59 @@ func _route() -> void:
 		_require(talk.gifts.offers(resident).is_empty(), "and only one a day")
 		_require(not talk.gifts.offers("iris_bell").is_empty(), "another resident can still get one")
 		_require(ResidentGifts.valid(RealityState.data[ResidentGifts.KEY]), "gifts stay valid")
+
+func _run() -> void:
+	if OS.get_environment("ORISON_CASE_RETIREMENT_ONLY")!="1":
+		await super._run()
+		return
+	RealityState.persistence_enabled=false
+	RealityState.reset_campaign_for_tests()
+	player=PlayerController.new();add_child(player)
+	player.set_lamp_enabled(false)
+	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	PersonInventory.carry_goods("player","bar_of_chocolate","Bar of chocolate","packet")
+	var view:=preload("res://scripts/ui/carried_case_view.gd").new()
+	view.player=player;add_child(view)
+	var cycles: Array=[]
+	for cycle in 2:
+		await _key(KEY_TAB)
+		await get_tree().create_timer(.6).timeout
+		_require(view.opened and view.settled,"isolated case opens through its actual key input")
+		var templates: Array[WeakRef]=[]
+		var parented:=true
+		for form: Array in view._forms.values():
+			for draw: MeshInstance3D in form:
+				templates.append(weakref(draw))
+				parented=parented and draw.get_parent()!=null and draw.is_inside_tree()
+		_require(not templates.is_empty() and parented,"native form templates retain a scene-tree lifetime owner")
+		_require(view._stacks.has("bar_of_chocolate") and view._stacks["bar_of_chocolate"].is_visible_in_tree(),"real goods remain visible independently of hidden templates")
+		if cycle==0:
+			await RenderingServer.frame_post_draw
+			var dir:=OS.get_environment("SHOT_DIR")
+			if not dir.is_empty():
+				DirAccess.make_dir_recursive_absolute(dir)
+				get_viewport().get_texture().get_image().save_png(dir.path_join("case_open.png"))
+			await _key(KEY_TAB)
+			await get_tree().create_timer(.5).timeout
+			_require(not view.opened and not player.call_locked,"actual close input releases player ownership")
+		else:
+			# Owner retirement while open must also reclaim its private geometry.
+			view.free()
+		for tick in 3:await get_tree().process_frame
+		var survivors:=0
+		for ref: WeakRef in templates:
+			var draw: Node=ref.get_ref()
+			if is_instance_valid(draw):
+				survivors+=1
+				# Cleanup only the demonstrated orphan on the failing control.
+				if draw.get_parent()==null:draw.free()
+		_require(survivors==0,"all form templates retire after close or owner destruction")
+		cycles.append({"cycle":cycle,"templates":templates.size(),"parented":parented,"survivors":survivors})
+	player.free()
+	Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
+	var directory:=OS.get_environment("SHOT_DIR")
+	if not directory.is_empty():
+		DirAccess.make_dir_recursive_absolute(directory)
+		FileAccess.open(directory.path_join("case_retirement.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Isolated actual case key-open/close, visible seeded goods, and open-owner retirement. No composed-world,save or artistic acceptance.","cycles":cycles,"checks":interaction_checks,"failures":failures},"\t"))
+	print("CASE RETIREMENT: ",interaction_checks.size()," checks; ",failures.size()," failures")
+	get_tree().quit(0 if failures.is_empty() else 1)
