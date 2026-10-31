@@ -181,10 +181,16 @@ Nadia's, after Adela's death, so they don't support this. It's a small new idea,
 4. **The rent hold, the heat dressing, the Holmes Airport visit and the wire-listening item all go in the
    next draft.**
 
-Still open: the packet's protagonist stays rejected as recommended unless she says otherwise, the house
-slang ("glad-rag royalty", "the sisterhood") hasn't been ruled on, and nothing yet says what became of the
-drawer's prints after her death. Emil's "drawer the thief didn't want" and Mae's "emptied a dead woman's
-drawer" need squaring with that.
+5. **Mae took the drawer's prints.** She came for the deed's negatives and took everything in that drawer.
+
+**How that fits what's written.** The empty drawer in B15 is the bottom drawer. Emil's "drawer the thief
+didn't want" is a different one, holding the rent book, so his line stands. Mae's ledger box now holds the
+prints too, which gives "Those are private papers" and "Mine are in there" (S14) a second meaning with no
+edit. She now holds leverage over the same four men, and whether she ever uses it is unwritten. **PROPOSED:**
+she doesn't, in the year. Nothing she does with them is evidence, and the prints add no clue to the chain.
+
+Still open: the packet's protagonist stays rejected as recommended unless she says otherwise, and the house
+slang ("glad-rag royalty", "the sisterhood") hasn't been ruled on.
 
 ### How the blackmail works
 
