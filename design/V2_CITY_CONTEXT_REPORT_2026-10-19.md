@@ -3611,3 +3611,51 @@ identical new evidence bytes use explicit aliases. No reference image/PDF or
 production mesh duplicates included.638 generated untracked UID files individually
 cleaned only after own Godot terminal and exact matching to their prior archive.
 No main merge,shared integration edit or published149-building tally promotion.
+
+
+### Rear-east Laurel-derived apartment — construction in progress, 2026-10-30
+
+Evidence class: **INERT**. Starting SHA **812b93b6f19a0c8b22ac6ed8c7ea40b531e596a4**.
+The installed 19 × 6.4 m parcel retains its +46 m source-Y assembly, lower rear
+and side facades, rooftop studio, decks and original equipment. LPC LP1831 PDF54
+Fig.9 (explicitly c.1916) and PDF156/printed149 were inspected: Laurel Court,
+George H. Wells, 1913–14. The new main body alternates three single bays and two
+three-sided metal-clad oriels, with keyed stone heads and a pilastered pediment
+entrance. Historical reference guides form; exact AU dimensions follow the parcel.
+No reference pixels, new textures/material keys, occupied room or live door owner.
+
+Actual asphalt court grade is −0.02 m; two 160 mm risers reach a +0.30 m landing.
+Thirty installed-coordinate support sections pass. The unchanged 224-space and
+13 registered-cell source projections clear the entry envelope; this does not
+prove current actor occupancy or capsule movement. Six original pane rays hit
+metal return stock, with a first error of 176.116 mm. Widening the back seats
+from 2.36 to 2.96 m repairs the geometry while retaining openings, probes and
+0.1 mm tolerance. Original failed source-build log and first-hit JSON remain.
+
+Corrected producers pass 2,547 near pane samples, 1,205 near roof bearings,
+126 roof/12 return controls, and all 14,229 lower closed stocks, 655 lower
+bearings and 781 lower panes. Five initial native images were inspected with
+20 exact part roundtrips. Near export is byte-identical after the subsequent
+LOD pass. The complete lower body replaces dense cloth folds with six-step
+closed folds: near/lower 29,214/25,278 triangles; all ten material parts remain.
+All 272 unrelated near and 166 prior lower parts, 24 other profiles and nine
+other assets remain exact. Fourteen tools tests pass. Final changed lower-body
+native review, current UV recheck, loaded materials/mipmaps/LOD/cost, standing
+controller and composed lighting/artistic qualification remain pending. Heavy
+work is held for the live canonical combined route/physical renewal; no waiver
+or published tally promotion. External originals: **C:/ov/reports/city_streets_20261029/laurel_apartment_01**.
+
+
+Rear-east native freeze: the final five views comprise three unchanged near
+views and two newly inspected lower views. Current lower native/export triangle
+multisets match for all ten parts. Both final UV audits pass; reader NEW0 and
+17 protected paths unchanged. Independent exported-geometry comparison matches
+all 7,574 lower rear/side and 5,078 retained studio/upper-roof triangles within
+the existing 0.1 mm tolerance; maximum float32 recentring is 3.815 micrometres,
+with no retessellation. The existing review manifest now indexes
+**laurel_apartment_native_review.zip**: 54 members, 12,234,537 bytes, SHA256
+**b7f0eaa5f5188cc29c818762b3b032ad8fe305ba4c9ff9666160780cd90a13a9**.
+CRC and every member byte verified; source reference pixels/PDFs and duplicate
+production meshes excluded. Loaded checks remain pending behind the active
+canonical renewal, whose newer main-line merge does not qualify this separate
+candidate. No runtime, complete-city or artistic acceptance is claimed.
