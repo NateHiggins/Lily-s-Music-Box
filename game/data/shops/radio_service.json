@@ -1,0 +1,113 @@
+{
+ "schema_version": 1,
+ "shop_id": "radio_service",
+ "name": "Radio Service",
+ "closed": [
+  120,
+  390
+ ],
+ "groups": {
+  "parts": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "battery": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "counter": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  }
+ },
+ "events": [],
+ "items": [
+  {
+   "id": "set_alignment",
+   "name": "Set alignment",
+   "cents": 50,
+   "kind": "service",
+   "source": "authored",
+   "note": "Hand-tuned at the bench"
+  },
+  {
+   "id": "field_printer_paper_roll",
+   "name": "Field printer paper, roll",
+   "cents": 15,
+   "kind": "goods",
+   "source": "authored",
+   "group": "parts",
+   "form": "packet"
+  },
+  {
+   "id": "printer_ribbon",
+   "name": "Printer ribbon",
+   "cents": 25,
+   "kind": "goods",
+   "source": "authored",
+   "group": "parts",
+   "form": "roll"
+  },
+  {
+   "id": "better_aerial_coil",
+   "name": "Better aerial coil",
+   "cents": 150,
+   "kind": "upgrade",
+   "source": "authored",
+   "note": "Better reception",
+   "group": "parts"
+  },
+  {
+   "id": "lamp_reflector",
+   "name": "Lamp reflector",
+   "cents": 75,
+   "kind": "upgrade",
+   "source": "authored",
+   "note": "Better inspection lamp",
+   "group": "parts"
+  },
+  {
+   "id": "long_life_valve",
+   "name": "Long-life valve",
+   "cents": 35,
+   "kind": "upgrade",
+   "source": "ad",
+   "note": "Newark",
+   "group": "parts"
+  },
+  {
+   "id": "wet_cell_service",
+   "name": "Wet cell, service",
+   "cents": 25,
+   "kind": "service",
+   "source": "authored",
+   "note": "Topped and charged",
+   "group": "battery"
+  },
+  {
+   "id": "listening_licence_renewal_form",
+   "name": "Listening licence renewal form",
+   "cents": 0,
+   "kind": "goods",
+   "source": "authored",
+   "note": "no fee to read it",
+   "group": "counter",
+   "form": "packet"
+  }
+ ]
+}

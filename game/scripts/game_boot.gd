@@ -18,7 +18,7 @@ const ACTIONS := {
 	"teletype_read": KEY_E, "teletype_next": KEY_BRACKETRIGHT, "teletype_previous": KEY_BRACKETLEFT,
 	"companion_type": KEY_ENTER,
 	"teletype_closer": KEY_EQUAL, "teletype_farther": KEY_MINUS, "teletype_service": KEY_Y,
-	"inspect_care": KEY_I, "pocket_ledger": KEY_P,
+	"inspect_care": KEY_I, "pocket_ledger": KEY_P, "carried_case": KEY_TAB,
 }
 
 ## Shoulder switches remain reachable while both thumbs steer and look. They

@@ -101,6 +101,10 @@ var passage_region: OrisonV2PassageRegion
 var bar_region: OrisonV2BarRegion
 var shop_service: MaintenanceShopService
 var fire_maintenance_counter: Node3D
+var shop_catalogue: ShopCatalogue
+var shop_stock: ShopStock
+var shop_clearing: RefCounted
+var carried_case_view: CanvasLayer
 var shop_simulation: Node
 var day_night_director: DayNightDirector
 var light_rig: LightRig
@@ -843,6 +847,21 @@ func _compose_authorities() -> void:
 	fire_maintenance_counter=preload("res://scripts/building/orison_v2_fire_maintenance_counter.gd").mount(self,economy,installed_fire.stations)
 	if fire_maintenance_counter==null:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: fire maintenance counter refused");return
+	# Shared commerce for every shop. Counters mount with their shop's own owner.
+	shop_catalogue = ShopCatalogue.new()
+	shop_stock = ShopStock.new()
+	shop_stock.name = "ShopStock"
+	add_child(shop_stock)
+	if not shop_catalogue.load_all() or not shop_stock.setup(shop_catalogue):
+		startup_failed=true;push_error("ORISON V2 RUNTIME: shop catalogue refused: %s" % [shop_catalogue.errors]);return
+	shop_clearing=preload("res://scripts/game/radio_clearing_network.gd").new()
+	if not shop_clearing.configure(economy,service_set_carrier.radio_is_powered,_shop_line_open):
+		startup_failed=true;push_error("ORISON V2 RUNTIME: shop settlement refused");return
+	carried_case_view=preload("res://scripts/ui/carried_case_view.gd").new()
+	carried_case_view.name="CarriedCaseView"
+	carried_case_view.player=player
+	carried_case_view.economy=economy
+	add_child(carried_case_view)
 	var saved_mechanisms: Dictionary=passage_region.doors.duplicate()
 	saved_mechanisms[str(fire_maintenance_counter.name)]=fire_maintenance_counter
 	household_state = HouseholdState.new()
@@ -1426,3 +1445,8 @@ func room_at_world(world_position: Vector3) -> String:
 	if _blockout==null or layout.is_empty():return ""
 	if public_landings!=null:return public_landings.room_at(world_position)
 	return preload("res://scripts/building/orison_v2_space_footprints.gd").room_at(layout,_blockout.to_local(world_position))
+
+
+func _shop_line_open(shop_id: String) -> bool:
+	var clock := CampaignClock.new()
+	return clock.bind_state() and shop_catalogue.open_at(shop_id, int(clock.minute_of_day()))

@@ -1,0 +1,124 @@
+{
+ "schema_version": 1,
+ "shop_id": "photo_supplies",
+ "name": "Photo Supplies",
+ "closed": [
+  120,
+  390
+ ],
+ "groups": {
+  "plates": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "darkroom": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "studio": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "chemicals": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "counter": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  }
+ },
+ "events": [],
+ "items": [
+  {
+   "id": "single_dry_plate",
+   "name": "Single dry plate",
+   "cents": 75,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Rare and deliberate",
+   "group": "plates",
+   "form": "packet"
+  },
+  {
+   "id": "plate_developed_and_printed_here",
+   "name": "Plate, developed and printed here",
+   "cents": 50,
+   "kind": "service",
+   "source": "authored",
+   "note": "Or do it yourself",
+   "group": "darkroom"
+  },
+  {
+   "id": "darkroom_hour",
+   "name": "Darkroom hour",
+   "cents": 25,
+   "kind": "service",
+   "source": "authored",
+   "note": "The hand-rocked tray",
+   "group": "darkroom"
+  },
+  {
+   "id": "portrait_sitting",
+   "name": "Portrait sitting",
+   "cents": 300,
+   "kind": "service",
+   "source": "authored",
+   "note": "\"An occasion\" per the ad",
+   "group": "studio"
+  },
+  {
+   "id": "developer_and_fixer",
+   "name": "Developer and fixer",
+   "cents": 20,
+   "kind": "goods",
+   "source": "authored",
+   "group": "chemicals",
+   "form": "bottle"
+  },
+  {
+   "id": "printing_paper_sheet",
+   "name": "Printing paper, sheet",
+   "cents": 10,
+   "kind": "goods",
+   "source": "authored",
+   "group": "chemicals",
+   "form": "tin"
+  },
+  {
+   "id": "grease_pencil",
+   "name": "Grease pencil",
+   "cents": 5,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Adela's own",
+   "group": "counter",
+   "form": "tool"
+  }
+ ]
+}

@@ -1,0 +1,84 @@
+{
+ "schema_version": 1,
+ "shop_id": "keys_cut",
+ "name": "Keys Cut",
+ "closed": [
+  120,
+  390
+ ],
+ "groups": {
+  "blanks": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "hardware": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  }
+ },
+ "events": [],
+ "items": [
+  {
+   "id": "spare_key_with_signed_permission",
+   "name": "Spare key, with signed permission",
+   "cents": 25,
+   "kind": "service",
+   "source": "authored",
+   "note": "a new charge; free today",
+   "group": "blanks"
+  },
+  {
+   "id": "spare_key_flat_or_trunk",
+   "name": "Spare key, flat or trunk",
+   "cents": 15,
+   "kind": "service",
+   "source": "authored",
+   "group": "blanks"
+  },
+  {
+   "id": "lock_rekeyed",
+   "name": "Lock rekeyed",
+   "cents": 100,
+   "kind": "service",
+   "source": "authored",
+   "note": "tenant's choice, for jobs"
+  },
+  {
+   "id": "padlock",
+   "name": "Padlock",
+   "cents": 40,
+   "kind": "goods",
+   "source": "authored",
+   "group": "hardware",
+   "form": "tin"
+  },
+  {
+   "id": "key_ring",
+   "name": "Key ring",
+   "cents": 5,
+   "kind": "goods",
+   "source": "authored",
+   "group": "hardware",
+   "form": "card"
+  },
+  {
+   "id": "brass_listening_act_door_notice",
+   "name": "Brass Listening Act door notice",
+   "cents": 50,
+   "kind": "goods",
+   "source": "ad",
+   "group": "hardware",
+   "form": "card"
+  }
+ ]
+}

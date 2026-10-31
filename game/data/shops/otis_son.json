@@ -1,0 +1,150 @@
+{
+ "schema_version": 1,
+ "shop_id": "otis_son",
+ "name": "Otis & Son",
+ "closed": [
+  120,
+  390
+ ],
+ "groups": {
+  "dispensary": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "counter": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "first aid": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "fountain": {
+   "capacity": 40,
+   "per_day": 15,
+   "delivery": {
+    "every_days": 1,
+    "at_minute": 480,
+    "units": 40
+   }
+  }
+ },
+ "events": [
+  {
+   "group": "fountain",
+   "from": "1929-07-01",
+   "until": "1929-08-31",
+   "factor": 2.0,
+   "why": "Summer heat at the fountain"
+  }
+ ],
+ "items": [
+  {
+   "id": "prescription_made_up",
+   "name": "Prescription, made up",
+   "cents": 50,
+   "kind": "service",
+   "source": "authored",
+   "note": "resident errand, paid by slip",
+   "group": "dispensary"
+  },
+  {
+   "id": "earplugs_wax_pair",
+   "name": "Earplugs, wax, pair",
+   "cents": 10,
+   "kind": "goods",
+   "source": "ad",
+   "note": "Hum down, faults harder to hear",
+   "group": "counter",
+   "form": "tin"
+  },
+  {
+   "id": "carbolic",
+   "name": "Carbolic",
+   "cents": 15,
+   "kind": "goods",
+   "source": "ad",
+   "group": "first aid",
+   "form": "bottle"
+  },
+  {
+   "id": "clean_rag_bandage",
+   "name": "Clean rag bandage",
+   "cents": 10,
+   "kind": "goods",
+   "source": "ad",
+   "group": "first aid",
+   "form": "roll"
+  },
+  {
+   "id": "aspirin_tin",
+   "name": "Aspirin, tin",
+   "cents": 15,
+   "kind": "goods",
+   "source": "authored",
+   "group": "first aid",
+   "form": "tin"
+  },
+  {
+   "id": "cough_syrup",
+   "name": "Cough syrup",
+   "cents": 25,
+   "kind": "goods",
+   "source": "authored",
+   "group": "counter",
+   "form": "bottle"
+  },
+  {
+   "id": "sleeping_powder",
+   "name": "Sleeping powder",
+   "cents": 20,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Used only in bed",
+   "group": "counter",
+   "form": "tin"
+  },
+  {
+   "id": "soda_at_the_fountain",
+   "name": "Soda, at the fountain",
+   "cents": 5,
+   "kind": "consumed",
+   "source": "authored",
+   "note": "a stool and a minute",
+   "group": "fountain"
+  },
+  {
+   "id": "egg_cream",
+   "name": "Egg cream",
+   "cents": 8,
+   "kind": "consumed",
+   "source": "authored",
+   "group": "fountain"
+  },
+  {
+   "id": "licence_queue_lozenges",
+   "name": "Licence queue lozenges",
+   "cents": 5,
+   "kind": "goods",
+   "source": "ad",
+   "note": "-based joke",
+   "group": "counter",
+   "form": "tin"
+  }
+ ]
+}

@@ -3,7 +3,7 @@ extends Node3D
 ## authorization and delivery; this part owns only its bounded hand travel.
 signal sale_result(accepted: bool)
 const TRAVEL := .040
-var merchant: MaintenanceShopService
+var merchant: Object
 var item_id := ""
 var lever: Node3D
 var target_area: Area3D
@@ -13,7 +13,7 @@ var _attempted := false
 var _lever_origin := Vector3.ZERO
 var last_status := ""
 
-func configure(service: MaintenanceShopService, identity: String,
+func configure(service: Object, identity: String,
 		moving_lever: Node3D) -> bool:
 	if service==null or not service.has_method("transact") \
 			or service.stock_record(identity).is_empty() or moving_lever==null:return false
@@ -22,7 +22,7 @@ func configure(service: MaintenanceShopService, identity: String,
 	return target_area.get_child_count()>0
 
 func grip() -> Dictionary:
-	if merchant==null or lever==null or merchant.inventory.has_item(item_id):return {}
+	if merchant==null or lever==null or _locked():return {}
 	return {"owner":self,"part":lever,"frame":self,"kind":"slide","axis":Vector3.BACK,
 		"minimum":0.,"maximum":TRAVEL,"gesture_travel_px":140.,"gesture_screen_axis":Vector2.DOWN,
 		"read":func():return travel,
@@ -33,6 +33,9 @@ func grip() -> Dictionary:
 			_held=true;_attempted=false;return true,
 		"owns":func():return _held,
 		"end":func():_held=false}
+
+func _locked() -> bool:
+	return merchant.sale_locked(item_id) if merchant.has_method("sale_locked") else merchant.inventory.has_item(item_id)
 
 func _move(value: float) -> void:
 	if not is_finite(value):return

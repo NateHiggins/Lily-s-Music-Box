@@ -10,6 +10,8 @@ extends RefCounted
 ##              ring. DoorKeyring answers every door from these holdings.
 ##   groceries  "grocery:<item>" with a quantity: bought at a counter, carried
 ##              home, unpacked into the household larder (KitchenLarder).
+##   goods      "goods:<item>" with a whole count: bought for the player's own
+##              use, stacked and capped. The player's lie in CarriedCase.
 ##
 ## Maintenance parts are not held here: MaintenanceInventory remains their
 ## single-use authority. `holdings()` shows the player's unconsumed parts
@@ -18,6 +20,7 @@ extends RefCounted
 const KEY := "inventories"
 const PLAYER := "player"
 const HOUSE_KEY := "key:house"
+const GOODS_STACK := 12
 
 
 ## The domain, seeded on first use: every resident carries their original,
@@ -55,11 +58,15 @@ static func valid(value: Variant) -> bool:
 			return false
 		for id: Variant in value.holders[holder]:
 			var item: Variant = value.holders[holder][id]
-			if id is not String or item is not Dictionary or str(item.get("kind", "")) not in ["key", "grocery"]:
+			if id is not String or item is not Dictionary or str(item.get("kind", "")) not in ["key", "grocery", "goods"]:
 				return false
 			if item.kind == "key" and (item.get("unit") is not String or str(item.get("cut", "")) not in ["original", "spare", "house"]):
 				return false
 			if item.kind == "grocery" and (typeof(item.get("qty")) not in [TYPE_INT, TYPE_FLOAT] or float(item.qty) <= 0.0):
+				return false
+			if item.kind == "goods" and (typeof(item.get("qty")) not in [TYPE_INT, TYPE_FLOAT] \
+					or float(item.qty) < 1.0 or float(item.qty) > GOODS_STACK or float(item.qty) != floor(float(item.qty)) \
+					or item.get("item") is not String or item.get("name") is not String):
 				return false
 	# Nobody has lost their own key.
 	var residents := DoorKeyring.residents()
@@ -163,6 +170,50 @@ static func unpack(holder: String) -> Dictionary:
 	return out
 
 
+## ---- goods -----------------------------------------------------------
+
+static func goods_count(holder: String, item: String) -> int:
+	return int(items(holder).get("goods:" + item, {}).get("qty", 0))
+
+
+static func can_carry_goods(holder: String, item: String, form := "packet") -> bool:
+	var count := goods_count(holder, item)
+	if count > 0:
+		return count < GOODS_STACK
+	return holder != PLAYER or CarriedCase.has_room(item, form)
+
+
+## Uncommitted: a sale's settlement saves the debit and the goods together.
+static func carry_goods(holder: String, item: String, shown_name: String, form := "packet") -> bool:
+	var value := book()
+	if value.is_empty() or RealityState.save_write_blocked or not can_carry_goods(holder, item, form):
+		return false
+	if holder == PLAYER and not CarriedCase.place_new(item, form):
+		return false
+	if not value.holders.has(holder):
+		value.holders[holder] = {}
+	var id := "goods:" + item
+	var record: Dictionary = value.holders[holder].get(id, {"kind": "goods", "item": item, "name": shown_name, "qty": 0})
+	record.qty = int(record.qty) + 1
+	value.holders[holder][id] = record
+	return true
+
+
+static func spend_goods(holder: String, item: String) -> bool:
+	var value := book()
+	var count := goods_count(holder, item)
+	if value.is_empty() or RealityState.save_write_blocked or count <= 0:
+		return false
+	if count == 1:
+		value.holders[holder].erase("goods:" + item)
+		if holder == PLAYER:
+			CarriedCase.remove(item)
+	else:
+		value.holders[holder]["goods:" + item].qty = count - 1
+	RealityState.commit()
+	return true
+
+
 ## ---- the player's pocket --------------------------------------------
 
 ## The player's holdings as lines: the house ring, their own key, spares
@@ -187,6 +238,8 @@ static func pocket_lines() -> Array[String]:
 		var record: Dictionary = held[id]
 		if str(record.kind) == "grocery":
 			lines.append("CARRYING: %s %s" % [str(snappedf(float(record.qty), 0.01)), str(record.item).replace("_", " ")])
+		elif str(record.kind) == "goods":
+			lines.append("POCKET: %d %s" % [int(record.qty), str(record.name)])
 	var parts: Dictionary = RealityState.data.get("maintenance_items", {})
 	var names := parts.keys()
 	names.sort()

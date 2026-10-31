@@ -1,0 +1,31 @@
+{
+ "schema_version": 1,
+ "shop_id": "funeral_parlour",
+ "name": "Funeral Parlour",
+ "closed": [
+  120,
+  390
+ ],
+ "groups": {},
+ "events": [],
+ "items": [
+  {
+   "id": "black_armband",
+   "name": "Black armband",
+   "cents": 10,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Worn only on a memorial day",
+   "form": "packet"
+  },
+  {
+   "id": "wreath_ordered_for_a_resident",
+   "name": "Wreath, ordered for a resident",
+   "cents": 150,
+   "kind": "goods",
+   "source": "authored",
+   "note": "A gift in the existing care caps",
+   "form": "parcel"
+  }
+ ]
+}

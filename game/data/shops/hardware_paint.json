@@ -1,0 +1,274 @@
+{
+ "schema_version": 1,
+ "shop_id": "hardware_paint",
+ "name": "Hardware & Paint",
+ "closed": [],
+ "groups": {
+  "parts": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "electrical": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "bins": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "sundries": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "paint": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "ladder": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  }
+ },
+ "events": [],
+ "items": [
+  {
+   "id": "rubber_protectant_service_bottle",
+   "name": "Rubber protectant, service bottle",
+   "cents": 25,
+   "kind": "part",
+   "source": "live",
+   "group": "parts",
+   "form": "bottle"
+  },
+  {
+   "id": "hose_coupling_gasket",
+   "name": "Hose coupling gasket",
+   "cents": 10,
+   "kind": "part",
+   "source": "live",
+   "group": "parts",
+   "form": "tool"
+  },
+  {
+   "id": "receiving_valve_sleeve_of_six",
+   "name": "Receiving valve, sleeve of six",
+   "cents": 100,
+   "kind": "part",
+   "source": "ad",
+   "group": "parts",
+   "form": "box"
+  },
+  {
+   "id": "silk_flex_per_yard",
+   "name": "Silk flex, per yard",
+   "cents": 12,
+   "kind": "part",
+   "source": "authored",
+   "note": "status item",
+   "group": "electrical",
+   "form": "roll"
+  },
+  {
+   "id": "rubber_flex_per_yard",
+   "name": "Rubber flex, per yard",
+   "cents": 5,
+   "kind": "part",
+   "source": "authored",
+   "note": "stiffens with age",
+   "group": "electrical",
+   "form": "roll"
+  },
+  {
+   "id": "fuse_screw_in",
+   "name": "Fuse, screw-in",
+   "cents": 5,
+   "kind": "part",
+   "source": "authored",
+   "group": "electrical",
+   "form": "card"
+  },
+  {
+   "id": "friction_tape_roll",
+   "name": "Friction tape, roll",
+   "cents": 15,
+   "kind": "goods",
+   "source": "authored",
+   "group": "electrical",
+   "form": "roll"
+  },
+  {
+   "id": "nails_by_the_pound",
+   "name": "Nails, by the pound",
+   "cents": 7,
+   "kind": "goods",
+   "source": "authored",
+   "note": "weighed",
+   "group": "bins",
+   "form": "box"
+  },
+  {
+   "id": "wood_screws_by_the_pound",
+   "name": "Wood screws, by the pound",
+   "cents": 18,
+   "kind": "goods",
+   "source": "authored",
+   "note": "weighed",
+   "group": "bins",
+   "form": "box"
+  },
+  {
+   "id": "machine_oil_can",
+   "name": "Machine oil, can",
+   "cents": 15,
+   "kind": "goods",
+   "source": "authored",
+   "group": "sundries",
+   "form": "bottle"
+  },
+  {
+   "id": "pipe_dope_tin",
+   "name": "Pipe dope, tin",
+   "cents": 20,
+   "kind": "part",
+   "source": "authored",
+   "group": "sundries",
+   "form": "tin"
+  },
+  {
+   "id": "faucet_washers_card",
+   "name": "Faucet washers, card",
+   "cents": 5,
+   "kind": "part",
+   "source": "authored",
+   "group": "sundries",
+   "form": "card"
+  },
+  {
+   "id": "hex_bolts_by_the_pound",
+   "name": "Hex bolts, by the pound",
+   "cents": 18,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Already in the trays",
+   "group": "bins",
+   "form": "box"
+  },
+  {
+   "id": "flanged_brass_coupling",
+   "name": "Flanged brass coupling",
+   "cents": 20,
+   "kind": "part",
+   "source": "authored",
+   "note": "Already in the trays",
+   "group": "bins",
+   "form": "tool"
+  },
+  {
+   "id": "soap_flakes",
+   "name": "Soap flakes",
+   "cents": 12,
+   "kind": "goods",
+   "source": "live",
+   "group": "sundries",
+   "grocery": "soap_flakes",
+   "form": "box"
+  },
+  {
+   "id": "scouring_powder",
+   "name": "Scouring powder",
+   "cents": 10,
+   "kind": "goods",
+   "source": "live",
+   "group": "sundries",
+   "grocery": "scouring_powder",
+   "form": "tin"
+  },
+  {
+   "id": "kitchen_matches",
+   "name": "Kitchen matches",
+   "cents": 5,
+   "kind": "goods",
+   "source": "live",
+   "group": "sundries",
+   "grocery": "matches",
+   "form": "box"
+  },
+  {
+   "id": "map_pins_gross",
+   "name": "Map pins, gross",
+   "cents": 15,
+   "kind": "goods",
+   "source": "ad",
+   "note": "for WORS maps",
+   "group": "sundries",
+   "form": "packet"
+  },
+  {
+   "id": "inside_window_scraper",
+   "name": "Inside-window scraper",
+   "cents": 5,
+   "kind": "goods",
+   "source": "ad",
+   "group": "sundries",
+   "form": "tool"
+  },
+  {
+   "id": "house_paint_quart",
+   "name": "House paint, quart",
+   "cents": 75,
+   "kind": "goods",
+   "source": "authored",
+   "note": "shaken by hand",
+   "group": "paint",
+   "form": "tin"
+  },
+  {
+   "id": "paint_brush",
+   "name": "Paint brush",
+   "cents": 25,
+   "kind": "goods",
+   "source": "authored",
+   "group": "paint",
+   "form": "tool"
+  },
+  {
+   "id": "ladder",
+   "name": "Ladder",
+   "cents": 100,
+   "kind": "loan",
+   "source": "authored",
+   "note": "one only, returned deposit",
+   "group": "ladder"
+  }
+ ]
+}

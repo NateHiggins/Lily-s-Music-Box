@@ -1,0 +1,101 @@
+{
+ "schema_version": 1,
+ "shop_id": "harukiya",
+ "name": "Harukiya",
+ "closed": [
+  120,
+  1140
+ ],
+ "groups": {
+  "bar": {
+   "capacity": 48,
+   "per_day": 20,
+   "delivery": {
+    "every_days": 2,
+    "at_minute": 1020,
+    "units": 30
+   }
+  },
+  "stage": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  }
+ },
+ "events": [],
+ "items": [
+  {
+   "id": "house_lager",
+   "name": "House lager",
+   "cents": 15,
+   "kind": "consumed",
+   "source": "authored",
+   "note": "On the slate",
+   "group": "bar"
+  },
+  {
+   "id": "whiskey_no_questions",
+   "name": "Whiskey, no questions",
+   "cents": 35,
+   "kind": "consumed",
+   "source": "authored",
+   "group": "bar"
+  },
+  {
+   "id": "sake_warm",
+   "name": "Sake, warm",
+   "cents": 25,
+   "kind": "consumed",
+   "source": "authored",
+   "group": "bar"
+  },
+  {
+   "id": "soda_and_bitters",
+   "name": "Soda and bitters",
+   "cents": 10,
+   "kind": "consumed",
+   "source": "authored",
+   "note": "No loss of standing for choosing this",
+   "group": "bar"
+  },
+  {
+   "id": "rice_crackers",
+   "name": "Rice crackers",
+   "cents": 5,
+   "kind": "consumed",
+   "source": "authored",
+   "group": "bar"
+  },
+  {
+   "id": "shoyu_bottle",
+   "name": "Shoyu, bottle",
+   "cents": 20,
+   "kind": "goods",
+   "source": "live",
+   "note": "the shop's own",
+   "group": "bar",
+   "form": "bottle"
+  },
+  {
+   "id": "song_session",
+   "name": "Song session",
+   "cents": 25,
+   "kind": "service",
+   "source": "authored",
+   "note": "A paid slot on the stage",
+   "group": "stage"
+  },
+  {
+   "id": "darts_or_pool_stake",
+   "name": "Darts or pool stake",
+   "cents": 5,
+   "kind": "wager",
+   "source": "authored",
+   "note": "With a neighbour, capped per night"
+  }
+ ]
+}

@@ -1,0 +1,196 @@
+{
+ "schema_version": 1,
+ "shop_id": "news_cigars",
+ "name": "News & Cigars",
+ "closed": [
+  120,
+  390
+ ],
+ "groups": {
+  "papers": {
+   "capacity": 60,
+   "per_day": 40,
+   "delivery": {
+    "every_days": 1,
+    "at_minute": 300,
+    "units": 60
+   }
+  },
+  "counter": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "tobacco": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "stationery": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  }
+ },
+ "events": [],
+ "items": [
+  {
+   "id": "the_borough_record",
+   "name": "The Borough Record",
+   "cents": 2,
+   "kind": "goods",
+   "source": "ad",
+   "note": "masthead price",
+   "group": "papers",
+   "form": "flat"
+  },
+  {
+   "id": "the_loud_speaker",
+   "name": "The Loud Speaker",
+   "cents": 1,
+   "kind": "goods",
+   "source": "ad",
+   "note": "masthead price",
+   "group": "papers",
+   "form": "flat"
+  },
+  {
+   "id": "quell_tonic",
+   "name": "Quell tonic",
+   "cents": 5,
+   "kind": "goods",
+   "source": "live",
+   "group": "counter",
+   "grocery": "quell_tonic",
+   "form": "bottle"
+  },
+  {
+   "id": "bar_of_chocolate",
+   "name": "Bar of chocolate",
+   "cents": 5,
+   "kind": "goods",
+   "source": "live",
+   "group": "counter",
+   "grocery": "chocolate",
+   "form": "packet"
+  },
+  {
+   "id": "cigar_nickel",
+   "name": "Cigar, nickel",
+   "cents": 5,
+   "kind": "goods",
+   "source": "authored",
+   "note": "gift",
+   "group": "tobacco",
+   "form": "box"
+  },
+  {
+   "id": "cigar_ten_cent",
+   "name": "Cigar, ten-cent",
+   "cents": 10,
+   "kind": "goods",
+   "source": "authored",
+   "note": "better gift",
+   "group": "tobacco",
+   "form": "box"
+  },
+  {
+   "id": "cigarettes_pack",
+   "name": "Cigarettes, pack",
+   "cents": 13,
+   "kind": "goods",
+   "source": "authored",
+   "note": "a 1933 report has 12 to 13 cents",
+   "group": "tobacco",
+   "form": "packet"
+  },
+  {
+   "id": "pipe_tobacco_tin",
+   "name": "Pipe tobacco, tin",
+   "cents": 15,
+   "kind": "goods",
+   "source": "authored",
+   "group": "tobacco",
+   "form": "tin"
+  },
+  {
+   "id": "postal_cards_hundred",
+   "name": "Postal cards, hundred",
+   "cents": 100,
+   "kind": "goods",
+   "source": "ad",
+   "note": "for the Pun Derby",
+   "group": "stationery",
+   "form": "box"
+  },
+  {
+   "id": "postage_stamp",
+   "name": "Postage stamp",
+   "cents": 2,
+   "kind": "consumed",
+   "source": "authored",
+   "note": "for coupon orders",
+   "group": "stationery"
+  },
+  {
+   "id": "pencil",
+   "name": "Pencil",
+   "cents": 2,
+   "kind": "goods",
+   "source": "authored",
+   "group": "stationery",
+   "form": "tool"
+  },
+  {
+   "id": "stick_candy_from_the_jars",
+   "name": "Stick candy, from the jars",
+   "cents": 1,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Four jars are modelled",
+   "group": "counter",
+   "form": "jar"
+  },
+  {
+   "id": "briar_pipe",
+   "name": "Briar pipe",
+   "cents": 50,
+   "kind": "goods",
+   "source": "authored",
+   "note": "The pipe rack is modelled",
+   "group": "tobacco",
+   "form": "tool"
+  },
+  {
+   "id": "racing_form",
+   "name": "Racing form",
+   "cents": 10,
+   "kind": "goods",
+   "source": "authored",
+   "note": "The lower shelf is modelled",
+   "group": "papers",
+   "form": "flat"
+  },
+  {
+   "id": "punchboard_one_punch",
+   "name": "Punchboard, one punch",
+   "cents": 5,
+   "kind": "wager",
+   "source": "authored",
+   "note": "Period chance game, already modelled; small prizes only",
+   "group": "counter"
+  }
+ ]
+}
