@@ -1,38 +1,38 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "scope": "Technical rendered review of composed changed city and one retained interior control. Human artistic acceptance remains outstanding; no performance improvement, save/reload or interaction acceptance.",
-  "surface_inputs_sha256": "e5230e4f938b9c481ef6d486e5dc8b3a91f5b85b90ee8fa7dabba5b5702073bf",
+  "scope": "Technical rendered review after main PR108 reconciliation. All five images inspected directly; dark frontages and generic neighbors remain. Not performance, save/reload, interaction or artistic acceptance.",
+  "surface_inputs_sha256": "7d8d99a179b346c32b6fc32d04011d52423b74ef7393ecf19338bd0317ef2f34",
   "images": [
     {
       "file": "bookcase.png",
-      "sha256": "0376ebb26c6fc6883dafacd766f1fed17664b385a0207a334eec93c8658ffe4b",
+      "sha256": "f25e645a71048d0bd40a393eea7581d1206379c9922f8cae59265034caa2484c",
       "observation": "Current composed interior control: wood framing, dark retained glass and floor grain render. Shelf sparsity and complete room art acceptance are outside this city qualification.",
-      "origin": "Actual pinned-engine fullscreen 3440x1440 qualification_02 capture, inspected directly"
+      "origin": "Actual pinned-engine fullscreen3440x1440 qualification_03 capture after PR108; directly inspected."
     },
     {
       "file": "city_context_HORIZON_NEAR_2_1_P1.png",
-      "sha256": "0b76c56bbe2c7fc0a5c6806f5113074e4bdcb9d9052ebca47f2c0c5f9cb5140b",
+      "sha256": "5d7f6eba56ff58ed72bfbfa121e69ce4def4ffdb1a4c400066d41833efd2e91e",
       "observation": "Actual composed wide daytime frontage: court setbacks, projecting entrances, cornice and neighboring factory visible; no missing draw evident. Facade remains dark. Fixed review camera is not walking/access or artistic acceptance.",
-      "origin": "Actual pinned-engine fullscreen 3440x1440 qualification_02 capture, inspected directly"
+      "origin": "Actual pinned-engine fullscreen3440x1440 qualification_03 capture after PR108; directly inspected."
     },
     {
       "file": "city_context_HORIZON_NEAR_2_1_P2.png",
-      "sha256": "5d34e6ca8367ceb8bc12ecba2ea32fe339db18e29f58fce0e97fb3bc11856246",
+      "sha256": "ff11dd3793ab8232f8f74e10f20fa166b11efdbdb2fba830fe7fe13a7b61cce9",
       "observation": "Actual composed factory and adjoining court: factory tiers, window banks and near return remain visible against sky; dark lighting and generic neighbors remain. Wide 110-degree framing is a diagnostic, not a player pose.",
-      "origin": "Actual pinned-engine fullscreen 3440x1440 qualification_02 capture, inspected directly"
+      "origin": "Actual pinned-engine fullscreen3440x1440 qualification_03 capture after PR108; directly inspected."
     },
     {
       "file": "city_context_HORIZON_NEAR_2_2_P1.png",
-      "sha256": "ce0a9e014ad14221d9bed95f64fd76de5a36387dfa2eee1c96a5d7efb67e3eeb",
+      "sha256": "bb108ecb414341e2b9ff26bd8f3a3a0b944a5039c21722424639bf4a7b6938f6",
       "observation": "Actual composed recessed court frontage and factory: recessed center and projecting wings readable, ground seam visible. Generic neighbor and lighting polish remain open; no stair or court traversal acceptance.",
-      "origin": "Actual pinned-engine fullscreen 3440x1440 qualification_02 capture, inspected directly"
+      "origin": "Actual pinned-engine fullscreen3440x1440 qualification_03 capture after PR108; directly inspected."
     },
     {
       "file": "city_context_HORIZON_NEAR_2_2_P2.png",
-      "sha256": "36b03d950a740201925ac8314216a35ee13fab28482f2dec1132475ab0ebd09b",
+      "sha256": "6d66205f77b061e7ea87a9343ed43a6fb4b38ec978011ce271a74017c4037aa6",
       "observation": "Actual composed court/right neighbor: entry recess, return and neighboring full-height walls visible. Generic adjacent facade and dark exposure remain debt. No claim of finished city or continuous access.",
-      "origin": "Actual pinned-engine fullscreen 3440x1440 qualification_02 capture, inspected directly"
+      "origin": "Actual pinned-engine fullscreen3440x1440 qualification_03 capture after PR108; directly inspected."
     }
   ]
 }

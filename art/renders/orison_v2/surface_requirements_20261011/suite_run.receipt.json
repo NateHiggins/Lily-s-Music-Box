@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 255.66,
+  "elapsed_s": 318.86,
   "exit_code": 0,
-  "finished_utc": "2026-10-31T12:04:36Z",
-  "started_utc": "2026-10-31T12:00:19Z",
+  "finished_utc": "2026-10-31T12:25:40Z",
+  "started_utc": "2026-10-31T12:20:21Z",
   "timed_out": false
  },
  "log": {
@@ -19,21 +19,20 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/city_streets_20261029/eastern_street_01/canonical_court_intake_01/qualification_02/physical.log.stderr",
+  "stderr": "C:/ov/reports/city_streets_20261029/eastern_street_01/canonical_court_intake_01/qualification_03/physical.log.stderr",
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "stdout": "C:/ov/reports/city_streets_20261029/eastern_street_01/canonical_court_intake_01/qualification_02/physical.log",
-  "stdout_sha256": "6c216b56941251e7f400e8515434e9495ddbee1f4a30e9805dc85e321c91fed0"
+  "stdout": "C:/ov/reports/city_streets_20261029/eastern_street_01/canonical_court_intake_01/qualification_03/physical.log",
+  "stdout_sha256": "7f7ce1ddae7b221b5402e5f2bb024f133d958497b1aaf8b66b4595564e3070d2"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\ov\\reports\\city_streets_20261029\\eastern_street_01\\canonical_court_intake_01\\qualification_02\\physical",
+ "shot_dir": "C:\\ov\\reports\\city_streets_20261029\\eastern_street_01\\canonical_court_intake_01\\qualification_03\\physical",
  "source": {
-  "dirty_paths": 661,
+  "dirty_paths": 662,
   "dirty_sample": [
-   "M game/tests/orison_v2_surface_inventory.gd",
    "?? .codex-attachments/",
    "?? game/native/hose_math/hose_math.gdextension.uid",
    "?? game/scripts/building/WeatherManager.gd.uid",
@@ -52,11 +51,12 @@
    "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
    "?? game/scripts/building/orison_v2_c_stove_stack.gd.uid",
    "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
-   "?? game/scripts/building/orison_v2_cage_light_apertures.gd.uid"
+   "?? game/scripts/building/orison_v2_cage_light_apertures.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid"
   ],
-  "repository_head": "be4274aa25ca5bf2f82a1a287c8839742abab13a",
-  "repository_tree": "1b88a131082b998c75323d083a092694cf8460a0",
-  "runtime_inputs_sha256": "362840d38038378dcd8f824c4e5de3dc76dd4c0c02e225a55ebb8ef2df906358",
+  "repository_head": "125ad63961485840c653c43961e36ede1735922d",
+  "repository_tree": "2abe0b6e576060e2a1a37ffa1fa06335cd2287e5",
+  "runtime_inputs_sha256": "3155a6a8e62663dca9dcb1cfae3c68f90da3ae4ca4201231421866d220af9390",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "2827e9997efabc822023b42da5c48e4c2a218b472b5f4c3a9b5d11b043ece5bd"
  },
