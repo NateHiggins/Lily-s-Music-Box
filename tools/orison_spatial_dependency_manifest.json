@@ -324485,6 +324485,103 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "3d5449bcc442185f",
+   "kind": "vector3_coordinate",
+   "token": "_ready",
+   "file": "game/tests/v2_background_window_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    77,
+    84,
+    85,
+    87,
+    88
+   ],
+   "count": 5,
+   "context": [
+    "camera.position = Vector3(0, 0, 25)",
+    "camera.position = Vector3(-12, 0.6, 6)",
+    "camera.look_at(Vector3(-10, 0, 0))",
+    "camera.position = Vector3(-10.7, 0.2, 3.1)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "550a73ed4ff30913",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_window_city_night_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d0eb555fa7daa397",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/v2_window_city_night_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    66
+   ],
+   "count": 1,
+   "context": [
+    "camera.global_position = world.adapter.root.to_global(Vector3(14, 22.8, -9))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

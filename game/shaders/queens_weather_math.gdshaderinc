@@ -311,7 +311,9 @@ vec3 wx_haze_color(vec3 to_sun) {
 	float gold=(1.0-smoothstep(0.06,0.35,abs(to_sun.y)))*smoothstep(-0.12,0.03,to_sun.y);
 	vec3 sepia=mix(vec3(0.24,0.19,0.14),vec3(0.92,0.39,0.095),gold);
 	sepia=mix(sepia,vec3(0.17,0.20,0.24),max(wx_cyclone,severe_storm_threat)*0.88);
-	return mix(mix(sepia,vec3(0.78,0.83,0.88),wx_whiteout),vec3(.28,.065,.17),wx_blood_rain*.8);
+	vec3 haze=mix(mix(sepia,vec3(0.78,0.83,0.88),wx_whiteout),vec3(.28,.065,.17),wx_blood_rain*.8);
+	// Extinction persists at night, but unlit coal haze cannot radiate daylight.
+	return haze*mix(.035,1.0,smoothstep(-.18,.03,to_sun.y));
 }
 float wx_height_tau(float camera_y_m,float ray_y,float distance_m,float density_m_inv,float scale_height_m) {
 	float a=ray_y*distance_m/max(scale_height_m,0.1);

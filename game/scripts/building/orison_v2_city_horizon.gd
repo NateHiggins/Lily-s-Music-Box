@@ -1,6 +1,11 @@
 extends Node3D
 ## Passive stock in the retained building/grade frame and temporary walk radius.
 const FINISHES := "res://data/orison_v2/exterior/city_horizon.json"
+const WindowOptics := preload("res://scripts/building/v2_background_window_material.gd")
+var _window_materials: Dictionary = {}
+var _window_clock := CampaignClock.new()
+var _window_check_left := 0.0
+var _window_minute := -INF
 
 func _ready() -> void:
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(FINISHES))
@@ -24,6 +29,7 @@ func _ready() -> void:
 				lower_parts[str(draw.name)]=draw
 		assert(lower_parts.size()==replacement.parts.size())
 	var replaced:=0
+	var optical_usec := 0
 	var materials: Dictionary = {}
 	var roof_finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd").new()
 	# Every block's chimney cap is the top of its limestone stock: St. Elmo's tips.
@@ -62,6 +68,19 @@ func _ready() -> void:
 					stock.roughness = .45
 				materials[cache_key] = stock
 			draw.material_override = materials[cache_key]
+			if key == "mirror_aged":
+				var optical_started := Time.get_ticks_usec()
+				var kind := WindowOptics.kind_for(str(profile.get("window_typology", "walkup")))
+				if not _window_materials.has(kind):
+					var optical: ShaderMaterial = WindowOptics.create("city-type-%d" % kind, kind, Vector2(1.2, 1.8))
+					optical.set_shader_parameter("optical_vertex_data", true)
+					optical.set_shader_parameter("glass_tint", Vector3(.16, .20, .23))
+					_window_materials[kind] = optical
+				draw.set_meta("v2_window_source_mesh", draw.mesh)
+				draw.set_meta("v2_window_source_material", materials[cache_key])
+				draw.mesh = WindowOptics.project(draw.mesh, identity)
+				draw.material_override = _window_materials[kind]
+				optical_usec += Time.get_ticks_usec() - optical_started
 			if key == "galvanized_roof":
 				draw.set_meta("v2_city_roof_source",materials[cache_key])
 				draw.material_override = roof_finishes.material_for(materials[cache_key],"roof")
@@ -78,6 +97,22 @@ func _ready() -> void:
 	assert(replaced==lower_parts.size())
 	for lower: Node3D in lower_roots:lower.free()
 	add_child(StElmo.new(tips, 2.6))
+	set_meta("window_optical_preparation_ms", float(optical_usec) / 1000.0)
+	_refresh_windows()
+
+func _process(delta: float) -> void:
+	_window_check_left -= delta
+	if _window_check_left > 0.0: return
+	_window_check_left = 0.25
+	_refresh_windows()
+
+func _refresh_windows() -> void:
+	if not _window_clock.bind_state(): return
+	var minute := floorf(_window_clock.calendar_minutes())
+	if minute == _window_minute: return
+	for material: ShaderMaterial in _window_materials.values():
+		WindowOptics.sync_clock(material, _window_clock)
+	_window_minute = minute
 
 static func asset_paths(source: Dictionary, include_lower: bool=true) -> Array[String]:
 	var result: Array[String]=[]

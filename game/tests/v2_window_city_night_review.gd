@@ -70,10 +70,18 @@ func run() -> void:
 	var horizon: Node3D = world.get_node("CityShells/CityHorizon") if world.has_node("CityShells/CityHorizon") else world.find_child("CityHorizon", true, false)
 	check(horizon != null, "production horizon mounted")
 	var bindings := 0
+	var seen_materials := {}
 	if horizon != null:
+		record["optical_preparation_ms"] = horizon.get_meta("window_optical_preparation_ms", -1)
 		for draw: MeshInstance3D in horizon.find_children("*", "MeshInstance3D", true, false):
 			if not str(draw.name).ends_with("__mirror_aged"): continue
 			check(draw.material_override is ShaderMaterial and draw.material_override.shader.resource_path.ends_with("v2_background_window_interior.gdshader"), "installed optical binding " + str(draw.name))
+			if draw.material_override is ShaderMaterial and not seen_materials.has(draw.material_override.get_instance_id()):
+				seen_materials[draw.material_override.get_instance_id()] = true
+				check(is_equal_approx(float(draw.material_override.get_shader_parameter("minute_of_day")), clock.minute_of_day()), "installed windows read authoritative frozen clock")
+				for key in ["glass_albedo", "glass_roughness", "glass_normal", "wall_albedo", "wood_albedo"]:
+					var texture: Texture2D = draw.material_override.get_shader_parameter(key)
+					check(texture != null and texture.get_image().has_mipmaps(), "installed optical map has loaded mips " + key)
 			var source: Mesh = draw.get_meta("v2_window_source_mesh", null)
 			check(source != null, "original physical pane retained")
 			if source != null:
@@ -85,6 +93,8 @@ func run() -> void:
 			bindings += 1
 	check(bindings > 50, "background windows installed across the city")
 	record["window_draw_bindings"] = bindings
+	record["shared_window_materials"] = seen_materials.size()
+	record["world_startup_ms"] = world.startup_ms
 	var sky: ShaderMaterial = world.get_node("WakingAtmosphere").sky_material
 	check(sky.get_shader_parameter("moon_relief_enabled") == true, "production relief Moon enabled")
 	var moon: Vector3 = selected.moon

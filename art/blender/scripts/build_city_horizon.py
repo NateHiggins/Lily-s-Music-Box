@@ -304,6 +304,7 @@ runtime=ROOT/'game/data/orison_v2/exterior/city_horizon.json'
 runtime_rows=[]
 for row in all_rows:
     profile={k:row[k] for k in ['id','wall_key','wall_tint']}
+    profile['window_typology']=row['typology']
     if 'joinery_tint' in row:profile['joinery_tint']=row['joinery_tint']
     runtime_rows.append(profile)
 def runtime_asset(asset):

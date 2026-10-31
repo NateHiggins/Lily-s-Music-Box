@@ -15162,5 +15162,199 @@
         "checks": 1545
       }
     }
+  },
+  "window_optics_review": {
+    "path": "art/reviews/city_streets_20261029/window_optics_review.zip",
+    "sha256": "36652f539d63eeb170b75c098b336700961ff554740e87acc0476cc2a32440f1",
+    "bytes": 4284124,
+    "members": 46,
+    "evidence_class": "INERT",
+    "scope": "Installed124 background-window draws; three shared materials; actual1929-02-23T19:30 posed Orison-roof100degree/65degree views; original dim-Moon reference retained. No walked route,full-surface qualification,annual sky or artistic acceptance. Original static-board regression and focused disposition retained.",
+    "files": {
+      "before_night_radiance/game/shaders/queens_weather_math.gdshaderinc": {
+        "bytes": 15582,
+        "raw_sha256": "923bfaa907e5b904d00d90c01039542bd571b19f8abfa604f6f14cdca3bed7b4"
+      },
+      "before_night_radiance/game/shaders/queens_weather_sky.gdshader": {
+        "bytes": 27022,
+        "raw_sha256": "29404fd4409dcad37176d7e496c4ed769b5fbf0f8dc585b1c7d29ad939956963"
+      },
+      "city01/night_review.json": {
+        "bytes": 3110,
+        "raw_sha256": "b2a539aed922a893281033ad8cd8421e5de0b38f2c32980a9a6b882a5f04bb6f"
+      },
+      "city01/orison_starlit_city_moon.png": {
+        "bytes": 1464630,
+        "raw_sha256": "be51721b1bb9a946a9d3946aee1bc9290d2053facca257c3fafa2f06dd4377d0"
+      },
+      "city02/night_review.json": {
+        "bytes": 3101,
+        "raw_sha256": "ac8af9e479c24eeb193cdb52bfd618cee97abe067e38f60df2e1e37557276d9f"
+      },
+      "city02/orison_starlit_city_detail.png": {
+        "bytes": 1247794,
+        "raw_sha256": "e583d31f57fd828c184a4de2b058750bc6a64a6abd28c7ac0b2c94c4256b9e88"
+      },
+      "city02/orison_starlit_city_moon.png": {
+        "bytes": 1461734,
+        "raw_sha256": "aa28b98ac7b236ef5782d389fac8b4264c4cadc25d941a45c6b6b7b9b8bef0a8"
+      },
+      "gate_board/board.json": {
+        "bytes": 170077,
+        "raw_sha256": "9d58db31ac2fcb1f9f3006584f516b61cdfe5e7ba66fc0764a34eacfe6a3f66d"
+      },
+      "gate_board/board.md": {
+        "bytes": 9245,
+        "raw_sha256": "f94d8d29a398383a509f7e177e886226b2478ea2162712061967bd3c635229af"
+      },
+      "import_churn.json": {
+        "bytes": 14491,
+        "raw_sha256": "58b23584afe4e2b448fe160e786262831bcd0baacdd8fe746ab4212717f51ef1"
+      },
+      "installed_source/design/V2_BACKGROUND_WINDOW_OPTICS_2026-10-31.md": {
+        "bytes": 10400,
+        "raw_sha256": "57d3282796fa0cc177ed19f0bb36762d02e6ec34eb306dbf2d80b82fcf1142cd"
+      },
+      "installed_source/game/scripts/building/orison_v2_city_horizon.gd": {
+        "bytes": 10443,
+        "raw_sha256": "e5bbdc969394e2d1b0177be204502fcefcc27c52027b1788a82814a38c9e3ca6"
+      },
+      "installed_source/game/scripts/building/v2_background_window_material.gd": {
+        "bytes": 5502,
+        "raw_sha256": "ca1b9bde8124c9d76ad87b1ebbe0d3e5ea68259bda4a60b3c847a532a164ad1e"
+      },
+      "installed_source/game/shaders/queens_weather_math.gdshaderinc": {
+        "bytes": 16044,
+        "raw_sha256": "53cdc12354440920c695b615942d2a9a27912455aad1706f002db9a14120d0e8"
+      },
+      "installed_source/game/shaders/queens_weather_sky.gdshader": {
+        "bytes": 27051,
+        "raw_sha256": "9be786e036e4c37cb97e684d5b53077061b7f8089f5bfa8f0585a1a1fb59cb38"
+      },
+      "installed_source/game/shaders/v2_background_window_interior.gdshader": {
+        "bytes": 8182,
+        "raw_sha256": "402ce7526ba928724d0b4dd463e6252d29c17052de08785b261b7dc95766aeba"
+      },
+      "installed_source/game/tests/v2_window_city_night_review.gd": {
+        "bytes": 7449,
+        "raw_sha256": "45c4e57c63cb82d1939fc3d0336417361134388cca3030b7b5426fb2b1a3b823"
+      },
+      "reconcile_sources.py": {
+        "bytes": 4384,
+        "raw_sha256": "fcf5b7ff5521bbdff21022170b759046af542eb5f26b83bf38a1e5e2cc12b2a2"
+      },
+      "runs/city01.log": {
+        "bytes": 4684,
+        "raw_sha256": "30a34e001cab95d93475e237c117ccde4e0a5da7b6d31cdd083f23be6a7cddf2"
+      },
+      "runs/city01.log.receipt.json": {
+        "bytes": 2891,
+        "raw_sha256": "0733e7cc5d2ac512485410433176625e146d1526ff9cc93cfe6561272d60c326"
+      },
+      "runs/city01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runs/city02.log": {
+        "bytes": 4675,
+        "raw_sha256": "f90c07915c9799cb2b6621af2f2b2188b54b6db73dfe1f491e1be1e1b83a4057"
+      },
+      "runs/city02.log.receipt.json": {
+        "bytes": 2887,
+        "raw_sha256": "1156526002a6852091dba09d82e5b1a791309495ccdb378c79ac8319fa008ca6"
+      },
+      "runs/city02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runs/compile01.log": {
+        "bytes": 391,
+        "raw_sha256": "c748273269de79278bac0d9dc1c6a7bbf41c40b0dd75b4052402c84b3c05e9b1"
+      },
+      "runs/compile01.log.receipt.json": {
+        "bytes": 3417,
+        "raw_sha256": "d8efcd50495fd8c959a1fb99e8a205543953e9629666db1bf534c2beedb17fc1"
+      },
+      "runs/compile01.log.stderr": {
+        "bytes": 1403,
+        "raw_sha256": "e91651c8a1c46d033d832d45701b3814fa6259bc94ef3af106cb07db4a792a7e"
+      },
+      "runs/compile02.log": {
+        "bytes": 383,
+        "raw_sha256": "444784527b0647e32a93adea6fe390738feffad15e5d35a76e433d4018802765"
+      },
+      "runs/compile02.log.receipt.json": {
+        "bytes": 2921,
+        "raw_sha256": "21e6db3798a24bec952ab296224168d5b80542028484daea6148d44df8bb3661"
+      },
+      "runs/compile02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runs/family03.log": {
+        "bytes": 1537,
+        "raw_sha256": "4feb14ccc98c9343958c5a1ad5b564eb333257d7f51d00ee1345e8341c1b9e6e"
+      },
+      "runs/family03.log.receipt.json": {
+        "bytes": 2897,
+        "raw_sha256": "cbcdb7b315718046861852fc282f0dbb9217df49f097dd2b1667d7372278d265"
+      },
+      "runs/family03.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runs/import02.log": {
+        "bytes": 111835,
+        "raw_sha256": "2ad5d291c83af037248e2cb398be1208bc0339057c402f07edb969505105852f"
+      },
+      "runs/import02.log.receipt.json": {
+        "bytes": 2708,
+        "raw_sha256": "9b38d17846c06ddc987486fa0e5c852826066b4880382ce89eccd704c376782e"
+      },
+      "runs/import02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "runs/preflight01.log": {
+        "bytes": 177,
+        "raw_sha256": "5be560a7058d3407d1d4d92891903ad63f1db17e06fbddd511ccecee4b358b22"
+      },
+      "runs/preflight01.log.receipt.json": {
+        "bytes": 2853,
+        "raw_sha256": "45fb3b036d39bd9bbcde7f1c1ecc4e47b6bc5319296aa5aafeae164587a17251"
+      },
+      "runs/preflight01.log.stderr": {
+        "bytes": 1836,
+        "raw_sha256": "0c8b996290ad8c3c740a1a23c2cb2e5b6fdb39566e8222d3cadc69612390c51b"
+      },
+      "runs/preflight02.log": {
+        "bytes": 1535,
+        "raw_sha256": "324c0dbc93b75959ec630be939c131ece95d509bb588840b92a223d7e27f253d"
+      },
+      "runs/preflight02.log.receipt.json": {
+        "bytes": 2767,
+        "raw_sha256": "2c376ad8be1a8119b179626a7992b57352084ea56650a03bb7d3df32eea147e6"
+      },
+      "runs/preflight02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "source_reconciliation.json": {
+        "bytes": 74524,
+        "raw_sha256": "35c1268597ace8bf69ef2e1a0dc00f9001ca11949d24a1efcc430109629be6e5"
+      },
+      "spatial01.json": {
+        "bytes": 4139,
+        "raw_sha256": "2529803f86121e1149e1b6366bd319387c60472cf48e1d07c23015ac9894d3bb"
+      },
+      "spatial02.json": {
+        "bytes": 1771,
+        "raw_sha256": "06816b576d9945ef53a62ffbf693fa9bddcba85e1ead1b20b3370f01e4a96734"
+      },
+      "static_disposition.json": {
+        "bytes": 2831,
+        "raw_sha256": "28623520b8884d1f52e9879b2501ad09daf526fbacf5bfb3bfdb154ef00f04c8"
+      }
+    }
   }
 }

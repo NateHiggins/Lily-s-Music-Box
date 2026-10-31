@@ -62,6 +62,15 @@ func run() -> void:
 				var reduces: bool=int(lower_counts[str(draw.name)])*3<draw.mesh.surface_get_array_index_len(0)
 				check(lods.size()==1 if reduces else lods.is_empty(),"authored replacement without automatic industrial tail: "+str(draw.name))
 				var loaded: Material=draw.get_meta("v2_city_roof_source",draw.material_override)
+				if draw.has_meta("v2_window_source_material"):
+					var optical := draw.material_override as ShaderMaterial
+					var glazing := draw.get_meta("v2_window_source_material") as StandardMaterial3D
+					check(optical != null and optical.shader == preload("res://shaders/v2_background_window_interior.gdshader"), "known background optical shader")
+					if optical != null and glazing != null:
+						for pair in [["glass_albedo", glazing.albedo_texture], ["glass_roughness", glazing.roughness_texture], ["glass_normal", glazing.normal_texture]]:
+							check(optical.get_shader_parameter(pair[0]) == pair[1], "optical glazing samples original catalogue map")
+						check(optical.get_shader_parameter("physical_uv_scale") == Vector2(glazing.uv1_scale.x, glazing.uv1_scale.y), "optical glazing retains physical chart scale")
+					loaded = glazing
 				var stock:=loaded.get_meta("v2_weather_source",loaded) as StandardMaterial3D
 				check(stock!=null and not stock.uv1_triplanar,"industrial source-owned authored material: "+str(draw.name))
 				if stock!=null:

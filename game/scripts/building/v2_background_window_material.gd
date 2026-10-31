@@ -107,6 +107,8 @@ static func project(source: Mesh, building_identity := "") -> ArrayMesh:
 			Mesh.ARRAY_CUSTOM_RGBA_FLOAT << Mesh.ARRAY_FORMAT_CUSTOM0_SHIFT)
 		result.surface_set_material(surface, source.surface_get_material(surface))
 	result.set_meta("optical_faces", pane_count)
+	if source is ArrayMesh:
+		result.shadow_mesh = source.shadow_mesh
 	return result
 
 static func _root(parents: PackedInt32Array, index: int) -> int:

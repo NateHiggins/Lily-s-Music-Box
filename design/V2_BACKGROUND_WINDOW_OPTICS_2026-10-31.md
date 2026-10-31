@@ -99,3 +99,73 @@ pwsh -File tools/lane.ps1 run -Scene res://tests/V2BackgroundWindowBench.tscn -R
 The bench requests native fullscreen, does not capture the mouse, and exits
 after its bounded captures and timing samples. It does not mount the city or
 modify campaign state. Do not treat a wrapper exit alone as visual acceptance.
+
+## Installed city and rooftop review — later on October 31
+
+Lily subsequently requested installation and a starlit rooftop photograph.
+The frozen city export checkpoint **1d62881e** and its evidence-only follow-up
+**57cb7e78** were merged, preserving their distinct native and rendered scopes.
+The horizon loader now installs the optical shader on its 124 opaque background
+window draws using three shared materials: dwelling, office and workshop.
+Builder-derived **window_typology** carries the existing building typology into
+runtime metadata; it introduces no occupied programme or resident facts.
+
+Private runtime meshes add only optical UV2 and float CUSTOM0 attributes.
+Original positions, metric UV0, index arrays and LOD index bytes were compared
+on every installed window draw in the composed world. Original collision meshes
+and shadow meshes remain with their owners. A quarter-second bounded clock
+check republishes three materials only when the authoritative minute changes.
+No per-window processing, lights, viewports or persistent state were introduced.
+
+**city01** and **city02** completed through the pinned Vulkan lane with empty
+failure lists and empty shutdown stderr. Both selected the authored clear
+evening of **1929-02-23 at 19:30**, with lunar illumination **0.996588**. The
+camera is posed above the Orison roof at world **(-14,22.8,-2.650001)**; a real
+floor query checks the roof below it. No walked rooftop-access claim is made.
+The normal device overlay and personal lamp are hidden only for photography.
+The 100-degree horizontal view and 65-degree companion view are native
+3440 by 1440 renders. Loaded optical map mipmaps, shader bindings and campaign
+clock uniforms were checked. These remain INERT optical diagnostics, not a
+schema-2 runtime qualification or Lily's artistic acceptance.
+
+The original photograph revealed unlit coal haze radiating its daytime sepia
+value at night and lunar albedo multiplied by the old dim source gain. Two
+bounded shader corrections now scale haze radiance by solar elevation and
+increase the phase-lit lunar-disc radiance. Density, ephemeris, lunar relief,
+shadows, angular scale and the sun's disc term remain unchanged. Daytime haze
+above the +0.03 solar-Y boundary is algebraically unchanged. Both original
+and corrected photographs are retained; the corrected views were inspected.
+This is a focused night review, not renewed annual weather qualification.
+
+Projection preparation took **838.184 / 778.740 ms** during **136.270 / 130.706 s**
+world startup. Different startup samples do not establish a speedup or a frame
+budget. The family bench also exercises optical projection while comparing
+physical attributes and original LOD bytes. Its original invalid CUSTOM0 input
+and the capture script's inferred-type failure remain in the external logs;
+the corrected import, compilation and family checks passed before composition.
+
+**C:/ov/reports/window_install_20261031/** holds the original receipts, failures,
+source-projection reconciliation and full captures. The committed
+**art/reviews/city_streets_20261029/window_optics_review.zip** retains selected
+original and final evidence without adding loose image files to the game.
+The native metadata renewal proves all 34 GLB hashes unchanged, the builder AST
+unchanged except the typology projection, runtime metadata unchanged except
+that field, and original loader statements retained. Only eight declared
+horizon/street source bindings were renewed; 118 fixture preflights introduced
+no new source errors. No historical runtime receipt was repinned.
+The broader scan still reports pre-existing source errors in 97 fixture records;
+this reconciliation does not waive or repair that unrelated debt.
+
+Remaining limits are installed street/telescope/LOD-transition artistic review,
+matched occupied-world frame distributions and full surface/weather receipt
+renewal. Analytic furniture remains deliberately simple. New development pauses
+again after this requested installation/capture checkpoint.
+
+The full 119-gate static board was executed and retained. Against the
+architect-only baseline it reports three incidental test-camera references and
+an additional stale surface-test binding. The three references were subsequently
+registered without replacing existing manifest records. The surface-test file
+is LF-byte-identical to pre-install **f0bf4491**: that stale binding predates this
+installation on the integration branch. The original board is not rewritten or
+called green. Existing whole-game gate failures, source debt and runtime
+qualification remain open; this checkpoint is not merged into main as accepted V2.
