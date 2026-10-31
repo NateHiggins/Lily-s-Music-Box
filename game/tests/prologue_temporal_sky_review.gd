@@ -272,7 +272,7 @@ func compact_sequence(_initial_target:Dictionary) -> void:
 		var open_deadline:=Time.get_ticks_msec()+4000
 		while not carrier.rig.typing_ready() and Time.get_ticks_msec()<open_deadline:await frames(1)
 		check(carrier.rig.typing_ready(),"entry repair control uses a genuinely opened reading keyboard")
-		var started:=director.begin_temporal_sky()
+		var started:bool=director.begin_temporal_sky()
 		check(not started and player.text_input_owner==null,"open keyboard entry waits for real stow without taking input")
 		var end:=Time.get_ticks_msec()+4000
 		while not started and Time.get_ticks_msec()<end:
