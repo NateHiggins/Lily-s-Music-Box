@@ -86,6 +86,23 @@ class LaneQueueTests(unittest.TestCase):
         now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(time.time() + 60))
         self.assertEqual(self.queue_of({"me": {"pid": me, "scene": "x", "worktree": "", "since_utc": now}}), [me])
 
+    def test_a_departing_waiter_can_disappear_after_enumeration(self):
+        me = os.getpid()
+        now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(time.time() + 60))
+        self.queue_of({"live": {"pid": me, "scene": "live", "worktree": "", "since_utc": now}})
+        folder = self.state / "Orison/waiters"
+        # Return an enumerated entry whose broker has already removed it.
+        # A deterministic snapshot avoids relying on a filesystem timing race.
+        script = (f". '{TOOLS / 'lane_common.ps1'}'; "
+                  "function Get-ChildItem { "
+                  f"[System.IO.FileInfo]::new('{folder / 'departed.json'}'); "
+                  f"[System.IO.FileInfo]::new('{folder / 'live.json'}') }}; "
+                  "@(Get-OrisonLaneQueue) | ForEach-Object { $_.pid }")
+        result = subprocess.run(["pwsh", "-NoProfile", "-Command", script], env=self.env,
+                                capture_output=True, text=True, check=True)
+        self.assertEqual(result.stdout.split(), [str(me)])
+        self.assertEqual(result.stderr, "")
+
     def test_a_direct_runner_refuses_while_anyone_is_queued(self):
         me = os.getpid()
         now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(time.time() + 60))

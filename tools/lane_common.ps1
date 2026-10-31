@@ -37,7 +37,9 @@ function Get-OrisonLaneQueue {
     if (-not (Test-Path -LiteralPath $waitDir)) { return @() }
     $live = foreach ($file in Get-ChildItem -LiteralPath $waitDir -Filter "*.json" -ErrorAction SilentlyContinue) {
         try {
-            $record = Get-Content -LiteralPath $file.FullName -Raw | ConvertFrom-Json -DateKind String
+            # A departing broker may remove its record after enumeration.
+            # Make that read error terminating so the existing catch skips it.
+            $record = Get-Content -LiteralPath $file.FullName -Raw -ErrorAction Stop | ConvertFrom-Json -DateKind String
             $since = [datetime]::Parse($record.since_utc, [cultureinfo]::InvariantCulture,
                 [System.Globalization.DateTimeStyles]::AssumeUniversal -bor [System.Globalization.DateTimeStyles]::AdjustToUniversal)
             $process = Get-Process -Id $record.pid -ErrorAction SilentlyContinue
