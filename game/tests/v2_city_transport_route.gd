@@ -118,6 +118,8 @@ func _run_southern_laurel() -> void:
 		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		var city:=world.get_node("CityShells") as Node3D
 		city_observations["startup_ms"]=world.startup_ms
+		city_observations["startup_milestones"]=world.startup_milestones.duplicate(true)
+		city_observations["startup_milestone_scope"]="Cumulative wall-clock boundaries, including any cooperative yields and host contention. Differences locate startup intervals; they do not separately measure script CPU, renderer, physics or shader compilation. No claimed speedup."
 		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"screen_refresh_hz":DisplayServer.screen_get_refresh_rate()}
 		_check_frontage_surfaces(city,["site_back_e","site_nbr_s2","site_se2"],30,"southern_laurel_surfaces")
 		var recoveries_before: int=int(world.safety_net.recoveries)

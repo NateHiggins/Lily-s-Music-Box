@@ -4498,3 +4498,15 @@ interrupted. The author's local loaded check remains separately queued, and the
 combined seven-leg composed route waits for that result. No new runtime pass,
 surface renewal, tally promotion, save qualification or artistic acceptance is
 claimed by this intake.
+
+The pending combined route also records twelve bounded startup milestones from
+the existing runtime controller: layout, domestic fittings, exterior entry,
+street/arcade/bar, city shells and transport, horizon, remaining exterior,
+companion setup, remaining authorities, fixed-light services, finish/UV policy
+and completion. These are cumulative monotonic wall timestamps with engine
+frame counters, not separate script CPU/GPU/physics/shader timings. They add no
+timer, yield, state writer or extra world run. The retained cardinal run recorded
+139,662.345ms startup but did not identify its expensive interval; the new
+observations are prepared to locate it in the next already-required city run.
+Spatial audit stays clean and reader NEW0. Compilation and runtime measurement
+remain queued; no startup improvement is claimed from these authored probes.

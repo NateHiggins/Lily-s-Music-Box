@@ -92,6 +92,9 @@ var elevator: Node = null
 var startup_failed := false
 var startup_failure_reason := ""
 var startup_ms := 0.0
+# Bounded, observational startup milestones; never a gameplay or save clock.
+var startup_milestones: Array[Dictionary] = []
+var _startup_started_usec := 0
 var _contact_precision:=preload("res://scripts/building/v2_contact_precision.gd").new()
 var adapter
 var _blockout: Node3D
@@ -135,6 +138,8 @@ func _ready() -> void:
 		startup_failure_reason = "missing or invalid street coordinate frame"
 		return
 	var started := Time.get_ticks_usec()
+	_startup_started_usec=started
+	startup_milestones.clear()
 	var contact_precision := preload("res://scripts/building/orison_v2_contact_precision.gd").new()
 	contact_precision.name="V2ContactPrecision"
 	add_child(contact_precision)
@@ -212,9 +217,11 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: acoustic binding failed: "+str(acoustic_topology.errors))
 		return
+	_record_startup_milestone("layout_wayfinding_acoustics_ready")
 	await _compose_authorities()
 	if startup_failed:
 		return
+	_record_startup_milestone("all_authorities_ready")
 	elevator = preload("res://scripts/building/orison_v2_elevator.gd").new().mount(adapter, layout)
 	if elevator == null:
 		startup_failed = true
@@ -268,6 +275,7 @@ func _ready() -> void:
 		push_error("V2 native cage-light aperture refused: %s" % [cage_apertures.errors])
 		return
 	adapter.root.set_meta("v2_cage_light_apertures",cage_apertures)
+	_record_startup_milestone("lift_ventilation_drainage_and_fixed_lighting_ready")
 	var lamp_air := preload("res://scripts/building/orison_v2_lamp_atmosphere.gd").new()
 	lamp_air.name = "LampAtmosphere"
 	add_child(lamp_air)
@@ -282,6 +290,7 @@ func _ready() -> void:
 	var uv_policy := preload("res://scripts/building/orison_v2_uv_material_policy.gd").new()
 	uv_policy.name = "V2UVMaterialPolicy"; add_child(uv_policy)
 	uv_policy.setup(self)
+	_record_startup_milestone("owner_finishes_embedded_stock_and_uv_policy_ready")
 	atmosphere.bind_weather(self)
 	bathroom_moisture=preload("res://scripts/building/v2_bathroom_moisture.gd").new()
 	bathroom_moisture.name="BathroomMoisture";add_child(bathroom_moisture)
@@ -301,7 +310,12 @@ func _ready() -> void:
 	add_child(structural_occlusion)
 	structural_occlusion.setup(_blockout)
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
+	_record_startup_milestone("startup_complete")
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
+
+func _record_startup_milestone(stage: String) -> void:
+	if _startup_started_usec<=0:return # Isolated helpers have no startup origin.
+	startup_milestones.append({"stage":stage,"wall_ms_since_start":(Time.get_ticks_usec()-_startup_started_usec)/1000.,"physics_frame":Engine.get_physics_frames(),"process_frame":Engine.get_process_frames()})
 
 ## Called by the existing onboarding owner. Returning true reserves startup
 ## even while composition/input is busy; never fall back to the old curb spawn.
@@ -429,6 +443,7 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: domestic fittings refused: %s" % [fittings.errors])
 		return
+	_record_startup_milestone("domestic_doors_bathroom_and_fittings_ready")
 	var completion := preload("res://scripts/building/orison_v2_completion_interiors.gd").new()
 	if not completion.mount(adapter,layout,self):
 		startup_failed = true
@@ -559,6 +574,7 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: exterior composition failed")
 		return
+	_record_startup_milestone("exterior_complete")
 	vantry_points.bind_player(player)
 	service_set_carrier = preload("res://scripts/device/companion_world_carrier.gd").new()
 	service_set_carrier.name = "ServiceSetCarrier"
@@ -568,6 +584,7 @@ func _compose_authorities() -> void:
 		startup_failure_reason = str(service_set_carrier.get("failure"))
 		return
 	player.carried_device = service_set_carrier
+	_record_startup_milestone("companion_setup_ready")
 	player.set_lamp_enabled(true)
 	call_interface = CallInterface.new()
 	call_interface.name = "CallInterface"
@@ -982,6 +999,7 @@ func debug_destinations() -> Dictionary:
 	return destinations
 
 func _compose_exterior() -> bool:
+	_record_startup_milestone("exterior_begin")
 	public_regions=preload("res://scripts/building/orison_v2_public_region_programmes.gd").new()
 	if not public_regions.configure(_exterior_resolver):return false
 	shop_service = preload("res://scripts/game/v2_maintenance_shop_service.gd").new()
@@ -1053,13 +1071,16 @@ func _compose_exterior() -> bool:
 		return false
 	if not passage_region.receiving_row.bind_registered_graph():
 		return false
+	_record_startup_milestone("street_arcade_bar_and_receiving_ready")
 	var city_shells := preload("res://scripts/building/orison_v2_city_shells.gd").new()
 	city_shells.name = "CityShells"
 	add_child(city_shells)
+	_record_startup_milestone("city_shells_roof_equipment_transport_and_streets_ready")
 	var horizon := preload("res://scripts/building/orison_v2_city_horizon.gd").new()
 	horizon.name = "CityHorizon"
 	horizon.transform = city_shells.global_transform.affine_inverse() * _blockout.global_transform
 	city_shells.add_child(horizon)
+	_record_startup_milestone("city_horizon_ready")
 	var bridge_started:=Time.get_ticks_usec()
 	var bridge:=preload("res://scripts/building/orison_v2_city_bridge.gd").mount(city_shells)
 	if bridge==null:return false
