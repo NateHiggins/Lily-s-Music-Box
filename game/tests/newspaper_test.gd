@@ -86,7 +86,7 @@ func _run() -> void:
 	await get_tree().process_frame
 	var texts := _texts(panel)
 	_check("the panel prints masthead, lead and wire",
-			texts.has("THE LOUD SPEAKER") and texts.has("HOOVER WINS BY A HAIR, LOSES BY A WIRE")
+			_set_in(texts, "THE LOUD SPEAKER") and texts.has("HOOVER WINS BY A HAIR, LOSES BY A WIRE")
 			and texts.any(func(t): return str(t).begins_with("LATE WIRE:")))
 	_check("the panel prints three column heads",
 			texts.count("TWO MINUTES' SILENCE: QUEENS TO HOLD ITS BREATH, THEN PLAY IT BACK") == 1
@@ -128,6 +128,62 @@ func _run() -> void:
 			and (rack.interact_control("knock", null) as Dictionary).is_empty())
 
 	await _input_ownership(catalog)
+	await _pictures(catalog)
+
+
+## The new pages: pictures are optional, and turning reaches a Sunday's third side.
+func _pictures(catalog: NewspaperCatalog) -> void:
+	CampaignClock.new().configure_date(1929, 11, 9, 20 * 60)
+	var printed := func(panel: NewspaperPanel) -> Array:
+		return panel._page.find_children("*", "TextureRect", true, false).filter(
+				func(cut): return cut.material is ShaderMaterial and cut.material.shader == NewspaperTypesetter.PRINT_SHADER)
+	var panel := NewspaperPanel.new()
+	add_child(panel)
+	panel.open(null, catalog, "speaker", "1929-09-21")
+	await get_tree().process_frame
+	var texts := _texts(panel)
+	var front_picture := catalog.front_picture("speaker", "1929-09-21")
+	_check("a Speaker front prints its picture and caption", printed.call(panel).size() >= 2 and texts.has(str(front_picture.caption)))
+	_check("every word of the lead is still on the page", _set_in(texts, str(catalog.issue("speaker", "1929-09-21").lead.body)))
+	panel._show("record", "1929-04-21")
+	await get_tree().process_frame
+	texts = _texts(panel)
+	_check("the Record sets its name in full and a portrait with its lead", texts.has("The Borough Record")
+			and texts.has(str(catalog.front_picture("record", "1929-04-21").caption)))
+	_check("a lead cut into two columns keeps its words", _set_in(texts, str(catalog.issue("record", "1929-04-21").lead.body)))
+	panel._show("record", "1928-11-10")
+	await get_tree().process_frame
+	_check("a day with no picture still sets a whole page", catalog.front_picture("record", "1928-11-10").is_empty()
+			and _set_in(_texts(panel), str(catalog.issue("record", "1928-11-10").lead.body)))
+	_check("an ear's forecast finds its woodcut", catalog.weather_block("Rain. High 44.").ends_with("weather_rain.webp")
+			and catalog.weather_block("Fair and cold.").ends_with("weather_cold.webp")
+			and catalog.weather_block("Nothing to report.").ends_with("weather_cloud.webp"))
+	panel._show("speaker", "1929-08-24", "back")
+	await get_tree().process_frame
+	_check("a Saturday's back runs the photo drama over the advertising", panel._page.find_child("PhotoDrama", true, false) != null
+			and panel._page.find_child("Advertising", true, false) != null)
+	var sunday := "1929-08-25"
+	panel._show("speaker", sunday)
+	await get_tree().process_frame
+	_check("a Sunday Speaker has three sides, a weekday two", panel._sides() == ["front", "back", "pictures"])
+	var corner: Vector2 = panel._corner.get_global_rect().get_center()
+	for wanted in ["back", "pictures", "front"]:
+		await _press(corner)
+		await _drag(Vector2(-320, 0))
+		await _press(corner)
+		await get_tree().process_frame
+		_check("turning the Sunday sheet reaches its %s" % wanted, panel.side == wanted)
+		if wanted == "pictures":
+			var section := catalog.brown_for("speaker", sunday)
+			_check("the Brown Section prints four pictures and their captions",
+					panel._page.find_child("BrownSection", true, false) != null and printed.call(panel).size() == NewspaperCatalog.BROWN_PICTURES
+					and _texts(panel).has(str(section.pictures[3].caption)))
+	panel.close()
+	await get_tree().process_frame
+	var errors_before := catalog.errors.size()
+	_check("a picture that does not exist is refused", not catalog._valid_picture(
+			{"paper": "record", "date": "1929-01-01", "treatment": "ink", "image": "res://nothing.webp", "caption": "x"}, "test"))
+	catalog.errors.resize(errors_before)
 
 
 ## The back of the sheet: optional, validated, and turned by hand (RUL-013).

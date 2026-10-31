@@ -1,8 +1,8 @@
 class_name NewspaperPanel
 extends CanvasLayer
-## A front page, read as the whole view: masthead, date line, ears, the lead
-## in capitals with its deck and body, three columns, the late wire. Opened
-## from the news counter or the desk; ESC hands the pointer back.
+## A sheet of newsprint, read as the whole view and set by NewspaperTypesetter:
+## the front, the back, and on a Sunday the Speaker's picture section. Opened from
+## the news counter or the desk; ESC hands the pointer back.
 ##
 ## With a shelf, the left column lists the kept papers newest first; up and
 ## down move, Enter opens, the page redraws on the right.
@@ -14,7 +14,12 @@ const INK_SOFT := Color(0.30, 0.28, 0.25)
 const RED := Color(0.58, 0.12, 0.10)
 const PAPER := Color(0.86, 0.83, 0.74)
 const RULE := Color(0.32, 0.29, 0.25)
-const MARGIN := 48
+const MARGIN := 24
+## The sheet is a page, not the screen: at most this wide, with the room dark around it.
+const SHEET_WIDTH := 1120
+const SHELF_WIDTH := 300
+## Paper margin of the sheet's style and the scrollbar, both sides.
+const SHEET_INSET := 58
 ## Pixels of leftward travel that carry the sheet fully over.
 const TURN_TRAVEL_PX := 320.0
 const TEAR_TRAVEL_PX := 110.0
@@ -120,11 +125,12 @@ func _build() -> void:
 	row.add_child(_shelf)
 	var sheet := PanelContainer.new()
 	sheet.name = "Sheet"
-	sheet.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	sheet.size_flags_horizontal = Control.SIZE_EXPAND | Control.SIZE_SHRINK_CENTER
 	sheet.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	sheet.add_theme_stylebox_override("panel", TelegramStyle.paper_panel())
 	row.add_child(sheet)
 	_sheet = sheet
+	row.sort_children.connect(_place_corner)
 	var scroll := ScrollContainer.new()
 	scroll.name = "Scroll"
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -143,9 +149,7 @@ func _build() -> void:
 	# The sheet's lower corner, curled up where there is a back page to turn to.
 	_corner = Control.new()
 	_corner.name = "Corner"
-	_corner.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
-	_corner.offset_left = -CORNER_SIZE
-	_corner.offset_top = -CORNER_SIZE
+	_corner.size = Vector2(CORNER_SIZE, CORNER_SIZE)
 	_corner.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	_corner.visible = false
 	add_child(_corner)
@@ -155,6 +159,18 @@ func _build() -> void:
 	curl.polygon = PackedVector2Array([Vector2(CORNER_SIZE, 0), Vector2(0, CORNER_SIZE),
 			Vector2(CORNER_SIZE, CORNER_SIZE)])
 	_corner.add_child(curl)
+
+
+## The corner belongs to the sheet, wherever the sheet has come to rest.
+func _place_corner() -> void:
+	_corner.position = _sheet.get_rect().end - _corner.size
+
+
+func _inner_width() -> int:
+	var room := get_viewport().get_visible_rect().size.x - (float(SHELF_WIDTH) if _shelf.visible else 0.0)
+	var sheet_width := clampf(room, 720.0, float(SHEET_WIDTH))
+	_sheet.custom_minimum_size.x = sheet_width
+	return int(sheet_width) - SHEET_INSET - MARGIN * 2
 
 
 func _show(paper: String, issue_date: String, page_side := "front") -> void:
@@ -181,85 +197,35 @@ func _show(paper: String, issue_date: String, page_side := "front") -> void:
 			carrier.witness.paper_shown(catalog, paper, issue_date)
 	# Every published sheet has a back: at the least, the advertising.
 	_corner.visible = true
-	if side == "back":
-		_show_back(meta, page.get("back", {}))
-		return
-	var red: bool = str(meta.get("ink", "black")) == "red"
-	# Masthead.
-	_label(str(meta.get("name", paper)).to_upper(), 44, RED if red else INK, _bold,
-			HORIZONTAL_ALIGNMENT_CENTER)
-	_label(str(meta.get("masthead_line", "")), 15, INK_SOFT, _italic, HORIZONTAL_ALIGNMENT_CENTER)
-	_rule(2)
-	# Date line and ears.
-	var ears := HBoxContainer.new()
-	_page.add_child(ears)
-	var left := _label_into(ears, str(page.get("ear", "")), 14, INK_SOFT, _italic)
-	left.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var middle := _label_into(ears, "%s   %s edition" % [catalog.long_date(issue_date),
-			str(meta.get("edition", ""))], 14, INK, null, HORIZONTAL_ALIGNMENT_CENTER)
-	middle.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var right := _label_into(ears, "Price %s" % str(meta.get("price", "")), 14, INK_SOFT, null,
-			HORIZONTAL_ALIGNMENT_RIGHT)
-	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_rule(1)
-	var weather: Dictionary = page.get("weather_report",{})
-	if not weather.is_empty():
-		_label("WEATHER DESK / " + CampaignWeather.print_time(str(weather.get("issued_at",""))) + " E.S.T.",14,INK,_bold)
-		_label(str(weather.get("observation","")),14,INK_SOFT,_italic)
-		_label(str(weather.get("prediction","")) + " " + str(weather.get("outlook","")),15,INK)
-		_label("Outlook: %s. Valid %s to %s E.S.T." % [weather.get("confidence",""),
-			CampaignWeather.print_time(str(weather.get("valid_from",""))),
-			CampaignWeather.print_time(str(weather.get("valid_until","")))],12,INK_SOFT,_italic)
-		if str(weather.get("revision",""))!="": _label(str(weather.revision),14,INK_SOFT,_italic)
-		for dispatch: Dictionary in weather.get("timeline",[]):
-			if str(dispatch.get("issued_at",""))==str(weather.get("issued_at","")): continue
-			_label("Previous dispatch, %s E.S.T.: %s"%[CampaignWeather.print_time(str(dispatch.get("issued_at",""))),
-				dispatch.get("prediction","")],12,INK_SOFT,_italic)
-		_rule(1)
-	# The lead.
-	var lead: Dictionary = page.get("lead", {})
-	_label(str(lead.get("headline", "")).to_upper(), 34, RED if red else INK, _bold,
-			HORIZONTAL_ALIGNMENT_CENTER)
-	_label(str(lead.get("deck", "")), 18, INK, _italic, HORIZONTAL_ALIGNMENT_CENTER)
-	_label(str(lead.get("body", "")), 17, INK)
-	_rule(1)
-	# Three columns.
-	var columns := HBoxContainer.new()
-	columns.add_theme_constant_override("separation", 24)
-	_page.add_child(columns)
-	for column in page.get("columns", []):
-		var box := VBoxContainer.new()
-		box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		box.add_theme_constant_override("separation", 6)
-		columns.add_child(box)
-		_label_into(box, str(column.get("headline", "")).to_upper(), 16, INK, _bold)
-		_label_into(box, str(column.get("body", "")), 15, INK)
-	# The editor's weekly column, boxed under the columns on the days it runs.
-	var editorial: Dictionary = page.get("editorial", {})
-	if not editorial.is_empty():
-		var chair: Dictionary = meta.get("editorial", {})
-		_rule(2)
-		_label(str(chair.get("title", "Editorial")).to_upper(), 15, RED if red else INK, _bold,
-				HORIZONTAL_ALIGNMENT_CENTER)
-		_label(str(editorial.get("headline", "")), 22, INK, _bold, HORIZONTAL_ALIGNMENT_CENTER)
-		_label(str(editorial.get("body", "")), 16, INK)
-		_label(str(chair.get("byline", "")), 14, INK_SOFT, _italic, HORIZONTAL_ALIGNMENT_RIGHT)
-	_rule(1)
-	_label(str(page.get("wire", "")), 14, INK_SOFT, _italic)
-	# The sky yesterday, in this paper's own words.
-	for notice: Dictionary in catalog.sky_notices(issue_date):
-		_label(str(notice.get("headline", "")).to_upper(), 14, INK, _bold)
-		_label(str(notice.get(paper, "")), 14, INK)
-	_label("ESC closes the paper", 12, INK_SOFT, _italic, HORIZONTAL_ALIGNMENT_RIGHT)
+	_sheet.add_theme_stylebox_override("panel", _brown_paper() if side == "pictures" else TelegramStyle.paper_panel())
+	var typesetter := NewspaperTypesetter.new(catalog, _page, _inner_width(), paper, issue_date)
+	if side == "pictures":
+		typesetter.brown_section(meta, catalog.brown_for(paper, issue_date))
+	elif side == "back":
+		_show_back(typesetter, meta, page.get("back", {}))
+	elif paper == "speaker":
+		typesetter.speaker_front(meta, page)
+	else:
+		typesetter.record_front(meta, page)
+	_place_corner()
 
 
-## The back of the sheet: a running head, the four typed columns where this
-## issue has them, the week's cartoon, the advertising, and the foot.
-func _show_back(meta: Dictionary, back: Dictionary) -> void:
+## The back of the sheet: a running head, the week's photo drama, a line cut, the
+## four typed columns where this issue has them, the cartoon, the advertising, the foot.
+func _show_back(typesetter: NewspaperTypesetter, meta: Dictionary, back: Dictionary) -> void:
 	_label("%s   %s" % [str(meta.get("name", paper_id)), catalog.long_date(date)], 14, INK_SOFT, _italic,
 			HORIZONTAL_ALIGNMENT_CENTER)
 	_rule(2)
+	var drama := catalog.drama_for(paper_id, date)
+	if not drama.is_empty():
+		typesetter.photo_drama(drama)
+	var cut := catalog.feature_for(paper_id, date)
+	if not cut.is_empty():
+		typesetter.feature(cut)
 	if not back.is_empty():
+		var band := catalog.band_for(paper_id, date)
+		if not band.is_empty():
+			typesetter.band(band)
 		var columns := HBoxContainer.new()
 		columns.add_theme_constant_override("separation", 24)
 		_page.add_child(columns)
@@ -289,6 +255,23 @@ func _show_back(meta: Dictionary, back: Dictionary) -> void:
 		_label(str(back.get("foot", "")), 14, INK_SOFT, _italic)
 	_label("ESC closes the paper", 12, INK_SOFT, _italic, HORIZONTAL_ALIGNMENT_RIGHT)
 
+
+func _brown_paper() -> StyleBoxFlat:
+	var style := StyleBoxFlat.new()
+	style.bg_color = NewspaperTypesetter.CREAM
+	style.content_margin_left = 22.0
+	style.content_margin_top = 18.0
+	style.content_margin_right = 22.0
+	style.content_margin_bottom = 18.0
+	return style
+
+
+## The sides of this sheet in turning order; the Speaker's Sundays have a third.
+func _sides() -> Array[String]:
+	var sides: Array[String] = ["front", "back"]
+	if not catalog.brown_for(paper_id, date).is_empty():
+		sides.append("pictures")
+	return sides
 
 ## The page's advertising in one of the catalogue's plans, each ad a different size.
 func _advertising(ads: Array[Dictionary], plan: int) -> VBoxContainer:
@@ -408,7 +391,8 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	elif _gripped and event is InputEventMouseMotion:
 		_turn = clampf(_turn - event.relative.x / TURN_TRAVEL_PX, 0.0, 1.0)
-		var shown := _grip_from if _turn < 0.5 else ("back" if _grip_from == "front" else "front")
+		var sides := _sides()
+		var shown := _grip_from if _turn < 0.5 else sides[(sides.find(_grip_from) + 1) % sides.size()]
 		if shown != side:
 			_show(paper_id, date, shown)
 			_scroll.scroll_vertical = 0
