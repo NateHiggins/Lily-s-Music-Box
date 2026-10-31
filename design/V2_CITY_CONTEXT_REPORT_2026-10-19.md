@@ -4847,3 +4847,27 @@ Evidence class: **INERT**. Coordinated follow-up toeddf51ee removes only the pas
 Current edited script compiles through the pinned sharedFIFO in13.52s,empty stderr. Original clock checker remains unchanged (LF-normalized source),with no newexception or baseline edits. Its review-only count returns30→29:onlytest-duration finding19d32622899e14c9 disappears,newactionable0,andallotherfinding IDs remain. Nativefixture preflight passes;368 physical import sources have zero missing/wrong. The clean117-gate board remains the executed962board;it was not repeated for this metadata-only change. Original rendered/movement results remain explicitly tied to their old executed source.
 
 Archive now **140members/82111164bytes/SHA256 8062f3e7d1b108d8435eb0d1ff978d8713b7fc294e6da0a75c0731f8bc5a8cb3**. All prior130members remain byte-exact;the source delta,compile receipt,original-checker audit and separate current-source snapshot are added. Intake/composed/actor/save/artistic qualification and the reserved lowernative global dependency remain pending. Nextblock survey is still read-only;no nextasset generation.
+
+
+### Combined industrial intake source preflight, 2026-10-31
+
+Evidence class: **INERT**. Canonical **e7c8e951** integrates architect
+**03d204dd**, with unchanged delivered GLBs/loader and all140 native archive
+members verified. The lower-body Blender source is now an explicit global
+surface dependency, with its mutation added to the existing regression.
+PR104/PR105 remain preserved, including the coupon case-card readout.
+
+Unified import passes36s, four-script compilation passes, and the actual
+fullscreen case input/retirement check passes9/0 in16.01s with empty stderr.
+The inspected native case frame retains visible goods, card, lining and stays.
+The composed physical survey correctly refuses startup: ground-apron source
+fixture still binds the previous whole horizon plan. Original failure preserved.
+
+The ground builder consumes horizon rectangles only to select exposed ground
+probes. All124 identity/rectangle pairs match the preceding **28e3446b** plan;
+the generator's exact selection recomputes all36 existing samples unchanged.
+Every other binding and installed ground GLB remain exact. Only the horizon
+source hash is renewed in the native construction record and test fixture,
+after those checks; no geometry, generator, tolerances or runtime receipt is
+changed. Ground fixture preflight now passes. Actual combined surface
+qualification remains pending, with no technical tally or artistic promotion.
