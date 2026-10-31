@@ -121,7 +121,8 @@
    "source": "live",
    "group": "case",
    "grocery": "day_old_rolls",
-   "form": "packet"
+   "form": "packet",
+   "use": "eat"
   },
   {
    "id": "gingersnaps",
@@ -131,7 +132,9 @@
    "source": "live",
    "group": "case",
    "grocery": "gingersnaps",
-   "form": "packet"
+   "form": "packet",
+   "use": "eat",
+   "gift": true
   },
   {
    "id": "beef_dripping",

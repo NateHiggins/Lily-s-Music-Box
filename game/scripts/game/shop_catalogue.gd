@@ -139,6 +139,10 @@ func _valid(doc: Dictionary, path: String, ingredients: Dictionary) -> bool:
 			fail.call("item %s names an unknown group" % id)
 		if record.has("form") and not CarriedCase.has_form(str(record.form)):
 			fail.call("item %s has an unknown form" % id)
+		if record.has("use") and str(record.use) not in ItemUse.VERBS:
+			fail.call("item %s has an unknown use" % id)
+		if record.has("gift") and record.gift is not bool:
+			fail.call("item %s gift is not a boolean" % id)
 		if record.has("note") and str(record.note) == "":
 			fail.call("item %s has an empty note" % id)
 		if record.has("grocery"):

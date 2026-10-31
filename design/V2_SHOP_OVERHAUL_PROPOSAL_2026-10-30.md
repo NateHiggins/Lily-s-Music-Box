@@ -108,7 +108,12 @@ stitched into a 10 by 6 grid, and each good has one of eleven shapes and footpri
 Click grabs a stack, motion carries it, the next click sets it down, and right click
 or R turns it. The arrangement saves in **carried_case**. Only bought goods take up
 room: keys, parts, groceries, cash and rent are on the lid's card, so a full case
-cannot block a job or the mystery. Using an item from the case is not built yet.
+cannot block a job or the mystery.
+
+Carrying a stack off the front of the shelf uses one: food, tobacco and medicine are
+spent, with one remark from the set per kind, and earplugs lower the mix for a shift.
+Marked goods can be given at a door, one a day to each resident. Hardware's goods and
+other things with no use stay in the hand, because jobs do not yet draw on carried goods.
 
 **4.3 One way to pay.** The owner already ruled that every point of sale settles
 over the handheld by radio (**design/V2_RADIO_SHOP_NETWORK_2026-10-22.md**). So:
@@ -357,8 +362,8 @@ argument. Renew the surface packet once per batch, not per shop.
 **Status, 2026-10-30.** Slice 1 and the carried case are built. Slice 2 is built except
 coupons and mail order: Hardware, News and Bodega sell through one terminal per counter
 with a selector, News charges for a paper and falls back to the desk account when it
-can't, and door errands are in. Not built in slice 2: coupons and mail order, using goods
-from the case, a modelled price card and selector, and the Bodega's list-and-bag props.
+can't, and door errands are in. Not built in slice 2: coupons and mail order, a modelled
+price card and selector, and the Bodega's list-and-bag props.
 Hardware's drawers and ladder are not yet operable.
 
 Each slice owes: real grabbing and release in tests, a schema-2 runtime receipt, reader

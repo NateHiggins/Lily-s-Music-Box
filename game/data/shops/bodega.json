@@ -51,7 +51,8 @@
    "kind": "goods",
    "source": "authored",
    "group": "notions",
-   "form": "card"
+   "form": "card",
+   "gift": true
   },
   {
    "id": "shoelaces",
@@ -78,7 +79,8 @@
    "kind": "goods",
    "source": "authored",
    "group": "notions",
-   "form": "packet"
+   "form": "packet",
+   "gift": true
   },
   {
    "id": "cigarettes_pack",
@@ -87,7 +89,9 @@
    "kind": "goods",
    "source": "authored",
    "group": "notions",
-   "form": "packet"
+   "form": "packet",
+   "use": "smoke",
+   "gift": true
   }
  ],
  "sells_groceries": true
