@@ -4214,3 +4214,120 @@ is unchanged: city connected access/landmarks,stable frame-time and startup,
 full saves/new counter/case presentation,weather/prologue polish and owner review.
 No full-city,V2 or artistic completion is declared. Rear-east intake follows this
 coherent publication checkpoint; no new runtime replay is needed for this report.
+
+
+
+
+### Rear-east Laurel-derived apartment — construction in progress, 2026-10-30
+
+Evidence class: **INERT**. Starting SHA **812b93b6f19a0c8b22ac6ed8c7ea40b531e596a4**.
+The installed 19 × 6.4 m parcel retains its +46 m source-Y assembly, lower rear
+and side facades, rooftop studio, decks and original equipment. LPC LP1831 PDF54
+Fig.9 (explicitly c.1916) and PDF156/printed149 were inspected: Laurel Court,
+George H. Wells, 1913–14. The new main body alternates three single bays and two
+three-sided metal-clad oriels, with keyed stone heads and a pilastered pediment
+entrance. Historical reference guides form; exact AU dimensions follow the parcel.
+No reference pixels, new textures/material keys, occupied room or live door owner.
+
+Actual asphalt court grade is −0.02 m; two 160 mm risers reach a +0.30 m landing.
+Thirty installed-coordinate support sections pass. The unchanged 224-space and
+13 registered-cell source projections clear the entry envelope; this does not
+prove current actor occupancy or capsule movement. Six original pane rays hit
+metal return stock, with a first error of 176.116 mm. Widening the back seats
+from 2.36 to 2.96 m repairs the geometry while retaining openings, probes and
+0.1 mm tolerance. Original failed source-build log and first-hit JSON remain.
+
+Corrected producers pass 2,547 near pane samples, 1,205 near roof bearings,
+126 roof/12 return controls, and all 14,229 lower closed stocks, 655 lower
+bearings and 781 lower panes. Five initial native images were inspected with
+20 exact part roundtrips. Near export is byte-identical after the subsequent
+LOD pass. The complete lower body replaces dense cloth folds with six-step
+closed folds: near/lower 29,214/25,278 triangles; all ten material parts remain.
+All 272 unrelated near and 166 prior lower parts, 24 other profiles and nine
+other assets remain exact. Fourteen tools tests pass. Final changed lower-body
+native review, current UV recheck, loaded materials/mipmaps/LOD/cost, standing
+controller and composed lighting/artistic qualification remain pending. Heavy
+work is held for the live canonical combined route/physical renewal; no waiver
+or published tally promotion. External originals: **C:/ov/reports/city_streets_20261029/laurel_apartment_01**.
+
+
+Rear-east native freeze: the final five views comprise three unchanged near
+views and two newly inspected lower views. Current lower native/export triangle
+multisets match for all ten parts. Both final UV audits pass; reader NEW0 and
+17 protected paths unchanged. Independent exported-geometry comparison matches
+all 7,574 lower rear/side and 5,078 retained studio/upper-roof triangles within
+the existing 0.1 mm tolerance; maximum float32 recentring is 3.815 micrometres,
+with no retessellation. The existing review manifest now indexes
+**laurel_apartment_native_review.zip**: 54 members, 12,234,537 bytes, SHA256
+**b7f0eaa5f5188cc29c818762b3b032ad8fe305ba4c9ff9666160780cd90a13a9**.
+CRC and every member byte verified; source reference pixels/PDFs and duplicate
+production meshes excluded. Loaded checks remain pending behind the active
+canonical renewal, whose newer main-line merge does not qualify this separate
+candidate. No runtime, complete-city or artistic acceptance is claimed.
+
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Evidence class: **INERT**. Rear-east native and isolated loaded checkpoint.
+Frozen source **04cde038** passes the patched-engine fullscreen bench with
+**7,444 checks / 1,205 roof samples / 1,071 family draws / zero failures** in
+**33.94 s**. All seven loaded captures inspected; all 207 test-recorded source
+hashes match the declared LF-text/raw-binary policy. Compiler checks one script
+with zero failures. Import stderr preserves 126,454 bytes of 638 UID-cache
+recreation warnings only; compiler and bench stderr are empty. Wrapper receipts
+and the INERT profile do not constitute a schema-2 runtime contract.
+
+The isolated building/equipment group measures 53 draws and 63,532 near versus
+59,282 forced-lower primitives. Five cases each record 90 warmed uncapped frames,
+3440 × 1440 fullscreen, MSAA enum3, TAA off and vsync off. First near GPU median
+0.707 ms, p95 5.56825 ms, maximum 5.877 ms; wall median 1.0425 ms, p95 6.35205 ms,
+maximum **15.783 ms**. No sampled frame exceeds 16.667 ms. Later far/natural/
+far-repeat/near-repeat GPU medians are 0.680/0.647/0.645/0.6455 ms and wall maxima
+1.121/1.003/1.169/0.975 ms. Canonical static verification was active on the host.
+These are not quiet-host, matched-baseline or causal results; previous 39.436 ms
+and full-world spikes remain unresolved. Host/GPU snapshots are not peak samples.
+
+The natural-transition diagnostic isolates the complete linen part: 8,764 to
+4,828 primitives across 190.8919494/190.9107103 m, with narrow-FOV and inward
+recovery to 8,764. Whole near/far images retain every body and roof-equipment
+partition. Current composed lighting, standing-controller access and artistic
+qualification remain open. Canonical 221-check/14-leg and 651-check packets
+reported for the preceding SW2/rear-west cohort do not qualify this separate
+rear-east source. No main merge or published building tally promotion here.
+
+Existing archive **laurel_apartment_native_review.zip** now has 77 members / 13992160 bytes;
+SHA256 **e85ee103077e76f69f64a69c573aa18cabe81f0be1d22fefaad169d1b0746a89**. Manifest/CRC/member bytes verified; original native
+pane failure, historical/current native views, loaded frames, source, receipts
+and profile retained. No reference pixels/PDFs or duplicate production meshes.
+The 638 own untracked UID files were individually removed after terminal Godot,
+only after exact byte matching to the previously preserved archive.
+
+Next collision check: reuse the existing direct PlayerController construction
+from **v2_step_contact_test.gd**, with the production ground and resolver-derived
+world registration, inside the city bench. This is not yet implemented. It can
+check local climb/landing/closed-leaf/descent without another full-world startup;
+composed actor/access authority proof stays with the coordinated integration run.
+
+
+### Canonical Laurel intake review — October30
+
+Evidence class: **INERT**. Frozen rear-east **63ad3504**, native source
+**04cde038**, is reconciled locally with published main **a08ed155**. All77
+archive members, byte counts, CRC and SHA256 were independently verified before
+intake. All207 recorded loaded-profile inputs match frozen Git blobs under the
+declared LF-text/raw-binary policy. Five native current near/lower views and
+seven loaded views were inspected; the natural linen probe is explicitly a
+single material partition, not a full-building optical or artistic acceptance.
+The return image is an exact alias of its before frame. Near and lower bodies
+retain10 material partitions; the new form preserves the existing roof/studio.
+
+This does not renew current composed surfaces or qualify controller/access,
+saves or art. The published25-study tally stays unchanged. The architect's
+bounded production-controller/ground stair diagnostic is separate and underway;
+inspect its terminal source before any full-world capture. Batch the next
+related native buildings where practical to reduce repeated broad source renewal,
+startup and static-gate cost. Do not repin main's existing receipt or repeat
+unchanged hose/city routes. No inventory, residents, case, reading, clock,
+weather or save authority changes are included. Original pane failure remains
+in the archive. Source53-draw/63532near/59282far isolated results are not a
+quiet-host, matched or complete-world performance claim.

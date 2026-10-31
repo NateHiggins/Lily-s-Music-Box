@@ -140,13 +140,13 @@ func _run() -> void:
 	check(contacts>=1205 and shells.size()==fixture.parts.size() and draws>600,"nonempty complete family inventory")
 	var factory_studies: Array=fixture.get("architecture_checks",[])
 	check(factory_studies.size()==1,"one explicit factory study, not a promotion of all height repairs")
-	check(fixture.portals.size()==26,"twenty-five retained city portals and one rear apartment scenic leaf; Bodega remains separately owned")
+	check(fixture.portals.size()==27,"twenty-five retained city portals and two rear apartment scenic leaves; Bodega remains separately owned")
 	var factory_portals:=0
 	var terrace_portals:=0
 	var court_portals:=0
-	var commercial_portals: Dictionary={"site_nw1":0,"site_nw3":0,"site_nw4":0,"site_se3":0,"site_sw3":0,"site_far_nw":0,"site_ne1":0,"site_ne2":0,"site_ne3":0,"site_ne4":0,"site_nbr_w":0,"site_nbr_e":0,"site_sw2":0,"site_back_w":0}
+	var commercial_portals: Dictionary={"site_nw1":0,"site_nw3":0,"site_nw4":0,"site_se3":0,"site_sw3":0,"site_far_nw":0,"site_ne1":0,"site_ne2":0,"site_ne3":0,"site_ne4":0,"site_nbr_w":0,"site_nbr_e":0,"site_sw2":0,"site_back_w":0,"site_back_e":0}
 	for portal: Dictionary in fixture.portals:
-		check(str(portal.building) in ["site_far_e","site_nw2","site_far_se","site_far_w","site_far_n","site_far_sw","site_far_ne","site_far_s","site_nw1","site_nw3","site_nw4","site_se3","site_sw3","site_far_nw","site_ne1","site_ne2","site_ne3","site_ne4","site_nbr_w","site_nbr_e","site_sw2","site_back_w"],"portal belongs to an explicitly adapted building")
+		check(str(portal.building) in ["site_far_e","site_nw2","site_far_se","site_far_w","site_far_n","site_far_sw","site_far_ne","site_far_s","site_nw1","site_nw3","site_nw4","site_se3","site_sw3","site_far_nw","site_ne1","site_ne2","site_ne3","site_ne4","site_nbr_w","site_nbr_e","site_sw2","site_back_w","site_back_e"],"portal belongs to an explicitly adapted building")
 		if str(portal.building)=="site_far_e":factory_portals+=1
 		elif str(portal.building)=="site_nw2":terrace_portals+=1
 		elif commercial_portals.has(str(portal.building)):commercial_portals[str(portal.building)]+=1
@@ -160,8 +160,9 @@ func _run() -> void:
 	check(factory_portals==2 and terrace_portals==1 and court_portals==7,"original portals remain nonempty alongside seven passive apartment entries")
 	for identity: String in commercial_portals:
 		check(int(commercial_portals[identity])==(0 if identity=="site_nbr_e" else 3 if identity=="site_ne1" else 2 if identity=="site_sw3" else 1),"explicitly counted genuinely closed scenic leaves: "+identity)
-	var commercial_panes: Dictionary={"site_nw1":0,"site_nw3":0,"site_nw4":0,"site_se3":0,"site_sw3":0,"site_far_nw":0,"site_ne1":0,"site_ne2":0,"site_ne3":0,"site_ne4":0,"site_nbr_w":0,"site_nbr_e":0,"site_sw2":0,"site_back_w":0}
+	var commercial_panes: Dictionary={"site_nw1":0,"site_nw3":0,"site_nw4":0,"site_se3":0,"site_sw3":0,"site_far_nw":0,"site_ne1":0,"site_ne2":0,"site_ne3":0,"site_ne4":0,"site_nbr_w":0,"site_nbr_e":0,"site_sw2":0,"site_back_w":0,"site_back_e":0}
 	var paired_attic_control:=0
+	var laurel_sloping_panes:=0
 	for window: Dictionary in fixture.window_rows:
 		var identity:=str(window.building)
 		if not commercial_panes.has(identity):continue
@@ -173,13 +174,15 @@ func _run() -> void:
 		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+normal*.1,point-normal*.4,1,exclude))
 		check(not hit.is_empty() and hit.position.distance_to(expected)<.0001 and str(shells.get(hit.collider.get_rid(),"")).ends_with("__mirror_aged"),"actual commercial pane remains behind its masonry and joinery: "+identity)
 		commercial_panes[identity]+=1
+		if identity=="site_back_e" and abs(float(source_normal[0]))>.1 and abs(float(source_normal[1]))>.1:laurel_sloping_panes+=1
 		if identity=="site_nw4" and int(window.side)==0 and int(window.floor)==3:
 			var c: Array=window.center
 			var center:=city.to_global(Vector3(c[0],c[2],-c[1]))
 			var solid:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(center+normal*.1,center-normal*.4,1,exclude))
 			check(not solid.is_empty() and solid.position.distance_to(center-normal*.1)<.0001 and str(shells.get(solid.collider.get_rid(),"")).ends_with("__door_paint"),"paired attic center is a solid mullion, not a falsely clear pane")
 			paired_attic_control+=1
-	check(commercial_panes=={"site_nw1":21,"site_nw3":39,"site_nw4":19,"site_se3":28,"site_sw3":26,"site_far_nw":175,"site_ne1":57,"site_ne2":67,"site_ne3":19,"site_ne4":61,"site_nbr_w":16,"site_nbr_e":14,"site_sw2":33,"site_back_w":92} and paired_attic_control==1,"all667 studied panes and the obstructed center control execute")
+	check(commercial_panes=={"site_nw1":21,"site_nw3":39,"site_nw4":19,"site_se3":28,"site_sw3":26,"site_far_nw":175,"site_ne1":57,"site_ne2":67,"site_ne3":19,"site_ne4":61,"site_nbr_w":16,"site_nbr_e":14,"site_sw2":33,"site_back_w":92,"site_back_e":114} and paired_attic_control==1,"all781 studied panes and the obstructed center control execute")
+	check(laurel_sloping_panes==12,"both three-sided oriels retain twelve clear oblique panes across three floors")
 	var court_details: Array=fixture.court_details
 	check(court_details.size()==6,"six real open recesses across five court-building identities")
 	var expected_courts: Dictionary={"site_far_se":"elm","site_far_w":"cambridge","site_far_n":"greystone","site_far_sw":"laburnum","site_far_ne":"towers"}
@@ -191,10 +194,10 @@ func _run() -> void:
 		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(start,start-Vector3.UP*(float(detail.roof_height)+1.),1,exclude))
 		check(not hit.is_empty() and hit.position.y<=city.global_position.y+float(detail.porch_top)+.001,"court is genuinely sky-open above the porch, no hidden roof slab")
 	var roofs: Array=fixture.roof_details
-	check(roofs.size()==16,"two original roof families and fourteen distinct commercial/apartment adaptations")
+	check(roofs.size()==17,"two original roof families and fifteen distinct commercial/apartment adaptations")
 	var roof_owners: Dictionary={}
 	var original_roofs:=0
-	var commercial_roofs: Dictionary={"site_nw1":"germania","site_nw3":"robbins","site_nw4":"scheffel","site_se3":"ottendorfer","site_sw3":"engine258","site_far_nw":"hampton","site_ne1":"faber","site_ne2":"fulton","site_ne3":"terracotta_works","site_ne4":"jamaica","site_nbr_w":"linford119","site_nbr_e":"hayden113","site_sw2":"delano126","site_back_w":"hawthorne"}
+	var commercial_roofs: Dictionary={"site_nw1":"germania","site_nw3":"robbins","site_nw4":"scheffel","site_se3":"ottendorfer","site_sw3":"engine258","site_far_nw":"hampton","site_ne1":"faber","site_ne2":"fulton","site_ne3":"terracotta_works","site_ne4":"jamaica","site_nbr_w":"linford119","site_nbr_e":"hayden113","site_sw2":"delano126","site_back_w":"hawthorne","site_back_e":"laurel"}
 	var found_commercial: Dictionary={}
 	for roof: Dictionary in roofs:
 		roof_owners[str(roof.building)]=true
@@ -227,10 +230,10 @@ func _run() -> void:
 			check(str(roof.building)=="site_far_s" and str(roof.finish)=="city_slate" and int(roof.dormers)==4 and float(roof.knee_height)>float(roof.mansard_base)+2.,"slate mansard keeps its steep lower pitch and four dormers")
 		elif commercial_roofs.has(str(roof.building)):
 			check(commercial_roofs[str(roof.building)]==str(roof.style) and float(roof.roof_top)>float(roof.mansard_base),"distinct adapted roof retains a physical deck above its wall datum")
-			check(bool(roof.edited_legacy_roof)==(str(roof.style) not in ["ottendorfer","faber","fulton","jamaica","linford119","hayden113","delano126","hawthorne"]),"retained library/northeast decks are distinguished from reconstructed roofs")
+			check(bool(roof.edited_legacy_roof)==(str(roof.style) not in ["ottendorfer","faber","fulton","jamaica","linford119","hayden113","delano126","hawthorne","laurel"]),"retained library/northeast decks are distinguished from reconstructed roofs")
 			found_commercial[str(roof.building)]=true
 		else:check(false,"unexpected roof identity")
-	check(original_roofs==2 and found_commercial.size()==14 and roof_owners.size()==16,"both original roof studies remain alongside fourteen individually owned adaptations")
+	check(original_roofs==2 and found_commercial.size()==15 and roof_owners.size()==17,"both original roof studies remain alongside fifteen individually owned adaptations")
 	# Actual open roof balustrade in the installed rear-west +6Y assembly.
 	# Solid post/rail controls prevent an empty mesh from passing the gap test.
 	var rear_profile: Dictionary={}
@@ -513,9 +516,9 @@ func _profile_commercial(city: Node3D) -> void:
 	if directory.is_empty():return
 	var profile_scope:=OS.get_environment("ORISON_CITY_PROFILE_SCOPE")
 	if profile_scope.is_empty():profile_scope="northwest"
-	check(profile_scope in ["northwest","opposing","northeast","northeast_completion","narrow","southwest_carriagehouse","rear_apartment"],"known explicit city profiling scope")
-	if profile_scope not in ["northwest","opposing","northeast","northeast_completion","narrow","southwest_carriagehouse","rear_apartment"]:return
-	var selected: Array=["site_back_w"] if profile_scope=="rear_apartment" else ["site_sw2"] if profile_scope=="southwest_carriagehouse" else ["site_nbr_w","site_nbr_e"] if profile_scope=="narrow" else ["site_ne3","site_ne4"] if profile_scope=="northeast_completion" else ["site_ne1","site_ne2"] if profile_scope=="northeast" else ["site_se3","site_sw3","site_far_nw"] if profile_scope=="opposing" else ["site_nw1","site_nw3","site_nw4"]
+	check(profile_scope in ["northwest","opposing","northeast","northeast_completion","narrow","southwest_carriagehouse","rear_apartment","rear_east_apartment"],"known explicit city profiling scope")
+	if profile_scope not in ["northwest","opposing","northeast","northeast_completion","narrow","southwest_carriagehouse","rear_apartment","rear_east_apartment"]:return
+	var selected: Array=["site_back_e"] if profile_scope=="rear_east_apartment" else ["site_back_w"] if profile_scope=="rear_apartment" else ["site_sw2"] if profile_scope=="southwest_carriagehouse" else ["site_nbr_w","site_nbr_e"] if profile_scope=="narrow" else ["site_ne3","site_ne4"] if profile_scope=="northeast_completion" else ["site_ne1","site_ne2"] if profile_scope=="northeast" else ["site_se3","site_sw3","site_far_nw"] if profile_scope=="opposing" else ["site_nw1","site_nw3","site_nw4"]
 	var sources:=_profile_sources(city)
 	var draws: Array=city.find_children("*","MeshInstance3D",true,false)
 	var visibility: Dictionary={}
@@ -553,7 +556,7 @@ func _profile_commercial(city: Node3D) -> void:
 			family_rows.append(row);observations.append(row)
 			if str(spec.id) in ["near","far"]:check(viewport.get_texture().get_image().save_png(directory.path_join(identity+"_profile_"+str(spec.id)+".png"))==OK,"actual complete building profile capture saved")
 		check(int(family_rows[1].primitives)<int(family_rows[0].primitives),"far rendering actually uses fewer complete-body indices: "+identity)
-		transitions[identity]=await _profile_natural(city,camera,draws,identity,"terracotta" if identity=="site_ne3" else "wood_dark" if identity in ["site_ne1","site_nbr_w","site_nbr_e"] else "limestone" if identity=="site_far_nw" else str(profile.wall_key),directory)
+		transitions[identity]=await _profile_natural(city,camera,draws,identity,"linen" if identity=="site_back_e" else "terracotta" if identity=="site_ne3" else "wood_dark" if identity in ["site_ne1","site_nbr_w","site_nbr_e"] else "limestone" if identity=="site_far_nw" else str(profile.wall_key),directory)
 	for draw: MeshInstance3D in draws:draw.visible=bool(visibility[draw])
 	check(sources==_profile_sources(city),"profile sources remain unchanged through measurement")
 	var record: Dictionary={"evidence_class":"INERT","scope":"Isolated current imported buildings/equipment,90 warmed uncapped frames per case, repeated near/far and actual material-body LOD transitions. Screenshots excluded from timings. No matched baseline, whole-world performance, route contract or artistic acceptance.","profile_scope":profile_scope,"observations":observations,"natural_transitions":transitions,"source_hashes":sources,"checks":checks,"failures":failures,"settings":{"resolution":str(viewport.get_visible_rect().size),"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps}}

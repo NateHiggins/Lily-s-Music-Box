@@ -797,7 +797,7 @@
     },
     {
       "id": "site_back_e",
-      "description": "Narrow-bay brick apartment block with gathered household curtains",
+      "description": "AU Laurel-derived five-storey apartment: alternating single bays and three-sided metal-clad oriels, keyed stone window heads and pilastered pediment entrance; retained rooftop studio and original plant",
       "massing": "single_upper_setback",
       "storey_height": 2.95,
       "bay_pitch": 2.15,
@@ -830,7 +830,24 @@
         0,
         46,
         0
-      ]
+      ],
+      "floor_heights": [
+        6.54,
+        3.16,
+        3.17,
+        3.17
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "laurel",
+        "front_side": 0,
+        "front_floor_count": 4,
+        "front_bays": 7,
+        "roof_depth_m": 0,
+        "entry_ground_m": -0.02,
+        "entry_landing_m": 0.3,
+        "precedent": "INERT:Laurel Court,GeorgeH.Wells1913-14,LPC LP1831 PDF54 Fig9(c1916photo,RealEstateRecordandGuide97,Jan22,1916p127) andPDF156/printed149 descriptiveentry. Actualprimaryphotoinspected:singleandthree-sidedorielbays,keyedenframements,stonebase/classicalentrance,bandcoursesandmetalcornice. AU19x6.4mparcel/five mainstoreysplus retainedsetbackstudio areinstalledconstraints,not claimedhistoricaldimensions. Two0.16mrisers fitactual-.02masphaltcourt to+.30mland. Registeredmaterials reused;no referencepixels/newoccupiedroom/liveDoorProp/shop/saveauthority."
+      }
     },
     {
       "id": "site_far_nw",
