@@ -4462,3 +4462,18 @@ the frozen native delivery before running this combined programme. The merged
 code has not yet been imported or executed in canonical. It does not replace full-city travel, saves,
 performance comparison or artistic acceptance. The published25-study count is
 unchanged. Original failed evidence and all previous capture archives remain.
+
+
+
+
+### Southern pair — native construction checkpoint, 2026-10-30
+
+Evidence class: **INERT**. Starting source **e8e456c9**; tracker checkpoint **44ea4298**. Built the last two unadapted nearby bodies as one related batch. **site_nbr_s2** uses Elks Lodge878's five-bay brick/stone order: full upper storeys, short attic, eared frames, segmental heads, miniature balustrades, swags and mitred modillion cornice. LPC [LP2086](https://s-media.nyc.gov/agencies/lpc/lp/2086.pdf) PDF9's1926 plate and PDF5 description informed form. The installed bar soffit/lower fabric and all nine roof contacts remain; no new entrance or lodge programme. **site_se2** uses Ridgewood's three-bay terracotta composition, paired window rows, diamond pilasters and shield/spandrel relief. [LP2325](https://s-media.nyc.gov/agencies/lpc/lp/2325.pdf) PDF7 and explicitly2009 PDF11 photograph informed surviving original ornament. Exclude modern marquee/windows and cinema programme. Preserve its studio/decks/plant and13 contacts. Exact dimensions follow AU parcels, not a historical Queens Plaza reconstruction.
+
+Native near/lower body counts are **21,590/18,086** and **13,436/13,244** triangles. Lower bodies retain the complete stock and reduce curved profiles/folds. All registered PBR keys reused; no new textures or reference pixels. Native producer passes2,489 pane,1,205 bearing,126 roof and12 return controls. Both export UV audits have zero failing surfaces;14 tools tests pass,reader NEW0,source spatial clean and17 protected unchanged.
+
+Preservation compares264 unrelated near/176 lower parts,23 profiles and11 other assets exactly. Retained bar lower7,642 triangles,SE2 lower rear/side4,272 and studio/upper roof2,500 match within unchanged0.1mm tolerance; maximum recentering3.815micrometres. Southeast comparison excludes front0.5m and crossing main-roof planes; roof-bearing checks separately retain contacts. Source-only224-space/13-legacy-cell projection clears the new entrance envelope; it is not actor/capsule proof. Two150mm risers reach+0.30m from the separately owned station/plaza paving at datum0. Earlier five-asset survey omitted that floor owner and is retained, without claiming a scene hole.
+
+Eleven native images inspected,including actual station/plaza context;40 exact float32 part roundtrips. Four whole views frame body/roof equipment; other views are deliberate details/context crops. Station decks strongly screen the upper facade and shade the approach; composed lighting/visibility remains open. Initial review harness failed before rendering on an omitted zero assembly translation; default-zero correction changed no mesh/probe/tolerance. Original source/log retained.
+
+Archive **southern_pair_native_review.zip**:43 members /17,081,338 bytes,SHA256 **718ea19fdf4984fca89431424d02a7e193334f9c2a7b4d8079d563d0f5f2ba86**;CRC/member bytes and manifest verified. No production-mesh duplicates or reference pixels. Native review finished before queuing one combined import/compiler/loaded-LOD/local-entrance bench. That run is waiting in the shared lane; no new loaded mips,render-cost,frame-spike,played,composed or artistic acceptance claimed. Published tally remains25/149 until canonical qualification. Broader skyline,landmarks,450m support and performance scope stays open.

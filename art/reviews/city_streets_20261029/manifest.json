@@ -11354,5 +11354,187 @@
         "sha256": "c70800e32ca7f78afe8dde13e033a8ad2ee3f47f76ebdf05db068d87c3f5b356"
       }
     }
+  },
+  "southern_pair_native_archive": {
+    "path": "art/reviews/city_streets_20261029/southern_pair_native_review.zip",
+    "sha256": "718ea19fdf4984fca89431424d02a7e193334f9c2a7b4d8079d563d0f5f2ba86",
+    "members": 43,
+    "bytes": 17081338,
+    "evidence_class": "INERT",
+    "scope": "Southern pair native source/export/UV and preservation diagnostics with11 inspected images,including original review harness failure. No loaded,played,composed,performance or artistic acceptance.",
+    "files": {
+      "actual_native_inspection_01.json": {
+        "bytes": 3805,
+        "raw_sha256": "9b0c288f62941acbe5b5671358a5510ecfc40e559a288f5111864a15570b07a8"
+      },
+      "baseline_01.json": {
+        "bytes": 402354,
+        "raw_sha256": "0e176ab5c682ea5ffc81e6e3df5fb428dafa30386e4fdf069543fa09e5cf2a49"
+      },
+      "build_city_closure.py.log": {
+        "bytes": 9365,
+        "raw_sha256": "1b1925d3ebcbc6c1f408369958c0078828687c767e69adcc82ccdb85a492b2dc"
+      },
+      "build_city_elevation_lods.py.log": {
+        "bytes": 20790,
+        "raw_sha256": "a0b67e964f0d7f7a67e842b9a0fb27a5aa7e7427c008c2c89bdeb0167df5b433"
+      },
+      "build_city_elevations.py.log": {
+        "bytes": 30896,
+        "raw_sha256": "b97452358091d47f218ea6291d3eb5efaadd280977def4c6835f7491d0ecc330"
+      },
+      "build_city_streets.py.log": {
+        "bytes": 10785,
+        "raw_sha256": "d968ac60d09c93499d1c2ee802819173359bd74a2cf71f74b768fa7161907f37"
+      },
+      "check_preservation_01.py": {
+        "bytes": 1753,
+        "raw_sha256": "cf0ed37f850832dc860633cc5050c0b6d621ec6e120f0003c8fe2956fd6cf015"
+      },
+      "check_retained_geometry_01.py": {
+        "bytes": 4694,
+        "raw_sha256": "5abb423a009519dbef9eaea55b5ecffa0ed91f6f6ed2f5cc9901e93ee957bde6"
+      },
+      "existing_se2_entry_sections_01.json": {
+        "bytes": 8700,
+        "raw_sha256": "6a1e5bdb5e00cf0c3edc82c1a31e6dc71d16df26dde2460c2fff18a881255c7b"
+      },
+      "existing_se2_entry_sections_02.json": {
+        "bytes": 13024,
+        "raw_sha256": "cd8189a5a4b4c6c714179bdce5d2b43d5e7430f349d7d9c86c6732dcb4a973ae"
+      },
+      "frozen_sources/art/blender/scripts/build_city_elevation_lods.py": {
+        "bytes": 8685,
+        "raw_sha256": "c03c0ead1daa6aa62b2a3155e980605dda444407b4c9d51d5af791184b9c8a68"
+      },
+      "frozen_sources/art/blender/scripts/build_city_elevations.py": {
+        "bytes": 72318,
+        "raw_sha256": "d1d1d22b210b7afd35ffec5f021676a084cd42d5eb3cf088a3afc66dc395689b"
+      },
+      "frozen_sources/art/blender/scripts/city_commercial_architecture.py": {
+        "bytes": 135148,
+        "raw_sha256": "5ed4bba0ed1d7468e174ef9b2a4f014a2a9f3fd7ee28258ea5b8da7ecbfd1c22"
+      },
+      "frozen_sources/art/data/city_elevations/source_plan.json": {
+        "bytes": 45485,
+        "raw_sha256": "d4595f2344c62a3544030e5686e9c2e1572d4c6a2395994df4a69f312cf1ae1a"
+      },
+      "frozen_sources/game/data/orison_v2/exterior/city_elevations.json": {
+        "bytes": 15374,
+        "raw_sha256": "5c54e4d85d3858e7ffbb75c025195a14284e1cd47ae0f70c4f5e3e7bdb15ddb6"
+      },
+      "lower_authority_projection_01.json": {
+        "bytes": 44353,
+        "raw_sha256": "8d6020de09dc82d996efdfbf958cba378b0d1395c7d5648c57b826c517599d21"
+      },
+      "native_build_01.json": {
+        "bytes": 946,
+        "raw_sha256": "7ba6a95a2715c1ea643e6a306dad1c0dfc86c1f5009d3bad380075a11e17e734"
+      },
+      "native_context_01.log": {
+        "bytes": 20188,
+        "raw_sha256": "af8f9adae842ba97a4a094e40314bef5c7dcd163694c1fb0e201d35febe38f25"
+      },
+      "native_context_01/native_context_01.json": {
+        "bytes": 3451,
+        "raw_sha256": "ea918ec558943b6c01ed5aac363e27ac29445a78e7e4e0eacead58ece771fd3a"
+      },
+      "native_context_01/site_se2_city_elevations_station_approach_01.png": {
+        "bytes": 1599597,
+        "raw_sha256": "01c9a6c1852d64be2d0ac68f80405856caea3d02d685e0a68a719d158b8f523b"
+      },
+      "native_context_01/site_se2_city_elevations_station_facade_01.png": {
+        "bytes": 1666306,
+        "raw_sha256": "cf76fb186cfa02e7839cc0f419f8ee8b01bf32980a142f628b5ee3180718b73c"
+      },
+      "native_review_01.log": {
+        "bytes": 20414,
+        "raw_sha256": "aa883725e7879a39256d8967c7454c98c64d473c774e348a9eeffec8aecce93b"
+      },
+      "native_review_02.log": {
+        "bytes": 66546,
+        "raw_sha256": "9369011bfcd713dff3287b76a358cb87ca0580a926ec8891ebda089247b9bf80"
+      },
+      "native_review_02/native_review_02.json": {
+        "bytes": 10722,
+        "raw_sha256": "ea557d2c2da8a09bcf67ca93f3d3819709b1310b07f9b5c55b9ea2c8d08075e4"
+      },
+      "native_review_02/site_nbr_s2_city_elevations_front_detail_01.png": {
+        "bytes": 1611874,
+        "raw_sha256": "7016c4bcae273b35bd477ca7051d39f1c3715e76d92c89b6b552829a06fc6182"
+      },
+      "native_review_02/site_nbr_s2_city_elevations_front_whole_01.png": {
+        "bytes": 1545429,
+        "raw_sha256": "438572a19d02077e4f57df5f96d775be9ce51d9e076bc94da553ef78acd93d6f"
+      },
+      "native_review_02/site_nbr_s2_city_elevations_lod1_front_detail_01.png": {
+        "bytes": 1611930,
+        "raw_sha256": "fa5bfe266d9de81ef552445ee68813515b54f7356c17ffcd444432e584df3302"
+      },
+      "native_review_02/site_nbr_s2_city_elevations_lod1_front_whole_01.png": {
+        "bytes": 1545652,
+        "raw_sha256": "ff2ecf7f28ba46876e38ffb87d725ec459e76e2b592b20ba333e60995c2134ed"
+      },
+      "native_review_02/site_se2_city_elevations_entry_01.png": {
+        "bytes": 1552200,
+        "raw_sha256": "9e4a97489965c860aad0eb6fedc999855adec5d245d32553ca2a4063369b8002"
+      },
+      "native_review_02/site_se2_city_elevations_front_detail_01.png": {
+        "bytes": 1435674,
+        "raw_sha256": "6d836d40d746d5343fbe1ce7a262567d4f4515f2fb5695fc6ee65b11e9465ace"
+      },
+      "native_review_02/site_se2_city_elevations_front_whole_01.png": {
+        "bytes": 1427065,
+        "raw_sha256": "64dbec3e5ba0d61e290ddacfa7c83d895dfac8226b84e495d24a484fdda3ee36"
+      },
+      "native_review_02/site_se2_city_elevations_lod1_front_detail_01.png": {
+        "bytes": 1435541,
+        "raw_sha256": "d732b749002b7d7a84335e641978e970c616c6b0701278fc0ece20034df81a6c"
+      },
+      "native_review_02/site_se2_city_elevations_lod1_front_whole_01.png": {
+        "bytes": 1427318,
+        "raw_sha256": "dd4d2239e26000eaba10ca22565ec0ec528b2e841a06aaf80a1c33c1b623537c"
+      },
+      "preservation_01.json": {
+        "bytes": 1279,
+        "raw_sha256": "a9cf07465a055e3e80130035037445704f2014af4908f95bc52f1f98d9ac0b01"
+      },
+      "protected_01.json": {
+        "bytes": 795,
+        "raw_sha256": "9ea5fbabc611f14875e6651f354a207a94b72ebd1dc48fc8a1195a0bba5babb9"
+      },
+      "review_native_01.py": {
+        "bytes": 5951,
+        "raw_sha256": "3359de5b7fe40b44915910c996f55b112e0d354cec661e926754700360dc345f"
+      },
+      "review_native_02.py": {
+        "bytes": 5975,
+        "raw_sha256": "2dd352b52576d6b0cd2ad03639e54c2f5c5622e11bbe9960191bb5dd162c1d14"
+      },
+      "review_native_context_01.py": {
+        "bytes": 6303,
+        "raw_sha256": "b559f072d8ffe15a3f9e7c14253f0b50011305329367284b44fa3956f528ba3e"
+      },
+      "run_native_build_01.py": {
+        "bytes": 1029,
+        "raw_sha256": "688edfc318d37fa57ec24466cb574839d5bde7e910b526419c528f1176f84625"
+      },
+      "site_nbr_s2_retained_geometry_01.json": {
+        "bytes": 861,
+        "raw_sha256": "81c69455673c5b715c93d80f662cd6bbb63a7f337f02b9c99b5490115807973e"
+      },
+      "site_se2_retained_geometry_01.json": {
+        "bytes": 1261,
+        "raw_sha256": "1c7373ac01eb045ae7b1a9149d1c57437c05d8a84dbb6be9fd09dc428dcd7f3b"
+      },
+      "spatial_summary_01.json": {
+        "bytes": 1680,
+        "raw_sha256": "df1f2979e3d81b05c85dec77a58344ce80a52e4bfe6857977ff77564e66e8cde"
+      },
+      "uv_audit_01.json": {
+        "bytes": 125712,
+        "raw_sha256": "cd4ccf090ee51b758e26095be556ebc45c78af72a1db8423b573201fc4e8b7fc"
+      }
+    }
   }
 }

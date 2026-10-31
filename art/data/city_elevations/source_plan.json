@@ -537,7 +537,7 @@
     },
     {
       "id": "site_nbr_s2",
-      "description": "Narrow-bay brick apartment block with gathered household curtains",
+      "description": "AU five-bay Elks-derived brick palazzo over the retained Harukiya bar: eared casement frames, segmental hoods, seated window balustrades, swag panels and a fenestrated attic; original bar/roof owners unchanged",
       "massing": "straight_eave",
       "storey_height": 2.95,
       "bay_pitch": 2.15,
@@ -565,7 +565,22 @@
       "window_treatment": "draped",
       "sill_projection": 0.1,
       "lintel_height": 0.14,
-      "variation_seed": 2098
+      "variation_seed": 2098,
+      "floor_heights": [
+        5.94,
+        3.65,
+        3.65,
+        2.2
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "elks878",
+        "front_side": 2,
+        "front_floor_count": 4,
+        "front_bays": 5,
+        "roof_depth_m": 0,
+        "precedent": "INERT:Elks Lodge878,The Ballinger Company,1923-24,LPC LP2086 PDF9 reproduces Architectural Forum September1926 plate43; period plate inspected with descriptivePDF5. Five-bay brick/stone palazzo, eared frames, segmental pediments, balustrades, swags and fenestrated attic inform this shorter-depth AU transposition. Dimensions/roofplant follow installed18.4x9.88m parcel. Retain all bar/lower fabric including3.33-3.55m soffit and3.55-5.94m band. No lodge, clock, terrace, new entry, room or lettering authority."
+      }
     },
     {
       "id": "site_sw2",
@@ -665,7 +680,7 @@
     },
     {
       "id": "site_se2",
-      "description": "Older brick flats with slender sash and uneven roller shades",
+      "description": "AU three-bay Ridgewood-derived terracotta loft headhouse with linked geometric pilasters, layered shield crests, casement/transom glazing and a fitted northern scenic entrance; original rooftop studio and plant retained",
       "massing": "single_upper_setback",
       "storey_height": 2.86,
       "bay_pitch": 2.22,
@@ -693,7 +708,23 @@
       "window_treatment": "roller",
       "sill_projection": 0.085,
       "lintel_height": 0.12,
-      "variation_seed": 2149
+      "variation_seed": 2149,
+      "floor_heights": [
+        7.14,
+        4.75,
+        4.75
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "ridgewood1916",
+        "front_side": 2,
+        "front_floor_count": 3,
+        "front_bays": 3,
+        "roof_depth_m": 0,
+        "entry_ground_m": 0.0,
+        "entry_landing_m": 0.3,
+        "precedent": "INERT:Ridgewood Theater,Thomas W.Lamb1916,LPC LP2325 PDF7 describes surviving three-bay/three-storey terracotta front; PDF11 is ChristopherD.Brazee2009 photograph,explicitly not period evidence. Original pilasters, geometric tiles, shields and diagonal spandrels inform this AU headhouse. Modern replacement windows, marquee, incised name and cinema programme excluded. Installed11.9x11.48m parcel,16.64m main cornice, retained20.66m studio deck and roofplant govern. Two150mmrisers fit existing transport-plaza datum0 to+.30m landing. Source-only current working-owner projections clear this entrance; no occupied room, live door, projection or venue authority."
+      }
     },
     {
       "id": "site_se3",
