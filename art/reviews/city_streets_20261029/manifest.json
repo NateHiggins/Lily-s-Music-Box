@@ -15165,9 +15165,9 @@
   },
   "window_optics_review": {
     "path": "art/reviews/city_streets_20261029/window_optics_review.zip",
-    "sha256": "a8b445464b0e54a3027418b37f7d13c5170dffe5ef013fa608a5a46172d0c4fc",
-    "bytes": 7734749,
-    "members": 63,
+    "sha256": "3b931d07c4ac2c2066a94ce6b421125299e273edb9223e53b2377af026b6a692",
+    "bytes": 14598552,
+    "members": 74,
     "evidence_class": "INERT",
     "scope": "149 non-Orison background-building window partitions; six shared materials, bounded lamp/decor/layout variation. Original124-window packet retained byte-exact. Focused family and composed night review, no full qualification or artistic acceptance.",
     "files": {
@@ -15422,7 +15422,65 @@
       "all_buildings/source/game/tests/v2_window_city_night_review.gd": {
         "bytes": 8291,
         "raw_sha256": "06f7c1e9ffc734f8b44a27b97834d15fb5decd486a08537003b9ec5bd332250f"
+      },
+      "postcards/01_moonlit_east_wide.png": {
+        "bytes": 1349902,
+        "raw_sha256": "1abd94b69a90d931c6e8fdc416b2cdca58cde3f0a35ec222fe153f3d477191ed"
+      },
+      "postcards/02_blue_hour_west_wide.png": {
+        "bytes": 1896784,
+        "raw_sha256": "29b09e2a8c94116cdfe87fc79591d49f33e433f7f48c870b6cbb88f9a681643c"
+      },
+      "postcards/03_autumn_dawn_alternate.png": {
+        "bytes": 2021261,
+        "raw_sha256": "e5940d1c0470f9a193a7acbd8563f5ca372bba31ce4d940df43cc3a292c43bce"
+      },
+      "postcards/04_winter_afternoon_alternate.png": {
+        "bytes": 1586277,
+        "raw_sha256": "e868c6c496e5d12bdf3c531a34700ae0e48d1a7bd1406e70eceb3def2c28a88d"
+      },
+      "postcards/selected_postcards.json": {
+        "bytes": 4683,
+        "raw_sha256": "d6b89b8e26a47fa69156028ef011d6d8ef4a819c3d68b4322b12ac7d45d023c9"
+      },
+      "postcards/night_review.json": {
+        "bytes": 8903,
+        "raw_sha256": "c888168fcb0d5f1eb44d1d1f9cbcbefa8837bfcb264e463c8f4bce3f411afcd0"
+      },
+      "postcards/gallery.log": {
+        "bytes": 9120,
+        "raw_sha256": "18c59fe0839749369081e2c83819bfce4f14faad993d4c44fc7f5b33113a9c0d"
+      },
+      "postcards/gallery.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "postcards/gallery.log.receipt.json": {
+        "bytes": 2753,
+        "raw_sha256": "2ae34a5c99cb0a2d87fdb091b29173741e34ec62960c45f8b511c968646e2a44"
+      },
+      "postcards/spatial_after.json": {
+        "bytes": 1771,
+        "raw_sha256": "1b7b830e2d675bf0c5d2065a0b33f8d5f147a5823add39f3e636918704169e7e"
+      },
+      "postcards/capture_source.gd": {
+        "bytes": 9921,
+        "raw_sha256": "3cd8d7092c76c94104c93997fdc96461ccc5e65e7dfc213e8b75ced973966470"
       }
+    },
+    "postcard_selection": {
+      "evidence_class": "INERT",
+      "resolution": [
+        3440,
+        1440
+      ],
+      "frames": [
+        "01_moonlit_east_wide.png",
+        "02_blue_hour_west_wide.png",
+        "03_autumn_dawn_alternate.png",
+        "04_winter_afternoon_alternate.png"
+      ],
+      "scope": "Four unretouched agent-curated roof views from one composed-world run; all63 prior archive members retained byte-exact."
     }
   }
 }

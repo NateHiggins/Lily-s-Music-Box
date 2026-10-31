@@ -324582,6 +324582,43 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "92151141c839c1d7",
+   "kind": "vector3_coordinate",
+   "token": "postcards",
+   "file": "game/tests/v2_window_city_night_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "postcards"
+   ],
+   "lines": [
+    130,
+    131,
+    132,
+    133
+   ],
+   "count": 4,
+   "context": [
+    "{\"id\":\"01_moonlit_east\", \"date\":[1929,2,23,1170], \"eye\":Vector3(-14,24.5,-9), \"direction\":Vector3(1,-.015,-.04)},",
+    "{\"id\":\"02_blue_hour_west\", \"date\":[1928,11,10,1035], \"eye\":Vector3(14,24.5,9), \"direction\":Vector3(-1,-.04,-.15)},",
+    "{\"id\":\"03_autumn_dawn\", \"date\":[1928,11,10,405], \"eye\":Vector3(-14,24.5,9), \"direction\":Vector3(1,-.035,-.2)},",
+    "{\"id\":\"04_winter_afternoon\", \"date\":[1929,2,23,990], \"eye\":Vector3(14,24.5,-9), \"direction\":Vector3(-1,-.065,.22)}"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

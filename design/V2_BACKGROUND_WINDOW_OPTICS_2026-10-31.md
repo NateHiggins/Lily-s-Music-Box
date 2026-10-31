@@ -205,3 +205,25 @@ added **all_buildings/** prefix; prior members remain byte-exact. Full loose
 receipts/captures are at **C:/ov/reports/window_all_buildings_20261031/**.
 The previous full static board and broader qualification limits remain as
 recorded above; no additional full-year or whole-game acceptance is claimed.
+
+## Four city postcards
+
+The requested gallery used one production-world startup, native **3440×1440**,
+four supported roof-edge crane poses and authoritative campaign time/weather.
+Eight raw frames were inspected; four unretouched frames were selected:
+
+| Frame | Campaign local time | Direction / framing |
+| --- | --- | --- |
+| 01_moonlit_east_wide | 1929-02-23 19:30 | East, 92° horizontal; relief Moon and warm windows |
+| 02_blue_hour_west_wide | 1928-11-10 17:15 | West, 92°; bridge and early evening windows |
+| 03_autumn_dawn_alternate | 1928-11-10 06:45 | East, 78°; golden clouds, varied unlit rooms |
+| 04_winter_afternoon_alternate | 1929-02-23 16:30 | West, 78°; ornate façades and mixed room lighting |
+
+**C:/ov/reports/city_postcards_20261031/** retains all eight originals, actual
+camera/date/weather metadata and the wrapper receipt. The completed scene
+reported no failed checks and empty shutdown stderr. Selection is agent visual
+curation, not owner artistic acceptance. Only the four chosen images are added
+to the existing ZIP under **postcards/**; earlier evidence remains byte-exact.
+No production code changed for this gallery. Reproduce with
+**WINDOW_CITY_POSTCARDS=1** and the existing **V2WindowCityNightReview** scene
+through the shared lane. These are posed roof photographs, not a walked route.

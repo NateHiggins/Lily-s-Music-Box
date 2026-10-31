@@ -108,19 +108,45 @@ func run() -> void:
 	record["world_startup_ms"] = world.startup_ms
 	var sky: ShaderMaterial = world.get_node("WakingAtmosphere").sky_material
 	check(sky.get_shader_parameter("moon_relief_enabled") == true, "production relief Moon enabled")
-	var moon: Vector3 = selected.moon
-	var bearing := Vector3(moon.x, 0, moon.z).normalized()
-	camera.look_at(camera.global_position + bearing * 100.0 + Vector3.UP * 3.0)
-	for frame in 100: await RenderingServer.frame_post_draw
-	await capture("orison_starlit_city_moon", world, clock)
-	# Same composed city, narrower optical detail; never replace the requested wide shot.
-	camera.fov = 65.0
-	for frame in 30: await RenderingServer.frame_post_draw
-	await capture("orison_starlit_city_detail", world, clock)
+	if OS.get_environment("WINDOW_CITY_POSTCARDS") == "1":
+		await postcards(world, clock)
+	else:
+		var moon: Vector3 = selected.moon
+		var bearing := Vector3(moon.x, 0, moon.z).normalized()
+		camera.look_at(camera.global_position + bearing * 100.0 + Vector3.UP * 3.0)
+		for frame in 100: await RenderingServer.frame_post_draw
+		await capture("orison_starlit_city_moon", world, clock)
+		camera.fov = 65.0
+		for frame in 30: await RenderingServer.frame_post_draw
+		await capture("orison_starlit_city_detail", world, clock)
 	world.shutdown_for_tests()
 	world.free()
 	await get_tree().physics_frame
 	finish()
+
+func postcards(world, clock: CampaignClock) -> void:
+	# Roof-edge photographic crane poses. Never alter production player spawning.
+	var shots := [
+		{"id":"01_moonlit_east", "date":[1929,2,23,1170], "eye":Vector3(-14,24.5,-9), "direction":Vector3(1,-.015,-.04)},
+		{"id":"02_blue_hour_west", "date":[1928,11,10,1035], "eye":Vector3(14,24.5,9), "direction":Vector3(-1,-.04,-.15)},
+		{"id":"03_autumn_dawn", "date":[1928,11,10,405], "eye":Vector3(-14,24.5,9), "direction":Vector3(1,-.035,-.2)},
+		{"id":"04_winter_afternoon", "date":[1929,2,23,990], "eye":Vector3(14,24.5,-9), "direction":Vector3(-1,-.065,.22)}
+	]
+	for shot: Dictionary in shots:
+		var date: Array = shot.date
+		check(clock.configure_date(date[0],date[1],date[2],date[3]), "postcard uses authoritative campaign date")
+		camera.global_position = world.adapter.root.to_global(shot.eye)
+		var roof: Dictionary = world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(camera.global_position, camera.global_position-Vector3.UP*12.0,1))
+		check(not roof.is_empty(), "postcard roof fixture has real physical support")
+		await get_tree().create_timer(2.0).timeout
+		world.day_night_director._apply(float(date[3]))
+		for angle in range(2):
+			var direction: Vector3 = shot.direction
+			if angle == 1: direction = direction.rotated(Vector3.UP, deg_to_rad(18.0))
+			camera.fov = 92.0 if angle == 0 else 78.0
+			camera.look_at(camera.global_position + direction.normalized()*100.0)
+			for frame in 60: await RenderingServer.frame_post_draw
+			await capture(str(shot.id)+("_wide" if angle == 0 else "_alternate"),world,clock)
 
 func capture(label: String, world: Node, clock: CampaignClock) -> void:
 	var path := output.path_join(label + ".png")
