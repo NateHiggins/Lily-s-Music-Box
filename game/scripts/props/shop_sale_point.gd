@@ -28,6 +28,7 @@ var _price: Label3D
 var _product: Label3D
 var _selector_held := false
 var _selector_travel := 0.0
+var _quoted := {}
 
 
 func configure(shop_sales: ShopSales, identities: Array[String]) -> bool:
@@ -62,8 +63,7 @@ func configure(shop_sales: ShopSales, identities: Array[String]) -> bool:
 	selector.position = SELECTOR_AT
 	add_child(selector)
 	stock.draw(selector, "TerminalLever")
-	if item_ids.size() > 1:
-		Manipulation.install(selector, _selector_grip)
+	Manipulation.install(selector, _selector_grip)
 	_letter(terminal, "Merchant", "QUEENS MUTUAL", Vector3(0, .056, -.038), .0065, true)
 	_price = _letter(terminal, "Price", "", Vector3(0, .035, -.038), .0075, true)
 	flag = _letter(terminal, "Status", "", Vector3(0, .022, -.038), .0042, true)
@@ -93,7 +93,7 @@ func _letter(parent: Node3D, label: String, text: String, at: Vector3, em: float
 
 
 func _selector_grip() -> Dictionary:
-	if selector == null:
+	if selector == null or item_ids.size() < 2:
 		return {}
 	return {"owner": self, "part": selector, "frame": self, "kind": "slide", "axis": Vector3.RIGHT,
 		"minimum": 0.0, "maximum": SELECTOR_TRAVEL,
@@ -104,6 +104,7 @@ func _selector_grip() -> Dictionary:
 		"begin": func():
 			if _selector_held:
 				return false
+			refresh_list()
 			_selector_held = true
 			return true,
 		"owns": func(): return _selector_held,
@@ -138,6 +139,16 @@ func select(index: int) -> void:
 	_show_selection()
 
 
+## A shop whose list changes, like a pawn shelf, asks for this after any change.
+func refresh_list() -> void:
+	var current := selected_item()
+	item_ids = sales.listing()
+	selected = maxi(0, item_ids.find(current))
+	flag.text = ""
+	_show_selection()
+	_seat_selector()
+
+
 func selected_item() -> String:
 	return item_ids[selected]
 
@@ -145,6 +156,8 @@ func selected_item() -> String:
 func _show_selection() -> void:
 	terminal.item_id = selected_item()
 	var record := sales.stock_record(selected_item())
+	# A pawn ticket ends with its own sale, so the slip reads this copy of the quote.
+	_quoted = record
 	_price.text = "%d CENTS" % int(record.price_cents)
 	_product.text = str(record.display_name)
 
@@ -153,9 +166,11 @@ func _on_sale(accepted: bool) -> void:
 	flag.text = FLAGS.get(terminal.last_status, "REFUSED")
 	var player := get_tree().get_first_node_in_group("player_controller") as PlayerController
 	if player != null:
-		var record := sales.stock_record(selected_item())
 		player.present_service_note(terminal, {"title": "QUEENS MUTUAL / SETTLEMENT",
-			"body": "%s / %d CENTS" % [str(record.display_name).to_upper(), int(record.price_cents)],
+			"body": "%s / %d CENTS" % [str(_quoted.display_name).to_upper(), int(_quoted.price_cents)],
 			"condition": flag.text, "stamp": "COUNTER COPY"})
 	if accepted:
 		sold.emit(selected_item())
+		var kept_flag := flag.text
+		refresh_list()
+		flag.text = kept_flag

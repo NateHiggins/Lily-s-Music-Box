@@ -27,6 +27,7 @@ EXPECTED_CONSUMERS = {
     # Authored Gregorian calendar; host hour/minute may be sampled once.
     "game/scripts/device/companion_conversation.gd": "authored_campaign_calendar",
     "game/scripts/game/shop_stock.gd": "authored_campaign_calendar",
+    "game/scripts/game/pawn_sales.gd": "authored_campaign_calendar",
     "game/scripts/game/campaign_clock.gd": "authored_campaign_calendar",
     # Owner October29 annual-present amendment: pure validated month/day/time
     # projection into1928/1929; the systemic audit still rejects other host reads.

@@ -14,9 +14,12 @@ const EARS_MIX := &"stopped_ears"
 const EARS_MINUTES := 480.0
 const POLL_SECONDS := 2.0
 const REMARK_SECONDS := 300.0
+const PAWN_REACH := 2.2
 
 var catalogue: ShopCatalogue
 var player: PlayerController
+## The grille. Within reach of it, a stack off the shelf is offered as a pledge.
+var pawn_point: Node3D
 var _clock := CampaignClock.new()
 var _accumulator := 0.0
 
@@ -51,12 +54,31 @@ func use_of(item: String) -> String:
 	return str(record_of(item).get("use", ""))
 
 
+func at_pawn() -> bool:
+	return is_instance_valid(pawn_point) and is_instance_valid(player) \
+			and player.global_position.distance_to(pawn_point.global_position) <= PAWN_REACH
+
+
+func _worth(item: String) -> int:
+	return int(record_of(item).get("cents", 0))
+
+
+func can_pledge(item: String) -> bool:
+	return at_pawn() and PawnSales.loan_for(_worth(item)) > 0 and not PawnSales.book().tickets.has(item)
+
+
 ## The words the hand's tag shows when a stack is held off the shelf.
 func verb_for(item: String) -> String:
+	if can_pledge(item):
+		return "PLEDGE IT: %d CENTS" % PawnSales.loan_for(_worth(item))
 	return str(VERBS.get(use_of(item), "NOTHING TO DO WITH IT"))
 
 
 func use(item: String) -> bool:
+	if can_pledge(item):
+		var held: Dictionary = PersonInventory.items(PersonInventory.PLAYER).get("goods:" + item, {})
+		var sales: PawnSales = pawn_point.sales
+		return sales.pledge(item, str(held.get("name", item)), str(held.get("form", "packet")), _worth(item))
 	var kind := use_of(item)
 	if not VERBS.has(kind) or (kind == "earplugs" and ears_stopped()):
 		return false
