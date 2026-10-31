@@ -10,9 +10,14 @@ var shader_filter_cache := {}
 func _run() -> void:
 	var started := Time.get_ticks_msec()
 	var city_context_views: Array=[]
+	var civic_access:Dictionary={"executed":false,"passed":false}
+	var civic_enabled:=OS.get_environment("ORISON_SURFACE_CITY_CIVIC_ACCESS")=="1"
 	var physical_only: bool=OS.get_environment("ORISON_SURFACE_PHYSICAL_ONLY")=="1"
 	if physical_only and (OS.get_environment("ORISON_SURFACE_FIRE_ONLY")=="1" or OS.get_environment("ORISON_SURFACE_CITY_ONLY")=="1"):
 		push_error("Physical surface mode cannot be combined with fire-only/city-only diagnostics")
+		get_tree().quit(2);return
+	if civic_enabled and not physical_only:
+		push_error("Composed civic access requires the explicit physical-only baseline filter")
 		get_tree().quit(2);return
 	var directory := OS.get_environment("SHOT_DIR")
 	if directory.is_empty() or DirAccess.make_dir_recursive_absolute(directory) != OK or DisplayServer.get_name() == "headless":
@@ -314,7 +319,7 @@ func _run() -> void:
 		world.free()
 		get_tree().quit(1)
 		return
-	var report := {"schema":"orison.v2-surface-inventory.v1", "evidence_class":"INERT", "acceptance":"Inventory; acceptance requires passing runtime contract and reviewed renders.", "qualification_mode":"physical_surfaces_only" if physical_only else "full_programmes", "coverage":{"production_world":true,"space_count":world.layout.spaces.size(),"resident_cells":world.passage_region.cell_nodes.size()}, "passage_state":world.passage_region.residency.state, "draws":draws, "meshes":mesh_rows, "materials":material_rows, "textures":texture_rows,"unhandled_geometry":unhandled_geometry}
+	var report := {"schema":"orison.v2-surface-inventory.v1", "evidence_class":"INERT", "acceptance":"Inventory; acceptance requires passing runtime contract and reviewed renders.", "qualification_mode":"physical_surfaces_and_civic_access" if physical_only and civic_enabled else "physical_surfaces_only" if physical_only else "full_programmes", "coverage":{"production_world":true,"space_count":world.layout.spaces.size(),"resident_cells":world.passage_region.cell_nodes.size()}, "passage_state":world.passage_region.residency.state, "draws":draws, "meshes":mesh_rows, "materials":material_rows, "textures":texture_rows,"unhandled_geometry":unhandled_geometry}
 	var file := FileAccess.open(directory.path_join("surface-inventory.json"), FileAccess.WRITE)
 	if file == null:
 		push_error("Cannot write surface inventory")
@@ -438,6 +443,9 @@ func _run() -> void:
 			await shot(label)
 			city_context_views.append({"building":identity,"file":label+".png","eye_world":str(eye),"aim_world":str(aim),"fov":review_camera.fov})
 		review_camera.fov=prior_fov
+	if civic_enabled:
+		var civic_programme:=preload("res://tests/v2_city_civic_world_programme.gd").new()
+		civic_access=await civic_programme.run(world,self)
 	var lamp_context := OS.get_environment("ORISON_SURFACE_LAMP_CONTEXT")=="1"
 	if lamp_context:
 		# Reuse the composed world and existing lamp camera helper, rather than
@@ -515,7 +523,8 @@ func _run() -> void:
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.},
 		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(path),"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":str(digest[0]).strip_edges() if not digest.is_empty() else ""},
 		"surface_inputs_sha256":after.get("sha256",""),"inventory_sha256":FileAccess.get_sha256(directory.path_join("surface-inventory.json")),
-		"qualification_mode":"physical_surfaces_only" if physical_only else "full_programmes",
+		"qualification_mode":"physical_surfaces_and_civic_access" if physical_only and civic_enabled else "physical_surfaces_only" if physical_only else "full_programmes",
+		"civic_world_access":civic_access,
 		"lamp_context_review":{"executed":lamp_context,"scope":"Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."},
 		"city_context_review":{"views":city_context_views,"scope":"Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance."},
 		"interaction_programmes":{"fire_service":{"executed":fire_interactions,"scope":"separate interaction programme; physical draws remain in the inventory"},"other_family_programmes":{"executed":not physical_only,"scope":"Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."}},
