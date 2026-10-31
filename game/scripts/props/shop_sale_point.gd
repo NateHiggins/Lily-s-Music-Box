@@ -11,7 +11,7 @@ const Library := preload("res://scripts/props/fire_maintenance_stock_library.gd"
 const Manipulation := preload("res://scripts/props/manipulation_area.gd")
 const FONT := preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
 const FLAGS := {"paid": "SETTLED", "no_carrier": "NO CARRIER", "insufficient_funds": "NO CREDIT",
-	"out_of_stock": "NONE LEFT", "case_full": "CASE FULL", "no_coupon": "NO COUPON", "already_posted": "ALREADY POSTED", "save_unavailable": "RECORD FAULT",
+	"out_of_stock": "NONE LEFT", "case_full": "CASE FULL", "no_coupon": "NO COUPON", "no_plate": "BRING A PLATE", "no_paper": "PAPER AND CHEMICALS", "tray_busy": "TRAY IN USE", "already_posted": "ALREADY POSTED", "save_unavailable": "RECORD FAULT",
 	"terminal_unavailable": "LINE CLOSED"}
 const SELECTOR_TRAVEL := 0.10
 const SELECTOR_AT := Vector3(-0.26, 0.0, 0.0)

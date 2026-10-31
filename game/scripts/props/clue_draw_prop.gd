@@ -13,8 +13,13 @@ var from_date := ""
 var flag := ""
 var note: Dictionary = {}
 var goods: Dictionary = {}
+## A book read again prints what's in it now, each full draw. Empty for a one-time find.
+var reader := Callable()
+## Empty when it can always be drawn; false shuts it, as a closed shop does.
+var open_check := Callable()
 var travel := 0.0
 var _held := false
+var _read_this_pass := false
 var _origin := Vector3.ZERO
 var _clock := CampaignClock.new()
 
@@ -35,7 +40,7 @@ func due() -> bool:
 
 
 func grip() -> Dictionary:
-	if part == null or not due():
+	if part == null or not due() or (open_check.is_valid() and not bool(open_check.call())):
 		return {}
 	return {"owner": self, "part": part, "frame": self, "kind": "slide", "axis": axis,
 		"minimum": 0.0, "maximum": reach, "gesture_travel_px": GESTURE_PIXELS, "gesture_screen_axis": Vector2.DOWN,
@@ -47,6 +52,7 @@ func grip() -> Dictionary:
 			if _held:
 				return false
 			_held = true
+			_read_this_pass = false
 			return true,
 		"owns": func(): return _held,
 		"end": func(): _held = false}
@@ -62,6 +68,13 @@ func _move(value: float) -> void:
 
 
 func _found() -> void:
+	if reader.is_valid():
+		if not _read_this_pass:
+			_read_this_pass = true
+			var player := get_tree().get_first_node_in_group("player_controller") as PlayerController
+			if player != null:
+				player.present_service_note(self, reader.call())
+		return
 	if flag == "" or not RealityState.grant_knowledge(flag):
 		return
 	if not goods.is_empty():
