@@ -3743,3 +3743,10 @@ bar/arcade ground owners and all original roof equipment, before combined renewa
 The existing rear-east archive now contains 95 members / 24022743 bytes,
 SHA256 **8cd28b994891efea68156f115fc27d18df58283b6b97d2918fb381af91fca5ea**. Member bytes/CRC and manifest hashes verified;
 all earlier members retained, identical new evidence bytes stored once with aliases.
+
+
+### Southern pair — tracker update, 2026-10-30
+
+Evidence class: **INERT**. Starting checkpoint **e8e456c9**. Two related facade recipes and source profiles are authored; no new native export, render, loaded check or acceptance is claimed yet. **site_nbr_s2** uses the five-bay brick/stone composition of Elks Lodge878 (Ballinger,1923–24), informed by LPC LP2086 PDF9's1926 plate and PDF5 description. Its installed bar ceiling, lower facade and roof contacts remain the constraints. **site_se2** uses Ridgewood Theater's original three-bay terracotta composition (Lamb,1916), informed by LP2325 PDF7 and its explicitly2009 PDF11 photograph; modern marquee/windows and cinema programme are excluded. Its studio, decks and plant remain in place. Exact dimensions follow the installed alternate-universe parcels, not a claimed historical Queens Plaza reconstruction.
+
+The canonical rooftop capture completed and released the resource hold. Next is one native batch and visual review, then one combined loaded material/LOD measurement and a focused normal-controller entrance check. Existing production plaza/transport geometry owns the southeast approach; no replacement floor or working-shop authority is introduced. Full-city qualification, artistic acceptance, whole-area support and distant building replacement remain open. Primary reference pixels remain external and are never incorporated into assets.
