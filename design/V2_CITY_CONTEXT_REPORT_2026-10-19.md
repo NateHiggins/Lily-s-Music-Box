@@ -4346,3 +4346,15 @@ recorded under **canonical_laurel_01/** and do not substitute for current
 loaded/controller/composed verification. The new local fixture's actual action
 names must be checked against InputMap; an invalid return action is a test-driver
 fault, not permission to bypass a closed leaf or loosen collision tolerances.
+
+
+The architect's actual isolated entry02 is now terminal: wrapper34.38s, local
+programme7.948272s,15 local checks/zero failures,empty stderr. Canonical review
+independently matches all234 recorded inputs against63ad3504 blobs plus the
+externally frozen driver, and inspects both court/landing eye views. Actual
+landing+0.300813m,closed-leaf stop+0.300821m and return−0.019163m retain the
+production five-foot capsule and both step guards. First move_backward driver
+failure remains preserved; move_back corrects only that action. The new driver
+is awaiting its author's final commit/intake. This is isolated fit evidence,
+explicitly INERT,not a runtime contract or occupied-world access/art approval.
+Canonical launched no duplicate full-world run for this review.
