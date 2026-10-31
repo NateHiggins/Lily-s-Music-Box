@@ -253901,13 +253901,13 @@
   },
   "source_bindings": {
     "art/data/city_horizon/source_plan.json": "27c07c45d9d11400ae91502f36092a4e48d9d41a802eb11d06c29b1720f9957e",
-    "art/blender/city_ground_apron_construction.json": "749b684a8c216b5d6bc751f04a0a8cb8e2f1a727d9e27f0def1d81d39aafc25e",
+    "art/blender/city_ground_apron_construction.json": "ef9dc6b8ba7014ed44a5be1a9265a71add2b3b6abc2b8d7352cc96da780cb6a7",
     "game/data/runtime_material_sets.json": "053761fac29499e8bc9a80a62f37d7411226157919b5cdc5421b9686569d38cc",
     "game/data/orison_v2/exterior/city_horizon.json": "91c6019c2c73d17a1ec47817a45ab1d43ace863e25ee4de85cee1e7b92d49e22",
     "art/blender/scripts/build_city_horizon.py": "cf691a4ce1fb61dcec2ab5d806fb91a76eab6b487b554ea8ebfbbd9938b22b77",
     "game/scripts/building/orison_v2_city_horizon.gd": "e80e7cdb584990f2c1d89c6bb6fef50ffc58b53bfdedeec4659be29a1c58bb2a",
     "art/blender/scripts/city_horizon_geometry.py": "7fe077736647274ed7721bfe18eefcf290e387f8310f5ad5565463b4748bfcf1",
-    "art/blender/scripts/city_ground_apron_geometry.py": "d580bccab56665e8e097d1c4132cc1dd4ea48d33859cf5e6f341bf1e0ce44849",
+    "art/blender/scripts/city_ground_apron_geometry.py": "05d1c3f1eed60276eb2eccfd570f2f4711127a6bb4f1f0fa3d39470ad2e9383a",
     "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
@@ -253952,5 +253952,37 @@
     "game/assets/building/textures/T_ai_materials_galvanized_roof_albedo.png": "4f5200041f815f4e58eec3607a61dc014291743f807029e958eee2f35ed8f429",
     "game/assets/building/textures/T_ai_materials_galvanized_roof_rough.png": "4aaf1617b32a3c3fcfe8494cead7a50a963fb55f6dfadaa9095e37f09db30f7b",
     "game/assets/building/textures/T_ai_materials_galvanized_roof_normal.png": "7a9573c366d01395fb428ae29d300fbecaca3b1b8905ecd26d7332e931347ebf"
+  },
+  "source_ground_reconciliation": {
+    "evidence_class": "INERT",
+    "scope": "Only source-ground envelope/relief and the three consumed pure helper functions are unchanged; every delivered horizon grade datum and every other bound input verified. No native geometry, runtime contract or artistic status renewed.",
+    "source_commit": "e3ccd6bd5f3dd308b2132eef0d76e603d6f1c5de",
+    "grade_records": 124,
+    "projection_sha256": "09dd7ca2bf38c72bb97b9abfab57409ceba2144de8abb4701fb9d48fd93fc3aa",
+    "consumed_functions": [
+      "exported_bounds",
+      "relief_height",
+      "profile_height"
+    ],
+    "bindings": {
+      "art/blender/city_ground_apron_construction.json": {
+        "before": "749b684a8c216b5d6bc751f04a0a8cb8e2f1a727d9e27f0def1d81d39aafc25e",
+        "after": "4eee3e54f1f3dc9ba425cde8754df53b3764c03e94904ff8b8729ae76759d05a"
+      },
+      "art/blender/scripts/city_ground_apron_geometry.py": {
+        "before": "d580bccab56665e8e097d1c4132cc1dd4ea48d33859cf5e6f341bf1e0ce44849",
+        "after": "05d1c3f1eed60276eb2eccfd570f2f4711127a6bb4f1f0fa3d39470ad2e9383a"
+      }
+    },
+    "apron_plan_closure": {
+      "evidence_class": "INERT",
+      "baseline": "d3ad45dd",
+      "consumed_projection": "124 building rectangles used only to exclude exposed sample points; all identical including ids/order-independent comparison",
+      "before": "dcf97b515804fe89889dedd49e138ab8c0d36dad87ad658f11a0a09ab91cb13b",
+      "after": "27c07c45d9d11400ae91502f36092a4e48d9d41a802eb11d06c29b1720f9957e",
+      "rows": 124,
+      "projection_sha256": "e7b572a10a1be3baed32527cb694ea6ae1cb739bdf41fe09d568a7ec137a24c1",
+      "scope": "Metadata closure only; native geometry and runtime proof unchanged."
+    }
   }
 }

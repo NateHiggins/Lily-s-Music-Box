@@ -19,9 +19,9 @@
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
-    "art/data/city_horizon/source_plan.json": "dcf97b515804fe89889dedd49e138ab8c0d36dad87ad658f11a0a09ab91cb13b",
-    "art/blender/city_horizon_construction.json": "7432ed751b486b199af307a3a26603729a5a4a428b5a179aaa917f3799e24fc8",
-    "art/blender/scripts/city_industrial_architecture.py": "2c54c8880e9abc81f5de59abf43b970a208f76af4ff13211b1a1f70b89a8b913",
+    "art/data/city_horizon/source_plan.json": "27c07c45d9d11400ae91502f36092a4e48d9d41a802eb11d06c29b1720f9957e",
+    "art/blender/city_horizon_construction.json": "6119f1a7a09a23642152729d51d3114ee37b8600dcd3ad6adc2ff167bd20c8df",
+    "art/blender/scripts/city_industrial_architecture.py": "98573266c9b41da690f1e2cc22b68bf34ab725ce24b1a3cb264fea38be66004f",
     "game/scripts/building/orison_v2_world_connection.gd": "921558ac46b704185f731370c6cf814e56a03c0667eb16a8789d8534a50dccc3",
     "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
     "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5"
@@ -426074,5 +426074,24 @@
       ]
     }
   ],
-  "failures": []
+  "failures": [],
+  "horizon_context_reconciliation": {
+    "evidence_class": "INERT",
+    "baseline": "d3ad45dd",
+    "scope": "Three horizon context bindings occur only in paths metadata list in unchanged street builder, never in geometry reads/imports. Every other bound input and both generated GLBs remain exact. No geometry, fixture assertions or runtime proof changed.",
+    "bindings": {
+      "art/data/city_horizon/source_plan.json": {
+        "before": "dcf97b515804fe89889dedd49e138ab8c0d36dad87ad658f11a0a09ab91cb13b",
+        "after": "27c07c45d9d11400ae91502f36092a4e48d9d41a802eb11d06c29b1720f9957e"
+      },
+      "art/blender/city_horizon_construction.json": {
+        "before": "7432ed751b486b199af307a3a26603729a5a4a428b5a179aaa917f3799e24fc8",
+        "after": "6119f1a7a09a23642152729d51d3114ee37b8600dcd3ad6adc2ff167bd20c8df"
+      },
+      "art/blender/scripts/city_industrial_architecture.py": {
+        "before": "2c54c8880e9abc81f5de59abf43b970a208f76af4ff13211b1a1f70b89a8b913",
+        "after": "98573266c9b41da690f1e2cc22b68bf34ab725ce24b1a3cb264fea38be66004f"
+      }
+    }
+  }
 }

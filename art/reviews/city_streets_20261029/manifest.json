@@ -14105,5 +14105,94 @@
         "sha256": "b1e29165e856e1284a35a5051768a19f9984b3fe693fa2626df91b0122fdd4b5"
       }
     }
+  },
+  "eastern_canonical_ground_closure": {
+    "evidence_class": "INERT",
+    "archive": "art/reviews/city_streets_20261029/eastern_street_native_review.zip",
+    "bytes": 44991778,
+    "sha256": "6359bf1394e47d0c324bb7185f99009f994e62ce3320fe01416a09896dac957e",
+    "member_count": 231,
+    "preserved_prior_members": 211,
+    "new_members": 20,
+    "intake_commit": "5d9b4e52",
+    "scope": "Source closure and frozen-delivery intake, not new runtime qualification.",
+    "members": {
+      "canonical_integration_02/verify_house_intake_01.py": {
+        "bytes": 3381,
+        "sha256": "4ee052c2a0647d36ffd8a3025b72dadc032281437451403cf23f86330f4d3609"
+      },
+      "canonical_integration_02/house_intake_01.json": {
+        "bytes": 3167,
+        "sha256": "2e361393b75899c43c09993f9000884949b789f41be468406c91e7182b4a77f7"
+      },
+      "canonical_integration_02/expected_e3_runtime_bindings.json": {
+        "bytes": 30821,
+        "sha256": "20fa3bcabaecc36001b00e42df2b7a8d2d700303feb60fbe90ed65a426d6a2c1"
+      },
+      "canonical_integration_02/post_merge_runtime_bindings_01.json": {
+        "bytes": 317,
+        "sha256": "5ef411bee7fc0c798566bd789ee4bbb95cf26b4be0ef71750227888347b786be"
+      },
+      "canonical_integration_02/post_merge_runtime_bindings_03.json": {
+        "bytes": 475,
+        "sha256": "430ca0fccfe594b291f0a7c33f6e7c03c4116dd1c250004719cd58b4614cd4ff"
+      },
+      "canonical_integration_02/reconcile_horizon_ground_01.py": {
+        "bytes": 4831,
+        "sha256": "e04826c4e480144c82a3b64520485a53facb9b25bdcc26f1151dacfc9df8a2dc"
+      },
+      "canonical_integration_02/horizon_ground_reconciliation_01.json": {
+        "bytes": 1056,
+        "sha256": "6236869eb23f755bd04b3146f7fd4d9ab6d26ce6097f3e68d1b218f4a9ff3161"
+      },
+      "canonical_integration_02/failed_binary_normalization_03.py": {
+        "bytes": 3332,
+        "sha256": "5d47ea4048fdb68c8ff5d5709b21316c2bb20a6741fd7350fd62921ad29a526b"
+      },
+      "canonical_integration_02/close_bindings_03.py": {
+        "bytes": 3441,
+        "sha256": "2c8b072f2b8cf0ca6ab8de42d7cc4601c68418fbe0b8da6e5c2c95358080a300"
+      },
+      "canonical_integration_02/apron_plan_reconciliation_03.json": {
+        "bytes": 566,
+        "sha256": "58e7b970f6ada95101c7142e161f0ed046037debf16dd1d15c31573cfa15ac22"
+      },
+      "canonical_integration_02/close_street_context_04.py": {
+        "bytes": 2237,
+        "sha256": "f5430d4af061d19eaafdde47c7a4ce775f9f96fe766c911984541aadb7131bf0"
+      },
+      "canonical_integration_02/street_context_reconciliation_04.json": {
+        "bytes": 1036,
+        "sha256": "b59a0f06b8f6d4948b565fff18781b8b2aef767aa568d6c07e0ebd98ba99b391"
+      },
+      "canonical_integration_02/merge_resolution_01.json": {
+        "bytes": 938,
+        "sha256": "dc1562b724e69d9db07330a36e2c60c5078e5bf7c8ba33829d349aa08a6a8edc"
+      },
+      "canonical_integration_02/TASKS.md.merge_conflict.txt": {
+        "bytes": 9480,
+        "sha256": "c18746c51fe4865ad2112ca3787ea56e72716c0ce2c91c93c8d07840edcd92c8"
+      },
+      "canonical_integration_02/V2_CITY_CONTEXT_REPORT_2026-10-19.md.merge_conflict.txt": {
+        "bytes": 31916,
+        "sha256": "42638b2c570aaff419a239029545c02fda0840ec03694244e71c510760cfdb03"
+      },
+      "canonical_integration_02/line_endings_before_merge.json": {
+        "bytes": 2012,
+        "sha256": "04046d2b6f60a1a044f9c4e464bf4a6dfe6c6428922f7beff14e64a4599637a1"
+      },
+      "canonical_integration_02/line_endings_before_merge.zip": {
+        "bytes": 6821,
+        "sha256": "e7775968a38aa1993f5b68baa8866866ab8b9ab5e4273481fc8b10701963dc7f"
+      },
+      "canonical_integration_02/pack_closure_05.py": {
+        "bytes": 3377,
+        "sha256": "bacb09e2f588fa22f40ac64528d74bed757364361d912aceae7168378918f277"
+      },
+      "canonical_integration_02/diagnostic_dispositions_05.json": {
+        "bytes": 847,
+        "sha256": "8544ae2b622fa8e180022df598b5b8a65246d680777a3419029c6915a4e72518"
+      }
+    }
   }
 }
