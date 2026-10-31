@@ -4954,3 +4954,23 @@ Exact **ec30aba9** baseline completes117 gates on a clean static-only checkout
 with no timeouts. Current candidate comparison remains pending. Startup121.200s
 is measured debt, not a matched improvement. No new save/full-city/artistic
 acceptance follows; previous760 verification remains valid only for its snapshot.
+
+
+### Current-main publication candidate verified, 2026-10-31
+
+Evidence class: **INERT**. Candidate **63410d95** against exact
+**ec30aba9** passes117 gates with **zero regressions/four improvements**,
+all17 protected paths unchanged,V2 selected,zero design lint errors,no
+requirement promotions and no waived regressions. Three flagged instrument
+diffs and the lower native binding remain byte-exact the manually reviewed760
+versions. The original clock checker is byte-exact current main. All664
+temporarily preserved untracked originals are restored byte-exact.
+
+Current composed physical651/0,compiler4/0 and independently inspected images
+remain separate runtime evidence. The unchanged case,industrial and controller
+checks are reused, not rerun by this no-Godot verifier. Current source-bound
+packet passes with zero defects. Exact verification JSON/Markdown and explicit
+instrument review are appended to the existing composed archive, preserving
+every preceding member. No full-city,save,fresh-checkout or artistic completion
+is claimed. The checkpoint is qualified for a normal fast-forward publication;
+the preceding non-fast-forward rejection remains preserved in this record.
