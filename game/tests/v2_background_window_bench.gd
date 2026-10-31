@@ -37,6 +37,13 @@ func _ready() -> void:
 	arrays[Mesh.ARRAY_INDEX] = PackedInt32Array([0,1,2, 0,2,3])
 	var pane := ArrayMesh.new()
 	pane.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	var projected: ArrayMesh = Factory.project(pane)
+	var projected_arrays := projected.surface_get_arrays(0)
+	for channel in [Mesh.ARRAY_VERTEX, Mesh.ARRAY_NORMAL, Mesh.ARRAY_TANGENT, Mesh.ARRAY_TEX_UV, Mesh.ARRAY_INDEX]:
+		if projected_arrays[channel] != pane.surface_get_arrays(0)[channel]:
+			result.failures.append("optical projection changed physical channel %d" % channel)
+	if int(projected.get_meta("optical_faces", 0)) != 1:
+		result.failures.append("single pane optical face discovery")
 	var backing := MeshInstance3D.new()
 	var box := BoxMesh.new()
 	box.size = Vector3(31, 10.0, 0.3)

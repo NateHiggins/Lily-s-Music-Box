@@ -17,8 +17,10 @@ uniform int room_kind : hint_range(0, 3) = 0; // dwelling, office, workshop, sho
 uniform float minute_of_day : hint_range(0.0, 1440.0) = 1200.0;
 uniform bool weekend = false;
 uniform bool interiors_enabled = true;
+uniform bool optical_vertex_data = false;
 // A hash input must not interpolate: roundoff otherwise becomes pixel speckle.
 varying flat float pane_seed;
+varying flat vec2 optical_size;
 
 float hash1(float p) { return fract(sin(p * 127.1 + 311.7) * 43758.5453); }
 
@@ -48,6 +50,11 @@ void furnish(vec3 ro, vec3 rd, vec3 lo, vec3 hi, vec3 color,
 void vertex() {
     // INSTANCE_CUSTOM.r is optional normalized identity for MultiMesh batches.
     pane_seed = building_seed + INSTANCE_CUSTOM.r * 8192.0;
+    optical_size = pane_size;
+    if (optical_vertex_data) {
+        pane_seed = building_seed + CUSTOM0.x;
+        optical_size = max(CUSTOM0.yz, vec2(0.1));
+    }
 }
 
 void fragment() {
@@ -67,12 +74,12 @@ void fragment() {
     vec3 tangent_v = (dFdy(VERTEX) * dx.x - dFdx(VERTEX) * dy.x)
         / (abs(determinant) > 0.00000001 ? determinant : 0.00000001);
     vec3 incoming = -VIEW;
-    vec3 rd = normalize(vec3(dot(incoming, normalize(tangent_u)),
-        dot(incoming, normalize(tangent_v)), max(0.04, -dot(incoming, NORMAL))));
-    vec3 ro = vec3((st - 0.5) * pane_size, 0.001);
-    float w = pane_size.x * 1.25;
-    float floor_y = -pane_size.y * 0.5 - 0.65;
-    float ceiling_y = pane_size.y * 0.5 + 0.45;
+    vec3 rd = normalize(vec3(dot(incoming, normalize(tangent_u + vec3(0.000001, 0.0, 0.0))),
+        dot(incoming, normalize(tangent_v + vec3(0.0, 0.000001, 0.0))), max(0.04, -dot(incoming, NORMAL))));
+    vec3 ro = vec3((st - 0.5) * optical_size, 0.001);
+    float w = optical_size.x * 1.25;
+    float floor_y = -optical_size.y * 0.5 - 0.65;
+    float ceiling_y = optical_size.y * 0.5 + 0.45;
     vec3 inv = sign(rd + vec3(0.000001)) / max(abs(rd), vec3(0.00001));
     vec3 far_t = max((vec3(-w, floor_y, 0.0) - ro) * inv,
                      (vec3(w, ceiling_y, room_depth) - ro) * inv);
