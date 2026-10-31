@@ -3507,3 +3507,53 @@ comparison failure,source/provenance and UV evidence retained. Source reference
 pixels/PDFs and duplicate production meshes excluded. External source evidence
 is **C:/ov/reports/city_streets_20261029/rear_apartment_01**. Published tally remains
 **21/149** until required canonical publication/qualification is actually done.
+
+
+### Rear-west complete front in progress — 2026-10-30
+
+Evidence class: **INERT**. Supersedes the upper-only prototype's unchanged-front
+claim for the current uncommitted construction, not its preserved checkpoint.
+Starting checkpoint **1a6b09d2** is pushed. The current Hawthorne-derived body
+now has seven aligned front axes, a closed scenic entrance leaf, columned
+portico, landing and two nominal 160.875mm risers. The landing is +0.30m;
+actual unchanged approach grade varies with X around -0.02175m. No live door,
+room, shop, save or narrative authority was added. Rear and side lower facades,
+roof deck and nine plant contacts remain the intended preservation boundary.
+
+Current near/lower meshes contain 31412/28020 triangles and eleven registered
+material parts each. Five current native views were inspected;22 native/export
+part comparisons match. Near1699 closed stocks pass; lower12428 stocks,
+595 bearings and667 panes pass. Near1205 bearings/2549 panes/126 roof/12 return
+checks and both UV audits pass. Actual installed-coordinate diagnostics pass
+30 support sections and8 optical rays. These rays are not capsule/walk proof.
+The original constant-grade diagnostic failure is retained; the correction
+samples independently unchanged terrain at each X rather than raising tolerance.
+
+Preservation verification found equal retained vertex sets and area but a
+2.261mm surface discrepancy on the inherited beveled transfer cornice after
+combined triangulation. It remains an unresolved construction issue; no
+acceptance or tolerance waiver. Unrelated270 near/155 lower parts,24 profiles
+and five ground/street assets remain exact against the prior checkpoint.
+
+The first upper-only loaded bench failed two assertions (stale roof count and
+JSON numeric-array type comparison), despite7285 checks. Original source,
+wrapper receipt, profile and captures remain external under
+**C:/ov/reports/city_streets_20261029/rear_apartment_01/bench_01** and adjacent
+files. Corrections and current entry counts await a new frozen native boundary
+and rerun. No runtime qualification or accepted performance claim follows from
+that failed run. Current loaded appearance/mipmaps/LOD/collision, composed
+lighting and artistic acceptance remain open. Canonical published tally stays
+21/149; full-city completion remains the active objective.
+
+
+Retained-surface diagnostic continuation: the 2.261mm BVH reading is a query
+precision error, not an observed physical gap. The source cornice BEAUTY
+triangulation matches all44 frozen old triangles. Its bounded copy now freezes
+that stock before the material batch. Independent float64 point-to-triangle
+projection plus clamped edge distances measures the first disputed point at
+0.000001146m. The complete bidirectional check passes208512 samples at the
+unchanged0.0001m tolerance, with exact retained vertex sets/equal areas and
+508 changed coplanar diagonals. Original strict comparisons, BVH failures and
+diagnostic-script setup/serialization failures remain external. No physical
+acceptance or tolerance increase. Final native re-review is in progress before
+another loaded run;14 city tools tests and reader NEW0 pass again.
