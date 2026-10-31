@@ -324202,6 +324202,34 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "d6841bea26563042",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/",
+   "file": "game/tests/v2_city_transport_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_bench_sources"
+   ],
+   "lines": [
+    318
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

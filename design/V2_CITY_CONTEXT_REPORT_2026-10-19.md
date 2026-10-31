@@ -3743,3 +3743,18 @@ and direct-runner refusal. No live global mutex,priority or running job is alter
 Nine normalized-identical import rewrites were restored by named paths after
 raw-byte backup; no semantic import edit was discarded. Untracked generated UIDs
 and app attachments remain preserved pending the clean-checkout verification step.
+
+
+### Candidate spatial binding reconciliation
+
+Evidence class: **INERT**. First clean candidate **d3693ceb** comparison finds
+one new incidental spatial record (count+named finding),not a rendering failure.
+Bridge bench **_bench_sources** hashes registered map/import files under
+**res://assets/building/textures/**; this newly scanned test prefix was missing
+from the manifest. The actual folder and catalogue-driven source guard are
+inspected. Added only record **d6841bea26563042**,TEST_CONTRACT/non-gameplay,
+with all previous entries/universe metadata exact. No broad manifest refresh,
+classification waiver,layout change or test weakening. Targeted spatial audit
+now has0 new failing/reported records. Original blocked verification is preserved;
+final exact-e145 comparison is rerun for the corrected candidate. No additional
+Godot run is required: production,test rendering sources and settings are exact.
