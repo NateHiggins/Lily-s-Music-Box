@@ -350,8 +350,11 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
 - **Changed verification instruments:** inspect candidate changes to audits,
   exceptions, fixtures and source manifests before trusting their passing output.
   Keep any necessary owner-authorized exception narrow and retain negative
-  controls for side effects and unrelated callers. See the prologue ledger's
-  candidate instrument review for the source-bound checks and their limits.
+  controls for side effects and unrelated callers. For GDScript scanners, cover
+  valid StringName keys (`&"issued_at"`) and matching/escaped quote forms; a clean
+  board does not override a demonstrated missed mutation. See the city report's
+  rejected clock-reader experiment and the prologue ledger's candidate instrument
+  review for source-bound checks and their limits.
 - **Gate selection:** request each gate with a separate `--only` argument and
   inspect the resulting rows. An empty board proves no checks ran. Unknown
   selections now refuse before execution; do not treat an older empty green
@@ -367,6 +370,9 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   precede test completion: require the test's complete output/contract. Freeze
   rendering inputs during source-bound runs; renew stale qualification rather
   than waiving or repinning it. See the [batch workflow](../../../art/blender/v2_batch_workflow.md).
+  Check the actual owner input signature before scheduling requalification.
+  A changed diagnostic helper outside that projection does not expire a still-
+  matching packet; a new Git commit alone is not evidence of rendering drift.
   Check each batch stage's receipt: an earlier stage passing does not establish
   that later stages started. Preserve a between-stage busy refusal and resume
   only unfinished stages through guarded wrappers; never restart a live handle.

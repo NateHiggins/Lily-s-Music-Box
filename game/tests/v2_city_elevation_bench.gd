@@ -440,7 +440,6 @@ func _entry_drive(player: PlayerController, target_z: float, samples: Array, axi
 func _check_gateway_footway() -> void:
 	# Same imported gateway, retained street-box builder and normal player.
 	# Deliberately omits all other world actors; this is a fast diagnostic only.
-	var started:=Time.get_ticks_usec()
 	var directory:=OS.get_environment("SHOT_DIR")
 	var ready_directory:=not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK
 	check(ready_directory,"footway fixture creates its evidence directory before actors")
@@ -489,7 +488,7 @@ func _check_gateway_footway() -> void:
 	check(get_viewport().get_texture().get_image().save_png(directory.path_join("footway_return.png"))==OK,"actual local footway eye capture saved")
 	var bindings:=_footway_input_hashes()
 	check(before==bindings,"local footway inputs remain frozen through actual movement")
-	var record: Dictionary={"evidence_class":"INERT","scope":"Opt-in isolated original street-builder/gateway collision and actual standing controller; same six bar-footway points as composed programme,one initial placement. Other actors absent; no composed,save,performance or artistic acceptance.","checks":checks,"failures":failures,"elapsed_s":(Time.get_ticks_usec()-started)/1000000.,"stages":stages,"movement_samples":samples,"source_hashes":bindings}
+	var record: Dictionary={"evidence_class":"INERT","scope":"Opt-in isolated original street-builder/gateway collision and actual standing controller; same six bar-footway points as composed programme,one initial placement. Other actors absent; no composed,save,performance or artistic acceptance.","checks":checks,"failures":failures,"stages":stages,"movement_samples":samples,"source_hashes":bindings}
 	var file:=FileAccess.open(directory.path_join("gateway_footway_diagnostic.json"),FileAccess.WRITE)
 	check(file!=null,"local footway diagnostic output opens")
 	record["checks"]=checks

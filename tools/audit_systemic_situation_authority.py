@@ -943,32 +943,6 @@ def _pure_prologue_destination(ctx, scope, body):
     return normalize(body) == normalize(expected) and normalize(helper) == normalize(projection)
 
 
-def _monotonic_durable_context(line: str, body: str) -> bool:
-    """Keep real sinks/field keys; prose mentioning saves is not a writer."""
-    if not DURABLE_CONTEXT_RE.search(line):
-        return False
-    code = _gd_code_only(line)
-    if DURABLE_CONTEXT_RE.search(code):
-        return True
-    for literal in re.finditer(r"([\"'])([^\"'\n]*)\1", line):
-        before, after = code[:literal.start()].rstrip(), code[literal.end():].lstrip()
-        field = after.startswith(":") or (before.endswith("[") and after.startswith("]")) \
-            or re.search(r"\b(?:get|set)\(\s*$", before)
-        if field and DURABLE_CONTEXT_RE.search(literal.group(2)):
-            return True
-    # Do not let an explanatory string hide an actual later state escape.
-    # FileAccess serialization alone can be an INERT measurement artifact;
-    # RealityState/data/commit/save calls remain conservative durable sinks.
-    body_code = _gd_code_only(body)
-    # A viewport readback is an Image export, not save-game publication.
-    # Match the concrete engine chain only; arbitrary object.save_png(),
-    # its arguments and all other state/save calls keep their original guards.
-    image_export = (r"\bget_viewport\s*\(\s*\)\s*\.\s*get_texture\s*\(\s*\)"
-                    r"\s*\.\s*get_image\s*\(\s*\)\s*\.\s*save_png\b")
-    body_code = re.sub(image_export, "viewport_image_export", body_code)
-    return bool(DURABLE_CONTEXT_RE.search(body_code))
-
-
 def _scan_host_clock(ctx, findings, line, scope, line_no):
     helper_read = not FUNC_RE.match(line.strip()) and any(
         re.search(r"\b" + re.escape(source) + r"\s*\(", line)
@@ -1015,10 +989,9 @@ def _scan_host_clock(ctx, findings, line, scope, line_no):
         return
     profiling = PROFILING_CONTEXT_RE.search(line) or \
         PROFILING_CONTEXT_RE.search(scope)
-    durable = _monotonic_durable_context(line, body)
-    if profiling and not durable:
+    if profiling and not DURABLE_CONTEXT_RE.search(line):
         return  # profiling / perf measurement / debug timing
-    if not durable:
+    if not DURABLE_CONTEXT_RE.search(line):
         # The clock value itself must feed a durable sink on this line;
         # body-level context alone stays cosmetic/local.
         return

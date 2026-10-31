@@ -4725,6 +4725,9 @@ performance debt, not a speedup claim from this lifetime repair.
 
 ### Exact-main static comparison and diagnostic-reader repair, 2026-10-31
 
+**Historical attempt, superseded below.** The following reader rewrite was
+peer-rejected and is not the accepted repair; its original evidence is retained.
+
 Evidence class: **INERT**. Candidate **a4798d70** against clean **cb1a69c6**
 completed117gates but was **BLOCKED:6regressions/4improvements**. The original
 board and verification remain preserved. All17protected paths,V2selector and
@@ -4758,3 +4761,33 @@ existing actual source-bound surface packet independently remains PASS withzero
 defects. No Godot rerun is justified for them. Full candidate reverification is
 next; the changed audit and its regression controls require explicit instrument
 review alongside the final comparison. Main publication is still pending.
+
+
+### Original authority guard retained after peer review, 2026-10-31
+
+Evidence class: **INERT**. Automated candidate **bcd1fe98** reported
+117 gates/zero regressions/four improvements, but independent review found
+three real missed timestamp writes: StringName keys in a setter and indexed
+assignment, and an apostrophe inside a quoted timestamp key. The green
+comparison is **rejected**, not publication approval. Its original report,
+reproductions and rejected source are retained in the existing composed archive.
+
+The clock audit is restored byte-exact to the original **cb1a69c6** version.
+Seven additional timestamp-mutation cases protect those guards; all63 tests
+pass. The actual audit has zero new actionable findings and29 review findings.
+Only the unused local footway diagnostic counter and elapsed JSON field were
+removed; input, collision, floor, endpoint and movement checks are unchanged.
+The actual patched-engine footway replay passes20 checks with714 samples and
+empty stderr. All676 composed walking performance samples remain preserved.
+
+An extra physical-only survey passes651 checks with empty stderr, but its
+test-written rendering input signature is identical to the published packet:
+**bbd342349365baf63c7da91c322597e0ebd55bc631576dd5172a418631302516**.
+That repeat was unnecessary. The existing qualified packet is retained; the
+extra run is archived separately, not republished or claimed as new coverage.
+Future renewal decisions compare actual source projections before rerunning.
+
+Remote main has since advanced to **2d7a0772** through PR104/PR105. Its coupon
+case-card additions must coexist with the case lifetime repair. Reconciliation
+and an exact-current-main comparison remain pending. No full-city, save-boundary,
+performance or artistic completion follows from these scoped results.

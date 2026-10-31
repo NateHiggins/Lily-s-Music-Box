@@ -196,32 +196,21 @@ class ReconciledReviewTests(unittest.TestCase):
                 self.assertEqual(bool(of_class(self.scan_source(source, parents=parents),
                     "TEST_AUTHORITY_SHORTCUT")), expected)
 
-    def test_monotonic_profiling_prose_does_not_become_a_durable_sink(self):
-        source = ('extends Node\nfunc measure_elapsed():\n'
-                  '    var report = {"scope":"no save or RealityState mutation", '
-                  '"elapsed_s":Time.get_ticks_usec() / 1000000.0}\n'
-                  '    file.store_string(JSON.stringify(report))\n')
-        cases = [
-            (source, False),
-            (source.replace('"scope":"no save or RealityState mutation", ', ''), False),
-            (source + '    get_viewport().get_texture().get_image().save_png(path)\n', False),
-            (source + '    world.save_png(report)\n', True),
-            (source + '    world.save(report)\n', True),
-            (source + '    get_viewport().get_texture().get_image().save_png(RealityState.data.path)\n', True),
-            (source.replace('"elapsed_s"', '"issued_at"'), True),
-            (source.replace('"elapsed_s"', '"acquired_at"'), True),
-            (source.replace('"elapsed_s"', '"consumed_at"'), True),
-            (source + '    RealityState.data.report = report\n', True),
-            (source + '    save_state(report)\n', True),
-            ('extends Node\nfunc stamp():\n'
-             '    RealityState.data["stamp"] = Time.get_ticks_usec()\n', True),
-            ('extends Node\nfunc stamp():\n'
-             '    state.set("issued_at", Time.get_ticks_usec())\n', True),
+    def test_monotonic_timestamp_literal_guards(self):
+        expressions = [
+            'state.set("issued_at", Time.get_ticks_usec())',
+            'state.set(&"issued_at", Time.get_ticks_usec())',
+            'state[&"acquired_at"] = Time.get_ticks_usec()',
+            'state.set((&"issued_at"), Time.get_ticks_usec())',
+            "state.set(\"porter's issued_at\", Time.get_ticks_usec())",
+            'RealityState.data["stamp"] = Time.get_ticks_usec()',
+            'save_state(Time.get_ticks_usec())',
         ]
-        for text, expected in cases:
-            with self.subTest(source=text):
-                self.assertEqual(bool(of_class(self.scan_source(text),
-                    "HOST_CLOCK_MUTATES_WORLD")), expected)
+        for expression in expressions:
+            with self.subTest(expression=expression):
+                source = "extends Node\nfunc stamp():\n    " + expression + "\n"
+                self.assertTrue(of_class(self.scan_source(source),
+                    "HOST_CLOCK_MUTATES_WORLD"))
 
     def test_only_exact_artifact_timestamp_cannot_escape_to_world(self):
         source = ("extends Node\nfunc _ready():\n    var report := {\n"
