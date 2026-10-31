@@ -66,6 +66,9 @@ The owner's answers to this treatment's open items:
   from a landlord she knows, and denies opening anything from that counter. The player can infer how a
   dated copy looked to her. Mae's motive stays the lease. Adela cannot correct the reading; the
   companion files both facts on her word (**PROPOSED** lines).
+- **Mae took the prints.** The empty drawer of B15 is the bottom drawer: she came for the deed's
+  negatives and took everything in it. They go in her ledger box, so "Mine are in there" (S14) means
+  more than she knows. **PROPOSED:** she does not use them in the year, and they add no clue.
 - **Prohibition exists and is loosely enforced.**
 - **The Berlin letter stays about the vote and friendship.** No medical thread.
 
