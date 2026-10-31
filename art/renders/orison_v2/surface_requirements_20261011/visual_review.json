@@ -1,26 +1,26 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "surface_inputs_sha256": "be170301817d9689d46bbf0f9f04f8dbcdde85eea8182774e1c14ae3c505e76e",
-  "scope": "Three actual current combined-source physical-survey images inspected. These are representative loaded surface/composition views, not current city movement,shop counter/case interaction,save reconstruction or artistic acceptance. Prior33ad8879 city route remains separately source-scoped; none of its older images are relabelled current.",
+  "surface_inputs_sha256": "cd13885433ea2b614511ce65c58218fb4a4d01437c61c6f9a92ddd5c7d6346ea",
+  "scope": "Three actual representative physical-survey frames inspected. Other15 frames retained externally but not claimed reviewed. No save/reconstruction or other family interaction acceptance. Source predates new PR102/cb1a69c6.",
   "images": [
     {
       "file": "bookcase.png",
-      "sha256": "b673ff5e02806a1fa2be43254d21661a8e1c160e673b3057117acdb9099fa159",
-      "observation": "Current loaded timber/glazed library and retained room/door. Sparse shelf dressing and book interaction acceptance remain separate debt.",
-      "origin": "Final combined PR100/city physical-only run04."
+      "sha256": "c0204c91751b93168995edbaf071ab23e264388a153b5342bc100a257ea281d0",
+      "observation": "Retained timber/glazed library, door and floor. Sparse shelf dressing and book interaction acceptance remain separate debt.",
+      "origin": "Canonical southern/Laurel physical-only03,source d3a38474 plus frozen drivers."
     },
     {
       "file": "F04_C_MAIN.png",
-      "sha256": "f178a28f5de5bbfad55d54817e8d327663b8518d731ca54a473c195020389a55",
-      "observation": "Current occupied main-room timber/floor, furniture, cloth, window and retained companion. No fresh-player/artistic acceptance.",
-      "origin": "Final combined PR100/city physical-only run04."
+      "sha256": "4c2d61dfec2c697a5f14fc7ddd5232666b3e5cb4f21c4bedb32e411df32a200b",
+      "observation": "Current occupied dining/work room, timber floor, cloth/window/companion. No input, save or artistic acceptance.",
+      "origin": "Canonical southern/Laurel physical-only03,source d3a38474 plus frozen drivers."
     },
     {
       "file": "F03_B_MAIN.png",
-      "sha256": "60ff50efb2d7680093eb5b465b7de7c2e7d92582729904627db45cd165ab4be5",
-      "observation": "Current workshop room, retained furnished surfaces, window and companion. Existing lighting/dressing remain subject to owner review.",
-      "origin": "Final combined PR100/city physical-only run04."
+      "sha256": "bfaf366d57e038387efbaf2bfc74f59f345895e3a21df7c2ede19adaea9571fb",
+      "observation": "Current furnished workshop and retained tools/window/companion. Bright room lighting still requires owner artistic review.",
+      "origin": "Canonical southern/Laurel physical-only03,source d3a38474 plus frozen drivers."
     }
   ]
 }

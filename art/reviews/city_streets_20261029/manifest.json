@@ -11752,10 +11752,10 @@
   },
   "southern_pair_composed_checks": {
     "archive": "art/reviews/city_streets_20261029/southern_pair_composed_checks.zip",
-    "bytes": 15176512,
-    "sha256": "79382d62b82f8588a82a542975fcece7116c73f0905d9efecfa9688db1316660",
+    "bytes": 53807247,
+    "sha256": "6bb4a31d94d313d9fbb33d85e412439f47056be1e5599a91c1fce66cc3e0e059",
     "evidence_class": "INERT",
-    "scope": "Original FAILED current-world seven-leg attempt at1ea34698,265checks/4attempted legs/2failures. Existing castiron post blocks the straight fixture path; actual source, failure contract/log/wrapper/4views retained. Startup wall milestones are diagnostic, not acceptance. Subsequent commerce/physical not started.",
+    "scope": "Original FAILED current-world seven-leg attempt at1ea34698,265checks/4attempted legs/2failures. Existing castiron post blocks the straight fixture path; actual source, failure contract/log/wrapper/4views retained. Startup wall milestones are diagnostic, not acceptance. Subsequent commerce/physical not started. Failure02 atd3a38474:167s/265checks/4attempts/2failures;detour overlaps raised curb,body stillairborne+0.202m at horizontalstop. Original data/source retained; no aggregate acceptance. Commerce/physical still notexecuted.",
     "members": {
       "failure_01/frames/site_back_e_approach.png": {
         "bytes": 4182391,
@@ -11808,7 +11808,261 @@
       "failure_01/frozen_sources/game/scripts/building/orison_v2_runtime_root.gd": {
         "bytes": 71343,
         "sha256": "7b6cb1c31eb9c68fc0283df0b7679426009a92f6aef284dab12efcb58cfb802e"
+      },
+      "failure_02/frames/site_back_e_approach.png": {
+        "bytes": 4183533,
+        "sha256": "096d8a1b7e51fcc74c1267b6a6547699804e006d6c041da7e26ef6af0078fb3e"
+      },
+      "failure_02/frames/site_back_e_standing_detail.png": {
+        "bytes": 3433768,
+        "sha256": "4699d74650c49db820eb4b099f4dedf4d9e067612342252ee1512e7e2fcf8759"
+      },
+      "failure_02/frames/site_nbr_s2_approach.png": {
+        "bytes": 4350850,
+        "sha256": "104b233c363c3571a505337ab26210eea9cf196d01367ccea54aa30b31e8935b"
+      },
+      "failure_02/frames/site_nbr_s2_standing_detail.png": {
+        "bytes": 3082341,
+        "sha256": "1fa6b4366d4d7e7ad67df4aa0d1ef3056128b1d546c930a9d0c80f9bf2d0d296"
+      },
+      "failure_02/frames/southern_laurel_frontage_contract.json": {
+        "bytes": 55606,
+        "sha256": "2acc13f9120cd22490b75e96d28fb9aad8ce5b44ef13243629c73f86e6d190e6"
+      },
+      "failure_02/canonical_composed_02.log": {
+        "bytes": 9877,
+        "sha256": "b74e5e418ef1a3010e03cfa6bb52d28b51e541aaaa64b35e0d4ee2662ee31342"
+      },
+      "failure_02/canonical_composed_02.log.stderr": {
+        "bytes": 742,
+        "sha256": "2639e0b91d311eb37759e466f13335d6f2695d4de07bfa29ab09698132ec510d"
+      },
+      "failure_02/canonical_composed_02.log.receipt.json": {
+        "bytes": 2855,
+        "sha256": "a820244eda69cef6b0f44531776e208dd75e89712770944adee689234e365190"
+      },
+      "failure_02/canonical_qualification_batch_02.json": {
+        "bytes": 1562,
+        "sha256": "06cb8d4117d4d2db66a4fc4f9e4836fead4becde21c7ff7613c8ffc225961d45"
+      },
+      "failure_02/canonical_retry_compiler_02.log": {
+        "bytes": 300,
+        "sha256": "55443b766e1bfbb5c5d396000c66d4fef3e12ae01e7085868f1f83d6291dee29"
+      },
+      "failure_02/canonical_retry_compiler_02.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "failure_02/canonical_retry_compiler_02.log.receipt.json": {
+        "bytes": 2868,
+        "sha256": "09e3986f207762a7bce199114a53d615f829359457a7da33070c3a086bf98913"
+      },
+      "failure_02/gateway_post_detour_support_02.json": {
+        "bytes": 1615,
+        "sha256": "39155244f875b5c8960d06dd3570fc673b2c15df6d781394591dac60706c177d"
+      },
+      "failure_02/frozen_sources/game/tests/v2_city_transport_route.gd": {
+        "bytes": 82571,
+        "sha256": "bca7b92448d8ab5ca521e0476061da2ff6aacfbbd7d90652a58289e882262196"
+      },
+      "failure_02/frozen_sources/game/scripts/building/orison_v2_runtime_root.gd": {
+        "bytes": 71622,
+        "sha256": "33b1355f8b6828d4fed1a857d6536fd9cde304e4f5ab6f8939d0215d15e97be6"
+      },
+      "footway_01/footway_01.log": {
+        "bytes": 680,
+        "sha256": "03b8c6025f6d9c97160e42f25411d2947d7df3f61b2bc4437b56ad582ee778ef"
+      },
+      "footway_01/footway_01.log.stderr": {
+        "bytes": 1993,
+        "sha256": "8864b6b33bedb0b60bf0addea61ab6fc11c31b973f5c11111aed512cd520c3fd"
+      },
+      "footway_01/footway_01.log.receipt.json": {
+        "bytes": 2865,
+        "sha256": "7270ed267fd0309ae4ee58c08df340c6be84975dee8053894f39cf93964932cb"
+      },
+      "footway_01/footway_01_frozen_source.gd": {
+        "bytes": 59641,
+        "sha256": "7e2c51bf55d34f2a096c5f5b0c3addf8e8ba3076ffabf0957003087dc67f4dc0"
+      },
+      "footway_01/footway_01_frozen_route.gd": {
+        "bytes": 82684,
+        "sha256": "e5ea4eb7db75b7de5ced4326017990c4cf9abf1cb49973865b71c1141fa4dba5"
+      },
+      "footway_01/footway_01_frozen_driver.gd": {
+        "bytes": 11098,
+        "sha256": "1c8b7c9c571697484b9e55fbe9761bed093d32cbc64cd57175cd464e4da98210"
+      },
+      "footway_02/footway_02.log": {
+        "bytes": 269,
+        "sha256": "ba774dcfd9113733bddc8a54ee524456b0500fc71833f910f7ee76ad58e41d56"
+      },
+      "footway_02/footway_02.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "footway_02/footway_02.log.receipt.json": {
+        "bytes": 2791,
+        "sha256": "c1ee51576e231b3b6176fc780b7bbebfabb98a87ece718252e0968cb1119591f"
+      },
+      "footway_02/footway_02_frozen_source.gd": {
+        "bytes": 59876,
+        "sha256": "e67eaee24372dc11d0286cca5e97c6d2c777170fb5b4816867c7b3994c6e4e9f"
+      },
+      "footway_02/frames/footway_return.png": {
+        "bytes": 1400979,
+        "sha256": "2c81058c817ef58bd2e9df5281cb7af42e4d28d6616a65b8b198aa6dd6ad1f7e"
+      },
+      "footway_02/frames/gateway_footway_diagnostic.json": {
+        "bytes": 258402,
+        "sha256": "5f94f87836cc448c236ea62af17176ed7abefce5a7b9abc3cc0fe4ca283bf587"
+      },
+      "footway_setup/footway_batch_01.json": {
+        "bytes": 683,
+        "sha256": "a7a227a09e5a91aedea17a89a1a033316cf814d5e7ce567bab002793057a777d"
+      },
+      "footway_setup/footway_batch_02.json": {
+        "bytes": 457,
+        "sha256": "902603b1fe758ff18529f3d2919dccf071594576473698eb6a73d722e7816b6d"
+      },
+      "footway_setup/footway_compiler_01.log": {
+        "bytes": 358,
+        "sha256": "56ca4baa16ff2e85ed62cb600b6f7c4f67448f5e739d324886db56f5628e0bd6"
+      },
+      "footway_setup/footway_compiler_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "footway_setup/footway_compiler_01.log.receipt.json": {
+        "bytes": 2820,
+        "sha256": "36089daca00b8fa3732f88c2638347038db15280bc58e780de3b2901f419471b"
+      },
+      "footway_03/footway_03.log": {
+        "bytes": 269,
+        "sha256": "ba774dcfd9113733bddc8a54ee524456b0500fc71833f910f7ee76ad58e41d56"
+      },
+      "footway_03/footway_03.log.receipt.json": {
+        "bytes": 2792,
+        "sha256": "6fc3957ea028290a113d9ecd2d004e685b274e71dc3bf6887baeaf1cc177bb9e"
+      },
+      "footway_03/footway_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "footway_03/footway_03_frozen_orison_v2_vertical_route_test.gd": {
+        "bytes": 11621,
+        "sha256": "fbc205fa0091ed1129c1a14907d9db5de3698f9dc5c08506865c3a5981b794f1"
+      },
+      "footway_03/footway_03_frozen_v2_city_elevation_bench.gd": {
+        "bytes": 60961,
+        "sha256": "b479318740cde3d26e3528aebc3ef7716c9d40f4734fef2be315db06a9eca153"
+      },
+      "footway_03/footway_03_frozen_v2_city_transport_route.gd": {
+        "bytes": 82684,
+        "sha256": "e5ea4eb7db75b7de5ced4326017990c4cf9abf1cb49973865b71c1141fa4dba5"
+      },
+      "footway_03/frames/footway_return.png": {
+        "bytes": 1396219,
+        "sha256": "0e12ffac691560850c4248966a0d5927bcddd33cd2c3a6ffd650f17c3e80219b"
+      },
+      "footway_03/frames/gateway_footway_diagnostic.json": {
+        "bytes": 104386,
+        "sha256": "49b101b98b627164b131b62fa874ae51a4d7d28174cbb04d1d8265f055433db6"
+      },
+      "footway_03/source_geometry/gateway_post_detour_support_02.json": {
+        "bytes": 1615,
+        "sha256": "39155244f875b5c8960d06dd3570fc673b2c15df6d781394591dac60706c177d"
+      },
+      "footway_03/source_geometry/gateway_post_survey_01.json": {
+        "bytes": 1167,
+        "sha256": "9cb65498ae56c992fa029977aa09d409b56f0eec78f0852d4a1bff158e07b493"
+      },
+      "passed_03/canonical_composed_03.log": {
+        "bytes": 9340,
+        "sha256": "9d84c0a210543f25c533055393d325236e1a43fd49ab59d8ed972df6b8a56406"
+      },
+      "passed_03/canonical_composed_03.log.receipt.json": {
+        "bytes": 2819,
+        "sha256": "fc15217c67a9e83f3ea183e05ab4a948e881dd663c9284f4bf39d477ab14911b"
+      },
+      "passed_03/canonical_composed_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "passed_03/canonical_composed_03_frozen_orison_v2_runtime_root.gd": {
+        "bytes": 71622,
+        "sha256": "33b1355f8b6828d4fed1a857d6536fd9cde304e4f5ab6f8939d0215d15e97be6"
+      },
+      "passed_03/canonical_composed_03_frozen_orison_v2_vertical_route_test.gd": {
+        "bytes": 11411,
+        "sha256": "cc504acb6828f75407af41900566dfab6b666cdeee2ae595d0f73044d50a2524"
+      },
+      "passed_03/canonical_composed_03_frozen_v2_city_transport_route.gd": {
+        "bytes": 82684,
+        "sha256": "e5ea4eb7db75b7de5ced4326017990c4cf9abf1cb49973865b71c1141fa4dba5"
+      },
+      "passed_03/canonical_composed_03_optical_review.json": {
+        "bytes": 3327,
+        "sha256": "73a28c470c43081f4503df782ba1716f305e2307443e45e45472107fd0d3862c"
+      },
+      "passed_03/canonical_commerce_03.log": {
+        "bytes": 3522,
+        "sha256": "f238ab6c1d1381837aee855e48d34f539488579c5906a54718c14cf31b247053"
+      },
+      "passed_03/canonical_commerce_03.log.receipt.json": {
+        "bytes": 2733,
+        "sha256": "99a9089789c15ee0d9ede50db037181fcd3af616a70a756f435f1a3e9a50fb94"
+      },
+      "passed_03/canonical_commerce_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "passed_03/canonical_retry_compiler_03.log": {
+        "bytes": 430,
+        "sha256": "4afe5694ab76368c503ecbc8d0c50005aea6107adc475ed9e79cd64ecd5686d9"
+      },
+      "passed_03/canonical_retry_compiler_03.log.receipt.json": {
+        "bytes": 2836,
+        "sha256": "d68b894f4522faa7500605195fb127a426ed3de82c2a87f1d693e5ad22ec4ab5"
+      },
+      "passed_03/canonical_retry_compiler_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "passed_03/canonical_qualification_batch_03.json": {
+        "bytes": 1615,
+        "sha256": "c3982ef5f96d8e15f8bd17a71435c59da1c708b9079cfe2a91059c1c04a4bf09"
+      },
+      "passed_03/frames/site_back_e_approach.png": {
+        "bytes": 4176360,
+        "sha256": "f6fd71e3770216fa341b5c2c7c3bf6dd67ca37ed66b4760b009c0af0c8e5b97a"
+      },
+      "passed_03/frames/site_back_e_standing_detail.png": {
+        "bytes": 3368901,
+        "sha256": "dc2dfadd1a68165c3b2708a9f9d2a54ec4d8db1926c437aa56727e394cf5f47d"
+      },
+      "passed_03/frames/site_nbr_s2_approach.png": {
+        "bytes": 4444681,
+        "sha256": "faa864a9a306236fd7d4716ba0f5d6c908aeca7ef239545582ea55850e38982e"
+      },
+      "passed_03/frames/site_nbr_s2_standing_detail.png": {
+        "bytes": 2974545,
+        "sha256": "5acee143438e0765578c902665c6966bbe43fe52981608392fdad98db67d8e32"
+      },
+      "passed_03/frames/site_se2_approach.png": {
+        "bytes": 3160647,
+        "sha256": "ef1b802efb6e2eaf4b7574d3d1bb6a0af85a521327ec1a8a08055843735c5521"
+      },
+      "passed_03/frames/site_se2_standing_detail.png": {
+        "bytes": 2416070,
+        "sha256": "34e015625854848e28949d2c0b27041b369f5bf5b603e315f7ff123ed89cab18"
+      },
+      "passed_03/frames/southern_laurel_frontage_contract.json": {
+        "bytes": 111164,
+        "sha256": "b142378901c552a7e5b38efc35730122bb09e7dd732ea52731711a0ca82b17e2"
       }
-    }
+    },
+    "footway_diagnostics": "INERT:01 outputdirectory/nullFileAccess failure and original teardown errors retained;02 normal-controller sixleg local originalstreet/gateway fixture20checks/0/empty stderr but7cm deadzone earlystop; not composed qualification. Exact02 source matches wrapperSHA. No production collision change. 03 actual20checks/0,714samples,14.280786s,empty stderr; all6 endpoints <5mm after deadzone-aware input. Exact raw consumed3scripts retained before LF normalization. No wholeworld/performance/artistic acceptance.",
+    "passed_03": "Actual current-world279checks/10normal-controllerlegs/0,3independent validated starts,6inspected eyes,source beforePR102. Compiler4/0,ShopCommerce0failures,empty stderr. Source/raw failures01/02 and smallfixtures intact. Physical651/0 separately published. No continuouscity/save/artistic/performance acceptance."
   }
 }

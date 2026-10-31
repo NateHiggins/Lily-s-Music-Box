@@ -93,16 +93,19 @@ func _run() -> void:
 	city_observations["route_scope"]="full"
 	await super._run()
 
-func _run_southern_laurel() -> void:
+static func southern_laurel_programmes() -> Array:
 	# Three independent near-frontage fixtures, not a continuous city tour.
 	# Laurel's +46Y assembly offset is already included in these city coordinates.
-	var programmes: Array=[
+	return [
 		{"id":"site_back_e","start":Vector3(21.5,61.6,-.02),"points":[Vector3(21.5,63.8,.30),Vector3(21.5,61.6,-.02)],"target":Vector3(21.5,64.1,4.)},
 		# Keep the existing cast-iron arcade post and entrance clear. The
-		# measured northern edge is -24.97Y; -24.3Y stays on the retained
-		# continuous datum-zero pavement beyond the full .33m body radius.
-		{"id":"site_nbr_s2","start":Vector3(-9.,-26.3,0.),"points":[Vector3(-2.8,-26.3,0.),Vector3(-2.8,-24.3,0.),Vector3(4.,-24.3,0.),Vector3(-2.8,-24.3,0.),Vector3(-2.8,-26.3,0.),Vector3(-9.,-26.3,0.)],"target":Vector3(-2.8,-28.32,8.)},
+		# measured post edge is -24.97Y. -24.6Y centres the full body
+		# between that edge and the raised curb at -24.234Y.
+		{"id":"site_nbr_s2","start":Vector3(-9.,-26.3,0.),"points":[Vector3(-2.8,-26.3,0.),Vector3(-2.8,-24.6,0.),Vector3(4.,-24.6,0.),Vector3(-2.8,-24.6,0.),Vector3(-2.8,-26.3,0.),Vector3(-9.,-26.3,0.)],"target":Vector3(-2.8,-28.32,8.)},
 		{"id":"site_se2","start":Vector3(38.55,-26.3,0.),"points":[Vector3(38.55,-28.02,.30),Vector3(38.55,-26.3,0.)],"target":Vector3(38.55,-28.32,5.)}]
+
+func _run_southern_laurel() -> void:
+	var programmes:=southern_laurel_programmes()
 	var directory:=OS.get_environment("SHOT_DIR")
 	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"southern/Laurel output directory exists")
 	if not failures.is_empty():get_tree().quit(1);return
@@ -743,7 +746,7 @@ func _city_walk(point: Vector3,literal_height: bool=false) -> bool:
 		RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
 		_previous_exploration_usec=0
 		_collect_exploration=true
-	var reached := await _walk(world.adapter.root.to_local(city.to_global(GameBoot.b2g([point.x, point.y, point.z]))))
+	var reached := await _walk(world.adapter.root.to_local(city.to_global(GameBoot.b2g([point.x, point.y, point.z]))),.005 if _route_scope=="southern_laurel" else .1)
 	if focused:
 		_collect_exploration=false
 		RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),false)

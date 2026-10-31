@@ -120,7 +120,7 @@ func _route() -> void:
 			Vector3(3.975, 0, -2.4)]:
 		if not await _walk(point): return
 
-func _walk(local_target: Vector3) -> bool:
+func _walk(local_target: Vector3, arrival_tolerance: float=.1) -> bool:
 	var target: Vector3 = world.adapter.root.to_global(local_target)
 	var started := Time.get_ticks_msec()
 	var physics_started:=Engine.get_physics_frames()
@@ -131,10 +131,16 @@ func _walk(local_target: Vector3) -> bool:
 		frames+=1
 		var delta := target - player.global_position
 		delta.y = 0
-		if delta.length() < 0.1: break
+		if delta.length() < arrival_tolerance: break
 		player.rotation.y = atan2(-delta.x, -delta.z)
 		player.camera.rotation = Vector3.ZERO
-		Input.action_press("move_forward", minf(1.0, delta.length() / 0.35))
+		var strength:=minf(1.0,delta.length()/0.35)
+		if arrival_tolerance<.01:
+			# Encode precise low speed through the production Input.get_vector deadzone.
+			var deadzone: float=0.
+			for name in ["move_left","move_right","move_forward","move_back"]:deadzone+=InputMap.action_get_deadzone(name)*.25
+			strength=lerpf(deadzone,1.,strength)
+		Input.action_press("move_forward",strength)
 		await get_tree().physics_frame
 		for index in player.get_slide_collision_count():
 			var contact := player.get_slide_collision(index)

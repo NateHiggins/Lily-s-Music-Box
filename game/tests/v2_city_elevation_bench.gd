@@ -25,6 +25,10 @@ func _ready() -> void:
 func _run() -> void:
 	RealityState.persistence_enabled=false
 	RealityState.reset_campaign_for_tests()
+	if OS.get_environment("ORISON_CITY_FOOTWAY_ONLY")=="1":
+		await _check_gateway_footway()
+		get_tree().quit(0 if failures.is_empty() else 1)
+		return
 	for path: String in ["res://tests/v2_city_horizon_review.gd","res://tests/v2_city_elevation_review.gd","res://tests/orison_v2_surface_inventory.gd","res://tests/orison_v2_city_closure_test.gd","res://tests/orison_v2_city_composition_test.gd"]:
 		var source := load(path) as Script
 		check(source!=null and source.can_instantiate(),"dependent city source parses: "+path)
@@ -413,19 +417,91 @@ func _run() -> void:
 	print("CITY NATIVE BENCH: %d checks, %d roof samples, %d draws, %d failures" % [checks,contacts,draws,failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
-func _entry_drive(player: PlayerController, target_z: float, samples: Array) -> void:
+func _entry_drive(player: PlayerController, target_z: float, samples: Array, axis: int=2, precise: bool=false) -> void:
 	# One initial placement only; every subsequent leg uses ordinary movement.
-	var direction:=signf(target_z-player.global_position.z)
-	var action:= "move_forward" if direction*(-player.global_basis.z.z)>0. else "move_back"
+	var direction:=signf(target_z-player.global_position[axis])
+	var action:= "move_forward" if direction*(-player.global_basis.z[axis])>0. else "move_back"
 	Input.action_press(action)
 	for frame in 300:
+		if precise:
+			# Input.get_vector removes the mean action deadzone; encode the desired
+			# low speed above that threshold rather than silently stopping 7 cm early.
+			var deadzone: float=0.
+			for name in ["move_left","move_right","move_forward","move_back"]:deadzone+=InputMap.action_get_deadzone(name)*.25
+			Input.action_press(action,lerpf(deadzone,1.,minf(1.,absf(target_z-player.global_position[axis])/.35)))
 		await get_tree().physics_frame
 		samples.append({"position":[player.global_position.x,player.global_position.y,player.global_position.z],"on_floor":player.is_on_floor(),"noclip":player.noclip})
-		var remaining:=target_z-player.global_position.z
-		if absf(remaining)<.025 or signf(remaining)!=direction:break
+		var remaining:=target_z-player.global_position[axis]
+		if absf(remaining)<(.005 if precise else .025) or signf(remaining)!=direction:break
 	Input.action_release(action)
 	for frame in 12:await get_tree().physics_frame
-	check(absf(player.global_position.z-target_z)<.08,"local entry normal-input target reached")
+	check(absf(player.global_position[axis]-target_z)<(.01 if precise else .08),"local entry normal-input target reached")
+
+func _check_gateway_footway() -> void:
+	# Same imported gateway, retained street-box builder and normal player.
+	# Deliberately omits all other world actors; this is a fast diagnostic only.
+	var started:=Time.get_ticks_usec()
+	var directory:=OS.get_environment("SHOT_DIR")
+	var ready_directory:=not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK
+	check(ready_directory,"footway fixture creates its evidence directory before actors")
+	if not ready_directory:return
+	var before:=_footway_input_hashes()
+	var resolver: Variant=preload("res://scripts/building/orison_v2_exterior_spatial_resolver.gd").load_default()
+	var programmes: Variant=preload("res://scripts/building/orison_v2_public_region_programmes.gd").load_default()
+	var factory:=preload("res://scripts/building/orison_v2_exterior_cell.gd").new()
+	var geometry: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(factory.GEOMETRY_PATH))
+	for row: Dictionary in geometry.materials:factory._material_records[str(row.id)]=row
+	var street:=Node3D.new();street.transform=resolver.instance_world_transform("STREET_ORISON_01");add_child(street)
+	var body:=StaticBody3D.new();body.name="OriginalStreetCollision";street.add_child(body)
+	var instance: Dictionary=resolver.instance_record("STREET_ORISON_01")
+	var count:=0
+	for template: Dictionary in geometry.templates:
+		if str(template.id)!=str(instance.template_id):continue
+		for row: Dictionary in template.boxes:
+			factory._build_box(street,body,row,"STREET_ORISON_01")
+			if bool(row.get("collision",false)):count+=1
+	check(count>0 and body.get_child_count()==count,"actual street builder retains every declared collision box")
+	var gateway: Node3D=load("res://assets/building/orison_v2/exterior/passage_gateway.gltf").instantiate()
+	gateway.transform=programmes.body_transform("VantryArcade");add_child(gateway)
+	check(not gateway.find_children("*","StaticBody3D",true,false).is_empty(),"original gateway collision remains present")
+	var source: Dictionary={}
+	for row: Dictionary in preload("res://tests/v2_city_transport_route.gd").southern_laurel_programmes():
+		if str(row.id)=="site_nbr_s2":source=row
+	var frame: Dictionary=preload("res://scripts/building/orison_v2_street_frame.gd").load_default()
+	var registration:=Transform3D(Basis.IDENTITY,Vector3(0,0,-float(frame.source_threshold_z)))
+	var player:=PlayerController.new();player.position=registration*GameBoot.b2g([source.start.x,source.start.y,.03]);add_child(player)
+	player.enable_low_step_probe();player.set_lamp_enabled(false);player.camera.make_current()
+	var light:=DirectionalLight3D.new();light.rotation_degrees=Vector3(-35,-35,0);add_child(light)
+	for tick in 30:await get_tree().physics_frame
+	check(player.is_on_floor() and absf(player.global_position.y)<.025,"original pavement supports the standing start")
+	var samples: Array=[];var stages: Array=[]
+	for point: Vector3 in source.points:
+		var target: Vector3=registration*GameBoot.b2g([point.x,point.y,point.z])
+		var axis:=0 if absf(target.x-player.global_position.x)>absf(target.z-player.global_position.z) else 2
+		player.rotation.y=-PI*.5 if axis==0 else 0.
+		await _entry_drive(player,target[axis],samples,axis,true)
+		var at:=player.global_position
+		check(player.is_on_floor() and absf(at.y-point.z)<.025,"full-body footway leg settles at its source floor datum")
+		stages.append({"target":str(target),"actual":str(at),"on_floor":player.is_on_floor()})
+		if not failures.is_empty():break
+	check(stages.size()==6 and not player.noclip and not player._profile_disable_step_guard and not player._profile_disable_step_up and is_equal_approx(player._capsule.radius,.33) and is_equal_approx(player._capsule.height,1.524),"all six detour legs retain the full body and both step guards")
+	await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(directory.path_join("footway_return.png"))==OK,"actual local footway eye capture saved")
+	var bindings:=_footway_input_hashes()
+	check(before==bindings,"local footway inputs remain frozen through actual movement")
+	var record: Dictionary={"evidence_class":"INERT","scope":"Opt-in isolated original street-builder/gateway collision and actual standing controller; same six bar-footway points as composed programme,one initial placement. Other actors absent; no composed,save,performance or artistic acceptance.","checks":checks,"failures":failures,"elapsed_s":(Time.get_ticks_usec()-started)/1000000.,"stages":stages,"movement_samples":samples,"source_hashes":bindings}
+	var file:=FileAccess.open(directory.path_join("gateway_footway_diagnostic.json"),FileAccess.WRITE)
+	check(file!=null,"local footway diagnostic output opens")
+	record["checks"]=checks
+	if file!=null:file.store_string(JSON.stringify(record,"\t")+"\n");file.close()
+	player.free();gateway.free();street.free();factory.free();light.free()
+	print("LOCAL GATEWAY FOOTWAY: ",checks," checks; ",failures.size()," failures")
+
+func _footway_input_hashes() -> Dictionary:
+	var bindings: Dictionary={}
+	for path: String in ["res://tests/v2_city_elevation_bench.gd","res://tests/v2_city_transport_route.gd","res://scripts/player/player_controller.gd","res://project.godot","res://data/orison_v2/exterior/exterior_geometry.json","res://scripts/building/orison_v2_exterior_cell.gd","res://scripts/building/orison_v2_exterior_spatial_resolver.gd","res://scripts/building/orison_v2_public_region_programmes.gd","res://data/orison_v2/exterior/regions.json","res://data/orison_v2/exterior/public_region_programmes.json","res://data/orison_v2/exterior/street_frame.json","res://assets/building/orison_v2/exterior/passage_gateway.gltf","res://assets/building/orison_v2/exterior/passage_gateway_subway.bin","res://assets/building/floor_01_cells/site_street_common.bin",GameBoot.get_script().resource_path]:
+		bindings[path]=_profile_sha(path)
+	return bindings
 
 func _check_isolated_entry(city: Node3D, fixture: Dictionary) -> void:
 	## Fast fitted-stair diagnostic, not occupied-world access qualification.

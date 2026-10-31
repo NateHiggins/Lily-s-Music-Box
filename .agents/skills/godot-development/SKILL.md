@@ -270,7 +270,14 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   release and cancellation with the real controller. Toggle tests do not prove
   direct manipulation. Preserve draft/focus and pause/input ownership. Do not
   repair a blocked stance by shrinking the player capsule or excluding real
-  gameplay blockers. See the [pull/input repair](../../../design/V2_PASSAGE_PULL_AND_OAK_2026-10-25.md).
+  gameplay blockers. Before an expensive composed rerun, reproduce narrow-path
+  movement with the original collision stock and production controller in a small
+  fixture. Validate the full capsule against curbs as well as point support.
+  Fine analog test input must pass through the real Input.get_vector deadzone;
+  otherwise a seemingly precise driver can stall short of its target. Retain
+  measured endpoints, keep ordinary callers unchanged, then qualify the same
+  route in the composed world. See the city report's southern footway diagnosis.
+  See the [pull/input repair](../../../design/V2_PASSAGE_PULL_AND_OAK_2026-10-25.md).
 - **Time and visibility:** derive reversible sky presentation from authoritative
   fractional campaign time, not scene uptime or an independent clock. Check
   pause and out-of-order return with rendered comparisons as well as uniforms.

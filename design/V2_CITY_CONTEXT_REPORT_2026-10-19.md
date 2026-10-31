@@ -4575,3 +4575,68 @@ Full static board:117gates,110PASS/6FAIL/1INCOMPLETE,no timeouts. Surface qualif
 Original43 native archive members and original review failure preserved. Expanded archive **southern_pair_native_review.zip**:79members /28,177,023bytes,SHA256 **026bb00af8db46dd1d937dc3c3bf65f9b7273fb04cb93de18deee59dce9fde31**. CRC/member/alias bytes verified. After terminal run/no own live Godot,638 own generated UIDs individually removed only after byte matching the retained recovery archive. Explicit ZIP -text binding added in coordination with canonical. No geometry changed after920.
 
 Next read-only research uses [Dutch Kills assessment](https://www.nyc.gov/assets/planning/download/pdf/applicants/env-review/dutch_kills/appendm_feis.pdf),PDF135–139:40-18 concrete grid/office annex,40-24 brick paired casements/fluted piers,40-36 brick-faced Kahn piers. Modern photographs guide surviving structure,not1928 layout or colour. Installed180degree registration makes east negative localX;corrected targets **HORIZON_NEAR_2_0_P1**,**HORIZON_NEAR_2_1_P2**,**HORIZON_FAR_2_1_P1** lie before the actual rail cut and outside the canal band. Original wrong-side research survey retained and corrected before authoring. No new horizon geometry yet;121 horizon profiles still lack individual adaptation. Canonical composed/physical renewal,landmarks,continuous450m support,save and artistic work remain open.
+
+
+### Southern composed retry and precise input fixture, 2026-10-31
+
+Evidence class: **INERT**. No new city coverage or artistic acceptance is
+promoted by these diagnostics.
+
+| Location / severity | Reproduction and evidence | Repair and verification |
+| --- | --- | --- |
+| Bar-front pavement / qualification blocker | Second composed attempt at **d3a38474** completed in167s:265 checks,4 attempted legs,2 failures. The -24.3Y detour is supported as a point but the full capsule overlaps the raised curb. Feet reached +0.202312m while descending; commerce and physical stages did not start. | Centre at -24.6Y, between world curb edge14.439 and cast-iron post edge15.175. Full radius0.33m leaves approximately36/40mm clearance. No geometry, collision, capsule or floor tolerance changed. |
+| Precise route input / diagnostic defect | First isolated fixture failed when its absent output directory caused PNG/FileAccess failure and aborted teardown; original errors retained. Directory creation and guarded output repaired. Next fixture passed20checks but1800 samples exposed seven-centimetre early stops from the production Input.get_vector action deadzone. | Encode desired fine movement above the mean four-action deadzone, only in the precise driver. Other vertical-route callers retain their original0.1m stopping behavior. Corrected isolated fixture:20checks/0,714 movement samples,14.280786s; all six endpoints within5mm, on floor, both step guards and full1.524m standing body retained. Wrapper exit0 and empty shutdown stderr. |
+
+The small fixture reuses the production street-box builder, original imported
+gateway, registered frame and PlayerController. Six coordinates come from the
+same static programme consumed by the composed route. One initial placement;
+all subsequent travel uses normal input. Other world actors are absent. The
+inspected return frame shows this isolated street/gateway subset, not a finished
+city or composed-world proof. Original failures01/02, exact consumed sources,
+receipts and local results are retained in **southern_pair_composed_checks.zip**,
+with member hashes in the existing manifest. Previous members remain byte-exact.
+
+The combined composed route, shop regression and physical renewal are queued;
+results remain pending. No matched game-performance improvement is claimed
+from shortening the fixture. Its original source and IO failure remain intact.
+
+
+### Southern/Laurel composed batch03 — terminal results, 2026-10-31
+
+Evidence class: **INERT**. Four-stage patched-engine shared-lane batch completed:
+compiler4scripts/0 in8.79s; actual composed route **279checks /10legs /0failures**
+in185s; ShopCommerceTest0failures; physical-only survey **651checks/0** in221s.
+Every wrapper is terminal/completed without timeout; all four stderr files empty.
+The test-written schema-2 route contract and exact consumed driver/runtime sources
+are preserved with all six actual inspected eye frames. All previous archive
+members remain byte-exact. Three independent full-body/floor-validated starts
+are retained: this is not a continuous route between the buildings. Scenic
+leaves remain shut; no new interior, save or artistic acceptance.
+
+The ten endpoints are within5mm horizontally; Laurel feet settle at+0.299901m
+then-0.019175m, bar pavement+0.000312m, SE2+0.300944m then+0.000793m.
+No wall contacts, noclip, safety rescue or step-guard overrides occurred.
+Thirty loaded complete-body parts pass the selected surface checks.
+Six eye views are steep upward near-surface/overhang diagnostics, not balanced
+whole-facade art review. Dark triangular/sliver-looking edges at Laurel's
+portico and SE2's inset have been referred for a measured native explanation;
+they are not yet established geometry defects.
+
+At3440x1440,MSAA3,TAAon,VSync1/~49.987Hz,676 actual walking frames (captures,
+fixture placement and settling excluded) give wall median20.1815/p9534.85/
+p9947.158/max206.46ms; main-viewport CPU median5.134/p9516.052/max137.759ms;
+GPU median8.0125/p9513.536/p9928.763/max35.294ms. Startup121158.072ms.
+No matched baseline, whole-renderer/script/physics attribution or speedup claim;
+the206.46ms spike and slow startup remain active performance debt.
+
+The physical inventory contains29,317draws/18,505meshes/6,546materials/542textures,
+zero unresolved surfaces. Three of18 current generated frames independently
+inspected: glazed bookcase, fourth-floor main room and third-floor workshop.
+They show loaded retained finishes; shelf dressing, bright room lighting,
+interaction and artistic acceptance remain separate. Physical-only intentionally
+did not execute save reconstruction or unchanged mechanism programmes.
+
+During qualification, origin/main advanced from82526a32 to **cb1a69c6** (PR102,
+item use/resident gifts). This passing checkpoint is preserved before reconciling
+that work. Its source remains explicit; a combined current-source surface renewal
+and exact new-main static comparison are required before publication to main.
