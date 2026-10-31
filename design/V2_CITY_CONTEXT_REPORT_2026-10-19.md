@@ -4408,3 +4408,12 @@ CRC/hash match; all77 prior members remain byte-exact. Its committed bench
 source matches the passed entry02 driver hash, so no uncommitted source is
 substituted. The opt-in remains unset by default. This is a local diagnostic
 intake, not current composed qualification or a tally promotion.
+
+
+Canonical compilation after diagnostic intake passes both the city bench and
+transport route in23.82s with empty stderr and no composed world instantiated.
+The actual wrapper/log and source-only spatial-clean result are added to the
+existing small canonical-review archive; reader NEW0. This integration check
+does not repeat the unchanged renderer timings or full-world movement tour.
+New nearby southern construction is batched with this candidate before a fresh
+combined physical/candidate checkpoint; maina08ed155 stays the published boundary.
