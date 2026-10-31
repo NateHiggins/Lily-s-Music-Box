@@ -1,0 +1,324 @@
+{
+ "schema_version": 1,
+ "asset": "res://assets/props/carried_case.glb",
+ "cell": 0.05,
+ "grid": [
+  10,
+  6
+ ],
+ "hinge": [
+  0.0,
+  0.0,
+  -0.1550000011920929
+ ],
+ "forms": {
+  "bottle": {
+   "size": [
+    1,
+    2
+   ]
+  },
+  "tin": {
+   "size": [
+    1,
+    1
+   ]
+  },
+  "box": {
+   "size": [
+    2,
+    1
+   ]
+  },
+  "packet": {
+   "size": [
+    1,
+    1
+   ]
+  },
+  "flat": {
+   "size": [
+    2,
+    3
+   ]
+  },
+  "tool": {
+   "size": [
+    1,
+    3
+   ]
+  },
+  "roll": {
+   "size": [
+    1,
+    1
+   ]
+  },
+  "jar": {
+   "size": [
+    1,
+    1
+   ]
+  },
+  "card": {
+   "size": [
+    1,
+    1
+   ]
+  },
+  "valve": {
+   "size": [
+    1,
+    2
+   ]
+  },
+  "parcel": {
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ "parts": [
+  {
+   "name": "Lid__leather_worn",
+   "assembly": "Lid",
+   "key": "leather_worn",
+   "tile": 0.12
+  },
+  {
+   "name": "Lid__fabric_warm",
+   "assembly": "Lid",
+   "key": "fabric_warm",
+   "tile": 0.14
+  },
+  {
+   "name": "Lid__linen",
+   "assembly": "Lid",
+   "key": "linen",
+   "tile": 0.6
+  },
+  {
+   "name": "Lid__brass_dull",
+   "assembly": "Lid",
+   "key": "brass_dull",
+   "tile": 0.5
+  },
+  {
+   "name": "Lid__brass",
+   "assembly": "Lid",
+   "key": "brass",
+   "tile": 0.5
+  },
+  {
+   "name": "Tray__leather_worn",
+   "assembly": "Tray",
+   "key": "leather_worn",
+   "tile": 0.12
+  },
+  {
+   "name": "Tray__fabric_warm",
+   "assembly": "Tray",
+   "key": "fabric_warm",
+   "tile": 0.14
+  },
+  {
+   "name": "Tray__linen",
+   "assembly": "Tray",
+   "key": "linen",
+   "tile": 0.6
+  },
+  {
+   "name": "Tray__brass_dull",
+   "assembly": "Tray",
+   "key": "brass_dull",
+   "tile": 0.5
+  },
+  {
+   "name": "Tray__brass",
+   "assembly": "Tray",
+   "key": "brass",
+   "tile": 0.5
+  },
+  {
+   "name": "Tray__paper",
+   "assembly": "Tray",
+   "key": "paper",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_bottle__bakelite_black",
+   "assembly": "Form_bottle",
+   "key": "bakelite_black",
+   "tile": 0.3
+  },
+  {
+   "name": "Form_bottle__paper",
+   "assembly": "Form_bottle",
+   "key": "paper",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_tin__brass_dull",
+   "assembly": "Form_tin",
+   "key": "brass_dull",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_tin__brass",
+   "assembly": "Form_tin",
+   "key": "brass",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_box__paper",
+   "assembly": "Form_box",
+   "key": "paper",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_packet__paper",
+   "assembly": "Form_packet",
+   "key": "paper",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_packet__linen",
+   "assembly": "Form_packet",
+   "key": "linen",
+   "tile": 0.6
+  },
+  {
+   "name": "Form_flat__leather_worn",
+   "assembly": "Form_flat",
+   "key": "leather_worn",
+   "tile": 0.12
+  },
+  {
+   "name": "Form_flat__paper",
+   "assembly": "Form_flat",
+   "key": "paper",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_flat__linen",
+   "assembly": "Form_flat",
+   "key": "linen",
+   "tile": 0.6
+  },
+  {
+   "name": "Form_tool__bakelite_black",
+   "assembly": "Form_tool",
+   "key": "bakelite_black",
+   "tile": 0.3
+  },
+  {
+   "name": "Form_tool__brass",
+   "assembly": "Form_tool",
+   "key": "brass",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_tool__brass_dull",
+   "assembly": "Form_tool",
+   "key": "brass_dull",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_roll__linen",
+   "assembly": "Form_roll",
+   "key": "linen",
+   "tile": 0.6
+  },
+  {
+   "name": "Form_roll__paper",
+   "assembly": "Form_roll",
+   "key": "paper",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_jar__milk_glass",
+   "assembly": "Form_jar",
+   "key": "milk_glass",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_jar__bakelite_black",
+   "assembly": "Form_jar",
+   "key": "bakelite_black",
+   "tile": 0.3
+  },
+  {
+   "name": "Form_jar__paper",
+   "assembly": "Form_jar",
+   "key": "paper",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_card__paper",
+   "assembly": "Form_card",
+   "key": "paper",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_valve__milk_glass",
+   "assembly": "Form_valve",
+   "key": "milk_glass",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_valve__bakelite_black",
+   "assembly": "Form_valve",
+   "key": "bakelite_black",
+   "tile": 0.3
+  },
+  {
+   "name": "Form_valve__brass",
+   "assembly": "Form_valve",
+   "key": "brass",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_valve__brass_dull",
+   "assembly": "Form_valve",
+   "key": "brass_dull",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_parcel__paper",
+   "assembly": "Form_parcel",
+   "key": "paper",
+   "tile": 0.5
+  },
+  {
+   "name": "Form_parcel__fabric_warm",
+   "assembly": "Form_parcel",
+   "key": "fabric_warm",
+   "tile": 0.14
+  },
+  {
+   "name": "Stay_Port_Upper__brass_dull",
+   "assembly": "Stay_Port_Upper",
+   "key": "brass_dull",
+   "tile": 0.5
+  },
+  {
+   "name": "Stay_Port_Lower__brass_dull",
+   "assembly": "Stay_Port_Lower",
+   "key": "brass_dull",
+   "tile": 0.5
+  },
+  {
+   "name": "Stay_Starboard_Upper__brass_dull",
+   "assembly": "Stay_Starboard_Upper",
+   "key": "brass_dull",
+   "tile": 0.5
+  },
+  {
+   "name": "Stay_Starboard_Lower__brass_dull",
+   "assembly": "Stay_Starboard_Lower",
+   "key": "brass_dull",
+   "tile": 0.5
+  }
+ ]
+}

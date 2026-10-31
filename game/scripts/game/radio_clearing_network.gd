@@ -15,6 +15,10 @@ func settle(identity: String, merchant: String, item: String,
 	if settlement_status(merchant,cents)!="available":return false
 	return economy.purchase_once(identity,merchant,item,cents,deliver)
 
+func settle_repeat(merchant: String, item: String, cents: int, deliver: Callable) -> bool:
+	if settlement_status(merchant,cents)!="available":return false
+	return economy.purchase_repeat(merchant,item,cents,deliver)
+
 func settlement_status(merchant: String, cents: int) -> String:
 	if cents<0:return "invalid_quote"
 	if not is_instance_valid(economy) or not radio_available.is_valid() \

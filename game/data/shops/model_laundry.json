@@ -1,0 +1,51 @@
+{
+ "schema_version": 1,
+ "shop_id": "model_laundry",
+ "name": "Model Laundry",
+ "closed": [
+  120,
+  390
+ ],
+ "groups": {},
+ "events": [],
+ "items": [
+  {
+   "id": "uniform_washed_and_pressed",
+   "name": "Uniform, washed and pressed",
+   "cents": 40,
+   "kind": "service",
+   "source": "authored",
+   "note": "Ready the next day"
+  },
+  {
+   "id": "shirt_finished",
+   "name": "Shirt, finished",
+   "cents": 15,
+   "kind": "service",
+   "source": "authored"
+  },
+  {
+   "id": "collar",
+   "name": "Collar",
+   "cents": 3,
+   "kind": "service",
+   "source": "authored"
+  },
+  {
+   "id": "bundle_wet_wash",
+   "name": "Bundle, wet wash",
+   "cents": 25,
+   "kind": "service",
+   "source": "authored",
+   "note": "For resident errands"
+  },
+  {
+   "id": "mending_per_piece",
+   "name": "Mending, per piece",
+   "cents": 10,
+   "kind": "service",
+   "source": "authored",
+   "note": "Lena's counter, per the owner's ruling"
+  }
+ ]
+}

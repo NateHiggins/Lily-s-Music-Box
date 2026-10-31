@@ -1,0 +1,143 @@
+{
+ "schema_version": 1,
+ "shop_id": "pawnbroker",
+ "name": "Pawnbroker",
+ "closed": [
+  120,
+  390
+ ],
+ "groups": {
+  "shelf": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  }
+ },
+ "events": [],
+ "items": [
+  {
+   "id": "used_valve",
+   "name": "Used valve",
+   "cents": 10,
+   "kind": "goods",
+   "source": "ad",
+   "note": "\"a used valve has seen things\"; may hum",
+   "group": "shelf",
+   "form": "valve"
+  },
+  {
+   "id": "second_hand_vantry_service_set",
+   "name": "Second-hand Vantry service set",
+   "cents": 750,
+   "kind": "goods",
+   "source": "ad",
+   "note": "a spare, not a replacement",
+   "group": "shelf",
+   "form": "parcel"
+  },
+  {
+   "id": "violin_in_its_case",
+   "name": "Violin, in its case",
+   "cents": 800,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Already modelled; a resident's dated pledge",
+   "group": "shelf",
+   "form": "parcel"
+  },
+  {
+   "id": "sewing_machine",
+   "name": "Sewing machine",
+   "cents": 900,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Already modelled",
+   "group": "shelf",
+   "form": "parcel"
+  },
+  {
+   "id": "telescope_collapsed",
+   "name": "Telescope, collapsed",
+   "cents": 500,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Already in the window",
+   "group": "shelf",
+   "form": "parcel"
+  },
+  {
+   "id": "pocket_watch_and_chain",
+   "name": "Pocket watch and chain",
+   "cents": 350,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Already in the window",
+   "group": "shelf",
+   "form": "packet"
+  },
+  {
+   "id": "field_glasses",
+   "name": "Field glasses",
+   "cents": 600,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Already in the window",
+   "group": "shelf",
+   "form": "parcel"
+  },
+  {
+   "id": "coat_hanging",
+   "name": "Coat, hanging",
+   "cents": 150,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Already modelled",
+   "group": "shelf",
+   "form": "parcel"
+  },
+  {
+   "id": "folding_camera",
+   "name": "Folding camera",
+   "cents": 1200,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Rare, as canon wants",
+   "group": "shelf",
+   "form": "parcel"
+  },
+  {
+   "id": "mantel_clock",
+   "name": "Mantel clock",
+   "cents": 400,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Static, per the existing rule",
+   "group": "shelf",
+   "form": "parcel"
+  },
+  {
+   "id": "wedding_ring",
+   "name": "Wedding ring",
+   "cents": 300,
+   "kind": "goods",
+   "source": "authored",
+   "note": "A dated resident pledge; no joke",
+   "group": "shelf",
+   "form": "packet"
+  },
+  {
+   "id": "radio_chassis_dead",
+   "name": "Radio chassis, dead",
+   "cents": 150,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Parts",
+   "group": "shelf",
+   "form": "parcel"
+  }
+ ]
+}

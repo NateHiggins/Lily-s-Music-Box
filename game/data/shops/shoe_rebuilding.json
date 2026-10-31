@@ -1,0 +1,91 @@
+{
+ "schema_version": 1,
+ "shop_id": "shoe_rebuilding",
+ "name": "Shoe Rebuilding",
+ "closed": [
+  120,
+  390
+ ],
+ "groups": {
+  "bench": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  },
+  "counter": {
+   "capacity": 24,
+   "per_day": 2,
+   "delivery": {
+    "every_days": 7,
+    "at_minute": 480,
+    "units": 12
+   }
+  }
+ },
+ "events": [],
+ "items": [
+  {
+   "id": "half_soles_leather",
+   "name": "Half soles, leather",
+   "cents": 100,
+   "kind": "service",
+   "source": "authored",
+   "note": "Durable, loud on terrazzo"
+  },
+  {
+   "id": "half_soles_rubber",
+   "name": "Half soles, rubber",
+   "cents": 85,
+   "kind": "service",
+   "source": "authored",
+   "note": "Quiet"
+  },
+  {
+   "id": "heels_rubber",
+   "name": "Heels, rubber",
+   "cents": 40,
+   "kind": "service",
+   "source": "authored"
+  },
+  {
+   "id": "shine",
+   "name": "Shine",
+   "cents": 5,
+   "kind": "consumed",
+   "source": "authored",
+   "note": "Stand and wait",
+   "group": "bench"
+  },
+  {
+   "id": "polish_tin",
+   "name": "Polish, tin",
+   "cents": 10,
+   "kind": "goods",
+   "source": "authored",
+   "group": "counter",
+   "form": "bottle"
+  },
+  {
+   "id": "laces",
+   "name": "Laces",
+   "cents": 5,
+   "kind": "goods",
+   "source": "authored",
+   "group": "counter",
+   "form": "card"
+  },
+  {
+   "id": "borrowed_slippers",
+   "name": "Borrowed slippers",
+   "cents": 0,
+   "kind": "loan",
+   "source": "authored",
+   "note": "Until your boots return",
+   "group": "counter"
+  }
+ ]
+}

@@ -40,6 +40,12 @@ static func valid(value: Variant) -> bool:
 					or purchase.get("merchant") is not String or str(purchase.merchant).is_empty() \
 					or purchase.get("item") is not String or str(purchase.item).is_empty() \
 					or not whole(purchase.get("cents")): return false
+	if value.has("sales"):
+		if value.sales is not Dictionary: return false
+		for identity: Variant in value.sales:
+			var sale: Variant=value.sales[identity]
+			if identity is not String or sale is not Dictionary \
+					or not whole(sale.get("count")) or not whole(sale.get("cents")): return false
 	return true
 
 func setup(work: WorkOrders) -> bool:
@@ -150,6 +156,27 @@ func purchase_once(identity: String, merchant: String, item: String,
 		ledger.purchases.erase(identity)
 	else:
 		RealityState.commit()
+	_purchasing=false
+	return delivered
+
+## A repeatable counter sale on the same ledger. One row per merchant and item
+## keeps a year of coffee bounded; delivery is all-or-nothing as above.
+func purchase_repeat(merchant: String, item: String, cents: int, deliver: Callable) -> bool:
+	if _purchasing or RealityState.save_write_blocked or merchant.is_empty() or item.is_empty() \
+			or cents<0 or not deliver.is_valid() or not clock.bind_state(): return false
+	var ledger:=book()
+	if not valid(ledger) or int(ledger.cash)<cents: return false
+	if not ledger.has("sales"): ledger.sales={}
+	var identity:=merchant+"/"+item
+	var row: Dictionary=ledger.sales.get(identity,{"count":0,"cents":0})
+	_purchasing=true
+	ledger.cash=int(ledger.cash)-cents
+	var delivered: bool=bool(deliver.call())
+	if delivered:
+		ledger.sales[identity]={"count":int(row.count)+1,"cents":int(row.cents)+cents}
+		RealityState.commit()
+	else:
+		ledger.cash=int(ledger.cash)+cents
 	_purchasing=false
 	return delivered
 
