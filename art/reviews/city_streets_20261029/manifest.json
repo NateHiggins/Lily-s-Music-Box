@@ -11752,8 +11752,8 @@
   },
   "southern_pair_composed_checks": {
     "archive": "art/reviews/city_streets_20261029/southern_pair_composed_checks.zip",
-    "bytes": 73940902,
-    "sha256": "c6cfd7e58d683a3274105eaf1ffaffe8a6715faa6c741b1e520bd75a1248e4a3",
+    "bytes": 75956385,
+    "sha256": "0cbadbe846468acfd0cc86fe9c8188780417161d7a4198b2269ae7ef653ba66d",
     "evidence_class": "INERT",
     "scope": "Original FAILED current-world seven-leg attempt at1ea34698,265checks/4attempted legs/2failures. Existing castiron post blocks the straight fixture path; actual source, failure contract/log/wrapper/4views retained. Startup wall milestones are diagnostic, not acceptance. Subsequent commerce/physical not started. Failure02 atd3a38474:167s/265checks/4attempts/2failures;detour overlaps raised curb,body stillairborne+0.202m at horizontalstop. Original data/source retained; no aggregate acceptance. Commerce/physical still notexecuted.",
     "members": {
@@ -12152,10 +12152,71 @@
       "pr102_before_case_repair/item_use/route.json": {
         "bytes": 35,
         "sha256": "dfd3e751903238283a251f8e5e91a45dc6b7c782caabc22ebd98af4f97fc82cd"
+      },
+      "case_repair_verified/case_retirement_fixed_01.log": {
+        "bytes": 1063,
+        "sha256": "5a3193283c31cec7fba3b8f82977d4dc2c97ead2a2f0f3283a5e6b4b16965127"
+      },
+      "case_repair_verified/case_retirement_fixed_01.log.receipt.json": {
+        "bytes": 2857,
+        "sha256": "dbc62d43ea9b5109986bc79e0782a73ed6f190013dbded564b3b1ad559ac1ba4"
+      },
+      "case_repair_verified/case_retirement_fixed_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "case_repair_verified/case_retirement_fixed_01_frozen_carried_case_view.gd": {
+        "bytes": 15775,
+        "sha256": "d5a55936b694be5f0b5798a8906d2cebdeaeef7566cc3f4fccfadec473d3ccec"
+      },
+      "case_repair_verified/case_retirement_fixed_01_frozen_item_use_route_test.gd": {
+        "bytes": 7341,
+        "sha256": "d4e5f7f53474a51f1ec01a8378079f785e22c79e35435ebce502118416e1c31c"
+      },
+      "case_repair_verified/case_retirement_fixed_01_review.json": {
+        "bytes": 1055,
+        "sha256": "423588d5d3406aafbbc76d6e75905ccdc289d8fe96e1d0da32e531322b967314"
+      },
+      "case_repair_verified/case_retirement_physical_01.log": {
+        "bytes": 2579,
+        "sha256": "b421815e0f4a8b9aa2400d2ef855e4884378588bdbe4279af0b9b09a0b5b1d17"
+      },
+      "case_repair_verified/case_retirement_physical_01.log.receipt.json": {
+        "bytes": 2935,
+        "sha256": "0ec6d6063c4c8c5ce9343a5e511b5e200cdddaa8001d5918b2965326ce6b60ec"
+      },
+      "case_repair_verified/case_retirement_physical_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "case_repair_verified/case_retirement_final_batch_01.json": {
+        "bytes": 971,
+        "sha256": "d43fe320c112f4315da7e7f512a66fb4149bfae5224bc4c51db4bed70d3d4936"
+      },
+      "case_repair_verified/isolated/case_open.png": {
+        "bytes": 2023555,
+        "sha256": "938f410aa7547ab6f6b73ef929185a72379888d121183f06c7908651272a5376"
+      },
+      "case_repair_verified/isolated/case_retirement.json": {
+        "bytes": 1228,
+        "sha256": "2baade3702e4e83d899e63571a8fde2c6daecc5b0625eb7ba602ace9f7571ba0"
+      },
+      "case_repair_verified/physical/runtime_contract.json": {
+        "bytes": 1829,
+        "sha256": "aadf90faad1e6d1ce56b0f77833e780bf09234253485b02023a487b2d0def28a"
+      },
+      "case_repair_verified/physical/visual_review.json": {
+        "bytes": 1602,
+        "sha256": "99077ec6e81452cbf5be7e8cc4116f9d8a3f3d30e10429f5489eeaddc89124aa"
+      },
+      "case_repair_verified/physical/technical_findings.json": {
+        "bytes": 40563,
+        "sha256": "36df8849a7494fd3428a9431aa61b6ca695d8c2d48e16884bfc59ea9959435df"
       }
     },
     "footway_diagnostics": "INERT:01 outputdirectory/nullFileAccess failure and original teardown errors retained;02 normal-controller sixleg local originalstreet/gateway fixture20checks/0/empty stderr but7cm deadzone earlystop; not composed qualification. Exact02 source matches wrapperSHA. No production collision change. 03 actual20checks/0,714samples,14.280786s,empty stderr; all6 endpoints <5mm after deadzone-aware input. Exact raw consumed3scripts retained before LF normalization. No wholeworld/performance/artistic acceptance.",
     "passed_03": "Actual current-world279checks/10normal-controllerlegs/0,3independent validated starts,6inspected eyes,source beforePR102. Compiler4/0,ShopCommerce0failures,empty stderr. Source/raw failures01/02 and smallfixtures intact. Physical651/0 separately published. No continuouscity/save/artistic/performance acceptance.",
-    "pr102_before_case_repair": "Merged7e281f3e:import26s,compiler4/0,itemlogic0failures196s BUT realteardownRID/errors in stdoutandstderr preserved; physical651/0 in260s empty stderr does not exercise case. No clean case retirement claimed. Small originalowner-control pending, source frozen."
+    "pr102_before_case_repair": "Merged7e281f3e:import26s,compiler4/0,itemlogic0failures196s BUT realteardownRID/errors in stdoutandstderr preserved; physical651/0 in260s empty stderr does not exercise case. No clean case retirement claimed. Small originalowner-control pending, source frozen.",
+    "case_repair_verified": "e990f795:isolatedactualkeyopen/close+openownerdestroy9checks/0,2cycles25templates/0survivors,20.55s,empty stderrandno stdoutRIDerrors;actualcaseframeinspected. Finalcomposedphysical651/0,354swrapper,empty stderr,threecurrentframesreviewed. Originalfullitemuseleakandsouthernroutefailuresretained. No newfullworlditemusewalk/save/artisticacceptance."
   }
 }

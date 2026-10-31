@@ -4689,3 +4689,35 @@ fixture is diagnostic, not a composed playtest or artistic acceptance. It and th
 final physical renewal are queued together through the shared FIFO. Outcomes
 remain pending. Reader audit NEW0 and whitespace/design lint pass; those checks
 do not establish that rendering or retirement is repaired in the engine.
+
+
+### Case lifetime repair — actual results and final surface renewal, 2026-10-31
+
+Evidence class: **INERT**. Fixed owner **e990f795** now has actual patched-Vulkan
+verification: isolated fullscreen3440x1440 case fixture **9checks/0**,20.55s,
+empty stderr and no stdout renderer errors. Both cycles contain25 native template
+draws; after actual key-close and after open-owner destruction, weak references
+find **zero survivors**. The real goods remain independently visible. The actual
+case frame was inspected: native lined body, stays, contents card and seeded flat
+packet render against the intentionally empty fixture world. This is a focused
+render/lifetime/input check, not a new composed item-use route or artistic pass.
+Original ItemUseRouteTest's successful gameplay assertions and failed teardown
+remain preserved; the before evidence has not been replaced with an invented
+isolated control run.
+
+Final combined-source physical-only survey **651checks/0**,327.459s test time,
+354s wrapper,empty stderr. Its unchanged test-written schema-2 contract binds
+surface input **bbd342349365baf63c7da91c322597e0ebd55bc631576dd5172a418631302516**.
+Inventory29,317draws/18,505meshes/6,546materials/542textures. Three of18 current
+captures independently reviewed: glazed bookcase, fourth-floor main room and
+third-floor workshop. Their loaded finishes are present; sparse shelf dressing,
+bright room lighting, saves and artistic scope remain separate debt.
+
+The established publisher preserves the preceding packet before installing this
+current source-bound evidence. Existing composed archive retains every original
+failed/passed route, exact case owner/test sources, raw teardown errors, corrected
+case evidence and final physical logs/contracts. No tolerance, baseline or
+runtime receipt was weakened or repinned. Full static candidate comparison to
+clean **cb1a69c6** is next; main publication remains pending until it passes.
+The previous676 walking frames,206.46ms maximum and121.158s startup remain
+performance debt, not a speedup claim from this lifetime repair.

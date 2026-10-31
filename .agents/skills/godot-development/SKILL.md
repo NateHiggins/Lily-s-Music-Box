@@ -254,6 +254,12 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   [material lifetime evidence](../../../design/V2_PORTRAIT_RELOAD_AND_UV_LIFETIME_2026-10-24.md).
   Lifetime fixtures identify process caches by exact owner/resource identities;
   retain a same-type owned negative control rather than exempting a whole class.
+  Detached Nodes are not reference-counted resources: clearing their dictionary
+  does not free them. Hidden native templates should keep a scene-tree lifetime
+  owner, with visible copies parented independently. Exercise both normal close
+  and destruction while open; check actual weak-reference retirement and complete
+  shutdown logs. A passing interaction route can still leak renderer RIDs. See
+  the city report's carried-case lifetime repair and retained original failure.
 - **Native import:** for Blender work use
   [blender-asset-development](../blender-asset-development/SKILL.md). Test imported
   UV precision, normal/tangent derivatives and loaded maps in a small family
