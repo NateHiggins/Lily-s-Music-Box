@@ -11752,8 +11752,8 @@
   },
   "southern_pair_composed_checks": {
     "archive": "art/reviews/city_streets_20261029/southern_pair_composed_checks.zip",
-    "bytes": 75956385,
-    "sha256": "0cbadbe846468acfd0cc86fe9c8188780417161d7a4198b2269ae7ef653ba66d",
+    "bytes": 76069743,
+    "sha256": "427dafd62281a790af00b5b5fb89cfae63b9c68468cf2a0cd5f0fe02634513bb",
     "evidence_class": "INERT",
     "scope": "Original FAILED current-world seven-leg attempt at1ea34698,265checks/4attempted legs/2failures. Existing castiron post blocks the straight fixture path; actual source, failure contract/log/wrapper/4views retained. Startup wall milestones are diagnostic, not acceptance. Subsequent commerce/physical not started. Failure02 atd3a38474:167s/265checks/4attempts/2failures;detour overlaps raised curb,body stillairborne+0.202m at horizontalstop. Original data/source retained; no aggregate acceptance. Commerce/physical still notexecuted.",
     "members": {
@@ -12212,11 +12212,72 @@
       "case_repair_verified/physical/technical_findings.json": {
         "bytes": 40563,
         "sha256": "36df8849a7494fd3428a9431aa61b6ca695d8c2d48e16884bfc59ea9959435df"
+      },
+      "gate_repair/original_blocked/verification.json": {
+        "bytes": 287034,
+        "sha256": "25675ddc9dca19f182b4dbb9922d91a5c82a14cc9bf8501b1d66170580dcde1c"
+      },
+      "gate_repair/original_blocked/verification.md": {
+        "bytes": 2540,
+        "sha256": "f23b6a76ba422ec2e19a7ddc1ef80d130578b81d5e2126b9eca2fa3dcb79952b"
+      },
+      "gate_repair/spatial_candidate_a479.json": {
+        "bytes": 4038,
+        "sha256": "55f76c8b16c8a3457c981514b6dd8746c393f40d796e11bcb1c90949c3bf331a"
+      },
+      "gate_repair/systemic_candidate_a479.json": {
+        "bytes": 125565,
+        "sha256": "93ff16fe573ea8d23fa04d4c3501963afd65e67c9740d3b883015cac0978761e"
+      },
+      "gate_repair/spatial_registration_repair_01.json": {
+        "bytes": 2474,
+        "sha256": "638ed0f474177bb740029274751f970f0d9ea76e0d90b1c02098ffb9cdfebeaf"
+      },
+      "gate_repair/clock_lexer_control_01.log": {
+        "bytes": 1464,
+        "sha256": "936419a337853395ff07206fdd5b891773a08a8d8c324113be2835c859f38b55"
+      },
+      "gate_repair/clock_lexer_fixed_tests_01.log": {
+        "bytes": 8027,
+        "sha256": "e303cdfa6f9aa405a72a53af31a2a4d479fc93aff493aaaf7ab0d633fa29e5dd"
+      },
+      "gate_repair/clock_lexer_fixed_tests_02.log": {
+        "bytes": 8027,
+        "sha256": "ddf27f3112ca3f7d9abc08868346932bd17d194e2c034ed0a62269be25fdd438"
+      },
+      "gate_repair/spatial_registry_fixed_tests_01.log": {
+        "bytes": 6541,
+        "sha256": "289648bf1e041f5bc50340c25c9086ac8764bed80aab930b5952b2696a5c8cdf"
+      },
+      "gate_repair/systemic_candidate_fixed_01.json": {
+        "bytes": 125565,
+        "sha256": "93ff16fe573ea8d23fa04d4c3501963afd65e67c9740d3b883015cac0978761e"
+      },
+      "gate_repair/systemic_candidate_fixed_02.json": {
+        "bytes": 122674,
+        "sha256": "e12f69123654744b0cb9c7e5e049447b15f0508ffa77a180317de71efbcecfe9"
+      },
+      "gate_repair/spatial_candidate_fixed_01.json": {
+        "bytes": 1771,
+        "sha256": "0da636d7da663f14e67153d70119e2de451801774b79a6c66ec0d02c3f596961"
+      },
+      "gate_repair/surface_after_gate_repair_01.json": {
+        "bytes": 172,
+        "sha256": "bf5ba3709f14189480fa97dcb860ff425cbe926887c301fa70fcf98bfda5dba7"
+      },
+      "gate_repair/fixed_sources/tools/audit_systemic_situation_authority.py": {
+        "bytes": 65333,
+        "sha256": "0c7ce85cb85bbe7b1799e418ddf697bf935e9eb98a2f7108aa0d45c3e71e6708"
+      },
+      "gate_repair/fixed_sources/tools/tests/test_systemic_situation_authority.py": {
+        "bytes": 44859,
+        "sha256": "a3975138f51c7b135c49d30ca585577a0f21dd61e0ae15cf2b0c11b258238464"
       }
     },
     "footway_diagnostics": "INERT:01 outputdirectory/nullFileAccess failure and original teardown errors retained;02 normal-controller sixleg local originalstreet/gateway fixture20checks/0/empty stderr but7cm deadzone earlystop; not composed qualification. Exact02 source matches wrapperSHA. No production collision change. 03 actual20checks/0,714samples,14.280786s,empty stderr; all6 endpoints <5mm after deadzone-aware input. Exact raw consumed3scripts retained before LF normalization. No wholeworld/performance/artistic acceptance.",
     "passed_03": "Actual current-world279checks/10normal-controllerlegs/0,3independent validated starts,6inspected eyes,source beforePR102. Compiler4/0,ShopCommerce0failures,empty stderr. Source/raw failures01/02 and smallfixtures intact. Physical651/0 separately published. No continuouscity/save/artistic/performance acceptance.",
     "pr102_before_case_repair": "Merged7e281f3e:import26s,compiler4/0,itemlogic0failures196s BUT realteardownRID/errors in stdoutandstderr preserved; physical651/0 in260s empty stderr does not exercise case. No clean case retirement claimed. Small originalowner-control pending, source frozen.",
-    "case_repair_verified": "e990f795:isolatedactualkeyopen/close+openownerdestroy9checks/0,2cycles25templates/0survivors,20.55s,empty stderrandno stdoutRIDerrors;actualcaseframeinspected. Finalcomposedphysical651/0,354swrapper,empty stderr,threecurrentframesreviewed. Originalfullitemuseleakandsouthernroutefailuresretained. No newfullworlditemusewalk/save/artisticacceptance."
+    "case_repair_verified": "e990f795:isolatedactualkeyopen/close+openownerdestroy9checks/0,2cycles25templates/0survivors,20.55s,empty stderrandno stdoutRIDerrors;actualcaseframeinspected. Finalcomposedphysical651/0,354swrapper,empty stderr,threecurrentframesreviewed. Originalfullitemuseleakandsouthernroutefailuresretained. No newfullworlditemusewalk/save/artisticacceptance.",
+    "gate_repair": "Original117gatecandidatea479BLOCKED6regressions/4improvements,17protected/V2/lintpass/no requirementpromotions,retained. Exactly3newTEST_CONTRACTassetrowsregistered,alloldrecordsunchanged. MonotonicelapsedproseinJSONscopewasmisreadasdurablewrite; lexicalrepairretainsactualtimestampkeys/RealityState/data/commit/saveescaping and arbitraryobject.save_png,onlyconcreteviewportImageexportisnonworld. Originalcontrolfails;fullsystemic63/spatial59testsPASS;actualsystemic29matchesbaseline and removesONLYnewf748finding,spatialnew0;surfacepacketPASS0. Newfullcandidatecomparisonpending."
   }
 }

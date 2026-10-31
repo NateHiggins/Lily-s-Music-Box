@@ -4721,3 +4721,40 @@ runtime receipt was weakened or repinned. Full static candidate comparison to
 clean **cb1a69c6** is next; main publication remains pending until it passes.
 The previous676 walking frames,206.46ms maximum and121.158s startup remain
 performance debt, not a speedup claim from this lifetime repair.
+
+
+### Exact-main static comparison and diagnostic-reader repair, 2026-10-31
+
+Evidence class: **INERT**. Candidate **a4798d70** against clean **cb1a69c6**
+completed117gates but was **BLOCKED:6regressions/4improvements**. The original
+board and verification remain preserved. All17protected paths,V2selector and
+design lint pass; no requirement status changed. All662 temporarily archived
+untracked UID/chat files were restored byte-exact after the terminal check.
+No regression was accepted or waived.
+
+Three new reported spatial records are the small footway fixture's actual
+original street binary,gateway glTF and gateway binary. Added exactly those
+three test-tier ASSET_PATH / TEST_CONTRACT / UPDATE_TEST_FIXTURE records;
+every preceding manifest row remains semantically identical. Live spatial
+audit now haszero new failing or reported records;its59 focused tests pass.
+
+The remaining new review **f7488363144b38aa** comes from the diagnostic record's
+prose `no ... save ...` on the same line as monotonic elapsed-time measurement.
+It does not derive campaign state from the host clock. The original audit
+mistook the prose for a durable sink;its body guard also mistook the concrete
+viewport.get_texture().get_image().save_png export for a save-game writer.
+A regression control first fails under the original classifier. The repaired
+reader masks explanatory literals while retaining actual timestamp keys,
+RealityState/data/commit/save escapes and arbitrary object.save_png calls.
+Only the concrete engine viewport Image export is recognized as an artifact;
+arguments containing real state references retain the guard. Unix/civil-time
+and existing exact-authority rules remain unchanged. No path-specific exemption
+or baseline rewrite. All63 systemic tests pass,including13 new positive/negative
+subcases. Actual repository review count returns30→29,removing only that new
+diagnostic finding;zero actionable additions and all preceding finding IDs stay.
+
+These are verification-reader/registry changes,not rendering changes. The
+existing actual source-bound surface packet independently remains PASS withzero
+defects. No Godot rerun is justified for them. Full candidate reverification is
+next; the changed audit and its regression controls require explicit instrument
+review alongside the final comparison. Main publication is still pending.

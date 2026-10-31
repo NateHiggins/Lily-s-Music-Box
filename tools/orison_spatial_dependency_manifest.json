@@ -324344,6 +324344,92 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "9ef7007bf657a797",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/site_street_common.bin",
+   "file": "game/tests/v2_city_elevation_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_footway_input_hashes"
+   ],
+   "lines": [
+    502
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "8b4d2c59a2241563",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/exterior/passage_gateway.gltf",
+   "file": "game/tests/v2_city_elevation_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_gateway_footway",
+    "_footway_input_hashes"
+   ],
+   "lines": [
+    464,
+    502
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1de2c1dc85ce4682",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/exterior/passage_gateway_subway.bin",
+   "file": "game/tests/v2_city_elevation_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_footway_input_hashes"
+   ],
+   "lines": [
+    502
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
