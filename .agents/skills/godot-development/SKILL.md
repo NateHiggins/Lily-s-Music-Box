@@ -181,6 +181,14 @@ readability, and feel.
   geometry artifacts. The entrance review's white streak disappears with the
   first-person mask; preserve the mirror's separate inclusion of the avatar.
   Derive test stances through the actual owner's frame, not raw layout numbers.
+  For LOD optics, a small end-cap arris can become subpixel even when indices
+  switch correctly. Choose a resolvable actual structural face and retain the
+  image-coverage assertion and blank control. A physics visibility ray can also
+  hit an explicitly nonrendered travel limit. For that optical diagnostic only,
+  retain the unfiltered result,exclude only the verified nonvisual owner,and
+  assert its collision layer/shape stay exact; keep every rendered world blocker
+  and gameplay/perception ray unchanged. Inspect the actual rendered result.
+  See the city bridge intake's retained failures and corrected roof contract.
 - **Mechanical handoffs:** advance from the outgoing owner's acknowledgement
   into the incoming owner's real readiness state. A protected observation pose
   may not yet permit typing; do not force a mechanism or weaken its constraints

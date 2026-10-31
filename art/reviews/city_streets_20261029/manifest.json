@@ -9071,5 +9071,174 @@
         "candidate_verification_phase_05/verification.md"
       ]
     }
+  },
+  "narrow_bodega_composed_intake": {
+    "archive": "art/reviews/city_streets_20261029/narrow_bodega_composed_intake.zip",
+    "bytes": 15972851,
+    "sha256": "d90db4b06df7f961cae72ef6269d51ed1a4dd50125e1157e36e4e7cf7c405e31",
+    "evidence_class": "INERT",
+    "scope": "Corrected E/Bodega and W narrow pair: isolated7086/0,actual route256 checks/8 legs/0,source-bound raw evidence; bridge roof control repeated. No saves,whole-city or human artistic acceptance.",
+    "members": {
+      "bodega_combined_batch_01.json": {
+        "bytes": 1472,
+        "sha256": "f3fece00880e0c858777dc4034a14de03e4c7c02e3426b72c9501cd712182d29"
+      },
+      "bodega_import_01.log": {
+        "bytes": 3784,
+        "sha256": "20c8503faf981b6fa761b7c6e6d7b4171710bceb334daddbc345fa7d52707909"
+      },
+      "bodega_import_01.log.receipt.json": {
+        "bytes": 2721,
+        "sha256": "332c4115b9cd09bd21f983b065b5f1dc6dc9b457bdd17995b74baa5ae176f64b"
+      },
+      "bodega_import_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "bodega_isolated_01.log": {
+        "bytes": 285684,
+        "sha256": "9dee74ec76eeaaae89acedb3992ac668b02b89aaab4f39f8f3d4a63cbb86381f"
+      },
+      "bodega_isolated_01.log.receipt.json": {
+        "bytes": 2914,
+        "sha256": "8e4943ce67cc488093ca29bfc89796627a7db85aad8a7c34413d61276f1ceab8"
+      },
+      "bodega_isolated_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "bodega_isolated_01/city_elevation_profile.json": {
+        "bytes": 143756,
+        "sha256": "d2b51f6c2965e2793a561cbeeb42041eaf60ea666f8b1a776500aaa5c96b7a56"
+      },
+      "bodega_isolated_01/site_nbr_e.png": {
+        "bytes": 220806,
+        "sha256": "7a9bda712acf77638241d1a65b91f21add147978fa85643a30d94f556258aa2d"
+      },
+      "bodega_isolated_01/site_nbr_e_natural_after.png": {
+        "bytes": 18826,
+        "sha256": "4cc6e9bab061cbe897aea82e4e351aa49e2af27919a80bf59c2ddce6fd147de8"
+      },
+      "bodega_isolated_01/site_nbr_e_natural_before.png": {
+        "bytes": 18811,
+        "sha256": "20ec9d1a7d8af8ca80f0358521720b621e97f790d18a3196cd2968e510445d92"
+      },
+      "bodega_isolated_01/site_nbr_e_natural_narrow.png": {
+        "bytes": 270710,
+        "sha256": "d223db6c710fa643423508cc9423785ba1ae154c077aca8d40d6a654d7c1bdab"
+      },
+      "bodega_isolated_01/site_nbr_e_natural_return.png": {
+        "bytes": 18811,
+        "sha256": "20ec9d1a7d8af8ca80f0358521720b621e97f790d18a3196cd2968e510445d92"
+      },
+      "bodega_isolated_01/site_nbr_e_profile_far.png": {
+        "bytes": 153573,
+        "sha256": "aef29576d60edae99fa884e78fac37707d1c0a2b4350f412d41c2604f3f50182"
+      },
+      "bodega_isolated_01/site_nbr_e_profile_near.png": {
+        "bytes": 153556,
+        "sha256": "4514fccabbdd4ffe4aed684b46b5d1ade80fcb2b0370d2e99a6ea7b030f7eca6"
+      },
+      "bodega_isolated_01/site_nbr_w.png": {
+        "bytes": 180052,
+        "sha256": "c83ebe6ec3eb34f177f0bfcc7cee5e6ab890e4620441d98b50d943804fc733e3"
+      },
+      "bodega_isolated_01/site_nbr_w_natural_after.png": {
+        "bytes": 19047,
+        "sha256": "fe2e828ce0181c0f9ad2932421dc2dccf2210615d262bd8040db6dd49ec3d302"
+      },
+      "bodega_isolated_01/site_nbr_w_natural_before.png": {
+        "bytes": 19047,
+        "sha256": "8ca84a94275965f58eb8ac3b18cc35fca65c200367cacd79094680c765225cb8"
+      },
+      "bodega_isolated_01/site_nbr_w_natural_narrow.png": {
+        "bytes": 300141,
+        "sha256": "2bb95b11c09c0c88f7c35bbadc2a966b7f770e9d9e06a5b31e81e2ca3b44affe"
+      },
+      "bodega_isolated_01/site_nbr_w_natural_return.png": {
+        "bytes": 19047,
+        "sha256": "8ca84a94275965f58eb8ac3b18cc35fca65c200367cacd79094680c765225cb8"
+      },
+      "bodega_isolated_01/site_nbr_w_profile_far.png": {
+        "bytes": 170081,
+        "sha256": "2d87b8a67eef7929882ec1d9e87563a43d7a233ae60df7cfd2728ab802e5201b"
+      },
+      "bodega_isolated_01/site_nbr_w_profile_near.png": {
+        "bytes": 170209,
+        "sha256": "8c2aef7fe56202f206fbdf49c4c65415de27bca1f827c02470b69d251ff23fb6"
+      },
+      "bodega_parser_01.log": {
+        "bytes": 290,
+        "sha256": "de91a30d98579900312941eee2662782d3b9ae0cb56ace1bdbe4f976447086e9"
+      },
+      "bodega_parser_01.log.receipt.json": {
+        "bytes": 2912,
+        "sha256": "831cda455c2d30a4bb857635f6cdcf5a12ed22e77c103413ed621d627213533f"
+      },
+      "bodega_parser_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "display_probe_01.json": {
+        "bytes": 390,
+        "sha256": "20c61b0bde2a87ac4d4de17dddc174043f9506949863ab99a12aed04c1484182"
+      },
+      "executed_source/game/data/orison_v2/exterior/city_bridge.json": {
+        "bytes": 6412,
+        "sha256": "bcb161a3b8ea06adb3ecdb663fed220f573bbd394914923fd21228ff2a2c944d"
+      },
+      "executed_source/game/scripts/building/orison_v2_city_bridge.gd": {
+        "bytes": 3769,
+        "sha256": "a07e18ab8e9322ba6e570229d962fc232fdcfadd3b2c6adf1f47afe044405b37"
+      },
+      "executed_source/game/tests/v2_city_transport_bench.gd": {
+        "bytes": 24351,
+        "sha256": "3399bf48c4c7cacbc5a7e2462b80454e3a8d15e50e2e85969b99862544d86a9c"
+      },
+      "executed_source/game/tests/v2_city_transport_route.gd": {
+        "bytes": 68580,
+        "sha256": "932342259b50580246b691400993b22707d104054f9d75c95075c5fa3fbc2847"
+      },
+      "review_scope.json": {
+        "bytes": 932,
+        "sha256": "a4076cfaf7d3225cae53127d2fafc4cae072a2663852cf2629fda2c26f85b74c"
+      },
+      "route_02.log": {
+        "bytes": 8278,
+        "sha256": "7efcf73e09cc962bd1fe324e4035d37fb0eb87acf2032ddc99e55b3af62a1a5e"
+      },
+      "route_02.log.receipt.json": {
+        "bytes": 2885,
+        "sha256": "4219916c1a78c20aa9d6fe7fa5b42793d29b3cf2e399dbcfbd7d09b299f62a2a"
+      },
+      "route_02.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "route_02/bodega_inside_after_native_repair.png": {
+        "bytes": 4077173,
+        "sha256": "38e63595f4ab3e40b558ca29db739ccd8b68884bbc546f67858d812203b3fe30"
+      },
+      "route_02/bridge_roof_narrow.png": {
+        "bytes": 870173,
+        "sha256": "adc79da622d65ef460af1580a4eac5c0b78050ed48f44f41b1cf959a6fb95fe0"
+      },
+      "route_02/bridge_roof_ordinary.png": {
+        "bytes": 2594534,
+        "sha256": "0dab7c1344284de01a94d8f9669eba3ebea7add40a1e1b50219702c40ce2faa7"
+      },
+      "route_02/narrow_east_standing_frontage.png": {
+        "bytes": 3699187,
+        "sha256": "64168d6d33e07ae60e0b88bae330db190af5fbeb267dface6318dc1a92856c56"
+      },
+      "route_02/narrow_neighbors_contract.json": {
+        "bytes": 92832,
+        "sha256": "9c1bb12cfe759a79a7546073b278a841d2217f700400bf40e7ff74362b1999bd"
+      },
+      "route_02/narrow_west_standing_frontage.png": {
+        "bytes": 3133446,
+        "sha256": "65212ab99d2552f251bc1e31ce877ea70caca4de6f224637f4bf45c702b92447"
+      }
+    }
   }
 }

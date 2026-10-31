@@ -168,7 +168,7 @@ func _run_hampton() -> void:
 		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		var city:=world.get_node("CityShells") as Node3D
 		city_observations["startup_ms"]=(Time.get_ticks_usec()-started)/1000.
-		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold}
+		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold,"screen_refresh_hz":DisplayServer.screen_get_refresh_rate(),"window_focused":DisplayServer.window_is_focused()}
 		_check_frontage_surfaces(city,["Street_Hampton_-5_L0","Street_Hampton_-6_L0"],3,"hampton_public_surfaces",true)
 		var recoveries_before: int=int(world.safety_net.recoveries)
 		if await _opposing_start(city,Vector3(-75.4,20.2,0),"retained_western_sidewalk"):
@@ -262,7 +262,7 @@ func _run_opposing(selection: String="opposing") -> void:
 		player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		var city:=world.get_node("CityShells") as Node3D
 		city_observations["startup_ms"]=(Time.get_ticks_usec()-started)/1000.
-		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold}
+		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold,"screen_refresh_hz":DisplayServer.screen_get_refresh_rate(),"window_focused":DisplayServer.window_is_focused()}
 		if narrow:_check_frontage_surfaces(city,["site_nbr_w","site_nbr_e"],26,surface_key)
 		elif northeast2:_check_frontage_surfaces(city,["site_ne3","site_ne4"],25,surface_key)
 		elif northeast:_check_frontage_surfaces(city,["site_ne1","site_ne2"],21,surface_key)
@@ -282,14 +282,20 @@ func _run_opposing(selection: String="opposing") -> void:
 			# Independently measured source-solid starts. Each subsequent leg uses
 			# normal production input; these placements are not continuous travel.
 			programmes=[{"id":"narrow_west","start":Vector3(-56.7,21.3,-.476),"points":[Vector3(-56.7,23.75,.18),Vector3(-56.7,21.3,-.476)],"target":Vector3(-56.7,24.28,2.2)},
-				{"id":"narrow_east","start":Vector3(14.5,-13.3,0),"points":[Vector3(17.555,-13.3,0),Vector3(22,-13.3,0),Vector3(17.555,-13.3,0),Vector3(17.555,-11.15,.18),Vector3(17.555,-13.3,0),Vector3(14.5,-13.3,0)],"target":Vector3(18.6,-11.99,4)}]
+				{"id":"narrow_east","start":Vector3(14.5,-13.3,0),"points":[Vector3(18.655,-13.3,0),Vector3(22,-13.3,0),Vector3(18.655,-13.3,0),Vector3(18.655,-10.5,0),Vector3(18.655,-13.3,0),Vector3(14.5,-13.3,0)],"target":Vector3(18.655,-11.92,3.5),"shop":"SHOP_BODEGA"}]
 		var completed:=0
 		for programme: Dictionary in programmes:
 			if not failures.is_empty():break
 			if not await _opposing_start(city,programme.start,str(programme.id),northeast2 or narrow):break
 			var first:=trace.size()
-			for point: Vector3 in programme.points:
+			for point_index in programme.points.size():
+				var point: Vector3=programme.points[point_index]
+				if narrow and programme.has("shop") and point_index==3:
+					if not await _move_bodega_front(true):break
 				if not await _city_walk(point,narrow):break
+				if narrow and programme.has("shop") and point_index==3:await _station_view("bodega_inside_after_native_repair",Vector3(17.4,-9.8,.9))
+				if narrow and programme.has("shop") and point_index==4:
+					if not await _move_bodega_front(false):break
 				if narrow:
 					check(player.is_on_floor() and absf(city.to_local(player.global_position).y-point.z)<.025,"actual standing narrow-neighbor floor/landing height: "+str(point))
 					if point.z==.18:await _station_view(str(programme.id)+"_landing",programme.target)
@@ -316,7 +322,7 @@ func _run_opposing(selection: String="opposing") -> void:
 	check(not source_after.is_empty() and source_before==source_after and programme_before==_programme_sources(),"selected production/test/asset sources remain frozen")
 	var passed:=failures.is_empty()
 	var receipt: Dictionary={"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"Two independent full-capsule/floor-validated nearby starts, eight normal-controller legs: west four-riser ascent/descent, east retained footway and two-riser ascent/descent;26 loaded body partitions. Separate full-capsule/floor-validated roof fixture checks a bridge optical sightline excluding only the exact nonrendered travel boundary and captures ordinary/narrow views with same-pose bridge-visible/hidden ABBA frame samples. No continuous travel between fixture starts,roof access,scenic door/interior operation,station/radius,save/full-city/artistic acceptance." if narrow else "One full-capsule/floor-validated nearby start,eight continuous production-controller plaza/side-passage legs and25 loaded works/bank body partitions. Separately labelled roadside lamp-view placement with unfiltered sightline at21:00. No continuous travel to that view,interior/door operation,station/distant/radius,save/full-city/artistic acceptance." if northeast2 else "One nearby floor-validated start,six continuous production-controller plaza legs past both changed northeast fronts and21 loaded body partitions. No entrance/station/distant/radius,door operation,save/full-city/artistic acceptance." if northeast else "Three independent floor-validated nearby starts,twelve actual production-controller legs and changed32-body-part surfaces. Includes retained x=-55 crossing roundtrip. No continuous access between starts,entrance/station/distant/radius/save/full-city/artistic acceptance.",
+		"scope":"Two independent full-capsule/floor-validated nearby starts, eight normal-controller legs: west four-riser ascent/descent,east retained footway and actual central Bodega door grab/mouse/release with inside/outside passage;26 loaded body partitions. The false left residential door and duplicate slab/walls were retired around the retained shop,not made traversable by a collision bypass. Separate full-capsule/floor-validated roof fixture checks a bridge optical sightline excluding only the exact nonrendered travel boundary and captures ordinary/narrow views with same-pose bridge-visible/hidden ABBA frame samples. No continuous travel between fixture starts,roof access,scenic door/interior operation,station/radius,save/full-city/artistic acceptance." if narrow else "One full-capsule/floor-validated nearby start,eight continuous production-controller plaza/side-passage legs and25 loaded works/bank body partitions. Separately labelled roadside lamp-view placement with unfiltered sightline at21:00. No continuous travel to that view,interior/door operation,station/distant/radius,save/full-city/artistic acceptance." if northeast2 else "One nearby floor-validated start,six continuous production-controller plaza legs past both changed northeast fronts and21 loaded body partitions. No entrance/station/distant/radius,door operation,save/full-city/artistic acceptance." if northeast else "Three independent floor-validated nearby starts,twelve actual production-controller legs and changed32-body-part surfaces. Includes retained x=-55 crossing roundtrip. No continuous access between starts,entrance/station/distant/radius/save/full-city/artistic acceptance.",
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
 		"source":{"test_path":"game/tests/v2_city_transport_route.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after},
 		"contracts":{"production_composition":{"executed":true,"passed":passed},walk_key:{"executed":not trace.is_empty(),"passed":passed and trace.size()==expected_legs,"waypoints":trace.size()},surface_key:{"executed":city_observations.has(surface_key),"passed":passed},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
@@ -325,6 +331,28 @@ func _run_opposing(selection: String="opposing") -> void:
 	FileAccess.open(directory.path_join("narrow_neighbors_contract.json" if narrow else "works_bank_frontage_contract.json" if northeast2 else "northeast_frontage_contract.json" if northeast else "opposing_frontage_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
 	print("%s: %d checks; %d waypoints; %d failures"%[route_label,city_checks,trace.size(),failures.size()])
 	get_tree().quit(0 if passed else 1)
+
+func _move_bodega_front(want_open: bool) -> bool:
+	var leaf:=world.exterior_cell.interaction_leaf("SHOP_BODEGA_STOREFRONT_LEAF") as DoorProp
+	check(leaf!=null,"retained Bodega supplies its authoritative central storefront leaf")
+	if leaf==null:return false
+	var goal: float=leaf.motion_target_angle(true)*.86 if want_open else 0.
+	var before: float=leaf._body.rotation.y
+	var revision: int=leaf.motion_revision
+	var contact:=Vector3(leaf.width/3.,1.1,leaf._hinge_offset)
+	var target: Vector3=leaf._body.to_global(contact)
+	var hand:=RouteHand.new();add_child(hand);hand.player=player
+	player.set_mouse_released(false)
+	var moved: bool=await hand.operate(target,goal,leaf)
+	var follows: bool=hand.follows_cursor
+	hand.free()
+	await get_tree().physics_frame
+	var ok: bool=moved and follows and not player._grab.active() and leaf.open==want_open and absf(leaf._body.rotation.y-goal)<.01
+	check(ok,"real central Bodega primary grab,mouse travel,next-click release and supported stop: "+str(want_open))
+	var rows: Array=city_observations.get("bodega_hand_operations",[])
+	rows.append({"want_open":want_open,"before_angle":before,"goal":goal,"actual":leaf._body.rotation.y,"moved":moved,"follows_cursor":follows,"released":not player._grab.active(),"before_revision":revision,"after_revision":leaf.motion_revision,"target":str(target),"same_leaf":str(leaf.get_path())})
+	city_observations["bodega_hand_operations"]=rows
+	return ok
 
 func _run_bridge() -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
@@ -342,7 +370,7 @@ func _run_bridge() -> void:
 	if not world.startup_failed and world.player!=null:
 		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		city_observations["startup_ms"]=(Time.get_ticks_usec()-started)/1000.
-		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold}
+		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold,"screen_refresh_hz":DisplayServer.screen_get_refresh_rate(),"window_focused":DisplayServer.window_is_focused()}
 		await _bridge_roof_views(world.get_node("CityShells") as Node3D)
 	Input.action_release("move_forward");world.shutdown_for_tests();world.free()
 	await get_tree().physics_frame
@@ -478,7 +506,7 @@ func _run_northwest() -> void:
 			settle.append((now-previous)/1000.);previous=now
 		city_observations["start_fixture"]={"source":[-55.,-13.,height],"world":str(fixture),"scope":"One explicit nearby test-only start placement. Every subsequent leg uses production controller input; no continuous entrance/station/distant-route claim."}
 		city_observations["startup"]={"composition_and_fixture_settle_ms":(Time.get_ticks_usec()-started)/1000.,"settle_wall_ms":settle,"settle_frames":12}
-		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold}
+		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold,"screen_refresh_hz":DisplayServer.screen_get_refresh_rate(),"window_focused":DisplayServer.window_is_focused()}
 		check(player.is_on_floor() and not player.noclip,"focused fixture settles onto actual public floor")
 		_check_northwest_surfaces(city)
 		var recoveries_before:=world.safety_net.recoveries

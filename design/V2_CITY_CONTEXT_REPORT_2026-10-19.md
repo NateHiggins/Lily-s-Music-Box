@@ -3631,3 +3631,53 @@ route and isolated loaded checks after native intake; lane currently imagegen.
 Archive: **bodega_frontage_native_reconciliation.zip**, indexed in the existing
 review manifest with every member hash and CRC checked. Original failed composed
 route stays canonical-owned and is not replaced by these native diagnostics.
+
+
+### Corrected narrow-house/Bodega composed intake (2026-10-30)
+
+Evidence class: **INERT**. Current results supersede the pending repair status
+above; original failures remain in their source-bound archives.
+
+Canonical main merged native repair **99398ee7** at **981a039d**. The corrected
+loaded family bench passes **7086 checks/0 failures**, including1205 roof
+samples/1063 draws, in36s. All seven current E frames were inspected: loaded
+near/far, ordinary/narrow/return transitions and complete upper form. Its empty
+ground reservation is intentional in the isolated bench; the actual retained
+shop is verified separately. W geometry remains exact and its previous optical
+evidence is reused. No new LOD tolerance or collision bypass was introduced.
+
+The corrected actual-world route02 passes **256 checks/eight movement legs/0
+failures**,232s,empty stderr. Two independent floor/full-standing-capsule starts
+cover west four164mm-riser ascent/descent and east footway/actual Bodega entry.
+The retained **SHOP_BODEGA_STOREFRONT_LEAF** is grabbed,moved to86 degrees,and
+released through real mouse input,then closed the same way after exiting.
+Both operations report moved/follows_cursor/released=true and the same owner;
+revisions0→1→2. Actual angles1.500983119rad and3.112e-9rad meet their existing
+stops. The real shop floor remains approximately0.000312m,not a fictional0.18m
+scenic landing. Inventory,purchases,quests,residents,save and calendar owners are
+unchanged. This is not continuous access between the two fixture starts.
+
+All five actual3440×1440 route02 frames were inspected: W and E standing
+frontages,Bodega interior,and ordinary/5-degree roof bridge views. There is no
+separate W landing PNG: a float-equality capture condition did not fire. Actual
+landing height,ascent/descent and controller traces passed; no image is invented.
+The repeated bridge roof control still hits the unchanged invisible travel
+boundary on the unfiltered ray and sees real bridge stock on the optical query.
+No roof-access or artistic acceptance follows from the independent roof fixture.
+
+Render settings measured inside this run:3440×1440,MSAA3,TAA=true,VSync1,
+max_fps0,mesh_lod_threshold1,focused window,and screen refresh49.987Hz. Warm
+approximately20ms cadence is therefore display-limited,not a claimed renderer
+throughput budget. Across285 walking samples,wall median23.625/p9556.130/
+p9976.691/max439.105ms;main render CPU median7.359/p9523.190/p9931.222/
+max125.862ms;GPU median10.044/p9516.833/p9924.751/max32.303ms. Movement spikes
+remain serious. These are not a matched before/after speedup or an uncontended
+whole-city budget,and do not separate script/physics/loading/compiler costs.
+
+Portable **narrow_bodega_composed_intake.zip** retains40 members/15972851bytes,
+SHA256 **d90db4b06df7f961cae72ef6269d51ed1a4dd50125e1157e36e4e7cf7c405e31**:
+actual contracts,captures,raw logs,wrapper receipts,executed source snapshots,
+display probe and review scope. Manifest records each original byte hash. Original
+failed234-check route is separately retained,not replaced. Current-source
+physical renewal and final candidate/static comparison are still pending at
+this entry; do not treat these isolated/route results as whole-game acceptance.
