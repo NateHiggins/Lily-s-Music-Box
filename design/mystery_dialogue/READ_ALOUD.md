@@ -210,6 +210,22 @@ Route and delivery. No rate for thoughts. Directional, impatient with preamble. 
 - **CAM ORTIZ** (co_r3): Everybody gives me stuff to hold. That's not a question, that's my life. Friday? Here. Six-forty, six C to Ewald, first run Saturday. Read it yourself, it's not a secret, it's just nobody ever reads it.
 - **CAM ORTIZ** (co_r1s): You're doing the thing where you stand there. I've got that from a dog on Vernon Boulevard. It doesn't work on me either.
 
+### "Can a sender take back a held piece?"
+
+1929-07-20 to 1929-11-09 · needs **m_route_book**
+
+- **CAM ORTIZ** (co_rc1): Sender can. Comes down, says give it here, I strike it and write the time. Same Friday, look. "4A to Miss Q., hold." Struck. "Recalled 5.55." Mr. Wren. Twenty-five minutes. Something about a comma.
+  - > Is there a strike on six-forty? → co_rc2
+  - (silence) → co_rc1s
+- **CAM ORTIZ** (co_rc2): You've got the book. A strike's a strike. There isn't one. Nobody came down.
+- **CAM ORTIZ** (co_rc1s): I don't charge for the book. I charge for standing here.
+
+### "What else went up to 6C that week?"
+
+1929-07-20 to 1929-11-09 · needs **m_route_book**
+
+- **CAM ORTIZ** (co_b1): "Thu. 11 Jul., Fass to 6C, one box blanks, forty cents." Flat box, no weight in it, up six flights, and she checks the seal like I'd been at it. Is that it?
+
 ## EMIL VOSS
 
 Not a sidekick, and he does not validate her. He came with wrapping paper. No jokes and no companion reply in this thread. Pictures are never clue rewards.
@@ -254,6 +270,21 @@ Instructions so correct they rearrange other people's work. Carried Mae's box in
   - (silence) → em_a2
 - **EVELYN MARSH** (em_a2): I beg your pardon? You are the maintenance. You have an opinion of Miss Voss's numerals? ... Well. So had she. It's the same opinion, and it was wrong then. See me if you wish to improve.
 - **EVELYN MARSH** (em_a3): A slip is kept until the thing is returned. It came back the same day, by another hand, and nobody signed for it. I do not like an open slip. I have been told this is the whole of my character, and by whom you'd be surprised.
+
+### "Mr. Wren was at your door with a paper."
+
+1929-06-08 to 1929-07-19
+
+- **EVELYN MARSH** (em_d1): A memorandum, and he brought it to me as if I had set it. He has come to me about commas since he was eleven. It is dated, because I date what I mark. It is not yet good. It is not yet anything. I have told him so in red.
+
+### "Mr. Wren says you have his drafts."
+
+1929-07-20 to 1929-11-09 · needs any of **m_peter_memo**, **m_book_recalled**
+
+- **EVELYN MARSH** (em_da1): Seven, dated, the first on the eighth of June. The grammar was mine to correct and the first of August was not. The fourth draft was good enough. I marked it anyway.
+  - > If you had passed the fourth? → em_da2
+  - (silence) → em_da2
+- **EVELYN MARSH** (em_da2): I beg your pardon? He would have sent it in June. I am aware of the date. See me if you wish to improve.
 
 ## H. VANTRY
 
@@ -332,6 +363,16 @@ Revises a sentence when asked for a fact. Heard a drama line; composed "white ha
   - (silence) → jp_f2
 - **JONAH PRICE** (jp_f2): It isn't finished.
 
+### "Why is there a sill in your book?"
+
+1929-07-20 to 1929-11-09 · needs **m_noel_reports**
+
+- **JONAH PRICE** (jp_s1): It wants a sill. I don't know why it wants a sill. There's a draught under that door, it comes and goes, I've put it in four chapters.
+  - > It comes when Noel comes. He tests it with his hand. → jp_s2
+  - (silence) → jp_s1s
+- **JONAH PRICE** (jp_s2): He... cotton, I suppose, with the little tape. Every night? I gave those hands an hour. I thought it was a figure. Two flights, and he could knock. He won't, and I wouldn't answer. Don't put that anywhere.
+- **JONAH PRICE** (jp_s1s): You've got the look of someone with a better sentence. Everyone has one. Nobody brings it up the stairs.
+
 ## JUNO KELLS
 
 Admits a smaller recording offense quickly. Roof mic, wall tape, the Harukiya pocket tape. Fast associative cuts. Does not preach about preservation. A recorder is not a person.
@@ -381,7 +422,7 @@ Judgment hidden in useful advice. Has the bag; has the dated button book. No gri
   - > Where was it? → lo_b3
   - (silence) → lo_b1s
 - **LENA ORTIZ** (lo_b2): You know whose. Everyone knows whose. I had it on Saturday morning off the chair on our landing, where nobody leaves a good bag, and I said to myself the clasp wants doing. So I wrote the ticket. And then I stopped.
-- **LENA ORTIZ** (lo_b3): "Bag, clasp, off the chair, twentieth July." Purse is still in it. Nobody took a purse. So you can ask yourself what kind of a thief that is, and then you can ask me about your cuffs.
+- **LENA ORTIZ** (lo_b3): "Bag, clasp, off the chair, twentieth July." Purse is still in it. No keys. Nobody took a purse. So you can ask yourself what kind of a thief that is, and then you can ask me about your cuffs.
 - **LENA ORTIZ** (lo_b1s): Sit, you're dripping. That coat has been let out by somebody who hated the coat. No. I'll do it when you bring it. Sit.
 
 ### "You keep a book of buttons."
@@ -550,6 +591,21 @@ Arcade tenants' counsel. Commissioned the deed copy for the Arcade's rent and re
   - (silence) → ew_lt2
 - **MR. EWALD** (ew_lt2): Friday. She was up on that roof at six-forty on Friday with a camera. I saw her buy the sandwich. This says last night's storm. Sit down. No. I'll sit down. I have had that on my file for a long time, as bad manners.
 
+### "Does your clerk's book agree with the Ortiz boy's?"
+
+1929-07-22 to 1929-11-09 · needs **m_route_book**
+
+- **MR. EWALD** (ew_t1): My clerk stamps what this office takes, and the Ortiz boy pencils what he holds. Bring the book, sit there, read me the summer. Sixty-odd pieces, and not a minute between them that I could bill for. In a witness I would call that a fault. I looked.
+
+### "Has anyone written to you about her plates?"
+
+1929-07-30 to 1929-11-09 · needs any of **m_saw_kessler_note**, **m_men_asked**
+
+- **MR. EWALD** (ew_ll1): Pinned, naturally. A landlord on Borden Avenue. "Any material held by the person who kept the counter, to be returned unexamined." You'll notice he and the lady upstairs write alike.
+  - > Could he have written hers? → ew_ll2
+  - (silence) → ew_ll2
+- **MR. EWALD** (ew_ll2): Forty years of landlords, and they catch it off each other like a cough. Who caught it from whom I couldn't tell you. I can tell you the Ortiz boy had hers from her own hand. I don't charge for that one, it's no use to me.
+
 ## NADIA QUELL
 
 A plan that includes everybody before asking anybody. Chairs the tenants' association. Told Mae about the deed at tea, and has to go on living in that sentence. She keeps the window afterwards. Late recognition, one scene only. Never a password.
@@ -634,6 +690,16 @@ A plan that includes everybody before asking anybody. Chairs the tenants' associ
   - (silence) → nq_h2
 - **NADIA QUELL** (nq_h2): The chair can't second. So the chair will step out for as long as that takes. I've already paid for one sentence in that parlour. I can pay for this one at the clerk's window, and get a receipt.
 
+### "Has anyone been asking after the shop?"
+
+1929-07-29 to 1929-11-09
+
+- **NADIA QUELL** (nq_l1): Her log, so you get my capitals. "Sat. 27 Jul., 3.10. Gentleman asks Mr. Ewald what is left in the bottom drawer. Good hat. No name." He's the third this fortnight. Nobody asks that about a shop unless they know what a shop keeps.
+  - > What is left in it? → nq_l2
+  - (silence) → nq_l1s
+- **NADIA QUELL** (nq_l2): Nothing. I looked, after the third one. A clean bottom drawer, and you'd have to know to open it. I don't know what it held. Her register has the deed's plates filed to it, and those aren't anywhere either. I tell every good hat the same. None of them believes me.
+- **NADIA QUELL** (nq_l1s): If you came to dust, the pins are in the tin. Mind the card in the corner. I haven't finished being rude to it.
+
 ## NOEL PRICE
 
 A handling instruction more alarming than the object warrants. Named by a simile in Jonah's page; his gloves have no buttons. Comic engine: conservation ethics applied to what nobody wants.
@@ -659,6 +725,19 @@ A handling instruction more alarming than the object warrants. Named by a simile
   - > You sound relieved. → np_g3
   - (silence) → np_g3
 - **NOEL PRICE** (np_g3): They're still wet. I wear cotton, you'll note, with a tape closure, because a button marks. My brother has written a great many things about my hands. They are all very well observed and he has never once looked.
+
+### "Those condition reports. Can I read July?"
+
+1929-07-20 to 1929-11-09 · needs any of **m_noel_door**, **m_noel_landing**, **m_jonah_page**
+
+- **NOEL PRICE** (np_r1): "Fri. 19 Jul. 8.40 to 8.58. Sixth floor, 6B. Hinges sound. Draught at sill, slight, comes and goes." You may hold it by the edges. I go up most nights. It is not my door.
+  - > What else is on that line? → np_r2
+  - > You were on that landing minutes before she fell. [needs m_noel_landing] → np_r3
+  - (silence) → np_r2
+- **NOEL PRICE** (np_r2): "8.52. 6B set: a ferry. 6C wall: a clock. Not in agreement. 6C in: light under, door shut." I noted it as a fault in the party wall. One floor ought not to have two plays on it. The door did not open while I stood there, and at 8.58 I went down.
+- **NOEL PRICE** (np_r3): I was. It has been written up. The draught is taken at the sill, with the back of the hand. I cannot very well knock. I don't mean it unkindly.
+  - > What else did you write? → np_r2
+  - (silence) → np_r2
 
 ## OMAR BELL
 
@@ -762,6 +841,28 @@ A qualification that suddenly leaves him responsible for the answer. His firm's 
   - (silence) → pw_rc2
 - **PETER WREN** (pw_rc2): I'd need... The firm would never... Yes.
 
+### "You were at the Register the day she died."
+
+1929-07-20 to 1929-11-09 · needs any of **m_lease_read**, **m_book_recalled**
+
+- **PETER WREN** (pw_st1): I was. A search is a quarter and the fare, and I have the stub, because I keep them. "Last searched 14 June. A lady, no name given."
+  - > The Record had her in gloves, the morning after the tea. [needs m_c_gloved_lady] → pw_st2
+  - (silence) → pw_st1s
+- **PETER WREN** (pw_st2): I can't say who. I can say she read the schedule and only the schedule, which is the one part nobody reads. I read it. It took me six weeks to say so.
+- **PETER WREN** (pw_st1s): I can certify that it is a stub. I wouldn't go further than the stub.
+
+### "What did you send Miss Quell that Friday?"
+
+1929-07-20 to 1929-11-09 · needs any of **m_book_recalled**, **m_red_drafts**, **m_search_stub**
+
+- **PETER WREN** (pw_m1): It was correct. There was a comma. I took it back to see to the comma.
+  - > What did it say? → pw_m2
+  - (silence) → pw_m2
+- **PETER WREN** (pw_m2): That the term ends on the first of August, and a tenant might wish to take counsel first. For Miss Quell's boards. It was out of my hands for twenty-five minutes. Mrs. Marsh has the seven drafts, if you prefer them from someone who marked them.
+  - > And after you fixed the comma? → pw_m3
+  - (silence) → pw_m3
+- **PETER WREN** (pw_m3): It is on my desk. The comma is in. It is correct now. I have been meaning to send it.
+
 ## RHEA SATO
 
 Manages how a moment appears until a plain objection arrives. A real privacy claim on negatives later stolen. Privacy never reads as guilt. She is right about the window.
@@ -846,6 +947,15 @@ One dry frame-edge observation. They/them. Thursday roof rota, the duplicate, pr
   - (silence) → sr_p2
 - **SACHA REED** (sr_p2): I can make it larger. I can't make it more there.
 - **SACHA REED** (sr_p3): She's at the edge of her own picture. She'd have cropped it. I won't.
+
+### "Was anyone on your landing, that Friday evening?"
+
+1929-07-20 to 1929-11-09
+
+- **SACHA REED** (sr_l1): Twenty to nine. My door was open a hand for the fumes. White gloves, at the bottom of 6B, stooping, the back of one hand to the sill. That's the edge of it. I can't tell you what's in the middle.
+  - > Whose gloves? → sr_l2
+  - (silence) → sr_l2
+- **SACHA REED** (sr_l2): Mr. Price, from the fourth floor. Not his door. He looked round and I shut mine. That proves I shut mine.
 
 ## TERESA VALE
 

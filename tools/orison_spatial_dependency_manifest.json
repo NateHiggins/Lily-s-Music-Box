@@ -201798,6 +201798,94 @@
    "target_exists": null
   },
   {
+   "key": "97effe94c9ea015b",
+   "kind": "generated_name",
+   "token": "_notebooks",
+   "file": "game/scripts/building/orison_v2_clue_carriers.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_notebooks"
+   ],
+   "lines": [
+    47
+   ],
+   "count": 1,
+   "context": [
+    "\"Book_\" + str(index)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d6f29e6163ecbc79",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM_SWITCH",
+   "file": "game/scripts/building/orison_v2_clue_carriers.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "const SWITCH := \"B1_BOILER_ROOM_SWITCH\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "26e2e5e7e9a01581",
+   "kind": "id_reference",
+   "token": "F06_6B_BOOKSHELF_01",
+   "file": "game/scripts/building/orison_v2_clue_carriers.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "const SHELF := \"F06_6B_BOOKSHELF_01\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F06/marker+bookshelf+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "da19db6ee45309e4",
    "kind": "asset_path",
    "token": "res://assets/building/v2_coal_delivery.glb",
@@ -208035,6 +208123,96 @@
    "target_exists": null
   },
   {
+   "key": "b4a7474bed150ae6",
+   "kind": "plan_coordinate",
+   "token": "_register",
+   "file": "game/scripts/building/orison_v2_photo_supplies.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_register"
+   ],
+   "lines": [
+    72
+   ],
+   "count": 1,
+   "context": [
+    "prop.global_transform = passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([18.58, -61.4, 1.45]))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "REPLACE_WITH_NAMED_ANCHOR",
+   "confidence": "MEDIUM",
+   "rationale": "Production plan-space coordinate literal binds gameplay to the current geometry.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1eda2253198a8bc2",
+   "kind": "plan_coordinate",
+   "token": "_tray",
+   "file": "game/scripts/building/orison_v2_photo_supplies.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_tray"
+   ],
+   "lines": [
+    39
+   ],
+   "count": 1,
+   "context": [
+    "prop.global_transform = passage.global_transform * Transform3D(Basis(), GameBoot.b2g([20.83, -61.67, 0.425]))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "REPLACE_WITH_NAMED_ANCHOR",
+   "confidence": "MEDIUM",
+   "rationale": "Production plan-space coordinate literal binds gameplay to the current geometry.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "600a956e3aa873e6",
+   "kind": "plan_coordinate",
+   "token": "_window",
+   "file": "game/scripts/building/orison_v2_photo_supplies.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_window"
+   ],
+   "lines": [
+    129
+   ],
+   "count": 1,
+   "context": [
+    "prop.global_transform = passage.global_transform * Transform3D(Basis(Vector3.UP, -PI * 0.5), GameBoot.b2g([17.52, -60.68, 1.22]))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "REPLACE_WITH_NAMED_ANCHOR",
+   "confidence": "MEDIUM",
+   "rationale": "Production plan-space coordinate literal binds gameplay to the current geometry.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "c678549033eff8b2",
    "kind": "asset_path",
    "token": "res://assets/building/textures/wear_decals/",
@@ -209487,7 +209665,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1249
+    1258
    ],
    "count": 1,
    "context": [
@@ -209517,8 +209695,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1329,
-    1332
+    1338,
+    1341
    ],
    "count": 2,
    "context": [
@@ -209549,7 +209727,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    804
+    806
    ],
    "count": 1,
    "context": [
@@ -209759,7 +209937,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1477
+    1486
    ],
    "count": 1,
    "context": [
@@ -209820,9 +209998,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1243,
-    1246,
-    1308
+    1252,
+    1255,
+    1317
    ],
    "count": 3,
    "context": [
@@ -209854,7 +210032,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1258
+    1267
    ],
    "count": 1,
    "context": [
@@ -209884,7 +210062,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1250
+    1259
    ],
    "count": 1,
    "context": [
@@ -209914,7 +210092,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1267
+    1276
    ],
    "count": 1,
    "context": [
@@ -209944,7 +210122,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1475
+    1484
    ],
    "count": 1,
    "context": [
@@ -210004,7 +210182,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1259
+    1268
    ],
    "count": 1,
    "context": [
@@ -210034,7 +210212,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1471
+    1480
    ],
    "count": 1,
    "context": [
@@ -210064,7 +210242,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1473
+    1482
    ],
    "count": 1,
    "context": [
@@ -210094,7 +210272,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    716
+    718
    ],
    "count": 1,
    "context": [
@@ -210124,7 +210302,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1473
+    1482
    ],
    "count": 1,
    "context": [
@@ -210154,7 +210332,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1471
+    1480
    ],
    "count": 1,
    "context": [
@@ -210184,7 +210362,7 @@
     "_ready"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -210214,7 +210392,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    717
+    719
    ],
    "count": 1,
    "context": [
@@ -210244,7 +210422,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    717
+    719
    ],
    "count": 1,
    "context": [
@@ -210274,7 +210452,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1471
+    1480
    ],
    "count": 1,
    "context": [
@@ -210304,7 +210482,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1471
+    1480
    ],
    "count": 1,
    "context": [
@@ -210334,7 +210512,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    716
+    718
    ],
    "count": 1,
    "context": [
@@ -210394,9 +210572,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1326,
-    1330,
-    1333
+    1335,
+    1339,
+    1342
    ],
    "count": 3,
    "context": [
@@ -210428,7 +210606,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    505
+    507
    ],
    "count": 1,
    "context": [
@@ -210458,7 +210636,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    505
+    507
    ],
    "count": 1,
    "context": [
@@ -210488,7 +210666,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    504
+    506
    ],
    "count": 1,
    "context": [
@@ -210518,7 +210696,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    504
+    506
    ],
    "count": 1,
    "context": [
@@ -210548,7 +210726,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1234
+    1243
    ],
    "count": 1,
    "context": [
@@ -210578,7 +210756,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1235
+    1244
    ],
    "count": 1,
    "context": [
@@ -210608,7 +210786,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    505
+    507
    ],
    "count": 1,
    "context": [
@@ -210698,7 +210876,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1136
+    1145
    ],
    "count": 1,
    "context": [
@@ -210728,7 +210906,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    556
+    558
    ],
    "count": 1,
    "context": [
@@ -210759,8 +210937,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1008,
-    1121
+    1017,
+    1130
    ],
    "count": 2,
    "context": [
@@ -210791,7 +210969,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1122
+    1131
    ],
    "count": 1,
    "context": [
@@ -210911,7 +211089,7 @@
     "_ready"
    ],
    "lines": [
-    237
+    239
    ],
    "count": 1,
    "context": [
@@ -210941,7 +211119,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1292
+    1301
    ],
    "count": 1,
    "context": [
@@ -210971,7 +211149,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1293
+    1302
    ],
    "count": 1,
    "context": [
@@ -211001,7 +211179,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1294
+    1303
    ],
    "count": 1,
    "context": [
@@ -211031,7 +211209,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1291
+    1300
    ],
    "count": 1,
    "context": [
@@ -211092,7 +211270,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    548
+    550
    ],
    "count": 1,
    "context": [
@@ -211124,8 +211302,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1227,
-    1292
+    1236,
+    1301
    ],
    "count": 2,
    "context": [
@@ -211158,8 +211336,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1230,
-    1293
+    1239,
+    1302
    ],
    "count": 2,
    "context": [
@@ -211192,8 +211370,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1233,
-    1294
+    1242,
+    1303
    ],
    "count": 2,
    "context": [
@@ -211226,8 +211404,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1224,
-    1291
+    1233,
+    1300
    ],
    "count": 2,
    "context": [
@@ -211259,7 +211437,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    546
+    548
    ],
    "count": 1,
    "context": [
@@ -211290,7 +211468,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    422
+    424
    ],
    "count": 1,
    "context": [
@@ -211322,8 +211500,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    232,
-    427
+    234,
+    429
    ],
    "count": 2,
    "context": [
@@ -211355,7 +211533,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    553
+    555
    ],
    "count": 1,
    "context": [
@@ -211386,7 +211564,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    430
+    432
    ],
    "count": 1,
    "context": [
@@ -211418,8 +211596,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    546,
-    1332
+    548,
+    1341
    ],
    "count": 2,
    "context": [
@@ -211450,7 +211628,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1191
+    1200
    ],
    "count": 1,
    "context": [
@@ -211480,7 +211658,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1192
+    1201
    ],
    "count": 1,
    "context": [
@@ -211720,7 +211898,7 @@
     "_row"
    ],
    "lines": [
-    88
+    97
    ],
    "count": 1,
    "context": [
@@ -211750,7 +211928,7 @@
     "_place"
    ],
    "lines": [
-    98
+    107
    ],
    "count": 1,
    "context": [
@@ -211780,7 +211958,7 @@
     "<module>"
    ],
    "lines": [
-    17
+    19
    ],
    "count": 1,
    "context": [
@@ -211840,7 +212018,7 @@
     "<module>"
    ],
    "lines": [
-    10
+    12
    ],
    "count": 1,
    "context": [
@@ -211870,7 +212048,7 @@
     "<module>"
    ],
    "lines": [
-    19
+    21
    ],
    "count": 1,
    "context": [
@@ -211900,11 +212078,41 @@
     "<module>"
    ],
    "lines": [
-    12
+    14
    ],
    "count": 1,
    "context": [
     "const PAWN_ROW := \"storm_shop_pawnbroker_grille_top\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a59d7748b2ce00a6",
+   "kind": "id_reference",
+   "token": "storm_shop_photo_supplies_counter_top",
+   "file": "game/scripts/building/orison_v2_shop_counters.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "const PHOTO_ROW := \"storm_shop_photo_supplies_counter_top\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -291958,7 +292166,7 @@
     "_run"
    ],
    "lines": [
-    373
+    374
    ],
    "count": 1,
    "context": [
@@ -291988,7 +292196,7 @@
     "_run"
    ],
    "lines": [
-    368
+    369
    ],
    "count": 1,
    "context": [
@@ -292016,7 +292224,7 @@
     "_run"
    ],
    "lines": [
-    370
+    371
    ],
    "count": 1,
    "context": [
@@ -292044,7 +292252,7 @@
     "_run"
    ],
    "lines": [
-    375
+    376
    ],
    "count": 1,
    "context": [
@@ -292074,7 +292282,7 @@
     "_run"
    ],
    "lines": [
-    335
+    336
    ],
    "count": 1,
    "context": [
@@ -292104,7 +292312,7 @@
     "_run"
    ],
    "lines": [
-    372
+    373
    ],
    "count": 1,
    "context": [
@@ -292134,7 +292342,7 @@
     "_run"
    ],
    "lines": [
-    346
+    347
    ],
    "count": 1,
    "context": [
@@ -292164,7 +292372,7 @@
     "_run"
    ],
    "lines": [
-    335
+    336
    ],
    "count": 1,
    "context": [
@@ -292194,7 +292402,7 @@
     "_run"
    ],
    "lines": [
-    371
+    372
    ],
    "count": 1,
    "context": [
@@ -292224,7 +292432,7 @@
     "_run"
    ],
    "lines": [
-    374
+    375
    ],
    "count": 1,
    "context": [
@@ -292254,7 +292462,7 @@
     "_run"
    ],
    "lines": [
-    335
+    336
    ],
    "count": 1,
    "context": [
@@ -292284,7 +292492,7 @@
     "_run"
    ],
    "lines": [
-    346
+    347
    ],
    "count": 1,
    "context": [
@@ -292314,8 +292522,8 @@
     "_run"
    ],
    "lines": [
-    406,
-    408
+    407,
+    409
    ],
    "count": 2,
    "context": [
@@ -292344,7 +292552,7 @@
     "_run"
    ],
    "lines": [
-    369
+    370
    ],
    "count": 1,
    "context": [
@@ -292375,7 +292583,7 @@
     "_run"
    ],
    "lines": [
-    376
+    377
    ],
    "count": 1,
    "context": [
@@ -310033,26 +310241,26 @@
     "_route"
    ],
    "lines": [
-    902,
-    902,
-    902,
-    902,
-    905,
-    912,
-    912,
-    912,
-    912,
-    912,
-    912,
-    912,
-    914,
-    915,
-    915,
-    915,
-    915,
-    917,
-    937,
-    955
+    972,
+    972,
+    972,
+    972,
+    975,
+    982,
+    982,
+    982,
+    982,
+    982,
+    982,
+    982,
+    984,
+    985,
+    985,
+    985,
+    985,
+    987,
+    1007,
+    1025
    ],
    "count": 28,
    "context": [
@@ -310086,10 +310294,10 @@
     "_run_gaslamps"
    ],
    "lines": [
-    371,
-    371,
-    371,
-    371
+    441,
+    441,
+    441,
+    441
    ],
    "count": 4,
    "context": [
@@ -310120,8 +310328,8 @@
     "_run_hampton"
    ],
    "lines": [
-    418,
-    421
+    488,
+    491
    ],
    "count": 2,
    "context": [
@@ -310153,7 +310361,7 @@
     "_run_northwest"
    ],
    "lines": [
-    776
+    846
    ],
    "count": 1,
    "context": [
@@ -310184,26 +310392,26 @@
     "_run_opposing"
    ],
    "lines": [
-    519,
-    519,
-    519,
-    519,
-    519,
-    519,
-    520,
-    520,
-    520,
-    520,
-    520,
-    520,
-    521,
-    521,
-    521,
-    521,
-    521,
-    521,
-    525,
-    525
+    589,
+    589,
+    589,
+    589,
+    589,
+    589,
+    590,
+    590,
+    590,
+    590,
+    590,
+    590,
+    591,
+    591,
+    591,
+    591,
+    591,
+    591,
+    595,
+    595
    ],
    "count": 55,
    "context": [
@@ -310237,14 +310445,14 @@
     "_street_block_tour"
    ],
    "lines": [
-    986,
-    986,
-    987,
-    987,
-    988,
-    988,
-    989,
-    989
+    1056,
+    1056,
+    1057,
+    1057,
+    1058,
+    1058,
+    1059,
+    1059
    ],
    "count": 8,
    "context": [

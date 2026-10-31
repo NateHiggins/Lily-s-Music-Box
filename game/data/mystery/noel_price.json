@@ -9,7 +9,8 @@
  },
  "entries": {
   "np_keepsake": "np_k1",
-  "np_gloves": "np_g1"
+  "np_gloves": "np_g1",
+  "np_reports": "np_r1"
  },
  "threads": [
   {
@@ -30,6 +31,19 @@
    ],
    "source": "S09, B17. A scrap on a blotter. Cleared only for what it clears.",
    "root": "np_g1"
+  },
+  {
+   "id": "np_reports",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "Those condition reports. Can I read July?",
+   "requires_any": [
+    "m_noel_door",
+    "m_noel_landing",
+    "m_jonah_page"
+   ],
+   "source": "Suspect chain, the Prices. Dated before the gap and clears nothing about it.",
+   "root": "np_r1"
   }
  ],
  "nodes": {
@@ -46,7 +60,8 @@
   },
   "np_k2": {
    "bank": "JF006-A02",
-   "line": "I wrote six months of condition reports on that door. Hinges, draught, hours of use. The woman across the landing asked whether I had considered knocking on it. It has been written up."
+   "line": "I wrote six months of condition reports on that door. Hinges, draught, hours of use. The woman across the landing asked whether I had considered knocking on it. It has been written up.",
+   "flag": "m_noel_door"
   },
   "np_g1": {
    "silence_goto": "np_g2",
@@ -78,6 +93,38 @@
   },
   "np_g3": {
    "line": "They're still wet. I wear cotton, you'll note, with a tape closure, because a button marks. My brother has written a great many things about my hands. They are all very well observed and he has never once looked."
+  },
+  "np_r1": {
+   "flag": "m_noel_reports",
+   "silence_goto": "np_r2",
+   "line": "\"Fri. 19 Jul. 8.40 to 8.58. Sixth floor, 6B. Hinges sound. Draught at sill, slight, comes and goes.\" You may hold it by the edges. I go up most nights. It is not my door.",
+   "choices": [
+    {
+     "label": "What else is on that line?",
+     "goto": "np_r2"
+    },
+    {
+     "label": "You were on that landing minutes before she fell.",
+     "goto": "np_r3",
+     "requires": [
+      "m_noel_landing"
+     ]
+    }
+   ]
+  },
+  "np_r2": {
+   "flag": "m_two_programmes",
+   "line": "\"8.52. 6B set: a ferry. 6C wall: a clock. Not in agreement. 6C in: light under, door shut.\" I noted it as a fault in the party wall. One floor ought not to have two plays on it. The door did not open while I stood there, and at 8.58 I went down."
+  },
+  "np_r3": {
+   "silence_goto": "np_r2",
+   "line": "I was. It has been written up. The draught is taken at the sill, with the back of the hand. I cannot very well knock. I don't mean it unkindly.",
+   "choices": [
+    {
+     "label": "What else did you write?",
+     "goto": "np_r2"
+    }
+   ]
   }
  }
 }

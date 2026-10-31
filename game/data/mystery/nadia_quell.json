@@ -11,7 +11,8 @@
   "nq_stool": "nq_s1",
   "nq_told": "nq_t1",
   "nq_window": "nq_w1",
-  "nq_telling": "nq_c1"
+  "nq_telling": "nq_c1",
+  "nq_log": "nq_l1"
  },
  "threads": [
   {
@@ -66,6 +67,14 @@
    ],
    "source": "Lore pass AL-04. Treatment section 3 has the association able to resolve to hold the rent; the Arcade tenants are printed paying into court. A motion only. Adds no mechanic, and does not touch the player's own rent.",
    "root": "nq_h1"
+  },
+  {
+   "id": "nq_log",
+   "from": "1929-07-29",
+   "until": "1929-11-09",
+   "topic": "Has anyone been asking after the shop?",
+   "source": "Suspect chain, the four men. She does not know what the drawer held.",
+   "root": "nq_l1"
   }
  ],
  "nodes": {
@@ -263,6 +272,27 @@
   "nq_h2": {
    "flag": "m_rent_hold_moved",
    "line": "The chair can't second. So the chair will step out for as long as that takes. I've already paid for one sentence in that parlour. I can pay for this one at the clerk's window, and get a receipt."
+  },
+  "nq_l1": {
+   "flag": "m_men_asked",
+   "silence_goto": "nq_l1s",
+   "line": "Her log, so you get my capitals. \"Sat. 27 Jul., 3.10. Gentleman asks Mr. Ewald what is left in the bottom drawer. Good hat. No name.\" He's the third this fortnight. Nobody asks that about a shop unless they know what a shop keeps.",
+   "choices": [
+    {
+     "label": "What is left in it?",
+     "goto": "nq_l2"
+    }
+   ]
+  },
+  "nq_l1s": {
+   "line": "If you came to dust, the pins are in the tin. Mind the card in the corner. I haven't finished being rude to it."
+  },
+  "nq_l2": {
+   "flags": [
+    "m_drawer_empty",
+    "m_deed_gone"
+   ],
+   "line": "Nothing. I looked, after the third one. A clean bottom drawer, and you'd have to know to open it. I don't know what it held. Her register has the deed's plates filed to it, and those aren't anywhere either. I tell every good hat the same. None of them believes me."
   }
  }
 }

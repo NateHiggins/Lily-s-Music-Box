@@ -10,7 +10,9 @@
  "entries": {
   "pw_returns": "pw_r1",
   "pw_copy": "pw_c1",
-  "pw_receipt": "pw_rc1"
+  "pw_receipt": "pw_rc1",
+  "pw_stub": "pw_st1",
+  "pw_memo": "pw_m1"
  },
  "threads": [
   {
@@ -39,6 +41,31 @@
    ],
    "source": "WR-03. Stops at the consequence. One unmodified verb.",
    "root": "pw_rc1"
+  },
+  {
+   "id": "pw_stub",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "You were at the Register the day she died.",
+   "requires_any": [
+    "m_lease_read",
+    "m_book_recalled"
+   ],
+   "source": "Suspect chain, Peter. The stub feeds the lease and names nobody.",
+   "root": "pw_st1"
+  },
+  {
+   "id": "pw_memo",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "What did you send Miss Quell that Friday?",
+   "requires_any": [
+    "m_book_recalled",
+    "m_red_drafts",
+    "m_search_stub"
+   ],
+   "source": "Suspect chain, Peter. It clears his intent and not his evening.",
+   "root": "pw_m1"
   }
  ],
  "nodes": {
@@ -114,6 +141,51 @@
   "pw_rc2": {
    "flag": "m_peter_will_sign",
    "line": "I'd need... The firm would never... Yes."
+  },
+  "pw_st1": {
+   "flag": "m_search_stub",
+   "silence_goto": "pw_st1s",
+   "line": "I was. A search is a quarter and the fare, and I have the stub, because I keep them. \"Last searched 14 June. A lady, no name given.\"",
+   "choices": [
+    {
+     "label": "The Record had her in gloves, the morning after the tea.",
+     "goto": "pw_st2",
+     "requires": [
+      "m_c_gloved_lady"
+     ]
+    }
+   ]
+  },
+  "pw_st1s": {
+   "line": "I can certify that it is a stub. I wouldn't go further than the stub."
+  },
+  "pw_st2": {
+   "flag": "m_mk_searched",
+   "line": "I can't say who. I can say she read the schedule and only the schedule, which is the one part nobody reads. I read it. It took me six weeks to say so."
+  },
+  "pw_m1": {
+   "flag": "m_peter_memo",
+   "silence_goto": "pw_m2",
+   "line": "It was correct. There was a comma. I took it back to see to the comma.",
+   "choices": [
+    {
+     "label": "What did it say?",
+     "goto": "pw_m2"
+    }
+   ]
+  },
+  "pw_m2": {
+   "silence_goto": "pw_m3",
+   "line": "That the term ends on the first of August, and a tenant might wish to take counsel first. For Miss Quell's boards. It was out of my hands for twenty-five minutes. Mrs. Marsh has the seven drafts, if you prefer them from someone who marked them.",
+   "choices": [
+    {
+     "label": "And after you fixed the comma?",
+     "goto": "pw_m3"
+    }
+   ]
+  },
+  "pw_m3": {
+   "line": "It is on my desk. The comma is in. It is correct now. I have been meaning to send it."
   }
  }
 }

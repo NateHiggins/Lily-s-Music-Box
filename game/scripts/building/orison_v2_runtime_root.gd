@@ -110,6 +110,8 @@ var shop_clearing: RefCounted
 var carried_case_view: CanvasLayer
 var shop_counters: Dictionary = {}
 var key_cutter: Node3D
+var clue_carriers: Dictionary = {}
+var photo_supplies: Dictionary = {}
 var shop_simulation: Node
 var day_night_director: DayNightDirector
 var light_rig: LightRig
@@ -901,6 +903,13 @@ func _compose_authorities() -> void:
 	if key_cutter==null:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: key cutter refused");return
 	shop_counters.keys_cut.sold.connect(func(_item: String): key_cutter.refresh())
+	clue_carriers=preload("res://scripts/building/orison_v2_clue_carriers.gd").mount(self,adapter)
+	if clue_carriers.is_empty():
+		startup_failed=true;push_error("ORISON V2 RUNTIME: clue carriers refused");return
+	photo_supplies=preload("res://scripts/building/orison_v2_photo_supplies.gd").mount(self,clue_carriers.book_stock)
+	if photo_supplies.is_empty():
+		startup_failed=true;push_error("ORISON V2 RUNTIME: photo supplies refused");return
+	shop_counters.photo_supplies.sold.connect(func(_item: String): photo_supplies.tray.refresh())
 	exterior_cell.stock_presence=_shop_has_stock
 	if conversations!=null and conversations.errands!=null:
 		conversations.errands.economy=economy

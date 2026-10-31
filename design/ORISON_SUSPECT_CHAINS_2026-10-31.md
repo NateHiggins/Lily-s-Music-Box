@@ -3,8 +3,9 @@ Evidence class: **INERT**
 # Suspect chains and the papers' plot: writers' room, 31 October
 
 Two writers pitched six suspect chains and 67 newspaper edits. A third attacked both. This is what
-survived. 54 of the edits are in the papers on this branch. **None of the chains is built**: nothing
-here is canon until the owner rules on section 4, and the section's amendments are not made.
+survived. 54 of the edits are in the papers. The owner ruled that the player may wrongly suspect
+residents, and gave the four men one outside thread. Both amendments are in the treatment. All three
+chains and the three kept details are **built as first-draft threads**.
 
 ## 1. Three chains, and what they hold
 
@@ -30,9 +31,10 @@ only proof either brother knows the other is there.
 
 | Carrier | When and where | Flag | Opens from |
 |---|---|---|---|
-| Noel at 6B's sill, seen | 19 Jul, 20:40 to 20:58, landing | **m_noel_landing** | entry |
+| Sacha, door open for the fumes: white gloves at 6B's sill, twenty to nine | from 20 Jul, 6A | **m_noel_landing** | entry |
+| Noel's existing line about six months of reports | any date, 4C | **m_noel_door** | entry |
 | Jonah's page (exists) | from 6 Aug, 6B | **m_jonah_page** | **m_notebook_spine** |
-| Reports: "8.40 to 8.58. 6B set: a ferry. 6C wall: a clock. Not in agreement. 6C in: light under, door shut." | from 20 Jul, 4C | **m_noel_reports** | either of the above |
+| Reports: "8.52. 6B set: a ferry. 6C wall: a clock. Not in agreement. 6C in: light under, door shut." | from 20 Jul, 4C | **m_noel_reports**, **m_two_programmes** | any of the above |
 | Scrap on the blotter (exists) | from 7 Aug, 4C | **m_glove_read** | **m_glove_scrap** |
 | Jonah on the sill | from 20 Jul, 6B | **m_sill_read** | **m_noel_reports** |
 
@@ -60,16 +62,16 @@ knows it.
 
 | Carrier | When and where | Flag | Opens from |
 |---|---|---|---|
-| Route book: "4A to Miss Q., hold. Recalled 5.55" | from 19 Jul, Cam | **m_book_recalled** | **m_route_book** |
-| Wallet stub: "Last searched 14 June, a lady, no name given" | from 19 Jul, 4A | **m_search_stub** | entry |
-| Evelyn's red-pencilled drafts | from 8 Jun, 1A | **m_red_drafts** | entry |
-| Peter himself | from 19 Jul, 4A | **m_peter_memo** | any of these |
+| Route book: "4A to Miss Q., hold. Recalled 5.55" | from 20 Jul, Cam | **m_book_recalled** | **m_route_book** |
+| Wallet stub: "Last searched 14 June. A lady, no name given." | from 20 Jul, 4A | **m_search_stub** | **m_lease_read** or **m_book_recalled** |
+| Evelyn's red-pencilled drafts | from 8 Jun, 1A | **m_red_drafts** | entry until 19 Jul, then any clue here |
+| Peter himself | from 20 Jul, 4A | **m_peter_memo** | any of these |
 
 **Clears.** The drafts, each dated in another woman's pencil, start six weeks before the death. Nobody
 who wants the deed asleep writes seven warnings about it. This clears his intent, not his evening.
 
-**Feeds Mae.** The stub's date joins the Record of 15 June: a lady in gloves read the schedule only,
-the morning after the tea.
+**Feeds Mae.** The stub's date joins the Record of 15 June, whose reading grants **m_c_gloved_lady**:
+a lady in gloves read the schedule only, the morning after the tea. Together they give **m_mk_searched**.
 
 **The wrong distrust it plants.** A held piece can be recalled, so "6.40" looks soft. It resolves on
 three points: a recall writes a strike and a time, no strike stands against 6C, and a stranger stamped
@@ -78,7 +80,7 @@ the letter next morning. Asked to sign, he reaches **m_peter_will_sign**.
 > PETER: "It was correct. There was a comma. I took it back to see to the comma."
 > EVELYN: "The fourth draft was good enough. I marked it anyway."
 
-### The four men: still hunting (PROPOSED, outside the house)
+### The four men: still hunting (PROPOSED)
 
 **False theory.** One of them sent a man up the fire escape and got the drawer back.
 
@@ -87,9 +89,9 @@ the letter next morning. Asked to sign, he reaches **m_peter_will_sign**.
 | Carrier | When and where | Flag | Opens from |
 |---|---|---|---|
 | **av_drawer** (exists) | before 19 Jul, shop | **m_adela_drawer** | entry |
-| Bottom drawer, the register's deed entry filed to it | from 22 Jul, shop | **m_drawer_empty**, **m_deed_gone** | entry |
-| Window log, Nadia's hand: "3.10, a gentleman asked Mr. E. what was left in the bottom drawer" | from 27 Jul, shop | **m_men_asked** | entry |
-| Box 61 and Box 74 | 27 Jul, 10 Aug, 16 Sept, Record | **m_c_boxes** | entry |
+| Window log, Nadia's hand: "3.10. Gentleman asks Mr. Ewald what is left in the bottom drawer." | from 29 Jul, 5A | **m_men_asked** | entry |
+| Nadia on the drawer: empty, and the deed's plates with it. She does not know what it held. | from 29 Jul, 5A | **m_drawer_empty**, **m_deed_gone** | **m_men_asked** |
+| Box 61 and Box 74 | Record 27 Jul, 10 Aug, 16 Sept; Speaker 22 Aug | **m_c_boxes** | reading any of them |
 | Landlord's letter, pinned: "the person who kept the counter" | from 30 Jul, Ewald's | **m_landlord_letter** | **m_saw_kessler_note** or **m_men_asked** |
 | **mk_copy** (exists) | from 20 Jul, 6C | **m_mae_knew_drawer** | as written |
 
@@ -104,8 +106,8 @@ points back at the lease. The prints themselves still identify nobody.
 so the letter looks like a plant. The phrase is hers first ("the person from the counter", **mk_t1**,
 13 June), and Cam had the letter from her hand.
 
-> ADELA: "I've been dead since July and he's offering two hundred dollars for a picture of himself. I ought to feel worse about how much I like that."
-> PAPER: "Entered, on your word: he is still asking. I have no column for whom."
+> NADIA: "Nothing. I looked, after the third one. A clean bottom drawer, and you'd have to know to open it."
+> PAPER: "Entered, on your word: Box 61, Box 74, two hundred dollars, no questions. I have no column for a man advertising for what he has."
 
 ### Three details kept from cut chains
 
@@ -170,12 +172,10 @@ women's toilet as its visible win, and invited the worst reading, so it is now t
 
 ## 4. Decisions for the owner
 
-1. **Does the player get to suspect residents?** Treatment section 3 says each resident holds one useful
-   thing "instead of taking a turn at 'implicated' and 'cleared'". The chains need: "Residents may also
-   be wrongly suspected by the player, never by the game, and each is cleared only for what its evidence
-   clears." Nothing is built until this is ruled.
-2. **A thread for the four men.** The 31 October ruling says they have "no access and no thread". This
-   chain needs "one outside thread, which clears them". Its papers read fine either way.
+1. **Does the player get to suspect residents?** Ruled yes, 31 October. The treatment's section 3 now says
+   the player may wrongly suspect a resident, the game never does, and each is cleared only for what its
+   evidence clears.
+2. **A thread for the four men.** Ruled yes, 31 October: no access, and one outside thread that clears them.
 3. **New names now in print, as canon unless cut:** Alderman Tobias Rusk, Alderman Gerald Mott, Mr. Silas
    Orr, Mr. Warren Stroud, Box 61 and Box 74, Block 418 Lot 22 (the deed's schedule should cite it), Inspector
    Farrow with "The Fast Clock" and "The Second Key", Captain Doran, Magistrate Lerner, the crossing gates.
@@ -184,14 +184,18 @@ women's toilet as its visible win, and invited the worst reading, so it is now t
 
 ## 5. Cost if built
 
-Lines and data, apart from these:
+What was built, and what the chains still lean on:
 
-- **Paper-read flags.** **carriers.json** is "read by no runtime yet", which covers every clue that enters
-  from a paper. All three chains want it.
-- **The route book as a queryable log.** It holds one flag today.
-- **Noel's timed 20:40 placement** on the landing, and hour windows for the rest. The graph check ran 20,000
-  random orders with no failure, but it tests order only. It does not test hours, and it ran on the six-chain
-  pitch rather than this cut.
+- **Built.** A thread can open on any one of several clues (`requires_any`). The newspaper panel grants
+  **m_c_gloved_lady** and **m_c_boxes**, and the table in `companion_witness.gd` takes more papers. The route book's entries are
+  lines from Cam. Sacha's sighting replaces a timed placement of Noel, because residents talk only through a
+  knock. Nine typed companion lines enter a theory or answer a wrong distrust, and suspect nobody.
+- **Sources.** **m_notebook_spine** is the 19 July book on top of Jonah's case: the hand draws it off the stack.
+  **m_glove_scrap** is the clean-out on the boiler room wall, where the 7 August work order sends the player,
+  because the yard isn't built. Most other entries on **carriers.json** still have no runtime. Sacha's sighting, Noel's reports, Evelyn, Peter, Cam, Nadia's log and Ewald's letter all open in ordinary play.
+- **Checked.** The mystery checker walks reachability over the real data. Hours and dates are held by the wiring
+  test's gates, and the chain threads all open from the 20th, after the gap. The pitch's 20,000-order run was on
+  the six-chain draft and wasn't repeated.
 
 The red-team's checks are limited too: Stroud's post, a Register's "term run, no instrument" and Block and
 Lot usage are plausible, not verified. They are alt-universe facts in a world that has already diverged.

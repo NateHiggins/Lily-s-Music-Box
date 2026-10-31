@@ -61,7 +61,9 @@ The owner's answers to this treatment's open items:
 - **Adela kept a drawer.** She has squeezed people with power using prints from plates brought
   to her to develop, and they know she keeps them: two aldermen, a landlord, a man from the Board
   of Estimate. Nobody across the road or in the arcade. She says so plainly from the first date. It
-  is not a reveal, and it adds no suspects in the house.
+  is not a reveal, and it adds no suspects in the house. The four men have no access and one outside
+  thread, which clears the theory that they took the drawer (owner, 2026-10-31,
+  `design/ORISON_SUSPECT_CHAINS_2026-10-31.md`).
 - **Why it matters to the murder.** Sending Mae the copy was still decent. Mae knows of the drawer
   from a landlord she knows, and denies opening anything from that counter. The player can infer how a
   dated copy looked to her. Mae's motive stays the lease. Adela cannot correct the reading; the
@@ -276,8 +278,10 @@ leads, not prerequisites. [WR-01]
   reasonable competing explanations.
 - It does **not** need to prove seventeen other people physically incapable.
 - Every resident stays in the story, but each holds one useful thing (access, a
-  custody, a sighting, a disputed interval, a reason to ask) instead of taking
-  a turn at "implicated" and "cleared".
+  custody, a sighting, a disputed interval, a reason to ask). The player may
+  wrongly suspect a resident; the game never does, and each is cleared only for
+  what its evidence clears (owner, 2026-10-31,
+  `design/ORISON_SUSPECT_CHAINS_2026-10-31.md`).
 - "Cleared for this interval" is reserved for corroborated evidence that really
   excludes an action in that interval.
 
@@ -410,7 +414,7 @@ was only a hunch, the table says what replaced it.
 | B14 | 21 Jul | N16 itself, by its issue date | News rack; shelf | — |
 | B15 | 22 Jul, 10:00 | Appointment book: "Mon. 22nd, 10.00, Miss Q., Mr. E." | Photo Supplies; Ewald's diary | — |
 | B16 | 6 Aug | Jonah's composition books, dated on their spines: "19 July", "6 Aug." | 6B shelf | "he writes in storms" alone |
-| B17 | 7 Aug | The night man's work order: "Yard drain, clear after storm, Wed. 7 Aug." | 4B work orders | "Omar clears it next morning" |
+| B17 | 7 Aug | The night man's work order: "Yard drain, clear after storm, Wed. 7 Aug." The yard isn't built, so the drain's clean-out comes through the boiler room wall (built 2026-10-31) | 4B work orders | "Omar clears it next morning" |
 | B18 | 20 Aug | The Record's lead on the tone's absence (**DATA**). Juno's reel box: "July 19, wall. Play on a quiet day" | News rack; 2C | — |
 | B19 | 24 Aug | Juno's trade log: "Sat. 24 Aug., 3 p.m., C.D.: WLBQ 12 and 19 July." Their Saturday trade is canon | 2C | — |
 | B20 | 16 Sep | N13, by its issue date. The button book's own entry is dated 20 July and can be read any time after | News rack; 2B | "when something breaks her heart" |
@@ -791,9 +795,9 @@ lines.
 | Malcolm Reed, 3A | Last on the roof with her before dark | Time measured by what can grow; a very possessive pot |
 | Omar Bell, 3B | Spare shop key; the recorder; the salvaged plate | Offense at workmanship; an economical answer |
 | Rhea Sato, 3D | A real privacy claim on negatives that were stolen | Manages how a moment appears until a plain objection arrives. Privacy never reads as guilt |
-| Peter Wren, 4A | His firm's copy of the deed | A qualification that suddenly leaves him responsible for the answer |
+| Peter Wren, 4A | His firm's copy of the deed; the warning memo he recalled over a comma | A qualification that suddenly leaves him responsible for the answer |
 | Cam Ortiz, 4C | Delivered the envelope to 6C; took her sealed letter at 18:40 and marked its flap | Route and delivery; no rate for thoughts |
-| Noel Price, 4C | Named by a simile; his gloves have no buttons | A handling instruction more alarming than the object warrants |
+| Noel Price, 4C | Named by a simile; his gloves have no buttons; his condition reports on 6B's door | A handling instruction more alarming than the object warrants |
 | Transient Guests, 4D | The "lodger" statement; the 22:50 sighting | Agree with different questions; a concrete question separates them |
 | Nadia Quell, 5A | Told Mae; keeps the window afterwards | A plan that includes everybody before asking anybody |
 | Cal Dwyer, 5B | Near the bulkhead before the boundary; the two tapes | Controls, repeatability, a grudge against bad reception |

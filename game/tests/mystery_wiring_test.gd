@@ -86,6 +86,8 @@ func _run() -> void:
 			RealityState.data.knowledge_flags.erase("mt:" + str(thread.id))
 			for flag in thread.get("requires", []):
 				RealityState.grant_knowledge(str(flag))
+			for flag in thread.get("requires_any", []):
+				RealityState.grant_knowledge(str(flag))
 			conversations.playtest_date = str(thread.from)
 			conversations.playtest_minute = conversations._clock_minute(str(thread.hours[0])) \
 					if thread.has("hours") else 720
@@ -130,6 +132,42 @@ func _run() -> void:
 	_check("nothing typed reaches a witnessed line",
 			fresh.mystery_typed.values().all(func(records): return records.all(func(r): return r.surface == "typed")))
 	_check("the live library is intact", fresh.lines.has("activation") and fresh.respond("are you alive", {}).line_id != "")
+	_chains(conversations, thread_ids)
+
+
+## The suspect chains: a thread opens on any one of its clues, nothing opens from
+## the wrong date, the paper itself grants its clue, and the companion enters a
+## theory without holding one.
+func _chains(conversations: ResidentConversations, thread_ids: Callable) -> void:
+	for flag in ["m_noel_door", "m_noel_landing", "m_jonah_page", "m_noel_reports"]:
+		RealityState.data.knowledge_flags.erase(flag)
+	RealityState.data.knowledge_flags.erase("mt:np_reports")
+	_check("the reports wait for a clue", "np_reports" not in thread_ids.call("noel_price", "1929-08-01", 720))
+	RealityState.grant_knowledge("m_jonah_page")
+	_check("any one clue opens the reports", "np_reports" in thread_ids.call("noel_price", "1929-08-01", 720))
+	_check("no report on the evening itself", "np_reports" not in thread_ids.call("noel_price", "1929-07-19", 1080))
+	RealityState.data.knowledge_flags.erase("m_c_gloved_lady")
+	var catalog := NewspaperCatalog.new()
+	add_child(catalog)
+	var clock := CampaignClock.new()
+	clock.configure_date(1929, 6, 20, 720)
+	var witness: Node = preload("res://scripts/device/companion_witness.gd").new()
+	witness.paper_shown(catalog, "record", "1929-06-14")
+	_check("another day's paper grants nothing", not RealityState.has_knowledge("m_c_gloved_lady"))
+	witness.paper_shown(catalog, "record", "1929-06-15")
+	_check("reading the paper grants its clue", RealityState.has_knowledge("m_c_gloved_lady"))
+	RealityState.data.knowledge_flags.erase("m_c_boxes")
+	witness.paper_shown(catalog, "record", "1929-07-27")
+	_check("a paper not yet out grants nothing", not RealityState.has_knowledge("m_c_boxes"))
+	clock.configure_date(1929, 8, 1, 720)
+	witness.paper_shown(catalog, "record", "1929-07-27")
+	_check("the Box notice grants its clue", RealityState.has_knowledge("m_c_boxes"))
+	witness.free()
+	var talk := Conversation.new()
+	RealityState.data.knowledge_flags.erase("m_noel_landing")
+	_check("no theory before the sighting", talk.respond("it was noel", {}).line_id != "m_theory_noel")
+	RealityState.grant_knowledge("m_noel_landing")
+	_check("the companion enters the theory", talk.respond("it was noel", {}).line_id == "m_theory_noel")
 
 
 ## Take the first reply on each node until the conversation ends. False if it loops.

@@ -1,6 +1,10 @@
 extends Node
 ## Bounded observations of existing owners. No duplicate raycasts, catalogue
 ## scans, discovery grants, route invention or interpretation of saved prose.
+const PAPER_CLUES := {"record|1929-06-15": "m_c_gloved_lady",
+	"record|1929-07-27": "m_c_boxes", "record|1929-08-10": "m_c_boxes",
+	"speaker|1929-08-22": "m_c_boxes", "record|1929-09-16": "m_c_boxes"}
+
 var session: Node
 var player: PlayerController
 var world: Node
@@ -69,6 +73,9 @@ func paper_shown(catalog: NewspaperCatalog, paper: String, date: String) -> void
 	if paper == "record" and date == "1929-07-21" and RealityState.grant_knowledge("m_c_n16"):
 		RealityState.commit()
 		session.queue_event("m_notice_1", 600.0)
+	var clue := str(PAPER_CLUES.get("%s|%s" % [paper, date], ""))
+	if clue != "" and RealityState.grant_knowledge(clue):
+		RealityState.commit()
 
 func observe(delta: float) -> void:
 	_sample_left -= delta

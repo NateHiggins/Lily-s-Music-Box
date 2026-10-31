@@ -7,6 +7,8 @@ extends RefCounted
 const SalePoint := preload("res://scripts/props/shop_sale_point.gd")
 ## The terminal's lettering faces local -Z, toward whoever is buying.
 const KEYS_ROW := "storm_shop_keys_cut_counter_top"
+const PHOTO_ROW := "storm_shop_photo_supplies_counter_top"
+const PHOTO_ALONG := -60.75
 const CUTTER_ROW := "storm_shop_keys_cut_cutter_vise0"
 const KEYS_ALONG := -51.1
 const PAWN_ROW := "storm_shop_pawnbroker_grille_top"
@@ -53,6 +55,13 @@ static func mount(world: Node3D) -> Dictionary:
 	points["pawnbroker"] = _place(world, "pawnbroker", passage.transaction_actor_root(),
 			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
 			GameBoot.b2g([PAWN_ACROSS, PAWN_ALONG, pawn_top])))
+	var photo := _row(passage, PHOTO_ROW)
+	if photo.is_empty():
+		return {}
+	var photo_top := float(photo.z0) + float(photo.h)
+	points["photo_supplies"] = _place(world, "photo_supplies", passage.transaction_actor_root(),
+			passage.global_transform * Transform3D(Basis(Vector3.UP, -PI * 0.5),
+			GameBoot.b2g([18.42, PHOTO_ALONG, photo_top])))
 	var bodega_counter: Node3D = world.exterior_cell.service_counter("SHOP_BODEGA")
 	if bodega_counter != null:
 		# The service area's origin sits on the shop-side edge of the counter top.
@@ -101,6 +110,8 @@ static func _place(world: Node3D, shop_id: String, parent: Node3D, at: Transform
 	var sales: ShopSales
 	if shop_id == "keys_cut":
 		sales = KeysSales.new(shop_id, world.shop_catalogue, world.shop_stock, world.shop_clearing)
+	elif shop_id == "photo_supplies":
+		sales = PhotoSales.new(shop_id, world.shop_catalogue, world.shop_stock, world.shop_clearing)
 	elif shop_id == "pawnbroker":
 		sales = PawnSales.new(world.shop_catalogue, world.shop_stock, world.shop_clearing, world.get_node("CaretakerEconomy"))
 	else:
