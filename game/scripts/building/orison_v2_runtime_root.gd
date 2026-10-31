@@ -863,6 +863,11 @@ func _compose_authorities() -> void:
 	carried_case_view.player=player
 	carried_case_view.economy=economy
 	add_child(carried_case_view)
+	var item_use:=ItemUse.new()
+	item_use.name="ItemUse"
+	add_child(item_use)
+	item_use.setup(shop_catalogue,player)
+	carried_case_view.item_use=item_use
 	shop_counters=preload("res://scripts/building/orison_v2_shop_counters.gd").mount(self)
 	if shop_counters.is_empty():
 		startup_failed=true;push_error("ORISON V2 RUNTIME: shop counters refused");return
@@ -872,6 +877,9 @@ func _compose_authorities() -> void:
 	exterior_cell.stock_presence=_shop_has_stock
 	if conversations!=null and conversations.errands!=null:
 		conversations.errands.economy=economy
+	if conversations!=null:
+		conversations.gifts=ResidentGifts.new()
+		conversations.gifts.setup(shop_catalogue,economy)
 	var saved_mechanisms: Dictionary=passage_region.doors.duplicate()
 	saved_mechanisms[str(fire_maintenance_counter.name)]=fire_maintenance_counter
 	household_state = HouseholdState.new()

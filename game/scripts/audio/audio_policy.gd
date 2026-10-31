@@ -37,6 +37,7 @@ const MIX_STATES := {
 	"dialogue": {"World":-5.0, "Music":-8.0, "Gameplay":-1.5},
 	"telephone": {"World":-7.0, "Music":-10.0, "Gameplay":-3.0,
 			"Telephone":1.5},
+	"stopped_ears": {"World":-14.0, "Gameplay":-10.0, "Music":-6.0, "Navigation":-6.0},
 	"sleep_onset": {"World":-4.0, "Music":-9.0, "Navigation":-2.0},
 	"dream_embrace": {"World":-8.0, "Music":-12.0, "Gameplay":-4.0,
 			"Hazard":1.0},

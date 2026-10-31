@@ -560,6 +560,34 @@
    "text": "A maintenance set is carried into a bar by a woman who is not there. She orders it to hold the lamp lower. The proprietor asks who is paying for the floor. It says: put it under the short leg. I do not know what that means. I saw it on a stool. I am told it is not a pun."
   },
   {
+   "id": "m_use_eat",
+   "movement": "I_address",
+   "surface": "witnessed",
+   "witness": "the player has taken food or drink from the case",
+   "text": "You have eaten something in front of me. I have no field for that. I have entered it under Repairs."
+  },
+  {
+   "id": "m_use_smoke",
+   "movement": "I_address",
+   "surface": "witnessed",
+   "witness": "the player has lit something from the case",
+   "text": "Smoke noted. This set is rated for damp, vibration and one fall. Nobody asked it about this."
+  },
+  {
+   "id": "m_use_medicine",
+   "movement": "I_address",
+   "surface": "witnessed",
+   "witness": "the player has taken medicine from the case",
+   "text": "You have taken something for it. I won't ask what it was. I keep no chart, and I am told that is a mercy."
+  },
+  {
+   "id": "m_use_earplugs",
+   "movement": "I_address",
+   "surface": "witnessed",
+   "witness": "the player has put in the wax earplugs",
+   "text": "You have stopped your ears. I print, so nothing changes between us. Mind the radiators; they will go on without you."
+  },
+  {
    "id": "m_end_keep",
    "movement": "IV_line",
    "surface": "witnessed",
