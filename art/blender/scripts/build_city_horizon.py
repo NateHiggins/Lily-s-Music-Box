@@ -10,7 +10,7 @@ from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_o
 from fabrication_native_batch import material,partition,export
 from city_ground_apron_geometry import exported_bounds,relief_height
 from city_industrial_architecture import IndustrialBuildings,MillLofts,EasternRows
-from city_residential_architecture import ResidentialHouses
+from city_residential_architecture import ResidentialHouses,EasternHouses
 plan_path=ROOT/'art/data/city_horizon/source_plan.json';plan=json.loads(plan_path.read_text())
 grade_path=ROOT/'art/blender/city_ground_apron_construction.json';grade=json.loads(grade_path.read_text())
 validate_plan(plan,grade['retained_ground_bounds'])
@@ -63,6 +63,7 @@ for family in ['near','far']:
         if study.get('type') in ['industrial_front','mill_front','eastern_row','residential_front']:
             neighbours=[r for r in rows if r['id']!=name]
             constructor={'industrial_front':IndustrialBuildings,'mill_front':MillLofts,'eastern_row':EasternRows,'residential_front':ResidentialHouses}[study['type']]
+            if study.get('style') in EasternHouses.STYLES:constructor=EasternHouses
             authored=constructor(row,add,neighbours).build()
             windows.extend(authored['windows']);bearings.extend(authored['bearings'])
             def lower_add(owner,key,vertices,faces):

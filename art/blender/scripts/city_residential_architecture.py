@@ -6,7 +6,7 @@ bodies retain walls, floors, entries, roof volumes, dormers and joinery.
 import math
 from mathutils import Vector
 from city_industrial_architecture import MillLofts,EasternRows
-from city_horizon_geometry import cornice_ring,offset_outline
+from city_horizon_geometry import cornice_ring,offset_outline,extrusion
 
 
 class ResidentialHouses(MillLofts):
@@ -246,5 +246,109 @@ class ResidentialHouses(MillLofts):
         if self.style=='italianate_2109':self.flat_roof()
         else:self.pitched_roof()
         assert len(self.entries)==1,(self.name,self.entries)
+        return dict(windows=self.windows,bearings=self.bearings,entries=self.entries,mitre_seams=self.seams,
+                    closed_stocks=self.parts,min_closed_stock_volume_m3=self.min_volume,style=self.style)
+
+
+class EasternHouses(EasternRows):
+    """Three LPC0450 individuals, fitted to the eastern row's actual frontage.
+
+    44-70's bowed pair,21-48's three-storey yellow-brick apartment,and21-34's
+    timber-framed paired windows have different plans and floor schedules.
+    Existing reservations remain; these are passive AU adaptations.
+    """
+    STYLES={'bow_4470','yellow_2148','frame_2134'}
+
+    def __init__(self,row,emit,neighbours,lower=False):
+        super().__init__(row,emit,neighbours,lower)
+        self.steps=1 if lower else 3
+        self.substrate=None
+
+    def add(self,key,vertices,faces):
+        if self.substrate and key==self.row['wall_key']:key=self.substrate
+        return super().add(key,vertices,faces)
+
+    def wall_stock(self,O,U,N,lo,hi,length):
+        wood=self.style=='frame_2134' and lo[2]>=self.levels[1]-.0001
+        self.substrate='timber' if wood else 'arcade_brick_bond' if self.style=='frame_2134' else None
+        super().wall_stock(O,U,N,lo,hi,length)
+        self.substrate=None
+        if not wood:return
+        l,back,z=lo;r,front,Z=hi;pitch=.145
+        for i in range(math.floor(z/pitch),math.ceil(Z/pitch)):
+            bottom=max(z,i*pitch);top=min(Z,(i+1)*pitch)
+            if top-bottom<1e-7:continue
+            a=.035-.031*(bottom-i*pitch)/pitch;b=.035-.031*(top-i*pitch)/pitch
+            v=[tuple(O+U*x+N*y+Vector((0,0,h))) for x,y,h in
+               [(l,-.004,bottom),(r,-.004,bottom),(r,a,bottom),(l,a,bottom),
+                (l,-.004,top),(r,-.004,top),(r,b,top),(l,b,top)]]
+            self.add('door_paint',v,[(0,3,2,1),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)])
+
+    def opening(self,O,U,N,l,r,z,Z,length,front,door,basement):
+        # The timber house's central window pair occupies one real opening.
+        paired=self.style=='frame_2134' and front and not door and not basement and abs((l+r)/2-length/2)<.1
+        if not paired:
+            self.row_opening(O,U,N,l,r,z,Z,length,door,basement)
+        else:
+            center=(l+r)/2;left=center-.82;right=center+.82;low=z+.64;high=Z-.52
+            for a,b in [((l,-.28,z),(left,0,Z)),((right,-.28,z),(r,0,Z)),
+                        ((left,-.28,z),(right,0,low)),((left,-.28,high),(right,0,Z))]:
+                self.wall_stock(O,U,N,a,b,length)
+            for a,b in [(left,center-.045),(center+.045,right)]:
+                self.profile('mirror_aged',O,U,N,[(a+.02,low+.02),(b-.02,low+.02),(b-.02,high-.02),(a+.02,high-.02)],-.205,-.17)
+                self.wood_frame(O,U,N,a,b,low,high)
+                self.stock('door_paint',O,U,N,(a+.055,-.20,(low+high)/2-.025),(b-.055,-.075,(low+high)/2+.025),.003)
+                self.windows.append(dict(building=self.name,point=list(O+U*((a+b)/2)+Vector((0,0,low+.35))),normal=list(N),recess_m=.17))
+            self.stock('door_paint',O,U,N,(center-.045,-.28,low),(center+.045,.065,high),.006)
+            for bottom,top in [(low-.09,low),(high,high+.13)]:
+                self.stock('door_paint',O,U,N,(left-.10,-.20,bottom),(right+.10,.09,top),.008)
+        if not front or basement:return
+        if self.style=='bow_4470' and not door:
+            center=(l+r)/2
+            # Three separate fired-clay relief plaques on each bowed pier;
+            # geometric bosses represent relief,with no lettering/photo pixels.
+            for i in range(3):
+                at=z+.16+i*.13
+                self.stock('terracotta',O,U,N,(center-.10,.015,at),(center+.10,.055,at+.11),.004)
+                self.stock('terracotta',O,U,N,(center-.035,.055,at+.03),(center+.035,.075,at+.08),.003)
+        elif self.style=='frame_2134':
+            # Joined vertical framing and incised diagonal spandrel boards.
+            for at in [l+.045,r-.045]:
+                self.stock('door_paint',O,U,N,(at-.035,.025,z),(at+.035,.09,Z),.004)
+            self.stock('door_paint',O,U,N,(l+.06,.025,z+.04),(r-.06,.09,z+.14),.004)
+            if not door:
+                for a,b in [(l+.14,(l+r)/2),((l+r)/2,r-.14)]:
+                    self.profile('door_paint',O,U,N,[(a,z+.17),(b,z+.42),(b,z+.46),(a,z+.21)],.035,.075)
+
+    def cornice(self,outline,height):
+        # Existing source-owned roof stock and unfiltered receiving controls.
+        self.row_roof(outline,height)
+        for side,(p,q) in enumerate(zip(outline,outline[1:]+outline[:1])):
+            O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
+            if N.x<.65:continue
+            count=4 if self.style!='bow_4470' else max(1,round(length/.85))
+            for i in range(count):
+                at=(i+.5)*length/count
+                self.profile('door_paint',O,U,N,[(at-.065,height-.43),(at+.065,height-.43),(at+.09,height-.22),
+                    (at+.055,height-.08),(at-.055,height-.08),(at-.09,height-.22)],-.05,.17)
+            self.stock('door_paint',O,U,N,(.02,-.02,height-.18),(length-.02,.16,height-.04),.009)
+
+    def build(self):
+        outline=self.outline(True);inside=offset_outline(outline,-.28)
+        for floor,(z,Z) in enumerate(zip(self.levels,self.levels[1:])):
+            v,f=extrusion(outline if floor==0 else offset_outline(outline,-.14),-.28 if floor==0 else z-.16,0. if floor==0 else z)
+            self.add('concrete' if floor==0 else 'timber',v,f)
+            for side,(p,q) in enumerate(zip(outline,outline[1:]+outline[:1])):
+                O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
+                self.tapers=((Vector((*inside[side],0))-O).dot(U),length-(Vector((*inside[(side+1)%len(outline)],0))-O).dot(U))
+                count=self.study['side_bays'][side];front=N.x>.65
+                for bay in range(count):
+                    l=bay*length/count;r=(bay+1)*length/count
+                    entry=side==self.study['front_side'] and bay==0
+                    if length<1.2 or floor==0 and entry or self.covered(O,U,N,l,r,z,[]):
+                        self.wall_stock(O,U,N,(l,-.28,z),(r,0,Z),length)
+                    else:self.opening(O,U,N,l,r,z,Z,length,front,entry and floor==1,floor==0)
+        self.cornice(outline,self.levels[-1])
+        assert len(self.entries)==1,(self.name,'missing scenic entry',self.entries)
         return dict(windows=self.windows,bearings=self.bearings,entries=self.entries,mitre_seams=self.seams,
                     closed_stocks=self.parts,min_closed_stock_volume_m3=self.min_volume,style=self.style)
