@@ -4158,3 +4158,30 @@ unchanged14-leg city evidence with its source scope; do not repeat an unrelated
 walk or repin the old global contract. Preserve city-first direction, separate
 rear-east construction, remaining450m/landmark/save/LOD/performance and artistic
 work. No deadline or whole-V2 completion claim.
+
+
+### Current PR100 combined physical renewal — October30
+
+Evidence class: **INERT**. Final frozen gameplay source6f71734a (report-only
+checkpoint45a4e786) passes import30s, compiler4scripts and focused shared-commerce
+with zero failures/empty stderr. Current physical-only survey passes651/0 in
+246s wrapper, completed test-written schema2 contract and empty shutdown stderr.
+Inventory remains29302draws/18502meshes/6537materials/542textures. Three fresh
+representative renders were inspected: workshop room, main room and library.
+The bath frame was also inspected but faces the curtain/tile; it is not mirror
+reflection proof. No current city route image is fabricated by rebinding the
+older33ad8879 route. Those221/14/0 actual-controller checks remain separately
+source-scoped, with unchanged city geometry/player sources reused honestly.
+
+The publication tool preserves the previous packet externally, atomically
+publishes the actual new contract and images, and reports zero defects. Current
+surface_inputs_sha256 is **be170301817d9689d46bbf0f9f04f8dbcdde85eea8182774e1c14ae3c505e76e**.
+The new portable renewal archive retains logs, wrappers, actual contract/inventory,
+raw host samples and exact external-image/prior-packet indexes. No authored
+physics/controller/performance test is relaxed, and no legacy receipt is repinned.
+
+Exact946 candidate comparison is next, not yet passed. The carried case remains
+closed in this physical survey; its own actual input/optical acceptance and the
+next mounted shop-counter slice are not inferred. Original allocation failures,
+startup/frame spikes, full save/access/city/artistic work remain open. Separate
+rear-east04cde038 is intentionally excluded to avoid restarting this cohort.

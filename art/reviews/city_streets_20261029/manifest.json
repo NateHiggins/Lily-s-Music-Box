@@ -10724,5 +10724,98 @@
         "sha256": "66f0cb1e7c58afed37d7683eabb4ebb9dba13612b6d2503dcc29cda77db06f40"
       }
     }
+  },
+  "southwest_rear_surface_renewal": {
+    "archive": "art/reviews/city_streets_20261029/southwest_rear_surface_renewal.zip",
+    "bytes": 884925,
+    "sha256": "a94feff048b76891a796b813c7bf95801eb575dff84c97c5ebed1ab64672bf50",
+    "evidence_class": "INERT",
+    "scope": "Combined PR100/city physical-only renewal:651/0, empty stderr. Compiler4scripts and focused commerce pass. Three current physical images inspected in committed surface packet; other images are indexed/retained externally, not artistically accepted. Prior33 city14-leg controller evidence remains separate. No case UI/new counter,save reconstruction/fullcity claim.",
+    "members": {
+      "batch_04.json": {
+        "bytes": 1369,
+        "sha256": "b102dfd9982020bf4e00e490ef397b4cb7bc4626203e706a3652baf0e82481bc"
+      },
+      "batch_completion_04.json": {
+        "bytes": 75,
+        "sha256": "47a1bcbd1d7710855f00066528f7587c1a64f3332de40d65ea5d889c3d90693f"
+      },
+      "combined_memory_04.jsonl": {
+        "bytes": 22485,
+        "sha256": "5ae0a51023ef78a5b577123d803c75f6bd159703b80ba9a12c75c0ea1b2f2ab0"
+      },
+      "commerce_04.log": {
+        "bytes": 3522,
+        "sha256": "f238ab6c1d1381837aee855e48d34f539488579c5906a54718c14cf31b247053"
+      },
+      "commerce_04.log.receipt.json": {
+        "bytes": 2887,
+        "sha256": "8185145f747284ee269469fc3d5a3097e9f27f99abca519c8cec658b4d911530"
+      },
+      "commerce_04.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "import_04.log": {
+        "bytes": 3740,
+        "sha256": "e4c21f9b31bd78c42531910af581977d45837754ab2f97c9b4b38ca9491c67a5"
+      },
+      "import_04.log.receipt.json": {
+        "bytes": 2758,
+        "sha256": "f3c64c8f502fea7bb0d27000568b19480e9264c63b37611466d8890b9a9a02d9"
+      },
+      "import_04.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "manifest_union_verification.json": {
+        "bytes": 227,
+        "sha256": "d4c7c1462e3b3a1fa4130d75f96e8ebb0a6ae5d91d2a3e33319dd80fdab495c4"
+      },
+      "parser_04.log": {
+        "bytes": 423,
+        "sha256": "25619a944893fa23959d4ff29d1d45fea3e4a3ed0e47e3d365a76faaaf690a28"
+      },
+      "parser_04.log.receipt.json": {
+        "bytes": 2970,
+        "sha256": "e7d413affd3f2c26cb00d22b2c811836a47b4c6fad9c444695bdd76daa3392f1"
+      },
+      "parser_04.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "physical_04.log": {
+        "bytes": 2579,
+        "sha256": "fca895ea29f2a590d9b6912f4abb64ca9edc92a08da9cfb637d9b470fc0047c9"
+      },
+      "physical_04.log.receipt.json": {
+        "bytes": 3035,
+        "sha256": "ae66dcac8560953a70277ccf5f5bfdcc26d120824a3351ed578e84851762968a"
+      },
+      "physical_04.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "publication_04_result.json": {
+        "bytes": 172,
+        "sha256": "c1bd543113fef4408482a55766807c80713e1d7a931c86e63a0c4dc353c606b1"
+      },
+      "raw_04/runtime_contract.json": {
+        "bytes": 1827,
+        "sha256": "75fd27d78673600a20a25f0d60d002499bc9d0578f83825ea04301a87df63e13"
+      },
+      "raw_04/surface-inventory.json": {
+        "bytes": 22508668,
+        "sha256": "4a5562c941fb130f574cbdef319f937a02dbaab8b1a45529ed366274cdd48d3a"
+      },
+      "review_and_external_index.json": {
+        "bytes": 4955,
+        "sha256": "c7919912c5ce57daabb76ffc264ff8940c8931c571dc3108ac43b75a289c301e"
+      },
+      "spatial_after_shop_merge.json": {
+        "bytes": 1771,
+        "sha256": "7e29a41427bcb94b4978bd43f39dbd0b7bf539c1ca35d5fbcb41431bd1ff3dd8"
+      }
+    }
   }
 }
