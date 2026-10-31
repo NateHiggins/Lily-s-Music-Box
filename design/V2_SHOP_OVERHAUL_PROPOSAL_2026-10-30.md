@@ -371,8 +371,12 @@ Hardware's drawers and ladder are not yet operable.
 **Slice 3 so far.** The Pawnbroker is built: pledge at the grille by carrying a stack off the
 shelf, redeem within thirty days at an authored 3 percent a month, lapsed tickets go on the shelf
 at twice the loan, and four residents' dated pledges appear and sell once. Not built: objects in
-the wall cases, and Mae behind the counter, which still needs its timeline check. Keys and Photo
-are next.
+the wall cases, and Mae behind the counter, which still needs its timeline check.
+
+Keys Cut is built: a permission puts a spare on the counter's list at 25 cents, and the hand draws
+the carriage past the wheel to cut it. Not built: a key that sticks after a rushed pass, and the
+readable copy book. Rent has its consequences: notices at one, two and three months, and from two
+months tenants without an enabled case stop signing. Spares already cut stay. Photo is next.
 
 Each slice owes: real grabbing and release in tests, a schema-2 runtime receipt, reader
 gate NEW 0, a draw-call measurement on the Arcade route, and a playable pass for Lily.
