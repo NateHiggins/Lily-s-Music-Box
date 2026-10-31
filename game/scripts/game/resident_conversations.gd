@@ -113,6 +113,9 @@ const MYSTERY_FLAG_PREFIX := "m_"
 const MYSTERY_HEARD_PREFIX := "mt:"
 const MYSTERY_MENU := "mystery_menu"
 const PLAYTEST_ENV := "ORISON_MYSTERY_PLAYTEST"
+const ERRAND_ASK := "errand:ask"
+const ERRAND_THANKS := "errand:thanks"
+const ERRAND_WAIT := "errand:wait"
 
 ## Trust at which a resident moves on from first contact, and at which the one
 ## quiet integration beat is offered. Mina's case uses its own stages.
@@ -125,6 +128,7 @@ var units: Dictionary = {}
 var notes: Dictionary = {}
 var opinions: Dictionary = {}   # resident_id -> {hook, hook_line, opinions: [..]}
 var mystery: Dictionary = {}    # resident_id -> {meta, entries, threads, nodes}
+var errands: ResidentErrands
 ## Set only by the playtest panel: read the threads as of this date and minute,
 ## with held threads open, without moving the clock or anything that reads it.
 var playtest_date := ""
@@ -233,8 +237,8 @@ func start(resident_id: String) -> bool:
 			RealityCases.interact_with_resident(resident_id)
 			return true
 		return false
-	var tree: Dictionary = with_weather(resident_id,with_opinions(resident_id,
-			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today()))
+	var tree: Dictionary = with_errand(resident_id, with_weather(resident_id,with_opinions(resident_id,
+			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today())))
 	var entry_id := entry_for(resident_id)
 	var entries: Dictionary = tree.get("entries", {})
 	var node_id := str(entries.get(entry_id, entries.get("first_stable", "")))
@@ -289,6 +293,14 @@ func _available(resident_id: String, choice: Dictionary) -> bool:
 
 
 func _record(resident_id: String, flag: String, trust: int) -> void:
+	if flag == ERRAND_ASK:
+		errands.ask(resident_id)
+		return
+	if flag == ERRAND_THANKS:
+		errands.deliver(resident_id)
+		return
+	if flag == ERRAND_WAIT:
+		return
 	if flag.begins_with("wx:") or flag.begins_with(MYSTERY_FLAG_PREFIX) \
 			or flag.begins_with(MYSTERY_HEARD_PREFIX):
 		RealityState.grant_knowledge(flag)
@@ -467,6 +479,46 @@ func with_opinions(resident_id: String, tree: Dictionary, date: String) -> Dicti
 			continue
 		choices.append({"label": str(record.get("hook", "You've seen the paper.")), "goto": hook_goto})
 		entry_node["choices"] = choices
+	return copy
+
+
+## --- errands ---------------------------------------------------------------
+
+## A copy of the tree with the day's errand on it: a list to take down, or a bag to
+## hand over. Nothing happens until the reply is chosen: arriving at the node files
+## its flag, and _record passes that to the errand.
+func with_errand(resident_id: String, tree: Dictionary) -> Dictionary:
+	if errands == null or not errands.ready():
+		return tree
+	var topic := ""
+	var node_id := ""
+	var line := ""
+	if errands.can_deliver(resident_id):
+		topic = "I brought your groceries."
+		node_id = ERRAND_THANKS
+		line = "Put them down there. That's the lot. Thank you."
+	elif errands.can_ask(resident_id):
+		topic = "Need anything from the shops?"
+		node_id = ERRAND_ASK
+		line = "%s. If you're going anyway." % errands.list_words(resident_id)
+	elif errands.has_open(resident_id):
+		topic = "What was it you needed?"
+		node_id = ERRAND_WAIT
+		line = "The same as I said. It hasn't changed."
+	if topic == "":
+		return tree
+	var copy: Dictionary = tree.duplicate(true)
+	var entries: Dictionary = copy.get("entries", {})
+	var home := str(entries.get(entry_for(resident_id), entries.get("first_stable", "")))
+	copy.nodes[node_id] = {"line": line, "flag": node_id, "choices": [{"label": "...", "goto": home}], "silence_goto": home}
+	for entry: Variant in entries.values():
+		var node: Dictionary = copy.nodes.get(str(entry), {})
+		if node.is_empty():
+			continue
+		var choices: Array = node.get("choices", [])
+		if not choices.any(func(c): return str(c.get("goto", "")) == node_id):
+			choices.append({"label": topic, "goto": node_id})
+		node["choices"] = choices
 	return copy
 
 

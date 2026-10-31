@@ -22,8 +22,8 @@ const PATHS: Array[String] = [
 	"res://data/shops/shoe_rebuilding.json",
 ]
 const GROCERIES_PATH := "res://data/kitchen/groceries.json"
-const KINDS := ["goods", "consumed", "part", "service", "upgrade", "loan", "wager"]
-const COUNTER_KINDS := ["goods", "consumed", "part"]
+const KINDS := ["goods", "consumed", "part", "service", "upgrade", "loan", "wager", "grocery"]
+const COUNTER_KINDS := ["goods", "consumed", "part", "grocery"]
 const SOURCES := ["live", "ad", "authored"]
 
 var shops: Dictionary = {}
@@ -42,7 +42,38 @@ func load_all() -> bool:
 			continue
 		if _valid(parsed, path, ingredients):
 			shops[str(parsed.shop_id)] = parsed
+			if bool(parsed.get("sells_groceries", false)):
+				_add_groceries(parsed, ingredients)
 	return errors.is_empty()
+
+
+## A shop that sells groceries sells the residents' own list, at their prices,
+## filed by how each is kept.
+func _add_groceries(shop: Dictionary, ingredients: Dictionary) -> void:
+	var linked := {}
+	for record: Dictionary in shop.items:
+		if record.has("grocery"):
+			linked[str(record.grocery)] = true
+	var ids := ingredients.keys()
+	ids.sort()
+	for grocery: String in ids:
+		var row: Dictionary = ingredients[grocery]
+		if str(row.shop) != str(shop.shop_id) or linked.has(grocery):
+			continue
+		if not shop.groups.has(str(row.storage)):
+			errors.append("%s has no stock group for %s" % [shop.shop_id, row.storage])
+			continue
+		shop.items.append({"id": grocery, "name": str(row.name), "cents": int(row.cents), "kind": "grocery",
+			"source": "live", "group": str(row.storage), "grocery": grocery, "pack": float(row.pack)})
+
+
+## What the counter itself sells, in catalogue order. The news rack sells papers.
+func counter_items(shop_id: String) -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	for record: Dictionary in shops.get(shop_id, {}).get("items", []):
+		if str(record.kind) in COUNTER_KINDS and str(record.get("sold_by", "counter")) == "counter":
+			out.append(record)
+	return out
 
 
 func shop_ids() -> Array:

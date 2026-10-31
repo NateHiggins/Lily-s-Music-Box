@@ -105,6 +105,7 @@ var shop_catalogue: ShopCatalogue
 var shop_stock: ShopStock
 var shop_clearing: RefCounted
 var carried_case_view: CanvasLayer
+var shop_counters: Dictionary = {}
 var shop_simulation: Node
 var day_night_director: DayNightDirector
 var light_rig: LightRig
@@ -862,6 +863,15 @@ func _compose_authorities() -> void:
 	carried_case_view.player=player
 	carried_case_view.economy=economy
 	add_child(carried_case_view)
+	shop_counters=preload("res://scripts/building/orison_v2_shop_counters.gd").mount(self)
+	if shop_counters.is_empty():
+		startup_failed=true;push_error("ORISON V2 RUNTIME: shop counters refused");return
+	var news_stand: Node=passage_region.transaction_actor_root().get_node_or_null("NewsStand")
+	if news_stand!=null:
+		news_stand.sales=ShopSales.new("news_cigars",shop_catalogue,shop_stock,shop_clearing)
+	exterior_cell.stock_presence=_shop_has_stock
+	if conversations!=null and conversations.errands!=null:
+		conversations.errands.economy=economy
 	var saved_mechanisms: Dictionary=passage_region.doors.duplicate()
 	saved_mechanisms[str(fire_maintenance_counter.name)]=fire_maintenance_counter
 	household_state = HouseholdState.new()
@@ -1127,6 +1137,9 @@ func _compose_observation_ledger() -> void:
 		var kitchens := KitchenLarder.new()
 		if kitchens.load_data(resident_agenda.homes()) and kitchens.bind(RealityState.data, RealityState.commit):
 			resident_agenda.larder = kitchens
+			if conversations != null:
+				conversations.errands = ResidentErrands.new()
+				conversations.errands.setup(kitchens, get_node_or_null("CaretakerEconomy"))
 		else:
 			push_warning("ORISON V2 RUNTIME: household larders unavailable: %s" % [kitchens.errors])
 	observation_ledger = NpcObservationLedger.new()
@@ -1449,6 +1462,14 @@ func room_at_world(world_position: Vector3) -> String:
 	if _blockout==null or layout.is_empty():return ""
 	if public_landings!=null:return public_landings.room_at(world_position)
 	return preload("res://scripts/building/orison_v2_space_footprints.gd").room_at(layout,_blockout.to_local(world_position))
+
+
+## The Bodega's shelves stand while any of its groups holds stock.
+func _shop_has_stock(_exterior_shop: String) -> bool:
+	for group_id: String in shop_catalogue.shops.bodega.groups:
+		if shop_stock.level("bodega",group_id)!=ShopStock.OUT:
+			return true
+	return false
 
 
 func _shop_line_open(shop_id: String) -> bool:

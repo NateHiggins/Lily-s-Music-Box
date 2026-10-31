@@ -39,7 +39,7 @@ func transaction_status(item_id: String) -> String:
 		return "invalid_quote"
 	if record.has("group") and stock.units(shop_id, str(record.group)) < 1.0:
 		return "out_of_stock"
-	if str(record.kind) != "consumed" and not PersonInventory.can_carry_goods(PersonInventory.PLAYER, item_id, str(record.get("form", "packet"))):
+	if str(record.kind) not in ["consumed", "grocery"] and str(record.get("sold_by", "")) != "rack" and not PersonInventory.can_carry_goods(PersonInventory.PLAYER, item_id, str(record.get("form", "packet"))):
 		return "case_full"
 	return clearing.settlement_status(shop_id, int(record.cents))
 
@@ -55,7 +55,10 @@ func _deliver(record: Dictionary) -> bool:
 	var group := str(record.get("group", ""))
 	if group != "" and not stock.take(shop_id, group):
 		return false
-	if str(record.kind) == "consumed" or PersonInventory.carry_goods(PersonInventory.PLAYER, str(record.id), str(record.name), str(record.get("form", "packet"))):
+	if str(record.kind) == "grocery":
+		PersonInventory.carry(PersonInventory.PLAYER, str(record.grocery), float(record.pack))
+		return true
+	if str(record.kind) == "consumed" or str(record.get("sold_by", "")) == "rack" or PersonInventory.carry_goods(PersonInventory.PLAYER, str(record.id), str(record.name), str(record.get("form", "packet"))):
 		return true
 	if group != "":
 		stock.put_back(shop_id, group)

@@ -4455,8 +4455,10 @@ retained transport-plaza owner, not the incomplete earlier ground subset.
 
 Preparation passes the source spatial audit and reader NEW0. Compilation is
 queued through the shared lane; no composed execution or pass is claimed here.
-The southern native pair is still under its author's visual review. Wait for
-that frozen delivery and reconcile the new main PR101 shop/errand owners before
-running this combined programme. It does not replace full-city travel, saves,
+The southern native pair is still under its author's visual review. Main PR101
+**82526a32**, including its shop/errand owners and spatial records, is reconciled
+without conflicts; post-merge spatial audit is clean and reader NEW0. Wait for
+the frozen native delivery before running this combined programme. The merged
+code has not yet been imported or executed in canonical. It does not replace full-city travel, saves,
 performance comparison or artistic acceptance. The published25-study count is
 unchanged. Original failed evidence and all previous capture archives remain.

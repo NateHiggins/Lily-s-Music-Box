@@ -52,6 +52,9 @@ var maintenance_inventory: MaintenanceInventory
 var shop_service: MaintenanceShopService
 var spatial_resolver: Variant
 var shop_bucket_registry: Variant
+## Optional: answers whether a shop has anything on its shelves. When bound, it
+## wins over the bucket, which still counts resident visits but is never refilled.
+var stock_presence: Callable = Callable()
 
 var _objective_tracker: ObjectiveTracker
 var _geometry_source: Dictionary = {}
@@ -256,6 +259,8 @@ func refresh_shop_presentation() -> Dictionary:
 				"ok": false, "reason": "durable bucket missing"}
 			continue
 		var has_stock := int(state.get("stock", 0)) > 0
+		if stock_presence.is_valid():
+			has_stock = bool(stock_presence.call(shop_id))
 		var visuals: Array = _stock_visual_nodes.get(instance_id, [])
 		for raw: Variant in visuals:
 			var visual := raw as GeometryInstance3D
