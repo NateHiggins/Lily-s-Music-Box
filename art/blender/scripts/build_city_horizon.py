@@ -10,7 +10,7 @@ from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_o
 from fabrication_native_batch import material,partition,export
 from city_ground_apron_geometry import exported_bounds,relief_height
 from city_industrial_architecture import IndustrialBuildings,MillLofts,EasternRows
-from city_residential_architecture import ResidentialHouses,EasternHouses,CourtApartments
+from city_residential_architecture import ResidentialHouses,EasternHouses,CourtApartments,CivicRows,CivicBlocks
 plan_path=ROOT/'art/data/city_horizon/source_plan.json';plan=json.loads(plan_path.read_text())
 grade_path=ROOT/'art/blender/city_ground_apron_construction.json';grade=json.loads(grade_path.read_text())
 validate_plan(plan,grade['retained_ground_bounds'])
@@ -65,6 +65,8 @@ for family in ['near','far']:
             constructor={'industrial_front':IndustrialBuildings,'mill_front':MillLofts,'eastern_row':EasternRows,'residential_front':ResidentialHouses}[study['type']]
             if study.get('style') in EasternHouses.STYLES:constructor=EasternHouses
             if study.get('style') in CourtApartments.STYLES:constructor=CourtApartments
+            if study.get('style') in CivicRows.STYLES:constructor=CivicRows
+            if study.get('style') in CivicBlocks.STYLES:constructor=CivicBlocks
             authored=constructor(row,add,neighbours).build()
             windows.extend(authored['windows']);bearings.extend(authored['bearings'])
             def lower_add(owner,key,vertices,faces):
@@ -265,7 +267,10 @@ for family in ['near','far']:
     native=ROOT/'art/blender'/('city_horizon_'+family+'.blend')
     bpy.ops.wm.save_as_mainfile(filepath=str(native),compress=True)
     asset=ROOT/'game/assets/props'/('city_horizon_'+family+'.glb')
-    assert asset.stat().st_size<95*1024*1024 and native.stat().st_size<95*1024*1024
+    # Publication bytes,not a rendering budget. GitHub's regular-Git limit
+    # is100MiB; the previous95MiB headroom stopped a99,958,788byte valid
+    # export. Further city growth needs block exports before this hard limit.
+    assert asset.stat().st_size<100*1024*1024 and native.stat().st_size<95*1024*1024
     assets[family]=dict(asset=asset.relative_to(ROOT).as_posix(),sha256=hashlib.sha256(asset.read_bytes()).hexdigest(),bytes=asset.stat().st_size,
         native=native.relative_to(ROOT).as_posix(),native_sha256=hashlib.sha256(native.read_bytes()).hexdigest(),bounds=exported_bounds(asset.read_bytes()),export_check=proof,
         parts=[dict(name=o.name,key=o.name.split('__')[-1],triangles=len(o.data.polygons)) for o in draws])

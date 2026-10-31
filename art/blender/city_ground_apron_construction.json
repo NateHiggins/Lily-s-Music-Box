@@ -1771,7 +1771,7 @@
     "game/data/runtime_material_sets.json": "053761fac29499e8bc9a80a62f37d7411226157919b5cdc5421b9686569d38cc",
     "art/blender/scripts/build_city_ground_apron.py": "ec69624d7360f4ffc477a7cf47f3e53bfde5f5045d8f5026765c979a1edf7a68",
     "game/scripts/building/orison_v2_ground.gd": "de934af2f2d42588c982f0555e9674614969cd16b1ed81f52151e5f969477260",
-    "art/data/city_horizon/source_plan.json": "8f7fde64dfe27b6632bb32fb4c89490f5738ebf9c3f7ef019dd0bf878463b155",
+    "art/data/city_horizon/source_plan.json": "8cba89166f204e1b69c73a6da39f53d6204519aa14fd441e335e26b942e40061",
     "art/blender/scripts/city_ground_apron_geometry.py": "05d1c3f1eed60276eb2eccfd570f2f4711127a6bb4f1f0fa3d39470ad2e9383a",
     "art/blender/scripts/ground_closed_union.py": "6ff88027fb87035a556d9f8976c9f12d064d295014ec4c6c79a7b35d00dde25d",
     "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
@@ -1819,6 +1819,13 @@
     "evidence_class": "INERT",
     "old_source": "95d4506e",
     "new_source": "05f5df70",
+    "scope": "All124 ids/footprint rectangles used by exposed-sample exclusion remain exact. Native apron unchanged.",
+    "projection_sha256": "e7b572a10a1be3baed32527cb694ea6ae1cb739bdf41fe09d568a7ec137a24c1"
+  },
+  "civic_plan_reconciliation": {
+    "evidence_class": "INERT",
+    "old_source": "3ad46945",
+    "new_source": "81d2988e",
     "scope": "All124 ids/footprint rectangles used by exposed-sample exclusion remain exact. Native apron unchanged.",
     "projection_sha256": "e7b572a10a1be3baed32527cb694ea6ae1cb739bdf41fe09d568a7ec137a24c1"
   }

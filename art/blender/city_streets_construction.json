@@ -19,8 +19,8 @@
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
-    "art/data/city_horizon/source_plan.json": "8f7fde64dfe27b6632bb32fb4c89490f5738ebf9c3f7ef019dd0bf878463b155",
-    "art/blender/city_horizon_construction.json": "2546d892799d5133b0d21edaa43e09db100fd9d272a526ba214f2f45d84f453e",
+    "art/data/city_horizon/source_plan.json": "8cba89166f204e1b69c73a6da39f53d6204519aa14fd441e335e26b942e40061",
+    "art/blender/city_horizon_construction.json": "9346969d6363ec1ed217a72c27232dcf64e572210731935c5780eebf07d51626",
     "art/blender/scripts/city_industrial_architecture.py": "98573266c9b41da690f1e2cc22b68bf34ab725ce24b1a3cb264fea38be66004f",
     "game/scripts/building/orison_v2_world_connection.gd": "921558ac46b704185f731370c6cf814e56a03c0667eb16a8789d8534a50dccc3",
     "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
@@ -426097,6 +426097,11 @@
   "court_context_reconciliation": {
     "evidence_class": "INERT",
     "source": "05f5df70",
+    "scope": "Two horizon context references occur only in the unchanged metadata list, not street geometry reads. Allother inputs and both street GLBs exact."
+  },
+  "civic_context_reconciliation": {
+    "evidence_class": "INERT",
+    "source": "81d2988e",
     "scope": "Two horizon context references occur only in the unchanged metadata list, not street geometry reads. Allother inputs and both street GLBs exact."
   }
 }
