@@ -3703,3 +3703,43 @@ particular asset/foreign process. No foreign processes are stopped. One unchange
 source/settings retry is queued with independent five-second GPU and periodic
 host-memory sampling. No mesh,surface predicate or shader is weakened to pass.
 Current source packet remains stale; candidate stays local and tally21/149.
+
+
+### Current-source physical publication and monitored retry
+
+Evidence class: **INERT**. The unchanged physical-only retry completes362.13s
+with **651 checks/0 failures**,empty stderr and a schema2 completed contract.
+Its production composition,surface and runtime-owned teardown contracts pass;
+save reconstruction and unchanged interaction programmes explicitly did not run.
+The all-loaded inventory covers29295draws/18495meshes/6535materials/542textures
+with0 unresolved surfaces. Actual current bookcase frame inspected alongside the
+five already-reviewed narrow/Bodega/bridge route frames; sparse shelf dressing
+remains open. No new gameplay or artistic acceptance is inferred from the survey.
+
+Existing atomic publisher validates source and destination with **0 defects**;
+current surface input SHA256 **39284071bb592e34ad37ac1c5b6e79a5e2038400c9645164941a2668a1076609**.
+The preceding packet is preserved before replacement. Portable
+**bridge_surface_renewal.zip**,indexed with every member hash in the existing
+manifest,retains prior packet,current inventory/logs/contracts and a hash index of externally retained survey captures,
+executed test sources and measured memory trace. The original failed survey is
+not overwritten. Final candidate comparison/push remain pending at this entry.
+
+During the actual retry window,67 five-second GPU samples reach9287MiB used;
+22 host samples reach119562227712committed bytes and as little as238526464
+available physical bytes. Reported host commit limits change between137243189248,
+85710528512 and79202856960bytes. The sampled Godot process reaches24906305536
+private bytes/11581108224working-set bytes. These are sampled extrema of this
+exhaustive survey,not exact peaks,ordinary-play memory or an uncontended budget.
+Global host conditions changed; the first Vulkan allocation failure remains
+unexplained. No driver,geometry or allocation fix is claimed by the passing retry.
+Cold root startup148486.345ms and prior measured walking spikes remain open.
+
+The live wait also exposed a broker record-removal race: Get-Content's
+nonterminating error escaped the existing catch when a departing waiter vanished
+between enumeration/read. Narrow repair **963094b4** adds-ErrorActionStop to that
+read only. The deterministic private-directory old-source control fails,then
+passes after repair; all five private queue tests pass in18.018s,including FIFO
+and direct-runner refusal. No live global mutex,priority or running job is altered.
+Nine normalized-identical import rewrites were restored by named paths after
+raw-byte backup; no semantic import edit was discarded. Untracked generated UIDs
+and app attachments remain preserved pending the clean-checkout verification step.

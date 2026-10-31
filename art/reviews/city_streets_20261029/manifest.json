@@ -9293,5 +9293,142 @@
         "sha256": "6c50af42bdab4362e1423f3c49fb13259e014327cb23571da8abb1271717f5f0"
       }
     }
+  },
+  "bridge_surface_renewal": {
+    "archive": "bridge_surface_renewal.zip",
+    "evidence_class": "INERT",
+    "scope": "Current physical-only651/0 and empty stderr,reviewed representative frames; previous sourceboundpacket preserved. Original allocation failure remains separate/unresolved. Memory samples and private queue race control included; no saves,wholecity or human acceptance.",
+    "bytes": 13231659,
+    "sha256": "0b05071043e4e09c84cd1362246abab1269e833bf07363be35d8b86764688299",
+    "members": {
+      "current_raw/runtime_contract.json": {
+        "bytes": 1829,
+        "sha256": "148b64d31deefb27083892acfe93dd02924db03e6756e13a6a55a8de42e91c78"
+      },
+      "current_raw/surface-inventory.json": {
+        "bytes": 22503714,
+        "sha256": "d38adc301e09e776c668614c3abc375a6ab747b3c5acb3aaf2fa39f9b02cfd30"
+      },
+      "current_raw/technical_findings.json": {
+        "bytes": 40563,
+        "sha256": "6c8ee6b28bd6c19204e96d244e017ffc35a34c5dd5d80c848c0dba3401ee4b77"
+      },
+      "current_source/game/tests/orison_v2_floor_surface_test.gd": {
+        "bytes": 10727,
+        "sha256": "dc0a993f67bdd197ceba0c7a65e5f5917935ad11f1e32c8f6ac8089307afdb8f"
+      },
+      "current_source/game/tests/orison_v2_surface_inventory.gd": {
+        "bytes": 39136,
+        "sha256": "55e2cfd50ae8469f770f7413026e1a9e0729c6bf06f3e787500bbc6e6626bdc1"
+      },
+      "current_source/tools/lane_common.ps1": {
+        "bytes": 6974,
+        "sha256": "49f1b53dd074e621293ef554584ac59289ef9e2dba6cc8d04c2326d30aea2461"
+      },
+      "current_source/tools/tests/test_lane_queue.py": {
+        "bytes": 5960,
+        "sha256": "33c58a6a2be8a9b2cd23f411eb6931d9f4685eac7350a4700a590eacb2480816"
+      },
+      "external_capture_index.json": {
+        "bytes": 3161,
+        "sha256": "10a52d03b03f9e0bad7541e839c367a39377a31a4a06b33cd5bf773d52e39f2f"
+      },
+      "lane_race/control.stderr": {
+        "bytes": 1150,
+        "sha256": "4bafa9d2716c9d975c999d69eea0e914ec656898819189d7110e30597abae4f9"
+      },
+      "lane_race/control.stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "lane_race/control/lane_common.ps1": {
+        "bytes": 6650,
+        "sha256": "77c6607ea426286af45c5f29176864699561ddfd9f44a140355fc7dedbefe7a3"
+      },
+      "lane_race/fixed.stderr": {
+        "bytes": 103,
+        "sha256": "f1d694829e233626db276ffd00dca20a0458fe9106abefaa50cd54b6b2acfa04"
+      },
+      "lane_race/fixed.stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "lane_race/result.json": {
+        "bytes": 343,
+        "sha256": "5f674c601db1cb7635246addc436ccd4ad8fe04041101866bfea080c4f5fb92f"
+      },
+      "monitor_retry_memory.py": {
+        "bytes": 1160,
+        "sha256": "f540923fa6a46a3d445997593ee4902d832d86fb0576135dfae8e096ec810db3"
+      },
+      "physical_retry01.log": {
+        "bytes": 2578,
+        "sha256": "fbd000cb8b786ad25f26cfaf2196c58656c90eb68053b3bab122790673896650"
+      },
+      "physical_retry01.log.receipt.json": {
+        "bytes": 2910,
+        "sha256": "4e97b694104e43b5f2fbfc4eed49b09580973b968d8c9db3f74e7122be8084cd"
+      },
+      "physical_retry01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "physical_retry01_batch.json": {
+        "bytes": 479,
+        "sha256": "e9aea0dbb9200f3154e1c7ead9498b189e01ecb6537e37ac15c1365c8b65437c"
+      },
+      "physical_retry01_memory.jsonl": {
+        "bytes": 33632,
+        "sha256": "79beb85995d65772fcd801a07ee03aff11302169162addefbbcab224e4c1d395"
+      },
+      "physical_retry01_memory_analysis.json": {
+        "bytes": 941,
+        "sha256": "e6f65bbee23f44b9914e3ffff4b0c71c6a4715145ef9a2d1ebe148ecd823ab83"
+      },
+      "previous_surface_packet/arcade_lamp_roadside_night.png": {
+        "bytes": 4829505,
+        "sha256": "53d3e0291dbea120d6e79b6ab584ab70a2a703ce0e8116401b530528c66dd8c1"
+      },
+      "previous_surface_packet/bank_front_standing.png": {
+        "bytes": 2128004,
+        "sha256": "ba31fb52566444be1658fda6b272443d54d10a29ce3a0c02c2d3106d8128eed2"
+      },
+      "previous_surface_packet/bookcase.png": {
+        "bytes": 2575236,
+        "sha256": "15fdf06503bd5810fae028a850c20720400a60a4fcfe0eb1a740860d21539ff2"
+      },
+      "previous_surface_packet/runtime_contract.json": {
+        "bytes": 1829,
+        "sha256": "92d7579cd3dc4ec323f7ab2c113a613b855c66333c66bf1c051ef3e651fa0d59"
+      },
+      "previous_surface_packet/suite_run.receipt.json": {
+        "bytes": 3029,
+        "sha256": "356f4b59abbe66117f91f996cad31a9d5ef66b2b6e9f53155c56dc06d232d89b"
+      },
+      "previous_surface_packet/suite_run.stderr.log.gz": {
+        "bytes": 20,
+        "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e"
+      },
+      "previous_surface_packet/suite_run.stdout.log.gz": {
+        "bytes": 1370,
+        "sha256": "cfeae7a190f471f5dfd839a47d7e444c19a243bcfce3629c29884dc1c7573e2d"
+      },
+      "previous_surface_packet/surface-inventory.json.gz": {
+        "bytes": 786594,
+        "sha256": "f0f9544a27aab5a28a3e25d9102a696d13190e433938a0301b2f4717f93e2dfa"
+      },
+      "previous_surface_packet/terracotta_works_standing.png": {
+        "bytes": 2023610,
+        "sha256": "f39249a521d478386f05813a8701244ed32573169f3fa8b4c954c80e50b2b439"
+      },
+      "previous_surface_packet/visual_review.json": {
+        "bytes": 2096,
+        "sha256": "172686cbe052b9a0adbeb0acfd6f070585d0e056965b131f930e030d562d8a8b"
+      },
+      "qualification_before_publication.json": {
+        "bytes": 160,
+        "sha256": "853dc2b7e5c06154c6a08ce021d85a82658dccc513cdfae962570116abd5a1f4"
+      }
+    }
   }
 }
