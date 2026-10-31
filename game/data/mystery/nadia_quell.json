@@ -55,6 +55,17 @@
    ],
    "source": "S15. Intentionally entered. Nothing follows \"No.\" Do not edit in passing.",
    "root": "nq_c1"
+  },
+  {
+   "id": "nq_hold",
+   "from": "1929-08-03",
+   "until": "1929-11-09",
+   "topic": "What happens to the rent now?",
+   "requires": [
+    "m_lease_read"
+   ],
+   "source": "Lore pass AL-04. Treatment section 3 has the association able to resolve to hold the rent; the Arcade tenants are printed paying into court. A motion only. Adds no mechanic, and does not touch the player's own rent.",
+   "root": "nq_h1"
   }
  ],
  "nodes": {
@@ -238,6 +249,20 @@
   "nq_c9": {
    "flag": "m_told_nadia",
    "line": "She keeps the pencil."
+  },
+  "nq_h1": {
+   "silence_goto": "nq_h2",
+   "line": "There's a motion to pay the rent to the Municipal Court clerk until somebody shows a title. It has sat on the table since August. It wants a second, a ledger and nobody saying the word strike in front of Mr. Wren. I have the ledger.",
+   "choices": [
+    {
+     "label": "Would you hold yours?",
+     "goto": "nq_h2"
+    }
+   ]
+  },
+  "nq_h2": {
+   "flag": "m_rent_hold_moved",
+   "line": "The chair can't second. So the chair will step out for as long as that takes. I've already paid for one sentence in that parlour. I can pay for this one at the clerk's window, and get a receipt."
   }
  }
 }

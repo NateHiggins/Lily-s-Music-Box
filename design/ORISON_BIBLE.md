@@ -1202,6 +1202,13 @@ They remain context-sensitive, respect protected speech and silence, and cannot
 teach the machine by replaying its own recordings. These specific directions
 do not extend the signal exception to unrelated city technology.
 
+#### Prohibition — owner ruling, 2026-10-31
+
+The Eighteenth Amendment stands here as it did in ours, and nobody in Queens acts like it.
+It is the law, and loosely enforced: near beer on a bodega shelf, a wink at the Harukiya, a
+raid somewhere else in the paper. It adds no policing system. The Rule of Signal doesn't touch
+it, because a bottle carries no signal.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of

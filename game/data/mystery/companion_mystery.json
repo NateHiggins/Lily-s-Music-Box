@@ -588,6 +588,36 @@
    "text": "You have stopped your ears. I print, so nothing changes between us. Mind the radiators; they will go on without you."
   },
   {
+   "id": "m_drawer",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "i kept those plates",
+    "the bottom drawer",
+    "i squeezed them",
+    "was i wrong about the drawer"
+   ],
+   "requires": [
+    "m_adela_drawer"
+   ],
+   "text": "Entered, on your word: the lamps on Jackson Avenue. I have no column for how they were paid for. I have opened one."
+  },
+  {
+   "id": "m_not_a_demand",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "it wasn t a demand",
+    "i wasn t asking for money",
+    "it was a courtesy",
+    "i wanted nothing from her"
+   ],
+   "requires": [
+    "m_mae_knew_drawer"
+   ],
+   "text": "Entered, on your word: you wanted nothing from 6C that week. Also entered, on yours: you kept a drawer. The file holds both. It does not add them up. That wants someone with hands."
+  },
+  {
    "id": "m_end_keep",
    "movement": "IV_line",
    "surface": "witnessed",
