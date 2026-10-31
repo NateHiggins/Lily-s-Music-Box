@@ -13,11 +13,12 @@ const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[
 func _ready() -> void:
 	_route_scope=OS.get_environment("ORISON_CITY_ROUTE_SCOPE")
 	if _route_scope.is_empty():_route_scope="full"
-	if _route_scope not in ["full","northwest","opposing","northeast","northeast2","narrow","bridge","hampton","gaslamps","southwest","southwest_rear"]:
+	if _route_scope not in ["full","northwest","opposing","northeast","northeast2","narrow","bridge","hampton","gaslamps","southwest","southwest_rear","cardinal"]:
 		push_error("Unknown ORISON_CITY_ROUTE_SCOPE: "+_route_scope)
 		get_tree().quit(64)
 		return
 	super._ready()
+	if _route_scope=="cardinal":OS.set_environment("DAYNIGHT_FORCE","")
 	route_label = "V2 CITY NORTHWEST" if _route_scope=="northwest" else "V2 CITY EXTERIOR"
 	if _route_scope=="opposing":route_label="V2 CITY OPPOSING"
 	if _route_scope=="northeast":route_label="V2 CITY NORTHEAST"
@@ -34,6 +35,7 @@ func _ready() -> void:
 		OS.set_environment("DAYNIGHT_FORCE","21:00")
 
 func _process(_delta: float) -> void:
+	if _route_scope=="cardinal" and Input.mouse_mode!=Input.MOUSE_MODE_VISIBLE:Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 	if not _collect_exploration: return
 	var now := Time.get_ticks_usec()
 	if _previous_exploration_usec > 0:
@@ -59,12 +61,15 @@ func _programme_sources() -> Dictionary:
 		result[path] = FileAccess.get_sha256(path)
 	for path: String in ["res://assets/props/city_streets.glb","res://assets/props/city_streets_lod1.glb","res://tests/fixtures/orison_city_streets.json"]:
 		result[path] = FileAccess.get_sha256(path)
-	if _route_scope in ["narrow","bridge"]:
+	if _route_scope in ["narrow","bridge","cardinal"]:
 		for path: String in ["res://scripts/building/orison_v2_city_bridge.gd","res://data/orison_v2/exterior/city_bridge.json","res://assets/props/city_bridge.glb","res://assets/props/city_bridge.glb.import","res://assets/props/city_bridge_lod1.glb","res://assets/props/city_bridge_lod1.glb.import"]:
 			result[path]=FileAccess.get_sha256(path)
 	return result
 
 func _run() -> void:
+	if _route_scope=="cardinal":
+		await _run_cardinal()
+		return
 	if _route_scope=="bridge":
 		await _run_bridge()
 		return
@@ -84,6 +89,51 @@ func _run() -> void:
 	city_observations["programme_sources"] = programme_before
 	city_observations["route_scope"]="full"
 	await super._run()
+
+func _run_cardinal() -> void:
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"cardinal output directory exists")
+	if not failures.is_empty():get_tree().quit(1);return
+	source_before=_digest();programme_before=_programme_sources()
+	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
+	CampaignTime.set_frozen_for_tests(true)
+	var clock:=CampaignClock.new()
+	check(clock.configure_date(1928,11,10,720),"dated optical fixture uses the campaign clock")
+	world=Runtime.instantiate();add_child(world)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	while not world.startup_failed and world.startup_ms<=0.:await get_tree().process_frame
+	check(not world.startup_failed and world.player!=null,"current production world starts for cardinal review")
+	var views: Array=[]
+	if not world.startup_failed and world.player!=null:
+		player=world.player
+		var city:=world.get_node("CityShells") as Node3D
+		var at: Vector3=city.to_local(world.adapter.root.to_global(Vector3(14,19.2,-9)))
+		if await _opposing_start(city,Vector3(at.x,-at.z,at.y),"cardinal_rooftop_origin",true):
+			player.set_physics_process(false);player.set_lamp_enabled(false)
+			if player.carried_device is ServiceSetCarrier:player.carried_device.set_capture_hidden(true)
+			var camera:=Camera3D.new();camera.cull_mask=player.camera.cull_mask
+			camera.keep_aspect=Camera3D.KEEP_WIDTH;camera.fov=100.;camera.far=5000.
+			add_child(camera);camera.global_position=player.camera.global_position+Vector3.UP*2.
+			camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
+			for shot: Dictionary in [{"id":"north","azimuth":0.,"minutes":[1000,1020]}, {"id":"east","azimuth":90.,"minutes":[395,420]}, {"id":"south","azimuth":180.,"minutes":[930,970]}, {"id":"west","azimuth":270.,"minutes":[980,1000]}]:
+				var bearing:=deg_to_rad(float(shot.azimuth))
+				camera.look_at(camera.global_position+Vector3(sin(bearing),-.0875,-cos(bearing))*100.)
+				for minute: int in shot.minutes:
+					check(clock.configure_date(1928,11,10,minute),"cardinal clock selection")
+					await get_tree().create_timer(2.0).timeout
+					world.day_night_director._apply(float(minute))
+					for frame in 60:await RenderingServer.frame_post_draw
+					var name: String="%s_%02d%02d.png"%[shot.id,minute/60,minute%60]
+					check(get_viewport().get_texture().get_image().save_png(directory.path_join(name))==OK,"actual cardinal render saved: "+name)
+					views.append({"file":name,"date":"1928-11-10","minute":minute,"azimuth_deg":shot.azimuth,"camera_world":str(camera.global_position),"horizontal_fov":100.,"weather":world.weather_conditions(),"lighting":world.day_night_director.resolved_profile()})
+			camera.free()
+	world.shutdown_for_tests();world.free();await get_tree().physics_frame
+	check(source_before==_digest() and programme_before==_programme_sources(),"capture source inputs stayed frozen")
+	check(views.size()==8,"four cardinal directions have two actual lighting selections")
+	var record: Dictionary={"evidence_class":"INERT","scope":"Actual production world,posed camera2m above an independently validated roof eye; true geographic cardinal bearings,100degree horizontal fields. Authored campaign weather/clock/light owners. Device overlay hidden and personal lamp off for photography. No walked roof access,full-city qualification,performance or artistic acceptance.","checks":city_checks,"failures":failures,"source":{"test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_before},"views":views}
+	FileAccess.open(directory.path_join("cardinal_views.json"),FileAccess.WRITE).store_string(JSON.stringify(record,"\t")+"\n")
+	print("CARDINAL ROOF CAPTURES: ",views.size()," views; ",failures.size()," failures")
+	get_tree().quit(0 if failures.is_empty() else 1)
 
 func _run_gaslamps() -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
