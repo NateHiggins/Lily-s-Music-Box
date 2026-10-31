@@ -3570,3 +3570,44 @@ photographs/PDFs and duplicate production meshes are excluded. This is a native
 checkpoint, not runtime or artistic acceptance. The import/compiler batch waits
 FIFO behind canonical transport-route work; current loaded/LOD/capsule checks
 remain pending. No shared integration file or protected authority was edited.
+
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Evidence class: **INERT**. Complete rear-west native and isolated loaded checkpoint.
+Native/source freeze **7dec75d9**, following tracker-only **c4854e7e** and
+upper-only **1a6b09d2**. Current import27.48s/compiler1script pass,empty stderr.
+The previous import's126454-byte stderr contains638 UID-cache recreation
+warnings; it was not empty. Current import/compiler diagnostics are not contracts.
+
+Corrected fullscreen isolated bench **7299 checks/1205 roof samples/1070 family
+draws/0 failures**,wrapper37.74s,empty stderr. All seven actual captures inspected.
+Current near/far wholefront keeps the seven axes,entrance/steps and roof plant;
+the four natural-transition images deliberately isolate one brick material part.
+The latter changes3068 to2900 primitives across195.5328574/195.5489163m;
+5-degree FOV recovery and inward return restore3068. This is not a wholecity
+LOD or composed appearance qualification. All207 test-recorded source inputs
+still match its LF-text/raw-binary policy. An initial raw-only checker wrongly
+flagged seven unchanged CRLF source files; original failures are listed in the
+binding check. Seventeen protected paths remain unchanged versus1a6b09d2.
+
+Measured isolated group35 draws/42808 near and39107 forced-lower primitives,
+including original roof equipment. Five cases each record90 warmed frames,
+3440x1440 fullscreen,MSAA3,TAAoff,vsyncoff,uncapped. First near GPU median0.690ms,
+p950.695ms,max0.748ms;wallmedian1.009ms,p951.255ms,max**39.436ms**,four frames
+over16.667ms. Later far/natural/far-repeat/near-repeat GPU medians
+0.686/0.665/0.635/0.636ms and wall maxima1.205/1.098/1.087/1.104ms.
+No matched baseline,quiet-host control,causal spike explanation or wholecity
+performance-budget claim. Host GPU snapshots are not peak-resource measurements.
+The current isolated bench/profile is INERT,not a schema2 runtime_contract.
+Standing controller approach/step collision,composed light/mip/surface renewal
+and artistic acceptance remain open for coordinated canonical qualification.
+Original7285-check/two-selector failure and all native diagnostic failures remain.
+
+Existing portable rear-apartment archive now has151 members/36532742 bytes,
+SHA256 **af96df6ab0a5e68f87996f14d1b47257b9e19db9a28bc43a53a064c582e11ed0**;
+manifest hashes and member CRC/bytes verified. Earlier native members are retained;
+identical new evidence bytes use explicit aliases. No reference image/PDF or
+production mesh duplicates included.638 generated untracked UID files individually
+cleaned only after own Godot terminal and exact matching to their prior archive.
+No main merge,shared integration edit or published149-building tally promotion.

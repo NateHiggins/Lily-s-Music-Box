@@ -8772,11 +8772,11 @@
   },
   "rear_apartment_native_archive": {
     "path": "art/reviews/city_streets_20261029/rear_apartment_native_review.zip",
-    "sha256": "0fa3f82935d760705366dc18cb130692c118f7383ea8d7a8d88ec677e0aeaa29",
-    "members": 134,
-    "bytes": 34471199,
+    "sha256": "af96df6ab0a5e68f87996f14d1b47257b9e19db9a28bc43a53a064c582e11ed0",
+    "members": 151,
+    "bytes": 36532742,
     "evidence_class": "INERT",
-    "scope": "Upper-only original and complete-front native checkpoints;original failed isolated bench retained. No current runtime, capsule or artistic qualification.",
+    "scope": "Original upper/native/fullfront checkpoints and original failed/corrected passed isolated loadedbench;no current standingcontroller/composedlighting/artistic acceptance.",
     "files": {
       "actual_native_inspection_01.json": {
         "bytes": 3718,
@@ -9261,6 +9261,74 @@
       "installed_city_and_roof_survey_01.json": {
         "bytes": 172721,
         "raw_sha256": "ad7b13d898f3e0c2490672d890682ad0d0bbdb622a8b33adfd537747120c2273"
+      },
+      "loaded_complete_front_02/actual_loaded_inspection_02.json": {
+        "bytes": 1688,
+        "raw_sha256": "f904e9ff44f16a22d696869a6f87afc1e612a5dbe991cf3ce78df9676e558d7e"
+      },
+      "loaded_complete_front_02/bench_02.log": {
+        "bytes": 291868,
+        "raw_sha256": "6d4cfe614d4366e6aab2d92911fa6195d30f8809f4e9d1aee6cb65a6802509fc"
+      },
+      "loaded_complete_front_02/bench_02.log.receipt.json": {
+        "bytes": 2856,
+        "raw_sha256": "f5c57354ded71c3f182b1e501f5bc644368f211497cefd0a24643fa57529fd4b"
+      },
+      "loaded_complete_front_02/bench_02/city_elevation_profile.json": {
+        "bytes": 86797,
+        "raw_sha256": "9db6331079ca238a23ba8024c76e82db9b2314745ac35aa05b59a341dc39d470"
+      },
+      "loaded_complete_front_02/bench_02/site_back_w.png": {
+        "bytes": 1120363,
+        "raw_sha256": "683278a2f5b38804005022f7b4753e19c0ba13a04eb94d2a447e7ca847075140"
+      },
+      "loaded_complete_front_02/bench_02/site_back_w_profile_far.png": {
+        "bytes": 460116,
+        "raw_sha256": "9de82e518aad569dadc92f8befef5a7cb32ef57613e3a1c2db573a76c14bae52"
+      },
+      "loaded_complete_front_02/bench_02/site_back_w_profile_near.png": {
+        "bytes": 459945,
+        "raw_sha256": "5f66ee7f04ec098208ae7394e62d424afd806f94f4c3383e334ea9107e777c7a"
+      },
+      "loaded_complete_front_02/bench_02_batch.json": {
+        "bytes": 468,
+        "raw_sha256": "4fd430bdb1916f3b48abbf846138b941de714c4b7048974428d5e309270d4512"
+      },
+      "loaded_complete_front_02/bench_02_binding_check.json": {
+        "bytes": 501,
+        "raw_sha256": "8df659a797ea6fb92eced9cbded4a01ee6a0a624567dcf24a66ed508d0ccb3dd"
+      },
+      "loaded_complete_front_02/bench_02_host_gpu_after.csv": {
+        "bytes": 154,
+        "raw_sha256": "6b64afff666a6e54c8dc86aa700555eecd11d16b6606cb51375d120e60a10f15"
+      },
+      "loaded_complete_front_02/bench_02_host_gpu_before.csv": {
+        "bytes": 153,
+        "raw_sha256": "1dd36f6ffe1c4932be288ec09f4f0edfc8aead093352dbdc80806e132f6b6156"
+      },
+      "loaded_complete_front_02/bench_02_summary.json": {
+        "bytes": 6230,
+        "raw_sha256": "ef57b1781b802c1292bc363219333e928f4e78e22195ca9c3fc1b2f0764ff153"
+      },
+      "loaded_complete_front_02/identical_evidence_aliases.json": {
+        "bytes": 1026,
+        "raw_sha256": "0e69c8130c071f94dbbfd563e82da645099c048ddcec272d3a70e59a199fb510"
+      },
+      "loaded_complete_front_02/import_02.log.receipt.json": {
+        "bytes": 2660,
+        "raw_sha256": "2a15ba2f59eec6925480c2438d16ca55acc41c7bcdb964e0eb0f2183c0b6f564"
+      },
+      "loaded_complete_front_02/parser_02.log.receipt.json": {
+        "bytes": 2872,
+        "raw_sha256": "3ec59da322ce026d70f00975ace64fdc7f894eba3a90cf808106b57344959a01"
+      },
+      "loaded_complete_front_02/protected_03.json": {
+        "bytes": 2775,
+        "raw_sha256": "b90505d40d171906e8aeee19c52142f386b3708642631e358da6d8884d59c081"
+      },
+      "loaded_complete_front_02/uid_cleanup_03.json": {
+        "bytes": 105041,
+        "raw_sha256": "6a644c227f38e996d9c385cb08ce2c179bd4bd880cab770b52adddb7f05b4927"
       },
       "lower_preservation_failure_01.json": {
         "bytes": 183,
