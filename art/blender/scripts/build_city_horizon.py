@@ -74,6 +74,14 @@ for family in ['near','far']:
                 vv,ff=replacement_buffers[(owner,key)];start=len(vv)
                 vv.extend(vertices);ff.extend(tuple(start+i for i in f) for f in faces)
             lower=constructor(row,lower_add,neighbours,lower=True).build()
+            if study.get('public_front_apron',False):
+                # This row's reserved front strip is a real supported walk,
+                # outside the closed scenic leaf and behind the parcel edge.
+                # Keep the same complete slab in both replacement bodies.
+                z0,z1=-.12,0.;front=-d;back=front+study['front_inset_m']
+                vv=[(u,v,w) for w in [z0,z1] for u,v in [(a,front),(c,front),(c,back),(a,back)]]
+                ff=[(0,3,2,1),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)]
+                for emitter in [add,lower_add]:emitter(name,'concrete',vv,ff)
             industrial_checks.append(dict(building=name,style=authored['style'],
                 near_closed_stocks=authored['closed_stocks'],lower_closed_stocks=lower['closed_stocks'],
                 near_min_stock_volume_m3=authored['min_closed_stock_volume_m3'],

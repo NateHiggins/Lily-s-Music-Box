@@ -2227,7 +2227,7 @@
         -163.33333333333334,
         -46.0
       ],
-      "height_m": 10.049999999999999,
+      "height_m": 10.25,
       "storey_m": 3.2,
       "bay_pitch_m": 2.35,
       "window_width_m": 0.94,
@@ -2236,23 +2236,74 @@
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.78,
-        0.66,
-        0.55,
+        0.75,
+        0.61,
+        0.48,
         1
       ],
       "variation_seed": 117,
       "typology": "rowhouse",
       "chimney_height_m": 1.4,
+      "architecture": {
+        "type": "residential_front",
+        "style": "italianate_2109",
+        "precedent": "21-31 45th Avenue, early-1870s Root/Rust brick Italianate; three stories and stuccoed basement, classical entrance pediment, retained cast-iron newel and stoop rail.",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+        "source_pages": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "floor_heights_m": [
+          0.95,
+          3.2,
+          3.1,
+          3.0
+        ],
+        "front_inset_m": 2.8,
+        "outline_m": [
+          [
+            -163.33333333333334,
+            -48.8
+          ],
+          [
+            -170.0,
+            -48.8
+          ],
+          [
+            -170.0,
+            -66.0
+          ],
+          [
+            -163.33333333333334,
+            -66.0
+          ]
+        ],
+        "scope": "AU dimensional and finish adaptation in retained6.667x20m parcel,not a measured replica or surveyed1928 location. Reuses the documented family construction grammar with a distinct floor schedule and entrance datum. 21-49 retains documented4.88m frontage. 21-38 painted lapped timber is authored:1968 asbestos cladding and undated replacement steel stoop are not1928 evidence. Scenic closed leaves add no interior,occupants,shop,save or narrative authority; no reference pixels.",
+        "side_bays": [
+          3,
+          5,
+          3,
+          5
+        ],
+        "public_front_apron": true
+      },
+      "joinery_tint": [
+        0.23,
+        0.26,
+        0.2,
+        1
+      ],
       "grade_datum_m": 0.0,
       "grade_low_m": -0.02,
       "native_stock_bounds": [
-        -170.01199340820312,
+        -170.32000732421875,
         46.0,
         -0.2800000011920929,
-        -163.3333282470703,
-        66.01200103759766,
-        11.449999809265137
+        -163.01333618164062,
+        66.31999969482422,
+        10.789999961853027
       ]
     },
     {
@@ -2263,7 +2314,7 @@
         -156.66666666666666,
         -46.0
       ],
-      "height_m": 10.049999999999999,
+      "height_m": 10.25,
       "storey_m": 3.2,
       "bay_pitch_m": 2.35,
       "window_width_m": 0.94,
@@ -2272,23 +2323,73 @@
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.9,
-        0.82,
-        0.65,
-        1
+        0.78,
+        0.7,
+        0.62,
+        1.0
       ],
       "variation_seed": 118,
       "typology": "rowhouse",
       "chimney_height_m": 1.4,
+      "architecture": {
+        "type": "residential_front",
+        "style": "narrow_2141",
+        "precedent": "21-49 45th Avenue, 1870s Root/Rust narrow16ft brick Italianate; three stories and basement, plain vertical lintels/sills, original stoop and cast-iron handrails.",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+        "source_pages": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "floor_heights_m": [
+          0.9,
+          3.2,
+          3.15,
+          3.0
+        ],
+        "front_inset_m": 2.8,
+        "outline_m": [
+          [
+            -157.56,
+            -48.8
+          ],
+          [
+            -162.44,
+            -48.8
+          ],
+          [
+            -162.44,
+            -66.0
+          ],
+          [
+            -157.56,
+            -66.0
+          ]
+        ],
+        "side_bays": [
+          2,
+          5,
+          2,
+          5
+        ],
+        "scope": "AU dimensional and finish adaptation in retained6.667x20m parcel,not a measured replica or surveyed1928 location. Reuses the documented family construction grammar with a distinct floor schedule and entrance datum. 21-49 retains documented4.88m frontage. 21-38 painted lapped timber is authored:1968 asbestos cladding and undated replacement steel stoop are not1928 evidence. Scenic closed leaves add no interior,occupants,shop,save or narrative authority; no reference pixels."
+      },
+      "joinery_tint": [
+        0.24,
+        0.27,
+        0.21,
+        1.0
+      ],
       "grade_datum_m": 0.0,
       "grade_low_m": -0.02,
       "native_stock_bounds": [
-        -163.33334350585938,
+        -163.3333282470703,
         46.0,
         -0.2800000011920929,
-        -156.66665649414062,
-        66.01200103759766,
-        11.449999809265137
+        -156.6666717529297,
+        66.08999633789062,
+        10.390000343322754
       ]
     },
     {
@@ -2299,32 +2400,83 @@
         -150.0,
         -46.0
       ],
-      "height_m": 10.049999999999999,
+      "height_m": 9.5,
       "storey_m": 3.2,
       "bay_pitch_m": 2.35,
       "window_width_m": 0.94,
       "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "door_paint",
       "wall_tint": [
-        0.7,
-        0.6,
+        0.47,
         0.53,
+        0.43,
         1
       ],
       "variation_seed": 119,
       "typology": "rowhouse",
       "chimney_height_m": 1.4,
+      "architecture": {
+        "type": "residential_front",
+        "style": "gable_2136",
+        "precedent": "21-38 45th Avenue,1890 two-story timber Queen Anne over basement; coupled projecting upper window pair, steep gable, retained original doorway and belt courses.",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+        "source_pages": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "floor_heights_m": [
+          0.85,
+          3.05,
+          2.95,
+          2.65
+        ],
+        "front_inset_m": 2.8,
+        "outline_m": [
+          [
+            -150.0,
+            -48.8
+          ],
+          [
+            -156.66666666666666,
+            -48.8
+          ],
+          [
+            -156.66666666666666,
+            -66.0
+          ],
+          [
+            -150.0,
+            -66.0
+          ]
+        ],
+        "scope": "AU dimensional and finish adaptation in retained6.667x20m parcel,not a measured replica or surveyed1928 location. Reuses the documented family construction grammar with a distinct floor schedule and entrance datum. 21-49 retains documented4.88m frontage. 21-38 painted lapped timber is authored:1968 asbestos cladding and undated replacement steel stoop are not1928 evidence. Scenic closed leaves add no interior,occupants,shop,save or narrative authority; no reference pixels.",
+        "side_bays": [
+          3,
+          5,
+          3,
+          5
+        ],
+        "public_front_apron": true
+      },
+      "joinery_tint": [
+        0.47,
+        0.53,
+        0.43,
+        1
+      ],
       "grade_datum_m": 0.0,
       "grade_low_m": -0.02,
       "native_stock_bounds": [
-        -156.6666717529297,
+        -156.7866668701172,
         46.0,
         -0.2800000011920929,
-        -149.98800659179688,
-        66.01200103759766,
-        11.449999809265137
+        -149.74000549316406,
+        66.26000213623047,
+        9.579999923706055
       ]
     },
     {
@@ -5979,7 +6131,7 @@
       ]
     }
   ],
-  "windows": 12095,
+  "windows": 12149,
   "window_rows": [
     {
       "building": "HORIZON_NEAR_0_0_P0R0",
@@ -41350,1128 +41502,1809 @@
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 2,
       "point": [
-        -168.6820831298828,
+        -166.4297637939453,
+        48.79999923706055,
+        0.33959999680519104
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "point": [
+        -168.6519775390625,
+        48.79999923706055,
+        0.33959999680519104
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "point": [
+        -166.4297637939453,
+        48.79999923706055,
+        2.091599941253662
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "point": [
+        -168.6519775390625,
+        48.79999923706055,
+        2.091599941253662
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "point": [
+        -164.20753479003906,
+        48.79999923706055,
+        5.263599872589111
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "point": [
+        -166.4297637939453,
+        48.79999923706055,
+        5.263599872589111
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "point": [
+        -168.6519775390625,
+        48.79999923706055,
+        5.263599872589111
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "point": [
+        -164.20753479003906,
+        48.79999923706055,
+        8.335599899291992
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "point": [
+        -166.4297637939453,
+        48.79999923706055,
+        8.335599899291992
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "point": [
+        -168.6519775390625,
+        48.79999923706055,
+        8.335599899291992
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "point": [
+        -169.1372833251953,
         66.0,
-        1.8949999809265137
+        0.33959999680519104
       ],
       "normal": [
         0.0,
         1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 2,
       "point": [
-        -166.45986938476562,
+        -166.91506958007812,
         66.0,
-        1.8949999809265137
+        0.33959999680519104
       ],
       "normal": [
         0.0,
         1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 2,
       "point": [
-        -164.23764038085938,
+        -164.69284057617188,
         66.0,
-        1.8949999809265137
+        0.33959999680519104
       ],
       "normal": [
         0.0,
         1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 2,
       "point": [
-        -168.6820831298828,
+        -169.1372833251953,
         66.0,
-        5.244999885559082
+        2.136399984359741
       ],
       "normal": [
         0.0,
         1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 2,
       "point": [
-        -166.45986938476562,
+        -166.91506958007812,
         66.0,
-        5.244999885559082
+        2.136399984359741
       ],
       "normal": [
         0.0,
         1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 2,
       "point": [
-        -164.23764038085938,
+        -164.69284057617188,
         66.0,
-        5.244999885559082
+        2.136399984359741
       ],
       "normal": [
         0.0,
         1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 2,
       "point": [
-        -168.6820831298828,
+        -169.1372833251953,
         66.0,
-        8.595000267028809
+        5.3084001541137695
       ],
       "normal": [
         0.0,
         1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 2,
       "point": [
-        -166.45986938476562,
+        -166.91506958007812,
         66.0,
-        8.595000267028809
+        5.3084001541137695
       ],
       "normal": [
         0.0,
         1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 2,
       "point": [
-        -164.23764038085938,
+        -164.69284057617188,
         66.0,
-        8.595000267028809
+        5.3084001541137695
       ],
       "normal": [
         0.0,
         1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
+      "point": [
+        -169.1372833251953,
+        66.0,
+        8.380399703979492
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "point": [
+        -166.91506958007812,
+        66.0,
+        8.380399703979492
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "point": [
+        -164.69284057617188,
+        66.0,
+        8.380399703979492
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
       "point": [
         -170.0,
-        47.61429977416992,
-        1.8949999809265137
+        50.27159881591797,
+        0.33959999680519104
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        50.06930160522461,
-        1.8949999809265137
+        53.71160125732422,
+        0.33959999680519104
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        52.52429962158203,
-        1.8949999809265137
+        57.1515998840332,
+        0.33959999680519104
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        54.97930145263672,
-        1.8949999809265137
+        60.59159851074219,
+        0.33959999680519104
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        57.43429946899414,
-        1.8949999809265137
+        64.03160095214844,
+        0.33959999680519104
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        59.88930130004883,
-        1.8949999809265137
+        50.27159881591797,
+        2.136399984359741
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        62.34429931640625,
-        1.8949999809265137
+        53.71160125732422,
+        2.136399984359741
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        64.79930114746094,
-        1.8949999809265137
+        57.1515998840332,
+        2.136399984359741
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        47.61429977416992,
-        5.244999885559082
+        60.59159851074219,
+        2.136399984359741
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        50.06930160522461,
-        5.244999885559082
+        64.03160095214844,
+        2.136399984359741
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        52.52429962158203,
-        5.244999885559082
+        50.27159881591797,
+        5.3084001541137695
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        54.97930145263672,
-        5.244999885559082
+        53.71160125732422,
+        5.3084001541137695
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        57.43429946899414,
-        5.244999885559082
+        57.1515998840332,
+        5.3084001541137695
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        59.88930130004883,
-        5.244999885559082
+        60.59159851074219,
+        5.3084001541137695
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        62.34429931640625,
-        5.244999885559082
+        64.03160095214844,
+        5.3084001541137695
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        64.79930114746094,
-        5.244999885559082
+        50.27159881591797,
+        8.380399703979492
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        47.61429977416992,
-        8.595000267028809
+        53.71160125732422,
+        8.380399703979492
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        50.06930160522461,
-        8.595000267028809
+        57.1515998840332,
+        8.380399703979492
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        52.52429962158203,
-        8.595000267028809
+        60.59159851074219,
+        8.380399703979492
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
       "point": [
         -170.0,
-        54.97930145263672,
-        8.595000267028809
+        64.03160095214844,
+        8.380399703979492
       ],
       "normal": [
         -1.0,
         0.0,
         0.0
       ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
-      "point": [
-        -170.0,
-        57.43429946899414,
-        8.595000267028809
-      ],
-      "normal": [
-        -1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
-      "point": [
-        -170.0,
-        59.88930130004883,
-        8.595000267028809
-      ],
-      "normal": [
-        -1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
-      "point": [
-        -170.0,
-        62.34429931640625,
-        8.595000267028809
-      ],
-      "normal": [
-        -1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R0",
-      "side": 3,
-      "point": [
-        -170.0,
-        64.79930114746094,
-        8.595000267028809
-      ],
-      "normal": [
-        -1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R1",
-      "side": 2,
       "point": [
-        -162.01541137695312,
-        66.0,
-        1.8949999809265137
+        -161.0,
+        48.79999923706055,
+        0.31310001015663147
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R1",
-      "side": 2,
       "point": [
-        -159.79319763183594,
-        66.0,
-        1.8949999809265137
+        -161.0,
+        48.79999923706055,
+        2.060499906539917
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R1",
-      "side": 2,
       "point": [
-        -157.5709686279297,
-        66.0,
-        1.8949999809265137
+        -158.55999755859375,
+        48.79999923706055,
+        5.247000217437744
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R1",
-      "side": 2,
       "point": [
-        -162.01541137695312,
-        66.0,
-        5.244999885559082
+        -161.0,
+        48.79999923706055,
+        5.247000217437744
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R1",
-      "side": 2,
       "point": [
-        -159.79319763183594,
-        66.0,
-        5.244999885559082
+        -158.55999755859375,
+        48.79999923706055,
+        8.356499671936035
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R1",
-      "side": 2,
       "point": [
-        -157.5709686279297,
-        66.0,
-        5.244999885559082
+        -161.0,
+        48.79999923706055,
+        8.356499671936035
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R1",
-      "side": 2,
       "point": [
-        -162.01541137695312,
-        66.0,
-        8.595000267028809
+        -157.55999755859375,
+        64.5,
+        0.31310001015663147
       ],
       "normal": [
-        0.0,
         1.0,
+        0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R1",
-      "side": 2,
       "point": [
-        -159.79319763183594,
-        66.0,
-        8.595000267028809
+        -157.55999755859375,
+        61.060001373291016,
+        0.31310001015663147
       ],
       "normal": [
-        0.0,
         1.0,
+        0.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R1",
-      "side": 2,
       "point": [
-        -157.5709686279297,
+        -157.55999755859375,
+        57.619998931884766,
+        0.31310001015663147
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        54.18000030517578,
+        0.31310001015663147
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        50.73999786376953,
+        0.31310001015663147
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        64.5,
+        2.060499906539917
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        61.060001373291016,
+        2.060499906539917
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        57.619998931884766,
+        2.060499906539917
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        54.18000030517578,
+        2.060499906539917
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        50.73999786376953,
+        2.060499906539917
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        64.5,
+        5.247000217437744
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        61.060001373291016,
+        5.247000217437744
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        57.619998931884766,
+        5.247000217437744
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        54.18000030517578,
+        5.247000217437744
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        50.73999786376953,
+        5.247000217437744
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        64.5,
+        8.356499671936035
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        61.060001373291016,
+        8.356499671936035
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        57.619998931884766,
+        8.356499671936035
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        54.18000030517578,
+        8.356499671936035
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -157.55999755859375,
+        50.73999786376953,
+        8.356499671936035
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -161.44000244140625,
         66.0,
-        8.595000267028809
+        0.31310001015663147
       ],
       "normal": [
         0.0,
         1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
+      "building": "HORIZON_NEAR_2_1_P0R1",
       "point": [
-        -150.0,
-        64.38569641113281,
-        1.8949999809265137
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        61.93069839477539,
-        1.8949999809265137
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        59.47570037841797,
-        1.8949999809265137
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        57.02069854736328,
-        1.8949999809265137
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        54.56570053100586,
-        1.8949999809265137
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        52.11069869995117,
-        1.8949999809265137
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        49.65570068359375,
-        1.8949999809265137
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        47.20069885253906,
-        1.8949999809265137
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        64.38569641113281,
-        5.244999885559082
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        61.93069839477539,
-        5.244999885559082
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        59.47570037841797,
-        5.244999885559082
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        57.02069854736328,
-        5.244999885559082
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        54.56570053100586,
-        5.244999885559082
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        52.11069869995117,
-        5.244999885559082
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        49.65570068359375,
-        5.244999885559082
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        47.20069885253906,
-        5.244999885559082
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        64.38569641113281,
-        8.595000267028809
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        61.93069839477539,
-        8.595000267028809
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        59.47570037841797,
-        8.595000267028809
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        57.02069854736328,
-        8.595000267028809
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        54.56570053100586,
-        8.595000267028809
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        52.11069869995117,
-        8.595000267028809
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        49.65570068359375,
-        8.595000267028809
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 1,
-      "point": [
-        -150.0,
-        47.20069885253906,
-        8.595000267028809
-      ],
-      "normal": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "recess_m": 0.11
-    },
-    {
-      "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 2,
-      "point": [
-        -155.3487548828125,
+        -159.0,
         66.0,
-        1.8949999809265137
+        0.31310001015663147
       ],
       "normal": [
         0.0,
         1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -161.44000244140625,
+        66.0,
+        2.060499906539917
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -159.0,
+        66.0,
+        2.060499906539917
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -161.44000244140625,
+        66.0,
+        5.247000217437744
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -159.0,
+        66.0,
+        5.247000217437744
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -161.44000244140625,
+        66.0,
+        8.356499671936035
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -159.0,
+        66.0,
+        8.356499671936035
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        50.29999923706055,
+        0.31310001015663147
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        53.73999786376953,
+        0.31310001015663147
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        57.18000030517578,
+        0.31310001015663147
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        60.619998931884766,
+        0.31310001015663147
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        64.05999755859375,
+        0.31310001015663147
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        50.29999923706055,
+        2.060499906539917
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        53.73999786376953,
+        2.060499906539917
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        57.18000030517578,
+        2.060499906539917
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        60.619998931884766,
+        2.060499906539917
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        64.05999755859375,
+        2.060499906539917
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        50.29999923706055,
+        5.247000217437744
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        53.73999786376953,
+        5.247000217437744
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        57.18000030517578,
+        5.247000217437744
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        60.619998931884766,
+        5.247000217437744
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        64.05999755859375,
+        5.247000217437744
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        50.29999923706055,
+        8.356499671936035
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        53.73999786376953,
+        8.356499671936035
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        57.18000030517578,
+        8.356499671936035
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        60.619998931884766,
+        8.356499671936035
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "point": [
+        -162.44000244140625,
+        64.05999755859375,
+        8.356499671936035
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 2,
       "point": [
-        -153.1265411376953,
-        66.0,
-        1.8949999809265137
+        -153.096435546875,
+        48.79999923706055,
+        0.311599999666214
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 2,
       "point": [
-        -150.90431213378906,
-        66.0,
-        1.8949999809265137
+        -155.3186492919922,
+        48.79999923706055,
+        0.311599999666214
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 2,
       "point": [
-        -155.3487548828125,
-        66.0,
-        5.244999885559082
+        -153.096435546875,
+        48.63999938964844,
+        1.9944000244140625
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 2,
       "point": [
-        -153.1265411376953,
-        66.0,
-        5.244999885559082
+        -155.3186492919922,
+        48.63999938964844,
+        1.9944000244140625
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 2,
       "point": [
-        -150.90431213378906,
-        66.0,
-        5.244999885559082
+        -150.87420654296875,
+        48.79999923706055,
+        5.01639986038208
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 2,
       "point": [
-        -155.3487548828125,
-        66.0,
-        8.595000267028809
+        -153.096435546875,
+        48.63999938964844,
+        5.01639986038208
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 2,
       "point": [
-        -153.1265411376953,
-        66.0,
-        8.595000267028809
+        -155.3186492919922,
+        48.63999938964844,
+        5.01639986038208
       ],
       "normal": [
         0.0,
-        1.0,
+        -1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P0R2",
-      "side": 2,
       "point": [
-        -150.90431213378906,
+        -150.0,
+        64.52839660644531,
+        0.311599999666214
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        61.088401794433594,
+        0.311599999666214
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        57.648399353027344,
+        0.311599999666214
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        54.20840072631836,
+        0.311599999666214
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        50.768402099609375,
+        0.311599999666214
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        64.52839660644531,
+        1.9944000244140625
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        61.088401794433594,
+        1.9944000244140625
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        57.648399353027344,
+        1.9944000244140625
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        54.20840072631836,
+        1.9944000244140625
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        50.768402099609375,
+        1.9944000244140625
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        64.52839660644531,
+        5.01639986038208
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        61.088401794433594,
+        5.01639986038208
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        57.648399353027344,
+        5.01639986038208
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        54.20840072631836,
+        5.01639986038208
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -150.0,
+        50.768402099609375,
+        5.01639986038208
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -155.803955078125,
         66.0,
-        8.595000267028809
+        0.311599999666214
       ],
       "normal": [
         0.0,
         1.0,
         0.0
       ],
-      "recess_m": 0.11
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -153.5817413330078,
+        66.0,
+        0.311599999666214
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -151.35951232910156,
+        66.0,
+        0.311599999666214
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -155.803955078125,
+        66.0,
+        1.9944000244140625
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -153.5817413330078,
+        66.0,
+        1.9944000244140625
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -151.35951232910156,
+        66.0,
+        1.9944000244140625
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -155.803955078125,
+        66.0,
+        5.01639986038208
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -153.5817413330078,
+        66.0,
+        5.01639986038208
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -151.35951232910156,
+        66.0,
+        5.01639986038208
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -153.163330078125,
+        48.79999923706055,
+        7.380000114440918
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "recess_m": 0.17
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "point": [
+        -153.5033416748047,
+        66.0,
+        7.380000114440918
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "recess_m": 0.17
     },
     {
       "building": "HORIZON_NEAR_2_1_P1",
@@ -186866,6 +187699,146 @@
       ]
     },
     {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "wall_key": "arcade_brick_bond",
+      "point": [
+        -166.66665649414062,
+        48.97999954223633,
+        10.390000343322754
+      ],
+      "outside_probe": [
+        -166.66665649414062,
+        48.70000076293945,
+        10.390000343322754
+      ]
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "wall_key": "arcade_brick_bond",
+      "point": [
+        -169.82000732421875,
+        57.400001525878906,
+        10.390000343322754
+      ],
+      "outside_probe": [
+        -170.10000610351562,
+        57.400001525878906,
+        10.390000343322754
+      ]
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "wall_key": "arcade_brick_bond",
+      "point": [
+        -166.66665649414062,
+        65.81999969482422,
+        10.390000343322754
+      ],
+      "outside_probe": [
+        -166.66665649414062,
+        66.0999984741211,
+        10.390000343322754
+      ]
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "wall_key": "arcade_brick_bond",
+      "point": [
+        -163.51332092285156,
+        57.400001525878906,
+        10.390000343322754
+      ],
+      "outside_probe": [
+        -163.2333221435547,
+        57.400001525878906,
+        10.390000343322754
+      ]
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "wall_key": "arcade_brick_bond",
+      "point": [
+        -160.0,
+        48.97999954223633,
+        10.390000343322754
+      ],
+      "outside_probe": [
+        -160.0,
+        48.70000076293945,
+        10.390000343322754
+      ]
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "wall_key": "arcade_brick_bond",
+      "point": [
+        -162.260009765625,
+        57.400001525878906,
+        10.390000343322754
+      ],
+      "outside_probe": [
+        -162.54000854492188,
+        57.400001525878906,
+        10.390000343322754
+      ]
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "wall_key": "arcade_brick_bond",
+      "point": [
+        -160.0,
+        65.81999969482422,
+        10.390000343322754
+      ],
+      "outside_probe": [
+        -160.0,
+        66.0999984741211,
+        10.390000343322754
+      ]
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "wall_key": "arcade_brick_bond",
+      "point": [
+        -157.739990234375,
+        57.400001525878906,
+        10.390000343322754
+      ],
+      "outside_probe": [
+        -157.45999145507812,
+        57.400001525878906,
+        10.390000343322754
+      ]
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "wall_key": "timber",
+      "point": [
+        -156.51666666666665,
+        57.4,
+        6.93
+      ],
+      "outside_probe": [
+        -156.78666666666666,
+        57.4,
+        6.93
+      ]
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "wall_key": "timber",
+      "point": [
+        -150.15,
+        57.4,
+        6.93
+      ],
+      "outside_probe": [
+        -149.88,
+        57.4,
+        6.93
+      ]
+    },
+    {
       "building": "HORIZON_NEAR_2_1_P1",
       "wall_key": "arcade_brick_bond",
       "point": [
@@ -189355,7 +190328,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_0_1": {
       "role": "base",
@@ -189578,7 +190551,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_0_2": {
       "role": "base",
@@ -189751,7 +190724,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_0_3": {
       "role": "base",
@@ -189934,7 +190907,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_1_0": {
       "role": "base",
@@ -190092,7 +191065,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_1_1": {
       "role": "base",
@@ -190245,7 +191218,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_1_2": {
       "role": "base",
@@ -190418,7 +191391,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_1_3": {
       "role": "base",
@@ -190601,7 +191574,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_2_0": {
       "role": "base",
@@ -190829,7 +191802,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_2_1": {
       "role": "base",
@@ -190842,20 +191815,20 @@
         "HORIZON_NEAR_2_1_P2"
       ],
       "asset": "game/assets/props/city_horizon_near_2_1.glb",
-      "sha256": "2c941377ce6b8af3ee16b6ff7a0fe1aa275f95754ecd4525b60d70d8758155f7",
-      "bytes": 12272664,
+      "sha256": "2f3b2ad5443f3b6c6d25bc734d16080f4c31350f27cbc832f754eb6feae0a157",
+      "bytes": 17689724,
       "bounds": [
-        -170.1199951171875,
+        -170.32000732421875,
         -0.2800000011920929,
-        -66.01200103759766,
+        -66.31999969482422,
         -149.60000610351562,
         20.899999618530273,
         -5.934999465942383
       ],
       "export_check": {
         "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_2_1.glb",
-        "primitives": 33,
-        "triangles": 119272,
+        "primitives": 45,
+        "triangles": 172224,
         "minimum_tangent_agreement": 0.9999999656742995,
         "status": "PASS"
       },
@@ -190863,12 +191836,27 @@
         {
           "name": "HORIZON_NEAR_2_1_P0R0__arcade_brick_bond",
           "key": "arcade_brick_bond",
-          "triangles": 1524
+          "triangles": 3236
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__bronze_sheet",
+          "key": "bronze_sheet",
+          "triangles": 28
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__cast_iron",
+          "key": "cast_iron",
+          "triangles": 160
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__concrete",
+          "key": "concrete",
+          "triangles": 576
         },
         {
           "name": "HORIZON_NEAR_2_1_P0R0__door_paint",
           "key": "door_paint",
-          "triangles": 1980
+          "triangles": 3980
         },
         {
           "name": "HORIZON_NEAR_2_1_P0R0__galvanized_roof",
@@ -190878,22 +191866,42 @@
         {
           "name": "HORIZON_NEAR_2_1_P0R0__limestone",
           "key": "limestone",
-          "triangles": 60
+          "triangles": 3952
         },
         {
           "name": "HORIZON_NEAR_2_1_P0R0__mirror_aged",
           "key": "mirror_aged",
-          "triangles": 396
+          "triangles": 984
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__timber",
+          "key": "timber",
+          "triangles": 48
         },
         {
           "name": "HORIZON_NEAR_2_1_P0R1__arcade_brick_bond",
           "key": "arcade_brick_bond",
-          "triangles": 1044
+          "triangles": 2016
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R1__bronze_sheet",
+          "key": "bronze_sheet",
+          "triangles": 44
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R1__cast_iron",
+          "key": "cast_iron",
+          "triangles": 200
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R1__concrete",
+          "key": "concrete",
+          "triangles": 24
         },
         {
           "name": "HORIZON_NEAR_2_1_P0R1__door_paint",
           "key": "door_paint",
-          "triangles": 540
+          "triangles": 16088
         },
         {
           "name": "HORIZON_NEAR_2_1_P0R1__galvanized_roof",
@@ -190903,37 +191911,62 @@
         {
           "name": "HORIZON_NEAR_2_1_P0R1__limestone",
           "key": "limestone",
-          "triangles": 60
+          "triangles": 5784
         },
         {
           "name": "HORIZON_NEAR_2_1_P0R1__mirror_aged",
           "key": "mirror_aged",
-          "triangles": 108
+          "triangles": 648
         },
         {
-          "name": "HORIZON_NEAR_2_1_P0R2__arcade_brick_bond",
-          "key": "arcade_brick_bond",
-          "triangles": 1524
+          "name": "HORIZON_NEAR_2_1_P0R1__timber",
+          "key": "timber",
+          "triangles": 48
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__bronze_sheet",
+          "key": "bronze_sheet",
+          "triangles": 28
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__cast_iron",
+          "key": "cast_iron",
+          "triangles": 160
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__city_slate",
+          "key": "city_slate",
+          "triangles": 24
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__concrete",
+          "key": "concrete",
+          "triangles": 1824
         },
         {
           "name": "HORIZON_NEAR_2_1_P0R2__door_paint",
           "key": "door_paint",
-          "triangles": 1980
+          "triangles": 19132
         },
         {
           "name": "HORIZON_NEAR_2_1_P0R2__galvanized_roof",
           "key": "galvanized_roof",
-          "triangles": 12
+          "triangles": 48
         },
         {
           "name": "HORIZON_NEAR_2_1_P0R2__limestone",
           "key": "limestone",
-          "triangles": 60
+          "triangles": 1960
         },
         {
           "name": "HORIZON_NEAR_2_1_P0R2__mirror_aged",
           "key": "mirror_aged",
           "triangles": 396
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__timber",
+          "key": "timber",
+          "triangles": 1248
         },
         {
           "name": "HORIZON_NEAR_2_1_P1__arcade_brick_bond",
@@ -191027,7 +192060,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_2_2": {
       "role": "base",
@@ -191290,7 +192323,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_2_3": {
       "role": "base",
@@ -191533,7 +192566,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_3_0": {
       "role": "base",
@@ -191716,7 +192749,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_3_1": {
       "role": "base",
@@ -191894,7 +192927,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_3_2": {
       "role": "base",
@@ -192077,7 +193110,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_near_3_3": {
       "role": "base",
@@ -192260,7 +193293,7 @@
         }
       ],
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "fc7584009cc49f6589ffaa36bc32959b3f9a343db13d10ae7b21762a3c788197"
+      "native_sha256": "3ae04d94d470e513c9d5bf96717712b90f524b3a00ac5190518d7e88f13027bf"
     },
     "city_horizon_far_0_0": {
       "role": "base",
@@ -192387,7 +193420,7 @@
         }
       ],
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      "native_sha256": "75109446b658b9df6f3f9d9f6faa6a718d4fc34e0f1f893359ad1839a3dd49b9"
     },
     "city_horizon_far_0_1": {
       "role": "base",
@@ -192539,7 +193572,7 @@
         }
       ],
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      "native_sha256": "75109446b658b9df6f3f9d9f6faa6a718d4fc34e0f1f893359ad1839a3dd49b9"
     },
     "city_horizon_far_1_0": {
       "role": "base",
@@ -192666,7 +193699,7 @@
         }
       ],
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      "native_sha256": "75109446b658b9df6f3f9d9f6faa6a718d4fc34e0f1f893359ad1839a3dd49b9"
     },
     "city_horizon_far_1_1": {
       "role": "base",
@@ -192818,7 +193851,7 @@
         }
       ],
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      "native_sha256": "75109446b658b9df6f3f9d9f6faa6a718d4fc34e0f1f893359ad1839a3dd49b9"
     },
     "city_horizon_far_2_0": {
       "role": "base",
@@ -192945,7 +193978,7 @@
         }
       ],
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      "native_sha256": "75109446b658b9df6f3f9d9f6faa6a718d4fc34e0f1f893359ad1839a3dd49b9"
     },
     "city_horizon_far_2_1": {
       "role": "base",
@@ -193107,7 +194140,7 @@
         }
       ],
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      "native_sha256": "75109446b658b9df6f3f9d9f6faa6a718d4fc34e0f1f893359ad1839a3dd49b9"
     },
     "city_horizon_far_3_0": {
       "role": "base",
@@ -193254,7 +194287,7 @@
         }
       ],
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      "native_sha256": "75109446b658b9df6f3f9d9f6faa6a718d4fc34e0f1f893359ad1839a3dd49b9"
     },
     "city_horizon_far_3_1": {
       "role": "base",
@@ -193406,7 +194439,7 @@
         }
       ],
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      "native_sha256": "75109446b658b9df6f3f9d9f6faa6a718d4fc34e0f1f893359ad1839a3dd49b9"
     },
     "city_horizon_street_end_0": {
       "role": "base",
@@ -193512,7 +194545,7 @@
         }
       ],
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      "native_sha256": "75109446b658b9df6f3f9d9f6faa6a718d4fc34e0f1f893359ad1839a3dd49b9"
     },
     "city_horizon_street_end_1": {
       "role": "base",
@@ -193623,7 +194656,7 @@
         }
       ],
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      "native_sha256": "75109446b658b9df6f3f9d9f6faa6a718d4fc34e0f1f893359ad1839a3dd49b9"
     },
     "city_horizon_street_end_2": {
       "role": "base",
@@ -193729,7 +194762,7 @@
         }
       ],
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      "native_sha256": "75109446b658b9df6f3f9d9f6faa6a718d4fc34e0f1f893359ad1839a3dd49b9"
     },
     "city_horizon_street_end_3": {
       "role": "base",
@@ -193845,7 +194878,7 @@
         }
       ],
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "0ae0944b5e6880f656997e4a79be7940480f1e09c3bcb0956f07302229fe9347"
+      "native_sha256": "75109446b658b9df6f3f9d9f6faa6a718d4fc34e0f1f893359ad1839a3dd49b9"
     },
     "city_horizon_far_2_1_lod1": {
       "role": "body_lod",
@@ -193955,7 +194988,7 @@
         }
       ],
       "native": "art/blender/city_horizon_lod1.blend",
-      "native_sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
+      "native_sha256": "b7fb5fdd2677b9f73516496391626f4506e56967d68109e293fd1b5608c9b9bf"
     },
     "city_horizon_near_0_1_lod1": {
       "role": "body_lod",
@@ -194126,7 +195159,7 @@
         }
       ],
       "native": "art/blender/city_horizon_lod1.blend",
-      "native_sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
+      "native_sha256": "b7fb5fdd2677b9f73516496391626f4506e56967d68109e293fd1b5608c9b9bf"
     },
     "city_horizon_near_2_0_lod1": {
       "role": "body_lod",
@@ -194354,34 +195387,172 @@
         }
       ],
       "native": "art/blender/city_horizon_lod1.blend",
-      "native_sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
+      "native_sha256": "b7fb5fdd2677b9f73516496391626f4506e56967d68109e293fd1b5608c9b9bf"
     },
     "city_horizon_near_2_1_lod1": {
       "role": "body_lod",
       "block": "HORIZON_NEAR_2_1",
       "buildings": [
+        "HORIZON_NEAR_2_1_P0R0",
+        "HORIZON_NEAR_2_1_P0R1",
+        "HORIZON_NEAR_2_1_P0R2",
         "HORIZON_NEAR_2_1_P1",
         "HORIZON_NEAR_2_1_P2"
       ],
       "asset": "game/assets/props/city_horizon_near_2_1_lod1.glb",
-      "sha256": "f4e8794d62f06eea20480758a3286f2dae6f58721d95686636b7e1afbb7ffe7a",
-      "bytes": 5859368,
+      "sha256": "15dfc0eb38485431451ec6ad6b6a0ef485471269c5822a306170426fb15e8b9a",
+      "bytes": 9950816,
       "bounds": [
-        -170.1199951171875,
+        -170.32000732421875,
         -0.2800000011920929,
-        -46.119998931884766,
+        -66.31999969482422,
         -149.60000610351562,
         20.899999618530273,
         -5.934999465942383
       ],
       "export_check": {
         "asset": "C:\\ov\\city\\game\\assets\\props\\city_horizon_near_2_1_lod1.glb",
-        "primitives": 18,
-        "triangles": 56572,
-        "minimum_tangent_agreement": 0.9999999697340409,
+        "primitives": 45,
+        "triangles": 96352,
+        "minimum_tangent_agreement": 0.9999999688975616,
         "status": "PASS"
       },
       "parts": [
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__arcade_brick_bond",
+          "key": "arcade_brick_bond",
+          "triangles": 2468
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__bronze_sheet",
+          "key": "bronze_sheet",
+          "triangles": 12
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__cast_iron",
+          "key": "cast_iron",
+          "triangles": 96
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__concrete",
+          "key": "concrete",
+          "triangles": 576
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__door_paint",
+          "key": "door_paint",
+          "triangles": 2652
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__galvanized_roof",
+          "key": "galvanized_roof",
+          "triangles": 12
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__limestone",
+          "key": "limestone",
+          "triangles": 1808
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__mirror_aged",
+          "key": "mirror_aged",
+          "triangles": 728
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R0__timber",
+          "key": "timber",
+          "triangles": 48
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R1__arcade_brick_bond",
+          "key": "arcade_brick_bond",
+          "triangles": 2016
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R1__bronze_sheet",
+          "key": "bronze_sheet",
+          "triangles": 12
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R1__cast_iron",
+          "key": "cast_iron",
+          "triangles": 72
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R1__concrete",
+          "key": "concrete",
+          "triangles": 24
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R1__door_paint",
+          "key": "door_paint",
+          "triangles": 4440
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R1__galvanized_roof",
+          "key": "galvanized_roof",
+          "triangles": 12
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R1__limestone",
+          "key": "limestone",
+          "triangles": 2040
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R1__mirror_aged",
+          "key": "mirror_aged",
+          "triangles": 648
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R1__timber",
+          "key": "timber",
+          "triangles": 48
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__bronze_sheet",
+          "key": "bronze_sheet",
+          "triangles": 12
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__cast_iron",
+          "key": "cast_iron",
+          "triangles": 96
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__city_slate",
+          "key": "city_slate",
+          "triangles": 24
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__concrete",
+          "key": "concrete",
+          "triangles": 1056
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__door_paint",
+          "key": "door_paint",
+          "triangles": 18348
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__galvanized_roof",
+          "key": "galvanized_roof",
+          "triangles": 48
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__limestone",
+          "key": "limestone",
+          "triangles": 840
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__mirror_aged",
+          "key": "mirror_aged",
+          "triangles": 396
+        },
+        {
+          "name": "HORIZON_NEAR_2_1_P0R2__timber",
+          "key": "timber",
+          "triangles": 1248
+        },
         {
           "name": "HORIZON_NEAR_2_1_P1__arcade_brick_bond",
           "key": "arcade_brick_bond",
@@ -194474,7 +195645,7 @@
         }
       ],
       "native": "art/blender/city_horizon_lod1.blend",
-      "native_sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
+      "native_sha256": "b7fb5fdd2677b9f73516496391626f4506e56967d68109e293fd1b5608c9b9bf"
     },
     "city_horizon_near_2_2_lod1": {
       "role": "body_lod",
@@ -194737,7 +195908,7 @@
         }
       ],
       "native": "art/blender/city_horizon_lod1.blend",
-      "native_sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
+      "native_sha256": "b7fb5fdd2677b9f73516496391626f4506e56967d68109e293fd1b5608c9b9bf"
     },
     "city_horizon_near_2_3_lod1": {
       "role": "body_lod",
@@ -194980,14 +196151,14 @@
         }
       ],
       "native": "art/blender/city_horizon_lod1.blend",
-      "native_sha256": "81c12477f9e3e923d30924f5c9146bd3e98561e18a1f3cdbc3dd39caf5ac4de7"
+      "native_sha256": "b7fb5fdd2677b9f73516496391626f4506e56967d68109e293fd1b5608c9b9bf"
     }
   },
   "native_checks": {
     "near": {
-      "window_samples": 4368,
-      "parapet_samples": 142,
-      "parapet_outside_controls": 142,
+      "window_samples": 4422,
+      "parapet_samples": 152,
+      "parapet_outside_controls": 152,
       "failures": [],
       "tolerance_m": 0.0001
     },
@@ -210216,6 +211387,3957 @@
                 -169.9199981689453,
                 105.04856872558594,
                 18.559999465942383
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R0",
+      "style": "italianate_2109",
+      "near_closed_stocks": 809,
+      "lower_closed_stocks": 681,
+      "near_min_stock_volume_m3": 6.176882016006857e-05,
+      "lower_min_stock_volume_m3": 9.897834752337076e-05,
+      "near_panes": 42,
+      "lower_panes": 42,
+      "entries": [
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "point": [
+            -164.44444274902344,
+            48.79999923706055,
+            2.174999952316284
+          ],
+          "kind": "closed_scenic_leaf"
+        }
+      ],
+      "lower_entries": [
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "point": [
+            -164.44444274902344,
+            48.79999923706055,
+            2.174999952316284
+          ],
+          "kind": "closed_scenic_leaf"
+        }
+      ],
+      "mitre_seams": [
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -166.1516571044922,
+                49.02000045776367,
+                0.75
+              ],
+              [
+                -166.1516571044922,
+                48.880001068115234,
+                0.75
+              ],
+              [
+                -166.21165466308594,
+                49.02000045776367,
+                0.6899999976158142
+              ],
+              [
+                -166.21165466308594,
+                48.880001068115234,
+                0.6899999976158142
+              ]
+            ],
+            "right": [
+              [
+                -167.1216583251953,
+                49.02000045776367,
+                0.6899999976158142
+              ],
+              [
+                -167.1216583251953,
+                48.880001068115234,
+                0.6899999976158142
+              ],
+              [
+                -167.18165588378906,
+                49.02000045776367,
+                0.75
+              ],
+              [
+                -167.18165588378906,
+                48.880001068115234,
+                0.75
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -168.37388610839844,
+                49.02000045776367,
+                0.75
+              ],
+              [
+                -168.37388610839844,
+                48.880001068115234,
+                0.75
+              ],
+              [
+                -168.4338836669922,
+                49.02000045776367,
+                0.6899999976158142
+              ],
+              [
+                -168.4338836669922,
+                48.880001068115234,
+                0.6899999976158142
+              ]
+            ],
+            "right": [
+              [
+                -169.34388732910156,
+                49.02000045776367,
+                0.6899999976158142
+              ],
+              [
+                -169.34388732910156,
+                48.880001068115234,
+                0.6899999976158142
+              ],
+              [
+                -169.4038848876953,
+                49.02000045776367,
+                0.75
+              ],
+              [
+                -169.4038848876953,
+                48.880001068115234,
+                0.75
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -163.8844451904297,
+                49.02000045776367,
+                3.5999999046325684
+              ],
+              [
+                -163.8844451904297,
+                48.880001068115234,
+                3.5999999046325684
+              ],
+              [
+                -163.94444274902344,
+                49.02000045776367,
+                3.5399999618530273
+              ],
+              [
+                -163.94444274902344,
+                48.880001068115234,
+                3.5399999618530273
+              ]
+            ],
+            "right": [
+              [
+                -164.94444274902344,
+                49.02000045776367,
+                3.5399999618530273
+              ],
+              [
+                -164.94444274902344,
+                48.880001068115234,
+                3.5399999618530273
+              ],
+              [
+                -165.0044403076172,
+                49.02000045776367,
+                3.5999999046325684
+              ],
+              [
+                -165.0044403076172,
+                48.880001068115234,
+                3.5999999046325684
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -166.1516571044922,
+                49.02000045776367,
+                3.6700000762939453
+              ],
+              [
+                -166.1516571044922,
+                48.880001068115234,
+                3.6700000762939453
+              ],
+              [
+                -166.21165466308594,
+                49.02000045776367,
+                3.609999895095825
+              ],
+              [
+                -166.21165466308594,
+                48.880001068115234,
+                3.609999895095825
+              ]
+            ],
+            "right": [
+              [
+                -167.1216583251953,
+                49.02000045776367,
+                3.609999895095825
+              ],
+              [
+                -167.1216583251953,
+                48.880001068115234,
+                3.609999895095825
+              ],
+              [
+                -167.18165588378906,
+                49.02000045776367,
+                3.6700000762939453
+              ],
+              [
+                -167.18165588378906,
+                48.880001068115234,
+                3.6700000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -168.37388610839844,
+                49.02000045776367,
+                3.6700000762939453
+              ],
+              [
+                -168.37388610839844,
+                48.880001068115234,
+                3.6700000762939453
+              ],
+              [
+                -168.4338836669922,
+                49.02000045776367,
+                3.609999895095825
+              ],
+              [
+                -168.4338836669922,
+                48.880001068115234,
+                3.609999895095825
+              ]
+            ],
+            "right": [
+              [
+                -169.34388732910156,
+                49.02000045776367,
+                3.609999895095825
+              ],
+              [
+                -169.34388732910156,
+                48.880001068115234,
+                3.609999895095825
+              ],
+              [
+                -169.4038848876953,
+                49.02000045776367,
+                3.6700000762939453
+              ],
+              [
+                -169.4038848876953,
+                48.880001068115234,
+                3.6700000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -163.929443359375,
+                49.02000045776367,
+                6.769999980926514
+              ],
+              [
+                -163.929443359375,
+                48.880001068115234,
+                6.769999980926514
+              ],
+              [
+                -163.98944091796875,
+                49.02000045776367,
+                6.710000038146973
+              ],
+              [
+                -163.98944091796875,
+                48.880001068115234,
+                6.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -164.89944458007812,
+                49.02000045776367,
+                6.710000038146973
+              ],
+              [
+                -164.89944458007812,
+                48.880001068115234,
+                6.710000038146973
+              ],
+              [
+                -164.95944213867188,
+                49.02000045776367,
+                6.769999980926514
+              ],
+              [
+                -164.95944213867188,
+                48.880001068115234,
+                6.769999980926514
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -166.1516571044922,
+                49.02000045776367,
+                6.769999980926514
+              ],
+              [
+                -166.1516571044922,
+                48.880001068115234,
+                6.769999980926514
+              ],
+              [
+                -166.21165466308594,
+                49.02000045776367,
+                6.710000038146973
+              ],
+              [
+                -166.21165466308594,
+                48.880001068115234,
+                6.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -167.1216583251953,
+                49.02000045776367,
+                6.710000038146973
+              ],
+              [
+                -167.1216583251953,
+                48.880001068115234,
+                6.710000038146973
+              ],
+              [
+                -167.18165588378906,
+                49.02000045776367,
+                6.769999980926514
+              ],
+              [
+                -167.18165588378906,
+                48.880001068115234,
+                6.769999980926514
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -168.37388610839844,
+                49.02000045776367,
+                6.769999980926514
+              ],
+              [
+                -168.37388610839844,
+                48.880001068115234,
+                6.769999980926514
+              ],
+              [
+                -168.4338836669922,
+                49.02000045776367,
+                6.710000038146973
+              ],
+              [
+                -168.4338836669922,
+                48.880001068115234,
+                6.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -169.34388732910156,
+                49.02000045776367,
+                6.710000038146973
+              ],
+              [
+                -169.34388732910156,
+                48.880001068115234,
+                6.710000038146973
+              ],
+              [
+                -169.4038848876953,
+                49.02000045776367,
+                6.769999980926514
+              ],
+              [
+                -169.4038848876953,
+                48.880001068115234,
+                6.769999980926514
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -163.929443359375,
+                49.02000045776367,
+                9.770000457763672
+              ],
+              [
+                -163.929443359375,
+                48.880001068115234,
+                9.770000457763672
+              ],
+              [
+                -163.98944091796875,
+                49.02000045776367,
+                9.710000038146973
+              ],
+              [
+                -163.98944091796875,
+                48.880001068115234,
+                9.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -164.89944458007812,
+                49.02000045776367,
+                9.710000038146973
+              ],
+              [
+                -164.89944458007812,
+                48.880001068115234,
+                9.710000038146973
+              ],
+              [
+                -164.95944213867188,
+                49.02000045776367,
+                9.770000457763672
+              ],
+              [
+                -164.95944213867188,
+                48.880001068115234,
+                9.770000457763672
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -166.1516571044922,
+                49.02000045776367,
+                9.770000457763672
+              ],
+              [
+                -166.1516571044922,
+                48.880001068115234,
+                9.770000457763672
+              ],
+              [
+                -166.21165466308594,
+                49.02000045776367,
+                9.710000038146973
+              ],
+              [
+                -166.21165466308594,
+                48.880001068115234,
+                9.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -167.1216583251953,
+                49.02000045776367,
+                9.710000038146973
+              ],
+              [
+                -167.1216583251953,
+                48.880001068115234,
+                9.710000038146973
+              ],
+              [
+                -167.18165588378906,
+                49.02000045776367,
+                9.770000457763672
+              ],
+              [
+                -167.18165588378906,
+                48.880001068115234,
+                9.770000457763672
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -168.37388610839844,
+                49.02000045776367,
+                9.770000457763672
+              ],
+              [
+                -168.37388610839844,
+                48.880001068115234,
+                9.770000457763672
+              ],
+              [
+                -168.4338836669922,
+                49.02000045776367,
+                9.710000038146973
+              ],
+              [
+                -168.4338836669922,
+                48.880001068115234,
+                9.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -169.34388732910156,
+                49.02000045776367,
+                9.710000038146973
+              ],
+              [
+                -169.34388732910156,
+                48.880001068115234,
+                9.710000038146973
+              ],
+              [
+                -169.4038848876953,
+                49.02000045776367,
+                9.770000457763672
+              ],
+              [
+                -169.4038848876953,
+                48.880001068115234,
+                9.770000457763672
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.42889404296875,
+                65.77999877929688,
+                0.75
+              ],
+              [
+                -169.42889404296875,
+                65.91999816894531,
+                0.75
+              ],
+              [
+                -169.368896484375,
+                65.77999877929688,
+                0.6899999976158142
+              ],
+              [
+                -169.368896484375,
+                65.91999816894531,
+                0.6899999976158142
+              ]
+            ],
+            "right": [
+              [
+                -168.4088897705078,
+                65.77999877929688,
+                0.6899999976158142
+              ],
+              [
+                -168.4088897705078,
+                65.91999816894531,
+                0.6899999976158142
+              ],
+              [
+                -168.34889221191406,
+                65.77999877929688,
+                0.75
+              ],
+              [
+                -168.34889221191406,
+                65.91999816894531,
+                0.75
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -167.2066650390625,
+                65.77999877929688,
+                0.75
+              ],
+              [
+                -167.2066650390625,
+                65.91999816894531,
+                0.75
+              ],
+              [
+                -167.14666748046875,
+                65.77999877929688,
+                0.6899999976158142
+              ],
+              [
+                -167.14666748046875,
+                65.91999816894531,
+                0.6899999976158142
+              ]
+            ],
+            "right": [
+              [
+                -166.18666076660156,
+                65.77999877929688,
+                0.6899999976158142
+              ],
+              [
+                -166.18666076660156,
+                65.91999816894531,
+                0.6899999976158142
+              ],
+              [
+                -166.1266632080078,
+                65.77999877929688,
+                0.75
+              ],
+              [
+                -166.1266632080078,
+                65.91999816894531,
+                0.75
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -164.9844512939453,
+                65.77999877929688,
+                0.75
+              ],
+              [
+                -164.9844512939453,
+                65.91999816894531,
+                0.75
+              ],
+              [
+                -164.9244384765625,
+                65.77999877929688,
+                0.6899999976158142
+              ],
+              [
+                -164.9244384765625,
+                65.91999816894531,
+                0.6899999976158142
+              ]
+            ],
+            "right": [
+              [
+                -163.96444702148438,
+                65.77999877929688,
+                0.6899999976158142
+              ],
+              [
+                -163.96444702148438,
+                65.91999816894531,
+                0.6899999976158142
+              ],
+              [
+                -163.90444946289062,
+                65.77999877929688,
+                0.75
+              ],
+              [
+                -163.90444946289062,
+                65.91999816894531,
+                0.75
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.42889404296875,
+                65.77999877929688,
+                3.6700000762939453
+              ],
+              [
+                -169.42889404296875,
+                65.91999816894531,
+                3.6700000762939453
+              ],
+              [
+                -169.368896484375,
+                65.77999877929688,
+                3.609999895095825
+              ],
+              [
+                -169.368896484375,
+                65.91999816894531,
+                3.609999895095825
+              ]
+            ],
+            "right": [
+              [
+                -168.4088897705078,
+                65.77999877929688,
+                3.609999895095825
+              ],
+              [
+                -168.4088897705078,
+                65.91999816894531,
+                3.609999895095825
+              ],
+              [
+                -168.34889221191406,
+                65.77999877929688,
+                3.6700000762939453
+              ],
+              [
+                -168.34889221191406,
+                65.91999816894531,
+                3.6700000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -167.2066650390625,
+                65.77999877929688,
+                3.6700000762939453
+              ],
+              [
+                -167.2066650390625,
+                65.91999816894531,
+                3.6700000762939453
+              ],
+              [
+                -167.14666748046875,
+                65.77999877929688,
+                3.609999895095825
+              ],
+              [
+                -167.14666748046875,
+                65.91999816894531,
+                3.609999895095825
+              ]
+            ],
+            "right": [
+              [
+                -166.18666076660156,
+                65.77999877929688,
+                3.609999895095825
+              ],
+              [
+                -166.18666076660156,
+                65.91999816894531,
+                3.609999895095825
+              ],
+              [
+                -166.1266632080078,
+                65.77999877929688,
+                3.6700000762939453
+              ],
+              [
+                -166.1266632080078,
+                65.91999816894531,
+                3.6700000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -164.9844512939453,
+                65.77999877929688,
+                3.6700000762939453
+              ],
+              [
+                -164.9844512939453,
+                65.91999816894531,
+                3.6700000762939453
+              ],
+              [
+                -164.9244384765625,
+                65.77999877929688,
+                3.609999895095825
+              ],
+              [
+                -164.9244384765625,
+                65.91999816894531,
+                3.609999895095825
+              ]
+            ],
+            "right": [
+              [
+                -163.96444702148438,
+                65.77999877929688,
+                3.609999895095825
+              ],
+              [
+                -163.96444702148438,
+                65.91999816894531,
+                3.609999895095825
+              ],
+              [
+                -163.90444946289062,
+                65.77999877929688,
+                3.6700000762939453
+              ],
+              [
+                -163.90444946289062,
+                65.91999816894531,
+                3.6700000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.42889404296875,
+                65.77999877929688,
+                6.769999980926514
+              ],
+              [
+                -169.42889404296875,
+                65.91999816894531,
+                6.769999980926514
+              ],
+              [
+                -169.368896484375,
+                65.77999877929688,
+                6.710000038146973
+              ],
+              [
+                -169.368896484375,
+                65.91999816894531,
+                6.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -168.4088897705078,
+                65.77999877929688,
+                6.710000038146973
+              ],
+              [
+                -168.4088897705078,
+                65.91999816894531,
+                6.710000038146973
+              ],
+              [
+                -168.34889221191406,
+                65.77999877929688,
+                6.769999980926514
+              ],
+              [
+                -168.34889221191406,
+                65.91999816894531,
+                6.769999980926514
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -167.2066650390625,
+                65.77999877929688,
+                6.769999980926514
+              ],
+              [
+                -167.2066650390625,
+                65.91999816894531,
+                6.769999980926514
+              ],
+              [
+                -167.14666748046875,
+                65.77999877929688,
+                6.710000038146973
+              ],
+              [
+                -167.14666748046875,
+                65.91999816894531,
+                6.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -166.18666076660156,
+                65.77999877929688,
+                6.710000038146973
+              ],
+              [
+                -166.18666076660156,
+                65.91999816894531,
+                6.710000038146973
+              ],
+              [
+                -166.1266632080078,
+                65.77999877929688,
+                6.769999980926514
+              ],
+              [
+                -166.1266632080078,
+                65.91999816894531,
+                6.769999980926514
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -164.9844512939453,
+                65.77999877929688,
+                6.769999980926514
+              ],
+              [
+                -164.9844512939453,
+                65.91999816894531,
+                6.769999980926514
+              ],
+              [
+                -164.9244384765625,
+                65.77999877929688,
+                6.710000038146973
+              ],
+              [
+                -164.9244384765625,
+                65.91999816894531,
+                6.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -163.96444702148438,
+                65.77999877929688,
+                6.710000038146973
+              ],
+              [
+                -163.96444702148438,
+                65.91999816894531,
+                6.710000038146973
+              ],
+              [
+                -163.90444946289062,
+                65.77999877929688,
+                6.769999980926514
+              ],
+              [
+                -163.90444946289062,
+                65.91999816894531,
+                6.769999980926514
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.42889404296875,
+                65.77999877929688,
+                9.770000457763672
+              ],
+              [
+                -169.42889404296875,
+                65.91999816894531,
+                9.770000457763672
+              ],
+              [
+                -169.368896484375,
+                65.77999877929688,
+                9.710000038146973
+              ],
+              [
+                -169.368896484375,
+                65.91999816894531,
+                9.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -168.4088897705078,
+                65.77999877929688,
+                9.710000038146973
+              ],
+              [
+                -168.4088897705078,
+                65.91999816894531,
+                9.710000038146973
+              ],
+              [
+                -168.34889221191406,
+                65.77999877929688,
+                9.770000457763672
+              ],
+              [
+                -168.34889221191406,
+                65.91999816894531,
+                9.770000457763672
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -167.2066650390625,
+                65.77999877929688,
+                9.770000457763672
+              ],
+              [
+                -167.2066650390625,
+                65.91999816894531,
+                9.770000457763672
+              ],
+              [
+                -167.14666748046875,
+                65.77999877929688,
+                9.710000038146973
+              ],
+              [
+                -167.14666748046875,
+                65.91999816894531,
+                9.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -166.18666076660156,
+                65.77999877929688,
+                9.710000038146973
+              ],
+              [
+                -166.18666076660156,
+                65.91999816894531,
+                9.710000038146973
+              ],
+              [
+                -166.1266632080078,
+                65.77999877929688,
+                9.770000457763672
+              ],
+              [
+                -166.1266632080078,
+                65.91999816894531,
+                9.770000457763672
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -164.9844512939453,
+                65.77999877929688,
+                9.770000457763672
+              ],
+              [
+                -164.9844512939453,
+                65.91999816894531,
+                9.770000457763672
+              ],
+              [
+                -164.9244384765625,
+                65.77999877929688,
+                9.710000038146973
+              ],
+              [
+                -164.9244384765625,
+                65.91999816894531,
+                9.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -163.96444702148438,
+                65.77999877929688,
+                9.710000038146973
+              ],
+              [
+                -163.96444702148438,
+                65.91999816894531,
+                9.710000038146973
+              ],
+              [
+                -163.90444946289062,
+                65.77999877929688,
+                9.770000457763672
+              ],
+              [
+                -163.90444946289062,
+                65.91999816894531,
+                9.770000457763672
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                49.97999954223633,
+                0.75
+              ],
+              [
+                -169.9199981689453,
+                49.97999954223633,
+                0.75
+              ],
+              [
+                -169.77999877929688,
+                50.040000915527344,
+                0.6899999976158142
+              ],
+              [
+                -169.9199981689453,
+                50.040000915527344,
+                0.6899999976158142
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                51.0,
+                0.6899999976158142
+              ],
+              [
+                -169.9199981689453,
+                51.0,
+                0.6899999976158142
+              ],
+              [
+                -169.77999877929688,
+                51.05999755859375,
+                0.75
+              ],
+              [
+                -169.9199981689453,
+                51.05999755859375,
+                0.75
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                53.41999816894531,
+                0.75
+              ],
+              [
+                -169.9199981689453,
+                53.41999816894531,
+                0.75
+              ],
+              [
+                -169.77999877929688,
+                53.47999954223633,
+                0.6899999976158142
+              ],
+              [
+                -169.9199981689453,
+                53.47999954223633,
+                0.6899999976158142
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                54.439998626708984,
+                0.6899999976158142
+              ],
+              [
+                -169.9199981689453,
+                54.439998626708984,
+                0.6899999976158142
+              ],
+              [
+                -169.77999877929688,
+                54.5,
+                0.75
+              ],
+              [
+                -169.9199981689453,
+                54.5,
+                0.75
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                56.86000061035156,
+                0.75
+              ],
+              [
+                -169.9199981689453,
+                56.86000061035156,
+                0.75
+              ],
+              [
+                -169.77999877929688,
+                56.91999816894531,
+                0.6899999976158142
+              ],
+              [
+                -169.9199981689453,
+                56.91999816894531,
+                0.6899999976158142
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                57.87999725341797,
+                0.6899999976158142
+              ],
+              [
+                -169.9199981689453,
+                57.87999725341797,
+                0.6899999976158142
+              ],
+              [
+                -169.77999877929688,
+                57.939998626708984,
+                0.75
+              ],
+              [
+                -169.9199981689453,
+                57.939998626708984,
+                0.75
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                60.29999923706055,
+                0.75
+              ],
+              [
+                -169.9199981689453,
+                60.29999923706055,
+                0.75
+              ],
+              [
+                -169.77999877929688,
+                60.36000061035156,
+                0.6899999976158142
+              ],
+              [
+                -169.9199981689453,
+                60.36000061035156,
+                0.6899999976158142
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                61.31999969482422,
+                0.6899999976158142
+              ],
+              [
+                -169.9199981689453,
+                61.31999969482422,
+                0.6899999976158142
+              ],
+              [
+                -169.77999877929688,
+                61.37999725341797,
+                0.75
+              ],
+              [
+                -169.9199981689453,
+                61.37999725341797,
+                0.75
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                63.73999786376953,
+                0.75
+              ],
+              [
+                -169.9199981689453,
+                63.73999786376953,
+                0.75
+              ],
+              [
+                -169.77999877929688,
+                63.79999923706055,
+                0.6899999976158142
+              ],
+              [
+                -169.9199981689453,
+                63.79999923706055,
+                0.6899999976158142
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                64.76000213623047,
+                0.6899999976158142
+              ],
+              [
+                -169.9199981689453,
+                64.76000213623047,
+                0.6899999976158142
+              ],
+              [
+                -169.77999877929688,
+                64.81999969482422,
+                0.75
+              ],
+              [
+                -169.9199981689453,
+                64.81999969482422,
+                0.75
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                49.97999954223633,
+                3.6700000762939453
+              ],
+              [
+                -169.9199981689453,
+                49.97999954223633,
+                3.6700000762939453
+              ],
+              [
+                -169.77999877929688,
+                50.040000915527344,
+                3.609999895095825
+              ],
+              [
+                -169.9199981689453,
+                50.040000915527344,
+                3.609999895095825
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                51.0,
+                3.609999895095825
+              ],
+              [
+                -169.9199981689453,
+                51.0,
+                3.609999895095825
+              ],
+              [
+                -169.77999877929688,
+                51.05999755859375,
+                3.6700000762939453
+              ],
+              [
+                -169.9199981689453,
+                51.05999755859375,
+                3.6700000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                53.41999816894531,
+                3.6700000762939453
+              ],
+              [
+                -169.9199981689453,
+                53.41999816894531,
+                3.6700000762939453
+              ],
+              [
+                -169.77999877929688,
+                53.47999954223633,
+                3.609999895095825
+              ],
+              [
+                -169.9199981689453,
+                53.47999954223633,
+                3.609999895095825
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                54.439998626708984,
+                3.609999895095825
+              ],
+              [
+                -169.9199981689453,
+                54.439998626708984,
+                3.609999895095825
+              ],
+              [
+                -169.77999877929688,
+                54.5,
+                3.6700000762939453
+              ],
+              [
+                -169.9199981689453,
+                54.5,
+                3.6700000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                56.86000061035156,
+                3.6700000762939453
+              ],
+              [
+                -169.9199981689453,
+                56.86000061035156,
+                3.6700000762939453
+              ],
+              [
+                -169.77999877929688,
+                56.91999816894531,
+                3.609999895095825
+              ],
+              [
+                -169.9199981689453,
+                56.91999816894531,
+                3.609999895095825
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                57.87999725341797,
+                3.609999895095825
+              ],
+              [
+                -169.9199981689453,
+                57.87999725341797,
+                3.609999895095825
+              ],
+              [
+                -169.77999877929688,
+                57.939998626708984,
+                3.6700000762939453
+              ],
+              [
+                -169.9199981689453,
+                57.939998626708984,
+                3.6700000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                60.29999923706055,
+                3.6700000762939453
+              ],
+              [
+                -169.9199981689453,
+                60.29999923706055,
+                3.6700000762939453
+              ],
+              [
+                -169.77999877929688,
+                60.36000061035156,
+                3.609999895095825
+              ],
+              [
+                -169.9199981689453,
+                60.36000061035156,
+                3.609999895095825
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                61.31999969482422,
+                3.609999895095825
+              ],
+              [
+                -169.9199981689453,
+                61.31999969482422,
+                3.609999895095825
+              ],
+              [
+                -169.77999877929688,
+                61.37999725341797,
+                3.6700000762939453
+              ],
+              [
+                -169.9199981689453,
+                61.37999725341797,
+                3.6700000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                63.73999786376953,
+                3.6700000762939453
+              ],
+              [
+                -169.9199981689453,
+                63.73999786376953,
+                3.6700000762939453
+              ],
+              [
+                -169.77999877929688,
+                63.79999923706055,
+                3.609999895095825
+              ],
+              [
+                -169.9199981689453,
+                63.79999923706055,
+                3.609999895095825
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                64.76000213623047,
+                3.609999895095825
+              ],
+              [
+                -169.9199981689453,
+                64.76000213623047,
+                3.609999895095825
+              ],
+              [
+                -169.77999877929688,
+                64.81999969482422,
+                3.6700000762939453
+              ],
+              [
+                -169.9199981689453,
+                64.81999969482422,
+                3.6700000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                49.97999954223633,
+                6.769999980926514
+              ],
+              [
+                -169.9199981689453,
+                49.97999954223633,
+                6.769999980926514
+              ],
+              [
+                -169.77999877929688,
+                50.040000915527344,
+                6.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                50.040000915527344,
+                6.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                51.0,
+                6.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                51.0,
+                6.710000038146973
+              ],
+              [
+                -169.77999877929688,
+                51.05999755859375,
+                6.769999980926514
+              ],
+              [
+                -169.9199981689453,
+                51.05999755859375,
+                6.769999980926514
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                53.41999816894531,
+                6.769999980926514
+              ],
+              [
+                -169.9199981689453,
+                53.41999816894531,
+                6.769999980926514
+              ],
+              [
+                -169.77999877929688,
+                53.47999954223633,
+                6.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                53.47999954223633,
+                6.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                54.439998626708984,
+                6.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                54.439998626708984,
+                6.710000038146973
+              ],
+              [
+                -169.77999877929688,
+                54.5,
+                6.769999980926514
+              ],
+              [
+                -169.9199981689453,
+                54.5,
+                6.769999980926514
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                56.86000061035156,
+                6.769999980926514
+              ],
+              [
+                -169.9199981689453,
+                56.86000061035156,
+                6.769999980926514
+              ],
+              [
+                -169.77999877929688,
+                56.91999816894531,
+                6.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                56.91999816894531,
+                6.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                57.87999725341797,
+                6.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                57.87999725341797,
+                6.710000038146973
+              ],
+              [
+                -169.77999877929688,
+                57.939998626708984,
+                6.769999980926514
+              ],
+              [
+                -169.9199981689453,
+                57.939998626708984,
+                6.769999980926514
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                60.29999923706055,
+                6.769999980926514
+              ],
+              [
+                -169.9199981689453,
+                60.29999923706055,
+                6.769999980926514
+              ],
+              [
+                -169.77999877929688,
+                60.36000061035156,
+                6.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                60.36000061035156,
+                6.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                61.31999969482422,
+                6.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                61.31999969482422,
+                6.710000038146973
+              ],
+              [
+                -169.77999877929688,
+                61.37999725341797,
+                6.769999980926514
+              ],
+              [
+                -169.9199981689453,
+                61.37999725341797,
+                6.769999980926514
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                63.73999786376953,
+                6.769999980926514
+              ],
+              [
+                -169.9199981689453,
+                63.73999786376953,
+                6.769999980926514
+              ],
+              [
+                -169.77999877929688,
+                63.79999923706055,
+                6.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                63.79999923706055,
+                6.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                64.76000213623047,
+                6.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                64.76000213623047,
+                6.710000038146973
+              ],
+              [
+                -169.77999877929688,
+                64.81999969482422,
+                6.769999980926514
+              ],
+              [
+                -169.9199981689453,
+                64.81999969482422,
+                6.769999980926514
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                49.97999954223633,
+                9.770000457763672
+              ],
+              [
+                -169.9199981689453,
+                49.97999954223633,
+                9.770000457763672
+              ],
+              [
+                -169.77999877929688,
+                50.040000915527344,
+                9.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                50.040000915527344,
+                9.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                51.0,
+                9.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                51.0,
+                9.710000038146973
+              ],
+              [
+                -169.77999877929688,
+                51.05999755859375,
+                9.770000457763672
+              ],
+              [
+                -169.9199981689453,
+                51.05999755859375,
+                9.770000457763672
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                53.41999816894531,
+                9.770000457763672
+              ],
+              [
+                -169.9199981689453,
+                53.41999816894531,
+                9.770000457763672
+              ],
+              [
+                -169.77999877929688,
+                53.47999954223633,
+                9.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                53.47999954223633,
+                9.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                54.439998626708984,
+                9.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                54.439998626708984,
+                9.710000038146973
+              ],
+              [
+                -169.77999877929688,
+                54.5,
+                9.770000457763672
+              ],
+              [
+                -169.9199981689453,
+                54.5,
+                9.770000457763672
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                56.86000061035156,
+                9.770000457763672
+              ],
+              [
+                -169.9199981689453,
+                56.86000061035156,
+                9.770000457763672
+              ],
+              [
+                -169.77999877929688,
+                56.91999816894531,
+                9.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                56.91999816894531,
+                9.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                57.87999725341797,
+                9.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                57.87999725341797,
+                9.710000038146973
+              ],
+              [
+                -169.77999877929688,
+                57.939998626708984,
+                9.770000457763672
+              ],
+              [
+                -169.9199981689453,
+                57.939998626708984,
+                9.770000457763672
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                60.29999923706055,
+                9.770000457763672
+              ],
+              [
+                -169.9199981689453,
+                60.29999923706055,
+                9.770000457763672
+              ],
+              [
+                -169.77999877929688,
+                60.36000061035156,
+                9.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                60.36000061035156,
+                9.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                61.31999969482422,
+                9.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                61.31999969482422,
+                9.710000038146973
+              ],
+              [
+                -169.77999877929688,
+                61.37999725341797,
+                9.770000457763672
+              ],
+              [
+                -169.9199981689453,
+                61.37999725341797,
+                9.770000457763672
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R0",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -169.77999877929688,
+                63.73999786376953,
+                9.770000457763672
+              ],
+              [
+                -169.9199981689453,
+                63.73999786376953,
+                9.770000457763672
+              ],
+              [
+                -169.77999877929688,
+                63.79999923706055,
+                9.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                63.79999923706055,
+                9.710000038146973
+              ]
+            ],
+            "right": [
+              [
+                -169.77999877929688,
+                64.76000213623047,
+                9.710000038146973
+              ],
+              [
+                -169.9199981689453,
+                64.76000213623047,
+                9.710000038146973
+              ],
+              [
+                -169.77999877929688,
+                64.81999969482422,
+                9.770000457763672
+              ],
+              [
+                -169.9199981689453,
+                64.81999969482422,
+                9.770000457763672
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R1",
+      "style": "narrow_2141",
+      "near_closed_stocks": 774,
+      "lower_closed_stocks": 774,
+      "near_min_stock_volume_m3": 0.0004119061661332542,
+      "lower_min_stock_volume_m3": 0.00041248550405725837,
+      "near_panes": 54,
+      "lower_panes": 54,
+      "entries": [
+        {
+          "building": "HORIZON_NEAR_2_1_P0R1",
+          "point": [
+            -158.77999877929688,
+            48.79999923706055,
+            2.125
+          ],
+          "kind": "closed_scenic_leaf"
+        }
+      ],
+      "lower_entries": [
+        {
+          "building": "HORIZON_NEAR_2_1_P0R1",
+          "point": [
+            -158.77999877929688,
+            48.79999923706055,
+            2.125
+          ],
+          "kind": "closed_scenic_leaf"
+        }
+      ],
+      "mitre_seams": []
+    },
+    {
+      "building": "HORIZON_NEAR_2_1_P0R2",
+      "style": "gable_2136",
+      "near_closed_stocks": 1837,
+      "lower_closed_stocks": 1837,
+      "near_min_stock_volume_m3": 8.22521724330727e-05,
+      "lower_min_stock_volume_m3": 8.22521724330727e-05,
+      "near_panes": 33,
+      "lower_panes": 33,
+      "entries": [
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "point": [
+            -151.11111450195312,
+            48.79999923706055,
+            2.075000047683716
+          ],
+          "kind": "closed_scenic_leaf"
+        }
+      ],
+      "lower_entries": [
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "point": [
+            -151.11111450195312,
+            48.79999923706055,
+            2.075000047683716
+          ],
+          "kind": "closed_scenic_leaf"
+        }
+      ],
+      "mitre_seams": [
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -152.81832885742188,
+                49.02000045776367,
+                0.6499999761581421
+              ],
+              [
+                -152.81832885742188,
+                48.880001068115234,
+                0.6499999761581421
+              ],
+              [
+                -152.87832641601562,
+                49.02000045776367,
+                0.5899999737739563
+              ],
+              [
+                -152.87832641601562,
+                48.880001068115234,
+                0.5899999737739563
+              ]
+            ],
+            "right": [
+              [
+                -153.788330078125,
+                49.02000045776367,
+                0.5899999737739563
+              ],
+              [
+                -153.788330078125,
+                48.880001068115234,
+                0.5899999737739563
+              ],
+              [
+                -153.84832763671875,
+                49.02000045776367,
+                0.6499999761581421
+              ],
+              [
+                -153.84832763671875,
+                48.880001068115234,
+                0.6499999761581421
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -155.04055786132812,
+                49.02000045776367,
+                0.6499999761581421
+              ],
+              [
+                -155.04055786132812,
+                48.880001068115234,
+                0.6499999761581421
+              ],
+              [
+                -155.10055541992188,
+                49.02000045776367,
+                0.5899999737739563
+              ],
+              [
+                -155.10055541992188,
+                48.880001068115234,
+                0.5899999737739563
+              ]
+            ],
+            "right": [
+              [
+                -156.01055908203125,
+                49.02000045776367,
+                0.5899999737739563
+              ],
+              [
+                -156.01055908203125,
+                48.880001068115234,
+                0.5899999737739563
+              ],
+              [
+                -156.070556640625,
+                49.02000045776367,
+                0.6499999761581421
+              ],
+              [
+                -156.070556640625,
+                48.880001068115234,
+                0.6499999761581421
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.55111694335938,
+                49.02000045776367,
+                3.5
+              ],
+              [
+                -150.55111694335938,
+                48.880001068115234,
+                3.5
+              ],
+              [
+                -150.61111450195312,
+                49.02000045776367,
+                3.440000057220459
+              ],
+              [
+                -150.61111450195312,
+                48.880001068115234,
+                3.440000057220459
+              ]
+            ],
+            "right": [
+              [
+                -151.61111450195312,
+                49.02000045776367,
+                3.440000057220459
+              ],
+              [
+                -151.61111450195312,
+                48.880001068115234,
+                3.440000057220459
+              ],
+              [
+                -151.67111206054688,
+                49.02000045776367,
+                3.5
+              ],
+              [
+                -151.67111206054688,
+                48.880001068115234,
+                3.5
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -152.81832885742188,
+                48.86000061035156,
+                3.4200000762939453
+              ],
+              [
+                -152.81832885742188,
+                48.720001220703125,
+                3.4200000762939453
+              ],
+              [
+                -152.87832641601562,
+                48.86000061035156,
+                3.359999895095825
+              ],
+              [
+                -152.87832641601562,
+                48.720001220703125,
+                3.359999895095825
+              ]
+            ],
+            "right": [
+              [
+                -153.788330078125,
+                48.86000061035156,
+                3.359999895095825
+              ],
+              [
+                -153.788330078125,
+                48.720001220703125,
+                3.359999895095825
+              ],
+              [
+                -153.84832763671875,
+                48.86000061035156,
+                3.4200000762939453
+              ],
+              [
+                -153.84832763671875,
+                48.720001220703125,
+                3.4200000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -155.04055786132812,
+                48.86000061035156,
+                3.4200000762939453
+              ],
+              [
+                -155.04055786132812,
+                48.720001220703125,
+                3.4200000762939453
+              ],
+              [
+                -155.10055541992188,
+                48.86000061035156,
+                3.359999895095825
+              ],
+              [
+                -155.10055541992188,
+                48.720001220703125,
+                3.359999895095825
+              ]
+            ],
+            "right": [
+              [
+                -156.01055908203125,
+                48.86000061035156,
+                3.359999895095825
+              ],
+              [
+                -156.01055908203125,
+                48.720001220703125,
+                3.359999895095825
+              ],
+              [
+                -156.070556640625,
+                48.86000061035156,
+                3.4200000762939453
+              ],
+              [
+                -156.070556640625,
+                48.720001220703125,
+                3.4200000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.5961151123047,
+                49.02000045776367,
+                6.369999885559082
+              ],
+              [
+                -150.5961151123047,
+                48.880001068115234,
+                6.369999885559082
+              ],
+              [
+                -150.65611267089844,
+                49.02000045776367,
+                6.309999942779541
+              ],
+              [
+                -150.65611267089844,
+                48.880001068115234,
+                6.309999942779541
+              ]
+            ],
+            "right": [
+              [
+                -151.5661163330078,
+                49.02000045776367,
+                6.309999942779541
+              ],
+              [
+                -151.5661163330078,
+                48.880001068115234,
+                6.309999942779541
+              ],
+              [
+                -151.62611389160156,
+                49.02000045776367,
+                6.369999885559082
+              ],
+              [
+                -151.62611389160156,
+                48.880001068115234,
+                6.369999885559082
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -152.81832885742188,
+                48.86000061035156,
+                6.369999885559082
+              ],
+              [
+                -152.81832885742188,
+                48.720001220703125,
+                6.369999885559082
+              ],
+              [
+                -152.87832641601562,
+                48.86000061035156,
+                6.309999942779541
+              ],
+              [
+                -152.87832641601562,
+                48.720001220703125,
+                6.309999942779541
+              ]
+            ],
+            "right": [
+              [
+                -153.788330078125,
+                48.86000061035156,
+                6.309999942779541
+              ],
+              [
+                -153.788330078125,
+                48.720001220703125,
+                6.309999942779541
+              ],
+              [
+                -153.84832763671875,
+                48.86000061035156,
+                6.369999885559082
+              ],
+              [
+                -153.84832763671875,
+                48.720001220703125,
+                6.369999885559082
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -155.04055786132812,
+                48.86000061035156,
+                6.369999885559082
+              ],
+              [
+                -155.04055786132812,
+                48.720001220703125,
+                6.369999885559082
+              ],
+              [
+                -155.10055541992188,
+                48.86000061035156,
+                6.309999942779541
+              ],
+              [
+                -155.10055541992188,
+                48.720001220703125,
+                6.309999942779541
+              ]
+            ],
+            "right": [
+              [
+                -156.01055908203125,
+                48.86000061035156,
+                6.309999942779541
+              ],
+              [
+                -156.01055908203125,
+                48.720001220703125,
+                6.309999942779541
+              ],
+              [
+                -156.070556640625,
+                48.86000061035156,
+                6.369999885559082
+              ],
+              [
+                -156.070556640625,
+                48.720001220703125,
+                6.369999885559082
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                64.81999969482422,
+                0.6499999761581421
+              ],
+              [
+                -150.0800018310547,
+                64.81999969482422,
+                0.6499999761581421
+              ],
+              [
+                -150.22000122070312,
+                64.76000213623047,
+                0.5899999737739563
+              ],
+              [
+                -150.0800018310547,
+                64.76000213623047,
+                0.5899999737739563
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                63.79999923706055,
+                0.5899999737739563
+              ],
+              [
+                -150.0800018310547,
+                63.79999923706055,
+                0.5899999737739563
+              ],
+              [
+                -150.22000122070312,
+                63.7400016784668,
+                0.6499999761581421
+              ],
+              [
+                -150.0800018310547,
+                63.7400016784668,
+                0.6499999761581421
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                61.380001068115234,
+                0.6499999761581421
+              ],
+              [
+                -150.0800018310547,
+                61.380001068115234,
+                0.6499999761581421
+              ],
+              [
+                -150.22000122070312,
+                61.31999969482422,
+                0.5899999737739563
+              ],
+              [
+                -150.0800018310547,
+                61.31999969482422,
+                0.5899999737739563
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                60.36000061035156,
+                0.5899999737739563
+              ],
+              [
+                -150.0800018310547,
+                60.36000061035156,
+                0.5899999737739563
+              ],
+              [
+                -150.22000122070312,
+                60.29999923706055,
+                0.6499999761581421
+              ],
+              [
+                -150.0800018310547,
+                60.29999923706055,
+                0.6499999761581421
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                57.939998626708984,
+                0.6499999761581421
+              ],
+              [
+                -150.0800018310547,
+                57.939998626708984,
+                0.6499999761581421
+              ],
+              [
+                -150.22000122070312,
+                57.880001068115234,
+                0.5899999737739563
+              ],
+              [
+                -150.0800018310547,
+                57.880001068115234,
+                0.5899999737739563
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                56.91999816894531,
+                0.5899999737739563
+              ],
+              [
+                -150.0800018310547,
+                56.91999816894531,
+                0.5899999737739563
+              ],
+              [
+                -150.22000122070312,
+                56.86000061035156,
+                0.6499999761581421
+              ],
+              [
+                -150.0800018310547,
+                56.86000061035156,
+                0.6499999761581421
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                54.5,
+                0.6499999761581421
+              ],
+              [
+                -150.0800018310547,
+                54.5,
+                0.6499999761581421
+              ],
+              [
+                -150.22000122070312,
+                54.439998626708984,
+                0.5899999737739563
+              ],
+              [
+                -150.0800018310547,
+                54.439998626708984,
+                0.5899999737739563
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                53.47999954223633,
+                0.5899999737739563
+              ],
+              [
+                -150.0800018310547,
+                53.47999954223633,
+                0.5899999737739563
+              ],
+              [
+                -150.22000122070312,
+                53.41999816894531,
+                0.6499999761581421
+              ],
+              [
+                -150.0800018310547,
+                53.41999816894531,
+                0.6499999761581421
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                51.060001373291016,
+                0.6499999761581421
+              ],
+              [
+                -150.0800018310547,
+                51.060001373291016,
+                0.6499999761581421
+              ],
+              [
+                -150.22000122070312,
+                51.0,
+                0.5899999737739563
+              ],
+              [
+                -150.0800018310547,
+                51.0,
+                0.5899999737739563
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                50.040000915527344,
+                0.5899999737739563
+              ],
+              [
+                -150.0800018310547,
+                50.040000915527344,
+                0.5899999737739563
+              ],
+              [
+                -150.22000122070312,
+                49.97999954223633,
+                0.6499999761581421
+              ],
+              [
+                -150.0800018310547,
+                49.97999954223633,
+                0.6499999761581421
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                64.81999969482422,
+                3.4200000762939453
+              ],
+              [
+                -150.0800018310547,
+                64.81999969482422,
+                3.4200000762939453
+              ],
+              [
+                -150.22000122070312,
+                64.76000213623047,
+                3.359999895095825
+              ],
+              [
+                -150.0800018310547,
+                64.76000213623047,
+                3.359999895095825
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                63.79999923706055,
+                3.359999895095825
+              ],
+              [
+                -150.0800018310547,
+                63.79999923706055,
+                3.359999895095825
+              ],
+              [
+                -150.22000122070312,
+                63.7400016784668,
+                3.4200000762939453
+              ],
+              [
+                -150.0800018310547,
+                63.7400016784668,
+                3.4200000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                61.380001068115234,
+                3.4200000762939453
+              ],
+              [
+                -150.0800018310547,
+                61.380001068115234,
+                3.4200000762939453
+              ],
+              [
+                -150.22000122070312,
+                61.31999969482422,
+                3.359999895095825
+              ],
+              [
+                -150.0800018310547,
+                61.31999969482422,
+                3.359999895095825
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                60.36000061035156,
+                3.359999895095825
+              ],
+              [
+                -150.0800018310547,
+                60.36000061035156,
+                3.359999895095825
+              ],
+              [
+                -150.22000122070312,
+                60.29999923706055,
+                3.4200000762939453
+              ],
+              [
+                -150.0800018310547,
+                60.29999923706055,
+                3.4200000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                57.939998626708984,
+                3.4200000762939453
+              ],
+              [
+                -150.0800018310547,
+                57.939998626708984,
+                3.4200000762939453
+              ],
+              [
+                -150.22000122070312,
+                57.880001068115234,
+                3.359999895095825
+              ],
+              [
+                -150.0800018310547,
+                57.880001068115234,
+                3.359999895095825
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                56.91999816894531,
+                3.359999895095825
+              ],
+              [
+                -150.0800018310547,
+                56.91999816894531,
+                3.359999895095825
+              ],
+              [
+                -150.22000122070312,
+                56.86000061035156,
+                3.4200000762939453
+              ],
+              [
+                -150.0800018310547,
+                56.86000061035156,
+                3.4200000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                54.5,
+                3.4200000762939453
+              ],
+              [
+                -150.0800018310547,
+                54.5,
+                3.4200000762939453
+              ],
+              [
+                -150.22000122070312,
+                54.439998626708984,
+                3.359999895095825
+              ],
+              [
+                -150.0800018310547,
+                54.439998626708984,
+                3.359999895095825
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                53.47999954223633,
+                3.359999895095825
+              ],
+              [
+                -150.0800018310547,
+                53.47999954223633,
+                3.359999895095825
+              ],
+              [
+                -150.22000122070312,
+                53.41999816894531,
+                3.4200000762939453
+              ],
+              [
+                -150.0800018310547,
+                53.41999816894531,
+                3.4200000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                51.060001373291016,
+                3.4200000762939453
+              ],
+              [
+                -150.0800018310547,
+                51.060001373291016,
+                3.4200000762939453
+              ],
+              [
+                -150.22000122070312,
+                51.0,
+                3.359999895095825
+              ],
+              [
+                -150.0800018310547,
+                51.0,
+                3.359999895095825
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                50.040000915527344,
+                3.359999895095825
+              ],
+              [
+                -150.0800018310547,
+                50.040000915527344,
+                3.359999895095825
+              ],
+              [
+                -150.22000122070312,
+                49.97999954223633,
+                3.4200000762939453
+              ],
+              [
+                -150.0800018310547,
+                49.97999954223633,
+                3.4200000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                64.81999969482422,
+                6.369999885559082
+              ],
+              [
+                -150.0800018310547,
+                64.81999969482422,
+                6.369999885559082
+              ],
+              [
+                -150.22000122070312,
+                64.76000213623047,
+                6.309999942779541
+              ],
+              [
+                -150.0800018310547,
+                64.76000213623047,
+                6.309999942779541
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                63.79999923706055,
+                6.309999942779541
+              ],
+              [
+                -150.0800018310547,
+                63.79999923706055,
+                6.309999942779541
+              ],
+              [
+                -150.22000122070312,
+                63.7400016784668,
+                6.369999885559082
+              ],
+              [
+                -150.0800018310547,
+                63.7400016784668,
+                6.369999885559082
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                61.380001068115234,
+                6.369999885559082
+              ],
+              [
+                -150.0800018310547,
+                61.380001068115234,
+                6.369999885559082
+              ],
+              [
+                -150.22000122070312,
+                61.31999969482422,
+                6.309999942779541
+              ],
+              [
+                -150.0800018310547,
+                61.31999969482422,
+                6.309999942779541
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                60.36000061035156,
+                6.309999942779541
+              ],
+              [
+                -150.0800018310547,
+                60.36000061035156,
+                6.309999942779541
+              ],
+              [
+                -150.22000122070312,
+                60.29999923706055,
+                6.369999885559082
+              ],
+              [
+                -150.0800018310547,
+                60.29999923706055,
+                6.369999885559082
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                57.939998626708984,
+                6.369999885559082
+              ],
+              [
+                -150.0800018310547,
+                57.939998626708984,
+                6.369999885559082
+              ],
+              [
+                -150.22000122070312,
+                57.880001068115234,
+                6.309999942779541
+              ],
+              [
+                -150.0800018310547,
+                57.880001068115234,
+                6.309999942779541
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                56.91999816894531,
+                6.309999942779541
+              ],
+              [
+                -150.0800018310547,
+                56.91999816894531,
+                6.309999942779541
+              ],
+              [
+                -150.22000122070312,
+                56.86000061035156,
+                6.369999885559082
+              ],
+              [
+                -150.0800018310547,
+                56.86000061035156,
+                6.369999885559082
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                54.5,
+                6.369999885559082
+              ],
+              [
+                -150.0800018310547,
+                54.5,
+                6.369999885559082
+              ],
+              [
+                -150.22000122070312,
+                54.439998626708984,
+                6.309999942779541
+              ],
+              [
+                -150.0800018310547,
+                54.439998626708984,
+                6.309999942779541
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                53.47999954223633,
+                6.309999942779541
+              ],
+              [
+                -150.0800018310547,
+                53.47999954223633,
+                6.309999942779541
+              ],
+              [
+                -150.22000122070312,
+                53.41999816894531,
+                6.369999885559082
+              ],
+              [
+                -150.0800018310547,
+                53.41999816894531,
+                6.369999885559082
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -150.22000122070312,
+                51.060001373291016,
+                6.369999885559082
+              ],
+              [
+                -150.0800018310547,
+                51.060001373291016,
+                6.369999885559082
+              ],
+              [
+                -150.22000122070312,
+                51.0,
+                6.309999942779541
+              ],
+              [
+                -150.0800018310547,
+                51.0,
+                6.309999942779541
+              ]
+            ],
+            "right": [
+              [
+                -150.22000122070312,
+                50.040000915527344,
+                6.309999942779541
+              ],
+              [
+                -150.0800018310547,
+                50.040000915527344,
+                6.309999942779541
+              ],
+              [
+                -150.22000122070312,
+                49.97999954223633,
+                6.369999885559082
+              ],
+              [
+                -150.0800018310547,
+                49.97999954223633,
+                6.369999885559082
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -156.09556579589844,
+                65.77999877929688,
+                0.6499999761581421
+              ],
+              [
+                -156.09556579589844,
+                65.91999816894531,
+                0.6499999761581421
+              ],
+              [
+                -156.0355682373047,
+                65.77999877929688,
+                0.5899999737739563
+              ],
+              [
+                -156.0355682373047,
+                65.91999816894531,
+                0.5899999737739563
+              ]
+            ],
+            "right": [
+              [
+                -155.0755615234375,
+                65.77999877929688,
+                0.5899999737739563
+              ],
+              [
+                -155.0755615234375,
+                65.91999816894531,
+                0.5899999737739563
+              ],
+              [
+                -155.01556396484375,
+                65.77999877929688,
+                0.6499999761581421
+              ],
+              [
+                -155.01556396484375,
+                65.91999816894531,
+                0.6499999761581421
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -153.8733367919922,
+                65.77999877929688,
+                0.6499999761581421
+              ],
+              [
+                -153.8733367919922,
+                65.91999816894531,
+                0.6499999761581421
+              ],
+              [
+                -153.81333923339844,
+                65.77999877929688,
+                0.5899999737739563
+              ],
+              [
+                -153.81333923339844,
+                65.91999816894531,
+                0.5899999737739563
+              ]
+            ],
+            "right": [
+              [
+                -152.85333251953125,
+                65.77999877929688,
+                0.5899999737739563
+              ],
+              [
+                -152.85333251953125,
+                65.91999816894531,
+                0.5899999737739563
+              ],
+              [
+                -152.7933349609375,
+                65.77999877929688,
+                0.6499999761581421
+              ],
+              [
+                -152.7933349609375,
+                65.91999816894531,
+                0.6499999761581421
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -151.651123046875,
+                65.77999877929688,
+                0.6499999761581421
+              ],
+              [
+                -151.651123046875,
+                65.91999816894531,
+                0.6499999761581421
+              ],
+              [
+                -151.5911102294922,
+                65.77999877929688,
+                0.5899999737739563
+              ],
+              [
+                -151.5911102294922,
+                65.91999816894531,
+                0.5899999737739563
+              ]
+            ],
+            "right": [
+              [
+                -150.63111877441406,
+                65.77999877929688,
+                0.5899999737739563
+              ],
+              [
+                -150.63111877441406,
+                65.91999816894531,
+                0.5899999737739563
+              ],
+              [
+                -150.5711212158203,
+                65.77999877929688,
+                0.6499999761581421
+              ],
+              [
+                -150.5711212158203,
+                65.91999816894531,
+                0.6499999761581421
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -156.09556579589844,
+                65.77999877929688,
+                3.4200000762939453
+              ],
+              [
+                -156.09556579589844,
+                65.91999816894531,
+                3.4200000762939453
+              ],
+              [
+                -156.0355682373047,
+                65.77999877929688,
+                3.359999895095825
+              ],
+              [
+                -156.0355682373047,
+                65.91999816894531,
+                3.359999895095825
+              ]
+            ],
+            "right": [
+              [
+                -155.0755615234375,
+                65.77999877929688,
+                3.359999895095825
+              ],
+              [
+                -155.0755615234375,
+                65.91999816894531,
+                3.359999895095825
+              ],
+              [
+                -155.01556396484375,
+                65.77999877929688,
+                3.4200000762939453
+              ],
+              [
+                -155.01556396484375,
+                65.91999816894531,
+                3.4200000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -153.8733367919922,
+                65.77999877929688,
+                3.4200000762939453
+              ],
+              [
+                -153.8733367919922,
+                65.91999816894531,
+                3.4200000762939453
+              ],
+              [
+                -153.81333923339844,
+                65.77999877929688,
+                3.359999895095825
+              ],
+              [
+                -153.81333923339844,
+                65.91999816894531,
+                3.359999895095825
+              ]
+            ],
+            "right": [
+              [
+                -152.85333251953125,
+                65.77999877929688,
+                3.359999895095825
+              ],
+              [
+                -152.85333251953125,
+                65.91999816894531,
+                3.359999895095825
+              ],
+              [
+                -152.7933349609375,
+                65.77999877929688,
+                3.4200000762939453
+              ],
+              [
+                -152.7933349609375,
+                65.91999816894531,
+                3.4200000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -151.651123046875,
+                65.77999877929688,
+                3.4200000762939453
+              ],
+              [
+                -151.651123046875,
+                65.91999816894531,
+                3.4200000762939453
+              ],
+              [
+                -151.5911102294922,
+                65.77999877929688,
+                3.359999895095825
+              ],
+              [
+                -151.5911102294922,
+                65.91999816894531,
+                3.359999895095825
+              ]
+            ],
+            "right": [
+              [
+                -150.63111877441406,
+                65.77999877929688,
+                3.359999895095825
+              ],
+              [
+                -150.63111877441406,
+                65.91999816894531,
+                3.359999895095825
+              ],
+              [
+                -150.5711212158203,
+                65.77999877929688,
+                3.4200000762939453
+              ],
+              [
+                -150.5711212158203,
+                65.91999816894531,
+                3.4200000762939453
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -156.09556579589844,
+                65.77999877929688,
+                6.369999885559082
+              ],
+              [
+                -156.09556579589844,
+                65.91999816894531,
+                6.369999885559082
+              ],
+              [
+                -156.0355682373047,
+                65.77999877929688,
+                6.309999942779541
+              ],
+              [
+                -156.0355682373047,
+                65.91999816894531,
+                6.309999942779541
+              ]
+            ],
+            "right": [
+              [
+                -155.0755615234375,
+                65.77999877929688,
+                6.309999942779541
+              ],
+              [
+                -155.0755615234375,
+                65.91999816894531,
+                6.309999942779541
+              ],
+              [
+                -155.01556396484375,
+                65.77999877929688,
+                6.369999885559082
+              ],
+              [
+                -155.01556396484375,
+                65.91999816894531,
+                6.369999885559082
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -153.8733367919922,
+                65.77999877929688,
+                6.369999885559082
+              ],
+              [
+                -153.8733367919922,
+                65.91999816894531,
+                6.369999885559082
+              ],
+              [
+                -153.81333923339844,
+                65.77999877929688,
+                6.309999942779541
+              ],
+              [
+                -153.81333923339844,
+                65.91999816894531,
+                6.309999942779541
+              ]
+            ],
+            "right": [
+              [
+                -152.85333251953125,
+                65.77999877929688,
+                6.309999942779541
+              ],
+              [
+                -152.85333251953125,
+                65.91999816894531,
+                6.309999942779541
+              ],
+              [
+                -152.7933349609375,
+                65.77999877929688,
+                6.369999885559082
+              ],
+              [
+                -152.7933349609375,
+                65.91999816894531,
+                6.369999885559082
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -151.651123046875,
+                65.77999877929688,
+                6.369999885559082
+              ],
+              [
+                -151.651123046875,
+                65.91999816894531,
+                6.369999885559082
+              ],
+              [
+                -151.5911102294922,
+                65.77999877929688,
+                6.309999942779541
+              ],
+              [
+                -151.5911102294922,
+                65.91999816894531,
+                6.309999942779541
+              ]
+            ],
+            "right": [
+              [
+                -150.63111877441406,
+                65.77999877929688,
+                6.309999942779541
+              ],
+              [
+                -150.63111877441406,
+                65.91999816894531,
+                6.309999942779541
+              ],
+              [
+                -150.5711212158203,
+                65.77999877929688,
+                6.369999885559082
+              ],
+              [
+                -150.5711212158203,
+                65.91999816894531,
+                6.369999885559082
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -153.01333618164062,
+                49.02000045776367,
+                8.029999732971191
+              ],
+              [
+                -153.01333618164062,
+                48.880001068115234,
+                8.029999732971191
+              ],
+              [
+                -153.07333374023438,
+                49.02000045776367,
+                7.96999979019165
+              ],
+              [
+                -153.07333374023438,
+                48.880001068115234,
+                7.96999979019165
+              ]
+            ],
+            "right": [
+              [
+                -153.5933380126953,
+                49.02000045776367,
+                7.96999979019165
+              ],
+              [
+                -153.5933380126953,
+                48.880001068115234,
+                7.96999979019165
+              ],
+              [
+                -153.65333557128906,
+                49.02000045776367,
+                8.029999732971191
+              ],
+              [
+                -153.65333557128906,
+                48.880001068115234,
+                8.029999732971191
+              ]
+            ]
+          }
+        },
+        {
+          "building": "HORIZON_NEAR_2_1_P0R2",
+          "full_depth_m": 0.14,
+          "interfaces": {
+            "left": [
+              [
+                -153.65333557128906,
+                65.77999877929688,
+                8.029999732971191
+              ],
+              [
+                -153.65333557128906,
+                65.91999816894531,
+                8.029999732971191
+              ],
+              [
+                -153.5933380126953,
+                65.77999877929688,
+                7.96999979019165
+              ],
+              [
+                -153.5933380126953,
+                65.91999816894531,
+                7.96999979019165
+              ]
+            ],
+            "right": [
+              [
+                -153.07333374023438,
+                65.77999877929688,
+                7.96999979019165
+              ],
+              [
+                -153.07333374023438,
+                65.91999816894531,
+                7.96999979019165
+              ],
+              [
+                -153.01333618164062,
+                65.77999877929688,
+                8.029999732971191
+              ],
+              [
+                -153.01333618164062,
+                65.91999816894531,
+                8.029999732971191
               ]
             ]
           }
@@ -284050,11 +289172,11 @@
     ]
   },
   "source_bindings": {
-    "art/data/city_horizon/source_plan.json": "8cba89166f204e1b69c73a6da39f53d6204519aa14fd441e335e26b942e40061",
+    "art/data/city_horizon/source_plan.json": "8d6a19497384be7398caeeb71000e0db76f8296b0fca939abcc428024eccdd14",
     "art/blender/city_ground_apron_construction.json": "b9bf87633e751733140868b2de8402b6f2cc8c3673435ec21d8577787f050696",
     "game/data/runtime_material_sets.json": "053761fac29499e8bc9a80a62f37d7411226157919b5cdc5421b9686569d38cc",
-    "game/data/orison_v2/exterior/city_horizon.json": "3237558545877795cefcd7f8273e27c9ce1f9d39802e9861d8d8cdf89c02a8af",
-    "art/blender/scripts/build_city_horizon.py": "74b2b4934f23a6c3cd2c55e288b86c674e036640e5db8f95dce47210d6562035",
+    "game/data/orison_v2/exterior/city_horizon.json": "d26fb5660af9ebe82a49d9bcec9cc59521c3db22c212bc1e6adcb062562c56cc",
+    "art/blender/scripts/build_city_horizon.py": "e9c8af69d7b478c7b1add2865490520d002bc8bd198fbdf3047dda19a66824a6",
     "game/scripts/building/orison_v2_city_horizon.gd": "e5bbdc969394e2d1b0177be204502fcefcc27c52027b1788a82814a38c9e3ca6",
     "art/blender/scripts/city_horizon_geometry.py": "7fe077736647274ed7721bfe18eefcf290e387f8310f5ad5565463b4748bfcf1",
     "art/blender/scripts/city_ground_apron_geometry.py": "05d1c3f1eed60276eb2eccfd570f2f4711127a6bb4f1f0fa3d39470ad2e9383a",
@@ -284067,47 +289189,47 @@
     "art/blender/scripts/city_residential_architecture.py": "fdcb0387da883041799cb14ed7955cb02f2fb0e5dbecd7f0d618c7dc3259b68a",
     "art/blender/scripts/frame_mitre_geometry.py": "b470bd89fe11f87c7da20bb016ceeca762d7b3d8dfd8ecb843d57f8f708f6bdc",
     "art/blender/scripts/city_horizon_assets.py": "81925fbb3ba509b3b36cd02450d563b9d444aaeeb0c24e482a7f14a4edcf33f2",
-    "game/assets/building/textures/T_ai_materials_soil_albedo.png": "0a4e2ed4d7ec6229a7340fa39b203cf70d847c2d0e4f7a6329f426cc228015e0",
-    "game/assets/building/textures/T_ai_materials_soil_rough.png": "e29884dd5f10beb17db26aa5996845f6041884f9ec31975419ff1145cfbc33ae",
-    "game/assets/building/textures/T_ai_materials_soil_normal.png": "946fbd61cd42445375570d2b1951214a13c811d83a1edc99f282487b8afa1aed",
-    "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
-    "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
-    "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
-    "game/assets/building/textures/T_ai_materials_limestone_albedo.png": "98dc560a3b41c71fdac9e0fcc4d78410a7f48377c22152dfe9f18c1d284d2d91",
-    "game/assets/building/textures/T_ai_materials_limestone_rough.png": "dc2118543d957385564364c56a9f000377d530ce4c07b30e66273014a1b16b16",
-    "game/assets/building/textures/T_ai_materials_limestone_normal.png": "160a35cceaa8b2b296f34a28f9c3e8929f16f813986ab3f0503bf7e7eb4c22c4",
-    "game/assets/building/textures/T_ai_materials_concrete_albedo.png": "ff9788841dbf3c791f1c031cdeb15d516e57858f5490a8a8223161cb79430237",
-    "game/assets/building/textures/T_ai_materials_concrete_rough.png": "a003c68088e072bc58b4cb0da97217908d410a7dd5b37c9259f05afb06b36c2f",
-    "game/assets/building/textures/T_ai_materials_concrete_normal.png": "7b579bc100dd5ef450130141ca028f75f918dfcc1e2be147c2adbf46a4a3af79",
-    "game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png": "b8eeb6d6334ce7a3b4341a85d30d9921319035a12c714df004794ca2fffcb4d1",
-    "game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png": "8b31d1b5452167fedcff25f765efdc3cb97a4340e15d37c848c763dfd60d8222",
-    "game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d",
-    "game/assets/building/textures/T_ai_materials_galvanized_roof_albedo.png": "4f5200041f815f4e58eec3607a61dc014291743f807029e958eee2f35ed8f429",
-    "game/assets/building/textures/T_ai_materials_galvanized_roof_rough.png": "4aaf1617b32a3c3fcfe8494cead7a50a963fb55f6dfadaa9095e37f09db30f7b",
-    "game/assets/building/textures/T_ai_materials_galvanized_roof_normal.png": "7a9573c366d01395fb428ae29d300fbecaca3b1b8905ecd26d7332e931347ebf",
-    "game/assets/building/textures/T_ai_materials_city_grey_brick_albedo.png": "f38f9cffbb9e007f0eb0513b2867b7d23773b13fa72ba2b9b904f94a15e3b0b0",
-    "game/assets/building/textures/T_ai_materials_city_grey_brick_rough.png": "ea90cde3a877606b48744d343273d68be736e01452912593141a5467c8187e82",
-    "game/assets/building/textures/T_ai_materials_city_grey_brick_normal.png": "1b5fc43ea910eb306fb3c6991cbc5f9a4eacd789bbfcc602482a35fb4c3cf716",
     "game/assets/building/textures/T_ai_materials_cast_iron_albedo.png": "1da42ae7a87c9842f38c8222ef07f56dd79ce60e1fba3ce5e9ec0dc3e955f2f3",
     "game/assets/building/textures/T_ai_materials_cast_iron_rough.png": "a2f31fa683810d0b852c5496407685f372f263459f9235eff76d21bc0ecb3049",
     "game/assets/building/textures/T_ai_materials_cast_iron_normal.png": "feb42ac91b00a637203592c38eb425eba1ebafe942c335122f850561dddda894",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
-    "game/assets/building/textures/T_ai_materials_city_slate_albedo.png": "3a250aa366d3b92367e3eb5a76cd05432b05bc39dbfa9d4f2be5c2bbaa29f4c3",
-    "game/assets/building/textures/T_ai_materials_city_slate_rough.png": "7434112acf770c09577d6a69bb4ad586f0f53ae8bb5f9c5e64e51ed1318ff2d2",
-    "game/assets/building/textures/T_ai_materials_city_slate_normal.png": "804d23b925298958935f2b502066f99fd391b62698e38236c237dfd1750dcd09",
-    "game/assets/building/textures/T_ai_materials_terracotta_albedo.png": "b347747cd57b9720ef6cd7f187356d4a4f8f619c4def3dcc71b37302826f09ef",
-    "game/assets/building/textures/T_ai_materials_terracotta_rough.png": "a79208b2b89bd63d199c89f6d756853c9f54e054b67fedc987b6d03ae52c318c",
-    "game/assets/building/textures/T_ai_materials_terracotta_normal.png": "3f506e18a888f232658bc2a741d74768de9497eca813dd7c43546853034113da",
     "game/assets/building/textures/T_ai_materials_arcade_brick_bond_albedo.png": "b30bf3cff86c0718b3d9e1424739caacc388635289b2dd821ac9fbe5f947e14d",
     "game/assets/building/textures/T_ai_materials_arcade_brick_bond_rough.png": "e5521a01503ef13b22bd53900bc8e7a7bde5b3bf0c0e17e61b79a0c93f7aa258",
     "game/assets/building/textures/T_ai_materials_arcade_brick_bond_normal.png": "bd48e9cb520637eca05c09fc774962a8ea191424eed92cb639bb20ab0357736b",
+    "game/assets/building/textures/T_ai_materials_city_slate_albedo.png": "3a250aa366d3b92367e3eb5a76cd05432b05bc39dbfa9d4f2be5c2bbaa29f4c3",
+    "game/assets/building/textures/T_ai_materials_city_slate_rough.png": "7434112acf770c09577d6a69bb4ad586f0f53ae8bb5f9c5e64e51ed1318ff2d2",
+    "game/assets/building/textures/T_ai_materials_city_slate_normal.png": "804d23b925298958935f2b502066f99fd391b62698e38236c237dfd1750dcd09",
     "game/assets/building/textures/T_ai_materials_city_roof_clay_albedo.png": "13e01c560e45e50026cf9cccc3c0e6a34625949eca1149936a097428217ede7e",
     "game/assets/building/textures/T_ai_materials_city_roof_clay_rough.png": "43556ebf8af6d266e8b93e15836ee2963fb7f3b51dee5ceecf9e41043cc3e1c4",
     "game/assets/building/textures/T_ai_materials_city_roof_clay_normal.png": "d861f0a0d652f38613e46a9fd2a73acd56eda78c88dfe3b0c274ae89a72c8e93",
+    "game/assets/building/textures/T_ai_materials_terracotta_albedo.png": "b347747cd57b9720ef6cd7f187356d4a4f8f619c4def3dcc71b37302826f09ef",
+    "game/assets/building/textures/T_ai_materials_terracotta_rough.png": "a79208b2b89bd63d199c89f6d756853c9f54e054b67fedc987b6d03ae52c318c",
+    "game/assets/building/textures/T_ai_materials_terracotta_normal.png": "3f506e18a888f232658bc2a741d74768de9497eca813dd7c43546853034113da",
     "game/assets/building/textures/T_ai_materials_door_paint_albedo.png": "3a68fb4497fb0f5b56edfcd168a4d05593b760b0437c20aa4b2ec4e97f19616f",
     "game/assets/building/textures/T_ai_materials_door_paint_rough.png": "31232d24578d907132c6a97ff15fe93939ab644529968fdad466551647cf83d0",
-    "game/assets/building/textures/T_ai_materials_door_paint_normal.png": "660c2582ee91be3aae0746662cc7c24bf9eb77467cbde8aece2104f920127cc5"
+    "game/assets/building/textures/T_ai_materials_door_paint_normal.png": "660c2582ee91be3aae0746662cc7c24bf9eb77467cbde8aece2104f920127cc5",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
+    "game/assets/building/textures/T_ai_materials_galvanized_roof_albedo.png": "4f5200041f815f4e58eec3607a61dc014291743f807029e958eee2f35ed8f429",
+    "game/assets/building/textures/T_ai_materials_galvanized_roof_rough.png": "4aaf1617b32a3c3fcfe8494cead7a50a963fb55f6dfadaa9095e37f09db30f7b",
+    "game/assets/building/textures/T_ai_materials_galvanized_roof_normal.png": "7a9573c366d01395fb428ae29d300fbecaca3b1b8905ecd26d7332e931347ebf",
+    "game/assets/building/textures/T_ai_materials_soil_albedo.png": "0a4e2ed4d7ec6229a7340fa39b203cf70d847c2d0e4f7a6329f426cc228015e0",
+    "game/assets/building/textures/T_ai_materials_soil_rough.png": "e29884dd5f10beb17db26aa5996845f6041884f9ec31975419ff1145cfbc33ae",
+    "game/assets/building/textures/T_ai_materials_soil_normal.png": "946fbd61cd42445375570d2b1951214a13c811d83a1edc99f282487b8afa1aed",
+    "game/assets/building/textures/T_ai_materials_concrete_albedo.png": "ff9788841dbf3c791f1c031cdeb15d516e57858f5490a8a8223161cb79430237",
+    "game/assets/building/textures/T_ai_materials_concrete_rough.png": "a003c68088e072bc58b4cb0da97217908d410a7dd5b37c9259f05afb06b36c2f",
+    "game/assets/building/textures/T_ai_materials_concrete_normal.png": "7b579bc100dd5ef450130141ca028f75f918dfcc1e2be147c2adbf46a4a3af79",
+    "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
+    "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
+    "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png": "b8eeb6d6334ce7a3b4341a85d30d9921319035a12c714df004794ca2fffcb4d1",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png": "8b31d1b5452167fedcff25f765efdc3cb97a4340e15d37c848c763dfd60d8222",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d",
+    "game/assets/building/textures/T_ai_materials_city_grey_brick_albedo.png": "f38f9cffbb9e007f0eb0513b2867b7d23773b13fa72ba2b9b904f94a15e3b0b0",
+    "game/assets/building/textures/T_ai_materials_city_grey_brick_rough.png": "ea90cde3a877606b48744d343273d68be736e01452912593141a5467c8187e82",
+    "game/assets/building/textures/T_ai_materials_city_grey_brick_normal.png": "1b5fc43ea910eb306fb3c6991cbc5f9a4eacd789bbfcc602482a35fb4c3cf716",
+    "game/assets/building/textures/T_ai_materials_limestone_albedo.png": "98dc560a3b41c71fdac9e0fcc4d78410a7f48377c22152dfe9f18c1d284d2d91",
+    "game/assets/building/textures/T_ai_materials_limestone_rough.png": "dc2118543d957385564364c56a9f000377d530ce4c07b30e66273014a1b16b16",
+    "game/assets/building/textures/T_ai_materials_limestone_normal.png": "160a35cceaa8b2b296f34a28f9c3e8929f16f813986ab3f0503bf7e7eb4c22c4"
   }
 }
