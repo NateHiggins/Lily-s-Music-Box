@@ -1,5 +1,16 @@
 # Current handoff — November 1 loading-owned rendering preparation WIP
 
+Live continuation: matched candidate34b6779de is frozen in owned
+C:/ov/c-ab46a508; original-main imports2216 LF-only rewrites and685 generated
+UIDs were backed up and verified before named-path restoration/removal.
+Candidate01 compile+six-leg run is queued via session6270/broker63540 behind
+the existing resident walk. External observer session7965 waits for its log.
+Poll those same handles; do not restart on observation timeout.
+Canonical now also contains an authored actual-world input/pause/shutdown and
+sandbox save/reload review; syntax checked only,not executed yet. It uses the
+production controller/menu and two worlds; it does not replace the affected
+passage normal-approach/deadline regression.
+
 Evidence class: **INERT**. Lily,she/her. Canonical C:/PleaseRemainOnTheLine is on
 **codex/v2-entry-render-preparation-20261101**,branched from actual mainC371e94e.
 Main remains c371e94e035087d4ee629e3934f71f235ffe508f. Full V2 goal active;
