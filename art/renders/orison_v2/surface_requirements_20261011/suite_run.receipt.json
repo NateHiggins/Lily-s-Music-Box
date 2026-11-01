@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 204.53,
+  "elapsed_s": 281.32,
   "exit_code": 0,
-  "finished_utc": "2026-11-01T02:22:22Z",
-  "started_utc": "2026-11-01T02:18:57Z",
+  "finished_utc": "2026-11-01T09:41:44Z",
+  "started_utc": "2026-11-01T09:37:02Z",
   "timed_out": false
  },
  "log": {
@@ -19,20 +19,26 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/prologue_order/qual1.log.stderr",
+  "stderr": "C:/ov/reports/luncheonette/qual1.log.stderr",
   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
-  "stdout": "C:/ov/reports/prologue_order/qual1.log",
-  "stdout_sha256": "43cc554ade420c147dfe996d473f2887c824d86f47ffbeb61a75a3a05258478d"
+  "stdout": "C:/ov/reports/luncheonette/qual1.log",
+  "stdout_sha256": "a4792ae23086fcab84a0a5a5d54caabe2ff257b7d4aa0b56ec109b34370e4e9d"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/prologue_order/qual1",
+ "shot_dir": "C:/ov/reports/luncheonette/qual1",
  "source": {
-  "dirty_paths": 673,
+  "dirty_paths": 682,
   "dirty_sample": [
+   "M design/V2_SHOP_OVERHAUL_PROPOSAL_2026-10-30.md",
+   " M game/data/resident_schedules.json",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/scripts/building/orison_v2_shop_counters.gd",
+   " M game/scripts/game/reality_save_document.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
    "?? game/native/hose_math/hose_math.gdextension.uid",
    "?? game/scripts/building/WeatherManager.gd.uid",
    "?? game/scripts/building/living_sky.gd.uid",
@@ -46,17 +52,11 @@
    "?? game/scripts/building/orison_v2_bath_details.gd.uid",
    "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
    "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
-   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
-   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
-   "?? game/scripts/building/orison_v2_c_stove_stack.gd.uid",
-   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
-   "?? game/scripts/building/orison_v2_cage_light_apertures.gd.uid",
-   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
-   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid"
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid"
   ],
-  "repository_head": "8eec7b230c6c29a2f004c7e39c8d4c057072294e",
-  "repository_tree": "e95019d639a831cb081e0d4fe69afcc3b042e680",
-  "runtime_inputs_sha256": "95065a910e7422c12e6aa24f69ba4bdd3f8cd2060fe12379924ab3de8f8e12ed",
+  "repository_head": "7b3d5ba3909ec2a86e8e64e33575c52af9f69038",
+  "repository_tree": "b992c03017c0b9fab784d0087e1d2571bbc15119",
+  "runtime_inputs_sha256": "20700aecbb2bedb0ee90220bf021e20022b13fe8f9b8b6c675192e1158473db6",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "40346a3036187b81dfabb7fe8783c4fb4bcbb6eb289b334fa1ae34b86f7e56c5"
  },
