@@ -5,6 +5,14 @@ Evidence class: **INERT**. Lily,she/her. Canonical C:/PleaseRemainOnTheLine is o
 Main remains c371e94e035087d4ee629e3934f71f235ffe508f. Full V2 goal active;
 no performance or production completion is claimed by this authored checkpoint.
 
+Publication: source checkpoint d8c6e11e2 and serialization-only follow-up
+9a8d21f47 are committed and pushed. Draft PR137:
+https://github.com/NateHiggins/Lily-s-Music-Box/pull/137
+No new main merge; required composed/persistence/performance qualification
+remains open. Generated UIDs and unrelated attachments remain preserved/unstaged.
+Architect optical-only checkpoint73fcf097 is separately pushed,not integrated
+here; its reported119-gate comparison is not clean candidate verification.
+
 Draft: short-lived renderer-preparation helper uses only the existing main
 camera RID/viewport,restores its current Node pose before yielding,releases only
 its own input lease,and passes Pause/pointer-release events onward. Startup and
