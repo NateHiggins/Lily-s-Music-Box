@@ -1,4 +1,44 @@
-# Current handoff — 2026-11-01 range/current-main reconciliation
+# Current handoff - November 1 city intake in progress
+
+Evidence class: **INERT**. Merge custody, not runtime acceptance.
+
+Canonical branch **codex/v2-city-intake-20261101**, from main **3ae86bf0e**.
+The published architect branch **0bcb475f6** is reconciled as a WIP merge, preserving its
+Cedar Court, Western street and Western frontage checkpoints. No new native
+construction has begun. The range repair is already merged through PR127.
+
+Four conflicts are resolved: preserve both attribute additions, both appended
+city-report histories, this canonical handoff and the sole reviewed city
+camera record. All 11,097 canonical manifest records are retained exactly;
+the resulting manifest has 11,098 records. Original stages are archived at
+**C:/ov/reports/city_integration_20261101/original_conflict_stages.zip**.
+The architect's original handoff remains in its published commit and archive.
+
+Seven scoped gates and31 tools tests pass; reader NEW0. Actual source preflight
+finds three stale street/apron horizon bindings. Two other generic failures used
+the wrong ground/foundation schema, not broken geometry. Ordered124 footprint
+rectangles, three exported GLBs and street/apron builders/helpers matchb7 exactly.
+The two horizon street bindings are provenance-only and form a literal circular
+hash chain through horizon/apron/ground/grade reports. No hashes were refreshed.
+NEXT: remove only proven unused overbindings from their authoring producer and
+reconcile the now-acyclic metadata closure with exact geometry/mask preservation,
+then strict owner/source preflights before Godot. See the city report's latest
+canonical-intake section and external **provenance_graph_before.json**. No checker
+relaxation or runtime receipt repin. All failures remain retained.
+Current main's complete clean baseline3ae86bf0e is finished/cached. Own
+**C:/ov/c-ab46a508** is idle at3ae86bf0e; check Git/ownership, then reuse it for
+final candidate verification. Remove it safely when finished. Original baseline
+output: **C:/ov/reports/gas_range_integration_20261101/clean_main_3ae86b/**.
+
+No combined-current-main city runtime, performance or artistic acceptance yet.
+Existing source/render review is in the city report and preserved external
+packets. The architect remains frozen pending this intake. The full V2 goal,
+93 generic profiles, city lighting, stutter, controls, hose/book/nook and native
+delivery qualification remain open. Preserve all current gameplay/save owners.
+
+---
+
+# Historical merged-range handoff — 2026-11-01 range/current-main reconciliation
 
 Evidence class: **INERT**. Continuity index, not acceptance evidence.
 

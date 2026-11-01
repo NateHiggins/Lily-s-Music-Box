@@ -2,7 +2,7 @@
   "schema": "orison.city-streets.v1",
   "evidence_class": "INERT",
   "frame": "CITY_ELEVATIONS_SOURCE",
-  "scope": "Authored continuous Orison block and two retained traffic junctions. Alternate-universe composition, not a surveyed 1928 street plan. Fixed traffic, lamp, entrance and shop authorities remain unchanged.",
+  "scope": "Authored Orison avenue and additive eastern/western streets,curbs and public footways in the installed frame. Western grades follow the current relief and avoid moved court buildings. Alternate-universe composition,not a surveyed1928 street plan;traffic,lamp,shop and access authorities stay with their existing owners.",
   "main_x_m": [
     -92.0,
     115.0
@@ -384,6 +384,176 @@
         [
           210,
           -0.45
+        ]
+      ]
+    },
+    {
+      "id": "Western",
+      "road_outline_m": [
+        [
+          -92.0,
+          -14.75
+        ],
+        [
+          -138.296,
+          -14.75
+        ],
+        [
+          -138.296,
+          130.0
+        ],
+        [
+          -147.44,
+          130.0
+        ],
+        [
+          -147.44,
+          -130.0
+        ],
+        [
+          -138.296,
+          -130.0
+        ],
+        [
+          -138.296,
+          -23.894
+        ],
+        [
+          -92.0,
+          -23.894
+        ]
+      ],
+      "walk_rects_m": [
+        [
+          -138.136,
+          -14.75,
+          -92.0,
+          -6.2
+        ],
+        [
+          -138.136,
+          -28.316,
+          -92.0,
+          -23.894
+        ],
+        [
+          -150.0,
+          -132.4,
+          -147.6,
+          132.4
+        ],
+        [
+          -138.136,
+          -132.4,
+          -135.736,
+          132.4
+        ]
+      ],
+      "reserved_rects_m": [],
+      "corner_radius_m": 2.5,
+      "open_edges": [
+        {
+          "axis": 0,
+          "value_m": -92.0
+        },
+        {
+          "axis": 1,
+          "value_m": -130.0
+        },
+        {
+          "axis": 1,
+          "value_m": 130.0
+        }
+      ],
+      "road_profile_m": [
+        [
+          -151.0,
+          -1.8705
+        ],
+        [
+          -140.0,
+          -1.7055
+        ],
+        [
+          -104.0,
+          -1.1655
+        ],
+        [
+          -100.0,
+          -1.1055
+        ],
+        [
+          -92.0,
+          -0.933
+        ]
+      ],
+      "curb_profile_m": [
+        [
+          -151.0,
+          -1.8705
+        ],
+        [
+          -140.0,
+          -1.7055
+        ],
+        [
+          -104.0,
+          -1.1655
+        ],
+        [
+          -92.0,
+          -0.833
+        ]
+      ],
+      "walk_profile_m": [
+        [
+          -151.0,
+          -1.8705
+        ],
+        [
+          -140.0,
+          -1.7055
+        ],
+        [
+          -104.0,
+          -1.1655
+        ],
+        [
+          -100.0,
+          -1.1055
+        ],
+        [
+          -92.0,
+          -0.9855
+        ]
+      ],
+      "road_bottom_m": -0.45,
+      "road_top_m": -0.1525,
+      "walk_bottom_m": -0.4,
+      "walk_top_m": 0.0,
+      "curb_bottom_m": -0.6,
+      "curb_top_m": -0.06,
+      "cap_top_m": 0.0,
+      "ground_cut_profile_m": [
+        [
+          -151.0,
+          -2.3205
+        ],
+        [
+          -140.0,
+          -2.1555
+        ],
+        [
+          -104.0,
+          -1.6155
+        ],
+        [
+          -100.0,
+          -1.5554999999999999
+        ],
+        [
+          -92.0,
+          -1.383
         ]
       ]
     }

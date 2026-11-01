@@ -274,6 +274,152 @@ def removed_flat_soil_volume(specifications,region,top,reservations):
     return math.fsum(total)
 
 
+def removed_profile_soil_volume(specifications,region,top,reservations,roof_profile,protected_rects=()):
+    """Independent exact void integral beneath a piecewise-linear soil roof.
+
+    Keep reservation volumes and the existing flat parcel seats. Split at
+    profile breaks and every crossing of roof, cutter and height-band planes;
+    each remaining integrand is linear in X and uses polygon area/X moment.
+    Districts must be disjoint. Overlapping stocks within one district are
+    unioned once, but different cutter profiles may not silently double-count.
+    Neither a Boolean mesh nor a sampled centre height enters this proof.
+    """
+    from city_street_geometry import rectangle,intersection,bounds,overlap,cut,split,area
+    profile_height(region[0],roof_profile)
+    completed=[];contributions=[]
+    for spec in specifications:
+        profile=spec['subgrade_profile_m'];profile_height(region[0],profile)
+        clipped=[p for stock in spec['polygons'] if (p:=intersection(stock,rectangle(region)))]
+        if not clipped:continue
+        polygons=disjoint_cut_regions(clipped);boxes=[bounds(p) for p in polygons]
+        for previous in completed:
+            for p,box in zip(polygons,boxes):
+                for q,other_box in previous:
+                    if overlap(box,other_box):assert area(intersection(p,q))<1e-9,'Overlapping street districts require a common cut owner'
+        completed.append(list(zip(polygons,boxes)))
+        floor=min(h for x,h in profile)
+        relevant=[row['bounds'] for row in reservations if row['bounds'][1]<top and row['bounds'][4]>floor and any(overlap([row['bounds'][0],row['bounds'][2],row['bounds'][3],row['bounds'][5]],box) for box in boxes)]
+        levels=sorted(set([floor,top]+[height for box in relevant for height in [box[1],box[4]] if floor<height<top]))
+        for low,high in zip(levels,levels[1:]):
+            masks=[rectangle([b[0],b[2],b[3],b[5]]) for b in relevant if b[1]<(low+high)*.5<b[4]]
+            for polygon,box in zip(polygons,boxes):
+                local=[p for p in masks if overlap(box,bounds(p))]
+                for remaining in cut(polygon,local):
+                    # Partition the protected union once, including overlapping
+                    # parcel rectangles, without turning gaps into flat seats.
+                    sloped=[remaining];flat=[]
+                    for rect in protected_rects:
+                        if not overlap(bounds(remaining),rect):continue
+                        next_sloped=[];mask=rectangle(rect)
+                        for part in sloped:
+                            seated=intersection(part,mask)
+                            if seated:flat.append(seated)
+                            next_sloped.extend(cut(part,[mask]))
+                        sloped=next_sloped
+                    for q,roof in [(q,roof_profile) for q in sloped]+[(q,[[region[0],top],[region[2],top]]) for q in flat]:
+                        left,_,right,_=bounds(q)
+                        breaks=sorted(set([left,right]+[x for x,h in list(profile)+list(roof) if left<x<right]))
+                        for a,b in zip(breaks,breaks[1:]):
+                            cutter=[profile_height(a,profile),profile_height(b,profile)]
+                            ceiling=[profile_height(a,roof),profile_height(b,roof)]
+                            lines=[cutter,ceiling,[low,low],[high,high]]
+                            stations=[a,b]
+                            for i,first in enumerate(lines):
+                                for second in lines[i+1:]:
+                                    at=first[0]-second[0];end=first[1]-second[1]
+                                    if at*end<0:stations.append(a+(b-a)*at/(at-end))
+                            stations=sorted(set(stations))
+                            depth=lambda x:max(0.,min(high,profile_height(x,roof))-max(low,profile_height(x,profile)))
+                            for x,X in zip(stations,stations[1:]):
+                                piece,_=split(q,(x,1.),(x,0.))
+                                if piece:piece,_=split(piece,(X,0.),(X,1.))
+                                if not piece:continue
+                                h,H=depth(x),depth(X)
+                                if h==0. and H==0.:continue
+                                footprint,moment=_area_xmoment(piece);slope=(H-h)/(X-x)
+                                volume=h*footprint+slope*(moment-x*footprint)
+                                assert volume>=-1e-10,('Negative independent street volume',volume)
+                                contributions.append(max(0.,volume))
+    return math.fsum(contributions)
+
+
+def repair_cut_draw_representation(bm,origin):
+    """Repair cut-draw slivers only within one represented global float32 step.
+
+    The closed source and independent volume proof are untouched. Nonrepairable
+    positive faces remain for the caller's strict area/UV/tangent rejection.
+    """
+    import bmesh
+    import numpy as np
+    collapsed=0;snapped=0;maximum=0.
+    bmesh.ops.triangulate(bm,faces=list(bm.faces))
+    for face in list(bm.faces):
+        if not face.is_valid:continue
+        if face.calc_area()<=1e-12:
+            # A thin tip can be longer than one ULP along its edge while
+            # deviating by one ULP from an existing coordinate plane. Snap
+            # that coordinate only when it makes this represented face exactly
+            # collinear. Do not erase a positive triangle by an area threshold.
+            candidates=[];verts=list(face.verts)
+            for vertex in verts:
+                world=np.asarray(tuple(vertex.co+origin),dtype=np.float32)
+                steps=np.abs(np.spacing(world)).astype(np.float64)
+                for other in verts:
+                    for axis in range(3):
+                        delta=abs(float(vertex.co[axis])-float(other.co[axis]))
+                        if delta==0. or delta>steps[axis]:continue
+                        points=np.asarray([v.co[:] for v in verts],dtype=np.float32)
+                        points[verts.index(vertex),axis]=other.co[axis]
+                        points=points.astype(np.float64)
+                        if np.linalg.norm(np.cross(points[1]-points[0],points[2]-points[0]))==0.:
+                            candidates.append((delta,verts.index(vertex),axis,float(other.co[axis])))
+            if candidates:
+                delta,index,axis,value=min(candidates)
+                verts[index].co[axis]=value;snapped+=1;maximum=max(maximum,delta)
+                continue
+        edges=sorted(face.edges,key=lambda edge:edge.calc_length())
+        short,long=edges[0].calc_length(),edges[-1].calc_length()
+        if short<=0. or (face.calc_area()>1e-12 and long/short<=10000.):continue
+        a,b=edges[0].verts
+        world=np.asarray([tuple(a.co+origin),tuple(b.co+origin)],dtype=np.float32)
+        steps=np.max(np.abs(np.spacing(world)).astype(np.float64),axis=0)
+        delta=np.abs(np.asarray(tuple(a.co-b.co),dtype=np.float64))
+        if np.any(delta>steps):continue
+        maximum=max(maximum,float((b.co-a.co).length))
+        bmesh.ops.pointmerge(bm,verts=[a,b],merge_co=a.co.copy());collapsed+=1
+    zero=[]
+    for face in bm.faces:
+        p=np.asarray([v.co[:] for v in face.verts],dtype=np.float64)
+        if np.linalg.norm(np.cross(p[1]-p[0],p[2]-p[0]))==0.:zero.append(face)
+    if zero:bmesh.ops.delete(bm,geom=zero,context='FACES_ONLY')
+    bm.normal_update()
+    return dict(collapsed_edges=collapsed,snapped_vertex_coordinates=snapped,maximum_vertex_shift_m=maximum,discarded_zero_area_triangles=len(zero))
+
+
+def stored_cut_chart_guides(points,normals,charts,guides):
+    """Bind guides to actual stored charts on ill-conditioned cut triangles.
+
+    Inputs use final glTF coordinates/UVs and actual Blender corner normals.
+    Geometry, normals, charts, scale and material phase remain unchanged.
+    """
+    import numpy as np
+    points=np.asarray(points,dtype=np.float64);normals=np.asarray(normals,dtype=np.float64)
+    charts=np.asarray(charts,dtype=np.float64);guides=np.asarray(guides,dtype=np.float64).copy()
+    normals/=np.linalg.norm(normals,axis=2)[:,:,None]
+    a=charts[:,1]-charts[:,0];b=charts[:,2]-charts[:,0]
+    det=a[:,0]*b[:,1]-a[:,1]*b[:,0]
+    assert np.all(abs(det)>1e-12),'Stored cut chart collapsed'
+    du=((points[:,1]-points[:,0])*b[:,1,None]-(points[:,2]-points[:,0])*a[:,1,None])/det[:,None]
+    expected=du[:,None,:]-normals*np.sum(du[:,None,:]*normals,axis=2)[:,:,None]
+    expected/=np.linalg.norm(expected,axis=2)[:,:,None]
+    actual=guides-normals*np.sum(guides*normals,axis=2)[:,:,None]
+    actual/=np.linalg.norm(actual,axis=2)[:,:,None]
+    replace=np.min(np.sum(expected*actual,axis=2),axis=1)<=.9995
+    guides[replace]=expected[replace]
+    assert np.isfinite(guides).all()
+    return guides,int(np.count_nonzero(replace))
+
+
 def chunk_soil_faces(faces,pitch=4.):
     """Split convex cavity faces on the existing ground draw-chunk planes."""
     result={}

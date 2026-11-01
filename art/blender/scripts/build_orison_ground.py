@@ -24,7 +24,7 @@ sys.path.insert(0,str(root/'tools'))
 from grade_source_snapshot import validate as validate_grade_snapshot
 validate_grade_snapshot(plan,root)
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from city_ground_apron_geometry import profile_height,clip_profile_face,profile_roof_caps,profile_grid_volume,coalesced_grid_planes,parcel_transition_cells,street_cut_footprints,soil_cut_prisms,removed_flat_soil_volume,clip_soil_face,chunk_soil_faces
+from city_ground_apron_geometry import profile_height,clip_profile_face,profile_roof_caps,profile_grid_volume,coalesced_grid_planes,parcel_transition_cells,street_cut_footprints,soil_cut_prisms,removed_flat_soil_volume,removed_profile_soil_volume,clip_soil_face,chunk_soil_faces,repair_cut_draw_representation,stored_cut_chart_guides
 from city_street_geometry import overlap
 from fabrication_chart_batch import triangle_charts
 from fabrication_native_batch import export as export_native
@@ -203,10 +203,13 @@ mesh,native_area,edge_contacts,split_fans=build_closed_ground(source_rectangles,
 closed_volume_proof={key:mesh.get(key) for key in ['pre_storage_volume_m3','represented_volume_error_m3']} if roof_cut else {}
 street_cavity=[];street_proof={}
 if street_specs:
-    assert all(abs(profile_height(x,roof_profile)-top)<1e-7 for spec in street_specs for p in spec['polygons'] for x,z in p),'Independent street-cut proof requires the original flat eastern grade'
     represented_masks=[{'bounds':[native_coordinate(v) for v in row['bounds']]} for row in masks]
     print('STREET SOIL CUT: independent retained-ground void integral begins',flush=True)
-    removed=removed_flat_soil_volume(street_specs,[a,b,c,d],top,represented_masks)
+    if len(street_specs)==1 and all(abs(profile_height(x,roof_profile)-top)<1e-7 for spec in street_specs for p in spec['polygons'] for x,z in p):
+        removed=removed_flat_soil_volume(street_specs,[a,b,c,d],top,represented_masks)
+    else:
+        assert all(min(h for x,h in spec['subgrade_profile_m'])>low for spec in street_specs),'Street cut would pass below the retained soil stock'
+        removed=removed_profile_soil_volume(street_specs,[a,b,c,d],top,represented_masks,roof_profile,parcel_rects)
     print('STREET SOIL CUT: expected removal',removed,'m3; native Boolean begins',flush=True)
     source_obj=next(obj for obj in source_collection.objects if obj.data==mesh)
     street_cavity,street_proof=apply_soil_cuts(source_obj,source_collection,street_specs,removed)
@@ -214,7 +217,7 @@ if street_specs:
 non_manifold=0;bad_edges=[None]*edge_contacts
 print('COURTYARD CLOSED SOURCE:',len(complete_faces),'original cell faces;',len(source_rectangles),'exact conforming rectangles',flush=True)
 
-parts = []; reports = []; render_groups=[]; chart_fallbacks=0
+parts = []; reports = []; render_groups=[]; chart_fallbacks=0; discarded_zero_area_draw_triangles=0; collapsed_cut_draw_edges=0; snapped_cut_draw_coordinates=0; max_cut_draw_shift_m=0.; stored_chart_guide_repairs=0
 for ((ix, iz), family, reserved), faces in sorted(groups.items()):
     source_face_count = len(faces)
     name = '%s_%s_%s_%s' % ('Seat' if reserved else 'Court',family, 'P%d' % ix if ix >= 0 else 'N%d' % -ix,
@@ -253,6 +256,15 @@ for name,family,faces,source_face_count in render_groups:
     # final triangulation before it evaluates the authored UV derivatives.
     bm=bmesh.new();bm.from_mesh(mesh)
     bmesh.ops.triangulate(bm,faces=list(bm.faces))
+    if name.startswith('StreetCut_'):
+        # Cavity clipping can represent distinct double corners as identical
+        # float32 coordinates. Remove only exactly zero-area draw triangles;
+        # every positive surface still passes the original area/UV guards.
+        repair=repair_cut_draw_representation(bm,origin)
+        discarded_zero_area_draw_triangles+=repair['discarded_zero_area_triangles']
+        collapsed_cut_draw_edges+=repair['collapsed_edges']
+        snapped_cut_draw_coordinates+=repair['snapped_vertex_coordinates']
+        max_cut_draw_shift_m=max(max_cut_draw_shift_m,repair['maximum_vertex_shift_m'])
     bm.to_mesh(mesh);bm.free();mesh.update()
     for face in mesh.polygons:
         assert face.area > 1e-12,(name,face.index,float(face.area),[tuple(mesh.vertices[i].co) for i in face.vertices],tuple(origin))
@@ -265,6 +277,11 @@ for name,family,faces,source_face_count in render_groups:
     mesh.normals_split_custom_set(np.repeat(normals,3,axis=0).tolist())
     guide=mesh.attributes.new(name='_tangent_guide',type='FLOAT_VECTOR',domain='CORNER')
     values=np.repeat(tangents[:,[0,2,1]],3,axis=0);values[:,2]*=-1
+    represented=coords[indices][:,:,[0,2,1]].copy();represented[:,:,2]*=-1
+    actual_normals=np.asarray([n.vector[:] for n in mesh.corner_normals],dtype=np.float32).reshape((-1,3,3))[:,:,[0,2,1]].astype(np.float64);actual_normals[:,:,2]*=-1
+    encoded_charts=charts.astype(np.float32);encoded_charts[:,:,1]=np.float32(1)-encoded_charts[:,:,1]
+    values,guide_repairs=stored_cut_chart_guides(represented,actual_normals,encoded_charts,values.reshape((-1,3,3)))
+    stored_chart_guide_repairs+=guide_repairs
     guide.data.foreach_set('vector',values.astype(np.float32).ravel())
     mesh.materials.append(materials[family])
     obj = bpy.data.objects.new(name, mesh); obj.location = origin
@@ -286,6 +303,10 @@ os.replace(packed,out)
 metadata = {'evidence_class': 'INERT', 'source_plan': plan, 'parts': reports,
             'export_check':export_check,
             'street_soil_cut':street_proof,
+            'discarded_zero_area_draw_triangles':discarded_zero_area_draw_triangles,
+            'collapsed_cut_draw_edges':collapsed_cut_draw_edges,'max_cut_draw_vertex_shift_m':max_cut_draw_shift_m,
+            'snapped_cut_draw_coordinates':snapped_cut_draw_coordinates,
+            'stored_chart_guide_repairs':stored_chart_guide_repairs,
             'exterior_roof_cut':{'active':roof_cut,'profile_m':roof_profile,'new_cap_faces':len(roof_caps),'expected_remaining_volume_m3':expected_volume,
                                  'protected_foundation_parcels':parcel_rects,'unretained_transition_cells':transitions,
                                  'volume_proof':closed_volume_proof,'method':'Remove soil above shared authored west profile; original cavities and foundation coordinates never move.'},

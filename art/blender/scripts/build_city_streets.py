@@ -200,7 +200,8 @@ for district in plan.get('districts',[]):
                 q=intersection(p,rectangle([a+(gx if a>envelope[0]+1e-8 else 0.),b+(gy if b>envelope[1]+1e-8 else 0.),c-(gx if c<envelope[2]-1e-8 else 0.),d-(gy if d<envelope[3]-1e-8 else 0.)]))
                 if not q:continue
                 for k,piece in enumerate(cut(q,[rectangle(r) for r in retained])):
-                    emit_district(f'Walk_{identity}_L{lod}_{i}_{j}_{k}','walk',piece,district['walk_bottom_m'],district['walk_top_m'],lod,graded=False)
+                    walk_profile=district.get('walk_profile_m')
+                    emit_district(f'Walk_{identity}_L{lod}_{i}_{j}_{k}','walk',piece,district['walk_bottom_m'],district['walk_top_m'],lod,profile=walk_profile,graded=walk_profile is not None)
         district_records.append(dict(id=identity,lod=lod,curve_sagitta_m=result['maximum_curve_sagitta_m'],
             required_ground_cut_polygons=result['road']+result['curb_caps'],required_ground_cut_profile_m=district['ground_cut_profile_m'],
             required_ground_frame_cut_polygons=[[[-x,y+building_z] for x,y in p] for p in result['road']+result['curb_caps']],

@@ -23,6 +23,12 @@ industrial_checks=[]
 for row in plan['buildings']:
     outline=building_outline(row)
     samples=[(x,-y) for x,y in outline]
+    # A public apron is also a receiving floor. Its uphill edge can precede
+    # the recessed facade; seating from the facade alone buries that apron.
+    apron=row.get('architecture',{}).get('front_apron_rect_m')
+    if apron:
+        a,b,c,d=apron
+        samples.extend((x,z) for x,z in [(a,b),(c,b),(c,d),(a,d)])
     for p,q in zip(outline,outline[1:]+outline[:1]):
         if abs(q[0]-p[0])<1e-12:continue
         for x,_ in grade['relief']['west_profile']:
@@ -74,6 +80,21 @@ for family in ['near','far']:
                 vv,ff=replacement_buffers[(owner,key)];start=len(vv)
                 vv.extend(vertices);ff.extend(tuple(start+i for i in f) for f in faces)
             lower=constructor(row,lower_add,neighbours,lower=True).build()
+            if study.get('public_front_apron',False):
+                # This row's reserved front strip is a real supported walk,
+                # outside the closed scenic leaf and behind the parcel edge.
+                # Keep the same complete slab in both replacement bodies.
+                z0,z1=-.12,0.
+                if 'front_apron_rect_m' in study:
+                    ax,az,bx,bz=study['front_apron_rect_m']
+                    assert a<=ax<bx<=c and b<=az<bz<=d
+                    corners=[(ax,-bz),(bx,-bz),(bx,-az),(ax,-az)]
+                else:
+                    front=-d;back=front+study['front_inset_m']
+                    corners=[(a,front),(c,front),(c,back),(a,back)]
+                vv=[(u,v,w) for w in [z0,z1] for u,v in corners]
+                ff=[(0,3,2,1),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)]
+                for emitter in [add,lower_add]:emitter(name,'concrete',vv,ff)
             industrial_checks.append(dict(building=name,style=authored['style'],
                 near_closed_stocks=authored['closed_stocks'],lower_closed_stocks=lower['closed_stocks'],
                 near_min_stock_volume_m3=authored['min_closed_stock_volume_m3'],
