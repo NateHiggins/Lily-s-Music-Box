@@ -45,6 +45,7 @@ var _avatar_leased:=false
 var _reflection_dwell:=0.0
 var _withdrawal_seen:=false
 var _knock_index:=0
+var _tap_wait:=0.0
 var _knock:AudioStreamPlayer3D
 var _visitor_active:=false
 var _visitor_anchor:=Vector3.ZERO
@@ -328,7 +329,7 @@ func _enter_phase() -> void:
 	_release_contact(state.phase in ["identity_mystery","temporal_command"])
 	_contact_index=0;_contact_age=0;_contact_thinking_age=0;_contact_serial=-1
 	if _visitor_active and state.phase!="companion_crossing":_end_visitor()
-	_phase_age=0;_comfortable=0;message_id="";_reflection_dwell=0;_knock_index=0;_withdrawal_seen=false
+	_phase_age=0;_comfortable=0;message_id="";_reflection_dwell=0;_knock_index=0;_tap_wait=0.0;_withdrawal_seen=false
 	if _avatar_leased:
 		world.player_avatar.visible=State.PHASES.find(state.phase)>=State.PHASES.find("protagonist_reveal") and _avatar_visible
 	if state.phase in ["mirror_tapping","mirror_condensation"]:_set_mirror_film(Vector2(1,0))
@@ -339,9 +340,10 @@ func _enter_phase() -> void:
 		"bedroom_exploration": _say("wake_passed",false)
 		"bathroom_entry": _advance("curtain_interaction");return
 		"curtain_interaction": _say("cold_start" if "curtain_pulled" in state.events else "curtain_open",true)
-		"shower_temperature": _say("hot_start",true)
+		"shower_temperature":
+			if float(shower.get_flow_state().hot_opening)<=.1:_say("hot_start",true)
 		"shower_complete": _say("comfort",true)
-		"mirror_tapping": _say("hot_off",true)
+		"mirror_tapping": _say("hot_off" if bool(shower.get_flow_state().hot) else "water_off",true)
 		"mirror_condensation":writing.clear()
 		"protagonist_reveal":writing.clear()
 		"cabinet_inspection":
@@ -379,9 +381,12 @@ func _released() -> void:
 	match state.phase:
 		"curtain_interaction":
 			if shower.is_curtain_open():
+				# A first-time player may run the water before the curtain, or
+				# hot before cold. The release of either owner completes the step.
+				var pulled_now: bool="curtain_pulled" not in state.events
 				if not _observe("curtain_pulled"): return
 				_say("cold_start",true)
-				if moved==1 and float(flow.cold_opening)>.1 and float(flow.hot_opening)<.001:
+				if (pulled_now or moved in [0,1]) and float(flow.cold_opening)>.1:
 					if _observe("cold_water_started"): _advance("shower_temperature")
 		"shower_temperature":
 			if moved==0: _observe("hot_water_adjusted")
@@ -458,16 +463,25 @@ func _process(delta: float) -> void:
 			_comfortable=_comfortable+elapsed if comfortable else 0.0
 			if _phase_age>=2.5:
 				_say("comfort" if comfortable else "less_hot" if temperature>COMFORT.y else "more_hot",true)
-			if _comfortable>=1.5 and "hot_water_adjusted" in state.events and shower._held_valve==-1 and not player._grab.active():
-				if _observe("temperature_balanced"): _advance("shower_complete")
+			if _comfortable>=1.5 and shower._held_valve==-1 and not player._grab.active():
+				# A comfortable mix proves the hot valve is open, whichever came first.
+				if _observe("hot_water_adjusted") and _observe("temperature_balanced"): _advance("shower_complete")
 		"shower_complete":
 			if _phase_age>=7.0: _advance("mirror_tapping")
-		"mirror_tapping":_tap_mirror()
+		"mirror_tapping":
+			_tap_mirror()
+			# Shut off before the instruction appeared, or before a save: no
+			# later release would arrive, so the closed valves answer it.
+			var flow: Dictionary=shower.get_flow_state()
+			if float(flow.hot_opening)<=.001 and float(flow.cold_opening)<=.001 and shower._held_valve==-1 and not player._grab.active():
+				if _observe("shower_stopped"): _advance("mirror_condensation")
 		"mirror_condensation":
 			# Let the player find the tapping before the branching moment runs.
 			if not _withdrawal_seen:
 				_withdrawal_seen=_mirror_observed()
-				if not _withdrawal_seen:_phase_age=minf(_phase_age,1.5);return
+				if not _withdrawal_seen:
+					# The tapping keeps calling; phase age is held, so it has its own clock.
+					_phase_age=minf(_phase_age,1.5);_tap_wait+=elapsed;_tap_mirror(0.0,_tap_wait);return
 			# Restore the synchronized body behind opaque film before paths open.
 			if _avatar_leased and _phase_age>=2.5:world.player_avatar.visible=_avatar_visible
 			_set_mirror_film(Vector2(1,smoothstep(2.0,10.0,_phase_age)))
@@ -640,9 +654,9 @@ func _mirror_observed() -> bool:
 	var hit:=world.get_world_3d().direct_space_state.intersect_ray(ray)
 	return hit.is_empty() or mirror.is_ancestor_of(hit.collider)
 
-func _tap_mirror(offset:=0.0) -> void:
+func _tap_mirror(offset:=0.0,age:=-1.0) -> void:
 	var next:=offset+float(_knock_index/3)*5.0+float(_knock_index%3)*.28
-	if _phase_age<next:return
+	if (_phase_age if age<0.0 else age)<next:return
 	_knock_index+=1
 	if not is_instance_valid(_knock):
 		_knock=AudioStreamPlayer3D.new();_knock.name="InsideMirrorTap"
