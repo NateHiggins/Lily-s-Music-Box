@@ -23,6 +23,16 @@ const NEWS_ROW := "storm_shop_news_cigars_counter_top"
 const NEWS_ALONG := 18.45
 const NEWS_ACROSS := -49.47
 const BODEGA_INSET := Vector3(0.35, 0.0, 0.1)
+const OTIS_ROW := "storm_shop_otis___son_counter_top"
+## Clear of the telephone and ledger at the counter's other end.
+const OTIS_ACROSS := 21.2
+const OTIS_ALONG := -47.95
+const OTIS_FOUNTAIN_ROW := "storm_shop_otis___son_fount_top"
+## The stool side of the marble, past the three taps.
+const OTIS_FOUNTAIN_ACROSS := 20.85
+const OTIS_FOUNTAIN_ALONG := -45.25
+## The empty cup waits on the first catch tray, under the first nozzle.
+const OTIS_CUP := [19.805, -45.055, 1.105]
 const LUNCHEONETTE_ROW := "storm_shop_luncheonette_counter_top"
 ## The customer edge of the top, down the far end from the register and ledger.
 const LUNCHEONETTE_ACROSS := 19.05
@@ -67,6 +77,16 @@ static func mount(world: Node3D) -> Dictionary:
 	points["photo_supplies"] = _place(world, "photo_supplies", passage.transaction_actor_root(),
 			passage.global_transform * Transform3D(Basis(Vector3.UP, -PI * 0.5),
 			GameBoot.b2g([18.42, PHOTO_ALONG, photo_top])))
+	var otis := _row(passage, OTIS_ROW)
+	var otis_fount := _row(passage, OTIS_FOUNTAIN_ROW)
+	if otis.is_empty() or otis_fount.is_empty():
+		return {}
+	points["otis_son"] = _place(world, "otis_son", passage.transaction_actor_root(),
+			passage.global_transform * Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([OTIS_ACROSS, OTIS_ALONG, float(otis.z0) + float(otis.h)])), [], ["fountain"])
+	points["otis_fountain"] = _place(world, "otis_son", passage.transaction_actor_root(),
+			passage.global_transform * Transform3D(Basis(Vector3.UP, PI),
+			GameBoot.b2g([OTIS_FOUNTAIN_ACROSS, OTIS_FOUNTAIN_ALONG, float(otis_fount.z0) + float(otis_fount.h)])), ["fountain"], [], "ShopSalePoint_otis_fountain")
 	var luncheonette := _row(passage, LUNCHEONETTE_ROW)
 	if luncheonette.is_empty():
 		return {}
@@ -119,6 +139,18 @@ static func mount_luncheonette(world: Node3D) -> Node3D:
 	return counter
 
 
+static func mount_otis_fountain(world: Node3D) -> Node3D:
+	var passage: Node3D = world.passage_region
+	var fountain: Node3D = preload("res://scripts/props/otis_fountain.gd").new()
+	fountain.name = "OtisFountain"
+	passage.transaction_actor_root().add_child(fountain)
+	fountain.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY, GameBoot.b2g(OTIS_CUP))
+	if not fountain.configure(world, world.shop_counters.otis_fountain):
+		fountain.free()
+		return null
+	return fountain
+
+
 static func _row(passage: Node3D, identity: String) -> Dictionary:
 	for floor: Dictionary in passage.source_layout.floors:
 		if str(floor.id) != "F01":
@@ -129,9 +161,9 @@ static func _row(passage: Node3D, identity: String) -> Dictionary:
 	return {}
 
 
-static func _place(world: Node3D, shop_id: String, parent: Node3D, at: Transform3D) -> Node3D:
+static func _place(world: Node3D, shop_id: String, parent: Node3D, at: Transform3D, only: Array[String] = [], skip: Array[String] = [], point_name := "") -> Node3D:
 	var point: Node3D = SalePoint.new()
-	point.name = "ShopSalePoint_" + shop_id
+	point.name = point_name if point_name != "" else "ShopSalePoint_" + shop_id
 	parent.add_child(point)
 	point.global_transform = at
 	var sales: ShopSales
@@ -143,6 +175,8 @@ static func _place(world: Node3D, shop_id: String, parent: Node3D, at: Transform
 		sales = PawnSales.new(world.shop_catalogue, world.shop_stock, world.shop_clearing, world.get_node("CaretakerEconomy"))
 	else:
 		sales = ShopSales.new(shop_id, world.shop_catalogue, world.shop_stock, world.shop_clearing)
+	sales.only_groups = only
+	sales.skip_groups = skip
 	if not point.configure(sales, sales.listing()):
 		point.free()
 		return null

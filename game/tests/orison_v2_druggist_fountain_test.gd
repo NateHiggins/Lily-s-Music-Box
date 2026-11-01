@@ -127,10 +127,11 @@ func _check_fountain_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) ->
 			check(absf(low_y-float(row.z0))<.000003 and absf(high_y-float(row.z0)-float(row.h))<.000003,"actual original case or counter retains its source base and top")
 		if part.ends_with("__catch_trays"):check(absf(low_y-1.080)<.000003 and absf(high_y-1.105)<.000003,"three actual shallow trays sit on the unchanged worktop")
 		for i in 3:
+			if part.ends_with("__handle"+str(i)):check(absf(low_y-1.38)<.000003 and absf(high_y-1.52)<.000003,"actual pull handle keeps the original maximum height")
 			if not part.ends_with("__tap"+str(i)):continue
 			var row: Dictionary=original[identity+"_tap"+str(i)];var r: Array=row.rect;var c:=bounds.get_center()
 			check(absf(float(draw.position.x)+float(c.x)-(float(r[0])+float(r[2]))*.5)<.000003 and absf(float(draw.position.z)+float(c.z)+(float(r[1])+float(r[3]))*.5)<.000003,"actual control retains its original source centre")
-			check(absf(low_y-1.08)<.000003 and absf(high_y-1.52)<.000003,"actual tap foot and control retain their original base and maximum height")
+			check(absf(low_y-1.08)<.000003 and absf(high_y-1.392)<.000003,"actual tap foot and valve housing retain their original base")
 	for i in 3:
 		var row: Dictionary=original[identity+"_tap"+str(i)];var r: Array=row.rect;var cx: float=(float(r[0])+float(r[2]))*.5;var cz: float=-(float(r[1])+float(r[3]))*.5
 		# Godot's segment-triangle parallel test scales with segment length.

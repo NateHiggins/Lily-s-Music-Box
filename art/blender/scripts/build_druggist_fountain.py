@@ -1,4 +1,4 @@
-"""Source-owned unused marble soda fountain, static controls and actual open mouths."""
+"""Source-owned marble soda fountain, its tap handles as separate parts and actual open mouths."""
 from pathlib import Path
 import collections,hashlib,json,math,re,sys
 import bpy,bmesh,numpy as np
@@ -132,8 +132,9 @@ for item in assemblies:
   path.append((cx+.160,cy,1.270))
   hollow_pipe(identity+'_OpenGooseneck'+str(i),path,.014,.010,identity,'nozzle'+str(i))
   rod(identity+'_ValveHousing'+str(i),(cx,cy,1.345),(cx,cy,1.392),.022,identity,'tap'+str(i))
-  rod(identity+'_ControlStem'+str(i),(cx,cy,1.380),(cx,cy,1.500),.009,identity,'tap'+str(i))
-  rod(identity+'_THandle'+str(i),(cx,cy-.030,1.500),(cx,cy+.030,1.500),.020,identity,'tap'+str(i))
+  # The handle is its own part so the fountain's owner can pull it.
+  rod(identity+'_ControlStem'+str(i),(cx,cy,1.380),(cx,cy,1.500),.009,identity,'handle'+str(i))
+  rod(identity+'_THandle'+str(i),(cx,cy-.030,1.500),(cx,cy+.030,1.500),.020,identity,'handle'+str(i))
   catch_basin(identity+'_RemovableCatchTray'+str(i),cx+.160,cy,z,identity,'catch_trays')
 
 for row in selected:
