@@ -11,7 +11,9 @@ The merge tree exactly equals pushed8151e2fae. Qualified construction candidate
 **312baf3070df81989f3ebcc97d8ccfc5804c5e8a** differs only in three evidence/
 continuity paths. No renderer/runtime input changed through publication.
 Installed source: **33 individually authored/91 generic** horizon profiles.
-Keep new construction held after this pair; continue existing repairs.
+Lily reactivated the architect's city goal after publication: first correct
+P1/P2 subject-verified composed optics,then the next researched bounded pair.
+Canonical Codex keeps stutter/loading/input work;coordinate separate paths/lane.
 
 Actual canonical Horizon bench30396/0,86.52s,empty stderr. Fresh combined
 physical/city **composed01**29788/0,290.454s test/312.28s wrapper,empty stderr,
@@ -55,7 +57,8 @@ only startup veil;PassageResidency owns exterior loading/barrier/reconstruction.
 Integrate through the relevant owner with input,cancellation,camera restoration,
 pause and reload checks;preserve protected files/reflection quality. Sustained
 43–45ms return-view cost stays open. Existing hose/book/nook repairs follow.
-New native construction remains held. All23 external modelerINERT deliveries
+Architect owns the next bounded city optical checkpoint before further paired
+construction;no broad rebuild. All23 external modelerINERT deliveries
 remain queued/unintegrated,including lift controls and floating lobby sculpture.
 
 ---
