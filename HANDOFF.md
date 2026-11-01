@@ -28,13 +28,22 @@ no script/cache errors. Original wrapper/logs are under
 **C:/ov/reports/city_apartments_intake_20261101/**; family01/run.log.receipt.json.
 This is a loaded-family diagnostic,not composed surface or artistic acceptance.
 
-Current final-check attempt: composed01.json,one combined physical-only surface
-renewal+city diagnostic with P1/P2 context views,native3440x1440 hidden desktop.
-Session33120/broker43400 joined FIFO behind the current shops route and existing
-waiters. Source inputs frozen. Inspect its actual receipt before claiming any
-completion. No repeated19-leg walk: exact unchanged dependency proof above.
-Native packet retained full; Tier3 approves classification,not moving cited or
-hash-bound archives. Unrelated generated imports,UIDs and attachments preserved.
+Apartment work and records are pushed in draft **PR136**:
+https://github.com/NateHiggins/Lily-s-Music-Box/pull/136
+Current main remains **e5fb16984067b3b6da0fa69179c3c11f2954f8ef**.
+No apartment merge or current composed qualification is claimed.
+
+Remaining final check: composed01.json describes one combined physical-only
+surface renewal+city diagnostic with P1/P2 context views,native3440x1440 hidden
+desktop. The attempt joined FIFO behind shops and a manual GPU job; no engine
+started and no run log/receipt exists. On Lily's commit/merge/push checkpoint,
+verified own waiting broker43400 was cancelled; no Godot/foreign job stopped.
+No live job remains from this intake. Requeue through the lane when continuing,
+inspect the actual contract and rendered frames,publish the current packet,then
+verify the candidate against the clean E5 baseline before merging PR136.
+Do not repeat the unchanged19-leg walk; exact dependency proof above permits
+reuse with original provenance. Tier3 only approves classifying,not moving cited
+or hash-bound archives. Unrelated imports,UIDs and attachments are preserved.
 Current strict terrain validator is tools/grade_source_snapshot.validate;
 reconcile_light_court_ground_source.py is an obsolete historical migration helper
 for an older schema,and its --check failure is not an active migration to replay.
@@ -77,7 +86,8 @@ whole-game/whole-city production-ready.
  terminalPASS. Inspect custody before reuse. Candidate report candidate_5a4ef2fa/;
  engine evidence above is separate. Never repin/waive stale physical evidence.
 
-NEXT: reconcile architect's pushed **50cc3284600f17c14cc3f993bd320a9df78132af**
+HISTORICAL NEXT (source now reconciled in draft PR136; qualification remains):
+ reconcile architect's pushed **50cc3284600f17c14cc3f993bd320a9df78132af**
  (C:/ov/city,clean/held,no live jobs). Its source ecff4a1a passed119-gate verification;
  record-only50cc preserves the same rendering/runtime signatures. P1/P2 pair adds
  10draws,33individual/91generic source profiles,not artisticacceptance. No new
