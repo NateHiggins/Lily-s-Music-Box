@@ -327,3 +327,28 @@ replace the old box; added physics/startup cost is not yet benchmarked. Reuse
 unchanged native geometry review, and do not rerun unrelated hose/book routes
 for these report edits. Original failed and intentionally interrupted runs are
 retained in the external report directory.
+
+### Reconciliation with newer main
+
+While final verification was pending, main advanced through PR126 (Otis shop,
+fountain and save-validation changes) and PR128 (INERT yearly-subplot documents)
+to **45c391bc03757f62a74cef9d24b445a12c27b8cf**. These are preserved in topic
+merge **dd4e239af**; source and spatial-manifest merges were conflict-free, and
+the merged spatial audit plus both affected native-fixture preflights pass.
+The successful 654-record diagnostic above is the pre-Otis integrated tree,
+not proof of the newly combined household roster.
+
+**surface01** was intentionally stopped after this main advance; its wrapper
+exit -1 is not qualification. The incomplete old-main baseline process was
+also stopped; its clean temporary checkout was incrementally retargeted to
+45c391bc without another full checkout. A fresh complete baseline board is
+running there, not fabricated from the earlier dirty board.
+
+The next source-frozen sequence is **main_reconciliation_batch01.json**:
+**import03**, **installed08**, then physical-only **surface02**. It uses the
+patched Vulkan engine, native fullscreen on the hidden desktop and the shared
+FIFO lane. Preserve that live job rather than duplicating it. Before replacing
+qualification, all 600 old packet files were archived externally; the nine
+incoming main packet changes have a separate delta archive. No historical
+proof has been repinned to this source. Candidate comparison and manual merge
+remain open.

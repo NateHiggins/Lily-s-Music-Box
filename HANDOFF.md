@@ -7,11 +7,12 @@ v2-baseline can be stale. Read DOCS.md, AGENTS.md and developer-continuity.
 The previous checkpoint below is historical, not the current branch/queue.
 
 - Current branch **codex/v2-gas-range-refit-20261101**, base/main
-  **2a2e97f5625b47fb68c7bbd6dfe023a5eca142e1**. Pushed checkpoints
+  **45c391bc03757f62a74cef9d24b445a12c27b8cf** after preserving PR126/128
+  in topic merge **dd4e239af**. Earlier pushed checkpoints
   **687b1fd03** and **9aec085e0**; draft [PR #127](https://github.com/NateHiggins/Lily-s-Music-Box/pull/127).
   Verified correction commits: **dbc70557d** (fresh parallel import reads) and
   **f8b76e0b7** (installed collision and load-boundary diagnostics).
-  Nothing in this branch is merged yet. Preserve unrelated UIDs/attachments.
+  The range branch itself is not merged. Preserve unrelated UIDs/attachments.
 - Corrected native source and seven range variants: all 18 placements,
   contact/motion/UV/tangent checks pass. Export 239,788 triangles/296 partitions,
   26,363,156 bytes, SHA256 **b1c736f2b32e055748b146e80d8a844f6468c4da2dff4c946115a9299b30691a**.
@@ -23,7 +24,7 @@ The previous checkpoint below is historical, not the current branch/queue.
   **input06 passes 98/0**, including old-hull negative control, real back-stock
   blocking, actual controls, pause and isolated validated disk reload. Empty
   stderr, 18.43s wrapper; not a runtime_contract or whole-world proof.
-- **installed07 passes 5,864/0**, all 18 actors, actual 4B oven/broiler/tap/starter
+- **Pre-Otis installed07 passes 5,864/0**, all 18 actors, actual 4B oven/broiler/tap/starter
   route, all 654 household records at the load boundary and resumed hand release.
   Encoded facts compare exactly using the save owner's full-precision JSON;
   reconstructed float32 poses use absolute 1e-6, with altered-valve/missing-owner
@@ -51,6 +52,10 @@ The previous checkpoint below is historical, not the current branch/queue.
   full gate comparison and candidate verification before manual merge. Reuse
   unchanged interaction/native evidence. Do not enable auto-merge. Added native
   collision/startup cost and broader playable-world stalls remain unmeasured.
+  Clean-main baseline runs in own detached **C:/ov/gas-b1101** at45c391bc,
+  exec session **89077**. It will validate/cache its actual complete board under
+  C:/ov/boards for candidate verification. The superseded2a baseline was
+  intentionally cancelled. Remove this own temporary checkout safely after use.
 - Controls/pause overhaul follows this range checkpoint. November 1 function
   matrix in the existing controller audit; expose existing inventory now, live
   map deferred. The interactive 4B exploration/pin-note example is external,
