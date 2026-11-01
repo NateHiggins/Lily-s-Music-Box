@@ -38,13 +38,19 @@ Exact scoped launch **run_composed01.ps1** +composed01.json. Actual composed
 session37972/broker45924 is terminalPASS; original waiting attempt33120 was
 cancelled before engine start. No own live Godot job remains.
 
-Next: commit this coherent checkpoint and verify it against actual clean119-gate
-mainE5 baseline **C:/ov/boards/e5fb16984067b3b6da0fa69179c3c11f2954f8ef.v2.json**.
-Owned **C:/ov/c-ab46a508** is clean/detachedE5 and available for in-place/no-Godot
-candidate verification. Inspect before switching. Actual engine evidence above
-is separate; do not rerun the unchanged controller route. Review final gate
-board/instrument diff,then ready/merge PR136 and reconcile localmain byFF.
-No auto-merge. Keep source/evidence fixed during verification.
+Full candidate **312baf3070df81989f3ebcc97d8ccfc5804c5e8a** passed the actual
+119-gate comparison to clean mainE5:zero regressions/improvements/waivers/blockers,
+17/17 protected unchanged,V2 selected,lint0,requirements_changed[]. Reader,
+spatial and current surface gates PASS;surface tools42tests PASS/387.17s.
+The only instrument diff is one additive test-camera manifest record,reviewed;
+all11098 existing rows unchanged. Main's unrelated red gates remain unresolved.
+Verifier42035 is terminalPASS. Final reports are archived in the existing compact
+intake ZIP and external candidate_312baf307/. OwnedC:/ov/c-ab46a508 is clean at
+that candidate; remove this owned temporary checkout after safe main publication.
+This final child adds records only; source/render signatures stay unchanged.
+Next: ready/merge PR136 at its exact pushed head; fetch and FF localmain,then
+record actual merge/push state. No auto-merge. No repeat engine/tool battery for
+unchanged evidence-only edits. Keep new construction held.
 
 Then resume **K-V2-FIRST-VIEW-HITCH**: existing test-only450ms rendering prep
 removes measured >100ms Laurel cold turns but is not shipped. Real startup veil

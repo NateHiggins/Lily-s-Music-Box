@@ -5967,7 +5967,7 @@ acceptance tolerance,baseline or runtime authority was weakened. Source archive
 and restored;690 unrelated untracked UIDs/attachments remain untouched.
 
 Canonical compact archive **art/reviews/city_streets_20261029/western_apartments_canonical_intake_20261101.zip**:
-**26members/99204bytes/SHA256 0c9eca6506356ddc9b916a48ed159626159028bd63e85a9359a8fc9666a696bf**. It retains merge decisions,
+**30members/135169bytes/SHA256 8316d56e588e8462a34e442fafed5278cf21ad7cbf509d511cb35ede0be1d872**. It retains merge decisions,
 source-proof reuse eligibility,all import/family receipts/raw compressed logs,
 original source-image hashes,actual composed contract/logs and current image
 review. Full raw runs and previous-packet publication backup remain external
@@ -5979,3 +5979,22 @@ record. New construction remains held; next development is the existing stutter
 loading/entry-owner integration,then outstanding hose/book/nook repairs.
 
 Verification pending — PR136 remains draft.
+
+
+Canonical candidate **312baf3070df81989f3ebcc97d8ccfc5804c5e8a** now completes
+actual119-gate verification against clean mainE5:zero regressions,improvements,
+waivers or blocking reasons;17/17 protected paths unchanged,V2 selected,zero
+lint errors,requirements_changed[]. Ledger scope counts stay7/42/110/8/134/136.
+Reader/spatial/current surface gates PASS. Surface tools42tests PASS in387.17s.
+The one additive camera-station manifest record was independently inspected;
+all11098 existing rows and other manifest metadata remain identical. No audit
+logic or tolerance changes. Verification was clean in-place in ownedC:/ov/c-ab46a508;
+no fresh-checkout engine/import claim. Actual canonical Godot proof is separate
+above; --no-godot did not repeat it. Unrelated baseline-red whole-game gates
+remain red,not accepted as clean by this comparison.
+
+The compact archive now includes exact verificationJSON/Markdown,instrument
+review and result index;all26 preceding members remain byte-exact. This final
+record-only child changes evidence/continuity records,not renderer/runtime
+inputs. PR136 can be readied/merged after verifying its exact head/base.
+MERGE-CANDIDATE **312baf3070df81989f3ebcc97d8ccfc5804c5e8a**
