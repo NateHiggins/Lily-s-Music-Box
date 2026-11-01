@@ -296,6 +296,14 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   check the complete declared downstream fixture closure before reopening the
   world. Prove unchanged consumed projections/native stock and retain prior
   pins or reports before refreshing metadata; do not blindly repin dependencies.
+  Distinguish live authoring bindings from frozen construction snapshots before
+  following a hash graph; do not rewrite historical nested maps as live edges.
+  A changed runtime fingerprint can invalidate discovery while consumed geometry
+  stays exact. Collect fresh actual discovery, compare every consumed projection
+  and explain changed unconsumed owners before reusing masks. Remove an unused
+  source overbinding only after tracing the producer, proving output equivalence
+  and retaining a mutation control. The [city intake](../../../design/V2_CITY_CONTEXT_REPORT_2026-10-19.md#november-1--canonical-city-intake-qualification-pending)
+  records this distinction and the original rejected attempts.
 - **Input:** exercise the first mouse increment, continued hold, travel stops,
   release and cancellation with the real controller. Toggle tests do not prove
   direct manipulation. Preserve draft/focus and pause/input ownership. Do not

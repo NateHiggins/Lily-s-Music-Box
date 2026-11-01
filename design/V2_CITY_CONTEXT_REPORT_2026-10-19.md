@@ -5667,10 +5667,37 @@ returns PASS/0 defects at fingerprint
 **0a9d049d29aa2de3cfe17880548062cfb61a8d1e5bca705f5e198b4dc4d83062**.
 Before-replacement packet bytes remain in external
 **before_surface_renewal_delta.zip**; prior committed evidence remains in Git.
-One review archive retains113 members/24,372,396 bytes:
+One review archive retains116 members/24,407,266 bytes:
 **art/reviews/city_streets_20261029/current_main_intake_20261101.zip**,
-SHA256 **11253b3dd2b24dc37adf281ea97c1c9b22f5b5cf7df6e85b513fe26434e4bf34**.
+SHA256 **a4c970a85888b25c13dc946cb3450bff204017a0c13f5a79b0214d85d60502ea**.
 It preserves failed launches, guarded source repairs, actual grade/frontage
 contracts and image review without duplicating the new surface inventory/frames.
 Clean full candidate comparison and main merge remain pending; whole-city,
 golden-shift, save-boundary, stutter and artistic goals remain unfinished.
+
+Final intake publication: [PR132](https://github.com/NateHiggins/Lily-s-Music-Box/pull/132)
+merged as **3af99826a2935cb3715ec38eedf7e53a6e08517c**. Its complete tree exactly
+matches qualified candidate **df7e2c8fce0e9d80c61dcb7b4321e132406402ec**.
+The complete clean119-gate comparison against main3ae86bf0e has zero regressions
+and no accepted regressions. The actual surface row is PASS, all42 surface
+tools tests pass in470.17s, spatial is clean at11098 records, reader NEW0,
+17/17 protected paths are unchanged, selector is V2 and design lint has no errors.
+Existing unrelated baseline failures remain. Management used **--no-godot**;
+the separately retained completed canonical engine contracts provide runtime
+proof. The verification-instrument audit confirms all11097 old manifest rows,
+13 unchanged old tests and the adjusted test's Eastern assertions remain exact;
+11 new tests and independent Western controls add coverage without relaxing it.
+The same review archive now contains the untouched full verification JSON,
+instrument review and merge record, with its INDEX hashes renewed.
+
+The canonical checkout fast-forward initially met a transient index lock; no
+lock was deleted. A retry succeeded after the lock/process cleared. The sole
+local continuity edit was preserved in named-path WIP **262e617a3**, then
+cherry-picked onto main before this documentation-only final record. No reset,
+shared stash, forced checkout or contributor branch deletion occurred.
+The city's completed queue history is consolidated to the current gap list;
+the exact prior queue remains in candidate **df7e2c8fc**, this ledger and the
+review archives. The architect's integration hold is cleared for one bounded
+external P1/P2 construction batch. Legacy city qualification, cold stalls,
+remaining interactions and artistic work stay open. The Godot skill gains the
+proven live-binding/historical-snapshot distinction; quick_validate passes.
