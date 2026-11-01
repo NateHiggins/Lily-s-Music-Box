@@ -325639,6 +325639,37 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "a129f64d12486696",
+   "kind": "vector3_coordinate",
+   "token": "_street_context",
+   "file": "game/tests/v2_city_western_apartments_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_street_context"
+   ],
+   "lines": [
+    51
+   ],
+   "count": 1,
+   "context": [
+    "var target:=horizon.to_global(Vector3(154,1.7,44.5))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

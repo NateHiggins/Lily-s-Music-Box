@@ -879,3 +879,155 @@ class CivicBlocks(EasternRows):
         if self.style=='bryant_2801':self.school_detail(outline,height)
         assert len(self.entries)==1,(self.name,self.entries)
         return dict(windows=self.windows,bearings=self.bearings,entries=self.entries,mitre_seams=self.seams,closed_stocks=self.parts,min_closed_stock_volume_m3=self.min_volume,style=self.style)
+
+
+class WesternGardenApartments(CourtApartments):
+    """Two individual LPC1831 adaptations with rear-open U courts.
+
+    Chateau34-21: five-storey French massing and real mansard upper storey.
+    Towers33-15: six-storey Italian massing, open corner belvedere and tile hips.
+    Street dimensions are authored fit,not a parcel/historical reconstruction.
+    """
+    STYLES={'chateau_3421','towers_3315'}
+
+    def __init__(self,row,emit,neighbours,lower=False):
+        super().__init__(row,emit,neighbours,lower)
+        self.steps=1;self.arch_steps=8 if lower else 16
+
+    def aperture(self,O,U,N,l,r,z,Z,length,door=False,basement=False,loggia=False):
+        if not door:return super().aperture(O,U,N,l,r,z,Z,length,False,basement,loggia)
+        center=(l+r)/2;width=min(1.50,r-l-.65);left=center-width/2;right=center+width/2
+        assert width>.8 and Z-z>2.8
+        low=z;high=z+2.60;rise=.22 if self.style=='chateau_3421' else .48;spring=high-rise
+        for a,b in [((l,-.28,z),(left,0,Z)),((right,-.28,z),(r,0,Z)),((left,-.28,high),(right,0,Z))]:
+            if b[2]>a[2]+1e-8:self.wall_stock(O,U,N,a,b,length)
+        head=[(center-width/2*math.cos(i*math.pi/self.arch_steps),spring+rise*math.sin(i*math.pi/self.arch_steps)) for i in range(self.arch_steps+1)]
+        for a,b in zip(head,head[1:]):
+            points=[a,b,(b[0],high),(a[0],high)];points=[v for i,v in enumerate(points) if v!=points[i-1]]
+            if len(points)>2:self.profile(self.row['wall_key'],O,U,N,points,-.28,0.)
+        self.arch('limestone',O,U,N,center,spring,width/2,rise,.16,-.13,.16)
+        self.profile('mirror_aged',O,U,N,[(left+.03,spring),(right-.03,spring)]+[(x,h-.03) for x,h in reversed(head)],-.225,-.19)
+        self.arch('cast_iron',O,U,N,center,spring,width/2-.03,rise-.03,.045,-.20,-.14)
+        # Two glazed leaf fields remain genuine apertures between iron rails.
+        for a,b in [(left,left+.065),(right-.065,right),(center-.03,center+.03)]:
+            self.stock('cast_iron',O,U,N,(a,-.21,low),(b,-.12,spring),.003)
+        for a,b in [(left+.065,center-.03),(center+.03,right-.065)]:
+            self.stock('door_paint',O,U,N,(a,-.205,low),(b,-.145,low+.68),.004)
+            self.profile('mirror_aged',O,U,N,[(a,low+.70),(b,low+.70),(b,spring-.06),(a,spring-.06)],-.225,-.19)
+            for h in [low+.68,spring-.06]:self.stock('cast_iron',O,U,N,(a,-.21,h),(b,-.12,h+.045),.002)
+            at=(a+b)/2
+            self.stock('cast_iron',O,U,N,(at-.011,-.185,low+.73),(at+.011,-.155,spring-.07),.002)
+            for h in [low+1.10,low+1.55]:self.stock('cast_iron',O,U,N,(a,-.185,h),(b,-.155,h+.022),.002)
+        for at in [center-.13,center+.13]:self.stock('bronze_sheet',O,U,N,(at-.014,-.11,low+1.0),(at+.014,-.065,low+1.25),.003)
+        for at in [left-.24,right+.24]:
+            for h,H in [(low,low+.14),(high-.12,high+.05)]:self.stock('limestone',O,U,N,(at-.14,-.10,h),(at+.14,.21,H),.008)
+            if self.style=='chateau_3421':self.round_stock('limestone',O+U*at+N*.085,.095,low+.14,high-.12)
+            else:
+                for i in range(6):self.stock('limestone',O,U,N,(at-.12,-.08,low+.17+i*.36),(at+.12,.13,low+.48+i*.36),.006)
+        self.stock('limestone',O,U,N,(left-.42,-.12,high+.06),(right+.42,.35,high+.20),.009)
+        self.entry_stoop(O,U,N,center,low)
+        self.entries.append(dict(building=self.name,point=list(O+U*center+Vector((0,0,low+1.2))),kind='closed_scenic_leaf'))
+
+    def hip(self,rect,z,rise,key='city_roof_clay'):
+        x,y,X,Y=rect;assert X>x and Y>y
+        # Four closed slopes and a ridge,never a roof over the open U court.
+        if X-x<=Y-y:
+            a=Vector(((x+X)/2,y+min((X-x)/2,(Y-y)/3),z+rise));b=Vector(((x+X)/2,Y-min((X-x)/2,(Y-y)/3),z+rise))
+            faces=[[(x,y,z),(X,y,z),a],[(X,y,z),(X,Y,z),b,a],[(X,Y,z),(x,Y,z),b],[(x,Y,z),(x,y,z),a,b]]
+        else:
+            a=Vector((x+min((Y-y)/2,(X-x)/3),(y+Y)/2,z+rise));b=Vector((X-min((Y-y)/2,(X-x)/3),(y+Y)/2,z+rise))
+            faces=[[(x,y,z),(X,y,z),b,a],[(X,y,z),(X,Y,z),b],[(X,Y,z),(x,Y,z),a,b],[(x,Y,z),(x,y,z),a]]
+        for face in faces:ResidentialHouses.roof_sheet(self,[tuple(v) for v in face],key)
+
+    def dormer(self,O,U,N,at,z):
+        half=.64;low=z+.38;high=z+2.12;back=-1.48;front=.12
+        for a,b in [((at-half,back,low),(at-half+.15,front,high)),((at+half-.15,back,low),(at+half,front,high)),
+                    ((at-half+.15,back,low),(at+half-.15,front,low+.22)),((at-half+.15,back,high-.15),(at+half-.15,front,high))]:
+            self.stock('door_paint',O,U,N,a,b,.005)
+        left=at-half+.18;right=at+half-.18;bottom=low+.25;top=high-.18
+        self.profile('mirror_aged',O,U,N,[(left,bottom),(right,bottom),(right,top),(left,top)],-.12,-.085)
+        self.wood_frame(O+N*.07,U,N,left,right,bottom,top)
+        self.stock('door_paint',O,U,N,(at-.018,-.06,bottom),(at+.018,.02,top),.002)
+        self.stock('door_paint',O,U,N,(left,-.06,(bottom+top)/2-.018),(right,.02,(bottom+top)/2+.018),.002)
+        self.windows.append(dict(building=self.name,point=list(O+U*(left+(right-left)*.22)+Vector((0,0,bottom+(top-bottom)*.27))),normal=list(N),recess_m=.085))
+        roof=[tuple(O+U*a+N*b+Vector((0,0,high))) for a,b in [(at-half-.08,back),(at+half+.08,back),(at+half+.08,.22),(at-half-.08,.22)]]
+        ResidentialHouses.roof_sheet(self,roof)
+        self.stock('limestone',O,U,N,(at-half-.10,-.02,high-.04),(at+half+.10,.25,high+.08),.006)
+
+    def crown(self,outline,height):
+        if self.style=='chateau_3421':
+            eave=self.levels[-2];inner=offset_outline(outline,-1.22)
+            # Upper-floor enclosure is the sloped mansard itself; no full-height
+            # vertical wall is hidden behind a decorative sloping sheet.
+            v,f=cornice_ring(offset_outline(outline,-.05),.22,eave-.15,eave+.12);self.add('limestone',v,f)
+            for i,(p,q) in enumerate(zip(outline,outline[1:]+outline[:1])):
+                j=(i+1)%len(outline)
+                ResidentialHouses.roof_sheet(self,[(*p,eave+.12),(*q,eave+.12),(*inner[j],height),(*inner[i],height)])
+                O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
+                if length<2.5 or self.covered(O,U,N,.15,length-.15,eave+.7,[]):continue
+                count=max(1,int(length/3.1))
+                for bay in range(count):self.dormer(O,U,N,(bay+.5)*length/count,eave)
+            v,f=extrusion(inner,height,height+.12);self.add('galvanized_roof',v,f)
+            for i in [0,len(inner)-1]:
+                x,y=inner[i];self.round_stock('cast_iron',Vector((x,y,0)),.025,height+.12,height+.65)
+                self.round_stock('cast_iron',Vector((x,y,0)),.065,height+.46,height+.55)
+        else:
+            self.row_roof(outline,height)
+            a,b,c,d=self.row['rect'];front=a+self.study['front_inset_m'];rear=c-.45;low=b+.45;high=d-.45;cut=front+6.4;wing=6.4
+            # The corner tower replaces the northern end of the front-bar roof.
+            for rect in [(front, -(high-4.8),cut,-low),(cut,-(low+wing),rear,-low),(cut,-high,rear,-(high-wing))]:
+                self.hip(rect,height+.55,1.05)
+            tower=(front,-high,cut,-(high-4.8));x,y,X,Y=tower
+            self.box('limestone',(x-.06,y-.06,height+.17),(X+.06,Y+.06,height+.33))
+            ring=[(X,y),(x,y),(x,Y),(X,Y)];inner=offset_outline(ring,-.28)
+            for i,(p,q) in enumerate(zip(ring,ring[1:]+ring[:1])):
+                O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
+                self.tapers=((Vector((*inner[i],0))-O).dot(U),length-(Vector((*inner[(i+1)%4],0))-O).dot(U))
+                for bay in range(2):self.aperture(O,U,N,bay*length/2,(bay+1)*length/2,height+.33,height+2.8,length,loggia=True)
+            self.box('limestone',(x-.15,y-.15,height+2.8),(X+.15,Y+.15,height+2.98))
+            self.hip((x-.18,y-.18,X+.18,Y+.18),height+2.98,1.0)
+
+
+        # Coal-era flues have four masonry walls and an open cap throat.
+        # Their buried roots bear on real wing roofs; no smoke/weather owner.
+        a,b,c,d=self.row['rect'];rear=c-.7;front=a+self.study['front_inset_m'];x=(front+6.4+rear)/2
+        top=height+(0.12 if self.style=='chateau_3421' else 1.60)+float(self.row['chimney_height_m'])
+        for z in [b+.45+3.2,d-.45-3.2]:
+            y=-z;left=x-.40;right=x+.40;low=y-.52;high=y+.52;root=height-.15
+            for p,q in [((left,low,root),(left+.16,high,top)),((right-.16,low,root),(right,high,top)),
+                        ((left+.16,low,root),(right-.16,low+.16,top)),((left+.16,high-.16,root),(right-.16,high,top))]:self.box(self.row['wall_key'],p,q)
+            for p,q in [((left-.06,low-.06,top),(left+.16,high+.06,top+.12)),((right-.16,low-.06,top),(right+.06,high+.06,top+.12)),
+                        ((left+.16,low-.06,top),(right-.16,low+.16,top+.12)),((left+.16,high-.16,top),(right-.16,high+.06,top+.12))]:self.box('limestone',p,q)
+
+    def build(self):
+        outline=self.outline(True);inside=offset_outline(outline,-.28);entries=self.study['entry_sides']
+        pairs=list(zip(self.levels,self.levels[1:]));mansard=self.style=='chateau_3421'
+        for floor,(z,Z) in enumerate(pairs):
+            v,f=extrusion(outline if floor==0 else offset_outline(outline,-.14),-.28 if floor==0 else z-.16,0. if floor==0 else z)
+            self.add('concrete' if floor==0 else 'timber',v,f)
+            if mansard and floor==len(pairs)-1:continue
+            self.stone_base=floor==0
+            for side,(p,q) in enumerate(zip(outline,outline[1:]+outline[:1])):
+                O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
+                self.tapers=((Vector((*inside[side],0))-O).dot(U),length-(Vector((*inside[(side+1)%len(outline)],0))-O).dot(U))
+                count=self.study['side_bays'][side]
+                for bay in range(count):
+                    l=bay*length/count;r=(bay+1)*length/count;entry=side in entries and bay==count//2
+                    if length<.7 or floor==0 and entry or self.covered(O,U,N,l,r,z,[]):self.wall_stock(O,U,N,(l,-.28,z),(r,0,Z),length)
+                    else:self.aperture(O,U,N,l,r,z,Z,length,door=entry and floor==1,basement=floor==0)
+                if floor>0:
+                    self.stock('limestone',O,U,N,(0.,-.03,z-.08),(length,.045,z+.015),.004)
+            self.stone_base=False
+        self.crown(outline,self.levels[-1])
+        for x,y,X,Y in self.study['court_paving_m']:
+            # A retained soil bed,not a floating courtyard slab over the slope.
+            datum=float(self.row['grade_datum_m']);ground=float(self.row['grade_low_m'])-datum
+            bottom=min(ground-.2,-.13)
+            self.box('soil',(x,-Y,bottom),(X,-y,-.12))
+            self.box('concrete',(x,-Y,-.12),(X,-y,0.))
+            count=max(1,math.ceil(-ground/.15));run=.25
+            assert (count-1)*run<=self.row['rect'][2]-X-.10
+            for i in range(1,count):
+                self.box('concrete',(X+(i-1)*run,-Y,bottom),(X+i*run,-y,ground*i/count))
+        assert len(self.entries)==len(entries),(self.name,self.entries)
+        return dict(windows=self.windows,bearings=self.bearings,entries=self.entries,mitre_seams=self.seams,closed_stocks=self.parts,min_closed_stock_volume_m3=self.min_volume,style=self.style)
