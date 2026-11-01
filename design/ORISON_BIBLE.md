@@ -1116,6 +1116,17 @@ documents carry the evidence chain; the larger conspiracy is not ruled here.
 Preserve the opening and other owner-authored material in
 **design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md**.
 
+**Owner addition, 2026-11-01:** Adela Voss also sings and plays piano
+regularly at Harukiya. Erica, as supplied by Lily, is the character's personal
+inspiration; unprovided biography is not invented as fact. Lily's self-insert
+accompanies her, alternating drums and bass between songs. The bar is to be
+remodeled around a centerpiece performance stage supporting captured singing,
+dancing and piano work, with a supportive, welcoming found family. Preserve
+Adela's existing identity, profession, murder/evidence chain and the distinction
+between her gender and the lease motive. Character options and measured stage
+planning are in **design/V2_ADELA_PERFORMANCE_AND_FOUND_FAMILY_2026-11-01.md**;
+this direction does not claim the remodel or performances are implemented.
+
 Finish V2 construction and qualification before implementing the larger mystery.
 **The city is the next construction priority**, superseding “after all open
 tasks.” Preserve current route/save acceptance fixtures and working mechanical,

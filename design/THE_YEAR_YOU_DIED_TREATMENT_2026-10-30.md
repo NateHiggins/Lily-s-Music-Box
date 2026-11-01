@@ -148,11 +148,29 @@ treatment records the decision as made. [canon]
 
 ---
 
+## Owner addition, 2026-11-01: a life at Harukiya
+
+Erica is Lily's personal inspiration for Adela. Adela regularly sings and plays
+piano at the bar; Lily's self-insert accompanies her, alternating drums and bass
+between songs. The bar remodel centers a stage for captured singing, dancing and
+piano work within a supportive found family. Give Adela artistic pleasure,
+ambition, ordinary intimacy and credible faults beyond her death. No change to
+Mae, the lease motive, chronology, dark hours, snap-back, loop or endings is
+implied. Her transness remains neither revelation nor murder motive.
+
+The writing/appearance/performance packet is
+**design/V2_ADELA_PERFORMANCE_AND_FOUND_FAMILY_2026-11-01.md**. Its personality,
+wardrobe, dialogue and visit proposals are not yet accepted scenes or runtime
+content. The supplied Erica image is an external visual reference, not a texture.
+Nadia alone still learns the rider's identity late; musical recognition cannot
+silently grant that knowledge to Lily or anyone else.
+
 ## 1. The story
 
-**Who she was.** Adela Voss is a trans woman, thirty-eight, and a portrait
-photographer. She keeps Photo Supplies in the Vantry Arcade, directly across
-Jackson Avenue from the Orison's front door. [v4, built-world ruling]
+**Who she was.** Adela Voss is a trans woman, thirty-eight, a portrait
+photographer, and a regular singer and pianist at Harukiya. She keeps Photo
+Supplies in the Vantry Arcade, directly across Jackson Avenue from the Orison's
+front door. [v4, built-world ruling; performance addition 2026-11-01]
 
 - She changes her shop window whenever a woman somewhere does something the
   papers call plucky. She pins the patronising headline beside it with a
