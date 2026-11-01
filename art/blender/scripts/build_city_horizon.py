@@ -10,7 +10,7 @@ from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_o
 from fabrication_native_batch import material,partition
 from city_ground_apron_geometry import relief_height
 from city_industrial_architecture import IndustrialBuildings,MillLofts,EasternRows
-from city_residential_architecture import ResidentialHouses,EasternHouses,CourtApartments,CivicRows,CivicBlocks
+from city_residential_architecture import ResidentialHouses,EasternHouses,CourtApartments,CivicRows,CivicBlocks,WesternGardenApartments
 from city_horizon_assets import export_blocks,manifest_paths
 plan_path=ROOT/'art/data/city_horizon/source_plan.json';plan=json.loads(plan_path.read_text())
 grade_path=ROOT/'art/blender/city_ground_apron_construction.json';grade=json.loads(grade_path.read_text())
@@ -74,6 +74,7 @@ for family in ['near','far']:
             if study.get('style') in CourtApartments.STYLES:constructor=CourtApartments
             if study.get('style') in CivicRows.STYLES:constructor=CivicRows
             if study.get('style') in CivicBlocks.STYLES:constructor=CivicBlocks
+            if study.get('style') in WesternGardenApartments.STYLES:constructor=WesternGardenApartments
             authored=constructor(row,add,neighbours).build()
             windows.extend(authored['windows']);bearings.extend(authored['bearings'])
             def lower_add(owner,key,vertices,faces):
