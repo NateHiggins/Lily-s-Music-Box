@@ -6023,3 +6023,138 @@ are preserved. Fully merged own intake branch was deleted locally/remotely.
 Foreign worktrees/branches,app-owned baseline and the prologue branch remain.
 No shared stash,forced checkout or bulk discard. Cleanup records remain external
 beside the immutable original run reports;this record changes no game files.
+
+
+### November 1 — Western apartment optical correction in progress
+
+Evidence class: **INERT**. REPORT — **K-V2-CITY-REVAMP** — 2026-11-01.
+Owned **C:/ov/city**, **codex/v2-city-20261029**, starting/main SHA
+**c371e94e035087d4ee629e3934f71f235ffe508f**. PR136 is already merged;
+this is a separate diagnostic checkpoint, not another construction intake.
+Sol confirmed optics first, then an adjacent researched architecture pair.
+Canonical loading/stutter/input owners remain reserved to him.
+
+**Issue:** optional SurfaceInventory review poses pass fixture.rect through
+GameBoot.b2g although rect is already Godot XZ. P1 centre +44.5 becomes -44.5;
+P2 +66.1666667 becomes -66.1666667: 89m and132.333333m target displacement.
+Actual native faces and19 original source/world waypoint pairs support the
+installed rigid transform (maximum fit residual0.000003090m). This explains
+misframed images; it does not reject unchanged physical or controller proof.
+
+**Bounded correction:** two new optical entrypoint files reuse the existing
+GradeOwnerSurvey one-world lifecycle. Four whole-body framed native stations
+cover each front/roof and rear/court/roof,32 unfiltered actual-world face
+witnesses, two original wrong-pose negatives and same-pose target-hidden/reveal
+pixel controls. Hidden geometry retains collision; physical hits alone do not
+prove rendered subject identity. Existing controller programmes, SurfaceInventory,
+native assets, materials and production owners remain unchanged. Only named
+.gitattributes entries accompany the two source files.
+
+**Evidence so far:** two wrapper imports,105 referenced mesh policies and1474
+texture policies pass. Changed-script compile1/0; reader NEW0; spatial drift0.
+Frozen optical script SHA256 **1fabb694f0f80a8b7e3f40cd7635354e17c070ac55688cf5898b22675cbbb0dd**.
+External proposal **camera_station_proposal_02.json** checks88 overlapping
+native partitions, but is only CPU preflight, not actual-world acceptance.
+Raw proposals/preparation receipts and exact executed sources remain in
+**C:/ov/reports/city_streets_20261029/western_apartments_01/**.
+
+One patched-engine hidden3440x1440 composed optical run is queued via
+**optics_world_batch_01.json**, broker5072/session90314, admitted to FIFO at
+2026-11-01T23:16:06Z. At23:21Z the live request has no run log, frames or runtime
+contract. Source stays frozen; no second world, repeated long walk or competing
+GPU work is launched. Inspect the eventual wrapper receipt and test-written
+**optics_world_01/optical.runtime.json**, then all four subject/hidden image
+pairs. No optical pass, new FPS, surface renewal, played support, artistic
+acceptance or full-city completion is claimed. Original failures and92.5MB
+archive remain intact. Reuse Sol's real clean c371119-gate baseline later;
+no duplicate baseline or main merge. Worktree remains uncommitted, including
+known generated import/UID churn that will not be staged.
+
+Open: technical optical qualification and image inspection first; lighting/
+court readability,91 generic profiles and all previously listed full-city
+scope remain unfinished. Next construction waits for these views.
+
+
+**Coordination update:** static comparison attempt **optics_gates_01** began at
+23:26:45Z, before Sol requested a CPU-quiet timing window. Its exact owned
+Python root6232 and test child65024 were revalidated and stopped; unified
+session7176 is terminal exit1. No completed board or comparison result exists.
+**optics_gates_01.interrupted.json** preserves provenance. No foreign process
+or queued optical request was stopped. Heavy checks wait for Sol's explicit
+batch-terminal report; technical optics remains queued. Tracker city entry
+updated/read back at sequence143:PR136 merged, full city incomplete and current
+optics unqualified; all62 blocks and AgentInstructions preserved. This is a
+record-only update and grants no runtime or artistic acceptance.
+
+
+### November 1 — corrected Western apartment optical views executed
+
+Evidence class: **INERT**. REPORT — **K-V2-CITY-REVAMP** — 2026-11-01.
+Source is the same bounded optical diagnostic described above; production,
+native and controller inputs remain unchanged. One actual composed world,
+patched Vulkan/Forward+,fullscreen3440x1440 on the hidden desktop. Wrapper
+**optics_world_01.log.receipt.json** ends23:42:04Z,completed/exit0,292.87s,
+empty stderr,zero script/cache errors. This wrapper is execution evidence only.
+The test-written schema2 **optics_world_01/optical.runtime.json** supplies
+**209checks/0failures**,four subject views,32 unfiltered intended-face witnesses,
+two rejected mirrored-pose controls and all eight physical-bounds corners per
+view inside6% margins. Original P1 wrong pose hits neighboring3_1_P1 glazing;
+P2 misses; both intended subject centres are outside the old frame.
+
+All eight actual subject/hidden PNGs were individually inspected and matched
+to the test-written hashes. Hiding only each subject's11 partitions changes
+**63.08%/67.37%/59.00%/61.99%** of the sampled framed pixels for P1front/rear,
+P2front/rear respectively. Mean RGB differences are0.10861/0.11930/0.08412/
+0.08743 versus return-control drift0.00571/0.00715/0.00578/0.00564. Physics
+first-hit stock remains present while visuals hide: optical identity is not
+inferred from collision alone. Corrected frames show complete intended fronts,
+slate mansard/dormers or clay hips/belvedere and open rear courts with paving
+and steps. Deep shadows, weak court illumination, dark ground regions and
+repetitive neighboring stock remain visible artistic debt. No final appearance,
+continuous player support, renewed LOD/surface/save/interaction or FPS acceptance.
+
+Runtime hash remains **1265053cf6e531cec002cb925e8fcb5898a461bfcb42955198343893d59a2439**;
+surface hash **968140744b6c9a630eeb48e1a4db19fdd4a0792a85ef268bdcbe5862a177ce67**.
+Original exact-input controller/physical proof keeps its original provenance;
+no long walk or new Blender build is repeated for a camera-only diagnostic.
+Raw frames,exact executed sources,proposal and image review remain external
+under the existing Western packet. Original92.5MB archive is untouched.
+Sol received the executed technical result. The quiet window ended explicitly
+before static comparison resumed as **optics_gates_02**,session3360. Its final
+board is still pending at this record; interrupted01 is retained,not a pass.
+No main merge. Full city scope and remaining91generic profiles stay open.
+
+
+**Final optical checkpoint comparison:** all119 actual gate rows compared with
+Sol's real clean c371 baseline: zero regressions,improvements or other changes;
+requirements_changed[]. Existing unrelated baseline-red gates remain red.
+Reader NEW0/spatial PASS/current physical packet PASS;surface tools42/0 in383.3s.
+The board truthfully records four then-dirty authored paths,not a clean candidate
+checkout. This was a static board comparison,not verify_candidate or a new
+fresh-checkout Godot run. All17 protected paths separately compare exact with
+starting c371;selector and production sources are unchanged,V2 remains selected.
+Ledger counts and every requirement status remain unchanged. No proof is repinned.
+
+Compact **art/reviews/city_streets_20261029/western_apartments_optics_20261101.zip**
+contains30 verified members/92936bytes/SHA256
+**fefc7b247029de276b0ae91b8ae5f00f83df5a808de81f3badfaa3944fc24136**:
+actual contract/logs/wrapper and import/compile provenance,native proposal,
+image-review/hash roster,full board,protected-path review and interrupted-board/
+generated-cleanup records. Raw8PNGs remain external at the recorded paths;
+this compact packet is not an artistic publication. The original construction
+archive retains SHA **eafa86707b8d669e4c518ab4d4bfca0685f4a396bd10a667fe4e27f3f2ae24bb**.
+555 tracked imports were individually backed up and verified LF-identical to
+HEAD before named restoration. All686 generated untracked UIDs were archived
+and byte-verified before individual removal within owned C:/ov/city. Cleanup
+backup remains external;canonical/prologue work and all native assets untouched.
+
+Expected source boundary: new optical .gd/.tscn,named hash-bound attributes,
+this existing ledger and compact optical archive only. No shared production
+integration file changed. Worktree is pending named-path commit/push;no main
+merge or candidate-verifier grant is claimed. The source commit and remote
+confirmation will be sent to Orison Developer Sol6.1 for integration review.
+After publication,choose one adjacent researched pair from remaining generic
+stock; actual neighboring3_3P1/P2 profiles still have no architecture record.
+Specific precedent/placement choice remains to be made from the existing study,
+not inferred from that source absence. No owner decision needed for the scoped
+optical diagnostic. Full city completion remains unproven and unfinished.
