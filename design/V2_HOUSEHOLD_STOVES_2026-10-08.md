@@ -407,3 +407,21 @@ their parameter blocks, source images, shaders or runtime. The actual rendered
 packet remains unchanged; no receipt is repinned. Fresh projection parity and
 candidate re-verification are required before merge. No new Godot run is needed
 if that exact consumed-input parity holds.
+
+Fresh isolated qualification after **76ee616cc** passes with zero defects and
+the original **1f2aeac3…10bfc** fingerprint. Full management re-verification
+finishes **119 gates, zero regressions/six improvements**, all17 protected paths
+unchanged, selectorV2 and zero lint errors. Its surface qualification now passes;
+all42 tools tests pass in479.09s under the unchanged600s ceiling. No new Godot
+run or repinned receipt was used for the import fix. The clean isolated checkout
+was reused, so this is not an in-place check of the dirty canonical repository.
+
+Main advanced again during verification: PR129 adds subplot copy and the
+Emergence sky slot/progress presentation; PR130/131 add newspaper oddities.
+All newer work through **d7eeb29c5** is preserved by merge **cfd2ea254**. Its sky
+and data edits change the consumed surface projection, so the prior physical
+packet cannot qualify the combined tree. The already verified unchanged range
+mechanism/native checks are reused; the next necessary engine batch is one
+import plus physical-only **surface03**. New main baseline/candidate comparison
+are required before manual merge. A temporary merge-coordination hold was posted
+to PR127; no other lane job is interrupted and no acknowledgement is assumed.

@@ -7,8 +7,8 @@ v2-baseline can be stale. Read DOCS.md, AGENTS.md and developer-continuity.
 The previous checkpoint below is historical, not the current branch/queue.
 
 - Current branch **codex/v2-gas-range-refit-20261101**, base/main
-  **45c391bc03757f62a74cef9d24b445a12c27b8cf** after preserving PR126/128
-  in topic merge **dd4e239af**. Earlier pushed checkpoints
+  **d7eeb29c5** after preserving PR129–131 in topic merge **cfd2ea254**.
+  Earlier PR126/128 reconciliation is **dd4e239af**. Pushed checkpoints
   **687b1fd03** and **9aec085e0**; draft [PR #127](https://github.com/NateHiggins/Lily-s-Music-Box/pull/127).
   Verified correction commits: **dbc70557d** (fresh parallel import reads) and
   **f8b76e0b7** (installed collision and load-boundary diagnostics).
@@ -64,6 +64,22 @@ The previous checkpoint below is historical, not the current branch/queue.
   candidate verification. Its existing failures remain baseline debt, not a
   green-main claim. The superseded2a baseline was
   intentionally cancelled. Remove this own temporary checkout safely after use.
+- Latest management: **76ee616cc** passes **119 gates vs merge-base45c391bc**,
+  zero regressions/six improvements, all17 protected paths, selectorV2, no lint
+  errors. Actual surface row PASS and all42 tools tests PASS (479.09s). This ran
+  in the clean isolated verification checkout, not the dirty canonical tree.
+  Prior ab46's non-regression headline hid two surface-staleness findings; exact
+  comparison found118 ignored newspaper PNG import sidecars missing in fresh
+  checkouts. Their unchanged settings are now tracked/non-text; all other hashes
+  agreed. Fresh isolated qualification passes the original rendered fingerprint.
+  Main then advanced through PR129–131 (newspapers/dialogue/sky); cfd2ea254
+  preserves all of it. Surface03 physical-only renewal and a clean d7 baseline
+  plus candidate comparison now remain, without rerunning unchanged ranges.
+  The original own baseline checkout was safely removed (70,907 tracked files);
+  its complete board/cache remain. Reuse **C:/ov/c-ab46a508**, originally a clean
+  fresh candidate, for the new detached baseline and later candidate instead of
+  creating another70k-file checkout. Exact test/result receipts remain external.
+  A temporary main-merge hold was requested on PR127; no acknowledgement yet.
 - Controls/pause overhaul follows this range checkpoint. November 1 function
   matrix in the existing controller audit; expose existing inventory now, live
   map deferred. The interactive 4B exploration/pin-note example is external,
