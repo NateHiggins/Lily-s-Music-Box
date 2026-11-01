@@ -5854,3 +5854,24 @@ Source/failure/control records are compacted without duplicating rendered images
 **a09862ba27d181cd21377886579035ec60b42976718d0709f414442f8711a430**.
 All original logs, sources and large raw captures remain under
 **C:/ov/reports/city_qualification_repair_20261101/**.
+
+Final qualification and merge: candidate **5a4ef2fa2cef29cf4a2c0b426fc616bbc46727be**
+passes the complete clean119-gate comparison against actual main **308588b44**:
+zero regressions/improvements/waivers/blockers;17/17 protected paths,selectorV2,
+reader/spatialPASS,actual saved-surfacePASS0,zero document errors and unchanged
+requirement statuses. Surface tools tests pass417.38s. The original source-gate
+class AST and all core gate/reader/spatial instruments remain unchanged; three
+source tests were added. Management used --no-godot; actual engine proof above
+remains separate. [PR135](https://github.com/NateHiggins/Lily-s-Music-Box/pull/135)
+merged at **6abe6d424ae78e681e1861439bd3dfc7064055b0**; its full tree is exactly
+that qualified candidate. No broader V2 or city artistic acceptance follows.
+The technical **K-V2-CITY-LEGACY-QUAL** repair is archived from the open queue;
+city construction/intake,exploration,performance,saves and artistic gaps remain
+in **K-V2-CITY-REVAMP** and the existing repair tasks.
+
+The same archive now additionally carries the clean verifier JSON/MD and gate
+instrument review: **48**members/**131014**bytes/SHA256 **c711d8e38f79ebe0446c34149ec6eb92ec982110f2c7cddc8b5cea5669a5e6bf**.
+All45 original members are byte-exact. The original45-member archive remains
+recoverable in candidate5a4ef2fa and externally as
+**articulated_wall_candidate_5a4ef2fa.zip**. This final record changes only
+continuity/queue/ledger/archive; source/render inputs and qualification stay exact.

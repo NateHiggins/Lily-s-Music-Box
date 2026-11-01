@@ -5,10 +5,14 @@ Owner Lily,she/her; canonical C:/PleaseRemainOnTheLine. Full V2 goal active and
 incomplete. Read DOCS.md/AGENTS.md and the existing skills; history below is stale.
 
 Canonical branch **codex/v2-city-qualification-20261101**; main/origin/main last
-verified **308588b4443a9e75da11155a6bcfc9ba30b6755c**. PR132/134 merged there.
+verified **6abe6d424ae78e681e1861439bd3dfc7064055b0**. PR132/134 merged there.
 Pushed partial checkpoint0389a4609 contains the first composed-test repair.
-New source-target/physics-barrier/combined-mode repair is ready for a named-path
-checkpoint and clean candidate verification; no production/native asset edits.
+PR135 merged at **6abe6d424ae78e681e1861439bd3dfc7064055b0**; its entire tree
+matches qualified **5a4ef2fa2cef29cf4a2c0b426fc616bbc46727be**. Complete clean119-gate
+comparison:zero regressions/waivers/blockers,17/17protected,selectorV2,reader/
+spatialPASS,surfacePASS0,lint0,requirementsunchanged. Core instruments and original
+source-gate class AST unchanged; three tests added. Actual engine proof is below.
+This final record changes only ledger/queue/continuity/archive; no source edits.
 
 - Original composed8855/306+script error; first repair28990/176. Native source
   traces reproduce all176 old rectangular-plane errors. New source-only tool
@@ -30,24 +34,26 @@ checkpoint and clean candidate verification; no production/native asset edits.
   after backup; original frontage image remains. No new controller-route claim.
 - Detailed existing city ledger and compact archive
   **art/reviews/city_streets_20261029/articulated_wall_review_20261101.zip**:
- 45members/96897bytes/SHA a09862ba27d181cd21377886579035ec60b42976718d0709f414442f8711a430.
+ 48members/131014bytes/SHA c711d8e38f79ebe0446c34149ec6eb92ec982110f2c7cddc8b5cea5669a5e6bf.
  External root **C:/ov/reports/city_qualification_repair_20261101/** holds before/
  after02failed controls/after03cancelled harness/after04pass and exact sources.
  Eight source tests PASS,readerNEW0,spatialclean. All engine sessions terminal
  (60293failed,83280cancelled failed fixture,64463pass). No live Godot of ours.
 - Actual complete119-gate clean main308 baseline cached in
  **C:/ov/boards/308588b4443a9e75da11155a6bcfc9ba30b6755c.v2.json**. Owned
- **C:/ov/c-ab46a508** clean/detached there; verify custody before reuse. Run the
- candidate verifier there with this actual baseline,--in-place,--no-godot;
+ **C:/ov/c-ab46a508** clean/detached at qualified5a4ef2fa; verifier31609 is
+ terminalPASS. Inspect custody before reuse. Candidate report candidate_5a4ef2fa/;
  engine evidence above is separate. Never repin/waive stale physical evidence.
 
-NEXT: commit/push named source/packet/records,verify complete clean candidate,
- then merge only if no regressions and surface remainsPASS. K-V2-CITY-LEGACY-QUAL
- stays open until then. Afterward intake architect's pushed **ecff4a1a31d1db91a11040c8cec661390681297d**
- (C:/ov/city); its separate119-gate verifier is peer-owned. P1/P2 pair adds10draws,
- published33individual/91generic profiles,not artisticacceptance; no newconstruction
- afterpair. Candidate has92.4MB archive: read-only reuse audit available,do not
- discard/copy whole evidence batches blindly. Keep other contributors' custody.
+NEXT: reconcile architect's pushed **50cc3284600f17c14cc3f993bd320a9df78132af**
+ (C:/ov/city,clean/held,no live jobs). Its source ecff4a1a passed119-gate verification;
+ record-only50cc preserves the same rendering/runtime signatures. P1/P2 pair adds
+ 10draws,33individual/91generic source profiles,not artisticacceptance. No new
+ construction afterpair. Preserve our newer diagnostics during intake; actual
+ canonical family/grade/surface checks still required,not an isolated pass alone.
+ Candidate has92.5MB archive; read-only reuse audit available,retain originals and
+ follow approved storage classes before reducing cited evidence. Technical
+ K-V2-CITY-LEGACY-QUAL is closed/archived; full city and V2 remain incomplete.
  Then resume playable-world stutter and existing hose/book/nook repair gaps.
  Modeler21externalINERTpackets remain unintegrated/unverified. Preserve unrelated
  import churn/UIDs; no bulk stage/reset/shared stash or foreign branch deletion.
