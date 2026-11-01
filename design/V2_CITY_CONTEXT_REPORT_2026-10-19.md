@@ -5632,3 +5632,45 @@ historical reports, native payloads, geometry and masks remain unchanged.
 fixtures now pass. Seven scoped gates pass, including31 tests and reader NEW0;
 these are not a full candidate comparison. Current composed access and rendered
 surface renewal are the next actual-world checks, not yet claimed as passed.
+
+The source repair checkpoint **d211123cf** is committed/pushed on the intake
+branch. Current-world **frontage01** completed its movement programme but failed
+the viewport requirement:1280x720. The batch stopped, so its surface stage never
+started. This original receipt remains failed. The corrected launch reuses the
+existing **native_debug_window.gd** deferred override plus discrete CLI arguments
+in **current_world02.json**; no controller, tolerance or test assertion changed.
+**frontage02** passes113/0 at3440x1440, with12 connected normal-controller legs,
+seven endpoints,1105 samples and zero rescues. Wrapper193.55s; actual startup
+111.857s. Stderr is empty and shutdown clean. All five actual captures were
+independently inspected and hash-recorded in **frontage02/visual_review.json**.
+The public context shows three distinct forms/stoops but remains strongly
+shadowed; landing/lane captures are close to doors/walls. This grants no artistic,
+scenic-door, save,450m exploration or performance acceptance. The following
+physical-only surface stage is running; its pass and review remain unclaimed.
+
+That batch is now terminal. **surface01** passes655/0:30,471 draws,19,520 meshes,
+6675 materials and543 textures, with203.263s test time/221.70s wrapper, empty
+stderr and clean shutdown. Every physical draw is surveyed. Interaction, disk
+save, companion and civic-access programmes remain explicitly NOT_EXECUTED;
+the separate frontage contract supplies only its named access coverage.
+Eight actual3440x1440 frames were individually inspected. The three automatic
+profile context views face adjoining/rear stock, so they do not prove frontal
+appearance of the remodeled row. The actual frontage public-context frame,
+bound by its clean discovery to the identical surface fingerprint, covers the
+three street-facing designs. No capture is presented as artistic acceptance.
+Sparse room dressing, a strong bathroom lamp pool, deeply shadowed fronts and
+flat-looking bright clouds remain visible concerns.
+
+The existing physical-surface packet is renewed from the untouched test-written
+contract/inventory and byte-verified compressed logs. Official qualification
+returns PASS/0 defects at fingerprint
+**0a9d049d29aa2de3cfe17880548062cfb61a8d1e5bca705f5e198b4dc4d83062**.
+Before-replacement packet bytes remain in external
+**before_surface_renewal_delta.zip**; prior committed evidence remains in Git.
+One review archive retains113 members/24,372,396 bytes:
+**art/reviews/city_streets_20261029/current_main_intake_20261101.zip**,
+SHA256 **11253b3dd2b24dc37adf281ea97c1c9b22f5b5cf7df6e85b513fe26434e4bf34**.
+It preserves failed launches, guarded source repairs, actual grade/frontage
+contracts and image review without duplicating the new surface inventory/frames.
+Clean full candidate comparison and main merge remain pending; whole-city,
+golden-shift, save-boundary, stutter and artistic goals remain unfinished.

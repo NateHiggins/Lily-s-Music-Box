@@ -37,10 +37,27 @@ evaluated topology and both native exports are exact; a road-width mutation is
 detected. Only its binding and live downstream metadata were renewed, retaining
 historical snapshots. All13 fixtures and seven scoped gates/31 tests now PASS;
 reader NEW0. No mesh, gameplay owner or checker was changed.
-NEXT: **current_world01.json** runs actual Western frontage access and the full
-physical-surface survey, with three requested frontage context captures. Read
-each receipt and inspect images before renewal/candidate verification. Check
-the live lane handle before resuming; never restart a live batch.
+Checkpoint **d211123cf** is committed/pushed. **frontage01** ran all movement
+successfully but correctly failed its viewport check (1280x720); surface never
+started. Preserve this failed receipt. **current_world02.json** adds the existing
+deferred **native_debug_window.gd** helper and separate CLI fullscreen/resolution
+arguments. Its **frontage02** passes113/0 at3440x1440:12 normal-controller legs,
+seven endpoints,1105samples, zero rescues;193.55s wrapper/111.857s startup,
+empty stderr/clean shutdown. All five actual images were independently inspected;
+strong shadow and close landing framing remain artistic limits.
+That batch is terminal. **surface01** passes655/0:30,471 draws,6675 materials,
+543 textures,221.70s wrapper/203.263s test, empty stderr/clean teardown. Eight
+actual frames were individually inspected. Its three automatic profile-context
+views face adjoining/rear stock, not the remodeled street sides; the separate
+frontage public-context frame covers those fronts at the identical fingerprint.
+The packet is renewed and official qualification PASS/0 at fingerprint
+**0a9d049d29aa2de3cfe17880548062cfb61a8d1e5bca705f5e198b4dc4d83062**.
+Prior packet replacements are archived externally. Original failures, source
+controls, actual routes and reviews are retained in one113-member/24,372,396-byte
+**art/reviews/city_streets_20261029/current_main_intake_20261101.zip**,
+SHA256 **11253b3dd2b24dc37adf281ea97c1c9b22f5b5cf7df6e85b513fe26434e4bf34**.
+NEXT: commit/push the renewed named packet/doc paths, then reuse the clean owned
+verification checkout for the complete candidate comparison before a main merge.
 No checker relaxation or runtime receipt repin. All failures remain retained in
 **C:/ov/reports/city_integration_20261101/**.
 Current main's complete clean baseline3ae86bf0e is finished/cached. Own
@@ -48,7 +65,8 @@ Current main's complete clean baseline3ae86bf0e is finished/cached. Own
 final candidate verification. Remove it safely when finished. Original baseline
 output: **C:/ov/reports/gas_range_integration_20261101/clean_main_3ae86b/**.
 
-No combined-current-main city runtime, performance or artistic acceptance yet.
+Current-main frontage access and physical surfaces are qualified narrowly;
+performance, final candidate verification and artistic acceptance remain open.
 Existing source/render review is in the city report and preserved external
 packets. The architect remains frozen pending this intake. The full V2 goal,
 93 generic profiles, city lighting, stutter, controls, hose/book/nook and native
