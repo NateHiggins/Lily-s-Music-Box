@@ -135,7 +135,10 @@ func _run_stutter_probe() -> void:
 	CampaignTime.set_frozen_for_tests(true)
 	seed(1928)
 	check(CampaignClock.new().configure_date(1928,11,10,720),"stutter probe uses the existing campaign calendar")
-	world=Runtime.instantiate();add_child(world)
+	world=Runtime.instantiate()
+	# Test-only reversal keeps geometry, route and quality identical.
+	world.entry_render_preparation_enabled=OS.get_environment("ORISON_CITY_STUTTER_DISABLE_ENTRY_PREPARATION")!="1"
+	add_child(world)
 	var reflection_control: Array=[]
 	var hide_diner:=OS.get_environment("ORISON_CITY_STUTTER_HIDE_DINER_REFLECTION")=="1"
 	if hide_diner:
@@ -205,6 +208,8 @@ func _run_stutter_probe() -> void:
 			if is_instance_valid(capture):capture.visible=bool(entry.visible)
 		var data: Dictionary={"evidence_class":"INERT","scope":"Instrumented six-leg Laurel stair/turn replay in the actual composed world, one validated nearby starting placement. Camera headings are deterministic fixture turns; movement uses the normal input/controller. Callback brackets, observed engine monitors and asynchronous main/lamp render timings are separate observations, not additive costs, input-to-display latency or an uninstrumented before/after comparison. No durable saves, new access, full-city, artistic or performance acceptance. Residency/pipeline counters identify observed activity, not causal loading/compiler duration.","checks":city_checks,"failures":failures,"settings":settings,"legs":legs,"frames":_stutter_frames,"trace":trace,"startup_ms":world.startup_ms,"startup_milestones":world.startup_milestones,"source_before":source_before}
 		data["render_preparation"]=preparation
+		data["entry_render_preparation"]=world.entry_render_preparation.duplicate(true)
+		data["entry_render_preparation_enabled"]=world.entry_render_preparation_enabled
 		world.shutdown_for_tests();world.free();await get_tree().physics_frame
 		var after:=_digest()
 		check(source_before==after,"short probe production inputs remain frozen")
