@@ -1,51 +1,39 @@
-# Current handoff - November 1 qualified city merge
+# Current handoff - November 1 city qualification repair
 
-Evidence class: **INERT**. Continuity index, not whole-game acceptance.
+Evidence class: **INERT**. Continuity index,not production acceptance.
 
-Canonical **C:/PleaseRemainOnTheLine** is on **main**, after PR132 merged
-**3af99826a2935cb3715ec38eedf7e53a6e08517c**. Its tree exactly matches qualified **df7e2c8fce0e9d80c61dcb7b4321e132406402ec**.
-A documentation-only final record is being committed/pushed on top; read Git
-before relying on these changing checkpoint facts. The architect's source and
-canonical intake branches remain preserved; no contributor branch was deleted.
+Canonical branch **codex/v2-city-qualification-20261101** starts at pushed main
+**32f59b0a48e210d07fe21b50fe4530986081c121**. PR132 is merged; completed
+intake evidence remains in the city ledger/current_main_intake archive.
+Current change is test-only **v2_city_horizon_bench.gd**,plus records/archive;
+no native mesh,material,physics or gameplay owner was changed.
 
-- Actual current-world frontage:113/0,12 connected normal-controller legs,
-  seven endpoints,1105samples,zero rescues;193.55s wrapper,clean teardown.
-- Actual physical surfaces:655/0,30471draws,6675materials,543textures;
-  221.70s wrapper/203.263s test,empty stderr/clean teardown. Eight actual surface
-  frames and five frontage frames inspected. Automatic profile contexts face
-  rear/adjoining stock; the separate street view covers changed fronts.
-- Clean119-gate candidate comparison:zero regressions/waivers,actual surfacePASS,
-  42surface tools testsPASS470.17s,readerNEW0,spatialPASS,protected17/17,
-  selectorV2,lint0. Existing unrelated baseline failures remain. Management used
-  --no-godot; separate actual canonical engine contracts supply runtime proof.
-- Surface fingerprint **0a9d049d29aa2de3cfe17880548062cfb61a8d1e5bca705f5e198b4dc4d83062**.
-  Review archive **art/reviews/city_streets_20261029/current_main_intake_20261101.zip**:
-  116members/24,407,266bytes/SHA256 **a4c970a85888b25c13dc946cb3450bff204017a0c13f5a79b0214d85d60502ea**. Includes final verifier,
-  instrument review,original failures and source/actual-world controls. Detailed
-  limits and dispositions are in the city ledger's canonical-intake section.
-- No Godot/verifier job remains live from this checkpoint. Own short verification
-  checkout **C:/ov/c-ab46a508** is clean atdf7e2c8fc. Reuse it for a complete clean
-  final-main baseline before next development; cache that actual board, then remove
-  only this owned checkout after path/cleanliness/reparse checks. Do not touch
-  other worktrees,untracked UIDs/attachments or non-owned import edits.
-- Existing native grade discovery has571boxes:the two removed stove hulls are
-  merged range work,not missing consumed ground. All66consumed boxes/9601native
-  rows/six derived envelopes remain exact. Preserve frozen historical reports;
-  live metadata closure and all13fixture prerequisites are repaired.
-- The modeler reports18 external INERT packets in
-  **C:/ov/asset-prototypes/interactive-v2-review-20261101/NATIVE_INTAKE_INDEX.md**.
-  Latest **projector-mechanism-v2-refit-20261101** is queued,not integrated:
-  rear collision undercoverage,threading/optics and runtime qualification remain.
+- Actual family before30011/33; roof-only30034/1; final30041/0,74.60s,
+  empty stderr/clean shutdown,native3440x1440 hidden desktop. Four actual roof
+  displacement/removal pairs and two handedness/collapsed-UV pairs reject bad
+  stock. Unknown styles refused; original distance/metric/tangent guards stay.
+- Reuses existing scalar-double Western ground checker as detached,freed helpers;
+  no second world. Source-bound family JSON is INERT,not runtime qualification.
+- ReaderNEW0/spatialPASS; official physical qualification remainsPASS0 at the
+  unchanged **0a9d049d29aa2de3cfe17880548062cfb61a8d1e5bca705f5e198b4dc4d83062**.
+  No repeated full-world/hose routes. Whole-game baseline failures remain.
+- Evidence **art/reviews/city_streets_20261029/legacy_roof_review_20261101.zip**:
+  25members/231,269bytes/SHA256 **fc6afcc0ec5c86b3c692bf8ec28c56ba0952e09aef802025e8f0a90f7b0f6da9**.
+  External programme/logs: **C:/ov/reports/city_qualification_repair_20261101/**.
+- Main32 complete119-gate clean baseline is actually cached in **C:/ov/boards/**;
+  owned **C:/ov/c-ab46a508** is clean/detached at32f59b0a4. Baseline session75121
+  and all roof diagnostic sessions are terminal. Reuse this checkout for candidate
+  verification,then safely remove it; preserve other contributors' worktrees.
 
-NEXT canonical code task: close retained **K-V2-CITY-LEGACY-QUAL** failures with
-small source-bound family checks,then resume controlled playable-world stutter
-work and the existing hose/book/nook gaps. Do not repeat unchanged long routes.
-Architect **C:/ov/city** may fast-forward to current main and author ONE P1/P2
-native batch with individual precedents/full-body LODs; canonical geometry is
-reserved against duplicate edits. Coordinate lane and CPU timing. No further
-prototype intake is started here. The full V2 goal remains active/incomplete.
-Strong shadows,flat clouds,room dressing,remaining93generic profiles,whole-city
-travel,save boundaries,audio,performance and artistic acceptance remain open.
+NEXT: commit/push this coherent candidate and complete clean verification before
+main merge. **K-V2-CITY-LEGACY-QUAL** remains open: full-programme window count,
+wall continuity/angled panes and body-LOD inventory/material assumptions still
+need real-stock checks and rejecting controls. Then resume playable-world stutter
+and existing hose/book/nook gaps. Keep the full V2 goal active/incomplete.
+Architect **C:/ov/city** owns one isolated P1/P2 batch; avoid duplicate geometry.
+Modeler reports19 external INERT packets in the existing NATIVE_INTAKE_INDEX;
+new media AC supply is queued,not independently accepted or installed. Preserve
+untracked UIDs/attachments and non-owned import edits. No new prototype intake.
 
 ---
 

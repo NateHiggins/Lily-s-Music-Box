@@ -2,6 +2,8 @@ extends Node
 const Horizon := preload("res://scripts/building/orison_v2_city_horizon.gd")
 var failures: Array[String] = []
 var checks := 0
+var roof_controls: Array[Dictionary] = []
+var derivative_controls: Array[Dictionary] = []
 
 func check(ok: bool, label: String) -> void:
 	checks += 1
@@ -78,18 +80,24 @@ func run() -> void:
 						check(texture!=null and texture.get_image().has_mipmaps(),"actual loaded industrial PBR/mips: "+str(draw.name))
 	check(industrial_parts==lower_counts.size(),"every industrial replacement part installed once")
 	check(metrics.failures.is_empty(), "loaded metric charts and tangents across both asset/material families")
-	var before_ground_failures:=metrics.failures.size()
+	# Reuse the reviewed scalar-double derivative implementation. Its detached
+	# instance never enters the tree,so its survey/world _ready cannot run.
+	var ground_metrics:=preload("res://tests/v2_city_western_street_review.gd").new()
+	var derivative_targets:Array[Mesh]=[]
 	var ground_parts := 0
 	for draw: MeshInstance3D in ground.find_children("*","MeshInstance3D",true,false):
 		ground_parts += 1
-		metrics._check_cap_mapping(draw.mesh,true,true)
+		ground_metrics._check_cap_mapping(draw.mesh,true,true)
+		if draw.mesh.resource_name in ["orison_ground_Court_soil_P34_N27","orison_ground_StreetCut_soil_P34_N4"]:derivative_targets.append(draw.mesh)
 		var loaded := draw.material_override
 		var material := loaded.get_meta("v2_weather_source",loaded) as StandardMaterial3D
 		check(material != null and not material.uv1_triplanar and not MatLib.is_shared_material(material),"local authored ground finish: "+str(draw.name))
 		if material != null:
 			for texture: Texture2D in [material.albedo_texture,material.roughness_texture,material.normal_texture]:
 				check(texture != null and texture.get_image().has_mipmaps(),"actual loaded ground PBR mip chain: "+str(draw.name))
-	check(ground_parts>0 and metrics.failures.size()==before_ground_failures,"complete imported ground charts and derivatives")
+	check(ground_parts>0 and ground_metrics.failures==0,"complete imported ground charts and derivatives")
+	_ground_metric_negative_controls(derivative_targets)
+	ground_metrics.free()
 	metrics.free()
 	check(bounds.size() == fixture.buildings.size(), "all authored building identities loaded once")
 	for row: Dictionary in fixture.buildings:
@@ -145,11 +153,9 @@ func run() -> void:
 		var residential: bool=str(architecture.get("type",""))=="residential_front"
 		var support:=point
 		if residential:
-			var style:=str(architecture.get("style",""))
-			check(style in ["italianate_2109","mansard_2153","gable_2136"],"receiving-wall schedule has a known authored roof construction")
-			var heights: Array=architecture.floor_heights_m
-			support.y=float(profile.grade_datum_m)
-			for index in (heights.size() if style=="italianate_2109" else heights.size()-1):support.y+=float(heights[index])
+			support.y=_residential_receiving_y(profile)
+			check(is_finite(support.y),"receiving-wall schedule has a known authored roof construction")
+			if not is_finite(support.y):continue
 		for direction: float in [-1.,1.]:
 			# A sheet rests on a receiving wall; it is not a parapet starting
 			# at the sheet's top. Keep the original generic underside control.
@@ -164,11 +170,8 @@ func run() -> void:
 		if residential:
 			# Independently reject a floating sheet: its underside must touch
 			# the receiving plane, with the same front-face and 0.1 mm rule.
-			var underside:=PhysicsRayQueryParameters3D.create(support-Vector3.UP*.025,support+Vector3.UP*.025,1)
-			underside.hit_back_faces=false
-			var bottom:=horizon.get_world_3d().direct_space_state.intersect_ray(underside)
-			var sheet: MeshInstance3D=bodies.get(bottom.collider.get_rid()) if not bottom.is_empty() else null
-			check(sheet!=null and str(sheet.name)==str(contact.building)+"__galvanized_roof" and bottom.position.distance_to(support)<.0001,"roof sheet underside meets its receiving wall: "+str(contact.building)+"; actual="+(str(sheet.name) if sheet!=null else "missing")+"; hit="+str(bottom.get("position"))+"; expected="+str(support))
+			var underside:=_roof_underside(horizon,bodies,support,str(contact.building))
+			check(bool(underside.valid),"roof sheet underside meets its receiving wall: "+str(contact.building)+"; actual="+str(underside.actual)+"; hit="+str(underside.position)+"; expected="+str(support))
 		var outside: Array=contact.outside_probe
 		var probe:=Vector3(outside[0],outside[2],-outside[1])
 		var query:=PhysicsRayQueryParameters3D.create(probe+Vector3.UP*.025,probe-Vector3.UP*.025,1)
@@ -176,6 +179,7 @@ func run() -> void:
 		var hit:=horizon.get_world_3d().direct_space_state.intersect_ray(query)
 		var draw: MeshInstance3D=bodies.get(hit.collider.get_rid()) if not hit.is_empty() else null
 		check(draw==null or str(draw.name)!=str(contact.building)+"__galvanized_roof","outside-wall control is not accepted as a structural roof bearing")
+	await _roof_negative_controls(horizon,bodies,fixture,profiles)
 	var eyes: Array[Vector3]=[]
 	var excluded: Array[RID]=[]
 	var view := preload("res://tests/v2_city_context_review.gd").capture_station(horizon.get_world_3d().direct_space_state,horizon,fixture.window_rows,bodies,eyes,excluded)
@@ -188,8 +192,95 @@ func run() -> void:
 	await get_tree().physics_frame
 	check(retired.get_ref()==null, "production horizon node retires")
 	check(retired_ground.get_ref()==null,"production grade node retires")
+	var directory:=OS.get_environment("SHOT_DIR")
+	if not directory.is_empty():
+		var file:=FileAccess.open(directory.path_join("family_outcome.json"),FileAccess.WRITE)
+		check(file!=null,"write source-bound family diagnostic")
+		if file!=null:
+			file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Loaded family diagnostics and explicit mutations,not composed gameplay or runtime qualification","test_sha256":FileAccess.get_sha256(get_script().resource_path),"fixture_sha256":FileAccess.get_sha256("res://tests/fixtures/orison_city_horizon.json"),"checks":checks,"failures":failures,"roof_controls":roof_controls,"derivative_controls":derivative_controls},"\t"));file.close()
 	print("CITY HORIZON BENCH: %s; %d checks; %d failures" % ["PASS" if failures.is_empty() else "FAIL", checks, failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _residential_receiving_y(profile:Dictionary)->float:
+	var architecture:Dictionary=profile.get("architecture",{})
+	var style:=str(architecture.get("style",""))
+	# CivicRows overrides its inherited eave to the final floor plane. Only
+	# the two pitched styles terminate the receiving walls one floor earlier.
+	var flat:=style in ["italianate_2109","stone_2129","narrow_2141","neogrec_2122"]
+	if not flat and style not in ["mansard_2153","gable_2136"]:return NAN
+	var heights:Array=architecture.floor_heights_m
+	var height:=float(profile.grade_datum_m)
+	for index in (heights.size() if flat else heights.size()-1):height+=float(heights[index])
+	return height
+
+func _roof_underside(horizon:Node3D,bodies:Dictionary,support:Vector3,identity:String)->Dictionary:
+	var query:=PhysicsRayQueryParameters3D.create(support-Vector3.UP*.025,support+Vector3.UP*.025,1)
+	query.hit_back_faces=false
+	var hit:=horizon.get_world_3d().direct_space_state.intersect_ray(query)
+	var sheet:MeshInstance3D=bodies.get(hit.collider.get_rid()) if not hit.is_empty() else null
+	return {"valid":sheet!=null and str(sheet.name)==identity+"__galvanized_roof" and hit.position.distance_to(support)<.0001,"actual":str(sheet.name) if sheet!=null else "missing","position":hit.get("position")}
+
+func _roof_negative_controls(horizon:Node3D,bodies:Dictionary,fixture:Dictionary,profiles:Dictionary)->void:
+	check(is_nan(_residential_receiving_y({"architecture":{"style":"unregistered_roof"}})),"unregistered roof construction is refused")
+	var covered:Dictionary={}
+	for contact:Dictionary in fixture.parapet_contacts:
+		var profile:Dictionary=profiles[str(contact.building)]
+		var architecture:Dictionary=profile.get("architecture",{})
+		var style:=str(architecture.get("style",""))
+		if style not in ["italianate_2109","stone_2129","narrow_2141","neogrec_2122"] or covered.has(style):continue
+		covered[style]=true
+		# Independent flat-sheet control: the native contact names its upper
+		# plane; all four inspected flat constructors have a140mm sheet.
+		var support:=Vector3(contact.point[0],float(contact.point[2])-.14,-float(contact.point[1]))
+		var identity:=str(contact.building)
+		check(bool(_roof_underside(horizon,bodies,support,identity).valid),"original flat roof is accepted before mutation: "+style)
+		var roof:=horizon.find_child(identity+"__galvanized_roof",true,false) as MeshInstance3D
+		check(roof!=null,"roof mutation has actual native stock: "+style)
+		if roof==null:continue
+		var body:=roof.get_node("HorizonCollision") as StaticBody3D
+		var original_pose:=roof.transform
+		var original_layer:=body.collision_layer
+		roof.global_position+=Vector3.UP*.01
+		await get_tree().physics_frame;await get_tree().physics_frame
+		var displaced_rejected:=not bool(_roof_underside(horizon,bodies,support,identity).valid)
+		check(displaced_rejected,"ten-millimetre floating roof is rejected at original100um tolerance: "+style)
+		roof.transform=original_pose;body.collision_layer=0
+		await get_tree().physics_frame;await get_tree().physics_frame
+		var missing_rejected:=not bool(_roof_underside(horizon,bodies,support,identity).valid)
+		check(missing_rejected,"missing roof collision is rejected: "+style)
+		body.collision_layer=original_layer
+		await get_tree().physics_frame;await get_tree().physics_frame
+		var restored:=bool(_roof_underside(horizon,bodies,support,identity).valid) and roof.transform==original_pose and body.collision_layer==original_layer
+		check(restored,"actual roof pose/collision restored exactly: "+style)
+		roof_controls.append({"building":identity,"style":style,"displaced_rejected":displaced_rejected,"missing_rejected":missing_rejected,"restored":restored})
+	check(covered.size()==4 and roof_controls.size()==4,"all four installed flat-roof styles exercise the real mutation controls")
+
+func _ground_metric_negative_controls(targets:Array[Mesh])->void:
+	check(targets.size()==2,"both originally flagged imported ground meshes are exercised")
+	for source:Mesh in targets:
+		var accepted:=preload("res://tests/v2_city_western_street_review.gd").new()
+		accepted._check_cap_mapping(source,true,true)
+		check(accepted.failures==0,"unchanged imported thin-triangle source passes scalar-double derivatives: "+source.resource_name)
+		accepted.free()
+		var rejected:Array[bool]=[]
+		for mutation:String in ["opposite_handedness","collapsed_uv"]:
+			var broken:=ArrayMesh.new();broken.resource_name=mutation+"_"+source.resource_name
+			for surface in source.get_surface_count():
+				var arrays:=source.surface_get_arrays(surface)
+				if mutation=="opposite_handedness":
+					var tangents:PackedFloat32Array=(arrays[Mesh.ARRAY_TANGENT] as PackedFloat32Array).duplicate()
+					for index in range(3,tangents.size(),4):tangents[index]=-tangents[index]
+					arrays[Mesh.ARRAY_TANGENT]=tangents
+				else:
+					var uv:PackedVector2Array=(arrays[Mesh.ARRAY_TEX_UV] as PackedVector2Array).duplicate()
+					uv.fill(Vector2.ZERO);arrays[Mesh.ARRAY_TEX_UV]=uv
+				broken.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
+			var control:=preload("res://tests/v2_city_western_street_review.gd").new()
+			control._check_cap_mapping(broken,true,true)
+			var refused:bool=control.failures>0
+			check(refused,"scalar-double derivative checker rejects "+mutation+": "+source.resource_name)
+			rejected.append(refused);control.free()
+		derivative_controls.append({"mesh":source.resource_name,"unchanged_source_accepted":true,"opposite_handedness_rejected":rejected[0],"collapsed_uv_rejected":rejected[1]})
 
 func _study_reviews(fixture: Dictionary,horizon: Node3D,ground: Node3D) -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
