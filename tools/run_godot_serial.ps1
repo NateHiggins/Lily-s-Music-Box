@@ -152,7 +152,12 @@ try {
         Remove-Item -LiteralPath "$LogPath.receipt.json" -Force -ErrorAction SilentlyContinue
     }
     $startedUtc = (Get-Date).ToUniversalTime()
-    $process = Start-Process @start
+    . (Join-Path $PSScriptRoot "hidden_desktop.ps1")
+    if ($Windowed -and (Test-OrisonHiddenGodot) -and -not [string]::IsNullOrWhiteSpace($LogPath)) {
+        $process = Start-OrisonHiddenGodot -Godot $start.FilePath -Arguments $start.ArgumentList -LogPath $LogPath -ErrorPath "$LogPath.stderr"
+    } else {
+        $process = Start-Process @start
+    }
     # Windows PowerShell 5.1 never populates ExitCode on a -PassThru process
     # unless its handle was touched before the wait; `exit $null` then reports
     # success for every failing suite. Cache the handle first.

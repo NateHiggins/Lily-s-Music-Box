@@ -76,8 +76,13 @@ try {
     if (-not [string]::IsNullOrWhiteSpace($ShotDir)) { $env:SHOT_DIR = $ShotDir }
     $started = Get-Date
     $startedUtc = $started.ToUniversalTime()
-    $process = Start-Process -FilePath $godot -ArgumentList $arguments `
-        -NoNewWindow -PassThru -RedirectStandardOutput $LogPath -RedirectStandardError "$LogPath.stderr"
+    . (Join-Path $PSScriptRoot "hidden_desktop.ps1")
+    if ($Windowed -and (Test-OrisonHiddenGodot)) {
+        $process = Start-OrisonHiddenGodot -Godot $godot -Arguments $arguments -LogPath $LogPath -ErrorPath "$LogPath.stderr"
+    } else {
+        $process = Start-Process -FilePath $godot -ArgumentList $arguments `
+            -NoNewWindow -PassThru -RedirectStandardOutput $LogPath -RedirectStandardError "$LogPath.stderr"
+    }
     $null = $process.Handle
     if (-not $process.WaitForExit($TimeoutSeconds * 1000)) {
         try { $process.Kill($true) } catch {}
