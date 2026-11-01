@@ -797,6 +797,31 @@
    "text": "I have no fork and no ear for it. I have filed it: objections from the deceased, against herself. The department has noted a conflict and is proceeding."
   },
   {
+   "id": "m_cup",
+   "movement": "IV_line",
+   "surface": "witnessed",
+   "witness": "the player has come back from the party holding the cup",
+   "requires": [
+    "m_received"
+   ],
+   "note": "Only what it can witness. Nothing about the party reaches the paper.",
+   "text": "You are holding a cup I have not seen."
+  },
+  {
+   "id": "m_emerged",
+   "movement": "IV_line",
+   "surface": "typed",
+   "phrases": [
+    "did you see that",
+    "did you see it",
+    "it did not look down"
+   ],
+   "witness": "the sky phenomenon emergence has run",
+   "exhaust": 1,
+   "note": "The Emergence. Its report, no more.",
+   "text": "I have it as a small dark shape crossing a fair sky. Entered: fair. The Bureau was forty minutes out."
+  },
+  {
    "id": "m_end_keep",
    "movement": "IV_line",
    "surface": "witnessed",

@@ -7,6 +7,7 @@ const Calendar := preload("res://scripts/game/campaign_weather.gd")
 const Phenomena := preload("res://scripts/building/sky_phenomena.gd")
 const LivingSky := preload("res://scripts/building/living_sky.gd")
 const TLE_SLOTS := [23, 24, 25, 26]
+const EMERGENCE_SLOT := 41
 const CRAWLER_SLOT := 22
 const PLUME_LIGHTNING_SLOT := 28
 const ST_ELMO_SLOT := 27
@@ -45,6 +46,7 @@ var _phenomena_left := 0.0
 var _spectacle_levels := PackedFloat32Array()
 var _spectacle_bearings := PackedFloat32Array()
 var _spectacle_time := 0.0
+var _emergence_progress := 0.0
 var _tle_frames := 0
 var _tle_slot := -1
 var _crawler := 0.0
@@ -380,6 +382,7 @@ func _push_spectacle() -> void:
 		_spectacle_bearings[slot]=float(entry.bearing)
 		if slot==ST_ELMO_SLOT: corona=float(entry.level)
 		if slot==MICROBURST_SLOT: burst=float(entry.level)
+		if slot==EMERGENCE_SLOT: _emergence_progress=float(entry.progress)
 	_spectacle_levels[CRAWLER_SLOT]=maxf(_spectacle_levels[CRAWLER_SLOT],_crawler)
 	if _crawler>0.0 and is_finite(_electrical_bearing):_spectacle_bearings[CRAWLER_SLOT]=_electrical_bearing
 	if _tle_slot>=0 and is_finite(_electrical_tle_bearing):_spectacle_bearings[_tle_slot]=_electrical_tle_bearing
@@ -389,6 +392,7 @@ func _push_spectacle() -> void:
 		sky.set_shader_parameter("spectacle",_spectacle_levels)
 		sky.set_shader_parameter("spectacle_bearing",_spectacle_bearings)
 		sky.set_shader_parameter("spectacle_time",_spectacle_time)
+		sky.set_shader_parameter("emergence_progress",_emergence_progress)
 		if director.has_method("set_mirage_spectacle"):
 			# The existing schedule is second-granular; optical shimmer must follow
 			# the same clock continuously, including pause and reverse travel.

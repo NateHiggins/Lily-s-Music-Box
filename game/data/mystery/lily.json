@@ -15,7 +15,8 @@
   "li_print": "li_p1",
   "li_dub": "li_d1",
   "li_two_bars": "li_v1",
-  "li_thursday": "li_t1"
+  "li_thursday": "li_t1",
+  "li_night": "li_n1"
  },
  "threads": [
   {
@@ -125,6 +126,18 @@
    ],
    "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. Lily's life goes on. Nothing here is about Adela.",
    "root": "li_t1"
+  },
+  {
+   "id": "li_night",
+   "from": "1929-10-12",
+   "until": "1929-10-12",
+   "topic": "Aren't you going up to see it?",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. The Emergence. A party; her life goes on.",
+   "root": "li_n1"
   }
  ],
  "nodes": {
@@ -246,6 +259,9 @@
   },
   "li_t1": {
    "line": "Eleven people, one fight, and a man who wants the same waltz he wanted last week. I got paid in rice crackers. I'm told that's a raise."
+  },
+  "li_n1": {
+   "line": "After the set. Juno's got a left hand now. I don't know where she got it. Nobody's listening, they've all got one eye on the door, and it's the most fun I've had since spring."
   }
  }
 }

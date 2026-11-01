@@ -419,6 +419,18 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
   - (silence) → av_u3
 - **ADELA VOSS** (av_u3): Good. Go on.
 
+### "The whole bar just stopped."
+
+1929-04-15 to 1929-07-13 · 22:00-23:00
+
+- **ADELA VOSS** (av_z1): Two seconds of everyone's attention, and I never had to earn it. Watch the fellow with the fork. I've got the bridge coming in right on top of it. Lily says that's cheating. Lily's right, and it's getting a laugh.
+
+### "Have you been received, Miss Voss?"
+
+1929-01-15 to 1929-07-13
+
+- **ADELA VOSS** (av_z2): I have not. Coal dealers. Widows. A woman who couldn't tell a Graflex from a breadbox. I've got six plates of those things since the summer and not one invitation. What's the light like? Nobody can tell me. Nobody ever looks at the light.
+
 ## CAL DWYER
 
 Controls, repeatability, a grudge against bad reception. Near the bulkhead before the boundary; the two tapes. His voice at 21:00:40 clears him of nothing and he is simply not where the evidence meets. Does not summarise. Tunes around the noun.
@@ -453,6 +465,16 @@ Controls, repeatability, a grudge against bad reception. Near the bulkhead befor
   - > And the nineteenth? → cd_p3
   - (silence) → cd_p3
 - **CAL DWYER** (cd_p3): Static from four minutes to nine. You want to hear static, I've got an hour of it. WLBQ had a different episode listed anyway, I've got the card, and nobody else carried it. So I don't know what your friend heard on the sixth floor. I know what wasn't on the air.
+
+### "What's that you keep playing?"
+
+1929-04-08 to 1929-11-09
+
+- **CAL DWYER** (cd_l1): Thirtieth of March, WLIC. Ten, nine, eight. Listen to him, he's got a train to catch. Three. Two. And that's the other fellow's dance band, on top of him, hard, no fade. That's a clean change. Nothing wrong with it at all. I could put the word on the end for you.
+  - > Why don't you? → cd_l2
+  - (silence) → cd_l3
+- **CAL DWYER** (cd_l2): Then it's finished.
+- **CAL DWYER** (cd_l3): Yeah. Everybody stands there. Sit down, it comes round again.
 
 ## CAM ORTIZ
 
@@ -563,6 +585,27 @@ Instructions so correct they rearrange other people's work. Carried Mae's box in
   - > If you had passed the fourth? → em_da2
   - (silence) → em_da2
 - **EVELYN MARSH** (em_da2): I beg your pardon? He would have sent it in June. I am aware of the date. See me if you wish to improve.
+
+### "Eleven rolls on your table, Mrs. Marsh."
+
+1929-04-15 to 1929-10-31
+
+- **EVELYN MARSH** (em_o1): I stood in her shop and counted them out with her. She reached two and tied the bag. I have written "twelve" on a card and left it on her counter. She thanked me. That is the worst thing about it.
+
+### "They say somebody can say it for you."
+
+1929-11-01 to 1929-11-08
+
+- **EVELYN MARSH** (em_o2): So I am told. I have kept a programme log for seven years and I know precisely where he stopped. Well?
+  - > Shall I say it? → em_o3
+  - (silence) → em_o3
+- **EVELYN MARSH** (em_o3): You will not. I sleep perfectly well at two, thank you.
+
+### "They say you were received, Mrs. Marsh."
+
+1929-02-01 to 1929-11-09
+
+- **EVELYN MARSH** (em_p1): The seating was a disgrace. I moved three of them. Nobody remarked on it. I moved them back, to see, and nobody remarked on that. I have taught children who would not look at me, and I know how it is done, and it was done well.
 
 ## H. VANTRY
 
@@ -727,6 +770,12 @@ Admits a smaller recording offense quickly. Roof mic, wall tape, the Harukiya po
 
 - **JUNO KELLS** (jk_g1): It's cut. Miss Sato came up and stood on the same rug. I cut it, and I didn't dub it. You can check that. You can't check that. I didn't.
 
+### "You wrote to Scranton?"
+
+1929-09-15 to 1929-10-31
+
+- **JUNO KELLS** (jk_s1): I asked! Me! I wrote "may I" on a piece of paper! He said "one" every night for four months, I could cut you a beauty out of January, you'd cry. He sent a catalogue. So that's a no, or it's a mattress. I'm taking it as a no. Don't look at me like that, I'm as surprised as you are.
+
 ## LENA ORTIZ
 
 Judgment hidden in useful advice. Has the bag; has the dated button book. No grief-unlocked confession: the book is evidence on request. Another woman's death is never a key.
@@ -768,6 +817,12 @@ Judgment hidden in useful advice. Has the bag; has the dated button book. No gri
 - **LENA ORTIZ** (lo_h3): Then stand at the piano. Where do you want the weight?
   - (silence) → lo_h4
 - **LENA ORTIZ** (lo_h4): (Adela sits. The cuff catches. Neither of them mentions it.) A hat is a strong word for this, night man, it has four pins and comes off with one hand and I tested that. She pays in prints. I said no frames. She framed them.
+
+### "You were received, I hear."
+
+1929-02-01 to 1929-11-09
+
+- **LENA ORTIZ** (lo_q1): Four hours, and not one soul had thought about the glasses. So I did the glasses. Nobody thanked me. Nobody stopped me either, and I'll say this for them, that's more than my sister does.
 
 ## LILY
 
@@ -849,6 +904,12 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 
 - **LILY** (li_t1): Eleven people, one fight, and a man who wants the same waltz he wanted last week. I got paid in rice crackers. I'm told that's a raise.
 
+### "Aren't you going up to see it?"
+
+1929-10-12 to 1929-10-12 · 19:00-23:59
+
+- **LILY** (li_n1): After the set. Juno's got a left hand now. I don't know where she got it. Nobody's listening, they've all got one eye on the door, and it's the most fun I've had since spring.
+
 ## MAE KESSLER
 
 Ownership spoken as grammar. Offended at the handling before the accusation. Her bigotry is named and wrong and is never evidence. No confession, no remorse speech, no court. Never says "Miss Voss" unprompted. Never says what happened on the roof.
@@ -918,6 +979,12 @@ Ownership spoken as grammar. Offended at the handling before the accusation. Her
   - (silence) → mk_c2
 - **MAE KESSLER** (mk_c2): Who has been reading you my acquaintance's accounts? The gloves are by the door.
 
+### "Are you going up, Mrs. Kessler?"
+
+1929-10-12 to 1929-10-12 · 19:00-23:59
+
+- **MAE KESSLER** (mk_e1): I am carrying a chair up, if that's what you mean. You may sit. The chair is mine.
+
 ## MALCOLM REED
 
 Time measured by what can grow; a very possessive pot. Last on the roof with her before dark. Roof user, not a suspect by default. Quiet oldest fact.
@@ -942,6 +1009,12 @@ Time measured by what can grow; a very possessive pot. Last on the roof with her
 - **MALCOLM REED** (mr_l2): I took my pots down before seven, ahead of the wet. Nobody. There's a good many places to be nobody on that roof, though, I've tried them.
 - **MALCOLM REED** (mr_l3): She took a slip of it. In a tobacco tin. I've seen that tin on her sill from up here all summer, across the road. Someone ought to water it. It's not my business whose it is.
 - **MALCOLM REED** (mr_l1s): You needn't stay. The soil won't mind. It's got a very long memory for who overwaters it, and very little else.
+
+### "They'll be up here all night."
+
+1929-10-12 to 1929-10-12 · 19:00-23:59
+
+- **MALCOLM REED** (mr_e1): Once in an untold eon. That dahlia took three years, and nobody's going to stand on it for a thing that hasn't even come up yet. Move that crate. The eon can wait, it's good at that.
 
 ## MINA VALE
 
@@ -1116,6 +1189,12 @@ A plan that includes everybody before asking anybody. Chairs the tenants' associ
 
 - **NADIA QUELL** (nq_p1): Yes. Two numbers, the raffle, and I've put her down to photograph the committee. She asked me whether she'd agreed to that. I've started asking people. I do it directly after.
 
+### "Any reply from those people?"
+
+1929-04-15 to 1929-06-30
+
+- **NADIA QUELL** (nq_v1): None. I've written to invite them to the Association's supper, I've put them down for the raffle and a table of eight, and I don't know where I posted it. I've left it in the yard with a stone on it. Somebody had to ask them something.
+
 ## NOEL PRICE
 
 A handling instruction more alarming than the object warrants. Named by a simile in Jonah's page; his gloves have no buttons. Comic engine: conservation ethics applied to what nobody wants.
@@ -1209,6 +1288,24 @@ Offense at workmanship; an economical answer. Spare shop key, the recorder, the 
 
 - **OMAR BELL** (ob_n1): Hinge. Somebody's keeping a library in it and somebody gets up off it fast. I put in a longer pin. She asked could it go quieter. I said she could get up quieter. She said that was the number. So it's a longer pin.
 
+### "That's a bag of screws."
+
+1929-04-15 to 1929-11-09
+
+- **OMAR BELL** (ob_s9): Ninety-nine. I counted. Third bag this week. Man looked me in the eye and said a hundred, and he meant it, they all mean it. Thirty years I've been finding bad work, and this is the first I've seen done honestly.
+
+### "They say you were received."
+
+1929-03-01 to 1929-11-09
+
+- **OMAR BELL** (ob_r9): Didn't see a host. Saw a wall. Somebody's set those seams by eye, and it's a good eye. Nobody offered me a chair. I'd go back for the seams.
+
+### "How many's that on the roof?"
+
+1929-10-12 to 1929-10-12 · 19:00-23:59
+
+- **OMAR BELL** (ob_l9): Hundred and twelve. Slab will take it. It's the stairs I don't like, they've all got something in their hands. Go and stand at the door, you've got the shoulders for it.
+
 ## PATROLMAN
 
 Institutional haste. The sheet does the talking. Nobody is a villain; he has a beat.
@@ -1285,6 +1382,12 @@ A qualification that suddenly leaves him responsible for the answer. His firm's 
   - (silence) → pw_m3
 - **PETER WREN** (pw_m3): It is on my desk. The comma is in. It is correct now. I have been meaning to send it.
 
+### "You went to one of those parties?"
+
+1929-03-01 to 1929-11-09
+
+- **PETER WREN** (pw_q1): I would like to know who to write to. Not to complain. It would be irregular to complain, I wasn't asked anything. I only feel that a person who has been removed from a sentence ought to be sent a form. I looked. I am fairly sure there is no form. I'd sign it if there were.
+
 ## RHEA SATO
 
 Manages how a moment appears until a plain objection arrives. A real privacy claim on negatives later stolen. Privacy never reads as guilt. She is right about the window.
@@ -1356,6 +1459,12 @@ Manages how a moment appears until a plain objection arrives. A real privacy cla
   - > Will you keep it? → rs_u2
   - (silence) → rs_u2
 - **RHEA SATO** (rs_u2): No. Tell the drummer it was good. Adela Voss kept my plates till somebody robbed her of them, and I don't forgive the plates. But she stood over that reel because I asked her to. Miss Kells may cut it. I shall come up and watch.
+
+### "I could hear you through the wall, Miss Sato."
+
+1929-10-01 to 1929-10-31
+
+- **RHEA SATO** (rs_o1): One. No. One. There's nothing to the Professor's trick, you know. It's breath. You bring a house down on the outgoing, and you never let it catch you doing it. One. I've done it forty ways this week, and in every one of them you can hear a woman saying "one" very well.
 
 ## SACHA REED
 
@@ -1436,6 +1545,49 @@ Practical instruction that puts someone to work. Never a joke at the body. She n
 
 - **TERESA VALE** (tv_s1): I don't go for the music, I go because they let me sit. Miss Voss puts a glass where I can reach it without looking and doesn't tell me she's done it. I've slept through the slow one twice. She thinks that's a review. Sit down or go up, you're blocking my feet.
 
+### "You look rested."
+
+1929-01-05 to 1929-03-30
+
+- **TERESA VALE** (tv_o1): Saturday nights. I get the Professor on the headphones, and I'm gone by four. First time in years I've slept with both ears shut. Don't tell the ward. Hold this while you're standing there.
+
+### "You've got your headphones off."
+
+1929-11-02 to 1929-11-08 · 22:00-23:30
+
+- **TERESA VALE** (tv_o2): It catches me at the sink now. Seven seconds with my hands in the water. They tell me it wants somebody in the room to say it, and I've had no one in this room since I took the lease. You'd do. You're here.
+  - > One. → tv_o3
+  - > Not me. → tv_o4
+  - (silence) → tv_o5
+- **TERESA VALE** (tv_o3): (She stands there a moment. Then she takes her hands out and dries them.) Well. That's that, then. I'm on Sunday. Go on, you've got pipes.
+- **TERESA VALE** (tv_o4): No. All right. I've asked worse.
+- **TERESA VALE** (tv_o5): That's what I thought. It's all right. Mind the door.
+
+## THE ROOM
+
+Not a person. The player's one trip to a party, late in the year. They are standoffish and rude and have nothing to say. No word passes, no message, no face, and nothing here says what the night man is. Zero time passes. No door yet; read through the playtest panel.
+
+### "(You were in the middle of a sentence.)"
+
+1929-11-01 to 1929-11-08
+
+- **THE ROOM** (pt_1): (You are holding a cup. The room is dim and pleasant and very full. There is no door you remember using.)
+  - > Hello. → pt_2
+  - > Excuse me. → pt_2
+  - (silence) → pt_3
+- **THE ROOM** (pt_2): (Something looks at you. It looks past you. It moves to the far side of the room, without hurry.)
+  - > What do you want with me? → pt_4
+  - (silence) → pt_3
+- **THE ROOM** (pt_3): (Nobody has called you anything for some time. Nobody has got it wrong.)
+  - > Stay a while. → pt_5
+  - > Put the cup down. → pt_6
+  - (silence) → pt_5
+- **THE ROOM** (pt_4): (It has nothing to say. It goes on not saying it, over there.)
+  - (silence) → pt_3
+- **THE ROOM** (pt_5): (You stay. It isn't unpleasant. Nobody asks you to.)
+  - (silence) → pt_6
+- **THE ROOM** (pt_6): (You finish your sentence. You are holding the cup.)
+
 ## THE GUESTS
 
 Agree with different questions; a concrete question separates them. Their agreement makes them neither truthful nor innocent. Two voices in one line, split by an em dash. The "lodger" statement starts here. Twenty-two fifty is theirs.
@@ -1470,4 +1622,14 @@ Agree with different questions; a concrete question separates them. Their agreem
   - > What about the mirror on four? [needs m_mirror_seen] → tg_r2
   - (silence) → tg_r2
 - **THE GUESTS** (tg_r2): The mirror showed me Tuesday, Thursday, and a gentleman who looked disappointed in all three. — That's the wardrobe. — I thought we agreed about the wardrobe.
+
+### "Have you all been received?"
+
+1929-03-01 to 1929-11-09
+
+- **THE GUESTS** (tg_q1): We have. — We were. — It was very nice. — We all agree it was very nice.
+  - > Which night? → tg_q2
+  - (silence) → tg_q3
+- **THE GUESTS** (tg_q2): Thursday. — Tuesday. — There was a band. — There was no band. — Well, it was very nice.
+- **THE GUESTS** (tg_q3): Very nice.
 

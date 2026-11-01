@@ -12,7 +12,8 @@
   "pw_copy": "pw_c1",
   "pw_receipt": "pw_rc1",
   "pw_stub": "pw_st1",
-  "pw_memo": "pw_m1"
+  "pw_memo": "pw_m1",
+  "pw_party": "pw_q1"
  },
  "threads": [
   {
@@ -66,6 +67,14 @@
    ],
    "source": "Suspect chain, Peter. It clears his intent and not his evening.",
    "root": "pw_m1"
+  },
+  {
+   "id": "pw_party",
+   "from": "1929-03-01",
+   "until": "1929-11-09",
+   "topic": "You went to one of those parties?",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. Not at Home. No word passes.",
+   "root": "pw_q1"
   }
  ],
  "nodes": {
@@ -186,6 +195,9 @@
   },
   "pw_m3": {
    "line": "It is on my desk. The comma is in. It is correct now. I have been meaning to send it."
+  },
+  "pw_q1": {
+   "line": "I would like to know who to write to. Not to complain. It would be irregular to complain, I wasn't asked anything. I only feel that a person who has been removed from a sentence ought to be sent a form. I looked. I am fairly sure there is no form. I'd sign it if there were."
   }
  }
 }
