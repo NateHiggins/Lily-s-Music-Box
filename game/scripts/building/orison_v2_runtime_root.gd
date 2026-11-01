@@ -109,6 +109,7 @@ var shop_stock: ShopStock
 var shop_clearing: RefCounted
 var carried_case_view: CanvasLayer
 var shop_counters: Dictionary = {}
+var luncheonette_counter: Node3D
 var key_cutter: Node3D
 var clue_carriers: Dictionary = {}
 var photo_supplies: Dictionary = {}
@@ -903,6 +904,9 @@ func _compose_authorities() -> void:
 	if key_cutter==null:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: key cutter refused");return
 	shop_counters.keys_cut.sold.connect(func(_item: String): key_cutter.refresh())
+	luncheonette_counter=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_luncheonette(self)
+	if luncheonette_counter==null:
+		startup_failed=true;push_error("ORISON V2 RUNTIME: luncheonette counter refused");return
 	clue_carriers=preload("res://scripts/building/orison_v2_clue_carriers.gd").mount(self,adapter)
 	if clue_carriers.is_empty():
 		startup_failed=true;push_error("ORISON V2 RUNTIME: clue carriers refused");return

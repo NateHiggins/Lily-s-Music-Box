@@ -26,6 +26,8 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("photo_bench")
 	if candidate.has("pawn_book") and not preload("res://scripts/game/pawn_sales.gd").valid(candidate.pawn_book):
 		return _invalid_shape("pawn_book")
+	if candidate.has("luncheonette_served") and not preload("res://scripts/props/luncheonette_counter.gd").valid(candidate.luncheonette_served):
+		return _invalid_shape("luncheonette_served")
 	if candidate.has("mail_orders") and not preload("res://scripts/game/mail_orders.gd").valid(candidate.mail_orders):
 		return _invalid_shape("mail_orders")
 	if candidate.has("resident_gifts") and not preload("res://scripts/game/resident_gifts.gd").valid(candidate.resident_gifts):

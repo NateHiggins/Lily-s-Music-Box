@@ -23,6 +23,11 @@ const NEWS_ROW := "storm_shop_news_cigars_counter_top"
 const NEWS_ALONG := 18.45
 const NEWS_ACROSS := -49.47
 const BODEGA_INSET := Vector3(0.35, 0.0, 0.1)
+const LUNCHEONETTE_ROW := "storm_shop_luncheonette_counter_top"
+## The customer edge of the top, down the far end from the register and ledger.
+const LUNCHEONETTE_ACROSS := 19.05
+const LUNCHEONETTE_ALONG := -42.55
+const LUNCHEONETTE_SERVED_ALONG := -43.05
 
 
 static func mount(world: Node3D) -> Dictionary:
@@ -62,6 +67,13 @@ static func mount(world: Node3D) -> Dictionary:
 	points["photo_supplies"] = _place(world, "photo_supplies", passage.transaction_actor_root(),
 			passage.global_transform * Transform3D(Basis(Vector3.UP, -PI * 0.5),
 			GameBoot.b2g([18.42, PHOTO_ALONG, photo_top])))
+	var luncheonette := _row(passage, LUNCHEONETTE_ROW)
+	if luncheonette.is_empty():
+		return {}
+	var luncheonette_top := float(luncheonette.z0) + float(luncheonette.h)
+	points["luncheonette"] = _place(world, "luncheonette", passage.transaction_actor_root(),
+			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
+			GameBoot.b2g([LUNCHEONETTE_ACROSS, LUNCHEONETTE_ALONG, luncheonette_top])))
 	var bodega_counter: Node3D = world.exterior_cell.service_counter("SHOP_BODEGA")
 	if bodega_counter != null:
 		# The service area's origin sits on the shop-side edge of the counter top.
@@ -90,6 +102,21 @@ static func mount_cutter(world: Node3D) -> Node3D:
 		cutter.free()
 		return null
 	return cutter
+
+
+## What was ordered comes up beside the sale point, in reach from behind the stools.
+static func mount_luncheonette(world: Node3D) -> Node3D:
+	var passage: Node3D = world.passage_region
+	var top := _row(passage, LUNCHEONETTE_ROW)
+	var counter: Node3D = preload("res://scripts/props/luncheonette_counter.gd").new()
+	counter.name = "LuncheonetteCounter"
+	passage.transaction_actor_root().add_child(counter)
+	counter.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([LUNCHEONETTE_ACROSS, LUNCHEONETTE_SERVED_ALONG, float(top.z0) + float(top.h)]))
+	if not counter.configure(world, world.shop_counters.luncheonette, world.conversations):
+		counter.free()
+		return null
+	return counter
 
 
 static func _row(passage: Node3D, identity: String) -> Dictionary:
