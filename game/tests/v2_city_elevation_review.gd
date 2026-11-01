@@ -51,28 +51,53 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 		suite.check(shape.shape is ConcavePolygonShape3D and (shape.shape as ConcavePolygonShape3D).get_faces()==draw.mesh.get_faces() and shape.global_transform.is_equal_approx(draw.global_transform),"fitted foundation has identical visible and physical stock: "+identity)
 		foundation_count+=1
 	suite.check(foundation_count==foundation_parts.size() and foundation_count==1049,"all fitted foundation partitions are checked in the production world")
-	suite.check(fixture.buildings.size()==25 and int(fixture.windows)>2500,"all 25 city buildings have physically built window stock")
+	var authored_counts: Dictionary = {}
+	for window: Dictionary in fixture.window_rows:
+		var identity := str(window.building)
+		authored_counts[identity] = int(authored_counts.get(identity, 0)) + 1
+	suite.check(fixture.buildings.size()==25 and int(fixture.windows)==fixture.window_rows.size(), "city window total equals the complete authored station inventory")
+	for building: Dictionary in fixture.buildings:
+		suite.check(int(building.windows)>0 and int(building.windows)==int(authored_counts.get(str(building.id), -1)), "each installed city building has its complete authored window roster: " + str(building.id))
+	suite.check(authored_counts.size()==fixture.buildings.size(), "no window station refers to an unknown city building")
 	for building: Dictionary in fixture.buildings:
 		suite.check(int(building.new_setbacks)<=1,"no repeated ziggurat tiers: "+str(building.id))
 	var exclusions: Array[RID]=[]
 	for body: CollisionObject3D in world.find_children("*","CollisionObject3D",true,false):
 		if not bodies.has(body.get_rid()):exclusions.append(body.get_rid())
-	# Probe the actual primary elevations at four heights. A claim in a JSON
-	# counter cannot conceal recessed intermediate tiers in the installed mesh.
+	# Correspondence to the frozen native export, not a universal rectangular
+	# facade claim. Individually authored reveals and bays leave that envelope.
+	var wall_source: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_elevation_probes.json"))
+	suite.check(int(wall_source.schema)==1 and str(wall_source.evidence_class)=="INERT", "native wall probes are diagnostic source correspondence")
+	print("CITY WALL SCOPE: ",wall_source.scope)
+	for path: String in wall_source.source_bindings:
+		var resource := ProjectSettings.globalize_path("res://..").path_join(path)
+		var digest := FileAccess.get_sha256(resource) if path.ends_with(".glb") else FileAccess.get_file_as_string(resource).replace("\r\n","\n").sha256_text()
+		suite.check(digest==str(wall_source.source_bindings[path]), "native wall probe source binding remains exact: "+path)
+	var placement := preload("res://scripts/building/orison_v2_city_placement.gd").new()
+	var wall_coverage: Dictionary={}
+	var wall_controls: Dictionary={}
+	for station: Dictionary in wall_source.stations:
+		var identity := str(station.building)
+		var key := "%d/%.2f" % [int(station.side),float(station.fraction)]
+		if not wall_coverage.has(identity): wall_coverage[identity]={}
+		suite.check(not wall_coverage[identity].has(key) and int(station.side) in [0,1,2,3] and float(station.fraction) in [.12,.36,.64,.88], "unique authored wall station: "+identity+"/"+key)
+		wall_coverage[identity][key]=true
+		var a: Array=station.point
+		var b: Array=station.normal
+		var point := city.to_global(Vector3(a[0],a[1],a[2])+placement.city_offset(identity))
+		var normal := city.global_basis*Vector3(b[0],b[1],b[2])
+		var ray := PhysicsRayQueryParameters3D.create(point+normal*.04,point-normal*.04,1,exclusions)
+		var space := world.get_world_3d().direct_space_state
+		var hit := space.intersect_ray(ray)
+		var matches := _wall_hit_matches(hit,point,normal,identity,bodies)
+		suite.check(matches,"installed articulated wall matches native source within100micrometres: "+identity+"/"+key)
+		if matches and identity in ["site_nbr_w","site_ne2","site_back_e","site_far_n"] and not wall_controls.has(identity):
+			await _exercise_wall_backing(city,suite,ray,point,normal,identity,bodies)
+			wall_controls[identity]=true
+	suite.check(wall_coverage.size()==fixture.buildings.size() and wall_source.stations.size()==400 and wall_controls.size()==4, "complete400 native wall stations and four actual mutation pairs")
 	for building: Dictionary in fixture.buildings:
-		var r: Array=building.main_rect
-		for fraction: float in [.12,.36,.64,.88]:
-			var height := lerpf(float(building.shaft_bottom),float(building.get("shaft_top",building.setback_height)),fraction)
-			for station: Array in [
-				[Vector3(r[0]+.12,height,-r[1]),Vector3(0,0,1)],
-				[Vector3(r[2]-.12,height,-r[3]),Vector3(0,0,-1)],
-				[Vector3(r[0],height,-r[1]-.12),Vector3(-1,0,0)],
-				[Vector3(r[2],height,-r[3]+.12),Vector3(1,0,0)]]:
-				var p: Vector3=city.to_global(station[0])
-				var n: Vector3=city.global_basis*station[1]
-				var ray := PhysicsRayQueryParameters3D.create(p+n*.04,p-n*.04,1,exclusions)
-				var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
-				suite.check(not hit.is_empty() and str(bodies.get(hit.collider.get_rid(),"")).begins_with(str(building.id)+"__") and hit.position.distance_to(p)<.0001,"installed main elevation stays continuous between base and upper setback: "+str(building.id))
+		suite.check(wall_coverage.get(str(building.id),{}).size()==16, "four heights and four directions cover each source-authored body: "+str(building.id))
+	print("CITY WALL REVIEW: stations=",wall_source.stations.size()," mutated_owners=",wall_controls.size())
 	# Roof transitions replace full-height perimeter walls; probe the physical
 	# sloping stock itself rather than accepting only a lower shaft datum.
 	for sample: Dictionary in fixture.roof_samples:
@@ -95,17 +120,36 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 				suite.check(not hit.is_empty() and bodies.has(hit.collider.get_rid()) and hit.position.distance_to(p)<.0001,"retained city hardware full footprint bears within 100 micrometres: "+str(contact.id)+" "+str(sample))
 				contacts+=1
 	var sampled: Dictionary={}
+	var pane_controls := false
+	var pane_checks := 0
 	for window: Dictionary in fixture.window_rows:
 		var id := str(window.building)+"/"+str(window.side)
-		if sampled.has(id):continue
 		sampled[id]=true
 		var a: Array=window.pane_sample
 		var p := Vector3(a[0],a[1],a[2])
-		var out: Vector3=[Vector3(0,-1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(-1,0,0)][int(window.side)]
+		var legacy_out: Vector3=[Vector3(0,-1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(-1,0,0)][int(window.side)]
+		var authored_normal: Array=window.get("normal", [legacy_out.x,legacy_out.y,legacy_out.z])
+		var out := Vector3(authored_normal[0],authored_normal[1],authored_normal[2])
+		suite.check(out.is_normalized(), "city pane uses its authored unit normal: " + id)
 		var ray := PhysicsRayQueryParameters3D.create(city.to_global(Vector3(p.x,p.z,-p.y)+Vector3(out.x,0,-out.y)*.1),city.to_global(Vector3(p.x,p.z,-p.y)-Vector3(out.x,0,-out.y)*.3),1,exclusions)
 		var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
-		var expected := city.to_global(Vector3(p.x,p.z,-p.y)-Vector3(out.x,0,-out.y)*(float(window.recess_m)+.044))
-		suite.check(not hit.is_empty() and str(bodies.get(hit.collider.get_rid(),"")).ends_with("__mirror_aged") and hit.position.distance_to(expected)<.0001,"actual glazed pane is recessed behind masonry and sash: "+id)
+		var expected := city.to_global(Vector3(p.x,p.z,-p.y)-Vector3(out.x,0,-out.y)*float(window.get("pane_depth_m", float(window.recess_m)+.044)))
+		var valid_pane := _pane_hit_matches(hit, expected, str(window.building), bodies)
+		suite.check(valid_pane,"actual glazed pane is recessed behind masonry and sash: "+id)
+		pane_checks += 1
+		if valid_pane and not pane_controls and window.has("pane_depth_m"):
+			var collider: CollisionObject3D = hit.collider
+			var saved_layer := collider.collision_layer
+			collider.collision_layer = 0
+			var missing := world.get_world_3d().direct_space_state.intersect_ray(ray)
+			suite.check(not _pane_hit_matches(missing, expected, str(window.building), bodies), "actual removed pane backing is rejected")
+			collider.collision_layer = saved_layer
+			var restored := world.get_world_3d().direct_space_state.intersect_ray(ray)
+			suite.check(_pane_hit_matches(restored, expected, str(window.building), bodies), "restored actual pane backing is accepted")
+			suite.check(not _pane_hit_matches(restored, expected + city.global_basis*Vector3(out.x,0,-out.y)*.01, str(window.building), bodies), "incorrect pane seating by 10mm is rejected")
+			pane_controls = true
+	suite.check(pane_checks==fixture.window_rows.size() and pane_controls, "every authored pane checked with actual missing-backing and wrong-depth controls")
+	print("CITY PANE REVIEW: actual_panes=",pane_checks," controls=",pane_controls)
 	suite.check(contacts>=1205 and sampled.size()>=80,"bearing and window probes cover the complete city roster")
 	var ground: Node3D = world.adapter.root.get_node("Ground")
 	var apron := ground.find_child("DistantApron", true, false) as Node3D
@@ -419,3 +463,37 @@ func _review_inspection_camera(world: OrisonV2RuntimeRoot,suite: Node,street_pos
 	player.call_locked=protected
 	GameBoot.launch_mode=mode;Input.mouse_mode=mouse
 	if is_instance_valid(previous):previous.make_current()
+
+static func _pane_hit_matches(hit: Dictionary, expected: Vector3, building: String, bodies: Dictionary) -> bool:
+	if hit.is_empty(): return false
+	var identity := str(bodies.get(hit.collider.get_rid(), ""))
+	return identity.begins_with(building+"__") and identity.ends_with("__mirror_aged") and hit.position.distance_to(expected)<.0001
+
+static func _wall_hit_matches(hit: Dictionary, point: Vector3, normal: Vector3, building: String, bodies: Dictionary) -> bool:
+	return not hit.is_empty() and str(bodies.get(hit.collider.get_rid(), "")).begins_with(building+"__") and hit.position.distance_to(point)<.0001 and hit.normal.dot(normal)>.99
+
+func _exercise_wall_backing(city: Node3D, suite: Node, ray: PhysicsRayQueryParameters3D, point: Vector3, normal: Vector3, identity: String, bodies: Dictionary) -> Dictionary:
+	var space := city.get_world_3d().direct_space_state
+	var saved: Array=[]
+	for body: CollisionObject3D in city.find_children("*","CollisionObject3D",true,false):
+		if str(bodies.get(body.get_rid(),"")).begins_with(identity+"__"):
+			saved.append([body,body.global_transform,body.collision_layer])
+			body.global_position+=normal*.01
+	# Transform changes reach the physics broadphase on its synchronization
+	# boundary. An immediate query otherwise re-reads the original face.
+	await suite.get_tree().physics_frame;await suite.get_tree().physics_frame
+	var displaced := not saved.is_empty() and not _wall_hit_matches(space.intersect_ray(ray),point,normal,identity,bodies)
+	suite.check(displaced, "actual wall backing displaced10mm is rejected: "+identity)
+	for state: Array in saved:
+		state[0].global_transform=state[1]
+		state[0].collision_layer=0
+	await suite.get_tree().physics_frame;await suite.get_tree().physics_frame
+	var missing := not _wall_hit_matches(space.intersect_ray(ray),point,normal,identity,bodies)
+	suite.check(missing, "actual removed wall backing is rejected: "+identity)
+	for state: Array in saved: state[0].collision_layer=state[2]
+	await suite.get_tree().physics_frame;await suite.get_tree().physics_frame
+	var exact := true
+	for state: Array in saved: exact = exact and state[0].global_transform==state[1] and state[0].collision_layer==state[2]
+	var restored := _wall_hit_matches(space.intersect_ray(ray),point,normal,identity,bodies) and exact
+	suite.check(restored, "exact restored wall backing is accepted: "+identity)
+	return {"building":identity,"displaced_rejected":displaced,"missing_rejected":missing,"restored":restored,"exact_pose_and_layer":exact}

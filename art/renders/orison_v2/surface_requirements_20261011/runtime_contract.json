@@ -1,30 +1,14 @@
 {
-	"checks": 655,
+	"checks": 29526,
 	"city_context_review": {
 		"scope": "Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance.",
-		"views": [
-			{
-				"aim_world": "(-165.0, 3.285, 3.961097)",
-				"building": "HORIZON_NEAR_3_2_P0R0",
-				"eye_world": "(-182.0, 1.62, 3.961095)",
-				"file": "city_context_HORIZON_NEAR_3_2_P0R0.png",
-				"fov": 110.0
-			},
-			{
-				"aim_world": "(-165.0, 4.635, 11.18332)",
-				"building": "HORIZON_NEAR_3_2_P0R1",
-				"eye_world": "(-182.0, 1.62, 11.18332)",
-				"file": "city_context_HORIZON_NEAR_3_2_P0R1.png",
-				"fov": 110.0
-			},
-			{
-				"aim_world": "(-165.0, 3.2625, 18.40554)",
-				"building": "HORIZON_NEAR_3_2_P0R2",
-				"eye_world": "(-182.0, 1.62, 18.40554)",
-				"file": "city_context_HORIZON_NEAR_3_2_P0R2.png",
-				"fov": 110.0
-			}
-		]
+		"views": []
+	},
+	"city_geometry_diagnostic": {
+		"checks": 28875,
+		"executed": true,
+		"failures": 0,
+		"scope": "Source/composition city geometry and posed camera diagnostic; no played access or artistic acceptance."
 	},
 	"civic_world_access": {
 		"executed": false,
@@ -55,7 +39,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 203.263,
+		"elapsed_s": 342.861,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -70,7 +54,7 @@
 			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
 		}
 	},
-	"inventory_sha256": "07179dc2bc0d281aa4911e4576c6d94bc78db9c79d891f2ab61ea4ece402c0f6",
+	"inventory_sha256": "8b4c12ed49befb64f9bf104d51d526b1af74fbf84d01a8755378975e52e211ca",
 	"lamp_context_review": {
 		"executed": false,
 		"scope": "Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."
@@ -81,10 +65,10 @@
 	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
 	"selector": "v2",
 	"source": {
-		"repository_head": "d211123cfbc6e9be033673e3e3f8e81eb6189c3a",
+		"repository_head": "0389a4609e0433ba928e1753a2c530894986042e",
 		"runtime_inputs_sha256": "c2f7f34081f5157d999f6572c02fb1794787720ec98eac56c99151dac4c9b54c",
 		"test_path": "game/tests/orison_v2_surface_inventory.gd",
-		"test_sha256": "40346a3036187b81dfabb7fe8783c4fb4bcbb6eb289b334fa1ae34b86f7e56c5"
+		"test_sha256": "32be481d985008a7fe28cf82e84f8854070b7cdaacc18adf2f73262d1b5fa65b"
 	},
-	"surface_inputs_sha256": "0a9d049d29aa2de3cfe17880548062cfb61a8d1e5bca705f5e198b4dc4d83062"
+	"surface_inputs_sha256": "59ecb4a2792ab72a305e28e54915389cd7ce36784b5fec00f4470df069bef89a"
 }

@@ -56,4 +56,35 @@ class ConsumedCitySourceTest(unittest.TestCase):
         plan=copy.deepcopy(self.plan)
         next(r for r in plan['buildings'] if r['id']=='site_far_n')['vertical_profile'][-1]+=.1
         with self.assertRaises(AssertionError):check_registered_layout(self.layout,projected,self.registration,plan)
+class ArticulatedElevationProbes(unittest.TestCase):
+    @staticmethod
+    def module():
+        sys.path.insert(0,str(ROOT/'tools'))
+        import city_elevation_probe_fixture
+        return city_elevation_probe_fixture
+
+    def test_frozen_native_targets_remain_reproducible_and_complete(self):
+        m=self.module()
+        self.assertEqual(json.loads(m.OUTPUT.read_text()),m.build())
+
+    def test_articulated_plane_is_not_the_old_envelope_or_a_missing_face(self):
+        m=self.module();np=m.np
+        faces=np.array([[[-1,0,0],[1,0,0],[1,2,0]],[[-1,0,0],[1,2,0],[-1,2,0]]],dtype=float)
+        normal=np.array([0,0,1]);seed=np.array([-.88,1,.2])
+        target=m.target_at_height(faces,1.,seed,normal)
+        self.assertEqual(float(target[2]),0.)
+        self.assertAlmostEqual(m.first_hit(faces,target,normal),.04)
+        self.assertAlmostEqual(m.first_hit(faces,target+normal*.01,normal),.05)
+        with self.assertRaises(ValueError):m.target_at_height(faces,3.,seed,normal)
+        with self.assertRaises(ValueError):m.target_at_height(faces[:,::-1],1.,seed,normal)
+
+    def test_source_face_hidden_by_trim_is_not_admitted(self):
+        m=self.module();np=m.np
+        face=np.array([[[-1,0,0],[1,0,0],[1,2,0]],[[-1,0,0],[1,2,0],[-1,2,0]]],dtype=float)
+        covered=np.concatenate([face,face+np.array([0,0,.02])])
+        target=m.target_at_height(covered,1.,np.array([-.88,1,.2]),np.array([0,0,1]))
+        self.assertAlmostEqual(float(target[2]),.02)
+        with self.assertRaises(ValueError):
+            m.target_at_height(covered,1.,np.array([-.88,1,.2]),np.array([0,0,1]),np.array([True,True,False,False]))
+
 if __name__=='__main__':unittest.main()
