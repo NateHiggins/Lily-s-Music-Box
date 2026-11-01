@@ -149,18 +149,18 @@ S15 in play, cut **av_two_bars** and **li_two_bars** and nothing else breaks.
 
 ## 5. For Lily to rule on
 
-1. **Does the dub exist?** I recommend yes. Without it, cutting the take in May is the end of the line and no
-   recording of her singing exists. That is cleaner and bleaker, and it costs the scene of hearing herself.
-2. **Rhea's answer.** Drafted as "Miss Kells may cut it", and she won't listen to it. It's a request Juno honours, and
+**Ruled, 2026-11-01: the dub exists.** Juno's second reel stays in the plot, and the player can hear herself sing.
+
+1. **Rhea's answer.** Drafted as "Miss Kells may cut it", and she won't listen to it. It's a request Juno honours, and
    nothing enforces it. Emil Voss is not asked; Lily is, and declines to press. Is that right?
-3. **Your own lines.** Every **LILY** line is a placeholder for you to rewrite. "The extra two bars" gave her most of
+2. **Your own lines.** Every **LILY** line is a placeholder for you to rewrite. "The extra two bars" gave her most of
    what she has now. No biography, surname or day job.
-4. **A release slip.** "RELEASED: THE TAKE." at **m_dub_wiped** would fit section 8 of the treatment. It adds a noun
+3. **A release slip.** "RELEASED: THE TAKE." at **m_dub_wiped** would fit section 8 of the treatment. It adds a noun
    to Option A's lexicon, so I haven't written it in.
-5. **The set.** Proposed: "Ain't We Got Fun" as the opening reference with Lily on bass; an original for the number
+4. **The set.** Proposed: "Ain't We Got Fun" as the opening reference with Lily on bass; an original for the number
    that gets her up, working title "It Ought to Pick Up" (from the brief: everyone in the room wants the evening to
    improve for a different small reason), Lily on drums; and for the quiet one an unnamed original, Lily on bass.
-6. **The concern's name.** Ravenswood Sound Shorts Company is mine. Ravenswood is a real neighbourhood; no such
+5. **The concern's name.** Ravenswood Sound Shorts Company is mine. Ravenswood is a real neighbourhood; no such
    company that I know of.
 
 **Choices I made and you can reverse.**
