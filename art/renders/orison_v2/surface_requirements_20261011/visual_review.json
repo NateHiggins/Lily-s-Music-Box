@@ -1,56 +1,56 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "scope": "Technical rendered inspection only. All physical draws surveyed; separate interaction/save programmes not executed. Five frontage frames separately reviewed; no artistic, performance or whole-game acceptance.",
-  "surface_inputs_sha256": "0a9d049d29aa2de3cfe17880548062cfb61a8d1e5bca705f5e198b4dc4d83062",
+  "scope": "Technical rendered inspection only:all20actual physical-survey frames inspected via complete contact sheet;8representative frames retained in published packet. Omitted dumbwaiter/watch stations are dark/poorly framed and receive no artistic/target-visibility acceptance. Six composed controller frames separately inspected. No interaction/save,whole-city performance or human artistic acceptance.",
+  "surface_inputs_sha256": "08c901e2b852e40036f05c04bd5e0fc760626a6c405d0ddcc6e7bfce63daa943",
   "images": [
     {
       "file": "bookcase.png",
-      "sha256": "905b5c7e8794e2b02165c8e2ba78f3821809b393b23a0ee115b58980ac5a2790",
-      "observation": "Wood grain, glazed cabinet, separated books, floorboards and door render without missing surfaces. Sparse shelf/room dressing remains artistic debt.",
-      "origin": "surface01 actual pinned Vulkan hidden-desktop3440x1440 capture; individually inspected"
+      "sha256": "8782d9f9fcc457cc42a3e6ca56c2cff32971074ec0b5b494fdcb24a07e2e61a7",
+      "observation": "Visible timber shelving,books,door and floor surfaces retain material response; sparse dressing remains artistic debt.",
+      "origin": "surfaces01 actual pinned Vulkan3440x1440 hidden-desktop capture,complete contact-sheet inspection"
     },
     {
       "file": "F03_B_BATH_reflection_repair.png",
-      "sha256": "61da56d744f23ca23a7349286a873115243455f5680a52901092557bd80056c9",
-      "observation": "Curtain weave, tile grout, toilet hardware and carried companion render. Strong circular lamp pool remains; bathroom lighting and companion framing are not artistically accepted.",
-      "origin": "surface01 actual pinned Vulkan hidden-desktop3440x1440 capture; individually inspected"
+      "sha256": "ade88245de85934d4410b80958e84cacd6fa6fed17cc9cd0cb0f4c866e4c6598",
+      "observation": "Tile,curtain and fittings render; strong circular lamp pool and companion framing remain artistic limits.",
+      "origin": "surfaces01 actual pinned Vulkan3440x1440 hidden-desktop capture,complete contact-sheet inspection"
     },
     {
       "file": "signal_terminal.png",
-      "sha256": "171ed23ec7bd0212eea242e8ce6d878d8f2535a8e81b12c5bc098ee6695dbd27",
-      "observation": "Loaded glass, local emission, wood floor, furniture and shadows render. This static frame does not prove terminal interaction or accept room dressing.",
-      "origin": "surface01 actual pinned Vulkan hidden-desktop3440x1440 capture; individually inspected"
+      "sha256": "31be9a12bbd9c8566a62a32f65112a38f396acb4dc20da6af7281dca80dccbc0",
+      "observation": "Glazing,emission,timber and furnishings render; no interaction or room-dressing acceptance.",
+      "origin": "surfaces01 actual pinned Vulkan3440x1440 hidden-desktop capture,complete contact-sheet inspection"
     },
     {
       "file": "roof_tank_uv.png",
-      "sha256": "bbb3df174115f7b2e11b265fce040b9775fe902f6d79753ecd675a202a86c90d",
-      "observation": "Tank, service ironwork, parapet and city silhouettes render. Flat-looking bright cloud shapes and dark city material relief remain artistic concerns.",
-      "origin": "surface01 actual pinned Vulkan hidden-desktop3440x1440 capture; individually inspected"
+      "sha256": "8cf641be53b4354281a36fb9c916f529d58b85f1bf20cc58914309be5a46d009",
+      "observation": "Tank,roof stock and skyline render; fixed static optical station does not prove travel.",
+      "origin": "surfaces01 actual pinned Vulkan3440x1440 hidden-desktop capture,complete contact-sheet inspection"
     },
     {
-      "file": "city_context_HORIZON_NEAR_3_2_P0R0.png",
-      "sha256": "5e440b917abe8e04b6879188cea9e0e029d3db94024bc0b741200fa59a1e8411",
-      "observation": "Fixture-derived static camera shows adjoining taller generic/rear facades, occupied-window variation and dark ground. It does not frame the remodeled street-facing side.",
-      "origin": "surface01 actual pinned Vulkan hidden-desktop3440x1440 capture; individually inspected"
+      "file": "roof_drive_uv.png",
+      "sha256": "89bee6a63b5d48b5e63268849ccba3a064c1df29df41c43448b0583bbd2c7b08",
+      "observation": "Lift-drive stock and roof enclosure visible; this frame does not prove moving mechanics.",
+      "origin": "surfaces01 actual pinned Vulkan3440x1440 hidden-desktop capture,complete contact-sheet inspection"
     },
     {
-      "file": "city_context_HORIZON_NEAR_3_2_P0R1.png",
-      "sha256": "4333be931ba5bee213a050264ad2cff9af7e69be45b85f3cb6cc98c8bb56e1c4",
-      "observation": "A second neighboring/rear context shows lit/unlit panes and simple furnished-room silhouettes. This camera does not establish frontal appearance of the new row.",
-      "origin": "surface01 actual pinned Vulkan hidden-desktop3440x1440 capture; individually inspected"
+      "file": "toaster_crumbs.png",
+      "sha256": "e2a446a6055537316773b57aafa532d37e317a8b8d732e2e2405603782d6d719",
+      "observation": "Countertop,registered metal/paint and small kitchen stock render; no new interaction acceptance.",
+      "origin": "surfaces01 actual pinned Vulkan3440x1440 hidden-desktop capture,complete contact-sheet inspection"
     },
     {
-      "file": "city_context_HORIZON_NEAR_3_2_P0R2.png",
-      "sha256": "d6b3a9cf63d0e6ad45a9e8f205ec97834e5d4863122184d9f164a37686091f2f",
-      "observation": "Third static context shows neighboring rear/generic stock with varied window light. Strong shadow, repeated forms and low cloud relief remain; no city-completion claim.",
-      "origin": "surface01 actual pinned Vulkan hidden-desktop3440x1440 capture; individually inspected"
+      "file": "city_context_HORIZON_NEAR_3_2_P1.png",
+      "sha256": "3a1c4d5b83e4fa632ae1787007e160c0c707ba63b270652fef7853f26284f9ba",
+      "observation": "Actual production-light rear/adjoining apartment stock and open-court skyline visible; strong shadows limit facade/material readability. Full mansard form is additionally established by native and isolated-family views,not this wide camera alone.",
+      "origin": "surfaces01 actual pinned Vulkan3440x1440 hidden-desktop capture,complete contact-sheet inspection"
     },
     {
-      "file": "western_row_public_context.png",
-      "sha256": "de9c355bbe04015df9c4ca80d0a7f927367567eb3694f843239def8c9a802795",
-      "observation": "Separate current-world frontage review shows all three remodeled street fronts, stoops and railings under actual lighting. Strong shadows suppress detail. Its clean discovery records the identical surface fingerprint; no artistic acceptance.",
-      "origin": "frontage02 actual pinned Vulkan hidden-desktop3440x1440 capture; individually inspected"
+      "file": "city_context_HORIZON_NEAR_3_2_P2.png",
+      "sha256": "9ae25bd94b8502e7e4e310610595919e9536442e6816ba7b7c473e9e475956b1",
+      "observation": "Actual production-light rear/adjoining six-storey stock and court skyline visible; strong shadow/flat cloud/readability debt remains. No whole-building artistic acceptance.",
+      "origin": "surfaces01 actual pinned Vulkan3440x1440 hidden-desktop capture,complete contact-sheet inspection"
     }
   ]
 }
