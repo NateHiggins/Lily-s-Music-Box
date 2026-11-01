@@ -13,7 +13,7 @@ for rel,h in f['source_bindings'].items():
  data=(r/rel).read_bytes();data=data if Path(rel).suffix in ['.blend','.glb','.png','.bin'] else data.replace(b'\r\n',b'\n');assert hashlib.sha256(data).hexdigest()==h,rel
 for image in bpy.data.images:
  if image.source=='FILE':assert image.filepath.startswith('//') and Path(bpy.path.abspath(image.filepath)).is_file(),image.filepath
-volumes=[];trees={}
+volumes=[];trees={};signatures={};contact_cache={};contact_cache_hits=0
 bpy.context.view_layer.update()
 for o in bpy.data.collections['ClosedConstruction'].objects:
  o.data.calc_loop_triangles();bm=bmesh.new();bm.from_mesh(o.data);assert all(e.is_manifold and e.is_contiguous for e in bm.edges) and bm.calc_volume(signed=True)>0,o.name
@@ -30,8 +30,26 @@ for o in bpy.data.collections['ClosedConstruction'].objects:
  volume=bm.calc_volume(signed=True);expected=next(x['volume_m3'] for x in f['closed_stocks'] if x['name']==o.name);assert abs(volume-expected)<1e-10
  volumes.append({'name':o.name,'volume_m3':volume});bm.free()
  trees[o.name]=BVHTree.FromPolygons([o.matrix_world@v.co for v in o.data.vertices],[list(p.vertices) for p in o.data.polygons],epsilon=.00002)
+ # Seven finish variants share immutable base geometry. Reuse only queries
+ # whose complete world vertices and face topology are byte-identical.
+ points=np.asarray([o.matrix_world@v.co for v in o.data.vertices],dtype='<f8')
+ faces=[list(p.vertices) for p in o.data.polygons];signature=hashlib.sha256()
+ for data in [np.asarray([len(points),len(faces)],dtype='<u4'),points,np.asarray([len(face) for face in faces],dtype='<u4'),np.asarray([i for face in faces for i in face],dtype='<u4')]:signature.update(data.tobytes())
+ signatures[o.name]=signature.hexdigest()
 joins=[];join_failures=[]
-def touches(left,right):
+def inside_closed_stock(at,tree):
+ # Signed-nearest candidates need parity confirmation; an annular void is empty.
+ for direction in [Vector((1,.371,.217)).normalized(),Vector((.193,1,.427)).normalized(),Vector((.317,.239,1)).normalized()]:
+  cursor=at.copy();crossings=0
+  for _ in range(64):
+   hit,_,_,_=tree.ray_cast(cursor,direction)
+   if hit is None:break
+   crossings+=1;cursor=hit+direction*.0000002
+  else:return False
+  if crossings%2!=1:return False
+ return True
+
+def measure_contact(left,right):
  a=bpy.data.objects[left];b=bpy.data.objects[right]
  pa=np.asarray([tuple(a.matrix_world@Vector(p)) for p in a.bound_box]);pb=np.asarray([tuple(b.matrix_world@Vector(p)) for p in b.bound_box])
  if np.any(pa.max(0)+.00003<pb.min(0)) or np.any(pb.max(0)+.00003<pa.min(0)):return False
@@ -39,11 +57,42 @@ def touches(left,right):
  # Exactly coplanar annular faces need not cross. Confirm reciprocal contact
  # instead of forcing interpenetration merely to satisfy an overlap predicate.
  for obj,other_tree in [(a,trees[right]),(b,trees[left])]:
-  for face in obj.data.polygons:
-   at=obj.matrix_world@face.center;normal=obj.matrix_world.to_3x3()@face.normal
+  linear=obj.matrix_world.to_3x3().inverted().transposed()
+  probes=[(obj.matrix_world@face.center,(linear@face.normal).normalized()) for face in obj.data.polygons]
+  probes.extend((sum((obj.matrix_world@obj.data.vertices[i].co for i in tri.vertices),Vector())/3,(linear@tri.normal).normalized()) for tri in obj.data.loop_triangles)
+  for at,normal in probes:
    hit,other,_,distance=other_tree.find_nearest(at,.00003)
    if hit is not None and distance<.00003 and normal.dot(other)<-.9:return True
+  # Physical occupied contact only; this does not establish a designed bearing.
+  for vertex in obj.data.vertices:
+   at=obj.matrix_world@vertex.co;hit,normal,_,distance=other_tree.find_nearest(at)
+   if hit is not None and normal.dot(at-hit)<-.00003 and inside_closed_stock(at,other_tree):return True
  return False
+
+def touches(left,right):
+ global contact_cache_hits
+ key=tuple(sorted((signatures[left],signatures[right])))
+ if key in contact_cache:
+  contact_cache_hits+=1;return contact_cache[key]
+ result=measure_contact(left,right);contact_cache[key]=result;return result
+
+# Independent occupancy controls include an annular hole, which a box-centre
+# or unconfirmed signed-nearest shortcut must never classify as solid material.
+control_points=[Vector(p) for p in [(-1,-1,-1),(1,-1,-1),(1,1,-1),(-1,1,-1),(-1,-1,1),(1,-1,1),(1,1,1),(-1,1,1)]]
+control_faces=[(0,3,2,1),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)]
+control_cube=BVHTree.FromPolygons(control_points,control_faces)
+assert inside_closed_stock(Vector((.17,.23,.31)),control_cube)
+assert not inside_closed_stock(Vector((1.001,0,0)),control_cube)
+ring_points=[];ring_faces=[]
+for z in [-.1,.1]:
+ for radius in [1.,.5]:
+  ring_points.extend(Vector((radius*math.cos(i*math.tau/32),radius*math.sin(i*math.tau/32),z)) for i in range(32))
+for i in range(32):
+ j=(i+1)%32
+ ring_faces.extend([(i,j,64+j,64+i),(32+j,32+i,96+i,96+j),(j,i,32+i,32+j),(64+i,64+j,96+j,96+i)])
+control_ring=BVHTree.FromPolygons(ring_points,ring_faces)
+assert not inside_closed_stock(Vector((0,0,0)),control_ring),'annular void is empty'
+assert inside_closed_stock(Vector((.73,.017,.023)),control_ring),'annular wall is occupied'
 for a in f['construction_groups']:
  stocks=a['stocks'];adj={name:set() for name in stocks};edges=[]
  for i,left in enumerate(stocks):
@@ -93,5 +142,5 @@ for c in f['contacts']:
  hits=[t.ray_cast(at-direction*.004,direction,.008) for t in local_trees[c['assembly']]]
  assert any(hit is not None and (hit-at).length<.00004 and normal.dot(direction)<-.9 for hit,normal,_,_ in hits),(c,'missing prop underside')
  supports.append(c)
-(out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','closed_stocks':len(volumes),'connected_groups':joins,'distinct_object_separations':separations,'uv':uv_metrics,'local_bearings':supports,'views':[],'scope':'Local construction and chart preflight only. External support context and rendering are still required.'},indent=2)+'\n',newline='\n')
+(out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','closed_stocks':len(volumes),'contact_controls':4,'contact_tolerance_m':.00003,'reused_identical_contact_queries':contact_cache_hits,'unique_contact_queries':len(contact_cache),'connected_groups':joins,'distinct_object_separations':separations,'uv':uv_metrics,'local_bearings':supports,'views':[],'scope':'Local construction and chart preflight only. External support context and rendering are still required.'},indent=2)+'\n',newline='\n')
 print('HOUSEHOLD STOVES LOCAL:',len(volumes),'closed stocks;',len(joins),'physical groups;',len(supports),'local bearings;',len(draws),'mapped parts')

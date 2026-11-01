@@ -11,8 +11,9 @@ bpy.ops.wm.open_mainfile(filepath=str(r/'art/blender/household_stoves.blend'));b
 draws=[o for o in bpy.context.scene.objects if o.type=='MESH' and '__' in o.name and not o.hide_render]
 helper=r/'art/blender/scripts/inspect_medicine_cabinets_context.py';tree=ast.parse(helper.read_text(encoding='utf-8'))
 exec(compile(ast.Module(body=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in {'bp','pose','native_mesh','merge','old_mesh','moved'}],type_ignores=[]),str(helper),'exec'))
-native={'HouseholdGasRange':merge([native_mesh(o) for o in draws])};owners={};supports_by_id={}
-oven=merge([native_mesh(o) for o in draws if '__OvenDoor_ON_' in o.name])[0]
+stove_fixture=json.loads((r/'art/blender/household_stoves_construction.json').read_text(encoding='utf-8'))
+native={row['id']:merge([native_mesh(o) for o in draws if o.name.startswith(row['id']+'__')]) for row in stove_fixture['assemblies']};owners={};supports_by_id={}
+oven=merge([native_mesh(o) for o in draws if o.name.startswith('HouseholdGasRange__OvenDoor_ON_')])[0]
 helper=r/'art/blender/scripts/inspect_household_fridge_motion.py';tree=ast.parse(helper.read_text(encoding='utf-8'))
 exec(compile(ast.Module(body=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in {'rotate','arc_bounds'}],type_ignores=[]),str(helper),'exec'))
 qlow,qhigh=arc_bounds(np.asarray(oven)[:,[1,2,0]],np.array((.318,.34,0)),math.radians(-86),0)
@@ -35,14 +36,15 @@ for identity,variant in owners.items():
  if variant in ['FridgeIcebox','FridgeMonitor']:world[identity]=moved(native[variant],identity)
 checks=[];failures=[];bearings=[]
 for row in plan['instances']:
- identity=row['id'];a=anchors[identity];p=a['position'];matrix=pose(identity);stove=moved(native['HouseholdGasRange'],identity)
+ identity=row['id'];a=anchors[identity];p=a['position'];matrix=pose(identity);stove=moved(native[row['variant']],identity)
  rooms=[s for s in spaces if s['level']==a['level'] and s['rect'][0]<=p[0]<=s['rect'][2] and s['rect'][1]<=p[2]<=s['rect'][3]]
  assert rooms,identity
  room=min(rooms,key=lambda s:(s['rect'][2]-s['rect'][0])*(s['rect'][3]-s['rect'][1]));rect=room['rect']
- for x in [-.275,.275]:
-  for y in [-.245,.245]:
-   at=matrix@Vector((x,y,0));assert abs(at.z-levels[a['level']])<.00003 and rect[0]<at.x<rect[2] and rect[1]<-at.y<rect[3],identity
-   bearings.append({'actor':identity,'point':list(at),'room':room['id']})
+ feet=[c for c in stove_fixture['contacts'] if c['assembly']==row['variant']]
+ assert len(feet)==4,(identity,'four source-bearing soles required')
+ for foot in feet:
+  at=matrix@bp(foot['point']);assert abs(at.z-levels[a['level']])<.00003 and rect[0]<at.x<rect[2] and rect[1]<-at.y<rect[3],identity
+  bearings.append({'actor':identity,'point':list(at),'room':room['id']})
  for other,right in world.items():
   if np.any(stove['high']<=right['low']+.00003) or np.any(right['high']<=stove['low']+.00003):continue
   hits=stove['tree'].overlap(right['tree']);checks.append([identity,other,'closed surfaces',len(hits)])

@@ -25,13 +25,16 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(prop._clunk!=null and prop._burn!=null and prop._grates.size()==4 and prop._caps.size()==4 and prop._knobs.size()==4,"source service and audio owners retained")
 		var body := prop.get_node("FixtureBody") as StaticBody3D
 		check(prop.get_node_or_null("PrimaryInteraction") is Area3D and body!=null,"original functional interaction and fixture collision retained")
-		for contact: Dictionary in fixture.contacts:
+		var feet:Array=fixture.contacts.filter(func(contact):return contact.assembly==instance.variant)
+		check(feet.size()==4,"four sole contacts belong to this installed variant")
+		for contact: Dictionary in feet:
 			var q: Array = contact.point
 			var at := prop.to_global(Vector3(q[0],q[1],q[2]))
 			var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+Vector3.UP*.004,at-Vector3.UP*.004,1,[body.get_rid()]))
 			check(not hit.is_empty() and hit.position.distance_to(at)<.00004 and hit.normal.y>.99,"actual floor bears native range")
 		# Each range walks its own assembly: owner finishes (dossier slice 36) are their own variants.
 		var assembly: Dictionary = fixture.runtime.assemblies.filter(func(row):return row.id==instance.variant)[0]
+		check(not prop.service_obstructed(prop.blocked_burner),"authored faulty jet remains accessible around fixed cookware")
 		check(prop.get_meta("v2_native_stove_variant","")==instance.variant,"range installs its own source variant")
 		for part: Dictionary in assembly.parts:
 			var draw := prop.find_child(str(part.name),true,false) as MeshInstance3D
@@ -57,12 +60,18 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	await _settle(actors,-1,true)
 	for prop: Stove in actors:
 		check(prop._open and is_equal_approx(prop._door.rotation.x,deg_to_rad(-86.)),"original oven opens through full source travel")
-		if capture_enabled and prop.unit in ["1A","2B","5B"]:await _capture_stove(world,prop,"open")
+		if capture_enabled and prop.unit in ["1A","2B","4B","5B"]:await _capture_stove(world,prop,"open")
 	for i in 4:
 		for prop: Stove in actors:
 			prop.set_grate_removed(i,true,.02);prop.set_cap_removed(i,true,.02)
 		await _settle(actors,i,true)
 		for prop: Stove in actors:
+			if prop.service_obstructed(i):
+				var blocked:int=prop.blocked_burner;var grime:Array=prop.burner_grime.duplicate()
+				prop.set_service_pose(i)
+				check(prop._grates[i].position==prop._grate_home[i] and prop._grates[i].rotation==Vector3.ZERO and prop._caps[i].position==prop._cap_home[i],"fixed cookware denies obstructed grate/cap travel rather than clipping")
+				check(prop.blocked_burner==blocked and prop.burner_grime==grime,"denied service presentation invents no fault or grime change")
+				continue
 			check(prop._grates[i].position.is_equal_approx(Vector3(-.20 if i%2==0 else .20,.995,.205)) and is_equal_approx(prop._grates[i].rotation.x,deg_to_rad(-68.)),"source grate service transform remains authoritative")
 			check(prop._caps[i].position.is_equal_approx(prop._cap_home[i]+Vector3(.12 if i%2==0 else -.12,.018,-.12)),"source cap service transform retained")
 			var row: Dictionary = fixture.runtime.native_service.grate_parking[i]
@@ -98,10 +107,64 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	await _settle(actors,-1,false)
 	for prop: Stove in actors:
 		check(not prop._open and is_zero_approx(prop._door.rotation.x),"ordinary interaction closes original oven")
-		if capture_enabled and prop.unit in ["1A","2B","5B"]:await _capture_stove(world,prop,"closed")
+		if capture_enabled and prop.unit in ["1A","2B","4B","5B"]:await _capture_stove(world,prop,"closed")
 	check(actors.size()==18 and triangles==int(fixture.triangles),"all source ranges and unique native triangles covered")
+	var played:Dictionary={"executed":false}
+	if OS.get_environment("ORISON_GAS_RANGE_PLAYED_WORLD")=="1":
+		played=await _played_range(world,actors)
 	_write_visual_census(world)
-	return {"checks":checks,"actors":actors.size(),"unique_triangles":triangles,"views":discovery.duplicate(true),"failures":failures.duplicate()}
+	return {"checks":checks,"actors":actors.size(),"unique_triangles":triangles,"played_range":played,"views":discovery.duplicate(true),"failures":failures.duplicate()}
+
+func _played_range(world:OrisonV2RuntimeRoot,actors:Array[Stove]) -> Dictionary:
+	var selected:Array[Stove]=actors.filter(func(prop):return prop.unit=="4B")
+	check(selected.size()==1,"one installed 4B range for actual input and campaign reload")
+	if selected.size()!=1:return {"executed":false}
+	var prop:Stove=selected[0]
+	var initial:Dictionary=prop.mechanism_snapshot()
+	var hand:=preload("res://tests/fixed_gesture_patrol_hand.gd").new();add_child(hand);hand.player=world.player
+	world.player.cancel_manipulation()
+	var stance:Vector3=prop.to_global(Vector3(0,.02,-1.15))
+	check(_city_clear_station(world,stance),"installed 4B approach has standing-capsule clearance")
+	world.player.global_position=stance;world.player.camera.make_current()
+	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	var door_contact:=Vector3(0,.17,-.025)
+	check(await hand.operate(prop._door.to_global(door_contact),.5,prop),"installed 4B actual mouse opens oven leaf")
+	check(is_equal_approx(prop._door.rotation.x,-.5),"installed oven retains the released partial angle")
+	check(await hand.operate(prop._door.to_global(door_contact),0.,prop),"installed 4B actual mouse reseats oven leaf")
+	check(await hand.operate(prop._broiler.to_global(Vector3(0,0,-.02)),.1,prop),"installed 4B actual mouse pulls broiler drawer")
+	check(await hand.operate(prop._broiler.to_global(Vector3(0,0,-.02)),0.,prop),"installed 4B actual mouse reseats broiler drawer")
+	var face:Vector3=prop.global_basis*Vector3(0,0,-.02)
+	var working:int=(prop.blocked_burner+1)%4
+	var cold:Dictionary=initial.duplicate(true);cold.gas=[0.,0.,0.,0.];cold.lit=[false,false,false,false]
+	prop.restore_mechanism(cold)
+	check(await hand.operate(prop._knobs[working].global_position+face,deg_to_rad(58)*.31,prop),"installed 4B actual mouse selects,turns and releases gas tap")
+	check(is_equal_approx(prop._gas_openings[working],.31) and not prop._burner_on[working],"installed cold gas remains unlit until starter")
+	check(await hand.operate(prop._starter.global_position+face,.008,prop),"installed 4B actual mouse presses and releases separate starter")
+	await get_tree().create_timer(.2).timeout
+	check(prop._burner_on[working] and is_equal_approx(prop._gas_openings[working],.31),"installed starter lights partial flow without changing the tap")
+	var saved:Dictionary=prop.mechanism_snapshot()
+	world.household_state.capture_now()
+	var all_saved:Dictionary=world.household_state.snapshot()
+	var original_path:String=RealityState.save_path
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("installed_range_save.json")
+	check(RealityState.save_game(),"complete installed campaign writes through existing validated storage")
+	# snapshot_preparing may sample other live mechanisms during the write.
+	all_saved=RealityState.data[world.household_state.KEY].duplicate(true)
+	prop._set_gas_opening(working,0.)
+	world.player.camera.look_at(prop._starter.global_position+face)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	hand.click()
+	check(world.player._grab.active() and world.player._grab.target.part==prop._starter,"installed starter held across disk-load boundary")
+	if world.player._grab.active():await hand.move_to(.003)
+	RealityState.load_game();await get_tree().physics_frame
+	check(RealityState.can_continue() and prop.mechanism_snapshot()==saved,"installed campaign reload reconstructs partial flame and valve pose")
+	check(world.household_state.snapshot()==all_saved,"campaign reload preserves complete household registry")
+	check(not world.player._grab.active() and prop._starter.position==prop._starter_home,"installed reload releases transient starter ownership")
+	RealityState.save_path=original_path
+	if capture_enabled:await _capture_stove(world,prop,"played_low_flame")
+	prop.restore_mechanism(initial);world.household_state.capture_now()
+	hand.free()
+	return {"executed":true,"actor":str(prop.name),"working_burner":working,"saved_mechanism":saved,"household_records":all_saved.records.size(),"scope":"Actual installed 4B tap/starter mouse route and complete campaign disk reload; does not qualify an entire shift or artistic acceptance."}
 
 func _write_visual_census(world: OrisonV2RuntimeRoot) -> void:
 	var rows: Array = []
@@ -125,7 +188,9 @@ func _settle(actors: Array[Stove], index: int, opened: bool) -> void:
 		var pending := false
 		for prop: Stove in actors:
 			if index<0:pending = pending or not is_equal_approx(prop._door.rotation.x,deg_to_rad(-86.) if opened else 0.)
-			else:pending = pending or not is_equal_approx(prop._grates[index].rotation.x,deg_to_rad(-68.) if opened else 0.) or not is_equal_approx(prop._caps[index].position.y,prop._cap_home[index].y+(.018 if opened else 0.))
+			else:
+				var presented:bool=opened and not prop.service_obstructed(index)
+				pending = pending or not is_equal_approx(prop._grates[index].rotation.x,deg_to_rad(-68.) if presented else 0.) or not is_equal_approx(prop._caps[index].position.y,prop._cap_home[index].y+(.018 if presented else 0.))
 		if not pending:return
 		await get_tree().process_frame
 
@@ -173,7 +238,7 @@ func _capture_stove(world: OrisonV2RuntimeRoot, prop: Stove, state: String) -> v
 						var p := prop.to_global(Vector3(x,y,-.30))
 						var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(camera.global_position,p,1,[world.player.get_rid(),body.get_rid()]))
 						if not hit.is_empty() and hit.position.distance_to(p)>.02:blocked=true
-						if state != "closed" and _leaf_occludes(prop,camera.global_position,p):blocked=true
+						if prop._open and _leaf_occludes(prop,camera.global_position,p):blocked=true
 				if not blocked:station=feet;break
 			if station.is_finite():break
 		if station.is_finite():break
