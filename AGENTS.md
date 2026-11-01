@@ -46,6 +46,9 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
   function" and "Could not find base class" in a fresh tree are a stale
   import cache, not a code bug; run receipts flag them.
 - Screenshots need `-Windowed`; headless runs write no frames.
+- A `-Windowed` run goes on a hidden Windows desktop (`tools/hidden_desktop.ps1`), so it
+  cannot touch the owner's mouse or focus. Never run windowed on her desktop; set
+  `ORISON_VISIBLE_GODOT=1` only when she asks to watch one.
 - Give every run a `-LogPath`. The runner then writes
   `<log>.receipt.json`; cite the receipt, not a typed exit code.
 
