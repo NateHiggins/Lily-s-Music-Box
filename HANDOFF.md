@@ -38,7 +38,7 @@ surface renewal+city diagnostic with P1/P2 context views,native3440x1440 hidden
 desktop. The attempt joined FIFO behind shops and a manual GPU job; no engine
 started and no run log/receipt exists. On Lily's commit/merge/push checkpoint,
 verified own waiting broker43400 was cancelled; no Godot/foreign job stopped.
-No live job remains from this intake. Requeue through the lane when continuing,
+No live job remains from this intake. Latest external lift-control packet23 is recorded in TASKS.md; native claims and source-reported interaction gap are unverified,not integrated. Requeue through the lane when continuing,
 inspect the actual contract and rendered frames,publish the current packet,then
 verify the candidate against the clean E5 baseline before merging PR136.
 Do not repeat the unchanged19-leg walk; exact dependency proof above permits
@@ -97,7 +97,7 @@ HISTORICAL NEXT (source now reconciled in draft PR136; qualification remains):
  follow approved storage classes before reducing cited evidence. Technical
  K-V2-CITY-LEGACY-QUAL is closed/archived; full city and V2 remain incomplete.
  Then resume playable-world stutter and existing hose/book/nook repair gaps.
- Modeler22externalINERTpackets remain unintegrated/unverified. Preserve unrelated
+ Modeler23externalINERTpackets remain unintegrated/unverified. Preserve unrelated
  import churn/UIDs; no bulk stage/reset/shared stash or foreign branch deletion.
 
 ---
