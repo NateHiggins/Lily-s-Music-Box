@@ -190,6 +190,21 @@ About 1,200 of 16,300 strings change, 7%. Each phase is small PRs by surface.
 10. **D10 Facade address.** "600 WEST 138TH STREET" still stands against "across Jackson Avenue". It's editorial D7, open since 22 October. *Recommend ruling it now, since the Orison's entry depends on it.*
 11. **D11 Spoiler classes.** Approve the 12 author-only and 14 report-only lists in the glossary. *Recommend yes. Move anything you'd rather keep shut.*
 
+## Owner rulings, 2026-11-01
+
+Lily answered by questionnaire and took the recommendation in section 5 on all ten of these:
+**D1, D2, D3, D4, D5, D6, D7, D8, D9** and **D11**. So the pass may start, in the order the proposal gives.
+
+- **D2:** the word file now, the plain-words list after the playtest, the Word-Book later.
+- **D3:** Americanise lift, skirting, jumper, torch, fortnight and tram in American mouths. Parlour, licence, grey and kerb stay as this world's spelling, stated in the style sheet.
+- **D4:** House English is retired as a universal register. Square, cross, hot, blind, owing and carrying stay for Omar and the slips only, proposed line by line.
+- **D5:** "glad-rag royalty", "the sisterhood" and "in the life" stay out. "Friends of the house" stays. The hostile words stay at zero.
+- **D6:** the Record may identify people. The uncanny stays unexplained.
+- **D7:** rename Pruett and the ice cutter Hanrahan. New names come to her for approval. The Emils and Hollises stay.
+- **D8:** Cam and Juno keep their modern words, and everyone else goes to the period.
+- **D9:** phases 2 to 6 land in one planned window with other merges held, and the three packets are re-earned once at the end.
+- **D10** was ruled separately in **design/ORISON_EDITORIAL_PASS_2026-10-22.md** under its D7: research an actual 1928 lot address first.
+
 ## 6. What I read and didn't
 
 **Read in full:** AGENTS, the 22 October ledger, the lore pass, the three checkers, the House English strategy, the voice map, Bible §VIII, all mail, Adela's tree. **In part:** the treatment, the suspect chains, the newspaper brief, the style guide, the rest of the Bible.
