@@ -4,15 +4,47 @@ Evidence class: **INERT**. Continuity index, not whole-game/artistic acceptance.
 Owner Lily,she/her; canonical C:/PleaseRemainOnTheLine. Full V2 goal active and
 incomplete. Read DOCS.md/AGENTS.md and the existing skills; history below is stale.
 
-Canonical branch **codex/v2-city-qualification-20261101**; main/origin/main last
-verified **6abe6d424ae78e681e1861439bd3dfc7064055b0**. PR132/134 merged there.
-Pushed partial checkpoint0389a4609 contains the first composed-test repair.
-PR135 merged at **6abe6d424ae78e681e1861439bd3dfc7064055b0**; its entire tree
-matches qualified **5a4ef2fa2cef29cf4a2c0b426fc616bbc46727be**. Complete clean119-gate
-comparison:zero regressions/waivers/blockers,17/17protected,selectorV2,reader/
-spatialPASS,surfacePASS0,lint0,requirementsunchanged. Core instruments and original
-source-gate class AST unchanged; three tests added. Actual engine proof is below.
-This final record changes only ledger/queue/continuity/archive; no source edits.
+Current canonical branch **codex/v2-city-apartments-intake-20261101**; WIP merge
+**feca151ab** reconciles held source50cc328460 onto actual main/origin/main
+**e5fb16984067b3b6da0fa69179c3c11f2954f8ef**. WIP is pushed,not main-merged or
+qualified. All13 native fixture preflights/current strict grade validator pass.
+Current surface packet is intentionally stale until actual canonical renewal.
+Runtime hash **1265053cf6e531cec002cb925e8fcb5898a461bfcb42955198343893d59a2439**
+and12 consumed controller dependencies exactly match the peer's actual142/0,
+19-leg/7-endpoint/4736-sample composed receipt. Reuse eligibility is recorded in
+**C:/ov/reports/city_apartments_intake_20261101/composed_route_reuse_eligibility.json**;
+original receipt not repinned/relabelled. All5 prior native classes AST exact;
+six final near/lower CPU views independently inspected. Do not rerun the unchanged
+walking route merely because the worktree moved; fresh imports/family/rendered
+physical checks remain necessary.
+
+The clean main E5 baseline completed:119 gates,dirty_paths=[],saved at
+**C:/ov/boards/e5fb16984067b3b6da0fa69179c3c11f2954f8ef.v2.json**.
+Both canonical imports completed(exit0). First-import stderr retains missing
+historical res://tmp/roof-drain-discovery references; the second only reports a
+re-created scratch UID. These are not a clean-import claim. The loaded
+V2CityHorizonBench then completed30396 checks/0 failures in86.52s,empty stderr,
+no script/cache errors. Original wrapper/logs are under
+**C:/ov/reports/city_apartments_intake_20261101/**; family01/run.log.receipt.json.
+This is a loaded-family diagnostic,not composed surface or artistic acceptance.
+
+Current final-check attempt: composed01.json,one combined physical-only surface
+renewal+city diagnostic with P1/P2 context views,native3440x1440 hidden desktop.
+Session33120/broker43400 joined FIFO behind the current shops route and existing
+waiters. Source inputs frozen. Inspect its actual receipt before claiming any
+completion. No repeated19-leg walk: exact unchanged dependency proof above.
+Native packet retained full; Tier3 approves classification,not moving cited or
+hash-bound archives. Unrelated generated imports,UIDs and attachments preserved.
+Current strict terrain validator is tools/grade_source_snapshot.validate;
+reconcile_light_court_ground_source.py is an obsolete historical migration helper
+for an older schema,and its --check failure is not an active migration to replay.
+
+PR135 previously merged exact5a4ef2fa tree as6abe6d424; record-onlyE5 preserves
+render inputs59ecb4a2. Its completed119-gate/no-regression proof and actual29526/0
+engine programme are historical accepted technical evidence below. The newer
+native pair changes rendering inputs and requires renewed evidence. Main is not
+whole-game/whole-city production-ready.
+
 
 - Original composed8855/306+script error; first repair28990/176. Native source
   traces reproduce all176 old rectangular-plane errors. New source-only tool
@@ -55,7 +87,7 @@ NEXT: reconcile architect's pushed **50cc3284600f17c14cc3f993bd320a9df78132af**
  follow approved storage classes before reducing cited evidence. Technical
  K-V2-CITY-LEGACY-QUAL is closed/archived; full city and V2 remain incomplete.
  Then resume playable-world stutter and existing hose/book/nook repair gaps.
- Modeler21externalINERTpackets remain unintegrated/unverified. Preserve unrelated
+ Modeler22externalINERTpackets remain unintegrated/unverified. Preserve unrelated
  import churn/UIDs; no bulk stage/reset/shared stash or foreign branch deletion.
 
 ---
