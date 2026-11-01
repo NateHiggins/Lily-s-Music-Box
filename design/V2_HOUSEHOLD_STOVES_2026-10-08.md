@@ -227,3 +227,103 @@ the spatial receipt-script scanner to these INERT diagnostic scripts reports
 missing SOURCES declarations; they do not write runtime contracts, so that
 invocation is not applicable qualification and no declarations were invented
 to silence it. Runtime qualification and candidate verification remain open.
+
+### Loaded controls and installed failures
+
+**input04** completed 87 checks with two failures: both broiler targets aimed
+at the retained pivot below the new drawer front. Exported Bakelite-handle
+bounds establish part-local contact (0, .055, -.045). The unchanged mechanism
+pivot is not relocated. **input05** then completed **89 checks/0 failures** in
+26.96 seconds, empty shutdown stderr. Its actual 3440x1440 loaded image was
+inspected. This proves the stated isolated diagnostic only; it does not accept
+all installed rooms or full household reconstruction.
+
+**installed03 remains FAIL:** 5,636 module checks, 25 failures, 654 saved
+household records. Eighteen failures expected a retired whole-appliance
+PrimaryInteraction area. The replacement assertion checks each actual moving
+part's manipulation target and retained fixture collision instead. Three
+framing checks, three oven-input/pose checks and the complete-household reload
+comparison also failed; these are retained findings, not waived by fixing the
+stale assertion. The saved range itself reconstructed its partial flame. The
+batch did execute the selected stove validator despite separate eager-compile
+errors, so the earlier hypothesis of a parent-city fallback was too broad.
+
+The batch registry now loads and checks only selected validators before world
+construction. All 64 ordered registered keys/paths are unchanged; six existing
+fabrication tools tests pass. **installed04** started with this loader and no
+compile stderr, then was deliberately stopped at 50 seconds before repeating
+the known uncorrected installed programme. It has no completed module result
+and is not a pass.
+
+Source tracing identifies a concrete installed difference from the isolated
+fixture: the domestic fitting adapter formed one filled box around all fixed
+carcass stock, bridging the oven aperture and proud gas rail. The native range
+factory now installs cached triangle collision for its actual fixed meshes;
+the adapter retains its original fallback box only when no native FixtureBody
+exists. An exact source comparison confirms that single guard is the only
+shared-adapter change. No world blocker is excluded from player queries. New
+focused controls recreate the old box obstruction and test real back-stock
+blocking and ordinary door manipulation; these new controls await execution.
+
+**native_build08** renews the loader's source binding; exported GLB bytes remain
+exactly **b1c736f2b32e055748b146e80d8a844f6468c4da2dff4c946115a9299b30691a**.
+The unchanged native geometry/contact/motion review is reused, not rerun.
+Fixture-source preflight passes. Installed framing witnesses now fit inside the
+440 mm oven opening, retain external world occlusion and exact rendered
+self-occlusion for open views, and save explicitly unqualified debug views on
+failure. Reload comparison remains exact and now writes per-record differences
+instead of reporting only a boolean. Neither diagnostic change grants a pass.
+The next queued batch is **collision_batch01.json**, **input06** followed by
+**installed05**. Actual collision, installed captures and full reload are open.
+
+### Surface-check cost, without changing acceptance
+
+The timeout was profiled read-only. Independent import-parameter reads now use
+eight bounded I/O workers, freshly on every call, with unchanged sorted paths,
+hash algorithm and fail-closed errors. A controlled 8,494-entry projection is
+identical between original and parallel readers, normalizing only the changed
+instrument's own hash for that comparison; this is not a new qualification
+fingerprint. Measured calls were 64.102 and 19.757 seconds; sequential cache
+warmth is a limitation, so no general speedup ratio is asserted.
+**gates_surface_retry/board.json** actually completes all **42 tests/0 failures**
+in **553.08 seconds** under the unchanged 600-second ceiling. This is one
+tools-test file, not a full green board. The changed instrument still requires
+candidate review and fresh actual surface qualification; no old receipt is
+repinned and no assertion or negative control is removed.
+
+### Latest loaded result — installed range diagnostic passes
+
+**input06: 98 checks/0 failures**, 18.43 seconds, empty shutdown stderr. It
+reproduces the original filled-box obstruction as a negative control, then
+confirms real fixed back-stock blocking and ordinary oven/broiler/tap/starter
+input using the installed native collision method. Existing partial ignition,
+pause, hand revocation and isolated validated disk-load checks still pass.
+
+**installed05: 5,861 checks/1 failure**, retained: after-tick strict whole-registry
+equality mixed normal moving-bookend, boiler-water and fridge-tray simulation
+with tiny reconstructed quaternion differences. All other installed checks and
+three clear 4B captures passed. **installed06: 5,864 checks/1 failure**, retained:
+the immediate load-boundary physical comparison passed all 654 records, including
+negative controls for an altered valve and missing owner, but its expected JSON
+used default rounded serialization. RealityState.save_game explicitly uses
+full-precision JSON; the diagnostic now uses that same format. The save owner
+is unchanged. Physical floating values have an absolute 1e-6 reconstruction
+tolerance; integer settings, flags, keys, strings, rosters and array sizes remain
+exact. The full encoded household document is checked exactly, independently
+of the physical reconstruction check, before another simulation tick.
+
+**installed07: 5,864 checks/0 failures**, one selected household-stoves validator,
+one production world, all 18 actors and 654 household records. Module time
+236.806 seconds; wrapper 266 seconds including setup/teardown; empty stderr.
+The real 4B oven/broiler/tap/starter route, partial flame, held-starter load
+boundary, exact encoded facts, physical reconstruction and resumed hand release
+pass. Open, closed and partial-flame kitchen renders were inspected at native
+3440x1440. These are completed, source-recorded **INERT diagnostics**, not a
+schema-2 gameplay contract, whole-shift playtest or artistic acceptance.
+
+Still required: fresh composed surface qualification, actual final gate-board
+comparison and candidate verification before manual merge. Collision triangles
+replace the old box; added physics/startup cost is not yet benchmarked. Reuse
+unchanged native geometry review, and do not rerun unrelated hose/book routes
+for these report edits. Original failed and intentionally interrupted runs are
+retained in the external report directory.

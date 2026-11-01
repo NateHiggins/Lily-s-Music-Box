@@ -24,7 +24,12 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(prop._door==prop.get_node("OvenDoor") and prop._door.position.is_equal_approx(Vector3(0,.34,-.318)) and prop._broiler.position.is_equal_approx(Vector3(0,.205,-.316)),"original oven and lower leaf pivots")
 		check(prop._clunk!=null and prop._burn!=null and prop._grates.size()==4 and prop._caps.size()==4 and prop._knobs.size()==4,"source service and audio owners retained")
 		var body := prop.get_node("FixtureBody") as StaticBody3D
-		check(prop.get_node_or_null("PrimaryInteraction") is Area3D and body!=null,"original functional interaction and fixture collision retained")
+		check(body!=null and body.get_child_count()>0,"original fixture collision owner retains solid stock")
+		for moving:Node3D in [prop._door,prop._broiler,prop._starter]+prop._knobs:
+			var area:=moving.get_node_or_null("ManipulationTarget") as Area3D
+			check(area!=null and area.get_child_count()>0 and area.collision_layer==1,"installed exact-part interaction target: "+str(prop.name)+"/"+str(moving.name))
+		for collision:CollisionShape3D in body.get_children():
+			check(collision.shape is ConcavePolygonShape3D,"fixed stock does not fill the oven opening with a bounding box")
 		var feet:Array=fixture.contacts.filter(func(contact):return contact.assembly==instance.variant)
 		check(feet.size()==4,"four sole contacts belong to this installed variant")
 		for contact: Dictionary in feet:
@@ -131,8 +136,9 @@ func _played_range(world:OrisonV2RuntimeRoot,actors:Array[Stove]) -> Dictionary:
 	check(await hand.operate(prop._door.to_global(door_contact),.5,prop),"installed 4B actual mouse opens oven leaf")
 	check(is_equal_approx(prop._door.rotation.x,-.5),"installed oven retains the released partial angle")
 	check(await hand.operate(prop._door.to_global(door_contact),0.,prop),"installed 4B actual mouse reseats oven leaf")
-	check(await hand.operate(prop._broiler.to_global(Vector3(0,0,-.02)),.1,prop),"installed 4B actual mouse pulls broiler drawer")
-	check(await hand.operate(prop._broiler.to_global(Vector3(0,0,-.02)),0.,prop),"installed 4B actual mouse reseats broiler drawer")
+	var broiler_contact:=Vector3(0,.055,-.045) # Actual native handle,above the retained pivot.
+	check(await hand.operate(prop._broiler.to_global(broiler_contact),.1,prop),"installed 4B actual mouse pulls broiler drawer")
+	check(await hand.operate(prop._broiler.to_global(broiler_contact),0.,prop),"installed 4B actual mouse reseats broiler drawer")
 	var face:Vector3=prop.global_basis*Vector3(0,0,-.02)
 	var working:int=(prop.blocked_burner+1)%4
 	var cold:Dictionary=initial.duplicate(true);cold.gas=[0.,0.,0.,0.];cold.lit=[false,false,false,false]
@@ -156,15 +162,51 @@ func _played_range(world:OrisonV2RuntimeRoot,actors:Array[Stove]) -> Dictionary:
 	hand.click()
 	check(world.player._grab.active() and world.player._grab.target.part==prop._starter,"installed starter held across disk-load boundary")
 	if world.player._grab.active():await hand.move_to(.003)
-	RealityState.load_game();await get_tree().physics_frame
-	check(RealityState.can_continue() and prop.mechanism_snapshot()==saved,"installed campaign reload reconstructs partial flame and valve pose")
-	check(world.household_state.snapshot()==all_saved,"campaign reload preserves complete household registry")
+	RealityState.load_game()
+	# Observe restoration before the next simulation tick moves water,loose
+	# bookends or an animated fridge tray. The encoded household facts must
+	# round-trip exactly; reconstructed float32 poses have a 1 microunit bound.
+	# Match RealityState.save_game's full-precision encoding; the default JSON
+	# writer rounds the expected values before comparison with the real save.
+	var decoded_saved:Variant=JSON.parse_string(JSON.stringify(all_saved,"\t",true,true))
+	check(RealityState.data[world.household_state.KEY]==decoded_saved,"validated disk reload preserves every encoded household fact")
+	var restored:Dictionary=world.household_state.snapshot()
+	var restored_records:Dictionary=restored.get("records",{})
+	var mismatches:Dictionary={}
+	for identity:String in all_saved.records:
+		if not _same_restored_physical(restored_records.get(identity),all_saved.records[identity]):mismatches[identity]={"saved":all_saved.records[identity],"restored":restored_records.get(identity)}
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("household_reload_difference.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","saved_count":all_saved.records.size(),"restored_count":restored_records.size(),"mismatches":mismatches},"\t"))
+	check(_same_restored_physical(restored,all_saved),"load boundary restores all household records within float32 pose precision")
+	var corrupted:Dictionary=all_saved.duplicate(true)
+	corrupted.records[str(prop.name)].value.gas[working]+=.01
+	check(not _same_restored_physical(restored,corrupted),"household comparison rejects an altered real valve setting")
+	corrupted=all_saved.duplicate(true);corrupted.records.erase(str(prop.name))
+	check(not _same_restored_physical(restored,corrupted),"household comparison rejects a missing saved owner")
+	await get_tree().physics_frame
+	check(RealityState.can_continue() and prop.mechanism_snapshot()==saved,"installed campaign reload reconstructs partial flame and valve pose after simulation resumes")
 	check(not world.player._grab.active() and prop._starter.position==prop._starter_home,"installed reload releases transient starter ownership")
 	RealityState.save_path=original_path
 	if capture_enabled:await _capture_stove(world,prop,"played_low_flame")
 	prop.restore_mechanism(initial);world.household_state.capture_now()
 	hand.free()
 	return {"executed":true,"actor":str(prop.name),"working_burner":working,"saved_mechanism":saved,"household_records":all_saved.records.size(),"scope":"Actual installed 4B tap/starter mouse route and complete campaign disk reload; does not qualify an entire shift or artistic acceptance."}
+
+func _same_restored_physical(a:Variant,b:Variant) -> bool:
+	if typeof(a) in [TYPE_INT,TYPE_FLOAT] and typeof(b) in [TYPE_INT,TYPE_FLOAT]:
+		if typeof(a)==TYPE_INT or typeof(b)==TYPE_INT:return a==b
+		return absf(float(a)-float(b))<=.000001
+	if typeof(a)!=typeof(b):return false
+	if a is Dictionary:
+		if a.size()!=b.size():return false
+		for key:Variant in a:
+			if not b.has(key) or not _same_restored_physical(a[key],b[key]):return false
+		return true
+	if a is Array:
+		if a.size()!=b.size():return false
+		for i in a.size():
+			if not _same_restored_physical(a[i],b[i]):return false
+		return true
+	return a==b
 
 func _write_visual_census(world: OrisonV2RuntimeRoot) -> void:
 	var rows: Array = []
@@ -214,6 +256,8 @@ func _capture_stove(world: OrisonV2RuntimeRoot, prop: Stove, state: String) -> v
 	if not requested.is_empty() and str(prop.name) not in requested:return
 	var bounds := prop._visual_bounds()
 	var station := Vector3.INF
+	var debug_station := Vector3.INF
+	var rejections:Array=[]
 	var target := prop.to_global(Vector3(0,.62,0))
 	var camera: Camera3D = world.player.camera
 	var old_fov := camera.fov
@@ -226,6 +270,7 @@ func _capture_stove(world: OrisonV2RuntimeRoot, prop: Stove, state: String) -> v
 			for distance: float in [1.6,1.9,2.2,1.35,1.15,2.5]:
 				var feet := prop.to_global(Vector3(sin(angle)*distance,.02,-cos(angle)*distance))
 				if not _city_clear_station(world,feet):continue
+				if not debug_station.is_finite():debug_station=feet
 				world.player.global_position=feet
 				world.player.face_world_point(target)
 				var blocked := false
@@ -233,17 +278,30 @@ func _capture_stove(world: OrisonV2RuntimeRoot, prop: Stove, state: String) -> v
 					var p := prop.to_global(bounds.get_endpoint(corner))
 					if camera.is_position_behind(p) or not frame.has_point(camera.unproject_position(p)):blocked=true
 				if blocked:continue
-				for x in [-.24,0.,.24]:
-					for y in [.36,.52,.67]:
+				# The new oven opening is 440 mm wide. These witnesses lie inside
+				# its actual jambs,rather than inside the solid surrounding enamel.
+				for x in [-.18,0.,.18]:
+					for y in [.38,.52,.67]:
 						var p := prop.to_global(Vector3(x,y,-.30))
 						var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(camera.global_position,p,1,[world.player.get_rid(),body.get_rid()]))
-						if not hit.is_empty() and hit.position.distance_to(p)>.02:blocked=true
+						# A closed door is the subject,not an unrelated world blocker.
+						# For open views,the exact rendered self-geometry is checked
+						# below; no external wall or furniture collider is excluded.
+						if not hit.is_empty() and hit.position.distance_to(p)>.02 and not prop.is_ancestor_of(hit.collider):
+							blocked=true
+							if rejections.size()<12:rejections.append({"collider":str(hit.collider.get_path()),"point":str(p),"hit":str(hit.position)})
 						if prop._open and _leaf_occludes(prop,camera.global_position,p):blocked=true
 				if not blocked:station=feet;break
 			if station.is_finite():break
 		if station.is_finite():break
 	check(station.is_finite(), "clear installed stove framing: "+str(prop.name)+" "+state)
 	if station.is_finite():await _city_capture(world,station,target,str(prop.name)+"_native_"+state,"native gas range and original service controls",str(prop.name))
+	elif debug_station.is_finite():
+		world.player.global_position=debug_station;world.player.face_world_point(target)
+		await get_tree().process_frame;await RenderingServer.frame_post_draw
+		var directory:=OS.get_environment("SHOT_DIR")
+		get_viewport().get_texture().get_image().save_png(directory.path_join(str(prop.name)+"_"+state+"_unqualified_debug.png"))
+		FileAccess.open(directory.path_join(str(prop.name)+"_"+state+"_framing_failure.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","station":str(debug_station),"rejections":rejections},"\t"))
 	camera.fov=old_fov
 
 func _leaf_occludes(prop: Stove, eye: Vector3, target: Vector3) -> bool:

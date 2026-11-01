@@ -574,6 +574,10 @@ func _run_gas_range_refit() -> void:
 	var stove:=ObservedRange.new();stove.name=str(row.id);stove.ambient_lit=false
 	stove.set_meta("native_stove_factory",factory);add_child(stove)
 	check(stove.native_ready,"original live stove owns replacement native mesh")
+	var fixed_body:=stove.get_node("FixtureBody") as StaticBody3D
+	check(fixed_body.get_child_count()>0,"native fixed-stock collision is present in the focused fixture")
+	for collision:CollisionShape3D in fixed_body.get_children():
+		check(collision.shape is ConcavePolygonShape3D,"native fixture preserves real fixed-stock collision rather than one filled box")
 	# Establish the unblocked control explicitly; exercise the source fault below.
 	for i in 4:stove.clear_jet(i)
 	check(stove._knobs.size()==4 and stove._starter!=null and stove.get_node("OvenValve")!=stove._starter,"four gas taps,separate starter and decorative oven valve")
@@ -585,13 +589,31 @@ func _run_gas_range_refit() -> void:
 	household._connect(RealityState,"state_changed",household._on_state_changed)
 	var hand:=preload("res://tests/fixed_gesture_patrol_hand.gd").new();hand.player=player;add_child(hand)
 	await get_tree().physics_frame
+	# Reproduce the original installed hull without changing production masks.
+	var old_bounds:=AABB();var first:=true
+	for draw:MeshInstance3D in stove.get_node("StaticCarcass").find_children("*","MeshInstance3D",true,false):
+		var bounds:AABB=(stove.global_transform.affine_inverse()*draw.global_transform)*draw.get_aabb()
+		old_bounds=bounds if first else old_bounds.merge(bounds);first=false
+	var legacy_hull:=StaticBody3D.new();var legacy_collision:=CollisionShape3D.new();var legacy_shape:=BoxShape3D.new()
+	legacy_shape.size=old_bounds.size;legacy_collision.shape=legacy_shape;legacy_collision.position=old_bounds.get_center();legacy_hull.add_child(legacy_collision);stove.add_child(legacy_hull)
+	player.camera.look_at(stove._door.to_global(Vector3(0,.17,-.025)))
+	await get_tree().physics_frame;await get_tree().physics_frame
+	var hidden_target:Dictionary=player._grab.find_target()
+	check(player._grab.last_hit.get("collider")==legacy_hull and hidden_target.get("blocked",false),"old installed bounding hull reproduces the hidden oven target")
+	legacy_hull.free()
+	await get_tree().physics_frame;await get_tree().physics_frame
+	var rear_hit:=get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(stove.to_global(Vector3(0,.6,.8)),stove.to_global(Vector3(0,.6,.1)),1,[player.get_rid()]))
+	check(not rear_hit.is_empty() and rear_hit.collider==fixed_body,"real fixed back stock still blocks a physics ray")
 	check(await _range_acquire(stove._door,Vector3(0,.17,-.025)),"actual pointer selects replacement oven leaf")
 	if player._grab.active():check(await hand.move_to(.5),"actual mouse opens replacement oven leaf");click()
 	check(await _range_acquire(stove._door,Vector3(0,.17,-.025)),"open oven leaf can be reacquired")
 	if player._grab.active():check(await hand.move_to(0.),"actual mouse closes replacement oven leaf");click()
-	check(await _range_acquire(stove._broiler),"actual pointer selects replacement broiler drawer")
+	# The retained mechanism pivot lies below the new front. Aim at the actual
+	# exported Bakelite handle: world-local Y=.260,Z=-.361,not the pivot Y=.205.
+	var broiler_contact:=Vector3(0,.055,-.045)
+	check(await _range_acquire(stove._broiler,broiler_contact),"actual pointer selects replacement broiler drawer")
 	if player._grab.active():check(await hand.move_to(.1),"actual mouse pulls replacement broiler drawer");click()
-	check(await _range_acquire(stove._broiler),"open broiler drawer can be reacquired")
+	check(await _range_acquire(stove._broiler,broiler_contact),"open broiler drawer can be reacquired")
 	if player._grab.active():check(await hand.move_to(0.),"actual mouse reseats replacement broiler drawer");click()
 	check(await _range_acquire(stove._starter),"actual pointer selects starter independently")
 	if player._grab.active():

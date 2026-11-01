@@ -5,6 +5,7 @@ var _fit: Dictionary
 var _control_pivots: Dictionary = {}
 var _flame_mount: Dictionary = {}
 var _service_obstructions_by_variant: Dictionary = {}
+var _fixed_shapes: Dictionary = {}
 
 func prepare() -> bool:
 	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
@@ -108,4 +109,26 @@ func install_on(prop: StoveProp) -> bool:
 	# Refresh selection and solid sweeps against the installed native meshes.
 	prop._build_primary_interaction()
 	prop.set_meta("v2_native_stove_variant",variant)
+	return _install_fixed_collision(prop)
+
+func _install_fixed_collision(prop: StoveProp) -> bool:
+	# A box around the whole carcass bridges its oven opening and the proud
+	# supply rail. It can hide the door from the player's real physics ray.
+	# Retain solid stock rather than excluding this fixture from hand queries.
+	if prop.get_node_or_null("FixtureBody") != null:return false
+	var body := StaticBody3D.new()
+	body.name = "FixtureBody"
+	for draw: MeshInstance3D in prop.get_node("StaticCarcass").find_children("*","MeshInstance3D",true,false):
+		if draw.mesh == null:continue
+		var key := draw.mesh.get_instance_id()
+		if not _fixed_shapes.has(key):
+			var shape := draw.mesh.create_trimesh_shape()
+			if shape == null:body.free();return false
+			_fixed_shapes[key] = shape
+		var collision := CollisionShape3D.new()
+		collision.shape = _fixed_shapes[key]
+		collision.transform = prop.global_transform.affine_inverse()*draw.global_transform
+		body.add_child(collision)
+	if body.get_child_count() == 0:body.free();return false
+	prop.add_child(body)
 	return true

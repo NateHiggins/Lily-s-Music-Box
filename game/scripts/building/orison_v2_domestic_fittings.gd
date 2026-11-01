@@ -103,7 +103,7 @@ func mount_source(adapter: Variant, parsed: Variant) -> bool:
 				var local: AABB = (consumer.global_transform.affine_inverse()*draw.global_transform)*draw.get_aabb()
 				bounds = bounds.merge(local) if found else local
 				found = true
-			if bounds.size.length_squared() > 0.0001:
+			if bounds.size.length_squared() > 0.0001 and consumer.get_node_or_null("FixtureBody") == null:
 				var body := StaticBody3D.new()
 				body.name = "FixtureBody"
 				var collision := CollisionShape3D.new()
