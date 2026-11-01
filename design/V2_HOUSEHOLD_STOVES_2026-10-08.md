@@ -352,3 +352,36 @@ qualification, all 600 old packet files were archived externally; the nine
 incoming main packet changes have a separate delta archive. No historical
 proof has been repinned to this source. Candidate comparison and manual merge
 remain open.
+
+### Combined current-main verification — completed
+
+The source-frozen batch completed all three stages. **import03** completed
+normally; **installed08** passes **5,864 checks/0 failures**, all 18 ranges,
+the real 4B controls and all 654 household records through the validated disk
+save owner after preserving PR126/128. The selected module took 53.993 seconds;
+the complete batch including production setup took 359.771 seconds, wrapper
+387 seconds. Shutdown stderr is empty. The fresh open, closed and 31%-flow
+flame captures were individually inspected at 3440x1440. They show the oven
+aperture, seated closed door and low burner flame; this is technical inspection,
+not approval of the kitchen's lighting, dressing or final appearance.
+
+**surface02** passes **651 checks/0 failures**, with a completed test-written
+schema-2 contract: all 30,048 physical draws, 6,670 materials and 543 textures.
+Its physical-only mode explicitly skips the separate interaction programmes,
+save reconstruction, companion sequence and civic access. Test time 269.706
+seconds, wrapper 296.55 seconds, empty stderr. Pinned patched Vulkan and the
+hidden desktop were used, with native 3440x1440 captures. Four fresh images
+(bookcase, bathroom, signal terminal and roof tank) were individually inspected.
+Flat cloud relief, sparse dressing and the strong bathroom lamp pool remain
+visible artistic concerns; this survey does not close those tasks.
+
+The actual contract, inventory, inspected images and byte-verified compressed
+stdout/stderr now replace the existing surface packet. The previous packet and
+incoming-main delta remain in the external archives named above. Fresh
+**surface02_qualification.json** reports **PASS, zero defects**, fingerprint
+**1f2aeac38054dee4c70524de0243cd517647266bb803a0b5352f358797b10bfc**.
+No historical receipt was repinned. The complete clean-checkout baseline board
+for **45c391bc** is cached for candidate comparison; its existing failures remain
+baseline debt, not a green-main claim. Candidate verification and manual merge
+remain the next actions. Broader V2 completion and added collision/startup cost
+are still unproven.

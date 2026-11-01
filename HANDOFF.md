@@ -46,15 +46,23 @@ The previous checkpoint below is historical, not the current branch/queue.
   **42 surface-requirements tests now pass in 553.08s under the same 600s ceiling**.
   That isolated retry is not a full green board. The changed instrument needs
   candidate review. No game-frame-time improvement follows from tool timings.
-- NEXT: commit/push the verified corrections, freeze rendering inputs, run one
-  physical-only composed surface renewal through the patched hidden-desktop
-  lane, inspect fresh captures, publish actual contract/log provenance, then
-  full gate comparison and candidate verification before manual merge. Reuse
+- Current-main **installed08 passes 5,864/0**, all 18 ranges and 654 household
+  records, including real controls and exact encoded save facts. Three fresh
+  3440x1440 range images inspected; wrapper 387s, empty stderr. **surface02
+  passes 651/0**, physical-only composed schema2 qualification, 30,048 draws,
+  6,670 materials, 543 textures, wrapper 296.55s, empty stderr. Four native-size
+  surface frames individually inspected; actual packet/log provenance published
+  and fresh qualification returns zero defects. Fingerprint **1f2aeac3…10bfc**.
+  Separate interaction programmes are explicitly NOT_EXECUTED; no whole-game or
+  artistic acceptance. Original failures and previous packet archives retained.
+- NEXT: commit/push the completed physical packet, then full gate comparison
+  and candidate verification before manual merge. Reuse
   unchanged interaction/native evidence. Do not enable auto-merge. Added native
   collision/startup cost and broader playable-world stalls remain unmeasured.
   Clean-main baseline runs in own detached **C:/ov/gas-b1101** at45c391bc,
-  exec session **89077**. It will validate/cache its actual complete board under
-  C:/ov/boards for candidate verification. The superseded2a baseline was
+  completed; its actual complete board is cached under C:/ov/boards for
+  candidate verification. Its existing failures remain baseline debt, not a
+  green-main claim. The superseded2a baseline was
   intentionally cancelled. Remove this own temporary checkout safely after use.
 - Controls/pause overhaul follows this range checkpoint. November 1 function
   matrix in the existing controller audit; expose existing inventory now, live
@@ -64,11 +72,15 @@ The previous checkpoint below is historical, not the current branch/queue.
   clawfoot/plumbing, fitted lavatory (includes old UV-only baseline), additive
   closet hardware, fixed boiler, mailbox, watch stations and washer. INERT
   deliveries only; verify each current manifest/consumer before intake.
-- City architect's published construction remains **643d59767**, docs followup
-  **b7acf6190**. New Western frontage is LOCAL/UNCOMMITTED/NOT READY: isolated
-  material/LOD family passed 949/0, but its actual player-access contract fails
-  a landing height (~24mm), only 3/12 route legs attempted. No canonical edits
-  or city merge. Use the architect's latest report, not an older passing subset.
+- City architect published Western frontage **74aa686920e51665af40c004255ffd4fb283748f**,
+  record-only followup **0bcb475f6a172cb409254ea6da1ade09528d0577** on its existing
+  isolated branch. Reported loaded family 949/0, isolated access 341/0, composed
+  access 113/0, 12 controller legs/seven endpoints/1,105 samples/no rescues.
+  One exact TEST_CONTRACT spatial camera record added; 11,073 earlier records
+  retained. Original landing/test-station failures remain in its review archive.
+  This delivery is not yet canonically integrated or management-qualified here.
+  Preserve its 336-member review archive (54,341,973 bytes), published source,
+  93 remaining generic profiles and lighting/performance/artistic limitations.
 - Questionnaire rulings are already on main in **2a2e97f56**. Researcher's Queens
   address decisions await developer review under **queens_lot_address_research_20261101/**:
   fictional composite, no lot/relocation selected, proposed temporary nonnumeric
