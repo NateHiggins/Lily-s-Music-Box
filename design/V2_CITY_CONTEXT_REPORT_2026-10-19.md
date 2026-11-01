@@ -5701,3 +5701,40 @@ review archives. The architect's integration hold is cleared for one bounded
 external P1/P2 construction batch. Legacy city qualification, cold stalls,
 remaining interactions and artistic work stay open. The Godot skill gains the
 proven live-binding/historical-snapshot distinction; quick_validate passes.
+
+### November 1 — retained roof and ground-derivative diagnostic repair
+
+Evidence class: **INERT**. Test repair,not composed gameplay or artistic proof.
+Branch **codex/v2-city-qualification-20261101** starts at main **32f59b0a4**.
+The clean actual main119-gate baseline is cached; no baseline metadata was repinned.
+Current loaded-family reproduction retained30011checks/33failures:32 roof failures
+and one aggregate ground-chart failure(two flagged meshes). The residential
+expectation recognized only the old three styles. Installed **CivicRows** uses
+the final floor plane for **stone_2129**,**narrow_2141** and**neogrec_2122**;
+the old check incorrectly subtracted the last floor. All existing hit/part and
+100-micrometre rules remain. Unknown roof styles remain refused. Real native
+roof mutations on all four flat styles reject a10mm displacement and removed
+collision,then restore exact poses/layers. Roof-only run passes every roof check,
+retaining30034checks/one ground failure.
+
+The two unchanged imported ground meshes are **orison_ground_Court_soil_P34_N27**
+and **orison_ground_StreetCut_soil_P34_N4**. The legacy vector calculation rounds
+thin-face subtraction/multiplication to float32. The already reviewed Western
+checker performs those operations as scalar doubles. This bench now reuses that
+implementation for ground only,retaining determinant1e-12,tangent dot.999,
+edge excess50micrometres and metric deviation.005. Its detached helper instances
+never enter the tree or start another world and are explicitly freed. Both
+unchanged sources pass; reversed handedness and collapsed-UV copies are rejected.
+The final loaded-family run passes30041/0 in74.60s with empty stderr and clean
+shutdown. Source-bound **family_outcome.json** is explicitly INERT,not a schema2
+production contract. No native mesh,material,physics or gameplay owner is edited.
+
+Reader NEW0 and spatial PASS. Existing full physical qualification remains
+PASS0 against the unchanged rendering projection; no repeat composed survey is
+claimed. Remaining legacy full-programme window-count,main-wall continuity,
+angled-pane and body-LOD assumptions are open. This does not close
+**K-V2-CITY-LEGACY-QUAL** or any stutter,save,whole-city or artistic requirement.
+Original failures,all three executed sources,controls and raw receipts are in
+**art/reviews/city_streets_20261029/legacy_roof_review_20261101.zip**:
+25members/231,269bytes/SHA256 **fc6afcc0ec5c86b3c692bf8ec28c56ba0952e09aef802025e8f0a90f7b0f6da9**.
+Complete candidate verification and merge remain pending.
