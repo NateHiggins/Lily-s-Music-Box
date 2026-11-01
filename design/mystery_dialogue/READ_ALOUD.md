@@ -7,7 +7,7 @@ Every line is PROPOSED. HOLD waits on Mina's canon.
 
 ## ADELA VOSS
 
-The living woman, met on visited dates before 19 July 1929. She is good company and a sharp edit, and sometimes wrong about who a picture belongs to. She has no idea who is holding her corner. No foreshadowing: she is having a good year. Her name and gender are ordinary knowledge, never a reveal.
+The living woman, met on visited dates before 19 July 1929. She is good company and a sharp edit, and sometimes wrong about who a picture belongs to. She has no idea who is holding her corner. No foreshadowing: she is having a good year. Her name and gender are ordinary knowledge, never a reveal. At the Harukiya she is enjoying herself and wants more of it. No song, card or line of hers refers forward.
 
 ### "Need a hand with that?"
 
@@ -140,6 +140,284 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
   - > You could be home by dark. → av_a2
   - (silence) → av_a2
 - **ADELA VOSS** (av_a2): I could be, and I'd have a window full of plucky girls who flew somewhere. I'd like one who's only standing by a wing and thinking about her lunch. Hold my bag.
+
+### "You're on tonight?"
+
+1928-11-17 to 1929-07-13 · 19:00-01:30
+
+- **ADELA VOSS** (av_p1): You're between my drummer and the door, night man, and she's been looking for a reason. Stay if you're staying. We open on money, then I get up, then we try something quiet and find out whose fault it is.
+  - > You get up? → av_p2
+  - > Whose fault is it? → av_p3
+  - (silence) → av_p3
+- **ADELA VOSS** (av_p2): Second number, about the middle. I stand, the piano stops, which surprises nobody but the piano, and Lily holds up the whole room on a snare for as long as I can get away with. By the finish I've hung a hat on her cymbal stand. The Speaker wanted to know where Mrs. Owen would hang hers.
+- **LILY** (av_p3): Hers.
+  - (silence) → av_p4
+- **ADELA VOSS** (av_p4): Mine. The slow one wants something in the last eight bars and I keep bringing it the wrong thing. Lily goes back to the bass for that one so she can stand further away from me.
+
+### "Don't mind me. I'm here for the radiator."
+
+1929-03-18 to 1929-03-18 · 17:00-18:59
+
+- **LILY** (av_o1): (Harukiya, before opening. Lily is working through the last eight bars on the bass when Adela comes in. Adela waits by the piano until she finishes, which takes some effort.) What?
+  - (silence) → av_o2
+- **ADELA VOSS** (av_o2): Nothing. Finish.
+  - (silence) → av_o3
+- **LILY** (av_o3): I did.
+  - (silence) → av_o4
+- **ADELA VOSS** (av_o4): Yes. Lovely. (She puts an envelope on the closed keyboard cover.)
+  - (silence) → av_o5
+- **LILY** (av_o5): Is the shop being sued?
+  - (silence) → av_o6
+- **ADELA VOSS** (av_o6): Would I look this pleased?
+  - (silence) → av_o7
+- **LILY** (av_o7): Depends who by.
+  - (silence) → av_o8
+- **ADELA VOSS** (av_o8): (She takes off her coat. One arm catches in the sleeve; she pulls too hard, gives up, and works the cuff loose.) The little picture concern in Astoria. The one I sent the photograph to.
+  - (silence) → av_o9
+- **LILY** (av_o9): The photograph you said was only an inquiry.
+  - (silence) → av_o10
+- **ADELA VOSS** (av_o10): It was. They've inquired back. (She has read the letter often enough to go straight to the paragraph.) They want to hear the act. Here. A recording test, if the room is suitable. Two numbers.
+  - (silence) → av_o11
+- **LILY** (av_o11): Here?
+  - (silence) → av_o12
+- **ADELA VOSS** (av_o12): (She nods. For a moment her smile loses its practised shape.) They asked when we could be ready.
+  - (silence) → av_o13
+- **LILY** (av_o13): (She reaches for the letter. Adela gives it to her, then tries to read over her shoulder.) I can read it from this side.
+  - (silence) → av_o14
+- **ADELA VOSS** (av_o14): I know. There's a bit near the bottom.
+  - (silence) → av_o15
+- **LILY** (av_o15): I'm getting there. (Adela puts her hands in her coat pockets, finds she is still holding the coat, and puts it down.) They liked the photograph.
+  - (silence) → av_o16
+- **ADELA VOSS** (av_o16): They have excellent taste.
+  - (silence) → av_o17
+- **LILY** (av_o17): You sent the one where you look as though you've just dismissed the orchestra.
+  - (silence) → av_o18
+- **ADELA VOSS** (av_o18): It's a useful expression. Saves postage later. (Lily laughs. Adela sits and opens the piano.) Listen. I thought, for the second number. (She plays the lead-in to the last eight, then changes it: the bass figure gives way to a rising chord, held where the next phrase should begin. She sings the phrase without words, adds another small ascent, and brings it home.) There.
+  - (silence) → av_o19
+- **LILY** (av_o19): (She is looking at the music.) Where do I come in?
+  - (silence) → av_o20
+- **ADELA VOSS** (av_o20): After that.
+  - (silence) → av_o21
+- **LILY** (av_o21): After which bit?
+  - (silence) → av_o22
+- **ADELA VOSS** (av_o22): (She plays it again, pointing with her chin as her hands land.) There. Two bars later.
+  - (silence) → av_o23
+- **LILY** (av_o23): You've added two bars.
+  - (silence) → av_o24
+- **ADELA VOSS** (av_o24): Only two.
+  - (silence) → av_o25
+- **LILY** (av_o25): And taken out the pulse underneath you.
+  - (silence) → av_o26
+- **ADELA VOSS** (av_o26): I want some space for the line.
+  - (silence) → av_o27
+- **LILY** (av_o27): Then keep the space we rehearsed. You can take your time over the bass.
+  - (silence) → av_o28
+- **ADELA VOSS** (av_o28): It keeps dragging me forward.
+  - (silence) → av_o29
+- **LILY** (av_o29): Is that what it sounded like last night?
+  - (silence) → av_o30
+- **ADELA VOSS** (av_o30): No, last night was good.
+  - (silence) → av_o31
+- **LILY** (av_o31): We spent an hour finding those bars.
+  - (silence) → av_o32
+- **ADELA VOSS** (av_o32): I know. I've had another thought.
+  - (silence) → av_o33
+- **LILY** (av_o33): You've had six since Saturday.
+  - (silence) → av_o34
+- **ADELA VOSS** (av_o34): (She starts the new passage again. Lily doesn't join her. After a few notes she stops.) You haven't tried it.
+  - (silence) → av_o35
+- **LILY** (av_o35): I don't want my part to be waiting for you to decide you've finished.
+  - (silence) → av_o36
+- **ADELA VOSS** (av_o36): You'd hear the breath.
+  - (silence) → av_o37
+- **LILY** (av_o37): Perhaps. I like what I play there. You liked it yesterday.
+  - (silence) → av_o38
+- **ADELA VOSS** (av_o38): (She looks down at her hands.) I still like it.
+  - (silence) → av_o39
+- **LILY** (av_o39): Well, it isn't in this one.
+  - (silence) → av_o40
+- **ADELA VOSS** (av_o40): (A chair scrapes in the bar. She waits for it to stop.) They'll only hear us once. At first, I mean. They won't know which night it usually comes right.
+  - (silence) → av_o41
+- **LILY** (av_o41): So let's play the version we know.
+  - (silence) → av_o42
+- **ADELA VOSS** (av_o42): I think this could be better.
+  - (silence) → av_o43
+- **LILY** (av_o43): It could. We could spend the whole week on it and find out. Have you told them yes?
+  - (silence) → av_o44
+- **ADELA VOSS** (av_o44): I said we could arrange an evening.
+  - (silence) → av_o45
+- **LILY** (av_o45): (Her hand falls from the strings.) Before asking me.
+  - (silence) → av_o46
+- **ADELA VOSS** (av_o46): I didn't give them a date.
+  - (silence) → av_o47
+- **LILY** (av_o47): You gave them me.
+  - (silence) → av_o48
+- **ADELA VOSS** (av_o48): (She draws breath. Lily waits, without helping her out of it.) Yes. I did. I'm sorry. (She closes the music over the new bars.) Would you like to do the test?
+  - (silence) → av_o49
+- **LILY** (av_o49): (She picks up the letter and reads the last paragraph properly.) I want to know what happens to the recording afterward.
+  - (silence) → av_o50
+- **ADELA VOSS** (av_o50): So do I. And whether they pay for a test.
+  - (silence) → av_o51
+- **LILY** (av_o51): Ask both before arranging our evening.
+  - (silence) → av_o52
+- **ADELA VOSS** (av_o52): I will.
+  - (silence) → av_o53
+- **LILY** (av_o53): (She hands the letter back.) Yes. I'd like to do it.
+  - (silence) → av_o54
+- **ADELA VOSS** (av_o54): (She presses her lips together. It doesn't quite contain the smile.)
+  - (silence) → av_o55
+- **LILY** (av_o55): You could have started with that question.
+  - (silence) → av_o56
+- **ADELA VOSS** (av_o56): I had a very composed entrance prepared.
+  - (silence) → av_o57
+- **LILY** (av_o57): I saw the sleeve.
+  - (silence) → av_o58
+- **ADELA VOSS** (av_o58): (She laughs, then looks at the closed music.) I do still want to try the two bars.
+  - (silence) → av_o59
+- **LILY** (av_o59): I know.
+  - (silence) → av_o60
+- **ADELA VOSS** (av_o60): After we've played the old one?
+  - (silence) → av_o61
+- **LILY** (av_o61): Once through as it stands. Then show me the new part slowly. I want to see if there's something I can play under it. And we choose together. You don't send them another improved version tonight.
+  - (silence) → av_o62
+- **ADELA VOSS** (av_o62): (She reaches for her pencil, hesitates, and puts it on the piano between them.) Together.
+  - (silence) → av_o63
+- **LILY** (av_o63): (She settles her hand on the bass. Adela opens the old arrangement, checks the first chord, and looks up for the count. They get through the verse. At the last eight the familiar figure comes in beneath her voice, and she lets it carry the phrase farther than she did last night. When the sound has gone, neither speaks immediately.)
+  - (silence) → av_o64
+- **ADELA VOSS** (av_o64): That was good.
+  - (silence) → av_o65
+- **LILY** (av_o65): Yes.
+  - (silence) → av_o66
+- **ADELA VOSS** (av_o66): (She turns back one page.) Now let me show you what I meant.
+
+### "You've got the pencil out."
+
+1929-03-25 to 1929-07-13
+
+- **ADELA VOSS** (av_l1): Read this. No, I'll read it, you'd do it no justice. "The Ravenswood Sound Shorts Company of Astoria has had favourable report of your act, and proposes to test same on the premises." I sent them a photograph in February and they sent a man to drink here and see if it was true. He didn't leave during the slow one. I told Lily on the eighteenth. Lily said ask what happens to the recording, so I asked. This is the answer.
+  - > That's good news. → av_l2
+  - > Test it how? → av_l3
+  - (silence) → av_l2
+- **ADELA VOSS** (av_l2): It's very good news. I've wanted somebody with a letterhead to say that since before you had that coat. It's also four pages, and I've been through them.
+  - > What's wrong with them? → av_l3
+  - (silence) → av_l3
+- **ADELA VOSS** (av_l3): Clause two, their arrangement, fixed as tested. Clause four, the concern selects the still. Clause six. It's sound on film, night man. They put my voice through a slit of light, some boy in Astoria develops it in the same soup I buy by the gallon, and clause six says the concern retains the negative.
+  - > Will you sign? → av_l4
+  - (silence) → av_l4
+- **ADELA VOSS** (av_l4): When it has my name, my picture and my take, I'll sign it on the bar. It's gone back in grease pencil. I do want this, you understand. I've got the routes page out of Variety folded in the music: the Original Georgia Five, Danceland, Jamaica. That's a train, not the moon. I'd like to be a train away from somebody's good opinion.
+  - > You know people who could lean on them. [needs m_adela_drawer] → av_l6
+  - (silence) → av_l4s
+- **ADELA VOSS** (av_l6): There's a man on the Board of Estimate who'd have them begging by Thursday. No. I'd like to find out what it's worth with nobody's arm behind its back. Don't look like that. I'm allowed one thing I've only got honestly.
+- **ADELA VOSS** (av_l4s): Go on, then. You've got a radiator somewhere.
+
+### "Any word from Astoria?"
+
+1929-04-05 to 1929-07-13 · needs **m_concern_letter**
+
+- **ADELA VOSS** (av_l5): They've answered. Clause nine: the premises to hold a licence under the Act. The Harukiya holds a wink.
+
+### "Clause six. They keep the negative."
+
+1929-04-21 to 1929-07-13 · needs **m_concern_letter**, **m_adela_was_wrong**
+
+- **ADELA VOSS** (av_q1): That's different. I took Miss Sato out of the window. Nobody's offering to take me out of every picture house between here and Jamaica.
+  - > You kept the plates. → av_q2
+  - (silence) → av_q3
+- **ADELA VOSS** (av_q2): I know what I kept. You've got a very unpleasant way of holding a wrench.
+- **ADELA VOSS** (av_q3): Why are you looking at me like that? You've got a very unpleasant way of holding a wrench.
+
+### "Don't let me interrupt."
+
+1929-03-23 to 1929-07-13 · 19:00-01:30
+
+- **ADELA VOSS** (av_e1): Again from the bridge.
+  - (silence) → av_e2
+- **LILY** (av_e2): You changed it.
+  - (silence) → av_e3
+- **ADELA VOSS** (av_e3): I improved it.
+  - (silence) → av_e4
+- **LILY** (av_e4): You changed it. For Astoria. Are we showing them the act, or the next one?
+  - (silence) → av_e5
+- **ADELA VOSS** (av_e5): All right, let me show you. (She reaches across for the chart, stops, and holds out her hand for it instead.) May I?
+  - > What you want there is a little more feeling. → av_e6
+  - (silence) → av_e6
+- **ADELA VOSS** (av_e6): Which bar?
+  - > Well, in general. → av_e7
+  - (silence) → av_e7
+- **ADELA VOSS** (av_e7): We're rehearsing this one.
+
+### "Juno Kells had a machine going on Saturday."
+
+1929-05-19 to 1929-05-29
+
+- **ADELA VOSS** (av_t1): Four minutes and eleven seconds. Lily on the bass, and the last eight went where I've been trying to put them all year. The whole room came in early, clean over my two bars, and I had nothing to do but go with them. Juno had that thing going in her coat. I've heard it. It's the best we have ever been.
+  - > Send them that. → av_t2
+  - > Who's in the room? → av_t3
+  - (silence) → av_t3
+- **ADELA VOSS** (av_t2): That's what I said. Made by friends, no fixed arrangement, no clause six. Lily said it louder. There's one difficulty.
+  - > What difficulty? → av_t3
+  - (silence) → av_t3
+- **ADELA VOSS** (av_t3): You can hear Miss Sato. She came in on the last chorus and on the top note her voice went, clean in half, and she kept going, and it's the truest thing anybody's done on that stage since I've had the bench. She's under the whole of the last eight, Juno can't splice her out without splicing us. She wants it wiped.
+  - > It's her voice. → av_t4
+  - > It's your take. → av_t5
+  - (silence) → av_t4
+- **ADELA VOSS** (av_t4): I know whose voice it is. I've had this conversation. I know how it goes. Go away, night man, I'm thinking.
+- **ADELA VOSS** (av_t5): Thank you. I tried that on her. It worked no better in April.
+
+### "What happened to that tape from May?"
+
+1929-05-30 to 1929-07-13 · needs **m_take_known**
+
+- **ADELA VOSS** (av_c1): Cut. I went up to 2C and stood on Juno's rug while she did it, so I could say I'd seen it, and I carried it down to the ashcan like a bailiff. The best four minutes I ever got, in a coil, on top of somebody's eggshells.
+  - > Why'd you do it? → av_c2
+  - > And Miss Sato's plates? → av_c3
+  - (silence) → av_c2
+- **ADELA VOSS** (av_c2): She asked me twice and she was right twice. Don't make a window card of it.
+- **ADELA VOSS** (av_c3): No. That's as far as I go this month.
+
+### "Is that the picture for Astoria?"
+
+1929-06-15 to 1929-07-13
+
+- **ADELA VOSS** (av_f1): That's the fifth. Look at the fourth first. Light from the left, you could read by it, and it's wrong, it's a wonderful picture of a woman who'd never get up from a bench. A photograph can advertise the wrong act. This one's right. This one, they can't select around.
+  - > It's good. → av_f2
+  - (silence) → av_f2
+- **LILY** (av_f2): Where am I?
+  - (silence) → av_f3
+- **ADELA VOSS** (av_f3): You're right there, that's your elbow.
+  - (silence) → av_f4
+- **LILY** (av_f4): It's a fine elbow. You said together, in March. Four pages you've sent them about who gets to choose the picture.
+  - (silence) → av_f5
+- **ADELA VOSS** (av_f5): (She looks at the print for longer than it needs.) I framed you out. I did that and didn't see it. I'm sorry. Pick the one you want.
+  - (silence) → av_f6
+- **LILY** (av_f6): I'm picking the ugly one. You're laughing in it and I've got both arms.
+
+### "You've got two bars too many in the slow one."
+
+1929-06-22 to 1929-06-29 · 19:00-01:30 · needs **m_two_bars**
+
+- **ADELA VOSS** (av_v1): Which bar?
+  - > Before the last eight. The two you added. Your hands have nothing to do. → av_v2
+  - (silence) → av_v2
+- **ADELA VOSS** (av_v2): You do radiators. (She looks at the keys, then plays it through without them, straight in. Across the room the bass player, who had gone for her coat, puts the coat down.)
+  - (silence) → av_v3
+- **LILY** (av_v3): I told you that in March.
+  - (silence) → av_v4
+- **ADELA VOSS** (av_v4): You told me you liked it the old way. He told me which bar.
+  - (silence) → av_v5
+- **LILY** (av_v5): So when the man with the wrench says it, it's a discovery.
+
+### "Good set."
+
+1929-06-29 to 1929-07-13 · 19:00-01:30
+
+- **ADELA VOSS** (av_u1): Was it? Yes. It went where it goes. Is the kitchen shut? I want something with rice in it and I don't want to hear about the bridge.
+  - > Do you want company? → av_u2
+  - (silence) → av_u2
+- **ADELA VOSS** (av_u2): Yes. Don't make me useful for a minute. Tell me something about pipes. I mean it. Something nobody could sing.
+  - > The third-floor riser knocks after the valve shuts. → av_u3
+  - (silence) → av_u3
+- **ADELA VOSS** (av_u3): Good. Go on.
 
 ## CAL DWYER
 
@@ -385,7 +663,7 @@ Admits a smaller recording offense quickly. Roof mic, wall tape, the Harukiya po
   - > Who else knows it's up there? → jk_m2
   - > Did you ask anyone? → jk_m3
   - (silence) → jk_m2
-- **JUNO KELLS** (jk_m2): Sacha, Thursdays, because Thursdays are Sacha's and we fight about it. The lady with the camera told me my cable was in her shot and moved it. Nicely! Moved it nicely! And she never told a soul. Whoever that makes her.
+- **JUNO KELLS** (jk_m2): Sacha, Thursdays, because Thursdays are Sacha's and we fight about it. Adela Voss told me my cable was in her shot and moved it. Nicely! Moved it nicely! And she never told a soul. I'd have told a soul.
 - **JUNO KELLS** (jk_m3): ... No. That's a real question, you're allowed that one. No.
 
 ### ""July 19, wall. Play on a quiet day.""
@@ -408,6 +686,46 @@ Admits a smaller recording offense quickly. Roof mic, wall tape, the Harukiya po
   - > Why those two dates? → jk_t2
   - (silence) → jk_t2
 - **JUNO KELLS** (jk_t2): He says somebody's clock was in both and he hates it. Go ask him, bring a chair, he'll play it till you agree with him.
+
+### "Your coat's running."
+
+1929-05-19 to 1929-05-29
+
+- **JUNO KELLS** (jk_p1): Oh, that's me, that's on, that's four-eleven of the Harukiya with people in it, it's not a crime it's a Saturday. There's a man in Elmhurst being summoned for selling a room, but I'm not selling, I'm only keeping it where nobody can get at it. Adela wants to mail it to Astoria. Miss Sato wants me dead. They've both been up here.
+  - > Did you ask Miss Sato? → jk_p2
+  - (silence) → jk_p2
+- **JUNO KELLS** (jk_p2): That's what the shouting is. That's the asking. It's going very well.
+
+### "You had a tape from the Harukiya, in May."
+
+1929-08-03 to 1929-08-30 · needs any of **m_take_known**, **m_take_cut**
+
+- **JUNO KELLS** (jk_d1): I cut it. She stood on my rug with her arms folded and I cut it and she took it down to the ashcan herself. That's true, you can check that, that's the whole truth about that reel.
+  - > That reel. → jk_d2
+  - (silence) → jk_d1s
+- **JUNO KELLS** (jk_d2): I dubbed that one. It was good, so I dubbed it, the day before she came up. So there's a second one. I haven't played it since. That's a lie, I've played it. I don't know why I'm telling the man who does the radiators.
+  - > Play it. → jk_d3
+  - > Did you ask Miss Sato? → jk_d4
+  - (silence) → jk_d2s
+- **JUNO KELLS** (jk_d1s): Good. That's all, then. That's all.
+- **THE REEL** (jk_d3): (Four minutes and eleven seconds of a Saturday in May. A woman is singing who has never once heard this from out here. She is a little flat in the second chorus and she does not care. Near the finish the whole room comes in early, right over something she had planned, and another voice comes in underneath, and breaks, and goes on.)
+  - (silence) → jk_d3b
+- **JUNO KELLS** (jk_d4): ... No. I'll ask. I said I'll ask. It's the only reel with that woman's left hand on it and I'd like that noted. I don't know who by.
+- **JUNO KELLS** (jk_d2s): Yeah. It's in the box with the others. It's got a label, I don't do labels, it's got a label.
+- **JUNO KELLS** (jk_d3b): Well?
+  - > She's flat in the second chorus. → jk_d5
+  - > Did you ask Miss Sato? → jk_d4
+  - (silence) → jk_d5s
+- **JUNO KELLS** (jk_d5): Oh, now the radiators have a view.
+  - > Did you ask Miss Sato? → jk_d4
+  - (silence) → jk_d5s
+- **JUNO KELLS** (jk_d5s): Yeah. Me too.
+
+### "That second reel."
+
+1929-08-31 to 1929-11-09 · needs **m_dub**
+
+- **JUNO KELLS** (jk_g1): It's cut. Miss Sato came up and stood on the same rug. I cut it, and I didn't dub it. You can check that. You can't check that. I didn't.
 
 ## LENA ORTIZ
 
@@ -438,6 +756,98 @@ Judgment hidden in useful advice. Has the bag; has the dated button book. No gri
   - (silence) → lo_k3
 - **LENA ORTIZ** (lo_k3): Six C. For a glove. I wrote it down that morning. One pearl, and she wanted it matched by noon, and I had one near enough. It's the book I use.
 - **LENA ORTIZ** (lo_k1s): You don't have to think of a question. I can always use someone to hold the other end of a sheet.
+
+### "What is that, a hat?"
+
+1928-11-17 to 1929-07-13
+
+- **LENA ORTIZ** (lo_h1): Try it sitting down.
+  - (silence) → lo_h2
+- **ADELA VOSS** (lo_h2): It looks better standing.
+  - (silence) → lo_h3
+- **LENA ORTIZ** (lo_h3): Then stand at the piano. Where do you want the weight?
+  - (silence) → lo_h4
+- **LENA ORTIZ** (lo_h4): (Adela sits. The cuff catches. Neither of them mentions it.) A hat is a strong word for this, night man, it has four pins and comes off with one hand and I tested that. She pays in prints. I said no frames. She framed them.
+
+## LILY
+
+The owner's self-insert. Every line here is a placeholder for her to rewrite. Drums on one number, bass on another, never both. Holds nothing in the case, is on no record of 19 July, and never learns who rides the night man: a good ear is not recognition. No biography beyond the count-in. She said yes to the test once she was asked, and she has a life this file does not write. Adela is the focus: these threads exist to show Adela.
+
+### "Is she always like this?"
+
+1928-11-17 to 1929-07-13 · 19:00-01:30
+
+- **LILY** (li_c1): Count her in and find out. She writes my entrance on the chart big enough to read in a coal hole, and then she moves it.
+  - > Why stay? → li_c2
+  - (silence) → li_c2
+- **LILY** (li_c2): Because of the finish on the second one. When we both mean it, you can't get a glass filled in this room for a full minute. Some nights we look at each other and drop it and just laugh. That's good too. Mind the stand.
+
+### "Do you want to do the test?"
+
+1929-03-23 to 1929-07-13 · 19:00-01:30 · needs **m_concern_letter**
+
+- **LILY** (li_a1): I said yes in March, once somebody asked me. It's a good offer. She's sent it back with corrections, they've sent it back with fewer pages, and one of these days they get bored.
+  - > She wants her name on it. → li_a2
+  - (silence) → li_a2
+- **LILY** (li_a2): She's right about the name. She's right about the picture. She'll be right about clause six until they stop writing. I want to hear what we sound like from outside. Once. Nobody in this room has ever heard that.
+  - > Have you told her? → li_a3
+  - (silence) → li_a3
+- **LILY** (li_a3): Every Tuesday. She says "from the bridge."
+
+### "You're short a piano."
+
+1929-07-27 to 1929-11-09 · 19:00-01:30
+
+- **LILY** (li_f1): Don't. I've had the faces. Do you want a drink, or do you want to carry this? Juno Kells says she can play piano. She can't. We find out how much on Thursday.
+  - > I'll carry it. → li_f2
+  - (silence) → li_f2
+- **LILY** (li_f2): Other end. It's a bass fiddle, not a patient.
+
+### "Did she ever sign with Astoria?"
+
+1929-08-03 to 1929-11-09 · 19:00-01:30 · needs **m_concern_letter**
+
+- **LILY** (li_r1): They wrote. To the bar, she never gave them the shop. It came the Tuesday after. "We note your amendments. Clause six stands. Kindly advise." Nobody in Astoria reads the Record. I've got all seven of theirs in the bench, under the music, with her pencil on every one, and no correction twice.
+  - > Will you sign it? → li_r2
+  - > What would she have wanted? → li_r3
+  - (silence) → li_r2
+- **LILY** (li_r2): It's a test of an act. I wrote back: Miss Voss is dead, send the picture. Took me a week. It's the shortest thing they've had from this address.
+- **LILY** (li_r3): Don't you start. Everybody's got hold of what she wanted. She wanted eleven changes and a hat.
+
+### "That slow one sounds different."
+
+1929-07-27 to 1929-11-09 · 19:00-01:30
+
+- **LILY** (li_v1): It does. She took out her two bars at the end of June. I'd told her in March. Then you stood by the coat hooks and told her which bar, and she played it like scripture. Don't look at me, I was there. You had your coat on.
+  - > I don't remember that. → li_v2
+  - (silence) → li_v2
+- **LILY** (li_v2): Nobody remembers their good ones. You've got ears, for a man with a wrench. It went where it goes, two Saturdays out of three. I'm not sorry about that.
+
+### "Did the picture come back?"
+
+1929-08-17 to 1929-11-09 · 19:00-01:30 · needs **m_concern_letter**
+
+- **LILY** (li_p1): Friday. Somebody over there has written on it in pencil. "Suggest smaller hat." It's the ugly one, I've got both arms and she's laughing at something off the edge. It's the only one of the two of us there is.
+  - > It's her face. → li_p2
+  - > You should keep it. → li_p3
+  - (silence) → li_p2
+- **LILY** (li_p2): Emil Voss has a wall. I'll take it round. I said I'll take it round.
+- **LILY** (li_p3): That's what I've been telling myself. You'd think it would sound better from a stranger.
+
+### "Juno Kells has something she told me about."
+
+1929-08-10 to 1929-11-09 · 19:00-01:30 · needs **m_dub**
+
+- **LILY** (li_d1): She told you too? She can't hold it, she's like a boiler. That's my bass on there. I'd like that reel more than anyone living.
+  - > So ask for it. → li_d2
+  - (silence) → li_d2
+- **LILY** (li_d2): Miss Sato said no in May. All that's changed since is who's missing from the room. I've got a bench full of grease pencil. I'm not asking.
+
+### "How was Thursday?"
+
+1929-09-01 to 1929-11-09 · 19:00-01:30
+
+- **LILY** (li_t1): Eleven people, one fight, and a man who wants the same waltz he wanted last week. I got paid in rice crackers. I'm told that's a raise.
 
 ## MAE KESSLER
 
@@ -700,6 +1110,12 @@ A plan that includes everybody before asking anybody. Chairs the tenants' associ
 - **NADIA QUELL** (nq_l2): Nothing. I looked, after the third one. A clean bottom drawer, and you'd have to know to open it. I don't know what it held. Her register has the deed's plates filed to it, and those aren't anywhere either. I tell every good hat the same. None of them believes me.
 - **NADIA QUELL** (nq_l1s): If you came to dust, the pins are in the tin. Mind the card in the corner. I haven't finished being rude to it.
 
+### "Is Miss Voss singing at the Association supper?"
+
+1929-02-02 to 1929-07-13
+
+- **NADIA QUELL** (nq_p1): Yes. Two numbers, the raffle, and I've put her down to photograph the committee. She asked me whether she'd agreed to that. I've started asking people. I do it directly after.
+
 ## NOEL PRICE
 
 A handling instruction more alarming than the object warrants. Named by a simile in Jonah's page; his gloves have no buttons. Comic engine: conservation ethics applied to what nobody wants.
@@ -786,6 +1202,12 @@ Offense at workmanship; an economical answer. Spare shop key, the recorder, the 
   - > Can you get anything off it? → ob_a2
   - (silence) → ob_a2
 - **OMAR BELL** (ob_a2): I can get it out without breaking it. Anything past that, you want someone who's paid to look. Six A. Carry it flat. Flat. Give it here, I'll carry it.
+
+### "You've got the Harukiya's piano bench on your table."
+
+1928-11-17 to 1929-07-13
+
+- **OMAR BELL** (ob_n1): Hinge. Somebody's keeping a library in it and somebody gets up off it fast. I put in a longer pin. She asked could it go quieter. I said she could get up quieter. She said that was the number. So it's a longer pin.
 
 ## PATROLMAN
 
@@ -915,6 +1337,26 @@ Manages how a moment appears until a plain objection arrives. A real privacy cla
 - **RHEA SATO** (rs_p2s): Now you've gone red. Why have you gone red?
 - **RHEA SATO** (rs_p4): At home, with the booth shut. I recorded a take for my own files at ten, which I shall not be playing you. Ask me who heard it. Nobody. That's what the booth is for. You may keep your suspicion. You may not keep putting me in the window.
 
+### "You were at the Harukiya, that Saturday in May."
+
+1929-05-19 to 1929-06-29
+
+- **RHEA SATO** (rs_h1b): I joined in. A person may join in. Twenty years I've never come in on a chorus for nothing, and I do it with a drink in my hand, and it splits, and the Kells girl has a machine in her coat.
+  - > Miss Voss says it's the best thing on the tape. → rs_h2b
+  - > Do you like her singing? → rs_h3
+  - (silence) → rs_h3
+- **RHEA SATO** (rs_h2b): Miss Voss would say so. She said it in April, about my face, with the same expression. Tell her the answer's the same and only the medium has changed.
+- **RHEA SATO** (rs_h3): Enormously. Put that in the window. I'll be there Saturday, in the same chair, and I'd like it understood that I can do both.
+
+### "Did Miss Kells come to see you?"
+
+1929-08-31 to 1929-11-09 · needs **m_asked_about_dub**
+
+- **RHEA SATO** (rs_u1): She stood on my mat and confessed. I've had that girl's confessions, they come small. She offered to play it to me. I was there when it happened. I don't need it twice.
+  - > Will you keep it? → rs_u2
+  - (silence) → rs_u2
+- **RHEA SATO** (rs_u2): No. Tell the drummer it was good. Adela Voss kept my plates till somebody robbed her of them, and I don't forgive the plates. But she stood over that reel because I asked her to. Miss Kells may cut it. I shall come up and watch.
+
 ## SACHA REED
 
 One dry frame-edge observation. They/them. Thursday roof rota, the duplicate, prints plate 13. Never treats an image as the whole event. Keeps a sleeve book.
@@ -987,6 +1429,12 @@ Practical instruction that puts someone to work. Never a joke at the body. She n
 - **TERESA VALE** (tv_n1s): If you've got something, say it. I'm on at seven and there's a man on my ward who's been dying since Tuesday with great consideration.
 - **TERESA VALE** (tv_n4): He had the page in his hand. He wanted a time and an address. Nobody reads a nurse's chart until somebody's dead, and then it turns out they don't read it then.
 - **TERESA VALE** (tv_n2s): Keep it dry if you take a copy. I need that book.
+
+### "I saw you at the Harukiya."
+
+1928-11-17 to 1929-07-13
+
+- **TERESA VALE** (tv_s1): I don't go for the music, I go because they let me sit. Miss Voss puts a glass where I can reach it without looking and doesn't tell me she's done it. I've slept through the slow one twice. She thinks that's a review. Sit down or go up, you're blocking my feet.
 
 ## THE GUESTS
 

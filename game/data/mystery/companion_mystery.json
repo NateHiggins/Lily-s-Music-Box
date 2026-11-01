@@ -764,6 +764,39 @@
    "text": "Entered, on your word: a drawer emptied by someone who took a deed. I have no column for a man who has no use for it."
   },
   {
+   "id": "m_set_1",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "did you hear that",
+    "did you hear her",
+    "did you hear the set"
+   ],
+   "requires": [
+    "m_heard_set"
+   ],
+   "exhaust": 1,
+   "note": "It carries no opinion of music. It reports the room.",
+   "text": "I have it as a sound through my case. I cannot tell you it was good. I can tell you that for one minute and ten seconds nobody ordered anything."
+  },
+  {
+   "id": "m_set_2",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "was i flat",
+    "i was flat",
+    "i m flat",
+    "flat in the second chorus"
+   ],
+   "requires": [
+    "m_heard_self"
+   ],
+   "exhaust": 1,
+   "note": "Only after the dub. The objections file, turned round.",
+   "text": "I have no fork and no ear for it. I have filed it: objections from the deceased, against herself. The department has noted a conflict and is proceeding."
+  },
+  {
    "id": "m_end_keep",
    "movement": "IV_line",
    "surface": "witnessed",

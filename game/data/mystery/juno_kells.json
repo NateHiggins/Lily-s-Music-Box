@@ -10,7 +10,10 @@
  "entries": {
   "jk_mic": "jk_m1",
   "jk_wall": "jk_w1",
-  "jk_trade": "jk_t1"
+  "jk_trade": "jk_t1",
+  "jk_pocket": "jk_p1",
+  "jk_dub": "jk_d1",
+  "jk_gone": "jk_g1"
  },
  "threads": [
   {
@@ -45,6 +48,37 @@
    ],
    "source": "B19. The lead that sends the player to 5B. Bank line: a household noise.",
    "root": "jk_t1"
+  },
+  {
+   "id": "jk_pocket",
+   "from": "1929-05-19",
+   "until": "1929-05-29",
+   "topic": "Your coat's running.",
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK4. The smaller offense, quickly. Not the archive and not take 18, which stay hers and unspoken.",
+   "root": "jk_p1"
+  },
+  {
+   "id": "jk_dub",
+   "from": "1929-08-03",
+   "until": "1929-08-30",
+   "topic": "You had a tape from the Harukiya, in May.",
+   "requires_any": [
+    "m_take_known",
+    "m_take_cut"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK10. The dub. The only reel of Adela singing, and Rhea is the one Juno has to ask. Fixed window: the reel is gone by 31 August whichever date the player visits first. No case flag, no clue, nothing of July.",
+   "root": "jk_d1"
+  },
+  {
+   "id": "jk_gone",
+   "from": "1929-08-31",
+   "until": "1929-11-09",
+   "topic": "That second reel.",
+   "requires": [
+    "m_dub"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK10, after. Juno is still Juno.",
+   "root": "jk_g1"
   }
  ],
  "nodes": {
@@ -66,7 +100,7 @@
   },
   "jk_m2": {
    "flag": "m_juno_roof_mic",
-   "line": "Sacha, Thursdays, because Thursdays are Sacha's and we fight about it. The lady with the camera told me my cable was in her shot and moved it. Nicely! Moved it nicely! And she never told a soul. Whoever that makes her."
+   "line": "Sacha, Thursdays, because Thursdays are Sacha's and we fight about it. Adela Voss told me my cable was in her shot and moved it. Nicely! Moved it nicely! And she never told a soul. I'd have told a soul."
   },
   "jk_m3": {
    "line": "... No. That's a real question, you're allowed that one. No."
@@ -109,6 +143,91 @@
   "jk_t2": {
    "flag": "m_drama_lead",
    "line": "He says somebody's clock was in both and he hates it. Go ask him, bring a chair, he'll play it till you agree with him."
+  },
+  "jk_p1": {
+   "silence_goto": "jk_p2",
+   "line": "Oh, that's me, that's on, that's four-eleven of the Harukiya with people in it, it's not a crime it's a Saturday. There's a man in Elmhurst being summoned for selling a room, but I'm not selling, I'm only keeping it where nobody can get at it. Adela wants to mail it to Astoria. Miss Sato wants me dead. They've both been up here.",
+   "choices": [
+    {
+     "label": "Did you ask Miss Sato?",
+     "goto": "jk_p2"
+    }
+   ],
+   "flag": "m_take_known"
+  },
+  "jk_p2": {
+   "line": "That's what the shouting is. That's the asking. It's going very well."
+  },
+  "jk_d1": {
+   "silence_goto": "jk_d1s",
+   "line": "I cut it. She stood on my rug with her arms folded and I cut it and she took it down to the ashcan herself. That's true, you can check that, that's the whole truth about that reel.",
+   "choices": [
+    {
+     "label": "That reel.",
+     "goto": "jk_d2"
+    }
+   ]
+  },
+  "jk_d1s": {
+   "line": "Good. That's all, then. That's all."
+  },
+  "jk_d2": {
+   "flag": "m_dub",
+   "silence_goto": "jk_d2s",
+   "line": "I dubbed that one. It was good, so I dubbed it, the day before she came up. So there's a second one. I haven't played it since. That's a lie, I've played it. I don't know why I'm telling the man who does the radiators.",
+   "choices": [
+    {
+     "label": "Play it.",
+     "goto": "jk_d3"
+    },
+    {
+     "label": "Did you ask Miss Sato?",
+     "goto": "jk_d4"
+    }
+   ]
+  },
+  "jk_d2s": {
+   "line": "Yeah. It's in the box with the others. It's got a label, I don't do labels, it's got a label."
+  },
+  "jk_d3": {
+   "speaker": "THE REEL",
+   "flag": "m_heard_self",
+   "silence_goto": "jk_d3b",
+   "line": "(Four minutes and eleven seconds of a Saturday in May. A woman is singing who has never once heard this from out here. She is a little flat in the second chorus and she does not care. Near the finish the whole room comes in early, right over something she had planned, and another voice comes in underneath, and breaks, and goes on.)"
+  },
+  "jk_d5": {
+   "silence_goto": "jk_d5s",
+   "line": "Oh, now the radiators have a view.",
+   "choices": [
+    {
+     "label": "Did you ask Miss Sato?",
+     "goto": "jk_d4"
+    }
+   ]
+  },
+  "jk_d5s": {
+   "line": "Yeah. Me too."
+  },
+  "jk_d4": {
+   "flag": "m_asked_about_dub",
+   "line": "... No. I'll ask. I said I'll ask. It's the only reel with that woman's left hand on it and I'd like that noted. I don't know who by."
+  },
+  "jk_d3b": {
+   "silence_goto": "jk_d5s",
+   "line": "Well?",
+   "choices": [
+    {
+     "label": "She's flat in the second chorus.",
+     "goto": "jk_d5"
+    },
+    {
+     "label": "Did you ask Miss Sato?",
+     "goto": "jk_d4"
+    }
+   ]
+  },
+  "jk_g1": {
+   "line": "It's cut. Miss Sato came up and stood on the same rug. I cut it, and I didn't dub it. You can check that. You can't check that. I didn't."
   }
  }
 }

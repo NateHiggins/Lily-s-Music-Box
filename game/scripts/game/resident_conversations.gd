@@ -95,6 +95,7 @@ const MYSTERY_PATHS: Array[String] = [
 	"res://data/mystery/jonah_price.json",
 	"res://data/mystery/juno_kells.json",
 	"res://data/mystery/lena_ortiz.json",
+	"res://data/mystery/lily.json",
 	"res://data/mystery/mae_kessler.json",
 	"res://data/mystery/malcolm_reed.json",
 	"res://data/mystery/mina_vale.json",

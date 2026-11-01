@@ -9,7 +9,8 @@
  },
  "entries": {
   "lo_bag": "lo_b1",
-  "lo_book": "lo_k1"
+  "lo_book": "lo_k1",
+  "lo_hat": "lo_h1"
  },
  "threads": [
   {
@@ -27,6 +28,14 @@
    "topic": "You keep a book of buttons.",
    "source": "B20, S12. On request, on any date after. It does not need Mrs. Wiggins.",
    "root": "lo_k1"
+  },
+  {
+   "id": "lo_hat",
+   "from": "1928-11-17",
+   "until": "1929-07-13",
+   "topic": "What is that, a hat?",
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. Packet's fitting, with the wearer choosing. She gets something back.",
+   "root": "lo_h1"
   }
  ],
  "nodes": {
@@ -93,6 +102,22 @@
   "lo_k3": {
    "flag": "m_button_book",
    "line": "Six C. For a glove. I wrote it down that morning. One pearl, and she wanted it matched by noon, and I had one near enough. It's the book I use."
+  },
+  "lo_h1": {
+   "silence_goto": "lo_h2",
+   "line": "Try it sitting down."
+  },
+  "lo_h2": {
+   "speaker": "ADELA VOSS",
+   "silence_goto": "lo_h3",
+   "line": "It looks better standing."
+  },
+  "lo_h3": {
+   "silence_goto": "lo_h4",
+   "line": "Then stand at the piano. Where do you want the weight?"
+  },
+  "lo_h4": {
+   "line": "(Adela sits. The cuff catches. Neither of them mentions it.) A hat is a strong word for this, night man, it has four pins and comes off with one hand and I tested that. She pays in prints. I said no frames. She framed them."
   }
  }
 }

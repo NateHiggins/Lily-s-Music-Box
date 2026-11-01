@@ -112,6 +112,7 @@ Each person holds one useful thing. Nobody takes a turn at "implicated".
 | Iris Bell | The cadmium; the sketch | The roof, the canvas | **m_iris_sketch** |
 | Sacha Reed | Rota, duplicate, plate 13 | Thursday, the sleeve, what survived | **m_lease_on_glass**, **m_plate13_half** |
 | Jonah Price | Heard a line, wrote "white" | The page, the book | **m_jonah_page**, **m_jonah_heard** |
+| Lily (added 2026-11-01) | Nothing in the case | The act, Astoria, afterwards (**design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md**) | **m_two_bars** only |
 
 **The route still isn't a ladder.** The checker works out every flag a player can
 reach and fails if a requirement loop would strand a thread or the case. Ewald's

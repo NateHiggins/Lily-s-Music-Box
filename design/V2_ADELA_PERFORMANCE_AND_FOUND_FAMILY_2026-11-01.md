@@ -3,6 +3,9 @@
 Evidence class: **INERT**. Writers' room and performance-design packet, 2026-11-01.
 Owner: Lily. New owner direction is distinguished below from proposed writing.
 No new dialogue, character asset, stage, mocap, audio or runtime qualification is claimed.
+Later the same day the owner directed the Astoria offer. The plot, with first-draft
+threads for this packet's visits one and two and its recording disagreement, is in
+**design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md**; visit three and the stage stay here.
 
 ## The assignment
 
