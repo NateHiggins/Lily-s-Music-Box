@@ -1,4 +1,77 @@
-# Current handoff — 2026-10-31 compact companion and city checkpoint
+# Current handoff — 2026-11-01 installed range verification
+
+Evidence class: **INERT**. Continuity index, not acceptance evidence.
+
+Owner: Lily, she/her. Normal checkout **C:/PleaseRemainOnTheLine**; the app's
+v2-baseline can be stale. Read DOCS.md, AGENTS.md and developer-continuity.
+The previous checkpoint below is historical, not the current branch/queue.
+
+- Current branch **codex/v2-gas-range-refit-20261101**, base/main
+  **2a2e97f5625b47fb68c7bbd6dfe023a5eca142e1**. Pushed checkpoints
+  **687b1fd03** and **9aec085e0**; draft [PR #127](https://github.com/NateHiggins/Lily-s-Music-Box/pull/127).
+  Verified correction commits: **dbc70557d** (fresh parallel import reads) and
+  **f8b76e0b7** (installed collision and load-boundary diagnostics).
+  Nothing in this branch is merged yet. Preserve unrelated UIDs/attachments.
+- Corrected native source and seven range variants: all 18 placements,
+  contact/motion/UV/tangent checks pass. Export 239,788 triangles/296 partitions,
+  26,363,156 bytes, SHA256 **b1c736f2b32e055748b146e80d8a844f6468c4da2dff4c946115a9299b30691a**.
+  Source binding rebuilt after collision code changes; GLB and all other fixture
+  geometry/runtime data remain exact. No FPS gain or artistic acceptance claim.
+- Actual installed bug: one carcass bounding box covered the oven aperture.
+  Native fixed meshes now supply cached triangle collision. The shared adapter
+  changes only its fallback guard; fridge behavior remains unchanged. Focused
+  **input06 passes 98/0**, including old-hull negative control, real back-stock
+  blocking, actual controls, pause and isolated validated disk reload. Empty
+  stderr, 18.43s wrapper; not a runtime_contract or whole-world proof.
+- **installed07 passes 5,864/0**, all 18 actors, actual 4B oven/broiler/tap/starter
+  route, all 654 household records at the load boundary and resumed hand release.
+  Encoded facts compare exactly using the save owner's full-precision JSON;
+  reconstructed float32 poses use absolute 1e-6, with altered-valve/missing-owner
+  negatives. Whole-world simulation after a tick is not the frozen save state.
+  236.806s module / 266s wrapper, empty stderr. Three 3440x1440 kitchen captures
+  inspected. This is a completed INERT diagnostic, not artistic/whole-shift proof.
+- Raw evidence/original failures: **C:/ov/reports/gas_range_integration_20261101/**.
+  Read the latest November 1 section of **design/V2_HOUSEHOLD_STOVES_2026-10-08.md**.
+  Preserve input03 compile failure, input04 wrong broiler point, installed03's
+  25 findings, interrupted installed04, and installed05/06 observation/encoding
+  failures. A stderr compile error did not mean no validator executed: installed03
+  wrote a real failing stove packet. The scoped batch now loads only selected
+  validators, preserving all 64 ordered registered paths and fail-before-world.
+- Full **gates01/board.json**: 119 gates, 111 PASS/6 FAIL/1 INCOMPLETE/1 ERROR;
+  dirty source, not a clean-main baseline. Reader NEW 0; source/spatial/imports
+  pass; old surfaces are expired. The surface tools test timed out at 600s.
+  Bounded fresh import-sidecar reads preserve the 8,494-entry projection under
+  controlled self-code normalization; no receipt was repinned. Full existing
+  **42 surface-requirements tests now pass in 553.08s under the same 600s ceiling**.
+  That isolated retry is not a full green board. The changed instrument needs
+  candidate review. No game-frame-time improvement follows from tool timings.
+- NEXT: commit/push the verified corrections, freeze rendering inputs, run one
+  physical-only composed surface renewal through the patched hidden-desktop
+  lane, inspect fresh captures, publish actual contract/log provenance, then
+  full gate comparison and candidate verification before manual merge. Reuse
+  unchanged interaction/native evidence. Do not enable auto-merge. Added native
+  collision/startup cost and broader playable-world stalls remain unmeasured.
+- Controls/pause overhaul follows this range checkpoint. November 1 function
+  matrix in the existing controller audit; expose existing inventory now, live
+  map deferred. The interactive 4B exploration/pin-note example is external,
+  not installed discovery/save functionality. No new remapping implementation.
+- External native queue is in TASKS and the modeler's **interactive-v2-review-20261101/NATIVE_INTAKE_INDEX.md**:
+  clawfoot/plumbing, fitted lavatory (includes old UV-only baseline), additive
+  closet hardware, fixed boiler, mailbox, watch stations and washer. INERT
+  deliveries only; verify each current manifest/consumer before intake.
+- City architect's published construction remains **643d59767**, docs followup
+  **b7acf6190**. New Western frontage is LOCAL/UNCOMMITTED/NOT READY: isolated
+  material/LOD family passed 949/0, but its actual player-access contract fails
+  a landing height (~24mm), only 3/12 route legs attempted. No canonical edits
+  or city merge. Use the architect's latest report, not an older passing subset.
+- Questionnaire rulings are already on main in **2a2e97f56**. Researcher's Queens
+  address decisions await developer review under **queens_lot_address_research_20261101/**:
+  fictional composite, no lot/relocation selected, proposed temporary nonnumeric
+  wording; exact 1928 number unverified. No sign edit. Research stopped.
+
+---
+
+# Historical handoff — 2026-10-31 compact companion and city checkpoint
 
 Evidence class: **INERT**. Current-session index, not acceptance evidence.
 
