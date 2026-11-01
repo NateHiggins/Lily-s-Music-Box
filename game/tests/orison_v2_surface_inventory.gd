@@ -13,6 +13,10 @@ func _run() -> void:
 	var civic_access:Dictionary={"executed":false,"passed":false}
 	var civic_enabled:=OS.get_environment("ORISON_SURFACE_CITY_CIVIC_ACCESS")=="1"
 	var physical_only: bool=OS.get_environment("ORISON_SURFACE_PHYSICAL_ONLY")=="1"
+	# Optional related diagnostics share the production world; qualification
+	# still covers physical surfaces and does not grant interaction acceptance.
+	var city_diagnostic: Dictionary={"executed":false}
+	var city_diagnostic_enabled := not physical_only or OS.get_environment("ORISON_SURFACE_CITY_REVIEW")=="1"
 	if physical_only and (OS.get_environment("ORISON_SURFACE_FIRE_ONLY")=="1" or OS.get_environment("ORISON_SURFACE_CITY_ONLY")=="1"):
 		push_error("Physical surface mode cannot be combined with fire-only/city-only diagnostics")
 		get_tree().quit(2);return
@@ -93,8 +97,12 @@ func _run() -> void:
 	var seating_result: Dictionary={}
 	var storage_result: Dictionary={}
 	var media_result: Dictionary={}
-	if not physical_only:
+	if city_diagnostic_enabled:
+		var before_checks := batch_checks
+		var before_failures := failures.size()
 		await preload("res://tests/v2_city_elevation_review.gd").new().run(world,self)
+		city_diagnostic={"executed":true,"checks":batch_checks-before_checks,"failures":failures.size()-before_failures,"scope":"Source/composition city geometry and posed camera diagnostic; no played access or artistic acceptance."}
+	if not physical_only:
 		if OS.get_environment("ORISON_SURFACE_CITY_ONLY")=="1":
 			world.shutdown_for_tests();world.free()
 			for frame in 4:await RenderingServer.frame_post_draw
@@ -543,6 +551,7 @@ func _run() -> void:
 		"companion_sequence":companion_sequence,
 		"qualification_mode":"physical_surfaces_and_civic_access" if physical_only and civic_enabled else "physical_surfaces_only" if physical_only else "full_programmes",
 		"civic_world_access":civic_access,
+		"city_geometry_diagnostic":city_diagnostic,
 		"lamp_context_review":{"executed":lamp_context,"scope":"Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."},
 		"city_context_review":{"views":city_context_views,"scope":"Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance."},
 		"interaction_programmes":{"fire_service":{"executed":fire_interactions,"scope":"separate interaction programme; physical draws remain in the inventory"},"other_family_programmes":{"executed":not physical_only,"scope":"Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."}},

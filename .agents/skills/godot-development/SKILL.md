@@ -178,6 +178,17 @@ readability, and feel.
   camera helper cannot compose a second world. Exercise a small lifecycle
   control before the expensive combined run. See the prologue ledger's retained
   canopy/lamp combined01 failure; standalone defaults must remain unchanged.
+- **Source-aware physical probes:** an old massing envelope is not an authored
+  facade. Bind expected targets to frozen native construction, clear of trim,
+  respecting retained lower owners. Compare the installed stock against those
+  independent targets and mutate actual backing to prove rejection; never derive
+  the expected answer from the live collision under test. This proves physical
+  correspondence, not creative acceptance. See the city ledger's articulated-wall repair.
+- **Physics mutation controls:** moving a Node3D does not immediately synchronize
+  its physics query state. Await actual physics boundaries after displacement,
+  removal and restoration; verify exact poses/layers restored. Exercise a small
+  loaded fixture before composing the world. The city control's immediate query
+  falsely re-read the original face; the synchronized four-owner fixture passed.
 - **Composed fixture readiness:** a startup marker can precede the first normal
   process/draw. Before timing an installed mechanism, await real physics/draw
   registration. If it appears stuck, record frame count, callback clock, power,

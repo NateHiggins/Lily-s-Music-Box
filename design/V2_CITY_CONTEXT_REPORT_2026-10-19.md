@@ -5793,3 +5793,64 @@ production/native assets. The earlier physical PASS belongs to merged main;
 it cannot be carried over to this candidate. Final repair requires a new actual
 composed physical survey/review after sources stabilize. No repinning or waiver.
 The tested partial repair is pushed as **76dc24c14**, not merged.
+
+### November 1 — articulated wall probes and combined renewal
+
+Evidence class: **INERT**. Diagnostic repair and actual technical surface renewal;
+no architectural, artistic, performance or whole-game acceptance.
+
+The remaining176 failures assumed every primary wall sat on an old rectangular
+massing envelope. The authored commercial register instead uses depth[-.48,-.2]
+and source-specific apertures; lower Harukiya belongs to its retained occupied
+bar. A reproducible source-only sampler now freezes400 structural-face targets
+from the hash-bound native export: four heights/four directions/25 bodies. It
+rejects hidden targets, preserves the80mm front-face ray and100-micrometre error
+limit, and starts the Elks shaft above the retained bar. Expected points never
+come from the live collision under test. This checks native/composed physical
+correspondence, not a universal flat facade or creative approval. Existing
+setback metadata/roof/bearing and all face-equivalence checks remain.
+
+Real controls on **site_nbr_w**, **site_ne2**, **site_back_e** and **site_far_n**
+reject10mm displaced backing and removed collision, then restore exact transforms
+and layers. Original **after02** completed29,526/4: four displacement controls
+queried before physics synchronization. All400 source points and2,489 panes
+passed, but the failed contract was rejected. After waiting two physics frames
+per mutation/restoration, the small loaded fixture passes17/0 in13.71s,empty
+stderr. Its first harness attempt erroneously included rooftop fittings; raw
+script failure and verified-owned-process cancellation are preserved. No full
+world launched from that failed small-fixture batch.
+
+**current_city_after04** passes29,526/0:28,875 additive city diagnostic checks
+and the exhaustive physical programme share one production world. The opt-in
+**ORISON_SURFACE_CITY_REVIEW** works with physical-only mode, separately records
+its result, and avoids a second world composition or repeating unrelated hose
+programmes. Source/composition covers400 walls,2,489 panes,124 horizon buildings,
+771 base parts and341 pane stations. Inventory:30,471 draws/19,520 meshes/
+6,675 materials/543 textures. Runtime342.861s; wrapper362.69s; empty stderr and
+clean shutdown. These durations are run costs, not a gameplay FPS improvement.
+The test writes a completed schema2 contract; the independent saved packet gate
+passes0 defects at fingerprint
+**59ecb4a2792ab72a305e28e54915389cd7ce36784b5fec00f4470df069bef89a**.
+
+Seven current3440x1440 frames were individually inspected: four standard surface
+stations, source-derived horizon context, townhouse street front and open western
+street view. Glazing, varied window light, grain and fittings render; sparse
+furnishings, strong shadows/bathroom lamp pool and flat bright clouds remain
+artistic debt. Optional separately requested horizon-context stations were not
+selected in this run; no such captures are claimed. Separate fire/mechanical/
+save/civic programmes remain NOT_EXECUTED. Earlier unchanged frontage access
+proof remains separate. Three expired owned technical frames were removed only
+after consumer review and raw backup; original frontage frame remains. Recovery:
+main **308588b44**, current_main_intake archive and external
+**before_surface04_delta.zip** (SHA256
+**e99c026cf32acbd970ad88bf8771df8ef58872facbafcc2d881a7dabef5ff3ff**).
+
+Eight source tests pass, reader NEW0 and spatial audit clean. Godot skill updated
+with the demonstrated source-target and physics-barrier lessons. Candidate
+regression verification/merge remain pending; the full V2 goal stays incomplete.
+Source/failure/control records are compacted without duplicating rendered images:
+**art/reviews/city_streets_20261029/articulated_wall_review_20261101.zip**,
+45members/96,897bytes/SHA256
+**a09862ba27d181cd21377886579035ec60b42976718d0709f414442f8711a430**.
+All original logs, sources and large raw captures remain under
+**C:/ov/reports/city_qualification_repair_20261101/**.

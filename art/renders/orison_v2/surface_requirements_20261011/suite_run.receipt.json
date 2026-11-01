@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 221.7,
+  "elapsed_s": 362.69,
   "exit_code": 0,
-  "finished_utc": "2026-11-01T18:48:18Z",
-  "started_utc": "2026-11-01T18:44:36Z",
+  "finished_utc": "2026-11-01T20:41:00Z",
+  "started_utc": "2026-11-01T20:34:56Z",
   "timed_out": false
  },
  "log": {
@@ -13,28 +13,27 @@
   "fail_lines": [],
   "pass_count": 1,
   "pass_lines": [
-   "V2 SURFACE QUALIFICATION: PASS; 655 checks; 0 failures"
+   "V2 SURFACE QUALIFICATION: PASS; 29526 checks; 0 failures"
   ],
   "script_error_count": 0,
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/city_integration_20261101/surface01/run.log.stderr",
+  "stderr": "C:/ov/reports/city_qualification_repair_20261101/current_city_after04/run.log.stderr",
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "stdout": "C:/ov/reports/city_integration_20261101/surface01/run.log",
-  "stdout_sha256": "ad0159701312098bdb93f30506153dbe9492d125b8b91d08e62299cbb4eb9baa"
+  "stdout": "C:/ov/reports/city_qualification_repair_20261101/current_city_after04/run.log",
+  "stdout_sha256": "15afb65bd944d4476ed93f7dce29a937a158b60e26ac1ea7e514bd5744639551"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/city_integration_20261101/surface01",
+ "shot_dir": "C:\\ov\\reports\\city_qualification_repair_20261101\\current_city_after04",
  "source": {
-  "dirty_paths": 1123,
+  "dirty_paths": 1128,
   "dirty_sample": [
-   "M HANDOFF.md",
-   " M design/V2_CITY_CONTEXT_REPORT_2026-10-19.md",
+   "M .gitattributes",
    " M game/assets/textures/photo/own_plate.png.import",
    " M game/assets/ui/newspaper/pictures/b_281111_0.webp.import",
    " M game/assets/ui/newspaper/pictures/b_281111_1.webp.import",
@@ -52,13 +51,14 @@
    " M game/assets/ui/newspaper/pictures/b_281202_1.webp.import",
    " M game/assets/ui/newspaper/pictures/b_281202_2.webp.import",
    " M game/assets/ui/newspaper/pictures/b_281202_3.webp.import",
-   " M game/assets/ui/newspaper/pictures/b_281209_0.webp.import"
+   " M game/assets/ui/newspaper/pictures/b_281209_0.webp.import",
+   " M game/assets/ui/newspaper/pictures/b_281209_1.webp.import"
   ],
-  "repository_head": "d211123cfbc6e9be033673e3e3f8e81eb6189c3a",
-  "repository_tree": "96dc318b3742b0c1835014fa3091ee7f664073b9",
+  "repository_head": "0389a4609e0433ba928e1753a2c530894986042e",
+  "repository_tree": "73f18a2877a8d7ffc4f1ecfbfb4d3ba19269a4cd",
   "runtime_inputs_sha256": "c2f7f34081f5157d999f6572c02fb1794787720ec98eac56c99151dac4c9b54c",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
-  "test_sha256": "40346a3036187b81dfabb7fe8783c4fb4bcbb6eb289b334fa1ae34b86f7e56c5"
+  "test_sha256": "32be481d985008a7fe28cf82e84f8854070b7cdaacc18adf2f73262d1b5fa65b"
  },
  "windowed": true
 }

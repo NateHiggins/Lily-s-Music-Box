@@ -68,6 +68,16 @@ Run **OrisonV2SurfaceInventory.tscn** windowed through the serial runner with
 takes the close-up/room images in one process. Evaluate an inventory alone
 with **python tools/audit_v2_surfaces.py --inventory <file> --out <report>**.
 The independent saved-packet gate is **python tools/v2_surface_evidence.py**.
+For a combined physical renewal and city-geometry diagnostic in one composed
+world, set **ORISON_SURFACE_PHYSICAL_ONLY=1** and **ORISON_SURFACE_CITY_REVIEW=1**;
+leave city-only/fire-only off. The schema-2 contract records the additional city
+diagnostic's checks/failures separately. Physical coverage remains exhaustive;
+this does not run or accept the skipped interaction/save programmes. Use the
+existing city-only mode for iteration when no physical renewal is needed.
+Before either city mode, run **python tools/city_elevation_probe_fixture.py --check**
+to reject stale native wall targets without composing the world. These targets
+check source correspondence; they do not establish architectural or artistic approval.
+
 
 Both lane runners accept **ExtraArgs**, and the long runner accepts an empty
 scene for imports. In PowerShell invoke the script directly with **&** when
