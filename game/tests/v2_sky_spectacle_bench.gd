@@ -34,7 +34,7 @@ const SHOTS := {
 	"light_pillars": ["sun_az", 6.0, 40.0, 0.0], "crepuscular_rays": ["sun_az", 12.0, 95.0, 0.0],
 	"anticrepuscular_rays": ["anti_az", 10.0, 95.0, 0.0], "glory": ["anti", 0.0, 30.0, 0.0],
 	"iridescence": ["sun", 0.0, 60.0, 0.0], "green_flash": ["sun", 0.0, 6.0, 0.0],
-	"fata_morgana": ["bearing", 3.5, 28.0, 0.0],
+	"fata_morgana": ["bearing", 3.5, 28.0, 0.0], "emergence": ["bearing", 26.0, 60.0, -47.0],
 }
 var sky_material: ShaderMaterial
 var manager: Node

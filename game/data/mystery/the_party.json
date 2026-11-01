@@ -1,0 +1,75 @@
+{
+ "meta": {
+  "resident_id": "the_party",
+  "speaker_default": "THE ROOM",
+  "voice_prefix": "m_pt_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Not a person. The player's one trip to a party, late in the year. They are standoffish and rude and have nothing to say. No word passes, no message, no face, and nothing here says what the night man is. Zero time passes. No door yet; read through the playtest panel."
+ },
+ "entries": {
+  "pt_trip": "pt_1"
+ },
+ "threads": [
+  {
+   "id": "pt_trip",
+   "from": "1929-11-01",
+   "until": "1929-11-08",
+   "topic": "(You were in the middle of a sentence.)",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. Not at Home: Lily's ruling, a Queens joke only. Only people at the parties learn it.",
+   "root": "pt_1"
+  }
+ ],
+ "nodes": {
+  "pt_1": {
+   "silence_goto": "pt_3",
+   "line": "(You are holding a cup. The room is dim and pleasant and very full. There is no door you remember using.)",
+   "choices": [
+    {
+     "label": "Hello.",
+     "goto": "pt_2"
+    },
+    {
+     "label": "Excuse me.",
+     "goto": "pt_2"
+    }
+   ]
+  },
+  "pt_2": {
+   "silence_goto": "pt_3",
+   "line": "(Something looks at you. It looks past you. It moves to the far side of the room, without hurry.)",
+   "choices": [
+    {
+     "label": "What do you want with me?",
+     "goto": "pt_4"
+    }
+   ]
+  },
+  "pt_4": {
+   "silence_goto": "pt_3",
+   "line": "(It has nothing to say. You can tell by how thoroughly it isn't saying it.)"
+  },
+  "pt_3": {
+   "silence_goto": "pt_5",
+   "line": "(Nobody has called you anything for some time. Nobody has got it wrong.)",
+   "choices": [
+    {
+     "label": "Stay a while.",
+     "goto": "pt_5"
+    },
+    {
+     "label": "Put the cup down.",
+     "goto": "pt_6"
+    }
+   ]
+  },
+  "pt_5": {
+   "silence_goto": "pt_6",
+   "line": "(You stay. It isn't unpleasant. Nobody asks you to.)"
+  },
+  "pt_6": {
+   "flag": "m_received",
+   "line": "(You finish your sentence. You are holding the cup.)"
+  }
+ }
+}

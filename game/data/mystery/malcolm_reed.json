@@ -9,7 +9,8 @@
  },
  "entries": {
   "mr_roses": "mr_r1",
-  "mr_last": "mr_l1"
+  "mr_last": "mr_l1",
+  "mr_pots": "mr_e1"
  },
  "threads": [
   {
@@ -27,6 +28,18 @@
    "topic": "You were up there that evening.",
    "source": "B09. On the day it is a plain exchange; after, he measures it.",
    "root": "mr_l1"
+  },
+  {
+   "id": "mr_pots",
+   "from": "1929-10-12",
+   "until": "1929-10-12",
+   "topic": "They'll be up here all night.",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. The Emergence.",
+   "root": "mr_e1"
   }
  ],
  "nodes": {
@@ -68,6 +81,9 @@
   },
   "mr_l3": {
    "line": "She took a slip of it. In a tobacco tin. I've seen that tin on her sill from up here all summer, across the road. Someone ought to water it. It's not my business whose it is."
+  },
+  "mr_e1": {
+   "line": "Once in an untold eon. That dahlia took three years, and nobody's going to stand on it for a thing that doesn't even look down. Move that crate. The eon can wait, it's good at that."
   }
  }
 }

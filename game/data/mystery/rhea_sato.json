@@ -14,7 +14,8 @@
   "rs_dressing": "rs_d1",
   "rs_portrait": "rs_p1",
   "rs_chorus": "rs_h1b",
-  "rs_dub": "rs_u1"
+  "rs_dub": "rs_u1",
+  "rs_one": "rs_o1"
  },
  "threads": [
   {
@@ -78,6 +79,14 @@
    ],
    "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK10. Her voice, and she is asked. She will not listen to it, so her own case (take 18, voluntary imperfection) is not spent, and the plates stay unforgiven.",
    "root": "rs_u1"
+  },
+  {
+   "id": "rs_one",
+   "from": "1929-10-01",
+   "until": "1929-10-31",
+   "topic": "I could hear you through the wall, Miss Sato.",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. One Short. Not her case and not take 18. She fails at something small.",
+   "root": "rs_o1"
   }
  ],
  "nodes": {
@@ -200,6 +209,9 @@
   "rs_u2": {
    "flag": "m_dub_wiped",
    "line": "No. Tell the drummer it was good. Adela Voss kept my plates till somebody robbed her of them, and I don't forgive the plates. But she stood over that reel because I asked her to. Miss Kells may cut it. I shall come up and watch."
+  },
+  "rs_o1": {
+   "line": "One. No. One. There's nothing to the Professor's trick, you know. It's breath. You bring a house down on the outgoing, and you never let it catch you doing it. One. I've done it forty ways this week, and in every one of them you can hear a woman saying \"one\" very well."
   }
  }
 }

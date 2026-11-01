@@ -28,7 +28,9 @@
   "av_portrait": "av_f1",
   "av_two_bars": "av_v1",
   "av_supper": "av_u1",
-  "av_nine": "av_l5"
+  "av_nine": "av_l5",
+  "av_stop": "av_z1",
+  "av_invited": "av_z2"
  },
  "threads": [
   {
@@ -242,6 +244,26 @@
    ],
    "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK7, after a good set. An ordinary subject. Nothing here is a last anything.",
    "root": "av_u1"
+  },
+  {
+   "id": "av_stop",
+   "from": "1929-04-15",
+   "until": "1929-07-13",
+   "topic": "The whole bar just stopped.",
+   "hours": [
+    "22:00",
+    "23:00"
+   ],
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. One Short. She makes it a joke.",
+   "root": "av_z1"
+  },
+  {
+   "id": "av_invited",
+   "from": "1929-01-15",
+   "until": "1929-07-13",
+   "topic": "Have you been received, Miss Voss?",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. Not at Home. She is annoyed.",
+   "root": "av_z2"
   }
  ],
  "nodes": {
@@ -1128,6 +1150,12 @@
   },
   "av_l4s": {
    "line": "Go on, then. You've got a radiator somewhere."
+  },
+  "av_z1": {
+   "line": "Two seconds of everyone's attention, and I never had to earn it. Watch the fellow with the fork. I've got the bridge coming in right on top of it. Lily says that's cheating. Lily's right, and it's getting a laugh."
+  },
+  "av_z2": {
+   "line": "I have not. Coal dealers. Aldermen's wives. A woman who couldn't tell a Graflex from a breadbox. I've got six plates of them going over and not one invitation. What's the light like? Nobody can tell me. Nobody ever looks at the light."
   }
  }
 }

@@ -1,8 +1,8 @@
 # Three subplots for the year: One Short, Not at Home, the Emergence
 
-Evidence class: **INERT**. Writers' room result, 2026-11-01, on Lily's rulings below. Nothing is built, no game
-data or printed paper changes, and these are not in the Bible. All events are invented fiction unless marked
-real. The story stays **design/THE_YEAR_YOU_DIED_TREATMENT_2026-10-30.md**; where they disagree, it wins.
+Evidence class: **INERT**. Writers' room result, 2026-11-01, on Lily's rulings below, built as a first draft the same
+day when she said "finish the subplots". Not in the Bible. All events are invented fiction unless marked real. The story
+stays **design/THE_YEAR_YOU_DIED_TREATMENT_2026-10-30.md**; where they disagree, it wins. Her read decides what stays.
 
 ## 1. Lily's rulings, 2026-11-01
 
@@ -13,6 +13,8 @@ real. The story stays **design/THE_YEAR_YOU_DIED_TREATMENT_2026-10-30.md**; wher
 | Aliens abducting people | Real, small and social. In her words: the "never got close enough" is "finally revealed as they are standoffish and rude in person, and have nothing to say" |
 | How far that reaches | **A Queens joke only.** Only people at the parties learn it. The Signal Pro AI arc stays open |
 | Size of the parties | A small runner: about twelve people named in the year, and one trip for the player |
+| Details she confirmed | Adela reserves no plate; Mrs. Albers keeps going back and won't discuss it |
+| When to build | "Finish the subplots": now, ahead of the Bible's V2-and-city order, by her word |
 
 ## 2. Limits on all three
 
@@ -165,14 +167,15 @@ call it wrong. This is the owner's alternate universe.
 One Short is the slow spine, ordinary and sad. Not at Home is small and private. The Emergence is the one huge public
 night. Being taken and the hold never explain each other, and the crossover above is the only meeting.
 
-## 7. What it would cost
+## 7. What's built and what isn't
 
-| Piece | Cost |
+| Piece | State |
 |---|---|
-| Papers | About 40 to 60 items for One Short, 20 for the parties, and a build-up for the Emergence. 12 to 14 October issues change, including ears. New runners must stay distinct from "Where's WORS?" and pass **tools/audit_newspapers.py** |
-| Threads | First-draft threads on existing trees, as with **game/data/mystery/** |
-| Hold | A two-second audio dip on lit sets is cheap. Residents visibly freezing needs attendance V2 doesn't have |
-| Party | One small room, or text only |
-| Emergence | The shader's phenomenon list holds exactly 41, so it needs a new slot and art. **SkyPhenomenaScheduleTest** holds ear to data. A full roof and street needs crowds V2 doesn't have |
+| Papers | 25 new back pages, 100 columns, in **game/data/newspapers/**, and one ear on 12 October. No existing item was edited. They pass **tools/audit_newspapers.py** |
+| Threads | First-draft threads on 14 trees, the new **game/data/mystery/the_party.json**, and companion lines **m_cup** and **m_emerged**. **m_said_one** and **m_received** are knowledge flags that nothing reads |
+| Emergence | Slot 41 in **game/data/weather/phenomena.json**, a silhouette in **game/shaders/sky_spectacle.gdshaderinc**, and a progress uniform from **game/scripts/building/WeatherManager.gd**. The shader's phenomenon list grew from 41 to 42 |
+| Doors | Adela, Lily and the party have no door, so those threads open only through the F9 panel. **m_cup** and **m_emerged** have no witness producer yet, so they also print only through the panel |
+| Not built | Residents visibly stopping, crowds on the roof and street, lanterns, a party room and the player being taken in play. These need attendance and rooms V2 doesn't have |
 
-Nothing here is authorized to build until Lily says so. Bible §VIII.5.o still puts V2 and the city first.
+**The hold has no sound.** An audio dip on lit sets was the cheap idea, and it's cut: "bodies stop, tape doesn't" means a
+set must not change. Until residents can stop, the hold exists in papers and dialogue.

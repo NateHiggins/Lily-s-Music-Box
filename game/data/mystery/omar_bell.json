@@ -13,7 +13,10 @@
   "ob_bell": "ob_b1",
   "ob_breaker": "ob_p1",
   "ob_ash": "ob_a1",
-  "ob_piano": "ob_n1"
+  "ob_piano": "ob_n1",
+  "ob_screws": "ob_s9",
+  "ob_rivets": "ob_r9",
+  "ob_load": "ob_l9"
  },
  "threads": [
   {
@@ -66,6 +69,34 @@
    "topic": "You've got the Harukiya's piano bench on your table.",
    "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. Actual loose fitting, then he expects decent workmanship. The bench keeps her music, which is why Mae's drawer never touches it.",
    "root": "ob_n1"
+  },
+  {
+   "id": "ob_screws",
+   "from": "1929-04-15",
+   "until": "1929-11-09",
+   "topic": "That's a bag of screws.",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. One Short. Goods only, never a door or a stair.",
+   "root": "ob_s9"
+  },
+  {
+   "id": "ob_rivets",
+   "from": "1929-03-01",
+   "until": "1929-11-09",
+   "topic": "They say you were received.",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. Not at Home. His offense goes to the workmanship.",
+   "root": "ob_r9"
+  },
+  {
+   "id": "ob_load",
+   "from": "1929-10-12",
+   "until": "1929-10-12",
+   "topic": "How many's that on the roof?",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. The Emergence.",
+   "root": "ob_l9"
   }
  ],
  "nodes": {
@@ -141,6 +172,15 @@
   },
   "ob_n1": {
    "line": "Hinge. Somebody's keeping a library in it and somebody gets up off it fast. I put in a longer pin. She asked could it go quieter. I said she could get up quieter. She said that was the number. So it's a longer pin."
+  },
+  "ob_s9": {
+   "line": "Ninety-nine. I counted. Third bag this week. Man looked me in the eye and said a hundred, and he meant it, they all mean it. Thirty years I've been finding bad work, and this is the first I've seen done honestly."
+  },
+  "ob_r9": {
+   "line": "Didn't see a host. Saw a bulkhead. Somebody's set those seams by eye, and it's a good eye. Nobody offered me a chair. I'd go back for the seams."
+  },
+  "ob_l9": {
+   "line": "Hundred and twelve. Slab will take it. It's the stairs I don't like, they've all got something in their hands. Go and stand at the door, you've got the shoulders for it."
   }
  }
 }

@@ -14,7 +14,8 @@
   "nq_telling": "nq_c1",
   "nq_log": "nq_l1",
   "nq_hold": "nq_h1",
-  "nq_supper": "nq_p1"
+  "nq_supper": "nq_p1",
+  "nq_invite": "nq_v1"
  },
  "threads": [
   {
@@ -85,6 +86,14 @@
    "topic": "Is Miss Voss singing at the Association supper?",
    "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. Her plan includes too much; she has begun to ask, after. No knowledge of the night man here.",
    "root": "nq_p1"
+  },
+  {
+   "id": "nq_invite",
+   "from": "1929-04-15",
+   "until": "1929-06-30",
+   "topic": "Any reply from those people?",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. Not at Home. A plan that includes everybody.",
+   "root": "nq_v1"
   }
  ],
  "nodes": {
@@ -306,6 +315,9 @@
   },
   "nq_p1": {
    "line": "Yes. Two numbers, the raffle, and I've put her down to photograph the committee. She asked me whether she'd agreed to that. I've started asking people. I do it directly after."
+  },
+  "nq_v1": {
+   "line": "None. I've written to invite them to the Association's supper, I've put them down for the raffle and a table of eight, and I don't know where I posted it. I've left it on the roof of the Arcade with a stone on it. Somebody had to ask them something."
   }
  }
 }

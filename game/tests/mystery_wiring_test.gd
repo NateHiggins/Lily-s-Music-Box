@@ -38,7 +38,7 @@ func _run() -> void:
 	_check("no load errors", conversations.errors.is_empty())
 	if not conversations.errors.is_empty():
 		print(conversations.errors)
-	_check("24 speakers load", conversations.mystery.size() == 24)
+	_check("25 speakers load", conversations.mystery.size() == 25)
 	_check("playtest panel absent without its variable",
 			not conversations.get_children().any(func(c): return c.get_script() != null and str(c.get_script().resource_path).ends_with("mystery_playtest.gd")))
 

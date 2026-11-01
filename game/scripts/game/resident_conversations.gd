@@ -108,6 +108,7 @@ const MYSTERY_PATHS: Array[String] = [
 	"res://data/mystery/rhea_sato.json",
 	"res://data/mystery/sacha_reed.json",
 	"res://data/mystery/teresa_vale.json",
+	"res://data/mystery/the_party.json",
 	"res://data/mystery/transient_guests.json",
 ]
 const MYSTERY_FLAG_PREFIX := "m_"

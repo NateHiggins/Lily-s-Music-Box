@@ -11,7 +11,10 @@
   "em_seven": "em_s1",
   "em_after": "em_a1",
   "em_drafts": "em_d1",
-  "em_drafts_after": "em_da1"
+  "em_drafts_after": "em_da1",
+  "em_short": "em_o1",
+  "em_refuse": "em_o2",
+  "em_seats": "em_p1"
  },
  "threads": [
   {
@@ -52,6 +55,30 @@
    ],
    "source": "Suspect chain, Peter. The same comedy, after. She dates everything she marks.",
    "root": "em_da1"
+  },
+  {
+   "id": "em_short",
+   "from": "1929-04-15",
+   "until": "1929-10-31",
+   "topic": "Eleven rolls on your table, Mrs. Marsh.",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. One Short. She listens and is furious about it elsewhere.",
+   "root": "em_o1"
+  },
+  {
+   "id": "em_refuse",
+   "from": "1929-11-01",
+   "until": "1929-11-08",
+   "topic": "They say somebody can say it for you.",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. One Short. The one who refuses.",
+   "root": "em_o2"
+  },
+  {
+   "id": "em_seats",
+   "from": "1929-02-01",
+   "until": "1929-11-09",
+   "topic": "They say you were received, Mrs. Marsh.",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. Not at Home.",
+   "root": "em_p1"
   }
  ],
  "nodes": {
@@ -115,6 +142,25 @@
   },
   "em_da2": {
    "line": "I beg your pardon? He would have sent it in June. I am aware of the date. See me if you wish to improve."
+  },
+  "em_o1": {
+   "line": "I stood in her shop and counted them out with her. She reached two and tied the bag. I have written \"twelve\" on a card and left it on her counter. She thanked me. That is the worst thing about it."
+  },
+  "em_o2": {
+   "silence_goto": "em_o3",
+   "line": "So I am told. I have kept a programme log for eleven years and I know precisely where I stopped. Well?",
+   "choices": [
+    {
+     "label": "Shall I say it?",
+     "goto": "em_o3"
+    }
+   ]
+  },
+  "em_o3": {
+   "line": "You will not. I sleep perfectly well at two, thank you."
+  },
+  "em_p1": {
+   "line": "The seating was a disgrace. I moved three of them. Nobody remarked on it. I moved them back, to see, and nobody remarked on that. I have taught children who would not look at me, and I know how it is done, and it was done well."
   }
  }
 }

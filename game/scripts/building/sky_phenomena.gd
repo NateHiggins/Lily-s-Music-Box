@@ -6,7 +6,7 @@ extends RefCounted
 ## with its sun window and weather requirements met by its own forcing.
 const PATH := "res://data/weather/phenomena.json"
 const SCHEMA := "orison.sky-phenomena.v1"
-const SLOTS := 41
+const SLOTS := 42
 const FAMILIES := ["cloud", "dust", "dome", "electric", "optics"]
 const UTC_OFFSET_MINUTES := -300
 const LATITUDE := 40.75
@@ -255,6 +255,7 @@ func active_at(minute: float, rolled: Array = []) -> Array[Dictionary]:
 		if level <= 0.0: continue
 		out.append({"id": entry.id, "slot": int(row.slot), "family": str(row.family),
 			"flash": bool(row.get("flash", false)), "level": level, "bearing": float(entry.bearing),
+			"progress": clampf((minute - float(entry.start)) / maxf(float(entry.end) - float(entry.start), 1.0), 0.0, 1.0),
 			"weather": entry.weather, "label": str(row.label)})
 	return out
 
