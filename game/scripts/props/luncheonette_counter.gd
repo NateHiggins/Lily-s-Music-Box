@@ -29,10 +29,12 @@ const CHARACTERS_PER_SECOND := 18.0
 ## above its own origin, so the origin is set that far below the stool's top.
 const ROOM := Rect2(17.0, -44.3, 7.0, 5.0)
 const STOOL_X := 18.36
+const STOOL_SEAT := "storm_shop_luncheonette_stool%d"
 const STOOL_TOP := 0.82
 const SEATED_HIPS := 0.48
 const SEATED_CLIP := "clip_06"
-const STOOL_ALONG := [-43.68, -43.31, -42.95, -42.58, -42.22, -41.85, -41.49, -41.12]
+## The three stools the counter has, by their source row number and metres along it.
+const STOOLS := [[2, -42.95], [4, -42.22], [6, -41.49]]
 const PARTS_NEARBY := 30.0
 
 var world: Node3D
@@ -209,11 +211,14 @@ func _seat_customers() -> void:
 		elif not here and bodies.has(resident):
 			bodies[resident].queue_free()
 			bodies.erase(resident)
+			world.seat_gestures.taken.erase(STOOL_SEAT % int(STOOLS[int(_stools[resident])][0]))
 			_stools.erase(resident)
 
 
 func _seat(resident: String) -> void:
 	var stool := _free_stool(resident)
+	if stool < 0:
+		return
 	var actor: Node3D = preload("res://scripts/characters/orison_v2_resident_presentation.gd").new()
 	var source: Dictionary = {}
 	for row: Dictionary in preload("res://scripts/characters/orison_v2_resident_presentation.gd").roster():
@@ -224,20 +229,24 @@ func _seat(resident: String) -> void:
 	actor.face_interacting_player = false
 	world.passage_region.transaction_actor_root().add_child(actor)
 	actor.global_transform = world.passage_region.global_transform * Transform3D(
-			Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([STOOL_X, STOOL_ALONG[stool], STOOL_TOP - SEATED_HIPS]))
+			Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([STOOL_X, STOOLS[stool][1], STOOL_TOP - SEATED_HIPS]))
 	actor.preferred_idle = SEATED_CLIP
 	actor._local_loop(SEATED_CLIP)
 	actor._play_named("idle")
 	bodies[resident] = actor
 	_stools[resident] = stool
+	world.seat_gestures.taken[STOOL_SEAT % int(STOOLS[stool][0])] = resident
 
 
-## Each resident keeps one stool, hashed from the name so it is the same every visit.
+## Each resident keeps one stool, hashed from the name, while one is free. A full
+## counter leaves a resident without a body or a voice for that visit.
 func _free_stool(resident: String) -> int:
-	var stool := absi(resident.hash()) % STOOL_ALONG.size()
-	while _stools.values().has(stool):
-		stool = (stool + 1) % STOOL_ALONG.size()
-	return stool
+	var stool := absi(resident.hash()) % STOOLS.size()
+	for _try in STOOLS.size():
+		if not _stools.values().has(stool):
+			return stool
+		stool = (stool + 1) % STOOLS.size()
+	return -1
 
 
 func _overhear(delta: float) -> void:

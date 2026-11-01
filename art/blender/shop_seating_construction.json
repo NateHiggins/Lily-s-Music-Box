@@ -591,6 +591,90 @@
       "zone": "PASSAGE"
     },
     {
+      "id": "storm_shop_luncheonette_stool2",
+      "rect": [
+        18.19,
+        -43.11857142857143,
+        18.53,
+        -42.778571428571425
+      ],
+      "z0": 0.01,
+      "h": 0.7,
+      "mat": "chrome",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_stool2_top",
+      "rect": [
+        18.16,
+        -43.14857142857142,
+        18.56,
+        -42.748571428571424
+      ],
+      "z0": 0.75,
+      "h": 0.07,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_stool4",
+      "rect": [
+        18.19,
+        -42.387142857142855,
+        18.53,
+        -42.04714285714285
+      ],
+      "z0": 0.01,
+      "h": 0.7,
+      "mat": "chrome",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_stool4_top",
+      "rect": [
+        18.16,
+        -42.41714285714285,
+        18.56,
+        -42.01714285714286
+      ],
+      "z0": 0.75,
+      "h": 0.07,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_stool6",
+      "rect": [
+        18.19,
+        -41.65571428571428,
+        18.53,
+        -41.31571428571428
+      ],
+      "z0": 0.01,
+      "h": 0.7,
+      "mat": "chrome",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_stool6_top",
+      "rect": [
+        18.16,
+        -41.68571428571428,
+        18.56,
+        -41.28571428571428
+      ],
+      "z0": 0.75,
+      "h": 0.07,
+      "mat": "vinyl_oxblood",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
       "id": "storm_shop_otis___son_stool3",
       "rect": [
         21.21,
@@ -675,34 +759,6 @@
       "zone": "PASSAGE"
     },
     {
-      "id": "storm_shop_luncheonette_stool2",
-      "rect": [
-        18.19,
-        -43.11857142857143,
-        18.53,
-        -42.778571428571425
-      ],
-      "z0": 0.01,
-      "h": 0.7,
-      "mat": "chrome",
-      "batch": "shop_luncheonette",
-      "zone": "PASSAGE"
-    },
-    {
-      "id": "storm_shop_luncheonette_stool2_top",
-      "rect": [
-        18.16,
-        -43.14857142857142,
-        18.56,
-        -42.748571428571424
-      ],
-      "z0": 0.75,
-      "h": 0.07,
-      "mat": "vinyl_oxblood",
-      "batch": "shop_luncheonette",
-      "zone": "PASSAGE"
-    },
-    {
       "id": "storm_shop_luncheonette_stool3",
       "rect": [
         18.19,
@@ -731,34 +787,6 @@
       "zone": "PASSAGE"
     },
     {
-      "id": "storm_shop_luncheonette_stool4",
-      "rect": [
-        18.19,
-        -42.387142857142855,
-        18.53,
-        -42.04714285714285
-      ],
-      "z0": 0.01,
-      "h": 0.7,
-      "mat": "chrome",
-      "batch": "shop_luncheonette",
-      "zone": "PASSAGE"
-    },
-    {
-      "id": "storm_shop_luncheonette_stool4_top",
-      "rect": [
-        18.16,
-        -42.41714285714285,
-        18.56,
-        -42.01714285714286
-      ],
-      "z0": 0.75,
-      "h": 0.07,
-      "mat": "vinyl_oxblood",
-      "batch": "shop_luncheonette",
-      "zone": "PASSAGE"
-    },
-    {
       "id": "storm_shop_luncheonette_stool5",
       "rect": [
         18.19,
@@ -779,34 +807,6 @@
         -42.051428571428566,
         18.56,
         -41.65142857142857
-      ],
-      "z0": 0.75,
-      "h": 0.07,
-      "mat": "vinyl_oxblood",
-      "batch": "shop_luncheonette",
-      "zone": "PASSAGE"
-    },
-    {
-      "id": "storm_shop_luncheonette_stool6",
-      "rect": [
-        18.19,
-        -41.65571428571428,
-        18.53,
-        -41.31571428571428
-      ],
-      "z0": 0.01,
-      "h": 0.7,
-      "mat": "chrome",
-      "batch": "shop_luncheonette",
-      "zone": "PASSAGE"
-    },
-    {
-      "id": "storm_shop_luncheonette_stool6_top",
-      "rect": [
-        18.16,
-        -41.68571428571428,
-        18.56,
-        -41.28571428571428
       ],
       "z0": 0.75,
       "h": 0.07,
@@ -1244,83 +1244,7 @@
       }
     },
     {
-      "id": "storm_shop_otis___son_stool3",
-      "kind": "stool",
-      "cell": "shop_otis_son",
-      "floor": {
-        "id": "storm_shop_otis___son_floor",
-        "rect": [
-          17.0,
-          -48.599999999999994,
-          24.0,
-          -44.5
-        ],
-        "z0": -0.05,
-        "h": 0.06,
-        "mat": "terrazzo",
-        "batch": "shop_otis___son",
-        "zone": "PASSAGE"
-      }
-    },
-    {
-      "id": "storm_shop_luncheonette_stool0",
-      "kind": "stool",
-      "cell": "shop_luncheonette",
-      "floor": {
-        "id": "storm_shop_luncheonette_floor",
-        "rect": [
-          17.0,
-          -44.3,
-          24.0,
-          -39.3
-        ],
-        "z0": -0.05,
-        "h": 0.06,
-        "mat": "terrazzo",
-        "batch": "shop_luncheonette",
-        "zone": "PASSAGE"
-      }
-    },
-    {
-      "id": "storm_shop_luncheonette_stool1",
-      "kind": "stool",
-      "cell": "shop_luncheonette",
-      "floor": {
-        "id": "storm_shop_luncheonette_floor",
-        "rect": [
-          17.0,
-          -44.3,
-          24.0,
-          -39.3
-        ],
-        "z0": -0.05,
-        "h": 0.06,
-        "mat": "terrazzo",
-        "batch": "shop_luncheonette",
-        "zone": "PASSAGE"
-      }
-    },
-    {
       "id": "storm_shop_luncheonette_stool2",
-      "kind": "stool",
-      "cell": "shop_luncheonette",
-      "floor": {
-        "id": "storm_shop_luncheonette_floor",
-        "rect": [
-          17.0,
-          -44.3,
-          24.0,
-          -39.3
-        ],
-        "z0": -0.05,
-        "h": 0.06,
-        "mat": "terrazzo",
-        "batch": "shop_luncheonette",
-        "zone": "PASSAGE"
-      }
-    },
-    {
-      "id": "storm_shop_luncheonette_stool3",
       "kind": "stool",
       "cell": "shop_luncheonette",
       "floor": {
@@ -1358,45 +1282,7 @@
       }
     },
     {
-      "id": "storm_shop_luncheonette_stool5",
-      "kind": "stool",
-      "cell": "shop_luncheonette",
-      "floor": {
-        "id": "storm_shop_luncheonette_floor",
-        "rect": [
-          17.0,
-          -44.3,
-          24.0,
-          -39.3
-        ],
-        "z0": -0.05,
-        "h": 0.06,
-        "mat": "terrazzo",
-        "batch": "shop_luncheonette",
-        "zone": "PASSAGE"
-      }
-    },
-    {
       "id": "storm_shop_luncheonette_stool6",
-      "kind": "stool",
-      "cell": "shop_luncheonette",
-      "floor": {
-        "id": "storm_shop_luncheonette_floor",
-        "rect": [
-          17.0,
-          -44.3,
-          24.0,
-          -39.3
-        ],
-        "z0": -0.05,
-        "h": 0.06,
-        "mat": "terrazzo",
-        "batch": "shop_luncheonette",
-        "zone": "PASSAGE"
-      }
-    },
-    {
-      "id": "storm_shop_luncheonette_stool7",
       "kind": "stool",
       "cell": "shop_luncheonette",
       "floor": {
@@ -3373,186 +3259,6 @@
       "volume_m3": 3.820899564753978e-05
     },
     {
-      "name": "storm_shop_otis___son_stool3_BellBase",
-      "assembly": "storm_shop_otis___son_stool3",
-      "key": "chrome",
-      "volume_m3": 0.002494741684457715
-    },
-    {
-      "name": "storm_shop_otis___son_stool3_Column",
-      "assembly": "storm_shop_otis___son_stool3",
-      "key": "chrome",
-      "volume_m3": 0.0013432623185517484
-    },
-    {
-      "name": "storm_shop_otis___son_stool3_FootRing",
-      "assembly": "storm_shop_otis___son_stool3",
-      "key": "chrome",
-      "volume_m3": 8.391291697872755e-05
-    },
-    {
-      "name": "storm_shop_otis___son_stool3_FootSpoke0",
-      "assembly": "storm_shop_otis___son_stool3",
-      "key": "chrome",
-      "volume_m3": 1.1130942679317673e-05
-    },
-    {
-      "name": "storm_shop_otis___son_stool3_FootSpoke1",
-      "assembly": "storm_shop_otis___son_stool3",
-      "key": "chrome",
-      "volume_m3": 1.1131152883511568e-05
-    },
-    {
-      "name": "storm_shop_otis___son_stool3_FootSpoke2",
-      "assembly": "storm_shop_otis___son_stool3",
-      "key": "chrome",
-      "volume_m3": 1.1130942679317673e-05
-    },
-    {
-      "name": "storm_shop_otis___son_stool3_FootSpoke3",
-      "assembly": "storm_shop_otis___son_stool3",
-      "key": "chrome",
-      "volume_m3": 1.1131152883511568e-05
-    },
-    {
-      "name": "storm_shop_otis___son_stool3_SeatPan",
-      "assembly": "storm_shop_otis___son_stool3",
-      "key": "chrome",
-      "volume_m3": 0.0016968646256817204
-    },
-    {
-      "name": "storm_shop_otis___son_stool3_Cushion",
-      "assembly": "storm_shop_otis___son_stool3",
-      "key": "vinyl_oxblood",
-      "volume_m3": 0.005940382840023695
-    },
-    {
-      "name": "storm_shop_otis___son_stool3_Welt",
-      "assembly": "storm_shop_otis___son_stool3",
-      "key": "vinyl_oxblood",
-      "volume_m3": 3.820899564753978e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool0_BellBase",
-      "assembly": "storm_shop_luncheonette_stool0",
-      "key": "chrome",
-      "volume_m3": 0.0031051669323433283
-    },
-    {
-      "name": "storm_shop_luncheonette_stool0_Column",
-      "assembly": "storm_shop_luncheonette_stool0",
-      "key": "chrome",
-      "volume_m3": 0.0014792155960497682
-    },
-    {
-      "name": "storm_shop_luncheonette_stool0_FootRing",
-      "assembly": "storm_shop_luncheonette_stool0",
-      "key": "chrome",
-      "volume_m3": 9.611866809410355e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool0_FootSpoke0",
-      "assembly": "storm_shop_luncheonette_stool0",
-      "key": "chrome",
-      "volume_m3": 1.3247068299257826e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool0_FootSpoke1",
-      "assembly": "storm_shop_luncheonette_stool0",
-      "key": "chrome",
-      "volume_m3": 1.3247068299257826e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool0_FootSpoke2",
-      "assembly": "storm_shop_luncheonette_stool0",
-      "key": "chrome",
-      "volume_m3": 1.3246858095063933e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool0_FootSpoke3",
-      "assembly": "storm_shop_luncheonette_stool0",
-      "key": "chrome",
-      "volume_m3": 1.3246647890870038e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool0_SeatPan",
-      "assembly": "storm_shop_luncheonette_stool0",
-      "key": "chrome",
-      "volume_m3": 0.0021013812008918976
-    },
-    {
-      "name": "storm_shop_luncheonette_stool0_Cushion",
-      "assembly": "storm_shop_luncheonette_stool0",
-      "key": "vinyl_oxblood",
-      "volume_m3": 0.007356495658185456
-    },
-    {
-      "name": "storm_shop_luncheonette_stool0_Welt",
-      "assembly": "storm_shop_luncheonette_stool0",
-      "key": "vinyl_oxblood",
-      "volume_m3": 4.250574385120284e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool1_BellBase",
-      "assembly": "storm_shop_luncheonette_stool1",
-      "key": "chrome",
-      "volume_m3": 0.0031051651158495184
-    },
-    {
-      "name": "storm_shop_luncheonette_stool1_Column",
-      "assembly": "storm_shop_luncheonette_stool1",
-      "key": "chrome",
-      "volume_m3": 0.001479215596074021
-    },
-    {
-      "name": "storm_shop_luncheonette_stool1_FootRing",
-      "assembly": "storm_shop_luncheonette_stool1",
-      "key": "chrome",
-      "volume_m3": 9.611866809410355e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool1_FootSpoke0",
-      "assembly": "storm_shop_luncheonette_stool1",
-      "key": "chrome",
-      "volume_m3": 1.3247068299257828e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool1_FootSpoke1",
-      "assembly": "storm_shop_luncheonette_stool1",
-      "key": "chrome",
-      "volume_m3": 1.3246647890870038e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool1_FootSpoke2",
-      "assembly": "storm_shop_luncheonette_stool1",
-      "key": "chrome",
-      "volume_m3": 1.3246858095063931e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool1_FootSpoke3",
-      "assembly": "storm_shop_luncheonette_stool1",
-      "key": "chrome",
-      "volume_m3": 1.3247068299257826e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool1_SeatPan",
-      "assembly": "storm_shop_luncheonette_stool1",
-      "key": "chrome",
-      "volume_m3": 0.0021013775545237973
-    },
-    {
-      "name": "storm_shop_luncheonette_stool1_Cushion",
-      "assembly": "storm_shop_luncheonette_stool1",
-      "key": "vinyl_oxblood",
-      "volume_m3": 0.007356500271514548
-    },
-    {
-      "name": "storm_shop_luncheonette_stool1_Welt",
-      "assembly": "storm_shop_luncheonette_stool1",
-      "key": "vinyl_oxblood",
-      "volume_m3": 4.250574385120283e-05
-    },
-    {
       "name": "storm_shop_luncheonette_stool2_BellBase",
       "assembly": "storm_shop_luncheonette_stool2",
       "key": "chrome",
@@ -3625,66 +3331,6 @@
       "volume_m3": 8.543681167155419e-06
     },
     {
-      "name": "storm_shop_luncheonette_stool3_BellBase",
-      "assembly": "storm_shop_luncheonette_stool3",
-      "key": "chrome",
-      "volume_m3": 0.003105174518606832
-    },
-    {
-      "name": "storm_shop_luncheonette_stool3_Column",
-      "assembly": "storm_shop_luncheonette_stool3",
-      "key": "chrome",
-      "volume_m3": 0.0014790899853245228
-    },
-    {
-      "name": "storm_shop_luncheonette_stool3_FootRing",
-      "assembly": "storm_shop_luncheonette_stool3",
-      "key": "chrome",
-      "volume_m3": 9.611866809410355e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool3_FootSpoke0",
-      "assembly": "storm_shop_luncheonette_stool3",
-      "key": "chrome",
-      "volume_m3": 1.3247068299257828e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool3_FootSpoke1",
-      "assembly": "storm_shop_luncheonette_stool3",
-      "key": "chrome",
-      "volume_m3": 1.3247068299257826e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool3_FootSpoke2",
-      "assembly": "storm_shop_luncheonette_stool3",
-      "key": "chrome",
-      "volume_m3": 1.3246858095063933e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool3_FootSpoke3",
-      "assembly": "storm_shop_luncheonette_stool3",
-      "key": "chrome",
-      "volume_m3": 1.3247068299257826e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool3_SeatPan",
-      "assembly": "storm_shop_luncheonette_stool3",
-      "key": "chrome",
-      "volume_m3": 0.0021013912785210693
-    },
-    {
-      "name": "storm_shop_luncheonette_stool3_Cushion",
-      "assembly": "storm_shop_luncheonette_stool3",
-      "key": "vinyl_oxblood",
-      "volume_m3": 0.007356493865644325
-    },
-    {
-      "name": "storm_shop_luncheonette_stool3_Welt",
-      "assembly": "storm_shop_luncheonette_stool3",
-      "key": "vinyl_oxblood",
-      "volume_m3": 4.250574385120282e-05
-    },
-    {
       "name": "storm_shop_luncheonette_stool4_BellBase",
       "assembly": "storm_shop_luncheonette_stool4",
       "key": "chrome",
@@ -3745,66 +3391,6 @@
       "volume_m3": 4.250574385120284e-05
     },
     {
-      "name": "storm_shop_luncheonette_stool5_BellBase",
-      "assembly": "storm_shop_luncheonette_stool5",
-      "key": "chrome",
-      "volume_m3": 0.0031051662346275165
-    },
-    {
-      "name": "storm_shop_luncheonette_stool5_Column",
-      "assembly": "storm_shop_luncheonette_stool5",
-      "key": "chrome",
-      "volume_m3": 0.0014792155960497678
-    },
-    {
-      "name": "storm_shop_luncheonette_stool5_FootRing",
-      "assembly": "storm_shop_luncheonette_stool5",
-      "key": "chrome",
-      "volume_m3": 9.611866809410355e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool5_FootSpoke0",
-      "assembly": "storm_shop_luncheonette_stool5",
-      "key": "chrome",
-      "volume_m3": 1.3247068299257828e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool5_FootSpoke1",
-      "assembly": "storm_shop_luncheonette_stool5",
-      "key": "chrome",
-      "volume_m3": 1.3247068299257826e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool5_FootSpoke2",
-      "assembly": "storm_shop_luncheonette_stool5",
-      "key": "chrome",
-      "volume_m3": 1.3246858095063931e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool5_FootSpoke3",
-      "assembly": "storm_shop_luncheonette_stool5",
-      "key": "chrome",
-      "volume_m3": 1.3246647890870038e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool5_SeatPan",
-      "assembly": "storm_shop_luncheonette_stool5",
-      "key": "chrome",
-      "volume_m3": 0.002101377554523797
-    },
-    {
-      "name": "storm_shop_luncheonette_stool5_Cushion",
-      "assembly": "storm_shop_luncheonette_stool5",
-      "key": "vinyl_oxblood",
-      "volume_m3": 0.007356500271573724
-    },
-    {
-      "name": "storm_shop_luncheonette_stool5_Welt",
-      "assembly": "storm_shop_luncheonette_stool5",
-      "key": "vinyl_oxblood",
-      "volume_m3": 4.250574385120283e-05
-    },
-    {
       "name": "storm_shop_luncheonette_stool6_BellBase",
       "assembly": "storm_shop_luncheonette_stool6",
       "key": "chrome",
@@ -3863,66 +3449,6 @@
       "assembly": "storm_shop_luncheonette_stool6",
       "key": "vinyl_oxblood",
       "volume_m3": 4.250574385120283e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool7_BellBase",
-      "assembly": "storm_shop_luncheonette_stool7",
-      "key": "chrome",
-      "volume_m3": 0.003105166129219974
-    },
-    {
-      "name": "storm_shop_luncheonette_stool7_Column",
-      "assembly": "storm_shop_luncheonette_stool7",
-      "key": "chrome",
-      "volume_m3": 0.0014791550680266876
-    },
-    {
-      "name": "storm_shop_luncheonette_stool7_FootRing",
-      "assembly": "storm_shop_luncheonette_stool7",
-      "key": "chrome",
-      "volume_m3": 9.611866809410355e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool7_FootSpoke0",
-      "assembly": "storm_shop_luncheonette_stool7",
-      "key": "chrome",
-      "volume_m3": 1.3247068299257826e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool7_FootSpoke1",
-      "assembly": "storm_shop_luncheonette_stool7",
-      "key": "chrome",
-      "volume_m3": 1.3247068299257826e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool7_FootSpoke2",
-      "assembly": "storm_shop_luncheonette_stool7",
-      "key": "chrome",
-      "volume_m3": 1.3246858095063933e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool7_FootSpoke3",
-      "assembly": "storm_shop_luncheonette_stool7",
-      "key": "chrome",
-      "volume_m3": 1.3247068299257826e-05
-    },
-    {
-      "name": "storm_shop_luncheonette_stool7_SeatPan",
-      "assembly": "storm_shop_luncheonette_stool7",
-      "key": "chrome",
-      "volume_m3": 0.0021013838948643194
-    },
-    {
-      "name": "storm_shop_luncheonette_stool7_Cushion",
-      "assembly": "storm_shop_luncheonette_stool7",
-      "key": "vinyl_oxblood",
-      "volume_m3": 0.007356504832910888
-    },
-    {
-      "name": "storm_shop_luncheonette_stool7_Welt",
-      "assembly": "storm_shop_luncheonette_stool7",
-      "key": "vinyl_oxblood",
-      "volume_m3": 4.250574385120284e-05
     }
   ],
   "contacts": [
@@ -6252,99 +5778,6 @@
       ]
     },
     {
-      "assembly": "storm_shop_otis___son_stool3",
-      "floor_owner": "storm_shop_otis___son_floor",
-      "point": [
-        21.36,
-        0.009999999999999995,
-        45.65
-      ],
-      "footprint": [
-        [
-          21.468,
-          0.009999999999999995,
-          45.65
-        ],
-        [
-          21.252,
-          0.009999999999999995,
-          45.65
-        ],
-        [
-          21.36,
-          0.009999999999999995,
-          45.757999999999996
-        ],
-        [
-          21.36,
-          0.009999999999999995,
-          45.542
-        ]
-      ]
-    },
-    {
-      "assembly": "storm_shop_luncheonette_stool0",
-      "floor_owner": "storm_shop_luncheonette_floor",
-      "point": [
-        18.36,
-        0.009999999999999995,
-        43.67999999999999
-      ],
-      "footprint": [
-        [
-          18.4824,
-          0.009999999999999995,
-          43.67999999999999
-        ],
-        [
-          18.2376,
-          0.009999999999999995,
-          43.67999999999999
-        ],
-        [
-          18.36,
-          0.009999999999999995,
-          43.80239999999999
-        ],
-        [
-          18.36,
-          0.009999999999999995,
-          43.557599999999994
-        ]
-      ]
-    },
-    {
-      "assembly": "storm_shop_luncheonette_stool1",
-      "floor_owner": "storm_shop_luncheonette_floor",
-      "point": [
-        18.36,
-        0.009999999999999995,
-        43.3142857142857
-      ],
-      "footprint": [
-        [
-          18.4824,
-          0.009999999999999995,
-          43.3142857142857
-        ],
-        [
-          18.2376,
-          0.009999999999999995,
-          43.3142857142857
-        ],
-        [
-          18.36,
-          0.009999999999999995,
-          43.4366857142857
-        ],
-        [
-          18.36,
-          0.009999999999999995,
-          43.191885714285704
-        ]
-      ]
-    },
-    {
       "assembly": "storm_shop_luncheonette_stool2",
       "floor_owner": "storm_shop_luncheonette_floor",
       "point": [
@@ -6372,37 +5805,6 @@
           18.36,
           0.009999999999999995,
           42.82617142857143
-        ]
-      ]
-    },
-    {
-      "assembly": "storm_shop_luncheonette_stool3",
-      "floor_owner": "storm_shop_luncheonette_floor",
-      "point": [
-        18.36,
-        0.009999999999999995,
-        42.58285714285714
-      ],
-      "footprint": [
-        [
-          18.4824,
-          0.009999999999999995,
-          42.58285714285714
-        ],
-        [
-          18.2376,
-          0.009999999999999995,
-          42.58285714285714
-        ],
-        [
-          18.36,
-          0.009999999999999995,
-          42.705257142857135
-        ],
-        [
-          18.36,
-          0.009999999999999995,
-          42.46045714285714
         ]
       ]
     },
@@ -6438,37 +5840,6 @@
       ]
     },
     {
-      "assembly": "storm_shop_luncheonette_stool5",
-      "floor_owner": "storm_shop_luncheonette_floor",
-      "point": [
-        18.36,
-        0.009999999999999995,
-        41.85142857142857
-      ],
-      "footprint": [
-        [
-          18.4824,
-          0.009999999999999995,
-          41.85142857142857
-        ],
-        [
-          18.2376,
-          0.009999999999999995,
-          41.85142857142857
-        ],
-        [
-          18.36,
-          0.009999999999999995,
-          41.97382857142857
-        ],
-        [
-          18.36,
-          0.009999999999999995,
-          41.72902857142857
-        ]
-      ]
-    },
-    {
       "assembly": "storm_shop_luncheonette_stool6",
       "floor_owner": "storm_shop_luncheonette_floor",
       "point": [
@@ -6496,37 +5867,6 @@
           18.36,
           0.009999999999999995,
           41.36331428571428
-        ]
-      ]
-    },
-    {
-      "assembly": "storm_shop_luncheonette_stool7",
-      "floor_owner": "storm_shop_luncheonette_floor",
-      "point": [
-        18.36,
-        0.009999999999999995,
-        41.12
-      ],
-      "footprint": [
-        [
-          18.4824,
-          0.009999999999999995,
-          41.12
-        ],
-        [
-          18.2376,
-          0.009999999999999995,
-          41.12
-        ],
-        [
-          18.36,
-          0.009999999999999995,
-          41.242399999999996
-        ],
-        [
-          18.36,
-          0.009999999999999995,
-          40.9976
         ]
       ]
     }
@@ -6701,48 +6041,6 @@
       "triangles": 700
     },
     {
-      "name": "storm_shop_otis___son_stool3__chrome",
-      "assembly": "storm_shop_otis___son_stool3",
-      "cell": "shop_otis_son",
-      "key": "chrome",
-      "triangles": 1268
-    },
-    {
-      "name": "storm_shop_otis___son_stool3__vinyl_oxblood",
-      "assembly": "storm_shop_otis___son_stool3",
-      "cell": "shop_otis_son",
-      "key": "vinyl_oxblood",
-      "triangles": 700
-    },
-    {
-      "name": "storm_shop_luncheonette_stool0__chrome",
-      "assembly": "storm_shop_luncheonette_stool0",
-      "cell": "shop_luncheonette",
-      "key": "chrome",
-      "triangles": 1268
-    },
-    {
-      "name": "storm_shop_luncheonette_stool0__vinyl_oxblood",
-      "assembly": "storm_shop_luncheonette_stool0",
-      "cell": "shop_luncheonette",
-      "key": "vinyl_oxblood",
-      "triangles": 700
-    },
-    {
-      "name": "storm_shop_luncheonette_stool1__chrome",
-      "assembly": "storm_shop_luncheonette_stool1",
-      "cell": "shop_luncheonette",
-      "key": "chrome",
-      "triangles": 1268
-    },
-    {
-      "name": "storm_shop_luncheonette_stool1__vinyl_oxblood",
-      "assembly": "storm_shop_luncheonette_stool1",
-      "cell": "shop_luncheonette",
-      "key": "vinyl_oxblood",
-      "triangles": 700
-    },
-    {
       "name": "storm_shop_luncheonette_stool2__chrome",
       "assembly": "storm_shop_luncheonette_stool2",
       "cell": "shop_luncheonette",
@@ -6764,20 +6062,6 @@
       "triangles": 1212
     },
     {
-      "name": "storm_shop_luncheonette_stool3__chrome",
-      "assembly": "storm_shop_luncheonette_stool3",
-      "cell": "shop_luncheonette",
-      "key": "chrome",
-      "triangles": 1268
-    },
-    {
-      "name": "storm_shop_luncheonette_stool3__vinyl_oxblood",
-      "assembly": "storm_shop_luncheonette_stool3",
-      "cell": "shop_luncheonette",
-      "key": "vinyl_oxblood",
-      "triangles": 700
-    },
-    {
       "name": "storm_shop_luncheonette_stool4__chrome",
       "assembly": "storm_shop_luncheonette_stool4",
       "cell": "shop_luncheonette",
@@ -6787,20 +6071,6 @@
     {
       "name": "storm_shop_luncheonette_stool4__vinyl_oxblood",
       "assembly": "storm_shop_luncheonette_stool4",
-      "cell": "shop_luncheonette",
-      "key": "vinyl_oxblood",
-      "triangles": 700
-    },
-    {
-      "name": "storm_shop_luncheonette_stool5__chrome",
-      "assembly": "storm_shop_luncheonette_stool5",
-      "cell": "shop_luncheonette",
-      "key": "chrome",
-      "triangles": 1268
-    },
-    {
-      "name": "storm_shop_luncheonette_stool5__vinyl_oxblood",
-      "assembly": "storm_shop_luncheonette_stool5",
       "cell": "shop_luncheonette",
       "key": "vinyl_oxblood",
       "triangles": 700
@@ -6818,23 +6088,9 @@
       "cell": "shop_luncheonette",
       "key": "vinyl_oxblood",
       "triangles": 700
-    },
-    {
-      "name": "storm_shop_luncheonette_stool7__chrome",
-      "assembly": "storm_shop_luncheonette_stool7",
-      "cell": "shop_luncheonette",
-      "key": "chrome",
-      "triangles": 1268
-    },
-    {
-      "name": "storm_shop_luncheonette_stool7__vinyl_oxblood",
-      "assembly": "storm_shop_luncheonette_stool7",
-      "cell": "shop_luncheonette",
-      "key": "vinyl_oxblood",
-      "triangles": 700
     }
   ],
-  "triangles": 55804,
+  "triangles": 43996,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -7482,26 +6738,6 @@
         "id": "shop_luncheonette",
         "parts": [
           {
-            "name": "storm_shop_luncheonette_stool0__chrome",
-            "key": "chrome",
-            "tile": 0.8
-          },
-          {
-            "name": "storm_shop_luncheonette_stool0__vinyl_oxblood",
-            "key": "vinyl_oxblood",
-            "tile": 0.7
-          },
-          {
-            "name": "storm_shop_luncheonette_stool1__chrome",
-            "key": "chrome",
-            "tile": 0.8
-          },
-          {
-            "name": "storm_shop_luncheonette_stool1__vinyl_oxblood",
-            "key": "vinyl_oxblood",
-            "tile": 0.7
-          },
-          {
             "name": "storm_shop_luncheonette_stool2__chrome",
             "key": "chrome",
             "tile": 0.8
@@ -7524,32 +6760,12 @@
             "tile": 0.7
           },
           {
-            "name": "storm_shop_luncheonette_stool3__chrome",
-            "key": "chrome",
-            "tile": 0.8
-          },
-          {
-            "name": "storm_shop_luncheonette_stool3__vinyl_oxblood",
-            "key": "vinyl_oxblood",
-            "tile": 0.7
-          },
-          {
             "name": "storm_shop_luncheonette_stool4__chrome",
             "key": "chrome",
             "tile": 0.8
           },
           {
             "name": "storm_shop_luncheonette_stool4__vinyl_oxblood",
-            "key": "vinyl_oxblood",
-            "tile": 0.7
-          },
-          {
-            "name": "storm_shop_luncheonette_stool5__chrome",
-            "key": "chrome",
-            "tile": 0.8
-          },
-          {
-            "name": "storm_shop_luncheonette_stool5__vinyl_oxblood",
             "key": "vinyl_oxblood",
             "tile": 0.7
           },
@@ -7562,19 +6778,99 @@
             "name": "storm_shop_luncheonette_stool6__vinyl_oxblood",
             "key": "vinyl_oxblood",
             "tile": 0.7
-          },
-          {
-            "name": "storm_shop_luncheonette_stool7__chrome",
-            "key": "chrome",
-            "tile": 0.8
-          },
-          {
-            "name": "storm_shop_luncheonette_stool7__vinyl_oxblood",
-            "key": "vinyl_oxblood",
-            "tile": 0.7
           }
         ],
         "replace": [
+          {
+            "id": "storm_shop_luncheonette_stool2",
+            "key": "chrome",
+            "low": [
+              18.19,
+              0.01,
+              42.778571428571425
+            ],
+            "high": [
+              18.53,
+              0.71,
+              43.11857142857143
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_stool2_top",
+            "key": "vinyl_oxblood",
+            "low": [
+              18.16,
+              0.75,
+              42.748571428571424
+            ],
+            "high": [
+              18.56,
+              0.8200000000000001,
+              43.14857142857142
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_stool4",
+            "key": "chrome",
+            "low": [
+              18.19,
+              0.01,
+              42.04714285714285
+            ],
+            "high": [
+              18.53,
+              0.71,
+              42.387142857142855
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_stool4_top",
+            "key": "vinyl_oxblood",
+            "low": [
+              18.16,
+              0.75,
+              42.01714285714286
+            ],
+            "high": [
+              18.56,
+              0.8200000000000001,
+              42.41714285714285
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_stool6",
+            "key": "chrome",
+            "low": [
+              18.19,
+              0.01,
+              41.31571428571428
+            ],
+            "high": [
+              18.53,
+              0.71,
+              41.65571428571428
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_stool6_top",
+            "key": "vinyl_oxblood",
+            "low": [
+              18.16,
+              0.75,
+              41.28571428571428
+            ],
+            "high": [
+              18.56,
+              0.8200000000000001,
+              41.68571428571428
+            ],
+            "expected_triangles": 12
+          },
           {
             "id": "storm_shop_luncheonette_stool0",
             "key": "chrome",
@@ -7636,36 +6932,6 @@
             "expected_triangles": 12
           },
           {
-            "id": "storm_shop_luncheonette_stool2",
-            "key": "chrome",
-            "low": [
-              18.19,
-              0.01,
-              42.778571428571425
-            ],
-            "high": [
-              18.53,
-              0.71,
-              43.11857142857143
-            ],
-            "expected_triangles": 12
-          },
-          {
-            "id": "storm_shop_luncheonette_stool2_top",
-            "key": "vinyl_oxblood",
-            "low": [
-              18.16,
-              0.75,
-              42.748571428571424
-            ],
-            "high": [
-              18.56,
-              0.8200000000000001,
-              43.14857142857142
-            ],
-            "expected_triangles": 12
-          },
-          {
             "id": "storm_shop_luncheonette_stool3",
             "key": "chrome",
             "low": [
@@ -7696,36 +6962,6 @@
             "expected_triangles": 12
           },
           {
-            "id": "storm_shop_luncheonette_stool4",
-            "key": "chrome",
-            "low": [
-              18.19,
-              0.01,
-              42.04714285714285
-            ],
-            "high": [
-              18.53,
-              0.71,
-              42.387142857142855
-            ],
-            "expected_triangles": 12
-          },
-          {
-            "id": "storm_shop_luncheonette_stool4_top",
-            "key": "vinyl_oxblood",
-            "low": [
-              18.16,
-              0.75,
-              42.01714285714286
-            ],
-            "high": [
-              18.56,
-              0.8200000000000001,
-              42.41714285714285
-            ],
-            "expected_triangles": 12
-          },
-          {
             "id": "storm_shop_luncheonette_stool5",
             "key": "chrome",
             "low": [
@@ -7752,36 +6988,6 @@
               18.56,
               0.8200000000000001,
               42.051428571428566
-            ],
-            "expected_triangles": 12
-          },
-          {
-            "id": "storm_shop_luncheonette_stool6",
-            "key": "chrome",
-            "low": [
-              18.19,
-              0.01,
-              41.31571428571428
-            ],
-            "high": [
-              18.53,
-              0.71,
-              41.65571428571428
-            ],
-            "expected_triangles": 12
-          },
-          {
-            "id": "storm_shop_luncheonette_stool6_top",
-            "key": "vinyl_oxblood",
-            "low": [
-              18.16,
-              0.75,
-              41.28571428571428
-            ],
-            "high": [
-              18.56,
-              0.8200000000000001,
-              41.68571428571428
             ],
             "expected_triangles": 12
           },
@@ -7847,16 +7053,6 @@
           },
           {
             "name": "storm_shop_otis___son_stool2__vinyl_oxblood",
-            "key": "vinyl_oxblood",
-            "tile": 0.7
-          },
-          {
-            "name": "storm_shop_otis___son_stool3__chrome",
-            "key": "chrome",
-            "tile": 0.8
-          },
-          {
-            "name": "storm_shop_otis___son_stool3__vinyl_oxblood",
             "key": "vinyl_oxblood",
             "tile": 0.7
           }
@@ -7986,13 +7182,13 @@
       }
     ]
   },
-  "asset_sha256": "8336aae5a62910769a0f4738b2f78c1a305af1fb2a7063d201a6ab822a52378a",
+  "asset_sha256": "c9349a8cde8b5b45d5514c2f74cb8cc0c8b9f50da93640adc782e9f1087162c7",
   "source_bindings": {
-    "art/data/shop_seating/source_plan.json": "9b5d82531821c273c2958dfad6a2686fcd003e3c00d1fcaaccb0f4832394f163",
+    "art/data/shop_seating/source_plan.json": "b66dc72e3a0acb9031e60888e980e96faa5ec100896696cc6323c3c3387fdcab",
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
-    "art/blender/scripts/build_shop_seating.py": "7e220987b1469d01a78504fc6d3f5d3162dfb324cbf5b0b7b88f2894579bacc6",
+    "art/blender/scripts/build_shop_seating.py": "bd72bd08c9520e66cfaca1d026a231d922a9546f9ed43ecfc5fa804ba6a84f4a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
-    "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916",
+    "game/data/runtime_material_sets.json": "053761fac29499e8bc9a80a62f37d7411226157919b5cdc5421b9686569d38cc",
     "game/assets/props/shop_seating.glb.import": "276da98a085150342d6757cf47fb3d87beede74711ddd82537835f1715b3068d",
     "art/textures/ai_materials/wood_dark_b/material.json": "ba630389c5d6ce95be9664cbdd0499b2d0c20729709bcf5641a6d3d3bcd202d7",
     "art/textures/ai_materials/chrome_b/material.json": "b7c97dabeaf9646f9fc0a0a3c7f9df0ecdd33e26b361acf706de1c5930278e90",

@@ -137,6 +137,8 @@ var carried_device: Node3D
 ## Keeping the owner here means E can stand up even after the seat teleports the
 ## camera away from the collision volume that originally received the ray.
 var seated_interaction: Node
+## The seat that has the body, moving it or holding it still; looking and reaching go on.
+var seated_on: Node3D
 var _sway_clock := 0.0
 ## The switch's position. The filament lags it; the rules never do.
 var _lamp_on := true
@@ -444,7 +446,7 @@ func _process(_delta: float) -> void:
 		collision_mask = 0 if noclip else (1|_native_contact_layers)
 		if noclip:
 			_clear_stagger()
-	if Input.is_action_just_pressed("crouch") and not inspecting():
+	if Input.is_action_just_pressed("crouch") and not inspecting() and not is_instance_valid(seated_on):
 		_set_crouched(not crouched)
 	# Resolve after controller look, interaction and eye-height changes so the
 	# drawn target describes the camera and hand actually rendered this frame.
@@ -1119,6 +1121,13 @@ func _physics_process(delta: float) -> void:
 	var native_sync_ms: float=(Time.get_ticks_usec()-sync_started)/1000. if profile_physics else 0.
 	if inspecting():
 		velocity=Vector3.ZERO
+		return
+	if is_instance_valid(seated_on):
+		velocity = Vector3.ZERO
+		_clear_stagger()
+		_stride_last = Vector3.INF
+		_stride_travel = 0.0
+		seated_on.hold_player(delta)
 		return
 	if call_locked:
 		velocity = Vector3.ZERO

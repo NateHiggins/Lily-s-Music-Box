@@ -168856,7 +168856,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/cells[1]/replace[0]/id"
+    "/cells[1]/replace[*]/id"
    ],
    "lines": [
     0
@@ -168884,7 +168884,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/cells[1]/replace[1]/id"
+    "/cells[1]/replace[*]/id"
    ],
    "lines": [
     0
@@ -168912,7 +168912,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/cells[1]/replace[2]/id"
+    "/cells[1]/replace[*]/id"
    ],
    "lines": [
     0
@@ -168968,7 +168968,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/cells[1]/replace[*]/id"
+    "/cells[1]/replace[0]/id"
    ],
    "lines": [
     0
@@ -168996,7 +168996,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/cells[1]/replace[*]/id"
+    "/cells[1]/replace[1]/id"
    ],
    "lines": [
     0
@@ -169080,7 +169080,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/cells[1]/replace[*]/id"
+    "/cells[1]/replace[2]/id"
    ],
    "lines": [
     0
@@ -209665,7 +209665,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1262
+    1269
    ],
    "count": 1,
    "context": [
@@ -209695,8 +209695,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1342,
-    1345
+    1349,
+    1352
    ],
    "count": 2,
    "context": [
@@ -209727,7 +209727,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    807
+    808
    ],
    "count": 1,
    "context": [
@@ -209937,7 +209937,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1490
+    1497
    ],
    "count": 1,
    "context": [
@@ -209998,9 +209998,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1256,
-    1259,
-    1321
+    1263,
+    1266,
+    1328
    ],
    "count": 3,
    "context": [
@@ -210032,7 +210032,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1271
+    1278
    ],
    "count": 1,
    "context": [
@@ -210062,7 +210062,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1263
+    1270
    ],
    "count": 1,
    "context": [
@@ -210092,7 +210092,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1280
+    1287
    ],
    "count": 1,
    "context": [
@@ -210122,7 +210122,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1488
+    1495
    ],
    "count": 1,
    "context": [
@@ -210182,7 +210182,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1272
+    1279
    ],
    "count": 1,
    "context": [
@@ -210212,7 +210212,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1484
+    1491
    ],
    "count": 1,
    "context": [
@@ -210242,7 +210242,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1486
+    1493
    ],
    "count": 1,
    "context": [
@@ -210272,7 +210272,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    719
+    720
    ],
    "count": 1,
    "context": [
@@ -210302,7 +210302,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1486
+    1493
    ],
    "count": 1,
    "context": [
@@ -210332,7 +210332,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1484
+    1491
    ],
    "count": 1,
    "context": [
@@ -210362,7 +210362,7 @@
     "_ready"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -210392,7 +210392,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    720
+    721
    ],
    "count": 1,
    "context": [
@@ -210422,7 +210422,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    720
+    721
    ],
    "count": 1,
    "context": [
@@ -210452,7 +210452,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1484
+    1491
    ],
    "count": 1,
    "context": [
@@ -210482,7 +210482,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1484
+    1491
    ],
    "count": 1,
    "context": [
@@ -210512,7 +210512,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    719
+    720
    ],
    "count": 1,
    "context": [
@@ -210572,9 +210572,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1339,
-    1343,
-    1346
+    1346,
+    1350,
+    1353
    ],
    "count": 3,
    "context": [
@@ -210606,7 +210606,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    508
+    509
    ],
    "count": 1,
    "context": [
@@ -210636,7 +210636,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    508
+    509
    ],
    "count": 1,
    "context": [
@@ -210666,7 +210666,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    507
+    508
    ],
    "count": 1,
    "context": [
@@ -210696,7 +210696,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    507
+    508
    ],
    "count": 1,
    "context": [
@@ -210726,7 +210726,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1247
+    1254
    ],
    "count": 1,
    "context": [
@@ -210756,7 +210756,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1248
+    1255
    ],
    "count": 1,
    "context": [
@@ -210786,7 +210786,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    508
+    509
    ],
    "count": 1,
    "context": [
@@ -210876,7 +210876,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1149
+    1156
    ],
    "count": 1,
    "context": [
@@ -210906,7 +210906,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    559
+    560
    ],
    "count": 1,
    "context": [
@@ -210937,8 +210937,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1021,
-    1134
+    1028,
+    1141
    ],
    "count": 2,
    "context": [
@@ -210969,7 +210969,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1135
+    1142
    ],
    "count": 1,
    "context": [
@@ -211089,7 +211089,7 @@
     "_ready"
    ],
    "lines": [
-    240
+    241
    ],
    "count": 1,
    "context": [
@@ -211119,7 +211119,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1305
+    1312
    ],
    "count": 1,
    "context": [
@@ -211149,7 +211149,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1306
+    1313
    ],
    "count": 1,
    "context": [
@@ -211179,7 +211179,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1307
+    1314
    ],
    "count": 1,
    "context": [
@@ -211209,7 +211209,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1304
+    1311
    ],
    "count": 1,
    "context": [
@@ -211270,7 +211270,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    551
+    552
    ],
    "count": 1,
    "context": [
@@ -211302,8 +211302,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1240,
-    1305
+    1247,
+    1312
    ],
    "count": 2,
    "context": [
@@ -211336,8 +211336,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1243,
-    1306
+    1250,
+    1313
    ],
    "count": 2,
    "context": [
@@ -211370,8 +211370,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1246,
-    1307
+    1253,
+    1314
    ],
    "count": 2,
    "context": [
@@ -211404,8 +211404,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1237,
-    1304
+    1244,
+    1311
    ],
    "count": 2,
    "context": [
@@ -211437,7 +211437,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    549
+    550
    ],
    "count": 1,
    "context": [
@@ -211468,7 +211468,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    425
+    426
    ],
    "count": 1,
    "context": [
@@ -211500,8 +211500,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    235,
-    430
+    236,
+    431
    ],
    "count": 2,
    "context": [
@@ -211533,7 +211533,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    556
+    557
    ],
    "count": 1,
    "context": [
@@ -211564,7 +211564,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    433
+    434
    ],
    "count": 1,
    "context": [
@@ -211596,8 +211596,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    549,
-    1345
+    550,
+    1352
    ],
    "count": 2,
    "context": [
@@ -211628,7 +211628,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1204
+    1211
    ],
    "count": 1,
    "context": [
@@ -211658,7 +211658,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1205
+    1212
    ],
    "count": 1,
    "context": [
@@ -222006,6 +222006,128 @@
    "rationale": "Production Godot-space coordinate with gameplay context; candidate named anchor.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "8f64c7c1274bc98f",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/player/seat_gestures.gd",
+   "tier": "production",
+   "subsystem": "player",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    64
+   ],
+   "count": 1,
+   "context": [
+    "if str(floor.id) == \"F01\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "acb9fcdf8b191973",
+   "kind": "generated_name",
+   "token": "_add",
+   "file": "game/scripts/player/seat_gestures.gd",
+   "tier": "production",
+   "subsystem": "player",
+   "symbols": [
+    "_add"
+   ],
+   "lines": [
+    118
+   ],
+   "count": 1,
+   "context": [
+    "\"Seat_\" + identity"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7b41675e40ec2df2",
+   "kind": "id_reference",
+   "token": "4B_desk_chair",
+   "file": "game/scripts/player/seat_gestures.gd",
+   "tier": "production",
+   "subsystem": "player",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "const NOT_FREE := [\"4B_desk_chair\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5391eda397af045e",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_stool",
+   "file": "game/scripts/player/seat_gestures.gd",
+   "tier": "production",
+   "subsystem": "player",
+   "symbols": [
+    "_add_counter_row"
+   ],
+   "lines": [
+    101,
+    104
+   ],
+   "count": 2,
+   "context": [
+    "elif identity == \"storm_shop_news_cigars_stool\" or (identity.begins_with(\"storm_shop_\") and identity.ends_with(\"_top\") and identity.contains(\"_stool\")):",
+    "if name_only.contains(\"_stool\") and name_only != \"storm_shop_news_cigars_stool\" and not _built_stools.has(name_only):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
   },
   {
    "key": "f99f9643c776f5e5",
@@ -302906,6 +303028,316 @@
     "root.player.global_position = Vector3(4.3, 11.25, 7.6)",
     "cam.global_position = Vector3(4.3, 11.25, 7.6)",
     "cam.look_at(Vector3(4.3, 10.8, -6.0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "90c6e6eae917c1ea",
+   "kind": "id_reference",
+   "token": "2A_din_dc1",
+   "file": "game/tests/seat_gesture_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    179
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"retail_bar_stool2\", \"retail_bar_ch0_0\", \"storm_shop_news_cigars_stool\", \"storm_shop_otis___son_stool1\", \"2A_din_dc1\", \"3B_stool\", \"5C_"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a7551f20ef2ce1b5",
+   "kind": "id_reference",
+   "token": "3B_stool",
+   "file": "game/tests/seat_gesture_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    179
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"retail_bar_stool2\", \"retail_bar_ch0_0\", \"storm_shop_news_cigars_stool\", \"storm_shop_otis___son_stool1\", \"2A_din_dc1\", \"3B_stool\", \"5C_"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f53b0fb618c3b6ca",
+   "kind": "id_reference",
+   "token": "4B_desk_chair",
+   "file": "game/tests/seat_gesture_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    76
+   ],
+   "count": 1,
+   "context": [
+    "_require(not seats.seats.has(\"4B_desk_chair\"), \"the call desk keeps its own chair\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4d4ed59d1c4deb02",
+   "kind": "id_reference",
+   "token": "5C_bed_chair",
+   "file": "game/tests/seat_gesture_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    179
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"retail_bar_stool2\", \"retail_bar_ch0_0\", \"storm_shop_news_cigars_stool\", \"storm_shop_otis___son_stool1\", \"2A_din_dc1\", \"3B_stool\", \"5C_"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "000493945b8a26af",
+   "kind": "id_reference",
+   "token": "retail_bar_ch0_0",
+   "file": "game/tests/seat_gesture_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    74,
+    179
+   ],
+   "count": 2,
+   "context": [
+    "for identity: String in [\"retail_bar_stool2\", \"retail_bar_ch0_0\", \"storm_shop_otis___son_stool1\", \"storm_shop_news_cigars_stool\"]:",
+    "for identity: String in [\"retail_bar_stool2\", \"retail_bar_ch0_0\", \"storm_shop_news_cigars_stool\", \"storm_shop_otis___son_stool1\", \"2A_din_dc1\", \"3B_stool\", \"5C_"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "29833a3cf26ecf94",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_stool2",
+   "file": "game/tests/seat_gesture_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const STOOL := \"storm_shop_luncheonette_stool2\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c1e548a4b0939f47",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_stool",
+   "file": "game/tests/seat_gesture_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    74,
+    179
+   ],
+   "count": 2,
+   "context": [
+    "for identity: String in [\"retail_bar_stool2\", \"retail_bar_ch0_0\", \"storm_shop_otis___son_stool1\", \"storm_shop_news_cigars_stool\"]:",
+    "for identity: String in [\"retail_bar_stool2\", \"retail_bar_ch0_0\", \"storm_shop_news_cigars_stool\", \"storm_shop_otis___son_stool1\", \"2A_din_dc1\", \"3B_stool\", \"5C_"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b964a7230d420e64",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_stool1",
+   "file": "game/tests/seat_gesture_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    74,
+    179
+   ],
+   "count": 2,
+   "context": [
+    "for identity: String in [\"retail_bar_stool2\", \"retail_bar_ch0_0\", \"storm_shop_otis___son_stool1\", \"storm_shop_news_cigars_stool\"]:",
+    "for identity: String in [\"retail_bar_stool2\", \"retail_bar_ch0_0\", \"storm_shop_news_cigars_stool\", \"storm_shop_otis___son_stool1\", \"2A_din_dc1\", \"3B_stool\", \"5C_"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "410fbe499a4e7afa",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/seat_gesture_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    112,
+    159,
+    172
+   ],
+   "count": 3,
+   "context": [
+    "player.camera.rotation = Vector3(-0.2, 0, 0)",
+    "player.global_position = stand_at + Vector3(-1.5, 0, 0)",
+    "player.global_position = stand_at + Vector3(-3, 0, 0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "33f518ca77f3a33a",
+   "kind": "vector3_coordinate",
+   "token": "_sit_on",
+   "file": "game/tests/seat_gesture_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_sit_on"
+   ],
+   "lines": [
+    61
+   ],
+   "count": 1,
+   "context": [
+    "player.camera.rotation = Vector3(-0.15, 0, 0)"
    ],
    "gameplay_binding": true,
    "authority": [
