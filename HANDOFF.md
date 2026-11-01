@@ -1,4 +1,4 @@
-# Current handoff â€” 2026-11-01 range/current-main reconciliation
+# Current handoff — 2026-11-01 range/current-main reconciliation
 
 Evidence class: **INERT**. Continuity index, not acceptance evidence.
 
@@ -6,10 +6,12 @@ Owner: Lily, she/her. Normal checkout **C:/PleaseRemainOnTheLine**. Read
 DOCS.md, AGENTS.md and developer-continuity. Historical sections below are not
 current Git or queue state. The full V2 goal remains active and incomplete.
 
-- Branch **codex/v2-gas-range-refit-20261101**, draft [PR127](https://github.com/NateHiggins/Lily-s-Music-Box/pull/127).
-  Source checkpoint **e796eef5b**, including **76ee616cc** import provenance fix,
-  **cfd2ea254** merge of main **d7eeb29c5** (PR129â€“131), plus earlier PR126/128.
-  Not merged to main. Preserve unrelated UIDs/attachments and import-only churn.
+- Canonical checkout is **main**, after manually merging
+  [PR127](https://github.com/NateHiggins/Lily-s-Music-Box/pull/127) as
+  **3246aab954f2659529cb29328e844a4a0a883906**. Local main and origin/main
+  were verified there; its tree exactly matches verified **fe359950c**.
+  PR126/128/129–131 remain preserved. Keep unrelated UIDs/attachments and
+  import-only churn. The own range branch remains as recovery history.
 - Corrected seven native range variants are installed across 18 actors. Exact
   export 239,788 triangles/296 partitions/26,363,156 bytes; SHA256
   **b1c736f2b32e055748b146e80d8a844f6468c4da2dff4c946115a9299b30691a**.
@@ -40,25 +42,30 @@ current Git or queue state. The full V2 goal remains active and incomplete.
   The skill records this verified lesson. Full raw reports and original failures:
   **C:/ov/reports/gas_range_integration_20261101/**; detailed ledger:
   **design/V2_HOUSEHOLD_STOVES_2026-10-08.md**.
-- NEXT: commit the surface03 renewal, finish the clean **d7eeb29c5** baseline,
-  compare/verify the final candidate, then manually merge PR127. No auto-merge.
-  Own clean detached verification checkout **C:/ov/c-ab46a508** is being reused
-  for that baseline; do not switch it while the job is live. Script
-  **refresh_main_baseline.py**, output **clean_main_d7eeb2/**, then exact cache
-  **C:/ov/boards/<full-d7-sha>.v2.json**. Prior 45c baseline checkout was safely
-  removed (70,907 files); actual board/cache retained. Source-frozen engine batch
-  **main_reconciliation_batch02.json** is completed. Do not repeat unchanged
-  range/hose/native checks for reports. A temporary main-merge hold was requested
-  on PR127; acknowledgement is not established. Fetch before final merge.
+- Final **fe359950c** candidate passes all 119 gate comparisons against the
+  complete clean **d7eeb29c5** baseline: zero regressions/four improvements,
+  actual surface qualification PASS, 42 surface tools tests PASS (476.58s),
+  17/17 protected paths, selector V2, zero lint errors. No waivers. Management
+  ran without Godot in the clean isolated checkout; actual engine receipts above
+  are separate. Full results: **candidate_fe3599/verification.json** under the
+  external report root. Baseline board/cache remain; all own engine/verifier
+  jobs are terminal. The temporary range merge hold is released on PR127.
+- NEXT: integrate the architect's published city checkpoint on a new branch
+  from origin/main. Reuse own clean detached **C:/ov/c-ab46a508** for the current
+  main baseline and later candidate instead of another large checkout. It is
+  idle at fe359950c; check Git/ownership before switching it. Prior baseline
+  **C:/ov/gas-b1101** was safely removed (70,907 files), actual board/cache kept.
+  Clean this own temporary checkout after verification use. Do not rerun
+  unchanged range/hose/native checks for record-only changes.
 - City architect is frozen/blocked awaiting intake, source
   **74aa686920e51665af40c004255ffd4fb283748f**, record-only
   **0bcb475f6a172cb409254ea6da1ade09528d0577**. All earlier Western/Cedar commits
   remain unmerged. Reported 949family/341isolated/113composed checks; actual 12 legs,
   seven endpoints / 1,105 samples/no rescues. I inspected all five composed frames and
-  verified 336-member archive hash/CRC **2950cebeâ€¦85b2aa8**. Merge preview conflicts
+  verified 336-member archive hash/CRC **2950cebe…85b2aa8**. Merge preview conflicts
   only HANDOFF, appended city report and spatial manifest. Preserve both reports
   and all 11,097 canonical records plus reviewed **cc77c4890e51fcde** (11,098 total).
-  No canonical city intake yet;93 generic profiles,lighting/performance/artistic
+  No canonical city intake yet; 93 generic profiles, lighting/performance/artistic
   scope remain. Integrate the published checkpoint before another construction
   slice; respect Lily's one-task-at-a-time instruction.
 - Controls/pause overhaul remains unimplemented: existing function matrix in
@@ -68,8 +75,9 @@ current Git or queue state. The full V2 goal remains active and incomplete.
 - External native deliveries are INERT and queued in TASKS/modeler intake index:
   clawfoot/plumbing, fitted lavatory (includes old UV-only baseline), additive
   closet hardware, boiler/mail/watch/washer/switchboard/dispatch and resident key.
-  Latest air-vent-only packet **radiator-surface-v2-refit-20261101/** is reported
-  complete, unintegrated; remaining mechanism/morph/tag repairs are pending.
+  Separate radiator vent, mechanism/morph-tangent and paper-tag packets are
+  reported native-complete, all unintegrated. Preserve the loader's default
+  morph-weight clearing and each packet's exact baseline/binding checks.
   Verify each manifest/current consumer before intake. Preserve all state owners.
 - Questionnaire rulings already on main 2a2e97f56. Queens lot/address packet remains
   proposed: fictional composite, no lot or relocation selected, exact 1928 number

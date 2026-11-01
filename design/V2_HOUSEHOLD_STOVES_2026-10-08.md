@@ -436,3 +436,29 @@ byte-verified logs published in the existing packet. Fresh qualification
 This is physical-only scope, not acceptance of the new dated sky phenomenon,
 skipped interaction programmes, performance or artistic presentation. Current
 main baseline/final candidate comparison and manual merge remain open.
+
+### Merged range checkpoint — November 1
+
+**fe359950c** passes the final 119-gate comparison against the complete clean
+**d7eeb29c5** baseline: zero regressions/four improvements, surface qualification
+PASS, all42 surface tools tests PASS (476.58s), all17 protected paths unchanged,
+selectorV2 and zero design lint errors. The one manifest change was reviewed;
+the parallel input-reader instrument was also reviewed directly, with preserved
+projection equivalence and full existing tests. No waivers/accepted regressions.
+Management used the clean isolated checkout and **--no-godot**; the actual
+loaded-input, installed-world, disk-reload and schema2 physical receipts above
+remain distinct evidence. Full result: **candidate_fe3599/verification.json**.
+
+Manually merged [PR127](https://github.com/NateHiggins/Lily-s-Music-Box/pull/127)
+as **3246aab954f2659529cb29328e844a4a0a883906**. Local main and origin/main were
+verified at that commit; its Git tree is exactly the verified candidate tree.
+All newer main work remains. The temporary merge hold is released. No new
+engine run follows from this record-only closure. Original failures, earlier
+packets, actual logs and native proofs remain retained. The safe completed
+baseline cleanup removed70,907 temporary tracked files; its actual board/cache
+remain, and the remaining own verification checkout will be reused then removed.
+
+Open: added collision/startup cost, the owner's range appearance review and
+broader V2 gameplay/performance/artistic coverage. This completes the integrated
+range repair checkpoint, not the whole V2 goal. The architect's published city
+checkpoint is next; controls/pause and queued native deliveries remain separate.
