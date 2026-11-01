@@ -143,7 +143,7 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
 
 ### "You're on tonight?"
 
-1928-11-17 to 1929-07-13 · 19:00-01:30
+1928-11-17 to 1929-07-13 · 19:00-23:59
 
 - **ADELA VOSS** (av_p1): You're between my drummer and the door, night man, and she's been looking for a reason. Stay if you're staying. We open on money, then I get up, then we try something quiet and find out whose fault it is.
   - > You get up? → av_p2
@@ -328,7 +328,7 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
 
 ### "Don't let me interrupt."
 
-1929-03-23 to 1929-07-13 · 19:00-01:30
+1929-03-23 to 1929-07-13 · 19:00-23:59
 
 - **ADELA VOSS** (av_e1): Again from the bridge.
   - (silence) → av_e2
@@ -394,7 +394,7 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
 
 ### "You've got two bars too many in the slow one."
 
-1929-06-22 to 1929-06-29 · 19:00-01:30 · needs **m_two_bars**
+1929-06-22 to 1929-06-29 · 19:00-23:59 · needs **m_two_bars**
 
 - **ADELA VOSS** (av_v1): Which bar?
   - > Before the last eight. The two you added. Your hands have nothing to do. → av_v2
@@ -409,7 +409,7 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
 
 ### "Good set."
 
-1929-06-29 to 1929-07-13 · 19:00-01:30
+1929-06-29 to 1929-07-13 · 19:00-23:59
 
 - **ADELA VOSS** (av_u1): Was it? Yes. It went where it goes. Is the kitchen shut? I want something with rice in it and I don't want to hear about the bridge.
   - > Do you want company? → av_u2
@@ -775,7 +775,7 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 
 ### "Is she always like this?"
 
-1928-11-17 to 1929-07-13 · 19:00-01:30
+1928-11-17 to 1929-07-13 · 19:00-23:59
 
 - **LILY** (li_c1): Count her in and find out. She writes my entrance on the chart big enough to read in a coal hole, and then she moves it.
   - > Why stay? → li_c2
@@ -784,7 +784,7 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 
 ### "Do you want to do the test?"
 
-1929-03-23 to 1929-07-13 · 19:00-01:30 · needs **m_concern_letter**
+1929-03-23 to 1929-07-13 · 19:00-23:59 · needs **m_concern_letter**
 
 - **LILY** (li_a1): I said yes in March, once somebody asked me. It's a good offer. She's sent it back with corrections, they've sent it back with fewer pages, and one of these days they get bored.
   - > She wants her name on it. → li_a2
@@ -796,7 +796,7 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 
 ### "You're short a piano."
 
-1929-07-27 to 1929-11-09 · 19:00-01:30
+1929-07-27 to 1929-11-09 · 19:00-23:59
 
 - **LILY** (li_f1): Don't. I've had the faces. Do you want a drink, or do you want to carry this? Juno Kells says she can play piano. She can't. We find out how much on Thursday.
   - > I'll carry it. → li_f2
@@ -805,7 +805,7 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 
 ### "Did she ever sign with Astoria?"
 
-1929-08-03 to 1929-11-09 · 19:00-01:30 · needs **m_concern_letter**
+1929-08-03 to 1929-11-09 · 19:00-23:59 · needs **m_concern_letter**
 
 - **LILY** (li_r1): They wrote. To the bar, she never gave them the shop. It came the Tuesday after. "We note your amendments. Clause six stands. Kindly advise." Nobody in Astoria reads the Record. I've got all seven of theirs in the bench, under the music, with her pencil on every one, and no correction twice.
   - > Will you sign it? → li_r2
@@ -816,7 +816,7 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 
 ### "That slow one sounds different."
 
-1929-07-27 to 1929-11-09 · 19:00-01:30
+1929-07-27 to 1929-11-09 · 19:00-23:59
 
 - **LILY** (li_v1): It does. She took out her two bars at the end of June. I'd told her in March. Then you stood by the coat hooks and told her which bar, and she played it like scripture. Don't look at me, I was there. You had your coat on.
   - > I don't remember that. → li_v2
@@ -825,7 +825,7 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 
 ### "Did the picture come back?"
 
-1929-08-17 to 1929-11-09 · 19:00-01:30 · needs **m_concern_letter**
+1929-08-17 to 1929-11-09 · 19:00-23:59 · needs **m_concern_letter**
 
 - **LILY** (li_p1): Friday. Somebody over there has written on it in pencil. "Suggest smaller hat." It's the ugly one, I've got both arms and she's laughing at something off the edge. It's the only one of the two of us there is.
   - > It's her face. → li_p2
@@ -836,7 +836,7 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 
 ### "Juno Kells has something she told me about."
 
-1929-08-10 to 1929-11-09 · 19:00-01:30 · needs **m_dub**
+1929-08-10 to 1929-11-09 · 19:00-23:59 · needs **m_dub**
 
 - **LILY** (li_d1): She told you too? She can't hold it, she's like a boiler. That's my bass on there. I'd like that reel more than anyone living.
   - > So ask for it. → li_d2
@@ -845,7 +845,7 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 
 ### "How was Thursday?"
 
-1929-09-01 to 1929-11-09 · 19:00-01:30
+1929-09-01 to 1929-11-09 · 19:00-23:59
 
 - **LILY** (li_t1): Eleven people, one fight, and a man who wants the same waltz he wanted last week. I got paid in rice crackers. I'm told that's a raise.
 
