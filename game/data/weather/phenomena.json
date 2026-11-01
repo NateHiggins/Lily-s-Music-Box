@@ -5,7 +5,7 @@
   "last": "1929-11-09"
  },
  "seed_salt": "sky-phenomena",
- "slots": 41,
+ "slots": 42,
  "phenomena": [
   {
    "id": "mammatus",
@@ -1663,6 +1663,38 @@
     70,
     100
    ]
+  },
+  {
+   "id": "emergence",
+   "slot": 41,
+   "family": "dome",
+   "label": "the Emergence",
+   "months": [
+    10
+   ],
+   "sun_degrees": [
+    -90,
+    -5
+   ],
+   "requires": {},
+   "weather": {
+    "cloud_total": 0.1,
+    "cloud_low": 0.03,
+    "cloud_mid": 0.03,
+    "cloud_high": 0.04,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0
+   },
+   "fade_minutes": 6,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ]
   }
  ],
  "occurrences": [
@@ -2339,6 +2371,19 @@
     "headline": "Green flash at sundown",
     "record": "The sun went down behind the Manhattan towers with a green flash at 5:13 p.m., the Bureau states.",
     "speaker": "Sundown went green for a blink. The Record missed it; we did not."
+   }
+  },
+  {
+   "id": "emergence",
+   "date": "1929-10-12",
+   "start": "23:55",
+   "minutes": 70,
+   "bearing_degrees": 190,
+   "intensity": 1.0,
+   "press": {
+    "headline": "The Emergence, forty minutes late",
+    "record": "The Emergence took place off Sandy Hook at about midnight and was gone toward Betelgeuse by one o'clock, the Bureau states.",
+    "speaker": "It came up, crossed the borough and did not look down. The Bureau was forty minutes out, and so was everyone's sister."
    }
   }
  ]

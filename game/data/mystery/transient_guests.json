@@ -10,7 +10,8 @@
  "entries": {
   "tg_lodger": "tg_l1",
   "tg_stairs": "tg_s1",
-  "tg_rumor": "tg_r1"
+  "tg_rumor": "tg_r1",
+  "tg_party": "tg_q1"
  },
  "threads": [
   {
@@ -42,6 +43,14 @@
    "topic": "Anything new in the house?",
    "source": "Comedy. Bank lines. Ordinary appointment and a verified mirror only.",
    "root": "tg_r1"
+  },
+  {
+   "id": "tg_party",
+   "from": "1929-03-01",
+   "until": "1929-11-09",
+   "topic": "Have you all been received?",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. Not at Home. They agree until a concrete question.",
+   "root": "tg_q1"
   }
  ],
  "nodes": {
@@ -103,6 +112,22 @@
   "tg_r2": {
    "bank": "JF014-A02",
    "line": "The mirror showed me Tuesday, Thursday, and a gentleman who looked disappointed in all three. — That's the wardrobe. — I thought we agreed about the wardrobe."
+  },
+  "tg_q1": {
+   "silence_goto": "tg_q3",
+   "line": "We have. — We were. — It was very nice. — We all agree it was very nice.",
+   "choices": [
+    {
+     "label": "Which night?",
+     "goto": "tg_q2"
+    }
+   ]
+  },
+  "tg_q2": {
+   "line": "Thursday. — Tuesday. — There was a band. — There was no band. — Well, it was very nice."
+  },
+  "tg_q3": {
+   "line": "Very nice."
   }
  }
 }

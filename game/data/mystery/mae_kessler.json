@@ -11,7 +11,9 @@
   "mk_tea": "mk_t1",
   "mk_afterward": "mk_a1",
   "mk_glove": "mk_g1",
-  "mk_box": "mk_b1"
+  "mk_box": "mk_b1",
+  "mk_chair": "mk_e1",
+  "mk_copy": "mk_c1"
  },
  "threads": [
   {
@@ -71,6 +73,18 @@
    ],
    "source": "Owner ruling 2026-10-31. She denies opening anything, so B08 and the note's discovery stand. The player infers how a dated copy read to her. Not a confession.",
    "root": "mk_c1"
+  },
+  {
+   "id": "mk_chair",
+   "from": "1929-10-12",
+   "until": "1929-10-12",
+   "topic": "Are you going up, Mrs. Kessler?",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. The Emergence. She is not a clue here.",
+   "root": "mk_e1"
   }
  ],
  "nodes": {
@@ -219,6 +233,9 @@
   "mk_c2": {
    "flag": "m_mae_knew_drawer",
    "line": "Who has been reading you my acquaintance's accounts? The gloves are by the door."
+  },
+  "mk_e1": {
+   "line": "I am carrying a chair up, if that's what you mean. You may sit. The chair is mine."
   }
  }
 }

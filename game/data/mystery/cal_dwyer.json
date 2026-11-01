@@ -10,7 +10,8 @@
  "entries": {
   "cd_bad_joke": "cd_b1",
   "cd_roof": "cd_r1",
-  "cd_playback": "cd_p1"
+  "cd_playback": "cd_p1",
+  "cd_last": "cd_l1"
  },
  "threads": [
   {
@@ -42,6 +43,14 @@
    ],
    "source": "S13, 4.6, B19. Shows the door and lets the player compare.",
    "root": "cd_p1"
+  },
+  {
+   "id": "cd_last",
+   "from": "1929-04-08",
+   "until": "1929-11-09",
+   "topic": "What's that you keep playing?",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. One Short. No mark on it marks the hold.",
+   "root": "cd_l1"
   }
  ],
  "nodes": {
@@ -104,6 +113,22 @@
   "cd_p3": {
    "flag": "m_drama_disc",
    "line": "Static from four minutes to nine. You want to hear static, I've got an hour of it. WLBQ had a different episode listed anyway, I've got the card, and nobody else carried it. So I don't know what your friend heard on the sixth floor. I know what wasn't on the air."
+  },
+  "cd_l1": {
+   "silence_goto": "cd_l3",
+   "line": "Thirtieth of March, WLIC. Ten, nine, eight. Listen to him, he's got a train to catch. Three. Two. And that's the other fellow's dance band, on top of him, hard, no fade. That's a clean change. Nothing wrong with it at all. I could put the word on the end for you.",
+   "choices": [
+    {
+     "label": "Why don't you?",
+     "goto": "cd_l2"
+    }
+   ]
+  },
+  "cd_l2": {
+   "line": "Then it's finished."
+  },
+  "cd_l3": {
+   "line": "Yeah. Everybody stands there. Sit down, it comes round again."
   }
  }
 }

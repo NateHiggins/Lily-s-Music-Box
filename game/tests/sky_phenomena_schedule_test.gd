@@ -29,7 +29,7 @@ func _ready() -> void:
 	var loaded := schedule.load_schedule(Phenomena.PATH, Callable(self, "_seasonal"))
 	for problem in schedule.errors: print("    ", problem)
 	_check("the schedule loads with no validation errors", loaded)
-	_check("41 phenomena fill the 41 sky slots", schedule.phenomena.size() == Phenomena.SLOTS
+	_check("42 phenomena fill the 42 sky slots", schedule.phenomena.size() == Phenomena.SLOTS
 			and not schedule.ids_by_slot.has(""))
 	var dated := {}
 	for entry: Dictionary in schedule.occurrences: dated[entry.id] = true

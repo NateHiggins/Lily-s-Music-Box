@@ -13,7 +13,8 @@
   "jk_trade": "jk_t1",
   "jk_pocket": "jk_p1",
   "jk_dub": "jk_d1",
-  "jk_gone": "jk_g1"
+  "jk_gone": "jk_g1",
+  "jk_scranton": "jk_s1"
  },
  "threads": [
   {
@@ -79,6 +80,14 @@
    ],
    "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK10, after. Juno is still Juno.",
    "root": "jk_g1"
+  },
+  {
+   "id": "jk_scranton",
+   "from": "1929-09-15",
+   "until": "1929-10-31",
+   "topic": "You wrote to Scranton?",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. One Short. She asks first, after August, and it gets her nowhere. The archive stays shut.",
+   "root": "jk_s1"
   }
  ],
  "nodes": {
@@ -228,6 +237,9 @@
   },
   "jk_g1": {
    "line": "It's cut. Miss Sato came up and stood on the same rug. I cut it, and I didn't dub it. You can check that. You can't check that. I didn't."
+  },
+  "jk_s1": {
+   "line": "I asked! Me! I wrote \"may I\" on a piece of paper! He said \"one\" every night for four months, I could cut you a beauty out of January, you'd cry. He sent a catalogue. So that's a no, or it's a mattress. I'm taking it as a no. Don't look at me like that, I'm as surprised as you are."
   }
  }
 }

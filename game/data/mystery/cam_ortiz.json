@@ -12,7 +12,8 @@
   "co_windmill": "co_w1",
   "co_route": "co_r1",
   "co_recall": "co_rc1",
-  "co_blanks": "co_b1"
+  "co_blanks": "co_b1",
+  "co_stop": "co_st1"
  },
  "threads": [
   {
@@ -66,6 +67,14 @@
    ],
    "source": "Kept from a cut chain. Blank discs on the eve of the cut.",
    "root": "co_b1"
+  },
+  {
+   "id": "co_stop",
+   "from": "1928-12-09",
+   "until": "1929-11-09",
+   "topic": "You ride the Corona line a lot.",
+   "source": "FICTION; see design/ORISON_BACKGROUND_ODDITIES_2026-11-01.md. The Unlisted Stop.",
+   "root": "co_st1"
   }
  ],
  "nodes": {
@@ -142,6 +151,9 @@
   "co_b1": {
    "flag": "m_blanks_slip",
    "line": "\"Thu. 11 Jul., Fass to 6C, one box blanks, forty cents.\" Flat box, no weight in it, up six flights, and she checks the seal like I'd been at it. Is that it?"
+  },
+  "co_st1": {
+   "line": "In the tunnel, under the river. Half a second, on the left. Green. I've got nothing for it. I carry to addresses, and that one hasn't got one."
   }
  }
 }

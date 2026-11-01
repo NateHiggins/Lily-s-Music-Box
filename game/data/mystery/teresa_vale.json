@@ -10,7 +10,9 @@
  "entries": {
   "tv_yard": "tv_y1",
   "tv_note": "tv_n1",
-  "tv_set": "tv_s1"
+  "tv_set": "tv_s1",
+  "tv_rest": "tv_o1",
+  "tv_one": "tv_o2"
  },
  "threads": [
   {
@@ -43,6 +45,26 @@
    "topic": "I saw you at the Harukiya.",
    "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. Company after a shift. Practical care in both directions.",
    "root": "tv_s1"
+  },
+  {
+   "id": "tv_rest",
+   "from": "1929-01-05",
+   "until": "1929-03-30",
+   "topic": "You look rested.",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. One Short. Her nights off; she works the rest.",
+   "root": "tv_o1"
+  },
+  {
+   "id": "tv_one",
+   "from": "1929-11-02",
+   "until": "1929-11-08",
+   "topic": "You've got your headphones off.",
+   "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. One Short. It unlocks nothing and is never announced.",
+   "root": "tv_o2",
+   "hours": [
+    "22:00",
+    "23:30"
+   ]
   }
  ],
  "nodes": {
@@ -106,6 +128,33 @@
   },
   "tv_s1": {
    "line": "I don't go for the music, I go because they let me sit. Miss Voss puts a glass where I can reach it without looking and doesn't tell me she's done it. I've slept through the slow one twice. She thinks that's a review. Sit down or go up, you're blocking my feet."
+  },
+  "tv_o1": {
+   "line": "Saturday nights. I get the Professor on the headphones, and I'm gone by four. First time in years I've slept with both ears shut. Don't tell the ward. Hold this while you're standing there."
+  },
+  "tv_o2": {
+   "silence_goto": "tv_o5",
+   "line": "It catches me at the sink now. Seven seconds with my hands in the water. They tell me it wants somebody in the room to say it, and I've had no one in this room since I took the lease. You'd do. You're here.",
+   "choices": [
+    {
+     "label": "One.",
+     "goto": "tv_o3"
+    },
+    {
+     "label": "Not me.",
+     "goto": "tv_o4"
+    }
+   ]
+  },
+  "tv_o3": {
+   "flag": "m_said_one",
+   "line": "(She stands there a moment. Then she takes her hands out and dries them.) Well. That's that, then. I'm on Sunday. Go on, you've got pipes."
+  },
+  "tv_o4": {
+   "line": "No. All right. I've asked worse."
+  },
+  "tv_o5": {
+   "line": "That's what I thought. It's all right. Mind the door."
   }
  }
 }
