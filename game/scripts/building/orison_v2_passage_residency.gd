@@ -9,6 +9,10 @@ var frame: Node3D
 var _dormant_box: AABB
 var _prefetch_box: AABB
 var state := "RESIDENT"
+# Optional existing loading-owner callback; no new residency/input authority.
+var prepare_entry: Callable
+var _entry_preparing := false
+var _entry_render_preparation: Dictionary = {}
 var _wanted := true
 const DORMANCY_GRACE_SECONDS := 3.0
 var _unwanted_seconds := 0.0
@@ -196,7 +200,7 @@ func _advance_residency(delta: float) -> void:
 		_gate(true)
 	if state == "DORMANT" and (_wanted or stock_wants):
 		_begin_load()
-	if state == "LOADING":
+	if state == "LOADING" and not _entry_preparing:
 		_stage_one()
 
 func _begin_load() -> void:
@@ -403,6 +407,13 @@ func _stage_one() -> void:
 		state = "FAILED"
 		_gate(true)
 		return
+	if prepare_entry.is_valid():
+		# Access remains with the retained barrier while rendering catches up
+		# to registered geometry. The callback owns/releases only its lease.
+		_entry_preparing = true
+		_entry_render_preparation = await prepare_entry.call("passage")
+		_entry_preparing = false
+		if _stopped or not is_inside_tree():return
 	load_cycles += 1
 	state = "RESIDENT"
 	_gate(false)
@@ -470,7 +481,7 @@ func snapshot() -> Dictionary:
 		if reference.get_ref() != null: retained_roots += 1
 	for reference: WeakRef in _retired_meshes:
 		if reference.get_ref() != null: retained_meshes += 1
-	return {"dormancy_grace_seconds":DORMANCY_GRACE_SECONDS,"unwanted_seconds":_unwanted_seconds,"portrait_atlas_cache":region.portrait_atlas_cache.snapshot(),"kept_shader_materials":1 if _canopy_shader_material!=null else 0,"state": state, "pending_requests": _pending.size()+_height_pending.size()+_native_pending.size(), "load_cycles": load_cycles,
+	return {"entry_render_preparation":_entry_render_preparation.duplicate(true),"dormancy_grace_seconds":DORMANCY_GRACE_SECONDS,"unwanted_seconds":_unwanted_seconds,"portrait_atlas_cache":region.portrait_atlas_cache.snapshot(),"kept_shader_materials":1 if _canopy_shader_material!=null else 0,"state": state, "pending_requests": _pending.size()+_height_pending.size()+_native_pending.size(), "load_cycles": load_cycles,
 		"unload_cycles": unload_cycles, "retired_geometry_roots_alive": retained_roots,
 		"retired_mesh_resources_alive": retained_meshes, "peak_stage_ms": peak_stage_ms,
 		"peak_activation_ms": peak_activation_ms, "stage_records": stage_records.duplicate(true), "fit_records":fit_records.duplicate(true), "activation_records":activation_records.duplicate(true),
@@ -483,6 +494,7 @@ func snapshot() -> Dictionary:
 func shutdown() -> void:
 	if _stopped: return
 	_stopped = true
+	prepare_entry = Callable()
 	if _fit_job!=null:_fit_job.cancel()
 	_fit_job=null
 	_fit_operations.clear()

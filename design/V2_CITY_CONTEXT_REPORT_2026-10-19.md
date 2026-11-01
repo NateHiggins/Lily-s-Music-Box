@@ -6023,3 +6023,75 @@ are preserved. Fully merged own intake branch was deleted locally/remotely.
 Foreign worktrees/branches,app-owned baseline and the prologue branch remain.
 No shared stash,forced checkout or bulk discard. Cleanup records remain external
 beside the immutable original run reports;this record changes no game files.
+
+
+### November 1 — loading-owned render preparation WIP
+
+Evidence class: **INERT**. **K-V2-FIRST-VIEW-HITCH**,branch
+**codex/v2-entry-render-preparation-20261101** from actual mainC371e94e.
+The earlier ten-draw450ms Laurel control is not a production speedup. Current
+candidate moves the same kind of work behind existing startup/exterior loading
+owners using the existing public arrival anchor;that eye's actual benefit is
+still a hypothesis requiring a matched measured run. No visual-quality,probe,
+material,native geometry or gameplay-state reduction is proposed.
+
+New short-lived helper acquires/releases only its own existing input lease,
+keeps SceneTree camera/player transforms untouched,restores the camera RID
+before every yield,and suspends drawing when paused. Pause/pointer-release
+cancels its lease before normal input handling,so the loading lease cannot
+swallow Pause. Foreign presentation/protected input and owner removal cancel
+without retaking a successor's view. No new viewport,camera,light or save owner.
+Startup and post-publication passage calls are authored but unverified;the old
+loading state/barrier retains access until the callback returns. Shutdown cancels
+pending work. No claim that a busy/skipped preparation eliminates cold stalls.
+
+Actual two-script compiler PASS;small rendered test-owner fixture **12/0** in
+**5.11s**,empty stderr,patched Forward+/Vulkan,hidden3440x1440. Green-subject
+restoration frame individually inspected. It exercises successful ten draws,
+real engine pause/resume,input-action forwarding,test-owner/foreign-camera
+protection and owner removal. It does not prove actual player/menu/composed
+loading behavior or FPS. Five authored scripts pass syntax grammar checks;
+actual production compile now PASS: five scripts,20.02s,zero script errors and empty stderr; no composed world. ReaderNEW0;spatial inventory's sole
+new test-camera record is **aec0365feb56a6da**,with existing classifications unchanged (71 line-location updates).
+
+Small-fixture archive **art/reviews/v2_entry_render_preparation_20261101.zip**:
+**29members/116592bytes/SHA256 d23d2ee82022992aedf250a1996afb0bd3a22a9321d4f3a7ec519bec28e8f6fc**. It retains executed helper/test
+source,scene,actual raw compressed logs/receipts,result and inspected restored
+image. Original failures of earlier warmups remain intact. A local authoring
+preflight caught an incorrectly indented planned edit before it was written;
+corrected pending passage code passes syntax. No malformed engine run is claimed.
+
+Actual clean mainC371119-gate board is cached withdirty_paths=[];no repinning.
+The two-import clean-main control and five-script production compiler are terminalPASS. No candidate benchmark verdict exists yet. Source root:
+**C:/ov/reports/entry_render_preparation_20261101/**. This WIP changes game scripts,
+so the old physical packet is stale on this branch by design. Actual loading/
+input/sandbox save/reload,normal entry deadlines,current optical/surface renewal
+and candidate comparison remain required before merge. Full V2 goal stays active.
+
+
+Clean-main control is now terminal. Fresh import1 takes501s and reports21
+font dependency parse errors before caches exist;import2 takes9s withzero
+script errors. No clean-first-import claim. Actual **stutter_probe** finishes
+**17checks/6legs/0failures**,193s,empty stderr,original420s process ceiling.
+Runtime hash matches current main **1265053cf6e531cec002cb925e8fcb5898a461bfcb42955198343893d59a2439**;
+source before/after match and baseline checkout has no real tracked differences.
+All219 walking samples retained. Nearest-rank wall distribution:
+**p50 20.185/p95 53.193/p99 172.507/max 293.987ms**;
+**3frames>100ms**. Shader/pipeline counters and nested brackets remain
+separate observations,not additive costs or independent compiler durations.
+Startup134427.256ms remains debt. This reproduces the current cold-turn issue;
+there is no candidate result or speedup claim yet.
+
+Architect stopped only its own live CPU gate subtree after the quiet request
+and retained the interrupted outcome;modeler confirmed no live heavy job.
+Both stayed quiet through the timed control. External30samples of1Hz systemCPU
+have partial coverage,max sampling-body0.497ms,no per-process/per-frame causal
+attribution. Optional psutil sampler could not start(package absent);no package
+was installed. Standard-library GetSystemTimes observer then completed. Driver
+cache/order effects and approximate host coverage remain limitations. The
+original comparison functions were reused with exact executed-source hash and
+wrapper checks;analysis is reproducible from the retained raw data. Archive now
+also preserves both imports,control logs/receipt,executed test,raw timing/work
+frames,host samples and analysis,with all preceding small-fixture payloads intact.
+
+Publication checkpoint: preserve this implementation on its named feature branch as WIP. Actual composed loading/input, save/reload, matched candidate timings and surface/candidate renewal remain open before merging. The production compiler receipt and compressed raw output are included in the same evidence archive.

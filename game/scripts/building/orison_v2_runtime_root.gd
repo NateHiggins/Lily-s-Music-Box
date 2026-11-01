@@ -95,6 +95,11 @@ var startup_ms := 0.0
 # Bounded, observational startup milestones; never a gameplay or save clock.
 var startup_milestones: Array[Dictionary] = []
 var _startup_started_usec := 0
+# Transient loading work; never persisted or a clock/gameplay authority.
+var entry_render_preparation_enabled := true
+var entry_render_preparation: Dictionary = {}
+var _entry_render_job: Node
+var _entry_render_shutdown := false
 var _contact_precision:=preload("res://scripts/building/v2_contact_precision.gd").new()
 var adapter
 var _blockout: Node3D
@@ -315,9 +320,35 @@ func _ready() -> void:
 	structural_occlusion.name="V2StructuralOcclusion"
 	add_child(structural_occlusion)
 	structural_occlusion.setup(_blockout)
+	await _prepare_entry_rendering("startup")
+	if _entry_render_shutdown or not is_inside_tree():return
+	_record_startup_milestone("entry_render_preparation_finished")
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	_record_startup_milestone("startup_complete")
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
+
+func _prepare_entry_rendering(trigger: String) -> Dictionary:
+	# Both startup and reconstructed exterior geometry use this same existing
+	# arrival anchor. This is a renderer eye only, never a player relocation.
+	if _entry_render_shutdown or not entry_render_preparation_enabled:
+		return {"completed":false,"reason":"disabled","trigger":trigger}
+	if is_instance_valid(_entry_render_job):
+		return {"completed":false,"reason":"preparation_busy","trigger":trigger}
+	var job := preload("res://scripts/building/v2_entry_render_preparation.gd").new()
+	job.name = "EntryRenderPreparation"
+	_entry_render_job = job
+	add_child(job)
+	var eye: Vector3 = to_global(_connection.arrival.position) + player.camera.global_position-player.global_position
+	var result: Dictionary = await job.run(player,player.camera,eye)
+	result["trigger"] = trigger
+	entry_render_preparation = result
+	if _entry_render_job == job:_entry_render_job = null
+	if is_instance_valid(job):job.queue_free()
+	return result
+
+func _cancel_entry_rendering() -> void:
+	_entry_render_shutdown = true
+	if is_instance_valid(_entry_render_job):_entry_render_job.cancel("world_shutdown")
 
 func _record_startup_milestone(stage: String) -> void:
 	if _startup_started_usec<=0:return # Isolated helpers have no startup origin.
@@ -1104,7 +1135,7 @@ func _compose_exterior() -> bool:
 	add_child(passage_region)
 	if passage_region.startup_failed:
 		return false
-	if not passage_region.enable_residency(player, _blockout, layout):
+	if not passage_region.enable_residency(player, _blockout, layout, _prepare_entry_rendering):
 		return false
 	bar_region = BarRegion.new()
 	bar_region.name = "Harukiya"
@@ -1386,6 +1417,7 @@ func authority_count(type_name: String) -> int:
 	return find_children("*", type_name, true, false).size()
 
 func shutdown_for_tests() -> void:
+	_cancel_entry_rendering()
 	# Stop borrowers before adapter restoration frees their radiator/fixture
 	# nodes. queue_free() alone still permits callbacks later in this frame.
 	process_mode = Node.PROCESS_MODE_DISABLED
@@ -1409,6 +1441,7 @@ func shutdown_for_tests() -> void:
 	if acoustic_topology!=null: acoustic_topology.release()
 
 func _exit_tree() -> void:
+	_cancel_entry_rendering()
 	if is_instance_valid(prologue_director):prologue_director.shutdown()
 	if is_instance_valid(bathroom_moisture):bathroom_moisture.shutdown()
 	if public_landings!=null:public_landings.teardown();public_landings=null

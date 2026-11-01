@@ -1,4 +1,59 @@
-# Current handoff — November 1 Western apartment pair merged
+# Current handoff — November 1 loading-owned rendering preparation WIP
+
+Evidence class: **INERT**. Lily,she/her. Canonical C:/PleaseRemainOnTheLine is on
+**codex/v2-entry-render-preparation-20261101**,branched from actual mainC371e94e.
+Main remains c371e94e035087d4ee629e3934f71f235ffe508f. Full V2 goal active;
+no performance or production completion is claimed by this authored checkpoint.
+
+Draft: short-lived renderer-preparation helper uses only the existing main
+camera RID/viewport,restores its current Node pose before yielding,releases only
+its own input lease,and passes Pause/pointer-release events onward. Startup and
+post-publication passage activation now call it using the existing public
+arrival anchor. Passage keeps its old barrier/loading owner. Shutdown cancels
+pending work. Protected/busy input can skip work; effectiveness is not assumed.
+Production calls are WIP; current physical qualification is STALE on this branch.
+
+Actual helper two-script compiler PASS,then **12checks/0 failures**,5.11s,
+empty stderr,patched Vulkan/3440x1440 hidden desktop. Restored green-subject image
+inspected. This is a small test-owner fixture,not actual player-controller,
+composed loading,save/reload or performance acceptance. All5 current edited/
+new scripts pass grammar checks; production semantic compile now PASS: five scripts,20.02s,zero script errors and empty stderr (no composed world).
+Spatial audit adds one test-only coordinate recordaec0365feb56a6da;existing classifications
+unchanged;71 existing records have updated source line locations. ReaderNEW0. No instrument logic/tolerances/baselines weakened.
+
+Actual clean mainC371 baseline119-gate board ready,dirty_paths=[]:
+**C:/ov/boards/c371e94e035087d4ee629e3934f71f235ffe508f.v2.json**.
+Owned **C:/ov/c-ab46a508** was recreated clean at C371 for the original-rendering
+control;its original-rendering control is complete; preserve generated churn before candidate use. Imports
+can create own UIDs/EOL churn;preserve/verify them before later use/removal.
+Source/proof root **C:/ov/reports/entry_render_preparation_20261101/**.
+
+Baseline session55144/broker556 is now terminal: import1 completed501s with
+21 fresh-font dependency errors;import2 completed9s withzero script errors.
+Original-rendering stutter_probe completes17checks/6legs/0failures,193s,empty
+stderr,unchanged runtime1265053c. It reproduces3frames>100ms,maximum293.987ms.
+Actual source/nearest-rank analysis and raw measurements are archived. CPU quiet
+window established before the timed route;external1Hz samples are coarse/partial,
+not causal attribution. Candidate production compiler33371/broker52908 is terminalPASS. Functional fixture18661 is terminalPASS;
+clean baseline board59493 is terminalPASS. Poll actual handles/processes;do not
+restart on observation timeout. Other Orison jobs/LoRA share FIFO;never stop them.
+Quiet timing-window requests sent to architect/modeler when baseline acquired.
+
+NEXT: measure the draft at the same route/settings with original quality.
+Qualify REAL pause/foreign ownership,barrier activation,cancellation and sandbox
+save/load/fresh-world reconstruction. Existing route/arrival deadlines stay;
+reuse short nearby fixtures and combine functional checks after timing where
+safe. Do not merge based on the small helper alone. Renew affected composed
+surface packet and final candidate gates only after source behavior is correct.
+Hose/book/nook and broader V2 gaps remain open.
+
+Architect owns only P1/P2 optical tests/attributes in C:/ov/city,then a researched
+bounded pair. Canonical runtime_root,passage_residency/region and transport-route
+owner diagnostics are reserved here. No native/shader changes for this repair.
+Modeler deliveries now26 INERT/unintegrated,including Night Watch and passive
+vent grille;TASKS.md records limits. Door-hardware delivery26 is recorded with UV/batch-discrimination dependency;not intake.
+
+# Merged baseline — November 1 Western apartment pair
 
 Evidence class: **INERT**. Owner Lily,she/her. Canonical C:/PleaseRemainOnTheLine
 is back on **main**. Full V2 goal remains active/incomplete. Read DOCS.md and
@@ -26,8 +81,8 @@ No separate interaction/save/civic programme,FPS or artistic acceptance.
 Actual clean119-gate candidate comparison to E5:zero regressions/improvements/
 waivers/blockers;17/17protected unchanged,V2 selected,lint0,requirements_changed[].
 Reader/spatial/current surface PASS;surface tooling42tests PASS/387.17s. Sole
-instrument diff is one reviewed additive test-camera station;all11098 old rows
-unchanged. Main's unrelated baseline-red gates remain unresolved. Verification
+instrument diff is one reviewed additive test-camera station;all11098 existing classifications
+unchanged;71 existing records have updated source line locations. Main's unrelated baseline-red gates remain unresolved. Verification
 was clean in-place/no-Godot;actual canonical engine proof is separate above.
 
 Nine fresh and six original matched-runtime composed frames inspected. Optional

@@ -486,10 +486,11 @@ func shutdown() -> void:
 	surface_pass = null
 	shop_service = null
 
-func enable_residency(player: PlayerController, frame: Node3D, layout: Dictionary) -> bool:
+func enable_residency(player: PlayerController, frame: Node3D, layout: Dictionary, prepare_entry := Callable()) -> bool:
 	if residency != null or startup_failed:
 		return false
 	residency = Residency.new()
+	residency.prepare_entry = prepare_entry
 	if not residency.configure(self, player, frame, layout):
 		residency.free()
 		residency = null
