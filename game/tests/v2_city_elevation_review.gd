@@ -51,7 +51,14 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 		suite.check(shape.shape is ConcavePolygonShape3D and (shape.shape as ConcavePolygonShape3D).get_faces()==draw.mesh.get_faces() and shape.global_transform.is_equal_approx(draw.global_transform),"fitted foundation has identical visible and physical stock: "+identity)
 		foundation_count+=1
 	suite.check(foundation_count==foundation_parts.size() and foundation_count==1049,"all fitted foundation partitions are checked in the production world")
-	suite.check(fixture.buildings.size()==25 and int(fixture.windows)>2500,"all 25 city buildings have physically built window stock")
+	var authored_counts: Dictionary = {}
+	for window: Dictionary in fixture.window_rows:
+		var identity := str(window.building)
+		authored_counts[identity] = int(authored_counts.get(identity, 0)) + 1
+	suite.check(fixture.buildings.size()==25 and int(fixture.windows)==fixture.window_rows.size(), "city window total equals the complete authored station inventory")
+	for building: Dictionary in fixture.buildings:
+		suite.check(int(building.windows)>0 and int(building.windows)==int(authored_counts.get(str(building.id), -1)), "each installed city building has its complete authored window roster: " + str(building.id))
+	suite.check(authored_counts.size()==fixture.buildings.size(), "no window station refers to an unknown city building")
 	for building: Dictionary in fixture.buildings:
 		suite.check(int(building.new_setbacks)<=1,"no repeated ziggurat tiers: "+str(building.id))
 	var exclusions: Array[RID]=[]
@@ -95,17 +102,36 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 				suite.check(not hit.is_empty() and bodies.has(hit.collider.get_rid()) and hit.position.distance_to(p)<.0001,"retained city hardware full footprint bears within 100 micrometres: "+str(contact.id)+" "+str(sample))
 				contacts+=1
 	var sampled: Dictionary={}
+	var pane_controls := false
+	var pane_checks := 0
 	for window: Dictionary in fixture.window_rows:
 		var id := str(window.building)+"/"+str(window.side)
-		if sampled.has(id):continue
 		sampled[id]=true
 		var a: Array=window.pane_sample
 		var p := Vector3(a[0],a[1],a[2])
-		var out: Vector3=[Vector3(0,-1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(-1,0,0)][int(window.side)]
+		var legacy_out: Vector3=[Vector3(0,-1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(-1,0,0)][int(window.side)]
+		var authored_normal: Array=window.get("normal", [legacy_out.x,legacy_out.y,legacy_out.z])
+		var out := Vector3(authored_normal[0],authored_normal[1],authored_normal[2])
+		suite.check(out.is_normalized(), "city pane uses its authored unit normal: " + id)
 		var ray := PhysicsRayQueryParameters3D.create(city.to_global(Vector3(p.x,p.z,-p.y)+Vector3(out.x,0,-out.y)*.1),city.to_global(Vector3(p.x,p.z,-p.y)-Vector3(out.x,0,-out.y)*.3),1,exclusions)
 		var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
-		var expected := city.to_global(Vector3(p.x,p.z,-p.y)-Vector3(out.x,0,-out.y)*(float(window.recess_m)+.044))
-		suite.check(not hit.is_empty() and str(bodies.get(hit.collider.get_rid(),"")).ends_with("__mirror_aged") and hit.position.distance_to(expected)<.0001,"actual glazed pane is recessed behind masonry and sash: "+id)
+		var expected := city.to_global(Vector3(p.x,p.z,-p.y)-Vector3(out.x,0,-out.y)*float(window.get("pane_depth_m", float(window.recess_m)+.044)))
+		var valid_pane := _pane_hit_matches(hit, expected, str(window.building), bodies)
+		suite.check(valid_pane,"actual glazed pane is recessed behind masonry and sash: "+id)
+		pane_checks += 1
+		if valid_pane and not pane_controls and window.has("pane_depth_m"):
+			var collider: CollisionObject3D = hit.collider
+			var saved_layer := collider.collision_layer
+			collider.collision_layer = 0
+			var missing := world.get_world_3d().direct_space_state.intersect_ray(ray)
+			suite.check(not _pane_hit_matches(missing, expected, str(window.building), bodies), "actual removed pane backing is rejected")
+			collider.collision_layer = saved_layer
+			var restored := world.get_world_3d().direct_space_state.intersect_ray(ray)
+			suite.check(_pane_hit_matches(restored, expected, str(window.building), bodies), "restored actual pane backing is accepted")
+			suite.check(not _pane_hit_matches(restored, expected + city.global_basis*Vector3(out.x,0,-out.y)*.01, str(window.building), bodies), "incorrect pane seating by 10mm is rejected")
+			pane_controls = true
+	suite.check(pane_checks==fixture.window_rows.size() and pane_controls, "every authored pane checked with actual missing-backing and wrong-depth controls")
+	print("CITY PANE REVIEW: actual_panes=",pane_checks," controls=",pane_controls)
 	suite.check(contacts>=1205 and sampled.size()>=80,"bearing and window probes cover the complete city roster")
 	var ground: Node3D = world.adapter.root.get_node("Ground")
 	var apron := ground.find_child("DistantApron", true, false) as Node3D
@@ -419,3 +445,8 @@ func _review_inspection_camera(world: OrisonV2RuntimeRoot,suite: Node,street_pos
 	player.call_locked=protected
 	GameBoot.launch_mode=mode;Input.mouse_mode=mouse
 	if is_instance_valid(previous):previous.make_current()
+
+static func _pane_hit_matches(hit: Dictionary, expected: Vector3, building: String, bodies: Dictionary) -> bool:
+	if hit.is_empty(): return false
+	var identity := str(bodies.get(hit.collider.get_rid(), ""))
+	return identity.begins_with(building+"__") and identity.ends_with("__mirror_aged") and hit.position.distance_to(expected)<.0001

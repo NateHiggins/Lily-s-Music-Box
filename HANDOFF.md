@@ -38,6 +38,21 @@ records only; no additional runtime, native geometry or material edits.
   at bb5f68b1. All own engine/verifier sessions are terminal, including 10864
   and 18842. Inspect current custody before reuse; preserve others' worktrees.
 
+Current unmerged composed-test repair **current_city_after01** is TERMINAL:
+28,990 checks/176 failures,zero script errors,281.33s wrapper. All2,489 panes
+pass with actual missing-backing/wrong-depth controls; horizon completes124
+buildings/771 base parts/341 pane stations. Remaining176 old rectangular wall
+probes are unchanged. Native analytic traces reproduce those176 exactly; extended
+rays expose source articulation/retained lower ownership. Do not simply widen
+rays/tolerances or remove checks. Detailed ledger/archive holds exact sources and
+before/after failures. Actual source-context horizon frame inspected; no artistic
+or whole-city acceptance. No production/native edits in this repair.
+Baseline refresh for actual main308588b44 is live in owned C:/ov/c-ab46a508,
+exec19304, output C:/ov/reports/gas_range_integration_20261101/clean_main_308588/.
+Check the exact process/session before reuse. Candidate verification remains
+pending. External modeler now reports21 packets; latest active-radio stock and
+its proposed three-dial pivot correction are unintegrated/unverified.
+
 NEXT: trace the composed wall/pane failures against actual geometry and reconcile
 material wrappers, body-LOD inventory and window schema with rejecting controls.
 **K-V2-CITY-LEGACY-QUAL** stays open. Then resume playable-world stutter and

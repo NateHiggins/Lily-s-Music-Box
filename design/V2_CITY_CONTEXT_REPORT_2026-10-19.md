@@ -5737,4 +5737,51 @@ angled-pane and body-LOD assumptions are open. This does not close
 Original failures,all three executed sources,controls and raw receipts are in
 **art/reviews/city_streets_20261029/legacy_roof_review_20261101.zip**:
 25members/231,269bytes/SHA256 **fc6afcc0ec5c86b3c692bf8ec28c56ba0952e09aef802025e8f0a90f7b0f6da9**.
-Complete candidate verification and merge remain pending.
+Complete candidate verification subsequently passed119 gates with zero regressions; PR134 merged at **3f05b3a7**. See the current handoff for custody.
+
+### November 1 — composed pane, material and inventory diagnostic repair
+
+Evidence class: **INERT**. Actual loaded diagnostic, not full surface/gameplay
+qualification or artistic acceptance. No native asset or production owner changed.
+
+The retained **current_city_before01** reproduction ran8,855 checks/306 failures
+and aborted its distant-city helper with a Dictionary.side script error. The
+pane checker ignored authored normals and pane_depth_m; the horizon helper cast
+optical ShaderMaterials directly to StandardMaterial3D and counted replacement
+body exports as additional installed draws. Its cardinal-side grouping also
+predated the newer true-normal window records.
+
+The repair checks each building's exact window roster and all2,489 actual panes,
+using authored normals/depths with the existing recess fallback. The100-micrometre
+hit tolerance remains. An actual missing collision backing and10mm wrong seating
+are rejected, followed by restoration. Horizon verification unwraps the existing
+source material, checks actual optical map/physical-scale bindings and mipmaps,
+compares unique base identities, and requires every declared replacement to stay
+attached once. All export hashes remain checked. Window stations group by authored
+normal, covering angled bays without requiring the obsolete side field.
+
+**current_city_after01** completed28,990 checks/176 failures in281.33s wrapper
+time, hidden native3440x1440, with zero script errors. All remaining failures are
+the untouched rectangular main-wall station checks. The horizon helper now
+completes124 buildings/771 base parts/341 composed pane stations with a clear
+source-context capture. The actual horizon frame was inspected: facades/glazing
+are present, with varied window light; dark exterior shading, sparse furnishings
+and flat bright cloud forms remain artistic debt. The capture is a new source
+context, not a retained player-rooftop sightline or walking proof.
+
+Read-only native triangle traces independently reproduce exactly176 failures at
+the old wall coordinates. Extended rays find many actual facade planes200mm
+inward and some larger offsets/voids; these traces are diagnosis, never permission
+to expand the100-micrometre tolerance. Source-specific wall probes and rejecting
+controls remain necessary. The retained Harukiya lower ownership must also be
+respected rather than demanding city-shell walls through an occupied bar.
+
+Raw original and revised logs/receipts, exact executed sources, the inspected
+horizon image, comparison and reproducible native traces are retained in
+**art/reviews/city_streets_20261029/composed_diagnostic_repair_20261101.zip**:
+17 members/2,246,216bytes/SHA256
+**0bc74677ca15163ae8932414c70e7209a542b7192e1a66efbd02f2217493b55a**.
+External root: **C:/ov/reports/city_qualification_repair_20261101/**.
+No full surface contract is written by this city/camera-only mode; its wrapper
+exit remains1 because176 checks still fail. Candidate regression verification
+and merge of this next repair are pending. **K-V2-CITY-LEGACY-QUAL** stays open.
