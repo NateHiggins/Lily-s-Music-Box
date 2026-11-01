@@ -1,39 +1,52 @@
-# Current handoff - November 1 city qualification repair
+# Current handoff - November 1 merged city checkpoint
 
-Evidence class: **INERT**. Continuity index,not production acceptance.
+Evidence class: **INERT**. Continuity index, not production acceptance.
 
-Canonical branch **codex/v2-city-qualification-20261101** starts at pushed main
-**32f59b0a48e210d07fe21b50fe4530986081c121**. PR132 is merged; completed
-intake evidence remains in the city ledger/current_main_intake archive.
-Current change is test-only **v2_city_horizon_bench.gd**,plus records/archive;
-no native mesh,material,physics or gameplay owner was changed.
+Canonical checkout **C:/PleaseRemainOnTheLine** is on
+**codex/v2-city-qualification-20261101**, fast-forwarded to merged main
+**3f05b3a7adf6de82053ea18ea13f90f963f02dcd**. PR132 and PR134 are merged.
+PR133's three INERT ruling documents are preserved. This checkpoint changes
+records only; no additional runtime, native geometry or material edits.
 
-- Actual family before30011/33; roof-only30034/1; final30041/0,74.60s,
-  empty stderr/clean shutdown,native3440x1440 hidden desktop. Four actual roof
-  displacement/removal pairs and two handedness/collapsed-UV pairs reject bad
-  stock. Unknown styles refused; original distance/metric/tangent guards stay.
-- Reuses existing scalar-double Western ground checker as detached,freed helpers;
-  no second world. Source-bound family JSON is INERT,not runtime qualification.
-- ReaderNEW0/spatialPASS; official physical qualification remainsPASS0 at the
-  unchanged **0a9d049d29aa2de3cfe17880548062cfb61a8d1e5bca705f5e198b4dc4d83062**.
-  No repeated full-world/hose routes. Whole-game baseline failures remain.
-- Evidence **art/reviews/city_streets_20261029/legacy_roof_review_20261101.zip**:
-  25members/231,269bytes/SHA256 **fc6afcc0ec5c86b3c692bf8ec28c56ba0952e09aef802025e8f0a90f7b0f6da9**.
-  External programme/logs: **C:/ov/reports/city_qualification_repair_20261101/**.
-- Main32 complete119-gate clean baseline is actually cached in **C:/ov/boards/**;
-  owned **C:/ov/c-ab46a508** is clean/detached at32f59b0a4. Baseline session75121
-  and all roof diagnostic sessions are terminal. Reuse this checkout for candidate
-  verification,then safely remove it; preserve other contributors' worktrees.
+- PR134 candidate **bb5f68b1bd5c89a86ae0605b5400d83df22a1954** completed clean
+  candidate verification: 119 gates, zero regressions/waivers, 17/17 protected
+  paths, selector V2, reader NEW0, spatial PASS, physical qualification PASS,
+  42 surface tools tests PASS. Existing whole-game baseline failures remain.
+  Verification used --no-godot; actual engine evidence is separate below.
+- Loaded roof/ground family: before 30011/33; roof-only 30034/1; final 30041/0,
+  74.60s, empty stderr/clean shutdown, hidden native 3440x1440. Real roof
+  displacement/removal and tangent/UV mutation controls rejected bad stock;
+  no tolerance relaxation or native asset changes. Family JSON is INERT.
+- Physical qualification remains PASS at unchanged fingerprint
+  **0a9d049d29aa2de3cfe17880548062cfb61a8d1e5bca705f5e198b4dc4d83062**.
+  PR132's physical-only survey and actual frontage route are documented in
+  the existing city ledger. No whole-game or artistic acceptance is claimed.
+- Retained archive **art/reviews/city_streets_20261029/legacy_roof_review_20261101.zip**:
+  25 members / 231,269 bytes / SHA256
+  **fc6afcc0ec5c86b3c692bf8ec28c56ba0952e09aef802025e8f0a90f7b0f6da9**.
+  External reports: **C:/ov/reports/city_qualification_repair_20261101/**;
+  completed verifier output: **candidate_bb5f68b1/verification.json**.
+- Subsequent composed **current_city_before01** is terminal and FAILED:
+  8,855 checks / 306 failures plus a Dictionary.side script error in
+  **game/tests/v2_city_horizon_review.gd:31**. Groups: 176 wall-continuity,
+  124 material-chart/normal, four recessed-pane, one window inventory and one
+  distant inventory failure. Source assumptions require real-stock tracing;
+  do not assume false positives or weaken geometric guards. This city/camera
+  diagnostic writes no full surface contract. Logs, stderr, wrapper receipt and
+  actual captures remain in **current_city_before01/**. No repair edits yet.
+- Owned verification checkout **C:/ov/c-ab46a508** last verified clean/detached
+  at bb5f68b1. All own engine/verifier sessions are terminal, including 10864
+  and 18842. Inspect current custody before reuse; preserve others' worktrees.
 
-NEXT: commit/push this coherent candidate and complete clean verification before
-main merge. **K-V2-CITY-LEGACY-QUAL** remains open: full-programme window count,
-wall continuity/angled panes and body-LOD inventory/material assumptions still
-need real-stock checks and rejecting controls. Then resume playable-world stutter
-and existing hose/book/nook gaps. Keep the full V2 goal active/incomplete.
-Architect **C:/ov/city** owns one isolated P1/P2 batch; avoid duplicate geometry.
-Modeler reports19 external INERT packets in the existing NATIVE_INTAKE_INDEX;
-new media AC supply is queued,not independently accepted or installed. Preserve
-untracked UIDs/attachments and non-owned import edits. No new prototype intake.
+NEXT: trace the composed wall/pane failures against actual geometry and reconcile
+material wrappers, body-LOD inventory and window schema with rejecting controls.
+**K-V2-CITY-LEGACY-QUAL** stays open. Then resume playable-world stutter and
+existing hose/book/nook gaps. The full V2 goal remains active/incomplete.
+Architect **C:/ov/city** owns one isolated P1/P2 batch, then holds new construction;
+no duplicate geometry or mid-checkpoint intake. Modeler reports 20 external INERT
+packets in **NATIVE_INTAKE_INDEX.md**, including the latest media battery supply;
+these native claims are not independently accepted or installed. Preserve
+untracked UIDs and unrelated import edits. No new prototype intake.
 
 ---
 
