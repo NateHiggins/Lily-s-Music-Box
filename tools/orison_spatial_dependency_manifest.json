@@ -201778,7 +201778,7 @@
     "_ready"
    ],
    "lines": [
-    85
+    99
    ],
    "count": 1,
    "context": [
@@ -217875,8 +217875,8 @@
     "build"
    ],
    "lines": [
-    123,
-    133
+    126,
+    136
    ],
    "count": 2,
    "context": [
@@ -217907,7 +217907,7 @@
     "configure"
    ],
    "lines": [
-    71
+    96
    ],
    "count": 1,
    "context": [
@@ -218704,7 +218704,7 @@
     "configure"
    ],
    "lines": [
-    99
+    100
    ],
    "count": 1,
    "context": [
@@ -218734,7 +218734,7 @@
     "_process"
    ],
    "lines": [
-    434
+    456
    ],
    "count": 1,
    "context": [
@@ -218764,8 +218764,8 @@
     "configure"
    ],
    "lines": [
-    120,
-    127
+    121,
+    128
    ],
    "count": 2,
    "context": [
@@ -218852,7 +218852,7 @@
     "_find_window"
    ],
    "lines": [
-    181
+    183
    ],
    "count": 1,
    "context": [
@@ -271272,7 +271272,7 @@
     "_world_scene"
    ],
    "lines": [
-    10
+    12
    ],
    "count": 1,
    "context": [],
@@ -271300,7 +271300,7 @@
     "_run"
    ],
    "lines": [
-    132
+    134
    ],
    "count": 1,
    "context": [
@@ -271330,7 +271330,7 @@
     "_run"
    ],
    "lines": [
-    132
+    134
    ],
    "count": 1,
    "context": [
@@ -271360,7 +271360,7 @@
     "_run"
    ],
    "lines": [
-    132
+    134
    ],
    "count": 1,
    "context": [
@@ -292166,7 +292166,7 @@
     "_run"
    ],
    "lines": [
-    374
+    380
    ],
    "count": 1,
    "context": [
@@ -292196,7 +292196,7 @@
     "_run"
    ],
    "lines": [
-    369
+    375
    ],
    "count": 1,
    "context": [
@@ -292224,7 +292224,7 @@
     "_run"
    ],
    "lines": [
-    371
+    377
    ],
    "count": 1,
    "context": [
@@ -292252,7 +292252,7 @@
     "_run"
    ],
    "lines": [
-    376
+    382
    ],
    "count": 1,
    "context": [
@@ -292282,7 +292282,7 @@
     "_run"
    ],
    "lines": [
-    336
+    342
    ],
    "count": 1,
    "context": [
@@ -292312,7 +292312,7 @@
     "_run"
    ],
    "lines": [
-    373
+    379
    ],
    "count": 1,
    "context": [
@@ -292342,7 +292342,7 @@
     "_run"
    ],
    "lines": [
-    347
+    353
    ],
    "count": 1,
    "context": [
@@ -292372,7 +292372,7 @@
     "_run"
    ],
    "lines": [
-    336
+    342
    ],
    "count": 1,
    "context": [
@@ -292402,7 +292402,7 @@
     "_run"
    ],
    "lines": [
-    372
+    378
    ],
    "count": 1,
    "context": [
@@ -292432,7 +292432,7 @@
     "_run"
    ],
    "lines": [
-    375
+    381
    ],
    "count": 1,
    "context": [
@@ -292462,7 +292462,7 @@
     "_run"
    ],
    "lines": [
-    336
+    342
    ],
    "count": 1,
    "context": [
@@ -292492,7 +292492,7 @@
     "_run"
    ],
    "lines": [
-    347
+    353
    ],
    "count": 1,
    "context": [
@@ -292522,8 +292522,8 @@
     "_run"
    ],
    "lines": [
-    407,
-    409
+    413,
+    415
    ],
    "count": 2,
    "context": [
@@ -292552,7 +292552,7 @@
     "_run"
    ],
    "lines": [
-    370
+    376
    ],
    "count": 1,
    "context": [
@@ -292583,7 +292583,7 @@
     "_run"
    ],
    "lines": [
-    377
+    383
    ],
    "count": 1,
    "context": [
@@ -292602,6 +292602,39 @@
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
+  },
+  {
+   "key": "0633d4753ad7d286",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    475,
+    477
+   ],
+   "count": 2,
+   "context": [
+    "world.player.global_position=world.adapter.root.to_global(Vector3(-8.4,9.62,4.75))",
+    "world.player.camera.look_at(world.adapter.root.to_global(Vector3(-5.9,11.5,4.75)))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "81f6f59e604958ee",
@@ -298762,6 +298795,37 @@
    "target_exists": null
   },
   {
+   "key": "b9e158b7d8d5805e",
+   "kind": "vector3_coordinate",
+   "token": "<module>",
+   "file": "game/tests/prologue_order_reload_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const STAND := Vector3(-8.45,9.6,4.35)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "e03c7029e8d5033f",
    "kind": "asset_path",
    "token": "res://scenes/building/orison_v2_runtime.tscn",
@@ -298800,8 +298864,8 @@
     "run"
    ],
    "lines": [
-    61,
-    63
+    65,
+    67
    ],
    "count": 2,
    "context": [
@@ -298833,11 +298897,11 @@
     "survey_bed"
    ],
    "lines": [
-    467,
-    482,
-    483,
-    486,
-    487
+    562,
+    577,
+    578,
+    581,
+    582
    ],
    "count": 5,
    "context": [
@@ -308688,6 +308752,44 @@
    "target_exists": true
   },
   {
+   "key": "3d5449bcc442185f",
+   "kind": "vector3_coordinate",
+   "token": "_ready",
+   "file": "game/tests/v2_background_window_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    77,
+    84,
+    85,
+    87,
+    88
+   ],
+   "count": 5,
+   "context": [
+    "camera.position = Vector3(0, 0, 25)",
+    "camera.position = Vector3(-12, 0.6, 6)",
+    "camera.look_at(Vector3(-10, 0, 0))",
+    "camera.position = Vector3(-10.7, 0.2, 3.1)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "a1c12cb2f1e2924d",
    "kind": "floor_reference",
    "token": "F01",
@@ -310007,7 +310109,7 @@
     "_footway_input_hashes"
    ],
    "lines": [
-    501
+    504
    ],
    "count": 1,
    "context": [],
@@ -310036,8 +310138,8 @@
     "_footway_input_hashes"
    ],
    "lines": [
-    463,
-    501
+    466,
+    504
    ],
    "count": 2,
    "context": [],
@@ -310065,7 +310167,7 @@
     "_footway_input_hashes"
    ],
    "lines": [
-    501
+    504
    ],
    "count": 1,
    "context": [],
@@ -310093,7 +310195,7 @@
     "_run"
    ],
    "lines": [
-    405
+    408
    ],
    "count": 1,
    "context": [
@@ -310124,11 +310226,11 @@
     "run"
    ],
    "lines": [
-    188,
-    189,
-    197,
-    198,
-    224
+    191,
+    192,
+    200,
+    201,
+    227
    ],
    "count": 5,
    "context": [
@@ -310241,26 +310343,26 @@
     "_route"
    ],
    "lines": [
-    972,
-    972,
-    972,
-    972,
-    975,
-    982,
-    982,
-    982,
-    982,
-    982,
-    982,
-    982,
-    984,
-    985,
-    985,
-    985,
-    985,
-    987,
-    1007,
-    1025
+    976,
+    976,
+    976,
+    976,
+    979,
+    986,
+    986,
+    986,
+    986,
+    986,
+    986,
+    986,
+    988,
+    989,
+    989,
+    989,
+    989,
+    991,
+    1011,
+    1029
    ],
    "count": 28,
    "context": [
@@ -310294,10 +310396,10 @@
     "_run_gaslamps"
    ],
    "lines": [
-    441,
-    441,
-    441,
-    441
+    445,
+    445,
+    445,
+    445
    ],
    "count": 4,
    "context": [
@@ -310328,8 +310430,8 @@
     "_run_hampton"
    ],
    "lines": [
-    488,
-    491
+    492,
+    495
    ],
    "count": 2,
    "context": [
@@ -310361,7 +310463,7 @@
     "_run_northwest"
    ],
    "lines": [
-    846
+    850
    ],
    "count": 1,
    "context": [
@@ -310392,26 +310494,26 @@
     "_run_opposing"
    ],
    "lines": [
-    589,
-    589,
-    589,
-    589,
-    589,
-    589,
-    590,
-    590,
-    590,
-    590,
-    590,
-    590,
-    591,
-    591,
-    591,
-    591,
-    591,
-    591,
+    593,
+    593,
+    593,
+    593,
+    593,
+    593,
+    594,
+    594,
+    594,
+    594,
+    594,
+    594,
     595,
-    595
+    595,
+    595,
+    595,
+    595,
+    595,
+    599,
+    599
    ],
    "count": 55,
    "context": [
@@ -310445,14 +310547,14 @@
     "_street_block_tour"
    ],
    "lines": [
-    1056,
-    1056,
-    1057,
-    1057,
-    1058,
-    1058,
-    1059,
-    1059
+    1060,
+    1060,
+    1061,
+    1061,
+    1062,
+    1062,
+    1063,
+    1063
    ],
    "count": 8,
    "context": [
@@ -316506,6 +316608,102 @@
    "count": 1,
    "context": [
     "if await _walk(world.adapter.root.to_local(Vector3(0,0,3))):"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "550a73ed4ff30913",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_window_city_night_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "92151141c839c1d7",
+   "kind": "vector3_coordinate",
+   "token": "postcards",
+   "file": "game/tests/v2_window_city_night_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "postcards"
+   ],
+   "lines": [
+    130,
+    131,
+    132,
+    133
+   ],
+   "count": 4,
+   "context": [
+    "{\"id\":\"01_moonlit_east\", \"date\":[1929,2,23,1170], \"eye\":Vector3(-14,24.5,-9), \"direction\":Vector3(1,-.015,-.04)},",
+    "{\"id\":\"02_blue_hour_west\", \"date\":[1928,11,10,1035], \"eye\":Vector3(14,24.5,9), \"direction\":Vector3(-1,-.04,-.15)},",
+    "{\"id\":\"03_autumn_dawn\", \"date\":[1928,11,10,405], \"eye\":Vector3(-14,24.5,9), \"direction\":Vector3(1,-.035,-.2)},",
+    "{\"id\":\"04_winter_afternoon\", \"date\":[1929,2,23,990], \"eye\":Vector3(14,24.5,-9), \"direction\":Vector3(-1,-.065,.22)}"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d0eb555fa7daa397",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/v2_window_city_night_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    66
+   ],
+   "count": 1,
+   "context": [
+    "camera.global_position = world.adapter.root.to_global(Vector3(14, 22.8, -9))"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -324693,173 +324891,6 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
-  },
-  {
-   "key": "3d5449bcc442185f",
-   "kind": "vector3_coordinate",
-   "token": "_ready",
-   "file": "game/tests/v2_background_window_bench.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_ready"
-   ],
-   "lines": [
-    77,
-    84,
-    85,
-    87,
-    88
-   ],
-   "count": 5,
-   "context": [
-    "camera.position = Vector3(0, 0, 25)",
-    "camera.position = Vector3(-12, 0.6, 6)",
-    "camera.look_at(Vector3(-10, 0, 0))",
-    "camera.position = Vector3(-10.7, 0.2, 3.1)"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "550a73ed4ff30913",
-   "kind": "asset_path",
-   "token": "res://scenes/building/orison_v2_runtime.tscn",
-   "file": "game/tests/v2_window_city_night_review.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    3
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "ASSET_PATH"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "d0eb555fa7daa397",
-   "kind": "vector3_coordinate",
-   "token": "run",
-   "file": "game/tests/v2_window_city_night_review.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "run"
-   ],
-   "lines": [
-    66
-   ],
-   "count": 1,
-   "context": [
-    "camera.global_position = world.adapter.root.to_global(Vector3(14, 22.8, -9))"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "92151141c839c1d7",
-   "kind": "vector3_coordinate",
-   "token": "postcards",
-   "file": "game/tests/v2_window_city_night_review.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "postcards"
-   ],
-   "lines": [
-    130,
-    131,
-    132,
-    133
-   ],
-   "count": 4,
-   "context": [
-    "{\"id\":\"01_moonlit_east\", \"date\":[1929,2,23,1170], \"eye\":Vector3(-14,24.5,-9), \"direction\":Vector3(1,-.015,-.04)},",
-    "{\"id\":\"02_blue_hour_west\", \"date\":[1928,11,10,1035], \"eye\":Vector3(14,24.5,9), \"direction\":Vector3(-1,-.04,-.15)},",
-    "{\"id\":\"03_autumn_dawn\", \"date\":[1928,11,10,405], \"eye\":Vector3(-14,24.5,9), \"direction\":Vector3(1,-.035,-.2)},",
-    "{\"id\":\"04_winter_afternoon\", \"date\":[1929,2,23,990], \"eye\":Vector3(14,24.5,-9), \"direction\":Vector3(-1,-.065,.22)}"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "0633d4753ad7d286",
-   "kind": "vector3_coordinate",
-   "token": "_run",
-   "file": "game/tests/orison_v2_surface_inventory.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_run"
-   ],
-   "lines": [
-    475,
-    477
-   ],
-   "count": 2,
-   "context": [
-    "world.player.global_position=world.adapter.root.to_global(Vector3(-8.4,9.62,4.75))",
-    "world.player.camera.look_at(world.adapter.root.to_global(Vector3(-5.9,11.5,4.75)))"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
   }
  ]
 }
