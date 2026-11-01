@@ -3481,3 +3481,8 @@ art/reviews/city_streets_20261029/window_optics_review.zip -text
 game/assets/props/companion_feed_knobs.glb -text
 game/assets/props/companion_feed_knobs.glb.import -text
 game/data/device/companion_temporal_amber.json -text
+
+# Preserve the exact newspaper PNG import parameters bound by surface receipts.
+game/assets/ui/newspaper/ad_border.png.import -text
+game/assets/ui/newspaper/ads/*.png.import -text
+game/assets/ui/newspaper/cartoons/*.png.import -text

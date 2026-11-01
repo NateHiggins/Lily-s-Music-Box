@@ -385,3 +385,25 @@ for **45c391bc** is cached for candidate comparison; its existing failures remai
 baseline debt, not a green-main claim. Candidate verification and manual merge
 remain the next actions. Broader V2 completion and added collision/startup cost
 are still unproven.
+
+### Fresh-checkout import provenance repair
+
+Management candidate **ab46a5089** completed a clean fresh checkout: 119 gates,
+zero regressions, two test improvements, all 17 protected paths unchanged,
+selector V2 and zero design lint errors. All 42 surface tools tests pass in that
+full board. However, inspecting its actual surface row revealed two remaining
+staleness defects. A non-regression headline is not sufficient qualification.
+
+Exact on-disk input comparison explains the discrepancy: all 118 differences
+are missing newspaper PNG import sidecars (one border, 65 advertisements and
+52 cartoons), ignored by the global import rule. Their source images are
+tracked. The canonical 8,495-row projection includes their exact parameters;
+the fresh checkout has 8,377 rows. Every other path/hash agrees. The original
+candidate result and complete comparison are preserved externally.
+
+The repair tracks those existing sidecars, adds narrowly scoped ignore
+exceptions and marks their bytes non-text in gitattributes. It does not change
+their parameter blocks, source images, shaders or runtime. The actual rendered
+packet remains unchanged; no receipt is repinned. Fresh projection parity and
+candidate re-verification are required before merge. No new Godot run is needed
+if that exact consumed-input parity holds.
