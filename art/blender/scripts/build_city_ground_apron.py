@@ -7,7 +7,7 @@ from mathutils import Matrix,Vector
 
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
 sys.path.insert(0,str(ROOT/'art/blender/scripts'))
-from city_ground_apron_geometry import exported_bounds,apron_boxes,relief_stock,water_stock,street_cut_footprints,soil_cut_prisms,removed_flat_soil_volume,clip_soil_face,chunk_soil_faces,relief_height
+from city_ground_apron_geometry import exported_bounds,apron_boxes,relief_stock,water_stock,street_cut_footprints,soil_cut_prisms,removed_flat_soil_volume,removed_profile_soil_volume,clip_soil_face,chunk_soil_faces,relief_height
 from ground_closed_union import apply_soil_cuts
 from city_street_geometry import overlap
 from fabrication_native_batch import material,partition,export
@@ -115,9 +115,22 @@ for row in boxes:
         for face,key in zip(mesh.polygons,ks):face.material_index=sorted(set(ks)).index(key)
         local_prisms=[p for p in street_prisms if overlap([row['bounds'][0],row['bounds'][2],row['bounds'][3],row['bounds'][5]],p['bounds'])] if suffix=='ground' else []
         if local_prisms:
-            assert all(abs(relief_height(x,z,top,plan['relief'])-top)<1e-7 for spec in street_specs for p in spec['polygons'] for x,z in p),'Street cut volume proof requires flat original eastern soil'
             print('APRON STREET CUT: independent void integral begins',row['id'],flush=True)
-            removed=removed_flat_soil_volume(street_specs,[row['bounds'][0],row['bounds'][2],row['bounds'][3],row['bounds'][5]],top,[])
+            region=[row['bounds'][0],row['bounds'][2],row['bounds'][3],row['bounds'][5]]
+            if len(street_specs)==1 and all(abs(relief_height(x,z,top,plan['relief'])-top)<1e-7 for spec in street_specs for p in spec['polygons'] for x,z in p):
+                removed=removed_flat_soil_volume(street_specs,region,top,[])
+            else:
+                from city_street_geometry import rectangle,intersection
+                canal=plan['relief']['canal']
+                canal_bounds=[canal['x_start'],canal['south_bank_z'],plan['outer_rect'][2],canal['north_bank_z']]
+                for spec in street_specs:
+                    for polygon in spec['polygons']:
+                        clipped=intersection(polygon,rectangle(region))
+                        assert not clipped or not intersection(clipped,rectangle(canal_bounds)),'A canal-crossing road needs an independent two-axis roof integral'
+                stations=sorted({x for name in ['west_profile','east_profile'] for x,h in plan['relief'][name]}|{region[0],region[2]})
+                roof_profile=[[x,relief_height(x,canal['north_bank_z']+1.,top,plan['relief'])] for x in stations]
+                assert all(min(h for x,h in spec['subgrade_profile_m'])>plan['relief']['solid_bottom_scene_y_m'] for spec in street_specs),'Street cut would pass below apron soil'
+                removed=removed_profile_soil_volume(street_specs,region,top,[],roof_profile)
             print('APRON STREET CUT:',row['id'],'expected removal',removed,'m3; native Boolean begins',flush=True)
             cavity,cut_proof=apply_soil_cuts(source,sources,street_specs,removed)
             street_cavity.extend(cavity);street_proofs.append({'id':row['id'],**cut_proof})

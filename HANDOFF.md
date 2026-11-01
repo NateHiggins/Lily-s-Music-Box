@@ -1,4 +1,15 @@
-# Current handoff — 2026-10-31 compact companion and city checkpoint
+# Current city handoff — November 1 owner hold
+
+Evidence class: **INERT**. City-only index; canonical work remains owned separately.
+
+- Checkout **C:/ov/city**, branch **codex/v2-city-20261029**. Last playable/native delivery **80cd1694d02493655e84c35bc3672c74f8c8eee6** is committed and pushed; no main merge. Cedar Court source-bound family/access/composed contracts and limitations remain in the city ledger.
+- The owner requested no new work after the current task. The western-street source checkpoint is preserved as **SOURCE_ONLY_WIP_HELD_AT_OWNER_REQUEST**. It has 26 passing ground/street tests, a fresh INERT 573-box grade discovery and read-only native classification; no new exported or playable street. Four original street/ground runtime assets and all game files remain unchanged.
+- Six source/test edits are intentionally WIP. The source recipe still refuses stale grade inputs; reconcile the fresh discovery against consumed masks before any rebuild. Original failures and the owned-import cleanup backup are retained in **art/reviews/city_streets_20261029/western_street_source_wip.zip** and external **C:/ov/reports/city_streets_20261029/western_street_01/**.
+- [Current evidence and next concrete steps](design/V2_CITY_CONTEXT_REPORT_2026-10-19.md#november-1--western-street-source-checkpoint-owner-hold). Full city completion, native/runtime review of the western street and artistic acceptance remain open. Resume only when the owner asks; do not treat this handoff as authorization to begin another task.
+- Canonical **C:/PleaseRemainOnTheLine** and its index were not modified. The integration chat was notified that its site_ne2/site_ne3 window-stock repairs do not overlap this source WIP. Never terminate a foreign lane job.
+- The requested personal [Godot Architect skill](C:/Users/nate_/.codex/skills/godot-architect/SKILL.md) is published and validates successfully.
+
+## Historical shared checkpoint — 2026-10-31 compact companion and city
 
 Evidence class: **INERT**. Current-session index, not acceptance evidence.
 

@@ -24,7 +24,7 @@ sys.path.insert(0,str(root/'tools'))
 from grade_source_snapshot import validate as validate_grade_snapshot
 validate_grade_snapshot(plan,root)
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from city_ground_apron_geometry import profile_height,clip_profile_face,profile_roof_caps,profile_grid_volume,coalesced_grid_planes,parcel_transition_cells,street_cut_footprints,soil_cut_prisms,removed_flat_soil_volume,clip_soil_face,chunk_soil_faces
+from city_ground_apron_geometry import profile_height,clip_profile_face,profile_roof_caps,profile_grid_volume,coalesced_grid_planes,parcel_transition_cells,street_cut_footprints,soil_cut_prisms,removed_flat_soil_volume,removed_profile_soil_volume,clip_soil_face,chunk_soil_faces
 from city_street_geometry import overlap
 from fabrication_chart_batch import triangle_charts
 from fabrication_native_batch import export as export_native
@@ -203,10 +203,13 @@ mesh,native_area,edge_contacts,split_fans=build_closed_ground(source_rectangles,
 closed_volume_proof={key:mesh.get(key) for key in ['pre_storage_volume_m3','represented_volume_error_m3']} if roof_cut else {}
 street_cavity=[];street_proof={}
 if street_specs:
-    assert all(abs(profile_height(x,roof_profile)-top)<1e-7 for spec in street_specs for p in spec['polygons'] for x,z in p),'Independent street-cut proof requires the original flat eastern grade'
     represented_masks=[{'bounds':[native_coordinate(v) for v in row['bounds']]} for row in masks]
     print('STREET SOIL CUT: independent retained-ground void integral begins',flush=True)
-    removed=removed_flat_soil_volume(street_specs,[a,b,c,d],top,represented_masks)
+    if len(street_specs)==1 and all(abs(profile_height(x,roof_profile)-top)<1e-7 for spec in street_specs for p in spec['polygons'] for x,z in p):
+        removed=removed_flat_soil_volume(street_specs,[a,b,c,d],top,represented_masks)
+    else:
+        assert all(min(h for x,h in spec['subgrade_profile_m'])>low for spec in street_specs),'Street cut would pass below the retained soil stock'
+        removed=removed_profile_soil_volume(street_specs,[a,b,c,d],top,represented_masks,roof_profile,parcel_rects)
     print('STREET SOIL CUT: expected removal',removed,'m3; native Boolean begins',flush=True)
     source_obj=next(obj for obj in source_collection.objects if obj.data==mesh)
     street_cavity,street_proof=apply_soil_cuts(source_obj,source_collection,street_specs,removed)
