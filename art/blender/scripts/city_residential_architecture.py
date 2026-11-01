@@ -261,6 +261,8 @@ class EasternHouses(EasternRows):
 
     def __init__(self,row,emit,neighbours,lower=False):
         super().__init__(row,emit,neighbours,lower)
+        self.front_x_sign=self.study.get('front_x_sign',1)
+        assert self.front_x_sign in (-1,1)
         self.steps=1 if lower else 3
         self.substrate=None
 
@@ -325,7 +327,7 @@ class EasternHouses(EasternRows):
         self.row_roof(outline,height)
         for side,(p,q) in enumerate(zip(outline,outline[1:]+outline[:1])):
             O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
-            if N.x<.65:continue
+            if N.x*self.front_x_sign<.65:continue
             count=4 if self.style!='bow_4470' else max(1,round(length/.85))
             for i in range(count):
                 at=(i+.5)*length/count
@@ -341,7 +343,7 @@ class EasternHouses(EasternRows):
             for side,(p,q) in enumerate(zip(outline,outline[1:]+outline[:1])):
                 O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
                 self.tapers=((Vector((*inside[side],0))-O).dot(U),length-(Vector((*inside[(side+1)%len(outline)],0))-O).dot(U))
-                count=self.study['side_bays'][side];front=N.x>.65
+                count=self.study['side_bays'][side];front=N.x*self.front_x_sign>.65
                 for bay in range(count):
                     l=bay*length/count;r=(bay+1)*length/count
                     entry=side==self.study['front_side'] and bay==0

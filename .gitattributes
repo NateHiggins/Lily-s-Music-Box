@@ -3482,7 +3482,17 @@ game/assets/props/companion_feed_knobs.glb -text
 game/assets/props/companion_feed_knobs.glb.import -text
 game/data/device/companion_temporal_amber.json -text
 
-# Preserve the exact newspaper PNG import parameters bound by surface receipts.
-game/assets/ui/newspaper/ad_border.png.import -text
-game/assets/ui/newspaper/ads/*.png.import -text
-game/assets/ui/newspaper/cartoons/*.png.import -text
+
+art/reviews/city_streets_20261029/cedar_approach_review.zip -text
+art/reviews/city_streets_20261029/western_street_source_wip.zip -text
+game/tests/v2_city_western_street_review.gd -text
+game/tests/V2CityWesternStreetReview.tscn -text
+art/blender/scripts/review_city_street_district.py -text
+game/tests/v2_city_western_street_lod.gd -text
+game/tests/V2CityWesternStreetLOD.tscn -text
+art/reviews/city_streets_20261029/western_street_review.zip -text
+game/tests/v2_city_western_frontage_review.gd -text
+game/tests/v2_city_western_frontage_programme.gd -text
+game/tests/V2CityWesternFrontageReview.tscn -text
+art/reviews/city_streets_20261029/western_frontage_review.zip -text
+art/reviews/city_streets_20261029/current_main_intake_20261101.zip -text

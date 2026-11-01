@@ -46,9 +46,14 @@ func _run() -> void:
 	_check(file!=null,"write fresh grade ownership discovery")
 	if file!=null:
 		file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual aligned static boxes only. Unaligned boxes and all other shapes require separate native/source classification, never AABB solid substitution.","records":records,"skipped_shapes":skipped,"poses":poses,"source":{"runtime_inputs_sha256":final_inputs.runtime,"surface_inputs_sha256":final_inputs.surface,"test_dependencies":bindings},"failures":failures},"\t"));file.flush()
+	await _after_discovery(world)
 	world.shutdown_for_tests();world.free();await get_tree().process_frame
 	print("V2 GRADE OWNER SURVEY: ","PASS" if failures==0 else "FAIL"," boxes=",records.size()," failures=",failures)
 	get_tree().quit(0 if failures==0 else 1)
+
+func _after_discovery(_world: OrisonV2RuntimeRoot) -> void:
+	# Optional same-world programme; the standalone discovery keeps its lifecycle.
+	pass
 
 static func _pose(pose: Transform3D) -> Dictionary:
 	return {"origin":[pose.origin.x,pose.origin.y,pose.origin.z],"x_axis":[pose.basis.x.x,pose.basis.x.y,pose.basis.x.z],"y_axis":[pose.basis.y.x,pose.basis.y.y,pose.basis.y.z],"z_axis":[pose.basis.z.x,pose.basis.z.y,pose.basis.z.z]}

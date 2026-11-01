@@ -1778,7 +1778,7 @@
         -163.33333333333334,
         -46.0
       ],
-      "height_m": 10.049999999999999,
+      "height_m": 10.25,
       "storey_m": 3.2,
       "bay_pitch_m": 2.35,
       "window_width_m": 0.94,
@@ -1787,14 +1787,65 @@
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.78,
-        0.66,
-        0.55,
+        0.75,
+        0.61,
+        0.48,
         1
       ],
       "variation_seed": 117,
       "typology": "rowhouse",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "architecture": {
+        "type": "residential_front",
+        "style": "italianate_2109",
+        "precedent": "21-31 45th Avenue, early-1870s Root/Rust brick Italianate; three stories and stuccoed basement, classical entrance pediment, retained cast-iron newel and stoop rail.",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+        "source_pages": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "floor_heights_m": [
+          0.95,
+          3.2,
+          3.1,
+          3.0
+        ],
+        "front_inset_m": 2.8,
+        "outline_m": [
+          [
+            -163.33333333333334,
+            -48.8
+          ],
+          [
+            -170.0,
+            -48.8
+          ],
+          [
+            -170.0,
+            -66.0
+          ],
+          [
+            -163.33333333333334,
+            -66.0
+          ]
+        ],
+        "scope": "AU dimensional and finish adaptation in retained6.667x20m parcel,not a measured replica or surveyed1928 location. Reuses the documented family construction grammar with a distinct floor schedule and entrance datum. 21-49 retains documented4.88m frontage. 21-38 painted lapped timber is authored:1968 asbestos cladding and undated replacement steel stoop are not1928 evidence. Scenic closed leaves add no interior,occupants,shop,save or narrative authority; no reference pixels.",
+        "side_bays": [
+          3,
+          5,
+          3,
+          5
+        ],
+        "public_front_apron": true
+      },
+      "joinery_tint": [
+        0.23,
+        0.26,
+        0.2,
+        1
+      ]
     },
     {
       "id": "HORIZON_NEAR_2_1_P0R1",
@@ -1804,7 +1855,7 @@
         -156.66666666666666,
         -46.0
       ],
-      "height_m": 10.049999999999999,
+      "height_m": 10.25,
       "storey_m": 3.2,
       "bay_pitch_m": 2.35,
       "window_width_m": 0.94,
@@ -1813,14 +1864,64 @@
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.9,
-        0.82,
-        0.65,
-        1
+        0.78,
+        0.7,
+        0.62,
+        1.0
       ],
       "variation_seed": 118,
       "typology": "rowhouse",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "architecture": {
+        "type": "residential_front",
+        "style": "narrow_2141",
+        "precedent": "21-49 45th Avenue, 1870s Root/Rust narrow16ft brick Italianate; three stories and basement, plain vertical lintels/sills, original stoop and cast-iron handrails.",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+        "source_pages": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "floor_heights_m": [
+          0.9,
+          3.2,
+          3.15,
+          3.0
+        ],
+        "front_inset_m": 2.8,
+        "outline_m": [
+          [
+            -157.56,
+            -48.8
+          ],
+          [
+            -162.44,
+            -48.8
+          ],
+          [
+            -162.44,
+            -66.0
+          ],
+          [
+            -157.56,
+            -66.0
+          ]
+        ],
+        "side_bays": [
+          2,
+          5,
+          2,
+          5
+        ],
+        "scope": "AU dimensional and finish adaptation in retained6.667x20m parcel,not a measured replica or surveyed1928 location. Reuses the documented family construction grammar with a distinct floor schedule and entrance datum. 21-49 retains documented4.88m frontage. 21-38 painted lapped timber is authored:1968 asbestos cladding and undated replacement steel stoop are not1928 evidence. Scenic closed leaves add no interior,occupants,shop,save or narrative authority; no reference pixels."
+      },
+      "joinery_tint": [
+        0.24,
+        0.27,
+        0.21,
+        1.0
+      ]
     },
     {
       "id": "HORIZON_NEAR_2_1_P0R2",
@@ -1830,23 +1931,74 @@
         -150.0,
         -46.0
       ],
-      "height_m": 10.049999999999999,
+      "height_m": 9.5,
       "storey_m": 3.2,
       "bay_pitch_m": 2.35,
       "window_width_m": 0.94,
       "window_height_m": 1.85,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "door_paint",
       "wall_tint": [
-        0.7,
-        0.6,
+        0.47,
         0.53,
+        0.43,
         1
       ],
       "variation_seed": 119,
       "typology": "rowhouse",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "architecture": {
+        "type": "residential_front",
+        "style": "gable_2136",
+        "precedent": "21-38 45th Avenue,1890 two-story timber Queen Anne over basement; coupled projecting upper window pair, steep gable, retained original doorway and belt courses.",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+        "source_pages": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "floor_heights_m": [
+          0.85,
+          3.05,
+          2.95,
+          2.65
+        ],
+        "front_inset_m": 2.8,
+        "outline_m": [
+          [
+            -150.0,
+            -48.8
+          ],
+          [
+            -156.66666666666666,
+            -48.8
+          ],
+          [
+            -156.66666666666666,
+            -66.0
+          ],
+          [
+            -150.0,
+            -66.0
+          ]
+        ],
+        "scope": "AU dimensional and finish adaptation in retained6.667x20m parcel,not a measured replica or surveyed1928 location. Reuses the documented family construction grammar with a distinct floor schedule and entrance datum. 21-49 retains documented4.88m frontage. 21-38 painted lapped timber is authored:1968 asbestos cladding and undated replacement steel stoop are not1928 evidence. Scenic closed leaves add no interior,occupants,shop,save or narrative authority; no reference pixels.",
+        "side_bays": [
+          3,
+          5,
+          3,
+          5
+        ],
+        "public_front_apron": true
+      },
+      "joinery_tint": [
+        0.47,
+        0.53,
+        0.43,
+        1
+      ]
     },
     {
       "id": "HORIZON_NEAR_2_1_P1",
@@ -3280,23 +3432,98 @@
         170,
         19.222222222222225
       ],
-      "height_m": 9.6,
+      "height_m": 7.3,
       "storey_m": 3.2,
       "bay_pitch_m": 2.35,
-      "window_width_m": 0.94,
-      "window_height_m": 1.85,
+      "window_width_m": 1.02,
+      "window_height_m": 2.0,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.78,
-        0.66,
-        0.55,
-        1
+        0.69,
+        0.43,
+        0.3,
+        1.0
       ],
       "variation_seed": 182,
       "typology": "rowhouse",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "joinery_tint": [
+        0.24,
+        0.28,
+        0.22,
+        1.0
+      ],
+      "architecture": {
+        "type": "eastern_row",
+        "style": "bow_4470",
+        "precedent": "44-72 23rd Street (the LPC44-78 through44-70 group),1887:two-storey+fullbasement modified Romanesque house,three-window frontage withtwo windows in shallowbow,three vertically joined terracotta relief plaques andsheetmetal cornice.",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+        "source_pdf_pages": [
+          5
+        ],
+        "adaptation": "AU Western street-facing adaptation of the cited individual. Retained7.222m frontage/20m parcel;2.9m setback seats stoop and public frontage pad within parcel. Reflection is an authored placement, not a historical location or measured replica. Full basement and floor heights are authored from the documented storey count. No occupied interior/new entry programme, reference pixels or copied modern alterations. Native clearance review rejects the earlier2.1m setback because the real stoop intersects the intended full-size public lane;2.9m reserves at least1.05m ahead of the stair run.",
+        "floor_heights_m": [
+          0.9,
+          3.25,
+          3.15
+        ],
+        "front_side": 4,
+        "cornice_key": "door_paint",
+        "outline_m": [
+          [
+            152.9,
+            19.222222222222225
+          ],
+          [
+            152.9,
+            18.95
+          ],
+          [
+            152.1,
+            18.3
+          ],
+          [
+            152.1,
+            15.35
+          ],
+          [
+            152.9,
+            14.7
+          ],
+          [
+            152.9,
+            12.0
+          ],
+          [
+            170,
+            12.0
+          ],
+          [
+            170,
+            19.222222222222225
+          ]
+        ],
+        "side_bays": [
+          1,
+          1,
+          2,
+          1,
+          1,
+          6,
+          3,
+          6
+        ],
+        "front_x_sign": -1,
+        "public_front_apron": true,
+        "front_apron_rect_m": [
+          150.0,
+          12.0,
+          152.9,
+          19.222222222222225
+        ]
+      }
     },
     {
       "id": "HORIZON_NEAR_3_2_P0R1",
@@ -3306,23 +3533,79 @@
         170,
         26.44444444444445
       ],
-      "height_m": 9.6,
+      "height_m": 10.3,
       "storey_m": 3.2,
       "bay_pitch_m": 2.35,
-      "window_width_m": 0.94,
-      "window_height_m": 1.85,
+      "window_width_m": 1.02,
+      "window_height_m": 2.0,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "city_grey_brick",
       "wall_tint": [
-        0.9,
-        0.82,
-        0.65,
-        1
+        0.88,
+        0.78,
+        0.55,
+        1.0
       ],
       "variation_seed": 183,
       "typology": "rowhouse",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "joinery_tint": [
+        0.32,
+        0.27,
+        0.21,
+        1.0
+      ],
+      "architecture": {
+        "type": "eastern_row",
+        "style": "yellow_2148",
+        "precedent": "21-48 45th Avenue,1889:yellowbrick apartment house,three stories+basement,bracketed cornice andsimple windowlintels. Altered firstfloor is not copied as1928 proof.",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+        "source_pdf_pages": [
+          5
+        ],
+        "adaptation": "AU Western street-facing adaptation of the cited individual. Retained7.222m frontage/20m parcel;2.9m setback seats stoop and public frontage pad within parcel. Reflection is an authored placement, not a historical location or measured replica. Full basement and floor heights are authored from the documented storey count. No occupied interior/new entry programme, reference pixels or copied modern alterations. Native clearance review rejects the earlier2.1m setback because the real stoop intersects the intended full-size public lane;2.9m reserves at least1.05m ahead of the stair run.",
+        "floor_heights_m": [
+          0.9,
+          3.25,
+          3.1,
+          3.05
+        ],
+        "front_side": 0,
+        "cornice_key": "door_paint",
+        "outline_m": [
+          [
+            152.9,
+            26.44444444444445
+          ],
+          [
+            152.9,
+            19.222222222222225
+          ],
+          [
+            170,
+            19.222222222222225
+          ],
+          [
+            170,
+            26.44444444444445
+          ]
+        ],
+        "side_bays": [
+          3,
+          6,
+          3,
+          6
+        ],
+        "front_x_sign": -1,
+        "public_front_apron": true,
+        "front_apron_rect_m": [
+          150.0,
+          19.222222222222225,
+          152.9,
+          26.44444444444445
+        ]
+      }
     },
     {
       "id": "HORIZON_NEAR_3_2_P0R2",
@@ -3332,23 +3615,78 @@
         170,
         33.66666666666667
       ],
-      "height_m": 9.6,
+      "height_m": 7.25,
       "storey_m": 3.2,
       "bay_pitch_m": 2.35,
-      "window_width_m": 0.94,
-      "window_height_m": 1.85,
+      "window_width_m": 1.02,
+      "window_height_m": 2.0,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "door_paint",
       "wall_tint": [
-        0.7,
-        0.6,
-        0.53,
-        1
+        0.76,
+        0.74,
+        0.65,
+        1.0
       ],
       "variation_seed": 184,
       "typology": "rowhouse",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "joinery_tint": [
+        0.31,
+        0.36,
+        0.33,
+        1.0
+      ],
+      "architecture": {
+        "type": "eastern_row",
+        "style": "frame_2134",
+        "precedent": "21-34 45th Avenue,1887 Burnell house:two timber stories over lowbrick basement,clapboards andvertical/horizontal framing,paired centre windows,single sidebays anddiagonal incised spandrelboarding.",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+        "source_pdf_pages": [
+          6
+        ],
+        "adaptation": "AU Western street-facing adaptation of the cited individual. Retained7.222m frontage/20m parcel;2.9m setback seats stoop and public frontage pad within parcel. Reflection is an authored placement, not a historical location or measured replica. Full basement and floor heights are authored from the documented storey count. No occupied interior/new entry programme, reference pixels or copied modern alterations. Native clearance review rejects the earlier2.1m setback because the real stoop intersects the intended full-size public lane;2.9m reserves at least1.05m ahead of the stair run.",
+        "floor_heights_m": [
+          0.9,
+          3.25,
+          3.1
+        ],
+        "front_side": 0,
+        "cornice_key": "door_paint",
+        "outline_m": [
+          [
+            152.9,
+            33.66666666666667
+          ],
+          [
+            152.9,
+            26.44444444444445
+          ],
+          [
+            170,
+            26.44444444444445
+          ],
+          [
+            170,
+            33.66666666666667
+          ]
+        ],
+        "side_bays": [
+          3,
+          6,
+          3,
+          6
+        ],
+        "front_x_sign": -1,
+        "public_front_apron": true,
+        "front_apron_rect_m": [
+          150.0,
+          26.44444444444445,
+          152.9,
+          33.66666666666667
+        ]
+      }
     },
     {
       "id": "HORIZON_NEAR_3_2_P1",

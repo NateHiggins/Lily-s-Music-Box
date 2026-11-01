@@ -1,8 +1,30 @@
 {
-	"checks": 651,
+	"checks": 655,
 	"city_context_review": {
 		"scope": "Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance.",
-		"views": []
+		"views": [
+			{
+				"aim_world": "(-165.0, 3.285, 3.961097)",
+				"building": "HORIZON_NEAR_3_2_P0R0",
+				"eye_world": "(-182.0, 1.62, 3.961095)",
+				"file": "city_context_HORIZON_NEAR_3_2_P0R0.png",
+				"fov": 110.0
+			},
+			{
+				"aim_world": "(-165.0, 4.635, 11.18332)",
+				"building": "HORIZON_NEAR_3_2_P0R1",
+				"eye_world": "(-182.0, 1.62, 11.18332)",
+				"file": "city_context_HORIZON_NEAR_3_2_P0R1.png",
+				"fov": 110.0
+			},
+			{
+				"aim_world": "(-165.0, 3.2625, 18.40554)",
+				"building": "HORIZON_NEAR_3_2_P0R2",
+				"eye_world": "(-182.0, 1.62, 18.40554)",
+				"file": "city_context_HORIZON_NEAR_3_2_P0R2.png",
+				"fov": 110.0
+			}
+		]
 	},
 	"civic_world_access": {
 		"executed": false,
@@ -33,7 +55,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 256.585,
+		"elapsed_s": 203.263,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -48,7 +70,7 @@
 			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
 		}
 	},
-	"inventory_sha256": "8b7819695e8ef8fbf4f07fb53110960f84bb54be1abec644d496d58943e4e380",
+	"inventory_sha256": "07179dc2bc0d281aa4911e4576c6d94bc78db9c79d891f2ab61ea4ece402c0f6",
 	"lamp_context_review": {
 		"executed": false,
 		"scope": "Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."
@@ -59,10 +81,10 @@
 	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
 	"selector": "v2",
 	"source": {
-		"repository_head": "e796eef5b671f03308885f540f6f36856369a693",
-		"runtime_inputs_sha256": "a6d1abd781262ea28713b5eb9156421c55b7a30d1843d97c90a8e69423570f35",
+		"repository_head": "d211123cfbc6e9be033673e3e3f8e81eb6189c3a",
+		"runtime_inputs_sha256": "c2f7f34081f5157d999f6572c02fb1794787720ec98eac56c99151dac4c9b54c",
 		"test_path": "game/tests/orison_v2_surface_inventory.gd",
 		"test_sha256": "40346a3036187b81dfabb7fe8783c4fb4bcbb6eb289b334fa1ae34b86f7e56c5"
 	},
-	"surface_inputs_sha256": "05ced15d3b3c535dbd27d2b7f73ee7703199ad30b97589f42d2ed5d6efc6380a"
+	"surface_inputs_sha256": "0a9d049d29aa2de3cfe17880548062cfb61a8d1e5bca705f5e198b4dc4d83062"
 }

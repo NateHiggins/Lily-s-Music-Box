@@ -200,7 +200,8 @@ for district in plan.get('districts',[]):
                 q=intersection(p,rectangle([a+(gx if a>envelope[0]+1e-8 else 0.),b+(gy if b>envelope[1]+1e-8 else 0.),c-(gx if c<envelope[2]-1e-8 else 0.),d-(gy if d<envelope[3]-1e-8 else 0.)]))
                 if not q:continue
                 for k,piece in enumerate(cut(q,[rectangle(r) for r in retained])):
-                    emit_district(f'Walk_{identity}_L{lod}_{i}_{j}_{k}','walk',piece,district['walk_bottom_m'],district['walk_top_m'],lod,graded=False)
+                    walk_profile=district.get('walk_profile_m')
+                    emit_district(f'Walk_{identity}_L{lod}_{i}_{j}_{k}','walk',piece,district['walk_bottom_m'],district['walk_top_m'],lod,profile=walk_profile,graded=walk_profile is not None)
         district_records.append(dict(id=identity,lod=lod,curve_sagitta_m=result['maximum_curve_sagitta_m'],
             required_ground_cut_polygons=result['road']+result['curb_caps'],required_ground_cut_profile_m=district['ground_cut_profile_m'],
             required_ground_frame_cut_polygons=[[[-x,y+building_z] for x,y in p] for p in result['road']+result['curb_caps']],
@@ -231,7 +232,7 @@ bpy.ops.export_scene.gltf(filepath=str(low_path),export_format='GLB',use_selecti
 proof1=validate(low_path);assert proof1['triangles']<proof0['triangles']
 paths=[plan_path,provider_path,'art/blender/scripts/build_city_streets.py','art/blender/scripts/city_street_geometry.py','game/data/orison_v2/exterior/street_traffic.json','game/data/orison_v2/exterior/street_frame.json','art/data/city_transport/source_plan.json','game/data/orison_v2_blockout.json','game/tests/fixtures/orison_city_elevations.json','art/data/city_elevations/source_plan.json','game/data/runtime_material_sets.json','art/blender/city_streets.blend']+['art/blender/scripts/'+n for n in ['fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']]
 if district_records:
-    paths += ['art/data/city_horizon/source_plan.json','art/blender/city_horizon_construction.json','art/blender/scripts/city_industrial_architecture.py','game/scripts/building/orison_v2_world_connection.gd','game/data/orison_v2/world_connection.json','game/data/orison_v2/exterior/regions.json']
+    paths += ['art/blender/scripts/city_industrial_architecture.py','game/scripts/building/orison_v2_world_connection.gd','game/data/orison_v2/world_connection.json','game/data/orison_v2/exterior/regions.json']
 report=dict(evidence_class='INERT',scope=plan['scope'],source_bindings={p:sha(p) for p in paths},asset_sha256={p:sha(p) for p in ['game/assets/props/city_streets.glb','game/assets/props/city_streets_lod1.glb']},exports=[proof0,proof1],stocks=records,topology=shape,retained_footprints=retained,retained_pavement_providers=providers,retained_provider_overlaps=provider_overlaps,walk_envelopes=walk_envelopes,districts=district_records,failures=[])
 for p in ['art/blender/city_streets_construction.json','game/tests/fixtures/orison_city_streets.json']:(ROOT/p).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 runtime=dict(schema=1,grade_profile_m=plan['grade_profile_m'],finishes=[dict(alias=k,**v) for k,v in finishes.items()],lod_error_m=plan['lod_error_m'],parts=[o.name for o in exports[0].objects])

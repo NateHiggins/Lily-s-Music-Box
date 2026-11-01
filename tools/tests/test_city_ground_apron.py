@@ -8,6 +8,87 @@ spec=importlib.util.spec_from_file_location('apron_geometry',PATH)
 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 
 class Apron(unittest.TestCase):
+    def test_actual_stored_cut_charts_bind_export_derivatives_without_changing_surfaces(self):
+        import numpy as np
+        # Exact float32 attributes retained from failed native build04.
+        cases=[{'points': [[[0.2963055372238159, -1.1672499179840088, -2.0], [0.2963055372238159, 0.7028055191040039, -2.0], [0.2963067591190338, 0.7028054594993591, -2.0]]], 'charts': [[[0.3036944568157196, 0.800000011920929], [0.3036944568157196, -1.0700554847717285], [0.3036932349205017, -1.0700554847717285]]], 'guides': [[[-1.0, 0.0, 0.0], [-1.0, 0.0, 0.0], [-1.0, 0.0, 0.0]]]}, {'points': [[[-0.449358195066452, -0.20825979113578796, 2.0], [-0.4493560791015625, -0.20825982093811035, -0.09355735778808594], [-0.4493560791015625, -0.20825982093811035, -0.09363365173339844]]], 'charts': [[[0.20835818350315094, 0.8999999761581421], [0.20836029946804047, -1.1935572624206543], [0.20836029946804047, -1.1936335563659668]]], 'guides': [[[0.9999020099639893, -0.014000028371810913, 0.0], [0.9999020099639893, -0.014000028371810913, 0.0], [0.9999020099639893, -0.014000028371810913, 0.0]]]}]
+        for case in cases:
+            points=np.asarray(case['points']);charts=np.asarray(case['charts']);guides=np.asarray(case['guides'])
+            normal=np.cross(points[:,1]-points[:,0],points[:,2]-points[:,0]);normal/=np.linalg.norm(normal,axis=1)[:,None]
+            normals=np.repeat(normal[:,None],3,axis=1)
+            before=[a.copy() for a in [points,normals,charts,guides]]
+            fixed,count=module.stored_cut_chart_guides(points,normals,charts,guides)
+            self.assertEqual(count,1)
+            a=charts[:,1]-charts[:,0];b=charts[:,2]-charts[:,0];det=a[:,0]*b[:,1]-a[:,1]*b[:,0]
+            derivative=((points[:,1]-points[:,0])*b[:,1,None]-(points[:,2]-points[:,0])*a[:,1,None])/det[:,None]
+            self.assertTrue(np.all(np.sum(fixed*derivative[:,None],axis=2)>0))
+            self.assertTrue(np.max(np.linalg.norm(np.cross(fixed,derivative[:,None]),axis=2)/np.linalg.norm(derivative,axis=1)[:,None])<1e-7)
+            for actual,original in zip([points,normals,charts,guides],before):self.assertTrue(np.array_equal(actual,original))
+
+    def test_well_conditioned_stored_guides_stay_exact_and_collapsed_uvs_are_refused(self):
+        import numpy as np
+        points=np.asarray([[[0.,0.,0.],[1.,0.,0.],[0.,1.,0.]]]);normals=np.asarray([[[0.,0.,1.]]*3]);charts=np.asarray([[[0.,0.],[1.,0.],[0.,1.]]]);guides=np.asarray([[[1.,0.,0.]]*3])
+        actual,count=module.stored_cut_chart_guides(points,normals,charts,guides)
+        self.assertEqual(count,0);self.assertTrue(np.array_equal(actual,guides))
+        with self.assertRaisesRegex(AssertionError,'collapsed'):module.stored_cut_chart_guides(points,normals,charts*0.,guides)
+
+    def test_sloped_cut_integral_matches_independent_prism_and_wedge_volumes(self):
+        from city_street_geometry import rectangle
+        spec=[{'polygons':[rectangle([0,0,2,3])],'subgrade_profile_m':[[0,0],[2,.5]]}]
+        # Roof contributes9m3; the triangular cutter below it removes1.5m3.
+        self.assertAlmostEqual(module.removed_profile_soil_volume(spec,[0,0,2,3],2.,[],[[0,1],[2,2]]),7.5)
+
+    def test_soil_roof_and_cutter_crossings_keep_only_positive_wedge(self):
+        from city_street_geometry import rectangle
+        spec=[{'polygons':[rectangle([0,0,2,3])],'subgrade_profile_m':[[0,1],[2,1]]}]
+        self.assertAlmostEqual(module.removed_profile_soil_volume(spec,[0,0,2,3],2.,[],[[0,0],[2,2]]),1.5)
+
+    def test_profile_breakpoint_preserves_valley_instead_of_endpoint_sampling(self):
+        from city_street_geometry import rectangle
+        spec=[{'polygons':[rectangle([0,0,2,3])],'subgrade_profile_m':[[0,0],[2,0]]}]
+        self.assertAlmostEqual(module.removed_profile_soil_volume(spec,[0,0,2,3],2.,[],[[0,2],[1,0],[2,2]]),6.)
+
+    def test_flat_parcel_seats_are_unioned_once_inside_sloped_roof(self):
+        from city_street_geometry import rectangle
+        spec=[{'polygons':[rectangle([0,0,2,3])],'subgrade_profile_m':[[0,0],[2,0]]}]
+        protected=[[.5,1,1.5,2]]*2
+        self.assertAlmostEqual(module.removed_profile_soil_volume(spec,[0,0,2,3],2.,[],[[0,1],[2,2]],protected),9.5)
+
+    def test_height_band_reservation_crossing_is_integrated_exactly(self):
+        from city_street_geometry import rectangle
+        spec=[{'polygons':[rectangle([0,0,2,3])],'subgrade_profile_m':[[0,0],[2,0]]}]
+        reservation={'bounds':[.5,1.5,1.,1.5,2.,2.]}
+        # Only a1/16m3 triangular slice of this reservation meets the soil.
+        self.assertAlmostEqual(module.removed_profile_soil_volume(spec,[0,0,2,3],2.,[reservation],[[0,1],[2,2]]),9.-1/16)
+
+    def test_multiple_disjoint_districts_keep_their_own_cut_heights(self):
+        from city_street_geometry import rectangle
+        specs=[{'polygons':[rectangle([0,0,1,3])],'subgrade_profile_m':[[0,0],[2,0]]},
+               {'polygons':[rectangle([1,0,2,3])],'subgrade_profile_m':[[0,.5],[2,.5]]}]
+        self.assertAlmostEqual(module.removed_profile_soil_volume(specs,[0,0,2,3],2.,[],[[0,2],[2,2]]),10.5)
+
+    def test_overlapping_district_profiles_are_refused(self):
+        from city_street_geometry import rectangle
+        spec={'polygons':[rectangle([0,0,2,3])],'subgrade_profile_m':[[0,0],[2,0]]}
+        with self.assertRaisesRegex(AssertionError,'common cut owner'):
+            module.removed_profile_soil_volume([spec,spec],[0,0,2,3],2.,[],[[0,2],[2,2]])
+
+    def test_profile_integral_matches_retained_flat_proof_without_mutating_inputs(self):
+        from city_street_geometry import rectangle
+        import json
+        specs=[{'polygons':[rectangle([0,0,2,2])]*2,'subgrade_profile_m':[[0,-.1],[2,-.5]]}]
+        reservations=[{'bounds':[0,-.4,0,1,0,2]}]*2
+        before=json.dumps([specs,reservations],sort_keys=True)
+        expected=module.removed_flat_soil_volume(specs,[0,0,2,2],0.,reservations)
+        self.assertAlmostEqual(expected,.8)
+        self.assertAlmostEqual(module.removed_profile_soil_volume(specs,[0,0,2,2],0.,reservations,[[0,0],[2,0]]),expected)
+        self.assertEqual(json.dumps([specs,reservations],sort_keys=True),before)
+
+    def test_profile_cut_clips_to_provider_region(self):
+        from city_street_geometry import rectangle
+        spec=[{'polygons':[rectangle([0,0,2,3])],'subgrade_profile_m':[[0,0],[2,0]]}]
+        self.assertAlmostEqual(module.removed_profile_soil_volume(spec,[.5,0,1.5,3],2.,[],[[0,2],[2,2]]),6.)
+
     def test_union_outlines_keep_overlap_seams_disjoint_components_and_refuse_holes(self):
         from city_street_geometry import rectangle,area
         for stocks,expected,components in [
@@ -109,9 +190,21 @@ class Apron(unittest.TestCase):
                         self.assertTrue(any(all((b[0]-a[0])*(q[1]-a[1])-(b[1]-a[1])*(q[0]-a[0])>=-1e-7 for a,b in zip(p,p[1:]+p[:1])) for p in cut['polygons']))
             # Actual cap returns extend .175m beyond the nominal road ends;
             # clearance stops at those existing stock planes, with no pad ear.
-            self.assertTrue(all(x<=-114.825+1e-8 and z<=111.675+1e-8 for p in cut['polygons'] for x,z in p))
-            self.assertEqual(cut['open_stock_planes'],[(0,114.825,True),(1,113.53,False)])
-            self.assertEqual(cut['subgrade_profile_m'],[[-210.,-.45],[-135.,-.45],[-115.,-.3975]])
+            if district['id']=='Eastern':
+                self.assertTrue(all(x<=-114.825+1e-8 and z<=111.675+1e-8 for p in cut['polygons'] for x,z in p))
+                self.assertEqual(cut['open_stock_planes'],[(0,114.825,True),(1,113.53,False)])
+                self.assertEqual(cut['subgrade_profile_m'],[[-210.,-.45],[-135.,-.45],[-115.,-.3975]])
+            elif district['id']=='Western':
+                self.assertTrue(all(x>=91.825-1e-8 and -132.03-1e-8<=z<=128.32+1e-8 for p in cut['polygons'] for x,z in p))
+                planes=[(0,-91.825,False),(1,-130.175,True),(1,130.175,False)]
+                self.assertEqual(len(cut['open_stock_planes']),len(planes))
+                for actual,expected in zip(cut['open_stock_planes'],planes):
+                    self.assertEqual((actual[0],actual[2]),(expected[0],expected[2]));self.assertAlmostEqual(actual[1],expected[1])
+                expected=[[92.,-1.383],[100.,-1.5555],[104.,-1.6155],[140.,-2.1555],[151.,-2.3205]]
+                self.assertEqual(len(cut['subgrade_profile_m']),len(expected))
+                for actual,control in zip(cut['subgrade_profile_m'],expected):
+                    for a,b in zip(actual,control):self.assertAlmostEqual(a,b)
+            else:self.fail('Register independent continuation controls for '+district['id'])
 
     def test_street_cut_refuses_internal_open_plane_and_nonconvex_offset(self):
         import json,copy
