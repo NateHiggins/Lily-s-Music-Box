@@ -136,7 +136,7 @@ Speaker lines.
 | Sun 13 Oct | Bureau: "Emergence 40 minutes late. Departure as forecast. Seas fell a quarter inch." Speaker: "It did not look down. We have written." |
 
 **The night.** Forecast for 11:20, actually around midnight, gone by about 1 a.m. It reaches the city about the size of
-a thumb at arm's length, and it looks at no one. The Arcade has lanterns and a queue at the luncheonette, with smoked
+a fist at arm's length, and it looks at no one. The Arcade has lanterns and a queue at the luncheonette, with smoked
 glass at Photo Supplies. Lily and Juno play at Harukiya, badly and happily. On the roof Malcolm guards his pots, Omar
 counts the load, and Mae brings a chair: "You may sit. The chair is mine." She isn't a clue here. A live relay says, "It
 is, folks, rather large."

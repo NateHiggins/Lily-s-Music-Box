@@ -806,7 +806,7 @@ vec3 dust_wall(vec3 dir,vec3 colour) {
     return mix(colour,vec3(.48,.34,.19)*(.4+.6*dot(colour,vec3(.333))),smoothstep(.6,1.0,level)*.85);
 }
 // The Emergence, 12 October 1929: up off Sandy Hook, across the borough at about a
-// thumb's width, and away toward Betelgeuse. It looks at no one.
+// fist's width, and away toward Betelgeuse. It looks at no one.
 vec3 emergence(vec3 dir,vec3 colour) {
     float level=spectacle[S_EMERGENCE];
     float p=clamp(emergence_progress,0.0,1.0);
@@ -816,27 +816,27 @@ vec3 emergence(vec3 dir,vec3 colour) {
     if (dot(dir,c)<.97) return colour;
     vec3 side=normalize(cross(vec3(0.0,1.0,0.0),c));
     vec3 up=cross(c,side);
-    float size=radians(mix(1.2,2.6,smoothstep(0.0,.3,p))*mix(1.0,.03,smoothstep(.62,1.0,p)));
+    float size=radians(mix(1.4,3.2,smoothstep(0.0,.3,p))*mix(1.0,.03,smoothstep(.62,1.0,p)));
     vec2 q=vec2(dot(dir,side),dot(dir,up))/max(size,1e-4);
     float t=spectacle_time*.04;
     float x=abs(q.x);
     float beat=sin(t*3.0)*.12;
     float rough=(fbm2(q*5.0+vec2(t*.3,0.0))-.5)*.14;
-    float head=1.0-smoothstep(.34,.4,length((q-vec2(0.0,.62))*vec2(1.0,.82))+rough);
-    float torso=1.0-smoothstep(.5,.56,length((q-vec2(0.0,-.1))*vec2(1.0,.68))+rough);
+    float head=1.0-smoothstep(.34,.37,length((q-vec2(0.0,.62))*vec2(1.0,.82))+rough);
+    float torso=1.0-smoothstep(.5,.53,length((q-vec2(0.0,-.1))*vec2(1.0,.68))+rough);
     float top=.62+beat+.38*sin(x*2.6)-.42*x;
     float under=top-.7*(1.0-x/1.5)-.05;
-    float wing=step(.25,x)*step(x,1.5)*smoothstep(under,under+.04,q.y+rough)*(1.0-smoothstep(top-.04,top,q.y+rough));
+    float wing=step(.25,x)*step(x,1.5)*smoothstep(under,under+.02,q.y+rough)*(1.0-smoothstep(top-.02,top,q.y+rough));
     float beard=0.0;
     for (int k=-2;k<=2;k++) {
         float line=float(k)*.11+.06*sin(q.y*8.0+t*2.0+float(k)*1.7);
         beard=max(beard,(1.0-smoothstep(.018,.05,abs(q.x-line)))*step(-.9-.16*abs(float(k)),q.y)*step(q.y,.42));
     }
     float mask=clamp(max(max(head,torso),max(wing,beard)),0.0,1.0)*level;
-    float halo=exp(-length(q)*1.25)*level;
-    vec3 sea=vec3(.05,.13,.11);
-    colour+=sea*halo*.55;
-    colour=mix(colour,vec3(.006,.012,.012)+sea*.12,mask);
+    float halo=exp(-length(q)*.8)*level;
+    vec3 sea=vec3(.07,.2,.17);
+    colour+=sea*halo*.95;
+    colour=mix(colour,vec3(.004,.009,.009)+sea*.03,mask);
     // Betelgeuse, once it is nearly there.
     colour+=vec3(1.0,.42,.2)*exp(-length(q)*length(q)*40.0)*smoothstep(.78,1.0,p)*level;
     return colour;
