@@ -1,7 +1,7 @@
 # Adela's singing in the plot: the Astoria offer
 
 Evidence class: **INERT**. Writers' room result, 2026-11-01, for Lily to read by playtest.
-Nothing here is canon until she rules. It claims no audio, capture, stage, door or runtime proof.
+Explicit owner rulings below govern their stated points; other writing remains proposed. This document claims no audio, capture, stage, door or runtime proof.
 
 Sources read together: **design/V2_ADELA_PERFORMANCE_AND_FOUND_FAMILY_2026-11-01.md**, the external
 reference brief and scene proposal in `C:/ov/reports/adela_singing_research_20261101/`, the treatment,
@@ -147,21 +147,19 @@ be earlier, not the only musical one.
 turn, and "she fixed it" sits close to the snap-back rule. Lily approved it knowing the first risk. If it steals from
 S15 in play, cut **av_two_bars** and **li_two_bars** and nothing else breaks.
 
-## 5. For Lily to rule on
+## 5. Owner rulings and remaining production choices
 
-**Ruled, 2026-11-01: the dub exists.** Juno's second reel stays in the plot, and the player can hear herself sing.
+**Ruled, 2026-11-01: the dub exists.** Juno's second reel stays in the plot, and the player can hear herself sing. That earlier ruling is preserved.
 
-1. **Rhea's answer.** Drafted as "Miss Kells may cut it", and she won't listen to it. It's a request Juno honours, and
-   nothing enforces it. Emil Voss is not asked; Lily is, and declines to press. Is that right?
-2. **Your own lines.** Every **LILY** line is a placeholder for you to rewrite. "The extra two bars" gave her most of
-   what she has now. No biography, surname or day job.
-3. **A release slip.** "RELEASED: THE TAKE." at **m_dub_wiped** would fit section 8 of the treatment. It adds a noun
-   to Option A's lexicon, so I haven't written it in.
-4. **The set.** Proposed: "Ain't We Got Fun" as the opening reference with Lily on bass; an original for the number
-   that gets her up, working title "It Ought to Pick Up" (from the brief: everyone in the room wants the evening to
-   improve for a different small reason), Lily on drums; and for the quiet one an unnamed original, Lily on bass.
-5. **The concern's name.** Ravenswood Sound Shorts Company is mine. Ravenswood is a real neighbourhood; no such
-   company that I know of.
+Lily explicitly submitted all five writing answers in **owner-questions-20261101-e66188a0-v1** on November 1. These decisions do not approve production performances, every first-draft thread or the larger conspiracy.
+
+1. **Rhea's answer — Q01.** Honour her request and cut the May recording copy as drafted. This concerns that copy only, not Take 18 or the unopened archive. The draft's request is honoured rather than turned into a player reward or a clue.
+2. **Lily's lines — Q02.** The writers' room should draft options for Lily's review. Existing **LILY** lines remain placeholders until that review; no biography, surname or day job is invented by this ruling.
+3. **Release slip — Q03.** No additional **RELEASED: THE TAKE.** slip yet. Conspiracy Option A remains proposed; no lexicon entry or gameplay reader is approved by this decision.
+4. **The set — Q04.** Keep the proposed reference opener **Ain't We Got Fun** plus two original numbers. Lily alternates bass/drums between songs; the current bass/drums/bass outline fits that direction. The original song **It Ought to Pick Up** remains a working title, and the quiet original remains unnamed. This is repertoire direction, not production recording, composition/arrangement clearance, a selected vocal range or an accepted score.
+5. **The concern's name — Q05.** Keep **Ravenswood Sound Shorts Company** as the fictional concern's name. It remains separate from the murder case. No historical company, contract terms, fee, recording technology or test date is established by this name ruling.
+
+Songwriting, performer/capture decisions, in-world listening and actual stage integration remain open. The existing murder canon and prior approved two-bar story outcome are not reopened.
 
 **Choices I made and you can reverse.**
 

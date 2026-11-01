@@ -24,10 +24,9 @@ displays, globes, stools, papers, glass and catalogue finishes rather than
 rebuilding functioning apparatus. The entrance/window repair and ongoing
 background-city work must agree on shared ground and support envelopes first.
 
-Recommended unresolved choices: reuse a suitable registered cloth initially,
+Prior recommendations, answered in section 5 on November 1: reuse a suitable registered cloth initially,
 propose dark green for the grocery, and omit the optional news hatch unless it
-can demonstrably preserve the live counter approach. These are proposed artistic
-defaults, not approved new catalogue stock or a commission to begin rebuilding.
+can demonstrably preserve the live counter approach. No new catalogue stock or broad rebuild commission follows from them.
 
 ## 1. Scope
 
@@ -99,7 +98,7 @@ per **art/blender/v2_batch_workflow.md**.
    a blade sign on two iron straps, and one tall tool silhouette group.
    The existing ladder, hose, drawers and tools keep their owners.
 5. **News & Cigars.** A shallow fascia and sloping paper tiers. The
-   service-hatch variant is held for your decision (§5); the live counter
+   optional service-hatch variant is omitted by the November 1 ruling (§5); the live counter
    sale is not enclosed.
 6. **Street bodega.** Timber fascia, lower panels and a fixed canvas
    awning (0.8–1.2 m projection) on real brackets.
@@ -126,18 +125,12 @@ per **art/blender/v2_batch_workflow.md**.
 - The 17 protected paths and the V2 selector unchanged. The blockout is
   not edited, so the ~30 hash-bound artefacts it would expire stay valid.
 
-## 5. Decisions for the owner
+## 5. Owner rulings — November 1
 
-- **Awning cloth.** The catalogue's only awning stock is **awning_vinyl**,
-  which is wrong for 1928. Either add a **canvas_awning** key (plain and
-  striped variants, with custom PBR maps) or reuse **linen**. The card asks
-  for canvas.
-- **Palette.** The cards suggest dark green or warm ochre for the grocery.
-  No colour is historically matched, so the palette is yours.
-- **News hatch.** Build the fixed-pose hatch variant, or skip it. Either
-  way the live counter sale stays.
-- **Order.** The slices above go from lowest risk to the hash-bound bodega.
-  Reorder them if a particular frontage matters more.
+Lily answered **owner-questions-20261101-e66188a0-v1**, Q06–Q08:
 
-No route clearance, performance change or appearance acceptance is claimed
-by this plan.
+- **Awning cloth:** reuse registered **linen** for the first rendered candidate. Do not use modern **awning_vinyl** or silently add a new canvas catalogue finish. A later material change needs the candidate review to justify it.
+- **Grocery palette:** dark green. This is an artistic choice, not a claim of historically matched color.
+- **News hatch:** omit the optional fixed-pose storefront service-hatch variant and preserve the clear counter approach. Retain the installed News counter/frame, hours and purchasing owners; this does not authorize deleting existing shop apparatus.
+
+The earlier October 30 recommendations are provenance; these three choices are now answered. Shared entrance/ground envelopes, measured clearance, surface qualification and appearance review remain. Existing slice order is unchanged. These rulings do not commission unrelated rebuilding or establish runtime/artistic acceptance.

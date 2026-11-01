@@ -230,7 +230,7 @@ Each is stated as the smallest decision that unblocks the dependent text.
   its streets without a compass prefix, and a 138th Street exists in
   Flushing and College Point. Decision: rule the address (for example
   "600 138TH STREET" or a named Queens avenue), then correct the two
-  lettering records.
+  lettering records. **Owner ruling, 2026-11-01 (questionnaire Q09): research an actual 1928 lot address first.** The illustrative addresses above are not approved replacements. Reconcile period street naming/numbering with the intended Queens Plaza/Jackson Avenue site before editing either lettering record; do not invent a number or move the building.
 - **D8 — Rent.** The caretaker notebook collects five-dollar rent
   instalments from the player; Bible §I says the player "takes apartment 4B
   in exchange for working nights". Decision: is the instalment a token sum

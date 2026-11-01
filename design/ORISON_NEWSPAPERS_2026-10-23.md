@@ -1,6 +1,6 @@
 # The two daily papers: a year of front pages
 
-Evidence class: **INERT - DESIGN BRIEF**
+Evidence class: **INERT**. Design brief; no runtime acceptance is established here.
 
 *Owner direction 2026-10-23: two daily newspapers with front-page spreads,
 one the borough's regular paper in the alternate reality, one yellow
@@ -251,3 +251,17 @@ borough filler.
 The first items are the mystery's, in
 **design/THE_YEAR_YOU_DIED_TREATMENT_2026-10-30.md** section 7. They stay out of
 the data until that treatment's wording settles.
+
+
+## Player-action reporting — owner rulings, November 1
+
+This mechanic is **unbuilt and unclaimed**. The four failed side-session starts created no implementation. Lily's explicit answers to **owner-questions-20261101-e66188a0-v1**, Q10–Q13, establish these boundaries:
+
+- **Eligibility needs examples first.** Draft sample items for review before selecting which actions print. Public repairs/errands and ordinary purchases are candidates to discuss, not an approved eligibility list.
+- **Naming:** anonymous until an established public introduction, then only the public avatar's name. Never identify Adela as the rider, borrow her identity for the night man or use knowledge learned after the issue's date.
+- **Frequency:** at most one brief player-action item per eligible issue. No invented filler when no qualifying act exists.
+- **Delay:** the next scheduled issue after an overnight delay from the witnessed act's campaign date. Existing publication times and campaign/calendar owners remain authoritative. No item may appear before its act, in a future issue read early or in an earlier year position merely because the calendar loops.
+
+Items remain incidental, truthful to validated public actions and voiced for each paper. They grant no clue, unlock, case progress or identity revelation; money and side content never buy a clue. Preserve the authored issues and mystery chronology, validated durable facts/save owners and existing reading ownership. The separate showcase task uses existing printed copy and may not silently add these hypothetical items.
+
+Next: propose a small set of sample notices, then implement only reviewed eligibility through the planned real-state action-to-later-issue route and required gates. These rulings approve no generated story facts, production images, runtime behavior or artistic acceptance.
