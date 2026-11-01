@@ -1,106 +1,79 @@
-# Current handoff — 2026-11-01 installed range verification
+# Current handoff â€” 2026-11-01 range/current-main reconciliation
 
 Evidence class: **INERT**. Continuity index, not acceptance evidence.
 
-Owner: Lily, she/her. Normal checkout **C:/PleaseRemainOnTheLine**; the app's
-v2-baseline can be stale. Read DOCS.md, AGENTS.md and developer-continuity.
-The previous checkpoint below is historical, not the current branch/queue.
+Owner: Lily, she/her. Normal checkout **C:/PleaseRemainOnTheLine**. Read
+DOCS.md, AGENTS.md and developer-continuity. Historical sections below are not
+current Git or queue state. The full V2 goal remains active and incomplete.
 
-- Current branch **codex/v2-gas-range-refit-20261101**, base/main
-  **d7eeb29c5** after preserving PR129–131 in topic merge **cfd2ea254**.
-  Earlier PR126/128 reconciliation is **dd4e239af**. Pushed checkpoints
-  **687b1fd03** and **9aec085e0**; draft [PR #127](https://github.com/NateHiggins/Lily-s-Music-Box/pull/127).
-  Verified correction commits: **dbc70557d** (fresh parallel import reads) and
-  **f8b76e0b7** (installed collision and load-boundary diagnostics).
-  The range branch itself is not merged. Preserve unrelated UIDs/attachments.
-- Corrected native source and seven range variants: all 18 placements,
-  contact/motion/UV/tangent checks pass. Export 239,788 triangles/296 partitions,
-  26,363,156 bytes, SHA256 **b1c736f2b32e055748b146e80d8a844f6468c4da2dff4c946115a9299b30691a**.
-  Source binding rebuilt after collision code changes; GLB and all other fixture
-  geometry/runtime data remain exact. No FPS gain or artistic acceptance claim.
-- Actual installed bug: one carcass bounding box covered the oven aperture.
-  Native fixed meshes now supply cached triangle collision. The shared adapter
-  changes only its fallback guard; fridge behavior remains unchanged. Focused
-  **input06 passes 98/0**, including old-hull negative control, real back-stock
-  blocking, actual controls, pause and isolated validated disk reload. Empty
-  stderr, 18.43s wrapper; not a runtime_contract or whole-world proof.
-- **Pre-Otis installed07 passes 5,864/0**, all 18 actors, actual 4B oven/broiler/tap/starter
-  route, all 654 household records at the load boundary and resumed hand release.
-  Encoded facts compare exactly using the save owner's full-precision JSON;
-  reconstructed float32 poses use absolute 1e-6, with altered-valve/missing-owner
-  negatives. Whole-world simulation after a tick is not the frozen save state.
-  236.806s module / 266s wrapper, empty stderr. Three 3440x1440 kitchen captures
-  inspected. This is a completed INERT diagnostic, not artistic/whole-shift proof.
-- Raw evidence/original failures: **C:/ov/reports/gas_range_integration_20261101/**.
-  Read the latest November 1 section of **design/V2_HOUSEHOLD_STOVES_2026-10-08.md**.
-  Preserve input03 compile failure, input04 wrong broiler point, installed03's
-  25 findings, interrupted installed04, and installed05/06 observation/encoding
-  failures. A stderr compile error did not mean no validator executed: installed03
-  wrote a real failing stove packet. The scoped batch now loads only selected
-  validators, preserving all 64 ordered registered paths and fail-before-world.
-- Full **gates01/board.json**: 119 gates, 111 PASS/6 FAIL/1 INCOMPLETE/1 ERROR;
-  dirty source, not a clean-main baseline. Reader NEW 0; source/spatial/imports
-  pass; old surfaces are expired. The surface tools test timed out at 600s.
-  Bounded fresh import-sidecar reads preserve the 8,494-entry projection under
-  controlled self-code normalization; no receipt was repinned. Full existing
-  **42 surface-requirements tests now pass in 553.08s under the same 600s ceiling**.
-  That isolated retry is not a full green board. The changed instrument needs
-  candidate review. No game-frame-time improvement follows from tool timings.
-- Current-main **installed08 passes 5,864/0**, all 18 ranges and 654 household
-  records, including real controls and exact encoded save facts. Three fresh
-  3440x1440 range images inspected; wrapper 387s, empty stderr. **surface02
-  passes 651/0**, physical-only composed schema2 qualification, 30,048 draws,
-  6,670 materials, 543 textures, wrapper 296.55s, empty stderr. Four native-size
-  surface frames individually inspected; actual packet/log provenance published
-  and fresh qualification returns zero defects. Fingerprint **1f2aeac3…10bfc**.
-  Separate interaction programmes are explicitly NOT_EXECUTED; no whole-game or
-  artistic acceptance. Original failures and previous packet archives retained.
-- NEXT: commit/push the completed physical packet, then full gate comparison
-  and candidate verification before manual merge. Reuse
-  unchanged interaction/native evidence. Do not enable auto-merge. Added native
-  collision/startup cost and broader playable-world stalls remain unmeasured.
-  Clean-main baseline runs in own detached **C:/ov/gas-b1101** at45c391bc,
-  completed; its actual complete board is cached under C:/ov/boards for
-  candidate verification. Its existing failures remain baseline debt, not a
-  green-main claim. The superseded2a baseline was
-  intentionally cancelled. Remove this own temporary checkout safely after use.
-- Latest management: **76ee616cc** passes **119 gates vs merge-base45c391bc**,
-  zero regressions/six improvements, all17 protected paths, selectorV2, no lint
-  errors. Actual surface row PASS and all42 tools tests PASS (479.09s). This ran
-  in the clean isolated verification checkout, not the dirty canonical tree.
-  Prior ab46's non-regression headline hid two surface-staleness findings; exact
-  comparison found118 ignored newspaper PNG import sidecars missing in fresh
-  checkouts. Their unchanged settings are now tracked/non-text; all other hashes
-  agreed. Fresh isolated qualification passes the original rendered fingerprint.
-  Main then advanced through PR129–131 (newspapers/dialogue/sky); cfd2ea254
-  preserves all of it. Surface03 physical-only renewal and a clean d7 baseline
-  plus candidate comparison now remain, without rerunning unchanged ranges.
-  The original own baseline checkout was safely removed (70,907 tracked files);
-  its complete board/cache remain. Reuse **C:/ov/c-ab46a508**, originally a clean
-  fresh candidate, for the new detached baseline and later candidate instead of
-  creating another70k-file checkout. Exact test/result receipts remain external.
-  A temporary main-merge hold was requested on PR127; no acknowledgement yet.
-- Controls/pause overhaul follows this range checkpoint. November 1 function
-  matrix in the existing controller audit; expose existing inventory now, live
-  map deferred. The interactive 4B exploration/pin-note example is external,
-  not installed discovery/save functionality. No new remapping implementation.
-- External native queue is in TASKS and the modeler's **interactive-v2-review-20261101/NATIVE_INTAKE_INDEX.md**:
+- Branch **codex/v2-gas-range-refit-20261101**, draft [PR127](https://github.com/NateHiggins/Lily-s-Music-Box/pull/127).
+  Source checkpoint **e796eef5b**, including **76ee616cc** import provenance fix,
+  **cfd2ea254** merge of main **d7eeb29c5** (PR129â€“131), plus earlier PR126/128.
+  Not merged to main. Preserve unrelated UIDs/attachments and import-only churn.
+- Corrected seven native range variants are installed across 18 actors. Exact
+  export 239,788 triangles/296 partitions/26,363,156 bytes; SHA256
+  **b1c736f2b32e055748b146e80d8a844f6468c4da2dff4c946115a9299b30691a**.
+  Native contact/motion/UV/tangent checks pass. Existing fault, service, inventory
+  and save owners retained; partial taps use a separate momentary starter.
+- Fixed native stock now supplies cached triangle collision; the old box filled
+  the oven opening. Shared domestic adapter changes only its fallback guard.
+  **input06: 98/0**, including original-hull negative and actual blockers/pause/
+  ignition/reload. **installed08: 5,864/0**, all 18 actors, actual 4B controls and
+  all 654 household records via validated disk reload. Encoded facts exact;
+  reconstructed float32 poses 1e-6 with altered-valve/missing-owner negatives.
+  Three 3440x1440 kitchen frames inspected. INERT diagnostics, not whole-shift
+  or artistic acceptance; no collision/startup speed claim.
+- **surface03: 651/0**, completed schema2 physical-only composed qualification,
+  30,048 draws/6,670 materials/543 textures, 256.585s test/280.14s wrapper,
+  empty stderr. Patched Vulkan, hidden desktop, 3440x1440. Four fresh images
+  inspected and actual packet published; qualification zero defects. Fingerprint
+  **05ced15d3b3c535dbd27d2b7f73ee7703199ad30b97589f42d2ed5d6efc6380a**.
+  Separate interaction/save/companion/civic programmes NOT_EXECUTED; no whole-game
+  acceptance. Sparse dressing, strong bathroom lamp pool and flat cloud relief
+  remain visible. Surface02/older packet/failures remain preserved externally/Git.
+- **76ee616cc management candidate passed:** 119 gates vs merge-base 45c391bc,
+  zero regressions / six improvements, 17/17 protected paths, selector V2, no lint errors,
+  surface qualification PASS and 42 surface tools tests PASS 479.09s. The initial
+  ab46 headline concealed baseline-red surface defects: 118 ignored newspaper PNG
+  sidecars existed only locally. Exact settings are now tracked/non-text; fresh
+  isolated projection parity passed without repinning the rendered receipt.
+  The skill records this verified lesson. Full raw reports and original failures:
+  **C:/ov/reports/gas_range_integration_20261101/**; detailed ledger:
+  **design/V2_HOUSEHOLD_STOVES_2026-10-08.md**.
+- NEXT: commit the surface03 renewal, finish the clean **d7eeb29c5** baseline,
+  compare/verify the final candidate, then manually merge PR127. No auto-merge.
+  Own clean detached verification checkout **C:/ov/c-ab46a508** is being reused
+  for that baseline; do not switch it while the job is live. Script
+  **refresh_main_baseline.py**, output **clean_main_d7eeb2/**, then exact cache
+  **C:/ov/boards/<full-d7-sha>.v2.json**. Prior 45c baseline checkout was safely
+  removed (70,907 files); actual board/cache retained. Source-frozen engine batch
+  **main_reconciliation_batch02.json** is completed. Do not repeat unchanged
+  range/hose/native checks for reports. A temporary main-merge hold was requested
+  on PR127; acknowledgement is not established. Fetch before final merge.
+- City architect is frozen/blocked awaiting intake, source
+  **74aa686920e51665af40c004255ffd4fb283748f**, record-only
+  **0bcb475f6a172cb409254ea6da1ade09528d0577**. All earlier Western/Cedar commits
+  remain unmerged. Reported 949family/341isolated/113composed checks; actual 12 legs,
+  seven endpoints / 1,105 samples/no rescues. I inspected all five composed frames and
+  verified 336-member archive hash/CRC **2950cebeâ€¦85b2aa8**. Merge preview conflicts
+  only HANDOFF, appended city report and spatial manifest. Preserve both reports
+  and all 11,097 canonical records plus reviewed **cc77c4890e51fcde** (11,098 total).
+  No canonical city intake yet;93 generic profiles,lighting/performance/artistic
+  scope remain. Integrate the published checkpoint before another construction
+  slice; respect Lily's one-task-at-a-time instruction.
+- Controls/pause overhaul remains unimplemented: existing function matrix in
+  **design/CONTROLLER_INPUT_CONTRACT_AUDIT_2026-08-26.md**. Expose current inventory;
+  reserve live map. External 4B explore/note example is not installed discovery
+  or persistence. Hose/book/nook/stutter/golden-shift tasks remain in TASKS.
+- External native deliveries are INERT and queued in TASKS/modeler intake index:
   clawfoot/plumbing, fitted lavatory (includes old UV-only baseline), additive
-  closet hardware, fixed boiler, mailbox, watch stations and washer. INERT
-  deliveries only; verify each current manifest/consumer before intake.
-- City architect published Western frontage **74aa686920e51665af40c004255ffd4fb283748f**,
-  record-only followup **0bcb475f6a172cb409254ea6da1ade09528d0577** on its existing
-  isolated branch. Reported loaded family 949/0, isolated access 341/0, composed
-  access 113/0, 12 controller legs/seven endpoints/1,105 samples/no rescues.
-  One exact TEST_CONTRACT spatial camera record added; 11,073 earlier records
-  retained. Original landing/test-station failures remain in its review archive.
-  This delivery is not yet canonically integrated or management-qualified here.
-  Preserve its 336-member review archive (54,341,973 bytes), published source,
-  93 remaining generic profiles and lighting/performance/artistic limitations.
-- Questionnaire rulings are already on main in **2a2e97f56**. Researcher's Queens
-  address decisions await developer review under **queens_lot_address_research_20261101/**:
-  fictional composite, no lot/relocation selected, proposed temporary nonnumeric
-  wording; exact 1928 number unverified. No sign edit. Research stopped.
+  closet hardware, boiler/mail/watch/washer/switchboard/dispatch and resident key.
+  Latest air-vent-only packet **radiator-surface-v2-refit-20261101/** is reported
+  complete, unintegrated; remaining mechanism/morph/tag repairs are pending.
+  Verify each manifest/current consumer before intake. Preserve all state owners.
+- Questionnaire rulings already on main 2a2e97f56. Queens lot/address packet remains
+  proposed: fictional composite, no lot or relocation selected, exact 1928 number
+  unverified. No sign edit. No new decision needed for the current checkpoint.
 
 ---
 

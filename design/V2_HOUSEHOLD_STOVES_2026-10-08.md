@@ -425,3 +425,14 @@ mechanism/native checks are reused; the next necessary engine batch is one
 import plus physical-only **surface03**. New main baseline/candidate comparison
 are required before manual merge. A temporary merge-coordination hold was posted
 to PR127; no other lane job is interrupted and no acknowledgement is assumed.
+
+**surface03** now completes against the preserved PR129–131 sources: **651
+checks/0 failures**, same 30,048 physical draws/6,670 materials/543 textures.
+Test256.585s, wrapper280.14s, empty shutdown stderr. Actual four3440x1440 frames
+were individually inspected and the test-written contract, inventory and
+byte-verified logs published in the existing packet. Fresh qualification
+**surface03_qualification.json** passes with zero defects, fingerprint
+**05ced15d3b3c535dbd27d2b7f73ee7703199ad30b97589f42d2ed5d6efc6380a**.
+This is physical-only scope, not acceptance of the new dated sky phenomenon,
+skipped interaction programmes, performance or artistic presentation. Current
+main baseline/final candidate comparison and manual merge remain open.
