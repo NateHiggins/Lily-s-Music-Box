@@ -5403,3 +5403,32 @@ Final metadata closure: fullboard03 isterminal **119gates/112PASS/6knownFAIL/1IN
 Git-status cleanup:436newspaper importentries werealready byte-equal toindex,thoughcore.autocrlf statusmarkedthem modified. Afterthefinalboard,verifiednamed-pathGitrestore reappliesonlyconfiguredcheckoutnewlines;LF-normalizedcontent andindextree remainexact,zero unstagedstatusentries remain. This laterfilter operation isseparatefromtheearlieremptylineendbackup anditscorrectedcount;no newspapercontent/policy changes arestaged.
 
 Final review packet **art/reviews/city_streets_20261029/city_horizon_shards_review.zip** is **270members/15502608bytes/SHA25669a07bcfb75c245df811f04a4a1cdc7964fc4726f3179123785bba4f7fea5b22**. ItincludesbothoriginalREGRESSEDboards andtheterminalNO-REGRESSIONSboard,allthreeadditionalprojectionproofs,originalruntime/native/failedcamera/compiler/cleanuprecords,172verifiedruntimebindings/40assetbindings and11byte-exactPNGaliases.41priorreviewarchives stayexact. Original15,303,600byte firstpacket remainsrecoverable in1dGit/historyandexternalinitial_package_01.zip. Thisfollowupchangesonlyevidence/manifest/TASKS/report;no newreservedcode/native/runtimeinput. Canonicalintegrationowner mayinstallitsseparatelyrequestedwindowshader andqualifythechangedoptics afresh;ourmaterial/parityreceipts are notextended. No mainmerge,composed-world/artistic/full-city acceptance. Finishthisevidencepushandpauseperowner;99genericprofiles andthefullcityscope remainopen.
+
+
+## November1 legacy city qualification intake
+
+Evidence class: **INERT**. Current engineering intake, not whole-city acceptance.
+The retained prologue_order/surface full programme timed out at600s and has no
+completed runtime contract. Its failures include a stale >2500-window guard
+(the current25-building native fixture has2489 explicit window rows), old
+rectangle-continuity predicates, four angled-pane expectations, optical material
+unwrapping and an inventory that counts unmounted body-LOD source parts.
+These are distinct findings; no geometry or assertion is waived by this note.
+
+A focused current imported **V2CityHorizonBench** runs through the shared lane
+and pinned patched Vulkan engine instead of another occupied-world long route.
+Original before:67s,28,509 checks,90 failures, including66 catalogue-map failures.
+The bench still requested former glass_albedo/glass_roughness/glass_normal names;
+production and its maintained physical sampler ABI use albedo_tex/rough_tex/
+normal_tex. Only those three test sampler names were corrected. After:87s,
+28,509 checks,24 failures; all66 map failures are gone. Production shader,
+materials, geometry, collision, LODs and calendar owners are unchanged. No FPS
+improvement is claimed and neither failed suite is acceptance.
+
+The24 remaining failures are receiving-wall roof-construction/material checks
+on current horizon stock. They remain unwaived pending their exact native owner
+and fixture audit. Original logs/receipts, original test source and comparison
+remain at C:/ov/reports/city_qualification_repair_20261101/. The architect's
+western ground work is separate and canonical geometry has not been edited.
+The owner's delivered gas-range refit now takes integration priority; this
+bounded test correction is checkpointed before that work, not a city completion.

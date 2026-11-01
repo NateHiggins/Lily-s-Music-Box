@@ -67,7 +67,7 @@ func run() -> void:
 					var glazing := draw.get_meta("v2_window_source_material") as StandardMaterial3D
 					check(optical != null and optical.shader == preload("res://shaders/v2_background_window_interior.gdshader"), "known background optical shader")
 					if optical != null and glazing != null:
-						for pair in [["glass_albedo", glazing.albedo_texture], ["glass_roughness", glazing.roughness_texture], ["glass_normal", glazing.normal_texture]]:
+						for pair in [["albedo_tex", glazing.albedo_texture], ["rough_tex", glazing.roughness_texture], ["normal_tex", glazing.normal_texture]]:
 							check(optical.get_shader_parameter(pair[0]) == pair[1], "optical glazing samples original catalogue map")
 						check(optical.get_shader_parameter("physical_uv_scale") == Vector2(glazing.uv1_scale.x, glazing.uv1_scale.y), "optical glazing retains physical chart scale")
 					loaded = glazing
