@@ -494,6 +494,9 @@ Evidence class stays **INERT**; this records what was built, not proof.
   fills only while it is held open, and it springs back when let go. Lifting the cup to the
   mouth is what drinks it. An empty cup at the mouth drinks nothing.
 - **Fitting:** the tap handles are now separate parts in the recipe. Only the first tap works.
+- **Owner rulings, 2026-11-01:** the invented Luncheonette blocks stay for her playable pass (Noel Price,
+  Saturday 14:00-15:00; Evelyn Marsh, Monday, Wednesday and Friday 11:20-12:00). For the prescription errand,
+  the writers draft two or three ordinary reasons, labelled invented, and she picks one.
 - **Not built:** the prescription errand, which needs residents with an ordinary reason to send
   a slip, invented for the purpose. No resident has one yet, and the Berlin prescription was cut
   by ruling, so this waits on its own slice. Also unbuilt: residents at the fountain stools, a

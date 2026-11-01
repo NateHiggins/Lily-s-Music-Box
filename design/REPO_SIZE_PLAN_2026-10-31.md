@@ -125,6 +125,16 @@ only at a release, with a full mirror kept offline.
 
 Tier 1 and 3 figures are estimates until the citation checks run, and could fall well short if much is cited.
 
+## Owner rulings, 2026-11-01
+
+Lily answered section 5 by questionnaire.
+
+- **Tier 1:** approved, with the 30-day archive on drive D:.
+- **Tier 2:** approved.
+- **Tier 3:** the classification run is approved. It changes nothing, and moving any class comes back to her with its list.
+- **The two open sessions:** archive them.
+- **C:/ov/bodies:** remove it. Its commits and routine edits are on **claude/resident-drafts** at c50936f01.
+
 ## 5. Decisions for the owner
 
 1. **Approve tier 1?** Recommended first. Where should the 30-day archive go: drive D: or a second drive?
