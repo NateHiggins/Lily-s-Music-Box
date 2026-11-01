@@ -53,10 +53,11 @@ expire that packet even though native/production geometry is unchanged. The
 older PASS above describes merged main, not this unmerged candidate. Renew
 actual composed physical evidence/review after final source repairs; never
 repin or waive this failure. Reader remains NEW0.
-Baseline refresh for actual main308588b44 is live in owned C:/ov/c-ab46a508,
-exec19304, output C:/ov/reports/gas_range_integration_20261101/clean_main_308588/.
-Check the exact process/session before reuse. Candidate verification remains
-pending. External modeler now reports21 packets; latest active-radio stock and
+Actual clean main308588b44 baseline refresh COMPLETED:119 gates,dirty_paths=[];
+exec19304 is terminal. Cached C:/ov/boards/308588b4443a9e75da11155a6bcfc9ba30b6755c.v2.json;
+raw output C:/ov/reports/gas_range_integration_20261101/clean_main_308588/.
+Owned C:/ov/c-ab46a508 is now detached at308588b44; inspect custody before reuse.
+Candidate verification remains pending. External modeler now reports21 packets; latest active-radio stock and
 its proposed three-dial pivot correction are unintegrated/unverified.
 
 Architect confirmed no reusable general wall-station fixture exists for these
