@@ -464,8 +464,21 @@ Evidence class stays **INERT**; this records what was built, not proof.
   three were added. Iris Bell's Thursday walk was already authored as "sits in the
   diner" and is now placed there. Noel Price goes there first on Saturday, 14:00-15:00.
   Evelyn Marsh ends her errand circuit there on Monday, Wednesday and Friday, 11:20-12:00.
-- **Not built:** sitting down yourself, because a sit toggle breaks RUL-013 and needs a
-  ruling on the gesture. No food shows on the plate or coffee in the cup, the griddle
+- **Not built:** no food shows on the plate or coffee in the cup, the griddle
   stays empty, the menu board does not list the shop's own items, the Melancholy
   Special joke is unplaced, and the draw-call cost on the Arcade route is unmeasured.
 
+## Seats and stools, 2026-11-01
+
+Owner direction: sitting is a gesture for chairs and stools, and each soda counter has
+three stools at most.
+
+- **Sitting:** the cursor finds a seat within a step's reach. A click grabs it, pulling the
+  mouse down lowers the body, and the next click finishes the descent or stands back up
+  by how far it got. Pushing up on the same seat, or any walking input, stands up. Looking
+  and reaching still work while seated. A seat holds no saved state.
+- **Stools:** the Luncheonette keeps source stools 2, 4 and 6 and Otis keeps 0, 1 and 2,
+  cut in the recipe. The removed source rows stay in the layout and stay retired from the
+  cell. A full Luncheonette counter leaves the next resident without a body or a voice.
+- **Not moved over:** the bar's three banquette seats, the lobby bench and the call desk
+  keep their older click-to-toggle owners. The roof chairs are not yet seats.

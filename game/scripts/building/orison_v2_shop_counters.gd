@@ -26,7 +26,7 @@ const BODEGA_INSET := Vector3(0.35, 0.0, 0.1)
 const LUNCHEONETTE_ROW := "storm_shop_luncheonette_counter_top"
 ## The customer edge of the top, down the far end from the register and ledger.
 const LUNCHEONETTE_ACROSS := 19.05
-const LUNCHEONETTE_ALONG := -42.55
+const LUNCHEONETTE_ALONG := -42.58
 const LUNCHEONETTE_SERVED_ALONG := -43.05
 
 

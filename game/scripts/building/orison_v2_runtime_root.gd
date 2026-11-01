@@ -110,6 +110,7 @@ var shop_clearing: RefCounted
 var carried_case_view: CanvasLayer
 var shop_counters: Dictionary = {}
 var luncheonette_counter: Node3D
+var seat_gestures: Node3D
 var key_cutter: Node3D
 var clue_carriers: Dictionary = {}
 var photo_supplies: Dictionary = {}
@@ -904,6 +905,12 @@ func _compose_authorities() -> void:
 	if key_cutter==null:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: key cutter refused");return
 	shop_counters.keys_cut.sold.connect(func(_item: String): key_cutter.refresh())
+	seat_gestures=preload("res://scripts/player/seat_gestures.gd").new()
+	seat_gestures.name="SeatGestures"
+	add_child(seat_gestures)
+	if not seat_gestures.mount(self,adapter):
+		startup_failed=true;push_error("ORISON V2 RUNTIME: seats refused");return
+	player._grab.seat_lookup=seat_gestures.aimed
 	luncheonette_counter=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_luncheonette(self)
 	if luncheonette_counter==null:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: luncheonette counter refused");return

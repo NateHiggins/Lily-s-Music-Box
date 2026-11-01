@@ -30,17 +30,22 @@ for key in plan['runtime_keys']:
 def digest(path):
  data=path.read_bytes();return hashlib.sha256(data if path.suffix in ['.blend','.glb','.png'] else data.replace(b'\r\n',b'\n')).hexdigest()
 def cell_for(row):return 'shop_otis_son' if row['batch']=='shop_otis___son' else row['batch']
-selected=[];assemblies=[]
+selected=[];assemblies=[];removed=[]
 for identity,row in rows.items():
  if re.fullmatch(r'storm_shop_funeral_parlour_chair\d+_\d+',identity):
   back=rows[identity.replace('_chair','_chairb')];assemblies.append({'id':identity,'kind':'chair','body':row,'back':back,'floor':rows['storm_shop_funeral_parlour_floor']})
  elif re.fullmatch(r'storm_shop_(otis___son|luncheonette)_stool\d+',identity):
-  top=rows[identity+'_top'];assemblies.append({'id':identity,'kind':'stool','body':row,'top':top,'floor':rows['storm_'+row['batch']+'_floor']})
+  top=rows[identity+'_top']
+  if identity in plan['removed_stools']:
+   removed.append({'body':row,'top':top,'cell':cell_for(row)});continue
+  assemblies.append({'id':identity,'kind':'stool','body':row,'top':top,'floor':rows['storm_'+row['batch']+'_floor']})
  elif re.fullmatch(r'site_rear_funeral_parlour_chapel_pew\d+',identity):
   back=rows[identity.replace('_pew','_pewback')];assemblies.append({'id':identity,'kind':'pew','body':row,'back':back,'floor':rows['site_rear_funeral_parlour_floor']})
 for item in assemblies:
  selected.extend([item['body'],item.get('top',item.get('back'))]);item['cell']=cell_for(item['body'])
-assert len(selected)==plan['original_records'] and len(assemblies)==plan['assemblies']
+# A removed stool still retires its source boxes from the cell; nothing replaces them.
+for item in removed:selected.extend([item['body'],item['top']])
+assert len(selected)==plan['original_records'] and len(assemblies)==plan['assemblies'] and len(removed)==len(plan['removed_stools'])
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
 closed=bpy.data.collections.new('ClosedConstruction');bpy.context.scene.collection.children.link(closed);closed.hide_render=True
 retained=bpy.data.collections.new('RetainedSourceBoxes');bpy.context.scene.collection.children.link(retained);retained.hide_render=True
@@ -200,7 +205,7 @@ assert ExportUVHandedness.corrected==len(draws)
 cells=[]
 for identity in sorted({a['cell'] for a in assemblies}):
  items=[a for a in assemblies if a['cell']==identity];replace=[]
- for item in items:
+ for item in items+[r for r in removed if r['cell']==identity]:
   for row in [item['body'],item.get('top',item.get('back'))]:
    x0,y0,x1,y1=row['rect'];z0=row['z0'];replace.append({'id':row['id'],'key':row['mat'],'low':[x0,z0,-y1],'high':[x1,z0+row['h'],-y0],'expected_triangles':12})
  cells.append({'id':identity,'parts':[{'name':p['name'],'key':p['key'],'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan.get('catalog_variants',{}) else {}),**({'tint':plan['material_tints'][p['key']]} if p['key'] in plan.get('material_tints',{}) else {})} for p in inventory if p['cell']==identity],'replace':replace})

@@ -2,7 +2,7 @@
   "evidence_class": "INERT",
   "classification": "ADAPTATION",
   "original_records": 60,
-  "assemblies": 30,
+  "assemblies": 24,
   "runtime_keys": [
     "wood_dark",
     "chrome",
@@ -23,5 +23,14 @@
   },
   "catalog_variants": {
     "cord": "linen"
-  }
+  },
+  "removed_stools": [
+    "storm_shop_otis___son_stool3",
+    "storm_shop_luncheonette_stool0",
+    "storm_shop_luncheonette_stool1",
+    "storm_shop_luncheonette_stool3",
+    "storm_shop_luncheonette_stool5",
+    "storm_shop_luncheonette_stool7"
+  ],
+  "removed_stools_why": "Owner ruling 2026-11-01: three stools at most at each soda counter. Their source boxes stay retired from the cell."
 }

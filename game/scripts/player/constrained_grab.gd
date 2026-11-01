@@ -79,6 +79,8 @@ func _record_cost(stage: String, owner_name: String, started: int) -> void:
 func _init(holder: Node3D) -> void:
 	player = holder
 
+var seat_lookup: Callable
+
 func find_target() -> Dictionary:
 	# A carried instrument has its own rendered World3D. Ask its authoritative
 	# provider only in the explicit free-cursor inspection context.
@@ -94,7 +96,7 @@ func find_target() -> Dictionary:
 	query.exclude = [player.get_rid()]
 	var hit := player.get_world_3d().direct_space_state.intersect_ray(query)
 	last_hit = hit
-	if hit.is_empty(): return {}
+	if hit.is_empty(): return _seat_target(origin,camera.project_ray_normal(cursor),2.1)
 	var node: Node = hit.collider
 	while node != null:
 		if node.has_method("manipulation_target"):
@@ -106,7 +108,11 @@ func find_target() -> Dictionary:
 			if not result.is_empty(): result["hit_position"] = hit.position
 			return result
 		node = node.get_parent()
-	return {}
+	return _seat_target(origin,camera.project_ray_normal(cursor),origin.distance_to(hit.position))
+
+## A seat is what the ray passes over, because a chair's hull is not its seat.
+func _seat_target(origin: Vector3,direction: Vector3,hit_distance: float) -> Dictionary:
+	return seat_lookup.call(origin,direction,hit_distance) if seat_lookup.is_valid() and not player.inspecting() else {}
 
 func _context_owner(descriptor: Dictionary,inspection := false) -> Node3D:
 	var owner: Node3D=descriptor.get("owner")
