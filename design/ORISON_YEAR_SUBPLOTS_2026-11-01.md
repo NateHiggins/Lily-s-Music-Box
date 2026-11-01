@@ -132,7 +132,7 @@ Speaker lines.
 | Winter | Tide tables. Evelyn's letter on the spelling. Speaker: "Old One to leave; Queens asks who gets his seat." |
 | Spring | Beach hotels raise rates. Holmes Airport sells viewing flights |
 | Summer | Smoked glass on sale. The Bureau asks people to stop trying to say it |
-| Sep to Oct | The ears, in their usual form: "Fair, warm. Seas moderate, then not." Committees form, and the Pun Derby holds a special class |
+| Sep to Oct | The Bureau's forecast item on 8 October: "seas moderate off Sandy Hook until about 11:20 p.m., then not." Committees form, and the Pun Derby holds a special class |
 | Sun 13 Oct | Bureau: "Emergence 40 minutes late. Departure as forecast. Seas fell a quarter inch." Speaker: "It did not look down. We have written." |
 
 **The night.** Forecast for 11:20, actually around midnight, gone by about 1 a.m. It reaches the city about the size of
@@ -171,7 +171,7 @@ night. Being taken and the hold never explain each other, and the crossover abov
 
 | Piece | State |
 |---|---|
-| Papers | 25 new back pages, 100 columns, in **game/data/newspapers/**, and one ear on 12 October. No existing item was edited. They pass **tools/audit_newspapers.py** |
+| Papers | 25 new back pages, 100 columns, in **game/data/newspapers/**. No existing item or ear was edited, because the weather generator owns the ears. They pass **tools/audit_newspapers.py** |
 | Threads | First-draft threads on 14 trees, the new **game/data/mystery/the_party.json**, and companion lines **m_cup** and **m_emerged**. **m_said_one** and **m_received** are knowledge flags that nothing reads |
 | Emergence | Slot 41 in **game/data/weather/phenomena.json**, a silhouette in **game/shaders/sky_spectacle.gdshaderinc**, and a progress uniform from **game/scripts/building/WeatherManager.gd**. The shader's phenomenon list grew from 41 to 42 |
 | Doors | Adela, Lily and the party have no door, so those threads open only through the F9 panel. **m_cup** and **m_emerged** have no witness producer yet, so they also print only through the panel |

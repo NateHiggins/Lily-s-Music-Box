@@ -816,7 +816,7 @@ vec3 emergence(vec3 dir,vec3 colour) {
     if (dot(dir,c)<.97) return colour;
     vec3 side=normalize(cross(vec3(0.0,1.0,0.0),c));
     vec3 up=cross(c,side);
-    float size=radians(mix(1.4,3.2,smoothstep(0.0,.3,p))*mix(1.0,.03,smoothstep(.62,1.0,p)));
+    float size=radians(mix(1.6,4.0,smoothstep(0.0,.3,p))*mix(1.0,.03,smoothstep(.62,1.0,p)));
     vec2 q=vec2(dot(dir,side),dot(dir,up))/max(size,1e-4);
     float t=spectacle_time*.04;
     float x=abs(q.x);
@@ -833,9 +833,9 @@ vec3 emergence(vec3 dir,vec3 colour) {
         beard=max(beard,(1.0-smoothstep(.018,.05,abs(q.x-line)))*step(-.9-.16*abs(float(k)),q.y)*step(q.y,.42));
     }
     float mask=clamp(max(max(head,torso),max(wing,beard)),0.0,1.0)*level;
-    float halo=exp(-length(q)*.8)*level;
+    float halo=exp(-length(q)*.8)*level*smoothstep(.972,.995,dot(dir,c));
     vec3 sea=vec3(.07,.2,.17);
-    colour+=sea*halo*.95;
+    colour+=sea*halo*.7;
     colour=mix(colour,vec3(.004,.009,.009)+sea*.03,mask);
     // Betelgeuse, once it is nearly there.
     colour+=vec3(1.0,.42,.2)*exp(-length(q)*length(q)*40.0)*smoothstep(.78,1.0,p)*level;
