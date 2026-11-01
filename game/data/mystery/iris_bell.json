@@ -9,7 +9,8 @@
  },
  "entries": {
   "ib_sketch": "ib_s1",
-  "ib_audience": "ib_a1"
+  "ib_audience": "ib_a1",
+  "ir_ash": "ir_a1"
  },
  "threads": [
   {
@@ -27,6 +28,14 @@
    "topic": "She's got your canvas in her window.",
    "source": "Character. A small fight while she is alive.",
    "root": "ib_a1"
+  },
+  {
+   "id": "ir_ash",
+   "from": "1929-03-24",
+   "until": "1929-11-09",
+   "topic": "You've been painting at Corona?",
+   "source": "FICTION; see design/ORISON_BACKGROUND_ODDITIES_2026-11-01.md. The Ash Man.",
+   "root": "ir_a1"
   }
  ],
  "nodes": {
@@ -63,6 +72,9 @@
   },
   "ib_a2": {
    "line": "A few. How few? Don't tell me. Tell her she's hung it in the wrong light, and that I've been past three times to check."
+  },
+  "ir_a1": {
+   "line": "That's the best grey in Queens, out there. Six greys, and I went to paint them. Somebody had got there first and sorted them, warm to cold, like a palette. I don't know who he is. He has an eye. It's insulting."
   }
  }
 }
