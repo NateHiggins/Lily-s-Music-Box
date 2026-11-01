@@ -5785,3 +5785,11 @@ External root: **C:/ov/reports/city_qualification_repair_20261101/**.
 No full surface contract is written by this city/camera-only mode; its wrapper
 exit remains1 because176 checks still fail. Candidate regression verification
 and merge of this next repair are pending. **K-V2-CITY-LEGACY-QUAL** stays open.
+
+Follow-up static checks: reader NEW0. The independent saved surface gate reports
+**FAIL/two defects**: stale rendering inputs and missing/stale rendered review.
+The changed composed-test sources are rendering inputs, despite unchanged
+production/native assets. The earlier physical PASS belongs to merged main;
+it cannot be carried over to this candidate. Final repair requires a new actual
+composed physical survey/review after sources stabilize. No repinning or waiver.
+The tested partial repair is pushed as **76dc24c14**, not merged.

@@ -47,11 +47,27 @@ rays expose source articulation/retained lower ownership. Do not simply widen
 rays/tolerances or remove checks. Detailed ledger/archive holds exact sources and
 before/after failures. Actual source-context horizon frame inspected; no artistic
 or whole-city acceptance. No production/native edits in this repair.
+The independent saved surface gate now reports TWO defects: stale rendering
+inputs and missing/stale rendered review. These changed composed-test sources
+expire that packet even though native/production geometry is unchanged. The
+older PASS above describes merged main, not this unmerged candidate. Renew
+actual composed physical evidence/review after final source repairs; never
+repin or waive this failure. Reader remains NEW0.
 Baseline refresh for actual main308588b44 is live in owned C:/ov/c-ab46a508,
 exec19304, output C:/ov/reports/gas_range_integration_20261101/clean_main_308588/.
 Check the exact process/session before reuse. Candidate verification remains
 pending. External modeler now reports21 packets; latest active-radio stock and
 its proposed three-dial pivot correction are unintegrated/unverified.
+
+Architect confirmed no reusable general wall-station fixture exists for these
+25 bodies. Source pointer: art/blender/scripts/city_commercial_architecture.py
+register() lines185-195 uses structural depth[-0.48,-0.2]; opening() defines
+actual O/u/out aperture stock. Its new P1/P2 outline programme is another family
+and must not be applied to Elks/Harukiya. Experimental external source samplers
+are INERT/unaccepted: trace_authored_wall_stations.py yields396 stations/four
+missing lower Elks stations and five occluded source targets. Do not treat these
+as a completed replacement. Need source-facing targets clear of ornament plus
+proper retained-lower ownership and real displaced/removed-backing controls.
 
 NEXT: trace the composed wall/pane failures against actual geometry and reconcile
 material wrappers, body-LOD inventory and window schema with rejecting controls.
