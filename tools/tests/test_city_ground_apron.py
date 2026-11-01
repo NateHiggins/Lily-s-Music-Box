@@ -8,6 +8,30 @@ spec=importlib.util.spec_from_file_location('apron_geometry',PATH)
 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 
 class Apron(unittest.TestCase):
+    def test_actual_stored_cut_charts_bind_export_derivatives_without_changing_surfaces(self):
+        import numpy as np
+        # Exact float32 attributes retained from failed native build04.
+        cases=[{'points': [[[0.2963055372238159, -1.1672499179840088, -2.0], [0.2963055372238159, 0.7028055191040039, -2.0], [0.2963067591190338, 0.7028054594993591, -2.0]]], 'charts': [[[0.3036944568157196, 0.800000011920929], [0.3036944568157196, -1.0700554847717285], [0.3036932349205017, -1.0700554847717285]]], 'guides': [[[-1.0, 0.0, 0.0], [-1.0, 0.0, 0.0], [-1.0, 0.0, 0.0]]]}, {'points': [[[-0.449358195066452, -0.20825979113578796, 2.0], [-0.4493560791015625, -0.20825982093811035, -0.09355735778808594], [-0.4493560791015625, -0.20825982093811035, -0.09363365173339844]]], 'charts': [[[0.20835818350315094, 0.8999999761581421], [0.20836029946804047, -1.1935572624206543], [0.20836029946804047, -1.1936335563659668]]], 'guides': [[[0.9999020099639893, -0.014000028371810913, 0.0], [0.9999020099639893, -0.014000028371810913, 0.0], [0.9999020099639893, -0.014000028371810913, 0.0]]]}]
+        for case in cases:
+            points=np.asarray(case['points']);charts=np.asarray(case['charts']);guides=np.asarray(case['guides'])
+            normal=np.cross(points[:,1]-points[:,0],points[:,2]-points[:,0]);normal/=np.linalg.norm(normal,axis=1)[:,None]
+            normals=np.repeat(normal[:,None],3,axis=1)
+            before=[a.copy() for a in [points,normals,charts,guides]]
+            fixed,count=module.stored_cut_chart_guides(points,normals,charts,guides)
+            self.assertEqual(count,1)
+            a=charts[:,1]-charts[:,0];b=charts[:,2]-charts[:,0];det=a[:,0]*b[:,1]-a[:,1]*b[:,0]
+            derivative=((points[:,1]-points[:,0])*b[:,1,None]-(points[:,2]-points[:,0])*a[:,1,None])/det[:,None]
+            self.assertTrue(np.all(np.sum(fixed*derivative[:,None],axis=2)>0))
+            self.assertTrue(np.max(np.linalg.norm(np.cross(fixed,derivative[:,None]),axis=2)/np.linalg.norm(derivative,axis=1)[:,None])<1e-7)
+            for actual,original in zip([points,normals,charts,guides],before):self.assertTrue(np.array_equal(actual,original))
+
+    def test_well_conditioned_stored_guides_stay_exact_and_collapsed_uvs_are_refused(self):
+        import numpy as np
+        points=np.asarray([[[0.,0.,0.],[1.,0.,0.],[0.,1.,0.]]]);normals=np.asarray([[[0.,0.,1.]]*3]);charts=np.asarray([[[0.,0.],[1.,0.],[0.,1.]]]);guides=np.asarray([[[1.,0.,0.]]*3])
+        actual,count=module.stored_cut_chart_guides(points,normals,charts,guides)
+        self.assertEqual(count,0);self.assertTrue(np.array_equal(actual,guides))
+        with self.assertRaisesRegex(AssertionError,'collapsed'):module.stored_cut_chart_guides(points,normals,charts*0.,guides)
+
     def test_sloped_cut_integral_matches_independent_prism_and_wedge_volumes(self):
         from city_street_geometry import rectangle
         spec=[{'polygons':[rectangle([0,0,2,3])],'subgrade_profile_m':[[0,0],[2,.5]]}]
