@@ -68,7 +68,7 @@ def render_group(label,visible,offset):
  size=max(high-low);distance=max(.18,size)*2.35
  name=label+'.png';views.append(name);bpy.ops.object.camera_add(location=center+Vector(offset)*distance);cam=bpy.context.object;cam.data.lens=42;cam.rotation_euler=(center-cam.location).to_track_quat('-Z','Y').to_euler();scene.camera=cam;scene.render.filepath=str(out/name);bpy.ops.render.render(write_still=True);bpy.data.objects.remove(cam,do_unlink=True)
 render_group('cabinet_front',draws,(1,-.8,.50));render_group('cabinet_rear',draws,(-1,.8,.50))
-hardware=[o for o in draws if any(o.name.endswith('__'+key) for key in ['tap0','tap1','tap2','nozzle0','nozzle1','nozzle2','catch_trays'])]
+hardware=[o for o in draws if any(o.name.endswith('__'+key) for key in ['tap0','tap1','tap2','handle0','handle1','handle2','nozzle0','nozzle1','nozzle2','catch_trays'])]
 render_group('hardware_front',hardware,(1,-.65,.45));render_group('hardware_rear',hardware,(-1,.65,.45))
 for i in range(3):render_group('open_nozzle'+str(i),[o for o in draws if o.name.endswith('__nozzle'+str(i))],(.8,.7,-.65))
 render_group('open_catch_trays',[o for o in draws if o.name.endswith('__catch_trays')],(.3,.5,1.0))

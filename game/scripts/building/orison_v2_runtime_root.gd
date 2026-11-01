@@ -111,6 +111,7 @@ var carried_case_view: CanvasLayer
 var shop_counters: Dictionary = {}
 var luncheonette_counter: Node3D
 var seat_gestures: Node3D
+var otis_fountain: Node3D
 var key_cutter: Node3D
 var clue_carriers: Dictionary = {}
 var photo_supplies: Dictionary = {}
@@ -905,6 +906,9 @@ func _compose_authorities() -> void:
 	if key_cutter==null:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: key cutter refused");return
 	shop_counters.keys_cut.sold.connect(func(_item: String): key_cutter.refresh())
+	otis_fountain=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_otis_fountain(self)
+	if otis_fountain==null:
+		startup_failed=true;push_error("ORISON V2 RUNTIME: Otis fountain refused");return
 	seat_gestures=preload("res://scripts/player/seat_gestures.gd").new()
 	seat_gestures.name="SeatGestures"
 	add_child(seat_gestures)

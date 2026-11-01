@@ -170,13 +170,13 @@
     {
       "name": "storm_shop_otis___son_fount_ControlStem0",
       "assembly": "storm_shop_otis___son_fount",
-      "key": "tap0",
+      "key": "handle0",
       "volume_m3": 3.0449080559574734e-05
     },
     {
       "name": "storm_shop_otis___son_fount_THandle0",
       "assembly": "storm_shop_otis___son_fount",
-      "key": "tap0",
+      "key": "handle0",
       "volume_m3": 7.518059900582519e-05
     },
     {
@@ -206,13 +206,13 @@
     {
       "name": "storm_shop_otis___son_fount_ControlStem1",
       "assembly": "storm_shop_otis___son_fount",
-      "key": "tap1",
+      "key": "handle1",
       "volume_m3": 3.0449080559574734e-05
     },
     {
       "name": "storm_shop_otis___son_fount_THandle1",
       "assembly": "storm_shop_otis___son_fount",
-      "key": "tap1",
+      "key": "handle1",
       "volume_m3": 7.518537905408344e-05
     },
     {
@@ -242,13 +242,13 @@
     {
       "name": "storm_shop_otis___son_fount_ControlStem2",
       "assembly": "storm_shop_otis___son_fount",
-      "key": "tap2",
+      "key": "handle2",
       "volume_m3": 3.0449080559574734e-05
     },
     {
       "name": "storm_shop_otis___son_fount_THandle2",
       "assembly": "storm_shop_otis___son_fount",
-      "key": "tap2",
+      "key": "handle2",
       "volume_m3": 7.518537905408344e-05
     },
     {
@@ -329,6 +329,27 @@
       "triangles": 1140
     },
     {
+      "name": "storm_shop_otis___son_fount__handle0",
+      "assembly": "storm_shop_otis___son_fount",
+      "cell": "shop_otis_son",
+      "key": "handle0",
+      "triangles": 376
+    },
+    {
+      "name": "storm_shop_otis___son_fount__handle1",
+      "assembly": "storm_shop_otis___son_fount",
+      "cell": "shop_otis_son",
+      "key": "handle1",
+      "triangles": 376
+    },
+    {
+      "name": "storm_shop_otis___son_fount__handle2",
+      "assembly": "storm_shop_otis___son_fount",
+      "cell": "shop_otis_son",
+      "key": "handle2",
+      "triangles": 376
+    },
+    {
       "name": "storm_shop_otis___son_fount__marble_case",
       "assembly": "storm_shop_otis___son_fount",
       "cell": "shop_otis_son",
@@ -368,21 +389,21 @@
       "assembly": "storm_shop_otis___son_fount",
       "cell": "shop_otis_son",
       "key": "tap0",
-      "triangles": 752
+      "triangles": 376
     },
     {
       "name": "storm_shop_otis___son_fount__tap1",
       "assembly": "storm_shop_otis___son_fount",
       "cell": "shop_otis_son",
       "key": "tap1",
-      "triangles": 752
+      "triangles": 376
     },
     {
       "name": "storm_shop_otis___son_fount__tap2",
       "assembly": "storm_shop_otis___son_fount",
       "cell": "shop_otis_son",
       "key": "tap2",
-      "triangles": 752
+      "triangles": 376
     }
   ],
   "triangles": 20640,
@@ -397,6 +418,21 @@
         "parts": [
           {
             "name": "storm_shop_otis___son_fount__catch_trays",
+            "key": "chrome",
+            "tile": 0.8
+          },
+          {
+            "name": "storm_shop_otis___son_fount__handle0",
+            "key": "chrome",
+            "tile": 0.8
+          },
+          {
+            "name": "storm_shop_otis___son_fount__handle1",
+            "key": "chrome",
+            "tile": 0.8
+          },
+          {
+            "name": "storm_shop_otis___son_fount__handle2",
             "key": "chrome",
             "tile": 0.8
           },
@@ -521,14 +557,14 @@
       }
     ]
   },
-  "asset_sha256": "1645197ffd0eb41ed11595e489394595f6fbe04c0c16bbe0a09b08733eb1a7a8",
+  "asset_sha256": "e3c78c0bfb3a2e8e9e391735df5aa6da441d488dc9447570efe769e861ecb9a2",
   "source_bindings": {
-    "art/data/druggist_fountain/source_plan.json": "a0de0b2cb1a1d3f6afbd58abca99a692a7db99f70de59f30526bd70536c2dee8",
+    "art/data/druggist_fountain/source_plan.json": "c450a86a7ad297351e857e9a802395f379218c4aa687eab8b7b71938309ee2e9",
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
-    "art/blender/scripts/build_druggist_fountain.py": "9528d26aef8c630f4ba3a3a9071fa08a23abd8e07f8666719ada910071f9fb31",
+    "art/blender/scripts/build_druggist_fountain.py": "270d4c9a6ef0dcf39b4eca1f823459dbab53fc4ff4cb746b86beb3a21c52602d",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
-    "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916",
-    "game/scripts/generated/material_sets.gd": "d5bce039ca146345d9f698d9654389973ae2d49a6d7d002ac00f8bb5d7cf8fe4",
+    "game/data/runtime_material_sets.json": "053761fac29499e8bc9a80a62f37d7411226157919b5cdc5421b9686569d38cc",
+    "game/scripts/generated/material_sets.gd": "4020c5ea404ef8551b59abe5cdd87ac48759141f0fe87de9d7c8c4aa9b79d038",
     "game/assets/props/druggist_fountain.glb.import": "a573bc4049ed30cecf9a89a35241188fdf79cae75b29c3244a879aa2f071f53f",
     "art/textures/ai_materials/marble_lobby_b/material.json": "b373def49a421619f9e32f2ac9a6b2edc5d51dd850af73f3b6dfa74d3f62d929",
     "art/textures/ai_materials/chrome/material.json": "3c96b4f861b2e91d5bb5fa8cf804cd43cce6918633b2bfbdcaa8896dbafc0382",
@@ -539,16 +575,16 @@
     "game/assets/building/textures/T_ai_materials_chrome_b_rough.png": "075253b5fc73139d265a9ee592ff30db94db7866e157a01cba8cfda4073c948f",
     "game/assets/building/textures/T_ai_materials_chrome_b_normal.png": "dbf7855df40bd0986a80ba2568ccd944a6db0e9400b5c89dab4e6d78ff8d6812",
     "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
-    "art/data/material_catalog.json": "153538df6eb5f3284fb4dd961597803b1b96de2184ae4c4739440953bb1fd5ca",
-    "art/textures/catalog_mapping.json": "1fde8f0d1d9980d292e4a99b7af1e3b7274299a68451214fe2efbe6c518f36d8",
-    "art/tools/generate_runtime_materials.py": "12415cb6c99635eaf249dec6dd52dde31ac1748a268265f0e351ac5be45255bd",
+    "art/data/material_catalog.json": "b43c41c8b75918f3feafbd6298125c598a78e99bcb11df81d7b63d375512c381",
+    "art/textures/catalog_mapping.json": "001534e79873af692528dee9bf5e160c633befed62a35a9e2f0b6335170a9022",
+    "art/tools/generate_runtime_materials.py": "f7bc8aa53f00b99e6a3bf6840a2c69b982acbcde2b1ee2c323ae99a2a7aebfd1",
     "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
     "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
     "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
     "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
     "game/assets/building/floor_01_cells/shop_otis_son.gltf": "352a40ef1a5a5196d4945349d410dc023d17e11629e11b22d36bb3a68c5e2c61",
     "game/assets/building/floor_01_cells/shop_otis_son.bin": "ba098fd79b25a9b30690ef3fdd7b448938668a079626b9218378de9b6f56bb4a",
-    "art/blender/scripts/inspect_druggist_fountain.py": "576659bb52580e0fc6a32b03c6c64f143a78a50915c001cbde218d1e43491271",
+    "art/blender/scripts/inspect_druggist_fountain.py": "e25dc12028d4af5099e4507360fbd234ba473cb8d1df6bf8f064d8ee5b9bc7de",
     "game/assets/props/druggist_carboys.glb": "0e4fc02327752d276856ebaf071810b676c2b843e24c01ff5b47c12848ccec07",
     "game/data/orison_v2/druggist_carboys.json": "894cb275ef6e6839168445a7deaebae97d44d202ba39f1d3bb9dd52b2c511c92"
   },

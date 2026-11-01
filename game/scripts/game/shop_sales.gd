@@ -9,6 +9,9 @@ var shop_id := ""
 var catalogue: ShopCatalogue
 var stock: ShopStock
 var clearing: RefCounted
+## A shop with two points of sale keeps these groups off this one's list, or only these.
+var skip_groups: Array[String] = []
+var only_groups: Array[String] = []
 
 
 func _init(shop: String, shops: ShopCatalogue, levels: ShopStock, network: RefCounted) -> void:
@@ -22,6 +25,9 @@ func _init(shop: String, shops: ShopCatalogue, levels: ShopStock, network: RefCo
 func listing() -> Array[String]:
 	var out: Array[String] = []
 	for record: Dictionary in catalogue.counter_items(shop_id):
+		var group := str(record.get("group", ""))
+		if group in skip_groups or (not only_groups.is_empty() and group not in only_groups):
+			continue
 		out.append(str(record.id))
 	return out
 
