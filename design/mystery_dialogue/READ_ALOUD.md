@@ -526,6 +526,12 @@ Route and delivery. No rate for thoughts. Directional, impatient with preamble. 
 
 - **CAM ORTIZ** (co_b1): "Thu. 11 Jul., Fass to 6C, one box blanks, forty cents." Flat box, no weight in it, up six flights, and she checks the seal like I'd been at it. Is that it?
 
+### "You ride the Corona line a lot."
+
+1928-12-09 to 1929-11-09
+
+- **CAM ORTIZ** (co_st1): In the tunnel, under the river. Half a second, on the left. Green. I've got nothing for it. I carry to addresses, and that one hasn't got one.
+
 ## EMIL VOSS
 
 Not a sidekick, and he does not validate her. He came with wrapping paper. No jokes and no companion reply in this thread. Pictures are never clue rewards.
@@ -653,6 +659,12 @@ Color before cause; a small fight over composition. Paint on the coping, the dat
   - > A few. → ib_a2
   - (silence) → ib_a2
 - **IRIS BELL** (ib_a2): A few. How few? Don't tell me. Tell her she's hung it in the wrong light, and that I've been past three times to check.
+
+### "You've been painting at Corona?"
+
+1929-03-24 to 1929-11-09
+
+- **IRIS BELL** (ir_a1): That's the best grey in Queens, out there. Six greys, and I went to paint them. Somebody had got there first and sorted them, warm to cold, like a palette. I don't know who he is. He has an eye. It's insulting.
 
 ## JONAH PRICE
 
@@ -1015,6 +1027,12 @@ Time measured by what can grow; a very possessive pot. Last on the roof with her
 1929-10-12 to 1929-10-12 · 19:00-23:59
 
 - **MALCOLM REED** (mr_e1): Once in an untold eon. That dahlia took three years, and nobody's going to stand on it for a thing that hasn't even come up yet. Move that crate. The eon can wait, it's good at that.
+
+### "Is that a pigeon in your roses?"
+
+1929-03-24 to 1929-11-09
+
+- **MALCOLM REED** (mr_b1): Blue hen. Band on her leg, Loft 9. She came down one morning, ate a seedling that took me two years, looked at me and left. The homing club says she isn't theirs either. I've seen that look on a rose.
 
 ## MINA VALE
 
@@ -1387,6 +1405,12 @@ A qualification that suddenly leaves him responsible for the answer. His firm's 
 1929-03-01 to 1929-11-09
 
 - **PETER WREN** (pw_q1): I would like to know who to write to. Not to complain. It would be irregular to complain, I wasn't asked anything. I only feel that a person who has been removed from a sentence ought to be sent a form. I looked. I am fairly sure there is no form. I'd sign it if there were.
+
+### "Who's the Society for the Prevention?"
+
+1929-02-20 to 1929-11-09
+
+- **PETER WREN** (pw_so1): We file their notices. That is, the firm does, I wouldn't say I do. One word, each November, paid in advance. I asked what it is they prevent. I was told I should be glad it hadn't happened. I can't say that's an answer. I can't say it isn't.
 
 ## RHEA SATO
 
