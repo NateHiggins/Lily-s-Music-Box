@@ -12,7 +12,9 @@
   "nq_told": "nq_t1",
   "nq_window": "nq_w1",
   "nq_telling": "nq_c1",
-  "nq_log": "nq_l1"
+  "nq_log": "nq_l1",
+  "nq_hold": "nq_h1",
+  "nq_supper": "nq_p1"
  },
  "threads": [
   {
@@ -75,6 +77,14 @@
    "topic": "Has anyone been asking after the shop?",
    "source": "Suspect chain, the four men. She does not know what the drawer held.",
    "root": "nq_l1"
+  },
+  {
+   "id": "nq_supper",
+   "from": "1929-02-02",
+   "until": "1929-07-13",
+   "topic": "Is Miss Voss singing at the Association supper?",
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. Her plan includes too much; she has begun to ask, after. No knowledge of the night man here.",
+   "root": "nq_p1"
   }
  ],
  "nodes": {
@@ -293,6 +303,9 @@
     "m_deed_gone"
    ],
    "line": "Nothing. I looked, after the third one. A clean bottom drawer, and you'd have to know to open it. I don't know what it held. Her register has the deed's plates filed to it, and those aren't anywhere either. I tell every good hat the same. None of them believes me."
+  },
+  "nq_p1": {
+   "line": "Yes. Two numbers, the raffle, and I've put her down to photograph the committee. She asked me whether she'd agreed to that. I've started asking people. I do it directly after."
   }
  }
 }

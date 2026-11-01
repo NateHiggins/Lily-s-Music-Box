@@ -5,7 +5,7 @@
   "voice_prefix": "m_av_",
   "voice_status": "draft_unvoiced",
   "status": "PROPOSED",
-  "notes": "The living woman, met on visited dates before 19 July 1929. She is good company and a sharp edit, and sometimes wrong about who a picture belongs to. She has no idea who is holding her corner. No foreshadowing: she is having a good year. Her name and gender are ordinary knowledge, never a reveal."
+  "notes": "The living woman, met on visited dates before 19 July 1929. She is good company and a sharp edit, and sometimes wrong about who a picture belongs to. She has no idea who is holding her corner. No foreshadowing: she is having a good year. Her name and gender are ordinary knowledge, never a reveal. At the Harukiya she is enjoying herself and wants more of it. No song, card or line of hers refers forward."
  },
  "entries": {
   "av_window": "av_w1",
@@ -15,7 +15,20 @@
   "av_hang": "av_h1",
   "av_madam": "av_m1",
   "av_key11": "av_k1",
-  "av_nineteen": "av_n1"
+  "av_nineteen": "av_n1",
+  "av_drawer": "av_b1",
+  "av_holmes": "av_a1",
+  "av_set": "av_p1",
+  "av_offer": "av_o1",
+  "av_letter": "av_l1",
+  "av_clause": "av_q1",
+  "av_bridge": "av_e1",
+  "av_take": "av_t1",
+  "av_cut": "av_c1",
+  "av_portrait": "av_f1",
+  "av_two_bars": "av_v1",
+  "av_supper": "av_u1",
+  "av_nine": "av_l5"
  },
  "threads": [
   {
@@ -108,6 +121,127 @@
    "topic": "You're a long way from the Arcade.",
    "source": "Holmes Airport opened Saturday 16 March 1929. She has a plate and a Saturday. Has no door yet; read through the playtest panel.",
    "root": "av_a1"
+  },
+  {
+   "id": "av_set",
+   "from": "1928-11-17",
+   "until": "1929-07-13",
+   "topic": "You're on tonight?",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK1, a good evening. A real phrase is owed before this line when the performance exists. Nothing is required of the player.",
+   "root": "av_p1"
+  },
+  {
+   "id": "av_offer",
+   "from": "1929-03-18",
+   "until": "1929-03-18",
+   "topic": "Don't mind me. I'm here for the radiator.",
+   "hours": [
+    "17:00",
+    "18:59"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK2, 'The extra two bars', adapted from the owner-approved external scene proposal of 2026-11-01. The player can only say nothing, which is the point: she watches herself do it. The bar is shut until 19:00.",
+   "root": "av_o1"
+  },
+  {
+   "id": "av_letter",
+   "from": "1929-03-25",
+   "until": "1929-07-13",
+   "topic": "You've got the pencil out.",
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK2, the terms. Lily's question from av_offer comes back as clause six. Sound on film is historical; the company and its terms are not.",
+   "root": "av_l1"
+  },
+  {
+   "id": "av_nine",
+   "from": "1929-04-05",
+   "until": "1929-07-13",
+   "topic": "Any word from Astoria?",
+   "requires": [
+    "m_concern_letter"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK2b. The Act is in force from 4 April (the papers).",
+   "root": "av_l5"
+  },
+  {
+   "id": "av_clause",
+   "from": "1929-04-21",
+   "until": "1929-07-13",
+   "topic": "Clause six. They keep the negative.",
+   "requires": [
+    "m_concern_letter",
+    "m_adela_was_wrong"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK2. The player says the contradiction; Adela does not win the exchange and does not concede it either.",
+   "root": "av_q1"
+  },
+  {
+   "id": "av_bridge",
+   "from": "1929-03-23",
+   "until": "1929-07-13",
+   "topic": "Don't let me interrupt.",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK3, the arrangement will not behave. Packet sample, kept with its pause. The bad advice is the player's to give.",
+   "root": "av_e1"
+  },
+  {
+   "id": "av_take",
+   "from": "1929-05-19",
+   "until": "1929-05-29",
+   "topic": "Juno Kells had a machine going on Saturday.",
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK4, the May take. This take supplies no clue and no case flag.",
+   "root": "av_t1"
+  },
+  {
+   "id": "av_cut",
+   "from": "1929-05-30",
+   "until": "1929-07-13",
+   "topic": "What happened to that tape from May?",
+   "requires": [
+    "m_take_known"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK4. She gives up the take and keeps the plates. The dispute of S06 is not solved.",
+   "root": "av_c1"
+  },
+  {
+   "id": "av_portrait",
+   "from": "1929-06-15",
+   "until": "1929-07-13",
+   "topic": "Is that the picture for Astoria?",
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK5, the elbow. She apologises plainly. The joke afterwards belongs to Lily.",
+   "root": "av_f1"
+  },
+  {
+   "id": "av_two_bars",
+   "from": "1929-06-22",
+   "until": "1929-06-29",
+   "topic": "You've got two bars too many in the slow one.",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "requires": [
+    "m_two_bars"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK6. The two bars of av_offer, taken out on the player's own note, learned from Lily after July. If the player never gives it the night man did. It prevents nothing and does not snap back. Owner approved 2026-11-01.",
+   "root": "av_v1"
+  },
+  {
+   "id": "av_supper",
+   "from": "1929-06-29",
+   "until": "1929-07-13",
+   "topic": "Good set.",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK7, after a good set. An ordinary subject. Nothing here is a last anything.",
+   "root": "av_u1"
   }
  ],
  "nodes": {
@@ -391,6 +525,594 @@
     }
    ]
   },
+  "av_b4": {
+   "flag": "m_adela_drawer",
+   "line": "Nobody across the road, mind, and nobody in this arcade. You don't squeeze people you borrow sugar from."
+  },
+  "av_p1": {
+   "flag": "m_heard_set",
+   "silence_goto": "av_p3",
+   "line": "You're between my drummer and the door, night man, and she's been looking for a reason. Stay if you're staying. We open on money, then I get up, then we try something quiet and find out whose fault it is.",
+   "choices": [
+    {
+     "label": "You get up?",
+     "goto": "av_p2"
+    },
+    {
+     "label": "Whose fault is it?",
+     "goto": "av_p3"
+    }
+   ]
+  },
+  "av_p2": {
+   "line": "Second number, about the middle. I stand, the piano stops, which surprises nobody but the piano, and Lily holds up the whole room on a snare for as long as I can get away with. By the finish I've hung a hat on her cymbal stand. The Speaker wanted to know where Mrs. Owen would hang hers."
+  },
+  "av_p3": {
+   "speaker": "LILY",
+   "silence_goto": "av_p4",
+   "line": "Hers."
+  },
+  "av_p4": {
+   "line": "Mine. The slow one wants something in the last eight bars and I keep bringing it the wrong thing. Lily goes back to the bass for that one so she can stand further away from me."
+  },
+  "av_l1": {
+   "flag": "m_concern_letter",
+   "silence_goto": "av_l2",
+   "line": "Read this. No, I'll read it, you'd do it no justice. \"The Ravenswood Sound Shorts Company of Astoria has had favourable report of your act, and proposes to test same on the premises.\" I sent them a photograph in February and they sent a man to drink here and see if it was true. He didn't leave during the slow one. I told Lily on the eighteenth. Lily said ask what happens to the recording, so I asked. This is the answer.",
+   "choices": [
+    {
+     "label": "That's good news.",
+     "goto": "av_l2"
+    },
+    {
+     "label": "Test it how?",
+     "goto": "av_l3"
+    }
+   ]
+  },
+  "av_l2": {
+   "silence_goto": "av_l3",
+   "line": "It's very good news. I've wanted somebody with a letterhead to say that since before you had that coat. It's also four pages, and I've been through them.",
+   "choices": [
+    {
+     "label": "What's wrong with them?",
+     "goto": "av_l3"
+    }
+   ]
+  },
+  "av_l3": {
+   "silence_goto": "av_l4",
+   "line": "Clause two, their arrangement, fixed as tested. Clause four, the concern selects the still. Clause six. It's sound on film, night man. They put my voice through a slit of light, some boy in Astoria develops it in the same soup I buy by the gallon, and clause six says the concern retains the negative.",
+   "choices": [
+    {
+     "label": "Will you sign?",
+     "goto": "av_l4"
+    }
+   ]
+  },
+  "av_l4": {
+   "line": "When it has my name, my picture and my take, I'll sign it on the bar. It's gone back in grease pencil. I do want this, you understand. I've got the routes page out of Variety folded in the music: the Original Georgia Five, Danceland, Jamaica. That's a train, not the moon. I'd like to be a train away from somebody's good opinion.",
+   "choices": [
+    {
+     "label": "You know people who could lean on them.",
+     "goto": "av_l6",
+     "requires": [
+      "m_adela_drawer"
+     ]
+    }
+   ],
+   "silence_goto": "av_l4s"
+  },
+  "av_l5": {
+   "line": "They've answered. Clause nine: the premises to hold a licence under the Act. The Harukiya holds a wink."
+  },
+  "av_l6": {
+   "line": "There's a man on the Board of Estimate who'd have them begging by Thursday. No. I'd like to find out what it's worth with nobody's arm behind its back. Don't look like that. I'm allowed one thing I've only got honestly."
+  },
+  "av_q1": {
+   "silence_goto": "av_q3",
+   "line": "That's different. I took Miss Sato out of the window. Nobody's offering to take me out of every picture house between here and Jamaica.",
+   "choices": [
+    {
+     "label": "You kept the plates.",
+     "goto": "av_q2"
+    }
+   ]
+  },
+  "av_q2": {
+   "line": "I know what I kept. You've got a very unpleasant way of holding a wrench."
+  },
+  "av_q3": {
+   "line": "Why are you looking at me like that? You've got a very unpleasant way of holding a wrench."
+  },
+  "av_t1": {
+   "flag": "m_take_known",
+   "silence_goto": "av_t3",
+   "line": "Four minutes and eleven seconds. Lily on the bass, and the last eight went where I've been trying to put them all year. The whole room came in early, clean over my two bars, and I had nothing to do but go with them. Juno had that thing going in her coat. I've heard it. It's the best we have ever been.",
+   "choices": [
+    {
+     "label": "Send them that.",
+     "goto": "av_t2"
+    },
+    {
+     "label": "Who's in the room?",
+     "goto": "av_t3"
+    }
+   ]
+  },
+  "av_t2": {
+   "silence_goto": "av_t3",
+   "line": "That's what I said. Made by friends, no fixed arrangement, no clause six. Lily said it louder. There's one difficulty.",
+   "choices": [
+    {
+     "label": "What difficulty?",
+     "goto": "av_t3"
+    }
+   ]
+  },
+  "av_t3": {
+   "silence_goto": "av_t4",
+   "line": "You can hear Miss Sato. She came in on the last chorus and on the top note her voice went, clean in half, and she kept going, and it's the truest thing anybody's done on that stage since I've had the bench. She's under the whole of the last eight, Juno can't splice her out without splicing us. She wants it wiped.",
+   "choices": [
+    {
+     "label": "It's her voice.",
+     "goto": "av_t4"
+    },
+    {
+     "label": "It's your take.",
+     "goto": "av_t5",
+     "trust": -1
+    }
+   ]
+  },
+  "av_t4": {
+   "line": "I know whose voice it is. I've had this conversation. I know how it goes. Go away, night man, I'm thinking."
+  },
+  "av_t5": {
+   "line": "Thank you. I tried that on her. It worked no better in April."
+  },
+  "av_c1": {
+   "flag": "m_take_cut",
+   "silence_goto": "av_c2",
+   "line": "Cut. I went up to 2C and stood on Juno's rug while she did it, so I could say I'd seen it, and I carried it down to the ashcan like a bailiff. The best four minutes I ever got, in a coil, on top of somebody's eggshells.",
+   "choices": [
+    {
+     "label": "Why'd you do it?",
+     "goto": "av_c2"
+    },
+    {
+     "label": "And Miss Sato's plates?",
+     "goto": "av_c3"
+    }
+   ]
+  },
+  "av_c2": {
+   "line": "She asked me twice and she was right twice. Don't make a window card of it."
+  },
+  "av_c3": {
+   "line": "No. That's as far as I go this month."
+  },
+  "av_f1": {
+   "silence_goto": "av_f2",
+   "line": "That's the fifth. Look at the fourth first. Light from the left, you could read by it, and it's wrong, it's a wonderful picture of a woman who'd never get up from a bench. A photograph can advertise the wrong act. This one's right. This one, they can't select around.",
+   "choices": [
+    {
+     "label": "It's good.",
+     "goto": "av_f2"
+    }
+   ]
+  },
+  "av_f2": {
+   "speaker": "LILY",
+   "silence_goto": "av_f3",
+   "line": "Where am I?"
+  },
+  "av_f3": {
+   "silence_goto": "av_f4",
+   "line": "You're right there, that's your elbow."
+  },
+  "av_f4": {
+   "speaker": "LILY",
+   "silence_goto": "av_f5",
+   "line": "It's a fine elbow. You said together, in March. Four pages you've sent them about who gets to choose the picture."
+  },
+  "av_f5": {
+   "silence_goto": "av_f6",
+   "line": "(She looks at the print for longer than it needs.) I framed you out. I did that and didn't see it. I'm sorry. Pick the one you want."
+  },
+  "av_f6": {
+   "speaker": "LILY",
+   "line": "I'm picking the ugly one. You're laughing in it and I've got both arms."
+  },
+  "av_v1": {
+   "silence_goto": "av_v2",
+   "line": "Which bar?",
+   "choices": [
+    {
+     "label": "Before the last eight. The two you added. Your hands have nothing to do.",
+     "goto": "av_v2"
+    }
+   ]
+  },
+  "av_v2": {
+   "silence_goto": "av_v3",
+   "line": "You do radiators. (She looks at the keys, then plays it through without them, straight in. Across the room the bass player, who had gone for her coat, puts the coat down.)",
+   "flag": "m_two_bars_told"
+  },
+  "av_v3": {
+   "speaker": "LILY",
+   "silence_goto": "av_v4",
+   "line": "I told you that in March."
+  },
+  "av_v4": {
+   "silence_goto": "av_v5",
+   "line": "You told me you liked it the old way. He told me which bar."
+  },
+  "av_v5": {
+   "speaker": "LILY",
+   "line": "So when the man with the wrench says it, it's a discovery."
+  },
+  "av_u1": {
+   "silence_goto": "av_u2",
+   "line": "Was it? Yes. It went where it goes. Is the kitchen shut? I want something with rice in it and I don't want to hear about the bridge.",
+   "choices": [
+    {
+     "label": "Do you want company?",
+     "goto": "av_u2"
+    }
+   ]
+  },
+  "av_u2": {
+   "silence_goto": "av_u3",
+   "line": "Yes. Don't make me useful for a minute. Tell me something about pipes. I mean it. Something nobody could sing.",
+   "choices": [
+    {
+     "label": "The third-floor riser knocks after the valve shuts.",
+     "goto": "av_u3"
+    }
+   ]
+  },
+  "av_u3": {
+   "line": "Good. Go on."
+  },
+  "av_o1": {
+   "line": "(Harukiya, before opening. Lily is working through the last eight bars on the bass when Adela comes in. Adela waits by the piano until she finishes, which takes some effort.) What?",
+   "speaker": "LILY",
+   "flag": "m_concern_letter",
+   "silence_goto": "av_o2"
+  },
+  "av_o2": {
+   "line": "Nothing. Finish.",
+   "silence_goto": "av_o3"
+  },
+  "av_o3": {
+   "line": "I did.",
+   "speaker": "LILY",
+   "silence_goto": "av_o4"
+  },
+  "av_o4": {
+   "line": "Yes. Lovely. (She puts an envelope on the closed keyboard cover.)",
+   "silence_goto": "av_o5"
+  },
+  "av_o5": {
+   "line": "Is the shop being sued?",
+   "speaker": "LILY",
+   "silence_goto": "av_o6"
+  },
+  "av_o6": {
+   "line": "Would I look this pleased?",
+   "silence_goto": "av_o7"
+  },
+  "av_o7": {
+   "line": "Depends who by.",
+   "speaker": "LILY",
+   "silence_goto": "av_o8"
+  },
+  "av_o8": {
+   "line": "(She takes off her coat. One arm catches in the sleeve; she pulls too hard, gives up, and works the cuff loose.) The little picture concern in Astoria. The one I sent the photograph to.",
+   "silence_goto": "av_o9"
+  },
+  "av_o9": {
+   "line": "The photograph you said was only an inquiry.",
+   "speaker": "LILY",
+   "silence_goto": "av_o10"
+  },
+  "av_o10": {
+   "line": "It was. They've inquired back. (She has read the letter often enough to go straight to the paragraph.) They want to hear the act. Here. A recording test, if the room is suitable. Two numbers.",
+   "silence_goto": "av_o11"
+  },
+  "av_o11": {
+   "line": "Here?",
+   "speaker": "LILY",
+   "silence_goto": "av_o12"
+  },
+  "av_o12": {
+   "line": "(She nods. For a moment her smile loses its practised shape.) They asked when we could be ready.",
+   "silence_goto": "av_o13"
+  },
+  "av_o13": {
+   "line": "(She reaches for the letter. Adela gives it to her, then tries to read over her shoulder.) I can read it from this side.",
+   "speaker": "LILY",
+   "silence_goto": "av_o14"
+  },
+  "av_o14": {
+   "line": "I know. There's a bit near the bottom.",
+   "silence_goto": "av_o15"
+  },
+  "av_o15": {
+   "line": "I'm getting there. (Adela puts her hands in her coat pockets, finds she is still holding the coat, and puts it down.) They liked the photograph.",
+   "speaker": "LILY",
+   "silence_goto": "av_o16"
+  },
+  "av_o16": {
+   "line": "They have excellent taste.",
+   "silence_goto": "av_o17"
+  },
+  "av_o17": {
+   "line": "You sent the one where you look as though you've just dismissed the orchestra.",
+   "speaker": "LILY",
+   "silence_goto": "av_o18"
+  },
+  "av_o18": {
+   "line": "It's a useful expression. Saves postage later. (Lily laughs. Adela sits and opens the piano.) Listen. I thought, for the second number. (She plays the lead-in to the last eight, then changes it: the bass figure gives way to a rising chord, held where the next phrase should begin. She sings the phrase without words, adds another small ascent, and brings it home.) There.",
+   "silence_goto": "av_o19"
+  },
+  "av_o19": {
+   "line": "(She is looking at the music.) Where do I come in?",
+   "speaker": "LILY",
+   "silence_goto": "av_o20"
+  },
+  "av_o20": {
+   "line": "After that.",
+   "silence_goto": "av_o21"
+  },
+  "av_o21": {
+   "line": "After which bit?",
+   "speaker": "LILY",
+   "silence_goto": "av_o22"
+  },
+  "av_o22": {
+   "line": "(She plays it again, pointing with her chin as her hands land.) There. Two bars later.",
+   "silence_goto": "av_o23"
+  },
+  "av_o23": {
+   "line": "You've added two bars.",
+   "speaker": "LILY",
+   "silence_goto": "av_o24"
+  },
+  "av_o24": {
+   "line": "Only two.",
+   "silence_goto": "av_o25"
+  },
+  "av_o25": {
+   "line": "And taken out the pulse underneath you.",
+   "speaker": "LILY",
+   "silence_goto": "av_o26"
+  },
+  "av_o26": {
+   "line": "I want some space for the line.",
+   "silence_goto": "av_o27"
+  },
+  "av_o27": {
+   "line": "Then keep the space we rehearsed. You can take your time over the bass.",
+   "speaker": "LILY",
+   "silence_goto": "av_o28"
+  },
+  "av_o28": {
+   "line": "It keeps dragging me forward.",
+   "silence_goto": "av_o29"
+  },
+  "av_o29": {
+   "line": "Is that what it sounded like last night?",
+   "speaker": "LILY",
+   "silence_goto": "av_o30"
+  },
+  "av_o30": {
+   "line": "No, last night was good.",
+   "silence_goto": "av_o31"
+  },
+  "av_o31": {
+   "line": "We spent an hour finding those bars.",
+   "speaker": "LILY",
+   "silence_goto": "av_o32"
+  },
+  "av_o32": {
+   "line": "I know. I've had another thought.",
+   "silence_goto": "av_o33"
+  },
+  "av_o33": {
+   "line": "You've had six since Saturday.",
+   "speaker": "LILY",
+   "silence_goto": "av_o34"
+  },
+  "av_o34": {
+   "line": "(She starts the new passage again. Lily doesn't join her. After a few notes she stops.) You haven't tried it.",
+   "silence_goto": "av_o35"
+  },
+  "av_o35": {
+   "line": "I don't want my part to be waiting for you to decide you've finished.",
+   "speaker": "LILY",
+   "silence_goto": "av_o36"
+  },
+  "av_o36": {
+   "line": "You'd hear the breath.",
+   "silence_goto": "av_o37"
+  },
+  "av_o37": {
+   "line": "Perhaps. I like what I play there. You liked it yesterday.",
+   "speaker": "LILY",
+   "silence_goto": "av_o38"
+  },
+  "av_o38": {
+   "line": "(She looks down at her hands.) I still like it.",
+   "silence_goto": "av_o39"
+  },
+  "av_o39": {
+   "line": "Well, it isn't in this one.",
+   "speaker": "LILY",
+   "silence_goto": "av_o40"
+  },
+  "av_o40": {
+   "line": "(A chair scrapes in the bar. She waits for it to stop.) They'll only hear us once. At first, I mean. They won't know which night it usually comes right.",
+   "silence_goto": "av_o41"
+  },
+  "av_o41": {
+   "line": "So let's play the version we know.",
+   "speaker": "LILY",
+   "silence_goto": "av_o42"
+  },
+  "av_o42": {
+   "line": "I think this could be better.",
+   "silence_goto": "av_o43"
+  },
+  "av_o43": {
+   "line": "It could. We could spend the whole week on it and find out. Have you told them yes?",
+   "speaker": "LILY",
+   "silence_goto": "av_o44"
+  },
+  "av_o44": {
+   "line": "I said we could arrange an evening.",
+   "silence_goto": "av_o45"
+  },
+  "av_o45": {
+   "line": "(Her hand falls from the strings.) Before asking me.",
+   "speaker": "LILY",
+   "silence_goto": "av_o46"
+  },
+  "av_o46": {
+   "line": "I didn't give them a date.",
+   "silence_goto": "av_o47"
+  },
+  "av_o47": {
+   "line": "You gave them me.",
+   "speaker": "LILY",
+   "silence_goto": "av_o48"
+  },
+  "av_o48": {
+   "line": "(She draws breath. Lily waits, without helping her out of it.) Yes. I did. I'm sorry. (She closes the music over the new bars.) Would you like to do the test?",
+   "silence_goto": "av_o49"
+  },
+  "av_o49": {
+   "line": "(She picks up the letter and reads the last paragraph properly.) I want to know what happens to the recording afterward.",
+   "speaker": "LILY",
+   "silence_goto": "av_o50"
+  },
+  "av_o50": {
+   "line": "So do I. And whether they pay for a test.",
+   "silence_goto": "av_o51"
+  },
+  "av_o51": {
+   "line": "Ask both before arranging our evening.",
+   "speaker": "LILY",
+   "silence_goto": "av_o52"
+  },
+  "av_o52": {
+   "line": "I will.",
+   "silence_goto": "av_o53"
+  },
+  "av_o53": {
+   "line": "(She hands the letter back.) Yes. I'd like to do it.",
+   "speaker": "LILY",
+   "silence_goto": "av_o54"
+  },
+  "av_o54": {
+   "line": "(She presses her lips together. It doesn't quite contain the smile.)",
+   "silence_goto": "av_o55"
+  },
+  "av_o55": {
+   "line": "You could have started with that question.",
+   "speaker": "LILY",
+   "silence_goto": "av_o56"
+  },
+  "av_o56": {
+   "line": "I had a very composed entrance prepared.",
+   "silence_goto": "av_o57"
+  },
+  "av_o57": {
+   "line": "I saw the sleeve.",
+   "speaker": "LILY",
+   "silence_goto": "av_o58"
+  },
+  "av_o58": {
+   "line": "(She laughs, then looks at the closed music.) I do still want to try the two bars.",
+   "silence_goto": "av_o59"
+  },
+  "av_o59": {
+   "line": "I know.",
+   "speaker": "LILY",
+   "silence_goto": "av_o60"
+  },
+  "av_o60": {
+   "line": "After we've played the old one?",
+   "silence_goto": "av_o61"
+  },
+  "av_o61": {
+   "line": "Once through as it stands. Then show me the new part slowly. I want to see if there's something I can play under it. And we choose together. You don't send them another improved version tonight.",
+   "speaker": "LILY",
+   "silence_goto": "av_o62"
+  },
+  "av_o62": {
+   "line": "(She reaches for her pencil, hesitates, and puts it on the piano between them.) Together.",
+   "silence_goto": "av_o63"
+  },
+  "av_o63": {
+   "line": "(She settles her hand on the bass. Adela opens the old arrangement, checks the first chord, and looks up for the count. They get through the verse. At the last eight the familiar figure comes in beneath her voice, and she lets it carry the phrase farther than she did last night. When the sound has gone, neither speaks immediately.)",
+   "speaker": "LILY",
+   "silence_goto": "av_o64"
+  },
+  "av_o64": {
+   "line": "That was good.",
+   "silence_goto": "av_o65"
+  },
+  "av_o65": {
+   "line": "Yes.",
+   "speaker": "LILY",
+   "silence_goto": "av_o66"
+  },
+  "av_o66": {
+   "line": "(She turns back one page.) Now let me show you what I meant."
+  },
+  "av_e1": {
+   "silence_goto": "av_e2",
+   "line": "Again from the bridge."
+  },
+  "av_e2": {
+   "speaker": "LILY",
+   "silence_goto": "av_e3",
+   "line": "You changed it."
+  },
+  "av_e3": {
+   "silence_goto": "av_e4",
+   "line": "I improved it."
+  },
+  "av_e4": {
+   "speaker": "LILY",
+   "silence_goto": "av_e5",
+   "line": "You changed it. For Astoria. Are we showing them the act, or the next one?"
+  },
+  "av_e5": {
+   "silence_goto": "av_e6",
+   "line": "All right, let me show you. (She reaches across for the chart, stops, and holds out her hand for it instead.) May I?",
+   "choices": [
+    {
+     "label": "What you want there is a little more feeling.",
+     "goto": "av_e6"
+    }
+   ]
+  },
+  "av_e6": {
+   "silence_goto": "av_e7",
+   "line": "Which bar?",
+   "choices": [
+    {
+     "label": "Well, in general.",
+     "goto": "av_e7"
+    }
+   ]
+  },
+  "av_e7": {
+   "line": "We're rehearsing this one."
+  },
   "av_a1": {
    "silence_goto": "av_a2",
    "line": "Everyone's come to look at the sky. It's the only time you get a whole crowd with its mouth open and nobody posing. I've got one plate, so I'm being very rude about who stands in front of me.",
@@ -404,9 +1126,8 @@
   "av_a2": {
    "line": "I could be, and I'd have a window full of plucky girls who flew somewhere. I'd like one who's only standing by a wing and thinking about her lunch. Hold my bag."
   },
-  "av_b4": {
-   "flag": "m_adela_drawer",
-   "line": "Nobody across the road, mind, and nobody in this arcade. You don't squeeze people you borrow sugar from."
+  "av_l4s": {
+   "line": "Go on, then. You've got a radiator somewhere."
   }
  }
 }

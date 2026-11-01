@@ -55,11 +55,15 @@ def check_tree(name: str, tree: dict, granted: set[str], required: dict, seen_ba
         errors.append(f"{name}: meta.notes is empty")
     reached: set[str] = set()
     ids = set()
+    roots: dict[str, str] = {}
     for thread in threads:
         tid = thread["id"]
         if tid in ids:
             errors.append(f"{name}: thread {tid} repeats")
         ids.add(tid)
+        if thread["root"] in roots:
+            errors.append(f"{name}: {tid} shares root {thread['root']} with {roots[thread['root']]}")
+        roots[thread["root"]] = tid
         if not (YEAR[0] <= thread["from"] <= thread["until"] <= YEAR[1]):
             errors.append(f"{name}: {tid} dates fall outside the year or run backwards")
         for flag in thread.get("requires", []) + thread.get("requires_any", []):

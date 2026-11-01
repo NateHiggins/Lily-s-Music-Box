@@ -9,7 +9,8 @@
  },
  "entries": {
   "tv_yard": "tv_y1",
-  "tv_note": "tv_n1"
+  "tv_note": "tv_n1",
+  "tv_set": "tv_s1"
  },
  "threads": [
   {
@@ -34,6 +35,14 @@
    ],
    "source": "B11, 4.5. Eighteen days before anyone looks for a glove.",
    "root": "tv_n1"
+  },
+  {
+   "id": "tv_set",
+   "from": "1928-11-17",
+   "until": "1929-07-13",
+   "topic": "I saw you at the Harukiya.",
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. Company after a shift. Practical care in both directions.",
+   "root": "tv_s1"
   }
  ],
  "nodes": {
@@ -94,6 +103,9 @@
   },
   "tv_n4": {
    "line": "He had the page in his hand. He wanted a time and an address. Nobody reads a nurse's chart until somebody's dead, and then it turns out they don't read it then."
+  },
+  "tv_s1": {
+   "line": "I don't go for the music, I go because they let me sit. Miss Voss puts a glass where I can reach it without looking and doesn't tell me she's done it. I've slept through the slow one twice. She thinks that's a review. Sit down or go up, you're blocking my feet."
   }
  }
 }

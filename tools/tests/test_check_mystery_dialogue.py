@@ -54,6 +54,10 @@ class MysteryDialogueTests(unittest.TestCase):
         self.edit("adela_voss", lambda d: d["nodes"]["av_d3"].update(line="They found the body."))
         self.assertIn("speaks from after her death", self.failures())
 
+    def test_two_threads_may_not_share_a_root(self):
+        self.edit("adela_voss", lambda d: next(t for t in d["threads"] if t["id"] == "av_bridge").update(root="av_a1"))
+        self.assertIn("shares root av_a1", self.failures())
+
     def test_a_withheld_bank_line_fails(self):
         self.edit("rhea_sato", lambda d: d["nodes"]["rs_s2"].update(bank="JF027-A01"))
         self.assertIn("excluded bank line", self.failures())

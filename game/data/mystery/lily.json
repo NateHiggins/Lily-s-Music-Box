@@ -1,0 +1,251 @@
+{
+ "meta": {
+  "resident_id": "lily",
+  "speaker_default": "LILY",
+  "voice_prefix": "m_li_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "The owner's self-insert. Every line here is a placeholder for her to rewrite. Drums on one number, bass on another, never both. Holds nothing in the case, is on no record of 19 July, and never learns who rides the night man: a good ear is not recognition. No biography beyond the count-in. She said yes to the test once she was asked, and she has a life this file does not write. Adela is the focus: these threads exist to show Adela."
+ },
+ "entries": {
+  "li_count": "li_c1",
+  "li_astoria": "li_a1",
+  "li_after": "li_f1",
+  "li_reply": "li_r1",
+  "li_print": "li_p1",
+  "li_dub": "li_d1",
+  "li_two_bars": "li_v1",
+  "li_thursday": "li_t1"
+ },
+ "threads": [
+  {
+   "id": "li_count",
+   "from": "1928-11-17",
+   "until": "1929-07-13",
+   "topic": "Is she always like this?",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK1. Lily's side of a good evening.",
+   "root": "li_c1"
+  },
+  {
+   "id": "li_astoria",
+   "from": "1929-03-23",
+   "until": "1929-07-13",
+   "topic": "Do you want to do the test?",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "requires": [
+    "m_concern_letter"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK2. The real disagreement. Lily wants the test and is not wrong.",
+   "root": "li_a1"
+  },
+  {
+   "id": "li_after",
+   "from": "1929-07-27",
+   "until": "1929-11-09",
+   "topic": "You're short a piano.",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK8. Her friends go on living. Not a wake, and li_thursday is about nothing to do with her. No thread for Lily between 14 and 26 July.",
+   "root": "li_f1"
+  },
+  {
+   "id": "li_reply",
+   "from": "1929-08-03",
+   "until": "1929-11-09",
+   "topic": "Did she ever sign with Astoria?",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "requires": [
+    "m_concern_letter"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK8. The company has not read the Record. Nothing it writes is evidence.",
+   "root": "li_r1"
+  },
+  {
+   "id": "li_two_bars",
+   "from": "1929-07-27",
+   "until": "1929-11-09",
+   "topic": "That slow one sounds different.",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK6. Grants the note the player can then carry back. Lily draws nothing from it. Owner approved 2026-11-01.",
+   "root": "li_v1"
+  },
+  {
+   "id": "li_print",
+   "from": "1929-08-17",
+   "until": "1929-11-09",
+   "topic": "Did the picture come back?",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "requires": [
+    "m_concern_letter"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK9. Lily holding a print she has no right to keep, and knowing it.",
+   "root": "li_p1"
+  },
+  {
+   "id": "li_dub",
+   "from": "1929-08-10",
+   "until": "1929-11-09",
+   "topic": "Juno Kells has something she told me about.",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "requires": [
+    "m_dub"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK10. Lily's claim on the reel, which she declines to press.",
+   "root": "li_d1"
+  },
+  {
+   "id": "li_thursday",
+   "from": "1929-09-01",
+   "until": "1929-11-09",
+   "topic": "How was Thursday?",
+   "hours": [
+    "19:00",
+    "23:59"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. Lily's life goes on. Nothing here is about Adela.",
+   "root": "li_t1"
+  }
+ ],
+ "nodes": {
+  "li_c1": {
+   "silence_goto": "li_c2",
+   "line": "Count her in and find out. She writes my entrance on the chart big enough to read in a coal hole, and then she moves it.",
+   "choices": [
+    {
+     "label": "Why stay?",
+     "goto": "li_c2"
+    }
+   ]
+  },
+  "li_c2": {
+   "line": "Because of the finish on the second one. When we both mean it, you can't get a glass filled in this room for a full minute. Some nights we look at each other and drop it and just laugh. That's good too. Mind the stand."
+  },
+  "li_a1": {
+   "silence_goto": "li_a2",
+   "line": "I said yes in March, once somebody asked me. It's a good offer. She's sent it back with corrections, they've sent it back with fewer pages, and one of these days they get bored.",
+   "choices": [
+    {
+     "label": "She wants her name on it.",
+     "goto": "li_a2"
+    }
+   ]
+  },
+  "li_a2": {
+   "silence_goto": "li_a3",
+   "line": "She's right about the name. She's right about the picture. She'll be right about clause six until they stop writing. I want to hear what we sound like from outside. Once. Nobody in this room has ever heard that.",
+   "choices": [
+    {
+     "label": "Have you told her?",
+     "goto": "li_a3"
+    }
+   ]
+  },
+  "li_a3": {
+   "line": "Every Tuesday. She says \"from the bridge.\""
+  },
+  "li_f1": {
+   "silence_goto": "li_f2",
+   "line": "Don't. I've had the faces. Do you want a drink, or do you want to carry this? Juno Kells says she can play piano. She can't. We find out how much on Thursday.",
+   "choices": [
+    {
+     "label": "I'll carry it.",
+     "goto": "li_f2"
+    }
+   ]
+  },
+  "li_f2": {
+   "line": "Other end. It's a bass fiddle, not a patient."
+  },
+  "li_r1": {
+   "silence_goto": "li_r2",
+   "line": "They wrote. To the bar, she never gave them the shop. It came the Tuesday after. \"We note your amendments. Clause six stands. Kindly advise.\" Nobody in Astoria reads the Record. I've got all seven of theirs in the bench, under the music, with her pencil on every one, and no correction twice.",
+   "choices": [
+    {
+     "label": "Will you sign it?",
+     "goto": "li_r2"
+    },
+    {
+     "label": "What would she have wanted?",
+     "goto": "li_r3"
+    }
+   ]
+  },
+  "li_r2": {
+   "line": "It's a test of an act. I wrote back: Miss Voss is dead, send the picture. Took me a week. It's the shortest thing they've had from this address."
+  },
+  "li_r3": {
+   "line": "Don't you start. Everybody's got hold of what she wanted. She wanted eleven changes and a hat."
+  },
+  "li_v1": {
+   "flag": "m_two_bars",
+   "silence_goto": "li_v2",
+   "line": "It does. She took out her two bars at the end of June. I'd told her in March. Then you stood by the coat hooks and told her which bar, and she played it like scripture. Don't look at me, I was there. You had your coat on.",
+   "choices": [
+    {
+     "label": "I don't remember that.",
+     "goto": "li_v2"
+    }
+   ]
+  },
+  "li_v2": {
+   "line": "Nobody remembers their good ones. You've got ears, for a man with a wrench. It went where it goes, two Saturdays out of three. I'm not sorry about that."
+  },
+  "li_p1": {
+   "silence_goto": "li_p2",
+   "line": "Friday. Somebody over there has written on it in pencil. \"Suggest smaller hat.\" It's the ugly one, I've got both arms and she's laughing at something off the edge. It's the only one of the two of us there is.",
+   "choices": [
+    {
+     "label": "It's her face.",
+     "goto": "li_p2"
+    },
+    {
+     "label": "You should keep it.",
+     "goto": "li_p3"
+    }
+   ]
+  },
+  "li_p2": {
+   "line": "Emil Voss has a wall. I'll take it round. I said I'll take it round."
+  },
+  "li_p3": {
+   "line": "That's what I've been telling myself. You'd think it would sound better from a stranger."
+  },
+  "li_d1": {
+   "silence_goto": "li_d2",
+   "line": "She told you too? She can't hold it, she's like a boiler. That's my bass on there. I'd like that reel more than anyone living.",
+   "choices": [
+    {
+     "label": "So ask for it.",
+     "goto": "li_d2"
+    }
+   ]
+  },
+  "li_d2": {
+   "line": "Miss Sato said no in May. All that's changed since is who's missing from the room. I've got a bench full of grease pencil. I'm not asking."
+  },
+  "li_t1": {
+   "line": "Eleven people, one fight, and a man who wants the same waltz he wanted last week. I got paid in rice crackers. I'm told that's a raise."
+  }
+ }
+}

@@ -36,6 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to knowâ€¦ | Read |
 | The Year You Died murder treatment: Adela Voss, the night man, the evidence chain, both endings and the conspiracy option A (INERT; Lily reads her lines by playtest) | `design/THE_YEAR_YOU_DIED_TREATMENT_2026-10-30.md` |
 | Erica-inspired Adela, regular Harukiya performances, Lily on alternating drums/bass, found-family writing and the measured stage commission (INERT) | `design/V2_ADELA_PERFORMANCE_AND_FOUND_FAMILY_2026-11-01.md` |
+| Adela's singing in the plot: the fictional Astoria offer, the May take, Lily and first-draft threads, with rulings owed (INERT) | `design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md` |
 | Storefront refit plan: six reference cards into a shop_frontage kit, slices and owner decisions (INERT) | `design/V2_STOREFRONT_REFIT_PLAN_2026-10-29.md` |
 | Shop overhaul proposal: a gameplay job, stock, simulation and display for all thirteen shops, with a proposed catalogue (INERT) | `design/V2_SHOP_OVERHAUL_PROPOSAL_2026-10-30.md`, `design/V2_SHOP_CATALOGUE_2026-10-30.md` |
 | Adversarial pass on an outside Queens 1928-29 lore packet: what survives canon, corrected dates and owner decisions (INERT) | `design/ORISON_LORE_ADVERSARIAL_PASS_2026-10-31.md` |

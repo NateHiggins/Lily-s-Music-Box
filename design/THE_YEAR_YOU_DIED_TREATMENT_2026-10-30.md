@@ -165,6 +165,16 @@ content. The supplied Erica image is an external visual reference, not a texture
 Nadia alone still learns the rider's identity late; musical recognition cannot
 silently grant that knowledge to Lily or anyone else.
 
+**Owner direction, later on 2026-11-01: the Astoria offer.** A fictional Astoria
+sound-picture concern offers to record the act. Adela wants it and insists on
+control of her portrait, arrangement and recording, against her own habit of
+keeping other people's photographs. It stays small, inside the bar and the cast:
+no studio district, career system or clue. The plot worked through against this
+treatment is **design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md** (**PROPOSED**,
+beats **HK1** to **HK10**, invented events labelled fiction). It adds no case
+flag, carrier, O2 line or beat to the route in section 3. Lily holds nothing in
+the case and is on no record of 19 July.
+
 ## 1. The story
 
 **Who she was.** Adela Voss is a trans woman, thirty-eight, a portrait
@@ -826,6 +836,9 @@ lines.
 
 **Others.**
 
+- **Lily** (the owner's self-insert) plays drums and bass in the act and holds
+  nothing in the case. She never learns who rides the night man. Her lines are
+  placeholders for her to rewrite.
 - **Emil Voss** is not a sidekick and does not validate her identity: "These can
   come home."
 - **The patrolman:** institutional haste lives in his sheet and its omissions.

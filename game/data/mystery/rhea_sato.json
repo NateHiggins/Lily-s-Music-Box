@@ -12,7 +12,9 @@
   "rs_casting": "rs_c1",
   "rs_rehearsal": "rs_h1",
   "rs_dressing": "rs_d1",
-  "rs_portrait": "rs_p1"
+  "rs_portrait": "rs_p1",
+  "rs_chorus": "rs_h1b",
+  "rs_dub": "rs_u1"
  },
  "threads": [
   {
@@ -57,6 +59,25 @@
    "topic": "You sat for her, at the Arcade.",
    "source": "S06, B06. Adela concedes the window and keeps the negatives. The player is hearing the complaint against herself and may only ask.",
    "root": "rs_p1"
+  },
+  {
+   "id": "rs_chorus",
+   "from": "1929-05-19",
+   "until": "1929-06-29",
+   "topic": "You were at the Harukiya, that Saturday in May.",
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK4. Her objection stays valid and her affection does not waive it.",
+   "root": "rs_h1b"
+  },
+  {
+   "id": "rs_dub",
+   "from": "1929-08-31",
+   "until": "1929-11-09",
+   "topic": "Did Miss Kells come to see you?",
+   "requires": [
+    "m_asked_about_dub"
+   ],
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. HK10. Her voice, and she is asked. She will not listen to it, so her own case (take 18, voluntary imperfection) is not spent, and the plates stay unforgiven.",
+   "root": "rs_u1"
   }
  ],
  "nodes": {
@@ -144,6 +165,41 @@
   },
   "rs_p4": {
    "line": "At home, with the booth shut. I recorded a take for my own files at ten, which I shall not be playing you. Ask me who heard it. Nobody. That's what the booth is for. You may keep your suspicion. You may not keep putting me in the window."
+  },
+  "rs_h1b": {
+   "silence_goto": "rs_h3",
+   "line": "I joined in. A person may join in. Twenty years I've never come in on a chorus for nothing, and I do it with a drink in my hand, and it splits, and the Kells girl has a machine in her coat.",
+   "choices": [
+    {
+     "label": "Miss Voss says it's the best thing on the tape.",
+     "goto": "rs_h2b"
+    },
+    {
+     "label": "Do you like her singing?",
+     "goto": "rs_h3"
+    }
+   ],
+   "flag": "m_take_known"
+  },
+  "rs_h2b": {
+   "line": "Miss Voss would say so. She said it in April, about my face, with the same expression. Tell her the answer's the same and only the medium has changed."
+  },
+  "rs_h3": {
+   "line": "Enormously. Put that in the window. I'll be there Saturday, in the same chair, and I'd like it understood that I can do both."
+  },
+  "rs_u1": {
+   "silence_goto": "rs_u2",
+   "line": "She stood on my mat and confessed. I've had that girl's confessions, they come small. She offered to play it to me. I was there when it happened. I don't need it twice.",
+   "choices": [
+    {
+     "label": "Will you keep it?",
+     "goto": "rs_u2"
+    }
+   ]
+  },
+  "rs_u2": {
+   "flag": "m_dub_wiped",
+   "line": "No. Tell the drummer it was good. Adela Voss kept my plates till somebody robbed her of them, and I don't forgive the plates. But she stood over that reel because I asked her to. Miss Kells may cut it. I shall come up and watch."
   }
  }
 }

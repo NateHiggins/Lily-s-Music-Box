@@ -114,6 +114,7 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "mystery/jonah_price.json": frozenset({"entries", "nodes"}),
     "mystery/juno_kells.json": frozenset({"entries", "nodes"}),
     "mystery/lena_ortiz.json": frozenset({"entries", "nodes"}),
+    "mystery/lily.json": frozenset({"entries", "nodes"}),
     "mystery/mae_kessler.json": frozenset({"entries", "nodes"}),
     "mystery/malcolm_reed.json": frozenset({"entries", "nodes"}),
     "mystery/mina_vale.json": frozenset({"entries", "nodes"}),

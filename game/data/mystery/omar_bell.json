@@ -12,7 +12,8 @@
   "ob_walls": "ob_v1",
   "ob_bell": "ob_b1",
   "ob_breaker": "ob_p1",
-  "ob_ash": "ob_a1"
+  "ob_ash": "ob_a1",
+  "ob_piano": "ob_n1"
  },
  "threads": [
   {
@@ -57,6 +58,14 @@
    ],
    "source": "B21. Salvage. Glass makes you deal with it after.",
    "root": "ob_a1"
+  },
+  {
+   "id": "ob_piano",
+   "from": "1928-11-17",
+   "until": "1929-07-13",
+   "topic": "You've got the Harukiya's piano bench on your table.",
+   "source": "FICTION, invented for the game; see design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md. Actual loose fitting, then he expects decent workmanship. The bench keeps her music, which is why Mae's drawer never touches it.",
+   "root": "ob_n1"
   }
  ],
  "nodes": {
@@ -129,6 +138,9 @@
   },
   "ob_a2": {
    "line": "I can get it out without breaking it. Anything past that, you want someone who's paid to look. Six A. Carry it flat. Flat. Give it here, I'll carry it."
+  },
+  "ob_n1": {
+   "line": "Hinge. Somebody's keeping a library in it and somebody gets up off it fast. I put in a longer pin. She asked could it go quieter. I said she could get up quieter. She said that was the number. So it's a longer pin."
   }
  }
 }
