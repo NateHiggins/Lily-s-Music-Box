@@ -5912,3 +5912,70 @@ Packet **art/reviews/city_streets_20261029/western_apartments_review.zip**:248me
 Source tally33individual/91generic is published,not artistic/full-city acceptance. Strong fronts/court shadows,flat clouds,sparse rooms,91generic profiles,continuous450m exploration,skyline/landmark/industrial/waterfront composition,period street/gaslight details,relevant saves,route-wide performance and artistic acceptance remain open. Sol owns canonical source-diagnostic qualification and combined intake. No owner decision is needed for this completed construction checkpoint;new construction stays held and no main merge is attempted.
 
 MERGE-CANDIDATE **ecff4a1a31d1db91a11040c8cec661390681297d**
+
+### November 1 — canonical Western pair composed qualification
+
+Evidence class: **INERT**. REPORT — **K-V2-CITY-REVAMP** — 2026-11-01.
+Branch **codex/v2-city-apartments-intake-20261101**, source merge **feca151ab**
+onto actual main/merge-base **e5fb16984067b3b6da0fa69179c3c11f2954f8ef**;
+records pushed through **494272996**. PR136 remains draft pending full candidate
+verification. No main merge or whole-city artistic acceptance is claimed here.
+
+The normal merge preserves current-main diagnostics and all historical proof;
+generated physical packets were not three-way combined. All13 source fixture
+preflights/current strict grade validation pass. Five original native classes
+remain AST-identical. Two canonical imports completed; first-import stderr
+retains old removed scratch dependency references and the second reports one
+re-created scratch UID. Loaded Horizon bench then passes **30396/0**,86.52s,
+empty stderr,no script/cache errors. No clean-import claim is made.
+
+The original source-branch schema2 **142/0** controller contract is reused with
+original provenance:19 connected legs,7 endpoints,4736samples. Actual runtime
+hash **1265053cf6e531cec002cb925e8fcb5898a461bfcb42955198343893d59a2439**
+and all12 distinct consumed dependencies match exactly; altered-input control
+is rejected. This is not a newly run route or a repinned receipt. Native CPU
+views and six original composed landing/court/frontage frames were individually
+inspected. Original images remain byte-identical members of the source archive.
+
+Fresh canonical **composed01** completes **29788checks/0failures**:290.454s
+test,312.28s wrapper,empty stderr/clean teardown,patched Vulkan/Forward+,hidden
+desktop3440x1440. Its test-written schema2 contract reports **29134/0** additive
+city checks,400 structural wall targets/four mutation owners,all2489 panes,
+124 horizon buildings/781 base parts/343 pane stations. Exhaustive physical
+inventory: **30481draws/19530meshes/6681materials/543textures**. Interaction,
+save reconstruction,civic and companion-sequence programmes are NOT_EXECUTED.
+No FPS,save,whole-game or artistic acceptance follows from this programme.
+Independent current packet evaluation passes withzero defects at surface hash
+**968140744b6c9a630eeb48e1a4db19fdd4a0792a85ef268bdcbe5862a177ce67**.
+
+Nine current frames were individually inspected. Existing glass/wood/fittings,
+varied city fronts and the new mansard silhouette behind the tank render.
+**Capture limitation:** both optional P1/P2 fixed poses face neighboring generic
+blocks; their filenames are not proof of the requested apartment facade. The
+review explicitly refuses that claim. Original exact-runtime composed views
+cover entrances/landings/courts and lower frontage; complete framed front/roof
+appearance remains open. Strong lamp pools/deep shadows,flat bright clouds,
+sparse rooms and generic-building repetition remain artistic debt. Improve
+source-targeted context framing on the next relevant capture; no extra long
+walk or startup is justified just to relabel these views.
+
+Spatial instrument review: exactlyone new test-only camera-station record
+**a129f64d12486696**; every existing main record stays unchanged. No audit,
+acceptance tolerance,baseline or runtime authority was weakened. Source archive
+92.5MB remains intact under the existing evidence-storage ruling. Separately,
+437 tracked imports were individually verified LF-identical to HEAD,backed up
+and restored;690 unrelated untracked UIDs/attachments remain untouched.
+
+Canonical compact archive **art/reviews/city_streets_20261029/western_apartments_canonical_intake_20261101.zip**:
+**26members/99204bytes/SHA256 0c9eca6506356ddc9b916a48ed159626159028bd63e85a9359a8fc9666a696bf**. It retains merge decisions,
+source-proof reuse eligibility,all import/family receipts/raw compressed logs,
+original source-image hashes,actual composed contract/logs and current image
+review. Full raw runs and previous-packet publication backup remain external
+at **C:/ov/reports/city_apartments_intake_20261101/**; prior packet is also
+recoverable from mainE5. Original archive **western_apartments_review.zip**
+remains unchanged. Full119-gate comparison against the actual cleanE5 baseline
+is next;no requirement promotion or complete-city claim is authorized by this
+record. New construction remains held; next development is the existing stutter
+loading/entry-owner integration,then outstanding hose/book/nook repairs.
+
+Verification pending — PR136 remains draft.

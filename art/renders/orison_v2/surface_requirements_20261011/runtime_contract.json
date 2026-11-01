@@ -1,11 +1,26 @@
 {
-	"checks": 29526,
+	"checks": 29788,
 	"city_context_review": {
 		"scope": "Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance.",
-		"views": []
+		"views": [
+			{
+				"aim_world": "(-165.0, 7.2, 32.84998)",
+				"building": "HORIZON_NEAR_3_2_P1",
+				"eye_world": "(-182.0, 1.62, 32.84998)",
+				"file": "city_context_HORIZON_NEAR_3_2_P1.png",
+				"fov": 110.0
+			},
+			{
+				"aim_world": "(-165.0, 8.64, 54.51665)",
+				"building": "HORIZON_NEAR_3_2_P2",
+				"eye_world": "(-182.0, 1.62, 54.51665)",
+				"file": "city_context_HORIZON_NEAR_3_2_P2.png",
+				"fov": 110.0
+			}
+		]
 	},
 	"city_geometry_diagnostic": {
-		"checks": 28875,
+		"checks": 29134,
 		"executed": true,
 		"failures": 0,
 		"scope": "Source/composition city geometry and posed camera diagnostic; no played access or artistic acceptance."
@@ -39,7 +54,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 342.861,
+		"elapsed_s": 290.454,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -54,7 +69,7 @@
 			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
 		}
 	},
-	"inventory_sha256": "8b4c12ed49befb64f9bf104d51d526b1af74fbf84d01a8755378975e52e211ca",
+	"inventory_sha256": "c255a0f61b92b18262548fc41ec6dcd3695321838af2161e39d9977d4eaa82d3",
 	"lamp_context_review": {
 		"executed": false,
 		"scope": "Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."
@@ -65,10 +80,10 @@
 	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
 	"selector": "v2",
 	"source": {
-		"repository_head": "0389a4609e0433ba928e1753a2c530894986042e",
-		"runtime_inputs_sha256": "c2f7f34081f5157d999f6572c02fb1794787720ec98eac56c99151dac4c9b54c",
+		"repository_head": "494272996290cd9e5d83f1153690d3d03ed17d29",
+		"runtime_inputs_sha256": "1265053cf6e531cec002cb925e8fcb5898a461bfcb42955198343893d59a2439",
 		"test_path": "game/tests/orison_v2_surface_inventory.gd",
 		"test_sha256": "32be481d985008a7fe28cf82e84f8854070b7cdaacc18adf2f73262d1b5fa65b"
 	},
-	"surface_inputs_sha256": "59ecb4a2792ab72a305e28e54915389cd7ce36784b5fec00f4470df069bef89a"
+	"surface_inputs_sha256": "968140744b6c9a630eeb48e1a4db19fdd4a0792a85ef268bdcbe5862a177ce67"
 }

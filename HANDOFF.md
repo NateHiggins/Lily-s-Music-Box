@@ -1,104 +1,64 @@
-# Current handoff - November 1 articulated city qualification
+# Current handoff — November 1 Western apartment intake
 
-Evidence class: **INERT**. Continuity index, not whole-game/artistic acceptance.
-Owner Lily,she/her; canonical C:/PleaseRemainOnTheLine. Full V2 goal active and
-incomplete. Read DOCS.md/AGENTS.md and the existing skills; history below is stale.
+Evidence class: **INERT**. Owner Lily,she/her. Canonical C:/PleaseRemainOnTheLine.
+Full V2 goal remains active/incomplete. Read DOCS.md/AGENTS.md and project skills.
+Historical sections below are not current status.
 
-Current canonical branch **codex/v2-city-apartments-intake-20261101**; WIP merge
-**feca151ab** reconciles held source50cc328460 onto actual main/origin/main
-**e5fb16984067b3b6da0fa69179c3c11f2954f8ef**. WIP is pushed,not main-merged or
-qualified. All13 native fixture preflights/current strict grade validator pass.
-Current surface packet is intentionally stale until actual canonical renewal.
-Runtime hash **1265053cf6e531cec002cb925e8fcb5898a461bfcb42955198343893d59a2439**
-and12 consumed controller dependencies exactly match the peer's actual142/0,
-19-leg/7-endpoint/4736-sample composed receipt. Reuse eligibility is recorded in
-**C:/ov/reports/city_apartments_intake_20261101/composed_route_reuse_eligibility.json**;
-original receipt not repinned/relabelled. All5 prior native classes AST exact;
-six final near/lower CPU views independently inspected. Do not rerun the unchanged
-walking route merely because the worktree moved; fresh imports/family/rendered
-physical checks remain necessary.
-
-The clean main E5 baseline completed:119 gates,dirty_paths=[],saved at
-**C:/ov/boards/e5fb16984067b3b6da0fa69179c3c11f2954f8ef.v2.json**.
-Both canonical imports completed(exit0). First-import stderr retains missing
-historical res://tmp/roof-drain-discovery references; the second only reports a
-re-created scratch UID. These are not a clean-import claim. The loaded
-V2CityHorizonBench then completed30396 checks/0 failures in86.52s,empty stderr,
-no script/cache errors. Original wrapper/logs are under
-**C:/ov/reports/city_apartments_intake_20261101/**; family01/run.log.receipt.json.
-This is a loaded-family diagnostic,not composed surface or artistic acceptance.
-
-Apartment work and records are pushed in draft **PR136**:
+Current branch **codex/v2-city-apartments-intake-20261101**,draft PR136:
 https://github.com/NateHiggins/Lily-s-Music-Box/pull/136
-Current main remains **e5fb16984067b3b6da0fa69179c3c11f2954f8ef**.
-No apartment merge or current composed qualification is claimed.
+Normal source merge **feca151ab** integrates architect50cc328460 onto actual
+main/merge-base **e5fb16984067b3b6da0fa69179c3c11f2954f8ef**. Records were pushed
+through494272996; current qualification/evidence checkpoint is being committed.
+Main merge remains pending final candidate verification. Keep new construction
+held after this pair; source33individual/91generic,main31/93 until publication.
 
-Remaining final check: composed01.json describes one combined physical-only
-surface renewal+city diagnostic with P1/P2 context views,native3440x1440 hidden
-desktop. The attempt joined FIFO behind shops and a manual GPU job; no engine
-started and no run log/receipt exists. On Lily's commit/merge/push checkpoint,
-verified own waiting broker43400 was cancelled; no Godot/foreign job stopped.
-No live job remains from this intake. Latest external lift-control packet23 is recorded in TASKS.md; native claims and source-reported interaction gap are unverified,not integrated. Requeue through the lane when continuing,
-inspect the actual contract and rendered frames,publish the current packet,then
-verify the candidate against the clean E5 baseline before merging PR136.
-Do not repeat the unchanged19-leg walk; exact dependency proof above permits
-reuse with original provenance. Tier3 only approves classifying,not moving cited
-or hash-bound archives. Unrelated imports,UIDs and attachments are preserved.
-Current strict terrain validator is tools/grade_source_snapshot.validate;
-reconcile_light_court_ground_source.py is an obsolete historical migration helper
-for an older schema,and its --check failure is not an active migration to replay.
+Actual canonical imports completed; retained scratch warnings are recorded.
+Loaded Horizon bench **30396/0**,86.52s,empty stderr. Fresh combined physical-only
+surface/city run **composed01**: **29788/0**,290.454s test/312.28s wrapper,
+empty stderr/clean teardown,patched Vulkan/Forward+,3440x1440 hidden desktop.
+Schema2 contracts pass composition,surfaces,teardown; **29134/0** additive city
+checks. Inventory30481draws/19530meshes/6681materials/543textures. Independent
+packetPASS0 at **968140744b6c9a630eeb48e1a4db19fdd4a0792a85ef268bdcbe5862a177ce67**,
+published via established tool; old packet backed up externally/recoverableE5.
+No separate interaction/save/civic programme or FPS/artistic acceptance.
 
-PR135 previously merged exact5a4ef2fa tree as6abe6d424; record-onlyE5 preserves
-render inputs59ecb4a2. Its completed119-gate/no-regression proof and actual29526/0
-engine programme are historical accepted technical evidence below. The newer
-native pair changes rendering inputs and requires renewed evidence. Main is not
-whole-game/whole-city production-ready.
+Nine fresh frames independently inspected. The optional P1/P2 poses face
+neighbors,not the full intended facades; review explicitly records this gap.
+Six original source actual landing/court/lower-frontage images also inspected.
+Exact runtime1265053c and all12 consumed dependencies match their142/0
+19-leg/7-endpoint/4736-sample composed contract,so reuse is valid with original
+provenance. No new walk or repinned receipt. Six native near/lower CPU views
+also inspected; complete framed front/roof acceptance remains open.
 
+Detailed ledger: design/V2_CITY_CONTEXT_REPORT_2026-10-19.md,latest canonical
+Western section. Compact archive **western_apartments_canonical_intake_20261101.zip**
+under art/reviews/city_streets_20261029; full original92.5MB source archive intact.
+Raw run/reuse/native notes: **C:/ov/reports/city_apartments_intake_20261101/**.
+Exact scoped launch **run_composed01.ps1** +composed01.json. Actual composed
+session37972/broker45924 is terminalPASS; original waiting attempt33120 was
+cancelled before engine start. No own live Godot job remains.
 
-- Original composed8855/306+script error; first repair28990/176. Native source
-  traces reproduce all176 old rectangular-plane errors. New source-only tool
-  tools/city_elevation_probe_fixture.py builds400 structural targets from frozen
-  native data; Elks targets start above retained Harukiya. No widened tolerances.
-- Actual400 walls/all2489 panes/124 horizon buildings/771 base parts/341 pane
-  stations now pass. Four real owner mutations reject10mm displacement/removal
-  and restore exact transforms/layers. Small loaded controls17/0,13.71s,empty
-  stderr. First small harness failure and owned-engine cancellation preserved.
-- Final **current_city_after04** completes29526/0,342.861s test/362.69s wrapper,
-  empty stderr/clean shutdown,native3440x1440 hidden desktop. Schema2 contract
-  records additive city checks28875/0 and physical-only mode. All30471 draws,
- 19520 meshes,6675 materials,543 textures surveyed. Separate interaction/save/
- civic programmes NOT_EXECUTED. No FPS or artistic acceptance.
-- Independent surface packet PASS0 at
-  **59ecb4a2792ab72a305e28e54915389cd7ce36784b5fec00f4470df069bef89a**.
-  Seven actual frames individually inspected. Strong shadows/lamp pool,sparse
-  dressing and flat clouds remain. Three superseded technical frames retired
-  after backup; original frontage image remains. No new controller-route claim.
-- Detailed existing city ledger and compact archive
-  **art/reviews/city_streets_20261029/articulated_wall_review_20261101.zip**:
- 48members/131014bytes/SHA c711d8e38f79ebe0446c34149ec6eb92ec982110f2c7cddc8b5cea5669a5e6bf.
- External root **C:/ov/reports/city_qualification_repair_20261101/** holds before/
- after02failed controls/after03cancelled harness/after04pass and exact sources.
- Eight source tests PASS,readerNEW0,spatialclean. All engine sessions terminal
- (60293failed,83280cancelled failed fixture,64463pass). No live Godot of ours.
-- Actual complete119-gate clean main308 baseline cached in
- **C:/ov/boards/308588b4443a9e75da11155a6bcfc9ba30b6755c.v2.json**. Owned
- **C:/ov/c-ab46a508** clean/detached at qualified5a4ef2fa; verifier31609 is
- terminalPASS. Inspect custody before reuse. Candidate report candidate_5a4ef2fa/;
- engine evidence above is separate. Never repin/waive stale physical evidence.
+Next: commit this coherent checkpoint and verify it against actual clean119-gate
+mainE5 baseline **C:/ov/boards/e5fb16984067b3b6da0fa69179c3c11f2954f8ef.v2.json**.
+Owned **C:/ov/c-ab46a508** is clean/detachedE5 and available for in-place/no-Godot
+candidate verification. Inspect before switching. Actual engine evidence above
+is separate; do not rerun the unchanged controller route. Review final gate
+board/instrument diff,then ready/merge PR136 and reconcile localmain byFF.
+No auto-merge. Keep source/evidence fixed during verification.
 
-HISTORICAL NEXT (source now reconciled in draft PR136; qualification remains):
- reconcile architect's pushed **50cc3284600f17c14cc3f993bd320a9df78132af**
- (C:/ov/city,clean/held,no live jobs). Its source ecff4a1a passed119-gate verification;
- record-only50cc preserves the same rendering/runtime signatures. P1/P2 pair adds
- 10draws,33individual/91generic source profiles,not artisticacceptance. No new
- construction afterpair. Preserve our newer diagnostics during intake; actual
- canonical family/grade/surface checks still required,not an isolated pass alone.
- Candidate has92.5MB archive; read-only reuse audit available,retain originals and
- follow approved storage classes before reducing cited evidence. Technical
- K-V2-CITY-LEGACY-QUAL is closed/archived; full city and V2 remain incomplete.
- Then resume playable-world stutter and existing hose/book/nook repair gaps.
- Modeler23externalINERTpackets remain unintegrated/unverified. Preserve unrelated
- import churn/UIDs; no bulk stage/reset/shared stash or foreign branch deletion.
+Then resume **K-V2-FIRST-VIEW-HITCH**: existing test-only450ms rendering prep
+removes measured >100ms Laurel cold turns but is not shipped. Real startup veil
+is CampaignShell's prologue-only owner; PassageResidency owns the exterior
+loading barrier/reconstruction lifecycle. Trace entry/cancellation/pause/reload
+before integrating; preserve protected paths and reflection quality. Sustained
+43–45ms return-view costs remain. Existing hose/book/nook repairs follow.
+
+437 tracked imports were individually verified LF-identical toHEAD,backed up
+and restored. Untracked UIDs/attachments preserved; no bulk staging/discard.
+All23 external modeler INERT deliveries remain unintegrated,including newest
+lift-control surfaces/source interaction gap and prior floating lobby sculpture.
+TASKS.md retains their scope. Current terrain validator is grade_source_snapshot;
+never replay obsolete reconcile_light_court_ground_source historical migration.
 
 ---
 
