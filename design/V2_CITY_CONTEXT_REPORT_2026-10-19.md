@@ -5998,3 +5998,28 @@ review and result index;all26 preceding members remain byte-exact. This final
 record-only child changes evidence/continuity records,not renderer/runtime
 inputs. PR136 can be readied/merged after verifying its exact head/base.
 MERGE-CANDIDATE **312baf3070df81989f3ebcc97d8ccfc5804c5e8a**
+
+
+### November 1 — Western intake published to main
+
+Evidence class: **INERT**. [PR136](https://github.com/NateHiggins/Lily-s-Music-Box/pull/136)
+merged pushed8151e2fae as **b37e9b75c1fb1340db903482fd933bac12f3d2ce**.
+Actual merge tree equals8151e2fae exactly. Compared with verified312baf307,
+only HANDOFF,this ledger and the compact verification archive differ; runtime,
+renderer,test and published surface inputs stay unchanged. Localmain and
+origin/main were verified at b37e9b75 before this three-document final record.
+No repeat suite or new acceptance is claimed for these evidence-only edits.
+
+Installed source tally is now33individual/91generic. All prior scope limits,
+misframed optional cameras and whole-game/artistic/performance gaps remain open.
+Full V2 goal stays active;next is the existing loading/entry stutter repair,
+then hose/book/nook gaps. Source/engine proof and clean candidate comparison
+above remain the exact bounded evidence,not whole-game production readiness.
+
+Own verifier42035 and actualengine37972 are terminalPASS. Clean/detached owned
+verification checkoutC:/ov/c-ab46a508 was removed after source publication,
+removing71057 temporary tracked entries;external reports and committed evidence
+are preserved. Fully merged own intake branch was deleted locally/remotely.
+Foreign worktrees/branches,app-owned baseline and the prologue branch remain.
+No shared stash,forced checkout or bulk discard. Cleanup records remain external
+beside the immutable original run reports;this record changes no game files.

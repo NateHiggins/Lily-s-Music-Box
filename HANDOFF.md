@@ -1,70 +1,62 @@
-# Current handoff — November 1 Western apartment intake
+# Current handoff — November 1 Western apartment pair merged
 
-Evidence class: **INERT**. Owner Lily,she/her. Canonical C:/PleaseRemainOnTheLine.
-Full V2 goal remains active/incomplete. Read DOCS.md/AGENTS.md and project skills.
-Historical sections below are not current status.
+Evidence class: **INERT**. Owner Lily,she/her. Canonical C:/PleaseRemainOnTheLine
+is back on **main**. Full V2 goal remains active/incomplete. Read DOCS.md and
+AGENTS.md; historical sections below are not current status.
 
-Current branch **codex/v2-city-apartments-intake-20261101**,draft PR136:
+**PR136 merged** as **b37e9b75c1fb1340db903482fd933bac12f3d2ce**:
 https://github.com/NateHiggins/Lily-s-Music-Box/pull/136
-Normal source merge **feca151ab** integrates architect50cc328460 onto actual
-main/merge-base **e5fb16984067b3b6da0fa69179c3c11f2954f8ef**. Records were pushed
-through494272996; current qualification/evidence checkpoint is being committed.
-Main merge remains pending final candidate verification. Keep new construction
-held after this pair; source33individual/91generic,main31/93 until publication.
+Localmain/origin/main were verified at that merge before this record-only child.
+The merge tree exactly equals pushed8151e2fae. Qualified construction candidate
+**312baf3070df81989f3ebcc97d8ccfc5804c5e8a** differs only in three evidence/
+continuity paths. No renderer/runtime input changed through publication.
+Installed source: **33 individually authored/91 generic** horizon profiles.
+Keep new construction held after this pair; continue existing repairs.
 
-Actual canonical imports completed; retained scratch warnings are recorded.
-Loaded Horizon bench **30396/0**,86.52s,empty stderr. Fresh combined physical-only
-surface/city run **composed01**: **29788/0**,290.454s test/312.28s wrapper,
-empty stderr/clean teardown,patched Vulkan/Forward+,3440x1440 hidden desktop.
-Schema2 contracts pass composition,surfaces,teardown; **29134/0** additive city
-checks. Inventory30481draws/19530meshes/6681materials/543textures. Independent
-packetPASS0 at **968140744b6c9a630eeb48e1a4db19fdd4a0792a85ef268bdcbe5862a177ce67**,
-published via established tool; old packet backed up externally/recoverableE5.
-No separate interaction/save/civic programme or FPS/artistic acceptance.
+Actual canonical Horizon bench30396/0,86.52s,empty stderr. Fresh combined
+physical/city **composed01**29788/0,290.454s test/312.28s wrapper,empty stderr,
+clean teardown,patched Vulkan/Forward+,3440x1440 hidden desktop. Schema2 passes
+composition/surfaces/teardown;29134/0 additive city checks. Inventory30481draws/
+19530meshes/6681materials/543textures. Published packet independentlyPASS0 at
+**968140744b6c9a630eeb48e1a4db19fdd4a0792a85ef268bdcbe5862a177ce67**.
+No separate interaction/save/civic programme,FPS or artistic acceptance.
 
-Nine fresh frames independently inspected. The optional P1/P2 poses face
-neighbors,not the full intended facades; review explicitly records this gap.
-Six original source actual landing/court/lower-frontage images also inspected.
-Exact runtime1265053c and all12 consumed dependencies match their142/0
-19-leg/7-endpoint/4736-sample composed contract,so reuse is valid with original
-provenance. No new walk or repinned receipt. Six native near/lower CPU views
-also inspected; complete framed front/roof acceptance remains open.
+Actual clean119-gate candidate comparison to E5:zero regressions/improvements/
+waivers/blockers;17/17protected unchanged,V2 selected,lint0,requirements_changed[].
+Reader/spatial/current surface PASS;surface tooling42tests PASS/387.17s. Sole
+instrument diff is one reviewed additive test-camera station;all11098 old rows
+unchanged. Main's unrelated baseline-red gates remain unresolved. Verification
+was clean in-place/no-Godot;actual canonical engine proof is separate above.
+
+Nine fresh and six original matched-runtime composed frames inspected. Optional
+P1/P2 fixed poses face neighboring blocks,so full-facade/roof appearance remains
+open; source landing/court/lower-frontage images are retained with original
+provenance. Exact runtime1265053c/all12 consumed inputs permit reusing original
+142/0,19-leg/7-endpoint/4736-sample controller proof. No repeated walk/repinning.
+Strong shadows/lamp pools,flat clouds,sparse rooms and generic repetition remain.
 
 Detailed ledger: design/V2_CITY_CONTEXT_REPORT_2026-10-19.md,latest canonical
-Western section. Compact archive **western_apartments_canonical_intake_20261101.zip**
-under art/reviews/city_streets_20261029; full original92.5MB source archive intact.
-Raw run/reuse/native notes: **C:/ov/reports/city_apartments_intake_20261101/**.
-Exact scoped launch **run_composed01.ps1** +composed01.json. Actual composed
-session37972/broker45924 is terminalPASS; original waiting attempt33120 was
-cancelled before engine start. No own live Godot job remains.
+Western sections. Compact archive **western_apartments_canonical_intake_20261101.zip**
+under art/reviews/city_streets_20261029:30members/135169bytes/SHA
+**8316d56e588e8462a34e442fafed5278cf21ad7cbf509d511cb35ede0be1d872**.
+Original92.5MB source archive stays intact. Raw logs/reuse/native notes/reports:
+**C:/ov/reports/city_apartments_intake_20261101/**. No own live engine/verifier.
 
-Full candidate **312baf3070df81989f3ebcc97d8ccfc5804c5e8a** passed the actual
-119-gate comparison to clean mainE5:zero regressions/improvements/waivers/blockers,
-17/17 protected unchanged,V2 selected,lint0,requirements_changed[]. Reader,
-spatial and current surface gates PASS;surface tools42tests PASS/387.17s.
-The only instrument diff is one additive test-camera manifest record,reviewed;
-all11098 existing rows unchanged. Main's unrelated red gates remain unresolved.
-Verifier42035 is terminalPASS. Final reports are archived in the existing compact
-intake ZIP and external candidate_312baf307/. OwnedC:/ov/c-ab46a508 is clean at
-that candidate; remove this owned temporary checkout after safe main publication.
-This final child adds records only; source/render signatures stay unchanged.
-Next: ready/merge PR136 at its exact pushed head; fetch and FF localmain,then
-record actual merge/push state. No auto-merge. No repeat engine/tool battery for
-unchanged evidence-only edits. Keep new construction held.
+Owned clean temporary **C:/ov/c-ab46a508** removed after successful publication:
+71057 temporary tracked entries removed;all reports preserved. Fully merged
+own intake branch removed locally/remotely. Other contributors' checkouts/
+branches,calling app's baseline checkout and preserved prologue branch untouched.
+437 imports previously verified LF-identical/backed up/restored;untracked UIDs/
+attachments remain intact. No bulk staging/discard or shared stash used.
 
-Then resume **K-V2-FIRST-VIEW-HITCH**: existing test-only450ms rendering prep
-removes measured >100ms Laurel cold turns but is not shipped. Real startup veil
-is CampaignShell's prologue-only owner; PassageResidency owns the exterior
-loading barrier/reconstruction lifecycle. Trace entry/cancellation/pause/reload
-before integrating; preserve protected paths and reflection quality. Sustained
-43–45ms return-view costs remain. Existing hose/book/nook repairs follow.
-
-437 tracked imports were individually verified LF-identical toHEAD,backed up
-and restored. Untracked UIDs/attachments preserved; no bulk staging/discard.
-All23 external modeler INERT deliveries remain unintegrated,including newest
-lift-control surfaces/source interaction gap and prior floating lobby sculpture.
-TASKS.md retains their scope. Current terrain validator is grade_source_snapshot;
-never replay obsolete reconcile_light_court_ground_source historical migration.
+NEXT: **K-V2-FIRST-VIEW-HITCH**. Test-only450ms renderer preparation removed
+measured >100ms Laurel turns but is not shipped. CampaignShell owns a prologue-
+only startup veil;PassageResidency owns exterior loading/barrier/reconstruction.
+Integrate through the relevant owner with input,cancellation,camera restoration,
+pause and reload checks;preserve protected files/reflection quality. Sustained
+43–45ms return-view cost stays open. Existing hose/book/nook repairs follow.
+New native construction remains held. All23 external modelerINERT deliveries
+remain queued/unintegrated,including lift controls and floating lobby sculpture.
 
 ---
 
