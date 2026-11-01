@@ -429,7 +429,7 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
 
 1929-01-15 to 1929-07-13
 
-- **ADELA VOSS** (av_z2): I have not. Coal dealers. Aldermen's wives. A woman who couldn't tell a Graflex from a breadbox. I've got six plates of them going over and not one invitation. What's the light like? Nobody can tell me. Nobody ever looks at the light.
+- **ADELA VOSS** (av_z2): I have not. Coal dealers. Widows. A woman who couldn't tell a Graflex from a breadbox. I've got six plates of those things since the summer and not one invitation. What's the light like? Nobody can tell me. Nobody ever looks at the light.
 
 ## CAL DWYER
 
@@ -596,7 +596,7 @@ Instructions so correct they rearrange other people's work. Carried Mae's box in
 
 1929-11-01 to 1929-11-08
 
-- **EVELYN MARSH** (em_o2): So I am told. I have kept a programme log for eleven years and I know precisely where I stopped. Well?
+- **EVELYN MARSH** (em_o2): So I am told. I have kept a programme log for seven years and I know precisely where he stopped. Well?
   - > Shall I say it? → em_o3
   - (silence) → em_o3
 - **EVELYN MARSH** (em_o3): You will not. I sleep perfectly well at two, thank you.
@@ -822,7 +822,7 @@ Judgment hidden in useful advice. Has the bag; has the dated button book. No gri
 
 1929-02-01 to 1929-11-09
 
-- **LENA ORTIZ** (lo_q1): Four hours, and not one soul had thought about the glasses. So I did the glasses. Nobody thanked me. Nobody stopped me either, and I'll say this for them, that's more than my sister does. Give me that coat, you've got a button going.
+- **LENA ORTIZ** (lo_q1): Four hours, and not one soul had thought about the glasses. So I did the glasses. Nobody thanked me. Nobody stopped me either, and I'll say this for them, that's more than my sister does.
 
 ## LILY
 
@@ -908,7 +908,7 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 
 1929-10-12 to 1929-10-12 · 19:00-23:59
 
-- **LILY** (li_n1): After the set. Juno's got a left hand now. It isn't hers, I don't know where she got it. Nobody's listening, they've all got one eye on the door, and it's the most fun I've had since spring.
+- **LILY** (li_n1): After the set. Juno's got a left hand now. I don't know where she got it. Nobody's listening, they've all got one eye on the door, and it's the most fun I've had since spring.
 
 ## MAE KESSLER
 
@@ -1014,7 +1014,7 @@ Time measured by what can grow; a very possessive pot. Last on the roof with her
 
 1929-10-12 to 1929-10-12 · 19:00-23:59
 
-- **MALCOLM REED** (mr_e1): Once in an untold eon. That dahlia took three years, and nobody's going to stand on it for a thing that doesn't even look down. Move that crate. The eon can wait, it's good at that.
+- **MALCOLM REED** (mr_e1): Once in an untold eon. That dahlia took three years, and nobody's going to stand on it for a thing that hasn't even come up yet. Move that crate. The eon can wait, it's good at that.
 
 ## MINA VALE
 
@@ -1193,7 +1193,7 @@ A plan that includes everybody before asking anybody. Chairs the tenants' associ
 
 1929-04-15 to 1929-06-30
 
-- **NADIA QUELL** (nq_v1): None. I've written to invite them to the Association's supper, I've put them down for the raffle and a table of eight, and I don't know where I posted it. I've left it on the roof of the Arcade with a stone on it. Somebody had to ask them something.
+- **NADIA QUELL** (nq_v1): None. I've written to invite them to the Association's supper, I've put them down for the raffle and a table of eight, and I don't know where I posted it. I've left it in the yard with a stone on it. Somebody had to ask them something.
 
 ## NOEL PRICE
 
@@ -1298,7 +1298,7 @@ Offense at workmanship; an economical answer. Spare shop key, the recorder, the 
 
 1929-03-01 to 1929-11-09
 
-- **OMAR BELL** (ob_r9): Didn't see a host. Saw a bulkhead. Somebody's set those seams by eye, and it's a good eye. Nobody offered me a chair. I'd go back for the seams.
+- **OMAR BELL** (ob_r9): Didn't see a host. Saw a wall. Somebody's set those seams by eye, and it's a good eye. Nobody offered me a chair. I'd go back for the seams.
 
 ### "How many's that on the roof?"
 
@@ -1549,17 +1549,17 @@ Practical instruction that puts someone to work. Never a joke at the body. She n
 
 1929-01-05 to 1929-03-30
 
-- **TERESA VALE** (tv_o1): Friday nights. I get the Professor on the headphones, and I'm gone by four. First time in years I've slept with both ears shut. Don't tell the ward. Hold this while you're standing there.
+- **TERESA VALE** (tv_o1): Saturday nights. I get the Professor on the headphones, and I'm gone by four. First time in years I've slept with both ears shut. Don't tell the ward. Hold this while you're standing there.
 
 ### "You've got your headphones off."
 
-1929-11-01 to 1929-11-08
+1929-11-02 to 1929-11-08 · 22:00-23:30
 
 - **TERESA VALE** (tv_o2): It catches me at the sink now. Seven seconds with my hands in the water. They tell me it wants somebody in the room to say it, and I've had no one in this room since I took the lease. You'd do. You're here.
   - > One. → tv_o3
   - > Not me. → tv_o4
   - (silence) → tv_o5
-- **TERESA VALE** (tv_o3): (She stands there a moment. Then she takes her hands out and dries them.) Well. That's that, then. I'm on at seven. Go on, you've got pipes.
+- **TERESA VALE** (tv_o3): (She stands there a moment. Then she takes her hands out and dries them.) Well. That's that, then. I'm on Sunday. Go on, you've got pipes.
 - **TERESA VALE** (tv_o4): No. All right. I've asked worse.
 - **TERESA VALE** (tv_o5): That's what I thought. It's all right. Mind the door.
 
@@ -1582,7 +1582,7 @@ Not a person. The player's one trip to a party, late in the year. They are stand
   - > Stay a while. → pt_5
   - > Put the cup down. → pt_6
   - (silence) → pt_5
-- **THE ROOM** (pt_4): (It has nothing to say. You can tell by how thoroughly it isn't saying it.)
+- **THE ROOM** (pt_4): (It has nothing to say. It goes on not saying it, over there.)
   - (silence) → pt_3
 - **THE ROOM** (pt_5): (You stay. It isn't unpleasant. Nobody asks you to.)
   - (silence) → pt_6

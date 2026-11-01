@@ -177,5 +177,7 @@ night. Being taken and the hold never explain each other, and the crossover abov
 | Doors | Adela, Lily and the party have no door, so those threads open only through the F9 panel. **m_cup** and **m_emerged** have no witness producer yet, so they also print only through the panel |
 | Not built | Residents visibly stopping, crowds on the roof and street, lanterns, a party room and the player being taken in play. These need attendance and rooms V2 doesn't have |
 
+**A gap left open.** Teresa works Sunday to Thursday, so on those nights her hold falls on the ward. Nothing prints or plays it, because a late dose there is the Price wound.
+
 **The hold has no sound.** An audio dip on lit sets was the cheap idea, and it's cut: "bodies stop, tape doesn't" means a
 set must not change. Until residents can stop, the hold exists in papers and dialogue.

@@ -56,11 +56,15 @@
   },
   {
    "id": "tv_one",
-   "from": "1929-11-01",
+   "from": "1929-11-02",
    "until": "1929-11-08",
    "topic": "You've got your headphones off.",
    "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. One Short. It unlocks nothing and is never announced.",
-   "root": "tv_o2"
+   "root": "tv_o2",
+   "hours": [
+    "22:00",
+    "23:30"
+   ]
   }
  ],
  "nodes": {
@@ -126,7 +130,7 @@
    "line": "I don't go for the music, I go because they let me sit. Miss Voss puts a glass where I can reach it without looking and doesn't tell me she's done it. I've slept through the slow one twice. She thinks that's a review. Sit down or go up, you're blocking my feet."
   },
   "tv_o1": {
-   "line": "Friday nights. I get the Professor on the headphones, and I'm gone by four. First time in years I've slept with both ears shut. Don't tell the ward. Hold this while you're standing there."
+   "line": "Saturday nights. I get the Professor on the headphones, and I'm gone by four. First time in years I've slept with both ears shut. Don't tell the ward. Hold this while you're standing there."
   },
   "tv_o2": {
    "silence_goto": "tv_o5",
@@ -144,7 +148,7 @@
   },
   "tv_o3": {
    "flag": "m_said_one",
-   "line": "(She stands there a moment. Then she takes her hands out and dries them.) Well. That's that, then. I'm on at seven. Go on, you've got pipes."
+   "line": "(She stands there a moment. Then she takes her hands out and dries them.) Well. That's that, then. I'm on Sunday. Go on, you've got pipes."
   },
   "tv_o4": {
    "line": "No. All right. I've asked worse."
