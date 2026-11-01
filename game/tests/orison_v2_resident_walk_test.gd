@@ -70,6 +70,18 @@ func _run(world: OrisonV2RuntimeRoot) -> void:
 		return
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(_route.source_path))
 	var unit := str(source.unit)
+	if _route.outside:
+		# An off-map resident must not pop into the arrival camera's view.
+		# Exercise that guard, then actually look away instead of disabling it
+		# or forcing a resident transform to make a tour start.
+		_route.force_destination = "unit"
+		if _route._observed():
+			await get_tree().create_timer(.75).timeout
+			_check("observed off-map return remains hidden", _route.outside and not _route.actor.visible)
+		var away: Vector3 = world.player.camera.global_position - _route.actor.global_position
+		away.y = 0.0
+		world.player.camera.look_at(world.player.camera.global_position + away.normalized())
+		_check("player looks away before an unseen return", not _route._observed())
 	for place: String in source.places:
 		if place == "unit":
 			continue
