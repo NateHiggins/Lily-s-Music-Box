@@ -5585,3 +5585,50 @@ relaxation, new runtime authority, source geometry rebuild or receipt repinning
 is authorized by this report. Fresh composed city access/rendering and surface
 qualification, final candidate comparison, performance and artistic work remain
 open. The architect stays frozen; no next construction slice has started.
+
+Canonical intake follow-up: the nested **source_plan** in the old ground
+construction report is a historical build snapshot, not a live validation edge.
+It must remain byte-exact; the literal graph above alone does not establish a
+live cyclic dependency. The bounded authoring repair reached the actual retained
+grade validator, which correctly rejected the old survey's runtime fingerprint.
+No validator was relaxed. Its rollback encountered a Windows invalid-argument
+write error after restoring some files. The five remaining edits were independently
+reconstructed from the original archived proposal, checked against those exact
+candidate bytes, preserved externally and atomically restored. All thirteen
+archived original files now match byte for byte; **rollback_recovery.json** and
+**partial_rollback_preserved.zip** retain the recovery evidence.
+
+Fresh **grade01** completed in194.79s with571 boxes and a misleading test PASS:
+the actual wrapper records TWO script assertions, in street assembly and the
+imported **city_horizon_near_2_1_lod1.glb** roster. Teardown also reports leaked
+instances/materials/shaders. This discovery is rejected despite exit0; no mask
+or runtime evidence is renewed from it. Two import passes followed by **grade02**
+are queued as one hidden-desktop lane batch to test the stale-cache hypothesis.
+Actual per-stage results, current consumed-mask comparison, strict metadata
+closure, composed access and surface renewal remain pending. This is still
+INERT integration progress, not a clean city or artistic acceptance claim.
+
+Both import passes completed (30.88s/15.79s, empty stderr). **grade02** then
+completed in168s with571 boxes, empty stderr and no shutdown errors. The two
+removed groups are precisely **F01_1A_STOVE_01/FixtureBody** and
+**F01_1D_STOVE_01/FixtureBody**, obsolete solid hulls replaced in range PR127.
+Every66 actual box consumed by the ground masks remains present at the same
+bounds. All9601 consumed native rows, six derived paving envelopes,40 native
+input bindings and registration poses remain exact. All14947 native
+classification records are reused unchanged. Mask payload SHA256 remains
+**f0f6b65129bc35e09a8c9e4f69420d834e70e8666f68dd9a1b724cd01fe6fb22**.
+The clean fresh discovery is installed and the guarded live metadata repair
+passes strict **grade_source_snapshot.validate** and native fixture checks;
+the two unused horizon street bindings are removed from the authoring producer.
+Every geometry/export statement in that producer remains AST-identical.
+
+The complete surface preflight exposed one further stale transport binding to
+the Western street plan. Its complete evaluated topology is exact against the
+bound **ed59c7a99** plan, including107 road polygons. A100mm road-width mutation
+changes the result. Both transport GLBs and all other bound inputs remain exact.
+Only the proven binding and live downstream metadata hashes were refreshed;
+historical reports, native payloads, geometry and masks remain unchanged.
+**transport_closure.json** retains that proof. All13 surface prerequisite
+fixtures now pass. Seven scoped gates pass, including31 tests and reader NEW0;
+these are not a full candidate comparison. Current composed access and rendered
+surface renewal are the next actual-world checks, not yet claimed as passed.

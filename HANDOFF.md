@@ -18,13 +18,31 @@ Seven scoped gates and31 tools tests pass; reader NEW0. Actual source preflight
 finds three stale street/apron horizon bindings. Two other generic failures used
 the wrong ground/foundation schema, not broken geometry. Ordered124 footprint
 rectangles, three exported GLBs and street/apron builders/helpers matchb7 exactly.
-The two horizon street bindings are provenance-only and form a literal circular
-hash chain through horizon/apron/ground/grade reports. No hashes were refreshed.
-NEXT: remove only proven unused overbindings from their authoring producer and
-reconcile the now-acyclic metadata closure with exact geometry/mask preservation,
-then strict owner/source preflights before Godot. See the city report's latest
-canonical-intake section and external **provenance_graph_before.json**. No checker
-relaxation or runtime receipt repin. All failures remain retained.
+The two horizon street bindings are provenance-only. The ground construction's
+nested source_plan is a historical snapshot, not a live validation edge; preserve
+it byte-exact. The first guarded repair correctly failed strict grade validation
+because the actual survey predates current runtime. Its rollback then hit a
+Windows write error. All five remaining exact proposal edits were preserved and
+restored atomically; **rollback_recovery.json** proves every original byte restored.
+Fresh **grade01** finished with a PASS line but TWO engine assertions and leaked
+RIDs. It is rejected evidence. Two import passes (30.88s/15.79s) then **grade02**
+passed in168s with empty stderr and clean teardown. Its571 boxes differ only by
+the two obsolete ground-floor stove hulls removed by the merged range repair.
+All66 consumed runtime boxes,9601 consumed native rows/six derived envelopes,
+40 native input bindings and registration poses remain exact; all14947 native
+classification records and the mask payload remain preserved.
+The guarded metadata repair passes strict grade/fixture validation. A wider
+13-fixture preflight found one transport street-plan binding too. Complete
+evaluated topology and both native exports are exact; a road-width mutation is
+detected. Only its binding and live downstream metadata were renewed, retaining
+historical snapshots. All13 fixtures and seven scoped gates/31 tests now PASS;
+reader NEW0. No mesh, gameplay owner or checker was changed.
+NEXT: **current_world01.json** runs actual Western frontage access and the full
+physical-surface survey, with three requested frontage context captures. Read
+each receipt and inspect images before renewal/candidate verification. Check
+the live lane handle before resuming; never restart a live batch.
+No checker relaxation or runtime receipt repin. All failures remain retained in
+**C:/ov/reports/city_integration_20261101/**.
 Current main's complete clean baseline3ae86bf0e is finished/cached. Own
 **C:/ov/c-ab46a508** is idle at3ae86bf0e; check Git/ownership, then reuse it for
 final candidate verification. Remove it safely when finished. Original baseline
