@@ -1,32 +1,32 @@
 {
  "evidence_class": "INERT",
  "status": "PASS",
- "scope": "Technical direct inspection of four 1280x720 captures from a physical-only survey for the November 1 post-merge renewal over the Adela and seat changes. All physical draws included; interaction programmes skipped. Not whole-game, performance or artistic acceptance.",
- "surface_inputs_sha256": "4b9a6f1e30dccc36b362d14a725de1392147e2897b73be389b145e541b832bbf",
+ "scope": "Technical direct inspection of four 1280x720 captures from a physical-only survey for the November 1 Otis counter and fountain change. All physical draws included; interaction programmes skipped. Not whole-game, performance or artistic acceptance.",
+ "surface_inputs_sha256": "615182e879b777900e5d1759d5d77e37c5d7d9ca7b35743ce5d8efc9b8d12442",
  "images": [
   {
    "file": "bookcase.png",
-   "sha256": "a92165b38aba664524a84f9d0bcdf64351455c16738accb22e9132526bc29235",
+   "sha256": "0af561ffd83f861d6b608e3485b6b55c97b6ff78781a248c5ffcb8879ade1467",
    "observation": "Composed interior: wood grain, glazing, books, flooring and door render. Shelf sparsity and room art acceptance remain open.",
-   "origin": "qual2 physical-only, pinned patched Vulkan, windowed 1280x720; inspected together on a reduced sheet."
+   "origin": "qual1 physical-only, pinned patched Vulkan, windowed 1280x720; inspected together on a reduced sheet."
   },
   {
    "file": "F03_B_BATH_reflection_repair.png",
-   "sha256": "0804b0626584eaa9aeb6b7784a1d4a99fad3e2dc6635b633af5903b8766610b8",
+   "sha256": "7d24ae99b1ca363fdcac01e8348feb3ef9d8a6939541688fea388b87656dbe4a",
    "observation": "Bath tile, curtain and carried instrument render with a lit pool on the wall; no missing surface.",
-   "origin": "qual2 physical-only, pinned patched Vulkan, windowed 1280x720; inspected together on a reduced sheet."
+   "origin": "qual1 physical-only, pinned patched Vulkan, windowed 1280x720; inspected together on a reduced sheet."
   },
   {
    "file": "signal_terminal.png",
-   "sha256": "b0ec4d2ac20757a092f9756839c86cb2b575d22756b9041e0749c02c3943942f",
+   "sha256": "df32050ac79bfa4dd6a4b3357843de68e38a1e4cc3cf0454df827b8157bf88ed",
    "observation": "Living room with terminal, shelves, board and floor grain render; terminal glow and shadows present.",
-   "origin": "qual2 physical-only, pinned patched Vulkan, windowed 1280x720; inspected together on a reduced sheet."
+   "origin": "qual1 physical-only, pinned patched Vulkan, windowed 1280x720; inspected together on a reduced sheet."
   },
   {
    "file": "roof_tank_uv.png",
-   "sha256": "d4ceae6c232c792f879efbcff3a04de4ca1f45ea574c4e71d78fa6ad46930a71",
+   "sha256": "27df5031e9534aa73f7eba1e2f6e4ae96c89fb27195617a8c5b5ff41bf86d435",
    "observation": "Roof tank, ironwork, parapet, sky and skyline render with textured surfaces.",
-   "origin": "qual2 physical-only, pinned patched Vulkan, windowed 1280x720; inspected together on a reduced sheet."
+   "origin": "qual1 physical-only, pinned patched Vulkan, windowed 1280x720; inspected together on a reduced sheet."
   }
  ]
 }

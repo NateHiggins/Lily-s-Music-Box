@@ -482,3 +482,19 @@ three stools at most.
   cell. A full Luncheonette counter leaves the next resident without a body or a voice.
 - **Not moved over:** the bar's three banquette seats, the lobby bench and the call desk
   keep their older click-to-toggle owners. The roof chairs are not yet seats.
+
+## Otis & Son first build, 2026-11-01
+
+Evidence class stays **INERT**; this records what was built, not proof.
+
+- **Counter:** a sale point on the main counter sells everything but the fountain's, including
+  the wax earplugs, whose wearing already works through the carried case.
+- **Fountain:** its own sale point sells the soda and the egg cream. The order comes up as an
+  empty cup under the first nozzle. A click grabs the tap handle, mouse motion pulls it, the cup
+  fills only while it is held open, and it springs back when let go. Lifting the cup to the
+  mouth is what drinks it. An empty cup at the mouth drinks nothing.
+- **Fitting:** the tap handles are now separate parts in the recipe. Only the first tap works.
+- **Not built:** the prescription errand, which needs residents with an ordinary reason to send
+  a slip, invented for the purpose. No resident has one yet, and the Berlin prescription was cut
+  by ruling, so this waits on its own slice. Also unbuilt: residents at the fountain stools, a
+  visible drink in the cup, the sound of the tap, the show globes, and the draw-call measure.
