@@ -271,6 +271,8 @@ for item in assemblies:
   guide=np.repeat(us[:,[0,2,1]],3,axis=0);guide[:,2]*=-1;guides.data.foreach_set('vector',guide.astype(np.float32).ravel())
   normals=stock_corner_normals(mesh);mesh.normals_split_custom_set(normals);obj=bpy.data.objects.new(name,mesh);bpy.context.scene.collection.objects.link(obj);obj.location=origin;draws.append(obj)
   mesh.calc_loop_triangles();total_triangles+=len(mesh.loop_triangles);inventory.append({'name':name,'assembly':identity,'cell':item['cell'],'key':key,'triangles':len(mesh.loop_triangles)})
+if plan.get('native_refit'):
+ refitted_body.collection.hide_viewport=True
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'art/blender/household_stoves.blend'))
 bpy.ops.object.select_all(action='DESELECT')
 for obj in draws:obj.select_set(True)
@@ -303,20 +305,25 @@ for item in assemblies:
   if part['assembly']!=item['id']:continue
   key=part['key'];parts.append({'name':part['name'],'component':part['name'].split('__')[1].split('_ON_')[0],'key':key,'tile':sets[key]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][key]} if key in plan['catalog_variants'] else {}),**({'tint':plan['material_tints'][key]} if key in plan['material_tints'] else {}),**({'finish':plan['finish_parameters'][key]} if key in plan.get('finish_parameters',{}) else {})})
  records.append({'id':item['id'],'parts':parts,**frames[item['id']]})
+ if variants[item['id']].get('service_obstructions'):records[-1]['service_obstructions']=variants[item['id']]['service_obstructions']
 local_materials={key:{'files':sets[key]['files'],'metallic':sets[key]['metallic'],'roughness':sets[key]['roughness'],'normal_scale':sets[key]['normal_scale'],'color':sets[key]['source_color'],'alpha':sets[key]['alpha']} for key in plan['runtime_keys'] if key not in plan['catalog_variants']}
 runtime={'schema_version':1,'asset':'res://assets/props/household_stoves.glb','floor_y':plan['placement']['floor_y'],'assemblies':records,'instances':[{k:v for k,v in row.items() if k in ['id','variant','visual_offset']} for row in plan['instances']],'tint_space':plan['tint_space']}
+if plan.get('control_pivots'):runtime['control_pivots']=plan['control_pivots']
+if plan.get('flame_mount'):runtime['flame_mount']=plan['flame_mount']
 runtime['native_service']={k:v for k,v in plan['native_service'].items() if k!='scope'}
 runtime['native_service']['grate_parking']=[{k:v for k,v in row.items() if k in ['blender_center','angle_degrees']} for row in plan['native_service']['grate_parking']]
 assert not local_materials
-(OUT/'game/data/orison_v2/household_stoves.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
+(OUT/'game/data/orison_v2/household_stoves.json').write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8',newline='\n')
 bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',ROOT/'art/blender/scripts/fabrication_grain.py',ROOT/'art/blender/scripts/fabrication_normals.py',ROOT/'art/blender/scripts/fabrication_chart_batch.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/household_stoves.glb.import',*material_definitions]
 for key in plan['runtime_keys']:bindings.extend(ROOT/'game/assets/building/textures'/f for f in sets[key]['files'] if f is not None)
 bindings.append(ROOT/'art/tools/fix_runtime_texture_imports.py')
+if plan.get('native_refit'):bindings.append(ROOT/plan['native_refit']['source'])
+bindings.extend(ROOT/name for name in ['game/scripts/building/orison_v2_native_household_stoves.gd','game/scripts/building/orison_v2_stove_visual_motion.gd'])
 bindings.extend([ROOT/'art/data/material_catalog.json',ROOT/'art/textures/catalog_mapping.json',ROOT/'art/tools/generate_runtime_materials.py'])
 bindings.extend(ROOT/name for name in ['art/blender/scripts/inspect_household_stoves.py','art/blender/scripts/render_household_stoves.py','art/blender/scripts/household_stoves_geometry.py','art/blender/scripts/inspect_household_stoves_context.py','art/blender/scripts/inspect_household_stove_motion.py','art/blender/scripts/surface_stock_geometry.py','art/blender/scripts/inspect_household_toaster_motion.py','art/blender/scripts/inspect_medicine_cabinets_context.py','game/scripts/props/stove_prop.gd','game/scripts/props/functional_prop.gd','game/data/orison_v2/domestic_fittings.json','game/data/orison_v2/completion_interiors.json','game/data/orison_v2/domestic_furniture.json','game/data/orison_v2_blockout.json','art/data/orison_v2/completion_interiors_source.json'])
 for family in ['domestic_objects','household_wardrobes','prep_cabinets','domestic_storage','domestic_seating','domestic_tables','work_tables']:
  bindings.extend([ROOT/f'art/blender/{family}.blend',ROOT/f'game/tests/fixtures/orison_{family}.json'])
 bindings.extend([ROOT/'art/blender/household_fridges.blend',ROOT/'game/tests/fixtures/orison_household_fridges.json',ROOT/'art/blender/household_radios.blend',ROOT/'game/tests/fixtures/orison_household_radios.json'])
 report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'source_record':a['members'][0]['id']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'retained_stock':retained_stock,'construction_groups':construction_groups,'placement':plan['placement'],'open_work':plan['open_work']}
-for name in ['art/blender/household_stoves_construction.json','game/tests/fixtures/orison_household_stoves.json']:(OUT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
+for name in ['art/blender/household_stoves_construction.json','game/tests/fixtures/orison_household_stoves.json']:(OUT/name).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('HOUSEHOLD STOVES',len(selected),'original records;',len(assemblies),'assemblies;',len(stock_checks),'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'foot contacts')

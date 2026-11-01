@@ -7,7 +7,10 @@ fit=json.loads((r/'art/data/household_stoves/source_plan.json').read_text(encodi
 tree=ast.parse((r/'art/blender/scripts/inspect_household_stove_motion.py').read_text(encoding='utf-8'))
 exec(compile(ast.Module(body=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in ['motion','smoothstep']],type_ignores=[]),'native stove motion','exec'))
 bpy.ops.wm.open_mainfile(filepath=str(r/'art/blender/household_stoves.blend'));scene=bpy.context.scene
-draws=[o for o in scene.objects if o.type=='MESH' and '__' in o.name and not o.hide_render]
+variant=os.environ.get('HOUSEHOLD_STOVES_VARIANT','HouseholdGasRange')
+all_draws=[o for o in scene.objects if o.type=='MESH' and '__' in o.name and not o.hide_render]
+draws=[o for o in all_draws if o.name.startswith(variant+'__')];assert draws,variant
+for o in all_draws:o.hide_render=o not in draws
 scene.render.engine='CYCLES';scene.cycles.samples=int(os.environ.get('HOUSEHOLD_STOVES_SAMPLES','32'))
 scene.render.resolution_x=1200;scene.render.resolution_y=1200;scene.render.resolution_percentage=100
 scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True
@@ -15,7 +18,8 @@ scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.55,.60,.65,1
 for at,power,size in [((2.,3.,3.5),350,2.5),((-2.,1.,2.),180,1.8)]:
  bpy.ops.object.light_add(type='AREA',location=at);lamp=bpy.context.object;lamp.data.energy=power;lamp.data.shape='DISK';lamp.data.size=size;lamp.rotation_euler=(Vector((0,0,.65))-lamp.location).to_track_quat('-Z','Y').to_euler()
 original={o:o.matrix_world.copy() for o in draws};views=[]
-for state in ['closed','open','service0','service1','service2','service3']:
+for state in os.environ.get('HOUSEHOLD_STOVES_STATES','closed,open,service0,service1,service2,service3').split(','):
+ assert state in ['closed','open','service0','service1','service2','service3'],state
  for o in draws:
   part=o.name.split('__')[1].split('_ON_')[0];o.matrix_world=original[o]
   if state!='closed' and part=='OvenDoor':
@@ -27,6 +31,6 @@ for state in ['closed','open','service0','service1','service2','service3']:
  low=Vector(tuple(min(p[i] for p in points) for i in range(3)));high=Vector(tuple(max(p[i] for p in points) for i in range(3)));center=(low+high)*.5;span=max(high-low)
  direction=Vector((1.3,3.,1.8)).normalized();bpy.ops.object.camera_add(location=center+direction*span*2.35);camera=bpy.context.object;camera.data.lens=52;camera.data.clip_start=.001
  camera.rotation_euler=(center-camera.location).to_track_quat('-Z','Y').to_euler();scene.camera=camera
- scene.render.filepath=str(out/('HouseholdGasRange_'+state+'.png'));bpy.ops.render.render(write_still=True)
- views.append({'id':'HouseholdGasRange','file':'HouseholdGasRange_'+state+'.png','state':state,'scope':'Native fixed and service geometry; original dynamic flame, grease and plugged jet remain runtime owners.'});bpy.data.objects.remove(camera,do_unlink=True)
+ scene.render.filepath=str(out/(variant+'_'+state+'.png'));bpy.ops.render.render(write_still=True)
+ views.append({'id':variant,'file':variant+'_'+state+'.png','state':state,'scope':'Native fixed and service geometry; original dynamic flame, grease and plugged jet remain runtime owners.'});bpy.data.objects.remove(camera,do_unlink=True)
 (out/'views.json').write_text(json.dumps({'evidence_class':'INERT','views':views,'scope':'Native form review. Service fit remains unaccepted until motion and context checks pass.'},indent=2)+'\n',encoding='utf-8',newline='\n')

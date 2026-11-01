@@ -148,7 +148,7 @@
     }
   ],
   "mechanism_source": "game/scripts/props/stove_prop.gd",
-  "mechanism_sha256": "b32842678aea11547661d950b7fdfceaf8a72f72ab83fdc5349d0064657da640",
+  "mechanism_sha256": "24d2da9cf826ef5253505e9ade665801d7a7c838dc95e3a2bab291a51e90aa59",
   "variants": [
     {
       "id": "HouseholdGasRange",
@@ -178,7 +178,11 @@
     {
       "id": "HouseholdGasRangePot",
       "kind": "stove",
-      "source_id": "stove / 1922 fired-enamel gas range"
+      "source_id": "stove / 1922 fired-enamel gas range",
+      "service_obstructions": [
+        1,
+        3
+      ]
     },
     {
       "id": "HouseholdGasRangeGreasyTapes",
@@ -522,48 +526,40 @@
         "index": 0,
         "blender_center": [
           -0.2,
-          -0.19995570945709254,
-          0.9949429460718783
+          -0.21495570945709255,
+          1.005
         ],
-        "angle_degrees": -60,
-        "floor_gap_m": 0.011833992770156176,
-        "rear_gap_m": 2e-06
+        "angle_degrees": -60
       },
       {
         "index": 1,
         "blender_center": [
           0.2,
-          -0.19995570945709254,
-          0.9949429460718783
+          -0.21495570945709255,
+          1.005
         ],
-        "angle_degrees": -60,
-        "floor_gap_m": 0.011833992770156176,
-        "rear_gap_m": 2e-06
+        "angle_degrees": -60
       },
       {
         "index": 2,
         "blender_center": [
           -0.2,
-          -0.19995571526854508,
-          0.9831109440102771
+          -0.21495570945709255,
+          1.005
         ],
-        "angle_degrees": -60,
-        "floor_gap_m": 2.0000000000575113e-06,
-        "rear_gap_m": 2e-06
+        "angle_degrees": -60
       },
       {
         "index": 3,
         "blender_center": [
           0.2,
-          -0.19995571526854508,
-          0.9831109440102771
+          -0.21495570945709255,
+          1.005
         ],
-        "angle_degrees": -60,
-        "floor_gap_m": 2.0000000000575113e-06,
-        "rear_gap_m": 2e-06
+        "angle_degrees": -60
       }
     ],
-    "grate_lift_m": 0.085,
+    "grate_lift_m": 0.125,
     "cap_lift_m": 0.055,
     "cap_end_blender_delta": [
       [
@@ -593,5 +589,49 @@
   "adaptations": [
     "Slice 37 of the V2 environment dossier strengthens the owner wear so it reads at the kitchens' detail distance: darker grime with a taller tide line, wider prints and spatter on Jonah's and Juno's splashbacks, aged yellow-brown tape residue and a sage replacement oven panel on Omar's range.",
     "Slice 44 of the V2 environment dossier adds HouseholdGasRangePot (2B: a blue enamel stock pot with its lid on the one lit ring, back right) and HouseholdGasRangeGreasyTapes (2C: the greasy finish with four plain reel boxes stacked on the cold front-left ring). enamel_pot is a tinted alias of the catalogue enamel, tapebox of the catalogue paper."
-  ]
+  ],
+  "native_refit": {
+    "source": "art/blender/orison_gas_range_source.blend",
+    "sha256": "8b664afba324828ed7542f33ea45fbaf72f47bbd3c6d38acc0a7996fdae934ea",
+    "collection": "01_EDITABLE_CLOSED_STOCKS",
+    "scope": "Frozen November 1 contact refit; original source is retained externally. Preserve all household variants and original logical owners; measured native parking support is supplied in this plan.",
+    "stock_count": 416
+  },
+  "control_pivots": {
+    "BurnerValve1": [
+      -0.23499999940395355,
+      0.7990000247955322,
+      -0.34200000762939453
+    ],
+    "BurnerValve2": [
+      0.11500000208616257,
+      0.7990000247955322,
+      -0.34200000762939453
+    ],
+    "BurnerValve3": [
+      -0.11500000208616257,
+      0.7990000247955322,
+      -0.34200000762939453
+    ],
+    "BurnerValve4": [
+      0.23499999940395355,
+      0.7990000247955322,
+      -0.34200000762939453
+    ],
+    "OvenValve": [
+      0.2759999930858612,
+      0.7099999785423279,
+      -0.34200000762939453
+    ],
+    "Starter": [
+      0,
+      0.7990000247955322,
+      -0.34200000762939453
+    ]
+  },
+  "flame_mount": {
+    "port_y": 0.885,
+    "radius": 0.063,
+    "phase_radians": -0.09817477042468103
+  }
 }

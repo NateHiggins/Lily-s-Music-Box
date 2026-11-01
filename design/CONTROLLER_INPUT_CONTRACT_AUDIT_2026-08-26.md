@@ -1,5 +1,8 @@
 # Controller input contract audit — 2026-08-26
 
+Evidence class: **INERT**. Historical audit and current implementation plan;
+the November 1 section below does not claim new runtime acceptance.
+
 > **IMPLEMENTATION NOTICE — `1112cb9`, 2026-08-26:** the H1, H2, H4 and H5
 > blockers identified below are now implemented on `main`. Maintenance uses
 > semantic adjust/commit/cancel actions; the Otis board owns focus and accepts
@@ -500,3 +503,58 @@ UNKNOWN**.
 - It recommends no haptics (§10).
 - It makes no platform certification claim; PlayStation and Nintendo names in §5
   are physical-position equivalents only.
+
+## November 1 — owner-requested V2 controls and pause overhaul
+
+Lily requests a function-first overhaul, keyboard/mouse and controller bindings
+in Settings, and a revised pause surface. Her explicit clarification is:
+**expose the existing inventory now; reserve the map for later design**. The
+interactive 4B exploration-and-note example is a design study, not installed
+discovery, navigation, notes persistence or a new campaign authority. Older
+vertical-slice action lists above are historical evidence, not a complete
+inventory of the evolved game.
+
+### Implemented owners inspected before changing bindings
+
+| Player function | Current owner / implementation | Gap to close in this pass |
+|---|---|---|
+| Walk, run, crouch, jump and look | **GameBoot** registers named actions; **PlayerController** consumes left/right sticks and keyboard; independent persisted look settings exist | Preserve movement/physics and configure bindings rather than replacing the controller |
+| Primary grab, motion and release | **PlayerController**, **ConstrainedGrab**, each mechanism's permission/limits; right stick already feeds held motion | Primary mouse click is hard-coded; normalize to remappable semantic actions without duplicate events or click-through |
+| Held stock depth, rotation and axis restriction | Wheel, right mouse and X/Y/Z paths in **PlayerController** and **ConstrainedGrab** | Expose equivalent configurable actions for keyboard and pad; retain the physical hand and geometry constraints |
+| Inspect and reading zoom | Existing inspection owner and camera anchor; jump currently also enters/exits inspection; wheel zoom | Separate clear configurable meanings and preserve stance/camera ownership; no accidental jump when leaving inspection |
+| Use a key, lamp and radio | Existing named actions and their player/device owners | Include in the normal binding catalogue; no second inventory or lamp authority |
+| Companion read, type, submit, cancel, history and reading distance | **CompanionWorldCarrier** and **CompanionSession**; real draft/editor and input leases | Preserve drafts, power, protected conversations and editor-owned A presses; audit actual controller text entry rather than counting submit as full typing support |
+| Inventory / carried case | **CarriedCaseView** displays the existing **PersonInventory** goods; **CarriedCase** stores arrangement only | Make existing inventory available from pause and a configurable shortcut, with pad selection/placement equivalents; no invented capacity limits on keys, repairs or clues |
+| Contextual activity adjustment and commit | Existing **activity_adjust_left/right**, **activity_commit**, UI accept/cancel | Preserve focus and avoid world interaction from the same confirm press |
+| Pause, resume, Settings and back | **PauseServices**, **GameBoot** preferences, **AudioPolicy** mix | Current panel primarily hosts settings and rejects call/seated ownership. Implement coherent pause ownership and restore the actual prior focus, mouse and pause state without dismissing protected activity |
+| Record/capture, music, care and pocket ledger | Existing named actions in **GameBoot**; respective live consumers must be traced before changing defaults | Include only installed player-facing functions; keep development capture/debug controls separate |
+| Map | Deferred; external exploration/notes example only | Reserve future entry without a false playable map or invented discovery facts |
+
+### Implementation and verification boundary
+
+Extend the existing input registration/preferences and UI owners. Store bindings
+through **GameBoot** user settings, not campaign saves. Settings must display
+both device families, capture a new key/button/axis safely, identify conflicting
+bindings in the same context, allow cancellation/default restoration, and load
+the same bindings on restart. Reserved UI escape/back must leave the menu
+recoverable. Audit physical-key versus logical-key behavior before migration;
+retain the existing named consumers unless a demonstrated replacement requires
+a complete consumer migration.
+
+Pause must hold the actual world/campaign clock and audio policy while preserving
+mechanism custody, seated interaction, reading and typed drafts. Resume must not
+fire the confirmation press into the world, replay ignition, or steal a foreign
+camera/input lease. Inventory presentation must use its existing item and
+arrangement authorities; opening it from pause must not silently resume the
+world. Quit/save operations must use the validated existing campaign owner.
+
+First qualify the repaired range independently; then implement and test these
+cross-system changes. Focused keyboard and synthetic joypad event routes must
+exercise actual consumers, not just InputMap registration. Cover saved-binding
+reload, conflict/cancel/default flows, held-part pause/resume, companion draft,
+protected call, seated context and inventory. Inspect rendered menus and focus
+at native fullscreen and a smaller supported viewport. Physical-pad playtesting
+and Lily's usability judgment remain distinct from synthetic-event checks.
+
+This section records an audited implementation plan only. No new remapping,
+pause or inventory behavior has been implemented or qualified by adding it.

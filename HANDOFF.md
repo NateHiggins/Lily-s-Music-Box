@@ -1,4 +1,83 @@
-# Current handoff — 2026-10-31 compact companion and city checkpoint
+# Current handoff â€” 2026-11-01 range/current-main reconciliation
+
+Evidence class: **INERT**. Continuity index, not acceptance evidence.
+
+Owner: Lily, she/her. Normal checkout **C:/PleaseRemainOnTheLine**. Read
+DOCS.md, AGENTS.md and developer-continuity. Historical sections below are not
+current Git or queue state. The full V2 goal remains active and incomplete.
+
+- Branch **codex/v2-gas-range-refit-20261101**, draft [PR127](https://github.com/NateHiggins/Lily-s-Music-Box/pull/127).
+  Source checkpoint **e796eef5b**, including **76ee616cc** import provenance fix,
+  **cfd2ea254** merge of main **d7eeb29c5** (PR129â€“131), plus earlier PR126/128.
+  Not merged to main. Preserve unrelated UIDs/attachments and import-only churn.
+- Corrected seven native range variants are installed across 18 actors. Exact
+  export 239,788 triangles/296 partitions/26,363,156 bytes; SHA256
+  **b1c736f2b32e055748b146e80d8a844f6468c4da2dff4c946115a9299b30691a**.
+  Native contact/motion/UV/tangent checks pass. Existing fault, service, inventory
+  and save owners retained; partial taps use a separate momentary starter.
+- Fixed native stock now supplies cached triangle collision; the old box filled
+  the oven opening. Shared domestic adapter changes only its fallback guard.
+  **input06: 98/0**, including original-hull negative and actual blockers/pause/
+  ignition/reload. **installed08: 5,864/0**, all 18 actors, actual 4B controls and
+  all 654 household records via validated disk reload. Encoded facts exact;
+  reconstructed float32 poses 1e-6 with altered-valve/missing-owner negatives.
+  Three 3440x1440 kitchen frames inspected. INERT diagnostics, not whole-shift
+  or artistic acceptance; no collision/startup speed claim.
+- **surface03: 651/0**, completed schema2 physical-only composed qualification,
+  30,048 draws/6,670 materials/543 textures, 256.585s test/280.14s wrapper,
+  empty stderr. Patched Vulkan, hidden desktop, 3440x1440. Four fresh images
+  inspected and actual packet published; qualification zero defects. Fingerprint
+  **05ced15d3b3c535dbd27d2b7f73ee7703199ad30b97589f42d2ed5d6efc6380a**.
+  Separate interaction/save/companion/civic programmes NOT_EXECUTED; no whole-game
+  acceptance. Sparse dressing, strong bathroom lamp pool and flat cloud relief
+  remain visible. Surface02/older packet/failures remain preserved externally/Git.
+- **76ee616cc management candidate passed:** 119 gates vs merge-base 45c391bc,
+  zero regressions / six improvements, 17/17 protected paths, selector V2, no lint errors,
+  surface qualification PASS and 42 surface tools tests PASS 479.09s. The initial
+  ab46 headline concealed baseline-red surface defects: 118 ignored newspaper PNG
+  sidecars existed only locally. Exact settings are now tracked/non-text; fresh
+  isolated projection parity passed without repinning the rendered receipt.
+  The skill records this verified lesson. Full raw reports and original failures:
+  **C:/ov/reports/gas_range_integration_20261101/**; detailed ledger:
+  **design/V2_HOUSEHOLD_STOVES_2026-10-08.md**.
+- NEXT: commit the surface03 renewal, finish the clean **d7eeb29c5** baseline,
+  compare/verify the final candidate, then manually merge PR127. No auto-merge.
+  Own clean detached verification checkout **C:/ov/c-ab46a508** is being reused
+  for that baseline; do not switch it while the job is live. Script
+  **refresh_main_baseline.py**, output **clean_main_d7eeb2/**, then exact cache
+  **C:/ov/boards/<full-d7-sha>.v2.json**. Prior 45c baseline checkout was safely
+  removed (70,907 files); actual board/cache retained. Source-frozen engine batch
+  **main_reconciliation_batch02.json** is completed. Do not repeat unchanged
+  range/hose/native checks for reports. A temporary main-merge hold was requested
+  on PR127; acknowledgement is not established. Fetch before final merge.
+- City architect is frozen/blocked awaiting intake, source
+  **74aa686920e51665af40c004255ffd4fb283748f**, record-only
+  **0bcb475f6a172cb409254ea6da1ade09528d0577**. All earlier Western/Cedar commits
+  remain unmerged. Reported 949family/341isolated/113composed checks; actual 12 legs,
+  seven endpoints / 1,105 samples/no rescues. I inspected all five composed frames and
+  verified 336-member archive hash/CRC **2950cebeâ€¦85b2aa8**. Merge preview conflicts
+  only HANDOFF, appended city report and spatial manifest. Preserve both reports
+  and all 11,097 canonical records plus reviewed **cc77c4890e51fcde** (11,098 total).
+  No canonical city intake yet;93 generic profiles,lighting/performance/artistic
+  scope remain. Integrate the published checkpoint before another construction
+  slice; respect Lily's one-task-at-a-time instruction.
+- Controls/pause overhaul remains unimplemented: existing function matrix in
+  **design/CONTROLLER_INPUT_CONTRACT_AUDIT_2026-08-26.md**. Expose current inventory;
+  reserve live map. External 4B explore/note example is not installed discovery
+  or persistence. Hose/book/nook/stutter/golden-shift tasks remain in TASKS.
+- External native deliveries are INERT and queued in TASKS/modeler intake index:
+  clawfoot/plumbing, fitted lavatory (includes old UV-only baseline), additive
+  closet hardware, boiler/mail/watch/washer/switchboard/dispatch and resident key.
+  Latest air-vent-only packet **radiator-surface-v2-refit-20261101/** is reported
+  complete, unintegrated; remaining mechanism/morph/tag repairs are pending.
+  Verify each manifest/current consumer before intake. Preserve all state owners.
+- Questionnaire rulings already on main 2a2e97f56. Queens lot/address packet remains
+  proposed: fictional composite, no lot or relocation selected, exact 1928 number
+  unverified. No sign edit. No new decision needed for the current checkpoint.
+
+---
+
+# Historical handoff — 2026-10-31 compact companion and city checkpoint
 
 Evidence class: **INERT**. Current-session index, not acceptance evidence.
 

@@ -59,6 +59,7 @@ var _knob_motions: Dictionary = {}
 var _flame_motions: Dictionary = {}
 var _grates: Array[Node3D] = []
 var _grate_home: Array[Vector3] = []
+var _service_obstructions: Array[int] = []
 var _caps: Array[Node3D] = []
 var _cap_home: Array[Vector3] = []
 var _jet_plugs: Array[MeshInstance3D] = []
@@ -67,6 +68,10 @@ var _flames: Array[Node3D] = []
 var _dirty_flames: Array[MeshInstance3D] = []
 var _burner_lights: Array[OmniLight3D] = []
 var _knobs: Array[Node3D] = []
+var _starter: Node3D
+var _starter_home := Vector3.ZERO
+var _starter_motion: Tween
+var _starter_armed := true
 var _clunk: AudioStreamPlayer3D
 var _burn: AudioStreamPlayer3D
 var _burn_motion: Tween
@@ -251,6 +256,13 @@ func _build_controls() -> void:
 				Vector3(0, 0.018, -0.024), BRASS_DULL)
 		if i < 4:
 			_knobs.append(knob)
+	_starter = Node3D.new()
+	_starter.name = "Starter"
+	_starter.position = Vector3(0, .799, -.342)
+	_starter_home = _starter.position
+	add_child(_starter)
+	var button := _cyl_on(_starter, .013, .013, .025, Vector3.ZERO, BAKELITE)
+	button.rotation_degrees.x = 90.0
 
 
 func _build_burner(index: int, spot: Vector2) -> void:
@@ -435,9 +447,15 @@ func clear_jet(index: int) -> void:
 	set_burner_grime(index, burner_grime[index] * 0.25)
 
 
+func service_obstructed(index:int) -> bool:
+	# Installed fixed cookware is not an inventory item. Do not pretend that a
+	# grate or cap can pass through it; source repair faults remain accessible.
+	return index in _service_obstructions
+
 func set_grate_removed(index: int, removed: bool, seconds := 0.45) -> void:
 	if index < 0 or index >= _grates.size():
 		return
+	if removed and service_obstructed(index):return
 	var target := _grate_home[index]
 	var target_rotation := Vector3.ZERO
 	if removed:
@@ -455,6 +473,7 @@ func set_grate_removed(index: int, removed: bool, seconds := 0.45) -> void:
 func set_cap_removed(index: int, removed: bool, seconds := 0.35) -> void:
 	if index < 0 or index >= _caps.size():
 		return
+	if removed and service_obstructed(index):return
 	var target := _cap_home[index]
 	if removed:
 		target += Vector3(0.12 if index % 2 == 0 else -0.12, 0.018, -0.12)
@@ -464,6 +483,7 @@ func set_cap_removed(index: int, removed: bool, seconds := 0.35) -> void:
 
 func set_service_pose(index := 0) -> void:
 	index = clampi(index, 0, BURNER_SPOTS.size() - 1)
+	if service_obstructed(index):return
 	set_grate_removed(index, true, 0.01)
 	set_cap_removed(index, true, 0.01)
 	set_burner_grime(index, 0.92)
@@ -579,17 +599,19 @@ func _tube_between(parent: Node3D, a: Vector3, b: Vector3,
 
 
 func _build_primary_interaction() -> void:
-	for part: Node3D in [_door,_broiler]+_knobs:
+	for part: Node3D in [_door,_broiler,_starter]+_knobs:
 		for child_name: String in ["ManipulationTarget","HandMovedCollision"]:
 			var old := part.get_node_or_null(child_name)
 			if old != null: old.free()
 	for index in _knobs.size():
 		preload("res://scripts/props/manipulation_area.gd").install(_knobs[index],func(): return gas_grip(index))
+	preload("res://scripts/props/manipulation_area.gd").install(_starter,starter_grip)
 	for part: Node3D in [_door, _broiler]:
 		preload("res://scripts/props/manipulation_area.gd").install(part, func(): return _range_grip(part))
 		preload("res://scripts/props/mechanism_sweep.gd").install(part)
 
 func manipulation_target(hit: Dictionary) -> Dictionary:
+	if _starter.is_ancestor_of(hit.collider): return starter_grip()
 	for part: Node3D in [_door,_broiler]:
 		if part.is_ancestor_of(hit.collider): return _range_grip(part)
 	return {}
@@ -653,6 +675,46 @@ func gas_grip(index: int) -> Dictionary:
 			return true,
 		"end":func(): _hand_part=null;manipulation_changed.emit()}
 
+func _cancel_starter_motion() -> void:
+	if _starter_motion != null and _starter_motion.is_valid(): _starter_motion.kill()
+	_starter_motion = null
+
+func _strike_open_burners() -> void:
+	# Fuel remains owned by each cock. The starter supplies ignition only.
+	for index in _gas_openings.size():
+		var opening := _gas_openings[index]
+		if opening <= .0001 or _burner_on[index]: continue
+		if set_burner_lit(index,true,.02):
+			_set_gas_opening(index,opening)
+
+func starter_grip() -> Dictionary:
+	return {"owner":self,"part":_starter,"frame":self,"kind":"slide",
+		"axis":Vector3.BACK,"minimum":0.0,"maximum":.008,
+		"read":func(): return _starter.position.z-_starter_home.z,
+		"write":func(value:float):
+			if _hand_part != _starter or _possessed: return
+			value=clampf(value,0.,.008)
+			_starter.position.z=_starter_home.z+value
+			if value <= .002: _starter_armed=true
+			if _starter_armed and value >= .006:
+				_starter_armed=false
+				_strike_open_burners(),
+		"owns":func(): return _hand_part==_starter and not _possessed,
+		"begin":func():
+			if _hand_part != null or _possessed: return false
+			_cancel_starter_motion()
+			if _starter.position.z-_starter_home.z <= .002: _starter_armed=true
+			_hand_part=_starter
+			return true,
+		"end":func():
+			if _hand_part != _starter: return
+			_hand_part=null
+			_cancel_starter_motion()
+			_starter_motion=create_tween()
+			_starter_motion.tween_property(_starter,"position",_starter_home,.12)
+			_starter_motion.finished.connect(func(): _starter_armed=true)
+			manipulation_changed.emit()}
+
 func mechanism_snapshot() -> Dictionary:
 	return {"door":-_door.rotation.x,"broiler":-D*.5-.016-_broiler.position.z,
 		"gas":_gas_openings.duplicate(),"lit":_burner_on.duplicate()}
@@ -670,6 +732,9 @@ func valid_mechanism(value: Variant) -> bool:
 
 func restore_mechanism(value: Dictionary) -> void:
 	if not valid_mechanism(value): return
+	_cancel_starter_motion()
+	_starter.position=_starter_home
+	_starter_armed=true
 	if _door_motion != null and _door_motion.is_valid(): _door_motion.kill()
 	_hand_part=null
 	_door.rotation.x=-float(value.door);_open=value.door>.01

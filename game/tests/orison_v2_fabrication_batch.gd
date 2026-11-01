@@ -1,72 +1,74 @@
 extends "res://tests/orison_v2_city_sweep.gd"
 ## One production world, independent detailed validators, changed-area captures.
 ## This is visual/static-fit QA, not a runtime_contract or ledger promotion.
+# Paths stay discoverable to source-closure tools. Compile only the selected
+# validators below,so an unrelated broken route cannot start a fallback world.
 const MODULES := {
-	"front_pavement": preload("res://tests/orison_v2_front_pavement_test.gd"),
-	"street_paving_details": preload("res://tests/orison_v2_street_paving_details_test.gd"),
-	"owner_building_finish": preload("res://tests/orison_v2_owner_building_finish_test.gd"),
-	"owner_building_routes": preload("res://tests/orison_v2_owner_building_routes_test.gd"),
-	"owner_shop_finish": preload("res://tests/orison_v2_owner_shop_finish_test.gd"),
-	"druggist_carboys": preload("res://tests/orison_v2_druggist_carboys_test.gd"),
-	"druggist_fountain": preload("res://tests/orison_v2_druggist_fountain_test.gd"),
-	"druggist_mortar": preload("res://tests/orison_v2_druggist_mortar_test.gd"),
-	"funeral_foliage": preload("res://tests/orison_v2_funeral_foliage_test.gd"),
-	"funeral_drapes": preload("res://tests/orison_v2_funeral_drapes_test.gd"),
-	"diner_apparatus": preload("res://tests/orison_v2_diner_apparatus_test.gd"),
-	"diner_urns": preload("res://tests/orison_v2_diner_urns_test.gd"),
-	"radio_battery": preload("res://tests/orison_v2_radio_battery_test.gd"),
-	"wet_cloth": preload("res://tests/orison_v2_wet_cloth_test.gd"),
-	"bedding": preload("res://tests/orison_v2_bedding_test.gd"),
-	"owner_service_finish": preload("res://tests/orison_v2_owner_service_finish_test.gd"),
-	"bodega_frontage": preload("res://tests/orison_v2_bodega_frontage_test.gd"),
-	"signage": preload("res://tests/orison_v2_signage_test.gd"),
-	"bar_receiving": preload("res://tests/orison_v2_bar_receiving_test.gd"),
-	"bar_furniture": preload("res://tests/orison_v2_bar_furniture_test.gd"),
-	"task_lamp_supply": preload("res://tests/orison_v2_task_lamp_supply_test.gd"),
-	"bar_instruments": preload("res://tests/orison_v2_bar_instruments_test.gd"),
-	"service_instruments": preload("res://tests/orison_v2_service_instruments_test.gd"),
-	"household_stoves": preload("res://tests/orison_v2_household_stoves_test.gd"),
-	"household_fridges": preload("res://tests/orison_v2_household_fridges_test.gd"),
-	"fixed_lighting": preload("res://tests/orison_v2_fixed_lighting_test.gd"),
-	"medicine_cabinets": preload("res://tests/orison_v2_medicine_cabinets_test.gd"),
-	"household_toasters": preload("res://tests/orison_v2_household_toasters_test.gd"),
-	"household_radios": preload("res://tests/orison_v2_household_radios_test.gd"),
-	"domestic_objects": preload("res://tests/orison_v2_domestic_objects_test.gd"),
-	"household_wardrobes": preload("res://tests/orison_v2_household_wardrobes_test.gd"),
-	"domestic_storage": preload("res://tests/orison_v2_domestic_storage_test.gd"),
-	"prep_cabinets": preload("res://tests/orison_v2_prep_cabinets_test.gd"),
-	"domestic_seating": preload("res://tests/orison_v2_domestic_seating_test.gd"),
-	"domestic_tables": preload("res://tests/orison_v2_domestic_tables_test.gd"),
-	"signal_terminal": preload("res://tests/orison_v2_signal_terminal_test.gd"),
-	"surface_stock": preload("res://tests/orison_v2_surface_stock_test.gd"),
-	"work_tables": preload("res://tests/orison_v2_work_tables_test.gd"),
-	"reading_nook": preload("res://tests/orison_v2_reading_nook_test.gd"),
-	"task_lamps": preload("res://tests/orison_v2_task_lamps_test.gd"),
-	"photo_radio_fittings": preload("res://tests/orison_v2_photo_radio_fittings_test.gd"),
-	"radio_display": preload("res://tests/orison_v2_radio_display_test.gd"),
-	"cobbler_fittings": preload("res://tests/orison_v2_cobbler_fittings_test.gd"),
-	"druggist_cupboard": preload("res://tests/orison_v2_druggist_cupboard_test.gd"),
-	"locksmith_fittings": preload("res://tests/orison_v2_locksmith_fittings_test.gd"),
-	"news_fittings": preload("res://tests/orison_v2_news_fittings_test.gd"),
-	"shop_clerestories": preload("res://tests/orison_v2_shop_clerestories_test.gd"),
-	"shop_joinery": preload("res://tests/orison_v2_shop_joinery_test.gd"),
-	"diner_counter": preload("res://tests/orison_v2_diner_counter_test.gd"),
-	"diner_till": preload("res://tests/orison_v2_diner_till_test.gd"),
-	"hardware_tools": preload("res://tests/orison_v2_hardware_tools_test.gd"),
-	"photo_cameras": preload("res://tests/orison_v2_photo_cameras_test.gd"),
-	"photo_counter": preload("res://tests/orison_v2_photo_counter_test.gd"),
-	"photo_enlargers": preload("res://tests/orison_v2_photo_enlargers_test.gd"),
-	"photo_portraits": preload("res://tests/orison_v2_photo_portraits_test.gd"),
-	"photo_stock": preload("res://tests/orison_v2_photo_stock_test.gd"),
-	"radio_wire": preload("res://tests/orison_v2_radio_wire_test.gd"),
-	"laundry_trade": preload("res://tests/orison_v2_laundry_trade_test.gd"),
-	"laundry_fittings": preload("res://tests/orison_v2_laundry_fittings_test.gd"),
-	"laundry_apparatus": preload("res://tests/orison_v2_laundry_apparatus_test.gd"),
-	"pawn_fittings": preload("res://tests/orison_v2_pawn_fittings_test.gd"),
-	"pawn_clocks": preload("res://tests/orison_v2_pawn_clocks_test.gd"),
-	"pawn_display": preload("res://tests/orison_v2_pawn_display_test.gd"),
+	"front_pavement": "res://tests/orison_v2_front_pavement_test.gd",
+	"street_paving_details": "res://tests/orison_v2_street_paving_details_test.gd",
+	"owner_building_finish": "res://tests/orison_v2_owner_building_finish_test.gd",
+	"owner_building_routes": "res://tests/orison_v2_owner_building_routes_test.gd",
+	"owner_shop_finish": "res://tests/orison_v2_owner_shop_finish_test.gd",
+	"druggist_carboys": "res://tests/orison_v2_druggist_carboys_test.gd",
+	"druggist_fountain": "res://tests/orison_v2_druggist_fountain_test.gd",
+	"druggist_mortar": "res://tests/orison_v2_druggist_mortar_test.gd",
+	"funeral_foliage": "res://tests/orison_v2_funeral_foliage_test.gd",
+	"funeral_drapes": "res://tests/orison_v2_funeral_drapes_test.gd",
+	"diner_apparatus": "res://tests/orison_v2_diner_apparatus_test.gd",
+	"diner_urns": "res://tests/orison_v2_diner_urns_test.gd",
+	"radio_battery": "res://tests/orison_v2_radio_battery_test.gd",
+	"wet_cloth": "res://tests/orison_v2_wet_cloth_test.gd",
+	"bedding": "res://tests/orison_v2_bedding_test.gd",
+	"owner_service_finish": "res://tests/orison_v2_owner_service_finish_test.gd",
+	"bodega_frontage": "res://tests/orison_v2_bodega_frontage_test.gd",
+	"signage": "res://tests/orison_v2_signage_test.gd",
+	"bar_receiving": "res://tests/orison_v2_bar_receiving_test.gd",
+	"bar_furniture": "res://tests/orison_v2_bar_furniture_test.gd",
+	"task_lamp_supply": "res://tests/orison_v2_task_lamp_supply_test.gd",
+	"bar_instruments": "res://tests/orison_v2_bar_instruments_test.gd",
+	"service_instruments": "res://tests/orison_v2_service_instruments_test.gd",
+	"household_stoves": "res://tests/orison_v2_household_stoves_test.gd",
+	"household_fridges": "res://tests/orison_v2_household_fridges_test.gd",
+	"fixed_lighting": "res://tests/orison_v2_fixed_lighting_test.gd",
+	"medicine_cabinets": "res://tests/orison_v2_medicine_cabinets_test.gd",
+	"household_toasters": "res://tests/orison_v2_household_toasters_test.gd",
+	"household_radios": "res://tests/orison_v2_household_radios_test.gd",
+	"domestic_objects": "res://tests/orison_v2_domestic_objects_test.gd",
+	"household_wardrobes": "res://tests/orison_v2_household_wardrobes_test.gd",
+	"domestic_storage": "res://tests/orison_v2_domestic_storage_test.gd",
+	"prep_cabinets": "res://tests/orison_v2_prep_cabinets_test.gd",
+	"domestic_seating": "res://tests/orison_v2_domestic_seating_test.gd",
+	"domestic_tables": "res://tests/orison_v2_domestic_tables_test.gd",
+	"signal_terminal": "res://tests/orison_v2_signal_terminal_test.gd",
+	"surface_stock": "res://tests/orison_v2_surface_stock_test.gd",
+	"work_tables": "res://tests/orison_v2_work_tables_test.gd",
+	"reading_nook": "res://tests/orison_v2_reading_nook_test.gd",
+	"task_lamps": "res://tests/orison_v2_task_lamps_test.gd",
+	"photo_radio_fittings": "res://tests/orison_v2_photo_radio_fittings_test.gd",
+	"radio_display": "res://tests/orison_v2_radio_display_test.gd",
+	"cobbler_fittings": "res://tests/orison_v2_cobbler_fittings_test.gd",
+	"druggist_cupboard": "res://tests/orison_v2_druggist_cupboard_test.gd",
+	"locksmith_fittings": "res://tests/orison_v2_locksmith_fittings_test.gd",
+	"news_fittings": "res://tests/orison_v2_news_fittings_test.gd",
+	"shop_clerestories": "res://tests/orison_v2_shop_clerestories_test.gd",
+	"shop_joinery": "res://tests/orison_v2_shop_joinery_test.gd",
+	"diner_counter": "res://tests/orison_v2_diner_counter_test.gd",
+	"diner_till": "res://tests/orison_v2_diner_till_test.gd",
+	"hardware_tools": "res://tests/orison_v2_hardware_tools_test.gd",
+	"photo_cameras": "res://tests/orison_v2_photo_cameras_test.gd",
+	"photo_counter": "res://tests/orison_v2_photo_counter_test.gd",
+	"photo_enlargers": "res://tests/orison_v2_photo_enlargers_test.gd",
+	"photo_portraits": "res://tests/orison_v2_photo_portraits_test.gd",
+	"photo_stock": "res://tests/orison_v2_photo_stock_test.gd",
+	"radio_wire": "res://tests/orison_v2_radio_wire_test.gd",
+	"laundry_trade": "res://tests/orison_v2_laundry_trade_test.gd",
+	"laundry_fittings": "res://tests/orison_v2_laundry_fittings_test.gd",
+	"laundry_apparatus": "res://tests/orison_v2_laundry_apparatus_test.gd",
+	"pawn_fittings": "res://tests/orison_v2_pawn_fittings_test.gd",
+	"pawn_clocks": "res://tests/orison_v2_pawn_clocks_test.gd",
+	"pawn_display": "res://tests/orison_v2_pawn_display_test.gd",
 	# This module exercises a real purchase after the other geometry validators.
-	"hardware_stock": preload("res://tests/orison_v2_hardware_stock_test.gd"),
+	"hardware_stock": "res://tests/orison_v2_hardware_stock_test.gd",
 }
 
 func _run() -> void:
@@ -81,9 +83,14 @@ func _run() -> void:
 		check(id in selected and module_actors[id] is Array,"per-module capture selection belongs to this batch: "+id)
 	if directory.is_empty(): directory = "user://fabrication_batch"
 	DirAccess.make_dir_recursive_absolute(directory)
+	var validators: Dictionary = {}
 	for id: String in selected:
 		check(MODULES.has(id), "registered fabrication validator: " + id)
-		if MODULES.has(id): check(MODULES[id].can_instantiate(), "validator compiled before world loading: " + id)
+		if MODULES.has(id):
+			var script := load(str(MODULES[id])) as Script
+			var compiled := script != null and script.can_instantiate()
+			check(compiled, "validator compiled before world loading: " + id)
+			if compiled: validators[id] = script
 	for id: String in captures:
 		check(id in selected, "capture must belong to this batch: " + id)
 	check(not selected.is_empty(), "batch must select at least one validator")
@@ -125,7 +132,7 @@ func _run() -> void:
 	var previous_directory := OS.get_environment("SHOT_DIR")
 	var previous_actors := OS.get_environment("ORISON_FABRICATION_ACTORS")
 	for id: String in selected:
-		var module = MODULES[id].new()
+		var module = validators[id].new()
 		module.batch_mode = true
 		module.capture_enabled = id in captures
 		add_child(module)
@@ -144,7 +151,7 @@ func _run() -> void:
 			result = {"checks":int(module.checks), "failures":incomplete}
 		result["elapsed_ms"] = Time.get_ticks_msec() - module_started
 		result["captured"] = module.capture_enabled
-		result["validator_sha256"] = FileAccess.get_sha256(MODULES[id].resource_path)
+		result["validator_sha256"] = FileAccess.get_sha256(str(MODULES[id]))
 		var fixture_id: String = "front_pavement_construction" if id == "front_pavement" else id
 		result["fixture_sha256"] = FileAccess.get_sha256("res://tests/fixtures/orison_" + fixture_id + ".json")
 		results[id] = result

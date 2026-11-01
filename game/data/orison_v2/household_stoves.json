@@ -80,20 +80,20 @@
           }
         },
         {
-          "name": "HouseholdGasRange__BroilerDrawer_ON_dark",
+          "name": "HouseholdGasRange__BroilerDrawer_ON_bakelite",
           "component": "BroilerDrawer",
-          "key": "dark",
-          "tile": 0.4,
-          "catalog_key": "iron_blackened",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.033104766570885055,
-            0.030074104146591292,
-            0.027211780951381357,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -306,6 +306,17 @@
           }
         },
         {
+          "name": "HouseholdGasRange__BurnerValve1_ON_nickel",
+          "component": "BurnerValve1",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRange__BurnerValve2_ON_bakelite",
           "component": "BurnerValve2",
           "key": "bakelite",
@@ -336,6 +347,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRange__BurnerValve2_ON_nickel",
+          "component": "BurnerValve2",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -374,6 +396,17 @@
           }
         },
         {
+          "name": "HouseholdGasRange__BurnerValve3_ON_nickel",
+          "component": "BurnerValve3",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRange__BurnerValve4_ON_bakelite",
           "component": "BurnerValve4",
           "key": "bakelite",
@@ -404,6 +437,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRange__BurnerValve4_ON_nickel",
+          "component": "BurnerValve4",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -476,20 +520,20 @@
           }
         },
         {
-          "name": "HouseholdGasRange__OvenDoor_ON_brass",
+          "name": "HouseholdGasRange__OvenDoor_ON_bakelite",
           "component": "OvenDoor",
-          "key": "brass",
-          "tile": 0.6,
-          "catalog_key": "bronze_sheet",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.6382832153523972,
-            0.5070785101492276,
-            0.23302199930143813,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -521,6 +565,17 @@
           }
         },
         {
+          "name": "HouseholdGasRange__OvenDoor_ON_nickel",
+          "component": "OvenDoor",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRange__OvenValve_ON_bakelite",
           "component": "OvenValve",
           "key": "bakelite",
@@ -538,8 +593,36 @@
           }
         },
         {
-          "name": "HouseholdGasRange__OvenValve_ON_brass",
+          "name": "HouseholdGasRange__OvenValve_ON_nickel",
           "component": "OvenValve",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRange__Starter_ON_bakelite",
+          "component": "Starter",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRange__Starter_ON_brass",
+          "component": "Starter",
           "key": "brass",
           "tile": 0.6,
           "catalog_key": "bronze_sheet",
@@ -645,20 +728,20 @@
           }
         },
         {
-          "name": "HouseholdGasRangePristine__BroilerDrawer_ON_dark",
+          "name": "HouseholdGasRangePristine__BroilerDrawer_ON_bakelite",
           "component": "BroilerDrawer",
-          "key": "dark",
-          "tile": 0.4,
-          "catalog_key": "iron_blackened",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.033104766570885055,
-            0.030074104146591292,
-            0.027211780951381357,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -877,6 +960,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangePristine__BurnerValve1_ON_nickel",
+          "component": "BurnerValve1",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangePristine__BurnerValve2_ON_bakelite",
           "component": "BurnerValve2",
           "key": "bakelite",
@@ -907,6 +1001,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePristine__BurnerValve2_ON_nickel",
+          "component": "BurnerValve2",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -945,6 +1050,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangePristine__BurnerValve3_ON_nickel",
+          "component": "BurnerValve3",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangePristine__BurnerValve4_ON_bakelite",
           "component": "BurnerValve4",
           "key": "bakelite",
@@ -975,6 +1091,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePristine__BurnerValve4_ON_nickel",
+          "component": "BurnerValve4",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -1047,20 +1174,20 @@
           }
         },
         {
-          "name": "HouseholdGasRangePristine__OvenDoor_ON_brass",
+          "name": "HouseholdGasRangePristine__OvenDoor_ON_bakelite",
           "component": "OvenDoor",
-          "key": "brass",
-          "tile": 0.6,
-          "catalog_key": "bronze_sheet",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.6382832153523972,
-            0.5070785101492276,
-            0.23302199930143813,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -1098,6 +1225,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangePristine__OvenDoor_ON_nickel",
+          "component": "OvenDoor",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangePristine__OvenValve_ON_bakelite",
           "component": "OvenValve",
           "key": "bakelite",
@@ -1115,8 +1253,36 @@
           }
         },
         {
-          "name": "HouseholdGasRangePristine__OvenValve_ON_brass",
+          "name": "HouseholdGasRangePristine__OvenValve_ON_nickel",
           "component": "OvenValve",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePristine__Starter_ON_bakelite",
+          "component": "Starter",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangePristine__Starter_ON_brass",
+          "component": "Starter",
           "key": "brass",
           "tile": 0.6,
           "catalog_key": "bronze_sheet",
@@ -1239,20 +1405,20 @@
           }
         },
         {
-          "name": "HouseholdGasRangeGreasy__BroilerDrawer_ON_dark",
+          "name": "HouseholdGasRangeGreasy__BroilerDrawer_ON_bakelite",
           "component": "BroilerDrawer",
-          "key": "dark",
-          "tile": 0.4,
-          "catalog_key": "iron_blackened",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.033104766570885055,
-            0.030074104146591292,
-            0.027211780951381357,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -1471,6 +1637,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangeGreasy__BurnerValve1_ON_nickel",
+          "component": "BurnerValve1",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangeGreasy__BurnerValve2_ON_bakelite",
           "component": "BurnerValve2",
           "key": "bakelite",
@@ -1501,6 +1678,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasy__BurnerValve2_ON_nickel",
+          "component": "BurnerValve2",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -1539,6 +1727,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangeGreasy__BurnerValve3_ON_nickel",
+          "component": "BurnerValve3",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangeGreasy__BurnerValve4_ON_bakelite",
           "component": "BurnerValve4",
           "key": "bakelite",
@@ -1569,6 +1768,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasy__BurnerValve4_ON_nickel",
+          "component": "BurnerValve4",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -1641,20 +1851,20 @@
           }
         },
         {
-          "name": "HouseholdGasRangeGreasy__OvenDoor_ON_brass",
+          "name": "HouseholdGasRangeGreasy__OvenDoor_ON_bakelite",
           "component": "OvenDoor",
-          "key": "brass",
-          "tile": 0.6,
-          "catalog_key": "bronze_sheet",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.6382832153523972,
-            0.5070785101492276,
-            0.23302199930143813,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -1692,6 +1902,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangeGreasy__OvenDoor_ON_nickel",
+          "component": "OvenDoor",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangeGreasy__OvenValve_ON_bakelite",
           "component": "OvenValve",
           "key": "bakelite",
@@ -1709,8 +1930,36 @@
           }
         },
         {
-          "name": "HouseholdGasRangeGreasy__OvenValve_ON_brass",
+          "name": "HouseholdGasRangeGreasy__OvenValve_ON_nickel",
           "component": "OvenValve",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasy__Starter_ON_bakelite",
+          "component": "Starter",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasy__Starter_ON_brass",
+          "component": "Starter",
           "key": "brass",
           "tile": 0.6,
           "catalog_key": "bronze_sheet",
@@ -1833,20 +2082,20 @@
           }
         },
         {
-          "name": "HouseholdGasRangeWorkshop__BroilerDrawer_ON_dark",
+          "name": "HouseholdGasRangeWorkshop__BroilerDrawer_ON_bakelite",
           "component": "BroilerDrawer",
-          "key": "dark",
-          "tile": 0.4,
-          "catalog_key": "iron_blackened",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.033104766570885055,
-            0.030074104146591292,
-            0.027211780951381357,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -2065,6 +2314,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangeWorkshop__BurnerValve1_ON_nickel",
+          "component": "BurnerValve1",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangeWorkshop__BurnerValve2_ON_bakelite",
           "component": "BurnerValve2",
           "key": "bakelite",
@@ -2095,6 +2355,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeWorkshop__BurnerValve2_ON_nickel",
+          "component": "BurnerValve2",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -2133,6 +2404,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangeWorkshop__BurnerValve3_ON_nickel",
+          "component": "BurnerValve3",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangeWorkshop__BurnerValve4_ON_bakelite",
           "component": "BurnerValve4",
           "key": "bakelite",
@@ -2163,6 +2445,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeWorkshop__BurnerValve4_ON_nickel",
+          "component": "BurnerValve4",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -2235,20 +2528,20 @@
           }
         },
         {
-          "name": "HouseholdGasRangeWorkshop__OvenDoor_ON_brass",
+          "name": "HouseholdGasRangeWorkshop__OvenDoor_ON_bakelite",
           "component": "OvenDoor",
-          "key": "brass",
-          "tile": 0.6,
-          "catalog_key": "bronze_sheet",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.6382832153523972,
-            0.5070785101492276,
-            0.23302199930143813,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -2286,6 +2579,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangeWorkshop__OvenDoor_ON_nickel",
+          "component": "OvenDoor",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangeWorkshop__OvenValve_ON_bakelite",
           "component": "OvenValve",
           "key": "bakelite",
@@ -2303,8 +2607,36 @@
           }
         },
         {
-          "name": "HouseholdGasRangeWorkshop__OvenValve_ON_brass",
+          "name": "HouseholdGasRangeWorkshop__OvenValve_ON_nickel",
           "component": "OvenValve",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeWorkshop__Starter_ON_bakelite",
+          "component": "Starter",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangeWorkshop__Starter_ON_brass",
+          "component": "Starter",
           "key": "brass",
           "tile": 0.6,
           "catalog_key": "bronze_sheet",
@@ -2478,20 +2810,20 @@
           }
         },
         {
-          "name": "HouseholdGasRangePaintFlecked__BroilerDrawer_ON_dark",
+          "name": "HouseholdGasRangePaintFlecked__BroilerDrawer_ON_bakelite",
           "component": "BroilerDrawer",
-          "key": "dark",
-          "tile": 0.4,
-          "catalog_key": "iron_blackened",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.033104766570885055,
-            0.030074104146591292,
-            0.027211780951381357,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -2710,6 +3042,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangePaintFlecked__BurnerValve1_ON_nickel",
+          "component": "BurnerValve1",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangePaintFlecked__BurnerValve2_ON_bakelite",
           "component": "BurnerValve2",
           "key": "bakelite",
@@ -2740,6 +3083,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePaintFlecked__BurnerValve2_ON_nickel",
+          "component": "BurnerValve2",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -2778,6 +3132,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangePaintFlecked__BurnerValve3_ON_nickel",
+          "component": "BurnerValve3",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangePaintFlecked__BurnerValve4_ON_bakelite",
           "component": "BurnerValve4",
           "key": "bakelite",
@@ -2808,6 +3173,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePaintFlecked__BurnerValve4_ON_nickel",
+          "component": "BurnerValve4",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -2880,20 +3256,20 @@
           }
         },
         {
-          "name": "HouseholdGasRangePaintFlecked__OvenDoor_ON_brass",
+          "name": "HouseholdGasRangePaintFlecked__OvenDoor_ON_bakelite",
           "component": "OvenDoor",
-          "key": "brass",
-          "tile": 0.6,
-          "catalog_key": "bronze_sheet",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.6382832153523972,
-            0.5070785101492276,
-            0.23302199930143813,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -2931,6 +3307,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangePaintFlecked__OvenDoor_ON_nickel",
+          "component": "OvenDoor",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangePaintFlecked__OvenValve_ON_bakelite",
           "component": "OvenValve",
           "key": "bakelite",
@@ -2948,8 +3335,36 @@
           }
         },
         {
-          "name": "HouseholdGasRangePaintFlecked__OvenValve_ON_brass",
+          "name": "HouseholdGasRangePaintFlecked__OvenValve_ON_nickel",
           "component": "OvenValve",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePaintFlecked__Starter_ON_bakelite",
+          "component": "Starter",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangePaintFlecked__Starter_ON_brass",
+          "component": "Starter",
           "key": "brass",
           "tile": 0.6,
           "catalog_key": "bronze_sheet",
@@ -3066,20 +3481,20 @@
           }
         },
         {
-          "name": "HouseholdGasRangePot__BroilerDrawer_ON_dark",
+          "name": "HouseholdGasRangePot__BroilerDrawer_ON_bakelite",
           "component": "BroilerDrawer",
-          "key": "dark",
-          "tile": 0.4,
-          "catalog_key": "iron_blackened",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.033104766570885055,
-            0.030074104146591292,
-            0.027211780951381357,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -3292,6 +3707,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangePot__BurnerValve1_ON_nickel",
+          "component": "BurnerValve1",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangePot__BurnerValve2_ON_bakelite",
           "component": "BurnerValve2",
           "key": "bakelite",
@@ -3322,6 +3748,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerValve2_ON_nickel",
+          "component": "BurnerValve2",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -3360,6 +3797,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangePot__BurnerValve3_ON_nickel",
+          "component": "BurnerValve3",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangePot__BurnerValve4_ON_bakelite",
           "component": "BurnerValve4",
           "key": "bakelite",
@@ -3390,6 +3838,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerValve4_ON_nickel",
+          "component": "BurnerValve4",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -3462,20 +3921,20 @@
           }
         },
         {
-          "name": "HouseholdGasRangePot__OvenDoor_ON_brass",
+          "name": "HouseholdGasRangePot__OvenDoor_ON_bakelite",
           "component": "OvenDoor",
-          "key": "brass",
-          "tile": 0.6,
-          "catalog_key": "bronze_sheet",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.6382832153523972,
-            0.5070785101492276,
-            0.23302199930143813,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -3507,6 +3966,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangePot__OvenDoor_ON_nickel",
+          "component": "OvenDoor",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangePot__OvenValve_ON_bakelite",
           "component": "OvenValve",
           "key": "bakelite",
@@ -3524,8 +3994,36 @@
           }
         },
         {
-          "name": "HouseholdGasRangePot__OvenValve_ON_brass",
+          "name": "HouseholdGasRangePot__OvenValve_ON_nickel",
           "component": "OvenValve",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__Starter_ON_bakelite",
+          "component": "Starter",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__Starter_ON_brass",
+          "component": "Starter",
           "key": "brass",
           "tile": 0.6,
           "catalog_key": "bronze_sheet",
@@ -3546,7 +4044,11 @@
         0,
         0
       ],
-      "yaw": 0
+      "yaw": 0,
+      "service_obstructions": [
+        1,
+        3
+      ]
     },
     {
       "id": "HouseholdGasRangeGreasyTapes",
@@ -3665,20 +4167,20 @@
           }
         },
         {
-          "name": "HouseholdGasRangeGreasyTapes__BroilerDrawer_ON_dark",
+          "name": "HouseholdGasRangeGreasyTapes__BroilerDrawer_ON_bakelite",
           "component": "BroilerDrawer",
-          "key": "dark",
-          "tile": 0.4,
-          "catalog_key": "iron_blackened",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.033104766570885055,
-            0.030074104146591292,
-            0.027211780951381357,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -3897,6 +4399,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerValve1_ON_nickel",
+          "component": "BurnerValve1",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangeGreasyTapes__BurnerValve2_ON_bakelite",
           "component": "BurnerValve2",
           "key": "bakelite",
@@ -3927,6 +4440,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerValve2_ON_nickel",
+          "component": "BurnerValve2",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -3965,6 +4489,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerValve3_ON_nickel",
+          "component": "BurnerValve3",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangeGreasyTapes__BurnerValve4_ON_bakelite",
           "component": "BurnerValve4",
           "key": "bakelite",
@@ -3995,6 +4530,17 @@
           ],
           "finish": {
             "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerValve4_ON_nickel",
+          "component": "BurnerValve4",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
             "roughness": 0.72
           }
         },
@@ -4067,20 +4613,20 @@
           }
         },
         {
-          "name": "HouseholdGasRangeGreasyTapes__OvenDoor_ON_brass",
+          "name": "HouseholdGasRangeGreasyTapes__OvenDoor_ON_bakelite",
           "component": "OvenDoor",
-          "key": "brass",
-          "tile": 0.6,
-          "catalog_key": "bronze_sheet",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
           "tint": [
-            0.6382832153523972,
-            0.5070785101492276,
-            0.23302199930143813,
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
             1.0
           ],
           "finish": {
-            "normal_scale": 0.12,
-            "roughness": 0.72
+            "normal_scale": 0.25,
+            "roughness": 0.82
           }
         },
         {
@@ -4118,6 +4664,17 @@
           }
         },
         {
+          "name": "HouseholdGasRangeGreasyTapes__OvenDoor_ON_nickel",
+          "component": "OvenDoor",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
           "name": "HouseholdGasRangeGreasyTapes__OvenValve_ON_bakelite",
           "component": "OvenValve",
           "key": "bakelite",
@@ -4135,8 +4692,36 @@
           }
         },
         {
-          "name": "HouseholdGasRangeGreasyTapes__OvenValve_ON_brass",
+          "name": "HouseholdGasRangeGreasyTapes__OvenValve_ON_nickel",
           "component": "OvenValve",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Starter_ON_bakelite",
+          "component": "Starter",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Starter_ON_brass",
+          "component": "Starter",
           "key": "brass",
           "tile": 0.6,
           "catalog_key": "bronze_sheet",
@@ -4235,42 +4820,79 @@
     }
   ],
   "tint_space": "linear",
+  "control_pivots": {
+    "BurnerValve1": [
+      -0.23499999940395355,
+      0.7990000247955322,
+      -0.34200000762939453
+    ],
+    "BurnerValve2": [
+      0.11500000208616257,
+      0.7990000247955322,
+      -0.34200000762939453
+    ],
+    "BurnerValve3": [
+      -0.11500000208616257,
+      0.7990000247955322,
+      -0.34200000762939453
+    ],
+    "BurnerValve4": [
+      0.23499999940395355,
+      0.7990000247955322,
+      -0.34200000762939453
+    ],
+    "OvenValve": [
+      0.2759999930858612,
+      0.7099999785423279,
+      -0.34200000762939453
+    ],
+    "Starter": [
+      0,
+      0.7990000247955322,
+      -0.34200000762939453
+    ]
+  },
+  "flame_mount": {
+    "port_y": 0.885,
+    "radius": 0.063,
+    "phase_radians": -0.09817477042468103
+  },
   "native_service": {
     "grate_parking": [
       {
         "blender_center": [
           -0.2,
-          -0.19995570945709254,
-          0.9949429460718783
+          -0.21495570945709255,
+          1.005
         ],
         "angle_degrees": -60
       },
       {
         "blender_center": [
           0.2,
-          -0.19995570945709254,
-          0.9949429460718783
+          -0.21495570945709255,
+          1.005
         ],
         "angle_degrees": -60
       },
       {
         "blender_center": [
           -0.2,
-          -0.19995571526854508,
-          0.9831109440102771
+          -0.21495570945709255,
+          1.005
         ],
         "angle_degrees": -60
       },
       {
         "blender_center": [
           0.2,
-          -0.19995571526854508,
-          0.9831109440102771
+          -0.21495570945709255,
+          1.005
         ],
         "angle_degrees": -60
       }
     ],
-    "grate_lift_m": 0.085,
+    "grate_lift_m": 0.125,
     "cap_lift_m": 0.055,
     "cap_end_blender_delta": [
       [

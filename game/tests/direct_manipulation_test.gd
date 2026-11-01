@@ -31,6 +31,9 @@ func drag(delta: Vector2) -> void:
 	player._unhandled_input(event)
 
 func _run() -> void:
+	if OS.get_environment("ORISON_GAS_RANGE_REFIT_ONLY")=="1":
+		await _run_gas_range_refit()
+		return
 	if OS.get_environment("ORISON_TAP_PRESENTATION_ONLY")=="1":
 		await _run_tap_presentation()
 		return
@@ -511,3 +514,198 @@ func _check_restore_revokes_hand(door: DoorProp) -> void:
 	player._grab.validate()
 	check(not player._grab.active() and is_equal_approx(door._body.rotation.y,.2),"restoration revokes old hand ownership without overwriting new pose")
 	door.restore_mechanism(before)
+
+class ObservedRange extends "res://scripts/building/orison_v2_stove.gd":
+	var strikes:=0
+	func _strike_open_burners() -> void:
+		strikes+=1
+		super._strike_open_burners()
+
+func _range_acquire(part:Node3D,offset:=Vector3(0,0,-.02)) -> bool:
+	player.camera.look_at(part.to_global(offset))
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	click()
+	return player._grab.active() and player._grab.target.part==part
+
+func _run_gas_range_refit() -> void:
+	GameBoot.settings.fullscreen=true
+	GameBoot.apply_user_settings()
+	RealityState.persistence_enabled=false
+	RealityState.reset_campaign_for_tests()
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"range evidence directory writable")
+	var original_save_path:=RealityState.save_path
+	RealityState.save_path=directory.path_join("range_save.json")
+	var environment:=WorldEnvironment.new();environment.environment=Environment.new()
+	environment.environment.background_mode=Environment.BG_COLOR
+	environment.environment.background_color=Color(.10,.12,.15)
+	environment.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR
+	environment.environment.ambient_light_color=Color.WHITE;environment.environment.ambient_light_energy=.55
+	add_child(environment)
+	var sun:=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-35,-25,0);sun.light_energy=1.3;add_child(sun)
+	player=PlayerController.new();add_child(player);player.set_physics_process(false)
+	player.position=Vector3(0,0,-1.05);player.set_lamp_enabled(false);player.camera.make_current()
+	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	if player.carried_device!=null:player.carried_device.set_capture_hidden(true)
+	var factory:=preload("res://scripts/building/orison_v2_native_household_stoves.gd").new()
+	var prepared:=factory.prepare()
+	check(prepared,"replacement native family prepares with registered finishes")
+	if not prepared:get_tree().quit(1);return
+	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string(factory.PATH))
+	var fixture:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_household_stoves.json"))
+	var surface_review:=preload("res://tests/orison_v2_household_stoves_test.gd").new()
+	var checked_textures:Dictionary={}
+	for assembly:Dictionary in data.assemblies:
+		for part:Dictionary in assembly.parts:
+			var source:Dictionary=factory._variants[str(assembly.id)].filter(func(value):return value.name==part.name)[0]
+			var draw:=MeshInstance3D.new();draw.mesh=source.mesh
+			surface_review._check_part(draw,part,fixture)
+			var material:=draw.mesh.surface_get_material(0) as StandardMaterial3D
+			for texture:Texture2D in [material.albedo_texture,material.roughness_texture,material.normal_texture]:
+				if texture==null or checked_textures.has(texture.get_instance_id()):continue
+				checked_textures[texture.get_instance_id()]=true
+				var image:=texture.get_image()
+				check(image!=null and image.has_mipmaps() and image.get_mipmap_count()==int(floor(log(float(maxi(image.get_width(),image.get_height())))/log(2.))),"loaded complete mip chain: "+texture.resource_path)
+			draw.free()
+	check(surface_review.failures.is_empty(),"all seven imported variants pass existing UV,tangent,registered-map and loaded-mip checks: "+str(surface_review.failures))
+	surface_review.free()
+	var row:Dictionary=data.instances[0]
+	var stove:=ObservedRange.new();stove.name=str(row.id);stove.ambient_lit=false
+	stove.set_meta("native_stove_factory",factory);add_child(stove)
+	check(stove.native_ready,"original live stove owns replacement native mesh")
+	var fixed_body:=stove.get_node("FixtureBody") as StaticBody3D
+	check(fixed_body.get_child_count()>0,"native fixed-stock collision is present in the focused fixture")
+	for collision:CollisionShape3D in fixed_body.get_children():
+		check(collision.shape is ConcavePolygonShape3D,"native fixture preserves real fixed-stock collision rather than one filled box")
+	# Establish the unblocked control explicitly; exercise the source fault below.
+	for i in 4:stove.clear_jet(i)
+	check(stove._knobs.size()==4 and stove._starter!=null and stove.get_node("OvenValve")!=stove._starter,"four gas taps,separate starter and decorative oven valve")
+	var household:=preload("res://scripts/building/orison_v2_household_state.gd").new();add_child(household)
+	household._subjects={str(stove.name):stove};household._kinds={str(stove.name):"mechanism"}
+	household._defaults=household.snapshot();RealityState.data[household.KEY]=household._defaults.duplicate(true)
+	household._restore(RealityState.data[household.KEY]);household._bound=true
+	household._connect(RealityState,"snapshot_preparing",household._capture_snapshot)
+	household._connect(RealityState,"state_changed",household._on_state_changed)
+	var hand:=preload("res://tests/fixed_gesture_patrol_hand.gd").new();hand.player=player;add_child(hand)
+	await get_tree().physics_frame
+	# Reproduce the original installed hull without changing production masks.
+	var old_bounds:=AABB();var first:=true
+	for draw:MeshInstance3D in stove.get_node("StaticCarcass").find_children("*","MeshInstance3D",true,false):
+		var bounds:AABB=(stove.global_transform.affine_inverse()*draw.global_transform)*draw.get_aabb()
+		old_bounds=bounds if first else old_bounds.merge(bounds);first=false
+	var legacy_hull:=StaticBody3D.new();var legacy_collision:=CollisionShape3D.new();var legacy_shape:=BoxShape3D.new()
+	legacy_shape.size=old_bounds.size;legacy_collision.shape=legacy_shape;legacy_collision.position=old_bounds.get_center();legacy_hull.add_child(legacy_collision);stove.add_child(legacy_hull)
+	player.camera.look_at(stove._door.to_global(Vector3(0,.17,-.025)))
+	await get_tree().physics_frame;await get_tree().physics_frame
+	var hidden_target:Dictionary=player._grab.find_target()
+	check(player._grab.last_hit.get("collider")==legacy_hull and hidden_target.get("blocked",false),"old installed bounding hull reproduces the hidden oven target")
+	legacy_hull.free()
+	await get_tree().physics_frame;await get_tree().physics_frame
+	var rear_hit:=get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(stove.to_global(Vector3(0,.6,.8)),stove.to_global(Vector3(0,.6,.1)),1,[player.get_rid()]))
+	check(not rear_hit.is_empty() and rear_hit.collider==fixed_body,"real fixed back stock still blocks a physics ray")
+	check(await _range_acquire(stove._door,Vector3(0,.17,-.025)),"actual pointer selects replacement oven leaf")
+	if player._grab.active():check(await hand.move_to(.5),"actual mouse opens replacement oven leaf");click()
+	check(await _range_acquire(stove._door,Vector3(0,.17,-.025)),"open oven leaf can be reacquired")
+	if player._grab.active():check(await hand.move_to(0.),"actual mouse closes replacement oven leaf");click()
+	# The retained mechanism pivot lies below the new front. Aim at the actual
+	# exported Bakelite handle: world-local Y=.260,Z=-.361,not the pivot Y=.205.
+	var broiler_contact:=Vector3(0,.055,-.045)
+	check(await _range_acquire(stove._broiler,broiler_contact),"actual pointer selects replacement broiler drawer")
+	if player._grab.active():check(await hand.move_to(.1),"actual mouse pulls replacement broiler drawer");click()
+	check(await _range_acquire(stove._broiler,broiler_contact),"open broiler drawer can be reacquired")
+	if player._grab.active():check(await hand.move_to(0.),"actual mouse reseats replacement broiler drawer");click()
+	check(await _range_acquire(stove._starter),"actual pointer selects starter independently")
+	if player._grab.active():
+		check(await hand.move_to(.008),"actual mouse depresses starter")
+		check(stove.strikes==1 and not stove._burner_on.has(true),"starter with closed taps supplies no flame")
+		click()
+	check(await _range_acquire(stove._starter),"starter can be regrabbed during return")
+	if player._grab.active():
+		check(await hand.move_to(.003),"regrabbed starter reaches a held partial stroke")
+		await get_tree().create_timer(.18).timeout
+		check(is_equal_approx(stove.starter_grip().read.call(),.003),"regrab cancels the old spring tween")
+		check(not stove.gas_grip(0).begin.call(),"another control cannot take the held hand")
+		click()
+	var paused_position:=stove._starter.position
+	get_tree().paused=true
+	await get_tree().create_timer(.16,true).timeout
+	check(stove._starter.position==paused_position,"pause holds the release spring")
+	get_tree().paused=false
+	await get_tree().create_timer(.2).timeout
+	check(stove._starter.position.is_equal_approx(stove._starter_home),"released starter springs to rest")
+	for i in 4:
+		check(await _range_acquire(stove._knobs[i]),"actual pointer selects indexed gas tap "+str(i))
+		if player._grab.active():
+			check(await hand.move_to(deg_to_rad(58)*(.2+.15*i)),"mouse turns indexed gas tap "+str(i))
+			click()
+		check(is_equal_approx(stove._gas_openings[i],.2+.15*i) and not stove._burner_on[i],"released partial tap remains unlit "+str(i))
+	var openings:=stove._gas_openings.duplicate()
+	check(await _range_acquire(stove._starter),"starter can be reacquired with open gas")
+	if player._grab.active():
+		check(await hand.move_to(.003),"starter reaches below ignition threshold")
+		check(stove.strikes==1 and not stove._burner_on.has(true),"subthreshold press cannot ignite")
+		check(await hand.move_to(.007),"starter crosses ignition threshold")
+		check(stove.strikes==2 and not stove._burner_on.has(false),"one crossing lights four unblocked rings")
+		check(stove._gas_openings==openings,"ignition preserves four independent partial gas openings")
+		if data.has("flame_mount"):
+			for flame:Node3D in stove._flames:
+				for draw:MeshInstance3D in flame.get_children():
+					var base_y:float=flame.position.y+flame.scale.y*(draw.position.y+draw.get_aabb().position.y)
+					check(is_equal_approx(base_y,float(data.flame_mount.port_y)),"partial flame base stays seated at measured port plane")
+		check(await hand.move_to(.008) and await hand.move_to(.0065),"held starter moves above rearm threshold")
+		check(stove.strikes==2,"held jitter cannot retrigger ignition")
+		check(await hand.move_to(.001) and await hand.move_to(.007),"full release travel rearms within held gesture")
+		check(stove.strikes==3 and stove._gas_openings==openings,"repeated strike preserves lit partial rings")
+		click()
+	await get_tree().create_timer(.2).timeout
+	var saved:=stove.mechanism_snapshot()
+	check(stove.valid_mechanism(saved) and saved.size()==4,"existing four-key mechanism schema remains authoritative")
+	check(await _range_acquire(stove._knobs[0]),"lit gas tap remains selectable")
+	if player._grab.active():
+		check(await hand.move_to(0.),"mouse closes lit gas tap");click()
+	print("RANGE CLOSED TAP: opening=",stove._gas_openings[0]," lit=",stove._burner_on[0])
+	check(not stove._burner_on[0] and is_zero_approx(stove._gas_openings[0]),"closing gas extinguishes only its ring")
+	check(stove._burner_on[1] and stove._gas_openings[1]==openings[1],"opposite ring remains unchanged")
+	stove.restore_mechanism(saved)
+	check(await _range_acquire(stove._starter),"starter acquired before reload")
+	if player._grab.active():await hand.move_to(.003)
+	var strikes:=stove.strikes
+	stove.restore_mechanism(saved);player._grab.validate()
+	check(not player._grab.active() and stove._starter.position==stove._starter_home and stove.strikes==strikes,"restore revokes hand,releases starter and never replays ignition")
+	check(stove.mechanism_snapshot()==saved,"partial lit states reconstruct exactly")
+	var bad:=saved.duplicate(true);bad.gas[0]=2.
+	check(not stove.valid_mechanism(bad),"out-of-range saved gas rejected")
+	stove.restore_mechanism({"door":0.,"broiler":0.,"gas":[.3,0.,0.,0.],"lit":[false,false,false,false]})
+	stove.set_jet_blocked(0,true)
+	check(await _range_acquire(stove._starter),"starter acquired for blocked-jet control")
+	if player._grab.active():await hand.move_to(.008);click()
+	await get_tree().create_timer(.35).timeout
+	check(not stove._burner_on[0] and is_equal_approx(stove._gas_openings[0],.3),"blocked jet cough retains unlit partial gas authority")
+	stove.clear_jet(0)
+	check(await _range_acquire(stove._starter),"starter acquired after existing service clears jet")
+	if player._grab.active():await hand.move_to(.008);click()
+	await get_tree().create_timer(.2).timeout
+	check(stove._burner_on[0] and is_equal_approx(stove._gas_openings[0],.3),"serviced jet ignites without replacing flow")
+	stove._possessed=true
+	check(not stove.starter_grip().begin.call() and not stove.gas_grip(0).begin.call(),"possession rejects new manual custody")
+	stove._possessed=false
+	var disk_state:=stove.mechanism_snapshot()
+	household.capture_now()
+	check(RealityState.save_game(),"validated campaign storage writes range state through existing household owner")
+	check(await _range_acquire(stove._starter),"starter acquired before disk reload")
+	if player._grab.active():await hand.move_to(.003)
+	stove._set_gas_opening(0,0.)
+	var disk_strikes:=stove.strikes
+	RealityState.load_game();await get_tree().physics_frame
+	check(RealityState.can_continue() and stove.mechanism_snapshot()==disk_state,"campaign disk reload reconstructs partial lit and unlit gas values")
+	check(not player._grab.active() and stove._starter.position==stove._starter_home and stove.strikes==disk_strikes,"disk reload releases held starter without ignition replay")
+	player.position=Vector3(1.05,0,-1.4);player.camera.look_at(Vector3(0,.6,0))
+	await get_tree().process_frame;await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(directory.path_join("range_native_loaded.png"))==OK,"loaded replacement capture written")
+	var snapshot:=stove.mechanism_snapshot()
+	household.shutdown();household.free();RealityState.save_path=original_save_path
+	hand.free();stove.free();player.free();sun.free();environment.free()
+	FileAccess.open(directory.path_join("range_input.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Loaded native range with actual player pointer/mouse input,ignition threshold,flow retention,service fault and campaign disk reload through an isolated one-range household registry. No installed-room clearance,full household reconstruction,performance or artistic acceptance.","checks":checks,"failures":failures,"snapshot":snapshot},"\t"))
+	print("RANGE INPUT: ",checks," checks; ",failures.size()," failures")
+	get_tree().quit(0 if failures.is_empty() else 1)

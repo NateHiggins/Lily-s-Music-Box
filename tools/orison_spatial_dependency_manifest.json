@@ -226953,9 +226953,9 @@
     "_build_burner"
    ],
    "lines": [
-    259,
-    263,
-    275
+    271,
+    275,
+    287
    ],
    "count": 3,
    "context": [
@@ -226987,7 +226987,7 @@
     "_build_controls"
    ],
    "lines": [
-    244
+    249
    ],
    "count": 1,
    "context": [
@@ -227017,8 +227017,8 @@
     "_build_flame"
    ],
    "lines": [
-    292,
-    315
+    304,
+    327
    ],
    "count": 2,
    "context": [
@@ -227049,7 +227049,7 @@
     "warehouse_variants"
    ],
    "lines": [
-    77
+    82
    ],
    "count": 1,
    "context": [
@@ -227079,7 +227079,7 @@
     "_build_visual"
    ],
    "lines": [
-    129
+    134
    ],
    "count": 1,
    "context": [
@@ -227109,7 +227109,7 @@
     "_build_visual"
    ],
    "lines": [
-    127
+    132
    ],
    "count": 1,
    "context": [
@@ -227139,7 +227139,7 @@
     "_build_visual"
    ],
    "lines": [
-    129
+    134
    ],
    "count": 1,
    "context": [
@@ -227169,7 +227169,7 @@
     "_build_visual"
    ],
    "lines": [
-    131
+    136
    ],
    "count": 1,
    "context": [
@@ -234328,17 +234328,17 @@
     "_run"
    ],
    "lines": [
-    187,
-    226,
-    232,
-    245,
-    250,
-    257,
-    263,
-    305,
-    349,
-    359,
-    413
+    190,
+    229,
+    235,
+    248,
+    253,
+    260,
+    266,
+    308,
+    352,
+    362,
+    416
    ],
    "count": 11,
    "context": [
@@ -234346,6 +234346,39 @@
     "blind.position=Vector3(-8,2,0);add_child(blind)",
     "mirror.position=Vector3(-10,0,0);add_child(mirror);mirror.restore_travel(.42)",
     "var fan := BoxFanProp.new();fan.position=Vector3(8,0,0);add_child(fan)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "ed335bd201c0c098",
+   "kind": "vector3_coordinate",
+   "token": "_run_gas_range_refit",
+   "file": "game/tests/direct_manipulation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run_gas_range_refit"
+   ],
+   "lines": [
+    548,
+    703
+   ],
+   "count": 2,
+   "context": [
+    "player.position=Vector3(0,0,-1.05);player.set_lamp_enabled(false);player.camera.make_current()",
+    "player.position=Vector3(1.05,0,-1.4);player.camera.look_at(Vector3(0,.6,0))"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -269810,7 +269843,7 @@
     "_run"
    ],
    "lines": [
-    109
+    116
    ],
    "count": 1,
    "context": [
@@ -274319,13 +274352,13 @@
     "validate_in_world"
    ],
    "lines": [
-    60,
-    101
+    68,
+    115
    ],
    "count": 2,
    "context": [
-    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"5B\"]:await _capture_stove(world,prop,\"open\")",
-    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"5B\"]:await _capture_stove(world,prop,\"closed\")"
+    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"4B\",\"5B\"]:await _capture_stove(world,prop,\"open\")",
+    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"4B\",\"5B\"]:await _capture_stove(world,prop,\"closed\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -274351,15 +274384,50 @@
     "validate_in_world"
    ],
    "lines": [
-    60,
-    77,
-    101
+    68,
+    91,
+    115
    ],
    "count": 3,
    "context": [
-    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"5B\"]:await _capture_stove(world,prop,\"open\")",
+    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"4B\",\"5B\"]:await _capture_stove(world,prop,\"open\")",
     "if capture_enabled and prop.unit==\"2B\" and i in [0,2]:await _capture_stove(world,prop,\"service\"+str(i))",
-    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"5B\"]:await _capture_stove(world,prop,\"closed\")"
+    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"4B\",\"5B\"]:await _capture_stove(world,prop,\"closed\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "de45bfa6853f8d7a",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/orison_v2_household_stoves_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world",
+    "_played_range"
+   ],
+   "lines": [
+    68,
+    115,
+    124
+   ],
+   "count": 3,
+   "context": [
+    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"4B\",\"5B\"]:await _capture_stove(world,prop,\"open\")",
+    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"4B\",\"5B\"]:await _capture_stove(world,prop,\"closed\")",
+    "var selected:Array[Stove]=actors.filter(func(prop):return prop.unit==\"4B\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -274385,13 +274453,13 @@
     "validate_in_world"
    ],
    "lines": [
-    60,
-    101
+    68,
+    115
    ],
    "count": 2,
    "context": [
-    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"5B\"]:await _capture_stove(world,prop,\"open\")",
-    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"5B\"]:await _capture_stove(world,prop,\"closed\")"
+    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"4B\",\"5B\"]:await _capture_stove(world,prop,\"open\")",
+    "if capture_enabled and prop.unit in [\"1A\",\"2B\",\"4B\",\"5B\"]:await _capture_stove(world,prop,\"closed\")"
    ],
    "gameplay_binding": false,
    "authority": [

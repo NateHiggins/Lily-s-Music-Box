@@ -159,9 +159,63 @@ def tapes():
   z=.8995+i*.0218
   stock('TapeBox'+str(i),(-.26+dx,.04+dy,z),(-.08+dx,.22+dy,z+.022),'tapebox',.0012)
 
+def refitted_body():
+ # Read closed editable stocks, not the review tracks or embedded GLB materials.
+ source=plan['native_refit'];path=ROOT/source['source']
+ assert digest(path)==source['sha256'],'delivered native range changed'
+ if not hasattr(refitted_body,'templates'):
+  with bpy.data.libraries.load(str(path),link=False) as (available,loaded):
+   assert source['collection'] in available.collections
+   loaded.collections=[source['collection']]
+  collection=loaded.collections[0];bpy.context.scene.collection.children.link(collection)
+  collection.hide_viewport=False;collection.hide_render=True;bpy.context.view_layer.update()
+  refitted_body.templates=[(obj,obj.matrix_world.copy()) for obj in collection.objects if obj.type=='MESH']
+  assert len(refitted_body.templates)==int(source['stock_count'])
+  refitted_body.collection=collection
+ for original,pose in refitted_body.templates:
+  key=str(original['catalog_partition']);component=str(original['owner'])
+  if key=='enamel':key=OVEN_ENAMEL if component=='OvenDoor' else ENAMEL
+  assert key in materials
+  obj=original.copy();obj.data=original.data.copy();obj.name=identity+'_'+original.name
+  # World coordinates are now baked. Do not keep the prototype's animated
+  # parent on a supposedly closed construction stock.
+  obj.parent=None;obj.animation_data_clear()
+  obj.data.transform(pose);obj.matrix_world=Matrix.Identity(4);obj.hide_render=True
+  obj.data.materials.clear();obj.data.materials.append(materials[key]);closed.objects.link(obj)
+  obj['component']=component
+  bm=bmesh.new();bm.from_mesh(obj.data);volume=bm.calc_volume(signed=True);bm.free()
+  assert volume>1e-12,obj.name
+  pieces[identity].append((obj,key));stock_checks.append({'name':obj.name,'assembly':identity,'key':key,'volume_m3':volume})
+ for original,pose in refitted_body.templates:
+  if not original.name.startswith('Floor shoe'):continue
+  points=[pose@v.co for v in original.data.vertices]
+  at=(sum(v.x for v in points)/len(points),sum(v.y for v in points)/len(points),min(v.z for v in points))
+  bearing('RefitFoot'+original.name,at)
+ # Preserve the unit's original dressing but seat its thin paint/grease/tape
+ # stocks on the delivered fascia/deck/guard instead of leaving them in air.
+ start=len(stock_checks);wear();tapes()
+ for row in stock_checks[start:]:
+  obj=bpy.data.objects[row['name']];suffix=obj.name[len(identity)+1:]
+  if suffix.startswith('FleckHob'):obj.location.z-=.00039
+  elif suffix.startswith(('FleckFascia','ThumbPrint')):obj.location.y+=.0084
+  elif suffix.startswith(('TideLine','Fingerprint','Tape')) and not suffix.startswith(('TapeBack','TapeBox')):obj.location.y+=.0085
+  elif suffix.startswith(('FleckSplash','Spatter','TapeBack')):obj.location.y-=.0176
+  elif suffix.startswith('Brush'):
+   # The retained cup is narrower than a grate's centre opening. Seat it on
+   # the free front-centre drip bed, clear of the pilot and service parking.
+   shift=Vector((.17,.255,-.0225));obj.location+=shift
+   if 'uv_center' in obj:obj['uv_center']=Vector(obj['uv_center'])+shift
+  elif suffix.startswith('TapeBox'):
+   # Retain Juno's cold-stove storage, on its fixed rack rather than across
+   # the blocked ring's removable grate. No inventory/state owner changes.
+   obj.location+=Vector((.17,-.12,-.405))
+
 FINISH={'HouseholdGasRangePristine':('enamel_pristine','enamel_pristine'),'HouseholdGasRangeGreasy':('enamel_greasy','enamel_greasy'),'HouseholdGasRangeGreasyTapes':('enamel_greasy','enamel_greasy'),
         'HouseholdGasRangeWorkshop':('enamel_workshop','enamel_mismatch'),'HouseholdGasRangePaintFlecked':('enamel_paint','enamel_paint')}
 for variant in plan['variants']:
  identity=variant['id'];start=len(stock_checks)
  ENAMEL,OVEN_ENAMEL=FINISH.get(identity,('enamel','enamel'))
- body();doors();controls();burners();wear();tapes();group('GasRange',start)
+
+ if plan.get('native_refit'):refitted_body()
+ else:body();doors();controls();burners();wear();tapes()
+ group('GasRange',start)

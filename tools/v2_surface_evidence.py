@@ -5,6 +5,7 @@ are excluded. The test itself writes runtime_contract.json. This tool checks
 that receipt, independently re-evaluates its inventory, and checks review files.
 """
 import argparse,gzip,hashlib,json,re,sys,subprocess
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from audit_v2_surfaces import evaluate
 
@@ -34,6 +35,11 @@ def file_hash(path):
     raw=path.read_bytes()
     if path.suffix in TEXT:raw=raw.replace(b'\r\n',b'\n')
     return hashlib.sha256(raw).hexdigest()
+
+def import_parameter_record(path,root):
+    text=path.read_text(encoding='utf-8').replace('\r\n','\n')
+    if '[params]' not in text:raise ValueError('import has no parameters: '+str(path))
+    return [path.relative_to(root).as_posix(),hashlib.sha256(text.split('[params]',1)[1].strip().encode()).hexdigest()]
 
 def material_recipe_paths(root):
     """Bind registered procedural recipes, physical relief helpers and source maps.
@@ -255,10 +261,11 @@ def inputs(root=ROOT):
     paths.update(material_recipe_paths(root))
     paths.update(test_dependency_paths(root,paths))
     manifest=sorted([p.relative_to(root).as_posix(),file_hash(p)] for p in paths)
-    for path in sorted(set(imports)):
-        text=path.read_text(encoding='utf-8').replace('\r\n','\n')
-        if '[params]' not in text:raise ValueError('import has no parameters: '+str(path))
-        manifest.append([path.relative_to(root).as_posix(),hashlib.sha256(text.split('[params]',1)[1].strip().encode()).hexdigest()])
+    # Read the same complete set freshly on every call. Bounded parallel I/O
+    # avoids serial Windows small-file latency; ordered map preserves both the
+    # manifest and fail-closed errors. No cross-call cache can hide edits.
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        manifest.extend(pool.map(lambda path:import_parameter_record(path,root),sorted(set(imports))))
     manifest.sort()
     return {'algorithm':'sha256/LF-normalized-text-and-import-parameters/v1','files':len(manifest),
             'sha256':hashlib.sha256(json.dumps(manifest,separators=(',',':')).encode()).hexdigest()}

@@ -379,6 +379,14 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   board does not override a demonstrated missed mutation. See the city report's
   rejected clock-reader experiment and the prologue ledger's candidate instrument
   review for source-bound checks and their limits.
+  A zero-regression headline can retain a failing qualification gate: inspect
+  its actual rows before merging a change that depends on that proof. If local
+  qualification passes but a clean checkout fails, compare exact consumed input
+  manifests. Preserve missing authored import settings with their required text
+  attributes; do not repin the receipt or discard the settings from the hash.
+  Reuse the existing render only after exact input parity is restored. See the
+  [range ledger](../../../design/V2_HOUSEHOLD_STOVES_2026-10-08.md)'s fresh-checkout
+  import provenance repair; this does not exempt unrelated changes from renewal.
 - **Gate selection:** request each gate with a separate `--only` argument and
   inspect the resulting rows. An empty board proves no checks ran. Unknown
   selections now refuse before execution; do not treat an older empty green
