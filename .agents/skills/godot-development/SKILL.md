@@ -99,6 +99,16 @@ before queueing. Confirm the resulting contract/profile names the requested
 scope; a default-mode pass does not prove that a profiling branch ran. Preserve
 mislaunched diagnostics and correct only the launch configuration when code is
 unchanged.
+
+Inspect the wrapper's actual argument order before using Godot's **--** user-argument
+separator. These runners append Scene after ExtraArgs, so putting **--** in
+ExtraArgs can turn the requested scene into a user argument and launch the default
+game instead. Prefer an explicit scoped environment flag with the ordinary Scene
+argument. Verify the live command line and the test's named completion output;
+an engine process or exit zero does not prove the intended programme executed.
+Retain a mislaunch's logs and intentional owned cancellation separately from test
+failures. Never stop another contributor's process to repair a launch.
+
 Run the complete affected source-fixture preflight closure outside Godot after
 renewing a dependency; a repaired record can invalidate a downstream record.
 Reuse exact consumed-projection checks only when geometry and all other inputs
