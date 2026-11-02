@@ -335,7 +335,8 @@ class ProductionSmokeTests(unittest.TestCase):
         # The boiler hopper and resident treatments each add a named-control host.
         # Native fire cabinet empty overrides disable inherited legacy input.
         # The readable V2 shelf adds the same deliberate empty legacy override.
-        self.assertEqual(summary["prompt_methods"], 97)
+        # Named cookbook/knock/paper controls replace the former door prompt.
+        self.assertEqual(summary["prompt_methods"], 99)
         self.assertEqual(summary["legacy_uncovered"], 0)
         self.assertEqual(summary["baseline_stale"], 0)
         self.assertEqual(summary["forbidden"], 0)

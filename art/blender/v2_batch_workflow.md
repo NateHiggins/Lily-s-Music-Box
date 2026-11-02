@@ -14,6 +14,15 @@ beam for a three-piece door surround.
 Owner direction, 2026-10-07: minimize Godot launches, tokens and elapsed time
 while continuing the full V1-to-V2 geometry and texture pass.
 
+Integration scheduling: intake related completed deliveries as one room/service
+batch. Reuse hash-matching native export, clearance and preview evidence; do not
+rebuild unchanged source merely to repeat its report. After consumer/authority
+review, perform one necessary import and fail-fast family preflight, then combine
+affected loaded surfaces, actual interactions, campaign reconstruction and views
+in one occupied-world session. Keep per-asset failures identifiable. Renew the
+shared surface/candidate evidence at the batch checkpoint, rather than after each
+individual prop. A failed affected check still needs repair and re-execution.
+
 Run actual mouse grab/motion/release harnesses windowed, even when they write
 no screenshots. Headless mouse capture cannot validate that input path. Keep
 source/ownership-only benches headless; a click-only historical harness is not

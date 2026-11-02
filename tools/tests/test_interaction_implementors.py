@@ -321,15 +321,24 @@ class ProductionSmokeTests(unittest.TestCase):
         # The fitted boiler hopper adds one named control through PropControlArea.
         # The native V2 fire cabinet also explicitly disables its two
         # inherited legacy prompt/action entry points with empty overrides.
-        self.assertEqual(summary["discovered"], 96)
+        # Cookbook, knocking and newspaper reading have explicit named controls.
+        # Physical door manipulation no longer exposes its old whole-object prompt.
+        self.assertEqual(summary["discovered"], 98)
         self.assertEqual(summary["by_family"],
-                         {"control_prompt": 22, "interact_prompt": 74})
+                         {"control_prompt": 25, "interact_prompt": 73})
         self.assertEqual(summary["by_role"],
-                         {"adapter": 1, "debug-only": 2, "production": 93})
+                         {"adapter": 1, "debug-only": 2, "production": 95})
+        named = {(i["file"], i["method"]): i for i in self.report["implementors"]}
+        for kind in ("cookbook_prop", "door_prop", "news_rack_prop"):
+            rel = "props/" + kind + ".gd"
+            control = named[(rel, "control_prompt")]
+            self.assertEqual(control["action_method"], "interact_control")
+            self.assertEqual(control["action_source"], rel)
+            self.assertEqual(control["action_status"], "ACTION_RESOLVED_SAME_FILE")
         actual = {i["file"]: i for i in self.report["implementors"]}
         self.assertEqual(actual["building/orison_v2_window_treatment.gd"]["action_method"], "interact_control")
-        self.assertEqual(actual["props/key_copy_counter.gd"]["action_method"], "interact")
-        self.assertEqual(actual["props/key_copy_counter.gd"]["action_source"], "props/key_copy_counter.gd")
+        # The retired key-copy counter is no longer a production implementor.
+        self.assertNotIn("props/key_copy_counter.gd", actual)
         for kind in ("prep_cabinet", "radio_prop", "water_controls", "water_valve"):
             rel = "building/orison_v2_" + kind + ".gd"
             self.assertIn(rel, actual)
