@@ -6241,3 +6241,28 @@ once as broker33568/session2218 behind live shared GPU/resident work. No asserti
 or culling predicates were weakened,no production geometry/material/save/input
 changes,and no corrected runtime result is claimed yet. Repeat composed testing
 only after this corrected fixture passes. PR138 remains draft,not merged.
+
+
+## Southern pair main integration — November 1
+
+Evidence class: **INERT**. PR139 merged normally at
+**1a7917eaeae47d34005a755cf34334bd9a6650ff**. Local main and origin/main were
+fast-forwarded there; the merge tree668e611b78eaba27e09fefd92835fa951cf67b2d
+is byte-identical to the qualified06f465708 candidate tree. No new engine run
+or artistic acceptance is claimed from the merge.
+
+Management independently ran verify_candidate on the clean frozen city checkout
+against the actual clean c371e94e baseline: all119gate rows,zero regressions or
+improvements,requirements_changed empty,protected17/17,V2,lint0. The --no-godot
+check reuses the already inspected exact-source engine evidence; fresh-checkout
+imports are outside its scope. Surface-test dispatch/default-noop behavior and
+added source-hash closure were manually reviewed;no test predicate was weakened.
+Full verifier JSON/Markdown remains at C:/ov/reports/city_streets_20261029/
+western_south_pair_01/management_verify_01. Four actual front/rear whole-body
+images were independently inspected and the141-member archive SHA49313d6b...
+and CRCs verified. Distinct silhouettes are readable;dark ground/courts,flat sky
+and sparse planting remain presentation debt. Horizon35individual/89generic is
+not full149-parcel or whole-city acceptance. No new construction requested.
+
+PR138 remains separate and unmerged. Reconcile current main only after its
+queued corrected fixture is terminal;do not modify its consumed sources mid-run.

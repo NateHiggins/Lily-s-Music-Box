@@ -1,10 +1,23 @@
 # Current work — complete-slab occlusion candidate; November 1
 
 Evidence class: **INERT**. Canonical branch **codex/v2-slab-face-occlusion-20261101**
-is pushed through **6b2654dc4** in draft PR138:
+is pushed through **3f9edfd8b** in draft PR138:
 https://github.com/NateHiggins/Lily-s-Music-Box/pull/138
-Main remains **c371e94e**. No merge or speedup acceptance. Rejected startup-eye
+Local main and origin/main are **1a7917eae** after PR139. PR138 is still
+unmerged and has no speedup acceptance. Rejected startup-eye
 warmup from closed PR137 is excluded; its original failures remain preserved.
+
+City pair PR139 merged normally at **1a7917eaeae47d34005a755cf34334bd9a6650ff**.
+Clean management verifier on06f465708 passed all119rows withzero regressions,
+requirements unchanged,protected17/17,V2 andlint0. It used --no-godot; existing
+exact-source engine proof was inspected/reused,not rerun. Merge tree matches
+qualified candidate tree668e611b78eaba27e09fefd92835fa951cf67b2d exactly.
+Four front/rear renders and archive141members/CRC/SHA independently inspected.
+Horizon now35individual/89generic;dark courts/ground,flat sky,sparse planting,
+whole-city performance and artistic acceptance remain open. Canonical PR138
+source has NOT yet merged new main while its corrected fixture is queued.
+Management evidence: C:/ov/reports/city_streets_20261029/western_south_pair_01/
+management_verify_01/verification.json. Architect holds new construction.
 
 The candidate admits only visible, opaque, actually six-face closed slab boxes
 through the existing structural validator. Incomplete sheets and apertures remain
