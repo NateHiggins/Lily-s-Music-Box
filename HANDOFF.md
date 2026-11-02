@@ -1,4 +1,195 @@
-# Current handoff — November 1 Western apartment pair merged
+# Current work — complete-slab occlusion candidate; November 1
+
+Evidence class: **INERT**. Canonical branch **codex/v2-slab-face-occlusion-20261101**
+is pushed through **3f9edfd8b** in draft PR138:
+https://github.com/NateHiggins/Lily-s-Music-Box/pull/138
+Local main and origin/main are **1a7917eae** after PR139. PR138 is still
+unmerged and has no speedup acceptance. Rejected startup-eye
+warmup from closed PR137 is excluded; its original failures remain preserved.
+
+City pair PR139 merged normally at **1a7917eaeae47d34005a755cf34334bd9a6650ff**.
+Clean management verifier on06f465708 passed all119rows withzero regressions,
+requirements unchanged,protected17/17,V2 andlint0. It used --no-godot; existing
+exact-source engine proof was inspected/reused,not rerun. Merge tree matches
+qualified candidate tree668e611b78eaba27e09fefd92835fa951cf67b2d exactly.
+Four front/rear renders and archive141members/CRC/SHA independently inspected.
+Horizon now35individual/89generic;dark courts/ground,flat sky,sparse planting,
+whole-city performance and artistic acceptance remain open. Canonical PR138
+source reconciled new main in merge853d30964 after corrected fixture03 became
+terminal. Both append-only conflicts preserve city and stutter evidence.
+Management evidence: C:/ov/reports/city_streets_20261029/western_south_pair_01/
+management_verify_01/verification.json. Architect holds new construction.
+
+The candidate admits only visible, opaque, actually six-face closed slab boxes
+through the existing structural validator. Incomplete sheets and apertures remain
+rejected. It preserves wall behavior, physical geometry, input and save owners.
+Actual fixture02 passed15 checks/0 failures in14.30s, empty stderr. Above/below
+pixel parity is exact with objects5→3 and5→4. All six images inspected. Original
+fixture01 grow-property error and three failures are retained. Small-fixture
+proof does not establish composed-world visibility, performance or acceptance.
+
+**Composed01 is terminal FAIL:**178.08s,24 checks/six completed controller
+legs/one assertion failure,44 real script errors,empty slab admission. Source
+before/after matches wrapper signature. The existing six-face validator assigned
+Nil from a legitimate non-indexed surface directly into PackedInt32Array. This
+is not stale cache or a valid timing/visibility result. Full failed raw output,
+three controls, source and receipts are retained in the existing archive.
+Broker56984/session19285 and host observer43520 are terminal; CPU quiet released.
+
+Correction now verified by actual fixture03:17checks/0failures,13.77s,
+clean stderr and two-script compilerPASS. Actual absent-index geometry is used
+for the optical controls; above4→2 and below4→3objects,exact pixel parity.
+All six images individually inspected;aperture remains open. Source/test hashes
+and original failure are retained in the existing archive. Broker33568/session2218
+is terminal;do not launch another copy. This is still small-fixture proof only.
+Owned C:/ov/c-ab46a508 is now clean at main1a7917eae after preserving its prior
+inputs;zero generated churn needed restoration. Actual full new-main baseline
+board session73316 is terminal:119rows,zero regressions versusC371,six existing
+failing tool rows and incomplete ledger retained. Actual clean commit1a7917eae
+board is cached unchanged at C:/ov/boards/1a7917eaeae47d34005a755cf34334bd9a6650ff.v2.json.
+Canonical candidate includes merged main and all source fixes. **Composed02
+is queued once**,broker61668/session99114,source frozen16bdc55ae. Batch
+C:/ov/reports/slab_occlusion_20261101/composed02.json includes two incremental
+imports,three-script compile and original six-leg plus same-pose controls.
+Host observer75778 waits for its run log;no new timing result. No heavy baseline
+work remains. Poll these handles;do not duplicate jobs.
+
+External analyze_run.py validates completion/source/test hashes and route/pass
+counts; it correctly refuses this failed run. Prior pass_trace01 had222 measured
+intervals,p50/p95/p99/max20.239/49.609/138.294/198.879ms,three over100ms;
+234post-draw observations and1233 original wall occluders. No candidate benefit.
+
+Book follow-up authored while waiting: the existing inspection-return diagnostic
+now inherits the print profile and optionally runs that actual opening/review
+first when ORISON_BOOK_PRINT_AND_RETURN=1. Same selected book and one world;
+default return-only scope remains. Syntax checked only; compile, rendered
+interaction and save/reload coverage remain unverified. No production book
+owner changes. The queued C checkout does not consume this new test edit.
+
+NEXT: follow queued composed02,coordinate CPU quiet when acquired,inspect
+actual admission/visibility and timing results. Do not claim benefit from the
+small fixture or compare changed city sources as a causal speedup. If the candidate improves its intended outcome, renew affected
+physical qualification and candidate regression gates before merging. Full
+V2/hose/book/nook coverage remains open; candidate surface packet is stale.
+
+# Latest result — startup-eye timing rejected; November 1
+
+Evidence class: **INERT**. Main remainsC371e94e; draftPR137 only. CandidateB
+34b6779de actual17checks/6legs/0failures,182.37s,empty stderr. Same settings and
+targets: max293.987→436.625ms,p99172.507→184.447,frames>100ms3→4. Ten startup
+draws complete but cost17745.806ms. Do not ship this as a stutter improvement.
+Automatic preparation is disabled by default in the current WIP branch; the
+actual-world review opts in. Investigate remaining render-pass/draw workload.
+The existing test-only frame probe now resolves viewport owners once before
+timing and records visible/shadow/canvas counters plus actual structural
+occluder count. Syntax checked only; semantic/loaded trace still required.
+API was checked in the pinned engine RenderingServer.xml. No viewport pixels,
+new rendering work,quality reduction or timed scene traversal is introduced.
+
+Original world01 actual compiler fails at inferredVariant weakref(line93);
+no world composed. ExplicitWeakRef fix authored,not semantically verified.
+**world02 was cancelled before engine launch** at00:31:44UTC after the startup-eye
+hypothesis failed its primary outcome. Only own queued broker61444/session34585
+and its backed-up waiter record were stopped/removed; no Godot or foreign job
+was interrupted. External world02/CANCELLATION.json records the reason. No
+runtime verdict. Defer that two-world prototype qualification; any replacement
+intended for integration still requires real input/pause/save/reload checks.
+Candidate6270,observer7965 and world011146 are all terminal. Quiet hold released
+to both asset agents; startup CPU construction overlap retained in ledger.
+
+Owned C:/ov/c-ab46a508 advanced after terminal B to **d17e3e699** for the
+next pass trace; it had no generated churn to restore after B (empty external
+backup retained). **pass_trace01** compile+same-six-leg diagnostic queued as
+session13095/broker64040 now next after the current resident run. It explicitly disables preparation and
+records new per-viewport pass counters; no attribution verdict exists yet.
+Frozen executed transport/probe copies are external. External1Hz host observer
+session49129 waits for its run log; poll/stop only that owned observer if no
+trace launches. Poll same handles and
+coordinate a new CPU-quiet interval when timing actually acquires. Source remains
+frozen; do not alter this owned checkout while its job is queued/running. Original baseline
+boardC371 remains valid as captured. Current physical packet remainsSTALE on
+this feature branch; no new main merge or full V2 acceptance. Detailed metrics,
+source/raw logs and original failure are in the existing city ledger/archive.
+
+# Current handoff — November 1 loading-owned rendering preparation WIP
+
+Live continuation: matched candidate34b6779de is frozen in owned
+C:/ov/c-ab46a508; original-main imports2216 LF-only rewrites and685 generated
+UIDs were backed up and verified before named-path restoration/removal.
+Candidate01 compile+six-leg run is queued via session6270/broker63540 behind
+the existing resident walk. External observer session7965 waits for its log.
+Poll those same handles; do not restart on observation timeout.
+Actual-world review compile+two-world sandbox programme is separately queued
+as world01,session1146/broker57252,canonical runtime frozen through completion.
+It follows candidate01 in FIFO and has not compiled or run yet. Read both actual
+receipts before updating any claim. No A2 reversal is queued yet.
+Canonical now also contains an authored actual-world input/pause/shutdown and
+sandbox save/reload review; syntax checked only,not executed yet. It uses the
+production controller/menu and two worlds; it does not replace the affected
+passage normal-approach/deadline regression.
+
+Evidence class: **INERT**. Lily,she/her. Canonical C:/PleaseRemainOnTheLine is on
+**codex/v2-entry-render-preparation-20261101**,branched from actual mainC371e94e.
+Main remains c371e94e035087d4ee629e3934f71f235ffe508f. Full V2 goal active;
+no performance or production completion is claimed by this authored checkpoint.
+
+Publication: source checkpoint d8c6e11e2 and serialization-only follow-up
+9a8d21f47 are committed and pushed. Draft PR137:
+https://github.com/NateHiggins/Lily-s-Music-Box/pull/137
+No new main merge; required composed/persistence/performance qualification
+remains open. Generated UIDs and unrelated attachments remain preserved/unstaged.
+Architect optical-only checkpoint73fcf097 is separately pushed,not integrated
+here; its reported119-gate comparison is not clean candidate verification.
+
+Draft: short-lived renderer-preparation helper uses only the existing main
+camera RID/viewport,restores its current Node pose before yielding,releases only
+its own input lease,and passes Pause/pointer-release events onward. Startup and
+post-publication passage activation now call it using the existing public
+arrival anchor. Passage keeps its old barrier/loading owner. Shutdown cancels
+pending work. Protected/busy input can skip work; effectiveness is not assumed.
+Production calls are WIP; current physical qualification is STALE on this branch.
+
+Actual helper two-script compiler PASS,then **12checks/0 failures**,5.11s,
+empty stderr,patched Vulkan/3440x1440 hidden desktop. Restored green-subject image
+inspected. This is a small test-owner fixture,not actual player-controller,
+composed loading,save/reload or performance acceptance. All5 current edited/
+new scripts pass grammar checks; production semantic compile now PASS: five scripts,20.02s,zero script errors and empty stderr (no composed world).
+Spatial audit adds one test-only coordinate recordaec0365feb56a6da;existing classifications
+unchanged;71 existing records have updated source line locations. ReaderNEW0. No instrument logic/tolerances/baselines weakened.
+
+Actual clean mainC371 baseline119-gate board ready,dirty_paths=[]:
+**C:/ov/boards/c371e94e035087d4ee629e3934f71f235ffe508f.v2.json**.
+Owned **C:/ov/c-ab46a508** was recreated clean at C371 for the original-rendering
+control;its original-rendering control is complete; preserve generated churn before candidate use. Imports
+can create own UIDs/EOL churn;preserve/verify them before later use/removal.
+Source/proof root **C:/ov/reports/entry_render_preparation_20261101/**.
+
+Baseline session55144/broker556 is now terminal: import1 completed501s with
+21 fresh-font dependency errors;import2 completed9s withzero script errors.
+Original-rendering stutter_probe completes17checks/6legs/0failures,193s,empty
+stderr,unchanged runtime1265053c. It reproduces3frames>100ms,maximum293.987ms.
+Actual source/nearest-rank analysis and raw measurements are archived. CPU quiet
+window established before the timed route;external1Hz samples are coarse/partial,
+not causal attribution. Candidate production compiler33371/broker52908 is terminalPASS. Functional fixture18661 is terminalPASS;
+clean baseline board59493 is terminalPASS. Poll actual handles/processes;do not
+restart on observation timeout. Other Orison jobs/LoRA share FIFO;never stop them.
+Quiet timing-window requests sent to architect/modeler when baseline acquired.
+
+NEXT: measure the draft at the same route/settings with original quality.
+Qualify REAL pause/foreign ownership,barrier activation,cancellation and sandbox
+save/load/fresh-world reconstruction. Existing route/arrival deadlines stay;
+reuse short nearby fixtures and combine functional checks after timing where
+safe. Do not merge based on the small helper alone. Renew affected composed
+surface packet and final candidate gates only after source behavior is correct.
+Hose/book/nook and broader V2 gaps remain open.
+
+Architect owns only P1/P2 optical tests/attributes in C:/ov/city,then a researched
+bounded pair. Canonical runtime_root,passage_residency/region and transport-route
+owner diagnostics are reserved here. No native/shader changes for this repair.
+Modeler deliveries now26 INERT/unintegrated,including Night Watch and passive
+vent grille;TASKS.md records limits. Door-hardware delivery26 is recorded with UV/batch-discrimination dependency;not intake.
+
+# Merged baseline — November 1 Western apartment pair
 
 Evidence class: **INERT**. Owner Lily,she/her. Canonical C:/PleaseRemainOnTheLine
 is back on **main**. Full V2 goal remains active/incomplete. Read DOCS.md and
@@ -26,8 +217,8 @@ No separate interaction/save/civic programme,FPS or artistic acceptance.
 Actual clean119-gate candidate comparison to E5:zero regressions/improvements/
 waivers/blockers;17/17protected unchanged,V2 selected,lint0,requirements_changed[].
 Reader/spatial/current surface PASS;surface tooling42tests PASS/387.17s. Sole
-instrument diff is one reviewed additive test-camera station;all11098 old rows
-unchanged. Main's unrelated baseline-red gates remain unresolved. Verification
+instrument diff is one reviewed additive test-camera station;all11098 existing classifications
+unchanged;71 existing records have updated source line locations. Main's unrelated baseline-red gates remain unresolved. Verification
 was clean in-place/no-Godot;actual canonical engine proof is separate above.
 
 Nine fresh and six original matched-runtime composed frames inspected. Optional

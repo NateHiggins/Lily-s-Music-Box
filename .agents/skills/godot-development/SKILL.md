@@ -77,6 +77,9 @@ and finish related Blender review before combined Godot captures.
 Add tests for meaningful behavior, not implementation-shaped assertions. Keep
 verification proportionate; reuse unchanged evidence where valid and repeat a
 check only when changed inputs, failures, or unresolved concerns justify it.
+If a candidate fails its required outcome, defer expensive qualification of
+that rejected version and prioritize diagnosis. Cancel only owned queued work;
+retain the cancellation and original failure without claiming a runtime pass.
 
 ## Minimize time spent running Godot
 
@@ -131,7 +134,13 @@ tests do not prove visual presentation, interaction, or game feel.
 
 Write hash-bound text with explicit LF newlines or normalized bytes. On Windows,
 `-text` prevents Git from correcting a writer's default CRLF conversion; compare
-content and staged whitespace before publishing a hash-bearing manifest.
+content and staged whitespace before publishing a hash-bearing manifest. Preserve the existing
+serialization of an established hash-bound file unless an explicit migration
+requires changing it: normalizing an existing CRLF manifest to LF can turn a
+small update into a whole-file diff. Compare parsed record changes separately
+from serialization; for deliberately retained CRLF, inspect staged whitespace
+with `git -c core.whitespace=cr-at-eol diff --cached --check`. This is not an
+exemption for spaces or tabs at line ends.
 
 If Godot, graphics, target hardware, or required assets are unavailable, finish
 independent work and name the precise limitation. Never claim a playtest from
@@ -140,6 +149,12 @@ the owner's judgment and actual playtesting establish humor, atmosphere,
 readability, and feel.
 
 ## Reuse demonstrated project lessons
+
+- **Mesh buffer forms:** a valid non-indexed triangle surface can return Nil
+  for Mesh.ARRAY_INDEX, rather than an empty PackedInt32Array. Handle absence
+  before typed assignment and then derive sequential indices. Exercise the
+  actual indexed/non-indexed production forms in geometry fixtures; an indexed
+  BoxMesh alone missed this failure in the slab world integration.
 
 - **Body LOD and retained equipment:** inspect the whole rendered assembly at
   distance, not only the new body indices. A correct authored building LOD can
