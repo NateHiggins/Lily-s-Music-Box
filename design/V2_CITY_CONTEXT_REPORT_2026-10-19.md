@@ -50,6 +50,22 @@ required gates against exact main and verify the candidate before main merge.
 No production ambient-light change, whole-city completion, deadline or owner
 artistic acceptance is claimed.
 
+**Later static disposition:** complete119-gate board at9d4f7852b recorded
+110PASS/8FAIL/1INCOMPLETE. In addition to stale physical proof and unrelated
+red tool rows requiring exact-main comparison, two source-policy gates found
+the new lower-detail shard's missing **.glb.import**. Own unadmitted57452 was
+cancelled with no import/child/engine; original board and cancellation remain
+unchanged in **combined_01/**. Named fix **ffe38a5c2** retains the neighboring
+lower-body settings and correct cache/source path with compression disabled;
+new UID allocation is left to Godot, not copied from another asset. Both
+affected checks now report0missing/0wrong; fixture bindings still pass.
+Replacement **63628/session92884** is live/queued Wait240 under **combined_02/**,
+with the same five-run programme and corrected frozen inputs. No engine
+admission or acceptance follows from this static repair. Both corrected
+native03 whole-block images were also independently inspected and recorded in
+the existing external **sohmer_native_review.json** without replacing its older
+four-image observation or claiming Godot/artistic acceptance.
+
 
 Evidence class: **INERT**. Published main **402b4f6c** reconciles the eastern
 street/ground and frozen house/court work with PR109/PR110. The complete

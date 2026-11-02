@@ -27,11 +27,21 @@ NEW0 pass, but this is not engine verification. Publication reruns **clock_publi
 under the composition report folder preserved all37 GLB bytes. The optional
 Sohmer family test adds transformed dial contacts, native/PBR checks, date and
 fractional-time motion, pause/resume and a unique validated-save reconstruction.
-The replacement combined **57452/session75817** is queued with Wait240 at
-**C:/ov/reports/city_composition_20261102/combined_01/**. Production/test/native
+Replacement combined **57452/session75817** was also cancelled before admission
+after the complete119-gate static board found a missing source import policy for
+the new **city_horizon_near_3_0_lod1.glb**. Its cancellation/actual terminal1 and
+original board remain under **combined_01/**. Named policy fix **ffe38a5c2**
+matches the neighboring lower-body import settings, retains metric precision
+and leaves UID allocation to the first engine import. Physical retention and
+mesh-UV source checks now report0missing/0wrong; no full-board-green claim.
+The same five-run cohort is queued as **63628/session92884**, Wait240, under
+**C:/ov/reports/city_composition_20261102/combined_02/**. Production/test/native
 inputs are frozen while it lives. Two imports, semantic preflight, isolated
 factory/clock and one complete physical world with panes/access/lighting.
-No admission or engine verdict at this checkpoint.
+No admission or engine verdict at this checkpoint. Original board110PASS/8FAIL/
+1INCOMPLETE still needs exact-main comparison and physical renewal; preserve
+all original defects. Independently inspected both corrected native03 block
+images; scoped observations appended to own **sohmer_native_review.json**.
 No production ambient-light change has been made.
 The architect cancelled its original unadmitted **68396/90489** after finding
 parcel-proxy blanking. Original **3e849def** remains rejected. Corrected native05
