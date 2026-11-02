@@ -150,6 +150,12 @@ readability, and feel.
 
 ## Reuse demonstrated project lessons
 
+- **Mesh buffer forms:** a valid non-indexed triangle surface can return Nil
+  for Mesh.ARRAY_INDEX, rather than an empty PackedInt32Array. Handle absence
+  before typed assignment and then derive sequential indices. Exercise the
+  actual indexed/non-indexed production forms in geometry fixtures; an indexed
+  BoxMesh alone missed this failure in the slab world integration.
+
 - **Body LOD and retained equipment:** inspect the whole rendered assembly at
   distance, not only the new body indices. A correct authored building LOD can
   coexist with a destructively simplified retained rooftop tank. Isolate the
