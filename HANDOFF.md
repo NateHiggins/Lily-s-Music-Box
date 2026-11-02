@@ -18,8 +18,14 @@ incremental import, one-script semantic preflight, then the actual existing
 night-review world with nine baseline/temporary ambient/restore roof images.
 Logs/receipts: **C:/ov/reports/city_composition_20261102/lighting_01/**.
 Inputs frozen while queued/running. No runtime pass or production light change.
-The architect's one-body native/import programme is separately queued as
-**broker68396/session90489** on **C:/ov/city**; do not mutate that source tree.
+The architect cancelled only its unadmitted **broker68396/session90489**
+(no Godot/import started) after finding a parcel-proxy party-wall error. Native
+checkpoint **3e849def182ee53aac2091d01a1acb95c0a2f077** is **not ready for intake**.
+The helper uses row.rect rather than the actual L footprint/setbacks, wrongly
+blanking neighboring P2 panes. The earlier 'newly exposed P2' explanation is
+withdrawn. Architect owns the scoped occupancy correction and dependent export
+rebuild; require courtyard/setback negative controls and real solid positive
+controls, preserve old defaults and the original failure. Canonical unchanged.
 Native factory form is reported36individual/88generic there,not yet accepted
 on canonical. Independent review verified all four native image hashes and124
 reservations/123 other profiles/35 other GLBs. Factory167616near/96704lower
