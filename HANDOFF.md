@@ -13,11 +13,14 @@ composition/access/LOD integration. Preserve Orison, shops, traffic, terrain,
 450m boundary and all gameplay/save/time owners. No deadline or artistic grant.
 
 One-world composition study **5c2cf72f6** is authored/parsed; reader **NEW0**.
-Shared-lane batch **session62685/broker32784** is waiting behind peers: one
-incremental import, one-script semantic preflight, then the actual existing
-night-review world with nine baseline/temporary ambient/restore roof images.
-Logs/receipts: **C:/ov/reports/city_composition_20261102/lighting_01/**.
-Inputs frozen while queued/running. No runtime pass or production light change.
+Original lighting-only **session62685/broker32784** was cancelled before
+admission (no import/Godot) to combine the factory/clock/lighting cohort and
+avoid duplicate world startup. Its waiter and **CANCELLATION.json** remain at
+**C:/ov/reports/city_composition_20261102/lighting_01/**. No runtime verdict.
+Canonical source is editable again; passive clock helper and optional horizon
+binding are committed as **b2fe11b8b**, parsed but not engine-verified. The
+replacement combined run is not queued yet; freeze its sources first.
+No production ambient-light change has been made.
 The architect cancelled only its unadmitted **broker68396/session90489**
 (no Godot/import started) after finding a parcel-proxy party-wall error. Native
 checkpoint **3e849def182ee53aac2091d01a1acb95c0a2f077** is **not ready for intake**.
