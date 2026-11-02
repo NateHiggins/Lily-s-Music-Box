@@ -20,7 +20,50 @@ func capture(label: String) -> void:
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(directory.path_join(label+".png"))
 
+func _check_service_models() -> void:
+	# Check the imported selector before static batching destroys source names.
+	# Each alternative is real geometry; hiding five sets would still retain cost.
+	var sink_script := preload("res://scripts/building/orison_v2_kitchen_sink.gd")
+	for profile: String in ["WallService_2555", "WallService_2755", "WallService_2855",
+			"WallService_2955", "WallService_3455", "WallService_4455"]:
+		var owner := sink_script.new()
+		owner.lavatory_profile = profile
+		var model: Node3D = owner._bath_lavatory_model()
+		check(model != null, "imported fitted model selects " + profile)
+		if model != null:
+			var groups: Array[Node3D] = []
+			for node: Node3D in model.find_children("WallService_*", "Node3D", true, false):
+				if not node is MeshInstance3D: groups.append(node)
+			check(groups.size() == 1 and str(groups[0].name) == profile,
+					"only selected service geometry remains: " + profile)
+			if groups.size() == 1:
+				var triangles := 0
+				for draw: MeshInstance3D in groups[0].find_children("*", "MeshInstance3D", true, false):
+					for surface in draw.mesh.get_surface_count():
+						var arrays := draw.mesh.surface_get_arrays(surface)
+						var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+						var uv: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV]
+						var tangents: PackedFloat32Array = arrays[Mesh.ARRAY_TANGENT]
+						var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+						triangles += indices.size() / 3
+						check(uv.size() == vertices.size() and tangents.size() == vertices.size()*4,
+								"import retains service UV and tangent arrays: " + profile)
+				check(triangles == 4128, "selected services retain 4128 source triangles: " + profile)
+			model.free()
+		owner.free()
+	var legacy := TapProp.new()
+	var old_model: Node3D = legacy._bath_lavatory_model()
+	check(old_model != null and old_model.find_child("WallService_*", true, false) == null,
+			"base TapProp retains the separate V1 lavatory")
+	if old_model != null: old_model.free()
+	legacy.free()
+
 func run() -> void:
+	_check_service_models()
+	if "--lavatory-models-only" in OS.get_cmdline_user_args():
+		print("LAVATORY IMPORT SELECTOR: %d checks, %d failures; no composed world or interaction claimed" % [checks, failures.size()])
+		get_tree().quit(0 if failures.is_empty() else 1)
+		return
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	var world := Runtime.instantiate() as OrisonV2RuntimeRoot
@@ -52,6 +95,13 @@ func run() -> void:
 				"complete plug and chain at " + str(tap.name))
 		check(tap._handles.size() == 2 and tap._handles[0].get_parent() == tap,
 				"independent valve pivots at " + str(tap.name))
+		check(not str(tap.get("lavatory_profile")).is_empty(), "installed sink has a surveyed service profile: " + str(tap.name))
+		for handle: Node3D in tap._handles:
+			for draw: MeshInstance3D in handle.find_children("*", "MeshInstance3D", true, false):
+				for surface in draw.mesh.get_surface_count():
+					var material := draw.get_active_material(surface) as StandardMaterial3D
+					check(material != null and not material.uv1_triplanar and not MatLib.is_shared_material(material),
+							"post-batch valve samples private native UV finish: " + str(tap.name))
 		if tap.unit == "4B": sample = tap
 	check(sample != null, "player lavatory exists")
 	if sample != null:

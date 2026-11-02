@@ -1,5 +1,31 @@
 # Current continuation — November 2 cityscape resumed
 
+## November 2 — lavatory selector checks queued, not yet qualified
+
+The fitted source is parked in **3ddc648fe**. All four supplied native previews
+have now been inspected: the fitted rear stock visually seats against the
+reference wall; this does not prove installed wall contacts. Existing
+**BathLavatoryTest** now checks all six imported selectors, removal rather than
+hiding of unused service groups, each selected4128triangle service set, imported
+UV/tangent array presence, and the separate legacy TapProp model. Its full-world
+path additionally checks surveyed profile presence and private post-batch valve
+UV materials. **--lavatory-models-only** runs the small selector preflight without
+composing the world and explicitly claims no interaction/appearance proof.
+Reader gate remains NEW0; spatial manifest renewed; whitespace clean.
+
+An import/semantic/selector batch is queued through the shared lane at
+**C:/ov/reports/native_intake_20261102/lavatory_01/batch.json**. At this checkpoint
+its broker process10108 / exec session23425 was confirmed live and waiting;
+no receipt or runtime pass exists yet. Resume that handle or inspect actual
+terminal receipts before restarting. Keep these queued source inputs unchanged.
+Next: fix any preflight failure, then replace the old lavatory toggle diagnostic
+with real grab/motion/release, inspect fitted wall/trim contacts, loaded material
+maps and campaign reload through the validated household owner. The bath138/0
+receipt predates these lavatory/TapProp edits and remains scoped to its original
+inputs. City architect reports owner-paused custody; do not resume its adjacent
+house authoring while this backlog is being processed.
+
+
 ## Current native intake — owner resumed November 2
 
 Immediate owner request now redirects this chat to a private LILITH draft
