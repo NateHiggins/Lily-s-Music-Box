@@ -42,6 +42,11 @@ func _day() -> int:
 	return int(_clock.elapsed_minutes() / DAY)
 
 
+func minutes() -> float:
+	_clock.bind_state()
+	return _clock.elapsed_minutes()
+
+
 func ready() -> bool:
 	return larder != null and economy != null
 
