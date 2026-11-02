@@ -50,6 +50,21 @@ required gates against exact main and verify the candidate before main merge.
 No production ambient-light change, whole-city completion, deadline or owner
 artistic acceptance is claimed.
 
+**Consumer coverage correction:** a subsequent read-only trace identified the
+composed Horizon review's unconditional static collision-body access. Four new
+moving clock hands are a separate presentation roster. Before any engine
+admission, own63628 was cancelled and its original observation preserved in
+**combined_02/CANCELLATION.json**. **6f338713e** retains every static identity,
+near/lower roster and actual collision check, adds explicit generated moving
+hand/native-array/PBR/metre-scale coverage, and probes every one of the237
+panes on the two affected neighbor bodies. This covers the75 new witnesses
+instead of relying on the old topmost-pane-per-facade sample. No geometry,
+runtime authority, fixture tolerance or gate was weakened. Parser, fixture
+bindings and readerNEW0 pass; these are not runtime results. Replacement
+**61916/session25017**, Wait240, is queued at **combined_03/** with unchanged
+production/native inputs and corrected consumed test sources. No engine run
+or new screenshot occurred in either cancelled combined attempt.
+
 **Later static disposition:** complete119-gate board at9d4f7852b recorded
 110PASS/8FAIL/1INCOMPLETE. In addition to stale physical proof and unrelated
 red tool rows requiring exact-main comparison, two source-policy gates found

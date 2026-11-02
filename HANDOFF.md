@@ -34,10 +34,19 @@ original board remain under **combined_01/**. Named policy fix **ffe38a5c2**
 matches the neighboring lower-body import settings, retains metric precision
 and leaves UID allocation to the first engine import. Physical retention and
 mesh-UV source checks now report0missing/0wrong; no full-board-green claim.
-The same five-run cohort is queued as **63628/session92884**, Wait240, under
-**C:/ov/reports/city_composition_20261102/combined_02/**. Production/test/native
-inputs are frozen while it lives. Two imports, semantic preflight, isolated
-factory/clock and one complete physical world with panes/access/lighting.
+The second combined **63628/session92884** was cancelled unadmitted after a
+read-only consumer trace found that the composed Horizon review assumes every
+mesh is static and owns HorizonCollision. The new four hands would violate
+that test assumption. **6f338713e** keeps the exact static inventory/collision
+checks and separately checks generated hand identities, native arrays, metric
+materials and loaded maps. All237 panes on the two corrected neighbors now
+receive real first-hit queries, covering all75 added witnesses rather than
+only one topmost station per normal. Parser/readerNEW0/fixture checks pass.
+Original **combined_02/CANCELLATION.json** and terminal1 remain; no engine ran.
+The same five-run cohort is now queued as **61916/session25017**, Wait240, under
+**C:/ov/reports/city_composition_20261102/combined_03/**. Production/test/native
+inputs are frozen while it lives. Two imports, six-script semantic preflight,
+isolated factory/clock and one complete physical world with panes/access/lighting.
 No admission or engine verdict at this checkpoint. Original board110PASS/8FAIL/
 1INCOMPLETE still needs exact-main comparison and physical renewal; preserve
 all original defects. Independently inspected both corrected native03 block
