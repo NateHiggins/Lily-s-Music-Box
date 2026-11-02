@@ -86,6 +86,11 @@ cost from existing receipts. Do not repeat long walks through unchanged areas
 to reach the work. Use an explicit test-only starting fixture near the affected
 area, then exercise its real controller, input, collision and state owners.
 Keep that fixture separate from production spawning; report its narrower scope.
+Build batch output paths with path operations, then inspect the serialized paths
+and assert fresh log/capture destinations before launching. Copied Windows JSON
+may use backslashes: replacing only forward-slash substrings misrouted a preview
+into a failed survey's directory. Runners replace receipts/logs at startup, so
+preserve evidence before any intentional path reuse; never reconstruct lost logs.
 Read the registered InputMap names before driving synthetic actions. A misspelled
 action can leave movement idle despite a valid scene and successful approach;
 preserve that driver failure and correct the action rather than the geometry.
@@ -157,6 +162,15 @@ the owner's judgment and actual playtesting establish humor, atmosphere,
 readability, and feel.
 
 ## Reuse demonstrated project lessons
+
+- **Composed optical previews:** a nonpersistent campaign lease does not pause
+  live monotonic consumers. Preserve their process flags, suspend them during
+  out-of-order photo dates, restore through the existing owner, then validate
+  their cursors before resuming. Check exact campaign restoration at that
+  boundary. A following live frame can resample float32 physical rotations;
+  retain exact checks for other domains and the complete physical-owner
+  validator instead of rounding saves or asserting all simulation stays inert.
+  The prologue ledger preserves the failing traces and scoped passing probe.
 
 - **Imported custom properties:** inspect the loaded representation and an
   existing consumer before binding native markers. This project's pinned Godot

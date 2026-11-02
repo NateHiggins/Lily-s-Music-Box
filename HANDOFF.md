@@ -1,5 +1,20 @@
 # Current continuation — November 2 V2 native intake
 
+**Preview02 passes the corrected contract:**592checks/0failures,215.47seconds,
+wrapper exit0, zero raw Godot error headers; ten known resident UID path-fallback
+warnings remain. Exact whole-campaign restoration passes at the owner's boundary;
+every non-household domain remains exact after the reader frame, while the
+complete existing household validator admits the resampled physical payload.
+The restored shop cursor is valid. No production clock/save writer, schema,
+float rounding or tolerance changes. Evidence: **preview_probe_02/DIAGNOSTIC_REVIEW.json**
+and actual receipt/logs. This is INERT scoped proof, not full surface acceptance.
+Godot skill now records copied-output path safety and live-preview ownership.
+Next full renewal uses fresh **surface_03/** outputs, with the preview-only flag
+explicitly cleared; original failed/misrouted evidence remains separately labelled.
+The supplied **C:/ov/reports/moon_name/board_base/board.json** is independently
+validated: clean merge-base3f1051f59, exact tree, all119required gates, no verifier
+errors. Reuse it without altering the other agent's **C:/ov/moonb** checkout.
+
 **Preview01 trace identifies the boundary:** exact owner restoration changes
 zero paths. The next live reader frame resamples saved physical rotations; the
 bounded64-path trace contains only household breadboard/book quaternion values,
