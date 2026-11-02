@@ -9,7 +9,7 @@ sys.path.insert(0,str(ROOT/'art/blender/scripts'))
 from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_overlap,building_outline,extrusion,cornice_ring,floor_intervals,offset_outline
 from fabrication_native_batch import material,partition
 from city_ground_apron_geometry import relief_height
-from city_industrial_architecture import IndustrialBuildings,MillLofts,EasternRows
+from city_industrial_architecture import IndustrialBuildings,MillLofts,EasternRows,PianoFactory
 from city_residential_architecture import ResidentialHouses,EasternHouses,CourtApartments,CivicRows,CivicBlocks,WesternGardenApartments,SouthGardenApartments
 from city_horizon_assets import export_blocks,manifest_paths
 plan_path=ROOT/'art/data/city_horizon/source_plan.json';plan=json.loads(plan_path.read_text())
@@ -20,6 +20,27 @@ OUT=ROOT/'tmp/v2-city-polish-20261018/horizon_native';OUT.mkdir(parents=True,exi
 all_rows=[];all_windows=[];all_bearings=[];assets={};native_checks={};grade_seats=[]
 replacement_buffers=collections.defaultdict(lambda:([],[]))
 industrial_checks=[]
+def occluding_neighbours(rows,identity):
+    """Retained proxy policy, with actual occupied wings for the new L factory.
+
+    Its reservation is intentionally larger than its solid body. Passing the
+    entire parcel to the legacy rectangle helper would blank neighboring sash
+    across real setbacks and the open delivery court.
+    """
+    result=[]
+    for other in rows:
+        if other['id']==identity:continue
+        study=other.get('architecture',{})
+        if study.get('style') not in PianoFactory.STYLES:
+            result.append(other);continue
+        points=study['outline_m'];assert len(points)==6
+        x,z,X,Z=min(p[0] for p in points),min(p[1] for p in points),max(p[0] for p in points),max(p[1] for p in points)
+        cut_x,cut_z=points[1]
+        assert x<cut_x<X and z<cut_z<Z
+        for rect in [[x,z,cut_x,Z],[cut_x,z,X,cut_z]]:
+            result.append(dict(other,rect=rect))
+    return result
+
 for row in plan['buildings']:
     outline=building_outline(row)
     samples=[(x,-y) for x,y in outline]
@@ -29,7 +50,7 @@ for row in plan['buildings']:
     if apron:
         a,b,c,d=apron
         samples.extend((x,z) for x,z in [(a,b),(c,b),(c,d),(a,d)])
-    if row.get('architecture',{}).get('style') in SouthGardenApartments.STYLES:
+    if row.get('architecture',{}).get('style') in SouthGardenApartments.STYLES|PianoFactory.STYLES:
         # These new public garden paths extend beyond the shallow body. Seat
         # their buried stock and rear descent from the actual receiving grade.
         for a,b,c,d in row['architecture']['court_paving_m']:
@@ -73,7 +94,7 @@ for family in ['near','far']:
         h=float(row['height_m']);depth=float(row['reveal_m']);recess=float(row['glass_recess_m'])
         study=row.get('architecture',{});outline=building_outline(row)
         if study.get('type') in ['industrial_front','mill_front','eastern_row','residential_front']:
-            neighbours=[r for r in rows if r['id']!=name]
+            neighbours=occluding_neighbours(rows,name)
             constructor={'industrial_front':IndustrialBuildings,'mill_front':MillLofts,'eastern_row':EasternRows,'residential_front':ResidentialHouses}[study['type']]
             if study.get('style') in EasternHouses.STYLES:constructor=EasternHouses
             if study.get('style') in CourtApartments.STYLES:constructor=CourtApartments
@@ -81,6 +102,7 @@ for family in ['near','far']:
             if study.get('style') in CivicBlocks.STYLES:constructor=CivicBlocks
             if study.get('style') in WesternGardenApartments.STYLES:constructor=WesternGardenApartments
             if study.get('style') in SouthGardenApartments.STYLES:constructor=SouthGardenApartments
+            if study.get('style') in PianoFactory.STYLES:constructor=PianoFactory
             authored=constructor(row,add,neighbours).build()
             windows.extend(authored['windows']);bearings.extend(authored['bearings'])
             def lower_add(owner,key,vertices,faces):
@@ -170,7 +192,7 @@ for family in ['near','far']:
                     left=bay*pitch;right=left+pitch;cx=(left+right)*.5
                     first=origin+tangent*left+out*.02;last=origin+tangent*right+out*.02
                     axis_aligned=abs(tangent.x)<1e-8 or abs(tangent.y)<1e-8
-                    if axis_aligned and party_wall_overlap((first.x,-first.y),(last.x,-last.y),bottom+row['grade_datum_m'],[r for r in rows if r['id']!=name]):
+                    if axis_aligned and party_wall_overlap((first.x,-first.y),(last.x,-last.y),bottom+row['grade_datum_m'],occluding_neighbours(rows,name)):
                         local_box(name,row['wall_key'],origin,tangent,out,(left,-depth,bottom),(right,0,top))
                         continue
                     entrance=study.get('entrance',{})

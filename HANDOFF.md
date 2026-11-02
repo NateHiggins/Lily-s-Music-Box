@@ -5,7 +5,10 @@ Canonical is **codex/v2-city-composition-20261102**, branched from current
 origin/main **4fae3c389e01ad798cda746e8f69b6a04dc4e51b**. Prior slab/performance
 experiments remain preserved and unmerged on PR138; they are absent here.
 Historical main/handoff counts below are stale: PR139 merged the southern pair
-at **1a7917eae**, and current Horizon source is **35 individual/89 generic**.
+at **1a7917eae**, and main's Horizon source is **35 individual/89 generic**.
+Corrected native **c4db44b46a25f763ee92c5f112876ed45f5b3ca0** is now
+merged into this feature candidate only: **36 individual/88 generic**.
+No main merge or runtime/artistic acceptance follows from this WIP intake.
 
 Native city architect owns the Sohmer-inspired **HORIZON_NEAR_3_0_P1** factory,
 existing parcel and complete near/lower bodies in **C:/ov/city**. Canonical owns
@@ -21,31 +24,31 @@ Canonical source is editable again; passive clock helper and optional horizon
 binding are committed as **b2fe11b8b**, parsed but not engine-verified. The
 replacement combined run is not queued yet; freeze its sources first.
 No production ambient-light change has been made.
-The architect cancelled only its unadmitted **broker68396/session90489**
-(no Godot/import started) after finding a parcel-proxy party-wall error. Native
-checkpoint **3e849def182ee53aac2091d01a1acb95c0a2f077** is **not ready for intake**.
-The helper uses row.rect rather than the actual L footprint/setbacks, wrongly
-blanking neighboring P2 panes. The earlier 'newly exposed P2' explanation is
-withdrawn. Architect owns the scoped occupancy correction and dependent export
-rebuild; require courtyard/setback negative controls and real solid positive
-controls, preserve old defaults and the original failure. Canonical unchanged.
-Native factory form is reported36individual/88generic there,not yet accepted
-on canonical. Independent review verified all four native image hashes and124
+The architect cancelled its original unadmitted **68396/90489** after finding
+parcel-proxy blanking. Original **3e849def** remains rejected. Corrected native05
+uses actual occupied Piano wings; old helper/default rows and IDs remain.
+Thirteen source tests pass. P1 eleven attributes/poses and lower GLB are exact;
+six dependent P0R2/P2 wall/sash/pane parts rebuild, adding75 pane witnesses.
+The corrected original family job **29476/session76118** remains queued on the
+architect's frozen tree; no import/Godot or loaded verdict yet. Never edit it.
+Original native/correction archives and native custody text remain in **c4db44b46**
+and the existing city ledger; no old whole-shard receipt is repinned.
+Native factory form is36individual/88generic on the candidate; not qualified. Independent review verified all four native image hashes and124
 reservations/123 other profiles/35 other GLBs. Factory167616near/96704lower
 triangles replace6924generic triangles; sash/brick dominate. Exact native cost
 and preservation observations are external **sohmer_source_cost.json** and
 **sohmer_preservation_independent.json** under the composition report folder.
 These are not FPS or loaded proof; measure actual LOD/viewport cost before
 acceptance or propagating this density. First outline/encoding failures stay
-with the architect's original report. Canonical clock integration is a
-parsed external draft only at **C:/ov/reports/city_composition_20261102/**:
-**sohmer_clock_draft.gd**, **clock_stock_bounds.json**. Reuse the existing
+with the architect's original report. Canonical clock integration is committed helper/binding WIP; the original
+parsed draft and **clock_stock_bounds.json** remain at
+**C:/ov/reports/city_composition_20261102/**. Reuse the existing
 arcade clock's south-facing native hand meshes and inherited CampaignClock
 movement. Uniformscale3.6,local metricUVrepeat9.0; proper outward frames,
 actual .045m dial-front centers plus .025/.037m offsets avoid double datum and
 floating hands. No new clock/save/collision owner or asset is needed. Publish
 optional runtime clock_faces in the existing horizon builder only after the
-architect hands off its frozen source and this observation retires; then verify
+native source handoff is complete and the old observation is retired; then verify
 actual loaded materials,hand motion/reversal/reconstruction and composed costs.
 Do not repeat launches or unrelated hose/walk suites. Use hidden desktop.
 
@@ -57,6 +60,15 @@ airer/gate adapter and access/cost gaps. External audit is at
 **C:/ov/reports/native_intake_20261102/INTAKE_RECONCILIATION.json**. This is source
 intake, not loaded/input/save/performance or artistic qualification. City stays
 first; do not bulk install the native backlog or resume its construction hold.
+
+**Geography correction:** installed blockout180degree orientation makes source
+local+X western/riverward. This is a western Sohmer/Vernon-inspired landmark;
+prior eastern labels were wrong. Keep footprint/transforms; use local_minus_z/
+local_minus_x clock IDs and horizon-local Godot centers, applying parent once.
+Full combined loaded clock/material/pane/controller/cost and physical/candidate
+qualification remains required. The source-only helper still has known retained
+setback-proxy debt; see **K-V2-CITY-FOOTPRINT-CLIP**.
+
 
 # Current handoff — November 1 Western apartment pair merged
 
