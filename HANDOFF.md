@@ -13,6 +13,18 @@ Parser and readerNEW0 pass; no lavatory Godot import/interaction/contact/campaig
 reload has run. Existing bath138/0 evidence retains its pre-lavatory source scope.
 Finish lavatory selection/material/contact/input tests before accepting it.
 
+Comic review delivered externally at **C:/ov/reports/lilith_comic/revision_20261102/**:
+three roles/all9pages,28anchored notes, marked draft and4page revision plan.
+Independent QA caught conflicting private-knot suggestions and encoding defects;
+the marked result resolves these while preserving raw reviews. Original PDF is
+hash-unchanged; no new production art or game/comic canon edits. Canonical
+**comic-book-development** skill and thin Codex/Claude adapters are validated;
+no private comic assets were copied into Git. Owner also requested local-generator
+guidance in **godot-textures-and-shaders**: current SDXL CLI/lane/batch/negative
+prompt/resume/provenance/material workflow documented, --help and skill validator
+run, no GPU job. Shared-process message is a local inbox delivery, not evidence
+that another agent read it. Broader game/native/city qualification remains open.
+
 Evidence class: **INERT**. Lily now explicitly requests ingestion of the completed
 Blender queue. Process existing28 deliveries in coherent families; do not merely
 repeat the delivery audit or bulk install unsupported adapters. City/native work

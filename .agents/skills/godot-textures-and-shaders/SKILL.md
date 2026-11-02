@@ -13,6 +13,74 @@ owner's painterly atmosphere, expressive glass, readability and established
 character appearance; physical plausibility supports the direction rather
 than overruling it. Research proposals are not implementation authorization.
 
+## Use the local image generator for candidates
+
+This project has a local SDXL base1.0 runner at **art/tools/imagegen.py**.
+Use it for appropriate raster candidates rather than assuming image generation
+requires a remote service. Read its current CLI and the
+[local-generation guide](../../../tools/PIPELINE_TOOLS.md#local-image-generation)
+before a batch. A documentation or planning request does not require a render.
+
+Run from the repository root with any Python; the script relaunches its worker
+in **C:/devkit/imagegen/venv** and uses the cached model offline. The optional
+**ORISON_IMAGEGEN_HOME** selects another installed environment. Inspect an
+existing setup before installing or downloading anything.
+
+The public command queues GPU slices through the shared Godot lane itself.
+Do not wrap it in a second lane acquisition, load SDXL manually, or invoke its
+internal **--lane-slice** worker directly. Current settings are24images per
+slice,900seconds per slice and240minutes queue wait; check the script if these
+change. Jobs yield the lane between slices. Respect holds and other owners;
+preserve actual busy/timeout results. Logs are under the output's **logs/**.
+
+For material work prefer an explicit batch recipe. The runner's default
+negative prompt was written for monochrome illustrations: it includes
+**colour**, **photograph** and **3d render**. Do not inherit that preset blindly
+for a colored albedo. A job's **negative** string replaces that default.
+
+Example **jobs.json** in a private candidate directory:
+
+```json
+[
+  {
+    "id": "limestone_albedo_v1",
+    "prompt": "orthographic flat diffuse material swatch, warm pale limestone, fine mineral variation, uniform neutral illumination, continuous texture across the frame",
+    "negative": "text, letters, numbers, logos, signature, watermark, border, perspective, cast shadows, specular highlights, isolated objects",
+    "width": 1024,
+    "height": 1024,
+    "steps": 30,
+    "guidance": 7.0
+  }
+]
+```
+
+```powershell
+python art/tools/imagegen.py --batch C:/ov/reports/texture_candidates/jobs.json --out C:/ov/reports/texture_candidates/limestone_v1 --seeds 2
+```
+
+**--prompt**, **--id**, **--width** and **--height** support simple single-job
+studies; don't invent **--size** or **--dry-run** for this SDXL command. Use
+**--help** to check syntax without loading a model. Batch jobs also accept their
+own **seeds**, **steps** and **guidance**. A seed countN generates indices0..N-1,
+not a requested arbitrary seed. Output is **id_sN.png** plus a JSON sidecar.
+Keep the batch recipe too: the current sidecar omits guidance and isn't a full
+environment fingerprint.
+
+Existing PNG names are skipped without comparing the new prompt or recipe.
+Resume an unchanged job; give changed recipes a new ID or versioned directory.
+Do not mistake a stale existing image for the new result. Inspect each selected
+image, including seams, unwanted lettering, baked light and physical feature
+scale. A seamless-looking prompt does not establish actual tiling.
+
+Generated art is a candidate, not a ready PBR set. Route accepted material art
+through the existing catalogue/recipe owner; derive and calibrate roughness and
+normal relief from manufacture, rather than treating RGB as every map. Keep
+lettering separate, use references only within their allowed scope, retain
+provenance, then verify imported maps, metric sampling and loaded mips in Godot.
+Only selected production assets enter the repo, not model caches or whole seed
+galleries. Dedicated likeness/LoRA tools have different models, flags and privacy
+boundaries; inspect their own instructions instead of passing SDXL options to them.
+
 ## Find the actual appearance owner
 
 Trace the installed loader, material slots, overrides, next passes, shader
