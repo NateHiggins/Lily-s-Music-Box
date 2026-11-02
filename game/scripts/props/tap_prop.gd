@@ -161,12 +161,16 @@ var _panel_front_z := 0.0
 var _valve_mount_z := 0.0
 
 
+func _bath_lavatory_model() -> Node3D:
+	return preload("res://assets/props/bath_lavatory.glb").instantiate() as Node3D
+
 func _build_bath_sink(parent: Node3D) -> void:
 	# Blender owns the complete casting and plumbing; this owner still drives
 	# the existing water graph, service checks, sounds and independent valves.
-	var model := preload("res://assets/props/bath_lavatory.glb").instantiate() as Node3D
+	var model := _bath_lavatory_model()
+	if model==null:return
 	parent.add_child(model)
-	_skin_fixture_model(model)
+	_skin_fixture_model(model,bool(model.get_meta("native_metric_fixture",false)),{})
 	var support_name: String="WallMount%03d"%roundi(shower_wall_setback*1000.0)
 	for support: Node3D in model.find_children("WallMount*","Node3D",true,false):
 		if support is MeshInstance3D:continue
@@ -190,7 +194,7 @@ func _build_bath_sink(parent: Node3D) -> void:
 	_bath_chain_instances.instance_count = links.size()
 	var chain_draw := MultiMeshInstance3D.new()
 	chain_draw.multimesh = _bath_chain_instances
-	chain_draw.material_override = MatLib.get_mat("nickel_plated")
+	chain_draw.material_override = (links[0] as MeshInstance3D).get_surface_override_material(0) if model.get_meta("native_metric_fixture",false) else MatLib.get_mat("nickel_plated")
 	for link in links:
 		_bath_chain.remove_child(link)
 		link.queue_free()
@@ -210,7 +214,7 @@ func _build_bath_sink(parent: Node3D) -> void:
 	_update_bath_plug(1.0)
 
 
-func _skin_fixture_model(node: Node) -> void:
+func _skin_fixture_model(node: Node, native_uv:bool=false, local_materials:Dictionary={}) -> void:
 	if node is MeshInstance3D:
 		for surface in node.mesh.get_surface_count():
 			var source: Material = node.mesh.surface_get_material(surface)
@@ -218,12 +222,18 @@ func _skin_fixture_model(node: Node) -> void:
 			var key := source.resource_name
 			if key == "porcelain_fixture": key = porcelain_material_key
 			var material := MatLib.get_mat(key)
+			if native_uv:
+				if not local_materials.has(key):
+					var mapped:=material.duplicate() as StandardMaterial3D
+					mapped.uv1_triplanar=false
+					local_materials[key]=mapped
+				material=local_materials[key]
 			if key == "shower_duck":
 				material = material.duplicate() as StandardMaterial3D
 				material.normal_scale = .14
 				material.cull_mode = BaseMaterial3D.CULL_DISABLED
 			node.set_surface_override_material(surface, material)
-	for child in node.get_children(): _skin_fixture_model(child)
+	for child in node.get_children(): _skin_fixture_model(child,native_uv,local_materials)
 
 
 func _update_bath_plug(delta: float) -> void:

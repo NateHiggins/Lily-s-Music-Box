@@ -61,7 +61,7 @@ ASSETS = (
     "props/fire_repairs.glb", # Thin masonry/iron edge charts retain authored metric precision.
     "props/washer_controls.glb", # 96 fine thread/seal UV triangles collapse under import quantization.
     "props/stair_ironwork_service.glb", "props/boiler_body.glb",
-    "props/bath_shower.glb", "props/bath_lavatory.glb",
+    "props/bath_shower.glb", "props/bath_lavatory.glb", "props/bath_lavatory_fitted.glb",
     "props/clawfoot_bath.glb", # hand_imported_surfaces: source tangents pass; three compressed fixed surfaces fall to 0.990/0.865/-0.776 derivative agreement.
     "props/bedding.glb", "props/roof_coping.glb",
     "building/v2_lift_drive.glb", "props/fire_service.glb",

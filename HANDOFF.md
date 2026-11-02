@@ -2,6 +2,17 @@
 
 ## Current native intake — owner resumed November 2
 
+Immediate owner request now redirects this chat to a private LILITH draft
+review/production plan and shared comic skill. Preserve the following unqualified
+lavatory WIP before returning to game integration: fitted native source and
+single six-profile export are present;20sealed files verified,59722source
+triangles/39surfaces, strict exported tangents PASS. Existing19sink records now
+select one service group each through the V2 subclass; V1 source/export remain
+unchanged. Private UV binding and chain material follow the selected model.
+Parser and readerNEW0 pass; no lavatory Godot import/interaction/contact/campaign
+reload has run. Existing bath138/0 evidence retains its pre-lavatory source scope.
+Finish lavatory selection/material/contact/input tests before accepting it.
+
 Evidence class: **INERT**. Lily now explicitly requests ingestion of the completed
 Blender queue. Process existing28 deliveries in coherent families; do not merely
 repeat the delivery audit or bulk install unsupported adapters. City/native work

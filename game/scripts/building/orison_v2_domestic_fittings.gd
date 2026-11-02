@@ -11,7 +11,7 @@ const SCRIPTS := {
 	"fridge": preload("res://scripts/building/orison_v2_fridge.gd")}
 const PROPERTY_TYPES := {
 	"sink": {"fixture": TYPE_STRING, "drain_side": TYPE_INT,
-		"compact_kitchen": TYPE_BOOL, "has_drainboard": TYPE_BOOL},
+		"compact_kitchen": TYPE_BOOL, "has_drainboard": TYPE_BOOL,"lavatory_profile":TYPE_STRING},
 	"shower": {"fixture": TYPE_STRING},
 	"stove": {"ambient_lit": TYPE_BOOL},
 	"fridge": {"monitor_top": TYPE_BOOL}}
