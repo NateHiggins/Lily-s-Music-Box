@@ -71,6 +71,22 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	world.player.set_physics_process(false)
+	if OS.get_environment("ORISON_SURFACE_PREVIEW_PROBE") == "1":
+		# Explicit diagnostic: exercise the real composed preview without the
+		# unrelated city census/physical inventory or a second world startup.
+		var optical := preload("res://tests/v2_window_city_night_review.gd").new()
+		optical.externally_managed = true
+		add_child(optical)
+		var result: Dictionary = await optical.run_composed(world,self)
+		optical.free()
+		world.shutdown_for_tests(); world.free()
+		for frame in 4: await get_tree().process_frame
+		result["evidence_class"] = "INERT"
+		result["scope"] = "Composed preview preservation diagnostic only; no full physical or gameplay acceptance."
+		FileAccess.open(directory.path_join("preview_probe.json"),FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))
+		print("V2 PREVIEW PROBE: ","PASS" if failures.is_empty() else "FAIL","; ",batch_checks," checks; ",failures.size()," failures; diagnostic only")
+		get_tree().quit(0 if failures.is_empty() else 1)
+		return
 	# The world builds synchronously; give passive parts actual physics ticks
 	# before taking snapshots that are expected to remain supported on restore.
 	for frame in 40:await get_tree().physics_frame

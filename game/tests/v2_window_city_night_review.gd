@@ -164,8 +164,13 @@ func run_composed(world: OrisonV2RuntimeRoot, host: Node) -> Dictionary:
 	add_child(camera); camera.make_current()
 	await composition_study(world, CampaignClock.new())
 	check(RealityState.end_preview_campaign(self), "original campaign context restored by its owner")
+	var restored_changes: Array[Dictionary] = []
+	_campaign_changes(campaign_before,RealityState.data,"$",restored_changes)
 	# Allow time/weather readers to rebind before the enclosing survey proceeds.
 	await get_tree().process_frame
+	var resumed_changes: Array[Dictionary] = []
+	_campaign_changes(campaign_before,RealityState.data,"$",resumed_changes)
+	record["campaign_preservation"] = {"after_owner_restore":restored_changes,"after_reader_frame":resumed_changes}
 	check(RealityState.data == campaign_before, "optical preview preserves the original durable campaign")
 	check(not shops.failed and shops.advance_current(), "restored campaign retains a valid monotonic shop cursor")
 	shops.set_process(shop_processing)
@@ -181,6 +186,24 @@ func run_composed(world: OrisonV2RuntimeRoot, host: Node) -> Dictionary:
 	if file != null:
 		file.store_string(JSON.stringify(record, "\t")); check(file.get_error() == OK, "optical observations written"); file.close()
 	return record
+
+func _campaign_changes(before: Variant, after: Variant, path: String, changes: Array[Dictionary]) -> void:
+	if changes.size() >= 64 or before == after: return
+	if before is Dictionary and after is Dictionary:
+		var keys: Array = before.keys()
+		for key in after:
+			if not keys.has(key): keys.append(key)
+		for key in keys:
+			if not before.has(key) or not after.has(key):
+				changes.append({"path":path+"."+str(key),"before_present":before.has(key),"after_present":after.has(key)})
+			else: _campaign_changes(before[key],after[key],path+"."+str(key),changes)
+			if changes.size() >= 64: return
+	elif before is Array and after is Array and before.size() == after.size():
+		for index in before.size():
+			_campaign_changes(before[index],after[index],path+"["+str(index)+"]",changes)
+			if changes.size() >= 64: return
+	else:
+		changes.append({"path":path,"before":str(before).left(240),"after":str(after).left(240)})
 
 func composition_study(world: Node3D, clock: CampaignClock) -> void:
 	# Diagnostic controls only. No production setting or material is changed.
