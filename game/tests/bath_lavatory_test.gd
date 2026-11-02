@@ -206,7 +206,7 @@ func _played_lavatory(world: OrisonV2RuntimeRoot, sink: TapProp) -> void:
 	check(player._grab.find_target().get("part") == sink._bath_plug,
 			"standing lavatory ray selects the actual drain plug")
 	hand.click()
-	var acquired := player._grab.active() and sink._plug_hand.held
+	var acquired: bool = player._grab.active() and sink._plug_hand.held
 	check(acquired, "primary acquires installed lavatory plug without toggling it")
 	if acquired:
 		var motion := InputEventMouseMotion.new()
@@ -250,7 +250,7 @@ func _played_lavatory(world: OrisonV2RuntimeRoot, sink: TapProp) -> void:
 
 func _reconstruct_lavatory(world: OrisonV2RuntimeRoot) -> OrisonV2RuntimeRoot:
 	if reconstruction_save.is_empty(): return world
-	var old_owner := weakref(world.household_state)
+	var old_owner: WeakRef = weakref(world.household_state)
 	world.shutdown_for_tests()
 	world.free()
 	check(old_owner.get_ref() == null, "original household save owner is freed before disk rebuild")
@@ -393,7 +393,7 @@ func _played_closet(world: OrisonV2RuntimeRoot) -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	hand.click()
-	var acquired := player._grab.active() and player._grab.target.get("part") == closet.parts.CisternCover
+	var acquired: bool = player._grab.active() and player._grab.target.get("part") == closet.parts.CisternCover
 	check(acquired, "actual primary selects the removable cover with the new hardware installed")
 	if acquired:
 		var motion := InputEventMouseMotion.new();motion.relative = Vector2(0,-32)
