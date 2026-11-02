@@ -1,5 +1,17 @@
 # Current continuation — November 2 V2 native intake
 
+**Continuation checkpoint:** merge **4f18420e4** is committed and pushed; no
+merge remains in progress. **lavatory_06** adds an actual standing-controller
+plug lift/release and a second, newly constructed V2 world loaded through the
+validated campaign save owner. These additions are authored, not yet verified.
+Import, compilation and the scoped two-world programme are queued through the
+shared lane (broker PID6172; live exec session11238 at preparation). Inputs are
+frozen while queued/running. Reports go to
+**C:/ov/reports/native_intake_20261102/lavatory_06/**. Recheck the live handle and
+receipts before repeating or changing inputs. The first seated plug position is
+a fixture; this route does not claim mouse seating. ReaderNEW0 and regenerated
+11166-record spatial manifest pass. No new runtime acceptance is claimed.
+
 ## November 2 — installed lavatory diagnostic passes; formal qualification open
 
 Active goal remains V2 repairs, interactions, stutter, hose/book/nook and required

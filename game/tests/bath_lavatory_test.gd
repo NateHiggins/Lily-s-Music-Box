@@ -6,6 +6,8 @@ var failures: Array[String] = []
 var service_contacts: Array[Dictionary] = []
 var loaded_finishes: Array[Dictionary] = []
 var bath_recipes: Dictionary = {}
+var reconstruction_save := ""
+var reconstruction_plug := Vector3.ZERO
 
 func check(ok: bool, label: String) -> void:
 	checks += 1
@@ -195,6 +197,33 @@ func _played_lavatory(world: OrisonV2RuntimeRoot, sink: TapProp) -> void:
 				"actual mouse acquires, turns and releases installed lavatory valve " + str(index))
 	check(is_equal_approx(sink._valve_openings.x,.31) and is_equal_approx(sink._valve_openings.y,.64),
 			"installed lavatory retains two independent released partial openings")
+	# Start with a seated fixture, then use the real controller to lift and
+	# release it. This does not claim that seating was performed with the mouse.
+	sink.set_stopper(true)
+	player.camera.look_at(sink._bath_plug.global_position)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	check(player._grab.find_target().get("part") == sink._bath_plug,
+			"standing lavatory ray selects the actual drain plug")
+	hand.click()
+	var acquired := player._grab.active() and sink._plug_hand.held
+	check(acquired, "primary acquires installed lavatory plug without toggling it")
+	if acquired:
+		var motion := InputEventMouseMotion.new()
+		motion.relative = Vector2(0,-32)
+		player._unhandled_input(motion)
+		player.set_physics_process(true)
+		for frame in 8: await get_tree().physics_frame
+		check(player._grab.active() and sink._plug_hand.held and not sink._stopper,
+				"real mouse and standing controller lift the plug clear of the drain")
+		if player._grab.active(): hand.click()
+		player.set_physics_process(false)
+		await get_tree().create_timer(.5).timeout
+		check(not sink._plug_hand.held and sink._plug_hand.resting and not sink._stopper,
+				"released lavatory plug settles without stale hand ownership")
+		check(sink._bath_chain_instances.get_instance_transform(0).origin.distance_to(
+				sink._bath_plug.position+Vector3(0,.018,0)) < .001,
+				"installed chain follows the mouse-released plug eye")
 	var directory := OS.get_environment("SHOT_DIR")
 	check(not directory.is_empty(), "campaign reload fixture has an isolated external output directory")
 	if not directory.is_empty():
@@ -205,6 +234,8 @@ func _played_lavatory(world: OrisonV2RuntimeRoot, sink: TapProp) -> void:
 		var wrote := RealityState.save_game()
 		check(wrote, "installed lavatory writes through validated campaign save owner")
 		if wrote:
+			reconstruction_save = RealityState.save_path
+			reconstruction_plug = sink._bath_plug.position
 			sink.set_hot(false);sink.set_cold(false)
 			RealityState.load_game()
 			check(RealityState.can_continue(), "validated lavatory campaign reload remains continuable")
@@ -216,6 +247,41 @@ func _played_lavatory(world: OrisonV2RuntimeRoot, sink: TapProp) -> void:
 	world.household_state.capture_now();hand.free()
 	player.global_transform = original_pose;player.camera.global_transform = original_view
 	player.set_physics_process(original_physics);Input.mouse_mode = original_mouse
+
+func _reconstruct_lavatory(world: OrisonV2RuntimeRoot) -> OrisonV2RuntimeRoot:
+	if reconstruction_save.is_empty(): return world
+	var old_owner := weakref(world.household_state)
+	world.shutdown_for_tests()
+	world.free()
+	check(old_owner.get_ref() == null, "original household save owner is freed before disk rebuild")
+	var original_path: String = RealityState.save_path
+	RealityState.reset_campaign_for_tests()
+	RealityState.save_path = reconstruction_save
+	RealityState.load_game()
+	check(RealityState.can_continue(), "isolated campaign file validates before fresh-world construction")
+	var rebuilt := Runtime.instantiate() as OrisonV2RuntimeRoot
+	add_child(rebuilt)
+	var deadline := Time.get_ticks_msec()+600000
+	while rebuilt.startup_ms <= 0 and not rebuilt.startup_failed and Time.get_ticks_msec() < deadline:
+		await get_tree().process_frame
+	check(not rebuilt.startup_failed and rebuilt.startup_ms > 0, "fresh V2 world completes saved campaign reconstruction")
+	RealityState.save_path = original_path
+	if rebuilt.startup_failed or rebuilt.startup_ms <= 0: return rebuilt
+	await get_tree().physics_frame
+	var found := false
+	for sink: TapProp in rebuilt.boiler_tend.taps:
+		if sink.fixture != "bath_sink" or sink.unit != "4B": continue
+		found = true
+		check(is_equal_approx(sink._valve_openings.x,.31) and is_equal_approx(sink._valve_openings.y,.64),
+				"fresh physical sink restores both independently released partial valves")
+		check(Vector2(sink._bath_plug.position.x,sink._bath_plug.position.z).distance_to(
+				Vector2(reconstruction_plug.x,reconstruction_plug.z)) < .0001,
+				"fresh physical plug restores its released basin position from disk")
+		check(not sink._plug_hand.held and sink._held_valve == -1 and not rebuilt.player._grab.active(),
+				"fresh world never reconstructs transient plug, valve or player hand ownership")
+		check(sink.get("lavatory_profile") == "WallService_2755", "fresh sink retains the surveyed 4B service selection")
+	check(found, "fresh campaign contains the installed 4B lavatory")
+	return rebuilt
 
 func run() -> void:
 	RealityState.persistence_enabled = false
@@ -330,6 +396,7 @@ func run() -> void:
 		light.queue_free()
 		camera.queue_free()
 	if OS.get_environment("ORISON_LAVATORY_ONLY") == "1":
+		world = await _reconstruct_lavatory(world)
 		_finish(world)
 		return
 	var shower: TapProp

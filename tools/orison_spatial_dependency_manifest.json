@@ -233076,7 +233076,7 @@
     "run"
    ],
    "lines": [
-    425
+    492
    ],
    "count": 1,
    "context": [
@@ -233105,21 +233105,23 @@
    "subsystem": "tests",
    "symbols": [
     "_check_profile_validation",
+    "_reconstruct_lavatory",
     "run"
    ],
    "lines": [
-    70,
-    276,
-    337,
-    385,
-    396
+    72,
+    273,
+    342,
+    404,
+    452,
+    463
    ],
-   "count": 5,
+   "count": 6,
    "context": [
     "var record := {\"id\":\"TEST_LAVATORY\", \"kind\":\"sink\", \"unit\":\"4B\",",
+    "if sink.fixture != \"bath_sink\" or sink.unit != \"4B\": continue",
     "if tap.unit == \"4B\": sample = tap",
-    "if tap.fixture == \"shower\" and tap.unit == \"4B\": shower = tap",
-    "if cabinet == null or cabinet.unit != \"4B\": continue"
+    "if tap.fixture == \"shower\" and tap.unit == \"4B\": shower = tap"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -233145,7 +233147,7 @@
     "run"
    ],
    "lines": [
-    356
+    423
    ],
    "count": 1,
    "context": [
