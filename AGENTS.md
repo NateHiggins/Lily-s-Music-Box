@@ -153,6 +153,12 @@ For intentional low-resolution sprites, glyphs and physical tile displays, use
 live in `.agents/skills`; Claude Code can consume them through thin personal
 skill adapters without a duplicate guide or a directory junction.
 
+The owner keeps a widget bar outside the repo. Between tasks, agents on this machine read
+`~/homebrew-tools/data/work_orders.json` (the top open order is what she wants next) and
+`rulings.json` (her answers; add open rulings there, recommended option first). Her playtest
+notes are in `playtest_notes.json`. All of this is private: nothing from it goes in the repo
+unless she says so. See `~/homebrew-tools/README.md`.
+
 `tools/PIPELINE_TOOLS.md` describes the gate board, run receipts, the
 candidate verifier, the design-doc lint, the lane broker, the lane ledger
 and the rulings checker.
