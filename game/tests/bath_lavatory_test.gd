@@ -4,6 +4,8 @@ const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
 var checks := 0
 var failures: Array[String] = []
 var service_contacts: Array[Dictionary] = []
+var loaded_finishes: Array[Dictionary] = []
+var bath_recipes: Dictionary = {}
 
 func check(ok: bool, label: String) -> void:
 	checks += 1
@@ -20,6 +22,42 @@ func capture(label: String) -> void:
 	DirAccess.make_dir_recursive_absolute(directory)
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(directory.path_join(label+".png"))
+
+func _check_loaded_finish(material: Material, identity: String, checked: Dictionary) -> void:
+	check(material != null and not MatLib.is_shared_material(material), "native finish is private: " + identity)
+	if material == null: return
+	var finish := str(material.get_meta("v2_owner_finish", ""))
+	var key := finish.get_slice("/",1)
+	var recipe: Dictionary = bath_recipes.get(key,{})
+	check(finish.begins_with("bath/") and not recipe.is_empty(), "installed bath finish retains its registered owner profile: " + identity)
+	if recipe.is_empty(): return
+	var expected := MatLib.get_mat(str(recipe.get("catalog",key)))
+	var maps: Array = []
+	var scale: Variant
+	if material is StandardMaterial3D:
+		check(not material.uv1_triplanar and not material.uv2_triplanar and material.normal_enabled, "standard finish uses native UV and normal sampling")
+		check(is_equal_approx(material.normal_scale,float(recipe.normal)) and is_equal_approx(material.roughness,float(recipe.roughness)) and is_equal_approx(material.metallic,float(recipe.metallic)), "standard finish preserves owner calibration")
+		scale = Vector2(material.uv1_scale.x,material.uv1_scale.y)
+		maps = [material.albedo_texture,material.roughness_texture,material.normal_texture]
+	elif material is ShaderMaterial:
+		check(material.shader != null and material.shader.resource_path == "res://shaders/orison_surface.gdshader", "layered finish uses the actual owner surface shader")
+		check(int(material.get_shader_parameter("uv_mode")) == 0 and material.get_shader_parameter("has_normal_tex") == true and material.get_shader_parameter("has_rough_tex") == true, "layered finish uses native UV and complete normal/rough sampling")
+		check(is_equal_approx(float(material.get_shader_parameter("normal_scale")),float(recipe.normal)) and is_equal_approx(float(material.get_shader_parameter("roughness_mul")),float(recipe.roughness)) and is_equal_approx(float(material.get_shader_parameter("metallic")),float(recipe.metallic)), "layered finish preserves owner calibration")
+		scale = material.get_shader_parameter("mesh_uv_scale")
+		maps = [material.get_shader_parameter("albedo_tex"),material.get_shader_parameter("rough_tex"),material.get_shader_parameter("normal_tex")]
+	else:
+		check(false,"unsupported native finish type: " + material.get_class())
+		return
+	check(scale is Vector2 and scale.is_equal_approx(Vector2(expected.uv1_scale.x,expected.uv1_scale.y)), "native finish keeps catalogue metric UV scale")
+	var expected_maps := [expected.albedo_texture,expected.roughness_texture,expected.normal_texture]
+	for index in 3:
+		var texture := maps[index] as Texture2D
+		check(texture != null and texture == expected_maps[index], "native finish retains exact catalogue PBR texture " + str(index))
+		if texture == null or checked.has(texture.get_instance_id()): continue
+		checked[texture.get_instance_id()] = true
+		var image := texture.get_image()
+		check(image != null and image.has_mipmaps() and image.get_mipmap_count() == int(floor(log(float(maxi(image.get_width(),image.get_height())))/log(2.0))), "loaded native PBR texture retains full mip chain")
+	loaded_finishes.append({"owner":identity,"class":material.get_class(),"profile":finish,"uv_scale":[scale.x,scale.y] if scale is Vector2 else [],"shader":material.shader.resource_path if material is ShaderMaterial and material.shader != null else ""})
 
 class ValidationAdapter extends RefCounted:
 	# The validator only needs resolution here. This stub does not mount a world.
@@ -45,6 +83,10 @@ func _check_profile_validation() -> void:
 	adapter.anchor.free()
 
 func _check_service_models() -> void:
+	var profiles: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/owner_finish_profiles.json"))
+	for group: Dictionary in profiles.groups:
+		if group.id == "bath":
+			for recipe: Dictionary in group.recipes: bath_recipes[str(recipe.source_key)] = recipe
 	_check_profile_validation()
 	# Check the imported selector before static batching destroys source names.
 	# Each alternative is real geometry; hiding five sets would still retain cost.
@@ -82,6 +124,20 @@ func _check_service_models() -> void:
 			"base TapProp retains the separate V1 lavatory")
 	if old_model != null: old_model.free()
 	legacy.free()
+	# Reproduce the real finish conversion without composing another world.
+	var actor := sink_script.new()
+	actor.fixture = "bath_sink";actor.lavatory_profile = "WallService_2755"
+	add_child(actor)
+	var finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd").new()
+	finishes.apply_actor(actor,"bath")
+	var uv_policy := preload("res://scripts/building/orison_v2_uv_material_policy.gd").new()
+	uv_policy.inspect_branch(actor)
+	var checked: Dictionary = {}
+	for handle: Node3D in actor._handles:
+		for draw: MeshInstance3D in handle.find_children("*","MeshInstance3D",true,false):
+			for surface in draw.mesh.get_surface_count():
+				_check_loaded_finish(draw.get_active_material(surface),"isolated finish pipeline",checked)
+	uv_policy.free();actor.free()
 
 func _check_service_contacts(world: OrisonV2RuntimeRoot, sink: TapProp) -> void:
 	var profile := str(sink.get("lavatory_profile"))
@@ -162,10 +218,15 @@ func _played_lavatory(world: OrisonV2RuntimeRoot, sink: TapProp) -> void:
 	player.set_physics_process(original_physics);Input.mouse_mode = original_mouse
 
 func run() -> void:
+	RealityState.persistence_enabled = false
 	_check_service_models()
 	if OS.get_environment("ORISON_LAVATORY_MODELS_ONLY") == "1":
 		print("LAVATORY IMPORT SELECTOR: %d checks, %d failures; no composed world or interaction claimed" % [checks, failures.size()])
-		get_tree().quit(0 if failures.is_empty() else 1)
+		_finish(null)
+		return
+	if not failures.is_empty():
+		print("LAVATORY: isolated pipeline failed; occupied world not started")
+		_finish(null)
 		return
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
@@ -211,18 +272,7 @@ func run() -> void:
 		for handle: Node3D in tap._handles:
 			for draw: MeshInstance3D in handle.find_children("*", "MeshInstance3D", true, false):
 				for surface in draw.mesh.get_surface_count():
-					var material := draw.get_active_material(surface) as StandardMaterial3D
-					check(material != null and not material.uv1_triplanar and not MatLib.is_shared_material(material),
-							"post-batch valve samples private native UV finish: " + str(tap.name))
-					if material == null: continue
-					check(material.normal_enabled, "native lavatory finish keeps calibrated normal sampling")
-					for texture: Texture2D in [material.albedo_texture,material.roughness_texture,material.normal_texture]:
-						check(texture != null, "native lavatory finish retains every PBR texture")
-						if texture == null or checked_textures.has(texture.get_instance_id()): continue
-						checked_textures[texture.get_instance_id()] = true
-						var image := texture.get_image()
-						check(image != null and image.has_mipmaps() and image.get_mipmap_count() == int(floor(log(float(maxi(image.get_width(),image.get_height())))/log(2.0))),
-								"loaded lavatory PBR texture retains the full mip chain")
+					_check_loaded_finish(draw.get_active_material(surface),str(tap.name),checked_textures)
 		if tap.unit == "4B": sample = tap
 	check(sample != null, "player lavatory exists")
 	if sample != null:
@@ -398,9 +448,10 @@ func _finish(world: OrisonV2RuntimeRoot) -> void:
 		if file == null:
 			check(false, "diagnostic output could not be opened: " + directory)
 		else:
-			file.store_string(JSON.stringify({"checks":checks,"failures":failures,"service_contacts":service_contacts,"scope":"lavatory_only" if OS.get_environment("ORISON_LAVATORY_ONLY")=="1" else "full_bathroom"},"\t"))
-	world.shutdown_for_tests()
-	world.free()
+			file.store_string(JSON.stringify({"checks":checks,"failures":failures,"service_contacts":service_contacts,"loaded_finishes":loaded_finishes,"scope":"lavatory_only" if OS.get_environment("ORISON_LAVATORY_ONLY")=="1" else "full_bathroom"},"\t"))
+	if world != null:
+		world.shutdown_for_tests()
+		world.free()
 	print("LAVATORY: %d checks, %d failures" % [checks,failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 

@@ -164,6 +164,17 @@ an effect or disabling depth testing is not a visibility repair by itself.
 
 ## Verify the actual failure, then the composed result
 
+Owner finish and wear passes can intentionally replace a native StandardMaterial3D
+with the project's layered ShaderMaterial. Inspect the final loaded class and its
+authority before diagnosing lost UVs or rewriting appearance. Verify the supported
+shader path, UV mode/metric scale, exact catalogue maps, calibrated scalars and
+complete mips for each supported representation; do not accept arbitrary shaders
+or force a standard-material-only assertion to pass by removing the owner's finish.
+A small actual owner/UV pipeline fixture can reject a bad diagnostic before another
+expensive world composition. See the prologue ledger's lavatory04/05 results.
+
+
+
 Start with the smallest useful loaded family bench: map identity, UV scale,
 tangent derivatives, mips and actual shader bindings. Inspect diffuse, grazing,
 back-lit and motion-extreme renders with the production light. For pixel noise,

@@ -1,91 +1,65 @@
-# Current continuation — November 2 cityscape resumed
+# Current continuation — November 2 V2 native intake
 
-## November 2 — lavatory validator repair and corrected preflight pending
+## November 2 — installed lavatory diagnostic passes; formal qualification open
 
-Fitted native source remains **3ddc648fe**, selector test checkpoint **6ae43962d**.
-The four native previews were inspected; an independent comparison verifies all20
-sealed delivery files, exact19surveyed per-id selections, and38retained model
-nodes with unchanged position buffers/local transforms. Report:
-**C:/ov/reports/native_intake_20261102/lavatory_01/source_intake.json**.
-These are native/source checks, not installed contact or optical acceptance.
+Active goal remains V2 repairs, interactions, stutter, hose/book/nook and required
+qualification. This is not a V2 completion. Canonical branch is
+**codex/v2-city-composition-20261102**. Latest committed source before this
+checkpoint is **e244aeddb**; fetched main **db441989f** still awaits reconciliation.
+No owned Godot/broker/static-board job remains live: lavatory05 and gate-board
+handles are terminal. Other agents' GPU jobs and worktrees must stay untouched.
 
-Original **lavatory_01** batch is terminal. Patched-engine import passed28s;
-four-script Godot semantic preflight passed. The selector stage did NOT execute:
-the runner appends Scene after ExtraArgs, and a **--** terminator made the scene
-path a user argument while the default game launched. Actual command line was
-inspected, only the owned engine32300 was stopped, and wrapper exit-1 plus all
-original logs are retained with **launch_correction.json**. This was an intentional
-mislaunch cancellation, not a failed selector test or a runtime pass.
+**lavatory_05**: patched Vulkan engine, hidden fullscreen3440x1440,1532checks,
+0failures,204.63s (startup152.516s); no engine/script errors, ten resident glTF
+texture UID path-fallback warnings. Real mouse partial hot/cold operation,
+validated campaign disk save/load to an isolated path,57wall-contact queries
+across19sinks, private native UV/PBR map/calibration/mip checks pass. Maximum
+wall error0.000000687m.80finish records cover ShaderMaterial78/StandardMaterial2
+including the isolated fixture. All three resulting inspection views were
+personally inspected. Supplementary neutral fill is diagnostic lighting.
+Receipts, captures, test source LF hash and exact limits:
+**C:/ov/reports/native_intake_20261102/lavatory_05/DIAGNOSTIC_REVIEW.json**.
 
-Applied a pre-mount validation repair: surveyed V2 bath sinks require one of the
-six supported profiles; kitchen sinks must not carry a bath profile. Negative
-cases cover unknown/missing/empty/wrong-type values and subtype misuse, while
-ordinary kitchen sinks still validate and explicit base TapProp retains V1.
-Existing **BathLavatoryTest** checks all six imported selector outputs, removal
-rather than hiding of alternatives,4128service triangles per selection, imported
-UV/tangent arrays and separate legacy model. Its full-world path checks per-id
-profile presence and private post-batch valve UV materials. Scope now uses
-**ORISON_LAVATORY_MODELS_ONLY=1**, avoiding the argument-order trap. Static parser,
-readerNEW0 and renewed spatial manifest pass. The corrected four-script Godot
-compile passed23.59s and selector passed9.54s with33checks/0failures and empty
-shutdown stderr. These are INERT diagnostic results, not a schema2 runtime contract.
+Preserve original failed/partial programmes in **lavatory_01** through
+**lavatory_04**.03stopped at a stale acoustic source binding and a failed output
+writer; existing builders regenerate identical physical graph payloads,43acoustic
+tests and23runtime binding checks pass.04runs878checks but fails76times because
+a StandardMaterial3D-only assertion rejects the existing owner finish shader.
+05fixes the diagnostic to assert the actual supported shader/UV/maps/scalars,
+with an isolated fail-fast owner/UV pipeline. Production finish ownership and
+appearance are unchanged. Existing source intake verifies20sealed files,
+19mapped selections and38retained nodes; base TapProp/V1 stays separate.
 
-The corrected **lavatory_02** batch is terminal0. Original receipts remain at
-**C:/ov/reports/native_intake_20261102/lavatory_02/**. A subsequent installed-world
-test extension is now authored, not yet semantically/runtime qualified: validated
-standing capsule/floor support, actual mouse partial-valve use, isolated validated
-campaign save/load,57real service-wall queries and deduplicated loaded PBR/mipmap
-checks. **ORISON_LAVATORY_ONLY=1** preserves the default whole-bath test while
-scoping this run to the affected lavatory family; **ORISON_LAVATORY_MODELS_ONLY=0**
-ensures it composes the world. Startup waits for the actual runtime owner rather
-than assuming completion after half a second. Native inspection views use a
-labelled neutral fill light; they are not production atmosphere acceptance.
+Preliminary **lavatory_static_e244_01/board.json**:119gates,112PASS/6FAIL/
+1INCOMPLETE. It is not a clean-main baseline or a regression verdict. Failures
+include stale surface proof and five tooling-test rows; do not call them new or
+pre-existing without the matching main comparison. ReaderNEW0 and manifest pass.
+No schema2 runtime contract, fresh-world reconstruction, stopper mouse route,
+strict loaded derivative packet, measured cost, final surface/candidate gate or
+Lily artistic acceptance yet. Complete those, reconcile current main and retain
+explicit V1 rollback before merging. Ten UID warnings need controlled cache
+review; Cal's source texture UID matches main, so don't replace source UIDs.
 
-Installed **lavatory_03** is terminal1: the expanded script compiled, then the
-world correctly rejected a stale **completion_interiors.json** fingerprint in
-**acoustic_ventilation.json** before household actors or input ran. An absent
-output directory then broke the test's failure writer. Only confirmed owned
-engine10792 was stopped; wrapper exit-1/116s, original stderr and correction
-record remain in that directory. No installed or optical result exists.
-
-Existing ventilation/heating/flue builders were rerun. Excluding source_bindings,
-all three regenerated physical graph payloads are exactly equal; only ventilation's
-completion-interiors binding changes.43acoustic tooling tests pass. All23runtime
-source bindings now match. Failure writer creates its directory and guards a
-failed FileAccess open while retaining teardown/quit. ReaderNEW0 and spatial
-manifest pass. This is source-data regeneration, not runtime-receipt renewal.
-
-Corrected compile/fullscreen-hidden batch:
-**C:/ov/reports/native_intake_20261102/lavatory_04/batch.json**. Last confirmed
-broker47400 / exec3553 is live and queued. Preserve those source inputs. Resume
-that handle or inspect terminal receipts before restarting. Required next:
-inspect actual results/frames, fix failures, then exercise remaining plug/chain,
-fresh-world reload/strict loaded derivatives and renew physical/candidate gates.
-The input route checks partial valve reload but does not claim whole-shift,
-new-world or artistic acceptance. Bath138/0 proof remains source-scoped.
-
-The next closet-kit's external source preparation is ready, not installed:
-all26manifestfiles/ninecurrentbindings match, fourCPUviews inspected, portable
-publisher reproduces delivered library byte-for-byte (22880tri/12surfaces/four
-profiles, strict tangent minimum0.999999961). Evidence/publisher under
+Next closet-kit: external preparation only, not installed. All26sealed files/
+ninecurrentbindings match, fourCPUviews inspected; portable publisher exactly
+reproduces22880tri/12surface/four-profile delivered library, strict tangents pass.
 **C:/ov/reports/native_intake_20261102/closet_source_01/** and the existing intake
-reconciliation JSON. A concrete blocker remains: Sweep.clear excludes every
-owned collision body, so a child fixed kit would not block the cover. Preserve
-original mechanisms and default unrelated sweep behavior while repairing that
-specific contact ownership on intake; do not merely add a solid enclosing box.
+reconciliation JSON carry the details. Its new fixed hardware needs hollow
+contacts, correct rear bounds and selective cover-sweep collision ownership:
+Sweep.clear currently excludes every owned body. Preserve original mechanisms.
 City architect remains owner-paused while this backlog is processed.
 
 ## Current native intake — owner resumed November 2
 
-Immediate owner request now redirects this chat to a private LILITH draft
-review/production plan and shared comic skill. Preserve the following unqualified
-lavatory WIP before returning to game integration: fitted native source and
+Historical comic interruption (resolved; the current results above supersede
+this earlier status): the owner redirected this chat to a private LILITH draft
+review and shared skill. At that checkpoint the unqualified lavatory WIP was: fitted native source and
 single six-profile export are present;20sealed files verified,59722source
 triangles/39surfaces, strict exported tangents PASS. Existing19sink records now
 select one service group each through the V2 subclass; V1 source/export remain
 unchanged. Private UV binding and chain material follow the selected model.
-Parser and readerNEW0 pass; no lavatory Godot import/interaction/contact/campaign
-reload has run. Existing bath138/0 evidence retains its pre-lavatory source scope.
+At that earlier checkpoint parser/readerNEW0 passed and no lavatory Godot
+import/interaction/contact/campaign reload had run. Existing bath138/0 evidence retains its pre-lavatory source scope.
 Finish lavatory selection/material/contact/input tests before accepting it.
 
 Comic review delivered externally at **C:/ov/reports/lilith_comic/revision_20261102/**:
