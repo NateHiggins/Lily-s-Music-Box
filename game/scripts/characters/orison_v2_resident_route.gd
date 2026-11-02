@@ -12,7 +12,17 @@ const ROUTES := {"lena_ortiz": "res://data/orison_v2/lena_routine.json",
 		"sacha_reed": "res://data/orison_v2/sacha_reed_routine.json",
 		"evelyn_marsh": "res://data/orison_v2/evelyn_marsh_routine.json",
 		"juno_kells": "res://data/orison_v2/juno_kells_routine.json",
-		"nadia_quell": "res://data/orison_v2/nadia_quell_routine.json"}
+		"nadia_quell": "res://data/orison_v2/nadia_quell_routine.json",
+		"cal_dwyer": "res://data/orison_v2/cal_dwyer_routine.json",
+		"cam_ortiz": "res://data/orison_v2/cam_ortiz_routine.json",
+		"iris_bell": "res://data/orison_v2/iris_bell_routine.json",
+		"jonah_price": "res://data/orison_v2/jonah_price_routine.json",
+		"mae_kessler": "res://data/orison_v2/mae_kessler_routine.json",
+		"malcolm_reed": "res://data/orison_v2/malcolm_reed_routine.json",
+		"noel_price": "res://data/orison_v2/noel_price_routine.json",
+		"omar_bell": "res://data/orison_v2/omar_bell_routine.json",
+		"peter_wren": "res://data/orison_v2/peter_wren_routine.json",
+		"teresa_vale": "res://data/orison_v2/teresa_vale_routine.json"}
 var source_path := ""
 var resident := ""
 ## Route tests walk a fixed tour; empty follows the resident's agenda.
@@ -75,6 +85,10 @@ func setup(root: Node3D) -> bool:
 	var previous: int = identities.street
 	var outbound: Dictionary = world.exterior_cell.route("ROUTE_ORISON_TO_SHOP_BODEGA")
 	for i in outbound.nodes.size():
+		# The route starts on the door apron, where a body touches the closed leaf.
+		# The street point already stands clear of it.
+		var leaf := world.find_child("F01_DOOR_06_Leaf",true,false) as Node3D
+		if i == 0 and leaf != null and absf(leaf.to_local(outbound.nodes[i].placement.position).z) < .5: continue
 		var index := _point("bodega_route_%d"%i,outbound.nodes[i].placement.position)
 		graph.connect_points(previous,index)
 		previous = index
@@ -218,7 +232,10 @@ func _physics_process(delta: float) -> void:
 	query.exclude = [world.player.get_rid()]
 	var obstacles := space.intersect_shape(query,1)
 	if not obstacles.is_empty():
-		blocked_reason = "capsule blocked by %s at %v" % [obstacles[0].collider.get_path(),next]
+		var obstacle: Node3D = obstacles[0].collider
+		var root: Node3D = world.adapter.root
+		blocked_reason = "capsule blocked by %s (%s, route %v) at %v, route %v" % [obstacle.get_path(),
+				obstacle.get_class(),root.to_local(obstacle.global_position),next,root.to_local(next)]
 		_blocked(delta)
 		return
 	actor.global_position = next

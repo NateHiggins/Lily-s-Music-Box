@@ -1,13 +1,16 @@
 extends Node
 ## Authoring probe for resident route files: in the production V2 root, every
-## node and every 10 cm along every edge must have floor support and room for
+## node and every 5 cm along every edge must have floor support and room for
 ## the resident's capsule. Blocked nodes get the nearest clear spot suggested
 ## in route coordinates, blocked edges a clear way round
 ## (tools/apply_route_probe.py moves and inserts them).
 ## ROUTE_FILE picks the files, comma-separated (default Lena's); each finding
 ## is printed with its file.
 
-const CAPSULE_RADIUS := .28
+# The walking owner uses 0.28 m and moves a few centimetres a frame; author
+# with 2 cm to spare and sample every 5 cm, so a near-tangent pass the
+# probe steps over cannot stop a resident.
+const CAPSULE_RADIUS := .30
 const CAPSULE_HEIGHT := 1.40
 const SHARED_DOORS := ["F01_DOOR_06", "F01_WATCH_MAIL_DOOR", "B1_LAUNDRY_DOOR"]
 var failures: Array[String] = []
@@ -64,7 +67,7 @@ func _probe(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
 			if not previous.is_empty():
 				var a: Vector3 = root.to_global(Vector3(previous[1], previous[2], previous[3]))
 				var b: Vector3 = root.to_global(Vector3(record[1], record[2], record[3]))
-				var steps := maxi(1, ceili(a.distance_to(b) / .1))
+				var steps := maxi(1, ceili(a.distance_to(b) / .05))
 				for i in range(1, steps):
 					var at := a.lerp(b, float(i) / steps)
 					# Stairs are walked on their treads; judge only flat edges here.
@@ -179,7 +182,7 @@ func _clear(world: OrisonV2RuntimeRoot, space: PhysicsDirectSpaceState3D, at: Ve
 
 
 func _clear_run(world: OrisonV2RuntimeRoot, space: PhysicsDirectSpaceState3D, a: Vector3, b: Vector3) -> bool:
-	var steps := maxi(1, ceili(a.distance_to(b) / .1))
+	var steps := maxi(1, ceili(a.distance_to(b) / .05))
 	for i in range(1, steps):
 		if not _clear(world, space, a.lerp(b, float(i) / steps)): return false
 	return true

@@ -94,6 +94,16 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "orison_v2/evelyn_marsh_routine.json": frozenset({"places"}),
     "orison_v2/juno_kells_routine.json": frozenset({"places"}),
     "orison_v2/nadia_quell_routine.json": frozenset({"places"}),
+    "orison_v2/cal_dwyer_routine.json": frozenset({"places"}),
+    "orison_v2/cam_ortiz_routine.json": frozenset({"places"}),
+    "orison_v2/iris_bell_routine.json": frozenset({"places"}),
+    "orison_v2/jonah_price_routine.json": frozenset({"places"}),
+    "orison_v2/mae_kessler_routine.json": frozenset({"places"}),
+    "orison_v2/malcolm_reed_routine.json": frozenset({"places"}),
+    "orison_v2/noel_price_routine.json": frozenset({"places"}),
+    "orison_v2/omar_bell_routine.json": frozenset({"places"}),
+    "orison_v2/peter_wren_routine.json": frozenset({"places"}),
+    "orison_v2/teresa_vale_routine.json": frozenset({"places"}),
     # ResidentConversations/CaseDialoguePanel: nodes[node_id] by authored id;
     # every record field (line, role, choices, silence_goto, flag...) is read by name.
     # Field notes are keyed by note id; the director reads each note's fields.

@@ -33,6 +33,17 @@ const OTIS_FOUNTAIN_ACROSS := 20.85
 const OTIS_FOUNTAIN_ALONG := -45.25
 ## The empty cup waits on the first catch tray, under the first nozzle.
 const OTIS_CUP := [19.805, -45.055, 1.105]
+const SHOE_ROW := "storm_shop_shoe_rebuilding_counter_top"
+const SHOE_ALONG := -45.5
+const SHOE_BENCH_ROW := "storm_shop_shoe_rebuilding_bench_top"
+## The customer end of the bench takes the sale point and the boots stand next to it, with the
+## finisher at the far end.
+const SHOE_BENCH_POINT := 8.35
+const SHOE_BOOTS_AT := 7.9
+const LAUNDRY_ROW := "storm_shop_model_laundry_counter_top"
+const LAUNDRY_ALONG := -42.1
+const LAUNDRY_BUNDLE_ALONG := -40.7
+const LAUNDRY_BUNDLE_EDGE := 0.2
 const LUNCHEONETTE_ROW := "storm_shop_luncheonette_counter_top"
 ## The customer edge of the top, down the far end from the register and ledger.
 const LUNCHEONETTE_ACROSS := 19.05
@@ -94,6 +105,24 @@ static func mount(world: Node3D) -> Dictionary:
 	points["luncheonette"] = _place(world, "luncheonette", passage.transaction_actor_root(),
 			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
 			GameBoot.b2g([LUNCHEONETTE_ACROSS, LUNCHEONETTE_ALONG, luncheonette_top])))
+	var shoe := _row(passage, SHOE_ROW)
+	var shoe_bench := _row(passage, SHOE_BENCH_ROW)
+	if shoe.is_empty() or shoe_bench.is_empty():
+		return {}
+	var shoe_x := (float(shoe.rect[0]) + float(shoe.rect[2])) * 0.5
+	points["shoe_rebuilding"] = _place(world, "shoe_rebuilding", passage.transaction_actor_root(),
+			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
+			GameBoot.b2g([shoe_x, SHOE_ALONG, float(shoe.z0) + float(shoe.h)])), [], ["bench"])
+	var bench_y := (float(shoe_bench.rect[1]) + float(shoe_bench.rect[3])) * 0.5
+	points["shoe_bench"] = _place(world, "shoe_rebuilding", passage.transaction_actor_root(),
+			passage.global_transform * Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([SHOE_BENCH_POINT, bench_y, float(shoe_bench.z0) + float(shoe_bench.h)])), ["bench"], [], "ShopSalePoint_shoe_bench")
+	var laundry := _row(passage, LAUNDRY_ROW)
+	if laundry.is_empty():
+		return {}
+	points["model_laundry"] = _place(world, "model_laundry", passage.transaction_actor_root(),
+			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
+			GameBoot.b2g([(float(laundry.rect[0]) + float(laundry.rect[2])) * 0.5, LAUNDRY_ALONG, float(laundry.z0) + float(laundry.h)])))
 	var bodega_counter: Node3D = world.exterior_cell.service_counter("SHOP_BODEGA")
 	if bodega_counter != null:
 		# The service area's origin sits on the shop-side edge of the counter top.
@@ -151,6 +180,35 @@ static func mount_otis_fountain(world: Node3D) -> Node3D:
 	return fountain
 
 
+static func mount_shoe_bench(world: Node3D) -> Node3D:
+	var passage: Node3D = world.passage_region
+	var top := _row(passage, SHOE_BENCH_ROW)
+	var bench: Node3D = preload("res://scripts/props/shoe_bench.gd").new()
+	bench.name = "ShoeBench"
+	passage.transaction_actor_root().add_child(bench)
+	var across := (float(top.rect[1]) + float(top.rect[3])) * 0.5
+	bench.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([SHOE_BOOTS_AT, across, float(top.z0) + float(top.h)]))
+	if not bench.configure(world, world.shop_counters.shoe_bench):
+		bench.free()
+		return null
+	return bench
+
+
+static func mount_laundry_bundle(world: Node3D) -> Node3D:
+	var passage: Node3D = world.passage_region
+	var top := _row(passage, LAUNDRY_ROW)
+	var counter: Node3D = preload("res://scripts/props/laundry_bundle.gd").new()
+	counter.name = "LaundryCounter"
+	passage.transaction_actor_root().add_child(counter)
+	counter.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([float(top.rect[0]) + LAUNDRY_BUNDLE_EDGE, LAUNDRY_BUNDLE_ALONG, float(top.z0) + float(top.h)]))
+	if not counter.configure(world.shop_counters.model_laundry):
+		counter.free()
+		return null
+	return counter
+
+
 static func _row(passage: Node3D, identity: String) -> Dictionary:
 	for floor: Dictionary in passage.source_layout.floors:
 		if str(floor.id) != "F01":
@@ -171,6 +229,10 @@ static func _place(world: Node3D, shop_id: String, parent: Node3D, at: Transform
 		sales = KeysSales.new(shop_id, world.shop_catalogue, world.shop_stock, world.shop_clearing)
 	elif shop_id == "photo_supplies":
 		sales = PhotoSales.new(shop_id, world.shop_catalogue, world.shop_stock, world.shop_clearing)
+	elif shop_id == "shoe_rebuilding":
+		sales = ShoeSales.new(shop_id, world.shop_catalogue, world.shop_stock, world.shop_clearing)
+	elif shop_id == "model_laundry":
+		sales = LaundrySales.new(shop_id, world.shop_catalogue, world.shop_stock, world.shop_clearing)
 	elif shop_id == "pawnbroker":
 		sales = PawnSales.new(world.shop_catalogue, world.shop_stock, world.shop_clearing, world.get_node("CaretakerEconomy"))
 	else:

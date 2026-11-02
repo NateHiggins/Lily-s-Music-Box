@@ -1,14 +1,11 @@
 {
-	"checks": 30234,
+	"checks": 651,
 	"city_context_review": {
 		"scope": "Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance.",
 		"views": []
 	},
 	"city_geometry_diagnostic": {
-		"checks": 29254,
-		"executed": true,
-		"failures": 0,
-		"scope": "Source/composition city geometry and posed camera diagnostic; no played access or artistic acceptance."
+		"executed": false
 	},
 	"civic_world_access": {
 		"executed": false,
@@ -39,7 +36,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 344.435,
+		"elapsed_s": 204.778,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -54,7 +51,7 @@
 			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
 		}
 	},
-	"inventory_sha256": "a0ec4290b1988bad74e9e41782a7dd029246dddfab63740f454d8e99d252e48c",
+	"inventory_sha256": "28fbf8207fb0cf8a13f16136349ab1d0931cdd74a9f047a42758d26439a859d6",
 	"lamp_context_review": {
 		"executed": false,
 		"scope": "Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."
@@ -65,10 +62,10 @@
 	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
 	"selector": "v2",
 	"source": {
-		"repository_head": "73fcf097bf7ba38495928ebbc2f0d32005c67823",
-		"runtime_inputs_sha256": "1414edd205303245698b09266a121aa0e02591306c2488402c030f3ae884aca0",
+		"repository_head": "ed1b4e49373904326a59511090c4ee0b9ec7e56e",
+		"runtime_inputs_sha256": "eb554d27c702a4c966f861b418684eb60905cffd5d69f03a64c4ac28dd3f7d5a",
 		"test_path": "game/tests/orison_v2_surface_inventory.gd",
 		"test_sha256": "45225a8938a6eacab34341b4c1edb39dc44b71192f88fc9eae3c0294ca61a8d0"
 	},
-	"surface_inputs_sha256": "c9dddac8928c665f1841d50880e3b623782a494d1120ff6fb2b4098c9bbe5876"
+	"surface_inputs_sha256": "b3a3ee929832b06aec6e467ebfe03fc6385973af77e99bd163ca36c90ab230d2"
 }

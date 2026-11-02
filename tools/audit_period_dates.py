@@ -58,6 +58,8 @@ EXPECTED_CONSUMERS = {
     "game/scripts/songbook/songbook_store.gd": "local_filename_only",
     "game/scripts/ui/bookshelf_panel.gd": "player_readable_period_library",
     "game/scripts/props/v2_readable_book.gd": "player_readable_period_library",
+    "game/scripts/props/shoe_bench.gd": "next_day_key_only",
+    "game/scripts/game/laundry_sales.gd": "next_day_key_only",
 }
 FIXTURE_FIELD = "fixtures.*.provenance"
 
