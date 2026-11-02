@@ -59,16 +59,23 @@ class FactoryProgramme extends "res://tests/v2_city_western_apartments_programme
         check(is_equal_approx(player._capsule.height,1.524) and is_equal_approx(player._capsule.radius,.33) and is_equal_approx(player.camera.position.y,1.41),"production capsule and eye unchanged")
         check(horizon.global_basis.y.is_equal_approx(Vector3.UP) and horizon.global_basis.get_scale().is_equal_approx(Vector3.ONE),"installed source frame is rigid and vertical")
         var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_horizon.json"))
-        var row: Dictionary={}
+        var row: Dictionary={};var neighbor: Dictionary={}
         for profile: Dictionary in fixture.buildings:
             if str(profile.id)==FACTORY:row=profile
-        check(not row.is_empty(),"generated factory geometry profile exists")
+            if str(profile.id)=="HORIZON_NEAR_3_0_P2":neighbor=profile
+        check(not row.is_empty() and not neighbor.is_empty(),"generated factory and neighboring body profiles exist")
         if not failures.is_empty():return _record(false)
         var datum:=float(row.grade_datum_m)
         var apron: Array=row.architecture.front_apron_rect_m
         var court: Array=row.architecture.court_paving_m[0]
         var apron_x: float=(float(apron[0])+float(apron[2]))*.5
-        var end_z:=float(row.rect[3])+.6
+        # The retained neighbor starts at the parcel's upper edge. Going
+        # beyond that edge would walk into its wall, not around this factory.
+        var factory_end: float=-INF
+        for point: Array in row.architecture.outline_m:factory_end=maxf(factory_end,float(point[1]))
+        var neighbor_start:=float(neighbor.rect[1])
+        check(neighbor_start-factory_end>player._capsule.radius*2.+.1,"actual outline-to-neighbor strip has standing capsule clearance")
+        var end_z: float=(factory_end+neighbor_start)*.5
         var outer_x:=float(row.rect[2])-.4
         var court_z: float=(float(court[1])+float(court[3]))*.5
         var court_x: float=(float(court[0])+float(court[2]))*.5

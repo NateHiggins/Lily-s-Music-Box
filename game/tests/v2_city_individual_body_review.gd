@@ -12,6 +12,9 @@ func _ready()->void:call_deferred("run_family")
 
 func _sources(owner:Node3D)->Dictionary:
     var result=_industrial_sources(owner)
+    # The moving hands are an existing native asset outside the Horizon shard
+    # roster. Bind its import policy too; the runtime digest excludes binaries.
+    for path:String in ["res://assets/props/arcade_clock.glb","res://assets/props/arcade_clock.glb.import"]:result[path]=_profile_sha(path)
     var fixture:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_horizon.json"))
     for relative:String in fixture.source_bindings:
         var path="res://../"+relative
