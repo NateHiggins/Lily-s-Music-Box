@@ -1,5 +1,13 @@
 # Current continuation — November 2 V2 native intake
 
+Draft review: **https://github.com/NateHiggins/Lily-s-Music-Box/pull/145**.
+It preserves the full62-path integration branch and explicitly holds merge for
+combined runtime, strict surface, exact-main comparison and candidate checks.
+No auto-merge is enabled. Read-only cleanup evidence at
+**C:/ov/reports/native_intake_20261102/source_uid_custody.json** finds702generated
+UIDs paired with tracked source, zero tracked-text references and zero UID paths
+already on main; cached references remain unaudited. All files remain in place.
+
 **Continuation checkpoint:** merge **4f18420e4** is committed and pushed; no
 merge remains in progress. **lavatory_06** adds an actual standing-controller
 plug lift/release and a second, newly constructed V2 world loaded through the
