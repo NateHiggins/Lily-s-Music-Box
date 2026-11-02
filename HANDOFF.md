@@ -19,14 +19,18 @@ exist.234samples,max observer266microseconds. Detailed raw/source/analysis
 retained in existing city ledger/archive. Source C remains frozen d17e3e699;
 no engine job now consumes it. Host observer49129 also terminal. Quiet released.
 
-Small existing StructuralOcclusionReview scene gains explicit slab_fixture
-mode (no world build). Actual fixture01 compilerPASS20.16s,then13.92s graphical
-run15checks/3failures: invalid StandardMaterial3D.grow_enabled property prevents
-admission; original source/errors/receipts retained in archive. Getter corrected
-to documented is_grow_enabled(),no predicate/tolerance weakened. Actual
-compile+same fixture02 queued via session90886/broker10296 after the current
-GradeOwnerSurvey/resident queue. Not run yet. Original6736/broker8624 terminal.
-Source frozen for this retry. No mouse/focus interference;hidden3440x1440.
+Actual fixture02 retry is now terminalPASS:15checks/0failures,14.30s,empty
+stderr;two-script compilerPASS. Above/below pixel parity remains exact while
+object counts5→3/5→4. All six images inspected;aperture reveals lower green
+stock and source flags restore. Original fixture01 grow-property error and
+three failures retained. This is small-fixture proof only,not city/FPS acceptance.
+Session90886/broker10296 terminal;no duplicate retry needed.
+
+The existing city stutter diagnostic now includes opt-in
+ORISON_CITY_SLAB_CULLING_COMPARE=1: after the original six measured legs,
+freeze the same world and capture new-occluders enabled/disabled/return with
+main-pass counts. No extra walk/world,geometry hiding or quality reduction.
+Syntax checked;not semantically compiled or run yet.
 
 NEXT: fix real fixture failures,inspect actual images,then measure admitted slab
 counts and main-pass workload in the existing nearby city route with a paired

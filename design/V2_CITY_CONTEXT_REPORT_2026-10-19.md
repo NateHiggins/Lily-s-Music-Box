@@ -6055,7 +6055,7 @@ actual production compile now PASS: five scripts,20.02s,zero script errors and e
 new test-camera record is **aec0365feb56a6da**,with existing classifications unchanged (71 line-location updates).
 
 Small-fixture archive **art/reviews/v2_entry_render_preparation_20261101.zip**:
-**72members/284620bytes/SHA256 0ae33b6aaecc7a6c6da2aae35b8e69edaabe8c407e142f7bc322ed9200091ac5**. It retains executed helper/test
+**88members/299168bytes/SHA256 dc135991b08dcfbd8b5c25e01c92b318a812cedd3102341d64ee75b8e7e1870d**. It retains executed helper/test
 source,scene,actual raw compressed logs/receipts,result and inspected restored
 image. Original failures of earlier warmups remain intact. A local authoring
 preflight caught an incorrectly indented planned edit before it was written;
@@ -6202,3 +6202,22 @@ parity,occlusion,aperture or closure requirements. Actual compile+same fixture
 **fixture02** queued via session90886/broker10296; not run yet. No main merge
 or performance improvement claim. Newcandidate draftPR138 is separate from
 closed rejected-warmupPR137; both source branches remain pushed.
+
+### Complete-slab fixture retry — actual pass, limited scope
+
+Evidence class: **INERT**. Actual **fixture02** two-script compilerPASS,then
+small graphical fixture **15checks/0failures**,14.30s,empty stdout/stderr errors.
+Above reference/candidate pixels are byte-identical while visible object count
+falls5→3;below pixels identical while count falls5→4. Missing undersides and
+apertured/transparent/vertex-scaled stock are refused;source flag restores on
+retirement. All six native3440x1440 PNGs individually inspected:gray source
+remains,foreground colors stay visible,and the real rejected aperture shows
+the lower green target. Source,images,review and original receipts retained in
+the same archive. This proves the small renderer fixture,not production-world
+admission,performance,physical-survey renewal or artistic acceptance.
+
+Next composed diagnostic reuses the exact six controller legs,then a fixed
+same-pose new-occluder-only enable/disable/return control after timing. Source
+geometry,materials and quality remain;no extra travel/world and no automatic
+artistic acceptance. Newly authored control is syntax checked;actual semantic
+compile/composed run remains required. Original failed fixture is not erased.
