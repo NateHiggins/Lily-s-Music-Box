@@ -40,6 +40,10 @@ const SHOE_BENCH_ROW := "storm_shop_shoe_rebuilding_bench_top"
 ## finisher at the far end.
 const SHOE_BENCH_POINT := 8.35
 const SHOE_BOOTS_AT := 7.9
+const LAUNDRY_ROW := "storm_shop_model_laundry_counter_top"
+const LAUNDRY_ALONG := -42.1
+const LAUNDRY_BUNDLE_ALONG := -40.7
+const LAUNDRY_BUNDLE_EDGE := 0.2
 const LUNCHEONETTE_ROW := "storm_shop_luncheonette_counter_top"
 ## The customer edge of the top, down the far end from the register and ledger.
 const LUNCHEONETTE_ACROSS := 19.05
@@ -113,6 +117,12 @@ static func mount(world: Node3D) -> Dictionary:
 	points["shoe_bench"] = _place(world, "shoe_rebuilding", passage.transaction_actor_root(),
 			passage.global_transform * Transform3D(Basis.IDENTITY,
 			GameBoot.b2g([SHOE_BENCH_POINT, bench_y, float(shoe_bench.z0) + float(shoe_bench.h)])), ["bench"], [], "ShopSalePoint_shoe_bench")
+	var laundry := _row(passage, LAUNDRY_ROW)
+	if laundry.is_empty():
+		return {}
+	points["model_laundry"] = _place(world, "model_laundry", passage.transaction_actor_root(),
+			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
+			GameBoot.b2g([(float(laundry.rect[0]) + float(laundry.rect[2])) * 0.5, LAUNDRY_ALONG, float(laundry.z0) + float(laundry.h)])))
 	var bodega_counter: Node3D = world.exterior_cell.service_counter("SHOP_BODEGA")
 	if bodega_counter != null:
 		# The service area's origin sits on the shop-side edge of the counter top.
@@ -185,6 +195,20 @@ static func mount_shoe_bench(world: Node3D) -> Node3D:
 	return bench
 
 
+static func mount_laundry_bundle(world: Node3D) -> Node3D:
+	var passage: Node3D = world.passage_region
+	var top := _row(passage, LAUNDRY_ROW)
+	var counter: Node3D = preload("res://scripts/props/laundry_bundle.gd").new()
+	counter.name = "LaundryCounter"
+	passage.transaction_actor_root().add_child(counter)
+	counter.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([float(top.rect[0]) + LAUNDRY_BUNDLE_EDGE, LAUNDRY_BUNDLE_ALONG, float(top.z0) + float(top.h)]))
+	if not counter.configure(world.shop_counters.model_laundry):
+		counter.free()
+		return null
+	return counter
+
+
 static func _row(passage: Node3D, identity: String) -> Dictionary:
 	for floor: Dictionary in passage.source_layout.floors:
 		if str(floor.id) != "F01":
@@ -207,6 +231,8 @@ static func _place(world: Node3D, shop_id: String, parent: Node3D, at: Transform
 		sales = PhotoSales.new(shop_id, world.shop_catalogue, world.shop_stock, world.shop_clearing)
 	elif shop_id == "shoe_rebuilding":
 		sales = ShoeSales.new(shop_id, world.shop_catalogue, world.shop_stock, world.shop_clearing)
+	elif shop_id == "model_laundry":
+		sales = LaundrySales.new(shop_id, world.shop_catalogue, world.shop_stock, world.shop_clearing)
 	elif shop_id == "pawnbroker":
 		sales = PawnSales.new(world.shop_catalogue, world.shop_stock, world.shop_clearing, world.get_node("CaretakerEconomy"))
 	else:

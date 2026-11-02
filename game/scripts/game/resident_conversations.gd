@@ -124,6 +124,8 @@ const GIFT_PREFIX := "gift:"
 ## quiet integration beat is offered. Mina's case uses its own stages.
 const REAL_TALK_TRUST := 3
 const INTEGRATION_TRUST := 6
+## A dirty uniform takes this off the first warm reply a resident gives, once each.
+const DIRTY_UNIFORM_COST := 1
 
 var dialogue: CaseDialoguePanel
 var trees: Dictionary = {}
@@ -283,6 +285,17 @@ func entry_for(resident_id: String) -> String:
 	return "first_stable"
 
 
+## First contact only, and a warm reply only, so it can't sour anyone or close a door.
+func _noticed_uniform(resident_id: String, trust: int) -> int:
+	var noticed := "%s:uniform_noticed" % resident_id
+	if RealityState.conversation_visits(resident_id) != 1 or RealityState.has_knowledge(noticed) \
+			or LaundrySales.presentable():
+		return trust
+	RealityState.grant_knowledge(noticed)
+	file_note("uniform_wants_washing", _last_player)
+	return trust - DIRTY_UNIFORM_COST
+
+
 func _integration_flag(resident_id: String) -> String:
 	return "%s:integration" % resident_id
 
@@ -315,6 +328,8 @@ func _record(resident_id: String, flag: String, trust: int) -> void:
 		return
 	if flag != "":
 		RealityState.grant_knowledge(flag)
+	if trust > 0:
+		trust = _noticed_uniform(resident_id, trust)
 	if trust != 0:
 		RealityState.add_resident_trust(resident_id, trust)
 	var case_id := RealityCases.case_for_resident(resident_id)
