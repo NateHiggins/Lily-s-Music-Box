@@ -6537,3 +6537,23 @@ replace loaded UV/mip/LOD/frame-cost or full-world actual-controller/surface pro
 Scoped correction packet **art/reviews/city_streets_20261029/sohmer_factory_occupancy_review.zip**
 contains20members/2817664B,SHA256
 **16010ecdd2dc2d053986fdf7873844464a63e44ee114a91beecccc26a3e1b7cc**. Originalnativearchive/hash unchanged;no runtimeproof grant.
+
+
+**Geographic wording erratum,06:07Z:** the historical “Eastern piano-factory”
+heading and eastern wording in the first construction reports are incorrect.
+The installed **orison_v2_world_connection.gd** computes a180degree basis from
+F01_DOOR_06 outward local-Z to the exterior threshold normal+Z;the runtime mounts
+Horizon in **_blockout.global_transform**. The current ground plan independently
+declares local+X west/local+Z north. Therefore this+X150..170 factory is western/
+riverward,consistent with Sohmer's waterfront form reference. Its apron is
+source-local-X/worldeast-facing;deliverycourt local+X/worldwest. Localclockface
+frames remain correct and must be transformed once;localnorth/west face labels
+are not worldcompass directions. No new geography/1928survey or historical
+placement claim follows. **geographic_frame_audit_01.json** retains the actual
+source-derived values/hashes,not runtime proof. No rendering source was edited;
+Sol received the erratum and will correct descriptive source_plan side labels
+when publishing clock metadata on his integration branch. This chat's current
+family source remains frozen. Original reports/archives retain their provenance.
+Ground source spans±500m,containing the temporary450m radius after registration;
+those extents do not prove continuous collision/access across every street,
+rail cut or waterfront. The future narcoleptic return-to-bed event remains absent.

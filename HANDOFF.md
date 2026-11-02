@@ -20,8 +20,15 @@ wholeblock native03review35parts/643controls/2inspectedframesPASS0/54.004s.
 Current shard200736tri/21,462,056B;sourcepane witnesses12507. No oldreceipt repin.
 See occupancy_preservation_02.json and the ledger correction before intake.
 
+**Compass correction:** this local+X parcel is western/riverward after the
+installed180degree interior/world registration. Earlier eastern wording was
+incorrect. The apron is source-local-X/worldeast-facing;court local+X/worldwest.
+Sohmer waterfront reference fits the existing placement;no geometry relocation.
+Clock frames are source-local,not worldcardinal names. Frozen family inputs stay
+unchanged;Sol corrects descriptive source labels during later clock intake.
+
 **Current construction:** **HORIZON_NEAR_3_0_P1** adapts LPC2172 Sohmer form:
-six-storey20.4m L-plan,24.96m mansard clock tower,west public apron,east delivery
+six-storey20.4m L-plan,24.96m mansard clock tower,source-local-X public apron,local+X delivery
 court/descent,wood six-over-six sash,brick segmental heads,hollow flue and two
 scenic leaves. Complete near/lower bodies have11parts/167616→96704source
 triangles. All124reservations/123other profiles/35other GLBs remain exact;
