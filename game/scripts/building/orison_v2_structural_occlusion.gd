@@ -62,7 +62,9 @@ static func _complete_solid(mesh: Mesh, size: Vector3) -> bool:
 		if mesh.surface_get_primitive_type(surface)!=Mesh.PRIMITIVE_TRIANGLES: return false
 		var arrays:=mesh.surface_get_arrays(surface)
 		var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
-		var indices: PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
+		# Godot returns Nil for a legitimate non-indexed triangle surface.
+		var indices := PackedInt32Array()
+		if arrays[Mesh.ARRAY_INDEX]!=null:indices=arrays[Mesh.ARRAY_INDEX]
 		if indices.is_empty():
 			for index in vertices.size(): indices.append(index)
 		for start in range(0,indices.size(),3):

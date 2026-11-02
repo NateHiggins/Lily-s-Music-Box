@@ -14,24 +14,28 @@ pixel parity is exact with objects5→3 and5→4. All six images inspected. Orig
 fixture01 grow-property error and three failures are retained. Small-fixture
 proof does not establish composed-world visibility, performance or acceptance.
 
-**Composed01 is queued once:** broker56984, terminal session19285,
-C:/ov/reports/slab_occlusion_20261101/composed01.json. Owned checkout
-C:/ov/c-ab46a508 is frozen at6b2654dc4; three executed-source copies are in
-that report directory. Compile90s then original six-leg route420s, hidden
-fullscreen3440×1440, noon, preparation/reflection-hide diagnostics off.
-ORISON_CITY_SLAB_CULLING_COMPARE=1 adds same-world enabled/disabled/return
-views after timing. No extra walk/world or reduced rendering quality. At the
-last live poll20:46EST the architect broker had ended and resident58660 was
-still live ahead of our broker. Poll the existing handle; do not launch duplicates.
+**Composed01 is terminal FAIL:**178.08s,24 checks/six completed controller
+legs/one assertion failure,44 real script errors,empty slab admission. Source
+before/after matches wrapper signature. The existing six-face validator assigned
+Nil from a legitimate non-indexed surface directly into PackedInt32Array. This
+is not stale cache or a valid timing/visibility result. Full failed raw output,
+three controls, source and receipts are retained in the existing archive.
+Broker56984/session19285 and host observer43520 are terminal; CPU quiet released.
 
-External analyze_run.py validates receipt completion, unchanged source hashes,
-executed test hash, empty stderr, all six route legs, viewport/global draw
-reconciliation and control-image hashes. It was exercised on completed
-pass_trace01:222 measured intervals,p50/p95/p99/max20.239/49.609/138.294/198.879ms,
-three over100ms;234 post-draw observations,1233 original wall occluders. These
-are prior-source observations, not candidate results. Reproducer retained in
-the existing compact evidence archive. CPU-quiet coordination begins when the
-measured job acquires, not while another owner is running.
+Correction authored: treat absent index buffers as non-indexed triangles before
+synthesizing sequential indices. Fixture03 additionally constructs an actual
+absent-index closed mesh and uses it for the above/below optical controls.
+Syntax checked, not semantically/runtime verified. **Fixture03 queued once** as
+broker33568/session2218; batch at C:/ov/reports/slab_occlusion_20261101/fixture03.json,
+canonical source frozen while queued. It follows the live GPU session and another
+resident run without pre-emption. Poll the same handle; do not duplicate it.
+Owned C:/ov/c-ab46a508 remains at failed6b2654dc4 until its archived inputs are
+retained and a corrected composed retry is deliberately prepared.
+
+External analyze_run.py validates completion/source/test hashes and route/pass
+counts; it correctly refuses this failed run. Prior pass_trace01 had222 measured
+intervals,p50/p95/p99/max20.239/49.609/138.294/198.879ms,three over100ms;
+234post-draw observations and1233 original wall occluders. No candidate benefit.
 
 Book follow-up authored while waiting: the existing inspection-return diagnostic
 now inherits the print profile and optionally runs that actual opening/review
@@ -40,9 +44,8 @@ default return-only scope remains. Syntax checked only; compile, rendered
 interaction and save/reload coverage remain unverified. No production book
 owner changes. The queued C checkout does not consume this new test edit.
 
-NEXT: inspect actual composed receipts, slab admissions and three optical
-controls; compare main pass counts and frame intervals honestly. Fix real
-failures. If the candidate improves its intended outcome, renew affected
+NEXT: finish the corrected non-indexed fixture, inspect its images, then
+retry composed admission/timing/visibility with frozen corrected source. If the candidate improves its intended outcome, renew affected
 physical qualification and candidate regression gates before merging. Full
 V2/hose/book/nook coverage remains open; candidate surface packet is stale.
 

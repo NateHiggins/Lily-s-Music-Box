@@ -6221,3 +6221,23 @@ same-pose new-occluder-only enable/disable/return control after timing. Source
 geometry,materials and quality remain;no extra travel/world and no automatic
 artistic acceptance. Newly authored control is syntax checked;actual semantic
 compile/composed run remains required. Original failed fixture is not erased.
+
+
+## Slab composed01 failure and non-indexed correction — November 1
+
+Evidence class: **INERT**. Actual hidden3440×1440 composed01 completed in178.08s
+with24checks,all six normal-controller legs completed,and one assertion failure:
+zero slabs admitted. Stderr contains44 real script errors from assigning a Nil
+index buffer into PackedInt32Array. Before/after source matches the wrapper.
+This is neither stale cache nor usable candidate timing/visibility acceptance.
+The existing evidence archive retains raw logs,receipts,source,three controls,
+frame/work JSON and failure classification under slab_composed01. External host
+observer43520 is terminal179samples,max sampling-body2.188ms;not causal attribution.
+
+Correction handles a legitimate absent Mesh.ARRAY_INDEX as non-indexed triangles.
+The small rendered fixture now constructs that exact buffer form and uses it
+for above/below parity/culling controls. Syntax checked only; fixture03 is queued
+once as broker33568/session2218 behind live shared GPU/resident work. No assertions
+or culling predicates were weakened,no production geometry/material/save/input
+changes,and no corrected runtime result is claimed yet. Repeat composed testing
+only after this corrected fixture passes. PR138 remains draft,not merged.

@@ -115,6 +115,14 @@ func _slab_fixture() -> void:
 	_fixture_box(root,Vector3(0,-.7,0),Color.GREEN)
 	_fixture_box(root,Vector3(2,-.7,0),Color.RED)
 	_slab_check(Occlusion._complete_solid(floor.mesh,collision.shape.size),"actual split surfaces close all six box faces")
+	var unindexed := SurfaceTool.new();unindexed.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for surface in floor.mesh.get_surface_count():unindexed.append_from(floor.mesh,surface,Transform3D.IDENTITY)
+	unindexed.deindex()
+	var unindexed_mesh := unindexed.commit()
+	unindexed_mesh.surface_set_material(0,material)
+	_slab_check(unindexed_mesh.surface_get_arrays(0)[Mesh.ARRAY_INDEX]==null,"fixture uses an actual absent index buffer")
+	_slab_check(Occlusion._complete_solid(unindexed_mesh,collision.shape.size),"non-indexed closed box remains eligible")
+	floor.mesh=unindexed_mesh
 	_slab_check(not Occlusion._complete_solid(_split_slab(material,false),collision.shape.size),"missing underside is refused")
 	var ring := SurfaceTool.new();ring.begin(Mesh.PRIMITIVE_TRIANGLES)
 	for piece: Array in [[Vector3(-2,0,0),Vector3(2,.2,6)],[Vector3(2,0,0),Vector3(2,.2,6)],[Vector3(0,0,-2),Vector3(2,.2,2)],[Vector3(0,0,2),Vector3(2,.2,2)]]:
