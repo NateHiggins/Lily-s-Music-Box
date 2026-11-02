@@ -131,7 +131,13 @@ tests do not prove visual presentation, interaction, or game feel.
 
 Write hash-bound text with explicit LF newlines or normalized bytes. On Windows,
 `-text` prevents Git from correcting a writer's default CRLF conversion; compare
-content and staged whitespace before publishing a hash-bearing manifest.
+content and staged whitespace before publishing a hash-bearing manifest. Preserve the existing
+serialization of an established hash-bound file unless an explicit migration
+requires changing it: normalizing an existing CRLF manifest to LF can turn a
+small update into a whole-file diff. Compare parsed record changes separately
+from serialization; for deliberately retained CRLF, inspect staged whitespace
+with `git -c core.whitespace=cr-at-eol diff --cached --check`. This is not an
+exemption for spaces or tabs at line ends.
 
 If Godot, graphics, target hardware, or required assets are unavailable, finish
 independent work and name the precise limitation. Never claim a playtest from
