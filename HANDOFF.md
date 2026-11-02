@@ -1,3 +1,29 @@
+# Current continuation — November 2 adjacent city row
+
+Evidence class: **INERT**. Owner resumed after the explicit backlog pause.
+**C:/ov/city**, **codex/v2-city-20261029**, source **2a59a5066**, extends
+**9c49b2910** (developer641 integration plus preserved city compass correction).
+Latest fetched main **12e6272fd** has36 individual/88 generic; new source39/85
+is not merged or runtime/art accepted. Canonical checkout/index untouched.
+
+Three source-fitted houses now adjoin Sohmer at **HORIZON_NEAR_3_0_P0R0/P0R1/P0R2**.
+Native03 passes93.360s; review02 passes226.275s,80 exact native/export parts,
+1,218 pane/apron controls plus2,010 headroom rays; all five images inspected.
+Original review01 missing-paving failure retained; repaired through real source
+apron stock.35 other GLBs,124 reservations,121 other profiles and all factory
+mesh/pane/clock data remain exact. Complete body LOD aggregate76,396/34,588
+triangles across26 partitions is not measured viewport performance.
+
+Next: existing **V2CityWesternFactoryRow.tscn** isolated loaded/LOD/cost family,
+pinned patched Vulkan/hidden3440x1440 through shared FIFO lane, after this finished
+native review. No combined-world/global renewal; developer/Claude coordinate that
+with mail/watch/moon/current main. Do not repin immutable641 receipts. Check
+source freeze, actual receipts/stderr and every runtime image. Full city remains
+open. [Source, original failures and limits](design/V2_CITY_CONTEXT_REPORT_2026-10-19.md#western-houses-adjoining-the-factory--native-checkpoint-november-2).
+External evidence **C:/ov/reports/city_streets_20261029/western_factory_row_01/**.
+
+## Preserved prior integration custody (historical snapshot)
+
 # Current continuation — November 2 cityscape resumed
 
 ## Current native intake — owner resumed November 2

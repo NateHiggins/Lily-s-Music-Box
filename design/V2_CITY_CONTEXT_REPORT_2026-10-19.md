@@ -6638,3 +6638,59 @@ family source remains frozen. Original reports/archives retain their provenance.
 Ground source spans±500m,containing the temporary450m radius after registration;
 those extents do not prove continuous collision/access across every street,
 rail cut or waterfront. The future narcoleptic return-to-bed event remains absent.
+
+
+## Western houses adjoining the factory — native checkpoint, November 2
+
+Evidence class: **INERT**. Source/native review only; no runtime, composed-world
+or artistic acceptance for the new houses. Source commit **2a59a50667761aac63f816cfbcba448da3708ddf**
+extends integration merge **9c49b2910**, preserving developer641 clock inputs.
+Latest fetched main is **12e6272fd032151e4f5464a0ebdd7b32203004e5** (36 individual/88 generic);
+this new city branch remains separate, with39 individual/85 generic. No main merge.
+
+**Built:** **HORIZON_NEAR_3_0_P0R0**, **P0R1** and **P0R2** become a coherent
+street row beside Sohmer: brick Italianate, stone Italianate and shorter Neo-Grec
+houses, with distinct floor schedules, window-head orders, scenic entries,
+stoops/iron or stone rails, cornices and hollow capped flues. LPC0450 informs
+form; dimensions, finish and placement are AU adaptations, not surveyed1928
+parcel/elevation evidence. The source-local-X fronts face world east after the
+installed180-degree registration. Existing registered materials and metric UVs;
+no photograph pixels, new material keys, occupied interiors or gameplay owners.
+
+All124 reservations/121 other profiles remain exact;35 other GLBs are byte-identical.
+Only existing near3_0 near/lower shards change, to28,050,568/14,053,260 bytes.
+Factory mesh parts,142 pane witnesses and clock frames remain exact, as do
+12,399 pane witnesses,192 roof contacts and121 grade seats outside the new three.
+Complete replacement bodies retain every wall/entry/roof/rail/chimney:
+17,536/11,376;36,552/14,600;22,308/8,612 near/lower triangles,9/8/9 partitions.
+Aggregate76,396/34,588 and26 partitions are source counts, not measured rendering cost.
+
+**Actual native evidence:** build03 exit0/93.360s;65 consumed hashes match.
+Read-only review02 exit0/226.275s:80 saved-native/export exact world-triangle
+roundtrips with UV layers,816 pane first hits,402 supported apron/terrain stations
+and2,010 additional standing-height offset rays. All five CPU near/lower/context
+PNGs individually inspected/hash-matched. Lower silhouettes retain the complete
+bodies. Context lighting gives bright roof highlights/dark frontages; production
+lighting and gutters/downpipes remain open. Blender World.use_nodes deprecation
+warning remains in original stderr. Earlier build01/02 and the review01 failure
+(exit1/29.734s: missing intended brick-house front paving) are preserved. Fixed
+through the existing public_front_apron source flag, not a test floor or relaxed
+control. Ray support/clearance is not real capsule/controller access.
+
+13 source/shard tests observedOK; readerNEW0; mesh import policy107/0missing/0wrong.
+The shared loaded-body bench now admits up to three distinct explicit targets;
+**V2CityWesternFactoryRow.tscn** requires exactly26 near/lower partitions.
+Its semantic compilation, loaded PBR/mips, actual rendered LOD/cost/spikes and
+player-access/composed qualification remain pending. Prior641 runtime receipts
+stay immutable; unchanged factory proof is not repinned to the new cohort.
+Developer approved one isolated family; global renewal remains coordinated with
+Claude/developer, whose canonical worktree and shared inputs are untouched.
+
+Native packet **art/reviews/city_streets_20261029/western_factory_row_native_review.zip**:
+39 members,7,072,937 bytes,SHA256 **fd66f4bed99322acf698a2dc345fef6e0a619876a105725a98bbfb04f9fd13d3**.
+It includes original failures, executed sources, controls and inspected renders;
+no duplicated GLBs/maps/reference photographs. External continuation and reports:
+**C:/ov/reports/city_streets_20261029/western_factory_row_01/**.
+Full city,450m exploration, remaining85 generic bodies, coherent transit/industrial/
+waterfront skyline, streets/gaslights, relevant saves, measured world stalls and
+artistic acceptance remain open.
