@@ -2,6 +2,8 @@ extends WatchStationProp
 ## Native signal box; the original station and network retain record authority.
 const STOCK := preload("res://assets/props/watch_stations.glb")
 static var _stock: Dictionary = {}
+## The stock's own metre charts replace triplanar, on copies so the shared catalogue stays as it is.
+static var _charted: Dictionary = {}
 signal manipulation_changed
 var native_parts := 0
 var door_angle := 0.0
@@ -45,7 +47,21 @@ func _build_visual() -> void:
 	_drive_stock("LockoutGuide",Vector3(.096,.198,.070),"iron_neutral")
 	_drive_stock("LockoutBracket",Vector3(.096,.198,.070),"iron_neutral")
 	_counter.get_node("PawlArm").material_override=MatLib.get_mat("washer_brass")
+	var stocks: Array = _stock.values()
+	for draw: MeshInstance3D in find_children("*","MeshInstance3D",true,false):
+		if draw.mesh in stocks:_use_charts(draw)
 	set_meta("v2_native_watch_station",true)
+
+## Glass keeps its optical shader. Copies are shared per source material so batching still holds.
+func _use_charts(draw: MeshInstance3D) -> void:
+	var finish: Material=draw.material_override if draw.material_override!=null else draw.get_active_material(0)
+	if finish is not StandardMaterial3D or not finish.uv1_triplanar:return
+	var source: int=finish.get_instance_id()
+	if not _charted.has(source):
+		var copy: StandardMaterial3D=finish.duplicate()
+		copy.uv1_triplanar=false
+		_charted[source]=copy
+	draw.material_override=_charted[source]
 
 func _drive_stock(label: String,at: Vector3,material: String) -> MeshInstance3D:
 	var draw := MeshInstance3D.new()
