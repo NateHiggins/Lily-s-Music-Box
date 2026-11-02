@@ -20,10 +20,15 @@ the existing exporter reproduced the supplied GLB byte-for-byte,49332triangles/
 TapProp retains openings/held input/water/save ownership; a presentation hook
 preserves other mountings and avoids two conflicting transform writes per frame.
 The original gesture bench targets the new actual cap faces and checks X-only
-half-open poses. These changes are not yet Godot-qualified. External export
-receipts: **C:/ov/reports/native_intake_20261102/bathroom_01/**.
-Next: semantic preflight, actual graphical bath hand/entry/plug/curtain exercise,
-then fitted lavatory/closet intake and combined furnished-world qualification.
+half-open poses. Actual reimport/five-script semantic preflight pass; graphical
+**ClawfootBathHandBench** passed138checks/0failures20.48s, empty shutdown stderr.
+Three3440x1440 frames inspected. This is an isolated diagnostic including real
+input/entry/plug/curtain and mechanism JSON restore, not furnished-world or
+validated campaign reconstruction, current surface qualification or artistic
+acceptance. External receipts: **C:/ov/reports/native_intake_20261102/bathroom_01/**.
+No own engine job remains. Next: fitted lavatory/closet intake and combined
+furnished-world qualification. Incoming main is now **504657879** (shop work);
+reconcile its changes before eventual candidate verification/main publication.
 Remaining native queue and original city/prologue/repair commitments stay open.
 
 Evidence class: **INERT**. Lily explicitly resumed city finishing with the architect.
