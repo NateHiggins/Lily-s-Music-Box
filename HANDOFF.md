@@ -33,6 +33,13 @@ are prior-source observations, not candidate results. Reproducer retained in
 the existing compact evidence archive. CPU-quiet coordination begins when the
 measured job acquires, not while another owner is running.
 
+Book follow-up authored while waiting: the existing inspection-return diagnostic
+now inherits the print profile and optionally runs that actual opening/review
+first when ORISON_BOOK_PRINT_AND_RETURN=1. Same selected book and one world;
+default return-only scope remains. Syntax checked only; compile, rendered
+interaction and save/reload coverage remain unverified. No production book
+owner changes. The queued C checkout does not consume this new test edit.
+
 NEXT: inspect actual composed receipts, slab admissions and three optical
 controls; compare main pass counts and frame intervals honestly. Fix real
 failures. If the candidate improves its intended outcome, renew affected
