@@ -14,6 +14,9 @@ func check(ok: bool,label: String) -> void:
 	if not ok: failures.append(label)
 
 func run(bench: Node3D) -> void:
+	if OS.get_environment("SKYWATCH_MOON_SIZE_REVIEW")=="1":
+		await moon_size_review(bench)
+		return
 	if OS.get_environment("SKYWATCH_MOON_NAME_REVIEW")=="1":
 		await moon_name_review(bench)
 		return
@@ -776,8 +779,8 @@ func catalogue_review(bench: Node3D) -> void:
 func moon_name_review(bench: Node3D) -> void:
 	var out := OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(out)
-	check(is_equal_approx(Weather.moon_name_amount(Weather.MOON_NAME_AT-1.0),0.0),"clean Moon before the exposure")
-	check(is_equal_approx(Weather.moon_name_amount(Weather.MOON_NAME_AT+60.0),1.0),"cut complete after the exposure")
+	check(is_equal_approx(Weather.moon_name_amount(Weather.MOON_NAME_AT-1.0),0.0),"clean Moon before Lily's night")
+	check(Weather.moon_name_amount(Weather.MOON_NAME_AT+86400.0)<.05 and is_equal_approx(Weather.moon_name_amount(Weather.MOON_NAME_AT+Weather.MOON_NAME_ETCH_SECONDS),1.0),"etch is slow and completes")
 	var stamp := Time.get_unix_time_from_datetime_string("1929-09-21T22:40:00")-Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")
 	check(is_equal_approx(float(stamp),Weather.MOON_NAME_AT),"exposure constant is 21 September 1929, 22:40")
 	bench.manager.set_process(false)
@@ -794,7 +797,7 @@ func moon_name_review(bench: Node3D) -> void:
 	sky.set_shader_parameter("moon_surface",load("res://assets/environment/moon_lroc_4k.jpg"))
 	sky.set_shader_parameter("moon_height",load("res://assets/environment/moon_lola_height.png"))
 	sky.set_shader_parameter("moon_relief_enabled",true)
-	var dates := {"sep21_gibbous":[9,21,22],"sep26_last_quarter":[9,26,23],"oct10_first_quarter":[10,10,20],"oct18_full":[10,18,22],"nov09_last_evening":[11,9,19]}
+	var dates := {"sep28":[9,28,23],"oct05":[10,5,20],"oct12":[10,12,20],"oct18_full":[10,18,22],"oct25_last_quarter":[10,25,23],"nov09_last_evening":[11,9,19]}
 	for label: String in dates:
 		var when: Array=dates[label]
 		bench.clock.configure_date(1929,int(when[0]),int(when[1]),int(when[2])*60)
@@ -811,7 +814,8 @@ func moon_name_review(bench: Node3D) -> void:
 		sky.set_shader_parameter("celestial_direction",moon)
 		sky.set_shader_parameter("sun_direction",sun)
 		sky.set_shader_parameter("moon_phase_enabled",true)
-		sky.set_shader_parameter("moon_name_amount",1.0)
+		var campaign_seconds := float(Time.get_unix_time_from_datetime_dict(bench.clock.local_datetime()))-float(Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00"))
+		sky.set_shader_parameter("moon_name_amount",Weather.moon_name_amount(campaign_seconds))
 		sky.set_shader_parameter("celestial_strength",1.4)
 		for key: String in ["cloud_coverage","lower_cloud_strength","high_cloud_strength"]:
 			sky.set_shader_parameter(key,0.)
@@ -820,4 +824,51 @@ func moon_name_review(bench: Node3D) -> void:
 			bench.camera.set_frustum(2.*bench.camera.near*tan(deg_to_rad(float(field[1]))*.5),Vector2.ZERO,bench.camera.near,2000.)
 			await capture(bench,out+"/name_%s_%s.png" % [label,field[0]])
 		print("MOON NAME ",label," illumination=",(1.-sun.dot(moon))*.5)
+	bench.get_tree().quit(0 if failures.is_empty() else 1)
+
+## Experiment for Lily: the Moon at candidate sizes, start and end of the year, same views and same phase.
+## No curve is chosen here. Real ephemeris, and the true date's lit side.
+func moon_size_review(bench: Node3D) -> void:
+	var out := OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(out)
+	bench.manager.set_process(false)
+	bench.director.set_process(false)
+	for child: Node in bench.get_children():
+		if child is WeatherFX:
+			child.process_mode=Node.PROCESS_MODE_DISABLED
+			(child as Node3D).hide()
+			for layer: CanvasLayer in child.find_children("*","CanvasLayer",true,false): layer.hide()
+	for particle: GPUParticles3D in bench.find_children("*","GPUParticles3D",true,false):
+		particle.emitting=false;particle.hide()
+	bench.camera.near=.01
+	var sky: ShaderMaterial=bench.sky_material
+	sky.set_shader_parameter("moon_surface",load("res://assets/environment/moon_lroc_4k.jpg"))
+	sky.set_shader_parameter("moon_height",load("res://assets/environment/moon_lola_height.png"))
+	sky.set_shader_parameter("moon_relief_enabled",true)
+	var runs := [["start",1928,11,19,19,0.,[2.5,4.,6.,9.]],["end",1929,11,9,19,1.,[15.,30.,60.,120.]],["end_full",1929,11,16,22,1.,[30.,120.]]]
+	for run_row: Array in runs:
+		bench.clock.configure_date(int(run_row[1]),int(run_row[2]),int(run_row[3]),int(run_row[4])*60)
+		var utc: Dictionary=bench.clock.utc_datetime()
+		bench.director._astronomy_second=-INF
+		bench.director._apply(float(run_row[4])*60.)
+		bench.environment.fog_enabled=false
+		bench.environment.volumetric_fog_enabled=false
+		var moon := Ephemeris.moon_direction(utc,40.75,-73.92)
+		var sun := Ephemeris.sun_direction(utc,40.75,-73.92)
+		print("MOON SIZE ",run_row[0]," altitude=",Ephemeris.altitude_degrees(moon)," illumination=",(1.-sun.dot(moon))*.5)
+		sky.set_shader_parameter("celestial_direction",moon)
+		sky.set_shader_parameter("sun_direction",sun)
+		sky.set_shader_parameter("moon_phase_enabled",true)
+		sky.set_shader_parameter("moon_name_amount",float(run_row[5]))
+		sky.set_shader_parameter("celestial_strength",1.4)
+		for scale_value: float in run_row[6]:
+			sky.set_shader_parameter("moon_visual_scale",scale_value)
+			bench.camera.fov=60.
+			bench.camera.projection=Camera3D.PROJECTION_PERSPECTIVE
+			# The player's view: looking toward the Moon, roofline in frame where the altitude allows.
+			var flat := Vector3(moon.x,0.,moon.z).normalized()
+			var aim := flat.lerp(moon,.55).normalized()
+			bench.camera.look_at(bench.camera.global_position+aim,Vector3.UP)
+			await capture(bench,out+"/size_%s_%s.png" % [run_row[0],str(scale_value)])
+	check(true,"size review complete")
 	bench.get_tree().quit(0 if failures.is_empty() else 1)

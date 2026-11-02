@@ -8,9 +8,9 @@ const Phenomena := preload("res://scripts/building/sky_phenomena.gd")
 const LivingSky := preload("res://scripts/building/living_sky.gd")
 const TLE_SLOTS := [23, 24, 25, 26]
 const EMERGENCE_SLOT := 41
-## Campaign seconds from 1928-11-10 to 22:40 on 21 September 1929, and the length of the exposure.
+## Campaign seconds from 1928-11-10 to 22:40 on 21 September 1929, when the etch starts, and how long it takes.
 const MOON_NAME_AT := 27297600.0
-const MOON_NAME_EXPOSURE := 40.0
+const MOON_NAME_ETCH_SECONDS := 35.0*86400.0
 const CRAWLER_SLOT := 22
 const PLUME_LIGHTNING_SLOT := 28
 const ST_ELMO_SLOT := 27
@@ -377,7 +377,7 @@ func _flash_for(slot: int) -> float:
 
 ## A pure function of the date, so reverse travel finds a clean Moon.
 static func moon_name_amount(campaign_seconds: float) -> float:
-	return clampf((campaign_seconds-MOON_NAME_AT)/MOON_NAME_EXPOSURE,0.0,1.0)
+	return clampf((campaign_seconds-MOON_NAME_AT)/MOON_NAME_ETCH_SECONDS,0.0,1.0)
 
 func _push_spectacle() -> void:
 	_spectacle_levels.fill(0.0)

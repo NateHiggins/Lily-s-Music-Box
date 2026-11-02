@@ -11,6 +11,7 @@ Evidence class: **INERT**. Writers' room result, 2026-11-02, on Lily's rulings b
 | How long | **To the end.** It stays through the 9 November evening and both endings |
 | Who sees it | **Everyone on Earth** |
 | How it looks | "Alter the moon's surface so the name is in shadowed relief of the terrain, hard to see except at certain phases of the moon but distinct in the telescope otherwise" |
+| When it appears | "Have the name only appear after Lily does it in the plot." "It should take a while for the name to be etched, make its appearance slow and unclear" |
 
 **Three earlier rules yield to these rulings, and only as far as the Moon.** My note in **design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md** said her death doesn't make the act, with no memorial and no eternal wake. **design/ORISON_YEAR_SUBPLOTS_2026-11-01.md** kept S15, S16, both endings and the 9 November evening undressed, and it kept the parties a Queens joke. Section 5 says how each survives.
 
@@ -30,19 +31,20 @@ She takes the name from a carbon in the bench, where Adela struck Ravenswood's c
 
 On Saturday 21 September she tells the bar she has a sick aunt, goes up the Ravenswood Sound Shorts Company's stage wall in the silk, sets the cups in a ring on its premiere searchlight, and times the exposure the only way she knows, on a snare: the last eight bars of the slow song. Then **she puts Adela's two bars back,** the ones Adela finally took out in June. In the ninth bar the left pin lets go. So the first letter slides downhill.
 
-**Nothing happens.** It's a nearly full Moon, flat lit, with not a mark on it. Observatories find it that night and nobody else can. She carries the cups home.
+**Nothing happens.** It's a nearly full Moon, flat lit, with not a mark on it. She carries the cups home. She goes up and looks every clear night for a month, while two observatories argue about smudges and blame each other's plates.
 
-On Thursday 26 September the Moon comes up lopsided, the sun rakes across it, and any fool on a roof can read **AD**. It's a cut, not a stain. You want the light from the side, as any photographer could have told her. "Nobody ever looks at the light."
+On Friday 25 October, the day after Black Thursday, the Moon comes up lopsided, the sun rakes across it, and any fool on a roof can read **AD**. It's a cut, not a stain, and it comes in slow. You want the light from the side, as any photographer could have told her. "Nobody ever looks at the light."
 
 She could go back and straighten it, because she has the tracing. But Adela once hired a man who hung her pictures crooked on the left, and kept him on, because it annoys the right sort of person. Beside the empty stool: "Nobody asked her. That's noted." **"I keep the negative."**
 
 ## 3. What's in the sky
 
-**A cut in the terrain, not a mark.** It's cut into the Moon's real LOLA heights in **game/shaders/skywatch_moon.gdshaderinc**, so it lights and shadows by the same code as every crater. Its floor is also darker rock: more so just past the shadow line, where its walls would shade it whole, and otherwise only under magnification. No generated texture is involved, so RUL-008 isn't touched. It appears over forty seconds from 22:40 on 21 September 1929, and it's a pure function of the date, so travelling back before that shows a clean Moon.
+**A cut in the terrain, not a mark.** It's cut into the Moon's real LOLA heights in **game/shaders/skywatch_moon.gdshaderinc**, so it lights and shadows by the same code as every crater. Its floor is also darker rock: more so just past the shadow line, where its walls would shade it whole, and otherwise only under magnification. No generated texture is involved, so RUL-008 isn't touched. **The etch takes five weeks,** from 22:40 on 21 September 1929 to the same hour on 26 October: scattered pits along the strokes, then broken rilles, then letters. No letter finishes before another, so no stage is four and a gap. It's a pure function of the date, stored in no save and no terrain data, and there's no name in any view before Lily's night, so travelling back shows a clean Moon. The plot's date is fixed, so the date is the plot's event. **How long it takes is hers to rule:** the renders are in her inbox as **moon_etch_time**.
 
 | Phase | With the eye, at a 14 degree view | In a telescope | Dates |
 |---|---|---|---|
-| Near full | Nothing | **ADELA**, darker rock in the ground | 18 Oct |
+| Near full, 18 Oct | Nothing | **Most of ADELA,** still broken | 18 Oct |
+| Before about 12 Oct | Nothing | Smudges and pits. Nobody could say it's a word | 28 Sep, 5 Oct |
 | Near last quarter | A letter or two by the shadow line: **AD** | The lit part of the name, hard shadows at the line: **AD** | 26 Sep, 25 Oct |
 | New | Nothing, there's no Moon to see | Nothing | 2 Oct, 1 Nov |
 | Near first quarter | A letter or two by the shadow line: **EL** | **ELA**, the lit part | 10 Oct, 9 Nov |
@@ -59,29 +61,31 @@ She could go back and straighten it, because she has the tracing. But Adela once
 
 **The papers.** Seven back pages, **1929-09-22** both papers to **1929-11-03**:
 
-- The observatories first, and nobody can see it. The Speaker goes up on the roof and calls it a stunt.
-- **AD** at the end of September. "It's the most anybody has ever paid for two letters." The Speaker's fifty-dollar reward fills Borden Avenue with four hundred and six women named Adela, who sing.
-- The Adela hat, low on the left. Almanacs, the tax commission, the clergy.
-- On 12 October the thing from the sea comes up with the Moon low in the west, "and it went the other way and never looked".
+- Small new marks in early October. Two observatories blame each other's plates, and a Flushing dentist says he saw them first.
+- On 12 October the thing from the sea comes up with the Moon low in the west, "and it went the other way". Nobody yet knows it's a name.
+- At the full Moon of 17 October the marks have joined. Five letters, by large glass only. The Speaker goes up on the roof and calls it a stunt.
+- **AD** on 25 October, the day after the Exchange. "It's the most anybody has ever paid for two letters." The Speaker's fifty-dollar reward fills Borden Avenue with four hundred and six women named Adela, who sing.
+- The Adela hat, low on the left.
 - The Crash week: "the only figure in the city" with no change, and clerks on the roofs looking up.
 - A paid notice, the two hundred and twelfth of its kind: "To Adela: I am sorry about everything." It's signed by nobody and is not about anything.
 - The reward stands. Nobody comes forward.
 
 **Ravenswood.** "We note your client's billing. Under clause six, the Company retains the negative. Suggest smaller letters. Kindly advise."
 
-**The threads,** all first drafts, from 27 September except where shown. They name Lily plainly, because a door resident can't assume the player has heard:
+**The threads,** all first drafts, from 26 October except where shown. They name Lily plainly, because a door resident can't assume the player has heard:
 
 | Thread | Who | What |
 |---|---|---|
 | **li_cup** (17 to 21 Sep) | Lily | The cup, the light, and she's asking everyone who's been asked |
+| **li_wait** (22 Sep to 25 Oct) | Lily | She's been up on roofs. "There isn't a mark on it." |
 | **li_moon** | Lily | "It's crooked." The player can say so, and it changes nothing |
-| **li_bill** (from 1 Oct) | Lily | Suggest smaller letters |
+| **li_bill** (from 1 Nov) | Lily | Suggest smaller letters |
 | **jk_moon** | Juno | She gave two cups. It's the only thing in the borough she can't keep |
 | **rs_moon** | Rhea | "It's her name. Nobody asked her." She knows where it is behind the blind |
-| **ob_moon** | Omar | He's been out in the yard with a level. "I know how far it is." His wound stays unspent |
-| **lo_moon** | Lena | The hat doesn't sit like that, and one pin let go |
-| **em_moon** | Evelyn | "Moon: incorrect." The cup came back washed |
-| **pw_moon** | Peter | Who should he write to? |
+| **ob_moon** (from 19 Oct) | Omar | He's been out in the yard with a level. "I know how far it is." His wound stays unspent |
+| **lo_moon** (from 29 Oct) | Lena | The hat doesn't sit like that, and one pin let go |
+| **em_moon** (from 19 Oct) | Evelyn | "Moon: incorrect." The cup came back washed |
+| **pw_moon** (from 22 Oct) | Peter | Who should he write to? |
 | **tv_moon** | Teresa | A frightened patient. "A friend of mine had terrible capitals, drink your water." |
 | **mk_moon** | Mae | People on her stair. Nothing about the name |
 | **m_moon_name** | Companion | It has shadows it didn't have before. "I do not read what I witness." |
@@ -106,9 +110,15 @@ She could go back and straighten it, because she has the tracing. But Adela once
 
 **Real people and places.** Astoria and the Exchange are real. No real person is named. The observatories are unnamed. The whole of the event is fiction.
 
+## 6. The Moon gets bigger: experiment only
+
+**Lily, 2026-11-02:** "Have the moon get bigger and have its approach to the earth be a minor oddity that no one believes is happening. Its size is never explained. Experiment with an aesthetically bigger moon to start with and an absurdly big size at the end of the year." **No curve is built.** Today's Moon draws at 2.5 times real, and the sizes are renders for her to choose from, asked as **moon_size_start** and **moon_size_end**.
+
+**Against the sky work.** No phenomenon or paper depends on the Moon's size. The eclipse shadow is in disc units and scales with it. Moonlight, tides and the Moon's light on the world don't change, which suits nobody believing it. The Bible has no rule on the Moon's size. The ice halo keeps its real 22 degrees, so above about 80 times real the disc would swallow it. **At 120 times real a full Moon blows out to white and its rim shows black dashes from the terrain shadow,** which would need fixing if she chooses that end. Size also makes the floor tone resolve without a telescope, so **late in the year the name can be read by eye,** after Lily's night only.
+
 ## 6. What's built and what isn't
 
-**Built, first draft.** The cut, the date driver and a review bench; seven back pages; eleven threads and one companion line.
+**Built, first draft.** The cut, the date driver and a review bench; seven back pages; twelve threads and one companion line.
 
 **Not built, and the first thing it needs.** An installed telescope, without which the player can't read her own name. **Also not built:** the cups as props, Lily's trip, the Ravenswood stage, crowds on roofs, and any change to the endings. The comic is a private script with nothing rendered. Lily's threads still open only through the F9 playtest panel.
 

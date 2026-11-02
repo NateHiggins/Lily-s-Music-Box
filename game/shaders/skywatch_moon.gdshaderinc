@@ -43,7 +43,12 @@ float moon_name_cut(vec3 n) {
     }
     // A hand, not a stencil.
     nearest+=.0035*sin(q.x*83.0+q.y*59.0);
-    return moon_name_amount*MOON_NAME_DEPTH*(1.0-smoothstep(MOON_NAME_WIDTH,MOON_NAME_WIDTH+.014,nearest));
+    // The etch comes in unevenly all along the strokes: scattered pits, then broken
+    // rilles, then letters. No letter finishes first, so no stage is four and a gap.
+    float grain=.5+.27*sin(q.x*41.0+1.7*sin(q.y*31.0))+.23*sin(q.y*67.0+q.x*23.0+1.1*sin(q.x*19.0));
+    float etched=smoothstep(grain-.05,grain+.05,moon_name_amount*1.2-.05);
+    float width=MOON_NAME_WIDTH*(.3+.7*moon_name_amount);
+    return etched*MOON_NAME_DEPTH*(.3+.7*moon_name_amount)*(1.0-smoothstep(width,width+.014,nearest));
 }
 
 // How much light the cut floor loses. In low sun its walls shade it whole, which
@@ -51,7 +56,7 @@ float moon_name_cut(vec3 n) {
 // rock remains, and that resolves only under magnification.
 float moon_name_shade(vec3 n,vec3 solar,float disc_per_pixel) {
     if(moon_name_amount<=0.0) return 0.0;
-    float floor_mask=moon_name_cut(n)/(moon_name_amount*MOON_NAME_DEPTH);
+    float floor_mask=moon_name_cut(n)/MOON_NAME_DEPTH;
     float height=dot(normalize(n),solar);
     // Lit ground just past the shadow line, so the eye gets a letter or two, never the name.
     float rake=smoothstep(-.02,.02,height)*(1.0-smoothstep(.07,.30,height));

@@ -19,7 +19,8 @@
   "li_night": "li_n1",
   "li_cup": "li_m1",
   "li_moon": "li_m3",
-  "li_bill": "li_m6"
+  "li_bill": "li_m6",
+  "li_wait": "li_w1"
  },
  "threads": [
   {
@@ -152,7 +153,7 @@
   },
   {
    "id": "li_moon",
-   "from": "1929-09-27",
+   "from": "1929-10-26",
    "until": "1929-11-09",
    "topic": "It's crooked.",
    "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. After. The player can say so, and it changes nothing.",
@@ -160,11 +161,19 @@
   },
   {
    "id": "li_bill",
-   "from": "1929-10-01",
+   "from": "1929-11-01",
    "until": "1929-11-09",
    "topic": "Have they written?",
    "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. Ravenswood's reply, in the voice of Suggest smaller hat.",
    "root": "li_m6"
+  },
+  {
+   "id": "li_wait",
+   "from": "1929-09-22",
+   "until": "1929-10-25",
+   "topic": "You look tired.",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. She thinks it failed. She never says what.",
+   "root": "li_w1"
   }
  ],
  "nodes": {
@@ -305,7 +314,7 @@
   },
   "li_m3": {
    "silence_goto": "li_m4",
-   "line": "On the left. I know it's on the left. It was fine for eight bars. I put her two back, and in the ninth the left pin let go. Five nights I thought it hadn't taken. You want the light from the side. She'd have told me that.",
+   "line": "On the left. I know it's on the left. It was fine for eight bars. I put her two back, and in the ninth the left pin let go. Five weeks I went up and looked at nothing. It comes in slow. You want the light from the side. She'd have told me that.",
    "choices": [
     {
      "label": "Leave it.",
@@ -325,6 +334,9 @@
   },
   "li_m6": {
    "line": "Tuesday. To the bar. \"We note your client's billing. Under clause six, the Company retains the negative. Suggest smaller letters. Kindly advise.\" That's eight in the bench. I haven't got anyone to correct them."
+  },
+  "li_w1": {
+   "line": "I've been up on roofs. Nothing's the matter. It's a very good moon. There isn't a mark on it. There's a professor in the Record on about smudges. I've told myself that's the plate."
   }
  }
 }
