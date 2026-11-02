@@ -201768,6 +201768,36 @@
    "target_exists": null
   },
   {
+   "key": "8bf2db1a0b2e2539",
+   "kind": "generated_name",
+   "token": "configure_faces",
+   "file": "game/scripts/building/orison_v2_city_horizon.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "configure_faces"
+   ],
+   "lines": [
+    291
+   ],
+   "count": 1,
+   "context": [
+    "identity + \"_\" + kind + \"_hand\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "7be220af057776b2",
    "kind": "generated_name",
    "token": "_ready",
@@ -214511,36 +214541,6 @@
    "count": 1,
    "context": [
     "\"SW_\" + str(fu.get(\"id\", switches))"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "GENERATED_IDENTITY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "REGENERATE_CONSUMER",
-   "confidence": "MEDIUM",
-   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "5beeeb58e66ece62",
-   "kind": "generated_name",
-   "token": "configure_faces",
-   "file": "game/scripts/building/v2_city_factory_clock.gd",
-   "tier": "production",
-   "subsystem": "building",
-   "symbols": [
-    "configure_faces"
-   ],
-   "lines": [
-    79
-   ],
-   "count": 1,
-   "context": [
-    "identity + \"_\" + kind + \"_hand\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -317471,9 +317471,9 @@
     "composition_study"
    ],
    "lines": [
-    142,
-    143,
-    144
+    187,
+    188,
+    189
    ],
    "count": 3,
    "context": [
@@ -317506,10 +317506,10 @@
     "postcards"
    ],
    "lines": [
-    183,
-    184,
-    185,
-    186
+    228,
+    229,
+    230,
+    231
    ],
    "count": 4,
    "context": [
@@ -317543,7 +317543,7 @@
     "run"
    ],
    "lines": [
-    66
+    70
    ],
    "count": 1,
    "context": [

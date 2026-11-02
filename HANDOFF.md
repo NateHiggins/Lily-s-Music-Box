@@ -20,17 +20,23 @@ Original lighting-only **session62685/broker32784** was cancelled before
 admission (no import/Godot) to combine the factory/clock/lighting cohort and
 avoid duplicate world startup. Its waiter and **CANCELLATION.json** remain at
 **C:/ov/reports/city_composition_20261102/lighting_01/**. No runtime verdict.
-Canonical source is editable again; passive clock helper and optional horizon
-binding are committed as **b2fe11b8b**, parsed but not engine-verified. The
-replacement combined run is not queued yet; freeze its sources first.
+Canonical source is editable again. The b2fe11b8b passive helper was consolidated
+into **Horizon.FactoryClock**, inheriting the existing arcade clock movement.
+The builder publishes two optional dial frames; source/mapping tests and reader
+NEW0 pass, but this is not engine verification. Publication reruns **clock_publish_01/02**
+under the composition report folder preserved all37 GLB bytes. The optional
+Sohmer family test adds transformed dial contacts, native/PBR checks, date and
+fractional-time motion, pause/resume and a unique validated-save reconstruction.
+The replacement combined run is not queued yet; freeze its sources first.
 No production ambient-light change has been made.
 The architect cancelled its original unadmitted **68396/90489** after finding
 parcel-proxy blanking. Original **3e849def** remains rejected. Corrected native05
 uses actual occupied Piano wings; old helper/default rows and IDs remain.
 Thirteen source tests pass. P1 eleven attributes/poses and lower GLB are exact;
 six dependent P0R2/P2 wall/sash/pane parts rebuild, adding75 pane witnesses.
-The corrected original family job **29476/session76118** remains queued on the
-architect's frozen tree; no import/Godot or loaded verdict yet. Never edit it.
+The corrected original family job **29476/session76118** is absent from the
+current live queue; architect owns its terminal receipt. Do not restart it or
+edit its frozen source. No loaded verdict has been received.
 Original native/correction archives and native custody text remain in **c4db44b46**
 and the existing city ledger; no old whole-shard receipt is repinned.
 Native factory form is36individual/88generic on the candidate; not qualified. Independent review verified all four native image hashes and124
@@ -40,16 +46,24 @@ and preservation observations are external **sohmer_source_cost.json** and
 **sohmer_preservation_independent.json** under the composition report folder.
 These are not FPS or loaded proof; measure actual LOD/viewport cost before
 acceptance or propagating this density. First outline/encoding failures stay
-with the architect's original report. Canonical clock integration is committed helper/binding WIP; the original
+with the architect's original report. Canonical clock integration is unqualified WIP; the original
 parsed draft and **clock_stock_bounds.json** remain at
 **C:/ov/reports/city_composition_20261102/**. Reuse the existing
 arcade clock's south-facing native hand meshes and inherited CampaignClock
 movement. Uniformscale3.6,local metricUVrepeat9.0; proper outward frames,
 actual .045m dial-front centers plus .025/.037m offsets avoid double datum and
-floating hands. No new clock/save/collision owner or asset is needed. Publish
-optional runtime clock_faces in the existing horizon builder only after the
-native source handoff is complete and the old observation is retired; then verify
-actual loaded materials,hand motion/reversal/reconstruction and composed costs.
+floating hands. No new clock/save/collision owner or asset is needed. The
+optional runtime clock_faces in the existing horizon builder are now published;
+verify actual loaded materials,hand motion/reversal/reconstruction and composed costs.
+The physical survey has an explicit **ORISON_SURFACE_CITY_CONSTRUCTION=sohmer**
+mode, requiring physical-only. Its new **v2_city_factory_review.gd** helper
+reuses the existing normal-input controller driver for eight nearby connected
+apron/open-end/gap/court/return legs, then runs the existing optical study in
+that supplied world. No second world is created. The optical helper uses the
+existing nonpersistent preview lease and restores lamp/carrier/camera/physics.
+The complete physical inventory and opt-in city pane review remain required;
+the factory programme does not substitute for them. These routes/captures are
+authored and parsed, not run. No geometry rescue or new floor was added.
 Do not repeat launches or unrelated hose/walk suites. Use hidden desktop.
 
 Modeler intake is now reconciled read-only at **5c2cf72f6**:28 deliveries,

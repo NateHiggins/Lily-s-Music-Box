@@ -5,12 +5,16 @@ const Ephemeris = preload("res://scripts/building/celestial_ephemeris.gd")
 var failures: Array[String] = []
 var camera: Camera3D
 var output := ""
+var externally_managed := false
+var external_host: Node
 var record := {"evidence_class": "INERT", "scope": "installed city window optics and posed rooftop photograph", "views": []}
 
 func _process(_delta: float) -> void:
+	if externally_managed: return
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _ready() -> void:
+	if externally_managed: return
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	CampaignTime.set_frozen_for_tests(true)
@@ -126,6 +130,47 @@ func run() -> void:
 	await get_tree().physics_frame
 	finish()
 
+func run_composed(world: OrisonV2RuntimeRoot, host: Node) -> Dictionary:
+	# Caller sets externally_managed before adding this helper. Never construct
+	# a second world or run the standalone scene's reset/quit/input lifecycle.
+	external_host = host
+	output = OS.get_environment("SHOT_DIR")
+	check(externally_managed and is_inside_tree() and world.player != null, "supplied optical review lifecycle")
+	if not failures.is_empty(): return {"completed":false,"failures":failures}
+	var actor := world.player
+	var prior_camera := get_viewport().get_camera_3d()
+	var physics := actor.is_physics_processing()
+	var lamp := actor.lamp_is_enabled()
+	var carrier := actor.carried_device as ServiceSetCarrier
+	var hidden := carrier.is_capture_hidden() if carrier != null else false
+	var leased := RealityState.begin_preview_campaign(self)
+	check(leased, "existing nonpersistent preview owner admits optical dates")
+	if not leased: return {"completed":false,"failures":failures}
+	actor.set_physics_process(false)
+	actor.set_lamp_enabled(false)
+	if carrier != null: carrier.set_capture_hidden(true)
+	camera = Camera3D.new()
+	camera.cull_mask = actor.camera.cull_mask
+	camera.keep_aspect = Camera3D.KEEP_WIDTH
+	camera.far = 5000.
+	add_child(camera); camera.make_current()
+	await composition_study(world, CampaignClock.new())
+	check(RealityState.end_preview_campaign(self), "original campaign context restored by its owner")
+	# Allow time/weather readers to rebind before the enclosing survey proceeds.
+	await get_tree().process_frame
+	actor.set_lamp_enabled(lamp)
+	if carrier != null: carrier.set_capture_hidden(hidden)
+	actor.set_physics_process(physics)
+	if is_instance_valid(prior_camera): prior_camera.make_current()
+	camera.free()
+	record["completed"] = true; record["failures"] = failures
+	record["scope"] = "Supplied production world optical diagnostic; preview lease and player presentation restored. No additional world or gameplay acceptance."
+	var file := FileAccess.open(output.path_join("night_review.json"), FileAccess.WRITE)
+	check(file != null, "write composed optical observations")
+	if file != null:
+		file.store_string(JSON.stringify(record, "\t")); check(file.get_error() == OK, "optical observations written"); file.close()
+	return record
+
 func composition_study(world: Node3D, clock: CampaignClock) -> void:
 	# Diagnostic controls only. No production setting or material is changed.
 	# Use one actual world and the existing absolute lighting writer; do not
@@ -207,6 +252,7 @@ func capture(label: String, world: Node, clock: CampaignClock) -> void:
 	record.views.append({"file": path, "campaign_local": clock.local_datetime(), "camera": str(camera.global_position), "horizontal_fov": camera.fov, "weather": world.weather_conditions()})
 
 func check(ok: bool, label: String) -> void:
+	if external_host != null: external_host.call("check", ok, "city composition: " + label)
 	if not ok: failures.append(label); push_error(label)
 
 func finish() -> void:

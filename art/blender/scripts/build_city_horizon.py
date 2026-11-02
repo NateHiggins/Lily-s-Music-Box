@@ -361,7 +361,21 @@ def runtime_asset(asset):
     return dict(asset='res://'+asset['asset'].removeprefix('game/'),block=asset['block'],buildings=asset['buildings'],parts=[p['name'] for p in asset['parts']])
 body_lod=dict(assets=[runtime_asset(a) for a in assets.values() if a['role']=='body_lod'],error_m=float(plan['body_lod_error_m']),parts=[o.name for o in lower_draws])
 assert body_lod['error_m']>0.
-runtime_data=dict(schema=2,frame=plan['frame'],buildings=runtime_rows,assets=[runtime_asset(a) for a in assets.values() if a['role']=='base'],body_lod=body_lod)
+clock_faces=[]
+for row in all_rows:
+    study=row.get('architecture',{})
+    if study.get('style') not in PianoFactory.STYLES:continue
+    x,z,X,Z=study['tower_rect_m']
+    assert abs(X-x-4.4)<1e-7 and abs(Z-z-4.4)<1e-7
+    # Horizon-local Godot metres, not geographic cardinals. Native dials sit
+    # .045m out from the wall; parcel grade is added exactly once here.
+    height=float(row['height_m'])+1.15+float(row['grade_datum_m'])
+    for suffix,center,right,normal in [
+        ('local_minus_z',[(x+X)*.5,height,z-.045],[-1.,0.,0.],[0.,0.,-1.]),
+        ('local_minus_x',[x-.045,height,(z+Z)*.5],[0.,0.,1.],[-1.,0.,0.])]:
+        clock_faces.append(dict(id=row['id']+'_'+suffix,building=row['id'],center_godot=center,
+            right_godot=right,up_godot=[0.,1.,0.],normal_godot=normal,hand_scale=3.6))
+runtime_data=dict(schema=2,frame=plan['frame'],buildings=runtime_rows,assets=[runtime_asset(a) for a in assets.values() if a['role']=='base'],body_lod=body_lod,clock_faces=clock_faces)
 assert len(manifest_paths(runtime_data))==len(assets)
 runtime.write_text(json.dumps(runtime_data,indent=2)+'\n',encoding='utf-8',newline='\n')
 paths=[plan_path,grade_path,catalog_path,runtime,Path(__file__),ROOT/'game/scripts/building/orison_v2_city_horizon.gd']
@@ -370,10 +384,11 @@ paths.append(ROOT/'art/blender/scripts/city_industrial_architecture.py')
 paths.append(ROOT/'art/blender/scripts/city_residential_architecture.py')
 paths.append(ROOT/'art/blender/scripts/frame_mitre_geometry.py')
 paths.append(ROOT/'art/blender/scripts/city_horizon_assets.py')
+paths += [ROOT/p for p in ['game/scripts/building/orison_v2_arcade_clock_movement.gd','game/data/orison_v2/arcade_clock.json','game/assets/props/arcade_clock.glb']]
 for key in {part['key'] for asset in assets.values() for part in asset['parts']}:paths.extend(ROOT/'game/assets/building/textures'/p for p in catalog[key]['files'])
 def sha(path):
     raw=path.read_bytes();return hashlib.sha256(raw.replace(b'\r\n',b'\n') if path.suffix in ['.json','.py','.gd'] else raw).hexdigest()
-report=dict(evidence_class='INERT',scope=plan['scope'],frame=plan['frame'],buildings=all_rows,windows=len(all_windows),window_rows=all_windows,parapet_contacts=all_bearings,grade_seats=grade_seats,assets=assets,native_checks=native_checks,industrial_checks=industrial_checks,
+report=dict(evidence_class='INERT',scope=plan['scope'],frame=plan['frame'],buildings=all_rows,windows=len(all_windows),window_rows=all_windows,parapet_contacts=all_bearings,grade_seats=grade_seats,assets=assets,native_checks=native_checks,industrial_checks=industrial_checks,clock_faces=clock_faces,
     angular_coverage=dict(scope='Source-only synthetic horizontal rays; ground continuity required, open sky above period rooflines expected. Not runtime or played proof.',rays=rays,ground_gaps=ground_gaps,open_sky_above_roofs=coverage),source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in paths})
 for relative in ['art/blender/city_horizon_construction.json','game/tests/fixtures/orison_city_horizon.json']:
     (ROOT/relative).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
