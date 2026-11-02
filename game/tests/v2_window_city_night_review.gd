@@ -108,7 +108,9 @@ func run() -> void:
 	record["world_startup_ms"] = world.startup_ms
 	var sky: ShaderMaterial = world.get_node("WakingAtmosphere").sky_material
 	check(sky.get_shader_parameter("moon_relief_enabled") == true, "production relief Moon enabled")
-	if OS.get_environment("WINDOW_CITY_POSTCARDS") == "1":
+	if OS.get_environment("ORISON_CITY_COMPOSITION_STUDY") == "1":
+		await composition_study(world, clock)
+	elif OS.get_environment("WINDOW_CITY_POSTCARDS") == "1":
 		await postcards(world, clock)
 	else:
 		var moon: Vector3 = selected.moon
@@ -123,6 +125,57 @@ func run() -> void:
 	world.free()
 	await get_tree().physics_frame
 	finish()
+
+func composition_study(world: Node3D, clock: CampaignClock) -> void:
+	# Diagnostic controls only. No production setting or material is changed.
+	# Use one actual world and the existing absolute lighting writer; do not
+	# invent another weather/time authority or repeat unrelated controller walks.
+	var director: DayNightDirector = world.day_night_director
+	var gains := Vector3(director._ambient_gain, director._fog_gain, director._sky_key_gain)
+	var viewport_rid := get_viewport().get_viewport_rid()
+	RenderingServer.viewport_set_measure_render_time(viewport_rid, true)
+	var inputs := {}
+	for path: String in ["res://tests/v2_window_city_night_review.gd", "res://scripts/building/day_night_director.gd", "res://scripts/building/v2_city_day_night_director.gd", "res://scripts/building/orison_v2_atmosphere.gd", "res://data/orison_v2/exterior/city_horizon.json", "res://data/orison_v2/exterior/city_streets.json", "res://shaders/queens_weather_sky.gdshader"]:
+		inputs[path] = FileAccess.get_sha256(path)
+	var observations: Array[Dictionary] = []
+	var poses := [
+		{"id":"west_dusk", "date":[1928,11,10,1000], "eye":Vector3(14,24.5,9), "direction":Vector3(-1,-.12,-.15)},
+		{"id":"north_noon", "date":[1928,11,10,720], "eye":Vector3(-14,24.5,-9), "direction":Vector3(0,-.12,-1)},
+		{"id":"east_moonlight", "date":[1929,2,23,1170], "eye":Vector3(-14,24.5,-9), "direction":Vector3(1,-.08,-.04)}
+	]
+	for pose: Dictionary in poses:
+		var date: Array = pose.date
+		check(clock.configure_date(date[0],date[1],date[2],date[3]), "composition uses real campaign date")
+		camera.global_position = world.adapter.root.to_global(pose.eye)
+		camera.fov = 92.0
+		camera.look_at(camera.global_position + (pose.direction as Vector3).normalized()*100.0)
+		var roof := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(camera.global_position,camera.global_position-Vector3.UP*12.0,1))
+		check(not roof.is_empty(), "composition photographic pose retains real roof support")
+		await get_tree().create_timer(2.0).timeout
+		var states := [gains.x, minf(2.0,gains.x*1.6), gains.x]
+		for index in states.size():
+			director.set_tuning_offsets(states[index],gains.y,gains.z)
+			director._apply(float(date[3]))
+			for frame in 30: await RenderingServer.frame_post_draw
+			var samples: Array = []
+			var previous := Time.get_ticks_usec()
+			for frame in 60:
+				await RenderingServer.frame_post_draw
+				var current := Time.get_ticks_usec()
+				samples.append([(current-previous)/1000.0,RenderingServer.viewport_get_measured_render_time_cpu(viewport_rid),RenderingServer.viewport_get_measured_render_time_gpu(viewport_rid),Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)])
+				previous = current
+			var suffix: String = ["baseline","ambient_control","restored"][index]
+			var label: String = str(pose.id)+"_"+suffix
+			await capture(label,world,clock)
+			var environment: Environment = director._env
+			observations.append({"id":label,"ambient_gain":states[index],"ambient_energy":environment.ambient_light_energy,"ambient_color":str(environment.ambient_light_color),"fog_gain":director._fog_gain,"key_gain":director._sky_key_gain,"render_samples":samples,"lighting":director.resolved_profile(),"image_sha256":FileAccess.get_sha256(output.path_join(label+".png"))})
+		check(is_equal_approx(director._ambient_gain,gains.x) and is_equal_approx(director._fog_gain,gains.y) and is_equal_approx(director._sky_key_gain,gains.z), "lighting control fully restored")
+	director.set_tuning_offsets(gains.x,gains.y,gains.z)
+	RenderingServer.viewport_set_measure_render_time(viewport_rid, false)
+	for path: String in inputs:
+		check(FileAccess.get_sha256(path)==str(inputs[path]), "composition study source stayed frozen: "+path)
+	check(observations.size()==9, "three actual composition poses have baseline/control/restore captures")
+	record["composition_study"] = {"scope":"Three roof-supported posed cameras in one production world. Temporary ambient gain control through existing director, restored after each pose. Sixty static frames per state exclude PNG writes; observations under host contention, not walking or matched whole-city performance/artistic acceptance. No production lighting change.","inputs":inputs,"sample_columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives"],"observations":observations,"render_settings":{"size":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"max_fps":Engine.max_fps,"vsync":DisplayServer.window_get_vsync_mode()}}
 
 func postcards(world, clock: CampaignClock) -> void:
 	# Roof-edge photographic crane poses. Never alter production player spawning.

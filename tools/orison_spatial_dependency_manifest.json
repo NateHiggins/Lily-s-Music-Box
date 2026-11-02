@@ -292540,7 +292540,7 @@
     "_run"
    ],
    "lines": [
-    380
+    392
    ],
    "count": 1,
    "context": [
@@ -292570,7 +292570,7 @@
     "_run"
    ],
    "lines": [
-    375
+    387
    ],
    "count": 1,
    "context": [
@@ -292598,7 +292598,7 @@
     "_run"
    ],
    "lines": [
-    377
+    389
    ],
    "count": 1,
    "context": [
@@ -292626,7 +292626,7 @@
     "_run"
    ],
    "lines": [
-    382
+    394
    ],
    "count": 1,
    "context": [
@@ -292656,7 +292656,7 @@
     "_run"
    ],
    "lines": [
-    342
+    354
    ],
    "count": 1,
    "context": [
@@ -292686,7 +292686,7 @@
     "_run"
    ],
    "lines": [
-    379
+    391
    ],
    "count": 1,
    "context": [
@@ -292716,7 +292716,7 @@
     "_run"
    ],
    "lines": [
-    353
+    365
    ],
    "count": 1,
    "context": [
@@ -292746,7 +292746,7 @@
     "_run"
    ],
    "lines": [
-    342
+    354
    ],
    "count": 1,
    "context": [
@@ -292776,7 +292776,7 @@
     "_run"
    ],
    "lines": [
-    378
+    390
    ],
    "count": 1,
    "context": [
@@ -292806,7 +292806,7 @@
     "_run"
    ],
    "lines": [
-    381
+    393
    ],
    "count": 1,
    "context": [
@@ -292836,7 +292836,7 @@
     "_run"
    ],
    "lines": [
-    342
+    354
    ],
    "count": 1,
    "context": [
@@ -292866,7 +292866,7 @@
     "_run"
    ],
    "lines": [
-    353
+    365
    ],
    "count": 1,
    "context": [
@@ -292896,8 +292896,8 @@
     "_run"
    ],
    "lines": [
-    413,
-    415
+    425,
+    427
    ],
    "count": 2,
    "context": [
@@ -292926,7 +292926,7 @@
     "_run"
    ],
    "lines": [
-    376
+    388
    ],
    "count": 1,
    "context": [
@@ -292957,7 +292957,7 @@
     "_run"
    ],
    "lines": [
-    383
+    395
    ],
    "count": 1,
    "context": [
@@ -292988,8 +292988,8 @@
     "_run"
    ],
    "lines": [
-    475,
-    477
+    488,
+    490
    ],
    "count": 2,
    "context": [
@@ -310943,11 +310943,11 @@
     "run"
    ],
    "lines": [
-    191,
-    192,
-    200,
-    201,
-    227
+    235,
+    236,
+    244,
+    245,
+    271
    ],
    "count": 5,
    "context": [
@@ -311352,6 +311352,68 @@
    "count": 2,
    "context": [
     "return world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(Vector3(0,1.41,3),Vector3(-130,4,3),1,[player.get_rid()]))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a129f64d12486696",
+   "kind": "vector3_coordinate",
+   "token": "_street_context",
+   "file": "game/tests/v2_city_western_apartments_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_street_context"
+   ],
+   "lines": [
+    51
+   ],
+   "count": 1,
+   "context": [
+    "var target:=horizon.to_global(Vector3(154,1.7,44.5))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cc77c4890e51fcde",
+   "kind": "vector3_coordinate",
+   "token": "_street_context",
+   "file": "game/tests/v2_city_western_frontage_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_street_context"
+   ],
+   "lines": [
+    51
+   ],
+   "count": 1,
+   "context": [
+    "var target:=horizon.to_global(Vector3(154,1.7,22.8))"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -317369,6 +317431,41 @@
    "target_exists": null
   },
   {
+   "key": "94075e947d93d1d2",
+   "kind": "vector3_coordinate",
+   "token": "composition_study",
+   "file": "game/tests/v2_window_city_night_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "composition_study"
+   ],
+   "lines": [
+    142,
+    143,
+    144
+   ],
+   "count": 3,
+   "context": [
+    "{\"id\":\"west_dusk\", \"date\":[1928,11,10,1000], \"eye\":Vector3(14,24.5,9), \"direction\":Vector3(-1,-.12,-.15)},",
+    "{\"id\":\"north_noon\", \"date\":[1928,11,10,720], \"eye\":Vector3(-14,24.5,-9), \"direction\":Vector3(0,-.12,-1)},",
+    "{\"id\":\"east_moonlight\", \"date\":[1929,2,23,1170], \"eye\":Vector3(-14,24.5,-9), \"direction\":Vector3(1,-.08,-.04)}"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "92151141c839c1d7",
    "kind": "vector3_coordinate",
    "token": "postcards",
@@ -317379,10 +317476,10 @@
     "postcards"
    ],
    "lines": [
-    130,
-    131,
-    132,
-    133
+    183,
+    184,
+    185,
+    186
    ],
    "count": 4,
    "context": [
@@ -325608,68 +325705,6 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
-  },
-  {
-   "key": "cc77c4890e51fcde",
-   "kind": "vector3_coordinate",
-   "token": "_street_context",
-   "file": "game/tests/v2_city_western_frontage_review.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_street_context"
-   ],
-   "lines": [
-    51
-   ],
-   "count": 1,
-   "context": [
-    "var target:=horizon.to_global(Vector3(154,1.7,22.8))"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "a129f64d12486696",
-   "kind": "vector3_coordinate",
-   "token": "_street_context",
-   "file": "game/tests/v2_city_western_apartments_review.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_street_context"
-   ],
-   "lines": [
-    51
-   ],
-   "count": 1,
-   "context": [
-    "var target:=horizon.to_global(Vector3(154,1.7,44.5))"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
   }
  ]
 }
