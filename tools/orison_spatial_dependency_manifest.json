@@ -233044,7 +233044,7 @@
     "run"
    ],
    "lines": [
-    250
+    274
    ],
    "count": 1,
    "context": [
@@ -233072,20 +233072,22 @@
    "tier": "test",
    "subsystem": "tests",
    "symbols": [
+    "_check_profile_validation",
     "run"
    ],
    "lines": [
-    105,
-    162,
-    210,
-    221
+    31,
+    129,
+    186,
+    234,
+    245
    ],
-   "count": 4,
+   "count": 5,
    "context": [
+    "var record := {\"id\":\"TEST_LAVATORY\", \"kind\":\"sink\", \"unit\":\"4B\",",
     "if tap.unit == \"4B\": sample = tap",
     "if tap.fixture == \"shower\" and tap.unit == \"4B\": shower = tap",
-    "if cabinet == null or cabinet.unit != \"4B\": continue",
-    "if node.furniture_kind == \"toilet\" and node.owner_unit == \"4B\": wc = node"
+    "if cabinet == null or cabinet.unit != \"4B\": continue"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -233111,7 +233113,7 @@
     "run"
    ],
    "lines": [
-    181
+    205
    ],
    "count": 1,
    "context": [

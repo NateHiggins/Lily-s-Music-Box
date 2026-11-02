@@ -20,7 +20,31 @@ func capture(label: String) -> void:
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(directory.path_join(label+".png"))
 
+class ValidationAdapter extends RefCounted:
+	# The validator only needs resolution here. This stub does not mount a world.
+	var anchor := Node3D.new()
+	func resolve(_identity: String) -> Node3D: return anchor
+
+func _check_profile_validation() -> void:
+	var loader := preload("res://scripts/building/orison_v2_domestic_fittings.gd").new()
+	var adapter := ValidationAdapter.new()
+	var record := {"id":"TEST_LAVATORY", "kind":"sink", "unit":"4B",
+		"properties":{"fixture":"bath_sink", "lavatory_profile":"WallService_2755"}}
+	var source := {"schema_version":1, "fittings":[record]}
+	check(loader.validate(source, adapter), "surveyed bath profile passes pre-mount validation")
+	for invalid: Variant in ["WallService_9999", "", 2755, null]:
+		record.properties.lavatory_profile = invalid
+		check(not loader.validate(source, adapter), "unsupported profile rejected before mounting: " + str(invalid))
+	record.properties.erase("lavatory_profile")
+	check(not loader.validate(source, adapter), "V2 bath requires its surveyed service selection")
+	record.properties.fixture = "kitchen_sink"
+	check(loader.validate(source, adapter), "ordinary kitchen sink needs no lavatory profile")
+	record.properties.lavatory_profile = "WallService_2755"
+	check(not loader.validate(source, adapter), "lavatory profile rejected on kitchen subtype")
+	adapter.anchor.free()
+
 func _check_service_models() -> void:
+	_check_profile_validation()
 	# Check the imported selector before static batching destroys source names.
 	# Each alternative is real geometry; hiding five sets would still retain cost.
 	var sink_script := preload("res://scripts/building/orison_v2_kitchen_sink.gd")
@@ -60,7 +84,7 @@ func _check_service_models() -> void:
 
 func run() -> void:
 	_check_service_models()
-	if "--lavatory-models-only" in OS.get_cmdline_user_args():
+	if OS.get_environment("ORISON_LAVATORY_MODELS_ONLY") == "1":
 		print("LAVATORY IMPORT SELECTOR: %d checks, %d failures; no composed world or interaction claimed" % [checks, failures.size()])
 		get_tree().quit(0 if failures.is_empty() else 1)
 		return

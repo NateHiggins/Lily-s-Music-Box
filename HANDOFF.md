@@ -1,30 +1,41 @@
 # Current continuation — November 2 cityscape resumed
 
-## November 2 — lavatory selector checks queued, not yet qualified
+## November 2 — lavatory validator repair and corrected preflight pending
 
-The fitted source is parked in **3ddc648fe**. All four supplied native previews
-have now been inspected: the fitted rear stock visually seats against the
-reference wall; this does not prove installed wall contacts. Existing
-**BathLavatoryTest** now checks all six imported selectors, removal rather than
-hiding of unused service groups, each selected4128triangle service set, imported
-UV/tangent array presence, and the separate legacy TapProp model. Its full-world
-path additionally checks surveyed profile presence and private post-batch valve
-UV materials. **--lavatory-models-only** runs the small selector preflight without
-composing the world and explicitly claims no interaction/appearance proof.
-Reader gate remains NEW0; spatial manifest renewed; whitespace clean.
+Fitted native source remains **3ddc648fe**, selector test checkpoint **6ae43962d**.
+The four native previews were inspected; an independent comparison verifies all20
+sealed delivery files, exact19surveyed per-id selections, and38retained model
+nodes with unchanged position buffers/local transforms. Report:
+**C:/ov/reports/native_intake_20261102/lavatory_01/source_intake.json**.
+These are native/source checks, not installed contact or optical acceptance.
 
-An import/semantic/selector batch is queued through the shared lane at
-**C:/ov/reports/native_intake_20261102/lavatory_01/batch.json**. At this checkpoint
-its broker process10108 / exec session23425 was confirmed live and waiting;
-no receipt or runtime pass exists yet. Resume that handle or inspect actual
-terminal receipts before restarting. Keep these queued source inputs unchanged.
-Next: fix any preflight failure, then replace the old lavatory toggle diagnostic
-with real grab/motion/release, inspect fitted wall/trim contacts, loaded material
-maps and campaign reload through the validated household owner. The bath138/0
-receipt predates these lavatory/TapProp edits and remains scoped to its original
-inputs. City architect reports owner-paused custody; do not resume its adjacent
-house authoring while this backlog is being processed.
+Original **lavatory_01** batch is terminal. Patched-engine import passed28s;
+four-script Godot semantic preflight passed. The selector stage did NOT execute:
+the runner appends Scene after ExtraArgs, and a **--** terminator made the scene
+path a user argument while the default game launched. Actual command line was
+inspected, only the owned engine32300 was stopped, and wrapper exit-1 plus all
+original logs are retained with **launch_correction.json**. This was an intentional
+mislaunch cancellation, not a failed selector test or a runtime pass.
 
+Applied a pre-mount validation repair: surveyed V2 bath sinks require one of the
+six supported profiles; kitchen sinks must not carry a bath profile. Negative
+cases cover unknown/missing/empty/wrong-type values and subtype misuse, while
+ordinary kitchen sinks still validate and explicit base TapProp retains V1.
+Existing **BathLavatoryTest** checks all six imported selector outputs, removal
+rather than hiding of alternatives,4128service triangles per selection, imported
+UV/tangent arrays and separate legacy model. Its full-world path checks per-id
+profile presence and private post-batch valve UV materials. Scope now uses
+**ORISON_LAVATORY_MODELS_ONLY=1**, avoiding the argument-order trap. Static parser,
+readerNEW0 and renewed spatial manifest pass; new Godot results are pending.
+
+Corrected compile/selector batch is queued at
+**C:/ov/reports/native_intake_20261102/lavatory_02/batch.json**. Last confirmed
+broker44932 / exec session88130 is live and waiting. Resume that handle or inspect
+terminal receipts before restarting; preserve queued inputs. After preflight,
+replace the old toggle diagnostic with real grab/motion/release, inspect actual
+wall/trim contacts and loaded maps, exercise validated campaign reload, then
+renew physical/candidate qualification. Bath138/0 proof predates lavatory edits.
+City architect remains owner-paused while this backlog is processed.
 
 ## Current native intake — owner resumed November 2
 
