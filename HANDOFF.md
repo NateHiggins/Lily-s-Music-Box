@@ -6,6 +6,10 @@ UIDs were backed up and verified before named-path restoration/removal.
 Candidate01 compile+six-leg run is queued via session6270/broker63540 behind
 the existing resident walk. External observer session7965 waits for its log.
 Poll those same handles; do not restart on observation timeout.
+Actual-world review compile+two-world sandbox programme is separately queued
+as world01,session1146/broker57252,canonical runtime frozen through completion.
+It follows candidate01 in FIFO and has not compiled or run yet. Read both actual
+receipts before updating any claim. No A2 reversal is queued yet.
 Canonical now also contains an authored actual-world input/pause/shutdown and
 sandbox save/reload review; syntax checked only,not executed yet. It uses the
 production controller/menu and two worlds; it does not replace the affected
