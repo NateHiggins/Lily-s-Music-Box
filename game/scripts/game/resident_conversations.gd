@@ -295,7 +295,7 @@ func _noticed_uniform(resident_id: String, trust: int) -> int:
 			or LaundrySales.presentable():
 		return trust
 	RealityState.grant_knowledge(noticed)
-	file_note("uniform_wants_washing", _last_player)
+	file_note("uniform_wants_mending" if LaundrySales.frayed() else "uniform_wants_washing", _last_player)
 	return trust - DIRTY_UNIFORM_COST
 
 

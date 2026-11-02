@@ -115,6 +115,7 @@ var otis_fountain: Node3D
 var shoe_bench: Node3D
 var laundry_bundle: Node3D
 var parcel_wall: Node3D
+var mending_counter: Node3D
 var key_cutter: Node3D
 var clue_carriers: Dictionary = {}
 var photo_supplies: Dictionary = {}
@@ -921,6 +922,9 @@ func _compose_authorities() -> void:
 	parcel_wall=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_parcel_wall(self)
 	if parcel_wall==null:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: parcel wall refused");return
+	mending_counter=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_mending_counter(self)
+	if mending_counter==null:
+		startup_failed=true;push_error("ORISON V2 RUNTIME: mending counter refused");return
 	var footsteps:=preload("res://scripts/player/player_footsteps.gd").new()
 	footsteps.name="PlayerFootsteps"
 	player.add_child(footsteps)
