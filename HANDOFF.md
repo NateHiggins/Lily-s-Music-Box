@@ -27,16 +27,21 @@ NEW0 pass, but this is not engine verification. Publication reruns **clock_publi
 under the composition report folder preserved all37 GLB bytes. The optional
 Sohmer family test adds transformed dial contacts, native/PBR checks, date and
 fractional-time motion, pause/resume and a unique validated-save reconstruction.
-The replacement combined run is not queued yet; freeze its sources first.
+The replacement combined **57452/session75817** is queued with Wait240 at
+**C:/ov/reports/city_composition_20261102/combined_01/**. Production/test/native
+inputs are frozen while it lives. Two imports, semantic preflight, isolated
+factory/clock and one complete physical world with panes/access/lighting.
+No admission or engine verdict at this checkpoint.
 No production ambient-light change has been made.
 The architect cancelled its original unadmitted **68396/90489** after finding
 parcel-proxy blanking. Original **3e849def** remains rejected. Corrected native05
 uses actual occupied Piano wings; old helper/default rows and IDs remain.
 Thirteen source tests pass. P1 eleven attributes/poses and lower GLB are exact;
 six dependent P0R2/P2 wall/sash/pane parts rebuild, adding75 pane witnesses.
-The corrected original family job **29476/session76118** is absent from the
-current live queue; architect owns its terminal receipt. Do not restart it or
-edit its frozen source. No loaded verdict has been received.
+The corrected original family job **29476/session76118** expired unadmitted:
+actual outer exit1, explicit nothing started, all seven logs/receipts absent.
+Architect preserved **family_batch_02.wait_observation.json** in its report
+folder. This is not a suite failure or observed73. Do not restart it.
 Original native/correction archives and native custody text remain in **c4db44b46**
 and the existing city ledger; no old whole-shard receipt is repinned.
 Native factory form is36individual/88generic on the candidate; not qualified. Independent review verified all four native image hashes and124
