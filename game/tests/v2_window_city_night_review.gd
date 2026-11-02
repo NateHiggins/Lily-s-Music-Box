@@ -166,12 +166,22 @@ func run_composed(world: OrisonV2RuntimeRoot, host: Node) -> Dictionary:
 	check(RealityState.end_preview_campaign(self), "original campaign context restored by its owner")
 	var restored_changes: Array[Dictionary] = []
 	_campaign_changes(campaign_before,RealityState.data,"$",restored_changes)
+	check(RealityState.data == campaign_before, "optical preview restores the original durable campaign exactly")
 	# Allow time/weather readers to rebind before the enclosing survey proceeds.
 	await get_tree().process_frame
 	var resumed_changes: Array[Dictionary] = []
 	_campaign_changes(campaign_before,RealityState.data,"$",resumed_changes)
 	record["campaign_preservation"] = {"after_owner_restore":restored_changes,"after_reader_frame":resumed_changes}
-	check(RealityState.data == campaign_before, "optical preview preserves the original durable campaign")
+	# A live reader frame can resample restored float32 physical rotations.
+	# Check exact restoration above, then protect every other campaign domain
+	# and validate physical data through its existing owner, without rounding it.
+	var physical_key: String = preload("res://scripts/building/orison_v2_household_state.gd").KEY
+	var before_readers := campaign_before.duplicate(true)
+	var after_readers := RealityState.data.duplicate(true)
+	before_readers.erase(physical_key); after_readers.erase(physical_key)
+	check(before_readers == after_readers, "resumed optical readers preserve every non-household campaign domain")
+	check(world.household_state.validate(world.household_state._saved_value(),world.household_state._kinds),
+			"resumed physical snapshots retain the existing complete household validation")
 	check(not shops.failed and shops.advance_current(), "restored campaign retains a valid monotonic shop cursor")
 	shops.set_process(shop_processing)
 	actor.set_lamp_enabled(lamp)

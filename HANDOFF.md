@@ -1,5 +1,25 @@
 # Current continuation — November 2 V2 native intake
 
+**Preview01 trace identifies the boundary:** exact owner restoration changes
+zero paths. The next live reader frame resamples saved physical rotations; the
+bounded64-path trace contains only household breadboard/book quaternion values,
+maximum recorded drift1.1920929e-7. This is not evidence that all later paths
+were inspected. Keep whole-campaign exact equality immediately after restore;
+after the reader frame, compare every non-household domain exactly and validate
+the physical payload through the existing complete HouseholdState validator.
+No floats are rounded and no production writer/validator is changed.
+
+**Output custody correction:** Preview01's Windows-path substitution failed and
+reused surface02 outputs. The runner replaced the previous wrapper/raw logs
+before backup. Original surface02 runtime contract, inventory, diagnostic and
+67images survive in **surface_02_original_evidence.zip**; all9optical image hashes
+verify. That archive's raw logs are partial new-probe output, not the lost full-run
+logs. Do not reconstruct receipts or claim complete raw preservation. Actual
+preview receipts/diffs are copied to **preview_probe_01/**, retaining original
+path references; see **OUTPUT_CUSTODY.json**. Future batches now construct paths
+explicitly and assert their output directory. Surface01 raw failure is untouched.
+Use **preview_probe_02/** to verify the corrected boundary before full renewal.
+
 **Surface02 correctly FAILS:** wrapper exit1,484seconds. The repaired shop
 cursor remains valid; the new full durable-campaign equality assertion detects
 changes after the optical preview. Preserve **surface_02/DIAGNOSTIC_REVIEW.json**,
