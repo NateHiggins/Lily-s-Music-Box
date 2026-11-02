@@ -281,13 +281,142 @@ func _reconstruct_lavatory(world: OrisonV2RuntimeRoot) -> OrisonV2RuntimeRoot:
 				"fresh world never reconstructs transient plug, valve or player hand ownership")
 		check(sink.get("lavatory_profile") == "WallService_2755", "fresh sink retains the surveyed 4B service selection")
 	check(found, "fresh campaign contains the installed 4B lavatory")
+	_check_installed_closet_services(rebuilt)
 	return rebuilt
+
+func _check_closet_models() -> void:
+	var script := preload("res://scripts/building/orison_v2_water_closet.gd")
+	var sweep := preload("res://scripts/props/mechanism_sweep.gd")
+	for profile: String in script.SERVICE_PROFILES:
+		var actor := script.new()
+		actor.setup({"id":"service_profile_bench","asm":"toilet"})
+		actor.service_profile = profile
+		add_child(actor)
+		var groups := actor.find_children("WCService_*","Node3D",true,false)
+		var selected: Array[Node] = []
+		for group in groups:
+			if not group is MeshInstance3D: selected.append(group)
+		check(selected.size() == 1 and selected[0].name == profile,
+				"closet retains exactly one fixed service profile: " + profile)
+		var triangles := 0
+		if selected.size() == 1:
+			var draws := selected[0].find_children("*","MeshInstance3D",true,false)
+			check(draws.size() == 3, "closet service kit has three fixed material partitions: " + profile)
+			for draw: MeshInstance3D in draws:
+				for surface in draw.mesh.get_surface_count():
+					var arrays := draw.mesh.surface_get_arrays(surface)
+					triangles += arrays[Mesh.ARRAY_INDEX].size()/3
+					check(arrays[Mesh.ARRAY_TEX_UV].size() == arrays[Mesh.ARRAY_VERTEX].size()
+							and arrays[Mesh.ARRAY_TANGENT].size() == arrays[Mesh.ARRAY_VERTEX].size()*4,
+							"loaded fixed service kit retains UV/tangent arrays: " + profile)
+			check(triangles == 5720, "only selected 5720-triangle closet kit remains: " + profile)
+		await get_tree().physics_frame
+		var cover: Node3D = actor.parts.CisternCover
+		var clear_pose := cover.transform
+		clear_pose.origin = Vector3(.6,1.12,-.08)
+		check(sweep.clear(actor,cover,clear_pose,actor._service_collision_rids),
+				"cover has an unobstructed removal position: " + profile)
+		# Put the cover's collision centre on a real fixed-hardware triangle.
+		# This negative control must fail even though the blocker belongs to actor.
+		if selected.size() == 1:
+			var draw := selected[0].find_children("*","MeshInstance3D",true,false)[0] as MeshInstance3D
+			var faces := draw.mesh.get_faces()
+			var point := actor.to_local(draw.to_global((faces[0]+faces[1]+faces[2])/3.0))
+			var shape := cover.find_children("*","CollisionShape3D",true,false)[0] as CollisionShape3D
+			var centre := cover.to_local(shape.to_global(shape.shape.get_debug_mesh().get_aabb().get_center()))
+			var blocked := cover.transform
+			blocked.origin = point-cover.basis*centre
+			check(not sweep.clear(actor,cover,blocked,actor._service_collision_rids),
+					"owned service hardware blocks an intersecting cover: " + profile)
+		actor.free()
+
+func _check_installed_closet_services(world: OrisonV2RuntimeRoot) -> void:
+	var count := 0
+	for node in world.adapter.root.find_children("*","Node3D",true,false):
+		if node.get_script() != preload("res://scripts/building/orison_v2_water_closet.gd"): continue
+		count += 1
+		check(not str(node.service_profile).is_empty() and node._service_collision_rids.size() == 1,
+				"installed closet owns one selected fixed hardware collider: " + str(node.name))
+		check(node.parts.size() == 7 and node.parts.has("CisternCover") and node._chain != null,
+				"fixed hardware preserves existing six mechanisms, water and chain: " + str(node.name))
+		var exclude: Array[RID] = [world.player.get_rid(),node.get_rid()]
+		for body: CollisionObject3D in node.find_children("*","CollisionObject3D",true,false):
+			exclude.append(body.get_rid())
+		var depth: float = node.SERVICE_PROFILES[node.service_profile]
+		for port: Vector2 in [Vector2(-.17,.23),Vector2(-.18,.65),Vector2(.18,.65)]:
+			var ray := PhysicsRayQueryParameters3D.create(node.to_global(Vector3(port.x,port.y,.32)),
+					node.to_global(Vector3(port.x,port.y,depth+.08)),1,exclude)
+			var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
+			check(not hit.is_empty() and absf(node.to_local(hit.position).z-depth-.0045)<.0002,
+					"installed closet service meets surveyed wall and finish skin: " + str(node.name)+str(port))
+	check(count == 12, "all twelve installed water closets retain additive service kits")
+
+func _played_closet(world: OrisonV2RuntimeRoot) -> void:
+	var closet: Node3D
+	for node in world.adapter.root.find_children("*","Node3D",true,false):
+		if node.get_script() == preload("res://scripts/building/orison_v2_water_closet.gd") and node.unit == "4B":
+			closet = node
+	check(closet != null, "installed 4B closet is available for the combined input route")
+	if closet == null: return
+	var player: PlayerController = world.player
+	check(not player.protected_input_active() and player.text_input_owner == null, "closet route respects protected input ownership")
+	if player.protected_input_active() or player.text_input_owner != null: return
+	var old_pose := player.global_transform
+	var old_view := player.camera.global_transform
+	var old_physics := player.is_physics_processing()
+	var old_mouse := Input.mouse_mode
+	var saved: Dictionary = closet.mechanism_snapshot()
+	var stance: Vector3 = closet.to_global(Vector3(0,.025,-.85))
+	var support := world.get_world_3d().direct_space_state.intersect_ray(
+			PhysicsRayQueryParameters3D.create(stance+Vector3.UP*.03,stance-Vector3.UP*.08,1,[player.get_rid()]))
+	check(not support.is_empty() and support.normal.y > .99, "closet input stance has real floor support")
+	if support.is_empty() or support.normal.y <= .99: return
+	stance.y = support.position.y+.025
+	var capsule := PhysicsShapeQueryParameters3D.new()
+	capsule.shape = player._capsule
+	capsule.transform = Transform3D(player.global_basis,stance)*player._shape.transform
+	capsule.exclude = [player.get_rid()]
+	var blockers := world.get_world_3d().direct_space_state.intersect_shape(capsule,4)
+	check(blockers.is_empty(), "closet approach clears the full standing capsule: " + str(blockers))
+	if not blockers.is_empty(): return
+	player.cancel_manipulation();player.set_physics_process(false)
+	player.global_position = stance;player.camera.make_current()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	var hand := preload("res://tests/fixed_gesture_patrol_hand.gd").new()
+	add_child(hand);hand.player = player
+	var touch := closet.parts.CisternHandle.get_node("HandleTouchPoint") as Node3D
+	check(await hand.operate(touch.global_position,deg_to_rad(-35),closet),
+			"actual mouse turns and releases the installed closet flush handle")
+	await get_tree().create_timer(.3).timeout
+	check(closet.water_level < .98 and closet._held.is_empty(), "existing flush water owner drains after released input")
+	player.camera.look_at(closet.parts.CisternCover.global_position)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	hand.click()
+	var acquired := player._grab.active() and player._grab.target.get("part") == closet.parts.CisternCover
+	check(acquired, "actual primary selects the removable cover with the new hardware installed")
+	if acquired:
+		var motion := InputEventMouseMotion.new();motion.relative = Vector2(0,-32)
+		player._unhandled_input(motion)
+		player.set_physics_process(true)
+		for frame in 8: await get_tree().physics_frame
+		check(player._grab.active() and closet._held == "CisternCover", "cover mouse motion retains its existing hand owner")
+		if player._grab.active(): hand.click()
+		player.set_physics_process(false)
+	check(closet._held.is_empty() and not player._grab.active(), "cover release leaves no transient input owner")
+	await RenderingServer.frame_post_draw
+	await capture("installed_closet_services")
+	player.cancel_manipulation();closet.restore_mechanism(saved)
+	world.household_state.capture_now();hand.free()
+	player.global_transform = old_pose;player.camera.global_transform = old_view
+	player.set_physics_process(old_physics);Input.mouse_mode = old_mouse
 
 func run() -> void:
 	RealityState.persistence_enabled = false
 	_check_service_models()
+	await _check_closet_models()
 	if OS.get_environment("ORISON_LAVATORY_MODELS_ONLY") == "1":
-		print("LAVATORY IMPORT SELECTOR: %d checks, %d failures; no composed world or interaction claimed" % [checks, failures.size()])
+		print("BATHROOM IMPORT SELECTORS: %d checks, %d failures; no composed world or interaction claimed" % [checks, failures.size()])
 		_finish(null)
 		return
 	if not failures.is_empty():
@@ -396,6 +525,8 @@ func run() -> void:
 		light.queue_free()
 		camera.queue_free()
 	if OS.get_environment("ORISON_LAVATORY_ONLY") == "1":
+		_check_installed_closet_services(world)
+		await _played_closet(world)
 		world = await _reconstruct_lavatory(world)
 		_finish(world)
 		return
@@ -515,7 +646,7 @@ func _finish(world: OrisonV2RuntimeRoot) -> void:
 		if file == null:
 			check(false, "diagnostic output could not be opened: " + directory)
 		else:
-			file.store_string(JSON.stringify({"checks":checks,"failures":failures,"service_contacts":service_contacts,"loaded_finishes":loaded_finishes,"scope":"lavatory_only" if OS.get_environment("ORISON_LAVATORY_ONLY")=="1" else "full_bathroom"},"\t"))
+			file.store_string(JSON.stringify({"checks":checks,"failures":failures,"service_contacts":service_contacts,"loaded_finishes":loaded_finishes,"scope":"lavatory_and_closet_services" if OS.get_environment("ORISON_LAVATORY_ONLY")=="1" else "full_bathroom"},"\t"))
 	if world != null:
 		world.shutdown_for_tests()
 		world.free()

@@ -2,6 +2,11 @@ extends BakedFurnitureInteraction
 ## V2 supplies the porcelain body separately; preserve the production flush owner.
 const MODEL := "res://assets/props/bath_water_closet.glb"
 var model_path := MODEL
+const SERVICE_MODEL := "res://assets/props/bath_water_closet_services.glb"
+const SERVICE_PROFILES := {"WCService_3755":.3755,"WCService_4155":.4155,"WCService_4255":.4255,"WCService_4755":.4755}
+var service_profile := ""
+var _service_collision_rids: Array[RID] = []
+static var _service_contacts: Dictionary = {}
 var inlet_clear := true
 var unit: String:
 	get: return owner_unit
@@ -69,6 +74,45 @@ func _ready() -> void:
 	if not preload("res://scripts/props/native_bath_contacts.gd").install(casting,self,"bath_water_closet"):
 		push_error("Native water closet contact stock did not load")
 	parts["Water"] = model.find_child("CisternWaterSurface", true, false)
+	_install_services()
+
+func _install_services() -> void:
+	# Empty is retained only for existing isolated legacy-fixture benches.
+	# The production loader validates a surveyed profile before mounting.
+	if service_profile.is_empty(): return
+	if not SERVICE_PROFILES.has(service_profile):
+		push_error("Unsupported water closet service profile: " + service_profile)
+		return
+	var library := (load(SERVICE_MODEL) as PackedScene).instantiate() as Node3D
+	var selected: Node3D
+	var groups: Array[Node] = library.find_children("WCService_*","Node3D",true,false)
+	for group in groups:
+		if group is MeshInstance3D: continue
+		if str(group.name) == service_profile: selected = group as Node3D
+	if selected == null:
+		library.free()
+		push_error("Missing water closet service group: " + service_profile)
+		return
+	# Keep only the selected fixed kit; never stack it with a default assembly.
+	library.remove_child(selected)
+	library.free()
+	add_child(selected)
+	_skin(selected)
+	var body := StaticBody3D.new()
+	body.name = "FixedServiceCollision"
+	add_child(body)
+	_service_collision_rids.append(body.get_rid())
+	if not _service_contacts.has(service_profile):
+		var definitions: Array = []
+		for draw: MeshInstance3D in selected.find_children("*","MeshInstance3D",true,false):
+			definitions.append({"shape":draw.mesh.create_trimesh_shape(),
+					"transform":global_transform.affine_inverse()*draw.global_transform})
+		_service_contacts[service_profile] = definitions
+	for definition: Dictionary in _service_contacts[service_profile]:
+		var shape := CollisionShape3D.new()
+		shape.shape = definition.shape
+		shape.transform = definition.transform
+		body.add_child(shape)
 
 func manipulation_target(hit: Dictionary) -> Dictionary:
 	var collider: Node=hit.get("collider")
@@ -122,7 +166,7 @@ func _move_part(key: String, value: Variant) -> void:
 		if absf(proposed.x)<.45 and absf(proposed.z-.235)<.21: proposed.y=maxf(proposed.y,.817)
 		var pose := part.transform
 		pose.origin=proposed
-		if Sweep.clear(self,part,pose): part.position=proposed
+		if Sweep.clear(self,part,pose,_service_collision_rids): part.position=proposed
 		_cover_velocity=0
 		return
 	var limits := _limits(key)
@@ -167,7 +211,7 @@ func _physics_process(delta: float) -> void:
 			_cover_velocity+=delta*3.0
 			var pose := cover.transform
 			pose.origin.y=maxf(floor_y,pose.origin.y-_cover_velocity*delta)
-			if Sweep.clear(self,cover,pose): cover.transform=pose
+			if Sweep.clear(self,cover,pose,_service_collision_rids): cover.transform=pose
 			else: _cover_velocity=0
 
 func _chain_points(start: Vector3, finish: Vector3, bow: float) -> PackedVector3Array:

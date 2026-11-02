@@ -4,13 +4,17 @@
 merge remains in progress. **lavatory_06** adds an actual standing-controller
 plug lift/release and a second, newly constructed V2 world loaded through the
 validated campaign save owner. These additions are authored, not yet verified.
-Import, compilation and the scoped two-world programme are queued through the
-shared lane (broker PID6172; live exec session11238 at preparation). Inputs are
-frozen while queued/running. Reports go to
-**C:/ov/reports/native_intake_20261102/lavatory_06/**. Recheck the live handle and
-receipts before repeating or changing inputs. The first seated plug position is
-a fixture; this route does not claim mouse seating. ReaderNEW0 and regenerated
-11166-record spatial manifest pass. No new runtime acceptance is claimed.
+For Lily's faster batch direction, that waiting broker6172 was cancelled before
+any Godot existed or stage launched. No06runtime result exists; cancellation is
+recorded in its external directory. Its replacement is **bathroom_02**, combining
+the lavatory programme with additive closet services. Twelve existing toilet
+records select four native profiles; original mechanisms and save owners stay.
+Only the new fixed collider participates in the explicit owned-blocker sweep.
+All26sealed files/ninepre-intake bindings match; raw CRLF explains the native
+blockout hash, not a geometry drift. New source/export/import/publisher are
+unqualified until the combined batch runs. The first seated lavatory plug remains
+a fixture; mouse seating is not claimed. Recheck live jobs and receipts at
+**C:/ov/reports/native_intake_20261102/bathroom_02/**. No new runtime acceptance.
 
 ## November 2 — installed lavatory diagnostic passes; formal qualification open
 
@@ -56,13 +60,15 @@ Lily artistic acceptance yet. Complete those, reconcile current main and retain
 explicit V1 rollback before merging. Ten UID warnings need controlled cache
 review; Cal's source texture UID matches main, so don't replace source UIDs.
 
-Next closet-kit: external preparation only, not installed. All26sealed files/
-ninecurrentbindings match, fourCPUviews inspected; portable publisher exactly
+Closet-kit source preparation: all26sealed files/ninepre-intake bindings match,
+fourCPUviews inspected; portable publisher exactly
 reproduces22880tri/12surface/four-profile delivered library, strict tangents pass.
 **C:/ov/reports/native_intake_20261102/closet_source_01/** and the existing intake
-reconciliation JSON carry the details. Its new fixed hardware needs hollow
-contacts, correct rear bounds and selective cover-sweep collision ownership:
-Sweep.clear currently excludes every owned body. Preserve original mechanisms.
+reconciliation JSON carry the details. The additive implementation now authors
+hollow contacts, profile-specific rear bounds and explicit cover-sweep blockers.
+Four-profile loaded selectors, blocker/removal controls, 12installed wall seats,
+actual cover/flush input and reconstructed-world ownership checks are added to
+the existing bath diagnostic; none of these new checks has run yet.
 City architect remains owner-paused while this backlog is processed.
 
 ## Current native intake — owner resumed November 2

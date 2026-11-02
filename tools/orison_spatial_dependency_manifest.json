@@ -204988,7 +204988,7 @@
     "validate"
    ],
    "lines": [
-    251
+    258
    ],
    "count": 1,
    "context": [
@@ -205018,7 +205018,7 @@
     "validate"
    ],
    "lines": [
-    251
+    258
    ],
    "count": 1,
    "context": [
@@ -205046,7 +205046,7 @@
     "validate"
    ],
    "lines": [
-    251
+    258
    ],
    "count": 1,
    "context": [
@@ -205077,9 +205077,9 @@
    ],
    "lines": [
     23,
-    108,
-    146,
-    208
+    109,
+    147,
+    209
    ],
    "count": 4,
    "context": [
@@ -205112,8 +205112,8 @@
    ],
    "lines": [
     23,
-    222,
-    238
+    223,
+    239
    ],
    "count": 3,
    "context": [
@@ -205143,7 +205143,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205173,7 +205173,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205203,7 +205203,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205233,7 +205233,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205263,7 +205263,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205293,7 +205293,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205323,7 +205323,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205353,7 +205353,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205383,7 +205383,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205413,7 +205413,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205443,7 +205443,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205473,7 +205473,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205503,7 +205503,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205533,7 +205533,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205563,7 +205563,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205593,7 +205593,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205623,7 +205623,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205653,7 +205653,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -233076,7 +233076,7 @@
     "run"
    ],
    "lines": [
-    492
+    623
    ],
    "count": 1,
    "context": [
@@ -233106,22 +233106,24 @@
    "symbols": [
     "_check_profile_validation",
     "_reconstruct_lavatory",
+    "_played_closet",
     "run"
    ],
    "lines": [
     72,
     273,
-    342,
-    404,
-    452,
-    463
+    357,
+    471,
+    535,
+    583,
+    594
    ],
-   "count": 6,
+   "count": 7,
    "context": [
     "var record := {\"id\":\"TEST_LAVATORY\", \"kind\":\"sink\", \"unit\":\"4B\",",
     "if sink.fixture != \"bath_sink\" or sink.unit != \"4B\": continue",
-    "if tap.unit == \"4B\": sample = tap",
-    "if tap.fixture == \"shower\" and tap.unit == \"4B\": shower = tap"
+    "if node.get_script() == preload(\"res://scripts/building/orison_v2_water_closet.gd\") and node.unit == \"4B\":",
+    "if tap.unit == \"4B\": sample = tap"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -233147,7 +233149,7 @@
     "run"
    ],
    "lines": [
-    423
+    554
    ],
    "count": 1,
    "context": [
