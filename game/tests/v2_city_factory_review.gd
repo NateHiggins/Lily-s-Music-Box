@@ -4,7 +4,7 @@ const Optical = preload("res://tests/v2_window_city_night_review.gd")
 
 func _dependencies() -> Dictionary:
     var result: Dictionary = {}
-    for path: String in ["res://tests/v2_city_factory_review.gd","res://tests/v2_city_western_apartments_programme.gd","res://tests/v2_window_city_night_review.gd","res://tests/orison_v2_surface_inventory.gd","res://tests/orison_v2_floor_surface_test.gd","res://tests/OrisonV2SurfaceInventory.tscn","res://tests/fixtures/orison_city_horizon.json"]:
+    for path: String in ["res://tests/v2_city_factory_review.gd","res://tests/v2_city_western_apartments_programme.gd","res://tests/v2_city_horizon_review.gd","res://tests/v2_window_city_night_review.gd","res://tests/orison_v2_surface_inventory.gd","res://tests/orison_v2_floor_surface_test.gd","res://tests/OrisonV2SurfaceInventory.tscn","res://tests/fixtures/orison_city_horizon.json"]:
         result["game/"+path.trim_prefix("res://")] = FileAccess.get_sha256(path)
     return result
 
