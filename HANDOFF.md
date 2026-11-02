@@ -20,8 +20,14 @@ observation timeout. Canonical runtime/test are frozen through that run.
 Candidate6270,observer7965 and world011146 are all terminal. Quiet hold released
 to both asset agents; startup CPU construction overlap retained in ledger.
 
-Owned C:/ov/c-ab46a508 remains detached34b6779de,not current canonical. Preserve
-its generated import/UID churn before later switching/cleanup. Original baseline
+Owned C:/ov/c-ab46a508 advanced after terminal B to **d17e3e699** for the
+next pass trace; it had no generated churn to restore after B (empty external
+backup retained). **pass_trace01** compile+same-six-leg diagnostic queued as
+session13095/broker64040 after world02. It explicitly disables preparation and
+records new per-viewport pass counters; no attribution verdict exists yet.
+Frozen executed transport/probe copies are external. Poll same handles and
+coordinate a new CPU-quiet interval when timing actually acquires. Source remains
+frozen; do not alter this owned checkout while its job is queued/running. Original baseline
 boardC371 remains valid as captured. Current physical packet remainsSTALE on
 this feature branch; no new main merge or full V2 acceptance. Detailed metrics,
 source/raw logs and original failure are in the existing city ledger/archive.
