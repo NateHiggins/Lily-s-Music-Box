@@ -3,7 +3,8 @@ extends BakedFurnitureInteraction
 const MODEL := "res://assets/props/bath_water_closet.glb"
 var model_path := MODEL
 const SERVICE_MODEL := "res://assets/props/bath_water_closet_services.glb"
-const SERVICE_PROFILES := {"WCService_3755":.3755,"WCService_4155":.4155,"WCService_4255":.4255,"WCService_4755":.4755}
+const SERVICE_PROFILES := {"WCService_3755":.3755,"WCService_4155":.4155,"WCService_4255":.4255,"WCService_4755":.4755,
+		"WCService_5255":.5255,"WCService_4255_Bypass":.4255}
 var service_profile := ""
 var _service_collision_rids: Array[RID] = []
 static var _service_contacts: Dictionary = {}

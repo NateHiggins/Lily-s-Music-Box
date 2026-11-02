@@ -1,5 +1,22 @@
 # Current continuation — November 2 V2 native intake
 
+**Corrected native candidate, not runtime-qualified:** the closet library now has
+sixprofiles: four retained, deeper staff **WCService_5255**, and offset
+**WCService_4255_Bypass** for5A/6A. Canonical153-line builder preserves the original
+fixture; 88reference objects retain exact local transforms/geometry/normals/UV.
+Twochanged variants pass328sampled mechanism/cover poses, deliberate blocker,
+91closed-stock/contact checks and an unchanged .18m B_STEM collider proxy.
+FourCPUviews inspected.12retained primitives keep exact oriented triangle
+attributes; eightreorder buffers. Reopened source publication is byte-identical:
+GLB **09e02e5abe7e240db1121354e5c09a1dfa1fe7ff39e596be69593e3356b6d4b1**,
+36752tri/18library surfaces; selected kits remain3surfaces,5720normal/8152bypass.
+Staff completion clone now requires an explicit profile and derived rear bound;
+vents/fixture anchors/soil pipes stay unchanged. Contact checks consume native
+markers, not obsolete straight-pipe positions. Acoustic ventilation is regenerated
+with identical physical payload;43acoustic tests pass, readerNEW0 and178recipe
+projections pass. Native evidence: **C:/ov/reports/native_intake_20261102/closet_revision_01/**.
+The corrected source has not yet run in Godot; preserve failed03below.
+
 Draft review: **https://github.com/NateHiggins/Lily-s-Music-Box/pull/145**.
 It preserves the full62-path integration branch and explicitly holds merge for
 combined runtime, strict surface, exact-main comparison and candidate checks.

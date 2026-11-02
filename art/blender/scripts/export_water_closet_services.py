@@ -13,7 +13,7 @@ from metric_gltf_export import CatalogueMetricUV
 from check_exported_tangents import validate
 bpy.ops.wm.open_mainfile(filepath=str(source))
 collection=bpy.data.collections['02_SERVICE_KIT_EXPORTS']
-profiles={'WCService_3755','WCService_4155','WCService_4255','WCService_4755'}
+profiles={'WCService_3755','WCService_4155','WCService_4255','WCService_4755','WCService_5255','WCService_4255_Bypass'}
 assert {o.name for o in collection.objects if o.type=='EMPTY'}==profiles
 bpy.ops.object.select_all(action='DESELECT')
 for obj in collection.objects:
@@ -28,9 +28,9 @@ bpy.ops.export_scene.gltf(filepath=str(out),export_format='GLB',use_selection=Tr
 raw=out.read_bytes();length=struct.unpack_from('<I',raw,12)[0];doc=json.loads(raw[20:20+length])
 assert not doc.get('images') and not doc.get('animations') and not doc.get('skins')
 assert profiles<={node.get('name') for node in doc['nodes']}
-assert len(doc['meshes'])==12
+assert len(doc['meshes'])==18
 triangles=sum(doc['accessors'][part['indices']]['count']//3 for mesh in doc['meshes'] for part in mesh['primitives'])
-assert triangles==22880,triangles
+assert triangles==36752,triangles
 assert {m['name'] for m in doc['materials']}=={'nickel_plated','porcelain_fixture','iron_blackened'}
 result=validate(out)
-print('CLOSET_LIBRARY_PUBLICATION',json.dumps({'triangles':triangles,'surfaces':12,'profiles':sorted(profiles),'tangents':result}),flush=True)
+print('CLOSET_LIBRARY_PUBLICATION',json.dumps({'triangles':triangles,'surfaces':18,'profiles':sorted(profiles),'tangents':result}),flush=True)
