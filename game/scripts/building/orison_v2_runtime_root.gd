@@ -44,6 +44,8 @@ var prologue_director: Node
 var _opening_retry: Timer
 var _opening_starting := false
 var _opening_placed := false
+var _opening_render_prepared := false
+var opening_render_preparation: Dictionary = {}
 var service_round: ServiceRoundDirector
 var conversations: ResidentConversations
 var newspapers: NewspaperCatalog
@@ -376,6 +378,21 @@ func _try_prologue_entry() -> void:
 			shell.release_opening_veil(self)
 			return
 		_opening_placed = true
+	if not _opening_render_prepared and shell.owns_opening_veil(self):
+		_opening_starting=true
+		var entry: Dictionary=arrival_placement()
+		var views: Array[Transform3D]=[]
+		if entry.get("position") is Vector3 and (entry.position as Vector3).is_finite():
+			var eye_height:=player.camera.position.y
+			var at:=to_global(entry.position as Vector3)+Vector3.UP*eye_height
+			for angle in [0.,90.,180.,270.]:
+				views.append(Transform3D(global_basis.orthonormalized()*Basis(Vector3.UP,deg_to_rad(angle)),at))
+		opening_render_preparation=preload("res://scripts/building/v2_entry_render_preparation.gd").prepare(player.camera,views,Callable(self,"_owns_opening_preparation"))
+		_opening_starting=false
+		if bool(opening_render_preparation.get("cancelled",false)):return
+		_opening_render_prepared=true
+		_record_startup_milestone("opening_render_preparation_finished")
+		if not _owns_opening_preparation():return
 	if not is_instance_valid(prologue_director):
 		prologue_director = preload("res://scripts/game/prologue_director.gd").new()
 		prologue_director.name = "PrologueDirector"
@@ -403,6 +420,14 @@ func _try_prologue_entry() -> void:
 		startup_failed = true
 		startup_failure_reason = "Production prologue presentation failed"
 		shell.release_opening_veil(self)
+
+
+func _owns_opening_preparation() -> bool:
+	if not is_inside_tree() or get_tree().paused or RealityState.save_write_blocked or not is_instance_valid(player):return false
+	var shell:=get_tree().get_first_node_in_group("campaign_shell") as CampaignShell
+	return shell!=null and shell.active_world==self and shell.uses_prologue_entry() \
+			and shell.owns_opening_veil(self) and player.camera.is_current() \
+			and not player.protected_input_active() and player.text_input_owner==null
 
 
 func _on_prologue_phase_changed(phase: String) -> void:

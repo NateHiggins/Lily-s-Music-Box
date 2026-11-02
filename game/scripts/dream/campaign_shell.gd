@@ -74,6 +74,11 @@ func uses_prologue_entry() -> bool:
 			and (not saved.is_empty() or not bool(RealityState.data.get("intro_complete", false)))
 
 
+func owns_opening_veil(owner_world: Node) -> bool:
+	return owner_world == active_world and is_instance_valid(_opening_veil) \
+			and not _opening_veil.is_queued_for_deletion()
+
+
 func release_opening_veil(owner_world: Node) -> void:
 	if owner_world == active_world and is_instance_valid(_opening_veil):
 		_opening_veil.queue_free()
