@@ -19,8 +19,11 @@ Three rules hold everything together:
 1. **A shop sells a change in how you play, not just a thing.** Boots change how
    loud you are. Earplugs change what you can hear. A ladder changes what you can
    reach.
-2. **Money never buys the solution.** Shops hold evidence you can read, ask about
-   or develop. No clue has a price, and being broke never blocks the mystery.
+2. **Money can buy clues.** Owner ruling, 2026-11-02, replacing "money never buys the
+   solution": the game needs reasons to need money. Shops hold evidence you can read,
+   ask about or develop, and some of it can have a price, so being short of money can
+   cost you a clue. A clue is still evidence you have to read: nothing sold names who
+   did it.
 3. **The shops are people's lives.** Stock, windows and hours react to the year,
    the papers and what the residents buy.
 
@@ -442,7 +445,8 @@ These settle the open questions. Sections 4 and 5 read with them.
 
 **What these rulings require:**
 
-- **Spare-key perks never touch the mystery.** Rule 2 of section 1 wins. Treatment keys
+- **Spare-key perks never touch the mystery.** This one stands on its own since rule 2
+  changed on 2026-11-02: rent trouble mustn't lock a door the story relies on. Treatment keys
   (**m_spare_key**, **m_key_loan_11**, **m_key_loan_19**) and any door the case needs
   stay outside the rent penalty.
 - **Mae at the Pawnbroker needs a timeline check before it ships.** Her schedule must
@@ -485,7 +489,7 @@ Evidence class stays **INERT**; this records what was built, not proof.
   of the lift. The next click lets go. What is left is saved and validated.
 - **Overheard:** while something is left on the counter, residents the timetable seats
   there speak their dated opinions, one sentence at a time. It grants only
-  **overheard:<id>**, so the opinion still waits at their door. Money buys no clue.
+  **overheard:<id>**, so the opinion still waits at their door. Buying lunch buys no clue here.
 - **Bodies:** a seated body on a stool, placed only while the player is outside the room.
 - **Timetable changes for Lily to read:** the schedule had one Luncheonette block, so
   three were added. Iris Bell's Thursday walk was already authored as "sits in the
