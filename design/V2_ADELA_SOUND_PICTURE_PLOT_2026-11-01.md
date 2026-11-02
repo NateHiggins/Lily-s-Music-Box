@@ -73,7 +73,7 @@ object: she can stand in the bar and watch herself be good at something.
 | Mae, the lease, 19 July, about 9:03 (Bible §VIII.5.o) | Untouched. Every new living thread closes by 13 July. No Lily thread from 14 to 26 July |
 | Dark hours, snap-back, O2 lines | Untouched. Rehearsal and the concern are not rescue levers. No new O2 line |
 | The solve (treatment §4.5) | No case flag and no carrier added. **tools/check_mystery_dialogue.py** still finds every **SOLVE** flag reachable, and none of them needs a new thread |
-| Money and side content never buy a clue | Everything here is free and grants only knowledge flags that open its own threads |
+| Money and side content never bought a clue when this was written; the owner changed that on 2026-11-02 | Everything here is still free and grants only knowledge flags that open its own threads |
 | Her name and gender are ordinary knowledge | No line turns on it. Her voice is not a reveal, and no line discusses pitch or softness |
 | Nadia alone learns the rider, late (S15) | Lily hears a good note from the night man and draws nothing: "You've got ears, for a man with a wrench." |
 | Her murder isn't a punishment (AL-01) | Nothing links the offer, the concern or her visibility to the death |
