@@ -21,8 +21,14 @@ Inputs frozen while queued/running. No runtime pass or production light change.
 The architect's one-body native/import programme is separately queued as
 **broker68396/session90489** on **C:/ov/city**; do not mutate that source tree.
 Native factory form is reported36individual/88generic there,not yet accepted
-on canonical. Four final native review frames and first outline/encoding failures
-stay with the architect's original report. Canonical clock integration is a
+on canonical. Independent review verified all four native image hashes and124
+reservations/123 other profiles/35 other GLBs. Factory167616near/96704lower
+triangles replace6924generic triangles; sash/brick dominate. Exact native cost
+and preservation observations are external **sohmer_source_cost.json** and
+**sohmer_preservation_independent.json** under the composition report folder.
+These are not FPS or loaded proof; measure actual LOD/viewport cost before
+acceptance or propagating this density. First outline/encoding failures stay
+with the architect's original report. Canonical clock integration is a
 parsed external draft only at **C:/ov/reports/city_composition_20261102/**:
 **sohmer_clock_draft.gd**, **clock_stock_bounds.json**. Reuse the existing
 arcade clock's south-facing native hand meshes and inherited CampaignClock
