@@ -1,4 +1,4 @@
-"""Rerunning this alone brings back the stretched UVs and missing tangents: run repair_mail_bank_surfaces.py on its result.
+"""Don't rerun this for the shipped stock: it brings back the stretched UVs and missing tangents. art/blender/mail_bank.blend is the editable source; export only its 01_MAIL_STOCK_EXPORT collection, unhidden first. The repair study is C:/ov/asset-prototypes/mail-bank-surface-v2-refit-20261101.
 
 Reusable cast mail-bank stock, metre UVs and genuine open compartments."""
 from pathlib import Path

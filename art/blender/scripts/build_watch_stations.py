@@ -1,4 +1,4 @@
-"""Superseded for the shipped stock by build_watch_stations_refit.py; rerunning this brings back the case strikes.
+"""Don't rerun this for the shipped stock: it brings back the case strikes. art/blender/watch_stations.blend is the editable source; export only its 01_WATCH_STOCK_EXPORT collection. The repair study is C:/ov/asset-prototypes/watch-station-surface-v2-refit-20261101.
 
 Native cast watch-station stock. Godot metres; original mechanisms remain owners."""
 from pathlib import Path
