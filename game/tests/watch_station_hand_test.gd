@@ -48,8 +48,10 @@ func acquire(key: String) -> bool:
 			await get_tree().process_frame
 			if get_viewport().get_mouse_position().distance_to(cursor)<2.0: break
 		if get_viewport().get_mouse_position().distance_to(cursor)>=2.0:
-			# A hidden desktop has no cursor to warp, so aim the camera the way free look does.
 			print("STATION CURSOR DID NOT SETTLE wanted=",cursor," actual=",get_viewport().get_mouse_position())
+			# A hidden desktop has no cursor to warp. Only a diagnostic asks for free look
+			# instead, and it doesn't test the fixed inspection camera; by default this fails.
+			if OS.get_environment("ORISON_STATION_FREE_LOOK")!="1": return false
 			no_cursor=true
 			player.end_inspection()
 			player.camera.look_at(point)
@@ -177,7 +179,8 @@ func _run() -> void:
 	check(line.mark_count()==1 and is_equal_approx(station.crank_angle,TAU),"lockout prevents re-winding and duplicate signals")
 	click()
 	check(follows_cursor,"visible rotating parts follow pointer direction")
-	check(no_cursor or player.camera.global_transform.is_equal_approx(fixed_camera),"inspection cursor does not move camera")
+	if no_cursor: print("STATION HAND SCOPE: free-look diagnostic; fixed inspection camera NOT executed, not the full hand test")
+	else: check(player.camera.global_transform.is_equal_approx(fixed_camera),"inspection cursor does not move camera")
 	player.end_inspection()
 	var charted := 0
 	for draw: MeshInstance3D in station.find_children("*","MeshInstance3D",true,false):
