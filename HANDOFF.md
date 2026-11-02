@@ -26,14 +26,30 @@ household authoring records now reproduce verified runtime bytes exactly.
 Loaded inventory vs prior accepted packet:+85draw entries/+41meshes/+44materials,
 zero new textures; no controlled frame-time or added-cost verdict.
 
-**Next:** preserve/reconcile generated UID and line-ending churn outside the
-checkout, commit named published evidence paths, then run in-place candidate
-verification against **C:/ov/reports/moon_name/board_base/board.json**. That board
-is validated clean merge-base3f1051f59, exact tree,119required gates. Do not alter
-its owner's **C:/ov/moonb** checkout. Merge145 manually only after no-regression
-candidate verification; notify Claude of the actual merge. No owned Godot run
-remains active. **ACTIVE_QUALIFICATION.json** in the external intake directory
-records current process/custody handles; revalidate before acting.
+**Current candidate:** **4feb74618** is terminal BLOCKED by a departing-waiter
+lane test and surface-tooling600s timeout; prior scratch-name finding is resolved.
+Focused lane rerun5/5 passes17.501s. Focused surface rerun is active:session62614,
+log **surface_tool_recheck.log** in the external intake root. New verifier controls
+preserve defaults6/600 and all checks;20verifier tests pass. Commit the named
+checkpoint and use fewer gate jobs for the next exact-candidate comparison with
+**C:/ov/reports/moon_name/board_base/board.json** (validated clean119-gate main
+3f1051f59 board). No gate waivers, fabricated receipts or duplicate runtime survey.
+
+**Clock/LOD diagnostic:** **sohmer_body_02/** passes966/0 at3440x1440 in30s,
+empty stderr;258source bindings match,17frames inspected, clock pause/reversal/
+validated disk load/fresh presentation reconstruction pass. Isolated GPU medians
+near/lower/return .735/.6585/.677ms; initial transition108.737ms remains debt.
+This is not old-body incremental or whole-city performance acceptance. Original
+**sohmer_body_01/** viewport failure3440x1421 is preserved; corrected launch reused
+**native_debug_window.gd**, with no assertion relaxation. All owned Godot runs
+are terminal; static focused surface tooling is still running. The external
+**ACTIVE_QUALIFICATION.json** holds exact process/status pointers; revalidate them.
+
+Generated UID/private attachment custody and437import EOL-only normalization are
+complete: **checkout_custody_78cb0f1ce/CUSTODY.json** preserves707recoverable files.
+No authored source was discarded. Merge145 manually only after no-regression
+candidate verification and recorded cost assessment; notify Claude of the actual
+merge. Remaining whole-world performance and artistic gaps stay open.
 
 **Evidence/custody:** detailed history and limits live in
 **design/V2_PROLOGUE_2026-10-28.md** and

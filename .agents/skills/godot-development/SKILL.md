@@ -80,6 +80,13 @@ check only when changed inputs, failures, or unresolved concerns justify it.
 
 ## Minimize time spent running Godot
 
+For this project's native-resolution captures, reuse the existing
+**native_debug_window.gd** SceneTree helper: saved GameBoot window settings can
+override CLI fullscreen and clip a 3440x1440 request to 3440x1421. Confirm the
+actual viewport in the test; preserve a failed-resolution run before retrying
+with the corrected launch. This is an explicit diagnostic override, not a new
+production window preference.
+
 Fast iteration is a priority. Before launching, identify the changed behavior,
 the smallest check that can expose its failure, and the expected startup/run
 cost from existing receipts. Do not repeat long walks through unchanged areas

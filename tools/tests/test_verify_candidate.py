@@ -222,12 +222,24 @@ class InPlaceVerificationTests(unittest.TestCase):
                     contextlib.redirect_stdout(io.StringIO()):
                 result = vc.main([CAND, "--base", BASE, "--in-place", "--baseline-board",
                                   str(baseline), "--out", str(Path(directory) / "out"),
-                                  "--no-fetch", "--no-godot"])
+                                  "--no-fetch", "--no-godot", "--gate-jobs", "2",
+                                  "--gate-timeout", "1200"])
                 self.assertEqual(result, 0)
                 create.assert_not_called()
                 remove.assert_not_called()
                 self.assertEqual(build.call_count, 1)
-                self.assertEqual(build.call_args.args[0], vc.REPO)
+                self.assertEqual(build.call_args.args, (vc.REPO, True, [], 2, 1200))
+                observed = json.loads((Path(directory) / "out/verification.json").read_text())
+                self.assertEqual(observed["gate_execution"], {"jobs": 2, "timeout_seconds": 1200})
+
+    def test_gate_execution_rejects_nonpositive_values_before_git(self):
+        with patch.object(vc, "git") as git, contextlib.redirect_stderr(io.StringIO()):
+            for option in ("--gate-jobs", "--gate-timeout"):
+                for value in ("0", "-1"):
+                    with self.subTest(option=option, value=value), self.assertRaises(SystemExit) as raised:
+                        vc.main([CAND, option, value])
+                    self.assertEqual(raised.exception.code, 2)
+            git.assert_not_called()
 
     def test_in_place_rejects_dirty_checkout_before_any_worktree_or_board(self):
         def dirty_git(*args, **kwargs):

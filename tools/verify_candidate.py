@@ -346,6 +346,7 @@ def render(result: dict) -> str:
              f"- merge-base `{result['merge_base']}`",
              f"- verified {result['created_utc']} from verifier `{result['verifier_commit'][:12]}`", "",
              "| check | result |", "|---|---|",
+             f"| gate execution | {result.get('gate_execution', {})} |",
              f"| checkout mode | {result.get('checkout_mode', 'fresh')} |",
              f"| checkout clean | {'yes' if not result['fresh_checkout_dirty'] else 'NO: ' + str(len(result['fresh_checkout_dirty'])) + ' paths'} |",
              f"| gate board vs merge-base | {len(comp['regressions'])} regressions, {len(comp['improvements'])} improvements |",
@@ -393,6 +394,10 @@ def main(argv=None) -> int:
                         help="res:// scene requiring both a real window and the long runner")
     parser.add_argument("--no-godot", action="store_true")
     parser.add_argument("--lane-wait", type=int, default=30, help="minutes to wait on a busy lane")
+    parser.add_argument("--gate-jobs", type=int, default=6,
+                        help="concurrent static/tooling gates (default: 6)")
+    parser.add_argument("--gate-timeout", type=int, default=600,
+                        help="seconds per static/tooling gate; timeouts still block (default: 600)")
     parser.add_argument("--work-dir", default="C:/ov")
     parser.add_argument("--out")
     parser.add_argument("--keep", action="store_true", help="keep the worktrees")
@@ -410,6 +415,9 @@ def main(argv=None) -> int:
                              "acceptance is printed and recorded")
     parser.add_argument("--no-fetch", action="store_true")
     args = parser.parse_args(argv)
+
+    if args.gate_jobs < 1 or args.gate_timeout < 1:
+        parser.error("--gate-jobs and --gate-timeout must be positive")
 
     if args.in_place != bool(args.baseline_board):
         parser.error("--in-place and --baseline-board must be supplied together")
@@ -446,10 +454,10 @@ def main(argv=None) -> int:
             base_board = json.loads(cache.read_text(encoding="utf-8"))
         else:
             base_root = fresh_worktree(merge_base, work / f"b-{merge_base[:8]}")
-            base_board = gate_board.build_board(base_root, True, [], 6, 600)
+            base_board = gate_board.build_board(base_root, True, [], args.gate_jobs, args.gate_timeout)
             cache.parent.mkdir(parents=True, exist_ok=True)
             cache.write_text(json.dumps(base_board, indent=1), encoding="utf-8")
-        cand_board = gate_board.build_board(cand_root, True, [], 6, 600)
+        cand_board = gate_board.build_board(cand_root, True, [], args.gate_jobs, args.gate_timeout)
         comparison = gate_board.compare(base_board, cand_board)
         changed = changed_files(merge_base, cand)
         gate_changes = [f"{r['status']} {r['path']}" for r in changed if GATE_PATH_RE.match(r["path"])]
@@ -461,6 +469,7 @@ def main(argv=None) -> int:
             "candidate": cand, "base": base, "merge_base": merge_base,
             "checkout_mode": "in-place" if args.in_place else "fresh",
             "fresh_checkout_dirty": dirty,
+            "gate_execution": {"jobs": args.gate_jobs, "timeout_seconds": args.gate_timeout},
             "changed_files": changed,
             "gate_changes": gate_changes,
             "doc_lint": lint_docs(cand_root, changed),
