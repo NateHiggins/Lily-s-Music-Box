@@ -209,6 +209,25 @@ static func mount_laundry_bundle(world: Node3D) -> Node3D:
 	return counter
 
 
+static func mount_parcel_wall(world: Node3D) -> Node3D:
+	var passage: Node3D = world.passage_region
+	var rows := {}
+	for row in ParcelErrands.ROWS:
+		for column in ParcelErrands.COLUMNS:
+			var record := _row(passage, "storm_shop_model_laundry_parcel%d_%d" % [row, column])
+			if record.is_empty():
+				return null
+			rows[ParcelErrands.parcel_id(row, column)] = record
+	var wall: Node3D = preload("res://scripts/props/parcel_wall.gd").new()
+	wall.name = "ParcelWall"
+	passage.transaction_actor_root().add_child(wall)
+	wall.global_transform = passage.global_transform
+	if not wall.configure(passage, rows):
+		wall.free()
+		return null
+	return wall
+
+
 static func _row(passage: Node3D, identity: String) -> Dictionary:
 	for floor: Dictionary in passage.source_layout.floors:
 		if str(floor.id) != "F01":
