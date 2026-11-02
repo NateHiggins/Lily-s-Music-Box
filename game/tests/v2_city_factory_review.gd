@@ -25,7 +25,7 @@ func run(world: OrisonV2RuntimeRoot, host: Node) -> Dictionary:
     var after: Array = []
     host.check(OS.execute("python",[root.path_join("tools/run_receipt.py"),"digest","--root",root],after)==0 and not after.is_empty() and str(after[0]).strip_edges()==digest,"factory composed source remained fixed")
     host.check(dependencies==_dependencies(),"factory consumed test dependencies remained fixed")
-    var passed := bool(programme.get("passed",false)) and bool(observations.get("completed",false)) and observations.get("failures",["missing"]).is_empty()
+    var passed: bool = bool(programme.get("passed",false)) and bool(observations.get("completed",false)) and observations.get("failures",["missing"]).is_empty()
     var record := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
         "scope":"Single externally composed canonical physical-survey world. One validated nearby apron placement, eight connected normal-controller factory apron/open-end/lateral-gap/court/return legs. Three separately posed roof lighting comparisons are diagnostic observations, not performance or artistic acceptance. No second world, scenic door interaction or whole-world save/reload.",
         "execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},

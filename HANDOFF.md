@@ -1,5 +1,31 @@
 # Current continuation — November 2 cityscape resumed
 
+## Current native intake — owner resumed November 2
+
+Evidence class: **INERT**. Lily now explicitly requests ingestion of the completed
+Blender queue. Process existing28 deliveries in coherent families; do not merely
+repeat the delivery audit or bulk install unsupported adapters. City/native work
+is preserved on this feature branch. Latest combined03 actually ran: two imports
+passed30.3s/11.6s, semantic preflight failed15.18s on the factory helper's inferred
+**passed** variable. No family/world stage started. Original stderr/receipts stay
+under **C:/ov/reports/city_composition_20261102/combined_03/**. Explicit bool fix
+is authored; this was a real semantic failure, not stale cache. Old live-queue
+statements below are historical, not a reason to preserve a vanished freeze.
+
+First intake is the full clawfoot bath/plumbing packet. All19 sealed files and
+all8 current consumer/source bindings match; four native images inspected.
+Canonical **art/blender/clawfoot_bath.blend** now contains the delivered source;
+the existing exporter reproduced the supplied GLB byte-for-byte,49332triangles/
+13surfaces, strict tangents PASS. Both descriptor and visual valve axes are +X.
+TapProp retains openings/held input/water/save ownership; a presentation hook
+preserves other mountings and avoids two conflicting transform writes per frame.
+The original gesture bench targets the new actual cap faces and checks X-only
+half-open poses. These changes are not yet Godot-qualified. External export
+receipts: **C:/ov/reports/native_intake_20261102/bathroom_01/**.
+Next: semantic preflight, actual graphical bath hand/entry/plug/curtain exercise,
+then fitted lavatory/closet intake and combined furnished-world qualification.
+Remaining native queue and original city/prologue/repair commitments stay open.
+
 Evidence class: **INERT**. Lily explicitly resumed city finishing with the architect.
 Canonical is **codex/v2-city-composition-20261102**, branched from current
 origin/main **4fae3c389e01ad798cda746e8f69b6a04dc4e51b**. Prior slab/performance

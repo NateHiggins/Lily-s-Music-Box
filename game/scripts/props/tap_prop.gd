@@ -1003,6 +1003,14 @@ func _start_normal_function() -> void:
 	state = PState.IDLE
 
 
+func _valve_rotation(index: int, turn: float) -> Vector3:
+	# Subtypes with a different physical mounting override presentation only;
+	# valve openings, held input, water and persistence remain owned here.
+	var result: Vector3 = _handles[index].rotation
+	if _handle_wall_mounted[index]: result.z = -turn
+	else: result.y = turn
+	return result
+
 func _process(delta: float) -> void:
 	if _plug_hand != null: _plug_hand.process(delta)
 	_update_bath_plug(delta)
@@ -1011,11 +1019,7 @@ func _process(delta: float) -> void:
 		_handle_turns[i] = targets[i] if _held_valve == i else move_toward(_handle_turns[i], targets[i], delta * 3.0)
 		var turn := _handle_turns[i]*PI*.5
 		var previous_rotation:Vector3 = _handles[i].rotation
-		var next_rotation:Vector3 = previous_rotation
-		if _handle_wall_mounted[i]:
-			next_rotation.z = -turn
-		else:
-			next_rotation.y = turn
+		var next_rotation:Vector3 = _valve_rotation(i,turn)
 		# Compare the actual float32 pose, not approximate valve values. Node3D
 		# otherwise invalidates this entire native branch even when unchanged.
 		if previous_rotation != next_rotation:
