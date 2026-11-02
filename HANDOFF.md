@@ -18,6 +18,20 @@ incremental import, one-script semantic preflight, then the actual existing
 night-review world with nine baseline/temporary ambient/restore roof images.
 Logs/receipts: **C:/ov/reports/city_composition_20261102/lighting_01/**.
 Inputs frozen while queued/running. No runtime pass or production light change.
+The architect's one-body native/import programme is separately queued as
+**broker68396/session90489** on **C:/ov/city**; do not mutate that source tree.
+Native factory form is reported36individual/88generic there,not yet accepted
+on canonical. Four final native review frames and first outline/encoding failures
+stay with the architect's original report. Canonical clock integration is a
+parsed external draft only at **C:/ov/reports/city_composition_20261102/**:
+**sohmer_clock_draft.gd**, **clock_stock_bounds.json**. Reuse the existing
+arcade clock's south-facing native hand meshes and inherited CampaignClock
+movement. Uniformscale3.6,local metricUVrepeat9.0; proper outward frames,
+actual .045m dial-front centers plus .025/.037m offsets avoid double datum and
+floating hands. No new clock/save/collision owner or asset is needed. Publish
+optional runtime clock_faces in the existing horizon builder only after the
+architect hands off its frozen source and this observation retires; then verify
+actual loaded materials,hand motion/reversal/reconstruction and composed costs.
 Do not repeat launches or unrelated hose/walk suites. Use hidden desktop.
 
 Modeler intake is now reconciled read-only at **5c2cf72f6**:28 deliveries,
