@@ -37,13 +37,14 @@ func setup(blockout: Node3D) -> int:
 
 static func _opaque_slab(draw: MeshInstance3D) -> bool:
 	if draw.mesh==null or not draw.is_visible_in_tree() or draw.material_overlay!=null \
-		or draw.transparency!=0. or draw.visibility_range_begin!=0. or draw.visibility_range_end!=0.:return false
+		or draw.transparency!=0. or draw.visibility_range_begin!=0. or draw.visibility_range_end!=0. \
+		or draw.cast_shadow==GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY:return false
 	for surface in draw.mesh.get_surface_count():
 		var material := draw.get_active_material(surface)
 		if material is StandardMaterial3D:
 			if material.transparency!=BaseMaterial3D.TRANSPARENCY_DISABLED \
 				or material.billboard_mode!=BaseMaterial3D.BILLBOARD_DISABLED or material.grow_enabled or material.fixed_size \
-				or material.cull_mode==BaseMaterial3D.CULL_FRONT or material.proximity_fade_enabled \
+				or material.cull_mode==BaseMaterial3D.CULL_FRONT or material.proximity_fade_enabled or material.no_depth_test \
 				or material.distance_fade_mode!=BaseMaterial3D.DISTANCE_FADE_DISABLED:return false
 		elif material is ShaderMaterial:
 			# Only the registered non-deforming opaque shader; never cutout,

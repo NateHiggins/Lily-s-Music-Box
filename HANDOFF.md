@@ -2,7 +2,9 @@
 
 Evidence class: **INERT**. Canonical branch now
 **codex/v2-slab-face-occlusion-20261101**,from actual origin/mainC371e94e.
-Rejected warmup runtime/root/input callbacks are NOT carried into this branch;
+Source checkpoint **b01224e9e** is pushed; new draftPR138:
+https://github.com/NateHiggins/Lily-s-Music-Box/pull/138
+No main merge. Rejected warmup runtime/root/input callbacks are NOT carried into this branch;
 original work/evidence remains pushed on draftPR137. Source-only candidate
 extends existing structural wall culling to visible,opaque,actually six-face
 closed slab boxes. Incomplete/one-sided/holed stock is rejected; engine
