@@ -6266,3 +6266,18 @@ not full149-parcel or whole-city acceptance. No new construction requested.
 
 PR138 remains separate and unmerged. Reconcile current main only after its
 queued corrected fixture is terminal;do not modify its consumed sources mid-run.
+
+
+## Corrected non-indexed fixture03 — November 1
+
+Evidence class: **INERT**. Actual corrected fixture03 passed17checks/0failures
+in13.77s,empty stderr,two-script compilationPASS. It constructs a real absent
+index buffer and uses that mesh for above/below optical controls:objects4→2
+and4→3 with exact byte parity. All six images were individually inspected;
+foreground and real aperture remain intact. Original composed failure remains
+retained. Existing archive slab_fixture03 contains source,raw output,receipts,
+images and visual review. No full-world visibility or speedup acceptance.
+
+The owned verification checkout is clean at new main1a7917eae;actual baseline
+board session73316 is live. Canonical candidate reconciliation and corrected
+composed retry follow;no prior main receipt is relabeled or repinned.

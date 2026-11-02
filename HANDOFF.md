@@ -35,15 +35,17 @@ is not stale cache or a valid timing/visibility result. Full failed raw output,
 three controls, source and receipts are retained in the existing archive.
 Broker56984/session19285 and host observer43520 are terminal; CPU quiet released.
 
-Correction authored: treat absent index buffers as non-indexed triangles before
-synthesizing sequential indices. Fixture03 additionally constructs an actual
-absent-index closed mesh and uses it for the above/below optical controls.
-Syntax checked, not semantically/runtime verified. **Fixture03 queued once** as
-broker33568/session2218; batch at C:/ov/reports/slab_occlusion_20261101/fixture03.json,
-canonical source frozen while queued. It follows the live GPU session and another
-resident run without pre-emption. Poll the same handle; do not duplicate it.
-Owned C:/ov/c-ab46a508 remains at failed6b2654dc4 until its archived inputs are
-retained and a corrected composed retry is deliberately prepared.
+Correction now verified by actual fixture03:17checks/0failures,13.77s,
+clean stderr and two-script compilerPASS. Actual absent-index geometry is used
+for the optical controls; above4→2 and below4→3objects,exact pixel parity.
+All six images individually inspected;aperture remains open. Source/test hashes
+and original failure are retained in the existing archive. Broker33568/session2218
+is terminal;do not launch another copy. This is still small-fixture proof only.
+Owned C:/ov/c-ab46a508 is now clean at main1a7917eae after preserving its prior
+inputs;zero generated churn needed restoration. Actual full new-main baseline
+board is running as session73316 at main_1a7917_baseline;do not move this owned
+checkout while its board is live. Next reconcile canonical candidate with new
+main,retaining both city and stutter evidence,then repeat composed measurement.
 
 External analyze_run.py validates completion/source/test hashes and route/pass
 counts; it correctly refuses this failed run. Prior pass_trace01 had222 measured
@@ -57,8 +59,8 @@ default return-only scope remains. Syntax checked only; compile, rendered
 interaction and save/reload coverage remain unverified. No production book
 owner changes. The queued C checkout does not consume this new test edit.
 
-NEXT: finish the corrected non-indexed fixture, inspect its images, then
-retry composed admission/timing/visibility with frozen corrected source. If the candidate improves its intended outcome, renew affected
+NEXT: reconcile merged main after terminal fixture03,then retry composed
+admission/timing/visibility with frozen corrected source. If the candidate improves its intended outcome, renew affected
 physical qualification and candidate regression gates before merging. Full
 V2/hose/book/nook coverage remains open; candidate surface packet is stale.
 
