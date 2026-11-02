@@ -303,7 +303,8 @@ func _check_closet_models() -> void:
 				"closet retains exactly one fixed service profile: " + profile)
 		var triangles := 0
 		if selected.size() == 1:
-			check(is_equal_approx(float(selected[0].get_meta("wall_depth_godot_m",-1)),float(script.SERVICE_PROFILES[profile])),
+			var extras: Dictionary = selected[0].get_meta("extras",{})
+			check(is_equal_approx(float(extras.get("wall_depth_godot_m",-1)),float(script.SERVICE_PROFILES[profile])),
 					"loaded closet depth metadata agrees with its registered selector: " + profile)
 			var draws := selected[0].find_children("*","MeshInstance3D",true,false)
 			check(draws.size() == 3, "closet service kit has three fixed material partitions: " + profile)
@@ -353,7 +354,7 @@ func _check_installed_closet_services(world: OrisonV2RuntimeRoot) -> void:
 		check(selected != null, "installed selected closet group remains identifiable for wall seating")
 		if selected == null: continue
 		for marker: String in ["SupplyHouse_godot","LeftWall_godot","RightWall_godot"]:
-			var coordinate: Variant = selected.get_meta(marker)
+			var coordinate: Variant = selected.get_meta("extras",{}).get(marker)
 			check(coordinate is Array and coordinate.size() == 3,
 					"native closet profile carries its authored contact marker: " + marker)
 			if coordinate is not Array or coordinate.size() != 3: continue

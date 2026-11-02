@@ -158,6 +158,14 @@ readability, and feel.
 
 ## Reuse demonstrated project lessons
 
+- **Imported custom properties:** inspect the loaded representation and an
+  existing consumer before binding native markers. This project's pinned Godot
+  4.7.1 stores glTF properties in the node's `extras` metadata dictionary, as
+  `companion_temporal_register.gd` already reads. Flat `get_meta(property)` calls
+  failed all six closet-profile checks. Keep strict expected values; repair the
+  reader and use the small loaded preflight before another world startup. Check
+  another engine/importer version independently instead of assuming the ABI.
+
 - **Body LOD and retained equipment:** inspect the whole rendered assembly at
   distance, not only the new body indices. A correct authored building LOD can
   coexist with a destructively simplified retained rooftop tank. Isolate the

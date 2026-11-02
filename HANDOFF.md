@@ -1,5 +1,14 @@
 # Current continuation — November 2 V2 native intake
 
+**Latest runtime attempt — bathroom04:** import passes15s; all four scripts
+compile. Loaded preflight ends127checks/6failures in13s, before world startup.
+All six failures are the test reading node extras as flat metadata. Verified
+4.7.1 engine source uses **set_meta("extras", ...)**, as the installed companion
+register already does. Test now reads that dictionary for depth/contact markers;
+no geometry or tolerance changes. Preserve04failure receipts. Next05reuses the
+successful import and runs compilation plus the combined programme. No new
+occupied-world or appearance pass is claimed for the corrected native candidate.
+
 **Corrected native candidate, not runtime-qualified:** the closet library now has
 sixprofiles: four retained, deeper staff **WCService_5255**, and offset
 **WCService_4255_Bypass** for5A/6A. Canonical153-line builder preserves the original
