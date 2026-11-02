@@ -1,215 +1,64 @@
-# Current continuation — November 2 V2 native intake
+# Current continuation — November 2 V2 qualification
 
-**Preview02 passes the corrected contract:**592checks/0failures,215.47seconds,
-wrapper exit0, zero raw Godot error headers; ten known resident UID path-fallback
-warnings remain. Exact whole-campaign restoration passes at the owner's boundary;
-every non-household domain remains exact after the reader frame, while the
-complete existing household validator admits the resampled physical payload.
-The restored shop cursor is valid. No production clock/save writer, schema,
-float rounding or tolerance changes. Evidence: **preview_probe_02/DIAGNOSTIC_REVIEW.json**
-and actual receipt/logs. This is INERT scoped proof, not full surface acceptance.
-Godot skill now records copied-output path safety and live-preview ownership.
-Next full renewal uses fresh **surface_03/** outputs, with the preview-only flag
-explicitly cleared; original failed/misrouted evidence remains separately labelled.
-The supplied **C:/ov/reports/moon_name/board_base/board.json** is independently
-validated: clean merge-base3f1051f59, exact tree, all119required gates, no verifier
-errors. Reuse it without altering the other agent's **C:/ov/moonb** checkout.
+The active goal remains existing V2 repairs/interactions, stutter, hose/book/nook,
+and systematic coverage. **Not V2 complete or production/artistic acceptance.**
+Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
+**codex/v2-city-composition-20261102**; draft
+[PR145](https://github.com/NateHiggins/Lily-s-Music-Box/pull/145).
+Main **3f1051f59** is reconciled. Latest runtime source: **8acfb5a7b**.
 
-**Preview01 trace identifies the boundary:** exact owner restoration changes
-zero paths. The next live reader frame resamples saved physical rotations; the
-bounded64-path trace contains only household breadboard/book quaternion values,
-maximum recorded drift1.1920929e-7. This is not evidence that all later paths
-were inspected. Keep whole-campaign exact equality immediately after restore;
-after the reader frame, compare every non-household domain exactly and validate
-the physical payload through the existing complete HouseholdState validator.
-No floats are rounded and no production writer/validator is changed.
+**Physical qualification is published:** surface03 completes31,297checks/0failures,
+361.73s, schema2 full physical+city diagnostic+Sohmer programme, zero raw Godot
+errors and ten known resident texture UID fallback warnings. Strict source and
+published packet independently PASS0 at **art/renders/orison_v2/surface_requirements_20261011/**.
+All67actual images inspected via contact sheets, with three changed closeups
+also inspected individually; eight representative images retained in the packet.
+Staff brackets seat against their deeper wall; the vent remains clear. Lower
+bypass supply is partly concealed. Cistern shadow aliasing, repetitive/dark city
+views and the wall-occluded unchanged dumbwaiter view remain visual debt.
+No skipped interaction, whole-year weather or human acceptance is implied.
 
-**Output custody correction:** Preview01's Windows-path substitution failed and
-reused surface02 outputs. The runner replaced the previous wrapper/raw logs
-before backup. Original surface02 runtime contract, inventory, diagnostic and
-67images survive in **surface_02_original_evidence.zip**; all9optical image hashes
-verify. That archive's raw logs are partial new-probe output, not the lost full-run
-logs. Do not reconstruct receipts or claim complete raw preservation. Actual
-preview receipts/diffs are copied to **preview_probe_01/**, retaining original
-path references; see **OUTPUT_CUSTODY.json**. Future batches now construct paths
-explicitly and assert their output directory. Surface01 raw failure is untouched.
-Use **preview_probe_02/** to verify the corrected boundary before full renewal.
+Separate bathroom06 diagnostic:1,953/0, actual valve/plug/flush/cover input and
+validated campaign disk reconstruction in a second world; no schema2 gameplay
+acceptance. Isolated clawfoot hand bench138/0; furnished-room artistic acceptance
+remains open. Expanded source roster19lavatories/19closets is checked. Twelve
+household authoring records now reproduce verified runtime bytes exactly.
+Loaded inventory vs prior accepted packet:+85draw entries/+41meshes/+44materials,
+zero new textures; no controlled frame-time or added-cost verdict.
 
-**Surface02 correctly FAILS:** wrapper exit1,484seconds. The repaired shop
-cursor remains valid; the new full durable-campaign equality assertion detects
-changes after the optical preview. Preserve **surface_02/DIAGNOSTIC_REVIEW.json**,
-all raw logs/contracts/67images, and publish no packet. Do not exempt fields or
-relax the assertion without tracing the mutation. Add bounded path/value diffs
-immediately after owner restoration and after one reader frame. The existing
-surface scene now has explicit **ORISON_SURFACE_PREVIEW_PROBE=1**: one real world,
-the same composed optical lease, then an INERT diagnostic and teardown; no full
-inventory/runtime-qualification contract is produced. Use this smaller reproducer
-before spending another full survey. Production authorities remain unchanged.
+**Next:** preserve/reconcile generated UID and line-ending churn outside the
+checkout, commit named published evidence paths, then run in-place candidate
+verification against **C:/ov/reports/moon_name/board_base/board.json**. That board
+is validated clean merge-base3f1051f59, exact tree,119required gates. Do not alter
+its owner's **C:/ov/moonb** checkout. Merge145 manually only after no-regression
+candidate verification; notify Claude of the actual merge. No owned Godot run
+remains active. **ACTIVE_QUALIFICATION.json** in the external intake directory
+records current process/custody handles; revalidate before acting.
 
-**Surface01 is NOT publishable despite its PASS line:** wrapper exits0 after
-400.18s; test reports31,292checks/0assertion failures and a schema2 contract,
-with30,604draws/19,597meshes/6,756materials/573textures. Raw stderr nevertheless
-contains **shop simulation interval is outside campaign time: SHOP_BODEGA**.
-The independent packet validator correctly rejects that Godot error. Preserve
-all original logs/contracts/images under **surface_01/**; publish no receipt.
-The composed optical preview resets the campaign while the live monotonic shop
-consumer still polls it. Repair only the review lifecycle: suspend that consumer
-before leasing optical dates, restore the original campaign through RealityState,
-assert unchanged durable state/valid shop cursor, then restore processing. Add
-a final shop-valid assertion to the enclosing survey. Production clock, shop,
-reading and save guards remain unchanged. The full survey needs a corrected run.
-First51renders and both new closet closeups were inspected; lower bypass supply
-is partly concealed, not optically proven in every detail. Technical inventory
-has zero findings, but this does not waive the raw error or grant acceptance.
-Memory sampling during the original run peaks at33.918GB physical/75.873GB
-commit (decimal); this exhaustive survey is not a playable performance baseline.
+**Evidence/custody:** detailed history and limits live in
+**design/V2_PROLOGUE_2026-10-28.md** and
+**C:/ov/reports/native_intake_20261102/**. Earlier top-handoff history is retained
+in Git at **8acfb5a7b:HANDOFF.md** and the subsystem ledger, rather than repeated
+here. Surface01's raw shop-error failure is intact. A misrouted preview replaced
+surface02's wrapper/raw logs; its failed runtime contract, inventory and67images
+are preserved in **surface_02_original_evidence.zip**, with9optical hashes checked.
+Archive raw logs are partial probe output; do not claim original raw preservation
+or reconstruct receipts. **preview_probe_01/OUTPUT_CUSTODY.json** explains the loss.
+Preview02 passes592/0: exact campaign restore, exact non-household state after a
+reader frame, complete household validation and a valid shop cursor. Normal
+float32 quaternion resampling is traced, not rounded away. Fresh output paths
+are now checked before launch. No runtime receipt was repinned.
 
-**Horizon dependent replay passes:** original producer exits0; all37GLBs and
-its runtime projection remain byte-identical. Published geometry/measurements
-are exact. Saved Blender bytes/native hashes change on replay and are not claimed
-identical. Actual13-fixture preflight now passes13/13, with both original failed
-closure checks preserved. Evidence: **city_source_replay_01/HORIZON_REPLAY_REVIEW.json**
-and **full13_preflight_final.txt**. No changed GLB needs reimport. Commit the
-regenerated native source/provenance and queue compilation plus the existing
-physical-only+city+Sohmer composed survey at3440×1440 on the hidden desktop.
-This updates source construction records, not any prior runtime receipt.
-
-**Native streets/apron replay is terminal:** both original producers exit0.
-All three exported GLBs and both runtime JSON projections are byte-identical to
-the saved originals. Construction geometry/measurements are exact; only source
-bindings and absolute exporter paths differ. Original failed preflight and exact
-comparison remain in **city_source_replay_01/REPLAY_REVIEW.json**. The full
-13-fixture closure now passes12 and catches a dependent horizon binding to the
-regenerated apron construction record. The original horizon producer is queued
-next (broker67264/session75125); all38 current export/runtime output hashes are
-frozen for comparison. No new city geometry, import, optical or runtime pass is
-claimed. Survey launch remains gated on that producer and the full preflight.
-
-**Source projection repair after the current gate board:** board at **1b3b50cb1**
-finishes 119 gates: 113 PASS, five FAIL, one INCOMPLETE. It is a dirty feature
-board, not a clean-main comparison. The household projection test exposes twelve
-closet records whose runtime profiles/bounds had not reached the authoring source.
-Copy only those surveyed profile/bounds fields into the existing source and run
-the existing producer; runtime bytes and all unrelated values stay identical.
-The eight projection tests and complete 19-instance binding preflight pass.
-The remaining surface, M11 source/export and completeness failures are not waived.
-Main **3f1051f59** (PR146, three design documents) is reconciled in **1ba6a09b9**.
-The exact 13-fixture surface preflight also exposes stale streets/apron native
-bindings. Their original producers are queued as broker53448/session1240, with
-11 named originals backed up at **city_source_replay_01/**. Inspect their terminal
-results and compare geometry before import/qualification; no producer or new
-surface pass is claimed yet. Current read-only UID revalidation finds all702
-UID files unchanged, zero tracked-source references/paths on main, four changed
-paired sources and five other private attachments. All remain in place.
-
-**Current result — bathroom_06 diagnostic PASS:** 1,953 checks, zero failures,
-353.77 seconds on committed source **95d876985**. Both occupied V2 worlds finish
-startup (137.300 and 143.344 seconds); the second reconstructs from the validated
-campaign disk save. All 19 lavatories and 19 closets are present. The programme
-exercises actual partial-valve and plug lift/release input, toilet flush and
-cistern-cover acquisition/motion/release, with 57 lavatory wall queries and
-114 closet contact queries across both worlds. All four actual 3440×1440 frames
-were inspected; the cistern cover is visibly displaced. Twenty resident UID
-fallback warnings remain; there are no script/engine error headers. This is an
-automated diagnostic, **not a schema-2 runtime contract**, artistic acceptance,
-full physical-surface renewal or candidate verification. Staff 5255 and 5A/6A
-bypass hardware still require runtime optical closeups in the combined survey.
-Added draw/collision cost and playable-world stutter remain unmeasured. Original
-failed runs 03–05 remain preserved; their “next” instructions below are historical.
-Evidence: **C:/ov/reports/native_intake_20261102/bathroom_06/DIAGNOSTIC_REVIEW.json**,
-**installed.log.receipt.json**, and **frames/lavatory.json**. No owned Godot run
-remains active. Next: add those two inspection stations to the existing physical
-survey, renew the strict surface packet, compare against a clean current-main
-board and verify the candidate before merging draft PR145.
-
-**Latest05failure and complete roster correction:** sixloaded metadata profiles
-now pass; startup refuses missing explicit **2C_wc** binding,128checks/1failure,
-26s. No full world/reconstruction runs. The earlier13-instance assumption was
-wrong: there are19toilets (12direct, sevencompletion clones). All19source wall
-depths and service cuts are now surveyed; sixremaining clones reuse existing
-variants with explicit bindings. Staff retains5255,5A/6Aretain the bypass. Test
-now requires19. Canonical builder has a Python-only **--check-bindings** mode
-checking the complete source-anchor roster before Blender/Godot. It passes19;
-in-memory missing/unknown **2C_wc** negative controls are rejected. Native geometry
-and export remain unchanged. Acoustic graph physical payload is again verified
-unchanged while its source binding updates. Preserve05logs; next06needs only
-compilation/runtime, reusing04's import. No new runtime pass is claimed.
-
-**Latest runtime attempt — bathroom04:** import passes15s; all four scripts
-compile. Loaded preflight ends127checks/6failures in13s, before world startup.
-All six failures are the test reading node extras as flat metadata. Verified
-4.7.1 engine source uses **set_meta("extras", ...)**, as the installed companion
-register already does. Test now reads that dictionary for depth/contact markers;
-no geometry or tolerance changes. Preserve04failure receipts. Next05reuses the
-successful import and runs compilation plus the combined programme. No new
-occupied-world or appearance pass is claimed for the corrected native candidate.
-
-**Corrected native candidate, not runtime-qualified:** the closet library now has
-sixprofiles: four retained, deeper staff **WCService_5255**, and offset
-**WCService_4255_Bypass** for5A/6A. Canonical153-line builder preserves the original
-fixture; 88reference objects retain exact local transforms/geometry/normals/UV.
-Twochanged variants pass328sampled mechanism/cover poses, deliberate blocker,
-91closed-stock/contact checks and an unchanged .18m B_STEM collider proxy.
-FourCPUviews inspected.12retained primitives keep exact oriented triangle
-attributes; eightreorder buffers. Reopened source publication is byte-identical:
-GLB **09e02e5abe7e240db1121354e5c09a1dfa1fe7ff39e596be69593e3356b6d4b1**,
-36752tri/18library surfaces; selected kits remain3surfaces,5720normal/8152bypass.
-Staff completion clone now requires an explicit profile and derived rear bound;
-vents/fixture anchors/soil pipes stay unchanged. Contact checks consume native
-markers, not obsolete straight-pipe positions. Acoustic ventilation is regenerated
-with identical physical payload;43acoustic tests pass, readerNEW0 and178recipe
-projections pass. Native evidence: **C:/ov/reports/native_intake_20261102/closet_revision_01/**.
-The corrected source has not yet run in Godot; preserve failed03below.
-
-Draft review: **https://github.com/NateHiggins/Lily-s-Music-Box/pull/145**.
-It preserves the full62-path integration branch and explicitly holds merge for
-combined runtime, strict surface, exact-main comparison and candidate checks.
-No auto-merge is enabled. Read-only cleanup evidence at
-**C:/ov/reports/native_intake_20261102/source_uid_custody.json** finds702generated
-UIDs paired with tracked source, zero tracked-text references and zero UID paths
-already on main; cached references remain unaudited. All files remain in place.
-
-**Latest actual run — bathroom03 FAIL:**1777checks/18failures,361.72s; compiled
-test passes and both worlds finish startup142.150s/149.540s. All four renders
-were personally inspected; original receipts and DIAGNOSTIC_REVIEW.json remain
-at **C:/ov/reports/native_intake_20261102/bathroom_03/**. No owned engine/broker
-remains live. The new lavatory actual plug/valve and fresh-reconstruction checks
-have no failed assertions, but the combined programme fails and grants no formal
-acceptance. Closet failures: staff template produces a13th WC with inherited
-wrong .4255m hardware (source face .5255m); 5A/6A left mounts sit in existing
-ventilation B_STEM wall clearances; raised lid occludes the cover test's ray.
-Test edits now lower that lid through actual input, release any wrong picked
-part, log exact closet contact hits, count13instances and skip a costly second
-world when the first already fails. Those test edits are not rerun yet.
-Next author .5255staff and .4255vent-bypass native variants, with explicit
-completion-instance binding; preserve vents, fixture anchors and soil pipes.
-Then reuse the combined programme. Do not simply relax wall tolerances or count
-only the12original packet targets.20UID fallback warnings persist across two
-worlds. Update the historical queued statuses below against this terminal result.
-
-**Continuation checkpoint:** merge **4f18420e4** is committed and pushed; no
-merge remains in progress. **lavatory_06** adds an actual standing-controller
-plug lift/release and a second, newly constructed V2 world loaded through the
-validated campaign save owner. These additions are authored, not yet verified.
-For Lily's faster batch direction, that waiting broker6172 was cancelled before
-any Godot existed or stage launched. No06runtime result exists; cancellation is
-recorded in its external directory. Its replacement is **bathroom_02**, combining
-the lavatory programme with additive closet services. Twelve existing toilet
-records select four native profiles; original mechanisms and save owners stay.
-Only the new fixed collider participates in the explicit owned-blocker sweep.
-All26sealed files/ninepre-intake bindings match; raw CRLF explains the native
-blockout hash, not a geometry drift. New source/export/import/publisher are
-unqualified until the combined batch runs. The first seated lavatory plug remains
-a fixture; mouse seating is not claimed. **bathroom_02** is terminal: import
-passes17.8s; threeproduction scripts compile, but the test fails on threeinferred
-Variant annotations. No occupied world starts. Twoexplicit bools and oneWeakRef
-now correct the test; preserve the original failure receipts. Godot assigns UID
-**uid://cepkr8v3p26u1**, unique locally and absent main. **bathroom_03** reuses that
-import and queues compilation plus the combined programme (broker37988,
-exec77493). Inputs are frozen; recheck its live handle and receipts at
-**C:/ov/reports/native_intake_20261102/bathroom_03/**. Candidate37a4fe900 and
-custodyf529f82f1 are pushed. ReaderNEW0, physical source retention and178recipe
-projections pass; no new runtime acceptance.
+**Shared work:** Claude owns mail-bank/watch-station intake on
+**intake-range-mail-watch**, now **002a6b37b** (authored strict-by-default hand-test
+clarification not rerun). The earlier37/0 establishes free-look crank input only,
+not fixed inspection-camera coverage. Paired old-asset failures/receipts are under
+**C:/ov/reports/mail_intake_20261102/**. Claude's moon-name first draft is also
+waiting behind145; later cohorts coordinate one renewal. The gas-range contact
+refit already merged viaPR127; do not reinstall it from a library hash mismatch.
+Architect/city expansion remains owner-paused; preserve its worktree and dirty
+preparation. Remaining native deliveries are not bulk accepted. Preserve all
+story, inventory, reading/calendar/weather and validated save authorities.
 
 ## November 2 — installed lavatory diagnostic passes; formal qualification open
 

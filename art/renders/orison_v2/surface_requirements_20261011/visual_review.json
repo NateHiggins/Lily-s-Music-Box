@@ -1,22 +1,56 @@
 {
- "status": "PASS",
- "scope": "Physical-surface renewal for the Lena's mending counter at the Model Laundry. 18 renders were read together on one contact sheet at thumbnail scale; three are published. Technical surface review only; no city, artistic, interaction or whole-world acceptance. The dumbwaiter render is occluded and grants nothing.",
- "surface_inputs_sha256": "6e9042a5b091a75d5675df61a12014eea3d7dece6e39faf2a582a200ac045462",
- "images": [
-  {
-   "file": "F03_B_MAIN.png",
-   "sha256": "be6556cf122bea8b7bc07a2dfbd9c609733e296a1ae89e58b923e8fcc0c41359",
-   "observation": "Apartment 3B main room with a resident standing at the table. Floor, walls, furniture and the set all read as textured surfaces, nothing flat or stretched at this scale."
-  },
-  {
-   "file": "mail_bank.png",
-   "sha256": "a47edb6c2a6120bfee7f737128eba78f32e2337cdc8b78099ef10d318b2e7c08",
-   "observation": "Mail bank on the lobby wall, boxes and cards textured and in place. Dark corner, as in earlier renewals."
-  },
-  {
-   "file": "watch_station.png",
-   "sha256": "4ff7b0ab9ca0e23f0dcee400863854fc5a804d6218874143451a81065733fdac",
-   "observation": "Watch station clock box on a dark wall, textured and in place."
-  }
- ]
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "scope": "Technical rendered review of representative unchanged/new physical presentation only; no human artistic, whole-game, weather or performance acceptance.",
+  "surface_inputs_sha256": "cd3528a110c200021a8e798a306febdaffbccd1ebac93268e45f30fb2c1a9a6a",
+  "review_method": "All67actual captures inspected via four contact sheets; staff/bypass/court additionally inspected individually. Eight representative source images retained in the published packet to bound evidence size.",
+  "artistic_acceptance": false,
+  "images": [
+    {
+      "file": "F03_B_MAIN.png",
+      "sha256": "35baaecee32379c02bdfeef5f8c558d40d14afbe9737badb91f1b6843b29316e",
+      "observation": "Retained occupied room, furnishings, resident and companion render together with registered surfaces; lighting/readability and game feel are not artistically accepted."
+    },
+    {
+      "file": "mail_bank.png",
+      "sha256": "eb4f8501cddd0976a4c3c0432fd236075f3e9e85e871ad6d383370295058ecaf",
+      "observation": "Retained mail doors and labels render against their wall; this is the existing stock, not Claude's pending refit, and it grants no mail interaction acceptance."
+    },
+    {
+      "file": "watch_station.png",
+      "sha256": "eb63ba7be6f372104efbfa31e35763532ab401f3df8fb6f87a86573760d51720",
+      "observation": "Retained register/crank are visible in a dark corridor; this is the old installed stock, not the pending refit. Full inspection-camera behavior is not proven."
+    },
+    {
+      "file": "staff_closet_deep_services.png",
+      "sha256": "7e6350affe54e89a31861f6c23c63a48f58228aff457d728a5257d52544a102c",
+      "observation": "Deeper staff cistern brackets visibly reach their tile receiving wall; glaze and wood remain distinct. Lid-edge shadow aliasing is visible and not artistically accepted."
+    },
+    {
+      "file": "closet_vent_bypass_services.png",
+      "sha256": "c127488256e8c35ea1db80264a838bcb414698bb302696abbdcc65c2ffe651ef",
+      "observation": "Existing vertical vent remains exposed and the offset support is seated beside it; lower supply geometry is partly hidden by the cistern, so this pose is not comprehensive optical proof of every bend."
+    },
+    {
+      "file": "western_HORIZON_NEAR_3_0_P1_delivery_court.png",
+      "sha256": "c03fdffde23cf31834c5a74ec56d75a266bbca8412ee3ecc781a5853efbc5da0",
+      "observation": "Actual factory delivery-court endpoint after eight connected controller legs: receiving paving, recessed door, brick and glazed sash are visible with the companion. Scenic-door use and a whole-building journey are not accepted."
+    },
+    {
+      "file": "roof_tank_uv.png",
+      "sha256": "014ce1af1314b766850f999320ce080f7cbebc2fd9bb1b271dabac767378a727",
+      "observation": "Retained roof tank keeps its complete body, supports and roof context; this posed daylight image is not a distance-LOD or performance acceptance."
+    },
+    {
+      "file": "east_moonlight_baseline.png",
+      "sha256": "77fe6337078be50a37101e02b63a655cce6ae792bcf58c0b675b65971b956eb2",
+      "observation": "Original night lighting shows the city and occupied window depth with the factory tower silhouette. Dark roof interiors, repeated distant silhouettes and sky artistic qualification remain open."
+    }
+  ],
+  "remaining_limits": [
+    "Some unchanged inspection views are poor: the dumbwaiter camera is wall-occluded; that image grants no appearance acceptance.",
+    "The new lower vent-bypass supply remains partly concealed in the runtime view; native views/contacts and strict loaded checks are separate evidence.",
+    "Stair-stepped cistern lid shadows and distant repetitive city massing remain visual debt.",
+    "No weather annual artistic acceptance or playable-frame performance result."
+  ]
 }
