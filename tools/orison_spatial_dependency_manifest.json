@@ -294289,6 +294289,36 @@
    "target_exists": null
   },
   {
+   "key": "d207c9b1cdba3b40",
+   "kind": "id_reference",
+   "token": "5A_wc",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    396
+   ],
+   "count": 1,
+   "context": [
+    "[\"5A_wc\",Vector3(.72,1.28,.04),Vector3(-.08,.95,.39),\"closet_vent_bypass_services\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "b8306dcb882bbb77",
    "kind": "id_reference",
    "token": "B1_BOILER_01",
@@ -294362,6 +294392,34 @@
    "count": 1,
    "context": [
     "[\"B1_WATCH_STATION\",Vector3(.2,.25,.7),Vector3(0,.16,.09),\"watch_station\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e7f84613057f07d8",
+   "kind": "id_reference",
+   "token": "F01_STAFF_WC",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    395
+   ],
+   "count": 1,
+   "context": [
+    "[\"F01_STAFF_WC\",Vector3(.72,1.28,.04),Vector3(0,.95,.49),\"staff_closet_deep_services\"],"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -294655,8 +294713,8 @@
     "_run"
    ],
    "lines": [
-    425,
-    427
+    427,
+    429
    ],
    "count": 2,
    "context": [
@@ -294716,7 +294774,7 @@
     "_run"
    ],
    "lines": [
-    395
+    397
    ],
    "count": 1,
    "context": [
@@ -294747,8 +294805,8 @@
     "_run"
    ],
    "lines": [
-    488,
-    490
+    490,
+    492
    ],
    "count": 2,
    "context": [

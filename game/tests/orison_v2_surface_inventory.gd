@@ -392,6 +392,8 @@ func _run() -> void:
 		["B1_BOILER_01",Vector3(.6,1.45,-2.15),Vector3(0,1.,0),"boiler"],
 		["F04_B_MONITOR_01",Vector3(.35,.8,-1.3),Vector3(0,.3,-.2),"signal_terminal"],
 		["F02_2A_TOASTER_01",Vector3(.25,.35,-.65),Vector3(0,.1,0),"toaster_crumbs"],
+		["F01_STAFF_WC",Vector3(.72,1.28,.04),Vector3(0,.95,.49),"staff_closet_deep_services"],
+		["5A_wc",Vector3(.72,1.28,.04),Vector3(-.08,.95,.39),"closet_vent_bypass_services"],
 		["LobbyServiceDumbwaiter",Vector3(.65,1.,1.7),Vector3(0,1.,0),"dumbwaiter"]]:
 		var actor := world.find_child(str(station[0]),true,false) as Node3D
 		check(actor != null,"capture station exists: "+str(station[0]))

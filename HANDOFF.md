@@ -1,5 +1,25 @@
 # Current continuation — November 2 V2 native intake
 
+**Current result — bathroom_06 diagnostic PASS:** 1,953 checks, zero failures,
+353.77 seconds on committed source **95d876985**. Both occupied V2 worlds finish
+startup (137.300 and 143.344 seconds); the second reconstructs from the validated
+campaign disk save. All 19 lavatories and 19 closets are present. The programme
+exercises actual partial-valve and plug lift/release input, toilet flush and
+cistern-cover acquisition/motion/release, with 57 lavatory wall queries and
+114 closet contact queries across both worlds. All four actual 3440×1440 frames
+were inspected; the cistern cover is visibly displaced. Twenty resident UID
+fallback warnings remain; there are no script/engine error headers. This is an
+automated diagnostic, **not a schema-2 runtime contract**, artistic acceptance,
+full physical-surface renewal or candidate verification. Staff 5255 and 5A/6A
+bypass hardware still require runtime optical closeups in the combined survey.
+Added draw/collision cost and playable-world stutter remain unmeasured. Original
+failed runs 03–05 remain preserved; their “next” instructions below are historical.
+Evidence: **C:/ov/reports/native_intake_20261102/bathroom_06/DIAGNOSTIC_REVIEW.json**,
+**installed.log.receipt.json**, and **frames/lavatory.json**. No owned Godot run
+remains active. Next: add those two inspection stations to the existing physical
+survey, renew the strict surface packet, compare against a clean current-main
+board and verify the candidate before merging draft PR145.
+
 **Latest05failure and complete roster correction:** sixloaded metadata profiles
 now pass; startup refuses missing explicit **2C_wc** binding,128checks/1failure,
 26s. No full world/reconstruction runs. The earlier13-instance assumption was
