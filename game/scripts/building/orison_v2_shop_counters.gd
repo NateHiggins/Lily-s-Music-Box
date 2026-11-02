@@ -44,6 +44,8 @@ const LAUNDRY_ROW := "storm_shop_model_laundry_counter_top"
 const LAUNDRY_ALONG := -42.1
 const LAUNDRY_BUNDLE_ALONG := -40.7
 const LAUNDRY_BUNDLE_EDGE := 0.2
+const MENDING_ALONG := -40.35
+const MENDING_ACROSS := 10.0
 const LUNCHEONETTE_ROW := "storm_shop_luncheonette_counter_top"
 ## The customer edge of the top, down the far end from the register and ledger.
 const LUNCHEONETTE_ACROSS := 19.05
@@ -203,6 +205,21 @@ static func mount_laundry_bundle(world: Node3D) -> Node3D:
 	passage.transaction_actor_root().add_child(counter)
 	counter.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY,
 			GameBoot.b2g([float(top.rect[0]) + LAUNDRY_BUNDLE_EDGE, LAUNDRY_BUNDLE_ALONG, float(top.z0) + float(top.h)]))
+	if not counter.configure(world.shop_counters.model_laundry):
+		counter.free()
+		return null
+	return counter
+
+
+static func mount_mending_counter(world: Node3D) -> Node3D:
+	var passage: Node3D = world.passage_region
+	var top := _row(passage, LAUNDRY_ROW)
+	var counter: Node3D = preload("res://scripts/props/mending_counter.gd").new()
+	counter.name = "MendingCounter"
+	passage.transaction_actor_root().add_child(counter)
+	counter.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([MENDING_ACROSS, MENDING_ALONG, float(top.z0) + float(top.h)]))
+	counter.runtime = world
 	if not counter.configure(world.shop_counters.model_laundry):
 		counter.free()
 		return null

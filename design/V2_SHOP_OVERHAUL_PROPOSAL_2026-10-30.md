@@ -396,7 +396,7 @@ are, and the ticketed racks or the smell joke. No sole wear, per ruling 5.
 The Model Laundry's uniform wash is built. The terminal takes the order, the bundle stands on the
 counter and the hand pushes it across; it comes back tied up the next day. A wash lasts a week.
 After that the first warm reply each resident gives counts for one less, and it can't take trust
-below where it was or close a door. Not built: the mending counter, and the shirt, collar and
+below where it was or close a door. Not built: the shirt, collar and
 wet-wash services, which have nothing of yours to work on yet.
 
 The parcel wall is built on the shop's own forty parcels. A resident gives a ticket number at the
@@ -406,6 +406,12 @@ over at the door pays a tip within the economy's caps. One parcel is out at a ti
 in five changes each fortnight, a claimed place stays empty for a fortnight, and the top row is the
 old unclaimed work and never moves. The errand costs the player nothing. Not built: the parcel after
 July that nobody will come for, which needs a named owner.
+
+Lena's mending counter is built. Mending shares the terminal; the folded coat slides along the
+counter to her end and comes back the next day. A mend lasts four weeks, and frayed cuffs cost the
+same first-contact point as a dirty uniform, with their own slip. The uniform can't be at both ends
+at once. Lena stands at her end from 14:00 to 17:00 on weekdays; the rest of her timetable, her 2B
+basket, **m_button_book** and **m_bag_ticket** are unchanged.
 
 Each slice owes: real grabbing and release in tests, a schema-2 runtime receipt, reader
 gate NEW 0, a draw-call measurement on the Arcade route, and a playable pass for Lily.

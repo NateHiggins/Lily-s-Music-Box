@@ -35,7 +35,7 @@ func _route() -> void:
 	var point: Node3D = world.shop_counters.get("model_laundry")
 	var counter: Node3D = world.laundry_bundle
 	if not _require(point != null and counter != null, "the Laundry has a terminal and a bundle"): return
-	_require(point.item_ids == [LaundrySales.UNIFORM], "the terminal offers the uniform: %s" % [point.item_ids])
+	_require(point.item_ids == [LaundrySales.UNIFORM, LaundrySales.MENDING], "the terminal offers the uniform: %s" % [point.item_ids])
 	_require(LaundrySales.presentable(), "the uniform starts clean")
 	world.get_node("CaretakerEconomy").book().cash = 300
 	var hand: Node = Hands.new()
