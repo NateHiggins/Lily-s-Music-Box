@@ -386,6 +386,13 @@ reads to today, granting **m_register**. The window's cards change on their auth
 of them are read from the street (**m_aviation_card**, **m_nadia_card**). Not built: exposing a plate
 yourself, so every print shows the same street, and any use for a print beyond keeping it.
 
+Shoe Rebuilding is built. Half soles are paid for at the bench's own terminal, your boots stand
+on the bench and you are in borrowed slippers. The hand slides them along to the finisher; short
+of the end they come back. They return the next day at the far end, and the same stroke brings
+them home, resoled. The player's steps are now heard, at a level set by what's on the feet. Not
+built: footsteps that change by floor surface, anyone in the building reacting to how loud you
+are, and the ticketed racks or the smell joke. No sole wear, per ruling 5.
+
 Each slice owes: real grabbing and release in tests, a schema-2 runtime receipt, reader
 gate NEW 0, a draw-call measurement on the Arcade route, and a playable pass for Lily.
 

@@ -1,55 +1,22 @@
 {
-  "status": "PASS",
-  "scope": "All68 actual completed-world PNGs individually inspected. Technical city surface/framing/controller-endpoint review only; no fullcity,wholeworldFPS,artistic,weather,creature,interior or save acceptance. Standard dumbwaiter image is occluded and grants no subject acceptance.",
-  "surface_inputs_sha256": "c9dddac8928c665f1841d50880e3b623782a494d1120ff6fb2b4098c9bbe5876",
-  "images": [
-    {
-      "file": "HORIZON_NEAR_3_3_P1_front_roof.png",
-      "sha256": "e9fc894ee75cc08219299fd02d54222f9fa41c6ce3463c9c6f9e8b19c81337ca",
-      "individually_inspected": true,
-      "observation": "Complete Hawthorne bar/arched upper windows/balustrade/chimneys and front portico or rear paving/soil beds framed. Deep shadows and bare planting remain open. Posed camera, not player travel."
-    },
-    {
-      "file": "HORIZON_NEAR_3_3_P1_rear_court_roof.png",
-      "sha256": "19f1341e09065e274277864a65af1067c161ffee029b72250d4eb3107e6770a4",
-      "individually_inspected": true,
-      "observation": "Complete Hawthorne bar/arched upper windows/balustrade/chimneys and front portico or rear paving/soil beds framed. Deep shadows and bare planting remain open. Posed camera, not player travel."
-    },
-    {
-      "file": "HORIZON_NEAR_3_3_P2_front_roof.png",
-      "sha256": "7bac0c044271c09c84b17b59c5191fcd85b3b4cbf12c9a17786072e2d9773cc0",
-      "individually_inspected": true,
-      "observation": "Complete Hayes U-court/mansard/dormer/pavilion silhouette framed with visible open passage. Dark ground and generic surroundings remain unfinished. Posed camera, not player travel."
-    },
-    {
-      "file": "HORIZON_NEAR_3_3_P2_rear_court_roof.png",
-      "sha256": "e605366fab6fba967b6721b77e45d3d4f831e3c670debd0ae4226242f239745a",
-      "individually_inspected": true,
-      "observation": "Complete Hayes U-court/mansard/dormer/pavilion silhouette framed with visible open passage. Dark ground and generic surroundings remain unfinished. Posed camera, not player travel."
-    },
-    {
-      "file": "city_open_west_frontage.png",
-      "sha256": "f91522b3af2c549864be382dc99f2795421b808ed1bff2a59127e1a5283eec79",
-      "individually_inspected": true,
-      "observation": "Retained city material/curb/window/roof stock visible. Deep ground shadows, flat sky and generic repetition remain open; posed view is not a new route."
-    },
-    {
-      "file": "city_townhouse_street_front.png",
-      "sha256": "3a213b1e24c7946cb13b7b0591e624b071162ee97518f7cab6da1ab6a5ed56c2",
-      "individually_inspected": true,
-      "observation": "Retained city material/curb/window/roof stock visible. Deep ground shadows, flat sky and generic repetition remain open; posed view is not a new route."
-    },
-    {
-      "file": "western_HORIZON_NEAR_3_3_P1_rear_garden.png",
-      "sha256": "024922e6b6a506d91da171728c23b1339735edfdb2254de01326eec5aeb6f656",
-      "individually_inspected": true,
-      "observation": "Actual standing controller on continuous rear path beside brick sill/basement and bare soil beds. Planting/ambient readability remain open."
-    },
-    {
-      "file": "western_HORIZON_NEAR_3_3_P2_vault_soffit_context.png",
-      "sha256": "1ac5bdd2f828f106f60975b6166565ef46d20c313bd699b586e4b9081c026d6a",
-      "individually_inspected": true,
-      "observation": "Actual standing controller beneath continuous pale vaulted passage: open court exit/sky and receiving floor remain visible."
-    }
-  ]
+ "status": "PASS",
+ "scope": "Physical-surface renewal for ten resident routines and Shoe Rebuilding. 18 renders were read together on one contact sheet at thumbnail scale; three are published. Technical surface review only; no city, artistic, interaction or whole-world acceptance. The dumbwaiter render is occluded and grants nothing.",
+ "surface_inputs_sha256": "2bb1e7af6ce6b0726a55212bc08736f8c67fb0e18df6d2616427fc454d06c7cf",
+ "images": [
+  {
+   "file": "F03_B_MAIN.png",
+   "sha256": "a8b5cdb540a383946714df89a742da320c1daaa45e12bb7440fc88a7f27dab5c",
+   "observation": "Apartment 3B main room with a resident standing at the table. Floor, walls, furniture and the set all read as textured surfaces, nothing flat or stretched at this scale."
+  },
+  {
+   "file": "mail_bank.png",
+   "sha256": "5a67a73070f13d97ddf589a5f3c6a3eb1ba128e853d8a08cfe52a0aacbadf96a",
+   "observation": "Mail bank on the lobby wall, boxes and cards textured and in place. Dark corner, as in earlier renewals."
+  },
+  {
+   "file": "watch_station.png",
+   "sha256": "7aaa3c11390c7b1b98a3c1751459d7f53f2a6d84ce3c4b7d035095073e015575",
+   "observation": "Watch station clock box on a dark wall, textured and in place."
+  }
+ ]
 }

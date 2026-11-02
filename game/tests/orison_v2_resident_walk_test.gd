@@ -70,8 +70,21 @@ func _run(world: OrisonV2RuntimeRoot) -> void:
 		return
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(_route.source_path))
 	var unit := str(source.unit)
+	if _route.outside:
+		# An off-map resident must not pop into the arrival camera's view.
+		# Exercise that guard, then actually look away instead of disabling it
+		# or forcing a resident transform to make a tour start.
+		_route.force_destination = "unit"
+		if _route._observed():
+			await get_tree().create_timer(.75).timeout
+			_check("observed off-map return remains hidden", _route.outside and not _route.actor.visible)
+		var away: Vector3 = world.player.camera.global_position - _route.actor.global_position
+		away.y = 0.0
+		world.player.camera.look_at(world.player.camera.global_position + away.normalized())
+		_check("player looks away before an unseen return", not _route._observed())
+	var only := OS.get_environment("WALK_ONLY").split(",", false)
 	for place: String in source.places:
-		if place == "unit":
+		if place == "unit" or (not only.is_empty() and not only.has(place)):
 			continue
 		_route.force_destination = place
 		await _walk(place)
@@ -124,7 +137,24 @@ func _walk(place: String) -> void:
 		previous = at
 		if _route.blocked_seconds > 3.0:
 			failures.append("blocked on the way to %s at %v: %s" % [place, at, _route.blocked_reason])
+			_print_block_state()
 			return
 		if _route.current_id == _route.desired_id and _route.path.is_empty():
 			break
+	if _route.current_id != _route.desired_id or not _route.path.is_empty():
+		print("STALLED on the way to ", place, ": ", _route.blocked_reason, " closing=", _route._closing_door, " busy=", actor.mina_animation.route_busy if actor.mina_animation != null else false)
+		_print_block_state()
 	_check("reaches %s (%.0f s)" % [place, elapsed], _route.current_id == _route.desired_id and _route.desired_id >= 0)
+
+
+func _print_block_state() -> void:
+	var root: Node3D = _route.world.adapter.root
+	var points: Array[Vector3] = []
+	for index: int in _route.path:
+		points.append(root.to_local(_route.graph.get_point_position(index)))
+	print("BLOCK STATE at ", root.to_local(_route.actor.global_position), " path ", points.slice(0, 4))
+	for door: DoorProp in _route._doors:
+		if is_instance_valid(door) and door.global_position.distance_to(_route.actor.global_position) < 3.0:
+			print("BLOCK DOOR ", door.name, " open=", door.open, " moving=", door._moving, " state=", door.leaf_state,
+					" local=", door.to_local(_route.actor.global_position), " width=", door.width,
+					" route=", root.to_local(door.global_position), " passage=", _route._door_passages.get(door, {}))

@@ -112,6 +112,7 @@ var shop_counters: Dictionary = {}
 var luncheonette_counter: Node3D
 var seat_gestures: Node3D
 var otis_fountain: Node3D
+var shoe_bench: Node3D
 var key_cutter: Node3D
 var clue_carriers: Dictionary = {}
 var photo_supplies: Dictionary = {}
@@ -909,6 +910,13 @@ func _compose_authorities() -> void:
 	otis_fountain=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_otis_fountain(self)
 	if otis_fountain==null:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: Otis fountain refused");return
+	shoe_bench=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_shoe_bench(self)
+	if shoe_bench==null:
+		startup_failed=true;push_error("ORISON V2 RUNTIME: shoe bench refused");return
+	var footsteps:=preload("res://scripts/player/player_footsteps.gd").new()
+	footsteps.name="PlayerFootsteps"
+	player.add_child(footsteps)
+	footsteps.attach(player)
 	seat_gestures=preload("res://scripts/player/seat_gestures.gd").new()
 	seat_gestures.name="SeatGestures"
 	add_child(seat_gestures)
