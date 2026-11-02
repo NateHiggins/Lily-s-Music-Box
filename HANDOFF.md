@@ -13,19 +13,24 @@ API was checked in the pinned engine RenderingServer.xml. No viewport pixels,
 new rendering work,quality reduction or timed scene traversal is introduced.
 
 Original world01 actual compiler fails at inferredVariant weakref(line93);
-no world composed. ExplicitWeakRef fix authored. **world02** compile+actual
-input/pause/shutdown/two-world sandbox review queued: session34585/broker61444,
-behind the next real resident run. Poll same handle; do not restart just for
-observation timeout. Canonical runtime/test are frozen through that run.
+no world composed. ExplicitWeakRef fix authored,not semantically verified.
+**world02 was cancelled before engine launch** at00:31:44UTC after the startup-eye
+hypothesis failed its primary outcome. Only own queued broker61444/session34585
+and its backed-up waiter record were stopped/removed; no Godot or foreign job
+was interrupted. External world02/CANCELLATION.json records the reason. No
+runtime verdict. Defer that two-world prototype qualification; any replacement
+intended for integration still requires real input/pause/save/reload checks.
 Candidate6270,observer7965 and world011146 are all terminal. Quiet hold released
 to both asset agents; startup CPU construction overlap retained in ledger.
 
 Owned C:/ov/c-ab46a508 advanced after terminal B to **d17e3e699** for the
 next pass trace; it had no generated churn to restore after B (empty external
 backup retained). **pass_trace01** compile+same-six-leg diagnostic queued as
-session13095/broker64040 after world02. It explicitly disables preparation and
+session13095/broker64040 now next after the current resident run. It explicitly disables preparation and
 records new per-viewport pass counters; no attribution verdict exists yet.
-Frozen executed transport/probe copies are external. Poll same handles and
+Frozen executed transport/probe copies are external. External1Hz host observer
+session49129 waits for its run log; poll/stop only that owned observer if no
+trace launches. Poll same handles and
 coordinate a new CPU-quiet interval when timing actually acquires. Source remains
 frozen; do not alter this owned checkout while its job is queued/running. Original baseline
 boardC371 remains valid as captured. Current physical packet remainsSTALE on

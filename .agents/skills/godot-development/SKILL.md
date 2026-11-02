@@ -77,6 +77,9 @@ and finish related Blender review before combined Godot captures.
 Add tests for meaningful behavior, not implementation-shaped assertions. Keep
 verification proportionate; reuse unchanged evidence where valid and repeat a
 check only when changed inputs, failures, or unresolved concerns justify it.
+If a candidate fails its required outcome, defer expensive qualification of
+that rejected version and prioritize diagnosis. Cancel only owned queued work;
+retain the cancellation and original failure without claiming a runtime pass.
 
 ## Minimize time spent running Godot
 
