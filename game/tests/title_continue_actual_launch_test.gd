@@ -66,6 +66,16 @@ class LaunchObserver extends Node:
 						and bool(world.service_set_carrier.call("is_story_absent"))
 				await get_tree().process_frame
 				checks["loading_veil_retires_after_actual_opening_starts"] = shell.find_child("OpeningLoadingVeil", false, false) == null
+				var preparation: Dictionary=world.opening_render_preparation
+				checks["entry_render_preparation_finishes_before_handoff"] = bool(preparation.get("completed",false)) \
+						and bool(preparation.get("node_pose_unchanged",false)) and not bool(preparation.get("cancelled",true))
+				if DisplayServer.get_name()!="headless":
+					checks["entry_render_preparation_uses_real_renderer"] = bool(preparation.get("executed",false)) \
+							and int(preparation.get("render_calls",0))==10
+				else:
+					checks["headless_entry_does_not_claim_rendering"] = not bool(preparation.get("executed",true)) \
+							and preparation.get("reason","")=="headless_no_rendering"
+
 				# Let the real presentation run, rather than seeking its clock or
 				# treating a startup flag as proof of the camera/input handoff.
 				if OS.get_environment("PROLOGUE_TITLE_FULL_SEQUENCE")=="1":
@@ -119,6 +129,7 @@ class LaunchObserver extends Node:
 					"prologue_phase": RealityState.data.get("prologue", {}).get("phase", "")},
 				"selected_root": world.scene_file_path, "source_primary_bytes": expected_bytes.size(),
 				"post_world_primary_bytes": FileAccess.get_file_as_bytes(RealityState.save_path).size(),
+				"entry_render_preparation":world.opening_render_preparation.duplicate(true) if world is OrisonV2RuntimeRoot else {},
 				"scope": "actual title button and scene transition with explicit campaign-time freeze; no human traversal"}
 		var path := OS.get_environment("TITLE_ACTUAL_RECEIPT")
 		if not path.is_empty():
