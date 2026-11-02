@@ -1,3 +1,34 @@
+# Current continuation — November 2 cityscape resumed
+
+Evidence class: **INERT**. Lily explicitly resumed city finishing with the architect.
+Canonical is **codex/v2-city-composition-20261102**, branched from current
+origin/main **4fae3c389e01ad798cda746e8f69b6a04dc4e51b**. Prior slab/performance
+experiments remain preserved and unmerged on PR138; they are absent here.
+Historical main/handoff counts below are stale: PR139 merged the southern pair
+at **1a7917eae**, and current Horizon source is **35 individual/89 generic**.
+
+Native city architect owns the Sohmer-inspired **HORIZON_NEAR_3_0_P1** factory,
+existing parcel and complete near/lower bodies in **C:/ov/city**. Canonical owns
+composition/access/LOD integration. Preserve Orison, shops, traffic, terrain,
+450m boundary and all gameplay/save/time owners. No deadline or artistic grant.
+
+One-world composition study **5c2cf72f6** is authored/parsed; reader **NEW0**.
+Shared-lane batch **session62685/broker32784** is waiting behind peers: one
+incremental import, one-script semantic preflight, then the actual existing
+night-review world with nine baseline/temporary ambient/restore roof images.
+Logs/receipts: **C:/ov/reports/city_composition_20261102/lighting_01/**.
+Inputs frozen while queued/running. No runtime pass or production light change.
+Do not repeat launches or unrelated hose/walk suites. Use hidden desktop.
+
+Modeler intake is now reconciled read-only at **5c2cf72f6**:28 deliveries,
+27 preferred plus earlier lavatory dependency;33 selected GLB hashes checked,
+65 current buffers stable. Range is consumed through the rebuilt family;
+most checked alternatives are uninstalled. Preserve two root-snapshot drifts,
+airer/gate adapter and access/cost gaps. External audit is at
+**C:/ov/reports/native_intake_20261102/INTAKE_RECONCILIATION.json**. This is source
+intake, not loaded/input/save/performance or artistic qualification. City stays
+first; do not bulk install the native backlog or resume its construction hold.
+
 # Current handoff — November 1 Western apartment pair merged
 
 Evidence class: **INERT**. Owner Lily,she/her. Canonical C:/PleaseRemainOnTheLine
