@@ -6694,3 +6694,29 @@ with post-timing same-pose slab controls. Host observer75778 waits for the run.
 No new runtime result,admission count or speedup is claimed yet. Earlier fixture
 and composed failures remain preserved. Current physical receipt is stale on
 the unmerged culling changes and still requires renewal before integration.
+
+
+## Corrected composed02 and owner pause — November 1
+
+Evidence class: **INERT**. Owner requested pausing at a good point. Active run
+finished before pause:24checks/six normal-controller legs/0failures,empty stderr,
+twoimports andthree-script compilerPASS. Source16bdc55ae before/after agrees
+with the receipt.26slabs admitted,1259total structural sources. Same-pose
+new-occluder enabled/disabled/return main visible draws14592/14700/14592,
+visible primitives20081242/20202884/20081242. Shadow primitives26479007unchanged;
+shadow draw fluctuations15159/15131/15131 do not establish an improvement.
+
+All three optical controls inspected. This one world stance looks intact;
+companion pose/expression,TAA and sky vary,so no exact pixel parity or broad
+visibility/artistic acceptance.214route intervals:p50/p95/p99/max
+20.298/55.577/215.404/237.971ms,threeover100ms. No matched FPS speedup and stutter
+remains. Prior traces use different city sources. External227sample observer
+maxbody24.919ms is not per-frame or causal attribution. Existing archive
+slab_composed02 retains raw/source/analysis/receipts; externalPNG SHAmanifest
+and visual review avoid duplicate bulk images. Original failures retained.
+
+Broker61668/session99114 and observer75778 are terminal;CPUquiet released.
+No further engine runs or newwork queued. PR138 stays unmerged,physical packet
+stale;qualification/candidate gates remain due before integration. Upon resume,
+assess whether this modest108draw reduction merits qualification before another
+optimization. Full V2,hose/book/nook/reload and artistic acceptance remain open.

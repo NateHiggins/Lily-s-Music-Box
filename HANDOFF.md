@@ -1,76 +1,51 @@
-# Current work — complete-slab occlusion candidate; November 1
+# Paused at owner request — November 1
 
-Evidence class: **INERT**. Canonical branch **codex/v2-slab-face-occlusion-20261101**
-is pushed through **3f9edfd8b** in draft PR138:
-https://github.com/NateHiggins/Lily-s-Music-Box/pull/138
-Local main and origin/main are **1a7917eae** after PR139. PR138 is still
-unmerged and has no speedup acceptance. Rejected startup-eye
-warmup from closed PR137 is excluded; its original failures remain preserved.
+Evidence class: **INERT**. Lily explicitly requested pause at a good point.
+All owned engine/observer jobs are terminal. No further work is queued by this
+chat. Canonical **codex/v2-slab-face-occlusion-20261101** remains unmerged in
+[PR138](https://github.com/NateHiggins/Lily-s-Music-Box/pull/138). Main/origin/main
+are **1a7917eae**,including qualified city pair PR139. No whole-V2 acceptance.
 
-City pair PR139 merged normally at **1a7917eaeae47d34005a755cf34334bd9a6650ff**.
-Clean management verifier on06f465708 passed all119rows withzero regressions,
-requirements unchanged,protected17/17,V2 andlint0. It used --no-godot; existing
-exact-source engine proof was inspected/reused,not rerun. Merge tree matches
-qualified candidate tree668e611b78eaba27e09fefd92835fa951cf67b2d exactly.
-Four front/rear renders and archive141members/CRC/SHA independently inspected.
-Horizon now35individual/89generic;dark courts/ground,flat sky,sparse planting,
-whole-city performance and artistic acceptance remain open. Canonical PR138
-source reconciled new main in merge853d30964 after corrected fixture03 became
-terminal. Both append-only conflicts preserve city and stutter evidence.
-Management evidence: C:/ov/reports/city_streets_20261029/western_south_pair_01/
-management_verify_01/verification.json. Architect holds new construction.
+**Composed02 actualPASS:**24checks/six completed controllerlegs/0failures,
+empty stderr,pinned patched Vulkan,hidden fullscreen3440×1440. Two incremental
+imports and3-script compiler passed. Frozen source16bdc55ae; source before/after
+matches receipt.26new closed slabs admitted,1259total structural sources.
+Same-pose enabled/disabled/return main visible draws14592/14700/14592;
+shadow primitives unchanged26479007. All three control images inspected: no
+obvious scene loss in this stance;companion/TAA/sky vary. Not pixel parity,
+comprehensive visibility,artistic acceptance or matched speedup. Actual route
+214intervals:p50/p95/p99/max20.298/55.577/215.404/237.971ms,three over100ms.
+Stutter remains unresolved. Earlier traces use different city sources and must
+not be sold as a causal improvement. Host observer227samples,maxbody24.919ms
+is coarse host observation,not causal/per-frame attribution.
 
-The candidate admits only visible, opaque, actually six-face closed slab boxes
-through the existing structural validator. Incomplete sheets and apertures remain
-rejected. It preserves wall behavior, physical geometry, input and save owners.
-Actual fixture02 passed15 checks/0 failures in14.30s, empty stderr. Above/below
-pixel parity is exact with objects5→3 and5→4. All six images inspected. Original
-fixture01 grow-property error and three failures are retained. Small-fixture
-proof does not establish composed-world visibility, performance or acceptance.
+Run/source/analysis/receipts and all original failures are preserved in existing
+art/reviews/v2_entry_render_preparation_20261101.zip,slab_composed02. High-resolution
+PNGs remain external with SHA links at C:/ov/reports/slab_occlusion_20261101/
+composed02/visual_review.json; no duplicate bulk image intake. Runtime broker
+61668/session99114 and observer75778 are terminal. CPU quiet released to peers.
 
-**Composed01 is terminal FAIL:**178.08s,24 checks/six completed controller
-legs/one assertion failure,44 real script errors,empty slab admission. Source
-before/after matches wrapper signature. The existing six-face validator assigned
-Nil from a legitimate non-indexed surface directly into PackedInt32Array. This
-is not stale cache or a valid timing/visibility result. Full failed raw output,
-three controls, source and receipts are retained in the existing archive.
-Broker56984/session19285 and host observer43520 are terminal; CPU quiet released.
+Resume: assess the modest108draw reduction before deciding whether to qualify/
+ship this treatment or continue attribution. Physical packet is stale on the
+unmerged culling source; affected physical qualification and clean candidate
+verification remain required before PR138 merge. Actual clean119row main1a7917
+baseline is cached unchanged at C:/ov/boards/1a7917eaeae47d34005a755cf34334bd9a6650ff.v2.json
+(zero regressions,six pre-existing failing tool rows,incomplete ledger).
 
-Correction now verified by actual fixture03:17checks/0failures,13.77s,
-clean stderr and two-script compilerPASS. Actual absent-index geometry is used
-for the optical controls; above4→2 and below4→3objects,exact pixel parity.
-All six images individually inspected;aperture remains open. Source/test hashes
-and original failure are retained in the existing archive. Broker33568/session2218
-is terminal;do not launch another copy. This is still small-fixture proof only.
-Owned C:/ov/c-ab46a508 is now clean at main1a7917eae after preserving its prior
-inputs;zero generated churn needed restoration. Actual full new-main baseline
-board session73316 is terminal:119rows,zero regressions versusC371,six existing
-failing tool rows and incomplete ledger retained. Actual clean commit1a7917eae
-board is cached unchanged at C:/ov/boards/1a7917eaeae47d34005a755cf34334bd9a6650ff.v2.json.
-Canonical candidate includes merged main and all source fixes. **Composed02
-is queued once**,broker61668/session99114,source frozen16bdc55ae. Batch
-C:/ov/reports/slab_occlusion_20261101/composed02.json includes two incremental
-imports,three-script compile and original six-leg plus same-pose controls.
-Host observer75778 waits for its run log;no new timing result. No heavy baseline
-work remains. Poll these handles;do not duplicate jobs.
+City PR139 merged after clean candidate verification and exact-source engine
+proof;35individual/89generic Horizon profiles. Dark courts/ground,flat sky,
+sparse planting,full city performance/exploration and artistic acceptance remain.
+Owned temporary C:/ov/c-ab46a508 was removed cleanly after its baseline
+was preserved; the calling retired v2-baseline checkout and other agents’ trees
+are untouched. Generated LF-only import churn was backed up externally and
+restored by named paths; unrelated untracked UIDs and attachments remain.
+New construction held. All28external native packets remain unintegrated unless
+their specific intake record proves otherwise; modeler reconciliation is INERT.
 
-External analyze_run.py validates completion/source/test hashes and route/pass
-counts; it correctly refuses this failed run. Prior pass_trace01 had222 measured
-intervals,p50/p95/p99/max20.239/49.609/138.294/198.879ms,three over100ms;
-234post-draw observations and1233 original wall occluders. No candidate benefit.
-
-Book follow-up authored while waiting: the existing inspection-return diagnostic
-now inherits the print profile and optionally runs that actual opening/review
-first when ORISON_BOOK_PRINT_AND_RETURN=1. Same selected book and one world;
-default return-only scope remains. Syntax checked only; compile, rendered
-interaction and save/reload coverage remain unverified. No production book
-owner changes. The queued C checkout does not consume this new test edit.
-
-NEXT: follow queued composed02,coordinate CPU quiet when acquired,inspect
-actual admission/visibility and timing results. Do not claim benefit from the
-small fixture or compare changed city sources as a causal speedup. If the candidate improves its intended outcome, renew affected
-physical qualification and candidate regression gates before merging. Full
-V2/hose/book/nook coverage remains open; candidate surface packet is stale.
+Book print+return optional combined diagnostic is authored/syntax-checked only
+(**ORISON_BOOK_PRINT_AND_RETURN=1**),not compiled or run. Hose/full-distance,
+purchased-supply use,impact/wetting and remaining book/nook/reload qualification
+remain open. Preserve their current inventory,physics,reading and save owners.
 
 # Latest result — startup-eye timing rejected; November 1
 
