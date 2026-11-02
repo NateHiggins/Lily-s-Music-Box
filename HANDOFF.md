@@ -13,8 +13,11 @@ Only the new fixed collider participates in the explicit owned-blocker sweep.
 All26sealed files/ninepre-intake bindings match; raw CRLF explains the native
 blockout hash, not a geometry drift. New source/export/import/publisher are
 unqualified until the combined batch runs. The first seated lavatory plug remains
-a fixture; mouse seating is not claimed. Recheck live jobs and receipts at
-**C:/ov/reports/native_intake_20261102/bathroom_02/**. No new runtime acceptance.
+a fixture; mouse seating is not claimed. Replacement broker66140 is queued (exec69033); source inputs are frozen.
+Recheck its live handle and receipts at
+**C:/ov/reports/native_intake_20261102/bathroom_02/**. Candidate37a4fe900 is
+committed/pushed. ReaderNEW0, physical source retention and178recipe projections
+pass; no new runtime acceptance.
 
 ## November 2 — installed lavatory diagnostic passes; formal qualification open
 
