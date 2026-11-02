@@ -2,6 +2,7 @@ extends Node3D
 ## Passive stock in the retained building/grade frame and temporary walk radius.
 const FINISHES := "res://data/orison_v2/exterior/city_horizon.json"
 const WindowOptics := preload("res://scripts/building/v2_background_window_material.gd")
+const FactoryClock := preload("res://scripts/building/v2_city_factory_clock.gd")
 var _window_materials: Dictionary = {}
 var _window_clock := CampaignClock.new()
 var _window_check_left := 0.0
@@ -96,6 +97,12 @@ func _ready() -> void:
 			body.add_child(shape)
 	assert(replaced==lower_parts.size())
 	for lower: Node3D in lower_roots:lower.free()
+	var clock_faces: Array = source.get("clock_faces", [])
+	if not clock_faces.is_empty():
+		var movement := FactoryClock.new()
+		movement.name = "FactoryClockMovement"
+		assert(movement.configure_faces(self, clock_faces, profiles.keys()), "Factory dial presentation must bind native stock and campaign time")
+		add_child(movement)
 	add_child(StElmo.new(tips, 2.6))
 	set_meta("window_optical_preparation_ms", float(optical_usec) / 1000.0)
 	_refresh_windows()
@@ -189,6 +196,7 @@ static func manifest_failures(source: Dictionary) -> Array[String]:
 	var unique_paths: Dictionary={}
 	for path: String in paths:unique_paths[path]=true
 	if unique_paths.size()!=paths.size():errors.append("asset reused across base/lower roles")
+	errors.append_array(FactoryClock.face_failures(source.get("clock_faces", []), profiles.keys()))
 	return errors
 
 static func model_failures(model: Node3D, entry: Dictionary) -> Array[String]:
