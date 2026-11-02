@@ -250,6 +250,115 @@ class ResidentialHouses(MillLofts):
                     closed_stocks=self.parts,min_closed_stock_volume_m3=self.min_volume,style=self.style)
 
 
+class WesternStreetHouses:
+    """Three source-fitted houses beside Sohmer, facing source-local -X.
+
+    LPC0450 supplies the individual construction forms. Dimensions, placement
+    and finishes are AU choices. Reuse proven closed stock fabrication in a
+    rotated local frame; never rotate generated glTF or a runtime collision.
+    """
+    STYLES={'brick_2113','stone_2116','neogrec_2128'}
+    STOCK={'brick_2113':'italianate_2109','stone_2116':'stone_2129',
+           'neogrec_2128':'neogrec_2122'}
+
+    def __init__(self,row,emit,neighbours,lower=False):
+        import copy
+        self.row=row;self.emit=emit;self.lower=lower
+        self.study=row['architecture'];self.style=self.study['style']
+        assert self.style in self.STYLES
+        a,b,c,d=row['rect'];self.origin=Vector((a,-b,0.))
+        width=d-b;depth=c-a-self.study['rear_inset_m']
+        self.rotation=lambda p:Vector((p[1],-p[0],p[2]))
+        local=copy.deepcopy(row);local['rect']=[0.,-depth,width,0.]
+        local['architecture']['style']=self.STOCK[self.style]
+        # The legacy fabricator uses its rectangular receiving frame rather
+        # than the producer's world outline. Both describe the same body.
+        local['architecture'].pop('outline_m')
+        local['architecture'].pop('front_apron_rect_m')
+        local_neighbours=[]
+        for other in neighbours:
+            x,z,X,Z=other['rect']
+            local_neighbours.append(dict(other,rect=[z-b,a-X,Z-b,a-x]))
+        stock=ResidentialHouses if self.style=='brick_2113' else CivicRows
+        self.builder=stock(local,self._emit,local_neighbours,lower)
+        if self.style=='stone_2116':
+            self.builder.study['glazed_door_middle']=True
+            self.builder.stoop=self._stone_stoop
+        x,y,X,Y=self.builder.rect;margin=self.study['side_inset_m']
+        self.builder.rect=(x+margin,y,X-margin,Y)
+        assert X-x-2*margin>6. and depth-y>12.
+
+    def _emit(self,name,key,vertices,faces):
+        self.emit(name,key,[tuple(self.origin+self.rotation(p)) for p in vertices],faces)
+
+    def _stone_stoop(self,O,U,N,left,right,top):
+        """Stone group balustrades, with real open slots between closed piers."""
+        builder=self.builder;count=6;run=.25;landing=.25
+        builder.stock('limestone',O,U,N,(left-.14,-.06,-.12),(right+.14,landing,top),.008)
+        for i in range(count):
+            builder.stock('limestone',O,U,N,(left-.14,landing+i*run,-.12),
+                          (right+.14,landing+(i+1)*run,top*(count-i)/count),.008)
+        first=landing/2;last=landing+(count-.5)*run
+        rise=lambda t:top+(top/count-top)*(t-first)/(last-first)
+        for at in [left-.10,right+.10]:
+            # Sloped lower/coping rails connect to stone piers; the gaps
+            # remain open in the complete replacement body, not alpha paint.
+            for lo,hi in [(.05,.17),(.75,.86)]:
+                builder.profile('limestone',O+U*at,N,-U,
+                    [(first,rise(first)+lo),(last,rise(last)+lo),
+                     (last,rise(last)+hi),(first,rise(first)+hi)],-.065,.065)
+            for i in range(6):
+                depth=first+(last-first)*i/5;h=rise(depth)
+                builder.stock('limestone',O,U,N,(at-.055,depth-.045,h+.13),
+                              (at+.055,depth+.045,h+.78),.008)
+            for depth in [first,last]:
+                h=rise(depth)
+                builder.stock('limestone',O,U,N,(at-.095,depth-.095,h),
+                              (at+.095,depth+.095,h+.90),.015)
+                builder.stock('limestone',O,U,N,(at-.12,depth-.12,h+.90),
+                              (at+.12,depth+.12,h+.98),.009)
+
+    def build(self):
+        result=self.builder.build();builder=self.builder
+        # Four closed chimney walls retain a real flue opening in both bodies.
+        # The low skirt overlaps the existing roof, rather than floating above it.
+        x,y,X,Y=builder.rect;cx=x+.65;cy=Y-.8;bottom=builder.eave+.08;top=bottom+1.05
+        for lo,hi in [((cx-.25,cy-.25,bottom),(cx+.25,cy-.14,top)),
+                      ((cx-.25,cy+.14,bottom),(cx+.25,cy+.25,top)),
+                      ((cx-.25,cy-.14,bottom),(cx-.14,cy+.14,top)),
+                      ((cx+.14,cy-.14,bottom),(cx+.25,cy+.14,top))]:
+            builder.box('arcade_brick_bond',lo,hi)
+        for lo,hi in [((cx-.29,cy-.29,top),(cx+.29,cy-.14,top+.10)),
+                      ((cx-.29,cy+.14,top),(cx+.29,cy+.29,top+.10)),
+                      ((cx-.29,cy-.14,top),(cx-.14,cy+.14,top+.10)),
+                      ((cx+.14,cy-.14,top),(cx+.29,cy+.14,top+.10))]:
+            builder.box('limestone',lo,hi)
+        # 21-13's retained areaway iron is separate from the ordinary stoop
+        # handrail. Leave the entry approach and continuous front lane clear.
+        if self.style=='brick_2113':
+            O,U,N,L=builder.sides(builder.rect)[0]
+            first=L/3+.15;last=L-.13;depth=.72
+            for i in range(max(2,round((last-first)/.19))+1):
+                at=first+(last-first)*i/max(2,round((last-first)/.19))
+                builder.stock('cast_iron',O,U,N,(at-.012,depth-.012,.02),
+                              (at+.012,depth+.012,.77),.002)
+            for z in [.14,.73]:
+                builder.stock('cast_iron',O,U,N,(first-.025,depth-.026,z),
+                              (last+.025,depth+.026,z+.04),.003)
+        # Return source-world witnesses, including full-depth mitre interfaces.
+        for field in ['windows','bearings','entries']:
+            for witness in result[field]:
+                for key in ['point','outside_probe']:
+                    if key in witness:witness[key]=list(self.origin+self.rotation(witness[key]))
+                if 'normal' in witness:witness['normal']=list(self.rotation(witness['normal']))
+        for seam in result['mitre_seams']:
+            seam['interfaces']={name:[list(self.origin+self.rotation(p)) for p in points]
+                                for name,points in seam['interfaces'].items()}
+        result.update(style=self.style,closed_stocks=builder.parts,
+                      min_closed_stock_volume_m3=builder.min_volume)
+        return result
+
+
 class EasternHouses(EasternRows):
     """Three LPC0450 individuals, fitted to the eastern row's actual frontage.
 
@@ -590,7 +699,20 @@ class CivicRows(ResidentialHouses):
         # has a separate glazed fanlight and solid double leaves below it.
         leaf=[(left+.02,low+.02),(right-.02,low+.02)]+[(x,h-.02) for x,h in reversed(head)]
         if door and arched:leaf=[(left+.02,low+.02),(right-.02,low+.02),(right-.02,spring),(left+.02,spring)]
-        self.profile('door_paint' if door else 'mirror_aged',O,U,N,leaf,-.205,-.17)
+        glazed=door and self.study.get('glazed_door_middle',False)
+        if glazed:
+            # Opt-in for the new21-16 doorway; retain the old21-29 solid
+            # middle panels byte-for-byte. Cut real glass openings in each
+            # closed leaf instead of placing glass over a painted backing.
+            for l,r in [(left+.02,center),(center,right-.02)]:
+                a=l+.08;b=r-.07;h=low+1.02;H=spring-.13
+                for points in [[(l,low+.02),(a,low+.02),(a,spring),(l,spring)],
+                               [(b,low+.02),(r,low+.02),(r,spring),(b,spring)],
+                               [(a,low+.02),(b,low+.02),(b,h),(a,h)],
+                               [(a,H),(b,H),(b,spring),(a,spring)]]:
+                    self.profile('door_paint',O,U,N,points,-.205,-.17)
+                self.profile('mirror_aged',O,U,N,[(a,h),(b,h),(b,H),(a,H)],-.205,-.17)
+        else:self.profile('door_paint' if door else 'mirror_aged',O,U,N,leaf,-.205,-.17)
         for a,b in [(left,left+.065),(right-.065,right)]:
             self.stock('door_paint',O,U,N,(a,-.205,low),(b,-.07,spring),.004)
         for h in [low,spring]:
@@ -608,6 +730,7 @@ class CivicRows(ResidentialHouses):
             for a,b in [(left+.10,center-.07),(center+.07,right-.10)]:
                 for h,H in [(low+.13,low+.80),(low+1.02,spring-.13)]:
                     assert H>h
+                    if glazed and h>low+1.:continue
                     self.stock('door_paint',O,U,N,(a,-.166,h),(b,-.125,H),.01)
             self.stock('bronze_sheet',O,U,N,(center+.10,-.08,low+.95),(center+.13,-.025,low+1.20),.003)
             if self.style=='stone_2129':
