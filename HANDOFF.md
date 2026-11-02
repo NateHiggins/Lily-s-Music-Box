@@ -6,6 +6,11 @@ targets: max293.987→436.625ms,p99172.507→184.447,frames>100ms3→4. Ten star
 draws complete but cost17745.806ms. Do not ship this as a stutter improvement.
 Automatic preparation is disabled by default in the current WIP branch; the
 actual-world review opts in. Investigate remaining render-pass/draw workload.
+The existing test-only frame probe now resolves viewport owners once before
+timing and records visible/shadow/canvas counters plus actual structural
+occluder count. Syntax checked only; semantic/loaded trace still required.
+API was checked in the pinned engine RenderingServer.xml. No viewport pixels,
+new rendering work,quality reduction or timed scene traversal is introduced.
 
 Original world01 actual compiler fails at inferredVariant weakref(line93);
 no world composed. ExplicitWeakRef fix authored. **world02** compile+actual
