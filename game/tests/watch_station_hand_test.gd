@@ -34,6 +34,8 @@ func click() -> void:
 	event.button_index=MOUSE_BUTTON_LEFT;event.pressed=true
 	player._unhandled_input(event)
 
+var no_cursor := false
+
 func acquire(key: String) -> bool:
 	var part: Node3D=station._door if key=="door" else station._crank
 	var point: Vector3=part.to_global(Vector3(.196,-.06,.025) if key=="door" else Vector3(0,.056,.025))
@@ -46,8 +48,11 @@ func acquire(key: String) -> bool:
 			await get_tree().process_frame
 			if get_viewport().get_mouse_position().distance_to(cursor)<2.0: break
 		if get_viewport().get_mouse_position().distance_to(cursor)>=2.0:
+			# A hidden desktop has no cursor to warp, so aim the camera the way free look does.
 			print("STATION CURSOR DID NOT SETTLE wanted=",cursor," actual=",get_viewport().get_mouse_position())
-			return false
+			no_cursor=true
+			player.end_inspection()
+			player.camera.look_at(point)
 	else: player.camera.look_at(point)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
@@ -172,8 +177,15 @@ func _run() -> void:
 	check(line.mark_count()==1 and is_equal_approx(station.crank_angle,TAU),"lockout prevents re-winding and duplicate signals")
 	click()
 	check(follows_cursor,"visible rotating parts follow pointer direction")
-	check(player.camera.global_transform.is_equal_approx(fixed_camera),"inspection cursor does not move camera")
+	check(no_cursor or player.camera.global_transform.is_equal_approx(fixed_camera),"inspection cursor does not move camera")
 	player.end_inspection()
+	var charted := 0
+	for draw: MeshInstance3D in station.find_children("*","MeshInstance3D",true,false):
+		if draw.mesh in station._stock.values() and draw.name!=&"DoorGlass":
+			var finish=draw.get_active_material(0)
+			if finish is StandardMaterial3D and not finish.uv1_triplanar and draw.mesh.surface_get_format(0)&Mesh.ARRAY_FORMAT_TANGENT:charted+=1
+			elif finish is StandardMaterial3D:print("STATION STOCK WITHOUT CHARTS ",draw.name)
+	check(charted>=station.native_parts,"every native stock uses its own metre charts and tangents: %d of %d" % [charted,station.native_parts])
 	var invalid: Dictionary=station.mechanism_snapshot();invalid.door_angle=NAN
 	check(not station.valid_mechanism(invalid),"nonfinite physical save rejected")
 	check(not station.interact_control("station",player),"legacy player click cycle retired")

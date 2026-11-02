@@ -1,4 +1,6 @@
-"""Native cast watch-station stock. Godot metres; original mechanisms remain owners."""
+"""Superseded for the shipped stock by build_watch_stations_refit.py; rerunning this brings back the case strikes.
+
+Native cast watch-station stock. Godot metres; original mechanisms remain owners."""
 from pathlib import Path
 import math,json,os
 import bpy,bmesh

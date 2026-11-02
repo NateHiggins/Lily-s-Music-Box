@@ -1,4 +1,6 @@
-"""Reusable cast mail-bank stock, metre UVs and genuine open compartments."""
+"""Rerunning this alone brings back the stretched UVs and missing tangents: run repair_mail_bank_surfaces.py on its result.
+
+Reusable cast mail-bank stock, metre UVs and genuine open compartments."""
 from pathlib import Path
 import json, math
 import bpy, bmesh
