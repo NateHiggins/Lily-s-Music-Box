@@ -13,6 +13,10 @@ func _run() -> void:
 	var civic_access:Dictionary={"executed":false,"passed":false}
 	var civic_enabled:=OS.get_environment("ORISON_SURFACE_CITY_CIVIC_ACCESS")=="1"
 	var physical_only: bool=OS.get_environment("ORISON_SURFACE_PHYSICAL_ONLY")=="1"
+	var construction_mode:=OS.get_environment("ORISON_SURFACE_CITY_CONSTRUCTION")
+	if not construction_mode.is_empty() and (construction_mode!="south_garden" or not physical_only):
+		push_error("City construction review requires the named south_garden physical-only programme")
+		get_tree().quit(2);return
 	# Optional related diagnostics share the production world; qualification
 	# still covers physical surfaces and does not grant interaction acceptance.
 	var city_diagnostic: Dictionary={"executed":false}
@@ -455,6 +459,7 @@ func _run() -> void:
 	if civic_enabled:
 		var civic_programme:=preload("res://tests/v2_city_civic_world_programme.gd").new()
 		civic_access=await civic_programme.run(world,self)
+	await _city_construction_review(world)
 	var lamp_context := OS.get_environment("ORISON_SURFACE_LAMP_CONTEXT")=="1"
 	if lamp_context:
 		# Reuse the composed world and existing lamp camera helper, rather than
@@ -693,3 +698,10 @@ func _shader_filters(shader: Shader) -> Dictionary:
 	for match in sampler.search_all(code): filters[match.get_string(1)] = match.get_string(2).contains("mipmap")
 	shader_filter_cache[identity] = filters
 	return filters
+
+func _city_construction_review(world:OrisonV2RuntimeRoot)->void:
+	# Default no-op; keep the canonical scene/test identity and every physical
+	# survey. RefCounted helper owns no _ready, child or second world lifecycle.
+	if OS.get_environment("ORISON_SURFACE_CITY_CONSTRUCTION")!="south_garden":return
+	var review:=preload("res://tests/v2_city_south_garden_review.gd").new()
+	await review.run(world,self)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/v2_city_individual_body_review.gd" id="1"]
+
+[node name="V2CitySouthGardenBodies" type="Node"]
+script=ExtResource("1")
+target_ids=PackedStringArray("HORIZON_NEAR_3_3_P1", "HORIZON_NEAR_3_3_P2")
+expected_partitions=21

@@ -6158,3 +6158,261 @@ stock; actual neighboring3_3P1/P2 profiles still have no architecture record.
 Specific precedent/placement choice remains to be made from the existing study,
 not inferred from that source absence. No owner decision needed for the scoped
 optical diagnostic. Full city completion remains unproven and unfinished.
+
+
+### November 1 — adjacent south Western garden pair source work
+
+Evidence class: **INERT**. Source construction WIP,not a native/export/runtime
+checkpoint. Starting city commit **73fcf097bf7ba38495928ebbc2f0d32005c67823**,
+owned **C:/ov/city**, **codex/v2-city-20261029**. Sol received the optical source
+and independently inspected actual P1front/P2rear captures: the intended roofs/
+courts are now visible; deep shadow/ground and generic-repetition debt remains.
+Optical source is independently unmerged pending management verification.
+
+Next targets **HORIZON_NEAR_3_3_P1** and **HORIZON_NEAR_3_3_P2** retain their
+20x18.333m reservations. P1 adapts **35-13 76th Street,Hawthorne Court**,George
+H.Wells1921-22:five-storey shallow neo-Georgian bar,projected stairhall,short
+classical portico,arched top sash,modillion/balustrade roof edge and rear garden.
+P2 adapts **33-53 82nd Street,Hayes Court**,AndrewJ.Thomas1922-23:four-storey+
+basement U,slate mansard/dormers/finials,taller portal pavilion and vaulted garden
+passage. Cached primary **LPC1831 PDF64/124/125 and158/159/160** supplied
+text/plan/entrance cues. The Hawthorne entrance photograph is c1940,not1928
+layout proof. Hayes plan/description do not establish surveyed elevations.
+Authored floor schedules,parcel fit,roof occupancy,bays and colors are declared
+AU adaptations;existing registered running-bond brick deliberately differs from
+the reported Flemish bond. Reference images remain external,never texture assets.
+
+The source plan and additive **SouthGardenApartments** builder now construct
+Hawthorne's0.75m basement+five3.05m floors and Hayes's0.8m basement+three3.1m
+regular floors+2.7m mansard storey. Hayes's2.2m public arch is actual split floor/
+wall stock with a curved soffit,not a visual hole over collision. Hawthorne's
+Doric bases bear on extended landing stock;coal flues root within roof caps.
+Near/lower constructors retain bodies,openings,entries,paving,vaults and roofs;
+curved sampling/arris density provide the lower detail. Source code is not proof
+that these shapes export,render,remain supported or pass a controller capsule.
+
+Light preflight validates both outlines/floor schedules and the complete plan.
+All124reservations,122otherprofiles and six original native class ASTs remain
+exact;all prior registered GLBs remain byte-exact. Generated source manifests
+and installed fixtures still describe the previous33individual/91generic stock.
+No claim of installed35profiles. Existing surface qualification is stale in this
+WIP checkout after changed fabrication inputs;no old receipt is repinned.
+**native_fit_01.py** is prepared in the existing city construction report tree
+under **western_south_pair_01/** for closed-stock/pane/clear-vault/continuous-floor/
+open-court controls. It has only compiled,not run. No Blender export/render or
+Godot job has started. Preserve first actual failures when it runs.
+
+Sol's matched B/A2 stutter control is queued;light source work continues while
+heavy native build/review/fullboard waits for his acquired/end timing notices.
+No changes to canonical/prologue checkout,production integration,materials,
+weather,clock,narrative,save,shop,traffic or450m boundary authorities. Next:bounded
+native fit,existing strict native build,actual Blender review,then affected
+source/grade/surface renewal and combined Godot access/loaded-map/LOD checks.
+Full city appearance,149-building architectural scope and broad exploration/
+performance acceptance remain unfinished. Source WIP is uncommitted;not ready
+for integration or a construction acceptance report.
+
+
+**Bounded native source fit executed:** first **native_fit_01** stopped with
+exit1 after2.547s on the actual Blender5.2 tessellation contract (indices,
+not legacy Vector returns). Original log/execution and executed source are
+preserved externally. Fixed only cap index handling;identical controls in
+**native_fit_02** pass exit0/2.234s on Blender5.2.0LTS. No assertions/tolerances
+changed. All four near/lower constructors complete with8562 closed stocks,
+490 actual pane first hits and766 Hayes source-path controls. P1bounds match
+between bodies,height17.47m;P2bounds match,height14.45m (local source including
+roof/flues). Source bounds are not historical elevations or player placement.
+The raw BVH checks clear the2.2m passage at capsule-width/height witnesses,
+reject the outside-wall controls,hit the actual3.25m vault soffit,find open sky
+above the court and continuous authored apron/portal/court floor witnesses.
+Surrounding native geometry,export/UVs/rendering,loaded collision and actual
+controller travel are still pending. Raw polygon reductions are not measured
+rendering cost. Heavy build/review remains held for Sol timing B/reversal;
+correct broker is63540/session6270,not later functional57252/session1146.
+No own live job. No generated GLB or acceptance record changed by these fits.
+
+
+**South pair native checkpoint in progress:** existing strict full builder
+**native_build_01** completed exit0/48.484s with frozen source on Blender5.2:
+124bodies,12352 pane witnesses and5400 coverage rays. Only near3_3GLB changed;
+one complete3_3lower-body shard added. All34 unrelated GLBs,124reservations,
+122otherprofiles and six old native class ASTs stay exact. Inside the changed
+shard,all18parts of the three retained generic profiles preserve exact encoded
+positions/normals/tangents/UVs/indices,transforms and semantic material-key names.
+The first read-only comparator assumed embedded materials and stopped with
+KeyError;inspection confirmed the existing exporter deliberately omits them.
+Corrected comparison asserts that absence and exact arrays/keynames;no native
+source or tolerance changed. This tooling assumption is not a native defect.
+
+Exported P1near62600/lower25256triangles in10parts;P2near62256/lower25776 in11.
+These are source triangle counts,not loaded rendering cost or FPS improvement.
+Native generated source is35individual/89generic;Godot qualification is pending,
+and main retains its prior bounded acceptance. **native_review_01** completed
+exit0/331.359s with42exact savedBlend/export part roundtrips and892pane/terrain
+controls. All10CPU frames were individually inspected and SHA-verified:whole
+front/rear near/lower bodies plus two partial portal-eye views. Portico,garden,
+open Ucourt,mansard/pavilion/flues and continuous curved vault survive lower
+bodies;native maps/metric charts use registered materials. Strong diagnostic
+front shadows persist;no production appearance/LOD-transition/artistic grant.
+Actual loaded UV/tangent/mipmap,collision/controller and cost checks remain.
+
+Sol coordinated a minimal canonical SurfaceInventory default-noop hook with
+explicit **ORISON_SURFACE_CITY_CONSTRUCTION=south_garden**,physical-only mode.
+The RefCounted helpers never add_child,have no_ready and compose no world.
+Their source programme uses the unchanged prior Western walk/endpoint/400mm
+capsule support helpers for14connected nearby street/portico/garden/vault/court
+legs and6endpoints from one validated apron placement,then restores stance,
+velocity,processing,camera and mouse ownership. This is uncompiled/unexecuted
+source,not access proof. Canonical scene/test identity and all survey defaults/
+physical coverage/predicates/tolerances remain unchanged. Three specific helper
+paths (newtwo plus old transitive route base) were added to the existing physical
+input hash list;production controller scripts were already bound. New physical
+proof is required;no old receipt is repinned.
+
+First full13fixture preflight produced12PASS/one stale apron→horizon-plan binding.
+Read actual apron consumer:it uses only ordered parcel rectangles for sample
+candidate filtering. All124ordered(id,rect) values,otherbindings,terrainasset and
+all other report payloads remain exact. **apron_consumed_projection_01.json**
+records metadata-only closure renewal;Horizon consumes only unchanged apron
+relief/retainedbounds,so its grade-metadata binding was renewed too. Backups
+preserve original reports;no terrain/native asset was rebuilt for metadata.
+Strict retained-grade validation separately rejects the old survey production
+hash. Preserve that failure and obtain fresh actual571-box discovery before
+movement in the same upcoming surface/access world;only then reconcile masks/
+consumed native/foundations. A native check or old survey cannot become that proof.
+
+Two imports,mesh-precision policy/texture policy and three-script compilation
+are queued as **preparation_batch_01.json**,broker49168/session54732. At19:35EST
+own request is live/unadmitted;no compile/world result yet. Planned scriptfreeze01
+is retained. Before admission,source revision02 adds same-world grade capture;
+no executed source was altered. Sol's pass_trace64040/session13095 acquired the
+lane;NEW heavy work waits for its terminal notice. Native build/review are done;
+no new assets/tasks/agents or canonical changes. Work remains uncommitted and
+unqualified for integration;existing optical73fc commit/packet stay untouched.
+
+
+**Preparation executed:** broker49168/session54732 is terminal0. First import
+32.49s retains missingUID cache-recreation warnings (no clean-first-import
+claim);second8.75s and actual three-script compile13.33s have empty stderr,
+zero script errors. Compiled three changed GDScripts match preadmission freeze02
+exactly. Registered mesh policy fixes only the new3_3lower shard,then106/0;
+1474texture references already correct. Full13fixture closure nowPASS0;reader
+NEW0 and all7 spatial drift arrays empty. Those static checks are not runtime
+access/surface qualification. Old full physical packet remains stale.
+
+Promoted the prior archived isolated body instrument into a reusable test with
+explicit scene-bound2targets/21parts. Original near/lower metric UV,normal,
+tangent,mip/pane,90-frame near/lower/return and natural distance/narrow-FOV/
+hidden-background controls remain. Added project/settings binding and standard
+production digest separate from the isolated-source digest. Actual rendering
+cost/spikes and transitions are still unmeasured at this record. Existing
+HorizonBench and all old controller programmes remain untouched.
+
+New compile/family/grade batch **family_grade_batch_01.json** is FIFO-queued,
+broker43912/session83388 since01:03:16Z;confirmed live and unadmitted20:06EST.
+Current body sourcefreeze02 is recorded before any engine admission;planned01
+is retained. No executed source is edited. Sol's trace is terminal and quiet
+released;notify him when the family timing slot acquires. Preserve every actual
+failure,wrapper and test-written contract;do not restart a live request.
+
+**Qualification sequence correction:** the post-inventory hook can capture
+fresh grade, but copying that discovery into repository metadata afterward
+would expire the same physical fingerprint. Keep the existing source-freeze
+contract:run the existing GradeOwnerSurvey first,strictly reconcile actual571
+boxes/consumed native/mask/foundations,then perform final canonical surfaces+
+14new access legs in one world. This necessary discovery startup repeats no old
+controller walk and introduces no new qualification-phase framework or waiver.
+The final hook's grade capture remains a diagnostic cross-check,not a post-pass
+metadata rewrite. No old contract/survey is repinned. Full city and artistic/
+whole-world performance acceptance remain incomplete;source WIP is not ready
+for integration. Native/compile/static reports have been sent to Sol.
+
+**Executed family/grade and bounded finish update (01:34Z):** the above
+family/grade queue is terminal0. Actual schema2 **family_01** has1047checks/
+0failures (stdout1048 includes its subsequent write check),245pane controls,
+strict loaded UV/normal/tangent and complete PBR mip chains. All22actual PNGs
+individually inspected:6wholebody near/lower/return,8natural material-part
+frames,8blank controls. Visible body triangles62600→25256 and62256→25776,
+retaining10/11draws.90samples/case wall medians P1 .985/.858/.902ms and
+P2 .895/.852/.895ms. Initial transition109.508ms and first near-case16.572ms
+remain explicit;isolated fixed lighting/native3440x1440/originalMSAA3 scope,
+no whole-world/FPS/artistic acceptance. Compile19.26s/family23.15s/grade169.32s,
+allcomplete0/empty stderr;bodyfreeze02 predates actual compilation01:08:44Z.
+
+Fresh actual standalonegrade571boxes/0failures reconciles exact571groups/poses,
+9601consumed rows including6paving depths/66boxes,40nativebindings,
+14947classificationrecords,23foundationplacements. Ground mask
+**f0f6b65129bc35e09a8c9e4f69420d834e70e8666f68dd9a1b724cd01fe6fb22**
+and foundationGLB remain unchanged;old discoveries/backups/failures retained.
+No oldruntime repin. Full119-row board:all107tools-test rowsPASS,including42
+surface tests453.75s. Original regressions retained:untracked asset/sidecar,
+receipt-duration literal heuristic,and stale physicalpacket.26namedpaths now
+staged;duration sampling separated from serialization(no baseline/gate waiver).
+Actual12-gate static followup resolves imports/systemic;only stalephysical
+qualification remains regressed;requirements_changed empty. It reuses the107
+unchanged passed tools rows rather than pretending they reran. No clean
+candidate verification yet. Generated555EOL-only imports and untracked UIDs
+archived before removing proven churn. Existing trackercityblock updated and
+readbacksequence145;other content/instructions preserved.
+
+Sol confirms:finish this pair on c371,thenhold new construction;hisPR138 stays
+separate and he owns eventualmain intake. New helper's four native-proposed
+whole-body context views add framing,unfiltered face witnesses and same-pose
+hidden-target controls before its first execution. Finalfreeze04 precedes
+**qualification_batch_01.json**,broker42704/session98488,queued01:31:55Z:
+changedhelpercompile then actual canonical SurfaceInventory physical-only/
+citydiagnostic plus14newlocalcontrollerlegs in one supplied world. No old19leg
+repeat,new assetpair,secondworld,canonical edit or performance benchmark.
+All new composed/access/surface results and commit/push are **pending**.
+External receipts/current continuation remain in **western_south_pair_01**.
+35individual/89generic horizon source tally is not the completed149-parcel city
+or artistic acceptance. Do not copy finalhook grade back after qualification.
+
+**Final bounded world qualification (2026-11-02 01:45Z):** actual canonical
+SurfaceInventory entry completes **30234checks/0failures**,runtime-owned teardown
+PASS;wrapper360.95s/exit0/empty stderr,patched Vulkan/native3440x1440. Startup
+118.867s is this run's observation,not a comparative performance claim. Physical
+inventory:30490draw nodes/19539meshes/6686materials/543textures,zero unresolved
+surface findings. Actual schema2 access receipt has237recorded helper checks
+plus91programme checks;stdout329includesits subsequent write check. All14
+connected legs/6endpoints/2651controller samples pass:0unsupported,0bad-flat,
+0rescues. The public street join,portico,side/rear garden,vault,court and return
+use the original full standing capsule/normal input/step guards;scenic doors,
+saves and a continuous450mjourney were not exercised.
+
+Four complete-bound posed views pass30unfiltered actual face witnesses and
+same-pose hidden-target controls;sampled target changes are64.58/57.44/55.96/
+63.91percent. These are contextual optics,not played camera travel. All**68**
+completed-world PNGs were individually inspected/hash-bound;the earlier52claim
+missed16late standard captures. The original publication preflight01 stopped
+before wrapper-copy preparation;its missingwrapper failure is preserved,then
+all68frames were inspected and independent02passes0defects. No Godot rerun,
+predicate relaxation,oldreceipt repin or changed executedsource. The unchanged
+standard dumbwaiter camera sees dark brick and establishes no subject
+presentation;interior mechanisms/reflections remain outside this city task.
+
+Existing publisher installs8reviewed representative frames and exact new
+contract/inventory/logs,backing up the preceding packet. Independent source
+qualification PASS0 binds **c9dddac8928c665f1841d50880e3b623782a494d1120ff6fb2b4098c9bbe5876**.
+The new archive **western_south_garden_review.zip** retains native/loaded/grade/
+composed evidence,original failures and source versions;published image bytes
+are not duplicated there. Final static-only board remains a12gate comparison;
+107unchanged actualpassed tools rows retain their earlier provenance. Clean
+management candidate verification and eventualmain intake belong to Sol.
+
+This closes the existing pair's construction/qualification work for handoff,
+not the full city. Per owner/Sol instruction,hold further construction after
+the named-path checkpoint/report. Preserve C371base,originaloptics73fc and
+all other archives;do not ingest experimentalPR138 or merge main here. Deep
+facade/court shadows,dark ground,flat sky,sparse planting,89generic profiles,
+continuous whole-exterior exploration/wholecity performance and artistic
+acceptance remain unfinished. No apartment,companion,Tardi,weather,clock,
+narrative,save,shop,traffic or450mtravel authority was changed.
+
+Final **static_final_01** actually completes12staticgates/exit0 with **zero
+regressions,zero improvements and requirements_changed empty** against the
+actual clean c371board.107tools rows are explicitly not rerun on that board;
+the earlier full board's107PASS results retain their own provenance. This is
+not a new clean119-row candidate verification. Existing archive manifest gains
+one entry only;all preceding entries/archive paths stay exact. New packet:
+**141members / 37808627bytes / SHA256 49313d6bff85aec580cb289275f8b8018356ecd19115da298a354932245b15dc**.
