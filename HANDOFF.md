@@ -26,15 +26,29 @@ rather than hiding of alternatives,4128service triangles per selection, imported
 UV/tangent arrays and separate legacy model. Its full-world path checks per-id
 profile presence and private post-batch valve UV materials. Scope now uses
 **ORISON_LAVATORY_MODELS_ONLY=1**, avoiding the argument-order trap. Static parser,
-readerNEW0 and renewed spatial manifest pass; new Godot results are pending.
+readerNEW0 and renewed spatial manifest pass. The corrected four-script Godot
+compile passed23.59s and selector passed9.54s with33checks/0failures and empty
+shutdown stderr. These are INERT diagnostic results, not a schema2 runtime contract.
 
-Corrected compile/selector batch is queued at
-**C:/ov/reports/native_intake_20261102/lavatory_02/batch.json**. Last confirmed
-broker44932 / exec session88130 is live and waiting. Resume that handle or inspect
-terminal receipts before restarting; preserve queued inputs. After preflight,
-replace the old toggle diagnostic with real grab/motion/release, inspect actual
-wall/trim contacts and loaded maps, exercise validated campaign reload, then
-renew physical/candidate qualification. Bath138/0 proof predates lavatory edits.
+The corrected **lavatory_02** batch is terminal0. Original receipts remain at
+**C:/ov/reports/native_intake_20261102/lavatory_02/**. A subsequent installed-world
+test extension is now authored, not yet semantically/runtime qualified: validated
+standing capsule/floor support, actual mouse partial-valve use, isolated validated
+campaign save/load,57real service-wall queries and deduplicated loaded PBR/mipmap
+checks. **ORISON_LAVATORY_ONLY=1** preserves the default whole-bath test while
+scoping this run to the affected lavatory family; **ORISON_LAVATORY_MODELS_ONLY=0**
+ensures it composes the world. Startup waits for the actual runtime owner rather
+than assuming completion after half a second. Native inspection views use a
+labelled neutral fill light; they are not production atmosphere acceptance.
+
+New compile/fullscreen-hidden installed batch:
+**C:/ov/reports/native_intake_20261102/lavatory_03/batch.json**. Last confirmed
+broker62088 / exec85951 is live and queued. Preserve those source inputs and
+resume that handle or inspect terminal receipts before restarting. Required next:
+inspect actual results/frames, fix failures, then exercise remaining plug/chain,
+fresh-world reload/strict loaded derivatives and renew physical/candidate gates.
+The new input route checks partial valve reload but does not claim whole-shift,
+new-world or artistic acceptance. Bath138/0 proof remains source-scoped.
 City architect remains owner-paused while this backlog is processed.
 
 ## Current native intake — owner resumed November 2

@@ -3,6 +3,7 @@ extends Node
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
 var checks := 0
 var failures: Array[String] = []
+var service_contacts: Array[Dictionary] = []
 
 func check(ok: bool, label: String) -> void:
 	checks += 1
@@ -82,6 +83,84 @@ func _check_service_models() -> void:
 	if old_model != null: old_model.free()
 	legacy.free()
 
+func _check_service_contacts(world: OrisonV2RuntimeRoot, sink: TapProp) -> void:
+	var profile := str(sink.get("lavatory_profile"))
+	var face := float(profile.trim_prefix("WallService_"))/10000.0
+	var skin: float = preload("res://scripts/building/orison_v2_bathroom_finishes.gd").SKIN
+	var excluded: Array[RID] = [world.player.get_rid()]
+	for body: CollisionObject3D in sink.find_children("*", "CollisionObject3D", true, false):
+		excluded.append(body.get_rid())
+	for port: Vector3 in [Vector3(-.09,.30,face),Vector3(.09,.30,face),Vector3(0,.55,face)]:
+		var ray := PhysicsRayQueryParameters3D.create(sink.to_global(port-Vector3.BACK*.04),
+				sink.to_global(port+Vector3.BACK*.06),1,excluded)
+		var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
+		var row := {"sink":str(sink.name),"profile":profile,"port":[port.x,port.y,port.z],"missing":hit.is_empty()}
+		if not hit.is_empty():
+			var local: Vector3 = sink.to_local(hit.position)
+			row["hit"] = [local.x,local.y,local.z]
+			row["collider"] = str(hit.collider.get_path())
+			row["bare_wall_error_m"] = absf(local.z-face-skin)
+		service_contacts.append(row)
+		check(not hit.is_empty() and float(row.get("bare_wall_error_m",INF)) < .0002,
+				"installed wall meets service seat plus finish skin: " + str(row))
+
+func _played_lavatory(world: OrisonV2RuntimeRoot, sink: TapProp) -> void:
+	var player: PlayerController = world.player
+	check(not player.protected_input_active() and player.text_input_owner == null,
+			"installed lavatory route starts without protected input ownership")
+	if player.protected_input_active() or player.text_input_owner != null: return
+	var original_pose := player.global_transform
+	var original_view := player.camera.global_transform
+	var original_physics := player.is_physics_processing()
+	var original_mouse := Input.mouse_mode
+	var initial := sink.mechanism_snapshot()
+	var stance := sink.to_global(Vector3(0,.025,-.85))
+	var floor_ray := PhysicsRayQueryParameters3D.create(stance+Vector3.UP*.03,
+			stance-Vector3.UP*.08,1,[player.get_rid()])
+	var support := world.get_world_3d().direct_space_state.intersect_ray(floor_ray)
+	check(not support.is_empty() and support.normal.y > .99, "test-only sink stance has actual floor support")
+	if support.is_empty() or support.normal.y <= .99: return
+	stance.y = support.position.y+.025
+	var capsule := PhysicsShapeQueryParameters3D.new()
+	capsule.shape = player._capsule
+	capsule.transform = Transform3D(player.global_basis,stance)*player._shape.transform
+	capsule.exclude = [player.get_rid()]
+	var blockers := world.get_world_3d().direct_space_state.intersect_shape(capsule,4)
+	check(blockers.is_empty(), "installed lavatory approach clears full standing capsule: " + str(blockers))
+	if not blockers.is_empty(): return
+	player.cancel_manipulation();player.set_physics_process(false)
+	player.global_position = stance;player.camera.make_current()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	var hand := preload("res://tests/fixed_gesture_patrol_hand.gd").new()
+	add_child(hand);hand.player = player
+	for index in 2:
+		var point: Vector3 = sink._handles[index].to_global(Vector3(.025,0,-.04))
+		check(await hand.operate(point,PI*.5*(.31 if index == 0 else .64),sink),
+				"actual mouse acquires, turns and releases installed lavatory valve " + str(index))
+	check(is_equal_approx(sink._valve_openings.x,.31) and is_equal_approx(sink._valve_openings.y,.64),
+			"installed lavatory retains two independent released partial openings")
+	var directory := OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty(), "campaign reload fixture has an isolated external output directory")
+	if not directory.is_empty():
+		DirAccess.make_dir_recursive_absolute(directory)
+		var original_path: String = RealityState.save_path
+		RealityState.save_path = directory.path_join("installed_lavatory_campaign.json")
+		world.household_state.capture_now()
+		var wrote := RealityState.save_game()
+		check(wrote, "installed lavatory writes through validated campaign save owner")
+		if wrote:
+			sink.set_hot(false);sink.set_cold(false)
+			RealityState.load_game()
+			check(RealityState.can_continue(), "validated lavatory campaign reload remains continuable")
+			check(is_equal_approx(sink._valve_openings.x,.31) and is_equal_approx(sink._valve_openings.y,.64),
+					"campaign reload restores installed partial hot and cold settings")
+			check(not player._grab.active() and sink._held_valve == -1, "reload has no stale lavatory hand ownership")
+		RealityState.save_path = original_path
+	player.cancel_manipulation();sink.restore_mechanism(initial)
+	world.household_state.capture_now();hand.free()
+	player.global_transform = original_pose;player.camera.global_transform = original_view
+	player.set_physics_process(original_physics);Input.mouse_mode = original_mouse
+
 func run() -> void:
 	_check_service_models()
 	if OS.get_environment("ORISON_LAVATORY_MODELS_ONLY") == "1":
@@ -92,8 +171,15 @@ func run() -> void:
 	RealityState.reset_campaign_for_tests()
 	var world := Runtime.instantiate() as OrisonV2RuntimeRoot
 	add_child(world)
-	await get_tree().create_timer(.5).timeout
-	check(not world.startup_failed, "production V2 starts")
+	var deadline := Time.get_ticks_msec()+600000
+	while world.startup_ms <= 0 and not world.startup_failed and Time.get_ticks_msec() < deadline:
+		await get_tree().process_frame
+	check(not world.startup_failed and world.startup_ms > 0, "production V2 finishes startup")
+	if world.startup_failed or world.startup_ms <= 0:
+		_finish(world)
+		return
+	await get_tree().physics_frame
+	await get_tree().physics_frame
 	# Exercise the existing apartment suite's complete bath contract directly;
 	# its unrelated historic wall/heating cardinality checks remain untouched.
 	var category := preload("res://tests/orison_v2_apartment_batch_test.gd").new()
@@ -114,11 +200,13 @@ func run() -> void:
 	for identity in expected:
 		check(world.adapter.resolve(identity) in sinks, "live model at " + identity)
 	var sample: TapProp
+	var checked_textures: Dictionary = {}
 	for tap in sinks:
 		check(tap._bath_plug != null and tap._bath_chain != null,
 				"complete plug and chain at " + str(tap.name))
 		check(tap._handles.size() == 2 and tap._handles[0].get_parent() == tap,
 				"independent valve pivots at " + str(tap.name))
+		_check_service_contacts(world,tap)
 		check(not str(tap.get("lavatory_profile")).is_empty(), "installed sink has a surveyed service profile: " + str(tap.name))
 		for handle: Node3D in tap._handles:
 			for draw: MeshInstance3D in handle.find_children("*", "MeshInstance3D", true, false):
@@ -126,9 +214,19 @@ func run() -> void:
 					var material := draw.get_active_material(surface) as StandardMaterial3D
 					check(material != null and not material.uv1_triplanar and not MatLib.is_shared_material(material),
 							"post-batch valve samples private native UV finish: " + str(tap.name))
+					if material == null: continue
+					check(material.normal_enabled, "native lavatory finish keeps calibrated normal sampling")
+					for texture: Texture2D in [material.albedo_texture,material.roughness_texture,material.normal_texture]:
+						check(texture != null, "native lavatory finish retains every PBR texture")
+						if texture == null or checked_textures.has(texture.get_instance_id()): continue
+						checked_textures[texture.get_instance_id()] = true
+						var image := texture.get_image()
+						check(image != null and image.has_mipmaps() and image.get_mipmap_count() == int(floor(log(float(maxi(image.get_width(),image.get_height())))/log(2.0))),
+								"loaded lavatory PBR texture retains the full mip chain")
 		if tap.unit == "4B": sample = tap
 	check(sample != null, "player lavatory exists")
 	if sample != null:
+		await _played_lavatory(world,sample)
 		sample.set_process(false)
 		var camera := Camera3D.new()
 		world.add_child(camera)
@@ -181,6 +279,9 @@ func run() -> void:
 		await capture("exposed_plumbing")
 		light.queue_free()
 		camera.queue_free()
+	if OS.get_environment("ORISON_LAVATORY_ONLY") == "1":
+		_finish(world)
+		return
 	var shower: TapProp
 	for tap in world.boiler_tend.taps:
 		if tap.fixture == "shower" and tap.unit == "4B": shower = tap
@@ -287,10 +388,13 @@ func run() -> void:
 		camera.look_at(paper.to_global(Vector3(0,-.04,-.075)))
 		await capture("paper_from_seat")
 		camera.queue_free()
+	_finish(world)
+
+func _finish(world: OrisonV2RuntimeRoot) -> void:
 	var directory := OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
 		var file := FileAccess.open(directory.path_join("lavatory.json"), FileAccess.WRITE)
-		file.store_string(JSON.stringify({"checks":checks,"failures":failures},"\t"))
+		file.store_string(JSON.stringify({"checks":checks,"failures":failures,"service_contacts":service_contacts,"scope":"lavatory_only" if OS.get_environment("ORISON_LAVATORY_ONLY")=="1" else "full_bathroom"},"\t"))
 	world.shutdown_for_tests()
 	world.free()
 	print("LAVATORY: %d checks, %d failures" % [checks,failures.size()])
