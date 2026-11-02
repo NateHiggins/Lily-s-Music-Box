@@ -1031,3 +1031,211 @@ class WesternGardenApartments(CourtApartments):
                 self.box('concrete',(X+(i-1)*run,-Y,bottom),(X+i*run,-y,ground*i/count))
         assert len(self.entries)==len(entries),(self.name,self.entries)
         return dict(windows=self.windows,bearings=self.bearings,entries=self.entries,mitre_seams=self.seams,closed_stocks=self.parts,min_closed_stock_volume_m3=self.min_volume,style=self.style)
+
+
+class SouthGardenApartments(WesternGardenApartments):
+    """Specific Hawthorne35-13 bar and Hayes33-53 U, with exterior gardens.
+
+    Hayes keeps a real vaulted public passage through the raised first floor.
+    No apartment programme, mechanical leaf or historical parcel is invented.
+    Near/lower bodies keep every opening, floor, vault, garden and roof volume.
+    """
+    STYLES={'hawthorne_3513','hayes_3353'}
+
+    def __init__(self,row,emit,neighbours,lower=False):
+        super().__init__(row,emit,neighbours,lower)
+        self.steps=1 if lower else 2
+        self.floor=0
+
+    def window(self,O,U,N,l,r,z,Z,length,basement=False):
+        width=min(1.35,r-l-.65);assert width>.5
+        center=(l+r)/2;left=center-width/2;right=center+width/2
+        low=z+(.18 if basement else .66);high=Z-(.17 if basement else .52)
+        arched=self.style=='hawthorne_3513' and self.floor==5 and N.x<-.65
+        rise=.34 if arched else 0.;spring=high-rise
+        for a,b in [((l,-.28,z),(left,0,Z)),((right,-.28,z),(r,0,Z)),
+                    ((left,-.28,z),(right,0,low)),((left,-.28,high),(right,0,Z))]:
+            if b[2]>a[2]+1e-8:self.wall_stock(O,U,N,a,b,length)
+        head=[(left,high),(right,high)]
+        if arched:
+            head=[(center-width/2*math.cos(i*math.pi/self.arch_steps),spring+rise*math.sin(i*math.pi/self.arch_steps)) for i in range(self.arch_steps+1)]
+            for a,b in zip(head,head[1:]):
+                polygon=[a,b,(b[0],high),(a[0],high)]
+                polygon=[v for i,v in enumerate(polygon) if v!=polygon[i-1]]
+                if len(polygon)>2:self.profile(self.row['wall_key'],O,U,N,polygon,-.28,0.)
+            self.arch('limestone',O,U,N,center,spring,width/2,rise,.10,-.08,.12)
+            self.arch('door_paint',O,U,N,center,spring,width/2-.02,rise-.02,.045,-.20,-.10)
+        else:
+            h=.12 if basement else .22
+            self.profile('limestone',O,U,N,[(left-.08,high),(right+.08,high),(right+.20,high+h),(left-.20,high+h)],-.12,.08)
+            self.profile('limestone',O,U,N,[(center-.055,high-.025),(center+.055,high-.025),(center+.09,high+h+.025),(center-.09,high+h+.025)],-.13,.10)
+        self.profile('mirror_aged',O,U,N,[(left+.02,low+.02),(right-.02,low+.02)]+[(x,h-.02) for x,h in reversed(head)],-.205,-.17)
+        # Straight jambs stop at the arch spring; there is no rectangular sash
+        # laid across the curved head. Six-over-one lights on the main floors.
+        for at in [left,right]:self.stock('door_paint',O,U,N,(at-.035,-.20,low),(at+.035,-.075,spring),.004)
+        self.stock('door_paint',O,U,N,(left,-.20,low-.025),(right,-.075,low+.035),.004)
+        middle=(low+spring)/2
+        self.stock('door_paint',O,U,N,(left+.035,-.20,middle-.025),(right-.035,-.075,middle+.025),.003)
+        if not arched:self.stock('door_paint',O,U,N,(left,-.20,high-.035),(right,-.075,high+.025),.004)
+        if not basement:
+            for at in [left+width/3,left+2*width/3]:self.stock('door_paint',O,U,N,(at-.011,-.19,middle+.025),(at+.011,-.085,spring-.035),.002)
+            self.stock('door_paint',O,U,N,(left+.035,-.19,(middle+spring)/2-.011),(right-.035,-.085,(middle+spring)/2+.011),.002)
+        self.stock('limestone',O,U,N,(left-.08,-.20,low-.08),(right+.08,.10,low),.008)
+        self.windows.append(dict(building=self.name,point=list(O+U*(left+width*.24)+Vector((0,0,low+(spring-low)*.25))),normal=list(N),recess_m=.17))
+
+    def portico(self,O,U,N,l,r,z,Z,length):
+        center=(l+r)/2;left=center-1.12;right=center+1.12;high=z+2.58
+        assert l<left<right<r and high+.32<Z
+        for a,b in [((l,-.28,z),(left,0,Z)),((right,-.28,z),(r,0,Z)),((left,-.28,high),(right,0,Z))]:self.wall_stock(O,U,N,a,b,length)
+        self.profile('mirror_aged',O,U,N,[(left+.04,z+.05),(right-.04,z+.05),(right-.04,high-.04),(left+.04,high-.04)],-.205,-.17)
+        self.wood_frame(O,U,N,left,right,z,high)
+        for at in [center-.73,center,center+.73]:self.stock('door_paint',O,U,N,(at-.025,-.20,z),(at+.025,-.075,high-.35),.004)
+        self.stock('door_paint',O,U,N,(left,-.20,high-.38),(right,-.075,high-.32),.004)
+        for a,b in [(center-.70,center-.03),(center+.03,center+.70)]:
+            self.stock('door_paint',O,U,N,(a,-.20,z+.04),(b,-.12,z+.62),.004)
+            self.stock('door_paint',O,U,N,(a,-.19,z+1.45),(b,-.08,z+1.49),.003)
+        for at in [center-.12,center+.12]:self.stock('bronze_sheet',O,U,N,(at-.012,-.065,z+1.0),(at+.012,-.025,z+1.24),.003)
+        # Four shallow risers and a fifth landing-height tread; measured public
+        # lane is outside this complete stock, not inferred from its bounds.
+        self.entry_stoop(O,U,N,center,z)
+        # Side stocks extend the existing landing/first tread underneath both
+        # Doric bases; no column floats beside the narrower stair flight.
+        for a,b in [(center-1.55,center-.67),(center+.67,center+1.55)]:
+            self.stock('limestone',O,U,N,(a,-.10,-.12),(b,.60,z),.008)
+        for at in [left-.18,right+.18]:
+            self.stock('limestone',O,U,N,(at-.18,.18,z),(at+.18,.54,z+.15),.008)
+            self.round_stock('limestone',O+U*at+N*.36,.115,z+.15,high-.04)
+            self.stock('limestone',O,U,N,(at-.19,.16,high-.04),(at+.19,.56,high+.11),.008)
+        self.stock('limestone',O,U,N,(left-.39,-.10,high+.11),(right+.39,.71,high+.32),.01)
+        self.guard(O,U,N,left-.30,right+.30,high+.32,.66)
+        self.entries.append(dict(building=self.name,point=list(O+U*center+Vector((0,0,z+1.2))),kind='closed_scenic_leaf'))
+
+    def guard(self,O,U,N,left,right,bottom,depth):
+        self.stock('cast_iron',O,U,N,(left,depth-.025,bottom+.74),(right,depth+.025,bottom+.79),.003)
+        count=max(2,math.ceil((right-left)/.16))
+        for i in range(count+1):
+            at=left+(right-left)*i/count
+            self.stock('cast_iron',O,U,N,(at-.012,depth-.015,bottom+.02),(at+.012,depth+.015,bottom+.75),.002)
+
+    def passage(self,O,U,N,l,r,Z,length):
+        center=(l+r)/2;half=self.study['passage_width_m']/2
+        spring=self.study['passage_spring_m'];rise=self.study['passage_rise_m'];top=spring+rise
+        left=center-half;right=center+half
+        assert l<left<right<r and top+.18<Z
+        for a,b in [((l,-.28,0),(left,0,Z)),((right,-.28,0),(r,0,Z)),((left,-.28,top),(right,0,Z))]:self.wall_stock(O,U,N,a,b,length)
+        head=[(center-half*math.cos(i*math.pi/self.arch_steps),spring+rise*math.sin(i*math.pi/self.arch_steps)) for i in range(self.arch_steps+1)]
+        for a,b in zip(head,head[1:]):
+            polygon=[a,b,(b[0],top),(a[0],top)];polygon=[v for i,v in enumerate(polygon) if v!=polygon[i-1]]
+            if len(polygon)>2:self.profile(self.row['wall_key'],O,U,N,polygon,-.28,0.)
+        self.arch('limestone',O,U,N,center,spring,half,rise,.18,-.12,.22)
+        for at in [left-.09,right+.09]:self.stock('limestone',O,U,N,(at-.09,-.10,0),(at+.09,.20,spring),.008)
+        if N.x<-.65:
+            # The vault is a continuous closed curved stock through the front
+            # bar. Its soffit and both portal mouths have the same clear span.
+            depth=self.study['outline_m'][3][0]-O.x
+            self.arch('limewash_plaster',O,U,N,center,spring,half,rise,.14,-depth,0.)
+            for at in [left-.12,right+.12]:self.stock('limewash_plaster',O,U,N,(at-.10,-depth,0),(at+.10,0,spring),.004)
+            self.profile('limestone',O,U,N,[(center-.20,top+.20),(center+.20,top+.20),(center+.17,top+.53),(center,top+.68),(center-.17,top+.53)],-.04,.25)
+        self.entries.append(dict(building=self.name,point=list(O+U*center+Vector((0,0,1.2))),kind='open_public_arch'))
+
+    @staticmethod
+    def clipped(outline,edge,keep_low):
+        result=[]
+        for p,q in zip(outline,outline[1:]+outline[:1]):
+            inside=p[1]<=edge if keep_low else p[1]>=edge
+            other=q[1]<=edge if keep_low else q[1]>=edge
+            if inside:result.append(p)
+            if inside!=other:
+                t=(edge-p[1])/(q[1]-p[1]);result.append((p[0]+t*(q[0]-p[0]),edge))
+        assert len(result)>=4
+        return result
+
+    def crown(self,outline,height):
+        if self.style=='hawthorne_3513':
+            v,f=extrusion(offset_outline(outline,-.10),height,height+.16);self.add('galvanized_roof',v,f)
+            for width,low,high in [(.12,height-.24,height-.08),(.28,height-.08,height+.12)]:
+                v,f=cornice_ring(outline,width,low,high);self.add('limestone',v,f)
+            for p,q in zip(outline,outline[1:]+outline[:1]):
+                O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
+                if N.x>-.65 or length<1.:continue
+                count=max(1,round(length/.55))
+                for i in range(count):
+                    at=(i+.5)*length/count
+                    self.stock('limestone',O,U,N,(at-.06,-.04,height-.25),(at+.06,.22,height-.08),.007)
+                self.stock('limestone',O,U,N,(0,-.13,height+.12),(length,.05,height+.27),.006)
+                count=max(1,round(length/.42))
+                for i in range(count+1):
+                    at=i*length/count
+                    self.stock('limestone',O,U,N,(max(0,at-.055),-.11,height+.27),(min(length,at+.055),.03,height+.79),.006)
+                self.stock('limestone',O,U,N,(0,-.16,height+.79),(length,.08,height+.90),.008)
+        else:
+            from mathutils.geometry import tessellate_polygon
+            eave=self.levels[-2];inner=offset_outline(outline,-1.0)
+            # The projected centre has a genuinely taller mansard, not a gable
+            # card pasted onto a flat roof. Triangular cap stocks stay planar.
+            heights=[height+(1.0 if i in [9,10] else 0.) for i in range(len(inner))]
+            for i,(p,q) in enumerate(zip(outline,outline[1:]+outline[:1])):
+                j=(i+1)%len(outline)
+                for face in [[(*p,eave+.10),(*q,eave+.10),(*inner[j],heights[j])],[(*p,eave+.10),(*inner[j],heights[j]),(*inner[i],heights[i])]]:
+                    ResidentialHouses.roof_sheet(self,face)
+                O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
+                if length>2.5:
+                    count=max(1,int(length/3.1))
+                    for bay in range(count):self.dormer(O,U,N,(bay+.5)*length/count,eave)
+            points=[Vector((x,y,0)) for x,y in inner]
+            # Installed Blender5.2 returns flattened vertex indices, not the
+            # older Vector objects. Preserve authored cap heights by index.
+            for tri in tessellate_polygon([points]):
+                ResidentialHouses.roof_sheet(self,[(*inner[i],heights[i]) for i in tri],'galvanized_roof')
+            v,f=cornice_ring(offset_outline(outline,-.05),.22,eave-.15,eave+.10);self.add('limestone',v,f)
+            for index in [9,10]:
+                x,y=inner[index];self.round_stock('cast_iron',Vector((x,y,0)),.028,heights[index]+.08,heights[index]+.65)
+                self.round_stock('cast_iron',Vector((x,y,0)),.07,heights[index]+.47,heights[index]+.56)
+        a,b,c,d=self.row['rect']
+        for at in [b+3.35,d-3.35]:
+            x=self.study['outline_m'][1][0]-2.5;y=-at;root=height-.12;top=height+1.35
+            for lo,hi in [((x-.36,y-.42,root),(x-.20,y+.42,top)),((x+.20,y-.42,root),(x+.36,y+.42,top)),((x-.20,y-.42,root),(x+.20,y-.26,top)),((x-.20,y+.26,root),(x+.20,y+.42,top))]:self.box(self.row['wall_key'],lo,hi)
+            for lo,hi in [((x-.41,y-.47,top),(x-.20,y+.47,top+.12)),((x+.20,y-.47,top),(x+.41,y+.47,top+.12)),((x-.20,y-.47,top),(x+.20,y-.26,top+.12)),((x-.20,y+.26,top),(x+.20,y+.47,top+.12))]:self.box('limestone',lo,hi)
+
+    def build(self):
+        outline=self.outline(True);inside=offset_outline(outline,-.28);hayes=self.style=='hayes_3353'
+        for floor,(z,Z) in enumerate(zip(self.levels,self.levels[1:])):
+            self.floor=floor;plate=outline if floor==0 else offset_outline(outline,-.14)
+            plates=[plate]
+            if hayes and floor==1:
+                middle=-(self.row['rect'][1]+self.row['rect'][3])/2;half=self.study['passage_width_m']/2
+                plates=[self.clipped(plate,middle-half,True),self.clipped(plate,middle+half,False)]
+            for poly in plates:
+                v,f=extrusion(poly,-.28 if floor==0 else z-.16,0. if floor==0 else z);self.add('concrete' if floor==0 else 'timber',v,f)
+            if hayes and floor==len(self.levels)-2:continue
+            self.stone_base=floor==0
+            for side,(p,q) in enumerate(zip(outline,outline[1:]+outline[:1])):
+                O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
+                self.tapers=((Vector((*inside[side],0))-O).dot(U),length-(Vector((*inside[(side+1)%len(outline)],0))-O).dot(U))
+                count=1 if hayes and side in self.study['entry_sides'] and floor<2 else self.study['side_bays'][side]
+                for bay in range(count):
+                    l=bay*length/count;r=(bay+1)*length/count;entry=side in self.study['entry_sides'] and bay==count//2
+                    if hayes and entry and floor==0:continue
+                    if hayes and entry and floor==1:self.passage(O,U,N,l,r,Z,length)
+                    elif entry and floor==1:self.portico(O,U,N,l,r,z,Z,length)
+                    elif length<.7 or entry and floor==0 or self.covered(O,U,N,l,r,z,[]):self.wall_stock(O,U,N,(l,-.28,z),(r,0,Z),length)
+                    else:self.window(O,U,N,l,r,z,Z,length,basement=floor==0)
+                if floor>0:
+                    runs=[(0.,length)]
+                    if hayes and floor==1 and side in self.study['entry_sides']:
+                        half=self.study['passage_width_m']/2
+                        runs=[(0.,length/2-half),(length/2+half,length)]
+                    for lo,hi in runs:self.stock('limestone',O,U,N,(lo,-.03,z-.08),(hi,.045,z+.015),.004)
+            self.stone_base=False
+        self.crown(outline,self.levels[-1])
+        for x,y,X,Y in self.study['court_paving_m']:
+            ground=float(self.row['grade_low_m'])-float(self.row['grade_datum_m']);bottom=min(ground-.2,-.13)
+            self.box('soil',(x,-Y,bottom),(X,-y,-.12));self.box('concrete',(x,-Y,-.12),(X,-y,0.))
+            count=max(1,math.ceil(-ground/.15));run=.25
+            assert (count-1)*run<=self.row['rect'][2]-X-.10
+            for i in range(1,count):self.box('concrete',(X+(i-1)*run,-Y,bottom),(X+i*run,-y,ground*i/count))
+        if not hayes:
+            a,b,c,d=self.row['rect'];m=(b+d)/2
+            for low,high in [(b+1.6,m-1.0),(m+1.0,d-1.6)]:self.box('soil',(165.,-high,.005),(168.6,-low,.08))
+        assert len(self.entries)==len(self.study['entry_sides'])
+        return dict(windows=self.windows,bearings=self.bearings,entries=self.entries,mitre_seams=self.seams,closed_stocks=self.parts,min_closed_stock_volume_m3=self.min_volume,style=self.style)

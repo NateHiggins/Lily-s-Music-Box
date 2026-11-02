@@ -87,6 +87,9 @@ def inputs(root=ROOT):
     paths.update(p for p in (root/'game/native').rglob('CMakeLists.txt') if p.is_file() and p.relative_to(root).as_posix() in versioned)
     paths.update(root/p for p in ['game/project.godot','game/tests/orison_v2_surface_inventory.gd',
                  'game/tests/v2_front_restoration_review.gd',
+                 'game/tests/v2_city_south_garden_review.gd',
+                 'game/tests/v2_city_south_garden_programme.gd',
+                 'game/tests/v2_city_western_apartments_programme.gd',
                  'game/tests/OrisonV2SurfaceInventory.tscn','tools/audit_v2_surfaces.py',
                  'tools/v2_surface_evidence.py','art/tools/fix_runtime_texture_imports.py',
                  'art/tools/build_tentacle_gang_maps.py','art/tools/build_tentacle_residue_maps.py',
