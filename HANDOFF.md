@@ -1,74 +1,150 @@
-# Current city authoring handoff — November 2, Sohmer native checkpoint
+# Current continuation — November 2 cityscape resumed
 
-Evidence class: **INERT**. This prefix records isolated city-branch custody,
-not canonical acceptance. Full city goal remains active/incomplete. Latest
-owner direction resumes construction with the architect and supersedes the
-prior hold. Read DOCS.md/AGENTS.md and the current city ledger before editing.
+## Current native intake — owner resumed November 2
 
-**Custody:** C:/ov/city, **codex/v2-city-20261029**, started clean from fetched
-**4fae3c389e01ad798cda746e8f69b6a04dc4e51b** after fast-forwarding merged06.
-Canonical checkout/index/outstanding work remain untouched by this chat.
-Developer Sol owns C:/PleaseRemainOnTheLine, composition/lighting/access/clock
-intake and final integration. This chat owns the native factory builder,
-manifest/exports/fixtures and one-body family instrument. No spawned agents.
+Evidence class: **INERT**. Lily now explicitly requests ingestion of the completed
+Blender queue. Process existing28 deliveries in coherent families; do not merely
+repeat the delivery audit or bulk install unsupported adapters. City/native work
+is preserved on this feature branch. Latest combined03 actually ran: two imports
+passed30.3s/11.6s, semantic preflight failed15.18s on the factory helper's inferred
+**passed** variable. No family/world stage started. Original stderr/receipts stay
+under **C:/ov/reports/city_composition_20261102/combined_03/**. Explicit bool fix
+is authored; this was a real semantic failure, not stale cache. Old live-queue
+statements below are historical, not a reason to preserve a vanished freeze.
 
-**Correction after pushed native3e849def1:** the original unadmitted68396 queue
-was cancelled before any import/engine to fix parcel-proxy wall blanking. Native05
-uses actual Piano wing occupancy,old helpers/defaults retained;13source testsPASS.
-P1all11parts/lower GLB exact;P0R2/P2sixdependentparts now rebuild correctly. Fresh
-wholeblock native03review35parts/643controls/2inspectedframesPASS0/54.004s.
-Current shard200736tri/21,462,056B;sourcepane witnesses12507. No oldreceipt repin.
-See occupancy_preservation_02.json and the ledger correction before intake.
+First intake is the full clawfoot bath/plumbing packet. All19 sealed files and
+all8 current consumer/source bindings match; four native images inspected.
+Canonical **art/blender/clawfoot_bath.blend** now contains the delivered source;
+the existing exporter reproduced the supplied GLB byte-for-byte,49332triangles/
+13surfaces, strict tangents PASS. Both descriptor and visual valve axes are +X.
+TapProp retains openings/held input/water/save ownership; a presentation hook
+preserves other mountings and avoids two conflicting transform writes per frame.
+The original gesture bench targets the new actual cap faces and checks X-only
+half-open poses. Actual reimport/five-script semantic preflight pass; graphical
+**ClawfootBathHandBench** passed138checks/0failures20.48s, empty shutdown stderr.
+Three3440x1440 frames inspected. This is an isolated diagnostic including real
+input/entry/plug/curtain and mechanism JSON restore, not furnished-world or
+validated campaign reconstruction, current surface qualification or artistic
+acceptance. External receipts: **C:/ov/reports/native_intake_20261102/bathroom_01/**.
+No own engine job remains. Next: fitted lavatory/closet intake and combined
+furnished-world qualification. Incoming main is now **504657879** (shop work);
+reconcile its changes before eventual candidate verification/main publication.
+Remaining native queue and original city/prologue/repair commitments stay open.
 
 **Compass correction:** this local+X parcel is western/riverward after the
 installed180degree interior/world registration. Earlier eastern wording was
 incorrect. The apron is source-local-X/worldeast-facing;court local+X/worldwest.
 Sohmer waterfront reference fits the existing placement;no geometry relocation.
-Clock frames are source-local,not worldcardinal names. Frozen family inputs stay
-unchanged;Sol corrects descriptive source labels during later clock intake.
+Clock frames are source-local,not worldcardinal names. The isolated 641 family inputs and original receipts remain immutable; the merged producer already corrects descriptive frame labels.
 
-**Current construction:** **HORIZON_NEAR_3_0_P1** adapts LPC2172 Sohmer form:
-six-storey20.4m L-plan,24.96m mansard clock tower,source-local-X public apron,local+X delivery
-court/descent,wood six-over-six sash,brick segmental heads,hollow flue and two
-scenic leaves. Complete near/lower bodies have11parts/167616→96704source
-triangles. All124reservations/123other profiles/35other GLBs remain exact;
-three P2 partitions rebuild for newly exposed party walls. Installed main is
-35individual/89generic;new branch source36/88 is not runtime/artistic acceptance.
 
-Native04 exits0/50.562s. Native review02 exits0/101.552s with22exact native/export
-parts,686pane/frontage/terrain controls;all4final images individually inspected.
-Source12geometry/manifest testsPASS0,readerNEW0,spatial/period/rulingsPASS;
-working protected17 unchanged,V2 selected/v1rollback retained. Actual12static
-board preserves missing newimport/untrackedmodel and stalephysical findings;
-newmodel is now named-staged,not a rerun claim.107tools rows were not rerun.
-Native01winding failure,first-review sash/head issue and text encoding repair
-remain preserved. Existing physical/runtime receipts are never repinned.
+Evidence class: **INERT**. Lily explicitly resumed city finishing with the architect.
+Canonical is **codex/v2-city-composition-20261102**, branched from current
+origin/main **4fae3c389e01ad798cda746e8f69b6a04dc4e51b**. Prior slab/performance
+experiments remain preserved and unmerged on PR138; they are absent here.
+Historical main/handoff counts below are stale: PR139 merged the southern pair
+at **1a7917eae**, and main's Horizon source is **35 individual/89 generic**.
+Corrected native **c4db44b46a25f763ee92c5f112876ed45f5b3ca0** is now
+merged into this feature candidate only: **36 individual/88 generic**.
+No main merge or runtime/artistic acceptance follows from this WIP intake.
 
-**Live own execution:** corrected FIFO family batch broker29476/session76118,queued
-05:52Z behind ownerLoRA and earlier jobs;no owned engine has started at this
-handoff. Patched engine hash verified. Seven entries perform twoimports,mesh/
-texture policy,compile and native3440x1440 hidden-desktop one-body family review.
-Use its same handle/receipts;never restart a live queue or terminate foreign jobs.
-Rendering inputs are frozen. No second Blender/asset/Godot task is running.
+Native city architect owns the Sohmer-inspired **HORIZON_NEAR_3_0_P1** factory,
+existing parcel and complete near/lower bodies in **C:/ov/city**. Canonical owns
+composition/access/LOD integration. Preserve Orison, shops, traffic, terrain,
+450m boundary and all gameplay/save/time owners. No deadline or artistic grant.
 
-**Resume:** external **C:/ov/reports/city_streets_20261029/sohmer_factory_01/**
-contains **continuation_01.json**, **CONSTRUCTION_REPORT.md**,sourcefreeze,
-preservation/native receipts,original failures and **family_batch_01.json**.
-Inspect terminal per-stage wrapper plus test-written schema2 receipt and every
-actual image. Record measured draws/triangles/frame tails;source counts are not
-rendering cost. Native64court/apron/descent support/headroom stations and two
-wrong-height controls are source-only,not capsule movement or Godot collision.
-Sol independently reviewed all4final native images and owns runtime hand reuse
-from arcade_clock.glb/campaign time,optionalclock_faces publishing after source
-freeze,compact connected controller access and combined physical qualification.
-Send each construction report to **Orison Developer Sol6.1**. Commit/push named
-coherent checkpoints;no main merge before required verification/coordination.
+One-world composition study **5c2cf72f6** is authored/parsed; reader **NEW0**.
+Original lighting-only **session62685/broker32784** was cancelled before
+admission (no import/Godot) to combine the factory/clock/lighting cohort and
+avoid duplicate world startup. Its waiter and **CANCELLATION.json** remain at
+**C:/ov/reports/city_composition_20261102/lighting_01/**. No runtime verdict.
+Canonical source is editable again. The b2fe11b8b passive helper was consolidated
+into **Horizon.FactoryClock**, inheriting the existing arcade clock movement.
+The builder publishes two optional dial frames; source/mapping tests and reader
+NEW0 pass, but this is not engine verification. Publication reruns **clock_publish_01/02**
+under the composition report folder preserved all37 GLB bytes. The optional
+Sohmer family test adds transformed dial contacts, native/PBR checks, date and
+fractional-time motion, pause/resume and a unique validated-save reconstruction.
+Replacement combined **57452/session75817** was also cancelled before admission
+after the complete119-gate static board found a missing source import policy for
+the new **city_horizon_near_3_0_lod1.glb**. Its cancellation/actual terminal1 and
+original board remain under **combined_01/**. Named policy fix **ffe38a5c2**
+matches the neighboring lower-body import settings, retains metric precision
+and leaves UID allocation to the first engine import. Physical retention and
+mesh-UV source checks now report0missing/0wrong; no full-board-green claim.
+The second combined **63628/session92884** was cancelled unadmitted after a
+read-only consumer trace found that the composed Horizon review assumes every
+mesh is static and owns HorizonCollision. The new four hands would violate
+that test assumption. **6f338713e** keeps the exact static inventory/collision
+checks and separately checks generated hand identities, native arrays, metric
+materials and loaded maps. All237 panes on the two corrected neighbors now
+receive real first-hit queries, covering all75 added witnesses rather than
+only one topmost station per normal. Parser/readerNEW0/fixture checks pass.
+Original **combined_02/CANCELLATION.json** and terminal1 remain; no engine ran.
+The same five-run cohort is now queued as **61916/session25017**, Wait240, under
+**C:/ov/reports/city_composition_20261102/combined_03/**. Production/test/native
+inputs are frozen while it lives. Two imports, six-script semantic preflight,
+isolated factory/clock and one complete physical world with panes/access/lighting.
+No admission or engine verdict at this checkpoint. Original board110PASS/8FAIL/
+1INCOMPLETE still needs exact-main comparison and physical renewal; preserve
+all original defects. Independently inspected both corrected native03 block
+images; scoped observations appended to own **sohmer_native_review.json**.
+No production ambient-light change has been made.
+The architect cancelled its original unadmitted **68396/90489** after finding
+parcel-proxy blanking. Original **3e849def** remains rejected. Corrected native05
+uses actual occupied Piano wings; old helper/default rows and IDs remain.
+Thirteen source tests pass. P1 eleven attributes/poses and lower GLB are exact;
+six dependent P0R2/P2 wall/sash/pane parts rebuild, adding75 pane witnesses.
+The corrected original family job **29476/session76118** expired unadmitted:
+actual outer exit1, explicit nothing started, all seven logs/receipts absent.
+Architect preserved **family_batch_02.wait_observation.json** in its report
+folder. This is not a suite failure or observed73. Do not restart it.
+Original native/correction archives and native custody text remain in **c4db44b46**
+and the existing city ledger; no old whole-shard receipt is repinned.
+Native factory form is36individual/88generic on the candidate; not qualified. Independent review verified all four native image hashes and124
+reservations/123 other profiles/35 other GLBs. Factory167616near/96704lower
+triangles replace6924generic triangles; sash/brick dominate. Exact native cost
+and preservation observations are external **sohmer_source_cost.json** and
+**sohmer_preservation_independent.json** under the composition report folder.
+These are not FPS or loaded proof; measure actual LOD/viewport cost before
+acceptance or propagating this density. First outline/encoding failures stay
+with the architect's original report. Canonical clock integration is unqualified WIP; the original
+parsed draft and **clock_stock_bounds.json** remain at
+**C:/ov/reports/city_composition_20261102/**. Reuse the existing
+arcade clock's south-facing native hand meshes and inherited CampaignClock
+movement. Uniformscale3.6,local metricUVrepeat9.0; proper outward frames,
+actual .045m dial-front centers plus .025/.037m offsets avoid double datum and
+floating hands. No new clock/save/collision owner or asset is needed. The
+optional runtime clock_faces in the existing horizon builder are now published;
+verify actual loaded materials,hand motion/reversal/reconstruction and composed costs.
+The physical survey has an explicit **ORISON_SURFACE_CITY_CONSTRUCTION=sohmer**
+mode, requiring physical-only. Its new **v2_city_factory_review.gd** helper
+reuses the existing normal-input controller driver for eight nearby connected
+apron/open-end/gap/court/return legs, then runs the existing optical study in
+that supplied world. No second world is created. The optical helper uses the
+existing nonpersistent preview lease and restores lamp/carrier/camera/physics.
+The complete physical inventory and opt-in city pane review remain required;
+the factory programme does not substitute for them. These routes/captures are
+authored and parsed, not run. No geometry rescue or new floor was added.
+Do not repeat launches or unrelated hose/walk suites. Use hidden desktop.
 
-Full city,production lighting/material presentation,whole-worldLOD/frame spikes,
-continuous450m exploration,relevant saves and artistic acceptance remain open.
-Older completed evidence and archives below remain historical provenance.
+Modeler intake is now reconciled read-only at **5c2cf72f6**:28 deliveries,
+27 preferred plus earlier lavatory dependency;33 selected GLB hashes checked,
+65 current buffers stable. Range is consumed through the rebuilt family;
+most checked alternatives are uninstalled. Preserve two root-snapshot drifts,
+airer/gate adapter and access/cost gaps. External audit is at
+**C:/ov/reports/native_intake_20261102/INTAKE_RECONCILIATION.json**. This is source
+intake, not loaded/input/save/performance or artistic qualification. City stays
+first; do not bulk install the native backlog or resume its construction hold.
 
----
+**Geography correction:** installed blockout180degree orientation makes source
+local+X western/riverward. This is a western Sohmer/Vernon-inspired landmark;
+prior eastern labels were wrong. Keep footprint/transforms; use local_minus_z/
+local_minus_x clock IDs and horizon-local Godot centers, applying parent once.
+Full combined loaded clock/material/pane/controller/cost and physical/candidate
+qualification remains required. The source-only helper still has known retained
+setback-proxy debt; see **K-V2-CITY-FOOTPRINT-CLIP**.
+
 
 # Current handoff — November 1 Western apartment pair merged
 

@@ -1,6 +1,7 @@
 extends "res://tests/v2_city_horizon_bench.gd"
 @export var target_ids:PackedStringArray
 @export var expected_partitions:int=0
+@export var qualify_factory_clock:bool=false
 var quit_after_family:bool=true
 var view_direction:Vector3=Vector3(-1.,.12,.18).normalized()
 var observations:Array[Dictionary]=[]
@@ -11,6 +12,9 @@ func _ready()->void:call_deferred("run_family")
 
 func _sources(owner:Node3D)->Dictionary:
     var result=_industrial_sources(owner)
+    # The moving hands are an existing native asset outside the Horizon shard
+    # roster. Bind its import policy too; the runtime digest excludes binaries.
+    for path:String in ["res://assets/props/arcade_clock.glb","res://assets/props/arcade_clock.glb.import"]:result[path]=_profile_sha(path)
     var fixture:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_horizon.json"))
     for relative:String in fixture.source_bindings:
         var path="res://../"+relative
@@ -53,7 +57,7 @@ func run_family()->void:
     var draws:Array=horizon.find_children("*","MeshInstance3D",true,false)
     var bounds:Dictionary={};var selected=0
     for draw:MeshInstance3D in draws:
-        var identity=str(draw.get_meta("v2_city_horizon_building"));draw.visible=identity in target_ids
+        var identity=str(draw.get_meta("v2_city_horizon_building",""));draw.visible=identity in target_ids
         if not draw.visible:continue
         selected+=1;metrics._check_cap_mapping(draw.mesh,true)
         check(draw.get_meta("v2_city_horizon_body_lod",false) and low_counts.has(str(draw.name)),"complete production replacement installed")
@@ -121,14 +125,141 @@ func run_family()->void:
         check(not actual_key.is_empty(),"natural witness selects an actually reducing broad material part")
         if not actual_key.is_empty():transitions[identity]=await _profile_natural(horizon,camera,draws,identity,actual_key,directory)
     viewport.mesh_lod_threshold=threshold;viewport.use_taa=taa;DisplayServer.window_set_vsync_mode(vsync);Engine.max_fps=cap
+    var clock_review:Dictionary={}
+    if qualify_factory_clock:clock_review=await _qualify_factory_clock(horizon,camera,fixture,directory)
     check(production_inputs==_production_inputs(),"production input digest remains fixed")
     for path:String in sources:check(_profile_sha(path)==sources[path],"frozen consumed source "+path)
     var retired=weakref(horizon);horizon.free();camera.free();sun.free();environment.free();await get_tree().physics_frame;check(retired.get_ref()==null,"production owner retires")
     var record={"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,"scope":"Explicit one-or-two isolated production horizon bodies with scene IDs/partition roster:near/lower metric UV/normal/tangent checks,loaded PBR maps with complete mips,first-hit panes,full-body forcedLOD/return and per-body natural material-part transitions. Fixed diagnostic lighting;no composed-world access,saves,wholecity performance or artistic acceptance.","execution":{"completed":true,"exit_code":0 if failures.is_empty() else 1,"timed_out":false},"source":{"test_path":"game/"+get_script().resource_path.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":production_inputs,"isolated_sources_sha256":JSON.stringify(sources).sha256_text()},"source_hashes":sources,"checks":checks,"failures":failures,"settings":{"resolution":[int(viewport.get_visible_rect().size.x),int(viewport.get_visible_rect().size.y)],"msaa_3d":viewport.msaa_3d,"measured_taa":false,"measured_vsync":DisplayServer.VSYNC_DISABLED,"measured_max_fps":0,"restored_taa":taa,"restored_vsync":vsync,"restored_max_fps":cap,"fixed_diagnostic_lighting":true},"mapping_failures":mapping_failures,"pane_controls":panes,"loaded_materials":maps,"observations":observations,"natural_transitions":transitions,"contracts":{"loaded_mapping":{"executed":true,"passed":mapping_failures.is_empty()},"loaded_mipmaps":{"executed":maps.size()==expected_partitions,"passed":failures.is_empty()},"replacement_lods":{"executed":observations.size()==target_ids.size()*3,"passed":failures.is_empty()}}}
+    if qualify_factory_clock:
+        record["factory_clock"]=clock_review
+        record.contracts["factory_clock"]={"executed":true,"passed":bool(clock_review.get("passed",false))}
+        record.scope+=" Opt-in factory clock: four native hand instances, loaded maps/mips/metric repeat, physical dial first hits, transformed-owner poses, pause/resume, validated test-only disk save/load and fresh presentation reconstruction. No whole-world reload or artistic acceptance."
     var file=FileAccess.open(directory.path_join("individual_bodies.runtime.json"),FileAccess.WRITE);check(file!=null,"runtime contract writable")
     if file!=null:file.store_string(JSON.stringify(record,"\t"));file.close()
     print("INDIVIDUAL CITY BODY FAMILY ",checks," checks ",failures.size()," failures")
     if quit_after_family:get_tree().quit(0 if failures.is_empty() else 1)
+
+func _clock_tips(model:Node3D,faces:Array,minute:float)->void:
+    for face:Dictionary in faces:
+        var center:=Vector3(face.center_godot[0],face.center_godot[1],face.center_godot[2])
+        var right:=Vector3(face.right_godot[0],face.right_godot[1],face.right_godot[2])
+        var up:=Vector3(face.up_godot[0],face.up_godot[1],face.up_godot[2])
+        var normal:=Vector3(face.normal_godot[0],face.normal_godot[1],face.normal_godot[2])
+        for kind:String in ["hour","minute"]:
+            var hand:=model.get_node_or_null(str(face.id)+"_"+kind+"_hand") as MeshInstance3D
+            check(hand!=null,"four explicit native factory hands")
+            if hand==null:continue
+            var angle:=TAU*fposmod(minute,720. if kind=="hour" else 60.)/(720. if kind=="hour" else 60.)
+            var tip:=hand.mesh.get_aabb().end.y
+            var expected:=center+normal*(.037 if kind=="minute" else .025)+(right*sin(angle)+up*cos(angle))*tip*3.6
+            check((hand.global_transform*Vector3(0,tip,0)).distance_to(model.to_global(expected))<.0001,"actual transformed native tip follows shared fractional time")
+
+func _qualify_factory_clock(horizon:Node3D,camera:Camera3D,fixture:Dictionary,directory:String)->Dictionary:
+    var start_failures:=failures.size()
+    var faces:Array=fixture.get("clock_faces",[])
+    var movement:=horizon.get_node_or_null("FactoryClockMovement")
+    check(faces.size()==2 and movement!=null,"factory clock configured from generated runtime faces")
+    if faces.size()!=2 or movement==null:return {"passed":false}
+    var profiles:Array=[]
+    for row:Dictionary in fixture.buildings:profiles.append(str(row.id))
+    check(Horizon.FactoryClock.face_failures(faces,profiles).is_empty(),"actual factory faces satisfy schema")
+    var invalid:Array=faces.duplicate(true);invalid[1].id=invalid[0].id
+    check(not Horizon.FactoryClock.face_failures(invalid,profiles).is_empty(),"duplicate dial identity rejected")
+    invalid=faces.duplicate(true);invalid[0].right_godot=invalid[0].normal_godot
+    check(not Horizon.FactoryClock.face_failures(invalid,profiles).is_empty(),"inward/nonorthogonal dial frame rejected")
+    invalid=faces.duplicate(true);invalid[0].hand_scale=.42
+    check(not Horizon.FactoryClock.face_failures(invalid,profiles).is_empty(),"accidental secondary shrink rejected")
+    invalid=faces.duplicate(true);invalid[0].building="NOT_A_REGISTERED_BODY"
+    check(not Horizon.FactoryClock.face_failures(invalid,profiles).is_empty(),"unknown clock building rejected")
+    var original_transform:=horizon.transform
+    # Match a nonidentity installed orientation/offset; local centers must be
+    # transformed exactly once rather than interpreted as world coordinates.
+    horizon.transform=Transform3D(Basis(Vector3.UP,PI),Vector3(12,4,-9))
+    for draw:MeshInstance3D in horizon.find_children("*","MeshInstance3D",true,false):
+        draw.visible=str(draw.get_meta("v2_city_horizon_building","")) in target_ids or str(draw.get_meta("city_clock_building","")) in target_ids
+    await get_tree().physics_frame;await get_tree().physics_frame
+    var stock:Node3D=Horizon.FactoryClock.HAND_STOCK.instantiate()
+    var hand_count:=0
+    for draw:MeshInstance3D in horizon.find_children("*","MeshInstance3D",true,false):
+        if not draw.get_meta("city_clock_hand",false):continue
+        hand_count+=1
+        var source:=stock.find_child(str(draw.get_meta("city_clock_source_part")),true,false) as MeshInstance3D
+        check(source!=null,"clock hand reuses a named native stock")
+        if source!=null:
+            var a:=source.mesh.surface_get_arrays(0);var b:=draw.mesh.surface_get_arrays(0)
+            for channel:int in [Mesh.ARRAY_VERTEX,Mesh.ARRAY_NORMAL,Mesh.ARRAY_TANGENT,Mesh.ARRAY_TEX_UV,Mesh.ARRAY_INDEX]:check(a[channel]==b[channel],"clock native physical arrays unchanged")
+        var material:=draw.material_override as StandardMaterial3D
+        check(material!=null and material.normal_enabled and not material.uv1_triplanar and material.uv1_scale.is_equal_approx(Vector3.ONE*9.),"scaled native hands retain .4m metric material repeat")
+        if material!=null:
+            for texture:Texture2D in [material.albedo_texture,material.normal_texture,material.roughness_texture]:check(texture!=null and texture.get_image().has_mipmaps(),"clock uses loaded mapped PBR mip chains")
+    stock.free();check(hand_count==4,"two faces publish exactly four hands")
+    for face:Dictionary in faces:
+        var center:=Vector3(face.center_godot[0],face.center_godot[1],face.center_godot[2])
+        var normal:=Vector3(face.normal_godot[0],face.normal_godot[1],face.normal_godot[2])
+        var hit:=horizon.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(horizon.to_global(center+normal*.2),horizon.to_global(center-normal*.08),1))
+        check(not hit.is_empty() and str(hit.collider.get_parent().name)==str(face.building)+"__limewash_plaster" and hit.position.distance_to(horizon.to_global(center))<.0001,"physical native dial proves generated frame and single grade datum")
+    var clock:=CampaignClock.new();var captures:Array=[]
+    for minute:float in [720.,195.,1110.,195.5]:
+        check(clock.configure_date(1928,11,10,int(minute)),"clock fixture uses real campaign authority")
+        if minute>floorf(minute):check(clock.advance_to(minute-floorf(minute)),"fractional time advances through the existing clock owner")
+        var before:=var_to_bytes(RealityState.data)
+        check(movement.refresh_from_campaign(),"native clock presentation refreshes")
+        check(before==var_to_bytes(RealityState.data),"clock presentation writes no campaign facts")
+        _clock_tips(horizon,faces,minute)
+        if minute==195.5:continue
+        for face:Dictionary in faces:
+            var center:=Vector3(face.center_godot[0],face.center_godot[1],face.center_godot[2])
+            var normal:=Vector3(face.normal_godot[0],face.normal_godot[1],face.normal_godot[2])
+            camera.fov=35.;camera.global_position=horizon.to_global(center+normal*5.);camera.look_at(horizon.to_global(center))
+            for frame in 8:await RenderingServer.frame_post_draw
+            var name:="clock_%s_%04d.png"%[str(face.id),int(minute)]
+            check(get_viewport().get_texture().get_image().save_png(directory.path_join(name))==OK,"actual dial/hand pose captured")
+            captures.append({"file":name,"sha256":FileAccess.get_sha256(directory.path_join(name)),"minute":minute})
+    var paused_before:=get_tree().paused;var displayed:float=movement.displayed_minute
+    get_tree().paused=true
+    check(clock.configure_date(1928,11,10,247),"paused test clock authority changes independently")
+    await get_tree().create_timer(.35,true).timeout
+    check(is_equal_approx(float(movement.displayed_minute),displayed),"paused owner does not animate hands")
+    get_tree().paused=paused_before
+    await get_tree().create_timer(.35).timeout
+    check(is_equal_approx(float(movement.displayed_minute),247.),"resumed presentation catches up to authority")
+    _clock_tips(horizon,faces,247.)
+    var old_path:String=RealityState.save_path;var old_persistence:bool=RealityState.persistence_enabled
+    var parent:=ProjectSettings.globalize_path("user://tests/factory_clock_runs")
+    var save_dir:=parent.path_join("%d_%d"%[OS.get_process_id(),Time.get_ticks_usec()])
+    var made:=DirAccess.make_dir_recursive_absolute(parent)==OK and not DirAccess.dir_exists_absolute(save_dir) and DirAccess.make_dir_absolute(save_dir)==OK
+    check(made,"new isolated save directory admitted")
+    var save_sha:="";var load_status:Dictionary={}
+    if made:
+        RealityState.persistence_enabled=false;RealityState.save_path=save_dir.path_join("save.json")
+        RealityState.persistence_enabled=true
+        check(RealityState.save_game(),"existing validated save owner writes clock fixture")
+        RealityState.persistence_enabled=false
+        save_sha=FileAccess.get_sha256(RealityState.save_path)
+        check(clock.configure_date(1928,11,10,600),"unsaved alternate time fixture")
+        RealityState.load_game();load_status=RealityState.load_status()
+        check(load_status.get("status")=="loaded" and is_equal_approx(clock.minute_of_day(),247.),"validated disk load restores shared time and existing reader rebinds")
+        movement.free()
+        for draw:MeshInstance3D in horizon.find_children("*","MeshInstance3D",true,false):
+            if draw.get_meta("city_clock_hand",false):draw.free()
+        var fresh:=Node3D.new();fresh.name="ReconstructedClock";horizon.add_child(fresh)
+        var next:=Horizon.FactoryClock.new()
+        check(next.configure_faces(fresh,faces,profiles),"new clock presentation reconstructs from loaded owner")
+        fresh.add_child(next)
+        check(fresh.find_children("*","MeshInstance3D",true,false).size()==4,"reconstruction has four hands without duplicates")
+        _clock_tips(fresh,faces,247.);fresh.free()
+        RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests();RealityState.save_path=old_path;RealityState.persistence_enabled=old_persistence
+        if failures.size()==start_failures:
+            var cleaned:=true
+            for suffix:String in ["",".bak",".txn",".tmp"]:
+                var path:=save_dir.path_join("save.json"+suffix)
+                if FileAccess.file_exists(path) and DirAccess.remove_absolute(path)!=OK:cleaned=false
+            if DirAccess.get_files_at(save_dir).is_empty() and DirAccess.get_directories_at(save_dir).is_empty():cleaned=DirAccess.remove_absolute(save_dir)==OK and cleaned
+            else:cleaned=false
+            check(cleaned,"only successful test-owned save bundle cleaned")
+    horizon.transform=original_transform
+    return {"passed":failures.size()==start_failures,"images":captures,"save_fixture_directory":save_dir,"save_sha256":save_sha,"load_status":load_status,"scope":"Native arrays/PBR, actual dial contacts, transformed-frame dates/reversal, pause/resume, real validated disk load and fresh clock-only owner. Failed save artifacts preserved; no whole-world reload or artistic acceptance."}
 
 func _profile_natural(_city: Node3D,camera: Camera3D,draws: Array,identity: String,key: String,directory: String) -> Dictionary:
     var focus: MeshInstance3D=null

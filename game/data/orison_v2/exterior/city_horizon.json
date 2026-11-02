@@ -3435,5 +3435,57 @@
       "HORIZON_NEAR_3_3_P2__soil",
       "HORIZON_NEAR_3_3_P2__timber"
     ]
-  }
+  },
+  "clock_faces": [
+    {
+      "id": "HORIZON_NEAR_3_0_P1_local_minus_z",
+      "building": "HORIZON_NEAR_3_0_P1",
+      "center_godot": [
+        155.39999999999998,
+        19.694499999999998,
+        -127.045
+      ],
+      "right_godot": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "up_godot": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "normal_godot": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "hand_scale": 3.6
+    },
+    {
+      "id": "HORIZON_NEAR_3_0_P1_local_minus_x",
+      "building": "HORIZON_NEAR_3_0_P1",
+      "center_godot": [
+        153.155,
+        19.694499999999998,
+        -124.8
+      ],
+      "right_godot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "up_godot": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "normal_godot": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "hand_scale": 3.6
+    }
+  ]
 }

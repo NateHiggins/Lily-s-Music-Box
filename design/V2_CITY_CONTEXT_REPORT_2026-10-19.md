@@ -1,5 +1,86 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+### Factory clock and composed qualification checkpoint — November 2
+
+Evidence class: **INERT**. Pushed feature **17944721e** includes corrected
+native **c4db44b46** and optional generated dial frames. It is not merged to
+main and has no new engine or artistic acceptance. All37 exported GLBs remained
+byte-identical through the clock publication reruns; native body/neighbor
+geometry evidence therefore retains its original scope. The three editable
+Blender files and generated reports were republished by the existing producer.
+
+**Horizon.FactoryClock** reuses the installed arcade clock hand meshes and
+campaign-time movement. Four passive mapped draws, no new textures/lights or
+clock/save owner. Native hands scale3.6 with local metric repeat9; generated
+outward dial frames include the existing grade once. The earlier standalone
+helper is consolidated, avoiding another production file and keeping generated
+data with its actual reader. The opt-in factory family check covers actual
+transformed dial contacts, loaded maps, reversible/fractional time, pause and
+unique test-owned validated save/load plus clock-only reconstruction. These
+checks are authored, not yet executed.
+
+The canonical physical survey's explicit **sohmer** construction mode now
+reuses the existing actual controller driver for eight connected nearby
+apron/open-end/lateral-gap/court/return legs. It adds no floor or rescue. The
+roof lighting comparison runs afterward in that same world, using the existing
+nonpersistent preview lease and restoring campaign/lamp/carrier/view/physics.
+The full physical inventory and all-city pane review remain separate required
+checks in the same run; neither isolated P1 nor this route establishes them.
+
+Actual static results: five city-horizon unit tests pass, GDScript syntax
+parsing passes, fixture source bindings pass, reader NEW0, named diff clean.
+The static SOURCES-only preflight was also tried against three legacy/dynamic
+receipt scripts and reported missing declarations; those scripts use their
+existing dynamic source maps instead. That command is not an engine failure
+or a passing closure check. The new factory receipt records consumed test
+dependencies and a production digest before/after the programme.
+
+Combined batch **57452/session75817** is queued through the shared lane with
+Wait240 at **C:/ov/reports/city_composition_20261102/combined_01/**: two imports,
+semantic preflight, isolated factory/clock, then one full physical world with
+panes/access/lighting. Original source is frozen while that process lives.
+No run has been admitted at this checkpoint. The previous architect wait
+**29476/session76118** expired unadmitted with actual outer exit1 and explicit
+“nothing was started”; no logs/engine receipts exist. Its preserved observation
+is not a suite failure and must not be rewritten as observed exit73.
+
+Remaining: engine failures if any, inspect actual dial/world/lighting renders,
+measure loaded LOD/draw/frame cost, publish current physical packet, compare
+required gates against exact main and verify the candidate before main merge.
+No production ambient-light change, whole-city completion, deadline or owner
+artistic acceptance is claimed.
+
+**Consumer coverage correction:** a subsequent read-only trace identified the
+composed Horizon review's unconditional static collision-body access. Four new
+moving clock hands are a separate presentation roster. Before any engine
+admission, own63628 was cancelled and its original observation preserved in
+**combined_02/CANCELLATION.json**. **6f338713e** retains every static identity,
+near/lower roster and actual collision check, adds explicit generated moving
+hand/native-array/PBR/metre-scale coverage, and probes every one of the237
+panes on the two affected neighbor bodies. This covers the75 new witnesses
+instead of relying on the old topmost-pane-per-facade sample. No geometry,
+runtime authority, fixture tolerance or gate was weakened. Parser, fixture
+bindings and readerNEW0 pass; these are not runtime results. Replacement
+**61916/session25017**, Wait240, is queued at **combined_03/** with unchanged
+production/native inputs and corrected consumed test sources. No engine run
+or new screenshot occurred in either cancelled combined attempt.
+
+**Later static disposition:** complete119-gate board at9d4f7852b recorded
+110PASS/8FAIL/1INCOMPLETE. In addition to stale physical proof and unrelated
+red tool rows requiring exact-main comparison, two source-policy gates found
+the new lower-detail shard's missing **.glb.import**. Own unadmitted57452 was
+cancelled with no import/child/engine; original board and cancellation remain
+unchanged in **combined_01/**. Named fix **ffe38a5c2** retains the neighboring
+lower-body settings and correct cache/source path with compression disabled;
+new UID allocation is left to Godot, not copied from another asset. Both
+affected checks now report0missing/0wrong; fixture bindings still pass.
+Replacement **63628/session92884** is live/queued Wait240 under **combined_02/**,
+with the same five-run programme and corrected frozen inputs. No engine
+admission or acceptance follows from this static repair. Both corrected
+native03 whole-block images were also independently inspected and recorded in
+the existing external **sohmer_native_review.json** without replacing its older
+four-image observation or claiming Godot/artistic acceptance.
+
 
 Evidence class: **INERT**. Published main **402b4f6c** reconciles the eastern
 street/ground and frozen house/court work with PR109/PR110. The complete
