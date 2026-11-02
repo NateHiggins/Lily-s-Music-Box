@@ -47,7 +47,7 @@ She could go back and straighten it, because she has the plate. But Adela once h
 | Near the quarters | **ADEL**: a ghost in the earthshine on the dark side, black along the shadow line, the last letter lost in the glare | **ADELA**, hard shadows at the line | 26 Sep, 10 Oct, 25 Oct, 9 Nov |
 | New | Nothing, there's no Moon to see | Nothing | 2 Oct, 1 Nov |
 
-**So nobody reads the whole name with the naked eye.** Unknown to the plan, the dark side's earthshine carries it as a ghost, which I kept because it's the best thing in the render. In a telescope it reads at any lit phase. **The game has no installed telescope yet:** the telescope column is proved only on the optical bench, at a 2 degree field. The eye column is at a 14 degree field at 1280 x 720; **at the player's wider normal view it will be harder, and it hasn't been looked at there.**
+**So nobody reads the whole name with the naked eye.** Unknown to the plan, the dark side's earthshine carries it as a ghost, which I kept because it's the best thing in the render. In a telescope it reads at any lit phase. **The game has no installed telescope yet:** the telescope column is proved only on the optical bench, at a 2 degree field. The eye column is at a 14 degree field at 1280 x 720; **at a normal 60 degree view, rendered and looked at, the Moon is about fifteen pixels wide at 1280 x 720 and the name can't be read at any phase.** So until there's a telescope or a zoom, the player can't read it in the game: she can only be told, and see that something has happened along the shadow line.
 
 **On the last evening, 9 November, the first-quarter Moon shows ADEL.** See section 5.
 
@@ -107,4 +107,4 @@ She could go back and straighten it, because she has the plate. But Adela once h
 
 **Built, first draft.** The cut, the date driver and a review bench; seven back pages; twelve threads and one companion line.
 
-**Not built.** An installed telescope, the cups as props, Lily's trip, the Ravenswood stage, crowds on roofs, and any change to the endings. The comic is a private script with nothing rendered. Adela's and Lily's threads still open only through the F9 playtest panel.
+**Not built, and the first thing it needs.** An installed telescope, without which the player can't read her own name. **Also not built:** the cups as props, Lily's trip, the Ravenswood stage, crowds on roofs, and any change to the endings. The comic is a private script with nothing rendered. Adela's and Lily's threads still open only through the F9 playtest panel.
