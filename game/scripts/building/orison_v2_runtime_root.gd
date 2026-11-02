@@ -96,7 +96,7 @@ var startup_ms := 0.0
 var startup_milestones: Array[Dictionary] = []
 var _startup_started_usec := 0
 # Transient loading work; never persisted or a clock/gameplay authority.
-var entry_render_preparation_enabled := true
+var entry_render_preparation_enabled := false # Rejected startup-eye timing; diagnostic opt-in only.
 var entry_render_preparation: Dictionary = {}
 var _entry_render_job: Node
 var _entry_render_shutdown := false

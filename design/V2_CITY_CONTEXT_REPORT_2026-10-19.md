@@ -6055,7 +6055,7 @@ actual production compile now PASS: five scripts,20.02s,zero script errors and e
 new test-camera record is **aec0365feb56a6da**,with existing classifications unchanged (71 line-location updates).
 
 Small-fixture archive **art/reviews/v2_entry_render_preparation_20261101.zip**:
-**29members/116592bytes/SHA256 d23d2ee82022992aedf250a1996afb0bd3a22a9321d4f3a7ec519bec28e8f6fc**. It retains executed helper/test
+**48members/194180bytes/SHA256 aa3984a089ebc72df409d7b50d30abf14d1fed515f31fdced78e38f79734e1dc**. It retains executed helper/test
 source,scene,actual raw compressed logs/receipts,result and inspected restored
 image. Original failures of earlier warmups remain intact. A local authoring
 preflight caught an incorrectly indented planned edit before it was written;
@@ -6097,3 +6097,56 @@ frames,host samples and analysis,with all preceding small-fixture payloads intac
 Publication checkpoint: preserve this implementation on its named feature branch as WIP. Actual composed loading/input, save/reload, matched candidate timings and surface/candidate renewal remain open before merging. The production compiler receipt and compressed raw output are included in the same evidence archive.
 
 Canonical independent intake review (November 1): inspected the architect's optical-only source checkpoint **73fcf097** and personally viewed actual **HORIZON_NEAR_3_2_P1_front_roof.png** and **HORIZON_NEAR_3_2_P2_rear_court_roof.png** under the original **optics_world_01** report. Both image hashes match that test-written contract. The intended mansard/hip roof and open rear-court subjects are visible; the prior subject-framing gap is resolved for these two reviewed captures. Near-black courts/ground, deep facade shadows and generic neighboring repetition remain visible artistic debt. This read-only review is not integration, clean candidate verification, new surface qualification or artistic acceptance. The architect checkpoint remains separate from PR137; original exact-runtime evidence is retained rather than repinned.
+
+### November 1 — measured startup-eye rejection
+
+Evidence class: **INERT**. Actual candidate **34b6779de** completes the same
+six-leg controller diagnostic: **17checks/0failures**,182.37s wrapper,empty
+stderr,patched Vulkan/3440x1440. Executed source/runtime hashes remain frozen;
+settings and all six targets match clean-main control. Candidate script
+preflight passes five scripts. This proves the diagnostic ran,not performance
+acceptance or a played golden route.
+
+| Measure | Original main | Startup-eye candidate |
+|---|---:|---:|
+| Walking samples | 219 | 208 |
+| Nearest-rank p50 / p95 / p99 (ms) |20.185 /53.193 /172.507|20.157 /49.576 /184.447|
+| Maximum frame interval (ms) |293.987|436.625|
+| Frames above100ms |3|4|
+| Observed startup (ms) |134427.256|147137.721|
+
+Candidate startup job genuinely completes ten draws and reports17745.806ms
+(including waits),with five draw-pair brackets8447.629/77.626/254.251/83.354/
+99.678ms. It does not meet the purpose: the cold tail persists and is worse in
+this sample. Do not infer improvement from the slightly lower p95. No reversal
+is required to reject a shipping-speedup claim; none has run. Driver cache/run
+order and startup contention prevent a causal statement about the full delta.
+
+Pipeline observations improve(surface delta99→0,specialization196→19),but
+render-bracket maximum rises273.272→416.762ms. Both runs stayRESIDENT and
+recordzero room-reflection refreshes. First reverse-leg spikes persist; global
+draw monitors on reverse legs are about36–38k versus~1.1k forward. These are
+engine-wide monitors,not per-viewport attribution; investigate the actual
+view/pass owners before deciding why. Shader counters and callback intervals
+are not additive independent costs. No visual-quality reduction is authorized
+by this trace.
+
+Standard-library1Hz host observer retains183samples,max sampling body4.0554ms.
+Modeler reports one6.43s CPU construction; log filesystem timestamps00:12:00–
+00:12:06UTC overlap startup,not the later walking segment. They are not exact
+process timestamps. Both asset agents confirmed quiet before measured walking;
+background load and observer coverage still limit attribution.
+
+The automatic startup/passsage proposal is now **disabled by default** in the
+WIP branch; diagnostic review opts in explicitly. This is rejection containment,
+not a stutter repair or feature completion. Main remains untouched. Next trace
+the remaining render-pass/draw workload rather than ship a17.7s preparation
+that does not eliminate the hitch. Actual real-player/pause/save review
+**world01** stops at a genuine inferredVariant warning-as-error on weakref;
+original source/stdout/stderr/receipt retained. ExplicitWeakRef annotation is
+authored and **world02** queued; no world01 runtime qualification is claimed.
+
+Archive above adds original candidate source/raw timing/work/host/receipts,
+comparison source and output,spike observations and original world01 compiler
+failure. Existing members remain byte-identical. Full V2,hose/book/nook and
+all composed/input/persistence/performance qualification remain open.

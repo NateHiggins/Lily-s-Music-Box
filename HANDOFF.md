@@ -1,3 +1,26 @@
+# Latest result — startup-eye timing rejected; November 1
+
+Evidence class: **INERT**. Main remainsC371e94e; draftPR137 only. CandidateB
+34b6779de actual17checks/6legs/0failures,182.37s,empty stderr. Same settings and
+targets: max293.987→436.625ms,p99172.507→184.447,frames>100ms3→4. Ten startup
+draws complete but cost17745.806ms. Do not ship this as a stutter improvement.
+Automatic preparation is disabled by default in the current WIP branch; the
+actual-world review opts in. Investigate remaining render-pass/draw workload.
+
+Original world01 actual compiler fails at inferredVariant weakref(line93);
+no world composed. ExplicitWeakRef fix authored. **world02** compile+actual
+input/pause/shutdown/two-world sandbox review queued: session34585/broker61444,
+behind the next real resident run. Poll same handle; do not restart just for
+observation timeout. Canonical runtime/test are frozen through that run.
+Candidate6270,observer7965 and world011146 are all terminal. Quiet hold released
+to both asset agents; startup CPU construction overlap retained in ledger.
+
+Owned C:/ov/c-ab46a508 remains detached34b6779de,not current canonical. Preserve
+its generated import/UID churn before later switching/cleanup. Original baseline
+boardC371 remains valid as captured. Current physical packet remainsSTALE on
+this feature branch; no new main merge or full V2 acceptance. Detailed metrics,
+source/raw logs and original failure are in the existing city ledger/archive.
+
 # Current handoff — November 1 loading-owned rendering preparation WIP
 
 Live continuation: matched candidate34b6779de is frozen in owned

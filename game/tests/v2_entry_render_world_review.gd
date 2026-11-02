@@ -31,6 +31,8 @@ func _ready() -> void:
 
 func _mount() -> bool:
 	world = Runtime.instantiate()
+	# Explicit diagnostic opt-in: the startup-eye hypothesis failed timing.
+	world.entry_render_preparation_enabled = true
 	# The orchestration must observe pause; the production world must not
 	# inherit its ALWAYS process mode.
 	world.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -90,7 +92,7 @@ func _exercise() -> void:
 	check(RealityState.save_game(),"validated campaign owner writes actual sandbox save")
 	var disk := FileAccess.get_file_as_bytes(RealityState.save_path)
 	check(not disk.is_empty() and not FileAccess.get_file_as_string(RealityState.save_path).contains("entry_render_preparation"),"transient preparation observations are absent from disk")
-	var first := weakref(world)
+	var first: WeakRef = weakref(world)
 	call_deferred("_shutdown_during_job")
 	result = await world._prepare_entry_rendering("review_shutdown")
 	check(_shutdown_seen and not result.completed and result.reason=="world_shutdown" and player.text_input_owner==null,"actual world shutdown cancels and releases its pending lease")
