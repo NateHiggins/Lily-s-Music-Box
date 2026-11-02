@@ -6490,3 +6490,50 @@ Its scope remains native-only while the existing family queue waits;later
 loaded/composed evidence must retain separate execution provenance. All prior
 archive entries/bytes are preserved. Sol independently inspected/hash-matched
 all4finalnativeviews and reviewed the fixture/preservation boundary.
+
+
+**Pre-runtime occupancy correction (05:53Z):** native checkpoint
+**3e849def182ee53aac2091d01a1acb95c0a2f077** is pushed/remote-verified,not a
+merge candidate. Inspection found the retained **party_wall_overlap** helper
+uses whole parcel rectangles. The earlier explanation that its P2 changes
+represented exposed walls was wrong: the taller parcel proxy actually blanked
+windows across the new L court/setbacks. Original report/archive remain intact.
+Only our verified unadmitted FIFO broker68396 was cancelled;outer90489 ended1
+from that explicit cancellation,no engine/import/suite had started. Its actual
+PID/birth/command record is **cancelled_unadmitted_queue_01.json**. No foreign
+process or stale waiter record was terminated/deleted.
+
+Scoped **occluding_neighbours** in the native producer now decomposes only the
+new Piano style into its actual two occupied wing rectangles. Original helper,
+old industrial class ASTs,124 reservations and123other source profiles remain
+unchanged. Thirteen focused tests pass,including empty court/west/east/north
+setbacks,solid wings,above-height rejection,retained legacy rectangle positive,
+identity exclusion and source immutability. This does not qualify the old
+rectangle policy generally. Sol supplied a separate retained narrow-house
+false-positive source witness: **HORIZON_NEAR_2_1_P0R1** parcel versus setback
+outline. Audit other legacy irregular/setback neighbours before full-city
+acceptance;do not silently widen this current patch or invent missing-window
+artistic intent from that source witness alone.
+
+Actual native05 passes0/48.122s,12507pane probes(+75 versus04),5400coverage
+rays. Current changed shard has200736triangles/21,462,056B;Sohmer's167616/96704
+and11parts remain unchanged. Six dependent P0R2/P2 brick/paint/pane partitions
+now rebuild. Exact full-attribute/index/mode/node-transform comparison confirms
+all11P1parts unchanged versus04;lower GLB is byte-identical,35other oldGLBs exact.
+Original P1-only native02views retain their original scoped provenance;the old
+whole-shard hash is never repinned. **occupancy_preservation_02.json** records
+that distinction. Fresh native whole-five-body review03 passes0/54.004s with
+35actual native/export parts and643pane/apron controls. Both new whole-block
+front/rear images individually inspected/hash-bound:factory/court/tower remain,
+neighbor windows are present;generic neighbors/dark surrounding ground remain
+artistic limitations,not newly accepted production lighting or access.
+
+Corrected **family_source_freeze_02.json** precedes fresh **family_batch_02.json**,
+FIFO broker29476/session76118,queued05:52Z behind the sameownerLoRA/earlier jobs.
+No engine result yet. Continue that exact request;original unadmitted batch01
+and all prior source/receipts remain preserved. Native/source parity does not
+replace loaded UV/mip/LOD/frame-cost or full-world actual-controller/surface proof.
+
+Scoped correction packet **art/reviews/city_streets_20261029/sohmer_factory_occupancy_review.zip**
+contains20members/2817664B,SHA256
+**16010ecdd2dc2d053986fdf7873844464a63e44ee114a91beecccc26a3e1b7cc**. Originalnativearchive/hash unchanged;no runtimeproof grant.

@@ -12,6 +12,14 @@ Developer Sol owns C:/PleaseRemainOnTheLine, composition/lighting/access/clock
 intake and final integration. This chat owns the native factory builder,
 manifest/exports/fixtures and one-body family instrument. No spawned agents.
 
+**Correction after pushed native3e849def1:** the original unadmitted68396 queue
+was cancelled before any import/engine to fix parcel-proxy wall blanking. Native05
+uses actual Piano wing occupancy,old helpers/defaults retained;13source testsPASS.
+P1all11parts/lower GLB exact;P0R2/P2sixdependentparts now rebuild correctly. Fresh
+wholeblock native03review35parts/643controls/2inspectedframesPASS0/54.004s.
+Current shard200736tri/21,462,056B;sourcepane witnesses12507. No oldreceipt repin.
+See occupancy_preservation_02.json and the ledger correction before intake.
+
 **Current construction:** **HORIZON_NEAR_3_0_P1** adapts LPC2172 Sohmer form:
 six-storey20.4m L-plan,24.96m mansard clock tower,west public apron,east delivery
 court/descent,wood six-over-six sash,brick segmental heads,hollow flue and two
@@ -29,8 +37,8 @@ newmodel is now named-staged,not a rerun claim.107tools rows were not rerun.
 Native01winding failure,first-review sash/head issue and text encoding repair
 remain preserved. Existing physical/runtime receipts are never repinned.
 
-**Live own execution:** one FIFO family batch broker68396/session90489,queued
-05:29Z behind ownerLoRA and earlier jobs;no owned engine has started at this
+**Live own execution:** corrected FIFO family batch broker29476/session76118,queued
+05:52Z behind ownerLoRA and earlier jobs;no owned engine has started at this
 handoff. Patched engine hash verified. Seven entries perform twoimports,mesh/
 texture policy,compile and native3440x1440 hidden-desktop one-body family review.
 Use its same handle/receipts;never restart a live queue or terminate foreign jobs.

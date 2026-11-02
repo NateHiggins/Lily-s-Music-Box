@@ -1,12 +1,32 @@
 """Reject open/overlapping source stock and windows behind real party walls."""
 from pathlib import Path
-import importlib.util,collections,json,unittest
+import importlib.util,collections,json,unittest,ast,types,copy
 import numpy as np
 root=Path(__file__).resolve().parents[2]
 spec=importlib.util.spec_from_file_location('horizon',root/'art/blender/scripts/city_horizon_geometry.py')
 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 
 class Horizon(unittest.TestCase):
+    def test_factory_reservation_cannot_occlude_its_real_setback_or_open_court(self):
+        # Exercise the producer's pure selector without starting Blender.
+        tree=ast.parse((root/'art/blender/scripts/build_city_horizon.py').read_text(encoding='utf-8'))
+        function=next(x for x in tree.body if isinstance(x,ast.FunctionDef) and x.name=='occluding_neighbours')
+        namespace={'PianoFactory':types.SimpleNamespace(STYLES={'sohmer_3101'})}
+        exec(compile(ast.Module(body=[function],type_ignores=[]),'<producer selector>','exec'),namespace)
+        plan=json.loads((root/'art/data/city_horizon/source_plan.json').read_text(encoding='utf-8'))
+        factory=next(x for x in plan['buildings'] if x['id']=='HORIZON_NEAR_3_0_P1')
+        original=copy.deepcopy(factory)
+        old=dict(id='retained',rect=[200,200,210,210],height_m=10)
+        occupied=namespace['occluding_neighbours']([factory,old],'observer')
+        self.assertIs(occupied[-1],old)
+        for x,z,covered in [(153.,-114.,False),(164.,-114.,False),(169.5,-114.,False),
+                            (156.,-127.5,False),(156.,-114.,True),(164.,-124.,True)]:
+            self.assertEqual(module.party_wall_overlap((x,z-.05),(x,z+.05),0,occupied),covered,(x,z))
+        self.assertFalse(module.party_wall_overlap((156.,-114.05),(156.,-113.95),factory['height_m']+1,occupied))
+        self.assertTrue(module.party_wall_overlap((205.,204.),(205.,206.),0,occupied))
+        self.assertEqual(factory,original)
+        self.assertEqual(namespace['occluding_neighbours']([factory,old],factory['id']),[old])
+
     def test_reveal_is_closed_oriented_and_has_the_exact_void_volume(self):
         v,f=module.reveal_cell(0,0,3,3,1,.6,2,2.4,.18)
         edges=collections.Counter(tuple(sorted((a,b))) for face in f for a,b in zip(face,face[1:]+face[:1]))
