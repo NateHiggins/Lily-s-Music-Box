@@ -205,6 +205,8 @@ func _run_stutter_probe() -> void:
 			if is_instance_valid(capture):capture.visible=bool(entry.visible)
 		var data: Dictionary={"evidence_class":"INERT","scope":"Instrumented six-leg Laurel stair/turn replay in the actual composed world, one validated nearby starting placement. Camera headings are deterministic fixture turns; movement uses the normal input/controller. Callback brackets, observed engine monitors and asynchronous main/lamp render timings are separate observations, not additive costs, input-to-display latency or an uninstrumented before/after comparison. No durable saves, new access, full-city, artistic or performance acceptance. Residency/pipeline counters identify observed activity, not causal loading/compiler duration.","checks":city_checks,"failures":failures,"settings":settings,"legs":legs,"frames":_stutter_frames,"trace":trace,"startup_ms":world.startup_ms,"startup_milestones":world.startup_milestones,"source_before":source_before}
 		data["render_preparation"]=preparation
+		if OS.get_environment("ORISON_CITY_SLAB_CULLING_COMPARE")=="1":
+			data["slab_comparison"]=await _slab_culling_views(directory)
 		world.shutdown_for_tests();world.free();await get_tree().physics_frame
 		var after:=_digest()
 		check(source_before==after,"short probe production inputs remain frozen")
@@ -214,6 +216,36 @@ func _run_stutter_probe() -> void:
 		world.shutdown_for_tests();world.free();await get_tree().physics_frame
 	print("CITY STUTTER PROBE: %d checks; %d legs; %d failures"%[city_checks,legs.size(),failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+
+func _slab_culling_views(directory: String) -> Dictionary:
+	# After the six measured legs; no extra walk or world. These fixed views
+	# are visibility/count controls, never additional frame-time samples.
+	var solid := world.get_node("V2StructuralOcclusion")
+	var slabs: Array = solid.find_children("SlabSolid_*","OccluderInstance3D",true,false)
+	check(not slabs.is_empty(),"composed source admits at least one actual closed slab")
+	var source_flags: Array=[]
+	for slab: Node3D in slabs:source_flags.append(slab.visible)
+	var mode := world.process_mode
+	var pose := player.camera.global_transform
+	var fov := player.camera.fov
+	var viewport := get_viewport().get_viewport_rid()
+	var views: Array=[]
+	world.process_mode=Node.PROCESS_MODE_DISABLED
+	for label: String in ["slabs_enabled","slabs_disabled","slabs_return"]:
+		for index in slabs.size():slabs[index].visible=bool(source_flags[index]) and label!="slabs_disabled"
+		for frame in 20:await RenderingServer.frame_post_draw
+		var counts: Dictionary={}
+		for kind: int in [RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_TYPE_SHADOW]:
+			counts["visible" if kind==RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE else "shadow"]={"draw_calls":RenderingServer.viewport_get_render_info(viewport,kind,RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME),"primitives":RenderingServer.viewport_get_render_info(viewport,kind,RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME)}
+		var path := directory.path_join(label+".png")
+		check(get_viewport().get_texture().get_image().save_png(path)==OK,"write actual same-pose slab control "+label)
+		check(player.camera.global_transform.is_equal_approx(pose) and is_equal_approx(player.camera.fov,fov),"slab control retains actual camera pose/FOV "+label)
+		views.append({"label":label,"file":label+".png","sha256":FileAccess.get_sha256(path),"main_passes":counts})
+	for index in slabs.size():slabs[index].visible=bool(source_flags[index])
+	world.process_mode=mode
+	return {"evidence_class":"INERT","scope":"Fixed same-pose new-occluder-only enable/disable/return after the original measured route; no hidden rendered geometry, quality change, performance samples or automated artistic acceptance. Inspect actual images; TAA/sky drift can remain.","slab_count":slabs.size(),"all_structural_sources":solid.sources.size(),"camera_pose":str(pose),"fov":fov,"views":views}
+
 
 static func southern_laurel_programmes() -> Array:
 	# Three independent near-frontage fixtures, not a continuous city tour.

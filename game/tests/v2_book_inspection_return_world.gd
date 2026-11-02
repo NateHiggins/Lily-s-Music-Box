@@ -1,6 +1,11 @@
-extends "res://tests/v2_nook_world_profile.gd"
+extends "res://tests/v2_book_print_world_profile.gd"
 ## INERT played-world diagnostic of Space return and next-click release.
 func _inspect_stock_review(book: Node3D) -> void:
+	# Optional combined route: inspect actual print and then return the same
+	# book, avoiding a second composed-world startup. Default scope is unchanged.
+	if OS.get_environment("ORISON_BOOK_PRINT_AND_RETURN")=="1":
+		await super._inspect_stock_review(book)
+		if not failures.is_empty():return
 	# The parent just read back/compressed a PNG. Drain that interval while
 	# still capture-excluded before delivering the measured Space event.
 	for frame in 3:await get_tree().process_frame
