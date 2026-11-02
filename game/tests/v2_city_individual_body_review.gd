@@ -227,7 +227,7 @@ func _qualify_factory_clock(horizon:Node3D,camera:Camera3D,fixture:Dictionary,di
     _clock_tips(horizon,faces,247.)
     var old_path:String=RealityState.save_path;var old_persistence:bool=RealityState.persistence_enabled
     var parent:=ProjectSettings.globalize_path("user://tests/factory_clock_runs")
-    var save_dir:=parent.path_join("%d_%d"%[OS.get_process_id(),Time.get_ticks_usec()])
+    var save_dir:=parent.path_join("%d_%d"%[OS.get_process_id(),get_instance_id()])
     var made:=DirAccess.make_dir_recursive_absolute(parent)==OK and not DirAccess.dir_exists_absolute(save_dir) and DirAccess.make_dir_absolute(save_dir)==OK
     check(made,"new isolated save directory admitted")
     var save_sha:="";var load_status:Dictionary={}
