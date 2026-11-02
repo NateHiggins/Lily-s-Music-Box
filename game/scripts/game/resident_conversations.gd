@@ -118,6 +118,9 @@ const PLAYTEST_ENV := "ORISON_MYSTERY_PLAYTEST"
 const ERRAND_ASK := "errand:ask"
 const ERRAND_THANKS := "errand:thanks"
 const ERRAND_WAIT := "errand:wait"
+const PARCEL_ASK := "parcel:ask"
+const PARCEL_THANKS := "parcel:thanks"
+const PARCEL_WAIT := "parcel:wait"
 const GIFT_PREFIX := "gift:"
 
 ## Trust at which a resident moves on from first contact, and at which the one
@@ -243,8 +246,8 @@ func start(resident_id: String) -> bool:
 			RealityCases.interact_with_resident(resident_id)
 			return true
 		return false
-	var tree: Dictionary = with_gifts(resident_id, with_errand(resident_id, with_weather(resident_id,with_opinions(resident_id,
-			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today()))))
+	var tree: Dictionary = with_gifts(resident_id, with_parcel(resident_id, with_errand(resident_id, with_weather(resident_id,with_opinions(resident_id,
+			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today())))))
 	var entry_id := entry_for(resident_id)
 	var entries: Dictionary = tree.get("entries", {})
 	var node_id := str(entries.get(entry_id, entries.get("first_stable", "")))
@@ -292,7 +295,7 @@ func _noticed_uniform(resident_id: String, trust: int) -> int:
 			or LaundrySales.presentable():
 		return trust
 	RealityState.grant_knowledge(noticed)
-	file_note("uniform_wants_washing", _last_player)
+	file_note("uniform_wants_mending" if LaundrySales.frayed() else "uniform_wants_washing", _last_player)
 	return trust - DIRTY_UNIFORM_COST
 
 
@@ -316,7 +319,14 @@ func _record(resident_id: String, flag: String, trust: int) -> void:
 	if flag == ERRAND_THANKS:
 		errands.deliver(resident_id)
 		return
-	if flag == ERRAND_WAIT:
+	if flag == ERRAND_WAIT or flag == PARCEL_WAIT:
+		return
+	if flag == PARCEL_ASK:
+		ParcelErrands.ask(resident_id)
+		_print_ticket()
+		return
+	if flag == PARCEL_THANKS:
+		ParcelErrands.deliver(resident_id, errands.economy, errands.minutes())
 		return
 	if flag.begins_with(GIFT_PREFIX):
 		gifts.give(resident_id, flag.trim_prefix(GIFT_PREFIX))
@@ -376,17 +386,21 @@ func field_note(note_id: String, unit := "") -> Dictionary:
 func file_note(note_id: String, player: Node) -> bool:
 	if not note_pending(note_id) or player == null or not is_instance_valid(player):
 		return false
+	if not _print_card(field_note(note_id), player):
+		return false
+	RealityState.grant_knowledge(NOTE_PREFIX + note_id)
+	return true
+
+
+func _print_card(card: Variant, player: Node) -> bool:
+	if player == null or not is_instance_valid(player):
+		return false
 	var device: Variant = player.get("carried_device")
 	if device == null or not is_instance_valid(device) \
 			or not device.has_method("print_telegram_card") \
 			or not device.has_method("radio_is_powered"):
 		return false
-	if not bool(device.call("radio_is_powered")):
-		return false
-	if not bool(device.call("print_telegram_card", field_note(note_id))):
-		return false
-	RealityState.grant_knowledge(NOTE_PREFIX + note_id)
-	return true
+	return bool(device.call("radio_is_powered")) and bool(device.call("print_telegram_card", card))
 
 
 ## --- opinions ------------------------------------------------------------
@@ -529,6 +543,37 @@ func with_errand(resident_id: String, tree: Dictionary) -> Dictionary:
 		line = "The same as I said. It hasn't changed."
 	if topic == "":
 		return tree
+	return _with_topic(resident_id, tree, topic, node_id, line)
+
+
+## A copy of the tree with a parcel from the laundry wall on it: a ticket to take down, or the
+## parcel to hand over. Nothing moves until the reply is chosen.
+func with_parcel(resident_id: String, tree: Dictionary) -> Dictionary:
+	if errands == null or not errands.ready():
+		return tree
+	if ParcelErrands.can_deliver(resident_id):
+		return _with_topic(resident_id, tree, "I brought your parcel.", PARCEL_THANKS,
+				"That's it. Still smells of the place. Thank you.")
+	if ParcelErrands.has_open(resident_id):
+		return _with_topic(resident_id, tree, "What was your ticket?", PARCEL_WAIT,
+				"%d. It'll be on the wall, with a tag." % ParcelErrands.open_ticket())
+	if ParcelErrands.can_ask(resident_id):
+		var parcel := ParcelErrands.chosen(resident_id)
+		if parcel != "":
+			return _with_topic(resident_id, tree, "Anything at the laundry?", PARCEL_ASK,
+					"A bundle of mine, on the wall at the Model Laundry. Ticket %d. If you're going anyway." % ParcelErrands.ticket(parcel))
+	return tree
+
+
+func _print_ticket() -> void:
+	var number := ParcelErrands.open_ticket()
+	_print_card({"title": "CLAIM TICKET %d" % number,
+		"body": "PARCEL WALL AT MODEL LAUNDRY STOP\nFIND THE TAG STOP\n\n   _________\n  /   %d   |\n  \\_________|\n\nTAKE HOLD AND DRAW IT TOWARD YOU\nALL THE WAY STOP" % number,
+		"condition": "TICKET %d / TO THE DOOR" % number,
+		"stamp": "SERVICE NOTE"}, _last_player)
+
+
+func _with_topic(resident_id: String, tree: Dictionary, topic: String, node_id: String, line: String) -> Dictionary:
 	var copy: Dictionary = tree.duplicate(true)
 	var entries: Dictionary = copy.get("entries", {})
 	var home := str(entries.get(entry_for(resident_id), entries.get("first_stable", "")))

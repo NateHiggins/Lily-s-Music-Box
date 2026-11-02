@@ -30,6 +30,10 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("shoe_book")
 	if candidate.has("laundry_book") and not LaundrySales.valid(candidate.laundry_book):
 		return _invalid_shape("laundry_book")
+	if candidate.has("mending_book") and not LaundrySales.valid(candidate.mending_book):
+		return _invalid_shape("mending_book")
+	if candidate.has("parcel_errands") and not ParcelErrands.valid(candidate.parcel_errands):
+		return _invalid_shape("parcel_errands")
 	if candidate.has("otis_fountain") and not preload("res://scripts/props/otis_fountain.gd").valid(candidate.otis_fountain):
 		return _invalid_shape("otis_fountain")
 	if candidate.has("luncheonette_served") and not preload("res://scripts/props/luncheonette_counter.gd").valid(candidate.luncheonette_served):

@@ -4,8 +4,12 @@
 
 Active goal remains V2 repairs, interactions, stutter, hose/book/nook and required
 qualification. This is not a V2 completion. Canonical branch is
-**codex/v2-city-composition-20261102**. Latest committed source before this
-checkpoint is **e244aeddb**; fetched main **db441989f** still awaits reconciliation.
+**codex/v2-city-composition-20261102**. Installed diagnostic checkpoint is
+**64f4e584b**. Main through **85cdea1ce** (parcel wall143/mending144) is reconciled
+into this branch with its source, stock and receipts preserved. The combined
+spatial manifest is regenerated, readerNEW0 and23runtime source bindings pass.
+Main's incoming runtime receipts are byte-identical; they are not renewed proof
+for this combined tree. The1532/0 run predates this main reconciliation.
 No owned Godot/broker/static-board job remains live: lavatory05 and gate-board
 handles are terminal. Other agents' GPU jobs and worktrees must stay untouched.
 

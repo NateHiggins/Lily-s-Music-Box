@@ -44,6 +44,8 @@ const LAUNDRY_ROW := "storm_shop_model_laundry_counter_top"
 const LAUNDRY_ALONG := -42.1
 const LAUNDRY_BUNDLE_ALONG := -40.7
 const LAUNDRY_BUNDLE_EDGE := 0.2
+const MENDING_ALONG := -40.35
+const MENDING_ACROSS := 10.0
 const LUNCHEONETTE_ROW := "storm_shop_luncheonette_counter_top"
 ## The customer edge of the top, down the far end from the register and ledger.
 const LUNCHEONETTE_ACROSS := 19.05
@@ -207,6 +209,40 @@ static func mount_laundry_bundle(world: Node3D) -> Node3D:
 		counter.free()
 		return null
 	return counter
+
+
+static func mount_mending_counter(world: Node3D) -> Node3D:
+	var passage: Node3D = world.passage_region
+	var top := _row(passage, LAUNDRY_ROW)
+	var counter: Node3D = preload("res://scripts/props/mending_counter.gd").new()
+	counter.name = "MendingCounter"
+	passage.transaction_actor_root().add_child(counter)
+	counter.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([MENDING_ACROSS, MENDING_ALONG, float(top.z0) + float(top.h)]))
+	counter.runtime = world
+	if not counter.configure(world.shop_counters.model_laundry):
+		counter.free()
+		return null
+	return counter
+
+
+static func mount_parcel_wall(world: Node3D) -> Node3D:
+	var passage: Node3D = world.passage_region
+	var rows := {}
+	for row in ParcelErrands.ROWS:
+		for column in ParcelErrands.COLUMNS:
+			var record := _row(passage, "storm_shop_model_laundry_parcel%d_%d" % [row, column])
+			if record.is_empty():
+				return null
+			rows[ParcelErrands.parcel_id(row, column)] = record
+	var wall: Node3D = preload("res://scripts/props/parcel_wall.gd").new()
+	wall.name = "ParcelWall"
+	passage.transaction_actor_root().add_child(wall)
+	wall.global_transform = passage.global_transform
+	if not wall.configure(passage, rows):
+		wall.free()
+		return null
+	return wall
 
 
 static func _row(passage: Node3D, identity: String) -> Dictionary:

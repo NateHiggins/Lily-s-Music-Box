@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 222.04,
+  "elapsed_s": 247.41,
   "exit_code": 0,
-  "finished_utc": "2026-11-02T10:44:18Z",
-  "started_utc": "2026-11-02T10:40:36Z",
+  "finished_utc": "2026-11-02T15:11:36Z",
+  "started_utc": "2026-11-02T15:07:28Z",
   "timed_out": false
  },
  "log": {
@@ -19,20 +19,21 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/laundry_surface/run.log.stderr",
+  "stderr": "C:/ov/reports/mending_20261102/surface/run.log.stderr",
   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
-  "stdout": "C:/ov/reports/laundry_surface/run.log",
-  "stdout_sha256": "e495a9c65e4554533c2086a41d5526619c469bb7198eb914753631ca070db745"
+  "stdout": "C:/ov/reports/mending_20261102/surface/run.log",
+  "stdout_sha256": "30e76804a83c11e48476270ace76cc936ee8f5a456939f9fb3c431d276b6bb9d"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/laundry_surface",
+ "shot_dir": "C:/ov/reports/mending_20261102/surface",
  "source": {
-  "dirty_paths": 696,
+  "dirty_paths": 702,
   "dirty_sample": [
+   "M game/scripts/game/laundry_sales.gd",
    "?? game/native/hose_math/hose_math.gdextension.uid",
    "?? game/scripts/building/WeatherManager.gd.uid",
    "?? game/scripts/building/living_sky.gd.uid",
@@ -51,12 +52,11 @@
    "?? game/scripts/building/orison_v2_c_stove_stack.gd.uid",
    "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
    "?? game/scripts/building/orison_v2_cage_light_apertures.gd.uid",
-   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
-   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid"
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid"
   ],
-  "repository_head": "ed1b4e49373904326a59511090c4ee0b9ec7e56e",
-  "repository_tree": "1c14a5a0fbabe8c87770aed68061d1e16e120b89",
-  "runtime_inputs_sha256": "eb554d27c702a4c966f861b418684eb60905cffd5d69f03a64c4ac28dd3f7d5a",
+  "repository_head": "37e0f76cd093c098be52e67cb0804cd1e07f151f",
+  "repository_tree": "60fb9938642af4eb6e0a679b6923c53a36180255",
+  "runtime_inputs_sha256": "770d7d3b7563b16af3b7cf447b124b46066006219bd63846b1fa87671f673186",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "45225a8938a6eacab34341b4c1edb39dc44b71192f88fc9eae3c0294ca61a8d0"
  },
