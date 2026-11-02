@@ -15,7 +15,8 @@ qualified candidate tree668e611b78eaba27e09fefd92835fa951cf67b2d exactly.
 Four front/rear renders and archive141members/CRC/SHA independently inspected.
 Horizon now35individual/89generic;dark courts/ground,flat sky,sparse planting,
 whole-city performance and artistic acceptance remain open. Canonical PR138
-source has NOT yet merged new main while its corrected fixture is queued.
+source reconciled new main in merge853d30964 after corrected fixture03 became
+terminal. Both append-only conflicts preserve city and stutter evidence.
 Management evidence: C:/ov/reports/city_streets_20261029/western_south_pair_01/
 management_verify_01/verification.json. Architect holds new construction.
 
@@ -44,8 +45,8 @@ is terminal;do not launch another copy. This is still small-fixture proof only.
 Owned C:/ov/c-ab46a508 is now clean at main1a7917eae after preserving its prior
 inputs;zero generated churn needed restoration. Actual full new-main baseline
 board is running as session73316 at main_1a7917_baseline;do not move this owned
-checkout while its board is live. Next reconcile canonical candidate with new
-main,retaining both city and stutter evidence,then repeat composed measurement.
+checkout while its board is live. Canonical candidate now includes merged main;next repeat composed measurement
+with the corrected validator and imported current city assets.
 
 External analyze_run.py validates completion/source/test hashes and route/pass
 counts; it correctly refuses this failed run. Prior pass_trace01 had222 measured
@@ -59,8 +60,9 @@ default return-only scope remains. Syntax checked only; compile, rendered
 interaction and save/reload coverage remain unverified. No production book
 owner changes. The queued C checkout does not consume this new test edit.
 
-NEXT: reconcile merged main after terminal fixture03,then retry composed
-admission/timing/visibility with frozen corrected source. If the candidate improves its intended outcome, renew affected
+NEXT: finish the actual new-main baseline board,then retry composed
+admission/timing/visibility with frozen corrected source. Two incremental
+imports are included for newly merged city assets before compilation and run. If the candidate improves its intended outcome, renew affected
 physical qualification and candidate regression gates before merging. Full
 V2/hose/book/nook coverage remains open; candidate surface packet is stale.
 
