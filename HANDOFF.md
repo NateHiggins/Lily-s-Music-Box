@@ -44,9 +44,15 @@ and original failure are retained in the existing archive. Broker33568/session22
 is terminal;do not launch another copy. This is still small-fixture proof only.
 Owned C:/ov/c-ab46a508 is now clean at main1a7917eae after preserving its prior
 inputs;zero generated churn needed restoration. Actual full new-main baseline
-board is running as session73316 at main_1a7917_baseline;do not move this owned
-checkout while its board is live. Canonical candidate now includes merged main;next repeat composed measurement
-with the corrected validator and imported current city assets.
+board session73316 is terminal:119rows,zero regressions versusC371,six existing
+failing tool rows and incomplete ledger retained. Actual clean commit1a7917eae
+board is cached unchanged at C:/ov/boards/1a7917eaeae47d34005a755cf34334bd9a6650ff.v2.json.
+Canonical candidate includes merged main and all source fixes. **Composed02
+is queued once**,broker61668/session99114,source frozen16bdc55ae. Batch
+C:/ov/reports/slab_occlusion_20261101/composed02.json includes two incremental
+imports,three-script compile and original six-leg plus same-pose controls.
+Host observer75778 waits for its run log;no new timing result. No heavy baseline
+work remains. Poll these handles;do not duplicate jobs.
 
 External analyze_run.py validates completion/source/test hashes and route/pass
 counts; it correctly refuses this failed run. Prior pass_trace01 had222 measured
@@ -60,9 +66,9 @@ default return-only scope remains. Syntax checked only; compile, rendered
 interaction and save/reload coverage remain unverified. No production book
 owner changes. The queued C checkout does not consume this new test edit.
 
-NEXT: finish the actual new-main baseline board,then retry composed
-admission/timing/visibility with frozen corrected source. Two incremental
-imports are included for newly merged city assets before compilation and run. If the candidate improves its intended outcome, renew affected
+NEXT: follow queued composed02,coordinate CPU quiet when acquired,inspect
+actual admission/visibility and timing results. Do not claim benefit from the
+small fixture or compare changed city sources as a causal speedup. If the candidate improves its intended outcome, renew affected
 physical qualification and candidate regression gates before merging. Full
 V2/hose/book/nook coverage remains open; candidate surface packet is stale.
 

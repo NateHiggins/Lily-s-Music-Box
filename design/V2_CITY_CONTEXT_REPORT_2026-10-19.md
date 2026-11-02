@@ -6673,3 +6673,24 @@ images and visual review. No full-world visibility or speedup acceptance.
 The owned verification checkout is clean at new main1a7917eae;actual baseline
 board session73316 is live. Canonical candidate reconciliation and corrected
 composed retry follow;no prior main receipt is relabeled or repinned.
+
+
+## Reconciled candidate and actual new-main baseline — November 1
+
+Evidence class: **INERT**. Canonical merge853d30964 retains new main1a7917eae
+and all stutter corrections;two append-only conflicts preserved both attributes
+and city/stutter records. ReaderNEW0 and refreshed spatial audit pass at16bdc55ae.
+The actual clean owned checkout at main1a7917eae completed a full119row board,
+zero regressions versusC371. Six existing failing tooling rows and the incomplete
+ledger remain;this is not a wholly green board. Its original commit/tree/dirty
+metadata were validated and cached unchanged in C:/ov/boards/
+1a7917eaeae47d34005a755cf34334bd9a6650ff.v2.json. Raw board is retained in the
+existing evidence archive. Baseline process73316 is terminal;no current CPU hold.
+
+Corrected composed02 is queued once as broker61668/session99114,using frozen
+16bdc55ae source in canonical. Two incremental imports bring in newly merged
+city assets,then three-script compilation and the existing six movement legs
+with post-timing same-pose slab controls. Host observer75778 waits for the run.
+No new runtime result,admission count or speedup is claimed yet. Earlier fixture
+and composed failures remain preserved. Current physical receipt is stale on
+the unmerged culling changes and still requires renewal before integration.
