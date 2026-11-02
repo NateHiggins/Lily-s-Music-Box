@@ -6055,7 +6055,7 @@ actual production compile now PASS: five scripts,20.02s,zero script errors and e
 new test-camera record is **aec0365feb56a6da**,with existing classifications unchanged (71 line-location updates).
 
 Small-fixture archive **art/reviews/v2_entry_render_preparation_20261101.zip**:
-**48members/194180bytes/SHA256 aa3984a089ebc72df409d7b50d30abf14d1fed515f31fdced78e38f79734e1dc**. It retains executed helper/test
+**50members/194853bytes/SHA256 5c7b5f444ad4e32d1a7c93947d5719fd21ba12f4d341f5182e4e6c75c727e23c**. It retains executed helper/test
 source,scene,actual raw compressed logs/receipts,result and inspected restored
 image. Original failures of earlier warmups remain intact. A local authoring
 preflight caught an incorrectly indented planned edit before it was written;
@@ -6144,9 +6144,11 @@ the remaining render-pass/draw workload rather than ship a17.7s preparation
 that does not eliminate the hitch. Actual real-player/pause/save review
 **world01** stops at a genuine inferredVariant warning-as-error on weakref;
 original source/stdout/stderr/receipt retained. ExplicitWeakRef annotation is
-authored and **world02** queued; no world01 runtime qualification is claimed.
+authored; **world02** was queued then cancelled before engine launch after rejection of the startup-eye hypothesis. No world01/world02 runtime qualification is claimed.
 
 Archive above adds original candidate source/raw timing/work/host/receipts,
 comparison source and output,spike observations and original world01 compiler
 failure. Existing members remain byte-identical. Full V2,hose/book/nook and
 all composed/input/persistence/performance qualification remain open.
+
+Qualification scheduling correction: own world02 broker61444 was cancelled before engine launch at00:31:44UTC,retaining its exact waiter record and reason in the archive. This avoids two full world builds for a rejected performance candidate; no foreign job or Godot process was stopped. Real input/pause/save/reload remains required for any replacement intended to integrate. **pass_trace01** remains queued on frozen d17e3e699 in the owned checkout,with added existing-viewport visible/shadow/canvas counters and automatic preparation disabled. No trace verdict yet.
