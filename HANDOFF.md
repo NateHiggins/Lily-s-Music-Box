@@ -1,42 +1,43 @@
 # Current work — complete-slab occlusion candidate; November 1
 
-Evidence class: **INERT**. Canonical branch now
-**codex/v2-slab-face-occlusion-20261101**,from actual origin/mainC371e94e.
-Source checkpoint **b01224e9e** is pushed; new draftPR138:
+Evidence class: **INERT**. Canonical branch **codex/v2-slab-face-occlusion-20261101**
+is pushed through **6b2654dc4** in draft PR138:
 https://github.com/NateHiggins/Lily-s-Music-Box/pull/138
-No main merge. Rejected warmup runtime/root/input callbacks are NOT carried into this branch;
-original work/evidence remains pushed on closed,supersededPR137. Source-only candidate
-extends existing structural wall culling to visible,opaque,actually six-face
-closed slab boxes. Incomplete/one-sided/holed stock is rejected; engine
-occluders are double-sided,so no inferred sheet or aperture backing is allowed.
-Existing six-face validation and all wall behaviour stay. No asset/material/
-physics/input/save/clock changes. No runtime or speedup verdict.
+Main remains **c371e94e**. No merge or speedup acceptance. Rejected startup-eye
+warmup from closed PR137 is excluded; its original failures remain preserved.
 
-Actual pass_trace01 is terminal17checks/6legs/0failures,180.96s,empty stderr.
-It identifies main-view14679visible+21547shadow median draws on first reverse
-leg versus405+440forward. Companion116visible; lamp45+86reverse.1233occluders
-exist.234samples,max observer266microseconds. Detailed raw/source/analysis
-retained in existing city ledger/archive. Source C remains frozen d17e3e699;
-no engine job now consumes it. Host observer49129 also terminal. Quiet released.
+The candidate admits only visible, opaque, actually six-face closed slab boxes
+through the existing structural validator. Incomplete sheets and apertures remain
+rejected. It preserves wall behavior, physical geometry, input and save owners.
+Actual fixture02 passed15 checks/0 failures in14.30s, empty stderr. Above/below
+pixel parity is exact with objects5→3 and5→4. All six images inspected. Original
+fixture01 grow-property error and three failures are retained. Small-fixture
+proof does not establish composed-world visibility, performance or acceptance.
 
-Actual fixture02 retry is now terminalPASS:15checks/0failures,14.30s,empty
-stderr;two-script compilerPASS. Above/below pixel parity remains exact while
-object counts5→3/5→4. All six images inspected;aperture reveals lower green
-stock and source flags restore. Original fixture01 grow-property error and
-three failures retained. This is small-fixture proof only,not city/FPS acceptance.
-Session90886/broker10296 terminal;no duplicate retry needed.
+**Composed01 is queued once:** broker56984, terminal session19285,
+C:/ov/reports/slab_occlusion_20261101/composed01.json. Owned checkout
+C:/ov/c-ab46a508 is frozen at6b2654dc4; three executed-source copies are in
+that report directory. Compile90s then original six-leg route420s, hidden
+fullscreen3440×1440, noon, preparation/reflection-hide diagnostics off.
+ORISON_CITY_SLAB_CULLING_COMPARE=1 adds same-world enabled/disabled/return
+views after timing. No extra walk/world or reduced rendering quality. At the
+last live poll20:46EST the architect broker had ended and resident58660 was
+still live ahead of our broker. Poll the existing handle; do not launch duplicates.
 
-The existing city stutter diagnostic now includes opt-in
-ORISON_CITY_SLAB_CULLING_COMPARE=1: after the original six measured legs,
-freeze the same world and capture new-occluders enabled/disabled/return with
-main-pass counts. No extra walk/world,geometry hiding or quality reduction.
-Syntax checked;not semantically compiled or run yet.
+External analyze_run.py validates receipt completion, unchanged source hashes,
+executed test hash, empty stderr, all six route legs, viewport/global draw
+reconciliation and control-image hashes. It was exercised on completed
+pass_trace01:222 measured intervals,p50/p95/p99/max20.239/49.609/138.294/198.879ms,
+three over100ms;234 post-draw observations,1233 original wall occluders. These
+are prior-source observations, not candidate results. Reproducer retained in
+the existing compact evidence archive. CPU-quiet coordination begins when the
+measured job acquires, not while another owner is running.
 
-NEXT: fix real fixture failures,inspect actual images,then measure admitted slab
-counts and main-pass workload in the existing nearby city route with a paired
-new-occluder-only control. No benefits assumed. Fresh affected physical/candidate
-qualification remains required before main integration. Full V2/hose/book/nook
-remain open; current surface packet is stale on this candidate.
+NEXT: inspect actual composed receipts, slab admissions and three optical
+controls; compare main pass counts and frame intervals honestly. Fix real
+failures. If the candidate improves its intended outcome, renew affected
+physical qualification and candidate regression gates before merging. Full
+V2/hose/book/nook coverage remains open; candidate surface packet is stale.
 
 # Latest result — startup-eye timing rejected; November 1
 
