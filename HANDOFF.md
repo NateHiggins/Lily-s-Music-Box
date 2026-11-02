@@ -1,5 +1,15 @@
 # Current continuation — November 2 V2 native intake
 
+**Horizon dependent replay passes:** original producer exits0; all37GLBs and
+its runtime projection remain byte-identical. Published geometry/measurements
+are exact. Saved Blender bytes/native hashes change on replay and are not claimed
+identical. Actual13-fixture preflight now passes13/13, with both original failed
+closure checks preserved. Evidence: **city_source_replay_01/HORIZON_REPLAY_REVIEW.json**
+and **full13_preflight_final.txt**. No changed GLB needs reimport. Commit the
+regenerated native source/provenance and queue compilation plus the existing
+physical-only+city+Sohmer composed survey at3440×1440 on the hidden desktop.
+This updates source construction records, not any prior runtime receipt.
+
 **Native streets/apron replay is terminal:** both original producers exit0.
 All three exported GLBs and both runtime JSON projections are byte-identical to
 the saved originals. Construction geometry/measurements are exact; only source
