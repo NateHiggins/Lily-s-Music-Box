@@ -1,10 +1,35 @@
 """Additive closet supply/fixing kit; installed fixture is review reference only."""
 from pathlib import Path
-import bpy,bmesh,json,math,sys,hashlib,collections,ast
+import json,math,sys,hashlib,collections,ast
 import numpy as np
-from mathutils import Vector,Matrix
 import argparse
-args=argparse.ArgumentParser();args.add_argument('--project-root',required=True);args.add_argument('--out',required=True);a=args.parse_args(sys.argv[sys.argv.index('--')+1:]);R=Path(a.project_root).resolve();O=Path(a.out).resolve();O.mkdir(parents=True,exist_ok=True)
+args=argparse.ArgumentParser();args.add_argument('--project-root',required=True);args.add_argument('--out');args.add_argument('--check-bindings',action='store_true');a=args.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else sys.argv[1:]);R=Path(a.project_root).resolve()
+PROFILE_SPECS=[(.3755,False),(.4155,False),(.4255,False),(.4755,False),(.5255,False),(.4255,True)]
+def check_service_bindings(root):
+ library=json.loads((root/'game/data/orison_v2/domestic_furniture.json').read_text(encoding='utf-8'))
+ completion=json.loads((root/'game/data/orison_v2/completion_interiors.json').read_text(encoding='utf-8'))
+ layout=json.loads((root/'game/data/orison_v2_blockout.json').read_text(encoding='utf-8'))
+ templates={r['id']:r for r in library['furniture']}
+ names={'WCService_'+str(round(depth*10000))+('_Bypass' if bypass else '') for depth,bypass in PROFILE_SPECS}
+ rows={}
+ for row in library['furniture']:
+  if row['kind']=='toilet':
+   assert row.get('service_profile') in names,('missing/unknown domestic closet profile',row['id']);rows[row['id']]=row['service_profile']
+ for row in completion['furniture']:
+  if templates[row['template']]['kind']=='toilet':
+   assert row.get('service_profile') in names,('missing/unknown completion closet profile',row['id'])
+   assert row['id'] not in rows,('duplicate closet binding',row['id']);rows[row['id']]=row['service_profile']
+ expected={r['id'] for r in layout['anchors'] if r['id'].endswith('_wc') or r['id']=='F01_STAFF_WC'}
+ assert set(rows)==expected,('expanded closet binding/anchor mismatch',sorted(expected-set(rows)),sorted(set(rows)-expected))
+ assert len(rows)==19,('changed complete closet roster requires review',len(rows))
+ return rows
+binding_rows=check_service_bindings(R)
+if a.check_bindings:
+ print(json.dumps({'scope':'expanded declared profile binding coverage; not wall fit or runtime proof','count':len(binding_rows),'profiles':binding_rows},sort_keys=True));raise SystemExit(0)
+assert a.out,'--out is required for native authoring'
+O=Path(a.out).resolve();O.mkdir(parents=True,exist_ok=True)
+import bpy,bmesh
+from mathutils import Vector,Matrix
 sys.path.insert(0,str(R/'art/blender/scripts'))
 from fabrication_uvs import chart_for_triangle
 from fabrication_normals import stock_corner_normals
@@ -90,7 +115,7 @@ def hollow_path(name,points,outer,inner,key,profile,n=32):
  return solid(name,vertices,faces,key,profile)
 
 profiles={}
-for depth,bypass in [(.3755,False),(.4155,False),(.4255,False),(.4755,False),(.5255,False),(.4255,True)]:
+for depth,bypass in PROFILE_SPECS:
  name='WCService_'+str(round(depth*10000))+('_Bypass' if bypass else '');root=bpy.data.objects.new(name,None);exports.objects.link(root);root['wall_depth_godot_m']=depth;profiles[name]=root
  house_x=0.0 if bypass else -.17
  # Original16mm supply pipe enters a hollow receiving socket by3mm.

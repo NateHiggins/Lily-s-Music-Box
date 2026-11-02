@@ -1,5 +1,18 @@
 # Current continuation — November 2 V2 native intake
 
+**Latest05failure and complete roster correction:** sixloaded metadata profiles
+now pass; startup refuses missing explicit **2C_wc** binding,128checks/1failure,
+26s. No full world/reconstruction runs. The earlier13-instance assumption was
+wrong: there are19toilets (12direct, sevencompletion clones). All19source wall
+depths and service cuts are now surveyed; sixremaining clones reuse existing
+variants with explicit bindings. Staff retains5255,5A/6Aretain the bypass. Test
+now requires19. Canonical builder has a Python-only **--check-bindings** mode
+checking the complete source-anchor roster before Blender/Godot. It passes19;
+in-memory missing/unknown **2C_wc** negative controls are rejected. Native geometry
+and export remain unchanged. Acoustic graph physical payload is again verified
+unchanged while its source binding updates. Preserve05logs; next06needs only
+compilation/runtime, reusing04's import. No new runtime pass is claimed.
+
 **Latest runtime attempt — bathroom04:** import passes15s; all four scripts
 compile. Loaded preflight ends127checks/6failures in13s, before world startup.
 All six failures are the test reading node extras as flat metadata. Verified

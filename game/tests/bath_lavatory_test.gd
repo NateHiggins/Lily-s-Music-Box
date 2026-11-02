@@ -370,7 +370,7 @@ func _check_installed_closet_services(world: OrisonV2RuntimeRoot) -> void:
 			closet_contacts.append(row)
 			check(not hit.is_empty() and absf(node.to_local(hit.position).z-depth-.0045)<.0002,
 					"installed closet service meets surveyed wall and finish skin: " + str(row))
-	check(count == 13, "twelve domestic and one templated staff water closet retain fitted service kits")
+	check(count == 19, "eighteen apartments and the staff restroom retain fitted closet service kits")
 
 func _played_closet(world: OrisonV2RuntimeRoot) -> void:
 	var closet: Node3D
