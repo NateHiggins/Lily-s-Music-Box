@@ -144,7 +144,7 @@
   },
   {
    "id": "li_cup",
-   "from": "1929-09-13",
+   "from": "1929-09-17",
    "until": "1929-09-21",
    "topic": "That's a nice cup.",
    "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. Before. She's collecting them, and she won't say why.",
@@ -155,7 +155,7 @@
    "from": "1929-09-27",
    "until": "1929-11-09",
    "topic": "It's crooked.",
-   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. After. The only correction the player ever gets to make.",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. After. The player can say so, and it changes nothing.",
    "root": "li_m3"
   },
   {
@@ -305,7 +305,7 @@
   },
   "li_m3": {
    "silence_goto": "li_m4",
-   "line": "On the left. I know it's on the left. The moon moves, nobody tells you. It was fine for eight bars. I put her two back. Five nights I thought it hadn't taken. You want the light from the side. She'd have told me that.",
+   "line": "On the left. I know it's on the left. It was fine for eight bars. I put her two back, and in the ninth the left pin let go. Five nights I thought it hadn't taken. You want the light from the side. She'd have told me that.",
    "choices": [
     {
      "label": "Leave it.",
@@ -318,7 +318,7 @@
    ]
   },
   "li_m4": {
-   "line": "You've got eyes, for a man with a wrench. I've still got the plate. I could go back. I've done the sums. I'm not going to."
+   "line": "You've got eyes, for a man with a wrench. I've still got the tracing, on glass. I could go back. I've done the sums. I'm not going to."
   },
   "li_m5": {
    "line": "She'd want it eleven ways and a hat, and she'd want it to be my fault. It is my fault. Don't look at me, look at it, everybody else is."

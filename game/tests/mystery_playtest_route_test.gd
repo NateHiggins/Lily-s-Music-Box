@@ -33,7 +33,7 @@ func _route() -> void:
 	reader._time.text = "12:00"
 	reader._apply()
 	var person: int = reader._people_ids.find("emil_voss")
-	_require(person >= 0 and str(reader._people.get_item_text(person)).contains("1 of 2"),
+	_require(person >= 0 and str(reader._people.get_item_text(person)).contains("1 of 1"),
 			"Emil's thread is open on the date and hour set")
 	_require(reader._line_ids.has("m_notice_1"), "the companion lines are listed")
 	reader._people.select(person)

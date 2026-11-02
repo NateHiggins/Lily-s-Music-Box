@@ -52,7 +52,9 @@ float moon_name_cut(vec3 n) {
 float moon_name_shade(vec3 n,vec3 solar,float disc_per_pixel) {
     if(moon_name_amount<=0.0) return 0.0;
     float floor_mask=moon_name_cut(n)/(moon_name_amount*MOON_NAME_DEPTH);
-    float rake=1.0-smoothstep(.10,.50,dot(normalize(n),solar));
+    float height=dot(normalize(n),solar);
+    // Lit ground just past the shadow line, so the eye gets a letter or two, never the name.
+    float rake=smoothstep(-.02,.02,height)*(1.0-smoothstep(.07,.30,height));
     float glass=1.0-smoothstep(.008,.022,disc_per_pixel);
     return floor_mask*max(.8*rake,.4*glass);
 }
