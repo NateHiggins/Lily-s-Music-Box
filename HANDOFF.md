@@ -1,5 +1,22 @@
 # Current continuation — November 2 V2 native intake
 
+**Source projection repair after the current gate board:** board at **1b3b50cb1**
+finishes 119 gates: 113 PASS, five FAIL, one INCOMPLETE. It is a dirty feature
+board, not a clean-main comparison. The household projection test exposes twelve
+closet records whose runtime profiles/bounds had not reached the authoring source.
+Copy only those surveyed profile/bounds fields into the existing source and run
+the existing producer; runtime bytes and all unrelated values stay identical.
+The eight projection tests and complete 19-instance binding preflight pass.
+The remaining surface, M11 source/export and completeness failures are not waived.
+Main **3f1051f59** (PR146, three design documents) is reconciled in **1ba6a09b9**.
+The exact 13-fixture surface preflight also exposes stale streets/apron native
+bindings. Their original producers are queued as broker53448/session1240, with
+11 named originals backed up at **city_source_replay_01/**. Inspect their terminal
+results and compare geometry before import/qualification; no producer or new
+surface pass is claimed yet. Current read-only UID revalidation finds all702
+UID files unchanged, zero tracked-source references/paths on main, four changed
+paired sources and five other private attachments. All remain in place.
+
 **Current result — bathroom_06 diagnostic PASS:** 1,953 checks, zero failures,
 353.77 seconds on committed source **95d876985**. Both occupied V2 worlds finish
 startup (137.300 and 143.344 seconds); the second reconstructs from the validated
