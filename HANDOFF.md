@@ -20,11 +20,13 @@ retained in existing city ledger/archive. Source C remains frozen d17e3e699;
 no engine job now consumes it. Host observer49129 also terminal. Quiet released.
 
 Small existing StructuralOcclusionReview scene gains explicit slab_fixture
-mode (no world build); checks closure/opacity/apertures,above/below image parity,
-real occluded-object counts and retirement. Syntax checked only. Actual compile+
-fixture queued via session6736/broker8624; canonical source frozen for this run.
-Poll same handle,not a duplicate. It waits behind the live resident job and
-queued LoRA GPU session. No mouse/focus interference; hidden3440x1440.
+mode (no world build). Actual fixture01 compilerPASS20.16s,then13.92s graphical
+run15checks/3failures: invalid StandardMaterial3D.grow_enabled property prevents
+admission; original source/errors/receipts retained in archive. Getter corrected
+to documented is_grow_enabled(),no predicate/tolerance weakened. Actual
+compile+same fixture02 queued via session90886/broker10296 after the current
+GradeOwnerSurvey/resident queue. Not run yet. Original6736/broker8624 terminal.
+Source frozen for this retry. No mouse/focus interference;hidden3440x1440.
 
 NEXT: fix real fixture failures,inspect actual images,then measure admitted slab
 counts and main-pass workload in the existing nearby city route with a paired

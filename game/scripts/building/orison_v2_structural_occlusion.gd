@@ -43,7 +43,7 @@ static func _opaque_slab(draw: MeshInstance3D) -> bool:
 		var material := draw.get_active_material(surface)
 		if material is StandardMaterial3D:
 			if material.transparency!=BaseMaterial3D.TRANSPARENCY_DISABLED \
-				or material.billboard_mode!=BaseMaterial3D.BILLBOARD_DISABLED or material.grow_enabled or material.fixed_size \
+				or material.billboard_mode!=BaseMaterial3D.BILLBOARD_DISABLED or material.is_grow_enabled() or material.fixed_size \
 				or material.cull_mode==BaseMaterial3D.CULL_FRONT or material.proximity_fade_enabled or material.no_depth_test or material.depth_draw_mode==BaseMaterial3D.DEPTH_DRAW_DISABLED \
 				or material.distance_fade_mode!=BaseMaterial3D.DISTANCE_FADE_DISABLED:return false
 		elif material is ShaderMaterial:

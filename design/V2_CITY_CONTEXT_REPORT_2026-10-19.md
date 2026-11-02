@@ -6055,7 +6055,7 @@ actual production compile now PASS: five scripts,20.02s,zero script errors and e
 new test-camera record is **aec0365feb56a6da**,with existing classifications unchanged (71 line-location updates).
 
 Small-fixture archive **art/reviews/v2_entry_render_preparation_20261101.zip**:
-**62members/273656bytes/SHA256 dfade407d4aaf8fe5f5598d8c07d4a5dc63592bba3af3f279f874ed2835cfaa4**. It retains executed helper/test
+**72members/284620bytes/SHA256 0ae33b6aaecc7a6c6da2aae35b8e69edaabe8c407e142f7bc322ed9200091ac5**. It retains executed helper/test
 source,scene,actual raw compressed logs/receipts,result and inspected restored
 image. Original failures of earlier warmups remain intact. A local authoring
 preflight caught an incorrectly indented planned edit before it was written;
@@ -6184,3 +6184,21 @@ UV,material,collision,light,input or save authority changes. Source flags restor
 on retirement. Its small two-sided optical/closure/aperture fixture is authored/
 syntax checked and queued; no loaded candidate or benefit claim yet. Rejected
 warmup callers are not carried into this new branch.
+
+### Complete-slab small fixture — original API failure retained
+
+Evidence class: **INERT**. Actual **slab_fixture01** two-script compilation
+PASS,20.16s,empty compiler stderr. Graphical fixture then completes13.92s:
+**15checks/3failures**,with real script errors. StandardMaterial3D has boolean
+property **grow** and getter **is_grow_enabled()**; accessing **grow_enabled**
+as a property is invalid. The failed guard prevented admission,so both above/
+below views remained5objects and the occlusion-count checks correctly failed.
+Do not call this stale cache or evidence of successful culling. Original
+source/stdout/stderr/result/receipts are retained in the archive above; raw
+failed captures remain external. No small-fixture or production acceptance.
+
+Getter corrected to documented **is_grow_enabled()**,without changing optical
+parity,occlusion,aperture or closure requirements. Actual compile+same fixture
+**fixture02** queued via session90886/broker10296; not run yet. No main merge
+or performance improvement claim. Newcandidate draftPR138 is separate from
+closed rejected-warmupPR137; both source branches remain pushed.
