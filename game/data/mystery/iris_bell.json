@@ -10,7 +10,8 @@
  "entries": {
   "ib_sketch": "ib_s1",
   "ib_audience": "ib_a1",
-  "ir_ash": "ir_a1"
+  "ir_ash": "ir_a1",
+  "ir_moon": "ir_mn1"
  },
  "threads": [
   {
@@ -36,6 +37,14 @@
    "topic": "You've been painting at Corona?",
    "source": "FICTION; see design/ORISON_BACKGROUND_ODDITIES_2026-11-01.md. The Ash Man.",
    "root": "ir_a1"
+  },
+  {
+   "id": "ir_moon",
+   "from": "1929-06-01",
+   "until": "1929-11-09",
+   "topic": "You've painted the Moon again.",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. It grows, and nobody says why. She's told it's her eye.",
+   "root": "ir_mn1"
   }
  ],
  "nodes": {
@@ -75,6 +84,9 @@
   },
   "ir_a1": {
    "line": "That's the best grey in Queens, out there. Six greys, and I went to paint them. Somebody had got there first and sorted them, warm to cold, like a palette. I don't know who he is. He has an eye. It's insulting."
+  },
+  "ir_mn1": {
+   "line": "Same window, same canvas, every month since November. Look at them in a row. It doesn't fit the last one. Malcolm says I'm getting closer to the glass. The man at the supply shop says it's my eye. It's my eye. I've gone up a size of canvas."
   }
  }
 }

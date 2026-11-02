@@ -54,13 +54,13 @@ float moon_name_cut(vec3 n) {
 // How much light the cut floor loses. In low sun its walls shade it whole, which
 // reads even at the naked eye's few pixels. In high sun only the darker exposed
 // rock remains, and that resolves only under magnification.
-float moon_name_shade(vec3 n,vec3 solar,float disc_per_pixel) {
+float moon_name_shade(vec3 n,vec3 solar,float radians_per_pixel) {
     if(moon_name_amount<=0.0) return 0.0;
     float floor_mask=moon_name_cut(n)/MOON_NAME_DEPTH;
     float height=dot(normalize(n),solar);
     // Lit ground just past the shadow line, so the eye gets a letter or two, never the name.
     float rake=smoothstep(-.02,.02,height)*(1.0-smoothstep(.07,.30,height));
-    float glass=1.0-smoothstep(.008,.022,disc_per_pixel);
+    float glass=1.0-smoothstep(.00025,.0006,radians_per_pixel);
     return floor_mask*max(.8*rake,.4*glass);
 }
 

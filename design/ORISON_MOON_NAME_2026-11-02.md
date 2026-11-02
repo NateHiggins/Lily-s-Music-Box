@@ -17,7 +17,7 @@ Evidence class: **INERT**. Writers' room result, 2026-11-02, on Lily's rulings b
 
 ## 2. The story
 
-The comic script is private, outside this repo. In the story it's one copy, kept in the piano bench and never sold, because it names her and confesses. The plot is this.
+The comic script is private, outside this repo. In the story it goes on sale on Saturday 2 November, ten cents, with her surname taken out, by Lily's ruling. It's a confession in a funny paper, so nobody believes it. The plot is this.
 
 By the end of August Lily has one ugly print, a bench full of grease pencil, and a two-line notice in the Record. The last reel of Adela singing was cut, rightly, at Rhea's asking. Adela wanted her name on a bill.
 
@@ -39,11 +39,11 @@ She could go back and straighten it, because she has the tracing. But Adela once
 
 ## 3. What's in the sky
 
-**A cut in the terrain, not a mark.** It's cut into the Moon's real LOLA heights in **game/shaders/skywatch_moon.gdshaderinc**, so it lights and shadows by the same code as every crater. Its floor is also darker rock: more so just past the shadow line, where its walls would shade it whole, and otherwise only under magnification. No generated texture is involved, so RUL-008 isn't touched. **The etch takes five weeks,** from 22:40 on 21 September 1929 to the same hour on 26 October: scattered pits along the strokes, then broken rilles, then letters. No letter finishes before another, so no stage is four and a gap. It's a pure function of the date, stored in no save and no terrain data, and there's no name in any view before Lily's night, so travelling back shows a clean Moon. The plot's date is fixed, so the date is the plot's event. **How long it takes is hers to rule:** the renders are in her inbox as **moon_etch_time**.
+**A cut in the terrain, not a mark.** It's cut into the Moon's real LOLA heights in **game/shaders/skywatch_moon.gdshaderinc**, so it lights and shadows by the same code as every crater. Its floor is also darker rock: more so just past the shadow line, where its walls would shade it whole, and otherwise only at a telescope's field of about 10 degrees or narrower, measured in radians per pixel so that a bigger Moon doesn't turn it on. No generated texture is involved, so RUL-008 isn't touched. **The etch takes five weeks,** from 22:40 on 21 September 1929 to the same hour on 26 October: scattered pits along the strokes, then broken rilles, then letters. No letter finishes before another, so no stage is four and a gap. It's a pure function of the date, stored in no save and no terrain data, and there's no name in any view before Lily's night, so travelling back shows a clean Moon. The plot's date is fixed, so the date is the plot's event. **How long it takes is hers to rule:** the renders are in her inbox as **moon_etch_time**.
 
-| Phase | With the eye, at a 14 degree view | In a telescope | Dates |
+| Phase | With the eye, at a normal view | In a telescope | Dates |
 |---|---|---|---|
-| Near full, 18 Oct | Nothing | **Most of ADELA,** still broken | 18 Oct |
+| Near full | Nothing | **Most of ADELA,** still broken | 18 Oct |
 | Before about 12 Oct | Nothing | Smudges and pits. Nobody could say it's a word | 28 Sep, 5 Oct |
 | Near last quarter | A letter or two by the shadow line: **AD** | The lit part of the name, hard shadows at the line: **AD** | 26 Sep, 25 Oct |
 | New | Nothing, there's no Moon to see | Nothing | 2 Oct, 1 Nov |
@@ -51,7 +51,7 @@ She could go back and straighten it, because she has the tracing. But Adela once
 
 **Nobody reads the whole name with the naked eye, and nobody gets four letters and a gap.** An earlier draft let the dark side carry a ghost of the name in earthshine. It looked fine, and it was four marks and a missing fifth, which Law VII.8 forbids. So the eye now gets only what's near the shadow line. **By eye it's now only a few dark notches along the line, fainter than the Speaker makes out. Lily should look at the renders and say if she wants it stronger.**
 
-**The game has no installed telescope yet:** the telescope column is proved only on the optical bench, at a 2 degree field. At a normal 60 degree view, rendered and looked at, the Moon is about fifteen pixels wide at 1280 x 720 and no letters can be read at any phase. **So until there's a telescope or a zoom, the player can't read it in the game:** she can only be told, and see the papers.
+**The game has no installed telescope yet:** the telescope column is proved only on the optical bench, at a 2 degree field. **The Moon's growth answers most of this:** by Lily's night it's about 42 times real, and the raking letters read by eye at a normal view. **With the Moon this big a telescope sees only part of the name at once,** so whoever builds one will want a wide field.
 
 **On the last evening, 9 November, the first-quarter Moon carries EL by the shadow line.** See section 5.
 
@@ -110,16 +110,16 @@ She could go back and straighten it, because she has the tracing. But Adela once
 
 **Real people and places.** Astoria and the Exchange are real. No real person is named. The observatories are unnamed. The whole of the event is fiction.
 
-## 6. The Moon gets bigger: experiment only
+## 6. The Moon gets bigger
 
-**Lily, 2026-11-02:** "Have the moon get bigger and have its approach to the earth be a minor oddity that no one believes is happening. Its size is never explained. Experiment with an aesthetically bigger moon to start with and an absurdly big size at the end of the year." **No curve is built.** Today's Moon draws at 2.5 times real, and the sizes are renders for her to choose from, asked as **moon_size_start** and **moon_size_end**.
+**Lily, 2026-11-02:** "Have the moon get bigger and have its approach to the earth be a minor oddity that no one believes is happening. Its size is never explained. Experiment with an aesthetically bigger moon to start with and an absurdly big size at the end of the year." **She chose from renders: four times real on 10 November 1928, sixty on 9 November 1929.** It's geometric, so it grows by the same share each week and never lurches: about 8 times real in February, 19 in June, 42 on Lily's night. It's a pure function of the date. **Nobody gives a cause.** Two back pages and Iris's **ir_moon** let people notice and be dismissed.
 
-**Against the sky work.** No phenomenon or paper depends on the Moon's size. The eclipse shadow is in disc units and scales with it. Moonlight, tides and the Moon's light on the world don't change, which suits nobody believing it. The Bible has no rule on the Moon's size. The ice halo keeps its real 22 degrees, so above about 80 times real the disc would swallow it. **At 120 times real a full Moon blows out to white and its rim shows black dashes from the terrain shadow,** which would need fixing if she chooses that end. Size also makes the floor tone resolve without a telescope, so **late in the year the name can be read by eye,** after Lily's night only.
+**Against the sky work.** No phenomenon or paper depends on the Moon's size. The eclipse shadow is in disc units and scales with it. Moonlight, tides and the Moon's light on the world don't change, which suits nobody believing it. The Bible has no rule on the Moon's size. The ice halo keeps its real 22 degrees, so above about 80 times real the disc would swallow it. At her chosen sixty it holds together. The blown-out white and rim dashes I saw were at 120 times real, which she didn't choose.
 
 ## 6. What's built and what isn't
 
 **Built, first draft.** The cut, the date driver and a review bench; seven back pages; twelve threads and one companion line.
 
-**Not built, and the first thing it needs.** An installed telescope, without which the player can't read her own name. **Also not built:** the cups as props, Lily's trip, the Ravenswood stage, crowds on roofs, and any change to the endings. The comic is a private script with nothing rendered. Lily's threads still open only through the F9 playtest panel.
+**Not built:** an installed telescope, the cups as props, Lily's trip, the Ravenswood stage, crowds on roofs, and any change to the endings. The comic is a private script with nothing rendered. Lily's threads still open only through the F9 playtest panel.
 
 **A defect this found, and left alone.** The Moon's map is mirrored in the sky: Mare Crisium shows on the left, and it should be on the right. **The name is corrected for it;** fixing the map would mean undoing that one line.

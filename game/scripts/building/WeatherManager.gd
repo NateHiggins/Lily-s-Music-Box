@@ -11,6 +11,10 @@ const EMERGENCE_SLOT := 41
 ## Campaign seconds from 1928-11-10 to 22:40 on 21 September 1929, when the etch starts, and how long it takes.
 const MOON_NAME_AT := 27297600.0
 const MOON_NAME_ETCH_SECONDS := 35.0*86400.0
+## Lily's sizes: four times real on 10 November 1928, sixty on 9 November 1929. Never explained.
+const MOON_SCALE_START := 4.0
+const MOON_SCALE_END := 60.0
+const MOON_SCALE_SECONDS := 364.0*86400.0
 const CRAWLER_SLOT := 22
 const PLUME_LIGHTNING_SLOT := 28
 const ST_ELMO_SLOT := 27
@@ -379,6 +383,10 @@ func _flash_for(slot: int) -> float:
 static func moon_name_amount(campaign_seconds: float) -> float:
 	return clampf((campaign_seconds-MOON_NAME_AT)/MOON_NAME_ETCH_SECONDS,0.0,1.0)
 
+## Also a pure function of the date.
+static func moon_scale(campaign_seconds: float) -> float:
+	return MOON_SCALE_START*pow(MOON_SCALE_END/MOON_SCALE_START,clampf(campaign_seconds/MOON_SCALE_SECONDS,0.0,1.0))
+
 func _push_spectacle() -> void:
 	_spectacle_levels.fill(0.0)
 	var corona := 0.0; var burst := 0.0
@@ -401,6 +409,7 @@ func _push_spectacle() -> void:
 		sky.set_shader_parameter("spectacle_time",_spectacle_time)
 		sky.set_shader_parameter("emergence_progress",_emergence_progress)
 		sky.set_shader_parameter("moon_name_amount",moon_name_amount(_spectacle_time) if source=="campaign-calendar" else 0.0)
+		if source=="campaign-calendar": sky.set_shader_parameter("moon_visual_scale",moon_scale(_spectacle_time))
 		if director.has_method("set_mirage_spectacle"):
 			# The existing schedule is second-granular; optical shimmer must follow
 			# the same clock continuously, including pause and reverse travel.

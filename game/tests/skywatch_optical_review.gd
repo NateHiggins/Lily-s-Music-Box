@@ -783,6 +783,7 @@ func moon_name_review(bench: Node3D) -> void:
 	check(Weather.moon_name_amount(Weather.MOON_NAME_AT+86400.0)<.05 and is_equal_approx(Weather.moon_name_amount(Weather.MOON_NAME_AT+Weather.MOON_NAME_ETCH_SECONDS),1.0),"etch is slow and completes")
 	var stamp := Time.get_unix_time_from_datetime_string("1929-09-21T22:40:00")-Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")
 	check(is_equal_approx(float(stamp),Weather.MOON_NAME_AT),"exposure constant is 21 September 1929, 22:40")
+	check(is_equal_approx(Weather.moon_scale(0.),4.) and is_equal_approx(Weather.moon_scale(Weather.MOON_SCALE_SECONDS),60.),"Moon runs from four to sixty times real")
 	bench.manager.set_process(false)
 	bench.director.set_process(false)
 	for child: Node in bench.get_children():
@@ -797,10 +798,10 @@ func moon_name_review(bench: Node3D) -> void:
 	sky.set_shader_parameter("moon_surface",load("res://assets/environment/moon_lroc_4k.jpg"))
 	sky.set_shader_parameter("moon_height",load("res://assets/environment/moon_lola_height.png"))
 	sky.set_shader_parameter("moon_relief_enabled",true)
-	var dates := {"sep28":[9,28,23],"oct05":[10,5,20],"oct12":[10,12,20],"oct18_full":[10,18,22],"oct25_last_quarter":[10,25,23],"nov09_last_evening":[11,9,19]}
+	var dates := {"nov19_1928":[11,19,19],"mar25":[3,25,22],"jun20":[6,20,23],"sep28":[9,28,23],"oct12":[10,12,20],"oct18_full":[10,18,22],"oct25_last_quarter":[10,25,23],"nov09_last_evening":[11,9,19]}
 	for label: String in dates:
 		var when: Array=dates[label]
-		bench.clock.configure_date(1929,int(when[0]),int(when[1]),int(when[2])*60)
+		bench.clock.configure_date(1928 if int(when[0])==11 and int(when[1])==19 else 1929,int(when[0]),int(when[1]),int(when[2])*60)
 		var utc: Dictionary=bench.clock.utc_datetime()
 		bench.director._astronomy_second=-INF
 		bench.director._apply(float(when[2])*60.)
@@ -816,10 +817,11 @@ func moon_name_review(bench: Node3D) -> void:
 		sky.set_shader_parameter("moon_phase_enabled",true)
 		var campaign_seconds := float(Time.get_unix_time_from_datetime_dict(bench.clock.local_datetime()))-float(Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00"))
 		sky.set_shader_parameter("moon_name_amount",Weather.moon_name_amount(campaign_seconds))
+		sky.set_shader_parameter("moon_visual_scale",Weather.moon_scale(campaign_seconds))
 		sky.set_shader_parameter("celestial_strength",1.4)
 		for key: String in ["cloud_coverage","lower_cloud_strength","high_cloud_strength"]:
 			sky.set_shader_parameter(key,0.)
-		for field: Array in [["world",60.],["eye",14.],["glass",2.]]:
+		for field: Array in [["world",60.],["glass",14.]]:
 			bench.camera.look_at(bench.camera.global_position+moon,Vector3.UP)
 			bench.camera.set_frustum(2.*bench.camera.near*tan(deg_to_rad(float(field[1]))*.5),Vector2.ZERO,bench.camera.near,2000.)
 			await capture(bench,out+"/name_%s_%s.png" % [label,field[0]])
