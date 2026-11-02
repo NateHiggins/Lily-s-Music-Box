@@ -23,6 +23,14 @@ in one occupied-world session. Keep per-asset failures identifiable. Renew the
 shared surface/candidate evidence at the batch checkpoint, rather than after each
 individual prop. A failed affected check still needs repair and re-execution.
 
+Survey the actual expanded instance roster, including completion-template clones,
+before declaring a fitted library complete. Per-instance wall depth must not be
+inherited blindly from a template. Ordinary wall boxes alone do not prove a mount
+is supported: subtract current ventilation/service clearances and check the full
+plate footprint. Keep functioning ducts and their authority; route new fittings
+around them. The November2 closet intake exposed both gaps in a native-only
+survey, so native clearance reports cannot replace occupied contact evidence.
+
 Run actual mouse grab/motion/release harnesses windowed, even when they write
 no screenshots. Headless mouse capture cannot validate that input path. Keep
 source/ownership-only benches headless; a click-only historical harness is not

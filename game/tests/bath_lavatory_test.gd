@@ -8,6 +8,8 @@ var loaded_finishes: Array[Dictionary] = []
 var bath_recipes: Dictionary = {}
 var reconstruction_save := ""
 var reconstruction_plug := Vector3.ZERO
+var reconstruction_executed := false
+var closet_contacts: Array[Dictionary] = []
 
 func check(ok: bool, label: String) -> void:
 	checks += 1
@@ -267,6 +269,7 @@ func _reconstruct_lavatory(world: OrisonV2RuntimeRoot) -> OrisonV2RuntimeRoot:
 	check(not rebuilt.startup_failed and rebuilt.startup_ms > 0, "fresh V2 world completes saved campaign reconstruction")
 	RealityState.save_path = original_path
 	if rebuilt.startup_failed or rebuilt.startup_ms <= 0: return rebuilt
+	reconstruction_executed = true
 	await get_tree().physics_frame
 	var found := false
 	for sink: TapProp in rebuilt.boiler_tend.taps:
@@ -347,9 +350,15 @@ func _check_installed_closet_services(world: OrisonV2RuntimeRoot) -> void:
 			var ray := PhysicsRayQueryParameters3D.create(node.to_global(Vector3(port.x,port.y,.32)),
 					node.to_global(Vector3(port.x,port.y,depth+.08)),1,exclude)
 			var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
+			var row := {"id":str(node.name),"profile":str(node.service_profile),
+					"port":[port.x,port.y],"expected_bare_wall_depth":depth+.0045}
+			if not hit.is_empty():
+				row["actual_depth"] = node.to_local(hit.position).z
+				row["collider"] = str(hit.collider.get_path())
+			closet_contacts.append(row)
 			check(not hit.is_empty() and absf(node.to_local(hit.position).z-depth-.0045)<.0002,
-					"installed closet service meets surveyed wall and finish skin: " + str(node.name)+str(port))
-	check(count == 12, "all twelve installed water closets retain additive service kits")
+					"installed closet service meets surveyed wall and finish skin: " + str(row))
+	check(count == 13, "twelve domestic and one templated staff water closet retain fitted service kits")
 
 func _played_closet(world: OrisonV2RuntimeRoot) -> void:
 	var closet: Node3D
@@ -389,20 +398,28 @@ func _played_closet(world: OrisonV2RuntimeRoot) -> void:
 			"actual mouse turns and releases the installed closet flush handle")
 	await get_tree().create_timer(.3).timeout
 	check(closet.water_level < .98 and closet._held.is_empty(), "existing flush water owner drains after released input")
+	# The raised lid legitimately occludes the cistern from this standing stance.
+	# Close it through its real control before trying to reach over it.
+	var lid: Node3D = closet.parts.RaisedLid
+	var lid_draw := lid.find_children("*","MeshInstance3D",true,false)[0] as MeshInstance3D
+	check(await hand.operate(lid_draw.to_global(lid_draw.mesh.get_aabb().get_center()),0,closet),
+			"actual mouse lowers the raised lid to expose the cistern cover")
 	player.camera.look_at(closet.parts.CisternCover.global_position)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	hand.click()
 	var acquired: bool = player._grab.active() and player._grab.target.get("part") == closet.parts.CisternCover
-	check(acquired, "actual primary selects the removable cover with the new hardware installed")
+	var picked := str(player._grab.target.get("part")) if player._grab.active() else "none"
+	check(acquired, "actual primary selects the removable cover with the new hardware installed; picked=" + picked)
 	if acquired:
 		var motion := InputEventMouseMotion.new();motion.relative = Vector2(0,-32)
 		player._unhandled_input(motion)
 		player.set_physics_process(true)
 		for frame in 8: await get_tree().physics_frame
 		check(player._grab.active() and closet._held == "CisternCover", "cover mouse motion retains its existing hand owner")
-		if player._grab.active(): hand.click()
 		player.set_physics_process(false)
+	# A failed acquisition must still release any different part actually picked.
+	if player._grab.active(): hand.click()
 	check(closet._held.is_empty() and not player._grab.active(), "cover release leaves no transient input owner")
 	await RenderingServer.frame_post_draw
 	await capture("installed_closet_services")
@@ -527,6 +544,11 @@ func run() -> void:
 	if OS.get_environment("ORISON_LAVATORY_ONLY") == "1":
 		_check_installed_closet_services(world)
 		await _played_closet(world)
+		# Failed first-world interfaces cannot be accepted by a second startup.
+		# Repair those first; the final passing programme must still rebuild.
+		if not failures.is_empty():
+			_finish(world)
+			return
 		world = await _reconstruct_lavatory(world)
 		_finish(world)
 		return
@@ -646,7 +668,7 @@ func _finish(world: OrisonV2RuntimeRoot) -> void:
 		if file == null:
 			check(false, "diagnostic output could not be opened: " + directory)
 		else:
-			file.store_string(JSON.stringify({"checks":checks,"failures":failures,"service_contacts":service_contacts,"loaded_finishes":loaded_finishes,"scope":"lavatory_and_closet_services" if OS.get_environment("ORISON_LAVATORY_ONLY")=="1" else "full_bathroom"},"\t"))
+			file.store_string(JSON.stringify({"checks":checks,"failures":failures,"service_contacts":service_contacts,"loaded_finishes":loaded_finishes,"closet_contacts":closet_contacts,"reconstruction_executed":reconstruction_executed,"scope":"lavatory_and_closet_services" if OS.get_environment("ORISON_LAVATORY_ONLY")=="1" else "full_bathroom"},"\t"))
 	if world != null:
 		world.shutdown_for_tests()
 		world.free()

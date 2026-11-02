@@ -8,6 +8,24 @@ No auto-merge is enabled. Read-only cleanup evidence at
 UIDs paired with tracked source, zero tracked-text references and zero UID paths
 already on main; cached references remain unaudited. All files remain in place.
 
+**Latest actual run — bathroom03 FAIL:**1777checks/18failures,361.72s; compiled
+test passes and both worlds finish startup142.150s/149.540s. All four renders
+were personally inspected; original receipts and DIAGNOSTIC_REVIEW.json remain
+at **C:/ov/reports/native_intake_20261102/bathroom_03/**. No owned engine/broker
+remains live. The new lavatory actual plug/valve and fresh-reconstruction checks
+have no failed assertions, but the combined programme fails and grants no formal
+acceptance. Closet failures: staff template produces a13th WC with inherited
+wrong .4255m hardware (source face .5255m); 5A/6A left mounts sit in existing
+ventilation B_STEM wall clearances; raised lid occludes the cover test's ray.
+Test edits now lower that lid through actual input, release any wrong picked
+part, log exact closet contact hits, count13instances and skip a costly second
+world when the first already fails. Those test edits are not rerun yet.
+Next author .5255staff and .4255vent-bypass native variants, with explicit
+completion-instance binding; preserve vents, fixture anchors and soil pipes.
+Then reuse the combined programme. Do not simply relax wall tolerances or count
+only the12original packet targets.20UID fallback warnings persist across two
+worlds. Update the historical queued statuses below against this terminal result.
+
 **Continuation checkpoint:** merge **4f18420e4** is committed and pushed; no
 merge remains in progress. **lavatory_06** adds an actual standing-controller
 plug lift/release and a second, newly constructed V2 world loaded through the
