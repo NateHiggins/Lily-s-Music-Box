@@ -1,5 +1,23 @@
 # Current continuation — November 2 V2 native intake
 
+**Surface01 is NOT publishable despite its PASS line:** wrapper exits0 after
+400.18s; test reports31,292checks/0assertion failures and a schema2 contract,
+with30,604draws/19,597meshes/6,756materials/573textures. Raw stderr nevertheless
+contains **shop simulation interval is outside campaign time: SHOP_BODEGA**.
+The independent packet validator correctly rejects that Godot error. Preserve
+all original logs/contracts/images under **surface_01/**; publish no receipt.
+The composed optical preview resets the campaign while the live monotonic shop
+consumer still polls it. Repair only the review lifecycle: suspend that consumer
+before leasing optical dates, restore the original campaign through RealityState,
+assert unchanged durable state/valid shop cursor, then restore processing. Add
+a final shop-valid assertion to the enclosing survey. Production clock, shop,
+reading and save guards remain unchanged. The full survey needs a corrected run.
+First51renders and both new closet closeups were inspected; lower bypass supply
+is partly concealed, not optically proven in every detail. Technical inventory
+has zero findings, but this does not waive the raw error or grant acceptance.
+Memory sampling during the original run peaks at33.918GB physical/75.873GB
+commit (decimal); this exhaustive survey is not a playable performance baseline.
+
 **Horizon dependent replay passes:** original producer exits0; all37GLBs and
 its runtime projection remain byte-identical. Published geometry/measurements
 are exact. Saved Blender bytes/native hashes change on replay and are not claimed

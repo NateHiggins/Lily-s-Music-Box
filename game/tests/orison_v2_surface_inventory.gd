@@ -498,6 +498,7 @@ func _run() -> void:
 		sequence.free()
 	var after := _input_snapshot(root)
 	check(before.get("sha256","") == after.get("sha256","changed"),"rendering inputs stayed fixed during qualification")
+	check(not world.shop_simulation.failed,"optical dates leave the production shop simulation valid")
 	var owner_ref: WeakRef = weakref(world)
 	world.shutdown_for_tests()
 	world.free()

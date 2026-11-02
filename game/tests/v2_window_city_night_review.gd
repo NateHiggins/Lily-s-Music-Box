@@ -143,9 +143,17 @@ func run_composed(world: OrisonV2RuntimeRoot, host: Node) -> Dictionary:
 	var lamp := actor.lamp_is_enabled()
 	var carrier := actor.carried_device as ServiceSetCarrier
 	var hidden := carrier.is_capture_hidden() if carrier != null else false
+	# This optical lease resets the campaign temporarily. The live shop cursor
+	# belongs to the restored campaign, not to these out-of-order photo dates.
+	var shops: Node = world.shop_simulation
+	var shop_processing := shops.is_processing()
+	var campaign_before := RealityState.data.duplicate(true)
+	shops.set_process(false)
 	var leased := RealityState.begin_preview_campaign(self)
 	check(leased, "existing nonpersistent preview owner admits optical dates")
-	if not leased: return {"completed":false,"failures":failures}
+	if not leased:
+		shops.set_process(shop_processing)
+		return {"completed":false,"failures":failures}
 	actor.set_physics_process(false)
 	actor.set_lamp_enabled(false)
 	if carrier != null: carrier.set_capture_hidden(true)
@@ -158,6 +166,9 @@ func run_composed(world: OrisonV2RuntimeRoot, host: Node) -> Dictionary:
 	check(RealityState.end_preview_campaign(self), "original campaign context restored by its owner")
 	# Allow time/weather readers to rebind before the enclosing survey proceeds.
 	await get_tree().process_frame
+	check(RealityState.data == campaign_before, "optical preview preserves the original durable campaign")
+	check(not shops.failed and shops.advance_current(), "restored campaign retains a valid monotonic shop cursor")
+	shops.set_process(shop_processing)
 	actor.set_lamp_enabled(lamp)
 	if carrier != null: carrier.set_capture_hidden(hidden)
 	actor.set_physics_process(physics)
