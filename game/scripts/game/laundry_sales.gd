@@ -16,9 +16,17 @@ const UNSET := -1
 
 
 static func book(job := KEY) -> Dictionary:
-	if not RealityState.data.has(job):
-		RealityState.data[job] = {"washed": UNSET, "paid": false, "away": false, "ready": 0}
-	return RealityState.data[job]
+	if job == MENDING_KEY:
+		if not RealityState.data.has(MENDING_KEY):
+			RealityState.data[MENDING_KEY] = _new_job()
+		return RealityState.data[MENDING_KEY]
+	if not RealityState.data.has(KEY):
+		RealityState.data[KEY] = _new_job()
+	return RealityState.data[KEY]
+
+
+static func _new_job() -> Dictionary:
+	return {"washed": UNSET, "paid": false, "away": false, "ready": 0}
 
 
 static func valid(value: Variant) -> bool:
