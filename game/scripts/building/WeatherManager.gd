@@ -8,6 +8,9 @@ const Phenomena := preload("res://scripts/building/sky_phenomena.gd")
 const LivingSky := preload("res://scripts/building/living_sky.gd")
 const TLE_SLOTS := [23, 24, 25, 26]
 const EMERGENCE_SLOT := 41
+## Campaign seconds from 1928-11-10 to 22:40 on 21 September 1929, and the length of the exposure.
+const MOON_NAME_AT := 27297600.0
+const MOON_NAME_EXPOSURE := 40.0
 const CRAWLER_SLOT := 22
 const PLUME_LIGHTNING_SLOT := 28
 const ST_ELMO_SLOT := 27
@@ -372,6 +375,10 @@ func _flash_for(slot: int) -> float:
 	if slot in TLE_SLOTS: return 1.0 if slot==_tle_slot and _tle_frames>0 else 0.0
 	return 1.0
 
+## A pure function of the date, so reverse travel finds a clean Moon.
+static func moon_name_amount(campaign_seconds: float) -> float:
+	return clampf((campaign_seconds-MOON_NAME_AT)/MOON_NAME_EXPOSURE,0.0,1.0)
+
 func _push_spectacle() -> void:
 	_spectacle_levels.fill(0.0)
 	var corona := 0.0; var burst := 0.0
@@ -393,6 +400,7 @@ func _push_spectacle() -> void:
 		sky.set_shader_parameter("spectacle_bearing",_spectacle_bearings)
 		sky.set_shader_parameter("spectacle_time",_spectacle_time)
 		sky.set_shader_parameter("emergence_progress",_emergence_progress)
+		sky.set_shader_parameter("moon_name_amount",moon_name_amount(_spectacle_time) if source=="campaign-calendar" else 0.0)
 		if director.has_method("set_mirage_spectacle"):
 			# The existing schedule is second-granular; optical shimmer must follow
 			# the same clock continuously, including pause and reverse travel.

@@ -13,7 +13,8 @@
   "mk_glove": "mk_g1",
   "mk_box": "mk_b1",
   "mk_chair": "mk_e1",
-  "mk_copy": "mk_c1"
+  "mk_copy": "mk_c1",
+  "mk_moon": "mk_mn1"
  },
  "threads": [
   {
@@ -85,6 +86,14 @@
    ],
    "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. The Emergence. She is not a clue here.",
    "root": "mk_e1"
+  },
+  {
+   "id": "mk_moon",
+   "from": "1929-09-27",
+   "until": "1929-11-09",
+   "topic": "You've drawn your blinds, Mrs. Kessler.",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. No confession and no evidence. Grammar of ownership only.",
+   "root": "mk_mn1"
   }
  ],
  "nodes": {
@@ -236,6 +245,9 @@
   },
   "mk_e1": {
    "line": "I am carrying a chair up, if that's what you mean. You may sit. The chair is mine."
+  },
+  "mk_mn1": {
+   "line": "My blinds are my own. Somebody has written on something that does not belong to them, and they will be told so. It wants painting out. I have said so to the proper people. Mind the mat."
   }
  }
 }

@@ -15,7 +15,8 @@
   "rs_portrait": "rs_p1",
   "rs_chorus": "rs_h1b",
   "rs_dub": "rs_u1",
-  "rs_one": "rs_o1"
+  "rs_one": "rs_o1",
+  "rs_moon": "rs_mn1"
  },
  "threads": [
   {
@@ -87,6 +88,14 @@
    "topic": "I could hear you through the wall, Miss Sato.",
    "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. One Short. Not her case and not take 18. She fails at something small.",
    "root": "rs_o1"
+  },
+  {
+   "id": "rs_moon",
+   "from": "1929-09-27",
+   "until": "1929-11-09",
+   "topic": "You can see it from your window.",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. She was asked, she has no cup, and she's right.",
+   "root": "rs_mn1"
   }
  ],
  "nodes": {
@@ -212,6 +221,9 @@
   },
   "rs_o1": {
    "line": "One. No. One. There's nothing to the Professor's trick, you know. It's breath. You bring a house down on the outgoing, and you never let it catch you doing it. One. I've done it forty ways this week, and in every one of them you can hear a woman saying \"one\" very well."
+  },
+  "rs_mn1": {
+   "line": "I can. I asked her whether Miss Voss said she could, and she said no, and I asked her to have that noted, and she went and did it. It's her name. Nobody asked her. I have the blind down on that side, and I notice I know exactly where it is."
   }
  }
 }

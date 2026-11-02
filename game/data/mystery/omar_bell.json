@@ -16,7 +16,8 @@
   "ob_piano": "ob_n1",
   "ob_screws": "ob_s9",
   "ob_rivets": "ob_r9",
-  "ob_load": "ob_l9"
+  "ob_load": "ob_l9",
+  "ob_moon": "ob_mn1"
  },
  "threads": [
   {
@@ -97,6 +98,14 @@
    ],
    "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. The Emergence.",
    "root": "ob_l9"
+  },
+  {
+   "id": "ob_moon",
+   "from": "1929-09-27",
+   "until": "1929-11-09",
+   "topic": "You lent her a cup.",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. His offense goes to the workmanship. His wound stays his.",
+   "root": "ob_mn1"
   }
  ],
  "nodes": {
@@ -181,6 +190,9 @@
   },
   "ob_l9": {
    "line": "Hundred and twelve. Slab will take it. It's the stairs I don't like, they've all got something in their hands. Go and stand at the door, you've got the shoulders for it."
+  },
+  "ob_mn1": {
+   "line": "Told her nothing'd hold eleven. Held. It's a sixth out on the left, you can see it at the quarter, and I've been up on the slab with a level like a fool. I've got a ladder somewhere. I know. I know how far it is. Hold that end."
   }
  }
 }

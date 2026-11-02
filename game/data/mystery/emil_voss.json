@@ -8,7 +8,8 @@
   "notes": "Not a sidekick, and he does not validate her. He came with wrapping paper. No jokes and no companion reply in this thread. Pictures are never clue rewards."
  },
  "entries": {
-  "ev_home": "ev_1"
+  "ev_home": "ev_1",
+  "ev_moon": "ev_mn1"
  },
  "threads": [
   {
@@ -22,6 +23,18 @@
    ],
    "source": "S11, B15",
    "root": "ev_1"
+  },
+  {
+   "id": "ev_moon",
+   "from": "1929-09-27",
+   "until": "1929-10-04",
+   "topic": "You've seen it, Mr. Voss.",
+   "hours": [
+    "10:00",
+    "16:00"
+   ],
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. No jokes. The only person outside the bar who knows the hand.",
+   "root": "ev_mn1"
   }
  ],
  "nodes": {
@@ -58,6 +71,9 @@
   },
   "ev_3s": {
    "line": "These can come home. I've said that. I'll just do this one."
+  },
+  "ev_mn1": {
+   "line": "That's her E. It was in the Record, through a glass, and then it was over my own roof. I have letters with that E. Nobody has told me who did this, and I haven't asked, and I would be obliged if you didn't tell me. I came with wrapping paper, in July. There isn't any for that."
   }
  }
 }

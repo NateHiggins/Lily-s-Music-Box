@@ -3,6 +3,7 @@ extends RefCounted
 ## Not an installed telescope interaction or campaign save/load qualification.
 const Astronomy := preload("res://scripts/building/skywatch_astronomy.gd")
 const Ephemeris := preload("res://scripts/building/celestial_ephemeris.gd")
+const Weather := preload("res://scripts/building/WeatherManager.gd")
 var failures: Array[String] = []
 var samples: Array[Dictionary] = []
 var timings: Array[Dictionary] = []
@@ -13,6 +14,9 @@ func check(ok: bool,label: String) -> void:
 	if not ok: failures.append(label)
 
 func run(bench: Node3D) -> void:
+	if OS.get_environment("SKYWATCH_MOON_NAME_REVIEW")=="1":
+		await moon_name_review(bench)
+		return
 	if OS.get_environment("SKYWATCH_CLOUD_REVIEW")=="1":
 		await cloud_review(bench)
 		return
@@ -765,4 +769,55 @@ func catalogue_review(bench: Node3D) -> void:
 	var out := OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(out)
 	var file := FileAccess.open(out+"/catalogue_bake.json",FileAccess.WRITE);file.store_string(JSON.stringify(result,"\t")+"\n");file.close()
 	print("SKYWATCH CATALOGUE RESULT: ","PASS" if failures.is_empty() else "FAIL", " ",JSON.stringify(result))
+	bench.get_tree().quit(0 if failures.is_empty() else 1)
+
+## The name in the Moon at each phase, by eye and through a glass. Real ephemeris for the sun; the Moon is
+## stood well above the horizon so the frame reviews the terrain, not the night's weather.
+func moon_name_review(bench: Node3D) -> void:
+	var out := OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(out)
+	check(is_equal_approx(Weather.moon_name_amount(Weather.MOON_NAME_AT-1.0),0.0),"clean Moon before the exposure")
+	check(is_equal_approx(Weather.moon_name_amount(Weather.MOON_NAME_AT+60.0),1.0),"cut complete after the exposure")
+	var stamp := Time.get_unix_time_from_datetime_string("1929-09-21T22:40:00")-Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")
+	check(is_equal_approx(float(stamp),Weather.MOON_NAME_AT),"exposure constant is 21 September 1929, 22:40")
+	bench.manager.set_process(false)
+	bench.director.set_process(false)
+	for child: Node in bench.get_children():
+		if child is WeatherFX:
+			child.process_mode=Node.PROCESS_MODE_DISABLED
+			(child as Node3D).hide()
+			for layer: CanvasLayer in child.find_children("*","CanvasLayer",true,false): layer.hide()
+	for particle: GPUParticles3D in bench.find_children("*","GPUParticles3D",true,false):
+		particle.emitting=false;particle.hide()
+	bench.camera.near=.01
+	var sky: ShaderMaterial=bench.sky_material
+	sky.set_shader_parameter("moon_surface",load("res://assets/environment/moon_lroc_4k.jpg"))
+	sky.set_shader_parameter("moon_height",load("res://assets/environment/moon_lola_height.png"))
+	sky.set_shader_parameter("moon_relief_enabled",true)
+	var dates := {"sep21_gibbous":[9,21,22],"sep26_last_quarter":[9,26,23],"oct10_first_quarter":[10,10,20],"oct18_full":[10,18,22],"nov09_last_evening":[11,9,19]}
+	for label: String in dates:
+		var when: Array=dates[label]
+		bench.clock.configure_date(1929,int(when[0]),int(when[1]),int(when[2])*60)
+		var utc: Dictionary=bench.clock.utc_datetime()
+		bench.director._astronomy_second=-INF
+		bench.director._apply(float(when[2])*60.)
+		bench.environment.fog_enabled=false
+		bench.environment.volumetric_fog_enabled=false
+		var moon := Ephemeris.moon_direction(utc,40.75,-73.92)
+		var sun := Ephemeris.sun_direction(utc,40.75,-73.92)
+		# Turn both together, so the phase stays true while the Moon is lifted clear of the roofline.
+		var lift := Quaternion(moon,moon.lerp(Vector3.UP,.45).normalized())
+		moon=lift*moon;sun=lift*sun
+		sky.set_shader_parameter("celestial_direction",moon)
+		sky.set_shader_parameter("sun_direction",sun)
+		sky.set_shader_parameter("moon_phase_enabled",true)
+		sky.set_shader_parameter("moon_name_amount",1.0)
+		sky.set_shader_parameter("celestial_strength",1.4)
+		for key: String in ["cloud_coverage","lower_cloud_strength","high_cloud_strength"]:
+			sky.set_shader_parameter(key,0.)
+		for field: Array in [["world",60.],["eye",14.],["glass",2.]]:
+			bench.camera.look_at(bench.camera.global_position+moon,Vector3.UP)
+			bench.camera.set_frustum(2.*bench.camera.near*tan(deg_to_rad(float(field[1]))*.5),Vector2.ZERO,bench.camera.near,2000.)
+			await capture(bench,out+"/name_%s_%s.png" % [label,field[0]])
+		print("MOON NAME ",label," illumination=",(1.-sun.dot(moon))*.5)
 	bench.get_tree().quit(0 if failures.is_empty() else 1)
