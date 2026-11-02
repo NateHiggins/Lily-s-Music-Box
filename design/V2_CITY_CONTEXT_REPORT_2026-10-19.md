@@ -6416,3 +6416,77 @@ the earlier full board's107PASS results retain their own provenance. This is
 not a new clean119-row candidate verification. Existing archive manifest gains
 one entry only;all preceding entries/archive paths stay exact. New packet:
 **141members / 37808627bytes / SHA256 49313d6bff85aec580cb289275f8b8018356ecd19115da298a354932245b15dc**.
+
+
+## Eastern piano-factory landmark: native checkpoint, 2026-11-02
+
+Evidence class: **INERT**. Native construction/review and current custody only;
+no runtime, whole-city or artistic acceptance. Owner resumed construction with
+the architect. Clean city branch fast-forwarded from06f465708 to currentmain
+**4fae3c389e01ad798cda746e8f69b6a04dc4e51b**; no canonical checkout edit.
+
+**Bounded target:** **HORIZON_NEAR_3_0_P1**, original20x22m reservation.
+LPC2172 pp8-9/14-15 documents Sohmer's c1886 factory and early20th-century
+sixth floor: six-storey brick body, segmental heads, six-over-six timber sash,
+horizontal bands, corner clock tower/mansard. The compact L-plan,20.4m body,
+24.96m top,bay schedule,tints and placement are AU adaptations,not measured
+historic1928 parcel/elevation proof. Modern signs/replacement sash excluded;
+reference photos remain external/form-only. Existing registered materials only.
+
+New **PianoFactory** native class preserves three retained industrial class ASTs.
+It authors a3.2m west apron,two closed scenic leaves,east court on buried soil,
+grade-fitted descent,hollow capped flue,two physical dials/tickmarks and complete
+near/lower replacement bodies. Runtime clock-hand presentation belongs to Sol;
+reuse retained native arcade-clock hands with existing campaign time,no new clock
+writer/save/collision owner. No occupied factory/shop programme is claimed.
+
+**Executed native04:** exit0/50.562s; full producer124bodies/12432pane samples/
+5400coverage rays,strict native UV/tangent/closed-stock and roof-bearing checks.
+Target142panes in each body;9290/5786closed stocks;167616/96704export triangles,
+11material partitions each. These are source counts,not measured rendering cost.
+New near3_0lower shard10,484,636B;changed near3_0shard20,748,740B.
+All124reservations/123other profiles and35other GLBs remain exact. In changed
+shard,three P2 wall/sash/pane partitions rebuild for newly exposed party walls;
+other retained partitions preserve arrays/poses. Source tally36individual/88generic.
+
+**Native review02:** exit0/101.552s,22actual saved-native/export part roundtrips,
+686pane/front-lane/terrain controls;all four near/lower front/rear PNGs individually
+inspected/hash-bound. L court,tower,roof,doors and sash remain in both bodies.
+Dark windows/simple roof remain artistic limitations. Review lighting is a
+diagnostic and does not accept production lighting. No loaded mip/LOD/collision
+or player-access/frame-time result yet. Original native01 winding failure,
+first-review sash/stone-head mismatch and source-text encoding correction are
+preserved externally. Corrected source restores all123old profiles exactly.
+
+Reusable individual-body fixture now admits explicit one-or-two distinct targets
+and checks three observations per target;old two-body scene is unchanged. New
+**V2CitySohmerBody.tscn** requires exactly11near/lower parts. ReaderNEW0;own
+horizon source preflightPASS0. Preparation/import-policy/compile/one-body loaded
+bench queued FIFO broker68396/session90489 at05:29Z,unadmitted behind ownerLoRA
+and earlier jobs. Pinned patched engine SHA verified;native3440x1440/hidden
+desktop planned. Rendering inputs frozen;do not launch duplicates or repin old
+receipts. Existing physical packet is stale for this construction. Sol owns
+composition/light/access/clock intake and eventual qualified integration.
+
+External evidence/current continuation: **C:/ov/reports/city_streets_20261029/sohmer_factory_01/**.
+Native/source work is not yet a merge candidate; full city,loaded runtime,
+production material/light/LOD review and artistic acceptance remain open.
+
+**Measured source-cost delta (not viewport cost):** baselineP1 6924triangles to
+167616near/96704lower;changedshard33880triangles/~3.45MB to193836/~20.75MB,
+plus~10.48MBlower. Paintedwood78128/45936 andbrick63292/34876 dominate.
+Do not propagate this density across88remaining bodies without actualrender
+cost/LOD review; optimize complete stock tessellation if measurements require.
+Native exported court/apron/descent probe separately passes64support/upnormal/
+1.524mvertical stations and2wrong-height controls;0.101667mrisers. This is
+source-only,not full capsule sweeps or Godot/controller access.
+
+Native-only checkpoint packet **art/reviews/city_streets_20261029/sohmer_factory_native_review.zip**
+contains62members/11,270,754B,SHA256
+**b87616a93f6a6296c0493904bce6398da9927abd5c7ecb11023be54fb3d77375**.
+It retains both inspectednativeview rounds,executedsources,failed originals,
+sourcecounts and12staticgate observations;no duplicate GLBs/maps or sourcephotos.
+Its scope remains native-only while the existing family queue waits;later
+loaded/composed evidence must retain separate execution provenance. All prior
+archive entries/bytes are preserved. Sol independently inspected/hash-matched
+all4finalnativeviews and reviewed the fixture/preservation boundary.

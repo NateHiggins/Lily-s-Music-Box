@@ -1,3 +1,60 @@
+# Current city authoring handoff — November 2, Sohmer native checkpoint
+
+Evidence class: **INERT**. This prefix records isolated city-branch custody,
+not canonical acceptance. Full city goal remains active/incomplete. Latest
+owner direction resumes construction with the architect and supersedes the
+prior hold. Read DOCS.md/AGENTS.md and the current city ledger before editing.
+
+**Custody:** C:/ov/city, **codex/v2-city-20261029**, started clean from fetched
+**4fae3c389e01ad798cda746e8f69b6a04dc4e51b** after fast-forwarding merged06.
+Canonical checkout/index/outstanding work remain untouched by this chat.
+Developer Sol owns C:/PleaseRemainOnTheLine, composition/lighting/access/clock
+intake and final integration. This chat owns the native factory builder,
+manifest/exports/fixtures and one-body family instrument. No spawned agents.
+
+**Current construction:** **HORIZON_NEAR_3_0_P1** adapts LPC2172 Sohmer form:
+six-storey20.4m L-plan,24.96m mansard clock tower,west public apron,east delivery
+court/descent,wood six-over-six sash,brick segmental heads,hollow flue and two
+scenic leaves. Complete near/lower bodies have11parts/167616→96704source
+triangles. All124reservations/123other profiles/35other GLBs remain exact;
+three P2 partitions rebuild for newly exposed party walls. Installed main is
+35individual/89generic;new branch source36/88 is not runtime/artistic acceptance.
+
+Native04 exits0/50.562s. Native review02 exits0/101.552s with22exact native/export
+parts,686pane/frontage/terrain controls;all4final images individually inspected.
+Source12geometry/manifest testsPASS0,readerNEW0,spatial/period/rulingsPASS;
+working protected17 unchanged,V2 selected/v1rollback retained. Actual12static
+board preserves missing newimport/untrackedmodel and stalephysical findings;
+newmodel is now named-staged,not a rerun claim.107tools rows were not rerun.
+Native01winding failure,first-review sash/head issue and text encoding repair
+remain preserved. Existing physical/runtime receipts are never repinned.
+
+**Live own execution:** one FIFO family batch broker68396/session90489,queued
+05:29Z behind ownerLoRA and earlier jobs;no owned engine has started at this
+handoff. Patched engine hash verified. Seven entries perform twoimports,mesh/
+texture policy,compile and native3440x1440 hidden-desktop one-body family review.
+Use its same handle/receipts;never restart a live queue or terminate foreign jobs.
+Rendering inputs are frozen. No second Blender/asset/Godot task is running.
+
+**Resume:** external **C:/ov/reports/city_streets_20261029/sohmer_factory_01/**
+contains **continuation_01.json**, **CONSTRUCTION_REPORT.md**,sourcefreeze,
+preservation/native receipts,original failures and **family_batch_01.json**.
+Inspect terminal per-stage wrapper plus test-written schema2 receipt and every
+actual image. Record measured draws/triangles/frame tails;source counts are not
+rendering cost. Native64court/apron/descent support/headroom stations and two
+wrong-height controls are source-only,not capsule movement or Godot collision.
+Sol independently reviewed all4final native images and owns runtime hand reuse
+from arcade_clock.glb/campaign time,optionalclock_faces publishing after source
+freeze,compact connected controller access and combined physical qualification.
+Send each construction report to **Orison Developer Sol6.1**. Commit/push named
+coherent checkpoints;no main merge before required verification/coordination.
+
+Full city,production lighting/material presentation,whole-worldLOD/frame spikes,
+continuous450m exploration,relevant saves and artistic acceptance remain open.
+Older completed evidence and archives below remain historical provenance.
+
+---
+
 # Current handoff — November 1 Western apartment pair merged
 
 Evidence class: **INERT**. Owner Lily,she/her. Canonical C:/PleaseRemainOnTheLine

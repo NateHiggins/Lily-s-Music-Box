@@ -3250,8 +3250,8 @@
         170,
         -106.0
       ],
-      "height_m": 14.4,
-      "storey_m": 3.6,
+      "height_m": 20.4,
+      "storey_m": 3.4,
       "bay_pitch_m": 3.4,
       "window_width_m": 2.35,
       "window_height_m": 2.35,
@@ -3259,14 +3259,98 @@
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.9,
-        0.82,
-        0.65,
+        0.68,
+        0.4,
+        0.29,
         1
       ],
       "variation_seed": 161,
       "typology": "factory",
-      "chimney_height_m": 2.2
+      "chimney_height_m": 2.2,
+      "joinery_tint": [
+        0.18,
+        0.23,
+        0.2,
+        1
+      ],
+      "architecture": {
+        "type": "industrial_front",
+        "style": "sohmer_3101",
+        "precedent": "Sohmer & Company Piano Factory,31-01 Vernon Boulevard;Berger & Baylies,c1886 with early20th-century sixth floor/south wing",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/2172.pdf",
+        "source_pdf_pages": [
+          8,
+          9,
+          14,
+          15
+        ],
+        "adaptation": "AU compact six-storey L-plan with public west apron/east delivery court. Authored bay counts/metres,not measured replica or surveyed LIC1928 parcel. Modern signs,paint,replacement sash and roof equipment excluded. Clock dials are native stock; runtime hands remain existing campaign-time owner integration.",
+        "floor_heights_m": [
+          3.7,
+          3.45,
+          3.35,
+          3.35,
+          3.35,
+          3.2
+        ],
+        "outline_m": [
+          [
+            169,
+            -118
+          ],
+          [
+            160,
+            -118
+          ],
+          [
+            160,
+            -107
+          ],
+          [
+            153.2,
+            -107
+          ],
+          [
+            153.2,
+            -127
+          ],
+          [
+            169,
+            -127
+          ]
+        ],
+        "side_bays": [
+          3,
+          4,
+          2,
+          7,
+          5,
+          3
+        ],
+        "front_side": 1,
+        "cornice_key": "limestone",
+        "tower_rect_m": [
+          153.2,
+          -127,
+          157.6,
+          -122.6
+        ],
+        "public_front_apron": true,
+        "front_apron_rect_m": [
+          150,
+          -128,
+          153.2,
+          -106
+        ],
+        "court_paving_m": [
+          [
+            160,
+            -118,
+            168.5,
+            -107
+          ]
+        ]
+      }
     },
     {
       "id": "HORIZON_NEAR_3_0_P2",

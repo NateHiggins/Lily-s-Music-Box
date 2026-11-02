@@ -9,7 +9,7 @@ sys.path.insert(0,str(ROOT/'art/blender/scripts'))
 from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_overlap,building_outline,extrusion,cornice_ring,floor_intervals,offset_outline
 from fabrication_native_batch import material,partition
 from city_ground_apron_geometry import relief_height
-from city_industrial_architecture import IndustrialBuildings,MillLofts,EasternRows
+from city_industrial_architecture import IndustrialBuildings,MillLofts,EasternRows,PianoFactory
 from city_residential_architecture import ResidentialHouses,EasternHouses,CourtApartments,CivicRows,CivicBlocks,WesternGardenApartments,SouthGardenApartments
 from city_horizon_assets import export_blocks,manifest_paths
 plan_path=ROOT/'art/data/city_horizon/source_plan.json';plan=json.loads(plan_path.read_text())
@@ -29,7 +29,7 @@ for row in plan['buildings']:
     if apron:
         a,b,c,d=apron
         samples.extend((x,z) for x,z in [(a,b),(c,b),(c,d),(a,d)])
-    if row.get('architecture',{}).get('style') in SouthGardenApartments.STYLES:
+    if row.get('architecture',{}).get('style') in SouthGardenApartments.STYLES|PianoFactory.STYLES:
         # These new public garden paths extend beyond the shallow body. Seat
         # their buried stock and rear descent from the actual receiving grade.
         for a,b,c,d in row['architecture']['court_paving_m']:
@@ -81,6 +81,7 @@ for family in ['near','far']:
             if study.get('style') in CivicBlocks.STYLES:constructor=CivicBlocks
             if study.get('style') in WesternGardenApartments.STYLES:constructor=WesternGardenApartments
             if study.get('style') in SouthGardenApartments.STYLES:constructor=SouthGardenApartments
+            if study.get('style') in PianoFactory.STYLES:constructor=PianoFactory
             authored=constructor(row,add,neighbours).build()
             windows.extend(authored['windows']);bearings.extend(authored['bearings'])
             def lower_add(owner,key,vertices,faces):
