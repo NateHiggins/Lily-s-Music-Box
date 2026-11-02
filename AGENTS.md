@@ -153,6 +153,10 @@ For intentional low-resolution sprites, glyphs and physical tile displays, use
 live in `.agents/skills`; Claude Code can consume them through thin personal
 skill adapters without a duplicate guide or a directory junction.
 
+For sequential comics, panel/lettering revisions and marked draft reviews, use
+[comic-book-development](.agents/skills/comic-book-development/SKILL.md).
+Private likeness assets, prompts and review copies stay outside this public repo.
+
 The owner keeps a widget bar outside the repo. Between tasks, agents on this machine read
 `~/homebrew-tools/data/work_orders.json` (the top open order is what she wants next) and
 `rulings.json` (her answers; add open rulings there, recommended option first). Her playtest

@@ -5,12 +5,16 @@ const Ephemeris = preload("res://scripts/building/celestial_ephemeris.gd")
 var failures: Array[String] = []
 var camera: Camera3D
 var output := ""
+var externally_managed := false
+var external_host: Node
 var record := {"evidence_class": "INERT", "scope": "installed city window optics and posed rooftop photograph", "views": []}
 
 func _process(_delta: float) -> void:
+	if externally_managed: return
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _ready() -> void:
+	if externally_managed: return
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	CampaignTime.set_frozen_for_tests(true)
@@ -108,7 +112,9 @@ func run() -> void:
 	record["world_startup_ms"] = world.startup_ms
 	var sky: ShaderMaterial = world.get_node("WakingAtmosphere").sky_material
 	check(sky.get_shader_parameter("moon_relief_enabled") == true, "production relief Moon enabled")
-	if OS.get_environment("WINDOW_CITY_POSTCARDS") == "1":
+	if OS.get_environment("ORISON_CITY_COMPOSITION_STUDY") == "1":
+		await composition_study(world, clock)
+	elif OS.get_environment("WINDOW_CITY_POSTCARDS") == "1":
 		await postcards(world, clock)
 	else:
 		var moon: Vector3 = selected.moon
@@ -123,6 +129,142 @@ func run() -> void:
 	world.free()
 	await get_tree().physics_frame
 	finish()
+
+func run_composed(world: OrisonV2RuntimeRoot, host: Node) -> Dictionary:
+	# Caller sets externally_managed before adding this helper. Never construct
+	# a second world or run the standalone scene's reset/quit/input lifecycle.
+	external_host = host
+	output = OS.get_environment("SHOT_DIR")
+	check(externally_managed and is_inside_tree() and world.player != null, "supplied optical review lifecycle")
+	if not failures.is_empty(): return {"completed":false,"failures":failures}
+	var actor := world.player
+	var prior_camera := get_viewport().get_camera_3d()
+	var physics := actor.is_physics_processing()
+	var lamp := actor.lamp_is_enabled()
+	var carrier := actor.carried_device as ServiceSetCarrier
+	var hidden := carrier.is_capture_hidden() if carrier != null else false
+	# This optical lease resets the campaign temporarily. The live shop cursor
+	# belongs to the restored campaign, not to these out-of-order photo dates.
+	var shops: Node = world.shop_simulation
+	var shop_processing := shops.is_processing()
+	var campaign_before := RealityState.data.duplicate(true)
+	shops.set_process(false)
+	var leased := RealityState.begin_preview_campaign(self)
+	check(leased, "existing nonpersistent preview owner admits optical dates")
+	if not leased:
+		shops.set_process(shop_processing)
+		return {"completed":false,"failures":failures}
+	actor.set_physics_process(false)
+	actor.set_lamp_enabled(false)
+	if carrier != null: carrier.set_capture_hidden(true)
+	camera = Camera3D.new()
+	camera.cull_mask = actor.camera.cull_mask
+	camera.keep_aspect = Camera3D.KEEP_WIDTH
+	camera.far = 5000.
+	add_child(camera); camera.make_current()
+	await composition_study(world, CampaignClock.new())
+	check(RealityState.end_preview_campaign(self), "original campaign context restored by its owner")
+	var restored_changes: Array[Dictionary] = []
+	_campaign_changes(campaign_before,RealityState.data,"$",restored_changes)
+	check(RealityState.data == campaign_before, "optical preview restores the original durable campaign exactly")
+	# Allow time/weather readers to rebind before the enclosing survey proceeds.
+	await get_tree().process_frame
+	var resumed_changes: Array[Dictionary] = []
+	_campaign_changes(campaign_before,RealityState.data,"$",resumed_changes)
+	record["campaign_preservation"] = {"after_owner_restore":restored_changes,"after_reader_frame":resumed_changes}
+	# A live reader frame can resample restored float32 physical rotations.
+	# Check exact restoration above, then protect every other campaign domain
+	# and validate physical data through its existing owner, without rounding it.
+	var physical_key: String = preload("res://scripts/building/orison_v2_household_state.gd").KEY
+	var before_readers := campaign_before.duplicate(true)
+	var after_readers := RealityState.data.duplicate(true)
+	before_readers.erase(physical_key); after_readers.erase(physical_key)
+	check(before_readers == after_readers, "resumed optical readers preserve every non-household campaign domain")
+	check(world.household_state.validate(world.household_state._saved_value(),world.household_state._kinds),
+			"resumed physical snapshots retain the existing complete household validation")
+	check(not shops.failed and shops.advance_current(), "restored campaign retains a valid monotonic shop cursor")
+	shops.set_process(shop_processing)
+	actor.set_lamp_enabled(lamp)
+	if carrier != null: carrier.set_capture_hidden(hidden)
+	actor.set_physics_process(physics)
+	if is_instance_valid(prior_camera): prior_camera.make_current()
+	camera.free()
+	record["completed"] = true; record["failures"] = failures
+	record["scope"] = "Supplied production world optical diagnostic; preview lease and player presentation restored. No additional world or gameplay acceptance."
+	var file := FileAccess.open(output.path_join("night_review.json"), FileAccess.WRITE)
+	check(file != null, "write composed optical observations")
+	if file != null:
+		file.store_string(JSON.stringify(record, "\t")); check(file.get_error() == OK, "optical observations written"); file.close()
+	return record
+
+func _campaign_changes(before: Variant, after: Variant, path: String, changes: Array[Dictionary]) -> void:
+	if changes.size() >= 64 or before == after: return
+	if before is Dictionary and after is Dictionary:
+		var keys: Array = before.keys()
+		for key in after:
+			if not keys.has(key): keys.append(key)
+		for key in keys:
+			if not before.has(key) or not after.has(key):
+				changes.append({"path":path+"."+str(key),"before_present":before.has(key),"after_present":after.has(key)})
+			else: _campaign_changes(before[key],after[key],path+"."+str(key),changes)
+			if changes.size() >= 64: return
+	elif before is Array and after is Array and before.size() == after.size():
+		for index in before.size():
+			_campaign_changes(before[index],after[index],path+"["+str(index)+"]",changes)
+			if changes.size() >= 64: return
+	else:
+		changes.append({"path":path,"before":str(before).left(240),"after":str(after).left(240)})
+
+func composition_study(world: Node3D, clock: CampaignClock) -> void:
+	# Diagnostic controls only. No production setting or material is changed.
+	# Use one actual world and the existing absolute lighting writer; do not
+	# invent another weather/time authority or repeat unrelated controller walks.
+	var director: DayNightDirector = world.day_night_director
+	var gains := Vector3(director._ambient_gain, director._fog_gain, director._sky_key_gain)
+	var viewport_rid := get_viewport().get_viewport_rid()
+	RenderingServer.viewport_set_measure_render_time(viewport_rid, true)
+	var inputs := {}
+	for path: String in ["res://tests/v2_window_city_night_review.gd", "res://scripts/building/day_night_director.gd", "res://scripts/building/v2_city_day_night_director.gd", "res://scripts/building/orison_v2_atmosphere.gd", "res://data/orison_v2/exterior/city_horizon.json", "res://data/orison_v2/exterior/city_streets.json", "res://shaders/queens_weather_sky.gdshader"]:
+		inputs[path] = FileAccess.get_sha256(path)
+	var observations: Array[Dictionary] = []
+	var poses := [
+		{"id":"west_dusk", "date":[1928,11,10,1000], "eye":Vector3(14,24.5,9), "direction":Vector3(-1,-.12,-.15)},
+		{"id":"north_noon", "date":[1928,11,10,720], "eye":Vector3(-14,24.5,-9), "direction":Vector3(0,-.12,-1)},
+		{"id":"east_moonlight", "date":[1929,2,23,1170], "eye":Vector3(-14,24.5,-9), "direction":Vector3(1,-.08,-.04)}
+	]
+	for pose: Dictionary in poses:
+		var date: Array = pose.date
+		check(clock.configure_date(date[0],date[1],date[2],date[3]), "composition uses real campaign date")
+		camera.global_position = world.adapter.root.to_global(pose.eye)
+		camera.fov = 92.0
+		camera.look_at(camera.global_position + (pose.direction as Vector3).normalized()*100.0)
+		var roof := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(camera.global_position,camera.global_position-Vector3.UP*12.0,1))
+		check(not roof.is_empty(), "composition photographic pose retains real roof support")
+		await get_tree().create_timer(2.0).timeout
+		var states := [gains.x, minf(2.0,gains.x*1.6), gains.x]
+		for index in states.size():
+			director.set_tuning_offsets(states[index],gains.y,gains.z)
+			director._apply(float(date[3]))
+			for frame in 30: await RenderingServer.frame_post_draw
+			var samples: Array = []
+			var previous := Time.get_ticks_usec()
+			for frame in 60:
+				await RenderingServer.frame_post_draw
+				var current := Time.get_ticks_usec()
+				samples.append([(current-previous)/1000.0,RenderingServer.viewport_get_measured_render_time_cpu(viewport_rid),RenderingServer.viewport_get_measured_render_time_gpu(viewport_rid),Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)])
+				previous = current
+			var suffix: String = ["baseline","ambient_control","restored"][index]
+			var label: String = str(pose.id)+"_"+suffix
+			await capture(label,world,clock)
+			var environment: Environment = director._env
+			observations.append({"id":label,"ambient_gain":states[index],"ambient_energy":environment.ambient_light_energy,"ambient_color":str(environment.ambient_light_color),"fog_gain":director._fog_gain,"key_gain":director._sky_key_gain,"render_samples":samples,"lighting":director.resolved_profile(),"image_sha256":FileAccess.get_sha256(output.path_join(label+".png"))})
+		check(is_equal_approx(director._ambient_gain,gains.x) and is_equal_approx(director._fog_gain,gains.y) and is_equal_approx(director._sky_key_gain,gains.z), "lighting control fully restored")
+	director.set_tuning_offsets(gains.x,gains.y,gains.z)
+	RenderingServer.viewport_set_measure_render_time(viewport_rid, false)
+	for path: String in inputs:
+		check(FileAccess.get_sha256(path)==str(inputs[path]), "composition study source stayed frozen: "+path)
+	check(observations.size()==9, "three actual composition poses have baseline/control/restore captures")
+	record["composition_study"] = {"scope":"Three roof-supported posed cameras in one production world. Temporary ambient gain control through existing director, restored after each pose. Sixty static frames per state exclude PNG writes; observations under host contention, not walking or matched whole-city performance/artistic acceptance. No production lighting change.","inputs":inputs,"sample_columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives"],"observations":observations,"render_settings":{"size":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"max_fps":Engine.max_fps,"vsync":DisplayServer.window_get_vsync_mode()}}
 
 func postcards(world, clock: CampaignClock) -> void:
 	# Roof-edge photographic crane poses. Never alter production player spawning.
@@ -154,6 +296,7 @@ func capture(label: String, world: Node, clock: CampaignClock) -> void:
 	record.views.append({"file": path, "campaign_local": clock.local_datetime(), "camera": str(camera.global_position), "horizontal_fov": camera.fov, "weather": world.weather_conditions()})
 
 func check(ok: bool, label: String) -> void:
+	if external_host != null: external_host.call("check", ok, "city composition: " + label)
 	if not ok: failures.append(label); push_error(label)
 
 func finish() -> void:

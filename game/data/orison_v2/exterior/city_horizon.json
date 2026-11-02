@@ -855,12 +855,18 @@
       "id": "HORIZON_NEAR_3_0_P1",
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.9,
-        0.82,
-        0.65,
+        0.68,
+        0.4,
+        0.29,
         1
       ],
-      "window_typology": "factory"
+      "window_typology": "factory",
+      "joinery_tint": [
+        0.18,
+        0.23,
+        0.2,
+        1
+      ]
     },
     {
       "id": "HORIZON_NEAR_3_0_P2",
@@ -2165,11 +2171,16 @@
         "HORIZON_NEAR_3_0_P0R2__limestone",
         "HORIZON_NEAR_3_0_P0R2__mirror_aged",
         "HORIZON_NEAR_3_0_P1__arcade_brick_bond",
-        "HORIZON_NEAR_3_0_P1__cast_iron",
+        "HORIZON_NEAR_3_0_P1__bronze_sheet",
+        "HORIZON_NEAR_3_0_P1__city_slate",
         "HORIZON_NEAR_3_0_P1__concrete",
+        "HORIZON_NEAR_3_0_P1__door_paint",
         "HORIZON_NEAR_3_0_P1__galvanized_roof",
         "HORIZON_NEAR_3_0_P1__limestone",
+        "HORIZON_NEAR_3_0_P1__limewash_plaster",
         "HORIZON_NEAR_3_0_P1__mirror_aged",
+        "HORIZON_NEAR_3_0_P1__soil",
+        "HORIZON_NEAR_3_0_P1__timber",
         "HORIZON_NEAR_3_0_P2__arcade_brick_bond",
         "HORIZON_NEAR_3_0_P2__concrete",
         "HORIZON_NEAR_3_0_P2__door_paint",
@@ -3009,6 +3020,26 @@
         ]
       },
       {
+        "asset": "res://assets/props/city_horizon_near_3_0_lod1.glb",
+        "block": "HORIZON_NEAR_3_0",
+        "buildings": [
+          "HORIZON_NEAR_3_0_P1"
+        ],
+        "parts": [
+          "HORIZON_NEAR_3_0_P1__arcade_brick_bond",
+          "HORIZON_NEAR_3_0_P1__bronze_sheet",
+          "HORIZON_NEAR_3_0_P1__city_slate",
+          "HORIZON_NEAR_3_0_P1__concrete",
+          "HORIZON_NEAR_3_0_P1__door_paint",
+          "HORIZON_NEAR_3_0_P1__galvanized_roof",
+          "HORIZON_NEAR_3_0_P1__limestone",
+          "HORIZON_NEAR_3_0_P1__limewash_plaster",
+          "HORIZON_NEAR_3_0_P1__mirror_aged",
+          "HORIZON_NEAR_3_0_P1__soil",
+          "HORIZON_NEAR_3_0_P1__timber"
+        ]
+      },
+      {
         "asset": "res://assets/props/city_horizon_near_3_2_lod1.glb",
         "block": "HORIZON_NEAR_3_2",
         "buildings": [
@@ -3321,6 +3352,17 @@
       "HORIZON_NEAR_2_3_P2__galvanized_roof",
       "HORIZON_NEAR_2_3_P2__limestone",
       "HORIZON_NEAR_2_3_P2__mirror_aged",
+      "HORIZON_NEAR_3_0_P1__arcade_brick_bond",
+      "HORIZON_NEAR_3_0_P1__bronze_sheet",
+      "HORIZON_NEAR_3_0_P1__city_slate",
+      "HORIZON_NEAR_3_0_P1__concrete",
+      "HORIZON_NEAR_3_0_P1__door_paint",
+      "HORIZON_NEAR_3_0_P1__galvanized_roof",
+      "HORIZON_NEAR_3_0_P1__limestone",
+      "HORIZON_NEAR_3_0_P1__limewash_plaster",
+      "HORIZON_NEAR_3_0_P1__mirror_aged",
+      "HORIZON_NEAR_3_0_P1__soil",
+      "HORIZON_NEAR_3_0_P1__timber",
       "HORIZON_NEAR_3_2_P0R0__arcade_brick_bond",
       "HORIZON_NEAR_3_2_P0R0__bronze_sheet",
       "HORIZON_NEAR_3_2_P0R0__cast_iron",
@@ -3393,5 +3435,57 @@
       "HORIZON_NEAR_3_3_P2__soil",
       "HORIZON_NEAR_3_3_P2__timber"
     ]
-  }
+  },
+  "clock_faces": [
+    {
+      "id": "HORIZON_NEAR_3_0_P1_local_minus_z",
+      "building": "HORIZON_NEAR_3_0_P1",
+      "center_godot": [
+        155.39999999999998,
+        19.694499999999998,
+        -127.045
+      ],
+      "right_godot": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "up_godot": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "normal_godot": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "hand_scale": 3.6
+    },
+    {
+      "id": "HORIZON_NEAR_3_0_P1_local_minus_x",
+      "building": "HORIZON_NEAR_3_0_P1",
+      "center_godot": [
+        153.155,
+        19.694499999999998,
+        -124.8
+      ],
+      "right_godot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "up_godot": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "normal_godot": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "hand_scale": 3.6
+    }
+  ]
 }

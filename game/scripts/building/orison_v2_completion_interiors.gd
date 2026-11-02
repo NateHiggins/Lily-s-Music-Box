@@ -22,6 +22,16 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary, parent: Node3D) -
 		if not templates.has(record.template): return false
 		var copy: Dictionary = templates[record.template].duplicate(true)
 		copy.id = record.id
+		if copy.kind == "toilet":
+			var profile: Variant = record.get("service_profile")
+			if profile is not String or not Furniture.WaterCloset.SERVICE_PROFILES.has(profile):
+				errors.append("completion closet requires its own surveyed service profile: " + str(record.id))
+				return false
+			copy.service_profile = profile
+			copy.bounds[1][2] = float(Furniture.WaterCloset.SERVICE_PROFILES[profile])+.04
+		elif record.has("service_profile"):
+			errors.append("completion service profile belongs only to a closet: " + str(record.id))
+			return false
 		if copy.has("mechanism"):
 			if copy.mechanism.has("id"): copy.mechanism.id = record.id
 			if copy.mechanism.has("unit"): copy.mechanism.unit = record.unit

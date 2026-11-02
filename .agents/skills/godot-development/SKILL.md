@@ -80,12 +80,24 @@ check only when changed inputs, failures, or unresolved concerns justify it.
 
 ## Minimize time spent running Godot
 
+For this project's native-resolution captures, reuse the existing
+**native_debug_window.gd** SceneTree helper: saved GameBoot window settings can
+override CLI fullscreen and clip a 3440x1440 request to 3440x1421. Confirm the
+actual viewport in the test; preserve a failed-resolution run before retrying
+with the corrected launch. This is an explicit diagnostic override, not a new
+production window preference.
+
 Fast iteration is a priority. Before launching, identify the changed behavior,
 the smallest check that can expose its failure, and the expected startup/run
 cost from existing receipts. Do not repeat long walks through unchanged areas
 to reach the work. Use an explicit test-only starting fixture near the affected
 area, then exercise its real controller, input, collision and state owners.
 Keep that fixture separate from production spawning; report its narrower scope.
+Build batch output paths with path operations, then inspect the serialized paths
+and assert fresh log/capture destinations before launching. Copied Windows JSON
+may use backslashes: replacing only forward-slash substrings misrouted a preview
+into a failed survey's directory. Runners replace receipts/logs at startup, so
+preserve evidence before any intentional path reuse; never reconstruct lost logs.
 Read the registered InputMap names before driving synthetic actions. A misspelled
 action can leave movement idle despite a valid scene and successful approach;
 preserve that driver failure and correct the action rather than the geometry.
@@ -99,10 +111,27 @@ before queueing. Confirm the resulting contract/profile names the requested
 scope; a default-mode pass does not prove that a profiling branch ran. Preserve
 mislaunched diagnostics and correct only the launch configuration when code is
 unchanged.
+
+Inspect the wrapper's actual argument order before using Godot's **--** user-argument
+separator. These runners append Scene after ExtraArgs, so putting **--** in
+ExtraArgs can turn the requested scene into a user argument and launch the default
+game instead. Prefer an explicit scoped environment flag with the ordinary Scene
+argument. Verify the live command line and the test's named completion output;
+an engine process or exit zero does not prove the intended programme executed.
+Retain a mislaunch's logs and intentional owned cancellation separately from test
+failures. Never stop another contributor's process to repair a launch.
+
 Run the complete affected source-fixture preflight closure outside Godot after
 renewing a dependency; a repaired record can invalidate a downstream record.
 Reuse exact consumed-projection checks only when geometry and all other inputs
 remain unchanged; preserve the original failures and never repin runtime proof.
+Even a property unused by an acoustic graph can invalidate a whole-file input
+fingerprint. Before composing the world, check every runtime source binding.
+Regenerate through the existing source-derived builder and compare physical
+payloads, rather than replacing a hash by hand. Regenerated data is not a renewed
+runtime receipt. The lavatory/acoustic diagnostic in the prologue ledger records
+the original failure and unchanged ventilation/heating/flue projections.
+
 When a required full gate board already covers tooling tests, avoid an additional
 full test-file run unless an early failure needs isolation.
 
@@ -140,6 +169,23 @@ the owner's judgment and actual playtesting establish humor, atmosphere,
 readability, and feel.
 
 ## Reuse demonstrated project lessons
+
+- **Composed optical previews:** a nonpersistent campaign lease does not pause
+  live monotonic consumers. Preserve their process flags, suspend them during
+  out-of-order photo dates, restore through the existing owner, then validate
+  their cursors before resuming. Check exact campaign restoration at that
+  boundary. A following live frame can resample float32 physical rotations;
+  retain exact checks for other domains and the complete physical-owner
+  validator instead of rounding saves or asserting all simulation stays inert.
+  The prologue ledger preserves the failing traces and scoped passing probe.
+
+- **Imported custom properties:** inspect the loaded representation and an
+  existing consumer before binding native markers. This project's pinned Godot
+  4.7.1 stores glTF properties in the node's `extras` metadata dictionary, as
+  `companion_temporal_register.gd` already reads. Flat `get_meta(property)` calls
+  failed all six closet-profile checks. Keep strict expected values; repair the
+  reader and use the small loaded preflight before another world startup. Check
+  another engine/importer version independently instead of assuming the ABI.
 
 - **Body LOD and retained equipment:** inspect the whole rendered assembly at
   distance, not only the new body indices. A correct authored building LOD can

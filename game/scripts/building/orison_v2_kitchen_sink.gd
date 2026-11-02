@@ -6,6 +6,24 @@ var _plug_pose_closed := false
 var _plug_progress := 1.0
 var _plug_start := Vector3.ZERO
 var supply_stops: Node3D
+var lavatory_profile:=""
+
+func _bath_lavatory_model() -> Node3D:
+	if lavatory_profile.is_empty():return super._bath_lavatory_model()
+	var model:=preload("res://assets/props/bath_lavatory_fitted.glb").instantiate() as Node3D
+	var found:=0
+	var groups:Array[Node3D]=[]
+	for group:Node3D in model.find_children("WallService_*","Node3D",true,false):
+		if not group is MeshInstance3D:groups.append(group)
+	for group:Node3D in groups:
+		if str(group.name)==lavatory_profile:found+=1
+		else:group.free()
+	if found!=1:
+		push_error("V2 lavatory refuses missing/duplicate service profile: "+lavatory_profile)
+		model.free();return null
+	model.set_meta("native_metric_fixture",true)
+	model.set_meta("lavatory_service_profile",lavatory_profile)
+	return model
 
 func _effective_openings() -> Vector2:
 	return _valve_openings*supply_stops.openings if is_instance_valid(supply_stops) else _valve_openings

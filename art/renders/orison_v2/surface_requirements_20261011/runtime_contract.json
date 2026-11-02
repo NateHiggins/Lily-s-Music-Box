@@ -1,11 +1,14 @@
 {
-	"checks": 651,
+	"checks": 31297,
 	"city_context_review": {
 		"scope": "Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance.",
 		"views": []
 	},
 	"city_geometry_diagnostic": {
-		"executed": false
+		"checks": 30545,
+		"executed": true,
+		"failures": 0,
+		"scope": "Source/composition city geometry and posed camera diagnostic; no played access or artistic acceptance."
 	},
 	"civic_world_access": {
 		"executed": false,
@@ -36,7 +39,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 229.217,
+		"elapsed_s": 344.044,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -51,7 +54,7 @@
 			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
 		}
 	},
-	"inventory_sha256": "9dc6f08d7b7c3c7618599b6e24dadcbf3448d8ee8adca88e1df863bf8913b421",
+	"inventory_sha256": "69fdda96e860a581609e4588497a7ae7d40da9bfaf2e327abb61133dad7b0b7d",
 	"lamp_context_review": {
 		"executed": false,
 		"scope": "Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."
@@ -62,10 +65,10 @@
 	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
 	"selector": "v2",
 	"source": {
-		"repository_head": "37e0f76cd093c098be52e67cb0804cd1e07f151f",
-		"runtime_inputs_sha256": "770d7d3b7563b16af3b7cf447b124b46066006219bd63846b1fa87671f673186",
+		"repository_head": "8acfb5a7b8c6972b4d6f91489b089ac43b005a58",
+		"runtime_inputs_sha256": "259a2005312ad89d248386e84a30cb7da479091d5c0516abe5c035c0e12b5b3a",
 		"test_path": "game/tests/orison_v2_surface_inventory.gd",
-		"test_sha256": "45225a8938a6eacab34341b4c1edb39dc44b71192f88fc9eae3c0294ca61a8d0"
+		"test_sha256": "934c2b565c9976e6c62c9867df4df851150263229567780f9dc90aed257261d0"
 	},
-	"surface_inputs_sha256": "6e9042a5b091a75d5675df61a12014eea3d7dece6e39faf2a582a200ac045462"
+	"surface_inputs_sha256": "cd3528a110c200021a8e798a306febdaffbccd1ebac93268e45f30fb2c1a9a6a"
 }

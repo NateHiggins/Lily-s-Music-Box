@@ -124,7 +124,8 @@ func run() -> void:
 	check(bath.is_curtain_open(),"actual curtain gesture opens usable aperture")
 	for index in 2:
 		var part:Node3D=bath._handles[index]
-		if not await operate(part.global_position+Vector3(0,0,-.06),PI*.25,"hot valve" if index==0 else "cold valve"):finish();return
+		if not await operate(part.global_position+part.global_basis.x*.06,PI*.25,"hot valve" if index==0 else "cold valve"):finish();return
+		check(part.rotation.is_equal_approx(Vector3(PI*.25,0,0)),"actual end-mounted valve turns about X without inherited wall-axis rotation")
 	check(is_equal_approx(float(bath.get_flow_state().hot_opening),.5) and is_equal_approx(float(bath.get_flow_state().cold_opening),.5),"independent physical valves retain exact partial flow")
 	if not await operate(bath.diverter.global_position,0.0,"bath diverter"):finish();return
 	check(bath.spray_flow_amount()==0 and bath.filler.visible and not bath._stream.visible,"diverter routes actual supply to filler without shower spray")
@@ -154,7 +155,8 @@ func run() -> void:
 	await get_tree().create_timer(1.5).timeout
 	check(bath._water_level>.05,"closed drain collects authoritative mixed water")
 	for index in 2:
-		if not await operate(bath._handles[index].global_position+Vector3(0,0,-.06),0.0,"closed valve "+str(index)):finish();return
+		var part:Node3D=bath._handles[index]
+		if not await operate(part.global_position+part.global_basis.x*.06,0.0,"closed valve "+str(index)):finish();return
 	var snapshot:Dictionary=bath.mechanism_snapshot()
 	check(bath.valid_mechanism(snapshot),"complete curtain, diverter, stopper and water snapshot validates")
 	var path:=directory.path_join("mechanism.json")

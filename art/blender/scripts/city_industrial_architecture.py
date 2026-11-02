@@ -303,6 +303,135 @@ class IndustrialBuildings:
                     min_closed_stock_volume_m3=self.min_volume,style=self.style)
 
 
+class PianoFactory(IndustrialBuildings):
+    """Sohmer LPC2172, pp8-9: AU compact L-plan and corner clock mansard.
+
+    Six storeys include the documented early twentieth-century addition.
+    Dimensions/bay counts are authored; later signs/replacement sash excluded.
+    Near/lower retain the entire body, yard, tower and roof, reducing arrises
+    and curved sampling only. Dial hands belong to runtime campaign time.
+    """
+    STYLES={'sohmer_3101'}
+
+    def __init__(self,row,emit,neighbours,lower=False):
+        # Keep the retained five-storey industrial constructor unchanged.
+        self.row=row;self.name=row['id'];self.emit=emit;self.neighbours=neighbours
+        self.study=row['architecture'];self.style=self.study['style'];self.lower=lower
+        assert self.style in self.STYLES
+        self.steps=1 if lower else 2;self.arch_steps=8 if lower else 16
+        self.windows=[];self.bearings=[];self.entries=[];self.seams=[]
+        self.parts=0;self.min_volume=math.inf;self.levels=[0.]
+        for height in self.study['floor_heights_m']:self.levels.append(self.levels[-1]+height)
+        assert len(self.levels)==7 and abs(self.levels[-1]-row['height_m'])<1e-7
+
+    def add(self,key,vertices,faces):
+        # Documented six-over-six wood sash, rather than metal factory grids.
+        return super().add('door_paint' if key=='cast_iron' else key,vertices,faces)
+
+    def stock(self,key,O,U,N,lo,hi,radius=.012):
+        return super().stock('limestone' if key=='concrete' else key,O,U,N,lo,hi,radius)
+
+    def arch(self,key,*args,**kwargs):
+        # The Sohmer window heads are brick segmental lintels; stone sills
+        # remain independent. Retained industrial buildings keep their trim.
+        return super().arch(self.row['wall_key'] if key=='limestone' else key,*args,**kwargs)
+
+    def wall_stock(self,O,U,N,lo,hi,length):
+        l,back,z=lo;r,front,Z=hi
+        left=self.tapers[0] if abs(l)<1e-7 else 0.
+        right=self.tapers[1] if abs(r-length)<1e-7 else 0.
+        assert r-right>l+left
+        plan=[(l,front),(r,front),(r-right,back),(l+left,back)]
+        vertices=[tuple(O+U*a+N*b+Vector((0,0,h))) for h in [z,Z] for a,b in plan]
+        faces=[(3,2,1,0),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)]
+        if U.cross(N).z>0:faces=[tuple(reversed(f)) for f in faces]
+        self.add(self.row['wall_key'],vertices,faces)
+
+    def dial(self,O,U,N,height):
+        """Opaque metric-charted face and physical marks, no generated lettering."""
+        n=24 if self.lower else 48;cx=2.2;cz=height+1.15
+        points=[(cx+.88*math.cos(i*math.tau/n),cz+.88*math.sin(i*math.tau/n)) for i in range(n)]
+        self.profile('limewash_plaster',O,U,N,points,.015,.045)
+        for i in range(n):
+            a=i*math.tau/n;b=(i+1)*math.tau/n
+            self.profile('limestone',O,U,N,[(cx+r*math.cos(t),cz+r*math.sin(t)) for r,t in [( .89,a),(.89,b),(1.02,b),(1.02,a)]],-.02,.085)
+        for i in range(12):
+            a=i*math.tau/12;da=.018
+            self.profile('bronze_sheet',O,U,N,[(cx+r*math.cos(t),cz+r*math.sin(t)) for r,t in [(.71,a-da),(.85,a-da),(.85,a+da),(.71,a+da)]],.045,.06)
+
+    def crown(self,outline,h):
+        v,f=extrusion(outline,h,h+.15);self.add('galvanized_roof',v,f)
+        for p,q in zip(outline,outline[1:]+outline[:1]):
+            edge=Vector((q[0]-p[0],q[1]-p[1],0)).normalized();N=Vector((-edge.y,edge.x,0))
+            mid=(Vector((*p,h+.15))+Vector((*q,h+.15)))*.5
+            self.bearings.append(dict(building=self.name,wall_key=self.row['wall_key'],point=list(mid-N*.09),outside_probe=list(mid+N*.09)))
+        for inset,width,low,high in [(.18,.18,h+.15,h+.48),(.10,.10,h+.48,h+.58)]:
+            v,f=cornice_ring(offset_outline(outline,-inset),width,low,high)
+            self.add(self.row['wall_key'] if low<h+.4 else 'limestone',v,f)
+        # Tower sits on the real junction of the two wings, wholly in parcel.
+        x,z,X,Z=self.study['tower_rect_m'];y,Y=-Z,-z
+        self.box(self.row['wall_key'],(x,y,h-.03),(X,Y,h+2.45))
+        self.box('limestone',(x-.04,y-.04,h+.02),(X+.04,Y+.04,h+.15))
+        for O,U,N in [(Vector((x,Y,0)),Vector((1,0,0)),Vector((0,1,0))),
+                      (Vector((x,y,0)),Vector((0,1,0)),Vector((-1,0,0)))]:
+            self.dial(O,U,N,h)
+            self.profile(self.row['wall_key'],O,U,N,[(0,h+2.45),(4.4,h+2.45),(2.2,h+3.7)],-.28,.0)
+            # A thin continuous copper gable cap, not a painted triangle.
+            for a,b in [((0,h+2.45),(2.2,h+3.7)),((2.2,h+3.7),(4.4,h+2.45))]:
+                self.profile('bronze_sheet',O,U,N,[a,b,(b[0],b[1]+.08),(a[0],a[1]+.08)],-.30,.045)
+        # Curved mansard is a closed stepped-section volume, not a pyramid.
+        cx=(x+X)/2;cy=(y+Y)/2
+        rings=[(2.32,h+2.45),(1.95,h+3.25),(1.30,h+4.35),(.83,h+4.7)]
+        verts=[(cx+dx*r,cy+dy*r,z) for r,z in rings for dx,dy in [(-1,-1),(1,-1),(1,1),(-1,1)]]
+        faces=[(3,2,1,0),(12,13,14,15)]
+        faces += [(i*4+j,i*4+(j+1)%4,(i+1)*4+(j+1)%4,(i+1)*4+j) for i in range(3) for j in range(4)]
+        self.add('city_slate',verts,faces)
+        self.box('bronze_sheet',(cx-.96,cy-.96,h+4.7),(cx+.96,cy+.96,h+4.84))
+        self.box('limestone',(cx-.85,cy-.85,h+4.84),(cx+.85,cy+.85,h+4.96))
+        # Hollow coal-era stack, with an open throat and four independent caps.
+        a,b,c,d=self.row['rect'];sx=c-1.5;sy=-b-1.5;top=h+2.1
+        for lo,hi in [((sx,sy,h+.15),(sx+.16,sy+.8,top)),((sx+.64,sy,h+.15),(sx+.8,sy+.8,top)),
+                      ((sx+.16,sy,h+.15),(sx+.64,sy+.16,top)),((sx+.16,sy+.64,h+.15),(sx+.64,sy+.8,top))]:
+            self.box(self.row['wall_key'],lo,hi)
+        for lo,hi in [((sx-.04,sy-.04,top),(sx+.16,sy+.84,top+.12)),((sx+.64,sy-.04,top),(sx+.84,sy+.84,top+.12)),
+                      ((sx+.16,sy-.04,top),(sx+.64,sy+.16,top+.12)),((sx+.16,sy+.64,top),(sx+.64,sy+.84,top+.12))]:self.box('limestone',lo,hi)
+
+    def build(self):
+        from city_horizon_geometry import building_outline
+        outline=building_outline(self.row);inside=offset_outline(outline,-.4)
+        for floor,(z,Z) in enumerate(zip(self.levels,self.levels[1:])):
+            v,f=extrusion(offset_outline(outline,-.20),-.28 if floor==0 else z-.18,z)
+            self.add('concrete' if floor==0 else 'timber',v,f)
+            for side,(p,q) in enumerate(zip(outline,outline[1:]+outline[:1])):
+                O=Vector((*p,0));U=Vector((q[0]-p[0],q[1]-p[1],0));length=U.length;U.normalize();N=Vector((-U.y,U.x,0))
+                self.tapers=((Vector((*inside[side],0))-O).dot(U),length-(Vector((*inside[(side+1)%len(outline)],0))-O).dot(U))
+                count=self.study['side_bays'][side];pitch=length/count
+                for bay in range(count):
+                    l=bay*pitch;r=(bay+1)*pitch
+                    if self.covered(O,U,N,l,r,z,[]):self.wall_stock(O,U,N,(l,-.4,z),(r,0,Z),length)
+                    else:
+                        door=floor==0 and ((side==3 and bay==6) or (side==1 and bay==1))
+                        self.opening(O,U,N,l,r,z,Z,1.85 if door else 1.2,length,columns=3,rows=4,arched=True,door=door)
+                if floor in [0,1,4]:
+                    self.stock('limestone',O,U,N,(0,-.10,Z-.12),(length,.06,Z+.015),.005)
+                if floor==4:
+                    for bay in range(count*2):
+                        at=(bay+.5)*length/(count*2)
+                        self.stock(self.row['wall_key'],O,U,N,(at-.09,-.03,Z-.34),(at+.09,.09,Z-.13),.008)
+        self.crown(outline,self.levels[-1])
+        # Public front strip and delivery court bear on retained terrain.
+        datum=self.row['grade_datum_m'];bottom=min(-.2,self.row['grade_low_m']-datum-.2)
+        for x,z,X,Z in self.study['court_paving_m']:
+            self.box('soil',(x,-Z,bottom),(X,-z,-.12))
+            self.box('concrete',(x,-Z,-.12),(X,-z,0.))
+            drop=datum-self.row['grade_low_m'];count=max(1,math.ceil(drop/.15))
+            assert X+(count-1)*.25<self.row['rect'][2]-.1
+            for i in range(1,count):
+                self.box('concrete',(X+(i-1)*.25,-Z,bottom),(X+i*.25,-z,-drop*i/count))
+        return dict(windows=self.windows,bearings=self.bearings,entries=self.entries,
+                    mitre_seams=self.seams,closed_stocks=self.parts,min_closed_stock_volume_m3=self.min_volume,style=self.style)
+
+
 class MillLofts(IndustrialBuildings):
     """Individual brick-and-heavy-timber lofts, not concrete-grid factories.
 

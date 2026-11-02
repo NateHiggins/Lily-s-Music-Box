@@ -11,7 +11,7 @@ const SCRIPTS := {
 	"fridge": preload("res://scripts/building/orison_v2_fridge.gd")}
 const PROPERTY_TYPES := {
 	"sink": {"fixture": TYPE_STRING, "drain_side": TYPE_INT,
-		"compact_kitchen": TYPE_BOOL, "has_drainboard": TYPE_BOOL},
+		"compact_kitchen": TYPE_BOOL, "has_drainboard": TYPE_BOOL,"lavatory_profile":TYPE_STRING},
 	"shower": {"fixture": TYPE_STRING},
 	"stove": {"ambient_lit": TYPE_BOOL},
 	"fridge": {"monitor_top": TYPE_BOOL}}
@@ -173,6 +173,14 @@ func validate(source: Variant, adapter: Variant) -> bool:
 			if (kind == "shower" and fixture != "shower") \
 					or (kind == "sink" and fixture not in ["bath_sink", "kitchen_sink"]):
 				errors.append("water fitting subtype disagrees with its kind: " + identity)
+		if kind == "sink":
+			var profile: Variant = record.properties.get("lavatory_profile", "")
+			if record.properties.get("fixture") == "bath_sink":
+				if profile not in ["WallService_2555", "WallService_2755", "WallService_2855",
+						"WallService_2955", "WallService_3455", "WallService_4455"]:
+					errors.append("bath lavatory requires a supported service profile: " + identity)
+			elif record.properties.has("lavatory_profile"):
+				errors.append("service profile belongs only to a bath lavatory: " + identity)
 	return errors.is_empty()
 
 func _shower_foot_depth(relative: Transform3D,stock: Array[Dictionary],x: float) -> float:

@@ -1,5 +1,86 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+### Factory clock and composed qualification checkpoint — November 2
+
+Evidence class: **INERT**. Pushed feature **17944721e** includes corrected
+native **c4db44b46** and optional generated dial frames. It is not merged to
+main and has no new engine or artistic acceptance. All37 exported GLBs remained
+byte-identical through the clock publication reruns; native body/neighbor
+geometry evidence therefore retains its original scope. The three editable
+Blender files and generated reports were republished by the existing producer.
+
+**Horizon.FactoryClock** reuses the installed arcade clock hand meshes and
+campaign-time movement. Four passive mapped draws, no new textures/lights or
+clock/save owner. Native hands scale3.6 with local metric repeat9; generated
+outward dial frames include the existing grade once. The earlier standalone
+helper is consolidated, avoiding another production file and keeping generated
+data with its actual reader. The opt-in factory family check covers actual
+transformed dial contacts, loaded maps, reversible/fractional time, pause and
+unique test-owned validated save/load plus clock-only reconstruction. These
+checks are authored, not yet executed.
+
+The canonical physical survey's explicit **sohmer** construction mode now
+reuses the existing actual controller driver for eight connected nearby
+apron/open-end/lateral-gap/court/return legs. It adds no floor or rescue. The
+roof lighting comparison runs afterward in that same world, using the existing
+nonpersistent preview lease and restoring campaign/lamp/carrier/view/physics.
+The full physical inventory and all-city pane review remain separate required
+checks in the same run; neither isolated P1 nor this route establishes them.
+
+Actual static results: five city-horizon unit tests pass, GDScript syntax
+parsing passes, fixture source bindings pass, reader NEW0, named diff clean.
+The static SOURCES-only preflight was also tried against three legacy/dynamic
+receipt scripts and reported missing declarations; those scripts use their
+existing dynamic source maps instead. That command is not an engine failure
+or a passing closure check. The new factory receipt records consumed test
+dependencies and a production digest before/after the programme.
+
+Combined batch **57452/session75817** is queued through the shared lane with
+Wait240 at **C:/ov/reports/city_composition_20261102/combined_01/**: two imports,
+semantic preflight, isolated factory/clock, then one full physical world with
+panes/access/lighting. Original source is frozen while that process lives.
+No run has been admitted at this checkpoint. The previous architect wait
+**29476/session76118** expired unadmitted with actual outer exit1 and explicit
+“nothing was started”; no logs/engine receipts exist. Its preserved observation
+is not a suite failure and must not be rewritten as observed exit73.
+
+Remaining: engine failures if any, inspect actual dial/world/lighting renders,
+measure loaded LOD/draw/frame cost, publish current physical packet, compare
+required gates against exact main and verify the candidate before main merge.
+No production ambient-light change, whole-city completion, deadline or owner
+artistic acceptance is claimed.
+
+**Consumer coverage correction:** a subsequent read-only trace identified the
+composed Horizon review's unconditional static collision-body access. Four new
+moving clock hands are a separate presentation roster. Before any engine
+admission, own63628 was cancelled and its original observation preserved in
+**combined_02/CANCELLATION.json**. **6f338713e** retains every static identity,
+near/lower roster and actual collision check, adds explicit generated moving
+hand/native-array/PBR/metre-scale coverage, and probes every one of the237
+panes on the two affected neighbor bodies. This covers the75 new witnesses
+instead of relying on the old topmost-pane-per-facade sample. No geometry,
+runtime authority, fixture tolerance or gate was weakened. Parser, fixture
+bindings and readerNEW0 pass; these are not runtime results. Replacement
+**61916/session25017**, Wait240, is queued at **combined_03/** with unchanged
+production/native inputs and corrected consumed test sources. No engine run
+or new screenshot occurred in either cancelled combined attempt.
+
+**Later static disposition:** complete119-gate board at9d4f7852b recorded
+110PASS/8FAIL/1INCOMPLETE. In addition to stale physical proof and unrelated
+red tool rows requiring exact-main comparison, two source-policy gates found
+the new lower-detail shard's missing **.glb.import**. Own unadmitted57452 was
+cancelled with no import/child/engine; original board and cancellation remain
+unchanged in **combined_01/**. Named fix **ffe38a5c2** retains the neighboring
+lower-body settings and correct cache/source path with compression disabled;
+new UID allocation is left to Godot, not copied from another asset. Both
+affected checks now report0missing/0wrong; fixture bindings still pass.
+Replacement **63628/session92884** is live/queued Wait240 under **combined_02/**,
+with the same five-run programme and corrected frozen inputs. No engine
+admission or acceptance follows from this static repair. Both corrected
+native03 whole-block images were also independently inspected and recorded in
+the existing external **sohmer_native_review.json** without replacing its older
+four-image observation or claiming Godot/artistic acceptance.
+
 
 Evidence class: **INERT**. Published main **402b4f6c** reconciles the eastern
 street/ground and frozen house/court work with PR109/PR110. The complete
@@ -6416,3 +6497,124 @@ the earlier full board's107PASS results retain their own provenance. This is
 not a new clean119-row candidate verification. Existing archive manifest gains
 one entry only;all preceding entries/archive paths stay exact. New packet:
 **141members / 37808627bytes / SHA256 49313d6bff85aec580cb289275f8b8018356ecd19115da298a354932245b15dc**.
+
+
+## Eastern piano-factory landmark: native checkpoint, 2026-11-02
+
+Evidence class: **INERT**. Native construction/review and current custody only;
+no runtime, whole-city or artistic acceptance. Owner resumed construction with
+the architect. Clean city branch fast-forwarded from06f465708 to currentmain
+**4fae3c389e01ad798cda746e8f69b6a04dc4e51b**; no canonical checkout edit.
+
+**Bounded target:** **HORIZON_NEAR_3_0_P1**, original20x22m reservation.
+LPC2172 pp8-9/14-15 documents Sohmer's c1886 factory and early20th-century
+sixth floor: six-storey brick body, segmental heads, six-over-six timber sash,
+horizontal bands, corner clock tower/mansard. The compact L-plan,20.4m body,
+24.96m top,bay schedule,tints and placement are AU adaptations,not measured
+historic1928 parcel/elevation proof. Modern signs/replacement sash excluded;
+reference photos remain external/form-only. Existing registered materials only.
+
+New **PianoFactory** native class preserves three retained industrial class ASTs.
+It authors a3.2m west apron,two closed scenic leaves,east court on buried soil,
+grade-fitted descent,hollow capped flue,two physical dials/tickmarks and complete
+near/lower replacement bodies. Runtime clock-hand presentation belongs to Sol;
+reuse retained native arcade-clock hands with existing campaign time,no new clock
+writer/save/collision owner. No occupied factory/shop programme is claimed.
+
+**Executed native04:** exit0/50.562s; full producer124bodies/12432pane samples/
+5400coverage rays,strict native UV/tangent/closed-stock and roof-bearing checks.
+Target142panes in each body;9290/5786closed stocks;167616/96704export triangles,
+11material partitions each. These are source counts,not measured rendering cost.
+New near3_0lower shard10,484,636B;changed near3_0shard20,748,740B.
+All124reservations/123other profiles and35other GLBs remain exact. In changed
+shard,three P2 wall/sash/pane partitions rebuild for newly exposed party walls;
+other retained partitions preserve arrays/poses. Source tally36individual/88generic.
+
+**Native review02:** exit0/101.552s,22actual saved-native/export part roundtrips,
+686pane/front-lane/terrain controls;all four near/lower front/rear PNGs individually
+inspected/hash-bound. L court,tower,roof,doors and sash remain in both bodies.
+Dark windows/simple roof remain artistic limitations. Review lighting is a
+diagnostic and does not accept production lighting. No loaded mip/LOD/collision
+or player-access/frame-time result yet. Original native01 winding failure,
+first-review sash/stone-head mismatch and source-text encoding correction are
+preserved externally. Corrected source restores all123old profiles exactly.
+
+Reusable individual-body fixture now admits explicit one-or-two distinct targets
+and checks three observations per target;old two-body scene is unchanged. New
+**V2CitySohmerBody.tscn** requires exactly11near/lower parts. ReaderNEW0;own
+horizon source preflightPASS0. Preparation/import-policy/compile/one-body loaded
+bench queued FIFO broker68396/session90489 at05:29Z,unadmitted behind ownerLoRA
+and earlier jobs. Pinned patched engine SHA verified;native3440x1440/hidden
+desktop planned. Rendering inputs frozen;do not launch duplicates or repin old
+receipts. Existing physical packet is stale for this construction. Sol owns
+composition/light/access/clock intake and eventual qualified integration.
+
+External evidence/current continuation: **C:/ov/reports/city_streets_20261029/sohmer_factory_01/**.
+Native/source work is not yet a merge candidate; full city,loaded runtime,
+production material/light/LOD review and artistic acceptance remain open.
+
+**Measured source-cost delta (not viewport cost):** baselineP1 6924triangles to
+167616near/96704lower;changedshard33880triangles/~3.45MB to193836/~20.75MB,
+plus~10.48MBlower. Paintedwood78128/45936 andbrick63292/34876 dominate.
+Do not propagate this density across88remaining bodies without actualrender
+cost/LOD review; optimize complete stock tessellation if measurements require.
+Native exported court/apron/descent probe separately passes64support/upnormal/
+1.524mvertical stations and2wrong-height controls;0.101667mrisers. This is
+source-only,not full capsule sweeps or Godot/controller access.
+
+Native-only checkpoint packet **art/reviews/city_streets_20261029/sohmer_factory_native_review.zip**
+contains62members/11,270,754B,SHA256
+**b87616a93f6a6296c0493904bce6398da9927abd5c7ecb11023be54fb3d77375**.
+It retains both inspectednativeview rounds,executedsources,failed originals,
+sourcecounts and12staticgate observations;no duplicate GLBs/maps or sourcephotos.
+Its scope remains native-only while the existing family queue waits;later
+loaded/composed evidence must retain separate execution provenance. All prior
+archive entries/bytes are preserved. Sol independently inspected/hash-matched
+all4finalnativeviews and reviewed the fixture/preservation boundary.
+
+
+**Pre-runtime occupancy correction (05:53Z):** native checkpoint
+**3e849def182ee53aac2091d01a1acb95c0a2f077** is pushed/remote-verified,not a
+merge candidate. Inspection found the retained **party_wall_overlap** helper
+uses whole parcel rectangles. The earlier explanation that its P2 changes
+represented exposed walls was wrong: the taller parcel proxy actually blanked
+windows across the new L court/setbacks. Original report/archive remain intact.
+Only our verified unadmitted FIFO broker68396 was cancelled;outer90489 ended1
+from that explicit cancellation,no engine/import/suite had started. Its actual
+PID/birth/command record is **cancelled_unadmitted_queue_01.json**. No foreign
+process or stale waiter record was terminated/deleted.
+
+Scoped **occluding_neighbours** in the native producer now decomposes only the
+new Piano style into its actual two occupied wing rectangles. Original helper,
+old industrial class ASTs,124 reservations and123other source profiles remain
+unchanged. Thirteen focused tests pass,including empty court/west/east/north
+setbacks,solid wings,above-height rejection,retained legacy rectangle positive,
+identity exclusion and source immutability. This does not qualify the old
+rectangle policy generally. Sol supplied a separate retained narrow-house
+false-positive source witness: **HORIZON_NEAR_2_1_P0R1** parcel versus setback
+outline. Audit other legacy irregular/setback neighbours before full-city
+acceptance;do not silently widen this current patch or invent missing-window
+artistic intent from that source witness alone.
+
+Actual native05 passes0/48.122s,12507pane probes(+75 versus04),5400coverage
+rays. Current changed shard has200736triangles/21,462,056B;Sohmer's167616/96704
+and11parts remain unchanged. Six dependent P0R2/P2 brick/paint/pane partitions
+now rebuild. Exact full-attribute/index/mode/node-transform comparison confirms
+all11P1parts unchanged versus04;lower GLB is byte-identical,35other oldGLBs exact.
+Original P1-only native02views retain their original scoped provenance;the old
+whole-shard hash is never repinned. **occupancy_preservation_02.json** records
+that distinction. Fresh native whole-five-body review03 passes0/54.004s with
+35actual native/export parts and643pane/apron controls. Both new whole-block
+front/rear images individually inspected/hash-bound:factory/court/tower remain,
+neighbor windows are present;generic neighbors/dark surrounding ground remain
+artistic limitations,not newly accepted production lighting or access.
+
+Corrected **family_source_freeze_02.json** precedes fresh **family_batch_02.json**,
+FIFO broker29476/session76118,queued05:52Z behind the sameownerLoRA/earlier jobs.
+No engine result yet. Continue that exact request;original unadmitted batch01
+and all prior source/receipts remain preserved. Native/source parity does not
+replace loaded UV/mip/LOD/frame-cost or full-world actual-controller/surface proof.
+
+Scoped correction packet **art/reviews/city_streets_20261029/sohmer_factory_occupancy_review.zip**
+contains20members/2817664B,SHA256
+**16010ecdd2dc2d053986fdf7873844464a63e44ee114a91beecccc26a3e1b7cc**. Originalnativearchive/hash unchanged;no runtimeproof grant.

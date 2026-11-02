@@ -203302,6 +203302,36 @@
    "target_exists": null
   },
   {
+   "key": "8bf2db1a0b2e2539",
+   "kind": "generated_name",
+   "token": "configure_faces",
+   "file": "game/scripts/building/orison_v2_city_horizon.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "configure_faces"
+   ],
+   "lines": [
+    291
+   ],
+   "count": 1,
+   "context": [
+    "identity + \"_\" + kind + \"_hand\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "7be220af057776b2",
    "kind": "generated_name",
    "token": "_ready",
@@ -204958,7 +204988,7 @@
     "validate"
    ],
    "lines": [
-    251
+    258
    ],
    "count": 1,
    "context": [
@@ -204988,7 +205018,7 @@
     "validate"
    ],
    "lines": [
-    251
+    258
    ],
    "count": 1,
    "context": [
@@ -205016,7 +205046,7 @@
     "validate"
    ],
    "lines": [
-    251
+    258
    ],
    "count": 1,
    "context": [
@@ -205047,9 +205077,9 @@
    ],
    "lines": [
     23,
-    108,
-    146,
-    208
+    109,
+    147,
+    209
    ],
    "count": 4,
    "context": [
@@ -205082,8 +205112,8 @@
    ],
    "lines": [
     23,
-    222,
-    238
+    223,
+    239
    ],
    "count": 3,
    "context": [
@@ -205113,7 +205143,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205143,7 +205173,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205173,7 +205203,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205203,7 +205233,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205233,7 +205263,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205263,7 +205293,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205293,7 +205323,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205323,7 +205353,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205353,7 +205383,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205383,7 +205413,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205413,7 +205443,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205443,7 +205473,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205473,7 +205503,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205503,7 +205533,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205533,7 +205563,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205563,7 +205593,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205593,7 +205623,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -205623,7 +205653,7 @@
     "validate"
    ],
    "lines": [
-    188
+    189
    ],
    "count": 1,
    "context": [
@@ -208062,7 +208092,7 @@
     "install_kitchen_stand"
    ],
    "lines": [
-    112
+    130
    ],
    "count": 1,
    "context": [
@@ -233046,7 +233076,7 @@
     "run"
    ],
    "lines": [
-    200
+    657
    ],
    "count": 1,
    "context": [
@@ -233074,20 +233104,26 @@
    "tier": "test",
    "subsystem": "tests",
    "symbols": [
+    "_check_profile_validation",
+    "_reconstruct_lavatory",
+    "_played_closet",
     "run"
    ],
    "lines": [
-    55,
-    112,
-    160,
-    171
+    74,
+    276,
+    378,
+    500,
+    569,
+    617,
+    628
    ],
-   "count": 4,
+   "count": 7,
    "context": [
-    "if tap.unit == \"4B\": sample = tap",
-    "if tap.fixture == \"shower\" and tap.unit == \"4B\": shower = tap",
-    "if cabinet == null or cabinet.unit != \"4B\": continue",
-    "if node.furniture_kind == \"toilet\" and node.owner_unit == \"4B\": wc = node"
+    "var record := {\"id\":\"TEST_LAVATORY\", \"kind\":\"sink\", \"unit\":\"4B\",",
+    "if sink.fixture != \"bath_sink\" or sink.unit != \"4B\": continue",
+    "if node.get_script() == preload(\"res://scripts/building/orison_v2_water_closet.gd\") and node.unit == \"4B\":",
+    "if tap.unit == \"4B\": sample = tap"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -233113,7 +233149,7 @@
     "run"
    ],
    "lines": [
-    131
+    588
    ],
    "count": 1,
    "context": [
@@ -294253,6 +294289,36 @@
    "target_exists": null
   },
   {
+   "key": "d207c9b1cdba3b40",
+   "kind": "id_reference",
+   "token": "5A_wc",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    412
+   ],
+   "count": 1,
+   "context": [
+    "[\"5A_wc\",Vector3(.72,1.28,.04),Vector3(-.08,.95,.39),\"closet_vent_bypass_services\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "b8306dcb882bbb77",
    "kind": "id_reference",
    "token": "B1_BOILER_01",
@@ -294263,7 +294329,7 @@
     "_run"
    ],
    "lines": [
-    392
+    408
    ],
    "count": 1,
    "context": [
@@ -294293,7 +294359,7 @@
     "_run"
    ],
    "lines": [
-    387
+    403
    ],
    "count": 1,
    "context": [
@@ -294321,11 +294387,39 @@
     "_run"
    ],
    "lines": [
-    389
+    405
    ],
    "count": 1,
    "context": [
     "[\"B1_WATCH_STATION\",Vector3(.2,.25,.7),Vector3(0,.16,.09),\"watch_station\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e7f84613057f07d8",
+   "kind": "id_reference",
+   "token": "F01_STAFF_WC",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    411
+   ],
+   "count": 1,
+   "context": [
+    "[\"F01_STAFF_WC\",Vector3(.72,1.28,.04),Vector3(0,.95,.49),\"staff_closet_deep_services\"],"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -294349,7 +294443,7 @@
     "_run"
    ],
    "lines": [
-    394
+    410
    ],
    "count": 1,
    "context": [
@@ -294379,7 +294473,7 @@
     "_run"
    ],
    "lines": [
-    354
+    370
    ],
    "count": 1,
    "context": [
@@ -294409,7 +294503,7 @@
     "_run"
    ],
    "lines": [
-    391
+    407
    ],
    "count": 1,
    "context": [
@@ -294439,7 +294533,7 @@
     "_run"
    ],
    "lines": [
-    365
+    381
    ],
    "count": 1,
    "context": [
@@ -294469,7 +294563,7 @@
     "_run"
    ],
    "lines": [
-    354
+    370
    ],
    "count": 1,
    "context": [
@@ -294499,7 +294593,7 @@
     "_run"
    ],
    "lines": [
-    390
+    406
    ],
    "count": 1,
    "context": [
@@ -294529,7 +294623,7 @@
     "_run"
    ],
    "lines": [
-    393
+    409
    ],
    "count": 1,
    "context": [
@@ -294559,7 +294653,7 @@
     "_run"
    ],
    "lines": [
-    354
+    370
    ],
    "count": 1,
    "context": [
@@ -294589,7 +294683,7 @@
     "_run"
    ],
    "lines": [
-    365
+    381
    ],
    "count": 1,
    "context": [
@@ -294619,8 +294713,8 @@
     "_run"
    ],
    "lines": [
-    425,
-    427
+    443,
+    445
    ],
    "count": 2,
    "context": [
@@ -294649,7 +294743,7 @@
     "_run"
    ],
    "lines": [
-    388
+    404
    ],
    "count": 1,
    "context": [
@@ -294680,7 +294774,7 @@
     "_run"
    ],
    "lines": [
-    395
+    413
    ],
    "count": 1,
    "context": [
@@ -294711,8 +294805,8 @@
     "_run"
    ],
    "lines": [
-    488,
-    490
+    506,
+    508
    ],
    "count": 2,
    "context": [
@@ -319216,6 +319310,41 @@
    "target_exists": null
   },
   {
+   "key": "94075e947d93d1d2",
+   "kind": "vector3_coordinate",
+   "token": "composition_study",
+   "file": "game/tests/v2_window_city_night_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "composition_study"
+   ],
+   "lines": [
+    231,
+    232,
+    233
+   ],
+   "count": 3,
+   "context": [
+    "{\"id\":\"west_dusk\", \"date\":[1928,11,10,1000], \"eye\":Vector3(14,24.5,9), \"direction\":Vector3(-1,-.12,-.15)},",
+    "{\"id\":\"north_noon\", \"date\":[1928,11,10,720], \"eye\":Vector3(-14,24.5,-9), \"direction\":Vector3(0,-.12,-1)},",
+    "{\"id\":\"east_moonlight\", \"date\":[1929,2,23,1170], \"eye\":Vector3(-14,24.5,-9), \"direction\":Vector3(1,-.08,-.04)}"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "92151141c839c1d7",
    "kind": "vector3_coordinate",
    "token": "postcards",
@@ -319226,10 +319355,10 @@
     "postcards"
    ],
    "lines": [
-    130,
-    131,
-    132,
-    133
+    272,
+    273,
+    274,
+    275
    ],
    "count": 4,
    "context": [
@@ -319263,7 +319392,7 @@
     "run"
    ],
    "lines": [
-    66
+    70
    ],
    "count": 1,
    "context": [

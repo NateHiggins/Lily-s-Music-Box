@@ -11,9 +11,10 @@ static func install(part: Node3D) -> void:
 		body.add_child(shape)
 		shape.global_transform=draw.global_transform
 
-static func clear(owner: Node3D,part: Node3D,pose: Transform3D) -> bool:
+static func clear(owner: Node3D,part: Node3D,pose: Transform3D, owned_blockers: Array[RID] = []) -> bool:
 	var excluded: Array[RID] = []
-	for body: CollisionObject3D in owner.find_children("*","CollisionObject3D",true,false): excluded.append(body.get_rid())
+	for body: CollisionObject3D in owner.find_children("*","CollisionObject3D",true,false):
+		if body.get_rid() not in owned_blockers: excluded.append(body.get_rid())
 	var inverse := part.global_transform.affine_inverse()
 	for shape: CollisionShape3D in part.find_children("*","CollisionShape3D",true,false):
 		if shape.disabled or not shape.get_parent() is PhysicsBody3D: continue

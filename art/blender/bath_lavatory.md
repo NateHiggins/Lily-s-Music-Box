@@ -2,6 +2,15 @@
 
 Evidence class: **INERT**
 
+V2 fitted-service intake uses **bath_lavatory_fitted.blend**, published with
+**scripts/export_bath_lavatory_fitted.py**. One export contains all six native
+service-depth groups; the existing V2 sink subclass removes five before mounting
+and retains exactly the profile selected in domestic/completion fitting data.
+These are the19 surveyed sink IDs, not additional sinks. Local UV materials keep
+the registered maps/scales; the original source, builder and GLB below remain
+the explicit V1 rollback. Loaded/contact/interaction acceptance is separate from
+the source export checks.
+
 The editable source is `bath_lavatory.blend`. Rebuild with:
 
 ```powershell

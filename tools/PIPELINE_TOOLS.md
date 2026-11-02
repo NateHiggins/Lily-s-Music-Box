@@ -319,3 +319,14 @@ Godot census still decide ownership; the queue only decides whose turn it is. A
 broker running an older copy of the script ignores the queue until its checkout
 has this change. `tools/tests/test_lane_queue.py` races real brokers on a private
 mutex.
+
+### Candidate gate resource controls
+
+`verify_candidate.py --gate-jobs N --gate-timeout SECONDS` forwards the existing
+gate-board controls to each newly generated board; defaults remain6jobs/600s.
+Both values must be positive. The verification JSON records **gate_execution**
+and the Markdown report displays it. A validated supplied baseline is reused
+unchanged. These settings change scheduling/ceilings only: no gate is omitted,
+no assertion is relaxed, and every timeout still blocks. After an observed
+resource-contention timeout, use a bounded lower-concurrency retry and preserve
+the failed result. This does not change Godot lane admission or suite limits.

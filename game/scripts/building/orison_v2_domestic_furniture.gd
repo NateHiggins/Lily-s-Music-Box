@@ -94,6 +94,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 			body = WaterCloset.new()
 			body.call("setup", {"id": record.id, "asm": "toilet"})
 			body.set("model_path", str(record.model))
+			body.set("service_profile", str(record.service_profile))
 		elif record.kind == "wardrobe":
 			body = Wardrobe.new()
 			body.call("setup", record.mechanism)
@@ -240,7 +241,13 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		if record.kind == "toilet":
 			if record.get("model") != WaterCloset.MODEL or record.has("surfaces"):
 				errors.append("water closet must use its Blender assembly")
+			var profile: Variant = record.get("service_profile")
+			if profile is not String or not WaterCloset.SERVICE_PROFILES.has(profile):
+				errors.append("water closet requires a surveyed service profile")
+			elif absf(float(bounds[1][2])-float(WaterCloset.SERVICE_PROFILES[profile])-.04) > .00001:
+				errors.append("water closet bounds must include its fixed service anchors")
 		else:
+			if record.has("service_profile"): errors.append("service profile belongs only to a water closet")
 			_validate_surfaces(record.get("surfaces"))
 	if seen.is_empty():
 		errors.append("empty furniture source")

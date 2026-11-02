@@ -1,3 +1,298 @@
+# Current continuation — November 2 V2 qualification
+
+The active goal remains existing V2 repairs/interactions, stutter, hose/book/nook,
+and systematic coverage. **Not V2 complete or production/artistic acceptance.**
+Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
+**codex/v2-city-composition-20261102**; draft
+[PR145](https://github.com/NateHiggins/Lily-s-Music-Box/pull/145).
+Main **3f1051f59** is reconciled. Latest runtime source: **8acfb5a7b**.
+
+**Physical qualification is published:** surface03 completes31,297checks/0failures,
+361.73s, schema2 full physical+city diagnostic+Sohmer programme, zero raw Godot
+errors and ten known resident texture UID fallback warnings. Strict source and
+published packet independently PASS0 at **art/renders/orison_v2/surface_requirements_20261011/**.
+All67actual images inspected via contact sheets, with three changed closeups
+also inspected individually; eight representative images retained in the packet.
+Staff brackets seat against their deeper wall; the vent remains clear. Lower
+bypass supply is partly concealed. Cistern shadow aliasing, repetitive/dark city
+views and the wall-occluded unchanged dumbwaiter view remain visual debt.
+No skipped interaction, whole-year weather or human acceptance is implied.
+
+Separate bathroom06 diagnostic:1,953/0, actual valve/plug/flush/cover input and
+validated campaign disk reconstruction in a second world; no schema2 gameplay
+acceptance. Isolated clawfoot hand bench138/0; furnished-room artistic acceptance
+remains open. Expanded source roster19lavatories/19closets is checked. Twelve
+household authoring records now reproduce verified runtime bytes exactly.
+Loaded inventory vs prior accepted packet:+85draw entries/+41meshes/+44materials,
+zero new textures; no controlled frame-time or added-cost verdict.
+
+**Current candidate:** **4feb74618** is terminal BLOCKED by a departing-waiter
+lane test and surface-tooling600s timeout; prior scratch-name finding is resolved.
+Focused lane rerun5/5 passes17.501s. Focused surface rerun is active:session62614,
+log **surface_tool_recheck.log** in the external intake root. New verifier controls
+preserve defaults6/600 and all checks;20verifier tests pass. Commit the named
+checkpoint and use fewer gate jobs for the next exact-candidate comparison with
+**C:/ov/reports/moon_name/board_base/board.json** (validated clean119-gate main
+3f1051f59 board). No gate waivers, fabricated receipts or duplicate runtime survey.
+
+**Clock/LOD diagnostic:** **sohmer_body_02/** passes966/0 at3440x1440 in30s,
+empty stderr;258source bindings match,17frames inspected, clock pause/reversal/
+validated disk load/fresh presentation reconstruction pass. Isolated GPU medians
+near/lower/return .735/.6585/.677ms; initial transition108.737ms remains debt.
+This is not old-body incremental or whole-city performance acceptance. Original
+**sohmer_body_01/** viewport failure3440x1421 is preserved; corrected launch reused
+**native_debug_window.gd**, with no assertion relaxation. All owned Godot runs
+are terminal; static focused surface tooling is still running. The external
+**ACTIVE_QUALIFICATION.json** holds exact process/status pointers; revalidate them.
+
+Generated UID/private attachment custody and437import EOL-only normalization are
+complete: **checkout_custody_78cb0f1ce/CUSTODY.json** preserves707recoverable files.
+No authored source was discarded. Merge145 manually only after no-regression
+candidate verification and recorded cost assessment; notify Claude of the actual
+merge. Remaining whole-world performance and artistic gaps stay open.
+
+**Evidence/custody:** detailed history and limits live in
+**design/V2_PROLOGUE_2026-10-28.md** and
+**C:/ov/reports/native_intake_20261102/**. Earlier top-handoff history is retained
+in Git at **8acfb5a7b:HANDOFF.md** and the subsystem ledger, rather than repeated
+here. Surface01's raw shop-error failure is intact. A misrouted preview replaced
+surface02's wrapper/raw logs; its failed runtime contract, inventory and67images
+are preserved in **surface_02_original_evidence.zip**, with9optical hashes checked.
+Archive raw logs are partial probe output; do not claim original raw preservation
+or reconstruct receipts. **preview_probe_01/OUTPUT_CUSTODY.json** explains the loss.
+Preview02 passes592/0: exact campaign restore, exact non-household state after a
+reader frame, complete household validation and a valid shop cursor. Normal
+float32 quaternion resampling is traced, not rounded away. Fresh output paths
+are now checked before launch. No runtime receipt was repinned.
+
+**Shared work:** Claude owns mail-bank/watch-station intake on
+**intake-range-mail-watch**, now **002a6b37b** (authored strict-by-default hand-test
+clarification not rerun). The earlier37/0 establishes free-look crank input only,
+not fixed inspection-camera coverage. Paired old-asset failures/receipts are under
+**C:/ov/reports/mail_intake_20261102/**. Claude's moon-name first draft is also
+waiting behind145; later cohorts coordinate one renewal. The gas-range contact
+refit already merged viaPR127; do not reinstall it from a library hash mismatch.
+Architect/city expansion remains owner-paused; preserve its worktree and dirty
+preparation. Remaining native deliveries are not bulk accepted. Preserve all
+story, inventory, reading/calendar/weather and validated save authorities.
+
+## November 2 — installed lavatory diagnostic passes; formal qualification open
+
+Active goal remains V2 repairs, interactions, stutter, hose/book/nook and required
+qualification. This is not a V2 completion. Canonical branch is
+**codex/v2-city-composition-20261102**. Installed diagnostic checkpoint is
+**64f4e584b**. Main through **85cdea1ce** (parcel wall143/mending144) is reconciled
+into this branch with its source, stock and receipts preserved. The combined
+spatial manifest is regenerated, readerNEW0 and23runtime source bindings pass.
+Main's incoming runtime receipts are byte-identical; they are not renewed proof
+for this combined tree. The1532/0 run predates this main reconciliation.
+No owned Godot/broker/static-board job remains live: lavatory05 and gate-board
+handles are terminal. Other agents' GPU jobs and worktrees must stay untouched.
+
+**lavatory_05**: patched Vulkan engine, hidden fullscreen3440x1440,1532checks,
+0failures,204.63s (startup152.516s); no engine/script errors, ten resident glTF
+texture UID path-fallback warnings. Real mouse partial hot/cold operation,
+validated campaign disk save/load to an isolated path,57wall-contact queries
+across19sinks, private native UV/PBR map/calibration/mip checks pass. Maximum
+wall error0.000000687m.80finish records cover ShaderMaterial78/StandardMaterial2
+including the isolated fixture. All three resulting inspection views were
+personally inspected. Supplementary neutral fill is diagnostic lighting.
+Receipts, captures, test source LF hash and exact limits:
+**C:/ov/reports/native_intake_20261102/lavatory_05/DIAGNOSTIC_REVIEW.json**.
+
+Preserve original failed/partial programmes in **lavatory_01** through
+**lavatory_04**.03stopped at a stale acoustic source binding and a failed output
+writer; existing builders regenerate identical physical graph payloads,43acoustic
+tests and23runtime binding checks pass.04runs878checks but fails76times because
+a StandardMaterial3D-only assertion rejects the existing owner finish shader.
+05fixes the diagnostic to assert the actual supported shader/UV/maps/scalars,
+with an isolated fail-fast owner/UV pipeline. Production finish ownership and
+appearance are unchanged. Existing source intake verifies20sealed files,
+19mapped selections and38retained nodes; base TapProp/V1 stays separate.
+
+Preliminary **lavatory_static_e244_01/board.json**:119gates,112PASS/6FAIL/
+1INCOMPLETE. It is not a clean-main baseline or a regression verdict. Failures
+include stale surface proof and five tooling-test rows; do not call them new or
+pre-existing without the matching main comparison. ReaderNEW0 and manifest pass.
+No schema2 runtime contract, fresh-world reconstruction, stopper mouse route,
+strict loaded derivative packet, measured cost, final surface/candidate gate or
+Lily artistic acceptance yet. Complete those, reconcile current main and retain
+explicit V1 rollback before merging. Ten UID warnings need controlled cache
+review; Cal's source texture UID matches main, so don't replace source UIDs.
+
+Closet-kit source preparation: all26sealed files/ninepre-intake bindings match,
+fourCPUviews inspected; portable publisher exactly
+reproduces22880tri/12surface/four-profile delivered library, strict tangents pass.
+**C:/ov/reports/native_intake_20261102/closet_source_01/** and the existing intake
+reconciliation JSON carry the details. The additive implementation now authors
+hollow contacts, profile-specific rear bounds and explicit cover-sweep blockers.
+Four-profile loaded selectors, blocker/removal controls, 12installed wall seats,
+actual cover/flush input and reconstructed-world ownership checks are added to
+the existing bath diagnostic; none of these new checks has run yet.
+City architect remains owner-paused while this backlog is processed.
+
+## Current native intake — owner resumed November 2
+
+Historical comic interruption (resolved; the current results above supersede
+this earlier status): the owner redirected this chat to a private LILITH draft
+review and shared skill. At that checkpoint the unqualified lavatory WIP was: fitted native source and
+single six-profile export are present;20sealed files verified,59722source
+triangles/39surfaces, strict exported tangents PASS. Existing19sink records now
+select one service group each through the V2 subclass; V1 source/export remain
+unchanged. Private UV binding and chain material follow the selected model.
+At that earlier checkpoint parser/readerNEW0 passed and no lavatory Godot
+import/interaction/contact/campaign reload had run. Existing bath138/0 evidence retains its pre-lavatory source scope.
+Finish lavatory selection/material/contact/input tests before accepting it.
+
+Comic review delivered externally at **C:/ov/reports/lilith_comic/revision_20261102/**:
+three roles/all9pages,28anchored notes, marked draft and4page revision plan.
+Independent QA caught conflicting private-knot suggestions and encoding defects;
+the marked result resolves these while preserving raw reviews. Original PDF is
+hash-unchanged; no new production art or game/comic canon edits. Canonical
+**comic-book-development** skill and thin Codex/Claude adapters are validated;
+no private comic assets were copied into Git. Owner also requested local-generator
+guidance in **godot-textures-and-shaders**: current SDXL CLI/lane/batch/negative
+prompt/resume/provenance/material workflow documented, --help and skill validator
+run, no GPU job. Shared-process message is a local inbox delivery, not evidence
+that another agent read it. Broader game/native/city qualification remains open.
+
+Evidence class: **INERT**. Lily now explicitly requests ingestion of the completed
+Blender queue. Process existing28 deliveries in coherent families; do not merely
+repeat the delivery audit or bulk install unsupported adapters. City/native work
+is preserved on this feature branch. Latest combined03 actually ran: two imports
+passed30.3s/11.6s, semantic preflight failed15.18s on the factory helper's inferred
+**passed** variable. No family/world stage started. Original stderr/receipts stay
+under **C:/ov/reports/city_composition_20261102/combined_03/**. Explicit bool fix
+is authored; this was a real semantic failure, not stale cache. Old live-queue
+statements below are historical, not a reason to preserve a vanished freeze.
+
+First intake is the full clawfoot bath/plumbing packet. All19 sealed files and
+all8 current consumer/source bindings match; four native images inspected.
+Canonical **art/blender/clawfoot_bath.blend** now contains the delivered source;
+the existing exporter reproduced the supplied GLB byte-for-byte,49332triangles/
+13surfaces, strict tangents PASS. Both descriptor and visual valve axes are +X.
+TapProp retains openings/held input/water/save ownership; a presentation hook
+preserves other mountings and avoids two conflicting transform writes per frame.
+The original gesture bench targets the new actual cap faces and checks X-only
+half-open poses. Actual reimport/five-script semantic preflight pass; graphical
+**ClawfootBathHandBench** passed138checks/0failures20.48s, empty shutdown stderr.
+Three3440x1440 frames inspected. This is an isolated diagnostic including real
+input/entry/plug/curtain and mechanism JSON restore, not furnished-world or
+validated campaign reconstruction, current surface qualification or artistic
+acceptance. External receipts: **C:/ov/reports/native_intake_20261102/bathroom_01/**.
+No own engine job remains. Next: fitted lavatory/closet intake and combined
+furnished-world qualification. Incoming main is now **504657879** (shop work);
+reconcile its changes before eventual candidate verification/main publication.
+Remaining native queue and original city/prologue/repair commitments stay open.
+
+Evidence class: **INERT**. Lily explicitly resumed city finishing with the architect.
+Canonical is **codex/v2-city-composition-20261102**, branched from current
+origin/main **4fae3c389e01ad798cda746e8f69b6a04dc4e51b**. Prior slab/performance
+experiments remain preserved and unmerged on PR138; they are absent here.
+Historical main/handoff counts below are stale: PR139 merged the southern pair
+at **1a7917eae**, and main's Horizon source is **35 individual/89 generic**.
+Corrected native **c4db44b46a25f763ee92c5f112876ed45f5b3ca0** is now
+merged into this feature candidate only: **36 individual/88 generic**.
+No main merge or runtime/artistic acceptance follows from this WIP intake.
+
+Native city architect owns the Sohmer-inspired **HORIZON_NEAR_3_0_P1** factory,
+existing parcel and complete near/lower bodies in **C:/ov/city**. Canonical owns
+composition/access/LOD integration. Preserve Orison, shops, traffic, terrain,
+450m boundary and all gameplay/save/time owners. No deadline or artistic grant.
+
+One-world composition study **5c2cf72f6** is authored/parsed; reader **NEW0**.
+Original lighting-only **session62685/broker32784** was cancelled before
+admission (no import/Godot) to combine the factory/clock/lighting cohort and
+avoid duplicate world startup. Its waiter and **CANCELLATION.json** remain at
+**C:/ov/reports/city_composition_20261102/lighting_01/**. No runtime verdict.
+Canonical source is editable again. The b2fe11b8b passive helper was consolidated
+into **Horizon.FactoryClock**, inheriting the existing arcade clock movement.
+The builder publishes two optional dial frames; source/mapping tests and reader
+NEW0 pass, but this is not engine verification. Publication reruns **clock_publish_01/02**
+under the composition report folder preserved all37 GLB bytes. The optional
+Sohmer family test adds transformed dial contacts, native/PBR checks, date and
+fractional-time motion, pause/resume and a unique validated-save reconstruction.
+Replacement combined **57452/session75817** was also cancelled before admission
+after the complete119-gate static board found a missing source import policy for
+the new **city_horizon_near_3_0_lod1.glb**. Its cancellation/actual terminal1 and
+original board remain under **combined_01/**. Named policy fix **ffe38a5c2**
+matches the neighboring lower-body import settings, retains metric precision
+and leaves UID allocation to the first engine import. Physical retention and
+mesh-UV source checks now report0missing/0wrong; no full-board-green claim.
+The second combined **63628/session92884** was cancelled unadmitted after a
+read-only consumer trace found that the composed Horizon review assumes every
+mesh is static and owns HorizonCollision. The new four hands would violate
+that test assumption. **6f338713e** keeps the exact static inventory/collision
+checks and separately checks generated hand identities, native arrays, metric
+materials and loaded maps. All237 panes on the two corrected neighbors now
+receive real first-hit queries, covering all75 added witnesses rather than
+only one topmost station per normal. Parser/readerNEW0/fixture checks pass.
+Original **combined_02/CANCELLATION.json** and terminal1 remain; no engine ran.
+The same five-run cohort is now queued as **61916/session25017**, Wait240, under
+**C:/ov/reports/city_composition_20261102/combined_03/**. Production/test/native
+inputs are frozen while it lives. Two imports, six-script semantic preflight,
+isolated factory/clock and one complete physical world with panes/access/lighting.
+No admission or engine verdict at this checkpoint. Original board110PASS/8FAIL/
+1INCOMPLETE still needs exact-main comparison and physical renewal; preserve
+all original defects. Independently inspected both corrected native03 block
+images; scoped observations appended to own **sohmer_native_review.json**.
+No production ambient-light change has been made.
+The architect cancelled its original unadmitted **68396/90489** after finding
+parcel-proxy blanking. Original **3e849def** remains rejected. Corrected native05
+uses actual occupied Piano wings; old helper/default rows and IDs remain.
+Thirteen source tests pass. P1 eleven attributes/poses and lower GLB are exact;
+six dependent P0R2/P2 wall/sash/pane parts rebuild, adding75 pane witnesses.
+The corrected original family job **29476/session76118** expired unadmitted:
+actual outer exit1, explicit nothing started, all seven logs/receipts absent.
+Architect preserved **family_batch_02.wait_observation.json** in its report
+folder. This is not a suite failure or observed73. Do not restart it.
+Original native/correction archives and native custody text remain in **c4db44b46**
+and the existing city ledger; no old whole-shard receipt is repinned.
+Native factory form is36individual/88generic on the candidate; not qualified. Independent review verified all four native image hashes and124
+reservations/123 other profiles/35 other GLBs. Factory167616near/96704lower
+triangles replace6924generic triangles; sash/brick dominate. Exact native cost
+and preservation observations are external **sohmer_source_cost.json** and
+**sohmer_preservation_independent.json** under the composition report folder.
+These are not FPS or loaded proof; measure actual LOD/viewport cost before
+acceptance or propagating this density. First outline/encoding failures stay
+with the architect's original report. Canonical clock integration is unqualified WIP; the original
+parsed draft and **clock_stock_bounds.json** remain at
+**C:/ov/reports/city_composition_20261102/**. Reuse the existing
+arcade clock's south-facing native hand meshes and inherited CampaignClock
+movement. Uniformscale3.6,local metricUVrepeat9.0; proper outward frames,
+actual .045m dial-front centers plus .025/.037m offsets avoid double datum and
+floating hands. No new clock/save/collision owner or asset is needed. The
+optional runtime clock_faces in the existing horizon builder are now published;
+verify actual loaded materials,hand motion/reversal/reconstruction and composed costs.
+The physical survey has an explicit **ORISON_SURFACE_CITY_CONSTRUCTION=sohmer**
+mode, requiring physical-only. Its new **v2_city_factory_review.gd** helper
+reuses the existing normal-input controller driver for eight nearby connected
+apron/open-end/gap/court/return legs, then runs the existing optical study in
+that supplied world. No second world is created. The optical helper uses the
+existing nonpersistent preview lease and restores lamp/carrier/camera/physics.
+The complete physical inventory and opt-in city pane review remain required;
+the factory programme does not substitute for them. These routes/captures are
+authored and parsed, not run. No geometry rescue or new floor was added.
+Do not repeat launches or unrelated hose/walk suites. Use hidden desktop.
+
+Modeler intake is now reconciled read-only at **5c2cf72f6**:28 deliveries,
+27 preferred plus earlier lavatory dependency;33 selected GLB hashes checked,
+65 current buffers stable. Range is consumed through the rebuilt family;
+most checked alternatives are uninstalled. Preserve two root-snapshot drifts,
+airer/gate adapter and access/cost gaps. External audit is at
+**C:/ov/reports/native_intake_20261102/INTAKE_RECONCILIATION.json**. This is source
+intake, not loaded/input/save/performance or artistic qualification. City stays
+first; do not bulk install the native backlog or resume its construction hold.
+
+**Geography correction:** installed blockout180degree orientation makes source
+local+X western/riverward. This is a western Sohmer/Vernon-inspired landmark;
+prior eastern labels were wrong. Keep footprint/transforms; use local_minus_z/
+local_minus_x clock IDs and horizon-local Godot centers, applying parent once.
+Full combined loaded clock/material/pane/controller/cost and physical/candidate
+qualification remains required. The source-only helper still has known retained
+setback-proxy debt; see **K-V2-CITY-FOOTPRINT-CLIP**.
+
+
 # Current handoff — November 1 Western apartment pair merged
 
 Evidence class: **INERT**. Owner Lily,she/her. Canonical C:/PleaseRemainOnTheLine

@@ -14,8 +14,8 @@ func _run() -> void:
 	var civic_enabled:=OS.get_environment("ORISON_SURFACE_CITY_CIVIC_ACCESS")=="1"
 	var physical_only: bool=OS.get_environment("ORISON_SURFACE_PHYSICAL_ONLY")=="1"
 	var construction_mode:=OS.get_environment("ORISON_SURFACE_CITY_CONSTRUCTION")
-	if not construction_mode.is_empty() and (construction_mode!="south_garden" or not physical_only):
-		push_error("City construction review requires the named south_garden physical-only programme")
+	if not construction_mode.is_empty() and (construction_mode not in ["south_garden","sohmer"] or not physical_only):
+		push_error("City construction review requires a named south_garden/sohmer physical-only programme")
 		get_tree().quit(2);return
 	# Optional related diagnostics share the production world; qualification
 	# still covers physical surfaces and does not grant interaction acceptance.
@@ -71,6 +71,22 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	world.player.set_physics_process(false)
+	if OS.get_environment("ORISON_SURFACE_PREVIEW_PROBE") == "1":
+		# Explicit diagnostic: exercise the real composed preview without the
+		# unrelated city census/physical inventory or a second world startup.
+		var optical := preload("res://tests/v2_window_city_night_review.gd").new()
+		optical.externally_managed = true
+		add_child(optical)
+		var result: Dictionary = await optical.run_composed(world,self)
+		optical.free()
+		world.shutdown_for_tests(); world.free()
+		for frame in 4: await get_tree().process_frame
+		result["evidence_class"] = "INERT"
+		result["scope"] = "Composed preview preservation diagnostic only; no full physical or gameplay acceptance."
+		FileAccess.open(directory.path_join("preview_probe.json"),FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))
+		print("V2 PREVIEW PROBE: ","PASS" if failures.is_empty() else "FAIL","; ",batch_checks," checks; ",failures.size()," failures; diagnostic only")
+		get_tree().quit(0 if failures.is_empty() else 1)
+		return
 	# The world builds synchronously; give passive parts actual physics ticks
 	# before taking snapshots that are expected to remain supported on restore.
 	for frame in 40:await get_tree().physics_frame
@@ -392,6 +408,8 @@ func _run() -> void:
 		["B1_BOILER_01",Vector3(.6,1.45,-2.15),Vector3(0,1.,0),"boiler"],
 		["F04_B_MONITOR_01",Vector3(.35,.8,-1.3),Vector3(0,.3,-.2),"signal_terminal"],
 		["F02_2A_TOASTER_01",Vector3(.25,.35,-.65),Vector3(0,.1,0),"toaster_crumbs"],
+		["F01_STAFF_WC",Vector3(.72,1.28,.04),Vector3(0,.95,.49),"staff_closet_deep_services"],
+		["5A_wc",Vector3(.72,1.28,.04),Vector3(-.08,.95,.39),"closet_vent_bypass_services"],
 		["LobbyServiceDumbwaiter",Vector3(.65,1.,1.7),Vector3(0,1.,0),"dumbwaiter"]]:
 		var actor := world.find_child(str(station[0]),true,false) as Node3D
 		check(actor != null,"capture station exists: "+str(station[0]))
@@ -496,6 +514,7 @@ func _run() -> void:
 		sequence.free()
 	var after := _input_snapshot(root)
 	check(before.get("sha256","") == after.get("sha256","changed"),"rendering inputs stayed fixed during qualification")
+	check(not world.shop_simulation.failed,"optical dates leave the production shop simulation valid")
 	var owner_ref: WeakRef = weakref(world)
 	world.shutdown_for_tests()
 	world.free()
@@ -702,6 +721,9 @@ func _shader_filters(shader: Shader) -> Dictionary:
 func _city_construction_review(world:OrisonV2RuntimeRoot)->void:
 	# Default no-op; keep the canonical scene/test identity and every physical
 	# survey. RefCounted helper owns no _ready, child or second world lifecycle.
+	if OS.get_environment("ORISON_SURFACE_CITY_CONSTRUCTION")=="sohmer":
+		await preload("res://tests/v2_city_factory_review.gd").new().run(world,self)
+		return
 	if OS.get_environment("ORISON_SURFACE_CITY_CONSTRUCTION")!="south_garden":return
 	var review:=preload("res://tests/v2_city_south_garden_review.gd").new()
 	await review.run(world,self)

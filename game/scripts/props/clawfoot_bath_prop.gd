@@ -17,6 +17,7 @@ var chain:MultiMesh
 var last_chain_position:=Vector3.INF
 var plug_seat:=Vector3.ZERO
 var plug_parked:=Vector3.ZERO
+var _native_valve_rest: Array[Vector3]=[]
 
 class BathBody extends Controls.FixtureBody:
 	var bath:Node3D
@@ -94,6 +95,7 @@ func _build_visual() -> void:
 			else:draw.set_surface_override_material(surface,material)
 	for label:String in ["HotValve","ColdValve"]:
 		_handles.append(model.find_child(label,true,false) as Node3D)
+		_native_valve_rest.append(_handles[-1].rotation)
 		_handle_turns.append(0.0);_handle_wall_mounted.append(true)
 	_curtain_closed=model.find_child("CurtainDrawn",true,false) as Node3D
 	_curtain_area=Area3D.new();_curtain_area.name="CurtainInteraction"
@@ -111,6 +113,17 @@ func _build_visual() -> void:
 	if _water:_water.stream_paused=true
 	_tick=make_emitter("tick",-27.0)
 	native_ready=true
+
+func valve_grip(index:int) -> Dictionary:
+	var grip:=super.valve_grip(index)
+	if grip.is_empty():return grip
+	# Native end-mounted caps face +X; use the same axis as their visual pose.
+	grip.axis=Vector3.RIGHT;grip.frame=model
+	return grip
+
+func _valve_rotation(index:int,turn:float) -> Vector3:
+	if index>=_native_valve_rest.size():return super._valve_rotation(index,turn)
+	return _native_valve_rest[index]+Vector3(turn,0,0)
 
 func _datum(label:String) -> Vector3:
 	return model.position+(model.find_child(label,true,false) as Node3D).position
