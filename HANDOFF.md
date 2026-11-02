@@ -41,14 +41,38 @@ ensures it composes the world. Startup waits for the actual runtime owner rather
 than assuming completion after half a second. Native inspection views use a
 labelled neutral fill light; they are not production atmosphere acceptance.
 
-New compile/fullscreen-hidden installed batch:
-**C:/ov/reports/native_intake_20261102/lavatory_03/batch.json**. Last confirmed
-broker62088 / exec85951 is live and queued. Preserve those source inputs and
-resume that handle or inspect terminal receipts before restarting. Required next:
+Installed **lavatory_03** is terminal1: the expanded script compiled, then the
+world correctly rejected a stale **completion_interiors.json** fingerprint in
+**acoustic_ventilation.json** before household actors or input ran. An absent
+output directory then broke the test's failure writer. Only confirmed owned
+engine10792 was stopped; wrapper exit-1/116s, original stderr and correction
+record remain in that directory. No installed or optical result exists.
+
+Existing ventilation/heating/flue builders were rerun. Excluding source_bindings,
+all three regenerated physical graph payloads are exactly equal; only ventilation's
+completion-interiors binding changes.43acoustic tooling tests pass. All23runtime
+source bindings now match. Failure writer creates its directory and guards a
+failed FileAccess open while retaining teardown/quit. ReaderNEW0 and spatial
+manifest pass. This is source-data regeneration, not runtime-receipt renewal.
+
+Corrected compile/fullscreen-hidden batch:
+**C:/ov/reports/native_intake_20261102/lavatory_04/batch.json**. Last confirmed
+broker47400 / exec3553 is live and queued. Preserve those source inputs. Resume
+that handle or inspect terminal receipts before restarting. Required next:
 inspect actual results/frames, fix failures, then exercise remaining plug/chain,
 fresh-world reload/strict loaded derivatives and renew physical/candidate gates.
-The new input route checks partial valve reload but does not claim whole-shift,
+The input route checks partial valve reload but does not claim whole-shift,
 new-world or artistic acceptance. Bath138/0 proof remains source-scoped.
+
+The next closet-kit's external source preparation is ready, not installed:
+all26manifestfiles/ninecurrentbindings match, fourCPUviews inspected, portable
+publisher reproduces delivered library byte-for-byte (22880tri/12surfaces/four
+profiles, strict tangent minimum0.999999961). Evidence/publisher under
+**C:/ov/reports/native_intake_20261102/closet_source_01/** and the existing intake
+reconciliation JSON. A concrete blocker remains: Sweep.clear excludes every
+owned collision body, so a child fixed kit would not block the cover. Preserve
+original mechanisms and default unrelated sweep behavior while repairing that
+specific contact ownership on intake; do not merely add a solid enclosing box.
 City architect remains owner-paused while this backlog is processed.
 
 ## Current native intake — owner resumed November 2

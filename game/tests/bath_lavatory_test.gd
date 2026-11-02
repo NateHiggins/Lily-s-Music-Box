@@ -393,8 +393,12 @@ func run() -> void:
 func _finish(world: OrisonV2RuntimeRoot) -> void:
 	var directory := OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
+		DirAccess.make_dir_recursive_absolute(directory)
 		var file := FileAccess.open(directory.path_join("lavatory.json"), FileAccess.WRITE)
-		file.store_string(JSON.stringify({"checks":checks,"failures":failures,"service_contacts":service_contacts,"scope":"lavatory_only" if OS.get_environment("ORISON_LAVATORY_ONLY")=="1" else "full_bathroom"},"\t"))
+		if file == null:
+			check(false, "diagnostic output could not be opened: " + directory)
+		else:
+			file.store_string(JSON.stringify({"checks":checks,"failures":failures,"service_contacts":service_contacts,"scope":"lavatory_only" if OS.get_environment("ORISON_LAVATORY_ONLY")=="1" else "full_bathroom"},"\t"))
 	world.shutdown_for_tests()
 	world.free()
 	print("LAVATORY: %d checks, %d failures" % [checks,failures.size()])

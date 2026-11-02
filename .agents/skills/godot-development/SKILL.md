@@ -113,6 +113,13 @@ Run the complete affected source-fixture preflight closure outside Godot after
 renewing a dependency; a repaired record can invalidate a downstream record.
 Reuse exact consumed-projection checks only when geometry and all other inputs
 remain unchanged; preserve the original failures and never repin runtime proof.
+Even a property unused by an acoustic graph can invalidate a whole-file input
+fingerprint. Before composing the world, check every runtime source binding.
+Regenerate through the existing source-derived builder and compare physical
+payloads, rather than replacing a hash by hand. Regenerated data is not a renewed
+runtime receipt. The lavatory/acoustic diagnostic in the prologue ledger records
+the original failure and unchanged ventilation/heating/flue projections.
+
 When a required full gate board already covers tooling tests, avoid an additional
 full test-file run unless an early failure needs isolation.
 
