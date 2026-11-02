@@ -393,6 +393,12 @@ them home, resoled. The player's steps are now heard, at a level set by what's o
 built: footsteps that change by floor surface, anyone in the building reacting to how loud you
 are, and the ticketed racks or the smell joke. No sole wear, per ruling 5.
 
+The Model Laundry's uniform wash is built. The terminal takes the order, the bundle stands on the
+counter and the hand pushes it across; it comes back tied up the next day. A wash lasts a week.
+After that the first warm reply each resident gives counts for one less, and it can't take trust
+below where it was or close a door. Not built: the parcel wall and its errands, the mending
+counter, and the shirt, collar and wet-wash services, which have nothing of yours to work on yet.
+
 Each slice owes: real grabbing and release in tests, a schema-2 runtime receipt, reader
 gate NEW 0, a draw-call measurement on the Arcade route, and a playable pass for Lily.
 

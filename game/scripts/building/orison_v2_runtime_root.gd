@@ -113,6 +113,7 @@ var luncheonette_counter: Node3D
 var seat_gestures: Node3D
 var otis_fountain: Node3D
 var shoe_bench: Node3D
+var laundry_bundle: Node3D
 var key_cutter: Node3D
 var clue_carriers: Dictionary = {}
 var photo_supplies: Dictionary = {}
@@ -913,6 +914,9 @@ func _compose_authorities() -> void:
 	shoe_bench=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_shoe_bench(self)
 	if shoe_bench==null:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: shoe bench refused");return
+	laundry_bundle=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_laundry_bundle(self)
+	if laundry_bundle==null:
+		startup_failed=true;push_error("ORISON V2 RUNTIME: laundry bundle refused");return
 	var footsteps:=preload("res://scripts/player/player_footsteps.gd").new()
 	footsteps.name="PlayerFootsteps"
 	player.add_child(footsteps)
