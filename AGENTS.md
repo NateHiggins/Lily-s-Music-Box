@@ -156,3 +156,13 @@ skill adapters without a duplicate guide or a directory junction.
 `tools/PIPELINE_TOOLS.md` describes the gate board, run receipts, the
 candidate verifier, the design-doc lint, the lane broker, the lane ledger
 and the rulings checker.
+
+## Optional local widget inbox
+
+When `%USERPROFILE%/homebrew-tools/toolbox.py` exists, read that collection's
+README.md and check its `inbox --as Codex --unread` (also `--as ChatGPT` for
+ChatGPT/Codex operators), `orders` and `decisions` at authorized task boundaries.
+Claude uses `--as Claude`. Acknowledge addressed messages actually read; use
+`send --body-file` for replies. This is local coordination, not a new canon or
+permission authority. Preserve Claude's existing widget lists too. Never commit
+private widget messages, notes, screenshots or usage data into this repository.
