@@ -26,12 +26,19 @@ not artistic acceptance or installed-nook/campaign-save proof. Evidence:
 **C:/ov/reports/entry_render_preparation_20261102/book_spine_12/** and
 **book_hidden_10/DIAGNOSTIC_REVIEW.json**.
 
-The new opt-in installed-nook disk programme remains unverified: resume11 passes
-its123-dependency production/source guard, then compilation fails resolving the
-existing **v2_nook_world_profile.gd** base. The title and timing stages did not run.
-Do not assume stale cache or a gameplay defect without tracing the parent chain.
-Adela intake is the owner's subsequent active request; broader V2 coverage remains
-open and current physical proof does not accept newly introduced assets.
+The new opt-in installed-nook disk programme is preserved in WIP **4c53bad6d**
+(**ORISON_NOOK_DISK_RELOAD=1**) and remains unverified. Resume11 passed its123-source
+production guard but failed parent resolution. A subsequent topological compile
+in **C:/ov/reports/adela_follow_20261103/intake_04/** exposes the cause at
+**v2_golden_repair_profile.gd:36**: its **_walk(Vector3)** signature no longer matches
+parent **_walk(Vector3,float=default)**. Three of seven compiled scripts fail,
+including dependent nook/book profiles. This is not established cache damage.
+The added diagnostic intends actual installed pickup/inspection/release, isolated
+validated campaign disk save/load, a fresh owner and no resurrected held state;
+none of those new disk assertions has successfully executed. Repair the inherited
+API without relaxing arrival/physical checks before another long run. Current-
+weather title/timing also remain NOT_EXECUTED. Adela's separate actual-world
+programme passed before the preflight failure; that does not qualify the nook.
 
 ## November 3 — hidden-desktop cursor diagnostic failure retained
 

@@ -1,64 +1,180 @@
-# Current continuation — November 3 V2 qualification
+# Current continuation — November 3 developer-chat handoff
 
-The active goal remains V2 repairs/interactions, stutter, hose/book/nook and
-systematic coverage. **Not V2 complete or production/artistic acceptance.**
-Canonical checkout **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-first-view-preparation-20261102**; draft
-[PR151](https://github.com/NateHiggins/Lily-s-Music-Box/pull/151), unmerged.
-Main baseline **fb3167942** is integrated; use Git for current feature HEAD.
-The fixed book input checkpoint remains **54b4c07b1**.
-Adela intake/follower is a new unqualified candidate on this feature branch.
+**Stage:** V2 integration and qualification, not release-ready. The next playable
+milestone is a polished normal-entry prologue. City work remains an established
+priority; finish the current candidate before ingesting the architect's next batch.
+The broader goal remains existing V2 repairs/interactions, stutter, hose/book/nook
+and systematic coverage. No task deadline or new gameplay scope is imposed here.
 
-Historical physical packet (before Adela inputs): cohort09 passes31,495/0, schema2 runtime contract,
-all13 actual city movement legs81/0, zero raw ERROR headers, ten known resident
-UID fallback warnings. All70 native3440x1440 captures inspected;12 reviewed frames
-published through the atomic publisher with original logs/contract. Strict
-then-current consumed-input qualification passed0 defects. It needs renewal after Adela. Original cohort08 failure
-is retained. See [city ledger](design/V2_CITY_CONTEXT_REPORT_2026-10-19.md).
+## Start in the actual checkout
 
-Isolated book_spine12 now passes101/0, empty stderr: detached viewport cursor,
-real spine grip and actual input shelf return. The new installed-nook disk test
-is still unverified: resume11 passes its123-dependency guard, then fails resolving
-the existing nook-profile parent class. Title/current-weather timing remain
-NOT_EXECUTED. Trace that inheritance failure; do not call it stale cache by fiat.
-Owner's latest request is downloaded Adela intake plus a temporary player follower;
-external sources/candidates are in **C:/ov/asset-prototypes/adela-model-intake-20261103/**.
-Native full156,822-triangle tangent/28-bone skin checks pass; canonical producer
-replay is byte-identical. Temporary debug follower is authored, hidden through
-prologue, with env0 opt-out and explicit env1 for release. No Godot acceptance
-yet. Original intake01 broker62828/session6266 completed both imports and passed
-production follower/root compile, then stopped on a fixture float inference error.
-That declaration is corrected. Old world02 broker23664/session78725 was cancelled
-while queued. Poll consolidated **C:/ov/reports/adela_follow_20261103/intake_02/batch.json**,
-original broker **32268** / session **80997** is now terminal1: compile5/0,
-fixture13/15 with two step-crossing failures. Three frames inspected; no world
-or nook-parent stage executed. Grounded breadcrumb/step-progress fix is authored.
-Intake03 now passes compile5/0 and fixture15/0 with empty stderr, then fails
-three installed-world follower assertions: the inherited initial test placement
-occurred after Adela spawned and correctly tripped her no-teleport guard. Its
-failed source-bound contract is retained; no world pass. The revised driver uses
-actual arrival, existing physical entrance and ten walked waypoints, no relocation.
-Poll **intake_04/batch.json**, live broker **17256** / session **67677**. Its source
-reuse guard skips the unchanged15/0 fixture. Original63084/62087 is terminal1;
-do not restart old jobs. Import churn was cleaned with external provenance.
-[Adela intake ledger](design/V2_ADELA_TEMPORARY_FOLLOW_2026-11-03.md).
-New assets require their own loaded proof and fresh physical renewal, not reuse
-of the preceding city-only qualification for an expanded composition.
-See [book ledger](design/V2_BOOK_INSPECTION_RETURN_2026-10-22.md).
-External live custody: **C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json**.
+Use **C:/PleaseRemainOnTheLine**, branch **codex/v2-first-view-preparation-20261102**.
+Fetched **origin/main=fb3167942f02cc9c6db15176eb670f0724e6f981** on November3.
+Adela's actual-world run used **527c8be0f3f309a0a0acdcfad7f906500c6edbcb**.
+Nook disk-test work is preserved in **4c53bad6d**. Use Git for the newer handoff
+commit; draft [PR151](https://github.com/NateHiggins/Lily-s-Music-Box/pull/151)
+is pushed but **unmerged / not merge-ready**. The attached deep **v2-baseline**
+checkout is historical and remains app-owned; do not develop there or delete it.
 
-After the book driver passes, run only unfinished title/current-weather timing,
-then candidate verification against the complete clean-main board:
-**C:/ov/reports/entry_render_preparation_20261102/board_main_fb3167942/board.json**
-(119gates:115PASS/3FAIL/1INCOMPLETE, zero dirty paths, validated). No automatic
-merge. Preserve source freeze for admitted runs; no repinning old receipts.
+Read DOCS.md, AGENTS.md, applicable Bible rulings and the canonical continuity/
+Godot skills. Recheck Git/index/untracked paths before edits. The handoff checkpoint
+changes documents only; the preceding nook commit is explicitly unverified WIP.
+Do not discard, hide or silently accept it to get a clean verifier run.
 
-Historical pre-weather pair: max299.731 to127.983ms, P95 around67ms; CPU contention
-prevents causal/uncontended claims. Residual stutter, cold startup, Continue/reload,
-installed nook return/disk reload, purchased hose washer transfer, hose release/
-pressure/dressing/wetting gaps, golden shift and artistic review remain open.
-Reuse unchanged evidence; do not repeat unrelated walks. Prior intake custody
-and narrower diagnostic records below are historical, not current acceptance.
+## Verified work and exact limits
+
+| Work | What actually ran | What remains |
+| --- | --- | --- |
+| Existing V2 prologue/companion | Merged prologue, original LPC babble, compact arm/register and exact17s friendly Tardi stinger have prior scoped evidence in the prologue ledger. | Fresh-player readability/listening, broader save/Continue boundaries, residual stalls and Lily's artistic acceptance. No new speech during the stinger. |
+| Current-weather city packet | Historical cohort09:31,495/0 physical checks;13 played legs81/0;70 native3440x1440 renders inspected;12 published images; then-current strict qualification0defects. | **Expired after Adela inputs.** Do not repin/relabel it. Wider district/art/weather-year acceptance remains open. |
+| Book handling | **book_spine_12** actual-input bench101/0, empty stderr, pushed54b4c07b1; real spine grip and shelf return. | Installed nook return/disk reconstruction, corridor access and appearance are separate unfinished claims. |
+| Adela preview | Personal supplied28-bone/156,822-triangle model, original2K atlas, three clips; native replay/tangents/skin pass. Isolated fixture15/0 and actual installed arrival/door/lobby/corridor/stair10-waypoint route pass. | Temporary debug follower only; not a resident, story fact or save owner. Full prologue/Continue, arbitrary jumps/lifts, controlled cost and appearance approval unqualified. |
+| Entry preparation | Production loading-veil preparation and once-per-frame companion advance authored/pushed; prior title17/0 and matched routes18/0,21/0. | Prior pair predates weather150; current-weather title/timing NOT_EXECUTED. max299.731→127.983ms under CPU contention is partial observation, not stutter acceptance. |
+
+Newest Adela proof: **C:/ov/reports/adela_follow_20261103/intake_04/world/adela_follow.runtime.json**,
+schema2 runtime_contract, executed/passed/completed exit0. Wrapper190.62s;
+startup126,515.823ms; ten known resident textureUID fallback warnings, no script
+errors. Both world PNGs inspected. Production input digest
+**6fcbb2cf101ccaf87babf0fff07e93cfba99b7be51077a39c99c17835645dafc**;
+four transitive test dependencies bound. The unchanged fixture was reused only
+through an exact source/receipt guard. Enabled/hidden frame arrays are observations,
+not uncontended cost proof: architect CPU work overlapped admission before its
+verified pause. Original failed intake01–03 receipts remain intact.
+
+## First actionable blocker / interrupted work
+
+The same **intake_04 batch ends exit1** in the separate nook preflight, after
+Adela passes. Exact failure: **game/tests/v2_golden_repair_profile.gd:36** has
+**_walk(Vector3)** while the parent now requires **_walk(Vector3,float=default)**.
+Two descendants fail resolution. This is an actual API mismatch, not proven
+cache corruption. **H-V2-WALK-PREFLIGHT** lists eight statically affected drivers.
+Propagate compatible signatures/forwarding while preserving tighter arrival
+thresholds, detours and physical assertions; compile the chains before more walks.
+
+**4c53bad6d** preserves the60-line opt-in **ORISON_NOOK_DISK_RELOAD=1** diagnostic
+in **game/tests/v2_book_inspection_return_world.gd**. It exercises actual installed
+pickup/inspection/release then an isolated validated campaign save/load and fresh
+world owner reconstruction. It has **not compiled or run successfully**. Do not
+count authored assertions as proof. No runtime production change was made for
+the test API failure. See [book ledger](design/V2_BOOK_INSPECTION_RETURN_2026-10-22.md)
+and [Adela ledger](design/V2_ADELA_TEMPORARY_FOLLOW_2026-11-03.md).
+
+Next: finish that small harness repair and installed nook check; execute only the
+unfinished current-weather title/matched timing/Continue boundaries; then renew
+expanded physical proof and verify the complete candidate before manual PR merge.
+Validated clean-main board: **C:/ov/reports/entry_render_preparation_20261102/board_main_fb3167942/board.json**
+(119gates:115PASS/3FAIL/1INCOMPLETE, zero dirty paths). Use verify_candidate with
+**--in-place --baseline-board** and inspect zero-regression results. Preserve17
+protected paths and explicitV1 rollback. The lane.ps1 per-run environment change
+also needs review as a verification-instrument change. No auto-merge.
+
+## Shared ownership / coordinate before touching
+
+- **Canonical developer (fresh chat):** PR151 qualification, integration, task
+  custody and coordinated merge order. One coherent implementation family at a
+  time; freeze consumed sources during runs, combine related checks and reuse
+  unchanged receipts. Do not repeat unrelated hose or long routes for doc edits.
+- **City architect chat 01a18757-c531-7153-942f-ec3010032c4b:** resumed isolated
+  native construction under Lily's later request. **C:/ov/city**, branch
+  **codex/v2-city-20261029**, checkpoint **531e6d398**; current dirty
+  **art/blender/scripts/city_packet_architecture.py** is theirs. External
+  **C:/ov/asset-prototypes/city-building-packets-20261103/CONSTRUCTION_REPORT.md**:
+  85replacement bodies/23packets,39retained profiles/all124reservations; native
+  office correction exports/reopenedGLB/three fresh views now pass, but20block
+  reviews remain in serial batch64285: **not integration-ready**. Architect reports
+  AST outside QueensOffice exact;22packets bind immutable531e6d398 and the changed
+  office binds the current helper through SOURCE_RECONCILIATION.json. Its next
+  action is final reviews, named source commit and consolidated delivery index. Preserve
+  retained assets through the producer; partial block GLBs cannot replace whole
+  installed blocks. Proposed P2 migration192→184 requires explicit per-pane
+  disposition and all first-hit checks; P0R2 remains46. Do not change assertions
+  merely to fit delivered counts. The developer's CPU hold was released and the
+  architect resumed its exact owned process; no developer suspension remains.
+- **Claude:** communicate through **~/homebrew-tools/toolbox.py** shared inbox
+  (send --from ChatGPT --to Claude, inbox --as ChatGPT --unread, ack after reading).
+  Lily authorized direct coordination with all Orison agents; she need not relay.
+  Claude acknowledged current scope through the bridge at17:18UTC November3:
+  weather PR150 is merged; **no V2 files/worktrees held and no V2 lane job queued**.
+  Laundry station, shop slice5 and draw-call measurements remain unstarted; Claude
+  will name paths before starting. The GPU pipe-drain ceiling repair is also
+  unstarted (H-LANE-GPU-DRAIN). Existing **C:/ov/shops claude/ten-residents8ca5f937e**,
+  **C:/ov/wx a9da7db3a**, **C:/ov/moon0a25aa9c3**, **C:/ov/s4 fe0d2c61f** are retained
+  directories, not evidence of active work or new ownership; some contain
+  generatedUIDs. Do not remove them without custody/consumer checks. The separate
+  comic/LoRA session reports clean **claude/oddities-headline2adf0e873**, external
+  comic work and fair400-step training slices; no V2 overlap or decisions owed.
+  Its Jonah latent-cache crash/retry belongs to that session, not this game queue.
+- **Blender modeler chat 01a182c7-a36b-72a3-a349-fba7bc929e65:** last completed
+  turn updates existing delivery custody, not new Godot work. Use
+  **C:/ov/asset-prototypes/interactive-v2-review-20261101/DELIVERY_REGISTER_20261102.json**
+  and NATIVE_INTAKE_INDEX.md; reconcile with current consumers before each family.
+  Earlier INTAKE_RECONCILIATION.json is a dated source snapshot, not current absence
+  proof. Gas range/bathroom/mail/watch already integrated. Remaining boiler,
+  radiator, service/electrical/media/door/lift/stock packets require actual intake.
+- **Researcher chat 01a181e0-4aa5-77c2-a23e-553533d859bc:** last recorded state
+  stopped pending developer review. No lot selection/address change assumed.
+  Research remains INERT; do not issue duplicate commissions before reading it.
+
+No owned Godot/broker/timing job is live. Old queued handles in historical sections
+are terminal. At inspection lane held someone else's **lora albers800**, with Mae
+queued. Read current lane state, respect Lily's hold/reorder and never pre-empt.
+Patched4.7.1 Vulkan console hash matches .godot-engine.json. All Godot/GPU uses
+lane wrappers; real-frame runs are hidden desktop at native3440x1440, leaving
+Lily's mouse alone. A fresh worktree needs two imports, not this already imported
+checkout by default. Every run gets LogPath/receipt;124 is no result,73 no start.
+
+## Backlog audit / commitments retained
+
+TASKS.md remains the open queue; this is an index, not another competing backlog.
+This handoff reconciles the conversation's started/interrupted commitments against
+current queue/implementation and external custody; it does not requalify every
+historical system or imply all deliveries were accepted.
+
+- **Immediate closure:** H-V2-WALK-PREFLIGHT; K-V2-ADELA-PREVIEW-FOLLOW,
+  K-V2-BOOK-NOOK-CLOSURE, K-V2-FIRST-VIEW-HITCH and K-V2-NATIVE-INTAKE-QUEUE.
+- **Next established city work:** K-V2-CITY-REVAMP / FOOTPRINT-CLIP; source-led
+  architect intake, LOD/continuous access and composition. Preserve window optics;
+  new bodies must be reviewed against the existing optical/window contract.
+- **Playable milestone:** K-V2-PROLOGUE, TIME-REGISTER, PLAYER-FACES,
+  CONTROL-OVERHAUL, INTERACTION-COVERAGE and HOSE-CLOSURE; TL-VOCAL keeps learned
+  English/recorded reactions separate from merged original babble. K0-AUDIO,
+  K2 fresh-save golden shift and K3 save matrix are still open, not replaced by
+  physical-only receipts. The prologue teaser gates narrow distribution work.
+- **Presentation still unaccepted:** full-day annual sky diversity/rare weather,
+  cloud/sky noise and precipitation visibility, telescope/Skywatcher detail,
+  facade/window/address research, background-window cost/street/LOD views.
+- **Unclaimed/later:** background stick figures, newspaper player-action eligibility
+  examples/runtime mechanic, exploration map/notes design,
+  found-family performance/stage, remaining native stock and repository cleanup.
+  Existing B-PERFORMANCE, paper, map and H-CODEBASE-SIZE entries retain owners,
+  safeguards and unfinished clauses. Never infer completion from external packets.
+- **Existing paper showcase:** actual April1,1929 front/back captures for both
+  papers already exist under **C:/ov/reports/paper_showcase**. Their November1
+  wrapper completed13.05s/exit0/empty stderr on the official engine/dirty tree.
+  Content/spoiler/artistic review was not repeated for this handoff; reconcile
+  delivery before rerendering. K-V2-PAPER-SHOWCASE records that remaining check.
+- **Other open PRs:** draft **PR138** slab occlusion remains separate at
+  **1d2351252**; its composed02 runtime source16bdc55ae passed24/sixlegs, but broader
+  visibility, physical renewal and candidate comparison remain unfinished.
+  **P-SLAB-OCCLUSION-WIP** preserves the paused scope without auto-resuming it.
+  Draft **PR53**, **d01dcbbf7**, has incomplete guest tours and old Rhea proof;
+  K-V2-RESIDENT-CLOSURE owns reconciliation. Do not bulk merge either for cleanup.
+- **Preserved boundaries:** impossible-organ Tardi stays research-only; established
+  friendly exterior/17s timing stands. Post-V2 murder year, deferred studio/network
+  sharing/species expansion/mobile and retired cabinet plans retain October27
+  dispositions. No broad deletion or re-opening settled narrative choices.
+- **Private tooling/comic continuity:** widget/bridge and usage work lives under
+  **~/homebrew-tools**; LILITH/source likeness work remains outside the public repo.
+  Check private work_orders/rulings/playtest notes between tasks without copying
+  their contents into public Git. Existing tool/comic skills own those processes.
+
+No new design decision blocks the immediate harness/qualification work. Lily's
+listening, fresh-player and artistic reviews remain necessary later; outstanding
+writing/address/eligibility choices stay in their existing authority documents.
+Do not ask the same settled questionnaire again. Continue authorized reversible
+work, record exact evidence and finish coherent PRs instead of expanding scope.
+
+Older sections below are historical provenance, not current queued-job status.
 
 ## November 2 — installed lavatory diagnostic passes; formal qualification open
 

@@ -3,7 +3,9 @@
 Evidence class: **INERT**
 
 Owner request: ingest Lily's newly downloaded animated Adela and have her follow
-for now. This records authored work and native checks, not runtime acceptance.
+for now. Native and narrowly scoped installed-world checks now pass; full
+qualification, merge and artistic acceptance remain open. The final section
+supersedes older queued-job status below without erasing failed attempts.
 
 ## Installed candidate
 
@@ -150,3 +152,45 @@ nook-parent compile. Original63084/62087 is terminal1. No new physical packet,
 world pass or merge acceptance is claimed. The native source's skin-influence
 audit also confirms all78,620 vertices have1–4 influences; none require truncation
 beyond the exported four-weight layout (**SKIN_INFLUENCE_REVIEW.json**, external).
+
+## Handoff result — actual arrival passes; nook preflight fails
+
+**intake_04** is terminal, not queued. At source **527c8be0f3f309a0a0acdcfad7f906500c6edbcb**,
+five-script compilation passes and the actual installed-world programme completes
+all ten waypoints with zero failures, no late diagnostic relocation or actor
+rescue. The existing entrance uses actual grab/mouse/release. Adela follows into
+the lobby/corridor and onto the first stair landing at Y1.600839m, grounded and
+without a lost path. The physical head sightline reports no blocker.
+
+Evidence is **C:/ov/reports/adela_follow_20261103/intake_04/world/adela_follow.runtime.json**:
+schema2 **runtime_contract**, temporary follow executed/passed, completed exit0,
+no timeout. The wrapper **world.log.receipt.json** records190.62s and production
+digest **6fcbb2cf101ccaf87babf0fff07e93cfba99b7be51077a39c99c17835645dafc**.
+All four consumed test dependencies and the test source are bound; no old receipt
+was relabelled. The unchanged15/0 isolated fixture is reused only after its exact
+source/receipt guard passes. Both world PNGs were inspected: the corridor view
+shows the loaded character; the final camera mainly frames the stair underside.
+Ten known resident texture-UID fallback warnings remain, with no script errors.
+This is real diagnostic interaction, not Lily's playtest or artistic acceptance.
+
+Startup was126,515.823ms. Enabled/hidden/returned120-frame samples remain in
+**world/adela_world.json**; CPU construction overlapped admission before the
+architect's verified suspension. Do not treat these arrays as an uncontended
+baseline or a causal cost verdict. The architect's exact owned process was
+subsequently released and resumed; no developer CPU hold remains outstanding.
+
+The batch exits1 because its separate final nook-parent preflight fails:
+**v2_golden_repair_profile.gd:36** overrides **_walk(Vector3)** while its parent
+requires **_walk(Vector3,float = default)**. Two descendant scripts then fail
+resolution. This is an observed signature error, not established cache damage.
+Nook movement/disk reconstruction and current-weather title/timing did not run.
+The opt-in nook diagnostic is preserved in WIP commit **4c53bad6d**, unverified.
+
+Remaining: repair affected test overrides without relaxing physical assertions;
+qualify the installed nook and entry/Continue/reload boundaries; renew physical
+proof for the expanded Adela composition; compare the complete candidate against
+the validated clean-main **fb3167942** board and manually review/merge PR151.
+Arbitrary jumps/lifts/ledge recovery, complete prologue/Continue behavior, controlled
+cost and all-angle appearance remain unqualified. Adela stays a temporary debug
+presentation, not a new narrative resident or persisted story fact. No owned
+Godot job remains live; old broker/session numbers above are historical.
