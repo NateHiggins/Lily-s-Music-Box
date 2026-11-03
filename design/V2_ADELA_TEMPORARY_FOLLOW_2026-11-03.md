@@ -109,8 +109,9 @@ frames and **DIAGNOSTIC_REVIEW.json** remain under **intake_02/**.
 The candidate fix follows witnessed floor-support points instead of transient
 player step-lift height. Breadcrumb arrival uses planar progress with a bounded
 one-step height allowance; capsule collision and the22cm step limit remain.
-Unsupported player motion adds no invented ground path, and stationary players
-need no repeated floor probe. Fixture assertions remain unchanged; position,
+Unsupported player frames add no airborne samples, and stationary players need
+no repeated floor probe. Arbitrary jumps, lifts and ledge recovery remain
+unqualified. Fixture assertions remain unchanged; position,
 remaining-target and floor-state observations were added for diagnosis.
 This movement revision is uncompiled/unverified until retry.
 

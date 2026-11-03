@@ -95,8 +95,8 @@ func _spawn_near_player() -> bool:
 
 func _grounded_player_point() -> Vector3:
 	# The player's step assist transiently lifts its foot above the floor.
-	# Queue the witnessed support, not that transient airborne height. Wait
-	# through unsupported motion instead of inventing a walkable bridge.
+	# Queue witnessed support, not that transient airborne height. Keep the
+	# last witnessed point while support is absent.
 	var point:=player.global_position
 	if point.distance_to(last_sample)<=.25:return last_sample
 	var support:=_floor_at(point)
