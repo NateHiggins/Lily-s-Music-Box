@@ -48,3 +48,14 @@ acceptance is claimed yet. The live shared-lane batch is recorded in
 compile, then rendered real-controller bend/obstacle/step/prologue/pause checks.
 Production-world following, appearance and cost remain open, as does renewal of
 qualification invalidated by these new production inputs. PR151 is still draft.
+
+Follow-up diagnostic preparation: the installed-world driver now exercises the
+real first stair as well as a short corridor, captures the loaded actor and
+records uncapped enabled/hidden/enabled frame samples. This is an observation,
+not a controlled whole-game performance qualification. It is queued separately
+at **C:/ov/reports/adela_follow_20261103/world_02/**, broker23664/session78725;
+a guard refuses execution unless the isolated fixture passed on identical
+production inputs. Its last stage compiles the nook inheritance chain in order
+to expose the unresolved parent-class failure; it does not run the nook route.
+Twenty-five existing material-catalogue, additive-binding and runtime-source
+projection unit tests pass. No engine result is implied by these Python tests.

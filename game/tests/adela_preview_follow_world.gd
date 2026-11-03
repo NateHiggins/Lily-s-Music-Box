@@ -6,6 +6,8 @@ var observations: Dictionary={"evidence_class":"INERT","scope":"Temporary Adela 
 func _init() -> void:route_label="ADELA INSTALLED FOLLOW"
 
 func _route() -> void:
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED);Engine.max_fps=0
+	observations["vsync"]=false;observations["max_fps"]=0
 	follower=world.adela_preview_follower
 	if not _verify(follower!=null,"runtime mounted the temporary preview"):return
 	for frame in 120:
@@ -30,11 +32,22 @@ func _route() -> void:
 	observations["viewport"]=str(get_viewport().get_visible_rect().size)
 	observations["player"]=str(player.global_transform);observations["adela"]=str(follower.global_transform)
 	observations["enabled_frames_ms"]=await _sample()
-	follower.set_physics_process(false);follower.visible=false
+	var previous_process_mode:=follower.process_mode
+	follower.process_mode=Node.PROCESS_MODE_DISABLED;follower.visible=false
 	observations["hidden_frames_ms"]=await _sample()
-	follower.visible=true;follower.set_physics_process(true)
+	follower.visible=true;follower.process_mode=previous_process_mode
 	observations["enabled_return_frames_ms"]=await _sample()
 	player.camera.global_transform=original
+	# Use the installed first stair, not another flat-room surrogate.
+	for target in [Vector3(1.925,1.6,1.3),Vector3(3.975,1.6,1.3)]:
+		if not await _walk(target):return
+	for frame in 360:
+		if follower.global_position.distance_to(player.global_position)<2.3:break
+		await get_tree().physics_frame
+	var actual:=world.adapter.root.to_local(follower.global_position)
+	_verify(actual.y>1.45 and follower.is_on_floor(),"Adela follows up the real stair to its supported half landing")
+	observations["stair_player"]=str(player.global_position)
+	observations["stair_adela"]=str(follower.global_position)
 	observations["failures"]=failures
 	FileAccess.open(output.path_join("adela_world.json"),FileAccess.WRITE).store_string(JSON.stringify(observations,"\t"))
 
