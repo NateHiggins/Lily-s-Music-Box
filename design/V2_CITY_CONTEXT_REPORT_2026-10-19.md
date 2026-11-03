@@ -2,6 +2,32 @@
 
 ### Consolidated native building packets — November 3
 
+Evidence class: **INERT**. Native construction and diagnostics,not runtime or
+owner artistic acceptance.
+
+**Later wide-factory correction:** review finds fixed5/4bay schedules from
+20m examples incorrectly retained across32-53m fronts. An opt-in **4.6m**
+schedule guide rebuilds4 Karp profiles' wide-side bay counts and weighted
+broad/narrow rhythm,retaining a broad central bay. Existing defaults stay
+unchanged:26 actual old/new default body variants have exact positions,faces
+and witnesses. Only4 packet profiles enable it;81 skip it. Annex passage
+frames/width/headroom remain exact. The first comparison's omitted old Sohmer
+grade field is retained as a diagnostic failure;it grants no geometry pass.
+**attempts/wide_factory_v1_original** preserves rejected cohorts. Three revised
+native/reopened/three-view reviews pass;168 exact retained exported-part
+comparisons support27 reused neighboring images. The remaining revised street
+end receives its full ordinary review. Current aggregate5,563,660/3,117,644
+triangles,591,429,884/322,858,940 GLB bytes,769 partitions/14,502 panes per level;
+maximum50,982,844/26,966,596 bytes. Roof controls and102 flues unchanged.
+
+Per-artifact provenance now remains18 packets at **531e6d398**,one office at
+**f6964fb62**,four at the opt-in source. The helper AST adds only the bounded
+guard;the industrial module AST is exact after removing the override assignment
+and its2 branches. **SOURCE_RECONCILIATION.json** retains each phase and actual
+default-array controls. The installed horizon/street native metadata still bind
+the prior whole helper file;intake must use its owning producer/valid consumed
+projection before fresh qualification. No old runtime receipt is rebound.
+
 **Later native office correction, same day:** actual review rejects the first
 over-broad stepped grid. Only **QueensOffice** changes: a low street bar/light
 two-storey base,slender upper shaft,continuous masonry piers and capped crown.
@@ -9,7 +35,7 @@ New native/export and3 CPU views pass.56 exported primitive/node comparisons
 prove the other3 block bodies' attributes,indices and frames exact;their9
 completed reviewed images are reused with exact map/profile/render-function
 bindings. The rejected packet and all12 original images remain in
-**attempts/office_v1_original**. Current aggregate becomes5,321,440/2,997,824
+**attempts/office_v1_original**. Office-phase aggregate becomes5,321,440/2,997,824
 triangles,565,180,488/309,543,000 GLB bytes,769 partitions/14,277 panes per level.
 Largest assets44,973,008/26,930,848 bytes. Roof controls and102 flues unchanged.
 These replace the earlier inventory below,not its original receipts.
@@ -26,7 +52,7 @@ receipts remain;601.407s of the rejected-office review includes that pause and
 is not a render-performance benchmark. The premature frame-barrier confirmation
 was corrected;the OS suspension,not the proposed barrier alone,established idle.
 
-Evidence class: **INERT**. Owner requests the remaining building stock as a
+Owner requests the remaining building stock as a
 single later intake. This native-only checkpoint starts at **599813f21** in
 **C:/ov/city**, **codex/v2-city-20261029**, fetched main **fb3167942**. Read-only
 comparison with developer **9e8dd6ef9/527c8be0f** finds the same city plan/native

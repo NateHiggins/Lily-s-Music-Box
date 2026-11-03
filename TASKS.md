@@ -7,7 +7,10 @@ delivery for one later integration pass.85 replacement bodies/23 partial blocks
 now export with near/lower sources and102 roof-seated hollow flues;39 individual
 profiles/124 reservations preserved. The rendered office correction now passes
 native/three-view review;22 other packet source versions stay immutable,with
-class-scoped AST/export equivalence recorded. Finish independent reopened/CPU visual
+class-scoped AST/export equivalence recorded. Four wide Karp fronts now repeat
+proper metric bay rhythms;26 default body variants remain array/witness exact.
+Keep18/1/4 artifact source versions explicit and renew horizon/street native
+bindings through their owners at intake. Finish independent reopened/CPU visual
 review,then send exact identity/hash/semantic-pane rosters to Orison Developer
 Sol6.1. External **C:/ov/asset-prototypes/city-building-packets-20261103/**.
 Keep proposed plan/producer patch unapplied until coordinated intake;partial

@@ -19,6 +19,9 @@ class PacketBuildings:
         local = copy.deepcopy(self.study['fabrication_profile'])
         local.update(id=row['id'], grade_datum_m=row.get('grade_datum_m', 0.),
                      grade_low_m=row.get('grade_low_m', 0.))
+        if self.study['fabricator']=='industrial' and self.study['style'] in ['karp_4024','karp_4018']:
+            a,b,c,d=local['rect']
+            if max(c-a,d-b)>24.:local['architecture']['bay_pitch_override_m']=4.6
         self.emit = emit
         converted = []
         for other in neighbours:

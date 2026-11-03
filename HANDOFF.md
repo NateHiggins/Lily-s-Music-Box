@@ -11,18 +11,22 @@ External delivery **C:/ov/asset-prototypes/city-building-packets-20261103/**:
 85 replacement bodies in23 partial-block packets,39 reference-specific profiles
 preserved and124 reservations exact. Base170 fabrication preflights pass;later
 office correction also passes native/export/three-view review. Current inventory
-5,321,440/2,997,824 triangles,769 partitions and14,277 panes per level,718 roof/
+5,563,660/3,117,644 triangles,769 partitions and14,502 panes per level,718 roof/
 outside controls per level,102 hollow flues. These are native counts,not measured
-rendering cost.36 map hashes match;22 packets retain14 exact raw bindings at
-**531e6d398**,while the office block binds its revised helper. Outside
-**QueensOffice**,the helper AST is exact;84 other dispatches are non-office.
+rendering cost.36 map hashes match;18 packets retain14 exact raw bindings at
+**531e6d398**,the office block at **f6964fb62**,and4 wide factories bind the
+opt-in bay correction.26 old/default near/lower body variants emit exactly
+identical arrays/witnesses. Only4 wide Karp profiles enable the override;81
+other packet profiles skip it. Default helper AST is otherwise exact.
 **SOURCE_RECONCILIATION.json** preserves this scope without old-receipt repinning.
 13 existing horizon tests pass;readerNEW0 at the source checkpoint.
 
 Final reopened GLB/CPU image review is **IN_PROGRESS**. The office's rejected
 broad grid is replaced by a slender shaft/light stone base/continuous piers.
 Its3 fresh images pass;56 exact exported attribute/index/frame comparisons
-support reuse of9 unchanged neighboring images. Earlier complete native
+support reuse of9 unchanged neighboring images. Three corrected wide-factory
+reviews also pass;168 exact retained-part comparisons support27 reused images.
+The fourth wide-factory packet still receives the normal full review. Earlier complete native
 cohort,scoped views and UV/width/office-init/flue-key failures remain in attempts.
 Do not integrate partial GLBs over whole installed blocks. Use declared85/39
 identities,proposed plan and unapplied **integration.patch** through the owning
