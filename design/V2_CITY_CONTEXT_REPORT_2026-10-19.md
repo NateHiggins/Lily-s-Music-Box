@@ -5,6 +5,29 @@
 Evidence class: **INERT**. Native construction and diagnostics,not runtime or
 owner artistic acceptance.
 
+**Later exact-frame correction:** original bulk **64285** terminates1 on the
+street-end0 ironwork's world-triangle equality. Diagnosis proves all57,180
+triangles present;only part translation X **4.76837158203125e-7m** is omitted by
+Blender5.2 glTF's inspected **round_if_near**2um cutoff. Maximum composed delta
+equals0.48um. The producer canonicalizes near-zero part datums before deriving
+local vertices;no GLB hand edit or relaxed triangle/UV/0.1mm pane gate. The
+unapplied integration patch limits the same correction to packet bodies,leaving
+retained39 unmodified. Four street-end originals/failure remain in
+**attempts/street_frame_v1_original**,diagnosis in **roundtrip_diagnostic_01.json**.
+Re-exported four final reviews use **16498**;first2 pass,others pending here.
+Current source-version split15 at531,office1 atf696,wide3 at928,street4 atthis
+datum source checkpoint. Raw bindings remain per executed artifact.
+
+**Occlusion disposition,read-only:** developer's45 synthetic concave-cutout
+segments demonstrate the general bbox policy's limitation. Current layout's85
+packet bboxes have at least0.28m private inset;10,455 other parcel/probe envelopes
+expanded25.1mm have0 intersections with them. All17,180 current native accepted
+pane points are within their owner parcels at0.1mm. This conditional source
+reachability does not demonstrate a current neighbor-pane path into the cutouts,
+does not fix polygon clipping and is not runtime/missing-pane proof. Preserve
+**K-V2-CITY-FOOTPRINT-CLIP** debt and label the policy approximate. Source sidecar
+**PACKET_OCCLUSION_REACHABILITY.json**;no blind85-body rebuild.
+
 **Later wide-factory correction:** review finds fixed5/4bay schedules from
 20m examples incorrectly retained across32-53m fronts. An opt-in **4.6m**
 schedule guide rebuilds4 Karp profiles' wide-side bay counts and weighted

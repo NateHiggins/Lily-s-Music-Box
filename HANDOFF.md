@@ -13,9 +13,9 @@ preserved and124 reservations exact. Base170 fabrication preflights pass;later
 office correction also passes native/export/three-view review. Current inventory
 5,563,660/3,117,644 triangles,769 partitions and14,502 panes per level,718 roof/
 outside controls per level,102 hollow flues. These are native counts,not measured
-rendering cost.36 map hashes match;18 packets retain14 exact raw bindings at
-**531e6d398**,the office block at **f6964fb62**,and4 wide factories bind the
-opt-in bay correction.26 old/default near/lower body variants emit exactly
+rendering cost.36 map hashes match;15 packets retain14 exact raw bindings at
+**531e6d398**,the office block at **f6964fb62**,3 wide factories at **928ae8230**,
+and4 street ends bind the datum correction in this checkpoint.26 old/default near/lower body variants emit exactly
 identical arrays/witnesses. Only4 wide Karp profiles enable the override;81
 other packet profiles skip it. Default helper AST is otherwise exact.
 **SOURCE_RECONCILIATION.json** preserves this scope without old-receipt repinning.
@@ -28,6 +28,12 @@ support reuse of9 unchanged neighboring images. Three corrected wide-factory
 reviews also pass;168 exact retained-part comparisons support27 reused images.
 The fourth wide-factory packet still receives the normal full review. Earlier complete native
 cohort,scoped views and UV/width/office-init/flue-key failures remain in attempts.
+Original bulk **64285** stopped at the actual street-end ironwork round-trip
+failure:57,180 triangles intact,but glTF omitted a0.48um residual part translation.
+The packet producer now zeroes components within the installed exporter's2um
+cutoff before deriving local vertices. Strict triangle/UV/pane checks remain;
+four street-end bodies re-exported,final four reviews run under **16498**.
+First two pass;others remain pending. Original failed sources/files retained.
 Do not integrate partial GLBs over whole installed blocks. Use declared85/39
 identities,proposed plan and unapplied **integration.patch** through the owning
 producer after developer review. **P2_PANE_DISPOSITION.json** retires192 original

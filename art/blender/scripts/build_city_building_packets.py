@@ -232,6 +232,10 @@ def build_block(out,identity,review):
             if cache not in mats:mats[cache]=material(ROOT,name+'__'+key,finish,catalog)
             center=Vector(((min(v[0] for v in vertices)+max(v[0] for v in vertices))/2,
                            (min(v[1] for v in vertices)+max(v[1] for v in vertices))/2,0))
+            # Blender5.2 glTF round_if_near drops translations within2um of
+            # zero. Canonicalize the datum before deriving local vertices,
+            # rather than letting export change the composed world position.
+            center=Vector([0. if abs(v)<=2.e-6 else v for v in center])
             mesh=bpy.data.meshes.new(name);mesh.from_pydata([Vector(v)-center for v in vertices],[],faces);mesh.update()
             bm=bmesh.new();bm.from_mesh(mesh)
             assert all(e.is_manifold and e.is_contiguous for e in bm.edges),name
