@@ -430,6 +430,16 @@ func opening_render_views() -> Array[Transform3D]:
 	if not is_instance_valid(player) or not is_instance_valid(player.camera):return views
 	var entry: Dictionary=arrival_placement()
 	if entry.get("position") is Vector3 and (entry.position as Vector3).is_finite():
+		var dimensions: Dictionary=layout.get("dimensions",{})
+		var bounds: Array=dimensions.get("outer_bounds",[])
+		if is_instance_valid(_blockout) and bounds.size()==4:
+			var footprint:=Rect2(Vector2(float(bounds[0]),float(bounds[1])),Vector2(float(bounds[2])-float(bounds[0]),float(bounds[3])-float(bounds[1])))
+			var eye_height:=_blockout.to_local(to_global(entry.position as Vector3)).y+player.camera.position.y
+			var padding:=maxf(float(dimensions.get("outer_wall",0.)),player.camera.near)
+			views=preload("res://scripts/building/v2_entry_render_preparation.gd").exterior_views(_blockout.global_transform,footprint,eye_height,padding)
+			if views.size()==4:return views
+		# Retain the previous bounded entry policy if a diagnostic root has no
+		# registered construction footprint. Never relocate the actual camera.
 		var at:=to_global(entry.position as Vector3)+Vector3.UP*player.camera.position.y
 		for angle in [0.,90.,180.,270.]:
 			views.append(Transform3D(global_basis.orthonormalized()*Basis(Vector3.UP,deg_to_rad(angle)),at))

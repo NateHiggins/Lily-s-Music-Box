@@ -1,6 +1,27 @@
 extends RefCounted
 ## Bounded main-thread render preparation while the entry owner hides the world.
 ## No process/physics yield, gameplay transform, clock, input or save mutation.
+static func exterior_views(frame: Transform3D, footprint: Rect2, eye_height: float, padding: float) -> Array[Transform3D]:
+    var views: Array[Transform3D]=[]
+    if not frame.origin.is_finite() or not frame.basis.is_finite() or frame.basis.determinant()<=.0001 \
+            or not footprint.position.is_finite() or not footprint.size.is_finite() \
+            or footprint.size.x<=0. or footprint.size.y<=0. \
+            or not is_finite(eye_height) or not is_finite(padding) or padding<=0.:
+        return views
+    # One outward view beyond each existing building edge. Four turns at the
+    # entrance can all remain screened by the building/canopy; these expose
+    # nearby street materials without importing a diagnostic route's stations.
+    var middle:=footprint.get_center()
+    var edges: Array[Vector3]=[
+        Vector3(middle.x,eye_height,footprint.position.y-padding),
+        Vector3(footprint.end.x+padding,eye_height,middle.y),
+        Vector3(middle.x,eye_height,footprint.end.y+padding),
+        Vector3(footprint.position.x-padding,eye_height,middle.y)]
+    var directions: Array[Vector3]=[Vector3.FORWARD,Vector3.RIGHT,Vector3.BACK,Vector3.LEFT]
+    for index in edges.size():
+        views.append(Transform3D(frame.basis.orthonormalized()*Basis.looking_at(directions[index]),frame*edges[index]))
+    return views
+
 static func prepare(camera: Camera3D, views: Array[Transform3D], owns_entry: Callable) -> Dictionary:
     var result := {"executed":false,"completed":false,"cancelled":false,"render_calls":0,
         "node_pose_unchanged":true,"elapsed_ms":0.0,"reason":""}

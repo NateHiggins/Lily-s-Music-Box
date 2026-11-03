@@ -31,6 +31,16 @@ func run() -> void:
     await RenderingServer.frame_post_draw
     await get_tree().process_frame
     var pose:=camera.get_camera_transform();var node_pose:=camera.global_transform
+    var footprint:=Rect2(-8.,-5.,16.,10.)
+    var frame:=Transform3D(Basis(Vector3.UP,PI/2.),node_pose.origin+Vector3.ONE)
+    var outside:=Preparation.exterior_views(frame,footprint,camera.position.y+1.,camera.near)
+    check(outside.size()==4,"four footprint views keep the existing draw budget")
+    for view: Transform3D in outside:
+        var local:=frame.affine_inverse()*view.origin
+        var ray:=frame.basis.inverse()*(-view.basis.z)
+        check(not footprint.has_point(Vector2(local.x,local.z)) and ray.dot(Vector3(footprint.get_center().x,local.y,footprint.get_center().y)-local)<0.,"transformed view lies beyond the footprint and looks away from it")
+    check(Preparation.exterior_views(frame,Rect2(),1.,.1).is_empty(),"empty footprint cannot publish renderer views")
+    check(camera.global_transform==node_pose,"footprint policy leaves the scene camera untouched")
     var views: Array[Transform3D]=[Transform3D(Basis(Vector3.UP,PI),pose.origin),pose]
     var declined:=Preparation.prepare(camera,views,func():return false)
     check(not declined.executed and declined.cancelled,"refused owner draws nothing")

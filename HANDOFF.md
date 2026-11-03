@@ -1,36 +1,34 @@
 # Current continuation — November 3 developer-chat handoff
 
-**Latest continuation — completed actual-world batch:** **unfinished14** is
-terminal exit0, all six stages and both125-input/source guards pass. Installed
-nook pickup/inspection/return/release plus validated disk save/reconstruction
-passes25 checks/0failures with a test-written schema2 runtime contract. Actual
-title BEGIN passes17/0. Same-source current-weather six-leg routes pass18/0 and
-21/0: P99 144.467→60.395ms, but maximum230.004→226.316ms. This remains a partial
-benefit, not performance acceptance. The surviving render-pre/post interval is
-208.880ms, coincident with36 new specialization counter increments; callbacks
-remain short, passage RESIDENT, no household/hand records or room refreshes.
-This narrows attribution without proving compiler duration or GPU completion.
+**Latest continuation:** **followup15** is terminal exit0, all four stages and
+before/after125-input guards pass. Existing route-local four-heading control20/0
+records max57.352ms, p9952.718ms, zero>100ms intervals, preparation485.161ms.
+Actual Title Continue7/0 preserves exact calendar/semantic facts and does not
+replay the opening for a completed save; native arrival PNG inspected. This is
+not every save boundary or artistic acceptance. Earlier current-weather entry
+policy still retains226.316ms; view coverage is implicated, not fully solved.
 
-**Current live queue:** **followup15**, broker46740/session55736, four guarded
-stages: unchanged-input guard, existing route-local four-heading control, actual
-Title Continue using the test-owned save, final guard. Queued through FIFO behind
-LoRA jobs; no CPU hold while waiting, no production edits. Poll the same handle.
-Batch and trace review: **C:/ov/reports/entry_render_preparation_20261102/followup_15/**.
-The previous architect CPU hold was released after unfinished14 completed.
+**Current source WIP, not yet engine-verified:** production preparation now derives
+four outward views from the installed blockout footprint, its frame, existing
+wall thickness and camera eye height. Still ten renderer draws, no player/camera
+node relocation or simulation advancement; no diagnostic route coordinates.
+An existing small graphical bench adds footprint/frame/invalid-input checks.
+Reader NEW0, spatial audit clean/no manifest drift, diff check clean.
 
-The architect's complete native city delivery is pushed at
-**d8fab160cc89efe494170acf24b6ba610337999f**, branch
-**codex/v2-city-20261029**; isolated worktree clean, new authoring stopped.
-85 replacements/23partial-block packets preserve39profiles/124reservations.
-Native verification is not Godot integration; assemble through the whole-block
-producer, never overwrite installed blocks with partial packets. See
-**C:/ov/asset-prototypes/city-building-packets-20261103/CONSTRUCTION_REPORT.md**.
+Next guarded batch: **C:/ov/reports/entry_render_preparation_20261102/footprint_16/batch.json**:
+128-input guard, five-script compile, small rendered lifecycle/footprint bench,
+actual titleBEGIN, matched baseline/entry routes, final source+compile guard.
+Poll current_execution in **C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json**
+for its live handle; do not restart old terminal55736/46740 or14's14225/31108.
+Preserve frozen source while queued/running; no developer CPU hold while queued.
 
-Early119-gate board at65f9183a5 remains preserved:111PASS/7FAIL/1INCOMPLETE.
-Actual import retention and two native catalogue-provenance repairs pass their
-413-model/9-test/four-spatial preflights. Expanded-composition physical renewal,
-full board comparison and candidate verification still remain; PR151 is draft,
-unmerged and not merge-ready. No whole-game or artistic acceptance.
+Installed nook return/release and validated disk reconstruction25/0 remain
+scoped proof at unchanged production6fcbb2cf; Adela actual10-waypoint proof and
+book101/0 remain historical exact-scope evidence. Expanded physical renewal,
+final complete board/candidate and PR151 manual merge still remain. No wholeV2,
+performance-budget, golden-shift or artistic acceptance. Architect native delivery
+is complete/pushed d8fab160,clean/stopped; producer-led integration preserving
+39profiles/124reservations is separate and uninstalled.
 
 **Stage:** V2 integration and qualification, not release-ready. The next playable
 milestone is a polished normal-entry prologue. City work remains an established
