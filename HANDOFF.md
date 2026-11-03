@@ -1,82 +1,38 @@
-# Current continuation — November 2 V2 qualification
+# Current continuation — November 3 V2 qualification
 
-The active goal remains existing V2 repairs/interactions, stutter, hose/book/nook,
-and systematic coverage. **Not V2 complete or production/artistic acceptance.**
-Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
-**main** at merged **2e8b14efe** for the qualified intake; the documentation
-checkpoint may be on **codex/v2-intake-merge-ledger-20261102**.
-[PR145](https://github.com/NateHiggins/Lily-s-Music-Box/pull/145) is MERGED.
-Latest physical runtime source: **8acfb5a7b**; clock bench source **4feb74618**.
+The active goal remains V2 repairs/interactions, stutter, hose/book/nook and
+systematic coverage. **Not V2 complete or production/artistic acceptance.**
+Canonical checkout **C:/PleaseRemainOnTheLine**, branch
+**codex/v2-first-view-preparation-20261102**; draft
+[PR151](https://github.com/NateHiggins/Lily-s-Music-Box/pull/151), unmerged.
+Feature source checkpoint **012f76ea4** includes main/weather **fb3167942**.
 
-**Physical qualification is published:** surface03 completes31,297checks/0failures,
-361.73s, schema2 full physical+city diagnostic+Sohmer programme, zero raw Godot
-errors and ten known resident texture UID fallback warnings. Strict source and
-published packet independently PASS0 at **art/renders/orison_v2/surface_requirements_20261011/**.
-All67actual images inspected via contact sheets, with three changed closeups
-also inspected individually; eight representative images retained in the packet.
-Staff brackets seat against their deeper wall; the vent remains clear. Lower
-bypass supply is partly concealed. Cistern shadow aliasing, repetitive/dark city
-views and the wall-occluded unchanged dumbwaiter view remain visual debt.
-No skipped interaction, whole-year weather or human acceptance is implied.
+Current physical packet: cohort09 passes31,495/0, schema2 runtime contract,
+all13 actual city movement legs81/0, zero raw ERROR headers, ten known resident
+UID fallback warnings. All70 native3440x1440 captures inspected;12 reviewed frames
+published through the atomic publisher with original logs/contract. Strict
+current consumed-input qualification passes0 defects. Original cohort08 failure
+is retained. See [city ledger](design/V2_CITY_CONTEXT_REPORT_2026-10-19.md).
 
-Separate bathroom06 diagnostic:1,953/0, actual valve/plug/flush/cover input and
-validated campaign disk reconstruction in a second world; no schema2 gameplay
-acceptance. Isolated clawfoot hand bench138/0; furnished-room artistic acceptance
-remains open. Expanded source roster19lavatories/19closets is checked. Twelve
-household authoring records now reproduce verified runtime bytes exactly.
-Loaded inventory vs prior accepted packet:+85draw entries/+41meshes/+44materials,
-zero new textures; no controlled frame-time or added-cost verdict.
+Book bench then fails90/3 at hidden-desktop pointer targeting. The isolated
+embedded-viewport repair is queued in **book_hidden_10**, not verified; no
+production book mechanism changed. Resume its existing broker/session rather
+than restarting. Current title BEGIN and matched timing stages are NOT_EXECUTED.
+See [book ledger](design/V2_BOOK_INSPECTION_RETURN_2026-10-22.md).
+External live custody: **C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json**.
 
-**Candidate verification complete:** exact **a16b5f37d** is MERGE-CANDIDATE:
-119gates,115PASS/3existingFAIL/1INCOMPLETE,zero regressions,six improvements,
-17protected paths unchanged,selectorV2,zero lint errors,no accepted regressions.
-Seven changed gate paths were reviewed. Report:
-**C:/ov/reports/native_intake_20261102/candidate_a16b5f37d/verification.json**.
-The in-place verifier reused validated clean3f1051f59 baseline; fresh-checkout
-import is outside its scope. Defaults6jobs/600s remain; final2jobs/1200s run
-completes lane tests17.64s and42surface-tool tests470.22s. Prior failed candidate
-and focused5/5 lane/42/42 surface rechecks remain preserved, never waived.
+After the book driver passes, run only unfinished title/current-weather timing,
+then candidate verification against the complete clean-main board:
+**C:/ov/reports/entry_render_preparation_20261102/board_main_fb3167942/board.json**
+(119gates:115PASS/3FAIL/1INCOMPLETE, zero dirty paths, validated). No automatic
+merge. Preserve source freeze for admitted runs; no repinning old receipts.
 
-**Clock/LOD diagnostic:** **sohmer_body_02/** passes966/0 at3440x1440 in30s,
-empty stderr;258source bindings match,17frames inspected, clock pause/reversal/
-validated disk load/fresh presentation reconstruction pass. Isolated GPU medians
-near/lower/return .735/.6585/.677ms; initial transition108.737ms remains debt.
-This is not old-body incremental or whole-city performance acceptance. Original
-**sohmer_body_01/** viewport failure3440x1421 is preserved; corrected launch reused
-**native_debug_window.gd**, with no assertion relaxation. All owned Godot runs
-and static verifier/rechecks are terminal. The external
-**ACTIVE_QUALIFICATION.json** holds exact process/status pointers; revalidate them.
-
-Generated UID/private attachment custody and437import EOL-only normalization are
-complete: **checkout_custody_78cb0f1ce/CUSTODY.json** preserves707recoverable files.
-No authored source was discarded. PR145 merged manually at2e8b14efe;
-Claude was notified directly via the shared bridge. Remaining whole-world
-performance and artistic gaps stay open.
-
-**Evidence/custody:** detailed history and limits live in
-**design/V2_PROLOGUE_2026-10-28.md** and
-**C:/ov/reports/native_intake_20261102/**. Earlier top-handoff history is retained
-in Git at **8acfb5a7b:HANDOFF.md** and the subsystem ledger, rather than repeated
-here. Surface01's raw shop-error failure is intact. A misrouted preview replaced
-surface02's wrapper/raw logs; its failed runtime contract, inventory and67images
-are preserved in **surface_02_original_evidence.zip**, with9optical hashes checked.
-Archive raw logs are partial probe output; do not claim original raw preservation
-or reconstruct receipts. **preview_probe_01/OUTPUT_CUSTODY.json** explains the loss.
-Preview02 passes592/0: exact campaign restore, exact non-household state after a
-reader frame, complete household validation and a valid shop cursor. Normal
-float32 quaternion resampling is traced, not rounded away. Fresh output paths
-are now checked before launch. No runtime receipt was repinned.
-
-**Shared work:** Claude owns mail-bank/watch-station intake on
-**intake-range-mail-watch**, now **002a6b37b** (authored strict-by-default hand-test
-clarification not rerun). The earlier37/0 establishes free-look crank input only,
-not fixed inspection-camera coverage. Paired old-asset failures/receipts are under
-**C:/ov/reports/mail_intake_20261102/**. Claude's moon-name first draft is also
-waiting behind145; later cohorts coordinate one renewal. The gas-range contact
-refit already merged viaPR127; do not reinstall it from a library hash mismatch.
-Architect/city expansion remains owner-paused; preserve its worktree and dirty
-preparation. Remaining native deliveries are not bulk accepted. Preserve all
-story, inventory, reading/calendar/weather and validated save authorities.
+Historical pre-weather pair: max299.731 to127.983ms, P95 around67ms; CPU contention
+prevents causal/uncontended claims. Residual stutter, cold startup, Continue/reload,
+installed nook return/disk reload, purchased hose washer transfer, hose release/
+pressure/dressing/wetting gaps, golden shift and artistic review remain open.
+Reuse unchanged evidence; do not repeat unrelated walks. Prior intake custody
+and narrower diagnostic records below are historical, not current acceptance.
 
 ## November 2 — installed lavatory diagnostic passes; formal qualification open
 

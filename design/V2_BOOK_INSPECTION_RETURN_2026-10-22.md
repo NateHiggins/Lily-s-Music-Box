@@ -3,7 +3,23 @@
 Evidence class: **INERT**. Repair/diagnostic report, 2026-10-22.
 No runtime-contract qualification or human acceptance.
 
-## November 3 — actual slot-return diagnostic added, execution pending
+## November 3 — hidden-desktop cursor diagnostic failure retained
+
+Cohort09 runs the added slot-return bench:90 checks/3 failures, at cover targeting,
+floating-binding reacquisition and the resulting return route. No cursor delivery
+is reported. Engine4.7.1 source confirms that a native Window polls DisplayServer's
+OS pointer, whereas an embedded SubViewport reads its last local mouse event.
+Viewport.push_input alone cannot repair the native-window polling path.
+
+The isolated bench now uses an embedded full-size viewport and sends a local
+mouse-motion event before the unchanged production ray/part selection. It does
+not inject a target or change book physics, tolerances or ownership. Compilation
+and actual rendering/input execution are queued in **book_hidden_10**, not passed.
+This test-only change leaves the physical survey's consumed8547-file signature
+unchanged. Original failed logs remain in **cohort_09/book.log** and its wrapper.
+No installed-nook or validated campaign disk acceptance follows from this fixture.
+
+## Earlier November 3 — actual slot-return diagnostic authoring checkpoint
 
 The existing **v2_book_slot_hand_bench.gd** now adds a real primary pickup,
 Space inspection, free-cursor reacquisition, precision mouse rotation,

@@ -1,47 +1,67 @@
 {
- "status": "PASS",
- "scope": "Technical rendered review for the cloud and snow changes. The eight bound frames read on one sheet, and the two sky frames compared side by side with the moon renewal at 37e2d8702. The annual sky was read separately on the year gallery (2,190 samples, 0 failures) and the streak bench; no human artistic, whole-game, weather or performance acceptance.",
- "surface_inputs_sha256": "878d3ff72b1165587c254028d82cffdc9e2c81c36d2e46c2f6ea1567b36daee6",
- "images": [
-  {
-   "file": "mail_bank.png",
-   "sha256": "52f981160285b2eeb298fec01c30ad5e9800d5d8ee03f2594ee557e673bab278",
-   "observation": "Mail bank in its lobby wall: brass doors, name cards, header and slot in place. Dark corner, as in earlier renewals; unchanged by this batch."
-  },
-  {
-   "file": "watch_station.png",
-   "sha256": "141b49cbf341bdaa654baf683df14baf387f4fba510100bbc4e726f9c1f416bf",
-   "observation": "Watch station on its dark wall: case, legend, drop and coded wheel in place; unchanged by this batch."
-  },
-  {
-   "file": "F03_B_MAIN.png",
-   "sha256": "5e64d375bb12f867c8077873f30e5554f1a1500175b9fb7069d62d1530c429c0",
-   "observation": "Occupied room with resident, furnishings and set textured and in place; unchanged by this batch."
-  },
-  {
-   "file": "staff_closet_deep_services.png",
-   "sha256": "2e0a577c30f061b0c4799755098d9bb308eadf473ff800385077696d808dede5",
-   "observation": "Staff closet fixture seated against its tile wall; unchanged by this batch."
-  },
-  {
-   "file": "closet_vent_bypass_services.png",
-   "sha256": "29b2ad1ebba277ead335bf9e5b98a9d69ad1a56e03e0069eb93f6b3bbb3e55e9",
-   "observation": "Vent and offset support in place beside the closet; unchanged by this batch."
-  },
-  {
-   "file": "western_HORIZON_NEAR_3_0_P1_delivery_court.png",
-   "sha256": "30ceecf2791cbfe456922ff53743157bf8572d4eaefd7254f4ece3f8f74554d6",
-   "observation": "Factory delivery court and window detail render as before; unchanged by this batch."
-  },
-  {
-   "file": "roof_tank_uv.png",
-   "sha256": "55d44caca86ded06a5d296f96a8356efb766a8f77cca9ae0eac06f25c7a2fcc5",
-   "observation": "Roof tank, supports and roof context render as before. Day sky with the new cloud shader: low cumulus are white and grey with billowed edges, no beige deck. Thin high cirrus marks still lengthen and converge toward the horizon at this wide ultrawide view; that is the high plane, not a surface defect, and is left for play review."
-  },
-  {
-   "file": "east_moonlight_baseline.png",
-   "sha256": "1b0f82eee0e3a42601fcc24c6fd46f41710cb09a3f051d367f79017dd4ec90d3",
-   "observation": "Night city with lit windows and factory tower as before; the night clouds render without artefacts or banding. High cloud marks are long and thin, as in the day frame."
-  }
- ]
+  "status": "PASS",
+  "scope": "Technical inspection of all70 current-source native-resolution frames on five contact sheets, plus close frontage inspection. Surface presentation only; dark lighting, repeated sky/facade patterns and cropped fronts remain artistic limitations. No gameplay, whole-year weather or human artistic acceptance.",
+  "surface_inputs_sha256": "93c5f89b3117e067307de6ba0e9c0d3aaa2923442f0bd7000d346956f8db6d9c",
+  "images": [
+    {
+      "file": "mail_bank.png",
+      "sha256": "47836e8c67176a728636761dbd7a98ec9da8b37101531d062331107c6a3f1288",
+      "observation": "Mail bank and separate labels remain seated in the lobby wall. Dark corner remains a readability limitation."
+    },
+    {
+      "file": "watch_station.png",
+      "sha256": "dd0dcb543d3a39f13bb56d50cda67d533a5d5ae950ae17d1b713eb2144a9d56c",
+      "observation": "Watch housing and wheel render on the dark wall. This fixed frame does not prove input or readability at a played approach."
+    },
+    {
+      "file": "F03_B_MAIN.png",
+      "sha256": "dd0cabdc6027dd4d81103009a5c8dee267ff44be72409607fd2c52416416d98b",
+      "observation": "Resident, table, radiator, curtains and companion render in their occupied-room context."
+    },
+    {
+      "file": "staff_closet_deep_services.png",
+      "sha256": "9a3fdfd40c847a1df0f65398b9a49c9abd593209d0513b148831e5eb1a45f83e",
+      "observation": "Closet hardware is seated against tiled walls. Shadow aliasing remains visible; no acceptance claimed for lighting."
+    },
+    {
+      "file": "closet_vent_bypass_services.png",
+      "sha256": "4d969289f2894fe9edc5c58c43d4928a82c92da8b4eab41fde1fceed7d7cb228",
+      "observation": "Vent support and wall interfaces are visible beside the closet; retain current clearance qualification."
+    },
+    {
+      "file": "western_HORIZON_NEAR_3_0_P1_delivery_court.png",
+      "sha256": "c72be2975dd44851a1a92375094680f6d787c9c17fefd357a0909848c3e8a0ee",
+      "observation": "Actual walked endpoint shows factory delivery doors and glazing with the lamp and companion in context."
+    },
+    {
+      "file": "western_HORIZON_NEAR_3_0_P0R0_public_frontage.png",
+      "sha256": "9f7d8f855681ae4c9fb38cd116062e194b4e1156fb25d43ebb56e0b0f062b391",
+      "observation": "Walked street endpoint shows the brick Italianate lower frontage, separate window trim, railing and occupied-window shader. Close framing crops upper storeys."
+    },
+    {
+      "file": "western_HORIZON_NEAR_3_0_P0R1_public_frontage.png",
+      "sha256": "e57c37dadf40feee844940f15b407d295e3d5df90d82e281241a59c4144ae165",
+      "observation": "Walked street endpoint shows the stone Italianate lower frontage, rectangular glazing and railing. Dark context and close framing limit whole-building judgment."
+    },
+    {
+      "file": "western_HORIZON_NEAR_3_0_P0R2_public_frontage.png",
+      "sha256": "ff040e6b06653efb1ab4eeeab57ed104d59173334d188df95d3fda556ddcd616",
+      "observation": "Walked street endpoint shows Neo-Grec brick frontage, retained arch trim, stoop rail and window interiors; upper massing is outside the close frame."
+    },
+    {
+      "file": "roof_tank_uv.png",
+      "sha256": "bcb2f13acb87d6c9f6e0ae34c2c64d4a8b47642897d11fd20a8a688259749732",
+      "observation": "Retained tank, supports and surrounding city render against the current day sky; this is not a new tank LOD or weather acceptance."
+    },
+    {
+      "file": "east_moonlight_baseline.png",
+      "sha256": "0dbcb0480437425f8ee4cff27ea39991987f1d7b61aefc0eeef28de22c58719f",
+      "observation": "Night city, lit windows and elevated structure render without missing materials. Long high-cloud silhouettes and dark foreground remain for artistic review."
+    },
+    {
+      "file": "west_dusk_baseline.png",
+      "sha256": "cc669cd404dc9ed65c74dcdcdc8303bf4f6a1d1bb33bcf187f67b05fa84c4977",
+      "observation": "Warm dusk lights the skyline and bridge above the dark roof. Repeated cloud streaks and facade patterns remain visible; no annual artistic acceptance."
+    }
+  ]
 }

@@ -1,11 +1,11 @@
 {
-	"checks": 31297,
+	"checks": 31495,
 	"city_context_review": {
 		"scope": "Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance.",
 		"views": []
 	},
 	"city_geometry_diagnostic": {
-		"checks": 30545,
+		"checks": 30711,
 		"executed": true,
 		"failures": 0,
 		"scope": "Source/composition city geometry and posed camera diagnostic; no played access or artistic acceptance."
@@ -39,7 +39,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 403.058,
+		"elapsed_s": 404.064,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -54,7 +54,7 @@
 			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
 		}
 	},
-	"inventory_sha256": "d4404814e69764bd1ecc0ad4b4da98b0a1d86dbefc5d68da2919bd569eae707f",
+	"inventory_sha256": "282065933d54b04541452581519d07482b02a9e2585e28adb86ee25002f6351d",
 	"lamp_context_review": {
 		"executed": false,
 		"scope": "Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."
@@ -65,10 +65,10 @@
 	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
 	"selector": "v2",
 	"source": {
-		"repository_head": "4de0547b9881c79ee325b42305e20cdaba0cb047",
-		"runtime_inputs_sha256": "7f54b99c24c4f3d200641592edaedcb7401a08080f27a6d231cc7e2cae483a2e",
+		"repository_head": "012f76ea42d66b357d147e9e2c20b615b7c4986b",
+		"runtime_inputs_sha256": "70030d6dc573dd2e38614811138d3912f6ef9e3fbd8e804a40ac41a14ba475d3",
 		"test_path": "game/tests/orison_v2_surface_inventory.gd",
 		"test_sha256": "934c2b565c9976e6c62c9867df4df851150263229567780f9dc90aed257261d0"
 	},
-	"surface_inputs_sha256": "878d3ff72b1165587c254028d82cffdc9e2c81c36d2e46c2f6ea1567b36daee6"
+	"surface_inputs_sha256": "93c5f89b3117e067307de6ba0e9c0d3aaa2923442f0bd7000d346956f8db6d9c"
 }

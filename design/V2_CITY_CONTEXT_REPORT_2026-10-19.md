@@ -1,5 +1,30 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+### Current-weather physical renewal passes — November 3
+
+Evidence class: **INERT**. Cohort09 at **012f76ea42d66b357d147e9e2c20b615b7c4986b**
+compiles both changed city drivers and completes the canonical physical survey:
+31,495 checks/0 failures, test-written schema2 contract, 404.064 seconds
+(425.79-second wrapper). Raw stderr has no ERROR headers and ten known resident
+UID fallback warnings. The independent access contract passes81 checks/all13
+actual movement legs, one initial placement and no rescues. Both exact46/192
+pane assertions retain their first-hit rays. Original cohort08 failure below
+remains preserved.
+
+All70 actual3440x1440 frames were inspected on five contact sheets; the three
+new walked-frontage frames were also inspected individually. Twelve reviewed
+frames, original runtime contract/inventory and compressed unmodified logs were
+published through the existing atomic publisher. Current-input qualification
+passes with zero defects, signature **93c5f89b3117e067307de6ba0e9c0d3aaa2923442f0bd7000d346956f8db6d9c**.
+Dark mail/watch contexts, cistern shadow aliasing, repeated sky/facade patterns,
+cropped house closeups and the wall-occluded dumbwaiter remain visual limits.
+No artistic, whole-year weather, skipped-interaction or whole-game acceptance.
+Evidence: **C:/ov/reports/entry_render_preparation_20261102/cohort_09/**.
+
+The batch then stops on three book input-diagnostic failures. Title BEGIN and
+the current-weather timing pair were not executed. Candidate verification and
+manual PR151 merge remain open; the clean-main baseline is **fb3167942**.
+
 ### First current-weather composed run; strict pane-count repair — November 3
 
 Evidence class: **INERT**. At pushed **b2c465c12**, after merging weather/main
