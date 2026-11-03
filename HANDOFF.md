@@ -6,15 +6,18 @@ native106,612,782B exceeds strict95MiB. Original file and failure evidence are
 preserved in C:/ov/reports/native_intake_20261102/city_packets/failure_01/.
 Old followup24988/session77841 stopped; no Godot run queued from it.
 
-A bounded native-source partition candidate adds just city_horizon_street_end.blend
-for the four street-end blocks; whole runtime blocks and95MiB guards remain.
-Grouping controls2/0; Scene/map/full native-array equivalence still pending.
-Retry is QUEUED: session90385/broker62408, attempt_02/assembly_batch.json.
-The guarded followup session46487/pid51316 waits on that exact broker; it will
-queue loaded_01 only after all native stages/2203comparisons/13fixtures pass.
-Do not launch duplicates; poll these handles and actual source-bound receipts.
-Freeze city/entry consumed inputs until both terminal. Current authority:
-C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
+Second retry62408/session90385 and followup51316/session46487 are terminal1:
+Blender exited11 in Scene-copy view-layer code before the split could save.
+All28base GLBs still match; crash/logs preserved in city_packets/attempt_02/.
+Tiny CPU reproduction: rawScene write11;view-layer sync0;active sync0; successful
+files reopen populated. Producer now updates the new Scene's view layer before
+library write; Blender skill updated/validated. No full city split pass yet.
+
+Third retry is QUEUED: session46650/broker46776, attempt_03/assembly_batch.json.
+Guarded followup session89083/pid43772 waits on that exact broker and queues
+loaded_01 only after all native stages/2203comparisons/13fixtures pass.
+Do not launch duplicates. Freeze city/entry inputs; poll the same live handles.
+Current authority: C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
 
 Source plan85changes/39retained/124reservations and the comparison baselines are
 preserved. Canonical has dirty unqualified complete base-block exports; final

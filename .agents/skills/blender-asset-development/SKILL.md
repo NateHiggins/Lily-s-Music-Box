@@ -26,6 +26,14 @@ Evaluate the owner with its collection visible before measuring posed bounds,
 then restore visibility. Include a hidden, translated stock in native controls;
 an origin-centred toy will miss this registration failure.
 
+On the installed Blender5.2, synchronize a new Scene's view layer after linking
+its collections/stocks and before `bpy.data.libraries.write` copies that Scene.
+The city-source split reproduced an access violation in `BKE_view_layer_copy_data`;
+`scene.view_layers[0].update()` prevented it and the tiny file reopened directly
+into its populated Scene. Retain full asset coverage, arrays and map-path checks:
+that API reproduction does not qualify a large native source or runtime appearance.
+See the [city ledger](../../../design/V2_CITY_CONTEXT_REPORT_2026-10-19.md).
+
 Measure the occupied opening, support faces, neighboring geometry, player
 clearance and moving-part pivots. Use project metre coordinates and its existing
 Blender-to-Godot conversion once. A floor-contact ray does not prove continuous

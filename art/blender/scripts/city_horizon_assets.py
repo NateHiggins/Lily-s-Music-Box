@@ -88,6 +88,9 @@ def export_blocks(root,family,draws,expected_buildings):
             for name in names:
                 assert by_name[name].parent is None,name
                 collection.objects.link(by_name[name])
+            # Blender5.2 Scene copying dereferences the view-layer tree.
+            # Synchronize the newly linked collection before library writing.
+            scene.view_layers[0].update()
             # All sources share art/blender; preserve the already registered
             # relative image paths rather than resolving them from a temp file.
             bpy.data.libraries.write(str(native),{scene},path_remap='NONE',compress=True)

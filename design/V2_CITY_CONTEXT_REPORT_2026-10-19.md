@@ -43,6 +43,31 @@ state with an accepted installation or main merge. All39retained profiles and
 124reservations remain protected. Current execution in the existing external
 custody file supersedes earlier queued/terminal descriptions below.
 
+The second native retry is now terminal11: Blender5.2 access violation in
+**BKE_view_layer_copy_data**, reached through **scene_copy_data** and partial
+Scene library writing. No lower/native-partition/Godot qualification ran.
+All28complete base GLBs still compare byte-identical; the crash and logs remain
+in **city_packets/attempt_02/**, including **partial_base_export_comparison.json**.
+
+A tiny CPU-only private reproduction uses no render/Godot/project writes:
+raw newly linked Scene write exits11 in5.343s; explicit new-view-layer update
+exits0 in1.610s; active-Scene update also exits0 in1.672s. Both successful files
+reopen directly into their populated editable Scene. Installed5.2 API docstrings
+are retained in the logs; online API pages could not be fetched. The producer
+now calls **scene.view_layers[0].update()** before copying the new Scene.
+The canonical Blender skill records this demonstrated pattern and passes its
+structure validator. This tiny fix proof does not qualify the full city split.
+
+Current third retry is queued as session46650/broker46776, with guarded followup
+session89083/pid43772 under **city_packets/attempt_03/**. Original failures are
+not overwritten. Its original baseline bytes match SHA256
+**d245bd4550e5f3d873575e013f5d045f31ed978d0e8873a7a7a5479eff62b785**;
+an initial raw-copy assertion exposed CRLF-to-LF translation before native work.
+Deep JSON and normalized bytes matched; original raw bytes were restored and
+the bootstrap rejection is recorded. The already queued broker was retained,
+not duplicated. Native source guards, Scene/map/all-corner arrays and all2203
+export comparisons remain mandatory. No new Godot result or main merge.
+
 ### Complete native city delivery intake — November 3, in progress
 
 Evidence class: **INERT**. Lily requests integration of the completed external
