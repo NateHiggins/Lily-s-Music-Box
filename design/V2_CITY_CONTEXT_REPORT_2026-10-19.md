@@ -1,5 +1,48 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+### Far editable-source size failure and bounded repair — November 3
+
+Evidence class: **INERT**. The first native batch is terminal exit1, not a
+qualification pass. Ground owner77s and streets12s exited0; all five ground/
+street exported files are byte-identical to their preceding versions. The
+complete near/far base block exports ran, but the far editable source measured
+106,612,782bytes against the unchanged99,614,720-byte(95MiB) strict limit.
+The producer stopped before lower-body generation and final runtime manifest.
+Both original brokers32252/24988 are terminal; no Godot followup was queued.
+The original oversize file SHA256 is
+**b727c08bc658bb3dbf8d758d05b0a3e83a06c6d57e5dc381d2faf3d71c33d892**;
+file/log/driver/input evidence and three original numbered backups are retained
+under **C:/ov/reports/native_intake_20261102/city_packets/failure_01/**.
+
+The corrective source candidate groups the four street-end blocks into one
+additional editable **city_horizon_street_end.blend**; each runtime block stays
+whole and the95MiB guard remains strict for every GLB/native file. Near/lower
+sources keep their existing names. Far and street-end sources each serialize a
+complete editable Scene; registered relative PBR paths are preserved verbatim.
+Per-block provenance, native review loading, source signature discovery and the
+signature regression include the additional file. Two pure grouping/negative
+controls pass2/0. Actual native Scene/map/array equivalence is still pending.
+The new test will reopen both files and compare every far native mesh's raw
+matrix,vertices,indices,normals,UVs and tangent guide against the preserved
+unpartitioned source, plus exact declared Scene coverage and map provenance.
+
+Retry custody: **attempt_02/run_batch.ps1**, session90385/broker62408, queued
+FIFO. Its guarded followup is session46487/pid51316, waiting on that exact
+broker and creation time. It will queue loaded_01 only after native partition,
+all2203part comparisons,13fixture bindings and native static tests pass.
+Ground/street phases are reused with current bindings/output guards rather than
+rerun unchanged. The first-attempt28base exports are also hash-bound for retry.
+The first retry watcher rejected automatic PowerShell JSON date conversion;
+that failed watcher is preserved and corrected to retain timestamp strings.
+Neither failure restarted a live native job. No GPU followup has run.
+
+The canonical working tree contains unqualified complete-block base exports
+and updated ground/street native provenance; its horizon runtime manifest and
+lower bodies remain preceding versions. Do not confuse this intermediate local
+state with an accepted installation or main merge. All39retained profiles and
+124reservations remain protected. Current execution in the existing external
+custody file supersedes earlier queued/terminal descriptions below.
+
 ### Complete native city delivery intake — November 3, in progress
 
 Evidence class: **INERT**. Lily requests integration of the completed external

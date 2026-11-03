@@ -8,13 +8,13 @@ relief_review=os.environ.get('CITY_RELIEF_REVIEW')=='1'
 study_review=os.environ.get('CITY_STUDY_REVIEW')=='1'
 if relief_review or study_review:
     OUT=Path(os.environ['CITY_REVIEW_OUTPUT']);OUT.mkdir(exist_ok=True,parents=True)
-files=[ROOT/'art/blender'/name for name in ['city_horizon_near.blend','city_horizon_far.blend','city_ground_apron.blend']]
+files=[ROOT/'art/blender'/name for name in ['city_horizon_near.blend','city_horizon_far.blend','city_horizon_street_end.blend','city_ground_apron.blend']]
 before={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
 layout=json.loads((ROOT/'game/data/orison_v2_blockout.json').read_text());frame=json.loads((ROOT/'game/data/orison_v2/exterior/street_frame.json').read_text())
 front=next(d for d in layout['doors'] if d['id']=='F01_DOOR_06')['center'][1]
 registered=Matrix.Diagonal((-1.,-1.,1.,1.));registered.translation.y=-(front+frame['source_threshold_z'])
 bpy.ops.wm.read_factory_settings(use_empty=True)
-for path,collection in zip(files,['CityHorizon_near','CityHorizon_far','DistantGroundApron']):
+for path,collection in zip(files,['CityHorizon_near','CityHorizon_far','CityHorizon_street_end','DistantGroundApron']):
     with bpy.data.libraries.load(str(path),link=False) as (a,b):b.collections=[collection]
     loaded=b.collections[0];bpy.context.scene.collection.children.link(loaded)
     for obj in loaded.objects:

@@ -3,7 +3,20 @@ from pathlib import Path
 import copy,hashlib,json,sys,unittest,zipfile
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'art/blender/scripts'))
-from city_horizon_assets import manifest_paths
+from city_horizon_assets import manifest_paths,native_groups
+
+class HorizonNativeGroups(unittest.TestCase):
+    def test_far_street_ends_have_one_additional_source_with_exact_part_coverage(self):
+        names=['HORIZON_FAR_0_0_P0__limestone','HORIZON_FAR_0_0_P0__mirror_aged',
+               'HORIZON_STREET_END_0_P1__limestone','HORIZON_STREET_END_3_P2__mirror_aged']
+        groups=native_groups('far',names)
+        self.assertEqual(groups,{'far':sorted(names[:2]),'street_end':sorted(names[2:])})
+        self.assertEqual(native_groups('lod1',names),{'lod1':sorted(names)})
+    def test_wrong_family_duplicate_and_malformed_native_parts_fail_closed(self):
+        far='HORIZON_FAR_0_0_P0__limestone'
+        for family,names in [('near',[far]),('far',[far,far]),('far',['bad']),('bad',[far]),('far',[])]:
+            with self.subTest(family=family,names=names):
+                with self.assertRaises((AssertionError,ValueError)):native_groups(family,names)
 
 class HorizonShards(unittest.TestCase):
     def setUp(self):self.source=json.loads((ROOT/'game/data/orison_v2/exterior/city_horizon.json').read_text(encoding='utf-8'))

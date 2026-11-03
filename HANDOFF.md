@@ -1,25 +1,28 @@
 # Current continuation — November 3 developer-chat handoff
 
-**Current direction — integrate completed city packets, not new authoring.**
-Selected d8fab160c builders/proposed plan are applied on canonical branch;
-85declared changes/39retained profiles/124reservations compare exactly.
-The partial packet GLBs have not overwritten installed blocks. Five source
-geometry tests pass;665retained+1538replacement part fingerprints are captured.
-Whole-block owning Blender producer is **QUEUED, not started**, shared lane
-session22287/broker32252, batch C:/ov/reports/native_intake_20261102/city_packets/assembly_batch.json.
-It waits FIFO for RAM isolation behind training; do not start a second copy.
-Source guard/build/comparison custody lives in existing ACTIVE_QUALIFICATION.json.
-A second live worker now waits on that exact broker: session77841/pid24988,
-C:/ov/reports/native_intake_20261102/city_packets/follow_loaded.ps1.
-It automatically queues loaded_01 only after every native comparison/preflight
-passes. Do not manually queue a duplicate; poll both handles and their receipts.
-Freeze consumed city/entry sources until both terminal. Loaded diagnostics are
-prepared at pushed1f25e31f7 but not compiled/rendered. Spatial self-tests59/0;
-manifest writer explicitlyLF. The followup tests all loaded bodies/panes and
-nine selected construction/roof representatives,not composed world/gameplay/cost.
-Inspect real export/native guards, compare assembled parts, renew native fixture
-owners, then Godot imports/loaded charts,mips,access,LOD,lighting,cost and candidate.
-No new city runtime or artistic acceptance. Architect authoring stopped.
+**Current direction — finish complete city packet integration.** First native
+batch32252/session22287 is terminal1: ground/street exports unchanged, but far
+native106,612,782B exceeds strict95MiB. Original file and failure evidence are
+preserved in C:/ov/reports/native_intake_20261102/city_packets/failure_01/.
+Old followup24988/session77841 stopped; no Godot run queued from it.
+
+A bounded native-source partition candidate adds just city_horizon_street_end.blend
+for the four street-end blocks; whole runtime blocks and95MiB guards remain.
+Grouping controls2/0; Scene/map/full native-array equivalence still pending.
+Retry is QUEUED: session90385/broker62408, attempt_02/assembly_batch.json.
+The guarded followup session46487/pid51316 waits on that exact broker; it will
+queue loaded_01 only after all native stages/2203comparisons/13fixtures pass.
+Do not launch duplicates; poll these handles and actual source-bound receipts.
+Freeze city/entry consumed inputs until both terminal. Current authority:
+C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
+
+Source plan85changes/39retained/124reservations and the comparison baselines are
+preserved. Canonical has dirty unqualified complete base-block exports; final
+horizon runtime manifest/lower bodies are old because the producer stopped.
+Do not play or publish this intermediate state as accepted. No runtime/LOD/
+performance/artistic acceptance or main merge. Architect authoring is stopped.
+Loaded diagnostics authored at1f25e31f7 remain uncompiled/unrendered; spatial
+audit59/0. Original oversized native is outside Git; never stage that106MB file.
 
 Render-preparation candidate is safely pushed at d1c3b036c, still uncompiled and
 unrendered. Optical16 and the rejected conditional physical job are terminal;
