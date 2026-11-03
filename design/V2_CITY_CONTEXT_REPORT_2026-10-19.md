@@ -14,9 +14,25 @@ local vertices;no GLB hand edit or relaxed triangle/UV/0.1mm pane gate. The
 unapplied integration patch limits the same correction to packet bodies,leaving
 retained39 unmodified. Four street-end originals/failure remain in
 **attempts/street_frame_v1_original**,diagnosis in **roundtrip_diagnostic_01.json**.
-Re-exported four final reviews use **16498**;first2 pass,others pending here.
+Re-exported four final reviews use **16498**,now terminal0 with all4 passing.
+All23 final native/reopened reviews complete and23 contact sheets actually
+viewed,covering255 front/rear/lower views (219fresh/36reused). This does not
+claim255 full-resolution individual inspections. Final audit verifies92blend/GLB
+hashes,36external maps,322rawsource bindings,1538exact triangle/UV part
+roundtrips;actual maximum UV drift2.9802322387695312e-8m within4float32ULP.
+Final GLB totals591,466,064/322,849,812 bytes;topology counts unchanged. Latest
+23review executions exit0,no error headers;2World.use_nodes deprecations only.
+Evidence **art/reviews/city_streets_20261029/city_building_packets_native_20261103.zip**
+contains manifests/reviews/custody/contact sheets/rawlogs/failure diagnostics,
+not duplicate native assets. Editable sources/GLBs remain at external root
+**C:/ov/asset-prototypes/city-building-packets-20261103/**. All92 hashes appear
+in **NATIVE_SUMMARY.json**;zip hash is in external **EVIDENCE_ARCHIVE.json**.
+Archive27,839,436 bytes/657 entries;independently reopened CRC and every entry
+SHA verified. SHA256 **f3a45dcb3117b3dc7b3817a4f064ff2b0e0904f1672563a1fa6849b7d0f9886e**.
+Developer timing batch completed terminal0 and explicitly released native CPU.
+No Godot qualification or main merge in this packet task.
 Current source-version split15 at531,office1 atf696,wide3 at928,street4 atthis
-datum source checkpoint. Raw bindings remain per executed artifact.
+datum source checkpoint **be2c1a83c**. Raw bindings remain per executed artifact.
 
 **Occlusion disposition,read-only:** developer's45 synthetic concave-cutout
 segments demonstrate the general bbox policy's limitation. Current layout's85
@@ -39,12 +55,13 @@ grade field is retained as a diagnostic failure;it grants no geometry pass.
 **attempts/wide_factory_v1_original** preserves rejected cohorts. Three revised
 native/reopened/three-view reviews pass;168 exact retained exported-part
 comparisons support27 reused neighboring images. The remaining revised street
-end receives its full ordinary review. Current aggregate5,563,660/3,117,644
+end receives its full ordinary review. That phase's aggregate5,563,660/3,117,644
 triangles,591,429,884/322,858,940 GLB bytes,769 partitions/14,502 panes per level;
 maximum50,982,844/26,966,596 bytes. Roof controls and102 flues unchanged.
 
-Per-artifact provenance now remains18 packets at **531e6d398**,one office at
-**f6964fb62**,four at the opt-in source. The helper AST adds only the bounded
+At that pre-datum phase,provenance remained18 packets at **531e6d398**,one office at
+**f6964fb62**,four at the opt-in source. The later15/1/3/4 split above supersedes
+that inventory without rewriting its receipts. The helper AST adds only the bounded
 guard;the industrial module AST is exact after removing the override assignment
 and its2 branches. **SOURCE_RECONCILIATION.json** retains each phase and actual
 default-array controls. The installed horizon/street native metadata still bind

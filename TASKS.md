@@ -6,13 +6,16 @@ The shared queue. Everyone working on Orison writes here.
 delivery for one later integration pass.85 replacement bodies/23 partial blocks
 now export with near/lower sources and102 roof-seated hollow flues;39 individual
 profiles/124 reservations preserved. The rendered office correction now passes
-native/three-view review;22 other packet source versions stay immutable,with
-class-scoped AST/export equivalence recorded. Four wide Karp fronts now repeat
+native/three-view review;unchanged neighboring bodies have scoped AST/export
+equivalence recorded. Four wide Karp fronts now repeat
 proper metric bay rhythms;26 default body variants remain array/witness exact.
-Keep18/1/4 artifact source versions explicit and renew horizon/street native
-bindings through their owners at intake. Finish independent reopened/CPU visual
-review,then send exact identity/hash/semantic-pane rosters to Orison Developer
-Sol6.1. External **C:/ov/asset-prototypes/city-building-packets-20261103/**.
+Keep15/1/3/4 artifact source versions explicit and renew horizon/street native
+bindings through their owners at intake. All23 native/reopened reviews and23
+contact-sheet inspections complete;92asset/36map/322source hashes verified,
+1538part roundtrips exact. Native evidence archive at
+**art/reviews/city_streets_20261029/city_building_packets_native_20261103.zip**.
+Orison Developer Sol6.1 owns intake using exact identity/hash/semantic-pane
+rosters. External **C:/ov/asset-prototypes/city-building-packets-20261103/**.
 Keep proposed plan/producer patch unapplied until coordinated intake;partial
 GLBs must not replace whole blocks. Existing192 P2 assertions stay unchanged
 until replacement qualification;new184 roster and neighboring46 remain distinct.

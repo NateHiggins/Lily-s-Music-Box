@@ -2,7 +2,7 @@
 
 Evidence class: **INERT**. Owner explicitly resumed isolated Blender packet
 production for one later integration pass. Starting **599813f21**, fetched main
-**fb3167942**; developer **527c8be0f** retains identical city source/37 GLBs.
+**fb3167942**; developer's later read-only baseline confirms the124 source lots.
 Canonical checkout/index, installed assets, source plan and all game files are
 unchanged. New packet producers and their two additive hash-text attributes
 are separate from the unapplied integration patch.
@@ -15,25 +15,33 @@ office correction also passes native/export/three-view review. Current inventory
 outside controls per level,102 hollow flues. These are native counts,not measured
 rendering cost.36 map hashes match;15 packets retain14 exact raw bindings at
 **531e6d398**,the office block at **f6964fb62**,3 wide factories at **928ae8230**,
-and4 street ends bind the datum correction in this checkpoint.26 old/default near/lower body variants emit exactly
+and4 street ends bind the datum correction at **be2c1a83c**.26 old/default near/lower body variants emit exactly
 identical arrays/witnesses. Only4 wide Karp profiles enable the override;81
 other packet profiles skip it. Default helper AST is otherwise exact.
 **SOURCE_RECONCILIATION.json** preserves this scope without old-receipt repinning.
 13 existing horizon tests pass;readerNEW0 at the source checkpoint.
 
-Final reopened GLB/CPU image review is **IN_PROGRESS**. The office's rejected
+Final reopened GLB/CPU image review is **COMPLETE:23/23 packets**. The office's rejected
 broad grid is replaced by a slender shaft/light stone base/continuous piers.
 Its3 fresh images pass;56 exact exported attribute/index/frame comparisons
 support reuse of9 unchanged neighboring images. Three corrected wide-factory
 reviews also pass;168 exact retained-part comparisons support27 reused images.
-The fourth wide-factory packet still receives the normal full review. Earlier complete native
+The fourth wide-factory packet completed its normal full review. Earlier complete native
 cohort,scoped views and UV/width/office-init/flue-key failures remain in attempts.
 Original bulk **64285** stopped at the actual street-end ironwork round-trip
 failure:57,180 triangles intact,but glTF omitted a0.48um residual part translation.
 The packet producer now zeroes components within the installed exporter's2um
 cutoff before deriving local vertices. Strict triangle/UV/pane checks remain;
-four street-end bodies re-exported,final four reviews run under **16498**.
-First two pass;others remain pending. Original failed sources/files retained.
+four street-end packets re-exported,final four reviews under **16498** terminal0.
+All23 contact sheets actually viewed,covering255 front/rear/lower views
+(219fresh,36 reused);this is not255 separately opened full-resolution images.
+Original failed sources/files retained. Final audit passes92 asset hashes,36
+map hashes,322 raw bindings and1538 exact world-triangle/UV part roundtrips;
+maximum UV drift2.9802322387695312e-8m within4float32ULP. GLB totals
+591,466,064/322,849,812 bytes. Native counts do not predict rendering cost.
+Evidence **art/reviews/city_streets_20261029/city_building_packets_native_20261103.zip**;
+editable assets remain in the external delivery. Developer timing batch is
+terminal0 with explicit release;no native/Godot jobs remain in this chat.
 Do not integrate partial GLBs over whole installed blocks. Use declared85/39
 identities,proposed plan and unapplied **integration.patch** through the owning
 producer after developer review. **P2_PANE_DISPOSITION.json** retires192 original
