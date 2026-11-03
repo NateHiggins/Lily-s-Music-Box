@@ -150,7 +150,7 @@ func run() -> void:
 		var point:=Vector3(p[0],p[2],-p[1])
 		var profile: Dictionary=profiles[str(contact.building)]
 		var architecture: Dictionary=profile.get("architecture",{})
-		var residential: bool=str(architecture.get("type",""))=="residential_front"
+		var residential: bool=str(architecture.get("type",""))=="residential_front" or (str(architecture.get("type",""))=="packet_front" and str(architecture.get("fabricator","")) in ["house","civic_house"])
 		var support:=point
 		if residential:
 			support.y=_residential_receiving_y(profile)
@@ -203,6 +203,10 @@ func run() -> void:
 
 func _residential_receiving_y(profile:Dictionary)->float:
 	var architecture:Dictionary=profile.get("architecture",{})
+	if str(architecture.get("type",""))=="packet_front":
+		# Rigidly registered packets retain the same measured roof schedule.
+		# Only the fabrication profile owns those local floor heights.
+		architecture=architecture.get("fabrication_profile",{}).get("architecture",{})
 	var style:=str(architecture.get("style",""))
 	# CivicRows overrides its inherited eave to the final floor plane. Only
 	# the two pitched styles terminate the receiving walls one floor earlier.

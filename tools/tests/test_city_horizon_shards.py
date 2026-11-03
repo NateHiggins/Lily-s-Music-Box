@@ -13,7 +13,7 @@ class HorizonShards(unittest.TestCase):
         paths=manifest_paths(self.source)
         self.assertEqual(len(paths),len(set(paths)))
         plan=json.loads((ROOT/'art/data/city_horizon/source_plan.json').read_text(encoding='utf-8'))
-        authored={r['id'] for r in plan['buildings'] if r.get('architecture',{}).get('type') in ['industrial_front','mill_front','eastern_row','residential_front']}
+        authored={r['id'] for r in plan['buildings'] if r.get('architecture',{}).get('type') in ['industrial_front','mill_front','eastern_row','residential_front','packet_front']}
         actual={identity for entry in self.source['body_lod']['assets'] for identity in entry['buildings']}
         self.assertEqual(actual,authored)
     def test_missing_base_block_is_rejected(self):

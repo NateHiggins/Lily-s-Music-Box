@@ -1,21 +1,22 @@
 # Current continuation — November 3 developer-chat handoff
 
-**Current direction — Lily requests complete city packet integration.** Optical16
-is terminal0: changed driver compiles1/0 and actual composed view capture19/0,
-182.62s, both128guards pass. All five native images inspected: two side views
-are close brick; front/rear views show town and omit Orison; final view restores
-the original camera. Readbacks are optical evidence only, not performance.
-A source-derived building-framing candidate is preserved separately as WIP in
-runtime_root, entry_render_preparation and its small bench; it is not compiled
-or rendered yet. Keep it while integrating city; do not relabel older proofs.
+**Current direction — integrate completed city packets, not new authoring.**
+Selected d8fab160c builders/proposed plan are applied on canonical branch;
+85declared changes/39retained profiles/124reservations compare exactly.
+The partial packet GLBs have not overwritten installed blocks. Five source
+geometry tests pass;665retained+1538replacement part fingerprints are captured.
+Whole-block owning Blender producer is **QUEUED, not started**, shared lane
+session22287/broker32252, batch C:/ov/reports/native_intake_20261102/city_packets/assembly_batch.json.
+It waits FIFO for RAM isolation behind training; do not start a second copy.
+Source guard/build/comparison custody lives in existing ACTIVE_QUALIFICATION.json.
+Inspect real export/native guards, compare assembled parts, renew native fixture
+owners, then Godot imports/loaded charts,mips,access,LOD,lighting,cost and candidate.
+No new city runtime or artistic acceptance. Architect authoring stopped.
 
-Completed native packets d8fab160c are now the active integration family:
-C:/ov/asset-prototypes/city-building-packets-20261103/. Reconcile builders and
-source plan, assemble whole blocks, preserve39profiles/124reservations, then
-qualify loaded mips, access, LOD, lighting and frame cost. Earlier optical and
-conditional-survey job handles are terminal; no owned Godot job remains live.
-Existing hose/book/nook and widerV2 goal remain open. Current-state custody is
-C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
+Render-preparation candidate is safely pushed at d1c3b036c, still uncompiled and
+unrendered. Optical16 and the rejected conditional physical job are terminal;
+no owned Godot run remains active. Existing hose/book/nook and widerV2 remain
+open. Older evidence below must not be relabelled as new-city qualification.
 
 
 **Latest continuation:** footprint16 is **terminal exit0**, seven stages and

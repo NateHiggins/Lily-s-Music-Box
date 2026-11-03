@@ -82,7 +82,24 @@ class Horizon(unittest.TestCase):
                 self.assertGreater(volume,0,row['id'])
             floors=module.floor_intervals(row)
             self.assertAlmostEqual(floors[-1][1],row['height_m'])
-            self.assertEqual(len(outline),len(row['architecture']['side_bays']))
+            study=row['architecture']
+            if study.get('type')=='packet_front':
+                # Packets retain a local fabrication profile and a rigid
+                # registration; their world outline has no duplicate bay list.
+                frame=np.asarray(study['native_frame'],dtype=float)
+                self.assertEqual(frame.shape,(4,4),row['id'])
+                np.testing.assert_allclose(frame[3],[0,0,0,1],atol=1e-10)
+                np.testing.assert_allclose(frame[:3,:3].T@frame[:3,:3],np.eye(3),atol=1e-10)
+                self.assertAlmostEqual(np.linalg.det(frame[:3,:3]),1.,places=10)
+                profile=study['fabrication_profile']
+                self.assertAlmostEqual(profile['height_m'],row['height_m'])
+                a,b,c,d=profile['rect'];inverse=np.linalg.inv(frame)
+                for x,y in outline:
+                    local=inverse@np.array([x,y,0.,1.])
+                    self.assertTrue(a-1e-7<=local[0]<=c+1e-7 and b-1e-7<=-local[1]<=d+1e-7,row['id'])
+                    self.assertAlmostEqual(local[2],0.,places=7)
+            else:
+                self.assertEqual(len(outline),len(study['side_bays']))
         # Reversed and malformed source must fail before a native export.
         bad=dict(studies[0]);bad['architecture']=dict(bad['architecture'],floor_heights_m=[1,2])
         with self.assertRaises(AssertionError):module.floor_intervals(bad)

@@ -1,5 +1,39 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+### Complete native city delivery intake — November 3, in progress
+
+Evidence class: **INERT**. Lily requests integration of the completed external
+85-building/23-packet delivery at **d8fab160cc89efe494170acf24b6ba610337999f**.
+Architect native authoring is stopped. The developer verified92 delivered
+blend/GLB hashes and the27,839,436-byte evidence ZIP SHA256
+**f3a45dcb3117b3dc7b3817a4f064ff2b0e0904f1672563a1fa6849b7d0f9886e**.
+Selected builders and the proposed plan are applied: exactly85 declared profiles
+change,39 profiles compare unchanged and all124 reservations compare unchanged.
+The partial packet GLBs have not replaced complete installed blocks.
+
+The original static run found a top-level side_bays assumption and a stale
+installed lower-body roster. The outline test now reads packet registration and
+local profile geometry, retaining closed-stock winding/volume/floor and malformed
+source controls:5tests/0failures. The roster failure remains pending actual
+assembly, not waived. The loaded roof diagnostic now resolves the same local
+floor schedules for packet-built house/civic-house profiles; this edit is not yet
+engine-verified. A deterministic preassembly baseline records665retained and
+1538delivered replacement parts with exact oriented world triangle corner
+position,normal,UV,tangent hashes. Four additional native front previews were
+inspected; those do not establish renderer lighting or artistic acceptance.
+
+The complete owning producer is queued FIFO through the shared lane because
+concurrent LoRA training leaves little physical RAM. It has not started. Inputs
+are frozen in **C:/ov/reports/native_intake_20261102/city_packets/build_inputs.json**;
+job custody and the live handle are in **ACTIVE_QUALIFICATION.json** one level up.
+Next inspect actual export/native95MiB guards without relaxing them, compare
+assembled parts, regenerate dependent fixtures through their owners, import and
+qualify loaded mips, P2 aperture migration, access/collision, LOD, lighting and
+frame cost. Exact46neighbor controls and every relevant first-hit ray stay.
+Current source changes expire older surface evidence; no new runtime contract,
+main merge or artistic acceptance is claimed. The previous render-preparation
+candidate is preserved at **d1c3b036c**, still uncompiled/unrendered at intake.
+
 ### Current-weather physical renewal passes — November 3
 
 Evidence class: **INERT**. Cohort09 at **012f76ea42d66b357d147e9e2c20b615b7c4986b**
