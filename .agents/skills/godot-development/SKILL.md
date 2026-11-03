@@ -190,6 +190,14 @@ readability, and feel.
 
 ## Reuse demonstrated project lessons
 
+- **Runner deadlines:** direct-child exit does not establish completed output
+  capture. An inherited pipe held by a descendant can keep a broker and its
+  lease alive beyond the declared timeout. Test elapsed execution, pipe drain,
+  preserved partial output and subsequent FIFO admission together using bounded
+  self-terminating CPU probes on the private test lane. Never diagnose a foreign
+  holder from a missing direct child alone. Current limits/custody live in
+  TASKS.md and tools/PIPELINE_TOOLS.md, not this skill.
+
 - **Composed optical previews:** a nonpersistent campaign lease does not pause
   live monotonic consumers. Preserve their process flags, suspend them during
   out-of-order photo dates, restore through the existing owner, then validate

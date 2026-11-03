@@ -338,6 +338,17 @@ broker running an older copy of the script ignores the queue until its checkout
 has this change. `tools/tests/test_lane_queue.py` races real brokers on a private
 mutex.
 
+### Known GPU deadline limitation (November3)
+
+The current GPU path bounds the direct process wait but then waits for complete
+stdout/stderr capture without the same deadline. A controlled private-lane CPU
+probe returns0 after8.516s despite timeout2s when its exited direct child leaves
+an8s descendant holding stdout; the successor waits too. Original logs and the
+repeatable probe are external at **C:/ov/reports/lane_pipe_drain_20261103/**.
+**H-LANE-GPU-DRAIN** tracks repair and regression coverage; no fix is installed.
+This does not diagnose every historical foreign holder or authorize bypassing
+FIFO, a hold, another owner's process or the patched Godot runners.
+
 ### Candidate gate resource controls
 
 `verify_candidate.py --gate-jobs N --gate-timeout SECONDS` forwards the existing
