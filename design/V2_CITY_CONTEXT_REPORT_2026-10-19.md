@@ -6694,3 +6694,64 @@ no duplicated GLBs/maps/reference photographs. External continuation and reports
 Full city,450m exploration, remaining85 generic bodies, coherent transit/industrial/
 waterfront skyline, streets/gaslights, relevant saves, measured world stalls and
 artistic acceptance remain open.
+
+
+## Three-house isolated runtime qualification — November 3 report
+
+Evidence class: **INERT**. Reports the original test-written isolated contract;
+not main, composed-city, player-access or artistic acceptance. Executed frozen
+**b474d8b2330a08ad9e50e96aeac6ff25d36f19ec**, runtime digest
+**23ce5a1819bb849cf282a6d92a08d71da761fe502b823ab2edac67cf56f6eded**.
+No rebase/new authoring occurred while queued. Original broker37016 is absent;
+parent handle72958 unavailable. No outer exit code invented or replacement run.
+
+All four original wrapper receipts completed/exit0: import1 **43.55s**,
+import2 **7.77s**, compile **14.73s**, family **26.68s**. Family finished at
+2026-11-03T00:38:42Z. First import retains685 Missing.uid warnings/135531Bstderr;
+no SCRIPT ERROR/ERROR lines. Later three stderr files are empty. Both named
+scripts compilePASS. Actual log confirms patched4.7.1/Vulkan1.4.357/Forward+/RTX4080,
+hidden fullscreen3440x1440. Pinned console/GUI hashes were verified before queueing.
+
+Original **family/individual_bodies.runtime.json** records schema2 runtime_contract,
+**1085 checks/0 failures**,170 first-hit panes and26 material partitions;
+stdout1086 includes the later contract-write check. Loaded metric UVs,normal/
+tangent derivatives and registered PBR maps with complete mip chains pass.
+All258 consumed hashes and the frozen runtime digest match independently after
+cleanup. No receipt edited/repinned.16 unique actual images viewed,17 byte-identical
+duplicates verified,covering all33 PNGs; originals remain3440x1440. Near/lower
+fronts preserve facade/entry/stoop/rail/apron/cornice. Every forced return equals
+its near image; natural returns equal before;12 blank controls are identical.
+Natural captures isolate joinery and cropped5degree recovery, not whole-building
+walking. Rear/composed/production-light/artistic acceptance remains open.
+
+Measured visible near/lower/return: R0 **17536/11376/17536**,9draws;
+R1 **36552/14600/36552**,8draws;R2 **22308/8612/22308**,9draws.
+90 samples/case wall medians: R0 **.924/.846/.847ms**;R1 **.848/.848/.851ms**;
+R2 **.835/.840/.845ms**. R0 first nearP95 **4.1619ms**,max **18.050ms**;
+initial12-frame transition max **137.338ms** remains unattributed. Other case
+maxima1.196..1.331ms;all raw samples retained. This is sequential isolated
+fixed-light measurement,MSAA3/TAAfalse,VSyncdisabled/maxFPS0 then restored;
+not matched incremental cost,combined26-draw viewport FPS,shadow/memory budget,
+fully warmed first sample set or uncontended-host proof. Do not sum timings.
+
+One natural door_paint part/body reduces5680->3792,20120->6008,13468->3740
+primitives near76.29/76.31/76.13m,one draw each; narrowFOV and inward return
+recover the near part. Exact values/rendererCPU/GPU/P95/raw samples are preserved
+in the independent summary. No production speedup or full-city budget acceptance.
+
+Committed protected17/17 comparison against641 passes,not full candidate verifier.
+Engine-generated555 imports were proven LF-equivalent,backed up then named-restored;
+690 new UIDs from the clean start were backed up then removed. Worktree clean;
+original wrapper dirtiness1245 paths remains truthful. No canonical checkout,
+foreign process, source mesh, gameplay owner or original native archive changed.
+
+Runtime packet **art/reviews/city_streets_20261029/western_factory_row_runtime_review.zip**:
+60 members,4,045,766 bytes,SHA256 **21f66bc2b2fb9cd72eeef098655c44bb9687d488a042d4f8a4830f37f57e8949**.
+Includes original logs/stderr/wrappers/contract,all33 PNGs,numeric/visual/source
+checks and churn backup. Native packet remains separate/immutable. External report:
+**C:/ov/reports/city_streets_20261029/western_factory_row_01/runtime_family_01/CONSTRUCTION_REPORT.md**.
+Current fetched main **37e2d8702** is not this executed snapshot. Real player
+capsule access and coordinated current-main/composed qualification remain next;
+do not extend factory apron midpoint151.6 through new stoops: pending source
+route preparation uses the native-reviewed150.70 edge lane. This is not a walk pass.
+Full39/85 source city tally remains incomplete;no main merge or new authoring.

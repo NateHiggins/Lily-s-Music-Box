@@ -1,3 +1,25 @@
+# Current continuation — November 3 three-house runtime result
+
+Evidence class: **INERT**. Original isolated batch on frozen **b474d8b23**
+completed; no replacement run,new authoring,rebase or global renewal. Four
+original receipts exit0;test-written schema2 **1085/0**,170panes,26partitions,
+loaded UV/PBR/mips and rendered body/part LOD pass. All258 consumed hashes and
+runtime digest match after cleanup.33 PNGs covered by16 viewed unique images
+and17 byte-identical duplicates. Initial **137.338ms** transition and first-near
+P95 **4.1619ms** remain debt; timings are isolated,not whole-city/incremental cost.
+
+**C:/ov/city**, **codex/v2-city-20261029**.555 proven LF-equivalent imports and690
+new UIDs backed up/cleaned;source clean. Original72958 unavailable,broker37016 absent,
+no own Godot process; do not restart that completed batch. Original logs/receipts
+and native failure preserved. [Actual evidence and scope](design/V2_CITY_CONTEXT_REPORT_2026-10-19.md#three-house-isolated-runtime-qualification--november-3-report).
+External terminal report **C:/ov/reports/city_streets_20261029/western_factory_row_01/runtime_family_01/CONSTRUCTION_REPORT.md**.
+
+Next remains developer-coordinated current-main/capsule/composed qualification;
+no new asset or global renewal requested in this report handoff. Fetched main
+**37e2d8702** is separate from executedb474. Keep factory/Orison/shop/traffic/
+clock/save authorities. New houses have not been walked;85 generic bodies and
+the full cityscape remain unfinished. Native evidence below retains its own scope.
+
 # Current continuation — November 2 adjacent city row
 
 Evidence class: **INERT**. Owner resumed after the explicit backlog pause.
