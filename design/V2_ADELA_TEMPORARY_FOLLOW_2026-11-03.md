@@ -194,3 +194,38 @@ Arbitrary jumps/lifts/ledge recovery, complete prologue/Continue behavior, contr
 cost and all-angle appearance remain unqualified. Adela stays a temporary debug
 presentation, not a new narrative resident or persisted story fact. No owned
 Godot job remains live; old broker/session numbers above are historical.
+
+
+## Early candidate board and guarded catalogue provenance repair
+
+The complete clean-tree comparison at **65f9183a5**,
+**C:/ov/reports/entry_render_preparation_20261102/walk_api_13/board/board.json**,
+runs119gates:111PASS/7FAIL/1INCOMPLETE. Against the saved clean-main board it
+reports13 regression entries across four gates: physical import retention,
+house-switchboard native provenance, readable-library native provenance and
+expired surface qualification. Three other failing tools rows and the incomplete
+ledger retain main's debt. This is **not** a clean candidate or merge approval.
+
+The missing Adela mesh sidecar is now retained with its actual engine-generated
+root_scale1, named skin, animation and existing import policy, already covered by
+**-text**. The physical-source retention gate then passes413models, zero missing
+or wrong settings. No other model's UID/settings were replaced.
+
+The two native tests bind the complete runtime-material manifest. Its only
+addition is **resident_adela_voss**: existing128records and370shipped texture
+files remain exact. The existing scoped renewal tool independently checks every
+other source and the unchanged switchboard/library outputs; originals are
+archived. The existing guarded additive rebind tool propagates this provenance
+through39dependent native records, preserving every body outside source_bindings
+and leaving already-stale baseline bindings stale. Its report is
+**walk_api_13/additive_rebind_applied.json**; original records and scoped outputs
+are retained beside it. No GLB, native geometry, existing finish, runtime contract
+or visual-review receipt was rewritten or promoted. This is consumed-projection
+provenance, not new native/rendered acceptance.
+
+After repair, switchboard5/0, readable-library4/0 and all four declared spatial
+source-preflight scripts pass. The full original failed board remains intact;
+a final full comparison and new physical proof are still required. The single
+17-script engine preflight remains queued at broker60808/session24521; do not
+restart it. The prepared unfinished14 world batch is not queued and its source
+freeze must be regenerated after these provenance changes before admission.

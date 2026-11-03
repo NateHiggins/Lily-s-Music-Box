@@ -8,8 +8,15 @@ engine-verified. One17-script preflight is queued at
 original broker**60808** / session**24521**, confirmed live while waiting. Poll that
 handle; do not restart it or treat the older no-live-job statements below as
 current. No new world programme queued. Production sources remain unchanged.
-ReaderNEW0, spatial11169/no manifestdiff and source assertion/budget comparisons
-pass; engine compilation, nook runtime and final candidate remain open.
+ReaderNEW0 and spatial11169 pass (the two-line detour context update is committed).
+Engine compilation, nook runtime and final candidate remain open.
+Early119-gate board at65f9183a5 is terminal:111PASS/7FAIL/1INCOMPLETE, four
+regressed gates. Adela import retention and two native catalogue-provenance
+failures are repaired with strict existing additive tools;413model settings,
+native9tests and four spatial source-preflights pass. See the Adela ledger for
+actual archives/limits. The original board remains failed, not relabelled; fresh
+physical proof/final comparison are still due. Prepared **unfinished_14/batch.json**
+is NOT QUEUED; regenerate its source freeze after provenance changes.
 
 
 **Stage:** V2 integration and qualification, not release-ready. The next playable
