@@ -6,9 +6,13 @@ uniform float blood_amount = 0.0;
 uniform vec3 wind_mps = vec3(0.0);
 uniform float pixel_angle = .001;
 uniform vec3 precipitation_light : source_color = vec3(0.55,0.62,0.70);
+varying float view_depth;
+varying float flake_seed;
 void vertex() {
 	// World-space simulation, view-facing quad. Camera rotation never rotates the rain volume.
 	vec3 scale=vec3(length(MODEL_MATRIX[0].xyz),length(MODEL_MATRIX[1].xyz),length(MODEL_MATRIX[2].xyz));
+	view_depth=abs((VIEW_MATRIX*MODEL_MATRIX[3]).z);
+	flake_seed=INSTANCE_CUSTOM.z;
 	if(kind==0) {
 		// Resolve at least a pixel at native resolution instead of vanishing in TAA.
 		float depth=abs((VIEW_MATRIX*MODEL_MATRIX[3]).z);
@@ -34,7 +38,15 @@ void fragment() {
 		mask=(1.0-smoothstep(0.10,0.65,jag))*(1.0-smoothstep(0.7,1.0,abs(q.y)));
 		opacity=0.78;
 	}
-	if(kind==2) {mask=1.0-smoothstep(0.25,1.0,length(q));opacity=0.84;}
+	if(kind==2) {
+		// A flake is a loose ragged clump, not a disc. Flakes a hand's reach from
+		// the eye are out of focus: larger, fainter and softer, never a white ball.
+		float a=atan(q.y,q.x)+flake_seed*6.2832;
+		float rim=.82+.10*sin(a*3.0+flake_seed*11.0)+.06*sin(a*5.0-flake_seed*7.0);
+		float near=1.0-smoothstep(.6,3.5,view_depth);
+		mask=1.0-smoothstep(rim*mix(.35,.05,near),rim,length(q));
+		opacity=mix(.88,.45,near);
+	}
 	if(kind==3) {mask=1.0;opacity=1.0;}
 	ALBEDO=(kind>=2 ? vec3(0.95) : vec3(0.64,0.73,0.82))*precipitation_light;
 	ALBEDO=mix(ALBEDO,vec3(.38,.008,.018),blood_amount);

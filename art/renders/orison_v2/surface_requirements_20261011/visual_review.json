@@ -1,47 +1,47 @@
 {
  "status": "PASS",
- "scope": "Technical rendered review for the moon name and growing moon. All 67 frames read together on one contact sheet at thumbnail size, with the eight bound frames opened larger. The moon itself was read on the separate optical review sheet (moon_year.jpg, seven dates from Nov 1928 to 9 Nov 1929); no human artistic, whole-game, weather or performance acceptance.",
- "surface_inputs_sha256": "df12d93ddabe6e46e7a8406d0ed9f42448570fe134c12c8fb82162a2f2852b02",
+ "scope": "Technical rendered review for the cloud and snow changes. The eight bound frames read on one sheet, and the two sky frames compared side by side with the moon renewal at 37e2d8702. The annual sky was read separately on the year gallery (2,190 samples, 0 failures) and the streak bench; no human artistic, whole-game, weather or performance acceptance.",
+ "surface_inputs_sha256": "878d3ff72b1165587c254028d82cffdc9e2c81c36d2e46c2f6ea1567b36daee6",
  "images": [
   {
    "file": "mail_bank.png",
-   "sha256": "d4a11f1e58eaf01a8bc8e700afc16fa3fb4feb495fb2232e88809858702edd14",
+   "sha256": "52f981160285b2eeb298fec01c30ad5e9800d5d8ee03f2594ee557e673bab278",
    "observation": "Mail bank in its lobby wall: brass doors, name cards, header and slot in place. Dark corner, as in earlier renewals; unchanged by this batch."
   },
   {
    "file": "watch_station.png",
-   "sha256": "83699b15e5831accbcf1e2cb10417c14e224bf520cf8c3829b6e39039cdfc98f",
+   "sha256": "141b49cbf341bdaa654baf683df14baf387f4fba510100bbc4e726f9c1f416bf",
    "observation": "Watch station on its dark wall: case, legend, drop and coded wheel in place; unchanged by this batch."
   },
   {
    "file": "F03_B_MAIN.png",
-   "sha256": "c8fc46ebf8a7694b334c3df4cb16baf1b81838c048b2970237f0cf3529921b57",
+   "sha256": "5e64d375bb12f867c8077873f30e5554f1a1500175b9fb7069d62d1530c429c0",
    "observation": "Occupied room with resident, furnishings and set textured and in place; unchanged by this batch."
   },
   {
    "file": "staff_closet_deep_services.png",
-   "sha256": "bf0dd5660f2302867a2d5440d6d989ece8e85fed1083f6144e27a4989deabed4",
+   "sha256": "2e0a577c30f061b0c4799755098d9bb308eadf473ff800385077696d808dede5",
    "observation": "Staff closet fixture seated against its tile wall; unchanged by this batch."
   },
   {
    "file": "closet_vent_bypass_services.png",
-   "sha256": "30088dd9fa7407a7ad33c3b71b56431bdc57d46ef1efebf4c3d1fc0792a8cae8",
+   "sha256": "29b2ad1ebba277ead335bf9e5b98a9d69ad1a56e03e0069eb93f6b3bbb3e55e9",
    "observation": "Vent and offset support in place beside the closet; unchanged by this batch."
   },
   {
    "file": "western_HORIZON_NEAR_3_0_P1_delivery_court.png",
-   "sha256": "2bf0b80afb30e46124379cf300d127fd25550952cc7a3dcdaae3b519703de91f",
+   "sha256": "30ceecf2791cbfe456922ff53743157bf8572d4eaefd7254f4ece3f8f74554d6",
    "observation": "Factory delivery court and window detail render as before; unchanged by this batch."
   },
   {
    "file": "roof_tank_uv.png",
-   "sha256": "eb51bab9a7854e425efa66f6aaec158b941af9c6b6c6d464642104c48e64220b",
-   "observation": "Roof tank, supports and roof context render as before; the day sky and clouds are intact with the moon shader change."
+   "sha256": "55d44caca86ded06a5d296f96a8356efb766a8f77cca9ae0eac06f25c7a2fcc5",
+   "observation": "Roof tank, supports and roof context render as before. Day sky with the new cloud shader: low cumulus are white and grey with billowed edges, no beige deck. Thin high cirrus marks still lengthen and converge toward the horizon at this wide ultrawide view; that is the high plane, not a surface defect, and is left for play review."
   },
   {
    "file": "east_moonlight_baseline.png",
-   "sha256": "e6cf7da02862da839e3a3f3fe20bef5c9b2e24ad653265b001947b71d791df65",
-   "observation": "Night city with lit windows and factory tower as before; the night sky renders without artefacts with the moon shader change. The capture date is before the name, and no moon is in frame."
+   "sha256": "1b0f82eee0e3a42601fcc24c6fd46f41710cb09a3f051d367f79017dd4ec90d3",
+   "observation": "Night city with lit windows and factory tower as before; the night clouds render without artefacts or banding. High cloud marks are long and thin, as in the day frame."
   }
  ]
 }
