@@ -1,23 +1,28 @@
 # Current continuation — November 3 developer-chat handoff
 
-**Continuation after the handoff:** eight test-only _walk overrides now accept
-and forward the parent's optional tolerance, preserving strict stops, detours,
-acceptance assertions and budgets. ReaderNEW0/spatial11169 pass; one17-script
-preflight remains queued at **walk_api_13/batch.json**, broker**60808** /
-session**24521**. Poll that handle, not old terminal jobs. Before admission, the
-nook driver was further authored to write a source-bound schema2 contract for
-actual return/release and optional validated disk reconstruction. Its exact
-snapshot program checks12test/tool paths; source/scene are LF/-text. This has
-**not compiled or run**. The queued preflight and unqueued world source freeze
-were refreshed before admission; no prior runtime receipt was relabelled.
+**Latest continuation:** the inherited route API repair now compiles successfully
+on **ea18e8082**:17scripts/0failures,14.09s, empty stderr, no composed world.
+The old preflight broker60808/session24521 is **terminal0**, not queued.
+Its receipt/source guard passes for all17scripts and the current125-input batch.
+The narrow **H-V2-WALK-PREFLIGHT** task is closed; actual installed nook/save,
+current-weather title/timing and wider coverage remain in their existing K tasks.
+
+The source-bound nook return/release and optional disk contract is authored and
+compiled, **not yet executed**. One guarded6-stage batch is now queued at
+**C:/ov/reports/entry_render_preparation_20261102/unfinished_14/batch.json**,
+broker**31108** / session**14225**, confirmed live waiting. Poll that handle;
+do not restart it or follow older terminal-job instructions below. Its order:
+source/pass guard, actual nearby installed nook/disk, titleBEGIN, matched baseline
+and entry six-leg timing, final unchanged-source guard. Rendering is hidden native
+3440x1440. No developer CPU hold while queued; request the architect's bounded
+pause on actual admission before interpreting performance measurements.
 
 Early119-gate board at65f9183a5 is terminal:111PASS/7FAIL/1INCOMPLETE, four
 regressed gates. At **fc7d2de49**, actual import retention and two native additive
 catalogue-provenance failures are repaired:413model settings/9native tests and
 four spatial source preflights pass. The failed board remains intact; physical
-renewal and final full comparison are still due. Prepared **unfinished_14/batch.json**
-is NOT QUEUED; its guard binds125consumed inputs and the new complete production
-digest. No new world programme has executed. See Adela/book ledgers for limits.
+renewal and final full comparison are still due. No runtime/world/save or artistic
+result follows from this compile. Production sources remain frozen.
 
 
 **Stage:** V2 integration and qualification, not release-ready. The next playable

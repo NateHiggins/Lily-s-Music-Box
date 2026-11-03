@@ -3,6 +3,24 @@
 Evidence class: **INERT**. Repair/diagnostic report, 2026-10-22.
 No runtime-contract qualification or human acceptance.
 
+## Latest continuation — inherited API repair compiles; actual world queued
+
+**walk_api_13/compile.log.receipt.json** records source **ea18e8082**, patched
+engine,17script compilation checks/0failures in14.09s, empty stderr. This repeats
+the actual failed parent chain and includes the eight affected roof/profile/region
+controllers, the installed nook/disk writer and its dependencies. Original failure
+remains at **adela_follow_20261103/intake_04/nook_parent_compile.log.stderr**.
+The narrow API repair **H-V2-WALK-PREFLIGHT** is complete; it does not qualify
+movement, disk reconstruction or performance. Old60808/24521 is terminal0.
+
+The exact passing-preflight/source guard now succeeds for all17compiled sources,
+125consumed test/tool inputs and complete production digest. One6-stage batch is
+queued at **C:/ov/reports/entry_render_preparation_20261102/unfinished_14/batch.json**,
+broker31108/session14225: source guard, actual installed nook/disk first, title
+BEGIN, matched current-weather baseline/entry routes, final source guard. Hidden
+native3440x1440; no user mouse capture. No stage result yet. Poll the same handle
+and keep sources fixed; earlier NOT_QUEUED statements below are historical.
+
 ## November 3 — actual shelf return passes in the isolated input fixture
 
 **book_spine_12** compiles the changed driver and completes101 checks/0 failures,
