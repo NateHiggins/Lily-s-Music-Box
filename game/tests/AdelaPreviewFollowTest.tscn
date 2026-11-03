@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/adela_preview_follow_test.gd" id="1"]
+[node name="AdelaPreviewFollowTest" type="Node3D"]
+script = ExtResource("1")

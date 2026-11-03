@@ -73,6 +73,8 @@ var mina_routine: Node3D
 const ResidentRoute := preload("res://scripts/characters/orison_v2_resident_route.gd")
 ## The other walking residents' route owners, by resident id.
 var resident_routes: Dictionary = {}
+## Temporary visual follower requested by Lily; no resident/case/save registration.
+var adela_preview_follower: Node3D
 var campaign_clock: CampaignClock
 var corruption_lineages: CorruptionLineageRegistry
 var watch_station_network: WatchStationNetwork
@@ -321,6 +323,12 @@ func _ready() -> void:
 	structural_occlusion.name="V2StructuralOcclusion"
 	add_child(structural_occlusion)
 	structural_occlusion.setup(_blockout)
+	var adela_preview_mode:=OS.get_environment("ORISON_ADELA_FOLLOW")
+	if adela_preview_mode=="1" or (adela_preview_mode!="0" and OS.is_debug_build()):
+		adela_preview_follower=preload("res://scripts/characters/adela_preview_follower.gd").new()
+		adela_preview_follower.name="AdelaPreviewFollower"
+		add_child(adela_preview_follower)
+		adela_preview_follower.setup(self)
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	_record_startup_milestone("startup_complete")
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)

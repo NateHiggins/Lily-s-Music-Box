@@ -10607,6 +10607,7 @@ PROP_CATALOG = {
 }
 
 MATERIAL_CATALOG = {
+    'resident_adela_voss': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     "city_grey_brick": {"base_color": [1.0,1.0,1.0,1.0], "roughness": 1.0, "metallic": 0.0},
     "city_slate": {"base_color": [1.0,1.0,1.0,1.0], "roughness": 1.0, "metallic": 0.0},
     "city_roof_clay": {"base_color": [1.0,1.0,1.0,1.0], "roughness": 1.0, "metallic": 0.0},

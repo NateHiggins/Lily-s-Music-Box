@@ -5,13 +5,14 @@ systematic coverage. **Not V2 complete or production/artistic acceptance.**
 Canonical checkout **C:/PleaseRemainOnTheLine**, branch
 **codex/v2-first-view-preparation-20261102**; draft
 [PR151](https://github.com/NateHiggins/Lily-s-Music-Box/pull/151), unmerged.
-Feature source checkpoint **012f76ea4** includes main/weather **fb3167942**.
+Last pushed checkpoint **54b4c07b1** includes main/weather **fb3167942**.
+Adela intake/follower is a new unqualified candidate on this feature branch.
 
-Current physical packet: cohort09 passes31,495/0, schema2 runtime contract,
+Historical physical packet (before Adela inputs): cohort09 passes31,495/0, schema2 runtime contract,
 all13 actual city movement legs81/0, zero raw ERROR headers, ten known resident
 UID fallback warnings. All70 native3440x1440 captures inspected;12 reviewed frames
 published through the atomic publisher with original logs/contract. Strict
-current consumed-input qualification passes0 defects. Original cohort08 failure
+then-current consumed-input qualification passed0 defects. It needs renewal after Adela. Original cohort08 failure
 is retained. See [city ledger](design/V2_CITY_CONTEXT_REPORT_2026-10-19.md).
 
 Isolated book_spine12 now passes101/0, empty stderr: detached viewport cursor,
@@ -21,6 +22,12 @@ the existing nook-profile parent class. Title/current-weather timing remain
 NOT_EXECUTED. Trace that inheritance failure; do not call it stale cache by fiat.
 Owner's latest request is downloaded Adela intake plus a temporary player follower;
 external sources/candidates are in **C:/ov/asset-prototypes/adela-model-intake-20261103/**.
+Native full156,822-triangle tangent/28-bone skin checks pass; canonical producer
+replay is byte-identical. Temporary debug follower is authored, hidden through
+prologue, with env0 opt-out and explicit env1 for release. No Godot acceptance
+yet. Batch **C:/ov/reports/adela_follow_20261103/intake_01/batch.json**, live broker
+**62828** / session **6266**, is queued behind GPU work; poll it, do not restart.
+[Adela intake ledger](design/V2_ADELA_TEMPORARY_FOLLOW_2026-11-03.md).
 New assets require their own loaded proof and fresh physical renewal, not reuse
 of the preceding city-only qualification for an expanded composition.
 See [book ledger](design/V2_BOOK_INSPECTION_RETURN_2026-10-22.md).
