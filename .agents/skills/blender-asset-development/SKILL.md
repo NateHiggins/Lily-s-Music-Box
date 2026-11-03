@@ -127,6 +127,17 @@ source, then compare triangle positions/normals/UVs, named transforms and encode
 images against the original; preserve the failed exports. Do not change palettes,
 wheel normalization or light ownership as an incidental tangent repair.
 
+For skinned native export hooks, copy every skin attribute when splitting
+incompatible tangent corners, and derive handedness from the quantized exported
+frame. Independently compare the final indexed triangle count with the evaluated
+source: a derivative checker can pass a truncated mesh. Flatten NumPy inverse
+indices before setting accessor counts. Reimport representative personal clips;
+Blender may add bone-display helper meshes absent from the GLB, so identify the
+actual skinned meshes rather than counting all imported mesh objects. The
+[Adela intake](../../../design/V2_ADELA_TEMPORARY_FOLLOW_2026-11-03.md) retains these
+failures and native controls; native round trips do not establish Godot behavior.
+
+
 For a partial architectural delivery, merge only its declared replacement stocks
 and moving branch. A complete installed facade may also own marquee supports,
 window surrounds and water tables. Verify untouched draw arrays exactly; in mixed
