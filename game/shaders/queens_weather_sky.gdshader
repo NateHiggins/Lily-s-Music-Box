@@ -306,7 +306,7 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     vec2 deck=vec2(100000.0,-1.0);
     if(direction.y>0.0001) {
         float underside=(wx_formation==1 || spectacle[S_ASPERITAS]>0.0) ? 0.75 : 0.50;
-        deck=vec2(max(0.0,(base-underside-ro.y)/direction.y),min(18.0,(ceiling-ro.y)/direction.y));
+        deck=vec2(max(0.0,(base-underside-ro.y)/direction.y),min(40.0,(ceiling-ro.y)/direction.y));
         if(deck.y<=deck.x) deck=vec2(100000.0,-1.0);
     }
     vec2 funnel=vec2(100000.0,-1.0);
@@ -389,7 +389,9 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
                 tau_sun+=6.0*(density(p+source*0.012,footprint)*0.012+density(p+source*0.035,footprint)*0.023);
                 tau_sun+=d*1.3;
             }
-            float alpha=1.0-exp(-6.0*d*ds);
+            // Past about 10 km a grazing ray steps hundreds of metres at a time and
+            // the deck aliases into rays; thin it into the horizon air instead.
+            float alpha=(1.0-exp(-6.0*d*ds))*(1.0-smoothstep(9.0,24.0,t));
             float h=clamp((p.y-lighting_base)/max(ceiling-lighting_base,0.1),0.0,1.0);
             vec3 cloud_ambient=ambient*mix(1.0,.55+.45*exp(-tau_sun*.2),night);
             vec3 lit=wx_powder_light(d,tau_sun,dot(direction,source),h,
@@ -412,6 +414,8 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
                 float sphere=exp(-dot(offset,offset)/.30);
                 lit+=lightning_tint*flash_intensity*sphere*(1.0-exp(-d*4.0))*12.0;
             }
+            // Distant deck dissolves into the horizon air instead of ending at a line.
+            lit=mix(lit,wx_haze_color(to_sun)*(1.0-.5*night),1.0-exp(-t/24.0));
             sum+=transmittance*alpha*lit;
             transmittance*=1.0-alpha;
         }

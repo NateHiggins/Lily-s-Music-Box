@@ -257,8 +257,8 @@ func lighting(base_sun: Color,base_energy: float,base_ambient: Color,base_ambien
 static func gpu_precipitation(parent_camera: Camera3D,motion: Shader,draw_shader: Shader) -> Array[GPUParticles3D]:
 	# Call ONCE during preparation. Splash emission comes from actual rain contact.
 	var result: Array[GPUParticles3D]=[]
-	var counts := [1800,600,1200,220]
-	var sizes := [Vector2(0.018,0.60),Vector2(0.020,0.16),Vector2(0.065,0.065),Vector2(0.028,0.028)]
+	var counts := [1800,600,2400,220]
+	var sizes := [Vector2(0.018,0.60),Vector2(0.020,0.16),Vector2(0.055,0.055),Vector2(0.028,0.028)]
 	for kind in 4:
 		var process := ShaderMaterial.new();process.shader=motion
 		process.set_shader_parameter("kind",kind)

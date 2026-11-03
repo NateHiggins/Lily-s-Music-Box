@@ -126,17 +126,30 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 			h+=roll.z*.13*sin(h*3.14159265359);
 		} else warp=textureLod(cloud_noise,vec3(q*.043+drift.xy,motion.z),1.0).rg-.5;
 		vec2 marks=q+warp*3.0;
-		if(int(brush.z)==4 || int(brush.z)==9) marks.y*=.32;
-		float mark_scale=genus==1 ? .025 : .18;
+		if(int(brush.z)==4 || int(brush.z)==9) marks.y*=genus==1 ? .70 : .32;
+		// Keep in step with living_sky.gd, which transports the same coordinate.
+		float mark_scale=genus==1 ? .10 : .40;
 		vec3 lookup=vec3(marks*mark_scale+motion.xy,h*.55+motion.z*2.0);
 		vec2 field;
 		if(living_fluid_enabled) {
 			// Nested Worley deformation is small enough to retain broad families.
-			float detail_lod=clamp(log2(max(1.0,64.0*3.0*max(qwidth*mark_scale,hwidth*.55))),1.0,5.0);
-			float macro_lod=clamp(log2(max(1.0,128.0*max(qwidth*mark_scale,hwidth*.55))),1.0,6.0);
+			// A distant view ray covers many texels too: without this the far deck
+			// aliases into fans converging on the horizon.
+			float view_width=length(p.xz-wx_camera_km.xz)*.012/max(brush.x,.1);
+			float width=max(qwidth,view_width)*mark_scale;
+			float detail_lod=clamp(log2(max(1.0,64.0*3.0*max(width,hwidth*.55))),1.0,5.0);
+			float macro_lod=clamp(log2(max(1.0,128.0*max(width,hwidth*.55))),1.0,6.0);
 			vec2 detail=textureLod(cloud_noise,lookup*3.0,detail_lod).rg;
 			lookup.xy+=(detail-.5)*.10;
 			field=vec2(textureLod(cloud_macro,lookup,macro_lod).r,detail.g);
+			// The tile repeats every few kilometres, and in perspective a repeating
+			// grid reads as rays from the horizon. Far away, cross-fade to a slower
+			// rotated copy so the deck has no axis left to show.
+			float far_field=smoothstep(7.0,22.0,length(p.xz-wx_camera_km.xz));
+			if(far_field>.001) {
+				vec2 slow=mat2(vec2(.80,-.60),vec2(.60,.80))*lookup.xy*.31;
+				field.x=mix(field.x,textureLod(cloud_macro,vec3(slow,lookup.z),macro_lod).r,far_field);
+			}
 		} else field=textureLod(cloud_noise,lookup,1.0).rg;
 		texture_detail=field.y;
 		// Sculpt both bearings with the existing volume sample. The former
@@ -149,12 +162,29 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		if(int(brush.z)==5) mass+=sin(q.y*2.2+drift.z+warp.x*4.0)*.08;
 		if(int(brush.z)==6) mass+=sin(q.x*.16+drift.w)*.10;
 		if(int(brush.z)==8) mass-=.07*(1.0-field.y);
-		body=smoothstep(.70-.40*sqrt(coverage),.79-.40*sqrt(coverage),mass);
+		body=smoothstep(.70-.40*sqrt(coverage),.75-.40*sqrt(coverage),mass);
+		// Billowed edges on the view ray only: the lighting taps keep their
+		// filtered footprint and spend nothing on detail they could not resolve.
+		if(living_fluid_enabled && qwidth==0.0 && body>.001 && body<.999) {
+			// Fine detail fades out before it is smaller than a pixel; unfiltered
+			// it aliased into rays converging on the horizon.
+			float distance_km=length(p.xz-wx_camera_km.xz);
+			float near_detail=1.0-smoothstep(5.0,16.0,distance_km);
+			if(near_detail>.001) {
+				float billow=textureLod(cloud_noise,lookup*7.0,clamp(1.0+log2(1.0+distance_km*.6),1.0,5.0)).g;
+				body=clamp(body-(1.0-billow)*.55*near_detail*(1.0-body),0.0,1.0);
+			}
+		}
 		body=mix(body,.7+.3*field.x,smoothstep(.88,1.0,coverage));
 		// Small cells belong to broad families, with open sky between families.
 		// Reuse the existing warp tap rather than adding another noise octave.
 		float family=smoothstep(.36-.20*coverage,.60-.20*coverage,warp.x+.5);
 		body*=mix(family,1.0,smoothstep(.70,.96,coverage));
+		// The high plane reaches 100 km and more. Past what the eye could resolve
+		// it is a thin even veil, not a pattern repeated thirty times over.
+		float veil=smoothstep(26.0,60.0,length(p.xz-wx_camera_km.xz));
+		body=mix(body,coverage*.7,veil);
+		texture_detail=mix(texture_detail,.5,veil);
 	}
 	float envelope=cloud_filtered_ramp(0.0,.10,h,hwidth)*(1.0-cloud_filtered_ramp(.72,1.0,h,hwidth));
 	float sculpted=living_fluid_enabled && genus!=0 ? wx_height_erosion(body,texture_detail,h,1.0) : max(0.0,body-(1.0-texture_detail)*.12);
@@ -279,7 +309,9 @@ vec3 wx_powder_light(float density_value,float sun_tau,float mu,float height01,
 	float phase=0.85*wx_hg(mu,0.68)+0.15*wx_hg(mu,-0.25);
 	float twilight=(1.0-smoothstep(0.03,0.28,abs(to_sun.y)))
 		*smoothstep(-0.12,0.02,to_sun.y);
-	vec3 low_air=ordinary_ambient*vec3(1.18,0.80,0.52);
+	// The warm bounce under a cloud belongs to a low Sun. At midday a cloud base
+	// is cool grey; a fixed warm tint turned every low deck sand-coloured.
+	vec3 low_air=ordinary_ambient*mix(vec3(1.18,0.80,0.52),vec3(.86,.90,.98),smoothstep(.12,.45,to_sun.y));
 	vec3 high_air=ordinary_ambient*vec3(0.78,0.89,1.12);
 	vec3 ambient=mix(low_air,high_air,height01)*(1.0-0.12*wetness);
 	ambient=mix(ambient,ambient*vec3(1.25,.35,.85),wx_blood_rain*.75);
