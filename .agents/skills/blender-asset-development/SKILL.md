@@ -135,6 +135,14 @@ source faces. Do not replace the full asset with a portal-only GLB.
 
 ## Verify in a bounded batch
 
+Before replaying a producer that saves editable sources, inspect ignored Blender
+backups as well as Git status. Preserve existing numbered backups with verified
+hashes outside the checkout before the producer can overwrite them. Remove a
+new duplicate only after comparing its bytes with the recorded prior source;
+never treat every ignored backup as disposable. The November3 three-house
+source replay in the [city ledger](../../../design/V2_CITY_CONTEXT_REPORT_2026-10-19.md)
+records this custody check and unchanged exported geometry separately.
+
 Finish native diffuse/grazing/back-side and motion-extreme review before a
 combined Godot capture. Include a failed or deliberately wrong control where it
 can expose a real weakness. For deforming assets, check rooted attachments,
