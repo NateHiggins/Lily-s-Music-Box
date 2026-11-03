@@ -380,14 +380,7 @@ func _try_prologue_entry() -> void:
 		_opening_placed = true
 	if not _opening_render_prepared and shell.owns_opening_veil(self):
 		_opening_starting=true
-		var entry: Dictionary=arrival_placement()
-		var views: Array[Transform3D]=[]
-		if entry.get("position") is Vector3 and (entry.position as Vector3).is_finite():
-			var eye_height:=player.camera.position.y
-			var at:=to_global(entry.position as Vector3)+Vector3.UP*eye_height
-			for angle in [0.,90.,180.,270.]:
-				views.append(Transform3D(global_basis.orthonormalized()*Basis(Vector3.UP,deg_to_rad(angle)),at))
-		opening_render_preparation=preload("res://scripts/building/v2_entry_render_preparation.gd").prepare(player.camera,views,Callable(self,"_owns_opening_preparation"))
+		opening_render_preparation=preload("res://scripts/building/v2_entry_render_preparation.gd").prepare(player.camera,opening_render_views(),Callable(self,"_owns_opening_preparation"))
 		_opening_starting=false
 		if bool(opening_render_preparation.get("cancelled",false)):return
 		_opening_render_prepared=true
@@ -420,6 +413,19 @@ func _try_prologue_entry() -> void:
 		startup_failed = true
 		startup_failure_reason = "Production prologue presentation failed"
 		shell.release_opening_veil(self)
+
+
+func opening_render_views() -> Array[Transform3D]:
+	# Shared production policy for entry and the matched short-route diagnostic.
+	# These are renderer-only views; never move the player to these positions.
+	var views: Array[Transform3D]=[]
+	if not is_instance_valid(player) or not is_instance_valid(player.camera):return views
+	var entry: Dictionary=arrival_placement()
+	if entry.get("position") is Vector3 and (entry.position as Vector3).is_finite():
+		var at:=to_global(entry.position as Vector3)+Vector3.UP*player.camera.position.y
+		for angle in [0.,90.,180.,270.]:
+			views.append(Transform3D(global_basis.orthonormalized()*Basis(Vector3.UP,deg_to_rad(angle)),at))
+	return views
 
 
 func _owns_opening_preparation() -> bool:

@@ -158,12 +158,19 @@ func _run_stutter_probe() -> void:
 		var recoveries_before: int=world.safety_net.recoveries
 		if await _opposing_start(city,programme.start,"stutter_laurel_start",true):
 			await _station_view("stutter_laurel_start",programme.target)
-			if OS.get_environment("ORISON_CITY_STUTTER_PREPARE_RENDER")=="1":
+			var preparation_mode:=OS.get_environment("ORISON_CITY_STUTTER_PREPARE_RENDER")
+			check(preparation_mode in ["","1","entry"],"render preparation diagnostic mode is explicit")
+			if preparation_mode in ["1","entry"]:
 				check(not hide_diner,"only one rendering control is selected")
 				if not hide_diner:
 					# Leave frame_post_draw's signal stack before forcing redraws.
 					await get_tree().process_frame
-					preparation=_prepare_render_camera(player.camera)
+					if preparation_mode=="entry":
+						# Use the exact production entry policy, not camera headings at
+						# the route fixture that may make the diagnostic easier.
+						preparation=preload("res://scripts/building/v2_entry_render_preparation.gd").prepare(player.camera,world.opening_render_views(),func():return is_instance_valid(world) and not get_tree().paused and player.camera.is_current())
+						check(preparation.completed and preparation.render_calls==10,"production entry views finish all bounded draws")
+					else:preparation=_prepare_render_camera(player.camera)
 					check(preparation.node_pose_unchanged,"render preparation leaves the camera node pose unchanged")
 			var probe:=preload("res://tests/v2_frame_work_probe.gd").new()
 			probe.host=self;add_child(probe)
@@ -176,6 +183,7 @@ func _run_stutter_probe() -> void:
 			settings={"resolution":str(viewport.get_visible_rect().size),"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"scaling_3d_scale":viewport.scaling_3d_scale,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"screen_refresh_hz":DisplayServer.screen_get_refresh_rate(),"camera_fov":player.camera.fov,"daynight_force":OS.get_environment("DAYNIGHT_FORCE"),"weather_network_enabled":GameBoot.settings.weather_network_enabled,"seed":1928}
 			settings["hide_diner_reflection_diagnostic_only"]=hide_diner
 			settings["render_preparation_diagnostic_only"]=not preparation.is_empty()
+			settings["render_preparation_mode"]=preparation_mode
 			for cycle in 3:
 				if not failures.is_empty():break
 				for index in programme.points.size():
