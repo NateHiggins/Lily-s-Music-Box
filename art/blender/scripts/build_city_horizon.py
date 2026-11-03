@@ -51,6 +51,37 @@ def occluding_neighbours(rows,identity):
             result.append(dict(other,rect=rect))
     return result
 
+def validate_retained_construction_context(plan):
+    context=plan.get('retained_construction_context',{})
+    if not context:return True
+    rows={r['id']:r for r in plan['buildings']}
+    for key in ['baseline_plan_sha256','baseline_fixture_sha256']:
+        digest=context[key]
+        assert isinstance(digest,str) and len(digest)==64 and all(c in '0123456789abcdef' for c in digest),key
+    assert context['profiles']
+    for identity,entry in context['profiles'].items():
+        assert identity in rows and rows[identity].get('architecture',{}).get('type')!='packet_front',identity
+        actual=hashlib.sha256(json.dumps(rows[identity],sort_keys=True,separators=(',',':')).encode()).hexdigest()
+        assert actual==entry['profile_sha256'],(identity,'retained construction profile changed')
+        neighbours=entry['neighbours'];assert neighbours,identity
+        assert len({json.dumps(r,sort_keys=True) for r in neighbours})==len(neighbours),identity
+        for other in neighbours:
+            assert set(other)=={'id','rect','height_m','grade_datum_m'} and other['id'] in rows and other['id']!=identity,identity
+            a,b,c,d=other['rect']
+            assert a<c and b<d and float(other['height_m'])>0 and all(math.isfinite(float(v)) for v in [a,b,c,d,other['height_m'],other['grade_datum_m']]),identity
+    return True
+
+def construction_neighbours(rows,identity,context):
+    # Completed masonry/trim does not grow apertures when another lot is
+    # remodeled. This is its authored construction input, not a claim that
+    # old neighbour solids exist in the live world. Rays use exported meshes.
+    fixed=context.get('profiles',{}).get(identity)
+    if fixed is not None:
+        return [dict(r,rect=list(r['rect'])) for r in fixed['neighbours']]
+    return occluding_neighbours(rows,identity)
+
+validate_retained_construction_context(plan)
+
 for row in plan['buildings']:
     outline=building_outline(row)
     samples=[(x,-y) for x,y in outline]
@@ -109,7 +140,7 @@ for family in ['near','far']:
         h=float(row['height_m']);depth=float(row['reveal_m']);recess=float(row['glass_recess_m'])
         study=row.get('architecture',{});outline=building_outline(row)
         if study.get('type') in ['industrial_front','mill_front','eastern_row','residential_front','packet_front']:
-            neighbours=occluding_neighbours(rows,name)
+            neighbours=construction_neighbours(rows,name,plan.get('retained_construction_context',{}))
             constructor={'industrial_front':IndustrialBuildings,'mill_front':MillLofts,'eastern_row':EasternRows,'residential_front':ResidentialHouses,'packet_front':PacketBuildings}[study['type']]
             if study.get('style') in EasternHouses.STYLES:constructor=EasternHouses
             if study.get('style') in CourtApartments.STYLES:constructor=CourtApartments
@@ -209,7 +240,7 @@ for family in ['near','far']:
                     left=bay*pitch;right=left+pitch;cx=(left+right)*.5
                     first=origin+tangent*left+out*.02;last=origin+tangent*right+out*.02
                     axis_aligned=abs(tangent.x)<1e-8 or abs(tangent.y)<1e-8
-                    if axis_aligned and party_wall_overlap((first.x,-first.y),(last.x,-last.y),bottom+row['grade_datum_m'],occluding_neighbours(rows,name)):
+                    if axis_aligned and party_wall_overlap((first.x,-first.y),(last.x,-last.y),bottom+row['grade_datum_m'],construction_neighbours(rows,name,plan.get('retained_construction_context',{}))):
                         local_box(name,row['wall_key'],origin,tangent,out,(left,-depth,bottom),(right,0,top))
                         continue
                     entrance=study.get('entrance',{})

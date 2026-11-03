@@ -1,5 +1,41 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+### Current retained-facade preservation — November 3
+
+Evidence class: **INERT**.
+
+The third attempt is terminal1 at the unchanged comparison guard: all1538
+replacement parts match delivery, but26of665retained parts changed across four
+profiles because new neighbours changed implicit construction inputs. Native
+assembly and393far/street raw-array/Scene/map checks passed; all four editable
+sources remain below95MiB. No Godot followup ran.
+
+The correction preserves four completed facades' original construction context
+(seven minimal source-bound neighbour records), separate from live occlusion.
+A private CPU control reproduces all46affected base/lower parts and219pane
+witnesses exactly. A deliberately incomplete context still fails10parts; that
+negative control is retained. All39profile rows and124reservations remain
+unchanged; all85new profiles use current construction inputs. Eleven focused
+static tests pass. These are native/source checks, not runtime acceptance.
+
+Fourth attempt is queued: native session82410/broker49456;
+guarded followup session5324/pid66684 waits on that exact broker. Batch and
+frozen inputs: C:/ov/reports/native_intake_20261102/city_packets/attempt_04/.
+It regenerates the ground owner's new plan binding, requires five unchanged
+ground/street outputs, all2203original comparisons, all2678retained pane
+witnesses,13fixture bindings and native tests. Only then may it queue loaded
+imports/compile/representative LOD captures. Do not duplicate or edit consumed
+city/entry inputs. Current custody: ACTIVE_QUALIFICATION.json beside city_packets.
+
+All local city generated assets remain unqualified/unmerged. Loaded mipmaps,
+P2 explicit184-pane replacement with46neighbour rays, collision/access,
+composed lighting/LOD/performance and candidate verification remain pending.
+Earlier failure files and immutable baselines are preserved. WiderV2,
+hose/book/nook and golden-shift work remain active.
+
+Earlier failure/retry descriptions below are historical; current custody above
+supersedes their queued/live labels. They are not current runtime evidence.
+
 ### Far editable-source size failure and bounded repair — November 3
 
 Evidence class: **INERT**. The first native batch is terminal exit1, not a

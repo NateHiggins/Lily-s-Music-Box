@@ -1,37 +1,33 @@
-# Current continuation — November 3 developer-chat handoff
+# Current continuation — November 3 city retained-facade repair
 
-**Current direction — finish complete city packet integration.** First native
-batch32252/session22287 is terminal1: ground/street exports unchanged, but far
-native106,612,782B exceeds strict95MiB. Original file and failure evidence are
-preserved in C:/ov/reports/native_intake_20261102/city_packets/failure_01/.
-Old followup24988/session77841 stopped; no Godot run queued from it.
+The third attempt is terminal1 at the unchanged comparison guard: all1538
+replacement parts match delivery, but26of665retained parts changed across four
+profiles because new neighbours changed implicit construction inputs. Native
+assembly and393far/street raw-array/Scene/map checks passed; all four editable
+sources remain below95MiB. No Godot followup ran.
 
-Second retry62408/session90385 and followup51316/session46487 are terminal1:
-Blender exited11 in Scene-copy view-layer code before the split could save.
-All28base GLBs still match; crash/logs preserved in city_packets/attempt_02/.
-Tiny CPU reproduction: rawScene write11;view-layer sync0;active sync0; successful
-files reopen populated. Producer now updates the new Scene's view layer before
-library write; Blender skill updated/validated. No full city split pass yet.
+The correction preserves four completed facades' original construction context
+(seven minimal source-bound neighbour records), separate from live occlusion.
+A private CPU control reproduces all46affected base/lower parts and219pane
+witnesses exactly. A deliberately incomplete context still fails10parts; that
+negative control is retained. All39profile rows and124reservations remain
+unchanged; all85new profiles use current construction inputs. Eleven focused
+static tests pass. These are native/source checks, not runtime acceptance.
 
-Third retry is QUEUED: session46650/broker46776, attempt_03/assembly_batch.json.
-Guarded followup session89083/pid43772 waits on that exact broker and queues
-loaded_01 only after all native stages/2203comparisons/13fixtures pass.
-Do not launch duplicates. Freeze city/entry inputs; poll the same live handles.
-Current authority: C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
+Fourth attempt is queued: native session82410/broker49456;
+guarded followup session5324/pid66684 waits on that exact broker. Batch and
+frozen inputs: C:/ov/reports/native_intake_20261102/city_packets/attempt_04/.
+It regenerates the ground owner's new plan binding, requires five unchanged
+ground/street outputs, all2203original comparisons, all2678retained pane
+witnesses,13fixture bindings and native tests. Only then may it queue loaded
+imports/compile/representative LOD captures. Do not duplicate or edit consumed
+city/entry inputs. Current custody: ACTIVE_QUALIFICATION.json beside city_packets.
 
-Source plan85changes/39retained/124reservations and the comparison baselines are
-preserved. Canonical has dirty unqualified complete base-block exports; final
-horizon runtime manifest/lower bodies are old because the producer stopped.
-Do not play or publish this intermediate state as accepted. No runtime/LOD/
-performance/artistic acceptance or main merge. Architect authoring is stopped.
-Loaded diagnostics authored at1f25e31f7 remain uncompiled/unrendered; spatial
-audit59/0. Original oversized native is outside Git; never stage that106MB file.
-
-Render-preparation candidate is safely pushed at d1c3b036c, still uncompiled and
-unrendered. Optical16 and the rejected conditional physical job are terminal;
-no owned Godot run remains active. Existing hose/book/nook and widerV2 remain
-open. Older evidence below must not be relabelled as new-city qualification.
-
+All local city generated assets remain unqualified/unmerged. Loaded mipmaps,
+P2 explicit184-pane replacement with46neighbour rays, collision/access,
+composed lighting/LOD/performance and candidate verification remain pending.
+Earlier failure files and immutable baselines are preserved. WiderV2,
+hose/book/nook and golden-shift work remain active.
 
 **Latest continuation:** footprint16 is **terminal exit0**, seven stages and
 both128-input guards pass. Five scripts compile16.62s/empty stderr. Small

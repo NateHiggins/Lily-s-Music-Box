@@ -21139,5 +21139,110 @@
       }
     }
   ],
-  "body_lod_error_m": 0.08
+  "body_lod_error_m": 0.08,
+  "retained_construction_context": {
+    "scope": "Compile-only authored masonry/opening/trim inputs for four completed facades. These historical construction footprints are not current-world visibility or collision volumes. Runtime uses actual exported meshes.",
+    "baseline_commit": "d1c3b036cbd161b7380c7635322c8d86094bc970",
+    "baseline_plan_sha256": "e95ab4051af24d3d742d05880fd07bcb3df1d51e414969a093d9c1558484c790",
+    "baseline_fixture_sha256": "785e72193adb411fd53a579d29d23a7526c4c0b21e63cb76fc551cc45d37927c",
+    "profiles": {
+      "HORIZON_FAR_2_1_P1": {
+        "profile_sha256": "8c0cb13f3fe5627a1aa6f893f906b136c24f7dabb7423dcb785820a9315fdd13",
+        "neighbours": [
+          {
+            "id": "HORIZON_FAR_2_1_P2",
+            "rect": [
+              -225,
+              109.5,
+              -207,
+              158.25
+            ],
+            "height_m": 16,
+            "grade_datum_m": 0.0
+          },
+          {
+            "id": "HORIZON_FAR_2_1_P0",
+            "rect": [
+              -225,
+              12.0,
+              -207,
+              60.75
+            ],
+            "height_m": 19.2,
+            "grade_datum_m": 0.0
+          }
+        ]
+      },
+      "HORIZON_NEAR_0_0_P0R1": {
+        "profile_sha256": "75228e16a00a015d47dd1f42cf181e9d15943034e6b22b127850c86c9444218f",
+        "neighbours": [
+          {
+            "id": "HORIZON_NEAR_0_0_P0R2",
+            "rect": [
+              -135.33333333333334,
+              -170,
+              -128.0,
+              -150
+            ],
+            "height_m": 9.6,
+            "grade_datum_m": 0.0
+          },
+          {
+            "id": "HORIZON_NEAR_0_0_P0R0",
+            "rect": [
+              -150.0,
+              -170,
+              -142.66666666666666,
+              -150
+            ],
+            "height_m": 10.55,
+            "grade_datum_m": 0.0
+          }
+        ]
+      },
+      "HORIZON_NEAR_0_0_P2": {
+        "profile_sha256": "117f689eeef5954614376281970fe607177e3ad6cb5382715ad0dbf142882d03",
+        "neighbours": [
+          {
+            "id": "HORIZON_NEAR_0_0_P1",
+            "rect": [
+              -128.0,
+              -170,
+              -106.0,
+              -150
+            ],
+            "height_m": 10.8,
+            "grade_datum_m": 0.0
+          }
+        ]
+      },
+      "HORIZON_NEAR_0_1_P0R2": {
+        "profile_sha256": "f7b000cdba2b037d0a557b5b3cd7a2589a5e3d251f6dc3997ec3b745805a5ca7",
+        "neighbours": [
+          {
+            "id": "HORIZON_NEAR_0_1_P1",
+            "rect": [
+              -46.0,
+              -170,
+              -26.0,
+              -150
+            ],
+            "height_m": 16,
+            "grade_datum_m": 0.0
+          },
+          {
+            "id": "HORIZON_NEAR_0_1_P0R1",
+            "rect": [
+              -59.333333333333336,
+              -170,
+              -52.666666666666664,
+              -150
+            ],
+            "height_m": 10.049999999999999,
+            "grade_datum_m": 0.0
+          }
+        ]
+      }
+    }
+  }
 }
