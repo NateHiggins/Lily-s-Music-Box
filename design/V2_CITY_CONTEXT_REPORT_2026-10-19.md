@@ -46,6 +46,21 @@ runs their owners in dependency order,checks unchanged ground/street exports,
 then all13fixture bindings and the horizon regression suite. This is source
 qualification work, not a new runtime result.
 
+The pending loaded diagnostic now accepts an explicit profile roster rather
+than assuming exactly three factories. Its packet study views use each actual
+rigid registration and complete imported bounds; the isolated camera explicitly
+keeps height so the vertical FOV bounds the wide native viewport. These changes
+are authored only: no Godot compile, image or LOD result is claimed yet.
+The gated external batch preparer selects nine construction/roof representatives,
+imports twice around mesh precision policy, compiles the changed scripts,then
+runs the small entry bench and loaded city/LOD bench on the hidden desktop.
+It refuses preparation until all native phases and2203part comparisons pass.
+
+The mandated spatial manifest refresh exposed CRLF output for its hash-bound
+-text file. Its owner now writes explicit LF; refreshed bytes are LF-only and
+the existing spatial-audit self-tests pass59/0 in8.415s. No production gameplay
+code changed in this diagnostic checkpoint. Native assembly remains queued.
+
 ### Current-weather physical renewal passes — November 3
 
 Evidence class: **INERT**. Cohort09 at **012f76ea42d66b357d147e9e2c20b615b7c4986b**

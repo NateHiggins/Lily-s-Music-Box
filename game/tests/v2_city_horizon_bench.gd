@@ -298,7 +298,7 @@ func _study_reviews(fixture: Dictionary,horizon: Node3D,ground: Node3D) -> void:
 	settings.ambient_light_color=Color(.62,.72,.8);settings.ambient_light_energy=.7
 	environment.environment=settings;add_child(environment)
 	var sun:=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-40,-25,0);sun.light_energy=2.8;sun.shadow_enabled=true;add_child(sun)
-	var camera:=Camera3D.new();camera.fov=48;camera.far=1500;add_child(camera);camera.make_current()
+	var camera:=Camera3D.new();camera.fov=48;camera.far=1500;camera.keep_aspect=Camera3D.KEEP_HEIGHT;add_child(camera);camera.make_current()
 	var captures:=0
 	var chosen:=OS.get_environment("CITY_STUDY_IDS").split(",",false)
 	var draws: Array=horizon.find_children("*","MeshInstance3D",true,false)
@@ -312,14 +312,22 @@ func _study_reviews(fixture: Dictionary,horizon: Node3D,ground: Node3D) -> void:
 		var width: float=r[2]-r[0];var height:=float(row.height_m)
 		camera.position=Vector3(center+width*.25,height*.55,r[3]+maxf(20,width*1.35))
 		camera.look_at(Vector3(center,height*.48,r[3]-1))
-		if str(row.architecture.get("type",""))=="industrial_front":
+		if str(row.architecture.get("type","")) in ["industrial_front","packet_front"]:
 			var box:=AABB();var first:=true
 			for draw: MeshInstance3D in draws:
 				if not draw.visible:continue
 				box=draw.global_transform*draw.get_aabb() if first else box.merge(draw.global_transform*draw.get_aabb())
 				first=false
-			check(not first,"nonempty full industrial optical view")
+			check(not first,"nonempty full authored optical view")
 			var aim:=box.get_center();var direction:=Vector3(1.,.12,.18).normalized()
+			if str(row.architecture.get("type",""))=="packet_front":
+				# The delivered registration rotates the facade; reservation axes
+				# cannot identify its front. Convert the native direction once.
+				var frame:Array=row.architecture.native_frame
+				var local:=Vector3(.35,-1.,.18)
+				var native:=Vector3.ZERO
+				for axis in 3:native[axis]=Vector3(frame[axis][0],frame[axis][1],frame[axis][2]).dot(local)
+				direction=Vector3(native.x,native.z,-native.y).normalized()
 			camera.global_position=aim+direction*box.size.length()*.5/sin(deg_to_rad(camera.fov*.5))*1.25
 			camera.look_at(aim)
 		await get_tree().create_timer(.3).timeout
@@ -392,8 +400,15 @@ func _profile_industrial(horizon: Node3D,ground: Node3D,camera: Camera3D,fixture
 	viewport.use_taa=false;DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED);Engine.max_fps=0
 	RenderingServer.viewport_set_measure_render_time(viewport.get_viewport_rid(),true)
 	var observations: Array[Dictionary]=[];var transitions: Dictionary={};var seen:=0
+	var chosen:=OS.get_environment("CITY_PROFILE_IDS").split(",",false)
+	var expected:Dictionary={}
+	for profile:Dictionary in fixture.buildings:
+		var selected:bool=str(profile.get("architecture",{}).get("type",""))=="industrial_front"
+		if not chosen.is_empty():selected=str(profile.id) in chosen
+		if selected:expected[str(profile.id)]=true
+	check(not expected.is_empty() and (chosen.is_empty() or expected.size()==chosen.size()),"requested city profile roster exists exactly")
 	for profile: Dictionary in fixture.buildings:
-		if str(profile.get("architecture",{}).get("type",""))!="industrial_front":continue
+		if not expected.has(str(profile.id)):continue
 		var identity:=str(profile.id);seen+=1
 		var bounds:=AABB();var first:=true
 		for draw: MeshInstance3D in draws:
@@ -419,11 +434,11 @@ func _profile_industrial(horizon: Node3D,ground: Node3D,camera: Camera3D,fixture
 			if str(spec.id) in ["near","far"]:check(viewport.get_texture().get_image().save_png(directory.path_join(identity+"_profile_"+str(spec.id)+".png"))==OK,"industrial complete-body profile capture saved")
 		check(int(family_rows[1].primitives)<int(family_rows[0].primitives),"actual industrial complete replacement reduces indices: "+identity)
 		transitions[identity]=await _profile_natural(horizon,camera,draws,identity,str(profile.wall_key),directory)
-	check(seen==3,"three explicitly authored industrial studies execute")
+	check(seen==expected.size() and seen>0,"every requested authored city profile executes")
 	for draw: MeshInstance3D in draws:draw.visible=bool(visibility[draw])
 	ground.visible=ground_visible
 	check(sources==_industrial_sources(horizon),"industrial loaded sources unchanged through measured frames")
-	var record: Dictionary={"evidence_class":"INERT","scope":"Isolated current imported industrial bodies,90 warmed uncapped frames per case,repeated near/far and actual material-body LOD transitions. No matched baseline,wholeworld performance,played access or artistic acceptance. Ground hidden for isolated body timings;captures excluded from timing windows.","observations":observations,"natural_transitions":transitions,"loaded_materials":_industrial_materials(horizon),"source_hashes":sources,"checks":checks,"failures":failures,"settings":{"resolution":str(viewport.get_visible_rect().size),"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps}}
+	var record: Dictionary={"evidence_class":"INERT","scope":"Isolated selected imported city bodies,90 warmed uncapped frames per case,repeated near/far and actual material-body LOD transitions. No matched baseline,wholeworld performance,played access or artistic acceptance. Ground hidden for isolated body timings;captures excluded from timing windows.","requested_profiles":expected.keys(),"observations":observations,"natural_transitions":transitions,"loaded_materials":_industrial_materials(horizon),"source_hashes":sources,"checks":checks,"failures":failures,"settings":{"resolution":str(viewport.get_visible_rect().size),"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps}}
 	var file:=FileAccess.open(directory.path_join("city_industrial_profile.json"),FileAccess.WRITE)
 	check(file!=null,"industrial rendering diagnostic opens")
 	if file!=null:
