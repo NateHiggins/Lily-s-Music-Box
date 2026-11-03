@@ -118,3 +118,35 @@ This movement revision is uncompiled/unverified until retry.
 **intake_03/batch.json**, broker**63084**/session**62087**, is queued for the same
 compile/fixture/world/nook-parent sequence. Original32268/80997 is terminal1;
 do not restart it. No renewed physical packet, candidate or merge acceptance.
+
+## Step fix passes; installed-world start corrected
+
+**intake_03** compiled5/0 and passed all15 rendered fixture assertions in14.23s,
+with empty shutdown stderr. Step completion now records actorX6.852 on floor
+beyond the5.15–5.85m obstacle. Its production input digest is
+**6fcbb2cf101ccaf87babf0fff07e93cfba99b7be51077a39c99c17835645dafc**.
+This is isolated interaction verification, not installed-world acceptance.
+
+The following installed-world run executed all five player waypoints but failed
+three follower assertions. Its schema2 contract correctly says **passed:false**.
+The inherited driver had relocated the player after Adela spawned: her initial
+street position stayed **(0,0,3.1)** while the player was moved inside. The source's
+bounded no-teleport guard correctly refused that discontinuity. The captured
+corridor view contains no visible Adela, so its frame arrays do not establish her
+rendering cost. Keep the original failed contract, image and logs unchanged.
+
+The driver now overrides that diagnostic placement with **pass**, preserves the
+actual street arrival, opens the existing front door through grab/mouse/release,
+and walks into the lobby before the original corridor/stair legs. It requires
+ten played waypoints with zero diagnostic relocations, retains the original
+movement/catch-up/support assertions, waits for actual composition completion
+and records trail state and the head's physical line blocker for interpretation.
+
+**intake_04/batch.json**, broker**17256**/session**67677**, is queued. Its fixture
+reuse guard has already passed: prior receipt/stdout, exact fixture/scene/window
+helper sources and complete production digest match. It will recheck at admission;
+the unchanged fixture is not rerun. Then compile, real-arrival world route and
+nook-parent compile. Original63084/62087 is terminal1. No new physical packet,
+world pass or merge acceptance is claimed. The native source's skin-influence
+audit also confirms all78,620 vertices have1–4 influences; none require truncation
+beyond the exported four-weight layout (**SKIN_INFLUENCE_REVIEW.json**, external).

@@ -5,7 +5,8 @@ systematic coverage. **Not V2 complete or production/artistic acceptance.**
 Canonical checkout **C:/PleaseRemainOnTheLine**, branch
 **codex/v2-first-view-preparation-20261102**; draft
 [PR151](https://github.com/NateHiggins/Lily-s-Music-Box/pull/151), unmerged.
-Last pushed checkpoint **54b4c07b1** includes main/weather **fb3167942**.
+Main baseline **fb3167942** is integrated; use Git for current feature HEAD.
+The fixed book input checkpoint remains **54b4c07b1**.
 Adela intake/follower is a new unqualified candidate on this feature branch.
 
 Historical physical packet (before Adela inputs): cohort09 passes31,495/0, schema2 runtime contract,
@@ -32,8 +33,14 @@ while queued. Poll consolidated **C:/ov/reports/adela_follow_20261103/intake_02/
 original broker **32268** / session **80997** is now terminal1: compile5/0,
 fixture13/15 with two step-crossing failures. Three frames inspected; no world
 or nook-parent stage executed. Grounded breadcrumb/step-progress fix is authored.
-Poll **intake_03/batch.json**, live broker **63084** / session **62087**. Do not
-restart old jobs. Import-generated churn was cleaned with external provenance.
+Intake03 now passes compile5/0 and fixture15/0 with empty stderr, then fails
+three installed-world follower assertions: the inherited initial test placement
+occurred after Adela spawned and correctly tripped her no-teleport guard. Its
+failed source-bound contract is retained; no world pass. The revised driver uses
+actual arrival, existing physical entrance and ten walked waypoints, no relocation.
+Poll **intake_04/batch.json**, live broker **17256** / session **67677**. Its source
+reuse guard skips the unchanged15/0 fixture. Original63084/62087 is terminal1;
+do not restart old jobs. Import churn was cleaned with external provenance.
 [Adela intake ledger](design/V2_ADELA_TEMPORARY_FOLLOW_2026-11-03.md).
 New assets require their own loaded proof and fresh physical renewal, not reuse
 of the preceding city-only qualification for an expanded composition.
