@@ -1,5 +1,41 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+### Three-house canonical intake WIP — November 3
+
+Evidence class: **INERT**. Integrating architect source **2a59a5066** with the
+current moon/main and entry-preparation cohort. Original isolated execution at
+**b474d8b23** records1085 checks/0 failures; its evidence checkpoint is
+**599813f21** on the preserved city branch. This is not current composed proof.
+The runtime archive hash **21f66bc2b2fb9cd72eeef098655c44bb9687d488a042d4f8a4830f37f57e8949**
+and all258 consumed hashes were independently checked; all33 PNG headers are
+3440x1440, and the integrator viewed the three near-front frames. The architect's
+broader image review remains separately attributed. No artistic acceptance.
+
+The exact124 reservations remain; only **HORIZON_NEAR_3_0_P0R0**,
+**HORIZON_NEAR_3_0_P0R1** and **HORIZON_NEAR_3_0_P0R2** change. The other121
+source/runtime/construction building records match main. Independent decoded
+glTF comparisons preserve all17 near and11 lower non-target mesh-node transforms,
+indices, positions, normals, UVs, tangents and material payloads in the two
+replaced shards. Existing factory-clock scratch-name repair remains. Five
+source-geometry tests pass, including the new house stock and factory courtyard
+occlusion control. Source fixtures/native files currently retain the original
+candidate as provisional inputs; no source binding is manually repinned.
+
+Next: existing ground-apron then horizon producers must regenerate the dependent
+records against canonical sources. Compare all37 export hashes and runtime data
+with the frozen candidate, confirm retained construction measurements and all13
+source preflights, and commit only declared producer outputs before Godot.
+Import, loaded family, actual title and a matched six-leg performance pair are
+planned in one shared-lane batch with per-run environments. None is claimed to
+have run for this cohort. Actual standing-player connector at source-local
+x150.70, composed lighting/LOD/access, affected saves, full surface renewal,
+static candidate comparison and main merge remain open. The old isolated137.338ms
+transition spike remains debt. Do not reuse the isolated receipt as current-main
+or whole-city acceptance.
+
+External intake, retained-buffer proof and reconciliation map:
+**C:/ov/reports/entry_render_preparation_20261102/city_intake_04/**.
+
 ### Factory clock and composed qualification checkpoint — November 2
 
 Evidence class: **INERT**. Pushed feature **17944721e** includes corrected

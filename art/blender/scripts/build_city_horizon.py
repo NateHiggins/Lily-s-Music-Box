@@ -10,7 +10,7 @@ from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_o
 from fabrication_native_batch import material,partition
 from city_ground_apron_geometry import relief_height
 from city_industrial_architecture import IndustrialBuildings,MillLofts,EasternRows,PianoFactory
-from city_residential_architecture import ResidentialHouses,EasternHouses,CourtApartments,CivicRows,CivicBlocks,WesternGardenApartments,SouthGardenApartments
+from city_residential_architecture import ResidentialHouses,EasternHouses,CourtApartments,CivicRows,CivicBlocks,WesternGardenApartments,SouthGardenApartments,WesternStreetHouses
 from city_horizon_assets import export_blocks,manifest_paths
 plan_path=ROOT/'art/data/city_horizon/source_plan.json';plan=json.loads(plan_path.read_text())
 grade_path=ROOT/'art/blender/city_ground_apron_construction.json';grade=json.loads(grade_path.read_text())
@@ -21,7 +21,7 @@ all_rows=[];all_windows=[];all_bearings=[];assets={};native_checks={};grade_seat
 replacement_buffers=collections.defaultdict(lambda:([],[]))
 industrial_checks=[]
 def occluding_neighbours(rows,identity):
-    """Retained proxy policy, with actual occupied wings for the new L factory.
+    """Retained policy, with real new factory wings and adjoining house bodies.
 
     Its reservation is intentionally larger than its solid body. Passing the
     entire parcel to the legacy rectangle helper would blank neighboring sash
@@ -31,6 +31,11 @@ def occluding_neighbours(rows,identity):
     for other in rows:
         if other['id']==identity:continue
         study=other.get('architecture',{})
+        if study.get('style') in WesternStreetHouses.STYLES:
+            points=study['outline_m']
+            result.append(dict(other,rect=[min(p[0] for p in points),min(p[1] for p in points),
+                                           max(p[0] for p in points),max(p[1] for p in points)]))
+            continue
         if study.get('style') not in PianoFactory.STYLES:
             result.append(other);continue
         points=study['outline_m'];assert len(points)==6
@@ -103,6 +108,7 @@ for family in ['near','far']:
             if study.get('style') in WesternGardenApartments.STYLES:constructor=WesternGardenApartments
             if study.get('style') in SouthGardenApartments.STYLES:constructor=SouthGardenApartments
             if study.get('style') in PianoFactory.STYLES:constructor=PianoFactory
+            if study.get('style') in WesternStreetHouses.STYLES:constructor=WesternStreetHouses
             authored=constructor(row,add,neighbours).build()
             windows.extend(authored['windows']);bearings.extend(authored['bearings'])
             def lower_add(owner,key,vertices,faces):

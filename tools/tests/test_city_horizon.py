@@ -11,7 +11,8 @@ class Horizon(unittest.TestCase):
         # Exercise the producer's pure selector without starting Blender.
         tree=ast.parse((root/'art/blender/scripts/build_city_horizon.py').read_text(encoding='utf-8'))
         function=next(x for x in tree.body if isinstance(x,ast.FunctionDef) and x.name=='occluding_neighbours')
-        namespace={'PianoFactory':types.SimpleNamespace(STYLES={'sohmer_3101'})}
+        namespace={'PianoFactory':types.SimpleNamespace(STYLES={'sohmer_3101'}),
+                   'WesternStreetHouses':types.SimpleNamespace(STYLES={'brick_2113','stone_2116','neogrec_2128'})}
         exec(compile(ast.Module(body=[function],type_ignores=[]),'<producer selector>','exec'),namespace)
         plan=json.loads((root/'art/data/city_horizon/source_plan.json').read_text(encoding='utf-8'))
         factory=next(x for x in plan['buildings'] if x['id']=='HORIZON_NEAR_3_0_P1')
@@ -26,6 +27,19 @@ class Horizon(unittest.TestCase):
         self.assertTrue(module.party_wall_overlap((205.,204.),(205.,206.),0,occupied))
         self.assertEqual(factory,original)
         self.assertEqual(namespace['occluding_neighbours']([factory,old],factory['id']),[old])
+        # New street houses also reserve open apron/service space. Their
+        # reservations must not blank a neighbor's real exposed window.
+        houses=[r for r in plan['buildings'] if r.get('architecture',{}).get('style')
+                in namespace['WesternStreetHouses'].STYLES]
+        self.assertEqual(len(houses),3)
+        before=copy.deepcopy(houses)
+        for house in houses:
+            occupied=namespace['occluding_neighbours']([house,old],'observer')
+            a,b,c,d=house['rect'];middle=(b+d)/2
+            for x,expected in [(a+.1,False),(a+4.,True),(c-.1,False)]:
+                self.assertEqual(module.party_wall_overlap((x,middle-.05),(x,middle+.05),0,occupied),expected)
+            self.assertIs(occupied[-1],old)
+        self.assertEqual(houses,before)
 
     def test_reveal_is_closed_oriented_and_has_the_exact_void_volume(self):
         v,f=module.reveal_cell(0,0,3,3,1,.6,2,2.4,.18)
