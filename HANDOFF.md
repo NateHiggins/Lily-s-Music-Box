@@ -1,5 +1,17 @@
 # Current continuation — November 3 developer-chat handoff
 
+**Continuation after the handoff:** eight test-only _walk overrides now accept
+and forward the parent's optional tolerance, preserving existing tight stops,
+detours, acceptance assertions and movement budgets. This is authored, not yet
+engine-verified. One17-script preflight is queued at
+**C:/ov/reports/entry_render_preparation_20261102/walk_api_13/batch.json**,
+original broker**60808** / session**24521**, confirmed live while waiting. Poll that
+handle; do not restart it or treat the older no-live-job statements below as
+current. No new world programme queued. Production sources remain unchanged.
+ReaderNEW0, spatial11169/no manifestdiff and source assertion/budget comparisons
+pass; engine compilation, nook runtime and final candidate remain open.
+
+
 **Stage:** V2 integration and qualification, not release-ready. The next playable
 milestone is a polished normal-entry prologue. City work remains an established
 priority; finish the current candidate before ingesting the architect's next batch.

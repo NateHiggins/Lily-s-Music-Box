@@ -2,8 +2,8 @@ extends "res://tests/v2_hose_installed_world.gd"
 ## INERT occupied-world idle controls, followed by the inherited input route.
 var _walk_count:=0
 
-func _walk(target: Vector3) -> bool:
-	var ok: bool=await super._walk(target)
+func _walk(target: Vector3, arrival_tolerance: float=.1) -> bool:
+	var ok: bool=await super._walk(target,arrival_tolerance)
 	_walk_count+=1
 	if ok and _walk_count==5:await _idle_controls()
 	return ok

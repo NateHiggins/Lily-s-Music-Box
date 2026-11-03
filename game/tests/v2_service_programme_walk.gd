@@ -19,7 +19,7 @@ func _prepare_player_start() -> void:
 	player.global_position=world.adapter.root.to_global(Vector3(0,.025,-3.35))
 	player.velocity=Vector3.ZERO
 
-func _walk(local_target: Vector3) -> bool:
+func _walk(local_target: Vector3, arrival_tolerance: float=.1) -> bool:
 	var target: Vector3=world.adapter.root.to_global(local_target)
 	var distance: float=player.global_position.distance_to(target)
 	var budget: int=ceili(maxf(6.,distance/player.WALK+2.)*Engine.physics_ticks_per_second)
@@ -28,7 +28,7 @@ func _walk(local_target: Vector3) -> bool:
 	var contacts: Dictionary={}
 	while frames<budget and Time.get_ticks_msec()<deadline:
 		var delta: Vector3=target-player.global_position;delta.y=0
-		if delta.length()<.1:break
+		if delta.length()<minf(.1,arrival_tolerance):break
 		player.rotation.y=atan2(-delta.x,-delta.z);player.camera.rotation=Vector3.ZERO
 		Input.action_press("move_forward",minf(1.,delta.length()/.35))
 		await get_tree().physics_frame;frames+=1

@@ -40,6 +40,14 @@ API without relaxing arrival/physical checks before another long run. Current-
 weather title/timing also remain NOT_EXECUTED. Adela's separate actual-world
 programme passed before the preflight failure; that does not qualify the nook.
 
+Compatibility repair follow-up: eight affected test overrides now accept the
+optional float and forward it through roof detours/profile wrappers. Custom
+controllers retain their previous0.1m/0.025m stopping caps, success predicates,
+collision checks and wall/physics budgets. Source comparisons, spatial11169 and
+readerNEW0 pass. Engine compilation is pending the single FIFO preflight in
+**C:/ov/reports/entry_render_preparation_20261102/walk_api_13/**, broker60808 /
+session24521, confirmed live queued. No new nook/world/save result follows yet.
+
 ## November 3 — hidden-desktop cursor diagnostic failure retained
 
 Cohort09 runs the added slot-return bench:90 checks/3 failures, at cover targeting,

@@ -182,7 +182,7 @@ func _visit(identity:String) -> bool:
 
 
 # Precise corner arrival keeps the controller on the sampled standing path.
-func _walk(local_target: Vector3) -> bool:
+func _walk(local_target: Vector3, arrival_tolerance: float=.025) -> bool:
  var target: Vector3 = world.adapter.root.to_global(local_target)
  var started := Time.get_ticks_msec()
  var travel_budget_ms := maxi(6000, int(player.global_position.distance_to(target) / player.WALK * 1000.0) + 2000)
@@ -190,7 +190,7 @@ func _walk(local_target: Vector3) -> bool:
  while Time.get_ticks_msec() - started < travel_budget_ms:
   var delta := target - player.global_position
   delta.y = 0
-  if delta.length() < 0.025: break
+  if delta.length() < minf(0.025,arrival_tolerance): break
   player.rotation.y = atan2(-delta.x, -delta.z)
   player.camera.rotation = Vector3.ZERO
   Input.action_press("move_forward", clampf(delta.length() / 0.35,.25,1.0))
