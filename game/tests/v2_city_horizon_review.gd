@@ -84,10 +84,10 @@ func run(world: OrisonV2RuntimeRoot, suite: Node, camera: Camera3D) -> void:
 	var probes: Array=stations.values()
 	var affected_panes:=0
 	if not expected_hands.is_empty():
-		# The new Neo-Grec house replaces the former45-pane generic neighbor.
-		# Keep the retained192-pane body exact too; a summed total could hide
-		# one body's missing pane behind an extra pane in the other.
-		var expected_neighbor_panes:Dictionary={"HORIZON_NEAR_3_0_P0R2":46,"HORIZON_NEAR_3_0_P2":192}
+		# P0R2 retains all46 authored panes. P2 is a full packet-body replacement:
+		# the source-bound disposition verifies every one of its184 new witnesses
+		# against delivery; no old rays are waived. Probe each new pane below.
+		var expected_neighbor_panes:Dictionary={"HORIZON_NEAR_3_0_P0R2":46,"HORIZON_NEAR_3_0_P2":184}
 		var neighbor_panes:Dictionary={}
 		for row: Dictionary in source.window_rows:
 			if expected_neighbor_panes.has(str(row.building)):

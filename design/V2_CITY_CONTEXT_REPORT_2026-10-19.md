@@ -16,7 +16,15 @@ A private CPU control reproduces all46affected base/lower parts and219pane
 witnesses exactly. A deliberately incomplete context still fails10parts; that
 negative control is retained. All39profile rows and124reservations remain
 unchanged; all85new profiles use current construction inputs. Eleven focused
-static tests pass. These are native/source checks, not runtime acceptance.
+static tests pass.
+The assembled P2 replacement now passes full equality of all184delivered pane
+witness dictionaries, and P0R2's separate46-pane roster/hash remains exact
+(2focused tests/0failures). The composed review's stale192 count is migrated
+to184 with every actual first-hit ray preserved. This file is outside the28file
+frozen isolated-diagnostic dependency graph; no consumed loaded input changed.
+Spatial dependency regeneration produced no manifest change. The composed
+review still needs engine compilation and actual ray execution; no runtime pass.
+ These are native/source checks, not runtime acceptance.
 
 Fourth attempt is queued: native session82410/broker49456;
 guarded followup session5324/pid66684 waits on that exact broker. Batch and
