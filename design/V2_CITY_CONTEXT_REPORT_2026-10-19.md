@@ -2,6 +2,30 @@
 
 ### Consolidated native building packets — November 3
 
+**Later native office correction, same day:** actual review rejects the first
+over-broad stepped grid. Only **QueensOffice** changes: a low street bar/light
+two-storey base,slender upper shaft,continuous masonry piers and capped crown.
+New native/export and3 CPU views pass.56 exported primitive/node comparisons
+prove the other3 block bodies' attributes,indices and frames exact;their9
+completed reviewed images are reused with exact map/profile/render-function
+bindings. The rejected packet and all12 original images remain in
+**attempts/office_v1_original**. Current aggregate becomes5,321,440/2,997,824
+triangles,565,180,488/309,543,000 GLB bytes,769 partitions/14,277 panes per level.
+Largest assets44,973,008/26,930,848 bytes. Roof controls and102 flues unchanged.
+These replace the earlier inventory below,not its original receipts.
+
+22 packets retain14 byte-exact source bindings at executed **531e6d398**;the
+changed office block binds its revised source. **SOURCE_RECONCILIATION.json**
+proves the entire helper AST outside that class exact and84 dispatches non-office.
+Raw bindings are not silently renewed. New integration must regenerate through
+the current owner and compare actual arrays. Native review began with1 CPU
+render thread;later jobs use4,explicitly logged,still640px/8samples/CyclesCPU.
+Developer timing admission paused the exact owned native process using verified
+PID/creation-time and unchanged CPU-time samples. Original suspension/release
+receipts remain;601.407s of the rejected-office review includes that pause and
+is not a render-performance benchmark. The premature frame-barrier confirmation
+was corrected;the OS suspension,not the proposed barrier alone,established idle.
+
 Evidence class: **INERT**. Owner requests the remaining building stock as a
 single later intake. This native-only checkpoint starts at **599813f21** in
 **C:/ov/city**, **codex/v2-city-20261029**, fetched main **fb3167942**. Read-only

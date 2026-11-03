@@ -9,13 +9,20 @@ are separate from the unapplied integration patch.
 
 External delivery **C:/ov/asset-prototypes/city-building-packets-20261103/**:
 85 replacement bodies in23 partial-block packets,39 reference-specific profiles
-preserved and124 reservations exact. All170 near/lower fabrication preflights
-and23 final exports pass:5,382,056/3,058,760 triangles,769 material partitions
-per level,14,445 panes and718 roof/outside controls per level,102 hollow flues.
-These are native inventories,not measured rendering cost.36 existing map hashes
-and14 source bindings match.13 existing horizon tests pass;readerNEW0.
+preserved and124 reservations exact. Base170 fabrication preflights pass;later
+office correction also passes native/export/three-view review. Current inventory
+5,321,440/2,997,824 triangles,769 partitions and14,277 panes per level,718 roof/
+outside controls per level,102 hollow flues. These are native counts,not measured
+rendering cost.36 map hashes match;22 packets retain14 exact raw bindings at
+**531e6d398**,while the office block binds its revised helper. Outside
+**QueensOffice**,the helper AST is exact;84 other dispatches are non-office.
+**SOURCE_RECONCILIATION.json** preserves this scope without old-receipt repinning.
+13 existing horizon tests pass;readerNEW0 at the source checkpoint.
 
-Final reopened GLB/CPU image review is **IN_PROGRESS**. Earlier complete native
+Final reopened GLB/CPU image review is **IN_PROGRESS**. The office's rejected
+broad grid is replaced by a slender shaft/light stone base/continuous piers.
+Its3 fresh images pass;56 exact exported attribute/index/frame comparisons
+support reuse of9 unchanged neighboring images. Earlier complete native
 cohort,scoped views and UV/width/office-init/flue-key failures remain in attempts.
 Do not integrate partial GLBs over whole installed blocks. Use declared85/39
 identities,proposed plan and unapplied **integration.patch** through the owning

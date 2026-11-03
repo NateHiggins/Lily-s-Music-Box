@@ -155,28 +155,57 @@ class QueensOffice(IndustrialBuildings):
     STYLES = {'queens_office_1927'}
     __init__ = EasternRows.__init__
 
+    def add(self,key,vertices,faces):
+        if getattr(self,'stone_base',False) and key==self.row['wall_key']:key='limestone'
+        return super().add(key,vertices,faces)
+
     def build(self):
         a,b,c,d=self.row['rect']; outer=(a,-d,c,-b)
-        # Complete storeys; only the ground stage receives the scenic leaf.
-        for start,end,inset in [(0,3,0.),(3,8,1.25),(8,len(self.levels)-1,2.8)]:
-            x,y,X,Y=outer;rect=(x+inset,y+inset,X-inset,Y-inset)
+        x,y,X,Y=outer;middle=(y+Y)/2;shaft=min(18.,(Y-y)*.38)
+        tiers=[(0,3,outer),(3,9,(x+1.25,middle-shaft/2,X-1.25,middle+shaft/2)),
+               (9,len(self.levels)-1,(x+2.05,middle-shaft/2+.8,X-2.05,middle+shaft/2-.8))]
+        # A low street bar and slender vertical shaft replace the rejected
+        # full-width stepped grid. No clock or invented occupied programme.
+        for start,end,rect in tiers:
             x,y,X,Y=rect
             if start==0:self.box('limestone',(x,y,-.28),(X,Y,0))
             for floor in range(start,end):
+                self.stone_base=floor<2
                 z,Z=self.levels[floor:floor+2]
                 if floor>0:self.box('concrete',(x+.40,y+.40,z-.18),(X-.40,Y-.40,z))
                 for side,(O,U,N,length) in enumerate(self.sides(rect)):
-                    count=max(3,int(length/2.8));pitch=length/count
+                    count=max(3,int(length/(2.7 if start==0 else 3.1)));pitch=length/count
+                    if side==1 and start==0:count=max(3,count)|1;pitch=length/count
                     for bay in range(count):
                         l=bay*pitch;r=l+pitch
                         if self.covered(O,U,N,l,r,z,[]):
                             self.wall_stock(O,U,N,(l,-.40,z),(r,0,Z),length);continue
                         door=floor==0 and side==1 and bay==count//2
-                        self.opening(O,U,N,l,r,z,Z,1.65 if door else min(1.35,pitch-.7),
-                                     length,columns=2,rows=3,door=door)
-                        self.stock('limestone',O,U,N,(l+.01,-.06,z+.08),(l+.20,.08,Z-.08),.008)
-                    self.stock('limestone',O,U,N,(0,-.10,Z-.13),(length,.09,Z+.03),.008)
-            self.roof(rect,self.levels[end])
+                        self.opening(O,U,N,l,r,z,Z,1.65 if door else min(1.35,pitch-.9),
+                                     length,columns=2,rows=3,door=door,arched=door)
+                    # Restrained masonry spandrel courses let the continuous
+                    # piers carry the upper silhouette instead of a white grid.
+                    key='limestone' if floor<2 else self.row['wall_key']
+                    self.stock(key,O,U,N,(0,-.08,Z-.11),(length,.025,Z+.015),.006)
+                self.stone_base=False
+            for side,(O,U,N,length) in enumerate(self.sides(rect)):
+                count=max(3,int(length/(2.7 if start==0 else 3.1)))
+                if side==1 and start==0:count=max(3,count)|1
+                for i in range(count+1):
+                    at=i*length/count;l=max(.015,at-.13);r=min(length-.015,at+.13)
+                    if l>=r:continue
+                    key='limestone' if start==0 else self.row['wall_key']
+                    self.stock(key,O,U,N,(l,-.10,self.levels[start]+.04),
+                               (r,.19,self.levels[end]+.22),.009)
+                    self.stock('limestone',O,U,N,(max(.005,l-.035),-.12,self.levels[end]-.06),
+                               (min(length-.005,r+.035),.24,self.levels[end]+.08),.006)
+                    if start==9:
+                        # Small capped piers, not a second fictional clock.
+                        self.stock(key,O,U,N,(l,-.10,self.levels[end]+.08),
+                                   (r,.18,self.levels[end]+.85),.008)
+                        self.stock('limestone',O,U,N,(max(.005,l-.04),-.13,self.levels[end]+.85),
+                                   (min(length-.005,r+.04),.23,self.levels[end]+.97),.006)
+            original_style=self.style;self.style='karp_4024';self.roof(rect,self.levels[end]);self.style=original_style
         return dict(windows=self.windows,bearings=self.bearings,entries=self.entries,
                     mitre_seams=self.seams,closed_stocks=self.parts,
                     min_closed_stock_volume_m3=self.min_volume,style=self.style)
