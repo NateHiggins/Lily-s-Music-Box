@@ -1,3 +1,30 @@
+# Current continuation — November 3 consolidated city packets
+
+Evidence class: **INERT**. Owner explicitly resumed isolated Blender packet
+production for one later integration pass. Starting **599813f21**, fetched main
+**fb3167942**; developer **527c8be0f** retains identical city source/37 GLBs.
+Canonical checkout/index, installed assets, source plan and all game files are
+unchanged. New packet producers and their two additive hash-text attributes
+are separate from the unapplied integration patch.
+
+External delivery **C:/ov/asset-prototypes/city-building-packets-20261103/**:
+85 replacement bodies in23 partial-block packets,39 reference-specific profiles
+preserved and124 reservations exact. All170 near/lower fabrication preflights
+and23 final exports pass:5,382,056/3,058,760 triangles,769 material partitions
+per level,14,445 panes and718 roof/outside controls per level,102 hollow flues.
+These are native inventories,not measured rendering cost.36 existing map hashes
+and14 source bindings match.13 existing horizon tests pass;readerNEW0.
+
+Final reopened GLB/CPU image review is **IN_PROGRESS**. Earlier complete native
+cohort,scoped views and UV/width/office-init/flue-key failures remain in attempts.
+Do not integrate partial GLBs over whole installed blocks. Use declared85/39
+identities,proposed plan and unapplied **integration.patch** through the owning
+producer after developer review. **P2_PANE_DISPOSITION.json** retires192 original
+generic witnesses and identifies184 new apertures;installed192 assertions stay
+unchanged until replacement intake,with neighboring46 and every first-hit ray
+preserved. No Godot,loaded mip,collision/access,frame-cost or artistic acceptance.
+[Current evidence and remaining work](design/V2_CITY_CONTEXT_REPORT_2026-10-19.md#consolidated-native-building-packets--november-3).
+
 # Current continuation — November 3 three-house runtime result
 
 Evidence class: **INERT**. Original isolated batch on frozen **b474d8b23**

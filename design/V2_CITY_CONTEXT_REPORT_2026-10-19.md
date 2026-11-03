@@ -1,5 +1,64 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+### Consolidated native building packets — November 3
+
+Evidence class: **INERT**. Owner requests the remaining building stock as a
+single later intake. This native-only checkpoint starts at **599813f21** in
+**C:/ov/city**, **codex/v2-city-20261029**, fetched main **fb3167942**. Read-only
+comparison with developer **9e8dd6ef9/527c8be0f** finds the same city plan/native
+builders and37 byte-identical GLBs. No canonical/index,installed asset,gameplay,
+weather,clock,companion,save or narrative edits. No main merge.
+
+**C:/ov/asset-prototypes/city-building-packets-20261103/** contains85 new bodies
+in23 partial-block packets,editable near/lower sources,checked GLBs,36 external
+catalogue map hashes,proposed source plan and an unapplied producer patch. All
+124 reservations and39 reference-specific profiles are preserved;the latter
+includes3 older individual-outline studies as well as36 fabrication profiles.
+Repeated LPC0450/LPC1831/Dutch Kills examples form coherent architectural
+families,not85 distinct historical addresses. Dimensions,finishes,placement and
+office setbacks are AU choices. Hampton's79thStreet bays,central entablature,
+light sash and openwork parapet are distinguished from later78thStreet rails.
+The office cap35.2m is authored;LP2570 documents an11-storey building with a
+three-storey clock tower,not a90m historic tower. No reference pixels in assets.
+
+All170 near/lower fabrication preflights and23 final export jobs pass under
+Blender5.2.0 fbe6228777e7,one CPU thread. Existing strict closed-stock,metric UV,
+exported tangent derivative and0.1mm pane/roof controls remain. Native inventory:
+near5,382,056 triangles/572,052,780 bytes;lower3,058,760/316,447,800 bytes;
+769 material partitions,14,445 pane witnesses and718 positive roof/equal outside
+controls per level.102 hollow flues have four actual roof penetration witnesses
+each and identical near/lower placement. Maximum near/lower GLB47,623,840/
+33,835,648 bytes. These are file/mesh counts,not measured viewport draws,cost,
+VRAM or frame distributions.14 current source bindings and36 map hashes match;
+13 existing horizon/shard tests pass;readerNEW0. No candidate gate board or
+Godot run was performed for the packet-only change.
+
+Final independent reopened native/GLB coverage,per-corner UV,all-pane hits and
+front/rear/lower CPU views are **IN_PROGRESS**. The first complete native cohort
+and its scoped passed views remain in **attempts/native_v1_original**. The first
+exact-UV comparison failed on float32 V conversion;the replacement compares
+every triangle corner with a stated four-ULP bound and records actual drift.
+Narrow stock width,office-only five-floor initialization and flue roof-key
+diagnostics are retained;the original helpers and tolerances were not relaxed.
+Rendered review found bare-roof silhouette loss;102 roof-seated hollow flues
+repair it in both bodies. Earlier partial flue exports remain in
+**attempts/native_v2_partial**;none is substituted for the final cohort.
+
+**P2_PANE_DISPOSITION.json** records every192 retired original generic aperture
+and184 new Hampton aperture with floor/outline-side/bay IDs and exact witnesses.
+Near/lower new rosters match. Current canonical old roster equals the baseline;
+neighbor **HORIZON_NEAR_3_0_P0R2** remains46 separately. This is a whole-body
+replacement,not eight missing checks or a one-to-one aperture mapping. Installed
+192 assertions and all first-hit rays remain unchanged until actual intake.
+
+Remaining: finish and inspect native views;publish consolidated hashes/report
+to Orison Developer Sol6.1;review/apply through the current owning producer,
+assemble complete blocks preserving other bodies,register generated lower-body
+imports/source dependencies,then one coordinated loaded/composed qualification.
+Test actual support/access,loaded maps/mips,lighting,LOD transitions and measured
+frame spikes there. Packet existence does not complete the wider streets,
+bridge/station/waterfront cityscape or confer human artistic acceptance.
+
 ### Factory clock and composed qualification checkpoint — November 2
 
 Evidence class: **INERT**. Pushed feature **17944721e** includes corrected

@@ -2,6 +2,18 @@
 
 The shared queue. Everyone working on Orison writes here.
 
+**Current city packet work — November3:** Owner requests a consolidated native
+delivery for one later integration pass.85 replacement bodies/23 partial blocks
+now export with near/lower sources and102 roof-seated hollow flues;39 individual
+profiles/124 reservations preserved. Finish independent reopened/CPU visual
+review,then send exact identity/hash/semantic-pane rosters to Orison Developer
+Sol6.1. External **C:/ov/asset-prototypes/city-building-packets-20261103/**.
+Keep proposed plan/producer patch unapplied until coordinated intake;partial
+GLBs must not replace whole blocks. Existing192 P2 assertions stay unchanged
+until replacement qualification;new184 roster and neighboring46 remain distinct.
+Native counts are not runtime,performance or artistic acceptance. Existing wider
+city/infrastructure/access work below remains open.
+
 **This is a list of open work, not a log.** Delete a task when it is done; git
 history is the record. If a task is wrong, say so on the line rather than
 quietly removing it.
