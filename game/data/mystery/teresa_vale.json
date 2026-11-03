@@ -12,7 +12,8 @@
   "tv_note": "tv_n1",
   "tv_set": "tv_s1",
   "tv_rest": "tv_o1",
-  "tv_one": "tv_o2"
+  "tv_one": "tv_o2",
+  "tv_moon": "tv_mn1"
  },
  "threads": [
   {
@@ -65,6 +66,14 @@
     "22:00",
     "23:30"
    ]
+  },
+  {
+   "id": "tv_moon",
+   "from": "1929-10-26",
+   "until": "1929-11-09",
+   "topic": "Can you see it from the ward?",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. She names a friend before anything else can.",
+   "root": "tv_mn1"
   }
  ],
  "nodes": {
@@ -155,6 +164,9 @@
   },
   "tv_o5": {
    "line": "That's what I thought. It's all right. Mind the door."
+  },
+  "tv_mn1": {
+   "line": "East windows, some nights. Fellow in the end bed won't look. He's frightened, he says that's fifteen hundred miles of somebody's name and nobody's said what for. I said a friend of mine had terrible capitals, drink your water. He thought I was being funny. Go on, you're in the light."
   }
  }
 }

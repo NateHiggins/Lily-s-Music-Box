@@ -142,6 +142,7 @@ vec3 celestial_base(vec3 direction,out vec3 point_stars) {
 		if(moon_relief_enabled && radial2<1.0) {
 			vec3 local_n=vec3(disc,sphere_z);
 			vec3 solar=vec3(dot(normalize(sun_direction),right),dot(normalize(sun_direction),disc_up),-dot(normalize(sun_direction),moon));
+			lunar_surface*=1.0-moon_name_shade(local_n,solar,length(fwidth(direction)));
 			vec3 terrain=lunar_terrain_normal(local_n);
 			float incidence=max(0.0,dot(terrain,solar));
 			float shadow=moon_shadow_enabled ? lunar_terrain_shadow(local_n,solar) : 1.0;

@@ -11,7 +11,8 @@
   "lo_bag": "lo_b1",
   "lo_book": "lo_k1",
   "lo_hat": "lo_h1",
-  "lo_party": "lo_q1"
+  "lo_party": "lo_q1",
+  "lo_moon": "lo_mn1"
  },
  "threads": [
   {
@@ -45,6 +46,14 @@
    "topic": "You were received, I hear.",
    "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. Not at Home. Cups only: no swapped coats.",
    "root": "lo_q1"
+  },
+  {
+   "id": "lo_moon",
+   "from": "1929-10-29",
+   "until": "1929-11-09",
+   "topic": "They've got the hat in Altman's.",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. The Adela hat. She made the real one.",
+   "root": "lo_mn1"
   }
  ],
  "nodes": {
@@ -130,6 +139,9 @@
   },
   "lo_q1": {
    "line": "Four hours, and not one soul had thought about the glasses. So I did the glasses. Nobody thanked me. Nobody stopped me either, and I'll say this for them, that's more than my sister does."
+  },
+  "lo_mn1": {
+   "line": "Low on the left. That isn't how it goes. It has four pins and it sits level, I tested that. Lily came and told me one of them let go. I said what did you hang off it. Try one of those on sitting down and see where you get."
   }
  }
 }

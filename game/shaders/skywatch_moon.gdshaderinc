@@ -16,12 +16,60 @@ vec3 lunar_eclipse_transmission(vec2 disc) {
     return mix(mix(vec3(1.0),vec3(.53,.49,.46),penumbra*.62),vec3(.55,.09,.025),umbra);
 }
 
+// A name cut into the near side (design/ORISON_MOON_NAME_2026-11-02.md). It is
+// terrain, not a mark: only raking light and a large enough disc can read it.
+uniform float moon_name_amount = 0.0;
+const float MOON_NAME_DEPTH = .0065;
+const float MOON_NAME_WIDTH = .033;
+const vec4 MOON_NAME[16] = {
+    vec4(-.76,-.17,-.64,.21),vec4(-.64,.21,-.52,-.17),vec4(-.71,-.03,-.57,-.03),
+    vec4(-.42,-.17,-.42,.21),vec4(-.42,.21,-.23,.10),vec4(-.23,.10,-.23,-.07),vec4(-.23,-.07,-.42,-.17),
+    vec4(-.11,-.17,-.11,.21),vec4(-.11,.21,.11,.21),vec4(-.11,.03,.15,.04),vec4(-.11,-.17,.09,-.17),
+    vec4(.23,.21,.23,-.17),vec4(.23,-.17,.42,-.17),
+    vec4(.50,-.17,.62,.21),vec4(.62,.21,.74,-.17),vec4(.55,-.03,.69,-.03)
+};
+float moon_name_cut(vec3 n) {
+    if(moon_name_amount<=0.0 || n.z<=0.0) return 0.0;
+    vec3 u=normalize(n);
+    // The first letter slid downhill in the last two bars of the exposure.
+    // The disc basis runs right-to-left on screen; the name reads left-to-right.
+    vec2 q=vec2(-u.x,u.y+.07*(1.0-smoothstep(-.82,-.40,-u.x)));
+    if(abs(q.x)>.86 || abs(q.y-.02)>.31) return 0.0;
+    float nearest=1.0;
+    for(int i=0;i<16;i++) {
+        vec2 a=MOON_NAME[i].xy;
+        vec2 b=MOON_NAME[i].zw-a;
+        nearest=min(nearest,length(q-a-b*clamp(dot(q-a,b)/dot(b,b),0.0,1.0)));
+    }
+    // A hand, not a stencil.
+    nearest+=.0035*sin(q.x*83.0+q.y*59.0);
+    // The etch comes in unevenly all along the strokes: scattered pits, then broken
+    // rilles, then letters. No letter finishes first, so no stage is four and a gap.
+    float grain=.5+.27*sin(q.x*41.0+1.7*sin(q.y*31.0))+.23*sin(q.y*67.0+q.x*23.0+1.1*sin(q.x*19.0));
+    float etched=smoothstep(grain-.05,grain+.05,moon_name_amount*1.2-.05);
+    float width=MOON_NAME_WIDTH*(.3+.7*moon_name_amount);
+    return etched*MOON_NAME_DEPTH*(.3+.7*moon_name_amount)*(1.0-smoothstep(width,width+.014,nearest));
+}
+
+// How much light the cut floor loses. In low sun its walls shade it whole, which
+// reads even at the naked eye's few pixels. In high sun only the darker exposed
+// rock remains, and that resolves only under magnification.
+float moon_name_shade(vec3 n,vec3 solar,float radians_per_pixel) {
+    if(moon_name_amount<=0.0) return 0.0;
+    float floor_mask=moon_name_cut(n)/MOON_NAME_DEPTH;
+    float height=dot(normalize(n),solar);
+    // Lit ground just past the shadow line, so the eye gets a letter or two, never the name.
+    float rake=smoothstep(-.02,.02,height)*(1.0-smoothstep(.07,.30,height));
+    float glass=1.0-smoothstep(.00025,.0006,radians_per_pixel);
+    return floor_mask*max(.8*rake,.4*glass);
+}
+
 vec2 lunar_coordinates(vec3 n) {
     return vec2(atan(n.x,n.z)/(2.0*PI)+.5,.5-asin(clamp(n.y,-1.0,1.0))/PI);
 }
 float lunar_height(vec3 n) {
     vec2 code=textureLod(moon_height,lunar_coordinates(normalize(n)),0.0).rg;
-    return ((code.r*65280.0+code.g*255.0)*.5-10000.0)/1737400.0*moon_relief_gain;
+    return ((code.r*65280.0+code.g*255.0)*.5-10000.0)/1737400.0*moon_relief_gain-moon_name_cut(n);
 }
 vec3 lunar_terrain_normal(vec3 n) {
     float lon=atan(n.x,n.z);

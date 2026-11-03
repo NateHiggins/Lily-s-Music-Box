@@ -353354,7 +353354,7 @@
 			"path": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/PeriodTraffic/Traffic_model_t_touring",
 			"retired_surface": "",
 			"surface_role": "physical",
-			"visible": false
+			"visible": true
 		},
 		{
 			"geometry_transparency": 0.0,
@@ -353424,7 +353424,7 @@
 			"path": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/PeriodTraffic/Traffic_mack_ac",
 			"retired_surface": "",
 			"surface_role": "physical",
-			"visible": true
+			"visible": false
 		},
 		{
 			"geometry_transparency": 0.0,
@@ -353445,7 +353445,7 @@
 			"path": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/PeriodTraffic/Traffic_saloon_bus",
 			"retired_surface": "",
 			"surface_role": "physical",
-			"visible": true
+			"visible": false
 		},
 		{
 			"geometry_transparency": 0.0,
@@ -353489,7 +353489,7 @@
 			"path": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/PeriodTraffic/Traffic_ice_wagon",
 			"retired_surface": "",
 			"surface_role": "physical",
-			"visible": true
+			"visible": false
 		},
 		{
 			"geometry_transparency": 0.0,
@@ -353717,7 +353717,7 @@
 			"path": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/PeriodTraffic/Traffic_wheel_disc",
 			"retired_surface": "",
 			"surface_role": "physical",
-			"visible": true
+			"visible": false
 		},
 		{
 			"geometry_transparency": 0.0,
@@ -353778,7 +353778,7 @@
 			"path": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/PeriodTraffic/Traffic_figure",
 			"retired_surface": "",
 			"surface_role": "physical",
-			"visible": false
+			"visible": true
 		},
 		{
 			"geometry_transparency": 0.0,
@@ -426855,7 +426855,7 @@
 			"materials": [
 				"-9223366646637062726"
 			],
-			"mesh": "-9223365514611335112",
+			"mesh": "-9223365493119707959",
 			"owner": "DreamCritterController",
 			"owner_script": "res://scripts/dream/critters/dream_critter_controller.gd",
 			"path": "DreamCritterController/Critters/TardigradeInterior",
@@ -426869,7 +426869,7 @@
 			"materials": [
 				"-9223366644103703094"
 			],
-			"mesh": "-9223365514594557895",
+			"mesh": "-9223365493102829800",
 			"owner": "DreamCritterController",
 			"owner_script": "res://scripts/dream/critters/dream_critter_controller.gd",
 			"path": "DreamCritterController/Critters/TardigradeMembrane",
@@ -426883,7 +426883,7 @@
 			"materials": [
 				"-9223366643482946101"
 			],
-			"mesh": "-9223365514577766466",
+			"mesh": "-9223365493086052590",
 			"owner": "DreamCritterController",
 			"owner_script": "res://scripts/dream/critters/dream_critter_controller.gd",
 			"path": "DreamCritterController/Critters/TardigradeVacuole",
@@ -426923,7 +426923,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364847448449363"
+				"-9223364831896074951"
 			],
 			"mesh": "-9223367053316789437",
 			"owner": "@Node3D@40192",
@@ -426937,7 +426937,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364847381340514"
+				"-9223364831828961043"
 			],
 			"mesh": "-9223367053266457794",
 			"owner": "@Node3D@40192",
@@ -426951,7 +426951,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364847314201827"
+				"-9223364831761723416"
 			],
 			"mesh": "-9223367053232903365",
 			"owner": "@Node3D@40192",
@@ -426965,7 +426965,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364847314201827"
+				"-9223364831761723416"
 			],
 			"mesh": "-9223367053199348936",
 			"owner": "@Node3D@40192",
@@ -426979,7 +426979,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364847314201827"
+				"-9223364831761723416"
 			],
 			"mesh": "-9223367053165794507",
 			"owner": "@Node3D@40192",
@@ -426993,7 +426993,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364847314201827"
+				"-9223364831761723416"
 			],
 			"mesh": "-9223367053132240078",
 			"owner": "@Node3D@40192",
@@ -427007,7 +427007,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364847314201827"
+				"-9223364831761723416"
 			],
 			"mesh": "-9223367053098685649",
 			"owner": "@Node3D@40192",
@@ -427021,7 +427021,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364847314201827"
+				"-9223364831761723416"
 			],
 			"mesh": "-9223367053065131220",
 			"owner": "@Node3D@40192",
@@ -427035,7 +427035,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364847314201827"
+				"-9223364831761723416"
 			],
 			"mesh": "-9223367053031576791",
 			"owner": "@Node3D@40192",
@@ -427049,7 +427049,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364846039133447"
+				"-9223364830486776761"
 			],
 			"mesh": "-9223367058014409687",
 			"owner": "@Node3D@40192",
@@ -427063,7 +427063,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845972162289"
+				"-9223364830419531799"
 			],
 			"mesh": "-9223367057980855257",
 			"owner": "@Node3D@40192",
@@ -427077,7 +427077,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845904945709"
+				"-9223364830352574368"
 			],
 			"mesh": "-9223367057527870520",
 			"owner": "@Node3D@40192",
@@ -427091,7 +427091,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845904945709"
+				"-9223364830352574368"
 			],
 			"mesh": "-9223367057494316090",
 			"owner": "@Node3D@40192",
@@ -427105,7 +427105,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845972162289"
+				"-9223364830419531799"
 			],
 			"mesh": "-9223367057460761661",
 			"owner": "@Node3D@40192",
@@ -427119,7 +427119,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364846039133447"
+				"-9223364830486776761"
 			],
 			"mesh": "-9223367057427207232",
 			"owner": "@Node3D@40192",
@@ -427133,7 +427133,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845837938605"
+				"-9223364830285357230"
 			],
 			"mesh": "-9223367057376875588",
 			"owner": "@Node3D@40192",
@@ -427147,7 +427147,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845770821601"
+				"-9223364830218350683"
 			],
 			"mesh": "-9223367057343321159",
 			"owner": "@Node3D@40192",
@@ -427161,7 +427161,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845703575484"
+				"-9223364830151096327"
 			],
 			"mesh": "-9223367057292989516",
 			"owner": "@Node3D@40192",
@@ -427175,7 +427175,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845703575484"
+				"-9223364830151096327"
 			],
 			"mesh": "-9223367057259435087",
 			"owner": "@Node3D@40192",
@@ -427189,7 +427189,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845972162289"
+				"-9223364830419531799"
 			],
 			"mesh": "-9223367057225880658",
 			"owner": "@Node3D@40192",
@@ -427203,7 +427203,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364846039133447"
+				"-9223364830486776761"
 			],
 			"mesh": "-9223367057192326229",
 			"owner": "@Node3D@40192",
@@ -427217,7 +427217,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845636466675"
+				"-9223364830083987462"
 			],
 			"mesh": "-9223367057158771800",
 			"owner": "@Node3D@40192",
@@ -427231,7 +427231,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845636466675"
+				"-9223364830083987462"
 			],
 			"mesh": "-9223367057125217371",
 			"owner": "@Node3D@40192",
@@ -427245,7 +427245,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845569507657"
+				"-9223364830017021843"
 			],
 			"mesh": "-9223367057074885727",
 			"owner": "@Node3D@40192",
@@ -427259,7 +427259,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845502248948"
+				"-9223364829949769716"
 			],
 			"mesh": "-9223367057041331298",
 			"owner": "@Node3D@40192",
@@ -427273,7 +427273,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845502248948"
+				"-9223364829949769716"
 			],
 			"mesh": "-9223367057007776869",
 			"owner": "@Node3D@40192",
@@ -427287,7 +427287,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364845972162289"
+				"-9223364830419531799"
 			],
 			"mesh": "-9223367056974222440",
 			"owner": "@Node3D@40192",
@@ -427301,7 +427301,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843841318947"
+				"-9223364828288825243"
 			],
 			"mesh": "-9223367058014409687",
 			"owner": "@Node3D@40192",
@@ -427315,7 +427315,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843774210996"
+				"-9223364828221759764"
 			],
 			"mesh": "-9223367057980855257",
 			"owner": "@Node3D@40192",
@@ -427329,7 +427329,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843707224941"
+				"-9223364828154607567"
 			],
 			"mesh": "-9223367057829860322",
 			"owner": "@Node3D@40192",
@@ -427343,7 +427343,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843707224941"
+				"-9223364828154607567"
 			],
 			"mesh": "-9223367057796305892",
 			"owner": "@Node3D@40192",
@@ -427357,7 +427357,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843707224941"
+				"-9223364828154607567"
 			],
 			"mesh": "-9223367057762751462",
 			"owner": "@Node3D@40192",
@@ -427371,7 +427371,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843707224941"
+				"-9223364828154607567"
 			],
 			"mesh": "-9223367057729197033",
 			"owner": "@Node3D@40192",
@@ -427385,7 +427385,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843707224941"
+				"-9223364828154607567"
 			],
 			"mesh": "-9223367057695642604",
 			"owner": "@Node3D@40192",
@@ -427399,7 +427399,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843707224941"
+				"-9223364828154607567"
 			],
 			"mesh": "-9223367057662088175",
 			"owner": "@Node3D@40192",
@@ -427413,7 +427413,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843707224941"
+				"-9223364828154607567"
 			],
 			"mesh": "-9223367057628533746",
 			"owner": "@Node3D@40192",
@@ -427427,7 +427427,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843707224941"
+				"-9223364828154607567"
 			],
 			"mesh": "-9223367057594979316",
 			"owner": "@Node3D@40192",
@@ -427441,7 +427441,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843707224941"
+				"-9223364828154607567"
 			],
 			"mesh": "-9223367057561424908",
 			"owner": "@Node3D@40192",
@@ -427455,7 +427455,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843774210996"
+				"-9223364828221759764"
 			],
 			"mesh": "-9223367057460761661",
 			"owner": "@Node3D@40192",
@@ -427469,7 +427469,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843841318947"
+				"-9223364828288825243"
 			],
 			"mesh": "-9223367057427207232",
 			"owner": "@Node3D@40192",
@@ -427483,7 +427483,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843640119331"
+				"-9223364828087541956"
 			],
 			"mesh": "-9223367057376875588",
 			"owner": "@Node3D@40192",
@@ -427497,7 +427497,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843573034046"
+				"-9223364828020433121"
 			],
 			"mesh": "-9223367057343321159",
 			"owner": "@Node3D@40192",
@@ -427511,7 +427511,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843505904743"
+				"-9223364827953280932"
 			],
 			"mesh": "-9223367057292989516",
 			"owner": "@Node3D@40192",
@@ -427525,7 +427525,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843505904743"
+				"-9223364827953280932"
 			],
 			"mesh": "-9223367057259435087",
 			"owner": "@Node3D@40192",
@@ -427539,7 +427539,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843774210996"
+				"-9223364828221759764"
 			],
 			"mesh": "-9223367057225880658",
 			"owner": "@Node3D@40192",
@@ -427553,7 +427553,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843841318947"
+				"-9223364828288825243"
 			],
 			"mesh": "-9223367057192326229",
 			"owner": "@Node3D@40192",
@@ -427567,7 +427567,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843438798835"
+				"-9223364827886313204"
 			],
 			"mesh": "-9223367057158771800",
 			"owner": "@Node3D@40192",
@@ -427581,7 +427581,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843438798835"
+				"-9223364827886313204"
 			],
 			"mesh": "-9223367057125217371",
 			"owner": "@Node3D@40192",
@@ -427595,7 +427595,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843371692529"
+				"-9223364827819199504"
 			],
 			"mesh": "-9223367057074885727",
 			"owner": "@Node3D@40192",
@@ -427609,7 +427609,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843304477094"
+				"-9223364827751954402"
 			],
 			"mesh": "-9223367057041331298",
 			"owner": "@Node3D@40192",
@@ -427623,7 +427623,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843304477094"
+				"-9223364827751954402"
 			],
 			"mesh": "-9223367057007776869",
 			"owner": "@Node3D@40192",
@@ -427637,7 +427637,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364843774210996"
+				"-9223364828221759764"
 			],
 			"mesh": "-9223367056974222440",
 			"owner": "@Node3D@40192",
@@ -427651,7 +427651,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841492537576"
+				"-9223364825940058675"
 			],
 			"mesh": "-9223367058014409687",
 			"owner": "@Node3D@40192",
@@ -427665,7 +427665,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841425428711"
+				"-9223364825872949826"
 			],
 			"mesh": "-9223367057980855257",
 			"owner": "@Node3D@40192",
@@ -427679,7 +427679,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841358319845"
+				"-9223364825805840941"
 			],
 			"mesh": "-9223367057947300827",
 			"owner": "@Node3D@40192",
@@ -427693,7 +427693,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841358319845"
+				"-9223364825805840941"
 			],
 			"mesh": "-9223367057913746397",
 			"owner": "@Node3D@40192",
@@ -427707,7 +427707,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841358319845"
+				"-9223364825805840941"
 			],
 			"mesh": "-9223367057880191967",
 			"owner": "@Node3D@40192",
@@ -427721,7 +427721,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841425428711"
+				"-9223364825872949826"
 			],
 			"mesh": "-9223367057460761661",
 			"owner": "@Node3D@40192",
@@ -427735,7 +427735,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841492537576"
+				"-9223364825940058675"
 			],
 			"mesh": "-9223367057427207232",
 			"owner": "@Node3D@40192",
@@ -427749,7 +427749,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841291210980"
+				"-9223364825738732092"
 			],
 			"mesh": "-9223367057376875588",
 			"owner": "@Node3D@40192",
@@ -427763,7 +427763,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841224102114"
+				"-9223364825671623207"
 			],
 			"mesh": "-9223367057343321159",
 			"owner": "@Node3D@40192",
@@ -427777,7 +427777,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841156993249"
+				"-9223364825604514358"
 			],
 			"mesh": "-9223367057292989516",
 			"owner": "@Node3D@40192",
@@ -427791,7 +427791,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841156993249"
+				"-9223364825604514358"
 			],
 			"mesh": "-9223367057259435087",
 			"owner": "@Node3D@40192",
@@ -427805,7 +427805,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841425428711"
+				"-9223364825872949826"
 			],
 			"mesh": "-9223367057225880658",
 			"owner": "@Node3D@40192",
@@ -427819,7 +427819,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841492537576"
+				"-9223364825940058675"
 			],
 			"mesh": "-9223367057192326229",
 			"owner": "@Node3D@40192",
@@ -427833,7 +427833,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841089884383"
+				"-9223364825537510789"
 			],
 			"mesh": "-9223367057158771800",
 			"owner": "@Node3D@40192",
@@ -427847,7 +427847,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841089884383"
+				"-9223364825537510789"
 			],
 			"mesh": "-9223367057125217371",
 			"owner": "@Node3D@40192",
@@ -427861,7 +427861,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841022775518"
+				"-9223364825470296624"
 			],
 			"mesh": "-9223367057074885727",
 			"owner": "@Node3D@40192",
@@ -427875,7 +427875,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364840955666652"
+				"-9223364825403293057"
 			],
 			"mesh": "-9223367057041331298",
 			"owner": "@Node3D@40192",
@@ -427889,7 +427889,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364840955666652"
+				"-9223364825403293057"
 			],
 			"mesh": "-9223367057007776869",
 			"owner": "@Node3D@40192",
@@ -427903,7 +427903,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364841425428711"
+				"-9223364825872949826"
 			],
 			"mesh": "-9223367056974222440",
 			"owner": "@Node3D@40192",
@@ -427917,7 +427917,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839479271860"
+				"-9223364823926792629"
 			],
 			"mesh": "-9223367058014409687",
 			"owner": "@Node3D@40192",
@@ -427931,7 +427931,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839412163001"
+				"-9223364823859683764"
 			],
 			"mesh": "-9223367057980855257",
 			"owner": "@Node3D@40192",
@@ -427945,7 +427945,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839345054136"
+				"-9223364823792574905"
 			],
 			"mesh": "-9223367057527870520",
 			"owner": "@Node3D@40192",
@@ -427959,7 +427959,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839345054136"
+				"-9223364823792574905"
 			],
 			"mesh": "-9223367057494316090",
 			"owner": "@Node3D@40192",
@@ -427973,7 +427973,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839412163001"
+				"-9223364823859683764"
 			],
 			"mesh": "-9223367057460761661",
 			"owner": "@Node3D@40192",
@@ -427987,7 +427987,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839479271860"
+				"-9223364823926792629"
 			],
 			"mesh": "-9223367057427207232",
 			"owner": "@Node3D@40192",
@@ -428001,7 +428001,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839277945276"
+				"-9223364823725466040"
 			],
 			"mesh": "-9223367057376875588",
 			"owner": "@Node3D@40192",
@@ -428015,7 +428015,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839210836411"
+				"-9223364823658357180"
 			],
 			"mesh": "-9223367057343321159",
 			"owner": "@Node3D@40192",
@@ -428029,7 +428029,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839143727551"
+				"-9223364823591248315"
 			],
 			"mesh": "-9223367057292989516",
 			"owner": "@Node3D@40192",
@@ -428043,7 +428043,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839143727551"
+				"-9223364823591248315"
 			],
 			"mesh": "-9223367057259435087",
 			"owner": "@Node3D@40192",
@@ -428057,7 +428057,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839412163001"
+				"-9223364823859683764"
 			],
 			"mesh": "-9223367057225880658",
 			"owner": "@Node3D@40192",
@@ -428071,7 +428071,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839479271860"
+				"-9223364823926792629"
 			],
 			"mesh": "-9223367057192326229",
 			"owner": "@Node3D@40192",
@@ -428085,7 +428085,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839076618686"
+				"-9223364823524139455"
 			],
 			"mesh": "-9223367057158771800",
 			"owner": "@Node3D@40192",
@@ -428099,7 +428099,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839076618686"
+				"-9223364823524139455"
 			],
 			"mesh": "-9223367057125217371",
 			"owner": "@Node3D@40192",
@@ -428113,7 +428113,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839009509826"
+				"-9223364823457030590"
 			],
 			"mesh": "-9223367057074885727",
 			"owner": "@Node3D@40192",
@@ -428127,7 +428127,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364838942400961"
+				"-9223364823389921730"
 			],
 			"mesh": "-9223367057041331298",
 			"owner": "@Node3D@40192",
@@ -428141,7 +428141,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364838942400961"
+				"-9223364823389921730"
 			],
 			"mesh": "-9223367057007776869",
 			"owner": "@Node3D@40192",
@@ -428155,7 +428155,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364839412163001"
+				"-9223364823859683764"
 			],
 			"mesh": "-9223367056974222440",
 			"owner": "@Node3D@40192",
@@ -428169,7 +428169,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837281456749"
+				"-9223364821728977518"
 			],
 			"mesh": "-9223367058014409687",
 			"owner": "@Node3D@40192",
@@ -428183,7 +428183,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837214347889"
+				"-9223364821661868653"
 			],
 			"mesh": "-9223367057980855257",
 			"owner": "@Node3D@40192",
@@ -428197,7 +428197,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837147239024"
+				"-9223364821594759793"
 			],
 			"mesh": "-9223367057829860322",
 			"owner": "@Node3D@40192",
@@ -428211,7 +428211,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837147239024"
+				"-9223364821594759793"
 			],
 			"mesh": "-9223367057796305892",
 			"owner": "@Node3D@40192",
@@ -428225,7 +428225,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837147239024"
+				"-9223364821594759793"
 			],
 			"mesh": "-9223367057762751462",
 			"owner": "@Node3D@40192",
@@ -428239,7 +428239,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837147239024"
+				"-9223364821594759793"
 			],
 			"mesh": "-9223367057729197033",
 			"owner": "@Node3D@40192",
@@ -428253,7 +428253,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837147239024"
+				"-9223364821594759793"
 			],
 			"mesh": "-9223367057695642604",
 			"owner": "@Node3D@40192",
@@ -428267,7 +428267,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837147239024"
+				"-9223364821594759793"
 			],
 			"mesh": "-9223367057662088175",
 			"owner": "@Node3D@40192",
@@ -428281,7 +428281,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837147239024"
+				"-9223364821594759793"
 			],
 			"mesh": "-9223367057628533746",
 			"owner": "@Node3D@40192",
@@ -428295,7 +428295,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837147239024"
+				"-9223364821594759793"
 			],
 			"mesh": "-9223367057594979316",
 			"owner": "@Node3D@40192",
@@ -428309,7 +428309,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837147239024"
+				"-9223364821594759793"
 			],
 			"mesh": "-9223367057561424908",
 			"owner": "@Node3D@40192",
@@ -428323,7 +428323,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837214347889"
+				"-9223364821661868653"
 			],
 			"mesh": "-9223367057460761661",
 			"owner": "@Node3D@40192",
@@ -428337,7 +428337,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837281456749"
+				"-9223364821728977518"
 			],
 			"mesh": "-9223367057427207232",
 			"owner": "@Node3D@40192",
@@ -428351,7 +428351,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837080130164"
+				"-9223364821527650928"
 			],
 			"mesh": "-9223367057376875588",
 			"owner": "@Node3D@40192",
@@ -428365,7 +428365,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837013021299"
+				"-9223364821460542068"
 			],
 			"mesh": "-9223367057343321159",
 			"owner": "@Node3D@40192",
@@ -428379,7 +428379,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364836945912439"
+				"-9223364821393433203"
 			],
 			"mesh": "-9223367057292989516",
 			"owner": "@Node3D@40192",
@@ -428393,7 +428393,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364836945912439"
+				"-9223364821393433203"
 			],
 			"mesh": "-9223367057259435087",
 			"owner": "@Node3D@40192",
@@ -428407,7 +428407,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837214347889"
+				"-9223364821661868653"
 			],
 			"mesh": "-9223367057225880658",
 			"owner": "@Node3D@40192",
@@ -428421,7 +428421,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837281456749"
+				"-9223364821728977518"
 			],
 			"mesh": "-9223367057192326229",
 			"owner": "@Node3D@40192",
@@ -428435,7 +428435,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364836878803574"
+				"-9223364821326324343"
 			],
 			"mesh": "-9223367057158771800",
 			"owner": "@Node3D@40192",
@@ -428449,7 +428449,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364836878803574"
+				"-9223364821326324343"
 			],
 			"mesh": "-9223367057125217371",
 			"owner": "@Node3D@40192",
@@ -428463,7 +428463,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364836811694714"
+				"-9223364821259215478"
 			],
 			"mesh": "-9223367057074885727",
 			"owner": "@Node3D@40192",
@@ -428477,7 +428477,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364836744585849"
+				"-9223364821192106618"
 			],
 			"mesh": "-9223367057041331298",
 			"owner": "@Node3D@40192",
@@ -428491,7 +428491,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364836744585849"
+				"-9223364821192106618"
 			],
 			"mesh": "-9223367057007776869",
 			"owner": "@Node3D@40192",
@@ -428505,7 +428505,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364837214347889"
+				"-9223364821661868653"
 			],
 			"mesh": "-9223367056974222440",
 			"owner": "@Node3D@40192",
@@ -428519,7 +428519,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834932646655"
+				"-9223364819380167424"
 			],
 			"mesh": "-9223367058014409687",
 			"owner": "@Node3D@40192",
@@ -428533,7 +428533,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834865537795"
+				"-9223364819313058559"
 			],
 			"mesh": "-9223367057980855257",
 			"owner": "@Node3D@40192",
@@ -428547,7 +428547,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834798428930"
+				"-9223364819245949699"
 			],
 			"mesh": "-9223367057947300827",
 			"owner": "@Node3D@40192",
@@ -428561,7 +428561,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834798428930"
+				"-9223364819245949699"
 			],
 			"mesh": "-9223367057913746397",
 			"owner": "@Node3D@40192",
@@ -428575,7 +428575,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834798428930"
+				"-9223364819245949699"
 			],
 			"mesh": "-9223367057880191967",
 			"owner": "@Node3D@40192",
@@ -428589,7 +428589,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834865537795"
+				"-9223364819313058559"
 			],
 			"mesh": "-9223367057460761661",
 			"owner": "@Node3D@40192",
@@ -428603,7 +428603,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834932646655"
+				"-9223364819380167424"
 			],
 			"mesh": "-9223367057427207232",
 			"owner": "@Node3D@40192",
@@ -428617,7 +428617,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834731320070"
+				"-9223364819178840834"
 			],
 			"mesh": "-9223367057376875588",
 			"owner": "@Node3D@40192",
@@ -428631,7 +428631,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834664211205"
+				"-9223364819111731974"
 			],
 			"mesh": "-9223367057343321159",
 			"owner": "@Node3D@40192",
@@ -428645,7 +428645,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834597102345"
+				"-9223364819044623109"
 			],
 			"mesh": "-9223367057292989516",
 			"owner": "@Node3D@40192",
@@ -428659,7 +428659,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834597102345"
+				"-9223364819044623109"
 			],
 			"mesh": "-9223367057259435087",
 			"owner": "@Node3D@40192",
@@ -428673,7 +428673,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834865537795"
+				"-9223364819313058559"
 			],
 			"mesh": "-9223367057225880658",
 			"owner": "@Node3D@40192",
@@ -428687,7 +428687,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834932646655"
+				"-9223364819380167424"
 			],
 			"mesh": "-9223367057192326229",
 			"owner": "@Node3D@40192",
@@ -428701,7 +428701,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834529993480"
+				"-9223364818977514249"
 			],
 			"mesh": "-9223367057158771800",
 			"owner": "@Node3D@40192",
@@ -428715,7 +428715,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834529993480"
+				"-9223364818977514249"
 			],
 			"mesh": "-9223367057125217371",
 			"owner": "@Node3D@40192",
@@ -428729,7 +428729,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834462884620"
+				"-9223364818910405384"
 			],
 			"mesh": "-9223367057074885727",
 			"owner": "@Node3D@40192",
@@ -428743,7 +428743,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834395775755"
+				"-9223364818843296524"
 			],
 			"mesh": "-9223367057041331298",
 			"owner": "@Node3D@40192",
@@ -428757,7 +428757,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834395775755"
+				"-9223364818843296524"
 			],
 			"mesh": "-9223367057007776869",
 			"owner": "@Node3D@40192",
@@ -428771,7 +428771,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364834865537795"
+				"-9223364819313058559"
 			],
 			"mesh": "-9223367056974222440",
 			"owner": "@Node3D@40192",
@@ -428785,7 +428785,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832919380893"
+				"-9223364817366901662"
 			],
 			"mesh": "-9223367058014409687",
 			"owner": "@Node3D@40192",
@@ -428799,7 +428799,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832852272033"
+				"-9223364817299792797"
 			],
 			"mesh": "-9223367057980855257",
 			"owner": "@Node3D@40192",
@@ -428813,7 +428813,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832785163168"
+				"-9223364817232683937"
 			],
 			"mesh": "-9223367057527870520",
 			"owner": "@Node3D@40192",
@@ -428827,7 +428827,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832785163168"
+				"-9223364817232683937"
 			],
 			"mesh": "-9223367057494316090",
 			"owner": "@Node3D@40192",
@@ -428841,7 +428841,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832852272033"
+				"-9223364817299792797"
 			],
 			"mesh": "-9223367057460761661",
 			"owner": "@Node3D@40192",
@@ -428855,7 +428855,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832919380893"
+				"-9223364817366901662"
 			],
 			"mesh": "-9223367057427207232",
 			"owner": "@Node3D@40192",
@@ -428869,7 +428869,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832718054308"
+				"-9223364817165575072"
 			],
 			"mesh": "-9223367057376875588",
 			"owner": "@Node3D@40192",
@@ -428883,7 +428883,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832650945443"
+				"-9223364817098466212"
 			],
 			"mesh": "-9223367057343321159",
 			"owner": "@Node3D@40192",
@@ -428897,7 +428897,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832583836583"
+				"-9223364817031357347"
 			],
 			"mesh": "-9223367057292989516",
 			"owner": "@Node3D@40192",
@@ -428911,7 +428911,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832583836583"
+				"-9223364817031357347"
 			],
 			"mesh": "-9223367057259435087",
 			"owner": "@Node3D@40192",
@@ -428925,7 +428925,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832852272033"
+				"-9223364817299792797"
 			],
 			"mesh": "-9223367057225880658",
 			"owner": "@Node3D@40192",
@@ -428939,7 +428939,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832919380893"
+				"-9223364817366901662"
 			],
 			"mesh": "-9223367057192326229",
 			"owner": "@Node3D@40192",
@@ -428953,7 +428953,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832516727718"
+				"-9223364816964248487"
 			],
 			"mesh": "-9223367057158771800",
 			"owner": "@Node3D@40192",
@@ -428967,7 +428967,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832516727718"
+				"-9223364816964248487"
 			],
 			"mesh": "-9223367057125217371",
 			"owner": "@Node3D@40192",
@@ -428981,7 +428981,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832449618858"
+				"-9223364816897139622"
 			],
 			"mesh": "-9223367057074885727",
 			"owner": "@Node3D@40192",
@@ -428995,7 +428995,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832382509993"
+				"-9223364816830030762"
 			],
 			"mesh": "-9223367057041331298",
 			"owner": "@Node3D@40192",
@@ -429009,7 +429009,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832382509993"
+				"-9223364816830030762"
 			],
 			"mesh": "-9223367057007776869",
 			"owner": "@Node3D@40192",
@@ -429023,7 +429023,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364832852272033"
+				"-9223364817299792797"
 			],
 			"mesh": "-9223367056974222440",
 			"owner": "@Node3D@40192",
@@ -429037,7 +429037,7 @@
 			"geometry_transparency": 0.0,
 			"instances": 1,
 			"materials": [
-				"-9223364814514774781"
+				"-9223364799062958936"
 			],
 			"mesh": "-9223367052444374252",
 			"owner": "@Node3D@40192",
@@ -429051,9 +429051,9 @@
 			"geometry_transparency": 0.0,
 			"instances": 24,
 			"materials": [
-				"-9223364814296627183"
+				"-9223364798844855115"
 			],
-			"mesh": "-9223364814313404251",
+			"mesh": "-9223364798861632336",
 			"owner": "@Node3D@40192",
 			"owner_script": "res://scripts/dream/entity/maintenance_tentacle_gang.gd",
 			"path": "@Node3D@40192/FiniteSeamDroplets",
@@ -429064,7 +429064,7 @@
 	],
 	"evidence_class": "INERT",
 	"materials": {
-		"-9223364814296627183": {
+		"-9223364798844855115": {
 			"maps": {},
 			"mesh_uv_selector": false,
 			"mip_filters": {},
@@ -429074,7 +429074,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364814514774781": {
+		"-9223364799062958936": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/residue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/residue_normal.png",
@@ -429092,7 +429092,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364832382509993": {
+		"-9223364816830030762": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -429110,7 +429110,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364832449618858": {
+		"-9223364816897139622": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429128,7 +429128,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364832516727718": {
+		"-9223364816964248487": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/eye_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/eye_normal.png",
@@ -429146,7 +429146,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364832583836583": {
+		"-9223364817031357347": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -429166,7 +429166,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364832650945443": {
+		"-9223364817098466212": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429184,7 +429184,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364832718054308": {
+		"-9223364817165575072": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429202,7 +429202,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364832785163168": {
+		"-9223364817232683937": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429220,7 +429220,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364832852272033": {
+		"-9223364817299792797": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429238,7 +429238,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364832919380893": {
+		"-9223364817366901662": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429256,7 +429256,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364834395775755": {
+		"-9223364818843296524": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -429274,7 +429274,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364834462884620": {
+		"-9223364818910405384": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429292,7 +429292,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364834529993480": {
+		"-9223364818977514249": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/eye_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/eye_normal.png",
@@ -429310,7 +429310,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364834597102345": {
+		"-9223364819044623109": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -429330,7 +429330,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364834664211205": {
+		"-9223364819111731974": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429348,7 +429348,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364834731320070": {
+		"-9223364819178840834": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429366,7 +429366,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364834798428930": {
+		"-9223364819245949699": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429384,7 +429384,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364834865537795": {
+		"-9223364819313058559": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429402,7 +429402,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364834932646655": {
+		"-9223364819380167424": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429420,7 +429420,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364836744585849": {
+		"-9223364821192106618": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -429438,7 +429438,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364836811694714": {
+		"-9223364821259215478": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429456,7 +429456,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364836878803574": {
+		"-9223364821326324343": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/eye_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/eye_normal.png",
@@ -429474,7 +429474,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364836945912439": {
+		"-9223364821393433203": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -429494,7 +429494,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364837013021299": {
+		"-9223364821460542068": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429512,7 +429512,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364837080130164": {
+		"-9223364821527650928": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429530,7 +429530,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364837147239024": {
+		"-9223364821594759793": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429548,7 +429548,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364837214347889": {
+		"-9223364821661868653": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429566,7 +429566,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364837281456749": {
+		"-9223364821728977518": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429584,7 +429584,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364838942400961": {
+		"-9223364823389921730": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -429602,7 +429602,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364839009509826": {
+		"-9223364823457030590": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429620,7 +429620,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364839076618686": {
+		"-9223364823524139455": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/eye_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/eye_normal.png",
@@ -429638,7 +429638,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364839143727551": {
+		"-9223364823591248315": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -429658,7 +429658,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364839210836411": {
+		"-9223364823658357180": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429676,7 +429676,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364839277945276": {
+		"-9223364823725466040": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429694,7 +429694,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364839345054136": {
+		"-9223364823792574905": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429712,7 +429712,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364839412163001": {
+		"-9223364823859683764": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429730,7 +429730,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364839479271860": {
+		"-9223364823926792629": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429748,7 +429748,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364840955666652": {
+		"-9223364825403293057": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -429766,7 +429766,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364841022775518": {
+		"-9223364825470296624": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429784,7 +429784,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364841089884383": {
+		"-9223364825537510789": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/eye_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/eye_normal.png",
@@ -429802,7 +429802,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364841156993249": {
+		"-9223364825604514358": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -429822,7 +429822,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364841224102114": {
+		"-9223364825671623207": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429840,7 +429840,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364841291210980": {
+		"-9223364825738732092": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429858,7 +429858,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364841358319845": {
+		"-9223364825805840941": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429876,7 +429876,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364841425428711": {
+		"-9223364825872949826": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429894,7 +429894,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364841492537576": {
+		"-9223364825940058675": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429912,7 +429912,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364843304477094": {
+		"-9223364827751954402": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -429930,7 +429930,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364843371692529": {
+		"-9223364827819199504": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -429948,7 +429948,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364843438798835": {
+		"-9223364827886313204": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/eye_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/eye_normal.png",
@@ -429966,7 +429966,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364843505904743": {
+		"-9223364827953280932": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -429986,7 +429986,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364843573034046": {
+		"-9223364828020433121": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430004,7 +430004,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364843640119331": {
+		"-9223364828087541956": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430022,7 +430022,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364843707224941": {
+		"-9223364828154607567": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430040,7 +430040,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364843774210996": {
+		"-9223364828221759764": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430058,7 +430058,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364843841318947": {
+		"-9223364828288825243": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430076,7 +430076,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364845502248948": {
+		"-9223364829949769716": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -430094,7 +430094,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364845569507657": {
+		"-9223364830017021843": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430112,7 +430112,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364845636466675": {
+		"-9223364830083987462": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/eye_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/eye_normal.png",
@@ -430130,7 +430130,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364845703575484": {
+		"-9223364830151096327": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -430150,7 +430150,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364845770821601": {
+		"-9223364830218350683": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430168,7 +430168,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364845837938605": {
+		"-9223364830285357230": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430186,7 +430186,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364845904945709": {
+		"-9223364830352574368": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430204,7 +430204,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364845972162289": {
+		"-9223364830419531799": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430222,7 +430222,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364846039133447": {
+		"-9223364830486776761": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430240,7 +430240,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364847314201827": {
+		"-9223364831761723416": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430258,7 +430258,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364847381340514": {
+		"-9223364831828961043": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/tissue_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/tissue_normal.png",
@@ -430276,7 +430276,7 @@
 			"source": "",
 			"type": "ShaderMaterial"
 		},
-		"-9223364847448449363": {
+		"-9223364831896074951": {
 			"maps": {
 				"albedo_map": "res://assets/dream/tentacle_gang/membrane_albedo.png",
 				"normal_map": "res://assets/dream/tentacle_gang/membrane_normal.png",
@@ -616145,7 +616145,7 @@
 		}
 	},
 	"meshes": {
-		"-9223364814313404251": {
+		"-9223364798861632336": {
 			"source": "",
 			"surfaces": [
 				{
@@ -616158,7 +616158,7 @@
 			],
 			"type": "QuadMesh"
 		},
-		"-9223365514577766466": {
+		"-9223365493086052590": {
 			"source": "",
 			"surfaces": [
 				{
@@ -616171,7 +616171,7 @@
 			],
 			"type": "ArrayMesh"
 		},
-		"-9223365514594557895": {
+		"-9223365493102829800": {
 			"source": "",
 			"surfaces": [
 				{
@@ -616184,7 +616184,7 @@
 			],
 			"type": "ArrayMesh"
 		},
-		"-9223365514611335112": {
+		"-9223365493119707959": {
 			"source": "",
 			"surfaces": [
 				{

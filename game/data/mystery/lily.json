@@ -16,7 +16,11 @@
   "li_dub": "li_d1",
   "li_two_bars": "li_v1",
   "li_thursday": "li_t1",
-  "li_night": "li_n1"
+  "li_night": "li_n1",
+  "li_cup": "li_m1",
+  "li_moon": "li_m3",
+  "li_bill": "li_m6",
+  "li_wait": "li_w1"
  },
  "threads": [
   {
@@ -138,6 +142,38 @@
    ],
    "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. The Emergence. A party; her life goes on.",
    "root": "li_n1"
+  },
+  {
+   "id": "li_cup",
+   "from": "1929-09-17",
+   "until": "1929-09-21",
+   "topic": "That's a nice cup.",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. Before. She's collecting them, and she won't say why.",
+   "root": "li_m1"
+  },
+  {
+   "id": "li_moon",
+   "from": "1929-10-26",
+   "until": "1929-11-09",
+   "topic": "It's crooked.",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. After. The player can say so, and it changes nothing.",
+   "root": "li_m3"
+  },
+  {
+   "id": "li_bill",
+   "from": "1929-11-01",
+   "until": "1929-11-09",
+   "topic": "Have they written?",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. Ravenswood's reply, in the voice of Suggest smaller hat.",
+   "root": "li_m6"
+  },
+  {
+   "id": "li_wait",
+   "from": "1929-09-22",
+   "until": "1929-10-25",
+   "topic": "You look tired.",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. She thinks it failed. She never says what.",
+   "root": "li_w1"
   }
  ],
  "nodes": {
@@ -262,6 +298,45 @@
   },
   "li_n1": {
    "line": "After the set. Juno's got a left hand now. I don't know where she got it. Nobody's listening, they've all got one eye on the door, and it's the most fun I've had since spring."
+  },
+  "li_m1": {
+   "silence_goto": "li_m2",
+   "line": "Thursday. I was telling Juno about a B flat. I've never been so badly received in my life. She always wanted to know what the light was like. Nobody could tell her. Nobody looks at the light. I looked.",
+   "choices": [
+    {
+     "label": "What's it like?",
+     "goto": "li_m2"
+    }
+   ]
+  },
+  "li_m2": {
+   "line": "It's on its way somewhere else. Mind, it pours away from you. Do you know anyone else with one of these? I want eleven. I'm asking everybody who's been asked."
+  },
+  "li_m3": {
+   "silence_goto": "li_m4",
+   "line": "On the left. I know it's on the left. It was fine for eight bars. I put her two back, and in the ninth the left pin let go. Five weeks I went up and looked at nothing. It comes in slow. You want the light from the side. She'd have told me that.",
+   "choices": [
+    {
+     "label": "Leave it.",
+     "goto": "li_m4"
+    },
+    {
+     "label": "She'd want it straight.",
+     "goto": "li_m5"
+    }
+   ]
+  },
+  "li_m4": {
+   "line": "You've got eyes, for a man with a wrench. I've still got the tracing, on glass. I could go back. I've done the sums. I'm not going to."
+  },
+  "li_m5": {
+   "line": "She'd want it eleven ways and a hat, and she'd want it to be my fault. It is my fault. Don't look at me, look at it, everybody else is."
+  },
+  "li_m6": {
+   "line": "Tuesday. To the bar. \"We note your client's billing. Under clause six, the Company retains the negative. Suggest smaller letters. Kindly advise.\" That's eight in the bench. I haven't got anyone to correct them."
+  },
+  "li_w1": {
+   "line": "I've been up on roofs. Nothing's the matter. It's a very good moon. There isn't a mark on it. There's a professor in the Record on about smudges. I've told myself that's the plate."
   }
  }
 }

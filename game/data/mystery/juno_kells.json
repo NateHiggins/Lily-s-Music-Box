@@ -14,7 +14,8 @@
   "jk_pocket": "jk_p1",
   "jk_dub": "jk_d1",
   "jk_gone": "jk_g1",
-  "jk_scranton": "jk_s1"
+  "jk_scranton": "jk_s1",
+  "jk_moon": "jk_mn1"
  },
  "threads": [
   {
@@ -88,6 +89,14 @@
    "topic": "You wrote to Scranton?",
    "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. One Short. She asks first, after August, and it gets her nowhere. The archive stays shut.",
    "root": "jk_s1"
+  },
+  {
+   "id": "jk_moon",
+   "from": "1929-10-26",
+   "until": "1929-11-09",
+   "topic": "You've seen the moon.",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. She gave two cups, and they weren't hers.",
+   "root": "jk_mn1"
   }
  ],
  "nodes": {
@@ -240,6 +249,9 @@
   },
   "jk_s1": {
    "line": "I asked! Me! I wrote \"may I\" on a piece of paper! He said \"one\" every night for four months, I could cut you a beauty out of January, you'd cry. He sent a catalogue. So that's a no, or it's a mattress. I'm taking it as a no. Don't look at me like that, I'm as surprised as you are."
+  },
+  "jk_mn1": {
+   "line": "I asked Lily, did you ask. She said who. That's, I didn't have anything for that. I gave her two cups. They aren't mine, don't ask me whose. It doesn't make a noise, that's what gets me. It's the only thing in this borough I can't keep."
   }
  }
 }

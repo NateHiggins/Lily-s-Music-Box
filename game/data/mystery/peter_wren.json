@@ -14,7 +14,8 @@
   "pw_stub": "pw_st1",
   "pw_memo": "pw_m1",
   "pw_party": "pw_q1",
-  "pw_society": "pw_so1"
+  "pw_society": "pw_so1",
+  "pw_moon": "pw_mn1"
  },
  "threads": [
   {
@@ -84,6 +85,14 @@
    "topic": "Who's the Society for the Prevention?",
    "source": "FICTION; see design/ORISON_BACKGROUND_ODDITIES_2026-11-01.md. The Society. Never explained.",
    "root": "pw_so1"
+  },
+  {
+   "id": "pw_moon",
+   "from": "1929-10-22",
+   "until": "1929-11-09",
+   "topic": "Whose is it, legally?",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. Who should he write to. Stays clear of the firm's deed.",
+   "root": "pw_mn1"
   }
  ],
  "nodes": {
@@ -210,6 +219,9 @@
   },
   "pw_so1": {
    "line": "We file their notices. That is, the firm does, I wouldn't say I do. One word, each November, paid in advance. I asked what it is they prevent. I was told I should be glad it hadn't happened. I can't say that's an answer. I can't say it isn't."
+  },
+  "pw_mn1": {
+   "line": "The firm didn't ask me to find out. That is, I found out. No court sits there. I wanted to know who I should write to. I can't say there's anybody. I can't say I've stopped drafting it."
   }
  }
 }

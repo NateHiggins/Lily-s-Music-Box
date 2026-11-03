@@ -1,47 +1,47 @@
 {
  "status": "PASS",
- "scope": "Technical rendered review for the mail bank and watch station refits. All 67 frames read together on one contact sheet at thumbnail size, with mail_bank and watch_station opened larger; no human artistic, whole-game, weather or performance acceptance.",
- "surface_inputs_sha256": "332aacf8ad340847a0ef240b81540884e108681deea3506898b1e82ef1e11257",
+ "scope": "Technical rendered review for the moon name and growing moon. All 67 frames read together on one contact sheet at thumbnail size, with the eight bound frames opened larger. The moon itself was read on the separate optical review sheet (moon_year.jpg, seven dates from Nov 1928 to 9 Nov 1929); no human artistic, whole-game, weather or performance acceptance.",
+ "surface_inputs_sha256": "df12d93ddabe6e46e7a8406d0ed9f42448570fe134c12c8fb82162a2f2852b02",
  "images": [
   {
    "file": "mail_bank.png",
-   "sha256": "c7cd9f55b74a31fae0b3c7878af072c884d09cde596847779bebe46838e6ea9a",
-   "observation": "Refit mail bank in its lobby wall: brass doors, name cards, header and slot in place, open and ajar units as authored. Dark corner, as in earlier renewals."
+   "sha256": "d4a11f1e58eaf01a8bc8e700afc16fa3fb4feb495fb2232e88809858702edd14",
+   "observation": "Mail bank in its lobby wall: brass doors, name cards, header and slot in place. Dark corner, as in earlier renewals; unchanged by this batch."
   },
   {
    "file": "watch_station.png",
-   "sha256": "bb0d4654bcf2e512fecb4cfc5bcc176b724471a17d4d1c991c6cacf3f39b3fd2",
-   "observation": "Refit watch station on its dark wall: case, legend, drop and coded wheel behind the glass in place. No stretched charts visible at this distance."
+   "sha256": "83699b15e5831accbcf1e2cb10417c14e224bf520cf8c3829b6e39039cdfc98f",
+   "observation": "Watch station on its dark wall: case, legend, drop and coded wheel in place; unchanged by this batch."
   },
   {
    "file": "F03_B_MAIN.png",
-   "sha256": "5b729996dc2afdc637f12d8ea4a0362017bb5ff045dbbf32afe942d39d54e998",
+   "sha256": "c8fc46ebf8a7694b334c3df4cb16baf1b81838c048b2970237f0cf3529921b57",
    "observation": "Occupied room with resident, furnishings and set textured and in place; unchanged by this batch."
   },
   {
    "file": "staff_closet_deep_services.png",
-   "sha256": "558360a4f2bda9b8cf786c82ac980cb2b3690097a45d4959ffd31edf4eea644e",
-   "observation": "Staff closet fixture still seated against its tile wall; unchanged by this batch."
+   "sha256": "bf0dd5660f2302867a2d5440d6d989ece8e85fed1083f6144e27a4989deabed4",
+   "observation": "Staff closet fixture seated against its tile wall; unchanged by this batch."
   },
   {
    "file": "closet_vent_bypass_services.png",
-   "sha256": "e61a14413d03ff06f8a2161299780f0d76f6092e2e8db3ecc95f3e468988d8d7",
-   "observation": "Vent and offset support still in place beside the closet; unchanged by this batch."
+   "sha256": "30088dd9fa7407a7ad33c3b71b56431bdc57d46ef1efebf4c3d1fc0792a8cae8",
+   "observation": "Vent and offset support in place beside the closet; unchanged by this batch."
   },
   {
    "file": "western_HORIZON_NEAR_3_0_P1_delivery_court.png",
-   "sha256": "4555c3e3c18a0863f1d2e25dc21bf24ef055373808ab9febeb2e84c270c74232",
+   "sha256": "2bf0b80afb30e46124379cf300d127fd25550952cc7a3dcdaae3b519703de91f",
    "observation": "Factory delivery court and window detail render as before; unchanged by this batch."
   },
   {
    "file": "roof_tank_uv.png",
-   "sha256": "e4da62666630f7f9e3dea85a2f263ee4fe66feeb6468ed7b9c82fa0c052e75b1",
-   "observation": "Roof tank body, supports and roof context render as before; unchanged by this batch."
+   "sha256": "eb51bab9a7854e425efa66f6aaec158b941af9c6b6c6d464642104c48e64220b",
+   "observation": "Roof tank, supports and roof context render as before; the day sky and clouds are intact with the moon shader change."
   },
   {
    "file": "east_moonlight_baseline.png",
-   "sha256": "7d0682b0bb612ac0d1e78a8d0a03aee814182c28f3df0066e7456cc8d4856bb6",
-   "observation": "Night city with lit windows and factory tower as before; unchanged by this batch."
+   "sha256": "e6cf7da02862da839e3a3f3fe20bef5c9b2e24ad653265b001947b71d791df65",
+   "observation": "Night city with lit windows and factory tower as before; the night sky renders without artefacts with the moon shader change. The capture date is before the name, and no moon is in frame."
   }
  ]
 }

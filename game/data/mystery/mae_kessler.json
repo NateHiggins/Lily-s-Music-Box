@@ -13,7 +13,8 @@
   "mk_glove": "mk_g1",
   "mk_box": "mk_b1",
   "mk_chair": "mk_e1",
-  "mk_copy": "mk_c1"
+  "mk_copy": "mk_c1",
+  "mk_moon": "mk_mn1"
  },
  "threads": [
   {
@@ -85,6 +86,14 @@
    ],
    "source": "FICTION; see design/ORISON_YEAR_SUBPLOTS_2026-11-01.md. The Emergence. She is not a clue here.",
    "root": "mk_e1"
+  },
+  {
+   "id": "mk_moon",
+   "from": "1929-10-26",
+   "until": "1929-11-09",
+   "topic": "There are people on your stair, Mrs. Kessler.",
+   "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. No confession, no evidence and no interest in the name. Ownership grammar about a stair.",
+   "root": "mk_mn1"
   }
  ],
  "nodes": {
@@ -236,6 +245,9 @@
   },
   "mk_e1": {
    "line": "I am carrying a chair up, if that's what you mean. You may sit. The chair is mine."
+  },
+  "mk_mn1": {
+   "line": "They stand on my stair and look up. It is a stair. It is not a viewing platform, and there is a mat. I have said so to the proper people."
   }
  }
 }
