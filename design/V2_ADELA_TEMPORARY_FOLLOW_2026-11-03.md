@@ -59,3 +59,31 @@ production inputs. Its last stage compiles the nook inheritance chain in order
 to expose the unresolved parent-class failure; it does not run the nook route.
 Twenty-five existing material-catalogue, additive-binding and runtime-source
 projection unit tests pass. No engine result is implied by these Python tests.
+
+## First engine preflight and consolidated retry
+
+The first two patched-engine imports completed in55.86s and12.14s, with zero
+script errors. Production follower and runtime-root compilation passed. The
+isolated fixture failed to compile at its untyped animation-position snapshot;
+its rendered test was **not executed**. The snapshot now declares float, and the
+world driver's adapter-derived position declares Vector3. Assertions are intact.
+Original receipts remain in **intake_01/** under the external report directory.
+
+The pending **world_02** job was cancelled while queued with no child process;
+its guard could not pass because the isolated test never ran. A consolidated
+**intake_02/batch.json** now queues compile, rendered isolated following, installed
+corridor/stair/cost observation, then topological nook-parent compile. Live broker
+**32268**, session**80997**. Do not restart original62828/6266 or23664/78725.
+No imports are repeated; no runtime movement result is claimed yet.
+
+Three final-GLB CPU round-trip previews (idle/walk/run) were inspected individually.
+The156,822-triangle skinned export and texture layout survive reimport. Blender's
+extra80-triangle bone-display helper is identified separately in
+**RUNTIME_ROUNDTRIP.json**. Native review does not establish Godot optics or feel.
+
+The importer rewrote437 otherwise identical import files; each was restored only
+after its LF bytes matched HEAD. Its704 newly generated untracked legacy UIDs
+were removed only with import-log or sole-import creation-window provenance,
+tracked source ownership and origin/main absence checks. Recovery records remain
+external in **IMPORT_CHURN_REVIEW.json** and **GENERATED_UID_CLEANUP.json**.
+Adela's three new script UIDs and complete imported texture settings are retained.

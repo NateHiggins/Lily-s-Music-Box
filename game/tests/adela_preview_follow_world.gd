@@ -44,7 +44,7 @@ func _route() -> void:
 	for frame in 360:
 		if follower.global_position.distance_to(player.global_position)<2.3:break
 		await get_tree().physics_frame
-	var actual:=world.adapter.root.to_local(follower.global_position)
+	var actual: Vector3=world.adapter.root.to_local(follower.global_position)
 	_verify(actual.y>1.45 and follower.is_on_floor(),"Adela follows up the real stair to its supported half landing")
 	observations["stair_player"]=str(player.global_position)
 	observations["stair_adela"]=str(follower.global_position)

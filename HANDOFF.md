@@ -25,8 +25,12 @@ external sources/candidates are in **C:/ov/asset-prototypes/adela-model-intake-2
 Native full156,822-triangle tangent/28-bone skin checks pass; canonical producer
 replay is byte-identical. Temporary debug follower is authored, hidden through
 prologue, with env0 opt-out and explicit env1 for release. No Godot acceptance
-yet. Batch **C:/ov/reports/adela_follow_20261103/intake_01/batch.json**, live broker
-**62828** / session **6266**, is queued behind GPU work; poll it, do not restart.
+yet. Original intake01 broker62828/session6266 completed both imports and passed
+production follower/root compile, then stopped on a fixture float inference error.
+That declaration is corrected. Old world02 broker23664/session78725 was cancelled
+while queued. Poll consolidated **C:/ov/reports/adela_follow_20261103/intake_02/batch.json**,
+live broker **32268** / session **80997**. No rendered follow result yet; do not
+restart old jobs. Import-generated churn was cleaned with external provenance.
 [Adela intake ledger](design/V2_ADELA_TEMPORARY_FOLLOW_2026-11-03.md).
 New assets require their own loaded proof and fresh physical renewal, not reuse
 of the preceding city-only qualification for an expanded composition.

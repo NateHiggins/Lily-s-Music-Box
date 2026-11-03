@@ -79,7 +79,7 @@ func _ready() -> void:
 			check(follower.global_transform.is_equal_approx(held),"protected input holds follower position")
 			player.call_locked=false
 			var paused_pose:=follower.global_transform
-			var paused_animation:=follower.animation.current_animation_position
+			var paused_animation: float=follower.animation.current_animation_position
 			get_tree().paused=true
 			for frame in 8:await get_tree().process_frame
 			check(follower.global_transform.is_equal_approx(paused_pose) and is_equal_approx(follower.animation.current_animation_position,paused_animation),"pause freezes locomotion and personal animation")
