@@ -13,6 +13,7 @@ var world: FixtureWorld
 var player: PlayerController
 var follower: CharacterBody3D
 var wall_crossed:=false
+var observations: Array[Dictionary]=[]
 
 func check(ok: bool,label: String) -> bool:
 	checks+=1
@@ -60,6 +61,7 @@ func _ready() -> void:
 			await _catch_up()
 			check(not wall_crossed,"trail follows the real bend instead of crossing its wall")
 			check(follower.global_position.distance_to(player.global_position)<2.3,"follower catches up to conversational distance")
+			_observe("after_corner")
 			await _capture("adela_after_corner")
 			var mid: Vector3=(follower.global_position+player.global_position)*.5
 			var gate:=_box(Vector3(mid.x,.95,-5),Vector3(.12,1.9,2))
@@ -67,9 +69,11 @@ func _ready() -> void:
 			if await _walk(Vector3(9,0,-5)):
 				for frame in 120:await get_tree().physics_frame
 				check(follower.global_position.x<gate.global_position.x-.25,"closed obstacle blocks the follower without teleport or wall crossing")
+				_observe("gate_closed")
 				await _capture("adela_waits_at_gate")
 			gate.free();await get_tree().physics_frame;await get_tree().physics_frame
 			await _catch_up()
+			_observe("after_step")
 			check(follower.global_position.distance_to(player.global_position)<2.3,"follower resumes through cleared path and over the150mm step")
 			check(follower.global_position.x>6.15 and follower.global_position.y>-.03 and follower.global_position.y<.2,"follower has crossed the entire step and retained floor support")
 			player.call_locked=true
@@ -89,9 +93,12 @@ func _ready() -> void:
 	var output:=OS.get_environment("SHOT_DIR")
 	if not output.is_empty():
 		DirAccess.make_dir_recursive_absolute(output)
-		FileAccess.open(output.path_join("adela_follow.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures,"scope":"Isolated supplied model, real player movement, bend/wall/obstacle/step, input protection and pause. Not installed-world, prologue timing, save or artistic acceptance."},"\t"))
+		FileAccess.open(output.path_join("adela_follow.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures,"observations":observations,"scope":"Isolated supplied model, real player movement, bend/wall/obstacle/step, input protection and pause. Not installed-world, prologue timing, save or artistic acceptance."},"\t"))
 	print("ADELA FOLLOW DIAGNOSTIC: ","PASS" if failures.is_empty() else "FAIL"," checks=",checks," failures=",failures)
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _observe(label: String) -> void:
+	observations.append({"phase":label,"player":str(player.global_position),"follower":str(follower.global_position),"target":str(follower.trail[0]) if not follower.trail.is_empty() else "none","queued_metres":follower.queued_metres,"trail_lost":follower.trail_lost,"on_floor":follower.is_on_floor()})
 
 func _walk(to: Vector3) -> bool:
 	for frame in 480:

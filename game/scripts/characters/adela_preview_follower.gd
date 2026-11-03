@@ -4,6 +4,7 @@ const MODEL := "res://assets/characters/adela_voss/adela_voss.glb"
 const FINISH := "resident_adela_voss"
 const FOLLOW_DISTANCE := 1.8
 const MAX_TRAIL := 512
+const STEP_HEIGHT := .22
 var world: Node3D
 var player: PlayerController
 var model: Node3D
@@ -92,6 +93,17 @@ func _spawn_near_player() -> bool:
 		spawned=true;return true
 	return false
 
+func _grounded_player_point() -> Vector3:
+	# The player's step assist transiently lifts its foot above the floor.
+	# Queue the witnessed support, not that transient airborne height. Wait
+	# through unsupported motion instead of inventing a walkable bridge.
+	var point:=player.global_position
+	if point.distance_to(last_sample)<=.25:return last_sample
+	var support:=_floor_at(point)
+	if support.is_empty() or support.normal.y<.65:return last_sample
+	point.y=support.position.y
+	return point
+
 func _motion(clip: String,speed: float) -> void:
 	if animation==null:return
 	if animation.current_animation!=clip:animation.play(clip,.2)
@@ -106,7 +118,7 @@ func _physics_process(delta: float) -> void:
 	visible=true
 	if player.protected_input_active() or player.text_input_owner!=null:
 		velocity=Vector3.ZERO;_motion("adela_idle",0.);return
-	var point:=player.global_position
+	var point:=_grounded_player_point()
 	if point.distance_to(last_sample)>2.5:trail_lost=true
 	if trail_lost and point.distance_to(last_sample)<1.0 and _clear(last_sample,point):trail_lost=false
 	if not trail_lost and point.distance_to(last_sample)>.25:
@@ -114,7 +126,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			if not trail.is_empty():queued_metres+=trail[-1].distance_to(point)
 			trail.append(point);last_sample=point
-	while trail.size()>1 and global_position.distance_to(trail[0])<.14:
+	while trail.size()>1 and Vector2(global_position.x-trail[0].x,global_position.z-trail[0].z).length()<.14 and absf(global_position.y-trail[0].y)<=STEP_HEIGHT+.03:
 		queued_metres=maxf(0.,queued_metres-trail[0].distance_to(trail[1]));trail.pop_front()
 	var target: Vector3=trail[0] if not trail.is_empty() else global_position
 	var distance:=global_position.distance_to(target)+queued_metres
@@ -126,7 +138,7 @@ func _physics_process(delta: float) -> void:
 		var floor:=_floor_at(global_position+motion+direction.normalized()*(_shape.radius+.05))
 		if not floor.is_empty():
 			var rise: float=floor.position.y-global_position.y
-			if rise>.015 and rise<=.22 and not test_move(global_transform,Vector3.UP*(rise+.015)) and not test_move(global_transform.translated(Vector3.UP*(rise+.015)),motion):
+			if rise>.015 and rise<=STEP_HEIGHT and not test_move(global_transform,Vector3.UP*(rise+.015)) and not test_move(global_transform.translated(Vector3.UP*(rise+.015)),motion):
 				global_position.y+=rise+.015
 	velocity.x=motion.x/maxf(delta,.001);velocity.z=motion.z/maxf(delta,.001)
 	velocity.y-=PlayerController.GRAVITY*delta

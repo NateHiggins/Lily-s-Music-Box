@@ -94,3 +94,26 @@ five actually played movement legs and explicit capsule/catch-up assertions.
 Its new hash-bound source/scene are marked **-text**. Optical and frame-time data
 remain separately labelled INERT. This is authored verification only until run;
 no contract result exists yet. The isolated fixture remains a narrower diagnostic.
+
+## First rendered fixture: step failure retained
+
+**intake_02** compiled all five scripts successfully. Its native3440x1440 fixture
+then ran15 assertions:13 passed and2 failed, both on resuming across the150mm
+step. Loaded original-UV PBR, three complete mip chains, clips, bend/wall blocking,
+closed gate, protected input, pause and unchanged campaign facts passed their
+isolated checks. All three resulting frames were individually inspected; this
+is fixture appearance, not installed-building or artistic acceptance. The batch
+stopped before the world route and nook-parent compile. Original logs/receipt,
+frames and **DIAGNOSTIC_REVIEW.json** remain under **intake_02/**.
+
+The candidate fix follows witnessed floor-support points instead of transient
+player step-lift height. Breadcrumb arrival uses planar progress with a bounded
+one-step height allowance; capsule collision and the22cm step limit remain.
+Unsupported player motion adds no invented ground path, and stationary players
+need no repeated floor probe. Fixture assertions remain unchanged; position,
+remaining-target and floor-state observations were added for diagnosis.
+This movement revision is uncompiled/unverified until retry.
+
+**intake_03/batch.json**, broker**63084**/session**62087**, is queued for the same
+compile/fixture/world/nook-parent sequence. Original32268/80997 is terminal1;
+do not restart it. No renewed physical packet, candidate or merge acceptance.

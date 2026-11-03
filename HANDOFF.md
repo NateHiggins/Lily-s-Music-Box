@@ -29,7 +29,10 @@ yet. Original intake01 broker62828/session6266 completed both imports and passed
 production follower/root compile, then stopped on a fixture float inference error.
 That declaration is corrected. Old world02 broker23664/session78725 was cancelled
 while queued. Poll consolidated **C:/ov/reports/adela_follow_20261103/intake_02/batch.json**,
-live broker **32268** / session **80997**. No rendered follow result yet; do not
+original broker **32268** / session **80997** is now terminal1: compile5/0,
+fixture13/15 with two step-crossing failures. Three frames inspected; no world
+or nook-parent stage executed. Grounded breadcrumb/step-progress fix is authored.
+Poll **intake_03/batch.json**, live broker **63084** / session **62087**. Do not
 restart old jobs. Import-generated churn was cleaned with external provenance.
 [Adela intake ledger](design/V2_ADELA_TEMPORARY_FOLLOW_2026-11-03.md).
 New assets require their own loaded proof and fresh physical renewal, not reuse
