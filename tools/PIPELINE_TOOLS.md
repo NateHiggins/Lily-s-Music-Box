@@ -235,6 +235,24 @@ census, then call the ordinary runners in the owning thread, so the lane is
 held across a batch and every run keeps its receipt. 73 if the lane stays
 busy past the deadline.
 
+Batch entries may add **environment**, an object of string values or null to
+unset a variable for that run. Values are restored after each run, including a
+failed run. Lane-state names (**ORISON_LANE_*** and **LOCALAPPDATA**) cannot be
+overridden. Invalid objects are rejected before queueing. For a matched pair,
+keep both entries in one batch lease, for example:
+
+```json
+[
+  {"scene":"res://tests/V2CityTransportRoute.tscn","log":"C:/ov/logs/before.log","environment":{"ORISON_CITY_ROUTE_SCOPE":"stutter_probe","ORISON_CITY_STUTTER_PREPARE_RENDER":null}},
+  {"scene":"res://tests/V2CityTransportRoute.tscn","log":"C:/ov/logs/after.log","environment":{"ORISON_CITY_ROUTE_SCOPE":"stutter_probe","ORISON_CITY_STUTTER_PREPARE_RENDER":"entry"}}
+]
+```
+
+Add the actual runner, ceiling, windowed capture paths and engine arguments
+needed by the test. This scopes configuration; it does not establish a completed
+run or performance improvement. FIFO order and the existing batch mutex are
+unchanged.
+
 ## Lane ledger
 
 ```

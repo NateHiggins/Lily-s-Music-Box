@@ -138,6 +138,14 @@ full test-file run unless an early failure needs isolation.
 Combine closely related checks when this saves startup cost without creating
 an oversized failure-prone suite. Reserve full played routes for integration
 checkpoints or changes whose dependency coverage genuinely requires them.
+Keep a matched before/after timing pair in one lane batch when practical; separate
+acquisitions can put long GPU jobs between treatments and prolong a source freeze.
+The broker's per-run **environment** object scopes test flags and restores them,
+including on failure; null unsets a flag. See the existing lane-broker section in
+[PIPELINE_TOOLS.md](../../../tools/PIPELINE_TOOLS.md) and verify the checkout's
+broker supports it. Keep separate fresh logs and report preparation time and host
+load. Private queue tests establish scheduling/configuration behavior, not a
+Godot playtest or performance improvement.
 Reuse valid unchanged route evidence instead of repeating it for each repair,
 visual adjustment, report edit or diagnostic. A performance experiment should
 measure a short, repeatable representative segment, excluding unrelated travel.

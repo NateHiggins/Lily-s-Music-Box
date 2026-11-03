@@ -113,6 +113,84 @@ class LaneQueueTests(unittest.TestCase):
                              text=True, check=True).stdout.split()
         self.assertEqual(out, ["True", "False"])
 
+    def environment_run(self, name, overrides=None, exit_code=0):
+        output = self.state / f"{name}.out.json"
+        code = ("import json,os,sys; "
+                "open(sys.argv[1],'w').write(json.dumps([os.getenv('ORISON_TEST_ENV'),"
+                "os.getenv('ORISON_TEST_NEW')])); sys.exit(int(sys.argv[2]))")
+        spec = {"gpu": [sys.executable, "-c", code, str(output), str(exit_code)],
+                "scene": name, "log": str(self.state / f"{name}.log"), "timeout": 30}
+        if overrides is not None:
+            spec["environment"] = overrides
+        return spec, output
+
+    def run_environment_batch(self, specs, *extra, parent_value="outer"):
+        batch = self.state / "environment.json"
+        batch.write_text(json.dumps(specs), encoding="utf8")
+        env = dict(self.env, ORISON_TEST_ENV=parent_value)
+        env.pop("ORISON_TEST_NEW", None)
+        return subprocess.run(["pwsh", "-NoProfile", "-File", str(TOOLS / "lane.ps1"),
+                               "batch", "-BatchFile", str(batch), "-WaitMinutes", "1", *extra],
+                              env=env, capture_output=True, text=True, timeout=45)
+
+    def test_batch_environment_is_scoped_and_null_unsets(self):
+        first, a = self.environment_run("set", {"ORISON_TEST_ENV": "inner", "ORISON_TEST_NEW": "new"})
+        second, b = self.environment_run("unset", {"ORISON_TEST_ENV": None})
+        third, c = self.environment_run("restored")
+        result = self.run_environment_batch([first, second, third])
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(json.loads(a.read_text()), ["inner", "new"])
+        self.assertEqual(json.loads(b.read_text()), [None, None])
+        self.assertEqual(json.loads(c.read_text()), ["outer", None])
+
+    def test_failed_run_restores_environment_before_continuing(self):
+        first, _ = self.environment_run("failed", {"ORISON_TEST_ENV": "inner"}, exit_code=7)
+        second, output = self.environment_run("after_failure")
+        result = self.run_environment_batch([first, second], "-ContinueOnFailure")
+        self.assertEqual(result.returncode, 7, result.stdout + result.stderr)
+        self.assertEqual(json.loads(output.read_text()), ["outer", None])
+
+    def test_empty_inherited_value_is_restored_exactly(self):
+        first, _ = self.environment_run("override_empty", {"ORISON_TEST_ENV": "inner"})
+        second, output = self.environment_run("restored_empty")
+        result = self.run_environment_batch([first, second], parent_value="")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(json.loads(output.read_text()), ["", None])
+
+    def test_launch_exception_restores_environment_and_releases_lane(self):
+        batch = self.state / "launch_exception.json"
+        output = self.state / "exception_restoration.json"
+        batch.write_text(json.dumps([{
+            "gpu": [str(self.state / "missing-executable.exe"), "unused"],
+            "scene": "launch failure", "log": str(self.state / "never.log"),
+            "environment": {"ORISON_TEST_ENV": "inner", "ORISON_TEST_NEW": "new"},
+        }]), encoding="utf8")
+        script = ("$ErrorActionPreference='Stop'; $caught=$false; "
+                  f"try {{ & '{TOOLS / 'lane.ps1'}' batch -BatchFile '{batch}' -WaitMinutes 1 }} "
+                  "catch { $caught=$true }; "
+                  "$m=[Threading.Mutex]::new($false,$env:ORISON_LANE_TEST_MUTEX); "
+                  "$free=$m.WaitOne(0); if($free){$m.ReleaseMutex()};$m.Dispose(); "
+                  "@{caught=$caught;free=$free;old=[Environment]::GetEnvironmentVariable('ORISON_TEST_ENV');"
+                  "added=[Environment]::GetEnvironmentVariable('ORISON_TEST_NEW')} | "
+                  f"ConvertTo-Json | Set-Content -Encoding utf8 -LiteralPath '{output}'")
+        env = dict(self.env, ORISON_TEST_ENV="outer")
+        env.pop("ORISON_TEST_NEW", None)
+        result = subprocess.run(["pwsh", "-NoProfile", "-Command", script], env=env,
+                                capture_output=True, text=True, timeout=30)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(json.loads(output.read_text(encoding="utf-8-sig")),
+                         {"caught": True, "free": True, "old": "outer", "added": None})
+
+    def test_invalid_environment_is_rejected_before_any_run(self):
+        for overrides in [[], {"bad=name": "x"}, {"ORISON_TEST_ENV": 3},
+                          {"ORISON_LANE_BROKER": "x"}, {"orison_lane_test_mutex": "x"},
+                          {"localappdata": "elsewhere"}]:
+            with self.subTest(overrides=overrides):
+                spec, output = self.environment_run("must_not_start", overrides)
+                result = self.run_environment_batch([spec])
+                self.assertEqual(result.returncode, 64, result.stdout + result.stderr)
+                self.assertFalse(output.exists())
+
 
 if __name__ == "__main__":
     unittest.main()
