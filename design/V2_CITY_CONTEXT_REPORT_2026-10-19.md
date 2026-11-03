@@ -1,5 +1,34 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+### Three-house source replay and loaded family — November 3
+
+Evidence class: **INERT**. Canonical cohort05 regenerated the existing apron and
+horizon sources, then committed only eight declared producer outputs at
+**4b85f81a215f984c146c3b496ee8e0aa21220158**. The guard passes184 checks:
+all38 frozen GLBs and runtime JSON remain unchanged, measured native payloads
+remain equivalent, all37 native references and all13 source preflights pass.
+Original ignored Blender backups were hash-preserved externally before replay;
+four newly generated duplicate backups were removed only after comparison with
+the prior committed source. Generated UID/import churn was archived or verified
+LF-equivalent before named cleanup. Custody records remain with cohort05.
+
+The loaded factory/three-house family passes1085 checks with zero failures,
+170 panes and26 partitions, empty stderr, and its test-written schema2 contract.
+Of33 images,24 match the architect's originals exactly; nine house views differ.
+The integrator inspected all six changed near/lower views. Their windows are
+darker/cooler; the family fixture does not explicitly pin its initial clock, so
+the cause and pixel reproducibility remain unresolved. This is not artistic
+acceptance. Existing geometry and window ownership are preserved.
+
+The existing composed factory driver is now extended, but not yet run, with
+five real house-to-factory movement legs before its retained eight factory legs.
+One initial placement is not a leg. No new world, floor, rescue, scenic-door
+interaction or save authority is introduced. Compile, the13-leg composed route,
+full surface renewal, candidate gates and main merge remain open. Evidence:
+**C:/ov/reports/entry_render_preparation_20261102/cohort_05/**, including
+**family/individual_bodies.runtime.json**, **NATIVE_GUARD_REVIEW.json** and
+**cleanup/CUSTODY.json**. Earlier WIP observations below retain their original scope.
+
 ### Three-house canonical intake WIP — November 3
 
 Evidence class: **INERT**. Integrating architect source **2a59a5066** with the
