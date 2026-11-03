@@ -9,7 +9,7 @@ func _route() -> void:
 	var test_hash: String=FileAccess.get_sha256(get_script().resource_path)
 	var before: String=_runtime_digest()
 	var dependencies: Dictionary={}
-	for path: String in ["res://tests/orison_v2_vertical_route_test.gd","res://tests/AdelaPreviewFollowWorld.tscn"]:
+	for path: String in ["res://tests/orison_v2_vertical_route_test.gd","res://tests/orison_v2_first_slice_contract_test.gd","res://tests/AdelaPreviewFollowWorld.tscn"]:
 		dependencies["game/"+path.trim_prefix("res://")]=FileAccess.get_sha256(path)
 	if _verify(before.length()==64,"production source digest is available"):
 		await _play_follow_route()
