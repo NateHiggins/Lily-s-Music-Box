@@ -346,6 +346,11 @@ probe returns0 after8.516s despite timeout2s when its exited direct child leaves
 an8s descendant holding stdout; the successor waits too. Original logs and the
 repeatable probe are external at **C:/ov/reports/lane_pipe_drain_20261103/**.
 **H-LANE-GPU-DRAIN** tracks repair and regression coverage; no fix is installed.
+An external suspended-launch Windows job-object experiment passes five CPU cases
+and a copied-broker/private-FIFO successor check (timeout124, owned processes0,
+successor0). Its contained_probe_01 and contained_fifo_01 RESULT.json records
+are in that external root. This is a candidate containment approach, not an
+installed fix or qualification of real GPU commands.
 This does not diagnose every historical foreign holder or authorize bypassing
 FIFO, a hold, another owner's process or the patched Godot runners.
 
