@@ -124,6 +124,9 @@ func _ready() -> void:
 	if OS.get_environment("SKY_LIBRARY_VIEWER")=="1":
 		_library_viewer()
 		return
+	if OS.get_environment("SKY_STREAK_REVIEW")=="1":
+		await _streak_review()
+		return
 	if OS.get_environment("SKY_LIBRARY_YEAR")=="1":
 		await _library_year()
 		return
@@ -144,6 +147,30 @@ func _ready() -> void:
 	print("V2 SKY SPECTACLE BENCH: %d frames; %d failures" % [saved,optical_failures.size()])
 	get_tree().quit(0 if optical_failures.is_empty() else 1)
 
+
+## Development-only diagnostic: do low-sky streaks follow the wind or the view?
+## Same date and hour from four bearings at the playing field of view.
+func _streak_review() -> void:
+	manager.set_process(false);director.set_process(false)
+	var directory:=OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(directory)
+	var rows: Array[Dictionary]=[]
+	for day: int in [0,4,120,200,312]:
+		_library_date(day,11.75)
+		var brush: Vector4=sky_material.get_shader_parameter("living_brush_0")
+		var row:={"day":day,"date":clock.datetime_string(),"scenario":manager.atmosphere_state.scenario_label,"wind_angle_degrees":rad_to_deg(brush.w),"scale_km":brush.x,"arrangement":brush.z}
+		rows.append(row)
+		for bearing: int in [0,90,180,270]:
+			var heading:=Vector3.FORWARD.rotated(Vector3.UP,deg_to_rad(bearing))
+			camera.fov=60.0
+			camera.look_at(EYE+heading+Vector3.UP*.27)
+			for frame in 24:await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(directory.path_join("streak_%03d_%03d.png"%[day,bearing]))
+	var file:=FileAccess.open(directory.path_join("streak_review.json"),FileAccess.WRITE)
+	file.store_string(JSON.stringify(rows,"	"))
+	file.close()
+	print("V2 SKY STREAK REVIEW: %d dates"%rows.size())
+	get_tree().quit(0)
 
 ## Development-only calendar viewer and compact annual gallery. Uses the same
 ## production manager/shader and real city horizon, not the full occupied world.
