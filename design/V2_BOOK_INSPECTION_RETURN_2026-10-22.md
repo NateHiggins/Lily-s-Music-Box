@@ -3,6 +3,24 @@
 Evidence class: **INERT**. Repair/diagnostic report, 2026-10-22.
 No runtime-contract qualification or human acceptance.
 
+## November 3 — actual slot-return diagnostic added, execution pending
+
+The existing **v2_book_slot_hand_bench.gd** now adds a real primary pickup,
+Space inspection, free-cursor reacquisition, precision mouse rotation,
+depth/mouse approach and next-click parking attempt. It does not assign the
+book transform during that input sequence. Existing private-call placement,
+blocked occupancy and local-owner reconstruction tests remain separately
+labelled mechanical controls. The new driver is authored, not compiled or
+played yet; no behavior pass follows from it.
+
+This is the existing isolated shelf fixture, not installed nook access or a
+validated campaign disk reload. Those remain required. Reader NEW0 and the
+11168-record spatial check pass. Independent before/after surface-input
+snapshots both bind8547 files with digest
+**0352df4f028f5daaab58d77baa9c9557f6149e490fec4ab3f25a9ee4b605e230**:
+this unrelated test edit leaves the queued city survey's consumed inputs fixed.
+Snapshots remain in **C:/ov/reports/entry_render_preparation_20261102/composed_06/**.
+
 | Location | Reproduction / severity | Evidence | Repair / verification |
 |---|---|---|---|
 | Player book inspection | Carry, Space, Space; medium: book drops before next click | Actual-input baseline **hand_before_v1** fails return/ownership/held-pose assertions | Retain original pickup descriptor/local contact; end inspection, then reacquire through original owner permission and swept hand path |
