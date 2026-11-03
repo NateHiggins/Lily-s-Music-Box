@@ -159,19 +159,43 @@ func _run_stutter_probe() -> void:
 		if await _opposing_start(city,programme.start,"stutter_laurel_start",true):
 			await _station_view("stutter_laurel_start",programme.target)
 			var preparation_mode:=OS.get_environment("ORISON_CITY_STUTTER_PREPARE_RENDER")
+			var capture_preparation:=OS.get_environment("ORISON_CITY_CAPTURE_PREPARATION")=="1"
+			var preparation_images: Array[Image]=[]
+			var preparation_draws: Array[int]=[0]
+			var observe_preparation:=func():
+				preparation_draws[0]+=1
+				if preparation_draws[0]%2==0:preparation_images.append(get_viewport().get_texture().get_image())
 			check(preparation_mode in ["","1","entry"],"render preparation diagnostic mode is explicit")
+			check(not capture_preparation or preparation_mode=="entry","optical preparation capture uses the production view policy")
 			if preparation_mode in ["1","entry"]:
 				check(not hide_diner,"only one rendering control is selected")
 				if not hide_diner:
 					# Leave frame_post_draw's signal stack before forcing redraws.
 					await get_tree().process_frame
+					if capture_preparation:RenderingServer.frame_post_draw.connect(observe_preparation)
 					if preparation_mode=="entry":
 						# Use the exact production entry policy, not camera headings at
 						# the route fixture that may make the diagnostic easier.
 						preparation=preload("res://scripts/building/v2_entry_render_preparation.gd").prepare(player.camera,world.opening_render_views(),func():return is_instance_valid(world) and not get_tree().paused and player.camera.is_current())
 						check(preparation.completed and preparation.render_calls==10,"production entry views finish all bounded draws")
 					else:preparation=_prepare_render_camera(player.camera)
+					if capture_preparation:RenderingServer.frame_post_draw.disconnect(observe_preparation)
 					check(preparation.node_pose_unchanged,"render preparation leaves the camera node pose unchanged")
+			if capture_preparation:
+				# GPU readback changes preparation timing. Keep this optical-only
+				# programme out of the matched route and compress after the draws.
+				check(preparation_draws[0]==10 and preparation_images.size()==5,"four actual temporary views and restored view captured after their second draw")
+				var view_rows: Array=[]
+				for view: Transform3D in world.opening_render_views():view_rows.append({"origin":str(view.origin),"forward":str(-view.basis.z)})
+				for index in preparation_images.size():
+					check(preparation_images[index].save_png(directory.path_join("preparation_%02d.png"%index))==OK,"actual renderer view saved")
+				var optical: Dictionary={"evidence_class":"INERT","scope":"Actual production preparation views in the composed world, one explicit nearby starting fixture. Readbacks perturb preparation timing; no movement, performance, gameplay or artistic acceptance.","views":view_rows,"preparation":preparation,"checks":city_checks,"failures":failures,"source_before":source_before}
+				world.shutdown_for_tests();world.free();await get_tree().physics_frame
+				optical.source_after=_digest();check(source_before==optical.source_after,"optical view capture production inputs unchanged")
+				optical.checks=city_checks;optical.failures=failures
+				FileAccess.open(directory.path_join("preparation_views.json"),FileAccess.WRITE).store_string(JSON.stringify(optical,"\t")+"\n")
+				print("ENTRY PREPARATION VIEWS: %d checks; %d failures"%[city_checks,failures.size()])
+				get_tree().quit(0 if failures.is_empty() else 1);return
 			var probe:=preload("res://tests/v2_frame_work_probe.gd").new()
 			probe.host=self;add_child(probe)
 			world.household_state.profiling=true

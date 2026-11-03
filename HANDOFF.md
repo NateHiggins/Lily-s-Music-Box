@@ -1,34 +1,36 @@
 # Current continuation — November 3 developer-chat handoff
 
-**Latest continuation:** **followup15** is terminal exit0, all four stages and
-before/after125-input guards pass. Existing route-local four-heading control20/0
-records max57.352ms, p9952.718ms, zero>100ms intervals, preparation485.161ms.
-Actual Title Continue7/0 preserves exact calendar/semantic facts and does not
-replay the opening for a completed save; native arrival PNG inspected. This is
-not every save boundary or artistic acceptance. Earlier current-weather entry
-policy still retains226.316ms; view coverage is implicated, not fully solved.
+**Latest continuation:** footprint16 is **terminal exit0**, seven stages and
+both128-input guards pass. Five scripts compile16.62s/empty stderr. Small
+rendered footprint/lifecycle bench21/0,5.17s/empty stderr; restored blue image
+inspected. Actual titleBEGIN17/0,193.15s,620.739ms/10draw preparation, camera node
+unchanged; both native images inspected. Matched baseline18/0 and entry21/0:
+p99162.457→53.569ms,max208.776→116.368ms, >100ms3→1. This remains partial benefit.
+The surviving first-reverse render interval100.503ms coincides with59specialization
+increments; counter changes are not compiler duration or GPU completion proof.
 
-**Current source WIP, not yet engine-verified:** production preparation now derives
-four outward views from the installed blockout footprint, its frame, existing
-wall thickness and camera eye height. Still ten renderer draws, no player/camera
-node relocation or simulation advancement; no diagnostic route coordinates.
-An existing small graphical bench adds footprint/frame/invalid-input checks.
-Reader NEW0, spatial audit clean/no manifest drift, diff check clean.
+The conditional physical batch is **terminal1** at its prerequisite guard:
+116.368ms exceeds the iteration-triage cutoff. **No physical world launched**;
+no old surface packet renewed/repinned. Preserve the original results.
 
-Next guarded batch: **C:/ov/reports/entry_render_preparation_20261102/footprint_16/batch.json**:
-128-input guard, five-script compile, small rendered lifecycle/footprint bench,
-actual titleBEGIN, matched baseline/entry routes, final source+compile guard.
-Poll current_execution in **C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json**
-for its live handle; do not restart old terminal55736/46740 or14's14225/31108.
-Preserve frozen source while queued/running; no developer CPU hold while queued.
+**Current authored diagnostic WIP:** the existing city transport driver has an
+opt-in **ORISON_CITY_CAPTURE_PREPARATION=1** programme which captures the second
+draw of four actual production temporary views and the restored view, then exits.
+Readbacks perturb timing; this is optical evidence only, not a performance run.
+Production digest remains **b9328d17362830ca8f5588ce164ea03c6ebc3232d4afad222a56028249100a88**.
+The diagnostic is not yet compiled or run. Next inspect these actual views before
+changing placement policy again. Spatial audit no drift; source code only changes
+this test driver. Batch **C:/ov/reports/entry_render_preparation_20261102/footprint_16/optical/batch.json**
+guards128inputs, compiles the one changed driver, captures, then verifies sources.
+Use ACTIVE_QUALIFICATION.current_execution for its live handle; old56752/53000
+and44096/38708 are terminal. No CPU hold while queued; no source edits during it.
 
-Installed nook return/release and validated disk reconstruction25/0 remain
-scoped proof at unchanged production6fcbb2cf; Adela actual10-waypoint proof and
-book101/0 remain historical exact-scope evidence. Expanded physical renewal,
-final complete board/candidate and PR151 manual merge still remain. No wholeV2,
-performance-budget, golden-shift or artistic acceptance. Architect native delivery
-is complete/pushed d8fab160,clean/stopped; producer-led integration preserving
-39profiles/124reservations is separate and uninstalled.
+Nook return/release/disk25/0 and prior Continue7/0 are scoped historical proof;
+expanded physical renewal, final board/candidate and manualPR151merge remain.
+PrivateCPU runner containment candidate is external/uninstalled; original10tests,
+five deadline cases, fault cleanup and argument/output cases pass with failures
+retained. Architect native85-body delivery is pushed d8fab160,clean/stopped,
+uninstalled. Preserve39profiles/124reservations for later whole-block intake.
 
 **Stage:** V2 integration and qualification, not release-ready. The next playable
 milestone is a polished normal-entry prologue. City work remains an established
