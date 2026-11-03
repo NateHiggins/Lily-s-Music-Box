@@ -40,6 +40,16 @@ func run() -> void:
         var ray:=frame.basis.inverse()*(-view.basis.z)
         check(not footprint.has_point(Vector2(local.x,local.z)) and ray.dot(Vector3(footprint.get_center().x,local.y,footprint.get_center().y)-local)<0.,"transformed view lies beyond the footprint and looks away from it")
     check(Preparation.exterior_views(frame,Rect2(),1.,.1).is_empty(),"empty footprint cannot publish renderer views")
+    var half_fov:=PI/6.
+    var building:=Preparation.building_views(frame,footprint,Vector2(0.,3.),1.,.1,half_fov,Vector3.BACK)
+    check(building.size()==2,"two framed building views replace the screened side views")
+    for view: Transform3D in building:
+        for x: float in [footprint.position.x,footprint.end.x]:
+            for y: float in [0.,3.]:
+                for z: float in [footprint.position.y,footprint.end.y]:
+                    var projected: Vector3=view.affine_inverse()*(frame*Vector3(x,y,z))
+                    check(-projected.z>0. and absf(projected.x)<-projected.z*tan(half_fov) and absf(projected.y)<-projected.z*tan(half_fov),"all transformed building corners fit within the narrower field of view")
+    check(Preparation.building_views(frame,footprint,Vector2(0.,3.),1.,.1,0.,Vector3.BACK).is_empty(),"invalid framing field cannot publish a view")
     check(camera.global_transform==node_pose,"footprint policy leaves the scene camera untouched")
     var views: Array[Transform3D]=[Transform3D(Basis(Vector3.UP,PI),pose.origin),pose]
     var declined:=Preparation.prepare(camera,views,func():return false)

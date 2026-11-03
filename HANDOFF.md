@@ -1,5 +1,23 @@
 # Current continuation — November 3 developer-chat handoff
 
+**Current direction — Lily requests complete city packet integration.** Optical16
+is terminal0: changed driver compiles1/0 and actual composed view capture19/0,
+182.62s, both128guards pass. All five native images inspected: two side views
+are close brick; front/rear views show town and omit Orison; final view restores
+the original camera. Readbacks are optical evidence only, not performance.
+A source-derived building-framing candidate is preserved separately as WIP in
+runtime_root, entry_render_preparation and its small bench; it is not compiled
+or rendered yet. Keep it while integrating city; do not relabel older proofs.
+
+Completed native packets d8fab160c are now the active integration family:
+C:/ov/asset-prototypes/city-building-packets-20261103/. Reconcile builders and
+source plan, assemble whole blocks, preserve39profiles/124reservations, then
+qualify loaded mips, access, LOD, lighting and frame cost. Earlier optical and
+conditional-survey job handles are terminal; no owned Godot job remains live.
+Existing hose/book/nook and widerV2 goal remain open. Current-state custody is
+C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
+
+
 **Latest continuation:** footprint16 is **terminal exit0**, seven stages and
 both128-input guards pass. Five scripts compile16.62s/empty stderr. Small
 rendered footprint/lifecycle bench21/0,5.17s/empty stderr; restored blue image

@@ -22,6 +22,30 @@ static func exterior_views(frame: Transform3D, footprint: Rect2, eye_height: flo
         views.append(Transform3D(frame.basis.orthonormalized()*Basis.looking_at(directions[index]),frame*edges[index]))
     return views
 
+static func building_views(frame: Transform3D, footprint: Rect2, height_range: Vector2, eye_height: float, padding: float, half_fov: float, rear_direction: Vector3) -> Array[Transform3D]:
+    var views: Array[Transform3D]=[]
+    if exterior_views(frame,footprint,eye_height,padding).size()!=4 \
+            or not height_range.is_finite() or height_range.y<=height_range.x \
+            or not is_finite(half_fov) or half_fov<=0. or half_fov>=PI*.5 \
+            or not rear_direction.is_finite():return views
+    var back:=Vector3(rear_direction.x,0.,rear_direction.z)
+    if back.length_squared()<.0001:return views
+    back=back.normalized()
+    var side:=Vector3(back.z,0.,-back.x)
+    var middle:=footprint.get_center()
+    var target:=Vector3(middle.x,eye_height,middle.y)
+    # Frame a sphere containing the entire building about a horizontal eye-
+    # height target. This exposes the cold returning-player facade without
+    # borrowing that diagnostic's position or moving gameplay nodes.
+    var radius:=Vector3(footprint.size.x*.5,maxf(absf(height_range.x-eye_height),absf(height_range.y-eye_height)),footprint.size.y*.5).length()
+    var distance: float=(radius+padding)/sin(half_fov)
+    var offset: float=(absf(side.x)*footprint.size.x+absf(side.z)*footprint.size.y)*.25
+    var setback:=sqrt(maxf(distance*distance-offset*offset,0.))
+    for sign_value in [-1.,1.]:
+        var at:=target+back*setback+side*offset*sign_value
+        views.append(Transform3D(frame.basis.orthonormalized()*Basis.looking_at((target-at).normalized()),frame*at))
+    return views
+
 static func prepare(camera: Camera3D, views: Array[Transform3D], owns_entry: Callable) -> Dictionary:
     var result := {"executed":false,"completed":false,"cancelled":false,"render_calls":0,
         "node_pose_unchanged":true,"elapsed_ms":0.0,"reason":""}

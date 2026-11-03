@@ -437,7 +437,22 @@ func opening_render_views() -> Array[Transform3D]:
 			var eye_height:=_blockout.to_local(to_global(entry.position as Vector3)).y+player.camera.position.y
 			var padding:=maxf(float(dimensions.get("outer_wall",0.)),player.camera.near)
 			views=preload("res://scripts/building/v2_entry_render_preparation.gd").exterior_views(_blockout.global_transform,footprint,eye_height,padding)
-			if views.size()==4:return views
+			if views.size()==4:
+				var entry_local:=_blockout.to_local(to_global(entry.position as Vector3))
+				var top: float=entry_local.y
+				for level: Dictionary in layout.get("levels",[]):top=maxf(top,float(level.get("y",entry_local.y))+float(dimensions.get("clear_height",0.)))
+				var size:=player.camera.get_viewport().get_visible_rect().size
+				var aspect:=size.x/maxf(size.y,1.)
+				var tangent:=tan(deg_to_rad(player.camera.fov)*.5)
+				tangent=tangent*minf(aspect,1.) if player.camera.keep_aspect==Camera3D.KEEP_HEIGHT else tangent/maxf(aspect,1.)
+				var back:=Vector3(footprint.get_center().x-entry_local.x,0.,footprint.get_center().y-entry_local.z)
+				var building_views:=preload("res://scripts/building/v2_entry_render_preparation.gd").building_views(_blockout.global_transform,footprint,Vector2(entry_local.y,top),eye_height,padding,atan(tangent),back)
+				if building_views.size()==2:
+					# Optical review found the side-edge views screened by brick.
+					# Keep the useful front/rear city views; spend those two draws
+					# on the full Orison instead, with the same ten-draw budget.
+					views[1]=building_views[0];views[3]=building_views[1]
+				return views
 		# Retain the previous bounded entry policy if a diagnostic root has no
 		# registered construction footprint. Never relocate the actual camera.
 		var at:=to_global(entry.position as Vector3)+Vector3.UP*player.camera.position.y
