@@ -1,22 +1,23 @@
 # Current continuation — November 3 developer-chat handoff
 
 **Continuation after the handoff:** eight test-only _walk overrides now accept
-and forward the parent's optional tolerance, preserving existing tight stops,
-detours, acceptance assertions and movement budgets. This is authored, not yet
-engine-verified. One17-script preflight is queued at
-**C:/ov/reports/entry_render_preparation_20261102/walk_api_13/batch.json**,
-original broker**60808** / session**24521**, confirmed live while waiting. Poll that
-handle; do not restart it or treat the older no-live-job statements below as
-current. No new world programme queued. Production sources remain unchanged.
-ReaderNEW0 and spatial11169 pass (the two-line detour context update is committed).
-Engine compilation, nook runtime and final candidate remain open.
+and forward the parent's optional tolerance, preserving strict stops, detours,
+acceptance assertions and budgets. ReaderNEW0/spatial11169 pass; one17-script
+preflight remains queued at **walk_api_13/batch.json**, broker**60808** /
+session**24521**. Poll that handle, not old terminal jobs. Before admission, the
+nook driver was further authored to write a source-bound schema2 contract for
+actual return/release and optional validated disk reconstruction. Its exact
+snapshot program checks12test/tool paths; source/scene are LF/-text. This has
+**not compiled or run**. The queued preflight and unqueued world source freeze
+were refreshed before admission; no prior runtime receipt was relabelled.
+
 Early119-gate board at65f9183a5 is terminal:111PASS/7FAIL/1INCOMPLETE, four
-regressed gates. Adela import retention and two native catalogue-provenance
-failures are repaired with strict existing additive tools;413model settings,
-native9tests and four spatial source-preflights pass. See the Adela ledger for
-actual archives/limits. The original board remains failed, not relabelled; fresh
-physical proof/final comparison are still due. Prepared **unfinished_14/batch.json**
-is NOT QUEUED; regenerate its source freeze after provenance changes.
+regressed gates. At **fc7d2de49**, actual import retention and two native additive
+catalogue-provenance failures are repaired:413model settings/9native tests and
+four spatial source preflights pass. The failed board remains intact; physical
+renewal and final full comparison are still due. Prepared **unfinished_14/batch.json**
+is NOT QUEUED; its guard binds125consumed inputs and the new complete production
+digest. No new world programme has executed. See Adela/book ledgers for limits.
 
 
 **Stage:** V2 integration and qualification, not release-ready. The next playable

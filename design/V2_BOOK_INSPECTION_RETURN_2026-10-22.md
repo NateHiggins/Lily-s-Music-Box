@@ -48,6 +48,18 @@ readerNEW0 pass. Engine compilation is pending the single FIFO preflight in
 **C:/ov/reports/entry_render_preparation_20261102/walk_api_13/**, broker60808 /
 session24521, confirmed live queued. No new nook/world/save result follows yet.
 
+Before the pending preflight was admitted, the installed driver gained its own
+schema2 **runtime_contract**. It records actual return/release completion and,
+only when requested and completed, validated campaign disk reconstruction. A
+before/after snapshot binds the complete production digest and12transitive
+script/scene/tool dependencies; the exact Python snapshot programme passes a
+source-only check. The test and scene use LF/**-text**. Frame arrays remain
+INERT and scope explicitly excludes corridor access, shelf-slot return, artistic
+acceptance and a speedup claim. No Godot or save assertion has run yet. The same
+queued17-script preflight consumes this revised source; only unexecuted source
+freezes were updated, not old proof. The prepared world batch guard now binds125
+inputs, requires an actual successful compile and remains **NOT QUEUED**.
+
 ## November 3 — hidden-desktop cursor diagnostic failure retained
 
 Cohort09 runs the added slot-return bench:90 checks/3 failures, at cover targeting,
