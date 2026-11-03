@@ -1,5 +1,31 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+### First current-weather composed run; strict pane-count repair — November 3
+
+Evidence class: **INERT**. At pushed **b2c465c12**, after merging weather/main
+**fb3167942**, cohort08 compiles four changed scripts with empty stderr. The
+canonical physical survey completes31,494 checks with one failure: the old
+237-pane assertion still expects45 panes in the former generic P0R2 neighbor.
+Its new Neo-Grec replacement has46; retained P2 still has192, and all its pane
+rows match main exactly. No physical qualification or publication follows from
+this failed run. Raw stderr has that one ERROR and ten known resident UID
+fallback warnings. Original logs, wrapper receipt and failed schema2 contract
+remain in **C:/ov/reports/entry_render_preparation_20261102/cohort_08/**.
+
+The separately written factory-access contract passes81 checks and all thirteen
+actual-input legs, with one initial placement and zero rescues. The supplied-
+world roof diagnostic completes without failures. These narrower results do
+not erase the enclosing survey failure. The batch correctly stops there; book,
+actual-title and current-sky paired timing stages have not run.
+
+The pending correction asserts46 and192 separately, preserving all existing
+first-hit rays and making cross-body count substitution fail. Native source,
+exported geometry and gameplay authorities are unchanged. The repeated route
+also gains three close frontage images from its actual standing endpoints,
+restoring camera aim before each next leg. These edits still need compilation
+and composed execution. No relaxed tolerances, removed probes, scenic-door
+interaction, whole-world reload or artistic acceptance is introduced.
+
 ### Three-house source replay and loaded family — November 3
 
 Evidence class: **INERT**. Canonical cohort05 regenerated the existing apron and

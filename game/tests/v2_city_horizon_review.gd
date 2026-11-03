@@ -84,10 +84,17 @@ func run(world: OrisonV2RuntimeRoot, suite: Node, camera: Camera3D) -> void:
 	var probes: Array=stations.values()
 	var affected_panes:=0
 	if not expected_hands.is_empty():
+		# The new Neo-Grec house replaces the former45-pane generic neighbor.
+		# Keep the retained192-pane body exact too; a summed total could hide
+		# one body's missing pane behind an extra pane in the other.
+		var expected_neighbor_panes:Dictionary={"HORIZON_NEAR_3_0_P0R2":46,"HORIZON_NEAR_3_0_P2":192}
+		var neighbor_panes:Dictionary={}
 		for row: Dictionary in source.window_rows:
-			if str(row.building) in ["HORIZON_NEAR_3_0_P0R2","HORIZON_NEAR_3_0_P2"]:
+			if expected_neighbor_panes.has(str(row.building)):
 				probes.append(row);affected_panes+=1
-		suite.check(affected_panes==237,"all237 panes in both corrected neighbor bodies included, covering the75 new witnesses")
+				neighbor_panes[str(row.building)]=int(neighbor_panes.get(str(row.building),0))+1
+		for identity:String in expected_neighbor_panes:
+			suite.check(int(neighbor_panes.get(identity,0))==int(expected_neighbor_panes[identity]),"complete exact neighbor pane roster: "+identity)
 	for row: Dictionary in probes:
 		var p: Array = row.point
 		var n: Array = row.normal

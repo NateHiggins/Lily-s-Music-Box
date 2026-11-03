@@ -131,6 +131,14 @@ class FactoryProgramme extends "res://tests/v2_city_western_apartments_programme
         if failures.is_empty():
             for leg: Dictionary in points:
                 if not await _walk(str(leg.id),leg.point,bool(leg.flat)):break
+                if str(leg.id).ends_with("_public_frontage"):
+                    var house:Dictionary=profiles[str(leg.id).trim_suffix("_public_frontage")]
+                    var camera_before:Transform3D=player.camera.transform
+                    # Actual walked standing endpoint; only aim the camera for
+                    # its optical record, then restore before the next leg.
+                    player.camera.look_at(horizon.to_global(Vector3(float(house.architecture.front_apron_rect_m[2]),datum+1.7,float(leg.point.z))))
+                    await _host.call("shot","western_"+str(leg.id))
+                    player.camera.transform=camera_before
                 if str(leg.id)=="delivery_court":await _endpoint(FACTORY,"delivery_court",datum,"concrete",true)
                 if not failures.is_empty():break
         check(legs.size()==13 and endpoints.size()==1,"all five connector and eight retained factory legs and court endpoint completed")
