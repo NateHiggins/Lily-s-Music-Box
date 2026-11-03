@@ -14,10 +14,15 @@ published through the atomic publisher with original logs/contract. Strict
 current consumed-input qualification passes0 defects. Original cohort08 failure
 is retained. See [city ledger](design/V2_CITY_CONTEXT_REPORT_2026-10-19.md).
 
-Book bench then fails90/3 at hidden-desktop pointer targeting. The isolated
-embedded-viewport repair is queued in **book_hidden_10**, not verified; no
-production book mechanism changed. Resume its existing broker/session rather
-than restarting. Current title BEGIN and matched timing stages are NOT_EXECUTED.
+Isolated book_spine12 now passes101/0, empty stderr: detached viewport cursor,
+real spine grip and actual input shelf return. The new installed-nook disk test
+is still unverified: resume11 passes its123-dependency guard, then fails resolving
+the existing nook-profile parent class. Title/current-weather timing remain
+NOT_EXECUTED. Trace that inheritance failure; do not call it stale cache by fiat.
+Owner's latest request is downloaded Adela intake plus a temporary player follower;
+external sources/candidates are in **C:/ov/asset-prototypes/adela-model-intake-20261103/**.
+New assets require their own loaded proof and fresh physical renewal, not reuse
+of the preceding city-only qualification for an expanded composition.
 See [book ledger](design/V2_BOOK_INSPECTION_RETURN_2026-10-22.md).
 External live custody: **C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json**.
 

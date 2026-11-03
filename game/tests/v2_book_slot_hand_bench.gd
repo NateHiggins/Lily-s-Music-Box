@@ -1,5 +1,19 @@
 extends "res://tests/v2_readable_library_bench.gd"
 ## Diagnostic of stored slots and the real pickup/inspection input path.
+func cursor_at(point: Vector3) -> bool:
+	# Embedded viewport input has an event-owned pointer. Native Windows instead
+	# polls DisplayServer's OS pointer, which cannot be warped on a hidden desktop.
+	# Keep the actual player ray/part selection; never inject a chosen target.
+	var viewport:=get_viewport()
+	if not viewport is SubViewport: return false
+	var pixel:=player.camera.unproject_position(point).round()
+	var motion:=InputEventMouseMotion.new()
+	motion.position=pixel;motion.global_position=pixel
+	viewport.push_input(motion,true)
+	await get_tree().process_frame
+	print("EMBEDDED CURSOR: requested=",pixel," delivered=",viewport.get_mouse_position())
+	return viewport.get_mouse_position().distance_to(pixel)<.6
+
 func _run() -> void:
 	RealityState.persistence_enabled=false
 	check(contact_precision.bind(get_world_3d()),"native contact precision")
@@ -204,7 +218,16 @@ func _input_slot_return(shelf: Node3D, book: Node3D) -> bool:
 	await space()
 	if not check(player.inspecting(),"slot return uses the normal fixed inspection owner"):return false
 	for frame in 180:await get_tree().physics_frame
-	if not check(await grab_visible_stock(book),"free cursor reacquires the actual floating binding"):return false
+	# The exposed spine is the installed body grip; the broad front surface is
+	# deliberately the cover hinge during inspection. Target the same physical
+	# spine control used by grab_transform_stock_programme, not a chosen owner.
+	var spine:=book.get_node("ManipulateSpine").get_child(0) as CollisionShape3D
+	if not check(await cursor_at(spine.global_position),"free cursor reaches the actual spine grip"):return false
+	var picked: Dictionary=player._grab.find_target()
+	print("SLOT RETURN SPINE TARGET: ",picked)
+	if not check(picked.get("part")==book and picked.get("kind")=="free","actual ray identifies the floating binding spine"):return false
+	click()
+	if not check(player._grab.active() and player._grab.target.part==book,"free cursor reacquires the actual floating binding"):return false
 	# Rotate in free space before approaching the shelf. Every step goes through
 	# the shared precision input and the stock's normal native collision veto.
 	var right:=InputEventMouseButton.new();right.button_index=MOUSE_BUTTON_RIGHT;right.pressed=true

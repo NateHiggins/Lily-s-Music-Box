@@ -3,6 +3,36 @@
 Evidence class: **INERT**. Repair/diagnostic report, 2026-10-22.
 No runtime-contract qualification or human acceptance.
 
+## November 3 — actual shelf return passes in the isolated input fixture
+
+**book_spine_12** compiles the changed driver and completes101 checks/0 failures,
+35 seconds, native3440x1440 hidden-desktop rendering, empty stderr. Actual input
+picks up the binding, enters fixed inspection, reacquires its existing physical
+spine grip, rotates through shared XYZ/secondary controls, moves by mouse/depth
+input and releases into the exact original valid shelf slot. No body pose is
+assigned during this sequence. Original90/3 and94/2 failures are retained.
+
+The fixture presents a detached SubViewport through a TextureRect. Engine4.7.1
+Window mouse queries poll the OS pointer; a SubViewportContainer forwards the
+query back to that Window. The detached viewport instead uses the injected local
+motion event, preserving the real production ray and part selection. Broad front
+rays correctly choose the cover hinge during inspection; the driver must aim at
+the existing **ManipulateSpine** grip to move the whole binding. No production
+book mechanics, collision tolerances or target permissions were changed.
+
+Two prior94/2 frames were inspected individually (floating cover and zoomed
+spread); the zoom crops the page and the lamp is bright. This is a diagnostic,
+not artistic acceptance or installed-nook/campaign-save proof. Evidence:
+**C:/ov/reports/entry_render_preparation_20261102/book_spine_12/** and
+**book_hidden_10/DIAGNOSTIC_REVIEW.json**.
+
+The new opt-in installed-nook disk programme remains unverified: resume11 passes
+its123-dependency production/source guard, then compilation fails resolving the
+existing **v2_nook_world_profile.gd** base. The title and timing stages did not run.
+Do not assume stale cache or a gameplay defect without tracing the parent chain.
+Adela intake is the owner's subsequent active request; broader V2 coverage remains
+open and current physical proof does not accept newly introduced assets.
+
 ## November 3 — hidden-desktop cursor diagnostic failure retained
 
 Cohort09 runs the added slot-return bench:90 checks/3 failures, at cover targeting,

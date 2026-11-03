@@ -87,6 +87,18 @@ actual viewport in the test; preserve a failed-resolution run before retrying
 with the corrected launch. This is an explicit diagnostic override, not a new
 production window preference.
 
+Hidden-desktop free-cursor diagnostics need the actual pointer reader traced.
+On the pinned Windows engine, a Window polls DisplayServer's OS pointer even
+after injected mouse events. A SubViewportContainer forwards its viewport's
+query to that Window. An isolated fixture can instead present a detached
+SubViewport through a TextureRect and push local motion into that viewport;
+verify delivered coordinates and retain the production ray and part selection.
+Do not inject a chosen target or change gameplay picking to accommodate a test.
+Aim at the existing operable grip: an inspected book's front is its cover hinge,
+while its spine grip moves the binding. The book inspection ledger records the
+original failures and the101-check actual-input return pass; it is not installed
+nook, campaign reload or artistic acceptance.
+
 Fast iteration is a priority. Before launching, identify the changed behavior,
 the smallest check that can expose its failure, and the expected startup/run
 cost from existing receipts. Do not repeat long walks through unchanged areas
