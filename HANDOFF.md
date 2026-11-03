@@ -9,6 +9,14 @@ Whole-block owning Blender producer is **QUEUED, not started**, shared lane
 session22287/broker32252, batch C:/ov/reports/native_intake_20261102/city_packets/assembly_batch.json.
 It waits FIFO for RAM isolation behind training; do not start a second copy.
 Source guard/build/comparison custody lives in existing ACTIVE_QUALIFICATION.json.
+A second live worker now waits on that exact broker: session77841/pid24988,
+C:/ov/reports/native_intake_20261102/city_packets/follow_loaded.ps1.
+It automatically queues loaded_01 only after every native comparison/preflight
+passes. Do not manually queue a duplicate; poll both handles and their receipts.
+Freeze consumed city/entry sources until both terminal. Loaded diagnostics are
+prepared at pushed1f25e31f7 but not compiled/rendered. Spatial self-tests59/0;
+manifest writer explicitlyLF. The followup tests all loaded bodies/panes and
+nine selected construction/roof representatives,not composed world/gameplay/cost.
 Inspect real export/native guards, compare assembled parts, renew native fixture
 owners, then Godot imports/loaded charts,mips,access,LOD,lighting,cost and candidate.
 No new city runtime or artistic acceptance. Architect authoring stopped.
