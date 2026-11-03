@@ -34,6 +34,18 @@ Current source changes expire older surface evidence; no new runtime contract,
 main merge or artistic acceptance is claimed. The previous render-preparation
 candidate is preserved at **d1c3b036c**, still uncompiled/unrendered at intake.
 
+The follow-up pane regression reads the immutable reviewed delivery archive,
+requires all184new P2 witness positions/normals/recesses and unique semantic ids,
+and independently hashes the separate46-pane neighbour against its native
+baseline. The46-pane control passes1/0 against the current installed fixture.
+The replacement witness check remains pending producer output. All existing
+composed first-hit rays remain in place; their192count will change only after
+the assembled184-witness equality is verified. Preassembly source closure is
+10PASS/3FAIL (ground plan,street helper,horizon plan/helpers); the queued job now
+runs their owners in dependency order,checks unchanged ground/street exports,
+then all13fixture bindings and the horizon regression suite. This is source
+qualification work, not a new runtime result.
+
 ### Current-weather physical renewal passes — November 3
 
 Evidence class: **INERT**. Cohort09 at **012f76ea42d66b357d147e9e2c20b615b7c4986b**

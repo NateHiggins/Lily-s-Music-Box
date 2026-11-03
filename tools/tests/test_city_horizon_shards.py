@@ -1,12 +1,34 @@
 """City discovery/precision policy must reject incomplete or misplaced assets."""
 from pathlib import Path
-import copy,json,sys,unittest
+import copy,hashlib,json,sys,unittest,zipfile
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'art/blender/scripts'))
 from city_horizon_assets import manifest_paths
 
 class HorizonShards(unittest.TestCase):
     def setUp(self):self.source=json.loads((ROOT/'game/data/orison_v2/exterior/city_horizon.json').read_text(encoding='utf-8'))
+    def pane_disposition(self):
+        archive=ROOT/'art/reviews/city_streets_20261029/city_building_packets_native_20261103.zip'
+        self.assertEqual(hashlib.sha256(archive.read_bytes()).hexdigest(),'f3a45dcb3117b3dc7b3817a4f064ff2b0e0904f1672563a1fa6849b7d0f9886e')
+        with zipfile.ZipFile(archive) as packet:
+            return json.loads(packet.read('P2_PANE_DISPOSITION.json'))
+    def test_replaced_p2_preserves_every_declared_new_aperture_witness(self):
+        disposition=self.pane_disposition()
+        self.assertEqual(len(disposition['old_roster']),192)
+        self.assertEqual(len(disposition['new_roster']),184)
+        self.assertEqual(len({r['semantic_id'] for r in disposition['new_roster']}),184)
+        self.assertTrue(disposition['near_lower_witnesses_exact'])
+        fixture=json.loads((ROOT/'game/tests/fixtures/orison_city_horizon.json').read_bytes())
+        actual=[w for w in fixture['window_rows'] if w['building']=='HORIZON_NEAR_3_0_P2']
+        # Full body replacement, not eight waived rays: every new point,
+        # normal and recess must match the independently reviewed delivery.
+        self.assertEqual(actual,[r['witness'] for r in disposition['new_roster']])
+    def test_p2_replacement_keeps_the_separate_46_pane_neighbor_exact(self):
+        fixture=json.loads((ROOT/'game/tests/fixtures/orison_city_horizon.json').read_bytes())
+        neighbor=[w for w in fixture['window_rows'] if w['building']=='HORIZON_NEAR_3_0_P0R2']
+        self.assertEqual(len(neighbor),46)
+        digest=hashlib.sha256(json.dumps(neighbor,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+        self.assertEqual(digest,self.pane_disposition()['neighbor_46_sha256'])
     def rejected(self,source):
         with self.assertRaises((AssertionError,ValueError)):manifest_paths(source)
     def test_installed_manifest_covers_the_authored_replacement_buildings(self):
