@@ -87,3 +87,10 @@ were removed only with import-log or sole-import creation-window provenance,
 tracked source ownership and origin/main absence checks. Recovery records remain
 external in **IMPORT_CHURN_REVIEW.json** and **GENERATED_UID_CLEANUP.json**.
 Adela's three new script UIDs and complete imported texture settings are retained.
+
+Before retry admission, the installed-world driver was strengthened to write its
+own schema2 **runtime_contract** with fixed production/test/dependency hashes,
+five actually played movement legs and explicit capsule/catch-up assertions.
+Its new hash-bound source/scene are marked **-text**. Optical and frame-time data
+remain separately labelled INERT. This is authored verification only until run;
+no contract result exists yet. The isolated fixture remains a narrower diagnostic.
