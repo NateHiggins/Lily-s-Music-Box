@@ -1,29 +1,36 @@
 # Current continuation — November 3 developer-chat handoff
 
-**Latest continuation:** the inherited route API repair now compiles successfully
-on **ea18e8082**:17scripts/0failures,14.09s, empty stderr, no composed world.
-The old preflight broker60808/session24521 is **terminal0**, not queued.
-Its receipt/source guard passes for all17scripts and the current125-input batch.
-The narrow **H-V2-WALK-PREFLIGHT** task is closed; actual installed nook/save,
-current-weather title/timing and wider coverage remain in their existing K tasks.
+**Latest continuation — completed actual-world batch:** **unfinished14** is
+terminal exit0, all six stages and both125-input/source guards pass. Installed
+nook pickup/inspection/return/release plus validated disk save/reconstruction
+passes25 checks/0failures with a test-written schema2 runtime contract. Actual
+title BEGIN passes17/0. Same-source current-weather six-leg routes pass18/0 and
+21/0: P99 144.467→60.395ms, but maximum230.004→226.316ms. This remains a partial
+benefit, not performance acceptance. The surviving render-pre/post interval is
+208.880ms, coincident with36 new specialization counter increments; callbacks
+remain short, passage RESIDENT, no household/hand records or room refreshes.
+This narrows attribution without proving compiler duration or GPU completion.
 
-The source-bound nook return/release and optional disk contract is authored and
-compiled, **not yet executed**. One guarded6-stage batch is now queued at
-**C:/ov/reports/entry_render_preparation_20261102/unfinished_14/batch.json**,
-broker**31108** / session**14225**, confirmed live waiting. Poll that handle;
-do not restart it or follow older terminal-job instructions below. Its order:
-source/pass guard, actual nearby installed nook/disk, titleBEGIN, matched baseline
-and entry six-leg timing, final unchanged-source guard. Rendering is hidden native
-3440x1440. No developer CPU hold while queued; request the architect's bounded
-pause on actual admission before interpreting performance measurements.
+**Current live queue:** **followup15**, broker46740/session55736, four guarded
+stages: unchanged-input guard, existing route-local four-heading control, actual
+Title Continue using the test-owned save, final guard. Queued through FIFO behind
+LoRA jobs; no CPU hold while waiting, no production edits. Poll the same handle.
+Batch and trace review: **C:/ov/reports/entry_render_preparation_20261102/followup_15/**.
+The previous architect CPU hold was released after unfinished14 completed.
 
-Early119-gate board at65f9183a5 is terminal:111PASS/7FAIL/1INCOMPLETE, four
-regressed gates. At **fc7d2de49**, actual import retention and two native additive
-catalogue-provenance failures are repaired:413model settings/9native tests and
-four spatial source preflights pass. The failed board remains intact; physical
-renewal and final full comparison are still due. No runtime/world/save or artistic
-result follows from this compile. Production sources remain frozen.
+The architect's complete native city delivery is pushed at
+**d8fab160cc89efe494170acf24b6ba610337999f**, branch
+**codex/v2-city-20261029**; isolated worktree clean, new authoring stopped.
+85 replacements/23partial-block packets preserve39profiles/124reservations.
+Native verification is not Godot integration; assemble through the whole-block
+producer, never overwrite installed blocks with partial packets. See
+**C:/ov/asset-prototypes/city-building-packets-20261103/CONSTRUCTION_REPORT.md**.
 
+Early119-gate board at65f9183a5 remains preserved:111PASS/7FAIL/1INCOMPLETE.
+Actual import retention and two native catalogue-provenance repairs pass their
+413-model/9-test/four-spatial preflights. Expanded-composition physical renewal,
+full board comparison and candidate verification still remain; PR151 is draft,
+unmerged and not merge-ready. No whole-game or artistic acceptance.
 
 **Stage:** V2 integration and qualification, not release-ready. The next playable
 milestone is a polished normal-entry prologue. City work remains an established
@@ -52,9 +59,9 @@ Do not discard, hide or silently accept it to get a clean verifier run.
 | --- | --- | --- |
 | Existing V2 prologue/companion | Merged prologue, original LPC babble, compact arm/register and exact17s friendly Tardi stinger have prior scoped evidence in the prologue ledger. | Fresh-player readability/listening, broader save/Continue boundaries, residual stalls and Lily's artistic acceptance. No new speech during the stinger. |
 | Current-weather city packet | Historical cohort09:31,495/0 physical checks;13 played legs81/0;70 native3440x1440 renders inspected;12 published images; then-current strict qualification0defects. | **Expired after Adela inputs.** Do not repin/relabel it. Wider district/art/weather-year acceptance remains open. |
-| Book handling | **book_spine_12** actual-input bench101/0, empty stderr, pushed54b4c07b1; real spine grip and shelf return. | Installed nook return/disk reconstruction, corridor access and appearance are separate unfinished claims. |
+| Book handling | **book_spine_12** actual-input bench101/0, empty stderr, pushed54b4c07b1; real spine grip and shelf return. | Installed nook return/release and validated disk reconstruction now pass25/0 in unfinished14; corridor access, shelf-slot return and appearance remain separate claims. |
 | Adela preview | Personal supplied28-bone/156,822-triangle model, original2K atlas, three clips; native replay/tangents/skin pass. Isolated fixture15/0 and actual installed arrival/door/lobby/corridor/stair10-waypoint route pass. | Temporary debug follower only; not a resident, story fact or save owner. Full prologue/Continue, arbitrary jumps/lifts, controlled cost and appearance approval unqualified. |
-| Entry preparation | Production loading-veil preparation and once-per-frame companion advance authored/pushed; prior title17/0 and matched routes18/0,21/0. | Prior pair predates weather150; current-weather title/timing NOT_EXECUTED. max299.731→127.983ms under CPU contention is partial observation, not stutter acceptance. |
+| Entry preparation | Production loading-veil preparation and once-per-frame companion advance authored/pushed; prior title17/0 and matched routes18/0,21/0. | Current-weather titleBEGIN17/0 and six-leg18/0,21/0 pass in unfinished14. Maximum230.004→226.316ms remains debt; Continue is queued in followup15. |
 
 Newest Adela proof: **C:/ov/reports/adela_follow_20261103/intake_04/world/adela_follow.runtime.json**,
 schema2 runtime_contract, executed/passed/completed exit0. Wrapper190.62s;

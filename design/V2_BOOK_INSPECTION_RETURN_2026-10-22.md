@@ -212,3 +212,37 @@ needed from owner: none.
 
 BLOCKED - complete V2 and merge qualification remain incomplete; continue
 authorized repairs.
+
+## November 3 installed return and validated disk reconstruction
+
+On unchanged production digest **6fcbb2cf101ccaf87babf0fff07e93cfba99b7be51077a39c99c17835645dafc**,
+**unfinished14** completes25checks/0failures in356.41s. Test-written schema2
+**nook_return.runtime.json** independently binds source/dependencies and reports
+both installed return/release and validated disk reconstruction executed/passed.
+Evidence: **C:/ov/reports/entry_render_preparation_20261102/unfinished_14/nook/**;
+wrapper **nook.log.receipt.json**, review **NOOK_REVIEW.json**, distributions
+**NOOK_PERFORMANCE_OBSERVATION.json**. Twenty known resident textureUID warnings
+span two roots; no script errors or raw ERROR headers. The original failed
+preflight remains preserved, not relabelled a pass.
+
+One explicit nearby starting placement and three tiny local legs exercise real
+spine pickup, Space inspection, Space return to hand and primary release with
+restored collisions. RealityState writes a unique test save through its normal
+household capture/validator, the world is retired, the disk data loaded, and a
+distinct production root reconstructs matching library slots/poses/opening with
+no resurrected hand/inspection. The original save path is restored. This is not
+full CampaignShell Continue, corridor access or installed shelf-slot return.
+
+All three native3440x1440 PNGs were inspected: floating cover title readable;
+returned handheld cover very dark under this lamp; reconstructed player at the
+normal street entry. Readability/artistic acceptance remains open. The61physical
+copies comprise57shelf books,3pile copies and1cushion copy; this is not a claim
+of four missing books.
+
+Return-to-hand110samples: p50/p95/p99/max19.118/23.666/34.511/40.821ms.
+Release40samples:19.571/25.750/34.705/40.275ms; neither has intervals over50ms.
+No matched speedup is claimed. A873.436ms first local-walk interval crosses
+diagnostic source hashing and is not assigned to production movement. Retain
+the later86.966ms local-walk and50.703ms inspection-entry observations. Replacement
+player physics records do not describe the original route's player generation.
+Wider save boundaries, first-use stalls, appearance and V2 acceptance stay open.
