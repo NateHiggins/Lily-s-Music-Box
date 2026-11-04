@@ -99,6 +99,11 @@ trolleys is street work in the city lane; that question is Lily's.
 All runs are on the lane, compile first, and their receipts are in `C:/ov/reports/sun/runs/`:
 - **Batches 5-8:** CompileChangedScripts PASS. The sun review has 6 checks, all PASS: refraction 0.485° at geometric zero, flattening 0.851 at the horizon, winter smoke dims and reddens. The eclipse review has 3, all PASS: full cover at mid-totality, nothing before 06:40, no second eclipse.
 - **Batch 2:** SkyPhenomenaScheduleTest PASS, including the check that `star_god.gd` and the schedule agree.
+- **Batch 9**, rebased on `4f16053e8` (the merged city) with two fresh imports: compile, schedule, sun review 6/6
+  and eclipse review 3/3, all PASS.
+- **Batch 10:** compile and eclipse review 3/3 PASS after the eye fix. The base director published the day's
+  ordinary spots after the Star God hook and overwrote the eye. The eye spots now go through `profile.sun_spots`.
+  `shots10e/eclipse_phase_a.png` shows the pupil and lid spots gathering.
 
 Renders are in `C:/ov/reports/sun/shots8*`, with contact sheets in `C:/ov/reports/sun/sheet*.png`. They show:
 - A low Sun as an orange, squashed disc through the haze.
@@ -117,7 +122,7 @@ Art decisions:
 - **Street sunlight** keeps three quarters of the air's colour and the square root of its dimming, so a smoky winter evening is dark amber, not black.
 
 Not yet done:
-- The phase A eye at its enlarged size (enlarged after batch 8).
-- The surface packet renewal that any sky change needs.
+- The surface packet renewal that any sky change needs: one physical-surfaces run, as in PR 150's `a9da7db3a`.
+  It waits until Codex's PR 152 merges, because that PR renews the same packet.
 - Composed-world performance with the daytime Moon pass.
 - The lens on a moving camera in the composed world.

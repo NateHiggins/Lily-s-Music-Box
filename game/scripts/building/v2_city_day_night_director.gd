@@ -227,7 +227,10 @@ func _publish_star_god(profile: Dictionary) -> void:
 	_sky.set_shader_parameter("star_god_afterglow", float(event.afterglow))
 	_sky.set_shader_parameter("sun_eye", float(event.eye))
 	if float(event.eye) > 0.0:
-		_sky.set_shader_parameter("sun_spots", _eye_spots(float(event.eye)))
+		# Through the profile: the director publishes profile.sun_spots after this
+		# hook runs, and would put the day's ordinary spots back.
+		profile["sun_spots"] = _eye_spots(float(event.eye))
+		_sky.set_shader_parameter("sun_spots", profile.sun_spots)
 	# The figure grows out of the Sun on the side away from the Moon, then climbs.
 	var away := -(across * float((event.offset as Vector2).x) + upward * float((event.offset as Vector2).y))
 	away = away.normalized() if away.length() > 0.0 else upward
