@@ -7469,3 +7469,25 @@ helper reuses existing authority/spatial validators,keeps original contract/log
 bytes,and correctly refuses missing executed wrappers; no evidence was staged.
 The old19-room apartment logs and the nine-unit contract share a directory;
 renew only the latter cohort's proof and preserve the former's original files.
+
+### Runtime02 stops on actual radiator insert carry
+
+The batch is now terminal1. Source guard,all4script compilations and the material
+library pass; compilation/material stderr are empty. The original first-slice
+run completes in255.21s with167passing log lines and1failure: the old radiator
+insert unthreads and is acquired,but its production swept body cannot reach
+the direct diagonal parking goal. The unaltered failed contract and logs remain
+external. Neither nine-apartment movement nor surface/final guard ran. Resident
+texture UID warnings use path fallback; they are retained,not called clean stderr.
+
+The complete clean119-gate board at74c39d946 is116PASS/2FAIL/1INCOMPLETE. Both
+source/export failures are repaired. The surface gate adds2stale-evidence defects;
+the inherited completeness test still reports its original2failed cases. This
+is not a merge candidate or whole-game green result.
+
+Before another composed run,an opt-in mode in the existing radiator hand bench
+reuses the same actual unthread/acquire/carry helpers and collision owners. It
+records blocking bodies and tries lift/across/lower legs without changing
+collision or weakening the original end condition. Spatial dependency audit is
+clean. Its compile/hidden-native diagnostic is queued as radiator_insert_01,
+broker65604/session43718; no result or repair acceptance is claimed yet.

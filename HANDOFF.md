@@ -1,15 +1,22 @@
-# Current checkpoint — metadata pushed; runtime renewal queued
+# Current checkpoint — first-slice carry failure; bounded probe queued
 
 Native06 passes full material-inclusive equivalence and converter in65.109s.
 35geometry/alias files are byte-identical;3metadata files plus the reviewed
 one-record ownership/hash-pin migration admitted. Original suites27/0 and11/0.
 Source checkpoint95b7fd145 is pushed. No new runtime proof yet; PR152 stays draft.
-The7-stage batch is already queued through the shared lane: broker58292,
-tool session20803,started2026-11-04T08:12:44Z. Poll that existing process; do not
-duplicate it. External batch/freeze/custody are in qualification_debt_trace_01/
-runtime_02/. Preparation01 failed before launch on an external scene-name typo;
-the final apartment guard now uses the full surface digest,matching its actual
-producer and ledger consumer. Both corrections leave game/test sources intact.
+The runtime_02 batch is terminal1: source guard,compile4 and material library
+pass; first-slice fails at255.21s with167pass lines/1failure. The original
+radiator insert unthreads and can be grabbed,but cannot reach its diagonal
+parking goal. Nine-apartment,surface and final guard stages never started.
+Preserve the original contract/logs under qualification_debt_trace_01/runtime_02.
+The full clean119-gate board at74c39d946 reports116PASS/2FAIL/1INCOMPLETE;
+the only new regression is stale surface proof. Completeness remains inherited.
+An opt-in probe in existing RadiatorHandBench reuses the failed gesture and
+production collision,records blockers and tries lift/across/lower without
+waiving collision. It has NOT compiled or run yet. Its2-stage lane job is live
+and queued: broker65604/session43718,started2026-11-04T08:40:54Z,
+qualification_debt_trace_01/radiator_insert_01/batch.json. Poll this existing
+handle; do not restart the terminal7-stage batch or duplicate the probe.
 Actual first-slice/save,9-unit movement,surface and exact candidate acceptance
 remain required. Preserve the older19-room apartment cohort during publication.
 The external staging helper refuses missing receipts and publishes nothing.

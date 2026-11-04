@@ -82,6 +82,9 @@ func _run() -> void:
 	player.mouse_released=false
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	prop.set_supply_position(0.0,0.0)
+	if OS.get_environment("ORISON_RADIATOR_INSERT_ROUTE")=="1":
+		await _insert_route_probe(prop,stock,player)
+		return
 	var reviewer := preload("res://tests/radiator_cutover_review.gd").new()
 	var failures: Array = []
 	var feed_owner := prop.get_node_or_null("InstalledRadiatorCollision") as StaticBody3D
@@ -212,6 +215,56 @@ func _contact_orientations(prop: Node3D,failures: Array) -> void:
 		print("PACKING ORIENTATION SUPPORT ",angles," MIN ",minimum)
 		if minimum<-.001 or minimum>.004: failures.append("packing skin contact across released orientations")
 	prop.restore_mechanism(original)
+
+func _insert_route_probe(prop: RadiatorProp,stock: Node3D,player: PlayerController) -> void:
+	# Reuse the exact failed composed gesture and production swept body.
+	# This fixture attributes the obstruction; it grants no composed proof.
+	var helper:=preload("res://tests/orison_v2_first_slice_contract_test.gd").new()
+	helper.service_bench_only=true;add_child(helper)
+	var original: Dictionary=stock.active(prop)
+	var body: Node3D=original.body
+	var acquired: bool=await helper._service_move_new(player,prop,body,Vector3(0,.004,0),Vector3(.03,.10,-.08),stock.THREAD_END)
+	acquired=acquired and stock.active(prop).is_empty()
+	if acquired:acquired=await helper._pick_service_part(player,body,prop,Vector3(.03,.10,-.08))
+	var park: Vector3=prop.native_rig.to_global(Vector3(-.30,.12,-.55))
+	var result: Dictionary={"evidence_class":"INERT","scope":"Existing isolated native radiator/player fixture, original failed carry gesture; not installed access or runtime acceptance.","acquired":acquired,"park":var_to_str(park)}
+	var passed:=false
+	if acquired:
+		result.start=var_to_str(body.global_position)
+		result.direct=await helper._carry_service_part(player,body,park)
+		result.direct_end=var_to_str(body.global_position)
+		var query:=PhysicsTestMotionParameters3D.new()
+		query.from=body.global_transform;query.motion=park-body.global_position;query.margin=.0002
+		var collision:=PhysicsTestMotionResult3D.new()
+		result.blocked=PhysicsServer3D.body_test_motion(body.get_rid(),query,collision)
+		var blockers: Array=[]
+		for index in collision.get_collision_count():
+			var collider: Object=collision.get_collider(index)
+			blockers.append({"collider":str(collider.get_path()) if collider is Node else str(collider),"normal":var_to_str(collision.get_collision_normal(index)),"point":var_to_str(collision.get_collision_point(index))})
+		result.blockers=blockers
+		await _capture_part(player,prop,body,"insert_direct_endpoint")
+		# Lift clear of the vent, move laterally above the casting, then lower.
+		var raised: Vector3=body.global_position+Vector3.UP*.05
+		var across:=Vector3(park.x,raised.y,park.z)
+		var legs: Array=[]
+		for goal: Vector3 in [raised,across,park]:
+			var reached: bool=await helper._carry_service_part(player,body,goal)
+			legs.append({"goal":var_to_str(goal),"actual":var_to_str(body.global_position),"reached":reached})
+			if not reached:break
+		result.legs=legs
+		passed=legs.size()==3 and legs.all(func(leg: Dictionary):return leg.reached) and player._grab.active()
+		result.dogleg=passed
+		await _capture_part(player,prop,body,"insert_dogleg_endpoint")
+		player._grab.release(false)
+	result.passed=passed and not _capture_failed
+	var directory:=OS.get_environment("SHOT_DIR")
+	if not directory.is_empty():
+		var file:=FileAccess.open(directory.path_join("insert_route.json"),FileAccess.WRITE)
+		if file!=null:file.store_string(JSON.stringify(result,"\t"))
+		else:result.passed=false
+	print("RADIATOR INSERT ROUTE: ",JSON.stringify(result))
+	_terminal=true
+	get_tree().quit(0 if result.passed else 1)
 
 func _same_payload(a: Variant,b: Variant) -> bool:
 	if typeof(a) in [TYPE_INT,TYPE_FLOAT] and typeof(b) in [TYPE_INT,TYPE_FLOAT]: return absf(float(a)-float(b))<.0000001
