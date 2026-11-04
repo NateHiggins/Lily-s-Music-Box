@@ -948,7 +948,8 @@ func _valid_tree(tree: Dictionary, path: String) -> bool:
 			if choice.has("requires") and choice.requires is not Array:
 				errors.append("%s: node %s requires is not a list" % [path, node_id])
 				ok = false
-			if choice.has("unless") and (choice.unless is not Array or choice.unless.is_empty()):
+			if choice.has("unless") and (choice.unless is not Array or choice.unless.is_empty()
+					or choice.unless.any(func(f): return f is not String or str(f) == "")):
 				errors.append("%s: node %s unless is not a list of names" % [path, node_id])
 				ok = false
 			if choice.has("evidence") and str(choice.evidence) == "":
