@@ -426,6 +426,14 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   measured endpoints, keep ordinary callers unchanged, then qualify the same
   route in the composed world. See the city report's southern footway diagnosis.
   See the [pull/input repair](../../../design/V2_PASSAGE_PULL_AND_OAK_2026-10-25.md).
+  Before diagnosing stalled loose stock, record FPS-pickup versus inspection
+  mode and whether the ordinary holder callback actually runs. Disabling player
+  physics in a fixture also disables its carry follow; captured mouse motion can
+  turn the view while an old driver expects free dragging. Check actual pointer
+  delivery, selected surface and part motion across the Space handoff. Adapt the
+  fixture to the current control owner; do not set pickup=false or waive real
+  collision to restore an old pass. The city ledger's radiator probes retain
+  these reproduced failures; they do not establish a successful repair.
 - **Time and visibility:** derive reversible sky presentation from authoritative
   fractional campaign time, not scene uptime or an independent clock. Check
   pause and out-of-order return with rendered comparisons as well as uniforms.
