@@ -7090,7 +7090,7 @@ Only the renderer helper changes production behavior; four views/ten draws,
 scene transforms,ownership and restoration remain. The existing small fixture
 adds a neighbor-blocker positive control and clear elevated corner rays while
 retaining every existing corner-fit/lifecycle assertion. Guarded compile and
-rendered lifecycle are FIFO queued58832/session95975;no engine pass yet.
+rendered lifecycle are FIFO queued44520/session95975;no engine pass yet.
 The existing composed city review gains opt-in **ORISON_SURFACE_ENTRY_FRAMING=1**
 for actual four production frames plus restoration in the final physical world,
 saving a second world startup. That supplementary hook awaits compilation and
@@ -7103,3 +7103,29 @@ the existing owning exporter into external files and requires exact14947record
 parity plus only the three already-recorded binding changes. Canonical discovery
 will not be overwritten blindly. Its old runtime survey is only a registration
 input;fresh runtime discovery and final qualification remain necessary.
+
+
+Process custody correction: the framing batch belongs to broker44520,
+session95975,started03:50:06UTC with the exact **city_entry_framing_01/batch.json**
+command. The earlier58832 attribution was incorrect: full CIM command inspection
+shows it belongs to **C:/ov/reports/sun/runs/batch1.json**,queued earlier. Its
+Godot child6952 is importing **C:/ov/sun/game**,not running the framing check.
+No foreign process/queue record was changed. Current records are corrected;
+original attribution remains in source history atae3ffbfb6. A live PID alone
+was insufficient to establish job custody;exact command and birth are required.
+
+
+#### Owner visual direction — studio maquette concept
+
+Lily requested the completed cityscape as an architect's studio model, then
+explicitly asked that the result guide city development. The generated concept
+is retained at **art/reviews/city_streets_20261029/cityscape_studio_maquette_concept_20261103.png**.
+Its priorities are a coherent neighborhood hierarchy with the Orison as the
+recognizable local anchor; individual, credible building proportions; warm
+selectively occupied windows; tactile brick/stone/metal relief; layered street,
+elevated railway and rail-yard infrastructure; purposeful waterfront/terrain
+edges; and rooftop life. Carry these qualities into staged composed reviews.
+The image is INERT art direction, not an installed-world render or an acceptance
+receipt. Preserve actual reservations, playable clearances, construction owners
+and measured frame costs. Its illustrative bridge/rail alignment and apparent
+scale do not replace the source-owned engineering or registered map geometry.
