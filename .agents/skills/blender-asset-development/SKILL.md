@@ -26,6 +26,14 @@ Evaluate the owner with its collection visible before measuring posed bounds,
 then restore visibility. Include a hidden, translated stock in native controls;
 an origin-centred toy will miss this registration failure.
 
+On the installed Blender5.2, synchronize a new Scene's view layer after linking
+its collections/stocks and before `bpy.data.libraries.write` copies that Scene.
+The city-source split reproduced an access violation in `BKE_view_layer_copy_data`;
+`scene.view_layers[0].update()` prevented it and the tiny file reopened directly
+into its populated Scene. Retain full asset coverage, arrays and map-path checks:
+that API reproduction does not qualify a large native source or runtime appearance.
+See the [city ledger](../../../design/V2_CITY_CONTEXT_REPORT_2026-10-19.md).
+
 Measure the occupied opening, support faces, neighboring geometry, player
 clearance and moving-part pivots. Use project metre coordinates and its existing
 Blender-to-Godot conversion once. A floor-contact ray does not prove continuous
@@ -127,6 +135,17 @@ source, then compare triangle positions/normals/UVs, named transforms and encode
 images against the original; preserve the failed exports. Do not change palettes,
 wheel normalization or light ownership as an incidental tangent repair.
 
+For skinned native export hooks, copy every skin attribute when splitting
+incompatible tangent corners, and derive handedness from the quantized exported
+frame. Independently compare the final indexed triangle count with the evaluated
+source: a derivative checker can pass a truncated mesh. Flatten NumPy inverse
+indices before setting accessor counts. Reimport representative personal clips;
+Blender may add bone-display helper meshes absent from the GLB, so identify the
+actual skinned meshes rather than counting all imported mesh objects. The
+[Adela intake](../../../design/V2_ADELA_TEMPORARY_FOLLOW_2026-11-03.md) retains these
+failures and native controls; native round trips do not establish Godot behavior.
+
+
 For a partial architectural delivery, merge only its declared replacement stocks
 and moving branch. A complete installed facade may also own marquee supports,
 window surrounds and water tables. Verify untouched draw arrays exactly; in mixed
@@ -134,6 +153,14 @@ batches, compare retained triangle attributes after removing only the specified
 source faces. Do not replace the full asset with a portal-only GLB.
 
 ## Verify in a bounded batch
+
+Before replaying a producer that saves editable sources, inspect ignored Blender
+backups as well as Git status. Preserve existing numbered backups with verified
+hashes outside the checkout before the producer can overwrite them. Remove a
+new duplicate only after comparing its bytes with the recorded prior source;
+never treat every ignored backup as disposable. The November3 three-house
+source replay in the [city ledger](../../../design/V2_CITY_CONTEXT_REPORT_2026-10-19.md)
+records this custody check and unchanged exported geometry separately.
 
 Finish native diffuse/grazing/back-side and motion-extreme review before a
 combined Godot capture. Include a failed or deliberately wrong control where it

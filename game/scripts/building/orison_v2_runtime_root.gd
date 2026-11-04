@@ -44,6 +44,8 @@ var prologue_director: Node
 var _opening_retry: Timer
 var _opening_starting := false
 var _opening_placed := false
+var _opening_render_prepared := false
+var opening_render_preparation: Dictionary = {}
 var service_round: ServiceRoundDirector
 var conversations: ResidentConversations
 var newspapers: NewspaperCatalog
@@ -71,6 +73,8 @@ var mina_routine: Node3D
 const ResidentRoute := preload("res://scripts/characters/orison_v2_resident_route.gd")
 ## The other walking residents' route owners, by resident id.
 var resident_routes: Dictionary = {}
+## Temporary visual follower requested by Lily; no resident/case/save registration.
+var adela_preview_follower: Node3D
 var campaign_clock: CampaignClock
 var corruption_lineages: CorruptionLineageRegistry
 var watch_station_network: WatchStationNetwork
@@ -319,6 +323,12 @@ func _ready() -> void:
 	structural_occlusion.name="V2StructuralOcclusion"
 	add_child(structural_occlusion)
 	structural_occlusion.setup(_blockout)
+	var adela_preview_mode:=OS.get_environment("ORISON_ADELA_FOLLOW")
+	if adela_preview_mode=="1" or (adela_preview_mode!="0" and OS.is_debug_build()):
+		adela_preview_follower=preload("res://scripts/characters/adela_preview_follower.gd").new()
+		adela_preview_follower.name="AdelaPreviewFollower"
+		add_child(adela_preview_follower)
+		adela_preview_follower.setup(self)
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	_record_startup_milestone("startup_complete")
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
@@ -376,6 +386,14 @@ func _try_prologue_entry() -> void:
 			shell.release_opening_veil(self)
 			return
 		_opening_placed = true
+	if not _opening_render_prepared and shell.owns_opening_veil(self):
+		_opening_starting=true
+		opening_render_preparation=preload("res://scripts/building/v2_entry_render_preparation.gd").prepare(player.camera,opening_render_views(),Callable(self,"_owns_opening_preparation"))
+		_opening_starting=false
+		if bool(opening_render_preparation.get("cancelled",false)):return
+		_opening_render_prepared=true
+		_record_startup_milestone("opening_render_preparation_finished")
+		if not _owns_opening_preparation():return
 	if not is_instance_valid(prologue_director):
 		prologue_director = preload("res://scripts/game/prologue_director.gd").new()
 		prologue_director.name = "PrologueDirector"
@@ -403,6 +421,52 @@ func _try_prologue_entry() -> void:
 		startup_failed = true
 		startup_failure_reason = "Production prologue presentation failed"
 		shell.release_opening_veil(self)
+
+
+func opening_render_views() -> Array[Transform3D]:
+	# Shared production policy for entry and the matched short-route diagnostic.
+	# These are renderer-only views; never move the player to these positions.
+	var views: Array[Transform3D]=[]
+	if not is_instance_valid(player) or not is_instance_valid(player.camera):return views
+	var entry: Dictionary=arrival_placement()
+	if entry.get("position") is Vector3 and (entry.position as Vector3).is_finite():
+		var dimensions: Dictionary=layout.get("dimensions",{})
+		var bounds: Array=dimensions.get("outer_bounds",[])
+		if is_instance_valid(_blockout) and bounds.size()==4:
+			var footprint:=Rect2(Vector2(float(bounds[0]),float(bounds[1])),Vector2(float(bounds[2])-float(bounds[0]),float(bounds[3])-float(bounds[1])))
+			var eye_height:=_blockout.to_local(to_global(entry.position as Vector3)).y+player.camera.position.y
+			var padding:=maxf(float(dimensions.get("outer_wall",0.)),player.camera.near)
+			views=preload("res://scripts/building/v2_entry_render_preparation.gd").exterior_views(_blockout.global_transform,footprint,eye_height,padding)
+			if views.size()==4:
+				var entry_local:=_blockout.to_local(to_global(entry.position as Vector3))
+				var top: float=entry_local.y
+				for level: Dictionary in layout.get("levels",[]):top=maxf(top,float(level.get("y",entry_local.y))+float(dimensions.get("clear_height",0.)))
+				var size:=player.camera.get_viewport().get_visible_rect().size
+				var aspect:=size.x/maxf(size.y,1.)
+				var tangent:=tan(deg_to_rad(player.camera.fov)*.5)
+				tangent=tangent*minf(aspect,1.) if player.camera.keep_aspect==Camera3D.KEEP_HEIGHT else tangent/maxf(aspect,1.)
+				var back:=Vector3(footprint.get_center().x-entry_local.x,0.,footprint.get_center().y-entry_local.z)
+				var building_views:=preload("res://scripts/building/v2_entry_render_preparation.gd").building_views(_blockout.global_transform,footprint,Vector2(entry_local.y,top),eye_height,padding,atan(tangent),back)
+				if building_views.size()==2:
+					# Optical review found the side-edge views screened by brick.
+					# Keep the useful front/rear city views; spend those two draws
+					# on the full Orison instead, with the same ten-draw budget.
+					views[1]=building_views[0];views[3]=building_views[1]
+				return views
+		# Retain the previous bounded entry policy if a diagnostic root has no
+		# registered construction footprint. Never relocate the actual camera.
+		var at:=to_global(entry.position as Vector3)+Vector3.UP*player.camera.position.y
+		for angle in [0.,90.,180.,270.]:
+			views.append(Transform3D(global_basis.orthonormalized()*Basis(Vector3.UP,deg_to_rad(angle)),at))
+	return views
+
+
+func _owns_opening_preparation() -> bool:
+	if not is_inside_tree() or get_tree().paused or RealityState.save_write_blocked or not is_instance_valid(player):return false
+	var shell:=get_tree().get_first_node_in_group("campaign_shell") as CampaignShell
+	return shell!=null and shell.active_world==self and shell.uses_prologue_entry() \
+			and shell.owns_opening_veil(self) and player.camera.is_current() \
+			and not player.protected_input_active() and player.text_input_owner==null
 
 
 func _on_prologue_phase_changed(phase: String) -> void:
@@ -1094,6 +1158,8 @@ func _compose_exterior() -> bool:
 	var city_foundations:=preload("res://scripts/building/orison_v2_city_foundations.gd").new()
 	city_foundations.name="CityFoundations"
 	_blockout.add_child(city_foundations)
+	if preload("res://scripts/building/orison_v2_city_ground_edges.gd").mount(_blockout)==null:
+		return false
 	var receiving := preload("res://scripts/building/orison_v2_bodega_receiving.gd").new()
 	receiving.name = "BodegaReceiving"
 	if not receiving.configure(exterior_cell):

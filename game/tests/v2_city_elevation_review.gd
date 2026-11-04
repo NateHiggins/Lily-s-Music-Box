@@ -2,6 +2,7 @@ extends RefCounted
 ## Actual installed geometry, window recesses and retained roof bearings.
 ## Captures are posed visual review, never walking or occupied-interior proof.
 func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
+	await review_ground_edges(world.adapter.root,suite)
 	var city := world.get_node("CityShells") as Node3D
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_elevations.json"))
 	fixture = preload("res://tests/v2_city_context_review.gd").placed_fixture(fixture)
@@ -267,6 +268,17 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 		camera.look_at(root.to_global(view[2]))
 		await suite.get_tree().create_timer(.6).timeout
 		await suite.shot("city_relief_"+str(view[0]))
+	# Show the admitted toe against its real neighbours from the existing
+	# standing-route stations. These are posed views, not a journey to the site.
+	var edge_fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_ground_edges.json"))
+	var edge_draw:=root.get_node("CityGroundEdges").find_children("*","MeshInstance3D",true,false)[0] as MeshInstance3D
+	var edge_center: Vector3=edge_draw.global_transform*edge_draw.get_aabb().get_center()
+	for station_index: int in [0,2]:
+		var station: Array=edge_fixture.access_stations_building[station_index]
+		camera.global_position=root.to_global(Vector3(station[0],station[1]+1.6,station[2]))
+		camera.look_at(edge_center)
+		await suite.get_tree().create_timer(.6).timeout
+		await suite.shot("city_ground_edge_"+str(station_index))
 	suite.check((root.global_basis*Vector3.RIGHT).dot(Vector3.LEFT)>.999 and (root.global_basis*Vector3.BACK).dot(Vector3.FORWARD)>.999,"relief west/north axes match actual installed sky compass")
 	camera.global_position = root.to_global(Vector3(140,8,82))
 	camera.look_at(root.to_global(Vector3(110,-.02,64)))
@@ -275,7 +287,48 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	manager.set_process(was_processing)
 	if is_instance_valid(prior):prior.make_current()
 	camera.free()
+	if OS.get_environment("ORISON_SURFACE_ENTRY_FRAMING")=="1":
+		await _capture_entry_framing(world,suite)
 	print("CITY ELEVATION REVIEW: parts=%d triangles=%d windows=%d bearing_samples=%d window_stations=%d" % [parts,triangles,int(fixture.windows),contacts,sampled.size()])
+
+
+func _capture_entry_framing(world: OrisonV2RuntimeRoot,suite: Node) -> void:
+	# Reuse this composed world rather than loading another for two optical
+	# views. PNG readbacks perturb timing; this is never a performance sample.
+	var directory:=OS.get_environment("SHOT_DIR").path_join("entry_preparation")
+	var ready:=DirAccess.make_dir_recursive_absolute(directory)==OK
+	suite.check(ready,"entry framing capture directory exists")
+	if not ready:return
+	var camera: Camera3D=world.player.camera
+	suite.check(camera.is_current(),"entry framing keeps the existing current camera owner")
+	if not camera.is_current():return
+	var original:=camera.global_transform
+	var views:=world.opening_render_views()
+	suite.check(views.size()==4,"entry framing keeps four production views")
+	if views.size()!=4:return
+	var images: Array[Image]=[]
+	var draws: Array[int]=[0]
+	var observe:=func():
+		draws[0]+=1
+		if draws[0]%2==0:images.append(suite.get_viewport().get_texture().get_image())
+	await suite.get_tree().process_frame
+	RenderingServer.frame_post_draw.connect(observe)
+	var result:=preload("res://scripts/building/v2_entry_render_preparation.gd").prepare(camera,views,func():return is_instance_valid(world) and is_instance_valid(camera) and camera.is_current())
+	RenderingServer.frame_post_draw.disconnect(observe)
+	suite.check(result.completed and result.render_calls==10 and result.node_pose_unchanged,"production entry framing completes and restores its camera within ten draws")
+	suite.check(camera.global_transform==original,"composed entry framing never moves the scene camera")
+	suite.check(images.size()==5,"all four entry views and the restored view have actual frames")
+	var records: Array=[]
+	for index in images.size():
+		var name: String="preparation_%02d.png"%index
+		suite.check(images[index].save_png(directory.path_join(name))==OK,"entry framing actual image saved: "+name)
+		records.append({"file":name,"sha256":FileAccess.get_sha256(directory.path_join(name)),"origin":str(views[index].origin) if index<views.size() else str(original.origin),"forward":str(-views[index].basis.z) if index<views.size() else str(-original.basis.z)})
+	var report:=FileAccess.open(directory.path_join("preparation_views.json"),FileAccess.WRITE)
+	suite.check(report!=null,"entry framing diagnostic report opened")
+	if report!=null:
+		report.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual composed production entry views and restoration. Images require optical review; no automatic visibility,playtest,performance or artistic acceptance. Readbacks perturb preparation timing.","policy_sha256":FileAccess.get_sha256("res://scripts/building/v2_entry_render_preparation.gd"),"preparation":result,"images":records},"\t")+"\n")
+		suite.check(report.get_error()==OK,"entry framing diagnostic report written")
+		report.close()
 
 
 func _review_apartment_batch(world: Node,suite: Node,camera: Camera3D,city: Node3D,fixture: Dictionary,bodies: Dictionary) -> void:
@@ -497,3 +550,71 @@ func _exercise_wall_backing(city: Node3D, suite: Node, ray: PhysicsRayQueryParam
 	var restored := _wall_hit_matches(space.intersect_ray(ray),point,normal,identity,bodies) and exact
 	suite.check(restored, "exact restored wall backing is accepted: "+identity)
 	return {"building":identity,"displaced_rejected":displaced,"missing_rejected":missing,"restored":restored,"exact_pose_and_layer":exact}
+
+
+func review_ground_edges(frame: Node3D,suite: Node) -> void:
+	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_ground_edges.json"))
+	var model:=frame.get_node_or_null("CityGroundEdges") as Node3D
+	suite.check(model!=null,"source-fitted ground edge is installed in the registered building frame")
+	if model==null:return
+	var parts:=model.find_children("*","MeshInstance3D",true,false)
+	suite.check(parts.size()==1,"ground edge uses one complete near/lower draw")
+	if parts.size()!=1:return
+	var draw:=parts[0] as MeshInstance3D
+	var combined:=AABB()
+	var first:=true
+	for level: Dictionary in fixture.levels:
+		var asset: String="res://"+str(level.asset).trim_prefix("game/")
+		suite.check(FileAccess.get_sha256(asset)==str(level.sha256),"ground edge export matches its executed native source")
+		var bounds: Array=fixture.exported_bounds[str(level.asset)]
+		var expected:=AABB(Vector3(bounds[0],bounds[1],bounds[2]),Vector3(bounds[3]-bounds[0],bounds[4]-bounds[1],bounds[5]-bounds[2]))
+		combined=expected if first else combined.merge(expected);first=false
+		var imported: Node3D=(load(asset) as PackedScene).instantiate()
+		var metrics:=preload("res://tests/orison_v2_domestic_native_test.gd").new()
+		for part: MeshInstance3D in imported.find_children("*","MeshInstance3D",true,false):metrics._check_cap_mapping(part.mesh,true)
+		suite.check(metrics.failures.is_empty(),"complete edge level retains loaded metre charts and tangent derivatives")
+		metrics.free();imported.free()
+	var actual: AABB=(frame.global_transform.affine_inverse()*draw.global_transform)*draw.get_aabb()
+	suite.check(actual.position.distance_to(combined.position)<.0001 and actual.end.distance_to(combined.end)<.0001,"ground edge retains its exported anchor and axes exactly once")
+	suite.check(draw.mesh.surface_get_array_index_len(0)==int(fixture.levels[0].triangles)*3,"complete near ground edge index buffer is retained")
+	var surface: Dictionary=RenderingServer.mesh_get_surface(draw.mesh.get_rid(),0)
+	var lods: Array=surface.get("lods",[])
+	suite.check(lods.size()==1 and is_equal_approx(float(lods[0].edge_length),float(fixture.body_lod_error_m)),"ground edge uses its authored complete-body LOD without importer tails")
+	var stock:=draw.get_meta("v2_city_ground_edge_source") as StandardMaterial3D
+	suite.check(stock!=null and not stock.uv1_triplanar and stock.normal_enabled,"ground edge consumes its catalogue UV and normal pipeline")
+	if stock!=null:
+		for texture: Texture2D in [stock.albedo_texture,stock.roughness_texture,stock.normal_texture]:
+			suite.check(texture!=null and texture.get_image().has_mipmaps(),"ground edge custom PBR has loaded mipmaps")
+	var body:=draw.get_node("SourceCollision") as StaticBody3D
+	var shape:=body.get_node("NearSurface") as CollisionShape3D
+	var native: Node3D=(load("res://assets/props/city_ground_edges.glb") as PackedScene).instantiate()
+	var original: MeshInstance3D=native.find_children("*","MeshInstance3D",true,false)[0]
+	suite.check(shape.shape is ConcavePolygonShape3D and (shape.shape as ConcavePolygonShape3D).get_faces()==original.mesh.get_faces(),"ground edge collision uses the exact near body")
+	suite.check(shape.global_transform.is_equal_approx(draw.global_transform),"ground edge collider has the visible body's installed pose")
+	native.free()
+	var space:=frame.get_world_3d().direct_space_state
+	var sample:=Vector3.ZERO
+	for contact: Dictionary in fixture.levels[0].carrier_contacts:
+		var p: Array=contact.point_native;var q: Array=contact.outside_native
+		var at:=Vector3(p[0],p[2],-p[1]);var outside:=Vector3(q[0],q[2],-q[1])
+		# Installed coping covers the panel's original top by15mm. Footing
+		# tests are short internal source-surface queries,not walkability proof.
+		if str(contact.carrier)=="panel":at.y+=.015;outside.y+=.015;sample=at
+		var hit:=space.intersect_ray(PhysicsRayQueryParameters3D.create(frame.to_global(at+Vector3.UP*.02),frame.to_global(at-Vector3.UP*.02),1))
+		suite.check(not hit.is_empty() and hit.collider==body and frame.to_local(hit.position).distance_to(at)<.0001,"installed source carrier/coping contact: "+str(contact.panel)+"/"+str(contact.carrier))
+		var miss:=space.intersect_ray(PhysicsRayQueryParameters3D.create(frame.to_global(outside+Vector3.UP*.02),frame.to_global(outside-Vector3.UP*.02),1))
+		suite.check(miss.is_empty() or miss.collider!=body,"outside source carrier is not accepted as edge support")
+	var ray:=PhysicsRayQueryParameters3D.create(frame.to_global(sample+Vector3.UP*.03),frame.to_global(sample-Vector3.UP*.03),1)
+	var pose:=body.global_transform;var layer:=body.collision_layer
+	body.global_position+=frame.global_basis*Vector3.UP*.01
+	await suite.get_tree().physics_frame;await suite.get_tree().physics_frame
+	var shifted:=space.intersect_ray(ray)
+	suite.check(shifted.is_empty() or shifted.collider!=body or frame.to_local(shifted.position).distance_to(sample)>.0001,"a displaced edge collider fails its exact source contact")
+	body.global_transform=pose;body.collision_layer=0
+	await suite.get_tree().physics_frame;await suite.get_tree().physics_frame
+	var missing:=space.intersect_ray(ray)
+	suite.check(missing.is_empty() or missing.collider!=body,"removed edge collision fails its source contact")
+	body.collision_layer=layer
+	await suite.get_tree().physics_frame;await suite.get_tree().physics_frame
+	var restored:=space.intersect_ray(ray)
+	suite.check(body.global_transform==pose and body.collision_layer==layer and not restored.is_empty() and restored.collider==body and frame.to_local(restored.position).distance_to(sample)<.0001,"restored edge collision recovers the exact source contact")

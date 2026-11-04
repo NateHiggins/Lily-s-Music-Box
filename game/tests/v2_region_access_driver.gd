@@ -18,7 +18,7 @@ func _require(ok: bool,label: String) -> bool:
 	if not ok:failures.append(label);push_error(label)
 	return ok
 
-func _walk(local_target: Vector3) -> bool:
+func _walk(local_target: Vector3, arrival_tolerance: float=.1) -> bool:
 	var target: Vector3=world.adapter.root.to_global(local_target)
 	var distance: float=player.global_position.distance_to(target)
 	# Rendering/import stalls must not consume all movement time before the
@@ -31,7 +31,7 @@ func _walk(local_target: Vector3) -> bool:
 	var contacts: Dictionary={}
 	while frames<physics_budget and Time.get_ticks_msec()-started<wall_budget_ms:
 		var delta: Vector3=target-player.global_position;delta.y=0
-		if delta.length()<.1:break
+		if delta.length()<minf(.1,arrival_tolerance):break
 		player.rotation.y=atan2(-delta.x,-delta.z);player.camera.rotation=Vector3.ZERO
 		Input.action_press("move_forward",minf(1.,delta.length()/.35))
 		await get_tree().physics_frame

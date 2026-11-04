@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "frame": "ORISON_V2_BUILDING_FRAME",
+  "asset": "res://assets/props/city_ground_edges.glb",
+  "lower_asset": "res://assets/props/city_ground_edges_lod1.glb",
+  "part": "EasternCutToe32_L0__concrete",
+  "lower_part": "EasternCutToe32_L1__concrete",
+  "lod_error_m": 0.015,
+  "finish": {
+    "catalog_key": "concrete",
+    "tint": [
+      0.74,
+      0.72,
+      0.66,
+      1.0
+    ],
+    "normal": 0.45,
+    "roughness": 1.0,
+    "pigment": 1.0
+  }
+}

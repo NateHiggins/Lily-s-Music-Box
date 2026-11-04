@@ -31,6 +31,7 @@ var _lean_velocity := Vector3.ZERO
 var _drift := Vector2.ZERO
 var _drift_velocity := Vector2.ZERO
 var _flight_clock := 0.0
+var _last_draw_process_frame := -1
 var _size := Vector2i.ZERO
 var _environment: Environment
 
@@ -105,7 +106,14 @@ func setup(owner_carrier: Node3D, source_camera: Camera3D) -> void:
 	RenderingServer.frame_pre_draw.connect(_before_draw)
 
 func _before_draw() -> void:
-	advance(get_process_delta_time(), present_reading)
+	# Manual preparation draws can repeat inside one simulation frame. Keep
+	# projection/privacy current on every draw without replaying flight time.
+	var frame := Engine.get_process_frames()
+	var delta := 0.0
+	if frame != _last_draw_process_frame:
+		delta = get_process_delta_time()
+		_last_draw_process_frame = frame
+	advance(delta, present_reading)
 
 func advance(delta: float, reading: bool) -> void:
 	if not is_instance_valid(camera) or not is_instance_valid(carrier): return

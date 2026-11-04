@@ -27,7 +27,7 @@ func run(world: OrisonV2RuntimeRoot, host: Node) -> Dictionary:
     host.check(dependencies==_dependencies(),"factory consumed test dependencies remained fixed")
     var passed: bool = bool(programme.get("passed",false)) and bool(observations.get("completed",false)) and observations.get("failures",["missing"]).is_empty()
     var record := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-        "scope":"Single externally composed canonical physical-survey world. One validated nearby apron placement, eight connected normal-controller factory apron/open-end/lateral-gap/court/return legs. Three separately posed roof lighting comparisons are diagnostic observations, not performance or artistic acceptance. No second world, scenic door interaction or whole-world save/reload.",
+        "scope":"Single externally composed canonical physical-survey world. One validated house-frontage placement, five connected normal-controller house-to-factory legs and the retained eight factory apron/open-end/lateral-gap/court/return legs. Three separately posed roof lighting comparisons are diagnostic observations, not performance or artistic acceptance. No second world, scenic door interaction or whole-world save/reload.",
         "execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
         "source":{"test_path":"game/tests/v2_city_factory_review.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"scene_path":host.scene_file_path,"test_dependencies":dependencies,"runtime_inputs_sha256":digest},
         "programme":programme,"optical_report":"night_review.json",
@@ -40,6 +40,7 @@ func run(world: OrisonV2RuntimeRoot, host: Node) -> Dictionary:
 
 class FactoryProgramme extends "res://tests/v2_city_western_apartments_programme.gd":
     const FACTORY := "HORIZON_NEAR_3_0_P1"
+    const HOUSES := ["HORIZON_NEAR_3_0_P0R0","HORIZON_NEAR_3_0_P0R1","HORIZON_NEAR_3_0_P0R2"]
 
     func check(ok: bool, message: String) -> void:
         checks += 1
@@ -48,7 +49,7 @@ class FactoryProgramme extends "res://tests/v2_city_western_apartments_programme
 
     func _record(attempted: bool) -> Dictionary:
         return {"executed":true,"movement_attempted":attempted,"passed":failures.is_empty(),"checks":checks,"failures":failures,"legs":legs,"endpoints":endpoints,"initial_placements":1 if attempted else 0,"route_rescues":0,
-            "scope":"Eight connected normal-input legs from a single validated nearby public-apron fixture. Standing 1.524m/.33m capsule, original gravity/step guards and real floor; no noclip, added floor or rescue. Per-sample 400mm capsule queries establish geometric support, not continuous floor contact. Restore original stance only after route ends. No continuous journey from the Orison or scenic door access."}
+            "scope":"Thirteen connected normal-input legs from one validated nearby house-frontage fixture: five house-to-factory connector legs then eight retained factory legs. The initial placement is not a walking leg. Standing 1.524m/.33m capsule, original gravity/step guards and real floor; no noclip, added floor or rescue. Per-sample 400mm capsule queries establish geometric support, not continuous floor contact. Restore original stance only after route ends. No continuous journey from the Orison, return to the first house, or scenic door access."}
 
     func run_owners(actor: PlayerController, horizon: Node3D, streets: Node3D, host: Node, safety: Variant = null) -> Dictionary:
         _host=host;player=actor;_horizon=horizon;directory=OS.get_environment("SHOT_DIR")
@@ -59,11 +60,13 @@ class FactoryProgramme extends "res://tests/v2_city_western_apartments_programme
         check(is_equal_approx(player._capsule.height,1.524) and is_equal_approx(player._capsule.radius,.33) and is_equal_approx(player.camera.position.y,1.41),"production capsule and eye unchanged")
         check(horizon.global_basis.y.is_equal_approx(Vector3.UP) and horizon.global_basis.get_scale().is_equal_approx(Vector3.ONE),"installed source frame is rigid and vertical")
         var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_horizon.json"))
-        var row: Dictionary={};var neighbor: Dictionary={}
+        var row: Dictionary={};var neighbor: Dictionary={};var profiles: Dictionary={}
         for profile: Dictionary in fixture.buildings:
+            profiles[str(profile.id)]=profile
             if str(profile.id)==FACTORY:row=profile
             if str(profile.id)=="HORIZON_NEAR_3_0_P2":neighbor=profile
         check(not row.is_empty() and not neighbor.is_empty(),"generated factory and neighboring body profiles exist")
+        for identity: String in HOUSES:check(profiles.has(identity),"registered connector house exists: "+identity)
         if not failures.is_empty():return _record(false)
         var datum:=float(row.grade_datum_m)
         var apron: Array=row.architecture.front_apron_rect_m
@@ -79,7 +82,19 @@ class FactoryProgramme extends "res://tests/v2_city_western_apartments_programme
         var outer_x:=float(row.rect[2])-.4
         var court_z: float=(float(court[1])+float(court[3]))*.5
         var court_x: float=(float(court[0])+float(court[2]))*.5
-        var start:=horizon.to_global(Vector3(apron_x,datum,float(row.rect[1])+.6))
+        var first_house: Dictionary=profiles[HOUSES[0]]
+        # Native-reviewed outer lane, 0.70m inside the registered apron edge.
+        # The factory midpoint enters the house stoops; do not extend it here.
+        var lane_x:=float(first_house.architecture.front_apron_rect_m[0])+.70
+        var factory_start_z:=float(row.rect[1])+.6
+        for index in HOUSES.size():
+            var house: Dictionary=profiles[HOUSES[index]]
+            check(is_equal_approx(float(house.grade_datum_m),datum),"connector house retains common source grade")
+            check(is_equal_approx(float(house.architecture.front_apron_rect_m[0]),float(apron[0])),"connector apron keeps registered street edge")
+            var next_rect: Array=profiles[HOUSES[index+1]].rect if index+1<HOUSES.size() else row.rect
+            check(is_equal_approx(float(house.rect[3]),float(next_rect[1])),"house reservations join before the factory")
+        if not failures.is_empty():return _record(false)
+        var start:=horizon.to_global(Vector3(lane_x,datum,float(first_house.rect[1])+.5))
         var query:=PhysicsRayQueryParameters3D.create(start+Vector3.UP*.15,start-Vector3.UP*.15,1)
         query.exclude=[player.get_rid()]
         var floor_hit:=player.get_world_3d().direct_space_state.intersect_ray(query)
@@ -98,7 +113,13 @@ class FactoryProgramme extends "res://tests/v2_city_western_apartments_programme
         Input.mouse_mode=Input.MOUSE_MODE_CAPTURED;player.set_physics_process(true)
         for tick in 40:await player.get_tree().physics_frame
         check(player.is_on_floor() and absf(player.global_position.y-start.y)<.002,"single placement settles on actual public apron")
-        var points: Array[Dictionary]=[
+        var points: Array[Dictionary]=[]
+        for identity: String in HOUSES:
+            var house: Dictionary=profiles[identity]
+            points.append({"id":identity+"_public_frontage","point":Vector3(lane_x,datum,(float(house.rect[1])+float(house.rect[3]))*.5),"flat":true})
+        points.append({"id":"factory_edge_join","point":Vector3(lane_x,datum,factory_start_z),"flat":true})
+        points.append({"id":"factory_apron_join","point":Vector3(apron_x,datum,factory_start_z),"flat":true})
+        points.append_array([
             {"id":"public_apron","point":Vector3(apron_x,datum,float(row.rect[3])-.6),"flat":true},
             {"id":"open_end","point":Vector3(apron_x,0,end_z),"flat":false},
             {"id":"around_open_end","point":Vector3(outer_x,0,end_z),"flat":false},
@@ -106,13 +127,21 @@ class FactoryProgramme extends "res://tests/v2_city_western_apartments_programme
             {"id":"delivery_court","point":Vector3(court_x,datum,court_z),"flat":false},
             {"id":"court_return","point":Vector3(outer_x,0,court_z),"flat":false},
             {"id":"gap_return","point":Vector3(outer_x,0,end_z),"flat":false},
-            {"id":"apron_return","point":Vector3(apron_x,0,end_z),"flat":false}]
+            {"id":"apron_return","point":Vector3(apron_x,0,end_z),"flat":false}])
         if failures.is_empty():
             for leg: Dictionary in points:
                 if not await _walk(str(leg.id),leg.point,bool(leg.flat)):break
+                if str(leg.id).ends_with("_public_frontage"):
+                    var house:Dictionary=profiles[str(leg.id).trim_suffix("_public_frontage")]
+                    var camera_before:Transform3D=player.camera.transform
+                    # Actual walked standing endpoint; only aim the camera for
+                    # its optical record, then restore before the next leg.
+                    player.camera.look_at(horizon.to_global(Vector3(float(house.architecture.front_apron_rect_m[2]),datum+1.7,float(leg.point.z))))
+                    await _host.call("shot","western_"+str(leg.id))
+                    player.camera.transform=camera_before
                 if str(leg.id)=="delivery_court":await _endpoint(FACTORY,"delivery_court",datum,"concrete",true)
                 if not failures.is_empty():break
-        check(legs.size()==8 and endpoints.size()==1,"all eight connected legs and court endpoint completed")
+        check(legs.size()==13 and endpoints.size()==1,"all five connector and eight retained factory legs and court endpoint completed")
         check(int(safety.recoveries)==recoveries,"no safety rescue during route")
         check(not player.noclip and not player.crouched and not player._profile_disable_step_guard and not player._profile_disable_step_up,"production standing guards still enabled")
         Input.action_release("move_forward")

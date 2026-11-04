@@ -17,8 +17,21 @@ func validate_material_contract(suite: Node) -> void:
 			# without a source normal use the restrained generated atlas relief.
 			# Read the independent original asset, not the generated runtime policy.
 			var slug:=key.trim_prefix("resident_")
-			var character: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/characters/"+slug+"/"+slug+".gltf"))
-			var original: Dictionary=character.materials[0]
+			var stem:="res://assets/characters/"+slug+"/"+slug
+			var source:=stem+".gltf" if FileAccess.file_exists(stem+".gltf") else stem+".glb"
+			var character: Dictionary=_source_document(suite,source)
+			if character.is_empty():continue # A recorded failure,never a passing fallback.
+			var originals: Variant=character.get("materials",[])
+			suite.check(originals is Array,"resident source has a valid material declaration: "+slug)
+			if not originals is Array:continue
+			# A valid GLB can omit materials and use glTF's default material.
+			# Adela's native export does so;its registered atlas gets the same
+			# restrained generated relief as other sources without a normal map.
+			var original: Dictionary={}
+			if not originals.is_empty():
+				suite.check(originals[0] is Dictionary,"resident source material is an object: "+slug)
+				if not originals[0] is Dictionary:continue
+				original=originals[0]
 			if original.has("normalTexture"):expected_normal=float(original.normalTexture.get("scale",1.0))
 		elif key.begins_with("site_softwood") or key.begins_with("arcade_"):
 			var recipe: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(source_root.path_join("art/textures/procedural/"+key+"/material.json")))
@@ -95,6 +108,33 @@ func _planar_bias(mesh: Mesh) -> Dictionary:
 			count+=1
 			for i in [a,b,c]:worst=minf(worst,normals[i].normalized().z)
 	return {"front_triangles":count,"maximum_bias_degrees":rad_to_deg(acos(clampf(worst,-1.,1.)))}
+
+func _source_document(suite: Node,path: String) -> Dictionary:
+	# Inspect independent native declarations,not generated runtime policy.
+	# Bounded GLB header/chunk checks follow the existing critter source reader.
+	var file:=FileAccess.open(path,FileAccess.READ)
+	suite.check(file!=null,"resident native source is readable: "+path)
+	if file==null:return {}
+	var payload: String
+	if path.get_extension()=="glb":
+		var header_ok:=file.get_length()>=20
+		if header_ok:header_ok=file.get_32()==0x46546c67 and file.get_32()==2
+		suite.check(header_ok,"resident GLB has a complete version2 header: "+path)
+		if not header_ok:file.close();return {}
+		var length:=file.get_32();var json_length:=file.get_32();var kind:=file.get_32()
+		var chunk_ok:=length==file.get_length() and kind==0x4e4f534a and json_length>0 and json_length<=length-20
+		suite.check(chunk_ok,"resident GLB JSON chunk is bounded by the actual file: "+path)
+		if not chunk_ok:file.close();return {}
+		payload=file.get_buffer(json_length).get_string_from_utf8()
+	else:payload=file.get_as_text()
+	file.close()
+	var parser:=JSON.new()
+	var valid:=parser.parse(payload)==OK and parser.data is Dictionary
+	suite.check(valid,"resident native JSON is an object: "+path)
+	if not valid:return {}
+	var document: Dictionary=parser.data
+	suite.check(document.get("asset") is Dictionary,"resident native document declares its asset: "+path)
+	return document if document.get("asset") is Dictionary else {}
 
 func _shot(suite: Node,directory: String,label: String) -> void:
 	await RenderingServer.frame_post_draw

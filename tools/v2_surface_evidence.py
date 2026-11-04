@@ -71,7 +71,7 @@ def material_recipe_paths(root):
     return paths
 
 
-def inputs(root=ROOT):
+def input_paths(root=ROOT):
     # Imported GLB extracts and ingest caches are derived local state. Track
     # authored inputs, including new nonignored additions, before qualification.
     versioned=set(subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard','-z'],cwd=root).decode().split('\0'))
@@ -116,6 +116,11 @@ def inputs(root=ROOT):
     paths.update(root/p for p in (
         'art/data/city_elevations/source_plan.json',
         'art/data/city_ground_apron/source_plan.json',
+        'art/data/city_ground_edges/source_plan.json',
+        'art/blender/scripts/build_city_ground_edges.py',
+        'art/blender/city_ground_edges.blend',
+        'art/blender/city_ground_edges_construction.json',
+        'tools/prepare_v2_city_ground_edges.py',
         'art/blender/city_elevations.blend',
         'art/blender/city_elevations_construction.json',
         'art/blender/city_ground_apron.blend',
@@ -123,6 +128,7 @@ def inputs(root=ROOT):
         'art/data/city_horizon/source_plan.json',
         'art/blender/city_horizon_near.blend',
         'art/blender/city_horizon_far.blend',
+        'art/blender/city_horizon_street_end.blend',
         'art/blender/city_horizon_lod1.blend',
         'art/blender/city_horizon_construction.json',
         'art/data/city_transport/source_plan.json',
@@ -263,6 +269,13 @@ def inputs(root=ROOT):
             imports.append(source)
     paths.update(material_recipe_paths(root))
     paths.update(test_dependency_paths(root,paths))
+    return paths,imports
+
+
+def inputs(root=ROOT):
+    # Discovery remains fresh in production. Tests of individual hash changes
+    # can hold an unchanged membership fixture without rescanning the city.
+    paths,imports=input_paths(root)
     manifest=sorted([p.relative_to(root).as_posix(),file_hash(p)] for p in paths)
     # Read the same complete set freshly on every call. Bounded parallel I/O
     # avoids serial Windows small-file latency; ordered map preserves both the

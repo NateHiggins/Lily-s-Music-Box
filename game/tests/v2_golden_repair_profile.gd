@@ -33,9 +33,9 @@ func _write_profile(stage: String) -> void:
 		DirAccess.make_dir_recursive_absolute(directory)
 		FileAccess.open(directory.path_join("frames.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","kind":"performance_diagnostic","capture_stage":stage,"resolution":str(get_viewport().get_visible_rect().size),"vsync":false,"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","engine_monitors"],"capture_control":capture_control,"capture_samples":capture_samples,"samples":profile_samples,"samples_player_generation":"walked_world","player_physics":player.physics_profile_records,"step_guard_rejections":player.step_guard_rejections,"failures":failures},"\t"))
 
-func _walk(target: Vector3) -> bool:
+func _walk(target: Vector3, arrival_tolerance: float=.1) -> bool:
 	profile_phase=profile_cycle+"walk_"+str(target)
-	return await super._walk(target)
+	return await super._walk(target,arrival_tolerance)
 
 func _hand_move(owner_node: Node3D,point: Vector3,goal: float,label: String) -> bool:
 	profile_phase="grab_"+label

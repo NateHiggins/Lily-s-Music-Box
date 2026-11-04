@@ -57,11 +57,11 @@ func _process(_delta: float) -> void:
 				"peak_stage_ms":residency.peak_stage_ms,"cell_count":world.passage_region.cell_nodes.size()})
 	_previous_usec=now
 
-func _walk(target: Vector3) -> bool:
+func _walk(target: Vector3, arrival_tolerance: float=.1) -> bool:
 	_walk_index+=1
 	_phase=_phase_prefix+"walk_%02d"%_walk_index
 	_segments.append({"phase":_phase,"start_world":str(player.global_position),"target_world":str(world.adapter.root.to_global(target))})
-	return await super._walk(target)
+	return await super._walk(target,arrival_tolerance)
 
 func _move_front_entrance(identity: String,want_open: bool) -> bool:
 	_phase=_phase_prefix+("door_grab_open" if want_open else "door_grab_close")

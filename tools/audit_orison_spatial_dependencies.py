@@ -1474,7 +1474,7 @@ def run(args) -> int:
         }
         manifest_path.write_text(
             json.dumps(manifest, indent=1, sort_keys=False) + "\n",
-            encoding="utf-8")
+            encoding="utf-8", newline="\n")
         payload = {"mode": "update", "manifest": str(manifest_path),
                    "summary": summary, "stats": meta["stats"]}
         emit(payload, args, records=records)

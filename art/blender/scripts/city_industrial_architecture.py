@@ -230,8 +230,19 @@ class IndustrialBuildings:
         for side,(O,U,N,length) in enumerate(self.sides(rect)):
             front=side==1
             count=1 if annex and side in [1,3] else 5 if self.style=='karp_4024' else 4 if self.style=='karp_4018' else max(3,round(length/6.1))
+            pitch_override=self.study.get('bay_pitch_override_m')
+            if pitch_override is not None:
+                assert float(pitch_override)>0
+                if length>24. and not (annex and side in [1,3]):
+                    count=max(count,round(length/float(pitch_override)))
+                    if self.style=='karp_4024' and front:
+                        # Symmetric broad/narrow rhythm retains a broad
+                        # central entry bay,as in the original five-bay front.
+                        while count%4!=1:count+=1
             if self.style=='karp_4024' and front:
-                factors=[5.,3.5,5.,3.5,5.];widths=[length*f/sum(factors) for f in factors]
+                factors=[5.,3.5,5.,3.5,5.]
+                if pitch_override is not None and length>24.:factors=[5. if i%2==0 else 3.5 for i in range(count)]
+                widths=[length*f/sum(factors) for f in factors]
             else: widths=[length/count]*count
             edges=[0.]
             for width in widths:edges.append(edges[-1]+width)

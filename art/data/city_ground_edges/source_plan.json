@@ -1,0 +1,31 @@
+{
+  "schema": "orison.city-ground-edges.v1",
+  "evidence_class": "INERT",
+  "frame": "ORISON_V2_BUILDING_FRAME",
+  "scope": "One low concrete retaining-toe slice at the existing eastern cut. Existing ground is the receiving owner; no excavation, grade masks, rails, ballast, drainage simulation, travel limit or gameplay authority. AU construction dimensions, not a historical survey.",
+  "id": "EasternCutToe32",
+  "provisional_admission_envelope_xyz_m": [-326.0, -4.1, -16.0, -312.0, 0.2, 16.0],
+  "anchor_xyz_m": [-320.0, -3.5, 0.0],
+  "along_z_m": [-16.0, 16.0],
+  "panel_length_m": 4.0,
+  "joint_m": 0.008,
+  "end_taper_length_m": 4.0,
+  "stem_front_x_m": -320.05,
+  "stem_back_x_m": -319.55,
+  "stem_bottom_y_m": -3.55,
+  "face_top_y_m": -3.10,
+  "terminal_top_y_m": -3.48,
+  "footing_rect_xy_m": [-320.40, -3.78, -319.40, -3.48],
+  "cap_overhang_m": 0.025,
+  "cap_thickness_m": 0.055,
+  "near_bevel_m": 0.006,
+  "lower_bevel_m": 0.003,
+  "lod_error_m": 0.015,
+  "concrete_fragments": 12,
+  "seed": 1929,
+  "finish": {"catalog_key": "concrete", "tint": [0.74, 0.72, 0.66, 1.0], "normal": 0.45, "roughness": 1.0, "pigment": 1.0},
+  "reference_guidance": [
+    {"path": "C:/ov/reports/industrial_ground_research_20261028/reference_brief.txt", "use": "G06/G08 supported concrete/toe and varied embankment vocabulary. Dimensions here are authored. No primary image pixels enter the asset."},
+    {"path": "C:/ov/reports/industrial_ground_research_20261028/P856c_1929.jpg", "use": "Near-period industrial edge hierarchy, not a measured 1928 parcel or this exact low-wall design."}
+  ]
+}

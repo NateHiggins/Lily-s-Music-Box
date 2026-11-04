@@ -9,6 +9,7 @@ var finished := false
 var saved_campaign := false
 var accept_trace: Array[Dictionary] = []
 var late_camera_stress := false
+var diagnostic_scope := "Native companion session/input diagnostic; occupied-world acceptance separate"
 
 func _process(_delta: float) -> void:
 	if late_camera_stress and is_instance_valid(player): player.camera.rotation.y += .02
@@ -62,7 +63,48 @@ func _run() -> void:
 	await carrier.setup(player, player.camera, null)
 	player.carried_device = carrier
 	if not check(carrier.world_ready, "native companion and session initialize"): finish(); return
+	if OS.get_environment("ORISON_COMPANION_DRAW_REVIEW")=="1":
+		diagnostic_scope="Scoped repeated-draw cadence, real-frame handoff and paused reflection privacy; not full session, played-world or performance acceptance"
+		await exercise_draw_cadence()
+		await exercise_story_reflection_privacy()
+		finish();return
 	await exercise()
+
+func exercise_draw_cadence() -> void:
+	await joy(JOY_BUTTON_DPAD_DOWN)
+	if not check(await wait_for(func():return carrier.motion.steady_for_input() and not carrier.device.teletype.printing),"draw review recalls the actual companion before typing"):return
+	await joy(JOY_BUTTON_A)
+	if not check(await wait_for(func():return carrier.session.typing),"draw review acquires the real keyboard editor"):
+		carrier.session.close();return
+	await type_text("not sent")
+	check(carrier.session.draft=="not sent" and player.text_input_owner==carrier.session,"draw review starts with a nonempty actual typed draft")
+	await get_tree().process_frame
+	var frame: Node=carrier.screen_frame
+	frame._before_draw()
+	var flight_before: float=frame._flight_clock
+	var node_pose: Transform3D=player.camera.global_transform
+	var facts: Dictionary=RealityState.data.duplicate(true)
+	var draft: String=carrier.session.draft
+	var editor: Node=player.text_input_owner
+	var arrivals: Array=[0]
+	var completed: Callable=func():arrivals[0]+=1
+	frame.world_handoff_finished.connect(completed)
+	frame.begin_world_handoff(carrier.rig.global_transform)
+	var handoff_before: float=frame._handoff_age
+	var process_before:=Engine.get_process_frames()
+	for index in 6:RenderingServer.force_draw(false)
+	RenderingServer.force_sync()
+	check(Engine.get_process_frames()==process_before,"forced draws do not advance the process frame")
+	check(frame._flight_clock==flight_before,"repeated draws do not replay companion flight delta")
+	check(frame._handoff_age==handoff_before and frame._world_handoff and arrivals[0]==0,"repeated draws cannot complete the visual handoff early")
+	check(player.camera.global_transform==node_pose,"render preparation preserves player camera pose")
+	check(RealityState.data==facts and carrier.session.draft==draft and player.text_input_owner==editor,"forced draws preserve campaign facts, typed draft and input owner")
+	check(await wait_for(func():return not frame._world_handoff,4.0),"ordinary frames complete the visual handoff")
+	check(arrivals[0]==1,"ordinary handoff emits exactly once")
+	frame.world_handoff_finished.disconnect(completed)
+	await capture("draw_cadence_restored.png")
+	await key(KEY_ESCAPE)
+	check(carrier.session.draft=="not sent" and player.text_input_owner==null,"closing the real editor retains the draft and releases input")
 
 func exercise_story_reflection_privacy() -> void:
 	var owner:=Node.new();owner.name="ReflectionLeaseOwner";add_child(owner)
@@ -468,5 +510,5 @@ func finish() -> void:
 	finished = true
 	RealityState.persistence_enabled = false
 	var failed := checks.filter(func(record: Dictionary): return not record.passed)
-	FileAccess.open(directory.path_join("session.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "checks":checks, "failures":failed}, "\t"))
+	FileAccess.open(directory.path_join("session.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":diagnostic_scope, "checks":checks, "failures":failed}, "\t"))
 	get_tree().quit(0 if failed.is_empty() else 1)

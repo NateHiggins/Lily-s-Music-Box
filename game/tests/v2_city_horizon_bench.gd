@@ -15,6 +15,11 @@ func _ready() -> void:
 	call_deferred("run")
 
 func run() -> void:
+	var scope:=OS.get_environment("ORISON_CITY_HORIZON_BENCH_SCOPE")
+	if scope not in ["","ground_edges"]:
+		push_error("Unknown city horizon bench scope: "+scope);get_tree().quit(64);return
+	if scope=="ground_edges":
+		await _run_ground_edges();return
 	RealityState.persistence_enabled=false
 	RealityState.reset_campaign_for_tests()
 	CampaignTime.set_frozen_for_tests(true)
@@ -45,10 +50,26 @@ func run() -> void:
 			low_seen+=1
 		check(low_seen==lower_proof.parts.size() and low_seen>0,"nonempty complete industrial replacement block roster")
 		lower.free()
+	var expected_static: Dictionary={}
+	for base_proof: Dictionary in fixture.assets.values():
+		if str(base_proof.role)!="base":continue
+		for part: Dictionary in base_proof.parts:
+			check(not expected_static.has(str(part.name)),"unique source static horizon part")
+			expected_static[str(part.name)]=part
+	var seen_static: Dictionary={}
+	var clock_inventory: Dictionary=_validate_clock_stock(horizon,fixture)
 	var industrial_parts:=0
-	for model: Node3D in horizon.get_children():
+	# The city also owns non-spatial clock/effect controllers. Traverse their
+	# descendants too; a controller must not hide any physical mesh from census.
+	for model: Node in horizon.get_children():
 		for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
-			bodies[(draw.get_node("HorizonCollision") as StaticBody3D).get_rid()]=draw
+			if draw.get_meta("city_clock_hand",false):continue # separately exact-checked below
+			check(expected_static.has(str(draw.name)) and not seen_static.has(str(draw.name)),"unique installed static horizon part: "+str(draw.name))
+			seen_static[str(draw.name)]=true
+			var body:=draw.get_node_or_null("HorizonCollision") as StaticBody3D
+			check(body!=null,"native static horizon part has collision backing: "+str(draw.name))
+			if body==null:continue
+			bodies[body.get_rid()]=draw
 			var identity := str(draw.get_meta("v2_city_horizon_building"))
 			var box := draw.global_transform * draw.mesh.get_aabb()
 			bounds[identity] = (bounds[identity] as AABB).merge(box) if bounds.has(identity) else box
@@ -78,6 +99,7 @@ func run() -> void:
 				if stock!=null:
 					for texture: Texture2D in [stock.albedo_texture,stock.roughness_texture,stock.normal_texture]:
 						check(texture!=null and texture.get_image().has_mipmaps(),"actual loaded industrial PBR/mips: "+str(draw.name))
+	check(seen_static.size()==expected_static.size(),"complete exact static horizon part census")
 	check(industrial_parts==lower_counts.size(),"every industrial replacement part installed once")
 	check(metrics.failures.is_empty(), "loaded metric charts and tangents across both asset/material families")
 	# Reuse the reviewed scalar-double derivative implementation. Its detached
@@ -107,6 +129,7 @@ func run() -> void:
 		var expected := AABB(lo,hi-lo)
 		var actual: AABB = bounds.get(str(row.id), AABB())
 		check(actual.position.distance_to(expected.position)<.0001 and actual.end.distance_to(expected.end)<.0001, "actual imported building/grade frame: "+str(row.id)+" actual="+str(actual)+" expected="+str(expected))
+	var checked_panes:=0
 	for window: Dictionary in fixture.window_rows:
 		var p: Array = window.point
 		var n: Array = window.normal
@@ -119,6 +142,7 @@ func run() -> void:
 			var draw := hit.collider.get_parent() as MeshInstance3D
 			valid = draw != null and str(draw.get_meta("v2_city_horizon_building"))==str(window.building) and str(draw.name).ends_with("__mirror_aged")
 		check(valid, "actual fitted opaque pane: "+str(window.building)+" "+str(point))
+		checked_panes+=1
 	var grade: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_ground_apron.json"))
 	for strip: Dictionary in grade.boxes:
 		var samples: Array=strip.exposed_samples
@@ -150,7 +174,7 @@ func run() -> void:
 		var point:=Vector3(p[0],p[2],-p[1])
 		var profile: Dictionary=profiles[str(contact.building)]
 		var architecture: Dictionary=profile.get("architecture",{})
-		var residential: bool=str(architecture.get("type",""))=="residential_front"
+		var residential: bool=str(architecture.get("type",""))=="residential_front" or (str(architecture.get("type",""))=="packet_front" and str(architecture.get("fabricator","")) in ["house","civic_house"])
 		var support:=point
 		if residential:
 			support.y=_residential_receiving_y(profile)
@@ -197,13 +221,48 @@ func run() -> void:
 		var file:=FileAccess.open(directory.path_join("family_outcome.json"),FileAccess.WRITE)
 		check(file!=null,"write source-bound family diagnostic")
 		if file!=null:
-			file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Loaded family diagnostics and explicit mutations,not composed gameplay or runtime qualification","test_sha256":FileAccess.get_sha256(get_script().resource_path),"fixture_sha256":FileAccess.get_sha256("res://tests/fixtures/orison_city_horizon.json"),"checks":checks,"failures":failures,"roof_controls":roof_controls,"derivative_controls":derivative_controls},"\t"));file.close()
+			file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Loaded family diagnostics and explicit mutations,not composed gameplay or runtime qualification","test_sha256":FileAccess.get_sha256(get_script().resource_path),"fixture_sha256":FileAccess.get_sha256("res://tests/fixtures/orison_city_horizon.json"),"checks":checks,"failures":failures,"native_inventory":{"expected_static":expected_static.size(),"seen_static":seen_static.size(),"expected_lower":lower_counts.size(),"seen_lower":industrial_parts,"checked_panes":checked_panes,"clock_hands":clock_inventory},"roof_controls":roof_controls,"derivative_controls":derivative_controls},"\t"));file.close()
 	print("CITY HORIZON BENCH: %s; %d checks; %d failures" % ["PASS" if failures.is_empty() else "FAIL", checks, failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
+func _validate_clock_stock(horizon: Node3D,fixture: Dictionary) -> Dictionary:
+	var expected: Dictionary={}
+	for face: Dictionary in fixture.get("clock_faces",[]):
+		for kind: String in ["hour","minute"]:
+			expected[str(face.id)+"_"+kind+"_hand"]={"building":str(face.building),"part":"south_"+kind+"_hand"}
+	var original: Node3D=null
+	if not expected.is_empty():original=preload("res://assets/props/arcade_clock.glb").instantiate()
+	var seen: Dictionary={}
+	for draw: MeshInstance3D in horizon.find_children("*","MeshInstance3D",true,false):
+		if not draw.get_meta("city_clock_hand",false):continue
+		var identity:=str(draw.name)
+		check(expected.has(identity) and not seen.has(identity),"unique source-bound horizon moving hand: "+identity)
+		seen[identity]=true
+		check(draw.get_node_or_null("HorizonCollision")==null and not draw.has_meta("v2_city_horizon_body_lod"),"moving hands remain separate from static collision/body LOD")
+		if not expected.has(identity) or original==null:continue
+		var spec: Dictionary=expected[identity]
+		check(str(draw.get_meta("city_clock_building",""))==str(spec.building) and str(draw.get_meta("city_clock_source_part",""))==str(spec.part),"moving hand retains source building/stock")
+		var stock:=original.find_child(str(spec.part),true,false) as MeshInstance3D
+		check(stock!=null,"moving hand source stock exists")
+		if stock!=null:
+			var source_arrays:=stock.mesh.surface_get_arrays(0)
+			var loaded_arrays:=draw.mesh.surface_get_arrays(0)
+			for channel: int in [Mesh.ARRAY_VERTEX,Mesh.ARRAY_NORMAL,Mesh.ARRAY_TANGENT,Mesh.ARRAY_TEX_UV,Mesh.ARRAY_INDEX]:
+				check(source_arrays[channel]==loaded_arrays[channel],"actual native moving-hand physical arrays")
+	check(seen.size()==expected.size(),"complete moving-hand inventory is separate from static census")
+	if original!=null:original.free()
+	return {"expected":expected.size(),"seen":seen.size()}
+
 func _residential_receiving_y(profile:Dictionary)->float:
 	var architecture:Dictionary=profile.get("architecture",{})
+	if str(architecture.get("type",""))=="packet_front":
+		# Rigidly registered packets retain the same measured roof schedule.
+		# Only the fabrication profile owns those local floor heights.
+		architecture=architecture.get("fabrication_profile",{}).get("architecture",{})
 	var style:=str(architecture.get("style",""))
+	# WesternStreetHouses.STOCK keeps these source-specific names while
+	# delegating their actual roof stock to the existing flat constructors.
+	style=str({"brick_2113":"italianate_2109","stone_2116":"stone_2129","neogrec_2128":"neogrec_2122"}.get(style,style))
 	# CivicRows overrides its inherited eave to the final floor plane. Only
 	# the two pitched styles terminate the receiving walls one floor earlier.
 	var flat:=style in ["italianate_2109","stone_2129","narrow_2141","neogrec_2122"]
@@ -294,7 +353,7 @@ func _study_reviews(fixture: Dictionary,horizon: Node3D,ground: Node3D) -> void:
 	settings.ambient_light_color=Color(.62,.72,.8);settings.ambient_light_energy=.7
 	environment.environment=settings;add_child(environment)
 	var sun:=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-40,-25,0);sun.light_energy=2.8;sun.shadow_enabled=true;add_child(sun)
-	var camera:=Camera3D.new();camera.fov=48;camera.far=1500;add_child(camera);camera.make_current()
+	var camera:=Camera3D.new();camera.fov=48;camera.far=1500;camera.keep_aspect=Camera3D.KEEP_HEIGHT;add_child(camera);camera.make_current()
 	var captures:=0
 	var chosen:=OS.get_environment("CITY_STUDY_IDS").split(",",false)
 	var draws: Array=horizon.find_children("*","MeshInstance3D",true,false)
@@ -308,14 +367,22 @@ func _study_reviews(fixture: Dictionary,horizon: Node3D,ground: Node3D) -> void:
 		var width: float=r[2]-r[0];var height:=float(row.height_m)
 		camera.position=Vector3(center+width*.25,height*.55,r[3]+maxf(20,width*1.35))
 		camera.look_at(Vector3(center,height*.48,r[3]-1))
-		if str(row.architecture.get("type",""))=="industrial_front":
+		if str(row.architecture.get("type","")) in ["industrial_front","packet_front"]:
 			var box:=AABB();var first:=true
 			for draw: MeshInstance3D in draws:
 				if not draw.visible:continue
 				box=draw.global_transform*draw.get_aabb() if first else box.merge(draw.global_transform*draw.get_aabb())
 				first=false
-			check(not first,"nonempty full industrial optical view")
+			check(not first,"nonempty full authored optical view")
 			var aim:=box.get_center();var direction:=Vector3(1.,.12,.18).normalized()
+			if str(row.architecture.get("type",""))=="packet_front":
+				# The delivered registration rotates the facade; reservation axes
+				# cannot identify its front. Convert the native direction once.
+				var frame:Array=row.architecture.native_frame
+				var local:=Vector3(.35,-1.,.18)
+				var native:=Vector3.ZERO
+				for axis in 3:native[axis]=Vector3(frame[axis][0],frame[axis][1],frame[axis][2]).dot(local)
+				direction=Vector3(native.x,native.z,-native.y).normalized()
 			camera.global_position=aim+direction*box.size.length()*.5/sin(deg_to_rad(camera.fov*.5))*1.25
 			camera.look_at(aim)
 		await get_tree().create_timer(.3).timeout
@@ -388,8 +455,15 @@ func _profile_industrial(horizon: Node3D,ground: Node3D,camera: Camera3D,fixture
 	viewport.use_taa=false;DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED);Engine.max_fps=0
 	RenderingServer.viewport_set_measure_render_time(viewport.get_viewport_rid(),true)
 	var observations: Array[Dictionary]=[];var transitions: Dictionary={};var seen:=0
+	var chosen:=OS.get_environment("CITY_PROFILE_IDS").split(",",false)
+	var expected:Dictionary={}
+	for profile:Dictionary in fixture.buildings:
+		var selected:bool=str(profile.get("architecture",{}).get("type",""))=="industrial_front"
+		if not chosen.is_empty():selected=str(profile.id) in chosen
+		if selected:expected[str(profile.id)]=true
+	check(not expected.is_empty() and (chosen.is_empty() or expected.size()==chosen.size()),"requested city profile roster exists exactly")
 	for profile: Dictionary in fixture.buildings:
-		if str(profile.get("architecture",{}).get("type",""))!="industrial_front":continue
+		if not expected.has(str(profile.id)):continue
 		var identity:=str(profile.id);seen+=1
 		var bounds:=AABB();var first:=true
 		for draw: MeshInstance3D in draws:
@@ -415,11 +489,11 @@ func _profile_industrial(horizon: Node3D,ground: Node3D,camera: Camera3D,fixture
 			if str(spec.id) in ["near","far"]:check(viewport.get_texture().get_image().save_png(directory.path_join(identity+"_profile_"+str(spec.id)+".png"))==OK,"industrial complete-body profile capture saved")
 		check(int(family_rows[1].primitives)<int(family_rows[0].primitives),"actual industrial complete replacement reduces indices: "+identity)
 		transitions[identity]=await _profile_natural(horizon,camera,draws,identity,str(profile.wall_key),directory)
-	check(seen==3,"three explicitly authored industrial studies execute")
+	check(seen==expected.size() and seen>0,"every requested authored city profile executes")
 	for draw: MeshInstance3D in draws:draw.visible=bool(visibility[draw])
 	ground.visible=ground_visible
 	check(sources==_industrial_sources(horizon),"industrial loaded sources unchanged through measured frames")
-	var record: Dictionary={"evidence_class":"INERT","scope":"Isolated current imported industrial bodies,90 warmed uncapped frames per case,repeated near/far and actual material-body LOD transitions. No matched baseline,wholeworld performance,played access or artistic acceptance. Ground hidden for isolated body timings;captures excluded from timing windows.","observations":observations,"natural_transitions":transitions,"loaded_materials":_industrial_materials(horizon),"source_hashes":sources,"checks":checks,"failures":failures,"settings":{"resolution":str(viewport.get_visible_rect().size),"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps}}
+	var record: Dictionary={"evidence_class":"INERT","scope":"Isolated selected imported city bodies,90 warmed uncapped frames per case,repeated near/far and actual material-body LOD transitions. No matched baseline,wholeworld performance,played access or artistic acceptance. Ground hidden for isolated body timings;captures excluded from timing windows.","requested_profiles":expected.keys(),"observations":observations,"natural_transitions":transitions,"loaded_materials":_industrial_materials(horizon),"source_hashes":sources,"checks":checks,"failures":failures,"settings":{"resolution":str(viewport.get_visible_rect().size),"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps}}
 	var file:=FileAccess.open(directory.path_join("city_industrial_profile.json"),FileAccess.WRITE)
 	check(file!=null,"industrial rendering diagnostic opens")
 	if file!=null:
@@ -488,32 +562,60 @@ func _profile_probe(camera: Camera3D,center: Vector3,direction: Vector3,distance
 	var viewport:=get_viewport()
 	return {"distance_m":distance_m,"primitives":RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME),"draws":RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME)}
 
-func _profile_natural(_city: Node3D,camera: Camera3D,draws: Array,identity: String,key: String,directory: String) -> Dictionary:
-	var focus: MeshInstance3D=null
-	for draw: MeshInstance3D in draws:
-		draw.visible=str(draw.name)==identity+"__"+key
-		if draw.visible:focus=draw
-	check(focus!=null,"industrial body material exists for natural LOD: "+identity)
-	if focus==null:return {}
-	var arrays: Array=focus.mesh.surface_get_arrays(0)
+func _natural_stock_view(draw: MeshInstance3D) -> Dictionary:
+	var arrays: Array=draw.mesh.surface_get_arrays(0)
 	var points: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
 	var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
 	var indices: PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
-	var direction:=Vector3(1.,.12,.18).normalized()
+	var bounds:=draw.get_aabb()
+	var preferred_direction:=Vector3(1.,.12,.18).normalized()
+	# Preserve the old broad-facing target where available; otherwise use an
+	# actual vertical face normal,not a reservation axis or synthetic point.
+	for pass_index: int in 2:
+		var best: float=INF
+		var result: Dictionary={}
+		for i in range(0,indices.size(),3):
+			var a: int=indices[i];var b: int=indices[i+1];var c: int=indices[i+2]
+			var area: float=(points[b]-points[a]).cross(points[c]-points[a]).length()*.5
+			var normal: Vector3=(draw.global_basis*(normals[a]+normals[b]+normals[c])).normalized()
+			if area<.2 or absf(normal.y)>.7:continue
+			if pass_index==0 and normal.dot(preferred_direction)<.5:continue
+			var local_point: Vector3=(points[a]+points[b]+points[c])/3.
+			var distance_sq: float=local_point.distance_squared_to(bounds.get_center())
+			if distance_sq<best:
+				best=distance_sq
+				result={"center":draw.global_transform*local_point,"direction":preferred_direction if pass_index==0 else (normal+Vector3.UP*.12).normalized(),"area_m2":area,"normal":normal}
+		if not result.is_empty():return result
+	return {}
+
+func _profile_natural(_city: Node3D,camera: Camera3D,draws: Array,identity: String,key: String,directory: String) -> Dictionary:
+	var focus: MeshInstance3D=null
+	var target: Dictionary={}
+	var preferred:=identity+"__"+key
+	var preferred_has_lod:=false
+	var best_indices: int=-1
+	# A full replacement may leave its planar wall part unchanged. Select
+	# actual encoded reducing stock; never invent a distance transition for a
+	# part with no LOD indices. Complete-body near/far cases still cover all parts.
+	for draw: MeshInstance3D in draws:
+		draw.visible=false
+		if not str(draw.name).begins_with(identity+"__"):continue
+		var surface: Dictionary=RenderingServer.mesh_get_surface(draw.mesh.get_rid(),0)
+		var lods: Array=surface.get("lods",[])
+		if str(draw.name)==preferred:preferred_has_lod=not lods.is_empty()
+		if lods.is_empty():continue
+		var candidate: Dictionary=_natural_stock_view(draw)
+		if candidate.is_empty():continue
+		var indices: int=draw.mesh.surface_get_array_index_len(0)
+		if str(draw.name)==preferred or (focus==null or (str(focus.name)!=preferred and indices>best_indices)):
+			focus=draw;target=candidate;best_indices=indices
+	check(focus!=null,"authored reducing stock has a broad actual surface for natural LOD: "+identity)
+	if focus==null:return {}
+	focus.visible=true
 	var bounds:=focus.get_aabb()
-	var center:=focus.global_transform*bounds.get_center()
-	var best:=INF
-	for i in range(0,indices.size(),3):
-		var a: int=indices[i];var b: int=indices[i+1];var c: int=indices[i+2]
-		var area: float=(points[b]-points[a]).cross(points[c]-points[a]).length()*.5
-		var normal: Vector3=(focus.global_basis*(normals[a]+normals[b]+normals[c])).normalized()
-		if area<.2 or normal.dot(direction)<.5:continue
-		var local_point: Vector3=(points[a]+points[b]+points[c])/3.
-		var distance_sq: float=local_point.distance_squared_to(bounds.get_center())
-		if distance_sq<best:
-			best=distance_sq
-			center=focus.global_transform*local_point
-	check(is_finite(best),"natural LOD aims at broad actual surface stock: "+identity)
+	var center: Vector3=target.center
+	var direction: Vector3=target.direction
+	var selection: Dictionary={"preferred_part":preferred,"preferred_has_lod":preferred_has_lod,"selected_part":str(focus.name),"selected_lod_count":(RenderingServer.mesh_get_surface(focus.mesh.get_rid(),0).get("lods",[]) as Array).size(),"broad_face_area_m2":target.area_m2,"face_normal":str(target.normal)}
 	var radius:=0.
 	for corner in 8:radius=maxf(radius,center.distance_to(focus.global_transform*bounds.get_endpoint(corner)))
 	camera.fov=75.;get_viewport().mesh_lod_threshold=1.
@@ -560,4 +662,73 @@ func _profile_natural(_city: Node3D,camera: Camera3D,draws: Array,identity: Stri
 			row["file"]=identity+"_natural_"+str(spec.id)+".png";row["fov"]=camera.fov;row["center_contrast"]=contrast
 			check(frame.save_png(directory.path_join(str(row.file)))==OK,"natural industrial image saved")
 			images.append(row)
-	return {"part":str(focus.name),"scope":"One whole material body part, default pixel threshold1, bisected first observed distance reduction, narrow-FOV recovery and inward return. Same-pose hidden-target background controls use fixed bench lighting with no weather or campaign clock. Not a whole-building/world LOD or artistic acceptance.","before":before,"after":after,"probes":probes,"images":images,"hidden_target_controls":controls}
+	return {"part":str(focus.name),"selection":selection,"scope":"One actual reducing material body part, default pixel threshold1, bisected first observed distance reduction, narrow-FOV recovery and inward return. Same-pose hidden-target background controls use fixed bench lighting with no weather or campaign clock. Not a whole-building/world LOD or artistic acceptance.","before":before,"after":after,"probes":probes,"images":images,"hidden_target_controls":controls}
+
+
+func _run_ground_edges() -> void:
+	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
+	CampaignTime.set_frozen_for_tests(true)
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty() and DisplayServer.get_name()!="headless" and DirAccess.make_dir_recursive_absolute(directory)==OK,"ground edge bench has native graphical output")
+	if not failures.is_empty():get_tree().quit(1);return
+	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_ground_edges.json"))
+	var frame:=Node3D.new();frame.transform=Transform3D(Basis(Vector3.UP,.43),Vector3(7,2,-9));add_child(frame)
+	var ground:=preload("res://scripts/building/orison_v2_ground.gd").new();ground.name="Ground";frame.add_child(ground)
+	var model:=preload("res://scripts/building/orison_v2_city_ground_edges.gd").mount(frame)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	await preload("res://tests/v2_city_elevation_review.gd").new().review_ground_edges(frame,self)
+	var draw:=model.find_children("*","MeshInstance3D",true,false)[0] as MeshInstance3D
+	var environment:=WorldEnvironment.new();var settings:=Environment.new()
+	settings.background_mode=Environment.BG_COLOR;settings.background_color=Color(.32,.38,.44)
+	settings.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;settings.ambient_light_color=Color(.62,.72,.8);settings.ambient_light_energy=.7
+	environment.environment=settings;add_child(environment)
+	var sun:=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-40,-25,0);sun.light_energy=2.8;add_child(sun)
+	var camera:=Camera3D.new();camera.fov=75.;camera.far=10000.;add_child(camera);camera.make_current()
+	var center:=frame.to_global(Vector3(-320.,-3.3,0.));var direction:=frame.global_basis*Vector3.LEFT
+	ground.visible=false # Isolated draw-count control; collision remains installed.
+	var observations: Array=[];var transition: Array=[]
+	var near_triangles: int=int(fixture.levels[0].triangles);var lower_triangles: int=int(fixture.levels[1].triangles)
+	for distance: float in [2.,8.,32.,128.,512.,2048.]:
+		var row:=await _profile_probe(camera,center,direction,distance);observations.append(row)
+		check(int(row.draws)==1 and int(row.primitives) in [near_triangles,lower_triangles],"natural edge distance uses one complete authored body")
+		if int(row.primitives)==lower_triangles and observations.size()>1:
+			transition=[observations[-2],row];break
+	check(transition.size()==2 and int(transition[0].primitives)==near_triangles,"edge has an actual distance transition from complete near to lower body")
+	if transition.size()==2:
+		for spec: Dictionary in [{"id":"near","distance":transition[0].distance_m,"fov":75.,"expected":near_triangles},{"id":"lower","distance":transition[1].distance_m,"fov":75.,"expected":lower_triangles},{"id":"narrow","distance":transition[1].distance_m,"fov":5.,"expected":near_triangles},{"id":"return","distance":transition[0].distance_m,"fov":75.,"expected":near_triangles}]:
+			camera.fov=float(spec.fov);var row:=await _profile_probe(camera,center,direction,float(spec.distance))
+			check(int(row.draws)==1 and int(row.primitives)==int(spec.expected),"edge optical LOD recovery/return: "+str(spec.id))
+			check(get_viewport().get_texture().get_image().save_png(directory.path_join("lod_"+str(spec.id)+".png"))==OK,"edge optical LOD image saved")
+	ground.visible=true;camera.fov=60.
+	camera.global_position=frame.to_global(Vector3(-326.,1.,18.));camera.look_at(center)
+	for tick in 6:await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(directory.path_join("edge_context.png"))==OK,"installed ground/edge context saved")
+	camera.free()
+	var stations: Array=fixture.access_stations_building
+	check(stations.size()==4,"edge has an explicit nearby start and three continuous access legs")
+	var player:=PlayerController.new();var start: Array=stations[0]
+	player.position=frame.to_global(Vector3(start[0],start[1]+.03,start[2]));add_child(player)
+	player.set_lamp_enabled(false);player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	for tick in 45:await get_tree().physics_frame
+	check(player.is_on_floor() and is_equal_approx(player._capsule.height,1.524) and is_equal_approx(player._capsule.radius,.33),"edge approach retains the standing production body")
+	var route: Array=[]
+	for index in range(1,stations.size()):
+		var target: Array=stations[index];var local:=Vector3(target[0],target[1],target[2]);var goal:=frame.to_global(local)
+		var deadline:=Time.get_ticks_msec()+25000
+		while Vector2(player.global_position.x-goal.x,player.global_position.z-goal.z).length()>.12 and Time.get_ticks_msec()<deadline:
+			player.look_at(Vector3(goal.x,player.global_position.y,goal.z),Vector3.UP)
+			Input.action_press("move_forward",1.)
+			await get_tree().physics_frame
+		Input.action_release("move_forward")
+		for tick in 6:await get_tree().physics_frame
+		var actual:=frame.to_local(player.global_position)
+		var reached:=Vector2(actual.x-local.x,actual.z-local.z).length()<.2 and absf(actual.y-local.y)<.035 and player.is_on_floor()
+		check(reached,"normal controller passes along edge and around its tapered end: "+str(index))
+		route.append({"target":str(local),"actual":str(actual),"reached":reached})
+		if not reached:break
+	check(route.size()==3,"all three edge access legs completed without teleport between them")
+	player.free();var retired: WeakRef=weakref(frame);frame.free();environment.free();sun.free()
+	await get_tree().physics_frame;check(retired.get_ref()==null,"edge and receiving ground retire")
+	FileAccess.open(directory.path_join("ground_edge_outcome.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Isolated production-loader/ground/standing-controller fixture in a transformed frame. Loaded PBR/mips,source contacts,explicit collision mutations,natural complete-body LOD and three continuous legs. No composed city,450m journey,save,performance or artistic acceptance.","checks":checks,"failures":failures,"lod_observations":observations,"access_route":route},"\t")+"\n")
+	print("CITY GROUND EDGE BENCH: ",checks," checks; ",failures.size()," failures")
+	get_tree().quit(0 if failures.is_empty() else 1)

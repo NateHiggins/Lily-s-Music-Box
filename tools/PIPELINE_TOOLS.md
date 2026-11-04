@@ -235,6 +235,24 @@ census, then call the ordinary runners in the owning thread, so the lane is
 held across a batch and every run keeps its receipt. 73 if the lane stays
 busy past the deadline.
 
+Batch entries may add **environment**, an object of string values or null to
+unset a variable for that run. Values are restored after each run, including a
+failed run. Lane-state names (**ORISON_LANE_*** and **LOCALAPPDATA**) cannot be
+overridden. Invalid objects are rejected before queueing. For a matched pair,
+keep both entries in one batch lease, for example:
+
+```json
+[
+  {"scene":"res://tests/V2CityTransportRoute.tscn","log":"C:/ov/logs/before.log","environment":{"ORISON_CITY_ROUTE_SCOPE":"stutter_probe","ORISON_CITY_STUTTER_PREPARE_RENDER":null}},
+  {"scene":"res://tests/V2CityTransportRoute.tscn","log":"C:/ov/logs/after.log","environment":{"ORISON_CITY_ROUTE_SCOPE":"stutter_probe","ORISON_CITY_STUTTER_PREPARE_RENDER":"entry"}}
+]
+```
+
+Add the actual runner, ceiling, windowed capture paths and engine arguments
+needed by the test. This scopes configuration; it does not establish a completed
+run or performance improvement. FIFO order and the existing batch mutex are
+unchanged.
+
 ## Lane ledger
 
 ```
@@ -319,6 +337,22 @@ Godot census still decide ownership; the queue only decides whose turn it is. A
 broker running an older copy of the script ignores the queue until its checkout
 has this change. `tools/tests/test_lane_queue.py` races real brokers on a private
 mutex.
+
+### Known GPU deadline limitation (November3)
+
+The current GPU path bounds the direct process wait but then waits for complete
+stdout/stderr capture without the same deadline. A controlled private-lane CPU
+probe returns0 after8.516s despite timeout2s when its exited direct child leaves
+an8s descendant holding stdout; the successor waits too. Original logs and the
+repeatable probe are external at **C:/ov/reports/lane_pipe_drain_20261103/**.
+**H-LANE-GPU-DRAIN** tracks repair and regression coverage; no fix is installed.
+An external suspended-launch Windows job-object experiment passes five CPU cases
+and a copied-broker/private-FIFO successor check (timeout124, owned processes0,
+successor0). Its contained_probe_01 and contained_fifo_01 RESULT.json records
+are in that external root. This is a candidate containment approach, not an
+installed fix or qualification of real GPU commands.
+This does not diagnose every historical foreign holder or authorize bypassing
+FIFO, a hold, another owner's process or the patched Godot runners.
 
 ### Candidate gate resource controls
 

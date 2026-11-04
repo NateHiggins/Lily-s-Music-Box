@@ -32,6 +32,8 @@
 #    "runner": "serial"|"long", "timeout": 120, "extra_args": ["--import"],
 #    "windowed": false, "shot_dir": ""}
 # "scene" may be empty for an import run.
+# An optional "environment" object scopes string values (or null to unset)
+# to that run, then restores the broker environment, including on failure.
 #
 # Exit codes: run returns the runner's exit code; batch returns 0 if every
 # run exited 0, else the first non-zero exit; 73 if the lane was not free
@@ -229,7 +231,7 @@ function Invoke-GpuTask {
     return $process.ExitCode
 }
 
-function Invoke-OneRun {
+function Invoke-OneRunBody {
     param([hashtable]$Spec)
     if ($Spec.gpu) { return Invoke-GpuTask -Spec $Spec }
     $runnerName = if ($Spec.runner) { $Spec.runner } else { "serial" }
@@ -244,6 +246,47 @@ function Invoke-OneRun {
     Write-OrisonLaneHolder -Runner "lane/$runnerName" -Scene $Spec.scene -Worktree (Split-Path $PSScriptRoot -Parent)
     & $script @params | Out-Host
     return $LASTEXITCODE
+}
+
+function Get-RunEnvironment {
+    param([hashtable]$Spec)
+    $values = @{}
+    if (-not $Spec.ContainsKey('environment')) { return $values }
+    if ($Spec.environment -isnot [System.Management.Automation.PSCustomObject]) {
+        throw 'environment must be a JSON object of string or null values'
+    }
+    foreach ($property in $Spec.environment.PSObject.Properties) {
+        $name = $property.Name
+        if ($name -notmatch '^[A-Za-z_][A-Za-z0-9_]*$' -or
+            $name -like 'ORISON_LANE_*' -or $name -ieq 'LOCALAPPDATA') {
+            throw "environment cannot override lane state or invalid name: $name"
+        }
+        if ($null -ne $property.Value -and $property.Value -isnot [string]) {
+            throw "environment values must be strings or null: $name"
+        }
+        $values[$name] = $property.Value
+    }
+    return $values
+}
+
+function Invoke-OneRun {
+    param([hashtable]$Spec)
+    $values = Get-RunEnvironment -Spec $Spec
+    $saved = @{}
+    try {
+        foreach ($name in $values.Keys) {
+            $saved[$name] = [Environment]::GetEnvironmentVariable($name, 'Process')
+            $value = if ($null -eq $values[$name]) { [NullString]::Value } else { $values[$name] }
+            [Environment]::SetEnvironmentVariable($name, $value, 'Process')
+        }
+        return Invoke-OneRunBody -Spec $Spec
+    }
+    finally {
+        foreach ($name in $saved.Keys) {
+            $value = if ($null -eq $saved[$name]) { [NullString]::Value } else { $saved[$name] }
+            [Environment]::SetEnvironmentVariable($name, $value, 'Process')
+        }
+    }
 }
 
 switch ($Command) {
@@ -265,6 +308,8 @@ switch ($Command) {
             $h = @{}
             foreach ($prop in $item.PSObject.Properties) { $h[$prop.Name] = $prop.Value }
             if (-not $h.log) { Write-Error "every batch entry needs a log"; exit $EXIT_USAGE }
+            try { $null = Get-RunEnvironment -Spec $h }
+            catch { Write-Error $_; exit $EXIT_USAGE }
             $runs += $h
         }
     }

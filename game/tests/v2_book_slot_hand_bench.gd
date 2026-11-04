@@ -1,5 +1,19 @@
 extends "res://tests/v2_readable_library_bench.gd"
 ## Diagnostic of stored slots and the real pickup/inspection input path.
+func cursor_at(point: Vector3) -> bool:
+	# Embedded viewport input has an event-owned pointer. Native Windows instead
+	# polls DisplayServer's OS pointer, which cannot be warped on a hidden desktop.
+	# Keep the actual player ray/part selection; never inject a chosen target.
+	var viewport:=get_viewport()
+	if not viewport is SubViewport: return false
+	var pixel:=player.camera.unproject_position(point).round()
+	var motion:=InputEventMouseMotion.new()
+	motion.position=pixel;motion.global_position=pixel
+	viewport.push_input(motion,true)
+	await get_tree().process_frame
+	print("EMBEDDED CURSOR: requested=",pixel," delivered=",viewport.get_mouse_position())
+	return viewport.get_mouse_position().distance_to(pixel)<.6
+
 func _run() -> void:
 	RealityState.persistence_enabled=false
 	check(contact_precision.bind(get_world_3d()),"native contact precision")
@@ -126,6 +140,13 @@ func _run() -> void:
 	shelf.restore_order(encoded)
 	for frame in 3: await get_tree().physics_frame
 	book=shelf._books.values()[2]
+	check(await _input_slot_return(shelf,book),"real pickup, inspection, mouse translation/rotation and release return a binding to its vacated slot")
+	# Retain the smaller contact/occupancy controls below as mechanical tests,
+	# separately from the actual input path. Restore only after input has ended.
+	player.cancel_manipulation()
+	shelf.restore_order(encoded)
+	for frame in 3: await get_tree().physics_frame
+	book=shelf._books.values()[2]
 	var slot: int=book.shelf_slot
 	check(book._claim("body"),"placement fixture claims book")
 	book._carry(book.position+Vector3(0,0,.015))
@@ -187,3 +208,58 @@ func _run() -> void:
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("input_costs.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","records":player._grab.profile_records},"\t"))
 	print("BOOK SLOT HAND DIAGNOSTIC: ","PASS" if failures.is_empty() else "FAIL"," checks=",checks," failures=",failures)
 	get_tree().quit(failures.size())
+
+func _input_slot_return(shelf: Node3D, book: Node3D) -> bool:
+	var slot: int=book.shelf_slot
+	var wanted: Transform3D=shelf.book_slots[slot]
+	if not check(await grab_visible_stock(book),"slot return begins with actual primary pickup"):return false
+	for frame in 100:await get_tree().physics_frame
+	if not check(book.shelf_slot==-1 and player._grab.holding_pickup(),"actual pickup vacates the original slot"):return false
+	await space()
+	if not check(player.inspecting(),"slot return uses the normal fixed inspection owner"):return false
+	for frame in 180:await get_tree().physics_frame
+	# The exposed spine is the installed body grip; the broad front surface is
+	# deliberately the cover hinge during inspection. Target the same physical
+	# spine control used by grab_transform_stock_programme, not a chosen owner.
+	var spine:=book.get_node("ManipulateSpine").get_child(0) as CollisionShape3D
+	if not check(await cursor_at(spine.global_position),"free cursor reaches the actual spine grip"):return false
+	var picked: Dictionary=player._grab.find_target()
+	print("SLOT RETURN SPINE TARGET: ",picked)
+	if not check(picked.get("part")==book and picked.get("kind")=="free","actual ray identifies the floating binding spine"):return false
+	click()
+	if not check(player._grab.active() and player._grab.target.part==book,"free cursor reacquires the actual floating binding"):return false
+	# Rotate in free space before approaching the shelf. Every step goes through
+	# the shared precision input and the stock's normal native collision veto.
+	var right:=InputEventMouseButton.new();right.button_index=MOUSE_BUTTON_RIGHT;right.pressed=true
+	player._unhandled_input(right)
+	var aligned:=false
+	for step in 100:
+		if not player._grab.active() or player._grab.target.part!=book:break
+		var error:=Quaternion(wanted.basis*book.basis.inverse()).normalized()
+		var angle:=error.get_angle()
+		if angle>PI:angle-=TAU
+		if absf(angle)<.003:aligned=true;break
+		var turn:=error.get_axis()*angle
+		var axis:=turn.abs().max_axis_index()
+		_precision_axis(axis)
+		var motion:=InputEventMouseMotion.new();motion.relative=Vector2(clampf(turn[axis]/.008,-20.,20.),0.)
+		player._unhandled_input(motion)
+		await get_tree().physics_frame
+	right.pressed=false;player._unhandled_input(right)
+	_precision_axis(-1)
+	if not check(aligned,"actual precision rotation restores the slot orientation"):return false
+	if not check(await carry(wanted.origin+Vector3(0,.008,.12)),"actual depth/mouse travel approaches the vacated slot"):return false
+	if not check(await carry(wanted.origin+Vector3(0,.004,.015)),"actual depth/mouse travel reaches the slot capture region"):return false
+	click()
+	if not check(not player._grab.active() and not book._held and book.shelf_slot==slot and book.freeze,"actual next-click release parks the closed binding"):return false
+	for frame in 8:await get_tree().physics_frame
+	return check(book.transform.is_equal_approx(wanted) and shelf.valid_library(shelf.library_snapshot()),"input-returned binding stays in its exact valid placement")
+
+func _precision_axis(axis: int) -> void:
+	var current: int=player._grab.transform_axis
+	if current==axis:return
+	if axis<0:axis=current
+	if axis<0:return
+	var key:=InputEventKey.new();key.keycode=[KEY_X,KEY_Y,KEY_Z][axis];key.physical_keycode=key.keycode;key.pressed=true
+	player._unhandled_input(key)
+	key.pressed=false;player._unhandled_input(key)

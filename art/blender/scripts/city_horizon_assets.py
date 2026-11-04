@@ -18,6 +18,19 @@ def group_parts(names,expected_buildings):
     assert set(owners)==set(expected_buildings),(set(expected_buildings)-set(owners),set(owners)-set(expected_buildings))
     return {k:sorted(v) for k,v in sorted(groups.items())}
 
+def native_groups(family,names):
+    """Bound editable sources without splitting a building or runtime block."""
+    assert family in ['near','far','lod1'] and names
+    groups=collections.defaultdict(list);seen=set()
+    for name in names:
+        block=block_id(name)
+        assert name not in seen,name
+        if family=='near':assert block.startswith('HORIZON_NEAR_'),name
+        if family=='far':assert block.startswith(('HORIZON_FAR_','HORIZON_STREET_END_')),name
+        key='street_end' if family=='far' and block.startswith('HORIZON_STREET_END_') else family
+        groups[key].append(name);seen.add(name)
+    return {k:sorted(v) for k,v in sorted(groups.items())}
+
 def manifest_paths(source):
     """Validate the exact registered shard roster before policy/discovery uses it."""
     assert source['schema']==2 and source['frame']=='ORISON_V2_BUILDING_FRAME'
@@ -59,9 +72,36 @@ def export_blocks(root,family,draws,expected_buildings):
         asset=root/'game/assets/props'/(asset_name+'.glb');raw=asset.read_bytes()
         assert len(raw)<95*1024*1024
         result[asset_name]=dict(role='body_lod' if family=='lod1' else 'base',block=block,buildings=sorted({n.split('__')[0] for n in names}),asset=asset.relative_to(root).as_posix(),sha256=hashlib.sha256(raw).hexdigest(),bytes=len(raw),bounds=exported_bounds(raw),export_check=proof,parts=[dict(name=n,key=n.split('__')[-1],triangles=len(by_name[n].data.polygons)) for n in names])
-    native=root/'art/blender'/('city_horizon_'+family+'.blend')
-    bpy.ops.wm.save_as_mainfile(filepath=str(native),compress=True)
-    assert native.stat().st_size<95*1024*1024
-    digest=hashlib.sha256(native.read_bytes()).hexdigest()
-    for record in result.values():record.update(native=native.relative_to(root).as_posix(),native_sha256=digest)
+    native_roster=native_groups(family,sorted(by_name));native_bindings={};owner={}
+    if family=='far':
+        # The completed far scene exceeded95MiB. Keep its four street-end
+        # blocks in one extra editable scene, not one file per building.
+        # Library writing follows only each selected Scene's forward links;
+        # no stock, object transform or exported mesh is changed.
+        bpy.data.collections['CityHorizon_far'].name='CityHorizon_far_source'
+    for key,names in native_roster.items():
+        native=root/'art/blender'/('city_horizon_'+key+'.blend')
+        if family=='far':
+            scene=bpy.data.scenes.new('CityHorizon_'+key+'_Editable')
+            collection=bpy.data.collections.new('CityHorizon_'+key)
+            scene.collection.children.link(collection)
+            for name in names:
+                assert by_name[name].parent is None,name
+                collection.objects.link(by_name[name])
+            # Blender5.2 Scene copying dereferences the view-layer tree.
+            # Synchronize the newly linked collection before library writing.
+            scene.view_layers[0].update()
+            # All sources share art/blender; preserve the already registered
+            # relative image paths rather than resolving them from a temp file.
+            bpy.data.libraries.write(str(native),{scene},path_remap='NONE',compress=True)
+            bpy.data.scenes.remove(scene);bpy.data.collections.remove(collection)
+        else:
+            bpy.ops.wm.save_as_mainfile(filepath=str(native),compress=True)
+        assert native.stat().st_size<95*1024*1024,(native.name,native.stat().st_size,95*1024*1024)
+        native_bindings[key]=dict(native=native.relative_to(root).as_posix(),native_sha256=hashlib.sha256(native.read_bytes()).hexdigest())
+        for name in names:owner[name]=key
+    assert set(owner)==set(by_name)
+    for record in result.values():
+        keys={owner[p['name']] for p in record['parts']};assert len(keys)==1,record['block']
+        record.update(native_bindings[next(iter(keys))])
     return result

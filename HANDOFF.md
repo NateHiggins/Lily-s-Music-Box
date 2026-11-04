@@ -1,82 +1,360 @@
-# Current continuation — November 2 V2 qualification
+# Latest checkpoint — 2026-11-04
 
-The active goal remains existing V2 repairs/interactions, stutter, hose/book/nook,
-and systematic coverage. **Not V2 complete or production/artistic acceptance.**
-Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
-**main** at merged **2e8b14efe** for the qualified intake; the documentation
-checkpoint may be on **codex/v2-intake-merge-ledger-20261102**.
-[PR145](https://github.com/NateHiggins/Lily-s-Music-Box/pull/145) is MERGED.
-Latest physical runtime source: **8acfb5a7b**; clock bench source **4feb74618**.
+### Current city edge qualification — 2026-11-04
 
-**Physical qualification is published:** surface03 completes31,297checks/0failures,
-361.73s, schema2 full physical+city diagnostic+Sohmer programme, zero raw Godot
-errors and ten known resident texture UID fallback warnings. Strict source and
-published packet independently PASS0 at **art/renders/orison_v2/surface_requirements_20261011/**.
-All67actual images inspected via contact sheets, with three changed closeups
-also inspected individually; eight representative images retained in the packet.
-Staff brackets seat against their deeper wall; the vent remains clear. Lower
-bypass supply is partly concealed. Cistern shadow aliasing, repetitive/dark city
-views and the wall-occluded unchanged dumbwaiter view remain visual debt.
-No skipped interaction, whole-year weather or human acceptance is implied.
+The lossless-import retry **ground_edge_intake_01/loaded_03/** is terminal0:
+71checks/0failures in46s, one reimport32s, both stderr streams empty. All three
+standing-controller legs, natural6216-to1200triangle whole-body LOD at32m,
+narrow-FOV recovery and inward return pass. Loaded UV excess is at most
+0.00000047683716m, bad derivative corners0 at both levels, worst tangent
+agreement0.99999982118607near/0.99999988079071lower. Native models and strict
+tolerances are unchanged. The original loaded_02 failure is retained.
 
-Separate bathroom06 diagnostic:1,953/0, actual valve/plug/flush/cover input and
-validated campaign disk reconstruction in a second world; no schema2 gameplay
-acceptance. Isolated clawfoot hand bench138/0; furnished-room artistic acceptance
-remains open. Expanded source roster19lavatories/19closets is checked. Twelve
-household authoring records now reproduce verified runtime bytes exactly.
-Loaded inventory vs prior accepted packet:+85draw entries/+41meshes/+44materials,
-zero new textures; no controlled frame-time or added-cost verdict.
+The composed **ground_edge_intake_01/composed_01/** test passes38947checks/0failures
+(wrapper355s; test contract337.376s), including city38193/0. Real compile4 and
+MaterialLibraryTest pass with empty stderr. The schema2 test-written contract
+executes production composition, physical surfaces and teardown; save, fire and
+other interaction programmes explicitly did not execute. All59root3440x1440
+captures were reviewed through10labelled full-frame contact sheets, plus direct
+ground-edge and5entry-preparation views. The high entry views now retain the
+Orison body and neighbouring context. Dark facades, sparse terrain, regular edge
+fragments, flat cloud relief and the wall-obstructed dumbwaiter image remain
+limitations. This is technical surface review, not Lily artistic acceptance,
+native-pixel detail, continuous450m exploration or a performance budget.
 
-**Candidate verification complete:** exact **a16b5f37d** is MERGE-CANDIDATE:
-119gates,115PASS/3existingFAIL/1INCOMPLETE,zero regressions,six improvements,
-17protected paths unchanged,selectorV2,zero lint errors,no accepted regressions.
-Seven changed gate paths were reviewed. Report:
-**C:/ov/reports/native_intake_20261102/candidate_a16b5f37d/verification.json**.
-The in-place verifier reused validated clean3f1051f59 baseline; fresh-checkout
-import is outside its scope. Defaults6jobs/600s remain; final2jobs/1200s run
-completes lane tests17.64s and42surface-tool tests470.22s. Prior failed candidate
-and focused5/5 lane/42/42 surface rechecks remain preserved, never waived.
+The original batch is terminal1 because its external after-guard expected4
+preparation images; the actual intended result is4production views plus1camera
+restoration frame. The original guard/logs are preserved. Corrected CPU guard
+checks all5filenames/hashes, completed preparation,10render calls and restored
+camera, and passes without rerunning Godot. No runtime receipt was rewritten.
+Strict external and published surface qualification both pass with0defects;
+previous packet is preserved in composed_01/publication_archive/. Current
+runtime digest408d2692b6e495a1615b87dcad3a9d19dde9b41fb4969e712d5d499968ed4f2f.
+The review does not erase earlier failures or establish whole-V2 completion.
 
-**Clock/LOD diagnostic:** **sohmer_body_02/** passes966/0 at3440x1440 in30s,
-empty stderr;258source bindings match,17frames inspected, clock pause/reversal/
-validated disk load/fresh presentation reconstruction pass. Isolated GPU medians
-near/lower/return .735/.6585/.677ms; initial transition108.737ms remains debt.
-This is not old-body incremental or whole-city performance acceptance. Original
-**sohmer_body_01/** viewport failure3440x1421 is preserved; corrected launch reused
-**native_debug_window.gd**, with no assertion relaxation. All owned Godot runs
-and static verifier/rechecks are terminal. The external
-**ACTIVE_QUALIFICATION.json** holds exact process/status pointers; revalidate them.
+Next: clean demonstrated generated import/UID churn with recoverable provenance,
+commit this packet and its two source-bound context cameras, compare the complete
+candidate against clean-main fb3167942, and manually mergePR151 only after the
+candidate is qualified. The three inherited failing test gates remain explicit
+**K-V2-QUALIFICATION-DEBT**; no second native construction family starts here.
 
-Generated UID/private attachment custody and437import EOL-only normalization are
-complete: **checkout_custody_78cb0f1ce/CUSTODY.json** preserves707recoverable files.
-No authored source was discarded. PR145 merged manually at2e8b14efe;
-Claude was notified directly via the shared bridge. Remaining whole-world
-performance and artistic gaps stay open.
+The earlier continuation below is historical and superseded where stated.
 
-**Evidence/custody:** detailed history and limits live in
-**design/V2_PROLOGUE_2026-10-28.md** and
-**C:/ov/reports/native_intake_20261102/**. Earlier top-handoff history is retained
-in Git at **8acfb5a7b:HANDOFF.md** and the subsystem ledger, rather than repeated
-here. Surface01's raw shop-error failure is intact. A misrouted preview replaced
-surface02's wrapper/raw logs; its failed runtime contract, inventory and67images
-are preserved in **surface_02_original_evidence.zip**, with9optical hashes checked.
-Archive raw logs are partial probe output; do not claim original raw preservation
-or reconstruct receipts. **preview_probe_01/OUTPUT_CUSTODY.json** explains the loss.
-Preview02 passes592/0: exact campaign restore, exact non-household state after a
-reader frame, complete household validation and a valid shop cursor. Normal
-float32 quaternion resampling is traced, not rounded away. Fresh output paths
-are now checked before launch. No runtime receipt was repinned.
+# Current continuation — city physical qualification and delivered sky video
 
-**Shared work:** Claude owns mail-bank/watch-station intake on
-**intake-range-mail-watch**, now **002a6b37b** (authored strict-by-default hand-test
-clarification not rerun). The earlier37/0 establishes free-look crank input only,
-not fixed inspection-camera coverage. Paired old-asset failures/receipts are under
-**C:/ov/reports/mail_intake_20261102/**. Claude's moon-name first draft is also
-waiting behind145; later cohorts coordinate one renewal. The gas-range contact
-refit already merged viaPR127; do not reinstall it from a library hash mismatch.
-Architect/city expansion remains owner-paused; preserve its worktree and dirty
-preparation. Remaining native deliveries are not bulk accepted. Preserve all
-story, inventory, reading/calendar/weather and validated save authorities.
+Canonical C:/PleaseRemainOnTheLine,branch codex/v2-first-view-preparation-20261102,
+draftPR151;unmerged. Main last verifiedfb3167942. GoalACTIVE,widerV2 unfinished.
+
+Latest preserved WIP:7b525b97d plus mount followupff2fcb832,both pushed;not merged.
+All43expanded frozen inputs byte-match committed HEAD (text LF-normalized).
+Static board **ground_edge_intake_01/board_pending_01/** is terminal1:
+119gates,113PASS/5FAIL/1INCOMPLETE. Three test failures and ledger incompleteness
+match clean-main debt. New failures are stale rendered qualification and4
+model/import-retention defects sampled before the WIPcommit. Targeted postcommit
+**board_import_after_commit/** passes physical_import_sources with0defects;
+this one-gate board is not a whole-candidate pass. The original surface-tools
+suite now passes43/0 in90.38s rather than timing out. Final composed renewal and
+current complete candidate verification remain required.
+
+All85newcity replacements are assembled through owning producers with39retained
+profiles/all124reservations preserved. Native2203/0 comparisons,2678retained
+pane witnesses,393far/street raw-array/Scene/map checks,13fixtures/21tests pass.
+Foureditable natives stay below95MiB. Loaded04passes47680/0,empty stderr,
+all1110static/1093lower/17180panes/4hands and9actualLODtransitions checked.
+
+Composed02 is terminal0:compile3PASS;material-libraryPASS16.67s,empty stderr,
+includingactualGLB/glTFsourcecalibration and3missing/malformed controls.
+Physical-only full-world survey38884/0 in372s,schema2contract;city38130/0,
+124buildings/500facade+230affected-neighbor probes. Source guards pass.
+57actual3440x1440frames inspected on10context sheets at688x288 plus4directviews.
+Strictsurfacevalidator/publicationPASS0;priorpacket preserved externally.
+All10UIDwarnings LF-match prior;noERRORheaders. Darkfacades,flatcloudrelief,
+sparsereliefviews and a wall-only dumbwaiter capture remain limitations.
+No fitting interaction/save/played-access/performance or Lily artistic pass.
+
+Lily's10second24hour skyline movie is DELIVERED candidate:
+C:/ov/reports/city_sky_cycle_20261103/Orison_24_Hours_in_10_Seconds.mp4.
+3440x1440,300frames/30fps/exact10.00s,Feb23-24 1929 08:00-08:00,60degreepan.
+Existing detachedRenderClock/sky/window pipeline leaves campaign clock unchanged.
+CapturePASS;all300frames decode;20encodedsamples+4sourceframes inspected.
+Video/frames stay outsideGit;tracker-pageembed pending,Lily feedback notassumed.
+
+Current city priority: the architect completed the single32m eastern rail-cut
+concrete toe,session8457 terminal0. Executed SOURCE_FREEZE_03. Native near6216 /
+lower1200triangles,36complete stocks perlevel,68ground rays,16carrier+16outside
+controls,32burialcorners/4endcontacts perlevel,2exact native/GLB roundtrips;
+6CPU1000x640frames individually inspected by both agents. Small fragments look
+regular/marker-like: artistic limitation,not accepted finished ground dressing.
+Archive city_ground_edges_native_20261103.zip is retained in art/reviews/city_streets_20261029/.
+No second construction family starts. Native/source separation has stated
+registration limits;installed actor/contact/access proof remains open.
+
+Codex has copied the6reviewed native/source paths, added a small building-frame
+loader using existing catalogue/weather/whole-bodyLOD helpers, and projected
+runtime data plus a source-bound fixture. Existing geometry/ground owners are
+unchanged. Edge intake loaded_01 is TERMINAL1: the import exited0 but its
+stderr carried the genuine inferred-Variant parse error; compile checked4scripts
+and failed only horizon-bench line730. Loaded/contact/LOD/access did not start.
+The explicit WeakRef type fix is authored. Fresh loaded_02 is TERMINAL1:
+compile4PASS,loaded71checks/2failures in42s. All3standing route legs and actual
+6216-to1200triangle distance/zoom/return checks pass;both imported levels fail
+strict metre/tangent derivatives under default compression. Original logs,
+receipts and5frames remain;4directly inspected plus byte-identical return reuse.
+The existing lossless import policy now covers only these2newmodels (130policy
+references,missing0/wrong0). No native geometry or tolerance changed. Loaded_03
+reimports once and repeats the loaded check, reusing unchanged43source/helper
+hashes and the completed4script compile;46input freeze includes2settings and
+policy. It is queued,session85669,actual broker36888,bornUTC2026-11-04T05:39:08.6773604Z.
+Inputs remain frozen until that handle is terminal. No edge pass claimed yet;
+original failures and snapshots are preserved. The native/catalog migration
+replay is independently queued in external qualification_debt_trace_01 only.
+
+The read-only grade replay47412/session45214 is TERMINAL0:14947native records
+exact,only3known bindings independently regenerated. Old runtime registration
+was reused,not renewed. External result remains in grade_discovery_refresh_01/.
+Framing session95975 (actual broker44520) is TERMINAL0:compile2PASS4.53s,
+small native3440x1440lifecycle58/0 in~3s,both exact source guards pass. This is
+not whole-building optical or composed performance acceptance. The optional
+ORISON_SURFACE_ENTRY_FRAMING=1 city-review hook will capture4actualproduction
+views plus restoration in the final composed world,avoiding a second startup.
+
+Entry_followup_02 remains terminal0 on its original source:TitleBEGIN17/0,
+optical19/0,baseline19/0,prepared22/0. One six-leg matched pair p99338.254to60.696ms,
+max434.340to67.996ms,>100ms6to0;preparation658.903ms/10draws. Two images were
+neighbor-occluded,so framing was corrected;that old pair does not qualify current
+edge/framing inputs. Full board at2fec preserved a600.58s tools-test timeout.
+Bounded fixture repair completed43tests105.374s;one updated source-invalidation
+test also passes20.133s after registering the edge native inputs. Full candidate
+board remains required;surface packet is stale after tool/runtime changes.
+
+Lily approved the studio-maquette image as art direction:distinct proportions,
+tactile materials,warm selective windows,layered infrastructure/terrain and the
+Orison as local anchor. Saved image is in art/reviews/city_streets_20261029/;
+source geometry/clearances remain authoritative. Main was fetched unchanged at
+fb3167942;early subchecks17/17protected,selectorV2,and432pre-edge import sources
+pass. Those subchecks are not full candidate verification or current edge import
+acceptance. Source/job custody:
+C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
+
+Current checkpoint packs3native/loaded/composed archives;details,hashes and
+original oversize/crash/retained-drift/parser/typed-node failures remain in
+existing design/V2_CITY_CONTEXT_REPORT_2026-10-19.md and compactreviewZIPs.
+This summary replaces priorhandoffprefix;source-history preserved at94236bbb0.
+
+Next: integrate the architect's admitted edge packet, repair blocked inspection
+framing, renew actual surface evidence, then full candidate verification against
+the cleanfb316 board before manual PR151 merge.
+Noauto-merge or wholeV2 acceptance. Preserve V1rollback and gameplay owners.
+Remaininghose/book/nook/readability,prologue/audio,golden-shift/save/weather
+and systematicV2coverage remain open. Do not repeat unchanged fire/walk suites.
+
+**Earlier checkpoint (historical; superseded for current city inputs):** footprint16 is **terminal exit0**, seven stages and
+both128-input guards pass. Five scripts compile16.62s/empty stderr. Small
+rendered footprint/lifecycle bench21/0,5.17s/empty stderr; restored blue image
+inspected. Actual titleBEGIN17/0,193.15s,620.739ms/10draw preparation, camera node
+unchanged; both native images inspected. Matched baseline18/0 and entry21/0:
+p99162.457→53.569ms,max208.776→116.368ms, >100ms3→1. This remains partial benefit.
+The surviving first-reverse render interval100.503ms coincides with59specialization
+increments; counter changes are not compiler duration or GPU completion proof.
+
+The conditional physical batch is **terminal1** at its prerequisite guard:
+116.368ms exceeds the iteration-triage cutoff. **No physical world launched**;
+no old surface packet renewed/repinned. Preserve the original results.
+
+**Current authored diagnostic WIP:** the existing city transport driver has an
+opt-in **ORISON_CITY_CAPTURE_PREPARATION=1** programme which captures the second
+draw of four actual production temporary views and the restored view, then exits.
+Readbacks perturb timing; this is optical evidence only, not a performance run.
+Production digest remains **b9328d17362830ca8f5588ce164ea03c6ebc3232d4afad222a56028249100a88**.
+The diagnostic is not yet compiled or run. Next inspect these actual views before
+changing placement policy again. Spatial audit no drift; source code only changes
+this test driver. Batch **C:/ov/reports/entry_render_preparation_20261102/footprint_16/optical/batch.json**
+guards128inputs, compiles the one changed driver, captures, then verifies sources.
+Use ACTIVE_QUALIFICATION.current_execution for its live handle; old56752/53000
+and44096/38708 are terminal. No CPU hold while queued; no source edits during it.
+
+Nook return/release/disk25/0 and prior Continue7/0 are scoped historical proof;
+expanded physical renewal, final board/candidate and manualPR151merge remain.
+PrivateCPU runner containment candidate is external/uninstalled; original10tests,
+five deadline cases, fault cleanup and argument/output cases pass with failures
+retained. Architect native85-body delivery is pushed d8fab160,clean/stopped,
+uninstalled. Preserve39profiles/124reservations for later whole-block intake.
+
+**Stage:** V2 integration and qualification, not release-ready. The next playable
+milestone is a polished normal-entry prologue. City work remains an established
+priority; finish the current candidate before ingesting the architect's next batch.
+The broader goal remains existing V2 repairs/interactions, stutter, hose/book/nook
+and systematic coverage. No task deadline or new gameplay scope is imposed here.
+
+## Start in the actual checkout
+
+Use **C:/PleaseRemainOnTheLine**, branch **codex/v2-first-view-preparation-20261102**.
+Fetched **origin/main=fb3167942f02cc9c6db15176eb670f0724e6f981** on November3.
+Adela's actual-world run used **527c8be0f3f309a0a0acdcfad7f906500c6edbcb**.
+Nook disk-test work is preserved in **4c53bad6d**. Use Git for the newer handoff
+commit; draft [PR151](https://github.com/NateHiggins/Lily-s-Music-Box/pull/151)
+is pushed but **unmerged / not merge-ready**. The attached deep **v2-baseline**
+checkout is historical and remains app-owned; do not develop there or delete it.
+
+Read DOCS.md, AGENTS.md, applicable Bible rulings and the canonical continuity/
+Godot skills. Recheck Git/index/untracked paths before edits. The handoff checkpoint
+changes documents only; the preceding nook commit is explicitly unverified WIP.
+Do not discard, hide or silently accept it to get a clean verifier run.
+
+## Verified work and exact limits
+
+| Work | What actually ran | What remains |
+| --- | --- | --- |
+| Existing V2 prologue/companion | Merged prologue, original LPC babble, compact arm/register and exact17s friendly Tardi stinger have prior scoped evidence in the prologue ledger. | Fresh-player readability/listening, broader save/Continue boundaries, residual stalls and Lily's artistic acceptance. No new speech during the stinger. |
+| Current-weather city packet | Historical cohort09:31,495/0 physical checks;13 played legs81/0;70 native3440x1440 renders inspected;12 published images; then-current strict qualification0defects. | **Expired after Adela inputs.** Do not repin/relabel it. Wider district/art/weather-year acceptance remains open. |
+| Book handling | **book_spine_12** actual-input bench101/0, empty stderr, pushed54b4c07b1; real spine grip and shelf return. | Installed nook return/release and validated disk reconstruction now pass25/0 in unfinished14; corridor access, shelf-slot return and appearance remain separate claims. |
+| Adela preview | Personal supplied28-bone/156,822-triangle model, original2K atlas, three clips; native replay/tangents/skin pass. Isolated fixture15/0 and actual installed arrival/door/lobby/corridor/stair10-waypoint route pass. | Temporary debug follower only; not a resident, story fact or save owner. Full prologue/Continue, arbitrary jumps/lifts, controlled cost and appearance approval unqualified. |
+| Entry preparation | Production loading-veil preparation and once-per-frame companion advance authored/pushed; prior title17/0 and matched routes18/0,21/0. | Current-weather titleBEGIN17/0 and six-leg18/0,21/0 pass in unfinished14. Maximum230.004→226.316ms remains debt; Continue is queued in followup15. |
+
+Newest Adela proof: **C:/ov/reports/adela_follow_20261103/intake_04/world/adela_follow.runtime.json**,
+schema2 runtime_contract, executed/passed/completed exit0. Wrapper190.62s;
+startup126,515.823ms; ten known resident textureUID fallback warnings, no script
+errors. Both world PNGs inspected. Production input digest
+**6fcbb2cf101ccaf87babf0fff07e93cfba99b7be51077a39c99c17835645dafc**;
+four transitive test dependencies bound. The unchanged fixture was reused only
+through an exact source/receipt guard. Enabled/hidden frame arrays are observations,
+not uncontended cost proof: architect CPU work overlapped admission before its
+verified pause. Original failed intake01–03 receipts remain intact.
+
+## First actionable blocker / interrupted work
+
+The same **intake_04 batch ends exit1** in the separate nook preflight, after
+Adela passes. Exact failure: **game/tests/v2_golden_repair_profile.gd:36** has
+**_walk(Vector3)** while the parent now requires **_walk(Vector3,float=default)**.
+Two descendants fail resolution. This is an actual API mismatch, not proven
+cache corruption. **H-V2-WALK-PREFLIGHT** lists eight statically affected drivers.
+Propagate compatible signatures/forwarding while preserving tighter arrival
+thresholds, detours and physical assertions; compile the chains before more walks.
+
+**4c53bad6d** preserves the60-line opt-in **ORISON_NOOK_DISK_RELOAD=1** diagnostic
+in **game/tests/v2_book_inspection_return_world.gd**. It exercises actual installed
+pickup/inspection/release then an isolated validated campaign save/load and fresh
+world owner reconstruction. It has **not compiled or run successfully**. Do not
+count authored assertions as proof. No runtime production change was made for
+the test API failure. See [book ledger](design/V2_BOOK_INSPECTION_RETURN_2026-10-22.md)
+and [Adela ledger](design/V2_ADELA_TEMPORARY_FOLLOW_2026-11-03.md).
+
+Next: finish that small harness repair and installed nook check; execute only the
+unfinished current-weather title/matched timing/Continue boundaries; then renew
+expanded physical proof and verify the complete candidate before manual PR merge.
+Validated clean-main board: **C:/ov/reports/entry_render_preparation_20261102/board_main_fb3167942/board.json**
+(119gates:115PASS/3FAIL/1INCOMPLETE, zero dirty paths). Use verify_candidate with
+**--in-place --baseline-board** and inspect zero-regression results. Preserve17
+protected paths and explicitV1 rollback. The lane.ps1 per-run environment change
+also needs review as a verification-instrument change. No auto-merge.
+
+## Shared ownership / coordinate before touching
+
+- **Canonical developer (fresh chat):** PR151 qualification, integration, task
+  custody and coordinated merge order. One coherent implementation family at a
+  time; freeze consumed sources during runs, combine related checks and reuse
+  unchanged receipts. Do not repeat unrelated hose or long routes for doc edits.
+- **City architect chat 01a18757-c531-7153-942f-ec3010032c4b:** resumed isolated
+  native construction under Lily's later request. **C:/ov/city**, branch
+  **codex/v2-city-20261029**, checkpoint **531e6d398**; current dirty
+  **art/blender/scripts/city_packet_architecture.py** is theirs. External
+  **C:/ov/asset-prototypes/city-building-packets-20261103/CONSTRUCTION_REPORT.md**:
+  85replacement bodies/23packets,39retained profiles/all124reservations; native
+  office correction exports/reopenedGLB/three fresh views now pass, but20block
+  reviews remain in serial batch64285: **not integration-ready**. Architect reports
+  AST outside QueensOffice exact;22packets bind immutable531e6d398 and the changed
+  office binds the current helper through SOURCE_RECONCILIATION.json. Its next
+  action is final reviews, named source commit and consolidated delivery index. Preserve
+  retained assets through the producer; partial block GLBs cannot replace whole
+  installed blocks. Proposed P2 migration192→184 requires explicit per-pane
+  disposition and all first-hit checks; P0R2 remains46. Do not change assertions
+  merely to fit delivered counts. The developer's CPU hold was released and the
+  architect resumed its exact owned process; no developer suspension remains.
+- **Claude:** communicate through **~/homebrew-tools/toolbox.py** shared inbox
+  (send --from ChatGPT --to Claude, inbox --as ChatGPT --unread, ack after reading).
+  Lily authorized direct coordination with all Orison agents; she need not relay.
+  Claude acknowledged current scope through the bridge at17:18UTC November3:
+  weather PR150 is merged; **no V2 files/worktrees held and no V2 lane job queued**.
+  Laundry station, shop slice5 and draw-call measurements remain unstarted; Claude
+  will name paths before starting. The GPU pipe-drain ceiling repair is also
+  unstarted (H-LANE-GPU-DRAIN). Existing **C:/ov/shops claude/ten-residents8ca5f937e**,
+  **C:/ov/wx a9da7db3a**, **C:/ov/moon0a25aa9c3**, **C:/ov/s4 fe0d2c61f** are retained
+  directories, not evidence of active work or new ownership; some contain
+  generatedUIDs. Do not remove them without custody/consumer checks. The separate
+  comic/LoRA session reports clean **claude/oddities-headline2adf0e873**, external
+  comic work and fair400-step training slices; no V2 overlap or decisions owed.
+  Its Jonah latent-cache crash/retry belongs to that session, not this game queue.
+- **Blender modeler chat 01a182c7-a36b-72a3-a349-fba7bc929e65:** last completed
+  turn updates existing delivery custody, not new Godot work. Use
+  **C:/ov/asset-prototypes/interactive-v2-review-20261101/DELIVERY_REGISTER_20261102.json**
+  and NATIVE_INTAKE_INDEX.md; reconcile with current consumers before each family.
+  Earlier INTAKE_RECONCILIATION.json is a dated source snapshot, not current absence
+  proof. Gas range/bathroom/mail/watch already integrated. Remaining boiler,
+  radiator, service/electrical/media/door/lift/stock packets require actual intake.
+- **Researcher chat 01a181e0-4aa5-77c2-a23e-553533d859bc:** last recorded state
+  stopped pending developer review. No lot selection/address change assumed.
+  Research remains INERT; do not issue duplicate commissions before reading it.
+
+No owned Godot/broker/timing job is live. Old queued handles in historical sections
+are terminal. At inspection lane held someone else's **lora albers800**, with Mae
+queued. Read current lane state, respect Lily's hold/reorder and never pre-empt.
+Patched4.7.1 Vulkan console hash matches .godot-engine.json. All Godot/GPU uses
+lane wrappers; real-frame runs are hidden desktop at native3440x1440, leaving
+Lily's mouse alone. A fresh worktree needs two imports, not this already imported
+checkout by default. Every run gets LogPath/receipt;124 is no result,73 no start.
+
+## Backlog audit / commitments retained
+
+TASKS.md remains the open queue; this is an index, not another competing backlog.
+This handoff reconciles the conversation's started/interrupted commitments against
+current queue/implementation and external custody; it does not requalify every
+historical system or imply all deliveries were accepted.
+
+- **Immediate closure:** H-V2-WALK-PREFLIGHT; K-V2-ADELA-PREVIEW-FOLLOW,
+  K-V2-BOOK-NOOK-CLOSURE, K-V2-FIRST-VIEW-HITCH and K-V2-NATIVE-INTAKE-QUEUE.
+- **Next established city work:** K-V2-CITY-REVAMP / FOOTPRINT-CLIP; source-led
+  architect intake, LOD/continuous access and composition. Preserve window optics;
+  new bodies must be reviewed against the existing optical/window contract.
+- **Playable milestone:** K-V2-PROLOGUE, TIME-REGISTER, PLAYER-FACES,
+  CONTROL-OVERHAUL, INTERACTION-COVERAGE and HOSE-CLOSURE; TL-VOCAL keeps learned
+  English/recorded reactions separate from merged original babble. K0-AUDIO,
+  K2 fresh-save golden shift and K3 save matrix are still open, not replaced by
+  physical-only receipts. The prologue teaser gates narrow distribution work.
+- **Presentation still unaccepted:** full-day annual sky diversity/rare weather,
+  cloud/sky noise and precipitation visibility, telescope/Skywatcher detail,
+  facade/window/address research, background-window cost/street/LOD views.
+- **Unclaimed/later:** background stick figures, newspaper player-action eligibility
+  examples/runtime mechanic, exploration map/notes design,
+  found-family performance/stage, remaining native stock and repository cleanup.
+  Existing B-PERFORMANCE, paper, map and H-CODEBASE-SIZE entries retain owners,
+  safeguards and unfinished clauses. Never infer completion from external packets.
+- **Existing paper showcase:** actual April1,1929 front/back captures for both
+  papers already exist under **C:/ov/reports/paper_showcase**. Their November1
+  wrapper completed13.05s/exit0/empty stderr on the official engine/dirty tree.
+  Content/spoiler/artistic review was not repeated for this handoff; reconcile
+  delivery before rerendering. K-V2-PAPER-SHOWCASE records that remaining check.
+- **Other open PRs:** draft **PR138** slab occlusion remains separate at
+  **1d2351252**; its composed02 runtime source16bdc55ae passed24/sixlegs, but broader
+  visibility, physical renewal and candidate comparison remain unfinished.
+  **P-SLAB-OCCLUSION-WIP** preserves the paused scope without auto-resuming it.
+  Draft **PR53**, **d01dcbbf7**, has incomplete guest tours and old Rhea proof;
+  K-V2-RESIDENT-CLOSURE owns reconciliation. Do not bulk merge either for cleanup.
+- **Preserved boundaries:** impossible-organ Tardi stays research-only; established
+  friendly exterior/17s timing stands. Post-V2 murder year, deferred studio/network
+  sharing/species expansion/mobile and retired cabinet plans retain October27
+  dispositions. No broad deletion or re-opening settled narrative choices.
+- **Private tooling/comic continuity:** widget/bridge and usage work lives under
+  **~/homebrew-tools**; LILITH/source likeness work remains outside the public repo.
+  Check private work_orders/rulings/playtest notes between tasks without copying
+  their contents into public Git. Existing tool/comic skills own those processes.
+
+No new design decision blocks the immediate harness/qualification work. Lily's
+listening, fresh-player and artistic reviews remain necessary later; outstanding
+writing/address/eligibility choices stay in their existing authority documents.
+Do not ask the same settled questionnaire again. Continue authorized reversible
+work, record exact evidence and finish coherent PRs instead of expanding scope.
+
+Older sections below are historical provenance, not current queued-job status.
 
 ## November 2 — installed lavatory diagnostic passes; formal qualification open
 

@@ -87,6 +87,29 @@ actual viewport in the test; preserve a failed-resolution run before retrying
 with the corrected launch. This is an explicit diagnostic override, not a new
 production window preference.
 
+Hidden-desktop free-cursor diagnostics need the actual pointer reader traced.
+On the pinned Windows engine, a Window polls DisplayServer's OS pointer even
+after injected mouse events. A SubViewportContainer forwards its viewport's
+query to that Window. An isolated fixture can instead present a detached
+SubViewport through a TextureRect and push local motion into that viewport;
+verify delivered coordinates and retain the production ray and part selection.
+Do not inject a chosen target or change gameplay picking to accommodate a test.
+Aim at the existing operable grip: an inspected book's front is its cover hinge,
+while its spine grip moves the binding. The book inspection ledger records the
+original failures and the101-check actual-input return pass; it is not installed
+nook, campaign reload or artistic acceptance.
+
+Queue reacquisition is part of iteration cost. When an owning native build,
+its source/equivalence checks, imports and a small compile/loaded diagnostic are
+ready and require no intervening human choice, use one related fail-closed lane
+batch. A native stage must pass before its dependent Godot stages start. Avoid
+releasing and rejoining between machine-checkable stages merely because their
+commands differ. Keep human image review and unrelated authoring outside that
+reservation. Preserve failed receipts; after a real script parse fix, reuse
+unchanged completed imports and rerun the blocked compile/behavior checks with
+a fresh source freeze, rather than calling the error stale cache or replaying
+the whole native pipeline.
+
 Fast iteration is a priority. Before launching, identify the changed behavior,
 the smallest check that can expose its failure, and the expected startup/run
 cost from existing receipts. Do not repeat long walks through unchanged areas
@@ -138,6 +161,14 @@ full test-file run unless an early failure needs isolation.
 Combine closely related checks when this saves startup cost without creating
 an oversized failure-prone suite. Reserve full played routes for integration
 checkpoints or changes whose dependency coverage genuinely requires them.
+Keep a matched before/after timing pair in one lane batch when practical; separate
+acquisitions can put long GPU jobs between treatments and prolong a source freeze.
+The broker's per-run **environment** object scopes test flags and restores them,
+including on failure; null unsets a flag. See the existing lane-broker section in
+[PIPELINE_TOOLS.md](../../../tools/PIPELINE_TOOLS.md) and verify the checkout's
+broker supports it. Keep separate fresh logs and report preparation time and host
+load. Private queue tests establish scheduling/configuration behavior, not a
+Godot playtest or performance improvement.
 Reuse valid unchanged route evidence instead of repeating it for each repair,
 visual adjustment, report edit or diagnostic. A performance experiment should
 measure a short, repeatable representative segment, excluding unrelated travel.
@@ -169,6 +200,21 @@ the owner's judgment and actual playtesting establish humor, atmosphere,
 readability, and feel.
 
 ## Reuse demonstrated project lessons
+
+- **Runner deadlines:** direct-child exit does not establish completed output
+  capture. An inherited pipe held by a descendant can keep a broker and its
+  lease alive beyond the declared timeout. Test elapsed execution, pipe drain,
+  preserved partial output and subsequent FIFO admission together using bounded
+  self-terminating CPU probes on the private test lane. Never diagnose a foreign
+  holder from a missing direct child alone. Current limits/custody live in
+  TASKS.md and tools/PIPELINE_TOOLS.md, not this skill.
+  Record a new broker's PID, birth time and batch path from its own launcher.
+  Verify the full live command before attributing a process or result; a nearby
+  queue row can belong to another agent. This checkout's status display checks
+  PID existence less strictly than the actual queue's birth-time filter, so a
+  reused PID may look live there without blocking FIFO. Never delete records
+  or stop processes on that display alone. The city ledger records the corrected
+  framing-job attribution and the launcher that now writes its own custody.
 
 - **Composed optical previews:** a nonpersistent campaign lease does not pause
   live monotonic consumers. Preserve their process flags, suspend them during

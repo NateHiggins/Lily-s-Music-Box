@@ -10,8 +10,9 @@ from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_o
 from fabrication_native_batch import material,partition
 from city_ground_apron_geometry import relief_height
 from city_industrial_architecture import IndustrialBuildings,MillLofts,EasternRows,PianoFactory
-from city_residential_architecture import ResidentialHouses,EasternHouses,CourtApartments,CivicRows,CivicBlocks,WesternGardenApartments,SouthGardenApartments
+from city_residential_architecture import ResidentialHouses,EasternHouses,CourtApartments,CivicRows,CivicBlocks,WesternGardenApartments,SouthGardenApartments,WesternStreetHouses
 from city_horizon_assets import export_blocks,manifest_paths
+from city_packet_architecture import PacketBuildings
 plan_path=ROOT/'art/data/city_horizon/source_plan.json';plan=json.loads(plan_path.read_text())
 grade_path=ROOT/'art/blender/city_ground_apron_construction.json';grade=json.loads(grade_path.read_text())
 validate_plan(plan,grade['retained_ground_bounds'])
@@ -21,7 +22,7 @@ all_rows=[];all_windows=[];all_bearings=[];assets={};native_checks={};grade_seat
 replacement_buffers=collections.defaultdict(lambda:([],[]))
 industrial_checks=[]
 def occluding_neighbours(rows,identity):
-    """Retained proxy policy, with actual occupied wings for the new L factory.
+    """Retained policy, with real new factory wings and adjoining house bodies.
 
     Its reservation is intentionally larger than its solid body. Passing the
     entire parcel to the legacy rectangle helper would blank neighboring sash
@@ -31,6 +32,15 @@ def occluding_neighbours(rows,identity):
     for other in rows:
         if other['id']==identity:continue
         study=other.get('architecture',{})
+        if study.get('type')=='packet_front':
+            points=study['outline_m']
+            result.append(dict(other,rect=[min(p[0] for p in points),min(p[1] for p in points),max(p[0] for p in points),max(p[1] for p in points)]))
+            continue
+        if study.get('style') in WesternStreetHouses.STYLES:
+            points=study['outline_m']
+            result.append(dict(other,rect=[min(p[0] for p in points),min(p[1] for p in points),
+                                           max(p[0] for p in points),max(p[1] for p in points)]))
+            continue
         if study.get('style') not in PianoFactory.STYLES:
             result.append(other);continue
         points=study['outline_m'];assert len(points)==6
@@ -40,6 +50,37 @@ def occluding_neighbours(rows,identity):
         for rect in [[x,z,cut_x,Z],[cut_x,z,X,cut_z]]:
             result.append(dict(other,rect=rect))
     return result
+
+def validate_retained_construction_context(plan):
+    context=plan.get('retained_construction_context',{})
+    if not context:return True
+    rows={r['id']:r for r in plan['buildings']}
+    for key in ['baseline_plan_sha256','baseline_fixture_sha256']:
+        digest=context[key]
+        assert isinstance(digest,str) and len(digest)==64 and all(c in '0123456789abcdef' for c in digest),key
+    assert context['profiles']
+    for identity,entry in context['profiles'].items():
+        assert identity in rows and rows[identity].get('architecture',{}).get('type')!='packet_front',identity
+        actual=hashlib.sha256(json.dumps(rows[identity],sort_keys=True,separators=(',',':')).encode()).hexdigest()
+        assert actual==entry['profile_sha256'],(identity,'retained construction profile changed')
+        neighbours=entry['neighbours'];assert neighbours,identity
+        assert len({json.dumps(r,sort_keys=True) for r in neighbours})==len(neighbours),identity
+        for other in neighbours:
+            assert set(other)=={'id','rect','height_m','grade_datum_m'} and other['id'] in rows and other['id']!=identity,identity
+            a,b,c,d=other['rect']
+            assert a<c and b<d and float(other['height_m'])>0 and all(math.isfinite(float(v)) for v in [a,b,c,d,other['height_m'],other['grade_datum_m']]),identity
+    return True
+
+def construction_neighbours(rows,identity,context):
+    # Completed masonry/trim does not grow apertures when another lot is
+    # remodeled. This is its authored construction input, not a claim that
+    # old neighbour solids exist in the live world. Rays use exported meshes.
+    fixed=context.get('profiles',{}).get(identity)
+    if fixed is not None:
+        return [dict(r,rect=list(r['rect'])) for r in fixed['neighbours']]
+    return occluding_neighbours(rows,identity)
+
+validate_retained_construction_context(plan)
 
 for row in plan['buildings']:
     outline=building_outline(row)
@@ -55,6 +96,11 @@ for row in plan['buildings']:
         # their buried stock and rear descent from the actual receiving grade.
         for a,b,c,d in row['architecture']['court_paving_m']:
             samples.extend([(a,b),(a,d),(c,b),(c,d)])
+    study=row.get('architecture',{})
+    if study.get('type')=='packet_front':
+        frame=Matrix(study['native_frame'])
+        for a,b,c,d in study['fabrication_profile']['architecture'].get('court_paving_m',[]):
+            samples.extend((p.x,-p.y) for p in [frame@Vector((x,-z,0)) for x,z in [(a,b),(c,b),(c,d),(a,d)]])
     for p,q in zip(outline,outline[1:]+outline[:1]):
         if abs(q[0]-p[0])<1e-12:continue
         for x,_ in grade['relief']['west_profile']:
@@ -93,9 +139,9 @@ for family in ['near','far']:
         name=row['id'];a,b,c,d=row['rect'];x,y,X,Y=a,-d,c,-b
         h=float(row['height_m']);depth=float(row['reveal_m']);recess=float(row['glass_recess_m'])
         study=row.get('architecture',{});outline=building_outline(row)
-        if study.get('type') in ['industrial_front','mill_front','eastern_row','residential_front']:
-            neighbours=occluding_neighbours(rows,name)
-            constructor={'industrial_front':IndustrialBuildings,'mill_front':MillLofts,'eastern_row':EasternRows,'residential_front':ResidentialHouses}[study['type']]
+        if study.get('type') in ['industrial_front','mill_front','eastern_row','residential_front','packet_front']:
+            neighbours=construction_neighbours(rows,name,plan.get('retained_construction_context',{}))
+            constructor={'industrial_front':IndustrialBuildings,'mill_front':MillLofts,'eastern_row':EasternRows,'residential_front':ResidentialHouses,'packet_front':PacketBuildings}[study['type']]
             if study.get('style') in EasternHouses.STYLES:constructor=EasternHouses
             if study.get('style') in CourtApartments.STYLES:constructor=CourtApartments
             if study.get('style') in CivicRows.STYLES:constructor=CivicRows
@@ -103,6 +149,8 @@ for family in ['near','far']:
             if study.get('style') in WesternGardenApartments.STYLES:constructor=WesternGardenApartments
             if study.get('style') in SouthGardenApartments.STYLES:constructor=SouthGardenApartments
             if study.get('style') in PianoFactory.STYLES:constructor=PianoFactory
+            if study.get('style') in WesternStreetHouses.STYLES:constructor=WesternStreetHouses
+            if study.get('type')=='packet_front':constructor=PacketBuildings
             authored=constructor(row,add,neighbours).build()
             windows.extend(authored['windows']);bearings.extend(authored['bearings'])
             def lower_add(owner,key,vertices,faces):
@@ -192,7 +240,7 @@ for family in ['near','far']:
                     left=bay*pitch;right=left+pitch;cx=(left+right)*.5
                     first=origin+tangent*left+out*.02;last=origin+tangent*right+out*.02
                     axis_aligned=abs(tangent.x)<1e-8 or abs(tangent.y)<1e-8
-                    if axis_aligned and party_wall_overlap((first.x,-first.y),(last.x,-last.y),bottom+row['grade_datum_m'],occluding_neighbours(rows,name)):
+                    if axis_aligned and party_wall_overlap((first.x,-first.y),(last.x,-last.y),bottom+row['grade_datum_m'],construction_neighbours(rows,name,plan.get('retained_construction_context',{}))):
                         local_box(name,row['wall_key'],origin,tangent,out,(left,-depth,bottom),(right,0,top))
                         continue
                     entrance=study.get('entrance',{})
@@ -273,7 +321,7 @@ for family in ['near','far']:
         bottom=float(row['grade_low_m'])-.2;top=datum-.28
         if bottom<top-1e-7:
             vv,ff=extrusion(building_outline(row),bottom,top);add(name,'concrete',vv,ff)
-            if row.get('architecture',{}).get('type') in ['industrial_front','mill_front','eastern_row','residential_front']:
+            if row.get('architecture',{}).get('type') in ['industrial_front','mill_front','eastern_row','residential_front','packet_front']:
                 lower_add(name,'concrete',vv,ff)
         grade_seats.append(dict(building=name,assembly_datum_m=datum,soil_low_m=row['grade_low_m'],soil_high_m=datum-.02,
                                 base_bottom_m=top,foundation_bottom_m=bottom if bottom<top-1e-7 else None))
@@ -285,6 +333,7 @@ for family in ['near','far']:
         cache=(key,tuple(tint))
         if cache not in mats:mats[cache]=material(ROOT,name+'__'+key,finish,catalog)
         center=Vector(((min(v[0] for v in vertices)+max(v[0] for v in vertices))*.5,(min(v[1] for v in vertices)+max(v[1] for v in vertices))*.5,0))
+        if row.get('architecture',{}).get('type')=='packet_front':center=Vector([0. if abs(v)<=2.e-6 else v for v in center])
         mesh=bpy.data.meshes.new(name);mesh.from_pydata([Vector(v)-center for v in vertices],[],faces);mesh.update()
         bm=bmesh.new();bm.from_mesh(mesh);assert all(e.is_manifold and e.is_contiguous for e in bm.edges),name
         assert bm.calc_volume(signed=True)>0,name;bm.free()
@@ -332,13 +381,14 @@ for (name,key),(vertices,faces) in sorted(replacement_buffers.items()):
     cache=(key,tuple(tint))
     if cache not in lower_mats:lower_mats[cache]=material(ROOT,name+'__'+key,finish,catalog)
     center=Vector(((min(v[0] for v in vertices)+max(v[0] for v in vertices))*.5,(min(v[1] for v in vertices)+max(v[1] for v in vertices))*.5,0))
+    if row.get('architecture',{}).get('type')=='packet_front':center=Vector([0. if abs(v)<=2.e-6 else v for v in center])
     mesh=bpy.data.meshes.new(name);mesh.from_pydata([Vector(v)-center for v in vertices],[],faces);mesh.update()
     bm=bmesh.new();bm.from_mesh(mesh);assert all(e.is_manifold and e.is_contiguous for e in bm.edges),name
     assert bm.calc_volume(signed=True)>0,name;bm.free()
     stock=bpy.data.objects.new(name,mesh)
     obj=partition(collection,name+'__'+key,[stock],finish,lower_mats[cache],Matrix.Translation(center),catalog);lower_draws.append(obj)
     bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
-expected_bodies={row['id'] for row in plan['buildings'] if row.get('architecture',{}).get('type') in ['industrial_front','mill_front','eastern_row','residential_front']}
+expected_bodies={row['id'] for row in plan['buildings'] if row.get('architecture',{}).get('type') in ['industrial_front','mill_front','eastern_row','residential_front','packet_front']}
 assert lower_draws and {row['building'] for row in industrial_checks}==expected_bodies and len(industrial_checks)==len(expected_bodies)
 block_assets=export_blocks(ROOT,'lod1',lower_draws,expected_bodies)
 assert not (set(assets)&set(block_assets));assets.update(block_assets)
@@ -384,6 +434,7 @@ paths.append(ROOT/'art/blender/scripts/city_industrial_architecture.py')
 paths.append(ROOT/'art/blender/scripts/city_residential_architecture.py')
 paths.append(ROOT/'art/blender/scripts/frame_mitre_geometry.py')
 paths.append(ROOT/'art/blender/scripts/city_horizon_assets.py')
+paths.append(ROOT/'art/blender/scripts/city_packet_architecture.py')
 paths += [ROOT/p for p in ['game/scripts/building/orison_v2_arcade_clock_movement.gd','game/data/orison_v2/arcade_clock.json','game/assets/props/arcade_clock.glb']]
 for key in {part['key'] for asset in assets.values() for part in asset['parts']}:paths.extend(ROOT/'game/assets/building/textures'/p for p in catalog[key]['files'])
 def sha(path):

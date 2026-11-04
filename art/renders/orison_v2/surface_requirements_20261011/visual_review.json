@@ -1,47 +1,302 @@
 {
- "status": "PASS",
- "scope": "Technical rendered review for the cloud and snow changes. The eight bound frames read on one sheet, and the two sky frames compared side by side with the moon renewal at 37e2d8702. The annual sky was read separately on the year gallery (2,190 samples, 0 failures) and the streak bench; no human artistic, whole-game, weather or performance acceptance.",
- "surface_inputs_sha256": "878d3ff72b1165587c254028d82cffdc9e2c81c36d2e46c2f6ea1567b36daee6",
- "images": [
-  {
-   "file": "mail_bank.png",
-   "sha256": "52f981160285b2eeb298fec01c30ad5e9800d5d8ee03f2594ee557e673bab278",
-   "observation": "Mail bank in its lobby wall: brass doors, name cards, header and slot in place. Dark corner, as in earlier renewals; unchanged by this batch."
-  },
-  {
-   "file": "watch_station.png",
-   "sha256": "141b49cbf341bdaa654baf683df14baf387f4fba510100bbc4e726f9c1f416bf",
-   "observation": "Watch station on its dark wall: case, legend, drop and coded wheel in place; unchanged by this batch."
-  },
-  {
-   "file": "F03_B_MAIN.png",
-   "sha256": "5e64d375bb12f867c8077873f30e5554f1a1500175b9fb7069d62d1530c429c0",
-   "observation": "Occupied room with resident, furnishings and set textured and in place; unchanged by this batch."
-  },
-  {
-   "file": "staff_closet_deep_services.png",
-   "sha256": "2e0a577c30f061b0c4799755098d9bb308eadf473ff800385077696d808dede5",
-   "observation": "Staff closet fixture seated against its tile wall; unchanged by this batch."
-  },
-  {
-   "file": "closet_vent_bypass_services.png",
-   "sha256": "29b2ad1ebba277ead335bf9e5b98a9d69ad1a56e03e0069eb93f6b3bbb3e55e9",
-   "observation": "Vent and offset support in place beside the closet; unchanged by this batch."
-  },
-  {
-   "file": "western_HORIZON_NEAR_3_0_P1_delivery_court.png",
-   "sha256": "30ceecf2791cbfe456922ff53743157bf8572d4eaefd7254f4ece3f8f74554d6",
-   "observation": "Factory delivery court and window detail render as before; unchanged by this batch."
-  },
-  {
-   "file": "roof_tank_uv.png",
-   "sha256": "55d44caca86ded06a5d296f96a8356efb766a8f77cca9ae0eac06f25c7a2fcc5",
-   "observation": "Roof tank, supports and roof context render as before. Day sky with the new cloud shader: low cumulus are white and grey with billowed edges, no beige deck. Thin high cirrus marks still lengthen and converge toward the horizon at this wide ultrawide view; that is the high plane, not a surface defect, and is left for play review."
-  },
-  {
-   "file": "east_moonlight_baseline.png",
-   "sha256": "1b0f82eee0e3a42601fcc24c6fd46f41710cb09a3f051d367f79017dd4ec90d3",
-   "observation": "Night city with lit windows and factory tower as before; the night clouds render without artefacts or banding. High cloud marks are long and thin, as in the day frame."
-  }
- ]
+  "status": "PASS",
+  "scope": "Technical review of 59 actual 3440x1440 captures through ten labelled complete-frame contact sheets (688x288 each), plus direct ground-edge and entry-framing views. No gross missing surfaces at review scale; dumbwaiter framing unusable. Not native-pixel detail or Lily artistic acceptance. Dark facades, sparse terrain dressing, regular edge fragments and flat cloud relief remain limitations. No save, gameplay, performance or annual weather acceptance.",
+  "surface_inputs_sha256": "2cb86c5b9f31052df16ac6ff7382008e39df68e4066bd0fa8f67a3bdb5b2cc6d",
+  "images": [
+    {
+      "file": "boiler.png",
+      "sha256": "9535f440bb112529e9156f669e8438f51c90a827110ce1d7e3932aac1b2897d4",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "bookcase.png",
+      "sha256": "af13ac07633b14b281b8da1ce24fad98f7ac9fa7bdc23cd5c9cb8a8c01ca7ab9",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "city_batch_site_far_n_roof_day.png",
+      "sha256": "aade242376f0fb78ff08f76c63b0b40c8bc72ad4d701f2ad57324707d2a29b7e",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_n_roof_dusk.png",
+      "sha256": "2a8163616c3a02f84a2604d361f40d286c0672901708591d5273ae3230b53b82",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_n_street.png",
+      "sha256": "4d0282236c31bab669c3253f2ffc1d2e950bbb47e4539494659c67e8f88f356e",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_ne_roof_day.png",
+      "sha256": "2aab1e1d2f083551670d6df06e180c360f40ae1c500ee67ca700f2be5f2daf0b",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_ne_roof_dusk.png",
+      "sha256": "951c5de2d24ed5f3e7eaa4b68df8f7b358b3c1f51fe6934fdd8d0e28a44e94e0",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_ne_street.png",
+      "sha256": "2bb717f94e08c137b7fb1c91eb37cdc1d147922cb83b9e4f5bd5668f1df5209f",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_s_roof_day.png",
+      "sha256": "7542edd43ca1250f2a421c79e4d86675832307a99e0baafd9dcb199deb7ace3d",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_s_roof_dusk.png",
+      "sha256": "8b3f14d539be1f9cd3df36eefa68076452bd2527b9f63b5e50a28549ce04baea",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_s_street.png",
+      "sha256": "bb02cb4dd72bdb64152f7858cd7734edbe40ba70591d89849eb67f4b3493c87a",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_se_roof_day.png",
+      "sha256": "285813f1774e2db37af77f8fa1b7086fdcc004dbeda76bb45055fc3a8bb0ccf6",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_se_roof_dusk.png",
+      "sha256": "bd0f48971fdebb229ab771156fb031361ce3074e9ede8160be7ee30f8a82bfa9",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_se_street.png",
+      "sha256": "f058119d1d9f62712c66f381fa1a8965186de0c4dbdf0c4e00cfce87f899cc1b",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_sw_roof_day.png",
+      "sha256": "2fd4104f90f666fb1dff13ac000a0f2dc1f2dc90d47f2d3d12e629ba0b8d3853",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_sw_roof_dusk.png",
+      "sha256": "0cafcd955e07836e03e9e34765cda59df4ec375a2588ce17afde0e6be409f1bf",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_sw_street.png",
+      "sha256": "0052e8540ec36c2e0d298ec1a0234b9ead62e9d512a2b0d58f95a15fc50912e7",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_w_roof_day.png",
+      "sha256": "f98bfd4a9ac818800f080ba586f906a55fc027917d4a95b65505f8e2e48c7f01",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_w_roof_dusk.png",
+      "sha256": "e3c7917812a429a1df2fca3746b53a913418c4fc314789f49e2f3f866f153346",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_batch_site_far_w_street.png",
+      "sha256": "1a0f0157b1b8856d13232ae50999af90f5ad8487cf82a62099c870ffea970d2c",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_east_roof.png",
+      "sha256": "b8e1280695f38ed6fa88a44837e2078a82396b86f2e5f850ab01eff239853155",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_ground_edge_0.png",
+      "sha256": "30214ec38ae2f9694ab976a347c1b4e52fe18b3d2b6149622c2f8b2cd5cb1490",
+      "observation": "Rail-cut toe visible in source-bound standing-station context, with adjoining grade. Very dark presentation and regular marker-like fragments remain unfinished artistic work; no full perimeter or 450m access acceptance."
+    },
+    {
+      "file": "city_ground_edge_2.png",
+      "sha256": "d0af669192184795637dd698c5aa85f1375db0ca05b08437b1656989de94757f",
+      "observation": "Rail-cut toe visible in source-bound standing-station context, with adjoining grade. Very dark presentation and regular marker-like fragments remain unfinished artistic work; no full perimeter or 450m access acceptance."
+    },
+    {
+      "file": "city_ground_seam.png",
+      "sha256": "9df32572fab2fa57fdfba9618b0ed9c681a0c8c2da0ff8273d2b24d7b3b267b2",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_horizon_context.png",
+      "sha256": "9bb55f60652509b2d3d1d9ed6fb68ef0ec40d40ff979fe65535883573dedb8fc",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_north_roof.png",
+      "sha256": "7e1d3d9844a052651f318a9e30de632d485173c0d7157c7ad4e60d1cefc2d3e8",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_open_west_frontage.png",
+      "sha256": "fa31a22c8192e473c0e4031afd54485c48f276e5949ed8deaf9ad59550bf0e22",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_relief_canal.png",
+      "sha256": "e4da48be61a14dc189b5b68d026e1616bff498bd0dd345fe491c3e3814af9594",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_relief_rail_cut.png",
+      "sha256": "4b31d6a059f5d3a15c881b24002a2e4496b116f6177f1159cbec4899b4c4e209",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_relief_river.png",
+      "sha256": "9b33c51eb64872f32a4b354ceec54c72f0bbbf89eb11f33e51258d53ea56e87d",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_site_back_e_window.png",
+      "sha256": "c564f25448fe03a64513560486a09d71225f52dad0ca7f5af2cb9109aca5b888",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_site_nbr_e_window.png",
+      "sha256": "633ec7e59df1c27f1810075391b3f0bfcdb6c181346023c124a6cb63302adea9",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_site_ne1_window.png",
+      "sha256": "e4ff8b3103757d1d1201e8d5a2de0be7c79f8dd64aa93b0b1543d70852ae17a8",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_site_nw2_window.png",
+      "sha256": "657f7b446808fd8e772ceefdbf3dff5b122693f89cb1dd6d3fc825cd92836786",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_street_skyline.png",
+      "sha256": "b82e18faef98cf44c2bd4eee428a6773183c80972819060977720f6bb96c196c",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_townhouse_street_front.png",
+      "sha256": "8e8c77fada8da2912027d93c0b115f5920af5cd9e9b772319a0563821f37bde6",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_weather_dry.png",
+      "sha256": "331ced176dbf16055af295493f03535941b8ba4677323bc2c3bc2371f6ec3c02",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_weather_fog.png",
+      "sha256": "79131f0fb2e4f24d3d30c8d60e2f4c91f1da4bd2d887f4000a72361f1465425b",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_weather_storm.png",
+      "sha256": "13ed22962be7da2c26f9d0414b3001643811e1c6185c0a8974d0ff993a009990",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "city_west_roof.png",
+      "sha256": "2a04d32c2a745ee30f86ffd4548b2878fde04150a2902122cbf32737601aa493",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "closet_vent_bypass_services.png",
+      "sha256": "166198545e92c27cc042c058a5608678e95275d156ca9e5da0695c23a158100b",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "dumbwaiter.png",
+      "sha256": "59635fbe86bf1214a25d6c2bee616ddc067654794288d39558207406ca0ae846",
+      "observation": "This legacy camera is wall-obstructed and cannot establish dumbwaiter appearance. Retained as an explicit capture limitation; technical material checks are independent of this image."
+    },
+    {
+      "file": "F02_A_MAIN.png",
+      "sha256": "1e69468c1e124aa9efd15d0d56c529899d4b730beb72b8be65e0c0aafc8b3c4d",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "F03_B_BATH_reflection_repair.png",
+      "sha256": "828d27c632758e96bf9a8a6143cbb0246525e6d32b5ff4c993a06f5ac48c451a",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "F03_B_MAIN.png",
+      "sha256": "233098dd8ef4da93cc75a86e804f7647c1e916a16c0249e1aa0926adcdc72d05",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "F04_C_MAIN.png",
+      "sha256": "6676ded9f263dcf355ea1779cfa0b4527a116d7732799469315be04bebda6753",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "F06_B_KITCHEN_reflection_repair.png",
+      "sha256": "ff506c280946786c128e5f758d6e581e5532033bdabd1e52d1b099489aa5986e",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "fuse_panel.png",
+      "sha256": "c2b87a7d47e8826cb39023ade04561c1af5fc9cc79c057ec2e7de582dc06f5c5",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "mail_bank.png",
+      "sha256": "688b1c101cf0e4051f38a2fcb05483d8b78217809dd37324629f3ab22fb613ce",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "radiator.png",
+      "sha256": "cff6987d1fdee86cf0af3011d98f7d93373acdd4992c95f895ab2226b9097b25",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "roof_drive_uv.png",
+      "sha256": "4edbe74b4ab47eaa70df2913443d84cc61378e0e0bed82bd2697dd07e1c4aaa6",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "roof_tank_uv.png",
+      "sha256": "2d890a56d6136e2c336436fe4ed4513d99ad918b4e73e2537bb68b89a6857574",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "shot_001.png",
+      "sha256": "ffe1a463b8525437f4bc3b6b0c151ad9fdaac8ef31d75aa5621b3191709920a8",
+      "observation": "City massing, facade/window stock and silhouettes present. Dark exteriors, sparse ground dressing and flat/repeated cloud shapes remain visual limitations; no artistic, annual-sky, performance or played-access acceptance."
+    },
+    {
+      "file": "signal_terminal.png",
+      "sha256": "15409b3563a40686117c03610c3d4231206a4e4478bd0bfc3e1a096519daacce",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "staff_closet_deep_services.png",
+      "sha256": "207c771a31781d0a2f324fdfac4bdb34d04b26b8517cc48fe73d06254298e442",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "tentacle_flowing_residue.png",
+      "sha256": "eb46d89fe155136b237f40893e62d7eb426ea504660a7338b6e81329aba8aeed",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "tentacle_installed_surfaces.png",
+      "sha256": "e5f3ab5a3eb6bb0f4dc743559d6ed16f0ff436384ec32314496b44429c99238a",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "toaster_crumbs.png",
+      "sha256": "f5a60708f91fb8a21f0b14e11dfc0307198bb9d976c417a62e6c35da1a2fa7fd",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    },
+    {
+      "file": "watch_station.png",
+      "sha256": "163ec7557dad11fe3d08f6e65f71e65eebec1cd0a228c089acf0b81cd2e819fd",
+      "observation": "Room/fitting surfaces visibly present at complete-frame thumbnail review scale; no gross missing surface. Does not qualify native-pixel detail, lighting polish, interaction or saves."
+    }
+  ]
 }

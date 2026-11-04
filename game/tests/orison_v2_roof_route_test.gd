@@ -12,7 +12,7 @@ func _prepare_player_start() -> void:
 	player.global_position = world.adapter.root.to_global(Vector3(1.925, 16.02, -3.5))
 	player.velocity = Vector3.ZERO
 
-func _walk(target: Vector3) -> bool:
+func _walk(target: Vector3, arrival_tolerance: float=.1) -> bool:
 	# The formed fire case and riser occupy the former nominal corner. Follow
 	# the measured standing corridor across the existing solid landing instead
 	# of pressing through the cabinet or against the east bulkhead wall.
@@ -21,12 +21,12 @@ func _walk(target: Vector3) -> bool:
 		var detour: Array[Vector3]=[Vector3(3.975,19.2,-3.0),Vector3(4.9,19.2,-3.0)]
 		if from.z>-2.:detour.reverse()
 		for point: Vector3 in detour:
-			if not await _walk_fitted_floor(point):return false
+			if not await _walk_fitted_floor(point,arrival_tolerance):return false
 		return true
 	if target.is_equal_approx(Vector3(5,19.2,2.5)):target.x=4.9
-	return await _walk_fitted_floor(target)
+	return await _walk_fitted_floor(target,arrival_tolerance)
 
-func _walk_fitted_floor(target: Vector3) -> bool:
+func _walk_fitted_floor(target: Vector3, arrival_tolerance: float=.1) -> bool:
 	if target.y>19.15 and target.y<19.25:
 		var root: Node3D=world.adapter.root
 		var query:=PhysicsRayQueryParameters3D.create(root.to_global(Vector3(target.x,19.7,target.z)),root.to_global(Vector3(target.x,19.,target.z)),1,[player.get_rid()])
@@ -36,7 +36,7 @@ func _walk_fitted_floor(target: Vector3) -> bool:
 			if absf(float(root.level_y[str(platform.level)])-target.y)<.001 and not hit.is_empty() and hit.collider==root.get_node(str(platform.id)+"/Collision"):valid_floor=true
 		if not _require(valid_floor,"retained route has its actual fitted floor at "+str(target)):return false
 		target.y=root.to_local(hit.position).y
-	return await super._walk(target)
+	return await super._walk(target,arrival_tolerance)
 
 func _route() -> void:
 	for point in [Vector3(1.925,17.6,1.3), Vector3(3.975,17.6,1.3),

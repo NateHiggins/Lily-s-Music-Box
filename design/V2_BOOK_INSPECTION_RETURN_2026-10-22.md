@@ -3,6 +3,115 @@
 Evidence class: **INERT**. Repair/diagnostic report, 2026-10-22.
 No runtime-contract qualification or human acceptance.
 
+## Latest continuation — inherited API repair compiles; actual world queued
+
+**walk_api_13/compile.log.receipt.json** records source **ea18e8082**, patched
+engine,17script compilation checks/0failures in14.09s, empty stderr. This repeats
+the actual failed parent chain and includes the eight affected roof/profile/region
+controllers, the installed nook/disk writer and its dependencies. Original failure
+remains at **adela_follow_20261103/intake_04/nook_parent_compile.log.stderr**.
+The narrow API repair **H-V2-WALK-PREFLIGHT** is complete; it does not qualify
+movement, disk reconstruction or performance. Old60808/24521 is terminal0.
+
+The exact passing-preflight/source guard now succeeds for all17compiled sources,
+125consumed test/tool inputs and complete production digest. One6-stage batch is
+queued at **C:/ov/reports/entry_render_preparation_20261102/unfinished_14/batch.json**,
+broker31108/session14225: source guard, actual installed nook/disk first, title
+BEGIN, matched current-weather baseline/entry routes, final source guard. Hidden
+native3440x1440; no user mouse capture. No stage result yet. Poll the same handle
+and keep sources fixed; earlier NOT_QUEUED statements below are historical.
+
+## November 3 — actual shelf return passes in the isolated input fixture
+
+**book_spine_12** compiles the changed driver and completes101 checks/0 failures,
+35 seconds, native3440x1440 hidden-desktop rendering, empty stderr. Actual input
+picks up the binding, enters fixed inspection, reacquires its existing physical
+spine grip, rotates through shared XYZ/secondary controls, moves by mouse/depth
+input and releases into the exact original valid shelf slot. No body pose is
+assigned during this sequence. Original90/3 and94/2 failures are retained.
+
+The fixture presents a detached SubViewport through a TextureRect. Engine4.7.1
+Window mouse queries poll the OS pointer; a SubViewportContainer forwards the
+query back to that Window. The detached viewport instead uses the injected local
+motion event, preserving the real production ray and part selection. Broad front
+rays correctly choose the cover hinge during inspection; the driver must aim at
+the existing **ManipulateSpine** grip to move the whole binding. No production
+book mechanics, collision tolerances or target permissions were changed.
+
+Two prior94/2 frames were inspected individually (floating cover and zoomed
+spread); the zoom crops the page and the lamp is bright. This is a diagnostic,
+not artistic acceptance or installed-nook/campaign-save proof. Evidence:
+**C:/ov/reports/entry_render_preparation_20261102/book_spine_12/** and
+**book_hidden_10/DIAGNOSTIC_REVIEW.json**.
+
+The new opt-in installed-nook disk programme is preserved in WIP **4c53bad6d**
+(**ORISON_NOOK_DISK_RELOAD=1**) and remains unverified. Resume11 passed its123-source
+production guard but failed parent resolution. A subsequent topological compile
+in **C:/ov/reports/adela_follow_20261103/intake_04/** exposes the cause at
+**v2_golden_repair_profile.gd:36**: its **_walk(Vector3)** signature no longer matches
+parent **_walk(Vector3,float=default)**. Three of seven compiled scripts fail,
+including dependent nook/book profiles. This is not established cache damage.
+The added diagnostic intends actual installed pickup/inspection/release, isolated
+validated campaign disk save/load, a fresh owner and no resurrected held state;
+none of those new disk assertions has successfully executed. Repair the inherited
+API without relaxing arrival/physical checks before another long run. Current-
+weather title/timing also remain NOT_EXECUTED. Adela's separate actual-world
+programme passed before the preflight failure; that does not qualify the nook.
+
+Compatibility repair follow-up: eight affected test overrides now accept the
+optional float and forward it through roof detours/profile wrappers. Custom
+controllers retain their previous0.1m/0.025m stopping caps, success predicates,
+collision checks and wall/physics budgets. Source comparisons, spatial11169 and
+readerNEW0 pass. Engine compilation is pending the single FIFO preflight in
+**C:/ov/reports/entry_render_preparation_20261102/walk_api_13/**, broker60808 /
+session24521, confirmed live queued. No new nook/world/save result follows yet.
+
+Before the pending preflight was admitted, the installed driver gained its own
+schema2 **runtime_contract**. It records actual return/release completion and,
+only when requested and completed, validated campaign disk reconstruction. A
+before/after snapshot binds the complete production digest and12transitive
+script/scene/tool dependencies; the exact Python snapshot programme passes a
+source-only check. The test and scene use LF/**-text**. Frame arrays remain
+INERT and scope explicitly excludes corridor access, shelf-slot return, artistic
+acceptance and a speedup claim. No Godot or save assertion has run yet. The same
+queued17-script preflight consumes this revised source; only unexecuted source
+freezes were updated, not old proof. The prepared world batch guard now binds125
+inputs, requires an actual successful compile and remains **NOT QUEUED**.
+
+## November 3 — hidden-desktop cursor diagnostic failure retained
+
+Cohort09 runs the added slot-return bench:90 checks/3 failures, at cover targeting,
+floating-binding reacquisition and the resulting return route. No cursor delivery
+is reported. Engine4.7.1 source confirms that a native Window polls DisplayServer's
+OS pointer, whereas an embedded SubViewport reads its last local mouse event.
+Viewport.push_input alone cannot repair the native-window polling path.
+
+The isolated bench now uses an embedded full-size viewport and sends a local
+mouse-motion event before the unchanged production ray/part selection. It does
+not inject a target or change book physics, tolerances or ownership. Compilation
+and actual rendering/input execution are queued in **book_hidden_10**, not passed.
+This test-only change leaves the physical survey's consumed8547-file signature
+unchanged. Original failed logs remain in **cohort_09/book.log** and its wrapper.
+No installed-nook or validated campaign disk acceptance follows from this fixture.
+
+## Earlier November 3 — actual slot-return diagnostic authoring checkpoint
+
+The existing **v2_book_slot_hand_bench.gd** now adds a real primary pickup,
+Space inspection, free-cursor reacquisition, precision mouse rotation,
+depth/mouse approach and next-click parking attempt. It does not assign the
+book transform during that input sequence. Existing private-call placement,
+blocked occupancy and local-owner reconstruction tests remain separately
+labelled mechanical controls. The new driver is authored, not compiled or
+played yet; no behavior pass follows from it.
+
+This is the existing isolated shelf fixture, not installed nook access or a
+validated campaign disk reload. Those remain required. Reader NEW0 and the
+11168-record spatial check pass. Independent before/after surface-input
+snapshots both bind8547 files with digest
+**0352df4f028f5daaab58d77baa9c9557f6149e490fec4ab3f25a9ee4b605e230**:
+this unrelated test edit leaves the queued city survey's consumed inputs fixed.
+Snapshots remain in **C:/ov/reports/entry_render_preparation_20261102/composed_06/**.
+
 | Location | Reproduction / severity | Evidence | Repair / verification |
 |---|---|---|---|
 | Player book inspection | Carry, Space, Space; medium: book drops before next click | Actual-input baseline **hand_before_v1** fails return/ownership/held-pose assertions | Retain original pickup descriptor/local contact; end inspection, then reacquire through original owner permission and swept hand path |
@@ -103,3 +212,37 @@ needed from owner: none.
 
 BLOCKED - complete V2 and merge qualification remain incomplete; continue
 authorized repairs.
+
+## November 3 installed return and validated disk reconstruction
+
+On unchanged production digest **6fcbb2cf101ccaf87babf0fff07e93cfba99b7be51077a39c99c17835645dafc**,
+**unfinished14** completes25checks/0failures in356.41s. Test-written schema2
+**nook_return.runtime.json** independently binds source/dependencies and reports
+both installed return/release and validated disk reconstruction executed/passed.
+Evidence: **C:/ov/reports/entry_render_preparation_20261102/unfinished_14/nook/**;
+wrapper **nook.log.receipt.json**, review **NOOK_REVIEW.json**, distributions
+**NOOK_PERFORMANCE_OBSERVATION.json**. Twenty known resident textureUID warnings
+span two roots; no script errors or raw ERROR headers. The original failed
+preflight remains preserved, not relabelled a pass.
+
+One explicit nearby starting placement and three tiny local legs exercise real
+spine pickup, Space inspection, Space return to hand and primary release with
+restored collisions. RealityState writes a unique test save through its normal
+household capture/validator, the world is retired, the disk data loaded, and a
+distinct production root reconstructs matching library slots/poses/opening with
+no resurrected hand/inspection. The original save path is restored. This is not
+full CampaignShell Continue, corridor access or installed shelf-slot return.
+
+All three native3440x1440 PNGs were inspected: floating cover title readable;
+returned handheld cover very dark under this lamp; reconstructed player at the
+normal street entry. Readability/artistic acceptance remains open. The61physical
+copies comprise57shelf books,3pile copies and1cushion copy; this is not a claim
+of four missing books.
+
+Return-to-hand110samples: p50/p95/p99/max19.118/23.666/34.511/40.821ms.
+Release40samples:19.571/25.750/34.705/40.275ms; neither has intervals over50ms.
+No matched speedup is claimed. A873.436ms first local-walk interval crosses
+diagnostic source hashing and is not assigned to production movement. Retain
+the later86.966ms local-walk and50.703ms inspection-entry observations. Replacement
+player physics records do not describe the original route's player generation.
+Wider save boundaries, first-use stalls, appearance and V2 acceptance stay open.

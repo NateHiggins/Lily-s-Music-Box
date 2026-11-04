@@ -1,0 +1,12 @@
+{
+  "material": "resident_adela_voss",
+  "source": "Owner-supplied Meshy Adela; original nonrepeating skin atlas, ZIP c2bef9d98c60097e18e9e7115cceb93fa0a0a2f60d9aeca2d656440747931333; editable source retained at C:/ov/asset-prototypes/adela-model-intake-20261103/adela_voss.blend",
+  "meters_per_tile": 1.0,
+  "projection": "unique whole-character atlas; normalized UVs, no repetition",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "generator": "art/blender/scripts/ingest_adela_character.py"
+}
