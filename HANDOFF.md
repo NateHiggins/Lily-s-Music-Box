@@ -55,6 +55,14 @@ Architect verified retirement and independent post-terminal source/reuse equalit
 before explicitly releasing custody. No native-resolution or spatial PASS is
 manufactured from this incomplete run.
 
+**Viewport probe01 is now QUEUED**, not yet executed, behind existing shared
+GPU jobs. Broker3496,created **2026-11-04T19:40:52.5384950Z**,root session67043.
+Revalidate its full identity before inheriting; never submit a duplicate.
+Custody/source freeze: **C:/ov/reports/develop_intake_20261104/native_viewport_probe_ready/runs/probe_01/QUEUE_CUSTODY.json**.
+One hidden standalone25s observation only; Architect owns monitoring/output review.
+No user decision or unanswered bridge message is pending. No canonical source freeze
+is implied by this standalone fixture; its own inputs remain frozen.
+
 Next is a small **viewport-only reproduction**,not another composed world:
 **C:/ov/reports/develop_intake_20261104/native_viewport_probe_ready/**. It must
 observe screens/window/content-scale/actual image sizes across frames without
