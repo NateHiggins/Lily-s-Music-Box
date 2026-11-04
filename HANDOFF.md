@@ -1,116 +1,74 @@
-# Current handoff — receiving test aim corrected; renewal pending
+# Current handoff — authority/save qualified; apartment mask assertion repair
 
 Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-qualification-debt-20261104**. PR152 remains **OPEN/DRAFT/UNMERGED**;
-main is **4f16053e8** (PR151). Return observer **26392472b** and source-closure
-repair **a2efbfe8a** are pushed; inspect actual Git for the dependent camera fix.
-Integration owner is this lead chat **01a1a653-eda8-7732-9732-2c362f5129d6**.
-Inspect actual Git and external custody before editing or starting anything.
+**codex/v2-qualification-debt-20261104**. PR152 is **OPEN/DRAFT/UNMERGED**;
+main remains **4f16053e8** (PR151). Latest pushed checkpoint **0432ce147**;
+inspect actual Git for the dependent test-only repair. Sole integration owner:
+**01a1a653-eda8-7732-9732-2c362f5129d6**. Never duplicate a recorded live job.
 
-## Current bounded repair and original failures
+**runtime11 is terminal1**, broker29304/session33776 retired. Its original
+first-slice authority/save programme **PASS**:633.48s,379 serialized checks,
+380 console checks including post-write flush,381 wrapper pass lines,0failed
+checks/script errors. Current completeness validation returns no errors.
+Original seven-authority composition,physical insert exchange preserving all28
+identities,steam repair,resident return,disk save,world reconstruction and tracked
+teardown pass. Receipt:
+**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_11/first_slice/runtime_authority_receipt.json**.
+Raw wrappers/logs are unchanged. No human play or artistic acceptance is implied.
 
-**runtime05–09 are terminal failures, never live handles.** Original logs,
-wrapper/test receipts and images remain under
-**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/**.
-Runtime07 reached173PASS/1FAIL on the normally reclosed2B leaf. Runtime08
-passed real leaf/stock setdown/reacquire/crossing but failed high incoming
-projection. Runtime09 compile15/radiator/door PASS, all4door frames reviewed;
-original first-slice ends167PASS/1FAIL in291.4s: Space refuses the installed
-outgoing-stock view before parking. No original disk,apartment,surface or
-final guard follows. No qualification or artistic acceptance from these runs.
+Same-run sourceguard,compile16,radiator,real door/stock and installed transfer
+also PASS. Loose view(.20,.45,-.15) clears actual outgoing/receiving admission;
+original controller parks,returns and normally catches the same insert. Test
+pointer now aims at localY.002 inside the unchanged native target,correcting the
+old rounded top-edge miss. Architect actually inspected all12 native frames;
+exact-hash technical review and frame/source guard passed before original work.
+Mounted-cap view,furniture,collision,grips,goals and authorities stay unchanged.
 
-**installed_camera_01 is terminal timeout** (181.22s; startup149.394s),no verdict.
-**installed_camera_02 is terminal diagnostic PASS**,not a repair:222.5s,
-15pass lines,0fails/script errors; actual Space refusal reproduced. Same-frame
-raw and production-excluded rays hit the static **2B_dress_form** torso,
-shape2. All3frames inspected; proposed eye looks through the form. Part/eye
-match runtime09 within2micrometres. No NPC,time,collision or inventory override.
-Original reports/guards/receipts:
-**C:/ov/reports/develop_intake_20261104/installed_camera_02/**. Custody43868/
-session75513 is retired. Startup147.989s is a loading observation,not a played
-stutter distribution. This source freeze has been released.
+**Apartment qualification FAIL**:268.16s,175 serialized/176 console checks,
+69 failures,0 rooms. All9first targets were reached within22.3mm horizontally,
+.67mm vertically and no recorded wall contacts; each arrival predicate rejected
+before room admission. Surface and original final guard never ran. Original
+failed contract/logs remain under **runtime_11/apartments/**. Architect checked
+frozen source equality after terminal using the unchanged preparer's read-only
+before mode in separate logs,then explicitly released custody. This is not a
+successful after-contract guard. No old failed receipt is repinned or published.
 
-Candidate reduces only loose-stock native-Z eye standoff **-.55 to-.15**;
-mounted-cap view and original collision/admission/grip/identity/save owners stay.
-CPU preflight reproduces the old mesh hit within13micrometres,clears that same
-mesh and keeps12retained plus4actual installed outgoing endpoints inside.
-**CPU geometry is not loaded admission or transfer proof.** Artifact:
-**C:/ov/reports/develop_intake_20261104/camera_clearance_preflight.json**.
+Driver still required mask==1 twice,while production's native fire-contact
+owner adds layer1<<21 and PlayerController owns mask1|native_contact_layers.
+Existing4B route already asserts that exact combined mask. Dependent test-only
+repair uses the same exact owner mask and adds mask/native/expected/noclip/
+physics flags to each trace. Arrival tolerances,targets,physics and all production
+sources remain unchanged. Loaded renewed access proof is still required.
+Independent review: **C:/ov/reports/develop_intake_20261104/runtime11_apartment_review/**.
 
-**camera_repair_01 is terminal failure**,broker44536/session34307 retired;
-root corroborated original session exit1. Before guard,compile7(14.27s),isolated
-radiator(20.72s) and door(43.31s) PASS. Installed programme completes1 in218.58s,
-0script errors: initial raw/production rays clear,real Space enters,and the
-original controller parks the same finite insert. Return/receiving then refuses
-Space; its blocker was then unproven. No return-phase first-hit query was recorded.
-No caught/release check,final guard,original authority/disk,apartment or surface
-qualification follows. All11produced frames inspected by monitor;4installed
-frames show actual admission/park with torso at right,but no receiving frame.
-Original artifacts remain **C:/ov/reports/develop_intake_20261104/camera_repair_01/**.
+Next fresh **runtime12** must reuse successful runtime11 bounded/first-slice
+proof ONLY after exact consumed-source closure equality,retaining original
+bytes and source heads. Rerun changed-driver compilation and ORIGINAL nine-unit
+access,then physical/city/entry surfaces and final source/contract guard. Do not
+replay633s unchanged authority/save or unchanged radiator/door/installed work.
+Inspect actual custody at **qualification_debt_trace_01/runtime_12/** before
+launch/edit; no such job is implied merely by this plan. Root alone publishes
+byte-exact cohorts,verifies the exact candidate and manually merges qualified work.
 
-**camera_return_trace_01 is terminal1**,broker24896/session55999 retired.
-Compile2PASS14.66s; installed219.09s/0script errors reproduces return refusal.
-Synchronous raw/production rays both hit **2B_dress_form**,shape2/face1395,
-7.602mm from eye; nearest/resolved2Bowner correct,seat gap.27525m,guards open.
-All5frames reviewed including actual failure eye; visible current radiator does
-not prove clear camera travel. Independent CPU after-source0 preserves batch1,
-unchanged inputs and original failed receipt. Source freeze explicitly released.
-Exact artifacts: **C:/ov/reports/develop_intake_20261104/camera_return_trace_01/**.
+All original runtime05–10 and installed-camera failures remain intact under
+**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/** and
+**C:/ov/reports/develop_intake_20261104/**. Native06 equivalence/35geometry aliases/
+5286owners and source-closure repairs remain reusable within unchanged scope.
+Preserve the separate original19-room cohort before renewing current60-room proof.
 
-Dependent candidate reduces loose-view nativeX **.30 to.20**,retainingY.45,
-Z-.15,FOV76,look-at and every collision/stance/grip/authority. Source-mesh CPU
-control matches actual receiving hit within44micrometres; candidate clears both
-recorded admission paths/four receiving sight rays and20retained/actual transfer
-points project inside with81px minimum margin. This is not engine/input proof.
-**camera_return_clearance_01/preflight.json** records all candidate failures too.
-
-**runtime_10 is terminal1**,original broker63744/session76844 retired. Before
-guard,compile16(11.79s) and isolated radiator(20s) PASS. Door42.21s passes
-closer,crossings and same-stock setdown/reacquisition,then receiving Space enters
-but all4pointer attempts hit floor instead of the insert. No installed,review,
-original authority/disk,apartment,surface or finalguard follows. Original failed
-receipt/report and all6frames remain; Architect inspected them and independently
-checked frozen source equality0 before explicitly releasing custody. Empty
-failure arrays do not override the actual failed exit/missing final release.
-
-CPU native-box control reproduces requested pixel(1887,879): aiming at localY
-.004 targets the exact upper boundary; pixel rounding misses by58micrometres.
-LocalY.002 hits the unchanged target interior. Only the test aim changes; no
-production collision,camera,actor pose or tolerance changes. This remains CPU
-diagnosis,not loaded selection/transfer proof. Source-bound control is external
-**C:/ov/reports/develop_intake_20261104/runtime10_pick_review/**.
-
-Next fresh **runtime_11** reuses unchanged external **prepare_runtime10.py** with
-an explicit fresh runtime name; all older producers and failures stay unchanged.
-Ten fail-fast stages: sourceguard,
-compile16,radiator,door,installed420,technical frame-review checkpoint,ORIGINAL
-authority/disk,nine-unit access,physical/city/entry surfaces,finalguard. The
-checkpoint writes **BOUNDED_REVIEW_READY.json**,allows140s actual review in a
-240s CPU-only guard,then rehashes every frame and frozen input before long work.
-No human play/artistic acceptance is implied. Root/Architect may write the
-explicit INERT **BOUNDED_FRAME_REVIEW.json** only after actual inspection;
-missing/rejected review stops long stages. Inputs/batch/launcher/preparer are
-frozen. Actual live/terminal custody will be in
-**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_10/**.
-Revalidate its process rather than duplicate it. Root owns integration;
-Architect monitors the one job and reviews bounded frames. No manual merge yet.
-
-All4spatial contract SOURCES closures pass after the three missing first-slice
-scene declarations; no old receipt was repinned. Native06 unchanged geometry35,
-owner identities5286 and strict material equivalence remain reusable within
-their original scope. Older19-room cohort remains separately preserved.
-
-Claude's Sun PR153,mystery PR154 and staff PR155 stay isolated/draft for D9
-window after qualified PR152. PR154 now includes the selected writers-room
-20game strings at **09618e48b**;4private comic changes and4scene options remain
-separate from runtime acceptance. The private draft/joke source was not copied
-into this public tree. Claude owns the new bartender/staff. Preserve those
-sources and the unresolved narrative rulings; no independent admission.
+Claude's Sun PR153,mystery PR154 and staff PR155 stay isolated/draft until the
+D9 source window after qualified PR152. PR154 selected20game strings at09618e48b;
+4private comic changes/4scene options remain separate. Raw joke/private drafts
+stay outside Git. Claude owns Stacy's pending persistence/test-count corrections.
+Book exit/optics,hose impact/wetting and stutter deliveries remain uninstalled
+preparation; **C:/ov/reports/develop_intake_20261104/FOLLOWUP_READINESS.json**
+indexes hashes and limits. Preserve prologue/audio/golden-shift/weather/city/
+narrative and gameplay/save authorities. No independent merge or whole-V2 claim.
 
 ## Finish the integration before opening new work
 
-1. Read the next bounded actual result,finish the receiving interaction from evidence,
-   and pass the original authority/save/apartment contracts. Inspect new frames.
+1. Repair the stale apartment mask assertion,prove unchanged evidence reuse,
+   and pass original apartment access plus remaining surfaces. Inspect new frames.
    Stage only exact original receipts via the external staging helper,passing
    the successful new runtime name explicitly; its default still names03. Preserve the older19-room
    apartment cohort separately. No receipt repin or capture-to-played promotion.
