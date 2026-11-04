@@ -7591,3 +7591,27 @@ camera,pointer/first-hit visibility and an unstaged failure frame. These are
 attribution instruments,not a production repair or weakened endpoint. Retain
 the original runtime04 JSON,logs and receipts; runtime05 will run the bounded
 preflight before any long route again.
+
+
+### November 4 — inherited receiving failure; candidate not yet verified
+
+runtime05 broker34552 is absent at intake. Raw stdout/stderr hashes match the
+original wrapper receipts: compile6PASS, probe terminal1 in25.84s at11:27:23Z,
+empty stderr. Earlier transfer/borrow/return/release/in-memory restore controls
+pass. Incoming delivery has the correct receiving context and enters inspection;
+requested/delivered pointer coordinates match exactly at(2544,674),inside the
+viewport and in front of camera. The first hit is **RigidCastingsCollision**
+at(-.330609,.794932,.129590),while the loose insert remains
+at(-.223512,.608285,.152591). The inspected native failure frame shows the
+vent and separate incoming insert; this is not a pointer-delivery failure.
+No original authority/disk,apartment,surface or final guard stage started.
+
+The authored candidate in **radiator_prop.gd** uses a fixed entry view containing
+both loose stock and receiver from the open side; the mounted cap view remains.
+It changes no pose,collider,grip,part identity or save authority. This is an
+unverified proposed repair. Bounded compile6+original insert-route preflight is
+FIFO queued as broker5164,created11:33:48.961279Z,under
+**C:/ov/reports/develop_intake_20261104/receiving_01/**. Sources stay frozen until
+terminal. Retain runtime05 and earlier failures; no contract repin,played or
+artistic acceptance. Original authority/save,9-unit movement,rendered surfaces
+and exact candidate verification remain required before manual PR152 merge.

@@ -340,6 +340,13 @@ func inspection_view() -> Dictionary:
 func inspection_view_for(part: Node3D) -> Dictionary:
 	if native_orifices!=null:native_orifices.prepare_inspection(self,part)
 	if native_pitch_wedges!=null and native_pitch_wedges.owns(part): return native_pitch_wedges.inspection_view(part)
+	if native_orifices!=null and native_orifices.owns_part(part) and native_orifices.active(self).get("body")!=part:
+		# Incoming stock can be below the casting in the ordinary FPS hand.
+		# Include it and the receiving seat from the open side; the cap's
+		# overhead view can hide that loose part behind the rigid casting.
+		var seat: Vector3=native_orifices._thread_pose(self,native_orifices.THREAD_END).origin
+		var at: Vector3=(part.global_position+seat)*.5
+		return {"from":at+native_rig.global_basis*Vector3(-.20,.25,-.30),"at":at,"fov":60.0}
 	if native_vent_cap!=null and (part==native_vent_cap or part==native_rig.vent.get_node("FloatAndNeedle") or (native_orifices!=null and native_orifices.owns_part(part))):
 		var at: Vector3=native_rig.vent.to_global(Vector3(.043,.045,0))
 		return {"from":at+native_rig.global_basis*Vector3(.015,.18,-.025),"at":at,"fov":52.0}

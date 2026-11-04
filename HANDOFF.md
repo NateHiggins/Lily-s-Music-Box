@@ -6,37 +6,39 @@ committed and pushed; PR152 remains **OPEN/DRAFT/UNMERGED**. Main is
 **4f16053e8a7b1f8fe0ec91c25d5aab8c4a794359**, the PR151 merge. Fetch and
 inspect actual Git before acting; app-attached v2-baseline is not canonical.
 
-## Resume the live job, do not duplicate it
+## Current job custody — receiving_01 queued
 
-External base: **C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/**.
-**runtime_05/QUEUE_CUSTODY.json** records broker **34552**, tool session79719,
-queued11:05:24Z on November4. The PID/command line was verified live at handoff.
-New chats must revalidate the process identity and per-stage receipts; a state
-file alone is not proof of liveness. Tool-session access may be chat-local.
-Do not restart an existing live broker. Keep its consumed sources fixed.
+Integration owner: **Complete V2 qualification commitments**, chat
+**01a1a653-eda8-7732-9732-2c362f5129d6**. Old Developer Sol is the read-only
+optimization specialist; book/hose/instrument intake agents have no repo-write
+or GPU ownership. Claude has been notified directly; Sun renewal remains
+sequenced after qualified PR152 integration, pending its current confirmation.
 
-runtime05 has seven fail-fast stages: source guard,compile6,bounded native
-receiving-delivery diagnostic,original first-slice authority/disk reconstruction,
-nine-apartment movement,composed physical surfaces plus city/entry views,and
-final source/contract guard. All Godot uses the patched engine/lane and hidden
-native3440x1440 windows. No mouse capture on Lily's desktop. Reuse unchanged
-native06/material-library proof. Full original routes run only after preflight.
+**runtime_05 is terminal failure**, not live. Broker34552 no longer exists.
+Raw compile/probe hashes were revalidated on November4; compile6PASS, probe
+completed1 in25.84s at11:27:23Z with empty stderr. Actual receiving context and
+Space entry succeed; pointer delivery is exact, but the first hit is the rigid
+radiator casting instead of the incoming loose insert below it. The failure
+frame was inspected. No original authority/disk,apartment,surface or final guard
+stage ran. Preserve all runtime05 inputs,logs,receipts and original failures.
+External intake record: **C:/ov/reports/develop_intake_20261104/INHERITED_RUNTIME05.json**.
 
-**Latest actual result:** runtime04 terminal1. Source guard/compile6PASS; the
-18.26s native preflight has empty stderr. Pose support,selection,three-leg
-transfer,foreign release denial,hand return/release and in-memory restore pass.
-Incoming receiving delivery fails before seating/thread tests,at world
-(-.223512,.608285,.152591). Context versus inspection entry versus pointer
-visibility remains unproven. runtime05 adds that attribution and an unstaged
-failure frame; no production workaround or collision waiver. No original
-authority/disk,apartment or surface stage ran in04. Preserve failed02–04/probes.
+An **unverified** radiator inspection-view candidate includes the loose incoming
+part and receiving seat from the open side, retaining seated cap views and all
+collision/grip/save authorities. Bounded compile6+original insert-route probe is
+queued as broker**5164**, created**2026-11-04T11:33:48.961279Z**, command
+**pwsh -NoProfile -File tools/lane.ps1 batch -BatchFile C:/ov/reports/develop_intake_20261104/receiving_01/batch.json -WaitMinutes 240**.
+Revalidate PID+creation+command and per-stage receipts before resuming; never
+duplicate it. Keep radiator_prop.gd and consumed fixture inputs frozen until
+terminal. All windowed work is hidden/native3440x1440,patched engine,FIFO.
+No runtime acceptance is claimed for authored camera code or queued checks.
 
 ## Finish the integration before opening new work
 
-1. Read runtime05's actual result,fix the receiving interaction from evidence,
+1. Read receiving_01's actual result,finish the receiving interaction from evidence,
    and pass the original authority/save/apartment contracts. Inspect new frames.
    Stage only exact original receipts via the external staging helper,passing
-   `runtime_05` explicitly; its default still names03. Preserve the older19-room
+   the successful new runtime name explicitly; its default still names03. Preserve the older19-room
    apartment cohort separately. No receipt repin or capture-to-played promotion.
 2. Renew the source-bound surface packet and exact119-gate candidate against
    **board_main_4f16053e8/board.json**. The earlier116PASS/2FAIL/1INCOMPLETE board
