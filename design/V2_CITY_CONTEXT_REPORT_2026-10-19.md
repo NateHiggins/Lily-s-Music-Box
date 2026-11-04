@@ -93,15 +93,39 @@ with no materials as having no source normal. Adela's native has no materials;
 her existing registered .35 atlas-normal policy is unchanged. The existing
 MaterialLibraryTest exercises all installed source/calibration checks plus
 missing,truncated-header and malformed-JSON controls;no new test/fixture files.
-These fixes are authored,not yet engine-verified. Spatial manifest updated,
-readerNEW0. Production geometry/materials/gameplay digest unchanged.
-Composed_02 session91333/broker23416,birth2026-11-04T02:16:45.5000449Z,is live
-queued:source guard,compile3,material-library regression,full-world physical-only
-surface+city survey,final guard. Material failure prevents the costly survey.
-No unchanged fire/fitting interaction programme is replayed or accepted. Prior
-brokers are terminal;do not restart them. Current custody remains
-ACTIVE_QUALIFICATION.json. No composed-world,played-access,frame-budget,
-save/load or artistic pass;no merge.
+Composed_02 is terminal0:compile3PASS;MaterialLibraryTestPASS in16.67s,
+empty stderr,including all installed sources/calibration and3negative controls.
+Full-world physical-only surveyPASS38,884/0 in372s;schema2runtime_contract
+passes production composition,surface requirements and runtime-owned teardown.
+City diagnostic38,130/0 covers124buildings,1110static parts,4hands,500facade
+stations and230affected-neighbor panes. Before/after source guards pass.
+All57native3440x1440images were reviewed on10complete-framing contact sheets
+resized688x288,plus4directroof/contextviews. Dark facades,flat cloud relief,
+sparse relief views and dumbwaiter's wall-only framing remain artistic/capture
+limitations. All10UID warning headers are LF-identical to the previous packet;
+no ERROR/SCRIPT ERROR headers. Strict surface qualification and publication
+bothPASS0;previous packet preserved externally. This is physical-only proof,
+not save reconstruction,unchanged fitting interactions or played-city access.
+
+Compact composed/movie provenance archive:
+art/reviews/city_streets_20261029/city_building_packets_composed_20261103.zip,
+40files/52983bytes,SHA256
+373fed06d71682daaad00bc8c1a3732a56fbb5285b9d78329b8f1e9f5dc3a8e2.
+The10second skyline movie is delivered externally under
+C:/ov/reports/city_sky_cycle_20261103/Orison_24_Hours_in_10_Seconds.mp4:
+3440x1440,300frames/30fps,exact10.00s,Feb23-24 1929 08:00-08:00,60degree
+rooftop pan. Existing detached sky clock and window optics preserve the actual
+campaign clock. CapturePASS;all300encodedframes decode;20encodedframes across
+the whole clip and4source frames inspected. No Lily artistic/performance pass.
+
+Own waiting entry_followup_01 was cancelled before any Godot child at Lily's
+explicit video reprioritization;it never passed. Entry_followup_02 is now live:
+session68651/broker32536,birth2026-11-04T02:52:55.7972464Z. Its source guard
+passed;actualTitleBEGIN is running,then4preparationviews+restoredview and a
+same-source/settings six-leg baseline/entry pair. Optical readback is separate
+from timing. Prior brokers are terminal;never restart them. Current custody:
+ACTIVE_QUALIFICATION.json. Current-city frame budget,played access,save/load,
+full regression board,candidate verification/manual merge and widerV2 remain open.
 
 Import-generated UID custody review: candidate verification requires a clean
 checkout.704untracked UID values had no explicit tracked game references and
@@ -112,15 +136,15 @@ copies are preserved outside Git in loaded_01/UID_RECOVERY_BACKUP.zip
 (168772bytes,SHA256 **01c73d573104b8b8777e8b479df91cbee11701d2e9bd0135dab9672e808bee19**),with exact paths/hashes and
 first-import creation times. No authored script was removed,no foreign work
 stashed or hidden,and no ignore rule conceals source. Runtime-input digest
-before/after is identical. Upcoming actual compile/render checks run after this
+before/after is identical. Actual compile/render checks passed after this
 cleanup; fresh-checkout/export UID policy and whole-game acceptance are not
 established by a negative reference scan or the digest alone.
 
 The composed review now expects P2's exact184replacement witnesses while
 preserving all46neighbor panes and every first-hit ray;2focused tests pass.
-It is outside the frozen28file isolated loaded graph and still needs engine
-compilation/execution. A guarded composed-physical batch preparer is authored
-externally but will not create/queue its batch before actual loaded-image review.
+It was outside the isolated loaded graph;composed02 now compiles and exercises
+this exact disposition. The guarded composed batch was admitted only after
+actual loaded04image inspection.
 WiderV2,hose/book/nook and golden-shift work remain active.
 
 Pre-import static board completed at57232a922:119gates,112PASS/6FAIL/

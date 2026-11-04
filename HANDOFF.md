@@ -1,128 +1,51 @@
-# Current continuation — November 3 city native assembly pass
+# Current continuation — city physical qualification and delivered sky video
 
-Native attempt04 is terminal exit0: six phases,all2203original part comparisons
-(665retained+1538replacement),all2678retained pane witnesses,13fixture bindings
-and21static tests pass.124buildings/17180panes are assembled through the owning
-producer; all39retained profile rows and124reservations remain protected.
-Five ground/street outputs remain byte-identical. Four editable natives are
-69,773,268 /83,500,482 /22,654,071 /86,151,500bytes (near/far/street_end/lod1),
-each below the unchanged95MiB cap.393far/street parts pass exact raw arrays,
-editable Scene coverage and source-bound PBR map checks against preserved new
-packet and original retained stocks. These are native checks,not Godot proof.
+Canonical C:/PleaseRemainOnTheLine,branch codex/v2-first-view-preparation-20261102,
+draftPR151;unmerged. Main last verifiedfb3167942. GoalACTIVE,widerV2 unfinished.
 
-Native evidence,original failures and strict comparison recipes are archived in
-art/reviews/city_streets_20261029/city_building_packets_assembly_20261103.zip:
-28files/182086bytes,SHA256
-26e2a39ecb825b1dd9fd4758b33a2dbcb4e6abee4bb403fd5f720ad9563b7ea8.
-The106MBfailed native remains external with its recorded recovery hash.
+All85newcity replacements are assembled through owning producers with39retained
+profiles/all124reservations preserved. Native2203/0 comparisons,2678retained
+pane witnesses,393far/street raw-array/Scene/map checks,13fixtures/21tests pass.
+Foureditable natives stay below95MiB. Loaded04passes47680/0,empty stderr,
+all1110static/1093lower/17180panes/4hands and9actualLODtransitions checked.
 
-Loaded_01 is terminal exit1 at compilation: imports0 in56.8s/17s,metric
-mesh-policy repair/check pass,then the entry helper fails type inference at
-line45. Import1 records UID recovery warnings; import2 stderr is empty. No
-entry/family frame was rendered. Original logs/receipts/source freeze remain
-in attempt_04/loaded_01/. The helper now explicitly types its signed float
-iterator and Vector3 position; geometry,views and10draw bound are unchanged.
-Nineteen engine-generated policy-fixed import sidecars are explicitly retained
-with -text rules. Both import-source and UV-policy gates now pass; generated
-uid files are not staged.437tracked import rewrites were independently proven
-LF-byte-equal and restored by named paths. No real source was discarded.
+Composed02 is terminal0:compile3PASS;material-libraryPASS16.67s,empty stderr,
+includingactualGLB/glTFsourcecalibration and3missing/malformed controls.
+Physical-only full-world survey38884/0 in372s,schema2contract;city38130/0,
+124buildings/500facade+230affected-neighbor probes. Source guards pass.
+57actual3440x1440frames inspected on10context sheets at688x288 plus4directviews.
+Strictsurfacevalidator/publicationPASS0;priorpacket preserved externally.
+All10UIDwarnings LF-match prior;noERRORheaders. Darkfacades,flatcloudrelief,
+sparsereliefviews and a wall-only dumbwaiter capture remain limitations.
+No fitting interaction/save/played-access/performance or Lily artistic pass.
 
-Loaded_02 is terminal-1 after an owned diagnostic abort. Compile4/0 completed
-in12.64s with empty stderr; the entry lifecycle bench passed39/0 in4.97s at
-3440x1440,empty stderr. Its restored blue-control frame was inspected; it is
-not an Orison appearance/playtest or frame-budget result. The family bench then
-raised a real Node-to-Node3D runtime assignment atline50: the production city
-also owns a non-spatial clock controller. Only the verified owned failed GUI
-was stopped at177s to avoid consuming the1200s ceiling; wrapper/log/abort
-provenance are preserved,no family/teardown pass. A prepatch read-only guard
-confirmed all28test sources and production digest unchanged.
+Lily's10second24hour skyline movie is DELIVERED candidate:
+C:/ov/reports/city_sky_cycle_20261103/Orison_24_Hours_in_10_Seconds.mp4.
+3440x1440,300frames/30fps/exact10.00s,Feb23-24 1929 08:00-08:00,60degreepan.
+Existing detachedRenderClock/sky/window pipeline leaves campaign clock unchanged.
+CapturePASS;all300frames decode;20encodedsamples+4sourceframes inspected.
+Video/frames stay outsideGit;tracker-pageembed pending,Lily feedback notassumed.
 
-The diagnostic now traverses every Node child,keeps exact1110static-part
-census/collision checks,and separately verifies all4moving hands against native
-position,normal,tangent,UV and index arrays. Every pane ray remains. It writes
-actual static/lower/pane/hand traversal counts; no controller or hand becomes a
-static collision/LOD part. Production geometry,clock and gameplay are unchanged.
-Loaded_03 is terminal exit1:47,562checks/16failures,all1110static parts,
-1093lower parts,17180panes and4moving hands traversed. Nine isolated building
-studies,45body observations and67PNGs were written;only their9-image overview
-was inspected. Twelve failures are retained Western roof aliases absent from
-the test; the producer explicitly delegates these three styles to known flat
-constructors. Four natural-LOD probes selected unchanged planar wall parts
-with no encoded LOD,although their full bodies reduced. Native triangle/face
-analysis confirms actual reducing stock with broad faces for each. Original
-logs,failed checks,images and source guards remain in loaded_03/.
+Current runtime: entry_followup_02,session68651/broker32536,birth
+2026-11-04T02:52:55.7972464Z. Sourceguardpassed;actualTitleBEGINrunning,then
+4preparationviews+restoredview and matched6legbaseline/entrypair under same
+source/settings. Readbacks stay separate from timing. Do not edit consumed
+production/test inputs while live. Oldentry01 was cancelled beforestart to
+prioritizevideo;allnative/loaded/composed/video brokers are terminal.
+Custody C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
 
-The corrected bench resolves exactly those three authored aliases and selects
-an actual reducing material part with a broad source face,retaining preferred
-wall targets where they do reduce. It keeps default threshold1,distance
-bracketing,bisection,narrow-FOV recovery,inward return,positive-image contrast
-and same-pose hidden-target controls. Full-body observations still cover all
-parts; no geometry or gameplay change,no waived transition or roof ray.
-Loaded_04 is terminal:compile1PASS,family47,680checks/0failures in137.14s,
-empty stderr. Guards confirm all28test sources and production digest unchanged.
-All1110static/1093lower parts,17180panes and4hands are covered. Nine selected
-reducing parts show real distance transitions,narrow-FOV recovery and inward
-return;45full-body observations and99PNGs are retained. Six labelled sheets
-were inspected:27complete-framing views resized688x288 and72center512x512
-crops resized256x256,including all hidden-target controls. Bodies and selected
-material stock remain visible;no gross silhouette collapse at displayed scale.
-This is limited technical visual review,not native-pixel/composed/artistic
-acceptance. Imports and39check entry bench are reused by consumed-source
-closure,not repinned as composed/gameplay proof.
+Current checkpoint packs3native/loaded/composed archives;details,hashes and
+original oversize/crash/retained-drift/parser/typed-node failures remain in
+existing design/V2_CITY_CONTEXT_REPORT_2026-10-19.md and compactreviewZIPs.
+This summary replaces priorhandoffprefix;source-history preserved at94236bbb0.
 
-Loaded diagnostics,original failures,guards and review sheets are packed in
-art/reviews/city_streets_20261029/city_building_packets_loaded_20261103.zip:
-84files/2445499bytes,SHA256
-8092ca15cc74b39e40dfae3ab43767deb71db456a66d552087c58679811251af.
-Composed_01 is terminal-1 after an owned diagnostic abort at167.1s. Its
-source guard and city-review compile passed,but material ABI validation tried
-to parse nonexistent adela_voss.gltf;the installed native is adela_voss.glb.
-The called validator raised Nil-to-Dictionary while its caller continued world
-startup,so this run cannot qualify. Exact owned GUI47412/console65064/broker55904
-identity was checked before stopping only that GUI. Raw logs,wrapper receipt,
-source freeze and OWNED_RUN_ABORT.json remain in composed_01/. A final read-only
-source guard passed before edits. No survey or clean-teardown result claimed.
+Next: inspectactualentryviews/measure currentstalls;then currentfullgateboard
+andcandidate verification against cleanfb316board beforemanualPR151merge.
+Noauto-merge or wholeV2 acceptance. Preserve V1rollback and gameplay owners.
+Remaininghose/book/nook/readability,prologue/audio,golden-shift/save/weather
+and systematicV2coverage remain open. Do not repeat unchanged fire/walk suites.
 
-The validator now reads independent JSON glTF or bounded version2 GLB JSON,
-records missing/malformed inputs as check failures,and accepts a valid native
-with no materials as having no source normal. Adela's native has no materials;
-her existing registered .35 atlas-normal policy is unchanged. The existing
-MaterialLibraryTest exercises all installed source/calibration checks plus
-missing,truncated-header and malformed-JSON controls;no new test/fixture files.
-These fixes are authored,not yet engine-verified. Spatial manifest updated,
-readerNEW0. Production geometry/materials/gameplay digest unchanged.
-Composed_02 session91333/broker23416,birth2026-11-04T02:16:45.5000449Z,is live
-queued:source guard,compile3,material-library regression,full-world physical-only
-surface+city survey,final guard. Material failure prevents the costly survey.
-No unchanged fire/fitting interaction programme is replayed or accepted. Prior
-brokers are terminal;do not restart them. Current custody remains
-ACTIVE_QUALIFICATION.json. No composed-world,played-access,frame-budget,
-save/load or artistic pass;no merge.
-
-UID cleanup after first import:2UIDs for branch-added entry helper/test are
-retained.702generated metadata files are hash-preserved outside checkout in
-loaded_01/UID_RECOVERY_BACKUP.zip; no explicit tracked game references/main
-path overlaps,first-import provenance checked,runtime digest unchanged. No
-authored source removed or hidden. Queued tests must still qualify actual
-loading/rendering after cleanup. Detailed limits/hash in existing city ledger.
-
-The composed review now expects P2's exact184replacement witnesses while
-preserving all46neighbor panes and every first-hit ray;2focused tests pass.
-It is outside the frozen28file isolated loaded graph and still needs engine
-compilation/execution. A guarded composed-physical batch preparer is authored
-externally but will not create/queue its batch before actual loaded-image review.
-WiderV2,hose/book/nook and golden-shift work remain active.
-
-Pre-import static board completed at57232a922:119gates,112PASS/6FAIL/
-1INCOMPLETE;46comparison findings are exactly missing19import sidecars in two
-gates plus stale surface/render evidence. No additional tools-test regression.
-Raw board: C:/ov/reports/native_intake_20261102/city_packets/attempt_04/
-board_52ab1f43d/board.json (directory name is historical; read actual commit).
-Queued imports/mesh-policy address sidecars; composed runtime/review/publication
-still required for the surface gate. Preserve this red board,no manual import
-sidecars or weakened checks. This is not a candidate pass.
-
-**Latest continuation:** footprint16 is **terminal exit0**, seven stages and
+**Earlier checkpoint (historical; superseded for current city inputs):** footprint16 is **terminal exit0**, seven stages and
 both128-input guards pass. Five scripts compile16.62s/empty stderr. Small
 rendered footprint/lifecycle bench21/0,5.17s/empty stderr; restored blue image
 inspected. Actual titleBEGIN17/0,193.15s,620.739ms/10draw preparation, camera node
