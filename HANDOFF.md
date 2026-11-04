@@ -1,12 +1,12 @@
-# Current handoff — runtime06 failed bounded check; receiving view narrowed
+# Current handoff — narrowed receiving view frozen; runtime07 queued
 
 Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-qualification-debt-20261104**. Code checkpoint **eb26f890f** is
+**codex/v2-qualification-debt-20261104**. Code checkpoint **4d5cf53e7** is
 committed and pushed; PR152 remains **OPEN/DRAFT/UNMERGED**. Main is
 **4f16053e8a7b1f8fe0ec91c25d5aab8c4a794359**, the PR151 merge. Fetch and
 inspect actual Git before acting; app-attached v2-baseline is not canonical.
 
-## Current job custody — runtime06 queued
+## Current job custody — runtime07 queued
 
 Integration owner: **Complete V2 qualification commitments**, chat
 **01a1a653-eda8-7732-9732-2c362f5129d6**. Old Developer Sol is the read-only
@@ -23,7 +23,7 @@ frame was inspected. No original authority/disk,apartment,surface or final guard
 stage ran. Preserve all runtime05 inputs,logs,receipts and original failures.
 External intake record: **C:/ov/reports/develop_intake_20261104/INHERITED_RUNTIME05.json**.
 
-An **unverified** radiator inspection-view candidate at **eb26f890f** includes
+An **unverified** radiator inspection-view candidate at **4d5cf53e7** includes
 the loose incoming part and receiving seat from the open side, retaining seated
 cap views and all collision/grip/save authorities. Own bounded receiving_01
 broker5164 was identity-checked and withdrawn BEFORE launch (no children/logs);
@@ -39,9 +39,12 @@ Original runtime06 logs/receipts/images remain untouched.
 The view candidate now applies only to loose incoming stock more than4cm below
 the receiving seat. Outgoing stock at the seat retains the exact prior overhead
 view. No collision,grip,path,endpoint or authority tolerance changes. This is
-unverified; next prepare a fresh **runtime_07** fail-fast batch after this clean
-source checkpoint. Do not restart any terminal job. Reuse native06 and existing
-material evidence. All windowed work stays hidden/native3440x1440,patched,FIFO.
+unverified. **runtime_07** seven-stage fail-fast batch is queued as broker
+**38628**,created**2026-11-04T12:01:33.178126Z**,tool session**25496**.
+Exact command/freeze/custody: **qualification_debt_trace_01/runtime_07/QUEUE_CUSTODY.json**.
+Revalidate process identity and receipts; never duplicate it or change frozen
+inputs. Do not restart terminal jobs. Reuse native06/material evidence. All
+windowed work stays hidden/native3440x1440,patched,FIFO.
 
 ## Finish the integration before opening new work
 
