@@ -1158,6 +1158,8 @@ func _compose_exterior() -> bool:
 	var city_foundations:=preload("res://scripts/building/orison_v2_city_foundations.gd").new()
 	city_foundations.name="CityFoundations"
 	_blockout.add_child(city_foundations)
+	if preload("res://scripts/building/orison_v2_city_ground_edges.gd").mount(_blockout)==null:
+		return false
 	var receiving := preload("res://scripts/building/orison_v2_bodega_receiving.gd").new()
 	receiving.name = "BodegaReceiving"
 	if not receiving.configure(exterior_cell):
