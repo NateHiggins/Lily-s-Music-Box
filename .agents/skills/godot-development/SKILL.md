@@ -99,6 +99,17 @@ while its spine grip moves the binding. The book inspection ledger records the
 original failures and the101-check actual-input return pass; it is not installed
 nook, campaign reload or artistic acceptance.
 
+Queue reacquisition is part of iteration cost. When an owning native build,
+its source/equivalence checks, imports and a small compile/loaded diagnostic are
+ready and require no intervening human choice, use one related fail-closed lane
+batch. A native stage must pass before its dependent Godot stages start. Avoid
+releasing and rejoining between machine-checkable stages merely because their
+commands differ. Keep human image review and unrelated authoring outside that
+reservation. Preserve failed receipts; after a real script parse fix, reuse
+unchanged completed imports and rerun the blocked compile/behavior checks with
+a fresh source freeze, rather than calling the error stale cache or replaying
+the whole native pipeline.
+
 Fast iteration is a priority. Before launching, identify the changed behavior,
 the smallest check that can expose its failure, and the expected startup/run
 cost from existing receipts. Do not repeat long walks through unchanged areas

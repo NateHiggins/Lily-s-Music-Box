@@ -41,8 +41,8 @@ static func building_views(frame: Transform3D, footprint: Rect2, height_range: V
     var distance: float=(radius+padding)/sin(half_fov)
     var offset: float=(absf(side.x)*footprint.size.x+absf(side.z)*footprint.size.y)*.25
     var setback:=sqrt(maxf(distance*distance-offset*offset,0.))
-    for sign_value in [-1.,1.]:
-        var at:=target+back*setback+side*offset*sign_value
+    for sign_value: float in [-1.,1.]:
+        var at: Vector3=target+back*setback+side*offset*sign_value
         views.append(Transform3D(frame.basis.orthonormalized()*Basis.looking_at((target-at).normalized()),frame*at))
     return views
 

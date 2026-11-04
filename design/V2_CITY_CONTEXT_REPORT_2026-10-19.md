@@ -20,13 +20,24 @@ art/reviews/city_streets_20261029/city_building_packets_assembly_20261103.zip:
 26e2a39ecb825b1dd9fd4758b33a2dbcb4e6abee4bb403fd5f720ad9563b7ea8.
 The106MBfailed native remains external with its recorded recovery hash.
 
-The guarded worker66684/session5324 has queued loaded_01/batch.json through
-broker34260 after observing exact native broker49456 terminate. Native session
-82410 is terminal0; do not restart it. Imports twice,mesh policy,source freeze,
-compile4scripts,entry bench and9representative family/LOD captures remain
-pending. Current job custody: C:/ov/reports/native_intake_20261102/
-ACTIVE_QUALIFICATION.json. No composed-world,played access,performance,save/load,
-artistic acceptance or main merge follows from native success. No duplicate job.
+Loaded_01 is terminal exit1 at compilation: imports0 in56.8s/17s,metric
+mesh-policy repair/check pass,then the entry helper fails type inference at
+line45. Import1 records UID recovery warnings; import2 stderr is empty. No
+entry/family frame was rendered. Original logs/receipts/source freeze remain
+in attempt_04/loaded_01/. The helper now explicitly types its signed float
+iterator and Vector3 position; geometry,views and10draw bound are unchanged.
+Nineteen engine-generated policy-fixed import sidecars are explicitly retained
+with -text rules. Both import-source and UV-policy gates now pass; generated
+uid files are not staged.437tracked import rewrites were independently proven
+LF-byte-equal and restored by named paths. No real source was discarded.
+
+Corrected loaded_02/batch.json is queued: session95483/broker39396(created
+2026-11-04T01:10:13.6851469Z). It reuses the two completed imports and unchanged
+GLBs,then captures a fresh source freeze,compiles4scripts and runs only the
+blocked entry/family/LOD diagnostics. Native82410 and loaded5324 are terminal;
+do not restart them or duplicate the new broker. Current custody:
+C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json. No rendered,
+composed-world,played-access,performance,save/load or artistic pass; no merge.
 
 The composed review now expects P2's exact184replacement witnesses while
 preserving all46neighbor panes and every first-hit ray;2focused tests pass.
