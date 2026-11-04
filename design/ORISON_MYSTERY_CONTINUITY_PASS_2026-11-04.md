@@ -131,7 +131,8 @@ Checks, all PASS:
 - **mystery_harukiya_radiator:** cut. The work order was never added.
 - **mystery_rename_orr:** Raymond Orr in the September Lindqvist items becomes Raymond Lund. Silas Orr is untouched.
 - **mystery_rename_hiram_voss:** Hiram Voss, for the Board, becomes Hiram Bodkin.
-- **mystery_martin_voss:** rename him. His new name is waiting in her widget as **mystery_martin_voss_name**.
+- **mystery_martin_voss:** rename him. **mystery_martin_voss_name** chose Martin Kroll, the Woodside grocer
+  in the 1929-07a contest item.
 - **mystery_noel_corridor:** Noel gets a corridor block from 20:40 to 20:58 at chance 0.8 ("most nights"), over his
   conservation hour.
 - **mystery_iris_window:** Iris's card and canvas are "beside her window".
