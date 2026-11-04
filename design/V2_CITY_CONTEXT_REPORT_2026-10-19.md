@@ -7387,3 +7387,33 @@ broker28624,bornUTC2026-11-04T07:22:01Z. It waits behind the current comic hold;
 no foreign process or waiter was interrupted. No ownership,test pin,production
 metadata or runtime contract has yet been admitted. Inspect this same job's
 full original equivalence and converter result before proceeding.
+
+
+### Six exact book finishes; mineral channel packaging corrected
+
+Native05 is terminal1 in54.234s. The original strict material-inclusive check
+still fails,but CPU attribution now shows all six book materials match exactly.
+Only concrete_b,slab_b andstair_b roughness images differ. All336frozen sources
+and30ignored cache hashes are unchanged; no metadata or test pin was admitted.
+
+Further channel attribution corrects the earlier source assumption: the current
+October4authoring PNGs byte-match the installed textures. Native03had identical
+green roughness values but repacked unused red/blue channels to white. Native05
+incorrectly selected older August mineral pixels as well; those outputs were
+never installed. The explicit context now pins the approved October4mineral
+sources alongside the August legacy book sets. Newer art remains untouched.
+
+The native material graph uses Separate Color G for roughness and B multiplied
+by zero for metallic. On the installed Blender5.2,an actual CPU export fixture
+passes three exact-PNG/metallicFactor0candidates and three controls reproducing
+the unwanted repacking. The source/refusal suite still passes14tests. These
+checks do not establish full F01 or Godot acceptance. Official channel guidance:
+https://docs.staging.blender.org/manual/en/latest/addons/scene_gltf2.html .
+Exact logs,hashes and material factors are in mineral_channel_cpu_01/.
+
+The full unrendered native06 replay will use the CPU source/export path. The
+adapter invokes only factory reset and glTF export,no render operation; no
+Godot/GPU work runs outside the shared lane. Actual first-slice,apartment-access
+and surface renewal remain gated on full native/converter equivalence. All
+earlier failed runs remain preserved. The two relevant art skills now record
+the verified channel/byte lesson without granting runtime or artistic proof.

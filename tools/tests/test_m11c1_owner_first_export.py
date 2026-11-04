@@ -348,7 +348,7 @@ class HistoricalMaterialContextTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as raw:
             candidate=Path(raw)
             cache={'retained':{'albedo':'retain-me'}}
-            generator={'_tex_cache':cache,'tex_set':lambda key:{'albedo':'current-albedo','normal':'current-normal','roughness':'current-roughness','slug':key,'mpt':2.0}}
+            generator={'_tex_cache':cache,'get_material':lambda key:None,'tex_set':lambda key:{'albedo':'current-albedo','normal':'current-normal','roughness':'current-roughness','slug':key,'mpt':2.0}}
             receipt,images=material_context.apply_context(self.manifest(),REPO_ROOT,candidate/'material_context',generator)
             receipt['used_images']=sorted(images)
             material_context.validate_receipt(receipt,self.manifest(),REPO_ROOT,candidate)

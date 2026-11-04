@@ -40,6 +40,8 @@ def read_context(path, root):
         raise ValueError('Legacy wall input authority is not explicit')
     if not re.fullmatch('[0-9a-f]{40}',doc.get('source_commit','')):
         raise ValueError('F01 material context requires an exact historical commit')
+    if not re.fullmatch('[0-9a-f]{40}',doc.get('mineral_source_commit','')) or doc.get('mineral_channel_policy')!='GREEN_ROUGHNESS_ZERO_METALLIC':
+        raise ValueError('F01 mineral input epoch/channel policy is not explicit')
     if not re.fullmatch('[0-9a-f]{64}',doc.get('compatible_floor01_sha256','')):
         raise ValueError('F01 material context lacks its comparison target hash')
     expected=set()
@@ -66,13 +68,15 @@ def read_context(path, root):
         p=PurePosixPath(source)
         if p.is_absolute() or '..' in p.parts or '\\' in source or not re.fullmatch('[0-9a-f]{40}',row.get('git_blob','')) or not re.fullmatch('[0-9a-f]{64}',row.get('sha256','')):
             raise ValueError('Invalid historical source path or digest')
-    tree=subprocess.check_output(['git','ls-tree','-r','-z',doc['source_commit'],'--',*sorted(expected)],cwd=root)
     entries={}
-    for row in tree.split(b'\0'):
-        if row:
-            header,name=row.split(b'\t',1);mode,kind,oid=header.decode().split()
-            if mode!='100644' or kind!='blob':raise ValueError('Historical source is not a regular blob')
-            entries[name.decode()]=oid
+    for commit in {doc['source_commit'],doc['mineral_source_commit']}:
+        paths=[p for p in sorted(expected) if (doc['mineral_source_commit'] if p.startswith('art/textures/ai_materials/') else doc['source_commit'])==commit]
+        tree=subprocess.check_output(['git','ls-tree','-r','-z',commit,'--',*paths],cwd=root)
+        for row in tree.split(b'\0'):
+            if row:
+                header,name=row.split(b'\t',1);mode,kind,oid=header.decode().split()
+                if mode!='100644' or kind!='blob':raise ValueError('Historical source is not a regular blob')
+                entries[name.decode()]=oid
     if entries!={p:r['git_blob'] for p,r in doc['files'].items()}:
         raise ValueError('Material source blobs do not belong to the declared historical tree')
     sources=sorted(expected)
@@ -119,7 +123,38 @@ def apply_context(path, root, output, generator):
             spec=dict(generator['tex_set'](key))
         spec.update({channel:str(output/source) for channel,source in recipe['channels'].items()})
         generator['_tex_cache'][key]=spec
+    original_material=generator['get_material'];configured=set()
+    def get_material(key):
+        material=original_material(key)
+        if key in ROUGH and key not in configured:
+            preserve_mineral_channels(material)
+            configured.add(key)
+        return material
+    generator['get_material']=get_material
     return {'binding':binding(path),'reader':reader_binding(),'files':rows},used_images
+
+
+def preserve_mineral_channels(material):
+    """Keep grayscale PNG bytes through glTF packing; metallic stays zero.
+
+    The exporter recognizes G->roughness and B*0->metallic as one packed
+    source, retaining metallicFactor=0 and the original PNG. This does not
+    change the source texture or introduce metallic mineral shading.
+    """
+    tree=material.node_tree
+    shaders=[n for n in tree.nodes if n.type=='BSDF_PRINCIPLED']
+    if len(shaders)!=1:raise ValueError('Legacy mineral must have one Principled shader')
+    shader=shaders[0];rough=shader.inputs['Roughness'];metal=shader.inputs['Metallic']
+    if len(rough.links)!=1 or metal.is_linked or metal.default_value!=0:
+        raise ValueError('Legacy mineral roughness/zero-metallic construction drifted')
+    image=rough.links[0].from_node
+    if image.type!='TEX_IMAGE':raise ValueError('Legacy mineral requires its direct image input')
+    separate=tree.nodes.new('ShaderNodeSeparateColor');separate.mode='RGB'
+    factor=tree.nodes.new('ShaderNodeMath');factor.operation='MULTIPLY';factor.inputs[1].default_value=0
+    tree.links.new(image.outputs['Color'],separate.inputs['Color'])
+    tree.links.new(separate.outputs['Green'],rough)
+    tree.links.new(separate.outputs['Blue'],factor.inputs[0])
+    tree.links.new(factor.outputs[0],metal)
 
 
 def validate_receipt(receipt, manifest, root, candidate_root):

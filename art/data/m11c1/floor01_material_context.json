@@ -2,7 +2,7 @@
   "schema": "orison.floor01.legacy-material-context.v1",
   "source_commit": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
   "compatible_floor01_sha256": "46756641f389b29f287731bb88b31af13972b098b483d92d66d077112909bd89",
-  "purpose": "Reproduce the protected legacy Floor 1 finishes during owner-first source replay. Current V2 book and mineral finishes retain their existing owners; no runtime override.",
+  "purpose": "Replay legacy F01 book source sets and the installed October mineral refinements. Explicit channel wiring preserves the installed roughness PNG bytes and zero metallic. Current V2 material owners remain unchanged.",
   "files": {
     "art/textures/library/furniture/book_brown/asset.json": {
       "git_blob": "10a19eddde882cbeebb3ac5d030b62d6dea40ac1",
@@ -101,16 +101,16 @@
       "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
     },
     "art/textures/ai_materials/concrete_b/roughness.png": {
-      "git_blob": "205253667df42fe526190fd73ca6432ea98d4e38",
-      "sha256": "2da428bf58fa4c1573141ce54bd7c42bd3bd35e32953e544f31779ddaca15fc8"
+      "git_blob": "0d956895c1ca609c326df523af153f239cf2af8d",
+      "sha256": "93f004e7c714121980de23708384bcfc4d0efc0d6f81f03982b93eefa0ca596f"
     },
     "art/textures/ai_materials/slab_b/roughness.png": {
-      "git_blob": "b99e67347b0c68ad81cf8ec096de95a4ac4a3d43",
-      "sha256": "a4d44374a9013ac0fec090a0590accf1b617ec981ecef10e12ae40bad1d69e6c"
+      "git_blob": "54bc20f97cf6c853391ff88736afada0bb6c6b82",
+      "sha256": "c76fff5f8d49113e719f9e1c74892476005b3d0ca8e5f39479a0c47e9826f542"
     },
     "art/textures/ai_materials/stair_b/roughness.png": {
-      "git_blob": "a8b872f0a4146bc87bf5f0e9fa21a966e9bf023f",
-      "sha256": "10c371776710ef9f8e199b18aba9353dbd1b983b7422184ad2c35257da398f6e"
+      "git_blob": "04bfbfa19fb42587ddb5387fea9e290b7675f77c",
+      "sha256": "d415740c0e3748287342b14564aac8d1e122154d49361bec500cc1512e74b3d7"
     }
   },
   "materials": {
@@ -193,5 +193,7 @@
       }
     }
   },
-  "wall_cache_policy": "TRACKED_COMPATIBILITY_INPUTS_IGNORE_UNTRACKED_BAKE_CACHE"
+  "wall_cache_policy": "TRACKED_COMPATIBILITY_INPUTS_IGNORE_UNTRACKED_BAKE_CACHE",
+  "mineral_source_commit": "44840e5da14f07ca0c36b54c46ae176f406e9894",
+  "mineral_channel_policy": "GREEN_ROUGHNESS_ZERO_METALLIC"
 }
