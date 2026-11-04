@@ -71,6 +71,27 @@ purpose in the lettering source so cleanup doesn't erase the joke or clue.
 - Follow current local generator/lane instructions. GPU work joins the shared
   queue; don't load another model directly or interrupt a running owner.
 
+## Check the assembly, not just the generated stock
+
+Reusable figure stock needs measured mouth/face-safe areas, floor contact and
+crop-safe props. Estimating a mouth from the top of a cutout fails on hats,
+seated poses and raised objects. Use explicit anchors for difficult panels;
+show fallback estimates in a cheap overlay so they cannot masquerade as review.
+
+Gap-filling layout does not establish reading order. Inspect the spatial path
+through tall columns and insets; preserve script order rather than sorting
+panel IDs numerically. Reserve space for actual-sized captions and interruptions
+as well as speech. A least-bad placement score can still hide a face or reverse
+an exchange: flag an impossible fit instead of exporting it silently.
+
+Keep draft assembly permissive but visibly marked. Before a finished export,
+check explicit stock picks, resolved/current art inputs, required props and
+spot-color masks, speaker ownership and lettering fit. Distinguish a missing
+render from an existing insert that was never connected or rebuilt. Check tiny
+clues twice: in their original panel and again when a later panel reproduces
+that page at reduced size. Pre-lettering blanks and planned layouts are not
+finished-page failures or acceptance evidence.
+
 ## Verify and hand off
 
 Inspect isolated panels, whole pages, adjacent pages and the final exported PDF.
@@ -92,6 +113,8 @@ Real-person likenesses, LoRAs, prompts and private review copies stay outside th
 public game repository. Review authorization covers the supplied material for
 that purpose; do not infer consent to upload other galleries or publish it.
 Share this process through the canonical skill and thin adapters, not duplicated
-private production packets. For LILITH, preserve the fully dressed heroine and
-the existing boundary keeping Adela out of frame; satire targets institutions
-and patronizing authority, not women or trans identity.
+private production packets. Resolve current character/likeness permissions from
+the latest explicit owner rulings; a historical exclusion in a process guide
+must not override a later authorized appearance. For LILITH, preserve the fully
+dressed heroine; satire targets institutions and patronizing authority, not
+women or trans identity.
