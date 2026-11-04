@@ -7690,3 +7690,13 @@ included; the same preflight passes. No assertion,source digest or original
 receipt was relaxed/repinned. ReaderNEW0 and spatial clean with one reviewed new
 fixture record. Driver/nearby fixture at **70c45392b** remain uncompiled/unrun;
 the new scene dependency is preparation for runtime08,not new runtime evidence.
+
+
+Source **aa6c49a75** is pushed. runtime08 queues8 fail-fast stages as broker17808,
+created12:45:32.267434Z,tool7050;15-script compile and both bounded radiator and
+nearby door/carry preflights precede every expensive original stage. Exact
+custody is **qualification_debt_trace_01/runtime_08/QUEUE_CUSTODY.json**. Its
+new external guard adds the real door verdict and source roots; original
+runtime07 preparer bytes are preserved against their original recorded hash.
+No new runtime result yet. Current readerNEW0,spatial audit and apartment
+SOURCES closure pass; no acceptance from authored fixture or queued job.

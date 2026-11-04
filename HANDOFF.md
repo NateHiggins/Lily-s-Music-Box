@@ -1,12 +1,12 @@
-# Current handoff — receiving preflight passed; original route door return failed
+# Current handoff — runtime08 queued; receiving passed, door/carry preflight pending
 
 Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-qualification-debt-20261104**. Code checkpoint **4d5cf53e7** is
+**codex/v2-qualification-debt-20261104**. Code checkpoint **aa6c49a75** is
 committed and pushed; PR152 remains **OPEN/DRAFT/UNMERGED**. Main is
 **4f16053e8a7b1f8fe0ec91c25d5aab8c4a794359**, the PR151 merge. Fetch and
 inspect actual Git before acting; app-attached v2-baseline is not canonical.
 
-## Current job custody — runtime07 queued
+## Current job custody — runtime08 queued
 
 Integration owner: **Complete V2 qualification commitments**, chat
 **01a1a653-eda8-7732-9732-2c362f5129d6**. Old Developer Sol is the read-only
@@ -60,9 +60,13 @@ first-slice scene dependency; adding that exact scene to SOURCES now passes.
 No executed proof was changed or repinned. Register only its one reviewed spatial-manifest record. Reuse all
 unchanged native/material evidence; preserve runtime02–07 failures.
 
-Next prepare a fresh guarded runtime08 with bounded radiator AND door preflights
-before original authority/disk,9-unit movement,surfaces and final guard. Check
-actual custody before starting; do not duplicate a live job. Existing external
+**runtime_08 is queued**,broker**17808**,created**2026-11-04T12:45:32.267434Z**,
+tool session**7050**. Its8 fail-fast stages are source guard,compile15,bounded
+radiator,nearby real door/carry,original authority/disk,9-unit movement,surfaces,
+final guard. Exact command/freeze: **qualification_debt_trace_01/runtime_08/QUEUE_CUSTODY.json**.
+Revalidate PID/creation/command and stage receipts; never duplicate the live job
+or change consumed inputs. runtime07's original preparer is preserved byte-exact
+beside its original SOURCE_FREEZE; the next guard adds tests,removes none. Existing external
 book/hose/Continue/lift/city candidates remain uninstalled. Claude confirmed Sun
 PR153 and mystery continuity stay isolated/draft; lead admits main in a planned
 combined D9 window after PR152. Required future Sun dependencies include campaign
