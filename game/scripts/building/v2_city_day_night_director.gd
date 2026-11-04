@@ -213,8 +213,10 @@ func _publish_star_god(profile: Dictionary) -> void:
 		profile.ambient_e *= lerpf(0.04, 1.0, sqrt(shown))
 		profile["star_strength"] = maxf(float(profile.get("star_strength", 0.0)), float(event.totality) * 0.55)
 		profile["sky_exposure_scale"] = lerpf(0.06, 1.0, sqrt(shown))
+		_sky.set_shader_parameter("eclipse_sky", lerpf(0.03, 1.0, sqrt(shown)))
 	_sky.set_shader_parameter("moon_direction", moon)
 	_sky.set_shader_parameter("moon_by_day", 1.0 if sun.y > -0.035 and moon.y > -0.05 else 0.0)
+	if not bool(event.active): _sky.set_shader_parameter("eclipse_sky", 1.0)
 	_sky.set_shader_parameter("eclipse_active", 1.0 if bool(event.active) else 0.0)
 	_sky.set_shader_parameter("eclipse_offset", event.offset)
 	_sky.set_shader_parameter("eclipse_moon_radius", float(event.moon_radius))
@@ -239,14 +241,16 @@ func _publish_star_god(profile: Dictionary) -> void:
 	_sky.set_shader_parameter("star_god_size", size)
 	if _lens != null:
 		var einstein := deg_to_rad(2.2) * float(event.ascent) * (1.0 - float(event.line))
-		_lens.publish_lens(einstein, centre, float(event.shock) * 2.6)
+		_lens.publish_lens(einstein, centre, float(event.shock) * 1.2)
 
 ## Phase A: the day's spots drift together into an eye: a pupil and the lids.
 func _eye_spots(amount: float) -> PackedVector4Array:
-	var eye := PackedVector4Array([Vector4(0.0, 0.0, 0.11, 1.0)])
+	# The umbra radius is a third of the spot's; a pupil a fifth of the disc wide
+	# and seven lid-spots a tenth wide read as an eye in the eyepiece.
+	var eye := PackedVector4Array([Vector4(0.0, 0.0, 0.2, 1.0)])
 	for i in 7:
 		var a := TAU * float(i) / 7.0
-		eye.append(Vector4(0.55 * cos(a), 0.24 * sin(a), 0.035, 1.0))
+		eye.append(Vector4(0.62 * cos(a), 0.3 * sin(a), 0.07, 1.0))
 	var today := SolarSurface.spots(SkywatchAstronomy.Ephemeris.julian_day(SkywatchAstronomy.precise_utc(_campaign_clock)))
 	var mixed := PackedVector4Array()
 	for i in 8:

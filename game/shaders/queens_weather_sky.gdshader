@@ -47,7 +47,7 @@ uniform float temporal_phase = 0.0;
 // sun_flatten left at 0 the old round core is drawn, so forced showcase states and
 // V1 keep their look.
 uniform float sun_flatten = 0.0;
-uniform vec3 sun_tau = vec3(0.1);
+uniform vec3 sun_air_depth = vec3(0.1);
 uniform vec3 sun_tint = vec3(1.0);
 uniform float sun_glare = 0.0;
 uniform float sun_limb_u = 0.6;
@@ -63,6 +63,7 @@ uniform vec2 eclipse_offset = vec2(0.0); // Moon centre from the Sun, Sun radii,
 uniform float eclipse_moon_radius = 0.0; // Sun radii
 uniform float eclipse_corona = 0.0;
 uniform float eclipse_beads = 0.0;
+uniform float eclipse_sky = 1.0; // daylight left in the sky: 1 normally, about 0.03 in totality
 uniform float star_god_ripple = 0.0;
 uniform float star_god_rift = 0.0;
 #include "res://shaders/queens_weather_math.gdshaderinc"
@@ -71,6 +72,15 @@ uniform float star_god_rift = 0.0;
 #include "res://shaders/skywatch_stars.gdshaderinc"
 #include "res://shaders/skywatch_sun.gdshaderinc"
 
+
+// Smoked glass on a narrow view pointed at the Sun (0 elsewhere, and at night).
+float solar_filter(vec3 direction) {
+	if (moon_phase_enabled || sun_flatten <= 0.0) return 0.0;
+	float detail = sun_detail_amount(camera_fov);
+	if (detail <= 0.0) return 0.0;
+	float off_sun = acos(clamp(dot(direction, normalize(celestial_direction)), -1.0, 1.0));
+	return detail * (1.0 - smoothstep(radians(1.5), radians(3.0), off_sun));
+}
 
 // Kasten & Young relative air mass at an elevation in degrees.
 float solar_air_mass(float elevation_deg) {
@@ -150,7 +160,7 @@ vec3 celestial_base(vec3 direction,out vec3 point_stars) {
 	// fixed clouds back over a procedurally clear twilight.
 	float atmospheric_day=smoothstep(-.18,-.035,sun_direction.y);
 	atmosphere*=mix(.09,1.0,smoothstep(-.14,.08,sun_direction.y));
-	color = mix(color,atmosphere,atmospheric_day);
+	color = mix(color,atmosphere*eclipse_sky,atmospheric_day);
 	float source_angle = acos(clamp(dot(direction,
 			normalize(celestial_direction)), -1.0, 1.0));
 	float halo = 1.0 - smoothstep(celestial_core_radius,
@@ -158,6 +168,8 @@ vec3 celestial_base(vec3 direction,out vec3 point_stars) {
 	float core = 1.0 - smoothstep(0.0, celestial_core_radius, source_angle);
 	vec3 lunar_surface = vec3(1.0);
 	vec3 sun_rim = vec3(0.0);
+	float disc_gain = moon_phase_enabled ? 9.0 : 0.48;
+	float sun_filter = 0.0;
 	float lunar_occlusion=0.0;
 	if (moon_phase_enabled) {
 		// Project the visible hemisphere and light it from the real Sun vector.
@@ -218,7 +230,7 @@ vec3 celestial_base(vec3 direction,out vec3 point_stars) {
 		float limb = 1.0 - sun_limb_u * (1.0 - limb_mu);
 		float pixel_elevation = degrees(asin(clamp(direction.y, -1.0, 1.0)));
 		float centre_elevation = degrees(asin(clamp(sun_centre.y, -1.0, 1.0)));
-		vec3 across_disc = exp(-sun_tau * (solar_air_mass(pixel_elevation) - solar_air_mass(centre_elevation)));
+		vec3 across_disc = exp(-sun_air_depth * (solar_air_mass(pixel_elevation) - solar_air_mass(centre_elevation)));
 		core = disc_mask;
 		lunar_surface = sun_tint * limb * min(across_disc, vec3(1.6));
 		// Phase A: the Sun rings, waves of light crossing its face.
@@ -253,13 +265,21 @@ vec3 celestial_base(vec3 direction,out vec3 point_stars) {
 				float streamers = 0.35 + 0.65 * pow(sun_value_noise(vec3(around * 5.0, 0.0, 4.0)), 2.0);
 				streamers *= 0.75 + 0.25 * sun_value_noise(vec3(around * 40.0, r_sun * 0.6, 1.0));
 				float fall = pow(r_sun, -3.0) * (1.0 - smoothstep(3.0, 7.0, r_sun));
-				sun_rim += vec3(0.98, 0.96, 0.92) * fall * streamers * eclipse_corona * 2.2;
+				sun_rim += vec3(0.98, 0.96, 0.92) * fall * streamers * eclipse_corona * 9.0;
 			}
 		}
 		// Telescope fields resolve granulation, spots and the limb's prominences.
 		float detail = sun_detail_amount(camera_fov);
+		// The Sun outshines the sky; in the eyepiece the solar filter brings it down
+		// to a bright orange disc the granulation can show on.
+		disc_gain = mix(6.0, 1.4, detail);
+		// A narrow view on the Sun looks through smoked glass: the whole field, sky
+		// and glare included, is darkened, not only the disc.
+		sun_filter = solar_filter(direction);
 		if (detail > 0.0) {
 			lunar_surface *= sun_photosphere(disc, limb_mu, TIME, detail * step(radius, 1.0));
+			// Smoked glass: the brass telescope shows an orange Sun.
+			lunar_surface *= mix(vec3(1.0), vec3(1.0, 0.70, 0.36), detail);
 			sun_rim = sun_prominences(disc, radius, TIME, detail) * sun_tint;
 		}
 		// Coarse summer haze spreads a broad white glare; clean air keeps it tight.
@@ -282,9 +302,12 @@ vec3 celestial_base(vec3 direction,out vec3 point_stars) {
 	color += vec3(0.76, 0.82, 1.0) * star_field * star_strength * obscured*(1.0-lunar_occlusion);
 	color += skywatch_planet_light(direction,normalize(sun_direction))*(1.0-lunar_occlusion);
 	color += celestial_color * celestial_strength * halo * 0.42 * obscured;
-	color += celestial_color * lunar_surface * celestial_strength
-			* core * (moon_phase_enabled ? 9.0 : 0.48) * obscured;
-	color += sun_rim * celestial_strength * obscured;
+	vec3 disc_light = celestial_color * lunar_surface * celestial_strength
+			* core * disc_gain * obscured + sun_rim * celestial_strength * obscured;
+	// The naked-eye Sun shines through the horizon haze below (dimmed and
+	// reddened by solar_optics already); the Moon and the old core sit in it.
+	bool sun_through_haze = !moon_phase_enabled && sun_flatten > 0.0;
+	if (!sun_through_haze) color += disc_light;
 	if (moon_by_day > 0.0 && !moon_phase_enabled) {
 		vec4 moon_day = day_moon(direction);
 		// The eclipse's disc is darker than the sky beside it; otherwise the dark
@@ -301,6 +324,9 @@ vec3 celestial_base(vec3 direction,out vec3 point_stars) {
 	// keeps any equirectangular pole stretch out of the playable horizon.
 	float horizon_haze = smoothstep(0.60, 0.96, v);
 	color = mix(color, fog_horizon_color, horizon_haze * 0.82);
+	// sky() darkens the whole field through the filter at the very end; the disc
+	// is lifted here so it comes out of the glass at its own brightness.
+	if (sun_through_haze) color += disc_light * (1.0 - horizon_haze * 0.35) / (1.0 - 0.93 * sun_filter);
 	point_stars *= 1.0-horizon_haze*.82;
 	// Queens never owns a coal-black horizon. Keep the glow shallow so the
 	// measured Milky Way survives overhead while distant building feet belong
@@ -612,5 +638,6 @@ void sky() {
         float rho=mix(living_enabled ? mix(.00015,.00055,living_aerosol/.4) : .00035,0.045,wx_whiteout);
         float tau=wx_height_tau(wx_camera_km.y*1000.0,max(EYEDIR.y,0.0),3000.0,rho,140.0);
         COLOR=mix(combined,wx_haze_color(normalize(sun_direction)),1.0-exp(-tau));
+        COLOR*=1.0-0.93*solar_filter(EYEDIR);
     }
 }

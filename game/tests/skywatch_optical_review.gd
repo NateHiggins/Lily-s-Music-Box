@@ -889,7 +889,8 @@ func sun_review(bench: Node3D) -> void:
 	var out := OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(out)
 	const Optics := preload("res://scripts/building/solar_optics.gd")
-	check(absf(Optics.refraction_deg(0.0) - 0.57) < 0.05, "refraction at the horizon is about 34 arcminutes")
+	check(absf(Optics.refraction_deg(-0.57) - 0.57) < 0.04, "a body 34 arcminutes below the horizon is lifted onto it")
+	check(absf(Optics.refraction_deg(0.0) - 0.48) < 0.04, "refraction at geometric zero is about 29 arcminutes (%.3f)" % Optics.refraction_deg(0.0))
 	check(Optics.flattening(0.0) > 0.75 and Optics.flattening(0.0) < 0.9, "a setting Sun is squashed to about 0.8 (%.3f)" % Optics.flattening(0.0))
 	check(Optics.flattening(20.0) > 0.995, "a high Sun is round")
 	var clean := Optics.direct_light(60.0, Optics.aerosol(5, 720.0, 0.4))
@@ -907,6 +908,8 @@ func sun_review(bench: Node3D) -> void:
 		particle.emitting = false; particle.hide()
 	bench.camera.near = .01
 	var sky: ShaderMaterial = bench.sky_material
+	# Rise clear of the neighbouring blocks so a setting Sun is not behind a roof.
+	var street: Vector3 = bench.camera.global_position
 	var days := {"winter": [1929, 1, 15], "spring": [1929, 4, 15], "summer": [1929, 7, 15], "autumn": [1929, 10, 4]}
 	for season: String in days:
 		var day: Array = days[season]
@@ -924,6 +927,7 @@ func sun_review(bench: Node3D) -> void:
 			# A 0.5-degree eyepiece field and a 0.12-degree field on the limb resolve the telescope Sun.
 			for field: Array in [["world", 60.0], ["close", 3.0], ["glass", 0.5], ["limb", 0.12]]:
 				var aim := sun
+				bench.camera.global_position = street if field[0] == "world" else street + Vector3.UP * 400.0
 				if field[0] == "limb":
 					aim = (sun + Vector3.UP * sin(deg_to_rad(0.25))).normalized()
 				bench.camera.look_at(bench.camera.global_position + aim, Vector3.UP)

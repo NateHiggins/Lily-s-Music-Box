@@ -73,13 +73,12 @@ void main() {
         if(edge>0.0) {
             // Each colour is pushed out by a different amount: the ring splits.
             vec3 across=normalize(ray-centre*dot(ray,centre)+vec3(1e-6));
-            vec3 split=vec3(-.012,0.0,.012)*edge;
-            vec3 colour;
-            for(int c=0;c<3;c++) {
-                float a=theta-split[c];
-                vec2 s=screen_of(centre*cos(a)+across*sin(a),frame);
-                colour[c]=(all(greaterThan(s,vec2(.001))) && all(lessThan(s,vec2(.999)))) ? textureLod(source_image,s,0.0)[c] : result[c];
-            }
+            float push=.012*edge;
+            vec2 sr=screen_of(centre*cos(theta+push)+across*sin(theta+push),frame);
+            vec2 sb=screen_of(centre*cos(theta-push)+across*sin(theta-push),frame);
+            vec3 colour=result.rgb;
+            if(all(greaterThan(sr,vec2(.001))) && all(lessThan(sr,vec2(.999))))colour.r=textureLod(source_image,sr,0.0).r;
+            if(all(greaterThan(sb,vec2(.001))) && all(lessThan(sb,vec2(.999))))colour.b=textureLod(source_image,sb,0.0).b;
             result.rgb=mix(result.rgb,colour*(1.0+edge*.6),edge);
             touched=true;
         }

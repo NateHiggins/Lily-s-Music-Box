@@ -19,8 +19,10 @@ const SOLAR_RADIUS := 0.2666
 ## takes the apparent elevation; one fixed-point step is plenty at this precision.
 static func refraction_deg(geometric_deg: float) -> float:
 	if geometric_deg < -2.0: return 0.0
-	var apparent := geometric_deg + _bennett(geometric_deg)
-	return _bennett(apparent)
+	# Bennett takes the apparent elevation; two fixed-point steps converge.
+	var refraction := _bennett(geometric_deg)
+	for step in 2: refraction = _bennett(geometric_deg + refraction)
+	return refraction
 
 static func _bennett(apparent_deg: float) -> float:
 	var h := maxf(apparent_deg, -1.9)
@@ -54,15 +56,15 @@ static func aerosol(month: int, minute_of_day: float, relative_humidity: float) 
 	var heating := _heating_season(month)
 	# Boilers fire before breakfast and at supper; the smoke lies low until mid-morning.
 	var firing := maxf(_bump(minute_of_day, 7.0 * 60.0, 150.0), _bump(minute_of_day, 18.0 * 60.0, 180.0))
-	var smoke := heating * (0.10 + 0.08 * firing)
+	var smoke := heating * (0.05 + 0.05 * firing)
 	var summer := _season_bump(month, 7.5, 1.6)
 	var spring := _season_bump(month, 4.5, 1.2)
 	var autumn := _season_bump(month, 9.8, 1.0)
-	var haze := summer * 0.17
+	var haze := summer * 0.08
 	var swell := 1.0 + 0.9 * pow(clampf(relative_humidity, 0.0, 1.0), 3.0)
-	var beta := (0.045 + smoke + haze) * swell * (1.0 - 0.35 * spring) * (1.0 - 0.45 * autumn)
+	var beta := (0.03 + smoke + haze) * swell * (1.0 - 0.35 * spring) * (1.0 - 0.45 * autumn)
 	# Smoke is fine (alpha near 1.6) and reddens; haze is coarse (alpha near 0.7) and whitens.
-	var alpha := (1.6 * smoke + 0.7 * haze + 1.3 * 0.045) / maxf(smoke + haze + 0.045, 0.001)
+	var alpha := (1.6 * smoke + 0.7 * haze + 1.3 * 0.03) / maxf(smoke + haze + 0.03, 0.001)
 	# A glare halo grows with coarse, wet particles.
 	var glare := clampf(haze * 3.2 * swell + smoke * 0.8, 0.0, 1.0)
 	return {"beta": beta, "alpha": alpha, "glare": glare, "smoke": smoke, "haze": haze}
@@ -86,7 +88,7 @@ static func direct_light(geometric_deg: float, air: Dictionary) -> Dictionary:
 	var apparent := geometric_deg + refraction_deg(geometric_deg)
 	var tau := optical_depth(air)
 	var t := transmission(apparent, tau)
-	var reference := transmission(90.0, optical_depth({"beta": 0.045, "alpha": 1.3}))
+	var reference := transmission(90.0, optical_depth({"beta": 0.03, "alpha": 1.3}))
 	var relative := Vector3(t.x / reference.x, t.y / reference.y, t.z / reference.z)
 	var peak := maxf(relative.x, maxf(relative.y, relative.z))
 	var colour := Color(relative.x / peak, relative.y / peak, relative.z / peak) if peak > 0.0 else Color.BLACK

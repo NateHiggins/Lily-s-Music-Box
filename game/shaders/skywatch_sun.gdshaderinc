@@ -11,7 +11,7 @@
 // Prominences are thin H-alpha loops standing off the limb, visible past it only.
 
 uniform vec4 sun_spots[8]; // xy disc position, z umbra radius (disc units), w strength 0-1
-uniform float sun_detail_scale = 650.0; // granules across one disc radius
+uniform float sun_detail_scale = 260.0; // cells across one disc radius: larger than real granules (about 650) so a 0.5-degree eyepiece field resolves them
 uniform float sun_prominence = 0.35;
 uniform float sun_eye = 0.0; // Star God phase A: the spots gather into an eye
 

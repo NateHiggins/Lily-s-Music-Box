@@ -353,8 +353,12 @@ func _apply(minute: float) -> void:
 		var light := SolarOptics.direct_light(elevation, air)
 		var daylight := smoothstep(-0.6, 2.0, float(light.apparent_deg))
 		var clouded := float(profile.get("cloud_direct_transmission", 1.0))
-		profile.key = (profile.key as Color).lerp(SUN_WHITE * (light.colour as Color), daylight)
-		profile.key_e = lerpf(profile.key_e, SUN_NOON_ENERGY * float(light.energy) * clouded, daylight)
+		# The street is lit for play, not photometry: the light keeps three quarters
+		# of the air's colour and the square root of its dimming, so a smoky
+		# winter evening is dark amber, not black, and sunset is not pure red.
+		var tinted := Color.WHITE.lerp(light.colour as Color, 0.75)
+		profile.key = (profile.key as Color).lerp(SUN_WHITE * tinted, daylight)
+		profile.key_e = lerpf(profile.key_e, SUN_NOON_ENERGY * sqrt(float(light.energy)) * clouded, daylight)
 		var apparent := SolarOptics.apparent_direction(sun)
 		profile["sun_direction"] = apparent
 		if sun.y > -0.035: source_dir = apparent
@@ -406,7 +410,7 @@ func _apply(minute: float) -> void:
 		if profile.has("sun_optics"):
 			var optics: Dictionary = profile.sun_optics
 			_sky.set_shader_parameter("sun_flatten", float(optics.flatten))
-			_sky.set_shader_parameter("sun_tau", optics.tau)
+			_sky.set_shader_parameter("sun_air_depth", optics.tau)
 			_sky.set_shader_parameter("sun_tint", optics.tint)
 			_sky.set_shader_parameter("sun_glare", float(optics.glare))
 			_sky.set_shader_parameter("sun_limb_u", SUN_LIMB_U)
