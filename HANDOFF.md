@@ -1,18 +1,79 @@
-# Current checkpoint — compile passes; bounded receiving delivery fails
+# Current handoff — qualification repair open; runtime05 queued
 
-runtime_04 is terminal1. Source guard and all6script compilations PASS. The
-native3440x1440 bounded probe terminates1 in18.26s with empty stderr: supported
-selection/three-leg transfer,foreign denial,hand return/release and in-memory
-pose restore still pass,but the added incoming delivery returns false before
-the receiving-seat checks. Part stops at(-.223512,.608285,.152591); this is not
-yet attributed to ownership,inspection entry or pointer visibility. No original
-authority/disk,apartment or surface stage starts. New diagnostic lines retain
-entry camera/owner,actual pointer target and receiving-context failure; a new
-failure frame preserves the exact camera rather than restaging the part.
-Next prepare and queue runtime_05 after a clean checkpoint; retain runtime04
-unchanged. No production workaround,collision waiver or interaction acceptance.
+Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
+**codex/v2-qualification-debt-20261104**. Code checkpoint **9d8faac75** is
+committed and pushed; PR152 remains **OPEN/DRAFT/UNMERGED**. Main is
+**4f16053e8a7b1f8fe0ec91c25d5aab8c4a794359**, the PR151 merge. Fetch and
+inspect actual Git before acting; app-attached v2-baseline is not canonical.
+
+## Resume the live job, do not duplicate it
+
+External base: **C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/**.
+**runtime_05/QUEUE_CUSTODY.json** records broker **34552**, tool session79719,
+queued11:05:24Z on November4. The PID/command line was verified live at handoff.
+New chats must revalidate the process identity and per-stage receipts; a state
+file alone is not proof of liveness. Tool-session access may be chat-local.
+Do not restart an existing live broker. Keep its consumed sources fixed.
+
+runtime05 has seven fail-fast stages: source guard,compile6,bounded native
+receiving-delivery diagnostic,original first-slice authority/disk reconstruction,
+nine-apartment movement,composed physical surfaces plus city/entry views,and
+final source/contract guard. All Godot uses the patched engine/lane and hidden
+native3440x1440 windows. No mouse capture on Lily's desktop. Reuse unchanged
+native06/material-library proof. Full original routes run only after preflight.
+
+**Latest actual result:** runtime04 terminal1. Source guard/compile6PASS; the
+18.26s native preflight has empty stderr. Pose support,selection,three-leg
+transfer,foreign release denial,hand return/release and in-memory restore pass.
+Incoming receiving delivery fails before seating/thread tests,at world
+(-.223512,.608285,.152591). Context versus inspection entry versus pointer
+visibility remains unproven. runtime05 adds that attribution and an unstaged
+failure frame; no production workaround or collision waiver. No original
+authority/disk,apartment or surface stage ran in04. Preserve failed02–04/probes.
+
+## Finish the integration before opening new work
+
+1. Read runtime05's actual result,fix the receiving interaction from evidence,
+   and pass the original authority/save/apartment contracts. Inspect new frames.
+   Stage only exact original receipts via the external staging helper,passing
+   `runtime_05` explicitly; its default still names03. Preserve the older19-room
+   apartment cohort separately. No receipt repin or capture-to-played promotion.
+2. Renew the source-bound surface packet and exact119-gate candidate against
+   **board_main_4f16053e8/board.json**. The earlier116PASS/2FAIL/1INCOMPLETE board
+   predates the owner repair. Full completeness now108/110PASS: two stale live
+   first-slice/apartment failures remain. Manual PR152 merge only after required
+   evidence passes. No auto-merge or whole-V2 acceptance claim.
+3. Continue outstanding book/nook,installed hose,playable stutter and whole-V2
+   coverage. TASKS.md holds current gaps; do not repeat unchanged long walks.
+   External **book_optics_candidate/** is authored only,not installed/compiled.
+   **BOOK_NEXT_DIAGNOSTIC.json** and **HOSE_NEXT_DIAGNOSTIC.json** record source
+   findings,not runtime proof. Dark held-book cover,installed shelf-slot return,
+   corridor/Continue,full hose payout/release/dressing/impact wetting and broader
+   cold/reload performance remain open. Preserve prologue/audio/golden-shift,
+   campaign/weather and artistic acceptance commitments.
+
+## Coordinate ownership and integration
+
+Check both Codex and ChatGPT inboxes using
+**C:/Users/nate_/homebrew-tools/toolbox.py**. Direct Orison coordination is
+authorized. Claude's Sun work is isolated in **C:/ov/sun**, branch **claude/sun**;
+Claude agreed to hold its surface renewal until PR152 merges. Send the merge
+result before it renews. Architect's city authoring is complete/stopped;
+coordinate any new bounded request rather than duplicating authoring.
+
+Use independent chats/agents for bounded work with explicit named-path owners,
+dependencies,evidence deliverables and merge order. One integration owner admits
+changes to main; one shared FIFO lane serves Godot/GPU. Keep dependent runtime
+fixes sequential and amortize one qualification renewal across related changes.
+Do not let parallel edits invalidate a live source-bound run. Respect all
+gameplay/save/input authorities,private likeness custody,and Lily's she/her name.
+
+Detailed evidence: **design/V2_CITY_CONTEXT_REPORT_2026-10-19.md**. This handoff
+does not turn authored code,technical checks or diagnostic renders into playtest
+or artistic acceptance. The overall V2 goal remains active and unfinished.
 
 Earlier checkpoints below retain their historical states.
+
 
 runtime_03 is terminal1: before-source guardPASS,then compile6 reports one
 failed script. Three new first-slice call sites mistakenly consumed the void
