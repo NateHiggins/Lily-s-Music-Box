@@ -87,7 +87,16 @@ Held:
   - **audit_newspapers:** 59 back pages, 0 failures.
   - **audit_data_consumption --baseline:** NEW 0.
   - **test_check_mystery_dialogue:** OK.
-- **Runtime:** a lane batch runs compile, ResidentConversationTest, MailBankTest, NewspaperTest and WorldFlagTest.
-  Its receipts are in `C:/ov/reports/mystery_edit/runs/`.
+- **Runtime**, on the lane, with receipts in `C:/ov/reports/mystery_edit/runs/`:
+  - CompileChangedScripts PASS.
+  - MailBankTest PASS and WorldFlagTest 0 failures.
+  - ScheduleTest PASS, including new checks of every added special day. Each is checked at its first and last
+    minute and one minute past its end, its place must give a legal directive, and nothing may touch 19 to 22 July.
+    **self_test** resolves at doy 0, so before this nothing exercised special days.
+  - ResidentConversationTest 0 failures. Main failed it 3 times, all from **field_notes.json**: the two uniform notes
+    ran past the printer's 30 columns, and the test still expected 2 notes. The lines are wrapped with their words
+    unchanged, and the test now requires all four notes by id. Codex agreed this repair boundary.
+  - NewspaperTest has 1 failure: the "outside click and corner are distinct visible targets" check. It also fails on
+    a control run of main plus the Sun branch, so it is inherited and untouched here.
 - **Receipts:** any **game/data** change expires the runtime receipts. Per D9, this lands in a planned window and
   the packets are re-earned once.
