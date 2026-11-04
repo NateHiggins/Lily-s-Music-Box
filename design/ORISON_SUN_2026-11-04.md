@@ -96,11 +96,28 @@ trolleys is street work in the city lane; that question is Lily's.
 
 ## Verification
 
-Runs are in `C:/ov/reports/sun/runs/`; renders are in `C:/ov/reports/sun/shots*`. The sun review
-(`SKYWATCH_SUN_REVIEW=1` on `V2SkySpectacleBench`) renders each season at noon, at 6° and at 0.5°, in 60°, 3°, 0.5°
-and 0.12° views. The eclipse review renders the event's phases.
+All runs are on the lane, compile first, and their receipts are in `C:/ov/reports/sun/runs/`:
+- **Batches 5-8:** CompileChangedScripts PASS. The sun review has 6 checks, all PASS: refraction 0.485° at geometric zero, flattening 0.851 at the horizon, winter smoke dims and reddens. The eclipse review has 3, all PASS: full cover at mid-totality, nothing before 06:40, no second eclipse.
+- **Batch 2:** SkyPhenomenaScheduleTest PASS, including the check that `star_god.gd` and the schedule agree.
+
+Renders are in `C:/ov/reports/sun/shots8*`, with contact sheets in `C:/ov/reports/sun/sheet*.png`. They show:
+- A low Sun as an orange, squashed disc through the haze.
+- Through smoked glass, a deep red oval when low and an orange disc when high, with sunspots, prominences and granulation at the limb.
+- In the eclipse:
+  - the crescent, the beads, the diamond ring and the corona past the limb
+  - a dark sky with stars, the figure, the line and the split-colour ring
+  - the tear at noon and the violet night after
+
+Mistakes on the way:
+- **Shader name clash.** A `sun_tau` uniform clashed with a function parameter in the weather maths and blacked out the sky.
+- **Untyped variable.** An untyped `var :=` in the review cost about 15 minutes of shared lane (both scenes ran to their ceilings). Batches now compile first and stop at the first failure.
+
+Art decisions:
+- **Granulation scale.** Telescope granules are drawn about 2.5 times real size, so a 0.5° field resolves them.
+- **Street sunlight** keeps three quarters of the air's colour and the square root of its dimming, so a smoky winter evening is dark amber, not black.
 
 Not yet done:
+- The phase A eye at its enlarged size (enlarged after batch 8).
 - The surface packet renewal that any sky change needs.
-- The composed-world performance of the daytime Moon pass.
-- The lens on a real camera.
+- Composed-world performance with the daytime Moon pass.
+- The lens on a moving camera in the composed world.
