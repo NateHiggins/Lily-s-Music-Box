@@ -45,10 +45,26 @@ func run() -> void:
 			low_seen+=1
 		check(low_seen==lower_proof.parts.size() and low_seen>0,"nonempty complete industrial replacement block roster")
 		lower.free()
+	var expected_static: Dictionary={}
+	for base_proof: Dictionary in fixture.assets.values():
+		if str(base_proof.role)!="base":continue
+		for part: Dictionary in base_proof.parts:
+			check(not expected_static.has(str(part.name)),"unique source static horizon part")
+			expected_static[str(part.name)]=part
+	var seen_static: Dictionary={}
+	var clock_inventory: Dictionary=_validate_clock_stock(horizon,fixture)
 	var industrial_parts:=0
-	for model: Node3D in horizon.get_children():
+	# The city also owns non-spatial clock/effect controllers. Traverse their
+	# descendants too; a controller must not hide any physical mesh from census.
+	for model: Node in horizon.get_children():
 		for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
-			bodies[(draw.get_node("HorizonCollision") as StaticBody3D).get_rid()]=draw
+			if draw.get_meta("city_clock_hand",false):continue # separately exact-checked below
+			check(expected_static.has(str(draw.name)) and not seen_static.has(str(draw.name)),"unique installed static horizon part: "+str(draw.name))
+			seen_static[str(draw.name)]=true
+			var body:=draw.get_node_or_null("HorizonCollision") as StaticBody3D
+			check(body!=null,"native static horizon part has collision backing: "+str(draw.name))
+			if body==null:continue
+			bodies[body.get_rid()]=draw
 			var identity := str(draw.get_meta("v2_city_horizon_building"))
 			var box := draw.global_transform * draw.mesh.get_aabb()
 			bounds[identity] = (bounds[identity] as AABB).merge(box) if bounds.has(identity) else box
@@ -78,6 +94,7 @@ func run() -> void:
 				if stock!=null:
 					for texture: Texture2D in [stock.albedo_texture,stock.roughness_texture,stock.normal_texture]:
 						check(texture!=null and texture.get_image().has_mipmaps(),"actual loaded industrial PBR/mips: "+str(draw.name))
+	check(seen_static.size()==expected_static.size(),"complete exact static horizon part census")
 	check(industrial_parts==lower_counts.size(),"every industrial replacement part installed once")
 	check(metrics.failures.is_empty(), "loaded metric charts and tangents across both asset/material families")
 	# Reuse the reviewed scalar-double derivative implementation. Its detached
@@ -107,6 +124,7 @@ func run() -> void:
 		var expected := AABB(lo,hi-lo)
 		var actual: AABB = bounds.get(str(row.id), AABB())
 		check(actual.position.distance_to(expected.position)<.0001 and actual.end.distance_to(expected.end)<.0001, "actual imported building/grade frame: "+str(row.id)+" actual="+str(actual)+" expected="+str(expected))
+	var checked_panes:=0
 	for window: Dictionary in fixture.window_rows:
 		var p: Array = window.point
 		var n: Array = window.normal
@@ -119,6 +137,7 @@ func run() -> void:
 			var draw := hit.collider.get_parent() as MeshInstance3D
 			valid = draw != null and str(draw.get_meta("v2_city_horizon_building"))==str(window.building) and str(draw.name).ends_with("__mirror_aged")
 		check(valid, "actual fitted opaque pane: "+str(window.building)+" "+str(point))
+		checked_panes+=1
 	var grade: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_ground_apron.json"))
 	for strip: Dictionary in grade.boxes:
 		var samples: Array=strip.exposed_samples
@@ -197,9 +216,37 @@ func run() -> void:
 		var file:=FileAccess.open(directory.path_join("family_outcome.json"),FileAccess.WRITE)
 		check(file!=null,"write source-bound family diagnostic")
 		if file!=null:
-			file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Loaded family diagnostics and explicit mutations,not composed gameplay or runtime qualification","test_sha256":FileAccess.get_sha256(get_script().resource_path),"fixture_sha256":FileAccess.get_sha256("res://tests/fixtures/orison_city_horizon.json"),"checks":checks,"failures":failures,"roof_controls":roof_controls,"derivative_controls":derivative_controls},"\t"));file.close()
+			file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Loaded family diagnostics and explicit mutations,not composed gameplay or runtime qualification","test_sha256":FileAccess.get_sha256(get_script().resource_path),"fixture_sha256":FileAccess.get_sha256("res://tests/fixtures/orison_city_horizon.json"),"checks":checks,"failures":failures,"native_inventory":{"expected_static":expected_static.size(),"seen_static":seen_static.size(),"expected_lower":lower_counts.size(),"seen_lower":industrial_parts,"checked_panes":checked_panes,"clock_hands":clock_inventory},"roof_controls":roof_controls,"derivative_controls":derivative_controls},"\t"));file.close()
 	print("CITY HORIZON BENCH: %s; %d checks; %d failures" % ["PASS" if failures.is_empty() else "FAIL", checks, failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _validate_clock_stock(horizon: Node3D,fixture: Dictionary) -> Dictionary:
+	var expected: Dictionary={}
+	for face: Dictionary in fixture.get("clock_faces",[]):
+		for kind: String in ["hour","minute"]:
+			expected[str(face.id)+"_"+kind+"_hand"]={"building":str(face.building),"part":"south_"+kind+"_hand"}
+	var original: Node3D=null
+	if not expected.is_empty():original=preload("res://assets/props/arcade_clock.glb").instantiate()
+	var seen: Dictionary={}
+	for draw: MeshInstance3D in horizon.find_children("*","MeshInstance3D",true,false):
+		if not draw.get_meta("city_clock_hand",false):continue
+		var identity:=str(draw.name)
+		check(expected.has(identity) and not seen.has(identity),"unique source-bound horizon moving hand: "+identity)
+		seen[identity]=true
+		check(draw.get_node_or_null("HorizonCollision")==null and not draw.has_meta("v2_city_horizon_body_lod"),"moving hands remain separate from static collision/body LOD")
+		if not expected.has(identity) or original==null:continue
+		var spec: Dictionary=expected[identity]
+		check(str(draw.get_meta("city_clock_building",""))==str(spec.building) and str(draw.get_meta("city_clock_source_part",""))==str(spec.part),"moving hand retains source building/stock")
+		var stock:=original.find_child(str(spec.part),true,false) as MeshInstance3D
+		check(stock!=null,"moving hand source stock exists")
+		if stock!=null:
+			var source_arrays:=stock.mesh.surface_get_arrays(0)
+			var loaded_arrays:=draw.mesh.surface_get_arrays(0)
+			for channel: int in [Mesh.ARRAY_VERTEX,Mesh.ARRAY_NORMAL,Mesh.ARRAY_TANGENT,Mesh.ARRAY_TEX_UV,Mesh.ARRAY_INDEX]:
+				check(source_arrays[channel]==loaded_arrays[channel],"actual native moving-hand physical arrays")
+	check(seen.size()==expected.size(),"complete moving-hand inventory is separate from static census")
+	if original!=null:original.free()
+	return {"expected":expected.size(),"seen":seen.size()}
 
 func _residential_receiving_y(profile:Dictionary)->float:
 	var architecture:Dictionary=profile.get("architecture",{})

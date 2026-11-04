@@ -31,13 +31,28 @@ with -text rules. Both import-source and UV-policy gates now pass; generated
 uid files are not staged.437tracked import rewrites were independently proven
 LF-byte-equal and restored by named paths. No real source was discarded.
 
-Corrected loaded_02/batch.json is queued: session95483/broker39396(created
-2026-11-04T01:10:13.6851469Z). It reuses the two completed imports and unchanged
-GLBs,then captures a fresh source freeze,compiles4scripts and runs only the
-blocked entry/family/LOD diagnostics. Native82410 and loaded5324 are terminal;
-do not restart them or duplicate the new broker. Current custody:
-C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json. No rendered,
-composed-world,played-access,performance,save/load or artistic pass; no merge.
+Loaded_02 is terminal-1 after an owned diagnostic abort. Compile4/0 completed
+in12.64s with empty stderr; the entry lifecycle bench passed39/0 in4.97s at
+3440x1440,empty stderr. Its restored blue-control frame was inspected; it is
+not an Orison appearance/playtest or frame-budget result. The family bench then
+raised a real Node-to-Node3D runtime assignment atline50: the production city
+also owns a non-spatial clock controller. Only the verified owned failed GUI
+was stopped at177s to avoid consuming the1200s ceiling; wrapper/log/abort
+provenance are preserved,no family/teardown pass. A prepatch read-only guard
+confirmed all28test sources and production digest unchanged.
+
+The diagnostic now traverses every Node child,keeps exact1110static-part
+census/collision checks,and separately verifies all4moving hands against native
+position,normal,tangent,UV and index arrays. Every pane ray remains. It writes
+actual static/lower/pane/hand traversal counts; no controller or hand becomes a
+static collision/LOD part. Production geometry,clock and gameplay are unchanged.
+Loaded_03 family-only4stage retry is queued:session49748/broker59072,under
+attempt_04/loaded_03/. It compiles the changed bench and reruns only the blocked
+family/9profiles with fresh input guards. Unchanged imports and the39check
+entry result are reused by production+transitive-entry-source closure; do not
+repin them as composed or gameplay proof. Native82410/loaded5324/95483 are
+terminal; do not restart them. Current custody remains ACTIVE_QUALIFICATION.json.
+No composed-world,played-access,frame-budget,save/load or artistic pass;no merge.
 
 Import-generated UID custody review: candidate verification requires a clean
 checkout.704untracked UID values had no explicit tracked game references and
