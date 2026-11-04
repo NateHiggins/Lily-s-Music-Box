@@ -53,12 +53,19 @@ runtime data plus a source-bound fixture. Existing geometry/ground owners are
 unchanged. Edge intake loaded_01 is TERMINAL1: the import exited0 but its
 stderr carried the genuine inferred-Variant parse error; compile checked4scripts
 and failed only horizon-bench line730. Loaded/contact/LOD/access did not start.
-The explicit WeakRef type fix is authored. Fresh loaded_02 reuses the completed
-import and queues only guard/freeze/compile/loaded/after stages,session66336,
-self-recorded broker59136,born2026-11-04T05:04:34.2225143Z. No current-engine edge
-pass yet. Inputs stay frozen until that actual handle is terminal;do not restart
-it. Reader NEW0 and spatial audit clean on current sources. Integration remains
-uncommitted WIP; all original failures and source snapshots are preserved.
+The explicit WeakRef type fix is authored. Fresh loaded_02 is TERMINAL1:
+compile4PASS,loaded71checks/2failures in42s. All3standing route legs and actual
+6216-to1200triangle distance/zoom/return checks pass;both imported levels fail
+strict metre/tangent derivatives under default compression. Original logs,
+receipts and5frames remain;4directly inspected plus byte-identical return reuse.
+The existing lossless import policy now covers only these2newmodels (130policy
+references,missing0/wrong0). No native geometry or tolerance changed. Loaded_03
+reimports once and repeats the loaded check, reusing unchanged43source/helper
+hashes and the completed4script compile;46input freeze includes2settings and
+policy. It is queued,session85669,actual broker36888,bornUTC2026-11-04T05:39:08.6773604Z.
+Inputs remain frozen until that handle is terminal. No edge pass claimed yet;
+original failures and snapshots are preserved. The native/catalog migration
+replay is independently queued in external qualification_debt_trace_01 only.
 
 The read-only grade replay47412/session45214 is TERMINAL0:14947native records
 exact,only3known bindings independently regenerated. Old runtime registration

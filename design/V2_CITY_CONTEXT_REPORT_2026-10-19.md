@@ -7203,3 +7203,31 @@ stale rendered qualification and physical import retention:the latter sampled
 weakening their assertions. Actual edge-loaded checks,composed rendered renewal,
 a clean complete candidate check and manual merge remain open. Original failed
 boards and unchanged scope limitations are retained.
+
+
+### Loaded edge derivative failure and bounded import correction
+
+**ground_edge_intake_01/loaded_02/** is terminal1,not an acceptance receipt.
+The real4script compile passes with empty stderr. The loaded71check fixture
+finishes42s with2aggregated failures:bothcomplete levels fail strict loaded
+metre-chart/tangent-derivative checks. Default compression produces maximum UV
+excess0.000548966m near/0.000522792m lower;4795near/70lower bad derivative corners,
+worst tangent agreement0.751759/0.998178. Original native derivatives passed.
+No metric/tangent tolerance was loosened and no native model was changed.
+
+All3continuous standing-controller legs reach their targets. Natural distance
+observations are6216triangles/1draw at2m and8m,1200/1draw at32m; narrow-FOV recovery
+and inward return pass. These are isolated structural/route observations,not a
+450m journey,composed-world proof or frame-time budget. The after-stage guard did
+not execute because the loaded stage failed. Original43source/helper hashes
+were independently rechecked before changing import settings.
+
+Four actual3440x1440frames were directly inspected;the return frame byte-matches
+the inspected near frame. Concrete reads in the isolated views;the plain grade
+and regular marker-like fragments remain unfinished artistic context. The two
+models now join the existing explicit lossless import policy,with130references
+and0missing/wrong settings. **ground_edge_intake_01/loaded_03/** is FIFO queued,
+session85669,self-recorded broker36888,bornUTC2026-11-04T05:39:08.6773604Z. It
+reimports affected assets once and repeats the unchanged loaded test,retaining
+46input source guards and reusing the verified unchanged4script compile. No
+lossless runtime pass,final composed renewal or artistic acceptance claimed.
