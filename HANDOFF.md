@@ -1,146 +1,75 @@
-# Current handoff — authority/save qualified; viewport reproduction required
+# Current handoff — audio teardown blocks PR152 qualification
 
-Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-qualification-debt-20261104**. PR152 is **OPEN/DRAFT/UNMERGED**;
-main remains **4f16053e8** (PR151). Source checkpoint **76ef025f5** is pushed;
-inspect actual Git for newer tracker-only checkpoints. Sole integration owner:
-**01a1a653-eda8-7732-9732-2c362f5129d6**. Never duplicate a recorded live job.
+Canonical checkout **C:/PleaseRemainOnTheLine**, branch
+**codex/v2-qualification-debt-20261104**. PR152 remains **OPEN/DRAFT/UNQUALIFIED**.
+Main **4f16053e8**; pushed checkpoint **ce01679a5**; production/test source
+checkpoint **76ef025f5**. Root **01a1a653-eda8-7732-9732-2c362f5129d6** owns
+integration. Lily paused parallel emulator work and assigned the computer to
+this development. Keep it paused; preserve her mouse and hidden FIFO lane.
 
-**runtime11 is terminal1**, broker29304/session33776 retired. Its original
-first-slice authority/save programme **PASS**:633.48s,379 serialized checks,
-380 console checks including post-write flush,381 wrapper pass lines,0failed
-checks/script errors. Current completeness validation returns no errors.
-Original seven-authority composition,physical insert exchange preserving all28
-identities,steam repair,resident return,disk save,world reconstruction and tracked
-teardown pass. Receipt:
-**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_11/first_slice/runtime_authority_receipt.json**.
-Raw wrappers/logs are unchanged. No human play or artistic acceptance is implied.
+**runtime13 is TERMINAL/FAILED**, not queued. Original apartment assertions
+passed: 60 rooms/9 legs,781 serialized checks,0 failures,1264.98s. Original
+physical/city/entry surface assertions passed:0 unresolved,367.10s. All82 PNGs
+are actual3440x1440 and reviewed. Final admission correctly rejected shutdown
+errors: apartments11219 ObjectDB instances/30 resources; surface1133/24.
+These are not qualified packets. Preserve every original log/receipt under
+**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_13/**.
+Source/retirement checked and custody explicitly released. No publication or
+merge is authorized by these partial passes.
 
-Same-run sourceguard,compile16,radiator,real door/stock and installed transfer
-also PASS. Loose view(.20,.45,-.15) clears actual outgoing/receiving admission;
-original controller parks,returns and normally catches the same insert. Test
-pointer now aims at localY.002 inside the unchanged native target,correcting the
-old rounded top-edge miss. Architect actually inspected all12 native frames;
-exact-hash technical review and frame/source guard passed before original work.
-Mounted-cap view,furniture,collision,grips,goals and authorities stay unchanged.
+The unchanged verbose surface reproduction at
+**C:/ov/reports/develop_intake_20261104/teardown_verbose_01/** completed371.78s
+and identified1051 leaked audio instances:491 Vorbis playback/491 packet
+playback,42 WAV playback,12 Ogg streams/12 packet sequences,3 WAV streams.
+Its source custody is released. Fixture/interaction-cycle reviews found no
+supported fix; do not apply speculative teardown changes.
 
-**Apartment qualification FAIL**:268.16s,175 serialized/176 console checks,
-69 failures,0 rooms. All9first targets were reached within22.3mm horizontally,
-.67mm vertically and no recorded wall contacts; each arrival predicate rejected
-before room admission. Surface and original final guard never ran. Original
-failed contract/logs remain under **runtime_11/apartments/**. Architect checked
-frozen source equality after terminal using the unchanged preparer's read-only
-before mode in separate logs,then explicitly released custody. This is not a
-successful after-contract guard. No old failed receipt is repinned or published.
+Tiny four-case reproduction at
+**C:/ov/reports/develop_intake_20261104/teardown_audio_ready/runs/** establishes
+all count controls:64 queued stop/release operations each exit without leaks;
+64 started stop/release operations each leak130 audio instances/2 resources.
+The mixer clock stops advancing while physics advances. Thus the proposed
+AudioPolicy stop_source replacement is not causal and remains unapplied.
+Root admitted minimal engine shutdown cleanup after six tiny controls
+passed with zero leaks; AudioPolicyTest53PASS. DoorAudioLifetimeTest still
+fails the same2/12 started-decoder checks on both original and new engines
+on the stalled default Razer route. A process-only real BD9 endpoint advances
+mixing and passes the unchanged12/12 door test on both engines; integrated
+native-debug selection passes12/12, unlisted output refusesexit2. Keep Windows
+default/preferences untouched; qualify explicitly on this working endpoint. New engine/build bindings and exact limits:
+**design/V2_QUALIFICATION_RENEWAL_2026-10-20.md**. No game audio code changed. Vulkan loader errors in verbose
+runs are separately preserved, not silently removed or treated as proof.
 
-Driver still required mask==1 twice,while production's native fire-contact
-owner adds layer1<<21 and PlayerController owns mask1|native_contact_layers.
-Existing4B route already asserts that exact combined mask. Dependent test-only
-repair uses the same exact owner mask and adds mask/native/expected/noclip/
-physics flags to each trace. Arrival tolerances,targets,physics and all production
-sources remain unchanged. Loaded renewed access proof is still required.
-Independent review: **C:/ov/reports/develop_intake_20261104/runtime11_apartment_review/**.
-
-**runtime12 is terminal/incomplete**,broker29508/session88426 retired. Source/
-reuse guard and compile16PASS13.34s. Corrected mask checks allowed actual3A
-movement past the old failing arrival. Root then found the actual native log
-reports1720x1440,with saved MAIN1720x1440 and BATH6880x2880. The earlier3440
-assumption came from requested arguments,not this log. No cause is established.
-The existing3440 native guard would reject this run. Root verified the owning
-console identity/engine pin,recorded **CANCEL_REQUEST.json**,and canceled only
-its own tree before the unqualified surface stage. Original apartment wrapper
-exit-1/941.78s;no complete apartment contract,surface or finalguard. All actual
-partial images/logs remain unchanged under **qualification_debt_trace_01/runtime_12/**.
-Architect verified retirement and independent post-terminal source/reuse equality
-before explicitly releasing custody. No native-resolution or spatial PASS is
-manufactured from this incomplete run.
-
-**Standalone viewport probe01 is terminal PASS**,exit0/4.19s. Original same
-native setup produced three actual3440x1440 PNGs; root verified headers/hashes,
-source equality and wrapper logs,and opened all3actual frames. One reported
-screen3440x1440,dpi96,scale1;no observed resize events. This does not reproduce
-runtime12's composed-world failure or establish its cause.
-
-**Canonical control probe02 is terminal PASS**,exit0/9.26s,original broker61008
-retired. Root and Architect independently verified all25 frozen hashes,raw logs
-and all3actualPNG headers/hashes3440x1440;Architect opened all3frames. Actual
-GameBoot/all9autoloads+external primitive scene were present. Isolated profile
-contained only log/pipeline cache,no settings/save/recovery files. Source hold
-and custody released;no game-world cause,room or surface qualification follows.
-Original artifacts: **C:/ov/reports/develop_intake_20261104/native_viewport_probe_ready/runs/probe_02_canonical/**.
-
-**Composed3A observation world_3a_01 is terminal PASS**,exit0/433.16s,
-untimedout;broker11104/console27156/child6916 retired independently. Original
-compilePASS30.51s/zero script errors;exact admissionPASS. All58 frozen hashes,
-raw wrapper logs and custody hash match. Final checkpoint012:79checks/0fail,
-six rooms/155trace rows,original route/retirement complete. Both original PNGs
-verify3440x1440 by headers/hashes and root+Architect actual view;resize_events[].
-Root/driver/camera viewport identities agree. Ten invalid-UID fallback warnings
-remain preserved;no ERROR/SCRIPT ERROR. Isolated profiles only logs/cache,no
-settings/save/recovery files. Source hold/custody explicitly released.
-Artifacts: **C:/ov/reports/develop_intake_20261104/native_world_observation_ready/runs/world_3a_01/**.
-This is INERT one-leg observation,not original nine-unit/60-room/save/surface
-proof,and does not establish the earlier resolution failure's cause.
-
-**Current execution: runtime13 original qualification is QUEUED.** Broker40112,
-birth **2026-11-04T21:32:25.1054570Z**,root session84911. Revalidate exact live
-identity from **C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_13/QUEUE_CUSTODY.json**;never duplicate or change frozen inputs.
-Original five stages/13final assertions retained;fresh isolated profiles and
-actual PNG/payload admission added. Unchanged runtime11save/bounded proof reused.
-Architect monitors;canonical consumed sources held through terminal review.
-Next:original full contracts/render review,publication,candidate verification,
-manual PR152merge;then existing book/nook,hose and stutter work. Hose code patch
-is being prepared externally in parallel. Additional art GPU submissions are
-held by coordination request;existing queued/live jobs retain FIFO order.
-
-The original October13 **19-room historical packet is now archived** at
+Original runtime11 authority/save PASS633.48s and bounded transfer/frame proof
+remain preserved at **runtime_11/**, including real28 insert identities,repair,
+resident return,disk save,reconstruction and seven-authority composition.
+Reuse only while exact consumed source AND binary inputs remain valid. A new
+engine requires affected proof renewal. Earlier runtime05–12 failures remain
+immutable; resolution reproductions and historical details are in Git history.
+Original19-room packet is separately archived at
 **art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/**.
-Contract/wrapper/stdout/stderr are byte-exact,including dirty1440 and seven
-Texture RID warning. Raw manifest and all four staged Git objects verified;
-the contract keeps its original blob. This changes custody only,not current
-runtime qualification. The later nine-unit/60-room packet remains untouched.
+Matching original60-room cohort recovered externally at
+**C:/ov/reports/develop_intake_20261104/historical_apartment60_ready/**; preserve
+its matching original contract/wrapper rather than pairing superseded metadata.
 
-Next is a small **viewport-only reproduction**,not another composed world:
-**C:/ov/reports/develop_intake_20261104/native_viewport_probe_ready/**. It must
-observe screens/window/content-scale/actual image sizes across frames without
-writing user settings or gameplay facts. Preserve the failed-resolution run.
-Read-only capture review: **runtime12_capture_dimensions_review.md** in the
-external develop-intake folder. The shared capture helpers and upcoming surface
-producer do not enforce PNG dimensions; enforce actual intended capture size in
-an evidence-supported preflight before another expensive programme. No source
-or windowing fix has yet been demonstrated.
-
-Successful runtime11 bounded/frame/first-slice proof remains byte-identical and
-consumed-source-closure equal. Do not replay its633s authority/save programme.
-The new **prepare_runtime12.py** retained all13 final assertions and pinned47
-original success/review/failure artifacts; its failed resolution is not waived.
-Future continuation must use fresh custody/frozen inputs,original nine-unit and
-physical/city/entry programmes,actual image review and final source/contract guard.
-**stage_runtime12_packets.py** is externally authored/reviewed only; its pending
-refusal created no packet. It requires both verified packet targets and final
-index before publication,and must not be used as a successful-run assertion.
-Root alone publishes byte-exact cohorts,verifies the exact candidate and manually
-merges qualified work.
-
-All original runtime05–10 and installed-camera failures remain intact under
-**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/** and
-**C:/ov/reports/develop_intake_20261104/**. Native06 equivalence/35geometry aliases/
-5286owners and source-closure repairs remain reusable within unchanged scope.
-Preserve the separate original19-room cohort before renewing current60-room proof.
-
-Claude's Sun PR153,mystery PR154 and staff PR155 stay isolated/draft until the
-D9 source window after qualified PR152. PR154 selected20game strings at09618e48b;
-4private comic changes/4scene options remain separate. Raw joke/private drafts
-stay outside Git. Claude delivered Stacy corrections at a0aa53fcf;source review supports the authored cup route/staff clock,but engine controls remain pending. Preserve PR154's wrapped four-note hunk when combining its separate18-tree/cup changes.
-Book exit/optics,hose impact/wetting and stutter deliveries remain uninstalled
-preparation; **C:/ov/reports/develop_intake_20261104/FOLLOWUP_READINESS.json**
-indexes hashes and limits. Preserve prologue/audio/golden-shift/weather/city/
-narrative and gameplay/save authorities. No independent merge or whole-V2 claim.
+Next: original qualification on the admitted shutdown-fix engine and explicit
+working BD9 endpoint under fresh custody,byte-exact publication,exact119-gate candidate
+against **board_main_4f16053e8/board.json**,manual qualified PR152 merge.
+Do not use failed runtime13 staging as success or repin old receipts.
+Then integrate prepared book exit and hose wetting patches,exercise installed
+readability/direct manipulation/save and measured stutter. External deliveries:
+**C:/ov/reports/develop_intake_20261104/book_exit_implementation_ready/** and
+**hose_implementation_ready/**; both are authored only,not installed or run.
+Claude Sun153/mystery154/staff155 remain isolated behind PR152. Private Discord
+joke database/writers draft are delivered outside Git; preserve PR154's four
+wrapped field notes when combining staff changes. Preserve prologue,audio,
+golden-shift,weather,city,narrative and all gameplay/save authorities.
+No whole-V2,human play or artistic acceptance is claimed.
 
 ## Finish the integration before opening new work
 
-1. Repair the stale apartment mask assertion,prove unchanged evidence reuse,
-   and pass original apartment access plus remaining surfaces. Inspect new frames.
+1. Fix the reproduced audio shutdown leak,then pass original authority/save,
+   apartment access and remaining surfaces with current inputs. Inspect new frames.
    Stage only exact original receipts via the external staging helper,passing
    the successful new runtime name explicitly; its default still names03. Preserve the older19-room
    apartment cohort separately. No receipt repin or capture-to-played promotion.

@@ -2,6 +2,56 @@
 
 Evidence class: **INERT**. Technical report, not a room or gameplay checkpoint.
 
+## November 4 — shutdown audio ownership repair; qualification still open
+
+PR152 remains draft/unqualified. Original runtime13 apartment assertions passed
+60rooms/9legs/781checks and surface assertions passed0unresolved, but final
+admission rejected11219/1133 leaked ObjectDB instances and30/24 live resources.
+Original raw evidence remains **C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_13/**.
+Verbose surface reproduction identified retained Ogg/WAV playbacks, not fixtures.
+
+Four tiny controls at **C:/ov/reports/develop_intake_20261104/teardown_audio_ready/runs/**
+reproduced130 leaked audio instances/2resources in each started stop/release case;
+queued controls were clean. All four count controls passed. The patched engine
+repeats all four controls with zero leaked instances/resources. Active/paused
+owner-at-shutdown controls with32bus changes each also exit cleanly
+(**active_02_final/paused_02_final**, source freeze checked afterward). Earlier
+01controls launched before final author delivery are preserved invalid-custody
+diagnostics and grant no acceptance. Original
+logs/counts/wrappers are preserved; these diagnostics are not schema2 gameplay
+proof. AudioPolicyTest passes53checks. DoorAudioLifetimeTest still fails2/12 on
+both original and patched binaries when the default Razer WASAPI mixer stalls.
+Process-only selection of the listed physical **Headphones (BD9)** endpoint
+restores actual mixing/playback progress; the unchanged door test then passes
+12/12 on both engines. The integrated optional native-debug endpoint selection
+also passes12/12; an unlisted endpoint refuses with actual exit2 before checks.
+Windows default/preferences remain unchanged. Qualification explicitly uses this
+working real WASAPI endpoint; the default Razer route remains a host limitation.
+No audible-playback listening or artistic acceptance is claimed.
+
+The10line engine patch retires remaining playback-list nodes after all drivers
+finish/join,using the existing deferred deleter and two bus-detail cleanup passes.
+Normal mixing/fading/stop semantics and game audio code are unchanged. The
+reflection-atlas patch remains applied. Independent ownership review found no
+blocking issue for the observed Windows streaming paths; sample mode and other
+platforms are unqualified. Patch **tools/engine_patches/audio_playback_shutdown_4_7_1.patch**
+SHA256 **04d87ee4797404cf490bcea45d3bed0beaaf201dc34a844e9909fdfa1b57a3d1**.
+
+Isolated incremental build49.94s at **C:/devkit/tentacle-audio-20261104-01/**;
+original binaries/source are preserved at the prior directory and baseline copy.
+New console SHA256 **7965e75a4f847484a4d1596729b508cb1ef23ae17ab6407eaffd9683364f0f8c**;
+engine SHA256 **e954c1db69ebe4b60878ae92cdc3a0e464fe92bd06b78c19402055e9f7bafce1**.
+**BUILD_RESULT.json** binds actual build log/source/binary hashes. The canonical
+manifest now pins these exact binaries. The build helper reproduces both patches;
+configure-only verifies source patches and pins files,not whether a rebuild took
+place. Actual build and executed controls supply that evidence here.
+
+Next: renew original source/binary-bound programmes with explicit real endpoint under
+fresh custody,then publish and verify the exact candidate before manual merge.
+Old successful proof is preserved,not silently promoted to the new engine.
+
+## October 20 — historical renewal
+
 Follow-up: **V2_ROOF_ACCESS_REPAIR_2026-10-20.md** records the combined route
 failure, measured roof bypass and corrected lamp test. The all-home aggregate
 scene below is historical and retired; the existing bounded cohorts are being
