@@ -2,10 +2,25 @@
 
 Canonical checkout **C:/PleaseRemainOnTheLine**, branch
 **codex/v2-qualification-debt-20261104**. PR152 remains **OPEN/DRAFT/UNQUALIFIED**.
-Main **4f16053e8**; pushed checkpoint **ce01679a5**; production/test source
-checkpoint **76ef025f5**. Root **01a1a653-eda8-7732-9732-2c362f5129d6** owns
+Main **4f16053e8**; pushed source checkpoint **dd1d6f652**
+(engine shutdown cleanup plus opt-in native diagnostic audio output). Root **01a1a653-eda8-7732-9732-2c362f5129d6** owns
 integration. Lily paused parallel emulator work and assigned the computer to
 this development. Keep it paused; preserve her mouse and hidden FIFO lane.
+
+**runtime14 is LIVE**, broker38556/session23979, birthUTC
+**2026-11-04T23:45:42.0302880Z**, ticks639294327420302880. Revalidate full command
+and identity in **runtime_14/QUEUE_CUSTODY.json** before inheriting; never duplicate.
+Frozen source **dd1d6f652b9087c410b82a81b40284124c92e92c**; immutable producer
+**423771d0ee6a076e0d7f74bee9bc87a8e7eb5d9e63dfaa226320a9acc520873f**.
+All seven original scene stages execute fresh on pinned shutdown-fix engine;
+six windowed programmes explicitly use real **Headphones (BD9)** WASAPI output
+and fresh isolated profiles. Batch retains original assertions,actual native PNG
+admission,original authority/save,60rooms/9legs,physical/city/entry surfaces and
+final afterguard. Architect owns MONITOR/TERMINAL and actual bounded12frame
+technical review only; root owns launch/source/admission/merge. Source hold spans
+the entire batch. Check actual receipts,not this changing tracker,for progress.
+No old-engine PASS is reused as current proof. External producer/stager14 require
+review; failed13stager must not publish this cohort.
 
 **runtime13 is TERMINAL/FAILED**, not queued. Original apartment assertions
 passed: 60 rooms/9 legs,781 serialized checks,0 failures,1264.98s. Original
