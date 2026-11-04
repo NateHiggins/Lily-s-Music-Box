@@ -7681,3 +7681,12 @@ production stock and normal closer,with exact translated fixture stations
 registered as one spatial-manifest record. It checks empty return,carried
 setdown/reacquire,collision-bearing passage and receiving view. Authored only;
 next compile/bounded test precedes every expensive original route in runtime08.
+
+
+Source-only apartment receipt preflight refused the inherited SOURCES closure:
+**orison_v2_first_slice_contract_test.tscn** was referenced by the first-slice
+helper but absent from the apartment dependency list. The exact scene is now
+included; the same preflight passes. No assertion,source digest or original
+receipt was relaxed/repinned. ReaderNEW0 and spatial clean with one reviewed new
+fixture record. Driver/nearby fixture at **70c45392b** remain uncompiled/unrun;
+the new scene dependency is preparation for runtime08,not new runtime evidence.

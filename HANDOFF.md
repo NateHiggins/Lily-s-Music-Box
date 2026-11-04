@@ -55,7 +55,9 @@ pose,grip bypass or altered travel goal. A nearby **ServiceDoorRouteBench**
 reuses production2B leaf/native stock,original capsule and finite insert; normal
 closer and real controller/input remain. It includes incoming view captures.
 Both changes are UNVERIFIED pending compile/nearby preflight before another full
-original run. Register only its one reviewed spatial-manifest record. Reuse all
+original run. Source-only apartment receipt closure initially failed on the missing
+first-slice scene dependency; adding that exact scene to SOURCES now passes.
+No executed proof was changed or repinned. Register only its one reviewed spatial-manifest record. Reuse all
 unchanged native/material evidence; preserve runtime02–07 failures.
 
 Next prepare a fresh guarded runtime08 with bounded radiator AND door preflights
