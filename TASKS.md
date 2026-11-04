@@ -1341,7 +1341,12 @@ Performance/counter procedure: `.agents/skills/godot-development/SKILL.md`.
   shadows and memory; inspect actual rendered transitions and affected input,
   then qualify the candidate. Roll out only where measured benefits justify it.
   City elevation/street/transport/gaslamp families already have scoped authored
-  replacement bodies; this traffic-schema rollout remains unimplemented. Reuse
+  replacement bodies; this traffic-schema rollout remains unimplemented.
+  Current city native review: office HORIZON_FAR_3_0_P1 lower geometry removes
+  only320of96344triangles(0.33%); it and the largest base body are already in
+  the queued9profile measurement. Review actual cost/transition evidence before
+  any further authoring; counts alone are not a speedup or reason to simplify.
+  Reuse
   the completed INERT Model A stock study (29,662/12,378/7,600 triangles) after
   its imported/motion/cost checks rather than rebuilding it. The demonstrated
   retained-tank automatic-tail collapse is repaired by holding original bodies;

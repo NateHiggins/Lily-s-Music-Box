@@ -44,6 +44,20 @@ Queued imports/mesh-policy address sidecars; composed runtime/review/publication
 still required for the surface gate. Preserve this red board,no manual import
 sidecars or weakened checks. This is not a candidate pass.
 
+Native geometry count review: the124base bodies contain6,902,264triangles in
+1110part partitions;121registered lower bodies contain3,821,184triangles in
+1093part partitions. The other3retained generic bodies have no authored lower
+body,so those totals are not an all-visible frame or a complete all-lower world.
+They measure neither draw calls nor GPU/collision cost. The largest base body,
+**HORIZON_FAR_0_0_P1**, has178032/88560near/lower triangles. The weakest lower
+reduction is office **HORIZON_FAR_3_0_P1**:96344to96024,only320triangles(0.33%).
+Both are already among the9queued isolated profiles. Inspect their actual
+transition/cost results before deciding whether authoring changes are warranted;
+no extra run or speculative mesh simplification is justified by counts alone.
+Recipe:sum **assets[].parts[].triangles** by **role** in the current native
+construction report,grouping semantic part prefixes by building. Full-body
+replacement,collision and every native equivalence check remain required.
+
 Earlier queued/failure labels below are historical; current custody above wins.
 
 ### Far editable-source size failure and bounded repair — November 3
