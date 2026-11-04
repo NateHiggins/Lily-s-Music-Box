@@ -208,6 +208,13 @@ readability, and feel.
   self-terminating CPU probes on the private test lane. Never diagnose a foreign
   holder from a missing direct child alone. Current limits/custody live in
   TASKS.md and tools/PIPELINE_TOOLS.md, not this skill.
+  Record a new broker's PID, birth time and batch path from its own launcher.
+  Verify the full live command before attributing a process or result; a nearby
+  queue row can belong to another agent. This checkout's status display checks
+  PID existence less strictly than the actual queue's birth-time filter, so a
+  reused PID may look live there without blocking FIFO. Never delete records
+  or stop processes on that display alone. The city ledger records the corrected
+  framing-job attribution and the launcher that now writes its own custody.
 
 - **Composed optical previews:** a nonpersistent campaign lease does not pause
   live monotonic consumers. Preserve their process flags, suspend them during
