@@ -1,3 +1,45 @@
+# Latest checkpoint — 2026-11-04
+
+### Current city edge qualification — 2026-11-04
+
+The lossless-import retry **ground_edge_intake_01/loaded_03/** is terminal0:
+71checks/0failures in46s, one reimport32s, both stderr streams empty. All three
+standing-controller legs, natural6216-to1200triangle whole-body LOD at32m,
+narrow-FOV recovery and inward return pass. Loaded UV excess is at most
+0.00000047683716m, bad derivative corners0 at both levels, worst tangent
+agreement0.99999982118607near/0.99999988079071lower. Native models and strict
+tolerances are unchanged. The original loaded_02 failure is retained.
+
+The composed **ground_edge_intake_01/composed_01/** test passes38947checks/0failures
+(wrapper355s; test contract337.376s), including city38193/0. Real compile4 and
+MaterialLibraryTest pass with empty stderr. The schema2 test-written contract
+executes production composition, physical surfaces and teardown; save, fire and
+other interaction programmes explicitly did not execute. All59root3440x1440
+captures were reviewed through10labelled full-frame contact sheets, plus direct
+ground-edge and5entry-preparation views. The high entry views now retain the
+Orison body and neighbouring context. Dark facades, sparse terrain, regular edge
+fragments, flat cloud relief and the wall-obstructed dumbwaiter image remain
+limitations. This is technical surface review, not Lily artistic acceptance,
+native-pixel detail, continuous450m exploration or a performance budget.
+
+The original batch is terminal1 because its external after-guard expected4
+preparation images; the actual intended result is4production views plus1camera
+restoration frame. The original guard/logs are preserved. Corrected CPU guard
+checks all5filenames/hashes, completed preparation,10render calls and restored
+camera, and passes without rerunning Godot. No runtime receipt was rewritten.
+Strict external and published surface qualification both pass with0defects;
+previous packet is preserved in composed_01/publication_archive/. Current
+runtime digest408d2692b6e495a1615b87dcad3a9d19dde9b41fb4969e712d5d499968ed4f2f.
+The review does not erase earlier failures or establish whole-V2 completion.
+
+Next: clean demonstrated generated import/UID churn with recoverable provenance,
+commit this packet and its two source-bound context cameras, compare the complete
+candidate against clean-main fb3167942, and manually mergePR151 only after the
+candidate is qualified. The three inherited failing test gates remain explicit
+**K-V2-QUALIFICATION-DEBT**; no second native construction family starts here.
+
+The earlier continuation below is historical and superseded where stated.
+
 # Current continuation — city physical qualification and delivered sky video
 
 Canonical C:/PleaseRemainOnTheLine,branch codex/v2-first-view-preparation-20261102,

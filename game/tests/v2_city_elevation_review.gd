@@ -268,6 +268,17 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 		camera.look_at(root.to_global(view[2]))
 		await suite.get_tree().create_timer(.6).timeout
 		await suite.shot("city_relief_"+str(view[0]))
+	# Show the admitted toe against its real neighbours from the existing
+	# standing-route stations. These are posed views, not a journey to the site.
+	var edge_fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_ground_edges.json"))
+	var edge_draw:=root.get_node("CityGroundEdges").find_children("*","MeshInstance3D",true,false)[0] as MeshInstance3D
+	var edge_center: Vector3=edge_draw.global_transform*edge_draw.get_aabb().get_center()
+	for station_index: int in [0,2]:
+		var station: Array=edge_fixture.access_stations_building[station_index]
+		camera.global_position=root.to_global(Vector3(station[0],station[1]+1.6,station[2]))
+		camera.look_at(edge_center)
+		await suite.get_tree().create_timer(.6).timeout
+		await suite.shot("city_ground_edge_"+str(station_index))
 	suite.check((root.global_basis*Vector3.RIGHT).dot(Vector3.LEFT)>.999 and (root.global_basis*Vector3.BACK).dot(Vector3.FORWARD)>.999,"relief west/north axes match actual installed sky compass")
 	camera.global_position = root.to_global(Vector3(140,8,82))
 	camera.look_at(root.to_global(Vector3(110,-.02,64)))
