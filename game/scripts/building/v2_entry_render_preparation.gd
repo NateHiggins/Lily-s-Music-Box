@@ -33,16 +33,18 @@ static func building_views(frame: Transform3D, footprint: Rect2, height_range: V
     back=back.normalized()
     var side:=Vector3(back.z,0.,-back.x)
     var middle:=footprint.get_center()
-    var target:=Vector3(middle.x,eye_height,middle.y)
-    # Frame a sphere containing the entire building about a horizontal eye-
-    # height target. This exposes the cold returning-player facade without
-    # borrowing that diagnostic's position or moving gameplay nodes.
-    var radius:=Vector3(footprint.size.x*.5,maxf(absf(height_range.x-eye_height),absf(height_range.y-eye_height)),footprint.size.y*.5).length()
+    var target:=Vector3(middle.x,(height_range.x+height_range.y)*.5,middle.y)
+    # Center the enclosing sphere on the building, then approach diagonally
+    # from above. Eye-level rear cameras fell inside neighboring city stock;
+    # fitting the field alone never established an exposed facade. These are
+    # renderer-only views: gameplay nodes and the ten-draw budget stay intact.
+    var radius:=Vector3(footprint.size.x*.5,(height_range.y-height_range.x)*.5,footprint.size.y*.5).length()
+    var approach: Vector3=(back+Vector3.UP).normalized()
     var distance: float=(radius+padding)/sin(half_fov)
     var offset: float=(absf(side.x)*footprint.size.x+absf(side.z)*footprint.size.y)*.25
     var setback:=sqrt(maxf(distance*distance-offset*offset,0.))
     for sign_value: float in [-1.,1.]:
-        var at: Vector3=target+back*setback+side*offset*sign_value
+        var at: Vector3=target+approach*setback+side*offset*sign_value
         views.append(Transform3D(frame.basis.orthonormalized()*Basis.looking_at((target-at).normalized()),frame*at))
     return views
 

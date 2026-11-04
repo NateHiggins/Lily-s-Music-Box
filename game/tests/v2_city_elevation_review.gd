@@ -275,7 +275,48 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	manager.set_process(was_processing)
 	if is_instance_valid(prior):prior.make_current()
 	camera.free()
+	if OS.get_environment("ORISON_SURFACE_ENTRY_FRAMING")=="1":
+		await _capture_entry_framing(world,suite)
 	print("CITY ELEVATION REVIEW: parts=%d triangles=%d windows=%d bearing_samples=%d window_stations=%d" % [parts,triangles,int(fixture.windows),contacts,sampled.size()])
+
+
+func _capture_entry_framing(world: OrisonV2RuntimeRoot,suite: Node) -> void:
+	# Reuse this composed world rather than loading another for two optical
+	# views. PNG readbacks perturb timing; this is never a performance sample.
+	var directory:=OS.get_environment("SHOT_DIR").path_join("entry_preparation")
+	var ready:=DirAccess.make_dir_recursive_absolute(directory)==OK
+	suite.check(ready,"entry framing capture directory exists")
+	if not ready:return
+	var camera: Camera3D=world.player.camera
+	suite.check(camera.is_current(),"entry framing keeps the existing current camera owner")
+	if not camera.is_current():return
+	var original:=camera.global_transform
+	var views:=world.opening_render_views()
+	suite.check(views.size()==4,"entry framing keeps four production views")
+	if views.size()!=4:return
+	var images: Array[Image]=[]
+	var draws: Array[int]=[0]
+	var observe:=func():
+		draws[0]+=1
+		if draws[0]%2==0:images.append(suite.get_viewport().get_texture().get_image())
+	await suite.get_tree().process_frame
+	RenderingServer.frame_post_draw.connect(observe)
+	var result:=preload("res://scripts/building/v2_entry_render_preparation.gd").prepare(camera,views,func():return is_instance_valid(world) and is_instance_valid(camera) and camera.is_current())
+	RenderingServer.frame_post_draw.disconnect(observe)
+	suite.check(result.completed and result.render_calls==10 and result.node_pose_unchanged,"production entry framing completes and restores its camera within ten draws")
+	suite.check(camera.global_transform==original,"composed entry framing never moves the scene camera")
+	suite.check(images.size()==5,"all four entry views and the restored view have actual frames")
+	var records: Array=[]
+	for index in images.size():
+		var name: String="preparation_%02d.png"%index
+		suite.check(images[index].save_png(directory.path_join(name))==OK,"entry framing actual image saved: "+name)
+		records.append({"file":name,"sha256":FileAccess.get_sha256(directory.path_join(name)),"origin":str(views[index].origin) if index<views.size() else str(original.origin),"forward":str(-views[index].basis.z) if index<views.size() else str(-original.basis.z)})
+	var report:=FileAccess.open(directory.path_join("preparation_views.json"),FileAccess.WRITE)
+	suite.check(report!=null,"entry framing diagnostic report opened")
+	if report!=null:
+		report.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual composed production entry views and restoration. Images require optical review; no automatic visibility,playtest,performance or artistic acceptance. Readbacks perturb preparation timing.","policy_sha256":FileAccess.get_sha256("res://scripts/building/v2_entry_render_preparation.gd"),"preparation":result,"images":records},"\t")+"\n")
+		suite.check(report.get_error()==OK,"entry framing diagnostic report written")
+		report.close()
 
 
 func _review_apartment_batch(world: Node,suite: Node,camera: Camera3D,city: Node3D,fixture: Dictionary,bodies: Dictionary) -> void:

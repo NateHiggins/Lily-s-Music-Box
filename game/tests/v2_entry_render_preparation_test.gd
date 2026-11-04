@@ -43,12 +43,17 @@ func run() -> void:
     var half_fov:=PI/6.
     var building:=Preparation.building_views(frame,footprint,Vector2(0.,3.),1.,.1,half_fov,Vector3.BACK)
     check(building.size()==2,"two framed building views replace the screened side views")
+    var neighbor:=AABB(Vector3(-10.,0.,10.),Vector3(20.,6.,3.))
+    check(neighbor.intersects_segment(Vector3(0.,1.,20.),Vector3(0.,1.,footprint.end.y))!=null,"neighbor control blocks an eye-level rear ray")
     for view: Transform3D in building:
+        var local_eye: Vector3=frame.affine_inverse()*view.origin
+        check(local_eye.y>3.,"source-centered building view rises above the target roof")
         for x: float in [footprint.position.x,footprint.end.x]:
             for y: float in [0.,3.]:
                 for z: float in [footprint.position.y,footprint.end.y]:
                     var projected: Vector3=view.affine_inverse()*(frame*Vector3(x,y,z))
                     check(-projected.z>0. and absf(projected.x)<-projected.z*tan(half_fov) and absf(projected.y)<-projected.z*tan(half_fov),"all transformed building corners fit within the narrower field of view")
+                    check(neighbor.intersects_segment(local_eye,Vector3(x,y,z))==null,"elevated building rays clear the neighbor fixture without removing it")
     check(Preparation.building_views(frame,footprint,Vector2(0.,3.),1.,.1,0.,Vector3.BACK).is_empty(),"invalid framing field cannot publish a view")
     check(camera.global_transform==node_pose,"footprint policy leaves the scene camera untouched")
     var views: Array[Transform3D]=[Transform3D(Basis(Vector3.UP,PI),pose.origin),pose]

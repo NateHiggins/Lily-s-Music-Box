@@ -53,6 +53,22 @@ still required. Checker bytes changed, so composed02 surface proof is now stale;
 renew through the actual combined city capture, never repin its signature.
 Custody C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
 
+Current authored framing candidate: building_views now centers its sphere on
+source height and approaches diagonally from above. Native conservative city
+bounds reproduce8/15 obstructed rays in each old view and0/15 in each new view;
+this is not rendered acceptance. Existing small test keeps all corner-fit,
+restoration and ownership checks, adding a real neighbor-blocker fixture.
+Broker58832/session95975 is FIFO queued for guarded compile/lifecycle checks;
+exact helper/test inputs stay frozen until terminal. The existing city review
+now has opt-in ORISON_SURFACE_ENTRY_FRAMING=1 to capture4production views plus
+restoration in the same final composed world. That hook remains uncompiled.
+Native source discovery replay broker47412/session45214 is also FIFO queued:
+existing exporter,external outputs only,strict14947record equivalence and exact
+3binding delta. It reuses registration and does not renew runtime discovery.
+Architect broker57480/session8457 stays live/queued under SOURCE_FREEZE_03;
+all106canonical admission inputs remain unchanged. Do not restart these handles.
+Sources and custody: C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
+
 Current checkpoint packs3native/loaded/composed archives;details,hashes and
 original oversize/crash/retained-drift/parser/typed-node failures remain in
 existing design/V2_CITY_CONTEXT_REPORT_2026-10-19.md and compactreviewZIPs.

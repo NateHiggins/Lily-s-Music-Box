@@ -7076,3 +7076,30 @@ The changed checker bytes intentionally expire composed02's published signature.
 Renew with actual combined city rendering; do not replace its hash by hand.
 The FIFO's authoritative birth-time check excludes reused PID55316; its misleading
 status-only row was inspected without deleting records or stopping any process.
+
+
+#### Entry framing correction candidate — engine qualification pending
+
+Actual enumerated city stock bounds reproduce8of15 potentially obstructed rear
+sample rays for each original eye-level view. Centering the enclosing sphere on
+the source height range and approaching diagonally from above clears all15for
+each candidate,at localY38.622/Z27.272. **NATIVE_SIGHTLINES.json** under
+**C:/ov/reports/native_intake_20261102/city_entry_framing_01/** retains inputs and
+blockers. This conservative bounds check is no optical acceptance or solid claim.
+Only the renderer helper changes production behavior; four views/ten draws,
+scene transforms,ownership and restoration remain. The existing small fixture
+adds a neighbor-blocker positive control and clear elevated corner rays while
+retaining every existing corner-fit/lifecycle assertion. Guarded compile and
+rendered lifecycle are FIFO queued58832/session95975;no engine pass yet.
+The existing composed city review gains opt-in **ORISON_SURFACE_ENTRY_FRAMING=1**
+for actual four production frames plus restoration in the final physical world,
+saving a second world startup. That supplementary hook awaits compilation and
+actual image review. Spatial audit is clean;reader NEW0;all106architect admission
+bindings remain unchanged. No new native construction family was opened.
+
+Independent native discovery replay47412/session45214 is queued at
+**C:/ov/reports/native_intake_20261102/grade_discovery_refresh_01/**. It invokes
+the existing owning exporter into external files and requires exact14947record
+parity plus only the three already-recorded binding changes. Canonical discovery
+will not be overwritten blindly. Its old runtime survey is only a registration
+input;fresh runtime discovery and final qualification remain necessary.
