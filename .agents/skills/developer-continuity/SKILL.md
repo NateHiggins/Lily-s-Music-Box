@@ -28,6 +28,13 @@ Keep changing checkpoint facts in the existing handoff/ledger, not in this skill
    and tested. Verify manifest hashes/revisions and current consumers; a native
    clearance report is not Godot integration or artistic acceptance.
 
+For the shared Claude bridge, **Codex** and **ChatGPT** are distinct recipients.
+Check both inboxes when recovering this developer chat; an empty ChatGPT inbox
+does not mean Claude sent nothing to Codex. Use the local `toolbox.py inbox --as`
+interface and acknowledge only messages actually read under the intended name.
+The shared store is outside AppData; inspect any state-directory override if
+messages appear split. Keep private art/prompts outside the public repository.
+
 Use the relevant existing [Godot](../godot-development/SKILL.md),
 [Blender](../blender-asset-development/SKILL.md),
 [texture/shader](../godot-textures-and-shaders/SKILL.md) or
