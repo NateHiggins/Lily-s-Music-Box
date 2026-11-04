@@ -17,13 +17,15 @@ identifies VentBodyContact on the diagonal path. Original JSON/logs/two frames
 remain under radiator_insert_01; one native close-up inspected.
 Source tracing finds the old helper sends legacy drag input while captured
 FPS pickup expects view/holder motion,and the fixture disables holder physics.
-Probe02 retains that negative attempt,then uses actual Space,embedded-viewport
-pointer selection and mouse/wheel gestures in inspection for lift/across/lower.
-The helper preserves the owner's fixed inspection camera. No collider or grip
-permission changes. This candidate is NOT compiled or run yet. Its2-stage lane
-job is queued: broker49692/session24126,started2026-11-04T08:58:39Z,
-qualification_debt_trace_01/radiator_insert_02/batch.json. Poll this existing
-handle; do not restart either terminal batch. Spatial audit remains clean.
+Probe02 compiles,then terminates1 in28s with empty stderr: actual Space enters
+inspection,but the pointer does not reacquire the loose insert and no transfer
+leg runs. Its native endpoint image shows the open vent without the insert;
+part motion versus pointer delivery still needs attribution. No repair accepted.
+Probe03 adds requested/delivered pointer,real selected part/hit and part-pose/
+freeze observations,without changing controls or collision. Its2-stage job is
+queued: broker45352/session99408,started2026-11-04T09:18:58Z,
+qualification_debt_trace_01/radiator_insert_03/batch.json. Poll this existing
+handle; do not restart either terminal probe. Spatial audit remains clean.
 Actual first-slice/save,9-unit movement,surface and exact candidate acceptance
 remain required. Preserve the older19-room apartment cohort during publication.
 The external staging helper refuses missing receipts and publishes nothing.

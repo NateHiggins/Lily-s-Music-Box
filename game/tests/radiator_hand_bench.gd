@@ -272,21 +272,27 @@ func _insert_route_probe(prop: RadiatorProp,stock: Node3D,player: PlayerControll
 	get_tree().quit(0 if result.passed else 1)
 
 func _inspect_insert_transfer(helper: Node,player: PlayerController,body: Node3D,park: Vector3) -> Dictionary:
-	var result: Dictionary={"passed":false,"entered":false,"picked":false,"legs":[]}
+	var result: Dictionary={"passed":false,"entered":false,"picked":false,"legs":[],"attempts":[],"viewport":get_viewport().get_class(),"before":var_to_str(body.global_position)}
 	# Actual Space input borrows the hand; the pointer then selects the real
 	# surface. The embedded viewport owns pointer coordinates on hidden desktop.
 	for pressed: bool in [true,false]:
 		var key:=InputEventKey.new();key.keycode=KEY_SPACE;key.physical_keycode=KEY_SPACE;key.pressed=pressed
 		player._unhandled_input(key)
 	result.entered=player.inspecting()
+	result.after_space={"position":var_to_str(body.global_position),"frozen":body.get("freeze"),"held":player._grab.active()}
 	if not result.entered or not get_viewport() is SubViewport:return result
 	for attempt in 4:
 		var pixel: Vector2=player.camera.unproject_position(body.to_global(Vector3(0,.004,0))).round()
 		var motion:=InputEventMouseMotion.new();motion.position=pixel;motion.global_position=pixel
 		get_viewport().push_input(motion,true)
 		await get_tree().process_frame
-		if get_viewport().get_mouse_position().distance_to(pixel)>.6:return result
+		var delivered: Vector2=get_viewport().get_mouse_position()
 		var target: Dictionary=player._grab.find_target()
+		var part: Node=target.get("part")
+		var owner: Node=target.get("owner")
+		var collider: Object=player._grab.last_hit.get("collider")
+		result.attempts.append({"requested":var_to_str(pixel),"delivered":var_to_str(delivered),"position":var_to_str(body.global_position),"frozen":body.get("freeze"),"selected":str(part.get_path()) if is_instance_valid(part) else "","owner":str(owner.get_path()) if is_instance_valid(owner) else "","blocked":target.get("blocked",false),"hit":str(collider.get_path()) if collider is Node else str(collider)})
+		if delivered.distance_to(pixel)>.6:return result
 		if target.get("part")!=body:continue
 		var click:=InputEventMouseButton.new();click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
 		player._unhandled_input(click)

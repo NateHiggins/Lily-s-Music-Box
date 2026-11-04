@@ -7507,3 +7507,14 @@ the same endpoint. The helper keeps the existing fixed inspection camera while
 that owner holds it. Production controls,geometry and permissions are unchanged.
 Spatial audit is clean. Compilation/native verification is queued under
 radiator_insert_02,broker49692/session24126. No candidate repair is accepted yet.
+
+Probe02 is terminal1 in28s after clean compilation,with empty stderr. It records
+holding_pickup=true,inspection=false and player physics disabled during the
+stationary legacy attempt. Actual Space then enters inspection,but reacquisition
+fails and no lift/across/lower leg runs. The retained native endpoint image was
+inspected: the vent opening is visible without the loose insert. This suggests
+part motion after hand release,but does not distinguish that from pointer or
+surface selection. No production repair or transfer success is claimed.
+Probe03 therefore adds requested/delivered pointer,actual hit/selected part and
+part-pose/freeze observations. The same2-stage compile/native check is queued at
+broker45352/session99408 under radiator_insert_03; no new result yet.
