@@ -3578,3 +3578,7 @@ game/tests/fixtures/orison_city_ground_edges.json -text
 game/scripts/building/orison_v2_city_ground_edges.gd -text
 tools/prepare_v2_city_ground_edges.py -text
 art/reviews/city_streets_20261029/city_ground_edges_native_20261103.zip -text
+
+# Source-bound legacy finish replay, independent of current V2 art.
+art/data/m11c1/floor01_material_context.json -text
+tools/m11c1_floor01_owner_first/material_context.py -text

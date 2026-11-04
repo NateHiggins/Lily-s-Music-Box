@@ -1,0 +1,197 @@
+{
+  "schema": "orison.floor01.legacy-material-context.v1",
+  "source_commit": "46d40e9a916ffa7c7cc2ae5031fa6bcbcdeb7777",
+  "compatible_floor01_sha256": "46756641f389b29f287731bb88b31af13972b098b483d92d66d077112909bd89",
+  "purpose": "Reproduce the protected legacy Floor 1 finishes during owner-first source replay. Current V2 book and mineral finishes retain their existing owners; no runtime override.",
+  "files": {
+    "art/textures/library/furniture/book_brown/asset.json": {
+      "git_blob": "10a19eddde882cbeebb3ac5d030b62d6dea40ac1",
+      "sha256": "79a749706b6867089cebcdca24c8c1cf127ef7e58f796e71cf99b70bfe6162ff"
+    },
+    "art/textures/library/furniture/book_brown/albedo.png": {
+      "git_blob": "c6443da4514f3d3cd6cf3a8e0709f0a962a7d907",
+      "sha256": "c46d6e88f528786d6986576cc9e34279d343d3ecc8435f4617fe0cef8a44ce0e"
+    },
+    "art/textures/library/furniture/book_brown/roughness.png": {
+      "git_blob": "74a14c5dbb8e5478215c2003f860347320da869f",
+      "sha256": "8aac38fff1a6778de230f41b8596606d720b29ef9a4276ce6d51967649b599c5"
+    },
+    "art/textures/library/furniture/book_brown/normal.png": {
+      "git_blob": "3686320655efd1dfd02bffab8393d1c099fef0b4",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+    },
+    "art/textures/library/furniture/book_burgundy/asset.json": {
+      "git_blob": "46dff1fd8373fa4879b441da5dc7f73e3181ac50",
+      "sha256": "024b83b9c4020e4aa5ed30e0bb261e98c107f9b6d44cf80995f146401a70d6d7"
+    },
+    "art/textures/library/furniture/book_burgundy/albedo.png": {
+      "git_blob": "7f00b15b22b5b415727c1e0e27135f0c55d5ead1",
+      "sha256": "1c36264dd1376e44442cd2d4e217d75096e088d3d77977b59f98edffabf688e9"
+    },
+    "art/textures/library/furniture/book_burgundy/roughness.png": {
+      "git_blob": "74a14c5dbb8e5478215c2003f860347320da869f",
+      "sha256": "8aac38fff1a6778de230f41b8596606d720b29ef9a4276ce6d51967649b599c5"
+    },
+    "art/textures/library/furniture/book_burgundy/normal.png": {
+      "git_blob": "3686320655efd1dfd02bffab8393d1c099fef0b4",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+    },
+    "art/textures/library/furniture/book_green/asset.json": {
+      "git_blob": "78238430903faf98aa4fb6aadaaf936a10abb2b6",
+      "sha256": "7681fe779cc7f45eb81685383f78f4131d7719e900c9dd8bcc6dc6fd02c17bbe"
+    },
+    "art/textures/library/furniture/book_green/albedo.png": {
+      "git_blob": "4ee37f0c6e2e087becd5aae6fff428152eb455ec",
+      "sha256": "090beba64471030a0995a1d07a917884d90b85de20895e0eae2b99ed899d197f"
+    },
+    "art/textures/library/furniture/book_green/roughness.png": {
+      "git_blob": "74a14c5dbb8e5478215c2003f860347320da869f",
+      "sha256": "8aac38fff1a6778de230f41b8596606d720b29ef9a4276ce6d51967649b599c5"
+    },
+    "art/textures/library/furniture/book_green/normal.png": {
+      "git_blob": "3686320655efd1dfd02bffab8393d1c099fef0b4",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+    },
+    "art/textures/library/furniture/book_navy/asset.json": {
+      "git_blob": "f97da858f1f4bd6dd62b6fc8c5f0eb1ae8ce2e41",
+      "sha256": "11f094b4e664f707aec80674a03e39e29ac5d44fcc4fb8eff87f5999d70ad0d8"
+    },
+    "art/textures/library/furniture/book_navy/albedo.png": {
+      "git_blob": "a9f91512e8e3271a093eb27390b49ddb0dc0055f",
+      "sha256": "ab6a0fc5e8122699113a933e9ca30c0b0378dbdaba0eef2bb1840879cf8900c1"
+    },
+    "art/textures/library/furniture/book_navy/roughness.png": {
+      "git_blob": "74a14c5dbb8e5478215c2003f860347320da869f",
+      "sha256": "8aac38fff1a6778de230f41b8596606d720b29ef9a4276ce6d51967649b599c5"
+    },
+    "art/textures/library/furniture/book_navy/normal.png": {
+      "git_blob": "3686320655efd1dfd02bffab8393d1c099fef0b4",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+    },
+    "art/textures/library/furniture/book_ochre/asset.json": {
+      "git_blob": "b9d3532fe99f6666d3fa867bf1b6d11c60f31900",
+      "sha256": "e1c80801e311182515fe74344fc36c335e82da86f6694dd517c10a2d6afe0cfd"
+    },
+    "art/textures/library/furniture/book_ochre/albedo.png": {
+      "git_blob": "5c289c4579487dcf6f37a445c41496c79669f2b5",
+      "sha256": "ca059ff78b62b4093d01a62b07583b05e8ef88d6e0248d56e094a2965020e983"
+    },
+    "art/textures/library/furniture/book_ochre/roughness.png": {
+      "git_blob": "74a14c5dbb8e5478215c2003f860347320da869f",
+      "sha256": "8aac38fff1a6778de230f41b8596606d720b29ef9a4276ce6d51967649b599c5"
+    },
+    "art/textures/library/furniture/book_ochre/normal.png": {
+      "git_blob": "3686320655efd1dfd02bffab8393d1c099fef0b4",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+    },
+    "art/textures/library/furniture/book_teal/asset.json": {
+      "git_blob": "8b59d1c74b438502237bee36cb9736b384a6ccc6",
+      "sha256": "78667524c82a3549885a89db5d81ab73c1f4f7d002282417d4c3f34bf97d1be3"
+    },
+    "art/textures/library/furniture/book_teal/albedo.png": {
+      "git_blob": "6215490f7a0751ef4d9880f545edcbb5546d1258",
+      "sha256": "ef7f3267f18b6073a888fcd95c435dd9b5b9e6a5f65bc95c73fef8d93e1949ef"
+    },
+    "art/textures/library/furniture/book_teal/roughness.png": {
+      "git_blob": "74a14c5dbb8e5478215c2003f860347320da869f",
+      "sha256": "8aac38fff1a6778de230f41b8596606d720b29ef9a4276ce6d51967649b599c5"
+    },
+    "art/textures/library/furniture/book_teal/normal.png": {
+      "git_blob": "3686320655efd1dfd02bffab8393d1c099fef0b4",
+      "sha256": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4"
+    },
+    "art/textures/ai_materials/concrete_b/roughness.png": {
+      "git_blob": "205253667df42fe526190fd73ca6432ea98d4e38",
+      "sha256": "2da428bf58fa4c1573141ce54bd7c42bd3bd35e32953e544f31779ddaca15fc8"
+    },
+    "art/textures/ai_materials/slab_b/roughness.png": {
+      "git_blob": "b99e67347b0c68ad81cf8ec096de95a4ac4a3d43",
+      "sha256": "a4d44374a9013ac0fec090a0590accf1b617ec981ecef10e12ae40bad1d69e6c"
+    },
+    "art/textures/ai_materials/stair_b/roughness.png": {
+      "git_blob": "a8b872f0a4146bc87bf5f0e9fa21a966e9bf023f",
+      "sha256": "10c371776710ef9f8e199b18aba9353dbd1b983b7422184ad2c35257da398f6e"
+    }
+  },
+  "materials": {
+    "book_brown": {
+      "mode": "set",
+      "source_set": "library/furniture/book_brown",
+      "metadata": "art/textures/library/furniture/book_brown/asset.json",
+      "channels": {
+        "albedo": "art/textures/library/furniture/book_brown/albedo.png",
+        "roughness": "art/textures/library/furniture/book_brown/roughness.png",
+        "normal": "art/textures/library/furniture/book_brown/normal.png"
+      }
+    },
+    "book_burgundy": {
+      "mode": "set",
+      "source_set": "library/furniture/book_burgundy",
+      "metadata": "art/textures/library/furniture/book_burgundy/asset.json",
+      "channels": {
+        "albedo": "art/textures/library/furniture/book_burgundy/albedo.png",
+        "roughness": "art/textures/library/furniture/book_burgundy/roughness.png",
+        "normal": "art/textures/library/furniture/book_burgundy/normal.png"
+      }
+    },
+    "book_green": {
+      "mode": "set",
+      "source_set": "library/furniture/book_green",
+      "metadata": "art/textures/library/furniture/book_green/asset.json",
+      "channels": {
+        "albedo": "art/textures/library/furniture/book_green/albedo.png",
+        "roughness": "art/textures/library/furniture/book_green/roughness.png",
+        "normal": "art/textures/library/furniture/book_green/normal.png"
+      }
+    },
+    "book_navy": {
+      "mode": "set",
+      "source_set": "library/furniture/book_navy",
+      "metadata": "art/textures/library/furniture/book_navy/asset.json",
+      "channels": {
+        "albedo": "art/textures/library/furniture/book_navy/albedo.png",
+        "roughness": "art/textures/library/furniture/book_navy/roughness.png",
+        "normal": "art/textures/library/furniture/book_navy/normal.png"
+      }
+    },
+    "book_ochre": {
+      "mode": "set",
+      "source_set": "library/furniture/book_ochre",
+      "metadata": "art/textures/library/furniture/book_ochre/asset.json",
+      "channels": {
+        "albedo": "art/textures/library/furniture/book_ochre/albedo.png",
+        "roughness": "art/textures/library/furniture/book_ochre/roughness.png",
+        "normal": "art/textures/library/furniture/book_ochre/normal.png"
+      }
+    },
+    "book_teal": {
+      "mode": "set",
+      "source_set": "library/furniture/book_teal",
+      "metadata": "art/textures/library/furniture/book_teal/asset.json",
+      "channels": {
+        "albedo": "art/textures/library/furniture/book_teal/albedo.png",
+        "roughness": "art/textures/library/furniture/book_teal/roughness.png",
+        "normal": "art/textures/library/furniture/book_teal/normal.png"
+      }
+    },
+    "concrete_b": {
+      "mode": "roughness",
+      "channels": {
+        "roughness": "art/textures/ai_materials/concrete_b/roughness.png"
+      }
+    },
+    "slab_b": {
+      "mode": "roughness",
+      "channels": {
+        "roughness": "art/textures/ai_materials/slab_b/roughness.png"
+      }
+    },
+    "stair_b": {
+      "mode": "roughness",
+      "channels": {
+        "roughness": "art/textures/ai_materials/stair_b/roughness.png"
+      }
+    }
+  },
+  "wall_cache_policy": "TRACKED_COMPATIBILITY_INPUTS_IGNORE_UNTRACKED_BAKE_CACHE"
+}

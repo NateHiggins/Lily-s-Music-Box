@@ -1,3 +1,34 @@
+# Current checkpoint — explicit material context awaiting native04
+
+### Explicit legacy material context implemented — pending native replay
+
+The owning F01 adapter now has an opt-in material-context input. A small
+source manifest pins27historical Git blobs at the original production export
+commit: six complete book sets plus three mineral roughness sources. No image
+copies are added to Git. The reader validates exact tree membership,paths and
+SHA256,consumes six metadata blobs in memory,and stages only21images below the
+disposable candidate root. All declared images must actually reach the original
+material loader. Context and reader hashes are bound through generation receipts
+and production conversion; a stale/missing binding is rejected.
+
+The explicit context selects tracked legacy wall compatibility inputs instead
+of ignored/untracked bake cache. Conflicting tracked authoring sources still
+fail. The context-free path retains its previous source checks. No wall cache
+mutation is needed. The generator,UV logic and complete material-inclusive
+equivalence checks remain in force; current V2 book/mineral material owners are
+unchanged. Production replay explicitly selects this context.
+
+The existing owner-first test suite now passes14tests,including original refusal
+checks and real27blob/staging/tamper tests,unused-image/stale-reader rejection,
+wrong-tree/unknown-material/path rejection,and the ignored-versus-tracked cache
+boundary. ReaderNEW0 and syntax checks pass. These are authoring/source checks,
+not a native replay pass or runtime qualification. Native04 will execute the
+full original comparison and external converter with336frozen inputs plus
+all30ignored wall-map hashes; no production artifact,ownership row or test pin
+is admitted yet. Original03failed proof remains intact.
+
+Earlier checkpoints below are historical.
+
 # Latest replay result — November4
 
 ### F01 replay attribution — strict equivalence remains open

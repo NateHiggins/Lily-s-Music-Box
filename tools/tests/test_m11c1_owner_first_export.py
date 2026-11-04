@@ -8,6 +8,7 @@ import hashlib
 import json
 from pathlib import Path
 import struct
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -16,6 +17,8 @@ import unittest
 REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
+
+from tools.m11c1_floor01_owner_first import material_context
 
 from tools.rehearse_orison_floor01_partition import load_asset, validate_source
 from tools.m11c1_floor01_owner_first.owner_first_export import (
@@ -335,6 +338,62 @@ class RefusalBoundaryTests(unittest.TestCase):
         output = REPO_ROOT / "tmp/m11c1_forbidden"
         with self.assertRaisesRegex(OwnerFirstError, "external disposable root"):
             _assert_disposable_output(output, protected)
+
+
+class HistoricalMaterialContextTests(unittest.TestCase):
+    def manifest(self):
+        return REPO_ROOT / material_context.DEFAULT_REL
+
+    def test_real_historical_sources_are_consumed_and_staged_tampering_is_refused(self):
+        with tempfile.TemporaryDirectory() as raw:
+            candidate=Path(raw)
+            cache={'retained':{'albedo':'retain-me'}}
+            generator={'_tex_cache':cache,'tex_set':lambda key:{'albedo':'current-albedo','normal':'current-normal','roughness':'current-roughness','slug':key,'mpt':2.0}}
+            receipt,images=material_context.apply_context(self.manifest(),REPO_ROOT,candidate/'material_context',generator)
+            receipt['used_images']=sorted(images)
+            material_context.validate_receipt(receipt,self.manifest(),REPO_ROOT,candidate)
+            self.assertEqual(len(receipt['files']),27)
+            self.assertEqual(len(images),21)
+            self.assertEqual(cache['retained'],{'albedo':'retain-me'})
+            for key in material_context.ROUGH:
+                self.assertEqual(cache[key]['normal'],'current-normal')
+                self.assertEqual(cache[key]['albedo'],'current-albedo')
+            stale=copy.deepcopy(receipt);stale['reader']['sha256']='0'*64
+            with self.assertRaisesRegex(ValueError,'binding drifted'):
+                material_context.validate_receipt(stale,self.manifest(),REPO_ROOT,candidate)
+            unused=copy.deepcopy(receipt);unused['used_images'].pop()
+            with self.assertRaisesRegex(ValueError,'every declared image'):
+                material_context.validate_receipt(unused,self.manifest(),REPO_ROOT,candidate)
+            image=Path(next(iter(images)));image.write_bytes(image.read_bytes()+b'tampered')
+            with self.assertRaisesRegex(ValueError,'source drifted'):
+                material_context.validate_receipt(receipt,self.manifest(),REPO_ROOT,candidate)
+
+    def test_wrong_tree_blob_and_unknown_material_or_escape_are_refused(self):
+        original=json.loads(self.manifest().read_text(encoding='utf-8'))
+        with tempfile.TemporaryDirectory() as raw:
+            target=Path(raw)/'context.json'
+            for kind in ('unknown','escape','blob','hash'):
+                value=copy.deepcopy(original)
+                if kind=='unknown':value['materials']['unrelated']=value['materials'].pop('book_brown')
+                if kind=='escape':value['materials']['book_brown']['channels']['normal']='../escape.png'
+                if kind=='blob':next(iter(value['files'].values()))['git_blob']='0'*40
+                if kind=='hash':next(iter(value['files'].values()))['sha256']='0'*64
+                target.write_text(json.dumps(value),encoding='utf-8')
+                with self.subTest(kind=kind),self.assertRaises(ValueError):
+                    material_context.read_context(target,REPO_ROOT)
+
+    def test_only_ignored_untracked_wall_bakes_can_yield_to_legacy_sources(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root=Path(raw)
+            subprocess.run(['git','init','--quiet',str(root)],check=True)
+            (root/'.gitignore').write_text('art/textures/wall_finishes/\n',encoding='utf-8')
+            cache=root/'art/textures/wall_finishes/f01_w00/roughness.png'
+            cache.parent.mkdir(parents=True);cache.write_bytes(b'ignored bake')
+            self.assertTrue(material_context.ignored_wall_cache(cache,root))
+            subprocess.run(['git','add','-f','--',cache.relative_to(root).as_posix()],cwd=root,check=True)
+            self.assertFalse(material_context.ignored_wall_cache(cache,root),'tracked authoring source must not be bypassed')
+            other=root/'art/textures/untracked.png';other.write_bytes(b'not an ignored wall bake')
+            self.assertFalse(material_context.ignored_wall_cache(other,root))
 
 
 if __name__ == "__main__":
