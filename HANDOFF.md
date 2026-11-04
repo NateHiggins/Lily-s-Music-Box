@@ -1,3 +1,40 @@
+# Latest replay result — November4
+
+### F01 replay attribution — strict equivalence remains open
+
+**qualification_debt_trace_01/native_export_02/** is terminal1 in7.344s. The
+original global catalogue validator now passes316mapped/18shader-owned entries.
+The next original guard rejects authoring wall roughness maps that differ from
+tracked legacy textures. All30authoring wall maps are ignored bake cache under
+gitignore rule94; ten roughness maps differ in decoded pixels,not merely PNG
+encoding. Protected tracked textures were not changed.
+
+**native_export_03/** is terminal1 in43.453s. It preserves an8,310,999byte ZIP
+of those30ignored cache maps,temporarily isolates exactly those named inputs
+only while holding the shared lane,and restores all30hashes in finally. The
+custody journal saysRESTORED and334frozen canonical inputs are unchanged. The
+original native generator succeeds with empty stderr,5286source records,
+9820contributions and183726triangles,then the original canonical-equivalence
+check fails on material-bearing vertex/triangle/world/collision signatures.
+The converter and installation did not execute. Original failed logs remain.
+
+CPU attribution finds exactly9different material identities: six book finishes
+now point to procedural sources instead of the legacy furniture-library sets;
+concrete_b,slab_b andstair_b roughness pixels differ after the approved October4
+mineral microrelief work at44840e5da. The source tree is not being reverted.
+A separate diagnostic neutralizes material hashes only to localize the failure:
+all remaining vertex/triangle/world/collision/attribute/bounds comparisons match,
+with345536vertices and183726triangles on each side. This diagnostic is INERT,
+does not call strict equivalence a pass,and grants no install/runtime proof.
+
+Next develop an explicit source-bound historical material context for the
+legacy owner-first replay,retaining the newer book/mineral sources for their
+current owners. Demand the unchanged full material-inclusive comparison before
+admitting ownership metadata,test pins or production artifacts. No tolerance,
+test expectation,protected asset or old receipt has been weakened or repinned.
+The six-finish registration remains a pushed WIP; rendered renewal,source
+migration,first-slice/played contracts and final candidate remain unfinished.
+
 # Current continuation — qualification debt after city merge
 
 ### Merged city checkpoint and qualification repair custody — November 4
