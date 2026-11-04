@@ -63,6 +63,13 @@ One hidden standalone25s observation only; Architect owns monitoring/output revi
 No user decision or unanswered bridge message is pending. No canonical source freeze
 is implied by this standalone fixture; its own inputs remain frozen.
 
+The original October13 **19-room historical packet is now archived** at
+**art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/**.
+Contract/wrapper/stdout/stderr are byte-exact,including dirty1440 and seven
+Texture RID warning. Raw manifest and all four staged Git objects verified;
+the contract keeps its original blob. This changes custody only,not current
+runtime qualification. The later nine-unit/60-room packet remains untouched.
+
 Next is a small **viewport-only reproduction**,not another composed world:
 **C:/ov/reports/develop_intake_20261104/native_viewport_probe_ready/**. It must
 observe screens/window/content-scale/actual image sizes across frames without
