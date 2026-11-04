@@ -39,6 +39,19 @@ do not restart them or duplicate the new broker. Current custody:
 C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json. No rendered,
 composed-world,played-access,performance,save/load or artistic pass; no merge.
 
+Import-generated UID custody review: candidate verification requires a clean
+checkout.704untracked UID values had no explicit tracked game references and
+no UID-path overlap with origin/main. First-import provenance distinguishes
+692cache-recovery warnings and12fresh metadata files. The2UIDs belonging to
+this branch's new entry helper/test are retained explicitly;702other generated
+copies are preserved outside Git in loaded_01/UID_RECOVERY_BACKUP.zip
+(168772bytes,SHA256 **01c73d573104b8b8777e8b479df91cbee11701d2e9bd0135dab9672e808bee19**),with exact paths/hashes and
+first-import creation times. No authored script was removed,no foreign work
+stashed or hidden,and no ignore rule conceals source. Runtime-input digest
+before/after is identical. Upcoming actual compile/render checks run after this
+cleanup; fresh-checkout/export UID policy and whole-game acceptance are not
+established by a negative reference scan or the digest alone.
+
 The composed review now expects P2's exact184replacement witnesses while
 preserving all46neighbor panes and every first-hit ray;2focused tests pass.
 It is outside the frozen28file isolated loaded graph and still needs engine

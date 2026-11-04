@@ -35,6 +35,13 @@ do not restart them or duplicate the new broker. Current custody:
 C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json. No rendered,
 composed-world,played-access,performance,save/load or artistic pass; no merge.
 
+UID cleanup after first import:2UIDs for branch-added entry helper/test are
+retained.702generated metadata files are hash-preserved outside checkout in
+loaded_01/UID_RECOVERY_BACKUP.zip; no explicit tracked game references/main
+path overlaps,first-import provenance checked,runtime digest unchanged. No
+authored source removed or hidden. Queued tests must still qualify actual
+loading/rendering after cleanup. Detailed limits/hash in existing city ledger.
+
 The composed review now expects P2's exact184replacement witnesses while
 preserving all46neighbor panes and every first-hit ray;2focused tests pass.
 It is outside the frozen28file isolated loaded graph and still needs engine
