@@ -69,19 +69,26 @@ contained only log/pipeline cache,no settings/save/recovery files. Source hold
 and custody released;no game-world cause,room or surface qualification follows.
 Original artifacts: **C:/ov/reports/develop_intake_20261104/native_viewport_probe_ready/runs/probe_02_canonical/**.
 
-**Composed3A observation world_3a_01 is LIVE**,broker11104,created
-**2026-11-04T20:48:42.0579710Z**,root session96841. Revalidate full identity;
-never submit a duplicate. Custody/source freeze:
-**C:/ov/reports/develop_intake_20261104/native_world_observation_ready/runs/world_3a_01/QUEUE_CUSTODY.json**.
-Three fail-closed FIFO stages:external compile30s with explicit empty scene;
-original wrapper/raw-log/58frozen-file admission30s;unchanged full world plus
-complete3A driver/real controls/two original captures600s. Root reviewed code,
-normal movement release/teardown and CPU consistency. Original compile exit0/30.51s,untimedout,zero script errors/raw log hashes verified;exact admission PASS. World started21:11:00Z:console27156/child6916,birth/commands recorded in ROOT_LIVE_IDENTITY.json. First two pre-composition checkpoints show root/subject3440x1440 and actual isolated user directory. No route/capture verdict yet.
-Unique partial checkpoints remain INCOMPLETE until natural route/teardown finish.
-Architect owns monitor/output/profile review;canonical consumed sources held
-until terminal equality/release. Tracker-only commits do not alter pinned files.
-This is INERT observation,not original nine-unit/60-room/save/surface proof.
-Original12 MAIN/BATH arrived225s/443s after launch;world startup alone151s.
+**Composed3A observation world_3a_01 is terminal PASS**,exit0/433.16s,
+untimedout;broker11104/console27156/child6916 retired independently. Original
+compilePASS30.51s/zero script errors;exact admissionPASS. All58 frozen hashes,
+raw wrapper logs and custody hash match. Final checkpoint012:79checks/0fail,
+six rooms/155trace rows,original route/retirement complete. Both original PNGs
+verify3440x1440 by headers/hashes and root+Architect actual view;resize_events[].
+Root/driver/camera viewport identities agree. Ten invalid-UID fallback warnings
+remain preserved;no ERROR/SCRIPT ERROR. Isolated profiles only logs/cache,no
+settings/save/recovery files. Source hold/custody explicitly released.
+Artifacts: **C:/ov/reports/develop_intake_20261104/native_world_observation_ready/runs/world_3a_01/**.
+This is INERT one-leg observation,not original nine-unit/60-room/save/surface
+proof,and does not establish the earlier resolution failure's cause.
+
+Next **prepare_runtime13.py is being authored,not prepared/queued**. It will
+retain original13 after assertions and original nine-unit/physical+city+entry
+programmes,with fresh isolated profiles and strict actual native PNG18apartment/
+surface/5entry dimension+payload admission. Current consumed sources and original
+runtime11 authority/save/bounded proof remain unchanged. The external canonical
+capture-guard patch stays HELD: no instrument/source-digest change is needed for
+this final output admission. No live job currently belongs to this integrator.
 
 The original October13 **19-room historical packet is now archived** at
 **art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/**.
