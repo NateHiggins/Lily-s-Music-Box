@@ -42,13 +42,30 @@ census/collision checks,and separately verifies all4moving hands against native
 position,normal,tangent,UV and index arrays. Every pane ray remains. It writes
 actual static/lower/pane/hand traversal counts; no controller or hand becomes a
 static collision/LOD part. Production geometry,clock and gameplay are unchanged.
-Loaded_03 family-only4stage retry is queued:session49748/broker59072,under
-attempt_04/loaded_03/. It compiles the changed bench and reruns only the blocked
-family/9profiles with fresh input guards. Unchanged imports and the39check
-entry result are reused by production+transitive-entry-source closure; do not
-repin them as composed or gameplay proof. Native82410/loaded5324/95483 are
-terminal; do not restart them. Current custody remains ACTIVE_QUALIFICATION.json.
-No composed-world,played-access,frame-budget,save/load or artistic pass;no merge.
+Loaded_03 is terminal exit1:47,562checks/16failures,all1110static parts,
+1093lower parts,17180panes and4moving hands traversed. Nine isolated building
+studies,45body observations and67PNGs were written;only their9-image overview
+was inspected. Twelve failures are retained Western roof aliases absent from
+the test; the producer explicitly delegates these three styles to known flat
+constructors. Four natural-LOD probes selected unchanged planar wall parts
+with no encoded LOD,although their full bodies reduced. Native triangle/face
+analysis confirms actual reducing stock with broad faces for each. Original
+logs,failed checks,images and source guards remain in loaded_03/.
+
+The corrected bench resolves exactly those three authored aliases and selects
+an actual reducing material part with a broad source face,retaining preferred
+wall targets where they do reduce. It keeps default threshold1,distance
+bracketing,bisection,narrow-FOV recovery,inward return,positive-image contrast
+and same-pose hidden-target controls. Full-body observations still cover all
+parts; no geometry or gameplay change,no waived transition or roof ray.
+Loaded_04 family-only4stage retry is queued under attempt_04/loaded_04/:
+broker18972,birth2026-11-04T01:51:22.7119318Z verified live. It recompiles the
+changed bench and reruns9profiles with fresh guards;success is not yet known.
+Imports and39check entry bench are reused by unchanged production+transitive
+entry-source closure,not repinned as composed/gameplay proof. All previous
+native/loaded brokers are terminal;do not restart them. Current custody remains
+ACTIVE_QUALIFICATION.json. No composed-world,played-access,frame-budget,
+save/load or artistic pass;no merge.
 
 UID cleanup after first import:2UIDs for branch-added entry helper/test are
 retained.702generated metadata files are hash-preserved outside checkout in

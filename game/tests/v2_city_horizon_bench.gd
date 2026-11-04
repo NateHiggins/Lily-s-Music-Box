@@ -255,6 +255,9 @@ func _residential_receiving_y(profile:Dictionary)->float:
 		# Only the fabrication profile owns those local floor heights.
 		architecture=architecture.get("fabrication_profile",{}).get("architecture",{})
 	var style:=str(architecture.get("style",""))
+	# WesternStreetHouses.STOCK keeps these source-specific names while
+	# delegating their actual roof stock to the existing flat constructors.
+	style=str({"brick_2113":"italianate_2109","stone_2116":"stone_2129","neogrec_2128":"neogrec_2122"}.get(style,style))
 	# CivicRows overrides its inherited eave to the final floor plane. Only
 	# the two pitched styles terminate the receiving walls one floor earlier.
 	var flat:=style in ["italianate_2109","stone_2129","narrow_2141","neogrec_2122"]
@@ -554,32 +557,60 @@ func _profile_probe(camera: Camera3D,center: Vector3,direction: Vector3,distance
 	var viewport:=get_viewport()
 	return {"distance_m":distance_m,"primitives":RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME),"draws":RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME)}
 
-func _profile_natural(_city: Node3D,camera: Camera3D,draws: Array,identity: String,key: String,directory: String) -> Dictionary:
-	var focus: MeshInstance3D=null
-	for draw: MeshInstance3D in draws:
-		draw.visible=str(draw.name)==identity+"__"+key
-		if draw.visible:focus=draw
-	check(focus!=null,"industrial body material exists for natural LOD: "+identity)
-	if focus==null:return {}
-	var arrays: Array=focus.mesh.surface_get_arrays(0)
+func _natural_stock_view(draw: MeshInstance3D) -> Dictionary:
+	var arrays: Array=draw.mesh.surface_get_arrays(0)
 	var points: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
 	var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
 	var indices: PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
-	var direction:=Vector3(1.,.12,.18).normalized()
+	var bounds:=draw.get_aabb()
+	var preferred_direction:=Vector3(1.,.12,.18).normalized()
+	# Preserve the old broad-facing target where available; otherwise use an
+	# actual vertical face normal,not a reservation axis or synthetic point.
+	for pass_index: int in 2:
+		var best: float=INF
+		var result: Dictionary={}
+		for i in range(0,indices.size(),3):
+			var a: int=indices[i];var b: int=indices[i+1];var c: int=indices[i+2]
+			var area: float=(points[b]-points[a]).cross(points[c]-points[a]).length()*.5
+			var normal: Vector3=(draw.global_basis*(normals[a]+normals[b]+normals[c])).normalized()
+			if area<.2 or absf(normal.y)>.7:continue
+			if pass_index==0 and normal.dot(preferred_direction)<.5:continue
+			var local_point: Vector3=(points[a]+points[b]+points[c])/3.
+			var distance_sq: float=local_point.distance_squared_to(bounds.get_center())
+			if distance_sq<best:
+				best=distance_sq
+				result={"center":draw.global_transform*local_point,"direction":preferred_direction if pass_index==0 else (normal+Vector3.UP*.12).normalized(),"area_m2":area,"normal":normal}
+		if not result.is_empty():return result
+	return {}
+
+func _profile_natural(_city: Node3D,camera: Camera3D,draws: Array,identity: String,key: String,directory: String) -> Dictionary:
+	var focus: MeshInstance3D=null
+	var target: Dictionary={}
+	var preferred:=identity+"__"+key
+	var preferred_has_lod:=false
+	var best_indices: int=-1
+	# A full replacement may leave its planar wall part unchanged. Select
+	# actual encoded reducing stock; never invent a distance transition for a
+	# part with no LOD indices. Complete-body near/far cases still cover all parts.
+	for draw: MeshInstance3D in draws:
+		draw.visible=false
+		if not str(draw.name).begins_with(identity+"__"):continue
+		var surface: Dictionary=RenderingServer.mesh_get_surface(draw.mesh.get_rid(),0)
+		var lods: Array=surface.get("lods",[])
+		if str(draw.name)==preferred:preferred_has_lod=not lods.is_empty()
+		if lods.is_empty():continue
+		var candidate: Dictionary=_natural_stock_view(draw)
+		if candidate.is_empty():continue
+		var indices: int=draw.mesh.surface_get_array_index_len(0)
+		if str(draw.name)==preferred or (focus==null or (str(focus.name)!=preferred and indices>best_indices)):
+			focus=draw;target=candidate;best_indices=indices
+	check(focus!=null,"authored reducing stock has a broad actual surface for natural LOD: "+identity)
+	if focus==null:return {}
+	focus.visible=true
 	var bounds:=focus.get_aabb()
-	var center:=focus.global_transform*bounds.get_center()
-	var best:=INF
-	for i in range(0,indices.size(),3):
-		var a: int=indices[i];var b: int=indices[i+1];var c: int=indices[i+2]
-		var area: float=(points[b]-points[a]).cross(points[c]-points[a]).length()*.5
-		var normal: Vector3=(focus.global_basis*(normals[a]+normals[b]+normals[c])).normalized()
-		if area<.2 or normal.dot(direction)<.5:continue
-		var local_point: Vector3=(points[a]+points[b]+points[c])/3.
-		var distance_sq: float=local_point.distance_squared_to(bounds.get_center())
-		if distance_sq<best:
-			best=distance_sq
-			center=focus.global_transform*local_point
-	check(is_finite(best),"natural LOD aims at broad actual surface stock: "+identity)
+	var center: Vector3=target.center
+	var direction: Vector3=target.direction
+	var selection: Dictionary={"preferred_part":preferred,"preferred_has_lod":preferred_has_lod,"selected_part":str(focus.name),"selected_lod_count":(RenderingServer.mesh_get_surface(focus.mesh.get_rid(),0).get("lods",[]) as Array).size(),"broad_face_area_m2":target.area_m2,"face_normal":str(target.normal)}
 	var radius:=0.
 	for corner in 8:radius=maxf(radius,center.distance_to(focus.global_transform*bounds.get_endpoint(corner)))
 	camera.fov=75.;get_viewport().mesh_lod_threshold=1.
@@ -626,4 +657,4 @@ func _profile_natural(_city: Node3D,camera: Camera3D,draws: Array,identity: Stri
 			row["file"]=identity+"_natural_"+str(spec.id)+".png";row["fov"]=camera.fov;row["center_contrast"]=contrast
 			check(frame.save_png(directory.path_join(str(row.file)))==OK,"natural industrial image saved")
 			images.append(row)
-	return {"part":str(focus.name),"scope":"One whole material body part, default pixel threshold1, bisected first observed distance reduction, narrow-FOV recovery and inward return. Same-pose hidden-target background controls use fixed bench lighting with no weather or campaign clock. Not a whole-building/world LOD or artistic acceptance.","before":before,"after":after,"probes":probes,"images":images,"hidden_target_controls":controls}
+	return {"part":str(focus.name),"selection":selection,"scope":"One actual reducing material body part, default pixel threshold1, bisected first observed distance reduction, narrow-FOV recovery and inward return. Same-pose hidden-target background controls use fixed bench lighting with no weather or campaign clock. Not a whole-building/world LOD or artistic acceptance.","before":before,"after":after,"probes":probes,"images":images,"hidden_target_controls":controls}
