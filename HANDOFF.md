@@ -1,3 +1,40 @@
+# Current continuation — qualification debt after city merge
+
+### Merged city checkpoint and qualification repair custody — November 4
+
+PR151 was manually merged at **4f16053e8** from exact candidate **5556ba9b4**.
+The in-place verifier completed119gates with0regressions,17protected paths
+unchanged,selectorV2 and0document-lint errors. Six changed gate files were
+reviewed. It reused the already executed source-bound engine contracts and did
+not launch new Godot suites; fresh-checkout/autocrlf behavior is outside that
+verification. Local main was fast-forwarded,then a new clean-main baseline
+**qualification_debt_trace_01/board_main_4f16053e8/** completed119gates with
+115PASS/3FAIL/1INCOMPLETE and0dirty paths. These are the same explicitly retained
+inherited failures,not a clean whole-game acceptance.
+
+Canonical Codex now owns **K-V2-QUALIFICATION-DEBT** on
+codex/v2-qualification-debt-20261104. The original F01 native replay failed
+before geometry because6existing custom-shader finishes were missing from the
+global catalogue mapping. The tentacle membrane/tissue/eye/residue and guide-bell
+membrane/tissue already bind their own ShaderMaterials and dream texture maps;
+they are now explicitly registered as shader-owned null mappings,following the
+existing catalogue convention. All328prior rows are unchanged. The real runtime
+material generator confirms129materials/14visual locks/0files changed; generated
+contract and GDScript bytes are unchanged. No generic fallback,map,shader,
+geometry,source-ownership row,test hash or runtime receipt was replaced.
+
+This mapping checkpoint is WIP. Its LF-normalized hash is
+67c7bbba13e7853b35bbf9a2941e679f1528464677eb3de3fa8121c464eeee77.
+The external CRLF proposal remains preserved separately. Next execute the
+unchanged native owner-first exporter against the already reviewed external
+one-record ownership candidate. Demand exact existing geometry/alias artifacts
+and reviewed metadata-only lineage changes before admitting that candidate.
+Native retry and affected rendered qualification are not yet claimed.
+Original failures remain in qualification_debt_trace_01/native_export_01/;
+new output is exclusively native_export_02/. No second city family starts.
+
+Earlier checkpoints below retain their historical status.
+
 # Latest checkpoint — 2026-11-04
 
 ### Current city edge qualification — 2026-11-04
