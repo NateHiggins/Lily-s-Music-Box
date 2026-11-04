@@ -3,6 +3,17 @@
 Canonical C:/PleaseRemainOnTheLine,branch codex/v2-first-view-preparation-20261102,
 draftPR151;unmerged. Main last verifiedfb3167942. GoalACTIVE,widerV2 unfinished.
 
+Latest preserved WIP:7b525b97d plus mount followupff2fcb832,both pushed;not merged.
+All43expanded frozen inputs byte-match committed HEAD (text LF-normalized).
+Static board **ground_edge_intake_01/board_pending_01/** is terminal1:
+119gates,113PASS/5FAIL/1INCOMPLETE. Three test failures and ledger incompleteness
+match clean-main debt. New failures are stale rendered qualification and4
+model/import-retention defects sampled before the WIPcommit. Targeted postcommit
+**board_import_after_commit/** passes physical_import_sources with0defects;
+this one-gate board is not a whole-candidate pass. The original surface-tools
+suite now passes43/0 in90.38s rather than timing out. Final composed renewal and
+current complete candidate verification remain required.
+
 All85newcity replacements are assembled through owning producers with39retained
 profiles/all124reservations preserved. Native2203/0 comparisons,2678retained
 pane witnesses,393far/street raw-array/Scene/map checks,13fixtures/21tests pass.

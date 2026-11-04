@@ -7181,3 +7181,25 @@ Framing session95975/actual broker44520 is terminal0:compile2PASS4.53s,small
 native3440x1440lifecycle58/0~3s,exact guards pass. Actual graph outputs and receipts
 remain in **city_entry_framing_01/**. Composed entry images,current edge appearance,
 contacts/access/LOD cost and final surface/candidate renewal remain open.
+
+
+### Static regression board after preserving the edge WIP
+
+The source-fitted intake is preserved at **7b525b97d** with its two-line
+production mount in **ff2fcb832**,both pushed to the existing draftPR151 branch.
+This is explicitly WIP,not a runtime-qualified merge. Before engine execution,
+the retry freeze expanded from16 to43inputs to bind all literal transitive
+helper/fixture dependencies and the compile entry point;all43match committed
+HEAD. The original16hashes are unchanged. No old receipt was repinned.
+
+The full119gate board at **ground_edge_intake_01/board_pending_01/board.json**
+is terminal1:113PASS,5FAIL,1INCOMPLETE. Three test failures and the incomplete
+ledger are the same clean-main debt. The two newly failing gates are expected
+stale rendered qualification and physical import retention:the latter sampled
+4untracked model/import paths before their WIPcommit. Targeted postcommit
+**board_import_after_commit/board.json** passes physical_import_sources with
+0defects;its118unrun gates cannot establish whole-candidate acceptance. The
+43surface-tools tests pass90.38s,closing the earlier timeout defect without
+weakening their assertions. Actual edge-loaded checks,composed rendered renewal,
+a clean complete candidate check and manual merge remain open. Original failed
+boards and unchanged scope limitations are retained.
