@@ -69,14 +69,14 @@ contained only log/pipeline cache,no settings/save/recovery files. Source hold
 and custody released;no game-world cause,room or surface qualification follows.
 Original artifacts: **C:/ov/reports/develop_intake_20261104/native_viewport_probe_ready/runs/probe_02_canonical/**.
 
-**Composed3A observation world_3a_01 is QUEUED**,broker11104,created
+**Composed3A observation world_3a_01 is LIVE**,broker11104,created
 **2026-11-04T20:48:42.0579710Z**,root session96841. Revalidate full identity;
 never submit a duplicate. Custody/source freeze:
 **C:/ov/reports/develop_intake_20261104/native_world_observation_ready/runs/world_3a_01/QUEUE_CUSTODY.json**.
 Three fail-closed FIFO stages:external compile30s with explicit empty scene;
 original wrapper/raw-log/58frozen-file admission30s;unchanged full world plus
 complete3A driver/real controls/two original captures600s. Root reviewed code,
-normal movement release/teardown and CPU consistency;actual compilation unrun.
+normal movement release/teardown and CPU consistency. Original compile exit0/30.51s,untimedout,zero script errors/raw log hashes verified;exact admission PASS. World started21:11:00Z:console27156/child6916,birth/commands recorded in ROOT_LIVE_IDENTITY.json. First two pre-composition checkpoints show root/subject3440x1440 and actual isolated user directory. No route/capture verdict yet.
 Unique partial checkpoints remain INCOMPLETE until natural route/teardown finish.
 Architect owns monitor/output/profile review;canonical consumed sources held
 until terminal equality/release. Tracker-only commits do not alter pinned files.
