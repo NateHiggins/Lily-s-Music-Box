@@ -1,12 +1,12 @@
-# Current handoff — qualification repair open; runtime05 queued
+# Current handoff — receiving candidate frozen; runtime06 queued
 
 Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-qualification-debt-20261104**. Code checkpoint **9d8faac75** is
+**codex/v2-qualification-debt-20261104**. Code checkpoint **eb26f890f** is
 committed and pushed; PR152 remains **OPEN/DRAFT/UNMERGED**. Main is
 **4f16053e8a7b1f8fe0ec91c25d5aab8c4a794359**, the PR151 merge. Fetch and
 inspect actual Git before acting; app-attached v2-baseline is not canonical.
 
-## Current job custody — receiving_01 queued
+## Current job custody — runtime06 queued
 
 Integration owner: **Complete V2 qualification commitments**, chat
 **01a1a653-eda8-7732-9732-2c362f5129d6**. Old Developer Sol is the read-only
@@ -23,19 +23,26 @@ frame was inspected. No original authority/disk,apartment,surface or final guard
 stage ran. Preserve all runtime05 inputs,logs,receipts and original failures.
 External intake record: **C:/ov/reports/develop_intake_20261104/INHERITED_RUNTIME05.json**.
 
-An **unverified** radiator inspection-view candidate includes the loose incoming
-part and receiving seat from the open side, retaining seated cap views and all
-collision/grip/save authorities. Bounded compile6+original insert-route probe is
-queued as broker**5164**, created**2026-11-04T11:33:48.961279Z**, command
-**pwsh -NoProfile -File tools/lane.ps1 batch -BatchFile C:/ov/reports/develop_intake_20261104/receiving_01/batch.json -WaitMinutes 240**.
-Revalidate PID+creation+command and per-stage receipts before resuming; never
-duplicate it. Keep radiator_prop.gd and consumed fixture inputs frozen until
-terminal. All windowed work is hidden/native3440x1440,patched engine,FIFO.
-No runtime acceptance is claimed for authored camera code or queued checks.
+An **unverified** radiator inspection-view candidate at **eb26f890f** includes
+the loose incoming part and receiving seat from the open side, retaining seated
+cap views and all collision/grip/save authorities. Own bounded receiving_01
+broker5164 was identity-checked and withdrawn BEFORE launch (no children/logs);
+**receiving_01/WITHDRAWAL.json** retains the reason and custody. Nothing ran.
+
+The same-source **runtime_06** consolidates source guard,compile6,bounded insert
+preflight,original authority/disk,nine-apartment movement,composed physical
+surfaces/city/entry views,and final guard in one fail-fast FIFO acquisition.
+Broker**44132**,created**2026-11-04T11:45:58.562687Z**,tool session**61015**;
+**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_06/QUEUE_CUSTODY.json**
+records exact command/identity. Revalidate it and per-stage receipts before
+resuming; never duplicate a live run. Consumed runtime/fixture/rendering inputs
+remain frozen. Long original stages start only after the bounded probe passes.
+All windowed work is hidden/native3440x1440,patched engine,FIFO. No runtime
+acceptance is claimed for authored camera code or queued checks.
 
 ## Finish the integration before opening new work
 
-1. Read receiving_01's actual result,finish the receiving interaction from evidence,
+1. Read runtime06's actual result,finish the receiving interaction from evidence,
    and pass the original authority/save/apartment contracts. Inspect new frames.
    Stage only exact original receipts via the external staging helper,passing
    the successful new runtime name explicitly; its default still names03. Preserve the older19-room

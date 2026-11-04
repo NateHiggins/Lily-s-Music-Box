@@ -7615,3 +7615,15 @@ FIFO queued as broker5164,created11:33:48.961279Z,under
 terminal. Retain runtime05 and earlier failures; no contract repin,played or
 artistic acceptance. Original authority/save,9-unit movement,rendered surfaces
 and exact candidate verification remain required before manual PR152 merge.
+
+
+The receiving candidate is pushed at **eb26f890f**. Before any launch,own
+receiving01 broker5164 was revalidated by PID/creation/command,no children and
+no compile/probe logs,and withdrawn. Its **WITHDRAWAL.json** remains external;
+no foreign process or waiter changed. Same-source runtime06 now queues the
+original7-stage fail-fast programme as broker44132,created11:45:58.562687Z,
+tool61015. This avoids a second FIFO wait after the bounded result while still
+preventing every expensive composed stage on preflight failure. Exact frozen
+sources/batch/custody are in **qualification_debt_trace_01/runtime_06/**.
+No new engine result or acceptance yet. ReaderNEW0 and spatial audit clean;
+main baseline independently validates exact119rows/clean4f16053e8 provenance.
