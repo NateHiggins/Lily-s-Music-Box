@@ -2,11 +2,30 @@
 from pathlib import Path
 import copy,gzip,hashlib,importlib.util,json,subprocess,sys,tempfile,unittest
 from unittest.mock import patch
+from contextlib import contextmanager
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'tools'))
 from audit_v2_surfaces import evaluate
 spec=importlib.util.spec_from_file_location('surface_imports',ROOT/'art/tools/fix_runtime_texture_imports.py');imports=importlib.util.module_from_spec(spec);spec.loader.exec_module(imports)
 
 class Requirements(unittest.TestCase):
+    @contextmanager
+    def stable_membership(self,evidence):
+        # These tests alter one file hash/parameter at a time,not membership.
+        # Discover every real dependency once;keep all per-path invalidation
+        # assertions and fresh import-parameter reads inside inputs().
+        paths,sidecars=evidence.input_paths()
+        with patch.object(evidence,'input_paths',return_value=(paths,sidecars)):
+            yield
+
+    def test_production_input_discovery_is_fresh_on_every_snapshot(self):
+        import v2_surface_evidence as evidence
+        a=ROOT/'game/shaders/first.gdshader';b=ROOT/'game/shaders/added.gdshader'
+        with patch.object(evidence,'input_paths',side_effect=[({a},[]),({a,b},[])]) as discovery,patch.object(evidence,'file_hash',return_value='source'):
+            first=evidence.inputs();second=evidence.inputs()
+        self.assertEqual(discovery.call_count,2)
+        self.assertNotEqual(first['sha256'],second['sha256'])
+        self.assertEqual((first['files'],second['files']),(1,2))
+
     def test_urban_ice_pillars_require_exact_optical_shader_owner_and_role(self):
         data=self.inventory();draw=data['draws'][0];material=data['materials']['material']
         draw.update(path='StreetAndBodega/ExteriorInstances/STREET_ORISON_01/StreetLamps/LampPool/IcePillar',
@@ -88,26 +107,28 @@ class Requirements(unittest.TestCase):
 
     def test_procedural_relief_recipe_and_helpers_are_surface_inputs(self):
         import v2_surface_evidence as evidence
-        dependencies=evidence.material_recipe_paths(ROOT)
-        for relative in ('art/tools/material_relief.py', 'art/tools/build_fire_finish_stock.py',
-                         'art/textures/procedural/glass_cut/material.json',
-                         'art/textures/procedural/glass_cut/normal.png'):
-            self.assertIn(ROOT/relative,dependencies)
-        with patch.object(evidence,'file_hash',return_value='source'):
-            before=evidence.inputs()['sha256']
-        target=ROOT/'art/tools/material_relief.py'
-        with patch.object(evidence,'file_hash',side_effect=lambda path:'changed' if path==target else 'source'):
-            self.assertNotEqual(before,evidence.inputs()['sha256'])
+        with self.stable_membership(evidence):
+            dependencies=evidence.material_recipe_paths(ROOT)
+            for relative in ('art/tools/material_relief.py', 'art/tools/build_fire_finish_stock.py',
+                             'art/textures/procedural/glass_cut/material.json',
+                             'art/textures/procedural/glass_cut/normal.png'):
+                self.assertIn(ROOT/relative,dependencies)
+            with patch.object(evidence,'file_hash',return_value='source'):
+                before=evidence.inputs()['sha256']
+            target=ROOT/'art/tools/material_relief.py'
+            with patch.object(evidence,'file_hash',side_effect=lambda path:'changed' if path==target else 'source'):
+                self.assertNotEqual(before,evidence.inputs()['sha256'])
 
     def test_raw_cloud_fields_expire_surface_proof(self):
         import v2_surface_evidence as evidence
-        with patch.object(evidence,'file_hash',return_value='source'):
-            before=evidence.inputs()['sha256']
-        for name in ('perlin_worley_128.r8','cloud_curl_32.rgb8'):
-            with self.subTest(name=name):
-                with patch.object(evidence,'file_hash',side_effect=lambda path:
-                                  'changed' if path.name==name else 'source'):
-                    self.assertNotEqual(before,evidence.inputs()['sha256'])
+        with self.stable_membership(evidence):
+            with patch.object(evidence,'file_hash',return_value='source'):
+                before=evidence.inputs()['sha256']
+            for name in ('perlin_worley_128.r8','cloud_curl_32.rgb8'):
+                with self.subTest(name=name):
+                    with patch.object(evidence,'file_hash',side_effect=lambda path:
+                                      'changed' if path.name==name else 'source'):
+                        self.assertNotEqual(before,evidence.inputs()['sha256'])
 
     def test_material_sources_cannot_escape_or_disappear(self):
         import v2_surface_evidence as evidence
@@ -121,66 +142,68 @@ class Requirements(unittest.TestCase):
 
     def test_compiled_deformer_and_native_source_changes_expire_surface_proof(self):
         import v2_surface_evidence as evidence
-        with patch.object(evidence,'file_hash',return_value='source'):
-            before=evidence.inputs()['sha256']
-        for relative in ['game/native/hose_math/src/hose_projection.cpp',
-                         'game/native/hose_math/hose_math.gdextension',
-                         'game/native/hose_math/build_manifest.json',
-                         'game/native/hose_math/bin/orison_hose_math.windows.x86_64.dll']:
-            with self.subTest(relative=relative):
-                target=ROOT/relative
-                with patch.object(evidence,'file_hash',side_effect=lambda path:'changed' if path==target else 'source'):
-                    self.assertNotEqual(before,evidence.inputs()['sha256'])
+        with self.stable_membership(evidence):
+            with patch.object(evidence,'file_hash',return_value='source'):
+                before=evidence.inputs()['sha256']
+            for relative in ['game/native/hose_math/src/hose_projection.cpp',
+                             'game/native/hose_math/hose_math.gdextension',
+                             'game/native/hose_math/build_manifest.json',
+                             'game/native/hose_math/bin/orison_hose_math.windows.x86_64.dll']:
+                with self.subTest(relative=relative):
+                    target=ROOT/relative
+                    with patch.object(evidence,'file_hash',side_effect=lambda path:'changed' if path==target else 'source'):
+                        self.assertNotEqual(before,evidence.inputs()['sha256'])
 
     def test_city_and_grade_native_source_changes_expire_surface_proof(self):
         import v2_surface_evidence as evidence
-        with patch.object(evidence,'file_hash',return_value='source'):
-            before=evidence.inputs()['sha256']
-        for relative in [
-            'art/data/city_elevations/source_plan.json',
-            'art/data/city_ground_apron/source_plan.json',
-            'art/blender/city_elevations.blend',
-            'art/blender/city_elevations_construction.json',
-            'art/blender/city_ground_apron.blend',
-            'art/blender/city_ground_apron_construction.json',
-            'art/data/city_horizon/source_plan.json',
-            'art/blender/city_horizon_near.blend',
-            'art/blender/city_horizon_far.blend',
-            'art/blender/city_horizon_street_end.blend',
-            'art/blender/city_horizon_lod1.blend',
-            'art/blender/city_horizon_construction.json',
-            'art/data/city_transport/source_plan.json',
-            'art/blender/city_transport.blend',
-            'art/blender/city_transport_construction.json',
-            'art/data/city_streets/source_plan.json',
-            'art/blender/city_streets.blend',
-            'art/blender/city_streets_construction.json',
-            'art/blender/house_switchboard.blend',
-            'art/blender/house_switchboard_construction.json',
-            'art/blender/fire_hose_stock.blend',
-            'art/blender/fire_hose_stock_construction.json',
-            'art/blender/fire_joint_stock.blend',
-            'art/blender/fire_joint_stock_construction.json',
-            'art/blender/fire_nozzle_hose.blend',
-            'art/blender/fire_nozzle_hose_construction.json',
-            'art/blender/fire_nozzle_joint.blend',
-            'art/blender/fire_nozzle_joint_construction.json',
-            'art/blender/fire_nozzle_detail.blend',
-            'art/blender/fire_nozzle_detail_construction.json',
-            'art/blender/fire_nozzle_collision.blend',
-            'art/blender/fire_nozzle_collision_construction.json',
-            'art/blender/fire_floor_enamel.blend',
-            'art/blender/fire_floor_enamel_construction.json',
-            'art/blender/fire_fold_stock.blend',
-            'art/blender/fire_fold_stock_construction.json',
-            'art/blender/fire_hose_rack.blend',
-            'art/blender/fire_hose_rack_construction.json',
-        ]:
-            with self.subTest(relative=relative):
-                target=ROOT/relative
-                with patch.object(evidence,'file_hash',side_effect=lambda path:
-                                  'changed' if path==target else 'source'):
-                    self.assertNotEqual(before,evidence.inputs()['sha256'])
+        with self.stable_membership(evidence):
+            with patch.object(evidence,'file_hash',return_value='source'):
+                before=evidence.inputs()['sha256']
+            for relative in [
+                'art/data/city_elevations/source_plan.json',
+                'art/data/city_ground_apron/source_plan.json',
+                'art/blender/city_elevations.blend',
+                'art/blender/city_elevations_construction.json',
+                'art/blender/city_ground_apron.blend',
+                'art/blender/city_ground_apron_construction.json',
+                'art/data/city_horizon/source_plan.json',
+                'art/blender/city_horizon_near.blend',
+                'art/blender/city_horizon_far.blend',
+                'art/blender/city_horizon_street_end.blend',
+                'art/blender/city_horizon_lod1.blend',
+                'art/blender/city_horizon_construction.json',
+                'art/data/city_transport/source_plan.json',
+                'art/blender/city_transport.blend',
+                'art/blender/city_transport_construction.json',
+                'art/data/city_streets/source_plan.json',
+                'art/blender/city_streets.blend',
+                'art/blender/city_streets_construction.json',
+                'art/blender/house_switchboard.blend',
+                'art/blender/house_switchboard_construction.json',
+                'art/blender/fire_hose_stock.blend',
+                'art/blender/fire_hose_stock_construction.json',
+                'art/blender/fire_joint_stock.blend',
+                'art/blender/fire_joint_stock_construction.json',
+                'art/blender/fire_nozzle_hose.blend',
+                'art/blender/fire_nozzle_hose_construction.json',
+                'art/blender/fire_nozzle_joint.blend',
+                'art/blender/fire_nozzle_joint_construction.json',
+                'art/blender/fire_nozzle_detail.blend',
+                'art/blender/fire_nozzle_detail_construction.json',
+                'art/blender/fire_nozzle_collision.blend',
+                'art/blender/fire_nozzle_collision_construction.json',
+                'art/blender/fire_floor_enamel.blend',
+                'art/blender/fire_floor_enamel_construction.json',
+                'art/blender/fire_fold_stock.blend',
+                'art/blender/fire_fold_stock_construction.json',
+                'art/blender/fire_hose_rack.blend',
+                'art/blender/fire_hose_rack_construction.json',
+            ]:
+                with self.subTest(relative=relative):
+                    target=ROOT/relative
+                    with patch.object(evidence,'file_hash',side_effect=lambda path:
+                                      'changed' if path==target else 'source'):
+                        self.assertNotEqual(before,evidence.inputs()['sha256'])
     def inventory(self):
         return {'schema':'orison.v2-surface-inventory.v1','passage_state':'RESIDENT',
                 'draws':[{'path':'fixture','instances':1,'mesh':'mesh','materials':['material'],'visible':True}],
@@ -200,15 +223,16 @@ class Requirements(unittest.TestCase):
 
     def test_native_device_import_parameters_expire_qualification(self):
         import v2_surface_evidence as evidence
-        target=ROOT/'game/assets/device/service_teletype/service_teletype_Aged machined brass normal.png.import'
-        original=Path.read_text
-        def changed(path,*args,**kwargs):
-            value=original(path,*args,**kwargs)
-            return value.replace('process/normal_map_invert_y=false','process/normal_map_invert_y=true') if path==target else value
-        with patch.object(evidence,'file_hash',return_value='source'):
-            before=evidence.inputs()['sha256']
-            with patch.object(Path,'read_text',changed):
-                self.assertNotEqual(before,evidence.inputs()['sha256'])
+        with self.stable_membership(evidence):
+            target=ROOT/'game/assets/device/service_teletype/service_teletype_Aged machined brass normal.png.import'
+            original=Path.read_text
+            def changed(path,*args,**kwargs):
+                value=original(path,*args,**kwargs)
+                return value.replace('process/normal_map_invert_y=false','process/normal_map_invert_y=true') if path==target else value
+            with patch.object(evidence,'file_hash',return_value='source'):
+                before=evidence.inputs()['sha256']
+                with patch.object(Path,'read_text',changed):
+                    self.assertNotEqual(before,evidence.inputs()['sha256'])
 
     def test_transparent_physical_surface_cannot_hide_missing_maps(self):
         data=self.inventory();data['materials']['material'].update(transparency=1,maps={})
@@ -437,44 +461,47 @@ class Requirements(unittest.TestCase):
                 self.assertEqual(before,evidence.inputs()['sha256'])
     def test_authored_shader_change_invalidates_qualification(self):
         import v2_surface_evidence as evidence
-        with patch.object(evidence,'file_hash',return_value='source'):
-            before=evidence.inputs()['sha256']
-        def changed_shader(path):
-            return 'changed' if path.name=='lamp_glass_surface.gdshader' else 'source'
-        with patch.object(evidence,'file_hash',side_effect=changed_shader):
-            self.assertNotEqual(before,evidence.inputs()['sha256'])
+        with self.stable_membership(evidence):
+            with patch.object(evidence,'file_hash',return_value='source'):
+                before=evidence.inputs()['sha256']
+            def changed_shader(path):
+                return 'changed' if path.name=='lamp_glass_surface.gdshader' else 'source'
+            with patch.object(evidence,'file_hash',side_effect=changed_shader):
+                self.assertNotEqual(before,evidence.inputs()['sha256'])
 
     def test_front_lighting_native_and_projection_changes_invalidate_qualification(self):
         import v2_surface_evidence as evidence
-        with patch.object(evidence,'file_hash',return_value='source'):
-            before=evidence.inputs()['sha256']
-        for name in ('build.py','front_lighting_candidate.blend','front_lighting_plan.json',
-                     'front_lighting_source.json','front_lighting_supply_export.json',
-                     'prepare_v2_front_lighting.py','export.py',
-                     'front_lighting_finish_candidate.blend','front_lighting_cornice_candidate.blend',
-                     'millwork_profile.blend','passage_shop_leaves.blend',
-                     'front_trim_layout_source.json','front_trim_export_source.json',
-                     'plan_v2_front_trim.py'):
-            with self.subTest(name=name):
-                with patch.object(evidence,'file_hash',side_effect=lambda path:
-                                  'changed' if path.name==name else 'source'):
-                    self.assertNotEqual(before,evidence.inputs()['sha256'])
+        with self.stable_membership(evidence):
+            with patch.object(evidence,'file_hash',return_value='source'):
+                before=evidence.inputs()['sha256']
+            for name in ('build.py','front_lighting_candidate.blend','front_lighting_plan.json',
+                         'front_lighting_source.json','front_lighting_supply_export.json',
+                         'prepare_v2_front_lighting.py','export.py',
+                         'front_lighting_finish_candidate.blend','front_lighting_cornice_candidate.blend',
+                         'millwork_profile.blend','passage_shop_leaves.blend',
+                         'front_trim_layout_source.json','front_trim_export_source.json',
+                         'plan_v2_front_trim.py'):
+                with self.subTest(name=name):
+                    with patch.object(evidence,'file_hash',side_effect=lambda path:
+                                      'changed' if path.name==name else 'source'):
+                        self.assertNotEqual(before,evidence.inputs()['sha256'])
 
     def test_heating_refit_authoring_inputs_invalidate_surface_qualification(self):
         import v2_surface_evidence as evidence
-        with patch.object(evidence,'file_hash',return_value='source'):
-            before=evidence.inputs()['sha256']
-        for relative in ('art/blender/heating_distribution.blend',
-                         'art/blender/heating_distribution_base19.blend',
-                         'art/data/orison_v2/heating_refit_authoring.json',
-                         'art/data/orison_v2/heating_refit_layout_source.json',
-                         'tools/prepare_v2_heating_refit.py',
-                         'art/blender/scripts/build_heating_refit.py',
-                         'art/blender/scripts/heating_refit/export.py'):
-            with self.subTest(path=relative):
-                target=ROOT/relative
-                with patch.object(evidence,'file_hash',side_effect=lambda path:
-                                  'changed' if path==target else 'source'):
-                    self.assertNotEqual(before,evidence.inputs()['sha256'])
+        with self.stable_membership(evidence):
+            with patch.object(evidence,'file_hash',return_value='source'):
+                before=evidence.inputs()['sha256']
+            for relative in ('art/blender/heating_distribution.blend',
+                             'art/blender/heating_distribution_base19.blend',
+                             'art/data/orison_v2/heating_refit_authoring.json',
+                             'art/data/orison_v2/heating_refit_layout_source.json',
+                             'tools/prepare_v2_heating_refit.py',
+                             'art/blender/scripts/build_heating_refit.py',
+                             'art/blender/scripts/heating_refit/export.py'):
+                with self.subTest(path=relative):
+                    target=ROOT/relative
+                    with patch.object(evidence,'file_hash',side_effect=lambda path:
+                                      'changed' if path==target else 'source'):
+                        self.assertNotEqual(before,evidence.inputs()['sha256'])
 
 if __name__=='__main__':unittest.main()

@@ -71,7 +71,7 @@ def material_recipe_paths(root):
     return paths
 
 
-def inputs(root=ROOT):
+def input_paths(root=ROOT):
     # Imported GLB extracts and ingest caches are derived local state. Track
     # authored inputs, including new nonignored additions, before qualification.
     versioned=set(subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard','-z'],cwd=root).decode().split('\0'))
@@ -264,6 +264,13 @@ def inputs(root=ROOT):
             imports.append(source)
     paths.update(material_recipe_paths(root))
     paths.update(test_dependency_paths(root,paths))
+    return paths,imports
+
+
+def inputs(root=ROOT):
+    # Discovery remains fresh in production. Tests of individual hash changes
+    # can hold an unchanged membership fixture without rescanning the city.
+    paths,imports=input_paths(root)
     manifest=sorted([p.relative_to(root).as_posix(),file_hash(p)] for p in paths)
     # Read the same complete set freshly on every call. Bounded parallel I/O
     # avoids serial Windows small-file latency; ordered map preserves both the

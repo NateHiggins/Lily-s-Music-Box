@@ -7035,3 +7035,42 @@ replace loaded UV/mip/LOD/frame-cost or full-world actual-controller/surface pro
 Scoped correction packet **art/reviews/city_streets_20261029/sohmer_factory_occupancy_review.zip**
 contains20members/2817664B,SHA256
 **16010ecdd2dc2d053986fdf7873844464a63e44ee114a91beecccc26a3e1b7cc**. Originalnativearchive/hash unchanged;no runtimeproof grant.
+
+
+### November 3 continuation — city priority, matched entry and bounded edge family
+
+Evidence remains **INERT** for this report; actual contracts stay in their
+source packets. Lily reaffirmed cityscape completion as the priority. Architect
+Sol 6.1 owns only the external 32m eastern rail-cut concrete toe in
+**C:/ov/asset-prototypes/city-ground-edges-20261103/**. **ADMISSION_02.json**
+checks the current receiving ground, real bridge triangles/containment and
+reservation separation. It records three stale active discovery bindings rather
+than repinning them. Native build/review is queued through FIFO broker57480;
+no completed native result or runtime acceptance is claimed. Codex owns intake,
+active bindings, runtime contact/access/LOD and combined surface renewal.
+
+**entry_followup_02** is terminal0: actual Title BEGIN17/0, optical lifecycle19/0,
+baseline19/0 and prepared22/0; before/after source guards pass. The native
+3440x1440 six-leg matched pair measured p99 338.254 to60.696ms,
+max434.340 to67.996ms and six to zero frames over100ms. Preparation cost658.903ms
+for10draws. This is one bounded fixture pair, not whole-city/shipping acceptance.
+Actual inspected views01/03 are blocked by neighbors; whole-building exposure
+is still unproven. **MATCHED_MEASUREMENTS.json** and **OPTICAL_REVIEW.json** in
+**C:/ov/reports/native_intake_20261102/city_packets/attempt_04/entry_followup_02/**
+retain settings, measurements and the optical failure.
+
+The clean2fec full board preserved at **attempt_04/board_2fecf543b/** has a new
+600.58s timeout in the surface-requirements tools tests. No assertion failure
+was reported. The bounded repair separates fresh production membership discovery
+from hashing, so individual hash-mutation tests reuse membership only within
+that test. All original assertions remain. A43-test diagnostic completed in
+118.783s; review then found the derived-cache test must exercise fresh discovery.
+That fixture was corrected, and both it and the fresh-per-snapshot control pass
+(2tests,10.357s). The required final full board/candidate verification remains
+open. Original timeout/profiling/equivalence records remain in
+**C:/ov/reports/native_intake_20261102/surface_snapshot_profile_01/**.
+
+The changed checker bytes intentionally expire composed02's published signature.
+Renew with actual combined city rendering; do not replace its hash by hand.
+The FIFO's authoritative birth-time check excludes reused PID55316; its misleading
+status-only row was inspected without deleting records or stopping any process.

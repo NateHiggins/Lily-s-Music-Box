@@ -26,12 +26,30 @@ Existing detachedRenderClock/sky/window pipeline leaves campaign clock unchanged
 CapturePASS;all300frames decode;20encodedsamples+4sourceframes inspected.
 Video/frames stay outsideGit;tracker-pageembed pending,Lily feedback notassumed.
 
-Current runtime: entry_followup_02,session68651/broker32536,birth
-2026-11-04T02:52:55.7972464Z. Sourceguardpassed;actualTitleBEGINrunning,then
-4preparationviews+restoredview and matched6legbaseline/entrypair under same
-source/settings. Readbacks stay separate from timing. Do not edit consumed
-production/test inputs while live. Oldentry01 was cancelled beforestart to
-prioritizevideo;allnative/loaded/composed/video brokers are terminal.
+Current city priority (Lily reaffirmed): architect Sol 6.1 owns one external
+32m eastern rail-cut concrete-toe family in
+C:/ov/asset-prototypes/city-ground-edges-20261103/; canonical stays read-only
+for native authoring. Source/native ADMISSION_02 passes current receiving ground
+and collision checks; three old active discovery bindings remain stale.
+Architect broker57480 is queued FIFO for native build/review. Codex owns source
+intake, active-binding reconciliation, runtime contact/access/LOD and combined
+surface renewal. No second construction family until this one is integrated.
+
+Entry_followup_02 is TERMINAL0: actual Title BEGIN17/0, optical lifecycle19/0,
+baseline19/0 and prepared22/0, with unchanged-source/settings guards. One native
+3440x1440 six-leg matched pair measured p99 338.254 -> 60.696ms,
+maximum434.340 -> 67.996ms and >100ms frames6 -> 0. Preparation costs658.903ms
+for10draws. This is one bounded pair, not whole-city performance acceptance.
+Actual images expose occluded preparation views01/03: whole-Orison exposure
+remains unproven and needs a source-derived framing repair owned by Codex.
+
+Full board at2fec is terminal: new surface-tools test timeout600.58s, not an
+assertion failure. Original board retained. The repair keeps production input
+discovery fresh and reuses membership only inside hash-mutation tests. Diagnostic
+43tests passed118.783s; one derived-cache fixture was then corrected to exercise
+fresh discovery, and both affected controls passed10.357s. Full candidate board
+still required. Checker bytes changed, so composed02 surface proof is now stale;
+renew through the actual combined city capture, never repin its signature.
 Custody C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
 
 Current checkpoint packs3native/loaded/composed archives;details,hashes and
@@ -39,8 +57,9 @@ original oversize/crash/retained-drift/parser/typed-node failures remain in
 existing design/V2_CITY_CONTEXT_REPORT_2026-10-19.md and compactreviewZIPs.
 This summary replaces priorhandoffprefix;source-history preserved at94236bbb0.
 
-Next: inspectactualentryviews/measure currentstalls;then currentfullgateboard
-andcandidate verification against cleanfb316board beforemanualPR151merge.
+Next: integrate the architect's admitted edge packet, repair blocked inspection
+framing, renew actual surface evidence, then full candidate verification against
+the cleanfb316 board before manual PR151 merge.
 Noauto-merge or wholeV2 acceptance. Preserve V1rollback and gameplay owners.
 Remaininghose/book/nook/readability,prologue/audio,golden-shift/save/weather
 and systematicV2coverage remain open. Do not repeat unchanged fire/walk suites.
