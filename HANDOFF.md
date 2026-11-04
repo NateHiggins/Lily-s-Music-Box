@@ -1,12 +1,12 @@
-# Current handoff — runtime08 door/carry passed narrowly; receiving view renewed
+# Current handoff — runtime09 queued; full loose-stock view frozen
 
 Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-qualification-debt-20261104**. Code checkpoint **aa6c49a75** is
+**codex/v2-qualification-debt-20261104**. Code checkpoint **88ca357d1** is
 committed and pushed; PR152 remains **OPEN/DRAFT/UNMERGED**. Main is
 **4f16053e8a7b1f8fe0ec91c25d5aab8c4a794359**, the PR151 merge. Fetch and
 inspect actual Git before acting; app-attached v2-baseline is not canonical.
 
-## Current job custody — runtime08 terminal; next runtime09
+## Current job custody — runtime09 queued
 
 Integration owner: **Complete V2 qualification commitments**, chat
 **01a1a653-eda8-7732-9732-2c362f5129d6**. Old Developer Sol is the read-only
@@ -72,8 +72,11 @@ Diagnostic door images aim from the same player eye and restore the camera;
 actual receiving view stays untouched. Both changes await runtime09 compile and
 bounded tests. Apartment SOURCES closure and spatial audit pass; no receipt repin.
 
-Next prepare a fresh runtime098-stage guard/compile15/radiator/door/authority-disk/
-9-unit/surface/final-guard batch. Reuse unchanged native/material proof; preserve
+**runtime_09 is queued** as broker**44860**,created**2026-11-04T13:20:01.844527Z**,
+tool session**82496**. Its8 stages are guard/compile15/radiator/door/authority-disk/
+9-unit/surface/final guard. Exact identity,command and freeze are in
+**qualification_debt_trace_01/runtime_09/QUEUE_CUSTODY.json**. Revalidate process
+identity and stage receipts; never duplicate the job or change consumed inputs. Reuse unchanged native/material proof; preserve
 runtime08 failure and every earlier original. Revalidate any new custody before
 queueing and never duplicate a live job. Existing external
 book/hose/Continue/lift/city candidates remain uninstalled. Claude confirmed Sun
