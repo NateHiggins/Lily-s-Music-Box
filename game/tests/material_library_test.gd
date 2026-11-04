@@ -6,6 +6,11 @@ extends Node
 const CONTRACT_PATH := "res://data/runtime_material_sets.json"
 var failures := 0
 
+class RejectedSource extends Node:
+	var rejected := 0
+	func check(ok: bool,_label: String) -> void:
+		if not ok:rejected+=1
+
 
 func _ready() -> void:
 	var text := FileAccess.get_file_as_string(CONTRACT_PATH)
@@ -48,6 +53,27 @@ func _ready() -> void:
 	shelf.queue_free()
 	await get_tree().process_frame
 
+	# Exercise the actual ABI reader with all installed resident sources,
+	# including Adela's material-less GLB and the retained JSON glTF sources.
+	var optical:=preload("res://tests/v2_control_finish_review.gd").new()
+	optical.validate_material_contract(self)
+	var negative:=RejectedSource.new()
+	var path:="user://material_source_negative_%d.glb"%OS.get_process_id()
+	_check(not FileAccess.file_exists(path),"negative source fixture does not replace an existing file")
+	if not FileAccess.file_exists(path):
+		_check(optical._source_document(negative,path).is_empty() and negative.rejected==1,"missing native source records a failure without a script exception")
+		var file:=FileAccess.open(path,FileAccess.WRITE)
+		_check(file!=null,"negative source fixture opens")
+		if file!=null:
+			file.store_32(0x46546c67);file.store_32(2);file.close()
+			_check(optical._source_document(negative,path).is_empty() and negative.rejected==2,"truncated GLB header is rejected")
+			file=FileAccess.open(path,FileAccess.WRITE)
+			file.store_32(0x46546c67);file.store_32(2);file.store_32(24)
+			file.store_32(4);file.store_32(0x4e4f534a);file.store_buffer("nope".to_utf8_buffer());file.close()
+			_check(optical._source_document(negative,path).is_empty() and negative.rejected==3,"bounded malformed GLB JSON is rejected")
+			_check(DirAccess.remove_absolute(ProjectSettings.globalize_path(path))==OK,"negative source fixture is removed")
+	negative.free()
+
 	print("MATERIAL LIBRARY TEST: %s" %
 			("PASS" if failures == 0 else "FAIL (%d)" % failures))
 	get_tree().quit(failures)
@@ -59,3 +85,6 @@ func _check(ok: bool, label: String) -> void:
 	else:
 		failures += 1
 		printerr("  [MATERIAL FAIL] ", label)
+
+func check(ok: bool,label: String) -> void:
+	_check(ok,label)

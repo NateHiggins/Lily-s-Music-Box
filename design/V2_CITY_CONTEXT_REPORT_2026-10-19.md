@@ -78,13 +78,30 @@ Loaded diagnostics,original failures,guards and review sheets are packed in
 art/reviews/city_streets_20261029/city_building_packets_loaded_20261103.zip:
 84files/2445499bytes,SHA256
 8092ca15cc74b39e40dfae3ab43767deb71db456a66d552087c58679811251af.
-Composed_01 is queued through broker55904,birth2026-11-04T02:02:43.6600896Z,
-session77305:source guard,changed city-review compile,physical-only full-world
-surface survey with city diagnostics,final guard. No unchanged fire/fitting
-interaction programme is replayed or accepted. Actual inspected loaded04
-images/hashes gate batch creation. Every prior native/loaded broker is terminal;
-do not restart it. Current custody remains ACTIVE_QUALIFICATION.json.
-No composed-world,played-access,frame-budget,save/load or artistic pass;no merge.
+Composed_01 is terminal-1 after an owned diagnostic abort at167.1s. Its
+source guard and city-review compile passed,but material ABI validation tried
+to parse nonexistent adela_voss.gltf;the installed native is adela_voss.glb.
+The called validator raised Nil-to-Dictionary while its caller continued world
+startup,so this run cannot qualify. Exact owned GUI47412/console65064/broker55904
+identity was checked before stopping only that GUI. Raw logs,wrapper receipt,
+source freeze and OWNED_RUN_ABORT.json remain in composed_01/. A final read-only
+source guard passed before edits. No survey or clean-teardown result claimed.
+
+The validator now reads independent JSON glTF or bounded version2 GLB JSON,
+records missing/malformed inputs as check failures,and accepts a valid native
+with no materials as having no source normal. Adela's native has no materials;
+her existing registered .35 atlas-normal policy is unchanged. The existing
+MaterialLibraryTest exercises all installed source/calibration checks plus
+missing,truncated-header and malformed-JSON controls;no new test/fixture files.
+These fixes are authored,not yet engine-verified. Spatial manifest updated,
+readerNEW0. Production geometry/materials/gameplay digest unchanged.
+Composed_02 session91333/broker23416,birth2026-11-04T02:16:45.5000449Z,is live
+queued:source guard,compile3,material-library regression,full-world physical-only
+surface+city survey,final guard. Material failure prevents the costly survey.
+No unchanged fire/fitting interaction programme is replayed or accepted. Prior
+brokers are terminal;do not restart them. Current custody remains
+ACTIVE_QUALIFICATION.json. No composed-world,played-access,frame-budget,
+save/load or artistic pass;no merge.
 
 Import-generated UID custody review: candidate verification requires a clean
 checkout.704untracked UID values had no explicit tracked game references and
