@@ -85,18 +85,30 @@ recorder, the piano bench, Astoria, Teresa's glass, 19 July or Mae Kessler, and 
 theory about the uncanny ("It's large"). No handwriting of Adela's stays on view at the bar,
 because the handwriting comparison is evidence.
 
+## Her schedule and the second cup, 2026-11-04
+
+- **Schedule.** Lily ruled **stacy_schedule_home**: a `staff` section in
+  `game/data/resident_schedules.json`, read by the schedule director, with the key-ring left alone.
+  `ScheduleDirector.clocked()` lists residents and then staff. The clock tick, `resolve` and
+  `self_test` use it. The key-ring, presence ledger, routes and shop visits still read `residents`
+  only, since she holds no unit and no key and is not her own customer. Her blocks use the existing
+  exterior place **harukiya_bar**, not a new counter place. She works Tuesday to Sunday from 16:00
+  and closes at one, or half past two on Friday and Saturday nights. Mondays are off. A simulated
+  week has no uncovered minute. `self_test` gains four Stacy expectations.
+- **The second cup.** Lily ruled the Thursday second cup is seen once. Dialogue choices gain
+  `unless`, the opposite of `requires`: the choice is withheld once its flag is held. Drying glasses
+  on the quiet route goes to **st_rt_cup** (flag **st_second_cup**) the first time and to
+  **st_rt_quiet**, the same line without the cup, after that. Saying nothing at that point also
+  goes to **st_rt_quiet**. `ResidentConversationTest` walks the route three times, with a save and
+  reload before the third, and now names all 18 trees by id instead of counting 17.
+
 ## Held open
 
-1. **Her schedule.** `game/data/resident_schedules.json` has only a `residents` map, read by the
-   key-ring, the presence ledger and the schedule director. A non-resident with no unit does not
-   belong in it without a decision, so her blocks are not landed. The drafted shape is Tuesday to
-   Sunday, 16:00 to closing, Monday off, and it needs a `harukiya_bar_counter` service place that
-   `game/data/orison_v2/bar_resident_places.json` does not have.
-2. **A conversation point at the counter.** She has no door, so until a counter interaction exists
+1. **A conversation point at the counter.** She has no door, so until a counter interaction exists
    her tree and opinions are reachable only the way the player reaches the self-insert's.
-3. **Her model.** The owner builds it in Meshy from a turnaround sheet; ingest follows
+2. **Her model.** The owner builds it in Meshy from a turnaround sheet; ingest follows
    `art/blender/scripts/ingest_adela_character.py`. Nothing of it is in this change.
-4. **Judge and Lafitte** have no placement: the dog wants the boiler board under the counter, the
+3. **Judge and Lafitte** have no placement: the dog wants the boiler board under the counter, the
    cat a shelf and a back room.
 
 ## Verification
@@ -109,3 +121,7 @@ which covers her lines for misaddress, forbidden names, modern terms and after-d
 `tools/tests/test_data_consumption.py`, `test_check_mystery_dialogue.py` and
 `test_campaign_weather.py` pass, 47 tests. The GDScript edit adds two literal paths and was not
 compiled: the Godot lane was held for another agent's camera diagnostic.
+
+The schedule and second-cup follow-up is checked the same way: reader gate NEW 0,
+`test_data_consumption.py` 29 tests OK, opinions and mystery checks unchanged. Its GDScript is not
+compiled yet. It waits for the planned combined compile window after PR152.

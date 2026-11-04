@@ -309,6 +309,10 @@ func _available(resident_id: String, choice: Dictionary) -> bool:
 	for flag in choice.get("requires", []):
 		if not RealityState.has_knowledge(str(flag)):
 			return false
+	# The other side of requires: a choice that stops once its flag is held.
+	for flag in choice.get("unless", []):
+		if RealityState.has_knowledge(str(flag)):
+			return false
 	if choice.has("evidence") and player_unit() != unit_of(resident_id):
 		return false
 	return true
@@ -943,6 +947,9 @@ func _valid_tree(tree: Dictionary, path: String) -> bool:
 				ok = false
 			if choice.has("requires") and choice.requires is not Array:
 				errors.append("%s: node %s requires is not a list" % [path, node_id])
+				ok = false
+			if choice.has("unless") and (choice.unless is not Array or choice.unless.is_empty()):
+				errors.append("%s: node %s unless is not a list of names" % [path, node_id])
 				ok = false
 			if choice.has("evidence") and str(choice.evidence) == "":
 				errors.append("%s: node %s evidence names nothing" % [path, node_id])

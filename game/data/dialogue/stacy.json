@@ -161,12 +161,17 @@
     "st_rt_sil": {
       "line": "Nothing to report? Then you can dry. Towel's on the rail. Glasses go mouth down, and if you put one mouth up I'll know, and so will Judge.",
       "choices": [
-        {"label": "[Dry glasses.]", "goto": "st_rt_quiet", "trust": 1}
+        {"label": "[Dry glasses.]", "goto": "st_rt_cup", "trust": 1, "unless": ["st_second_cup"]},
+        {"label": "[Dry glasses.]", "goto": "st_rt_quiet", "trust": 1, "requires": ["st_second_cup"]}
       ],
       "silence_goto": "st_rt_quiet"
     },
-    "st_rt_quiet": {
+    "st_rt_cup": {
+      "flag": "st_second_cup",
       "line": "Look at that. Mouth down, all of them. You're hired. The pay's terrible, the dog outranks you, and the cat outranks the dog. (She pours two cups and carries the second down to the end by the bass case without a word.)"
+    },
+    "st_rt_quiet": {
+      "line": "Look at that. Mouth down, all of them. You're hired. The pay's terrible, the dog outranks you, and the cat outranks the dog."
     },
     "st_end_stool": {
       "flag": "st_end_stool",

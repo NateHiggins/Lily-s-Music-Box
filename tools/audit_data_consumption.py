@@ -71,8 +71,8 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "reality_rules.json": frozenset({""}),
     # OrisonMusicDirector: tracks[track_id], residents.get(resident_id).
     "music_catalog.json": frozenset({"tracks", "residents"}),
-    # ScheduleDirector: data.residents[raw_slug].
-    "resident_schedules.json": frozenset({"residents"}),
+    # ScheduleDirector: data.residents[raw_slug], and the staff it also clocks.
+    "resident_schedules.json": frozenset({"residents", "staff"}),
     # MaintenanceActivityLibrary: authored[activity_id].
     "maintenance_activities.json": frozenset({"activities"}),
     # OrisonV2UpperFloorDoors: source.doors[identity].
