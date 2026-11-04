@@ -7370,3 +7370,20 @@ not a native replay pass or runtime qualification. Native04 will execute the
 full original comparison and external converter with336frozen inputs plus
 all30ignored wall-map hashes; no production artifact,ownership row or test pin
 is admitted yet. Original03failed proof remains intact.
+
+
+### Context replay recorder correction — no native acceptance
+
+Implementation **86ada9360** is pushed. Native04 is terminal1 before Blender
+launch: its external diagnostic recorder intercepted a Git subprocess and
+attempted to write bytes as Blender text. This is a recorder failure,not a
+material-context or native-equivalence result. All336frozen inputs and30ignored
+cache hashes remain unchanged. Original failure and traceback are preserved.
+
+The external recorder now captures only the actual Blender executable. A real
+Git byte-output preflight passes without creating false Blender logs. Unchanged
+native sources are FIFO queued as **native_export_05/**,session28508,verified
+broker28624,bornUTC2026-11-04T07:22:01Z. It waits behind the current comic hold;
+no foreign process or waiter was interrupted. No ownership,test pin,production
+metadata or runtime contract has yet been admitted. Inspect this same job's
+full original equivalence and converter result before proceeding.
