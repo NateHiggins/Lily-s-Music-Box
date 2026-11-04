@@ -1,8 +1,9 @@
-# Current handoff — installed blocker identified; bounded camera repair
+# Current handoff — initial camera clearance passes; return admission fails
 
 Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
 **codex/v2-qualification-debt-20261104**. PR152 remains **OPEN/DRAFT/UNMERGED**;
-main is **4f16053e8** (PR151). Source-closure repair **a2efbfe8a** is pushed.
+main is **4f16053e8** (PR151). Camera candidate **fe92789cd** and source-closure
+repair **a2efbfe8a** are pushed.
 Integration owner is this lead chat **01a1a653-eda8-7732-9732-2c362f5129d6**.
 Inspect actual Git and external custody before editing or starting anything.
 
@@ -36,15 +37,25 @@ mesh and keeps12retained plus4actual installed outgoing endpoints inside.
 **CPU geometry is not loaded admission or transfer proof.** Artifact:
 **C:/ov/reports/develop_intake_20261104/camera_clearance_preflight.json**.
 
-Next bounded batch **camera_repair_01**: source guard,compile7,isolated original
-radiator route,actual service-door route,nearby installed real Space/park/return/
-normal seat release,final guard. The installed diagnostic now has an opt-in
-actual transfer programme,still INERT. No long authority/apartment/surface run
-is chained before manual frame review. Source,launch,receipts and live/terminal
-custody are authoritative in
-**C:/ov/reports/develop_intake_20261104/camera_repair_01/**; inspect its
-**QUEUE_CUSTODY.json** and process creation identity rather than duplicate it.
-Never alter frozen inputs once admitted or queued. Preserve every original.
+**camera_repair_01 is terminal failure**,broker44536/session34307 retired;
+root corroborated original session exit1. Before guard,compile7(14.27s),isolated
+radiator(20.72s) and door(43.31s) PASS. Installed programme completes1 in218.58s,
+0script errors: initial raw/production rays clear,real Space enters,and the
+original controller parks the same finite insert. Return/receiving then refuses
+Space; **its blocker is unproven**. No return-phase first-hit query was recorded.
+No caught/release check,final guard,original authority/disk,apartment or surface
+qualification follows. All11produced frames inspected by monitor;4installed
+frames show actual admission/park with torso at right,but no receiving frame.
+Original artifacts remain **C:/ov/reports/develop_intake_20261104/camera_repair_01/**.
+
+Architect owns only the installed diagnostic and first-slice test helper for a
+default-empty synchronous admission observer,no changed assertions or default
+driver behaviour. Next fresh **camera_return_trace_01** records the actual
+return-phase ray/owner/view/call state before any further production fix;
+compile2+installed diagnostic only,420s/native3440 hidden FIFO. No repeated
+isolated/door or long suites. Source/custody there is authoritative once written;
+do not duplicate a live process or alter frozen inputs. Root owns dependent
+production repair and later full qualification. Preserve every original failure.
 
 All4spatial contract SOURCES closures pass after the three missing first-slice
 scene declarations; no old receipt was repinned. Native06 unchanged geometry35,
