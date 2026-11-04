@@ -139,9 +139,13 @@ func _check_door(ok: bool,label: String) -> bool:
 	return ok
 
 func _door_picture(label: String) -> void:
+	var saved_pose: Transform3D=_walker.camera.global_transform
+	if label!="actual_receiving_view":
+		_walker.camera.look_at(_door_leaf.to_global(Vector3(_door_leaf.width*.5,1.1,0)))
 	await RenderingServer.frame_post_draw
 	var output: String=OS.get_environment("SHOT_DIR")
 	_check_door(get_viewport().get_texture().get_image().save_png(output.path_join(label+".png"))==OK,"actual diagnostic frame saved: "+label)
+	_walker.camera.global_transform=saved_pose
 
 func _finish_door_report() -> void:
 	var passed: bool=_door_failures.is_empty() and _helper!=null and _helper.failures==0 and _door_trace.any(func(row: Dictionary):return row.label=="final_actual_release")

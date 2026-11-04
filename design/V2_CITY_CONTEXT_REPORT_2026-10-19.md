@@ -7700,3 +7700,34 @@ new external guard adds the real door verdict and source roots; original
 runtime07 preparer bytes are preserved against their original recorded hash.
 No new runtime result yet. Current readerNEW0,spatial audit and apartment
 SOURCES closure pass; no acceptance from authored fixture or queued job.
+
+
+### November 4 — actual door carry passes; high receiving pose and framing fail
+
+runtime08 guard/compile15 and original radiator probe PASS. The nearby door
+bench is terminal1/41.87s,empty stderr: actual initial opening/walking,normal
+closer,empty return/reopen,second normal close,physical insert setdown/ordinary
+release/actual leaf opening/same-object reacquisition and carried passage all
+PASS. On the prompt return,the incoming stock reaches the receiver context
+high/off-axis at(-.468772,.839982,.326997). The below-seat camera condition does
+not cover this real approach. Overhead view projects the pointer to(3192,5230),
+outside the native1440px viewport; the helper nevertheless attempted selection,
+then the lift crosses within4.1mm of the eye and ordinary control releases it.
+Original JSON/logs/receipts remain untouched. No long stage ran.
+
+All3new door images were inspected: the horizontal post-walk eye faces away and
+they cannot establish door appearance. Camera-only diagnostic capture now aims
+at the actual leaf from that same eye,then restores it; receiving capture keeps
+the actual production inspection view. This does not move the actor or door.
+
+The revised loose-stock inspection view covers the working travel from the open
+side at76degrees,with the mounted-cap close view unchanged. Geometry preparation
+uses retained outgoing,low-incoming and high-incoming poses: all12start/lift/
+across/delivery endpoints are in front and within its3440x1440frustum. Exact
+input-log hashes and projected points remain external in
+**develop_intake_20261104/receiving_camera_geometry_check.json**. This is INERT
+source preparation,not rendered,collision or runtime acceptance. Initial actual
+pointer acquisition now refuses behind/outside positions before sending input;
+no assertion or physical constraint is relaxed. Runtime09 must compile and pass
+both actual-input preflights before original authority/save/apartment/surfaces.
+Unchanged native/material evidence is reused; spatial and SOURCES closure clean.

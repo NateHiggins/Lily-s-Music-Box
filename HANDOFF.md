@@ -1,4 +1,4 @@
-# Current handoff — runtime08 queued; receiving passed, door/carry preflight pending
+# Current handoff — runtime08 door/carry passed narrowly; receiving view renewed
 
 Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
 **codex/v2-qualification-debt-20261104**. Code checkpoint **aa6c49a75** is
@@ -6,7 +6,7 @@ committed and pushed; PR152 remains **OPEN/DRAFT/UNMERGED**. Main is
 **4f16053e8a7b1f8fe0ec91c25d5aab8c4a794359**, the PR151 merge. Fetch and
 inspect actual Git before acting; app-attached v2-baseline is not canonical.
 
-## Current job custody — runtime08 queued
+## Current job custody — runtime08 terminal; next runtime09
 
 Integration owner: **Complete V2 qualification commitments**, chat
 **01a1a653-eda8-7732-9732-2c362f5129d6**. Old Developer Sol is the read-only
@@ -54,19 +54,28 @@ reacquisition when carrying. No new collision exception,forced door state,actor
 pose,grip bypass or altered travel goal. A nearby **ServiceDoorRouteBench**
 reuses production2B leaf/native stock,original capsule and finite insert; normal
 closer and real controller/input remain. It includes incoming view captures.
-Both changes are UNVERIFIED pending compile/nearby preflight before another full
-original run. Source-only apartment receipt closure initially failed on the missing
-first-slice scene dependency; adding that exact scene to SOURCES now passes.
-No executed proof was changed or repinned. Register only its one reviewed spatial-manifest record. Reuse all
-unchanged native/material evidence; preserve runtime02–07 failures.
+runtime08 guard/compile15 and radiator probe PASS. Door bench is terminal1 in
+41.87s with empty stderr: both normal closer cycles,empty return,actual finite
+insert setdown/open/reacquire and carried passage PASS. Its final receiving
+approach holds stock high/off-axis at(-.468772,.839982,.326997). The low-only
+camera condition chooses overhead view; projected pointer(3192,5230) is outside
+the1440px viewport,then raised travel crosses the eye and releases. No original
+long stage runs. The three door frames face away from the leaf and were inspected
+as unusable framing; no rendered-door or artistic acceptance.
 
-**runtime_08 is queued**,broker**17808**,created**2026-11-04T12:45:32.267434Z**,
-tool session**7050**. Its8 fail-fast stages are source guard,compile15,bounded
-radiator,nearby real door/carry,original authority/disk,9-unit movement,surfaces,
-final guard. Exact command/freeze: **qualification_debt_trace_01/runtime_08/QUEUE_CUSTODY.json**.
-Revalidate PID/creation/command and stage receipts; never duplicate the live job
-or change consumed inputs. runtime07's original preparer is preserved byte-exact
-beside its original SOURCE_FREEZE; the next guard adds tests,removes none. Existing external
+The loose-stock view now frames the full transfer workspace from the open side
+at76degrees; mounted cap retains its close view. Source geometry preparation
+checks all12 retained outgoing/low-incoming/high-incoming transfer endpoints in
+front/inside; this is INERT preparation,not a rendered/controller verdict.
+Initial pointer acquisition now refuses outside-viewport/behind-camera stock.
+Diagnostic door images aim from the same player eye and restore the camera;
+actual receiving view stays untouched. Both changes await runtime09 compile and
+bounded tests. Apartment SOURCES closure and spatial audit pass; no receipt repin.
+
+Next prepare a fresh runtime098-stage guard/compile15/radiator/door/authority-disk/
+9-unit/surface/final-guard batch. Reuse unchanged native/material proof; preserve
+runtime08 failure and every earlier original. Revalidate any new custody before
+queueing and never duplicate a live job. Existing external
 book/hose/Continue/lift/city candidates remain uninstalled. Claude confirmed Sun
 PR153 and mystery continuity stay isolated/draft; lead admits main in a planned
 combined D9 window after PR152. Required future Sun dependencies include campaign
