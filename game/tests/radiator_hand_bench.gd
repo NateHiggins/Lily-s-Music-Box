@@ -252,10 +252,15 @@ func _insert_route_probe(prop: RadiatorProp,stock: Node3D,player: PlayerControll
 			legs.append({"goal":var_to_str(goal),"actual":var_to_str(body.global_position),"reached":reached})
 			if not reached:break
 		result.legs=legs
-		passed=legs.size()==3 and legs.all(func(leg: Dictionary):return leg.reached) and player._grab.active()
-		result.dogleg=passed
+		result.dogleg=legs.size()==3 and legs.all(func(leg: Dictionary):return leg.reached) and player._grab.active()
 		await _capture_part(player,prop,body,"insert_dogleg_endpoint")
+		result.control={"holding_pickup":player._grab.holding_pickup(),"physics_enabled":player.is_physics_processing(),"inspecting":player.inspecting()}
+		var inspected: Dictionary=await _inspect_insert_transfer(helper,player,body,park)
+		result.inspected=inspected
+		passed=not result.direct and result.start==result.direct_end and inspected.get("passed",false)
+		await _capture_part(player,prop,body,"insert_inspected_endpoint")
 		player._grab.release(false)
+		if player.inspecting():player.end_inspection(false)
 	result.passed=passed and not _capture_failed
 	var directory:=OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
@@ -265,6 +270,38 @@ func _insert_route_probe(prop: RadiatorProp,stock: Node3D,player: PlayerControll
 	print("RADIATOR INSERT ROUTE: ",JSON.stringify(result))
 	_terminal=true
 	get_tree().quit(0 if result.passed else 1)
+
+func _inspect_insert_transfer(helper: Node,player: PlayerController,body: Node3D,park: Vector3) -> Dictionary:
+	var result: Dictionary={"passed":false,"entered":false,"picked":false,"legs":[]}
+	# Actual Space input borrows the hand; the pointer then selects the real
+	# surface. The embedded viewport owns pointer coordinates on hidden desktop.
+	for pressed: bool in [true,false]:
+		var key:=InputEventKey.new();key.keycode=KEY_SPACE;key.physical_keycode=KEY_SPACE;key.pressed=pressed
+		player._unhandled_input(key)
+	result.entered=player.inspecting()
+	if not result.entered or not get_viewport() is SubViewport:return result
+	for attempt in 4:
+		var pixel: Vector2=player.camera.unproject_position(body.to_global(Vector3(0,.004,0))).round()
+		var motion:=InputEventMouseMotion.new();motion.position=pixel;motion.global_position=pixel
+		get_viewport().push_input(motion,true)
+		await get_tree().process_frame
+		if get_viewport().get_mouse_position().distance_to(pixel)>.6:return result
+		var target: Dictionary=player._grab.find_target()
+		if target.get("part")!=body:continue
+		var click:=InputEventMouseButton.new();click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
+		player._unhandled_input(click)
+		result.picked=player._grab.active() and player._grab.target.part==body
+		break
+	if not result.picked:return result
+	result.mode={"holding_pickup":player._grab.holding_pickup(),"inspecting":player.inspecting()}
+	var raised: Vector3=body.global_position+Vector3.UP*.05
+	var across:=Vector3(park.x,raised.y,park.z)
+	for goal: Vector3 in [raised,across,park]:
+		var reached: bool=await helper._carry_service_part(player,body,goal)
+		result.legs.append({"goal":var_to_str(goal),"actual":var_to_str(body.global_position),"reached":reached})
+		if not reached:return result
+	result.passed=player._grab.active() and player._grab.target.part==body and body.global_position.distance_to(park)<.001
+	return result
 
 func _same_payload(a: Variant,b: Variant) -> bool:
 	if typeof(a) in [TYPE_INT,TYPE_FLOAT] and typeof(b) in [TYPE_INT,TYPE_FLOAT]: return absf(float(a)-float(b))<.0000001

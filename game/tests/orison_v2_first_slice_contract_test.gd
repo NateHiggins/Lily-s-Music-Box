@@ -627,8 +627,9 @@ func _service_supply(player: PlayerController,prop: RadiatorProp,value: float) -
 func _carry_service_part(player: PlayerController,body: Node3D,goal: Vector3) -> bool:
 	var held_contact: Vector3=player._grab.contact
 	var start:=body.to_global(player._grab.contact)
-	player.camera.global_position=(start+goal)*.5+Vector3.UP*.35+player.camera.global_basis.z*.8
-	player.camera.look_at(start)
+	if not player.inspecting():
+		player.camera.global_position=(start+goal)*.5+Vector3.UP*.35+player.camera.global_basis.z*.8
+		player.camera.look_at(start)
 	for i in 320:
 		if not player._grab.active():
 			print("[SERVICE CARRY RELEASED] part=",body.name," at=",body.global_position," goal=",goal," camera=",player.camera.global_position)

@@ -11,12 +11,19 @@ parking goal. Nine-apartment,surface and final guard stages never started.
 Preserve the original contract/logs under qualification_debt_trace_01/runtime_02.
 The full clean119-gate board at74c39d946 reports116PASS/2FAIL/1INCOMPLETE;
 the only new regression is stale surface proof. Completeness remains inherited.
-An opt-in probe in existing RadiatorHandBench reuses the failed gesture and
-production collision,records blockers and tries lift/across/lower without
-waiving collision. It has NOT compiled or run yet. Its2-stage lane job is live
-and queued: broker65604/session43718,started2026-11-04T08:40:54Z,
-qualification_debt_trace_01/radiator_insert_01/batch.json. Poll this existing
-handle; do not restart the terminal7-stage batch or duplicate the probe.
+Probe01 is terminal1: compilation passes and the native fixture reproduces the
+stationary insert in25.6s,including on its upward leg. A separate direct sweep
+identifies VentBodyContact on the diagonal path. Original JSON/logs/two frames
+remain under radiator_insert_01; one native close-up inspected.
+Source tracing finds the old helper sends legacy drag input while captured
+FPS pickup expects view/holder motion,and the fixture disables holder physics.
+Probe02 retains that negative attempt,then uses actual Space,embedded-viewport
+pointer selection and mouse/wheel gestures in inspection for lift/across/lower.
+The helper preserves the owner's fixed inspection camera. No collider or grip
+permission changes. This candidate is NOT compiled or run yet. Its2-stage lane
+job is queued: broker49692/session24126,started2026-11-04T08:58:39Z,
+qualification_debt_trace_01/radiator_insert_02/batch.json. Poll this existing
+handle; do not restart either terminal batch. Spatial audit remains clean.
 Actual first-slice/save,9-unit movement,surface and exact candidate acceptance
 remain required. Preserve the older19-room apartment cohort during publication.
 The external staging helper refuses missing receipts and publishes nothing.

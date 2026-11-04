@@ -7491,3 +7491,19 @@ records blocking bodies and tries lift/across/lower legs without changing
 collision or weakening the original end condition. Spatial dependency audit is
 clean. Its compile/hidden-native diagnostic is queued as radiator_insert_01,
 broker65604/session43718; no result or repair acceptance is claimed yet.
+
+The bounded probe01 is now terminal1 in25.6s,after clean compilation and empty
+stderr. Its actual native3440x1440 input reproduces acquisition followed by a
+stationary insert through both legacy direct and upward attempts. A separate
+direct motion query names VentBodyContact on the diagonal route. Original
+JSON/logs/two frames remain preserved; the direct endpoint close-up was inspected.
+Source tracing identifies a migrated input contract: free captured stock now
+uses FPS view/holder motion,but the old helper sends free-drag mouse/wheel input
+with player physics disabled. This is not proof that removing collision is valid.
+
+Probe02 retains the negative attempt and tests actual Space,real pointer/part
+selection in an embedded viewport,and free-cursor lift/across/lower gestures to
+the same endpoint. The helper keeps the existing fixed inspection camera while
+that owner holds it. Production controls,geometry and permissions are unchanged.
+Spatial audit is clean. Compilation/native verification is queued under
+radiator_insert_02,broker49692/session24126. No candidate repair is accepted yet.
