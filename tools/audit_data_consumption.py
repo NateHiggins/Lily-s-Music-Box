@@ -163,7 +163,8 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "opinions/malcolm_reed.json": frozenset(), "opinions/nadia_quell.json": frozenset(),
     "opinions/noel_price.json": frozenset(), "opinions/omar_bell.json": frozenset(),
     "opinions/peter_wren.json": frozenset(), "opinions/rhea_sato.json": frozenset(),
-    "opinions/sacha_reed.json": frozenset(), "opinions/teresa_vale.json": frozenset(),
+    "opinions/sacha_reed.json": frozenset(), "opinions/stacy.json": frozenset(),
+    "opinions/teresa_vale.json": frozenset(),
     "opinions/transient_guests.json": frozenset(),
     "dialogue/cal_dwyer.json": frozenset({"nodes"}),
     "dialogue/cam_ortiz.json": frozenset({"nodes"}),
@@ -180,6 +181,7 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "dialogue/peter_wren.json": frozenset({"nodes"}),
     "dialogue/rhea_sato.json": frozenset({"nodes"}),
     "dialogue/sacha_reed.json": frozenset({"nodes"}),
+    "dialogue/stacy.json": frozenset({"nodes"}),
     "dialogue/teresa_vale.json": frozenset({"nodes"}),
     "dialogue/transient_guests.json": frozenset({"nodes"}),
     # Build-time mirror: finish IDs produced by generate_runtime_materials.py.

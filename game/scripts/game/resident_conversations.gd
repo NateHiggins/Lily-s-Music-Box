@@ -2,7 +2,7 @@ class_name ResidentConversations
 extends Node
 ## Threshold conversations with the people of the building.
 ##
-## The seventeen authored trees in res://data/dialogue/ (see
+## The eighteen authored trees in res://data/dialogue/ (see
 ## design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md) share one CaseDialoguePanel.
 ## This node picks the entry for a resident from what the player has earned,
 ## runs the tree, and files what the conversation produced:
@@ -46,6 +46,7 @@ const TREE_PATHS: Array[String] = [
 	"res://data/dialogue/peter_wren.json",
 	"res://data/dialogue/rhea_sato.json",
 	"res://data/dialogue/sacha_reed.json",
+	"res://data/dialogue/stacy.json",
 	"res://data/dialogue/teresa_vale.json",
 	"res://data/dialogue/transient_guests.json",
 ]
@@ -75,6 +76,7 @@ const OPINION_PATHS: Array[String] = [
 	"res://data/opinions/peter_wren.json",
 	"res://data/opinions/rhea_sato.json",
 	"res://data/opinions/sacha_reed.json",
+	"res://data/opinions/stacy.json",
 	"res://data/opinions/teresa_vale.json",
 	"res://data/opinions/transient_guests.json",
 ]
