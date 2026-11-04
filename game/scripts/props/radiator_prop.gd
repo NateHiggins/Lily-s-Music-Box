@@ -338,6 +338,7 @@ func inspection_view() -> Dictionary:
 	return {"from":to_global(Vector3(-.24,.60-installation_drop,-.65)),"at":to_global(at),"fov":76.0}
 
 func inspection_view_for(part: Node3D) -> Dictionary:
+	if native_orifices!=null:native_orifices.prepare_inspection(self,part)
 	if native_pitch_wedges!=null and native_pitch_wedges.owns(part): return native_pitch_wedges.inspection_view(part)
 	if native_vent_cap!=null and (part==native_vent_cap or part==native_rig.vent.get_node("FloatAndNeedle") or (native_orifices!=null and native_orifices.owns_part(part))):
 		var at: Vector3=native_rig.vent.to_global(Vector3(.043,.045,0))
@@ -345,8 +346,12 @@ func inspection_view_for(part: Node3D) -> Dictionary:
 	return inspection_view()
 
 func inspection_started() -> void:
+	if native_orifices!=null:native_orifices.borrow_inspection_start(self)
 	if use_native_v2:
 		physical_action.emit("inspect_vent",{"observation":"vent_grade_%d" % vent_grade,"condition":open_shift_condition})
+
+func inspection_ended() -> void:
+	if native_orifices!=null:native_orifices.borrow_inspection_end(self)
 
 func native_union_grip(key: String) -> Dictionary:
 	if not use_native_v2 or native_rig==null or supply_position>.02: return {}

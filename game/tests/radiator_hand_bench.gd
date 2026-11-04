@@ -259,6 +259,22 @@ func _insert_route_probe(prop: RadiatorProp,stock: Node3D,player: PlayerControll
 		result.inspected=inspected
 		passed=not result.direct and result.start==result.direct_end and inspected.get("passed",false)
 		await _capture_part(player,prop,body,"insert_inspected_endpoint")
+		if inspected.get("passed",false):
+			var pose: Transform3D=body.global_transform
+			var saved: Dictionary=JSON.parse_string(JSON.stringify(stock.mechanism_snapshot()))
+			player._grab.release(false)
+			stock.borrow_inspection_end(self) # A foreign context cannot release this loan.
+			for frame in 8:await get_tree().physics_frame
+			result.borrow_release=body.freeze and body.global_transform.is_equal_approx(pose)
+			_space_input(player)
+			result.returned=not player.inspecting() and player._grab.holding_pickup() and player._grab.target.part==body
+			var click:=InputEventMouseButton.new();click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
+			player._unhandled_input(click)
+			for frame in 4:await get_tree().physics_frame
+			result.normal_release=not body.freeze and body.global_position.y<pose.origin.y-.001
+			stock.restore_mechanism(saved)
+			result.pose_reload=stock.valid_mechanism(saved) and body.global_transform.is_equal_approx(pose) and not body.freeze
+			passed=passed and result.borrow_release and result.returned and result.normal_release and result.pose_reload
 		player._grab.release(false)
 		if player.inspecting():player.end_inspection(false)
 	result.passed=passed and not _capture_failed
@@ -271,16 +287,23 @@ func _insert_route_probe(prop: RadiatorProp,stock: Node3D,player: PlayerControll
 	_terminal=true
 	get_tree().quit(0 if result.passed else 1)
 
+func _space_input(player: PlayerController) -> void:
+	for pressed: bool in [true,false]:
+		var key:=InputEventKey.new();key.keycode=KEY_SPACE;key.physical_keycode=KEY_SPACE;key.pressed=pressed
+		player._unhandled_input(key)
+
 func _inspect_insert_transfer(helper: Node,player: PlayerController,body: Node3D,park: Vector3) -> Dictionary:
 	var result: Dictionary={"passed":false,"entered":false,"picked":false,"legs":[],"attempts":[],"viewport":get_viewport().get_class(),"before":var_to_str(body.global_position)}
 	# Actual Space input borrows the hand; the pointer then selects the real
 	# surface. The embedded viewport owns pointer coordinates on hidden desktop.
-	for pressed: bool in [true,false]:
-		var key:=InputEventKey.new();key.keycode=KEY_SPACE;key.physical_keycode=KEY_SPACE;key.pressed=pressed
-		player._unhandled_input(key)
+	_space_input(player)
 	result.entered=player.inspecting()
 	result.after_space={"position":var_to_str(body.global_position),"frozen":body.get("freeze"),"held":player._grab.active()}
 	if not result.entered or not get_viewport() is SubViewport:return result
+	var supported_pose: Transform3D=body.global_transform
+	for frame in 8:await get_tree().physics_frame
+	result.supported=body.freeze and body.global_transform.is_equal_approx(supported_pose)
+	if not result.supported:return result
 	for attempt in 4:
 		var pixel: Vector2=player.camera.unproject_position(body.to_global(Vector3(0,.004,0))).round()
 		var motion:=InputEventMouseMotion.new();motion.position=pixel;motion.global_position=pixel

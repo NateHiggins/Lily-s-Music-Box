@@ -12,6 +12,8 @@ var held := ""
 var _held_radiator: Node3D
 var _restoring := false
 var _syncing := false
+var _inspection_pending: Dictionary={}
+var _inspection_borrow: Dictionary={}
 
 func install_rack(asset: String) -> void:
 	var model := (load(asset) as PackedScene).instantiate() as Node3D
@@ -172,9 +174,51 @@ func inspection_view() -> Dictionary:
 	return {"from":to_global(Vector3(.02,.14,.18)),"at":global_position,"fov":48.0}
 
 func inspection_view_for(part: Node3D) -> Dictionary:
+	prepare_inspection(self,part)
 	var owner := inspection_owner_for(part)
 	if owner!=self: return owner.inspection_view_for(owner.native_vent_cap)
 	return {"from":part.global_position+global_basis*Vector3(.015,.06,.07),"at":part.global_position,"fov":48.0}
+
+func _part_row(part: Node3D) -> Dictionary:
+	if not is_instance_valid(part):return {}
+	for row: Dictionary in rows.values():
+		if row.body==part:return row
+	return {}
+
+func prepare_inspection(context: Node3D,part: Node3D) -> void:
+	_inspection_pending={}
+	if not _inspection_borrow.is_empty():return
+	var row:=_part_row(part)
+	if row.is_empty() or not row.slot.is_empty() or row.rack>=0 or inspection_owner_for(part)!=context:return
+	_inspection_pending={"part":weakref(part),"context":weakref(context)}
+
+func borrow_inspection_start(context: Node3D) -> void:
+	if _inspection_pending.is_empty() or _inspection_pending.context.get_ref()!=context:return
+	var part: Node3D=_inspection_pending.part.get_ref()
+	var row:=_part_row(part)
+	if row.is_empty() or not row.slot.is_empty() or row.rack>=0:
+		_inspection_pending={};return
+	_inspection_borrow=_inspection_pending;_inspection_pending={}
+	row.body.freeze=true;row.body.linear_velocity=Vector3.ZERO;row.body.angular_velocity=Vector3.ZERO
+
+func _borrowed(part: Node3D) -> bool:
+	return not _inspection_borrow.is_empty() and _inspection_borrow.part.get_ref()==part and is_instance_valid(_inspection_borrow.context.get_ref())
+
+func _finish_inspection_borrow() -> void:
+	var part: Node3D=_inspection_borrow.part.get_ref() if not _inspection_borrow.is_empty() else null
+	_inspection_pending={};_inspection_borrow={}
+	var row:=_part_row(part)
+	if not row.is_empty() and row.slot.is_empty() and row.rack<0 and held!=part.identity:
+		row.body.freeze=false;row.body.sleeping=false
+
+func borrow_inspection_end(context: Node3D) -> void:
+	if not _inspection_borrow.is_empty() and _inspection_borrow.context.get_ref()==context:
+		_finish_inspection_borrow()
+	elif not _inspection_pending.is_empty() and _inspection_pending.context.get_ref()==context:
+		_inspection_pending={}
+
+func inspection_started() -> void:borrow_inspection_start(self)
+func inspection_ended() -> void:borrow_inspection_end(self)
 
 func grip(identity: String) -> Dictionary:
 	var row: Dictionary=rows[identity]
@@ -242,10 +286,11 @@ func _release(row: Dictionary) -> void:
 func _drop(row: Dictionary) -> void:
 	row.rack=-1
 	row.body.collision_layer=1
-	row.body.freeze=false
+	row.body.freeze=_borrowed(row.body)
 	row.body.sleeping=false
 
 func _process(_delta: float) -> void:
+	if not _inspection_borrow.is_empty() and not is_instance_valid(_inspection_borrow.context.get_ref()):_finish_inspection_borrow()
 	_sync_all()
 	for row: Dictionary in rows.values():
 		var sleeping: bool=row.body.freeze or row.body.sleeping
@@ -295,6 +340,7 @@ func valid_mechanism(value: Variant) -> bool:
 
 func restore_mechanism(value: Dictionary) -> void:
 	if not valid_mechanism(value): return
+	_finish_inspection_borrow()
 	_restoring=true
 	if _held_radiator!=null and _held_radiator._native_held=="vent_orifice": _held_radiator._native_held=""
 	held="";_held_radiator=null

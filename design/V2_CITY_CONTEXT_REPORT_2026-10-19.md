@@ -7518,3 +7518,21 @@ surface selection. No production repair or transfer success is claimed.
 Probe03 therefore adds requested/delivered pointer,actual hit/selected part and
 part-pose/freeze observations. The same2-stage compile/native check is queued at
 broker45352/session99408 under radiator_insert_03; no new result yet.
+
+Probe03 completes terminal1 in28s,clean compile and empty stderr. All4requested
+pointer positions are delivered exactly. The loose insert is unfrozen after
+Space; its y position falls from0.8013m through0.7253/0.6793/0.6523 to0.5902m,
+while every actual ray selects PhysicalVentCap above it. No transfer leg ran.
+This establishes a real borrowed-inspection pose gap,not a pointer-delivery defect.
+
+Candidate04 adds transient pose borrowing to the existing finite-insert owner
+and radiator inspection callbacks. Only an owned,unmounted,unracked loose part
+can be borrowed by its current context. The same collider remains; held/slot/
+rack and grade authorities remain. Release inside inspection stays supported;
+exit,validated restore and lost context clear the loan. No save fields are added.
+The bounded test adds an8-frame hesitation,foreign-context release denial,actual
+Space return/primary release,and validated in-memory pose reconstruction; full
+disk/CampaignShell and composed proof remain separate. ReaderNEW0 and spatial
+audit pass. Compile/native verification is queued as radiator_insert_04,
+broker13648/session94741. Candidate functionality and artistic acceptance remain
+unverified; no old evidence is repinned.

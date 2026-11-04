@@ -21,11 +21,17 @@ Probe02 compiles,then terminates1 in28s with empty stderr: actual Space enters
 inspection,but the pointer does not reacquire the loose insert and no transfer
 leg runs. Its native endpoint image shows the open vent without the insert;
 part motion versus pointer delivery still needs attribution. No repair accepted.
-Probe03 adds requested/delivered pointer,real selected part/hit and part-pose/
-freeze observations,without changing controls or collision. Its2-stage job is
-queued: broker45352/session99408,started2026-11-04T09:18:58Z,
-qualification_debt_trace_01/radiator_insert_03/batch.json. Poll this existing
-handle; do not restart either terminal probe. Spatial audit remains clean.
+Probe03 is terminal1/28s with clean compile and empty stderr. Pointer delivery
+matches exactly; the released insert falls from0.801m to0.590m while the ray
+selects the cap above it. This establishes a production inspection-handoff gap.
+Candidate04 borrows only that loose part's pose through its existing radiator/
+stock inspection owner,retains collision and identity,and clears transient loans
+on exit,restore or lost context. New checks cover hesitation,foreign-context
+denial,actual return-to-hand/release and validated in-memory pose reconstruction.
+Production candidate is NOT compiled or runtime-verified yet. Its2-stage job is
+queued: broker13648/session94741,started2026-11-04T09:40:47Z,
+qualification_debt_trace_01/radiator_insert_04/batch.json. Poll this existing
+handle; no terminal probe should restart. ReaderNEW0 and spatial audit clean.
 Actual first-slice/save,9-unit movement,surface and exact candidate acceptance
 remain required. Preserve the older19-room apartment cohort during publication.
 The external staging helper refuses missing receipts and publishes nothing.
