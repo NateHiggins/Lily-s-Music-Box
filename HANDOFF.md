@@ -1,9 +1,9 @@
-# Current handoff — authority/save qualified; apartment mask assertion repair
+# Current handoff — authority/save qualified; viewport reproduction required
 
 Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
 **codex/v2-qualification-debt-20261104**. PR152 is **OPEN/DRAFT/UNMERGED**;
-main remains **4f16053e8** (PR151). Latest pushed checkpoint **0432ce147**;
-inspect actual Git for the dependent test-only repair. Sole integration owner:
+main remains **4f16053e8** (PR151). Source checkpoint **76ef025f5** is pushed;
+inspect actual Git for newer tracker-only checkpoints. Sole integration owner:
 **01a1a653-eda8-7732-9732-2c362f5129d6**. Never duplicate a recorded live job.
 
 **runtime11 is terminal1**, broker29304/session33776 retired. Its original
@@ -41,14 +41,41 @@ physics flags to each trace. Arrival tolerances,targets,physics and all producti
 sources remain unchanged. Loaded renewed access proof is still required.
 Independent review: **C:/ov/reports/develop_intake_20261104/runtime11_apartment_review/**.
 
-Next fresh **runtime12** must reuse successful runtime11 bounded/first-slice
-proof ONLY after exact consumed-source closure equality,retaining original
-bytes and source heads. Rerun changed-driver compilation and ORIGINAL nine-unit
-access,then physical/city/entry surfaces and final source/contract guard. Do not
-replay633s unchanged authority/save or unchanged radiator/door/installed work.
-Inspect actual custody at **qualification_debt_trace_01/runtime_12/** before
-launch/edit; no such job is implied merely by this plan. Root alone publishes
-byte-exact cohorts,verifies the exact candidate and manually merges qualified work.
+**runtime12 is terminal/incomplete**,broker29508/session88426 retired. Source/
+reuse guard and compile16PASS13.34s. Corrected mask checks allowed actual3A
+movement past the old failing arrival. Root then found the actual native log
+reports1720x1440,with saved MAIN1720x1440 and BATH6880x2880. The earlier3440
+assumption came from requested arguments,not this log. No cause is established.
+The existing3440 native guard would reject this run. Root verified the owning
+console identity/engine pin,recorded **CANCEL_REQUEST.json**,and canceled only
+its own tree before the unqualified surface stage. Original apartment wrapper
+exit-1/941.78s;no complete apartment contract,surface or finalguard. All actual
+partial images/logs remain unchanged under **qualification_debt_trace_01/runtime_12/**.
+Architect verified retirement and independent post-terminal source/reuse equality
+before explicitly releasing custody. No native-resolution or spatial PASS is
+manufactured from this incomplete run.
+
+Next is a small **viewport-only reproduction**,not another composed world:
+**C:/ov/reports/develop_intake_20261104/native_viewport_probe_ready/**. It must
+observe screens/window/content-scale/actual image sizes across frames without
+writing user settings or gameplay facts. Preserve the failed-resolution run.
+Read-only capture review: **runtime12_capture_dimensions_review.md** in the
+external develop-intake folder. The shared capture helpers and upcoming surface
+producer do not enforce PNG dimensions; enforce actual intended capture size in
+an evidence-supported preflight before another expensive programme. No source
+or windowing fix has yet been demonstrated.
+
+Successful runtime11 bounded/frame/first-slice proof remains byte-identical and
+consumed-source-closure equal. Do not replay its633s authority/save programme.
+The new **prepare_runtime12.py** retained all13 final assertions and pinned47
+original success/review/failure artifacts; its failed resolution is not waived.
+Future continuation must use fresh custody/frozen inputs,original nine-unit and
+physical/city/entry programmes,actual image review and final source/contract guard.
+**stage_runtime12_packets.py** is externally authored/reviewed only; its pending
+refusal created no packet. It requires both verified packet targets and final
+index before publication,and must not be used as a successful-run assertion.
+Root alone publishes byte-exact cohorts,verifies the exact candidate and manually
+merges qualified work.
 
 All original runtime05–10 and installed-camera failures remain intact under
 **C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/** and
@@ -59,7 +86,7 @@ Preserve the separate original19-room cohort before renewing current60-room proo
 Claude's Sun PR153,mystery PR154 and staff PR155 stay isolated/draft until the
 D9 source window after qualified PR152. PR154 selected20game strings at09618e48b;
 4private comic changes/4scene options remain separate. Raw joke/private drafts
-stay outside Git. Claude owns Stacy's pending persistence/test-count corrections.
+stay outside Git. Claude delivered Stacy corrections at a0aa53fcf;source review supports the authored cup route/staff clock,but engine controls remain pending. Preserve PR154's wrapped four-note hunk when combining its separate18-tree/cup changes.
 Book exit/optics,hose impact/wetting and stutter deliveries remain uninstalled
 preparation; **C:/ov/reports/develop_intake_20261104/FOLLOWUP_READINESS.json**
 indexes hashes and limits. Preserve prologue/audio/golden-shift/weather/city/
