@@ -62,14 +62,29 @@ wall targets where they do reduce. It keeps default threshold1,distance
 bracketing,bisection,narrow-FOV recovery,inward return,positive-image contrast
 and same-pose hidden-target controls. Full-body observations still cover all
 parts; no geometry or gameplay change,no waived transition or roof ray.
-Loaded_04 family-only4stage retry is queued under attempt_04/loaded_04/:
-broker18972,birth2026-11-04T01:51:22.7119318Z verified live. It recompiles the
-changed bench and reruns9profiles with fresh guards;success is not yet known.
-Imports and39check entry bench are reused by unchanged production+transitive
-entry-source closure,not repinned as composed/gameplay proof. All previous
-native/loaded brokers are terminal;do not restart them. Current custody remains
-ACTIVE_QUALIFICATION.json. No composed-world,played-access,frame-budget,
-save/load or artistic pass;no merge.
+Loaded_04 is terminal:compile1PASS,family47,680checks/0failures in137.14s,
+empty stderr. Guards confirm all28test sources and production digest unchanged.
+All1110static/1093lower parts,17180panes and4hands are covered. Nine selected
+reducing parts show real distance transitions,narrow-FOV recovery and inward
+return;45full-body observations and99PNGs are retained. Six labelled sheets
+were inspected:27complete-framing views resized688x288 and72center512x512
+crops resized256x256,including all hidden-target controls. Bodies and selected
+material stock remain visible;no gross silhouette collapse at displayed scale.
+This is limited technical visual review,not native-pixel/composed/artistic
+acceptance. Imports and39check entry bench are reused by consumed-source
+closure,not repinned as composed/gameplay proof.
+
+Loaded diagnostics,original failures,guards and review sheets are packed in
+art/reviews/city_streets_20261029/city_building_packets_loaded_20261103.zip:
+84files/2445499bytes,SHA256
+8092ca15cc74b39e40dfae3ab43767deb71db456a66d552087c58679811251af.
+Composed_01 is queued through broker55904,birth2026-11-04T02:02:43.6600896Z,
+session77305:source guard,changed city-review compile,physical-only full-world
+surface survey with city diagnostics,final guard. No unchanged fire/fitting
+interaction programme is replayed or accepted. Actual inspected loaded04
+images/hashes gate batch creation. Every prior native/loaded broker is terminal;
+do not restart it. Current custody remains ACTIVE_QUALIFICATION.json.
+No composed-world,played-access,frame-budget,save/load or artistic pass;no merge.
 
 Import-generated UID custody review: candidate verification requires a clean
 checkout.704untracked UID values had no explicit tracked game references and
