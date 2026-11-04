@@ -47,7 +47,8 @@ Full board at2fec is terminal: new surface-tools test timeout600.58s, not an
 assertion failure. Original board retained. The repair keeps production input
 discovery fresh and reuses membership only inside hash-mutation tests. Diagnostic
 43tests passed118.783s; one derived-cache fixture was then corrected to exercise
-fresh discovery, and both affected controls passed10.357s. Full candidate board
+fresh discovery, and both affected controls passed10.357s. The corrected full43-test run passes105.374s; all42 original test bodies
+are AST-equivalent after unwrapping membership fixtures. Full candidate board
 still required. Checker bytes changed, so composed02 surface proof is now stale;
 renew through the actual combined city capture, never repin its signature.
 Custody C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.

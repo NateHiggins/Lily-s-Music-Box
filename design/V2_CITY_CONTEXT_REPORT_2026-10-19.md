@@ -7066,8 +7066,10 @@ from hashing, so individual hash-mutation tests reuse membership only within
 that test. All original assertions remain. A43-test diagnostic completed in
 118.783s; review then found the derived-cache test must exercise fresh discovery.
 That fixture was corrected, and both it and the fresh-per-snapshot control pass
-(2tests,10.357s). The required final full board/candidate verification remains
-open. Original timeout/profiling/equivalence records remain in
+(2tests,10.357s). The corrected complete43-test run then passes in105.374s. All42 original
+test bodies are AST-equivalent after removing only the membership fixture wraps;
+the derived-cache test uses fresh discovery. Final full board/candidate
+verification remains open. Original timeout/profiling/equivalence records remain in
 **C:/ov/reports/native_intake_20261102/surface_snapshot_profile_01/**.
 
 The changed checker bytes intentionally expire composed02's published signature.
