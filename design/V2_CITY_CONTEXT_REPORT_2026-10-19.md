@@ -7536,3 +7536,33 @@ disk/CampaignShell and composed proof remain separate. ReaderNEW0 and spatial
 audit pass. Compile/native verification is queued as radiator_insert_04,
 broker13648/session94741. Candidate functionality and artistic acceptance remain
 unverified; no old evidence is repinned.
+
+Candidate04 now completes terminal0 in28.09s after4clean compilations,empty
+stderr. Actual Space borrows the insert without falling; the real pointer
+selects it on the first attempt after8physics frames. Lift/across/lower reach
+the unchanged endpoint through the same swept body. Release during inspection
+stays supported even after a foreign-context end request. Actual Space returns
+the same part to its hand; primary release resumes gravity. The existing
+validated in-memory pose codec restores the recorded free pose without retaining
+a transient freeze. The endpoint image was inspected; the distant tiny part is
+not a readability or artistic acceptance. The result is an INERT component
+diagnostic,not a schema2runtime contract or composed/disk reconstruction proof.
+
+The original first-slice driver is being reconciled with those verified controls:
+inspection for free dragging,normal FPS follow for the owned spare's lift/travel,
+and lift/across/lower around the unchanged cap collider. The obsolete fixture
+lift coordinate is replaced by an explicit contact-at-production-hand assertion;
+the existing identities,parking/thread endpoints,case order and save assertions
+remain. Captured free dragging now refuses immediately rather than repeating
+the already-preserved320-frame failure. The suite uses the same embedded input
+viewport as the successful probe. Its receipt binds the scene as well as script;
+the ledger validates declared scene hashes,with stale/escaping/missing/hash
+negative controls passing in the new focused test. No prior assertion is disabled.
+
+A captured slot-state guard also prevents resuming an old free grip after a
+part seats. Its current-driver delivery/seating check and the updated original
+suite remain unexecuted. A fresh7-stage runtime_03 batch will gate the composed
+authority/disk,apartment and surface runs behind this bounded input preflight.
+It reuses the unchanged material-library result; no duplicate material test is
+needed for these owner/input edits. Current full/candidate qualification remains
+pending. Original packets and failed probes are retained externally.

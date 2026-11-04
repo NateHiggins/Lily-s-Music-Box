@@ -222,6 +222,7 @@ func inspection_ended() -> void:borrow_inspection_end(self)
 
 func grip(identity: String) -> Dictionary:
 	var row: Dictionary=rows[identity]
+	var observed_slot: String=row.slot
 	var mounted: bool=not row.slot.is_empty()
 	var radiator: Node3D=radiators.get(row.slot)
 	if mounted and radiator.supply_position>.02: return {}
@@ -230,6 +231,7 @@ func grip(identity: String) -> Dictionary:
 		"read":func(): return row.turn if mounted else row.body.position,
 		"begin":func():
 			if not held.is_empty() or RealityState.save_write_blocked: return false
+			if row.slot!=observed_slot:return false # A seated part cannot resume an old free grip.
 			var context := inspection_owner_for(row.body)
 			if context!=self and (not context._native_held.is_empty() or context._supply_held): return false
 			_held_radiator=context if context!=self else null

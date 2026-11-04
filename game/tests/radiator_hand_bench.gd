@@ -231,7 +231,7 @@ func _insert_route_probe(prop: RadiatorProp,stock: Node3D,player: PlayerControll
 	var passed:=false
 	if acquired:
 		result.start=var_to_str(body.global_position)
-		result.direct=await helper._carry_service_part(player,body,park)
+		result.direct=await helper._drag_service_part(player,body,park)
 		result.direct_end=var_to_str(body.global_position)
 		var query:=PhysicsTestMotionParameters3D.new()
 		query.from=body.global_transform;query.motion=park-body.global_position;query.margin=.0002
@@ -248,7 +248,7 @@ func _insert_route_probe(prop: RadiatorProp,stock: Node3D,player: PlayerControll
 		var across:=Vector3(park.x,raised.y,park.z)
 		var legs: Array=[]
 		for goal: Vector3 in [raised,across,park]:
-			var reached: bool=await helper._carry_service_part(player,body,goal)
+			var reached: bool=await helper._drag_service_part(player,body,goal)
 			legs.append({"goal":var_to_str(goal),"actual":var_to_str(body.global_position),"reached":reached})
 			if not reached:break
 		result.legs=legs
@@ -275,6 +275,23 @@ func _insert_route_probe(prop: RadiatorProp,stock: Node3D,player: PlayerControll
 			stock.restore_mechanism(saved)
 			result.pose_reload=stock.valid_mechanism(saved) and body.global_transform.is_equal_approx(pose) and not body.freeze
 			passed=passed and result.borrow_release and result.returned and result.normal_release and result.pose_reload
+			# Exercise the updated composed driver before spending a world route.
+			player.global_position=prop.to_global(Vector3(0,-prop.position.y,1.15))
+			var picked: bool=await helper._pick_service_part(player,body,stock,Vector3(.03,.10,.08))
+			var receiving: Transform3D=stock._thread_pose(prop,stock.THREAD_END)
+			player.camera.global_position=receiving.origin+prop.global_basis*Vector3(.02,.15,-.35)
+			player.camera.look_at(receiving.origin)
+			result.delivery=picked and await helper._deliver_service_part(player,body,receiving.origin)
+			if result.delivery:
+				var seat_click:=InputEventMouseButton.new();seat_click.button_index=MOUSE_BUTTON_LEFT;seat_click.pressed=true
+				player._unhandled_input(seat_click)
+				result.caught=stock.active(prop).get("body")==body and absf(float(stock.active(prop).get("turn",0))-stock.THREAD_END)<.0001
+				_space_input(player)
+				result.stale_grip_refused=not player.inspecting() and not player._grab.active() and stock.active(prop).get("body")==body
+				result.threaded=await helper._service_move_new(player,prop,body,Vector3(0,.004,0),Vector3(.03,.10,-.08),0.)
+				passed=passed and result.caught and result.stale_grip_refused and result.threaded and stock.active(prop).get("body")==body
+			else:
+				result.delivery_end=var_to_str(body.global_position);passed=false
 		player._grab.release(false)
 		if player.inspecting():player.end_inspection(false)
 	result.passed=passed and not _capture_failed

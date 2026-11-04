@@ -1,4 +1,4 @@
-# Current checkpoint — first-slice carry failure; bounded probe queued
+# Current checkpoint — bounded carry repair passed; composed renewal pending
 
 Native06 passes full material-inclusive equivalence and converter in65.109s.
 35geometry/alias files are byte-identical;3metadata files plus the reviewed
@@ -24,14 +24,20 @@ part motion versus pointer delivery still needs attribution. No repair accepted.
 Probe03 is terminal1/28s with clean compile and empty stderr. Pointer delivery
 matches exactly; the released insert falls from0.801m to0.590m while the ray
 selects the cap above it. This establishes a production inspection-handoff gap.
-Candidate04 borrows only that loose part's pose through its existing radiator/
-stock inspection owner,retains collision and identity,and clears transient loans
-on exit,restore or lost context. New checks cover hesitation,foreign-context
-denial,actual return-to-hand/release and validated in-memory pose reconstruction.
-Production candidate is NOT compiled or runtime-verified yet. Its2-stage job is
-queued: broker13648/session94741,started2026-11-04T09:40:47Z,
-qualification_debt_trace_01/radiator_insert_04/batch.json. Poll this existing
-handle; no terminal probe should restart. ReaderNEW0 and spatial audit clean.
+Candidate04 is terminal0/28.09s: compile4PASS,empty stderr,and actual supported
+selection/three-leg transfer,foreign-context denial,Space hand return,release
+and validated in-memory pose reload all pass. Its endpoint image was inspected;
+the tiny distant part is not an artistic/readability acceptance. This INERT
+diagnostic grants no ledger runtime proof or composed/disk qualification.
+The original driver now uses inspection input and normal FPS follow for travel;
+its scene uses an embedded viewport and binds that scene in the original receipt.
+Optional declared-scene validation has a passing stale/path/missing-hash test.
+A slot-state permission guard refuses a stale free grip after seating; updated
+driver/seating checks are NOT run yet. Next prepare and queue runtime_03 after
+the clean checkpoint: prepare_runtime_renewal.py prepare native_export_06 runtime_03.
+Its fail-fast bounded preflight precedes the original authority/disk,apartment
+and surface runs. Check runtime_03/QUEUE_CUSTODY.json before starting anything;
+never restart terminal runtime_02 or probes01–04. ReaderNEW0 and spatial clean.
 Actual first-slice/save,9-unit movement,surface and exact candidate acceptance
 remain required. Preserve the older19-room apartment cohort during publication.
 The external staging helper refuses missing receipts and publishes nothing.

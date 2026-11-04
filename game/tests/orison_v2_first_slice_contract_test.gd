@@ -374,7 +374,10 @@ func _input_snapshot() -> Dictionary:
 	_check(OS.execute("python",[root.path_join("tools/v2_physical_inputs.py"),"--root",root],physical)==0,"record current physical inputs")
 	var hash:=HashingContext.new();hash.start(HashingContext.HASH_SHA256)
 	hash.update(FileAccess.get_file_as_string(get_script().resource_path).replace("\r\n","\n").to_utf8_buffer())
-	return {"runtime":str(digest[0]).strip_edges() if not digest.is_empty() else "","physical":str(physical[0]).strip_edges() if not physical.is_empty() else "","test":hash.finish().hex_encode()}
+	var test_hash: String=hash.finish().hex_encode()
+	hash.start(HashingContext.HASH_SHA256)
+	hash.update(FileAccess.get_file_as_string("res://tests/orison_v2_first_slice_contract_test.tscn").replace("\r\n","\n").to_utf8_buffer())
+	return {"runtime":str(digest[0]).strip_edges() if not digest.is_empty() else "","physical":str(physical[0]).strip_edges() if not physical.is_empty() else "","test":test_hash,"scene":hash.finish().hex_encode()}
 
 func _finish_contract() -> void:
 	var retained_nodes := _remaining(nodes)
@@ -393,7 +396,7 @@ func _finish_contract() -> void:
 	var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
 		"scope":"Seven first-slice authorities: opening detector/report, seven player-ray patrol stations, ordered Lena round, actual disk save and CampaignShell rebuild. Call/dialogue and the closed prior-job gate are fixtures; board, boiler and radiator outcomes come from physical input. Service travel and workshop insert delivery use the collision-bearing controller. Patrol stance placement and whole-world visual acceptance remain separate.",
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},
-		"source":{"test_path":"game/"+source.trim_prefix("res://"),"test_sha256":current_inputs.test,"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":current_inputs.runtime,"physical_inputs_sha256":current_inputs.physical},
+		"source":{"test_path":"game/"+source.trim_prefix("res://"),"test_sha256":current_inputs.test,"test_scene_path":"game/tests/orison_v2_first_slice_contract_test.tscn","test_scene_sha256":current_inputs.scene,"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":current_inputs.runtime,"physical_inputs_sha256":current_inputs.physical},
 		"contracts":{"production_composition":{"executed":ritual_executed,"status":status,"identities":EXERCISED},
 			"save_reconstruction":{"executed":reconstruction_executed,"status":status},
 			"physical_service_round":{"executed":service_executed,"status":status,"scope":"Actual part input, controller movement and finite workshop insert delivery; call/dialogue choices remain stimuli."},
@@ -487,7 +490,7 @@ func _look(world: Node, feet: Vector3, target: Vector3) -> void:
 
 func _service_focus(player: PlayerController,frame: Node3D,at: Vector3,offset: Vector3) -> void:
 	player.cancel_manipulation()
-	if player.inspecting():player.end_inspection()
+	if player.inspecting():player.end_inspection(false)
 	player.camera.make_current();player.call_locked=false;player.mouse_released=false
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	player.camera.global_position=at+frame.global_basis*offset;player.camera.look_at(at)
@@ -549,6 +552,14 @@ func _prove_boiler(player: PlayerController,boiler: BoilerProp) -> bool:
 
 func _walk_service(world: OrisonV2RuntimeRoot,target: Vector3) -> bool:
 	var player:=world.player;var frame: Node3D=world.adapter.root
+	if player.inspecting():
+		var kept: Node3D=player._grab.target.part if player._grab.active() and player._grab.target.kind=="free" else null
+		_service_space(player)
+		if not _check(not player.inspecting(),"actual Space returns service inspection before walking"):return false
+		if kept!=null:
+			if not _check(player._grab.holding_pickup() and player._grab.target.part==kept,"service inspection returns the same loose stock to the original hand"):return false
+		elif player._grab.active():
+			var release_hand:=PatrolHand.new();add_child(release_hand);release_hand.player=player;release_hand.click();release_hand.free()
 	var carrying: Node3D=player._grab.target.part if player._grab.active() and player._grab.target.kind=="free" else null
 	player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0);player.camera.rotation=Vector3.ZERO
 	player.set_physics_process(true);player.autopilot=Vector3.ZERO
@@ -625,11 +636,35 @@ func _service_supply(player: PlayerController,prop: RadiatorProp,value: float) -
 	hand.free();return result
 
 func _carry_service_part(player: PlayerController,body: Node3D,goal: Vector3) -> bool:
-	var held_contact: Vector3=player._grab.contact
-	var start:=body.to_global(player._grab.contact)
 	if not player.inspecting():
-		player.camera.global_position=(start+goal)*.5+Vector3.UP*.35+player.camera.global_basis.z*.8
-		player.camera.look_at(start)
+		if not await _inspect_service_part(player,body):return false
+	return await _drag_service_part(player,body,goal)
+
+func _service_space(player: PlayerController) -> void:
+	for pressed: bool in [true,false]:
+		var key:=InputEventKey.new();key.keycode=KEY_SPACE;key.physical_keycode=KEY_SPACE;key.pressed=pressed
+		player._unhandled_input(key)
+
+func _inspect_service_part(player: PlayerController,body: Node3D) -> bool:
+	if not player._grab.holding_pickup() or player._grab.target.part!=body:return false
+	_service_space(player)
+	if not player.inspecting() or not player.get_viewport() is SubViewport:return false
+	for attempt in 4:
+		var pixel: Vector2=player.camera.unproject_position(body.to_global(Vector3(0,.004,0))).round()
+		var motion:=InputEventMouseMotion.new();motion.position=pixel;motion.global_position=pixel
+		player.get_viewport().push_input(motion,true)
+		await get_tree().process_frame
+		if player.get_viewport().get_mouse_position().distance_to(pixel)>.6:return false
+		if player._grab.find_target().get("part")!=body:continue
+		var hand:=PatrolHand.new();add_child(hand);hand.player=player;hand.click();hand.free()
+		return player._grab.active() and player._grab.target.part==body and not player._grab.holding_pickup()
+	return false
+
+func _drag_service_part(player: PlayerController,body: Node3D,goal: Vector3) -> bool:
+	if not player.inspecting():
+		print("[SERVICE CARRY MODE] free drag requires the actual inspection hand; captured pickup refused")
+		return false
+	var held_contact: Vector3=player._grab.contact
 	for i in 320:
 		if not player._grab.active():
 			print("[SERVICE CARRY RELEASED] part=",body.name," at=",body.global_position," goal=",goal," camera=",player.camera.global_position)
@@ -664,11 +699,25 @@ func _pick_service_part(player: PlayerController,body: Node3D,frame: Node3D,offs
 	_check(good,"actual free part acquisition: "+str(body.name));return good
 
 func _deliver_service_part(player: PlayerController,body: Node3D,goal: Vector3) -> bool:
+	# Let normal physics follow the close-work eye before choosing the real
+	# receiving context. The composed route already walked here; no part moves
+	# except through its existing swept carry owner.
+	var bank: Node3D=body.bank
+	for radiator: Node3D in bank.radiators.values():
+		if bank._thread_pose(radiator,bank.THREAD_END).origin.distance_to(goal)>.001:continue
+		var processing: bool=player.is_physics_processing()
+		player.set_physics_process(true)
+		for frame in 60:
+			if bank.inspection_owner_for(body)==radiator:break
+			await get_tree().physics_frame
+		player.set_physics_process(processing)
+		if bank.inspection_owner_for(body)!=radiator:return false
+		break
 	# Clear the casting before approaching the upward-facing threaded seat.
 	# Every leg remains a mouse/wheel gesture through the real swept body.
-	var raised:=body.global_position;raised.y=maxf(raised.y,goal.y+.20)
+	var raised:=body.global_position;raised.y=maxf(raised.y+.05,goal.y+.20)
 	if not await _carry_service_part(player,body,raised):return false
-	if not await _carry_service_part(player,body,goal+Vector3.UP*.20):return false
+	if not await _carry_service_part(player,body,Vector3(goal.x,raised.y,goal.z)):return false
 	return await _carry_service_part(player,body,goal)
 
 func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,board: OtisProp,boiler: BoilerProp) -> bool:
@@ -703,7 +752,7 @@ func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,
 	_check(stock.active(radiator).is_empty(),"old insert actually unthreads without changing identity")
 	if not await _pick_service_part(world.player,original.body,radiator,Vector3(.03,.10,-.08)):return false
 	var park: Vector3=radiator.native_rig.to_global(Vector3(-.30,.12,-.55))
-	var parked: bool=await _carry_service_part(world.player,original.body,park)
+	var parked: bool=await _deliver_service_part(world.player,original.body,park)
 	_check(parked,"old insert physically moves clear of its seat")
 	hand=PatrolHand.new();add_child(hand);hand.player=world.player;hand.click();hand.free()
 	if not parked:return false
@@ -724,7 +773,15 @@ func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,
 	if not await _walk_service_points(world,[Vector3(7.4,-3.2,1.),Vector3(7.4,-3.2,3.),Vector3(7.65,-3.2,4.45)]):return false
 	var replacement: Dictionary=stock.rows.VENT_SPARE_2
 	if not await _pick_service_part(world.player,replacement.body,stock,Vector3(.03,.10,.08)):return false
-	if not await _carry_service_part(world.player,replacement.body,world.player.to_global(Vector3(0,1.35,-.35))):return false
+	world.player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0);world.player.camera.rotation=Vector3.ZERO
+	world.player.set_physics_process(true)
+	for frame in 90:
+		await get_tree().physics_frame
+		if not world.player._grab.holding_pickup():break
+		var contact: Vector3=replacement.body.to_global(world.player._grab.contact)
+		if contact.distance_to(world.player.camera.global_transform*Vector3(.17,-.16,-.48))<.003:break
+	world.player.set_physics_process(false)
+	if not _check(world.player._grab.holding_pickup() and world.player._grab.target.part==replacement.body and replacement.body.to_global(world.player._grab.contact).distance_to(world.player.camera.global_transform*Vector3(.17,-.16,-.48))<.003,"actual FPS callback lifts the owned workshop insert to the production hand pose"):return false
 	if not await _walk_service_points(world,[Vector3(7.4,-3.2,3.),Vector3(7.4,-3.2,1.),Vector3(7.4,-3.2,-.4),Vector3(4.9,-3.2,-.4),Vector3(4.9,-3.2,-2.5),Vector3(3.65,-3.2,-3.45),Vector3(1.925,-3.2,-3.45),Vector3(1.925,-3.2,-3.)]):return false
 	if not await _walk_service_points(world,_service_stairs(-3.2,true)):return false
 	if not await _walk_service_points(world,_service_stairs(0.,true,false)):return false
