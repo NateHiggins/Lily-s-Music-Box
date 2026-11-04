@@ -80,6 +80,13 @@ check only when changed inputs, failures, or unresolved concerns justify it.
 
 ## Minimize time spent running Godot
 
+Reserve the GPU lane for Godot and actual GPU work. Where repository rules
+permit, an audited CPU-only source/data or unrendered Blender export check can
+run outside that lane; inspect the invoked operations rather than assuming
+every Blender command renders. Keep its CPU/memory contention out of timed
+gameplay comparisons, and coordinate shared source custody. A successful native
+export still needs the relevant Godot behavior and appearance qualification.
+
 For this project's native-resolution captures, reuse the existing
 **native_debug_window.gd** SceneTree helper: saved GameBoot window settings can
 override CLI fullscreen and clip a 3440x1440 request to 3440x1421. Confirm the

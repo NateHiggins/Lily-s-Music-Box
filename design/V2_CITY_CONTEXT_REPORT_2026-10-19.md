@@ -7417,3 +7417,38 @@ Godot/GPU work runs outside the shared lane. Actual first-slice,apartment-access
 and surface renewal remain gated on full native/converter equivalence. All
 earlier failed runs remain preserved. The two relevant art skills now record
 the verified channel/byte lesson without granting runtime or artistic proof.
+
+
+### Native06 passes full equivalence; reviewed metadata admitted
+
+The CPU-only original replay is terminal0 in65.109s. All9original full
+equivalence checks pass,including material-bearing vertex/triangle/world and
+collision payloads,legacy alias unions and per-alias transforms. It reconstructs
+5286source records,9820contributions,345536vertices/183726triangles and17cells.
+Production conversion proves35geometry/alias artifacts byte-identical and
+exactly3changed metadata outputs. All336frozen source inputs and30ignored wall
+cache hashes remain unchanged. No rendering or Godot execution occurred.
+
+Reviewed metadata changes are source/provenance only: declared input hashes,
+the approved News marker source hash,one existing bodega threshold's enclosing
+regions-file digest,268fresh per-contribution hashes from the current generation,
+and dependent manifest hashes. IDs,owner assignments,aliases,transforms and
+shipping GLTF/BIN bytes are unchanged. The complete material-inclusive original
+proof—not the earlier material-neutral diagnostic—permits this admission.
+
+The original author rebuilds the external ownership candidate exactly. Its only
+changed record is **floors[F01].markers[162]**,the approved News door state from
+3fd37e0d2. All5286durable IDs/owners/contexts remain. Admitted that record hash,
+current exact layout pin and3proven metadata files,with verified external
+pre-admission backup/journal. Ownership and production suites now pass27/0 and
+11/0,respectively,retaining their original assertions and adding checks for the
+two new material-source bindings. No runtime contract was repinned.
+
+This closes those two reproduced source/export test failures within their
+scope. The third completeness test still needs actual first-slice and nine-unit
+played-proof renewal; surface qualification and final exact candidate remain
+pending. The prepared7-stage shared-lane batch combines fail-fast compilation,
+material checks,original first-slice authority/disk reconstruction,original nine
+apartment legs,and physical-only surface survey. Estimated prior suite time is
+about28minutes. It has not run yet. Wider V2/hose/book/nook/readability,performance,
+golden-shift,save-boundary,weather and artistic gaps remain open.

@@ -31,6 +31,8 @@ from tools.m11c2_floor01_production.export_floor01_cells import (  # noqa: E402
     LEGACY_MONOLITH,
     LINEAGE_NAME,
     LINEAGE_REL,
+    MATERIAL_CONTEXT_REL,
+    MATERIAL_CONTEXT_READER_REL,
     OWNERSHIP_REL,
     PRODUCTION_EXPORTER_REL,
     PROTECTED_RELATIVE_PATHS,
@@ -212,6 +214,12 @@ class ProductionFloor01ExportTests(unittest.TestCase):
         self.assertEqual(
             self.assets["authoritative_inputs"]["production_exporter"],
             sha256_bound_input(REPO_ROOT.joinpath(*PRODUCTION_EXPORTER_REL.parts)))
+        self.assertEqual(
+            self.assets["authoritative_inputs"]["material_context"],
+            sha256_bound_input(REPO_ROOT.joinpath(*MATERIAL_CONTEXT_REL.parts)))
+        self.assertEqual(
+            self.assets["authoritative_inputs"]["material_context_reader"],
+            sha256_bound_input(REPO_ROOT.joinpath(*MATERIAL_CONTEXT_READER_REL.parts)))
 
     def test_unknown_cell_and_dependency_cycle_are_refused(self):
         unknown = copy.deepcopy(self.registry)

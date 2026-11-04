@@ -1,3 +1,16 @@
+# Current checkpoint — metadata admitted; runtime renewal next
+
+Native06 passes full material-inclusive equivalence and converter in65.109s.
+35geometry/alias files are byte-identical;3metadata files plus the reviewed
+one-record ownership/hash-pin migration admitted. Original suites27/0 and11/0.
+No new runtime proof yet. PR152 stays draft. Next commit this source checkpoint,
+prepare_runtime_renewal.py prepare native_export_06,then queue its7-stage batch
+through the shared lane. Actual first-slice/save,9-unit movement,surface and
+candidate acceptance remain required. Read current TASKS.md and the city ledger.
+External proof/admission: qualification_debt_trace_01/native_export_06/.
+
+Earlier checkpoint text below is historical,not the current job state.
+
 # Current checkpoint — CPU-only native06 preparation
 
 ### Six exact book finishes; mineral channel packaging corrected
