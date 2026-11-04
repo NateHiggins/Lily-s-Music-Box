@@ -1,4 +1,18 @@
-# Current checkpoint — runtime03 compile failure repaired; runtime04 pending
+# Current checkpoint — compile passes; bounded receiving delivery fails
+
+runtime_04 is terminal1. Source guard and all6script compilations PASS. The
+native3440x1440 bounded probe terminates1 in18.26s with empty stderr: supported
+selection/three-leg transfer,foreign denial,hand return/release and in-memory
+pose restore still pass,but the added incoming delivery returns false before
+the receiving-seat checks. Part stops at(-.223512,.608285,.152591); this is not
+yet attributed to ownership,inspection entry or pointer visibility. No original
+authority/disk,apartment or surface stage starts. New diagnostic lines retain
+entry camera/owner,actual pointer target and receiving-context failure; a new
+failure frame preserves the exact camera rather than restaging the part.
+Next prepare and queue runtime_05 after a clean checkpoint; retain runtime04
+unchanged. No production workaround,collision waiver or interaction acceptance.
+
+Earlier checkpoints below retain their historical states.
 
 runtime_03 is terminal1: before-source guardPASS,then compile6 reports one
 failed script. Three new first-slice call sites mistakenly consumed the void

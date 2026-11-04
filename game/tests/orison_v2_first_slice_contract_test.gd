@@ -651,6 +651,7 @@ func _service_space(player: PlayerController) -> void:
 func _inspect_service_part(player: PlayerController,body: Node3D) -> bool:
 	if not player._grab.holding_pickup() or player._grab.target.part!=body:return false
 	_service_space(player)
+	print("[SERVICE INSPECTION ENTRY] entered=",player.inspecting()," body=",body.global_position," frozen=",body.get("freeze")," camera=",player.camera.global_transform," owner=",player.inspect_owner)
 	if not player.inspecting() or not player.get_viewport() is SubViewport:return false
 	for attempt in 4:
 		var pixel: Vector2=player.camera.unproject_position(body.to_global(Vector3(0,.004,0))).round()
@@ -658,7 +659,9 @@ func _inspect_service_part(player: PlayerController,body: Node3D) -> bool:
 		player.get_viewport().push_input(motion,true)
 		await get_tree().process_frame
 		if player.get_viewport().get_mouse_position().distance_to(pixel)>.6:return false
-		if player._grab.find_target().get("part")!=body:continue
+		var candidate: Dictionary=player._grab.find_target()
+		print("[SERVICE INSPECTION PICK] requested=",pixel," delivered=",player.get_viewport().get_mouse_position()," inside=",player.get_viewport().get_visible_rect().has_point(pixel)," behind=",player.camera.is_position_behind(body.global_position)," selected=",candidate.get("part")," blocked=",candidate.get("blocked",false)," hit=",player._grab.last_hit)
+		if candidate.get("part")!=body:continue
 		var hand:=PatrolHand.new();add_child(hand);hand.player=player;hand.click();hand.free()
 		return player._grab.active() and player._grab.target.part==body and not player._grab.holding_pickup()
 	return false
@@ -714,7 +717,9 @@ func _deliver_service_part(player: PlayerController,body: Node3D,goal: Vector3) 
 			if bank.inspection_owner_for(body)==radiator:break
 			await get_tree().physics_frame
 		player.set_physics_process(processing)
-		if bank.inspection_owner_for(body)!=radiator:return false
+		if bank.inspection_owner_for(body)!=radiator:
+			print("[SERVICE DELIVERY CONTEXT] body=",body.global_position," goal=",goal," owner=",bank.inspection_owner_for(body)," distance=",body.global_position.distance_to(goal)," held=",player._grab.holding_pickup()," last_motion=",body.get("_last_motion"))
+			return false
 		break
 	# Clear the casting before approaching the upward-facing threaded seat.
 	# Every leg remains a mouse/wheel gesture through the real swept body.

@@ -291,7 +291,12 @@ func _insert_route_probe(prop: RadiatorProp,stock: Node3D,player: PlayerControll
 				result.threaded=await helper._service_move_new(player,prop,body,Vector3(0,.004,0),Vector3(.03,.10,-.08),0.)
 				passed=passed and result.caught and result.stale_grip_refused and result.threaded and stock.active(prop).get("body")==body
 			else:
-				result.delivery_end=var_to_str(body.global_position);passed=false
+				result.delivery_end=var_to_str(body.global_position)
+				result.delivery_state={"inspecting":player.inspecting(),"holding_pickup":player._grab.holding_pickup(),"active":player._grab.active(),"owner":str(player.inspect_owner),"camera":var_to_str(player.camera.global_transform),"receiving":var_to_str(receiving),"nearest":str(stock.inspection_owner_for(body)),"distance":body.global_position.distance_to(receiving.origin)}
+				await RenderingServer.frame_post_draw
+				var failed_output: String=OS.get_environment("SHOT_DIR")
+				if not failed_output.is_empty() and get_viewport().get_texture().get_image().save_png(failed_output.path_join("insert_delivery_failed.png"))!=OK:_capture_failed=true
+				passed=false
 		player._grab.release(false)
 		if player.inspecting():player.end_inspection(false)
 	result.passed=passed and not _capture_failed

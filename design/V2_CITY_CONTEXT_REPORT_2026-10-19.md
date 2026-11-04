@@ -7578,3 +7578,16 @@ same bounded-first batch; the failed runtime_03 remains untouched. Separately,
 the full110-test completeness suite completed in92.285s with108PASS/2FAIL;
 both failures are the known stale live first-slice/apartment proof. This is not
 a current full gate board or merge qualification.
+
+runtime_04 is terminal1: original source guard and all6compilations PASS. The
+native3440x1440 probe terminates1 in18.26s with empty stderr. Earlier pose-loan,
+selection/three-leg transfer,foreign-context denial,hand return/release and
+validated in-memory restore controls remain true. Added incoming delivery is
+false at world(-.223512,.608285,.152591),before seating,stale-grip or thread
+checks. No original authority/disk,apartment,surface or final guard runs.
+The previous helper silently returned before identifying the failed step;
+new diagnostics record actual receiving context,distance,inspection entry,
+camera,pointer/first-hit visibility and an unstaged failure frame. These are
+attribution instruments,not a production repair or weakened endpoint. Retain
+the original runtime04 JSON,logs and receipts; runtime05 will run the bounded
+preflight before any long route again.
