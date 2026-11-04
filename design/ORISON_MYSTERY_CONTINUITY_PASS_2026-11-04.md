@@ -125,3 +125,15 @@ Checks, all PASS:
 - **audit_newspapers:** 0 failures.
 - **audit_authored_voice** on all ten changed trees: structure only. The human read is still Lily's.
 - **Reader gate:** NEW 0.
+
+## Lily's rulings on the remaining items, 2026-11-04
+
+- **mystery_harukiya_radiator:** cut. The work order was never added.
+- **mystery_rename_orr:** Raymond Orr in the September Lindqvist items becomes Raymond Lund. Silas Orr is untouched.
+- **mystery_rename_hiram_voss:** Hiram Voss, for the Board, becomes Hiram Bodkin.
+- **mystery_martin_voss:** rename him. His new name is waiting in her widget as **mystery_martin_voss_name**.
+- **mystery_noel_corridor:** Noel gets a corridor block from 20:40 to 20:58 at chance 0.8 ("most nights"), over his
+  conservation hour.
+- **mystery_iris_window:** Iris's card and canvas are "beside her window".
+- **Scene options:** ROOM-01, ROOM-02 and ROOM-04 are adopted for the next script draft. ROOM-04 drops its last
+  sentence if it crowds her. ROOM-03 is not used now. None of them is implemented yet.
