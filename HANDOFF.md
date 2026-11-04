@@ -1,9 +1,9 @@
-# Current handoff — initial camera clearance passes; return admission fails
+# Current handoff — return blocker proven; guarded renewal prepared
 
 Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
 **codex/v2-qualification-debt-20261104**. PR152 remains **OPEN/DRAFT/UNMERGED**;
-main is **4f16053e8** (PR151). Camera candidate **fe92789cd** and source-closure
-repair **a2efbfe8a** are pushed.
+main is **4f16053e8** (PR151). Return observer **26392472b** and source-closure
+repair **a2efbfe8a** are pushed; inspect actual Git for the dependent camera fix.
 Integration owner is this lead chat **01a1a653-eda8-7732-9732-2c362f5129d6**.
 Inspect actual Git and external custody before editing or starting anything.
 
@@ -42,27 +42,48 @@ root corroborated original session exit1. Before guard,compile7(14.27s),isolated
 radiator(20.72s) and door(43.31s) PASS. Installed programme completes1 in218.58s,
 0script errors: initial raw/production rays clear,real Space enters,and the
 original controller parks the same finite insert. Return/receiving then refuses
-Space; **its blocker is unproven**. No return-phase first-hit query was recorded.
+Space; its blocker was then unproven. No return-phase first-hit query was recorded.
 No caught/release check,final guard,original authority/disk,apartment or surface
 qualification follows. All11produced frames inspected by monitor;4installed
 frames show actual admission/park with torso at right,but no receiving frame.
 Original artifacts remain **C:/ov/reports/develop_intake_20261104/camera_repair_01/**.
 
-Architect owns only the installed diagnostic and first-slice test helper for a
-default-empty synchronous admission observer,no changed assertions or default
-driver behaviour. Next fresh **camera_return_trace_01** records the actual
-return-phase ray/owner/view/call state before any further production fix;
-compile2+installed diagnostic only,420s/native3440 hidden FIFO. No repeated
-isolated/door or long suites. Source/custody there is authoritative once written;
-do not duplicate a live process or alter frozen inputs. Root owns dependent
-production repair and later full qualification. Preserve every original failure.
+**camera_return_trace_01 is terminal1**,broker24896/session55999 retired.
+Compile2PASS14.66s; installed219.09s/0script errors reproduces return refusal.
+Synchronous raw/production rays both hit **2B_dress_form**,shape2/face1395,
+7.602mm from eye; nearest/resolved2Bowner correct,seat gap.27525m,guards open.
+All5frames reviewed including actual failure eye; visible current radiator does
+not prove clear camera travel. Independent CPU after-source0 preserves batch1,
+unchanged inputs and original failed receipt. Source freeze explicitly released.
+Exact artifacts: **C:/ov/reports/develop_intake_20261104/camera_return_trace_01/**.
+
+Dependent candidate reduces loose-view nativeX **.30 to.20**,retainingY.45,
+Z-.15,FOV76,look-at and every collision/stance/grip/authority. Source-mesh CPU
+control matches actual receiving hit within44micrometres; candidate clears both
+recorded admission paths/four receiving sight rays and20retained/actual transfer
+points project inside with81px minimum margin. This is not engine/input proof.
+**camera_return_clearance_01/preflight.json** records all candidate failures too.
+
+Next fresh **runtime_10** uses new external **prepare_runtime10.py**; the old
+preparer and failures remain unchanged. Ten fail-fast stages: sourceguard,
+compile16,radiator,door,installed420,technical frame-review checkpoint,ORIGINAL
+authority/disk,nine-unit access,physical/city/entry surfaces,finalguard. The
+checkpoint writes **BOUNDED_REVIEW_READY.json**,allows140s actual review in a
+240s CPU-only guard,then rehashes every frame and frozen input before long work.
+No human play/artistic acceptance is implied. Root/Architect may write the
+explicit INERT **BOUNDED_FRAME_REVIEW.json** only after actual inspection;
+missing/rejected review stops long stages. Inputs/batch/launcher/preparer are
+frozen. Actual live/terminal custody will be in
+**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_10/**.
+Revalidate its process rather than duplicate it. Root owns integration;
+Architect monitors the one job and reviews bounded frames. No manual merge yet.
 
 All4spatial contract SOURCES closures pass after the three missing first-slice
 scene declarations; no old receipt was repinned. Native06 unchanged geometry35,
 owner identities5286 and strict material equivalence remain reusable within
 their original scope. Older19-room cohort remains separately preserved.
 
-Claude's Sun PR153 and mystery PR154 stay isolated/draft for the planned D9
+Claude's Sun PR153,mystery PR154 and staff PR155 stay isolated/draft for D9
 window after qualified PR152. PR154 now includes the selected writers-room
 20game strings at **09618e48b**;4private comic changes and4scene options remain
 separate from runtime acceptance. The private draft/joke source was not copied

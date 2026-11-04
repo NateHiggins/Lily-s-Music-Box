@@ -347,7 +347,7 @@ func inspection_view_for(part: Node3D) -> Dictionary:
 		# mounted cap keeps its close overhead view.
 		var seat: Vector3=native_orifices._thread_pose(self,native_orifices.THREAD_END).origin
 		var at: Vector3=(part.global_position+seat)*.5
-		return {"from":at+native_rig.global_basis*Vector3(.30,.45,-.15),"at":at,"fov":76.0}
+		return {"from":at+native_rig.global_basis*Vector3(.20,.45,-.15),"at":at,"fov":76.0}
 	if native_vent_cap!=null and (part==native_vent_cap or part==native_rig.vent.get_node("FloatAndNeedle") or (native_orifices!=null and native_orifices.owns_part(part))):
 		var at: Vector3=native_rig.vent.to_global(Vector3(.043,.045,0))
 		return {"from":at+native_rig.global_basis*Vector3(.015,.18,-.025),"at":at,"fov":52.0}
