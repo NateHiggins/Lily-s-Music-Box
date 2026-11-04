@@ -9,6 +9,7 @@ var output := ""
 var terminal := false
 var saved_persistence := false
 var saved_mouse := Input.MOUSE_MODE_VISIBLE
+var service_trace_phase := "outgoing"
 var report: Dictionary = {"evidence_class":"INERT","scope":"Nearby installed-world camera admission diagnosis only; no patrol, disk, whole-authority or artistic acceptance.","frames":[],"checks":[],"sources":{}}
 
 func _ready() -> void:
@@ -46,6 +47,8 @@ func _run() -> void:
 	var radiator: RadiatorProp=world.find_child("F02_B_RADIATOR_01",true,false) as RadiatorProp
 	if not _check(radiator!=null and radiator.native_orifices!=null,"installed2B radiator and finite stock exist"):
 		await _finish("missing_installed_owner",1);return
+	report.phase_attempts=[]
+	helpers.service_inspection_observer=_observe_service_admission.bind(radiator)
 	# The only player-placement override: original round's2B service point.
 	# No walks, camera-path admission bypass, stock poses or descriptors are fabricated.
 	player.set_physics_process(false)
@@ -133,9 +136,12 @@ func _run() -> void:
 		var receiving: Transform3D=stock._thread_pose(radiator,stock.THREAD_END)
 		player.camera.global_position=receiving.origin+radiator.global_basis*Vector3(.02,.15,-.35)
 		player.camera.look_at(receiving.origin)
+		service_trace_phase="receiving"
 		var delivered: bool=await helpers._deliver_service_part(player,part,receiving.origin)
 		report.transfer.delivered=delivered
 		if not _check(delivered,"original controller returns the same installed insert to the receiving thread"):
+			report.return_failure={"camera":_node(player.camera),"part":_node(part),"inspect_owner":_node(player.inspect_owner),"inspecting":player.inspecting(),"holding_pickup":player._grab.holding_pickup(),"frozen":part.get("freeze"),"campaign":_campaign_context()}
+			await _shot("actual_installed_return_failure")
 			await _finish("transfer_receiving_refused",1);return
 		await _shot("actual_installed_insert_receiving")
 		var release:=InputEventMouseButton.new();release.button_index=MOUSE_BUTTON_LEFT;release.pressed=true
@@ -149,6 +155,42 @@ func _check(ok: bool,label: String) -> bool:
 	report.checks.append({"ok":ok,"label":label})
 	print("INSTALLED CAMERA: ","PASS " if ok else "FAIL ",label)
 	return ok
+
+func _observe_service_admission(player: PlayerController,part: Node3D,radiator: RadiatorProp) -> void:
+	# Synchronous observation immediately before the ORIGINAL helper's Space.
+	# No awaits, controller writes, exclusion changes or replacement descriptors.
+	var grabbed_owner: Node3D=player._grab.target.owner
+	var owner: Node3D=grabbed_owner
+	if owner.has_method("inspection_owner_for"):owner=owner.inspection_owner_for(part)
+	var bank: Node3D=part.bank
+	var nearest: Node3D=bank.inspection_owner_for(part)
+	var record: Dictionary={"phase":service_trace_phase,"index":report.phase_attempts.size(),"observed_before_real_space":true,"physics_frame":Engine.get_physics_frames(),"process_frame":Engine.get_process_frames(),"ticks_usec":Time.get_ticks_usec(),"grabbed_owner":_node(grabbed_owner),"resolved_owner":_node(owner),"nearest_owner":_node(nearest),"part":_node(part),"stock":_node(bank),"camera":_node(player.camera),"player":_node(player),"radiator":_node(radiator),"rig":_node(radiator.native_rig),"frame":_node(world.adapter.root),"call_locked":player.call_locked,"mouse_released":player.mouse_released,"grab_active":player._grab.active(),"holding_pickup":player._grab.holding_pickup(),"inspecting_before_space":player.inspecting(),"held_freeze":part.get("freeze"),"campaign":_campaign_context(),"npc_colliders":_npc_colliders(),"nearest_seat_distances":[]}
+	for candidate: Node3D in bank.radiators.values():
+		var seat: Vector3=bank._thread_pose(candidate,0).origin
+		record.nearest_seat_distances.append({"owner":str(candidate.get_path()),"seat":_safe(seat),"distance":part.global_position.distance_to(seat)})
+	if owner==null or not owner.has_method("inspection_view"):
+		record.query_skipped="resolved owner has no inspection view"
+		report.phase_attempts.append(record);return
+	# This may prepare the existing pending borrow, as production does again
+	# immediately afterwards. It does not move/freeze the part or admit an eye.
+	var view: Dictionary=owner.inspection_view_for(part) if owner.has_method("inspection_view_for") else owner.inspection_view()
+	var from: Vector3=view.from
+	var at: Vector3=view.at
+	var raw:=PhysicsRayQueryParameters3D.create(player.camera.global_position,from)
+	var query:=PhysicsRayQueryParameters3D.create(player.camera.global_position,from)
+	query.exclude=[player.get_rid()]
+	var paths: Array=[str(player.get_path())]
+	for body: CollisionObject3D in owner.find_children("*","CollisionObject3D",true,false):
+		query.exclude.append(body.get_rid());paths.append(str(body.get_path()))
+	if owner is CollisionObject3D:
+		query.exclude.append(owner.get_rid());paths.append(str(owner.get_path()))
+	var space: PhysicsDirectSpaceState3D=player.get_world_3d().direct_space_state
+	var raw_hit: Dictionary=space.intersect_ray(raw)
+	var production_hit: Dictionary=space.intersect_ray(query)
+	var stationary: bool=player.camera.global_position.distance_squared_to(from)<=.000001
+	record.merge({"proposed_from":_safe(from),"proposed_at":_safe(at),"fov":view.get("fov",player.camera.fov),"from_in_owner":_safe(owner.to_local(from)),"from_in_rig":_safe(radiator.native_rig.to_local(from)),"unfiltered_first_hit":_hit(raw_hit),"production_first_hit":_hit(production_hit),"production_exclusion_paths":paths,"query_mask":query.collision_mask,"collide_with_bodies":query.collide_with_bodies,"collide_with_areas":query.collide_with_areas,"hit_from_inside":query.hit_from_inside,"hit_back_faces":query.hit_back_faces,"stationary_guard":stationary,"ray_predicts_admitted":stationary or production_hit.is_empty(),"production_state_guards_open":not player.call_locked and not player.mouse_released and player._grab!=null})
+	report.phase_attempts.append(record)
+	print("[SERVICE ADMISSION OBSERVER] phase=",service_trace_phase," eye=",player.camera.global_position," part=",part.global_position," owner=",owner.get_path()," predicted=",record.ray_predicts_admitted," hit=",record.production_first_hit)
 
 func _safe(value: Variant) -> Variant:
 	if value is Vector3:return [value.x,value.y,value.z]

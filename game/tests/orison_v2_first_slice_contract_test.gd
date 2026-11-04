@@ -116,6 +116,7 @@ var reconstruction_executed := false
 var service_bench_only := false
 var started := Time.get_ticks_msec()
 var initial_inputs: Dictionary = {}
+var service_inspection_observer: Callable = Callable()
 
 
 func _ready() -> void:
@@ -693,6 +694,7 @@ func _service_space(player: PlayerController) -> void:
 
 func _inspect_service_part(player: PlayerController,body: Node3D) -> bool:
 	if not player._grab.holding_pickup() or player._grab.target.part!=body:return false
+	if service_inspection_observer.is_valid():service_inspection_observer.call(player,body)
 	_service_space(player)
 	print("[SERVICE INSPECTION ENTRY] entered=",player.inspecting()," body=",body.global_position," frozen=",body.get("freeze")," camera=",player.camera.global_transform," owner=",player.inspect_owner)
 	if not player.inspecting() or not player.get_viewport() is SubViewport:return false
