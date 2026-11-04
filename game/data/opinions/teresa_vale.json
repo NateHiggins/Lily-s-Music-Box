@@ -117,6 +117,18 @@
      {"label": "What would you have given the thirty-one?", "reply": "Warm milk and a ward clock, which ticks. People can sleep through anything that keeps time. It's the stopping they can't bear. You'd do well to remember that, in your line."},
      {"label": "Where do you think it went?", "reply": "I've twenty-eight beds and you're asking me about a noise on its day off. Put it at the bottom of the round. If it's still missing when I've seen to the living, I'll worry about it then."}
    ]},
+    {
+      "id": "tv_op_whites",
+      "from": "1929-08-25",
+      "until": "1929-09-15",
+      "topic": "Four alarms at Newtown Creek.",
+      "line": "Four alarms at the oil works on Newtown Creek, and the smoke built itself a thundercloud three miles high. Sunday night we still had two of the firemen in, with their eyes, and a boy who'd run toward it to look. I'd hung my whites out on Saturday because it was fine. Every one came in grey. I've boiled them twice. They're the colour of a ward ceiling now, and that's what I'll be wearing.",
+      "choices": [
+        {"label": "Was anyone badly hurt?", "reply": "The firemen will keep their eyes, the doctor says, which means the doctor thinks so. The boy's fine. Boys always are, after running at a fire. It's the ones who stood and watched I worry for.", "trust": 1},
+        {"label": "Grey whites. Nobody will notice.", "reply": "The patients notice. A man in a bed looks at your apron before he looks at your face. White says somebody's in charge. Grey says it's been a long week. I'd rather they didn't know."},
+        {"label": "Buy new ones.", "reply": "With what? I'll boil them a third time and put the blue in. A nurse's wage doesn't buy you clean. It buys you bleach.", "trust": -1}
+      ]
+    },
   {"id": "tv_op_burned", "from": "1929-09-21", "until": "1929-10-20",
    "requires": ["op:tv_op_bedroom"],
    "topic": "Three months of nights in the boiler.",
@@ -126,6 +138,18 @@
      {"label": "The referee said he'd been there already. Odd thing to say.", "reply": "Not odd. Right. Once you've heard somebody's nights you've been in the room, and you don't go in twice for the show. Night nurses know that. We don't talk about the ward at breakfast."},
      {"label": "Seems a waste. It was evidence.", "reply": "Of what? A widow snoring and praying. If that's evidence, I'm a witness to half of Queens. It's not evidence. It's her. They burned her nights, which is what she asked for, and she's the only one who gets to ask.", "trust": -1}
    ]},
+    {
+      "id": "tv_op_thermos",
+      "from": "1929-10-08",
+      "until": "1929-10-12",
+      "topic": "Seas moderate off Sandy Hook, then not.",
+      "line": "Seas moderate off Sandy Hook until about twenty past eleven, then not. That's the Bureau's forecast for Saturday, and it's the best sentence they've printed all year. Saturday's my night off. First one in a month with anything to look at. I've filled the thermos for eleven and set the alarm for ten, which I've never once said about a Saturday. I'll go up with a blanket and sit where I can see the door, same as anywhere.",
+      "choices": [
+        {"label": "You're looking forward to something.", "reply": "Don't spread it about. ... I am. Something enormous that nobody can treat, coming up out of the water on schedule and going away again. Not my patient. Not my shift. I'll just watch.", "trust": 1, "flag": "tv_not_my_shift"},
+        {"label": "The Bureau asks people not to telephone.", "reply": "They'll be telephoned anyway. People ring the hospital after midnight to ask if the Moon's all right. Half our switchboard is a weather bureau by two. I'd give them the Emergence, gladly."},
+        {"label": "It's a sea creature. You'll read about it Sunday.", "reply": "I read about everything on Sunday. Just once I'd like to see a thing before it's been through a newsroom.", "trust": -1}
+      ]
+    },
   {"id": "tv_op_even_pace", "from": "1929-10-29", "until": "1929-11-09",
    "topic": "'Exactly and at an even pace.'",
    "line": "The exchange placed fifty-eight hundred margin calls into Queens between three and one in the morning, and the operators read twenty-four hundred brokers' messages themselves, told to read 'exactly and at an even pace.' That's our instruction. Word for word, near enough. It's what we teach the probationers for telling a family. I've said it to a thousand kitchens. Now girls of nineteen are saying it at one in the morning about money, and I'd like to sit them down after.",

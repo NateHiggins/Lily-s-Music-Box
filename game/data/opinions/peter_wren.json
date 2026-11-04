@@ -115,6 +115,18 @@
       ]
     },
     {
+      "id": "pw_op_jacket",
+      "from": "1929-07-17",
+      "until": "1929-07-18",
+      "topic": "Ninety-six at ten minutes to three.",
+      "line": "Ninety-six degrees at ten minutes to three, the year's highest, and seven persons overcome in Queens. I wish to report that yesterday evening, in my own flat, with the door shut and the blind down, I removed my jacket. I have not done so in company since 1919, and I did not do so in company now. I sat at the table in my waistcoat and read the second edition. It was not comfortable. It was a concession, and I am still deciding to whom.",
+      "choices": [
+        {"label": "A waistcoat is still a great deal of clothing.", "reply": "It is. I am aware of the arithmetic. A man in my position removes one garment at a time and reconsiders. By August, at this rate, I may be in shirtsleeves. I shall not tell you if I am.", "trust": 1, "flag": "pw_jacket_off"},
+        {"label": "The playgrounds are open for sleeping.", "reply": "Four thousand three hundred persons slept in them. I read the figure twice. I cannot imagine lying down where anyone might take an inventory of me. I admire them. I shall stay at the table."},
+        {"label": "Nobody would have minded the jacket.", "reply": "I would have minded. That is generally the difficulty. The jacket was never for anyone else. It is how I know where I stop.", "trust": -1}
+      ]
+    },
+    {
       "id": "pw_op_unclaimed",
       "from": "1929-07-23",
       "until": "1929-08-25",
@@ -125,6 +137,18 @@
         {"label": "Nobody will ever claim them.", "reply": "Somebody always claims, eventually. Usually somebody who should have claimed earlier and arrives with the form filled in and is too late. I imagine him in the corridor. I imagine him in more detail than is healthy."}
       ],
       "silence_reply": "You have not offered to claim anything for me. Good. People do. Then it is theirs, and I have a copy, and the vault is no emptier."
+    },
+    {
+      "id": "pw_op_blind",
+      "from": "1929-08-06",
+      "until": "1929-08-31",
+      "topic": "Is the Moon bigger?",
+      "line": "The Speaker says every man on every stoop thinks the Moon has grown, and an optician on Steinway Street says it is the heat, the angle and the eye, and kept looking at it while he said so. I have drawn my blind at night for the first time in eleven years. It is not the light. I sleep well enough in light. It is that it comes in and sits at the end of the bed like a visitor nobody has introduced.",
+      "choices": [
+        {"label": "You could introduce yourself.", "reply": "I considered it. I got as far as standing at the window in my dressing gown. Then I thought how it would read in the Speaker, and drew the blind. One does not begin an acquaintance one cannot conclude.", "trust": 1},
+        {"label": "The fishermen at Bowery Bay can bait a hook by it.", "reply": "So I read. Bluefish, and no lantern. I am glad somebody has found a use for it. It has found none for me but to keep me awake, and to make the furniture look as if it were being valued."},
+        {"label": "It's the same Moon as always.", "reply": "The observatory says so, and the observatory does not sleep in my room. I did not say it was larger. I said it comes in. Those are different complaints, and I have filed the second.", "trust": -1}
+      ]
     },
     {
       "id": "pw_op_counting_days",
