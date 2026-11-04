@@ -699,7 +699,9 @@ func _inspect_service_part(player: PlayerController,body: Node3D) -> bool:
 	print("[SERVICE INSPECTION ENTRY] entered=",player.inspecting()," body=",body.global_position," frozen=",body.get("freeze")," camera=",player.camera.global_transform," owner=",player.inspect_owner)
 	if not player.inspecting() or not player.get_viewport() is SubViewport:return false
 	for attempt in 4:
-		var pixel: Vector2=player.camera.unproject_position(body.to_global(Vector3(0,.004,0))).round()
+		# Aim inside the insert head. Its .004m top edge can round to a pixel
+		# whose ray misses the unchanged target box in the receiving view.
+		var pixel: Vector2=player.camera.unproject_position(body.to_global(Vector3(0,.002,0))).round()
 		if player.camera.is_position_behind(body.global_position) or not player.get_viewport().get_visible_rect().has_point(pixel):
 			print("[SERVICE INSPECTION OUTSIDE] pixel=",pixel," body=",body.global_position," camera=",player.camera.global_transform)
 			return false

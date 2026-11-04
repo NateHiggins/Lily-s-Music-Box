@@ -1,4 +1,4 @@
-# Current handoff — return blocker proven; guarded renewal prepared
+# Current handoff — receiving test aim corrected; renewal pending
 
 Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
 **codex/v2-qualification-debt-20261104**. PR152 remains **OPEN/DRAFT/UNMERGED**;
@@ -64,8 +64,25 @@ recorded admission paths/four receiving sight rays and20retained/actual transfer
 points project inside with81px minimum margin. This is not engine/input proof.
 **camera_return_clearance_01/preflight.json** records all candidate failures too.
 
-Next fresh **runtime_10** uses new external **prepare_runtime10.py**; the old
-preparer and failures remain unchanged. Ten fail-fast stages: sourceguard,
+**runtime_10 is terminal1**,original broker63744/session76844 retired. Before
+guard,compile16(11.79s) and isolated radiator(20s) PASS. Door42.21s passes
+closer,crossings and same-stock setdown/reacquisition,then receiving Space enters
+but all4pointer attempts hit floor instead of the insert. No installed,review,
+original authority/disk,apartment,surface or finalguard follows. Original failed
+receipt/report and all6frames remain; Architect inspected them and independently
+checked frozen source equality0 before explicitly releasing custody. Empty
+failure arrays do not override the actual failed exit/missing final release.
+
+CPU native-box control reproduces requested pixel(1887,879): aiming at localY
+.004 targets the exact upper boundary; pixel rounding misses by58micrometres.
+LocalY.002 hits the unchanged target interior. Only the test aim changes; no
+production collision,camera,actor pose or tolerance changes. This remains CPU
+diagnosis,not loaded selection/transfer proof. Source-bound control is external
+**C:/ov/reports/develop_intake_20261104/runtime10_pick_review/**.
+
+Next fresh **runtime_11** reuses unchanged external **prepare_runtime10.py** with
+an explicit fresh runtime name; all older producers and failures stay unchanged.
+Ten fail-fast stages: sourceguard,
 compile16,radiator,door,installed420,technical frame-review checkpoint,ORIGINAL
 authority/disk,nine-unit access,physical/city/entry surfaces,finalguard. The
 checkpoint writes **BOUNDED_REVIEW_READY.json**,allows140s actual review in a
