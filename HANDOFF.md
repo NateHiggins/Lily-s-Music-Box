@@ -61,14 +61,21 @@ source equality and wrapper logs,and opened all3actual frames. One reported
 screen3440x1440,dpi96,scale1;no observed resize events. This does not reproduce
 runtime12's composed-world failure or establish its cause.
 
-**Canonical control probe02 is QUEUED** with the same frozen external primitive
-scene/script,canonical autoloads and fresh empty isolated APPDATA;25s hidden FIFO.
-Broker61008,created **2026-11-04T19:57:26.6327110Z**,root session96019. Revalidate
-its full identity before inheriting;never duplicate. Custody/source freeze:
-**C:/ov/reports/develop_intake_20261104/native_viewport_probe_ready/runs/probe_02_canonical/QUEUE_CUSTODY.json**.
-Architect owns monitoring/output/profile-effect review. Canonical consumed
-sources stay frozen until this case retires;tracker-only commits do not change
-its pinned source files. Case2 is not game-world,save or spatial proof.
+**Canonical control probe02 is terminal PASS**,exit0/9.26s,original broker61008
+retired. Root and Architect independently verified all25 frozen hashes,raw logs
+and all3actualPNG headers/hashes3440x1440;Architect opened all3frames. Actual
+GameBoot/all9autoloads+external primitive scene were present. Isolated profile
+contained only log/pipeline cache,no settings/save/recovery files. Source hold
+and custody released;no game-world cause,room or surface qualification follows.
+Original artifacts: **C:/ov/reports/develop_intake_20261104/native_viewport_probe_ready/runs/probe_02_canonical/**.
+
+Next **composed3A observation is being authored,not queued** under external
+**C:/ov/reports/develop_intake_20261104/native_world_observation_ready/**.
+Use unchanged complete3A driver/real controls/two original captures within the
+full production world;600s long-runner ceiling and INERT partial measurements.
+Original12 MAIN/BATH arrived225s/443s after launch;world startup alone151s.
+Do not mistake this one-leg diagnostic for original nine-unit/60-room proof.
+No live qualification job currently belongs to this integration owner.
 
 The original October13 **19-room historical packet is now archived** at
 **art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/**.
