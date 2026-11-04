@@ -138,6 +138,11 @@ repository skill [godot-development](.agents/skills/godot-development/SKILL.md).
 Its ethos is **deeper, not bigger**: improve execution without expanding scope;
 use a lightweight pass for small edits.
 
+For measured performance, loading/memory cost and audited size reduction, use
+[orison-optimization](.agents/skills/orison-optimization/SKILL.md) alongside the
+Godot workflow. Coordinate with the integration lead, preserve game behavior
+and atmosphere, and verify comparable measurements before claiming a gain.
+
 For generating images, this machine has a local generator: SDXL on the RTX 4080,
 `python art/tools/imagegen.py --prompt "..." --out <dir> --seeds 4` (or `--batch`).
 It costs nothing and sends nothing anywhere, and works for Codex/ChatGPT as well
