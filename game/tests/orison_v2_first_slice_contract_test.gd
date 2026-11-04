@@ -551,7 +551,9 @@ func _prove_boiler(player: PlayerController,boiler: BoilerProp) -> bool:
 
 
 func _walk_service(world: OrisonV2RuntimeRoot,target: Vector3) -> bool:
-	var player:=world.player;var frame: Node3D=world.adapter.root
+	return await _walk_service_player(world.player,world.adapter.root,target)
+
+func _walk_service_player(player: PlayerController,frame: Node3D,target: Vector3) -> bool:
 	if player.inspecting():
 		var kept: Node3D=player._grab.target.part if player._grab.active() and player._grab.target.kind=="free" else null
 		_service_space(player)
@@ -592,7 +594,7 @@ func _walk_service(world: OrisonV2RuntimeRoot,target: Vector3) -> bool:
 		cargo={"at":frame.to_local(carrying.global_position),"grip_active":player._grab.active(),"camera_distance":carrying.global_position.distance_to(player.camera.global_position)}
 		var sight:=PhysicsRayQueryParameters3D.create(player.camera.global_position,carrying.global_position)
 		sight.collide_with_areas=true;sight.exclude=[player.get_rid()]
-		var hit:=world.get_world_3d().direct_space_state.intersect_ray(sight)
+		var hit:=player.get_world_3d().direct_space_state.intersect_ray(sight)
 		if not hit.is_empty():cargo["sight_hit"]=str(hit.collider.get_path());cargo["sight_position"]=frame.to_local(hit.position)
 	service_travel.append({"from":initial,"target":target,"actual":at,"carried":str(carrying.name) if carrying!=null else "","cargo":cargo,"contacts":contacts,"ok":valid})
 	_check(valid,"service walking "+str(target)+" actual="+str(at))
@@ -622,13 +624,54 @@ func _service_door(world: OrisonV2RuntimeRoot,identity: String) -> bool:
 	var door:=opening.get_node_or_null(identity+"_Leaf") as DoorProp if opening!=null else null
 	_check(door!=null,"service route has an actual door: "+identity)
 	if door==null:return false
-	if door.open:return true
+	return await _service_leaf(world.player,door)
+
+func _service_leaf(player: PlayerController,door: DoorProp) -> bool:
 	var leaf:=door.get_node("HingedLeaf") as Node3D
-	world.player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0)
-	var hand:=PatrolHand.new();add_child(hand);hand.player=world.player
+	var target: float=door.motion_target_angle(true)
+	if door.is_ready_for_passage() and absf(leaf.rotation.y-target)<.001:return true
+	# A released passage door closes normally while the porter works. Put a
+	# carried insert down through its actual inspection hand before using the
+	# leaf, then pick that same physical stock up again. Never force the door
+	# or let a scripted crossing ignore the restored closed-leaf barrier.
+	var cargo: Node3D=player._grab.target.part if player._grab.holding_pickup() else null
+	var bank: Node3D=cargo.get("bank") if cargo!=null else null
+	var identity: String=str(cargo.get("identity")) if cargo!=null else ""
+	if cargo!=null:
+		_check(bank!=null and bank.owns_part(cargo),"service doorway cargo retains its finite stock owner")
+		if bank==null or not bank.owns_part(cargo):return false
+		var setdown: Vector3=player.global_position+player.global_basis*Vector3(.40,.10,0)
+		if not await _carry_service_part(player,cargo,setdown):return false
+		var release:=PatrolHand.new();add_child(release);release.player=player;release.click()
+		_service_space(player)
+		var same: bool=not player.inspecting() and player._grab.holding_pickup() and player._grab.target.part==cargo
+		_check(same,"doorway setdown returns the same stock before ordinary release")
+		if same:release.click()
+		release.free()
+		if not same:return false
+		_check(not player._grab.active() and not cargo.freeze,"doorway stock releases through the normal physical owner")
+		if player._grab.active() or cargo.freeze:return false
+		for frame in 4:await get_tree().physics_frame
+	player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0);player.camera.rotation=Vector3.ZERO
+	var hand:=PatrolHand.new();add_child(hand);hand.player=player
 	var result: bool=await hand.operate(leaf.to_global(Vector3(door.width*.5,1.1,0)),door.motion_target_angle(true),door)
-	_check(result and door.open,"actual hand opens service route leaf: "+identity)
-	hand.free();return result and door.open
+	var opened: bool=result and door.is_ready_for_passage() and absf(leaf.rotation.y-target)<.001
+	_check(opened,"actual hand opens service route leaf: "+str(door.name))
+	hand.free()
+	if not opened:return false
+	if cargo!=null:
+		if not await _pick_service_part(player,cargo,bank,Vector3(.03,.10,.08)):return false
+		player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0);player.camera.rotation=Vector3.ZERO
+		var processing: bool=player.is_physics_processing();player.set_physics_process(true)
+		for frame in 90:
+			await get_tree().physics_frame
+			if not player._grab.holding_pickup():break
+			if cargo.to_global(player._grab.contact).distance_to(player.camera.global_transform*Vector3(.17,-.16,-.48))<.003:break
+		player.set_physics_process(processing)
+		var ready: bool=player._grab.holding_pickup() and player._grab.target.part==cargo and str(cargo.get("identity"))==identity and cargo.to_global(player._grab.contact).distance_to(player.camera.global_transform*Vector3(.17,-.16,-.48))<.003
+		_check(ready,"ordinary holder callback recovers the same doorway stock")
+		if not ready:return false
+	return true
 
 func _service_supply(player: PlayerController,prop: RadiatorProp,value: float) -> bool:
 	var hand:=PatrolHand.new();add_child(hand);hand.player=player
@@ -764,7 +807,9 @@ func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,
 	_check(parked,"old insert physically moves clear of its seat")
 	hand=PatrolHand.new();add_child(hand);hand.player=world.player;hand.click();hand.free()
 	if not parked:return false
-	if not await _walk_service_points(world,[Vector3(13.6,3.2,-2.8),Vector3(12.5,3.2,-2.5),Vector3(10.95,3.2,-2.5),Vector3(10.95,3.2,-3.25),Vector3(8.55,3.2,-3.25),Vector3(5.9,3.2,-3.15),Vector3(3.65,3.2,-3.15)]):return false
+	if not await _walk_service_points(world,[Vector3(13.6,3.2,-2.8),Vector3(12.5,3.2,-2.5),Vector3(10.95,3.2,-2.5),Vector3(10.95,3.2,-3.25)]):return false
+	if not await _service_door(world,"F02_B_ENTRY_DOOR"):return false
+	if not await _walk_service_points(world,[Vector3(8.55,3.2,-3.25),Vector3(5.9,3.2,-3.15),Vector3(3.65,3.2,-3.15)]):return false
 	if not await _walk_service_points(world,_service_stairs(0.,false,false)):return false
 	if not await _walk_service_points(world,[Vector3(-1.8,0,-3.45),Vector3(-1.8,0,-1.5),Vector3(-2.,0,-.65)]):return false
 	if not await _prove_board(world.player,board):return false
@@ -776,7 +821,9 @@ func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,
 	if not await _walk_service_points(world,[Vector3(10.1,-3.2,-.4),Vector3(10.9,-3.2,-.5)]):return false
 	if not await _prove_boiler(world.player,boiler):return false
 	_check(world.work_orders.job_stage(ServiceRoundDirector.JOB_ID)=="repairable","real board and boiler outcomes earn repairability")
-	if not await _walk_service_points(world,[Vector3(10.9,-3.2,-.4),Vector3(8.7,-3.2,-.4),Vector3(7.4,-3.2,-.4)]):return false
+	if not await _walk_service(world,Vector3(10.9,-3.2,-.4)):return false
+	if not await _service_door(world,"B1_BOILER_FIRE_DOOR"):return false
+	if not await _walk_service_points(world,[Vector3(8.7,-3.2,-.4),Vector3(7.4,-3.2,-.4)]):return false
 	if not await _service_door(world,"B1_SHOP_DOOR"):return false
 	if not await _walk_service_points(world,[Vector3(7.4,-3.2,1.),Vector3(7.4,-3.2,3.),Vector3(7.65,-3.2,4.45)]):return false
 	var replacement: Dictionary=stock.rows.VENT_SPARE_2
@@ -792,10 +839,14 @@ func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,
 	var hand_ready: bool=world.player._grab.holding_pickup() and world.player._grab.target.part==replacement.body and replacement.body.to_global(world.player._grab.contact).distance_to(world.player.camera.global_transform*Vector3(.17,-.16,-.48))<.003
 	_check(hand_ready,"actual FPS callback lifts the owned workshop insert to the production hand pose")
 	if not hand_ready:return false
-	if not await _walk_service_points(world,[Vector3(7.4,-3.2,3.),Vector3(7.4,-3.2,1.),Vector3(7.4,-3.2,-.4),Vector3(4.9,-3.2,-.4),Vector3(4.9,-3.2,-2.5),Vector3(3.65,-3.2,-3.45),Vector3(1.925,-3.2,-3.45),Vector3(1.925,-3.2,-3.)]):return false
+	if not await _walk_service_points(world,[Vector3(7.4,-3.2,3.),Vector3(7.4,-3.2,1.)]):return false
+	if not await _service_door(world,"B1_SHOP_DOOR"):return false
+	if not await _walk_service_points(world,[Vector3(7.4,-3.2,-.4),Vector3(4.9,-3.2,-.4),Vector3(4.9,-3.2,-2.5),Vector3(3.65,-3.2,-3.45),Vector3(1.925,-3.2,-3.45),Vector3(1.925,-3.2,-3.)]):return false
 	if not await _walk_service_points(world,_service_stairs(-3.2,true)):return false
 	if not await _walk_service_points(world,_service_stairs(0.,true,false)):return false
-	if not await _walk_service_points(world,[Vector3(5.9,3.2,-3.15),Vector3(8.55,3.2,-3.25),Vector3(10.95,3.2,-3.25),Vector3(10.95,3.2,-2.5),Vector3(12.5,3.2,-2.5),Vector3(13.6,3.2,-2.8),Vector3(14.5,3.2,-3.)]):return false
+	if not await _walk_service_points(world,[Vector3(5.9,3.2,-3.15),Vector3(8.55,3.2,-3.25)]):return false
+	if not await _service_door(world,"F02_B_ENTRY_DOOR"):return false
+	if not await _walk_service_points(world,[Vector3(10.95,3.2,-3.25),Vector3(10.95,3.2,-2.5),Vector3(12.5,3.2,-2.5),Vector3(13.6,3.2,-2.8),Vector3(14.5,3.2,-3.)]):return false
 	var receiving: Transform3D=stock._thread_pose(radiator,stock.THREAD_END)
 	world.player.camera.global_position=receiving.origin+radiator.global_basis*Vector3(.02,.15,-.35);world.player.camera.look_at(receiving.origin)
 	if not await _deliver_service_part(world.player,replacement.body,receiving.origin):return false

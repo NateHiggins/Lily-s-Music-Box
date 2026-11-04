@@ -1,4 +1,4 @@
-# Current handoff — narrowed receiving view frozen; runtime07 queued
+# Current handoff — receiving preflight passed; original route door return failed
 
 Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
 **codex/v2-qualification-debt-20261104**. Code checkpoint **4d5cf53e7** is
@@ -39,12 +39,33 @@ Original runtime06 logs/receipts/images remain untouched.
 The view candidate now applies only to loose incoming stock more than4cm below
 the receiving seat. Outgoing stock at the seat retains the exact prior overhead
 view. No collision,grip,path,endpoint or authority tolerance changes. This is
-unverified. **runtime_07** seven-stage fail-fast batch is queued as broker
-**38628**,created**2026-11-04T12:01:33.178126Z**,tool session**25496**.
-Exact command/freeze/custody: **qualification_debt_trace_01/runtime_07/QUEUE_CUSTODY.json**.
-Revalidate process identity and receipts; never duplicate it or change frozen
-inputs. Do not restart terminal jobs. Reuse native06/material evidence. All
-windowed work stays hidden/native3440x1440,patched,FIFO.
+**runtime_07 is terminal1**. Source guard/compile6PASS; bounded radiator probe
+PASS in19.8s,including incoming selection/delivery/seat/stale-grip denial/thread
+and all original outgoing/loan/return controls. Original composed first-slice
+runs278.23s with173PASS/1FAIL: after real insert parking,the return crossing at
+(8.55,3.2,-3.25) meets **F02_B_ENTRY_DOOR**'s normally closed leaf. Actual stop
+(9.857138,3.200587,-3.212026). No disk reconstruction,apartment,surface or final
+guard qualification. Original failed receipt/logs remain in runtime_07.
+
+The old route opened entry leaves only once,then assumed they stayed open while
+working. Production slow closers remain unchanged. Authored driver repair uses
+actual hand reopening on return visits,plus physical insert setdown/open/same-part
+reacquisition when carrying. No new collision exception,forced door state,actor
+pose,grip bypass or altered travel goal. A nearby **ServiceDoorRouteBench**
+reuses production2B leaf/native stock,original capsule and finite insert; normal
+closer and real controller/input remain. It includes incoming view captures.
+Both changes are UNVERIFIED pending compile/nearby preflight before another full
+original run. Register only its one reviewed spatial-manifest record. Reuse all
+unchanged native/material evidence; preserve runtime02–07 failures.
+
+Next prepare a fresh guarded runtime08 with bounded radiator AND door preflights
+before original authority/disk,9-unit movement,surfaces and final guard. Check
+actual custody before starting; do not duplicate a live job. Existing external
+book/hose/Continue/lift/city candidates remain uninstalled. Claude confirmed Sun
+PR153 and mystery continuity stay isolated/draft; lead admits main in a planned
+combined D9 window after PR152. Required future Sun dependencies include campaign
+clock/foreground optical controls and compute-source digest coverage; do not
+change this candidate's consumed inputs to admit that separate work.
 
 ## Finish the integration before opening new work
 

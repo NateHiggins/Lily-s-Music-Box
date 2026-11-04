@@ -7652,3 +7652,32 @@ No new runtime result yet. Independent book optical and hose ballistic-baseline
 candidates remain external/authored-only under **develop_intake_20261104/**;
 read-only optimization,city-readability and lift-gate intake also remain external.
 None changes this run or grants gameplay,performance or artistic acceptance.
+
+
+### November 4 — bounded receiving passes; original closed-door failure retained
+
+runtime07 guard/compile6PASS. Native3440x1440 radiator probePASS in19.8s with
+empty stderr: actual incoming pointer now selects the low insert,delivery/catch/
+stale-grip denial/thread all pass,and original outgoing3-leg,loan,foreign release,
+hand return/ordinary release and in-memory restore controls remain true.
+This INERT diagnostic does not establish composed/disk or artistic acceptance.
+
+Original first-slice is terminal1/278.23s with173pass lines/1failure. Real old
+insert unthread/pick/park passes,then the controller stops at
+(9.857138,3.200587,-3.212026) on the **F02_B_ENTRY_DOOR** leaf while returning to
+(8.55,3.2,-3.25). The normal closer is3.5s delayed/.20rad per second; the route
+previously assumed a once-opened leaf stayed open through the work. Wrapper,
+raw warnings/errors,failed contract and original input trace remain in runtime07.
+No disk reconstruction,9-unit apartment,surface or final guard qualification.
+
+The authored driver now revisits actual door hand controls for all return
+crossings. A carried finite insert is placed through real inspection mouse/
+wheel input,released through Space and primary,then the same object is picked
+up after actual leaf opening and lifted through ordinary holder callbacks.
+Production door/closer,NPC,stock/case/save owners,original capsule and travel
+goals remain unchanged; no added collision exception or forced state.
+The nearby **ServiceDoorRouteBench** uses actual2B factory/record/native leaf,
+production stock and normal closer,with exact translated fixture stations
+registered as one spatial-manifest record. It checks empty return,carried
+setdown/reacquire,collision-bearing passage and receiving view. Authored only;
+next compile/bounded test precedes every expensive original route in runtime08.
