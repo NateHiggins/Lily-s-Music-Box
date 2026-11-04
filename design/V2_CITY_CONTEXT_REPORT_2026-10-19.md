@@ -35,6 +35,15 @@ compilation/execution. A guarded composed-physical batch preparer is authored
 externally but will not create/queue its batch before actual loaded-image review.
 WiderV2,hose/book/nook and golden-shift work remain active.
 
+Pre-import static board completed at57232a922:119gates,112PASS/6FAIL/
+1INCOMPLETE;46comparison findings are exactly missing19import sidecars in two
+gates plus stale surface/render evidence. No additional tools-test regression.
+Raw board: C:/ov/reports/native_intake_20261102/city_packets/attempt_04/
+board_52ab1f43d/board.json (directory name is historical; read actual commit).
+Queued imports/mesh-policy address sidecars; composed runtime/review/publication
+still required for the surface gate. Preserve this red board,no manual import
+sidecars or weakened checks. This is not a candidate pass.
+
 Earlier queued/failure labels below are historical; current custody above wins.
 
 ### Far editable-source size failure and bounded repair — November 3
