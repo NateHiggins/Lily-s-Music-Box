@@ -1,48 +1,41 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
-### Current retained-facade preservation — November 3
+### Current complete native assembly pass — November 3
 
 Evidence class: **INERT**.
 
-The third attempt is terminal1 at the unchanged comparison guard: all1538
-replacement parts match delivery, but26of665retained parts changed across four
-profiles because new neighbours changed implicit construction inputs. Native
-assembly and393far/street raw-array/Scene/map checks passed; all four editable
-sources remain below95MiB. No Godot followup ran.
+Native attempt04 is terminal exit0: six phases,all2203original part comparisons
+(665retained+1538replacement),all2678retained pane witnesses,13fixture bindings
+and21static tests pass.124buildings/17180panes are assembled through the owning
+producer; all39retained profile rows and124reservations remain protected.
+Five ground/street outputs remain byte-identical. Four editable natives are
+69,773,268 /83,500,482 /22,654,071 /86,151,500bytes (near/far/street_end/lod1),
+each below the unchanged95MiB cap.393far/street parts pass exact raw arrays,
+editable Scene coverage and source-bound PBR map checks against preserved new
+packet and original retained stocks. These are native checks,not Godot proof.
 
-The correction preserves four completed facades' original construction context
-(seven minimal source-bound neighbour records), separate from live occlusion.
-A private CPU control reproduces all46affected base/lower parts and219pane
-witnesses exactly. A deliberately incomplete context still fails10parts; that
-negative control is retained. All39profile rows and124reservations remain
-unchanged; all85new profiles use current construction inputs. Eleven focused
-static tests pass.
-The assembled P2 replacement now passes full equality of all184delivered pane
-witness dictionaries, and P0R2's separate46-pane roster/hash remains exact
-(2focused tests/0failures). The composed review's stale192 count is migrated
-to184 with every actual first-hit ray preserved. This file is outside the28file
-frozen isolated-diagnostic dependency graph; no consumed loaded input changed.
-Spatial dependency regeneration produced no manifest change. The composed
-review still needs engine compilation and actual ray execution; no runtime pass.
- These are native/source checks, not runtime acceptance.
+Native evidence,original failures and strict comparison recipes are archived in
+art/reviews/city_streets_20261029/city_building_packets_assembly_20261103.zip:
+28files/182086bytes,SHA256
+26e2a39ecb825b1dd9fd4758b33a2dbcb4e6abee4bb403fd5f720ad9563b7ea8.
+The106MBfailed native remains external with its recorded recovery hash.
 
-Fourth attempt is queued: native session82410/broker49456;
-guarded followup session5324/pid66684 waits on that exact broker. Batch and
-frozen inputs: C:/ov/reports/native_intake_20261102/city_packets/attempt_04/.
-It regenerates the ground owner's new plan binding, requires five unchanged
-ground/street outputs, all2203original comparisons, all2678retained pane
-witnesses,13fixture bindings and native tests. Only then may it queue loaded
-imports/compile/representative LOD captures. Do not duplicate or edit consumed
-city/entry inputs. Current custody: ACTIVE_QUALIFICATION.json beside city_packets.
+The guarded worker66684/session5324 has queued loaded_01/batch.json through
+broker34260 after observing exact native broker49456 terminate. Native session
+82410 is terminal0; do not restart it. Imports twice,mesh policy,source freeze,
+compile4scripts,entry bench and9representative family/LOD captures remain
+pending. Current job custody: C:/ov/reports/native_intake_20261102/
+ACTIVE_QUALIFICATION.json. No composed-world,played access,performance,save/load,
+artistic acceptance or main merge follows from native success. No duplicate job.
 
-All local city generated assets remain unqualified/unmerged. Loaded mipmaps,
-P2 explicit184-pane replacement with46neighbour rays, collision/access,
-composed lighting/LOD/performance and candidate verification remain pending.
-Earlier failure files and immutable baselines are preserved. WiderV2,
-hose/book/nook and golden-shift work remain active.
+The composed review now expects P2's exact184replacement witnesses while
+preserving all46neighbor panes and every first-hit ray;2focused tests pass.
+It is outside the frozen28file isolated loaded graph and still needs engine
+compilation/execution. A guarded composed-physical batch preparer is authored
+externally but will not create/queue its batch before actual loaded-image review.
+WiderV2,hose/book/nook and golden-shift work remain active.
 
-Earlier failure/retry descriptions below are historical; current custody above
-supersedes their queued/live labels. They are not current runtime evidence.
+Earlier queued/failure labels below are historical; current custody above wins.
 
 ### Far editable-source size failure and bounded repair — November 3
 
