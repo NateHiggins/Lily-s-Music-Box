@@ -115,6 +115,34 @@ func _run() -> void:
 	preview.make_current()
 	await _shot("existing_proposed_view_DIAGNOSTIC_ONLY")
 	player.camera.make_current();preview.free()
+	# Opt-in repair preflight keeps the diagnostic's original refusal record
+	# and then exercises the same finite insert through the original driver.
+	if OS.get_environment("ORISON_INSTALLED_CAMERA_TRANSFER")=="1":
+		if not _check(player.inspecting(),"repair preflight admits the actual installed Space handoff"):
+			await _finish("transfer_admission_refused",1);return
+		helpers._service_space(player)
+		if not _check(player._grab.holding_pickup() and player._grab.target.part==part,"inspection returns the original installed insert to pickup"):
+			await _finish("transfer_pickup_refused",1);return
+		var park: Vector3=radiator.native_rig.to_global(Vector3(-.30,.12,-.55))
+		var parked: bool=await helpers._deliver_service_part(player,part,park)
+		report.transfer={"parked":parked,"park_position":_safe(part.global_position),"identity":str(part.get("identity"))}
+		if not _check(parked,"original controller parks the installed outgoing insert"):
+			await _finish("transfer_parking_refused",1);return
+		await _shot("actual_installed_insert_parked")
+		helpers._service_space(player)
+		var receiving: Transform3D=stock._thread_pose(radiator,stock.THREAD_END)
+		player.camera.global_position=receiving.origin+radiator.global_basis*Vector3(.02,.15,-.35)
+		player.camera.look_at(receiving.origin)
+		var delivered: bool=await helpers._deliver_service_part(player,part,receiving.origin)
+		report.transfer.delivered=delivered
+		if not _check(delivered,"original controller returns the same installed insert to the receiving thread"):
+			await _finish("transfer_receiving_refused",1);return
+		await _shot("actual_installed_insert_receiving")
+		var release:=InputEventMouseButton.new();release.button_index=MOUSE_BUTTON_LEFT;release.pressed=true
+		player._unhandled_input(release)
+		report.transfer.caught=stock.active(radiator).get("body")==part
+		_check(report.transfer.caught,"normal release catches the original installed receiving thread")
+		report.transfer.passed=parked and delivered and report.transfer.caught and helpers.failures==0
 	await _finish("admitted" if player.inspecting() else "admission_refused",0 if int(helpers.failures)==0 else 1)
 
 func _check(ok: bool,label: String) -> bool:

@@ -1,89 +1,62 @@
-# Current handoff — runtime09 queued; full loose-stock view frozen
+# Current handoff — installed blocker identified; bounded camera repair
 
 Canonical checkout: **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-qualification-debt-20261104**. Code checkpoint **88ca357d1** is
-committed and pushed; PR152 remains **OPEN/DRAFT/UNMERGED**. Main is
-**4f16053e8a7b1f8fe0ec91c25d5aab8c4a794359**, the PR151 merge. Fetch and
-inspect actual Git before acting; app-attached v2-baseline is not canonical.
+**codex/v2-qualification-debt-20261104**. PR152 remains **OPEN/DRAFT/UNMERGED**;
+main is **4f16053e8** (PR151). Source-closure repair **a2efbfe8a** is pushed.
+Integration owner is this lead chat **01a1a653-eda8-7732-9732-2c362f5129d6**.
+Inspect actual Git and external custody before editing or starting anything.
 
-## Current job custody — runtime09 queued
+## Current bounded repair and original failures
 
-Integration owner: **Complete V2 qualification commitments**, chat
-**01a1a653-eda8-7732-9732-2c362f5129d6**. Old Developer Sol is the read-only
-optimization specialist; book/hose/instrument intake agents have no repo-write
-or GPU ownership. Claude has been notified directly; Sun renewal remains
-sequenced after qualified PR152 integration, pending its current confirmation.
+**runtime05–09 are terminal failures, never live handles.** Original logs,
+wrapper/test receipts and images remain under
+**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/**.
+Runtime07 reached173PASS/1FAIL on the normally reclosed2B leaf. Runtime08
+passed real leaf/stock setdown/reacquire/crossing but failed high incoming
+projection. Runtime09 compile15/radiator/door PASS, all4door frames reviewed;
+original first-slice ends167PASS/1FAIL in291.4s: Space refuses the installed
+outgoing-stock view before parking. No original disk,apartment,surface or
+final guard follows. No qualification or artistic acceptance from these runs.
 
-**runtime_05 is terminal failure**, not live. Broker34552 no longer exists.
-Raw compile/probe hashes were revalidated on November4; compile6PASS, probe
-completed1 in25.84s at11:27:23Z with empty stderr. Actual receiving context and
-Space entry succeed; pointer delivery is exact, but the first hit is the rigid
-radiator casting instead of the incoming loose insert below it. The failure
-frame was inspected. No original authority/disk,apartment,surface or final guard
-stage ran. Preserve all runtime05 inputs,logs,receipts and original failures.
-External intake record: **C:/ov/reports/develop_intake_20261104/INHERITED_RUNTIME05.json**.
+**installed_camera_01 is terminal timeout** (181.22s; startup149.394s),no verdict.
+**installed_camera_02 is terminal diagnostic PASS**,not a repair:222.5s,
+15pass lines,0fails/script errors; actual Space refusal reproduced. Same-frame
+raw and production-excluded rays hit the static **2B_dress_form** torso,
+shape2. All3frames inspected; proposed eye looks through the form. Part/eye
+match runtime09 within2micrometres. No NPC,time,collision or inventory override.
+Original reports/guards/receipts:
+**C:/ov/reports/develop_intake_20261104/installed_camera_02/**. Custody43868/
+session75513 is retired. Startup147.989s is a loading observation,not a played
+stutter distribution. This source freeze has been released.
 
-An **unverified** radiator inspection-view candidate at **4d5cf53e7** includes
-the loose incoming part and receiving seat from the open side, retaining seated
-cap views and all collision/grip/save authorities. Own bounded receiving_01
-broker5164 was identity-checked and withdrawn BEFORE launch (no children/logs);
-**receiving_01/WITHDRAWAL.json** retains the reason and custody. Nothing ran.
+Candidate reduces only loose-stock native-Z eye standoff **-.55 to-.15**;
+mounted-cap view and original collision/admission/grip/identity/save owners stay.
+CPU preflight reproduces the old mesh hit within13micrometres,clears that same
+mesh and keeps12retained plus4actual installed outgoing endpoints inside.
+**CPU geometry is not loaded admission or transfer proof.** Artifact:
+**C:/ov/reports/develop_intake_20261104/camera_clearance_preflight.json**.
 
-**runtime_06 is terminal failure**: source guard/compile6PASS,probe1 in39.86s
-with empty stderr at11:57:44Z. The wider camera also applied to just-removed
-outgoing stock; the original transfer passed too near the eye and released at
-(-.310197,1.092299,.351376),before receiving delivery. Its endpoint image was
-inspected. No original authority/disk,apartment,surface or final guard ran.
-Original runtime06 logs/receipts/images remain untouched.
+Next bounded batch **camera_repair_01**: source guard,compile7,isolated original
+radiator route,actual service-door route,nearby installed real Space/park/return/
+normal seat release,final guard. The installed diagnostic now has an opt-in
+actual transfer programme,still INERT. No long authority/apartment/surface run
+is chained before manual frame review. Source,launch,receipts and live/terminal
+custody are authoritative in
+**C:/ov/reports/develop_intake_20261104/camera_repair_01/**; inspect its
+**QUEUE_CUSTODY.json** and process creation identity rather than duplicate it.
+Never alter frozen inputs once admitted or queued. Preserve every original.
 
-The view candidate now applies only to loose incoming stock more than4cm below
-the receiving seat. Outgoing stock at the seat retains the exact prior overhead
-view. No collision,grip,path,endpoint or authority tolerance changes. This is
-**runtime_07 is terminal1**. Source guard/compile6PASS; bounded radiator probe
-PASS in19.8s,including incoming selection/delivery/seat/stale-grip denial/thread
-and all original outgoing/loan/return controls. Original composed first-slice
-runs278.23s with173PASS/1FAIL: after real insert parking,the return crossing at
-(8.55,3.2,-3.25) meets **F02_B_ENTRY_DOOR**'s normally closed leaf. Actual stop
-(9.857138,3.200587,-3.212026). No disk reconstruction,apartment,surface or final
-guard qualification. Original failed receipt/logs remain in runtime_07.
+All4spatial contract SOURCES closures pass after the three missing first-slice
+scene declarations; no old receipt was repinned. Native06 unchanged geometry35,
+owner identities5286 and strict material equivalence remain reusable within
+their original scope. Older19-room cohort remains separately preserved.
 
-The old route opened entry leaves only once,then assumed they stayed open while
-working. Production slow closers remain unchanged. Authored driver repair uses
-actual hand reopening on return visits,plus physical insert setdown/open/same-part
-reacquisition when carrying. No new collision exception,forced door state,actor
-pose,grip bypass or altered travel goal. A nearby **ServiceDoorRouteBench**
-reuses production2B leaf/native stock,original capsule and finite insert; normal
-closer and real controller/input remain. It includes incoming view captures.
-runtime08 guard/compile15 and radiator probe PASS. Door bench is terminal1 in
-41.87s with empty stderr: both normal closer cycles,empty return,actual finite
-insert setdown/open/reacquire and carried passage PASS. Its final receiving
-approach holds stock high/off-axis at(-.468772,.839982,.326997). The low-only
-camera condition chooses overhead view; projected pointer(3192,5230) is outside
-the1440px viewport,then raised travel crosses the eye and releases. No original
-long stage runs. The three door frames face away from the leaf and were inspected
-as unusable framing; no rendered-door or artistic acceptance.
-
-The loose-stock view now frames the full transfer workspace from the open side
-at76degrees; mounted cap retains its close view. Source geometry preparation
-checks all12 retained outgoing/low-incoming/high-incoming transfer endpoints in
-front/inside; this is INERT preparation,not a rendered/controller verdict.
-Initial pointer acquisition now refuses outside-viewport/behind-camera stock.
-Diagnostic door images aim from the same player eye and restore the camera;
-actual receiving view stays untouched. Both changes await runtime09 compile and
-bounded tests. Apartment SOURCES closure and spatial audit pass; no receipt repin.
-
-**runtime_09 is queued** as broker**44860**,created**2026-11-04T13:20:01.844527Z**,
-tool session**82496**. Its8 stages are guard/compile15/radiator/door/authority-disk/
-9-unit/surface/final guard. Exact identity,command and freeze are in
-**qualification_debt_trace_01/runtime_09/QUEUE_CUSTODY.json**. Revalidate process
-identity and stage receipts; never duplicate the job or change consumed inputs. Reuse unchanged native/material proof; preserve
-runtime08 failure and every earlier original. Revalidate any new custody before
-queueing and never duplicate a live job. Existing external
-book/hose/Continue/lift/city candidates remain uninstalled. Claude confirmed Sun
-PR153 and mystery continuity stay isolated/draft; lead admits main in a planned
-combined D9 window after PR152. Required future Sun dependencies include campaign
-clock/foreground optical controls and compute-source digest coverage; do not
-change this candidate's consumed inputs to admit that separate work.
+Claude's Sun PR153 and mystery PR154 stay isolated/draft for the planned D9
+window after qualified PR152. PR154 now includes the selected writers-room
+20game strings at **09618e48b**;4private comic changes and4scene options remain
+separate from runtime acceptance. The private draft/joke source was not copied
+into this public tree. Claude owns the new bartender/staff. Preserve those
+sources and the unresolved narrative rulings; no independent admission.
 
 ## Finish the integration before opening new work
 
