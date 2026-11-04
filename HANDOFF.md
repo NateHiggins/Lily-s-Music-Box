@@ -69,13 +69,19 @@ contained only log/pipeline cache,no settings/save/recovery files. Source hold
 and custody released;no game-world cause,room or surface qualification follows.
 Original artifacts: **C:/ov/reports/develop_intake_20261104/native_viewport_probe_ready/runs/probe_02_canonical/**.
 
-Next **composed3A observation is being authored,not queued** under external
-**C:/ov/reports/develop_intake_20261104/native_world_observation_ready/**.
-Use unchanged complete3A driver/real controls/two original captures within the
-full production world;600s long-runner ceiling and INERT partial measurements.
+**Composed3A observation world_3a_01 is QUEUED**,broker11104,created
+**2026-11-04T20:48:42.0579710Z**,root session96841. Revalidate full identity;
+never submit a duplicate. Custody/source freeze:
+**C:/ov/reports/develop_intake_20261104/native_world_observation_ready/runs/world_3a_01/QUEUE_CUSTODY.json**.
+Three fail-closed FIFO stages:external compile30s with explicit empty scene;
+original wrapper/raw-log/58frozen-file admission30s;unchanged full world plus
+complete3A driver/real controls/two original captures600s. Root reviewed code,
+normal movement release/teardown and CPU consistency;actual compilation unrun.
+Unique partial checkpoints remain INCOMPLETE until natural route/teardown finish.
+Architect owns monitor/output/profile review;canonical consumed sources held
+until terminal equality/release. Tracker-only commits do not alter pinned files.
+This is INERT observation,not original nine-unit/60-room/save/surface proof.
 Original12 MAIN/BATH arrived225s/443s after launch;world startup alone151s.
-Do not mistake this one-leg diagnostic for original nine-unit/60-room proof.
-No live qualification job currently belongs to this integration owner.
 
 The original October13 **19-room historical packet is now archived** at
 **art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/**.
