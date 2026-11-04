@@ -15,6 +15,11 @@ func _ready() -> void:
 	call_deferred("run")
 
 func run() -> void:
+	var scope:=OS.get_environment("ORISON_CITY_HORIZON_BENCH_SCOPE")
+	if scope not in ["","ground_edges"]:
+		push_error("Unknown city horizon bench scope: "+scope);get_tree().quit(64);return
+	if scope=="ground_edges":
+		await _run_ground_edges();return
 	RealityState.persistence_enabled=false
 	RealityState.reset_campaign_for_tests()
 	CampaignTime.set_frozen_for_tests(true)
@@ -658,3 +663,72 @@ func _profile_natural(_city: Node3D,camera: Camera3D,draws: Array,identity: Stri
 			check(frame.save_png(directory.path_join(str(row.file)))==OK,"natural industrial image saved")
 			images.append(row)
 	return {"part":str(focus.name),"selection":selection,"scope":"One actual reducing material body part, default pixel threshold1, bisected first observed distance reduction, narrow-FOV recovery and inward return. Same-pose hidden-target background controls use fixed bench lighting with no weather or campaign clock. Not a whole-building/world LOD or artistic acceptance.","before":before,"after":after,"probes":probes,"images":images,"hidden_target_controls":controls}
+
+
+func _run_ground_edges() -> void:
+	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
+	CampaignTime.set_frozen_for_tests(true)
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty() and DisplayServer.get_name()!="headless" and DirAccess.make_dir_recursive_absolute(directory)==OK,"ground edge bench has native graphical output")
+	if not failures.is_empty():get_tree().quit(1);return
+	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_ground_edges.json"))
+	var frame:=Node3D.new();frame.transform=Transform3D(Basis(Vector3.UP,.43),Vector3(7,2,-9));add_child(frame)
+	var ground:=preload("res://scripts/building/orison_v2_ground.gd").new();ground.name="Ground";frame.add_child(ground)
+	var model:=preload("res://scripts/building/orison_v2_city_ground_edges.gd").mount(frame)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	await preload("res://tests/v2_city_elevation_review.gd").new().review_ground_edges(frame,self)
+	var draw:=model.find_children("*","MeshInstance3D",true,false)[0] as MeshInstance3D
+	var environment:=WorldEnvironment.new();var settings:=Environment.new()
+	settings.background_mode=Environment.BG_COLOR;settings.background_color=Color(.32,.38,.44)
+	settings.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;settings.ambient_light_color=Color(.62,.72,.8);settings.ambient_light_energy=.7
+	environment.environment=settings;add_child(environment)
+	var sun:=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-40,-25,0);sun.light_energy=2.8;add_child(sun)
+	var camera:=Camera3D.new();camera.fov=75.;camera.far=10000.;add_child(camera);camera.make_current()
+	var center:=frame.to_global(Vector3(-320.,-3.3,0.));var direction:=frame.global_basis*Vector3.LEFT
+	ground.visible=false # Isolated draw-count control; collision remains installed.
+	var observations: Array=[];var transition: Array=[]
+	var near_triangles: int=int(fixture.levels[0].triangles);var lower_triangles: int=int(fixture.levels[1].triangles)
+	for distance: float in [2.,8.,32.,128.,512.,2048.]:
+		var row:=await _profile_probe(camera,center,direction,distance);observations.append(row)
+		check(int(row.draws)==1 and int(row.primitives) in [near_triangles,lower_triangles],"natural edge distance uses one complete authored body")
+		if int(row.primitives)==lower_triangles and observations.size()>1:
+			transition=[observations[-2],row];break
+	check(transition.size()==2 and int(transition[0].primitives)==near_triangles,"edge has an actual distance transition from complete near to lower body")
+	if transition.size()==2:
+		for spec: Dictionary in [{"id":"near","distance":transition[0].distance_m,"fov":75.,"expected":near_triangles},{"id":"lower","distance":transition[1].distance_m,"fov":75.,"expected":lower_triangles},{"id":"narrow","distance":transition[1].distance_m,"fov":5.,"expected":near_triangles},{"id":"return","distance":transition[0].distance_m,"fov":75.,"expected":near_triangles}]:
+			camera.fov=float(spec.fov);var row:=await _profile_probe(camera,center,direction,float(spec.distance))
+			check(int(row.draws)==1 and int(row.primitives)==int(spec.expected),"edge optical LOD recovery/return: "+str(spec.id))
+			check(get_viewport().get_texture().get_image().save_png(directory.path_join("lod_"+str(spec.id)+".png"))==OK,"edge optical LOD image saved")
+	ground.visible=true;camera.fov=60.
+	camera.global_position=frame.to_global(Vector3(-326.,1.,18.));camera.look_at(center)
+	for tick in 6:await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(directory.path_join("edge_context.png"))==OK,"installed ground/edge context saved")
+	camera.free()
+	var stations: Array=fixture.access_stations_building
+	check(stations.size()==4,"edge has an explicit nearby start and three continuous access legs")
+	var player:=PlayerController.new();var start: Array=stations[0]
+	player.position=frame.to_global(Vector3(start[0],start[1]+.03,start[2]));add_child(player)
+	player.set_lamp_enabled(false);player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	for tick in 45:await get_tree().physics_frame
+	check(player.is_on_floor() and is_equal_approx(player._capsule.height,1.524) and is_equal_approx(player._capsule.radius,.33),"edge approach retains the standing production body")
+	var route: Array=[]
+	for index in range(1,stations.size()):
+		var target: Array=stations[index];var local:=Vector3(target[0],target[1],target[2]);var goal:=frame.to_global(local)
+		var deadline:=Time.get_ticks_msec()+25000
+		while Vector2(player.global_position.x-goal.x,player.global_position.z-goal.z).length()>.12 and Time.get_ticks_msec()<deadline:
+			player.look_at(Vector3(goal.x,player.global_position.y,goal.z),Vector3.UP)
+			Input.action_press("move_forward",1.)
+			await get_tree().physics_frame
+		Input.action_release("move_forward")
+		for tick in 6:await get_tree().physics_frame
+		var actual:=frame.to_local(player.global_position)
+		var reached:=Vector2(actual.x-local.x,actual.z-local.z).length()<.2 and absf(actual.y-local.y)<.035 and player.is_on_floor()
+		check(reached,"normal controller passes along edge and around its tapered end: "+str(index))
+		route.append({"target":str(local),"actual":str(actual),"reached":reached})
+		if not reached:break
+	check(route.size()==3,"all three edge access legs completed without teleport between them")
+	player.free();var retired: WeakRef=weakref(frame);frame.free();environment.free();sun.free()
+	await get_tree().physics_frame;check(retired.get_ref()==null,"edge and receiving ground retire")
+	FileAccess.open(directory.path_join("ground_edge_outcome.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Isolated production-loader/ground/standing-controller fixture in a transformed frame. Loaded PBR/mips,source contacts,explicit collision mutations,natural complete-body LOD and three continuous legs. No composed city,450m journey,save,performance or artistic acceptance.","checks":checks,"failures":failures,"lod_observations":observations,"access_route":route},"\t")+"\n")
+	print("CITY GROUND EDGE BENCH: ",checks," checks; ",failures.size()," failures")
+	get_tree().quit(0 if failures.is_empty() else 1)

@@ -3563,3 +3563,18 @@ game/assets/props/city_horizon_street_end_2_lod1.glb.import -text
 game/assets/props/city_horizon_street_end_3_lod1.glb.import -text
 art/reviews/city_streets_20261029/city_building_packets_loaded_20261103.zip -text
 art/reviews/city_streets_20261029/city_building_packets_composed_20261103.zip -text
+
+# Source-bound native rail-cut toe family.
+art/data/city_ground_edges/source_plan.json -text
+art/blender/scripts/build_city_ground_edges.py -text
+art/blender/city_ground_edges.blend -text
+art/blender/city_ground_edges_construction.json -text
+game/assets/props/city_ground_edges.glb -text
+game/assets/props/city_ground_edges_lod1.glb -text
+game/assets/props/city_ground_edges.glb.import -text
+game/assets/props/city_ground_edges_lod1.glb.import -text
+game/data/orison_v2/exterior/city_ground_edges.json -text
+game/tests/fixtures/orison_city_ground_edges.json -text
+game/scripts/building/orison_v2_city_ground_edges.gd -text
+tools/prepare_v2_city_ground_edges.py -text
+art/reviews/city_streets_20261029/city_ground_edges_native_20261103.zip -text

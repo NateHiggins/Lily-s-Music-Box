@@ -7129,3 +7129,55 @@ The image is INERT art direction, not an installed-world render or an acceptance
 receipt. Preserve actual reservations, playable clearances, construction owners
 and measured frame costs. Its illustrative bridge/rail alignment and apparent
 scale do not replace the source-owned engineering or registered map geometry.
+
+
+### Native edge delivery and current engine-intake checkpoint
+
+Architect session8457/broker57480 is terminal0,executed SOURCE_FREEZE_03. The
+complete native packet has36stocks perlevel,6216/1200triangles and850528/151008B
+exports;editable native478399B. Actual ground68hits/wrong-height controls,
+16carrier/16outside controls,32burial corners and4end contacts perlevel pass.
+Minimum burial.28m;maximum terminal reveal.026460m. Both GLBs match reopened
+world triangles and per-corner UVs;maximum drift2.9802322387695312e-8m. Independent
+exported tangent/provenance checks pass. Both agents individually inspected all
+6CPU1000x640images. Small fragments may read as markers;plain ground remains
+unfinished art. Native14.4736644s build is no game-performance measurement.
+
+The complete36entry native archive is retained at
+**art/reviews/city_streets_20261029/city_ground_edges_native_20261103.zip**,
+5911313B,SHA256 **f5e6ca32b15b8e7f76cb599ac70128dffd29eeb508a898e9c97040af1919753b**.
+CRC and archive hash independently verified. Original conservative refusal and
+all3prelaunch revisions remain. Supplementary **REGISTRATION_REFINEMENT_01.json**
+corrects9body/367roof translations and labels162template checks as conservative,
+not exact installed actor poses. Do not treat all preliminary ADMISSION_02 bounds
+as a fresh runtime census. Future producer replay needs fresh admission in its
+explicit external output folder;never repin the archived admission/source hashes.
+
+Owning native-source replay47412/session45214 is terminal0:all14947classified
+records are identical,with exactly3independently regenerated source bindings.
+This resolves the native provenance delta without geometry changes;the old
+runtime registration remains historical. No blind canonical hash substitution.
+
+Codex intake copies6reviewed paths and adds a small passive building-frame loader,
+complete-body LOD via the existing assembler,exact near collision and registered
+concrete/weather material. Native anchors/axes are applied once. Source-to-runtime
+projection and fixture preflight pass;readerNEW0 and spatial audit clean. The
+expanded source invalidation test passes20.133s. No new material or gameplay
+state authority. The first engine intake is terminal1: import process exited0
+but stderr already contained the genuine inferred-Variant parse error; the
+4script compile failed solely on horizon-bench line730. Loaded contacts/mips/LOD
+and controller legs did not execute. The explicit WeakRef type fix is authored.
+A fresh source freeze in **ground_edge_intake_01/loaded_02/** records that one
+changed script; completed import is reused,not replayed. Guard/freeze/compile/
+loaded/after stages are FIFO queued,session66336,actual broker59136,bornUTC
+2026-11-04T05:04:34.2225143Z. Original receipts remain untouched. Current reader
+NEW0 and spatial clean are static checks,not an engine pass or artistic approval.
+All704new UIDs remain unstaged:701byte-match the earlier recovery archive,one
+existing bench UID differs,and two are new;none is on HEAD/origin-main. This is
+read-only custody evidence,not permission for bulk removal. Sources are frozen
+until the retry is terminal.
+
+Framing session95975/actual broker44520 is terminal0:compile2PASS4.53s,small
+native3440x1440lifecycle58/0~3s,exact guards pass. Actual graph outputs and receipts
+remain in **city_entry_framing_01/**. Composed entry images,current edge appearance,
+contacts/access/LOD cost and final surface/candidate renewal remain open.

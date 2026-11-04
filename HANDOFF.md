@@ -26,48 +26,55 @@ Existing detachedRenderClock/sky/window pipeline leaves campaign clock unchanged
 CapturePASS;all300frames decode;20encodedsamples+4sourceframes inspected.
 Video/frames stay outsideGit;tracker-pageembed pending,Lily feedback notassumed.
 
-Current city priority (Lily reaffirmed): architect Sol 6.1 owns one external
-32m eastern rail-cut concrete-toe family in
-C:/ov/asset-prototypes/city-ground-edges-20261103/; canonical stays read-only
-for native authoring. Source/native ADMISSION_02 passes current receiving ground
-and collision checks; three old active discovery bindings remain stale.
-Architect broker57480 is queued FIFO for native build/review. Codex owns source
-intake, active-binding reconciliation, runtime contact/access/LOD and combined
-surface renewal. No second construction family until this one is integrated.
+Current city priority: the architect completed the single32m eastern rail-cut
+concrete toe,session8457 terminal0. Executed SOURCE_FREEZE_03. Native near6216 /
+lower1200triangles,36complete stocks perlevel,68ground rays,16carrier+16outside
+controls,32burialcorners/4endcontacts perlevel,2exact native/GLB roundtrips;
+6CPU1000x640frames individually inspected by both agents. Small fragments look
+regular/marker-like: artistic limitation,not accepted finished ground dressing.
+Archive city_ground_edges_native_20261103.zip is retained in art/reviews/city_streets_20261029/.
+No second construction family starts. Native/source separation has stated
+registration limits;installed actor/contact/access proof remains open.
 
-Entry_followup_02 is TERMINAL0: actual Title BEGIN17/0, optical lifecycle19/0,
-baseline19/0 and prepared22/0, with unchanged-source/settings guards. One native
-3440x1440 six-leg matched pair measured p99 338.254 -> 60.696ms,
-maximum434.340 -> 67.996ms and >100ms frames6 -> 0. Preparation costs658.903ms
-for10draws. This is one bounded pair, not whole-city performance acceptance.
-Actual images expose occluded preparation views01/03: whole-Orison exposure
-remains unproven and needs a source-derived framing repair owned by Codex.
+Codex has copied the6reviewed native/source paths, added a small building-frame
+loader using existing catalogue/weather/whole-bodyLOD helpers, and projected
+runtime data plus a source-bound fixture. Existing geometry/ground owners are
+unchanged. Edge intake loaded_01 is TERMINAL1: the import exited0 but its
+stderr carried the genuine inferred-Variant parse error; compile checked4scripts
+and failed only horizon-bench line730. Loaded/contact/LOD/access did not start.
+The explicit WeakRef type fix is authored. Fresh loaded_02 reuses the completed
+import and queues only guard/freeze/compile/loaded/after stages,session66336,
+self-recorded broker59136,born2026-11-04T05:04:34.2225143Z. No current-engine edge
+pass yet. Inputs stay frozen until that actual handle is terminal;do not restart
+it. Reader NEW0 and spatial audit clean on current sources. Integration remains
+uncommitted WIP; all original failures and source snapshots are preserved.
 
-Full board at2fec is terminal: new surface-tools test timeout600.58s, not an
-assertion failure. Original board retained. The repair keeps production input
-discovery fresh and reuses membership only inside hash-mutation tests. Diagnostic
-43tests passed118.783s; one derived-cache fixture was then corrected to exercise
-fresh discovery, and both affected controls passed10.357s. The corrected full43-test run passes105.374s; all42 original test bodies
-are AST-equivalent after unwrapping membership fixtures. Full candidate board
-still required. Checker bytes changed, so composed02 surface proof is now stale;
-renew through the actual combined city capture, never repin its signature.
-Custody C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
+The read-only grade replay47412/session45214 is TERMINAL0:14947native records
+exact,only3known bindings independently regenerated. Old runtime registration
+was reused,not renewed. External result remains in grade_discovery_refresh_01/.
+Framing session95975 (actual broker44520) is TERMINAL0:compile2PASS4.53s,
+small native3440x1440lifecycle58/0 in~3s,both exact source guards pass. This is
+not whole-building optical or composed performance acceptance. The optional
+ORISON_SURFACE_ENTRY_FRAMING=1 city-review hook will capture4actualproduction
+views plus restoration in the final composed world,avoiding a second startup.
 
-Current authored framing candidate: building_views now centers its sphere on
-source height and approaches diagonally from above. Native conservative city
-bounds reproduce8/15 obstructed rays in each old view and0/15 in each new view;
-this is not rendered acceptance. Existing small test keeps all corner-fit,
-restoration and ownership checks, adding a real neighbor-blocker fixture.
-Broker58832/session95975 is FIFO queued for guarded compile/lifecycle checks;
-exact helper/test inputs stay frozen until terminal. The existing city review
-now has opt-in ORISON_SURFACE_ENTRY_FRAMING=1 to capture4production views plus
-restoration in the same final composed world. That hook remains uncompiled.
-Native source discovery replay broker47412/session45214 is also FIFO queued:
-existing exporter,external outputs only,strict14947record equivalence and exact
-3binding delta. It reuses registration and does not renew runtime discovery.
-Architect broker57480/session8457 stays live/queued under SOURCE_FREEZE_03;
-all106canonical admission inputs remain unchanged. Do not restart these handles.
-Sources and custody: C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
+Entry_followup_02 remains terminal0 on its original source:TitleBEGIN17/0,
+optical19/0,baseline19/0,prepared22/0. One six-leg matched pair p99338.254to60.696ms,
+max434.340to67.996ms,>100ms6to0;preparation658.903ms/10draws. Two images were
+neighbor-occluded,so framing was corrected;that old pair does not qualify current
+edge/framing inputs. Full board at2fec preserved a600.58s tools-test timeout.
+Bounded fixture repair completed43tests105.374s;one updated source-invalidation
+test also passes20.133s after registering the edge native inputs. Full candidate
+board remains required;surface packet is stale after tool/runtime changes.
+
+Lily approved the studio-maquette image as art direction:distinct proportions,
+tactile materials,warm selective windows,layered infrastructure/terrain and the
+Orison as local anchor. Saved image is in art/reviews/city_streets_20261029/;
+source geometry/clearances remain authoritative. Main was fetched unchanged at
+fb3167942;early subchecks17/17protected,selectorV2,and432pre-edge import sources
+pass. Those subchecks are not full candidate verification or current edge import
+acceptance. Source/job custody:
+C:/ov/reports/native_intake_20261102/ACTIVE_QUALIFICATION.json.
 
 Current checkpoint packs3native/loaded/composed archives;details,hashes and
 original oversize/crash/retained-drift/parser/typed-node failures remain in

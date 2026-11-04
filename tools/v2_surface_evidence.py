@@ -116,6 +116,11 @@ def input_paths(root=ROOT):
     paths.update(root/p for p in (
         'art/data/city_elevations/source_plan.json',
         'art/data/city_ground_apron/source_plan.json',
+        'art/data/city_ground_edges/source_plan.json',
+        'art/blender/scripts/build_city_ground_edges.py',
+        'art/blender/city_ground_edges.blend',
+        'art/blender/city_ground_edges_construction.json',
+        'tools/prepare_v2_city_ground_edges.py',
         'art/blender/city_elevations.blend',
         'art/blender/city_elevations_construction.json',
         'art/blender/city_ground_apron.blend',
