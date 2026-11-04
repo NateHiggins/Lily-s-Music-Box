@@ -7627,3 +7627,18 @@ preventing every expensive composed stage on preflight failure. Exact frozen
 sources/batch/custody are in **qualification_debt_trace_01/runtime_06/**.
 No new engine result or acceptance yet. ReaderNEW0 and spatial audit clean;
 main baseline independently validates exact119rows/clean4f16053e8 provenance.
+
+
+runtime06 is terminal1 at11:57:44Z: source guard andcompile6PASS; bounded probe
+39.86s,empty stderr. The widened view also affected outgoing loose stock at the
+seat. Initial selection/support/lift pass,but lateral travel crosses near the
+new camera and the ordinary controller releases at(-.310197,1.092299,.351376),
+0.1164m from the eye. Original outgoing three-leg programme therefore fails
+before any receiving delivery. Native endpoint inspected; all original receipts
+and frames retained. No authority/disk,apartment,surface or final guard starts.
+The new view is now limited to loose incoming stock more than4cm below the
+seat; just-removed stock retains the exact previously passing overhead camera.
+This narrower candidate remains unverified. No movement constraints,collision,
+grip permissions,goals or save authorities are relaxed. Next fresh runtime07
+repeats the bounded check before every long stage; unchanged native/material
+proof is reused.
