@@ -6,7 +6,7 @@ extends RefCounted
 ## with its sun window and weather requirements met by its own forcing.
 const PATH := "res://data/weather/phenomena.json"
 const SCHEMA := "orison.sky-phenomena.v1"
-const SLOTS := 42
+const SLOTS := 43
 const FAMILIES := ["cloud", "dust", "dome", "electric", "optics"]
 const UTC_OFFSET_MINUTES := -300
 const LATITUDE := 40.75

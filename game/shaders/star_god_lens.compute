@@ -1,0 +1,89 @@
+#version 450
+// The Star God's exit (star_god.gd phase C): the sky, the clouds and the skyline
+// bend around it as around a point mass, and when it is gone one soundless ring of
+// split colour runs out across everything. Same capture and copy as the mirage
+// (skywatch_mirage.gd); only the ray bending differs.
+layout(local_size_x=8,local_size_y=8,local_size_z=1) in;
+layout(rgba16f,set=0,binding=0) uniform restrict writeonly image2D output_image;
+layout(set=0,binding=1) uniform sampler2D source_image;
+#ifdef COPY_IMAGE
+void main() {
+    ivec2 pixel=ivec2(gl_GlobalInvocationID.xy),size=imageSize(output_image);
+    if(any(greaterThanEqual(pixel,size)))return;
+    imageStore(output_image,pixel,texelFetch(source_image,pixel,0));
+}
+#else
+layout(set=0,binding=2) uniform sampler2D scene_depth;
+layout(set=0,binding=3) uniform sampler2D opaque_image;
+layout(push_constant,std430) uniform Parameters {
+    mat4 inverse_projection;
+    vec4 right;
+    vec4 up;
+    vec4 back;
+    vec4 lens; // Einstein radius (rad), azimuth, elevation, shock ring radius (rad, 0 = none)
+} p;
+
+vec3 view_point(vec2 uv,float depth) {
+    vec4 v=p.inverse_projection*vec4(uv*2.0-1.0,depth,1.0);
+    return v.xyz/v.w;
+}
+
+// Screen position of a world direction, or a negative value when behind the camera.
+vec2 screen_of(vec3 world,mat3 frame) {
+    vec3 sample_view=transpose(frame)*world;
+    if(sample_view.z>=-.001)return vec2(-1.0);
+    vec3 center=view_point(vec2(.5),1.0);
+    vec3 corner=view_point(vec2(1.0),1.0);
+    vec2 origin=center.xy/-center.z;
+    vec2 span=corner.xy/-corner.z-origin;
+    return ((sample_view.xy/-sample_view.z-origin)/span+1.0)*.5;
+}
+
+void main() {
+    ivec2 pixel=ivec2(gl_GlobalInvocationID.xy),size=imageSize(output_image);
+    if(any(greaterThanEqual(pixel,size)))return;
+    vec2 uv=(vec2(pixel)+.5)/vec2(size);
+    mat3 frame=mat3(p.right.xyz,p.up.xyz,p.back.xyz);
+    vec3 ray=normalize(frame*normalize(view_point(uv,1.0)));
+    float az=p.lens.y,el=p.lens.z;
+    vec3 centre=vec3(sin(az)*cos(el),sin(el),-cos(az)*cos(el));
+    float theta=acos(clamp(dot(ray,centre),-1.0,1.0));
+    float einstein=p.lens.x;
+    vec4 original=texelFetch(source_image,pixel,0);
+    vec4 result=original;
+    bool touched=false;
+    if(einstein>.0001 && theta<einstein*8.0 && theta>.00001) {
+        // Point-mass lens: a ray at angle theta came from beta = theta - E^2/theta.
+        // Inside the Einstein ring the image is the far side, flipped.
+        vec3 across=normalize(ray-centre*dot(ray,centre));
+        float beta=theta-einstein*einstein/max(theta,einstein*.08);
+        vec3 source_dir=centre*cos(beta)+across*sin(beta);
+        vec2 s=screen_of(source_dir,frame);
+        if(all(greaterThan(s,vec2(.001))) && all(lessThan(s,vec2(.999)))) {
+            // Fade the bending out at the edge of the field it touches.
+            float reach=1.0-smoothstep(einstein*5.0,einstein*8.0,theta);
+            result=mix(original,textureLod(source_image,s,0.0),reach);
+            touched=true;
+        }
+    }
+    float ring=p.lens.w;
+    if(ring>0.0) {
+        float width=.025+ring*.04;
+        float edge=1.0-smoothstep(0.0,width,abs(theta-ring));
+        if(edge>0.0) {
+            // Each colour is pushed out by a different amount: the ring splits.
+            vec3 across=normalize(ray-centre*dot(ray,centre)+vec3(1e-6));
+            vec3 split=vec3(-.012,0.0,.012)*edge;
+            vec3 colour;
+            for(int c=0;c<3;c++) {
+                float a=theta-split[c];
+                vec2 s=screen_of(centre*cos(a)+across*sin(a),frame);
+                colour[c]=(all(greaterThan(s,vec2(.001))) && all(lessThan(s,vec2(.999)))) ? textureLod(source_image,s,0.0)[c] : result[c];
+            }
+            result.rgb=mix(result.rgb,colour*(1.0+edge*.6),edge);
+            touched=true;
+        }
+    }
+    if(touched)imageStore(output_image,pixel,result);
+}
+#endif
