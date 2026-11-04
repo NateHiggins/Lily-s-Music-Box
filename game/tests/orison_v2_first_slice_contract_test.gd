@@ -555,9 +555,12 @@ func _walk_service(world: OrisonV2RuntimeRoot,target: Vector3) -> bool:
 	if player.inspecting():
 		var kept: Node3D=player._grab.target.part if player._grab.active() and player._grab.target.kind=="free" else null
 		_service_space(player)
-		if not _check(not player.inspecting(),"actual Space returns service inspection before walking"):return false
+		_check(not player.inspecting(),"actual Space returns service inspection before walking")
+		if player.inspecting():return false
 		if kept!=null:
-			if not _check(player._grab.holding_pickup() and player._grab.target.part==kept,"service inspection returns the same loose stock to the original hand"):return false
+			var same_hand: bool=player._grab.holding_pickup() and player._grab.target.part==kept
+			_check(same_hand,"service inspection returns the same loose stock to the original hand")
+			if not same_hand:return false
 		elif player._grab.active():
 			var release_hand:=PatrolHand.new();add_child(release_hand);release_hand.player=player;release_hand.click();release_hand.free()
 	var carrying: Node3D=player._grab.target.part if player._grab.active() and player._grab.target.kind=="free" else null
@@ -781,7 +784,9 @@ func _exercise_physical_round(world: OrisonV2RuntimeRoot,radiator: RadiatorProp,
 		var contact: Vector3=replacement.body.to_global(world.player._grab.contact)
 		if contact.distance_to(world.player.camera.global_transform*Vector3(.17,-.16,-.48))<.003:break
 	world.player.set_physics_process(false)
-	if not _check(world.player._grab.holding_pickup() and world.player._grab.target.part==replacement.body and replacement.body.to_global(world.player._grab.contact).distance_to(world.player.camera.global_transform*Vector3(.17,-.16,-.48))<.003,"actual FPS callback lifts the owned workshop insert to the production hand pose"):return false
+	var hand_ready: bool=world.player._grab.holding_pickup() and world.player._grab.target.part==replacement.body and replacement.body.to_global(world.player._grab.contact).distance_to(world.player.camera.global_transform*Vector3(.17,-.16,-.48))<.003
+	_check(hand_ready,"actual FPS callback lifts the owned workshop insert to the production hand pose")
+	if not hand_ready:return false
 	if not await _walk_service_points(world,[Vector3(7.4,-3.2,3.),Vector3(7.4,-3.2,1.),Vector3(7.4,-3.2,-.4),Vector3(4.9,-3.2,-.4),Vector3(4.9,-3.2,-2.5),Vector3(3.65,-3.2,-3.45),Vector3(1.925,-3.2,-3.45),Vector3(1.925,-3.2,-3.)]):return false
 	if not await _walk_service_points(world,_service_stairs(-3.2,true)):return false
 	if not await _walk_service_points(world,_service_stairs(0.,true,false)):return false

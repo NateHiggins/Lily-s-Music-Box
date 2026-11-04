@@ -1,4 +1,17 @@
-# Current checkpoint — bounded carry repair passed; composed renewal pending
+# Current checkpoint — runtime03 compile failure repaired; runtime04 pending
+
+runtime_03 is terminal1: before-source guardPASS,then compile6 reports one
+failed script. Three new first-slice call sites mistakenly consumed the void
+_check() return. This is a real fixture parse error,not stale import cache.
+The call sites now assert and branch separately,with original assertions kept.
+No bounded interaction,full authority,apartment or surface stage ran. Preserve
+runtime_03/compile.log and its failed wrapper; do not restart that terminal job.
+Next prepare_runtime_renewal.py prepare native_export_06 runtime_04 after the
+clean source checkpoint,then queue its same fail-fast bounded-first programme.
+The full110-test completeness suite completed108PASS/2FAIL in92.285s: the two
+existing live first-slice/apartment proof failures remain; no new failure.
+
+Earlier checkpoint text below retains its historical preparation state.
 
 Native06 passes full material-inclusive equivalence and converter in65.109s.
 35geometry/alias files are byte-identical;3metadata files plus the reviewed

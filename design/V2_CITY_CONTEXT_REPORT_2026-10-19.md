@@ -7566,3 +7566,15 @@ authority/disk,apartment and surface runs behind this bounded input preflight.
 It reuses the unchanged material-library result; no duplicate material test is
 needed for these owner/input edits. Current full/candidate qualification remains
 pending. Original packets and failed probes are retained externally.
+
+runtime_03 is now terminal1. Its original source guard passes; compile6 then
+fails the first-slice script at three new call sites that consumed the void
+**_check()** helper. The other five scripts compile. Wrapper elapsed14.82s;
+the actual stderr identifies these parse errors and is not stale-cache evidence.
+No probe,composed authority/disk,apartment,surface or final guard stage started.
+The call sites now record the same assertions and branch on explicit booleans,
+preserving the input programme and tolerances. A fresh runtime_04 will retry the
+same bounded-first batch; the failed runtime_03 remains untouched. Separately,
+the full110-test completeness suite completed in92.285s with108PASS/2FAIL;
+both failures are the known stale live first-slice/apartment proof. This is not
+a current full gate board or merge qualification.
