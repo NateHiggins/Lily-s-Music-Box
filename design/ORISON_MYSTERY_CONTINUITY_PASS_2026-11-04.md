@@ -100,3 +100,28 @@ Held:
     a control run of main plus the Sun branch, so it is inherited and untouched here.
 - **Receipts:** any **game/data** change expires the runtime receipts. Per D9, this lands in a planned window and
   the packets are re-earned once.
+
+## Writers' room next draft, integrated 2026-11-04
+
+Codex's punch-up packet proposed 112 single-line revisions. The packet is private and stays outside the repo;
+only adapted game text is here. An editor selected the lines; the selection record is
+`C:/ov/reports/writers_room_next/SELECTION_2026-11-04.md`.
+
+- **Applied: 20 game lines in 16 files.**
+  - 5 for Adela and Lily's self-insert. Lily reads these herself.
+  - 11 resident and opinion lines.
+  - 4 newspaper items.
+  - Each was checked against its exact original text at its JSON location before it was replaced.
+- **Applied to the private LILITH scripts:** 4 comic captions and lines. Panel 4.8 of issue 1 needs a lettering-fit
+  check.
+- **Held: 18 changes to `book_spreads.json`,** which is hash-pinned.
+- **Skipped: 4 changes to `dead_letters.json`,** which only V1 reads.
+- **Rejected on merit: 66.** Where one joke was proposed in several places, it ships in at most one.
+- **Scene options:** the four go to Lily's rulings widget. They aren't implemented.
+
+Checks, all PASS:
+- **check_mystery_dialogue:** 0 failures.
+- **audit_opinions:** 0 failures.
+- **audit_newspapers:** 0 failures.
+- **audit_authored_voice** on all ten changed trees: structure only. The human read is still Lily's.
+- **Reader gate:** NEW 0.
