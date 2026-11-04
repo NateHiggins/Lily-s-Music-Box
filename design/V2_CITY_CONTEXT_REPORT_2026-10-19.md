@@ -7452,3 +7452,20 @@ material checks,original first-slice authority/disk reconstruction,original nine
 apartment legs,and physical-only surface survey. Estimated prior suite time is
 about28minutes. It has not run yet. Wider V2/hose/book/nook/readability,performance,
 golden-shift,save-boundary,weather and artistic gaps remain open.
+
+Source checkpoint95b7fd145 is committed and pushed. The seven-stage runtime_02
+batch joined the shared FIFO lane at2026-11-04T08:12:44Z,broker58292/tool
+session20803; latest live-process inspection confirms it is still waiting behind
+the existing training job. No Godot stage or new runtime proof is claimed.
+Poll the existing handle rather than restarting it. The clean input freeze and
+queue custody remain outside the repo under qualification_debt_trace_01/runtime_02.
+
+External preparation01 failed before launch because it named the first-slice
+scene incorrectly. The corrected preparation uses the actual lowercase scene.
+A further source preflight corrected the external final guard's apartment digest
+from physical-only to full surface,matching both the test producer and ledger
+consumer. No source/test assertion or recorded receipt changed. The staging
+helper reuses existing authority/spatial validators,keeps original contract/log
+bytes,and correctly refuses missing executed wrappers; no evidence was staged.
+The old19-room apartment logs and the nine-unit contract share a directory;
+renew only the latter cohort's proof and preserve the former's original files.

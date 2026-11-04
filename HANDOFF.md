@@ -1,12 +1,19 @@
-# Current checkpoint — metadata admitted; runtime renewal next
+# Current checkpoint — metadata pushed; runtime renewal queued
 
 Native06 passes full material-inclusive equivalence and converter in65.109s.
 35geometry/alias files are byte-identical;3metadata files plus the reviewed
 one-record ownership/hash-pin migration admitted. Original suites27/0 and11/0.
-No new runtime proof yet. PR152 stays draft. Next commit this source checkpoint,
-prepare_runtime_renewal.py prepare native_export_06,then queue its7-stage batch
-through the shared lane. Actual first-slice/save,9-unit movement,surface and
-candidate acceptance remain required. Read current TASKS.md and the city ledger.
+Source checkpoint95b7fd145 is pushed. No new runtime proof yet; PR152 stays draft.
+The7-stage batch is already queued through the shared lane: broker58292,
+tool session20803,started2026-11-04T08:12:44Z. Poll that existing process; do not
+duplicate it. External batch/freeze/custody are in qualification_debt_trace_01/
+runtime_02/. Preparation01 failed before launch on an external scene-name typo;
+the final apartment guard now uses the full surface digest,matching its actual
+producer and ledger consumer. Both corrections leave game/test sources intact.
+Actual first-slice/save,9-unit movement,surface and exact candidate acceptance
+remain required. Preserve the older19-room apartment cohort during publication.
+The external staging helper refuses missing receipts and publishes nothing.
+Read current TASKS.md and the city ledger. Wider repairs remain active.
 External proof/admission: qualification_debt_trace_01/native_export_06/.
 
 Earlier checkpoint text below is historical,not the current job state.
