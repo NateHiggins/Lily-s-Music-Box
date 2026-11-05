@@ -1,0 +1,1304 @@
+{
+  "evidence_class": "INERT",
+  "human_played": false,
+  "artistically_accepted": false,
+  "native_pixel_optical_acceptance": false,
+  "scope": "Technical image observations for 59 root surface and five actual entry-preparation frames. Dark and obstructed views limit individual subjects. No whole-room optics, player access, performance, or artistic acceptance is implied.",
+  "reviewed_utc": "2026-11-05T08:24:03.894066+00:00",
+  "source_head": "bb3fd7360c0171aacdfa7af43366ee924b50e60c",
+  "runtime_inputs_sha256": "7720077f5c1d2477dfc8d804923c8967324c953b69204a84bf8d69d4e293e6e5",
+  "wrapper_sha256": "0d9fadd387c3f25a28c7d362ccef8aa1d3a0ff0e62ed3849c5e089af66dbdb40",
+  "contract_sha256": "36a7f4113db8144cf5fd48d86cedba767b0d797984910271190f07836f71b555",
+  "entry_sidecar_sha256": "a0acf89c2537e3a36425867ee6ddc42190670cca07d6868dfe484f7951017c45",
+  "entry_preparation": {
+    "cancelled": false,
+    "completed": true,
+    "elapsed_ms": 458.705,
+    "executed": true,
+    "node_pose_unchanged": true,
+    "reason": "",
+    "render_calls": 10
+  },
+  "frames": [
+    {
+      "file": "boiler.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\boiler.png",
+      "sha256": "27def3003b818bde23845e682edccf792ee79ba7853868f441fed0c46ae67e52",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\boiler.png",
+      "prior_sha256": "b6b4d060c9b68edc226545511ef07357b11710cfba086ba07721fc3fd3a80b3c",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_01.jpg",
+      "cell": 1,
+      "reviewer": "book_intake",
+      "observation": "The pale boiler face, stacked black access doors, round gauge, vertical sight glass, upper dark flue and elbows, rear window and speckled enclosure surfaces are visible.",
+      "obstruction": "The near pale wall cuts into the right edge, and the flue is clipped at the top. The frame covers the front of the boiler and part of the enclosure.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "bookcase.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\bookcase.png",
+      "sha256": "5961c3bc2877f00c2093ce3c04b831b0d06ef71f99d6fdcda0f838700c506e52",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\bookcase.png",
+      "prior_sha256": "9fa4ba371ffb19fd20f53ad6dd10602bd4a78efb2af70361e5b982369676b1bd",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_01.jpg",
+      "cell": 2,
+      "reviewer": "book_intake",
+      "observation": "A dark timber bookcase with three glazed sections and sparse contents stands against a painted wall. The plank floor, long left table, wall frame and dark passage door are visible.",
+      "obstruction": "Glazing and low contrast obscure some shelf contents. Book titles, interior case construction and use of the doors are outside this review.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_n_roof_day.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_n_roof_day.png",
+      "sha256": "fe03933be7e6656580138e091c136bf67f369103740f2ed70bb84eb11c362870",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_n_roof_day.png",
+      "prior_sha256": "643b5ece886fccc925bce1cb3bdcaabbc27dbc7b6e7e7f7f4b5fd3992c79e58d",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_01.jpg",
+      "cell": 3,
+      "reviewer": "book_intake",
+      "observation": "An elevated view shows the broad flat roof, pale roof edge, rectangular rooftop housing and water tank above a gray fa\u00e7ade with repeated pale window rows. A neighboring roof and aerials enter from the lower left.",
+      "obstruction": "The nearer roof cuts across the lower-left context. Shadow and distance limit street surfaces and the lower fa\u00e7ade.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_n_roof_dusk.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_n_roof_dusk.png",
+      "sha256": "40ea118b90452e5b0d46c4de60ca67ff1cb7bb2d72b9dfa087c4eda7d2c5a475",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_n_roof_dusk.png",
+      "prior_sha256": "f6d7930c374b8a5a10ada0860523e714a6448f4d4a5a9909724c139459b6589e",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_01.jpg",
+      "cell": 4,
+      "reviewer": "book_intake",
+      "observation": "The larger view resolves the rooftop tank and legs, a rectangular vent housing, aerial lines, the central fa\u00e7ade cap and successive pale window rows. Warm windows show on the right-hand neighbor.",
+      "obstruction": "The lower fa\u00e7ades and ground are dark, and a nearer roof occupies the lower left. The lowermost entrance and surrounding street are hard to assess.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_n_street.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_n_street.png",
+      "sha256": "000d7c28b7e0d008cd6c1399466f9fd5be3cd94b3ab71defe454f559cb1f5a30",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_n_street.png",
+      "prior_sha256": "fb5a5f6ea26b4b8035ae2ea67bebbbc892b7182f5b7016928e1a93910f0f1259",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_02.jpg",
+      "cell": 1,
+      "reviewer": "book_intake",
+      "observation": "The upward view shows a broad gray-brick wall with aligned pale sash windows, projecting sills, a shallow stepped roofline and an adjoining red-brown wall at upper left.",
+      "obstruction": "The camera crops the lower stories and ground. Fine brickwork and entrance geometry are outside this frame.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_ne_roof_day.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_ne_roof_day.png",
+      "sha256": "d69ebda8d7ff3b28a21cf636e76509e124061f977284c76f40d085d557b26131",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_ne_roof_day.png",
+      "prior_sha256": "30c89d327227758071504e02415047d616dcde6e25d61e7243567dc1a26cc9bf",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_02.jpg",
+      "cell": 2,
+      "reviewer": "book_intake",
+      "observation": "The parapet traces a deep central recess between red-brown wings. Window rows continue down the recess and both wings. A small pitched roof is visible on the upper-left roof area.",
+      "obstruction": "The oblique elevated view compresses lower levels, and the ground plane sits in shadow. Ground-level access cannot be judged.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_ne_roof_dusk.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_ne_roof_dusk.png",
+      "sha256": "0c5c1c24dba02d0dbd3d06f2a74310cc715768ad69fd5a45823da20528476e5e",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_ne_roof_dusk.png",
+      "prior_sha256": "53f0b150bf192ddd75e06b610e83d6b93bb3e63511fc0f4a47b8338fea9ce19e",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_02.jpg",
+      "cell": 3,
+      "reviewer": "book_intake",
+      "observation": "The enlarged view retains the pale parapet around the central recess, the pitched-roof structure at left, thin rooftop supports and white-gray window grids on the dark brick wings.",
+      "obstruction": "The ground and lower recess remain very dark. The image supports the visible roof outline and fa\u00e7ade divisions, with limited lower-wall detail.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_ne_street.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_ne_street.png",
+      "sha256": "ea43736cd40e5d01796d066fbbd6bdf83dc5ffaef12f78af610eb653fc2d0907",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_ne_street.png",
+      "prior_sha256": "920e1fcea5dc4a62da264af24f0b49667ecdbf8402565871627cae5c91e61dcb",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_02.jpg",
+      "cell": 4,
+      "reviewer": "book_intake",
+      "observation": "From below, two dark brick wings frame a recessed center bay with repeated pale windows, light sills and a sliver of arch trim at the bottom. Blue sky fills the notch above.",
+      "obstruction": "The upward camera cuts off the doorway base and pavement. Roof surface and lower entrance layout are outside the view.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_s_roof_day.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_s_roof_day.png",
+      "sha256": "c0d65b931cb9ef1ab1e612b0112b480fea8bb269f751859570c1caed2846bd1f",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_s_roof_day.png",
+      "prior_sha256": "1c06c5678c329f4116805888de03c4d33522f388a068f5fb2e1921e9d34b7d6b",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_03.jpg",
+      "cell": 1,
+      "reviewer": "book_intake",
+      "observation": "The upper sloped roof shows four projecting dormers, pale window frames and a lower row of fa\u00e7ade windows. A nearer roof with a curved gridded canopy and rectangular panels appears below.",
+      "obstruction": "The low-angle light leaves portions of the wall and ground dark, and the closer canopy overlaps the lower context. This frame shows building form rather than street details.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_s_roof_dusk.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_s_roof_dusk.png",
+      "sha256": "ea98e1674ab561c4750e12d94486890c44fda38f781d9e7ffc3b653be7e29de0",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_s_roof_dusk.png",
+      "prior_sha256": "adfbde8286dbdf06bb898302bd4bb2de14c487bb81c6df406ccad100d4b7fa0f",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_03.jpg",
+      "cell": 2,
+      "reviewer": "book_intake",
+      "observation": "Four dormer hoods and pale sash outlines remain visible on the dark sloped roof. Successive fa\u00e7ade window rows and a warm-lit curved gridded canopy on the nearer building are visible.",
+      "obstruction": "Large roof, wall and ground regions remain in deep shadow. Window and canopy shapes resolve more clearly than the masonry and street.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_s_street.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_s_street.png",
+      "sha256": "62228c5df168d6ec0a1a3f7ef8fc41859969321252200356c49b5aa54a175f3d",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_s_street.png",
+      "prior_sha256": "258258280c1ee325fe7bb2e69f514806fb6d96dd911a971867fdf369cef551ad",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_03.jpg",
+      "cell": 3,
+      "reviewer": "book_intake",
+      "observation": "The upward frame shows dark brick, rows of pale sash and sill shapes, four dormer silhouettes and blue sky above the stepped upper edge.",
+      "obstruction": "Lower frontage and street are cropped. Wall detail is subdued away from the pale trim.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_se_roof_day.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_se_roof_day.png",
+      "sha256": "7466bf3b99b6c35a3ce9864281abc6e382cd3c78c93b5c793e2b05aad2a084d2",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_se_roof_day.png",
+      "prior_sha256": "1fd0e9528620e33843bb4bb8135be4b57f901414cfbedf0dc5c857874caa2954",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_03.jpg",
+      "cell": 4,
+      "reviewer": "book_intake",
+      "observation": "A large tan rectangular roof field sits inside a raised edge and dark roof strip. The front parapet steps around a central bay, with regular pale sash rows below and warm windows on the left neighbor.",
+      "obstruction": "The tan roof is clipped at the upper edge. Much of the ground and the lower fa\u00e7ade is dark or foreshortened.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_se_roof_dusk.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_se_roof_dusk.png",
+      "sha256": "aa20c0baf39b232bbf1dafbbbab605ffc6d0dfedd76396856d00783b578634cd",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_se_roof_dusk.png",
+      "prior_sha256": "9dbfb373dd6e7ce08184d3bacd66854a96a2bde2e57d8ba82eb33cc579723f33",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_04.jpg",
+      "cell": 1,
+      "reviewer": "book_intake",
+      "observation": "The enlarged frame shows the brown roof plane, low perimeter, stepped front roof edge, shallow cornice blocks and arched upper opening in the central projection. Neighboring windows are amber at left.",
+      "obstruction": "The roof top and lower ground are clipped or dark. The lowest frontage and fine brick/roof texture remain hard to resolve.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_se_street.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_se_street.png",
+      "sha256": "a18f6abb8952e7c207e86d975b54f441f3de9196110ca5d6690f5f2511aefe3d",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_se_street.png",
+      "prior_sha256": "8c3071f1cd749cc5379b2b9c8820206ade972a8d76007fcbdcf07fa7b34313eb",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_04.jpg",
+      "cell": 2,
+      "reviewer": "book_intake",
+      "observation": "Dark brick wings rise on either side of a central recessed bay. The pale window frames, arched top opening and light balustrade at the lower edge are visible against the blue sky.",
+      "obstruction": "The upward angle clips the balustrade base and lower entrance. The roof plane and ground are outside the frame.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_sw_roof_day.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_sw_roof_day.png",
+      "sha256": "ef776e205f65fbb678d78aef946c325398126cba2fd651c66d913e4800c3c31e",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_sw_roof_day.png",
+      "prior_sha256": "7bd76662dbe88fe7d182e497da4e6893ad2075e34fe404c6bf8e53859a8bb883",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_04.jpg",
+      "cell": 3,
+      "reviewer": "book_intake",
+      "observation": "A dark flat roof with a stepped pale edge carries a cylindrical tank on braced legs, small housings and crossing aerial lines. The brick walls have repeated windows, with a lighter slab on the neighboring roof.",
+      "obstruction": "The elevated camera gives limited street detail and crops parts of the flanking buildings. The dark fa\u00e7ade reduces fine detail.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_sw_roof_dusk.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_sw_roof_dusk.png",
+      "sha256": "7e31a4e686bd5e6eea669226f6ad56f5a010078ea1b5ce25f8f6a13e3de9be6a",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_sw_roof_dusk.png",
+      "prior_sha256": "67f5193245fe32ad9f1a5f8497643bd475a2d2e7ae3eb40637cade7c86303339",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_04.jpg",
+      "cell": 4,
+      "reviewer": "book_intake",
+      "observation": "The enlarged frame resolves the main roof's cylindrical tank and braces, two small rooftop housings, antenna lines and multiple arched upper windows under the stepped edge. A neighboring tank and pale roof slab remain distinct at left.",
+      "obstruction": "The lower brick walls and street are dark, and the frame clips the ends of the roof group. Fine lower-frontage surfaces are hard to read.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_sw_street.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_sw_street.png",
+      "sha256": "28f5ac8e2aad728e3cccae892131cefe69b4eeb5f8bbe83cf68600609c86712b",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_sw_street.png",
+      "prior_sha256": "b1d2579ffdc17330683601f0eb9c3348b05a26461fe224e7566313886c42c41a",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_05.jpg",
+      "cell": 1,
+      "reviewer": "book_intake",
+      "observation": "The larger upward view shows pale sashes and sills, multiple arched upper windows, a recessed center and dark railing along the lower edge. A large near wall occupies the left margin.",
+      "obstruction": "The near wall screens the left context and the camera crops the pavement and lower frontage. This is a partial upper-fa\u00e7ade view.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_w_roof_day.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_w_roof_day.png",
+      "sha256": "ad31b398a92e6fc8692504a6cd6ca0f4d2aabb119ec122f00b217552fc5044f4",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_w_roof_day.png",
+      "prior_sha256": "d05e1a42c710c9896f76528090a24c93a9937bcd65e699c30431d865595edc8c",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_05.jpg",
+      "cell": 2,
+      "reviewer": "book_intake",
+      "observation": "An elevated view shows a tan roof field with a tank on legs, a dish-shaped fitting and a dark rectangular housing. Below it, a long decorative cornice frames window rows and a projecting central bay.",
+      "obstruction": "The camera foreshortens the lower fa\u00e7ade and leaves the ground largely dark. Lower doorway details are limited.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_w_roof_dusk.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_w_roof_dusk.png",
+      "sha256": "51d12becfdb64965163aa6c994f22b105d4e60429af6d45b0825389899dab766",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_w_roof_dusk.png",
+      "prior_sha256": "401dd599d69d85d3f3a84ceb327e253cc040bb066d0efcc74ea111400c95ed48",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_05.jpg",
+      "cell": 3,
+      "reviewer": "book_intake",
+      "observation": "The larger view shows the warm roof plane, tank frame, dish, aerial lines and small dark housing. The cornice blocks and a central arched opening sit above dark brick and pale sashes.",
+      "obstruction": "The lower fa\u00e7ade and surrounding pavement remain very dark. A nearer edge clips the bottom, limiting the ground-level view.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_batch_site_far_w_street.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_batch_site_far_w_street.png",
+      "sha256": "96cbf8095aabc76bcd572f597bab6f783cf3db30af4b4a4c41da2e8c5b31da98",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_batch_site_far_w_street.png",
+      "prior_sha256": "1fc87cc980a021045cb5834ccc42822708bb5517ef2c78f8a918dd7a65add2dc",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_05.jpg",
+      "cell": 4,
+      "reviewer": "book_intake",
+      "observation": "The low-angle view shows repeated pale sashes and sills under a long patterned cornice. The recessed center's arched window and blue, clouded sky are visible.",
+      "obstruction": "The lower frontage and street are outside the frame. Shadow limits brick detail while trim and window divisions remain visible.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_east_roof.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_east_roof.png",
+      "sha256": "0d37253a9cf8392fac580e33d1a4c47b003b987ff344a66bf2ba9855de94ac85",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_east_roof.png",
+      "prior_sha256": "651037bcc845d557eaac0d099f7b3b99f050a94f610205751c0894cba1d67470",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_06.jpg",
+      "cell": 1,
+      "reviewer": "qualification_review",
+      "observation": "Cloud streaks fill the view above two large tank and mast silhouettes, with a clock roof and railing along the bottom.",
+      "obstruction": "Mostly sky. The lower roof surfaces are cropped and too dark or small for a broad roof finish judgment.",
+      "method": "Original PNG displayed at 2048x857 and labeled contact sheet"
+    },
+    {
+      "file": "city_ground_edge_0.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_ground_edge_0.png",
+      "sha256": "60e1361efdc5c9813b808f1fa50ff9cd488576b366c9cb7ae6c6ec54cef34eeb",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_ground_edge_0.png",
+      "prior_sha256": "46e2d91c0b072ef8620345679fe59f4ff3dc270c3b48eebf7d1fe8d71e282231",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_06.jpg",
+      "cell": 2,
+      "reviewer": "qualification_review",
+      "observation": "A narrow raised edge and receding row of small posts lead toward a distant steel span. Facades rise above the sloped bank at left.",
+      "obstruction": "The bank and lower foreground are very dark even in the direct original view. Edge outline reads, but material detail and the lower surface are poorly resolved.",
+      "method": "Original PNG displayed at 2048x857 and labeled contact sheet"
+    },
+    {
+      "file": "city_ground_edge_2.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_ground_edge_2.png",
+      "sha256": "07b40d80461c0694f88ac68970b27206ed61fab4d60a10c93dc555449f3e46fb",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_ground_edge_2.png",
+      "prior_sha256": "3718d47e5ea87d1a3eb8877f045252a70732f2a1dbc0d34d9dd35044886eff0e",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_06.jpg",
+      "cell": 3,
+      "reviewer": "qualification_review",
+      "observation": "The opposing edge view shows the narrow border and a line of posts against the sloped right-hand bank, with buildings above.",
+      "obstruction": "The low foreground and individual post surfaces remain dark. The frame establishes the edge silhouette only in these regions.",
+      "method": "Original PNG displayed at 2048x857 and labeled contact sheet"
+    },
+    {
+      "file": "city_ground_seam.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_ground_seam.png",
+      "sha256": "e380e0013a4aad27d149e1855cda1f5b7fb38f78096af201bc84a9e09ea7272f",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_ground_seam.png",
+      "prior_sha256": "2a57f06e812f5640441e376594982d6dfa9a57d349113e8ff11c18ac9cb55bb6",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_06.jpg",
+      "cell": 4,
+      "reviewer": "qualification_review",
+      "observation": "A dark corner building with multiple window rows stands beside angular changes in ground tone and a narrow gray strip at the right.",
+      "obstruction": "Broad ground boundaries are visible. The dark forecourt and facade do not resolve fine joint continuity or finish.",
+      "method": "Original PNG displayed at 2048x857 and labeled contact sheet"
+    },
+    {
+      "file": "city_horizon_context.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_horizon_context.png",
+      "sha256": "b4a3c06613e3cb7949545cb48bb33c437b10d0432e91817ee74320183d06416f",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_horizon_context.png",
+      "prior_sha256": "58402c0eaf882352dc1238c59fb8f2ffc99486e16d3be3435b59fa58bdbedb86",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_07.jpg",
+      "cell": 1,
+      "reviewer": "qualification_review",
+      "observation": "Several overlapping elevations show their stepped roofline, darker and brighter panes, and warm rooms behind the right facade.",
+      "obstruction": "Lower buildings and gaps are dark. Distant silhouettes and window rhythm are clearer than finish or interior detail.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_north_roof.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_north_roof.png",
+      "sha256": "03127226e03fae78db824c8cbf064c9bbe75d584bdca7e446f8abd2a1ed6d5f6",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_north_roof.png",
+      "prior_sha256": "12077b0090f237835a743dfdfceffa69a4bec99bbaeeb2291dc15b6e7c7aab51",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_07.jpg",
+      "cell": 2,
+      "reviewer": "qualification_review",
+      "observation": "A large foreground roof edge leads to a low skyline with tanks, aerials and an arched steel bridge at the right.",
+      "obstruction": "The composition is dominated by sky and a cropped dark roof edge. Distant surfaces are small.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_open_west_frontage.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_open_west_frontage.png",
+      "sha256": "81e89809606e10115bf45fe1fa88e745a1c7be0d7424d720ab6b9b81edae69e3",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_open_west_frontage.png",
+      "prior_sha256": "02c4dcad074043c05bf8a401ba9c26193dd287a951c377aef5bc51e4af149fd8",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_07.jpg",
+      "cell": 3,
+      "reviewer": "qualification_review",
+      "observation": "The street corridor has a boxy parked vehicle, shopfronts, brick facades, and several warm display windows.",
+      "obstruction": "Road and sidewalk are dark, and fine shop lettering and material texture are unresolved at sheet scale.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_relief_canal.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_relief_canal.png",
+      "sha256": "e2b42cfee8f3f4b6c1a0266f15baf2fd8259431b6c33f8d07d1aa8c83ad88ea2",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_relief_canal.png",
+      "prior_sha256": "fdc0289675113dbe090452f57f36bc7d148465aac65c1010f11a5fbdeda9c82c",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_07.jpg",
+      "cell": 4,
+      "reviewer": "qualification_review",
+      "observation": "A gray diagonal band crosses a dark recessed-looking area under a low distant horizon. A sharp change of surface tone appears in the foreground.",
+      "obstruction": "The relief is very dark and visually flat even in the direct original view. Water or bank finish cannot be assessed from this frame.",
+      "method": "Original PNG displayed at 2048x857 and labeled contact sheet"
+    },
+    {
+      "file": "city_relief_rail_cut.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_relief_rail_cut.png",
+      "sha256": "c112e8ba027ddf5e8fdb87137066920b42792e34ae8111633f501b0ecff24199",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_relief_rail_cut.png",
+      "prior_sha256": "4a82d587a6e437b928e081f13f32c70aa2e10400ea5f764e709361a612ee4941",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_08.jpg",
+      "cell": 1,
+      "reviewer": "qualification_review",
+      "observation": "A low dark area falls away behind a diagonal near edge. The far edge remains a long, low silhouette.",
+      "obstruction": "The cut is very dark and visually flat. No clear rail detail or track-surface finish reads in the direct original view.",
+      "method": "Original PNG displayed at 2048x857 and labeled contact sheet"
+    },
+    {
+      "file": "city_relief_river.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_relief_river.png",
+      "sha256": "f49add7421ceeb173850a4cd3a2b26787844475811fe966f3db3b36892523895",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_relief_river.png",
+      "prior_sha256": "b639e5e442a1bba2138b58115aec7d60b7fc4cbdcf94451162e9d1eb6d41e265",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_08.jpg",
+      "cell": 2,
+      "reviewer": "qualification_review",
+      "observation": "A broad dark band separates the foreground edge from rows of illuminated windows, with a bridge fragment at far left.",
+      "obstruction": "The band is nearly featureless in the direct original view. Water surface appearance and the far-bank join are unresolved.",
+      "method": "Original PNG displayed at 2048x857 and labeled contact sheet"
+    },
+    {
+      "file": "city_site_back_e_window.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_site_back_e_window.png",
+      "sha256": "394ae0ae80a96e1451924c2695c76680b017fe8c75df8b081b70cab95190cf64",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_site_back_e_window.png",
+      "prior_sha256": "2c33cca97eefb45fa7e85d2a0fc33c91466beed7875ae25ed7b5a09a14289a11",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_08.jpg",
+      "cell": 3,
+      "reviewer": "qualification_review",
+      "observation": "Red-brown rooftop masonry, inset upper windows, aerial supports and a small dish are visible against the distant city.",
+      "obstruction": "The windows mostly read as dark or pale planes. This oblique crop gives limited interior and rooftop surface detail.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_site_nbr_e_window.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_site_nbr_e_window.png",
+      "sha256": "1d1c9ada09c07dbb65595a4b5457a087f97bf75464c475ad8d4484b999dbe651",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_site_nbr_e_window.png",
+      "prior_sha256": "97dadee57a7eb8b54613e7cfc95185dfc49f9e627915fad001b5ec784286e1a9",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_08.jpg",
+      "cell": 4,
+      "reviewer": "qualification_review",
+      "observation": "A red-brick building with projecting metal fire escape sits beside a pale vertical bay with broad windows. Warm interior shapes and a red vertical sign also appear.",
+      "obstruction": "Ironwork and overlapping facades obscure parts of the window assemblies. Cropped signage and interior detail are not fully legible.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_site_ne1_window.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_site_ne1_window.png",
+      "sha256": "fc44778e7a530d4b3b0b9031e02a60204e7a9ed416657b41d61a6ad4b8cfb11d",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_site_ne1_window.png",
+      "prior_sha256": "bd6855c3a6411f891a3ea9041b50202a88e64a0803ad5f437d7ab5cfcccde993",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_09.jpg",
+      "cell": 1,
+      "reviewer": "qualification_review",
+      "observation": "The close brick elevation shows dark lintels, projecting sills, pane divisions and furniture-like silhouettes. A warmer lower window is partly visible.",
+      "obstruction": "The left facade and upper reveals are deeply shaded, and the framing clips the lower windows.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_site_nw2_window.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_site_nw2_window.png",
+      "sha256": "9d7c8c0dbf80b8577e5f340c233587fddecbe158db0d94ade3f1862029a2ed73",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_site_nw2_window.png",
+      "prior_sha256": "9d9a1b863954172749ea4f60787f84d3e5627f567094ff6ace3475d9ba4296a4",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_09.jpg",
+      "cell": 2,
+      "reviewer": "qualification_review",
+      "observation": "Adjacent ornate and plain elevations show repeated arched lintels, tall sashes, pale and warm panes, and shadows cast across the brick.",
+      "obstruction": "The upward oblique crop clips the nearest openings and leaves some reveals dark. It establishes visible geometry and contrast.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_street_skyline.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_street_skyline.png",
+      "sha256": "57babc0d72d251026bb5fdb8aa624bf44ae78a6a4e909af39f6af79c2aacf7f5",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_street_skyline.png",
+      "prior_sha256": "588798044f0f7d5e23435d90d2daeb60ed3e08ae7bf995ac9a1f966c9989231d",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_09.jpg",
+      "cell": 3,
+      "reviewer": "qualification_review",
+      "observation": "From beside a close brick wall and awning, the frame shows a lit slatted window, streetlights and a gap of skyline between buildings.",
+      "obstruction": "The strong upward tilt crops the street and the left skyline. Deep shadow limits finish detail along the awning and wall edge.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_townhouse_street_front.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_townhouse_street_front.png",
+      "sha256": "7a7849bd7e35e69114d00936d8e6577363acdbb30674511aa6a30e68a8773a94",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_townhouse_street_front.png",
+      "prior_sha256": "dbd005b063cea2bedcee3381d3348a6a17cec65afa338e9ca97eb9b8c860cb8f",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_09.jpg",
+      "cell": 4,
+      "reviewer": "qualification_review",
+      "observation": "A row of masonry townhouses shows differentiated facades, bays, steps and warm panes from street level.",
+      "obstruction": "The foreground and darker outer bays lose fine detail. The view shows facade massing and fenestration more clearly than ground treatment.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_weather_dry.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_weather_dry.png",
+      "sha256": "4e252fbbae82befc8d9d5d4f15f04d994878c94f0241f82b842b98c5021e00db",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_weather_dry.png",
+      "prior_sha256": "e5539a6c89949bcdbc22769ef42ecbef3e80a127eef10616f111668d7151db26",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_10.jpg",
+      "cell": 1,
+      "reviewer": "qualification_review",
+      "observation": "A deep blue sky with scattered white clouds sits above sharply defined rooftop and tank silhouettes.",
+      "obstruction": "The frame is mostly sky. This still shows the visible dry-state composition, with little ground or finish coverage.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_weather_fog.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_weather_fog.png",
+      "sha256": "e566b14b42a53b693fd72985ced63b240ff7c5535270363fff936fe55e4ad851",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_weather_fog.png",
+      "prior_sha256": "19b528b01876070f5828eceb4047cdcbd081ec4aba4c01e6d005d69958a40455",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_10.jpg",
+      "cell": 2,
+      "reviewer": "qualification_review",
+      "observation": "The rooftop silhouettes soften and recede under a pale gray clouded sky with a few blue openings.",
+      "obstruction": "The low-contrast roofs and tanks are partly obscured by haze. The frame gives no distance or temporal weather measurement.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "city_weather_storm.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_weather_storm.png",
+      "sha256": "7817693d6573bbac3801992ab1818d68676b7c34442c52ca4c3f6b2c63228043",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_weather_storm.png",
+      "prior_sha256": "7065f52709fd79a19babb5b52e1de2e71c1fa87559c9e0572c512d956d87e0c3",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_10.jpg",
+      "cell": 3,
+      "reviewer": "qualification_review",
+      "observation": "A gray overcast field and lighter horizon sit above dark tank and mast silhouettes. The cloud pattern has little visible contrast.",
+      "obstruction": "The direct original is mostly sky and silhouettes. A single still gives limited storm detail and does not establish precipitation motion.",
+      "method": "Original PNG displayed at 2048x857 and labeled contact sheet"
+    },
+    {
+      "file": "city_west_roof.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\city_west_roof.png",
+      "sha256": "d772bb4a9cf5830cc93e47146158e2a9308da87b417782fb5edb8c7b46959ee7",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\city_west_roof.png",
+      "prior_sha256": "51ca476d6283f883ea9ff954ae1879f22a04690d84fd6c4de108aa0b00c1afa3",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_10.jpg",
+      "cell": 4,
+      "reviewer": "qualification_review",
+      "observation": "The roofline includes tanks, a mast with guy wires, near windows, and the distant arched bridge at right.",
+      "obstruction": "Several dark roof planes are visible, but the upward framing emphasizes sky and crops near surfaces.",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "closet_vent_bypass_services.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\closet_vent_bypass_services.png",
+      "sha256": "1ffbe3ec20f5e3e3d10be6dfac793b0a35ee5f65789f423a316b8abf7d620a72",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\closet_vent_bypass_services.png",
+      "prior_sha256": "c3621ebf734639b114e995e02d355e5490b5080d326435239da8ab471716f5d0",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_11.jpg",
+      "cell": 1,
+      "reviewer": "root",
+      "observation": "Tile, painted upper wall, vertical strip and part of the toilet are visible. The bypass service connection is out of view.",
+      "obstruction": "partial_service_view",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "dumbwaiter.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\dumbwaiter.png",
+      "sha256": "fdcf6f5a45ea2552f83466d6011f85e3eb377906e0f41e5eba454ffd0657010e",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\dumbwaiter.png",
+      "prior_sha256": "b20ccdc53bce2e0667552cf1797dbd3e0e60246b11bcdd7f7713d10d939c2ab6",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_11.jpg",
+      "cell": 2,
+      "reviewer": "root",
+      "observation": "The original frame also resolves only a very dark brick wall and a corner. No dumbwaiter detail is visible.",
+      "obstruction": "target_occluded",
+      "method": "Original PNG displayed at 2048x857 and labeled contact sheet"
+    },
+    {
+      "file": "entry_preparation/preparation_00.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\entry_preparation\\preparation_00.png",
+      "sha256": "74274ef490e1c6c3c444239047a3f4ca810c3699b2dbfacb40649071f14d8918",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\entry_preparation\\preparation_00.png",
+      "prior_sha256": "88ffb62354e18a63eada9b7a8378f54c170db151c9c32dde4aae2949042d560a",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_11.jpg",
+      "cell": 3,
+      "reviewer": "root",
+      "observation": "Ground view shows the lit entrance, dark facades, cloud streaks and a person in the near foreground. The handheld overlays the right side.",
+      "obstruction": "dark_street",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "entry_preparation/preparation_01.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\entry_preparation\\preparation_01.png",
+      "sha256": "90fe49d272ee2f5321d699814731d967f59c9e66bf3a16bab9633d82a3dc4725",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\entry_preparation\\preparation_01.png",
+      "prior_sha256": "62a0ba181e0db2507cc24b0cbe269d742b806045b61156e0e1f24428a898f378",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_11.jpg",
+      "cell": 4,
+      "reviewer": "root",
+      "observation": "High oblique view shows pale roof bulkheads, parapets and lit windows behind the handheld. The lower streets are dark.",
+      "obstruction": "posed_roof_view",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "entry_preparation/preparation_02.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\entry_preparation\\preparation_02.png",
+      "sha256": "6d35c8a56978522bce7a97f8bfed8ba7eb1e85324ce0e55d94ff67b29136c3c8",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\entry_preparation\\preparation_02.png",
+      "prior_sha256": "a9102c6d4547669cc703b25c028af69d0acb42f1c97a03a09927d33dd6f4241c",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_12.jpg",
+      "cell": 1,
+      "reviewer": "root",
+      "observation": "Level reverse view shows the broad gray facade and rows of windows across a dark street. The handheld partly obscures the right foreground.",
+      "obstruction": "dark_street",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "entry_preparation/preparation_03.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\entry_preparation\\preparation_03.png",
+      "sha256": "e0d9346793ce58e5f1e8ba0a6030f40c0ea135212147943f726476559c721a85",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\entry_preparation\\preparation_03.png",
+      "prior_sha256": "973a6a04d0890c037789c0ba2d949f812d401667b736fd45c52321e735d54531",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_12.jpg",
+      "cell": 2,
+      "reviewer": "root",
+      "observation": "Opposite high oblique view shows the same pale bulkheads with nearer lit windows and railings at left. The street and shafts are dark.",
+      "obstruction": "posed_roof_view",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "entry_preparation/preparation_04.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\entry_preparation\\preparation_04.png",
+      "sha256": "c01fd5d6a8389dde878a09e3e9b49dd242c925c0e2c31ac4dc65ef3597788041",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\entry_preparation\\preparation_04.png",
+      "prior_sha256": "21fbde53f1e30ce39685970416e218ba360f04ce085b118c27f580d9b09115ab",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_12.jpg",
+      "cell": 3,
+      "reviewer": "root",
+      "observation": "Restored entry framing shows warm light through the door panes, bright brass hardware and stone pillars. Dark foreground bars cross the outer edges.",
+      "obstruction": "close_crop",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "F02_A_MAIN.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\F02_A_MAIN.png",
+      "sha256": "ab2299282f90bc8260aa27d4d999549d5e5e5bc1ad392acbeb8700e9fe269b3f",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\F02_A_MAIN.png",
+      "prior_sha256": "3a96190847a061e4255882fc5f89561a1ed604f6c3bcb9ab7a6ebbf3a6405d6d",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_12.jpg",
+      "cell": 4,
+      "reviewer": "root",
+      "observation": "Warm plank floor, two tables, shelves, doorway and rear radiator are visible. The handheld overlaps the right shelving.",
+      "obstruction": "clear_main_view",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "F03_B_BATH_reflection_repair.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\F03_B_BATH_reflection_repair.png",
+      "sha256": "af21eb7cd091deb13c5a7fcca8a8278b51fb6ba580af3435acd9f44a9f7d2927",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\F03_B_BATH_reflection_repair.png",
+      "prior_sha256": "95e45fdc7957dcdce2bd395b08bacd677f5ec0356183f7b227263ca8b034a1cd",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_13.jpg",
+      "cell": 1,
+      "reviewer": "root",
+      "observation": "Curtain occupies the left third, with spotlight on tile and painted wall. The toilet is cropped at the lower edge.",
+      "obstruction": "close_crop",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "F03_B_MAIN.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\F03_B_MAIN.png",
+      "sha256": "f4fc54e512401880d146f4d71c0464268ffb7ef4a18c6112685aa665da2f9326",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\F03_B_MAIN.png",
+      "prior_sha256": "389011d6675674cbd8159b3012667304a8e7fd44e843208185cbeb6d4b1f5894",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_13.jpg",
+      "cell": 2,
+      "reviewer": "root",
+      "observation": "Radiator and shaded window on the left, chair and round table in front, and a standing figure beside the lit entry. The handheld overlaps right shelving.",
+      "obstruction": "clear_main_view",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "F04_C_MAIN.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\F04_C_MAIN.png",
+      "sha256": "c70b147afcf2e1c07baad5765a9255cb5f9b0c02d92cdad7fd752085c4730a96",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\F04_C_MAIN.png",
+      "prior_sha256": "660eb8ab88faff563271d01ec500939e7eb367064ca0a4165c7682362b03280b",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_13.jpg",
+      "cell": 3,
+      "reviewer": "root",
+      "observation": "Plank floor, table, chair, radiator and rear shaded window are visible. The pendant is clipped at the top and the handheld obscures the right table.",
+      "obstruction": "clear_main_view",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "F06_B_KITCHEN_reflection_repair.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\F06_B_KITCHEN_reflection_repair.png",
+      "sha256": "92025e57ae7853275160d4c0288c9021559549a91b2918cffa3201b1c6138232",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\F06_B_KITCHEN_reflection_repair.png",
+      "prior_sha256": "70c23a3a52b63ccb7427eb4a42b2858702dba74a79553d731f91e6f34877594a",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_13.jpg",
+      "cell": 4,
+      "reviewer": "root",
+      "observation": "Original resolves the sink, brass pipework, cabinet and wall finish. A strong warm center spot and mottled surround limit fine optical comparisons.",
+      "obstruction": "strong_hotspot",
+      "method": "Original PNG displayed at 2048x857 and labeled contact sheet"
+    },
+    {
+      "file": "fuse_panel.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\fuse_panel.png",
+      "sha256": "ae87c7e1c2f26e75f2dd7926f3f0384480d75af302280bd7cf44f1c600fd7398",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\fuse_panel.png",
+      "prior_sha256": "62203e47179316219b4580158a472a2376650f8cca5124f79938021c876998f9",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_14.jpg",
+      "cell": 1,
+      "reviewer": "root",
+      "observation": "Panel door is open; socket rows, fuse caps, switch hardware and incoming conduit are visible. The lower conduit exits frame.",
+      "obstruction": "partial_service_view",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "mail_bank.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\mail_bank.png",
+      "sha256": "48a1ac0496aac464fdd7350c37072e0845de4c0bc3b6b0c70779cb4807f69f94",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\mail_bank.png",
+      "prior_sha256": "3a301b539b2ac0e30c82de3a63718cdbbba80106604d1e2da90532f334207280",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_14.jpg",
+      "cell": 2,
+      "reviewer": "root",
+      "observation": "Mailbox rows and mail slot remain recognizable against the dark recessed wall. Small labels are hard to read.",
+      "obstruction": "dark_recess",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "radiator.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\radiator.png",
+      "sha256": "99ee8f88ae856e9362f8f23349b5e2dd1fcd71ae23aa13c3459b8aecd675daf0",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\radiator.png",
+      "prior_sha256": "ec950b85b83c0d40ff8484003f17bd3e8887ad3e6edf6c17045fa2e156d840ec",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_14.jpg",
+      "cell": 3,
+      "reviewer": "root",
+      "observation": "Radiator ribs and valve partly visible below the window beside the side table. A large pale foreground form obscures the left edge; the floor connection is cropped.",
+      "obstruction": "foreground_occlusion",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "roof_drive_uv.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\roof_drive_uv.png",
+      "sha256": "83d8b6451a407e1928e02ccd5d73bc8231f11340b9a2cfb15df3b2222e6e32aa",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\roof_drive_uv.png",
+      "prior_sha256": "8d531f4bbebc05c977ff5464b25b815d22c4c5e97c848c5c0088101ea4c7fd7e",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_14.jpg",
+      "cell": 4,
+      "reviewer": "root",
+      "observation": "Roof landing shows fenced machinery, conduit, stairs and roof sign. Cage bars cross the drive surfaces.",
+      "obstruction": "partial_service_view",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "roof_tank_uv.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\roof_tank_uv.png",
+      "sha256": "5a79f97005c11f24e746f1ddc762ff56debd8c82d0a286f76ec01a403ea78ac7",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\roof_tank_uv.png",
+      "prior_sha256": "261ddf2a3b10ad8ba3f55c9aa9b220f96d15b6daf1f9236909c39342be3f1ba7",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_15.jpg",
+      "cell": 1,
+      "reviewer": "root",
+      "observation": "Tank, catwalk and legs silhouette clearly against streaked clouds and surrounding roofs. Dark structural faces limit detailed texture inspection.",
+      "obstruction": "dark_structure",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "shot_001.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\shot_001.png",
+      "sha256": "209d65511215203ff1480c886b45eeb59a223dddded15fde2eb2290a71566007",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\shot_001.png",
+      "prior_sha256": "86d149aa31f31c0e13efa8caa671c37c3247c8d1162226b502d8ed40c2298615",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_15.jpg",
+      "cell": 2,
+      "reviewer": "root",
+      "observation": "Upward view shows window bays and contrasting facade blocks. A dark foreground structure obscures some lower openings; clouds read as broad streaks.",
+      "obstruction": "foreground_occlusion",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "signal_terminal.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\signal_terminal.png",
+      "sha256": "fc9e6b71afae9eb641fbc1a272c40e0fc35c3964085461142e3ecbb7151cda70",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\signal_terminal.png",
+      "prior_sha256": "c7bb977f9d81dc068d10e6c2cd1478f3c2d8eb1ed3a5d5ce3bd7523834070935",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_15.jpg",
+      "cell": 3,
+      "reviewer": "root",
+      "observation": "Terminal casing and green light spill are visible beside the wall board. This angle looks past the casing and does not show the front controls.",
+      "obstruction": "partial_service_view",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "staff_closet_deep_services.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\staff_closet_deep_services.png",
+      "sha256": "7d4e4de35db48b84aa7bebbc4532a2b9a5f80c5b664d976cbc40ee275f5e7ae3",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\staff_closet_deep_services.png",
+      "prior_sha256": "ce64c5bc51923ab5c1ec53f9e3bbcb9759c4c0d2a59c64986f81d20471bdd907",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_15.jpg",
+      "cell": 4,
+      "reviewer": "root",
+      "observation": "Bright tiled corner, wrapped roll and cropped seat fill the frame. No deep-service fitting is established visually.",
+      "obstruction": "target_occluded",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "tentacle_flowing_residue.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\tentacle_flowing_residue.png",
+      "sha256": "444a92d8b0cc2b93dbcc41ee46944e63528fb88141899dbdfe8ce18f77bd1be9",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\tentacle_flowing_residue.png",
+      "prior_sha256": "d287eaf18e208bbf9b68f664bacdca49ad4063ef8cc15063fe152ba8ea56c699",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_16.jpg",
+      "cell": 1,
+      "reviewer": "root",
+      "observation": "Colorful pool and curled surface are visible in the warm beam beneath the radiator. A still cannot show the rate or path of flow.",
+      "obstruction": "single_frame",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "tentacle_installed_surfaces.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\tentacle_installed_surfaces.png",
+      "sha256": "cf321e9d806ad760a199ac294d25a46e723bc1b5baf7b1befce3fc7c3d77bc54",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\tentacle_installed_surfaces.png",
+      "prior_sha256": "f811e123762f80be0579369d971fbcd51bc0a259c0864f6b5567b7c861e1d255",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_16.jpg",
+      "cell": 2,
+      "reviewer": "root",
+      "observation": "Reddish upright and curled forms stand in front of the radiator under the warm beam. Their silhouette is clear; a still cannot establish motion.",
+      "obstruction": "single_frame",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "toaster_crumbs.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\toaster_crumbs.png",
+      "sha256": "74b170345de9994204474e00c6e47636525946e97f5c4f7e85286d132d5263a5",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\toaster_crumbs.png",
+      "prior_sha256": "04b051ebc49bd9358ef8b5d741c2a8d4272191127eb8f019645bd1587ea99af9",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_16.jpg",
+      "cell": 3,
+      "reviewer": "root",
+      "observation": "Toaster face, open tray with separate crumb flecks, kettle and nearby vessels are visible.",
+      "obstruction": "clear_prop_view",
+      "method": "Labeled contact sheet"
+    },
+    {
+      "file": "watch_station.png",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface\\watch_station.png",
+      "sha256": "6c786a35d30ad93ec5eb429c51fc4a9ac2d8aa3d24194164c1567cdbe85fc569",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011\\watch_station.png",
+      "prior_sha256": "afcdd5cb9b4075a26bfd394c90565a5d00efc8c4c5b93fd51a8605e953ea73e3",
+      "identical_raw_bytes": false,
+      "review_state": "fresh_visual_review",
+      "sheet": "sheet_16.jpg",
+      "cell": 4,
+      "reviewer": "root",
+      "observation": "Station 1 plate and a brass circular part stand out against a dark wall. Fixture detail is limited by low light.",
+      "obstruction": "dark_recess",
+      "method": "Labeled contact sheet"
+    }
+  ]
+}
