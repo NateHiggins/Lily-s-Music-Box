@@ -3,6 +3,24 @@
 Evidence class: **INERT**. Repair/diagnostic report, 2026-10-22.
 No runtime-contract qualification or human acceptance.
 
+## November 5 UTC — installed parked exit and validated disk pass
+
+**book_park_installed_04/** at **90fb70926** passes107checks/0 in369s,
+wrapperexit0, before/after complete sourceguardsPASS. The same real Volume0
+clears the full player capsule, rotates, follows the three unchanged owner-slot
+goals using existing axis keys/wheel, parks exactslot0 through primary and
+remains frozen/hand-free after normal Space with carrier exceptions restored.
+The existing RealityState programme writes the actual library to an isolated
+save, validates all disk domains, retires the prior world and reconstructs an
+independent production owner with matching book slots/poses/opening and no
+resurrected hand/inspection. Original save path restored. Test-written schema2
+**installed/nook_return.runtime.json** binds the script, executed detached root
+scene and consumed sources; all three contracts executed/passed. Native three
+3440x1440 images decoded. Twenty known resident UID fallback warnings across
+two roots; no script errors/shutdown leaks. No corridor renewal is needed for
+this test-only route change. This is not full CampaignShell Continue, human play,
+artistic or general page readability acceptance. All prior failures retained.
+
 ## November 5 UTC — nearby native handling passes
 
 **book_local_controls_03/** at **aec8e8997**: compile4/0, local actual hardback

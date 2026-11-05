@@ -262,7 +262,117 @@ func _two_style_capture(phase: String, book: Node3D) -> bool:
 					"albedo": _mip(material.albedo_texture), "normal": _mip(material.normal_texture),
 					"roughness": _mip(material.roughness_texture)})
 	two_style_controls.frames[-1].native_loaded_material_mips = draws
+	if phase.ends_with("_open_held") and OS.get_environment("ORISON_BOOK_READING_ZOOM_MSAA") == "1":
+		return await _reading_zoom_msaa(phase, book)
 	return true
+
+func _reading_zoom_msaa(phase: String, book: Node3D) -> bool:
+	var viewport := get_viewport() as SubViewport
+	var root := get_tree().root
+	if not _require(viewport != null and root.msaa_3d == Viewport.MSAA_8X,
+			"reading witness has detached viewport and actual root 8x MSAA"):
+		return false
+	if not _local_report.has("reading_zoom_msaa"):
+		_local_report.reading_zoom_msaa = []
+	var original_msaa := viewport.msaa_3d
+	var record: Dictionary = {"phase":phase, "completed":false, "book":_identity(book),
+		"root_msaa":root.msaa_3d, "original_viewport_msaa":original_msaa,
+		"project_msaa":ProjectSettings.get_setting("rendering/anti_aliasing/quality/msaa_3d"), "frames":[]}
+	_local_report.reading_zoom_msaa.append(record)
+	var completed: bool = await _reading_zoom_programme(phase, book, viewport, root.msaa_3d, record.frames)
+	viewport.msaa_3d = original_msaa
+	record.restored_viewport_msaa = viewport.msaa_3d
+	record.completed = completed
+	return completed
+
+func _reading_zoom_programme(phase: String, book: Node3D, viewport: SubViewport,
+		matched_msaa: Viewport.MSAA, frames: Array) -> bool:
+	var camera: Camera3D = player.camera
+	var held_book_pose: Transform3D = book.global_transform
+	var held_camera_pose: Transform3D = camera.global_transform
+	var held_fov: float = camera.fov
+	var opening: float = book.opening
+	for mode: Array in [["msaa_off", Viewport.MSAA_DISABLED], ["msaa_root", matched_msaa]]:
+		viewport.msaa_3d = mode[1]
+		if not await _reading_zoom_frame(phase + "_" + str(mode[0]), book, frames):
+			return false
+		if not _require(viewport.msaa_3d == mode[1] and player.held_stock_body() == book
+				and book.global_transform.is_equal_approx(held_book_pose)
+				and camera.global_transform.is_equal_approx(held_camera_pose)
+				and is_equal_approx(camera.fov, held_fov) and is_equal_approx(book.opening, opening),
+				"same open held pose and FOV across MSAA witness"):
+			return false
+	await _two_style_space()
+	if not _require(player.inspecting() and not player._grab.active()
+			and player.inspect_owner == book.shelf and book.shelf.supports_inspected_stock(book),
+			"actual Space supports the same opened book for reading"):
+		return false
+	for frame in 110:
+		await get_tree().physics_frame
+	if not _require(not book.is_physics_processing() and is_equal_approx(book.opening, opening),
+			"actual floating opened book settles before zoom"):
+		return false
+	var reading_pose: Transform3D = book.global_transform
+	var reading_eye: Vector3 = camera.global_position
+	var reading_fov: float = camera.fov
+	if not await _reading_zoom_frame(phase + "_reading_before_wheel", book, frames):
+		return false
+	# Centre the event-owned pointer using the existing detached input helper.
+	if not _require(await _two_style_cursor(camera.global_position - camera.global_basis.z),
+			"detached reading cursor reaches camera centre"):
+		return false
+	var wheel := InputEventMouseButton.new()
+	wheel.button_index = MOUSE_BUTTON_WHEEL_UP
+	wheel.pressed = true
+	wheel.factor = 8.
+	player._unhandled_input(wheel)
+	if not _require(camera.fov < reading_fov and camera.global_position.is_equal_approx(reading_eye)
+			and book.global_transform.is_equal_approx(reading_pose) and is_equal_approx(book.opening, opening),
+			"real reading wheel changes FOV with same book and physical eye"):
+		return false
+	if not await _reading_zoom_frame(phase + "_reading_after_wheel", book, frames):
+		return false
+	if not _require(viewport.msaa_3d == matched_msaa and camera.global_position.is_equal_approx(reading_eye)
+			and book.global_transform.is_equal_approx(reading_pose) and is_equal_approx(book.opening, opening),
+			"reading captures retain matched MSAA and settled book pose"):
+		return false
+	await _two_style_space()
+	if not _require(not player.inspecting() and player.held_stock_body() == book
+			and is_equal_approx(book.opening, opening) and is_equal_approx(camera.fov, held_fov),
+			"normal Space returns same opened book and restores held FOV"):
+		return false
+	for frame in 110:
+		await get_tree().physics_frame
+	return _require(player.held_stock_body() == book, "original next primary can release the returned book")
+
+func _reading_zoom_frame(phase: String, book: Node3D, frames: Array) -> bool:
+	# Give changed viewport targets two complete draws before observing pixels.
+	for frame in 2:
+		await RenderingServer.frame_post_draw
+	var before: int = optics.size()
+	var failure_count: int = failures.size()
+	await _observe_book(phase, book)
+	if not _require(optics.size() == before + 1, "reading witness produces native image: " + phase):
+		return false
+	var row: Dictionary = optics.pop_back()
+	row.root_msaa = get_tree().root.msaa_3d
+	row.viewport_msaa = get_viewport().msaa_3d
+	row.fov_deg = player.camera.fov
+	row.loaded_page_glyphs = []
+	var sides: Dictionary = {}
+	for printed: Dictionary in book._print_surfaces:
+		var label: Label3D = printed.node as Label3D
+		if label == null or printed.side not in ["left", "right"]:
+			continue
+		var geometry: Dictionary = _optics_project(_optics_vertices(printed.mesh, label.global_transform))
+		row.loaded_page_glyphs.append({"identity":_identity(label), "side":printed.side,
+			"expected_text":label.text, "visible":label.is_visible_in_tree(), "mesh_rid":printed.mesh.get_id(),
+			"geometry":geometry})
+		if label.is_visible_in_tree() and int(geometry.vertices) > 0:
+			sides[printed.side] = true
+	frames.append(row)
+	return _require(sides.size() == 2 and failures.size() == failure_count,
+		"actual warped glyph geometry for both printed pages: " + phase)
 
 func _mip(texture: Texture2D) -> Dictionary:
 	if texture == null:
