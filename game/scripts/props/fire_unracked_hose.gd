@@ -72,17 +72,18 @@ var _wet_marks: Array[Dictionary]=[]
 var _wet_mesh: ArrayMesh
 var _wet_finish: StandardMaterial3D
 var last_spray_impact: Dictionary={}
-# Opt-in nearby render candidate. The existing GPU presentation is the default.
+# Swept presentation is selected on first positive flow.
 const SPLASH_LIMIT := 12
 const SPLASH_SECONDS := .15
-var _swept_preview := false
+var _swept_spray := true
 var _swept_jet: MultiMeshInstance3D
 var _swept_splash_draw: MultiMeshInstance3D
 var _swept_splash: Array[Dictionary] = []
-# Dense flight uses a packed active prefix, allocated only for the preview.
+# Dense flight uses a packed active prefix, allocated on first use.
 var _dense_positions := PackedVector3Array()
 var _dense_velocities := PackedVector3Array()
 var _dense_remaining := PackedFloat64Array()
+var _dense_launch_owners: Array[RID] = []
 var _dense_count := 0
 var _dense_credit := 0.0
 var _dense_sequence := 0
@@ -90,8 +91,9 @@ var _dense_query: PhysicsRayQueryParameters3D
 var _dense_hit_this_tick := false
 var swept_stats := {"ticks":0,"usec":0,"max_usec":0,"visual_usec":0,"max_visual_usec":0,
 	"visual_rays":0,"wet_rays":0,"splash_rays":0,"rim_rays":0,"impacts":0,"bursts":0,
-	"births":0,"dropped_births":0}
+	"births":0,"dropped_births":0,"inspection_origin_retries":0}
 var last_swept_impact: Dictionary = {}
+var inspection_origin_witness: Dictionary = {}
 var release_support:=preload("res://scripts/props/hose_release_support.gd").new()
 
 func deployment_snapshot() -> Dictionary:
@@ -191,13 +193,15 @@ func _physics_process(delta: float) -> void:
 		var flowing: bool = water.spray > .001
 		if flowing and _wet_timer == null:
 			_wet_prepare()
-		_spray.emitting = flowing and not _swept_preview
+		if flowing and _swept_spray:
+			_prepare_swept_spray()
+		_spray.emitting = flowing and not _swept_spray
 		if _spray.emitting:
 			_spray.visible = true
 		_spray.amount_ratio = clampf(water.spray, 0., 1.)
 		if flowing and _wet_timer != null and _wet_timer.is_stopped():
 			_wet_timer.start()
-	# Stable pressure and GPU emission require no ongoing cloth/fluid tick.
+	# Stable pressure and the independent spray timer need no cloth/fluid tick.
 	# Publish the completed fill/drain through the existing household signal,
 	# rather than leaving the last saved value at the valve's release instant.
 	if not changed and _charge_dirty:
@@ -273,18 +277,47 @@ func _wet_prepare() -> void:
 	_wet_timer.process_callback=Timer.TIMER_PROCESS_PHYSICS
 	add_child(_wet_timer);_wet_timer.timeout.connect(_wet_tick)
 
-func _wet_ray(ray_from: Vector3,ray_to: Vector3, counter: String = "rim_rays") -> Dictionary:
-	if _swept_preview:
+func _wet_ray(ray_from: Vector3, ray_to: Vector3, counter: String = "rim_rays",
+		inspection_owner: RID = RID(), flight: Dictionary = {}) -> Dictionary:
+	if _swept_spray:
 		swept_stats[counter] += 1
-	var query:=PhysicsRayQueryParameters3D.create(ray_from,ray_to,1)
-	query.collide_with_areas=false;query.collide_with_bodies=true
-	query.hit_from_inside=true;query.hit_back_faces=true
-	# No collider exclusions, including nozzle/cabinet/non-wettable blockers.
-	return get_world_3d().direct_space_state.intersect_ray(query)
+	var query := PhysicsRayQueryParameters3D.create(ray_from, ray_to, 1)
+	query.collide_with_areas = false
+	query.collide_with_bodies = true
+	query.hit_from_inside = true
+	query.hit_back_faces = true
+	var space := get_world_3d().direct_space_state
+	var hit: Dictionary = space.intersect_ray(query)
+	if _inside_launch_owner(hit, ray_from, inspection_owner) and flight.get("launch_owner", RID()) == inspection_owner:
+		return _retry_launch_origin(space, query, inspection_owner)
+	if flight.has("launch_owner"):
+		flight.erase("launch_owner")
+	return hit
+
+func _inside_launch_owner(hit: Dictionary, origin: Vector3, owner: RID) -> bool:
+	return owner.is_valid() and not hit.is_empty() and hit.rid == owner and hit.normal == Vector3.ZERO and hit.position == origin
+
+func _retry_launch_origin(space: PhysicsDirectSpaceState3D, query: PhysicsRayQueryParameters3D, owner: RID) -> Dictionary:
+	# This is the capsule the borrowed nozzle launched inside. Incoming hits
+	# and every other solid continue to use the original first query.
+	query.exclude = [owner]
+	var hit: Dictionary = space.intersect_ray(query)
+	query.exclude = []
+	if _swept_spray:
+		swept_stats.inspection_origin_retries += 1
+		if inspection_origin_witness.is_empty():
+			inspection_origin_witness = {
+				"inspector_rid": str(owner), "origin": var_to_str(query.from),
+				"end": var_to_str(query.to), "retry_rid": str(hit.get("rid", RID())),
+				"retry_clear": hit.is_empty(),
+			}
+	return hit
 
 func _wet_tick() -> void:
-	var started: int = Time.get_ticks_usec() if _swept_preview else 0
-	if _swept_preview:
+	var started: int = Time.get_ticks_usec() if _swept_spray else 0
+	var exclusions: Array[RID] = inspection_control_exclusions()
+	var inspection_owner: RID = exclusions[0] if not exclusions.is_empty() else RID()
+	if _swept_spray:
 		_swept_update_splash()
 	for row: Dictionary in _wet_marks:
 		var draw: MeshInstance3D=row.draw
@@ -299,7 +332,7 @@ func _wet_tick() -> void:
 	if flowing and _wet_drops.size()<WET_LIMIT:
 		var process: ParticleProcessMaterial=_spray.process_material
 		var velocity: Vector3=(_spray.global_basis*process.direction).normalized()*(process.initial_velocity_min+process.initial_velocity_max)*.5
-		_wet_drops.append({"position":_spray.global_position,"velocity":velocity,"gravity":process.gravity,"left":_spray.lifetime})
+		_wet_drops.append({"position":_spray.global_position,"velocity":velocity,"gravity":process.gravity,"left":_spray.lifetime,"launch_owner":inspection_owner})
 	for index in range(_wet_drops.size()-1,-1,-1):
 		var drop: Dictionary=_wet_drops[index]
 		var dt: float=minf(WET_STEP,float(drop.left))
@@ -307,7 +340,7 @@ func _wet_tick() -> void:
 		var velocity: Vector3=drop.velocity
 		var gravity: Vector3=drop.gravity
 		var next: Vector3=position+velocity*dt+gravity*(dt*dt*.5)
-		var hit: Dictionary=_wet_ray(position,next,"wet_rays")
+		var hit: Dictionary=_wet_ray(position, next, "wet_rays", inspection_owner, drop)
 		if not hit.is_empty():
 			var fraction: float=clampf((hit.position-position).dot(next-position)/maxf(position.distance_squared_to(next),.000000000001),0.,1.)
 			var impact_velocity: Vector3 = velocity + gravity * (dt * fraction)
@@ -316,9 +349,9 @@ func _wet_tick() -> void:
 			continue
 		drop.position=next;drop.velocity=velocity+gravity*dt;drop.left=float(drop.left)-dt
 		if float(drop.left)<=.000001:_wet_drops.remove_at(index)
-	if _swept_preview:
+	if _swept_spray:
 		var visual_start: int = Time.get_ticks_usec()
-		_dense_update(flowing)
+		_dense_update(flowing, inspection_owner)
 		var visual_elapsed: int = Time.get_ticks_usec() - visual_start
 		swept_stats.visual_usec += visual_elapsed
 		swept_stats.max_visual_usec = maxi(swept_stats.max_visual_usec, visual_elapsed)
@@ -326,7 +359,7 @@ func _wet_tick() -> void:
 		swept_stats.ticks += 1
 		swept_stats.usec += elapsed
 		swept_stats.max_usec = maxi(swept_stats.max_usec, elapsed)
-	var preview_pending: bool = _swept_preview and (_dense_count > 0 or _swept_jet.multimesh.visible_instance_count > 0 or not _swept_splash.is_empty() or _swept_splash_draw.multimesh.visible_instance_count > 0)
+	var preview_pending: bool = _swept_spray and (_dense_count > 0 or _swept_jet.multimesh.visible_instance_count > 0 or not _swept_splash.is_empty() or _swept_splash_draw.multimesh.visible_instance_count > 0)
 	if not flowing and _wet_drops.is_empty() and not preview_pending:
 		var fading:=false
 		for row: Dictionary in _wet_marks:
@@ -378,43 +411,48 @@ func _wet_clear() -> void:
 	for row: Dictionary in _wet_marks:
 		row.draw.visible=false;row.receiver=null;row.left=0.
 
-# The fixture selects this presentation after genuine positive flow. Hydraulic
-# state, emission pose, checked flight and wet film ownership remain shared.
-func set_swept_spray_preview(enabled: bool) -> void:
-	if enabled == _swept_preview:
+func _prepare_swept_spray() -> void:
+	if _swept_jet != null:
 		return
-	_swept_preview = enabled
+	_swept_jet = _swept_pool("SweptJet", _spray.amount)
+	_swept_splash_draw = _swept_pool("SweptSplash", SPLASH_LIMIT)
+	_dense_positions.resize(_spray.amount)
+	_dense_velocities.resize(_spray.amount)
+	_dense_remaining.resize(_spray.amount)
+	_dense_launch_owners.resize(_spray.amount)
+	_dense_query = PhysicsRayQueryParameters3D.new()
+	_dense_query.collision_mask = 1
+	_dense_query.collide_with_areas = false
+	_dense_query.collide_with_bodies = true
+	_dense_query.hit_from_inside = true
+	_dense_query.hit_back_faces = true
+
+# The fixed-nozzle comparison can still select the original presentation.
+func set_swept_spray_enabled(enabled: bool) -> void:
+	if enabled == _swept_spray:
+		return
+	_swept_spray = enabled
+	if not is_instance_valid(_spray):
+		return
 	if enabled:
-		if _swept_jet == null:
-			_swept_jet = _swept_pool("SweptJet", _spray.amount)
-			_swept_splash_draw = _swept_pool("SweptSplash", SPLASH_LIMIT)
-			_dense_positions.resize(_spray.amount)
-			_dense_velocities.resize(_spray.amount)
-			_dense_remaining.resize(_spray.amount)
-			_dense_query = PhysicsRayQueryParameters3D.new()
-			_dense_query.collision_mask = 1
-			_dense_query.collide_with_areas = false
-			_dense_query.collide_with_bodies = true
-			_dense_query.hit_from_inside = true
-			_dense_query.hit_back_faces = true
+		if water.spray > .001 or (_wet_timer != null and not _wet_timer.is_stopped()):
+			_prepare_swept_spray()
 		_spray.emitting = false
 		_spray.visible = false
-		if water.spray > .001 and _wet_timer.is_stopped():
-			_wet_timer.start()
 	else:
 		_swept_clear()
 		if water.spray > .001:
 			_spray.visible = true
 			_spray.restart()
 
-func _dense_update(flowing: bool) -> void:
+func _dense_update(flowing: bool, inspection_owner: RID) -> void:
 	var process: ParticleProcessMaterial = _spray.process_material
 	var space: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var counts := Vector2i.ZERO # x is active packets, y is visible instances.
 	_dense_hit_this_tick = false
 	# Compact in place before birthing new packets. Existing flights remain world-space.
 	for index in _dense_count:
-		counts = _dense_advance(index, counts, WET_STEP, process.gravity, space)
+		counts = _dense_advance(index, counts, WET_STEP, process.gravity, space, inspection_owner)
 	if flowing:
 		# The source emitter's count, lifetime and live ratio determine density.
 		var rate: float = float(_spray.amount) / _spray.lifetime * clampf(water.spray, 0., 1.)
@@ -444,25 +482,30 @@ func _dense_update(flowing: bool) -> void:
 			_dense_positions[counts.x] = muzzle.origin
 			_dense_velocities[counts.x] = direction * speed
 			_dense_remaining[counts.x] = _spray.lifetime
+			_dense_launch_owners[counts.x] = inspection_owner
 			swept_stats.births += 1
-			counts = _dense_advance(counts.x, counts, age, process.gravity, space)
+			counts = _dense_advance(counts.x, counts, age, process.gravity, space, inspection_owner)
 	else:
 		_dense_credit = 0.0
 	_dense_count = counts.x
 	_swept_jet.multimesh.visible_instance_count = counts.y
 
 func _dense_advance(index: int, counts: Vector2i, requested_step: float, gravity: Vector3,
-		space: PhysicsDirectSpaceState3D) -> Vector2i:
+		space: PhysicsDirectSpaceState3D, inspection_owner: RID) -> Vector2i:
 	var start: Vector3 = _dense_positions[index]
 	var velocity: Vector3 = _dense_velocities[index]
 	var left: float = _dense_remaining[index]
+	var launch_owner: RID = _dense_launch_owners[index]
 	var step: float = minf(requested_step, left)
 	var goal: Vector3 = start + velocity * step + gravity * (step * step * .5)
 	if step > .00000001:
 		_dense_query.from = start
 		_dense_query.to = goal
-		# Same unfiltered first-solid mask as wetting. Reuse only the query object.
 		var hit: Dictionary = space.intersect_ray(_dense_query)
+		if launch_owner == inspection_owner and _inside_launch_owner(hit, start, inspection_owner):
+			hit = _retry_launch_origin(space, _dense_query, inspection_owner)
+		else:
+			launch_owner = RID()
 		swept_stats.visual_rays += 1
 		if not hit.is_empty():
 			counts.y = _swept_draw_step(_swept_jet.multimesh, counts.y, start, goal, hit, 1.)
@@ -483,6 +526,7 @@ func _dense_advance(index: int, counts: Vector2i, requested_step: float, gravity
 	_dense_positions[counts.x] = goal
 	_dense_velocities[counts.x] = velocity + gravity * step
 	_dense_remaining[counts.x] = left - step
+	_dense_launch_owners[counts.x] = launch_owner
 	counts.x += 1
 	return counts
 
@@ -562,6 +606,7 @@ func _swept_clear() -> void:
 	_dense_sequence = 0
 	_swept_splash.clear()
 	last_swept_impact.clear()
+	inspection_origin_witness.clear()
 	if is_instance_valid(_swept_jet):
 		_swept_jet.multimesh.visible_instance_count = 0
 		_swept_splash_draw.multimesh.visible_instance_count = 0

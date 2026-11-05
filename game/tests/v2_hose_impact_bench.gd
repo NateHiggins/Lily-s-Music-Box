@@ -10,6 +10,7 @@ var _sample_elapsed:=0.
 var _fixtures: Array[StaticBody3D]=[]
 var _records: Array[Dictionary]=[]
 var _phase_frames: Array[Dictionary]=[]
+var _moving_preview_executed := false
 var _query_count:=0
 var _inside_query_count:=0
 var _stages: Array[String]=["baseline_no_impact","wall","floor","near_occluder","empty_fixture_space"]
@@ -27,7 +28,7 @@ func _run() -> void:
 	if file!=null:
 		file.store_string(JSON.stringify({"evidence_class":"INERT","kind":"hose_ballistic_impact_diagnostic","records":_records,"frames":_phase_frames,"total_queries":_query_count,"total_inside_aware_queries":_inside_query_count,"complete_phase_count":_phase_frames.size(),"authored_phases":_stages,"failures":failures,
 			"scope":"Production factory in isolated fixture; inherited repaired-line precondition, camera physics/collision disabled. Actual extraction/valve/lever input; observational ballistic rays and owned temporary blockers only. No implemented impact/wetting, installed-world, performance, save or artistic acceptance.",
-			"moving_nozzle_under_stable_spray":{"executed":false,"reason":"Original water programme holds a fixed inspection owner during stable spray; do not inject competing carry input. Next bounded probe must return through actual inspection handoff, reacquire actual nozzle and move via captured mouse with measured holder follow."}},"\t"));file.close()
+			"moving_nozzle_under_stable_spray":{"executed":_moving_preview_executed,"report":"moving_swept_preview.json" if _moving_preview_executed else ""}},"\t"));file.close()
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 func check(ok: bool,label: String) -> bool:
@@ -39,17 +40,6 @@ func check(ok: bool,label: String) -> bool:
 		if _impact_actor!=null:
 			_observing=true;_next_impact_stage();set_physics_process(true)
 	return accepted
-
-func cursor_to(pixel: Vector2) -> bool:
-	# Same established detached-SubViewport route: event-owned pointer, production
-	# ray/part selection. Never warp Lily's OS pointer or inject a chosen target.
-	var viewport:=get_viewport()
-	if not viewport is SubViewport:return false
-	pixel=pixel.round()
-	var motion:=InputEventMouseMotion.new();motion.position=pixel;motion.global_position=pixel
-	viewport.push_input(motion,true)
-	await get_tree().process_frame
-	return viewport.get_mouse_position().distance_to(pixel)<.6
 
 func _release_support_checks(_actor: Node3D,_hose: Node3D,_directory: String) -> void:
 	pass # Existing release proof is separate; do not repeat its fixture here.
@@ -192,8 +182,12 @@ func _observe_inside_paths(origin: Vector3,axis: Vector3,process: ParticleProces
 
 # Optional sequential render experiment inside the original actual water input.
 func _swept_impact_preview(actor: Node3D, hose: Node3D) -> void:
+	if OS.get_environment("ORISON_HOSE_MOVING_SWEEP") == "1":
+		await _moving_swept_preview(actor, hose)
+		return
 	if OS.get_environment("ORISON_HOSE_SWEPT_PREVIEW") != "1":
 		return
+	hose.set_swept_spray_enabled(false)
 	if not check(hose.water.spray > .7 and hose._spray.emitting, "swept preview begins with real positive-flow GPU baseline"):
 		return
 	var output: String = OS.get_environment("SHOT_DIR")
@@ -205,15 +199,19 @@ func _swept_impact_preview(actor: Node3D, hose: Node3D) -> void:
 	var records: Array[Dictionary] = []
 	for phase: String in ["wall", "floor_top", "near_first", "empty"]:
 		var complete: bool = await _swept_preview_case(phase, actor, hose, camera, output, records)
-		hose.set_swept_spray_preview(false)
+		hose.set_swept_spray_enabled(false)
 		_clear_impact_fixtures()
 		if not complete:
 			break
+	hose.set_swept_spray_enabled(true)
+	# The restored jet populates its presentation on the next timer callback.
+	for frame in ceili(2. * hose.WET_STEP * Engine.physics_ticks_per_second):
+		await get_tree().physics_frame
 	player.camera.make_current()
 	camera.free()
 	var file := FileAccess.open(output.path_join("swept_preview.json"), FileAccess.WRITE)
 	if check(file != null, "swept preview report opens"):
-		file.store_string(JSON.stringify({"evidence_class":"INERT","cases":records,"failures":failures,"scope":"Fixed actual nozzle, real original valve/lever input, A wet-only GPU stream versus B swept centre streak and splash. Test camera and receiver witnesses only. No production visual/performance or moving-nozzle acceptance."}, "	"))
+		file.store_string(JSON.stringify({"evidence_class":"INERT","cases":records,"failures":failures,"scope":"Fixed actual nozzle, real original valve/lever input, A wet-only GPU stream versus B dense swept streaks and splash. Test camera and receiver witnesses only. No production visual/performance or moving-nozzle acceptance."}, "	"))
 		file.close()
 
 func _swept_preview_case(phase: String, actor: Node3D, hose: Node3D, camera: Camera3D, output: String, records: Array[Dictionary]) -> bool:
@@ -266,7 +264,7 @@ func _swept_preview_case(phase: String, actor: Node3D, hose: Node3D, camera: Cam
 		await get_tree().physics_frame
 	if not await _swept_preview_frames(camera, hose, output, phase + "_A_gpu", row.frames):
 		return false
-	hose.set_swept_spray_preview(true)
+	hose.set_swept_spray_enabled(true)
 	for frame in ceili(.75 * Engine.physics_ticks_per_second):
 		await get_tree().physics_frame
 	hose.swept_stats.max_usec = 0 # Diagnostic counter reset, not a state change.
@@ -277,7 +275,7 @@ func _swept_preview_case(phase: String, actor: Node3D, hose: Node3D, camera: Cam
 		await get_tree().physics_frame
 	var after: Dictionary = hose.swept_stats.duplicate()
 	var sample: Dictionary = {"max_callback_usec":after.max_usec,"max_visual_usec":after.max_visual_usec}
-	for key: String in ["ticks", "usec", "visual_usec", "visual_rays", "wet_rays", "splash_rays", "rim_rays", "impacts", "bursts", "births", "dropped_births"]:
+	for key: String in ["ticks", "usec", "visual_usec", "visual_rays", "wet_rays", "splash_rays", "rim_rays", "impacts", "bursts", "births", "dropped_births", "inspection_origin_retries"]:
 		sample[key] = int(after[key]) - int(before[key])
 	row.capture_free_cpu = sample
 	row.first_solid = hose.last_swept_impact.duplicate()
@@ -290,7 +288,7 @@ func _swept_preview_case(phase: String, actor: Node3D, hose: Node3D, camera: Cam
 	row.visual_ray_limit_per_tick = visual_ray_limit
 	var bounds: bool = sample.ticks > 0 and sample.births > 0 and sample.dropped_births == 0
 	bounds = bounds and sample.visual_rays <= visual_ray_limit * sample.ticks and sample.wet_rays <= 16 * sample.ticks
-	bounds = bounds and sample.splash_rays <= 12 * sample.ticks and sample.rim_rays <= 256 * sample.ticks and sample.bursts <= sample.ticks
+	bounds = bounds and sample.splash_rays <= 12 * sample.ticks and sample.rim_rays <= 256 * sample.ticks and sample.bursts <= sample.ticks and sample.inspection_origin_retries == 0
 	if not check(bounds and hose.water.spray > .7 and not emitter.emitting and not emitter.visible, "swept-only visual retains real flow and callback bounds: " + phase):
 		return false
 	if receiver != null:
@@ -318,15 +316,88 @@ func _swept_preview_frames(camera: Camera3D, hose: Node3D, output: String, phase
 		var path: String = output.path_join(filename)
 		if not check(image.save_png(path) == OK, "swept preview saves actual consecutive frame: " + filename):
 			return false
-		frames.append({"file":filename,"sha256":FileAccess.get_sha256(path),"pixels":[image.get_width(), image.get_height()],"physics_frame":Engine.get_physics_frames(),"process_frame":Engine.get_process_frames(),"jet_slots":hose._swept_jet.multimesh.visible_instance_count if hose._swept_preview else null,"splash_slots":hose._swept_splash_draw.multimesh.visible_instance_count if hose._swept_preview else null})
+		frames.append({"file":filename,"sha256":FileAccess.get_sha256(path),"pixels":[image.get_width(), image.get_height()],"physics_frame":Engine.get_physics_frames(),"process_frame":Engine.get_process_frames(),"jet_slots":hose._swept_jet.multimesh.visible_instance_count if hose._swept_spray else null,"splash_slots":hose._swept_splash_draw.multimesh.visible_instance_count if hose._swept_spray else null})
 	return true
 
-func _swept_preview_drain_begin(hose: Node3D) -> void:
-	if OS.get_environment("ORISON_HOSE_SWEPT_PREVIEW") == "1" and failures.is_empty():
-		hose.set_swept_spray_preview(true)
+func _moving_swept_preview(actor: Node3D, hose: Node3D) -> void:
+	key(KEY_ESCAPE)
+	var reacquired: bool = await _aim_nozzle_surface(actor, actor._nozzle_joint, false)
+	if not check(not player.inspecting() and reacquired, "actual exit and ray reacquire the flowing nozzle"):
+		return
+	click()
+	if not check(player._grab.holding_pickup() and player.held_stock_body() == actor._nozzle_joint.body, "actual hand holds original physical nozzle during flow"):
+		return
+	hose.set_swept_spray_enabled(true)
+	var emitter: GPUParticles3D = hose._spray
+	var process: ParticleProcessMaterial = emitter.process_material
+	var start_pose := emitter.global_transform
+	var birth_start: int = hose.swept_stats.births
+	var retained_hand := true
+	for step in 24:
+		var motion := InputEventMouseMotion.new()
+		motion.relative = Vector2(2., 1.)
+		player._unhandled_input(motion)
+		await get_tree().process_frame
+		player._grab.follow_holder()
+		await get_tree().physics_frame
+		retained_hand = retained_hand and player._grab.holding_pickup() and player.held_stock_body() == actor._nozzle_joint.body and hose.water.spray > .7
+	check(retained_hand, "actual moving nozzle retains hand and charge across all 24 motion events")
+	var pose := emitter.global_transform
+	var births: int = hose.swept_stats.births - birth_start
+	check(not pose.is_equal_approx(start_pose) and births > 0 and not emitter.emitting, "swept packets are born while actual captured mouse changes nozzle pose")
+
+	var origin := pose.origin
+	var axis := (pose.basis * process.direction).normalized()
+	var horizontal := Vector3(axis.x, 0, axis.z).normalized()
+	var speed := (process.initial_velocity_min + process.initial_velocity_max) * .5
+	var impact := _trajectory(origin, axis, speed, process.gravity, .15)
+	_add_impact_box("MovingSprayWall", impact, Basis.looking_at(horizontal, Vector3.UP), Vector3(1.6, 1.6, .04))
+	var receiver: StaticBody3D = _fixtures[-1]
+	var receiver_rid := receiver.get_rid()
+	for frame in ceili((emitter.lifetime + .25) * Engine.physics_ticks_per_second):
+		await get_tree().physics_frame
+	var first_hit: Dictionary = hose.last_swept_impact.duplicate()
+	var film: Dictionary = hose.last_spray_impact.duplicate()
+	check(first_hit.get("rid", "") == str(receiver_rid) and film.get("rid", RID()) == receiver_rid and film.get("accepted", false), "moved nozzle sweeps and wets the exact new receiver")
+	var camera := Camera3D.new()
+	add_child(camera)
+	camera.global_position = impact + horizontal.cross(Vector3.UP) * 2.5 - horizontal * .55 + Vector3.UP * .4
+	camera.look_at(origin.lerp(impact, .65))
+	camera.make_current()
+	var output := OS.get_environment("SHOT_DIR")
+	var frames: Array = []
+	await _swept_preview_frames(camera, hose, output, "moving_spray_wall", frames)
+	player.camera.make_current()
+	camera.free()
+	var before_pause: Dictionary = hose.swept_stats.duplicate()
+	get_tree().paused = true
+	await get_tree().create_timer(.3, true).timeout
+	check(hose.swept_stats == before_pause, "pause freezes visual, splash and wet callbacks")
+	get_tree().paused = false
+	_clear_impact_fixtures()
+	for frame in ceili(.15 * Engine.physics_ticks_per_second):
+		await get_tree().physics_frame
+	var retired := true
+	for mark: Dictionary in hose._wet_marks:
+		retired = retired and (mark.rid != receiver_rid or (mark.left <= 0. and not mark.draw.visible))
+	check(retired, "unloaded receiver retires its film")
+	var before_release: int = hose.swept_stats.births
+	click()
+	for frame in ceili(.15 * Engine.physics_ticks_per_second):
+		await get_tree().physics_frame
+	check(not player._grab.active() and hose.water.spray > .7 and hose.swept_stats.births > before_release, "actual release leaves hydraulic flow and swept presentation active")
+	await aim(actor._tag.to_global(Vector3(0, 0, .0035)))
+	click()
+	key(KEY_SPACE)
+	check(player.inspecting() and player.inspect_owner == actor, "actual tag input resumes original water programme")
+	_moving_preview_executed = true
+	var file := FileAccess.open(output.path_join("moving_swept_preview.json"), FileAccess.WRITE)
+	if check(file != null, "moving swept report opens"):
+		file.store_string(JSON.stringify({"evidence_class":"INERT","start_pose":var_to_str(start_pose),"end_pose":var_to_str(pose),"moving_births":births,"first_solid":first_hit,"film":var_to_str(film),"frames":frames,"failures":failures}, "\t"))
+		file.close()
 
 func _swept_preview_idle(hose: Node3D) -> void:
-	if not hose._swept_preview:
+	if hose._wet_timer == null or hose._swept_jet == null:
 		return
 	# Original actual nozzle/supply controls already reached zero flow.
 	# Leave enough time for last flight, splash and film, including timer edge.
@@ -338,7 +409,6 @@ func _swept_preview_idle(hose: Node3D) -> void:
 	var after: Dictionary = hose.swept_stats.duplicate()
 	var idle: bool = before == after and hose._wet_timer.is_stopped() and hose._wet_drops.is_empty() and hose._dense_count == 0 and hose._swept_splash.is_empty() and hose._swept_jet.multimesh.visible_instance_count == 0 and hose._swept_splash_draw.multimesh.visible_instance_count == 0
 	check(idle, "actual zero flow retires both pools and yields zero idle callback/query delta")
-	hose.set_swept_spray_preview(false)
 	var file := FileAccess.open(OS.get_environment("SHOT_DIR").path_join("swept_preview_idle.json"), FileAccess.WRITE)
 	if check(file != null, "swept idle report opens"):
 		file.store_string(JSON.stringify({"evidence_class":"INERT","idle":idle,"before":before,"after":after,"scope":"Actual no-flow retirement and one capture-free second. Counters observe the wet Timer, not global frame cost."}, "	"))

@@ -1,6 +1,14 @@
 extends "res://tests/v2_hose_idle_visual_profile.gd"
 ## INERT: actual installed union input before the inherited extraction route.
 ## Initial placement and later repaired-line staging remain explicit diagnostics.
+func _ready() -> void:
+	var viewport := get_viewport()
+	var window := get_tree().root
+	viewport.msaa_3d = window.msaa_3d
+	viewport.scaling_3d_scale = window.scaling_3d_scale
+	viewport.use_taa = window.use_taa
+	super._ready()
+
 func _idle_controls() -> void:
 	var native: RefCounted=world.adapter.root.get_meta("v2_native_fire_service")
 	var actor: Node3D=native.stations.F02_FIRE_LINE_STAIR.get_ref()
@@ -86,6 +94,8 @@ func _prepare_repaired_line(actor: Node3D,joint: Node3D) -> bool:
 	_check(ok,"actual tightening input engages the installed nozzle thread")
 	profile_phase="installed_chain_nozzle_seal"
 	if ok:ok=await nozzle_hands.inspect_operate(driver,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),0.)
+	if ok:
+		ok = _check(await nozzle_hands.inspect_operate(driver, actor._lever, actor._lever.to_global(Vector3(.07, 0, 0)), 0.), "actual nozzle lever closes the newly coupled line")
 	ok=_check(ok and actor.gasket_seated and actor.gasket_seen and actor.coupling_made_up and actor.nozzle_coupled and actor.nozzle_shut and actor.valid_mechanism(actor.mechanism_snapshot()),"actual maintenance input produces the valid sealed line used by charging and save/reload") and ok
 	player.cancel_manipulation()
 	if player.inspecting():nozzle_hands.key(KEY_ESCAPE)

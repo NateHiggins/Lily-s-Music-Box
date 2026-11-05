@@ -6,6 +6,7 @@ var driver: Node
 var hose_checks: Array=[]
 var hose_motion: Array=[]
 var aim_errors: Array=[]
+var _completed_hose_route := false
 
 func _init() -> void:route_label="V2 INSTALLED HOSE WORLD"
 func _prepare_player_start() -> void:
@@ -14,6 +15,12 @@ func _prepare_player_start() -> void:
 
 func _check(ok: bool,label: String) -> bool:
 	hose_checks.append({"label":label,"ok":ok});return _require(ok,label)
+
+func _route() -> void:
+	await super._route()
+	if OS.get_environment("V2_INSTALLED_REPAIR_CHAIN") == "1" and OS.get_environment("V2_HOSE_HAND_REVIEW_ONLY") != "1":
+		_check(_completed_hose_route, "installed hose route reaches disk reconstruction and records its checks")
+	_write_checks()
 
 func _play_route() -> void:
 	player.profile_physics=true
@@ -84,14 +91,49 @@ func _play_route() -> void:
 	for frame in 3:await get_tree().process_frame
 	helper.key(KEY_SPACE)
 	if not _check(player.inspecting(),"charged nozzle returns to static inspection for its separate lever"):return
+	if not _check(hose._wet_timer == null and hose._swept_jet == null and not hose._spray.emitting, "installed closed charge keeps both transient pools unallocated"):return
 	profile_phase="first_spray_input"
 	if not _check(await helper.inspect_operate(driver,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),-.95),"actual separate lever input starts first installed spray"):return
 	profile_phase="steady_spray"
 	await get_tree().create_timer(6.).timeout
-	if not _check(hose.water.fill>.99 and hose.water.pressure>.79 and hose.water.spray>.7 and hose._spray!=null and hose._spray.emitting,"open installed supply sustains charge and spray without draining"):return
+	var jet_slots: int = hose._swept_jet.multimesh.visible_instance_count if hose._swept_jet != null else 0
+	var splash_slots: int = hose._swept_splash_draw.multimesh.visible_instance_count if hose._swept_splash_draw != null else 0
+	var spray_report := {
+		"water": hose.water.snapshot(),
+		"flow": hose.water.spray,
+		"muzzle": var_to_str(hose._spray.global_transform),
+		"nozzle": var_to_str(joint.body.global_transform),
+		"player": var_to_str(player.global_transform),
+		"jet_slots": jet_slots,
+		"splash_slots": splash_slots,
+		"gpu_emitting": hose._spray.emitting,
+		"stats": hose.swept_stats,
+		"first_solid": hose.last_swept_impact,
+		"inspection_origin": hose.inspection_origin_witness,
+		"film": var_to_str(hose.last_spray_impact),
+	}
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("installed_spray.json"), FileAccess.WRITE).store_string(JSON.stringify(spray_report, "\t"))
+	_check(jet_slots > 0 and not hose._spray.emitting, "open installed nozzle draws the swept jet")
+	if OS.get_environment("V2_INSTALLED_REPAIR_CHAIN") == "1":
+		var first_path: String = hose.last_swept_impact.get("path", "")
+		var witness: Dictionary = hose.inspection_origin_witness
+		var inspector_rid: String = str(player.get_rid())
+		var retries_bounded: bool = hose.swept_stats.inspection_origin_retries <= hose.swept_stats.visual_rays + hose.swept_stats.wet_rays
+		_check(witness.get("inspector_rid", "") == inspector_rid and witness.get("retry_rid", inspector_rid) != inspector_rid and retries_bounded,
+			"installed outbound launch retries its exact inspector overlap once per ray")
+		_check(not first_path.is_empty() and first_path != str(player.get_path()),
+			"installed swept jet reaches a different first solid")
+		var film: Dictionary = hose.last_spray_impact
+		var normal: Vector3 = film.get("normal", Vector3.ZERO)
+		var velocity: Vector3 = film.get("velocity", Vector3.ZERO)
+		_check(film.get("accepted", false) and normal.y >= .99 and velocity.y < 0. and splash_slots > 0
+			and str(film.get("rid", RID())) == hose.last_swept_impact.get("rid", ""),
+			"installed descending jet splashes and wets the exact first floor receiver")
 	await _picture("installed_spray")
+	if not _check(hose.water.fill > .99 and hose.water.pressure > .79 and hose.water.spray > .7, "open installed supply sustains charge and spray without draining"):return
 	if not _check(await helper.inspect_operate(driver,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),0.),"actual nozzle lever stops spray"):return
 	await get_tree().create_timer(.7).timeout
+	if not _check(hose.water.spray == 0. and hose._swept_jet.multimesh.visible_instance_count == 0, "installed lever closure retires the jet after its final flight"):return
 	helper.key(KEY_ESCAPE);helper.click()
 	if not _check(hose.release_support.last_result.get("placed",false),"charged nozzle can be set down again before closing supply"):return
 	await helper.aim(actor._tag.to_global(Vector3(0,0,.0035)));helper.click();helper.key(KEY_SPACE)
@@ -116,7 +158,7 @@ func _play_route() -> void:
 	wanted=actor.mechanism_snapshot();hose_motion=hose.motion_profile_records.duplicate(true)
 	if not _check(hose.contact.broad_queries==0 and hose.contact.shell_queries==0 and not hose.is_processing() and not hose.is_physics_processing(),"installed stable hose has no environment-query, cloth or fluid tick"):return
 	await _save_reload(wanted)
-	_write_checks()
+	_completed_hose_route = true
 
 func _picture(name: String) -> void:
 	var old:=profile_phase;profile_phase="capture_excluded_"+name
@@ -142,7 +184,9 @@ func _save_reload(wanted: Dictionary) -> void:
 			var actual: Dictionary=actor.mechanism_snapshot()
 			var comparison: Dictionary=preload("res://tests/hose_saved_pose_comparison.gd").compare(actual,wanted)
 			FileAccess.open(OS.get_environment("SHOT_DIR").path_join("rebuild_comparison.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","actual":actual,"wanted":wanted,"comparison":comparison},"\t",true,true))
-			_check(actor.valid_mechanism(actual) and comparison.equal,"disk rebuild restores physical poses within10um, wheel within1e-12rad and identical water and maintenance facts")
+			_check(actor.valid_mechanism(actual) and comparison.equal,"disk rebuild restores physical poses within10um, control and nozzle angles within1e-12rad and identical water and maintenance facts")
+			var restored_hose: Node3D = actor._live_hose
+			_check(restored_hose._wet_timer == null and restored_hose._swept_jet == null and not restored_hose._spray.emitting, "closed charged hose rebuild has no transient water effects")
 			_check(actor._live_hose.deployed and actor._live_hose.model.visible and not actor._folds.visible,"reconstructed world shows the extended native skin and hides stored stock")
 	RealityState.save_path=previous_path
 	for suffix: String in ["",".bak",".tmp",".txn"]:

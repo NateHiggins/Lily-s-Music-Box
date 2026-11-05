@@ -3,6 +3,98 @@
 Evidence class: **INERT**. Rendered, actual-input and performance diagnostics;
 no runtime_contract, surface promotion, human acceptance or V2 completion.
 
+## November 5 UTC — dense comparison and moving-nozzle proof
+
+**hose_dense_ab_01/** passed on **e90fe73cf** with 14 compile roots, both
+source guards and empty stderr. At the original 128-packet capacity, the
+native side views show a readable jet reaching the first solid, with
+separate splash and film. The floor test records a descending impact on
+its top face. Near-first staging leaves the far witness dry after old
+flight retires. Empty-space and actual zero-flow idle checks pass. The
+wall, floor, near and empty witnesses each sampled 20 ticks without capture
+work. Maximum complete callback times were 505, 690, 557 and 590 µs.
+These fixed-nozzle samples describe the callback in this fixture.
+
+**hose_dense_moving_01/** passed in 56.79 s with both source guards and
+empty stderr. The genuine inspection exit and ray reacquired the original
+nozzle. The held nozzle changed pose through 24 captured mouse events and
+emitted 70 packets during the move. After motion, the swept jet and wet
+film reached the exact owned wall receiver. One native side view was
+reviewed for jet contact and splash. Pause froze callbacks, receiver removal
+retired the film, and actual release kept the charged flow and presentation
+active. Tag return, drain, idle retirement and the missing-gasket control
+passed. These are isolated actual-input and rendered diagnostics.
+Installed-world review and measurements are tracked separately.
+
+The working candidate selects swept spray at the first genuine positive
+flow and leaves the stored jet resources prepared but hidden. The new
+pools are unallocated on a fresh closed line. **hose_swept_installed_01/**
+passes compile and the nearby default/moving proof. Its installed trial
+failed before spray during the union screw. The native hidden-window
+cursor reported out-of-range coordinates despite focus. The retry
+reuses the nearby detached viewport input while retaining the real
+player ray, full standing route and original maintenance checks.
+
+**hose_swept_installed_02/** passed the detached input, actual union,
+nozzle and washer programmes. The final nozzle alignment called a
+carry helper with the wrong argument count. Its receipt records the
+script error despite wrapper exit zero. Spray and disk reconstruction
+were not reached. The next batch retains the original alignment witness
+and requires the test to reach reconstruction before exiting cleanly.
+
+**hose_swept_installed_03/** proved actual nozzle alignment and
+thread engagement. The repaired-line check failed with the separate
+lever still open. The next installed test closes the lever by actual
+input after coupling. The failed snapshot, end-of-route check and
+source guards are retained.
+
+**hose_swept_installed_04/** passed repair, extraction, ordinary reticle
+following, release, closed charge and first spray input. The combined
+steady-flow/visible-jet check failed. **hose_swept_installed_05/** splits
+those assertions and records the actual muzzle, first collision, wet
+film and visible counts before an installed frame. Its installed proof
+is pending.
+
+The split run found full charge and 0.8 flow. All 951 packets hit the
+inspector's own capsule at their origin with zero normal, as did the
+wet sampler. The candidate retries only that zero-normal start overlap
+for the borrowed nozzle's existing inspection bookmark. Incoming hits,
+other solids and surface-support probes retain their original collision
+rules. The independent save path reached reconstruction and preserved
+hydraulics and maintenance. The comparison found a one-ULP round trip
+on the nozzle's pose angle. The same existing 1e-12-rad pose tolerance
+now covers it. These repairs await the guarded installed result.
+
+**hose_swept_installed_06/** passed 63 checks, ten installed waypoints
+and disk reconstruction in 407 s. The actual +Y landing collision and
+wet sampler used the same RID. The installed frame shows the continuous
+short jet, splash and separate wet patch. The maximum measured timer
+callback was 1.999 ms over 121 ticks. Closed charge rebuilt with the same
+water and maintenance facts, no transient presentation, and an 8.27e-25
+rad angle delta. Rebuild positions were within 1.07 µm.
+
+Source review found a further edge case. A packet in flight when inspection
+begins must retain ordinary collision behavior. **hose_swept_installed_07/**
+binds the retry to a packet's authorized launch and records both halves
+of the same retry witness. The new fixture also asserts descending film
+and splash on the same installed floor collision. Exact verification is
+in progress. No human or artistic acceptance is inferred.
+
+The **07** comparison passed wall, floor, near-before-far and empty
+cases. Its inherited observer then checked the just-restored presentation
+before the timer had produced a packet, so the batch stopped ahead of
+installed verification. **08** waits two timer intervals at that fixture
+boundary and leaves the production sources unchanged.
+
+**08** passed compile, the fixed native comparison, and 65 installed
+checks across ten waypoints in 416 s. The same-ray witness cleared the
+authorized inspector overlap. The swept jet and accepted descending
+wet film hit the same real F02 landing RID with visible splash. The
+maximum timer callback was 1.726 ms over 122 ticks. The reviewed native
+frame shows the jet, splash and wet patch. Closed charged reconstruction
+passed, including preserved water and maintenance and no transient
+effects. The log contains 20 known UID fallbacks and no script errors.
+
 ## November 5 UTC — measured impact baseline and preview limits
 
 **book_hose_controls_02/hose_baseline/** passes50/0 with empty stderr: actual

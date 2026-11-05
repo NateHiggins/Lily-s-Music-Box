@@ -26,10 +26,20 @@ func key(code: Key) -> void:
 func aim(point: Vector3) -> void:
 	player.camera.look_at(point);await get_tree().physics_frame;await get_tree().physics_frame;player.camera.look_at(point)
 func cursor_to(pixel: Vector2) -> bool:
+	pixel = pixel.round()
+	var viewport := get_viewport()
+	if viewport is SubViewport:
+		# Deliver position through the detached test viewport before the real
+		# player ray and gesture. No native cursor warp or chosen target.
+		var motion := InputEventMouseMotion.new()
+		motion.position = pixel
+		motion.global_position = pixel
+		viewport.push_input(motion, true)
+		await get_tree().process_frame
+		return viewport.get_mouse_position().distance_to(pixel) < .6
 	# Input-mode changes and the inspection's initial centering can still be
 	# queued at the native window. Publish a rendered frame before requesting
 	# the pick position, and retry only until its real viewport delivery.
-	pixel=pixel.round()
 	var window_id: int=get_window().get_window_id()
 	var initial_focus: bool=DisplayServer.window_is_focused(window_id)
 	var initial_mode: int=Input.mouse_mode
@@ -136,7 +146,7 @@ func carry_union(actor: Node3D,goal: Vector3) -> bool:
 	return await carry_part(actor,actor._joint_nut,actor._coupling.to_global(Vector3(0,-.012,.032)),goal,.00001)
 func carry_part(actor: Node3D,part: Node3D,point: Vector3,goal: Vector3,tolerance: float) -> bool:
 	return await carry_path(actor,part,point,[goal],tolerance)
-func carry_path(actor: Node3D,part: Node3D,point: Vector3,goals: Array,tolerance: float) -> bool:
+func carry_path(actor: Node3D,part: Node3D,point: Vector3,goals: Array,tolerance: float, final_contact: Callable = Callable()) -> bool:
 	if not await acquire_surface(part,point):
 		print("CARRY PICK FAILURE: wanted=",part," actual=",player._grab.find_target().get("part")," point=",point," mouse=",get_viewport().get_mouse_position()," wanted_pixel=",player.camera.unproject_position(point)," target=",player._grab.find_target())
 		return false
@@ -145,12 +155,16 @@ func carry_path(actor: Node3D,part: Node3D,point: Vector3,goals: Array,tolerance
 		if player._grab.active():click()
 		return false
 	var reached: bool=true
-	for goal: Vector3 in goals:
+	for index in goals.size():
+		var goal: Vector3 = goals[index]
+		var has_contact_stop: bool = index == goals.size() - 1 and final_contact.is_valid()
 		var arrived: bool=false;var stagnant: int=0
 		for i in range(160):
 			if not player._grab.active():break
 			var before: Vector3=player._grab.target.read.call()
-			if before.distance_to(goal)<tolerance:arrived=true;break
+			if (has_contact_stop and final_contact.call()) or before.distance_to(goal)<tolerance:
+				arrived = true
+				break
 			var step_goal: Vector3=goal
 			point=part.to_global(player._grab.contact)
 			var delta: Vector3=actor.global_basis*(step_goal-before)
