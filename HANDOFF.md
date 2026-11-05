@@ -40,6 +40,8 @@ Canonical **C:/PleaseRemainOnTheLine**, branch **codex/v2-book-hose-finish-20261
 
 **Performance limit:** the production wall run retains a 140.037 ms first-reverse interval. A later fixture-only Horizon body attribution has been drafted outside Git and is held until the composed source window is released.
 
+**Renewed apartment access:** **qualification_current_02/** at pushed **a8cdc2d44**, terminal0/source guards PASS, wrapper 964 s. The current production digest **7720077f...** passed the original 60-room, nine-leg contract with 781 serialized checks and zero retained root/driver nodes. Exact staged runtime and wrapper/log bytes passed the spatial verifier. All 18 native frames differ from the previous cohort and were individually opened. **qualification_current_publication_01/APARTMENT_FRAME_REVIEW.json** binds observations to current hashes and records close bathroom crops and foreground obstructions. Prior proof is preserved. The surface stage is next.
+
 **Next:** renew original first-slice authority/save, apartment access and composed surface proof on the new digest, then verify the clean exact candidate against merged main. Keep the larger reverse/first-view stutter open. Horizon body attribution is a separate possible diagnostic. Renew installed book provenance if the new digest is required and keep prior runtime receipts immutable. PR151/152 merged. PR152 exact **ce3b8a8c** and main **aca238412** retain the original 119-gate/0-regression and 14-suite evidence. PR153/154 drafts and PR155 open. Human play, artistic and whole-V2 acceptance remain open.
 
 ## Preserved integration and causal evidence
