@@ -1,4 +1,4 @@
-# Current handoff — PR152 merged; reproduce book parking exit
+# Current handoff — PR152 merged; book parking reproduced, fix awaiting verification
 
 Canonical **C:/PleaseRemainOnTheLine**. Active branch
 **codex/v2-book-hose-finish-20261104**, based on merged main
@@ -11,27 +11,43 @@ Clean actual-main baseline captured without edits at
 **C:/ov/reports/develop_intake_20261104/board_main_aca238412/board.json**;
 119complete rows,118PASS/1INCOMPLETE,commitaca238412,dirty0.
 
-**Current change is TEST ONLY**, not production: book slot-hand bench adds actual
-normal Space-exit controls after deliberate primary-click parking and after an
-unplaced inspection. Existing assertions/actual ray,grab,motion/release remain.
-The unplaced positive must preserve the SAME instance/hand return. The parked
-negative must record its actual failure before any production fix or fixture
-reset. Test-only patch8316bbb5318ba6ad5aa718482aa2fdf88b3b527711d4bc5260a84ea7eded759e
-is applied; production remains unchanged. Do not apply the combined patch again.
-Ready source split and hashes:
-**C:/ov/reports/develop_intake_20261104/book_exit_implementation_ready/SPLIT.md**.
-Next: commit/freeze this source, then queue prepared compile10+original
-**V2BookSlotHandBench.tscn** through normal FIFO. External
-**book_park_before_01/batch.template.json** is authored only until a launch and
-QUEUE_CUSTODY.json exist. Never duplicate a recorded live job.
+**Book before-run is terminal, expected failure reproduced.** Frozen source
+**c7e2e38839e47b9b1dcc72c5153e932d392d4399**, external case
+**C:/ov/reports/develop_intake_20261104/book_park_before_01/**.
+Compile10/0; original slot-hand bench105checks/2intended assertion failures in
+33.03s, wrapperexit2,not timedout. Unplaced normal Space exit retains the same
+book/owner/inventory and FPS hand (centre error1.49e-8m). Deliberately parked
+same book is reacquired on Space: slot2 becomes-1,pose changes,carrier exceptions
+return. Both observations precede reset. Stderr contains only the matching two
+assertion errors; no script errors/shutdown leaks. Original before/prestart/after
+source guards PASS. Launch29900/broker1564 are gone; session41044 completed2.
+Raw logs,receipts,source freeze,observations and BEFORE_ASSESSMENT.json remain
+unchanged. These are causal diagnostics,not a schema2 runtime qualification.
 
-After the causal before-run, apply only production_only.patch95f8287dd13c659ff221996836c4cd7d0a3671d22c9f65e647b2d82e842c1419:
-PlayerController asks the existing owner before discarding/reacquiring its
-inspection loan; shelf vetoes only the same registered already-parked book.
-Rerun the SAME tests, then existing nearby installed nook/lamp/readability
-observations. Preserve ordinary unplaced return,finite stock,slots,library/save
-owners and physical carrier exceptions. Authored book optics diagnostic remains
-**book_optics_ready/**, not installed/compiled/run or artistically accepted.
+**Implemented, not yet verified:** production_only.patch95f8287dd13c659ff221996836c4cd7d0a3671d22c9f65e647b2d82e842c1419
+is applied to PlayerController and readable bookshelf. Before releasing its
+inspection loan,the player asks the existing owner; the shelf vetoes only the
+same registered book already parked in a valid slot. Unplaced same-object hand
+return and every other owner's behavior remain through the existing path.
+Original slot-hand test bytes remain unchanged (LF29724e651959e1f0256b121fc69cf072db1ea8332da62da2a9c440373921000c).
+The two reviewed **V2BookLampDiagnostic.tscn/v2_book_lamp_diagnostic.gd** files
+are installed from **book_optics_ready/strengthened/**,not compiled/run yet.
+They observe actual lamp on/off/restored input,hand drift/contact,drawn cover/glyph
+bounds and native frames; no independent opaque control or readability acceptance.
+
+Next: commit/push these named paths,freeze actual source/engine and launch
+**book_park_after_01/batch.json** from its reviewed template through normal FIFO.
+Until QUEUE_CUSTODY.json exists,this case is **AUTHORED_NOT_QUEUED**. Never duplicate
+a live job. Five sequential stages: same compile10,same slot-hand bench,28-script
+optics/access compile,nearby installed optical observations,existing access survey;
+separate profiles/outputs and stop on first failure. Source remains fixed through
+the whole batch. After local positive,the existing schema2
+**V2BookInspectionReturnWorld.tscn** needs a bounded parked-exit contract addition
+before its validated household disk reconstruction; unplaced branch stays.
+Access renewal uses **V2NookAccessSurvey.tscn**: October22's table/plant/rug repair
+already passed11normal-capsule waypoints. The parent profile's stale access-defect
+comment is not a fresh failure. Reproduce via that corrected route before any
+geometry/collision change; preserve the full player capsule. No human play/art.
 
 Then existing hose work: **hose_impact_ready/** is an unrun actual-input ballistic
 observer; **hose_implementation_ready/proposed.patch**6c09de9639ac2f4429c9dec2e6a106ee1c005fde1aca837f17daa6b6bc017cd4
@@ -70,9 +86,9 @@ golden-shift,weather,city,narrative and all gameplay/save commitments.
 
 ## Finish the integration before opening new work
 
-1. Run the test-only parked/unplaced book-exit controls on unchanged production.
-   Preserve the actual negative result,then apply the bounded production fix and
-   repeat those exact tests. No reset or direct state write before observations.
+1. Preserve the completed105-check/2failure book before cohort; run the exact
+   same tests on the bounded fix,then nearby optics/access. Add the missing
+   installed parked-exit contract before validated save renewal; no forced state.
 2. Exercise nearby installed nook/lamp/readability and the original hose impact
    observer before changing wetting. Finish real moving-nozzle,first-solid,
    floor/edge/underside,pause/zero-flow,restore/unload and idle-cost controls.

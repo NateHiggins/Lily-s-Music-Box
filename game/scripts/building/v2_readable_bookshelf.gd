@@ -299,6 +299,13 @@ func inspection_started() -> void:
 		if _inspection_stock is Book:
 			_inspection_stock.begin_floating_view(get_viewport().get_camera_3d().global_transform)
 
+## Only an already parked binding relinquishes the borrowed FPS hand.
+## Slot occupancy and placement remain owned by the original stock/shelf.
+func inspection_pickup_return_allowed(part: Node3D) -> bool:
+	if part is Book and part.shelf==self and _books.get(part.stock_id)==part:
+		return part.shelf_slot<0
+	return true
+
 func inspection_ended() -> void:
 	if is_instance_valid(_inspection_stock):
 		if _inspection_stock is Book: _inspection_stock.end_floating_view()
