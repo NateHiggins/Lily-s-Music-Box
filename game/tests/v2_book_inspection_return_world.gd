@@ -264,7 +264,7 @@ func _park_installed_book(book: Node3D) -> void:
 	if not _require(depth>.12,"actual floating binding lies outside original installed withdrawal corridor"):return
 	var goals: Array[Vector3]=[approach+outward*(depth-.12),approach,wanted.origin+outward*.015+lift*.004]
 	for index in goals.size():
-		var moved: bool=await _park_carry(goals[index])
+		var moved: bool=await _park_carry_axes(goals[index])
 		_park_observe("approach_leg_%d"%index,book)
 		if not _require(moved,"actual installed mouse/depth approach reaches bounded leg %d"%index):return
 	_click_library()
@@ -332,3 +332,30 @@ func _park_clear_player_for_rotation(book: Node3D) -> bool:
 	_park_observe("actual_player_clearance_before_rotation",book)
 	radial=book.global_position-player._shape.global_position;radial.y=0.
 	return _require(moved and radial.length()>=separation-.0001 and player._grab.active() and player._grab.target.part==book,"actual mouse/depth carry clears full player capsule before original precision rotation")
+
+func _park_carry_axes(goal: Vector3) -> bool:
+	# Actual existing frame-axis keys and depth wheel avoid the downward arc
+	# produced by the down-looking free ray. Native body sweeps still decide.
+	var stalled:=0
+	for frame in 120:
+		if not player._grab.active() or player._grab.target.kind!="free":return false
+		var target: Dictionary=player._grab.target
+		var before: Vector3=target.read.call()
+		if before.distance_to(goal)<.0001:
+			_park_axis(-1);return true
+		var delta: Vector3=goal-before
+		var axis: int=0 if absf(delta.x)>=.00005 else (1 if absf(delta.y)>=.00005 else 2)
+		_park_axis(axis)
+		var wheel:=InputEventMouseButton.new();wheel.pressed=true
+		wheel.button_index=MOUSE_BUTTON_WHEEL_DOWN if delta[axis]>0. else MOUSE_BUTTON_WHEEL_UP
+		wheel.factor=minf(.025,absf(delta[axis]))/.025
+		player._unhandled_input(wheel)
+		await get_tree().physics_frame
+		if not player._grab.active():return false
+		var after: Vector3=player._grab.target.read.call()
+		stalled=stalled+1 if after.distance_to(goal)>=before.distance_to(goal)-.000001 else 0
+		if stalled>8:
+			print("INSTALLED AXIS CARRY STOP: ",axis," at=",after," goal=",goal," contact=",_park_hit_fields(player._grab.target.part._last_motion))
+			_park_axis(-1);return false
+	_park_axis(-1)
+	return false
