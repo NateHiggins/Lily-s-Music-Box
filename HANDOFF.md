@@ -1,116 +1,77 @@
-# Current handoff — audio teardown blocks PR152 qualification
+# Current handoff — PR152 merged; reproduce book parking exit
 
-Canonical checkout **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-qualification-debt-20261104**. PR152 remains **OPEN/DRAFT/UNQUALIFIED**.
-Main **4f16053e8**; pushed source checkpoint **dd1d6f652**
-(engine shutdown cleanup plus opt-in native diagnostic audio output). Root **01a1a653-eda8-7732-9732-2c362f5129d6** owns
-integration. Lily paused parallel emulator work and assigned the computer to
-this development. Keep emulators paused; preserve her mouse and hidden FIFO lane.
-Share normal FIFO with Claude, batch coordination messages and give her time;
-no exclusive-use or GPU-pause requests. Her isolated work can continue.
+Canonical **C:/PleaseRemainOnTheLine**. Active branch
+**codex/v2-book-hose-finish-20261104**, based on merged main
+**aca238412c85d8f6200e1140e1a5bfab12f1b847**. PR152 is **MERGED**; its exact
+candidate **ce3b8a8c7451ac21834e68b535a7a1f257a67db1** passed119gates:
+118PASS/1existingINCOMPLETE,0regressions/87improvements,17protected paths unchanged,
+selectorV2 and0lint blockers. Independent review of all7gate changes found no
+weakenedassertion or broadexemption. Main tree matches that exact candidate.
+Clean actual-main baseline captured without edits at
+**C:/ov/reports/develop_intake_20261104/board_main_aca238412/board.json**;
+119complete rows,118PASS/1INCOMPLETE,commitaca238412,dirty0.
 
-**runtime14 is TERMINAL/PASS**, original broker38556/session23979 retired.
-All seven original scene wrappers exit0/untimedout with zero ERROR/SCRIPT ERROR
-or shutdown leaks. First-slice661.75s/379serialized checks/0fail; apartments
-974.80s/60rooms/9legs/781serialized/0fail; physical-only surfaces360.72s/
-38947checks/0fail/0unresolved. Original afterguardPASS includes82actual3440PNGs.
-Architect independently rechecked full consumed projection/binary equality and
-released custody. Exact originals: **runtime_14/TERMINAL.json**, MONITOR.md,
-SOURCE_FREEZE.json and original wrappers/contracts. Frozen game/test source
-**dd1d6f652b9087c410b82a81b40284124c92e92c**; wrappers record tracker-only
-**d0039ff78da1451c68ddffebfd93672e46baf472**. Producer remains immutable
-**423771d0ee6a076e0d7f74bee9bc87a8e7eb5d9e63dfaa226320a9acc520873f**.
-All six windowed programmes used explicit realBD9/fresh isolated profiles.
-12bounded+18apartment+64surface originals reviewed; foreground/wall crops and
-city shading/framing limitations remain in the exact-hash INERT frame reviews.
-No human play/artistic acceptance is implied.
+**Current change is TEST ONLY**, not production: book slot-hand bench adds actual
+normal Space-exit controls after deliberate primary-click parking and after an
+unplaced inspection. Existing assertions/actual ray,grab,motion/release remain.
+The unplaced positive must preserve the SAME instance/hand return. The parked
+negative must record its actual failure before any production fix or fixture
+reset. Test-only patch8316bbb5318ba6ad5aa718482aa2fdf88b3b527711d4bc5260a84ea7eded759e
+is applied; production remains unchanged. Do not apply the combined patch again.
+Ready source split and hashes:
+**C:/ov/reports/develop_intake_20261104/book_exit_implementation_ready/SPLIT.md**.
+Next: commit/freeze this source, then queue prepared compile10+original
+**V2BookSlotHandBench.tscn** through normal FIFO. External
+**book_park_before_01/batch.template.json** is authored only until a launch and
+QUEUE_CUSTODY.json exist. Never duplicate a recorded live job.
 
-**Publication instrument repair:** first staging attempt refused before creating
-packets because wrapper test_path/test_sha256 are correctlyNULL for the
-scriptless rootControl; the primary programme is a child ofInputViewport.
-Original failed helper/logs remain untouched. The active first-slice verifier
-now accepts that exact NULL-only case only after proving the unique child
-attachment from recordedGit scene/script bytes, currentLF equality and the
-primary contract's scene/script hashes. All other ledger/runtime/log checks
-remain strict.14author CPU controls plus6independent root negatives pass; actual14
-binding passes. Only the unconsumed verifier changed; no raw receipt is repinned.
-Fresh **stage_runtime14_nested_packets.py** admits exactly its reviewed LF SHA
-**a10053640090016739aa5ef0579156022db77ca46fbb2cc6613f6a3c13a552a1**,
-checks every interveningcommit/mergeparent, and reuses the immutable14afterguard
-before packet staging in distinct logs. Both packets staged successfully through that original guard and all three
-canonical packets are now published/revalidated, with original raw bytes and
-prior cohorts preserved. Next exact candidate/manualqualified152merge. No game replay is required
-for an instrument-only change if the original consumed projection still matches.
-First exact candidate2bbb2f096 blocked one systemic review item4cbc4a20e1c0d49a;
-17protected paths/selector/designlint passed. Read-only installed-camera context
-snapshots were independently reviewed and exactly one DOCUMENT/test baseline
-entry added; no world/clock/save write.63audit testsPASS,newreview30→29,0new
-actual/policy findings; immutable14afterguardPASS unchanged. Fresh exact candidate
-must run against this reviewed baseline commit; never accept/waive the old failure.
+After the causal before-run, apply only production_only.patch95f8287dd13c659ff221996836c4cd7d0a3671d22c9f65e647b2d82e842c1419:
+PlayerController asks the existing owner before discarding/reacquiring its
+inspection loan; shelf vetoes only the same registered already-parked book.
+Rerun the SAME tests, then existing nearby installed nook/lamp/readability
+observations. Preserve ordinary unplaced return,finite stock,slots,library/save
+owners and physical carrier exceptions. Authored book optics diagnostic remains
+**book_optics_ready/**, not installed/compiled/run or artistically accepted.
 
-**runtime13 is TERMINAL/FAILED**, not queued. Original apartment assertions
-passed: 60 rooms/9 legs,781 serialized checks,0 failures,1264.98s. Original
-physical/city/entry surface assertions passed:0 unresolved,367.10s. All82 PNGs
-are actual3440x1440 and reviewed. Final admission correctly rejected shutdown
-errors: apartments11219 ObjectDB instances/30 resources; surface1133/24.
-These are not qualified packets. Preserve every original log/receipt under
-**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_13/**.
-Source/retirement checked and custody explicitly released. No publication or
-merge is authorized by these partial passes.
+Then existing hose work: **hose_impact_ready/** is an unrun actual-input ballistic
+observer; **hose_implementation_ready/proposed.patch**6c09de9639ac2f4429c9dec2e6a106ee1c005fde1aca837f17daa6b6bc017cd4
+is uninstalled transient impact/wetting code. **hose_wetting_verification_ready/**
+adds observations only; floor-arrival,moving-nozzle,pause/zeroFlow/restore/unload
+and native optics/performance still require actual sequential controls. Preserve
+original hydraulics,grip/rack,inventory,workorders,household/save authorities.
+Do not manufacture grip,pose or wet state for a pass.
 
-The unchanged verbose surface reproduction at
-**C:/ov/reports/develop_intake_20261104/teardown_verbose_01/** completed371.78s
-and identified1051 leaked audio instances:491 Vorbis playback/491 packet
-playback,42 WAV playback,12 Ogg streams/12 packet sequences,3 WAV streams.
-Its source custody is released. Fixture/interaction-cycle reviews found no
-supported fix; do not apply speculative teardown changes.
+Measured stutter next uses existing **V2CityTransportRoute.tscn** with
+**ORISON_CITY_ROUTE_SCOPE=stutter_probe**. Read-only readiness:
+**C:/ov/reports/develop_intake_20261104/optimization_next_window_readiness.md**.
+It measures setup-warmed six-leg play,not cold/Continue. Optional passive/watchdog
+old-engine hardpins remain held; they are not new game blockers. Reuse unchanged
+geometry evidence; record fresh engine/realBD9 timing without captures in samples.
 
-Tiny four-case reproduction at
-**C:/ov/reports/develop_intake_20261104/teardown_audio_ready/runs/** establishes
-all count controls:64 queued stop/release operations each exit without leaks;
-64 started stop/release operations each leak130 audio instances/2 resources.
-The mixer clock stops advancing while physics advances. Thus the proposed
-AudioPolicy stop_source replacement is not causal and remains unapplied.
-Root admitted minimal engine shutdown cleanup after six tiny controls
-passed with zero leaks; AudioPolicyTest53PASS. DoorAudioLifetimeTest still
-fails the same2/12 started-decoder checks on both original and new engines
-on the stalled default Razer route. A process-only real BD9 endpoint advances
-mixing and passes the unchanged12/12 door test on both engines; integrated
-native-debug selection passes12/12, unlisted output refusesexit2. Keep Windows
-default/preferences untouched; qualify explicitly on this working endpoint. New engine/build bindings and exact limits:
-**design/V2_QUALIFICATION_RENEWAL_2026-10-20.md**. No game audio code changed. Vulkan loader errors in verbose
-runs are separately preserved, not silently removed or treated as proof.
+PR152 original runtime14 and raw published proof remain immutable: authority/save
+661.75s/379serialized checks;60rooms/9legs974.80s/781checks;surface360.72s/38947checks,
+all0fail/errors/shutdownleaks and original afterguardPASS.94nativePNG reviews retain
+foreground,crop and city-framing/shading limits. Bindings/priorcohorts/failures:
+**art/reviews/v2_qualification_debt_20261104/** and
+**design/V2_QUALIFICATION_RENEWAL_2026-10-20.md**. No humanplay/artistic/whole-V2
+acceptance. Main's proof is preserved; changed feature inputs require renewed
+qualification before a later merge,never a receipt repin.
 
-Original runtime11 authority/save PASS633.48s and bounded transfer/frame proof
-remain preserved at **runtime_11/**, including real28 insert identities,repair,
-resident return,disk save,reconstruction and seven-authority composition.
-Reuse only while exact consumed source AND binary inputs remain valid. A new
-engine requires affected proof renewal. Earlier runtime05–12 failures remain
-immutable; resolution reproductions and historical details are in Git history.
-Original19-room packet is separately archived at
-**art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/**.
-Matching original60-room cohort recovered externally at
-**C:/ov/reports/develop_intake_20261104/historical_apartment60_ready/**; preserve
-its matching original contract/wrapper rather than pairing superseded metadata.
-
-Next: original qualification on the admitted shutdown-fix engine and explicit
-working BD9 endpoint under fresh custody,byte-exact publication,exact119-gate candidate
-against **board_main_4f16053e8/board.json**,manual qualified PR152 merge.
-Do not use failed runtime13 staging as success or repin old receipts.
-Then integrate prepared book exit and hose wetting patches,exercise installed
-readability/direct manipulation/save and measured stutter. External deliveries:
-**C:/ov/reports/develop_intake_20261104/book_exit_implementation_ready/** and
-**hose_implementation_ready/**; both are authored only,not installed or run.
-Claude Sun153/mystery154/staff155 remain isolated behind PR152. Private Discord
-joke database/writers draft are delivered outside Git; preserve PR154's four
-wrapped field notes when combining staff changes. Preserve prologue,audio,
-golden-shift,weather,city,narrative and all gameplay/save authorities.
-No whole-V2,human play or artistic acceptance is claimed.
+Use the pinned shutdown-fix engine through FIFO/hidden desktop/logged receipts;
+explicit process-only **ORISON_NATIVE_AUDIO_OUTPUT=Headphones (BD9)** is the
+verified real WASAPI route. Windows preferences stay untouched; default Razer
+host route/listening acceptance remain open. Preserve Lily's mouse and paused
+emulators. Share normal FIFO with Claude, batch messages and give her time;
+no exclusive use or GPU-pause requests. Her isolated comic/LoRA work continues.
+Existing Sun153/mystery154/staff155 source heads stay isolated until coordinated
+stable integration; retain PR154's wrapped four-note hunk when combining staff.
+Private Discord jokeDB/writers draft stay outside Git. Preserve prologue,audio,
+golden-shift,weather,city,narrative and all gameplay/save commitments.
 
 ## Finish the integration before opening new work
 
-1. Complete nested-script packet admission and publish the successful original14
-   authority/save,apartment and surface evidence; preserve all prior failures.
+1. Reproduce book parking exit on unchanged production,apply the bounded fix,
+   then run the same input controls and nearby installed readability checks.
    Stage only exact original receipts via the external staging helper,passing
    the successful new runtime name explicitly; its default still names03. Preserve the older19-room
    apartment cohort separately. No receipt repin or capture-to-played promotion.
