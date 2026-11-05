@@ -5,6 +5,9 @@ const EXPECTED_SOURCE_LF_SHA256="9f1c648f9bcaa7bafaa2199cdd7dbaab6f2823e1adbcab6
 var failures: Array[String]=[]
 
 func _ready() -> void:
+	_run.call_deferred()
+
+func _run() -> void:
 	Subject=load("res://tests/v2_book_inspection_return_world.gd")
 	if Subject==null or not Subject.can_instantiate():
 		print("BOOK SNAPSHOT PREFLIGHT: REFUSED invalid diagnostic script")
@@ -15,6 +18,9 @@ func _ready() -> void:
 		get_tree().quit(2);return
 	var collider:=StaticBody3D.new();collider.name="RealCollider"
 	get_tree().root.add_child(collider)
+	if not collider.is_inside_tree():
+		print("BOOK SNAPSHOT PREFLIGHT: REFUSED collider did not enter tree")
+		collider.free();get_tree().quit(2);return
 	# Deliberately include the live collider and a Callable. Its metadata leads
 	# back to the SAME dictionary: blindly encoding the Object is unsafe.
 	var contact: Dictionary={"collider":collider,"rid":collider.get_rid(),"shape":3,"normal":Vector3.UP,"position":Vector3(1,2,3),"point":Vector3(4,5,6),"motion":Vector3(.01,0,0),"safe":.25,"unsafe":.3}
