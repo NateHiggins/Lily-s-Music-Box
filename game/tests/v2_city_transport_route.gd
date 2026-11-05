@@ -138,6 +138,62 @@ func _render_pass_counts(viewport: RID) -> Dictionary:
 		]
 	return passes
 
+func _identical_dry_wall_meshes(unshare: bool) -> Dictionary:
+	var blockout := world.get_node("OrisonV2Blockout")
+	var rooms: Dictionary = {}
+	for space: Dictionary in blockout.layout.spaces:
+		if str(space.get("class", "unresolved")) != "wet":
+			rooms[str(space.id)] = true
+	var groups: Dictionary = {}
+	var inspected := 0
+	for room: Node in blockout.get_children():
+		if not rooms.has(str(room.name)):
+			continue
+		for node: Node in room.get_children():
+			var draw := node as MeshInstance3D
+			if draw == null or not str(draw.name).begins_with("Wall") or not draw.is_visible_in_tree():
+				continue
+			var mesh := draw.mesh as ArrayMesh
+			if mesh == null or mesh.get_surface_count() != 1 or mesh.shadow_mesh != null \
+					or draw.cast_shadow != GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED:
+				continue
+			var collision := draw.get_node_or_null("Collision") as StaticBody3D
+			if collision == null or collision.get_child_count() != 1:
+				continue
+			var stock := collision.get_child(0) as CollisionShape3D
+			if stock == null or not stock.transform.is_equal_approx(Transform3D.IDENTITY) or not stock.shape is BoxShape3D:
+				continue
+			var size: Vector3 = stock.shape.size
+			var bounds := mesh.get_aabb()
+			if not bounds.is_equal_approx(AABB(-size * .5, size)):
+				continue
+			var active := draw.get_active_material(0) as ShaderMaterial
+			var base := mesh.surface_get_material(0)
+			if active == null or active.shader != SurfacePass.OPAQUE or base == null:
+				continue
+			var bytes := var_to_bytes(mesh.surface_get_arrays(0))
+			# Compare the full packed arrays before swapping, even after binning.
+			var key := str([size, active.get_rid(), base.get_rid(), mesh.surface_get_format(0),
+				draw.layers, signf(draw.global_basis.determinant()), hash(bytes)])
+			if not groups.has(key):
+				groups[key] = {"representative": mesh, "bytes": bytes, "members": []}
+			var group: Dictionary = groups[key]
+			if group.bytes == bytes:
+				group.members.append({"draw": draw, "original": mesh})
+				inspected += 1
+	var swaps: Array = []
+	var repeated := 0
+	for group: Dictionary in groups.values():
+		if group.members.size() < 2:
+			continue
+		repeated += 1
+		for row: Dictionary in group.members.slice(1):
+			if unshare and row.original == group.representative:
+				swaps.append({"draw": row.draw, "original": row.original, "treatment": row.original.duplicate()})
+			elif not unshare and row.original != group.representative:
+				swaps.append({"draw": row.draw, "original": row.original, "treatment": group.representative})
+	return {"inspected": inspected, "groups": repeated, "swaps": swaps}
+
 func _stationary_celestial_shadow_control() -> Dictionary:
 	var key := world.get_node_or_null("WakingAtmosphere/CelestialKey") as DirectionalLight3D
 	if not is_instance_valid(key) or not key.shadow_enabled or key.get_meta("absolute_writer", "") != "DayNightDirector":
@@ -152,10 +208,19 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 	var weather := world.get_node("WakingAtmosphere/WeatherManager")
 	var conditions: Dictionary = weather.current.duplicate(true)
 	var rows: Array = []
+	var share := OS.get_environment("ORISON_CITY_STUTTER_SHARE_WALL_MESHES") == "1"
+	var unshare := OS.get_environment("ORISON_CITY_STUTTER_UNSHARE_WALL_MESHES") == "1"
+	var stock := _identical_dry_wall_meshes(unshare) if share or unshare else {}
+	var swaps: Array = stock.get("swaps", [])
+	if share or unshare:
+		check(not swaps.is_empty(), "existing dry wall stock has exact repeated mesh resources")
+	var middle := "unique_wall_meshes" if unshare else ("shared_wall_meshes" if share else "celestial_shadows_off")
 	RenderingServer.viewport_set_measure_render_time(viewport, true)
-	for phase: String in ["original_a", "celestial_shadows_off", "original_b"]:
+	for phase: String in ["original_a", middle, "original_b"]:
 		var expected := phase != "celestial_shadows_off"
 		key.shadow_enabled = expected
+		for row: Dictionary in swaps:
+			row.draw.mesh = row.treatment if phase == middle else row.original
 		for frame in 16:
 			await RenderingServer.frame_post_draw
 		var previous := Time.get_ticks_usec()
@@ -174,10 +239,28 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 		check(stable, "stationary reverse camera and celestial shadow control hold through " + phase)
 	key.shadow_enabled = true
 	RenderingServer.viewport_set_measure_render_time(viewport, false)
+	if unshare:
+		# Review the fixed reverse view after timing, with no readback in samples.
+		var directory := OS.get_environment("SHOT_DIR")
+		for phase: String in ["original_a", middle, "original_b"]:
+			for row: Dictionary in swaps:
+				row.draw.mesh = row.treatment if phase == middle else row.original
+			for frame in 16:
+				await RenderingServer.frame_post_draw
+			var image := get_viewport().get_texture().get_image()
+			check(image.get_size() == Vector2i(3440, 1440)
+				and image.save_png(directory.path_join("reverse_" + phase + ".png")) == OK,
+				"native wall mesh review captures " + phase)
 	check(camera.is_current() and camera.global_transform.is_equal_approx(pose)
 		and world.safety_net.recoveries == recoveries and key.shadow_enabled,
 		"stationary control restores the original shadow flag without moving the player")
-	return {"scope": "Diagnostic shadow flag only. Same installed reverse endpoint after walking. Pass counters can lag the sampled interval.",
+	var restored := true
+	for row: Dictionary in swaps:
+		restored = restored and row.draw.mesh == row.original
+	check(restored, "stationary control restores the exact original mesh resources")
+	return {"scope": "Same installed reverse endpoint after walking. Pass counters can lag the sampled interval.",
+		"control": middle, "eligible_walls": stock.get("inspected", 0), "repeated_groups": stock.get("groups", 0),
+		"mesh_swaps": swaps.size(),
 		"camera": var_to_str(pose), "key": str(key.get_path()), "key_pose": var_to_str(light_pose),
 		"key_energy": light_energy, "weather_before": conditions, "weather_after": weather.current.duplicate(true),
 		"samples": rows}

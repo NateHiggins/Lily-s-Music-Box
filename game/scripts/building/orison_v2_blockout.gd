@@ -16,6 +16,7 @@ var architectural_materials := preload("res://scripts/building/orison_v2_archite
 var layout: Dictionary = {}
 var level_y: Dictionary = {}
 var materials: Dictionary = {}
+var _dry_wall_charts: Dictionary = {}
 var fabricated_fixtures: Dictionary = {}
 var failures: Array[String] = []
 const SemanticAnchor := preload("res://scripts/building/orison_v2_semantic_anchor.gd")
@@ -810,9 +811,10 @@ func _wall_segment(parent: Node3D, node_name: String, axis: String, fixed: float
 		var remaining: Array[AABB]=[]
 		for piece: AABB in pieces: remaining.append_array(_subtract_box(piece,_service_box(opening.bounds)))
 		pieces=remaining
-	var draw:=_box(parent,node_name,at,size,cls,true)
+	var intact: bool = pieces.size() == 1 and pieces[0] == bounds
+	var draw := _box(parent, node_name, at, size, cls, true, "", intact and cls != "wet")
 	_far_face_skin(parent,node_name,axis,fixed,at,size,pieces,cls)
-	if pieces.size()==1 and pieces[0]==bounds: return
+	if intact: return
 	var body:=draw.get_node("Collision") as StaticBody3D
 	for shape: CollisionShape3D in body.get_children(): shape.free()
 	if pieces.is_empty():
@@ -1285,7 +1287,7 @@ func _architectural_chart(mesh: Mesh, parent: Node, at: Vector3, cls: String) ->
 	return preload("res://scripts/building/v2_metre_box_uv.gd").chart(mesh,origin)
 
 func _box(parent: Node, node_name: String, at: Vector3, size: Vector3,
-		material_key: String, collision: bool, slab_part: String = "") -> MeshInstance3D:
+		material_key: String, collision: bool, slab_part: String = "", share_dry_wall := false) -> MeshInstance3D:
 	var mesh_node := MeshInstance3D.new()
 	mesh_node.name = node_name
 	var mesh := BoxMesh.new()
@@ -1302,7 +1304,14 @@ func _box(parent: Node, node_name: String, at: Vector3, size: Vector3,
 		mesh_node.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
 	if production_materials and part in ["Floor","Ceiling"]:
 		mesh_node.mesh=_slab_faces(mesh,part=="Floor")
-	if production_materials and (part in ["Floor","Ceiling"] or part.begins_with("Wall") or material_key=="wet"):
+	if production_materials and share_dry_wall:
+		# Intact dry walls use the same local chart for equal sizes and palette
+		# materials. The collision body and each instance's transform stay local.
+		var key := [material_key, size]
+		if not _dry_wall_charts.has(key):
+			_dry_wall_charts[key] = _architectural_chart(mesh, parent, at, material_key)
+		mesh_node.mesh = _dry_wall_charts[key]
+	elif production_materials and (part in ["Floor","Ceiling"] or part.begins_with("Wall") or material_key=="wet"):
 		mesh_node.mesh=_architectural_chart(mesh_node.mesh,parent,at,material_key)
 	if production_materials and material_key not in ["clearance", "interaction", "unresolved"]:
 		mesh_node.material_override = architectural_materials.material_for(node_name,material_key)
