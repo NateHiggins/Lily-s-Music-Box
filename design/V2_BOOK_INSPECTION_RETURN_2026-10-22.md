@@ -3,6 +3,33 @@
 Evidence class: **INERT**. Repair/diagnostic report, 2026-10-22.
 No runtime-contract qualification or human acceptance.
 
+## November 5 UTC — native opaque control and actual handling stops
+
+**book_held_controls_01/** at **e411cbf72**, terminal1, finalsourceguardPASS:
+clean deferred native snapshot10/0 with real collider/path and empty stderr.
+Original four optical phases plus SAME held closed-copy clear/owned opaque
+panel/restored phases execute. Exact first solid changes book→panel→book;
+three unscaled native cover crops show illumination→darkness→restoration.
+Production query counter deltas7/5/6 over12physics ticks remain bounded;
+actual next-primary empty-hand eligibility/fallback passes. These are technical
+fixture-inserted blocker controls, not a player-operated mechanism or performance
+proof. Title legible; author tiny. No artistic acceptance.
+
+The following actual two-style attempt selects **nook_books__Volume17/concrete**
+hardback: true spine ray and primary pickup pass; ordinary130frame hand follow
+misses3mm tolerance. No open/flexible stage ran. Preserve the raw failure;
+bounded before/after withdrawal/contact observations are added for diagnosis.
+A nearby actual native nook reproduction precedes any city retry.
+
+**book_hose_controls_02/** installed parked extension no longer recurses, reaches
+same-body floating spine grip, then requested precision rotation fails. Retained
+body sweep names Player; it is not a fresh rotation-query hit. The staged native
+capsule probe must establish that before a real outward carry amendment. Schema2
+parked attemptedtrue/executedfalse/passedfalse and disk unexecuted, three failures,
+finalsourceguardPASS. No parked/disk qualification. False custom-SceneTree and
+parent-busy snapshot attempts remain raw; the later clean preflight supersedes
+neither their logs nor their producer hashes.
+
 ## November 4 — current technical evidence and remaining installed proof
 
 **Latest batch book_reading_installed_02/** at **eb7b27a71** is terminal: compile30/0, native input9/0, default lamp21/0, installed optical four phases/0failures, access11waypoints/0failures, installed compile1/0; before/after sourceguardsPASS. Native frames and unscaled crops reviewed: closed held title legible, author tiny (~40x11px); on/off/restored illumination causal, six on-held samples inside unchanged cone, exact first solid that cover ~6–7um before profile. This does not prove open/two-binding/opaque-held control, performance or artistic acceptance.

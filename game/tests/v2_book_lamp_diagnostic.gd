@@ -445,7 +445,9 @@ func _two_style_run(owner: Node3D) -> void:
 		if not _require(descriptor.get("part")==book and descriptor.get("kind")=="free","first real spine ray selects chosen "+family+" copy without bypass"):return
 		_click_library()
 		if not _require(player.held_stock_body()==book,"actual primary picks up chosen "+family+" body"):return
+		two_style_controls.attempts[-1].withdrawal_start=_two_style_withdrawal_state(book)
 		for frame in 130:await get_tree().physics_frame
+		two_style_controls.attempts[-1].withdrawal_end=_two_style_withdrawal_state(book)
 		if not _require(player.held_stock_body()==book and (book.global_transform*book.pickup_centre()).distance_to(player.camera.global_transform*Vector3(.17,-.16,-.48))<.003,"actual "+family+" withdrawal reaches original FPS hand"):return
 		if not await _two_style_capture(family+"_closed_held",book):return
 		await _two_style_space()
@@ -525,3 +527,8 @@ func _two_style_capture(phase: String,book: Node3D) -> bool:
 		_require(not row.loaded_page_glyphs.is_empty(),"actual opened printed-page glyph meshes observed: "+phase)
 	two_style_controls.frames.append(row)
 	return failures.size()==failed
+
+func _two_style_withdrawal_state(book: Node3D) -> Dictionary:
+	var motion: Dictionary=book._last_motion
+	var wanted: Vector3=player.camera.global_transform*Vector3(.17,-.16,-.48)
+	return {"book":_identity(book),"book_pose":var_to_str(book.global_transform),"player_pose":var_to_str(player.global_transform),"camera_pose":var_to_str(player.camera.global_transform),"hand_target":var_to_str(wanted),"hand_error_m":(book.global_transform*book.pickup_centre()).distance_to(wanted),"same_held_body":player.held_stock_body()==book,"pickup_lifted":book._pickup_lifted,"pickup_extracted":book._pickup_extracted,"pickup_lift_goal":var_to_str(book._pickup_lift_goal),"pickup_exit":var_to_str(book._pickup_exit),"hold_blocked":book._hold_blocked,"body_hit":{"present":not motion.is_empty(),"collider":_identity(motion.get("collider") as Node),"normal":var_to_str(motion.get("normal",Vector3.ZERO)),"point":var_to_str(motion.get("point",Vector3.ZERO)),"unresolved_native_impact":bool(motion.get("unresolved_native_impact",false))},"physics_frame":Engine.get_physics_frames()}
