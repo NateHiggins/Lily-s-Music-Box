@@ -101,7 +101,22 @@ func _observe_book(phase: String,book: Node3D) -> void:
 		"cover_title":{"identity":_identity(title),"layers":title.layers,"lamp_layer_overlap":(title.layers&light.light_cull_mask)!=0,"visible":title.is_visible_in_tree(),"shaded":title.shaded,"double_sided":title.double_sided,"no_depth_test":title.no_depth_test},
 		"lamp":{"identity":_identity(light),"transform":var_to_str(light.global_transform),"visible":light.is_visible_in_tree(),"logical_player_enabled":player.lamp_is_enabled(),"logical_device_enabled":device.get("lamp_enabled") if device!=null else null,"energy":light.light_energy,"range":light.spot_range,"half_angle_deg":light.spot_angle,"light_cull_mask":light.light_cull_mask,"shadow_enabled":light.shadow_enabled},
 		"carrier":{"identity":_identity(carrier),"device_identity":_identity(device),"beam_valid":carrier.get("beam_valid") if carrier!=null else null,"native_lens_identity":_identity(lens),"native_lens_transform":var_to_str(lens.global_transform) if lens!=null else "","native_aperture":var_to_str(lens.to_global(lens.mesh.get_aabb().get_center())) if lens!=null and lens.mesh!=null else "","reticle_target":var_to_str(target),"target_valid":motion.light_target_valid if motion!=null else null},
-		"samples":samples,"book_draws":draws,"inspecting":player.inspecting(),"holding_same_book":holding,"current_hand_centre_error_m":(book.global_transform*book.pickup_centre()).distance_to(player.camera.global_transform*Vector3(.17,-.16,-.48)) if holding else null})
+		"samples":samples,"book_draws":draws,"reading_aim":_reading_aim_observation(book,lens,carrier),"inspecting":player.inspecting(),"holding_same_book":holding,"current_hand_centre_error_m":(book.global_transform*book.pickup_centre()).distance_to(player.camera.global_transform*Vector3(.17,-.16,-.48)) if holding else null})
+
+func _reading_aim_observation(book: Node3D,lens: MeshInstance3D,carrier: Node3D) -> Dictionary:
+	var aperture: Vector3=lens.to_global(lens.mesh.get_aabb().get_center())
+	var target: Vector3=book.reading_light_target(aperture)
+	var result: Dictionary={"actual_held_body_is_book":player.held_stock_body()==book,"book_held":book._held,"profile_target":var_to_str(target),"native_aperture":var_to_str(aperture),"carrier_target_queries":carrier.lamp_target_queries,"carrier_target_frame":carrier._lamp_target_frame,"physics_frame":Engine.get_physics_frames(),"diagnostic_query_issued":false,"first_hit":{},"scope":"Separate diagnostic ray, not the production query counter, shadow-map proof or performance sample."}
+	if not target.is_finite() or target.distance_to(aperture)>player.flashlight.spot_range:return result
+	var query:=PhysicsRayQueryParameters3D.create(aperture,target,1)
+	query.collide_with_bodies=true;query.collide_with_areas=false
+	query.hit_from_inside=true;query.hit_back_faces=true
+	var hit: Dictionary=get_world_3d().direct_space_state.intersect_ray(query)
+	result.diagnostic_query_issued=true
+	result.first_hit=_hit_record(hit,book,target)
+	result.actual_motion_target=var_to_str(carrier.motion.light_target)
+	result.target_valid=carrier.motion.light_target_valid
+	return result
 
 func _sample(label: String,at: Vector3,normal: Vector3,origin: Vector3,forward: Vector3,light: SpotLight3D,book: Node3D) -> Dictionary:
 	var direction: Vector3=(at-origin).normalized()
@@ -291,6 +306,10 @@ func _optics_pose_deltas(phase: String,book: Node3D,light: SpotLight3D,lens: Nod
 	return result
 
 func _optics_sources() -> Dictionary:
-	var result: Dictionary={get_script().resource_path:FileAccess.get_sha256(get_script().resource_path),"res://tests/V2BookLampDiagnostic.tscn":FileAccess.get_sha256("res://tests/V2BookLampDiagnostic.tscn")}
-	for path: String in OWNER_SOURCES:result[path]=FileAccess.get_sha256(path)
+	var result: Dictionary={get_script().resource_path:_optics_text_hash(get_script().resource_path),"res://tests/V2BookLampDiagnostic.tscn":_optics_text_hash("res://tests/V2BookLampDiagnostic.tscn")}
+	for path: String in OWNER_SOURCES:result[path]=_optics_text_hash(path)
 	return result
+
+func _optics_text_hash(path: String) -> String:
+	if not FileAccess.file_exists(path):return ""
+	return FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()

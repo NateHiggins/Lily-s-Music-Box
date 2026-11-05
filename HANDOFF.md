@@ -1,4 +1,8 @@
-# Current handoff — book parking locally verified; repair optical input delivery
+# Current handoff — qualify held-book lighting and installed parking/save
+
+**Current continuation:** input-phase correction is native-verified at pushed **a08e62689**: **book_lamp_input_phase_01/** compile8/0, probe9/0, empty stderr and final source guard PASS. Original post-draw missed poll is reproduced; aligned ordinary input toggles/restores the actual player/device. This is stimulus proof, not city readability or save proof.
+
+**Implemented, pending verification:** book/carrier now select a front-facing native printed-surface target only for actual held books; an unfiltered inside-aware native-aperture ray retains the first solid. Default reticle behavior and lamp power/cone/range/materials are unchanged. The existing installed schema2 nook contract adds same-binding parked Space exit before its original validated disk programme and uses detached viewport input. New text-source hashes are LF-normalized. No new rendered/readability, installed parked/disk, performance or artistic acceptance is claimed. Next frozen FIFO batch: compile, native input probe, default lamp controls, actual installed optical phases, existing access route, installed parked/disk contract. Stop at the first failure and preserve it. Claude confirms her comic chain is finished and will wait for the GPU-window release; neither inbox has other pending instructions.
 
 Canonical **C:/PleaseRemainOnTheLine**. Active branch
 **codex/v2-book-hose-finish-20261104**, based on merged main
@@ -24,7 +28,7 @@ source guards PASS. Launch29900/broker1564 are gone; session41044 is terminal (i
 Raw logs,receipts,source freeze,observations and BEFORE_ASSESSMENT.json remain
 unchanged. These are causal diagnostics,not a schema2 runtime qualification.
 
-**Implemented, not yet verified:** production_only.patch95f8287dd13c659ff221996836c4cd7d0a3671d22c9f65e647b2d82e842c1419
+**Implemented, locally verified by matched Before02/After02 below:** production_only.patch95f8287dd13c659ff221996836c4cd7d0a3671d22c9f65e647b2d82e842c1419
 is committed and restored in PlayerController/readable bookshelf; the Before02
 original-byte overlay has ENDED (below). Before releasing its
 inspection loan,the player asks the existing owner; the shelf vetoes only the
@@ -32,7 +36,7 @@ same registered book already parked in a valid slot. Unplaced same-object hand
 return and every other owner's behavior remain through the existing path.
 Original105-check test bytes are preserved by both prior source freezes (LF29724e651959e1f0256b121fc69cf072db1ea8332da62da2a9c440373921000c).
 The two reviewed **V2BookLampDiagnostic.tscn/v2_book_lamp_diagnostic.gd** files
-are installed from **book_optics_ready/strengthened/**,not compiled/run yet.
+are installed from **book_optics_ready/strengthened/**; compile28/0 passed, and the original failed optical run plus subsequent input correction are preserved below.
 They observe actual lamp on/off/restored input,hand drift/contact,drawn cover/glyph
 bounds and native frames; no independent opaque control or readability acceptance.
 

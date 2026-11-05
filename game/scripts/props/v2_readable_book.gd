@@ -35,11 +35,42 @@ var _heading_font: FontVariation
 var shelf_slot := -1
 var _floating_camera := Transform3D.IDENTITY
 var _floating_frames := 0
+var _reading_light_opening := INF
+var _reading_light_faces: Array[Dictionary] = []
 
 func requires_shelf_withdrawal() -> bool: return shelf_slot>=0
 
 func pickup_centre() -> Vector3:
 	return Vector3(float(construction.width)*.5,float(construction.height)*.5,0)
+
+## Optional presentation target, only for a genuinely carried readable book.
+## Points/normals follow the same native profiles used by the printed surfaces.
+func reading_light_target(aperture: Vector3) -> Vector3:
+	if not _held or not is_inside_tree() or not is_visible_in_tree() or not aperture.is_finite() or left==null:return Vector3.INF
+	var opened: bool=opening>.04
+	if opened and (not _print_ready or _sheets.size()!=2):return Vector3.INF
+	if opened and not (_sheets[0].is_visible_in_tree() and _sheets[1].is_visible_in_tree()):return Vector3.INF
+	if _reading_light_opening!=opening:
+		_reading_light_opening=opening;_reading_light_faces.clear()
+		for side: String in (["left","right"] if opened else ["cover"]):
+			var profile: Array=stock.surface_profile(stock_id+"__left_board",float(construction.thickness)*.5,opening) if side=="cover" else stock.page_profile(stock_id,side,opening)
+			if profile.size()<2:continue
+			var sample: Vector4=stock.sample_page(profile,float(construction.width)*.5)
+			if not sample.is_finite() or absf(sample.z)<.000001:continue
+			var frame: Transform3D=Transform3D.IDENTITY if side=="right" else left.transform
+			var point: Vector3=frame*Vector3(sample.x,float(construction.height)*.55,sample.y)
+			var normal: Vector3=(frame.basis.inverse().transposed()*Vector3(-sample.w/sample.z,0,1)*(-1. if side=="left" else 1.)).normalized()
+			_reading_light_faces.append({"point":point,"normal":normal})
+	var best:=Vector3.INF
+	var facing:=0.
+	for face: Dictionary in _reading_light_faces:
+		var point: Vector3=to_global(face.point)
+		var toward: Vector3=aperture-point
+		if not point.is_finite() or toward.length_squared()<.000001:continue
+		var normal: Vector3=(global_basis.inverse().transposed()*Vector3(face.normal)).normalized()
+		var alignment: float=normal.dot(toward.normalized())
+		if alignment>facing:facing=alignment;best=point
+	return best
 
 func begin_floating_view(camera_pose: Transform3D) -> void:
 	_floating_camera=camera_pose
