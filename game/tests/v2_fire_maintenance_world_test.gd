@@ -161,6 +161,7 @@ func _paid_gasket_route(door_z: float, path: String, report: Dictionary) -> void
 	var terminal: Node3D = counter.terminals[PAID_GASKET]
 	var economy: Node = world.get_node("CaretakerEconomy")
 	var inventory: Node = world.maintenance_inventory
+	var using_case := OS.get_environment("V2_PAID_GASKET_VALISE") == "1"
 	var cash: int = int(economy.book().cash)
 	if not world.service_set_carrier.radio_is_powered(): await _radio_key()
 	await get_tree().create_timer(.6).timeout
@@ -168,28 +169,31 @@ func _paid_gasket_route(door_z: float, path: String, report: Dictionary) -> void
 	if not _require(inventory.has_item(PAID_GASKET) and not inventory.is_consumed(PAID_GASKET)
 			and int(economy.book().cash) == cash - 10, "washer purchase grants its one original item and charges exactly 10c"): return
 	if not await _paid_take(washer): return
+	if using_case and not await _paid_pack_in_case(washer, path): return
 	for x: float in [9.7, 10.8, 14.0]:
 		if x == 14. and not door.is_ready_for_passage():
-			if not await _paid_park(washer) or not await _open_shop() or not await _paid_take(washer): return
+			if not using_case and not await _paid_park(washer): return
+			if not await _open_shop(): return
+			if not using_case and not await _paid_take(washer): return
 		if not await _walk_world(Vector3(x, .01, door_z)): return
-		if not _require(player.held_stock_body() == washer, "same paid washer crosses the hardware threshold"): return
+		if not _require(_paid_in_transit(washer, using_case), "same paid washer crosses the hardware threshold"): return
 	for z: float in [32., 27.5, 20., 17.3]:
 		if not await _walk_world(Vector3(14., .01, z)): return
 	for point: Vector3 in [Vector3(14,0,15), Vector3(14,-.1,13.6), Vector3(14,-.1,8),
 			Vector3(14,0,4.2), Vector3(14,0,3), Vector3(0,0,3)]:
 		if not await _walk_world(point): return
 	if not await _walk(Vector3(0,0,-13.15)): return
-	if not await _paid_park(washer): return
+	if not using_case and not await _paid_park(washer): return
 	if not await _open_front_entrance(): return
-	if not await _paid_take(washer): return
+	if not using_case and not await _paid_take(washer): return
 	for point: Vector3 in [Vector3(0,0,-10.2), Vector3(0,0,-8.5), Vector3(1.925,0,-6.5),
 			Vector3(1.925,0,-3.5), Vector3(1.925,1.6,1.3), Vector3(3.975,1.6,1.3),
 			Vector3(3.975,3.2,-2.4), Vector3(3.65,3.2,-3.), Vector3(4.5,3.2,-2.95)]:
 		if not await _walk(point): return
-		if not _require(player.held_stock_body() == washer and player.is_on_floor() and not player.crouched
+		if not _require(_paid_in_transit(washer, using_case) and player.is_on_floor() and not player.crouched
 				and is_equal_approx(player._capsule.height, 1.524) and is_equal_approx(player._capsule.radius, .33),
 				"standing capsule and same paid washer reach " + str(point)): return
-	if not await _paid_park(washer): return
+	if not using_case and not await _paid_park(washer): return
 	var actor := _paid_station()
 	if not _require(actor != null and actor.has_method("preview_purchased_gasket_fit"), "installed F02 replacement receiver is present"): return
 	var driver := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
@@ -209,7 +213,10 @@ func _paid_gasket_route(door_z: float, path: String, report: Dictionary) -> void
 	if not _require(actor.door_open and actor._loose_union.active and not actor.coupling_made_up and not actor.gasket_seated
 			and absf(actor._wheel_angle) <= .0001 and actor._gasket_body.position.is_equal_approx(actor._gasket_body.home_position),
 			"receiver is vacant with supply shut and native washer still parked"): return
-	if not await _paid_take(washer): return
+	if using_case:
+		await hands.aim(player.camera.global_position - actor.global_basis.z)
+		if not await _paid_return_from_case(washer, path): return
+	elif not await _paid_take(washer): return
 	# Existing static stock inspection enables free XYZ without changing the body pose.
 	await hands.aim(player.camera.global_position - actor.global_basis.z)
 	hands.key(KEY_SPACE)
@@ -311,6 +318,70 @@ func _paid_same_replacement(actual: Dictionary, wanted: Dictionary) -> bool:
 	var qa := Basis(Quaternion(left.rotation[0], left.rotation[1], left.rotation[2], left.rotation[3]))
 	var qb := Basis(Quaternion(right.rotation[0], right.rotation[1], right.rotation[2], right.rotation[3]))
 	return a.distance_to(b) < .00001 and qa.is_equal_approx(qb)
+
+
+func _paid_in_transit(washer: Node3D, using_case: bool) -> bool:
+	if not using_case:
+		return player.held_stock_body() == washer
+	return CarriedCase.washer_is_packed(RealityState.data) and player.held_stock_body() == null \
+		and not washer.visible and washer.collision_layer == 0 and washer.collision_mask == 0
+
+
+func _paid_case_tab() -> void:
+	var key := InputEventKey.new()
+	key.keycode = KEY_TAB
+	key.physical_keycode = KEY_TAB
+	key.pressed = true
+	get_viewport().push_input(key, true)
+	await get_tree().process_frame
+	key = key.duplicate()
+	key.pressed = false
+	get_viewport().push_input(key, true)
+	await get_tree().create_timer(.65).timeout
+
+
+func _paid_pack_in_case(washer: Node3D, path: String) -> bool:
+	if not _require(get_viewport() is SubViewport, "valise uses the detached actual input viewport"): return false
+	await _paid_case_tab()
+	var view: Node = world.carried_case_view
+	var saved: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not _require(view.opened and view.settled and view._stacks.has(PAID_GASKET)
+			and _paid_in_transit(washer, true) and saved is Dictionary
+			and CarriedCase.washer_is_packed(saved),
+			"Tab packs the same paid washer into one valise cell and saves its custody"): return false
+	await _picture("paid_washer_in_valise")
+	await _paid_case_tab()
+	return _require(not view.opened and not player.call_locked and _paid_in_transit(washer, true),
+		"closing the valise keeps the washer packed and frees normal movement")
+
+
+func _paid_return_from_case(washer: Node3D, path: String) -> bool:
+	await _paid_case_tab()
+	var view: Node = world.carried_case_view
+	if not _require(view.opened and view.settled and view._stacks.has(PAID_GASKET),
+			"the same paid washer remains on its saved square after the walk"): return false
+	var place := CarriedCase.place_of(PAID_GASKET)
+	var start: Vector3 = view._centre(float(place.x), float(place.y), Vector2i.ONE)
+	var edge: Vector3 = view._centre(4.5, float(CarriedCase.grid().y) + .8, Vector2i.ONE)
+	for at: Vector3 in [start, edge]:
+		var pixel: Vector2 = view._camera.unproject_position(at)
+		var click := InputEventMouseButton.new()
+		click.position = pixel
+		click.global_position = pixel
+		click.button_index = MOUSE_BUTTON_LEFT
+		click.pressed = true
+		get_viewport().push_input(click, true)
+		await get_tree().process_frame
+		click = click.duplicate()
+		click.pressed = false
+		get_viewport().push_input(click, true)
+		await get_tree().process_frame
+	await get_tree().create_timer(.5).timeout
+	var saved: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	return _require(not view.opened and player.held_stock_body() == washer and washer.visible
+		and washer.collision_layer != 0 and not CarriedCase.washer_is_packed(RealityState.data)
+		and saved is Dictionary and not CarriedCase.washer_is_packed(saved),
+		"actual valise click and carry out returns the same paid physical washer and saves world custody")
 
 
 func _paid_fit_clearance_probe(actor: Node3D, washer: Node3D, face: Vector3, seat: Vector3) -> Dictionary:

@@ -183,12 +183,59 @@ func claim_library_hand(part: Node3D, _tag: String) -> bool:
 
 func can_take(part: Node3D) -> bool:
 	var identity := str(part.item_id)
-	if _gasket_retired(identity) or merchant == null:
+	if _gasket_retired(identity) or (identity==GASKET_ID and CarriedCase.washer_is_packed(RealityState.data)) or merchant == null:
 		return false
 	return merchant.inventory.has_item(identity)
 
 func _gasket_retired(identity: String) -> bool:
 	return identity==GASKET_ID and not _fitted_station.is_empty()
+
+func can_pack_washer(holder: PlayerController) -> bool:
+	var body: RigidBody3D=holder.held_stock_body()
+	return not RealityState.save_write_blocked and is_instance_valid(body) \
+		and _holds_paid_gasket(body) and CarriedCase.has_room(GASKET_ID, CarriedCase.WASHER_FORM)
+
+func pack_washer(holder: PlayerController) -> bool:
+	if not can_pack_washer(holder) or not CarriedCase.place_new(GASKET_ID, CarriedCase.WASHER_FORM):
+		return false
+	var body: RigidBody3D=holder.held_stock_body()
+	_restoring=true
+	holder.cancel_manipulation()
+	body.set_gasket_retired(true)
+	_restoring=false
+	RealityState.commit()
+	return true
+
+func return_case_washer(holder: PlayerController) -> bool:
+	if RealityState.save_write_blocked or not CarriedCase.washer_is_packed(RealityState.data) \
+			or not _fitted_station.is_empty() or merchant==null or not merchant.inventory.has_item(GASKET_ID) \
+			or holder.call_locked or holder.inspecting() or holder._grab.active() or is_instance_valid(_hand_node):
+		return false
+	var body: RigidBody3D=pickups.get(GASKET_ID)
+	if not is_instance_valid(body):
+		return false
+	var pose: Transform3D=holder.camera.global_transform.translated_local(Vector3(.17,-.16,-.48))
+	var space:=body.get_world_3d().direct_space_state
+	for solid: CollisionShape3D in body._solids:
+		var query: PhysicsShapeQueryParameters3D=body._shape_query(solid,pose)
+		query.collision_mask=1 # Packed stock has no live mask.
+		if not space.intersect_shape(query,1).is_empty():
+			return false
+	var previous: Transform3D=body.global_transform
+	var place:=CarriedCase.place_of(GASKET_ID)
+	CarriedCase.remove(GASKET_ID)
+	body.global_transform=pose
+	body.set_gasket_retired(false)
+	body.freeze=false
+	var grip: Dictionary=body.grip()
+	grip.hit_position=pose*Vector3(.020,.004,0.)
+	if not holder._grab.acquire(grip):
+		body.global_transform=previous
+		body.set_gasket_retired(true)
+		CarriedCase.book().places[GASKET_ID]=place
+		return false
+	RealityState.commit()
+	return true
 
 func pickup_withdrawal_for(_part: Node3D) -> Vector3:
 	# Lift then withdraw off the front edge before following a downward-aimed
@@ -324,7 +371,8 @@ func restore_mechanism(value: Dictionary) -> void:
 		var body: Node3D=pickups[identity];var record: Dictionary=value[identity]
 		body.freeze_mode=RigidBody3D.FREEZE_MODE_KINEMATIC
 		body.restore_stock(record.stock);body.freeze=record.parked
-		if identity==GASKET_ID:body.set_gasket_retired(_gasket_retired(identity))
+		if identity==GASKET_ID:
+			body.set_gasket_retired(_gasket_retired(identity) or CarriedCase.washer_is_packed(RealityState.data))
 		if body.cap!=null:body.set_cap(float(record.cap))
 	if _geometry_dormant:passage_geometry_dormant()
 	_restoring=false

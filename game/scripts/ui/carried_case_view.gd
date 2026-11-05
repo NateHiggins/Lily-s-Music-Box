@@ -32,6 +32,7 @@ const CARD_LINES := 6
 
 var player: PlayerController
 var economy: Node
+var fire_stock: Node
 var item_use: ItemUse
 var opened := false
 var settled := false
@@ -53,6 +54,7 @@ var _mouse_before := Input.MOUSE_MODE_CAPTURED
 var _pointer := Vector2.ZERO
 var _held_turned := false
 var _floor_size := Vector2.ZERO
+var _return_washer := false
 
 
 func _ready() -> void:
@@ -68,7 +70,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _available() -> bool:
 	return player != null and not player.call_locked and not player.mouse_released \
-			and not player.inspecting() and not player._grab.active() \
+			and not player.inspecting() \
+			and (not player._grab.active() or (is_instance_valid(fire_stock) and fire_stock.can_pack_washer(player))) \
 			and not is_instance_valid(player.seated_interaction)
 
 
@@ -99,6 +102,11 @@ func _input(event: InputEvent) -> void:
 func open_case() -> void:
 	if opened or not _build():
 		return
+	if player._grab.active():
+		if not is_instance_valid(fire_stock) or not fire_stock.pack_washer(player):
+			_discard_view()
+			return
+		_lay(CarriedCase.MAINTENANCE_WASHER, _goods)
 	opened = true
 	_mouse_before = Input.mouse_mode
 	player.call_locked = true
@@ -127,6 +135,14 @@ func _finish_close() -> void:
 	opened = false
 	player.call_locked = false
 	Input.mouse_mode = _mouse_before
+	_discard_view()
+	if _return_washer:
+		_return_washer = false
+		if is_instance_valid(fire_stock):
+			fire_stock.return_case_washer(player)
+
+
+func _discard_view() -> void:
 	_holder.queue_free()
 	_forms.clear()
 	_stacks.clear()
@@ -319,10 +335,14 @@ func _lay(item: String, parent: Node3D) -> void:
 	var stack := Node3D.new()
 	stack.name = item
 	parent.add_child(stack)
-	for template: MeshInstance3D in _forms.get(form, []):
-		var copy := template.duplicate() as MeshInstance3D
-		copy.transform = Transform3D.IDENTITY
-		stack.add_child(copy)
+	if item == CarriedCase.MAINTENANCE_WASHER and is_instance_valid(fire_stock):
+		var draw: MeshInstance3D = fire_stock.stock.draw(stack, "Gasket")
+		draw.position.y = -draw.get_aabb().position.y
+	else:
+		for template: MeshInstance3D in _forms.get(form, []):
+			var copy := template.duplicate() as MeshInstance3D
+			copy.transform = Transform3D.IDENTITY
+			stack.add_child(copy)
 	_stacks[item] = stack
 	_settle(item)
 
@@ -384,6 +404,9 @@ func _point(position: Vector2) -> void:
 func _show_tag(item: String, at: Vector3, blocked: bool) -> void:
 	var count := PersonInventory.goods_count(PersonInventory.PLAYER, item)
 	var record: Dictionary = PersonInventory.items(PersonInventory.PLAYER).get("goods:" + item, {})
+	if item == CarriedCase.MAINTENANCE_WASHER:
+		count = 1
+		record = {"name": "Fire-hose coupling gasket"}
 	_tag.text = "%s  x%d%s" % [str(record.get("name", item)), count, "\nNO ROOM" if blocked else ""]
 	_tag.position = at + Vector3(0, 0.05, -0.02)
 	_tag.visible = true
@@ -421,6 +444,8 @@ func _past_front(at: Vector3) -> bool:
 
 
 func _verb_tag(item: String) -> String:
+	if item == CarriedCase.MAINTENANCE_WASHER:
+		return "TAKE IN HAND"
 	if item_use == null:
 		return "NOTHING TO DO WITH IT"
 	if item_use.use_of(item) == "earplugs" and item_use.ears_stopped():
@@ -431,6 +456,10 @@ func _verb_tag(item: String) -> String:
 ## A use spends one. The rest of the stack goes back to its square, and the last one
 ## leaves the case. Something with no use stays in the hand.
 func _take_out(item: String) -> void:
+	if item == CarriedCase.MAINTENANCE_WASHER:
+		_return_washer = true
+		close_case()
+		return
 	if item_use == null or not item_use.use(item):
 		return
 	held_item = ""
