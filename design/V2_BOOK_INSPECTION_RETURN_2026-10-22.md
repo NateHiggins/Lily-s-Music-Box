@@ -3,6 +3,26 @@
 Evidence class: **INERT**. Repair/diagnostic report, 2026-10-22.
 No runtime-contract qualification or human acceptance.
 
+## November 5 UTC — nearby native handling passes
+
+**book_local_controls_03/** at **aec8e8997**: compile4/0, local actual hardback
+Volume34 and paperback Volume15 closed/open pickup/hinge/Space return in25.36s,
+four native3440x1440 images; local Volume0 actual unplaced return plus exact
+slot0 primary park and normal Space exit102/0 in28.44s. Empty stderr and all
+sourceguardsPASS. Both use full standing capsule and native nook stock; actual
+axis-key/wheel approach preserves original goals, tolerances and collisions.
+Installed_03 proves real outward clearance and precision rotation, then fails
+at the native front ledge when the previous free-ray input dips the binding.
+Local14compile/1.94s capsule probe names fresh Player contact and176clear rotation
+substeps at the measured outward goal. Separate6.01s actual Volume17 pickup
+reproduces its first lift blocked by Volume32; native stack constraints stay.
+Nearby evidence does not execute installed validated disk or establish art.
+
+Continuous wrapper geometry is observed for flexible covers. Inspect native
+printed images at the game root's actual MSAA and normal reading zoom before
+changing production typography; the local detached viewport lacked root8x MSAA.
+No publisher/format/page text, material or lamp output is altered by these tests.
+
 ## November 5 UTC — native opaque control and actual handling stops
 
 **book_held_controls_01/** at **e411cbf72**, terminal1, finalsourceguardPASS:
