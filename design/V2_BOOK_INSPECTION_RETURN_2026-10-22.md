@@ -3,6 +3,20 @@
 Evidence class: **INERT**. Repair/diagnostic report, 2026-10-22.
 No runtime-contract qualification or human acceptance.
 
+## November 5 UTC — sampled native reading zoom
+
+**book_hose_visual_01/reading_zoom/** at **d85396d4b** passes both actual binding
+programmes with four original native frames plus eight witness frames. Same
+opened held pose/FOV72 captured with SubViewport MSAA0 and matched actual root8x;
+MSAA alone leaves fine held-scale strokes small. Actual Space opens the supported
+reading view at40degrees and normal wheel brings it to24degrees at the same eye
+and book pose. Unscaled native crops inspected: sampled hardback and paperback
+headings/body can be read at that zoom, with thin fine print; normal Space returns
+the same open body and original held FOV, then actual primary releases. No text,
+font, paper, lamp or collision changes. Not whole-catalogue/human/artistic
+acceptance. Compile14/0 and reading wrapperexit0; later independent hose failed,
+full batch finalsourceguardPASS. Raw images/source and all failures preserved.
+
 ## November 5 UTC — installed parked exit and validated disk pass
 
 **book_park_installed_04/** at **90fb70926** passes107checks/0 in369s,

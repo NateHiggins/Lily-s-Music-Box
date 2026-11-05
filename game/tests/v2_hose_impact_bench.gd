@@ -231,6 +231,7 @@ func _swept_preview_case(phase: String, actor: Node3D, hose: Node3D, camera: Cam
 	var downstream: Vector3 = _trajectory(origin, axis, speed, process.gravity, minf(hit_time + .12, emitter.lifetime))
 	var receiver: StaticBody3D
 	var farther: StaticBody3D
+	var near_before_far_ticks:=0
 	match phase:
 		"wall":
 			_add_impact_box("SweptVerticalWall", aim, wall, Vector3(1.6, 1.6, .04))
@@ -239,10 +240,16 @@ func _swept_preview_case(phase: String, actor: Node3D, hose: Node3D, camera: Cam
 			_add_impact_box("SweptFloorTop", aim, Basis.IDENTITY, Vector3(1.6, .04, 1.6))
 			receiver = _fixtures[-1]
 		"near_first":
-			_add_impact_box("SweptFar", downstream, wall, Vector3(1.6, 1.6, .04))
-			farther = _fixtures[-1]
 			_add_impact_box("SweptNear", aim, wall, Vector3(1.6, 1.6, .04))
 			receiver = _fixtures[-1]
+			# Droplets already downstream retain their real world-space flight.
+			# Let the old flight retire before introducing the fresh far witness.
+			var near_frame:=Engine.get_physics_frames()
+			for frame in ceili((emitter.lifetime+.10)*Engine.physics_ticks_per_second):
+				await get_tree().physics_frame
+			near_before_far_ticks=Engine.get_physics_frames()-near_frame
+			_add_impact_box("SweptFar", downstream, wall, Vector3(1.6, 1.6, .04))
+			farther = _fixtures[-1]
 	var centre: Vector3 = (origin + downstream) * .5
 	var side: Vector3 = horizontal.cross(Vector3.UP).normalized()
 	camera.global_position = centre + side * maxf(1.6, origin.distance_to(downstream) * .8) + Vector3.UP * .35
@@ -252,6 +259,8 @@ func _swept_preview_case(phase: String, actor: Node3D, hose: Node3D, camera: Cam
 		if not check(not camera.is_position_behind(point) and get_viewport().get_visible_rect().has_point(camera.unproject_position(point)), "side camera includes muzzle/impact/downstream: " + phase):
 			return false
 	var row: Dictionary = {"phase":phase,"camera":var_to_str(camera.global_transform),"muzzle":var_to_str(origin),"axis":var_to_str(axis),"flow":hose.water.spray,"receiver":str(receiver.get_path()) if receiver != null else "","receiver_rid":str(receiver.get_rid()) if receiver != null else "","frames":[]}
+	row.near_before_far_physics_ticks=near_before_far_ticks
+	row.far_receiver_rid=str(farther.get_rid()) if farther!=null else ""
 	records.append(row)
 	for frame in ceili(.75 * Engine.physics_ticks_per_second):
 		await get_tree().physics_frame
