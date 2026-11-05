@@ -194,6 +194,20 @@ func _identical_dry_wall_meshes(unshare: bool) -> Dictionary:
 				swaps.append({"draw": row.draw, "original": row.original, "treatment": group.representative})
 	return {"inspected": inspected, "groups": repeated, "swaps": swaps}
 
+func _horizon_body_cast_modes() -> Array[Dictionary]:
+	var horizon := world.get_node_or_null("CityShells/CityHorizon")
+	var rows: Array[Dictionary] = []
+	if horizon == null:
+		return rows
+	for draw: MeshInstance3D in horizon.find_children("*", "MeshInstance3D", true, false):
+		if not draw.get_meta("v2_city_horizon_body_lod", false) or not draw.has_meta("v2_city_horizon_building"):
+			continue
+		if draw.has_meta("v2_window_source_mesh") or draw.get_meta("city_clock_hand", false):
+			continue
+		if draw.is_visible_in_tree() and draw.cast_shadow == GeometryInstance3D.SHADOW_CASTING_SETTING_ON:
+			rows.append({"draw": draw, "original": draw.cast_shadow})
+	return rows
+
 func _stationary_celestial_shadow_control() -> Dictionary:
 	var key := world.get_node_or_null("WakingAtmosphere/CelestialKey") as DirectionalLight3D
 	if not is_instance_valid(key) or not key.shadow_enabled or key.get_meta("absolute_writer", "") != "DayNightDirector":
@@ -210,17 +224,28 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 	var rows: Array = []
 	var share := OS.get_environment("ORISON_CITY_STUTTER_SHARE_WALL_MESHES") == "1"
 	var unshare := OS.get_environment("ORISON_CITY_STUTTER_UNSHARE_WALL_MESHES") == "1"
+	var horizon := OS.get_environment("ORISON_CITY_STUTTER_HORIZON_SHADOWS_ONLY") == "1"
+	if horizon and (share or unshare):
+		check(false, "one stationary render control is selected")
+		return {}
+	var horizon_rows: Array[Dictionary] = _horizon_body_cast_modes() if horizon else []
+	if horizon:
+		check(not horizon_rows.is_empty(), "control binds authored static Horizon bodies")
+		if horizon_rows.is_empty():
+			return {}
 	var stock := _identical_dry_wall_meshes(unshare) if share or unshare else {}
 	var swaps: Array = stock.get("swaps", [])
 	if share or unshare:
 		check(not swaps.is_empty(), "existing dry wall stock has exact repeated mesh resources")
-	var middle := "unique_wall_meshes" if unshare else ("shared_wall_meshes" if share else "celestial_shadows_off")
+	var middle := "horizon_shadows_only" if horizon else ("unique_wall_meshes" if unshare else ("shared_wall_meshes" if share else "celestial_shadows_off"))
 	RenderingServer.viewport_set_measure_render_time(viewport, true)
 	for phase: String in ["original_a", middle, "original_b"]:
 		var expected := phase != "celestial_shadows_off"
 		key.shadow_enabled = expected
 		for row: Dictionary in swaps:
 			row.draw.mesh = row.treatment if phase == middle else row.original
+		for row: Dictionary in horizon_rows:
+			row.draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY if phase == middle else row.original
 		for frame in 16:
 			await RenderingServer.frame_post_draw
 		var previous := Time.get_ticks_usec()
@@ -239,18 +264,20 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 		check(stable, "stationary reverse camera and celestial shadow control hold through " + phase)
 	key.shadow_enabled = true
 	RenderingServer.viewport_set_measure_render_time(viewport, false)
-	if unshare:
+	if unshare or horizon:
 		# Review the fixed reverse view after timing, with no readback in samples.
 		var directory := OS.get_environment("SHOT_DIR")
 		for phase: String in ["original_a", middle, "original_b"]:
 			for row: Dictionary in swaps:
 				row.draw.mesh = row.treatment if phase == middle else row.original
+			for row: Dictionary in horizon_rows:
+				row.draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY if phase == middle else row.original
 			for frame in 16:
 				await RenderingServer.frame_post_draw
 			var image := get_viewport().get_texture().get_image()
 			check(image.get_size() == Vector2i(3440, 1440)
 				and image.save_png(directory.path_join("reverse_" + phase + ".png")) == OK,
-				"native wall mesh review captures " + phase)
+				"native reverse render control captures " + phase)
 	check(camera.is_current() and camera.global_transform.is_equal_approx(pose)
 		and world.safety_net.recoveries == recoveries and key.shadow_enabled,
 		"stationary control restores the original shadow flag without moving the player")
@@ -258,9 +285,13 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 	for row: Dictionary in swaps:
 		restored = restored and row.draw.mesh == row.original
 	check(restored, "stationary control restores the exact original mesh resources")
+	var horizon_restored := true
+	for row: Dictionary in horizon_rows:
+		horizon_restored = horizon_restored and row.draw.cast_shadow == row.original
+	check(horizon_restored, "stationary control restores the original Horizon cast modes")
 	return {"scope": "Same installed reverse endpoint after walking. Pass counters can lag the sampled interval.",
 		"control": middle, "eligible_walls": stock.get("inspected", 0), "repeated_groups": stock.get("groups", 0),
-		"mesh_swaps": swaps.size(),
+		"mesh_swaps": swaps.size(), "horizon_bodies": horizon_rows.size(),
 		"camera": var_to_str(pose), "key": str(key.get_path()), "key_pose": var_to_str(light_pose),
 		"key_energy": light_energy, "weather_before": conditions, "weather_after": weather.current.duplicate(true),
 		"samples": rows}
