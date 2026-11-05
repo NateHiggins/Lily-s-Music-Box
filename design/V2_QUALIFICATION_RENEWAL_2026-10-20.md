@@ -66,6 +66,19 @@ Failed helper/logs and the corrected successor are preserved. A publisher
 file-versus-directory invocation error is also retained; completed first-slice
 publication was preserved and remaining packets resumed without rewriting proof.
 
+The first exact candidate **2bbb2f096** preserved17/17protected paths,selectorV2
+and zero design-lint errors, but correctly blocked one new systemic review id
+**4cbc4a20e1c0d49a**. Its installed-camera **_campaign_context** is a pure getter:
+deepcopied campaign state,read-only flags and monotonic ticks feed only four
+diagnostic report snapshots. Independent source review confirms no world,clock
+or save authority write. Exactly that test-tier finding is now DOCUMENTed in the
+existing reviewed baseline; no other entries or detector semantics changed.
+All63 systemic self-tests pass; new-review count returns30→29,with0new actionable
+or policy violations. Original candidate failure remains in
+**C:/ov/reports/develop_intake_20261104/candidate_2bbb2f096_01/**. The immutable14
+source/contract guard passes after this unconsumed baseline-only review update;
+original game proof is reused unchanged. A fresh exact candidate remains required.
+
 Next: exact in-place candidate against the clean main4f16053e8 baseline119board,
 then manual qualified PR152 merge. Book/nook,hose impact/wetting,playable stutter,
 prologue,audio listening,golden-shift,weather,city and narrative commitments retain

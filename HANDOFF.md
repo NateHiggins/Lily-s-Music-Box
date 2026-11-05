@@ -41,6 +41,12 @@ before packet staging in distinct logs. Both packets staged successfully through
 canonical packets are now published/revalidated, with original raw bytes and
 prior cohorts preserved. Next exact candidate/manualqualified152merge. No game replay is required
 for an instrument-only change if the original consumed projection still matches.
+First exact candidate2bbb2f096 blocked one systemic review item4cbc4a20e1c0d49a;
+17protected paths/selector/designlint passed. Read-only installed-camera context
+snapshots were independently reviewed and exactly one DOCUMENT/test baseline
+entry added; no world/clock/save write.63audit testsPASS,newreview30→29,0new
+actual/policy findings; immutable14afterguardPASS unchanged. Fresh exact candidate
+must run against this reviewed baseline commit; never accept/waive the old failure.
 
 **runtime13 is TERMINAL/FAILED**, not queued. Original apartment assertions
 passed: 60 rooms/9 legs,781 serialized checks,0 failures,1264.98s. Original

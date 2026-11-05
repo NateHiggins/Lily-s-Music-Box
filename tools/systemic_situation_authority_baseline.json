@@ -709,6 +709,19 @@
    "disposition": "DOCUMENT",
    "review": "Test-only negative control: corrupts a duplicate JSON-safe companion-memory snapshot, expects restore rejection and verifies the real memory remains unchanged. No NPC or world state is assigned.",
    "evidence_document": "design/V2_COMPANION_TERMINAL_2026-10-24.md"
+  },
+  {
+   "id": "4cbc4a20e1c0d49a",
+   "domain": "host-clock",
+   "class": "HOST_CLOCK_MUTATES_WORLD",
+   "file": "game/tests/installed_camera_probe.gd",
+   "scope": "_campaign_context",
+   "evidence": "return {\"campaign_clock\":RealityState.data.get(\"campaign_clock\",{}).duplicate(true),\"first_shift\":RealityState.data.get(\"first_shift\",{}).duplicate(true),\"campaign_time_frozen_for_tests\":CampaignTime.",
+   "confidence": "STRONG",
+   "tier": "test",
+   "disposition": "DOCUMENT",
+   "review": "Read-only test diagnostic: returns deep duplicates of campaign_clock and first_shift, reads freeze/environment flags and monotonic profiling ticks. Its four callers write only initial/admission/failure/per-phase diagnostic report snapshots; no returned value is applied to campaign, save, NPC, mechanism or clock authority. No wall-clock-derived world mutation. Original installed-camera actual-input programme remains unchanged. Reviewed source LF SHA256: c6a20468d6acafac52af62af67660bec8f130694eba0cd1e5bec21416d8d97cc.",
+   "evidence_document": "design/V2_QUALIFICATION_RENEWAL_2026-10-20.md"
   }
  ]
 }
