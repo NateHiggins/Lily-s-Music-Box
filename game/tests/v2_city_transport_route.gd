@@ -10,6 +10,7 @@ var profile_active := false
 var profile_phase := ""
 var _stutter_frames: Array = []
 var _stutter_shadow := RID()
+var _stutter_passes := false
 # Independent expected AU soil datums, in the registered building frame.
 # These are route assertions, not a runtime terrain/movement authority.
 const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[92.,-1.0055],[140.,-1.7255],[290.,-3.9755],[330.,-4.2],[365.,-4.6],[390.,-4.8],[395.,-8.],[500.,-8.]]
@@ -47,6 +48,9 @@ func _process(_delta: float) -> void:
 		_exploration_samples.append([(now-_previous_exploration_usec)/1000.,RenderingServer.viewport_get_measured_render_time_cpu(viewport),RenderingServer.viewport_get_measured_render_time_gpu(viewport),Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)])
 		if _route_scope=="stutter_probe":
 			_stutter_frames.append({"usec":now,"process_frame":Engine.get_process_frames(),"physics_frame":Engine.get_physics_frames(),"phase":profile_phase,"wall_render_draws_primitives":_exploration_samples[-1],"process_ms":Performance.get_monitor(Performance.TIME_PROCESS)*1000.,"physics_ms":Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000.,"lamp_render_cpu_gpu_ms":[RenderingServer.viewport_get_measured_render_time_cpu(_stutter_shadow),RenderingServer.viewport_get_measured_render_time_gpu(_stutter_shadow)] if _stutter_shadow.is_valid() else []})
+			if _stutter_passes:
+				_stutter_frames[-1]["main_passes"] = _render_pass_counts(viewport)
+
 	_previous_exploration_usec = now
 
 func _programme_sources() -> Dictionary:
@@ -124,7 +128,63 @@ func _prepare_render_camera(camera: Camera3D) -> Dictionary:
 	RenderingServer.force_sync()
 	return {"elapsed_ms":(Time.get_ticks_usec()-started)/1000.,"render_calls":10,"node_pose_unchanged":camera.global_transform.is_equal_approx(node_pose)}
 
+func _render_pass_counts(viewport: RID) -> Dictionary:
+	var passes := {}
+	for kind in [RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE, RenderingServer.VIEWPORT_RENDER_INFO_TYPE_SHADOW]:
+		passes[str(kind)] = [
+			RenderingServer.viewport_get_render_info(viewport, kind, RenderingServer.VIEWPORT_RENDER_INFO_OBJECTS_IN_FRAME),
+			RenderingServer.viewport_get_render_info(viewport, kind, RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME),
+			RenderingServer.viewport_get_render_info(viewport, kind, RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME),
+		]
+	return passes
+
+func _stationary_celestial_shadow_control() -> Dictionary:
+	var key := world.get_node_or_null("WakingAtmosphere/CelestialKey") as DirectionalLight3D
+	if not is_instance_valid(key) or not key.shadow_enabled or key.get_meta("absolute_writer", "") != "DayNightDirector":
+		check(false, "stationary control binds the original celestial key")
+		return {}
+	var viewport := get_viewport().get_viewport_rid()
+	var camera := player.camera
+	var pose := camera.global_transform
+	var recoveries: int = world.safety_net.recoveries
+	var light_pose := key.global_transform
+	var light_energy := key.light_energy
+	var weather := world.get_node("WakingAtmosphere/WeatherManager")
+	var conditions: Dictionary = weather.current.duplicate(true)
+	var rows: Array = []
+	RenderingServer.viewport_set_measure_render_time(viewport, true)
+	for phase: String in ["original_a", "celestial_shadows_off", "original_b"]:
+		var expected := phase != "celestial_shadows_off"
+		key.shadow_enabled = expected
+		for frame in 16:
+			await RenderingServer.frame_post_draw
+		var previous := Time.get_ticks_usec()
+		var stable := true
+		for frame in 40:
+			await RenderingServer.frame_post_draw
+			var now := Time.get_ticks_usec()
+			stable = stable and key.shadow_enabled == expected and camera.is_current() \
+				and camera.global_transform.is_equal_approx(pose) and key.is_visible_in_tree() \
+				and key.global_transform.is_equal_approx(light_pose) and is_equal_approx(key.light_energy, light_energy)
+			rows.append({"phase": phase, "wall_ms": (now - previous) / 1000.,
+				"main_cpu_ms": RenderingServer.viewport_get_measured_render_time_cpu(viewport),
+				"main_gpu_ms": RenderingServer.viewport_get_measured_render_time_gpu(viewport),
+				"main_passes": _render_pass_counts(viewport)})
+			previous = now
+		check(stable, "stationary reverse camera and celestial shadow control hold through " + phase)
+	key.shadow_enabled = true
+	RenderingServer.viewport_set_measure_render_time(viewport, false)
+	check(camera.is_current() and camera.global_transform.is_equal_approx(pose)
+		and world.safety_net.recoveries == recoveries and key.shadow_enabled,
+		"stationary control restores the original shadow flag without moving the player")
+	return {"scope": "Diagnostic shadow flag only. Same installed reverse endpoint after walking. Pass counters can lag the sampled interval.",
+		"camera": var_to_str(pose), "key": str(key.get_path()), "key_pose": var_to_str(light_pose),
+		"key_energy": light_energy, "weather_before": conditions, "weather_after": weather.current.duplicate(true),
+		"samples": rows}
+
 func _run_stutter_probe() -> void:
+	_stutter_passes = OS.get_environment("ORISON_CITY_STUTTER_SHADOW_PASSES") == "1"
+
 	# One original nearby fixture, then three continuous normal-controller
 	# round trips. This writes diagnostics, never a runtime qualification.
 	var directory:=OS.get_environment("SHOT_DIR")
@@ -151,6 +211,7 @@ func _run_stutter_probe() -> void:
 	var legs: Array=[]
 	var settings: Dictionary={}
 	var preparation: Dictionary={}
+	var stationary: Dictionary = {}
 	if not world.startup_failed and world.player!=null:
 		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		var city:=world.get_node("CityShells") as Node3D
@@ -230,6 +291,8 @@ func _run_stutter_probe() -> void:
 			probe.queue_free()
 			world.household_state.profiling=false
 			player.profile_physics=false;player._grab.profiling=false
+			if _stutter_passes and failures.is_empty():
+				stationary = await _stationary_celestial_shadow_control()
 		Input.action_release("move_forward")
 		for entry: Dictionary in reflection_control:
 			var capture: ReflectionProbe=entry.node.get_ref()
@@ -237,6 +300,7 @@ func _run_stutter_probe() -> void:
 			if is_instance_valid(capture):capture.visible=bool(entry.visible)
 		var data: Dictionary={"evidence_class":"INERT","scope":"Instrumented six-leg Laurel stair/turn replay in the actual composed world, one validated nearby starting placement. Camera headings are deterministic fixture turns; movement uses the normal input/controller. Callback brackets, observed engine monitors and asynchronous main/lamp render timings are separate observations, not additive costs, input-to-display latency or an uninstrumented before/after comparison. No durable saves, new access, full-city, artistic or performance acceptance. Residency/pipeline counters identify observed activity, not causal loading/compiler duration.","checks":city_checks,"failures":failures,"settings":settings,"legs":legs,"frames":_stutter_frames,"trace":trace,"startup_ms":world.startup_ms,"startup_milestones":world.startup_milestones,"source_before":source_before}
 		data["render_preparation"]=preparation
+		if _stutter_passes: data["stationary_celestial_shadow_control"] = stationary
 		world.shutdown_for_tests();world.free();await get_tree().physics_frame
 		var after:=_digest()
 		check(source_before==after,"short probe production inputs remain frozen")

@@ -2,6 +2,8 @@ extends Node
 ## A real title button -> GameBoot -> SceneTree scene change -> CampaignShell.
 ## The observer is outside the retiring title scene, not a scene-change stub.
 
+const BEDROOM_FIXTURE_SHA := "eeca8b7a8476f5d312a74b0f481ff9118fb3d78aab82896f849e6297040633e7"
+
 class LaunchObserver extends Node:
 	var expected: Dictionary
 	var expected_bytes: PackedByteArray
@@ -9,6 +11,78 @@ class LaunchObserver extends Node:
 	var elapsed := 0.0
 	var done := false
 	var action := "continue"
+	var timed_bedroom := false
+	var timing := {}
+	var born_anchor_utc := Time.get_unix_time_from_system()
+	var born_anchor_usec := Time.get_ticks_usec()
+	var action_usec := 0
+
+	func mark(label: String) -> void:
+		timing[label] = Time.get_ticks_usec()
+
+	func owns_bedroom_control(shell: CampaignShell, world: OrisonV2RuntimeRoot) -> bool:
+		var player := world.player
+		var opening := world.prologue_director
+		return is_instance_valid(player) and is_instance_valid(opening) \
+			and opening.state.phase == "bedroom_exploration" and not get_tree().paused \
+			and player.text_input_owner == null and not player.call_locked \
+			and not player.protected_input_active() and not player.mouse_released \
+			and not player.inspecting() and not player.noclip and player.is_on_floor() \
+			and (player._grab == null or not player._grab.active()) \
+			and player.camera.is_current() and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED \
+			and not shell.owns_opening_veil(world) and shell.get_node_or_null("OpeningLoadingVeil") == null
+
+	func measure_bedroom_control(shell: CampaignShell, world: OrisonV2RuntimeRoot, checks: Dictionary) -> void:
+		var deadline := Time.get_ticks_msec() + 60000
+		var observed_phases: Array[String] = []
+		while true:
+			var opening: Node = world.prologue_director
+			if action == "continue" and is_instance_valid(opening):
+				var phase: String = opening.state.phase
+				if not observed_phases.has(phase):
+					observed_phases.append(phase)
+			if owns_bedroom_control(shell, world) or Time.get_ticks_msec() >= deadline:
+				break
+			await get_tree().process_frame
+		if action == "continue":
+			timing["observed_prologue_phases"] = observed_phases
+		checks["real_bedroom_releases_all_control_owners"] = owns_bedroom_control(shell, world)
+		if not checks.real_bedroom_releases_all_control_owners:
+			return
+		mark("bedroom_control_ready")
+		var player := world.player
+		var before_yaw: float = player.rotation.y
+		var recoveries: int = world.safety_net.recoveries
+		var motion := InputEventMouseMotion.new()
+		motion.relative = Vector2(12, 0)
+		mark("look_input_sent")
+		Input.parse_input_event(motion)
+		Input.flush_buffered_events()
+		await get_tree().process_frame
+		checks["normal_mouse_look_reaches_player"] = owns_bedroom_control(shell, world) and absf(player.rotation.y - before_yaw) > .0001
+		if checks.normal_mouse_look_reaches_player:
+			mark("look_confirmed")
+		var start: Vector3 = player.global_position
+		mark("move_input_sent")
+		for input_action: String in ["move_forward", "move_back"]:
+			Input.action_press(input_action)
+			for frame in 18:
+				await get_tree().physics_frame
+				var shift: Vector3 = player.global_position - start
+				if Vector2(shift.x, shift.z).length() >= .015:
+					mark("horizontal_motion_confirmed")
+					break
+			Input.action_release(input_action)
+			if timing.has("horizontal_motion_confirmed"):
+				break
+		checks["ordinary_movement_reaches_player_without_recovery"] = timing.has("horizontal_motion_confirmed") \
+			and owns_bedroom_control(shell, world) and world.safety_net.recoveries == recoveries
+		var view := get_viewport()
+		timing["settings"] = {"resolution": var_to_str(view.get_visible_rect().size),
+			"msaa": view.msaa_3d, "taa": view.use_taa, "scale": view.scaling_3d_scale,
+			"vsync": DisplayServer.window_get_vsync_mode(), "max_fps": Engine.max_fps,
+			"fov": player.camera.fov, "weather_network_enabled": GameBoot.settings.weather_network_enabled}
+
 
 	func _process(delta: float) -> void:
 		if done:
@@ -16,6 +90,8 @@ class LaunchObserver extends Node:
 		elapsed += delta
 		var shell := get_tree().current_scene as CampaignShell
 		if shell != null and shell.active_world != null:
+			if timed_bedroom and not timing.has("world_published"):
+				mark("world_published")
 			if shell.active_world is OrisonV2RuntimeRoot:
 				if shell.active_world.startup_ms <= 0.0 and not shell.active_world.startup_failed:
 					return
@@ -25,7 +101,7 @@ class LaunchObserver extends Node:
 						if elapsed < 45.0:return
 			done = true
 			_verify(shell)
-		elif elapsed > 30.0:
+		elif (timed_bedroom and action_usec > 0 and Time.get_ticks_usec() - action_usec > 240000000) or (not timed_bedroom and elapsed > 30.0):
 			done = true
 			push_error("Actual title Continue never published a CampaignShell world")
 			get_tree().quit(1)
@@ -89,6 +165,10 @@ class LaunchObserver extends Node:
 					checks["full_opening_acknowledges_intro_without_inventing_shift"]=opening.state.phase=="prologue_complete" and bool(RealityState.data.intro_complete) and RealityState.data.maintenance_jobs.is_empty() and RealityState.data.first_shift in [{},{"phase":FirstShiftDirector.PHASE_ARRIVED}]
 					checks["full_title_route_has_no_failed_interactions"]=route.interaction_checks.all(func(row:Dictionary)->bool:return row.ok) and route.trace.size()>0
 					route.queue_free();await get_tree().process_frame
+				elif timed_bedroom:
+					await measure_bedroom_control(shell, world, checks)
+					checks["fresh_opening_preserves_intro_and_job_boundary"] = not bool(RealityState.data.intro_complete) \
+						and RealityState.data.maintenance_jobs.is_empty()
 				elif is_instance_valid(opening) and is_instance_valid(opening.waking):
 					await get_tree().create_timer(6.0).timeout
 					await _capture("dream")
@@ -108,6 +188,12 @@ class LaunchObserver extends Node:
 			else:
 				checks["normal_title_launch_starts_first_shift"] = bool(RealityState.data.intro_complete) \
 						and world.get("first_shift_director").ritual_phase() == FirstShiftDirector.PHASE_ARRIVED
+		elif world is OrisonV2RuntimeRoot and timed_bedroom:
+			await measure_bedroom_control(shell, world, checks)
+			checks["saved_bedroom_resumes_without_dream_replay"] = timing.observed_prologue_phases == ["bedroom_exploration"] \
+				and RealityState.data.prologue.phase == "bedroom_exploration" and world.opening_render_preparation.get("completed", false)
+			timing["after_input_clock"] = JSON.parse_string(JSON.stringify(RealityState.data.campaign_clock))
+			checks["saved_bedroom_clock_stays_exact_through_input"] = timing.after_input_clock == expected.campaign_clock
 		elif world is OrisonV2RuntimeRoot:
 			checks["legacy_completed_save_does_not_replay_replacement_opening"] = world.prologue_director == null \
 					and not shell.uses_prologue_entry() and bool(RealityState.data.intro_complete)
@@ -131,6 +217,12 @@ class LaunchObserver extends Node:
 				"post_world_primary_bytes": FileAccess.get_file_as_bytes(RealityState.save_path).size(),
 				"entry_render_preparation":world.opening_render_preparation.duplicate(true) if world is OrisonV2RuntimeRoot else {},
 				"scope": "actual title button and scene transition with explicit campaign-time freeze; no human traversal"}
+		if timed_bedroom:
+			receipt["timing"] = timing
+			receipt["engine_identity"] = {"pid": OS.get_process_id(), "executable": OS.get_executable_path(),
+				"observer_anchor_utc": born_anchor_utc, "observer_anchor_usec": born_anchor_usec, "receipt_anchor_utc": Time.get_unix_time_from_system(), "receipt_anchor_usec": Time.get_ticks_usec()}
+			receipt["startup_ms"] = world.get("startup_ms")
+			receipt["scope"] = "Fresh native process and isolated profile. Actual title input through bedroom mouse look and movement. OS and driver caches are uncontrolled."
 		var path := OS.get_environment("TITLE_ACTUAL_RECEIPT")
 		if not path.is_empty():
 			var file := FileAccess.open(path, FileAccess.WRITE)
@@ -166,6 +258,20 @@ func _ready() -> void:
 	if action not in ["continue", "begin", "new"]:
 		get_tree().quit(2)
 		return
+	var timed_bedroom := OS.get_environment("TITLE_ACTUAL_TIMED_BEDROOM") == "1"
+	if timed_bedroom:
+		if action not in ["begin", "continue"] or not _verify_timing_profile(action):
+			get_tree().quit(2)
+			return
+		GameBoot.settings.weather_network_enabled = false
+		seed(1928)
+	if timed_bedroom and action == "continue":
+		var saved_clock := CampaignClock.new()
+		if not saved_clock.bind_state():
+			get_tree().quit(2)
+			return
+		_launch(action, saved_clock, true)
+		return
 	RealityState.save_path = "user://tests/title_actual_%s_%s/campaign.json" % [
 			action, Crypto.new().generate_random_bytes(8).hex_encode()]
 	RealityState.persistence_enabled = true
@@ -191,8 +297,32 @@ func _ready() -> void:
 		get_tree().quit(2)
 		return
 	RealityState.load_game()
+	_launch(action, clock, timed_bedroom)
+
+func _verify_timing_profile(action: String) -> bool:
+	var expected := OS.get_environment("TITLE_ACTUAL_ISOLATED_APPDATA").replace("\\", "/").simplify_path()
+	var actual := OS.get_environment("APPDATA").replace("\\", "/").simplify_path()
+	if expected.is_empty() or actual != expected or not expected.begins_with("C:/ov/reports/develop_intake_20261104/") \
+			or OS.get_user_data_dir().replace("\\", "/").simplify_path() != expected.path_join("PleaseRemainOnTheLine"):
+		push_error("Title timing requires the explicit isolated APPDATA")
+		return false
+	if action == "begin":
+		return not FileAccess.file_exists(RealityState.SAVE_PATH)
+	var valid: bool = FileAccess.get_sha256(RealityState.SAVE_PATH) == BEDROOM_FIXTURE_SHA \
+		and RealityState.load_status().status == "loaded" and RealityState.can_continue() \
+		and not RealityState.save_write_blocked and RealityState.data.prologue.phase == "bedroom_exploration"
+	if not valid:
+		push_error("Current validation did not accept the original bedroom fixture")
+	return valid
+
+func _launch(action: String, clock: CampaignClock, timed_bedroom: bool) -> void:
 	var observer := LaunchObserver.new()
 	observer.action = action
+	observer.timed_bedroom = timed_bedroom
+	if timed_bedroom and action == "continue":
+		observer.timing["pre_title_save"] = {"sha256": FileAccess.get_sha256(RealityState.SAVE_PATH),
+			"load_status": RealityState.load_status(), "clock": RealityState.data.campaign_clock.duplicate(true),
+			"prologue": RealityState.data.prologue.duplicate(true)}
 	observer.expected = JSON.parse_string(JSON.stringify({
 			"campaign_clock": RealityState.data.campaign_clock,
 			"first_shift": RealityState.data.first_shift, "core_loop": RealityState.data.core_loop})) if action == "continue" else {}
@@ -207,6 +337,8 @@ func _ready() -> void:
 		get_tree().quit(1)
 		return
 	# No GameBoot scene-operation override is installed in this process.
+	observer.mark("title_action")
+	observer.action_usec = observer.timing.title_action
 	if action == "new":
 		title._new_campaign_button.pressed.emit()
 		title._replacement_confirm.pressed.emit()
