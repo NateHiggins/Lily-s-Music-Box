@@ -3,6 +3,7 @@ extends Node3D
 ## facts and the household save owner remain outside this presentation owner.
 signal manipulation_changed
 const Pickup := preload("res://scripts/props/fire_maintenance_pickup.gd")
+const GASKET_ID := Pickup.GASKET_ID
 const Library := preload("res://scripts/props/fire_maintenance_stock_library.gd")
 const COLUMN_SPACING_M := .30
 const COUNTER_LENGTH_M := .76 # Three 124mm cases with clearance at both ends.
@@ -19,6 +20,7 @@ var _passage: WeakRef
 var _passage_floors: Array[AABB] = []
 var _geometry_dormant := false
 var _suspended_stock: Dictionary = {}
+var _fitted_station := ""
 
 func bind_residency(passage: Node3D) -> bool:
 	_passage=weakref(passage);_passage_floors.clear()
@@ -45,7 +47,7 @@ func _inside_passage(body: Node3D) -> bool:
 func wants_passage_geometry() -> bool:
 	for identity: String in pickups:
 		var body: RigidBody3D=pickups[identity]
-		if body._held or not _inside_passage(body):continue
+		if _gasket_retired(identity) or body._held or not _inside_passage(body):continue
 		if _suspended_stock.has(identity):
 			if not bool(_suspended_stock[identity].stock.sleeping):return true
 		elif not body.freeze and not body.sleeping:return true
@@ -55,7 +57,7 @@ func passage_geometry_dormant() -> void:
 	_geometry_dormant=true
 	for identity: String in pickups:
 		var body: RigidBody3D=pickups[identity]
-		if body._held or body.freeze or not _inside_passage(body):continue
+		if _gasket_retired(identity) or body._held or body.freeze or not _inside_passage(body):continue
 		_suspended_stock[identity]={"stock":body.stock_snapshot(),"cap":body.cap_turn,"parked":false}
 		body.freeze_mode=RigidBody3D.FREEZE_MODE_STATIC
 		body.freeze=true;body.start_at_rest();body.set_physics_process(false)
@@ -67,7 +69,7 @@ func passage_geometry_active() -> void:
 	if not is_inside_tree() or _geometry_dormant:return
 	for identity: String in _suspended_stock.keys():
 		var body: RigidBody3D=pickups[identity]
-		if not body._held:
+		if not _gasket_retired(identity) and not body._held:
 			var record: Dictionary=_suspended_stock[identity]
 			body.freeze_mode=RigidBody3D.FREEZE_MODE_KINEMATIC
 			body.restore_stock(record.stock);body.freeze=record.parked
@@ -130,7 +132,8 @@ func configure(service: MaintenanceShopService, terminal_parent: Node3D=null) ->
 			var tin:=StaticBody3D.new();tin.name="SpareWasherTin";add_child(tin);tin.position=Vector3(x,0,-.19)
 			var draw: MeshInstance3D=stock.draw(tin,"Tin")
 			var solid:=CollisionShape3D.new();solid.shape=draw.mesh.create_trimesh_shape();tin.add_child(solid)
-		body.settled.connect(func():if not _restoring:manipulation_changed.emit())
+		body.settled.connect(func():
+			if not _restoring and not _gasket_retired(identity):manipulation_changed.emit())
 	return true
 
 func _add_solid(body: Node3D, shape: Shape3D) -> void:
@@ -179,7 +182,13 @@ func claim_library_hand(part: Node3D, _tag: String) -> bool:
 	_hand_node=part;part.set_physics_process(true);return true
 
 func can_take(part: Node3D) -> bool:
-	return merchant!=null and merchant.inventory.has_item(str(part.item_id))
+	var identity := str(part.item_id)
+	if _gasket_retired(identity) or merchant == null:
+		return false
+	return merchant.inventory.has_item(identity)
+
+func _gasket_retired(identity: String) -> bool:
+	return identity==GASKET_ID and not _fitted_station.is_empty()
 
 func pickup_withdrawal_for(_part: Node3D) -> Vector3:
 	# Lift then withdraw off the front edge before following a downward-aimed
@@ -225,6 +234,58 @@ func apply_dressing(body: Node3D, contact: Vector3) -> void:
 		if actor!=null and actor.has_method("try_dress_gasket") and actor.global_position.distance_to(body.global_position)<1.:
 			actor.try_dress_gasket(merchant.inventory,contact)
 
+# The grab owner has detached its carrier contact exceptions, but the common
+# body hand remains claimed until the household adopts the committed handoff.
+func _holds_paid_gasket(pickup: Node3D) -> bool:
+	return is_instance_valid(pickup) and pickup==pickups.get(GASKET_ID) and pickup==_hand_node \
+		and pickup.shelf==self and pickup.item_id==GASKET_ID and pickup._held and pickup._hand_tag=="body" \
+		and can_take(pickup)
+
+func try_fit_purchased_gasket(pickup: Node3D) -> bool:
+	if not _holds_paid_gasket(pickup):return false
+	var household: Node=get_tree().get_first_node_in_group("v2_household_state")
+	if household==null or not household.has_method("commit_purchased_gasket"):return false
+	var cabinet: Node3D
+	var fit: Dictionary={}
+	for reference: WeakRef in fire_stations:
+		var actor: Node3D=reference.get_ref()
+		if not is_instance_valid(actor) or not actor.has_method("preview_purchased_gasket_fit"):continue
+		var preview: Dictionary=actor.preview_purchased_gasket_fit(pickup)
+		if preview.is_empty():continue
+		if cabinet!=null and cabinet!=actor:return false
+		cabinet=actor;fit=preview
+	return cabinet!=null and bool(household.commit_purchased_gasket(self,cabinet,pickup,fit))
+
+func purchased_gasket_handoff_snapshot(station_id: String) -> Dictionary:
+	var pickup: Node3D=pickups.get(GASKET_ID)
+	if station_id.is_empty() or station_id!=station_id.strip_edges() or not _holds_paid_gasket(pickup):return {}
+	var records: Dictionary=mechanism_snapshot()
+	var gasket: Dictionary=records[GASKET_ID]
+	gasket.fitted_station=station_id
+	gasket.parked=true
+	gasket.stock.sleeping=false
+	gasket.stock.velocity=[0.,0.,0.]
+	gasket.stock.spin=[0.,0.,0.]
+	return records
+
+func adopt_purchased_gasket_handoff(value: Dictionary) -> void:
+	if not valid_mechanism(value) or not _fitted_station.is_empty():return
+	var record: Dictionary=value[GASKET_ID]
+	if not record.has("fitted_station"):return
+	var pickup: Node3D=pickups[GASKET_ID]
+	if _hand_node!=pickup or not pickup._held or pickup._hand_tag!="body":return
+	# The paired save has committed. Clear the same hand through its original
+	# release owner without emitting a second save request.
+	var was_restoring:=_restoring
+	_restoring=true
+	_fitted_station=record.fitted_station
+	_suspended_stock.erase(GASKET_ID)
+	if _inspection_stock==pickup:_inspection_stock=null
+	if _pending_inspection_stock==pickup:_pending_inspection_stock=null
+	pickup._release()
+	pickup.set_gasket_retired(true)
+	_restoring=was_restoring
+
 func mechanism_snapshot() -> Dictionary:
 	var records: Dictionary={}
 	for identity: String in pickups:
@@ -233,16 +294,22 @@ func mechanism_snapshot() -> Dictionary:
 		# resume gravity, rather than leave the purchased stock frozen in midair.
 		var supported: bool=body._held or body==_inspection_stock or body==_pending_inspection_stock
 		var physical: Dictionary=body.stock_snapshot()
-		if supported:physical.sleeping=false
+		if supported or _gasket_retired(identity):physical.sleeping=false
 		var parked: bool=body.freeze and not supported
 		records[identity]=_suspended_stock[identity].duplicate(true) if _suspended_stock.has(identity) else {"stock":physical,"cap":body.cap_turn,"parked":parked}
+		if _gasket_retired(identity):records[identity].fitted_station=_fitted_station
 	return records
 
 func valid_mechanism(value: Variant) -> bool:
 	if value is not Dictionary or value.size()!=pickups.size():return false
 	for identity: String in pickups:
 		var record: Variant=value.get(identity)
-		if record is not Dictionary or record.size()!=3 or record.get("parked") is not bool \
+		if record is not Dictionary:return false
+		var fitted: bool=record.has("fitted_station")
+		if fitted and (identity!=GASKET_ID or record.fitted_station is not String \
+				or record.fitted_station.is_empty() or record.fitted_station!=record.fitted_station.strip_edges() \
+				or record.get("parked")!=true):return false
+		if record.size()!=(4 if fitted else 3) or record.get("parked") is not bool \
 				or not Pickup.valid_stock(record.get("stock")) \
 				or typeof(record.get("cap")) not in [TYPE_INT,TYPE_FLOAT] \
 				or not is_finite(float(record.cap)) or float(record.cap)<0. or float(record.cap)>Pickup.CAP_TRAVEL:return false
@@ -252,10 +319,12 @@ func restore_mechanism(value: Dictionary) -> void:
 	if _hand_node!=null or not valid_mechanism(value):return
 	_restoring=true
 	_suspended_stock.clear()
+	_fitted_station=value[GASKET_ID].get("fitted_station","")
 	for identity: String in pickups:
 		var body: Node3D=pickups[identity];var record: Dictionary=value[identity]
 		body.freeze_mode=RigidBody3D.FREEZE_MODE_KINEMATIC
 		body.restore_stock(record.stock);body.freeze=record.parked
+		if identity==GASKET_ID:body.set_gasket_retired(_gasket_retired(identity))
 		if body.cap!=null:body.set_cap(float(record.cap))
 	if _geometry_dormant:passage_geometry_dormant()
 	_restoring=false

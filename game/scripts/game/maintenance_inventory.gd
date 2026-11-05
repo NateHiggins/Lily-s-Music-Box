@@ -15,6 +15,7 @@ signal part_consumed(item_id: String)
 
 
 const TIMESTAMP_BASIS := "campaign_elapsed_minutes"
+const PURCHASED_GASKET_ITEM := "fire_hose_spare_gasket"
 var _clock := CampaignClock.new()
 
 
@@ -52,6 +53,31 @@ func consume(item_id: String) -> bool:
 	RealityState.commit()
 	part_consumed.emit(item_id)
 	return true
+
+
+
+## Prepare a detached row for RealityState's paired save. Clock migration
+## stays in ordinary campaign setup, outside this pure preparation.
+func _stage_purchased_gasket_consumption(document: Dictionary) -> Dictionary:
+	var items: Variant = document.get("maintenance_items")
+	var clock: Variant = document.get("campaign_clock")
+	if items is not Dictionary or clock is not Dictionary or not clock.has("schema_version"):
+		return {}
+	if not CampaignClock.validate_snapshot(clock).ok:
+		return {}
+	var existing: Variant = items.get(PURCHASED_GASKET_ITEM)
+	if existing is not Dictionary or existing.get("consumed") is not bool or bool(existing.consumed) \
+			or existing.get("shop_id") != "hardware_paint":
+		return {}
+	var spent: Dictionary = existing.duplicate(true)
+	spent.consumed = true
+	spent.consumed_at = float(clock.elapsed_minutes)
+	spent.consumed_at_basis = TIMESTAMP_BASIS
+	return spent
+
+
+func _announce_purchased_gasket_consumption() -> void:
+	part_consumed.emit(PURCHASED_GASKET_ITEM)
 
 
 func has_item(item_id: String) -> bool:

@@ -1051,7 +1051,7 @@ func end_seated_interaction(owner: Node = null) -> void:
 
 func use_primary_interaction() -> void:
 	if _grab != null and _grab.active():
-		_grab.release()
+		_grab.release(true, true) # Explicit primary release.
 		return
 	if is_instance_valid(seated_interaction):
 		if seated_interaction.has_method("interact"):

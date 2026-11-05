@@ -1,5 +1,6 @@
 extends "res://scripts/props/v2_library_movable.gd"
 ## A service bottle or replacement washer follows the common held-stock path.
+const GASKET_ID := "fire_hose_spare_gasket"
 var item_id := ""
 var cap: Node3D
 const CAP_TRAVEL := 1.9
@@ -22,7 +23,23 @@ func requires_shelf_withdrawal() -> bool:
 
 func grip() -> Dictionary:
 	if shelf==null or not shelf.can_take(self):return {"blocked":true}
-	return super.grip()
+	var target: Dictionary=super.grip()
+	if item_id==GASKET_ID:target.primary_end=_primary_gasket_release
+	return target
+
+func _primary_gasket_release() -> void:
+	if not shelf.try_fit_purchased_gasket(self):_release()
+
+func set_gasket_retired(retired: bool) -> void:
+	if item_id!=GASKET_ID:return
+	visible=not retired
+	collision_layer=0 if retired else 1
+	collision_mask=0 if retired else 1
+	if retired:
+		_forget_support()
+		_rest_until=-1
+		end_static_inspection()
+		freeze=true;linear_velocity=Vector3.ZERO;angular_velocity=Vector3.ZERO
 
 func _claim(tag: String) -> bool:
 	if not super._claim(tag):return false
