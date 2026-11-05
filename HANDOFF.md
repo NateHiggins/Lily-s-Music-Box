@@ -70,32 +70,28 @@ golden-shift,weather,city,narrative and all gameplay/save commitments.
 
 ## Finish the integration before opening new work
 
-1. Reproduce book parking exit on unchanged production,apply the bounded fix,
-   then run the same input controls and nearby installed readability checks.
-   Stage only exact original receipts via the external staging helper,passing
-   the successful new runtime name explicitly; its default still names03. Preserve the older19-room
-   apartment cohort separately. No receipt repin or capture-to-played promotion.
-2. Renew the source-bound surface packet and exact119-gate candidate against
-   **board_main_4f16053e8/board.json**. The earlier116PASS/2FAIL/1INCOMPLETE board
-   predates the owner repair. Full completeness now108/110PASS: two stale live
-   first-slice/apartment failures remain. Manual PR152 merge only after required
-   evidence passes. No auto-merge or whole-V2 acceptance claim.
-3. Continue outstanding book/nook,installed hose,playable stutter and whole-V2
-   coverage. TASKS.md holds current gaps; do not repeat unchanged long walks.
-   External **book_optics_candidate/** is authored only,not installed/compiled.
-   **BOOK_NEXT_DIAGNOSTIC.json** and **HOSE_NEXT_DIAGNOSTIC.json** record source
-   findings,not runtime proof. Dark held-book cover,installed shelf-slot return,
-   corridor/Continue,full hose payout/release/dressing/impact wetting and broader
-   cold/reload performance remain open. Preserve prologue/audio/golden-shift,
-   campaign/weather and artistic acceptance commitments.
+1. Run the test-only parked/unplaced book-exit controls on unchanged production.
+   Preserve the actual negative result,then apply the bounded production fix and
+   repeat those exact tests. No reset or direct state write before observations.
+2. Exercise nearby installed nook/lamp/readability and the original hose impact
+   observer before changing wetting. Finish real moving-nozzle,first-solid,
+   floor/edge/underside,pause/zero-flow,restore/unload and idle-cost controls.
+   Authored diagnostics/patches are not implemented or verified game behavior.
+3. Reconcile stable existing story heads and measure the existing stutter route,
+   retaining separate cold/Continue limits. After combined local fixes,renew only
+   affected composed proof and verify an exact candidate against the actual clean
+   **board_main_aca238412/board.json** baseline. Preserve all original failures,
+   protected paths,explicitV1rollback and gameplay/save/prologue/audio/golden-shift/
+   weather/city/narrative commitments. No auto-merge or whole-V2/artistic claim.
 
 ## Coordinate ownership and integration
 
 Check both Codex and ChatGPT inboxes using
 **C:/Users/nate_/homebrew-tools/toolbox.py**. Direct Orison coordination is
 authorized. Claude's Sun work is isolated in **C:/ov/sun**, branch **claude/sun**;
-Claude agreed to hold its surface renewal until PR152 merges. Send the merge
-result before it renews. Architect's city authoring is complete/stopped;
+PR152 has merged and the merge result was sent through the bridge. Coordinate
+stable source heads at meaningful checkpoints; give Claude time to work and
+share normal FIFO without exclusive GPU holds. Architect's city authoring is complete/stopped;
 coordinate any new bounded request rather than duplicating authoring.
 
 Use independent chats/agents for bounded work with explicit named-path owners,
