@@ -220,7 +220,8 @@ func _optics_geometry(book: Node3D,title: Label3D) -> Dictionary:
 	var cover_points:=PackedVector3Array()
 	var cover_parts: Array[String]=[]
 	for draw: MeshInstance3D in book._native_draws:
-		if str(draw.get_meta("readable_library_part",""))!=str(book.stock_id)+"__left_board" or not draw.is_visible_in_tree():continue
+		var part_id: String=str(draw.get_meta("readable_library_part",""))
+		if part_id not in [str(book.stock_id)+"__left_board",str(book.stock_id)+"__continuous_wrap"] or not draw.is_visible_in_tree():continue
 		var mesh: Mesh=draw.mesh
 		if draw.get_blend_shape_count()>0:
 			# New temporary mesh only: never assign it to the production instance.
@@ -230,7 +231,7 @@ func _optics_geometry(book: Node3D,title: Label3D) -> Dictionary:
 		cover_points.append_array(_optics_vertices(mesh.get_rid(),draw.global_transform))
 	var result: Dictionary={"cover":_optics_project(cover_points)}
 	result.cover.drawn_parts=cover_parts
-	result.cover.geometry_source="actual loaded left-board mesh and current blend-shape mix; bounds, not occlusion/silhouette proof"
+	result.cover.geometry_source="actual loaded cover board or continuous-wrapper mesh and current blend-shape mix; bounds, not occlusion/silhouette proof"
 	for label: Label3D in book.printed_labels:
 		if label!=title and label.name!="CoverAuthor":continue
 		var mesh_rid: RID=label.get_base()
