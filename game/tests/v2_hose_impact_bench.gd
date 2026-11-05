@@ -270,13 +270,14 @@ func _swept_preview_case(phase: String, actor: Node3D, hose: Node3D, camera: Cam
 	for frame in ceili(.75 * Engine.physics_ticks_per_second):
 		await get_tree().physics_frame
 	hose.swept_stats.max_usec = 0 # Diagnostic counter reset, not a state change.
+	hose.swept_stats.max_visual_usec = 0
 	var before: Dictionary = hose.swept_stats.duplicate()
 	# No camera changes, readbacks, logging or extra witness rays in this sample.
 	for frame in Engine.physics_ticks_per_second:
 		await get_tree().physics_frame
 	var after: Dictionary = hose.swept_stats.duplicate()
-	var sample: Dictionary = {"max_callback_usec":after.max_usec}
-	for key: String in ["ticks", "usec", "jet_rays", "splash_rays", "rim_rays", "impacts", "bursts"]:
+	var sample: Dictionary = {"max_callback_usec":after.max_usec,"max_visual_usec":after.max_visual_usec}
+	for key: String in ["ticks", "usec", "visual_usec", "visual_rays", "wet_rays", "splash_rays", "rim_rays", "impacts", "bursts", "births", "dropped_births"]:
 		sample[key] = int(after[key]) - int(before[key])
 	row.capture_free_cpu = sample
 	row.first_solid = hose.last_swept_impact.duplicate()
@@ -285,7 +286,11 @@ func _swept_preview_case(phase: String, actor: Node3D, hose: Node3D, camera: Cam
 	for mark: Dictionary in hose._wet_marks:
 		if mark.left > 0. and mark.draw.visible:
 			row.film_receiver_rids.append(str(mark.rid))
-	var bounds: bool = sample.ticks > 0 and sample.jet_rays <= 16 * sample.ticks and sample.splash_rays <= 12 * sample.ticks and sample.rim_rays <= 256 * sample.ticks and sample.bursts <= sample.ticks
+	var visual_ray_limit: int = emitter.amount + ceili(float(emitter.amount) / emitter.lifetime * hose.WET_STEP)
+	row.visual_ray_limit_per_tick = visual_ray_limit
+	var bounds: bool = sample.ticks > 0 and sample.births > 0 and sample.dropped_births == 0
+	bounds = bounds and sample.visual_rays <= visual_ray_limit * sample.ticks and sample.wet_rays <= 16 * sample.ticks
+	bounds = bounds and sample.splash_rays <= 12 * sample.ticks and sample.rim_rays <= 256 * sample.ticks and sample.bursts <= sample.ticks
 	if not check(bounds and hose.water.spray > .7 and not emitter.emitting and not emitter.visible, "swept-only visual retains real flow and callback bounds: " + phase):
 		return false
 	if receiver != null:
@@ -331,7 +336,7 @@ func _swept_preview_idle(hose: Node3D) -> void:
 	for frame in Engine.physics_ticks_per_second:
 		await get_tree().physics_frame
 	var after: Dictionary = hose.swept_stats.duplicate()
-	var idle: bool = before == after and hose._wet_timer.is_stopped() and hose._wet_drops.is_empty() and hose._swept_splash.is_empty() and hose._swept_jet.multimesh.visible_instance_count == 0 and hose._swept_splash_draw.multimesh.visible_instance_count == 0
+	var idle: bool = before == after and hose._wet_timer.is_stopped() and hose._wet_drops.is_empty() and hose._dense_count == 0 and hose._swept_splash.is_empty() and hose._swept_jet.multimesh.visible_instance_count == 0 and hose._swept_splash_draw.multimesh.visible_instance_count == 0
 	check(idle, "actual zero flow retires both pools and yields zero idle callback/query delta")
 	hose.set_swept_spray_preview(false)
 	var file := FileAccess.open(OS.get_environment("SHOT_DIR").path_join("swept_preview_idle.json"), FileAccess.WRITE)

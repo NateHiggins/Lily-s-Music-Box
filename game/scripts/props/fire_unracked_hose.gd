@@ -79,7 +79,18 @@ var _swept_preview := false
 var _swept_jet: MultiMeshInstance3D
 var _swept_splash_draw: MultiMeshInstance3D
 var _swept_splash: Array[Dictionary] = []
-var swept_stats := {"ticks":0,"usec":0,"max_usec":0,"jet_rays":0,"splash_rays":0,"rim_rays":0,"impacts":0,"bursts":0}
+# Dense flight uses a packed active prefix, allocated only for the preview.
+var _dense_positions := PackedVector3Array()
+var _dense_velocities := PackedVector3Array()
+var _dense_remaining := PackedFloat64Array()
+var _dense_count := 0
+var _dense_credit := 0.0
+var _dense_sequence := 0
+var _dense_query: PhysicsRayQueryParameters3D
+var _dense_hit_this_tick := false
+var swept_stats := {"ticks":0,"usec":0,"max_usec":0,"visual_usec":0,"max_visual_usec":0,
+	"visual_rays":0,"wet_rays":0,"splash_rays":0,"rim_rays":0,"impacts":0,"bursts":0,
+	"births":0,"dropped_births":0}
 var last_swept_impact: Dictionary = {}
 var release_support:=preload("res://scripts/props/hose_release_support.gd").new()
 
@@ -273,8 +284,6 @@ func _wet_ray(ray_from: Vector3,ray_to: Vector3, counter: String = "rim_rays") -
 
 func _wet_tick() -> void:
 	var started: int = Time.get_ticks_usec() if _swept_preview else 0
-	var jet_count: int = 0
-	var burst_this_tick: bool = false
 	if _swept_preview:
 		_swept_update_splash()
 	for row: Dictionary in _wet_marks:
@@ -298,30 +307,26 @@ func _wet_tick() -> void:
 		var velocity: Vector3=drop.velocity
 		var gravity: Vector3=drop.gravity
 		var next: Vector3=position+velocity*dt+gravity*(dt*dt*.5)
-		var hit: Dictionary=_wet_ray(position,next,"jet_rays")
-		if _swept_preview:
-			jet_count = _swept_draw_step(_swept_jet.multimesh, jet_count, position, next, hit, 1.)
+		var hit: Dictionary=_wet_ray(position,next,"wet_rays")
 		if not hit.is_empty():
 			var fraction: float=clampf((hit.position-position).dot(next-position)/maxf(position.distance_squared_to(next),.000000000001),0.,1.)
 			var impact_velocity: Vector3 = velocity + gravity * (dt * fraction)
-			if _swept_preview:
-				swept_stats.impacts += 1
-				var collider: Node = hit.get("collider") as Node
-				last_swept_impact = {"instance_id":collider.get_instance_id() if collider != null else 0,"path":str(collider.get_path()) if collider != null else "","rid":str(hit.rid),"shape":hit.shape,"position":var_to_str(hit.position),"normal":var_to_str(hit.normal),"step_start":var_to_str(position),"step_end":var_to_str(next)}
-				if not burst_this_tick:
-					burst_this_tick = _swept_make_splash(hit, impact_velocity, gravity)
 			_wet_deposit(hit,impact_velocity)
 			_wet_drops.remove_at(index) # First solid consumes the sample, even when rejected.
 			continue
 		drop.position=next;drop.velocity=velocity+gravity*dt;drop.left=float(drop.left)-dt
 		if float(drop.left)<=.000001:_wet_drops.remove_at(index)
 	if _swept_preview:
-		_swept_jet.multimesh.visible_instance_count = jet_count
+		var visual_start: int = Time.get_ticks_usec()
+		_dense_update(flowing)
+		var visual_elapsed: int = Time.get_ticks_usec() - visual_start
+		swept_stats.visual_usec += visual_elapsed
+		swept_stats.max_visual_usec = maxi(swept_stats.max_visual_usec, visual_elapsed)
 		var elapsed: int = Time.get_ticks_usec() - started
 		swept_stats.ticks += 1
 		swept_stats.usec += elapsed
 		swept_stats.max_usec = maxi(swept_stats.max_usec, elapsed)
-	var preview_pending: bool = _swept_preview and (jet_count > 0 or not _swept_splash.is_empty() or _swept_splash_draw.multimesh.visible_instance_count > 0)
+	var preview_pending: bool = _swept_preview and (_dense_count > 0 or _swept_jet.multimesh.visible_instance_count > 0 or not _swept_splash.is_empty() or _swept_splash_draw.multimesh.visible_instance_count > 0)
 	if not flowing and _wet_drops.is_empty() and not preview_pending:
 		var fading:=false
 		for row: Dictionary in _wet_marks:
@@ -381,8 +386,17 @@ func set_swept_spray_preview(enabled: bool) -> void:
 	_swept_preview = enabled
 	if enabled:
 		if _swept_jet == null:
-			_swept_jet = _swept_pool("SweptJet", WET_LIMIT)
+			_swept_jet = _swept_pool("SweptJet", _spray.amount)
 			_swept_splash_draw = _swept_pool("SweptSplash", SPLASH_LIMIT)
+			_dense_positions.resize(_spray.amount)
+			_dense_velocities.resize(_spray.amount)
+			_dense_remaining.resize(_spray.amount)
+			_dense_query = PhysicsRayQueryParameters3D.new()
+			_dense_query.collision_mask = 1
+			_dense_query.collide_with_areas = false
+			_dense_query.collide_with_bodies = true
+			_dense_query.hit_from_inside = true
+			_dense_query.hit_back_faces = true
 		_spray.emitting = false
 		_spray.visible = false
 		if water.spray > .001 and _wet_timer.is_stopped():
@@ -392,6 +406,85 @@ func set_swept_spray_preview(enabled: bool) -> void:
 		if water.spray > .001:
 			_spray.visible = true
 			_spray.restart()
+
+func _dense_update(flowing: bool) -> void:
+	var process: ParticleProcessMaterial = _spray.process_material
+	var space: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+	var counts := Vector2i.ZERO # x is active packets, y is visible instances.
+	_dense_hit_this_tick = false
+	# Compact in place before birthing new packets. Existing flights remain world-space.
+	for index in _dense_count:
+		counts = _dense_advance(index, counts, WET_STEP, process.gravity, space)
+	if flowing:
+		# The source emitter's count, lifetime and live ratio determine density.
+		var rate: float = float(_spray.amount) / _spray.lifetime * clampf(water.spray, 0., 1.)
+		var credit_before: float = _dense_credit
+		var budget: float = credit_before + rate * WET_STEP
+		var births: int = floori(budget)
+		_dense_credit = budget - float(births)
+		var muzzle: Transform3D = _spray.global_transform
+		var axis: Vector3 = (muzzle.basis * process.direction).normalized()
+		var up: Vector3 = Vector3.UP if absf(axis.y) < .99 else Vector3.RIGHT
+		var across: Vector3 = axis.cross(up).normalized()
+		var tangent: Vector3 = across.cross(axis)
+		for birth in births:
+			if counts.x >= _dense_positions.size():
+				swept_stats.dropped_births += births - birth
+				break
+			# Sample and hold the actual muzzle pose for this tick. Stagger ages
+			# inside the interval without guessing intermediate nozzle transforms.
+			var birth_time: float = (float(birth + 1) - credit_before) / rate
+			var age: float = clampf(WET_STEP - birth_time, 0., WET_STEP)
+			var phase: float = float(_dense_sequence)
+			_dense_sequence = (_dense_sequence + 1) % 1024
+			var angle: float = deg_to_rad(process.spread) * sqrt(fposmod(phase * .754877666, 1.))
+			var azimuth: float = phase * 2.39996323
+			var direction: Vector3 = axis * cos(angle) + (across * cos(azimuth) + tangent * sin(azimuth)) * sin(angle)
+			var speed: float = lerpf(process.initial_velocity_min, process.initial_velocity_max, fposmod(phase * .569840296, 1.))
+			_dense_positions[counts.x] = muzzle.origin
+			_dense_velocities[counts.x] = direction * speed
+			_dense_remaining[counts.x] = _spray.lifetime
+			swept_stats.births += 1
+			counts = _dense_advance(counts.x, counts, age, process.gravity, space)
+	else:
+		_dense_credit = 0.0
+	_dense_count = counts.x
+	_swept_jet.multimesh.visible_instance_count = counts.y
+
+func _dense_advance(index: int, counts: Vector2i, requested_step: float, gravity: Vector3,
+		space: PhysicsDirectSpaceState3D) -> Vector2i:
+	var start: Vector3 = _dense_positions[index]
+	var velocity: Vector3 = _dense_velocities[index]
+	var left: float = _dense_remaining[index]
+	var step: float = minf(requested_step, left)
+	var goal: Vector3 = start + velocity * step + gravity * (step * step * .5)
+	if step > .00000001:
+		_dense_query.from = start
+		_dense_query.to = goal
+		# Same unfiltered first-solid mask as wetting. Reuse only the query object.
+		var hit: Dictionary = space.intersect_ray(_dense_query)
+		swept_stats.visual_rays += 1
+		if not hit.is_empty():
+			counts.y = _swept_draw_step(_swept_jet.multimesh, counts.y, start, goal, hit, 1.)
+			swept_stats.impacts += 1
+			if not _dense_hit_this_tick:
+				_dense_hit_this_tick = true
+				var fraction: float = clampf((hit.position - start).dot(goal - start) / maxf(start.distance_squared_to(goal), .000000000001), 0., 1.)
+				var collider: Node = hit.get("collider") as Node
+				var burst: bool = _swept_make_splash(hit, velocity + gravity * (step * fraction), gravity)
+				last_swept_impact = {"instance_id":collider.get_instance_id() if collider != null else 0,
+					"path":str(collider.get_path()) if collider != null else "", "rid":str(hit.rid), "shape":hit.shape,
+					"position":var_to_str(hit.position), "normal":var_to_str(hit.normal),
+					"step_start":var_to_str(start), "step_end":var_to_str(goal), "burst":burst}
+			return counts # The first solid consumes this packet, even without a burst.
+		if left <= step + .000001:
+			return counts
+		counts.y = _swept_draw_step(_swept_jet.multimesh, counts.y, start, goal, {}, 1.)
+	_dense_positions[counts.x] = goal
+	_dense_velocities[counts.x] = velocity + gravity * step
+	_dense_remaining[counts.x] = left - step
+	counts.x += 1
+	return counts
 
 func _swept_pool(label: String, limit: int) -> MultiMeshInstance3D:
 	var pool := MultiMesh.new()
@@ -464,6 +557,9 @@ func _swept_update_splash() -> void:
 	_swept_splash_draw.multimesh.visible_instance_count = count
 
 func _swept_clear() -> void:
+	_dense_count = 0
+	_dense_credit = 0.0
+	_dense_sequence = 0
 	_swept_splash.clear()
 	last_swept_impact.clear()
 	if is_instance_valid(_swept_jet):
