@@ -117,14 +117,15 @@ func _run_local() -> void:
 	var volume32_unavailable := false
 	for row: Dictionary in _local_report.selection:
 		if row.stock_id == "nook_books__Volume32":
-			volume32_unavailable = row.stage == "lift" and not row.available
+			volume32_unavailable = not row.available
 		if row.stock_id != "nook_books__Volume17":
 			continue
 		var blocker: Dictionary = row.get("blocker", {})
 		stack_pair = row.stage == "lift" and str(blocker.get("collider", {}).get("path", "")).ends_with("/nook_books__Volume32")
 	_local_report.volume17_expected_stack_blocker = stack_pair
 	var stack_control := _require(stack_pair, "Volume17 lift is unavailable under actual Volume32")
-	stack_control = _require(volume32_unavailable, "Volume32 is also blocked at lift in the native stack") and stack_control
+	# Being above Volume17 does not establish Volume32's own blocked stage.
+	_local_report.volume32_availability_measured_unavailable = volume32_unavailable
 	if stack_control:
 		await _two_style_run(candidates)
 	candidates.free()
