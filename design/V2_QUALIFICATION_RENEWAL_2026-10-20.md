@@ -2,53 +2,75 @@
 
 Evidence class: **INERT**. Technical report, not a room or gameplay checkpoint.
 
-## November 4 — shutdown audio ownership repair; qualification still open
+## November 4 — original programmes passed and published; exact candidate pending
 
-PR152 remains draft/unqualified. Original runtime13 apartment assertions passed
-60rooms/9legs/781checks and surface assertions passed0unresolved, but final
-admission rejected11219/1133 leaked ObjectDB instances and30/24 live resources.
-Original raw evidence remains **C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_13/**.
-Verbose surface reproduction identified retained Ogg/WAV playbacks, not fixtures.
+PR152 remains draft pending exact candidate verification. Original runtime14
+passed every mandatory stage and final source/contract guard on the pinned
+shutdown-fix engine with explicit process-only realBD9 WASAPI output:
 
-Four tiny controls at **C:/ov/reports/develop_intake_20261104/teardown_audio_ready/runs/**
-reproduced130 leaked audio instances/2resources in each started stop/release case;
-queued controls were clean. All four count controls passed. The patched engine
-repeats all four controls with zero leaked instances/resources. Active/paused
-owner-at-shutdown controls with32bus changes each also exit cleanly
-(**active_02_final/paused_02_final**, source freeze checked afterward). Earlier
-01controls launched before final author delivery are preserved invalid-custody
-diagnostics and grant no acceptance. Original
-logs/counts/wrappers are preserved; these diagnostics are not schema2 gameplay
-proof. AudioPolicyTest passes53checks. DoorAudioLifetimeTest still fails2/12 on
-both original and patched binaries when the default Razer WASAPI mixer stalls.
-Process-only selection of the listed physical **Headphones (BD9)** endpoint
-restores actual mixing/playback progress; the unchanged door test then passes
-12/12 on both engines. The integrated optional native-debug endpoint selection
-also passes12/12; an unlisted endpoint refuses with actual exit2 before checks.
-Windows default/preferences remain unchanged. Qualification explicitly uses this
-working real WASAPI endpoint; the default Razer route remains a host limitation.
-No audible-playback listening or artistic acceptance is claimed.
+| Programme | Original wrapper seconds | Serialized checks | Result |
+| --- | ---: | ---: | --- |
+| First-slice authority/save | 661.75 | 379 | PASS,0failures |
+| Nine-unit apartment access | 974.80 | 781 | PASS,60rooms/9legs,0failures |
+| Physical/city/entry surfaces | 360.72 | 38947 | PASS,0unresolved |
 
-The10line engine patch retires remaining playback-list nodes after all drivers
-finish/join,using the existing deferred deleter and two bus-detail cleanup passes.
-Normal mixing/fading/stop semantics and game audio code are unchanged. The
-reflection-atlas patch remains applied. Independent ownership review found no
-blocking issue for the observed Windows streaming paths; sample mode and other
-platforms are unqualified. Patch **tools/engine_patches/audio_playback_shutdown_4_7_1.patch**
-SHA256 **04d87ee4797404cf490bcea45d3bed0beaaf201dc34a844e9909fdfa1b57a3d1**.
+All seven scene wrappers completedexit0/untimedout with zero ERROR/SCRIPT ERROR
+or shutdown leak lines. Schema2 primary contracts and original raw wrappers/logs
+are unchanged. Independent final checks confirm runtime/physical/surface and128
+transitive test inputs, both executable hashes, profiles and stage bindings.
+Freeze head **dd1d6f652**, recorded wrappers **d0039ff78**, instrument-only staging
+head **d499aebae** remain distinct. No earlier engine PASS is current proof.
 
-Isolated incremental build49.94s at **C:/devkit/tentacle-audio-20261104-01/**;
-original binaries/source are preserved at the prior directory and baseline copy.
-New console SHA256 **7965e75a4f847484a4d1596729b508cb1ef23ae17ab6407eaffd9683364f0f8c**;
-engine SHA256 **e954c1db69ebe4b60878ae92cdc3a0e464fe92bd06b78c19402055e9f7bafce1**.
-**BUILD_RESULT.json** binds actual build log/source/binary hashes. The canonical
-manifest now pins these exact binaries. The build helper reproduces both patches;
-configure-only verifies source patches and pins files,not whether a rebuild took
-place. Actual build and executed controls supply that evidence here.
+Published packets: **art/renders/orison_v2/first_slice_contract_20261011/**,
+**remaining_apartments_20261013/** and **surface_requirements_20261011/**.
+Both existing atomic publishers and the corrected first-slice validator passed;
+raw contracts/wrappers and decompressed logs match their originals. Previous
+packets were preserved first under **art/reviews/v2_qualification_debt_20261104/**.
+Matching original60-room contract was recovered from Git555b01f3b/blob
+**b27f90ed6eba7f4de1d8c0413656a6139c3f1e45**, separately preserved with its exact
+original wrapper/logs and warning/dirty-source limits. Superseded metadata is
+not paired with that wrapper as current proof. Original19 archive is retained.
 
-Next: renew original source/binary-bound programmes with explicit real endpoint under
-fresh custody,then publish and verify the exact candidate before manual merge.
-Old successful proof is preserved,not silently promoted to the new engine.
+All94PNG originals were reviewed:12bounded,18apartment,59root surface and5entry.
+Headers/decodes verify3440x1440. Apartment originals displayed2048x857; surface
+review used complete680x285 sheet frames plus12critical originals displayed
+2048x857. Exact reviews/source/binary/profile bindings are preserved in
+**runtime14_binding/**. Foreground obscures5A/6A/6B MAIN,partly5B MAIN; five
+bathrooms are close wall crops. Dumbwaiter is wall-framed, service-closet labels
+show toilets, canal/rail remain dark/flat, east roof mostly sky. These limits
+remain explicit; no all-room visibility,native-pixel optics,human play,artistic
+acceptance,whole-V2 coverage or performance improvement is claimed. Surface
+inventory passes30921draws/19914meshes/6775materials/576textures.
+
+Original runtime13 rejected shutdown leaks11219/1133ObjectDB and30/24resources;
+all failures remain intact. The10line engine patch releases pending playback
+ownership after drivers join through existing deferred cleanup. Normal mixing,
+fades,stop semantics and game audio code remain unchanged; reflection fix stays.
+Six frozen queued/started/active/paused controls now have zero audio leaks;
+earlier01active/paused source-custody diagnostics grant no acceptance. Actual
+AudioPolicyTest53PASS. DefaultRazer output stalls on both old/newengine; real
+process-only BD9 advances playback and unchanged DoorAudioLifetimeTest12/12PASS
+on both. Integrated native-debug selector12/12PASS; unlisted endpoint refuses
+exit2. Windows defaults/preferences are untouched; Razer host route and listening
+acceptance remain open. Exact build/patch/binary hashes are in committed bindings.
+
+Initial publication stager incorrectly required wrapper root-script fields for
+the scriptless Control containing the actual InputViewport/Contract programme.
+The original NULL fields remain NULL. Active verifier now proves the unique
+child attachment from the recorded Git scene/script and primary scene/script
+hashes,currentLF equality,exact scene/head and strict ledger/digest/raw-log checks.
+Partial/missingNULL and non-NULL mismatches reject.14author CPU controls plus6
+independent root negatives passed. Only this unconsumed instrument changed;
+immutable original14afterguard passed again with all consumed inputs unchanged.
+Failed helper/logs and the corrected successor are preserved. A publisher
+file-versus-directory invocation error is also retained; completed first-slice
+publication was preserved and remaining packets resumed without rewriting proof.
+
+Next: exact in-place candidate against the clean main4f16053e8 baseline119board,
+then manual qualified PR152 merge. Book/nook,hose impact/wetting,playable stutter,
+prologue,audio listening,golden-shift,weather,city and narrative commitments retain
+their existing authorities and open acceptance limits. Share FIFO normally with
+Claude and batch coordination; no exclusivity or GPU-pause requests.
 
 ## October 20 — historical renewal
 

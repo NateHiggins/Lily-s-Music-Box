@@ -1,0 +1,18 @@
+{
+  "evidence_class": "INERT",
+  "root_tool_session": 23979,
+  "status": "LIVE",
+  "broker": {
+    "pid": 38556,
+    "parent_pid": 35708,
+    "creation_utc": "2026-11-04T23:45:42.0302880Z",
+    "creation_utc_ticks": 639294327420302880,
+    "command_line": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -NoProfile -File tools/lane.ps1 batch -BatchFile C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_14/batch.json -WaitMinutes 240"
+  },
+  "source_freeze": "SOURCE_FREEZE.json",
+  "source_head": "dd1d6f652b9087c410b82a81b40284124c92e92c",
+  "producer_sha256": "423771d0ee6a076e0d7f74bee9bc87a8e7eb5d9e63dfaa226320a9acc520873f",
+  "inputs_frozen": true,
+  "owner": "01a1a653-eda8-7732-9732-2c362f5129d6",
+  "instruction": "Inherit this identity and original receipts; never duplicate or modify frozen inputs."
+}

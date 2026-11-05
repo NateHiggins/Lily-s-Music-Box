@@ -1,0 +1,115 @@
+{
+  "evidence_class": "INERT",
+  "scope": "CPU helper definitions only; no runtime/packet qualification, old helper or producer execution. In-memory byte/Git fixtures for negative cases. Actual14 positive read-only Git lookup passed separately.",
+  "controls": [
+    {
+      "control": "exact recorded/current nested scene",
+      "result": "PASS",
+      "expected": "accept",
+      "observed_errors": []
+    },
+    {
+      "control": "CRLF current vs LF recorded scene",
+      "result": "PASS",
+      "expected": "accept",
+      "observed_errors": []
+    },
+    {
+      "control": "wrong wrapper scene",
+      "result": "PASS",
+      "expected": "reject",
+      "observed_errors": [
+        "NULL wrapper test binding rejected: NULL test binding requires the exact first-slice scene"
+      ]
+    },
+    {
+      "control": "wrong contract primary script",
+      "result": "PASS",
+      "expected": "reject",
+      "observed_errors": [
+        "NULL wrapper test binding rejected: NULL test binding head or primary script mismatch"
+      ]
+    },
+    {
+      "control": "missing child attachment",
+      "result": "PASS",
+      "expected": "reject",
+      "observed_errors": [
+        "NULL wrapper test binding rejected: Primary script must be attached to exactly one child node"
+      ]
+    },
+    {
+      "control": "ambiguous child attachments",
+      "result": "PASS",
+      "expected": "reject",
+      "observed_errors": [
+        "NULL wrapper test binding rejected: Primary script must be attached to exactly one child node"
+      ]
+    },
+    {
+      "control": "wrong scene Script resource",
+      "result": "PASS",
+      "expected": "reject",
+      "observed_errors": [
+        "NULL wrapper test binding rejected: Scene must declare exactly one exact primary Script resource"
+      ]
+    },
+    {
+      "control": "stale primary hash",
+      "result": "PASS",
+      "expected": "reject",
+      "observed_errors": [
+        "NULL wrapper test binding rejected: Recorded Git script, current script or primary hash differs"
+      ]
+    },
+    {
+      "control": "stale declared scene hash",
+      "result": "PASS",
+      "expected": "reject",
+      "observed_errors": [
+        "NULL wrapper test binding rejected: Recorded Git scene, current scene or contract scene hash differs"
+      ]
+    },
+    {
+      "control": "current scene differs from recorded Git",
+      "result": "PASS",
+      "expected": "reject",
+      "observed_errors": [
+        "NULL wrapper test binding rejected: Recorded Git scene, current scene or contract scene hash differs"
+      ]
+    },
+    {
+      "control": "nonnull wrapper path mismatch",
+      "result": "PASS",
+      "expected": "reject",
+      "observed_errors": [
+        "wrapper/source mismatch: test_path"
+      ]
+    },
+    {
+      "control": "nonnull wrapper stale hash",
+      "result": "PASS",
+      "expected": "reject",
+      "observed_errors": [
+        "wrapper/source mismatch: test_sha256"
+      ]
+    },
+    {
+      "control": "partial NULL does not fallback",
+      "result": "PASS",
+      "expected": "reject",
+      "observed_errors": [
+        "wrapper/source mismatch: test_sha256"
+      ]
+    },
+    {
+      "control": "missing keys do not fallback",
+      "result": "PASS",
+      "expected": "reject",
+      "observed_errors": [
+        "wrapper/source mismatch: test_path",
+        "wrapper/source mismatch: test_sha256"
+      ]
+    }
+  ]
+}

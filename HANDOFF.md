@@ -37,8 +37,9 @@ binding passes. Only the unconsumed verifier changed; no raw receipt is repinned
 Fresh **stage_runtime14_nested_packets.py** admits exactly its reviewed LF SHA
 **a10053640090016739aa5ef0579156022db77ca46fbb2cc6613f6a3c13a552a1**,
 checks every interveningcommit/mergeparent, and reuses the immutable14afterguard
-before packet staging in distinct logs. Complete this staging,then byte-exact
-publication/exact candidate/manualqualified152merge. No game replay is required
+before packet staging in distinct logs. Both packets staged successfully through that original guard and all three
+canonical packets are now published/revalidated, with original raw bytes and
+prior cohorts preserved. Next exact candidate/manualqualified152merge. No game replay is required
 for an instrument-only change if the original consumed projection still matches.
 
 **runtime13 is TERMINAL/FAILED**, not queued. Original apartment assertions
