@@ -1,544 +1,374 @@
 {
   "evidence_class": "INERT",
-  "scope": "Current technical visual presence and framing only. Some main views remain foreground-obscured and some baths tightly cropped.",
-  "reviewed_utc": "2026-11-05T08:12:54.106697+00:00",
   "human_played": false,
   "artistically_accepted": false,
-  "whole_room_coverage": false,
-  "wrapper_sha256": "450a206a7617bbe251363b8468ecf9184011ad8c7a2d8f8e5c2f1209149e307b",
-  "contract_sha256": "8a9c8ea591acc52e3455e8f137a3ae4fd4f00a8f56759daa414d13967666ce7f",
+  "native_pixel_optical_acceptance": false,
+  "scope": "Technical observations on the current native captures. Individual visibility and framing limits are recorded. No human traversal, whole-room optics, performance or artistic acceptance.",
+  "reviewed_utc": "2026-11-05T09:01:51.305060+00:00",
+  "wrapper_sha256": "23eb7b760432636e26010d79ed1ae04b068fa76b92c189e486ed4f9752d367eb",
+  "contract_sha256": "1f57aa71f4d7144d5fac74864de492b5dc5dc43a234eae9d58ad511bf15b9c0a",
+  "runtime_inputs_sha256": "7720077f5c1d2477dfc8d804923c8967324c953b69204a84bf8d69d4e293e6e5",
+  "source_head": "693e7cb43bd72ab1969b3d596b9dbe3a607b03e2",
   "frames": [
     {
       "file": "3A_F03_A_BATH.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\3A_F03_A_BATH.png",
-      "sha256": "8c7ceb73dc0034e1f1fe83fc97a957d5da8d7dda677700f43182e3652e31efdc",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\3A_F03_A_BATH.png",
+      "sha256": "dfd78dda87b919ae0f4ad40af18708c8d5ee0996d3e38bb5f40107a8a2240bb8",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\3A_F03_A_BATH.png",
-      "prior_sha256": "e253543a56763583d44d94468ef52995f7ac7db249d3ca3a5425817f241a9459",
+      "prior_sha256": "8c7ceb73dc0034e1f1fe83fc97a957d5da8d7dda677700f43182e3652e31efdc",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_01.jpg",
       "cell": 1,
-      "method": "Original native PNG opened directly at 2048\u00d7857 display",
-      "obstruction": "close_crop",
-      "observation": "Close view of painted wall and switch, curtain textile and the right tile wainscot. The toilet is partly cropped.",
-      "reviewer": "root"
+      "reviewer": "root",
+      "method": "Labeled early contact sheet from complete native PNG",
+      "observation": "The curtain and near painted wall fill the view. The lamp exposes a switch, tile wainscot and the top of a partly cropped toilet.",
+      "obstruction": "close_crop"
     },
     {
       "file": "3A_F03_A_MAIN.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\3A_F03_A_MAIN.png",
-      "sha256": "e27b49e9e03346feed2e60d7b7e2f529c257eb184e5421500c690233472323aa",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\3A_F03_A_MAIN.png",
+      "sha256": "05a3d4fc8cb3c64e677f76c4faea4b115ebc1f737823db3536c9500edd7ef41b",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\3A_F03_A_MAIN.png",
-      "prior_sha256": "ed13b6f5bbe92f6884350f06de0f4c22c1c86a4b3542b85e8015f796b5af5849",
+      "prior_sha256": "e27b49e9e03346feed2e60d7b7e2f529c257eb184e5421500c690233472323aa",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_01.jpg",
       "cell": 2,
-      "method": "Original native PNG opened directly at 2048\u00d7857 display",
-      "obstruction": "clear",
-      "observation": "Wide room view shows painted wall and crown, oak floor, open doorway, side table and shelf. The practical beam leaves left-wall detail in shadow.",
-      "reviewer": "root"
+      "reviewer": "root",
+      "method": "Labeled early contact sheet from complete native PNG",
+      "observation": "Doorway and corridor beyond align in the middle, with floorboards, a small shelf and an empty table. The beam is centered on the doorway and the left wall is dark.",
+      "obstruction": "dark_room_edge"
     },
     {
       "file": "3B_F03_B_BATH.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\3B_F03_B_BATH.png",
-      "sha256": "cb2d58cce56217859ee16ab373ad50ef9830af20232b4379682048868b07ac28",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\3B_F03_B_BATH.png",
+      "sha256": "6b2674cdebcf8d0bfef20cb947b302c62d167744c10abb938ad59090903bc30b",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\3B_F03_B_BATH.png",
-      "prior_sha256": "032c9ab61486f35204d8c1c8f79a4bc63f48137e6ecf9ee53fdb91483cdf0907",
+      "prior_sha256": "cb2d58cce56217859ee16ab373ad50ef9830af20232b4379682048868b07ac28",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_01.jpg",
       "cell": 3,
-      "method": "Original native PNG opened directly at 2048\u00d7857 display",
-      "obstruction": "partial",
-      "observation": "Tile and window treatment are visible with basin, mirror and part of the toilet. Nearby sanitary fittings crop the lower corners.",
-      "reviewer": "root"
+      "reviewer": "root",
+      "method": "Labeled early contact sheet from complete native PNG",
+      "observation": "A window curtain and tile surround fill the center, with part of the toilet to the left and basin and angled mirror on the right. The lower fittings are cropped.",
+      "obstruction": "close_crop"
     },
     {
       "file": "3B_F03_B_MAIN.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\3B_F03_B_MAIN.png",
-      "sha256": "5cac6d30444306cc30a26936ce2da7fcfcf4d34048dda00f2606aa82f249e65f",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\3B_F03_B_MAIN.png",
+      "sha256": "ee0fa79efdf734cafa37fb0287ef29293c26f493e44f5753e5bc29b912eab9e5",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\3B_F03_B_MAIN.png",
-      "prior_sha256": "3daf5650a89fd9522bc2fe65f2ee0be2b1aee66bf4e60e14d686fae45e280a3a",
+      "prior_sha256": "5cac6d30444306cc30a26936ce2da7fcfcf4d34048dda00f2606aa82f249e65f",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_01.jpg",
       "cell": 4,
-      "method": "Original native PNG opened directly at 2048\u00d7857 display",
-      "obstruction": "partial",
-      "observation": "Wall, wood floor, radiator and curtain/window are visible under warm light. Table and chair backs crop the foreground, and the carried device overlaps the right shelf.",
-      "reviewer": "root"
+      "reviewer": "root",
+      "method": "Labeled early contact sheet from complete native PNG",
+      "observation": "The lit doorway, wood floor, radiator and blind are clear. Chairs and a table crop the lower foreground, while the handheld covers part of the right-side equipment.",
+      "obstruction": "foreground_furniture"
     },
     {
       "file": "4A_F04_A_BATH.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\4A_F04_A_BATH.png",
-      "sha256": "7871953d0680d0c9f22e5401042f46bd34367350b844c4ccc823e838680fe17c",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\4A_F04_A_BATH.png",
+      "sha256": "920fefb6fbaaa265480550793316b99aa464fd014ec0cca5fe06ee84bd391114",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\4A_F04_A_BATH.png",
-      "prior_sha256": "11172fa36cc46020992a0ad5e6f84a93a7a6dd14cbfd96109c82333da5eddf5c",
+      "prior_sha256": "7871953d0680d0c9f22e5401042f46bd34367350b844c4ccc823e838680fe17c",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_02.jpg",
       "cell": 1,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "close fixture framing with foreground and lower crop",
-      "observation": "The curtain and tiled wall fill the center. Mirror and basin are visible on the right. The bottom crops the floor, toilet and lower basin assembly. The service device covers part of the right tiled wall.",
-      "visible_surfaces": [
-        "cream painted upper walls",
-        "white rectangular tile wainscot",
-        "dark vertical pipe",
-        "part of porcelain toilet and raised wooden seat",
-        "window blind and pleated caf\u00e9 curtain on metal rail",
-        "dark-framed mirror with reflected trim and red area",
-        "small wall shelf and cups",
-        "porcelain basin, taps, drain chain and exposed pipework",
-        "foreground service device and clipped lower towel"
-      ]
+      "reviewer": "root",
+      "method": "Labeled early contact sheet from complete native PNG",
+      "observation": "The curtain, tile, basin and angled mirror are in frame. The toilet is partly cropped and the lamp makes a bright patch below the window.",
+      "obstruction": "close_bath_view"
     },
     {
       "file": "4A_F04_A_MAIN.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\4A_F04_A_MAIN.png",
-      "sha256": "d9e4ef497e114486bf893e71bad566520b5a0f83121ffea579ffc4b555618f5f",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\4A_F04_A_MAIN.png",
+      "sha256": "206608359e04fbaa1fc5110c3986900782b1509ffadc436089b83a71aecb2e08",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\4A_F04_A_MAIN.png",
-      "prior_sha256": "0807b1797178f769661eb57d7c4149c9da8d9b519be5e7d25b62befda254d407",
+      "prior_sha256": "d9e4ef497e114486bf893e71bad566520b5a0f83121ffea579ffc4b555618f5f",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_02.jpg",
       "cell": 2,
-      "method": "Original native PNG opened directly at 2048\u00d7857 display",
-      "obstruction": "partial",
-      "observation": "Warm window view shows paint, oak, radiator and curtains. The table and chair occupy the right foreground.",
-      "reviewer": "root"
+      "reviewer": "root",
+      "method": "Labeled early contact sheet from complete native PNG",
+      "observation": "The lamp exposes the window, blind, radiator and valve. The round table and chair are cropped at right and the perimeter wall remains dark.",
+      "obstruction": "close_main_view"
     },
     {
       "file": "5A_F05_A_BATH.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\5A_F05_A_BATH.png",
-      "sha256": "97c12b0ad2c5a0babfb020a777b7c92f72b21159e6d262878b2febe400d0d9ba",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\5A_F05_A_BATH.png",
+      "sha256": "f1bdba045831fd693a884916c011e8c60bb1bc5213fe1abf67fccf3c1b3bdd14",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\5A_F05_A_BATH.png",
-      "prior_sha256": "562d2c12d8eff9afa5c36d39fcce98051f875aa4e83c2176ef89171c0edfc4ca",
+      "prior_sha256": "97c12b0ad2c5a0babfb020a777b7c92f72b21159e6d262878b2febe400d0d9ba",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_02.jpg",
       "cell": 3,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "close wall crop",
-      "observation": "The lamp hotspot fills the center of the wall. Most of the bathroom floor and fixtures are outside the frame. The bottom and left edges crop the toilet.",
-      "visible_surfaces": [
-        "cream painted upper wall",
-        "white tile wainscot wrapping both corners",
-        "wall-mounted toilet paper roll and dark holder",
-        "sliver of a dark vertical pipe",
-        "partial raised wood toilet lid and porcelain at lower left",
-        "foreground service device at right"
-      ]
+      "reviewer": "root",
+      "method": "Labeled early contact sheet from complete native PNG",
+      "observation": "The beam lands on paint and tile. The paper holder and edge of the toilet are visible, while the lower fixtures are out of frame.",
+      "obstruction": "close_crop"
     },
     {
       "file": "5A_F05_A_MAIN.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\5A_F05_A_MAIN.png",
-      "sha256": "d57862f75630860d2ad362dce0f8411a7f5c3713eebd94231a10cb409ef6038c",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\5A_F05_A_MAIN.png",
+      "sha256": "21790f0566abeba9606108fc5235a54902b51e933ce7782e786e0fe14da69a2e",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\5A_F05_A_MAIN.png",
-      "prior_sha256": "5de783123f2ffd159607d3d60696251ad74365f7046653a02d65a5332feb462d",
+      "prior_sha256": "d57862f75630860d2ad362dce0f8411a7f5c3713eebd94231a10cb409ef6038c",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_02.jpg",
       "cell": 4,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "major central foreground occlusion",
-      "observation": "A large dark rounded foreground object covers most of the center and lower view. Only peripheral finishes and doorway upper areas are visible. Main-room arrangement cannot be assessed.",
-      "visible_surfaces": [
-        "painted wall and crown molding",
-        "two lit rectangular openings",
-        "part of wood door and wall hook rail beyond right opening",
-        "slivers of wood floor and baseboard",
-        "wood shelving and curved chair piece at right",
-        "edge of dark wood top at left",
-        "service device at right"
-      ]
+      "reviewer": "root",
+      "method": "Labeled early contact sheet from complete native PNG",
+      "observation": "A large dark foreground shape covers most of the lower frame. Two lit openings and the upper wall remain visible.",
+      "obstruction": "foreground_occlusion"
     },
     {
       "file": "5B_F05_B_BATH.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\5B_F05_B_BATH.png",
-      "sha256": "95f67976b988d6e6165001cad8fe4e98756365859188e8a7c75662c56a4ea326",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\5B_F05_B_BATH.png",
+      "sha256": "6ceada84d8f86e1489bbff04b5677ded4962ba2ecc9212fa317882477557674d",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\5B_F05_B_BATH.png",
-      "prior_sha256": "6053b7540bd3ada6c89680e2e9b93c04b608226df0adccbd85f4a978b86b0ea4",
+      "prior_sha256": "95f67976b988d6e6165001cad8fe4e98756365859188e8a7c75662c56a4ea326",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_03.jpg",
       "cell": 1,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "close wall crop",
-      "observation": "The lamp illuminates the center of an almost wall-only image. The right lower corner shows only part of the toilet. Other fixtures and floor layout are outside the view.",
-      "visible_surfaces": [
-        "painted upper wall",
-        "rectangular tiled wainscot and slim top trim",
-        "tiled side-wall returns",
-        "part of a raised wood toilet lid and porcelain fixture at lower right",
-        "foreground service device"
-      ]
+      "reviewer": "root",
+      "method": "Labeled early contact sheet from complete native PNG",
+      "observation": "Paint and white tiles dominate beneath the lamp. Only the edge of the toilet and the near wall are visible at right.",
+      "obstruction": "close_crop"
     },
     {
       "file": "5B_F05_B_MAIN.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\5B_F05_B_MAIN.png",
-      "sha256": "5f0345630cf35a59c8f08447f29b0bbce017e7450fff83a60dfcf4712272e1fe",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\5B_F05_B_MAIN.png",
+      "sha256": "6a5ef762638b8d3a2d84bf639d069c8e531f237563cf631caca6e52417f7f29a",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\5B_F05_B_MAIN.png",
-      "prior_sha256": "2179c41eb4e862095e44e5e19ac17c5235233306c7bbb28f6b8b95f8b437fa1d",
+      "prior_sha256": "5f0345630cf35a59c8f08447f29b0bbce017e7450fff83a60dfcf4712272e1fe",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_03.jpg",
       "cell": 2,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "partial lower-left foreground occlusion",
-      "observation": "Dark near foreground with a diagonal timber edge obscures the lower left. The center shelving, table and floor plus the right-side worktable remain legible. The frame does not show the entire room.",
-      "visible_surfaces": [
-        "painted walls with crown molding and base trim",
-        "wood plank floor",
-        "two open timber shelving frames with pale spines and boxes",
-        "round timber table with rectangular wooden box, looped dark parts and cup",
-        "curved chair back",
-        "right timber worktable with two-reel device",
-        "open door and lit passage at left",
-        "wide trimmed opening at right",
-        "service device"
-      ]
+      "reviewer": "root",
+      "method": "Labeled early contact sheet from complete native PNG",
+      "observation": "The lamp exposes two shelves with boxed stock and a doorway. Tables and equipment fill the foreground, with a large dark shape hiding much of the left edge.",
+      "obstruction": "foreground_occlusion"
     },
     {
       "file": "5C_F05_C_BATH.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\5C_F05_C_BATH.png",
-      "sha256": "b48fab2375017b9e5588a731802d75877cec46bebf421399f4a718fecde785d2",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\5C_F05_C_BATH.png",
+      "sha256": "e657f635e43b891f4930a79a033ca882440766de9aaa947c61433d180ea38b0d",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\5C_F05_C_BATH.png",
-      "prior_sha256": "ff6a52cce05e52209bd08baabf4543922bfd5abba27d1dddccf73785c7bddc3c",
+      "prior_sha256": "b48fab2375017b9e5588a731802d75877cec46bebf421399f4a718fecde785d2",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_03.jpg",
       "cell": 3,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "close fixture view with shower curtain obscuring left side",
-      "observation": "The curtain covers most of the left half. Toilet and wall corner are visible, with the lower bowl and floor clipped by the frame.",
-      "visible_surfaces": [
-        "large cream woven shower curtain with folds and top hooks",
-        "cream painted upper wall",
-        "rectangular white tiled wainscot and trim",
-        "porcelain toilet with raised wooden lid and seat",
-        "wall-mounted paper roll",
-        "small strip of hex-pattern floor tile",
-        "foreground service device"
-      ]
+      "reviewer": "root",
+      "method": "Labeled contact sheet",
+      "observation": "The shower curtain occupies the left, with the tiled corner and open toilet seat lit at center. The basin is out of frame.",
+      "obstruction": "close_crop"
     },
     {
       "file": "5C_F05_C_MAIN.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\5C_F05_C_MAIN.png",
-      "sha256": "24fe773bcf6b4e4d3ddbc3ae3d0b0373fd4de24894bcc629069d093c843cd8ca",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\5C_F05_C_MAIN.png",
+      "sha256": "3359f9538007a7c3ade5a64d5e798fa046d082b4f7f3ab1e993fdab882a65748",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\5C_F05_C_MAIN.png",
-      "prior_sha256": "cb3b950b0d9101c5375f493b5d9ad8df787d2c5e005c26b394cffed76fa7a1f6",
+      "prior_sha256": "24fe773bcf6b4e4d3ddbc3ae3d0b0373fd4de24894bcc629069d093c843cd8ca",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_03.jpg",
       "cell": 4,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "minor foreground furniture crop",
-      "observation": "The main wall and radiator read clearly, with foreground table and chair edges cropped. The left openings show adjacent finishes, while the opposite side of the room is outside the camera.",
-      "visible_surfaces": [
-        "painted walls, crown molding and baseboards",
-        "wood plank floor",
-        "cast-style radiator with valve, low piping and visible hanging pale tag",
-        "two colored geometric wall prints",
-        "wood table with stacked paper and glass vessels",
-        "curved wooden chair frames",
-        "two passage openings at left and door deeper in the lit corridor",
-        "service device at right"
-      ]
+      "reviewer": "root",
+      "method": "Labeled early contact sheet from complete native PNG",
+      "observation": "The radiator, framed color prints, doorway and part of the table are visible. Chairs and tableware crop the lower foreground.",
+      "obstruction": "close_main_view"
     },
     {
       "file": "6A_F06_A_BATH.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\6A_F06_A_BATH.png",
-      "sha256": "ae561f7c1cc579677de70808c36812bd2f6bc870ac5d5a12d5a86abce12b4231",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\6A_F06_A_BATH.png",
+      "sha256": "4ce4b065d0b3837d0a771dd68f594e6f5205c69e90655a34a1f5c48f6edccea2",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\6A_F06_A_BATH.png",
-      "prior_sha256": "1d8cba27363e08e651d059b2ff18e6f8f34aaeca54ac8c35bde59954a5605e17",
+      "prior_sha256": "ae561f7c1cc579677de70808c36812bd2f6bc870ac5d5a12d5a86abce12b4231",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_04.jpg",
       "cell": 1,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "close wall crop",
-      "observation": "The lit wall and wainscot dominate the shot. The floor and most plumbing fixtures are outside the camera; the toilet is cropped at the left and bottom.",
-      "visible_surfaces": [
-        "cream painted upper wall",
-        "white rectangular tile wainscot and slim rail",
-        "paper roll and dark bracket",
-        "dark vertical pipe at far left",
-        "clipped wood toilet lid and porcelain edge at lower left",
-        "foreground service device"
-      ]
+      "reviewer": "root",
+      "method": "Labeled contact sheet",
+      "observation": "The spotlight covers plain wall and tile. A paper roll and the edge of the seat appear at lower left.",
+      "obstruction": "close_crop"
     },
     {
       "file": "6A_F06_A_MAIN.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\6A_F06_A_MAIN.png",
-      "sha256": "7e42df3c23646bd98c00dc89c9b6d8fe8459b2ce4c3b43489a448b9c318fee38",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\6A_F06_A_MAIN.png",
+      "sha256": "72c9e8507aed50df650fe5b69ea8029cffc0685939c974b1f407b9cc2f159c86",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\6A_F06_A_MAIN.png",
-      "prior_sha256": "1659a8c6f0259042d3659bb1bc5eb83744b0e8542771cb8b7f1e3d45b3f67a10",
+      "prior_sha256": "7e42df3c23646bd98c00dc89c9b6d8fe8459b2ce4c3b43489a448b9c318fee38",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_04.jpg",
       "cell": 2,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "major lower-center foreground occlusion",
-      "observation": "A large dark foreground object hides the lower middle and much of the floor. Upper walls, both openings and peripheral furnishings remain visible.",
-      "visible_surfaces": [
-        "painted walls with crown and base trim",
-        "reddish overhead pipe and hanger",
-        "row of clipped grid cards at upper left",
-        "two illuminated openings",
-        "central wall plate and rear wood hook panel",
-        "partially open paneled door",
-        "wood plank floor around perimeter",
-        "right shelving, bentwood chair and service device"
-      ]
+      "reviewer": "root",
+      "method": "Labeled contact sheet",
+      "observation": "A large dark foreground shape hides the center and lower part of the room. The overhead pipe, small grilles and two lit openings are visible.",
+      "obstruction": "foreground_occlusion"
     },
     {
       "file": "6B_F06_B_BATH.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\6B_F06_B_BATH.png",
-      "sha256": "98cd9022e2bf4dc53a2aeffa48fc0acac875ec41a672309681866200cd6d6669",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\6B_F06_B_BATH.png",
+      "sha256": "c16abe0f3332288fa70eb063b10ac2607ded8f76712d9caf226726432e0f8043",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\6B_F06_B_BATH.png",
-      "prior_sha256": "2d928442f32b771d009ad87849477892740f6c88a5e370bfd08ed1d2416b5a18",
+      "prior_sha256": "98cd9022e2bf4dc53a2aeffa48fc0acac875ec41a672309681866200cd6d6669",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_04.jpg",
       "cell": 3,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "close wall crop",
-      "observation": "The lamp circle is centered on the tiled wall. Only the edge of the toilet appears at right. Most fixtures and floor are outside the crop.",
-      "visible_surfaces": [
-        "painted upper wall and corner junctions",
-        "rectangular tile wainscot across back and side walls",
-        "slim tile cap trim",
-        "clipped raised dark wood toilet lid and porcelain rim at lower right",
-        "foreground service device"
-      ]
+      "reviewer": "root",
+      "method": "Labeled contact sheet",
+      "observation": "The lamp illuminates painted wall and tile with the toilet edge at right. Most lower fixtures are cropped.",
+      "obstruction": "close_crop"
     },
     {
       "file": "6B_F06_B_MAIN.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\6B_F06_B_MAIN.png",
-      "sha256": "f72702f490749d7462140380dae00f2273bd3e9e6bad3d90e9d659e8e24ed309",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\6B_F06_B_MAIN.png",
+      "sha256": "e7e79ba191ab054e8fcb25264adc8002df80a393232a8f6ae912935a659492a1",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\6B_F06_B_MAIN.png",
-      "prior_sha256": "c4f86616a0519d444c9365b1b2274863aa878514ed0a734d1c29c199fd8835a9",
+      "prior_sha256": "f72702f490749d7462140380dae00f2273bd3e9e6bad3d90e9d659e8e24ed309",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_04.jpg",
       "cell": 4,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "major central and lower-right foreground occlusion",
-      "observation": "A very large dark near object covers the center and nearly all of the lower-right field. Only perimeter finishes, opening tops and the extreme left shelving are readable.",
-      "visible_surfaces": [
-        "warm reddish painted walls",
-        "crown molding and baseboard",
-        "sliver of wood floor at left",
-        "cropped timber shelves at far left",
-        "dark wall plate",
-        "lit opening with paneled wood door at left",
-        "wide trimmed opening and partial farther doorway at right",
-        "foreground service device"
-      ]
+      "reviewer": "root",
+      "method": "Labeled contact sheet",
+      "observation": "A dark foreground shape obscures the lower center. The lit doorway, upper walls and left edge of a shelf remain visible.",
+      "obstruction": "foreground_occlusion"
     },
     {
       "file": "6C_F06_C_BATH.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\6C_F06_C_BATH.png",
-      "sha256": "12c276247800a7d8a87327d55f0b8bc003161ae0c621f56071a697343c540f13",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\6C_F06_C_BATH.png",
+      "sha256": "2eecae846427860336f34a76370e15de48c467c2db321b65a09ff73ba44acad4",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\6C_F06_C_BATH.png",
-      "prior_sha256": "a803c6f167f04fc5cd2b885b7c3696dcb5c37c9c8a4ed256725bfd2b8b20d804",
+      "prior_sha256": "12c276247800a7d8a87327d55f0b8bc003161ae0c621f56071a697343c540f13",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_05.jpg",
       "cell": 1,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "close fixture view with curtain covering left side",
-      "observation": "The left half is dominated by the curtain. The toilet is seen frontally with its bowl clipped at bottom. The lamp makes a bright central patch on the back wall.",
-      "visible_surfaces": [
-        "large pale woven curtain with close folds and rings at upper edge",
-        "yellow-green cast on painted upper walls",
-        "white rectangular tile wainscot and cap trim",
-        "toilet tank with raised wood lid and partial seat",
-        "paper roll near back corner",
-        "thin strip of small hex-pattern floor tile",
-        "foreground service device at right"
-      ]
+      "reviewer": "root",
+      "method": "Labeled contact sheet",
+      "observation": "Curtain, tiles and upper toilet seat fill the frame. The lower floor and other fittings are largely cropped.",
+      "obstruction": "close_crop"
     },
     {
       "file": "6C_F06_C_MAIN.png",
-      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_02\\apartments\\6C_F06_C_MAIN.png",
-      "sha256": "2a2b9c108c656200d7f232e47b24f102cca556b54ae9d2522a3c6cead503ef41",
+      "source": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments\\6C_F06_C_MAIN.png",
+      "sha256": "b86a60da9b7ea76bd9d3a13b5a0428f09611a985788bb207e6e4049ad3882781",
       "png_pixels": [
         3440,
         1440
       ],
       "full_png_decoded": true,
       "prior_path": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\remaining_apartments_20261013\\6C_F06_C_MAIN.png",
-      "prior_sha256": "51f9daf1a2c71665bb7974998bbd5f1480fd0e08ace7a4241d7396dacd295257",
+      "prior_sha256": "2a2b9c108c656200d7f232e47b24f102cca556b54ae9d2522a3c6cead503ef41",
       "identical_raw_bytes": false,
       "review_state": "fresh_visual_review",
       "sheet": "sheet_05.jpg",
       "cell": 2,
-      "reviewer": "book_intake",
-      "method": "Opened actual complete native PNG with view_image, resized for display",
-      "displayed_pixels": [
-        2048,
-        857
-      ],
-      "obstruction": "minor foreground furniture and device crop",
-      "observation": "The main wall, radiator and passage are clear. Foreground furniture clips the lower-right edge and the service device obscures part of the rear table. Only this camera-facing portion is covered.",
-      "visible_surfaces": [
-        "warm reddish painted walls with crown molding and base trim",
-        "wood plank floor",
-        "cast-style radiator, valve and exposed low pipe",
-        "two openings at left and paneled door deeper in corridor",
-        "wood table and bentwood chairs",
-        "wooden receiver cabinet with pale speaker panel and tuning scale",
-        "row of dark-capped glass components, stacked books or boxes and paper",
-        "narrow rear table with a partly visible round object",
-        "service device"
-      ]
+      "reviewer": "root",
+      "method": "Labeled contact sheet",
+      "observation": "The corridor door, radiator and wood floor are visible. A table and rows of small objects occupy the right foreground, with the lower edges cropped.",
+      "obstruction": "close_main_view"
     }
   ]
 }

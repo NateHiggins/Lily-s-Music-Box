@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 346.5,
+  "elapsed_s": 353.74,
   "exit_code": 0,
-  "finished_utc": "2026-11-05T08:19:10Z",
-  "started_utc": "2026-11-05T08:13:23Z",
+  "finished_utc": "2026-11-05T08:44:31Z",
+  "started_utc": "2026-11-05T08:38:37Z",
   "timed_out": false
  },
  "log": {
@@ -19,24 +19,22 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/develop_intake_20261104/qualification_current_03/surface.log.stderr",
+  "stderr": "C:/ov/reports/develop_intake_20261104/qualification_current_04/surface.log.stderr",
   "stderr_sha256": "a4b1a1d644797c0e31d8c91ff5f5bc524d084587bf9aae40921e9ee5c78e83bb",
-  "stdout": "C:/ov/reports/develop_intake_20261104/qualification_current_03/surface.log",
-  "stdout_sha256": "5af58357d85fa45775c85663d195a3b608e4fcbee074e229417fb532d80edd50"
+  "stdout": "C:/ov/reports/develop_intake_20261104/qualification_current_04/surface.log",
+  "stdout_sha256": "fb477b423b4a5c777660dcc45069bd28556bf9958ebdbee87f8fff784380cae1"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_03\\surface",
+ "shot_dir": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\surface",
  "source": {
-  "dirty_paths": 1,
-  "dirty_sample": [
-   "M HANDOFF.md"
-  ],
-  "repository_head": "bb3fd7360c0171aacdfa7af43366ee924b50e60c",
-  "repository_tree": "64c150e4033ef66918cde38c4c40cc399ce471e8",
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "693e7cb43bd72ab1969b3d596b9dbe3a607b03e2",
+  "repository_tree": "b99c1d0cc4b8c5a9103ddc2bfd58425625b68b8d",
   "runtime_inputs_sha256": "7720077f5c1d2477dfc8d804923c8967324c953b69204a84bf8d69d4e293e6e5",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "934c2b565c9976e6c62c9867df4df851150263229567780f9dc90aed257261d0"
