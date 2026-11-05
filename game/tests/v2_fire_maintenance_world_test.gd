@@ -235,8 +235,11 @@ func _paid_gasket_route(door_z: float, path: String, report: Dictionary) -> void
 			and not actor.gasket_seated and not counter.mechanism_snapshot()[PAID_GASKET].has("fitted_station")
 			and int(economy.book().cash) == cash - 10, "explicit primary release off seat transfers no custody and debits no extra cash"): return
 	if not await _paid_take(washer): return
-	for goal: Vector3 in [seat + actor.global_basis * Vector3(0,.065,.13), seat + actor.global_basis.y * .006]:
-		if not await _paid_move_face(washer, face, goal): return
+	if not await _paid_move_face(washer, face, seat + actor.global_basis * Vector3(0,.065,.13)): return
+	# Centre above the retained nut before lowering through its bore. The
+	# authored minimum bore radius leaves just .5 mm radial clearance.
+	for height: float in [.018, .006]:
+		if not await _paid_move_face(washer, face, seat + actor.global_basis.y * height, .00015): return
 	var distance: float = face.call().distance_to(seat)
 	var alignment := draw.global_basis.y.normalized().dot(actor.global_basis.y.normalized())
 	report["contact"] = {"distance_m":distance, "up_dot":alignment, "off_seat_distance_m":off_seat_distance,
@@ -270,11 +273,20 @@ func _paid_gasket_route(door_z: float, path: String, report: Dictionary) -> void
 	report["spent"] = spent
 	report["installed"] = installed
 	report["counter"] = stock
-	if not _require(_paid_same_replacement(disk_installed, installed)
-			and disk_stock.get("fitted_station") == PAID_STATION
-			and hands._same_saved_stock({PAID_GASKET:disk_stock}, {PAID_GASKET:stock})
-			and committed.get("caretaker_economy", {}).get("cash") == cash - 10,
+	# Compare the live stock through the exact writer representation. The
+	# native pose and the decimal JSON parser need not share double bits.
+	var encoded_stock: Dictionary = JSON.parse_string(JSON.stringify(stock, "\t", true, true))
+	var disk_comparison := {
+		"replacement":_paid_same_replacement(disk_installed, installed),
+		"station":disk_stock.get("fitted_station") == PAID_STATION,
+		"counter_stock":not disk_stock.is_empty() and hands._same_saved_stock(
+			{PAID_GASKET:disk_stock}, {PAID_GASKET:encoded_stock}),
+		"cash":committed.get("caretaker_economy", {}).get("cash") == cash - 10,
+	}
+	report["disk_comparison"] = disk_comparison
+	if not _require(disk_comparison.values().all(func(ok: bool) -> bool: return ok),
 			"same raw disk document contains paired household records, spent custody and exact cash"): return
+	await _picture("paid_washer_seated")
 	hands.key(KEY_SPACE)
 	if not _require(not player.inspecting() and not player._grab.active() and washer.freeze and not washer.visible
 			and washer.collision_layer == 0 and washer.collision_mask == 0, "normal Space exit cannot revive the retired washer body"): return
@@ -293,10 +305,11 @@ func _paid_gasket_route(door_z: float, path: String, report: Dictionary) -> void
 	var restored := _paid_station()
 	var restored_washer: Node3D = counter.pickups[PAID_GASKET]
 	var restored_stock: Dictionary = counter.mechanism_snapshot()[PAID_GASKET]
+	var encoded_restored: Dictionary = JSON.parse_string(JSON.stringify(restored_stock, "\t", true, true))
 	_require(restored != null and restored.valid_mechanism(restored.mechanism_snapshot())
 		and _paid_same_replacement(restored.mechanism_snapshot().get("replacement_gasket", {}), disk_installed)
 		and restored_stock.get("fitted_station") == PAID_STATION
-		and hands._same_saved_stock({PAID_GASKET:restored_stock}, {PAID_GASKET:disk_stock})
+		and hands._same_saved_stock({PAID_GASKET:encoded_restored}, {PAID_GASKET:disk_stock})
 		and restored_washer.freeze and not restored_washer.visible
 		and restored_washer.collision_layer == 0 and restored_washer.collision_mask == 0
 		and RealityState.data.maintenance_items.get(PAID_GASKET) == spent
@@ -505,14 +518,14 @@ func _paid_park(washer: Node3D) -> bool:
 	return _require(not player._grab.active() and washer.sleeping and not washer.freeze, "paid washer parks on original floor support while the hand opens the next fitting")
 
 
-func _paid_move_face(washer: Node3D, face: Callable, goal: Vector3) -> bool:
+func _paid_move_face(washer: Node3D, face: Callable, goal: Vector3, tolerance := .003) -> bool:
 	# Same projection and wheel delivery as the original fire hand bench,
 	# with release kept separate so only the verified explicit click can commit.
 	var samples: Array[Dictionary] = []
 	for step in 120:
 		if not player._grab.active() or player._grab.target.part != washer: break
 		var delta: Vector3 = goal - face.call()
-		if delta.length() < .003: return true
+		if delta.length() < tolerance: return true
 		var point: Vector3 = washer.to_global(player._grab.contact)
 		var depth: float = delta.dot((point - player.camera.global_position).normalized())
 		if absf(depth) > .0001:
