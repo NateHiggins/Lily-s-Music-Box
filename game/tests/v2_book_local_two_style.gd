@@ -39,7 +39,7 @@ func _run_local() -> void:
 	if not _require(viewport != null and viewport.size == NATIVE_PIXELS, "detached 3440x1440 viewport"):
 		_finish_local()
 		return
-	if not _require(_local_precision.bind((self as Node3D).get_world_3d()), "native V2 contact precision"):
+	if not _require(_local_precision.bind(get_viewport().find_world_3d()), "native V2 contact precision"):
 		_finish_local()
 		return
 	RealityState.persistence_enabled = false
