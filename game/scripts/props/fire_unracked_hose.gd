@@ -135,6 +135,10 @@ func valid_deployment(value: Variant) -> bool:
 
 func _show_deployment(enabled: bool) -> void:
 	deployed=enabled;model.visible=enabled
+	if enabled:
+		add_to_group("deployed_fire_hoses")
+	else:
+		remove_from_group("deployed_fire_hoses")
 	if enabled and visual_follow_enabled:
 		actor._door_angle=maxf(actor._door_angle,actor._minimum("door"));actor._apply_hand_pose()
 	for node: Node3D in _stored:
@@ -144,6 +148,19 @@ func _show_deployment(enabled: bool) -> void:
 		for body: CollisionObject3D in node.find_children("*","CollisionObject3D",true,false):
 			if not _stock_layers.has(body):_stock_layers[body]=body.collision_layer
 			body.collision_layer=0 if enabled else _stock_layers[body]
+
+func crosses_doorway(door_to_world: Transform3D, bounds: AABB) -> bool:
+	if not deployed or rig.strand.points.size() < 2:
+		return false
+	var into_door := door_to_world.affine_inverse() * model.global_transform
+	var envelope := bounds.grow(.021 * PI * .5)
+	var previous: Vector3 = into_door * rig.strand.points[0]
+	for index in range(1, rig.strand.points.size()):
+		var current: Vector3 = into_door * rig.strand.points[index]
+		if envelope.has_point(previous) or envelope.intersects_segment(previous, current) != null:
+			return true
+		previous = current
+	return false
 
 func restore_deployment(value: Dictionary) -> void:
 	_wet_clear()

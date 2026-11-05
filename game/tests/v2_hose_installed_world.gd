@@ -297,12 +297,30 @@ func _b1_payout_attempt(actor: Node3D, hose: Node3D, joint: Node3D, door: DoorPr
 	for leg: Array in [[from,Vector3.BACK],[stair_exit,Vector3.BACK],
 			[Vector3(4.80,-3.2,2.25),Vector3.BACK],
 			[Vector3(4.62,-3.2,2.65),intermediate_heading],
-			[near_door,northeast],[far_door,northeast]]:
+			[near_door,northeast]]:
 		if not await _payout_walk(leg[0],leg[1],actor,hose,joint,door,mask,rows,true):
 			outcome.geometry = _payout_result(rows)
 			return
+	# The leaf has had time to swing back since the empty-handed pass.
+	# Put down the same nozzle, reopen with the free hand, then pick it up.
+	helper.click()
+	if not _check(not player._grab.active() and hose.release_support.last_result.get("placed", false),
+			"B1 approach parks the original nozzle on real support before opening the leaf"):
+		return
+	if not await _payout_open_leaf(door):
+		return
+	if not _check(await helper._aim_nozzle_surface(actor, joint, false), "B1 open doorway leaves the parked nozzle reachable"):
+		return
+	helper.click()
+	if not _check(player.held_stock_body() == joint.body and hose.deployed, "B1 reacquires the original deployed nozzle"):
+		return
+	aux = hose._auxiliary_contacts.duplicate(true)
+	if not await _payout_walk(far_door,northeast,actor,hose,joint,door,mask,rows,true):
+		outcome.geometry = _payout_result(rows)
+		return
 	outcome.geometry = "clear_at_sampled_positions_through_storage_threshold"
 	if _payout_mode() == "preflight":
+		var angle_at_crossing: float = door._body.rotation.y
 		for tick in 8:
 			await get_tree().create_timer(.5).timeout
 			var closure := _payout_sample(actor,hose,joint,door,mask,true)
@@ -311,8 +329,20 @@ func _b1_payout_attempt(actor: Node3D, hose: Node3D, joint: Node3D, door: DoorPr
 			if not _check(closure.held and closure.crossing.is_empty() and closure.envelope.is_empty(),"ordinary storage closer leaves sampled held line clear"):
 				outcome.geometry = _payout_result(rows)
 				return
+		if not _check(door._easy.remaining <= .001 and not door._easy.closing
+				and absf(door._body.rotation.y - angle_at_crossing) < .001
+				and hose.crosses_doorway(door.global_transform, door.closed_leaf_bounds()),
+				"B1 closer reaches its deadline and waits for the actual strand across the shut-leaf envelope"):
+			return
 	if _payout_mode() == "full":
-		for leg: Array in [[Vector3(4.95,-3.2,4.9),Vector3.BACK],[Vector3(4.95,-3.2,8.6),Vector3.BACK],[Vector3(4.52,-3.2,9.0),northeast],[Vector3(4.52,-3.2,11.23),northeast]]:
+		# Keep the trailing line in the storage opening as the player turns
+		# toward the north bay. The nozzle offset changes with the view.
+		for leg: Array in [[Vector3(4.95,-3.2,4.9),Vector3.BACK],
+				[Vector3(4.95,-3.2,8.6),Vector3.BACK],
+				[Vector3(4.78,-3.2,8.73),Vector3.BACK],
+				[Vector3(4.58,-3.2,8.92),intermediate_heading],
+				[Vector3(4.52,-3.2,9.0),intermediate_heading],
+				[Vector3(4.52,-3.2,11.23),northeast]]:
 			if not await _payout_walk(leg[0],leg[1],actor,hose,joint,door,mask,rows,true,leg[0].z>11.):
 				outcome.geometry = _payout_result(rows)
 				return
@@ -339,7 +369,50 @@ func _b1_payout_attempt(actor: Node3D, hose: Node3D, joint: Node3D, door: DoorPr
 	var restored := true
 	for row: Dictionary in aux:
 		restored = restored and (not row.holder_added or not player.get_collision_exceptions().has(row.body)) and (not row.part_added or not row.body.get_collision_exceptions().has(player))
-	_check(outcome.support.get("placed",false) and not player._grab.active() and hose.rig.strand.points==resting and not hose.is_processing() and not hose.is_physics_processing() and hose.contact.exclusions==owner_contacts and restored,"actual primary releases to real support and restores hose-owned exclusions")
+	if not _check(outcome.support.get("placed",false) and not player._grab.active() and hose.rig.strand.points==resting and not hose.is_processing() and not hose.is_physics_processing() and hose.contact.exclusions==owner_contacts and restored,"actual primary releases to real support and restores hose-owned exclusions"):
+		return
+	if _payout_mode() != "preflight" or not await _payout_refuse_manual_close(door):
+		return
+	if not _check(await helper._aim_nozzle_surface(actor, joint, false), "B1 released nozzle can be picked up to clear the doorway"):
+		return
+	helper.click()
+	if not _check(player.held_stock_body() == joint.body, "B1 clears the doorway with the same native nozzle"):
+		return
+	if not await _payout_walk(near_door, northeast, actor, hose, joint, door, mask, rows, true):
+		return
+	helper.click()
+	if not _check(not player._grab.active() and hose.deployed and not door.hose_blocks_close(),
+			"B1 supported dry hose on the near side leaves the doorway clear"):
+		return
+	for tick in 26:
+		if not door.open:
+			break
+		await get_tree().create_timer(.5).timeout
+	_check(not door.open and absf(door._body.rotation.y) < .001, "B1 automatic closer shuts normally after the hose clears")
+
+func _payout_refuse_manual_close(door: DoorProp) -> bool:
+	var angle: float = door._body.rotation.y
+	if not _check(door.hose_blocks_close(), "B1 released hose still crosses the open doorway"):
+		return false
+	door.npc_set_open(false)
+	await get_tree().physics_frame
+	if not _check(door.open and not door._moving and is_equal_approx(door._body.rotation.y, angle),
+			"B1 resident close command respects the hose on the floor"):
+		return false
+	await helper.aim(door._body.to_global(Vector3(door.width * .5, 1.1, 0.)))
+	driver.click()
+	if not _check(player._grab.active() and player._grab.target.owner == door,
+			"B1 manual close attempt grabs the actual storage leaf"):
+		return false
+	var event := InputEventMouseMotion.new()
+	event.relative = player._grab._gesture_axis * (-signf(angle) * 24.0)
+	player._unhandled_input(event)
+	for frame in 3:
+		await get_tree().physics_frame
+	var blocked: bool = player._grab.active() and player._grab.feedback({}).state == "blocked"
+	driver.click()
+	return _check(blocked and door.open and is_equal_approx(door._body.rotation.y, angle),
+			"B1 hand drag reports blocked and leaves the crossed doorway open")
 
 func _payout_open_leaf(door: DoorProp) -> bool:
 	var goal := door.motion_target_angle(true)
