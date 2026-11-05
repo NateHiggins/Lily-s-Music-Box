@@ -3,6 +3,25 @@
 Evidence class: **INERT**. Rendered, actual-input and performance diagnostics;
 no runtime_contract, surface promotion, human acceptance or V2 completion.
 
+## November 5 UTC — measured impact baseline and preview limits
+
+**book_hose_controls_02/hose_baseline/** passes50/0 with empty stderr: actual
+positive flow; original and inside-aware rays agree at11/12/13m/s on wall,
+descending floor top, near blocker and empty space. No observed inside-origin
+sentinel. Static inspection framing obscures contact; no moving/installed proof.
+
+Films allocate only on first actual positive flow. Stored GPU prewarm/default
+jet remain. **book_hose_visual_01/hose_ab/** at **d85396d4b** passes wall/floor
+actual first solid, separate splash/film and descending normal assertions;
+wall20ticks/4368us total/289us maximum in a capture-free local interval. Native
+side views show A continuing past the blocker and B stopping in sampled frames.
+B's sparse centre streaks cannot replace the existing jet. Near/far film fails
+after simultaneous fixture insertion; old downstream flight is a hypothesis.
+The next fixture places near first, lets prior flight retire, then adds fresh
+far; original assertion remains. Empty/idle skipped. Final sourceguardPASS.
+Moving hose, dense preview, visible film/splash and installed/cost proof remain.
+Raw originals: **C:/ov/reports/develop_intake_20261104/**.
+
 REPORT - hose spray readability and input allocation - 2026-10-24
 
 Canonical checkout **C:/PleaseRemainOnTheLine**, branch
