@@ -1,0 +1,32 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Byte-exact historical60-room9-leg cohort only, not current-source qualification. Original warning and dirty-source limits unchanged.",
+  "historical_contract_commit": "555b01f3bdcd10005a9a2586c24933d7904a7fb1",
+  "historical_contract_path": "art/renders/orison_v2/remaining_apartments_20261013/runtime_contract.json",
+  "historical_contract_git_blob": "b27f90ed6eba7f4de1d8c0413656a6139c3f1e45",
+  "original_source_head": "26681527ac72e0cdd6ac7a4e64e143c51968e5ae",
+  "files": [
+    {
+      "name": "runtime_contract.json",
+      "bytes": 365254,
+      "sha256": "eadd5e6cc47b32053ebaf041c759c2a5ed8caa34b35caa757b596a919ee0eb6c"
+    },
+    {
+      "name": "remaining.log.receipt.json",
+      "bytes": 3440,
+      "sha256": "b13e330c381b11d5add54625b451e03e56490ae108efb7a701507996d035c326"
+    },
+    {
+      "name": "remaining.log",
+      "bytes": 130382,
+      "sha256": "575568836dce4da92d9e19c658ad03caddb073f6d37458e2949e84930a6c0f3b"
+    },
+    {
+      "name": "remaining.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    }
+  ],
+  "current_superseded_contract_is_different": true,
+  "note": "Current canonical contract metadata refers to f604 and does not match legacy remaining wrapper. Recovered original contract matches all three wrapper source fields. Keep the current superseded metadata separately through the existing publisher archive."
+}

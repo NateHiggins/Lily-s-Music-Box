@@ -82,6 +82,9 @@ func _run() -> void:
 	player.mouse_released=false
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	prop.set_supply_position(0.0,0.0)
+	if OS.get_environment("ORISON_RADIATOR_INSERT_ROUTE")=="1":
+		await _insert_route_probe(prop,stock,player)
+		return
 	var reviewer := preload("res://tests/radiator_cutover_review.gd").new()
 	var failures: Array = []
 	var feed_owner := prop.get_node_or_null("InstalledRadiatorCollision") as StaticBody3D
@@ -212,6 +215,144 @@ func _contact_orientations(prop: Node3D,failures: Array) -> void:
 		print("PACKING ORIENTATION SUPPORT ",angles," MIN ",minimum)
 		if minimum<-.001 or minimum>.004: failures.append("packing skin contact across released orientations")
 	prop.restore_mechanism(original)
+
+func _insert_route_probe(prop: RadiatorProp,stock: Node3D,player: PlayerController) -> void:
+	# Reuse the exact failed composed gesture and production swept body.
+	# This fixture attributes the obstruction; it grants no composed proof.
+	var helper:=preload("res://tests/orison_v2_first_slice_contract_test.gd").new()
+	helper.service_bench_only=true;add_child(helper)
+	var original: Dictionary=stock.active(prop)
+	var body: Node3D=original.body
+	var acquired: bool=await helper._service_move_new(player,prop,body,Vector3(0,.004,0),Vector3(.03,.10,-.08),stock.THREAD_END)
+	acquired=acquired and stock.active(prop).is_empty()
+	if acquired:acquired=await helper._pick_service_part(player,body,prop,Vector3(.03,.10,-.08))
+	var park: Vector3=prop.native_rig.to_global(Vector3(-.30,.12,-.55))
+	var result: Dictionary={"evidence_class":"INERT","scope":"Existing isolated native radiator/player fixture, original failed carry gesture; not installed access or runtime acceptance.","acquired":acquired,"park":var_to_str(park)}
+	var passed:=false
+	if acquired:
+		result.start=var_to_str(body.global_position)
+		result.direct=await helper._drag_service_part(player,body,park)
+		result.direct_end=var_to_str(body.global_position)
+		var query:=PhysicsTestMotionParameters3D.new()
+		query.from=body.global_transform;query.motion=park-body.global_position;query.margin=.0002
+		var collision:=PhysicsTestMotionResult3D.new()
+		result.blocked=PhysicsServer3D.body_test_motion(body.get_rid(),query,collision)
+		var blockers: Array=[]
+		for index in collision.get_collision_count():
+			var collider: Object=collision.get_collider(index)
+			blockers.append({"collider":str(collider.get_path()) if collider is Node else str(collider),"normal":var_to_str(collision.get_collision_normal(index)),"point":var_to_str(collision.get_collision_point(index))})
+		result.blockers=blockers
+		await _capture_part(player,prop,body,"insert_direct_endpoint")
+		# Lift clear of the vent, move laterally above the casting, then lower.
+		var raised: Vector3=body.global_position+Vector3.UP*.05
+		var across:=Vector3(park.x,raised.y,park.z)
+		var legs: Array=[]
+		for goal: Vector3 in [raised,across,park]:
+			var reached: bool=await helper._drag_service_part(player,body,goal)
+			legs.append({"goal":var_to_str(goal),"actual":var_to_str(body.global_position),"reached":reached})
+			if not reached:break
+		result.legs=legs
+		result.dogleg=legs.size()==3 and legs.all(func(leg: Dictionary):return leg.reached) and player._grab.active()
+		await _capture_part(player,prop,body,"insert_dogleg_endpoint")
+		result.control={"holding_pickup":player._grab.holding_pickup(),"physics_enabled":player.is_physics_processing(),"inspecting":player.inspecting()}
+		var inspected: Dictionary=await _inspect_insert_transfer(helper,player,body,park)
+		result.inspected=inspected
+		passed=not result.direct and result.start==result.direct_end and inspected.get("passed",false)
+		await _capture_part(player,prop,body,"insert_inspected_endpoint")
+		if inspected.get("passed",false):
+			var pose: Transform3D=body.global_transform
+			var saved: Dictionary=JSON.parse_string(JSON.stringify(stock.mechanism_snapshot()))
+			player._grab.release(false)
+			stock.borrow_inspection_end(self) # A foreign context cannot release this loan.
+			for frame in 8:await get_tree().physics_frame
+			result.borrow_release=body.freeze and body.global_transform.is_equal_approx(pose)
+			_space_input(player)
+			result.returned=not player.inspecting() and player._grab.holding_pickup() and player._grab.target.part==body
+			var click:=InputEventMouseButton.new();click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
+			player._unhandled_input(click)
+			for frame in 4:await get_tree().physics_frame
+			result.normal_release=not body.freeze and body.global_position.y<pose.origin.y-.001
+			stock.restore_mechanism(saved)
+			result.pose_reload=stock.valid_mechanism(saved) and body.global_transform.is_equal_approx(pose) and not body.freeze
+			passed=passed and result.borrow_release and result.returned and result.normal_release and result.pose_reload
+			# Exercise the updated composed driver before spending a world route.
+			player.global_position=prop.to_global(Vector3(0,-prop.position.y,1.15))
+			var picked: bool=await helper._pick_service_part(player,body,stock,Vector3(.03,.10,.08))
+			var receiving: Transform3D=stock._thread_pose(prop,stock.THREAD_END)
+			player.camera.global_position=receiving.origin+prop.global_basis*Vector3(.02,.15,-.35)
+			player.camera.look_at(receiving.origin)
+			result.delivery=picked and await helper._deliver_service_part(player,body,receiving.origin)
+			if result.delivery:
+				var seat_click:=InputEventMouseButton.new();seat_click.button_index=MOUSE_BUTTON_LEFT;seat_click.pressed=true
+				player._unhandled_input(seat_click)
+				result.caught=stock.active(prop).get("body")==body and absf(float(stock.active(prop).get("turn",0))-stock.THREAD_END)<.0001
+				_space_input(player)
+				result.stale_grip_refused=not player.inspecting() and not player._grab.active() and stock.active(prop).get("body")==body
+				result.threaded=await helper._service_move_new(player,prop,body,Vector3(0,.004,0),Vector3(.03,.10,-.08),0.)
+				passed=passed and result.caught and result.stale_grip_refused and result.threaded and stock.active(prop).get("body")==body
+			else:
+				result.delivery_end=var_to_str(body.global_position)
+				result.delivery_state={"inspecting":player.inspecting(),"holding_pickup":player._grab.holding_pickup(),"active":player._grab.active(),"owner":str(player.inspect_owner),"camera":var_to_str(player.camera.global_transform),"receiving":var_to_str(receiving),"nearest":str(stock.inspection_owner_for(body)),"distance":body.global_position.distance_to(receiving.origin)}
+				await RenderingServer.frame_post_draw
+				var failed_output: String=OS.get_environment("SHOT_DIR")
+				if not failed_output.is_empty() and get_viewport().get_texture().get_image().save_png(failed_output.path_join("insert_delivery_failed.png"))!=OK:_capture_failed=true
+				passed=false
+		player._grab.release(false)
+		if player.inspecting():player.end_inspection(false)
+	result.passed=passed and not _capture_failed
+	var directory:=OS.get_environment("SHOT_DIR")
+	if not directory.is_empty():
+		var file:=FileAccess.open(directory.path_join("insert_route.json"),FileAccess.WRITE)
+		if file!=null:file.store_string(JSON.stringify(result,"\t"))
+		else:result.passed=false
+	print("RADIATOR INSERT ROUTE: ",JSON.stringify(result))
+	_terminal=true
+	get_tree().quit(0 if result.passed else 1)
+
+func _space_input(player: PlayerController) -> void:
+	for pressed: bool in [true,false]:
+		var key:=InputEventKey.new();key.keycode=KEY_SPACE;key.physical_keycode=KEY_SPACE;key.pressed=pressed
+		player._unhandled_input(key)
+
+func _inspect_insert_transfer(helper: Node,player: PlayerController,body: Node3D,park: Vector3) -> Dictionary:
+	var result: Dictionary={"passed":false,"entered":false,"picked":false,"legs":[],"attempts":[],"viewport":get_viewport().get_class(),"before":var_to_str(body.global_position)}
+	# Actual Space input borrows the hand; the pointer then selects the real
+	# surface. The embedded viewport owns pointer coordinates on hidden desktop.
+	_space_input(player)
+	result.entered=player.inspecting()
+	result.after_space={"position":var_to_str(body.global_position),"frozen":body.get("freeze"),"held":player._grab.active()}
+	if not result.entered or not get_viewport() is SubViewport:return result
+	var supported_pose: Transform3D=body.global_transform
+	for frame in 8:await get_tree().physics_frame
+	result.supported=body.freeze and body.global_transform.is_equal_approx(supported_pose)
+	if not result.supported:return result
+	for attempt in 4:
+		var pixel: Vector2=player.camera.unproject_position(body.to_global(Vector3(0,.004,0))).round()
+		var motion:=InputEventMouseMotion.new();motion.position=pixel;motion.global_position=pixel
+		get_viewport().push_input(motion,true)
+		await get_tree().process_frame
+		var delivered: Vector2=get_viewport().get_mouse_position()
+		var target: Dictionary=player._grab.find_target()
+		var part: Node=target.get("part")
+		var owner: Node=target.get("owner")
+		var collider: Object=player._grab.last_hit.get("collider")
+		result.attempts.append({"requested":var_to_str(pixel),"delivered":var_to_str(delivered),"position":var_to_str(body.global_position),"frozen":body.get("freeze"),"selected":str(part.get_path()) if is_instance_valid(part) else "","owner":str(owner.get_path()) if is_instance_valid(owner) else "","blocked":target.get("blocked",false),"hit":str(collider.get_path()) if collider is Node else str(collider)})
+		if delivered.distance_to(pixel)>.6:return result
+		if target.get("part")!=body:continue
+		var click:=InputEventMouseButton.new();click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
+		player._unhandled_input(click)
+		result.picked=player._grab.active() and player._grab.target.part==body
+		break
+	if not result.picked:return result
+	result.mode={"holding_pickup":player._grab.holding_pickup(),"inspecting":player.inspecting()}
+	var raised: Vector3=body.global_position+Vector3.UP*.05
+	var across:=Vector3(park.x,raised.y,park.z)
+	for goal: Vector3 in [raised,across,park]:
+		var reached: bool=await helper._carry_service_part(player,body,goal)
+		result.legs.append({"goal":var_to_str(goal),"actual":var_to_str(body.global_position),"reached":reached})
+		if not reached:return result
+	result.passed=player._grab.active() and player._grab.target.part==body and body.global_position.distance_to(park)<.001
+	return result
 
 func _same_payload(a: Variant,b: Variant) -> bool:
 	if typeof(a) in [TYPE_INT,TYPE_FLOAT] and typeof(b) in [TYPE_INT,TYPE_FLOAT]: return absf(float(a)-float(b))<.0000001

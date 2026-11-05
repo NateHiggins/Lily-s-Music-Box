@@ -1,0 +1,71 @@
+{
+  "evidence_class": "INERT",
+  "scope": "External byte-exact packet staging only; no publication or artistic acceptance",
+  "candidate_head": "d499aebae83d71ddc179ef390dab1d0652f351a8",
+  "qualification_freeze_head": "dd1d6f652b9087c410b82a81b40284124c92e92c",
+  "staging_head": "d499aebae83d71ddc179ef390dab1d0652f351a8",
+  "tracker_only_changed_paths": [
+    "HANDOFF.md",
+    "TASKS.md"
+  ],
+  "reviewed_instrument_path": "art/reviews/v2_surface_renewal_20261021/verify_first_slice.py",
+  "reviewed_instrument_lf_sha256": "a10053640090016739aa5ef0579156022db77ca46fbb2cc6613f6a3c13a552a1",
+  "packets": [
+    {
+      "name": "first_slice",
+      "source_run": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14",
+      "target": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\packaged_first_slice",
+      "original_contract_sha256": "02712f6980fc4d5c3f135e238eb459d86c0ad8c92bf724c6b9a14f5b8c3c057e",
+      "original_wrapper_sha256": "f926d2cf0a3c5b8b59a4745dd845dacf890673f571e5be53eb3f8a89239da7d1",
+      "original_log_sha256": {
+        "stdout": "74ee9abfa111deb5f713678d0795c8cdf4ac3f4746556b90051ac3f99e09558e",
+        "stderr": "04843904c22a2edb0742b9f2e65a0e1077628cd45f8f8a3f0fa8ebc77e247697"
+      },
+      "original_repository_head": "d0039ff78da1451c68ddffebfd93672e46baf472",
+      "qualification_freeze_head": "dd1d6f652b9087c410b82a81b40284124c92e92c",
+      "actual_staging_head": "d499aebae83d71ddc179ef390dab1d0652f351a8"
+    },
+    {
+      "name": "apartments",
+      "source_run": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14",
+      "target": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\packaged_apartments",
+      "original_contract_sha256": "43ddc4f1feddabc6a5321faedfa848d2180aec68e396d37afb26607525672346",
+      "original_wrapper_sha256": "d841ebdb335dfebfdbeda9855800358786bed6153875b3ca48c581c4bcfa000f",
+      "original_log_sha256": {
+        "stdout": "1887ab96fda46d4a935e5664ce1647e16710157ec1281ff90b657099f01728c9",
+        "stderr": "40caa8b5b8954724c55a7a4027bb4b1f2447e1c8cc45254f6f233360c9d57869"
+      },
+      "original_repository_head": "d0039ff78da1451c68ddffebfd93672e46baf472",
+      "qualification_freeze_head": "dd1d6f652b9087c410b82a81b40284124c92e92c",
+      "actual_staging_head": "d499aebae83d71ddc179ef390dab1d0652f351a8"
+    }
+  ],
+  "source_freeze_raw_sha256": "7f76d8fadf522788b20a410bf0a6b3376bd090cb5500b4842cffaf09294c6abe",
+  "producer_raw_sha256": "423771d0ee6a076e0d7f74bee9bc87a8e7eb5d9e63dfaa226320a9acc520873f",
+  "original_after_raw_sha256": "612243190c411c6464c6311943f9a1e36954cf75df80f37c95f4be3f6a88c3d0",
+  "staging_guard_stdout_sha256": "4a5458b9abb947a100e7f58cb0ff180f8c2a87ee41110be928f1c7d922368ebc",
+  "staging_guard_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "engine": {
+    "manifest_path": "C:\\PleaseRemainOnTheLine\\.godot-engine.json",
+    "manifest_raw_sha256": "dfc8104a9a92e991d1c3c7bc640dd4778b81d98b3204e53d5185cfe11ee45f7b",
+    "manifest_lf_sha256": "6bf3be9bd598aa397cc1c5f2a7ff36c06d48767929ef5ef93b53f288b2a9e759",
+    "path": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe",
+    "binaries": {
+      "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe": "7965e75a4f847484a4d1596729b508cb1ef23ae17ab6407eaffd9683364f0f8c",
+      "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.exe": "e954c1db69ebe4b60878ae92cdc3a0e464fe92bd06b78c19402055e9f7bafce1"
+    }
+  },
+  "diagnostic_audio_output": "Headphones (BD9)",
+  "isolated_profiles": {
+    "compile": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\compile\\appdata",
+    "probe": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\probe\\appdata",
+    "door": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\door\\appdata",
+    "installed": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\installed\\appdata",
+    "first_slice": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\first_slice\\appdata",
+    "apartments": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\apartments\\appdata",
+    "surface": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\surface\\appdata"
+  },
+  "prior_engine_evidence_qualification_credit": false,
+  "human_played": false,
+  "artistically_accepted": false
+}

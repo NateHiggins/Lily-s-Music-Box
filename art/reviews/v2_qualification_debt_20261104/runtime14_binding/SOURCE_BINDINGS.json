@@ -1,0 +1,57 @@
+{
+  "evidence_class": "INERT",
+  "source_files": [
+    {
+      "path": "C:/PleaseRemainOnTheLine/art/reviews/v2_surface_renewal_20261021/verify_first_slice.py",
+      "sha256_raw": "112bb0cb072f379dbf5ec6851cce56bcb248651ba1ec9c29082534595c94f68d"
+    },
+    {
+      "path": "C:/PleaseRemainOnTheLine/tools/run_receipt.py",
+      "sha256_raw": "25a4945bfb2473d3c5a93610c226279425398c168fc9400309878daca519cbb5"
+    },
+    {
+      "path": "C:/PleaseRemainOnTheLine/tools/audit_orison_v2_completeness.py",
+      "sha256_raw": "1fbb41956edfb0c3725f76683616b5c08815d989865b26a427e8135f12451c5d"
+    },
+    {
+      "path": "C:/PleaseRemainOnTheLine/game/tests/orison_v2_first_slice_contract_test.tscn",
+      "sha256_raw": "ed868b6b67ba8a751260d5d31411eb6fa3e02be491553c857ebf4a1d09d46e69"
+    },
+    {
+      "path": "C:/PleaseRemainOnTheLine/game/tests/orison_v2_first_slice_contract_test.gd",
+      "sha256_raw": "ef4ee722b46c92ed9309759c04ce57ca6e7f83c53437c5cfd33802a031628d9c"
+    },
+    {
+      "path": "C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/stage_runtime14_packets.py",
+      "sha256_raw": "7c669e9cd0fe777090b7dc7d65ff23045839adb089cfa4d594bf92301afc8796"
+    },
+    {
+      "path": "C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/prepare_runtime14.py",
+      "sha256_raw": "423771d0ee6a076e0d7f74bee9bc87a8e7eb5d9e63dfaa226320a9acc520873f"
+    },
+    {
+      "path": "C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_14/SOURCE_FREEZE.json",
+      "sha256_raw": "7f76d8fadf522788b20a410bf0a6b3376bd090cb5500b4842cffaf09294c6abe"
+    },
+    {
+      "path": "C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_14/first_slice.log.receipt.json",
+      "sha256_raw": "f926d2cf0a3c5b8b59a4745dd845dacf890673f571e5be53eb3f8a89239da7d1"
+    },
+    {
+      "path": "C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_14/first_slice/runtime_authority_receipt.json",
+      "sha256_raw": "02712f6980fc4d5c3f135e238eb459d86c0ad8c92bf724c6b9a14f5b8c3c057e"
+    },
+    {
+      "path": "C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_14/PACKET_STAGING_GUARD.log",
+      "sha256_raw": "4a5458b9abb947a100e7f58cb0ff180f8c2a87ee41110be928f1c7d922368ebc"
+    },
+    {
+      "path": "C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_14/PACKET_STAGING_GUARD.stderr",
+      "sha256_raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "runtime14_contract_primary_sha256": "ef4ee722b46c92ed9309759c04ce57ca6e7f83c53437c5cfd33802a031628d9c",
+  "recorded_scene_lf_sha256": "ed868b6b67ba8a751260d5d31411eb6fa3e02be491553c857ebf4a1d09d46e69",
+  "recorded_head": "d0039ff78da1451c68ddffebfd93672e46baf472",
+  "claim": "Static proposal provenance only; no evidence changed or qualification promoted."
+}

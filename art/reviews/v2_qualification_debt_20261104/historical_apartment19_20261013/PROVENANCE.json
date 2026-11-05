@@ -1,0 +1,82 @@
+{
+  "evidence_class": "INERT",
+  "kind": "historical_apartment19_publication_preparation",
+  "status": "EXTERNAL_STAGING_ONLY_NOT_PUBLISHED",
+  "prospective_canonical_archive": "art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/",
+  "files": [
+    {
+      "name": "runtime_contract.json",
+      "source_kind": "git_blob",
+      "source_commit": "555b01f3bdcd10005a9a2586c24933d7904a7fb1",
+      "source_path": "art/renders/orison_v2/apartment_access_20261012/runtime_contract.json",
+      "source_git_blob": "6bcbc91c6016eef78c39f13ad27e50be9a0be7e4",
+      "sha256": "8177fce010f305238cedd6419fce228c180fabe8d767a7d02c430dfb412057f6",
+      "bytes": 52626,
+      "staged_file": "runtime_contract.json",
+      "prospective_destination": "art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/runtime_contract.json"
+    },
+    {
+      "name": "apartments.log.receipt.json",
+      "source_kind": "existing_original_raw",
+      "source_path": "C:/PleaseRemainOnTheLine/art/renders/orison_v2/remaining_apartments_20261013/apartments.log.receipt.json",
+      "sha256": "28a538e6847d76b5e173ee74be4bc4b14ec88d85b246566e36412d9f718b33d7",
+      "bytes": 3400,
+      "staged_file": "apartments.log.receipt.json",
+      "prospective_destination": "art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/apartments.log.receipt.json"
+    },
+    {
+      "name": "apartments.log",
+      "source_kind": "existing_original_raw",
+      "source_path": "C:/PleaseRemainOnTheLine/art/renders/orison_v2/remaining_apartments_20261013/apartments.log",
+      "sha256": "70e57dfb8988ea0eca0c6e675007e2903e75158eaaa9b3f0c780c0ab3da14445",
+      "bytes": 45717,
+      "staged_file": "apartments.log",
+      "prospective_destination": "art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/apartments.log"
+    },
+    {
+      "name": "apartments.log.stderr",
+      "source_kind": "existing_original_raw",
+      "source_path": "C:/PleaseRemainOnTheLine/art/renders/orison_v2/remaining_apartments_20261013/apartments.log.stderr",
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+      "bytes": 111,
+      "staged_file": "apartments.log.stderr",
+      "prospective_destination": "art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/apartments.log.stderr"
+    }
+  ],
+  "original_matching_source": {
+    "repository_head": "26681527ac72e0cdd6ac7a4e64e143c51968e5ae",
+    "runtime_inputs_sha256": "b8acd4922a4aea7082e165bc46acb12ae14a3508e1b03c7f6727ace16b6314cf",
+    "test_path": "game/tests/orison_v2_apartment_access_contract_test.gd",
+    "test_sha256": "a1480f27f488006185702af8cecf1f7f8f0ceea1d9da42a6a06dbcac2069764d"
+  },
+  "original_wrapper_log_paths_unchanged": {
+    "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-entry-clearance-20261013/apartments_detailed.log",
+    "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-entry-clearance-20261013/apartments_detailed.log.stderr",
+    "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-entry-clearance-20261013/apartments_detailed"
+  },
+  "original_execution": {
+    "wrapper": {
+      "completed": true,
+      "elapsed_s": 217.78,
+      "exit_code": 0,
+      "finished_utc": "2026-10-13T17:59:25Z",
+      "started_utc": "2026-10-13T17:55:47Z",
+      "timed_out": false
+    },
+    "contract": {
+      "completed": true,
+      "elapsed_s": 208.498,
+      "exit_code": 0,
+      "timed_out": false
+    }
+  },
+  "historical_limits": {
+    "rooms": 19,
+    "dirty_paths": 1440,
+    "stderr": "Original warning: 7 Texture RIDs leaked; preserved verbatim.",
+    "checks": "267 serialized checks match raw prefix; final268th flush remains only in original stdout.",
+    "claim": "Historical custody only; no current-source qualification, save proof, clean teardown or artistic acceptance."
+  },
+  "later_cohorts": "Neither later_f604_not_matching nor nine-unit/60-room cohort included or changed.",
+  "gitattributes_append_sha256": "05da456b3685d3519d6da6e97614ffeefaabc0f5ea8dccf33f20f4eacb48833c"
+}

@@ -1,0 +1,19 @@
+--- a/servers/audio/audio_server.cpp
++++ b/servers/audio/audio_server.cpp
+@@ -1655,6 +1655,16 @@
+ 		AudioDriverManager::get_driver(i)->finish();
+ 	}
+ 
++	// No mixer can traverse these lists after all drivers have finished.
++	// Stopped playbacks may still await a fade-out that never got mixed.
++	for (AudioStreamPlaybackListNode *playback : playback_list) {
++		_delete_stream_playback_list_node(playback);
++	}
++	// The traversal's iterators are gone. Reclaim deferred playback nodes,
++	// then advance and drain both generations of retired bus details.
++	_cleanup_lists();
++	_cleanup_lists();
++
+ 	for (int i = 0; i < buses.size(); i++) {
+ 		memdelete(buses[i]);
+ 	}

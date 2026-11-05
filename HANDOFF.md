@@ -1,3 +1,369 @@
+# Current handoff — audio teardown blocks PR152 qualification
+
+Canonical checkout **C:/PleaseRemainOnTheLine**, branch
+**codex/v2-qualification-debt-20261104**. PR152 remains **OPEN/DRAFT/UNQUALIFIED**.
+Main **4f16053e8**; pushed source checkpoint **dd1d6f652**
+(engine shutdown cleanup plus opt-in native diagnostic audio output). Root **01a1a653-eda8-7732-9732-2c362f5129d6** owns
+integration. Lily paused parallel emulator work and assigned the computer to
+this development. Keep emulators paused; preserve her mouse and hidden FIFO lane.
+Share normal FIFO with Claude, batch coordination messages and give her time;
+no exclusive-use or GPU-pause requests. Her isolated work can continue.
+
+**runtime14 is TERMINAL/PASS**, original broker38556/session23979 retired.
+All seven original scene wrappers exit0/untimedout with zero ERROR/SCRIPT ERROR
+or shutdown leaks. First-slice661.75s/379serialized checks/0fail; apartments
+974.80s/60rooms/9legs/781serialized/0fail; physical-only surfaces360.72s/
+38947checks/0fail/0unresolved. Original afterguardPASS includes82actual3440PNGs.
+Architect independently rechecked full consumed projection/binary equality and
+released custody. Exact originals: **runtime_14/TERMINAL.json**, MONITOR.md,
+SOURCE_FREEZE.json and original wrappers/contracts. Frozen game/test source
+**dd1d6f652b9087c410b82a81b40284124c92e92c**; wrappers record tracker-only
+**d0039ff78da1451c68ddffebfd93672e46baf472**. Producer remains immutable
+**423771d0ee6a076e0d7f74bee9bc87a8e7eb5d9e63dfaa226320a9acc520873f**.
+All six windowed programmes used explicit realBD9/fresh isolated profiles.
+12bounded+18apartment+64surface originals reviewed; foreground/wall crops and
+city shading/framing limitations remain in the exact-hash INERT frame reviews.
+No human play/artistic acceptance is implied.
+
+**Publication instrument repair:** first staging attempt refused before creating
+packets because wrapper test_path/test_sha256 are correctlyNULL for the
+scriptless rootControl; the primary programme is a child ofInputViewport.
+Original failed helper/logs remain untouched. The active first-slice verifier
+now accepts that exact NULL-only case only after proving the unique child
+attachment from recordedGit scene/script bytes, currentLF equality and the
+primary contract's scene/script hashes. All other ledger/runtime/log checks
+remain strict.14author CPU controls plus6independent root negatives pass; actual14
+binding passes. Only the unconsumed verifier changed; no raw receipt is repinned.
+Fresh **stage_runtime14_nested_packets.py** admits exactly its reviewed LF SHA
+**a10053640090016739aa5ef0579156022db77ca46fbb2cc6613f6a3c13a552a1**,
+checks every interveningcommit/mergeparent, and reuses the immutable14afterguard
+before packet staging in distinct logs. Both packets staged successfully through that original guard and all three
+canonical packets are now published/revalidated, with original raw bytes and
+prior cohorts preserved. Next exact candidate/manualqualified152merge. No game replay is required
+for an instrument-only change if the original consumed projection still matches.
+First exact candidate2bbb2f096 blocked one systemic review item4cbc4a20e1c0d49a;
+17protected paths/selector/designlint passed. Read-only installed-camera context
+snapshots were independently reviewed and exactly one DOCUMENT/test baseline
+entry added; no world/clock/save write.63audit testsPASS,newreview30→29,0new
+actual/policy findings; immutable14afterguardPASS unchanged. Fresh exact candidate
+must run against this reviewed baseline commit; never accept/waive the old failure.
+
+**runtime13 is TERMINAL/FAILED**, not queued. Original apartment assertions
+passed: 60 rooms/9 legs,781 serialized checks,0 failures,1264.98s. Original
+physical/city/entry surface assertions passed:0 unresolved,367.10s. All82 PNGs
+are actual3440x1440 and reviewed. Final admission correctly rejected shutdown
+errors: apartments11219 ObjectDB instances/30 resources; surface1133/24.
+These are not qualified packets. Preserve every original log/receipt under
+**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_13/**.
+Source/retirement checked and custody explicitly released. No publication or
+merge is authorized by these partial passes.
+
+The unchanged verbose surface reproduction at
+**C:/ov/reports/develop_intake_20261104/teardown_verbose_01/** completed371.78s
+and identified1051 leaked audio instances:491 Vorbis playback/491 packet
+playback,42 WAV playback,12 Ogg streams/12 packet sequences,3 WAV streams.
+Its source custody is released. Fixture/interaction-cycle reviews found no
+supported fix; do not apply speculative teardown changes.
+
+Tiny four-case reproduction at
+**C:/ov/reports/develop_intake_20261104/teardown_audio_ready/runs/** establishes
+all count controls:64 queued stop/release operations each exit without leaks;
+64 started stop/release operations each leak130 audio instances/2 resources.
+The mixer clock stops advancing while physics advances. Thus the proposed
+AudioPolicy stop_source replacement is not causal and remains unapplied.
+Root admitted minimal engine shutdown cleanup after six tiny controls
+passed with zero leaks; AudioPolicyTest53PASS. DoorAudioLifetimeTest still
+fails the same2/12 started-decoder checks on both original and new engines
+on the stalled default Razer route. A process-only real BD9 endpoint advances
+mixing and passes the unchanged12/12 door test on both engines; integrated
+native-debug selection passes12/12, unlisted output refusesexit2. Keep Windows
+default/preferences untouched; qualify explicitly on this working endpoint. New engine/build bindings and exact limits:
+**design/V2_QUALIFICATION_RENEWAL_2026-10-20.md**. No game audio code changed. Vulkan loader errors in verbose
+runs are separately preserved, not silently removed or treated as proof.
+
+Original runtime11 authority/save PASS633.48s and bounded transfer/frame proof
+remain preserved at **runtime_11/**, including real28 insert identities,repair,
+resident return,disk save,reconstruction and seven-authority composition.
+Reuse only while exact consumed source AND binary inputs remain valid. A new
+engine requires affected proof renewal. Earlier runtime05–12 failures remain
+immutable; resolution reproductions and historical details are in Git history.
+Original19-room packet is separately archived at
+**art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/**.
+Matching original60-room cohort recovered externally at
+**C:/ov/reports/develop_intake_20261104/historical_apartment60_ready/**; preserve
+its matching original contract/wrapper rather than pairing superseded metadata.
+
+Next: original qualification on the admitted shutdown-fix engine and explicit
+working BD9 endpoint under fresh custody,byte-exact publication,exact119-gate candidate
+against **board_main_4f16053e8/board.json**,manual qualified PR152 merge.
+Do not use failed runtime13 staging as success or repin old receipts.
+Then integrate prepared book exit and hose wetting patches,exercise installed
+readability/direct manipulation/save and measured stutter. External deliveries:
+**C:/ov/reports/develop_intake_20261104/book_exit_implementation_ready/** and
+**hose_implementation_ready/**; both are authored only,not installed or run.
+Claude Sun153/mystery154/staff155 remain isolated behind PR152. Private Discord
+joke database/writers draft are delivered outside Git; preserve PR154's four
+wrapped field notes when combining staff changes. Preserve prologue,audio,
+golden-shift,weather,city,narrative and all gameplay/save authorities.
+No whole-V2,human play or artistic acceptance is claimed.
+
+## Finish the integration before opening new work
+
+1. Complete nested-script packet admission and publish the successful original14
+   authority/save,apartment and surface evidence; preserve all prior failures.
+   Stage only exact original receipts via the external staging helper,passing
+   the successful new runtime name explicitly; its default still names03. Preserve the older19-room
+   apartment cohort separately. No receipt repin or capture-to-played promotion.
+2. Renew the source-bound surface packet and exact119-gate candidate against
+   **board_main_4f16053e8/board.json**. The earlier116PASS/2FAIL/1INCOMPLETE board
+   predates the owner repair. Full completeness now108/110PASS: two stale live
+   first-slice/apartment failures remain. Manual PR152 merge only after required
+   evidence passes. No auto-merge or whole-V2 acceptance claim.
+3. Continue outstanding book/nook,installed hose,playable stutter and whole-V2
+   coverage. TASKS.md holds current gaps; do not repeat unchanged long walks.
+   External **book_optics_candidate/** is authored only,not installed/compiled.
+   **BOOK_NEXT_DIAGNOSTIC.json** and **HOSE_NEXT_DIAGNOSTIC.json** record source
+   findings,not runtime proof. Dark held-book cover,installed shelf-slot return,
+   corridor/Continue,full hose payout/release/dressing/impact wetting and broader
+   cold/reload performance remain open. Preserve prologue/audio/golden-shift,
+   campaign/weather and artistic acceptance commitments.
+
+## Coordinate ownership and integration
+
+Check both Codex and ChatGPT inboxes using
+**C:/Users/nate_/homebrew-tools/toolbox.py**. Direct Orison coordination is
+authorized. Claude's Sun work is isolated in **C:/ov/sun**, branch **claude/sun**;
+Claude agreed to hold its surface renewal until PR152 merges. Send the merge
+result before it renews. Architect's city authoring is complete/stopped;
+coordinate any new bounded request rather than duplicating authoring.
+
+Use independent chats/agents for bounded work with explicit named-path owners,
+dependencies,evidence deliverables and merge order. One integration owner admits
+changes to main; one shared FIFO lane serves Godot/GPU. Keep dependent runtime
+fixes sequential and amortize one qualification renewal across related changes.
+Do not let parallel edits invalidate a live source-bound run. Respect all
+gameplay/save/input authorities,private likeness custody,and Lily's she/her name.
+
+Detailed evidence: **design/V2_CITY_CONTEXT_REPORT_2026-10-19.md**. This handoff
+does not turn authored code,technical checks or diagnostic renders into playtest
+or artistic acceptance. The overall V2 goal remains active and unfinished.
+
+Earlier checkpoints below retain their historical states.
+
+
+runtime_03 is terminal1: before-source guardPASS,then compile6 reports one
+failed script. Three new first-slice call sites mistakenly consumed the void
+_check() return. This is a real fixture parse error,not stale import cache.
+The call sites now assert and branch separately,with original assertions kept.
+No bounded interaction,full authority,apartment or surface stage ran. Preserve
+runtime_03/compile.log and its failed wrapper; do not restart that terminal job.
+Next prepare_runtime_renewal.py prepare native_export_06 runtime_04 after the
+clean source checkpoint,then queue its same fail-fast bounded-first programme.
+The full110-test completeness suite completed108PASS/2FAIL in92.285s: the two
+existing live first-slice/apartment proof failures remain; no new failure.
+
+Earlier checkpoint text below retains its historical preparation state.
+
+Native06 passes full material-inclusive equivalence and converter in65.109s.
+35geometry/alias files are byte-identical;3metadata files plus the reviewed
+one-record ownership/hash-pin migration admitted. Original suites27/0 and11/0.
+Source checkpoint95b7fd145 is pushed. No new runtime proof yet; PR152 stays draft.
+The runtime_02 batch is terminal1: source guard,compile4 and material library
+pass; first-slice fails at255.21s with167pass lines/1failure. The original
+radiator insert unthreads and can be grabbed,but cannot reach its diagonal
+parking goal. Nine-apartment,surface and final guard stages never started.
+Preserve the original contract/logs under qualification_debt_trace_01/runtime_02.
+The full clean119-gate board at74c39d946 reports116PASS/2FAIL/1INCOMPLETE;
+the only new regression is stale surface proof. Completeness remains inherited.
+Probe01 is terminal1: compilation passes and the native fixture reproduces the
+stationary insert in25.6s,including on its upward leg. A separate direct sweep
+identifies VentBodyContact on the diagonal path. Original JSON/logs/two frames
+remain under radiator_insert_01; one native close-up inspected.
+Source tracing finds the old helper sends legacy drag input while captured
+FPS pickup expects view/holder motion,and the fixture disables holder physics.
+Probe02 compiles,then terminates1 in28s with empty stderr: actual Space enters
+inspection,but the pointer does not reacquire the loose insert and no transfer
+leg runs. Its native endpoint image shows the open vent without the insert;
+part motion versus pointer delivery still needs attribution. No repair accepted.
+Probe03 is terminal1/28s with clean compile and empty stderr. Pointer delivery
+matches exactly; the released insert falls from0.801m to0.590m while the ray
+selects the cap above it. This establishes a production inspection-handoff gap.
+Candidate04 is terminal0/28.09s: compile4PASS,empty stderr,and actual supported
+selection/three-leg transfer,foreign-context denial,Space hand return,release
+and validated in-memory pose reload all pass. Its endpoint image was inspected;
+the tiny distant part is not an artistic/readability acceptance. This INERT
+diagnostic grants no ledger runtime proof or composed/disk qualification.
+The original driver now uses inspection input and normal FPS follow for travel;
+its scene uses an embedded viewport and binds that scene in the original receipt.
+Optional declared-scene validation has a passing stale/path/missing-hash test.
+A slot-state permission guard refuses a stale free grip after seating; updated
+driver/seating checks are NOT run yet. Next prepare and queue runtime_03 after
+the clean checkpoint: prepare_runtime_renewal.py prepare native_export_06 runtime_03.
+Its fail-fast bounded preflight precedes the original authority/disk,apartment
+and surface runs. Check runtime_03/QUEUE_CUSTODY.json before starting anything;
+never restart terminal runtime_02 or probes01–04. ReaderNEW0 and spatial clean.
+Actual first-slice/save,9-unit movement,surface and exact candidate acceptance
+remain required. Preserve the older19-room apartment cohort during publication.
+The external staging helper refuses missing receipts and publishes nothing.
+Read current TASKS.md and the city ledger. Wider repairs remain active.
+External proof/admission: qualification_debt_trace_01/native_export_06/.
+
+Earlier checkpoint text below is historical,not the current job state.
+
+# Current checkpoint — CPU-only native06 preparation
+
+### Six exact book finishes; mineral channel packaging corrected
+
+Native05 is terminal1 in54.234s. The original strict material-inclusive check
+still fails,but CPU attribution now shows all six book materials match exactly.
+Only concrete_b,slab_b andstair_b roughness images differ. All336frozen sources
+and30ignored cache hashes are unchanged; no metadata or test pin was admitted.
+
+Further channel attribution corrects the earlier source assumption: the current
+October4authoring PNGs byte-match the installed textures. Native03had identical
+green roughness values but repacked unused red/blue channels to white. Native05
+incorrectly selected older August mineral pixels as well; those outputs were
+never installed. The explicit context now pins the approved October4mineral
+sources alongside the August legacy book sets. Newer art remains untouched.
+
+The native material graph uses Separate Color G for roughness and B multiplied
+by zero for metallic. On the installed Blender5.2,an actual CPU export fixture
+passes three exact-PNG/metallicFactor0candidates and three controls reproducing
+the unwanted repacking. The source/refusal suite still passes14tests. These
+checks do not establish full F01 or Godot acceptance. Official channel guidance:
+https://docs.staging.blender.org/manual/en/latest/addons/scene_gltf2.html .
+Exact logs,hashes and material factors are in mineral_channel_cpu_01/.
+
+The full unrendered native06 replay will use the CPU source/export path. The
+adapter invokes only factory reset and glTF export,no render operation; no
+Godot/GPU work runs outside the shared lane. Actual first-slice,apartment-access
+and surface renewal remain gated on full native/converter equivalence. All
+earlier failed runs remain preserved. The two relevant art skills now record
+the verified channel/byte lesson without granting runtime or artistic proof.
+
+# Latest job custody — native05 queued
+
+### Context replay recorder correction — no native acceptance
+
+Implementation **86ada9360** is pushed. Native04 is terminal1 before Blender
+launch: its external diagnostic recorder intercepted a Git subprocess and
+attempted to write bytes as Blender text. This is a recorder failure,not a
+material-context or native-equivalence result. All336frozen inputs and30ignored
+cache hashes remain unchanged. Original failure and traceback are preserved.
+
+The external recorder now captures only the actual Blender executable. A real
+Git byte-output preflight passes without creating false Blender logs. Unchanged
+native sources are FIFO queued as **native_export_05/**,session28508,verified
+broker28624,bornUTC2026-11-04T07:22:01Z. It waits behind the current comic hold;
+no foreign process or waiter was interrupted. No ownership,test pin,production
+metadata or runtime contract has yet been admitted. Inspect this same job's
+full original equivalence and converter result before proceeding.
+
+# Current checkpoint — explicit material context awaiting native04
+
+### Explicit legacy material context implemented — pending native replay
+
+The owning F01 adapter now has an opt-in material-context input. A small
+source manifest pins27historical Git blobs at the original production export
+commit: six complete book sets plus three mineral roughness sources. No image
+copies are added to Git. The reader validates exact tree membership,paths and
+SHA256,consumes six metadata blobs in memory,and stages only21images below the
+disposable candidate root. All declared images must actually reach the original
+material loader. Context and reader hashes are bound through generation receipts
+and production conversion; a stale/missing binding is rejected.
+
+The explicit context selects tracked legacy wall compatibility inputs instead
+of ignored/untracked bake cache. Conflicting tracked authoring sources still
+fail. The context-free path retains its previous source checks. No wall cache
+mutation is needed. The generator,UV logic and complete material-inclusive
+equivalence checks remain in force; current V2 book/mineral material owners are
+unchanged. Production replay explicitly selects this context.
+
+The existing owner-first test suite now passes14tests,including original refusal
+checks and real27blob/staging/tamper tests,unused-image/stale-reader rejection,
+wrong-tree/unknown-material/path rejection,and the ignored-versus-tracked cache
+boundary. ReaderNEW0 and syntax checks pass. These are authoring/source checks,
+not a native replay pass or runtime qualification. Native04 will execute the
+full original comparison and external converter with336frozen inputs plus
+all30ignored wall-map hashes; no production artifact,ownership row or test pin
+is admitted yet. Original03failed proof remains intact.
+
+Earlier checkpoints below are historical.
+
+# Latest replay result — November4
+
+### F01 replay attribution — strict equivalence remains open
+
+**qualification_debt_trace_01/native_export_02/** is terminal1 in7.344s. The
+original global catalogue validator now passes316mapped/18shader-owned entries.
+The next original guard rejects authoring wall roughness maps that differ from
+tracked legacy textures. All30authoring wall maps are ignored bake cache under
+gitignore rule94; ten roughness maps differ in decoded pixels,not merely PNG
+encoding. Protected tracked textures were not changed.
+
+**native_export_03/** is terminal1 in43.453s. It preserves an8,310,999byte ZIP
+of those30ignored cache maps,temporarily isolates exactly those named inputs
+only while holding the shared lane,and restores all30hashes in finally. The
+custody journal saysRESTORED and334frozen canonical inputs are unchanged. The
+original native generator succeeds with empty stderr,5286source records,
+9820contributions and183726triangles,then the original canonical-equivalence
+check fails on material-bearing vertex/triangle/world/collision signatures.
+The converter and installation did not execute. Original failed logs remain.
+
+CPU attribution finds exactly9different material identities: six book finishes
+now point to procedural sources instead of the legacy furniture-library sets;
+concrete_b,slab_b andstair_b roughness pixels differ after the approved October4
+mineral microrelief work at44840e5da. The source tree is not being reverted.
+A separate diagnostic neutralizes material hashes only to localize the failure:
+all remaining vertex/triangle/world/collision/attribute/bounds comparisons match,
+with345536vertices and183726triangles on each side. This diagnostic is INERT,
+does not call strict equivalence a pass,and grants no install/runtime proof.
+
+Next develop an explicit source-bound historical material context for the
+legacy owner-first replay,retaining the newer book/mineral sources for their
+current owners. Demand the unchanged full material-inclusive comparison before
+admitting ownership metadata,test pins or production artifacts. No tolerance,
+test expectation,protected asset or old receipt has been weakened or repinned.
+The six-finish registration remains a pushed WIP; rendered renewal,source
+migration,first-slice/played contracts and final candidate remain unfinished.
+
+# Current continuation — qualification debt after city merge
+
+### Merged city checkpoint and qualification repair custody — November 4
+
+PR151 was manually merged at **4f16053e8** from exact candidate **5556ba9b4**.
+The in-place verifier completed119gates with0regressions,17protected paths
+unchanged,selectorV2 and0document-lint errors. Six changed gate files were
+reviewed. It reused the already executed source-bound engine contracts and did
+not launch new Godot suites; fresh-checkout/autocrlf behavior is outside that
+verification. Local main was fast-forwarded,then a new clean-main baseline
+**qualification_debt_trace_01/board_main_4f16053e8/** completed119gates with
+115PASS/3FAIL/1INCOMPLETE and0dirty paths. These are the same explicitly retained
+inherited failures,not a clean whole-game acceptance.
+
+Canonical Codex now owns **K-V2-QUALIFICATION-DEBT** on
+codex/v2-qualification-debt-20261104. The original F01 native replay failed
+before geometry because6existing custom-shader finishes were missing from the
+global catalogue mapping. The tentacle membrane/tissue/eye/residue and guide-bell
+membrane/tissue already bind their own ShaderMaterials and dream texture maps;
+they are now explicitly registered as shader-owned null mappings,following the
+existing catalogue convention. All328prior rows are unchanged. The real runtime
+material generator confirms129materials/14visual locks/0files changed; generated
+contract and GDScript bytes are unchanged. No generic fallback,map,shader,
+geometry,source-ownership row,test hash or runtime receipt was replaced.
+
+This mapping checkpoint is WIP. Its LF-normalized hash is
+67c7bbba13e7853b35bbf9a2941e679f1528464677eb3de3fa8121c464eeee77.
+The external CRLF proposal remains preserved separately. Next execute the
+unchanged native owner-first exporter against the already reviewed external
+one-record ownership candidate. Demand exact existing geometry/alias artifacts
+and reviewed metadata-only lineage changes before admitting that candidate.
+Native retry and affected rendered qualification are not yet claimed.
+Original failures remain in qualification_debt_trace_01/native_export_01/;
+new output is exclusively native_export_02/. No second city family starts.
+
+Earlier checkpoints below retain their historical status.
+
 # Latest checkpoint — 2026-11-04
 
 ### Current city edge qualification — 2026-11-04

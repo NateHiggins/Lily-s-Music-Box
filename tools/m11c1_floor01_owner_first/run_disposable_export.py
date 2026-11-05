@@ -31,6 +31,8 @@ DEFAULT_GENERATOR = REPO_ROOT / "art/blender/scripts/build_orison.py"
 DEFAULT_ADAPTER = Path(__file__).with_name("generate_owner_first_candidate.py")
 DEFAULT_REGIONS = REPO_ROOT / "game/data/orison_v2/exterior/regions.json"
 
+from tools.m11c1_floor01_owner_first import material_context
+
 
 def _protected_paths(protected_gltf: Path) -> dict[str, Path]:
     document = json.loads(protected_gltf.read_text(encoding="utf-8"))
@@ -64,7 +66,7 @@ def _hash_paths(paths: dict[str, Path]) -> dict[str, str]:
 def run_disposable_export(
         *, output_root: Path, blender: Path, protected_gltf: Path,
         layout: Path, ownership: Path, generator: Path, adapter: Path,
-        exterior_regions: Path) -> dict[str, Any]:
+        exterior_regions: Path, material_context_path: Path | None = None) -> dict[str, Any]:
     output_root = output_root.resolve()
     if output_root == REPO_ROOT or output_root.is_relative_to(REPO_ROOT) \
             or REPO_ROOT.is_relative_to(output_root):
@@ -73,6 +75,12 @@ def run_disposable_export(
         raise OwnerFirstError(f"output is not empty: {output_root}")
     protected_paths = _protected_paths(protected_gltf.resolve())
     protected_before = _hash_paths(protected_paths)
+    context_before = None
+    if material_context_path is not None:
+        context_doc, _ = material_context.read_context(material_context_path, REPO_ROOT)
+        if context_doc["compatible_floor01_sha256"] != protected_before["floor_01_gltf"]:
+            raise OwnerFirstError("historical material context targets a different protected asset")
+        context_before = material_context.binding(material_context_path)
     command = [
         str(blender.resolve()),
         "--background",
@@ -84,6 +92,8 @@ def run_disposable_export(
         "--ownership-sidecar", str(ownership.resolve()),
         "--output", str(output_root),
     ]
+    if material_context_path is not None:
+        command += ["--material-context", str(material_context_path.resolve())]
     process = subprocess.run(
         command, cwd=str(REPO_ROOT), capture_output=True, text=True,
         encoding="utf-8", errors="replace", check=False,
@@ -128,6 +138,8 @@ def run_disposable_export(
     protected_after = _hash_paths(protected_paths)
     if protected_after != protected_before:
         raise OwnerFirstError("protected floor/layout assets changed during generation")
+    if context_before is not None and context_before != material_context.binding(material_context_path):
+        raise OwnerFirstError("historical material context changed during generation")
     protection = {
         "schema": "orison.floor01.owner-first-protection.v1",
         "status": "PASS",
@@ -149,6 +161,7 @@ def run_disposable_export(
         output_root,
         prepare_output=False,
         require_orchestrator_receipts=True,
+        material_context_path=material_context_path,
     )
     protected_final = _hash_paths(protected_paths)
     if protected_final != protected_before:
@@ -170,6 +183,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--generator", type=Path, default=DEFAULT_GENERATOR)
     parser.add_argument("--adapter", type=Path, default=DEFAULT_ADAPTER)
     parser.add_argument("--exterior-regions", type=Path, default=DEFAULT_REGIONS)
+    parser.add_argument("--material-context", type=Path)
     return parser.parse_args(argv)
 
 
@@ -185,6 +199,7 @@ def main(argv: list[str] | None = None) -> int:
             generator=args.generator,
             adapter=args.adapter,
             exterior_regions=args.exterior_regions,
+            material_context_path=args.material_context,
         )
     except Exception as error:
         print(f"M11C1 DISPOSABLE EXPORT FAIL: {error}", file=sys.stderr)

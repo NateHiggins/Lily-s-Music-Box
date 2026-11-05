@@ -23,7 +23,7 @@ from m11c1_floor01_owner_first import source_ownership as ownership  # noqa: E40
 LAYOUT_PATH = REPO_ROOT / ownership.DEFAULT_LAYOUT
 SIDECAR_PATH = REPO_ROOT / ownership.DEFAULT_SIDECAR
 PROTECTED_LAYOUT_SHA256 = (
-    "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c"
+    "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998"
 )
 
 

@@ -7272,3 +7272,469 @@ candidate is qualified. The three inherited failing test gates remain explicit
 **K-V2-QUALIFICATION-DEBT**; no second native construction family starts here.
 
 Post-run reader audit remainsNEW0; spatial audit11171records is clean and its manifest refresh changes44line locations only. Composed stderr LF-byte-matches the prior10known UID-fallback warnings,with0ERRORheaders. Fresh tracked-text consumer review found no references to703untracked generated UIDs; all703were hash-verified into an external recovery ZIP before quarantine. Restored437tracked import paths only after LF-normalized equality withHEAD. Review and recovery hashes are retained in ground_edge_intake_01/churn_after_composed/. No semantic import,source or native asset was discarded.
+
+
+### Merged city checkpoint and qualification repair custody — November 4
+
+PR151 was manually merged at **4f16053e8** from exact candidate **5556ba9b4**.
+The in-place verifier completed119gates with0regressions,17protected paths
+unchanged,selectorV2 and0document-lint errors. Six changed gate files were
+reviewed. It reused the already executed source-bound engine contracts and did
+not launch new Godot suites; fresh-checkout/autocrlf behavior is outside that
+verification. Local main was fast-forwarded,then a new clean-main baseline
+**qualification_debt_trace_01/board_main_4f16053e8/** completed119gates with
+115PASS/3FAIL/1INCOMPLETE and0dirty paths. These are the same explicitly retained
+inherited failures,not a clean whole-game acceptance.
+
+Canonical Codex now owns **K-V2-QUALIFICATION-DEBT** on
+codex/v2-qualification-debt-20261104. The original F01 native replay failed
+before geometry because6existing custom-shader finishes were missing from the
+global catalogue mapping. The tentacle membrane/tissue/eye/residue and guide-bell
+membrane/tissue already bind their own ShaderMaterials and dream texture maps;
+they are now explicitly registered as shader-owned null mappings,following the
+existing catalogue convention. All328prior rows are unchanged. The real runtime
+material generator confirms129materials/14visual locks/0files changed; generated
+contract and GDScript bytes are unchanged. No generic fallback,map,shader,
+geometry,source-ownership row,test hash or runtime receipt was replaced.
+
+This mapping checkpoint is WIP. Its LF-normalized hash is
+67c7bbba13e7853b35bbf9a2941e679f1528464677eb3de3fa8121c464eeee77.
+The external CRLF proposal remains preserved separately. Next execute the
+unchanged native owner-first exporter against the already reviewed external
+one-record ownership candidate. Demand exact existing geometry/alias artifacts
+and reviewed metadata-only lineage changes before admitting that candidate.
+Native retry and affected rendered qualification are not yet claimed.
+Original failures remain in qualification_debt_trace_01/native_export_01/;
+new output is exclusively native_export_02/. No second city family starts.
+
+
+### F01 replay attribution — strict equivalence remains open
+
+**qualification_debt_trace_01/native_export_02/** is terminal1 in7.344s. The
+original global catalogue validator now passes316mapped/18shader-owned entries.
+The next original guard rejects authoring wall roughness maps that differ from
+tracked legacy textures. All30authoring wall maps are ignored bake cache under
+gitignore rule94; ten roughness maps differ in decoded pixels,not merely PNG
+encoding. Protected tracked textures were not changed.
+
+**native_export_03/** is terminal1 in43.453s. It preserves an8,310,999byte ZIP
+of those30ignored cache maps,temporarily isolates exactly those named inputs
+only while holding the shared lane,and restores all30hashes in finally. The
+custody journal saysRESTORED and334frozen canonical inputs are unchanged. The
+original native generator succeeds with empty stderr,5286source records,
+9820contributions and183726triangles,then the original canonical-equivalence
+check fails on material-bearing vertex/triangle/world/collision signatures.
+The converter and installation did not execute. Original failed logs remain.
+
+CPU attribution finds exactly9different material identities: six book finishes
+now point to procedural sources instead of the legacy furniture-library sets;
+concrete_b,slab_b andstair_b roughness pixels differ after the approved October4
+mineral microrelief work at44840e5da. The source tree is not being reverted.
+A separate diagnostic neutralizes material hashes only to localize the failure:
+all remaining vertex/triangle/world/collision/attribute/bounds comparisons match,
+with345536vertices and183726triangles on each side. This diagnostic is INERT,
+does not call strict equivalence a pass,and grants no install/runtime proof.
+
+Next develop an explicit source-bound historical material context for the
+legacy owner-first replay,retaining the newer book/mineral sources for their
+current owners. Demand the unchanged full material-inclusive comparison before
+admitting ownership metadata,test pins or production artifacts. No tolerance,
+test expectation,protected asset or old receipt has been weakened or repinned.
+The six-finish registration remains a pushed WIP; rendered renewal,source
+migration,first-slice/played contracts and final candidate remain unfinished.
+
+
+### Explicit legacy material context implemented — pending native replay
+
+The owning F01 adapter now has an opt-in material-context input. A small
+source manifest pins27historical Git blobs at the original production export
+commit: six complete book sets plus three mineral roughness sources. No image
+copies are added to Git. The reader validates exact tree membership,paths and
+SHA256,consumes six metadata blobs in memory,and stages only21images below the
+disposable candidate root. All declared images must actually reach the original
+material loader. Context and reader hashes are bound through generation receipts
+and production conversion; a stale/missing binding is rejected.
+
+The explicit context selects tracked legacy wall compatibility inputs instead
+of ignored/untracked bake cache. Conflicting tracked authoring sources still
+fail. The context-free path retains its previous source checks. No wall cache
+mutation is needed. The generator,UV logic and complete material-inclusive
+equivalence checks remain in force; current V2 book/mineral material owners are
+unchanged. Production replay explicitly selects this context.
+
+The existing owner-first test suite now passes14tests,including original refusal
+checks and real27blob/staging/tamper tests,unused-image/stale-reader rejection,
+wrong-tree/unknown-material/path rejection,and the ignored-versus-tracked cache
+boundary. ReaderNEW0 and syntax checks pass. These are authoring/source checks,
+not a native replay pass or runtime qualification. Native04 will execute the
+full original comparison and external converter with336frozen inputs plus
+all30ignored wall-map hashes; no production artifact,ownership row or test pin
+is admitted yet. Original03failed proof remains intact.
+
+
+### Context replay recorder correction — no native acceptance
+
+Implementation **86ada9360** is pushed. Native04 is terminal1 before Blender
+launch: its external diagnostic recorder intercepted a Git subprocess and
+attempted to write bytes as Blender text. This is a recorder failure,not a
+material-context or native-equivalence result. All336frozen inputs and30ignored
+cache hashes remain unchanged. Original failure and traceback are preserved.
+
+The external recorder now captures only the actual Blender executable. A real
+Git byte-output preflight passes without creating false Blender logs. Unchanged
+native sources are FIFO queued as **native_export_05/**,session28508,verified
+broker28624,bornUTC2026-11-04T07:22:01Z. It waits behind the current comic hold;
+no foreign process or waiter was interrupted. No ownership,test pin,production
+metadata or runtime contract has yet been admitted. Inspect this same job's
+full original equivalence and converter result before proceeding.
+
+
+### Six exact book finishes; mineral channel packaging corrected
+
+Native05 is terminal1 in54.234s. The original strict material-inclusive check
+still fails,but CPU attribution now shows all six book materials match exactly.
+Only concrete_b,slab_b andstair_b roughness images differ. All336frozen sources
+and30ignored cache hashes are unchanged; no metadata or test pin was admitted.
+
+Further channel attribution corrects the earlier source assumption: the current
+October4authoring PNGs byte-match the installed textures. Native03had identical
+green roughness values but repacked unused red/blue channels to white. Native05
+incorrectly selected older August mineral pixels as well; those outputs were
+never installed. The explicit context now pins the approved October4mineral
+sources alongside the August legacy book sets. Newer art remains untouched.
+
+The native material graph uses Separate Color G for roughness and B multiplied
+by zero for metallic. On the installed Blender5.2,an actual CPU export fixture
+passes three exact-PNG/metallicFactor0candidates and three controls reproducing
+the unwanted repacking. The source/refusal suite still passes14tests. These
+checks do not establish full F01 or Godot acceptance. Official channel guidance:
+https://docs.staging.blender.org/manual/en/latest/addons/scene_gltf2.html .
+Exact logs,hashes and material factors are in mineral_channel_cpu_01/.
+
+The full unrendered native06 replay will use the CPU source/export path. The
+adapter invokes only factory reset and glTF export,no render operation; no
+Godot/GPU work runs outside the shared lane. Actual first-slice,apartment-access
+and surface renewal remain gated on full native/converter equivalence. All
+earlier failed runs remain preserved. The two relevant art skills now record
+the verified channel/byte lesson without granting runtime or artistic proof.
+
+
+### Native06 passes full equivalence; reviewed metadata admitted
+
+The CPU-only original replay is terminal0 in65.109s. All9original full
+equivalence checks pass,including material-bearing vertex/triangle/world and
+collision payloads,legacy alias unions and per-alias transforms. It reconstructs
+5286source records,9820contributions,345536vertices/183726triangles and17cells.
+Production conversion proves35geometry/alias artifacts byte-identical and
+exactly3changed metadata outputs. All336frozen source inputs and30ignored wall
+cache hashes remain unchanged. No rendering or Godot execution occurred.
+
+Reviewed metadata changes are source/provenance only: declared input hashes,
+the approved News marker source hash,one existing bodega threshold's enclosing
+regions-file digest,268fresh per-contribution hashes from the current generation,
+and dependent manifest hashes. IDs,owner assignments,aliases,transforms and
+shipping GLTF/BIN bytes are unchanged. The complete material-inclusive original
+proof—not the earlier material-neutral diagnostic—permits this admission.
+
+The original author rebuilds the external ownership candidate exactly. Its only
+changed record is **floors[F01].markers[162]**,the approved News door state from
+3fd37e0d2. All5286durable IDs/owners/contexts remain. Admitted that record hash,
+current exact layout pin and3proven metadata files,with verified external
+pre-admission backup/journal. Ownership and production suites now pass27/0 and
+11/0,respectively,retaining their original assertions and adding checks for the
+two new material-source bindings. No runtime contract was repinned.
+
+This closes those two reproduced source/export test failures within their
+scope. The third completeness test still needs actual first-slice and nine-unit
+played-proof renewal; surface qualification and final exact candidate remain
+pending. The prepared7-stage shared-lane batch combines fail-fast compilation,
+material checks,original first-slice authority/disk reconstruction,original nine
+apartment legs,and physical-only surface survey. Estimated prior suite time is
+about28minutes. It has not run yet. Wider V2/hose/book/nook/readability,performance,
+golden-shift,save-boundary,weather and artistic gaps remain open.
+
+Source checkpoint95b7fd145 is committed and pushed. The seven-stage runtime_02
+batch joined the shared FIFO lane at2026-11-04T08:12:44Z,broker58292/tool
+session20803; latest live-process inspection confirms it is still waiting behind
+the existing training job. No Godot stage or new runtime proof is claimed.
+Poll the existing handle rather than restarting it. The clean input freeze and
+queue custody remain outside the repo under qualification_debt_trace_01/runtime_02.
+
+External preparation01 failed before launch because it named the first-slice
+scene incorrectly. The corrected preparation uses the actual lowercase scene.
+A further source preflight corrected the external final guard's apartment digest
+from physical-only to full surface,matching both the test producer and ledger
+consumer. No source/test assertion or recorded receipt changed. The staging
+helper reuses existing authority/spatial validators,keeps original contract/log
+bytes,and correctly refuses missing executed wrappers; no evidence was staged.
+The old19-room apartment logs and the nine-unit contract share a directory;
+renew only the latter cohort's proof and preserve the former's original files.
+
+### Runtime02 stops on actual radiator insert carry
+
+The batch is now terminal1. Source guard,all4script compilations and the material
+library pass; compilation/material stderr are empty. The original first-slice
+run completes in255.21s with167passing log lines and1failure: the old radiator
+insert unthreads and is acquired,but its production swept body cannot reach
+the direct diagonal parking goal. The unaltered failed contract and logs remain
+external. Neither nine-apartment movement nor surface/final guard ran. Resident
+texture UID warnings use path fallback; they are retained,not called clean stderr.
+
+The complete clean119-gate board at74c39d946 is116PASS/2FAIL/1INCOMPLETE. Both
+source/export failures are repaired. The surface gate adds2stale-evidence defects;
+the inherited completeness test still reports its original2failed cases. This
+is not a merge candidate or whole-game green result.
+
+Before another composed run,an opt-in mode in the existing radiator hand bench
+reuses the same actual unthread/acquire/carry helpers and collision owners. It
+records blocking bodies and tries lift/across/lower legs without changing
+collision or weakening the original end condition. Spatial dependency audit is
+clean. Its compile/hidden-native diagnostic is queued as radiator_insert_01,
+broker65604/session43718; no result or repair acceptance is claimed yet.
+
+The bounded probe01 is now terminal1 in25.6s,after clean compilation and empty
+stderr. Its actual native3440x1440 input reproduces acquisition followed by a
+stationary insert through both legacy direct and upward attempts. A separate
+direct motion query names VentBodyContact on the diagonal route. Original
+JSON/logs/two frames remain preserved; the direct endpoint close-up was inspected.
+Source tracing identifies a migrated input contract: free captured stock now
+uses FPS view/holder motion,but the old helper sends free-drag mouse/wheel input
+with player physics disabled. This is not proof that removing collision is valid.
+
+Probe02 retains the negative attempt and tests actual Space,real pointer/part
+selection in an embedded viewport,and free-cursor lift/across/lower gestures to
+the same endpoint. The helper keeps the existing fixed inspection camera while
+that owner holds it. Production controls,geometry and permissions are unchanged.
+Spatial audit is clean. Compilation/native verification is queued under
+radiator_insert_02,broker49692/session24126. No candidate repair is accepted yet.
+
+Probe02 is terminal1 in28s after clean compilation,with empty stderr. It records
+holding_pickup=true,inspection=false and player physics disabled during the
+stationary legacy attempt. Actual Space then enters inspection,but reacquisition
+fails and no lift/across/lower leg runs. The retained native endpoint image was
+inspected: the vent opening is visible without the loose insert. This suggests
+part motion after hand release,but does not distinguish that from pointer or
+surface selection. No production repair or transfer success is claimed.
+Probe03 therefore adds requested/delivered pointer,actual hit/selected part and
+part-pose/freeze observations. The same2-stage compile/native check is queued at
+broker45352/session99408 under radiator_insert_03; no new result yet.
+
+Probe03 completes terminal1 in28s,clean compile and empty stderr. All4requested
+pointer positions are delivered exactly. The loose insert is unfrozen after
+Space; its y position falls from0.8013m through0.7253/0.6793/0.6523 to0.5902m,
+while every actual ray selects PhysicalVentCap above it. No transfer leg ran.
+This establishes a real borrowed-inspection pose gap,not a pointer-delivery defect.
+
+Candidate04 adds transient pose borrowing to the existing finite-insert owner
+and radiator inspection callbacks. Only an owned,unmounted,unracked loose part
+can be borrowed by its current context. The same collider remains; held/slot/
+rack and grade authorities remain. Release inside inspection stays supported;
+exit,validated restore and lost context clear the loan. No save fields are added.
+The bounded test adds an8-frame hesitation,foreign-context release denial,actual
+Space return/primary release,and validated in-memory pose reconstruction; full
+disk/CampaignShell and composed proof remain separate. ReaderNEW0 and spatial
+audit pass. Compile/native verification is queued as radiator_insert_04,
+broker13648/session94741. Candidate functionality and artistic acceptance remain
+unverified; no old evidence is repinned.
+
+Candidate04 now completes terminal0 in28.09s after4clean compilations,empty
+stderr. Actual Space borrows the insert without falling; the real pointer
+selects it on the first attempt after8physics frames. Lift/across/lower reach
+the unchanged endpoint through the same swept body. Release during inspection
+stays supported even after a foreign-context end request. Actual Space returns
+the same part to its hand; primary release resumes gravity. The existing
+validated in-memory pose codec restores the recorded free pose without retaining
+a transient freeze. The endpoint image was inspected; the distant tiny part is
+not a readability or artistic acceptance. The result is an INERT component
+diagnostic,not a schema2runtime contract or composed/disk reconstruction proof.
+
+The original first-slice driver is being reconciled with those verified controls:
+inspection for free dragging,normal FPS follow for the owned spare's lift/travel,
+and lift/across/lower around the unchanged cap collider. The obsolete fixture
+lift coordinate is replaced by an explicit contact-at-production-hand assertion;
+the existing identities,parking/thread endpoints,case order and save assertions
+remain. Captured free dragging now refuses immediately rather than repeating
+the already-preserved320-frame failure. The suite uses the same embedded input
+viewport as the successful probe. Its receipt binds the scene as well as script;
+the ledger validates declared scene hashes,with stale/escaping/missing/hash
+negative controls passing in the new focused test. No prior assertion is disabled.
+
+A captured slot-state guard also prevents resuming an old free grip after a
+part seats. Its current-driver delivery/seating check and the updated original
+suite remain unexecuted. A fresh7-stage runtime_03 batch will gate the composed
+authority/disk,apartment and surface runs behind this bounded input preflight.
+It reuses the unchanged material-library result; no duplicate material test is
+needed for these owner/input edits. Current full/candidate qualification remains
+pending. Original packets and failed probes are retained externally.
+
+runtime_03 is now terminal1. Its original source guard passes; compile6 then
+fails the first-slice script at three new call sites that consumed the void
+**_check()** helper. The other five scripts compile. Wrapper elapsed14.82s;
+the actual stderr identifies these parse errors and is not stale-cache evidence.
+No probe,composed authority/disk,apartment,surface or final guard stage started.
+The call sites now record the same assertions and branch on explicit booleans,
+preserving the input programme and tolerances. A fresh runtime_04 will retry the
+same bounded-first batch; the failed runtime_03 remains untouched. Separately,
+the full110-test completeness suite completed in92.285s with108PASS/2FAIL;
+both failures are the known stale live first-slice/apartment proof. This is not
+a current full gate board or merge qualification.
+
+runtime_04 is terminal1: original source guard and all6compilations PASS. The
+native3440x1440 probe terminates1 in18.26s with empty stderr. Earlier pose-loan,
+selection/three-leg transfer,foreign-context denial,hand return/release and
+validated in-memory restore controls remain true. Added incoming delivery is
+false at world(-.223512,.608285,.152591),before seating,stale-grip or thread
+checks. No original authority/disk,apartment,surface or final guard runs.
+The previous helper silently returned before identifying the failed step;
+new diagnostics record actual receiving context,distance,inspection entry,
+camera,pointer/first-hit visibility and an unstaged failure frame. These are
+attribution instruments,not a production repair or weakened endpoint. Retain
+the original runtime04 JSON,logs and receipts; runtime05 will run the bounded
+preflight before any long route again.
+
+
+### November 4 — inherited receiving failure; candidate not yet verified
+
+runtime05 broker34552 is absent at intake. Raw stdout/stderr hashes match the
+original wrapper receipts: compile6PASS, probe terminal1 in25.84s at11:27:23Z,
+empty stderr. Earlier transfer/borrow/return/release/in-memory restore controls
+pass. Incoming delivery has the correct receiving context and enters inspection;
+requested/delivered pointer coordinates match exactly at(2544,674),inside the
+viewport and in front of camera. The first hit is **RigidCastingsCollision**
+at(-.330609,.794932,.129590),while the loose insert remains
+at(-.223512,.608285,.152591). The inspected native failure frame shows the
+vent and separate incoming insert; this is not a pointer-delivery failure.
+No original authority/disk,apartment,surface or final guard stage started.
+
+The authored candidate in **radiator_prop.gd** uses a fixed entry view containing
+both loose stock and receiver from the open side; the mounted cap view remains.
+It changes no pose,collider,grip,part identity or save authority. This is an
+unverified proposed repair. Bounded compile6+original insert-route preflight is
+FIFO queued as broker5164,created11:33:48.961279Z,under
+**C:/ov/reports/develop_intake_20261104/receiving_01/**. Sources stay frozen until
+terminal. Retain runtime05 and earlier failures; no contract repin,played or
+artistic acceptance. Original authority/save,9-unit movement,rendered surfaces
+and exact candidate verification remain required before manual PR152 merge.
+
+
+The receiving candidate is pushed at **eb26f890f**. Before any launch,own
+receiving01 broker5164 was revalidated by PID/creation/command,no children and
+no compile/probe logs,and withdrawn. Its **WITHDRAWAL.json** remains external;
+no foreign process or waiter changed. Same-source runtime06 now queues the
+original7-stage fail-fast programme as broker44132,created11:45:58.562687Z,
+tool61015. This avoids a second FIFO wait after the bounded result while still
+preventing every expensive composed stage on preflight failure. Exact frozen
+sources/batch/custody are in **qualification_debt_trace_01/runtime_06/**.
+No new engine result or acceptance yet. ReaderNEW0 and spatial audit clean;
+main baseline independently validates exact119rows/clean4f16053e8 provenance.
+
+
+runtime06 is terminal1 at11:57:44Z: source guard andcompile6PASS; bounded probe
+39.86s,empty stderr. The widened view also affected outgoing loose stock at the
+seat. Initial selection/support/lift pass,but lateral travel crosses near the
+new camera and the ordinary controller releases at(-.310197,1.092299,.351376),
+0.1164m from the eye. Original outgoing three-leg programme therefore fails
+before any receiving delivery. Native endpoint inspected; all original receipts
+and frames retained. No authority/disk,apartment,surface or final guard starts.
+The new view is now limited to loose incoming stock more than4cm below the
+seat; just-removed stock retains the exact previously passing overhead camera.
+This narrower candidate remains unverified. No movement constraints,collision,
+grip permissions,goals or save authorities are relaxed. Next fresh runtime07
+repeats the bounded check before every long stage; unchanged native/material
+proof is reused.
+
+
+Narrow candidate **4d5cf53e7** is pushed. runtime07 is queued as broker38628,
+created12:01:33.178126Z,tool25496. Its unchanged7-stage fail-fast programme
+freezes source/fixture/rendering inputs and gates every long stage on bounded
+success. Exact current custody is **qualification_debt_trace_01/runtime_07/QUEUE_CUSTODY.json**.
+No new runtime result yet. Independent book optical and hose ballistic-baseline
+candidates remain external/authored-only under **develop_intake_20261104/**;
+read-only optimization,city-readability and lift-gate intake also remain external.
+None changes this run or grants gameplay,performance or artistic acceptance.
+
+
+### November 4 — bounded receiving passes; original closed-door failure retained
+
+runtime07 guard/compile6PASS. Native3440x1440 radiator probePASS in19.8s with
+empty stderr: actual incoming pointer now selects the low insert,delivery/catch/
+stale-grip denial/thread all pass,and original outgoing3-leg,loan,foreign release,
+hand return/ordinary release and in-memory restore controls remain true.
+This INERT diagnostic does not establish composed/disk or artistic acceptance.
+
+Original first-slice is terminal1/278.23s with173pass lines/1failure. Real old
+insert unthread/pick/park passes,then the controller stops at
+(9.857138,3.200587,-3.212026) on the **F02_B_ENTRY_DOOR** leaf while returning to
+(8.55,3.2,-3.25). The normal closer is3.5s delayed/.20rad per second; the route
+previously assumed a once-opened leaf stayed open through the work. Wrapper,
+raw warnings/errors,failed contract and original input trace remain in runtime07.
+No disk reconstruction,9-unit apartment,surface or final guard qualification.
+
+The authored driver now revisits actual door hand controls for all return
+crossings. A carried finite insert is placed through real inspection mouse/
+wheel input,released through Space and primary,then the same object is picked
+up after actual leaf opening and lifted through ordinary holder callbacks.
+Production door/closer,NPC,stock/case/save owners,original capsule and travel
+goals remain unchanged; no added collision exception or forced state.
+The nearby **ServiceDoorRouteBench** uses actual2B factory/record/native leaf,
+production stock and normal closer,with exact translated fixture stations
+registered as one spatial-manifest record. It checks empty return,carried
+setdown/reacquire,collision-bearing passage and receiving view. Authored only;
+next compile/bounded test precedes every expensive original route in runtime08.
+
+
+Source-only apartment receipt preflight refused the inherited SOURCES closure:
+**orison_v2_first_slice_contract_test.tscn** was referenced by the first-slice
+helper but absent from the apartment dependency list. The exact scene is now
+included; the same preflight passes. No assertion,source digest or original
+receipt was relaxed/repinned. ReaderNEW0 and spatial clean with one reviewed new
+fixture record. Driver/nearby fixture at **70c45392b** remain uncompiled/unrun;
+the new scene dependency is preparation for runtime08,not new runtime evidence.
+
+
+Source **aa6c49a75** is pushed. runtime08 queues8 fail-fast stages as broker17808,
+created12:45:32.267434Z,tool7050;15-script compile and both bounded radiator and
+nearby door/carry preflights precede every expensive original stage. Exact
+custody is **qualification_debt_trace_01/runtime_08/QUEUE_CUSTODY.json**. Its
+new external guard adds the real door verdict and source roots; original
+runtime07 preparer bytes are preserved against their original recorded hash.
+No new runtime result yet. Current readerNEW0,spatial audit and apartment
+SOURCES closure pass; no acceptance from authored fixture or queued job.
+
+
+### November 4 — actual door carry passes; high receiving pose and framing fail
+
+runtime08 guard/compile15 and original radiator probe PASS. The nearby door
+bench is terminal1/41.87s,empty stderr: actual initial opening/walking,normal
+closer,empty return/reopen,second normal close,physical insert setdown/ordinary
+release/actual leaf opening/same-object reacquisition and carried passage all
+PASS. On the prompt return,the incoming stock reaches the receiver context
+high/off-axis at(-.468772,.839982,.326997). The below-seat camera condition does
+not cover this real approach. Overhead view projects the pointer to(3192,5230),
+outside the native1440px viewport; the helper nevertheless attempted selection,
+then the lift crosses within4.1mm of the eye and ordinary control releases it.
+Original JSON/logs/receipts remain untouched. No long stage ran.
+
+All3new door images were inspected: the horizontal post-walk eye faces away and
+they cannot establish door appearance. Camera-only diagnostic capture now aims
+at the actual leaf from that same eye,then restores it; receiving capture keeps
+the actual production inspection view. This does not move the actor or door.
+
+The revised loose-stock inspection view covers the working travel from the open
+side at76degrees,with the mounted-cap close view unchanged. Geometry preparation
+uses retained outgoing,low-incoming and high-incoming poses: all12start/lift/
+across/delivery endpoints are in front and within its3440x1440frustum. Exact
+input-log hashes and projected points remain external in
+**develop_intake_20261104/receiving_camera_geometry_check.json**. This is INERT
+source preparation,not rendered,collision or runtime acceptance. Initial actual
+pointer acquisition now refuses behind/outside positions before sending input;
+no assertion or physical constraint is relaxed. Runtime09 must compile and pass
+both actual-input preflights before original authority/save/apartment/surfaces.
+Unchanged native/material evidence is reused; spatial and SOURCES closure clean.
+
+
+Source **88ca357d1** is pushed. runtime09 is queued as broker44860,created
+13:20:01.844527Z,tool82496,with the same8 fail-fast stages and unchanged native/
+material evidence reuse. Exact current identity/command/freeze lives in
+**qualification_debt_trace_01/runtime_09/QUEUE_CUSTODY.json**. Actual new camera,
+framing and input verification remain pending; no success receipt is fabricated.
