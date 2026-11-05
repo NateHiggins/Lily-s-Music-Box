@@ -3594,3 +3594,6 @@ art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/PROVE
 art/reviews/v2_qualification_debt_20261104/** -text -whitespace
 art/renders/orison_v2/surface_requirements_20261011/entry_preparation/preparation_views.json -text
 art/renders/orison_v2/first_slice_contract_20261011/verification.json -text -whitespace
+
+# Preserve raw current-cohort review bindings and prior receipts.
+art/reviews/v2_qualification_current_20261105/** -text -whitespace

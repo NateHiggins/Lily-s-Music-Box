@@ -327771,6 +327771,36 @@
    "rationale": "Node-path lookup embeds spatial identity.",
    "resolved_target": "F02/marker+acoustic_node+v2_blockout",
    "target_exists": null
+  },
+  {
+   "key": "28cf67493856fbb7",
+   "kind": "generated_name",
+   "token": "_wet_prepare",
+   "file": "game/scripts/props/fire_unracked_hose.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "_wet_prepare"
+   ],
+   "lines": [
+    270
+   ],
+   "count": 1,
+   "context": [
+    "\"HoseWetFilm%d\"%index"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Names identify transient cosmetic wet-film pool slots in the scene tree. The hose owns and accesses them by direct references in _wet_marks. No spatial lookup, receiver identity or saved field uses these names.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

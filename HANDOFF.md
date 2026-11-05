@@ -1,140 +1,211 @@
-# Current handoff — audio teardown blocks PR152 qualification
+# Current handoff — installed book and moving hose proof
 
-Canonical checkout **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-qualification-debt-20261104**. PR152 remains **OPEN/DRAFT/UNQUALIFIED**.
-Main **4f16053e8**; pushed source checkpoint **dd1d6f652**
-(engine shutdown cleanup plus opt-in native diagnostic audio output). Root **01a1a653-eda8-7732-9732-2c362f5129d6** owns
-integration. Lily paused parallel emulator work and assigned the computer to
-this development. Keep emulators paused; preserve her mouse and hidden FIFO lane.
-Share normal FIFO with Claude, batch coordination messages and give her time;
-no exclusive-use or GPU-pause requests. Her isolated work can continue.
+Canonical **C:/PleaseRemainOnTheLine**, branch **codex/v2-book-hose-finish-20261104**. Root owns integration. Pushed **b2c82a621** includes the swept spray selection and dry-wall chart cache as the normal presentation and has passed the guarded installed run below. Check both bridge inboxes. All cases below are under **C:/ov/reports/develop_intake_20261104/**.
 
-**runtime14 is TERMINAL/PASS**, original broker38556/session23979 retired.
-All seven original scene wrappers exit0/untimedout with zero ERROR/SCRIPT ERROR
-or shutdown leaks. First-slice661.75s/379serialized checks/0fail; apartments
-974.80s/60rooms/9legs/781serialized/0fail; physical-only surfaces360.72s/
-38947checks/0fail/0unresolved. Original afterguardPASS includes82actual3440PNGs.
-Architect independently rechecked full consumed projection/binary equality and
-released custody. Exact originals: **runtime_14/TERMINAL.json**, MONITOR.md,
-SOURCE_FREEZE.json and original wrappers/contracts. Frozen game/test source
-**dd1d6f652b9087c410b82a81b40284124c92e92c**; wrappers record tracker-only
-**d0039ff78da1451c68ddffebfd93672e46baf472**. Producer remains immutable
-**423771d0ee6a076e0d7f74bee9bc87a8e7eb5d9e63dfaa226320a9acc520873f**.
-All six windowed programmes used explicit realBD9/fresh isolated profiles.
-12bounded+18apartment+64surface originals reviewed; foreground/wall crops and
-city shading/framing limitations remain in the exact-hash INERT frame reviews.
-No human play/artistic acceptance is implied.
+**Book technical proof:** **book_park_installed_04/** at **90fb70926** terminal0/finalguardPASS,107checks/0 in369s; same-body return/release, exactslot0 parked Space exit and validated disk/newowner reconstruction all executed/passed in test-written schema2. 20known UID fallbacks, no script/shutdown errors. Local Volume0 parked102/0 and actual closed/open Volume34 hardback/Volume15 paperback pass. Installed closed optics/defaultlamp21/0/access11waypoints and same-held opaque-panel shadow/restoration remain valid in their scopes. **book_hose_visual_01/reading_zoom/** passes both real Space/wheel routes at matched root8xMSAA; 40→24degree read zoom, same open body/eye and normal return. Native crops inspected: sampled headings/body readable when zoomed, held fine type still small/thin. No typography change, whole catalogue, human play or artistic acceptance. Retain original capsule/frontedge/stack/observer failures. Hose production changes follow this exact book save producer; renew affected combined evidence later.
 
-**Publication instrument repair:** first staging attempt refused before creating
-packets because wrapper test_path/test_sha256 are correctlyNULL for the
-scriptless rootControl; the primary programme is a child ofInputViewport.
-Original failed helper/logs remain untouched. The active first-slice verifier
-now accepts that exact NULL-only case only after proving the unique child
-attachment from recordedGit scene/script bytes, currentLF equality and the
-primary contract's scene/script hashes. All other ledger/runtime/log checks
-remain strict.14author CPU controls plus6independent root negatives pass; actual14
-binding passes. Only the unconsumed verifier changed; no raw receipt is repinned.
-Fresh **stage_runtime14_nested_packets.py** admits exactly its reviewed LF SHA
-**a10053640090016739aa5ef0579156022db77ca46fbb2cc6613f6a3c13a552a1**,
-checks every interveningcommit/mergeparent, and reuses the immutable14afterguard
-before packet staging in distinct logs. Both packets staged successfully through that original guard and all three
-canonical packets are now published/revalidated, with original raw bytes and
-prior cohorts preserved. Next exact candidate/manualqualified152merge. No game replay is required
-for an instrument-only change if the original consumed projection still matches.
-First exact candidate2bbb2f096 blocked one systemic review item4cbc4a20e1c0d49a;
-17protected paths/selector/designlint passed. Read-only installed-camera context
-snapshots were independently reviewed and exactly one DOCUMENT/test baseline
-entry added; no world/clock/save write.63audit testsPASS,newreview30→29,0new
-actual/policy findings; immutable14afterguardPASS unchanged. Fresh exact candidate
-must run against this reviewed baseline commit; never accept/waive the old failure.
+**Hose technical proof:** **hose_dense_ab_01/** passed at **e90fe73cf**. At original density the jet reached the first blocker in native wall/floor frames, with separate splash and wet film, and passed near-before-far, empty and idle checks. Maximum callback in capture-free fixed witnesses was 690 µs. **hose_dense_moving_01/** terminal0/guardPASS, compile14/0 and 84 passing assertion lines with empty stderr. Actual exit, grab and 24 captured mouse events moved the held nozzle and generated 70 packets. The wall's receiver matched both the swept hit and accepted film. Pause, removal, release, charge, tag return, drain, idle and missing-gasket controls passed. Native side view inspected. Earlier sparse-jet and simultaneous near/far failures remain on disk and in the [hose report](design/V2_HOSE_SPRAY_READABILITY_2026-10-24.md).
 
-**runtime13 is TERMINAL/FAILED**, not queued. Original apartment assertions
-passed: 60 rooms/9 legs,781 serialized checks,0 failures,1264.98s. Original
-physical/city/entry surface assertions passed:0 unresolved,367.10s. All82 PNGs
-are actual3440x1440 and reviewed. Final admission correctly rejected shutdown
-errors: apartments11219 ObjectDB instances/30 resources; surface1133/24.
-These are not qualified packets. Preserve every original log/receipt under
-**C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/runtime_13/**.
-Source/retirement checked and custody explicitly released. No publication or
-merge is authorized by these partial passes.
+**Preserved installed failures:** **01** hidden-window cursor delivery, **02** carry-helper arity, **03** open lever after valid coupling, **04** no visible jet at installed flow. Each case retains source guards and raw receipts. The [hose report](design/V2_HOSE_SPRAY_READABILITY_2026-10-24.md) records the repairs.
 
-The unchanged verbose surface reproduction at
-**C:/ov/reports/develop_intake_20261104/teardown_verbose_01/** completed371.78s
-and identified1051 leaked audio instances:491 Vorbis playback/491 packet
-playback,42 WAV playback,12 Ogg streams/12 packet sequences,3 WAV streams.
-Its source custody is released. Fixture/interaction-cycle reviews found no
-supported fix; do not apply speculative teardown changes.
+**Split evidence:** **hose_swept_installed_05/** terminal1/guardPASS, no script errors. Hydraulic fill1/pressure.8/flow.8 pass. All 951 packets returned the live inspector Player RID at the exact muzzle, with a zero normal; the centre wet query had the same result. No visible slots or film. Continued the independent standing carry, real disk write and reconstruction. Restore passes charge/facts and has no transient effects. The physical comparison fails solely on a one-ULP nozzle angle difference (about 8.3e-25 rad); positions differ by about 1.07 µm, already within the original tolerance. The candidate uses the existing 1e-12-rad JSON pose tolerance for the nozzle angle and keeps the other equality checks.
 
-Tiny four-case reproduction at
-**C:/ov/reports/develop_intake_20261104/teardown_audio_ready/runs/** establishes
-all count controls:64 queued stop/release operations each exit without leaks;
-64 started stop/release operations each leak130 audio instances/2 resources.
-The mixer clock stops advancing while physics advances. Thus the proposed
-AudioPolicy stop_source replacement is not causal and remains unapplied.
-Root admitted minimal engine shutdown cleanup after six tiny controls
-passed with zero leaks; AudioPolicyTest53PASS. DoorAudioLifetimeTest still
-fails the same2/12 started-decoder checks on both original and new engines
-on the stalled default Razer route. A process-only real BD9 endpoint advances
-mixing and passes the unchanged12/12 door test on both engines; integrated
-native-debug selection passes12/12, unlisted output refusesexit2. Keep Windows
-default/preferences untouched; qualify explicitly on this working endpoint. New engine/build bindings and exact limits:
-**design/V2_QUALIFICATION_RENEWAL_2026-10-20.md**. No game audio code changed. Vulkan loader errors in verbose
-runs are separately preserved, not silently removed or treated as proof.
+**Installed technical pass:** **hose_swept_installed_06/** terminal0/guardPASS. Compile15/0, nearby default/moving pass, full F02 installed route 63 checks and 10 waypoints with no failures in 407 s. There are 20 known UID path fallbacks and no script errors. The jet and accepted descending film hit the exact same landing RID. The native frame shows 18 jet slots, nine splash slots and a visible wet patch. Maximum timed spray callback was 1.999 ms in this fixture. Disk reconstruction passed validated pose, hydraulic and maintenance comparison, and the rebuilt closed charge had no transient effects. The nozzle angle round trip was 8.27e-25 rad and nozzle/receiver position error was 1.07 µm. Human/art acceptance remains open.
 
-Original runtime11 authority/save PASS633.48s and bounded transfer/frame proof
-remain preserved at **runtime_11/**, including real28 insert identities,repair,
-resident return,disk save,reconstruction and seven-authority composition.
-Reuse only while exact consumed source AND binary inputs remain valid. A new
-engine requires affected proof renewal. Earlier runtime05–12 failures remain
-immutable; resolution reproductions and historical details are in Git history.
-Original19-room packet is separately archived at
-**art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/**.
-Matching original60-room cohort recovered externally at
-**C:/ov/reports/develop_intake_20261104/historical_apartment60_ready/**; preserve
-its matching original contract/wrapper rather than pairing superseded metadata.
+**Exact hose and Laurel batch:** **hose_swept_installed_08/** terminal0/finalguardPASS. Compile15/0, native A/B, installed repair/save 65/0 and ten waypoints in 416 s. Installed frame reviewed. The same-ray launch witness cleared the authorized starting overlap, and the exact landing RID received splash and descending wet film. Callback max 1.726 ms over 122 ticks. Closed charge rebuilt without transient state. Twenty known UID fallbacks, no script errors. The earlier **07** fixed comparison passed four witnesses but the inherited observer checked before the restored jet's first timer callback. **08** adds a two-interval wait in the fixture only.
 
-Next: original qualification on the admitted shutdown-fix engine and explicit
-working BD9 endpoint under fresh custody,byte-exact publication,exact119-gate candidate
-against **board_main_4f16053e8/board.json**,manual qualified PR152 merge.
-Do not use failed runtime13 staging as success or repin old receipts.
-Then integrate prepared book exit and hose wetting patches,exercise installed
-readability/direct manipulation/save and measured stutter. External deliveries:
-**C:/ov/reports/develop_intake_20261104/book_exit_implementation_ready/** and
-**hose_implementation_ready/**; both are authored only,not installed or run.
-Claude Sun153/mystery154/staff155 remain isolated behind PR152. Private Discord
-joke database/writers draft are delivered outside Git; preserve PR154's four
-wrapped field notes when combining staff changes. Preserve prologue,audio,
-golden-shift,weather,city,narrative and all gameplay/save authorities.
-No whole-V2,human play or artistic acceptance is claimed.
+**Playable timing:** same guarded batch, Laurel **entry/** passed 22/0 and six legs at 3440×1440 with 8xMSAA, TAA and VSync. The 223 frame intervals give p50/p95/p99/max 20.258/49.045/54.939/102.787 ms, with one interval over 100 ms. First reverse includes an 88.838 ms render signal bracket. Later reverse maxima were 50.868 and 49.580 ms. Production entry preparation took 879.729 ms across ten draws. A route-local comparison is warranted. These are setup-warmed walking measurements and establish neither render causation nor cold launch cost.
+
+**Matched Laurel B:** **laurel_current_route_local_01/** terminal0/guardPASS at **1f0f2e0f0** with byte-identical frozen game inputs and matching runtime digest. Route-local views passed 21/0 and six legs. Over 223 intervals, p50/p95/p99/max 20.401/49.642/56.734/89.789 ms. First reverse peak fell to 61.280 ms, but the worst interval moved to the first outward leg. Preparation took 672.766 ms across ten draws. One A/B pair supports a first-reverse association. The p99 result and first-outward hitch leave whole-route improvement unproven.
+
+**Matched Laurel A2:** **title_bedroom_current_01/entry_repeat/** 22/0 and six legs with matching runtime digest. At native settings, 228 intervals gave p50/p95/p99/max 20.389/48.743/51.827/65.153 ms. First reverse peaked at 65.153 ms, with a 51.383 ms render bracket. Production-entry preparation took 719.125 ms. Retain production policy. All three arms keep steady reverse medians near 45–47 ms and approximately 37–38k global draw calls, versus about 20 ms and 1.27k outbound. The aggregate cannot identify the contributing pass.
+
+**Fresh title evidence:** **title_bedroom_current_01/** terminal1/guardPASS. Actual BEGIN passed 18/0. PID/image-bound engine birth to ready/look/movement measured 191.935/192.026/192.051 s. Root startup 138.954 s and ten-draw preparation .601 s. Original-bedroom Continue loaded the exact fixture, preserved pre-input facts, and passed actual look/movement. Its two additional checks failed. The resume assertion sampled before director binding. The after-input clock was compared in a different representation without logging it. The retry observes phase through control and compares clock in the same JSON representation. Keep the original failed receipt.
+
+**Continue technical pass:** **title_bedroom_current_02/continue/** passed 11/0. The original bedroom fixture loaded through the current validator, the observed phase remained bedroom exploration, and the normalized clock remained exact through real input. Matched native settings. Engine birth to ready/look/movement 165.794/165.888/165.991 s, root startup 133.103 s, ten-draw preparation .796 s. **MATCHED_TITLE_TIMING.json** joins both recorded native births. Isolated fresh processes, uncontrolled OS/driver caches.
+
+**Laurel pass attribution:** **title_bedroom_current_02/** terminal0/finalguardPASS. The shadow route passed 26/0 and all six legs with original entry prep. Stationary reverse original/key-shadow-off/restored medians were 46.061/35.094/44.675 ms. Main visible draws stayed near 14.9k. Shadow draws changed 22.6k→6.45k→21.7k. Camera, key pose/energy and weather matched. The directional key is a contributor, and roughly 35 ms remains with its shadows disabled. The walked first reverse varied again (151.325 ms), so the cold spike remains open. The off arm is a diagnostic only.
+
+**Renewed moving nozzle:** **hose_moving_final_01/** terminal0/finalguardPASS at pushed **5912b3831**. Actual moving-nozzle fixture passes on the final launch-scoped hose implementation, including exact first hit and wet receiver, pause, release, drain and idle retirement. No owned native batch remains live.
+
+**Renewed installed nook:** **book_park_current_01/** at pushed **5912b3831** terminal0/finalguardPASS. The current runtime digest **05cc577c38d17a208de7ab7b4be9b319d6ce7e4625586cb219cdaf69c1f49797** passed all 107 checks. The schema-2 receipt records all three actual contracts executed and passed. The rebuilt owner restored the same binding, exact parked slot and opening without bringing back a hand or inspection session. Twenty known UID fallbacks, no script errors.
+
+**Wall-sharing diagnostic:** **laurel_wall_sharing_01/** terminal1/guardPASS. All six legs passed. The treatment found zero eligible meshes because the first filter expected StandardMaterial3D, while actual architectural surface ownership assigns the opaque SurfacePass shader. No wall was swapped. Keep that original run as an empty treatment.
+
+**Exact wall-sharing control:** **laurel_wall_sharing_02/** terminal0/guardPASS, 28/0 and six legs. 1162 eligible walls, 207 repeated groups, 844 exact resource swaps. Stationary original/shared/restored medians 45.795/43.963/44.898 ms. Compared with restored A, the shared arm cuts visible draws 14918→14192 and shadow draws 21713→21042, with identical median shadow primitives and nearly unchanged visible primitives. This is a bounded gain, with large reverse-view cost remaining.
+
+**Production dry-wall cache:** **laurel_wall_production_01/** terminal0/finalguardPASS, compile2/0 and 31/0 across six Laurel legs. The reversed fixed-view test shares/unshares/restores 844 resources. Median wall intervals 44.481/45.542/44.195 ms. Against the unique arm the restored shared arm cuts 726 visible and about 672 shadow draws, with nearly identical visible/shadow primitive totals. Three 3440×1440 frames were inspected. The shared-to-unique pixel delta was below shared-to-restored variation. Original wall collision, geometry, lighting, weather and 48 m shadow reach remain owned as before. The fixture covers the noon reverse view, not general performance or artistic acceptance.
+
+**Renewed first slice:** **qualification_current_01/** at pushed **b2c82a621**, terminal0 and source guards PASS. Runtime digest **7720077f5c1d2477dfc8d804923c8967324c953b69204a84bf8d69d4e293e6e5**. The original authority and save suite passed all five schema-2 contracts. It records 379 serialized checks, original part input, walked service, disk reconstruction and zero retained tracked nodes, resources or playbacks. The wrapper completed in about 632 s. Twenty known UID fallbacks, no script errors. The prior packet and both raw cohorts remain immutable. Apartment and surface renewals ran as separate FIFO jobs.
+
+**Performance limit:** the production wall run retains a 140.037 ms first-reverse interval. A later fixture-only Horizon body attribution has been drafted outside Git and is held until the composed source window is released.
+
+**Renewed apartment access:** **qualification_current_02/** at pushed **a8cdc2d44**, terminal0/source guards PASS, wrapper 964 s. The current production digest **7720077f...** passed the original 60-room, nine-leg contract with 781 serialized checks and zero retained root/driver nodes. Exact staged runtime and wrapper/log bytes passed the spatial verifier. All 18 native frames differ from the previous cohort and were individually opened. **qualification_current_publication_01/APARTMENT_FRAME_REVIEW.json** binds observations to current hashes and records close bathroom crops and foreground obstructions. Prior proof is preserved.
+
+**Renewed rendered surfaces:** **qualification_current_03/** at pushed **bb3fd7360**, terminal0 and both source guards PASS. The original native physical, city and entry checks pass 38,947/0 in 346.5 s. The inventory covers 30,921 draws, 6,775 materials and 576 textures with zero unresolved surfaces. All 59 root and five entry frames were reviewed and bound to current hashes. The entry sidecar records ten draws and restored pose. The dumbwaiter and deep-services views miss their targets. Some city faces are dark and apartment views remain tightly cropped. These are technical observations with no human play or artistic acceptance. The three active packets and the prior cohort archive are joined by **art/reviews/v2_qualification_current_20261105/**.
+
+**Exact candidate repair:** **candidate_63bb38e2a/** preserves the rejected clean static candidate and all 12 regression rows against **aca238412**. The spatial manifest now records one reviewed generated name for hose wet-film pool slots, accessed by direct references and absent from save state. The alternate unnamed pool passed the guarded moving spray preflight, then was reverted to keep the already qualified production hose bytes. The static clock audit accepts only the two external process-timing anchor reads in the hash-bound exact title test. Changing the fixture or moving either anchor requires re-review. The renderer-backed front-trim survey reproduced all 7,955 float32 instance poses. The fresh 22-fitting projection had 55 double-spelling differences at most 1.075e-13, all float32 identical. Retained rows reproduce the installed projection exactly after renewal of the one stale source hash. See **candidate_repair_preflight_01/FRONT_TRIM_EQUIVALENCE.json**. The trim source is part of both the apartment and rendered-surface digest. Renew those packets on this binding; the unchanged first-slice packet still verifies.
+
+**Trim-bound qualification:** **qualification_current_04/** at **693e7cb43**, terminal0 and both guards PASS. Apartment passes 60 rooms, nine legs and 781 checks in 983.85 s. Surface passes 38,947 checks in 354 s with zero unresolved surfaces. All 18 apartment and 64 surface frames were reviewed at their exact current hashes. Several apartment views remain cropped or foreground-obscured, and the dumbwaiter frame still misses its target. The current apartment and surface receipts share **2785a68aea1746935898f96c311cd43b410ac5faa5c2829d6f7fb2900fef0a48**. Gameplay digest **7720077f...** and the verified first-slice packet still match. The previous proofs remain available at **63bb38e2a** and in the preserved archive.
+
+**Next:** verify the clean exact candidate against merged main. The scoped branch includes book handling, hose impact wetting and dry-wall mesh reuse. Independent work still needs the installed reading/first-open witness, actual protectant dressing, purchased-spare gasket transfer, occupied full payout, and Laurel stutter attribution. Keep the larger reverse and first-view stutter open. Horizon body attribution is a separate diagnostic. Renew installed book provenance if a changed gameplay input invalidates that evidence. PR151/152 are merged. PR152 exact **ce3b8a8c** and main **aca238412** retain the original 119-gate/0-regression and 14-suite evidence. PR153/154 remain drafts and PR155 is open. Human play, artistic and whole-V2 acceptance remain open.
+
+## Preserved integration and causal evidence
+
+Canonical **C:/PleaseRemainOnTheLine**. Active branch
+**codex/v2-book-hose-finish-20261104**, based on merged main
+**aca238412c85d8f6200e1140e1a5bfab12f1b847**. PR152 is **MERGED**; its exact
+candidate **ce3b8a8c7451ac21834e68b535a7a1f257a67db1** passed119gates:
+118PASS/1existingINCOMPLETE,0regressions/87improvements,17protected paths unchanged,
+selectorV2 and0lint blockers. Independent review of all7gate changes found no
+weakenedassertion or broadexemption. Main tree matches that exact candidate.
+Clean actual-main baseline captured without edits at
+**C:/ov/reports/develop_intake_20261104/board_main_aca238412/board.json**;
+119complete rows,118PASS/1INCOMPLETE,commitaca238412,dirty0.
+
+**Book before-run is terminal, expected failure reproduced.** Frozen source
+**c7e2e38839e47b9b1dcc72c5153e932d392d4399**, external case
+**C:/ov/reports/develop_intake_20261104/book_park_before_01/**.
+Compile10/0; original slot-hand bench105checks/2intended assertion failures in
+33.03s, wrapperexit2,not timedout. Unplaced normal Space exit retains the same
+book/owner/inventory and FPS hand (centre error1.49e-8m). Deliberately parked
+same book is reacquired on Space: slot2 becomes-1,pose changes,carrier exceptions
+return. Both observations precede reset. Stderr contains only the matching two
+assertion errors; no script errors/shutdown leaks. Original before/prestart/after
+source guards PASS. Launch29900/broker1564 are gone; session41044 is terminal (inner batch2,outer tool1).
+Raw logs,receipts,source freeze,observations and BEFORE_ASSESSMENT.json remain
+unchanged. These are causal diagnostics,not a schema2 runtime qualification.
+
+**Implemented, locally verified by matched Before02/After02 below:** production_only.patch95f8287dd13c659ff221996836c4cd7d0a3671d22c9f65e647b2d82e842c1419
+is committed and restored in PlayerController/readable bookshelf; the Before02
+original-byte overlay has ENDED (below). Before releasing its
+inspection loan,the player asks the existing owner; the shelf vetoes only the
+same registered book already parked in a valid slot. Unplaced same-object hand
+return and every other owner's behavior remain through the existing path.
+Original105-check test bytes are preserved by both prior source freezes (LF29724e651959e1f0256b121fc69cf072db1ea8332da62da2a9c440373921000c).
+The two reviewed **V2BookLampDiagnostic.tscn/v2_book_lamp_diagnostic.gd** files
+are installed from **book_optics_ready/strengthened/**; compile28/0 passed, and the original failed optical run plus subsequent input correction are preserved below.
+They observe actual lamp on/off/restored input,hand drift/contact,drawn cover/glyph
+bounds and native frames; no independent opaque control or readability acceptance.
+
+**After01 is terminal, not a parked-veto pass.** Pushed source
+**f791219a067929026d1d122ec5e8d7f0f1515339**; compile10/0,slot-hand100checks/3fail.
+Unplaced same-book hand return passes, but first depth approach hits the actual
+**Book_elevator** before parking/Space: origin(-.009939,.908950,.312768),
+goal(-.006276,.886100,.245000),still22.85mm high. Original before/after guards
+PASS; session71109 terminal outer1/innerbatch3. Broker65084/source hold released.
+Raw **book_park_after_01/** is preserved; optical compile/optics/access are
+NOT_EXECUTED because the batch stopped at this first failure. No blind retry.
+
+**Matched Before02 is terminal, expected negative reproduced.** Pushed test
+checkpoint **5b9a3ea0a689e53ab498c5368c193f0b68d11fca** adds one actual-input
+XY/height waypoint at current withdrawn Z,then both unchanged depth goals with
+all collisions,controls and thresholds retained. Pose/contact/camera/axis/blocker
+snapshots are in stdout. **book_park_before_02/** compile10/0,106checks/2original
+parked-exit assertion failures; unplaced SAME-book positive and actual approach/
+primary parking pass. Original-byte overlay and raw failed receipts are preserved;
+after-guard PASS,session41321 terminal outer1/innerbatch2 at03:20:52Z. No local-
+grip defect is proved. Both prior failed cohorts remain immutable.
+
+**After02 is terminal; matched local book control PASS106/0.** Same amended
+test on fixed production retains unplaced same-book return; deliberately parked
+book stays in slot2/exact pose,frozen,hand-free,carrier exceptions clear and
+library valid. Empty book stderr. Same engine/test; only two production owners
+differ from Before02. Raw **book_park_after_02/** and
+**LOCAL_MATCHED_BOOK_RESULT.json** preserve the observations. Entire batch final
+source guard PASS at **2026-11-05T03:42:35Z**; session24111 terminal outer1/inner1,
+broker41320/source hold released. This is local actual-input verification,not
+schema2 installed/save or art acceptance.
+
+Optical preflight28/0 passes, but the installed optical run exits1 with2failures
+in211.86s: post-draw **Input.action_press** never changed logical lamp power,so
+only inspection/returned-hand frames exist; four-phase identity check is
+incomplete. Access survey NOT_EXECUTED (fail-fast). Both native frames reviewed:
+inspection title/author readable; returned cover nearly black,all six samples
+67–73degrees outside35.21degree half cone,front incidence .049–.083. No sampled
+player-excluded body hit; shadow causality remains unproved. Actual review/crops:
+**book_optics_actual_review_01/**. No lighting fix or artistic acceptance yet.
+
+Current diagnostic correction synchronizes its polled action with the NEXT
+SceneTree.process_frame before the player's actual poll,then records actual
+post-process state before releasing. Pinned Input::action_press stores current
+process frame; invoking it after post_draw misses that already-completed poll.
+New **V2BookLampInputPhaseProbe.tscn/v2_book_lamp_input_phase_probe.gd** reuses the
+ACTUAL optical stimulus method with an actual PlayerController,native carrier
+and thermal driver,while skipping city construction. It preserves the missed
+post-draw negative and requires real toggle/restore. Not compiled/run yet.
+Next: named checkpoint,small native input probe; only on its pass rerun optical
+controls/access,then admit the bounded installed parked/save contract.
+
+An uninstalled bounded addition to existing schema2
+**V2BookInspectionReturnWorld.tscn** is ready at **book_installed_park_contract_ready/**:
+original unplaced/disk assertions retained,actual parked branch and detached
+input viewport with explicit executed-scene/script bindings. Review before
+admission; no forced success if real nook stock blocks. No whole-V2 claim.
+Access renewal uses **V2NookAccessSurvey.tscn**: October22's table/plant/rug repair
+already passed11normal-capsule waypoints. The parent profile's stale access-defect
+comment is not a fresh failure. Reproduce via that corrected route before any
+geometry/collision change; preserve the full player capsule. No human play/art.
+
+Then existing hose work: **hose_impact_ready/** is an unrun actual-input ballistic
+observer; **hose_implementation_ready/proposed.patch**6c09de9639ac2f4429c9dec2e6a106ee1c005fde1aca837f17daa6b6bc017cd4
+is uninstalled transient impact/wetting code. **hose_wetting_verification_ready/**
+adds observations only; floor-arrival,moving-nozzle,pause/zeroFlow/restore/unload
+and native optics/performance still require actual sequential controls. Preserve
+original hydraulics,grip/rack,inventory,workorders,household/save authorities.
+Do not manufacture grip,pose or wet state for a pass.
+
+Measured stutter next uses existing **V2CityTransportRoute.tscn** with
+**ORISON_CITY_ROUTE_SCOPE=stutter_probe**. Read-only readiness:
+**C:/ov/reports/develop_intake_20261104/optimization_next_window_readiness.md**.
+It measures setup-warmed six-leg play,not cold/Continue. Optional passive/watchdog
+old-engine hardpins remain held; they are not new game blockers. Reuse unchanged
+geometry evidence; record fresh engine/realBD9 timing without captures in samples.
+
+PR152 original runtime14 and raw published proof remain immutable: authority/save
+661.75s/379serialized checks;60rooms/9legs974.80s/781checks;surface360.72s/38947checks,
+all0fail/errors/shutdownleaks and original afterguardPASS.94nativePNG reviews retain
+foreground,crop and city-framing/shading limits. Bindings/priorcohorts/failures:
+**art/reviews/v2_qualification_debt_20261104/** and
+**design/V2_QUALIFICATION_RENEWAL_2026-10-20.md**. No humanplay/artistic/whole-V2
+acceptance. Main's proof is preserved; changed feature inputs require renewed
+qualification before a later merge,never a receipt repin.
+
+Use the pinned shutdown-fix engine through FIFO/hidden desktop/logged receipts;
+explicit process-only **ORISON_NATIVE_AUDIO_OUTPUT=Headphones (BD9)** is the
+verified real WASAPI route. Windows preferences stay untouched; default Razer
+host route/listening acceptance remain open. Preserve Lily's mouse and paused
+emulators. Share normal FIFO with Claude, batch messages and give her time;
+no exclusive use or GPU-pause requests. Her isolated comic/LoRA work continues.
+Existing Sun153/mystery154/staff155 source heads stay isolated until coordinated
+stable integration; retain PR154's wrapped four-note hunk when combining staff.
+Private Discord jokeDB/writers draft stay outside Git. Preserve prologue,audio,
+golden-shift,weather,city,narrative and all gameplay/save commitments.
 
 ## Finish the integration before opening new work
 
-1. Complete nested-script packet admission and publish the successful original14
-   authority/save,apartment and surface evidence; preserve all prior failures.
-   Stage only exact original receipts via the external staging helper,passing
-   the successful new runtime name explicitly; its default still names03. Preserve the older19-room
-   apartment cohort separately. No receipt repin or capture-to-played promotion.
-2. Renew the source-bound surface packet and exact119-gate candidate against
-   **board_main_4f16053e8/board.json**. The earlier116PASS/2FAIL/1INCOMPLETE board
-   predates the owner repair. Full completeness now108/110PASS: two stale live
-   first-slice/apartment failures remain. Manual PR152 merge only after required
-   evidence passes. No auto-merge or whole-V2 acceptance claim.
-3. Continue outstanding book/nook,installed hose,playable stutter and whole-V2
-   coverage. TASKS.md holds current gaps; do not repeat unchanged long walks.
-   External **book_optics_candidate/** is authored only,not installed/compiled.
-   **BOOK_NEXT_DIAGNOSTIC.json** and **HOSE_NEXT_DIAGNOSTIC.json** record source
-   findings,not runtime proof. Dark held-book cover,installed shelf-slot return,
-   corridor/Continue,full hose payout/release/dressing/impact wetting and broader
-   cold/reload performance remain open. Preserve prologue/audio/golden-shift,
-   campaign/weather and artistic acceptance commitments.
+1. Preserve the completed105-check/2failure book before cohort; run the exact
+   same tests on the bounded fix,then nearby optics/access. Add the missing
+   installed parked-exit contract before validated save renewal; no forced state.
+2. Exercise nearby installed nook/lamp/readability and the original hose impact
+   observer before changing wetting. Finish real moving-nozzle,first-solid,
+   floor/edge/underside,pause/zero-flow,restore/unload and idle-cost controls.
+   Authored diagnostics/patches are not implemented or verified game behavior.
+3. Reconcile stable existing story heads and measure the existing stutter route,
+   retaining separate cold/Continue limits. After combined local fixes,renew only
+   affected composed proof and verify an exact candidate against the actual clean
+   **board_main_aca238412/board.json** baseline. Preserve all original failures,
+   protected paths,explicitV1rollback and gameplay/save/prologue/audio/golden-shift/
+   weather/city/narrative commitments. No auto-merge or whole-V2/artistic claim.
 
 ## Coordinate ownership and integration
 
 Check both Codex and ChatGPT inboxes using
 **C:/Users/nate_/homebrew-tools/toolbox.py**. Direct Orison coordination is
 authorized. Claude's Sun work is isolated in **C:/ov/sun**, branch **claude/sun**;
-Claude agreed to hold its surface renewal until PR152 merges. Send the merge
-result before it renews. Architect's city authoring is complete/stopped;
+PR152 has merged and the merge result was sent through the bridge. Coordinate
+stable source heads at meaningful checkpoints; give Claude time to work and
+share normal FIFO without exclusive GPU holds. Architect's city authoring is complete/stopped;
 coordinate any new bounded request rather than duplicating authoring.
 
 Use independent chats/agents for bounded work with explicit named-path owners,

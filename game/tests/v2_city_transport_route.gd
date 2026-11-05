@@ -10,6 +10,7 @@ var profile_active := false
 var profile_phase := ""
 var _stutter_frames: Array = []
 var _stutter_shadow := RID()
+var _stutter_passes := false
 # Independent expected AU soil datums, in the registered building frame.
 # These are route assertions, not a runtime terrain/movement authority.
 const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[92.,-1.0055],[140.,-1.7255],[290.,-3.9755],[330.,-4.2],[365.,-4.6],[390.,-4.8],[395.,-8.],[500.,-8.]]
@@ -47,6 +48,9 @@ func _process(_delta: float) -> void:
 		_exploration_samples.append([(now-_previous_exploration_usec)/1000.,RenderingServer.viewport_get_measured_render_time_cpu(viewport),RenderingServer.viewport_get_measured_render_time_gpu(viewport),Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)])
 		if _route_scope=="stutter_probe":
 			_stutter_frames.append({"usec":now,"process_frame":Engine.get_process_frames(),"physics_frame":Engine.get_physics_frames(),"phase":profile_phase,"wall_render_draws_primitives":_exploration_samples[-1],"process_ms":Performance.get_monitor(Performance.TIME_PROCESS)*1000.,"physics_ms":Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000.,"lamp_render_cpu_gpu_ms":[RenderingServer.viewport_get_measured_render_time_cpu(_stutter_shadow),RenderingServer.viewport_get_measured_render_time_gpu(_stutter_shadow)] if _stutter_shadow.is_valid() else []})
+			if _stutter_passes:
+				_stutter_frames[-1]["main_passes"] = _render_pass_counts(viewport)
+
 	_previous_exploration_usec = now
 
 func _programme_sources() -> Dictionary:
@@ -124,7 +128,146 @@ func _prepare_render_camera(camera: Camera3D) -> Dictionary:
 	RenderingServer.force_sync()
 	return {"elapsed_ms":(Time.get_ticks_usec()-started)/1000.,"render_calls":10,"node_pose_unchanged":camera.global_transform.is_equal_approx(node_pose)}
 
+func _render_pass_counts(viewport: RID) -> Dictionary:
+	var passes := {}
+	for kind in [RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE, RenderingServer.VIEWPORT_RENDER_INFO_TYPE_SHADOW]:
+		passes[str(kind)] = [
+			RenderingServer.viewport_get_render_info(viewport, kind, RenderingServer.VIEWPORT_RENDER_INFO_OBJECTS_IN_FRAME),
+			RenderingServer.viewport_get_render_info(viewport, kind, RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME),
+			RenderingServer.viewport_get_render_info(viewport, kind, RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME),
+		]
+	return passes
+
+func _identical_dry_wall_meshes(unshare: bool) -> Dictionary:
+	var blockout := world.get_node("OrisonV2Blockout")
+	var rooms: Dictionary = {}
+	for space: Dictionary in blockout.layout.spaces:
+		if str(space.get("class", "unresolved")) != "wet":
+			rooms[str(space.id)] = true
+	var groups: Dictionary = {}
+	var inspected := 0
+	for room: Node in blockout.get_children():
+		if not rooms.has(str(room.name)):
+			continue
+		for node: Node in room.get_children():
+			var draw := node as MeshInstance3D
+			if draw == null or not str(draw.name).begins_with("Wall") or not draw.is_visible_in_tree():
+				continue
+			var mesh := draw.mesh as ArrayMesh
+			if mesh == null or mesh.get_surface_count() != 1 or mesh.shadow_mesh != null \
+					or draw.cast_shadow != GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED:
+				continue
+			var collision := draw.get_node_or_null("Collision") as StaticBody3D
+			if collision == null or collision.get_child_count() != 1:
+				continue
+			var stock := collision.get_child(0) as CollisionShape3D
+			if stock == null or not stock.transform.is_equal_approx(Transform3D.IDENTITY) or not stock.shape is BoxShape3D:
+				continue
+			var size: Vector3 = stock.shape.size
+			var bounds := mesh.get_aabb()
+			if not bounds.is_equal_approx(AABB(-size * .5, size)):
+				continue
+			var active := draw.get_active_material(0) as ShaderMaterial
+			var base := mesh.surface_get_material(0)
+			if active == null or active.shader != SurfacePass.OPAQUE or base == null:
+				continue
+			var bytes := var_to_bytes(mesh.surface_get_arrays(0))
+			# Compare the full packed arrays before swapping, even after binning.
+			var key := str([size, active.get_rid(), base.get_rid(), mesh.surface_get_format(0),
+				draw.layers, signf(draw.global_basis.determinant()), hash(bytes)])
+			if not groups.has(key):
+				groups[key] = {"representative": mesh, "bytes": bytes, "members": []}
+			var group: Dictionary = groups[key]
+			if group.bytes == bytes:
+				group.members.append({"draw": draw, "original": mesh})
+				inspected += 1
+	var swaps: Array = []
+	var repeated := 0
+	for group: Dictionary in groups.values():
+		if group.members.size() < 2:
+			continue
+		repeated += 1
+		for row: Dictionary in group.members.slice(1):
+			if unshare and row.original == group.representative:
+				swaps.append({"draw": row.draw, "original": row.original, "treatment": row.original.duplicate()})
+			elif not unshare and row.original != group.representative:
+				swaps.append({"draw": row.draw, "original": row.original, "treatment": group.representative})
+	return {"inspected": inspected, "groups": repeated, "swaps": swaps}
+
+func _stationary_celestial_shadow_control() -> Dictionary:
+	var key := world.get_node_or_null("WakingAtmosphere/CelestialKey") as DirectionalLight3D
+	if not is_instance_valid(key) or not key.shadow_enabled or key.get_meta("absolute_writer", "") != "DayNightDirector":
+		check(false, "stationary control binds the original celestial key")
+		return {}
+	var viewport := get_viewport().get_viewport_rid()
+	var camera := player.camera
+	var pose := camera.global_transform
+	var recoveries: int = world.safety_net.recoveries
+	var light_pose := key.global_transform
+	var light_energy := key.light_energy
+	var weather := world.get_node("WakingAtmosphere/WeatherManager")
+	var conditions: Dictionary = weather.current.duplicate(true)
+	var rows: Array = []
+	var share := OS.get_environment("ORISON_CITY_STUTTER_SHARE_WALL_MESHES") == "1"
+	var unshare := OS.get_environment("ORISON_CITY_STUTTER_UNSHARE_WALL_MESHES") == "1"
+	var stock := _identical_dry_wall_meshes(unshare) if share or unshare else {}
+	var swaps: Array = stock.get("swaps", [])
+	if share or unshare:
+		check(not swaps.is_empty(), "existing dry wall stock has exact repeated mesh resources")
+	var middle := "unique_wall_meshes" if unshare else ("shared_wall_meshes" if share else "celestial_shadows_off")
+	RenderingServer.viewport_set_measure_render_time(viewport, true)
+	for phase: String in ["original_a", middle, "original_b"]:
+		var expected := phase != "celestial_shadows_off"
+		key.shadow_enabled = expected
+		for row: Dictionary in swaps:
+			row.draw.mesh = row.treatment if phase == middle else row.original
+		for frame in 16:
+			await RenderingServer.frame_post_draw
+		var previous := Time.get_ticks_usec()
+		var stable := true
+		for frame in 40:
+			await RenderingServer.frame_post_draw
+			var now := Time.get_ticks_usec()
+			stable = stable and key.shadow_enabled == expected and camera.is_current() \
+				and camera.global_transform.is_equal_approx(pose) and key.is_visible_in_tree() \
+				and key.global_transform.is_equal_approx(light_pose) and is_equal_approx(key.light_energy, light_energy)
+			rows.append({"phase": phase, "wall_ms": (now - previous) / 1000.,
+				"main_cpu_ms": RenderingServer.viewport_get_measured_render_time_cpu(viewport),
+				"main_gpu_ms": RenderingServer.viewport_get_measured_render_time_gpu(viewport),
+				"main_passes": _render_pass_counts(viewport)})
+			previous = now
+		check(stable, "stationary reverse camera and celestial shadow control hold through " + phase)
+	key.shadow_enabled = true
+	RenderingServer.viewport_set_measure_render_time(viewport, false)
+	if unshare:
+		# Review the fixed reverse view after timing, with no readback in samples.
+		var directory := OS.get_environment("SHOT_DIR")
+		for phase: String in ["original_a", middle, "original_b"]:
+			for row: Dictionary in swaps:
+				row.draw.mesh = row.treatment if phase == middle else row.original
+			for frame in 16:
+				await RenderingServer.frame_post_draw
+			var image := get_viewport().get_texture().get_image()
+			check(image.get_size() == Vector2i(3440, 1440)
+				and image.save_png(directory.path_join("reverse_" + phase + ".png")) == OK,
+				"native wall mesh review captures " + phase)
+	check(camera.is_current() and camera.global_transform.is_equal_approx(pose)
+		and world.safety_net.recoveries == recoveries and key.shadow_enabled,
+		"stationary control restores the original shadow flag without moving the player")
+	var restored := true
+	for row: Dictionary in swaps:
+		restored = restored and row.draw.mesh == row.original
+	check(restored, "stationary control restores the exact original mesh resources")
+	return {"scope": "Same installed reverse endpoint after walking. Pass counters can lag the sampled interval.",
+		"control": middle, "eligible_walls": stock.get("inspected", 0), "repeated_groups": stock.get("groups", 0),
+		"mesh_swaps": swaps.size(),
+		"camera": var_to_str(pose), "key": str(key.get_path()), "key_pose": var_to_str(light_pose),
+		"key_energy": light_energy, "weather_before": conditions, "weather_after": weather.current.duplicate(true),
+		"samples": rows}
+
 func _run_stutter_probe() -> void:
+	_stutter_passes = OS.get_environment("ORISON_CITY_STUTTER_SHADOW_PASSES") == "1"
+
 	# One original nearby fixture, then three continuous normal-controller
 	# round trips. This writes diagnostics, never a runtime qualification.
 	var directory:=OS.get_environment("SHOT_DIR")
@@ -151,6 +294,7 @@ func _run_stutter_probe() -> void:
 	var legs: Array=[]
 	var settings: Dictionary={}
 	var preparation: Dictionary={}
+	var stationary: Dictionary = {}
 	if not world.startup_failed and world.player!=null:
 		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		var city:=world.get_node("CityShells") as Node3D
@@ -230,6 +374,8 @@ func _run_stutter_probe() -> void:
 			probe.queue_free()
 			world.household_state.profiling=false
 			player.profile_physics=false;player._grab.profiling=false
+			if _stutter_passes and failures.is_empty():
+				stationary = await _stationary_celestial_shadow_control()
 		Input.action_release("move_forward")
 		for entry: Dictionary in reflection_control:
 			var capture: ReflectionProbe=entry.node.get_ref()
@@ -237,6 +383,7 @@ func _run_stutter_probe() -> void:
 			if is_instance_valid(capture):capture.visible=bool(entry.visible)
 		var data: Dictionary={"evidence_class":"INERT","scope":"Instrumented six-leg Laurel stair/turn replay in the actual composed world, one validated nearby starting placement. Camera headings are deterministic fixture turns; movement uses the normal input/controller. Callback brackets, observed engine monitors and asynchronous main/lamp render timings are separate observations, not additive costs, input-to-display latency or an uninstrumented before/after comparison. No durable saves, new access, full-city, artistic or performance acceptance. Residency/pipeline counters identify observed activity, not causal loading/compiler duration.","checks":city_checks,"failures":failures,"settings":settings,"legs":legs,"frames":_stutter_frames,"trace":trace,"startup_ms":world.startup_ms,"startup_milestones":world.startup_milestones,"source_before":source_before}
 		data["render_preparation"]=preparation
+		if _stutter_passes: data["stationary_celestial_shadow_control"] = stationary
 		world.shutdown_for_tests();world.free();await get_tree().physics_frame
 		var after:=_digest()
 		check(source_before==after,"short probe production inputs remain frozen")

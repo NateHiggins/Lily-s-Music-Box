@@ -1,5 +1,6 @@
 extends "res://tests/v2_readable_library_bench.gd"
 ## Diagnostic of stored slots and the real pickup/inspection input path.
+var _book_exit_observations: Array[Dictionary]=[]
 func cursor_at(point: Vector3) -> bool:
 	# Embedded viewport input has an event-owned pointer. Native Windows instead
 	# polls DisplayServer's OS pointer, which cannot be warped on a hidden desktop.
@@ -66,6 +67,8 @@ func _run() -> void:
 	player.set_mouse_released(false)
 	var book: Node3D=shelf._books.values()[2]
 	var player_before_pickup:=player.global_position
+	var unplaced_instance: int=book.get_instance_id()
+	var unplaced_stock_ids: Array=shelf._books.keys()
 	check(await grab_visible_stock(book),"real primary click picks up binding")
 	if player._grab.active():
 		for frame in 110: await get_tree().physics_frame
@@ -132,6 +135,10 @@ func _run() -> void:
 		check(player.get_collision_exceptions().has(book) and book.get_collision_exceptions().has(player),"inspection return restores only carrier contact exceptions")
 		for frame in 110:await get_tree().physics_frame
 		check((book.global_transform*book.pickup_centre()).distance_to(player.camera.global_transform*Vector3(.17,-.16,-.48))<.003,"returned open binding reaches constrained FPS hand")
+		var unplaced: Dictionary={"phase":"unplaced_exit","stock_id":book.stock_id,"instance_id":book.get_instance_id(),"same_instance":book.get_instance_id()==unplaced_instance,"same_library_owner":book.shelf==shelf and shelf._books.get(book.stock_id)==book,"inventory_unchanged":shelf._books.keys()==unplaced_stock_ids,"slot":book.shelf_slot,"inspection_active":player.inspecting(),"mouse_mode":Input.mouse_mode,"grab_active":player._grab.active(),"same_book_in_hand":player._grab.holding_pickup() and player._grab.target.get("part")==book,"book_held":book._held,"frozen":book.freeze,"shelf_hand_is_book":shelf._hand_node==book,"carrier_exceptions":player.get_collision_exceptions().has(book) and book.get_collision_exceptions().has(player),"fps_centre_error_m":(book.global_transform*book.pickup_centre()).distance_to(player.camera.global_transform*Vector3(.17,-.16,-.48)),"library_valid":shelf.valid_library(shelf.library_snapshot())}
+		_book_exit_observations.append(unplaced)
+		print("BOOK EXIT OBSERVATION: ",JSON.stringify(unplaced))
+		check(unplaced.same_instance and unplaced.same_library_owner and unplaced.inventory_unchanged and unplaced.slot==-1 and unplaced.library_valid and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,"unplaced normal Space exit preserves the physical instance, loose occupancy, library inventory and FPS mode")
 		click()
 		check(not player._grab.active() and not book._held and not book.freeze,"next primary releases returned inspected binding")
 		check(not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"returned binding release restores physical carrier contact")
@@ -141,6 +148,9 @@ func _run() -> void:
 	for frame in 3: await get_tree().physics_frame
 	book=shelf._books.values()[2]
 	check(await _input_slot_return(shelf,book),"real pickup, inspection, mouse translation/rotation and release return a binding to its vacated slot")
+	var exit_phases: Array=[]
+	for observation: Dictionary in _book_exit_observations:exit_phases.append(observation.phase)
+	check(exit_phases.has("unplaced_exit") and exit_phases.has("parked_after_exit"),"both normal Space-exit programmes executed before mechanical fixture reset")
 	# Retain the smaller contact/occupancy controls below as mechanical tests,
 	# separately from the actual input path. Restore only after input has ended.
 	player.cancel_manipulation()
@@ -205,11 +215,13 @@ func _run() -> void:
 	book.free()
 	await space()
 	check(not player.inspecting() and not player._grab.active(),"destroyed inspected stock is never reacquired or replaced implicitly")
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("input_costs.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","records":player._grab.profile_records},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("input_costs.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","records":player._grab.profile_records,"book_exit_observations":_book_exit_observations},"\t"))
 	print("BOOK SLOT HAND DIAGNOSTIC: ","PASS" if failures.is_empty() else "FAIL"," checks=",checks," failures=",failures)
 	get_tree().quit(failures.size())
 
 func _input_slot_return(shelf: Node3D, book: Node3D) -> bool:
+	var original_instance: int=book.get_instance_id()
+	var original_stock_ids: Array=shelf._books.keys()
 	var slot: int=book.shelf_slot
 	var wanted: Transform3D=shelf.book_slots[slot]
 	if not check(await grab_visible_stock(book),"slot return begins with actual primary pickup"):return false
@@ -228,6 +240,7 @@ func _input_slot_return(shelf: Node3D, book: Node3D) -> bool:
 	if not check(picked.get("part")==book and picked.get("kind")=="free","actual ray identifies the floating binding spine"):return false
 	click()
 	if not check(player._grab.active() and player._grab.target.part==book,"free cursor reacquires the actual floating binding"):return false
+	_slot_approach_snapshot("spine_acquired_before_rotation",book,wanted)
 	# Rotate in free space before approaching the shelf. Every step goes through
 	# the shared precision input and the stock's normal native collision veto.
 	var right:=InputEventMouseButton.new();right.button_index=MOUSE_BUTTON_RIGHT;right.pressed=true
@@ -248,12 +261,38 @@ func _input_slot_return(shelf: Node3D, book: Node3D) -> bool:
 	right.pressed=false;player._unhandled_input(right)
 	_precision_axis(-1)
 	if not check(aligned,"actual precision rotation restores the slot orientation"):return false
-	if not check(await carry(wanted.origin+Vector3(0,.008,.12)),"actual depth/mouse travel approaches the vacated slot"):return false
-	if not check(await carry(wanted.origin+Vector3(0,.004,.015)),"actual depth/mouse travel reaches the slot capture region"):return false
+	_slot_approach_snapshot("rotated_before_alignment",book,wanted)
+	# Align lateral position/height while still at the current withdrawn depth.
+	# Use the unchanged real-input carry path; retain all neighboring collision.
+	var alignment_goal:=Vector3(wanted.origin.x,wanted.origin.y+.008,book.position.z)
+	var alignment_ok: bool=await carry(alignment_goal)
+	_slot_approach_snapshot("after_free_space_alignment",book,wanted)
+	if not check(alignment_ok,"actual depth/mouse travel aligns the withdrawn binding before slot approach"):return false
+	var approach_ok: bool=await carry(wanted.origin+Vector3(0,.008,.12))
+	_slot_approach_snapshot("after_original_approach",book,wanted)
+	if not check(approach_ok,"actual depth/mouse travel approaches the vacated slot"):return false
+	var capture_ok: bool=await carry(wanted.origin+Vector3(0,.004,.015))
+	_slot_approach_snapshot("after_original_capture_region",book,wanted)
+	if not check(capture_ok,"actual depth/mouse travel reaches the slot capture region"):return false
 	click()
 	if not check(not player._grab.active() and not book._held and book.shelf_slot==slot and book.freeze,"actual next-click release parks the closed binding"):return false
 	for frame in 8:await get_tree().physics_frame
-	return check(book.transform.is_equal_approx(wanted) and shelf.valid_library(shelf.library_snapshot()),"input-returned binding stays in its exact valid placement")
+	if not check(book.transform.is_equal_approx(wanted) and shelf.valid_library(shelf.library_snapshot()),"input-returned binding stays in its exact valid placement"):return false
+	# Deliberate valid-slot primary release is complete. Exit normally before
+	# the caller's unrelated cancellation/restore fixtures can mask the result.
+	await space()
+	for frame in 8:await get_tree().physics_frame
+	var parked: Dictionary={"phase":"parked_after_exit","stock_id":book.stock_id,"instance_id":book.get_instance_id(),"same_instance":book.get_instance_id()==original_instance,"same_library_owner":book.shelf==shelf and shelf._books.get(book.stock_id)==book,"inventory_unchanged":shelf._books.keys()==original_stock_ids,"original_slot":slot,"slot":book.shelf_slot,"pose_matches_slot":book.transform.is_equal_approx(wanted),"book_pose":var_to_str(book.transform),"slot_pose":var_to_str(wanted),"inspection_active":player.inspecting(),"mouse_mode":Input.mouse_mode,"grab_active":player._grab.active(),"same_book_in_hand":player._grab.holding_pickup() and player._grab.target.get("part")==book,"book_held":book._held,"frozen":book.freeze,"shelf_hand_is_book":shelf._hand_node==book,"carrier_exceptions_clear":not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"library_valid":shelf.valid_library(shelf.library_snapshot())}
+	_book_exit_observations.append(parked)
+	print("BOOK EXIT OBSERVATION: ",JSON.stringify(parked))
+	if not check(not player.inspecting() and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,"real Space leaves deliberate slot-return inspection for FPS mode"):return false
+	return check(parked.same_instance and parked.same_library_owner and parked.inventory_unchanged and parked.slot==slot and parked.pose_matches_slot and not parked.grab_active and not parked.book_held and parked.frozen and not parked.shelf_hand_is_book and parked.carrier_exceptions_clear and parked.library_valid,"deliberately slot-released binding remains parked with the hand free after normal Space exit")
+
+func _slot_approach_snapshot(phase: String, book: Node3D, wanted: Transform3D) -> void:
+	var frame: Node3D=player._grab.target.get("frame")
+	var origin: Vector3=player._grab.target.read.call() if player._grab.active() else book.position
+	var state: Dictionary={"phase":phase,"stock_id":book.stock_id,"instance_id":book.get_instance_id(),"active":player._grab.active(),"same_book":player._grab.target.get("part")==book,"frame_id":frame.get_instance_id() if is_instance_valid(frame) else 0,"frame_pose":var_to_str(frame.global_transform) if is_instance_valid(frame) else "none","read_origin":var_to_str(origin),"book_local_pose":var_to_str(book.transform),"book_world_pose":var_to_str(book.global_transform),"local_contact":var_to_str(player._grab.contact),"world_contact":var_to_str(book.to_global(player._grab.contact)),"camera_pose":var_to_str(player.camera.global_transform),"wanted_pose":var_to_str(wanted),"transform_axis":player._grab.transform_axis,"transform_rotating":player._grab.transform_rotating,"last_motion":var_to_str(book._last_motion)}
+	print("SLOT APPROACH OBSERVATION: ",JSON.stringify(state))
 
 func _precision_axis(axis: int) -> void:
 	var current: int=player._grab.transform_axis
