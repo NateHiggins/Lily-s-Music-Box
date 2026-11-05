@@ -237,6 +237,7 @@ func _park_installed_book(book: Node3D) -> void:
 	_click_library()
 	if not _require(player._grab.active() and player._grab.target.part==book,"actual primary latches the installed floating spine"):return
 	_park_observe("spine_acquired",book)
+	if not await _park_clear_player_for_rotation(book):return
 	var right:=InputEventMouseButton.new();right.button_index=MOUSE_BUTTON_RIGHT;right.pressed=true;player._unhandled_input(right)
 	var aligned:=false
 	for step in 100:
@@ -312,3 +313,22 @@ func _park_axis(axis: int) -> void:
 	var key:=InputEventKey.new();key.keycode=[KEY_X,KEY_Y,KEY_Z][axis];key.physical_keycode=key.keycode;key.pressed=true
 	player._unhandled_input(key)
 	key.pressed=false;player._unhandled_input(key)
+
+func _park_clear_player_for_rotation(book: Node3D) -> bool:
+	# The recorded down-looking inspection contacts the real full capsule.
+	# Move with the same ordinary depth/mouse grip before asking it to rotate.
+	var radius:=0.
+	for solid: CollisionShape3D in book._solids:
+		if solid.disabled:continue
+		var hull:=solid.shape as ConvexPolygonShape3D
+		if not _require(hull!=null,"installed rotation clearance uses actual native convex stock"):return false
+		for vertex: Vector3 in hull.points:radius=maxf(radius,(book.global_basis*(solid.transform*vertex)).length())
+	var radial: Vector3=book.global_position-player._shape.global_position
+	radial.y=0.
+	var separation: float=PlayerController.BODY_RADIUS+radius+.002
+	if not _require(radius>0. and radial.length()>.000001 and is_equal_approx(player._capsule.radius,PlayerController.BODY_RADIUS),"rotation clearance retains full actual capsule and measured native stock"):return false
+	var goal: Vector3=book.global_position+radial.normalized()*maxf(0.,separation-radial.length())
+	var moved: bool=await _park_carry(book.shelf.to_local(goal))
+	_park_observe("actual_player_clearance_before_rotation",book)
+	radial=book.global_position-player._shape.global_position;radial.y=0.
+	return _require(moved and radial.length()>=separation-.0001 and player._grab.active() and player._grab.target.part==book,"actual mouse/depth carry clears full player capsule before original precision rotation")

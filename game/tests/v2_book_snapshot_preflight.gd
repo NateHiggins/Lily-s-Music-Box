@@ -1,7 +1,7 @@
 extends Node
 ## Native Variant serialization preflight only: no production world instantiation.
 var Subject: Script
-const EXPECTED_SOURCE_LF_SHA256="9f1c648f9bcaa7bafaa2199cdd7dbaab6f2823e1adbcab62277590b6b86f0a95"
+const EXPECTED_SOURCE_LF_SHA256="231f36fe069084704e9474131eb51eac07251b8a306741bbf04eeba8429eed84"
 var failures: Array[String]=[]
 
 func _ready() -> void:
