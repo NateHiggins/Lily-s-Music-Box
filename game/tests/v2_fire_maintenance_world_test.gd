@@ -11,6 +11,16 @@ var door: DoorProp
 func _init() -> void:
 	route_label="V2 HARDWARE STOCK WORLD"
 
+func _ready() -> void:
+	var viewport := get_viewport()
+	if viewport is SubViewport:
+		var window := get_tree().root
+		viewport.msaa_3d=window.msaa_3d
+		viewport.scaling_3d_scale=window.scaling_3d_scale
+		viewport.use_taa=window.use_taa
+		viewport.notify_mouse_entered()
+	super._ready()
+
 func _prepare_player_start() -> void:
 	door=world.passage_region.doors.get("SITE_SHOP_DOOR_HARDWARE_PAINT")
 	if door==null:return
@@ -224,7 +234,10 @@ func _paid_gasket_route(door_z: float, path: String, report: Dictionary) -> void
 	var alignment := draw.global_basis.y.normalized().dot(actor.global_basis.y.normalized())
 	report["contact"] = {"distance_m":distance, "up_dot":alignment, "off_seat_distance_m":off_seat_distance,
 		"face_world":str(face.call()), "seat_world":str(seat)}
-	if not _require(distance <= .025 and alignment >= .99 and not actor.preview_purchased_gasket_fit(washer).is_empty(),
+	var fit: Dictionary = actor.preview_purchased_gasket_fit(washer)
+	if fit.is_empty() and distance <= .025 and alignment >= .99:
+		report["clearance_probe"] = _paid_fit_clearance_probe(actor, washer, face.call(), seat)
+	if not _require(distance <= .025 and alignment >= .99 and not fit.is_empty(),
 			"actual paid sealing face has native snap reach, alignment and real swept clearance"): return
 	var pre_hash: String = FileAccess.get_sha256(path) if FileAccess.file_exists(path) else ""
 	var seen_before: bool = actor.gasket_seen
@@ -300,6 +313,54 @@ func _paid_same_replacement(actual: Dictionary, wanted: Dictionary) -> bool:
 	return a.distance_to(b) < .00001 and qa.is_equal_approx(qb)
 
 
+func _paid_fit_clearance_probe(actor: Node3D, washer: Node3D, face: Vector3, seat: Vector3) -> Dictionary:
+	var basis: Basis = washer.global_basis.orthonormalized()
+	var receiver: Basis = actor.global_basis.orthonormalized()
+	var local_face := washer.to_local(face)
+	var steps := maxi(1, ceili(basis.get_rotation_quaternion().angle_to(receiver.get_rotation_quaternion()) / .025))
+	var space := washer.get_world_3d().direct_space_state
+	var aligned: Transform3D = washer.global_transform
+	for index in range(1, steps + 1):
+		aligned.basis = basis.slerp(receiver, float(index) / steps)
+		aligned.origin = face - aligned.basis * local_face
+		for solid: CollisionShape3D in washer._solids:
+			var query: PhysicsShapeQueryParameters3D = washer._shape_query(solid, aligned)
+			query.margin = .00001
+			var hits := space.intersect_shape(query, 1)
+			if not hits.is_empty():
+				return _paid_fit_probe_hit("rotate", hits[0], {"step":index, "steps":steps})
+	var raised := Transform3D(receiver, seat - receiver * local_face + receiver.y * .0001)
+	for solid: CollisionShape3D in washer._solids:
+		var query: PhysicsShapeQueryParameters3D = washer._shape_query(solid, aligned)
+		var motion := raised.origin - aligned.origin
+		var rest := space.get_rest_info(query)
+		if not rest.is_empty() and motion.dot(rest.normal) < -.0000001:
+			return _paid_fit_probe_hit("start_rest", rest, {"normal":str(rest.normal)})
+		query.motion = motion
+		var fraction := space.cast_motion(query)
+		if fraction.size() == 2 and fraction[0] < 1.:
+			query.motion = Vector3.ZERO
+			query.transform = query.transform.translated(motion * fraction[1])
+			var hits := space.intersect_shape(query, 1)
+			return _paid_fit_probe_hit("translate", hits[0] if not hits.is_empty() else {},
+				{"fractions":str(fraction), "motion":str(motion)})
+		query.motion = Vector3.ZERO
+		query.transform = raised * solid.transform
+		query.margin = .00001
+		var hits := space.intersect_shape(query, 1)
+		if not hits.is_empty():
+			return _paid_fit_probe_hit("raised_end", hits[0], {})
+	return {"stage":"no_geometry_failure", "door":actor.door_open, "coupled":actor.coupling_made_up,
+		"seated":actor.gasket_seated, "wheel":actor._wheel_angle, "hand":actor._hand}
+
+
+func _paid_fit_probe_hit(stage: String, hit: Dictionary, detail: Dictionary) -> Dictionary:
+	var collider := instance_from_id(int(hit.get("collider_id", 0))) as Node
+	detail.merge({"stage":stage, "path":str(collider.get_path()) if collider != null else "",
+		"rid":str(hit.get("rid", RID())), "shape":hit.get("shape", -1)})
+	return detail
+
+
 func _paid_station() -> Node3D:
 	var stock: RefCounted = world.adapter.root.get_meta("v2_native_fire_service")
 	return stock.stations[PAID_STATION].get_ref()
@@ -324,8 +385,44 @@ func _paid_take(washer: Node3D) -> bool:
 		for frame in 90:
 			if _in_hand(washer): break
 			await get_tree().physics_frame
+		print("PAID WASHER WITHDRAWAL ", JSON.stringify({
+			"lifted":washer._pickup_lifted, "extracted":washer._pickup_extracted,
+			"lift_goal":str(washer._pickup_lift_goal), "exit":str(washer._pickup_exit),
+			"position":str(washer.global_position), "contact":str(washer._last_motion),
+			"held":player.held_stock_body()==washer, "settled":_in_hand(washer)}))
+		if not _in_hand(washer) and washer._last_motion.get("unresolved_native_impact", false):
+			_observe_paid_washer_impact(washer)
 		return _require(_in_hand(washer), "paid washer settles into the real FPS hold")
 	return true
+
+
+func _observe_paid_washer_impact(washer: Node3D) -> void:
+	var motion: Vector3 = washer._last_motion.motion
+	var unsafe: float = washer._last_motion.unsafe
+	var pose: Transform3D = washer.global_transform
+	var space := washer.get_world_3d().direct_space_state
+	var overlaps: Array[Dictionary] = []
+	for solid: CollisionShape3D in washer._solids:
+		for fraction: float in [0., unsafe, 1., 1.5, 2., 3.]:
+			var probe: Transform3D = pose.translated(motion * fraction)
+			var query: PhysicsShapeQueryParameters3D = washer._shape_query(solid, probe)
+			for hit: Dictionary in space.intersect_shape(query, 8):
+				var collider := hit.get("collider") as Node
+				overlaps.append({"solid":str(solid.name), "fraction":fraction,
+					"path":str(collider.get_path()) if collider != null else "",
+					"rid":str(hit.rid), "shape":hit.shape})
+	var support: Array[Dictionary] = []
+	for axis: Vector3 in [Vector3.UP, Vector3.DOWN]:
+		var point := pose.origin
+		var ray := PhysicsRayQueryParameters3D.create(point + axis * .03, point - axis * .03,
+			washer.collision_mask, washer._query_exclusions())
+		var hit := space.intersect_ray(ray)
+		if not hit.is_empty():
+			var collider := hit.get("collider") as Node
+			support.append({"axis":str(axis), "position":str(hit.position), "normal":str(hit.normal),
+				"path":str(collider.get_path()) if collider != null else "", "rid":str(hit.rid), "shape":hit.shape})
+	print("PAID WASHER IMPACT WITNESS ", JSON.stringify({"pose":var_to_str(pose),
+		"motion":str(motion), "unsafe":unsafe, "overlaps":overlaps, "support":support}))
 
 
 func _paid_park(washer: Node3D) -> bool:
@@ -340,6 +437,7 @@ func _paid_park(washer: Node3D) -> bool:
 func _paid_move_face(washer: Node3D, face: Callable, goal: Vector3) -> bool:
 	# Same projection and wheel delivery as the original fire hand bench,
 	# with release kept separate so only the verified explicit click can commit.
+	var samples: Array[Dictionary] = []
 	for step in 120:
 		if not player._grab.active() or player._grab.target.part != washer: break
 		var delta: Vector3 = goal - face.call()
@@ -358,6 +456,14 @@ func _paid_move_face(washer: Node3D, face: Callable, goal: Vector3) -> bool:
 		motion.relative = (player.camera.unproject_position(point + delta) - player.camera.unproject_position(point)).limit_length(30.)
 		player._unhandled_input(motion)
 		await get_tree().physics_frame
+		if step < 3 or step % 15 == 14:
+			samples.append({"step":step, "face":str(face.call()), "wheel_depth":depth,
+				"relative":str(motion.relative), "contact":str(washer._last_motion)})
+	print("PAID WASHER APPROACH FAILURE ", JSON.stringify({
+		"goal":str(goal), "face":str(face.call()), "camera":var_to_str(player.camera.global_transform),
+		"pose":var_to_str(washer.global_transform), "held":player._grab.active(), "samples":samples}))
+	if washer._last_motion.get("unresolved_native_impact", false):
+		_observe_paid_washer_impact(washer)
 	return _require(false, "actual paid washer cannot reach the approach point through existing motion and clearance")
 
 

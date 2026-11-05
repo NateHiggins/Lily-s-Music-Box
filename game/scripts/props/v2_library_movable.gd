@@ -229,6 +229,10 @@ func _carry(value: Vector3) -> void:
 			if not hit.is_empty(): break
 		if hit.is_empty():
 			_last_motion={"unresolved_native_impact":true,"safe":safe,"unsafe":unsafe,"motion":remaining}
+			# Preserve the verified safe portion even without a normal to slide
+			# against. Casts ignore initial overlap, so also require a clear pose.
+			var advanced:=pose.translated(remaining*safe)
+			if safe>0. and _clear_pose(advanced):pose=advanced
 			break
 		var normal: Vector3=hit.normal
 		var approach: float=-remaining.dot(normal)

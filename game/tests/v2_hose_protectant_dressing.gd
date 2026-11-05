@@ -275,28 +275,137 @@ func _take_and_open_bottle(counter: Node3D, bottle: Node3D) -> bool:
 	return check(not player.inspecting() and player.held_stock_body() == bottle, "same open bottle returns through Space")
 
 func _turn_tip_down(bottle: Node3D) -> bool:
+	var trace: Array[Dictionary] = []
+	dressing_report.tilt = {
+		"bottle_id": bottle.get_instance_id(), "body": str(bottle.get_path()),
+		"initial_pose": var_to_str(bottle.global_transform),
+		"camera": var_to_str(player.camera.global_transform),
+		"initial_down_dot": bottle.global_basis.y.normalized().dot(Vector3.DOWN),
+		"floating": bottle._floating, "floating_frames": bottle._floating_frames,
+		"support_motion": var_to_str(bottle._last_motion), "cap_turn": bottle.cap_turn,
+		"gestures": trace,
+	}
 	if not check(await acquire_surface(bottle, bottle.to_global(Vector3(0, .075, -.032))), "real bottle body ray before tilt"):
 		return false
 	click()
 	if not check(player._grab.active() and player._grab.target.part == bottle, "actual bottle body grip"):
 		return false
+	var frame: Node3D = player._grab.target.frame
+	dressing_report.tilt.gripped_pose = var_to_str(bottle.global_transform)
+	dressing_report.tilt.grip_contact = str(player._grab.contact)
+	dressing_report.tilt.grip_frame = str(frame.get_path())
 	var rotate := InputEventMouseButton.new()
 	rotate.button_index = MOUSE_BUTTON_RIGHT
 	rotate.pressed = true
 	player._unhandled_input(rotate)
-	for tick in 36:
-		if not player._grab.active() or bottle.global_basis.y.dot(Vector3.DOWN) > .94:
+	var latched: bool = player._grab.transform_rotating and player._grab.transform_axis == -1
+	dressing_report.tilt.latched = latched
+	var stall := ""
+	if not latched:
+		stall = "right_button_or_axis"
+	for tick in 48:
+		if not stall.is_empty():
 			break
-		var motion := InputEventMouseMotion.new()
-		motion.relative = Vector2(0, 20)
-		player._unhandled_input(motion)
+		if not player._grab.active() or player._grab.target.part != bottle:
+			stall = "grip_lost"
+			break
+		var up := bottle.global_basis.y.normalized()
+		var down_dot := up.dot(Vector3.DOWN)
+		if down_dot > .94:
+			break
+		var camera_basis := player.camera.global_basis
+		var camera_axes := camera_basis.orthonormalized()
+		var correction := up.cross(Vector3.DOWN)
+		# For an upright bottle either sign can start the turn. Preserve
+		# the original negative pitch for this antiparallel case.
+		if correction.length_squared() < .000001:
+			correction = -camera_axes.x
+		var components := camera_axes.transposed()*correction.normalized()
+		var axis := components.abs().max_axis_index()
+		var angle := signf(components[axis])*minf(.10, acos(clampf(down_dot,-1.,1.)))
+		var before: Transform3D = bottle.global_transform
+		var before_basis: Basis = bottle.basis
+		var local_axis := (frame.global_basis.inverse()*camera_basis[axis]).normalized()
+		var wanted := Basis(local_axis,angle)*before_basis
+		var input_pixels := Vector2.ZERO
+		if axis == Vector3.AXIS_Z:
+			var roll := InputEventMouseButton.new()
+			roll.button_index = MOUSE_BUTTON_WHEEL_DOWN if angle>0. else MOUSE_BUTTON_WHEEL_UP
+			roll.pressed = true
+			roll.factor = absf(angle)/.10
+			player._unhandled_input(roll)
+		else:
+			var motion := InputEventMouseMotion.new()
+			input_pixels = Vector2(0.,-angle/.008) if axis == Vector3.AXIS_X else Vector2(angle/.008,0.)
+			motion.relative = input_pixels
+			player._unhandled_input(motion)
+		var accepted: Basis = bottle.basis
+		var next_dot := bottle.global_basis.y.normalized().dot(Vector3.DOWN)
+		var row := {
+			"tick": Engine.get_physics_frames(), "axis": axis,
+			"requested_radians": angle, "mouse_relative": str(input_pixels),
+			"wheel_factor": absf(angle)/.10 if axis==Vector3.AXIS_Z else 0.,
+			"before_down_dot": down_dot, "after_down_dot": next_dot,
+			"before_pose": var_to_str(before), "after_pose": var_to_str(bottle.global_transform),
+			"wanted_basis": var_to_str(wanted), "accepted_basis": var_to_str(accepted),
+			"accepted_radians": before_basis.get_rotation_quaternion().angle_to(accepted.get_rotation_quaternion()),
+			"active": player._grab.active(), "rotating": player._grab.transform_rotating,
+			"feedback": player._grab.motion_feedback,
+		}
+		trace.append(row)
+		if not player._grab.active() or player._grab.target.part != bottle or not player._grab.transform_rotating:
+			stall = "grip_or_rotate_lost"
+		elif not accepted.is_equal_approx(wanted):
+			row.rejected_query = _observe_tilt_rejection(bottle,frame,before,before_basis,wanted)
+			if not row.rejected_query.is_empty() and not dressing_report.tilt.has("first_replayed_solid"):
+				dressing_report.tilt.first_replayed_solid = row.rejected_query
+			if next_dot <= down_dot+.000001:
+				stall = "angular_contact" if not row.rejected_query.is_empty() else "rotation_rejected_without_contact_witness"
+		elif next_dot <= down_dot+.000001:
+			stall = "no_downward_progress"
 		await get_tree().physics_frame
 	rotate.pressed = false
 	player._unhandled_input(rotate)
-	var reached: bool = player._grab.active() and bottle.global_basis.y.dot(Vector3.DOWN) > .94
+	var down: float = bottle.global_basis.y.normalized().dot(Vector3.DOWN)
+	var reached: bool = latched and player._grab.active() and player._grab.target.part == bottle and bottle._held and down > .94
+	dressing_report.tilt.final_down_dot = down
+	dressing_report.tilt.outcome = "reached" if reached else (stall if not stall.is_empty() else "gesture_budget")
 	if player._grab.active():
 		click()
-	return check(reached, "actual right drag turns bottle tip downward")
+	return check(reached, "actual right-button rotation turns the same bottle tip downward")
+
+func _observe_tilt_rejection(bottle: Node3D, frame: Node3D, before: Transform3D, local_before: Basis, proposed: Basis) -> Dictionary:
+	# Replay only the rejected candidate's original angular samples. This
+	# observer never writes a pose, calls the stock setter, or changes masks.
+	var wanted := proposed.orthonormalized().scaled(local_before.get_scale())
+	var angle := local_before.get_rotation_quaternion().angle_to(wanted.get_rotation_quaternion())
+	var steps := maxi(1,ceili(angle/.025))
+	var space := bottle.get_world_3d().direct_space_state
+	var excluded: Array[RID] = bottle._query_exclusions()
+	for index in range(1,steps+1):
+		var pose := before
+		pose.basis = frame.global_basis*local_before.slerp(wanted,float(index)/steps)
+		for solid: CollisionShape3D in bottle._solids:
+			if solid.disabled:
+				continue
+			var query := PhysicsShapeQueryParameters3D.new()
+			query.shape = solid.shape
+			query.transform = pose*solid.transform
+			query.exclude = excluded
+			query.margin = .00001
+			query.collision_mask = bottle.collision_mask
+			var hits := space.intersect_shape(query,1)
+			if not hits.is_empty():
+				var hit := hits[0]
+				var collider := hit.get("collider") as Node
+				return {
+					"substep": index, "substeps": steps, "queried_radians": angle*float(index)/steps,
+					"shape_owner": str(solid.get_path()), "candidate_pose": var_to_str(pose),
+					"path": str(collider.get_path()) if collider != null else "",
+					"rid": str(hit.rid), "shape": hit.shape, "instance_id": hit.collider_id,
+				}
+	return {}
+
 
 func _check_restore(cabinet: Node3D, counter: Node3D, before: Dictionary, after: Dictionary) -> bool:
 	var stock: Dictionary = counter.mechanism_snapshot()
