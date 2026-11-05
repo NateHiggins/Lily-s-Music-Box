@@ -12,6 +12,7 @@ class LaunchObserver extends Node:
 	var done := false
 	var action := "continue"
 	var timed_bedroom := false
+	var packed_washer := false
 	var timing := {}
 	var born_anchor_utc := Time.get_unix_time_from_system()
 	var born_anchor_usec := Time.get_ticks_usec()
@@ -101,7 +102,9 @@ class LaunchObserver extends Node:
 						if elapsed < 45.0:return
 			done = true
 			_verify(shell)
-		elif (timed_bedroom and action_usec > 0 and Time.get_ticks_usec() - action_usec > 240000000) or (not timed_bedroom and elapsed > 30.0):
+		elif ((timed_bedroom or packed_washer) and action_usec > 0 \
+				and Time.get_ticks_usec() - action_usec > (360000000 if packed_washer else 240000000)) \
+				or (not timed_bedroom and not packed_washer and elapsed > 30.0):
 			done = true
 			push_error("Actual title Continue never published a CampaignShell world")
 			get_tree().quit(1)
@@ -197,6 +200,8 @@ class LaunchObserver extends Node:
 		elif world is OrisonV2RuntimeRoot:
 			checks["legacy_completed_save_does_not_replay_replacement_opening"] = world.prologue_director == null \
 					and not shell.uses_prologue_entry() and bool(RealityState.data.intro_complete)
+		if packed_washer:
+			checks["packed_paid_washer_restores_one_hidden_counter_body"] = _packed_washer_restored(world)
 		var directory := OS.get_environment("SHOT_DIR")
 		if not directory.is_empty() and DisplayServer.get_name() != "headless":
 			DirAccess.make_dir_recursive_absolute(directory)
@@ -239,6 +244,17 @@ class LaunchObserver extends Node:
 		print("[TITLE ACTUAL CONTINUE] checks=%d failures=%d" % [checks.size(), failures])
 		get_tree().quit(0 if failures == 0 else 1)
 
+	func _packed_washer_restored(world: Node) -> bool:
+		if not world is OrisonV2RuntimeRoot or world.startup_failed:
+			return false
+		var item := CarriedCase.MAINTENANCE_WASHER
+		var counter: Node = world.fire_maintenance_counter
+		var body: RigidBody3D = counter.pickups.get(item) if is_instance_valid(counter) else null
+		return is_instance_valid(body) and body.freeze and not body.visible \
+			and body.collision_layer == 0 and body.collision_mask == 0 and not counter.can_take(body) \
+			and world.maintenance_inventory.has_item(item) and not world.maintenance_inventory.is_consumed(item) \
+			and world.player.held_stock_body() == null and CarriedCase.washer_is_packed(RealityState.data)
+
 	func _capture(label: String) -> void:
 		var directory := OS.get_environment("SHOT_DIR")
 		if directory.is_empty() or DisplayServer.get_name() == "headless":return
@@ -259,6 +275,21 @@ func _ready() -> void:
 		get_tree().quit(2)
 		return
 	var timed_bedroom := OS.get_environment("TITLE_ACTUAL_TIMED_BEDROOM") == "1"
+	if OS.get_environment("TITLE_ACTUAL_PACKED_WASHER") == "1":
+		var profile := OS.get_environment("TITLE_ACTUAL_ISOLATED_APPDATA").replace("\\", "/").simplify_path()
+		var raw_sha := OS.get_environment("TITLE_ACTUAL_PACKED_PRIMARY_SHA")
+		var clock := CampaignClock.new()
+		if action != "continue" or timed_bedroom or not profile.begins_with("C:/ov/reports/develop_intake_20261104/") \
+				or OS.get_user_data_dir().replace("\\", "/").simplify_path() != profile.path_join("PleaseRemainOnTheLine") \
+				or raw_sha.length() != 64 or FileAccess.get_sha256(RealityState.SAVE_PATH) != raw_sha \
+				or RealityState.load_status().status != "loaded" or not RealityState.can_continue() \
+				or not CarriedCase.washer_is_packed(RealityState.data) or not clock.bind_state():
+			push_error("Packed washer Continue requires its exact validated producer primary in an isolated profile")
+			get_tree().quit(2)
+			return
+		GameBoot.settings.weather_network_enabled = false
+		await _launch(action, clock, false, true)
+		return
 	if timed_bedroom:
 		if action not in ["begin", "continue"] or not _verify_timing_profile(action):
 			get_tree().quit(2)
@@ -315,10 +346,11 @@ func _verify_timing_profile(action: String) -> bool:
 		push_error("Current validation did not accept the original bedroom fixture")
 	return valid
 
-func _launch(action: String, clock: CampaignClock, timed_bedroom: bool) -> void:
+func _launch(action: String, clock: CampaignClock, timed_bedroom: bool, packed_washer := false) -> void:
 	var observer := LaunchObserver.new()
 	observer.action = action
 	observer.timed_bedroom = timed_bedroom
+	observer.packed_washer = packed_washer
 	if timed_bedroom and action == "continue":
 		observer.timing["pre_title_save"] = {"sha256": FileAccess.get_sha256(RealityState.SAVE_PATH),
 			"load_status": RealityState.load_status(), "clock": RealityState.data.campaign_clock.duplicate(true),
@@ -326,6 +358,9 @@ func _launch(action: String, clock: CampaignClock, timed_bedroom: bool) -> void:
 	observer.expected = JSON.parse_string(JSON.stringify({
 			"campaign_clock": RealityState.data.campaign_clock,
 			"first_shift": RealityState.data.first_shift, "core_loop": RealityState.data.core_loop})) if action == "continue" else {}
+	if packed_washer:
+		for key: String in ["carried_case", "maintenance_items", "caretaker_economy"]:
+			observer.expected[key] = JSON.parse_string(JSON.stringify(RealityState.data[key]))
 	observer.expected_absolute = clock.absolute_minutes() if action == "continue" else 13 * 60 + 27
 	observer.expected_bytes = FileAccess.get_file_as_bytes(RealityState.save_path) if action != "begin" else PackedByteArray()
 	get_tree().root.add_child.call_deferred(observer)

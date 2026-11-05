@@ -162,6 +162,16 @@ func _paid_gasket_route(door_z: float, path: String, report: Dictionary) -> void
 	var economy: Node = world.get_node("CaretakerEconomy")
 	var inventory: Node = world.maintenance_inventory
 	var using_case := OS.get_environment("V2_PAID_GASKET_VALISE") == "1"
+	var export_packed := OS.get_environment("V2_PAID_GASKET_EXPORT_PACKED") == "1"
+	if export_packed:
+		if not _require(using_case, "packed export requires the valise route"): return
+		# This fixture starts after the opening so Continue loads normal play.
+		RealityState.data.intro_complete = true
+		RealityState.data.first_shift = {"phase": FirstShiftDirector.PHASE_COMPLETE,
+			"report_id": ChirpHunt.JOB_ID, "filing": "fault_corrected"}
+		RealityState.data.core_loop = {"safe_return_anchor": "F04_B_BED", "boundary": "wake_complete",
+			"active_job_id": "", "conversation_requested": false,
+			"conversation_complete": false, "dream_pending": false}
 	var cash: int = int(economy.book().cash)
 	if not world.service_set_carrier.radio_is_powered(): await _radio_key()
 	await get_tree().create_timer(.6).timeout
@@ -169,7 +179,20 @@ func _paid_gasket_route(door_z: float, path: String, report: Dictionary) -> void
 	if not _require(inventory.has_item(PAID_GASKET) and not inventory.is_consumed(PAID_GASKET)
 			and int(economy.book().cash) == cash - 10, "washer purchase grants its one original item and charges exactly 10c"): return
 	if not await _paid_take(washer): return
+	if export_packed and not await _paid_full_case_refuses(washer): return
 	if using_case and not await _paid_pack_in_case(washer, path): return
+	if export_packed:
+		if not await _paid_blocked_case_return(washer, path): return
+		var destination := OS.get_environment("SHOT_DIR").path_join("packed_washer_primary.json")
+		if not _require(not FileAccess.file_exists(destination), "packed primary archive is fresh"): return
+		var bytes := FileAccess.get_file_as_bytes(path)
+		var archive := FileAccess.open(destination, FileAccess.WRITE)
+		if not _require(not bytes.is_empty() and archive != null, "actual packed primary can be archived"): return
+		archive.store_buffer(bytes)
+		archive.close()
+		report["packed_primary_sha256"] = FileAccess.get_sha256(destination)
+		_require(report.packed_primary_sha256 == FileAccess.get_sha256(path), "archived primary matches the actual packed save")
+		return
 	for x: float in [9.7, 10.8, 14.0]:
 		if x == 14. and not door.is_ready_for_passage():
 			if not using_case and not await _paid_park(washer): return
@@ -368,12 +391,55 @@ func _paid_pack_in_case(washer: Node3D, path: String) -> bool:
 		"closing the valise keeps the washer packed and frees normal movement")
 
 
-func _paid_return_from_case(washer: Node3D, path: String) -> bool:
+func _paid_full_case_refuses(washer: Node3D) -> bool:
+	var goods: Array[String] = []
+	var cells := CarriedCase.grid()
+	for index in cells.x * cells.y:
+		var item := "packed_washer_fixture_%d" % index
+		if not PersonInventory.carry_goods(PersonInventory.PLAYER, item, "Fixture packet"): break
+		goods.append(item)
+	if not _require(goods.size() == cells.x * cells.y, "one-cell packets fill every real case square"):
+		return false
+	await _paid_case_tab()
+	var ok := _require(not world.carried_case_view.opened and player.held_stock_body() == washer
+			and washer.visible and not CarriedCase.washer_is_packed(RealityState.data),
+			"actual Tab with a full case leaves the original paid washer in hand")
+	for item in goods:
+		PersonInventory.spend_goods(PersonInventory.PLAYER, item)
+	return ok
+
+
+func _paid_blocked_case_return(washer: Node3D, path: String) -> bool:
+	# A fixture obstruction isolates the closed-case return sweep. The
+	# native washer and actual input path still own the return decision.
+	var blocker := StaticBody3D.new()
+	var collider := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = Vector3(.10, .10, .10)
+	collider.shape = box
+	blocker.add_child(collider)
+	add_child(blocker)
+	blocker.global_position = player.camera.to_global(Vector3(.17, -.16, -.48))
+	await get_tree().physics_frame
+	var pose: Transform3D = player.camera.global_transform.translated_local(Vector3(.17, -.16, -.48))
+	var query: PhysicsShapeQueryParameters3D = washer._shape_query(washer._solids[0], pose)
+	query.collision_mask = 1
+	var hits := washer.get_world_3d().direct_space_state.intersect_shape(query)
+	if not _require(hits.any(func(hit: Dictionary) -> bool: return hit.collider == blocker),
+			"fixture obstruction overlaps the actual washer return pose"):
+		blocker.free()
+		return false
+	var ok := await _paid_return_from_case(washer, path, true)
+	blocker.free()
+	return ok
+
+
+func _paid_return_from_case(washer: Node3D, path: String, blocked := false) -> bool:
 	await _paid_case_tab()
 	var view: Node = world.carried_case_view
 	if not _require(view.opened and view.settled and view._stacks.has(PAID_GASKET),
-			"the same paid washer remains on its saved square after the walk"): return false
-	var place := CarriedCase.place_of(PAID_GASKET)
+			"the same paid washer remains on its saved square when the case reopens"): return false
+	var place := CarriedCase.place_of(PAID_GASKET).duplicate()
 	var start: Vector3 = view._centre(float(place.x), float(place.y), Vector2i.ONE)
 	var edge: Vector3 = view._centre(4.5, float(CarriedCase.grid().y) + .8, Vector2i.ONE)
 	for at: Vector3 in [start, edge]:
@@ -391,6 +457,13 @@ func _paid_return_from_case(washer: Node3D, path: String) -> bool:
 		await get_tree().process_frame
 	await get_tree().create_timer(.5).timeout
 	var saved: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if blocked:
+		var encoded_place: Dictionary = JSON.parse_string(JSON.stringify(place))
+		var saved_place: Dictionary = saved.get("carried_case", {}).get("places", {}).get(PAID_GASKET, {}) if saved is Dictionary else {}
+		return _require(not view.opened and _paid_in_transit(washer, true) and saved is Dictionary
+				and saved_place == encoded_place
+				and CarriedCase.place_of(PAID_GASKET) == place,
+				"blocked native hand pose retains the original washer and its packed disk square")
 	return _require(not view.opened and player.held_stock_body() == washer and washer.visible
 		and washer.collision_layer != 0 and not CarriedCase.washer_is_packed(RealityState.data)
 		and saved is Dictionary and not CarriedCase.washer_is_packed(saved),
