@@ -137,11 +137,17 @@ func _optics_lamp_snapshot() -> Dictionary:
 	return result
 
 func _optics_lamp_power(on: bool,phase: String) -> bool:
+	# Input.action_press stamps the CURRENT process frame. At post_draw the
+	# player's poll has already run; resume at the next pre-process signal.
+	await get_tree().process_frame
 	var record: Dictionary={"phase":phase,"requested_on":on,"before":_optics_lamp_snapshot(),"action_delivered":false,"samples":[]}
 	if player.lamp_is_enabled()!=on:
 		if not _require(not is_instance_valid(player.text_input_owner) and not Input.is_action_pressed("lamp_toggle"),"lamp input is available without taking over another input owner: "+phase):return false
 		Input.action_press("lamp_toggle")
-		for frame in 2:await get_tree().process_frame
+		record.press_process_frame=Engine.get_process_frames()
+		record.press_action_state={"pressed":Input.is_action_pressed("lamp_toggle"),"just_pressed":Input.is_action_just_pressed("lamp_toggle")}
+		await RenderingServer.frame_post_draw
+		record.after_actual_process=_optics_lamp_snapshot()
 		Input.action_release("lamp_toggle")
 		await get_tree().process_frame
 		record.action_delivered=true

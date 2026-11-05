@@ -1,4 +1,4 @@
-# Current handoff — PR152 merged; book parking reproduced, fix awaiting verification
+# Current handoff — book parking locally verified; repair optical input delivery
 
 Canonical **C:/PleaseRemainOnTheLine**. Active branch
 **codex/v2-book-hose-finish-20261104**, based on merged main
@@ -25,7 +25,8 @@ Raw logs,receipts,source freeze,observations and BEFORE_ASSESSMENT.json remain
 unchanged. These are causal diagnostics,not a schema2 runtime qualification.
 
 **Implemented, not yet verified:** production_only.patch95f8287dd13c659ff221996836c4cd7d0a3671d22c9f65e647b2d82e842c1419
-is applied to PlayerController and readable bookshelf. Before releasing its
+is committed and restored in PlayerController/readable bookshelf; the Before02
+original-byte overlay has ENDED (below). Before releasing its
 inspection loan,the player asks the existing owner; the shelf vetoes only the
 same registered book already parked in a valid slot. Unplaced same-object hand
 return and every other owner's behavior remain through the existing path.
@@ -44,22 +45,51 @@ PASS; session71109 terminal outer1/innerbatch3. Broker65084/source hold released
 Raw **book_park_after_01/** is preserved; optical compile/optics/access are
 NOT_EXECUTED because the batch stopped at this first failure. No blind retry.
 
-Current test-only amendment from **book_approach_review/proposed.patch** adds ONE
-actual-input XY/height alignment waypoint at current withdrawn Z,then retains
-both original depth goals,collisions,controls and thresholds. Pose/frame/contact/
-camera/axis/blocker snapshots precede each failed-leg check. Review distinguishes
-46mm world hit shift from43mm body-origin shift; no local-grip defect is proved.
-The production veto remains implemented but UNVERIFIED. Next: commit/push this
-bounded test/metadata checkpoint,then run a matched pair with the SAME amended
-test. Before02 must use exact original production bytes via a named,logged two-
-file overlay; freeze it and retain terminal/guard before restoring the committed
-14-line production patch. After02 then uses the same test on fixed production,
-followed only on local positive by28-script optical compile,optics/access.
-Case/source custody must be inspected before every launch; no live book run now.
+**Matched Before02 is terminal, expected negative reproduced.** Pushed test
+checkpoint **5b9a3ea0a689e53ab498c5368c193f0b68d11fca** adds one actual-input
+XY/height waypoint at current withdrawn Z,then both unchanged depth goals with
+all collisions,controls and thresholds retained. Pose/contact/camera/axis/blocker
+snapshots are in stdout. **book_park_before_02/** compile10/0,106checks/2original
+parked-exit assertion failures; unplaced SAME-book positive and actual approach/
+primary parking pass. Original-byte overlay and raw failed receipts are preserved;
+after-guard PASS,session41321 terminal outer1/innerbatch2 at03:20:52Z. No local-
+grip defect is proved. Both prior failed cohorts remain immutable.
 
-After local positive,the existing schema2 **V2BookInspectionReturnWorld.tscn**
-needs a bounded parked-exit contract addition before its validated household
-disk reconstruction; retain its unplaced branch. No full-book/whole-V2 claim.
+**After02 is terminal; matched local book control PASS106/0.** Same amended
+test on fixed production retains unplaced same-book return; deliberately parked
+book stays in slot2/exact pose,frozen,hand-free,carrier exceptions clear and
+library valid. Empty book stderr. Same engine/test; only two production owners
+differ from Before02. Raw **book_park_after_02/** and
+**LOCAL_MATCHED_BOOK_RESULT.json** preserve the observations. Entire batch final
+source guard PASS at **2026-11-05T03:42:35Z**; session24111 terminal outer1/inner1,
+broker41320/source hold released. This is local actual-input verification,not
+schema2 installed/save or art acceptance.
+
+Optical preflight28/0 passes, but the installed optical run exits1 with2failures
+in211.86s: post-draw **Input.action_press** never changed logical lamp power,so
+only inspection/returned-hand frames exist; four-phase identity check is
+incomplete. Access survey NOT_EXECUTED (fail-fast). Both native frames reviewed:
+inspection title/author readable; returned cover nearly black,all six samples
+67–73degrees outside35.21degree half cone,front incidence .049–.083. No sampled
+player-excluded body hit; shadow causality remains unproved. Actual review/crops:
+**book_optics_actual_review_01/**. No lighting fix or artistic acceptance yet.
+
+Current diagnostic correction synchronizes its polled action with the NEXT
+SceneTree.process_frame before the player's actual poll,then records actual
+post-process state before releasing. Pinned Input::action_press stores current
+process frame; invoking it after post_draw misses that already-completed poll.
+New **V2BookLampInputPhaseProbe.tscn/v2_book_lamp_input_phase_probe.gd** reuses the
+ACTUAL optical stimulus method with an actual PlayerController,native carrier
+and thermal driver,while skipping city construction. It preserves the missed
+post-draw negative and requires real toggle/restore. Not compiled/run yet.
+Next: named checkpoint,small native input probe; only on its pass rerun optical
+controls/access,then admit the bounded installed parked/save contract.
+
+An uninstalled bounded addition to existing schema2
+**V2BookInspectionReturnWorld.tscn** is ready at **book_installed_park_contract_ready/**:
+original unplaced/disk assertions retained,actual parked branch and detached
+input viewport with explicit executed-scene/script bindings. Review before
+admission; no forced success if real nook stock blocks. No whole-V2 claim.
 Access renewal uses **V2NookAccessSurvey.tscn**: October22's table/plant/rug repair
 already passed11normal-capsule waypoints. The parent profile's stale access-defect
 comment is not a fresh failure. Reproduce via that corrected route before any
