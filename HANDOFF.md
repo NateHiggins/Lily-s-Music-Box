@@ -5,22 +5,41 @@ Canonical checkout **C:/PleaseRemainOnTheLine**, branch
 Main **4f16053e8**; pushed source checkpoint **dd1d6f652**
 (engine shutdown cleanup plus opt-in native diagnostic audio output). Root **01a1a653-eda8-7732-9732-2c362f5129d6** owns
 integration. Lily paused parallel emulator work and assigned the computer to
-this development. Keep it paused; preserve her mouse and hidden FIFO lane.
+this development. Keep emulators paused; preserve her mouse and hidden FIFO lane.
+Share normal FIFO with Claude, batch coordination messages and give her time;
+no exclusive-use or GPU-pause requests. Her isolated work can continue.
 
-**runtime14 is LIVE**, broker38556/session23979, birthUTC
-**2026-11-04T23:45:42.0302880Z**, ticks639294327420302880. Revalidate full command
-and identity in **runtime_14/QUEUE_CUSTODY.json** before inheriting; never duplicate.
-Frozen source **dd1d6f652b9087c410b82a81b40284124c92e92c**; immutable producer
+**runtime14 is TERMINAL/PASS**, original broker38556/session23979 retired.
+All seven original scene wrappers exit0/untimedout with zero ERROR/SCRIPT ERROR
+or shutdown leaks. First-slice661.75s/379serialized checks/0fail; apartments
+974.80s/60rooms/9legs/781serialized/0fail; physical-only surfaces360.72s/
+38947checks/0fail/0unresolved. Original afterguardPASS includes82actual3440PNGs.
+Architect independently rechecked full consumed projection/binary equality and
+released custody. Exact originals: **runtime_14/TERMINAL.json**, MONITOR.md,
+SOURCE_FREEZE.json and original wrappers/contracts. Frozen game/test source
+**dd1d6f652b9087c410b82a81b40284124c92e92c**; wrappers record tracker-only
+**d0039ff78da1451c68ddffebfd93672e46baf472**. Producer remains immutable
 **423771d0ee6a076e0d7f74bee9bc87a8e7eb5d9e63dfaa226320a9acc520873f**.
-All seven original scene stages execute fresh on pinned shutdown-fix engine;
-six windowed programmes explicitly use real **Headphones (BD9)** WASAPI output
-and fresh isolated profiles. Batch retains original assertions,actual native PNG
-admission,original authority/save,60rooms/9legs,physical/city/entry surfaces and
-final afterguard. Architect owns MONITOR/TERMINAL and actual bounded12frame
-technical review only; root owns launch/source/admission/merge. Source hold spans
-the entire batch. Check actual receipts,not this changing tracker,for progress.
-No old-engine PASS is reused as current proof. External producer/stager14 require
-review; failed13stager must not publish this cohort.
+All six windowed programmes used explicit realBD9/fresh isolated profiles.
+12bounded+18apartment+64surface originals reviewed; foreground/wall crops and
+city shading/framing limitations remain in the exact-hash INERT frame reviews.
+No human play/artistic acceptance is implied.
+
+**Publication instrument repair:** first staging attempt refused before creating
+packets because wrapper test_path/test_sha256 are correctlyNULL for the
+scriptless rootControl; the primary programme is a child ofInputViewport.
+Original failed helper/logs remain untouched. The active first-slice verifier
+now accepts that exact NULL-only case only after proving the unique child
+attachment from recordedGit scene/script bytes, currentLF equality and the
+primary contract's scene/script hashes. All other ledger/runtime/log checks
+remain strict.14author CPU controls plus6independent root negatives pass; actual14
+binding passes. Only the unconsumed verifier changed; no raw receipt is repinned.
+Fresh **stage_runtime14_nested_packets.py** admits exactly its reviewed LF SHA
+**a10053640090016739aa5ef0579156022db77ca46fbb2cc6613f6a3c13a552a1**,
+checks every interveningcommit/mergeparent, and reuses the immutable14afterguard
+before packet staging in distinct logs. Complete this staging,then byte-exact
+publication/exact candidate/manualqualified152merge. No game replay is required
+for an instrument-only change if the original consumed projection still matches.
 
 **runtime13 is TERMINAL/FAILED**, not queued. Original apartment assertions
 passed: 60 rooms/9 legs,781 serialized checks,0 failures,1264.98s. Original
@@ -83,8 +102,8 @@ No whole-V2,human play or artistic acceptance is claimed.
 
 ## Finish the integration before opening new work
 
-1. Fix the reproduced audio shutdown leak,then pass original authority/save,
-   apartment access and remaining surfaces with current inputs. Inspect new frames.
+1. Complete nested-script packet admission and publish the successful original14
+   authority/save,apartment and surface evidence; preserve all prior failures.
    Stage only exact original receipts via the external staging helper,passing
    the successful new runtime name explicitly; its default still names03. Preserve the older19-room
    apartment cohort separately. No receipt repin or capture-to-played promotion.
