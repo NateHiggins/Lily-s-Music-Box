@@ -129,21 +129,30 @@ func preview_purchased_gasket_fit(pickup: RigidBody3D) -> Dictionary:
 	# not reject the intended contact. The cabinet validates the exact seat.
 	var seated_pose := Transform3D(seat_basis, seat - seat_basis * local_face)
 	var raised := seated_pose.translated(seat_basis.y * .0001)
-	var motion := raised.origin - aligned.origin
+	# Centre at the incoming height before lowering through the nut. A
+	# diagonal snap can strike its lip even with a clear axial insertion.
+	var height := maxf(0., (aligned.origin - raised.origin).dot(seat_basis.y))
+	var centred := raised.translated(seat_basis.y * height)
+	if not _purchased_gasket_path_clear(pickup, aligned, centred) \
+			or not _purchased_gasket_path_clear(pickup, centred, raised):
+		return {}
+	return {"paid_body_pose":seated_pose, "seat_face":seat, "pickup_face":actual_face}
+
+
+func _purchased_gasket_path_clear(pickup: RigidBody3D, start: Transform3D, finish: Transform3D) -> bool:
+	var motion := finish.origin - start.origin
 	var space := get_world_3d().direct_space_state
 	for solid: CollisionShape3D in pickup._solids:
-		var query: PhysicsShapeQueryParameters3D = pickup._shape_query(solid, aligned)
+		var query: PhysicsShapeQueryParameters3D = pickup._shape_query(solid, start)
 		var rest := space.get_rest_info(query)
 		if not rest.is_empty() and motion.dot(rest.normal) < -.0000001:
-			return {}
+			return false
 		if motion.length_squared() > 1e-12:
 			query.motion = motion
 			var clearance := space.cast_motion(query)
 			if clearance.size() != 2 or clearance[0] < 1.:
-				return {}
-	if not pickup._clear_pose(raised):
-		return {}
-	return {"paid_body_pose":seated_pose, "seat_face":seat, "pickup_face":actual_face}
+				return false
+	return pickup._clear_pose(finish)
 
 
 func _purchased_gasket_support() -> Dictionary:

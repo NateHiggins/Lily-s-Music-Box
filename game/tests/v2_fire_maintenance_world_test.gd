@@ -236,19 +236,19 @@ func _paid_gasket_route(door_z: float, path: String, report: Dictionary) -> void
 			and int(economy.book().cash) == cash - 10, "explicit primary release off seat transfers no custody and debits no extra cash"): return
 	if not await _paid_take(washer): return
 	if not await _paid_move_face(washer, face, seat + actor.global_basis * Vector3(0,.065,.13)): return
-	# Centre above the retained nut before lowering through its bore. The
-	# authored minimum bore radius leaves just .5 mm radial clearance.
-	for height: float in [.018, .006]:
-		if not await _paid_move_face(washer, face, seat + actor.global_basis.y * height, .00015): return
+	# Approach above the nut with a visible lateral offset, using ordinary
+	# pointer precision. The receiver must find its own clear insertion path.
+	if not await _paid_move_face(washer, face, seat + actor.global_basis * Vector3(0,.020,.008)): return
 	var distance: float = face.call().distance_to(seat)
+	var radial_offset: float = (face.call() - seat).slide(actor.global_basis.y).length()
 	var alignment := draw.global_basis.y.normalized().dot(actor.global_basis.y.normalized())
 	report["contact"] = {"distance_m":distance, "up_dot":alignment, "off_seat_distance_m":off_seat_distance,
-		"face_world":str(face.call()), "seat_world":str(seat)}
+		"radial_offset_m":radial_offset, "face_world":str(face.call()), "seat_world":str(seat)}
 	var fit: Dictionary = actor.preview_purchased_gasket_fit(washer)
 	if fit.is_empty() and distance <= .025 and alignment >= .99:
 		report["clearance_probe"] = _paid_fit_clearance_probe(actor, washer, face.call(), seat)
-	if not _require(distance <= .025 and alignment >= .99 and not fit.is_empty(),
-			"actual paid sealing face has native snap reach, alignment and real swept clearance"): return
+	if not _require(distance <= .025 and radial_offset >= .005 and alignment >= .99 and not fit.is_empty(),
+			"paid washer at least 5 mm off centre finds a clear native insertion within snap reach"): return
 	var pre_hash: String = FileAccess.get_sha256(path) if FileAccess.file_exists(path) else ""
 	var seen_before: bool = actor.gasket_seen
 	hands.click()
@@ -518,14 +518,14 @@ func _paid_park(washer: Node3D) -> bool:
 	return _require(not player._grab.active() and washer.sleeping and not washer.freeze, "paid washer parks on original floor support while the hand opens the next fitting")
 
 
-func _paid_move_face(washer: Node3D, face: Callable, goal: Vector3, tolerance := .003) -> bool:
+func _paid_move_face(washer: Node3D, face: Callable, goal: Vector3) -> bool:
 	# Same projection and wheel delivery as the original fire hand bench,
 	# with release kept separate so only the verified explicit click can commit.
 	var samples: Array[Dictionary] = []
 	for step in 120:
 		if not player._grab.active() or player._grab.target.part != washer: break
 		var delta: Vector3 = goal - face.call()
-		if delta.length() < tolerance: return true
+		if delta.length() < .003: return true
 		var point: Vector3 = washer.to_global(player._grab.contact)
 		var depth: float = delta.dot((point - player.camera.global_position).normalized())
 		if absf(depth) > .0001:
