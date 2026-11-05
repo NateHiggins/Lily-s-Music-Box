@@ -2,6 +2,7 @@ extends "res://tests/v2_nook_world_profile.gd"
 ## Played-world source-bound interaction proof; frame arrays remain INERT.
 var _return_completed:=false
 var _disk_completed:=false
+var _park_attempted:=false
 var _park_executed:=false
 var _park_completed:=false
 var _original_books: Dictionary={}
@@ -38,7 +39,7 @@ func _route() -> void:
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
 		"source":{"test_path":"game/tests/v2_book_inspection_return_world.gd","test_sha256":test_hash,"scene_path":executed_scene,"scene_sha256":scene_hash,"script_node_path":str(get_path()),"test_dependencies":before.get("test_dependencies",{}),"runtime_inputs_sha256":before.get("runtime_inputs_sha256","")},
 		"programme":{"completed":_return_completed and _park_completed and (not disk_requested or _disk_completed),"original_library":_original_library,"parked_trace":_park_trace,"trace":trace,"failures":failures,"disk_requested":disk_requested},
-		"contracts":{"installed_book_parked_exit":{"executed":_park_executed,"passed":_park_completed and passed},"installed_book_return_release":{"executed":_return_completed,"passed":_return_completed and passed},"installed_nook_disk_reload":{"executed":_disk_completed,"passed":_disk_completed and passed}}}
+		"contracts":{"installed_book_parked_exit":{"attempted":_park_attempted,"executed":_park_executed,"passed":_park_completed and passed},"installed_book_return_release":{"executed":_return_completed,"passed":_return_completed and passed},"installed_nook_disk_reload":{"executed":_disk_completed,"passed":_disk_completed and passed}}}
 	var directory: String=OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(directory)
 	var file: FileAccess=FileAccess.open(directory.path_join("nook_return.runtime.json"),FileAccess.WRITE)
@@ -173,13 +174,40 @@ func _park_cursor(point: Vector3) -> bool:
 	await get_tree().process_frame
 	return viewport.get_mouse_position().distance_to(pixel)<.6
 
+# Deliberately whitelist fields: native descriptors contain live Objects and
+# Callables, and collider properties may lead back into the same scene graph.
+static func _park_vector(value: Variant) -> Variant:
+	return [value.x,value.y,value.z] if value is Vector3 else null
+
+static func _park_object(value: Variant) -> Dictionary:
+	if typeof(value)!=TYPE_OBJECT or not is_instance_valid(value):return {}
+	return {"id":value.get_instance_id(),"class":value.get_class(),"path":str(value.get_path()) if value is Node and value.is_inside_tree() else "","rid":value.get_rid().get_id() if value is CollisionObject3D else 0}
+
+static func _park_hit_fields(info: Dictionary) -> Dictionary:
+	var rid: Variant=info.get("rid")
+	var shape: Variant=info.get("shape")
+	var row: Dictionary={"present":not info.is_empty(),"collider":_park_object(info.get("collider")),"rid":rid.get_id() if typeof(rid)==TYPE_RID else 0,"shape":shape if typeof(shape)==TYPE_INT else -1}
+	for key: String in ["normal","position","point","motion"]:row[key]=_park_vector(info.get(key))
+	for key: String in ["safe","unsafe"]:
+		var value: Variant=info.get(key)
+		row[key]=value if typeof(value) in [TYPE_FLOAT,TYPE_INT] else null
+	row["unresolved_native_impact"]=info.get("unresolved_native_impact")==true
+	return row
+
+static func _park_descriptor_fields(descriptor: Dictionary) -> Dictionary:
+	var kind: Variant=descriptor.get("kind")
+	return {"owner":_park_object(descriptor.get("owner")),"part":_park_object(descriptor.get("part")),"frame":_park_object(descriptor.get("frame")),"kind":str(kind) if typeof(kind) in [TYPE_STRING,TYPE_STRING_NAME] else "","blocked":descriptor.get("blocked")==true,"pickup":descriptor.get("pickup")==true,"hit_position":_park_vector(descriptor.get("hit_position"))}
+
+func _park_ray_observe(phase: String, descriptor: Dictionary) -> void:
+	var row: Dictionary={"observation":"acquisition_ray","phase":phase,"cursor":var_to_str(get_viewport().get_mouse_position()),"ray_pixel":var_to_str(get_viewport().get_mouse_position() if player.inspecting() else player.camera.get_viewport().get_visible_rect().size*.5),"inspection":player.inspecting(),"first_hit":_park_hit_fields(player._grab.last_hit),"descriptor":_park_descriptor_fields(descriptor)}
+	_park_trace.append(row);print("INSTALLED BOOK ACQUISITION RAY: ",JSON.stringify(row))
+
 func _park_observe(phase: String, book: Node3D) -> void:
-	var hit: Variant=book._last_motion.get("collider")
-	var row: Dictionary={"phase":phase,"stock_id":book.stock_id,"instance_id":book.get_instance_id(),"owner_id":book.shelf.get_instance_id(),"book_pose":var_to_str(book.transform),"world_pose":var_to_str(book.global_transform),"owner_pose":var_to_str(book.shelf.global_transform),"camera_pose":var_to_str(player.camera.global_transform),"local_contact":var_to_str(player._grab.contact),"world_contact":var_to_str(book.to_global(player._grab.contact)),"axis":player._grab.transform_axis,"rotating":player._grab.transform_rotating,"held":book._held,"frozen":book.freeze,"slot":book.shelf_slot,"inspection":player.inspecting(),"grab_active":player._grab.active(),"same_hand_book":player._grab.target.get("part")==book,"carrier_exceptions_clear":not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"last_motion":var_to_str(book._last_motion),"blocker_path":str(hit.get_path()) if hit is Node else ""}
+	var row: Dictionary={"phase":phase,"stock_id":book.stock_id,"instance_id":book.get_instance_id(),"owner_id":book.shelf.get_instance_id(),"book_pose":var_to_str(book.transform),"world_pose":var_to_str(book.global_transform),"owner_pose":var_to_str(book.shelf.global_transform),"camera_pose":var_to_str(player.camera.global_transform),"local_contact":var_to_str(player._grab.contact),"world_contact":var_to_str(book.to_global(player._grab.contact)),"axis":player._grab.transform_axis,"rotating":player._grab.transform_rotating,"held":book._held,"frozen":book.freeze,"slot":book.shelf_slot,"inspection":player.inspecting(),"grab_active":player._grab.active(),"same_hand_book":player._grab.target.get("part")==book,"carrier_exceptions_clear":not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"body_last_motion":_park_hit_fields(book._last_motion)}
 	_park_trace.append(row);print("INSTALLED BOOK PARK: ",JSON.stringify(row))
 
 func _park_installed_book(book: Node3D) -> void:
-	_park_executed=true
+	_park_attempted=true
 	profile_active=false # Additional manipulation, queries/captures are not parent timings.
 	var shelf: Node3D=book.shelf
 	var original: Dictionary=_original_books.get(book.stock_id,{})
@@ -192,7 +220,8 @@ func _park_installed_book(book: Node3D) -> void:
 	player.camera.look_at(spine.global_position)
 	await get_tree().physics_frame
 	var picked: Dictionary=player._grab.find_target()
-	print("INSTALLED BOOK REACQUIRE RAY: ",picked)
+	_park_ray_observe("fps_reacquisition",picked)
+	print("INSTALLED BOOK REACQUIRE RAY: ",_park_descriptor_fields(picked))
 	_park_observe("before_reacquire",book)
 	if not _require(picked.get("part")==book and picked.get("kind")=="free","released installed binding exposes a real reachable spine ray"):return
 	_click_library()
@@ -202,7 +231,8 @@ func _park_installed_book(book: Node3D) -> void:
 	if not _require(player.inspecting(),"normal Space opens installed return inspection"):return
 	for frame in 180:await get_tree().physics_frame
 	if not _require(await _park_cursor(spine.global_position),"detached pointer reaches actual installed spine"):return
-	picked=player._grab.find_target();print("INSTALLED BOOK FREE SPINE RAY: ",picked)
+	picked=player._grab.find_target();print("INSTALLED BOOK FREE SPINE RAY: ",_park_descriptor_fields(picked))
+	_park_ray_observe("inspection_spine_reacquisition",picked)
 	if not _require(picked.get("part")==book and picked.get("kind")=="free","actual free cursor targets the same installed binding"):return
 	_click_library()
 	if not _require(player._grab.active() and player._grab.target.part==book,"actual primary latches the installed floating spine"):return
@@ -239,6 +269,7 @@ func _park_installed_book(book: Node3D) -> void:
 	_click_library()
 	_park_observe("primary_slot_release",book)
 	if not _require(not player._grab.active() and not book._held and book.freeze and book.shelf_slot==original.slot and book.transform.is_equal_approx(wanted),"actual primary release parks the SAME installed binding in its exact original slot"):return
+	_park_executed=true # The parked-exit control starts only after valid primary parking.
 	await _park_space()
 	for frame in 8:await get_tree().physics_frame
 	_park_observe("parked_after_normal_space",book)
@@ -248,7 +279,7 @@ func _park_installed_book(book: Node3D) -> void:
 	_park_completed=true
 
 func _park_carry(goal: Vector3) -> bool:
-	print("CARRY BEGIN: ",goal," target=",player._grab.target.get("part"))
+	print("CARRY BEGIN: ",goal," target=",_park_object(player._grab.target.get("part")))
 	var stalled:=0
 	for frame in 120:
 		if not player._grab.active() or player._grab.target.kind!="free": return false
@@ -266,11 +297,11 @@ func _park_carry(goal: Vector3) -> bool:
 		var motion:=InputEventMouseMotion.new();motion.relative=(player.camera.unproject_position(point+planar)-player.camera.unproject_position(point)).limit_length(25.)
 		if frame<3: print("CARRY MOTION: ",frame," before=",before," mouse=",motion.relative)
 		player._unhandled_input(motion)
-		if frame<3: print("CARRY MOTION RETURN: ",frame," contact=",target.part._last_motion)
+		if frame<3: print("CARRY MOTION RETURN: ",frame," contact=",_park_hit_fields(target.part._last_motion))
 		await get_tree().physics_frame
 		stalled=stalled+1 if player._grab.active() and goal.distance_to(player._grab.target.read.call())>=goal.distance_to(before)-.000001 else 0
 		if stalled>8:
-			print("CARRY STOP: ",player._grab.target.part._last_motion," at=",player._grab.target.read.call()," goal=",goal);return false
+			print("CARRY STOP: ",_park_hit_fields(player._grab.target.part._last_motion)," at=",player._grab.target.read.call()," goal=",goal);return false
 	return false
 
 func _park_axis(axis: int) -> void:

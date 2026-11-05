@@ -3,6 +3,27 @@
 Evidence class: **INERT**. Repair/diagnostic report, 2026-10-22.
 No runtime-contract qualification or human acceptance.
 
+## November 4 — current technical evidence and remaining installed proof
+
+**Latest batch book_reading_installed_02/** at **eb7b27a71** is terminal: compile30/0, native input9/0, default lamp21/0, installed optical four phases/0failures, access11waypoints/0failures, installed compile1/0; before/after sourceguardsPASS. Native frames and unscaled crops reviewed: closed held title legible, author tiny (~40x11px); on/off/restored illumination causal, six on-held samples inside unchanged cone, exact first solid that cover ~6–7um before profile. This does not prove open/two-binding/opaque-held control, performance or artistic acceptance.
+
+**Installed parked/disk remains unqualified:** original return/release and real same-body free-spine reacquisition pass, then _park_observe var_to_str(book._last_motion) recursively serializes a live collider. Exact owned PID67496/birth/command recorded; only this stuck diagnostic stopped. Wrapperexit-1 at260s, not timeout; raw errors/OWNED_DIAGNOSTIC_STOP.json preserved. No parked/disk control completed. Outer session62491 terminal1, finalguard0, lane released. Next explicit scalar/identity snapshots + tiny native preflight before repeating installed route. Optional opaque-panel/two-binding actual-input controls are now installed, uncompiled/unrun. Production unchanged from eb7b27a71. Claude renders finished, LoRA paused for Lily's GPU window; signal release when done. Root owns canonical sources. No human/whole-V2/artistic completion.
+
+Matched amended **book_park_before_02/** reproduces the original parked Space
+reacquisition at106checks/2expected failures; fixed **book_park_after_02/** passes
+106/0 with empty stderr. Unplaced SAME-book return passes both; only the two
+production return owners differ. Original neighbor collision After01 and every
+failed receipt remain preserved. New held-reading target uses native printed
+geometry and an unfiltered inside-aware aperture ray; power, cone, range,
+shadows, book poses/materials and validated save owners are unchanged.
+
+Current cases: **C:/ov/reports/develop_intake_20261104/**. Optical receipt records
+211.50s. Wrapper receipts are not schema2 runtime-contract proof. Earlier
+**book_reading_installed_01/** failed a genuine observer get_world_3d parse error,
+corrected to the player's world; no stale-cache excuse or old receipt repin.
+
+## Historical inherited preflight and queue custody
+
 ## Latest continuation — inherited API repair compiles; actual world queued
 
 **walk_api_13/compile.log.receipt.json** records source **ea18e8082**, patched

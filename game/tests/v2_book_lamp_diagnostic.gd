@@ -1,10 +1,12 @@
 extends "res://tests/v2_nook_world_profile.gd"
-## INERT strengthened external candidate: not installed, compiled or run.
+## INERT native geometry/image diagnostic; qualification requires separate runtime contracts.
 ## Same nearby route and actual Space/primary ownership as the original candidate.
 var optics: Array[Dictionary]=[]
 var lamp_controls: Array[Dictionary]=[]
 var hand_observations: Array[Dictionary]=[]
 var comparison_poses: Dictionary={}
+var two_style_controls: Dictionary={"executed":false,"completed":false,"frames":[],"attempts":[]}
+var held_controls: Dictionary={"executed":false,"two_style_closed_open":{"executed":false,"reason":"Parent route selects one reachable copy; two-style closed/open actual acquisition is not established."}}
 const NATIVE_PIXELS := Vector2i(3440,1440)
 const OWNER_SOURCES: Array[String]=[
 	"res://scripts/props/v2_readable_book.gd",
@@ -39,12 +41,17 @@ func _inspect_stock_review(book: Node3D) -> void:
 	var restored: bool=await _optics_lamp_power(original_power,"restore_original_switch")
 	_require(restored and player.lamp_is_enabled()==original_power,"normal lamp input restores original logical power")
 	_require(optics.size()==4 and _optics_same_subjects(),"all four optical phases retain the same book/camera/lamp/carrier/device/aperture identities")
+	if OS.get_environment("ORISON_BOOK_HELD_PANEL_CONTROL")=="1" and failures.is_empty():await _held_panel_control(book)
 	_click_library()
 	var released: bool=_require(not player._grab.active() and not book._held,"optical diagnostic releases the same book through actual primary")
+	if released and bool(held_controls.get("completed",false)):await _held_empty_fallback(book)
+	if OS.get_environment("ORISON_BOOK_TWO_STYLE_HELD")=="1" and released and failures.is_empty():
+		await _two_style_run(book.shelf)
+		player.cancel_manipulation() # Normal owned-test cleanup; failures retained.
 	var output: String=OS.get_environment("SHOT_DIR")
 	var sources: Dictionary=_optics_sources()
 	_require(sources==sources_before,"named optical observer/owner sources unchanged through controls")
-	var report: Dictionary={"evidence_class":"INERT","kind":"book_lamp_geometry_diagnostic","frames":optics,"source_files_sha256":sources,"source_files_before_sha256":sources_before,"released_same_book":released,"lamp_controls":lamp_controls,"hand_observations":hand_observations,"original_lamp_power":original_power,"original_lamp_restored":restored,
+	var report: Dictionary={"evidence_class":"INERT","kind":"book_lamp_geometry_diagnostic","frames":optics,"source_files_sha256":sources,"source_files_before_sha256":sources_before,"released_same_book":released,"lamp_controls":lamp_controls,"hand_observations":hand_observations,"original_lamp_power":original_power,"original_lamp_restored":restored,"held_controls":held_controls,"two_style_controls":two_style_controls,
 		"independent_opaque_control":{"executed":false,"reason":"No independently operable opaque blocker is proven reachable by this preserved parent route. Existing first hits are observations, not an invented clear/blocked/restored control."},
 		"scope":"Same installed book/native lamp, inspection and actual FPS hand; real polled on/off/restored power. Geometry/image-region observations only; no independent opaque control, readability acceptance, performance, save or artistic acceptance.","failures":failures}
 	var file:=FileAccess.open(output.path_join("book_lamp_geometry.json"),FileAccess.WRITE)
@@ -308,8 +315,213 @@ func _optics_pose_deltas(phase: String,book: Node3D,light: SpotLight3D,lens: Nod
 func _optics_sources() -> Dictionary:
 	var result: Dictionary={get_script().resource_path:_optics_text_hash(get_script().resource_path),"res://tests/V2BookLampDiagnostic.tscn":_optics_text_hash("res://tests/V2BookLampDiagnostic.tscn")}
 	for path: String in OWNER_SOURCES:result[path]=_optics_text_hash(path)
+	var actual_scene: String=get_tree().current_scene.scene_file_path
+	result[actual_scene]=_optics_text_hash(actual_scene)
 	return result
 
 func _optics_text_hash(path: String) -> String:
 	if not FileAccess.file_exists(path):return ""
 	return FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
+
+# Optional same-current-book technical panel control. Fixture insertion/removal,
+# NOT a second player hand or a new installed-world/player-operated mechanism.
+func _held_panel_control(book: Node3D) -> void:
+	held_controls.executed=true;held_controls.scope="Same current closed book, real original pickup/Space/power programme. Owned panel is fixture-inserted, not player-operated; no two-style/open/readability/artistic/performance acceptance."
+	held_controls.completed=false;held_controls.frames=[];held_controls.budget=[]
+	if not _require(player.held_stock_body()==book and book._held and not player.inspecting(),"panel control retains actual current book in free hand"):return
+	if not _require(is_zero_approx(book.opening) and player.lamp_is_enabled(),"panel control starts from actual closed book and powered lamp"):return
+	var carrier: Node3D=player.carried_device
+	var lens: MeshInstance3D=carrier.device.teletype.torch_lens
+	if not _require(is_instance_valid(lens) and lens.mesh!=null,"panel control uses actual native aperture"):return
+	var aperture: Vector3=lens.to_global(lens.mesh.get_aabb().get_center())
+	var target: Vector3=book.reading_light_target(aperture)
+	if not _require(target.is_finite() and aperture.distance_to(target)>.08,"panel control has finite nondegenerate real profile target"):return
+	var original_book: Transform3D=book.global_transform
+	var original_camera: Transform3D=player.camera.global_transform
+	var direction: Vector3=(target-aperture).normalized()
+	var up: Vector3=Vector3.UP if absf(direction.dot(Vector3.UP))<.95 else Vector3.RIGHT
+	var pose:=Transform3D(Basis.looking_at(direction,up),(aperture+target)*.5)
+	var box:=BoxShape3D.new();box.size=Vector3(.12,.16,.012)
+	# Fail first setup if real stock/player overlaps proposed witness. Never
+	# exclude them, disable collisions, move the hand, or hunt a passing pose.
+	var query:=PhysicsShapeQueryParameters3D.new();query.shape=box;query.transform=pose
+	query.collision_mask=1;query.collide_with_bodies=true;query.collide_with_areas=false;query.margin=0.
+	var overlaps: Array[Dictionary]=player.get_world_3d().direct_space_state.intersect_shape(query,8)
+	held_controls.overlaps_before_insertion=[]
+	for hit: Dictionary in overlaps:held_controls.overlaps_before_insertion.append({"collider":_identity(hit.get("collider") as Node),"rid":str(hit.get("rid",RID())),"shape":hit.get("shape",-1)})
+	if not _require(overlaps.is_empty(),"owned opaque panel pose clears actual player/book/world stock before insertion"):return
+	if not await _held_panel_stage("panel_clear",book,carrier,lens,original_book,original_camera,null):return
+	var panel:=StaticBody3D.new();panel.name="BookLampOwnedOpaquePanel";panel.collision_layer=1;panel.collision_mask=1
+	var solid:=CollisionShape3D.new();solid.shape=box;panel.add_child(solid)
+	var draw:=MeshInstance3D.new();var mesh:=BoxMesh.new();mesh.size=box.size;draw.mesh=mesh;draw.layers=1
+	var finish: StandardMaterial3D=MatLib.get_mat("cast_iron").duplicate();finish.transparency=BaseMaterial3D.TRANSPARENCY_DISABLED
+	draw.material_override=finish;draw.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_ON;panel.add_child(draw)
+	add_child(panel);panel.global_transform=pose
+	held_controls.panel={"identity":_identity(panel),"rid":str(panel.get_rid()),"pose":var_to_str(pose),"size":var_to_str(box.size),"layers":draw.layers,"cast_shadow":draw.cast_shadow,"transparency":finish.transparency,"fixture_inserted":true}
+	for frame in 6:await get_tree().physics_frame
+	var blocked: bool=await _held_panel_stage("panel_blocked",book,carrier,lens,original_book,original_camera,panel)
+	panel.free() # Retire only this fixture's solid/draw, including failure path.
+	for frame in 6:await get_tree().physics_frame
+	if not blocked:return
+	if not await _held_panel_stage("panel_restored",book,carrier,lens,original_book,original_camera,null):return
+	held_controls.completed=true
+
+func _held_panel_stage(phase: String,book: Node3D,carrier: Node3D,lens: MeshInstance3D,book_pose: Transform3D,camera_pose: Transform3D,panel: StaticBody3D) -> bool:
+	if not _require(player.held_stock_body()==book and book._held and book.global_transform.is_equal_approx(book_pose) and player.camera.global_transform.is_equal_approx(camera_pose),"actual hand/book/camera retained without forced pose: "+phase):return false
+	if not _require(player.lamp_is_enabled() and carrier.device.lamp_enabled and player.flashlight.shadow_enabled,"native powered shadow-casting lamp retained: "+phase):return false
+	var aperture: Vector3=lens.to_global(lens.mesh.get_aabb().get_center())
+	var target: Vector3=book.reading_light_target(aperture)
+	if not _require(target.is_finite(),"real held profile target remains available: "+phase):return false
+	var query:=PhysicsRayQueryParameters3D.create(aperture,target,1)
+	query.collide_with_bodies=true;query.collide_with_areas=false;query.hit_from_inside=true;query.hit_back_faces=true
+	var hit: Dictionary=player.get_world_3d().direct_space_state.intersect_ray(query)
+	var hit_record: Dictionary=_hit_record(hit,book,target)
+	hit_record.rid=str(hit.get("rid",RID()))
+	if panel!=null:
+		if not _require(hit.get("collider")==panel and hit.get("rid",RID())==panel.get_rid(),"unfiltered actual first solid is exact owned panel: "+phase):return false
+	else:
+		# Baseline may meet the book's own hull near the requested printed point;
+		# do not skip other stock or claim any same-book hit proves occlusion.
+		if not _require(hit.is_empty() or bool(hit_record.is_same_book),"unfiltered clear/restored line has no other first solid: "+phase):return false
+	var observations: Array=[]
+	# Pure counter/frame observation, no ray/capture/IO inside this interval.
+	for frame in 13:
+		await get_tree().physics_frame
+		observations.append({"physics_frame":Engine.get_physics_frames(),"queries":carrier.lamp_target_queries,"target_frame":carrier._lamp_target_frame})
+	var first: Dictionary=observations[0];var last: Dictionary=observations[-1]
+	var delta: int=int(last.queries)-int(first.queries);var ticks: int=int(last.physics_frame)-int(first.physics_frame)
+	held_controls.budget.append({"phase":phase,"samples":observations,"query_delta":delta,"physics_frame_delta":ticks,"boundary_allowance":1,"scope":"Endpoint ordering may include one current-frame callback. Production counter only, diagnostic rays excluded; not CPU duration/performance acceptance."})
+	if not _require(delta>=0 and delta<=ticks+1,"bounded powered production query count: "+phase):return false
+	var before_failures: int=failures.size()
+	var before: int=optics.size()
+	await _observe_book(phase,book)
+	if not _require(optics.size()==before+1,"owned panel phase saves actual original image: "+phase):return false
+	var image_record: Dictionary=optics.pop_back() # Keep original FOUR-phase list.
+	image_record.unfiltered_panel_ray={"aperture":var_to_str(aperture),"requested_profile":var_to_str(target),"first_hit":hit_record,"exclusions":[],"hit_from_inside":true,"hit_back_faces":true}
+	held_controls.frames.append(image_record)
+	if failures.size()!=before_failures:return false
+	var captured_hit: Dictionary=image_record.reading_aim.first_hit
+	if panel!=null:
+		if not _require(captured_hit.get("collider",{}).get("instance_id",0)==panel.get_instance_id(),"capture-time unfiltered first solid retains exact panel: "+phase):return false
+	else:
+		if not _require(captured_hit.get("collider",{}).is_empty() or bool(captured_hit.get("is_same_book",false)),"capture-time clear/restored first solid retains baseline scope: "+phase):return false
+	return true
+
+func _held_empty_fallback(book: Node3D) -> void:
+	var carrier: Node3D=player.carried_device
+	var lens: MeshInstance3D=carrier.device.teletype.torch_lens
+	var before_queries: int=carrier.lamp_target_queries
+	var before_frame: int=Engine.get_physics_frames()
+	for frame in 13:await get_tree().physics_frame
+	var target: Vector3=book.reading_light_target(lens.to_global(lens.mesh.get_aabb().get_center()))
+	held_controls.empty_hand_fallback={"actual_held_body_absent":player.held_stock_body()==null,"book_held":book._held,"released_book_profile_target":var_to_str(target),"actual_motion_target":var_to_str(carrier.motion.light_target),"query_delta":carrier.lamp_target_queries-before_queries,"physics_frame_delta":Engine.get_physics_frames()-before_frame,"scope":"Actual next-click release; empty-hand/default-reticle eligibility and bounded counter observation. No non-book pickup or exact reticle-hit/render acceptance."}
+	_require(player.held_stock_body()==null and not book._held and not target.is_finite(),"actual primary release disables held-book profile target")
+	_require(carrier.lamp_target_queries-before_queries<=Engine.get_physics_frames()-before_frame+1,"empty-hand fallback retains bounded query budget")
+
+# Separate opt-in continuation; real current world/library/native carrier reused.
+func _two_style_run(owner: Node3D) -> void:
+	two_style_controls.executed=true;two_style_controls.scope="Actual nearby installed collection, two construction styles, real ray/primary/cover hinge/Space return. Initial eye aim only; no book/holder transforms or physics exclusions. Not access/save/optical/artistic/performance acceptance."
+	if not _require(get_viewport() is SubViewport,"two-style controls require detached event-owned pointer viewport"):return
+	if not _require(player.held_stock_body()==null and not player.inspecting() and player.lamp_is_enabled(),"two-style continuation starts from original actual release and powered lamp"):return
+	for family: String in ["hardback","flexible"]:
+		var candidates: Array[Dictionary]=[]
+		for book: Node3D in owner._books.values():
+			var style: String=str(book.construction.get("opening_style","hardback"))
+			if (style=="hardback")!=(family=="hardback"):continue
+			if style not in ["hardback","paperback","pamphlet"] or book.shelf_slot<0:continue
+			var point: Vector3=book.to_global(Vector3(-.001,float(book.construction.height)*.65,0))
+			var distance: float=player.camera.global_position.distance_to(point)
+			if distance<=2.1:candidates.append({"book":book,"point":point,"distance":distance})
+		if not _require(not candidates.is_empty(),"actual same collection has in-reach placed "+family+" copy"):return
+		candidates.sort_custom(func(a: Dictionary,b: Dictionary):return float(a.distance)<float(b.distance))
+		# Pick ONCE by geometry. Do not skip the first occluded/blocked attempt.
+		var selected: Dictionary=candidates[0]
+		var book: Node3D=selected.book
+		two_style_controls.attempts.append({"family":family,"identity":_identity(book),"stock_id":book.stock_id,"title_id":book.title_id,"style":book.construction.get("opening_style","hardback"),"distance_m":selected.distance,"opening_before":book.opening,"eligible_count":candidates.size()})
+		if not _require(is_zero_approx(book.opening),"selected actual binding begins closed: "+family):return
+		player.camera.look_at(selected.point) # Same acquisition-only aim as parent.
+		for frame in 2:await get_tree().physics_frame
+		var descriptor: Dictionary=player._grab.find_target()
+		if not _require(descriptor.get("part")==book and descriptor.get("kind")=="free","first real spine ray selects chosen "+family+" copy without bypass"):return
+		_click_library()
+		if not _require(player.held_stock_body()==book,"actual primary picks up chosen "+family+" body"):return
+		for frame in 130:await get_tree().physics_frame
+		if not _require(player.held_stock_body()==book and (book.global_transform*book.pickup_centre()).distance_to(player.camera.global_transform*Vector3(.17,-.16,-.48))<.003,"actual "+family+" withdrawal reaches original FPS hand"):return
+		if not await _two_style_capture(family+"_closed_held",book):return
+		await _two_style_space()
+		if not _require(player.inspecting() and not player._grab.active(),"actual Space supports selected "+family+" for cover grip"):return
+		for frame in 110:await get_tree().physics_frame
+		var contact: Vector3=book.left.to_global(Vector3(float(book.construction.width)*.7,float(book.construction.height)*.7,float(book.construction.thickness)*.5))
+		if not _require(await _two_style_cursor(contact),"detached pointer delivers actual "+family+" cover point"):return
+		var cover: Dictionary=player._grab.find_target()
+		if not _require(cover.get("part")==book.left and cover.get("kind")=="hinge","actual physical "+family+" cover supplies hinge"):return
+		_click_library()
+		if not _require(player._grab.active() and player._grab.target.get("part")==book.left,"actual primary latches "+family+" cover"):return
+		if not _require(await _two_style_hinge(PI),"actual mouse opens "+family+" cover without forced state"):return
+		_click_library()
+		if not _require(not player._grab.active(),"next primary releases "+family+" cover"):return
+		await _two_style_space()
+		if not _require(not player.inspecting() and player.held_stock_body()==book,"Space returns opened "+family+" to original physical hand"):return
+		for frame in 110:await get_tree().physics_frame
+		if not await _two_style_capture(family+"_open_held",book):return
+		_click_library()
+		if not _require(player.held_stock_body()==null and not book._held,"next primary normally releases "+family+" copy"):return
+		for frame in 6:await get_tree().physics_frame
+	two_style_controls.completed=true
+
+func _two_style_space() -> void:
+	for pressed: bool in [true,false]:
+		var event:=InputEventKey.new();event.keycode=KEY_SPACE;event.physical_keycode=KEY_SPACE;event.pressed=pressed
+		player._unhandled_input(event)
+		for frame in 3:await get_tree().physics_frame
+
+func _two_style_cursor(point: Vector3) -> bool:
+	var viewport: Viewport=get_viewport()
+	if not viewport is SubViewport or player.camera.is_position_behind(point):return false
+	var pixel: Vector2=player.camera.unproject_position(point).round()
+	if not viewport.get_visible_rect().has_point(pixel):return false
+	var event:=InputEventMouseMotion.new();event.position=pixel;event.global_position=pixel
+	viewport.push_input(event,true)
+	await get_tree().process_frame
+	return viewport.get_mouse_position().distance_to(pixel)<.6
+
+func _two_style_hinge(goal: float) -> bool:
+	var stalled:=0
+	for frame in 160:
+		if not player._grab.active() or player._grab.target.get("kind")!="hinge":return false
+		var target: Dictionary=player._grab.target
+		var before: float=target.read.call()
+		if absf(goal-before)<.00001:return true
+		var point: Vector3=target.part.to_global(player._grab.contact)
+		var axis: Vector3=target.frame.global_basis*Vector3(target.axis)
+		var tangent: Vector3=axis.cross(point-target.part.global_position)
+		if tangent.length()<float(target.get("minimum_lever",.025)):tangent=axis.cross(player.camera.global_basis.x)*.06
+		var screen: Vector2=(player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
+		if screen.length()<24. and absf(tangent.dot(player.camera.global_basis.z))>tangent.length()*.5:screen=Vector2(0,tangent.dot(player.camera.global_basis.z)*180.)
+		var event:=InputEventMouseMotion.new();event.relative=screen*clampf(goal-before,-.12,.12)
+		player._unhandled_input(event);await get_tree().physics_frame
+		stalled=stalled+1 if is_equal_approx(before,float(target.read.call())) else 0
+		if stalled>8:return false
+	return false
+
+func _two_style_capture(phase: String,book: Node3D) -> bool:
+	var carrier: Node3D=player.carried_device
+	var lens: MeshInstance3D=carrier.device.teletype.torch_lens
+	var aperture: Vector3=lens.to_global(lens.mesh.get_aabb().get_center())
+	var target: Vector3=book.reading_light_target(aperture)
+	if not _require(target.is_finite() and player.held_stock_body()==book,"actual held native profile target exists: "+phase):return false
+	if phase.ends_with("open_held") and not _require(book.opening>=PI-.00001 and book._print_ready and book._sheets.size()==2,"real opened spread printing ready: "+phase):return false
+	var before: int=optics.size();var failed: int=failures.size()
+	await _observe_book(phase,book)
+	if not _require(optics.size()==before+1,"native actual held frame saved: "+phase):return false
+	var row: Dictionary=optics.pop_back() # Original four-phase list stays intact.
+	row.binding_style=book.construction.get("opening_style","hardback")
+	row.loaded_page_glyphs=[]
+	if phase.ends_with("open_held"):
+		for printed: Dictionary in book._print_surfaces:
+			var node: Node3D=printed.node
+			if node is not Label3D or printed.side not in ["left","right"]:continue
+			row.loaded_page_glyphs.append({"identity":_identity(node),"side":printed.side,"expected_text":node.text,"visible":node.is_visible_in_tree(),"geometry":_optics_project(_optics_vertices(printed.mesh,node.global_transform))})
+		_require(not row.loaded_page_glyphs.is_empty(),"actual opened printed-page glyph meshes observed: "+phase)
+	two_style_controls.frames.append(row)
+	return failures.size()==failed
