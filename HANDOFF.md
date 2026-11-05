@@ -20,7 +20,7 @@ book/owner/inventory and FPS hand (centre error1.49e-8m). Deliberately parked
 same book is reacquired on Space: slot2 becomes-1,pose changes,carrier exceptions
 return. Both observations precede reset. Stderr contains only the matching two
 assertion errors; no script errors/shutdown leaks. Original before/prestart/after
-source guards PASS. Launch29900/broker1564 are gone; session41044 completed2.
+source guards PASS. Launch29900/broker1564 are gone; session41044 is terminal (inner batch2,outer tool1).
 Raw logs,receipts,source freeze,observations and BEFORE_ASSESSMENT.json remain
 unchanged. These are causal diagnostics,not a schema2 runtime qualification.
 
@@ -29,21 +29,37 @@ is applied to PlayerController and readable bookshelf. Before releasing its
 inspection loan,the player asks the existing owner; the shelf vetoes only the
 same registered book already parked in a valid slot. Unplaced same-object hand
 return and every other owner's behavior remain through the existing path.
-Original slot-hand test bytes remain unchanged (LF29724e651959e1f0256b121fc69cf072db1ea8332da62da2a9c440373921000c).
+Original105-check test bytes are preserved by both prior source freezes (LF29724e651959e1f0256b121fc69cf072db1ea8332da62da2a9c440373921000c).
 The two reviewed **V2BookLampDiagnostic.tscn/v2_book_lamp_diagnostic.gd** files
 are installed from **book_optics_ready/strengthened/**,not compiled/run yet.
 They observe actual lamp on/off/restored input,hand drift/contact,drawn cover/glyph
 bounds and native frames; no independent opaque control or readability acceptance.
 
-Next: commit/push these named paths,freeze actual source/engine and launch
-**book_park_after_01/batch.json** from its reviewed template through normal FIFO.
-Until QUEUE_CUSTODY.json exists,this case is **AUTHORED_NOT_QUEUED**. Never duplicate
-a live job. Five sequential stages: same compile10,same slot-hand bench,28-script
-optics/access compile,nearby installed optical observations,existing access survey;
-separate profiles/outputs and stop on first failure. Source remains fixed through
-the whole batch. After local positive,the existing schema2
-**V2BookInspectionReturnWorld.tscn** needs a bounded parked-exit contract addition
-before its validated household disk reconstruction; unplaced branch stays.
+**After01 is terminal, not a parked-veto pass.** Pushed source
+**f791219a067929026d1d122ec5e8d7f0f1515339**; compile10/0,slot-hand100checks/3fail.
+Unplaced same-book hand return passes, but first depth approach hits the actual
+**Book_elevator** before parking/Space: origin(-.009939,.908950,.312768),
+goal(-.006276,.886100,.245000),still22.85mm high. Original before/after guards
+PASS; session71109 terminal outer1/innerbatch3. Broker65084/source hold released.
+Raw **book_park_after_01/** is preserved; optical compile/optics/access are
+NOT_EXECUTED because the batch stopped at this first failure. No blind retry.
+
+Current test-only amendment from **book_approach_review/proposed.patch** adds ONE
+actual-input XY/height alignment waypoint at current withdrawn Z,then retains
+both original depth goals,collisions,controls and thresholds. Pose/frame/contact/
+camera/axis/blocker snapshots precede each failed-leg check. Review distinguishes
+46mm world hit shift from43mm body-origin shift; no local-grip defect is proved.
+The production veto remains implemented but UNVERIFIED. Next: commit/push this
+bounded test/metadata checkpoint,then run a matched pair with the SAME amended
+test. Before02 must use exact original production bytes via a named,logged two-
+file overlay; freeze it and retain terminal/guard before restoring the committed
+14-line production patch. After02 then uses the same test on fixed production,
+followed only on local positive by28-script optical compile,optics/access.
+Case/source custody must be inspected before every launch; no live book run now.
+
+After local positive,the existing schema2 **V2BookInspectionReturnWorld.tscn**
+needs a bounded parked-exit contract addition before its validated household
+disk reconstruction; retain its unplaced branch. No full-book/whole-V2 claim.
 Access renewal uses **V2NookAccessSurvey.tscn**: October22's table/plant/rug repair
 already passed11normal-capsule waypoints. The parent profile's stale access-defect
 comment is not a fresh failure. Reproduce via that corrected route before any
