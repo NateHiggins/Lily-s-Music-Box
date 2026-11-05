@@ -655,7 +655,10 @@ func configure_visual(owner_actor: Node3D,asset_path: String) -> bool:
 	visual_route=preload("res://scripts/props/hose_cabinet_route.gd").new()
 	visual_route.model_to_actor=model.transform
 	var up: Vector3=(model.global_basis.inverse()*Vector3.UP).normalized()
-	_guide_floor=up.dot(model.transform.affine_inverse()*Vector3(0,ground_y_local+.023,0))
+	# The dry transported ribbon can roll its wide axis toward the floor.
+	# Allow its flattened half-width and a millimetre of clearance.
+	var ribbon_clearance: float=.021*PI*.5+.001
+	_guide_floor=up.dot(model.transform.affine_inverse()*Vector3(0,ground_y_local+ribbon_clearance,0))
 	var tip: Vector3=model.transform.affine_inverse()*_extracted_receiver.origin
 	var back: Vector3=-(model.basis.inverse()*_extracted_receiver.basis.y)
 	_placement=visual_route.build(tip,back,rig.strand.anchor,rig.rest.size(),rig.strand.total_length,up,_guide_floor)

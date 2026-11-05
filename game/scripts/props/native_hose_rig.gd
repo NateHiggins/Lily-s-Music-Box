@@ -79,7 +79,13 @@ func _transported_frames(points: PackedVector3Array) -> Array[Transform3D]:
 		if side.length_squared()<1e-14:return []
 		directors[i]=side.normalized()
 	var head: Vector3=sides[0]-tangents[0]*tangents[0].dot(sides[0])
-	if head.length_squared()<1e-14:return []
+	if head.length_squared()<1e-14:
+		# Looking along the authored side collapses its projection. Carry the
+		# native roll through the rest-to-current tip turn for this alignment.
+		var rest_tip: Vector3=(rest[1]-rest[0]).normalized()
+		head=Quaternion(rest_tip,tangents[0])*sides[0]
+		head=head.slide(tangents[0])
+		if head.length_squared()<1e-14:return []
 	head=head.normalized()
 	var twist: float=atan2(tangents[0].dot(directors[0].cross(head)),directors[0].dot(head))
 	var arc:=PackedFloat64Array();arc.resize(points.size());arc[0]=0.
