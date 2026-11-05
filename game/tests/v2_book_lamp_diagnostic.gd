@@ -111,7 +111,7 @@ func _reading_aim_observation(book: Node3D,lens: MeshInstance3D,carrier: Node3D)
 	var query:=PhysicsRayQueryParameters3D.create(aperture,target,1)
 	query.collide_with_bodies=true;query.collide_with_areas=false
 	query.hit_from_inside=true;query.hit_back_faces=true
-	var hit: Dictionary=get_world_3d().direct_space_state.intersect_ray(query)
+	var hit: Dictionary=player.get_world_3d().direct_space_state.intersect_ray(query)
 	result.diagnostic_query_issued=true
 	result.first_hit=_hit_record(hit,book,target)
 	result.actual_motion_target=var_to_str(carrier.motion.light_target)
