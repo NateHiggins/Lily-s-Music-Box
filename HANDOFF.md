@@ -9,19 +9,24 @@ bridge mail and live lane custody. Cases below are under
 **Current reading candidate.** **book_return_nearby_native_04/** passed the
 103 slot-hand checks and three cookbook viewport sizes at **db088fd1b**.
 **reading_fit_shoulder_native_04/** reproduced the installed failure at
-**08edee103**. The book grew from 531 to 996 pixels tall, then drifted by
-micrometres against the player capsule. The original logs and fit samples
-are retained. **reading_fit_shoulder_native_05/** freezes **c96eeb719** to
-verify the new native settle tolerance, shoulder light, zoom and shelf return.
-Check its launcher and final guard before changing canonical source.
-Human acceptance remains open. Physical book packing follows PR164.
+**08edee103**. The book grew from 531 to 996 pixels tall and kept trying to
+advance against the player capsule. The distance tolerance in **05/** failed.
+**06/** passed contact settle, full-frame fit, shoulder light, lamp off and
+restore, and both zoom paths. **07/** found the shelf slot clear and exit FOV
+restored, but the folded hull would overlap the capsule at the fitted pose.
+**08/** freezes **d900d8bab** to verify a preflighted open retreat before folding
+and returning to the pickup spot. Check the live launcher and final guard
+before changing canonical source. Human acceptance and the installed blocked
+return remain open. Physical book packing follows PR164.
 
-**PR164 newspaper valise.** Batch 8 passed the scoped purchase, deposit,
-release and reload checks. Batch 9 ended with an assertion script error
-after deposit. Its metric-UV assertion reached for the pile mesh before
-primary release created it. Keep the original failure and require a clean
-patched-engine route and capture for the changed pile. Claude owns the two
-paper paths. Root owns admission.
+**PR164 newspaper valise.** Patched-engine batch 11 passed 66 checks at the
+source published as **b589233a3**, including purchase, deposit, release, reload
+and metre UVs with mipmaps. Batch 9 preserves the premature mesh assertion
+script error. Batch 10 preserves four stock-poll timing failures. The
+single-paper capture verifies placement. The taller-pile capture is pending.
+**039fd734a** is the local paper-only merge candidate. The four original
+suite scripts are unchanged. Composed qualification and exact candidate
+verification remain open. Claude owns the external capture. Root owns admission.
 
 **Laurel scheduler.** **laurel_scheduler_native_01/** passed 22 checks and six
 legs with both guards PASS. Worst frame 68.559 ms. Three running snapshots fell
