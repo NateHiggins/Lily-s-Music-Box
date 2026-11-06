@@ -9,9 +9,8 @@ const PrintMesh := preload("res://scripts/props/book_print_mesh.gd")
 ## .04 rad; a reader holds the book open well past that.
 const SPREAD_KNOWLEDGE := {"minutes": "minutes_read"}
 const READ_OPENING := 0.6
-const MIN_READING_DEPTH := .48
-const READING_HALF_SPAN := Vector2(.70,.88)
-const READING_CENTRE_X := -.20
+const MIN_READING_DEPTH := .36
+const READING_HALF_SPAN := .88
 var stock: RefCounted
 var title_id := "" # Physical stock_id may identify a distinct copy of this title.
 var entry: Dictionary
@@ -136,8 +135,8 @@ func _queue_reading_fit() -> void:
 			var tangent:=_reading_projection_tangent
 			var vertical:=tangent if camera.keep_aspect==Camera3D.KEEP_HEIGHT else tangent/aspect
 			var half_frustum:=Vector2(vertical*aspect,vertical)
-			# Fit the closest hull point within the free screen area and keep
-			# the printed face beyond the native reading light.
+			# The shoulder station leaves the centre clear. Keep a screen
+			# margin and a little clearance beyond the standing capsule.
 			var fit_depth:=Vector2(bounds.size.x,bounds.size.y)/(2.*READING_HALF_SPAN*half_frustum)
 			var minimum:=maxf(camera.near+.02,MIN_READING_DEPTH)
 			var lamp:=camera.get_parent().get("flashlight") as SpotLight3D
@@ -146,8 +145,7 @@ func _queue_reading_fit() -> void:
 				minimum=maxf(minimum,-aperture.z+.05)
 			var depth:=maxf(minimum,maxf(fit_depth.x,fit_depth.y))
 			var centre:=bounds.get_center()
-			_reading_target=Vector3(READING_CENTRE_X*depth*half_frustum.x-centre.x,
-				-centre.y,-depth-bounds.end.z)
+			_reading_target=Vector3(-centre.x,-centre.y,-depth-bounds.end.z)
 	_floating_frames=0
 	set_physics_process(true)
 

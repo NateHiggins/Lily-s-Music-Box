@@ -293,6 +293,14 @@ func _optics_project(points: PackedVector3Array) -> Dictionary:
 	result.roi=[x0,y0,maxi(0,x1-x0),maxi(0,y1-y0)]
 	return result
 
+func _reading_hull_projection(book: Node3D) -> Dictionary:
+	var points:=PackedVector3Array()
+	for solid: CollisionShape3D in book._solids:
+		var hull:=solid.shape as ConvexPolygonShape3D
+		for point: Vector3 in hull.points:
+			points.append(solid.global_transform*point)
+	return _optics_project(points)
+
 func _optics_region(image: Image,roi: Array) -> Dictionary:
 	if roi.size()!=4 or int(roi[2])<=0 or int(roi[3])<=0:return {"sample_count":0,"valid_region":false}
 	var stride: int=maxi(1,ceili(sqrt(float(int(roi[2])*int(roi[3]))/65536.)))
@@ -601,6 +609,7 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 			return false
 	var before_fit: Transform3D = book.global_transform
 	var eye_before_fit: Transform3D = camera.global_transform
+	var projection_before:=_reading_hull_projection(book)
 	_click_library()
 	if not _require(not player._grab.active() and player.inspecting() and book._print_ready
 			and book._sheets.size() == 2, "next primary releases opened binding with two printed pages"):
@@ -613,6 +622,13 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 			and camera.global_position.distance_to(book.global_position) + .05
 				< camera.global_position.distance_to(before_fit.origin),
 			"open binding moves toward the fixed eye and settles through the physical hold"):
+		return false
+	var projection_after:=_reading_hull_projection(book)
+	var area_before: float=projection_before.get("projected_width_px",0.)*projection_before.get("projected_height_px",0.)
+	var area_after: float=projection_after.get("projected_width_px",0.)*projection_after.get("projected_height_px",0.)
+	installed_reading.fit_projection={"before":projection_before,"after":projection_after}
+	if not _require(area_before>0. and area_after>area_before and not bool(projection_after.get("frame_clipped",true)),
+			"centred reading fit increases projected book area while keeping the complete binding in view"):
 		return false
 	var reading_pose: Transform3D = book.global_transform
 	var reading_eye: Vector3 = camera.global_position
