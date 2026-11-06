@@ -352,7 +352,15 @@ func _b1_payout_attempt(actor: Node3D, hose: Node3D, joint: Node3D, door: DoorPr
 		var aim: float = rad_to_deg(acos(clampf(joint.body.global_basis.y.normalized().dot(-player.camera.global_basis.z),-1.,1.)))
 		outcome.geometry = "clear_at_sampled_positions_to_terminal"
 		outcome.reach = "at_bound" if at_limit else "missed_bound"
-		if not _check(at_limit and absf(hose.rig.strand.total_length-15.24)<.00002 and fixed_source and aim<1. and hose.visual_route.limited and player._grab.feedback({}).state=="limit","B1 actual FPS movement reaches the original fixed-source stock bound and reticle limit"):
+		outcome.bound_observation = {"stock_m":hose.rig.strand.total_length, "exact_anchor":fixed_source,
+			"anchor_error_m":hose.rig.strand.points[-1].distance_to(hose.rig.strand.anchor),
+			"aim_degrees":aim, "route_limited":hose.visual_route.limited, "feedback":player._grab.feedback({}).state}
+		if not _check(at_limit and absf(hose.rig.strand.total_length-15.24)<.00002, "B1 reaches 15.09 m with the original 15.24 m stock"):
+			return
+		if not _check(fixed_source, "B1 full payout retains the exact authored source ring"):
+			return
+		if not _check(aim<1. and hose.visual_route.limited and player._grab.feedback({}).state=="limit",
+				"B1 full payout keeps nozzle aim and reports the reach limit at the reticle"):
 			return
 		await _picture("b1_at_limit")
 		var rest_foot: Vector3 = world.adapter.root.to_local(player.global_position)-Vector3.BACK*.25
