@@ -670,13 +670,35 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 	var pickup_pose: Transform3D=book._reading_pickup_pose
 	var pickup_slot: int=book._reading_pickup_slot
 	var pickup_angle: float=book._reading_pickup_opening
+	var blocker: StaticBody3D
+	if OS.get_environment("ORISON_BOOK_RETURN_OBSTRUCTED")=="1":
+		blocker=StaticBody3D.new()
+		blocker.name="BookPickupDestinationObstruction"
+		var shape:=CollisionShape3D.new()
+		var box:=BoxShape3D.new()
+		box.size=Vector3(.024,.025,.024)
+		shape.shape=box
+		blocker.add_child(shape)
+		add_child(blocker)
+		var collection:=book.get_parent_node_3d()
+		blocker.global_position=collection.to_global(pickup_pose*book.pickup_centre())
+		await get_tree().physics_frame
+		await get_tree().physics_frame
+	var release_pose: Transform3D=book.global_transform
 	await _two_style_space()
+	var returned: bool=book.transform.is_equal_approx(pickup_pose) and book.shelf_slot==pickup_slot \
+		and is_equal_approx(book.opening,pickup_angle)
+	var released_nearby: bool=not returned and book.shelf_slot==-1 and not book.freeze \
+		and release_pose.origin.distance_to(book.global_position)<.18
+	var blocked_test:=is_instance_valid(blocker)
+	if blocked_test: blocker.queue_free()
 	if not _require(not player.inspecting() and not player._grab.active()
 			and is_equal_approx(camera.fov, held_fov) and not book._held
-			and book.transform.is_equal_approx(pickup_pose) and book.shelf_slot==pickup_slot
-			and is_equal_approx(book.opening,pickup_angle),
-			"normal Space puts the same read copy back at its pickup pose and restores FOV"):
+			and (released_nearby if blocked_test else returned),
+			"blocked pickup leaves the same read copy to settle locally" if blocked_test
+			else "normal Space puts the same read copy back at its pickup pose and restores FOV"):
 		return false
+	installed_reading.return_test_obstructed=blocked_test
 	installed_reading.return_pose=var_to_str(book.transform)
 	installed_reading.return_slot=book.shelf_slot
 	for frame in 110:
