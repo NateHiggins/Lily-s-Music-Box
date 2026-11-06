@@ -3,6 +3,8 @@ signal world_handoff_finished
 ## Foreground flight is a presentation cheat, never a second device or action owner.
 ## The same rig remains in the world for mirrors, its lamp and physical controls.
 const DEVICE_MASK := 1 << (ServiceSetProp.DEVICE_LAYER - 1)
+const TRAVEL_DEPTH := .56
+const TRAVEL_LIMIT := Vector3(.034, .048, .14)
 var carrier: Node3D
 var camera: Camera3D
 var view: SubViewport
@@ -31,6 +33,9 @@ var _lean_velocity := Vector3.ZERO
 var _drift := Vector2.ZERO
 var _drift_velocity := Vector2.ZERO
 var _flight_clock := 0.0
+var _travel_error := Vector3.ZERO
+var _travel_speed := Vector3.ZERO
+var _last_player_velocity := Vector3.ZERO
 var _last_draw_process_frame := -1
 var _size := Vector2i.ZERO
 var _environment: Environment
@@ -173,15 +178,35 @@ func advance(delta: float, reading: bool) -> void:
 	var turn := _last_basis.inverse() * camera.global_basis
 	var turning := turn.get_euler() / maxf(delta, .001)
 	_last_basis = camera.global_basis
+	var travel: bool = not reading and not carrier.reading and not held and not _world_handoff \
+		and not carrier.story_pose_active() and not carrier.story_world_active()
+	var player_velocity: Vector3 = carrier._player.velocity
+	var travel_drive := Vector3.ZERO
+	if travel and intensity > 0.0:
+		# Player acceleration knocks the companion off station. A hard turn
+		# drives it to the opposite side before the correction overshoots.
+		var kick := camera.global_basis.inverse() * (player_velocity - _last_player_velocity)
+		_travel_speed += kick.clamp(Vector3.ONE * -5., Vector3.ONE * 5.) * Vector3(-.14, .13, -.36) * intensity
+		travel_drive = Vector3(clampf(turning.y * .022, -.045, .045),
+			clampf(-turning.x * .022, -.06, .06), 0.) * intensity
+	else:
+		_travel_error = Vector3.ZERO; _travel_speed = Vector3.ZERO
+	_last_player_velocity = player_velocity
 	var desired := Vector3(clampf(-carrier._player.velocity.length() * .018 - _drift_velocity.y * 3.0, -.13, .10),
 		clampf(turning.y * .035, -.13, .13), clampf(-turning.y * .055 - _drift_velocity.x * 7.0, -.22, .22)) * intensity
 	if reading: desired *= .12
+	if travel:
+		desired.x += clampf(-_travel_speed.z * .75, -.19, .19)
+		desired.z += clampf(-_travel_speed.x * 1.35, -.32, .32)
 	desired += carrier.story_attitude * intensity
 	if held: desired = Vector3.ZERO
 	# Slightly underdamped attitude correction sells effort without jitter.
 	var steps := maxi(1, int(ceil(dt * 120.0)))
 	var step := dt / steps
 	for index in steps:
+		if travel:
+			_travel_speed += ((travel_drive - _travel_error) * 44. - _travel_speed * 4.5) * step
+			_travel_error = (_travel_error + _travel_speed * step).clamp(-TRAVEL_LIMIT, TRAVEL_LIMIT)
 		_lean_velocity += ((desired - _lean) * 80.0 - _lean_velocity * 11.0) * step
 		_lean += _lean_velocity * step
 	if held:
@@ -207,6 +232,9 @@ func advance(delta: float, reading: bool) -> void:
 	depth = maxf(depth, .18)
 	if reading: depth *= clampf(carrier.reading_distance / .22, .82, 1.45)
 	depth *= carrier.story_depth_scale
+	if travel:
+		depth *= TRAVEL_DEPTH * (1. + _travel_error.z)
+		center += Vector2(_travel_error.x, _travel_error.y)
 	center += _drift
 	center += carrier.story_nudge * intensity
 	var origin := Vector3((center.x * 2.0 - 1.0) * depth * slope * aspect,
@@ -227,7 +255,7 @@ func advance(delta: float, reading: bool) -> void:
 			world_handoff_finished.emit()
 			layer.visible=visible_now and composite_enabled
 			view.render_target_update_mode=SubViewport.UPDATE_ALWAYS if layer.visible else SubViewport.UPDATE_DISABLED
-	carrier.rig.propulsion = clampf(.5 + carrier._player.velocity.length() * .13 + turning.length() * .04 + _drift_velocity.length() * 14.0 + _lean_velocity.length() * .12, .5, 1.6)
+	carrier.rig.propulsion = clampf(.5 + carrier._player.velocity.length() * .13 + turning.length() * .04 + _drift_velocity.length() * 14.0 + _lean_velocity.length() * .12 + _travel_speed.length() * .65, .5, 1.6)
 	# The real optical aperture follows the visible manufactured pose.
 	carrier.beam_valid = true
 
