@@ -80,6 +80,8 @@ func interact_control(control_id: String, player: Node) -> Variant:
 	if catalog == null:
 		return {}
 	if mode == "shelf":
+		# The papers in the case's pocket are laid on the shelf with the rest.
+		PaperPocket.file_news()
 		_open_panel(player, catalog, "", "")
 		return {}
 	if shuttered():
@@ -93,6 +95,14 @@ func interact_control(control_id: String, player: Node) -> Variant:
 	for offer in offers:
 		options.append({"text": str(offer.label), "evidence": bool(offer.kept),
 				"action": func(): _take(player, catalog, str(offer.paper), str(offer.date))})
+	# LILITH on the rack beside the papers (comics.json): each issue on sale that she hasn't bought, newest first.
+	var issues: Array = PaperPocket.comics_on_sale(catalog.today())
+	issues.reverse()
+	for found: Variant in issues:
+		if options.size() >= 8 or PaperPocket.has_comic(str(found.id)):
+			continue
+		options.append({"text": "LILITH No. %d, %s. Five cents." % [int(found.number), str(found.title)],
+				"action": func(): _take_comic(str(found.id))})
 	options.append({"text": "Leave them.", "silent": true, "action": Callable()})
 	if player != null and "call_locked" in player:
 		player.call_locked = true
@@ -126,6 +136,16 @@ func _take(player: Node, catalog: NewspaperCatalog, paper_id: String, date: Stri
 			sales.transact(item_id, sales.shop_id)
 	catalog.collect(paper_id, date)
 	_open_panel(player, catalog, paper_id, date)
+
+
+## A comic goes straight into the case's comics pocket, paid like a paper.
+func _take_comic(id: String) -> void:
+	if PaperPocket.has_comic(id):
+		return
+	if sales != null:
+		sales.transact(PaperPocket.comic_item(), sales.shop_id)
+	PaperPocket.tuck_comic(id)
+	RealityState.commit()
 
 
 func _open_panel(player: Node, catalog: NewspaperCatalog, paper_id: String, date: String) -> void:

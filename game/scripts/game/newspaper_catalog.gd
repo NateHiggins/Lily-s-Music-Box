@@ -286,6 +286,8 @@ func collect(paper_id: String, date: String) -> bool:
 	if key in RealityState.data[STATE_KEY]:
 		return false
 	RealityState.data[STATE_KEY].append(key)
+	# A paper taken from the stand goes into the case's pocket until the 4B shelf.
+	PaperPocket.tuck_news(key)
 	RealityState.commit()
 	return true
 
