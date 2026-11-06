@@ -76,7 +76,6 @@ func _refresh() -> void:
 	var needed := int(ceil(float(n) / PER_PILE))
 	while piles.size() < needed:
 		var pile := MeshInstance3D.new()
-		pile.name = "Pile%d" % piles.size()
 		add_child(pile)
 		piles.append(pile)
 		_pile_heights.append(-1.0)

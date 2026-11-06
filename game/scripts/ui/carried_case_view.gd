@@ -15,6 +15,7 @@ extends CanvasLayer
 const FONT := preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
 const TEXTURES := "res://assets/building/textures/"
 const MATERIAL_SETS := "res://data/runtime_material_sets.json"
+const MetreUV := preload("res://scripts/building/v2_metre_box_uv.gd")
 const OPEN_DEGREES := 104.0
 const OPEN_SECONDS := 0.45
 const CLOSE_SECONDS := 0.3
@@ -323,7 +324,7 @@ func _build() -> bool:
 	_tag.outline_size = 8
 	_tag.outline_modulate = Color(0.05, 0.03, 0.02)
 	_tag.visible = false
-	_fill_pocket(root, material_sets)
+	_fill_pocket(root)
 	for item: String in CarriedCase.book().places:
 		_lay(item, _goods)
 	set_angle(0.0)
@@ -332,13 +333,13 @@ func _build() -> bool:
 
 ## Each paper as a sheet in its container, fanned across it front first, the top showing above the container's
 ## front panel. Hit tests run front to back: comics, then the folder, then newspapers.
-func _fill_pocket(root: Node3D, sets: Dictionary) -> void:
+func _fill_pocket(root: Node3D) -> void:
 	var contents := PaperPocket.contents(get_tree().get_first_node_in_group("newspaper_catalog") as NewspaperCatalog)
 	_papers.clear()
 	for kind: String in ["comic", "letter", "news"]:
 		_papers.append_array(contents.filter(func(paper): return paper.kind == kind))
 	for kind: String in CONTAINERS:
-		_container(root, kind, sets)
+		_container(root, kind)
 	for index in _papers.size():
 		var paper: Dictionary = _papers[index]
 		var spec: Dictionary = CONTAINERS[paper.kind]
@@ -346,13 +347,9 @@ func _fill_pocket(root: Node3D, sets: Dictionary) -> void:
 		var place: int = group.find(paper)
 		var count: int = group.size()
 		var sheet := Node3D.new()
-		sheet.name = "PocketPaper%d" % index
 		root.add_child(sheet)
 		var draw := MeshInstance3D.new()
-		var mesh := BoxMesh.new()
-		mesh.size = Vector3(float(spec.w), float(spec.h), 0.0015)
-		draw.mesh = mesh
-		draw.material_override = _material("paper", 0.6, sets)
+		draw.mesh = _pocket_box(Vector3(float(spec.w), float(spec.h), 0.0015), "paper")
 		sheet.add_child(draw)
 		_cover(sheet, paper, spec)
 		var step := minf(SHEET_STEP, (float(spec.width) - float(spec.w)) / maxf(count - 1, 1))
@@ -366,19 +363,15 @@ func _fill_pocket(root: Node3D, sets: Dictionary) -> void:
 
 
 ## A container's front panel (and the folder's back board and tab), from the case's own finishes.
-func _container(root: Node3D, kind: String, sets: Dictionary) -> void:
+func _container(root: Node3D, kind: String) -> void:
 	var spec: Dictionary = CONTAINERS[kind]
 	var boards: Array = [[float(spec.panel), float(spec.front), str(spec.skin)]]
 	if kind == "letter":
 		boards.append([float(spec.top) - 0.008, float(spec.depth) - 0.0015, "paper"])  # the folder's back board
 	for board: Array in boards:
 		var panel := MeshInstance3D.new()
-		panel.name = "Pocket_%s" % kind
-		var mesh := BoxMesh.new()
 		var height := float(board[0]) - POCKET_BOTTOM
-		mesh.size = Vector3(float(spec.width), height, 0.003)
-		panel.mesh = mesh
-		panel.material_override = _material(str(board[2]), 0.6, sets)
+		panel.mesh = _pocket_box(Vector3(float(spec.width), height, 0.003), str(board[2]))
 		root.add_child(panel)
 		panel.transform = Transform3D(Basis(Vector3.RIGHT, CARD_LEAN),
 				POCKET_TOP + Vector3(float(spec.x), 0, 0) + POCKET_UP * (float(board[0]) - height * 0.5) + CARD_NORMAL * float(board[1]))
@@ -389,6 +382,19 @@ func _container(root: Node3D, kind: String, sets: Dictionary) -> void:
 		tab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		tab.rotation = Vector3(CARD_LEAN, 0, 0)
 		tab.position = POCKET_TOP + Vector3(float(spec.x), 0, 0) + POCKET_UP * (float(spec.panel) - 0.012) + CARD_NORMAL * (float(spec.front) + 0.002)
+
+func _pocket_box(size: Vector3, key: String) -> ArrayMesh:
+	var cache_key := "pocket:" + key
+	if not _materials.has(cache_key):
+		var finish := MatLib.get_mat(key).duplicate() as StandardMaterial3D
+		finish.uv1_triplanar = false
+		finish.uv1_scale = Vector3.ONE / float(MatLib.SETS[key][3])
+		finish.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+		_materials[cache_key] = finish
+	var box := BoxMesh.new()
+	box.size = size
+	box.material = _materials[cache_key]
+	return MetreUV.chart(box)
 
 
 ## What shows of a paper above its pocket: a newspaper's masthead, a comic's cover lettering, a letter's heading.

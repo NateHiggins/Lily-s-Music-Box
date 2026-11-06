@@ -39,6 +39,30 @@ func _money() -> int:
 func _units(stand: Node) -> float:
 	return stand.sales.stock.units("news_cigars", "papers")
 
+func _pocket_surfaces_are_metric(view: Node) -> bool:
+	if view._sheets.is_empty(): return false
+	var root: Node = view._sheets[0].get_parent()
+	var finishes: Dictionary = {}
+	for key: String in ["paper", "leather_worn"]:
+		var finish: StandardMaterial3D = view._materials.get("pocket:" + key)
+		if finish == null or finish.uv1_triplanar or not finish.normal_enabled \
+				or not is_equal_approx(finish.uv1_scale.x, 1.0 / float(MatLib.SETS[key][3])):
+			return false
+		for map: Texture2D in [finish.albedo_texture, finish.roughness_texture, finish.normal_texture]:
+			if map == null or not map.get_image().has_mipmaps(): return false
+		finishes[finish] = true
+	var count := 0
+	for draw: MeshInstance3D in root.find_children("*", "MeshInstance3D", true, false):
+		if draw.mesh == null or not finishes.has(draw.get_active_material(0)): continue
+		if not draw.mesh is ArrayMesh: return false
+		var span := 0.0
+		for uv: Vector2 in draw.mesh.surface_get_arrays(0)[Mesh.ARRAY_TEX_UV]:
+			span = maxf(span, maxf(absf(uv.x), absf(uv.y)))
+		var size := draw.mesh.get_aabb().size
+		if not is_equal_approx(span * 2.0, maxf(size.x, maxf(size.y, size.z))): return false
+		count += 1
+	return count == view._sheets.size() + 4
+
 func _stand_at(prop: Node3D, look_at: Vector3) -> void:
 	var front: Vector3 = prop.global_position + prop.global_basis.z.normalized() * 0.95
 	var hit := prop.get_world_3d().direct_space_state.intersect_ray(
@@ -147,6 +171,7 @@ func _route() -> void:
 	_require(kinds == ["comic", "letter", "letter", "news"], "comics, the folder's letters, then the paper: %s" % str(kinds))
 	_require(ids.slice(1, 3) == ["vantry_final_demand", "welcome_note"], "the latest letter stands in front: %s" % str(ids))
 	_require(view._sheets.size() == 4, "each paper has a sheet")
+	_require(_pocket_surfaces_are_metric(view), "case pocket sheets and boards use metre charts and loaded catalogue mipmaps")
 	var comic_top: float = view._sheets[0].global_position.y + view._sheets[0].global_basis.y.y * 0.05
 	var news_top: float = view._sheets[3].global_position.y + view._sheets[3].global_basis.y.y * 0.065
 	_require(news_top > comic_top + 0.02, "the comics pocket sits in front of and below the newspapers, both showing")
