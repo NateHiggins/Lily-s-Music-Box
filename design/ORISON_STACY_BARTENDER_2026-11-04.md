@@ -102,10 +102,29 @@ because the handwriting comparison is evidence.
   goes to **st_rt_quiet**. `ResidentConversationTest` walks the route three times, with a save and
   reload before the third, and now names all 18 trees by id instead of counting 17.
 
+## The counter glass, 2026-11-06
+
+She has no door, so the player asks for her the way a customer at a bar does: by sliding an empty
+glass across the top. `game/scripts/props/harukiya_counter_glass.gd` mounts the existing stock
+glass (**3D_glass**, no new surface) at the east end of **retail_bar_counter_top**, past the last
+stool, under the bar region's actors. It follows RUL-013: the cursor finds the glass, a click
+grabs it, mouse motion slides it up to half a metre across the top toward the back bar, and the next
+click lets go. Released, it slides back to the customer's edge by itself.
+
+When it reaches the far side, it clinks (the existing **tick** recording). If the staff clock puts
+**stacy** at **harukiya_bar**, `ResidentConversations.start("stacy")` opens her tree at its earned
+entry, and she takes the glass: the hand lets go, so no grip outlasts the conversation. Otherwise a line reads "Nobody is behind the bar." for a few seconds, and nothing is granted
+or saved. Attendance stays with the staff clock and her words with her authored tree. The glass
+keeps no save state.
+
+`HarukiyaCounterRouteTest` drives it in the production V2 root with real input. On a Thursday
+night the glass crosses, Stacy's conversation opens, and the released glass returns home. On
+Monday, her night off, the glass crosses and nobody comes.
+
 ## Held open
 
-1. **A conversation point at the counter.** She has no door, so until a counter interaction exists
-   her tree and opinions are reachable only the way the player reaches the self-insert's.
+1. **Her body behind the bar.** The counter now reaches her tree, but nobody stands there yet.
+   That waits on her model.
 2. **Her model.** The owner builds it in Meshy from a turnaround sheet; ingest follows
    `art/blender/scripts/ingest_adela_character.py`. Nothing of it is in this change.
 3. **Judge and Lafitte** have no placement: the dog wants the boiler board under the counter, the
