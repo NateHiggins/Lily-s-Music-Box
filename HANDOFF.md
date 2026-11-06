@@ -6,19 +6,25 @@ Canonical **C:/PleaseRemainOnTheLine**. Root owns integration. Check Omni
 bridge mail and live lane custody. Cases below are under
 **C:/ov/reports/develop_intake_20261104/**.
 
-**Current reading candidate.** **reading_fit_shoulder_native_01/** pins
-**829be9401** on the canonical checkout. Check the exact live handle and final
-guard before any source change. The source candidate is **76fa1f46d**. Native
-verification and human acceptance are open. PR164 owns the newspaper transfer
-and responsive paper readers. Physical book packing and return follow its case
-custody changes.
+**Current reading candidate.** **book_return_nearby_native_04/** freezes
+**db088fd1b** for compile, the slot-hand bench and the cookbook resize check.
+Check the exact launcher and final guard before any source change.
+**reading_fit_shoulder_native_01/** preserves the compile refusal.
+**book_return_nearby_native_03/** compiled all eleven scripts and reported
+103 successful assertions. Its raw logs preserve the freed-book exit error
+and a standalone cookbook harness error. Require clean receipts before the
+installed route. Human acceptance remains open. Physical book packing
+follows PR164's case custody changes.
 
 **Laurel scheduler.** **laurel_scheduler_native_01/** passed 22 checks and six
 legs with both guards PASS. Worst frame 68.559 ms. Three running snapshots fell
 inside the 53.649 ms render bracket. The historical 162.929 ms spike did not
-recur, so the trace leaves its cause open.
+recur. **laurel_steady_pass_attribution_01/** independently joins 226 historical
+profiler frames. Reverse main-view markers have a 24.611 ms median against
+1.339 ms outbound. The separate first-reverse depth event spans 52.455 ms.
+The prepared service-light shadow-mode control awaits native measurement.
 
-**PR162 city windows qualification:** **qualification_city_windows_01/** retains the fixture binding refusal. **02/** terminal0 and both source guards PASS at **515c75279**. The original authority/save packet independently passed 379 checks and five contracts. Apartment access passed 60 rooms, nine legs and 782 checks. Surface passed 38,947 checks, with a separate zero-defect validation of 30,921 draws. Exterior access passed six routes and 130 checks. The current packets preserve exact runtime and log bytes. All 82 changed frames were reviewed; the dumbwaiter and some apartment fixtures remain obscured. Previous evidence is archived in **art/reviews/v2_qualification_city_windows_20261106/**. Exact candidate verification, Laurel stutter, human play and art acceptance remain open.
+**PR162 city windows qualification:** **qualification_city_windows_01/** retains the fixture binding refusal. **02/** terminal0 and both source guards PASS at **515c75279**. The original authority/save packet independently passed 379 checks and five contracts. Apartment access passed 60 rooms, nine legs and 782 checks. Surface passed 38,947 checks, with a separate zero-defect validation of 30,921 draws. Exterior access passed six routes and 130 checks. The current packets preserve exact runtime and log bytes. All 82 changed frames were reviewed; the dumbwaiter and some apartment fixtures remain obscured. Previous evidence is archived in **art/reviews/v2_qualification_city_windows_20261106/**. Exact candidate abfd47c20 passed and PR162 merged. Laurel stutter, human play and art acceptance remain open.
 
 **Exterior spatial renewal:** **exterior_regions_current_01/** preserves the old mask refusal. **02/** terminal0 and both guards PASS. The native source-bound replay reaches six regions via six routes in one continuous leg, with 52 endpoints, 6,609 observed poses and 130 checks. The normal standing mask includes the native hose-contact layer. The current packet and its byte-checked original logs pass independent publication. Human navigation and appearance review remain open.
 
