@@ -626,6 +626,11 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 			and companion.inspected_readable_stock()==book,
 			"same companion reaches a shoulder station and tracks the inspected book"):
 		return false
+	var reading_aim: Dictionary=installed_reading.frames.back().reading_aim
+	if not _require(not book._held and bool(reading_aim.diagnostic_query_issued)
+			and bool(reading_aim.get("target_valid",false)),
+			"released inspection keeps a native page target for the shoulder lamp"):
+		return false
 	if not _require(await _two_style_cursor(camera.global_position - camera.global_basis.z),
 			"detached reading cursor reaches camera centre"):
 		return false

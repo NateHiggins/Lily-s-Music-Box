@@ -54,10 +54,12 @@ func requires_shelf_withdrawal() -> bool: return shelf_slot>=0
 func pickup_centre() -> Vector3:
 	return Vector3(float(construction.width)*.5,float(construction.height)*.5,0)
 
-## Optional presentation target, only for a genuinely carried readable book.
+## Optional presentation target for the carried or actively inspected copy.
 ## Points/normals follow the same native profiles used by the printed surfaces.
 func reading_light_target(aperture: Vector3) -> Vector3:
-	if not _held or not is_inside_tree() or not is_visible_in_tree() or not aperture.is_finite() or left==null:return Vector3.INF
+	if not is_inside_tree() or not is_visible_in_tree() or not aperture.is_finite() or left==null:return Vector3.INF
+	var inspecting: bool=shelf.supports_inspected_stock(self)
+	if not _held and not inspecting: return Vector3.INF
 	var opened: bool=opening>.04
 	if opened and (not _print_ready or _sheets.size()!=2):return Vector3.INF
 	if opened and not (_sheets[0].is_visible_in_tree() and _sheets[1].is_visible_in_tree()):return Vector3.INF
@@ -74,13 +76,19 @@ func reading_light_target(aperture: Vector3) -> Vector3:
 			_reading_light_faces.append({"point":point,"normal":normal})
 	var best:=Vector3.INF
 	var facing:=0.
+	var visible_centre:=Vector3.ZERO
+	var visible_count:=0
 	for face: Dictionary in _reading_light_faces:
 		var point: Vector3=to_global(face.point)
 		var toward: Vector3=aperture-point
 		if not point.is_finite() or toward.length_squared()<.000001:continue
 		var normal: Vector3=(global_basis.inverse().transposed()*Vector3(face.normal)).normalized()
 		var alignment: float=normal.dot(toward.normalized())
+		if inspecting and alignment>0.:
+			visible_centre+=point
+			visible_count+=1
 		if alignment>facing:facing=alignment;best=point
+	if visible_count==2: return visible_centre*.5
 	return best
 
 func begin_floating_view(camera_pose: Transform3D) -> void:
