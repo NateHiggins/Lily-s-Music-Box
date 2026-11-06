@@ -310,8 +310,8 @@ func inspection_pickup_return_allowed(part: Node3D) -> bool:
 	return true
 
 func finish_reading() -> void:
-	var book:=_inspection_stock as Book
-	if is_instance_valid(book): book.return_after_reading()
+	if is_instance_valid(_inspection_stock) and _inspection_stock is Book:
+		_inspection_stock.return_after_reading()
 
 func inspection_ended() -> void:
 	if is_instance_valid(_inspection_stock):
