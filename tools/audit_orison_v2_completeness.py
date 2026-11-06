@@ -2122,6 +2122,12 @@ def load_scoped_cases(inputs: Inputs):
         return []
     data = load_json(path, "reality cases")
     cases = []
+    # RealityCases loads definitions by their top-level JSON key.
+    if isinstance(data, dict):
+        for case_id, record in data.items():
+            if (isinstance(record, dict) and "unit" in record
+                    and "id" not in record and "case_id" not in record):
+                cases.append((case_id, str(record["unit"]), record.get("origin_node")))
 
     def walk(node):
         if isinstance(node, dict):
