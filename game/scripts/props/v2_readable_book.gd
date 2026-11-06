@@ -424,7 +424,7 @@ func _claim(tag: String) -> bool:
 
 func _release() -> void:
 	var changed:=not is_equal_approx(opening,_before_opening)
-	var refit:=changed and _hand_tag=="cover" and shelf.supports_inspected_stock(self)
+	var refit: bool=changed and _hand_tag=="cover" and shelf.supports_inspected_stock(self)
 	super._release()
 	if shelf_slot<0: shelf.try_place_book(self)
 	if shelf_slot>=0: freeze=true;sleeping=true
