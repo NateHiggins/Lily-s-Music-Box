@@ -6,15 +6,22 @@ Canonical **C:/PleaseRemainOnTheLine**. Root owns integration. Check Omni
 bridge mail and live lane custody. Cases below are under
 **C:/ov/reports/develop_intake_20261104/**.
 
-**Current reading candidate.** **book_return_nearby_native_04/** freezes
-**db088fd1b** for compile, the slot-hand bench and the cookbook resize check.
-Check the exact launcher and final guard before any source change.
-**reading_fit_shoulder_native_01/** preserves the compile refusal.
-**book_return_nearby_native_03/** compiled all eleven scripts and reported
-103 successful assertions. Its raw logs preserve the freed-book exit error
-and a standalone cookbook harness error. Require clean receipts before the
-installed route. Human acceptance remains open. Physical book packing
-follows PR164's case custody changes.
+**Current reading candidate.** **book_return_nearby_native_04/** passed the
+103 slot-hand checks and three cookbook viewport sizes at **db088fd1b**.
+**reading_fit_shoulder_native_04/** reproduced the installed failure at
+**08edee103**. The book grew from 531 to 996 pixels tall, then drifted by
+micrometres against the player capsule. The original logs and fit samples
+are retained. **reading_fit_shoulder_native_05/** freezes **c96eeb719** to
+verify the new native settle tolerance, shoulder light, zoom and shelf return.
+Check its launcher and final guard before changing canonical source.
+Human acceptance remains open. Physical book packing follows PR164.
+
+**PR164 newspaper valise.** Batch 8 passed the scoped purchase, deposit,
+release and reload checks. Batch 9 ended with an assertion script error
+after deposit. Its metric-UV assertion reached for the pile mesh before
+primary release created it. Keep the original failure and require a clean
+patched-engine route and capture for the changed pile. Claude owns the two
+paper paths. Root owns admission.
 
 **Laurel scheduler.** **laurel_scheduler_native_01/** passed 22 checks and six
 legs with both guards PASS. Worst frame 68.559 ms. Three running snapshots fell
