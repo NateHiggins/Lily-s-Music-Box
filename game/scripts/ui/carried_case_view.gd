@@ -6,6 +6,11 @@ extends CanvasLayer
 ## click sets it down on the stitched squares (RUL-013); right click turns it. The
 ## world keeps running while it is open. Everything built here is freed on close,
 ## so a closed case costs nothing. Lettering is Label3D.
+##
+## Papers stand in the linen pocket in the body, above the card (PaperPocket): the
+## cursor finds a paper's top edge, a click takes it, upward motion draws it out,
+## and drawn far enough it is held up to read. The next click (or ESC on a
+## newspaper) lets it go, and it slides back into the pocket.
 
 const FONT := preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
 const TEXTURES := "res://assets/building/textures/"
@@ -29,6 +34,32 @@ const CARD_LEAN := -0.24434609 # 14 degrees, the body's presentation lean.
 const CARD_PIXEL := 0.00036
 const CARD_WIDTH := 0.155
 const CARD_LINES := 6
+## The pocket, in the case's own frame: the centre of its top edge, a centimetre in front of the linen, and the
+## body's leaned up direction. Above the pocket the body's top frame hides anything, so the papers stand in front of
+## the linen with their tops just under its top edge, leaning on it, where they can be seen and taken.
+const POCKET_TOP := Vector3(0, 0.2749, -0.2802)
+const POCKET_UP := Vector3(0, 0.97029573, -0.24192190)
+## Three containers on the body (Lily, 2026-11-06): the evidence folder on the left holds loose letters; on the
+## right the newspaper pocket, with the shorter comics pocket in front of it, so both rows of covers show. Offsets
+## are along the body's up direction from POCKET_TOP (negative is down) and toward the reader (depth).
+const CONTAINERS := {
+	"letter": {"x": -0.135, "width": 0.15, "top": -0.012, "panel": -0.055, "depth": 0.002, "front": 0.010, "w": 0.085, "h": 0.11, "skin": "paper"},
+	"news": {"x": 0.085, "width": 0.24, "top": -0.006, "panel": -0.062, "depth": 0.002, "front": 0.012, "w": 0.11, "h": 0.13, "skin": "leather_worn"},
+	"comic": {"x": 0.085, "width": 0.22, "top": -0.046, "panel": -0.088, "depth": 0.016, "front": 0.024, "w": 0.075, "h": 0.10, "skin": "leather_worn"},
+}
+const POCKET_BOTTOM := -0.145
+const POCKET_WIDTH := 0.42
+const SHEET_HEIGHT := 0.13
+## Drawn out, a paper tips forward toward the reader as it rises, instead of up behind the frame.
+const SHEET_TIP := 0.6
+## The band at a paper's top edge that the hand takes.
+const GRIP_BAND := 0.03
+const SHEET_STEP := 0.085
+## Pixels of upward pointer travel that draw a paper all the way out, and how far
+## out it must come to be read.
+const DRAW_PIXELS := 220.0
+const DRAW_OPENS := 0.85
+const DRAW_SETTLE_SECONDS := 0.2
 
 var player: PlayerController
 var economy: Node
@@ -55,6 +86,13 @@ var _pointer := Vector2.ZERO
 var _held_turned := false
 var _floor_size := Vector2.ZERO
 var _return_washer := false
+var held_paper := -1
+var _papers: Array[Dictionary] = []
+var _sheets: Array[Node3D] = []
+var _draw := 0.0
+var _draw_from_y := 0.0
+var _reading: Node = null
+var _returning := false
 
 
 func _ready() -> void:
@@ -82,12 +120,21 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion or event is InputEventMouseButton or event is InputEventKey:
 			get_viewport().set_input_as_handled()
 		return
+	if is_instance_valid(_reading):
+		return  # the paper held up to read takes the input until it goes back
+	if held_paper >= 0 and not _returning and _paper_input(event):
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventMouseMotion:
 		_point(event.position)
 	elif event is InputEventMouseButton and event.pressed:
 		_point(event.position)
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			_click()
+			var paper := _paper_at(event.position) if held_item == "" and held_paper < 0 else -1
+			if paper >= 0:
+				_take_paper(paper, event.position.y)
+			else:
+				_click()
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			_turn()
 	elif event.is_action_pressed("carried_case") or event.is_action_pressed("ui_cancel"):
@@ -118,9 +165,13 @@ func open_case() -> void:
 
 ## A stack in the hand goes back to its saved square: only a click sets one down.
 func close_case() -> void:
-	if not opened or not settled:
+	if not opened or not settled or is_instance_valid(_reading):
 		return
 	settled = false
+	if held_paper >= 0:
+		_draw = 0.0
+		_pose_paper(held_paper)
+		held_paper = -1
 	if held_item != "":
 		_held_turned = bool(CarriedCase.place_of(held_item).turned)
 		_settle(held_item)
@@ -148,6 +199,11 @@ func _discard_view() -> void:
 	_stacks.clear()
 	_stays.clear()
 	_materials.clear()
+	_papers.clear()
+	_sheets.clear()
+	held_paper = -1
+	_draw = 0.0
+	_returning = false
 
 
 ## Pose the shelf and solve the two-link stays, in the case's own frame.
@@ -267,10 +323,199 @@ func _build() -> bool:
 	_tag.outline_size = 8
 	_tag.outline_modulate = Color(0.05, 0.03, 0.02)
 	_tag.visible = false
+	_fill_pocket(root, material_sets)
 	for item: String in CarriedCase.book().places:
 		_lay(item, _goods)
 	set_angle(0.0)
 	return true
+
+
+## Each paper as a sheet in its container, fanned across it front first, the top showing above the container's
+## front panel. Hit tests run front to back: comics, then the folder, then newspapers.
+func _fill_pocket(root: Node3D, sets: Dictionary) -> void:
+	var contents := PaperPocket.contents(get_tree().get_first_node_in_group("newspaper_catalog") as NewspaperCatalog)
+	_papers.clear()
+	for kind: String in ["comic", "letter", "news"]:
+		_papers.append_array(contents.filter(func(paper): return paper.kind == kind))
+	for kind: String in CONTAINERS:
+		_container(root, kind, sets)
+	for index in _papers.size():
+		var paper: Dictionary = _papers[index]
+		var spec: Dictionary = CONTAINERS[paper.kind]
+		var group: Array = _papers.filter(func(other): return other.kind == paper.kind)
+		var place: int = group.find(paper)
+		var count: int = group.size()
+		var sheet := Node3D.new()
+		sheet.name = "PocketPaper%d" % index
+		root.add_child(sheet)
+		var draw := MeshInstance3D.new()
+		var mesh := BoxMesh.new()
+		mesh.size = Vector3(float(spec.w), float(spec.h), 0.0015)
+		draw.mesh = mesh
+		draw.material_override = _material("paper", 0.6, sets)
+		sheet.add_child(draw)
+		_cover(sheet, paper, spec)
+		var step := minf(SHEET_STEP, (float(spec.width) - float(spec.w)) / maxf(count - 1, 1))
+		var layer := minf(0.0012, (float(spec.front) - float(spec.depth) - 0.002) / maxf(count, 1))
+		sheet.set_meta("x", float(spec.x) + (place - (count - 1) * 0.5) * step)
+		sheet.set_meta("depth", float(spec.depth) + layer * (count - 1 - place))
+		sheet.set_meta("rise", float(spec.top) + 0.004 * (place % 2))
+		sheet.set_meta("height", float(spec.h))
+		_sheets.append(sheet)
+		_pose_paper(index)
+
+
+## A container's front panel (and the folder's back board and tab), from the case's own finishes.
+func _container(root: Node3D, kind: String, sets: Dictionary) -> void:
+	var spec: Dictionary = CONTAINERS[kind]
+	var boards: Array = [[float(spec.panel), float(spec.front), str(spec.skin)]]
+	if kind == "letter":
+		boards.append([float(spec.top) - 0.008, float(spec.depth) - 0.0015, "paper"])  # the folder's back board
+	for board: Array in boards:
+		var panel := MeshInstance3D.new()
+		panel.name = "Pocket_%s" % kind
+		var mesh := BoxMesh.new()
+		var height := float(board[0]) - POCKET_BOTTOM
+		mesh.size = Vector3(float(spec.width), height, 0.003)
+		panel.mesh = mesh
+		panel.material_override = _material(str(board[2]), 0.6, sets)
+		root.add_child(panel)
+		panel.transform = Transform3D(Basis(Vector3.RIGHT, CARD_LEAN),
+				POCKET_TOP + Vector3(float(spec.x), 0, 0) + POCKET_UP * (float(board[0]) - height * 0.5) + CARD_NORMAL * float(board[1]))
+	if kind == "letter":
+		var tab := _label(root, 0.0003, 34)
+		tab.text = "EVIDENCE"
+		tab.modulate = Color(0.12, 0.09, 0.06)
+		tab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		tab.rotation = Vector3(CARD_LEAN, 0, 0)
+		tab.position = POCKET_TOP + Vector3(float(spec.x), 0, 0) + POCKET_UP * (float(spec.panel) - 0.012) + CARD_NORMAL * (float(spec.front) + 0.002)
+
+
+## What shows of a paper above its pocket: a newspaper's masthead, a comic's cover lettering, a letter's heading.
+func _cover(sheet: Node3D, paper: Dictionary, spec: Dictionary) -> void:
+	var top := float(spec.h) * 0.5
+	var head := _label(sheet, 0.00026, 34)
+	head.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	head.modulate = Color(0.1, 0.07, 0.05)
+	head.position = Vector3(0, top - 0.011, 0.0009)
+	head.text = str(paper.title).to_upper().left(16)
+	if paper.kind == "comic":
+		head.text = "LILITH"
+		head.pixel_size = 0.00046
+		head.modulate = Color(0.55, 0.1, 0.08)
+		head.position = Vector3(0, top - 0.012, 0.0009)
+		var number := _label(sheet, 0.00024, 34)
+		number.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		number.modulate = Color(0.1, 0.07, 0.05)
+		number.text = "No. %d" % int(paper.get("number", 0))
+		number.position = Vector3(0, top - 0.027, 0.0009)
+
+
+func _pose_paper(index: int) -> void:
+	var sheet := _sheets[index]
+	var out := _draw if index == held_paper else 0.0
+	var height := float(sheet.get_meta("height"))
+	var top := float(sheet.get_meta("rise")) + out * height
+	var lean := Basis(Vector3.RIGHT, CARD_LEAN + SHEET_TIP * out)
+	sheet.transform = Transform3D(lean,
+			POCKET_TOP + Vector3(float(sheet.get_meta("x")), 0, 0) + lean.y * (top - height * 0.5)
+			+ CARD_NORMAL * float(sheet.get_meta("depth")))
+
+
+## Where a paper's showing top edge is on screen, for the hand and for tests.
+func paper_grip_point(index: int) -> Vector2:
+	var sheet := _sheets[index]
+	return _camera.unproject_position(sheet.global_position + sheet.global_basis.y * (float(sheet.get_meta("height")) * 0.5 - GRIP_BAND * 0.5))
+
+
+## The front-most paper whose showing edge is under the pointer, or -1.
+func _paper_at(position: Vector2) -> int:
+	for index in _sheets.size():
+		var sheet := _sheets[index]
+		var half: float = ((sheet.get_child(0) as MeshInstance3D).mesh as BoxMesh).size.x * 0.5
+		var right := sheet.global_basis.x
+		var up := sheet.global_basis.y
+		var top := sheet.global_position + up * float(sheet.get_meta("height")) * 0.5
+		var a := _camera.unproject_position(top - right * half)
+		var b := _camera.unproject_position(top + right * half)
+		var c := _camera.unproject_position(top - up * GRIP_BAND)
+		if Rect2(minf(a.x, b.x), minf(a.y, b.y) - 4.0, absf(b.x - a.x), absf(c.y - a.y) + 8.0).has_point(position):
+			return index
+	return -1
+
+
+func _take_paper(index: int, pointer_y: float) -> void:
+	held_paper = index
+	_draw = 0.0
+	_draw_from_y = pointer_y
+	_tag.text = str(_papers[index].title)
+	_tag.position = _sheets[index].global_position + POCKET_UP * 0.1
+	_tag.visible = true
+
+
+## A paper in the hand: upward motion draws it out, a click lets it go back.
+func _paper_input(event: InputEvent) -> bool:
+	if event is InputEventMouseMotion:
+		_draw = clampf((_draw_from_y - event.position.y) / DRAW_PIXELS, 0.0, 1.0)
+		_pose_paper(held_paper)
+		if _draw >= DRAW_OPENS:
+			_read(held_paper)
+		return true
+	if event is InputEventMouseButton and event.pressed:
+		_let_paper_go()
+		return true
+	return false
+
+
+func _let_paper_go() -> void:
+	var index := held_paper
+	_tag.visible = false
+	if index < 0:
+		return
+	_returning = true
+	var tween := create_tween()
+	tween.tween_method(_settle_draw.bind(index), _draw, 0.0, DRAW_SETTLE_SECONDS)
+	tween.tween_callback(_paper_home.bind(index))
+
+
+func _settle_draw(value: float, index: int) -> void:
+	if index >= _sheets.size():
+		return
+	_draw = value
+	_pose_paper(index)
+
+
+func _paper_home(index: int) -> void:
+	_returning = false
+	if held_paper == index:
+		held_paper = -1
+
+
+func _read(index: int) -> void:
+	var paper := _papers[index]
+	_tag.visible = false
+	if paper.kind == "news":
+		var catalog := get_tree().get_first_node_in_group("newspaper_catalog") as NewspaperCatalog
+		var panel := NewspaperPanel.new()
+		panel.name = "PocketNewspaper"
+		add_child(panel)
+		_reading = panel
+		panel.open(player, catalog, str(paper.paper), str(paper.date), _read_done)
+		panel.layer = layer + 1
+	else:
+		var sheet := PocketPaperPanel.new()
+		sheet.name = "PocketLetter"
+		add_child(sheet)
+		_reading = sheet
+		sheet.open(paper, _read_done)
+
+
+## Back from reading: the case still holds the pointer, and the paper goes home.
+func _read_done() -> void:
+	_reading = null
+	player.call_locked = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_let_paper_go()
 
 
 func _material(key: String, tile: float, sets: Dictionary) -> StandardMaterial3D:
