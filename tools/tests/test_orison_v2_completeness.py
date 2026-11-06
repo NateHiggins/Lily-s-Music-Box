@@ -309,6 +309,22 @@ class UntouchedFixtureTests(unittest.TestCase):
         record = req(self.payload, "case.juno_feedback_tetris")
         self.assertIn("unit 2C absent from v2", record["blocked_by"])
 
+    def test_keyed_case_definitions_keep_their_identity_and_origin(self):
+        with TempRepo() as root:
+            case_path = root / "game/data/reality_cases.json"
+            case_path.write_text(json.dumps({
+                "mina_caption_crisis": {
+                    "unit": "2A", "origin_node": "F02_A_MONITOR_01", "enabled": True,
+                },
+                "juno_feedback_tetris": {"unit": "2C", "enabled": False},
+            }), encoding="utf-8")
+            _, keyed, _ = run_payload(root)
+            for case_id in ("mina_caption_crisis", "juno_feedback_tetris"):
+                rid = f"case.{case_id}"
+                self.assertEqual(req(keyed, rid), req(self.payload, rid), rid)
+            self.assertEqual(req(keyed, "save.unit_rect_facts"),
+                             req(self.payload, "save.unit_rect_facts"))
+
     def test_queue_starts_with_m08e(self):
         queue = self.payload["queue"]
         self.assertEqual(queue[0]["id"], "M08E-f01-rituals-2b-b1")
