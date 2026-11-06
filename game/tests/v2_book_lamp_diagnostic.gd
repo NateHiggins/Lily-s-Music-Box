@@ -611,6 +611,7 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 	var eye_before_fit: Transform3D = camera.global_transform
 	var projection_before:=_reading_hull_projection(book)
 	_click_library()
+	installed_reading.fit_motion={"before":_reading_fit_motion(book,camera),"samples":[]}
 	if not _require(not player._grab.active() and player.inspecting() and book._print_ready
 			and book._sheets.size() == 2, "next primary releases opened binding with two printed pages"):
 		return false
@@ -618,15 +619,18 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 		if not book.is_physics_processing():
 			break
 		await get_tree().physics_frame
+		if frame in [0,1,2,5,15,35,59,119]:
+			installed_reading.fit_motion.samples.append(_reading_fit_motion(book,camera))
+	installed_reading.fit_motion.after=_reading_fit_motion(book,camera)
+	var projection_after:=_reading_hull_projection(book)
+	installed_reading.fit_projection={"before":projection_before,"after":projection_after}
 	if not _require(not book.is_physics_processing() and camera.global_transform.is_equal_approx(eye_before_fit)
 			and camera.global_position.distance_to(book.global_position) + .05
 				< camera.global_position.distance_to(before_fit.origin),
 			"open binding moves toward the fixed eye and settles through the physical hold"):
 		return false
-	var projection_after:=_reading_hull_projection(book)
 	var area_before: float=projection_before.get("projected_width_px",0.)*projection_before.get("projected_height_px",0.)
 	var area_after: float=projection_after.get("projected_width_px",0.)*projection_after.get("projected_height_px",0.)
-	installed_reading.fit_projection={"before":projection_before,"after":projection_after}
 	if not _require(area_before>0. and area_after>area_before and not bool(projection_after.get("frame_clipped",true)),
 			"centred reading fit increases projected book area while keeping the complete binding in view"):
 		return false
@@ -751,6 +755,19 @@ func _installed_reading_wheel(button: MouseButton) -> void:
 	wheel.pressed = true
 	wheel.factor = 8.
 	player._unhandled_input(wheel)
+
+func _reading_fit_motion(book: Node3D, camera: Camera3D) -> Dictionary:
+	var sample:=_two_style_withdrawal_state(book)
+	var carrier: Node3D=player.carried_device
+	sample["target_in_eye_frame"]=var_to_str(book._reading_target)
+	sample["body_in_eye_frame"]=var_to_str(camera.to_local(book.global_position))
+	sample["lamp_in_eye_frame"]=var_to_str(camera.to_local(player.flashlight.global_position))
+	sample["carrier_centre_in_eye_frame"]=var_to_str(camera.to_local(
+		carrier.rig.to_global(carrier.screen_frame.stock_bounds.get_center())))
+	sample["fit_frames"]=book._floating_frames
+	sample["fit_processing"]=book.is_physics_processing()
+	sample["hand_tag"]=book._hand_tag
+	return sample
 
 func _installed_reading_frame(phase: String, book: Node3D, fov: float, msaa: Viewport.MSAA,
 		original: Dictionary, lamp_on := true) -> bool:
