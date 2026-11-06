@@ -9,6 +9,8 @@ const PrintMesh := preload("res://scripts/props/book_print_mesh.gd")
 ## .04 rad; a reader holds the book open well past that.
 const SPREAD_KNOWLEDGE := {"minutes": "minutes_read"}
 const READ_OPENING := 0.6
+const MIN_READING_DEPTH := .36
+const READING_HALF_SPAN := .88
 var stock: RefCounted
 var title_id := "" # Physical stock_id may identify a distinct copy of this title.
 var entry: Dictionary
@@ -35,6 +37,14 @@ var _heading_font: FontVariation
 var shelf_slot := -1
 var _floating_camera := Transform3D.IDENTITY
 var _floating_frames := 0
+var _reading_projection_tangent := 0.0
+var _reading_target := Vector3.INF
+var _reading_pickup_pose := Transform3D.IDENTITY
+var _reading_pickup_exit := Vector3.ZERO
+var _reading_pickup_opening := 0.0
+var _reading_pickup_slot := -1
+var _has_reading_pickup := false
+var _read_in_inspection := false
 var _reading_light_opening := INF
 var _reading_light_faces: Array[Dictionary] = []
 
@@ -43,10 +53,12 @@ func requires_shelf_withdrawal() -> bool: return shelf_slot>=0
 func pickup_centre() -> Vector3:
 	return Vector3(float(construction.width)*.5,float(construction.height)*.5,0)
 
-## Optional presentation target, only for a genuinely carried readable book.
+## Optional presentation target for the carried or actively inspected copy.
 ## Points/normals follow the same native profiles used by the printed surfaces.
 func reading_light_target(aperture: Vector3) -> Vector3:
-	if not _held or not is_inside_tree() or not is_visible_in_tree() or not aperture.is_finite() or left==null:return Vector3.INF
+	if not is_inside_tree() or not is_visible_in_tree() or not aperture.is_finite() or left==null:return Vector3.INF
+	var inspecting: bool=shelf.supports_inspected_stock(self)
+	if not _held and not inspecting: return Vector3.INF
 	var opened: bool=opening>.04
 	if opened and (not _print_ready or _sheets.size()!=2):return Vector3.INF
 	if opened and not (_sheets[0].is_visible_in_tree() and _sheets[1].is_visible_in_tree()):return Vector3.INF
@@ -63,37 +75,88 @@ func reading_light_target(aperture: Vector3) -> Vector3:
 			_reading_light_faces.append({"point":point,"normal":normal})
 	var best:=Vector3.INF
 	var facing:=0.
+	var visible_centre:=Vector3.ZERO
+	var visible_count:=0
 	for face: Dictionary in _reading_light_faces:
 		var point: Vector3=to_global(face.point)
 		var toward: Vector3=aperture-point
 		if not point.is_finite() or toward.length_squared()<.000001:continue
 		var normal: Vector3=(global_basis.inverse().transposed()*Vector3(face.normal)).normalized()
 		var alignment: float=normal.dot(toward.normalized())
+		if inspecting and alignment>0.:
+			visible_centre+=point
+			visible_count+=1
 		if alignment>facing:facing=alignment;best=point
+	if visible_count==2: return visible_centre*.5
 	return best
 
 func begin_floating_view(camera_pose: Transform3D) -> void:
 	_floating_camera=camera_pose
-	_floating_frames=0
+	_read_in_inspection=opening>=READ_OPENING
+	var camera:=get_viewport().get_camera_3d()
+	_reading_projection_tangent=tan(deg_to_rad(camera.fov*.5))
 	freeze=true
 	shelf_slot=-1
 	_contact_mode(true)
-	set_physics_process(true)
+	get_viewport().size_changed.connect(_queue_reading_fit)
+	_queue_reading_fit()
 	# Prepare hidden glyph streams while the supported view settles. Their
 	# bounded slices do not sit on the first cover-drag input event.
 	if not _pages_ready:_print_pages()
 
 func end_floating_view() -> void:
+	var viewport:=get_viewport()
+	if viewport!=null and viewport.size_changed.is_connected(_queue_reading_fit):
+		viewport.size_changed.disconnect(_queue_reading_fit)
+	_reading_target=Vector3.INF
 	set_physics_process(false)
-	if _closed_solid!=null: _contact_mode(false)
+	if _closed_solid!=null: _contact_mode(shelf_slot>=0)
+
+func _hold_target(camera_pose: Transform3D, centered: bool) -> Vector3:
+	if centered and _reading_target.is_finite():
+		return camera_pose*_reading_target
+	return super._hold_target(camera_pose,centered)
+
+func _queue_reading_fit() -> void:
+	_reading_target=Vector3.INF
+	if opening>=READ_OPENING:
+		var bounds:=AABB()
+		var first:=true
+		for solid: CollisionShape3D in _solids:
+			var hull:=solid.shape as ConvexPolygonShape3D
+			for vertex: Vector3 in hull.points:
+				var point:=solid.transform*vertex
+				bounds=AABB(point,Vector3.ZERO) if first else bounds.expand(point)
+				first=false
+		if not first:
+			var camera:=get_viewport().get_camera_3d()
+			var view_size:=get_viewport().get_visible_rect().size
+			var aspect:=maxf(view_size.x,1.)/maxf(view_size.y,1.)
+			var tangent:=_reading_projection_tangent
+			var vertical:=tangent if camera.keep_aspect==Camera3D.KEEP_HEIGHT else tangent/aspect
+			var half_frustum:=Vector2(vertical*aspect,vertical)
+			# The shoulder station leaves the centre clear. Keep a screen
+			# margin and a little clearance beyond the standing capsule.
+			var fit_depth:=Vector2(bounds.size.x,bounds.size.y)/(2.*READING_HALF_SPAN*half_frustum)
+			var minimum:=maxf(camera.near+.02,MIN_READING_DEPTH)
+			var lamp:=camera.get_parent().get("flashlight") as SpotLight3D
+			if is_instance_valid(lamp):
+				var aperture:=_floating_camera.affine_inverse()*lamp.global_position
+				minimum=maxf(minimum,-aperture.z+.05)
+			var depth:=maxf(minimum,maxf(fit_depth.x,fit_depth.y))
+			var centre:=bounds.get_center()
+			_reading_target=Vector3(-centre.x,-centre.y,-depth-bounds.end.z)
+	_floating_frames=0
+	set_physics_process(true)
 
 func _physics_process(_delta: float) -> void:
 	if _held: return
 	var before:=global_transform
 	hold_pose(_floating_camera,true)
 	_floating_frames+=1
-	# Once supported in the fixed view, no solver or repeated shape queries.
-	if global_transform.is_equal_approx(before) or _floating_frames>=180:
+	# The sweep has already advanced to a clear pose. Repeating a blocked
+	# approach keeps pushing into the same contact and can make the book slide.
+	if _hold_blocked or global_transform.is_equal_approx(before) or _floating_frames>=180:
 		set_physics_process(false)
 
 func park_in_slot(index: int, pose: Transform3D) -> void:
@@ -345,7 +408,14 @@ func _notification(what: int) -> void:
 		for printed: Dictionary in _print_surfaces: RenderingServer.free_rid(printed.mesh)
 
 func _claim(tag: String) -> bool:
+	var outside_inspection: bool=tag=="body" and not shelf.supports_inspected_stock(self)
 	if not super._claim(tag): return false
+	if outside_inspection:
+		_reading_pickup_pose=transform
+		_reading_pickup_exit=get_parent_node_3d().to_local(_pickup_exit)
+		_reading_pickup_opening=opening
+		_reading_pickup_slot=shelf_slot
+		_has_reading_pickup=true
 	_contact_mode(true)
 	if tag in ["body","turn"]: shelf_slot=-1
 	if tag=="body" and shelf.supports_inspected_stock(self):set_physics_process(false)
@@ -355,10 +425,12 @@ func _claim(tag: String) -> bool:
 
 func _release() -> void:
 	var changed:=not is_equal_approx(opening,_before_opening)
+	var refit: bool=changed and _hand_tag=="cover" and shelf.supports_inspected_stock(self)
 	super._release()
 	if shelf_slot<0: shelf.try_place_book(self)
 	if shelf_slot>=0: freeze=true;sleeping=true
 	_contact_mode(freeze)
+	if refit and shelf_slot<0: _queue_reading_fit()
 	if changed: shelf.library_stock_changed(self)
 
 func cover_grip() -> Dictionary:
@@ -398,6 +470,8 @@ func _open(proposed: float) -> void:
 	# Queries use absolute proposed native hulls and exclude this body. Preserve
 	# every sweep step, then update glyphs, render weights and contacts once.
 	if not accepted_groups.is_empty(): _apply_opening(accepted,accepted_groups)
+	if opening>=READ_OPENING and shelf.supports_inspected_stock(self):
+		_read_in_inspection=true
 	note_spread_read(title_id,opening)
 
 static func note_spread_read(title: String, angle: float) -> bool:
@@ -439,6 +513,71 @@ func _contact_mode(compact: bool) -> void:
 		solid.disabled=closed
 		if not closed: _solids.append(solid)
 
+func should_return_after_reading() -> bool:
+	return _has_reading_pickup and _read_in_inspection and shelf_slot<0
+
+func return_after_reading() -> void:
+	if not should_return_after_reading(): return
+	_has_reading_pickup=false
+	var slot:=_reading_pickup_slot
+	if slot>=0 and not shelf.book_slot_is_free(slot,self): return
+	var collection:=get_parent_node_3d()
+	var source_pose: Transform3D=shelf.book_slots[slot] if slot>=0 else _reading_pickup_pose
+	var pose:=collection.global_transform*source_pose
+	var groups: Dictionary=stock.posed_gatherings(stock_id,_reading_pickup_opening)
+	var contacts:=groups.values()
+	if slot>=0 and is_zero_approx(_reading_pickup_opening):
+		contacts=[{"shape":_closed_solid.shape,"pose":_closed_solid.transform}]
+	var path: Array[Vector3]=[]
+	if slot>=0: path.append(collection.to_global(_reading_pickup_exit))
+	path.append(pose.origin+Vector3.UP*.004)
+	path.append(pose.origin)
+	# The folded spine can intersect the reader even when the spread clears
+	# their capsule. Preflight a retreat to the ordinary viewing station before
+	# folding in that case. A blocked return leaves the current body to settle.
+	if not _reading_return_is_clear(global_position,pose.basis,contacts,path) \
+			and not _reading_return_via_view_station(pose.basis,contacts,path):
+		return
+	global_transform=pose
+	_apply_opening(_reading_pickup_opening,groups)
+	linear_velocity=Vector3.ZERO
+	angular_velocity=Vector3.ZERO
+	if slot>=0: park_in_slot(slot,source_pose)
+	else: freeze=false
+	_contact_mode(freeze)
+	shelf.library_stock_changed(self)
+
+func _reading_return_via_view_station(orientation: Basis, contacts: Array, path: Array[Vector3]) -> bool:
+	var retreat:=super._hold_target(_floating_camera,true)
+	var open_contacts: Array=[]
+	for solid: CollisionShape3D in _solids:
+		open_contacts.append({"shape":solid.shape,"pose":solid.transform})
+	var retreat_path: Array[Vector3]=[retreat]
+	return _reading_return_is_clear(global_position,global_basis,open_contacts,retreat_path) \
+		and _reading_return_is_clear(retreat,orientation,contacts,path)
+
+func _reading_return_is_clear(origin: Vector3, orientation: Basis, contacts: Array, path: Array[Vector3]) -> bool:
+	var space:=get_world_3d().direct_space_state
+	for group: Dictionary in contacts:
+		var query:=PhysicsShapeQueryParameters3D.new()
+		query.shape=group.shape
+		query.exclude=_query_exclusions()
+		query.collision_mask=collision_mask
+		var start:=origin
+		for goal: Vector3 in path:
+			query.motion=Vector3.ZERO
+			query.transform=Transform3D(orientation,start)*group.pose
+			if not space.intersect_shape(query,1).is_empty(): return false
+			query.motion=goal-start
+			if query.motion.length_squared()>1e-10:
+				var fractions:=space.cast_motion(query)
+				if fractions.size()!=2 or fractions[0]<.9999: return false
+			start=goal
+		query.motion=Vector3.ZERO
+		query.transform=Transform3D(orientation,start)*group.pose
+		if not space.intersect_shape(query,1).is_empty(): return false
+	return true
+
 func book_snapshot() -> Dictionary: return {"body":stock_snapshot(),"opening":opening,"slot":shelf_slot}
 
 static func valid_book(value: Variant) -> bool:
@@ -448,6 +587,8 @@ static func valid_book(value: Variant) -> bool:
 		and float(value.opening)>=0. and float(value.opening)<=PI
 
 func restore_book(value: Dictionary) -> void:
+	_has_reading_pickup=false
+	_read_in_inspection=false
 	end_floating_view()
 	shelf_slot=-1
 	freeze=true

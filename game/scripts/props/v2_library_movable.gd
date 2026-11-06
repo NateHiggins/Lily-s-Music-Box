@@ -110,6 +110,10 @@ func requires_shelf_withdrawal() -> bool: return false
 
 func pickup_centre() -> Vector3: return Vector3.ZERO
 
+func _hold_target(camera_pose: Transform3D, centered: bool) -> Vector3:
+	var offset:=Vector3(0,-.035,-.80) if centered else Vector3(.17,-.16,-.48)
+	return camera_pose*offset-camera_pose.basis*pickup_centre()
+
 func hold_pose(camera_pose: Transform3D, centered := false) -> void:
 	_hold_blocked=false
 	_hold_feedback_active=true
@@ -130,9 +134,7 @@ func hold_pose(camera_pose: Transform3D, centered := false) -> void:
 		if not _pickup_extracted:
 			_hold_blocked=not _last_motion.is_empty()
 			return
-	var offset:=Vector3(0,-.035,-.80) if centered else Vector3(.17,-.16,-.48)
-	var centre:=pickup_centre()
-	var desired:=camera_pose*offset-camera_pose.basis*centre
+	var desired:=_hold_target(camera_pose,centered)
 	_carry(position+shelf.global_basis.inverse()*(desired-global_position).limit_length(travel))
 	_hold_blocked=global_position.distance_to(desired)>.002 and not _last_motion.is_empty()
 	var local_basis:=shelf.global_basis.inverse()*camera_pose.basis

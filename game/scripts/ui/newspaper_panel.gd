@@ -33,6 +33,8 @@ var paper_id := ""
 var date := ""
 var side := "front"
 var _sheet: Control
+## Everything the panel draws, scaled as one to fill the screen (fit_scale) while the sheet keeps its typeset width.
+var _fit_root: Control
 var _scroll: ScrollContainer
 var _corner: Control
 var _coupon: Control = null
@@ -102,17 +104,39 @@ func _begin(player: Node, source: NewspaperCatalog, on_close: Callable) -> bool:
 	return true
 
 
+## How much larger than its design the reader is drawn on a screen of this size: as much of the screen as it can
+## take, its text growing with it, from 0.8 on a small window to 2 on a very large one (3440x1440 gives about 1.67).
+static func fit_scale(screen: Vector2) -> float:
+	return clampf(minf(screen.x / 1280.0, screen.y / 860.0), 0.8, 2.0)
+
+
+func _fit() -> void:
+	if _fit_root == null:
+		return
+	var screen := get_viewport().get_visible_rect().size
+	var k := fit_scale(screen)
+	_fit_root.scale = Vector2(k, k)
+	_fit_root.position = Vector2.ZERO
+	_fit_root.size = screen / k
+
+
 func _build() -> void:
+	_fit_root = Control.new()
+	_fit_root.name = "Fit"
+	_fit_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(_fit_root)
+	_fit()
+	get_viewport().size_changed.connect(_fit)
 	var bg := ColorRect.new()
 	bg.name = "Dark"
 	bg.color = Color(0.05, 0.045, 0.04, 0.96)
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
-	add_child(bg)
+	_fit_root.add_child(bg)
 	var row := HBoxContainer.new()
 	row.name = "Row"
 	row.set_anchors_preset(Control.PRESET_FULL_RECT)
 	row.add_theme_constant_override("separation", 0)
-	add_child(row)
+	_fit_root.add_child(row)
 	_shelf = ItemList.new()
 	_shelf.name = "Shelf"
 	_shelf.custom_minimum_size = Vector2(300, 0)
@@ -152,7 +176,7 @@ func _build() -> void:
 	_corner.size = Vector2(CORNER_SIZE, CORNER_SIZE)
 	_corner.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	_corner.visible = false
-	add_child(_corner)
+	_fit_root.add_child(_corner)
 	var curl := Polygon2D.new()
 	curl.name = "Curl"
 	curl.color = PAPER.darkened(0.25)
@@ -167,7 +191,7 @@ func _place_corner() -> void:
 
 
 func _inner_width() -> int:
-	var room := get_viewport().get_visible_rect().size.x - (float(SHELF_WIDTH) if _shelf.visible else 0.0)
+	var room := _fit_root.size.x - (float(SHELF_WIDTH) if _shelf.visible else 0.0)
 	var sheet_width := clampf(room, 720.0, float(SHEET_WIDTH))
 	_sheet.custom_minimum_size.x = sheet_width
 	return int(sheet_width) - SHEET_INSET - MARGIN * 2

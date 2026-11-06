@@ -39,6 +39,10 @@ var _last_player_velocity := Vector3.ZERO
 var _last_draw_process_frame := -1
 var _size := Vector2i.ZERO
 var _environment: Environment
+var _shoulder_sphere := SphereShape3D.new()
+var _shoulder_center := Vector3.INF
+var _shoulder_frame := -1
+var _shoulder_turn := 0.0
 
 func setup(owner_carrier: Node3D, source_camera: Camera3D) -> void:
 	carrier = owner_carrier; camera = source_camera
@@ -66,6 +70,7 @@ func setup(owner_carrier: Node3D, source_camera: Camera3D) -> void:
 	rig.keyboard_open = saved; rig._apply_keyboard()
 	if rig.temporal_register != null:
 		stock_bounds = stock_bounds.merge(rig.temporal_register.envelope_in_rig())
+	_shoulder_sphere.radius=stock_bounds.size.length()*.5*carrier.PRESENTATION_SCALE+.01
 	view = SubViewport.new(); view.name = "CompanionForeground"
 	view.transparent_bg = true
 	view.handle_input_locally = false
@@ -239,8 +244,20 @@ func advance(delta: float, reading: bool) -> void:
 	center += carrier.story_nudge * intensity
 	var origin := Vector3((center.x * 2.0 - 1.0) * depth * slope * aspect,
 		(1.0 - center.y * 2.0) * depth * slope, -depth)
+	var world_center:=camera.to_global(origin)
+	var shoulder_reading: bool=is_instance_valid(carrier.inspected_readable_stock()) \
+		and not carrier._player.protected_input_active() and not _world_handoff \
+		and not carrier.story_pose_active()
+	if shoulder_reading or _shoulder_center.is_finite():
+		var native_center: Vector3=carrier.rig.to_global(stock_bounds.get_center())
+		world_center=_advance_reading_shoulder(shoulder_reading,world_center,native_center,dt)
+		if _shoulder_center.is_finite():
+			var toward_pages:=Basis(Vector3.UP,PI)
+			relative_basis=relative_basis.slerp(toward_pages,_shoulder_turn)
+			fitted=AABB(stock_bounds.position*carrier.PRESENTATION_SCALE,
+				stock_bounds.size*carrier.PRESENTATION_SCALE)
 	carrier.motion.global_transform = Transform3D(camera.global_basis,
-		camera.global_position + camera.global_basis * (origin - relative_basis * fitted.get_center()))
+		world_center - camera.global_basis * (relative_basis * fitted.get_center()))
 	if _world_handoff:carrier.rig.position=Vector3.ZERO
 	carrier.rig.basis = relative_basis.scaled(Vector3.ONE * carrier.PRESENTATION_SCALE)
 	carrier.motion.velocity = Vector3.ZERO
@@ -258,6 +275,43 @@ func advance(delta: float, reading: bool) -> void:
 	carrier.rig.propulsion = clampf(.5 + carrier._player.velocity.length() * .13 + turning.length() * .04 + _drift_velocity.length() * 14.0 + _lean_velocity.length() * .12 + _travel_speed.length() * .65, .5, 1.6)
 	# The real optical aperture follows the visible manufactured pose.
 	carrier.beam_valid = true
+
+func _advance_reading_shoulder(active: bool, normal: Vector3, native_center: Vector3, delta: float) -> Vector3:
+	if not _shoulder_center.is_finite():
+		_shoulder_center=native_center
+	var frame:=Engine.get_physics_frames()
+	if frame==_shoulder_frame or delta<=0. or get_tree().paused:
+		return _shoulder_center
+	_shoulder_frame=frame
+	var goals: Array[Vector3]=[normal]
+	if active:
+		# Shoulder clearance is measured at the real model's scale. The
+		# alternate side avoids a wall without moving the player or the book.
+		goals.assign([camera.to_global(Vector3(.51,.17,.09)),camera.to_global(Vector3(-.51,.17,.09))])
+	var space:=camera.get_world_3d().direct_space_state
+	var query:=PhysicsShapeQueryParameters3D.new()
+	query.shape=_shoulder_sphere
+	query.collision_mask=1
+	query.exclude=[carrier._player.get_rid()]
+	for goal: Vector3 in goals:
+		query.transform=Transform3D(Basis.IDENTITY,goal)
+		if not space.intersect_shape(query,1).is_empty(): continue
+		var travel: Vector3=(goal-_shoulder_center).limit_length(1.55*delta)
+		if travel.length_squared()<.000001:
+			if not active:
+				_shoulder_center=Vector3.INF
+				_shoulder_turn=0.
+				return normal
+			_shoulder_turn=move_toward(_shoulder_turn,1.,delta*4.)
+			break
+		query.transform=Transform3D(Basis.IDENTITY,_shoulder_center)
+		query.motion=travel
+		var fractions:=space.cast_motion(query)
+		if fractions.size()!=2 or fractions[0]<.01: continue
+		_shoulder_center+=travel*fractions[0]
+		_shoulder_turn=move_toward(_shoulder_turn,1. if active else 0.,delta*4.)
+		break
+	return _shoulder_center
 
 func _exit_tree() -> void:
 	if RenderingServer.frame_pre_draw.is_connected(_before_draw): RenderingServer.frame_pre_draw.disconnect(_before_draw)

@@ -25,6 +25,7 @@ func _play_route() -> void:
 	profile_phase="nook_acquire_excluded"
 	var selected: Node3D
 	for book: Node3D in shelf._books.values():
+		if not _accept_nook_book(book): continue
 		var point:=book.to_global(Vector3(-.001,float(book.construction.height)*.65,0))
 		if player.camera.global_position.distance_to(point)>2.1: continue
 		player.camera.look_at(point)
@@ -62,6 +63,8 @@ func _play_route() -> void:
 	player.end_inspection()
 
 func _cold_nook_first_use(_book: Node3D, _space: InputEventKey) -> bool:return false
+
+func _accept_nook_book(_book: Node3D) -> bool:return true
 
 func _inspect_stock_review(_selected: Node3D) -> void:pass
 

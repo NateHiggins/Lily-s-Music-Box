@@ -48,6 +48,8 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("resident_errands")
 	if candidate.has("carried_case") and not preload("res://scripts/game/carried_case.gd").valid(candidate.carried_case):
 		return _invalid_shape("carried_case")
+	if candidate.has("paper_pocket") and not preload("res://scripts/game/paper_pocket.gd").valid(candidate.paper_pocket):
+		return _invalid_shape("paper_pocket")
 	if CarriedCase.washer_is_packed(candidate) and not _valid_packed_washer(candidate):
 		return _invalid_shape("carried_case washer custody")
 	if candidate.has("shop_stock") and not preload("res://scripts/game/shop_stock.gd").valid(candidate.shop_stock):
