@@ -14,10 +14,14 @@ advance against the player capsule. The distance tolerance in **05/** failed.
 **06/** passed contact settle, full-frame fit, shoulder light, lamp off and
 restore, and both zoom paths. **07/** found the shelf slot clear and exit FOV
 restored, but the folded hull would overlap the capsule at the fitted pose.
-**08/** freezes **d900d8bab** to verify a preflighted open retreat before folding
-and returning to the pickup spot. Check the live launcher and final guard
-before changing canonical source. Human acceptance and the installed blocked
-return remain open. Physical book packing follows PR164.
+**08/** passed 80 checks at **d900d8bab** for the installed hardback, including
+open retreat, exact shelf return and shoulder departure. Six renders show the
+whole spread at the default view and larger type with edge cropping at wheel
+zoom. **reading_valise_integration_native_01/** freezes **05ea35a61** for
+compile, moving-hose wetting, the corrected paper route and obstructed return.
+Check its live launcher and final guard before changing canonical source.
+Flexible binding, narrow-view and human acceptance remain open. Physical book
+packing follows PR164.
 
 **PR164 newspaper valise.** Patched-engine batch 11 passed 66 checks at the
 source published as **b589233a3**, including purchase, deposit, release, reload
@@ -37,7 +41,8 @@ inside the 53.649 ms render bracket. The historical 162.929 ms spike did not
 recur. **laurel_steady_pass_attribution_01/** independently joins 226 historical
 profiler frames. Reverse main-view markers have a 24.611 ms median against
 1.339 ms outbound. The separate first-reverse depth event spans 52.455 ms.
-The prepared service-light shadow-mode control awaits native measurement.
+The service-light shadow-mode control at **cb5c03390** awaits native
+measurement. **laurel_service_shadow_mode_native_01/** holds its batch.
 
 **PR162 city windows qualification:** **qualification_city_windows_01/** retains the fixture binding refusal. **02/** terminal0 and both source guards PASS at **515c75279**. The original authority/save packet independently passed 379 checks and five contracts. Apartment access passed 60 rooms, nine legs and 782 checks. Surface passed 38,947 checks, with a separate zero-defect validation of 30,921 draws. Exterior access passed six routes and 130 checks. The current packets preserve exact runtime and log bytes. All 82 changed frames were reviewed; the dumbwaiter and some apartment fixtures remain obscured. Previous evidence is archived in **art/reviews/v2_qualification_city_windows_20261106/**. Exact candidate abfd47c20 passed and PR162 merged. Laurel stutter, human play and art acceptance remain open.
 
