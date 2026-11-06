@@ -371,36 +371,37 @@ func _commit_purchased_gasket_handoff(inventory: Node, prepare_household: Callab
 	return true
 
 
-## A physical copy changes custody only after the case grid and household
-## stock pose have been verified as one complete save generation.
-func commit_library_transfer(prepare: Callable, publish: Callable) -> bool:
-	if _physical_handoff_active or not persistence_enabled or not prepare.is_valid() or not publish.is_valid():
+## Verify the case grid and household stock together before publishing.
+## Custody changes also publish to the physical copy and the player hand.
+func commit_library_case_change(prepare: Callable, publish := Callable()) -> bool:
+	if _physical_handoff_active or not persistence_enabled or not prepare.is_valid():
 		return false
 	_physical_handoff_active = true
-	var ok := _commit_library_transfer(prepare, publish)
+	var ok := _commit_library_case_change(prepare, publish)
 	_physical_handoff_active = false
 	return ok
 
 
-func _commit_library_transfer(prepare: Callable, publish: Callable) -> bool:
+func _commit_library_case_change(prepare: Callable, publish: Callable) -> bool:
 	var live_document := data
 	var live_path := save_path
 	if not _synchronous_save_barrier() or not _handoff_context_is_current(live_document, live_path):
 		return false
 	snapshot_preparing.emit()
-	if not _handoff_context_is_current(live_document, live_path) or not prepare.is_valid() or not publish.is_valid():
+	if not _handoff_context_is_current(live_document, live_path) or not prepare.is_valid():
 		return false
 	var baseline := data.duplicate(true)
 	var candidate := baseline.duplicate(true)
 	if not prepare.call(candidate) or not _handoff_context_is_current(live_document, live_path) \
-			or data != baseline or not publish.is_valid():
+			or data != baseline or (not publish.is_null() and not publish.is_valid()):
 		return false
 	var result := _write_synchronous_snapshot(candidate)
 	if not result.ok:
 		return _finish_save(result)
 	data[CarriedCase.KEY] = candidate[CarriedCase.KEY]
 	data[HOUSEHOLD_KEY] = candidate[HOUSEHOLD_KEY]
-	publish.call(candidate[HOUSEHOLD_KEY])
+	if publish.is_valid():
+		publish.call(candidate[HOUSEHOLD_KEY])
 	_finish_save(result)
 	state_changed.emit()
 	return true

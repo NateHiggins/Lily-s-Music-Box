@@ -352,7 +352,7 @@ func pack_book(holder: PlayerController) -> bool:
 		holder._grab.release(false)
 		copy.set_valise_packed(true)
 		_restoring = false
-	return RealityState.commit_library_transfer(prepare, publish)
+	return RealityState.commit_library_case_change(prepare, publish)
 
 
 func unpack_book(holder: PlayerController, item: String) -> bool:
@@ -383,18 +383,17 @@ func unpack_book(holder: PlayerController, item: String) -> bool:
 		_restoring = false
 		if not acquired:
 			push_error("Verified valise exit lost the reserved library hand: " + item)
-	return RealityState.commit_library_transfer(prepare, publish)
+	return RealityState.commit_library_case_change(prepare, publish)
 
 
 func _stage_book_pose(document: Dictionary, collection: String, copy: Book, pose: Transform3D) -> bool:
-	var current := snapshot()
-	if current.is_empty():
+	# RealityState already asked this owner to capture live controls before
+	# detaching the candidate. Change only the selected copy in that snapshot.
+	var current: Dictionary = document.get(KEY, {})
+	if not current.get("records", {}).has(collection):
 		return false
 	current.records[collection].value.books[copy.stock_id] = copy.valise_snapshot(pose)
-	if not _validate(current, _kinds, _last_saved.get("records", {}), document):
-		return false
-	document[KEY] = current
-	return true
+	return _validate(current, _kinds, _last_saved.get("records", {}), document)
 
 
 func _gasket_handoff_bound(counter: Node, cabinet: Node, pickup: Node) -> bool:

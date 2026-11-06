@@ -179,6 +179,14 @@ static func move(item: String, x: int, y: int, turned: bool) -> bool:
 	var place := place_of(item)
 	if place.is_empty() or not fits(item, str(place.form), x, y, turned):
 		return false
+	if item.begins_with(BOOK_PREFIX):
+		var prepare := func(document: Dictionary) -> bool:
+			if place_of(item) != place or not fits(item, str(place.form), x, y, turned):
+				return false
+			var staged: Dictionary = document[KEY].places[item]
+			staged.merge({"x": x, "y": y, "turned": turned}, true)
+			return true
+		return RealityState.commit_library_case_change(prepare)
 	place.x = x
 	place.y = y
 	place.turned = turned

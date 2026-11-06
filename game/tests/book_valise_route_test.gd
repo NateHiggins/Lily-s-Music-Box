@@ -55,7 +55,7 @@ func _route() -> void:
 	RealityState.flush_background_saves()
 	var before := FileAccess.get_file_as_bytes(path)
 	var fault := {"hits": 0}
-	RealityState.storage_operation_override = func(stage: String, operation: String, arguments: Dictionary) -> Variant:
+	var refuse_case_write := func(stage: String, operation: String, arguments: Dictionary) -> Variant:
 		if stage != "temp_write" or operation != "write" or arguments.get("path") != path + ".tmp":
 			return null
 		var bytes: PackedByteArray = arguments.bytes
@@ -64,6 +64,7 @@ func _route() -> void:
 			return null
 		fault.hits += 1
 		return {"ok":false, "error":ERR_FILE_CANT_WRITE}
+	RealityState.storage_operation_override = refuse_case_write
 	await _key(KEY_TAB)
 	RealityState.storage_operation_override = Callable()
 	if not _require(fault.hits == 1 and not view.opened and player.held_stock_body() == original \
@@ -98,7 +99,17 @@ func _route() -> void:
 	await _press(_pointer_free(view), MOUSE_BUTTON_RIGHT)
 	if not _require(view._held_turned != bool(place.turned), "ordinary turn input rotates the carried binding"):
 		return
-	await _press(_pointer_free(view))
+	var rotated_target := _pointer_free(view)
+	RealityState.flush_background_saves()
+	var before_move := FileAccess.get_file_as_bytes(path)
+	fault.hits = 0
+	RealityState.storage_operation_override = refuse_case_write
+	await _press(rotated_target)
+	RealityState.storage_operation_override = Callable()
+	if not _require(fault.hits == 1 and view.held_item == item and CarriedCase.place_of(item) == place \
+			and FileAccess.get_file_as_bytes(path) == before_move, "refused grid write keeps the prior square and case hand"):
+		return
+	await _press(rotated_target)
 	if not _require(view.held_item.is_empty(), "the rotated book can settle on legal cells"):
 		return
 	place = CarriedCase.place_of(item).duplicate()
