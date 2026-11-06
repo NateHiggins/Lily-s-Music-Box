@@ -272,6 +272,13 @@ func _paid_gasket_route(door_z: float, path: String, report: Dictionary) -> void
 		report["clearance_probe"] = _paid_fit_clearance_probe(actor, washer, face.call(), seat)
 	if not _require(distance <= .025 and radial_offset >= .005 and alignment >= .99 and not fit.is_empty(),
 			"paid washer at least 5 mm off centre finds a clear native insertion within snap reach"): return
+	if OS.get_environment("V2_PAID_GASKET_WRITE_REFUSAL") == "1":
+		if not _paid_refuse_write(washer, actor, inventory, economy, cash, path, report): return
+		if not await _paid_take(washer): return
+		if not await _paid_move_face(washer, face, seat + actor.global_basis * Vector3(0,.065,.13)): return
+		if not await _paid_move_face(washer, face, seat + actor.global_basis * Vector3(0,.020,.008)): return
+		if not _require(not actor.preview_purchased_gasket_fit(washer).is_empty(),
+				"same paid washer can reach the native receiving face again after refusal"): return
 	var pre_hash: String = FileAccess.get_sha256(path) if FileAccess.file_exists(path) else ""
 	var seen_before: bool = actor.gasket_seen
 	hands.click()
@@ -516,6 +523,46 @@ func _paid_fit_probe_hit(stage: String, hit: Dictionary, detail: Dictionary) -> 
 	detail.merge({"stage":stage, "path":str(collider.get_path()) if collider != null else "",
 		"rid":str(hit.get("rid", RID())), "shape":hit.get("shape", -1)})
 	return detail
+
+
+func _paid_refuse_write(washer: Node3D, actor: Node3D, inventory: Node, economy: Node,
+		cash: int, path: String, report: Dictionary) -> bool:
+	RealityState.flush_background_saves()
+	if not _require(int(RealityState.background_save_status().pending) == 0 and FileAccess.file_exists(path)
+			and not RealityState.storage_operation_override.is_valid(),
+			"write-refusal control starts from an existing isolated primary and drained queue"): return false
+	var primary: PackedByteArray = FileAccess.get_file_as_bytes(path)
+	var paid_row: Dictionary = RealityState.data.maintenance_items[PAID_GASKET].duplicate(true)
+	var before: Dictionary = actor.mechanism_snapshot()
+	var fault := {"hits":0, "paired_hits":0}
+	RealityState.storage_operation_override = func(stage: String, operation: String, arguments: Dictionary) -> Variant:
+		if stage != "temp_write" or operation != "write" or arguments.get("path") != path + ".tmp": return null
+		fault.hits += 1
+		var bytes: PackedByteArray = arguments.bytes
+		var candidate: Variant = JSON.parse_string(bytes.get_string_from_utf8())
+		if candidate is Dictionary:
+			var record: Dictionary = candidate.get("maintenance_items", {}).get(PAID_GASKET, {})
+			var household: Dictionary = candidate.get("v2_household_controls", {}).get("records", {})
+			var cabinet: Dictionary = household.get(PAID_STATION, {}).get("value", {})
+			if record.get("consumed") == true and cabinet.get("replacement_gasket", {}).get("seated") == true:
+				fault.paired_hits += 1
+		return {"ok":false, "error":ERR_FILE_CANT_WRITE}
+	hands.click()
+	RealityState.storage_operation_override = Callable()
+	var result: Dictionary = RealityState.last_save_result()
+	report["write_refusal"] = {"hits":fault.hits, "paired_hits":fault.paired_hits, "result":result,
+		"primary_unchanged":FileAccess.get_file_as_bytes(path) == primary}
+	return _require(fault.hits == 1 and fault.paired_hits == 1 and result.get("stage") == "temp_write"
+		and result.get("ok") == false and not RealityState.save_write_blocked
+		and report.write_refusal.primary_unchanged and actor.mechanism_snapshot() == before
+		and not is_instance_valid(actor._staged_purchased_gasket)
+		and not is_instance_valid(actor._purchased_gasket_body)
+		and RealityState.data.maintenance_items[PAID_GASKET] == paid_row
+		and inventory.has_item(PAID_GASKET) and not inventory.is_consumed(PAID_GASKET)
+		and not counter.mechanism_snapshot()[PAID_GASKET].has("fitted_station")
+		and washer.visible and washer.collision_layer != 0 and not player._grab.active()
+		and int(economy.book().cash) == cash - 10,
+		"actual write refusal preserves one recoverable paid body and publishes no paired fit")
 
 
 func _paid_station() -> Node3D:
