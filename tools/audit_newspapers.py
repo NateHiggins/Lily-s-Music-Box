@@ -91,6 +91,16 @@ def forbidden_in(text: str, where: str, failures: list[str]) -> None:
             failures.append(f"{where}: names a resident ('{name}')")
 
 
+PRICE = re.compile(r"(?:\$\s?\d[\d,.]*|\b(?:\d[\d,.]*|a|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|"
+                   r"fifteen|twenty|twenty-five|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred)[ -]"
+                   r"(?:cents?|dollars?)\b)", re.IGNORECASE)
+
+
+def prices(text: str) -> set[str]:
+    """The prices named in a piece of copy, lower-cased: '10 cents', 'eleven dollars', '$2'."""
+    return {" ".join(m.group(0).lower().replace("-", " ").split()).rstrip("s") for m in PRICE.finditer(text)}
+
+
 def check_firms(firms: object, failures: list[str]) -> None:
     """Every advertiser has an identity and a way to reach it."""
     if not isinstance(firms, dict) or not firms:
@@ -140,6 +150,10 @@ def check_ads(doc: object, failures: list[str]) -> int:
         if not AD_WORDS[0] <= n <= AD_WORDS[1]:
             failures.append(f"{where}: body {n} words (want {AD_WORDS[0]}-{AD_WORDS[1]})")
         forbidden_in(json.dumps(ad, ensure_ascii=False), where, failures)
+        # House rule E5: a price in the display line is not said again in the body.
+        shown = prices(str(ad["headline"]) + " " + str(ad.get("offer", "")))
+        for price in sorted(shown & prices(str(ad["body"]))):
+            failures.append(f"{where}: the price {price!r} is in the display line and again in the body")
     for paper in PAPERS:
         running = [ad for ad in ads if isinstance(ad, dict) and ad.get("paper") in (paper, "both")]
         for size, needed in AD_SIZE_NEEDED.items():

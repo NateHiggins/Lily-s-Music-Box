@@ -19,6 +19,8 @@ const RED := Color(0.58, 0.12, 0.10)
 const BROWN := Color(0.18, 0.106, 0.055)
 const CREAM := Color(0.886, 0.824, 0.706)
 const GUTTER := 12
+## The Listening Lady's drawing stands about as deep as this many words of a side column.
+const LADY_DEPTH := 110
 
 var catalog: NewspaperCatalog
 var page: VBoxContainer
@@ -106,10 +108,20 @@ func _speaker_three_columns(lead: Dictionary, issue: Dictionary, picture: Dictio
 		_text(centre, str(picture.caption), 14, INK, ITALIC, HORIZONTAL_ALIGNMENT_CENTER, middle)
 		_text(right, str(lead.get("body", "")), 16, INK, SERIF, HORIZONTAL_ALIGNMENT_FILL, side)
 		_rule(right, 1)
+	# Each story goes into the shorter side, so neither leaves a long empty field. The
+	# Listening Lady keeps the right, and her drawing counts for its depth.
 	var columns: Array = issue.get("columns", [])
-	for index in columns.size():
-		var column: Dictionary = columns[index]
-		var into := right if str(column.get("headline", "")).begins_with("The Listening Lady") or (picture.is_empty() and index > 0) else left
+	var depth := {left: 0, right: 0 if picture.is_empty() else _words(str(lead.get("body", "")))}
+	var order := []
+	for column: Dictionary in columns:
+		if str(column.get("headline", "")).begins_with("The Listening Lady"):
+			order.push_front(column)
+		else:
+			order.append(column)
+	for column: Dictionary in order:
+		var lady := str(column.get("headline", "")).begins_with("The Listening Lady")
+		var into: Control = right if lady or int(depth[right]) < int(depth[left]) else left
+		depth[into] = int(depth[into]) + _words(str(column.get("headline", ""))) + _words(str(column.get("body", ""))) + (LADY_DEPTH if lady else 0)
 		_speaker_story(into, column, side)
 		_rule(into, 1)
 	if not picture.is_empty():
@@ -161,10 +173,12 @@ func record_front(meta: Dictionary, issue: Dictionary) -> void:
 	if portrait:
 		_print_into(lead_box, picture, int(lead_width * 0.64))
 		_text(lead_box, str(picture.caption), 13, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_CENTER, lead_width)
-	var half := int((lead_width - GUTTER) / 2.0)
+	# A rule between the halves and a shared top line: the second column reads on from the first.
+	var half := int((lead_width - GUTTER * 2 - 1) / 2.0)
 	var parts := _halves(str(lead.get("body", "")), SERIF, 15, half)
 	var run := _row(lead_box, GUTTER)
 	_text(run, parts[0], 15, INK, SERIF, HORIZONTAL_ALIGNMENT_FILL, half)
+	_vrule(run)
 	_text(run, parts[1], 15, INK, SERIF, HORIZONTAL_ALIGNMENT_FILL, half)
 	_vrule(grid)
 	var rest_width := width - lead_width - GUTTER - 1
@@ -210,18 +224,20 @@ func _weather_desk(into: Control, issue: Dictionary, column_width: int) -> void:
 	if weather.is_empty():
 		return
 	_text(into, "WEATHER DESK / %s E.S.T." % CampaignWeather.print_time(str(weather.get("issued_at", ""))), 13, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_LEFT, column_width)
-	_text(into, str(weather.get("observation", "")), 14, SOFT, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
-	_text(into, "%s %s" % [weather.get("prediction", ""), weather.get("outlook", "")], 15, INK, SERIF, HORIZONTAL_ALIGNMENT_LEFT, column_width)
+	# Today's reading, the forecast and any earlier dispatch are each named, and none is
+	# set small or pale: the desk has to read at play size.
+	_text(into, "Observed: %s" % str(weather.get("observation", "")), 14, INK, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
+	_text(into, "Forecast: %s %s" % [weather.get("prediction", ""), weather.get("outlook", "")], 15, INK, SERIF, HORIZONTAL_ALIGNMENT_LEFT, column_width)
 	_text(into, "Outlook: %s. Valid %s to %s E.S.T." % [weather.get("confidence", ""),
 			CampaignWeather.print_time(str(weather.get("valid_from", ""))),
-			CampaignWeather.print_time(str(weather.get("valid_until", "")))], 12, SOFT, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
+			CampaignWeather.print_time(str(weather.get("valid_until", "")))], 13, INK, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
 	if str(weather.get("revision", "")) != "":
-		_text(into, str(weather.revision), 14, SOFT, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
+		_text(into, str(weather.revision), 14, INK, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
 	for dispatch: Dictionary in weather.get("timeline", []):
 		if str(dispatch.get("issued_at", "")) == str(weather.get("issued_at", "")):
 			continue
-		_text(into, "Previous dispatch, %s E.S.T.: %s" % [CampaignWeather.print_time(str(dispatch.get("issued_at", ""))),
-				dispatch.get("prediction", "")], 12, SOFT, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
+		_text(into, "Superseded, the dispatch of %s E.S.T.: %s" % [CampaignWeather.print_time(str(dispatch.get("issued_at", ""))),
+				dispatch.get("prediction", "")], 13, INK, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
 
 
 ## --- the back of the sheet ---------------------------------------------------
@@ -275,17 +291,23 @@ func brown_section(meta: Dictionary, section: Dictionary) -> void:
 	box.name = "BrownSection"
 	box.add_theme_constant_override("separation", 8)
 	page.add_child(box)
+	# Each row's two pictures are set to one height, so their captions share a baseline.
 	var pictures: Array = section.pictures
-	var first_width := int((width - 18) * 0.66)
-	var second_width := width - 18 - first_width
-	var top := _row(box, 18)
-	_gravure(top, pictures[0], first_width)
-	_gravure(top, pictures[1], second_width)
-	var low := _row(box, 18)
-	var third_width := int((width - 18) * 0.5)
-	_gravure(low, pictures[2], third_width)
-	_gravure(low, pictures[3], width - 18 - third_width)
+	for pair: Array in [[pictures[0], pictures[1]], [pictures[2], pictures[3]]]:
+		var row := _row(box, 18)
+		var first_width := _equal_height_width(pair[0], pair[1], width - 18)
+		_gravure(row, pair[0], first_width)
+		_gravure(row, pair[1], width - 18 - first_width)
 	_text(page, "ESC closes the paper", 12, BROWN, ITALIC, HORIZONTAL_ALIGNMENT_RIGHT)
+
+
+## The width of the first of two pictures set side by side at one height in `across`.
+func _equal_height_width(first: Dictionary, second: Dictionary, across: int) -> int:
+	var a: Texture2D = load(str(first.image))
+	var b: Texture2D = load(str(second.image))
+	var ra := float(a.get_width()) / a.get_height()
+	var rb := float(b.get_width()) / b.get_height()
+	return int(round(across * ra / (ra + rb)))
 
 
 func _gravure(into: Control, picture: Dictionary, column_width: int) -> void:
@@ -351,6 +373,10 @@ func _banner(into: Control, text: String, font: Font, largest: int, lines: int, 
 			break
 		size -= 2
 	_text(into, text, size, color, font, HORIZONTAL_ALIGNMENT_CENTER)
+
+
+static func _words(text: String) -> int:
+	return text.split(" ", false).size()
 
 
 ## A run of text cut by the line into two equal columns.

@@ -219,13 +219,15 @@ func _show_back(typesetter: NewspaperTypesetter, meta: Dictionary, back: Diction
 	var drama := catalog.drama_for(paper_id, date)
 	if not drama.is_empty():
 		typesetter.photo_drama(drama)
-	var cut := catalog.feature_for(paper_id, date)
-	if not cut.is_empty():
-		typesetter.feature(cut)
+	# The band goes above the feature, so a picture sits directly over the columns it illustrates.
 	if not back.is_empty():
 		var band := catalog.band_for(paper_id, date)
 		if not band.is_empty():
 			typesetter.band(band)
+	var cut := catalog.feature_for(paper_id, date)
+	if not cut.is_empty():
+		typesetter.feature(cut)
+	if not back.is_empty():
 		var columns := HBoxContainer.new()
 		columns.add_theme_constant_override("separation", 24)
 		_page.add_child(columns)
