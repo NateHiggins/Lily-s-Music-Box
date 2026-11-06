@@ -139,9 +139,10 @@ func advance(delta: float, reading: bool) -> void:
 	var wanted_size := Vector2i(pixels.size.round()).max(Vector2i(2, 2))
 	if wanted_size != _size:
 		_size = wanted_size; view.size = _size
-	# A cropped off-axis camera has exactly the main camera's rays. Render
-	# only the contextual right-third rectangle, with no extra render pass.
-	var half_height := tan(deg_to_rad(camera.fov) * .5) * camera.near
+	# The crop and physical fit share a projection. During book zoom, retain
+	# the entry projection so fitting cannot drive the native lamp behind the spread.
+	var framing_fov: float = carrier._player.companion_framing_fov()
+	var half_height := tan(deg_to_rad(framing_fov) * .5) * camera.near
 	var aspect := size.x / size.y
 	if camera.keep_aspect == Camera3D.KEEP_WIDTH: half_height /= aspect
 	var center := safe_rect.get_center()
