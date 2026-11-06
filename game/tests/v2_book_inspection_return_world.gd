@@ -8,6 +8,12 @@ var _park_completed:=false
 var _original_books: Dictionary={}
 var _original_library: Dictionary={}
 var _park_trace: Array[Dictionary]=[]
+const TITLE_SEED_SHA := "eeca8b7a8476f5d312a74b0f481ff9118fb3d78aab82896f849e6297040633e7"
+const TITLE_EXPORT_PRIMARY := "user://tests/nook_title_fixture.json"
+const TITLE_AUTHORITY_KEYS := ["version", "intro_complete", "campaign_clock", "prologue",
+	"core_loop", "first_shift", "maintenance_items", "maintenance_jobs", "dream", "dream_seed"]
+var _title_seed_authority: Dictionary = {}
+var _title_export: Dictionary = {}
 const SOURCE_SNAPSHOT_CODE: String="""import json,sys
 from pathlib import Path
 root=Path(sys.argv[1]);sys.path.insert(0,str(root/'tools'))
@@ -18,6 +24,42 @@ seeds += [root/'tools/run_receipt.py',root/'tools/v2_surface_evidence.py']
 paths=test_dependency_paths(root,seeds)
 print(json.dumps({'runtime_inputs_sha256':runtime_inputs_sha256(root),'test_dependencies':{p.relative_to(root).as_posix():file_hash(p) for p in sorted(paths)}}))
 """
+
+func _title_export_requested() -> bool:
+	return OS.get_environment("ORISON_NOOK_TITLE_EXPORT") == "1"
+
+func _prepare_campaign() -> bool:
+	if not _title_export_requested():
+		return super._prepare_campaign()
+	var appdata := OS.get_environment("ORISON_NOOK_TITLE_ISOLATED_APPDATA").replace("\\", "/").simplify_path()
+	var live_appdata := OS.get_environment("APPDATA").replace("\\", "/").simplify_path()
+	var user_dir := OS.get_user_data_dir().replace("\\", "/").simplify_path()
+	if not _require(appdata.begins_with("C:/ov/reports/develop_intake_20261104/") and appdata == live_appdata
+			and user_dir == appdata.path_join("PleaseRemainOnTheLine") and not OS.get_environment("SHOT_DIR").is_empty(),
+			"nook title producer uses the explicit isolated profile"):
+		return false
+	if not _require(OS.get_environment("ORISON_NOOK_DISK_RELOAD") != "1"
+			and RealityState.save_path == RealityState.SAVE_PATH and not FileAccess.file_exists(TITLE_EXPORT_PRIMARY)
+			and not FileAccess.file_exists(OS.get_environment("SHOT_DIR").path_join("nook_title_export.json"))
+			and FileAccess.get_sha256(RealityState.SAVE_PATH) == TITLE_SEED_SHA
+			and RealityState.load_status().status == "loaded" and RealityState.can_continue()
+			and not RealityState.save_write_blocked
+			and RealityState.data.get("prologue", {}).get("phase", "") == "bedroom_exploration",
+			"nook title producer starts from the original validated bedroom primary"):
+		return false
+	RealityState.persistence_enabled = false
+	CampaignTime.set_frozen_for_tests(true)
+	GameBoot.settings.weather_network_enabled = false
+	seed(1928)
+	_title_seed_authority = _title_authority(RealityState.data)
+	return true
+
+func _title_authority(document: Dictionary) -> Dictionary:
+	var result: Dictionary = {}
+	for key: String in TITLE_AUTHORITY_KEYS:
+		if document.has(key):
+			result[key] = document[key]
+	return JSON.parse_string(JSON.stringify(result))
 
 func _route() -> void:
 	var test_hash: String=_source_text_hash(get_script().resource_path)
@@ -30,6 +72,19 @@ func _route() -> void:
 	var after: Dictionary=_source_snapshot()
 	_require(before==after and test_hash==_source_text_hash(get_script().resource_path) and scene_hash==_source_text_hash(executed_scene),"executed sources remain fixed through installed nook interaction and reload")
 	_require(_return_completed,"actual installed inspection-return-release programme completed")
+	if _title_export_requested():
+		_require(not _title_export.is_empty(), "requested live nook title fixture export completed")
+		if failures.is_empty():
+			_title_export.source = before
+			_title_export.test_sha256 = test_hash
+			_title_export.scene_sha256 = scene_hash
+			var out := OS.get_environment("SHOT_DIR").path_join("nook_title_export.json")
+			var report := FileAccess.open(out, FileAccess.WRITE)
+			if _require(report != null, "nook title fixture manifest can be written"):
+				report.store_string(JSON.stringify(_title_export, "\t", true, true))
+				_require(report.get_error() == OK, "nook title fixture manifest written")
+				report.close()
+		return
 	_require(_park_completed,"actual installed same-binding slot-release and normal Space exit completed")
 	var disk_requested: bool=OS.get_environment("ORISON_NOOK_DISK_RELOAD")=="1"
 	if disk_requested:_require(_disk_completed,"requested installed nook disk reconstruction completed")
@@ -154,7 +209,84 @@ func _inspect_stock_review(book: Node3D) -> void:
 	for frame in 40:await get_tree().process_frame
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("return.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","stock_id":book.stock_id,"held_error_m":error,"failures":failures},"\t"))
 	_return_completed=true
-	if failures.is_empty():await _park_installed_book(book)
+	if failures.is_empty():
+		if _title_export_requested():
+			await _export_nook_title_fixture(book)
+		else:
+			await _park_installed_book(book)
+
+func _export_nook_title_fixture(book: Node3D) -> void:
+	profile_active = false
+	var shelf: Node3D = book.shelf
+	var stock_id: String = book.stock_id
+	var original: Dictionary = _original_library.books.get(stock_id, {})
+	if not _require(stock_id == "nook_books__Volume0" and not original.is_empty() and int(original.slot) == 0,
+			"title fixture exercises original Volume0"):
+		return
+	var stable := 0
+	var previous: Transform3D = book.transform
+	for frame in 360:
+		await get_tree().physics_frame
+		if book.sleeping and book.transform.is_equal_approx(previous):
+			stable += 1
+			if stable >= 8:
+				break
+		else:
+			stable = 0
+		previous = book.transform
+	var played: Dictionary = shelf.library_snapshot()
+	var row: Dictionary = played.books.get(stock_id, {})
+	_park_observe("nook_title_export_rest", book)
+	var checks := {
+		# Godot can retain solver velocity in a naturally sleeping body.
+		"rest": stable >= 8 and book.sleeping and bool(row.get("body", {}).get("sleeping", false)),
+		"loose": book.shelf_slot == -1 and not book.freeze and not book._held and int(row.get("slot", 0)) == -1,
+		"hands": not player.inspecting() and not player._grab.active() and shelf._hand_node == null,
+		"collisions": not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),
+		"identity": shelf._books.get(stock_id) == book and played.books.keys() == _original_library.books.keys(),
+		"valid": shelf.valid_library(played),
+		"pose": row.get("body", {}).get("position", []) != original.body.position,
+		"opening": is_equal_approx(float(row.get("opening", -1.)), float(original.opening)),
+	}
+	var detail := FileAccess.open(OS.get_environment("SHOT_DIR").path_join("nook_title_release_checks.json"), FileAccess.WRITE)
+	if not _require(detail != null, "nook title release observations have a writable destination"):
+		return
+	detail.store_string(JSON.stringify({"checks":checks,"stable_frames":stable,"sleeping":book.sleeping,
+		"linear_speed_mps":book.linear_velocity.length(),"angular_speed_radps":book.angular_velocity.length(),
+		"original_row":original,"live_row":row}, "\t", true, true))
+	detail.close()
+	for name: String in checks:
+		_require(checks[name], "nook title released Volume0 " + name)
+	if not failures.is_empty():
+		return
+	var path := ProjectSettings.globalize_path(TITLE_EXPORT_PRIMARY)
+	if not _require(DirAccess.make_dir_recursive_absolute(path.get_base_dir()) == OK,
+			"isolated nook fixture directory exists"):
+		return
+	var old_path := RealityState.save_path
+	RealityState.save_path = TITLE_EXPORT_PRIMARY
+	var saved: bool = RealityState.save_game()
+	var result: Dictionary = RealityState.last_save_result()
+	RealityState.save_path = old_path
+	var bytes := FileAccess.get_file_as_bytes(TITLE_EXPORT_PRIMARY)
+	var disk: Variant = JSON.parse_string(bytes.get_string_from_utf8())
+	if not _require(saved and bool(result.get("ok", false)) and disk is Dictionary,
+			"production storage writes the isolated nook fixture"):
+		return
+	var record: Dictionary = disk.get(world.household_state.KEY, {}).get("records", {}).get(str(shelf.name), {}).get("value", {})
+	if not _require(_same_payload(record, played) and _title_authority(disk) == _title_seed_authority
+			and FileAccess.get_sha256(RealityState.SAVE_PATH) == TITLE_SEED_SHA,
+			"stored library matches played mutation and original campaign authorities"):
+		return
+	_title_export = {"evidence_class":"INERT", "primary_path":path,
+		"primary_sha256":FileAccess.get_sha256(TITLE_EXPORT_PRIMARY), "primary_size":bytes.size(),
+		"seed_sha256":TITLE_SEED_SHA, "seed_load_status":RealityState.load_status(),
+		"producer_appdata":OS.get_environment("APPDATA").replace("\\", "/").simplify_path(),
+		"owner":str(shelf.name), "stock_id":stock_id, "source_owner_instance":shelf.get_instance_id(),
+		"source_book_instance":book.get_instance_id(), "original_row":original, "saved_row":record.books[stock_id],
+		"library_sha256":JSON.stringify(record, "", true, true).sha256_text(),
+		"authority":_title_seed_authority, "stable_physics_frames":stable,
+		"storage_result":result, "release_observation":_park_trace[-1]}
 
 
 func _park_space() -> void:

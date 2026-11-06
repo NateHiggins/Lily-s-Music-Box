@@ -3,6 +3,26 @@ extends Node
 ## The observer is outside the retiring title scene, not a scene-change stub.
 
 const BEDROOM_FIXTURE_SHA := "eeca8b7a8476f5d312a74b0f481ff9118fb3d78aab82896f849e6297040633e7"
+const NOOK_OWNER := "nook_books_library"
+const NOOK_STOCK := "nook_books__Volume0"
+const NOOK_TITLE_SCENE := "res://tests/TitleContinueActualLaunchTest.tscn"
+const NOOK_CONTRACT_NAME := "nook_title_continue.runtime.json"
+const NOOK_SOURCE_SNAPSHOT_CODE: String="""import hashlib,json,sys
+from pathlib import Path
+root=Path(sys.argv[1]);sys.path.insert(0,str(root/'tools'))
+from v2_surface_evidence import file_hash,test_dependency_paths
+from run_receipt import runtime_inputs_sha256
+seeds=[root/sys.argv[2],root/sys.argv[3],root/'game/tests/native_debug_window.gd']
+seeds += [root/'tools/run_receipt.py',root/'tools/v2_surface_evidence.py']
+seeds += [root/'game/tests/v2_book_inspection_return_world.gd',root/'game/tests/V2BookInspectionReturnWorld.tscn']
+paths=test_dependency_paths(root,seeds)
+producer={key:hashlib.sha256(Path(value).read_bytes()).hexdigest()
+          for key,value in zip(('manifest','wrapper','primary'),sys.argv[4:7],strict=True)}
+print(json.dumps({'runtime_inputs_sha256':runtime_inputs_sha256(root),
+                  'test_dependencies':{p.relative_to(root).as_posix():file_hash(p) for p in sorted(paths)},
+                  'producer_raw_sha256':producer}))
+"""
+var _nook_export: Dictionary = {}
 
 class LaunchObserver extends Node:
 	var expected: Dictionary
@@ -13,6 +33,13 @@ class LaunchObserver extends Node:
 	var action := "continue"
 	var timed_bedroom := false
 	var packed_washer := false
+	var nook_export: Dictionary = {}
+	var nook_observations: Array[Dictionary] = []
+	var nook_source_before: Dictionary = {}
+	var nook_source_after: Dictionary = {}
+	var nook_test_path := ""
+	var nook_scene_path := ""
+	var nook_script_node_path := ""
 	var timing := {}
 	var born_anchor_utc := Time.get_unix_time_from_system()
 	var born_anchor_usec := Time.get_ticks_usec()
@@ -85,6 +112,154 @@ class LaunchObserver extends Node:
 			"fov": player.camera.fov, "weather_network_enabled": GameBoot.settings.weather_network_enabled}
 
 
+	func bind_nook_source(test_path: String, scene_path: String, script_node_path: String) -> bool:
+		nook_test_path = test_path
+		nook_scene_path = scene_path
+		nook_script_node_path = script_node_path
+		var started := Time.get_ticks_usec()
+		nook_source_before = _nook_source_snapshot()
+		timing["nook_source_binding_before_title_action_usec"] = Time.get_ticks_usec() - started
+		if nook_scene_path != NOOK_TITLE_SCENE or nook_source_before.is_empty() \
+				or nook_source_before.runtime_inputs_sha256 != nook_export.source.runtime_inputs_sha256:
+			return false
+		var dependencies: Dictionary = nook_source_before.test_dependencies
+		var producer_dependencies: Dictionary = nook_export.source.get("test_dependencies", {})
+		if producer_dependencies.is_empty():
+			return false
+		for path: String in producer_dependencies:
+			if dependencies.get(path) != producer_dependencies[path]:
+				return false
+		return dependencies.get("game/tests/v2_book_inspection_return_world.gd") == nook_export.get("test_sha256") \
+			and dependencies.get("game/tests/V2BookInspectionReturnWorld.tscn") == nook_export.get("scene_sha256")
+
+	func _nook_source_snapshot() -> Dictionary:
+		var root: String = ProjectSettings.globalize_path("res://..").simplify_path()
+		var test := "game/" + nook_test_path.trim_prefix("res://")
+		var scene := "game/" + nook_scene_path.trim_prefix("res://")
+		var output: Array = []
+		var status := OS.execute("python", ["-B", "-c", NOOK_SOURCE_SNAPSHOT_CODE, root, test, scene,
+			nook_export.manifest_path, nook_export.wrapper_path, nook_export.primary_path], output)
+		if status != 0 or output.is_empty():
+			return {}
+		var data: Variant = JSON.parse_string(str(output[0]))
+		if data is not Dictionary or str(data.get("runtime_inputs_sha256", "")).length() != 64:
+			return {}
+		var dependencies: Dictionary = data.get("test_dependencies", {})
+		if str(dependencies.get(test, "")).length() != 64 or str(dependencies.get(scene, "")).length() != 64:
+			return {}
+		return data
+
+	func _nook_sources_match() -> bool:
+		var started := Time.get_ticks_usec()
+		nook_source_after = _nook_source_snapshot()
+		timing["nook_source_binding_after_controls_usec"] = Time.get_ticks_usec() - started
+		return nook_source_before == nook_source_after
+
+	func _write_nook_contract(checks: Dictionary, executed: bool, failures: int, reason := "") -> bool:
+		var test := "game/" + nook_test_path.trim_prefix("res://")
+		var scene := "game/" + nook_scene_path.trim_prefix("res://")
+		var dependencies: Dictionary = nook_source_before.get("test_dependencies", {})
+		var passed := executed and failures == 0
+		var record: Dictionary = {
+			"schema_version":2, "evidence_kind":"runtime_contract", "selector":"v2", "production_runtime":true,
+			"scope":"Actual title Continue of one guarded real-input nook fixture through validated load, new waking world, and ordinary bedroom control.",
+			"execution":{"completed":true, "exit_code":0 if passed else 1, "timed_out":false},
+			"source":{"test_path":test, "test_sha256":dependencies.get(test, ""), "scene_path":nook_scene_path,
+				"scene_sha256":dependencies.get(scene, ""), "script_node_path":nook_script_node_path,
+				"test_dependencies":dependencies, "runtime_inputs_sha256":nook_source_before.get("runtime_inputs_sha256", "")},
+			"programme":{"completed":passed, "checks":checks, "reason":reason, "source_after":nook_source_after,
+				"consumer_pid":OS.get_process_id(), "fixture_sha256":nook_export.primary_sha256,
+				"fixture_size":nook_export.primary_size, "pre_title_input":timing.get("pre_title_save", {}),
+				"producer_manifest_sha256":nook_export.manifest_sha256, "producer_wrapper_sha256":nook_export.wrapper_sha256,
+				"producer_raw_sha256":nook_source_before.get("producer_raw_sha256", {}), "producer_source":nook_export.source,
+				"producer_primary_path":nook_export.primary_path, "producer_manifest_path":nook_export.manifest_path,
+				"producer_wrapper_path":nook_export.wrapper_path, "expected_row":nook_export.saved_row,
+				"observations":nook_observations},
+			"contracts":{"nook_title_continue":{"attempted":action_usec > 0, "executed":executed, "passed":passed}}}
+		var path := OS.get_environment("SHOT_DIR").path_join(NOOK_CONTRACT_NAME)
+		var file := FileAccess.open(path, FileAccess.WRITE)
+		if file == null:
+			push_error("Nook title Continue contract could not be opened")
+			return false
+		file.store_string(JSON.stringify(record, "\t", true, true))
+		var written := file.get_error() == OK
+		file.close()
+		if not written:
+			push_error("Nook title Continue contract could not be written")
+		return written
+
+	func _same_nook_orientation(before: Array, after: Array, offset: int) -> bool:
+		# The owner reconstructs a Basis before serializing its quaternion again.
+		for axis in range(offset, offset + 4):
+			if absf(float(before[axis]) - float(after[axis])) > .0000001:
+				return false
+		return true
+
+	func _same_reconstructed_library(before: Dictionary, after: Dictionary) -> bool:
+		var comparable := after.duplicate(true)
+		for key: String in ["books", "bookends"]:
+			for identity: String in before[key]:
+				if not comparable[key].has(identity): return false
+				var expected: Dictionary = before[key][identity]
+				var actual: Dictionary = comparable[key][identity]
+				var expected_body: Dictionary = expected.body if key == "books" else expected
+				var actual_body: Dictionary = actual.body if key == "books" else actual
+				if not _same_nook_orientation(expected_body.rotation, actual_body.rotation, 0): return false
+				actual_body.rotation = expected_body.rotation
+		if before.slots.size() != comparable.slots.size(): return false
+		for index in before.slots.size():
+			if not _same_nook_orientation(before.slots[index], comparable.slots[index], 3): return false
+			for axis in range(3, 7): comparable.slots[index][axis] = before.slots[index][axis]
+		return before == comparable
+
+	func observe_nook(shell: CampaignShell, world: OrisonV2RuntimeRoot) -> bool:
+		if world.adapter == null or not is_instance_valid(world.household_state) or not is_instance_valid(world.player):
+			return false
+		var owner: Node3D = world.adapter.resolve(NOOK_OWNER)
+		var stock: Node3D = owner._books.get(NOOK_STOCK) if is_instance_valid(owner) else null
+		var state_record: Dictionary = RealityState.data.get(world.household_state.KEY, {}).get("records", {}).get(NOOK_OWNER, {}).get("value", {})
+		var record: Dictionary = JSON.parse_string(JSON.stringify(state_record, "", true, true))
+		var saved_row: Dictionary = nook_export.saved_row
+		var observed: Dictionary = {"waking":shell.world_kind(), "world_count":shell.world_child_count(),
+			"shell_instance":shell.get_instance_id(), "world_instance":world.get_instance_id(),
+			"owner_instance":owner.get_instance_id() if owner != null else 0,
+			"book_instance":stock.get_instance_id() if stock != null else 0,
+			"persisted_library_sha256":JSON.stringify(record, "", true, true).sha256_text()}
+		nook_observations.append(observed)
+		if not is_instance_valid(stock) or not owner.valid_library(record):
+			return false
+		var player := world.player
+		var live: Dictionary = owner.library_snapshot()
+		var live_ids: Array = live.books.keys()
+		var saved_ids: Array = record.books.keys()
+		live_ids.sort()
+		saved_ids.sort()
+		var body: Dictionary = saved_row.body
+		var wanted := Vector3(body.position[0], body.position[1], body.position[2])
+		var rotation := Quaternion(body.rotation[0], body.rotation[1], body.rotation[2], body.rotation[3])
+		var saved_velocity := Vector3(body.velocity[0], body.velocity[1], body.velocity[2])
+		var saved_spin := Vector3(body.spin[0], body.spin[1], body.spin[2])
+		var basis: Basis = stock.basis
+		observed.body = stock.book_snapshot()
+		observed.library_matches_archived = _same_reconstructed_library(nook_export.library_record, record)
+		observed.pose_error_m = stock.position.distance_to(wanted)
+		observed.rotation_agreement = absf(rotation.dot(basis.get_rotation_quaternion()))
+		observed.velocity_error_mps = stock.linear_velocity.distance_to(saved_velocity)
+		observed.spin_error_radps = stock.angular_velocity.distance_to(saved_spin)
+		observed.membership_matches = live_ids == saved_ids
+		observed.no_hand_or_inspection = owner._hand_node == null and not stock._held \
+			and not player.inspecting() and not player._grab.active() and player.held_stock_body() == null
+		observed.no_carrier_exceptions = not player.get_collision_exceptions().has(stock) \
+			and not stock.get_collision_exceptions().has(player)
+		return observed.waking == "waking" and observed.world_count == 1 and stock.shelf == owner \
+			and observed.library_matches_archived \
+			and live.geometry == record.geometry and live.order == record.order and observed.membership_matches \
+			and stock.shelf_slot == -1 and not stock.freeze and stock.sleeping \
+			and float(observed.velocity_error_mps) < .00001 and float(observed.spin_error_radps) < .00001 \
+			and float(observed.pose_error_m) < .0001 and float(observed.rotation_agreement) > .999999 \
+			and is_equal_approx(float(stock.opening), float(saved_row.opening)) \
+			and observed.no_hand_or_inspection and observed.no_carrier_exceptions
+
 	func _process(delta: float) -> void:
 		if done:
 			return
@@ -107,6 +282,9 @@ class LaunchObserver extends Node:
 				or (not timed_bedroom and not packed_washer and elapsed > 30.0):
 			done = true
 			push_error("Actual title Continue never published a CampaignShell world")
+			if not nook_export.is_empty():
+				_write_nook_contract({"source_fixed":_nook_sources_match(), "waking_world_published":false},
+					false, 1, "waking world publication deadline")
 			get_tree().quit(1)
 
 	func _verify(shell: CampaignShell) -> void:
@@ -192,7 +370,19 @@ class LaunchObserver extends Node:
 				checks["normal_title_launch_starts_first_shift"] = bool(RealityState.data.intro_complete) \
 						and world.get("first_shift_director").ritual_phase() == FirstShiftDirector.PHASE_ARRIVED
 		elif world is OrisonV2RuntimeRoot and timed_bedroom:
+			if not nook_export.is_empty():
+				checks["fresh_nook_owner_restores_real_mutated_binding_before_input"] = observe_nook(shell, world)
 			await measure_bedroom_control(shell, world, checks)
+			if not nook_export.is_empty():
+				checks["fresh_nook_binding_stays_restored_through_input"] = observe_nook(shell, world)
+				checks["restored_nook_owner_and_binding_remain_same_instances"] = nook_observations.size() == 2 \
+					and nook_observations[0].owner_instance == nook_observations[1].owner_instance \
+					and nook_observations[0].book_instance == nook_observations[1].book_instance
+				checks["nook_continue_preserves_campaign_authority_through_input"] = true
+				for key: String in nook_export.authority:
+					var actual_value: Variant = JSON.parse_string(JSON.stringify(RealityState.data.get(key)))
+					if actual_value != expected[key]:
+						checks["nook_continue_preserves_campaign_authority_through_input"] = false
 			checks["saved_bedroom_resumes_without_dream_replay"] = timing.observed_prologue_phases == ["bedroom_exploration"] \
 				and RealityState.data.prologue.phase == "bedroom_exploration" and world.opening_render_preparation.get("completed", false)
 			timing["after_input_clock"] = JSON.parse_string(JSON.stringify(RealityState.data.campaign_clock))
@@ -207,6 +397,11 @@ class LaunchObserver extends Node:
 			DirAccess.make_dir_recursive_absolute(directory)
 			await RenderingServer.frame_post_draw
 			get_viewport().get_texture().get_image().save_png(directory.path_join("title_" + action + "_arrival.png"))
+		var nook_executed := false
+		if not nook_export.is_empty():
+			nook_executed = action_usec > 0 and get_tree().current_scene == shell and world is OrisonV2RuntimeRoot
+			checks["nook_actual_continue_reaches_selected_waking_world"] = nook_executed
+			checks["nook_consumer_sources_and_producer_inputs_stay_fixed"] = _nook_sources_match()
 		# Real world initialization may commit additive facts. Primary bytes are
 		# retained as evidence, but a byte-identity claim would overstate scope.
 		var failures := 0
@@ -228,6 +423,12 @@ class LaunchObserver extends Node:
 				"observer_anchor_utc": born_anchor_utc, "observer_anchor_usec": born_anchor_usec, "receipt_anchor_utc": Time.get_unix_time_from_system(), "receipt_anchor_usec": Time.get_ticks_usec()}
 			receipt["startup_ms"] = world.get("startup_ms")
 			receipt["scope"] = "Fresh native process and isolated profile. Actual title input through bedroom mouse look and movement. OS and driver caches are uncontrolled."
+		if not nook_export.is_empty():
+			receipt["nook_continue"] = {"evidence_class":"INERT", "fixture_sha256":nook_export.primary_sha256,
+				"producer_manifest_sha256":nook_export.manifest_sha256, "producer_source":nook_export.source,
+				"owner":NOOK_OWNER, "stock_id":NOOK_STOCK, "expected_row":nook_export.saved_row,
+				"observations":nook_observations, "post_primary_sha256":FileAccess.get_sha256(RealityState.save_path),
+				"timing_scope":"Source binding before title action and after controls. Birth-to-control is not comparable to the original timing run."}
 		var path := OS.get_environment("TITLE_ACTUAL_RECEIPT")
 		if not path.is_empty():
 			var file := FileAccess.open(path, FileAccess.WRITE)
@@ -235,6 +436,9 @@ class LaunchObserver extends Node:
 				file.store_string(JSON.stringify(receipt, "\t"))
 				file.close()
 			else:
+				failures += 1
+		if not nook_export.is_empty():
+			if not _write_nook_contract(checks, nook_executed, failures):
 				failures += 1
 		shell.queue_free()
 		await get_tree().process_frame
@@ -275,6 +479,10 @@ func _ready() -> void:
 		get_tree().quit(2)
 		return
 	var timed_bedroom := OS.get_environment("TITLE_ACTUAL_TIMED_BEDROOM") == "1"
+	if OS.get_environment("TITLE_ACTUAL_NOOK_CONTINUE") == "1" and (not timed_bedroom or action != "continue"):
+		push_error("Nook title witness requires the original timed bedroom Continue route")
+		get_tree().quit(2)
+		return
 	if OS.get_environment("TITLE_ACTUAL_PACKED_WASHER") == "1":
 		var profile := OS.get_environment("TITLE_ACTUAL_ISOLATED_APPDATA").replace("\\", "/").simplify_path()
 		var raw_sha := OS.get_environment("TITLE_ACTUAL_PACKED_PRIMARY_SHA")
@@ -339,17 +547,85 @@ func _verify_timing_profile(action: String) -> bool:
 		return false
 	if action == "begin":
 		return not FileAccess.file_exists(RealityState.SAVE_PATH)
-	var valid: bool = FileAccess.get_sha256(RealityState.SAVE_PATH) == BEDROOM_FIXTURE_SHA \
+	var nook_requested := OS.get_environment("TITLE_ACTUAL_NOOK_CONTINUE") == "1"
+	var expected_sha := BEDROOM_FIXTURE_SHA
+	if nook_requested:
+		_nook_export = _admit_nook_export()
+		expected_sha = str(_nook_export.get("primary_sha256", ""))
+	var valid: bool = not expected_sha.is_empty() and FileAccess.get_sha256(RealityState.SAVE_PATH) == expected_sha \
 		and RealityState.load_status().status == "loaded" and RealityState.can_continue() \
 		and not RealityState.save_write_blocked and RealityState.data.prologue.phase == "bedroom_exploration"
 	if not valid:
-		push_error("Current validation did not accept the original bedroom fixture")
+		push_error("Current validation did not accept the nook export" if nook_requested else "Current validation did not accept the original bedroom fixture")
 	return valid
+
+func _admit_nook_export() -> Dictionary:
+	var manifest_path := OS.get_environment("TITLE_ACTUAL_NOOK_EXPORT_MANIFEST")
+	var manifest_sha := OS.get_environment("TITLE_ACTUAL_NOOK_EXPORT_MANIFEST_SHA")
+	var receipt_path := OS.get_environment("TITLE_ACTUAL_RECEIPT")
+	var shot_dir := OS.get_environment("SHOT_DIR")
+	if manifest_path.is_empty() or manifest_sha.length() != 64 or receipt_path.is_empty() or shot_dir.is_empty() \
+			or FileAccess.file_exists(receipt_path) or FileAccess.file_exists(shot_dir.path_join(NOOK_CONTRACT_NAME)) \
+			or FileAccess.get_sha256(manifest_path) != manifest_sha:
+		return {}
+	var manifest: Variant = JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
+	var appdata := OS.get_environment("APPDATA").replace("\\", "/").simplify_path()
+	if manifest is not Dictionary or manifest.get("seed_sha256") != BEDROOM_FIXTURE_SHA \
+			or not str(manifest.get("producer_appdata", "")).begins_with("C:/ov/reports/develop_intake_20261104/") \
+			or str(manifest.get("producer_appdata", "")).nocasecmp_to(appdata) == 0 \
+			or manifest.get("owner") != NOOK_OWNER or manifest.get("stock_id") != NOOK_STOCK \
+			or not bool(manifest.get("storage_result", {}).get("ok", false)) \
+			or str(manifest.get("source", {}).get("runtime_inputs_sha256", "")).length() != 64:
+		return {}
+	var bytes := FileAccess.get_file_as_bytes(RealityState.SAVE_PATH)
+	var actual_sha := FileAccess.get_sha256(RealityState.SAVE_PATH)
+	if actual_sha == BEDROOM_FIXTURE_SHA or actual_sha != manifest.get("primary_sha256") \
+			or bytes.size() != int(manifest.get("primary_size", -1)):
+		return {}
+	var record: Dictionary = RealityState.data.get("v2_household_controls", {}).get("records", {}).get(NOOK_OWNER, {}).get("value", {})
+	var loaded: Dictionary = JSON.parse_string(JSON.stringify(record, "", true, true))
+	var saved: Dictionary = loaded.get("books", {}).get(NOOK_STOCK, {})
+	var original: Dictionary = manifest.get("original_row", {})
+	if int(original.get("slot", -1)) != 0 or int(saved.get("slot", 0)) != -1 or not bool(saved.get("body", {}).get("sleeping", false)) \
+			or saved == original or saved != manifest.get("saved_row") \
+			or JSON.stringify(loaded, "", true, true).sha256_text() != manifest.get("library_sha256"):
+		return {}
+	var authority: Dictionary = manifest.get("authority", {})
+	for key: String in ["version", "intro_complete", "campaign_clock", "prologue", "core_loop", "first_shift", "maintenance_items", "maintenance_jobs", "dream", "dream_seed"]:
+		if not authority.has(key) or JSON.parse_string(JSON.stringify(RealityState.data.get(key))) != authority[key]:
+			return {}
+	var producer_root := str(manifest.producer_appdata).path_join("PleaseRemainOnTheLine")
+	var primary_path := str(manifest.get("primary_path", "")).replace("\\", "/").simplify_path()
+	if primary_path != producer_root.path_join("tests/nook_title_fixture.json") \
+			or FileAccess.get_sha256(primary_path) != actual_sha:
+		return {}
+	var wrapper_path := OS.get_environment("TITLE_ACTUAL_NOOK_PRODUCER_WRAPPER")
+	var wrapper_sha := OS.get_environment("TITLE_ACTUAL_NOOK_PRODUCER_WRAPPER_SHA")
+	if wrapper_path.is_empty() or wrapper_sha.length() != 64 or FileAccess.get_sha256(wrapper_path) != wrapper_sha:
+		return {}
+	var wrapper: Variant = JSON.parse_string(FileAccess.get_file_as_string(wrapper_path))
+	if wrapper is not Dictionary or wrapper.get("evidence_kind") != "suite_run" \
+			or wrapper.get("scene") != "res://tests/V2BookInspectionReturnWorld.tscn":
+		return {}
+	var execution: Dictionary = wrapper.get("execution", {})
+	var wrapper_shots := str(wrapper.get("shot_dir", "")).replace("\\", "/").simplify_path()
+	if execution.get("completed") != true or execution.get("exit_code") != 0 or execution.get("timed_out") != false \
+			or wrapper.get("source", {}).get("runtime_inputs_sha256") != manifest.source.runtime_inputs_sha256 \
+			or wrapper_shots.path_join("nook_title_export.json") != manifest_path.replace("\\", "/").simplify_path():
+		return {}
+	manifest.primary_path = primary_path
+	manifest.library_record = loaded
+	manifest.manifest_path = manifest_path
+	manifest.manifest_sha256 = manifest_sha
+	manifest.wrapper_path = wrapper_path
+	manifest.wrapper_sha256 = wrapper_sha
+	return manifest
 
 func _launch(action: String, clock: CampaignClock, timed_bedroom: bool, packed_washer := false) -> void:
 	var observer := LaunchObserver.new()
 	observer.action = action
 	observer.timed_bedroom = timed_bedroom
+	observer.nook_export = _nook_export
 	observer.packed_washer = packed_washer
 	if timed_bedroom and action == "continue":
 		observer.timing["pre_title_save"] = {"sha256": FileAccess.get_sha256(RealityState.SAVE_PATH),
@@ -361,8 +637,26 @@ func _launch(action: String, clock: CampaignClock, timed_bedroom: bool, packed_w
 	if packed_washer:
 		for key: String in ["carried_case", "maintenance_items", "caretaker_economy"]:
 			observer.expected[key] = JSON.parse_string(JSON.stringify(RealityState.data[key]))
+	if not _nook_export.is_empty():
+		observer.expected.merge(_nook_export.authority, true)
+		observer.timing.pre_title_save["authority"] = _nook_export.authority
+		if observer.expected.dream == {}:
+			# Admission already checked the original empty record. Both world
+			# observations expect the exact JSON shape of the awake defaults.
+			observer.expected.dream = {"phase":"awake", "active":false, "debug_preview":false,
+				"case_id":"", "profile_id":"", "window":{}, "seed_hex":_nook_export.authority.dream_seed,
+				"maze_revision":0.0, "night_index":-1.0, "spawn_anchor":-1.0, "outcome":""}
 	observer.expected_absolute = clock.absolute_minutes() if action == "continue" else 13 * 60 + 27
 	observer.expected_bytes = FileAccess.get_file_as_bytes(RealityState.save_path) if action != "begin" else PackedByteArray()
+	if not _nook_export.is_empty():
+		var scene: String = get_tree().current_scene.scene_file_path
+		if not observer.bind_nook_source(get_script().resource_path, scene, str(get_path())) \
+				or observer.nook_source_before.producer_raw_sha256 != {
+					"manifest":_nook_export.manifest_sha256, "wrapper":_nook_export.wrapper_sha256, "primary":_nook_export.primary_sha256}:
+			observer.free()
+			push_error("Nook title Continue source or producer provenance cannot be bound")
+			get_tree().quit(2)
+			return
 	get_tree().root.add_child.call_deferred(observer)
 	var title := load("res://scenes/ui/title_screen.tscn").instantiate() as OrisonTitleScreen
 	add_child(title)

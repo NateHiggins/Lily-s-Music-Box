@@ -491,27 +491,85 @@ func _two_style_run(owner: Node3D) -> void:
 		for frame in 6:await get_tree().physics_frame
 	two_style_controls.completed=true
 
+func _cold_nook_first_use(book: Node3D, space: InputEventKey) -> bool:
+	if OS.get_environment("ORISON_BOOK_COLD_FIRST_USE") != "1":
+		return false
+	profile_active = false
+	var viewport := get_viewport() as SubViewport
+	var initial := {"pages_ready":book._pages_ready, "print_ready":book._print_ready,
+		"opening":book.opening, "source":_identity(book)}
+	var observation := {"evidence_class":"INERT", "initial":initial,
+		"scope":"Fresh isolated native process, original nearby standing pickup, first actual Space and cover drag. OS and driver caches uncontrolled."}
+	if _require(viewport != null and not initial.pages_ready and not initial.print_ready
+			and is_zero_approx(initial.opening) and player.held_stock_body() == book,
+			"first use begins with the original closed binding and no page or print preparation"):
+		var previous_msaa := viewport.msaa_3d
+		viewport.msaa_3d = get_tree().root.msaa_3d
+		var started := Time.get_ticks_usec()
+		player._unhandled_input(space)
+		observation.space_dispatch_us = Time.get_ticks_usec() - started
+		var end := started + 6000000
+		while player.inspecting() and book.is_physics_processing() and Time.get_ticks_usec() < end:
+			await get_tree().physics_frame
+		observation.first_supported_view_us = Time.get_ticks_usec() - started
+		observation.print_ready_at_first_supported_view = book._print_ready
+		var opened := await _installed_reading(book, true)
+		installed_reading.completed = opened
+		viewport.msaa_3d = previous_msaa
+		observation.reading = installed_reading
+		observation.print_preparation_ms = book.get_meta("print_preparation_ms", -1.)
+		observation.print_preparation_max_slice_ms = book.get_meta("print_preparation_max_slice_ms", -1.)
+		observation.print_preparation_latency_ms = book.get_meta("print_preparation_latency_ms", -1.)
+		if _require(opened and observation.print_preparation_ms >= 0.,
+				"first supported use opens the actual cover and retains the prepared printed spread"):
+			_click_library()
+			_require(not player._grab.active() and not book._held, "first-use inspection returns and releases the original binding")
+	if player.inspecting():
+		player.end_inspection()
+	var directory := OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(directory)
+	var file := FileAccess.open(directory.path_join("nook_cold_first_use.json"), FileAccess.WRITE)
+	if _require(file != null, "first-use report opens"):
+		observation.failures = failures
+		file.store_string(JSON.stringify(observation, "\t", true, true))
+		file.close()
+	return true
+
+
 # One opt-in installed sample. Original closed optics and the independent save
 # driver keep their existing paths and contract boundaries.
-func _installed_reading(book: Node3D) -> bool:
+func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 	var viewport := get_viewport() as SubViewport
 	var camera: Camera3D = player.camera
-	var held_fov := camera.fov
+	var held_fov: float = player._inspect_camera_fov if already_inspecting else camera.fov
 	var matched_msaa: Viewport.MSAA = get_tree().root.msaa_3d
 	installed_reading = {"attempted":true, "completed":false, "book":_identity(book),
 		"binding_style":book.construction.get("opening_style"), "timing":[], "frames":[],
 		"timing_scope":"First observed physical opening and same-book repeat in this session; per-motion input dispatch and paced hinge elapsed times exclude PNG work. No cold launch or performance claim."}
+	var same_owner: bool = player.inspect_owner == book.shelf if already_inspecting else player.held_stock_body() == book
 	if not _require(viewport != null and viewport.msaa_3d == matched_msaa and matched_msaa == Viewport.MSAA_8X
-			and player.held_stock_body() == book and player.lamp_is_enabled() and is_zero_approx(book.opening),
+			and same_owner and player.lamp_is_enabled() and is_zero_approx(book.opening),
 			"installed reading starts with same closed book, default powered lamp and matched 8x MSAA"):
 		return false
-	await _two_style_space()
-	for frame in 110:
-		await get_tree().physics_frame
+	if not already_inspecting:
+		await _two_style_space()
+		for frame in 110:
+			await get_tree().physics_frame
 	if not _require(player.inspecting() and player.inspect_owner == book.shelf and book.shelf.supports_inspected_stock(book)
 			and not player._grab.active() and not book.is_physics_processing() and is_equal_approx(camera.fov, 40.),
 			"normal Space settles the same binding at 40 degrees"):
 		return false
+	var original: Dictionary
+	if already_inspecting:
+		# The cold path has no earlier image. Bind these owners before the
+		# first physical cover input, without reading back a warm control.
+		var carrier: Node3D = player.carried_device
+		var device: Node = carrier.device
+		original = {"camera_identity":_identity(camera), "lamp":{"identity":_identity(player.flashlight)},
+			"carrier":{"identity":_identity(carrier), "device_identity":_identity(device),
+				"native_lens_identity":_identity(device.teletype.torch_lens)}}
+	else:
+		original = optics[1] # Closed same-book returned_hand.
 	var contact: Vector3 = book.left.to_global(Vector3(float(book.construction.width) * .7,
 		float(book.construction.height) * .7, float(book.construction.thickness) * .5))
 	if not _require(await _two_style_cursor(contact), "installed reading reaches the actual free cover cursor"):
@@ -551,24 +609,24 @@ func _installed_reading(book: Node3D) -> bool:
 	var reading_pose: Transform3D = book.global_transform
 	var reading_eye: Vector3 = camera.global_position
 	var reading_basis: Basis = camera.global_basis
-	if not await _installed_reading_frame("installed_reading_40", book, 40., matched_msaa):
+	if not await _installed_reading_frame("installed_reading_40", book, 40., matched_msaa, original):
 		return false
 	if not _require(await _two_style_cursor(camera.global_position - camera.global_basis.z),
 			"detached reading cursor reaches camera centre"):
 		return false
 	_installed_reading_wheel(MOUSE_BUTTON_WHEEL_UP)
-	if not await _installed_reading_frame("installed_reading_24", book, 24., matched_msaa):
+	if not await _installed_reading_frame("installed_reading_24", book, 24., matched_msaa, original):
 		return false
 	if not await _optics_lamp_power(false, "installed_reading_lamp_off"):
 		return false
-	if not await _installed_reading_frame("installed_reading_24_off", book, 24., matched_msaa, false):
+	if not await _installed_reading_frame("installed_reading_24_off", book, 24., matched_msaa, original, false):
 		return false
 	if not await _optics_lamp_power(true, "installed_reading_lamp_restored"):
 		return false
-	if not await _installed_reading_frame("installed_reading_24_restored", book, 24., matched_msaa):
+	if not await _installed_reading_frame("installed_reading_24_restored", book, 24., matched_msaa, original):
 		return false
 	_installed_reading_wheel(MOUSE_BUTTON_WHEEL_DOWN)
-	if not await _installed_reading_frame("installed_reading_40_return", book, 40., matched_msaa):
+	if not await _installed_reading_frame("installed_reading_40_return", book, 40., matched_msaa, original):
 		return false
 	if not _require(player.inspecting() and camera.global_position.is_equal_approx(reading_eye)
 			and camera.global_basis.is_equal_approx(reading_basis) and book.global_transform.is_equal_approx(reading_pose),
@@ -583,7 +641,7 @@ func _installed_reading(book: Node3D) -> bool:
 	pixel = viewport.get_mouse_position()
 	var pointer_ray: Vector3 = camera.project_ray_normal(pixel)
 	_installed_reading_wheel(MOUSE_BUTTON_WHEEL_UP)
-	if not await _installed_reading_frame("installed_reading_24_off_centre", book, 24., matched_msaa):
+	if not await _installed_reading_frame("installed_reading_24_off_centre", book, 24., matched_msaa, original):
 		return false
 	if not _require(camera.global_position.is_equal_approx(reading_eye) and book.global_transform.is_equal_approx(reading_pose)
 			and camera.project_ray_normal(pixel).distance_to(pointer_ray) < .0001
@@ -603,7 +661,7 @@ func _installed_reading(book: Node3D) -> bool:
 			and (book.global_transform * book.pickup_centre()).distance_to(held_goal) < .01,
 			"normal Space returns the same open book to ordinary hand and FOV"):
 		return false
-	if not await _installed_reading_frame("installed_open_hand", book, held_fov, matched_msaa):
+	if not await _installed_reading_frame("installed_open_hand", book, held_fov, matched_msaa, original):
 		return false
 	var samples: Array = installed_reading.frames
 	var reference: Vector3 = str_to_var(samples[0].carrier.native_aperture)
@@ -628,7 +686,7 @@ func _installed_reading_wheel(button: MouseButton) -> void:
 	player._unhandled_input(wheel)
 
 func _installed_reading_frame(phase: String, book: Node3D, fov: float, msaa: Viewport.MSAA,
-		lamp_on := true) -> bool:
+		original: Dictionary, lamp_on := true) -> bool:
 	for frame in 2:
 		await RenderingServer.frame_post_draw
 	var before := optics.size()
@@ -656,7 +714,6 @@ func _installed_reading_frame(phase: String, book: Node3D, fov: float, msaa: Vie
 		if visible and int(geometry.vertices) > 0:
 			sides[printed.side] = true
 	installed_reading.frames.append(row)
-	var original: Dictionary = optics[1] # Closed same-book returned_hand, retained above.
 	return _require(failures.size() == failed and sides.size() == 2
 		and is_equal_approx(float(row.fov_deg), fov) and int(row.viewport_msaa) == msaa
 		and absf(book.opening - PI) < .00001 and player.lamp_is_enabled() == lamp_on
