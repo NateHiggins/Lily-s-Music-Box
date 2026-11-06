@@ -13,7 +13,7 @@ uniform vec2 physical_uv_scale = vec2(1.0);
 uniform vec2 pane_size = vec2(1.2, 1.8);
 uniform float room_depth : hint_range(1.0, 8.0) = 3.8;
 uniform float building_seed = 1.0;
-uniform int room_kind : hint_range(0, 3) = 0; // dwelling, office, workshop, shop
+uniform int room_kind : hint_range(0, 4) = 0; // walk-up, office, workshop, shop, rowhouse
 uniform float minute_of_day : hint_range(0.0, 1440.0) = 1200.0;
 uniform bool weekend = false;
 uniform bool interiors_enabled = true;
@@ -76,7 +76,9 @@ void vertex() {
 }
 
 void fragment() {
-    float depth = room_depth * mix(0.75, 1.25, room_traits.z);
+    bool dwelling = room_kind == 0 || room_kind == 4;
+    float layout = room_traits.w;
+    float depth = room_depth * mix(0.75, 1.25, room_traits.z) * (room_kind == 4 ? 1.15 : 1.0);
     vec2 physical_uv = UV * physical_uv_scale;
     vec3 glaze = texture(albedo_tex, physical_uv).rgb * glass_tint;
     ROUGHNESS = clamp(texture(rough_tex, physical_uv).r * 0.65 + 0.2, 0.25, 0.9);
@@ -109,49 +111,62 @@ void fragment() {
     vec2 room_uv = floor_hit ? p.xz : (back_hit ? p.xy : p.zy);
     vec3 wall = texture(wall_albedo, room_uv * 0.4).rgb;
     vec3 wood = texture(wood_albedo, room_uv * vec2(0.35, 0.65)).rgb;
-    vec3 pigment = floor_hit ? wood * 0.45 : wall * mix(vec3(0.55,0.60,0.52),vec3(0.72,0.61,0.50),decor_traits.x);
+    vec3 plaster = mix(vec3(0.52, 0.60, 0.53), vec3(0.76, 0.63, 0.49), decor_traits.x);
+    plaster = mix(plaster, vec3(0.56, 0.52, 0.50), layout * 0.35);
+    vec3 pigment = floor_hit ? wood * 0.45 : wall * plaster;
     pigment *= mix(0.65, 1.0, clamp((p.y - floor_y) / 3.0, 0.0, 1.0));
     float room_pixels = 1.0 / max(max(length(dx), length(dy)), 0.0001);
     float detail = smoothstep(5.0, 22.0, room_pixels);
     float wall_distance = nearest;
     float side = room_traits.y > 0.5 ? 1.0 : -1.0;
     vec3 timber = vec3(0.19, 0.09, 0.045);
+    vec3 fabric = mix(vec3(0.24, 0.34, 0.30), vec3(0.47, 0.28, 0.19), decor_traits.y);
     if (detail > 0.01 && interiors_enabled) {
-        // Fixed bounded analytic tests; no raymarch, lights, viewport or mesh per room.
-        furnish(ro, rd, vec3(-w + 0.12, floor_y, depth - 0.5),
-            vec3(-w + 0.65, floor_y + 1.9, depth - 0.12), timber, nearest, pigment);
-        furnish(ro, rd, vec3(w - 0.8, floor_y, depth - 0.6),
-            vec3(w - 0.12, floor_y + 1.25, depth - 0.12), timber * 1.3, nearest, pigment);
-        if (room_kind == 0 && room_traits.x > 0.35) {
-            furnish(ro, rd, vec3(-0.65 + side * 0.35, floor_y + 0.12, 1.4),
-                vec3(0.65 + side * 0.35, floor_y + 0.55, depth - 0.6),
-                mix(vec3(0.21, 0.28, 0.29), vec3(0.4, 0.25, 0.18), decor_traits.y), nearest, pigment);
-            furnish(ro, rd, vec3(-0.7 + side * 0.35, floor_y, depth - 0.8),
-                vec3(0.7 + side * 0.35, floor_y + 1.05, depth - 0.65), timber, nearest, pigment);
-            furnish(ro, rd, vec3(-0.4 + side * 0.35, floor_y + 0.55, depth - 1.25),
-                vec3(0.4 + side * 0.35, floor_y + 0.68, depth - 0.85),
-                vec3(0.7, 0.65, 0.51), nearest, pigment);
+        // At most a few large silhouettes per room; no per-room draw or lights.
+        float edge = side * min(w * 0.62, 1.05);
+        float table_z = mix(1.35, min(depth - 0.85, 2.2), room_traits.x);
+        if (dwelling && layout < (room_kind == 4 ? 0.55 : 0.34)) {
+            // Parlour settee and low table.
+            float seat_x = side * 0.34;
+            furnish(ro, rd, vec3(seat_x - 0.64, floor_y, depth - 1.08),
+                vec3(seat_x + 0.64, floor_y + 0.46, depth - 0.4), fabric, nearest, pigment);
+            furnish(ro, rd, vec3(seat_x - 0.65, floor_y + 0.43, depth - 0.6),
+                vec3(seat_x + 0.65, floor_y + 0.99, depth - 0.4), fabric, nearest, pigment);
+            furnish(ro, rd, vec3(-0.42, floor_y + 0.35, table_z),
+                vec3(0.42, floor_y + 0.46, table_z + 0.38), timber, nearest, pigment);
+        } else if (dwelling && layout < 0.73) {
+            // Bedroom with a bedstead and offset chest.
+            float bed_x = side * 0.36;
+            furnish(ro, rd, vec3(bed_x - 0.55, floor_y + 0.22, depth - 1.52),
+                vec3(bed_x + 0.55, floor_y + 0.54, depth - 0.25), fabric, nearest, pigment);
+            furnish(ro, rd, vec3(bed_x - 0.58, floor_y, depth - 0.38),
+                vec3(bed_x + 0.58, floor_y + 1.02, depth - 0.26), timber, nearest, pigment);
+            furnish(ro, rd, vec3(-edge - 0.30, floor_y, depth - 0.62),
+                vec3(-edge + 0.30, floor_y + 0.81, depth - 0.19), timber * 1.25, nearest, pigment);
         } else {
-            furnish(ro, rd, vec3(-0.95, floor_y + 0.65, 1.4),
-                vec3(0.95, floor_y + 0.79, 2.15), timber * 1.4, nearest, pigment);
-            furnish(ro, rd, vec3(-0.82, floor_y, 1.48),
-                vec3(-0.65, floor_y + 0.7, 2.05), timber, nearest, pigment);
-            furnish(ro, rd, vec3(0.65, floor_y, 1.48),
-                vec3(0.82, floor_y + 0.7, 2.05), timber, nearest, pigment);
-            furnish(ro, rd, vec3(-0.3, floor_y + 0.1, 2.2),
-                vec3(0.3, floor_y + (room_kind == 2 ? 0.65 : 1.15), 2.4),
-                room_kind == 2 ? vec3(0.28, 0.24, 0.18) : timber, nearest, pigment);
-            if (room_kind == 3) {
-                furnish(ro, rd, vec3(-w + 0.1, floor_y + 0.8, 1.0),
-                    vec3(-w + 0.65, floor_y + 0.88, depth - 0.5), timber, nearest, pigment);
-                furnish(ro, rd, vec3(-w + 0.1, floor_y + 1.3, 1.0),
-                    vec3(-w + 0.65, floor_y + 1.38, depth - 0.5), timber, nearest, pigment);
-            }
+            // Kitchen table, office desk or workshop bench with an open span underneath.
+            float width = min(w * 0.8, mix(0.58, 1.08, room_traits.y));
+            float height = room_kind == 2 ? 0.94 : 0.76;
+            furnish(ro, rd, vec3(-width, floor_y + height - 0.11, table_z),
+                vec3(width, floor_y + height, table_z + 0.58), timber * 1.4, nearest, pigment);
+            furnish(ro, rd, vec3(-width, floor_y, table_z + 0.08),
+                vec3(-width + 0.12, floor_y + height, table_z + 0.49), timber, nearest, pigment);
+            furnish(ro, rd, vec3(width - 0.12, floor_y, table_z + 0.08),
+                vec3(width, floor_y + height, table_z + 0.49), timber, nearest, pigment);
+            float object_height = room_kind == 2 ? 0.38 : 0.17;
+            furnish(ro, rd, vec3(edge * 0.35 - 0.19, floor_y + height, table_z + 0.16),
+                vec3(edge * 0.35 + 0.19, floor_y + height + object_height, table_z + 0.44),
+                room_kind == 2 ? vec3(0.25, 0.24, 0.18) : vec3(0.56, 0.49, 0.35), nearest, pigment);
         }
-        if(room_kind==0 && decor_traits.w<0.72) {
-            float lamp_x=side*min(w*0.62,1.05);
-            furnish(ro,rd,vec3(lamp_x-.018,floor_y,1.15),vec3(lamp_x+.018,floor_y+1.45,1.19),timber,nearest,pigment);
-            rounded_shade(ro,rd,vec3(lamp_x,floor_y+1.48,1.17),vec3(.23,.14,.23),nearest,pigment);
+        if (dwelling && decor_traits.w < 0.62 && layout < 0.55) {
+            furnish(ro, rd, vec3(edge - 0.018, floor_y, 1.15),
+                vec3(edge + 0.018, floor_y + 1.45, 1.19), timber, nearest, pigment);
+            rounded_shade(ro, rd, vec3(edge, floor_y + 1.48, 1.17), vec3(0.23, 0.14, 0.23), nearest, pigment);
+        } else if (room_kind == 2 || room_kind == 3 || decor_traits.w > 0.43) {
+            float cabinet_x = -edge;
+            float cabinet_h = mix(1.08, 1.91, room_traits.x);
+            furnish(ro, rd, vec3(cabinet_x - 0.27, floor_y, depth - 0.62),
+                vec3(cabinet_x + 0.27, floor_y + cabinet_h, depth - 0.18), timber, nearest, pigment);
         }
     }
     if (nearest < wall_distance) {
@@ -160,7 +175,7 @@ void fragment() {
     }
     float hour = minute_of_day / 60.0;
     float offset = lamp_traits.w * 1.8;
-    float activity = room_kind == 0
+    float activity = dwelling
         ? smoothstep(16.5 + offset, 18.0 + offset, hour) * (1.0 - smoothstep(22.0 + offset, 24.0, hour))
         : smoothstep(6.0 + offset, 8.0 + offset, hour) * (1.0 - smoothstep(17.0, 19.0 + offset, hour));
     if (weekend && room_kind == 1) { activity *= 0.12; }
@@ -171,9 +186,9 @@ void fragment() {
     float lamp_level = mix(0.35, 1.25, lamp_traits.y);
     vec3 illumination = vec3(0.025, 0.035, 0.055) + daylight * vec3(0.15, 0.17, 0.18)
         + activity * lamp_colour * lamp_level;
-    float curtain_width = mix(0.025, 0.42, decor_traits.z);
-    float curtain = 1.0 - smoothstep(curtain_width - 0.015, curtain_width + 0.015,
-        min(st.x, 1.0 - st.x));
+    float curtain_width = mix(0.025, dwelling ? 0.38 : 0.18, decor_traits.z);
+    float curtain_edge = min(st.x + 0.06 * side, 1.0 - st.x - 0.06 * side);
+    float curtain = 1.0 - smoothstep(curtain_width - 0.015, curtain_width + 0.015, curtain_edge);
     float roller = step(0.72, decor_traits.w) * (1.0-smoothstep(mix(0.35,0.75,decor_traits.z)-0.01, mix(0.35,0.75,decor_traits.z)+0.01, UV2.y));
     vec3 interior = mix(pigment, wall * mix(0.48,0.78,decor_traits.x), max(curtain,roller) * detail);
     float fresnel = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), 5.0);

@@ -3,7 +3,8 @@
 Evidence class: **EVIDENCE**. Automated played spatial access only.
 Status: **Six source regions and six complete routes reached in one continuous leg.**
 
-Requalified on **2026-11-06** in one native run at **ae9419937**.
+Requalified on **2026-11-06** in one native run at **515c75279**. The
+preceding **ae9419937** packet is preserved in the city-window review archive.
 The standing controller carries world collision and the native hose-contact
 layer, exact mask **2097153**. The previous replay stopped at the first
 waypoint because its observer expected the historical mask **1**. The
@@ -14,13 +15,13 @@ retain their existing behavior. The first failed contract and logs remain in
 
 The production-selected V2 world completes all six routes from one street
 placement with the normal standing controller. The original contract records
-**52** endpoints and **6,609** consecutive physics observations, **130** checks
-and zero failures in **325.408** seconds of test execution. Each endpoint
+**52** endpoints and **6,588** consecutive physics observations, **130** checks
+and zero failures in **286.580** seconds of test execution. Each endpoint
 references its actual observation. All three tracked nodes retire. The
 publication checks the unchanged test-written contract and wrapper against the
 current inputs and byte-verified raw logs. The previous published packet and
 its original auxiliary files are preserved under
-**art/reviews/v2_exterior_access_20261106/previous_exterior_packet/**.
+**art/reviews/v2_qualification_city_windows_20261106/previous_regions/**.
 
 This checkpoint grants spatial access only for:
 
@@ -63,10 +64,10 @@ switched to bounded physics steps with a wall-clock ceiling. Both October
 preserved under **art/reviews/v2_roof_access_repair_20261020/**.
 
 The current runtime fingerprint is
-**6660ac985b3e3b176c7b6626060affc80745b82b55a86a38e1cd002295268699** and the
+**1fef426027b6379129b3feca1dfc721e61c93063931777caed8c380326e20ea7** and the
 current surface fingerprint is
-**d1624860552ede1756a659c3fa63b9893dc98a5d8851a93417e26304a7ccdebe**. Both
-source guards passed at **ae9419937**.
+**1be7781a8de040874865fd598a360c89f701aef4191197a177dc52c4af4a6510**. Both
+source guards passed at **515c75279**.
 
 The shops region is witnessed in its authored bodega instance. This does not
 prove the receiving entrance, eleven arcade-shop interiors, cases, inventory,
