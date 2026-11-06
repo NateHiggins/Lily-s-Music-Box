@@ -23,7 +23,9 @@ period sources, and then chose all five test pages on 2026-10-31.
 
 87 front pictures (about one a week per paper), a Brown Section on all 52 Sundays, and a
 Photo Drama on 52 of the 53 Saturdays. The last Saturday, 9 November 1929, has none. Fashion
-and sport line cuts stayed at two; the other back pages have no feature picture.
+and sport line cuts stayed at two. A third feature, the Fremont Street company photograph on the
+Record of 24 May 1929, was added 2026-11-06 (design/ORISON_TOONS_2026-11-06.md); the other back
+pages have no feature picture.
 
 ## How it is built
 
