@@ -710,6 +710,12 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 		await get_tree().physics_frame
 		await get_tree().physics_frame
 	var release_pose: Transform3D=book.global_transform
+	var return_requested: bool=book.should_return_after_reading()
+	installed_reading.return_attempt={
+		"requested":return_requested,"source_pose":var_to_str(pickup_pose),
+		"source_slot":pickup_slot,"source_opening":pickup_angle,
+		"release_pose":var_to_str(release_pose),"preflight":_reading_return_preflight(book,pickup_slot,pickup_pose,pickup_angle)
+	}
 	await _two_style_space()
 	var returned: bool=book.transform.is_equal_approx(pickup_pose) and book.shelf_slot==pickup_slot \
 		and is_equal_approx(book.opening,pickup_angle)
@@ -721,6 +727,13 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 		and release_pose.origin.distance_to(book.global_position)<.18
 	var blocked_test:=is_instance_valid(blocker)
 	if blocked_test: blocker.queue_free()
+	installed_reading.return_attempt.merge({
+		"returned":returned,"released_nearby":released_nearby,
+		"actual_pose":var_to_str(book.transform),"actual_slot":book.shelf_slot,
+		"actual_opening":book.opening,"frozen":book.freeze,"book_held":book._held,
+		"grab_active":player._grab.active(),"inspecting":player.inspecting(),
+		"actual_fov":camera.fov,"expected_fov":held_fov
+	})
 	if not _require(not player.inspecting() and not player._grab.active()
 			and is_equal_approx(camera.fov, held_fov) and not book._held
 			and (released_nearby if blocked_test else returned),
@@ -768,6 +781,36 @@ func _reading_fit_motion(book: Node3D, camera: Camera3D) -> Dictionary:
 	sample["fit_processing"]=book.is_physics_processing()
 	sample["hand_tag"]=book._hand_tag
 	return sample
+
+func _reading_return_preflight(book: Node3D, slot: int, pickup_pose: Transform3D, angle: float) -> Dictionary:
+	var collection:=book.get_parent_node_3d()
+	var source: Transform3D=book.shelf.book_slots[slot] if slot>=0 else pickup_pose
+	var destination:=collection.global_transform*source
+	var groups: Dictionary=book.stock.posed_gatherings(book.stock_id,angle)
+	var contacts:=groups.values()
+	if slot>=0 and is_zero_approx(angle):
+		contacts=[{"shape":book._closed_solid.shape,"pose":book._closed_solid.transform}]
+	var result: Dictionary={"slot_free":slot<0 or book.shelf.book_slot_is_free(slot,book),
+		"folded_start_contacts":[],"clear_through":[]}
+	var space:=book.get_world_3d().direct_space_state
+	for group: Dictionary in contacts:
+		var query:=PhysicsShapeQueryParameters3D.new()
+		query.shape=group.shape
+		query.exclude=book._query_exclusions()
+		query.collision_mask=book.collision_mask
+		query.transform=Transform3D(destination.basis,book.global_position)*group.pose
+		for hit: Dictionary in space.intersect_shape(query,8):
+			result.folded_start_contacts.append(_identity(hit.collider))
+	var path: Array[Vector3]=[]
+	if slot>=0: path.append(collection.to_global(book._reading_pickup_exit))
+	path.append(destination.origin+Vector3.UP*.004)
+	path.append(destination.origin)
+	var prefix: Array[Vector3]=[]
+	for point: Vector3 in path:
+		prefix.append(point)
+		result.clear_through.append({"goal":var_to_str(point),
+			"clear":book._reading_return_is_clear(destination.basis,contacts,prefix)})
+	return result
 
 func _installed_reading_frame(phase: String, book: Node3D, fov: float, msaa: Viewport.MSAA,
 		original: Dictionary, lamp_on := true) -> bool:
