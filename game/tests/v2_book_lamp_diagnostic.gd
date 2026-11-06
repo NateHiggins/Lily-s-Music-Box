@@ -809,7 +809,8 @@ func _reading_return_preflight(book: Node3D, slot: int, pickup_pose: Transform3D
 	for point: Vector3 in path:
 		prefix.append(point)
 		result.clear_through.append({"goal":var_to_str(point),
-			"clear":book._reading_return_is_clear(destination.basis,contacts,prefix)})
+			"clear":book._reading_return_is_clear(book.global_position,destination.basis,contacts,prefix)})
+	result.clear_via_view_station=book._reading_return_via_view_station(destination.basis,contacts,path)
 	return result
 
 func _installed_reading_frame(phase: String, book: Node3D, fov: float, msaa: Viewport.MSAA,

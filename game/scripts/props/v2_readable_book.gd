@@ -532,9 +532,12 @@ func return_after_reading() -> void:
 	if slot>=0: path.append(collection.to_global(_reading_pickup_exit))
 	path.append(pose.origin+Vector3.UP*.004)
 	path.append(pose.origin)
-	# Preflight the folded binding along the pickup approach before committing
-	# the exact placement. A blocked return leaves the current body to settle.
-	if not _reading_return_is_clear(pose.basis,contacts,path): return
+	# The folded spine can intersect the reader even when the spread clears
+	# their capsule. Preflight a retreat to the ordinary viewing station before
+	# folding in that case. A blocked return leaves the current body to settle.
+	if not _reading_return_is_clear(global_position,pose.basis,contacts,path) \
+			and not _reading_return_via_view_station(pose.basis,contacts,path):
+		return
 	global_transform=pose
 	_apply_opening(_reading_pickup_opening,groups)
 	linear_velocity=Vector3.ZERO
@@ -544,14 +547,23 @@ func return_after_reading() -> void:
 	_contact_mode(freeze)
 	shelf.library_stock_changed(self)
 
-func _reading_return_is_clear(orientation: Basis, contacts: Array, path: Array[Vector3]) -> bool:
+func _reading_return_via_view_station(orientation: Basis, contacts: Array, path: Array[Vector3]) -> bool:
+	var retreat:=super._hold_target(_floating_camera,true)
+	var open_contacts: Array=[]
+	for solid: CollisionShape3D in _solids:
+		open_contacts.append({"shape":solid.shape,"pose":solid.transform})
+	var retreat_path: Array[Vector3]=[retreat]
+	return _reading_return_is_clear(global_position,global_basis,open_contacts,retreat_path) \
+		and _reading_return_is_clear(retreat,orientation,contacts,path)
+
+func _reading_return_is_clear(origin: Vector3, orientation: Basis, contacts: Array, path: Array[Vector3]) -> bool:
 	var space:=get_world_3d().direct_space_state
 	for group: Dictionary in contacts:
 		var query:=PhysicsShapeQueryParameters3D.new()
 		query.shape=group.shape
 		query.exclude=_query_exclusions()
 		query.collision_mask=collision_mask
-		var start:=global_position
+		var start:=origin
 		for goal: Vector3 in path:
 			query.motion=Vector3.ZERO
 			query.transform=Transform3D(orientation,start)*group.pose
