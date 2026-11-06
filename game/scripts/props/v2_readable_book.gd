@@ -91,7 +91,9 @@ func begin_floating_view(camera_pose: Transform3D) -> void:
 	if not _pages_ready:_print_pages()
 
 func end_floating_view() -> void:
-	get_viewport().size_changed.disconnect(_queue_reading_fit)
+	var viewport:=get_viewport()
+	if viewport!=null and viewport.size_changed.is_connected(_queue_reading_fit):
+		viewport.size_changed.disconnect(_queue_reading_fit)
 	_reading_target=Vector3.INF
 	set_physics_process(false)
 	if _closed_solid!=null: _contact_mode(false)
