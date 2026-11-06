@@ -103,7 +103,7 @@ func end_floating_view() -> void:
 		viewport.size_changed.disconnect(_queue_reading_fit)
 	_reading_target=Vector3.INF
 	set_physics_process(false)
-	if _closed_solid!=null: _contact_mode(false)
+	if _closed_solid!=null: _contact_mode(shelf_slot>=0)
 
 func _hold_target(camera_pose: Transform3D, centered: bool) -> Vector3:
 	if centered and _reading_target.is_finite():
@@ -518,13 +518,16 @@ func return_after_reading() -> void:
 	var source_pose: Transform3D=shelf.book_slots[slot] if slot>=0 else _reading_pickup_pose
 	var pose:=collection.global_transform*source_pose
 	var groups: Dictionary=stock.posed_gatherings(stock_id,_reading_pickup_opening)
+	var contacts:=groups.values()
+	if slot>=0 and is_zero_approx(_reading_pickup_opening):
+		contacts=[{"shape":_closed_solid.shape,"pose":_closed_solid.transform}]
 	var path: Array[Vector3]=[]
 	if slot>=0: path.append(collection.to_global(_reading_pickup_exit))
 	path.append(pose.origin+Vector3.UP*.004)
 	path.append(pose.origin)
 	# Preflight the folded binding along the pickup approach before committing
 	# the exact placement. A blocked return leaves the current body to settle.
-	if not _reading_return_is_clear(pose.basis,groups,path): return
+	if not _reading_return_is_clear(pose.basis,contacts,path): return
 	global_transform=pose
 	_apply_opening(_reading_pickup_opening,groups)
 	linear_velocity=Vector3.ZERO
@@ -534,9 +537,9 @@ func return_after_reading() -> void:
 	_contact_mode(freeze)
 	shelf.library_stock_changed(self)
 
-func _reading_return_is_clear(orientation: Basis, groups: Dictionary, path: Array[Vector3]) -> bool:
+func _reading_return_is_clear(orientation: Basis, contacts: Array, path: Array[Vector3]) -> bool:
 	var space:=get_world_3d().direct_space_state
-	for group: Dictionary in groups.values():
+	for group: Dictionary in contacts:
 		var query:=PhysicsShapeQueryParameters3D.new()
 		query.shape=group.shape
 		query.exclude=_query_exclusions()

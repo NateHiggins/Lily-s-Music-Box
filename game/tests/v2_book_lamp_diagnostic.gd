@@ -688,6 +688,10 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 	await _two_style_space()
 	var returned: bool=book.transform.is_equal_approx(pickup_pose) and book.shelf_slot==pickup_slot \
 		and is_equal_approx(book.opening,pickup_angle)
+	if pickup_slot>=0:
+		returned=returned and book.freeze
+		if is_zero_approx(pickup_angle):
+			returned=returned and book._solids.size()==1 and book._solids[0]==book._closed_solid
 	var released_nearby: bool=not returned and book.shelf_slot==-1 and not book.freeze \
 		and release_pose.origin.distance_to(book.global_position)<.18
 	var blocked_test:=is_instance_valid(blocker)
