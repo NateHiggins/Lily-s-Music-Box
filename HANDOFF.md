@@ -19,8 +19,11 @@ open retreat, exact shelf return and shoulder departure. Six renders show the
 whole spread at the default view and larger type with edge cropping at wheel
 zoom. **reading_valise_integration_native_03/** passes 80 installed hardback
 checks at **e10153555**, including same-copy local set-down when pickup return
-is obstructed. Both source guards passed. Compact paperback and human
-acceptance remain open. Physical book packing follows PR164.
+is obstructed. Both source guards passed. **reading_valise_stack_clearance_native_03/**
+adds 81 passing compact 800×600 paperback checks at **cb8fe183f**. The full
+spread, both glyph sides, native shoulder lamp and exact return are verified.
+At default magnification the print still breaks up. Compact legibility,
+human acceptance and physical book packing remain open.
 
 **PR164 newspaper valise.** Patched-engine batch 11 passed 66 checks at the
 source published as **b589233a3**, including purchase, deposit, release, reload
@@ -32,11 +35,13 @@ the metre charts. Spatial and surface tooling, all 1,477 referenced texture
 imports and the reader gate passed. **reading_valise_integration_native_02/**
 preserves the paper picking failure and passes the moving-hose bench.
 **03/** passed 70 paper checks at **e10153555**, including 120→121 filing
-and disk reload. Placement **e2406f628** is frozen under
-**reading_valise_stack_clearance_native_01/**. Revalidate its launcher before
-editing canonical source. Root owns admission and will bind the original
-qualification suites after the nearby clearance test. Claude owns the
-external CPU fixture only.
+and disk reload. **reading_valise_stack_clearance_native_01/** was interrupted
+before launch by the reboot. **02/** passed 84 checks at **e2406f628**. **03/**
+passed 92 at **cb8fe183f**, including all seven standing clearances at the
+bookshelf and the 720→721 hand deposit and reload. Both guards passed.
+**paper_edge_appearance_01/** freezes **847ea6b92** for a bounded comparison.
+Check its live launcher before editing canonical source. Root owns admission
+and will bind the four original suites after the surface review.
 
 **Laurel scheduler.** **laurel_scheduler_native_01/** passed 22 checks and six
 legs with both guards PASS. Worst frame 68.559 ms. Three running snapshots fell
