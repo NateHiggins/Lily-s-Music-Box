@@ -85,7 +85,7 @@ func _refresh() -> void:
 		if h > 0.0:
 			# The chart is rebuilt only when this pile's height changes.
 			if not is_equal_approx(_pile_heights[index], h):
-				piles[index].mesh = _charted(Vector3(FOLDED.x, h, FOLDED.y))
+				piles[index].mesh = _charted(Vector3(FOLDED.x, h, FOLDED.y), floori(h / (4.0 * SHEET)))
 				_pile_heights[index] = h
 			piles[index].position = Vector3(index * PILE_GAP, h * 0.5, 0.0)
 	_shown_count = n
@@ -155,14 +155,35 @@ func _process(delta: float) -> void:
 func _paper_material() -> StandardMaterial3D:
 	var finish := MatLib.get_mat("paper").duplicate() as StandardMaterial3D
 	finish.uv1_triplanar = false
+	finish.vertex_color_use_as_albedo = true
 	finish.uv1_scale = Vector3.ONE / float(MatLib.SETS["paper"][3])
 	finish.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	return finish
 
 
-## A box of folded newsprint charted in metres, the material on its surface.
-func _charted(size: Vector3) -> ArrayMesh:
+## Group the visible edges of folded issues into bands wide enough to read
+## from standing height. The footprint, metre UVs and catalogue maps stay the same.
+func _charted(size: Vector3, bands: int = 0) -> ArrayMesh:
 	var box := BoxMesh.new()
 	box.size = size
 	box.material = _paper
-	return MetreUV.chart(box)
+	if bands < 2:
+		return MetreUV.chart(box)
+	var rows := bands * 3
+	box.subdivide_height = rows - 1
+	var charted := MetreUV.chart(box)
+	var arrays := charted.surface_get_arrays(0)
+	var points: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+	var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
+	var colors := PackedColorArray()
+	colors.resize(points.size())
+	for index in points.size():
+		var row := roundi((points[index].y / size.y + 0.5) * rows)
+		var seam := absf(normals[index].y) < 0.5 and row > 0 and row < rows and row % 3 == 0
+		var shade := 0.68 + 0.11 * float(row % 2) if seam else 1.0
+		colors[index] = Color(shade, shade, shade)
+	arrays[Mesh.ARRAY_COLOR] = colors
+	var result := ArrayMesh.new()
+	result.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	result.surface_set_material(0, _paper)
+	return result
