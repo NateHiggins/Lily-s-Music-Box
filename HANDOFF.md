@@ -17,23 +17,26 @@ restored, but the folded hull would overlap the capsule at the fitted pose.
 **08/** passed 80 checks at **d900d8bab** for the installed hardback, including
 open retreat, exact shelf return and shoulder departure. Six renders show the
 whole spread at the default view and larger type with edge cropping at wheel
-zoom. **reading_valise_integration_native_01/** freezes **05ea35a61** for
-compile, moving-hose wetting, the corrected paper route and obstructed return.
-Check its live launcher and final guard before changing canonical source.
-Flexible binding, narrow-view and human acceptance remain open. Physical book
-packing follows PR164.
+zoom. **reading_valise_integration_native_03/** passes 80 installed hardback
+checks at **e10153555**, including same-copy local set-down when pickup return
+is obstructed. Both source guards passed. Compact paperback and human
+acceptance remain open. Physical book packing follows PR164.
 
 **PR164 newspaper valise.** Patched-engine batch 11 passed 66 checks at the
 source published as **b589233a3**, including purchase, deposit, release, reload
 and metre UVs with mipmaps. Batch 9 preserves the premature mesh assertion
 script error. Batch 10 preserves four stock-poll timing failures. The
-single-paper capture verifies placement. The taller-pile capture is pending.
-**039fd734a** exposed three unused generated display names in the spatial audit.
-**9d615fdce** removes those names and charts the new valise sheets and pocket
-boards in metres. Spatial and surface tooling tests, all 1,477 referenced
-texture imports, and the reader gate pass. The scoped native retest and
-unchanged four original suites are prepared in **valise_integration_preflight_01/**.
-Root owns admission. Claude owns the external capture.
+taller-pile capture at **stack_scale_review_01/** verified metre UVs and
+mipmaps but exposed trim overlap. **9d615fdce** fixed three spatial names and
+the metre charts. Spatial and surface tooling, all 1,477 referenced texture
+imports and the reader gate passed. **reading_valise_integration_native_02/**
+preserves the paper picking failure and passes the moving-hose bench.
+**03/** passed 70 paper checks at **e10153555**, including 120→121 filing
+and disk reload. Placement **e2406f628** is frozen under
+**reading_valise_stack_clearance_native_01/**. Revalidate its launcher before
+editing canonical source. Root owns admission and will bind the original
+qualification suites after the nearby clearance test. Claude owns the
+external CPU fixture only.
 
 **Laurel scheduler.** **laurel_scheduler_native_01/** passed 22 checks and six
 legs with both guards PASS. Worst frame 68.559 ms. Three running snapshots fell
