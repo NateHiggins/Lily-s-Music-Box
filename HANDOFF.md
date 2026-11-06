@@ -1,3 +1,32 @@
+# City architect closeout — November 6, 2026
+
+Evidence class: **INERT**. Architect construction and independent runtime
+monitoring are complete. Sol owns installed integration and qualification.
+This closeout records custody and existing tasks.
+
+- City authoring started from **3ea80715b** with a fitted west frontage.
+  The isolated delivery **d8fab160c** was pushed to **codex/v2-city-20261029**.
+  Its 85 replacement bodies across 23 partial blocks entered main through
+  PR151/152, with 39 retained profiles and 124 lot reservations. Editable
+  packets remain under **C:/ov/asset-prototypes/city-building-packets-20261103/**.
+- Runtime14 ran on the pinned patched Vulkan engine at 3440×1440. Seven
+  original runs completed with clean teardown. Test-written contracts cover
+  379 authority/save checks, 781 apartment checks across 60 rooms and nine
+  legs, and 38,947 physical-surface checks. The bounded review opened 12
+  frames, and 82 wider captures were checked for payload and hash. Sol
+  received custody. Original failures and receipts remain in
+  **C:/ov/reports/native_intake_20261102/qualification_debt_trace_01/**.
+- PR162 merged to main at **03dd6d02f** after exact candidate **abfd47c20**
+  passed with zero regressions and all 17 protected paths unchanged. The
+  renewed exterior replay passed six routes and 130 checks. Laurel frame-time
+  spikes, human playtesting and artistic acceptance remain in
+  **K-V2-QUALIFICATION-DEBT** in main's **TASKS.md**. **T-V2-TRAMS** is already
+  queued for after city completion. No additional architect task is open.
+- For workspace recovery, the retired checkout was **C:/ov/city**. Its
+  ignored Blender backups, temporary fixtures and other non-cache files
+  are retained in **C:/ov/workspace-archive-20261106/city-ignored.zip**.
+  Recreate a short checkout from the pushed branch if needed.
+
 # Current continuation — November 3 consolidated city packets
 
 Evidence class: **INERT**. Owner explicitly resumed isolated Blender packet
