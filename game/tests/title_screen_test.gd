@@ -1,6 +1,6 @@
 extends Node
-## Exact title contract: one waking-world hero, both full masters, original
-## first, and returned/original alternation without touching boot.
+## Exact title contract: the Harukiya cover whole beside the menu, three full
+## masters with the song first, and their cycle without touching boot.
 
 var _fails := 0
 const AccessibilityCopyText := preload("res://scripts/ui/accessibility_copy.gd")
@@ -51,9 +51,16 @@ func _ready() -> void:
 	_check("the completed song hands on to the untouched waltz",
 			screen._current_track == 1
 			and screen._record_button.text == "HEAR THE RETURN")
-	_check("one waking-world hero contains the complete three-zone scope",
-			screen._hero_art.texture.resource_path.ends_with(
-				"orison_grand_mundane_title_v1.png"))
+	var viewport_rect_now := Rect2(Vector2.ZERO, screen.get_viewport_rect().size)
+	var cover_rect: Rect2 = screen._hero_art.get_global_rect()
+	_check("the Harukiya cover is the title art, whole on the left of the field",
+			screen._hero_art.texture.resource_path.ends_with("pull_up_a_chair_cover_v1.png")
+			and viewport_rect_now.encloses(cover_rect)
+			and cover_rect.get_center().x < viewport_rect_now.size.x * 0.5
+			and is_equal_approx(cover_rect.size.x / cover_rect.size.y, 1500.0 / 2250.0))
+	var card: Control = screen.find_child("TitleCard", true, false)
+	_check("the menu stands clear of the cover",
+			card != null and card.get_global_rect().position.x >= cover_rect.end.x)
 	_check("building services exposes the first-build sleep warning option",
 			screen._always_warn != null
 			and screen._always_warn.name == "AlwaysWarnBeforeSleep"
@@ -82,7 +89,7 @@ func _ready() -> void:
 
 	screen._start_track(0, true)
 	await get_tree().process_frame
-	_check("the optional return never replaces the waking-world hero",
+	_check("the optional return never replaces the cover",
 			screen._current_track == 0
 			and screen._record_label.text == "ESCAPEMENT FAILURE"
 			and screen._hero_art.visible)

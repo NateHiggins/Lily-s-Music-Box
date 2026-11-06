@@ -2,14 +2,18 @@ class_name OrisonTitleScreen
 extends Control
 
 const AccessibilityCopyText := preload("res://scripts/ui/accessibility_copy.gd")
-## The waking world is allowed grandeur; the dream remains the reveal. One
-## rain-soaked hero joins the Orison, STREET and Vantry Arcade through mundane
-## work. Pull Up a Chair, Adela and Lily's own song, opens (owner direction
-## 2026-11-05); the untouched waltz and its returned reconstruction follow. No
-## record is excerpted or looped.
+## The title is the night of the song: a 1929 comic cover of Adela and Lily
+## playing Pull Up a Chair at the Harukiya, standing on a manila field with the
+## menu beside it (owner rulings title_cover_format and title_cover_public,
+## 2026-11-06). The song opens (owner direction 2026-11-05); the untouched waltz
+## and its returned reconstruction follow. No record is excerpted or looped.
 
 const HERO_ART := preload(
-		"res://assets/ui/title/orison_grand_mundane_title_v1.png")
+		"res://assets/ui/title/pull_up_a_chair_cover_v1.png")
+const MANILA := Color(0.957, 0.886, 0.627)
+# The cover stands this far in from the screen's edges, so its slow breathing
+# never crops the masthead.
+const COVER_MARGIN := 0.035
 const RETURNED_THEME := preload(
 		"res://assets/audio/music/title/clockwork_waltz_escapement_failure.ogg")
 const ORIGINAL_THEME := preload(
@@ -109,16 +113,25 @@ func _ready() -> void:
 
 
 func _build_backdrop() -> void:
-	_hero_art = _art_layer("GrandMundaneWakingWorld", HERO_ART)
+	var field := ColorRect.new()
+	field.name = "ManilaField"
+	field.color = MANILA
+	field.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	field.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(field)
+	_hero_art = _art_layer("PullUpAChairCover", HERO_ART)
+	# Sized and placed by _place_backdrop: whole, never cropped, on the left.
+	_hero_art.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	_hero_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	add_child(_hero_art)
 
-	# A horizontal falloff protects the menu without flattening the wet street
-	# and illuminated arcade beneath it.
+	# A horizontal falloff darkens the field toward the menu, leaving the cover
+	# nearly untouched.
 	var gradient := Gradient.new()
-	gradient.offsets = PackedFloat32Array([0.0, 0.48, 1.0])
+	gradient.offsets = PackedFloat32Array([0.0, 0.40, 1.0])
 	gradient.colors = PackedColorArray([
-		Color(0.005, 0.008, 0.012, 0.10),
-		Color(0.005, 0.008, 0.012, 0.25),
+		Color(0.005, 0.008, 0.012, 0.0),
+		Color(0.005, 0.008, 0.012, 0.04),
 		Color(0.005, 0.008, 0.012, 0.88),
 	])
 	var gradient_texture := GradientTexture2D.new()
@@ -763,7 +776,12 @@ func _save_settings() -> void:
 
 func _place_backdrop() -> void:
 	var viewport_size := get_viewport_rect().size
-	_hero_art.pivot_offset = viewport_size * 0.5
+	var margin := viewport_size.y * COVER_MARGIN
+	var height := viewport_size.y - 2.0 * margin
+	var art_size := HERO_ART.get_size()
+	_hero_art.position = Vector2(margin, margin)
+	_hero_art.size = Vector2(height * art_size.x / art_size.y, height)
+	_hero_art.pivot_offset = _hero_art.size * 0.5
 
 
 func _process(delta: float) -> void:

@@ -14,6 +14,23 @@ return, then the song again; the record button offers the next record. Its
 trim, -6.8 dB, levels its measured -12.0 LUFS with the waltz's -12.3 LUFS at
 -6.5 dB. The waltz pair below is unchanged and keeps its own ruling.
 
+## The cover (2026-11-06)
+
+The title art is `assets/ui/title/pull_up_a_chair_cover_v1.png`, a 1929-style
+comic cover of the night of the song: Adela at the upright piano, Lily on
+string bass, Stacy behind the bar, an empty chair pulled out, under a full
+moon. It replaces the waking-world hero. Owner rulings, 2026-11-06:
+`title_cover_format` puts the cover whole on the left of a manila field with
+the menu on the right; `title_cover_public` allows Lily's and Stacy's
+likenesses in this public repository; `title_cover_stacy` approves Stacy's
+drawing.
+
+The figures were rendered alone with their own private LoRAs and composited,
+in LILITH's black ink on manila with red only on Adela's hair. The lettering
+was typeset, not generated. Prompts, LoRAs and working files stay outside the
+repo. The shipped PNG is 1500 x 2250, SHA-256
+`FD1843020D1A168265D71FA65E2A2E208FB0C54FDAF1464994BF816F5EF06710`.
+
 ## The waltz records (2026-08-15)
 
 Owner ruling, 2026-08-15: **Clockwork Waltz is the theme music for now.** This
