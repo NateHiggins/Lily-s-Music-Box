@@ -9,6 +9,9 @@ const PrintMesh := preload("res://scripts/props/book_print_mesh.gd")
 ## .04 rad; a reader holds the book open well past that.
 const SPREAD_KNOWLEDGE := {"minutes": "minutes_read"}
 const READ_OPENING := 0.6
+const MIN_READING_DEPTH := .48
+const READING_HALF_SPAN := Vector2(.70,.88)
+const READING_CENTRE_X := -.20
 var stock: RefCounted
 var title_id := "" # Physical stock_id may identify a distinct copy of this title.
 var entry: Dictionary
@@ -35,6 +38,8 @@ var _heading_font: FontVariation
 var shelf_slot := -1
 var _floating_camera := Transform3D.IDENTITY
 var _floating_frames := 0
+var _reading_projection_tangent := 0.0
+var _reading_target := Vector3.INF
 var _reading_light_opening := INF
 var _reading_light_faces: Array[Dictionary] = []
 
@@ -74,18 +79,60 @@ func reading_light_target(aperture: Vector3) -> Vector3:
 
 func begin_floating_view(camera_pose: Transform3D) -> void:
 	_floating_camera=camera_pose
-	_floating_frames=0
+	var camera:=get_viewport().get_camera_3d()
+	_reading_projection_tangent=tan(deg_to_rad(camera.fov*.5))
 	freeze=true
 	shelf_slot=-1
 	_contact_mode(true)
-	set_physics_process(true)
+	get_viewport().size_changed.connect(_queue_reading_fit)
+	_queue_reading_fit()
 	# Prepare hidden glyph streams while the supported view settles. Their
 	# bounded slices do not sit on the first cover-drag input event.
 	if not _pages_ready:_print_pages()
 
 func end_floating_view() -> void:
+	get_viewport().size_changed.disconnect(_queue_reading_fit)
+	_reading_target=Vector3.INF
 	set_physics_process(false)
 	if _closed_solid!=null: _contact_mode(false)
+
+func _hold_target(camera_pose: Transform3D, centered: bool) -> Vector3:
+	if centered and _reading_target.is_finite():
+		return camera_pose*_reading_target
+	return super._hold_target(camera_pose,centered)
+
+func _queue_reading_fit() -> void:
+	_reading_target=Vector3.INF
+	if opening>=READ_OPENING:
+		var bounds:=AABB()
+		var first:=true
+		for solid: CollisionShape3D in _solids:
+			var hull:=solid.shape as ConvexPolygonShape3D
+			for vertex: Vector3 in hull.points:
+				var point:=solid.transform*vertex
+				bounds=AABB(point,Vector3.ZERO) if first else bounds.expand(point)
+				first=false
+		if not first:
+			var camera:=get_viewport().get_camera_3d()
+			var view_size:=get_viewport().get_visible_rect().size
+			var aspect:=maxf(view_size.x,1.)/maxf(view_size.y,1.)
+			var tangent:=_reading_projection_tangent
+			var vertical:=tangent if camera.keep_aspect==Camera3D.KEEP_HEIGHT else tangent/aspect
+			var half_frustum:=Vector2(vertical*aspect,vertical)
+			# Fit the closest hull point within the free screen area and keep
+			# the printed face beyond the native reading light.
+			var fit_depth:=Vector2(bounds.size.x,bounds.size.y)/(2.*READING_HALF_SPAN*half_frustum)
+			var minimum:=maxf(camera.near+.02,MIN_READING_DEPTH)
+			var lamp:=camera.get_parent().get("flashlight") as SpotLight3D
+			if is_instance_valid(lamp):
+				var aperture:=_floating_camera.affine_inverse()*lamp.global_position
+				minimum=maxf(minimum,-aperture.z+.05)
+			var depth:=maxf(minimum,maxf(fit_depth.x,fit_depth.y))
+			var centre:=bounds.get_center()
+			_reading_target=Vector3(READING_CENTRE_X*depth*half_frustum.x-centre.x,
+				-centre.y,-depth-bounds.end.z)
+	_floating_frames=0
+	set_physics_process(true)
 
 func _physics_process(_delta: float) -> void:
 	if _held: return
@@ -355,10 +402,12 @@ func _claim(tag: String) -> bool:
 
 func _release() -> void:
 	var changed:=not is_equal_approx(opening,_before_opening)
+	var refit:=changed and _hand_tag=="cover" and shelf.supports_inspected_stock(self)
 	super._release()
 	if shelf_slot<0: shelf.try_place_book(self)
 	if shelf_slot>=0: freeze=true;sleeping=true
 	_contact_mode(freeze)
+	if refit and shelf_slot<0: _queue_reading_fit()
 	if changed: shelf.library_stock_changed(self)
 
 func cover_grip() -> Dictionary:

@@ -600,16 +600,32 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 			installed_reading.cover_blocked = book._cover_blocked
 			installed_reading.last_body_motion = _two_style_withdrawal_state(book).body_hit
 			return false
+	var before_fit: Transform3D = book.global_transform
+	var eye_before_fit: Transform3D = camera.global_transform
 	_click_library()
 	if not _require(not player._grab.active() and player.inspecting() and book._print_ready
 			and book._sheets.size() == 2, "next primary releases opened binding with two printed pages"):
 		return false
-	for frame in 2:
+	for frame in 120:
+		if not book.is_physics_processing():
+			break
 		await get_tree().physics_frame
+	if not _require(not book.is_physics_processing() and camera.global_transform.is_equal_approx(eye_before_fit)
+			and camera.global_position.distance_to(book.global_position) + .05
+				< camera.global_position.distance_to(before_fit.origin),
+			"open binding moves toward the fixed eye and settles through the physical hold"):
+		return false
 	var reading_pose: Transform3D = book.global_transform
 	var reading_eye: Vector3 = camera.global_position
 	var reading_basis: Basis = camera.global_basis
 	if not await _installed_reading_frame("installed_reading_40", book, 40., matched_msaa, original):
+		return false
+	var companion: Node3D=player.carried_device
+	var shoulder: Vector3=camera.to_local(companion.rig.to_global(companion.screen_frame.stock_bounds.get_center()))
+	installed_reading.shoulder_center_from_eye=var_to_str(shoulder)
+	if not _require(absf(shoulder.x)>.40 and shoulder.y>.05 and shoulder.z>-.04
+			and companion.inspected_readable_stock()==book,
+			"same companion reaches a shoulder station and tracks the inspected book"):
 		return false
 	if not _require(await _two_style_cursor(camera.global_position - camera.global_basis.z),
 			"detached reading cursor reaches camera centre"):
@@ -662,6 +678,10 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 			"normal Space returns the same open book to ordinary hand and FOV"):
 		return false
 	if not await _installed_reading_frame("installed_open_hand", book, held_fov, matched_msaa, original):
+		return false
+	if not _require(not companion.screen_frame._shoulder_center.is_finite()
+			and companion.inspected_readable_stock()==null,
+			"companion leaves the shoulder after actual reading exit"):
 		return false
 	var samples: Array = installed_reading.frames
 	var reference: Vector3 = str_to_var(samples[0].carrier.native_aperture)

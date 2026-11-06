@@ -313,7 +313,10 @@ func inspection_ended() -> void:
 		_inspection_stock.freeze=parked;_inspection_stock.sleeping=parked
 	_inspection_stock=null;_pending_inspection_stock=null
 
-func reading_view_active() -> bool: return is_instance_valid(_inspection_stock) and _inspection_stock is Book
+func inspected_readable_stock() -> PhysicsBody3D:
+	return _inspection_stock as PhysicsBody3D if is_instance_valid(_inspection_stock) and _inspection_stock is Book else null
+
+func reading_view_active() -> bool: return inspected_readable_stock()!=null
 
 func supports_inspected_stock(body: Node3D) -> bool:
 	return is_instance_valid(_inspection_stock) and _inspection_stock==body
