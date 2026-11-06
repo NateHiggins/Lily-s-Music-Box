@@ -1,6 +1,6 @@
 ---
 name: comic-book-development
-description: Develop, review, letter and revise comics, including panel continuity, generation plans and annotated PDF drafts. Use for sequential storytelling, not isolated illustrations or unrelated game dialogue.
+description: Develop, review, letter and revise comics, including daily three-panel strips, panel continuity, generation plans and annotated drafts. Use for sequential storytelling, not isolated illustrations or unrelated game dialogue.
 ---
 
 # Make the sequence work before polishing the pictures
@@ -70,6 +70,13 @@ purpose in the lettering source so cleanup doesn't erase the joke or clue.
   punchline, rather than replacing it with generic polished quips.
 - Follow current local generator/lane instructions. GPU work joins the shared
   queue; don't load another model directly or interrupt a running owner.
+
+## Three-panel strips
+
+- Read the strip left to right at delivery size before reading the script. Write down what each panel makes a first-time reader infer. For a gag, check setup, visual turn and payoff. The middle image should supply the premise the last line needs. Leave room for a silent beat when the drawing can carry it.
+- Keep one strip record with title, publication and in-world date when they differ, and three stable panel IDs. Store exact copy, speaker or sound source, reading order, crop and editable balloon placement for each panel. Compare repeated people, costume silhouettes and identifiable props side by side across cuts.
+- Fit lettering at strip width. Give captions and balloons clearance from faces and panel rules. Use distinct outlines for a broadcast or off-panel voice and point the tail to the actual mouth or sound source. Test emphasis in the chosen font. In all-caps lettering, one clearly heavier word often reads better than two overlapping emphasis treatments.
+- For markup, use the entire assembled strip with numbered panel callouts and a short revision list. Mark timing, continuity and lettering separately. Preserve the art and script source, check the revised assembly at ordinary and reduced widths, and archive the marked version privately.
 
 ## Check the assembly, not just the generated stock
 
