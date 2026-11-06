@@ -84,6 +84,7 @@ func build(tip: Vector3,back: Vector3,anchor: Vector3,count: int,stock_m: float,
 	var inverse: Transform3D=model_to_actor.affine_inverse()
 	last_length_m=0.
 	for i in points.size():
-		points[i]=inverse*points[i]
+		# The fixed supply joint already has an exact model-space datum.
+		points[i]=anchor if i==points.size()-1 else inverse*points[i]
 		if i>0:last_length_m+=points[i].distance_to(points[i-1])
 	return points

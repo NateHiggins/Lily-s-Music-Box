@@ -3597,3 +3597,6 @@ art/renders/orison_v2/first_slice_contract_20261011/verification.json -text -whi
 
 # Preserve raw current-cohort review bindings and prior receipts.
 art/reviews/v2_qualification_current_20261105/** -text -whitespace
+
+# Preserve the raw review and prior receipt bytes for the hose/nook cohort.
+art/reviews/v2_qualification_hose_20261106/** -text -whitespace

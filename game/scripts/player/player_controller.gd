@@ -47,6 +47,7 @@ var inspect_owner: Node3D
 var _inspection_active := false
 var _inspection_jump_consumed := false
 var _inspect_camera_fov := 72.0
+var _inspect_entry_fov := 72.0
 var _inspect_camera_pose := Transform3D.IDENTITY
 var _inspect_mouse_mode := Input.MOUSE_MODE_CAPTURED
 var _inspect_anchor := Transform3D.IDENTITY
@@ -1051,7 +1052,7 @@ func end_seated_interaction(owner: Node = null) -> void:
 
 func use_primary_interaction() -> void:
 	if _grab != null and _grab.active():
-		_grab.release()
+		_grab.release(true, true) # Explicit primary release.
 		return
 	if is_instance_valid(seated_interaction):
 		if seated_interaction.has_method("interact"):
@@ -1405,6 +1406,12 @@ func held_stock_body() -> PhysicsBody3D:
 func inspecting() -> bool:
 	return _inspection_active and is_instance_valid(inspect_owner)
 
+func companion_framing_fov() -> float:
+	if inspecting() and inspect_owner.has_method("reading_view_active") and inspect_owner.reading_view_active():
+		return _inspect_entry_fov
+	return camera.fov
+
+
 func begin_inspection() -> bool:
 	if call_locked or mouse_released or _grab == null: return false
 	var owner: Node3D
@@ -1427,6 +1434,7 @@ func begin_inspection() -> bool:
 	_inspect_camera_pose=camera.transform
 	_inspect_camera_fov=camera.fov
 	camera.fov=clampf(float(view.get("fov",camera.fov)),40.0,100.0)
+	_inspect_entry_fov=camera.fov
 	_inspect_mouse_mode=Input.mouse_mode
 	# Inspection borrows the hand for individual mechanisms. Remember a
 	# carried object's original grip so Space returns it to the same hand.

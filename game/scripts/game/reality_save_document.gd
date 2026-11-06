@@ -48,6 +48,8 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("resident_errands")
 	if candidate.has("carried_case") and not preload("res://scripts/game/carried_case.gd").valid(candidate.carried_case):
 		return _invalid_shape("carried_case")
+	if CarriedCase.washer_is_packed(candidate) and not _valid_packed_washer(candidate):
+		return _invalid_shape("carried_case washer custody")
 	if candidate.has("shop_stock") and not preload("res://scripts/game/shop_stock.gd").valid(candidate.shop_stock):
 		return _invalid_shape("shop_stock")
 	if candidate.has("inventories") and not preload("res://scripts/game/person_inventory.gd").valid(candidate.inventories):
@@ -92,6 +94,28 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("night_register.lines")
 	var checked := CampaignClock.validate_snapshot(candidate.get("campaign_clock", {}))
 	return {"ok":true} if checked.ok else {"ok":false,"code":"campaign_clock_read_only","detail":str(checked.error)}
+
+
+static func _valid_packed_washer(candidate: Dictionary) -> bool:
+	var items: Variant = candidate.get("maintenance_items")
+	var economy: Variant = candidate.get("caretaker_economy")
+	var household: Variant = candidate.get("v2_household_controls")
+	if items is not Dictionary or economy is not Dictionary or household is not Dictionary:
+		return false
+	var item: Variant = items.get(CarriedCase.MAINTENANCE_WASHER)
+	var purchases: Variant = economy.get("purchases")
+	var records: Variant = household.get("records")
+	if item is not Dictionary or item.get("consumed") != false or item.get("shop_id") != "hardware_paint" \
+			or purchases is not Dictionary or records is not Dictionary:
+		return false
+	var receipt: Variant = purchases.get("maintenance_supply:" + CarriedCase.MAINTENANCE_WASHER)
+	var counter: Variant = records.get("FireMaintenanceCounter")
+	if receipt is not Dictionary or receipt.get("cents") != 10 or receipt.get("merchant") != "hardware_paint" \
+			or receipt.get("item") != CarriedCase.MAINTENANCE_WASHER \
+			or counter is not Dictionary or counter.get("value") is not Dictionary:
+		return false
+	var stock: Variant = counter.value.get(CarriedCase.MAINTENANCE_WASHER)
+	return stock is Dictionary and stock.get("parked") == true and not stock.has("fitted_station")
 
 
 static func _finite_number(value: Variant) -> bool:

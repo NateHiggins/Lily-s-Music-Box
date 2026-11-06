@@ -327801,6 +327801,260 @@
    "rationale": "Names identify transient cosmetic wet-film pool slots in the scene tree. The hose owns and accesses them by direct references in _wet_marks. No spatial lookup, receiver identity or saved field uses these names.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "5b4bf4b1c4edaf50",
+   "kind": "id_reference",
+   "token": "F02_FIRE_LINE_STAIR",
+   "file": "game/tests/v2_fire_maintenance_world_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const PAID_STATION := \"F02_FIRE_LINE_STAIR\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves. Installed paid-washer fixture identifies the original F02 receiving cabinet.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c280a45723d2ed18",
+   "kind": "runtime_id",
+   "token": "F04_B_BED",
+   "file": "game/tests/v2_fire_maintenance_world_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_paid_gasket_route"
+   ],
+   "lines": [
+    172
+   ],
+   "count": 1,
+   "context": [
+    "RealityState.data.core_loop = {\"safe_return_anchor\": \"F04_B_BED\", \"boundary\": \"wake_complete\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests. Packed-save fixture uses the existing completed-campaign return anchor.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "082956713689446c",
+   "kind": "vector3_coordinate",
+   "token": "_paid_gasket_route",
+   "file": "game/tests/v2_fire_maintenance_world_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_paid_gasket_route"
+   ],
+   "lines": [
+    205,
+    206,
+    206,
+    206,
+    208,
+    212,
+    212,
+    212,
+    213,
+    213,
+    213,
+    214,
+    214
+   ],
+   "count": 13,
+   "context": [
+    "for point: Vector3 in [Vector3(14,0,15), Vector3(14,-.1,13.6), Vector3(14,-.1,8),",
+    "Vector3(14,0,4.2), Vector3(14,0,3), Vector3(0,0,3)]:",
+    "if not await _walk(Vector3(0,0,-13.15)): return",
+    "for point: Vector3 in [Vector3(0,0,-10.2), Vector3(0,0,-8.5), Vector3(1.925,0,-6.5),"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate. Occupied paid-washer test walks the authored shop, entrance and stair route.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6945f51b24d06ef4",
+   "kind": "id_reference",
+   "token": "B1_STORAGE_DOOR",
+   "file": "game/tests/v2_hose_installed_world.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_b1_payout"
+   ],
+   "lines": [
+    236
+   ],
+   "count": 1,
+   "context": [
+    "var anchor: Node3D = world.adapter.resolve(\"B1_STORAGE_DOOR\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves. B1 hose witness resolves the original storage-door layout identity.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e293ed5a67804d9c",
+   "kind": "node_path",
+   "token": "B1_STORAGE_DOOR_Leaf",
+   "file": "game/tests/v2_hose_installed_world.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_b1_payout"
+   ],
+   "lines": [
+    237
+   ],
+   "count": 1,
+   "context": [
+    "var door: DoorProp = anchor.get_node_or_null(\"B1_STORAGE_DOOR_Leaf\") as DoorProp if anchor != null else null"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity. B1 hose witness observes the original mounted storage leaf and collider.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1c46b9532fd8d134",
+   "kind": "vector3_coordinate",
+   "token": "_prepare_player_start",
+   "file": "game/tests/v2_hose_installed_world.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_player_start"
+   ],
+   "lines": [
+    21
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position = world.adapter.root.to_global(Vector3(4.95,-3.18,-2.35))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate. B1 opt-in starts on the authored south landing before normal player input.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "47350c77f7374a5f",
+   "kind": "id_reference",
+   "token": "F02_FIRE_LINE_STAIR",
+   "file": "game/tests/v2_hose_protectant_dressing.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>",
+    "mount_consumer"
+   ],
+   "lines": [
+    7,
+    16
+   ],
+   "count": 2,
+   "context": [
+    "const StationID := \"F02_FIRE_LINE_STAIR\"",
+    "if identity == \"F02_FIRE_LINE_STAIR\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves. Paid protectant fixture binds the installed F02 fire-line authority.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a3daab01cdf7430b",
+   "kind": "id_reference",
+   "token": "FIRE_SERVICE_RISER",
+   "file": "game/tests/v2_hose_protectant_dressing.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_exercise_dressing"
+   ],
+   "lines": [
+    62
+   ],
+   "count": 1,
+   "context": [
+    "reserve.name = \"FIRE_SERVICE_RISER\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves. Paid protectant fixture gives its explicit test riser the installed role name.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

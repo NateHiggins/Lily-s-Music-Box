@@ -111,6 +111,9 @@ func update(delta: float) -> void:
 	if _in_passage():remaining=maxf(remaining,.75);return
 	if remaining>0:
 		remaining=maxf(0,remaining-delta);return
+	# A deployed line through the shut leaf's envelope keeps the closer
+	# waiting. The real door collider and the usual passage owners stay live.
+	if door.open and door.hose_blocks_close():return
 	if not closing:door.motion_revision+=1
 	closing=true
 	door._body.rotation.y=move_toward(door._body.rotation.y,0,delta*CLOSE_RADIANS_PER_SECOND)

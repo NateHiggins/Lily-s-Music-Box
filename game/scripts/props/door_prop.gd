@@ -103,9 +103,10 @@ func _build_leaf() -> void:
 	# A 20 mm undercut: the leaf's shell clears a finished floor that sits a
 	# little proud of the door's datum (the arcade terrazzo is ~10 mm up), so
 	# the swing sweep is not refused at the first step. The top edge is unchanged.
-	box.size = Vector3(width - 0.02, height - LEAF_UNDERCUT - 0.01, 0.044)
+	var closed_bounds := closed_leaf_bounds()
+	box.size = closed_bounds.size
 	shape.shape = box
-	shape.position = Vector3(width * 0.5, (height + LEAF_UNDERCUT - 0.01) * 0.5, _hinge_offset)
+	shape.position = closed_bounds.get_center() + Vector3.BACK * _hinge_offset
 	_body.add_child(shape)
 	_fixed = Node3D.new()
 	_fixed.name = "FixedIronmongery"
@@ -379,6 +380,16 @@ const KNOCK_CUE := "door_knock"
 ## Clear gap between the leaf's collision shell and the door datum.
 const LEAF_UNDERCUT := 0.02
 
+func closed_leaf_bounds() -> AABB:
+	return AABB(Vector3(.01, LEAF_UNDERCUT, -.022),
+			Vector3(width - .02, height - LEAF_UNDERCUT - .01, .044))
+
+func hose_blocks_close() -> bool:
+	for hose: Node in get_tree().get_nodes_in_group("deployed_fire_hoses"):
+		if hose.crosses_doorway(global_transform, closed_leaf_bounds()):
+			return true
+	return false
+
 
 func _play_knock() -> void:
 	AudioPolicy.present_3d(StringName("interaction." + KNOCK_CUE),
@@ -387,6 +398,7 @@ func _play_knock() -> void:
 
 func interact(_player: Node) -> void:
 	_configure_easy_motion()
+	if open and hose_blocks_close():return
 	if _easy.closing:_easy.stop()
 	# Player acquisition and movement go through manipulation_target; this
 	# endpoint command remains the resident/director API during migration.
@@ -403,10 +415,19 @@ func interact(_player: Node) -> void:
 	_play_move()
 	var tween := create_tween()
 	_leaf_motion = tween
-	tween.tween_property(_body, "rotation:y",
-			motion_target_angle(open), 0.5).set_trans(Tween.TRANS_SINE)
+	if open:
+		tween.tween_property(_body, "rotation:y", motion_target_angle(true), 0.5).set_trans(Tween.TRANS_SINE)
+	else:
+		tween.tween_method(_move_commanded_close, _body.rotation.y, motion_target_angle(false), 0.5).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(_settled)
 
+func _move_commanded_close(angle: float) -> void:
+	if hose_blocks_close():
+		_leaf_motion.kill()
+		open = true
+		_settled()
+		return
+	_body.rotation.y = angle
 
 ## The leaf owner retains its authored angular stop.
 func motion_target_angle(want_open: bool) -> float:
@@ -415,6 +436,7 @@ func motion_target_angle(want_open: bool) -> float:
 
 func npc_set_open(want_open: bool, resident_id := "") -> void:
 	_configure_easy_motion()
+	if not want_open and open and hose_blocks_close():return
 	if _easy.closing and not _hand_gripped:
 		_easy.stop()
 		if want_open:open=false
@@ -467,8 +489,9 @@ func _move_by_hand(angle: float) -> void:
 			set_meta("hand_motion_sound",true)
 		return
 	var old := _body.rotation.y
-	_easy.accommodate(angle)
 	var accepted:=clampf(angle,minf(0,motion_target_angle(true)),maxf(0,motion_target_angle(true)))
+	if absf(accepted)<absf(old) and hose_blocks_close():return
+	_easy.accommodate(angle)
 	_body.rotation.y=accepted
 	open = absf(accepted) > .01
 	if not is_equal_approx(old,accepted) and not has_meta("hand_motion_sound"):

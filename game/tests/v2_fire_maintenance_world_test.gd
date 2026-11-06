@@ -2,12 +2,24 @@ extends "res://tests/v2_street_film_profile.gd"
 ## Played-world diagnostic, not runtime qualification. One initial placement;
 ## ordinary standing locomotion, exact part targeting and actual mouse input.
 const Hands := preload("res://tests/v2_fire_maintenance_hand_bench.gd")
+const PAID_GASKET := "fire_hose_spare_gasket"
+const PAID_STATION := "F02_FIRE_LINE_STAIR"
 var hands: Node3D
 var counter: Node3D
 var door: DoorProp
 
 func _init() -> void:
 	route_label="V2 HARDWARE STOCK WORLD"
+
+func _ready() -> void:
+	var viewport := get_viewport()
+	if viewport is SubViewport:
+		var window := get_tree().root
+		viewport.msaa_3d=window.msaa_3d
+		viewport.scaling_3d_scale=window.scaling_3d_scale
+		viewport.use_taa=window.use_taa
+		viewport.notify_mouse_entered()
+	super._ready()
 
 func _prepare_player_start() -> void:
 	door=world.passage_region.doors.get("SITE_SHOP_DOOR_HARDWARE_PAINT")
@@ -36,6 +48,9 @@ func _street_route() -> void:
 	if not await _walk_world(front):return
 	await hands.aim(counter.to_global(Vector3(0,.10,0)))
 	await _picture("counter_approach")
+	if OS.get_environment("V2_INSTALLED_PAID_GASKET") == "1":
+		await _paid_gasket_case(centre.z)
+		return
 	var economy: Node=world.get_node("CaretakerEconomy")
 	var bottle: Node3D=counter.pickups.fire_hose_rubber_protectant
 	var terminal: Node3D=counter.terminals.fire_hose_rubber_protectant
@@ -116,6 +131,498 @@ func _street_route() -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
 	var file:=FileAccess.open(directory.path_join("stock_checks.json"),FileAccess.WRITE)
 	file.store_string(JSON.stringify({"evidence_class":"INERT","checks":interaction_checks,"residency":residency,"stock":before},"  "))
+
+
+func _paid_gasket_case(door_z: float) -> void:
+	var report := {"evidence_class":"INERT", "station":PAID_STATION, "item":PAID_GASKET}
+	var original_path: String = RealityState.save_path
+	var original_persistence: bool = RealityState.persistence_enabled
+	var path := "user://v2_paid_gasket_%d.json" % Time.get_ticks_usec()
+	var appdata := OS.get_environment("APPDATA").replace("\\", "/").simplify_path()
+	var expected := OS.get_environment("V2_PAID_GASKET_ISOLATED_APPDATA").replace("\\", "/").simplify_path()
+	var user_dir := ProjectSettings.globalize_path("user://").replace("\\", "/").simplify_path()
+	if _require(not appdata.is_empty() and appdata == expected and user_dir.begins_with(appdata.trim_suffix("/") + "/")
+			and not FileAccess.file_exists(path), "paid gasket disk case uses an explicitly matched fresh isolated profile"):
+		RealityState.save_path = path
+		RealityState.persistence_enabled = true
+		await _paid_gasket_route(door_z, path, report)
+		RealityState.flush_background_saves()
+		RealityState.persistence_enabled = original_persistence
+		RealityState.save_path = original_path
+	report["checks"] = interaction_checks
+	report["failures"] = failures
+	var file := FileAccess.open(OS.get_environment("SHOT_DIR").path_join("paid_gasket_checks.json"), FileAccess.WRITE)
+	_require(file != null, "paid gasket report opens")
+	if file != null: file.store_string(JSON.stringify(report, "\t", true, true))
+
+
+func _paid_gasket_route(door_z: float, path: String, report: Dictionary) -> void:
+	var washer: Node3D = counter.pickups[PAID_GASKET]
+	var terminal: Node3D = counter.terminals[PAID_GASKET]
+	var economy: Node = world.get_node("CaretakerEconomy")
+	var inventory: Node = world.maintenance_inventory
+	var using_case := OS.get_environment("V2_PAID_GASKET_VALISE") == "1"
+	var export_packed := OS.get_environment("V2_PAID_GASKET_EXPORT_PACKED") == "1"
+	if export_packed:
+		if not _require(using_case, "packed export requires the valise route"): return
+		# This fixture starts after the opening so Continue loads normal play.
+		RealityState.data.intro_complete = true
+		RealityState.data.first_shift = {"phase": FirstShiftDirector.PHASE_COMPLETE,
+			"report_id": ChirpHunt.JOB_ID, "filing": "fault_corrected"}
+		RealityState.data.core_loop = {"safe_return_anchor": "F04_B_BED", "boundary": "wake_complete",
+			"active_job_id": "", "conversation_requested": false,
+			"conversation_complete": false, "dream_pending": false}
+	var cash: int = int(economy.book().cash)
+	if not world.service_set_carrier.radio_is_powered(): await _radio_key()
+	await get_tree().create_timer(.6).timeout
+	if not _require(await hands._stroke(terminal, .04), "actual hardware sale stroke reaches the paid washer terminal"): return
+	if not _require(inventory.has_item(PAID_GASKET) and not inventory.is_consumed(PAID_GASKET)
+			and int(economy.book().cash) == cash - 10, "washer purchase grants its one original item and charges exactly 10c"): return
+	if not await _paid_take(washer): return
+	if export_packed and not await _paid_full_case_refuses(washer): return
+	if using_case and not await _paid_pack_in_case(washer, path): return
+	if export_packed:
+		if not await _paid_blocked_case_return(washer, path): return
+		var destination := OS.get_environment("SHOT_DIR").path_join("packed_washer_primary.json")
+		if not _require(not FileAccess.file_exists(destination), "packed primary archive is fresh"): return
+		var bytes := FileAccess.get_file_as_bytes(path)
+		var archive := FileAccess.open(destination, FileAccess.WRITE)
+		if not _require(not bytes.is_empty() and archive != null, "actual packed primary can be archived"): return
+		archive.store_buffer(bytes)
+		archive.close()
+		report["packed_primary_sha256"] = FileAccess.get_sha256(destination)
+		_require(report.packed_primary_sha256 == FileAccess.get_sha256(path), "archived primary matches the actual packed save")
+		return
+	for x: float in [9.7, 10.8, 14.0]:
+		if x == 14. and not door.is_ready_for_passage():
+			if not using_case and not await _paid_park(washer): return
+			if not await _open_shop(): return
+			if not using_case and not await _paid_take(washer): return
+		if not await _walk_world(Vector3(x, .01, door_z)): return
+		if not _require(_paid_in_transit(washer, using_case), "same paid washer crosses the hardware threshold"): return
+	for z: float in [32., 27.5, 20., 17.3]:
+		if not await _walk_world(Vector3(14., .01, z)): return
+	for point: Vector3 in [Vector3(14,0,15), Vector3(14,-.1,13.6), Vector3(14,-.1,8),
+			Vector3(14,0,4.2), Vector3(14,0,3), Vector3(0,0,3)]:
+		if not await _walk_world(point): return
+	if not await _walk(Vector3(0,0,-13.15)): return
+	if not using_case and not await _paid_park(washer): return
+	if not await _open_front_entrance(): return
+	if not using_case and not await _paid_take(washer): return
+	for point: Vector3 in [Vector3(0,0,-10.2), Vector3(0,0,-8.5), Vector3(1.925,0,-6.5),
+			Vector3(1.925,0,-3.5), Vector3(1.925,1.6,1.3), Vector3(3.975,1.6,1.3),
+			Vector3(3.975,3.2,-2.4), Vector3(3.65,3.2,-3.), Vector3(4.5,3.2,-2.95)]:
+		if not await _walk(point): return
+		if not _require(_paid_in_transit(washer, using_case) and player.is_on_floor() and not player.crouched
+				and is_equal_approx(player._capsule.height, 1.524) and is_equal_approx(player._capsule.radius, .33),
+				"standing capsule and same paid washer reach " + str(point)): return
+	if not using_case and not await _paid_park(washer): return
+	var actor := _paid_station()
+	if not _require(actor != null and actor.has_method("preview_purchased_gasket_fit"), "installed F02 replacement receiver is present"): return
+	var driver := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	driver.player = player
+	add_child(driver)
+	if not _require(await driver.operate(actor._door_pivot.to_global(Vector3(-.4,.1,.015)), 1.78, actor),
+			"actual primary and motion open the cabinet"): return
+	await hands.aim(actor._tag.to_global(Vector3(0,0,.0035)))
+	hands.click()
+	hands.key(KEY_SPACE)
+	if not _require(player.inspecting() and player.inspect_owner == actor, "actual tag enters cabinet inspection"): return
+	if not _require(await hands.inspect_operate(driver, actor._joint_nut, actor._coupling.to_global(Vector3(0,-.012,.032)),
+			actor._maximum("joint")), "actual native union fully unthreads"): return
+	if not _require(await hands.carry_union(actor, actor._loose_union.resting()), "actual union rests at its exposed loose stop"): return
+	hands.key(KEY_SPACE)
+	driver.queue_free()
+	if not _require(actor.door_open and actor._loose_union.active and not actor.coupling_made_up and not actor.gasket_seated
+			and absf(actor._wheel_angle) <= .0001 and actor._gasket_body.position.is_equal_approx(actor._gasket_body.home_position),
+			"receiver is vacant with supply shut and native washer still parked"): return
+	if using_case:
+		await hands.aim(player.camera.global_position - actor.global_basis.z)
+		if not await _paid_return_from_case(washer, path): return
+	elif not await _paid_take(washer): return
+	# Existing static stock inspection enables free XYZ without changing the body pose.
+	await hands.aim(player.camera.global_position - actor.global_basis.z)
+	hands.key(KEY_SPACE)
+	if not _require(player.inspecting() and player.inspect_owner == counter, "Space transfers the paid washer to its existing static stock view"): return
+	for frame in 125: await get_tree().physics_frame
+	if not await _paid_take(washer): return
+	var seat: Vector3 = actor.to_global(actor._gasket_body.seat_position())
+	var draw := washer.get_node("Gasket") as MeshInstance3D
+	if not _require(absf(draw.mesh.get_aabb().position.y - .003) < .000001, "loaded paid washer has the expected +3mm sealing face"): return
+	var face := func() -> Vector3: return draw.to_global(Vector3(0,.003,0))
+	var off_seat_distance: float = face.call().distance_to(seat)
+	if not _require(off_seat_distance > .025, "negative starts beyond the real receiving radius"): return
+	hands.click()
+	await get_tree().physics_frame
+	if not _require(not player._grab.active() and inventory.has_item(PAID_GASKET) and not inventory.is_consumed(PAID_GASKET)
+			and not actor.gasket_seated and not counter.mechanism_snapshot()[PAID_GASKET].has("fitted_station")
+			and int(economy.book().cash) == cash - 10, "explicit primary release off seat transfers no custody and debits no extra cash"): return
+	if not await _paid_take(washer): return
+	if not await _paid_move_face(washer, face, seat + actor.global_basis * Vector3(0,.065,.13)): return
+	# Approach above the nut with a visible lateral offset, using ordinary
+	# pointer precision. The receiver must find its own clear insertion path.
+	if not await _paid_move_face(washer, face, seat + actor.global_basis * Vector3(0,.020,.008)): return
+	var distance: float = face.call().distance_to(seat)
+	var radial_offset: float = (face.call() - seat).slide(actor.global_basis.y).length()
+	var alignment := draw.global_basis.y.normalized().dot(actor.global_basis.y.normalized())
+	report["contact"] = {"distance_m":distance, "up_dot":alignment, "off_seat_distance_m":off_seat_distance,
+		"radial_offset_m":radial_offset, "face_world":str(face.call()), "seat_world":str(seat)}
+	var fit: Dictionary = actor.preview_purchased_gasket_fit(washer)
+	if fit.is_empty() and distance <= .025 and alignment >= .99:
+		report["clearance_probe"] = _paid_fit_clearance_probe(actor, washer, face.call(), seat)
+	if not _require(distance <= .025 and radial_offset >= .005 and alignment >= .99 and not fit.is_empty(),
+			"paid washer at least 5 mm off centre finds a clear native insertion within snap reach"): return
+	var pre_hash: String = FileAccess.get_sha256(path) if FileAccess.file_exists(path) else ""
+	var seen_before: bool = actor.gasket_seen
+	hands.click()
+	# Inspect the bytes committed by the release before any explicit save or rebuild.
+	var raw := FileAccess.get_file_as_bytes(path)
+	var committed: Variant = JSON.parse_string(raw.get_string_from_utf8())
+	var new_hash: String = FileAccess.get_sha256(path)
+	if not _require(not raw.is_empty() and new_hash != pre_hash and committed is Dictionary,
+			"explicit primary release itself commits the isolated disk document"): return
+	var installed: Dictionary = actor.mechanism_snapshot().get("replacement_gasket", {})
+	var stock: Dictionary = counter.mechanism_snapshot()[PAID_GASKET]
+	var spent: Dictionary = committed.get("maintenance_items", {}).get(PAID_GASKET, {})
+	var records: Dictionary = committed.get("v2_household_controls", {}).get("records", {})
+	var disk_installed: Dictionary = records.get(PAID_STATION, {}).get("value", {}).get("replacement_gasket", {})
+	var disk_stock: Dictionary = records.get(str(counter.name), {}).get("value", {}).get(PAID_GASKET, {})
+	if not _require(actor.gasket_seated and actor.gasket_seen == seen_before and not actor.coupling_made_up and not actor.tag_signed
+			and installed.get("item_id") == PAID_GASKET and installed.get("seated") == true and installed.get("dressed") == false
+			and stock.get("fitted_station") == PAID_STATION and spent.get("consumed") == true
+			and inventory.is_consumed(PAID_GASKET) and not inventory.has_item(PAID_GASKET)
+			and int(economy.book().cash) == cash - 10, "one paid fitted seat owns the spent item without inventing inspection, tightening, dressing or rebilling"): return
+	report["disk_sha256"] = new_hash
+	report["spent"] = spent
+	report["installed"] = installed
+	report["counter"] = stock
+	# Compare the live stock through the exact writer representation. The
+	# native pose and the decimal JSON parser need not share double bits.
+	var encoded_stock: Dictionary = JSON.parse_string(JSON.stringify(stock, "\t", true, true))
+	var disk_comparison := {
+		"replacement":_paid_same_replacement(disk_installed, installed),
+		"station":disk_stock.get("fitted_station") == PAID_STATION,
+		"counter_stock":not disk_stock.is_empty() and hands._same_saved_stock(
+			{PAID_GASKET:disk_stock}, {PAID_GASKET:encoded_stock}),
+		"cash":committed.get("caretaker_economy", {}).get("cash") == cash - 10,
+	}
+	report["disk_comparison"] = disk_comparison
+	if not _require(disk_comparison.values().all(func(ok: bool) -> bool: return ok),
+			"same raw disk document contains paired household records, spent custody and exact cash"): return
+	await _picture("paid_washer_seated")
+	hands.key(KEY_SPACE)
+	if not _require(not player.inspecting() and not player._grab.active() and washer.freeze and not washer.visible
+			and washer.collision_layer == 0 and washer.collision_mask == 0, "normal Space exit cannot revive the retired washer body"): return
+	world.shutdown_for_tests()
+	world.free()
+	RealityState.reset_campaign_for_tests()
+	RealityState.load_game()
+	world = Runtime.instantiate()
+	add_child(world)
+	await get_tree().create_timer(.5).timeout
+	if not _require(not world.startup_failed and RealityState.load_status().status == "loaded", "actual isolated disk world reconstructs"): return
+	player = world.player
+	hands.player = player
+	player.camera.make_current()
+	counter = world.fire_maintenance_counter
+	var restored := _paid_station()
+	var restored_washer: Node3D = counter.pickups[PAID_GASKET]
+	var restored_stock: Dictionary = counter.mechanism_snapshot()[PAID_GASKET]
+	var encoded_restored: Dictionary = JSON.parse_string(JSON.stringify(restored_stock, "\t", true, true))
+	_require(restored != null and restored.valid_mechanism(restored.mechanism_snapshot())
+		and _paid_same_replacement(restored.mechanism_snapshot().get("replacement_gasket", {}), disk_installed)
+		and restored_stock.get("fitted_station") == PAID_STATION
+		and hands._same_saved_stock({PAID_GASKET:encoded_restored}, {PAID_GASKET:disk_stock})
+		and restored_washer.freeze and not restored_washer.visible
+		and restored_washer.collision_layer == 0 and restored_washer.collision_mask == 0
+		and RealityState.data.maintenance_items.get(PAID_GASKET) == spent
+		and world.maintenance_inventory.is_consumed(PAID_GASKET)
+		and not world.shop_service.can_purchase_supply(PAID_GASKET, "hardware_paint")
+		and int(world.get_node("CaretakerEconomy").book().cash) == cash - 10,
+		"disk rebuild restores fitted pose, spent row and exact cash without repurchase or counter duplication")
+
+
+func _paid_same_replacement(actual: Dictionary, wanted: Dictionary) -> bool:
+	for field: String in ["item_id", "seated", "dressed"]:
+		if not actual.has(field) or actual.get(field) != wanted.get(field): return false
+	var left: Dictionary = actual.get("pose", {})
+	var right: Dictionary = wanted.get("pose", {})
+	var gasket := preload("res://scripts/props/fire_line_gasket.gd")
+	if not gasket.valid(left) or not gasket.valid(right): return false
+	var a := Vector3(left.position[0], left.position[1], left.position[2])
+	var b := Vector3(right.position[0], right.position[1], right.position[2])
+	var qa := Basis(Quaternion(left.rotation[0], left.rotation[1], left.rotation[2], left.rotation[3]))
+	var qb := Basis(Quaternion(right.rotation[0], right.rotation[1], right.rotation[2], right.rotation[3]))
+	return a.distance_to(b) < .00001 and qa.is_equal_approx(qb)
+
+
+func _paid_in_transit(washer: Node3D, using_case: bool) -> bool:
+	if not using_case:
+		return player.held_stock_body() == washer
+	return CarriedCase.washer_is_packed(RealityState.data) and player.held_stock_body() == null \
+		and not washer.visible and washer.collision_layer == 0 and washer.collision_mask == 0
+
+
+func _paid_case_tab() -> void:
+	var key := InputEventKey.new()
+	key.keycode = KEY_TAB
+	key.physical_keycode = KEY_TAB
+	key.pressed = true
+	get_viewport().push_input(key, true)
+	await get_tree().process_frame
+	key = key.duplicate()
+	key.pressed = false
+	get_viewport().push_input(key, true)
+	await get_tree().create_timer(.65).timeout
+
+
+func _paid_pack_in_case(washer: Node3D, path: String) -> bool:
+	if not _require(get_viewport() is SubViewport, "valise uses the detached actual input viewport"): return false
+	await _paid_case_tab()
+	var view: Node = world.carried_case_view
+	var saved: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not _require(view.opened and view.settled and view._stacks.has(PAID_GASKET)
+			and _paid_in_transit(washer, true) and saved is Dictionary
+			and CarriedCase.washer_is_packed(saved),
+			"Tab packs the same paid washer into one valise cell and saves its custody"): return false
+	await _picture("paid_washer_in_valise")
+	await _paid_case_tab()
+	return _require(not view.opened and not player.call_locked and _paid_in_transit(washer, true),
+		"closing the valise keeps the washer packed and frees normal movement")
+
+
+func _paid_full_case_refuses(washer: Node3D) -> bool:
+	var goods: Array[String] = []
+	var cells := CarriedCase.grid()
+	for index in cells.x * cells.y:
+		var item := "packed_washer_fixture_%d" % index
+		if not PersonInventory.carry_goods(PersonInventory.PLAYER, item, "Fixture packet"): break
+		goods.append(item)
+	if not _require(goods.size() == cells.x * cells.y, "one-cell packets fill every real case square"):
+		return false
+	await _paid_case_tab()
+	var ok := _require(not world.carried_case_view.opened and player.held_stock_body() == washer
+			and washer.visible and not CarriedCase.washer_is_packed(RealityState.data),
+			"actual Tab with a full case leaves the original paid washer in hand")
+	for item in goods:
+		PersonInventory.spend_goods(PersonInventory.PLAYER, item)
+	return ok
+
+
+func _paid_blocked_case_return(washer: Node3D, path: String) -> bool:
+	# A fixture obstruction isolates the closed-case return sweep. The
+	# native washer and actual input path still own the return decision.
+	var blocker := StaticBody3D.new()
+	var collider := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = Vector3(.10, .10, .10)
+	collider.shape = box
+	blocker.add_child(collider)
+	add_child(blocker)
+	blocker.global_position = player.camera.to_global(Vector3(.17, -.16, -.48))
+	await get_tree().physics_frame
+	var pose: Transform3D = player.camera.global_transform.translated_local(Vector3(.17, -.16, -.48))
+	var query: PhysicsShapeQueryParameters3D = washer._shape_query(washer._solids[0], pose)
+	query.collision_mask = 1
+	var hits := washer.get_world_3d().direct_space_state.intersect_shape(query)
+	if not _require(hits.any(func(hit: Dictionary) -> bool: return hit.collider == blocker),
+			"fixture obstruction overlaps the actual washer return pose"):
+		blocker.free()
+		return false
+	var ok := await _paid_return_from_case(washer, path, true)
+	blocker.free()
+	return ok
+
+
+func _paid_return_from_case(washer: Node3D, path: String, blocked := false) -> bool:
+	await _paid_case_tab()
+	var view: Node = world.carried_case_view
+	if not _require(view.opened and view.settled and view._stacks.has(PAID_GASKET),
+			"the same paid washer remains on its saved square when the case reopens"): return false
+	var place := CarriedCase.place_of(PAID_GASKET).duplicate()
+	var start: Vector3 = view._centre(float(place.x), float(place.y), Vector2i.ONE)
+	var edge: Vector3 = view._centre(4.5, float(CarriedCase.grid().y) + .8, Vector2i.ONE)
+	for at: Vector3 in [start, edge]:
+		var pixel: Vector2 = view._camera.unproject_position(at)
+		var click := InputEventMouseButton.new()
+		click.position = pixel
+		click.global_position = pixel
+		click.button_index = MOUSE_BUTTON_LEFT
+		click.pressed = true
+		get_viewport().push_input(click, true)
+		await get_tree().process_frame
+		click = click.duplicate()
+		click.pressed = false
+		get_viewport().push_input(click, true)
+		await get_tree().process_frame
+	await get_tree().create_timer(.5).timeout
+	var saved: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if blocked:
+		var encoded_place: Dictionary = JSON.parse_string(JSON.stringify(place))
+		var saved_place: Dictionary = saved.get("carried_case", {}).get("places", {}).get(PAID_GASKET, {}) if saved is Dictionary else {}
+		return _require(not view.opened and _paid_in_transit(washer, true) and saved is Dictionary
+				and saved_place == encoded_place
+				and CarriedCase.place_of(PAID_GASKET) == place,
+				"blocked native hand pose retains the original washer and its packed disk square")
+	return _require(not view.opened and player.held_stock_body() == washer and washer.visible
+		and washer.collision_layer != 0 and not CarriedCase.washer_is_packed(RealityState.data)
+		and saved is Dictionary and not CarriedCase.washer_is_packed(saved),
+		"actual valise click and carry out returns the same paid physical washer and saves world custody")
+
+
+func _paid_fit_clearance_probe(actor: Node3D, washer: Node3D, face: Vector3, seat: Vector3) -> Dictionary:
+	var basis: Basis = washer.global_basis.orthonormalized()
+	var receiver: Basis = actor.global_basis.orthonormalized()
+	var local_face := washer.to_local(face)
+	var steps := maxi(1, ceili(basis.get_rotation_quaternion().angle_to(receiver.get_rotation_quaternion()) / .025))
+	var space := washer.get_world_3d().direct_space_state
+	var aligned: Transform3D = washer.global_transform
+	for index in range(1, steps + 1):
+		aligned.basis = basis.slerp(receiver, float(index) / steps)
+		aligned.origin = face - aligned.basis * local_face
+		for solid: CollisionShape3D in washer._solids:
+			var query: PhysicsShapeQueryParameters3D = washer._shape_query(solid, aligned)
+			query.margin = .00001
+			var hits := space.intersect_shape(query, 1)
+			if not hits.is_empty():
+				return _paid_fit_probe_hit("rotate", hits[0], {"step":index, "steps":steps})
+	var raised := Transform3D(receiver, seat - receiver * local_face + receiver.y * .0001)
+	for solid: CollisionShape3D in washer._solids:
+		var query: PhysicsShapeQueryParameters3D = washer._shape_query(solid, aligned)
+		var motion := raised.origin - aligned.origin
+		var rest := space.get_rest_info(query)
+		if not rest.is_empty() and motion.dot(rest.normal) < -.0000001:
+			return _paid_fit_probe_hit("start_rest", rest, {"normal":str(rest.normal)})
+		query.motion = motion
+		var fraction := space.cast_motion(query)
+		if fraction.size() == 2 and fraction[0] < 1.:
+			query.motion = Vector3.ZERO
+			query.transform = query.transform.translated(motion * fraction[1])
+			var hits := space.intersect_shape(query, 1)
+			return _paid_fit_probe_hit("translate", hits[0] if not hits.is_empty() else {},
+				{"fractions":str(fraction), "motion":str(motion)})
+		query.motion = Vector3.ZERO
+		query.transform = raised * solid.transform
+		query.margin = .00001
+		var hits := space.intersect_shape(query, 1)
+		if not hits.is_empty():
+			return _paid_fit_probe_hit("raised_end", hits[0], {})
+	return {"stage":"no_geometry_failure", "door":actor.door_open, "coupled":actor.coupling_made_up,
+		"seated":actor.gasket_seated, "wheel":actor._wheel_angle, "hand":actor._hand}
+
+
+func _paid_fit_probe_hit(stage: String, hit: Dictionary, detail: Dictionary) -> Dictionary:
+	var collider := instance_from_id(int(hit.get("collider_id", 0))) as Node
+	detail.merge({"stage":stage, "path":str(collider.get_path()) if collider != null else "",
+		"rid":str(hit.get("rid", RID())), "shape":hit.get("shape", -1)})
+	return detail
+
+
+func _paid_station() -> Node3D:
+	var stock: RefCounted = world.adapter.root.get_meta("v2_native_fire_service")
+	return stock.stations[PAID_STATION].get_ref()
+
+
+func _paid_take(washer: Node3D) -> bool:
+	var point := Vector3.INF
+	if player.inspecting():
+		point = await hands.pick_washer(washer)
+	else:
+		for sample in 16:
+			var angle := TAU * float(sample) / 16.
+			await hands.aim(washer.to_global(Vector3(.020 * cos(angle),.004,.020 * sin(angle))))
+			var target: Dictionary = player._grab.find_target()
+			if target.get("part") == washer:
+				point = target.hit_position
+				break
+	if not _require(point.is_finite(), "actual native annulus ray reaches the paid washer"): return false
+	hands.click()
+	if not _require(player._grab.active() and player._grab.target.part == washer and washer._held, "primary grabs the exact paid body"): return false
+	if not player.inspecting():
+		for frame in 90:
+			if _in_hand(washer): break
+			await get_tree().physics_frame
+		print("PAID WASHER WITHDRAWAL ", JSON.stringify({
+			"lifted":washer._pickup_lifted, "extracted":washer._pickup_extracted,
+			"lift_goal":str(washer._pickup_lift_goal), "exit":str(washer._pickup_exit),
+			"position":str(washer.global_position), "contact":str(washer._last_motion),
+			"held":player.held_stock_body()==washer, "settled":_in_hand(washer)}))
+		if not _in_hand(washer) and washer._last_motion.get("unresolved_native_impact", false):
+			_observe_paid_washer_impact(washer)
+		return _require(_in_hand(washer), "paid washer settles into the real FPS hold")
+	return true
+
+
+func _observe_paid_washer_impact(washer: Node3D) -> void:
+	var motion: Vector3 = washer._last_motion.motion
+	var unsafe: float = washer._last_motion.unsafe
+	var pose: Transform3D = washer.global_transform
+	var space := washer.get_world_3d().direct_space_state
+	var overlaps: Array[Dictionary] = []
+	for solid: CollisionShape3D in washer._solids:
+		for fraction: float in [0., unsafe, 1., 1.5, 2., 3.]:
+			var probe: Transform3D = pose.translated(motion * fraction)
+			var query: PhysicsShapeQueryParameters3D = washer._shape_query(solid, probe)
+			for hit: Dictionary in space.intersect_shape(query, 8):
+				var collider := hit.get("collider") as Node
+				overlaps.append({"solid":str(solid.name), "fraction":fraction,
+					"path":str(collider.get_path()) if collider != null else "",
+					"rid":str(hit.rid), "shape":hit.shape})
+	var support: Array[Dictionary] = []
+	for axis: Vector3 in [Vector3.UP, Vector3.DOWN]:
+		var point := pose.origin
+		var ray := PhysicsRayQueryParameters3D.create(point + axis * .03, point - axis * .03,
+			washer.collision_mask, washer._query_exclusions())
+		var hit := space.intersect_ray(ray)
+		if not hit.is_empty():
+			var collider := hit.get("collider") as Node
+			support.append({"axis":str(axis), "position":str(hit.position), "normal":str(hit.normal),
+				"path":str(collider.get_path()) if collider != null else "", "rid":str(hit.rid), "shape":hit.shape})
+	print("PAID WASHER IMPACT WITNESS ", JSON.stringify({"pose":var_to_str(pose),
+		"motion":str(motion), "unsafe":unsafe, "overlaps":overlaps, "support":support}))
+
+
+func _paid_park(washer: Node3D) -> bool:
+	if not _require(player.held_stock_body() == washer, "explicit floor release starts with the paid washer in hand"): return false
+	hands.click()
+	for frame in 240:
+		if washer.sleeping: break
+		await get_tree().physics_frame
+	return _require(not player._grab.active() and washer.sleeping and not washer.freeze, "paid washer parks on original floor support while the hand opens the next fitting")
+
+
+func _paid_move_face(washer: Node3D, face: Callable, goal: Vector3) -> bool:
+	# Same projection and wheel delivery as the original fire hand bench,
+	# with release kept separate so only the verified explicit click can commit.
+	var samples: Array[Dictionary] = []
+	for step in 120:
+		if not player._grab.active() or player._grab.target.part != washer: break
+		var delta: Vector3 = goal - face.call()
+		if delta.length() < .003: return true
+		var point: Vector3 = washer.to_global(player._grab.contact)
+		var depth: float = delta.dot((point - player.camera.global_position).normalized())
+		if absf(depth) > .0001:
+			var wheel := InputEventMouseButton.new()
+			wheel.pressed = true
+			wheel.button_index = MOUSE_BUTTON_WHEEL_DOWN if depth > 0. else MOUSE_BUTTON_WHEEL_UP
+			wheel.factor = minf(.025, absf(depth)) / .025
+			player._unhandled_input(wheel)
+		point = washer.to_global(player._grab.contact)
+		delta = goal - face.call()
+		var motion := InputEventMouseMotion.new()
+		motion.relative = (player.camera.unproject_position(point + delta) - player.camera.unproject_position(point)).limit_length(30.)
+		player._unhandled_input(motion)
+		await get_tree().physics_frame
+		if step < 3 or step % 15 == 14:
+			samples.append({"step":step, "face":str(face.call()), "wheel_depth":depth,
+				"relative":str(motion.relative), "contact":str(washer._last_motion)})
+	print("PAID WASHER APPROACH FAILURE ", JSON.stringify({
+		"goal":str(goal), "face":str(face.call()), "camera":var_to_str(player.camera.global_transform),
+		"pose":var_to_str(washer.global_transform), "held":player._grab.active(), "samples":samples}))
+	if washer._last_motion.get("unresolved_native_impact", false):
+		_observe_paid_washer_impact(washer)
+	return _require(false, "actual paid washer cannot reach the approach point through existing motion and clearance")
+
 
 func _save_reload(wanted: Dictionary) -> void:
 	_collect=false

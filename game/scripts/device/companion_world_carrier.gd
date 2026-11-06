@@ -391,9 +391,7 @@ func _advance_presentation(_delta: float) -> void:
 		motion.request_behavior(&"observe")
 	elif reading:
 		motion.request_behavior(&"type" if arm_busy() else &"present")
-		# Reply reading is still computer use. The closed face covers the lower
-		# copy window, so latch it only when the reader dismisses the apparatus.
-		if not arm_busy():rig.request_keyboard(motion.steady_for_input())
+		if not arm_busy(): rig.request_keyboard(false)
 	else:
 		rig.request_keyboard(false)
 		motion.request_behavior(&"accompany")

@@ -2,11 +2,13 @@ class_name CarriedCase
 extends RefCounted
 ## Where each stack of goods lies in the player's case: a grid of stitched squares.
 ## PersonInventory stays the owner of what is carried and how many; this owns only
-## the arrangement. Keys, parts and the grocery bag are never limited by it, so a
-## full case can't block a job or the mystery. It holds bought goods only.
+## the arrangement. Paid maintenance stock can have a place without a second
+## inventory row. Keys, loose parts and the grocery bag keep their own owners.
 
 const KEY := "carried_case"
 const DATA_PATH := "res://data/carried_case.json"
+const MAINTENANCE_WASHER := "fire_hose_spare_gasket"
+const WASHER_FORM := "maintenance_washer"
 
 static var _data: Dictionary = {}
 
@@ -68,11 +70,19 @@ static func valid(value: Variant) -> bool:
 				or typeof(place.get("x")) not in [TYPE_INT, TYPE_FLOAT] or typeof(place.get("y")) not in [TYPE_INT, TYPE_FLOAT] \
 				or place.get("turned") is not bool:
 			return false
+		if (item == MAINTENANCE_WASHER) != (place.form == WASHER_FORM):
+			return false
 		var rect := _rect(place)
 		if not bounds.encloses(rect) or taken.any(func(other: Rect2i): return other.intersects(rect)):
 			return false
 		taken.append(rect)
 	return true
+
+
+static func washer_is_packed(document: Dictionary) -> bool:
+	var case_book: Variant = document.get(KEY)
+	return case_book is Dictionary and case_book.get("places") is Dictionary \
+			and case_book.places.has(MAINTENANCE_WASHER)
 
 
 static func place_of(item: String) -> Dictionary:
