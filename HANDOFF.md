@@ -1,8 +1,22 @@
 # Current handoff — merged V2 qualification and Laurel timing
 
-**Guide-bell chat archive, 2026-11-06:** PR48/58 contain the implementation and mottling. Remaining acceptance is **FA-V2-GUIDE-BELL-PLAY** in TASKS.md (recorded in **829be9401**): reconcile current sources, then ordinary-input route/stairs, passing/backtracking, obstruction/cancellation and save/reload; human visual acceptance stays separate. Final evidence: **art/reviews/vorticella_guide_bells_20261025/final/**. Historical failures remain in **tmp/guide_bell/**. No worktree or live job remains from this chat. This does not close broader fauna or V2 acceptance.
+**Guide-bell chat archive, 2026-11-06:** PR48/58 contain the implementation and mottling. Remaining acceptance is **FA-V2-GUIDE-BELL-PLAY** in TASKS.md: reconcile current sources, then ordinary-input route/stairs, passing/backtracking, obstruction/cancellation and save/reload; human visual acceptance stays separate. Final evidence: **art/reviews/vorticella_guide_bells_20261025/final/**. Historical failures remain in **tmp/guide_bell/**. No worktree or live job remains from this chat. This does not close broader fauna or V2 acceptance.
 
-Canonical **C:/PleaseRemainOnTheLine**, branch **codex/v2-region-qualification-20261106** based on merged **930c920e6**. Root owns integration. Check both bridge inboxes. Cases below are under **C:/ov/reports/develop_intake_20261104/**.
+Canonical **C:/PleaseRemainOnTheLine**. Root owns integration. Check Omni
+bridge mail and live lane custody. Cases below are under
+**C:/ov/reports/develop_intake_20261104/**.
+
+**Current reading candidate.** **reading_fit_shoulder_native_01/** pins
+**829be9401** on the canonical checkout. Check the exact live handle and final
+guard before any source change. The source candidate is **76fa1f46d**. Native
+verification and human acceptance are open. PR164 owns the newspaper transfer
+and responsive paper readers. Physical book packing and return follow its case
+custody changes.
+
+**Laurel scheduler.** **laurel_scheduler_native_01/** passed 22 checks and six
+legs with both guards PASS. Worst frame 68.559 ms. Three running snapshots fell
+inside the 53.649 ms render bracket. The historical 162.929 ms spike did not
+recur, so the trace leaves its cause open.
 
 **PR162 city windows qualification:** **qualification_city_windows_01/** retains the fixture binding refusal. **02/** terminal0 and both source guards PASS at **515c75279**. The original authority/save packet independently passed 379 checks and five contracts. Apartment access passed 60 rooms, nine legs and 782 checks. Surface passed 38,947 checks, with a separate zero-defect validation of 30,921 draws. Exterior access passed six routes and 130 checks. The current packets preserve exact runtime and log bytes. All 82 changed frames were reviewed; the dumbwaiter and some apartment fixtures remain obscured. Previous evidence is archived in **art/reviews/v2_qualification_city_windows_20261106/**. Exact candidate verification, Laurel stutter, human play and art acceptance remain open.
 
