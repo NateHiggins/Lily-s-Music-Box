@@ -482,12 +482,12 @@ func _two_style_run(owner: Node3D) -> void:
 		if not _require(await _two_style_hinge(PI),"actual mouse opens "+family+" cover without forced state"):return
 		_click_library()
 		if not _require(not player._grab.active(),"next primary releases "+family+" cover"):return
+		var pickup_pose: Transform3D=book._reading_pickup_pose
+		var pickup_slot: int=book._reading_pickup_slot
 		await _two_style_space()
-		if not _require(not player.inspecting() and player.held_stock_body()==book,"Space returns opened "+family+" to original physical hand"):return
-		for frame in 110:await get_tree().physics_frame
-		if not await _two_style_capture(family+"_open_held",book):return
-		_click_library()
-		if not _require(player.held_stock_body()==null and not book._held,"next primary normally releases "+family+" copy"):return
+		if not _require(not player.inspecting() and player.held_stock_body()==null and not book._held
+				and book.transform.is_equal_approx(pickup_pose) and book.shelf_slot==pickup_slot,
+				"Space sets the read "+family+" copy back at pickup"):return
 		for frame in 6:await get_tree().physics_frame
 	two_style_controls.completed=true
 
@@ -522,8 +522,7 @@ func _cold_nook_first_use(book: Node3D, space: InputEventKey) -> bool:
 		observation.print_preparation_latency_ms = book.get_meta("print_preparation_latency_ms", -1.)
 		if _require(opened and observation.print_preparation_ms >= 0.,
 				"first supported use opens the actual cover and retains the prepared printed spread"):
-			_click_library()
-			_require(not player._grab.active() and not book._held, "first-use inspection returns and releases the original binding")
+			_require(not player._grab.active() and not book._held, "first-use exit sets down the original binding")
 	if player.inspecting():
 		player.end_inspection()
 	var directory := OS.get_environment("SHOT_DIR")
@@ -668,17 +667,20 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 	if not _require(is_equal_approx(camera.fov, 40.) and camera.project_ray_normal(pixel).distance_to(pointer_ray) < .0001,
 			"same off-centre cursor returns normally to entry FOV"):
 		return false
+	var pickup_pose: Transform3D=book._reading_pickup_pose
+	var pickup_slot: int=book._reading_pickup_slot
+	var pickup_angle: float=book._reading_pickup_opening
 	await _two_style_space()
+	if not _require(not player.inspecting() and not player._grab.active()
+			and is_equal_approx(camera.fov, held_fov) and not book._held
+			and book.transform.is_equal_approx(pickup_pose) and book.shelf_slot==pickup_slot
+			and is_equal_approx(book.opening,pickup_angle),
+			"normal Space puts the same read copy back at its pickup pose and restores FOV"):
+		return false
+	installed_reading.return_pose=var_to_str(book.transform)
+	installed_reading.return_slot=book.shelf_slot
 	for frame in 110:
 		await get_tree().physics_frame
-	var held_goal: Vector3 = camera.global_transform * Vector3(.17, -.16, -.48)
-	if not _require(not player.inspecting() and player.held_stock_body() == book
-			and is_equal_approx(camera.fov, held_fov)
-			and (book.global_transform * book.pickup_centre()).distance_to(held_goal) < .01,
-			"normal Space returns the same open book to ordinary hand and FOV"):
-		return false
-	if not await _installed_reading_frame("installed_open_hand", book, held_fov, matched_msaa, original):
-		return false
 	if not _require(not companion.screen_frame._shoulder_center.is_finite()
 			and companion.inspected_readable_stock()==null,
 			"companion leaves the shoulder after actual reading exit"):
@@ -687,8 +689,6 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 	var reference: Vector3 = str_to_var(samples[0].carrier.native_aperture)
 	var front_and_bounded := true
 	for sample: Dictionary in samples:
-		if sample.phase == "installed_open_hand":
-			continue
 		var aperture: Vector3 = str_to_var(sample.carrier.native_aperture)
 		sample.aperture_travel_from_40_m = aperture.distance_to(reference)
 		# Wide enough for normal carrier drift, below the 248 mm failed move.

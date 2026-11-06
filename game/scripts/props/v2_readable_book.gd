@@ -40,6 +40,12 @@ var _floating_camera := Transform3D.IDENTITY
 var _floating_frames := 0
 var _reading_projection_tangent := 0.0
 var _reading_target := Vector3.INF
+var _reading_pickup_pose := Transform3D.IDENTITY
+var _reading_pickup_exit := Vector3.ZERO
+var _reading_pickup_opening := 0.0
+var _reading_pickup_slot := -1
+var _has_reading_pickup := false
+var _read_in_inspection := false
 var _reading_light_opening := INF
 var _reading_light_faces: Array[Dictionary] = []
 
@@ -79,6 +85,7 @@ func reading_light_target(aperture: Vector3) -> Vector3:
 
 func begin_floating_view(camera_pose: Transform3D) -> void:
 	_floating_camera=camera_pose
+	_read_in_inspection=opening>=READ_OPENING
 	var camera:=get_viewport().get_camera_3d()
 	_reading_projection_tangent=tan(deg_to_rad(camera.fov*.5))
 	freeze=true
@@ -394,7 +401,14 @@ func _notification(what: int) -> void:
 		for printed: Dictionary in _print_surfaces: RenderingServer.free_rid(printed.mesh)
 
 func _claim(tag: String) -> bool:
+	var outside_inspection: bool=tag=="body" and not shelf.supports_inspected_stock(self)
 	if not super._claim(tag): return false
+	if outside_inspection:
+		_reading_pickup_pose=transform
+		_reading_pickup_exit=get_parent_node_3d().to_local(_pickup_exit)
+		_reading_pickup_opening=opening
+		_reading_pickup_slot=shelf_slot
+		_has_reading_pickup=true
 	_contact_mode(true)
 	if tag in ["body","turn"]: shelf_slot=-1
 	if tag=="body" and shelf.supports_inspected_stock(self):set_physics_process(false)
@@ -449,6 +463,8 @@ func _open(proposed: float) -> void:
 	# Queries use absolute proposed native hulls and exclude this body. Preserve
 	# every sweep step, then update glyphs, render weights and contacts once.
 	if not accepted_groups.is_empty(): _apply_opening(accepted,accepted_groups)
+	if opening>=READ_OPENING and shelf.supports_inspected_stock(self):
+		_read_in_inspection=true
 	note_spread_read(title_id,opening)
 
 static func note_spread_read(title: String, angle: float) -> bool:
@@ -490,6 +506,56 @@ func _contact_mode(compact: bool) -> void:
 		solid.disabled=closed
 		if not closed: _solids.append(solid)
 
+func should_return_after_reading() -> bool:
+	return _has_reading_pickup and _read_in_inspection and shelf_slot<0
+
+func return_after_reading() -> void:
+	if not should_return_after_reading(): return
+	_has_reading_pickup=false
+	var slot:=_reading_pickup_slot
+	if slot>=0 and not shelf.book_slot_is_free(slot,self): return
+	var collection:=get_parent_node_3d()
+	var source_pose: Transform3D=shelf.book_slots[slot] if slot>=0 else _reading_pickup_pose
+	var pose:=collection.global_transform*source_pose
+	var groups: Dictionary=stock.posed_gatherings(stock_id,_reading_pickup_opening)
+	var path: Array[Vector3]=[]
+	if slot>=0: path.append(collection.to_global(_reading_pickup_exit))
+	path.append(pose.origin+Vector3.UP*.004)
+	path.append(pose.origin)
+	# Preflight the folded binding along the pickup approach before committing
+	# the exact placement. A blocked return leaves the current body to settle.
+	if not _reading_return_is_clear(pose.basis,groups,path): return
+	global_transform=pose
+	_apply_opening(_reading_pickup_opening,groups)
+	linear_velocity=Vector3.ZERO
+	angular_velocity=Vector3.ZERO
+	if slot>=0: park_in_slot(slot,source_pose)
+	else: freeze=false
+	_contact_mode(freeze)
+	shelf.library_stock_changed(self)
+
+func _reading_return_is_clear(orientation: Basis, groups: Dictionary, path: Array[Vector3]) -> bool:
+	var space:=get_world_3d().direct_space_state
+	for group: Dictionary in groups.values():
+		var query:=PhysicsShapeQueryParameters3D.new()
+		query.shape=group.shape
+		query.exclude=_query_exclusions()
+		query.collision_mask=collision_mask
+		var start:=global_position
+		for goal: Vector3 in path:
+			query.motion=Vector3.ZERO
+			query.transform=Transform3D(orientation,start)*group.pose
+			if not space.intersect_shape(query,1).is_empty(): return false
+			query.motion=goal-start
+			if query.motion.length_squared()>1e-10:
+				var fractions:=space.cast_motion(query)
+				if fractions.size()!=2 or fractions[0]<.9999: return false
+			start=goal
+		query.motion=Vector3.ZERO
+		query.transform=Transform3D(orientation,start)*group.pose
+		if not space.intersect_shape(query,1).is_empty(): return false
+	return true
+
 func book_snapshot() -> Dictionary: return {"body":stock_snapshot(),"opening":opening,"slot":shelf_slot}
 
 static func valid_book(value: Variant) -> bool:
@@ -499,6 +565,8 @@ static func valid_book(value: Variant) -> bool:
 		and float(value.opening)>=0. and float(value.opening)<=PI
 
 func restore_book(value: Dictionary) -> void:
+	_has_reading_pickup=false
+	_read_in_inspection=false
 	end_floating_view()
 	shelf_slot=-1
 	freeze=true
