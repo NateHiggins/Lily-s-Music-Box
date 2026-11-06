@@ -237,9 +237,19 @@ func _route() -> void:
 	await get_tree().process_frame
 	var stack: Node3D = get_tree().get_first_node_in_group("news_stacks") as Node3D
 	if not _require(stack != null, "the newspaper stack stands by the 4B shelf"): return
+	if OS.get_environment("ORISON_PAPER_ROLLOVER") == "1":
+		var next_key := NewspaperCatalog.key_of(str(second.paper), str(second.date))
+		for date: String in catalog.dates:
+			for paper_id: String in NewspaperCatalog.PAPER_IDS:
+				if stack.count() < Stack.PER_PILE and NewspaperCatalog.key_of(paper_id, date) != next_key:
+					catalog.collect_uncommitted(paper_id, date)
+			if stack.count() == Stack.PER_PILE: break
+		if not _require(stack.count() == Stack.PER_PILE, "one full pile is already filed"): return
 	await get_tree().create_timer(0.7).timeout
 	var on_stack: int = stack.count()
 	var height: float = stack.top_height()
+	var piles_before: int = stack.piles.size()
+	var staged: Vector3 = stack.arriving.position
 	_require(stack.arriving.visible, "the carried paper waits on the stack's edge")
 	await _stand_at(stack, stack.arriving.global_position)
 	await _capture_interaction("news_stack_before")
@@ -253,7 +263,9 @@ func _route() -> void:
 	await hand._gesture_to(Stack.SLIDE)
 	await get_tree().create_timer(0.3).timeout
 	_require(PaperPocket.transit_news() == "" and stack.count() == on_stack + 1, "squared on the pile, it leaves the case for the stack (%d -> %d)" % [on_stack, stack.count()])
-	_require(stack.top_height() > height or stack.piles.size() > 1, "and the stack grows")
+	_require(is_equal_approx(stack.arriving.position.x, staged.x)
+			and is_equal_approx(stack.arriving.position.y, staged.y),
+			"the squared paper stays on its original support until release")
 	_require(catalog.is_collected(str(bought.paper), str(bought.date)), "the issue is kept, once")
 	await hand._gesture_to(0.0)
 	await get_tree().process_frame
@@ -262,8 +274,11 @@ func _route() -> void:
 	hand.click()
 	await get_tree().create_timer(0.3).timeout
 	_require(not player._grab.active() and not stack.arriving.visible, "the next click lets go, and the paper is part of the pile")
+	_require(stack.top_height() > height or stack.piles.size() > piles_before, "and the stack grows")
 	# RUL-012: the grown pile is charted in metres, so the catalogue paper keeps its density at any height.
 	var pile: MeshInstance3D = stack.piles.back() if not stack.piles.is_empty() else null
+	_require(pile != null and is_equal_approx(pile.position.x, staged.x),
+			"the pile grows where the player laid the paper")
 	var charted := pile != null and pile.mesh is ArrayMesh
 	var span := 0.0
 	if charted:

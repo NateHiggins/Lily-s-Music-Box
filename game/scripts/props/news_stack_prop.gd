@@ -96,8 +96,12 @@ func _refresh() -> void:
 
 ## The paper on the front edge of the newest pile, then slid back square onto it.
 func _pose() -> void:
-	var last := maxi(piles.size() - 1, 0) if count() > 0 else 0
-	arriving.position = Vector3(last * PILE_GAP, top_height() + 0.006, SLIDE - _slide)
+	# The held sheet keeps its support until release, even after the save
+	# counts it. A full pile sends the next sheet to the next floor position.
+	var existing := maxi(count() - int(_deposited), 0)
+	var destination := floori(float(existing) / PER_PILE)
+	var support_height := (existing % PER_PILE) * SHEET
+	arriving.position = Vector3(destination * PILE_GAP, support_height + 0.006, SLIDE - _slide)
 
 
 func _grip() -> Dictionary:

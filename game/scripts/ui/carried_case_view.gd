@@ -438,7 +438,8 @@ func paper_grip_point(index: int) -> Vector2:
 func _paper_at(position: Vector2) -> int:
 	for index in _sheets.size():
 		var sheet := _sheets[index]
-		var half: float = ((sheet.get_child(0) as MeshInstance3D).mesh as BoxMesh).size.x * 0.5
+		var draw := sheet.get_child(0) as MeshInstance3D
+		var half := draw.mesh.get_aabb().size.x * 0.5
 		var right := sheet.global_basis.x
 		var up := sheet.global_basis.y
 		var top := sheet.global_position + up * float(sheet.get_meta("height")) * 0.5
