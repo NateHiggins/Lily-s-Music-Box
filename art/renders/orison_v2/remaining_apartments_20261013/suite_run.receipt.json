@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 993.63,
+  "elapsed_s": 944.15,
   "exit_code": 0,
-  "finished_utc": "2026-11-06T08:23:34Z",
-  "started_utc": "2026-11-06T08:07:00Z",
+  "finished_utc": "2026-11-06T14:02:57Z",
+  "started_utc": "2026-11-06T13:47:12Z",
   "timed_out": false
  },
  "log": {
@@ -19,23 +19,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/develop_intake_20261104/qualification_current_06/apartments.log.stderr",
+  "stderr": "C:/ov/reports/develop_intake_20261104/qualification_city_windows_02/apartments.log.stderr",
   "stderr_sha256": "40caa8b5b8954724c55a7a4027bb4b1f2447e1c8cc45254f6f233360c9d57869",
-  "stdout": "C:/ov/reports/develop_intake_20261104/qualification_current_06/apartments.log",
-  "stdout_sha256": "5878c5a836ed44267923e2536bf1d641cda5dd1045f63191901a287c701e8fab"
+  "stdout": "C:/ov/reports/develop_intake_20261104/qualification_city_windows_02/apartments.log",
+  "stdout_sha256": "1c7dd72f86afa954c3d494f535b7f3dd1b51b52cf87fad2ea159ee29d0eb0eed"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2RemainingApartmentAccessContractTest.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_06\\apartments",
+ "shot_dir": "C:\\ov\\reports\\develop_intake_20261104\\qualification_city_windows_02\\apartments",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "2c41908cf87e84096cf3dc704fc4ca83f569e795",
-  "repository_tree": "f48c04c584602e456271ef04ff7ea7288dd8d210",
-  "runtime_inputs_sha256": "6660ac985b3e3b176c7b6626060affc80745b82b55a86a38e1cd002295268699",
+  "repository_head": "515c75279da1f0042e844753aef759b02501c1e4",
+  "repository_tree": "177e400917743b960523b21f5a1eecfb4bd10440",
+  "runtime_inputs_sha256": "1fef426027b6379129b3feca1dfc721e61c93063931777caed8c380326e20ea7",
   "test_path": "game/tests/orison_v2_remaining_apartment_access_contract_test.gd",
   "test_sha256": "6833022637c5dfe16b26f7a6b87248f435f9ec43714f32885326331f6597aa99"
  },

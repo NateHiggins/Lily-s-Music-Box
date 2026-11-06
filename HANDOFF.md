@@ -2,6 +2,8 @@
 
 Canonical **C:/PleaseRemainOnTheLine**, branch **codex/v2-region-qualification-20261106** based on merged **930c920e6**. Root owns integration. Check both bridge inboxes. Cases below are under **C:/ov/reports/develop_intake_20261104/**.
 
+**PR162 city windows qualification:** **qualification_city_windows_01/** retains the fixture binding refusal. **02/** terminal0 and both source guards PASS at **515c75279**. The original authority/save packet independently passed 379 checks and five contracts. Apartment access passed 60 rooms, nine legs and 782 checks. Surface passed 38,947 checks, with a separate zero-defect validation of 30,921 draws. Exterior access passed six routes and 130 checks. The current packets preserve exact runtime and log bytes. All 82 changed frames were reviewed; the dumbwaiter and some apartment fixtures remain obscured. Previous evidence is archived in **art/reviews/v2_qualification_city_windows_20261106/**. Exact candidate verification, Laurel stutter, human play and art acceptance remain open.
+
 **Exterior spatial renewal:** **exterior_regions_current_01/** preserves the old mask refusal. **02/** terminal0 and both guards PASS. The native source-bound replay reaches six regions via six routes in one continuous leg, with 52 endpoints, 6,609 observed poses and 130 checks. The normal standing mask includes the native hose-contact layer. The current packet and its byte-checked original logs pass independent publication. Human navigation and appearance review remain open.
 
 **PR159 merged:** The exact **23b0bd9c7** candidate passed against **6ac1e0a70** with zero regressions and 17 protected paths unchanged. Main **930c920e6** matches the verified tree. The physical washer fault is covered. Laurel wall batching was retired.
