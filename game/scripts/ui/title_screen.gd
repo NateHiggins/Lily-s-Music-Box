@@ -4,8 +4,9 @@ extends Control
 const AccessibilityCopyText := preload("res://scripts/ui/accessibility_copy.gd")
 ## The waking world is allowed grandeur; the dream remains the reveal. One
 ## rain-soaked hero joins the Orison, STREET and Vantry Arcade through mundane
-## work. The untouched waltz opens; its returned reconstruction is the second
-## record. Neither is excerpted or looped.
+## work. Pull Up a Chair, Adela and Lily's own song, opens (owner direction
+## 2026-11-05); the untouched waltz and its returned reconstruction follow. No
+## record is excerpted or looped.
 
 const HERO_ART := preload(
 		"res://assets/ui/title/orison_grand_mundane_title_v1.png")
@@ -13,19 +14,33 @@ const RETURNED_THEME := preload(
 		"res://assets/audio/music/title/clockwork_waltz_escapement_failure.ogg")
 const ORIGINAL_THEME := preload(
 		"res://assets/audio/music/title/clockwork_waltz_original.ogg")
+const CHAIR_THEME := preload(
+		"res://assets/audio/music/title/pull_up_a_chair.ogg")
 
 const TRACK_RETURNED := 0
 const TRACK_ORIGINAL := 1
-const TRACK_TRIM_DB := [-8.0, -6.5]
+const TRACK_CHAIR := 2
+# Trims level the three masters' measured integrated loudness (-10.8, -12.3
+# and -12.0 LUFS) without changing them.
+const TRACK_TRIM_DB := [-8.0, -6.5, -6.8]
+# Each record hands on to the next when it ends: the song, the waltz, its return.
+const TRACK_NEXT := [TRACK_CHAIR, TRACK_RETURNED, TRACK_ORIGINAL]
 
-var _tracks: Array[AudioStream] = [RETURNED_THEME, ORIGINAL_THEME]
+var _tracks: Array[AudioStream] = [RETURNED_THEME, ORIGINAL_THEME, CHAIR_THEME]
 var _track_names := [
 	"ESCAPEMENT FAILURE",
 	"THE CLOCKWORK WALTZ",
+	"PULL UP A CHAIR",
 ]
 var _track_notes := [
 	"RETURNED TOO FAST  ·  ×1.414",
 	"ORIGINAL SESSION  ·  1928",
+	"ADELA VOSS & LILY  ·  THE HARUKIYA  ·  1929",
+]
+var _track_offers := [
+	"PULL UP A CHAIR",
+	"HEAR THE RETURN",
+	"PLAY THE CLOCKWORK WALTZ",
 ]
 
 var _hero_art: TextureRect
@@ -72,7 +87,7 @@ var _music_fade: Tween
 var _elapsed := 0.0
 var _contact_left := 0.0
 var _next_contact := 9.0
-var _current_track := TRACK_ORIGINAL
+var _current_track := TRACK_CHAIR
 var _leaving := false
 
 
@@ -393,7 +408,7 @@ func _build_music() -> void:
 		for slider in [_volume, _gameplay_volume, _voice_volume, _world_volume,
 				_music_volume, _ui_volume]:
 			slider.value_changed.connect(func(_v): _preview_audio_settings())
-	_start_track(TRACK_ORIGINAL, true)
+	_start_track(TRACK_CHAIR, true)
 
 
 func _add_volume_control(parent: Control, words: String,
@@ -463,8 +478,7 @@ func _start_track(index: int, immediate := false) -> void:
 func _set_record_presentation(index: int) -> void:
 	_record_label.text = _track_names[index]
 	_record_note.text = _track_notes[index]
-	_record_button.text = "PLAY THE ORIGINAL MASTER" \
-			if index == TRACK_RETURNED else "HEAR THE RETURN"
+	_record_button.text = _track_offers[index]
 	_record_progress.value = 0.0
 	var duration := _tracks[index].get_length()
 	_record_time.text = "00:00 / %s" % _format_time(duration)
@@ -473,8 +487,7 @@ func _set_record_presentation(index: int) -> void:
 func _toggle_record() -> void:
 	if _leaving or _replacement_layer.visible:
 		return
-	_start_track(TRACK_ORIGINAL if _current_track == TRACK_RETURNED \
-			else TRACK_RETURNED)
+	_start_track(TRACK_NEXT[_current_track])
 
 
 func _on_track_finished(index: int) -> void:
@@ -482,8 +495,7 @@ func _on_track_finished(index: int) -> void:
 		return
 	# The just-finished stream has played its complete file. Alternate instead
 	# of setting an import loop, so a patient title-screen listener hears both.
-	_start_track(TRACK_ORIGINAL if index == TRACK_RETURNED \
-			else TRACK_RETURNED)
+	_start_track(TRACK_NEXT[index])
 
 
 func _music_db(index: int) -> float:
