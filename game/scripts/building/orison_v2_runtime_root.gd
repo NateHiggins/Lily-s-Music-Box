@@ -54,7 +54,7 @@ var newspapers: NewspaperCatalog
 const PLAYER_SHELF_ANCHOR := "4B_shelf"
 const SHELF_PAPERS_HEIGHT := 1.0
 ## Floor stack beside the shelf, along the east wall in the shelf anchor's frame.
-const NEWS_STACK_AT := Vector3(-0.47, 0.0, -0.53)
+const NEWS_STACK_AT := Vector3(-0.56, 0.0, -0.53)
 var news_stack: Node3D
 const COOKBOOK_TABLE := "KitchenPrep_4B"
 const COOKBOOK_AT := Vector3(0.33, 0.9, -0.13)

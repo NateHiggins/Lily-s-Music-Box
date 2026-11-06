@@ -71,6 +71,10 @@ func _stack_approach(stack: Node3D, pile_x: float) -> Vector3:
 
 func _check_stack_clearance(stack: Node3D, pile_count: int) -> void:
 	var root: Node3D = world.adapter.root
+	var shelf_stance := world.adapter.resolve("4B_shelf_STANCE") as Node3D
+	if not _require(shelf_stance != null, "the bookshelf standing position is installed"): return
+	var local_shelf_stance := stack.to_local(shelf_stance.global_position)
+	var shelf_foot := Vector2(local_shelf_stance.x, local_shelf_stance.z)
 	var trim := FurnishingClearance.finish_stock(root)
 	var space := stack.get_world_3d().direct_space_state
 	var envelope := BoxShape3D.new()
@@ -82,6 +86,10 @@ func _check_stack_clearance(stack: Node3D, pile_count: int) -> void:
 	var world_to_root := root.global_transform.affine_inverse()
 	for index in pile_count:
 		var pile_x: float = index * Stack.PILE_GAP
+		var footprint := Rect2(Vector2(pile_x, 0.0) - Stack.FOLDED * 0.5, Stack.FOLDED)
+		var nearest := shelf_foot.clamp(footprint.position, footprint.end)
+		_require(nearest.distance_to(shelf_foot) > player._capsule.radius,
+				"full pile %d clears the standing player at the bookshelf" % [index + 1])
 		var centre := Vector3(pile_x, (full_height + 0.012) * 0.5, Stack.SLIDE * 0.5)
 		query.shape = envelope
 		query.transform = stack.global_transform * Transform3D(Basis(), centre)
