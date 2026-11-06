@@ -62,6 +62,10 @@ func _route() -> void:
 	if not _require(stand != null, "the News & Cigars stand is mounted with its sales"): return
 	CampaignClock.new().configure_date(1929, 2, 16, 18 * 60)
 	await get_tree().process_frame
+	# Catch the stand's stock up to the new date now: its own one-second poll would otherwise deliver the morning's
+	# papers mid-route on a slower engine and move the counts the sale checks compare against.
+	var stock: Node = stand.sales.stock
+	stock.advance_to(stock._clock.absolute_minutes(), stock._today())
 	var offers := NewsRackProp.offers_for(catalog, catalog.today(), true)
 	if not _require(offers.size() == 8, "a full rack: eight papers on offer (%d)" % offers.size()): return
 	_require(not stand.shuttered(), "the stand is open at six")
@@ -233,6 +237,18 @@ func _route() -> void:
 	hand.click()
 	await get_tree().create_timer(0.3).timeout
 	_require(not player._grab.active() and not stack.arriving.visible, "the next click lets go, and the paper is part of the pile")
+	# RUL-012: the grown pile is charted in metres, so the catalogue paper keeps its density at any height.
+	var pile: MeshInstance3D = stack.piles.back() if not stack.piles.is_empty() else null
+	var charted := pile != null and pile.mesh is ArrayMesh
+	var span := 0.0
+	if charted:
+		for uv in (pile.mesh.surface_get_arrays(0)[Mesh.ARRAY_TEX_UV] as PackedVector2Array):
+			span = maxf(span, maxf(absf(uv.x), absf(uv.y)))
+	var finish := pile.mesh.surface_get_material(0) as StandardMaterial3D if charted else null
+	_require(charted and span <= Stack.FOLDED.y * 0.5 + 0.001 and span > 0.1 and finish != null
+			and is_equal_approx(finish.uv1_scale.x, 1.0 / float(MatLib.SETS["paper"][3]))
+			and finish.albedo_texture != null and finish.albedo_texture.get_image().has_mipmaps(),
+			"the pile is metre-charted catalogue paper with mipmaps (UV span %.3f m)" % span)
 	await _capture_interaction("news_stack_after")
 
 	# The next paper can be bought and carried.

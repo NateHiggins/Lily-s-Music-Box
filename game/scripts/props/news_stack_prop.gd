@@ -19,13 +19,13 @@ const SLIDE := 0.22
 const ACROSS_AT := 0.9
 const SLIDE_PIXELS := 180.0
 const POLL_SECONDS := 0.5
-const MATERIAL_SETS := "res://data/runtime_material_sets.json"
-const TEXTURES := "res://assets/building/textures/"
+const MetreUV := preload("res://scripts/building/v2_metre_box_uv.gd")
 
 var catalog: NewspaperCatalog
 var piles: Array[MeshInstance3D] = []
 var arriving: MeshInstance3D
 var _paper: StandardMaterial3D
+var _pile_heights: Array[float] = []
 var _slide := 0.0
 var _held := false
 var _deposited := false
@@ -43,10 +43,7 @@ func _ready() -> void:
 	_paper = _paper_material()
 	arriving = MeshInstance3D.new()
 	arriving.name = "ArrivingPaper"
-	var mesh := BoxMesh.new()
-	mesh.size = Vector3(FOLDED.x, 0.012, FOLDED.y)
-	arriving.mesh = mesh
-	arriving.material_override = _paper
+	arriving.mesh = _charted(Vector3(FOLDED.x, 0.012, FOLDED.y))
 	add_child(arriving)
 	preload("res://scripts/props/manipulation_area.gd").install(arriving, _grip)
 	_refresh()
@@ -80,15 +77,17 @@ func _refresh() -> void:
 	while piles.size() < needed:
 		var pile := MeshInstance3D.new()
 		pile.name = "Pile%d" % piles.size()
-		pile.mesh = BoxMesh.new()
-		pile.material_override = _paper
 		add_child(pile)
 		piles.append(pile)
+		_pile_heights.append(-1.0)
 	for index in piles.size():
 		var h := pile_height(index)
 		piles[index].visible = h > 0.0
 		if h > 0.0:
-			(piles[index].mesh as BoxMesh).size = Vector3(FOLDED.x, h, FOLDED.y)
+			# The chart is rebuilt only when this pile's height changes.
+			if not is_equal_approx(_pile_heights[index], h):
+				piles[index].mesh = _charted(Vector3(FOLDED.x, h, FOLDED.y))
+				_pile_heights[index] = h
 			piles[index].position = Vector3(index * PILE_GAP, h * 0.5, 0.0)
 	_shown_count = n
 	_shown_transit = PaperPocket.transit_news()
@@ -149,17 +148,18 @@ func _process(delta: float) -> void:
 			_refresh()
 
 
+## Catalogue paper at its metre scale (RUL-012): on metre-charted UVs its grain keeps one density however tall a pile grows.
 func _paper_material() -> StandardMaterial3D:
-	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(MATERIAL_SETS))
-	var spec: Dictionary = parsed.get("materials", {}).get("paper", {}) if parsed is Dictionary else {}
-	var files: Array = spec.get("files", [])
-	var result := StandardMaterial3D.new()
-	if files.size() == 3:
-		result.albedo_texture = load(TEXTURES + str(files[0]))
-		result.roughness_texture = load(TEXTURES + str(files[1]))
-		result.roughness_texture_channel = BaseMaterial3D.TEXTURE_CHANNEL_GREEN
-		result.normal_enabled = true
-		result.normal_texture = load(TEXTURES + str(files[2]))
-	result.uv1_scale = Vector3(3.0, 3.0, 1.0)
-	result.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
-	return result
+	var finish := MatLib.get_mat("paper").duplicate() as StandardMaterial3D
+	finish.uv1_triplanar = false
+	finish.uv1_scale = Vector3.ONE / float(MatLib.SETS["paper"][3])
+	finish.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	return finish
+
+
+## A box of folded newsprint charted in metres, the material on its surface.
+func _charted(size: Vector3) -> ArrayMesh:
+	var box := BoxMesh.new()
+	box.size = size
+	box.material = _paper
+	return MetreUV.chart(box)
