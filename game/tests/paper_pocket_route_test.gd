@@ -13,6 +13,7 @@ extends "res://tests/carried_case_route_test.gd"
 const LETTERS := ["welcome_note", "vantry_final_demand"]
 const Hands := preload("res://tests/v2_fire_maintenance_hand_bench.gd")
 const Stack := preload("res://scripts/props/news_stack_prop.gd")
+const FurnishingClearance := preload("res://scripts/building/orison_v2_furnishing_clearance.gd")
 
 func _init() -> void:
 	route_label = "PAPER POCKET ROUTE"
@@ -63,8 +64,45 @@ func _pocket_surfaces_are_metric(view: Node) -> bool:
 		count += 1
 	return count == view._sheets.size() + 4
 
+func _stack_approach(stack: Node3D, pile_x: float) -> Vector3:
+	# A slight step along the row keeps the first approach clear of the shelf.
+	return stack.to_global(Vector3(pile_x + 0.18, 0.0, 0.95))
+
+
+func _check_stack_clearance(stack: Node3D, pile_count: int) -> void:
+	var root: Node3D = world.adapter.root
+	var trim := FurnishingClearance.finish_stock(root)
+	var space := stack.get_world_3d().direct_space_state
+	var envelope := BoxShape3D.new()
+	var full_height := Stack.PER_PILE * Stack.SHEET + 0.012
+	envelope.size = Vector3(Stack.FOLDED.x, full_height - 0.012, Stack.FOLDED.y + Stack.SLIDE)
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.collision_mask = player.collision_mask
+	query.exclude = [player.get_rid()]
+	var world_to_root := root.global_transform.affine_inverse()
+	for index in pile_count:
+		var pile_x: float = index * Stack.PILE_GAP
+		var centre := Vector3(pile_x, (full_height + 0.012) * 0.5, Stack.SLIDE * 0.5)
+		query.shape = envelope
+		query.transform = stack.global_transform * Transform3D(Basis(), centre)
+		var box := world_to_root * query.transform * AABB(-envelope.size * 0.5, envelope.size)
+		var clear := space.intersect_shape(query, 1).is_empty()
+		var boxes: Array[AABB] = [box]
+		clear = clear and FurnishingClearance.overlaps(boxes, trim).is_empty()
+		_require(clear, "full pile %d and the paper slide clear installed solids and trim" % [index + 1])
+		var stance := _stack_approach(stack, pile_x)
+		var floor_ray := PhysicsRayQueryParameters3D.create(stance + Vector3.UP * 0.3, stance + Vector3.DOWN * 0.3,
+				player.collision_mask, [player.get_rid()])
+		var floor_hit := space.intersect_ray(floor_ray)
+		query.shape = player._capsule
+		query.transform = Transform3D(Basis(), stance + player._shape.position + Vector3.UP * 0.025)
+		_require(not floor_hit.is_empty() and absf(floor_hit.position.y - stance.y) < 0.04
+				and space.intersect_shape(query, 1).is_empty(),
+				"pile %d has a floor-supported standing approach" % [index + 1])
+
+
 func _stand_at(prop: Node3D, look_at: Vector3) -> void:
-	var front: Vector3 = prop.global_position + prop.global_basis.z.normalized() * 0.95
+	var front := _stack_approach(prop, prop.to_local(look_at).x)
 	var hit := prop.get_world_3d().direct_space_state.intersect_ray(
 			PhysicsRayQueryParameters3D.create(front + Vector3.UP * 1.5, front + Vector3.DOWN * 2.0))
 	player.global_position = hit.position + Vector3.UP * 0.05 if not hit.is_empty() else front
@@ -237,14 +275,18 @@ func _route() -> void:
 	await get_tree().process_frame
 	var stack: Node3D = get_tree().get_first_node_in_group("news_stacks") as Node3D
 	if not _require(stack != null, "the newspaper stack stands by the 4B shelf"): return
-	if OS.get_environment("ORISON_PAPER_ROLLOVER") == "1":
+	var rollover := OS.get_environment("ORISON_PAPER_ROLLOVER")
+	if rollover == "1" or rollover == "full":
+		var pile_count := ceili(float(catalog.dates.size() * NewspaperCatalog.PAPER_IDS.size()) / Stack.PER_PILE)
+		_check_stack_clearance(stack, pile_count)
+		var filed := Stack.PER_PILE if rollover == "1" else (pile_count - 1) * Stack.PER_PILE
 		var next_key := NewspaperCatalog.key_of(str(second.paper), str(second.date))
 		for date: String in catalog.dates:
 			for paper_id: String in NewspaperCatalog.PAPER_IDS:
-				if stack.count() < Stack.PER_PILE and NewspaperCatalog.key_of(paper_id, date) != next_key:
+				if stack.count() < filed and NewspaperCatalog.key_of(paper_id, date) != next_key:
 					catalog.collect_uncommitted(paper_id, date)
-			if stack.count() == Stack.PER_PILE: break
-		if not _require(stack.count() == Stack.PER_PILE, "one full pile is already filed"): return
+			if stack.count() == filed: break
+		if not _require(stack.count() == filed, "%d papers are already filed" % filed): return
 	await get_tree().create_timer(0.7).timeout
 	var on_stack: int = stack.count()
 	var height: float = stack.top_height()
@@ -277,7 +319,8 @@ func _route() -> void:
 	_require(stack.top_height() > height or stack.piles.size() > piles_before, "and the stack grows")
 	# RUL-012: the grown pile is charted in metres, so the catalogue paper keeps its density at any height.
 	var pile: MeshInstance3D = stack.piles.back() if not stack.piles.is_empty() else null
-	_require(pile != null and is_equal_approx(pile.position.x, staged.x),
+	_require(pile != null and is_equal_approx(pile.position.x, staged.x)
+			and is_equal_approx(pile.position.z, staged.z - Stack.SLIDE),
 			"the pile grows where the player laid the paper")
 	var charted := pile != null and pile.mesh is ArrayMesh
 	var span := 0.0
