@@ -18,10 +18,16 @@ var _on_close: Callable = Callable()
 var _closed := false
 
 
+## As NewspaperPanel.fit_scale: as much of the screen as the sheet can use, its text growing with it.
+static func fit_scale(screen: Vector2) -> float:
+	return clampf(minf(screen.x / 1280.0, screen.y / 860.0), 0.8, 2.0)
+
+
 func open(paper: Dictionary, on_close := Callable()) -> void:
 	entry = paper
 	_on_close = on_close
 	layer = 41
+	var k := fit_scale(get_viewport().get_visible_rect().size)
 	var shade := ColorRect.new()
 	shade.color = Color(0.02, 0.015, 0.01, 0.55)
 	shade.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -33,15 +39,15 @@ func open(paper: Dictionary, on_close := Callable()) -> void:
 	add_child(centre)
 	sheet = PanelContainer.new()
 	sheet.name = "Sheet"
-	sheet.custom_minimum_size = Vector2(SHEET_WIDTH, 0)
+	sheet.custom_minimum_size = Vector2(SHEET_WIDTH * k, 0)
 	var style := StyleBoxFlat.new()
 	style.bg_color = PAPER
 	style.border_color = Color(0.55, 0.49, 0.40)
 	style.set_border_width_all(1)
-	style.content_margin_left = 44
-	style.content_margin_right = 44
-	style.content_margin_top = 36
-	style.content_margin_bottom = 40
+	style.content_margin_left = 44 * k
+	style.content_margin_right = 44 * k
+	style.content_margin_top = 36 * k
+	style.content_margin_bottom = 40 * k
 	style.shadow_color = Color(0, 0, 0, 0.45)
 	style.shadow_size = 14
 	sheet.add_theme_stylebox_override("panel", style)
@@ -49,16 +55,16 @@ func open(paper: Dictionary, on_close := Callable()) -> void:
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 14)
 	sheet.add_child(column)
-	column.add_child(_line(str(paper.get("heading", "BOX 4B — LETTER")), TYPE, 14, INK_SOFT))
-	column.add_child(_line(str(paper.get("title", "")), TYPE_BOLD, 22, INK))
-	column.add_child(_line(str(paper.get("body", "")), TYPE, 18, INK))
+	column.add_child(_line(str(paper.get("heading", "BOX 4B — LETTER")), TYPE, int(14 * k), INK_SOFT, k))
+	column.add_child(_line(str(paper.get("title", "")), TYPE_BOLD, int(22 * k), INK, k))
+	column.add_child(_line(str(paper.get("body", "")), TYPE, int(18 * k), INK, k))
 
 
-func _line(text: String, font: Font, size: int, color: Color) -> Label:
+func _line(text: String, font: Font, size: int, color: Color, k := 1.0) -> Label:
 	var label := Label.new()
 	label.text = text
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.custom_minimum_size = Vector2(SHEET_WIDTH - 88, 0)
+	label.custom_minimum_size = Vector2((SHEET_WIDTH - 88) * k, 0)
 	label.add_theme_font_override("font", font)
 	label.add_theme_font_size_override("font_size", size)
 	label.add_theme_color_override("font_color", color)

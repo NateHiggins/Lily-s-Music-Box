@@ -13,7 +13,8 @@ finishes, with papers standing in them, tops showing, each with a typed tab (Lab
 
 - **The evidence folder**, left: a manila folder (paper finish) for loose evidence: every letter taken from box 4B,
   and every written find a clue carrier gives (its service note, kept instead of printed once).
-- **The newspaper pocket**, right: papers bought at the News & Cigars stand.
+- **The newspaper pocket**, right: the one newspaper being carried (the owner, relayed by Codex, 2026-11-06: the
+  valise holds exactly one newspaper at a time). The stand refuses a second before any charge, stock or collection.
 - **The comics pocket**, in front of the newspaper pocket and lower, so both rows of covers show: LILITH issues
   bought at the stand.
 
@@ -32,8 +33,9 @@ A part-way draw reads nothing. The case keeps the pointer and the player's lock 
 
 | Paper | Owner | How it gets there | How it leaves |
 |---|---|---|---|
-| Newspapers | **paper_pocket**.news | Kept at the stand | Opening the papers on the 4B shelf files them there |
-| LILITH comics | **paper_pocket**.comics; issues in `game/data/comics.json` | Bought at the stand, five cents (item **lilith_comic**) | Never |
+| The newspaper in transport | **paper_pocket**.news (one key) | Bought at the stand, inside the sale's settlement | Slid by hand onto the stack beside the 4B bookshelf (`NewsStackProp`) |
+| Kept newspapers at home | NewspaperCatalog (every kept issue) | Deposited from the case | Read from the 4B shelf archive, which never empties the case |
+| LILITH comics | **paper_pocket**.comics; issues in `game/data/comics.json` | Bought at the stand through its own menu entry, five cents (item **lilith_comic**), inside the sale's settlement | Never |
 | Letters | The mail box's `mail_taken`; text from `mail_catalog.json` | Taken from box 4B | Never |
 | Written finds | **paper_pocket**.evidence (id, title, body) | A clue carrier's find (`clue_draw_prop`) | Never |
 
@@ -41,6 +43,19 @@ LILITH is on the rack from each issue's Saturday (Nos. 1 to 6, 9 February to 16 
 rulings that the stand sells it and that only the script, never the private art, is in this repository; the cover
 shown is lettering only. The save validator checks **paper_pocket** (version 1; news keys, known comic ids and
 well-formed finds).
+
+## The stack at home
+
+`NewsStackProp` stands on the floor in front of the 4B bookshelf. It is every kept paper except the one in the case,
+drawn as piles of folded newsprint, 120 to a pile, each pile one box whose height follows its count: no object per
+issue and no cap on the archive. When the case holds a paper it waits on the stack's front edge; a click takes it,
+motion slides it square onto the pile, and there it leaves the case (RUL-013). An older save that carried several
+papers keeps the newest in transport; the others are already kept and stand on the stack.
+
+## Sales
+
+The stand sells papers and comics through `ShopSales.transact_delivering`: stock, the exact debit and custody change
+in one settlement, or not at all (short cash, no stock, a duplicate comic, a full transport slot).
 
 ## Held open
 

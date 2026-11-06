@@ -53,6 +53,9 @@ var newspapers: NewspaperCatalog
 ## anchor), at a reachable shelf height above its base.
 const PLAYER_SHELF_ANCHOR := "4B_shelf"
 const SHELF_PAPERS_HEIGHT := 1.0
+## The newspaper stack, in the shelf anchor's frame: on the floor, in front of the shelf.
+const NEWS_STACK_AT := Vector3(0.0, 0.0, 0.45)
+var news_stack: Node3D
 const COOKBOOK_TABLE := "KitchenPrep_4B"
 const COOKBOOK_AT := Vector3(0.33, 0.9, -0.13)
 var boiler_tend: BoilerTend
@@ -841,6 +844,12 @@ func _compose_authorities() -> void:
 		shelf_papers.setup("shelf", Vector3(0.75, 0.5, 0.55))
 		add_child(shelf_papers)
 		shelf_papers.global_position = shelf.global_position + Vector3.UP * SHELF_PAPERS_HEIGHT
+		# The kept papers as a physical stack on the floor in front of the shelf, where the valise's paper is laid down.
+		news_stack = preload("res://scripts/props/news_stack_prop.gd").new()
+		news_stack.name = "NewsStack"
+		news_stack.configure(newspapers)
+		add_child(news_stack)
+		news_stack.global_transform = shelf.global_transform * Transform3D(Basis(), NEWS_STACK_AT)
 	else:
 		push_warning("ORISON V2 RUNTIME: no %s; kept papers have no shelf" % PLAYER_SHELF_ANCHOR)
 	open_shift_ecosystem = preload("res://scripts/game/open_shift_radiator_ecosystem.gd").new()

@@ -9,9 +9,9 @@ extends RefCounted
 ## the mail box of which letters were taken; letters are read from the mail
 ## catalogue, so a taken letter is always in the pocket and nothing is copied.
 ##
-## A paper bought at the stand goes into the pocket. Opening the papers on the 4B
-## shelf files every pocket paper there. Nothing is lost either way: the kept list
-## holds them all.
+## The case carries exactly one newspaper (Lily, 2026-11-06): the paper bought at the stand rides in its transport
+## slot until it is laid on the stack beside the 4B bookshelf by hand (NewsStackProp). NewspaperCatalog stays the
+## collection authority: every kept paper is in its list, in transport or on the stack.
 
 const KEY := "paper_pocket"
 const MAIL_CATALOG := "res://data/mail_catalog.json"
@@ -27,6 +27,14 @@ static func book() -> Dictionary:
 	for list: String in ["comics", "evidence"]:
 		if not RealityState.data[KEY].has(list):
 			RealityState.data[KEY][list] = []
+	var news: Array = RealityState.data[KEY].news
+	if news.size() > 1:
+		# An older save carried several: the newest issue stays in transport, the others are on the stack already
+		# (they are all in the kept list), so nothing is deleted or duplicated.
+		var newest: Array = news.duplicate()
+		newest.sort_custom(func(a, b): return str(a).split(":")[1] + str(a) > str(b).split(":")[1] + str(b))
+		news.clear()
+		news.append(newest[0])
 	return RealityState.data[KEY]
 
 
@@ -97,14 +105,25 @@ static func tuck_comic(id: String) -> bool:
 	return true
 
 
-## Uncommitted: the purchase that keeps the paper commits both.
-static func tuck_news(key: String) -> void:
+## The paper in transport, as "<paper>:<date>", or "" when the slot is empty.
+static func transit_news() -> String:
 	var news: Array = book().news
-	if key not in news:
-		news.append(key)
+	return str(news[0]) if not news.is_empty() else ""
 
 
-## Every pocket paper onto the 4B shelf. True when any were filed.
+static func has_room_for_news() -> bool:
+	return book().news.is_empty()
+
+
+## Uncommitted: the sale that keeps the paper commits both. Refused when the slot is full.
+static func tuck_news(key: String) -> bool:
+	if not has_room_for_news():
+		return false
+	book().news.append(key)
+	return true
+
+
+## The paper in transport laid on the apartment stack (NewsStackProp's deposit). True when one was there.
 static func file_news() -> bool:
 	var news: Array = book().news
 	if news.is_empty():
