@@ -237,7 +237,7 @@ func _show_back(typesetter: NewspaperTypesetter, meta: Dictionary, back: Diction
 			box.add_theme_constant_override("separation", 6)
 			columns.add_child(box)
 			_label_into(box, str(column.get("kind", "")).replace("_", " ").to_upper(), 12, INK_SOFT, _italic)
-			_label_into(box, str(column.get("headline", "")).to_upper(), 16, INK, _bold)
+			_label_into(box, NewspaperTypesetter.keep_hyphens(str(column.get("headline", "")).to_upper()), 16, INK, _bold)
 			_label_into(box, str(column.get("body", "")), 15, INK)
 		_rule(1)
 	var cartoon := catalog.cartoon_for(paper_id, date)

@@ -108,33 +108,86 @@ The largest groups:
 After the sweep, nine new front headlines ran over the front's 80-character limit. They were shortened by hand. The
 newspaper audit passes, and the reader gate reports no new unread fields.
 
-## Open items: found, not fixed
+## The open items, settled
 
-Each needs a story decision or a fact the papers do not settle.
+Lily asked for the story questions the sweep found to be fixed. Each now has the smallest change that makes the papers
+agree with one another and with the real year:
 
-- **24 October 1929 Record** is a morning paper. It reports the same day's noon events of Black Thursday as "this
-  morning". The Record never prints Wednesday 23 October's twenty-point fall.
-- **5 June 1929 Record** has Ramsay MacDonald accepting the King's commission "yesterday". He kissed hands on 5 June,
-  so the story belongs in the 6 June paper.
-- **Zeppelin times, August 1929.** New York kept daylight time in summer 1929, so the Friedrichshafen conversions are
-  an hour off. Moving them shifts the window-playback times. The papers' own times give about 51 hours from Lakehurst to
-  Friedrichshafen, not 55.
-- **Mr. Crane's inspectors** number eight in July and 62 from 8 August, with no hiring reported.
-- **Nell and Duchess.** From 25 August, two ice-wagon mares and two ice companies are merged into one.
-- **Byrd's route** to Dunedin, given as the South Atlantic, cannot be squared with the distances printed. The real
-  ships went by Panama. Separately, the papers print 95 dogs and then 88 "in good order", and nobody explains the
-  difference.
-- **The Arcade lien notices** (10 March). Twelve screws hold three notices, two of which were reported torn down.
-- **Greenpoint tone.** It is heard on three nights (13 March) against five (9 March).
-- **The 8 June licence count.** "Two weeks to Friday" now covers a week with no count. The other choice is to raise
-  the totals of 8 and 15 June.
-- **The 6 April Speaker editorial.** "Assemblyman Barlow's amendment" and "the licence office" do not match the Record's
-  account of the Act.
-- **Smaller items.** These need a decision rather than a fix:
-  - the doll's price and its refund;
-  - the two Pells;
-  - the ice-case counts;
-  - Frances Perkins's years on the Industrial Commission;
-  - Mrs. Dorr's quote, which reads differently in the two papers.
-- **Advertisements.** The bill-style ads repeat item prices in the body. The house check does not count a price list as
-  a display line. Several ads also end on the firm's slogan rather than a closer of their own.
+- **Black Thursday.** The 24 October Record is an Extra, printed at 1:45 p.m. (its ear says so), so its noon events
+  stand. Its lead now opens with Wednesday's fall: 305.9, down 20.7. The panel's badge reads EXTRA and the hour, and the
+  catalog puts an Extra on sale at its printed hour. On 30 October the Dow is given to two places: 230.07, down 30.57
+  from 260.64.
+- **MacDonald.** The 5 June Record has Mr. Baldwin's resignation and Mr. MacDonald summoned. The 6 June wire has the
+  acceptance.
+- **Zeppelin times.** Every conversion uses the five-hour gap of daylight time. The landing at Friedrichshafen is
+  12:02 p.m. their time, about 55 hours from Lakehurst. The window playbacks and the Tokyo departure move with it.
+- **Inspectors.** The 2 August Record reports 62 inspectors, against eight in July.
+- **Nell and Duchess.** Nell is the Flushing Bay Ice Co.'s mare on Northern Boulevard throughout. Steinway stays the
+  Astoria Lake company's route. Two residents' remarks are changed to match.
+- **Mrs. Dorr.** Both papers have "the adjuster's office".
+- **Byrd.** The ships go by Panama and the Pacific, and the days out are unchanged. All 95 dogs arrive.
+- **The doll.** The refund is half the price, and the paper says why.
+- **The two Pells.** Commissioner Horace Pell (of the LILITH comic's Issue 4) keeps his name. His one appearance in the
+  papers says he is no relation to the lawyer, Mr. Lucius Pell.
+- **The copper cases** hold 1,040 records with a second begun, then about 300 in the second.
+- **Frances Perkins** was named to the Industrial Commission in 1919 and has chaired the Industrial Board since 1926.
+- **The lien notices.** Four screws hold the third notice. The first two were taken down within a day.
+- **Greenpoint** heard the tone on five nights.
+- **Licences.** The 8 June count covers the two weeks since 24 May. The totals were already right.
+- **The 6 April editorial** follows the Record's account of the Act: Senator Keel's amendment, and forms not yet printed.
+- **The June heat.** The weather calendar is the authority, and it says 89 on 19 June, so both papers now say 89.
+
+Still open: the bill-style advertisements repeat item prices in the body. The house check does not count a price list
+as a display line, and changing them means rewriting the copy.
+
+## Codex's year markup
+
+Codex marked the full-year proof with 57 notes: fixes, adjustments, checks and keeps. They are applied as follows.
+
+**Templates:**
+- A split lead turns at the sentence nearest its middle.
+- The weather desk dates its forecast window, names "Forecast confidence" (no longer printed as an outlook), and groups
+  earlier dispatches under a heading.
+- A landscape picture on a Record front spans the page under the lead and columns.
+- Display headlines never break at a hyphen inside a word or number.
+- Two or more sky notices sit under one heading in two columns.
+- The photo drama ends with room and a rule.
+- A narrow Sunday portrait keeps at least a third of its row for its caption.
+- An Extra carries its own badge and hour.
+
+**Text and captions** are corrected:
+- Mr. Hoover "will be" President in November.
+- The second hard frost.
+- Fourteen calls for the luncheonette.
+- Position 41 in December.
+- Queens Plaza.
+- The paid notice.
+- The valentine count, which covers every sender.
+- One ship home.
+- Queens and Washington in one ear.
+- The April Fools composograph.
+- The model parachute.
+- Both Decoration Day pictures dated.
+- Steeplechase.
+- Mr. Mulry at the oars, with nine readings.
+- The indoor baths.
+- The Queensboro Bridge.
+- The operators' rehearsal.
+- 152,000 children.
+- Last September's school steps.
+- The pickup game.
+- A pointer to the Emergence forecast.
+- The man come out for air.
+- Shares that changed hands.
+- A Queens polling queue.
+- Miss Penrose leaving next Saturday.
+
+**Pictures:** the Lakehurst mooring lines are thickened against the sky, and the Fremont crowd's midtones are lifted in
+a feathered band. The source cuts are owed the same repair.
+
+**Checks that needed no change:**
+- The bridge picture is a truss, and the caption now names the Queensboro.
+- The rooftop children read as standing on the roof.
+- The 9 December courthouse reading is a separate station from the weather desk.
+
+The keep notes are kept.
