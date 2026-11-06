@@ -47,6 +47,7 @@ var _has_reading_pickup := false
 var _read_in_inspection := false
 var _reading_light_opening := INF
 var _reading_light_faces: Array[Dictionary] = []
+var valise_packed := false
 
 func requires_shelf_withdrawal() -> bool: return shelf_slot>=0
 
@@ -408,6 +409,7 @@ func _notification(what: int) -> void:
 		for printed: Dictionary in _print_surfaces: RenderingServer.free_rid(printed.mesh)
 
 func _claim(tag: String) -> bool:
+	if valise_packed: return false
 	var outside_inspection: bool=tag=="body" and not shelf.supports_inspected_stock(self)
 	if not super._claim(tag): return false
 	if outside_inspection:
@@ -424,6 +426,10 @@ func _claim(tag: String) -> bool:
 	return true
 
 func _release() -> void:
+	if valise_packed:
+		_held=false;_hand_tag=""
+		shelf.release_library_hand(self,false)
+		return
 	var changed:=not is_equal_approx(opening,_before_opening)
 	var refit: bool=changed and _hand_tag=="cover" and shelf.supports_inspected_stock(self)
 	super._release()
@@ -579,6 +585,49 @@ func _reading_return_is_clear(origin: Vector3, orientation: Basis, contacts: Arr
 	return true
 
 func book_snapshot() -> Dictionary: return {"body":stock_snapshot(),"opening":opening,"slot":shelf_slot}
+
+func set_valise_packed(packed: bool) -> void:
+	valise_packed=packed
+	visible=not packed
+	process_mode=Node.PROCESS_MODE_DISABLED if packed else Node.PROCESS_MODE_INHERIT
+	if packed:
+		_has_reading_pickup=false
+		_read_in_inspection=false
+		_rest_until=-1
+		freeze=true
+		linear_velocity=Vector3.ZERO
+		angular_velocity=Vector3.ZERO
+		sleeping=true
+
+
+func valise_snapshot(pose: Transform3D) -> Dictionary:
+	var point := pose.origin
+	var q := pose.basis.get_rotation_quaternion().normalized()
+	return {"opening":0.0, "slot":-1, "body":{
+		"position":[point.x,point.y,point.z], "rotation":[q.x,q.y,q.z,q.w],
+		"velocity":[0.0,0.0,0.0], "spin":[0.0,0.0,0.0], "sleeping":true}}
+
+
+func valise_exit_is_clear(pose: Transform3D) -> bool:
+	var query := _shape_query(_closed_solid,pose)
+	return get_world_3d().direct_space_state.intersect_shape(query,1).is_empty()
+
+
+func draw_in_valise(parent: Node3D) -> void:
+	var flat := Node3D.new()
+	parent.add_child(flat)
+	flat.rotation.x = -PI * 0.5
+	var underside := INF
+	for point: Vector3 in _closed_solid.shape.points:
+		underside = minf(underside, (_closed_solid.transform * point).z)
+	flat.position = Vector3(-float(construction.width) * 0.5, 0.0015 - underside, float(construction.height) * 0.5)
+	for original: MeshInstance3D in _native_draws:
+		var draw := original.duplicate(0) as MeshInstance3D
+		flat.add_child(draw)
+		draw.transform = global_transform.affine_inverse() * original.global_transform
+	var imprint := _spine.duplicate(0) as Node3D
+	flat.add_child(imprint)
+
 
 static func valid_book(value: Variant) -> bool:
 	return value is Dictionary and value.size() in [2,3] and valid_stock(value.get("body")) \

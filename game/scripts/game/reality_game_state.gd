@@ -42,7 +42,7 @@ var save_path := SAVE_PATH:
 var storage_operation_override: Callable
 var new_campaign_time_provider: Callable
 var _preparing_state := false
-var _purchased_gasket_handoff_active := false
+var _physical_handoff_active := false
 var _load_result := {"status": "missing", "reason": "", "has_saved_campaign": false}
 var _last_save_result: Dictionary = {}
 var _save_queue: RefCounted
@@ -72,7 +72,7 @@ func _exit_tree() -> void:
 ## Noncritical autosave. Explicit saves/ordinary commits remain barriers.
 ## The returned world notification does not assert that pending bytes are durable.
 func commit_background() -> void:
-	if _purchased_gasket_handoff_active:
+	if _physical_handoff_active:
 		return
 	if not _preview_context.is_empty():
 		commit();return
@@ -271,7 +271,7 @@ func case_state(case_id: String) -> Dictionary:
 
 
 func commit() -> void:
-	if _purchased_gasket_handoff_active:
+	if _physical_handoff_active:
 		return
 	# Clock creation commits into a private candidate, not a half-adopted world.
 	if _preparing_state:
@@ -290,7 +290,7 @@ func _storage() -> SAVE_STORAGE:
 
 
 func save_game() -> bool:
-	if _purchased_gasket_handoff_active or not _synchronous_save_barrier():
+	if _physical_handoff_active or not _synchronous_save_barrier():
 		return false
 	snapshot_preparing.emit()
 	return _finish_save(_write_synchronous_snapshot(data))
@@ -318,15 +318,15 @@ func _write_synchronous_snapshot(document: Dictionary) -> Dictionary:
 ## from the detached candidate, then adopts it synchronously after verification.
 func commit_purchased_gasket_handoff(inventory: Node, prepare_household: Callable,
 		publish_household: Callable) -> bool:
-	if _purchased_gasket_handoff_active or not persistence_enabled:
+	if _physical_handoff_active or not persistence_enabled:
 		return false
 	if not is_instance_valid(inventory) or not inventory.has_method("_stage_purchased_gasket_consumption") \
 			or not inventory.has_method("_announce_purchased_gasket_consumption") \
 			or not prepare_household.is_valid() or not publish_household.is_valid():
 		return false
-	_purchased_gasket_handoff_active = true
+	_physical_handoff_active = true
 	var ok := _commit_purchased_gasket_handoff(inventory, prepare_household, publish_household)
-	_purchased_gasket_handoff_active = false
+	_physical_handoff_active = false
 	return ok
 
 
@@ -334,10 +334,10 @@ func _commit_purchased_gasket_handoff(inventory: Node, prepare_household: Callab
 		publish_household: Callable) -> bool:
 	var live_document := data
 	var live_path := save_path
-	if not _synchronous_save_barrier() or not _gasket_handoff_context_is_current(live_document, live_path):
+	if not _synchronous_save_barrier() or not _handoff_context_is_current(live_document, live_path):
 		return false
 	snapshot_preparing.emit()
-	if not _gasket_handoff_context_is_current(live_document, live_path) or not is_instance_valid(inventory) \
+	if not _handoff_context_is_current(live_document, live_path) or not is_instance_valid(inventory) \
 			or not prepare_household.is_valid() or not publish_household.is_valid():
 		return false
 
@@ -351,7 +351,7 @@ func _commit_purchased_gasket_handoff(inventory: Node, prepare_household: Callab
 	if prepared is not Dictionary or prepared.size() != 2 or prepared.get("schema_version") != 1 \
 			or prepared.get("records") is not Dictionary or prepared.records.is_empty():
 		return false
-	if not _gasket_handoff_context_is_current(live_document, live_path) or data != baseline \
+	if not _handoff_context_is_current(live_document, live_path) or data != baseline \
 			or not is_instance_valid(inventory) or not publish_household.is_valid():
 		return false
 	var household: Dictionary = prepared.duplicate(true)
@@ -371,7 +371,42 @@ func _commit_purchased_gasket_handoff(inventory: Node, prepare_household: Callab
 	return true
 
 
-func _gasket_handoff_context_is_current(document: Dictionary, path: String) -> bool:
+## A physical copy changes custody only after the case grid and household
+## stock pose have been verified as one complete save generation.
+func commit_library_transfer(prepare: Callable, publish: Callable) -> bool:
+	if _physical_handoff_active or not persistence_enabled or not prepare.is_valid() or not publish.is_valid():
+		return false
+	_physical_handoff_active = true
+	var ok := _commit_library_transfer(prepare, publish)
+	_physical_handoff_active = false
+	return ok
+
+
+func _commit_library_transfer(prepare: Callable, publish: Callable) -> bool:
+	var live_document := data
+	var live_path := save_path
+	if not _synchronous_save_barrier() or not _handoff_context_is_current(live_document, live_path):
+		return false
+	snapshot_preparing.emit()
+	if not _handoff_context_is_current(live_document, live_path) or not prepare.is_valid() or not publish.is_valid():
+		return false
+	var baseline := data.duplicate(true)
+	var candidate := baseline.duplicate(true)
+	if not prepare.call(candidate) or not _handoff_context_is_current(live_document, live_path) \
+			or data != baseline or not publish.is_valid():
+		return false
+	var result := _write_synchronous_snapshot(candidate)
+	if not result.ok:
+		return _finish_save(result)
+	data[CarriedCase.KEY] = candidate[CarriedCase.KEY]
+	data[HOUSEHOLD_KEY] = candidate[HOUSEHOLD_KEY]
+	publish.call(candidate[HOUSEHOLD_KEY])
+	_finish_save(result)
+	state_changed.emit()
+	return true
+
+
+func _handoff_context_is_current(document: Dictionary, path: String) -> bool:
 	return is_same(data, document) and save_path == path and persistence_enabled \
 			and not save_write_blocked and not _preparing_state and _preview_context.is_empty()
 

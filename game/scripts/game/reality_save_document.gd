@@ -52,6 +52,8 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("paper_pocket")
 	if CarriedCase.washer_is_packed(candidate) and not _valid_packed_washer(candidate):
 		return _invalid_shape("carried_case washer custody")
+	if not _valid_packed_books(candidate):
+		return _invalid_shape("carried_case book custody")
 	if candidate.has("shop_stock") and not preload("res://scripts/game/shop_stock.gd").valid(candidate.shop_stock):
 		return _invalid_shape("shop_stock")
 	if candidate.has("inventories") and not preload("res://scripts/game/person_inventory.gd").valid(candidate.inventories):
@@ -96,6 +98,29 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("night_register.lines")
 	var checked := CampaignClock.validate_snapshot(candidate.get("campaign_clock", {}))
 	return {"ok":true} if checked.ok else {"ok":false,"code":"campaign_clock_read_only","detail":str(checked.error)}
+
+
+static func _valid_packed_books(candidate: Dictionary) -> bool:
+	var places: Dictionary = candidate.get(CarriedCase.KEY, {}).get("places", {})
+	for item: String in places:
+		if not item.begins_with(CarriedCase.BOOK_PREFIX):
+			continue
+		var place: Dictionary = places[item]
+		var household: Variant = candidate.get("v2_household_controls")
+		if household is not Dictionary or household.get("records") is not Dictionary:
+			return false
+		var collection: Variant = household.records.get(place.collection)
+		if collection is not Dictionary or collection.get("kind") != "books":
+			return false
+		var library: Variant = collection.get("value")
+		if library is not Dictionary or library.get("books") is not Dictionary:
+			return false
+		var copy: String = place.form.trim_prefix(CarriedCase.BOOK_PREFIX)
+		var stock: Variant = library.books.get(copy)
+		if stock is not Dictionary or stock.size() != 3 or stock.get("slot") != -1 or stock.get("opening") != 0.0 \
+				or not preload("res://scripts/props/v2_library_movable.gd").valid_stock(stock.get("body")):
+			return false
+	return true
 
 
 static func _valid_packed_washer(candidate: Dictionary) -> bool:
