@@ -1,0 +1,1472 @@
+{
+  "evidence_class": "INERT",
+  "kind": "runtime14_surface_actual_frame_observation",
+  "recorded_utc": "2026-11-05T00:28:27.962334+00:00",
+  "result": "COMPLETE_TECHNICAL_IMAGE_REVIEW_WITH_RETAINED_VISIBILITY_LIMITS",
+  "scope": "59 original root surface frames plus5 entry-preparation frames. Technical image observations only; not runtime proof, human play, performance or artistic acceptance. Full programme/admission remains root-owned.",
+  "wrapper": {
+    "execution": {
+      "completed": true,
+      "elapsed_s": 360.72,
+      "exit_code": 0,
+      "finished_utc": "2026-11-05T00:25:59Z",
+      "started_utc": "2026-11-05T00:19:58Z",
+      "timed_out": false
+    },
+    "raw_stdout_error_lines": 0,
+    "raw_stderr_error_lines": 0,
+    "script_errors": 0
+  },
+  "technical_result": {
+    "result": "PASS_TECHNICAL_ONLY",
+    "unresolved": 0,
+    "original_summary": "V2 SURFACE QUALIFICATION: PASS; 38947 checks; 0 failures"
+  },
+  "source": {
+    "dirty_paths": 0,
+    "dirty_sample": [],
+    "repository_head": "d0039ff78da1451c68ddffebfd93672e46baf472",
+    "repository_tree": "ebfc27b473744e4e4f0d8d8774fdf044343c2541",
+    "runtime_inputs_sha256": "1051c14da9658c05759af9ecc6e4f31b64f7d3e67b0e356b5e85a588fb361d5f",
+    "test_path": "game/tests/orison_v2_surface_inventory.gd",
+    "test_sha256": "934c2b565c9976e6c62c9867df4df851150263229567780f9dc90aed257261d0"
+  },
+  "source_and_artifact_raw_sha256": {
+    "surface.log.receipt.json": "04d3cbdef450ba7acd6635db9419571598b63e0b9919c198990d54b8be07a6d1",
+    "surface.log": "3abb2bb882c8f3f32a61756881ecd37842fff50a283f21921fa125086ad2de5b",
+    "surface.log.stderr": "a4b1a1d644797c0e31d8c91ff5f5bc524d084587bf9aae40921e9ee5c78e83bb",
+    "surface/technical_findings.json": "ee6889abd5a23693d05635b212707174b0cc20083fc0dc9f3342dc0e2d8fd9a3",
+    "surface/runtime_contract.json": "e53dd51be80294952cc71ef0b4af828a623db6cb36df01c6034c59ef22de1f9b",
+    "surface/surface-inventory.json": "62b884387a8c37128441bc8ec8ac16d8cffe35c361f10adbb03523d18911ef35",
+    "surface/entry_preparation/preparation_views.json": "8d7ff10e25ddd266e03dc5f54608e6add0176381276d5a9ce69fe20b2bb97fe8",
+    "SOURCE_FREEZE.json": "7f76d8fadf522788b20a410bf0a6b3376bd090cb5500b4842cffaf09294c6abe",
+    "batch.json": "210bd033c589b21d05f56fc92fa7819bb96b75fd7a427f072e6587c29c4e4aa6"
+  },
+  "coverage": {
+    "root_pngs": 59,
+    "entry_pngs": 5,
+    "all_actually_viewed": 64,
+    "all_png_headers_and_decodes": [
+      3440,
+      1440
+    ],
+    "complete_uncropped_contact_sheets": 6,
+    "sheet_canvas_pixels": [
+      2040,
+      1248
+    ],
+    "frame_pixels_on_sheet": [
+      680,
+      285
+    ],
+    "critical_original_direct_views": 12,
+    "direct_displayed_pixels": [
+      2048,
+      857
+    ],
+    "native_pixel_optical_acceptance": false,
+    "crop_or_recolor": false
+  },
+  "prior_review": {
+    "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\TERMINAL.json",
+    "raw_sha256": "240006ac636af02e0eec4c6f429c0fb69359e4ceb139cb388c1d1c506f09ec1e",
+    "exact_byte_matches": 0,
+    "reused_records": 0,
+    "note": "All64 current raw hashes differ. All reviewed fresh. Prior runtime13 failed shutdown remains failed; no qualification inherited."
+  },
+  "entry_associations": {
+    "report": "surface/entry_preparation/preparation_views.json",
+    "report_sha256": "8d7ff10e25ddd266e03dc5f54608e6add0176381276d5a9ce69fe20b2bb97fe8",
+    "all5_image_raw_hashes_match_report": true,
+    "images": [
+      {
+        "file": "preparation_00.png",
+        "forward": "(-0.0, 0.0, 1.0)",
+        "origin": "(-0.0, 1.45, 1.200001)",
+        "sha256": "88ffb62354e18a63eada9b7a8378f54c170db151c9c32dde4aae2949042d560a"
+      },
+      {
+        "file": "preparation_01.png",
+        "forward": "(-0.201415, -0.692615, 0.692615)",
+        "origin": "(8.000003, 38.63004, -38.91003)",
+        "sha256": "62a0ba181e0db2507cc24b0cbe269d742b806045b61156e0e1f24428a898f378"
+      },
+      {
+        "file": "preparation_02.png",
+        "forward": "(0.0, 0.0, -1.0)",
+        "origin": "(0.000002, 1.45, -24.0)",
+        "sha256": "a9102c6d4547669cc703b25c028af69d0acb42f1c97a03a09927d33dd6f4241c"
+      },
+      {
+        "file": "preparation_03.png",
+        "forward": "(0.201415, -0.692615, 0.692615)",
+        "origin": "(-7.999997, 38.63004, -38.91003)",
+        "sha256": "973a6a04d0890c037789c0ba2d949f812d401667b736fd45c52321e735d54531"
+      },
+      {
+        "file": "preparation_04.png",
+        "forward": "(0.0, 0.0, -1.0)",
+        "origin": "(0.0, 1.447278, 1.5)",
+        "sha256": "21fbde53f1e30ce39685970416e218ba360f04ce085b118c27f580d9b09115ab"
+      }
+    ],
+    "preparation": {
+      "cancelled": false,
+      "completed": true,
+      "elapsed_ms": 454.03,
+      "executed": true,
+      "node_pose_unchanged": true,
+      "reason": "",
+      "render_calls": 10
+    },
+    "policy_sha256": "8b35dbfc1e8efd0859fe8172f6ed859a1f288beb862c73c79826cc3d169f934b"
+  },
+  "sheets": [
+    {
+      "file": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sha256": "6d093aab9b483c0c3cce29648a2a93eb9d83a5534e14028f6d490f64be279062"
+    },
+    {
+      "file": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sha256": "6fdeca7604b652f631268d434c9fc3798ccb92d12293dd02a015804d79f34eb8"
+    },
+    {
+      "file": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sha256": "98feb96a6d0e85b41f38fce7db7b878135dae809691753d931c3fe5a5f65ff63"
+    },
+    {
+      "file": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sha256": "cee1b7bd128630c31424729bc21aed8a8ed9347a7fe5b285548f45fc252bf57e"
+    },
+    {
+      "file": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sha256": "baed8d9da4456fdd26184cb3471fdf5dad49bdeef824eea54fc3679505942102"
+    },
+    {
+      "file": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_06.png",
+      "sha256": "9e1a85f8805f3925d26c73ff2f64f61056136f13824cbdf1ed0d04630354c78c"
+    }
+  ],
+  "frames": [
+    {
+      "file": "surface/boiler.png",
+      "sha256": "b6b4d060c9b68edc226545511ef07357b11710cfba086ba07721fc3fd3a80b3c",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sheet_cell": 1,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/bookcase.png",
+      "sha256": "9fa4ba371ffb19fd20f53ad6dd10602bd4a78efb2af70361e5b982369676b1bd",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sheet_cell": 2,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Cabinet/bookcase and room stock visible; no book/nook readability or interaction acceptance."
+    },
+    {
+      "file": "surface/city_batch_site_far_n_roof_day.png",
+      "sha256": "643b5ece886fccc925bce1cb3bdcaabbc27dbc7b6e7e7f7f4b5fd3992c79e58d",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sheet_cell": 3,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_n_roof_dusk.png",
+      "sha256": "f6d7930c374b8a5a10ada0860523e714a6448f4d4a5a9909724c139459b6589e",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sheet_cell": 4,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_n_street.png",
+      "sha256": "fb5a5f6ea26b4b8035ae2ea67bebbbc892b7182f5b7016928e1a93910f0f1259",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sheet_cell": 5,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_ne_roof_day.png",
+      "sha256": "30c89d327227758071504e02415047d616dcde6e25d61e7243567dc1a26cc9bf",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sheet_cell": 6,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_ne_roof_dusk.png",
+      "sha256": "53f0b150bf192ddd75e06b610e83d6b93bb3e63511fc0f4a47b8338fea9ce19e",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sheet_cell": 7,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_ne_street.png",
+      "sha256": "920e1fcea5dc4a62da264af24f0b49667ecdbf8402565871627cae5c91e61dcb",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sheet_cell": 8,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_s_roof_day.png",
+      "sha256": "1c06c5678c329f4116805888de03c4d33522f388a068f5fb2e1921e9d34b7d6b",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sheet_cell": 9,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_s_roof_dusk.png",
+      "sha256": "adfbde8286dbdf06bb898302bd4bb2de14c487bb81c6df406ccad100d4b7fa0f",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sheet_cell": 10,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_s_street.png",
+      "sha256": "258258280c1ee325fe7bb2e69f514806fb6d96dd911a971867fdf369cef551ad",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sheet_cell": 11,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_se_roof_day.png",
+      "sha256": "1fd0e9528620e33843bb4bb8135be4b57f901414cfbedf0dc5c857874caa2954",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_01.png",
+      "sheet_cell": 12,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_se_roof_dusk.png",
+      "sha256": "9dbfb373dd6e7ce08184d3bacd66854a96a2bde2e57d8ba82eb33cc579723f33",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sheet_cell": 1,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_se_street.png",
+      "sha256": "8c3071f1cd749cc5379b2b9c8820206ade972a8d76007fcbdcf07fa7b34313eb",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sheet_cell": 2,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_sw_roof_day.png",
+      "sha256": "7bd76662dbe88fe7d182e497da4e6893ad2075e34fe404c6bf8e53859a8bb883",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sheet_cell": 3,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_sw_roof_dusk.png",
+      "sha256": "67f5193245fe32ad9f1a5f8497643bd475a2d2e7ae3eb40637cade7c86303339",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sheet_cell": 4,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_sw_street.png",
+      "sha256": "b1d2579ffdc17330683601f0eb9c3348b05a26461fe224e7566313886c42c41a",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sheet_cell": 5,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_w_roof_day.png",
+      "sha256": "d05e1a42c710c9896f76528090a24c93a9937bcd65e699c30431d865595edc8c",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sheet_cell": 6,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_w_roof_dusk.png",
+      "sha256": "401dd599d69d85d3f3a84ceb327e253cc040bb066d0efcc74ea111400c95ed48",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sheet_cell": 7,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_batch_site_far_w_street.png",
+      "sha256": "1fc87cc980a021045cb5834ccc42822708bb5517ef2c78f8a918dd7a65add2dc",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sheet_cell": 8,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Building facades/roof layouts visible; many shaded/dusk surfaces are dark. Contact-sheet scale cannot qualify fine material or window detail."
+    },
+    {
+      "file": "surface/city_east_roof.png",
+      "sha256": "651037bcc845d557eaac0d099f7b3b99f050a94f610205751c0894cba1d67470",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet plus direct original displayed by image tool",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sheet_cell": 9,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": [
+        2048,
+        857
+      ],
+      "reused_prior_visibility": false,
+      "observation": "Mostly sky with only lower-edge roof/tower fragments; roof surface visibility limited."
+    },
+    {
+      "file": "surface/city_ground_edge_0.png",
+      "sha256": "46e2d91c0b072ef8620345679fe59f4ff3dc270c3b48eebf7d1fe8d71e282231",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sheet_cell": 10,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/city_ground_edge_2.png",
+      "sha256": "3718d47e5ea87d1a3eb8877f045252a70732f2a1dbc0d34d9dd35044886eff0e",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sheet_cell": 11,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/city_ground_seam.png",
+      "sha256": "2a57f06e812f5640441e376594982d6dfa9a57d349113e8ff11c18ac9cb55bb6",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_02.png",
+      "sheet_cell": 12,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/city_horizon_context.png",
+      "sha256": "58402c0eaf882352dc1238c59fb8f2ffc99486e16d3be3435b59fa58bdbedb86",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sheet_cell": 1,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/city_north_roof.png",
+      "sha256": "12077b0090f237835a743dfdfceffa69a4bec99bbaeeb2291dc15b6e7c7aab51",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sheet_cell": 2,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/city_open_west_frontage.png",
+      "sha256": "02c4dcad074043c05bf8a401ba9c26193dd287a951c377aef5bc51e4af149fd8",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sheet_cell": 3,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/city_relief_canal.png",
+      "sha256": "fdc0289675113dbe090452f57f36bc7d148465aac65c1010f11a5fbdeda9c82c",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet plus direct original displayed by image tool",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sheet_cell": 4,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": [
+        2048,
+        857
+      ],
+      "reused_prior_visibility": false,
+      "observation": "Large dark, nearly flat channel/ground planes with little resolved canal detail. No cause attribution."
+    },
+    {
+      "file": "surface/city_relief_rail_cut.png",
+      "sha256": "4a82d587a6e437b928e081f13f32c70aa2e10400ea5f764e709361a612ee4941",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet plus direct original displayed by image tool",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sheet_cell": 5,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": [
+        2048,
+        857
+      ],
+      "reused_prior_visibility": false,
+      "observation": "Large dark, nearly flat cut/ground planes; rail geometry not clearly resolved at reviewed scale. No cause attribution."
+    },
+    {
+      "file": "surface/city_relief_river.png",
+      "sha256": "b639e5e442a1bba2138b58115aec7d60b7fc4cbdcf94451162e9d1eb6d41e265",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sheet_cell": 6,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Broad dark flat foreground/channel and distant city; limited resolved water/relief detail at contact-sheet scale."
+    },
+    {
+      "file": "surface/city_site_back_e_window.png",
+      "sha256": "2c33cca97eefb45fa7e85d2a0fc33c91466beed7875ae25ed7b5a09a14289a11",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sheet_cell": 7,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/city_site_nbr_e_window.png",
+      "sha256": "97dadee57a7eb8b54613e7cfc95185dfc49f9e627915fad001b5ec784286e1a9",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sheet_cell": 8,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/city_site_ne1_window.png",
+      "sha256": "bd6855c3a6411f891a3ea9041b50202a88e64a0803ad5f437d7ab5cfcccde993",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sheet_cell": 9,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/city_site_nw2_window.png",
+      "sha256": "9d9a1b863954172749ea4f60787f84d3e5627f567094ff6ace3475d9ba4296a4",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sheet_cell": 10,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/city_street_skyline.png",
+      "sha256": "588798044f0f7d5e23435d90d2daeb60ed3e08ae7bf995ac9a1f966c9989231d",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sheet_cell": 11,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/city_townhouse_street_front.png",
+      "sha256": "dbd005b063cea2bedcee3381d3348a6a17cec65afa338e9ca97eb9b8c860cb8f",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_03.png",
+      "sheet_cell": 12,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/city_weather_dry.png",
+      "sha256": "e5539a6c89949bcdbc22769ef42ecbef3e80a127eef10616f111668d7151db26",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sheet_cell": 1,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Sky-dominant framing; reduced useful roof/city coverage."
+    },
+    {
+      "file": "surface/city_weather_fog.png",
+      "sha256": "19b528b01876070f5828eceb4047cdcbd081ec4aba4c01e6d005d69958a40455",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sheet_cell": 2,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Sky-dominant pale/fogged framing; reduced useful roof/city coverage."
+    },
+    {
+      "file": "surface/city_weather_storm.png",
+      "sha256": "7065f52709fd79a19babb5b52e1de2e71c1fa87559c9e0572c512d956d87e0c3",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sheet_cell": 3,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Sky-dominant overcast framing; reduced useful roof/city coverage."
+    },
+    {
+      "file": "surface/city_west_roof.png",
+      "sha256": "51ca476d6283f883ea9ff954ae1879f22a04690d84fd6c4de108aa0b00c1afa3",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sheet_cell": 4,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/closet_vent_bypass_services.png",
+      "sha256": "c3621ebf734639b114e995e02d355e5490b5080d326435239da8ab471716f5d0",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet plus direct original displayed by image tool",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sheet_cell": 5,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": [
+        2048,
+        857
+      ],
+      "reused_prior_visibility": false,
+      "observation": "Filename describes services, but actual frame shows tiled toilet corner/cistern; does not establish intended vent/bypass service visibility."
+    },
+    {
+      "file": "surface/dumbwaiter.png",
+      "sha256": "b20ccdc53bce2e0667552cf1797dbd3e0e60246b11bcdd7f7713d10d939c2ab6",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet plus direct original displayed by image tool",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sheet_cell": 6,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": [
+        2048,
+        857
+      ],
+      "reused_prior_visibility": false,
+      "observation": "Dark close wall/brick framing; dumbwaiter mechanism not shown. This frame cannot establish its visual condition."
+    },
+    {
+      "file": "surface/entry_preparation/preparation_00.png",
+      "sha256": "88ffb62354e18a63eada9b7a8378f54c170db151c9c32dde4aae2949042d560a",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet plus direct original displayed by image tool",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sheet_cell": 7,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": [
+        2048,
+        857
+      ],
+      "reused_prior_visibility": false,
+      "observation": "Entry streetscape and foreground woman visible; foreground character partially occludes background frontage. Device overlay remains at right."
+    },
+    {
+      "file": "surface/entry_preparation/preparation_01.png",
+      "sha256": "62a0ba181e0db2507cc24b0cbe269d742b806045b61156e0e1f24428a898f378",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sheet_cell": 8,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/entry_preparation/preparation_02.png",
+      "sha256": "a9102c6d4547669cc703b25c028af69d0acb42f1c97a03a09927d33dd6f4241c",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sheet_cell": 9,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/entry_preparation/preparation_03.png",
+      "sha256": "973a6a04d0890c037789c0ba2d949f812d401667b736fd45c52321e735d54531",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sheet_cell": 10,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/entry_preparation/preparation_04.png",
+      "sha256": "21fbde53f1e30ce39685970416e218ba360f04ce085b118c27f580d9b09115ab",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet plus direct original displayed by image tool",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sheet_cell": 11,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": [
+        2048,
+        857
+      ],
+      "reused_prior_visibility": false,
+      "observation": "Close main entry door/glass and stone surrounds visible; right-side handheld device overlay remains."
+    },
+    {
+      "file": "surface/F02_A_MAIN.png",
+      "sha256": "3a96190847a061e4255882fc5f89561a1ed604f6c3bcb9ab7a6ebbf3a6405d6d",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_04.png",
+      "sheet_cell": 12,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/F03_B_BATH_reflection_repair.png",
+      "sha256": "95e45fdc7957dcdce2bd395b08bacd677f5ec0356183f7b227263ca8b034a1cd",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sheet_cell": 1,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Flashlight-lit tiled wall and toilet corner; framing does not provide a broad mirror/reflection review."
+    },
+    {
+      "file": "surface/F03_B_MAIN.png",
+      "sha256": "389011d6675674cbd8159b3012667304a8e7fd44e843208185cbeb6d4b1f5894",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sheet_cell": 2,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/F04_C_MAIN.png",
+      "sha256": "660eb8ab88faff563271d01ec500939e7eb367064ca0a4165c7682362b03280b",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sheet_cell": 3,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/F06_B_KITCHEN_reflection_repair.png",
+      "sha256": "70c23a3a52b63ccb7427eb4a42b2858702dba74a79553d731f91e6f34877594a",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet plus direct original displayed by image tool",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sheet_cell": 4,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": [
+        2048,
+        857
+      ],
+      "reused_prior_visibility": false,
+      "observation": "Kitchen fixtures visible; pronounced mottled dark shading patches on wall/ceiling remain visible. No cause attribution."
+    },
+    {
+      "file": "surface/fuse_panel.png",
+      "sha256": "62203e47179316219b4580158a472a2376650f8cca5124f79938021c876998f9",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sheet_cell": 5,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/mail_bank.png",
+      "sha256": "3a301b539b2ac0e30c82de3a63718cdbbba80106604d1e2da90532f334207280",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sheet_cell": 6,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Mail slots visible in dark lighting; fine text/readability not qualified by thumbnail."
+    },
+    {
+      "file": "surface/radiator.png",
+      "sha256": "ec950b85b83c0d40ff8484003f17bd3e8887ad3e6edf6c17045fa2e156d840ec",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet plus direct original displayed by image tool",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sheet_cell": 7,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": [
+        2048,
+        857
+      ],
+      "reused_prior_visibility": false,
+      "observation": "Radiator body and adjoining room stock visible; radiator lower part and fittings partly outside/below framing, no manipulation acceptance."
+    },
+    {
+      "file": "surface/roof_drive_uv.png",
+      "sha256": "8d531f4bbebc05c977ff5464b25b815d22c4c5e97c848c5c0088101ea4c7fd7e",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sheet_cell": 8,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/roof_tank_uv.png",
+      "sha256": "261ddf2a3b10ad8ba3f55c9aa9b220f96d15b6daf1f9236909c39342be3f1ba7",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sheet_cell": 9,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/shot_001.png",
+      "sha256": "86d149aa31f31c0e13efa8caa671c37c3247c8d1162226b502d8ed40c2298615",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sheet_cell": 10,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/signal_terminal.png",
+      "sha256": "c7bb977f9d81dc068d10e6c2cd1478f3c2d8eb1ed3a5d5ce3bd7523834070935",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sheet_cell": 11,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/staff_closet_deep_services.png",
+      "sha256": "ce64c5bc51923ab5c1ec53f9e3bbcb9759c4c0d2a59c64986f81d20471bdd907",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet plus direct original displayed by image tool",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_05.png",
+      "sheet_cell": 12,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": [
+        2048,
+        857
+      ],
+      "reused_prior_visibility": false,
+      "observation": "Filename describes services, but actual frame shows tiled toilet corner/cistern; does not establish deep service visibility."
+    },
+    {
+      "file": "surface/tentacle_flowing_residue.png",
+      "sha256": "d287eaf18e208bbf9b68f664bacdca49ad4063ef8cc15063fe152ba8ea56c699",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet plus direct original displayed by image tool",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_06.png",
+      "sheet_cell": 1,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": [
+        2048,
+        857
+      ],
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/tentacle_installed_surfaces.png",
+      "sha256": "f811e123762f80be0579369d971fbcd51bc0a259c0864f6b5567b7c861e1d255",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet plus direct original displayed by image tool",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_06.png",
+      "sheet_cell": 2,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": [
+        2048,
+        857
+      ],
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/toaster_crumbs.png",
+      "sha256": "04b051ebc49bd9358ef8b5d741c2a8d4272191127eb8f019645bd1587ea99af9",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_06.png",
+      "sheet_cell": 3,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Actual complete frame viewed on labelled contact sheet; rendered geometry visible. Fine detail, native-pixel optics and artistic acceptance remain unqualified."
+    },
+    {
+      "file": "surface/watch_station.png",
+      "sha256": "afcdd5cb9b4075a26bfd394c90565a5d00efc8c4c5b93fd51a8605e953ea73e3",
+      "png_ihdr_pixels": [
+        3440,
+        1440
+      ],
+      "pillow_verify_and_load": true,
+      "actually_viewed": true,
+      "review_method": "complete_uncropped_contact_sheet",
+      "sheet": "C:\\ov\\reports\\develop_intake_20261104\\runtime14_surface_review_sheets\\sheet_06.png",
+      "sheet_cell": 4,
+      "displayed_complete_frame_pixels": [
+        680,
+        285
+      ],
+      "direct_displayed_pixels": null,
+      "reused_prior_visibility": false,
+      "observation": "Station plaque/control visible but dark; fine text/readability not qualified by thumbnail."
+    }
+  ],
+  "human_played": false,
+  "artistically_accepted": false,
+  "performance_accepted": false,
+  "runtime_proof": false
+}

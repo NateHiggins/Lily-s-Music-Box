@@ -154,6 +154,16 @@ source faces. Do not replace the full asset with a portal-only GLB.
 
 ## Verify in a bounded batch
 
+Attribute a legacy replay failure before reverting newer material work. A
+material-bearing triangle hash can fail solely because the source images or
+export packing changed. A material-neutral diagnostic localizes that cause;
+it is not equivalence proof. Preserve the full material-inclusive gate. In the
+installed Blender5.2 exporter, a three-mineral CPU fixture preserved exact PNG
+bytes with Separate Color G to roughness and B multiplied by zero to metallic;
+the exported metallicFactor stayed0. Verify the actual PNG bytes and material
+factors, not only node intent. This is a scoped legacy replay recipe, not a
+global shader convention. See the city ledger's F01 qualification record.
+
 Before replaying a producer that saves editable sources, inspect ignored Blender
 backups as well as Git status. Preserve existing numbered backups with verified
 hashes outside the checkout before the producer can overwrite them. Remove a

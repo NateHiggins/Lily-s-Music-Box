@@ -233,6 +233,34 @@ class ReconciledReviewTests(unittest.TestCase):
                 self.assertEqual(bool(of_class(self.scan_source(text, path),
                     "HOST_CLOCK_MUTATES_WORLD")), expected)
 
+    def test_title_timing_anchors_stay_in_native_receipt(self):
+        rel = "game/tests/title_continue_actual_launch_test.gd"
+        source = (REPO_ROOT / rel).read_text(encoding="utf-8")
+        emit = '\t\tvar path := OS.get_environment("TITLE_ACTUAL_RECEIPT")'
+        cases = [
+            (rel, source, 0),
+            ("game/tests/lookalike.gd", source, 2),
+            (rel, source.replace("class LaunchObserver", "class OtherObserver"), 2),
+            (rel, source.replace("func _verify(", "func _other("), 2),
+            (rel, source.replace(emit, '\t\tRealityState.data["clock"] = born_anchor_utc\n' + emit), 2),
+            (rel, source.replace(emit, '\t\treturn receipt\n' + emit), 2),
+            (rel, source.replace(emit, '\t\tvar alias = receipt\n' + emit), 2),
+            (rel, source.replace(emit, '\t\tvar other = get(field)\n' + emit), 2),
+            (rel, source.replace(emit, '\t\tvar other = receipt[field]\n' + emit), 2),
+            (rel, source.replace("TITLE_ACTUAL_RECEIPT", "OTHER_DESTINATION"), 2),
+            (rel, source.replace("file.store_string(JSON.stringify(receipt", "# file.store_string(JSON.stringify(receipt"), 2),
+            (rel, source.replace("observer.action = action",
+                                 "var alias = observer\n\tobserver.action = action"), 2),
+            (rel, source.replace("observer.action = action",
+                                 "observer.get(field)\n\tobserver.action = action"), 2),
+            (rel, source.replace("timing[label] = Time.get_ticks_usec()",
+                                 "timing[label] = Time.get_unix_time_from_system()"), 3),
+        ]
+        for path, text, expected in cases:
+            with self.subTest(path=path, expected=expected):
+                self.assertEqual(len(of_class(self.scan_source(text, path),
+                    "HOST_CLOCK_MUTATES_WORLD")), expected)
+
     def test_inherited_input_requires_executable_calls_not_string_contents(self):
         parent = ('extends Node\n'
                   'func _ready():\n    call_deferred("_run")\n'

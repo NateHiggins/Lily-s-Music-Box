@@ -621,6 +621,18 @@ HOST_ARTIFACT_FIELDS = {
     ("game/tests/prop_warehouse_shot.gd", "_run"): ("manifest", "generated_at"),
 }
 
+# The reviewed title observer uses these two UTC reads only to correlate its
+# monotonic timings with the externally recorded native process birth. The
+# exact fixture binding makes any change to the receipt or its sinks reviewable.
+TITLE_TIMING_FIXTURE = "game/tests/title_continue_actual_launch_test.gd"
+TITLE_TIMING_FIXTURE_SHA256 = "d4fe064f521dd1294c97ec1051360fa7e059a6e2319f5ff4b4e79f74ad50b42e"
+
+
+def _reviewed_title_timing_anchor(ctx: FileContext, line_no: int) -> bool:
+    return (ctx.rel == TITLE_TIMING_FIXTURE and line_no in (16, 223)
+            and hashlib.sha256(ctx.text.replace("\r\n", "\n").encode("utf-8")).hexdigest()
+            == TITLE_TIMING_FIXTURE_SHA256)
+
 
 def _artifact_timestamp_only(ctx: FileContext, scope: str, line: str) -> bool:
     spec = HOST_ARTIFACT_FIELDS.get((ctx.rel, scope))
@@ -959,7 +971,8 @@ def _scan_host_clock(ctx, findings, line, scope, line_no):
         return
     if _pure_prologue_destination(ctx, scope, code_body):
         return
-    if _artifact_timestamp_only(ctx, scope, line):
+    if (_artifact_timestamp_only(ctx, scope, line)
+            or (unix_host_read and _reviewed_title_timing_anchor(ctx, line_no))):
         return
     if (civil_host_read or unix_host_read) and (ctx.rel, scope) in HOST_FILENAME_SCOPES and \
             not CALENDAR_DURABLE_RE.search(code_body):

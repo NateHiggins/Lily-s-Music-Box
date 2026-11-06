@@ -1,0 +1,201 @@
+[
+  {
+    "gpu": [
+      "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\prepare_runtime14.py",
+      "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14",
+      "before"
+    ],
+    "scene": "V2 qualification before guard",
+    "log": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\before.log",
+    "timeout": 180,
+    "environment": {
+      "ORISON_GODOT_EXE": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe"
+    }
+  },
+  {
+    "project": "C:\\PleaseRemainOnTheLine\\game",
+    "scene": "res://tests/CompileChangedScripts.tscn",
+    "runner": "serial",
+    "timeout": 180,
+    "log": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\compile.log",
+    "environment": {
+      "ORISON_VISIBLE_GODOT": null,
+      "APPDATA": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\compile\\appdata",
+      "ORISON_GODOT_EXE": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe",
+      "ORISON_NATIVE_AUDIO_OUTPUT": null,
+      "ORISON_SCRIPT_CHECK": "[\"res://tests/service_door_route_bench.gd\", \"res://tests/radiator_hand_bench.gd\", \"res://tests/orison_v2_first_slice_contract_test.gd\", \"res://scripts/building/orison_v2_domestic_doors.gd\", \"res://scripts/building/orison_v2_fitted_door.gd\", \"res://scripts/building/orison_v2_anchor_adapter.gd\", \"res://scripts/props/door_prop.gd\", \"res://scripts/props/easy_door_motion.gd\", \"res://scripts/props/radiator_vent_stock.gd\", \"res://scripts/props/radiator_vent_insert.gd\", \"res://scripts/props/radiator_prop.gd\", \"res://scripts/player/player_controller.gd\", \"res://tests/native_debug_window.gd\", \"res://tests/orison_v2_remaining_apartment_access_contract_test.gd\", \"res://tests/v2_remaining_apartment_walk.gd\", \"res://tests/installed_camera_probe.gd\"]"
+    }
+  },
+  {
+    "project": "C:\\PleaseRemainOnTheLine\\game",
+    "scene": "res://tests/RadiatorInsertRouteBench.tscn",
+    "runner": "long",
+    "timeout": 1500,
+    "log": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\probe.log",
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\probe",
+    "extra_args": [
+      "--script",
+      "res://tests/native_debug_window.gd",
+      "--fullscreen",
+      "--resolution",
+      "3440x1440"
+    ],
+    "environment": {
+      "ORISON_VISIBLE_GODOT": null,
+      "APPDATA": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\probe\\appdata",
+      "ORISON_GODOT_EXE": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe",
+      "ORISON_NATIVE_AUDIO_OUTPUT": "Headphones (BD9)",
+      "ORISON_RADIATOR_INSERT_ROUTE": "1"
+    }
+  },
+  {
+    "project": "C:\\PleaseRemainOnTheLine\\game",
+    "scene": "res://tests/ServiceDoorRouteBench.tscn",
+    "runner": "long",
+    "timeout": 1500,
+    "log": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\door.log",
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\door",
+    "extra_args": [
+      "--script",
+      "res://tests/native_debug_window.gd",
+      "--fullscreen",
+      "--resolution",
+      "3440x1440"
+    ],
+    "environment": {
+      "ORISON_VISIBLE_GODOT": null,
+      "APPDATA": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\door\\appdata",
+      "ORISON_GODOT_EXE": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe",
+      "ORISON_NATIVE_AUDIO_OUTPUT": "Headphones (BD9)",
+      "ORISON_RADIATOR_INSERT_ROUTE": "1"
+    }
+  },
+  {
+    "project": "C:\\PleaseRemainOnTheLine\\game",
+    "scene": "res://tests/InstalledCameraProbe.tscn",
+    "runner": "long",
+    "timeout": 1500,
+    "log": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\installed.log",
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\installed",
+    "extra_args": [
+      "--script",
+      "res://tests/native_debug_window.gd",
+      "--fullscreen",
+      "--resolution",
+      "3440x1440"
+    ],
+    "environment": {
+      "ORISON_VISIBLE_GODOT": null,
+      "APPDATA": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\installed\\appdata",
+      "ORISON_GODOT_EXE": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe",
+      "ORISON_NATIVE_AUDIO_OUTPUT": "Headphones (BD9)",
+      "ORISON_INSTALLED_CAMERA_TRANSFER": "1"
+    }
+  },
+  {
+    "gpu": [
+      "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\prepare_runtime14.py",
+      "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14",
+      "review"
+    ],
+    "scene": "V2 qualification review guard",
+    "log": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\review.log",
+    "timeout": 240,
+    "environment": {
+      "ORISON_GODOT_EXE": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe"
+    }
+  },
+  {
+    "project": "C:\\PleaseRemainOnTheLine\\game",
+    "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
+    "runner": "long",
+    "timeout": 1500,
+    "log": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\first_slice.log",
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\first_slice",
+    "extra_args": [
+      "--script",
+      "res://tests/native_debug_window.gd",
+      "--fullscreen",
+      "--resolution",
+      "3440x1440"
+    ],
+    "environment": {
+      "ORISON_VISIBLE_GODOT": null,
+      "APPDATA": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\first_slice\\appdata",
+      "ORISON_GODOT_EXE": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe",
+      "ORISON_NATIVE_AUDIO_OUTPUT": "Headphones (BD9)"
+    }
+  },
+  {
+    "project": "C:\\PleaseRemainOnTheLine\\game",
+    "scene": "res://tests/OrisonV2RemainingApartmentAccessContractTest.tscn",
+    "runner": "long",
+    "timeout": 1500,
+    "log": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\apartments.log",
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\apartments",
+    "extra_args": [
+      "--script",
+      "res://tests/native_debug_window.gd",
+      "--fullscreen",
+      "--resolution",
+      "3440x1440"
+    ],
+    "environment": {
+      "ORISON_VISIBLE_GODOT": null,
+      "APPDATA": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\apartments\\appdata",
+      "ORISON_GODOT_EXE": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe",
+      "ORISON_NATIVE_AUDIO_OUTPUT": "Headphones (BD9)"
+    }
+  },
+  {
+    "project": "C:\\PleaseRemainOnTheLine\\game",
+    "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+    "runner": "long",
+    "timeout": 1500,
+    "log": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\surface.log",
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\surface",
+    "extra_args": [
+      "--script",
+      "res://tests/native_debug_window.gd",
+      "--fullscreen",
+      "--resolution",
+      "3440x1440"
+    ],
+    "environment": {
+      "ORISON_VISIBLE_GODOT": null,
+      "APPDATA": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\profiles\\surface\\appdata",
+      "ORISON_GODOT_EXE": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe",
+      "ORISON_NATIVE_AUDIO_OUTPUT": "Headphones (BD9)",
+      "ORISON_SURFACE_PHYSICAL_ONLY": "1",
+      "ORISON_SURFACE_CITY_REVIEW": "1",
+      "ORISON_SURFACE_ENTRY_FRAMING": "1",
+      "ORISON_SURFACE_CITY_ONLY": null,
+      "ORISON_SURFACE_FIRE_ONLY": null,
+      "ORISON_SURFACE_CITY_CONSTRUCTION": null,
+      "ORISON_SURFACE_CITY_CIVIC_ACCESS": null,
+      "ORISON_SURFACE_PREVIEW_PROBE": null
+    }
+  },
+  {
+    "gpu": [
+      "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\prepare_runtime14.py",
+      "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14",
+      "after"
+    ],
+    "scene": "V2 qualification after guard",
+    "log": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\after.log",
+    "timeout": 180,
+    "environment": {
+      "ORISON_GODOT_EXE": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe"
+    }
+  }
+]

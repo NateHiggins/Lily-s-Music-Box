@@ -1,0 +1,612 @@
+{
+  "evidence_class": "INERT",
+  "reviewer": "book_intake",
+  "review_scope": "Actual selected-frame technical surface presence and room-framing observations only. No UV/PBR/mipmap qualification, gameplay extension, whole-room visibility, human play or artistic acceptance.",
+  "human_played": false,
+  "artistically_accepted": false,
+  "all_18_frames_opened": true,
+  "all_18_actual_png_pixels": [
+    3440,
+    1440
+  ],
+  "all_room_views_unobstructed": false,
+  "prior_image_note_reuse": {
+    "count": 0,
+    "notes_reused": 0,
+    "reason": "Every runtime14 image differs in raw bytes from its runtime13 counterpart; all18were opened anew. Prior reported5A_MAIN/6B_MAIN major and5B_MAIN minor observations are independently retained where still observed, not reused as current proof."
+  },
+  "summary": {
+    "major_foreground": [
+      "5A_F05_A_MAIN.png",
+      "6A_F06_A_MAIN.png",
+      "6B_F06_B_MAIN.png"
+    ],
+    "minor_foreground": [
+      "5B_F05_B_MAIN.png"
+    ],
+    "close_cropped_bath_views": [
+      "3A_F03_A_BATH.png",
+      "5A_F05_A_BATH.png",
+      "5B_F05_B_BATH.png",
+      "6A_F06_A_BATH.png",
+      "6B_F06_B_BATH.png"
+    ],
+    "scope_limit": "Major foreground captures do not establish that the obscured room contents/floor are visible; wall crops establish only listed surfaces. No source of foreground geometry or regression is inferred."
+  },
+  "reviewed_utc": "2026-11-05T00:21:18.968518+00:00",
+  "source_freeze": {
+    "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\SOURCE_FREEZE.json",
+    "raw_sha256": "7f76d8fadf522788b20a410bf0a6b3376bd090cb5500b4842cffaf09294c6abe",
+    "lf_sha256": "7f76d8fadf522788b20a410bf0a6b3376bd090cb5500b4842cffaf09294c6abe",
+    "repository_head": "dd1d6f652b9087c410b82a81b40284124c92e92c",
+    "engine_binding_as_recorded": {
+      "manifest_path": "C:\\PleaseRemainOnTheLine\\.godot-engine.json",
+      "manifest_raw_sha256": "dfc8104a9a92e991d1c3c7bc640dd4778b81d98b3204e53d5185cfe11ee45f7b",
+      "manifest_lf_sha256": "6bf3be9bd598aa397cc1c5f2a7ff36c06d48767929ef5ef93b53f288b2a9e759",
+      "path": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe",
+      "binaries": {
+        "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe": "7965e75a4f847484a4d1596729b508cb1ef23ae17ab6407eaffd9683364f0f8c",
+        "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.exe": "e954c1db69ebe4b60878ae92cdc3a0e464fe92bd06b78c19402055e9f7bafce1"
+      }
+    },
+    "diagnostic_audio_output_as_recorded": "Headphones (BD9)"
+  },
+  "apartment_wrapper": {
+    "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\apartments.log.receipt.json",
+    "raw_sha256": "d841ebdb335dfebfdbeda9855800358786bed6153875b3ca48c581c4bcfa000f",
+    "execution_as_recorded": {
+      "completed": true,
+      "elapsed_s": 974.8,
+      "exit_code": 0,
+      "finished_utc": "2026-11-05T00:19:57Z",
+      "started_utc": "2026-11-05T00:03:42Z",
+      "timed_out": false
+    },
+    "evidence_kind_as_recorded": "suite_run",
+    "source_as_recorded": {
+      "dirty_paths": 0,
+      "dirty_sample": [],
+      "repository_head": "d0039ff78da1451c68ddffebfd93672e46baf472",
+      "repository_tree": "ebfc27b473744e4e4f0d8d8774fdf044343c2541",
+      "runtime_inputs_sha256": "1051c14da9658c05759af9ecc6e4f31b64f7d3e67b0e356b5e85a588fb361d5f",
+      "test_path": "game/tests/orison_v2_remaining_apartment_access_contract_test.gd",
+      "test_sha256": "6833022637c5dfe16b26f7a6b87248f435f9ec43714f32885326331f6597aa99"
+    },
+    "original_log_bindings": {
+      "stdout": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\apartments.log",
+        "raw_sha256": "1887ab96fda46d4a935e5664ce1647e16710157ec1281ff90b657099f01728c9",
+        "wrapper_claimed_sha256": "1887ab96fda46d4a935e5664ce1647e16710157ec1281ff90b657099f01728c9",
+        "wrapper_hash_match": true,
+        "byte_length": 131819
+      },
+      "stderr": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\apartments.log.stderr",
+        "raw_sha256": "40caa8b5b8954724c55a7a4027bb4b1f2447e1c8cc45254f6f233360c9d57869",
+        "wrapper_claimed_sha256": "40caa8b5b8954724c55a7a4027bb4b1f2447e1c8cc45254f6f233360c9d57869",
+        "wrapper_hash_match": true,
+        "byte_length": 7880
+      }
+    }
+  },
+  "original_runtime_contract": {
+    "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_14\\apartments\\runtime_contract.json",
+    "raw_sha256": "43ddc4f1feddabc6a5321faedfa848d2180aec68e396d37afb26607525672346",
+    "execution_as_recorded": {
+      "completed": true,
+      "elapsed_s": 951.047,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "checks_serialized": 781,
+    "console_checks_total_after_flush": 782,
+    "failures": 0,
+    "room_count": 60,
+    "leg_count": 9,
+    "claim": "Separately recorded original runtime result; this frame review creates no additional gameplay proof."
+  },
+  "frames": [
+    {
+      "relative_path": "apartments/3A_F03_A_BATH.png",
+      "raw_sha256": "e253543a56763583d44d94468ef52995f7ac7db249d3ca3a5425817f241a9459",
+      "byte_length": 3720034,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "3A_F03_A_BATH",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\3A_F03_A_BATH.png",
+        "raw_sha256": "25d0b82598aaa02d7f6f0bfe4d0b82b5b7eca3273c804806ad360717e6ee422e",
+        "identical_raw_bytes": false
+      },
+      "file": "3A_F03_A_BATH.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "close_crop",
+      "framing": "close bathroom wall/switch, curtain and tiled edge; partial toilet at lower right",
+      "visible_surface_presence": [
+        "painted wall",
+        "switch plate",
+        "curtain textile",
+        "tile wainscot",
+        "partial toilet seat"
+      ],
+      "limits": "Bathroom-wide fixture layout is outside the crop; do not infer full-room visibility."
+    },
+    {
+      "relative_path": "apartments/3A_F03_A_MAIN.png",
+      "raw_sha256": "ed13b6f5bbe92f6884350f06de0f4c22c1c86a4b3542b85e8015f796b5af5849",
+      "byte_length": 1881808,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "3A_F03_A_MAIN",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\3A_F03_A_MAIN.png",
+        "raw_sha256": "b373c2bd82a38556cd766881def5a6b92dc027f0878658984605563504fdacd8",
+        "identical_raw_bytes": false
+      },
+      "file": "3A_F03_A_MAIN.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "none_major",
+      "framing": "main-room wall/floor and doorway are clearly framed; furniture and carrier remain peripheral",
+      "visible_surface_presence": [
+        "wood floor",
+        "painted walls",
+        "ceiling trim",
+        "door/opening",
+        "table",
+        "small shelf"
+      ],
+      "limits": "Selected direction only; does not show the full room."
+    },
+    {
+      "relative_path": "apartments/3B_F03_B_BATH.png",
+      "raw_sha256": "032c9ab61486f35204d8c1c8f79a4bc63f48137e6ecf9ee53fdb91483cdf0907",
+      "byte_length": 3021697,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "3B_F03_B_BATH",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\3B_F03_B_BATH.png",
+        "raw_sha256": "c244bba0934e4fe4f5f754ced9672487c9cd6ee98d7e9e7547c3cfc87f3e2914",
+        "identical_raw_bytes": false
+      },
+      "file": "3B_F03_B_BATH.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "none_major",
+      "framing": "bathroom wall/window curtain, sink/mirror and partial toilet framed together",
+      "visible_surface_presence": [
+        "tile wainscot",
+        "window curtain",
+        "sink/fittings",
+        "mirror/shelf",
+        "partial toilet"
+      ],
+      "limits": "Floor and some fixture extents cropped; carrier covers a small right-side region."
+    },
+    {
+      "relative_path": "apartments/3B_F03_B_MAIN.png",
+      "raw_sha256": "3daf5650a89fd9522bc2fe65f2ee0be2b1aee66bf4e60e14d686fae45e280a3a",
+      "byte_length": 3683034,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "3B_F03_B_MAIN",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\3B_F03_B_MAIN.png",
+        "raw_sha256": "5cb81abfb9538d9ca7f69f5dd4be8f0ba35d5a0fc0e3d9dcf23f961e26c9baa7",
+        "identical_raw_bytes": false
+      },
+      "file": "3B_F03_B_MAIN.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "none_major",
+      "framing": "window/radiator, chairs and table with adjacent doorway; normal furniture foreground",
+      "visible_surface_presence": [
+        "wood floor",
+        "painted walls",
+        "window/blinds/curtain",
+        "radiator",
+        "wood table/chairs"
+      ],
+      "limits": "Selected furnished corner only; carried device partly covers right-side objects."
+    },
+    {
+      "relative_path": "apartments/4A_F04_A_BATH.png",
+      "raw_sha256": "11172fa36cc46020992a0ad5e6f84a93a7a6dd14cbfd96109c82333da5eddf5c",
+      "byte_length": 3147046,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "4A_F04_A_BATH",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\4A_F04_A_BATH.png",
+        "raw_sha256": "968aed0c6da9188bc212227fb64528d67ffb71fb037af2081f1895b3d92f1944",
+        "identical_raw_bytes": false
+      },
+      "file": "4A_F04_A_BATH.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "none_major",
+      "framing": "sink and mirror, window curtain and tile wall; partial toilet at lower left",
+      "visible_surface_presence": [
+        "tile walls",
+        "painted wall",
+        "curtain/blind",
+        "sink/fittings",
+        "mirror",
+        "partial toilet"
+      ],
+      "limits": "Lower/far fixture extents cropped; carrier peripheral."
+    },
+    {
+      "relative_path": "apartments/4A_F04_A_MAIN.png",
+      "raw_sha256": "0807b1797178f769661eb57d7c4149c9da8d9b519be5e7d25b62befda254d407",
+      "byte_length": 2298619,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "4A_F04_A_MAIN",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\4A_F04_A_MAIN.png",
+        "raw_sha256": "0beb0bccdc8fea5a99fd7f7d41486d9a24b4d742e85656101acbed0e7fa7f755",
+        "identical_raw_bytes": false
+      },
+      "file": "4A_F04_A_MAIN.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "none_major",
+      "framing": "radiator and window wall with visible floor, chair and table edge",
+      "visible_surface_presence": [
+        "painted wall",
+        "wood floor",
+        "radiator",
+        "window/blinds/curtains",
+        "table/chair"
+      ],
+      "limits": "Selected wall/corner view, not a room-wide survey."
+    },
+    {
+      "relative_path": "apartments/5A_F05_A_BATH.png",
+      "raw_sha256": "562d2c12d8eff9afa5c36d39fcce98051f875aa4e83c2176ef89171c0edfc4ca",
+      "byte_length": 2007632,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "5A_F05_A_BATH",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\5A_F05_A_BATH.png",
+        "raw_sha256": "9b608ae6b4c081e58f89923ea38ea30211b586c9baf6cb1b062b3720da12a3f6",
+        "identical_raw_bytes": false
+      },
+      "file": "5A_F05_A_BATH.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "close_crop",
+      "framing": "near tiled/painted bathroom wall dominates; partial toilet and paper fitting at lower left",
+      "visible_surface_presence": [
+        "tile wainscot",
+        "painted upper wall",
+        "paper fitting",
+        "partial toilet"
+      ],
+      "limits": "Most bathroom fixtures and floor are outside frame; wall presence only."
+    },
+    {
+      "relative_path": "apartments/5A_F05_A_MAIN.png",
+      "raw_sha256": "5de783123f2ffd159607d3d60696251ad74365f7046653a02d65a5332feb462d",
+      "byte_length": 1410932,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "5A_F05_A_MAIN",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\5A_F05_A_MAIN.png",
+        "raw_sha256": "ea5c25891f12d5ae9d9365619bc246a57d66a322bb35c08d7000fcde4a5ea4e7",
+        "identical_raw_bytes": false
+      },
+      "file": "5A_F05_A_MAIN.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "major_foreground",
+      "framing": "large dark foreground geometry covers most lower/central view; only upper walls/openings and right shelf remain visible",
+      "visible_surface_presence": [
+        "upper painted walls",
+        "ceiling trim",
+        "upper door/openings",
+        "partial right shelf"
+      ],
+      "limits": "Major obstruction persists. Main room and floor are not adequately visible in this capture; no room-wide visibility claim."
+    },
+    {
+      "relative_path": "apartments/5B_F05_B_BATH.png",
+      "raw_sha256": "6053b7540bd3ada6c89680e2e9b93c04b608226df0adccbd85f4a978b86b0ea4",
+      "byte_length": 1735683,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "5B_F05_B_BATH",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\5B_F05_B_BATH.png",
+        "raw_sha256": "70ccd37f008b3a8218215af3ff2ccba161ef5985584d4a98a1da4ab8d479b1c0",
+        "identical_raw_bytes": false
+      },
+      "file": "5B_F05_B_BATH.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "close_crop",
+      "framing": "near tile/painted wall fills view, with toilet edge at lower right",
+      "visible_surface_presence": [
+        "tile wainscot",
+        "painted upper wall",
+        "partial toilet"
+      ],
+      "limits": "Wall presence only; sink/bathing fixtures and room-wide layout outside capture."
+    },
+    {
+      "relative_path": "apartments/5B_F05_B_MAIN.png",
+      "raw_sha256": "2179c41eb4e862095e44e5e19ac17c5235233306c7bbb28f6b8b95f8b437fa1d",
+      "byte_length": 2156443,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "5B_F05_B_MAIN",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\5B_F05_B_MAIN.png",
+        "raw_sha256": "5e2036884bead26ccf9511912186f51aa91338d78f8a686282fcaad49957d4a9",
+        "identical_raw_bytes": false
+      },
+      "file": "5B_F05_B_MAIN.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "minor_foreground",
+      "framing": "lower-left dark foreground shape clips table/left view; central shelving, doorway and right furnishing remain visible",
+      "visible_surface_presence": [
+        "wood shelving",
+        "books/boxes",
+        "wood table/chair",
+        "door/openings",
+        "painted wall",
+        "partial wood floor"
+      ],
+      "limits": "Minor foreground obstruction persists; no complete-room or readable-book claim."
+    },
+    {
+      "relative_path": "apartments/5C_F05_C_BATH.png",
+      "raw_sha256": "ff6a52cce05e52209bd08baabf4543922bfd5abba27d1dddccf73785c7bddc3c",
+      "byte_length": 4101119,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "5C_F05_C_BATH",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\5C_F05_C_BATH.png",
+        "raw_sha256": "293879496c23295b1ea9f50411be48fcfce20a8a4f7f4ae7791f1ba5d2b97edb",
+        "identical_raw_bytes": false
+      },
+      "file": "5C_F05_C_BATH.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "none_major",
+      "framing": "toilet, curtain, tiled wall and small floor strip are visible",
+      "visible_surface_presence": [
+        "toilet",
+        "curtain textile",
+        "tile wainscot",
+        "painted wall",
+        "small tiled floor strip"
+      ],
+      "limits": "Sink/bathing fixtures and rest of bathroom outside selected view."
+    },
+    {
+      "relative_path": "apartments/5C_F05_C_MAIN.png",
+      "raw_sha256": "cb3b950b0d9101c5375f493b5d9ad8df787d2c5e005c26b394cffed76fa7a1f6",
+      "byte_length": 2466214,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "5C_F05_C_MAIN",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\5C_F05_C_MAIN.png",
+        "raw_sha256": "3e99d09baea80a297ddaef45527024d1136f9d0be3e3fcaf1476fe09a1400bb9",
+        "identical_raw_bytes": false
+      },
+      "file": "5C_F05_C_MAIN.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "none_major",
+      "framing": "wall art, radiator, open passage and table/chairs framed with visible wood floor",
+      "visible_surface_presence": [
+        "painted wall",
+        "wood floor",
+        "radiator",
+        "framed art surfaces",
+        "wood table/chairs",
+        "door/openings"
+      ],
+      "limits": "Peripheral carrier; no text/artistic/readability acceptance."
+    },
+    {
+      "relative_path": "apartments/6A_F06_A_BATH.png",
+      "raw_sha256": "1d8cba27363e08e651d059b2ff18e6f8f34aaeca54ac8c35bde59954a5605e17",
+      "byte_length": 1760817,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "6A_F06_A_BATH",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\6A_F06_A_BATH.png",
+        "raw_sha256": "af9e749e050717ec13ed531d0434bfac9ec208775c87c90dcc885b0dc9645d8c",
+        "identical_raw_bytes": false
+      },
+      "file": "6A_F06_A_BATH.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "close_crop",
+      "framing": "near painted/tiled wall dominates, paper fitting and partial toilet at lower left",
+      "visible_surface_presence": [
+        "tile wainscot",
+        "painted upper wall",
+        "paper fitting",
+        "partial toilet"
+      ],
+      "limits": "Wall presence only; most bathroom layout outside frame."
+    },
+    {
+      "relative_path": "apartments/6A_F06_A_MAIN.png",
+      "raw_sha256": "1659a8c6f0259042d3659bb1bc5eb83744b0e8542771cb8b7f1e3d45b3f67a10",
+      "byte_length": 1360922,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "6A_F06_A_MAIN",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\6A_F06_A_MAIN.png",
+        "raw_sha256": "5d68a424ffba5e6b6e29465bb01cfaf0693d10f7dd39a66bb9e83e6aceaded3f",
+        "identical_raw_bytes": false
+      },
+      "file": "6A_F06_A_MAIN.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "major_foreground",
+      "framing": "dark foreground geometry covers substantial lower/central view; upper walls, ceiling pipe and doorways remain visible",
+      "visible_surface_presence": [
+        "painted upper walls",
+        "ceiling/pipe",
+        "door/openings",
+        "partial shelf/chair"
+      ],
+      "limits": "Floor/central furnishings obscured; not adequate main-room-wide framing. No claim of regression without prior direct image comparison."
+    },
+    {
+      "relative_path": "apartments/6B_F06_B_BATH.png",
+      "raw_sha256": "2d928442f32b771d009ad87849477892740f6c88a5e370bfd08ed1d2416b5a18",
+      "byte_length": 1812880,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "6B_F06_B_BATH",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\6B_F06_B_BATH.png",
+        "raw_sha256": "9204d847768f69874cd80afb931cc672d862b7b2e4156431aba7cc5745edb86e",
+        "identical_raw_bytes": false
+      },
+      "file": "6B_F06_B_BATH.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "close_crop",
+      "framing": "near painted/tiled wall dominates with partial toilet at lower right",
+      "visible_surface_presence": [
+        "tile wainscot",
+        "painted upper wall",
+        "partial toilet"
+      ],
+      "limits": "Wall presence only; most bathroom fixtures/layout outside frame."
+    },
+    {
+      "relative_path": "apartments/6B_F06_B_MAIN.png",
+      "raw_sha256": "c4f86616a0519d444c9365b1b2274863aa878514ed0a734d1c29c199fd8835a9",
+      "byte_length": 1301119,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "6B_F06_B_MAIN",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\6B_F06_B_MAIN.png",
+        "raw_sha256": "701c1d74cd788003b4800ac30d8c943da51e28486dcb7e3462d5870b59790e21",
+        "identical_raw_bytes": false
+      },
+      "file": "6B_F06_B_MAIN.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "major_foreground",
+      "framing": "very large dark foreground geometry blocks central/lower room; only upper wall/opening and left shelf strip remain visible",
+      "visible_surface_presence": [
+        "upper painted wall",
+        "ceiling trim",
+        "partial door/openings",
+        "left shelf edge",
+        "narrow floor strip"
+      ],
+      "limits": "Major obstruction persists. Main-room contents and central floor cannot be assessed."
+    },
+    {
+      "relative_path": "apartments/6C_F06_C_BATH.png",
+      "raw_sha256": "a803c6f167f04fc5cd2b885b7c3696dcb5c37c9c8a4ed256725bfd2b8b20d804",
+      "byte_length": 3917305,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "6C_F06_C_BATH",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\6C_F06_C_BATH.png",
+        "raw_sha256": "7e85fe97ab3dc0c79b8e1f4c6448cf6a6273c2f2fc3fd25f6bbd7630aaae5f99",
+        "identical_raw_bytes": false
+      },
+      "file": "6C_F06_C_BATH.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "none_major",
+      "framing": "toilet, curtain and tiled/painted bathroom corner visible",
+      "visible_surface_presence": [
+        "toilet",
+        "curtain textile",
+        "tile wainscot",
+        "painted wall",
+        "small tiled floor strip"
+      ],
+      "limits": "Selected toilet/curtain corner only; other bathroom fixtures outside frame."
+    },
+    {
+      "relative_path": "apartments/6C_F06_C_MAIN.png",
+      "raw_sha256": "51f9daf1a2c71665bb7974998bbd5f1480fd0e08ace7a4241d7396dacd295257",
+      "byte_length": 2368117,
+      "actual_png_pixels": [
+        3440,
+        1440
+      ],
+      "camera_label": "6C_F06_C_MAIN",
+      "prior_runtime13": {
+        "path": "C:\\ov\\reports\\native_intake_20261102\\qualification_debt_trace_01\\runtime_13\\apartments\\6C_F06_C_MAIN.png",
+        "raw_sha256": "ec3ad220894076c8cb51365a138ae80e686a2101e3e841b62cccccba7d6b29cb",
+        "identical_raw_bytes": false
+      },
+      "file": "6C_F06_C_MAIN.png",
+      "review_method": "Opened original local PNG with view_image; display resized to2048x857; actual header retained3440x1440",
+      "visibility_note_reused": false,
+      "obstruction": "none_major",
+      "framing": "radiator, wall/open passage, table/chairs and radio/gramophone furnishings visible with wood floor",
+      "visible_surface_presence": [
+        "wood floor",
+        "painted wall",
+        "radiator",
+        "door/openings",
+        "wood table/chairs",
+        "radio/gramophone props",
+        "small jar-like props"
+      ],
+      "limits": "Selected furnished corner only; carrier covers part of the right-side furnishings."
+    }
+  ]
+}

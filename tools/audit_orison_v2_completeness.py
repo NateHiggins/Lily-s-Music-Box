@@ -676,6 +676,20 @@ def runtime_receipt_errors(data: dict, root: Path,
         errors.append("actual root-relative game/tests .gd source and SHA-256 required")
     elif sha256_file(source_path) != digest:
         errors.append("test-source SHA-256 is stale")
+    # Preserve older receipts, but never ignore a declared scene dependency.
+    if "test_scene_path" in source or "test_scene_sha256" in source:
+        scene_relative = source.get("test_scene_path", "")
+        scene_digest = source.get("test_scene_sha256", "")
+        scene = root / str(scene_relative)
+        if not isinstance(scene_relative, str) or Path(scene_relative).is_absolute() or \
+                Path(scene_relative).parts[:2] != ("game", "tests") or \
+                ".." in Path(scene_relative).parts or Path(scene_relative).suffix != ".tscn" or \
+                not scene.resolve().is_relative_to((root / "game/tests").resolve()) or \
+                not scene.is_file() or not isinstance(scene_digest, str) or \
+                not re.fullmatch(r"[0-9a-f]{64}", scene_digest):
+            errors.append("actual root-relative game/tests scene and SHA-256 required")
+        elif sha256_file(scene) != scene_digest:
+            errors.append("test-scene SHA-256 is stale")
     if not isinstance(source.get("repository_head"), str) or not re.fullmatch(
             r"[0-9a-f]{40}", source.get("repository_head", "")):
         errors.append("recorded repository head required")

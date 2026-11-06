@@ -1,0 +1,56 @@
+{
+  "evidence_class": "INERT",
+  "actual14_null_binding": "PASS",
+  "validator_lf_sha256": "a10053640090016739aa5ef0579156022db77ca46fbb2cc6613f6a3c13a552a1",
+  "negative_controls": [
+    {
+      "case": "wrong scene",
+      "expected": "reject",
+      "result": "PASS",
+      "errors": [
+        "NULL wrapper test binding rejected: NULL test binding requires the exact first-slice scene"
+      ]
+    },
+    {
+      "case": "wrong script",
+      "expected": "reject",
+      "result": "PASS",
+      "errors": [
+        "NULL wrapper test binding rejected: NULL test binding head or primary script mismatch"
+      ]
+    },
+    {
+      "case": "wrong scene hash",
+      "expected": "reject",
+      "result": "PASS",
+      "errors": [
+        "NULL wrapper test binding rejected: Recorded Git scene, current scene or contract scene hash differs"
+      ]
+    },
+    {
+      "case": "partial null",
+      "expected": "reject",
+      "result": "PASS",
+      "errors": [
+        "wrapper/source mismatch: test_sha256"
+      ]
+    },
+    {
+      "case": "nonnull wrong hash",
+      "expected": "reject",
+      "result": "PASS",
+      "errors": [
+        "wrapper/source mismatch: test_sha256"
+      ]
+    },
+    {
+      "case": "missing hash field",
+      "expected": "reject",
+      "result": "PASS",
+      "errors": [
+        "wrapper/source mismatch: test_path",
+        "wrapper/source mismatch: test_sha256"
+      ]
+    }
+  ]
+}

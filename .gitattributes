@@ -3578,3 +3578,22 @@ game/tests/fixtures/orison_city_ground_edges.json -text
 game/scripts/building/orison_v2_city_ground_edges.gd -text
 tools/prepare_v2_city_ground_edges.py -text
 art/reviews/city_streets_20261029/city_ground_edges_native_20261103.zip -text
+
+# Source-bound legacy finish replay, independent of current V2 art.
+art/data/m11c1/floor01_material_context.json -text
+tools/m11c1_floor01_owner_first/material_context.py -text
+
+# Byte-exact historical apartment19 custody; not current qualification.
+art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/runtime_contract.json -text
+art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/apartments.log.receipt.json -text
+art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/apartments.log -text
+art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/apartments.log.stderr -text
+art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/PROVENANCE.json -text
+
+# Original runtime14 and prior-cohort raw evidence.
+art/reviews/v2_qualification_debt_20261104/** -text -whitespace
+art/renders/orison_v2/surface_requirements_20261011/entry_preparation/preparation_views.json -text
+art/renders/orison_v2/first_slice_contract_20261011/verification.json -text -whitespace
+
+# Preserve raw current-cohort review bindings and prior receipts.
+art/reviews/v2_qualification_current_20261105/** -text -whitespace

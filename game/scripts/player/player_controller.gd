@@ -1449,6 +1449,13 @@ func end_inspection(notify_change := true) -> void:
 	var previous_owner:=inspect_owner
 	var pickup:=_inspect_pickup
 	_inspect_pickup={}
+	# A deliberate primary release may already have placed the original stock.
+	# Ask before this exit releases any current grip: an unplaced held book
+	# must still take the existing same-object return-to-hand path.
+	if not pickup.is_empty() and is_instance_valid(previous_owner) and is_instance_valid(pickup.get("part")) \
+			and previous_owner.has_method("inspection_pickup_return_allowed") \
+			and not previous_owner.inspection_pickup_return_allowed(pickup.part):
+		pickup={}
 	if _grab != null: _grab.release(notify_change)
 	inspect_owner=null
 	_inspection_active=false

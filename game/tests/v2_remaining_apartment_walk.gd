@@ -51,7 +51,7 @@ func _route() -> void:
  if not await _navigate(start):return
  if not await _close_door(str(entry.id)):return
  _require(visited_rooms.size()==rooms.size(),"all authored rooms reached: "+unit_id)
- _require(not player.noclip and player.collision_mask==1 and player.is_physics_processing(),"ordinary collision retained: "+unit_id)
+ _require(not player.noclip and player.collision_mask==(1|player._native_contact_layers) and player.is_physics_processing(),"ordinary collision retained: "+unit_id)
 
 func _approach(edge:Dictionary,room:Dictionary) -> Vector3:
  var r:Array=room.rect
@@ -203,11 +203,15 @@ func _walk(local_target: Vector3, arrival_tolerance: float=.025) -> bool:
  Input.action_release("move_forward")
  await get_tree().physics_frame
  var actual: Vector3 = world.adapter.root.to_local(player.global_position)
+ var expected_mask: int=1|player._native_contact_layers
  var ok := Vector2(actual.x - local_target.x, actual.z - local_target.z).length() < 0.18 \
    and absf(actual.y - local_target.y) < 0.15 and not player.noclip \
-   and player.collision_mask == 1 and player.is_physics_processing()
+   and player.collision_mask == expected_mask and player.is_physics_processing()
  trace.append({"target": [local_target.x, local_target.y, local_target.z],
-   "actual": [actual.x, actual.y, actual.z], "ok": ok, "wall_contacts": contacts})
+   "actual": [actual.x, actual.y, actual.z], "ok": ok, "wall_contacts": contacts,
+   "collision_mask":player.collision_mask,"native_contact_layers":player._native_contact_layers,
+   "expected_collision_mask":expected_mask,"noclip":player.noclip,
+   "physics_enabled":player.is_physics_processing()})
  if not ok:
   var label := "target %s actual %s" % [local_target, actual]
   failures.append(label)

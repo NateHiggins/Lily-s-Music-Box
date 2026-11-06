@@ -1,0 +1,43 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 983.85,
+  "exit_code": 0,
+  "finished_utc": "2026-11-05T09:00:55Z",
+  "started_utc": "2026-11-05T08:44:31Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 REMAINING APARTMENT ACCESS CONTRACT: PASS; 60 rooms; 782 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/develop_intake_20261104/qualification_current_04/apartments.log.stderr",
+  "stderr_sha256": "40caa8b5b8954724c55a7a4027bb4b1f2447e1c8cc45254f6f233360c9d57869",
+  "stdout": "C:/ov/reports/develop_intake_20261104/qualification_current_04/apartments.log",
+  "stdout_sha256": "8683d4250ab2cc01d074262e8b4dfdb92d499044aad05ef5eba1a127db4fcebc"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2RemainingApartmentAccessContractTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\develop_intake_20261104\\qualification_current_04\\apartments",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "693e7cb43bd72ab1969b3d596b9dbe3a607b03e2",
+  "repository_tree": "b99c1d0cc4b8c5a9103ddc2bfd58425625b68b8d",
+  "runtime_inputs_sha256": "7720077f5c1d2477dfc8d804923c8967324c953b69204a84bf8d69d4e293e6e5",
+  "test_path": "game/tests/orison_v2_remaining_apartment_access_contract_test.gd",
+  "test_sha256": "6833022637c5dfe16b26f7a6b87248f435f9ec43714f32885326331f6597aa99"
+ },
+ "windowed": true
+}

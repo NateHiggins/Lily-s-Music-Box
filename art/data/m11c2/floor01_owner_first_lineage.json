@@ -1,12 +1,14 @@
 {
   "authoritative_inputs": {
-    "exterior_regions": "22b6c0415e720d0df5c601dcafa7d430fad0f523f264eb4b8cab0f98a4812448",
+    "exterior_regions": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
     "generator": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "generator_adapter": "f1db11edad77a85871599f42ae6b43a7ebebd788dd67fdf0901418db711c0f27",
-    "layout": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "ownership": "be6e37716a83fd615d733475aed642b9e66f13a12c803b55bdd87035e302755e",
-    "production_exporter": "af5300afd524fb0d9132c31989b9657f267a753449942dd41c309efa6d71366b",
-    "runtime_layout_mirror": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c"
+    "generator_adapter": "b8919d884573a2c0e4a0e63ca8f81c0b77e5048f8c3afcc131e63684101fd599",
+    "layout": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+    "material_context": "ce9605b20746153b2ce54b31ccb0dda9eb5cdc8dcc0a55d6f5c91105ed73a991",
+    "material_context_reader": "38d566216906749085c2b0eb2df508e60199d6a8c2fb52adcbf87ca8ac0f5cd7",
+    "ownership": "9f5005496a01569e3c4cd0aa937a41955849ff434d20761259ec8c1dc6bb2a9b",
+    "production_exporter": "c82e66159c426212a94f69ee07bb65d35fa3acb857046252f2d006c6f443a2bd",
+    "runtime_layout_mirror": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998"
   },
   "authority": "authoritative source catalog plus generation-time ranges",
   "cell_resources": {
@@ -977,7 +979,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "4f551d06a781ca1fd9170b44e535e88fb607eb03a8921ffb9eb432a980f78aa1",
+      "post_export_triangle_payload_sha256": "0c68f3edf788662cfeb1dbed9fea96fd7f937a01939389a75646c7077ddb4b34",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -1103,7 +1105,7 @@
         "triangle_start": 156
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "99d47c9b93b4bc789caec70566c4a11d1a14a0d6ceca425d75a62fa76befb6dc",
+      "post_export_triangle_payload_sha256": "15f7ec095c393fe26cec1b90e1db801f16310b5fd233fa53cf10ea9139aa5d61",
       "source_id": "site_curb6",
       "source_locator": "floors[F01].furniture[1420]",
       "source_range": {
@@ -1943,7 +1945,7 @@
         "triangle_start": 768
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "df51519f1ed9e9cf461d2d12949ecc475f45f3e8c3074e32960e03c480ef05c5",
+      "post_export_triangle_payload_sha256": "20a72350d3e16c041976e41354adf50a2e04796fab68e487b2d58925846e61cf",
       "source_id": "site_sidewalk_56",
       "source_locator": "floors[F01].furniture[1395]",
       "source_range": {
@@ -8033,7 +8035,7 @@
         "triangle_start": 72
       },
       "owner_cell": "CELL_PASSAGE",
-      "post_export_triangle_payload_sha256": "8b8f70e6fc34344e69826624c2caddee0e09a928323a400af198108e0cf5c1d9",
+      "post_export_triangle_payload_sha256": "c92aed36b5a89d180c31b9ad3f1b23d78f8a7581b1821c0312b73f839adedfd8",
       "source_id": "site_passage_svc_radio_service_floor",
       "source_locator": "floors[F01].furniture[1237]",
       "source_range": {
@@ -9293,7 +9295,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_SHOE_REBUILDING",
-      "post_export_triangle_payload_sha256": "e6aa39b6dcec96d41b8f7a3fea64a08eb78acba0e8abf13489ef3c9fcb2916c1",
+      "post_export_triangle_payload_sha256": "f808a5962a959c1dd566f5b2287882d58f2a6d97765fbd644ae4e9d94873d7c4",
       "source_id": "site_rear_shoe_rebuilding_floor",
       "source_locator": "floors[F01].furniture[1115]",
       "source_range": {
@@ -9923,7 +9925,7 @@
         "triangle_start": 24
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "f450b41a85807adc184741f63da027d2377d1a78647b8e24c6a345a956b8043f",
+      "post_export_triangle_payload_sha256": "b50dc7f7d8d5164abaf2da6bb97e0bbb83ce6e4b460a73d1a8963fcb51833f10",
       "source_id": "site_sidewalk_s_w",
       "source_locator": "floors[F01].furniture[1409]",
       "source_range": {
@@ -10553,7 +10555,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "407c329e25a161b2b4e4364b6a2e2de9f729e54b45673d8d46cf9b413f6f26ca",
+      "post_export_triangle_payload_sha256": "a8ad5c099ee17afa9a3df330c030402c7a585fdafa6c6f1e5f7574dee1f0d533",
       "source_id": "F01_UTILITY",
       "source_locator": "floors[F01].rooms[5]",
       "source_range": {
@@ -15257,7 +15259,7 @@
         "triangle_start": 24
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "1fa04fdcafdc47c43f0d160291ad172be0adc6c58dda67455af2dcdff239e977",
+      "post_export_triangle_payload_sha256": "54a848e1aa36ef8a9ae2c60c92d82ed07a5fe6cd8e1b8f1681e3c2841e0beaf8",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -15719,7 +15721,7 @@
         "triangle_start": 108
       },
       "owner_cell": "CELL_PASSAGE",
-      "post_export_triangle_payload_sha256": "fda2d503637e6916485476103a48a380c97f5ee444438affe3fcafb4bd450c98",
+      "post_export_triangle_payload_sha256": "522402f8fbabc1db615c135e8c17e1153a6a6ea16dde8e8e94cebbd1e99353d2",
       "source_id": "site_passage_svc_otis___son_floor",
       "source_locator": "floors[F01].furniture[1288]",
       "source_range": {
@@ -18113,7 +18115,7 @@
         "triangle_start": 456
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "f780f5c693ac9b2cb38077f1529726594b4d7976a1b1bae6d5ca267d8817d114",
+      "post_export_triangle_payload_sha256": "e8900d200751dc84b18c0eb2d5635ffecd72063b8a8101e795de728328bd7c47",
       "source_id": "site_sidewalk_33",
       "source_locator": "floors[F01].furniture[1369]",
       "source_range": {
@@ -18827,7 +18829,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "b5d925bf5c120bdb9962b94efac3c4eaa62a48726dcbb862310723ad210b2724",
+      "post_export_triangle_payload_sha256": "ec8320cf0d83cbad43bf14d64e1d63c172e6b2ebd5da24925a563d259e6d317b",
       "source_id": "retail_bar_banq0",
       "source_locator": "floors[F01].furniture[2667]",
       "source_range": {
@@ -21347,7 +21349,7 @@
         "triangle_start": 48
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "187a97c1b86f3db723f51ae1e55df0e2daec2e064879ca35b96459da998deae6",
+      "post_export_triangle_payload_sha256": "04c6218a57382b61e54fe7d70c74810c090d1883e0e98e2efb78927964901b79",
       "source_id": "F01_office",
       "source_locator": "floors[F01].furniture[22]",
       "source_range": {
@@ -22817,7 +22819,7 @@
         "triangle_start": 384
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "1980ef345b6e31e1fdfa97b597c09bbca5d7c6c345b273ab864dfda16de5aaac",
+      "post_export_triangle_payload_sha256": "360ab3fa1cf63a28088e39120d79c3a3af1c572d0cdcd50f1ad0e8079349e869",
       "source_id": "1A_k_kdishrack",
       "source_locator": "floors[F01].furniture[62]",
       "source_range": {
@@ -23237,7 +23239,7 @@
         "triangle_start": 420
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "dc08e2ade0bfacd5e34dfa219cf05a2b11ca7920fab7d917c1e1e4f675109cff",
+      "post_export_triangle_payload_sha256": "44966b19f77dae7fcd0779546aaa2aa6b9b39b0a6d5169df6d2774e92caa1835",
       "source_id": "1A_din_t",
       "source_locator": "floors[F01].furniture[69]",
       "source_range": {
@@ -24749,7 +24751,7 @@
         "triangle_start": 468
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "c2b3624440fa5ff370584b356e520d4d3ed3a39320bcd391ff4e8ccbcd83ca7e",
+      "post_export_triangle_payload_sha256": "bbd885641f4e2bf469d4fd1664d355388ba19ae92a4bd64de0cb04b58bbd4689",
       "source_id": "1D_wc",
       "source_locator": "floors[F01].furniture[82]",
       "source_range": {
@@ -24917,7 +24919,7 @@
         "triangle_start": 324
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "8ede55a339ae2ec22e0dd8c406bef57e7bc3559b57d12371edf181b0e3d471da",
+      "post_export_triangle_payload_sha256": "f5feb2fd0d41b45743b256be7dc8ca646fa113ac5ec695124f1cd30905b44d64",
       "source_id": "1A_wc",
       "source_locator": "floors[F01].furniture[50]",
       "source_range": {
@@ -25883,7 +25885,7 @@
         "triangle_start": 408
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "61b79d9e0e5256cb547d060b3c4693f7bc84a2baec30cd038059583e2a317a74",
+      "post_export_triangle_payload_sha256": "a03a3f4a9fa31fe6ba453b2269282a5059c80259ec28e6fd0dcf0971f81f9d36",
       "source_id": "site_sidewalk_30",
       "source_locator": "floors[F01].furniture[1365]",
       "source_range": {
@@ -29495,7 +29497,7 @@
         "triangle_start": 552
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "b38e4419cc982546501cd100556c585d86eb1e2ff16cf7df903a140fae5016d8",
+      "post_export_triangle_payload_sha256": "59b916bc6bea843ff1751cc783ef566c13664d27af42b2b31dad50d4a7e393d4",
       "source_id": "1D_k",
       "source_locator": "floors[F01].furniture[96]",
       "source_range": {
@@ -31427,7 +31429,7 @@
         "triangle_start": 372
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "fcf8009b60207736481ca6710131939bbacb2c9020df5a0630274886c187dd21",
+      "post_export_triangle_payload_sha256": "bbbc832a925ad244c717165ee3c866cf480871a3b7e4f4bc3189394ed794ad3e",
       "source_id": "site_sw2_base0",
       "source_locator": "floors[F01].furniture[1728]",
       "source_range": {
@@ -33611,7 +33613,7 @@
         "triangle_start": 720
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "e185dec378ed74da10371fc906594870da9335cccc24498bfcded7248aca5048",
+      "post_export_triangle_payload_sha256": "b4cafaa15047c8b11fea2883ba28cc506252e55bf97235581c263451b7215a49",
       "source_id": "site_sidewalk_52_b",
       "source_locator": "floors[F01].furniture[1391]",
       "source_range": {
@@ -37013,7 +37015,7 @@
         "triangle_start": 84
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "359d3ad0fc0ffbb61562436a4fa82798aa87dc47bc77277d05d404736f8ebe21",
+      "post_export_triangle_payload_sha256": "f367ce2a9069ccb3f158d6bb63020949bf3f8d6b19fd574001ed4a72f4115f09",
       "source_id": "F01_SLAB_001",
       "source_locator": "floors[F01].slabs[0]",
       "source_range": {
@@ -38945,7 +38947,7 @@
         "triangle_start": 864
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "80740eb6c8e5d5db3db7cbc9195ea91419881b5624dec0a46c6db79fe03396f1",
+      "post_export_triangle_payload_sha256": "a6530809a929ddc0531de327b3f25aeefcb57c62baf4a15b3e51aa2f91ba9bbc",
       "source_id": "site_sidewalk_63",
       "source_locator": "floors[F01].furniture[1403]",
       "source_range": {
@@ -43943,7 +43945,7 @@
         "triangle_start": 60
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "6eb4ea6482c11f9785383b0293de43283f93d07b7e24fd5b0f2311760dba3dc2",
+      "post_export_triangle_payload_sha256": "00c96441ccaa089bff86a3f08d4fbeb5ecb28f2d0fe44f3f3a080205ffa19da2",
       "source_id": "F01_SLAB_001",
       "source_locator": "floors[F01].slabs[0]",
       "source_range": {
@@ -46001,7 +46003,7 @@
         "triangle_start": 180
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "f47842cb72d4bca63b3405b704a4f3516565ac9474b128a1b7b790b460c22c5e",
+      "post_export_triangle_payload_sha256": "5430d97c3153ee34070c62034487bf55882fda5f4c2df26361b58fcb88c65d40",
       "source_id": "retail_bar_ch2_0",
       "source_locator": "floors[F01].furniture[2764]",
       "source_range": {
@@ -46673,7 +46675,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "2391531e8b377a981d7aadfad2bd2aa73014ed15c7c81689f611384c296c3c61",
+      "post_export_triangle_payload_sha256": "b5a8fd1818436e41d609709bbb4c3bba5c50369dbb8ec53c93918ecea8f2e1da",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -47513,7 +47515,7 @@
         "triangle_start": 180
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "288e9a64424a6521d21e38fa1b416ead1bb72051525576ca1e3a67de28e69ed7",
+      "post_export_triangle_payload_sha256": "635aeb5ff94bb4c69c732dd5d6ac2f0670f5af22143c29329edb0a26253f9c92",
       "source_id": "site_sidewalk_13",
       "source_locator": "floors[F01].furniture[1346]",
       "source_range": {
@@ -47723,7 +47725,7 @@
         "triangle_start": 216
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "63076cd4c691f3a878f38a442b1a88de1037e6d6114d9d7fece23615d360f16b",
+      "post_export_triangle_payload_sha256": "fef64aa313d5edd69697c9502ce175695ea461b3c7c906e70d135a9f57ffce90",
       "source_id": "retail_bar_mic",
       "source_locator": "floors[F01].furniture[2786]",
       "source_range": {
@@ -47849,7 +47851,7 @@
         "triangle_start": 432
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "8934a318a62cbb082b02bf3ffd03cae11964335f428d60b042d8e4a573d9e19e",
+      "post_export_triangle_payload_sha256": "c251764ae6cb9326a25d053f22d4e3e2c57db51e566336d8fadf2f84a47506cb",
       "source_id": "site_sidewalk_31_b",
       "source_locator": "floors[F01].furniture[1367]",
       "source_range": {
@@ -48689,7 +48691,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "4440e469a04054d7c2e9524b2a68ef69a181e1249bd3263e5fbf205bbd86cfc1",
+      "post_export_triangle_payload_sha256": "7f7896017f8758aed70fae94fccad60965c4203834930553ae052188d414d179",
       "source_id": "walk_vault_lights",
       "source_locator": "floors[F01].furniture[1404]",
       "source_range": {
@@ -48731,7 +48733,7 @@
         "triangle_start": 588
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "4563d775bb43a909ff60e8523accb75a4369815083b507a4d641f1529af20722",
+      "post_export_triangle_payload_sha256": "1456a26b5ff4173bd8d8ea0c32873a2ae630f4568df5d895801af062b49239f9",
       "source_id": "1D_din_dc1",
       "source_locator": "floors[F01].furniture[103]",
       "source_range": {
@@ -49445,7 +49447,7 @@
         "triangle_start": 492
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "a4286e7e2c304ba0bba26d95635ed75f40c1f04a9d50e2411a2a6bbe5b7b2999",
+      "post_export_triangle_payload_sha256": "697d650abf71197c77cf0ac8f195cbb1ced4bfc05cad2a008224815229cbf769",
       "source_id": "1D_bed0_ns",
       "source_locator": "floors[F01].furniture[86]",
       "source_range": {
@@ -50915,7 +50917,7 @@
         "triangle_start": 84
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "8791cf5c596d4e02421b5d50eb23baf21672ed4dcaa24c13ba7ba554af1181d6",
+      "post_export_triangle_payload_sha256": "7ad906dc6c38c523eb015d962ccd79bb89c50805be2424c7e950520f5a399c0b",
       "source_id": "site_sidewalk_6",
       "source_locator": "floors[F01].furniture[1338]",
       "source_range": {
@@ -56711,7 +56713,7 @@
         "triangle_start": 64
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "737d6a39cb2287102f4033b1632db18b38c5760c723e425c0844c26d2958f9a7",
+      "post_export_triangle_payload_sha256": "4ceffa9d6164d14ce3c78868af5690a1ca7b127c8d15ec480a8fea906cb4b809",
       "source_id": "walk_vault_lights_e",
       "source_locator": "floors[F01].furniture[1405]",
       "source_range": {
@@ -59063,7 +59065,7 @@
         "triangle_start": 192
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "7b0397d803e5ebcb7ee6a7d624cee2adc27ae751bf1ba1a10532b11b587dd6dd",
+      "post_export_triangle_payload_sha256": "8aa8c889b625ff2f929e364cab7bf79e6551ff57a9f03b7aac8f9f61f67142e1",
       "source_id": "site_sidewalk_14",
       "source_locator": "floors[F01].furniture[1347]",
       "source_range": {
@@ -59315,7 +59317,7 @@
         "triangle_start": 24
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "f1336a5dc71b973d1dc3db48ec20e7985bc27703ff74d407312a1bebb348a851",
+      "post_export_triangle_payload_sha256": "a50bf162a45fb92fa9aeda2cd2292417f41229afce372ab3202b3c44c8dc1a0f",
       "source_id": "site_sidewalk_2",
       "source_locator": "floors[F01].furniture[1333]",
       "source_range": {
@@ -60323,7 +60325,7 @@
         "triangle_start": 252
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "71e4236ed9f533fe618adc802238fa6354f32ee21cf20ca8f17229e193f98008",
+      "post_export_triangle_payload_sha256": "744f23270fc6050e96f8cd5b4993a7f388ba4b7dacf8d0678432126f178f374a",
       "source_id": "site_sidewalk_18",
       "source_locator": "floors[F01].furniture[1352]",
       "source_range": {
@@ -64187,7 +64189,7 @@
         "triangle_start": 36
       },
       "owner_cell": "CELL_PASSAGE",
-      "post_export_triangle_payload_sha256": "f85886283a7091aa0163d78ed8234dcf51a502a34abde8462cc511ec0b12b62b",
+      "post_export_triangle_payload_sha256": "3aad67a6e9630c7f7618dfe0d293f245a0601338a94022762e930c34eed451cb",
       "source_id": "site_passage_svc_hardware_paint_floor",
       "source_locator": "floors[F01].furniture[1168]",
       "source_range": {
@@ -66161,7 +66163,7 @@
         "triangle_start": 84
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "79e831abd33c6fb8583fbdb0455b6f1bdd9c9e5da3dc3853a942929eac9f7615",
+      "post_export_triangle_payload_sha256": "9ed80982b4584d764182cba27fd78af39d36ac205896ce8c63166ce88008119f",
       "source_id": "f01_pkg1",
       "source_locator": "floors[F01].furniture[25]",
       "source_range": {
@@ -66707,7 +66709,7 @@
         "triangle_start": 540
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "9a2276a97f44fc3fd26359a6a418c5fba9f2412fcfc66fdaefaaec1473786d75",
+      "post_export_triangle_payload_sha256": "87567953cd967a1bc7ade3924dff8645a2a4cac483eba722cf541a172832cc35",
       "source_id": "site_sidewalk_39",
       "source_locator": "floors[F01].furniture[1376]",
       "source_range": {
@@ -68093,7 +68095,7 @@
         "triangle_start": 216
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "48177c4a5018dc5268ddd9681e71170005b12cf1400ad465b1850112aa35adf0",
+      "post_export_triangle_payload_sha256": "1327fefdf1f94e0fc5d3c2c0ea8d8043b1127b2d6ddaea753bf528aef270fc9d",
       "source_id": "site_curb11",
       "source_locator": "floors[F01].furniture[1425]",
       "source_range": {
@@ -74687,7 +74689,7 @@
         "triangle_start": 48
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "93cefa288221f273ca8f41c9f26511f9b158c60b857a8421ea55ed772164e24f",
+      "post_export_triangle_payload_sha256": "7581a2963f9c371cb502b87dd380e21e8e7fa0af64c30ca5f68f20d32727759a",
       "source_id": "retail_bar_cab01",
       "source_locator": "floors[F01].furniture[2674]",
       "source_range": {
@@ -74771,7 +74773,7 @@
         "triangle_start": 780
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "1bad0f76b65e545c8e40c397db72bc235ca9d95206a410eb066263e4ad71543d",
+      "post_export_triangle_payload_sha256": "8c25742f868a96390cf99cbaa3d4ab83e91d4bf32256d37f4020b9ad55445c1c",
       "source_id": "site_sidewalk_57",
       "source_locator": "floors[F01].furniture[1396]",
       "source_range": {
@@ -78425,7 +78427,7 @@
         "triangle_start": 312
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "2187b12a146894f72fb41bd8e2fa3887cff0f8a6797feb630e2f4e5a10e881ec",
+      "post_export_triangle_payload_sha256": "d866bd0a4814034cf9b5f60f5d92183381776fca1715a3a86d920e799d21c48a",
       "source_id": "site_sidewalk_23",
       "source_locator": "floors[F01].furniture[1357]",
       "source_range": {
@@ -82583,7 +82585,7 @@
         "triangle_start": 48
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "3f9f572327b1d209eb84a3cb4c47320fec43e447c8e7a6057110c2ee5b375ad0",
+      "post_export_triangle_payload_sha256": "a4b2b8b860983b460c83d07dfd1550dbdf36f03afb8dc811b2ebd3aff8ad1df0",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -85229,7 +85231,7 @@
         "triangle_start": 276
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "4d7f79cd18b874e065455650f71b84b868a15c83833172ee0160980968f9339b",
+      "post_export_triangle_payload_sha256": "b43e55de7ec99535e6bed3d9aa0e281f6531239786c32ed1adc37315fa7c52d7",
       "source_id": "f01_stcrate1_b",
       "source_locator": "floors[F01].furniture[46]",
       "source_range": {
@@ -86447,7 +86449,7 @@
         "triangle_start": 96
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "3a1ac0967dafcd3fa8cb7b2cdf48122d002c9be27404fa2c1777acbc31c76782",
+      "post_export_triangle_payload_sha256": "3f17319a04b6625c8667546af77559faf5ef019f2a860b7c917651ab9f82de40",
       "source_id": "site_curb1",
       "source_locator": "floors[F01].furniture[1415]",
       "source_range": {
@@ -88589,7 +88591,7 @@
         "triangle_start": 480
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "549b7044bebc867b17bca6a2a3fcc3d21b103d207b6fb162e984b2d066906fb5",
+      "post_export_triangle_payload_sha256": "f01b09b11883b0cdfe8c24f8eea8873b5ec8d7c8afe99b157eb09f6f0300ddbb",
       "source_id": "site_sidewalk_35",
       "source_locator": "floors[F01].furniture[1371]",
       "source_range": {
@@ -89807,7 +89809,7 @@
         "triangle_start": 144
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "3a144381b3e6d3f53a56bc36dbc35f29d6721c85401af3358ed5e2b29db61cc1",
+      "post_export_triangle_payload_sha256": "05196ed550e8bb552ffc06692cdb0215d289fe330e3c69ac6b3d73aed6271185",
       "source_id": "site_curb5",
       "source_locator": "floors[F01].furniture[1419]",
       "source_range": {
@@ -90437,7 +90439,7 @@
         "triangle_start": 204
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "dacab1a16c49cf59e581b67233353df56358f10292201f9cf58beb7e3e1be5b8",
+      "post_export_triangle_payload_sha256": "7e804f023d582739c6d63ee7ef0a7f5e5a245e2832e78223d5d202587094c020",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -90521,7 +90523,7 @@
         "triangle_start": 456
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "21e3f009ec764451ff55b36879b6b1f2839dd4c4f4393b43bbba43f7f2a1d4a5",
+      "post_export_triangle_payload_sha256": "749b82f5c82e70c75db0b069a5992bde4e5509c62e1fbd546ed1d2f097f026b0",
       "source_id": "1A_shelf",
       "source_locator": "floors[F01].furniture[72]",
       "source_range": {
@@ -91487,7 +91489,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "171bbf6a6b212fb967de87a7a38915118480a2f2453289aa55fd3dc4c2fb154e",
+      "post_export_triangle_payload_sha256": "681b3c28380f65cf64389d2bf6d0178d8a8089bb27f8e447891646e2624d0b16",
       "source_id": "walk_vault_lights",
       "source_locator": "floors[F01].furniture[1404]",
       "source_range": {
@@ -91697,7 +91699,7 @@
         "triangle_start": 396
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "b4374250296bd94bcd201f9de2133a04f3abe18f35e12f5c421ddd7bfdc65184",
+      "post_export_triangle_payload_sha256": "4b4c142dd139b5f559fe976aed0e01111630d803a019020b00ee1d7b6da2afa4",
       "source_id": "1A_sofa",
       "source_locator": "floors[F01].furniture[67]",
       "source_range": {
@@ -93083,7 +93085,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "0892511dc1fc822cbc2be869f0f9bc3a784ad4d2f7a0bb79f91a11ff8f5d2569",
+      "post_export_triangle_payload_sha256": "cf1074a3b5c53494b6c8a82823492dd7fc1f0ac06c3266531c3c0095a7804f0a",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -93545,7 +93547,7 @@
         "triangle_start": 120
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "7a5d4d869222c41412933e0d115c2463b4d9eabdec8ce34b537bcad99caa3b64",
+      "post_export_triangle_payload_sha256": "aca022a8974fca6d3f1832e813192c832239e4c7967fd95877e6a3efd1af351f",
       "source_id": "retail_bar_ch0_2",
       "source_locator": "floors[F01].furniture[2757]",
       "source_range": {
@@ -96317,7 +96319,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "4cc3a718d8cbcd3cce9a795e1f7745d10d6eeb6f41059c29c51fa3bde2cc91ea",
+      "post_export_triangle_payload_sha256": "cc64fb0d223abfa67d7f9ba5cc801a05e91d56de9cb1d1c21d0cb8e3e1f4e08a",
       "source_id": "retail_bar_dado_s",
       "source_locator": "floors[F01].furniture[2588]",
       "source_range": {
@@ -98165,7 +98167,7 @@
         "triangle_start": 132
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "23f6d461b761f54d70939957d0c75b2c449a7b6e087213ab7aef5be0f7fc52e9",
+      "post_export_triangle_payload_sha256": "630efc95a983f7f073df8a0935b58df8c35e246e787bfc0453bdab224ab65b5b",
       "source_id": "site_curb4",
       "source_locator": "floors[F01].furniture[1418]",
       "source_range": {
@@ -98879,7 +98881,7 @@
         "triangle_start": 816
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "b6119484214bfc80053fd5719dadc4baa7a58ae1c6f4f01f2f0544cef6f5ed74",
+      "post_export_triangle_payload_sha256": "9ce94cb7e75b6fb77fb540b71c759cb21af820299ea163de61318ae8b0b712e2",
       "source_id": "site_sidewalk_59_b",
       "source_locator": "floors[F01].furniture[1399]",
       "source_range": {
@@ -100559,7 +100561,7 @@
         "triangle_start": 132
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "a99c8c72b8894c8250896636e44dbd05a318b6ae47819937fecf21e528e109d5",
+      "post_export_triangle_payload_sha256": "33ea1b501fabc0bd7bd1dcb022a597299858bf6b0b466617c65ac21428e08b96",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -101399,7 +101401,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "018922f46cde80cd53148dd60b19b2d5c85937b37f8f5a4791c8f08cf7b0493d",
+      "post_export_triangle_payload_sha256": "48ccbdc65b30f49ce96bc753fca495b82684ebf29e1fb5271a8a20ee891b9af2",
       "source_id": "site_sidewalk_e",
       "source_locator": "floors[F01].furniture[1329]",
       "source_range": {
@@ -103499,7 +103501,7 @@
         "triangle_start": 348
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "3b4c9a87fd0b8013c52f73c940a28d536a4316cc6670368217f919cedd76293f",
+      "post_export_triangle_payload_sha256": "f7df4e6063fa40ef323cfe8849b01312d120195688aa5a8be40ed5a1860ebcb5",
       "source_id": "1A_bed0_ns",
       "source_locator": "floors[F01].furniture[54]",
       "source_range": {
@@ -103667,7 +103669,7 @@
         "triangle_start": 336
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "351d71b1606dbe9d7bf3564a0b904fd4c0009b9c324bccd524a3592b4df2e036",
+      "post_export_triangle_payload_sha256": "77597ea3500b65502089b0d9a6ba97af843b44ddc2b6a8ffc49cd63eb8e7d776",
       "source_id": "1A_bed0",
       "source_locator": "floors[F01].furniture[53]",
       "source_range": {
@@ -104381,7 +104383,7 @@
         "triangle_start": 204
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "1de3ebc774e256a133d74bab46cae68ad123608413fe3c360235b967757ab953",
+      "post_export_triangle_payload_sha256": "1a212f06618c26135852de979af6748f53559b26a213addb3b193f0cf0b476ae",
       "source_id": "retail_bar_ch2_2",
       "source_locator": "floors[F01].furniture[2766]",
       "source_range": {
@@ -110135,7 +110137,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "f5dd66d75c659f0824100e22dc155f5dce034c5b2bc1590bdcae929e373c3cc1",
+      "post_export_triangle_payload_sha256": "8b15258720f62c92ee9e37fb47c3975ea27778cdca7bd08fc7be9a56ac2dba78",
       "source_id": "retail_bar_dado_w",
       "source_locator": "floors[F01].furniture[2587]",
       "source_range": {
@@ -110723,7 +110725,7 @@
         "triangle_start": 204
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "419edfee1b4866bc42c5d342f049d65b6bb2111748a7bda7c7d029aa9b1effac",
+      "post_export_triangle_payload_sha256": "8c389ec91de1e6dfd0181c305dfb1b29dc8dc8a307d7b59aca98b82182769ec0",
       "source_id": "site_sidewalk_15",
       "source_locator": "floors[F01].furniture[1348]",
       "source_range": {
@@ -111563,7 +111565,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_OTIS_SON",
-      "post_export_triangle_payload_sha256": "19043271bd0a89e956237c0efa5e1f329c8a4329ca6e0757c837a7fa5fa56445",
+      "post_export_triangle_payload_sha256": "f0525b45cd57ffd86464cfe660f526ee7f496ce207b4b64717820cd92ad3be10",
       "source_id": "site_rear_otis___son_floor",
       "source_locator": "floors[F01].furniture[1281]",
       "source_range": {
@@ -116897,7 +116899,7 @@
         "triangle_start": 96
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "6bac2a5f68c22f9532e2029e60c2b87436c444f22cb83a3493b6d6bc6a69c99a",
+      "post_export_triangle_payload_sha256": "a9527a209cfe264b1c52fdb846a85f3ce343013ffe87d620d08d2030ec32be96",
       "source_id": "site_sidewalk_7",
       "source_locator": "floors[F01].furniture[1339]",
       "source_range": {
@@ -120551,7 +120553,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_PASSAGE",
-      "post_export_triangle_payload_sha256": "8b4760f2ac27a7880fb10ce49be15666c4433a35131c5483b1a63b351361f2c3",
+      "post_export_triangle_payload_sha256": "05a2ba426e228308459a2fe6377011e8e228f1dd5189bb985ae0e6cf17840f1b",
       "source_id": "site_passage_svc_shoe_rebuilding_floor",
       "source_locator": "floors[F01].furniture[1122]",
       "source_range": {
@@ -122861,7 +122863,7 @@
         "triangle_start": 48
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "f587a96342427b7fc127a54a0190a466e7702dce0d46984d36da8860813949d1",
+      "post_export_triangle_payload_sha256": "ecb16cff5fd8c51d0d53bc93b76eaaee9ab9005ee1c7666ba047151670adaa59",
       "source_id": "site_sidewalk_s_n",
       "source_locator": "floors[F01].furniture[1411]",
       "source_range": {
@@ -123155,7 +123157,7 @@
         "triangle_start": 300
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "156912da43a8d9996d6ecd28cfaa7d0155d7b47f893419d50d7885a364f6364e",
+      "post_export_triangle_payload_sha256": "e574a34179a9853c88a089412b4723f9004f16ade2ca8bb5883aac3110e52d3a",
       "source_id": "site_sidewalk_22",
       "source_locator": "floors[F01].furniture[1356]",
       "source_range": {
@@ -126263,7 +126265,7 @@
         "triangle_start": 84
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "db9ffb339b5274bf8f3f420ae92d7feb7e211aac79b6fc6839f74c7b3792048c",
+      "post_export_triangle_payload_sha256": "357241dc11205bd958033bc371cf4e26b107187dd73d6e16067e8d908d000eef",
       "source_id": "site_curb0",
       "source_locator": "floors[F01].furniture[1414]",
       "source_range": {
@@ -126767,7 +126769,7 @@
         "triangle_start": 336
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "57d2ab430498f918afb3a2b8d0bb19bc2f59178b0dcf4555bcaa599644a26f78",
+      "post_export_triangle_payload_sha256": "fc1a65a846151b23d988c36da56546484dd8002f166339fc2a9783aafa0e5f09",
       "source_id": "site_ne3_base0",
       "source_locator": "floors[F01].furniture[1653]",
       "source_range": {
@@ -126977,7 +126979,7 @@
         "triangle_start": 120
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "2fb704534e4164fefe63b8a1280561a649654386b568a2c6625ed801b8bb442b",
+      "post_export_triangle_payload_sha256": "bd5b95eb5fb11f7393b2b5a141a32fe6e58b536d2e842731c3b4311512a781ac",
       "source_id": "common_ch0",
       "source_locator": "floors[F01].furniture[28]",
       "source_range": {
@@ -128027,7 +128029,7 @@
         "triangle_start": 288
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "88f0d9a76a91cba76410d170b22a1e0eddc674d9b89c0308ad65aaa749f99587",
+      "post_export_triangle_payload_sha256": "7eaf8175201b32c9ebfb836bde70b301b49b915e5b7fa8cc5fd6efd6df2bd15d",
       "source_id": "site_alley",
       "source_locator": "floors[F01].furniture[1431]",
       "source_range": {
@@ -130589,7 +130591,7 @@
         "triangle_start": 564
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "446c0c5fa57a304ae4bff57d00290e50b3d1f868e2ba4d9c74d0febbcddf3ebd",
+      "post_export_triangle_payload_sha256": "af3543ef87ec89c8f15622f965606e512866ee5d1933aca0a7acf37c1a16154a",
       "source_id": "site_sidewalk_41",
       "source_locator": "floors[F01].furniture[1378]",
       "source_range": {
@@ -133991,7 +133993,7 @@
         "triangle_start": 408
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "db9ecb85ea88cb79649981b7c9ffdb2fbe6d530a2b195f855e35950334f36579",
+      "post_export_triangle_payload_sha256": "b9c1e69df47ce8636843ac563c2c5b180509d9a9804abf538f083ebf68826e60",
       "source_id": "site_back_e_base0",
       "source_locator": "floors[F01].furniture[1891]",
       "source_range": {
@@ -135461,7 +135463,7 @@
         "triangle_start": 108
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "0b85c7463d57bbed95c48ac38369a6cdb8627447c85cca2a429873e1aeee445e",
+      "post_export_triangle_payload_sha256": "7f41501153854073f5622f575d204c5b852a93826ad2f60da2aeeb4021e8c81e",
       "source_id": "F01_SLAB_001",
       "source_locator": "floors[F01].slabs[0]",
       "source_range": {
@@ -135881,7 +135883,7 @@
         "triangle_start": 108
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "81247c3ca03d4c3bd138780289302bd83abaacfd0a19773c050d3a9e892db003",
+      "post_export_triangle_payload_sha256": "f93eb8b9e11e7f49635bea66c01f269bcc547ef931f75bbd0a3f3dc0bb53476a",
       "source_id": "site_sidewalk_8",
       "source_locator": "floors[F01].furniture[1340]",
       "source_range": {
@@ -136805,7 +136807,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_LUNCHEONETTE",
-      "post_export_triangle_payload_sha256": "a89089b501d50d9c11e070dd777c1d45bf714a2322c601bd25f4d63f3107776b",
+      "post_export_triangle_payload_sha256": "5716bb7e2a789fcaad818382602f07d46b0e9c37b63a85a3265127101126c03e",
       "source_id": "storm_shopcab_luncheonette0",
       "source_locator": "floors[F01].furniture[4413]",
       "source_range": {
@@ -137015,7 +137017,7 @@
         "triangle_start": 36
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "cb347c517168982a65384105c1952f6b361effcd8aa48c7bb2fb2d9a3180da83",
+      "post_export_triangle_payload_sha256": "b9b6be4980454b1580c48286b07e0c83c9b65ff9c1c2d28c4e32062bbe3e81ec",
       "source_id": "site_sidewalk_s_e",
       "source_locator": "floors[F01].furniture[1410]",
       "source_range": {
@@ -141005,7 +141007,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_SHOP_KEYS_CUT",
-      "post_export_triangle_payload_sha256": "940578f05697420f123178896e9a736363ef5fd68e6d0b945335ddc6ab65a46a",
+      "post_export_triangle_payload_sha256": "81e7ddfa5da047f3eae9637bfff1c7b17fe7565b209849cf55865a5ff676fdd1",
       "source_id": "storm_shop_keys_cut_floor",
       "source_locator": "floors[F01].furniture[3388]",
       "source_range": {
@@ -141467,7 +141469,7 @@
         "triangle_start": 252
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "0561d889f39f9410b87b041ae238c5e499210a9fae8909da25c86d601394e4e2",
+      "post_export_triangle_payload_sha256": "52c3f2165a2ca3c9170bc0791622f35fd8798ff45092f1f0e434eb960b6113df",
       "source_id": "retail_bar_palm1",
       "source_locator": "floors[F01].furniture[2836]",
       "source_range": {
@@ -143189,7 +143191,7 @@
         "triangle_start": 168
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "3648a67eee6f0631c7962816770b1cf7de9fda7085b545a949b24d6649773b38",
+      "post_export_triangle_payload_sha256": "859746bda1f38628974ac7caa2f0e9a07766020b9c995b879222551e3352f2eb",
       "source_id": "retail_bar_tab2",
       "source_locator": "floors[F01].furniture[2762]",
       "source_range": {
@@ -145331,7 +145333,7 @@
         "triangle_start": 300
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "9b4c81465b9fd00754db85855486164640fb5367efd21ebe2020cf4b76b9e27d",
+      "post_export_triangle_payload_sha256": "9e63c8cfe0a38e85774963b082b027f4f331bef90c8d42d12bfd4f5a3212e0d6",
       "source_id": "site_nw2_base0",
       "source_locator": "floors[F01].furniture[1516]",
       "source_range": {
@@ -145961,7 +145963,7 @@
         "triangle_start": 96
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "15c974ec6e57765955c674ae5ba580047699dcac2378307f4f51fdcab34789f0",
+      "post_export_triangle_payload_sha256": "6f4ca20e5b8c7faa2e9640e90dc9dc4d92d038881853164face96dd547189e68",
       "source_id": "F01_SLAB_001",
       "source_locator": "floors[F01].slabs[0]",
       "source_range": {
@@ -147767,7 +147769,7 @@
         "triangle_start": 312
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "c5f670a4d6da0e12ca048f740514ffd40744329c26f82495cd08b313ede591bf",
+      "post_export_triangle_payload_sha256": "9326219904a5162ad58057069dc2eba914e2d31cf3986f3028883d9cb6417456",
       "source_id": "site_nw4_base0",
       "source_locator": "floors[F01].furniture[1565]",
       "source_range": {
@@ -150035,7 +150037,7 @@
         "triangle_start": 192
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "8c43fc99bec508f2dc5a9f6ea5776b9b68f4d3d096aeb0e99e7a807d86cccd49",
+      "post_export_triangle_payload_sha256": "8cdd4d75a894b321c693c348d9618742d0c11164bc109ed9b5903bb3ce7f989b",
       "source_id": "common_k",
       "source_locator": "floors[F01].furniture[34]",
       "source_range": {
@@ -150791,7 +150793,7 @@
         "triangle_start": 60
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "373e1b69bd52d7433add58861b4bd2fbcb22f89239ad57d3f51ead9969da39be",
+      "post_export_triangle_payload_sha256": "0902545fdfb8c16508a1f5a8722a1a0b3312f793331203ffdea844f55d37c203",
       "source_id": "site_curb_w",
       "source_locator": "floors[F01].furniture[1412]",
       "source_range": {
@@ -151295,7 +151297,7 @@
         "triangle_start": 516
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "86b0f67fb75f52e9490f8375d263680bfa6dd598766529fa893ba8af5136fee0",
+      "post_export_triangle_payload_sha256": "df32d5dc334045013cce0af96837c5733bc139c7dfca25d22b3da8d7fd592831",
       "source_id": "site_sidewalk_38_a",
       "source_locator": "floors[F01].furniture[1374]",
       "source_range": {
@@ -151463,7 +151465,7 @@
         "triangle_start": 360
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "45aa82c5abe2478f8016f7af19a6dcb6c9db5dad2cf5e2f739d0595866bde2fb",
+      "post_export_triangle_payload_sha256": "e89dea20da79b841ba38996a0ffe870269cb5f5c34d597d35cda3e28bd725a31",
       "source_id": "site_sidewalk_26",
       "source_locator": "floors[F01].furniture[1361]",
       "source_range": {
@@ -155117,7 +155119,7 @@
         "triangle_start": 48
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "d81ecd8f556bc6fba8348037700b2bbe4a6fe41fd72441e42c54c70946e35db0",
+      "post_export_triangle_payload_sha256": "311974dfbf51a638a1554281b380eae08a5ce3e378efe140023b35493a0442ba",
       "source_id": "F01_SLAB_001",
       "source_locator": "floors[F01].slabs[0]",
       "source_range": {
@@ -156965,7 +156967,7 @@
         "triangle_start": 84
       },
       "owner_cell": "CELL_PASSAGE",
-      "post_export_triangle_payload_sha256": "bdfd3757d378142c292dbf0d26b99ab4f86f1cb731a95ee89b81e9b57f662884",
+      "post_export_triangle_payload_sha256": "e64d86ae82d9caee158c07eb72e1b60ab53d46a476485e00c1559ad035b6ba15",
       "source_id": "site_passage_svc_pawnbroker_floor",
       "source_locator": "floors[F01].furniture[1251]",
       "source_range": {
@@ -161459,7 +161461,7 @@
         "triangle_start": 612
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "f2c3fc7d5b632d79f29e48c19216c3b8e276894bb2c1e8e98a6778062c296bb3",
+      "post_export_triangle_payload_sha256": "2c84c8fa3de917d856c985739bd6f039f39992dea7a2bcbe7da038ceb4f15745",
       "source_id": "site_sidewalk_45_a",
       "source_locator": "floors[F01].furniture[1382]",
       "source_range": {
@@ -162971,7 +162973,7 @@
         "triangle_start": 144
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "c1ca3179959d1bf1476a322e3be762cb67fac29490a7522c83e29239bb488913",
+      "post_export_triangle_payload_sha256": "f656e421d0f4f734716c0070ebf3031582165007f87dcb1b24c156b91ce619d9",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -164399,7 +164401,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_SHOP_LUNCHEONETTE",
-      "post_export_triangle_payload_sha256": "4ed50a3a869b21392038ebcbbb7f038bdeaa75a0e8626d2407bdd084c15660e8",
+      "post_export_triangle_payload_sha256": "4e069fbfcf9614e63726d061ec7473d32bcbdf8a8ad5e2e4a25f2ac12529104d",
       "source_id": "storm_shopcab_luncheonette1",
       "source_locator": "floors[F01].furniture[4414]",
       "source_range": {
@@ -165533,7 +165535,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_KEYS_CUT",
-      "post_export_triangle_payload_sha256": "370e3b8071d743e53e2dfd6854486e536cfec027b6c51d2d4f372fe50e9068f4",
+      "post_export_triangle_payload_sha256": "09668e368598943b1e91cbd4b63d15a94750a4b1e837a6c673ddb346c42015e2",
       "source_id": "site_rear_keys_cut_floor",
       "source_locator": "floors[F01].furniture[1139]",
       "source_range": {
@@ -166709,7 +166711,7 @@
         "triangle_start": 636
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "271defe5eddabadb3bbf9e43946508f3ed8aba7402aab5b4f46eb439b0e311a0",
+      "post_export_triangle_payload_sha256": "ae38bc4b312b5e0bf6064d86726a54734c39a63e51ce53f012e299bd190011a5",
       "source_id": "site_sidewalk_46",
       "source_locator": "floors[F01].furniture[1384]",
       "source_range": {
@@ -167843,7 +167845,7 @@
         "triangle_start": 84
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "d51098eb56407fd759850f49b4dedad8316197abd5c411a1e15cbc09d4729858",
+      "post_export_triangle_payload_sha256": "327ae72d1c4e6fd226758be3cde6c941efcd530f46540624e6e29f2042f7a69f",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -168305,7 +168307,7 @@
         "triangle_start": 72
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "6a1ec3ddca7d1eb380942b5fa987400b3d279c843b869de1e0bc06fbc15ce7b2",
+      "post_export_triangle_payload_sha256": "8f4df6280c352cbb1a558de732064ef56837aca5517e0eedbbebcc94a36a2d4b",
       "source_id": "f01_pkg0",
       "source_locator": "floors[F01].furniture[24]",
       "source_range": {
@@ -172883,7 +172885,7 @@
         "triangle_start": 852
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "48a53616b89967732168ad88ab7b78cb26d657f4a3c5f0a1c43987609d6a0f48",
+      "post_export_triangle_payload_sha256": "a57b4149e082559d3d4738a110042291b8434e0766b807dbed21ed8bdb49b064",
       "source_id": "site_sidewalk_62",
       "source_locator": "floors[F01].furniture[1402]",
       "source_range": {
@@ -176033,7 +176035,7 @@
         "triangle_start": 108
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "272801eb4595dbd51030837a2f77361251690616ea6361977cef7ecc90e56565",
+      "post_export_triangle_payload_sha256": "dec09e7650dfb2103e59421648e2b6473cc92d19cf650e7cea34866fd9f8f69d",
       "source_id": "site_curb2",
       "source_locator": "floors[F01].furniture[1416]",
       "source_range": {
@@ -176537,7 +176539,7 @@
         "triangle_start": 180
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "762c421abbbc3c42f4405634c96f59e45b38384d66ef2963433a9479042159ed",
+      "post_export_triangle_payload_sha256": "ec8aea2bc81bdb6e8a9eeeedd6690828810204a6f7dcf8d6aefdd4bafd049980",
       "source_id": "common_chn2",
       "source_locator": "floors[F01].furniture[33]",
       "source_range": {
@@ -177671,7 +177673,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_NEWS_CIGARS",
-      "post_export_triangle_payload_sha256": "8ce524daae6874302aec7c0a815af81bf8bb746282b6df910a52e8acd4a24836",
+      "post_export_triangle_payload_sha256": "a1dcfdb49751b5dd2dc37b6c88d4b5a4c93983420e23c51483c2184a4f98b2bd",
       "source_id": "storm_shopcab_news_cigars0",
       "source_locator": "floors[F01].furniture[4197]",
       "source_range": {
@@ -181199,7 +181201,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_LUNCHEONETTE",
-      "post_export_triangle_payload_sha256": "dfb2b61ce8c700dc6e7fa19e2279280e377c3ab2920fc76022b9ecb6a9baf3bb",
+      "post_export_triangle_payload_sha256": "56e1f1718cf5adf538234d03d5e0904d9876a0f03b021cbfb000dc458d1fb573",
       "source_id": "site_rear_luncheonette_floor",
       "source_locator": "floors[F01].furniture[1304]",
       "source_range": {
@@ -181535,7 +181537,7 @@
         "triangle_start": 744
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "c5850b11ff0b9ffe13f9bd8525b48a18fa7c629ca048aab1e0767479133fb0d3",
+      "post_export_triangle_payload_sha256": "73acf27db2d3baa430afffe0860fe6e902d22edc071c640a7d2f761b14cf9aad",
       "source_id": "site_sidewalk_54",
       "source_locator": "floors[F01].furniture[1393]",
       "source_range": {
@@ -184475,7 +184477,7 @@
         "triangle_start": 168
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "693cc0bc405d9bfa4cc282be9200972918ae2f45b7e7410119abeb075debf179",
+      "post_export_triangle_payload_sha256": "975414a212bdc84fe6e3c233c56d765dfd776b03b146084382edffa9862fe164",
       "source_id": "site_sidewalk_12",
       "source_locator": "floors[F01].furniture[1345]",
       "source_range": {
@@ -185483,7 +185485,7 @@
         "triangle_start": 36
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "a088970e997f4817190c90c88a10a0989e584b2317ee4a84b138c73ab394090c",
+      "post_export_triangle_payload_sha256": "2dc5aeec20c44427ab9cac30d43036601b502aeb246c8f296cf8f7bb4ef25dc0",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -186617,7 +186619,7 @@
         "triangle_start": 24
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "4e7b9c8a78fe85d9c6200edc5f53f63b8a7ea8b242e4834826e54e994b05d97e",
+      "post_export_triangle_payload_sha256": "01ba82d85595af35065ff9fa3cf0900a19da0383241170575d24c1bf33d123cd",
       "source_id": "common_bench",
       "source_locator": "floors[F01].furniture[17]",
       "source_range": {
@@ -188213,7 +188215,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_RADIO_SERVICE",
-      "post_export_triangle_payload_sha256": "e7aaad93156f87214838d5d9b0857253f4cb88e8174ca49347ab2da22209cb19",
+      "post_export_triangle_payload_sha256": "78931dd3f9a7535fa491f6908b263ef07eebdc0a4ad8e91e3256e413168b063c",
       "source_id": "storm_shopcab_radio_service0",
       "source_locator": "floors[F01].furniture[4060]",
       "source_range": {
@@ -188549,7 +188551,7 @@
         "triangle_start": 24
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "6f2b6cab4561097b4215590ace19c864a9b00687cdf0a688cf92114364ec7448",
+      "post_export_triangle_payload_sha256": "1fc880de4137569cf53f4ce19a2a03e10a852a349242dfd04fbb76a5f2ce2707",
       "source_id": "retail_bar_dado_n",
       "source_locator": "floors[F01].furniture[2589]",
       "source_range": {
@@ -191027,7 +191029,7 @@
         "triangle_start": 528
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "9614af3ecb445e9848f2f020d474b49517003ce1d04967f6c0e2cb36d37fb412",
+      "post_export_triangle_payload_sha256": "4d3cdecd4b51c4b3d37a4e40a96fa32cc44b57706f128f355580a31d37083949",
       "source_id": "site_sidewalk_38_b",
       "source_locator": "floors[F01].furniture[1375]",
       "source_range": {
@@ -191405,7 +191407,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_SHOP_HARDWARE_PAINT",
-      "post_export_triangle_payload_sha256": "9e34aa76ba2473e9e0b3d1067f4c81184be0c4d7d95a75156812777c96ec1a4b",
+      "post_export_triangle_payload_sha256": "74019abbfe9a191de3da4060f95dd008520a28aedc32375545c73548a0c80324",
       "source_id": "storm_shop_hardware_paint_floor",
       "source_locator": "floors[F01].furniture[3538]",
       "source_range": {
@@ -191951,7 +191953,7 @@
         "triangle_start": 24
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "9ee4c13f17eb7445b5f8db2388fd581637ed5bc52b3c2a0ac2690f5a2ecc7e23",
+      "post_export_triangle_payload_sha256": "2e2174e6a663cc737843ade4b56e711a76f9f9550551bf5881b05c916c4f1a28",
       "source_id": "retail_bar_banq1",
       "source_locator": "floors[F01].furniture[2670]",
       "source_range": {
@@ -194345,7 +194347,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "413671a08a60b3654a1a977f4669ecd7ad9572a63e299a0aae4e4f55b6e1df6b",
+      "post_export_triangle_payload_sha256": "5d9c3bce70652f588b0d15e756f8267a370a9b025162b3902ab13ecf31275c1d",
       "source_id": "site_sidewalk_1",
       "source_locator": "floors[F01].furniture[1332]",
       "source_range": {
@@ -194765,7 +194767,7 @@
         "triangle_start": 408
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "c52cb93cc657a299005d28b538c736e02c1c9220a86931d608437da61eb4620e",
+      "post_export_triangle_payload_sha256": "ab7c824e1516f5cd2fe735f242fdc1465d6b95de8523863254c843f63ecb3c76",
       "source_id": "1A_cof",
       "source_locator": "floors[F01].furniture[68]",
       "source_range": {
@@ -196235,7 +196237,7 @@
         "triangle_start": 564
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "82c1414492c3b6f74dc621b004a02c34f29b7b860eb18f881891359d6cfb78c1",
+      "post_export_triangle_payload_sha256": "1af85d1a03a2fb101e09fde44af3d418476b604080f7440ea7d2933ade5576c7",
       "source_id": "1D_k_kdishrack",
       "source_locator": "floors[F01].furniture[97]",
       "source_range": {
@@ -199889,7 +199891,7 @@
         "triangle_start": 660
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "f0ccb6aa70fbe24c49ff4430db0ca6748c348c6475e5335652a71483e1f06df2",
+      "post_export_triangle_payload_sha256": "2a7945bdfe6ca71de4c1f281ff1c467e18a061778eb13df8744ccc82584c1a1f",
       "source_id": "site_sidewalk_48",
       "source_locator": "floors[F01].furniture[1386]",
       "source_range": {
@@ -201905,7 +201907,7 @@
         "triangle_start": 348
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "666cbc4f0ca8f639b49754c3bd21582322fc1d6b42cdb635ca6cca6116016951",
+      "post_export_triangle_payload_sha256": "94c205dbbf0284cb167897cb2aa16b93f24c3ef71a5f1a33dd616d210fa03d58",
       "source_id": "site_sidewalk_25",
       "source_locator": "floors[F01].furniture[1360]",
       "source_range": {
@@ -203627,7 +203629,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "cffd39524fe6d5a507a6e43e31da47faf60465c66b7bd6a316cb237eb7abf3de",
+      "post_export_triangle_payload_sha256": "cdd865cbb1fcacb4acd55872dbc0fc86d6a1d1e0087a5e22ddfc4b79200d7bcf",
       "source_id": "retail_street_crate1",
       "source_locator": "floors[F01].furniture[2875]",
       "source_range": {
@@ -204089,7 +204091,7 @@
         "triangle_start": 348
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "8991cdb37937b92eb3bc3b0047e7be1311032fd8df9e019a4f64c86915fcdff6",
+      "post_export_triangle_payload_sha256": "35c9e7cb463d30a445a03d537a457c2ea9539ece1590064655dae1b9e43ad916",
       "source_id": "site_nbr_s2_base0",
       "source_locator": "floors[F01].furniture[1705]",
       "source_range": {
@@ -204257,7 +204259,7 @@
         "triangle_start": 528
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "7f6ec46f35d87bc9fe5ab09b408f89120acd1d67d2a19dbd4e6698ff8b0b3a45",
+      "post_export_triangle_payload_sha256": "fc7e0bfd4d1529f9041df2176cef82c8e72d2fdd2d1dc5705fb7b7465e7c50c1",
       "source_id": "1D_odesk_dkch",
       "source_locator": "floors[F01].furniture[94]",
       "source_range": {
@@ -207617,7 +207619,7 @@
         "triangle_start": 132
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "2a5acb6a671d41dc0c5d9eca6e13664de5f2151f5c03459a3627cd9a71f96e16",
+      "post_export_triangle_payload_sha256": "ee39df8dcbda0be97d9161042f55b30e99fa4daf896fe9f3d118572674398820",
       "source_id": "common_chn0",
       "source_locator": "floors[F01].furniture[29]",
       "source_range": {
@@ -207911,7 +207913,7 @@
         "triangle_start": 120
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "78d93a91e97e203ec63116012cc02e4d10eeb655e9aa718fe28d9c7f2e6d70eb",
+      "post_export_triangle_payload_sha256": "41e91797c6322fdbf7ab1d53f518ec20ba874998752b54fad5b53401219fe1c0",
       "source_id": "site_curb3",
       "source_locator": "floors[F01].furniture[1417]",
       "source_range": {
@@ -208079,7 +208081,7 @@
         "triangle_start": 240
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "06738baf2a3730a139cfa9e2a14335a45b5594317049fe05e15608bcdd799bd2",
+      "post_export_triangle_payload_sha256": "8fa74a260274497bd620b93e77d88992d0454ed8b9e298100152210fa84373ad",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -209255,7 +209257,7 @@
         "triangle_start": 240
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "574549f5ddccd52d380efa3170bb7fe64171e71e12de2571e9b972c73f42e782",
+      "post_export_triangle_payload_sha256": "04f67b643484850e7e758061d7f30db3673044b07f4a2bcf81f8ce3bd9fe9dea",
       "source_id": "f01_stcrate0_b",
       "source_locator": "floors[F01].furniture[43]",
       "source_range": {
@@ -210305,7 +210307,7 @@
         "triangle_start": 52
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "dd7b98aeaa3e08ece046535d0d1dbca29384ae52785901a6c8fc9388137338b4",
+      "post_export_triangle_payload_sha256": "53b1a07ebde31d5d7888ffc0c97b1c27385d7d49c84b237964091ded2608282d",
       "source_id": "walk_vault_lights_e",
       "source_locator": "floors[F01].furniture[1405]",
       "source_range": {
@@ -211103,7 +211105,7 @@
         "triangle_start": 468
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "076d9b6241ca7d3a94e61ae2f5e5610ed0cfc01424dd3bc6245679442a7738da",
+      "post_export_triangle_payload_sha256": "25edfbaab0267a6df681793dd19e4497e496a81fb0e0a88bc63ce36dc36cf4c2",
       "source_id": "site_sidewalk_34",
       "source_locator": "floors[F01].furniture[1370]",
       "source_range": {
@@ -211271,7 +211273,7 @@
         "triangle_start": 252
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "c39b9923d19f23b4c92b914ebc87a43509cebfe4036d8181d908c1af32446a0a",
+      "post_export_triangle_payload_sha256": "9798601e5cec9362763c38603bc9ff3667f0927eada15298c95651dadf48dfc6",
       "source_id": "site_curb14",
       "source_locator": "floors[F01].furniture[1428]",
       "source_range": {
@@ -216227,7 +216229,7 @@
         "triangle_start": 252
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "8f142d8c0432deb90a546f65122ff5b7f2c6eef9eb542c8eafc109004e09b547",
+      "post_export_triangle_payload_sha256": "585850c2295012685156398ec05b08b39260aca241172a0c56283a3ffc0928ea",
       "source_id": "f01_store1",
       "source_locator": "floors[F01].furniture[44]",
       "source_range": {
@@ -217529,7 +217531,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_PHOTO_SUPPLIES",
-      "post_export_triangle_payload_sha256": "49fe0c532249027c47399bc0c3145027513c39a322ed5f39297392a6f7563ae2",
+      "post_export_triangle_payload_sha256": "871892b1bf7bd8baa02cadc6258284ccfa6ba33b34053b6ba312f353b9be0d96",
       "source_id": "storm_shopcab_photo_supplies0",
       "source_locator": "floors[F01].furniture[3992]",
       "source_range": {
@@ -218117,7 +218119,7 @@
         "triangle_start": 240
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "2cb8457c8a61495e614da96eac7db831d9c5e34eaf54bc6b926839e4a388dda2",
+      "post_export_triangle_payload_sha256": "e63324e5c481e05702da8dd564c7f2452cea1ccfc88d573bf13fda33bf30e6d2",
       "source_id": "retail_bar_palm0",
       "source_locator": "floors[F01].furniture[2835]",
       "source_range": {
@@ -219755,7 +219757,7 @@
         "triangle_start": 696
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "c43c34538bdc07ec3620f16ef224452f92e09107b813604e0f7eab8bdc3010cd",
+      "post_export_triangle_payload_sha256": "f3853bd2e25b932e3ec6c64b6a48c0d374a81b401689882b794aacc28c1e1aa6",
       "source_id": "site_sidewalk_51",
       "source_locator": "floors[F01].furniture[1389]",
       "source_range": {
@@ -220553,7 +220555,7 @@
         "triangle_start": 216
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "e8ff1a366bcd9b2feb5209a3b4c600857b9287aaaa5efd8a611aa1fe607840b6",
+      "post_export_triangle_payload_sha256": "a28695bd82ba7aade1b9be10dd654ff3a7f1c5ddddaeb6dc5b5ad79d77153cf3",
       "source_id": "f01_store0",
       "source_locator": "floors[F01].furniture[41]",
       "source_range": {
@@ -223703,7 +223705,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "021799da23db3e901e334d4b2621a1776ef211a8079ab22bbf87a89a669ac806",
+      "post_export_triangle_payload_sha256": "a074cc4bd2a254d495f66c469511e6c2ae807f03ece09cfe11d343e91962de81",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -224669,7 +224671,7 @@
         "triangle_start": 204
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "b49e136332ccd946ad4e2697e7c97c347e31a1de978758b52783fd12933b720c",
+      "post_export_triangle_payload_sha256": "f0c27003e900f3924336d76d77686d54436285b39a651e5bb52b940bfebcdbcc",
       "source_id": "site_curb10",
       "source_locator": "floors[F01].furniture[1424]",
       "source_range": {
@@ -224795,7 +224797,7 @@
         "triangle_start": 264
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "fc332d7552f4044976c5dc81da7f1d60a560da89738a7eb70c3ef7d1648854db",
+      "post_export_triangle_payload_sha256": "f539afccd3aae1ae853041114b8bb1c6c56bd16e0f131be68c8720fda7d94e47",
       "source_id": "retail_bar_palm2",
       "source_locator": "floors[F01].furniture[2837]",
       "source_range": {
@@ -224921,7 +224923,7 @@
         "triangle_start": 24
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "b9ad65cae75faf0a4ef6ed6e0f88f38da5f5f93270c5401deae90bab8f50fd82",
+      "post_export_triangle_payload_sha256": "2353a381b67c76acbee1b268d60389743609ef6b0ba8b6be74e6cb80965c2b32",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -228869,7 +228871,7 @@
         "triangle_start": 360
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "efb9c560e9c040c78c759302aaa845a40078c9781dddc6cea02094ff6b4158b5",
+      "post_export_triangle_payload_sha256": "6645d2bbdeccd327af91ec381cd03ee09b7ac4a916ea02e03b619eff50455274",
       "source_id": "site_nbr_s2_soffit",
       "source_locator": "floors[F01].furniture[1706]",
       "source_range": {
@@ -231809,7 +231811,7 @@
         "triangle_start": 60
       },
       "owner_cell": "CELL_PASSAGE",
-      "post_export_triangle_payload_sha256": "cf4c68ca4eb489eafa196cb8e5eaa7c4da659637907d25ee29f1946101891237",
+      "post_export_triangle_payload_sha256": "da72d15a64f46c79aae73029cb098fcad34c9906da6ff26d0a04930d9c25a40b",
       "source_id": "site_passage_svc_photo_supplies_floor",
       "source_locator": "floors[F01].furniture[1213]",
       "source_range": {
@@ -234203,7 +234205,7 @@
         "triangle_start": 72
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "4b7feb8ddc4d888c12458ce40198ba4cf861ba5317073942e8a607a186890e14",
+      "post_export_triangle_payload_sha256": "adf1f66e13f6c3e880216022e374ececa67c6061191f530df773062cddbf3e29",
       "source_id": "F01_SLAB_001",
       "source_locator": "floors[F01].slabs[0]",
       "source_range": {
@@ -235001,7 +235003,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_RADIO_SERVICE",
-      "post_export_triangle_payload_sha256": "fc1414e6ea2cc3b82e98c47a9dc28df63299e774ead51ab7d8e0d4cbebafd8ee",
+      "post_export_triangle_payload_sha256": "fb8339a9f70be758b7da07238672120b242ca640c2e875d9c3ab026d1d1ad1c2",
       "source_id": "site_rear_radio_service_floor",
       "source_locator": "floors[F01].furniture[1230]",
       "source_range": {
@@ -237647,7 +237649,7 @@
         "triangle_start": 24
       },
       "owner_cell": "CELL_PASSAGE",
-      "post_export_triangle_payload_sha256": "a66b5278af67ee7f95f06decbb7b7469e4bd4551c242198c8fd8fcc193699111",
+      "post_export_triangle_payload_sha256": "4585b74eb7826b5d7581b16f9be457c2d96566e0bec0c53ba9695044cbd1e868",
       "source_id": "site_passage_svc_keys_cut_floor",
       "source_locator": "floors[F01].furniture[1146]",
       "source_range": {
@@ -239831,7 +239833,7 @@
         "triangle_start": 576
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "0dd3bbded5b8892eb0b6ee6eab2493e3794eeeda5921eb3d6484b22b064676c3",
+      "post_export_triangle_payload_sha256": "da8bf651311a0e8948467249ec44fc5ccf507855cae114a82e20b772071b34df",
       "source_id": "site_sidewalk_42",
       "source_locator": "floors[F01].furniture[1379]",
       "source_range": {
@@ -240839,7 +240841,7 @@
         "triangle_start": 276
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "03f0ad23dcb015359b296d0192697dc23c8eec0aa85f5308568db5ab505579f2",
+      "post_export_triangle_payload_sha256": "fcae237d4cebf78f2c746f6b818aa62bcee8ebe79f4424802c1e660df86851e7",
       "source_id": "site_curb_s",
       "source_locator": "floors[F01].furniture[1430]",
       "source_range": {
@@ -241637,7 +241639,7 @@
         "triangle_start": 576
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "2dc08d33fff4345a17a2eb1364bc59f597fbfaf5c23fa66ac4f1c30d451ea43e",
+      "post_export_triangle_payload_sha256": "257be61237ccb52fa4a673873b91fe20fa5681364ff5a7d19f91ca30e29fbae7",
       "source_id": "1D_din_t",
       "source_locator": "floors[F01].furniture[102]",
       "source_range": {
@@ -241931,7 +241933,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_PHOTO_SUPPLIES",
-      "post_export_triangle_payload_sha256": "0432e0f350393e4d01a95aed928442d97d7aa35c266d177ebe02cdaea13514ab",
+      "post_export_triangle_payload_sha256": "dd21e45b635c814d28470d96422dfcb5dfcbeaf22243ba9655281a950e054f82",
       "source_id": "site_rear_photo_supplies_floor",
       "source_locator": "floors[F01].furniture[1206]",
       "source_range": {
@@ -242015,7 +242017,7 @@
         "triangle_start": 96
       },
       "owner_cell": "CELL_PASSAGE",
-      "post_export_triangle_payload_sha256": "6b3ab0e7786172f50d4a896a4bf6c5aa5e0fb5058df104e1c7e9ed0bf20152a8",
+      "post_export_triangle_payload_sha256": "e1d4d5841c606876fd31815f904c739e88e30968c911dc635f61626f3aa791d0",
       "source_id": "site_passage_svc_news_cigars_floor",
       "source_locator": "floors[F01].furniture[1274]",
       "source_range": {
@@ -242267,7 +242269,7 @@
         "triangle_start": 36
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "5bbcc25c483e58fd584e7dcba187d112406efba92358b201e07b02a31e0ea396",
+      "post_export_triangle_payload_sha256": "12007d503f5994b4f1e5a0c105c5ddf4abb1b3b888fc0e929a19489f2a724caa",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -242771,7 +242773,7 @@
         "triangle_start": 36
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "36149efa26044ae1cbdaf9a1d3f54f8f29c38b82b38b6ef97b7a084765c24984",
+      "post_export_triangle_payload_sha256": "890732707af9e8a20fc163086cff34ab7aff0347939d8d887b1e65cfa2d1cd4c",
       "source_id": "site_sidewalk_3_a",
       "source_locator": "floors[F01].furniture[1334]",
       "source_range": {
@@ -246677,7 +246679,7 @@
         "triangle_start": 600
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "43a800221806400e9d71c469c6e40d9839fdd06a6557e6464a4c24c6241bad9f",
+      "post_export_triangle_payload_sha256": "8ca272ba7eb2eba9669a8af80271eb35bff4112340fc2d17600d4157144aefc2",
       "source_id": "site_sidewalk_44",
       "source_locator": "floors[F01].furniture[1381]",
       "source_range": {
@@ -246719,7 +246721,7 @@
         "triangle_start": 804
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "19d0e3f56ed4836dd21e89b544b802b1f8151cfcecb460a2f27b883040e13657",
+      "post_export_triangle_payload_sha256": "a3c931111e01c6371d3eb63a4ae4257fdd2ac01afec38f97f09797d9a6023f17",
       "source_id": "site_sidewalk_59_a",
       "source_locator": "floors[F01].furniture[1398]",
       "source_range": {
@@ -247685,7 +247687,7 @@
         "triangle_start": 240
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "90d9378f9bac09f480d1b9ac683e6a15e6ac8b5578e4b4989438019eeb97a7fb",
+      "post_export_triangle_payload_sha256": "56e1b362323e5a971d900ab51490efc8b5e9c59784b04559ac67f64fece701c4",
       "source_id": "site_sidewalk_17_b",
       "source_locator": "floors[F01].furniture[1351]",
       "source_range": {
@@ -250751,7 +250753,7 @@
         "triangle_start": 36
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "2a3b21bdaea42a407f7af9c19d56aa6127ad4c5760d43d6009fe846d2cb49a83",
+      "post_export_triangle_payload_sha256": "b3ee88e01faa653a77f49404b0ed22193588360a75ee37b4523a3b8ca3575bbb",
       "source_id": "retail_bar_banq2",
       "source_locator": "floors[F01].furniture[2673]",
       "source_range": {
@@ -251759,7 +251761,7 @@
         "triangle_start": 396
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "0fb96aca8b90bcd98619adceaac353abf5eb7748c0014037044562911996a77a",
+      "post_export_triangle_payload_sha256": "c3480efe680d5d4c8b7499b8b5fc4e83f56da06bb34e7e968fe749d4c81c392b",
       "source_id": "site_back_w_base0",
       "source_locator": "floors[F01].furniture[1869]",
       "source_range": {
@@ -254363,7 +254365,7 @@
         "triangle_start": 168
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "bce8fa76001095b121327d88cd00df1eee778b9e4163f2d4e51c8b1b59579f3b",
+      "post_export_triangle_payload_sha256": "667e93760538fc5ac9ffba4abf063057ae33649b3c537ac26124898e425bc7ac",
       "source_id": "site_curb7",
       "source_locator": "floors[F01].furniture[1421]",
       "source_range": {
@@ -255875,7 +255877,7 @@
         "triangle_start": 504
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "6bf6f5f14db6a58b9cfe726f56f0faaf5c992808b281fbe43ecfa8d66cd5b510",
+      "post_export_triangle_payload_sha256": "1a46762204f0ee49905612f08d5ab2169d8c0d5f2aabb0c21d017c9e99f3af99",
       "source_id": "site_sidewalk_37",
       "source_locator": "floors[F01].furniture[1373]",
       "source_range": {
@@ -257807,7 +257809,7 @@
         "triangle_start": 24
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "7b5caefc4dc89adcd4945bfa01a01d482bc2587b735b6f2967cc1220e271f5a6",
+      "post_export_triangle_payload_sha256": "ef93736f935913e5ffe9497b3a6eaac89f490fa1befc1828cbbfbac5cb1bf174",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -258395,7 +258397,7 @@
         "triangle_start": 288
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "542519bc53224b4510a8c0f67d9733345dd25eb98a83b5e867002d4ad5b56801",
+      "post_export_triangle_payload_sha256": "c14a79d7771f81e0b6342eb26be7f66f2f0f3ea8cbfbb1aa734c6138820158f2",
       "source_id": "f01_store2",
       "source_locator": "floors[F01].furniture[47]",
       "source_range": {
@@ -259277,7 +259279,7 @@
         "triangle_start": 492
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "d99f881f451ff7b2266c2dfb9b0711f62c923f785c75d32e9cfb7614b76ee934",
+      "post_export_triangle_payload_sha256": "1062c372e8e6520e19215de476fca568db6d14d92de9b95c33018f30db537fa0",
       "source_id": "site_sidewalk_36",
       "source_locator": "floors[F01].furniture[1372]",
       "source_range": {
@@ -259487,7 +259489,7 @@
         "triangle_start": 168
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "3ba1c978adc64494e7e910f704ad6339ef09cc70734d2651a044afa2472e3054",
+      "post_export_triangle_payload_sha256": "554178886e66e81849fb6d4b0e01c42f3f5c6560098df222be951fccf7d9da7d",
       "source_id": "common_ch2",
       "source_locator": "floors[F01].furniture[32]",
       "source_range": {
@@ -261629,7 +261631,7 @@
         "triangle_start": 156
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "18416c7a49133168d9a2dc85e251550cfcc852efe519232131aa06ac02dbe3b8",
+      "post_export_triangle_payload_sha256": "aa69943d4a507c51ae6ed59dfe3ffbeed57ceb194013aca64a3ec8a07af8cd95",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -261755,7 +261757,7 @@
         "triangle_start": 60
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "1e1ce29b175fac8a22ca7665d41a2edf03113a3df0b51fadaf3de748acf450a3",
+      "post_export_triangle_payload_sha256": "04e91b971a9c705e13dc215d6c4a6bbeab762c6ff226328289cdc91a22de368a",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -265409,7 +265411,7 @@
         "triangle_start": 588
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "cb7e87d66731306add3ac5b6cf7b07d8f90eddeebfbf9e5f45aceff092e93d44",
+      "post_export_triangle_payload_sha256": "228a4aef8d10bcee451fcd0c6bdffcd2747064a72b160face1bd9e97d1602d9d",
       "source_id": "site_sidewalk_43",
       "source_locator": "floors[F01].furniture[1380]",
       "source_range": {
@@ -265703,7 +265705,7 @@
         "triangle_start": 324
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "e3f27b737021ddf7bdd7bb7cbc9e5315c49ae496e37dc3a5436be57832d43fb7",
+      "post_export_triangle_payload_sha256": "23e2f1701e4a03da5155355bb200526eac7350faed7d10dfbff4c274db934b23",
       "source_id": "site_ne1_base0",
       "source_locator": "floors[F01].furniture[1604]",
       "source_range": {
@@ -266333,7 +266335,7 @@
         "triangle_start": 180
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "7f2a647e110e0aa4821a29023b9174bdcea69a865a86e021450afb0183b95a3e",
+      "post_export_triangle_payload_sha256": "50a29f1a71206d7511665f537d7f1ef7de7de10f6dd26e4f08ea4e3e5b5c5ca1",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -269063,7 +269065,7 @@
         "triangle_start": 36
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "357e788ff647da7388ec7ee9a1dd543492054083611c2e01faf944d6667750f9",
+      "post_export_triangle_payload_sha256": "e1daf4e08058317857ae6bff716e2daf45b538daba036e06d87f6fbaf246f66f",
       "source_id": "F01_SLAB_001",
       "source_locator": "floors[F01].slabs[0]",
       "source_range": {
@@ -270281,7 +270283,7 @@
         "triangle_start": 552
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "4ec1e2dca8d9bc20cde14b3f0fff05ad25fa29f6579bf36741154de0687d1732",
+      "post_export_triangle_payload_sha256": "60fa1c95e288fceb08112560fea1187963fcd880044201158e69dfe021f502b7",
       "source_id": "site_sidewalk_40",
       "source_locator": "floors[F01].furniture[1377]",
       "source_range": {
@@ -272381,7 +272383,7 @@
         "triangle_start": 264
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "30810e5ca09c87f00335d92c5c470584ca6c1eb11ce4fb8dded39640c1673e9b",
+      "post_export_triangle_payload_sha256": "a276fc73a8c6eb17d6da352093d93287cb5409f4b932183e634f247da7d7c9e7",
       "source_id": "f01_stcrate1_a",
       "source_locator": "floors[F01].furniture[45]",
       "source_range": {
@@ -275783,7 +275785,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_NEWS_CIGARS",
-      "post_export_triangle_payload_sha256": "1063f4b1743e68213b5d8d8b51fc4f0ace8c4647ac67b4f8d84ae4926573fcf8",
+      "post_export_triangle_payload_sha256": "825b1b9589b1ff2f26fe0ad40e76a2b6372c7b95b075a57449a80c535859a08f",
       "source_id": "site_rear_news_cigars_floor",
       "source_locator": "floors[F01].furniture[1267]",
       "source_range": {
@@ -275867,7 +275869,7 @@
         "triangle_start": 288
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "2c2764bc5145f4e8ebae66f7a78cbbe7a9b8522bc9491898f276ddc5e8d459f4",
+      "post_export_triangle_payload_sha256": "a4738899dded0a95e90f9898af3033ba5e4d2a34b4d03f9d5eccfdb990869178",
       "source_id": "site_sidewalk_21",
       "source_locator": "floors[F01].furniture[1355]",
       "source_range": {
@@ -276077,7 +276079,7 @@
         "triangle_start": 108
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "d53fcf1579130ad01c549fddb4bd65308c6659c4a4b526c1e494b7cdb19125fa",
+      "post_export_triangle_payload_sha256": "b396c6609ed9eadea260cb5e7c98d43f575900f4f9e2f8febff5aaf3e58231c8",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -278765,7 +278767,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "474c6a5154dda897d8ed3be5622779ee768b7cc81ce7b8921ca0e0c00013b098",
+      "post_export_triangle_payload_sha256": "6f88864c7ae46f36a29303065ce26d46e36216739ed661379f4e75ba314c6689",
       "source_id": "F01_WALL_015",
       "source_locator": "floors[F01].walls[14]",
       "source_range": {
@@ -279143,7 +279145,7 @@
         "triangle_start": 144
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "fd04d280298f3b981ed9c7e7e3a2353ac665e7fc98f9d4c814af21cb535b31e6",
+      "post_export_triangle_payload_sha256": "9f0cfd19fc33592c1bdbecdf688e0d8cc4e51a448e6d5ec21f58cdbbf5a663c7",
       "source_id": "retail_bar_ch1_0",
       "source_locator": "floors[F01].furniture[2760]",
       "source_range": {
@@ -279689,7 +279691,7 @@
         "triangle_start": 840
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "2c4a5b5e86029bcdb9936753226ac6814e7f722a24acc299b646b646daaa8e5c",
+      "post_export_triangle_payload_sha256": "345ac843d3bb0a525a92fd70832c6bcc8a1a83ee2687b67d026a4a6990d1e7c2",
       "source_id": "site_sidewalk_61",
       "source_locator": "floors[F01].furniture[1401]",
       "source_range": {
@@ -281789,7 +281791,7 @@
         "triangle_start": 132
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "0259d49fb8e3a64c664f08d13ce9ed383ba61403955c4de870aa67faf02c5acb",
+      "post_export_triangle_payload_sha256": "cdbcbc726ae8326c1dfd48b6dd21f2a05cfad459e700543048900ee0c44cc2e7",
       "source_id": "retail_bar_tab1",
       "source_locator": "floors[F01].furniture[2758]",
       "source_range": {
@@ -282251,7 +282253,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_MODEL_LAUNDRY",
-      "post_export_triangle_payload_sha256": "a35bd304f2b7ccd0a24c6561da2be098d0a418cac73b76378b154d857a35c833",
+      "post_export_triangle_payload_sha256": "ca3e8a864dcfee9402e344f41dee090dc35547483e2329d75e7f874c237d4da1",
       "source_id": "site_rear_model_laundry_floor",
       "source_locator": "floors[F01].furniture[1091]",
       "source_range": {
@@ -283973,7 +283975,7 @@
         "triangle_start": 432
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "3362f98a07e57bfa8c928d57022d2e2fb9ba57340516248009bdc60c4a3f4cf9",
+      "post_export_triangle_payload_sha256": "3fa67a78331eebe2eef5f09a1bb1d3e04fe01d2bab623a1c3f679d4637a2be39",
       "source_id": "1A_din_dc1",
       "source_locator": "floors[F01].furniture[70]",
       "source_range": {
@@ -284015,7 +284017,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "9b77be2b50cb0f45e8ec1f0d04be62c05653f51556378237dd9c6009ebd0afbf",
+      "post_export_triangle_payload_sha256": "6aa789338bbe461f499c56c024c011a040e5bd8699476409379e9ec05e125d53",
       "source_id": "F01_SLAB_001",
       "source_locator": "floors[F01].slabs[0]",
       "source_range": {
@@ -285275,7 +285277,7 @@
         "triangle_start": 144
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "ac217ed3c6c686f31d48c8f5449937526a53aede0577ffef7edd0a812d0fd3ec",
+      "post_export_triangle_payload_sha256": "03fa41622520507063bf0f3fd4ef0a7e49ab8e4ca4d5209e557cecef3d7357a6",
       "source_id": "site_sidewalk_10_b",
       "source_locator": "floors[F01].furniture[1343]",
       "source_range": {
@@ -287795,7 +287797,7 @@
         "triangle_start": 72
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "d323c6c9f842ffdcd835afc1c50d1cd52caf15f31e0769417ca8cfcb103e9345",
+      "post_export_triangle_payload_sha256": "0cd6754f22e3739392ec34d4a83242593c67ac88cff28d8a37868bb22c9ffebd",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -288635,7 +288637,7 @@
         "triangle_start": 336
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "bbc694bec83fff4e766ddd058218d2ec2c0f6ef657002ec64a66c8087409878e",
+      "post_export_triangle_payload_sha256": "ff71611b442d97d845a8333eed24e4855942e960b1958a98f96f4d70388244df",
       "source_id": "site_sidewalk_24_b",
       "source_locator": "floors[F01].furniture[1359]",
       "source_range": {
@@ -288803,7 +288805,7 @@
         "triangle_start": 24
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "427e63ac34092756d6cabbbe34a805c311d7a1f8a3325e41336550588945bc40",
+      "post_export_triangle_payload_sha256": "aa603409610a67a79f8eb01e8b915062c9836a71b1d2d440f65ea606695a463e",
       "source_id": "F01_WALL_017",
       "source_locator": "floors[F01].walls[16]",
       "source_range": {
@@ -289433,7 +289435,7 @@
         "triangle_start": 96
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "4955edac22f2c9992588bfcdeda9a9dc878d09c94cbd5e8e1d726762c78a9b0c",
+      "post_export_triangle_payload_sha256": "50ede261c84dae478124153230ae2d9062d30a1d58916e370f9d2e1006e9b660",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -289643,7 +289645,7 @@
         "triangle_start": 684
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "c5a14553a5b313f413d6188174d69dc2fc9ee0caac786b40d68818e799e26ab0",
+      "post_export_triangle_payload_sha256": "52378fab7c1cc4a4e15d9898f66e8b25cfb4aad865b9bab88aab4cf7971b7db0",
       "source_id": "site_sidewalk_50",
       "source_locator": "floors[F01].furniture[1388]",
       "source_range": {
@@ -291659,7 +291661,7 @@
         "triangle_start": 36
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "11e83e26b8eb0828d5d8fb32d59625ba46cbaf993b2532825ff93f735db194a9",
+      "post_export_triangle_payload_sha256": "7a1c8204f49f22b508f57f2638774d82b9a5771093f91fe518e32ca9045f9d01",
       "source_id": "F01WC_wc",
       "source_locator": "floors[F01].furniture[19]",
       "source_range": {
@@ -293129,7 +293131,7 @@
         "triangle_start": 372
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "3e98ee7d368144c84b2f9a616fbdf37be3cd87d82efd7c12221c1b24521b41ba",
+      "post_export_triangle_payload_sha256": "3d0e583bbdd0aa5d6fa62f0f611cbd4f90fda7f4b44a376c6bd761404a905498",
       "source_id": "site_sidewalk_27",
       "source_locator": "floors[F01].furniture[1362]",
       "source_range": {
@@ -294809,7 +294811,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "faa7229c5958928f276b8f1c4cdfd03f1beeee8db18c6a00d76d7f91daf8269d",
+      "post_export_triangle_payload_sha256": "47a34cc8fcf166608552207628fda8e5cd4e0fe6f54c2929c128729630f27392",
       "source_id": "retail_bar_lit_crate",
       "source_locator": "floors[F01].furniture[2578]",
       "source_range": {
@@ -295439,7 +295441,7 @@
         "triangle_start": 276
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "f935ba96f8dfee47457ba57394c065e3714f6722755081bcba9eeefb4d24cfe8",
+      "post_export_triangle_payload_sha256": "b02daff493f29e23ba2c2acd6144ddb73833104784ff75274a36597f6848663b",
       "source_id": "retail_bar_wc_toilet",
       "source_locator": "floors[F01].furniture[2842]",
       "source_range": {
@@ -296153,7 +296155,7 @@
         "triangle_start": 264
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "6b265b8567389ea9793c232eeb54226105d1515c4ea91123874680038fcac622",
+      "post_export_triangle_payload_sha256": "cfc8e0ca298eaa4a90484dd763ecd2deff587dc79c9de084c5c2365ffd173590",
       "source_id": "site_curb15",
       "source_locator": "floors[F01].furniture[1429]",
       "source_range": {
@@ -297287,7 +297289,7 @@
         "triangle_start": 540
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "eacb0dc3653faf60f92f10ded4545d37ded5a68f452e679aa5e3eee9b25c63ef",
+      "post_export_triangle_payload_sha256": "fc0da732c35d2ce0635cd5031b9f290b36b41fca171f7372aba5adb542424a31",
       "source_id": "1D_oshelf",
       "source_locator": "floors[F01].furniture[95]",
       "source_range": {
@@ -297539,7 +297541,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "9e36c4dc796c936ba15ede998b2090cc4213ba4cd06b33bdca55c276a193d1ce",
+      "post_export_triangle_payload_sha256": "ee1a90556e08d50d2acc408bf1e63be658e3d54fbc0c689ec5d4318cd27f3902",
       "source_id": "lobby_bench_w",
       "source_locator": "floors[F01].furniture[15]",
       "source_range": {
@@ -297665,7 +297667,7 @@
         "triangle_start": 228
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "b18f172672d0b1fbda5b0b2fcefa47514683d3d61c38f9ee31055f27b6a8fc78",
+      "post_export_triangle_payload_sha256": "a36c47d40d36e3d37a06fad0b0064c4c28476017f881332d4400a1535edc48a9",
       "source_id": "site_curb12",
       "source_locator": "floors[F01].furniture[1426]",
       "source_range": {
@@ -299261,7 +299263,7 @@
         "triangle_start": 120
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "b9c428217ac94e37f65cf68a7b8a1a114826a3b46d20ebd7c3d2ed21b76df3b8",
+      "post_export_triangle_payload_sha256": "6befae58e946cd7182ff5b9a18bdca282eb80eb3403164bc47ac7afa0c8c311c",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -299513,7 +299515,7 @@
         "triangle_start": 516
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "e9e0d15a165605d220e4ebd5dfcfaee6464c4f4d2f854a67577fba5151268da3",
+      "post_export_triangle_payload_sha256": "487a9195def9d5fd887c1582d880c75382a72389e2fec862cfa3b443bdb15265",
       "source_id": "1D_odesk",
       "source_locator": "floors[F01].furniture[93]",
       "source_range": {
@@ -299723,7 +299725,7 @@
         "triangle_start": 192
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "60b56f4fbe6758d9e500dc9232b02719c1ba21929e4e7299707875e562a73019",
+      "post_export_triangle_payload_sha256": "0a72b6f9d6c6511ef05372dd05466974aadc2029fbac49495afb9b0012ff2a63",
       "source_id": "site_curb9",
       "source_locator": "floors[F01].furniture[1423]",
       "source_range": {
@@ -300311,7 +300313,7 @@
         "triangle_start": 72
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "1b94cb38e7befbe6d32c4abae90b74878c94416c0f2ff58caa81f66635d0a55e",
+      "post_export_triangle_payload_sha256": "7913092021ab18aa8895ea1a8c208b162e5b58a593935fd08a711ac420cac6d6",
       "source_id": "site_sidewalk_5",
       "source_locator": "floors[F01].furniture[1337]",
       "source_range": {
@@ -301781,7 +301783,7 @@
         "triangle_start": 252
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "4fffc2b86ff5b6b857467150056ce7600d9925235cd596fd17d630108a2fe324",
+      "post_export_triangle_payload_sha256": "9ebab9999437437c0ea8c6a268010ad51efd74766ba30ca8b23451e0f5da1515",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -303587,7 +303589,7 @@
         "triangle_start": 24
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "c01fff51f43f52ac32c8b7f6162bb6ba6e290abe2f1fe2281c40194f52c95fb1",
+      "post_export_triangle_payload_sha256": "a22cd1f8f134428b3b679043f2c9b8d05e2bcbe41d5a7fb6e179fccb82b4b430",
       "source_id": "F01_SLAB_001",
       "source_locator": "floors[F01].slabs[0]",
       "source_range": {
@@ -305099,7 +305101,7 @@
         "triangle_start": 228
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "47ee84b0a2a32ebf1e8f7858fb13a10f95691886ff600c81248a8fe22d85edea",
+      "post_export_triangle_payload_sha256": "02144b96cce5a2f1023e351865eb2b5fbc22ade6e08d3963654f543d7304430e",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -305981,7 +305983,7 @@
         "triangle_start": 360
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "a64795b4d0951fa640e07c9b2f9782317ca7c464438a5f503620e0bd1404258a",
+      "post_export_triangle_payload_sha256": "389d0690d4b50f6d7d795f870fb8eee8b2fb573fd7cdb2377aa0e91c894f63b0",
       "source_id": "1A_w0_wardrobe",
       "source_locator": "floors[F01].furniture[55]",
       "source_range": {
@@ -306275,7 +306277,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_MODEL_LAUNDRY",
-      "post_export_triangle_payload_sha256": "f5e49e6b89c91b845e71e7d7c4c3b9a4e92f7cf3737a7a60b0808a89b898ecbd",
+      "post_export_triangle_payload_sha256": "30f034289ab55a252e5356d35f47b504c85d36b5c8668818f32e472092416560",
       "source_id": "storm_shopcab_model_laundry0",
       "source_locator": "floors[F01].furniture[3321]",
       "source_range": {
@@ -307325,7 +307327,7 @@
         "triangle_start": 648
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "ca59bfffd412922fb6e7b007e105bfee5cfb77890c0cc1b7b213527208fc8fe5",
+      "post_export_triangle_payload_sha256": "de41dc8358bde88f964c112cb819fe46d6cd3d2a2b22917a8834fe2694496017",
       "source_id": "site_sidewalk_47",
       "source_locator": "floors[F01].furniture[1385]",
       "source_range": {
@@ -309173,7 +309175,7 @@
         "triangle_start": 120
       },
       "owner_cell": "CELL_PASSAGE",
-      "post_export_triangle_payload_sha256": "48bacbccde2d6bdd0bb0af3948127cdcd0f9fceb71561fb503bfa0dff0da0e35",
+      "post_export_triangle_payload_sha256": "efd58814300b0a8c5f15611009672696e35c07ba2d3a819d22a4075e42c3eb94",
       "source_id": "site_passage_svc_luncheonette_floor",
       "source_locator": "floors[F01].furniture[1311]",
       "source_range": {
@@ -310181,7 +310183,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_PAWNBROKER",
-      "post_export_triangle_payload_sha256": "1cf020a49013a64b99a95126ed6cabaff5cc975aaec120d29da5316cc93461af",
+      "post_export_triangle_payload_sha256": "cf841c427172f3094327204994028d680bf2a972ee2c65e4f24a691efc2e8fe4",
       "source_id": "site_rear_pawnbroker_floor",
       "source_locator": "floors[F01].furniture[1244]",
       "source_range": {
@@ -312995,7 +312997,7 @@
         "triangle_start": 384
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "90608dfe267bee42efa8afb8ed44453be404c856eee2a49d07f7106660bfa5a6",
+      "post_export_triangle_payload_sha256": "84c1a7b980c02989820090a161e28121d459ca0bf9f3b7e6877b0ab6f07bbc21",
       "source_id": "site_se3_base0",
       "source_locator": "floors[F01].furniture[1808]",
       "source_range": {
@@ -313415,7 +313417,7 @@
         "triangle_start": 228
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "cd958242c2229855c2ae48c39a1617e8f747ee8b2e2fd0e54ecfd434781133f8",
+      "post_export_triangle_payload_sha256": "45c303a7e847a6dc24f91fa5822222a9c44f96ed2259e2f2fad2a5c31face9e5",
       "source_id": "retail_bar_tv",
       "source_locator": "floors[F01].furniture[2787]",
       "source_range": {
@@ -313457,7 +313459,7 @@
         "triangle_start": 600
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "878ba690e29f772acde0d4ddcdcb400fa47fab86212ddcd039f911c26f779de5",
+      "post_export_triangle_payload_sha256": "5c21e191045aabcc96f84d37033a3c12bf27c6cd7c790a5a1e11b121c565ce4c",
       "source_id": "1D_din_dc2",
       "source_locator": "floors[F01].furniture[104]",
       "source_range": {
@@ -313625,7 +313627,7 @@
         "triangle_start": 84
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "ab1c24cd782090552c2ea76436034603f180b2d70348a1c88240c220f30f9c9b",
+      "post_export_triangle_payload_sha256": "9144d9ac0ce89e47c562b40462ddc119eac1b1a1ef73a326c84d82dd410acef2",
       "source_id": "retail_bar_tab0",
       "source_locator": "floors[F01].furniture[2753]",
       "source_range": {
@@ -313919,7 +313921,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_BODEGA",
-      "post_export_triangle_payload_sha256": "6bf38c39a2e167508995cebd53834fd200fa36d1ac6443b2acc2492db955b362",
+      "post_export_triangle_payload_sha256": "0ba42a952c32ccfbb464617fd4a136828f12002ddb099f748bdc9f778cd2e1d2",
       "source_id": "retail_bod_crate0",
       "source_locator": "floors[F01].furniture[2401]",
       "source_range": {
@@ -314129,7 +314131,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "f84372d875f8a4fabb94a3a76d1d609c47bc9051099ce03405c4e3677afbece7",
+      "post_export_triangle_payload_sha256": "342885b3646731aa04bda48b0e514abd9cec2f2707a7cf66adf45f565a443d28",
       "source_id": "site_sidewalk_w",
       "source_locator": "floors[F01].furniture[1328]",
       "source_range": {
@@ -314507,7 +314509,7 @@
         "triangle_start": 300
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "002f3ab521396613e9bb39a8c5d4d9685a538c26cdd208afc5df67f7869c8547",
+      "post_export_triangle_payload_sha256": "fae804aec9de2358d1b787671cf6b2c636fc4f88e643dafb9d86c41fd888dd20",
       "source_id": "f01_stcrate2_a",
       "source_locator": "floors[F01].furniture[48]",
       "source_range": {
@@ -316271,7 +316273,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "16ddda33a7b22e803ca0da76e7bd00571a7339076e515bdb1c317bbf3218ba3c",
+      "post_export_triangle_payload_sha256": "91dbfceb4b3da1e6185ee78e4c07dee310e9c94ca02961dfe0ee3ce8b195eafa",
       "source_id": "site_sidewalk_0",
       "source_locator": "floors[F01].furniture[1331]",
       "source_range": {
@@ -317195,7 +317197,7 @@
         "triangle_start": 312
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "1f51feeb4f1a66cb5d4f9f357523836f50f6b5e749f7ce8c9a9bc04e736146d9",
+      "post_export_triangle_payload_sha256": "cd231fdb7611f4eab5bc940b7c645d9cb6bcd4362c9f9066e398190433d4075f",
       "source_id": "f01_stcrate2_b",
       "source_locator": "floors[F01].furniture[49]",
       "source_range": {
@@ -319673,7 +319675,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "547a8f3a170337fb0b5d0ec1a6c694507d1f8b751986a1056dd05a673cb20845",
+      "post_export_triangle_payload_sha256": "f9cec98bea23c3c2face4ac285f09177ddbd6c43552b109c6176dde2f1072147",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -321395,7 +321397,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_HARDWARE_PAINT",
-      "post_export_triangle_payload_sha256": "81d240fa45a5e7fae98f748e0c8dc6854601892711d244726f15a69982dc108d",
+      "post_export_triangle_payload_sha256": "e496c214fb32eff119110a19d4d97123b79cbb9f74cd82f7cd49d4bcb8f294ee",
       "source_id": "site_rear_hardware_paint_floor",
       "source_locator": "floors[F01].furniture[1161]",
       "source_range": {
@@ -321899,7 +321901,7 @@
         "triangle_start": 48
       },
       "owner_cell": "CELL_PASSAGE",
-      "post_export_triangle_payload_sha256": "4a0cd80f12558866b23ae391639e2281a5377ebc1643cb612e91a5ed9dead079",
+      "post_export_triangle_payload_sha256": "702514de76eb77de4099505376ef62d4b809851ebbb0c623390ce7bd203ca13b",
       "source_id": "site_passage_svc_funeral_parlour_floor",
       "source_locator": "floors[F01].furniture[1192]",
       "source_range": {
@@ -324797,7 +324799,7 @@
         "triangle_start": 120
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "6d59b6b998c4e8958ee9f0b23c2a81db85ba802fee0f222c53c87c0e2329ff54",
+      "post_export_triangle_payload_sha256": "694ef6b8a239eb4add0f71225bcbae5e83788b7cb171d0ceaa2fed1041a49933",
       "source_id": "site_sidewalk_9",
       "source_locator": "floors[F01].furniture[1341]",
       "source_range": {
@@ -326897,7 +326899,7 @@
         "triangle_start": 756
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "eaccae20c54c6abc3ae21f2cd81ad7e62c5a46ba001c1dee0ce2c111afcf0b91",
+      "post_export_triangle_payload_sha256": "e8056c60017e1913f4c4cf49694fd08fedaa947a83ee3ea747f8654a3f02ce7b",
       "source_id": "site_sidewalk_55",
       "source_locator": "floors[F01].furniture[1394]",
       "source_range": {
@@ -329459,7 +329461,7 @@
         "triangle_start": 60
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "c7d37a8cf99fb67d6da3f608a631134a3426f9d9f6bf0dcd78da20a83d76553e",
+      "post_export_triangle_payload_sha256": "52035d89ad1705c7559d34542e4edadfacf65330b6c46b2418d3bada635c737f",
       "source_id": "site_sidewalk_4",
       "source_locator": "floors[F01].furniture[1336]",
       "source_range": {
@@ -329795,7 +329797,7 @@
         "triangle_start": 72
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "db4fdf72f71c123ff4b8efb3fc224d1be4022049c8c42ece4a190221212d9a1e",
+      "post_export_triangle_payload_sha256": "d6ad4d2ccf90d55874bd65b57efc4d09f688660c9185dd52173d152945980edc",
       "source_id": "retail_bar_jukebox",
       "source_locator": "floors[F01].furniture[2676]",
       "source_range": {
@@ -331307,7 +331309,7 @@
         "triangle_start": 444
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "484f99c74c69a2f42fbbab8cc9c4e3fbeeaa598e1b4f0a9ce7b30b49f6c704d2",
+      "post_export_triangle_payload_sha256": "0e268f97413291c0cf7a2a0562302ef13ab9c1c1eb52c9ce67f7889958ef6767",
       "source_id": "site_sidewalk_32",
       "source_locator": "floors[F01].furniture[1368]",
       "source_range": {
@@ -331853,7 +331855,7 @@
         "triangle_start": 828
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "1bcfdf57fb30bf54dfc22e0cf368e6b87f7e34b6755b7817622be737fc037517",
+      "post_export_triangle_payload_sha256": "c17918661121f5dba6270611e581762337acce9be71daa51b77e0e3524b4abc9",
       "source_id": "site_sidewalk_60",
       "source_locator": "floors[F01].furniture[1400]",
       "source_range": {
@@ -336221,7 +336223,7 @@
         "triangle_start": 156
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "5730913834330b5826f7e34524879a3b0c57415827fe02ddc8d590fb3fddad79",
+      "post_export_triangle_payload_sha256": "08b367b71e6e6f1bc40b251ea516934e366664cfe89bb95f2cdedf94794d55f9",
       "source_id": "retail_bar_ch1_1",
       "source_locator": "floors[F01].furniture[2761]",
       "source_range": {
@@ -336473,7 +336475,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_FUNERAL_PARLOUR",
-      "post_export_triangle_payload_sha256": "13c1a9c2bb1fba40774a82e628d58eb05ab5ab992a0bdeec0bbd171937121b42",
+      "post_export_triangle_payload_sha256": "ce148224d9638bcbf10eeb2886e6a033074956f0c51eed70693b6db1da00216f",
       "source_id": "site_rear_funeral_parlour_floor",
       "source_locator": "floors[F01].furniture[1185]",
       "source_range": {
@@ -336599,7 +336601,7 @@
         "triangle_start": 204
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "fda5d3d73345e8df70a33141916e5e95f69b668eda36eaa7552c4795103e7694",
+      "post_export_triangle_payload_sha256": "5bb3474dc04fc57746c24051f2d4fbf03665c7c8204cfcf1b670167350afa35a",
       "source_id": "common_k_kdishrack",
       "source_locator": "floors[F01].furniture[36]",
       "source_range": {
@@ -336767,7 +336769,7 @@
         "triangle_start": 72
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "58dc0379db09935547570af9a6ca0ca81bd280647294eebe945583b1dfb53476",
+      "post_export_triangle_payload_sha256": "4e96f7b34f4327c842a9fa3515bca37a4568d2127c8b761aa64a9842ec17049d",
       "source_id": "site_curb_e",
       "source_locator": "floors[F01].furniture[1413]",
       "source_range": {
@@ -338825,7 +338827,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SHOP_PAWNBROKER",
-      "post_export_triangle_payload_sha256": "9a1d943ac304211fa65ff82ceb5a816c2d4a8984e6113135832aa6e87043367b",
+      "post_export_triangle_payload_sha256": "af35f79073e07ea3798081bf31e7a534d65cc964fbc5dbd796d3b272ebf22857",
       "source_id": "storm_shopcab_pawnbroker0",
       "source_locator": "floors[F01].furniture[4141]",
       "source_range": {
@@ -339287,7 +339289,7 @@
         "triangle_start": 276
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "e566f346dd9d5794d8715cc87c8ba9c0414622ac3d999d9db81dec185d513e46",
+      "post_export_triangle_payload_sha256": "579ce480e1f51e84e8c64e1fd235ccb2a0adc39bbabfdfc7b6b9bb9fba1b83da",
       "source_id": "site_sidewalk_20",
       "source_locator": "floors[F01].furniture[1354]",
       "source_range": {
@@ -340715,7 +340717,7 @@
         "triangle_start": 108
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "3955a212a25c3293ddf1c2ed1f970215c6a700cd96978cfa34b89b5ff5c333d8",
+      "post_export_triangle_payload_sha256": "bca708c01cc489022763c21d7e6f989b836a6b5326e875368b1b9f730b609e0a",
       "source_id": "common_table",
       "source_locator": "floors[F01].furniture[27]",
       "source_range": {
@@ -343151,7 +343153,7 @@
         "triangle_start": 156
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "d9a6892e65dfd419677c8b861044fae5eedccfc45e9f20f6fb63b9c6312084ad",
+      "post_export_triangle_payload_sha256": "c189ccd9577e2679fc6b1623136d6160e613b455c04ac51d3d68815dbab2ebfc",
       "source_id": "common_chn1",
       "source_locator": "floors[F01].furniture[31]",
       "source_range": {
@@ -344999,7 +345001,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "545f85d75eb117355ae8c58f6b990aafb0ca921c039e615b7ebd673772d0993d",
+      "post_export_triangle_payload_sha256": "2306993d381be92178d7cbfac4c04037ee0234acb976f50fcfd53496bb899b28",
       "source_id": "lobby_bench_e",
       "source_locator": "floors[F01].furniture[16]",
       "source_range": {
@@ -348149,7 +348151,7 @@
         "triangle_start": 156
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "31ecd0a2aa0853131af9141048ffe086ead7cedbc76536b87534ee70040b38d6",
+      "post_export_triangle_payload_sha256": "0edd559f5c1b22562dec0ceb9e564d0f12806184b65e9f46d2e5071502d833ee",
       "source_id": "site_sidewalk_11",
       "source_locator": "floors[F01].furniture[1344]",
       "source_range": {
@@ -348821,7 +348823,7 @@
         "triangle_start": 444
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "f8baa637869e1a0b6d0cc5fd6f4758b708a492da0bd8562856ec1805a1a1bccd",
+      "post_export_triangle_payload_sha256": "29e75f9edd5dbdb1cad47670b8876a8ef9ddf74b800e474927ed198584e63dc2",
       "source_id": "1A_din_dc2",
       "source_locator": "floors[F01].furniture[71]",
       "source_range": {
@@ -349955,7 +349957,7 @@
         "triangle_start": 708
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "c4933969f6b4f3a8723bfbc87c6e1085f4246c138bd5faf3f13893aa99f8dd1b",
+      "post_export_triangle_payload_sha256": "8bbb85513d66a79f90a0cb8bfb781139c623ff0e469cd446f1af81fb25ac8459",
       "source_id": "site_sidewalk_52_a",
       "source_locator": "floors[F01].furniture[1390]",
       "source_range": {
@@ -352013,7 +352015,7 @@
         "triangle_start": 12
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "c0dc4de3888f4326804298b27aabf5d9f6906fd688f99f0c031f1e6429f69a96",
+      "post_export_triangle_payload_sha256": "f2da52351100898f5c208fde065ca3c801f9996f3f081937aba027bd48fea754",
       "source_id": "F01_WALL_016",
       "source_locator": "floors[F01].walls[15]",
       "source_range": {
@@ -352097,7 +352099,7 @@
         "triangle_start": 732
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "1f9d0ceebcd5a56b3463c5a8c550e46c488030bd2af3f0aaa490de9ef5d99ad0",
+      "post_export_triangle_payload_sha256": "003cc2b8ca57b0012f55117c206344aafc2a105ff261157c294894fe8fcced22",
       "source_id": "site_sidewalk_53",
       "source_locator": "floors[F01].furniture[1392]",
       "source_range": {
@@ -359699,7 +359701,7 @@
         "triangle_start": 396
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "c5170b405de68efb7bbb8e5c68db69970ff94e7bfae6158b27d7284d07c5eb7b",
+      "post_export_triangle_payload_sha256": "7c9291886dc98e4f7dd1b71bed46a5cfb3cf7e96256ba01883096d7dce719906",
       "source_id": "site_sidewalk_29",
       "source_locator": "floors[F01].furniture[1364]",
       "source_range": {
@@ -360077,7 +360079,7 @@
         "triangle_start": 504
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "c8e8b6d5ac30a3d04a48b6c795e46340c07629f7ebef8e49765410e4ca22b94d",
+      "post_export_triangle_payload_sha256": "dd6be88732b5b1bf42ff9166ce57ff766056b53ae3d24de14076886969fb5bd0",
       "source_id": "1D_w0_wardrobe",
       "source_locator": "floors[F01].furniture[87]",
       "source_range": {
@@ -362597,7 +362599,7 @@
         "triangle_start": 240
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "815101835528276748e9bab1ec05cbb179de01dc5ad268923040c36d3faca30e",
+      "post_export_triangle_payload_sha256": "10449022698cd6ec5ec39a76debcda4d2e2ce4aba70d3322ce2044e81ad26fa4",
       "source_id": "site_curb13",
       "source_locator": "floors[F01].furniture[1427]",
       "source_range": {
@@ -364823,7 +364825,7 @@
         "triangle_start": 216
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "e4d4ad8a909008420d617be91de77e73a510fb9e863c4bc2d065895b9c0779bc",
+      "post_export_triangle_payload_sha256": "c9e60c71b072e7bda5c152bc5cd43e4ae648ee8a0b7a5544d25b3850a703ccb5",
       "source_id": "site_sidewalk_16",
       "source_locator": "floors[F01].furniture[1349]",
       "source_range": {
@@ -366335,7 +366337,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "36f30c2f8b3e3b8c32f3ce97558a3796b9abaf0dc0455e71d33e144e57829b67",
+      "post_export_triangle_payload_sha256": "8c40369088bd3da5de9fb0964022454169f88e4c81518dea59b267dd9aa74092",
       "source_id": "F01_SLAB_001",
       "source_locator": "floors[F01].slabs[0]",
       "source_range": {
@@ -373013,7 +373015,7 @@
         "triangle_start": 60
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "87180616abb2b6cd7e482f2e8dd21455d8280578fcfc1486a6c2a3a52b1aa731",
+      "post_export_triangle_payload_sha256": "dcc8ee2e245ef1e52e1905298fc41e6d98783c2987b3e746e0622dd4c973b419",
       "source_id": "F01_office_dkch",
       "source_locator": "floors[F01].furniture[23]",
       "source_range": {
@@ -373601,7 +373603,7 @@
         "triangle_start": 792
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "7f217b7db547a09fbf3a1692890ff5da576b3e78559a4607454350947afd619c",
+      "post_export_triangle_payload_sha256": "d996f4299567b2a6e7a1863f2bd9300772ba273eb68c0cf0dd6a82dcd7b18c4b",
       "source_id": "site_sidewalk_58",
       "source_locator": "floors[F01].furniture[1397]",
       "source_range": {
@@ -375365,7 +375367,7 @@
         "triangle_start": 60
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "e4c5d4664fe65a6a161845916b42f9a7bb84b824a144d39268c4b8649ecf8514",
+      "post_export_triangle_payload_sha256": "9987e1b034c716fbf6851e5d6014e556df9f501f7f90253123b4c93c37c47ee1",
       "source_id": "retail_bar_cab02",
       "source_locator": "floors[F01].furniture[2675]",
       "source_range": {
@@ -375785,7 +375787,7 @@
         "triangle_start": 228
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "b43a8fdacd2812c30068f508817c2429a0ef74b8652eb368d4b4fa66a9be165d",
+      "post_export_triangle_payload_sha256": "4572f3c18339b66d7eccba70bcbd658279cccb9b48a629003d7cd170f4339416",
       "source_id": "site_sidewalk_17_a",
       "source_locator": "floors[F01].furniture[1350]",
       "source_range": {
@@ -378557,7 +378559,7 @@
         "triangle_start": 192
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "a2d31253489113aa7762fff70adb8ae22574392e680b33a5d2bea0fd5e5a1f45",
+      "post_export_triangle_payload_sha256": "1f95cd424f086c8128a077e9f3ca68f1bff1a41e634357e67130c413e43319ed",
       "source_id": "retail_bar_ch2_1",
       "source_locator": "floors[F01].furniture[2765]",
       "source_range": {
@@ -379523,7 +379525,7 @@
         "triangle_start": 216
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "c2a438fa6d9b4843afd02e1f01be19ba19787f9a1450ed8e57bbcb85f55c7473",
+      "post_export_triangle_payload_sha256": "ab9750e13af0986ff7643332f347d6a4d97b336d7ec06cf4a921f0093bc2f8e8",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -380531,7 +380533,7 @@
         "triangle_start": 372
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "fad0f4bfefd01aff5b4bd804b169fec89f7703d1db9e929cfdf382332eb0d734",
+      "post_export_triangle_payload_sha256": "17d75d9c64faaf90674ae6f65eedf4d78c1045e9854e3f7ad2fcbe5c498c6525",
       "source_id": "1A_k",
       "source_locator": "floors[F01].furniture[61]",
       "source_range": {
@@ -380993,7 +380995,7 @@
         "triangle_start": 192
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "fabf63359afb4ca77f63c4c6a93999f5a60e57b1aed1eb4ffd037c3009b3f8e0",
+      "post_export_triangle_payload_sha256": "5138923dab9c892831a2be3434548779315277621fdd9bb73523456b1527144f",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -381329,7 +381331,7 @@
         "triangle_start": 168
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "b799c6e8042923c0015c40f13252657fa6cefe69ec9bb2a2671d4056e074cbb3",
+      "post_export_triangle_payload_sha256": "d8fb05373ba4d538cc7a475247ededd2b630eebb45a647f016eedfd441274f2c",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -381749,7 +381751,7 @@
         "triangle_start": 96
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "1005c240d78033ddb99e42192fa98e868edaadadd6fe7ba6184cdd7849fc73b6",
+      "post_export_triangle_payload_sha256": "9e2b13e9996e06d64b002600dd2a103af3c887fd903e870844b8d8588525113e",
       "source_id": "retail_bar_ch0_0",
       "source_locator": "floors[F01].furniture[2755]",
       "source_range": {
@@ -381833,7 +381835,7 @@
         "triangle_start": 480
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "fe631d9ae864f9890dad2be4c54d2651bc2d69fdae5d4e2ba6c784a351e64123",
+      "post_export_triangle_payload_sha256": "2aff5bc1ff6dc90305aeb8c9b48ec920c5fa83b237bab32f3c6a6db573743ac2",
       "source_id": "1D_bed0",
       "source_locator": "floors[F01].furniture[85]",
       "source_range": {
@@ -382463,7 +382465,7 @@
         "triangle_start": 132
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "5745e3926f6f2cd91228f4973ceef514db141bc88ce3e242c46b0fc3cc87db9d",
+      "post_export_triangle_payload_sha256": "05abd5ad5cbeb757bdd4c7349b469ba6aee65a8150b9f9c3a06651d965299e74",
       "source_id": "site_sidewalk_10_a",
       "source_locator": "floors[F01].furniture[1342]",
       "source_range": {
@@ -382547,7 +382549,7 @@
         "triangle_start": 264
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "c1c636718c2733a5b895b5029e91f49830aeb41f7b1fe3ec8bd512e6654c66dc",
+      "post_export_triangle_payload_sha256": "60323d3621156de04b5f98efabf9de24ac884a37e433e44eefde35a4a47d02a3",
       "source_id": "site_sidewalk_19",
       "source_locator": "floors[F01].furniture[1353]",
       "source_range": {
@@ -384311,7 +384313,7 @@
         "triangle_start": 180
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "54ece1d7639b0461785df5cf5915b0c9b5224a9d3be245919be1637f1e2544c7",
+      "post_export_triangle_payload_sha256": "f2d70cf74e8500edf0fad9a83728484b61dcea85d0e5b77482b10b6d9c9ca15d",
       "source_id": "site_curb8",
       "source_locator": "floors[F01].furniture[1422]",
       "source_range": {
@@ -384647,7 +384649,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_PASSAGE",
-      "post_export_triangle_payload_sha256": "262b7b9bea50ac04469d7db15e278e254e18232fb5edeb4d621219dcbcc0320b",
+      "post_export_triangle_payload_sha256": "d50496ca5ced1251fff3c9381fe27f99a8b4dd947981e4e1c2f4a85bf330f866",
       "source_id": "site_passage_svc_model_laundry_floor",
       "source_locator": "floors[F01].furniture[1098]",
       "source_range": {
@@ -384941,7 +384943,7 @@
         "triangle_start": 96
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "d2d39528380f3f39a747840af5a03d77d3f6b3a3e1fe57a3638b85e04f33cde9",
+      "post_export_triangle_payload_sha256": "dc0f8ff409ca58270fefdfebca8d7718d3dfaec3c9eeefa8c9200c3033c6c6bb",
       "source_id": "lobby_plant",
       "source_locator": "floors[F01].furniture[26]",
       "source_range": {
@@ -388049,7 +388051,7 @@
         "triangle_start": 228
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "2e1d92329f74380708c545f3be4887c5ccf1607d57c418b9817f31ab12bd9771",
+      "post_export_triangle_payload_sha256": "65939c22b844d9a5a52f5e31c7fd96114fe9b4866df78506557a7138f1b5c083",
       "source_id": "f01_stcrate0_a",
       "source_locator": "floors[F01].furniture[42]",
       "source_range": {
@@ -389771,7 +389773,7 @@
         "triangle_start": 144
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "c1b798966195755ddcf5649e2731ffdb47461359be9bd7813bd7b2864d0d2350",
+      "post_export_triangle_payload_sha256": "ddd289883fea0d0a288688318fc7d65004c2c6272a81b7d968560d3e6a151eaf",
       "source_id": "common_ch1",
       "source_locator": "floors[F01].furniture[30]",
       "source_range": {
@@ -390485,7 +390487,7 @@
         "triangle_start": 384
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "01d2d905f2f4aefdc30419eae94320f3a2b86f7a4a123d5b3660465661911116",
+      "post_export_triangle_payload_sha256": "1b82cfb38bcf794dd07263be261f88b3544c6f54c9527a8f5dc0db2a9f0529fb",
       "source_id": "site_sidewalk_28",
       "source_locator": "floors[F01].furniture[1363]",
       "source_range": {
@@ -392459,7 +392461,7 @@
         "triangle_start": 48
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "236f7fe18a726542a7256111d8efc260d6cb2e7e35672edab6e82d0954f7b668",
+      "post_export_triangle_payload_sha256": "fbe616dfdb59c6ff9044bf4f102e053faec588309e6018cdf0600338293a9aa7",
       "source_id": "site_sidewalk_3_b",
       "source_locator": "floors[F01].furniture[1335]",
       "source_range": {
@@ -393845,7 +393847,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "1eafecb725f9aa42895346e6b4b5bff5260a669baf570ab5ec1e6a91e300bc02",
+      "post_export_triangle_payload_sha256": "64ff633b6e74b46bcf34cf1fa65efa27ca9f919578b1b002e29bcf99a6993d6c",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -395105,7 +395107,7 @@
         "triangle_start": 0
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "cf9881600367ac663784c8d76ddc14a4e233733099072afe076453fa867d98df",
+      "post_export_triangle_payload_sha256": "d004529fbbe94cedf24a85e6fbd87a76712c4bb12305fcd86d9f964817721207",
       "source_id": "retail_street_crate0",
       "source_locator": "floors[F01].furniture[2874]",
       "source_range": {
@@ -395189,7 +395191,7 @@
         "triangle_start": 36
       },
       "owner_cell": "CELL_ORISON_F01_INTERIOR",
-      "post_export_triangle_payload_sha256": "b3fb8b79bf25ed28cd5ef526cd086301b87087e225671e59f687e46e202e6bb4",
+      "post_export_triangle_payload_sha256": "2dc8affc1a4f7724d813d3044672e2ea1b218f811eee496c9b80b21b03e3afea",
       "source_id": "F01_GENERATED_STAIR_ATRIUM",
       "source_locator": "stairs[atrium]",
       "source_range": {
@@ -397121,7 +397123,7 @@
         "triangle_start": 108
       },
       "owner_cell": "CELL_SHOP_BAR",
-      "post_export_triangle_payload_sha256": "a09b041c342c0abe4e653e3343531171accf9a83720bf1a33b80ca5976c3d938",
+      "post_export_triangle_payload_sha256": "32ea11baabe38fd537e20ed94dc9ff4c1edde09d0f9ffd09fbfb2f6e69b5e0f8",
       "source_id": "retail_bar_ch0_1",
       "source_locator": "floors[F01].furniture[2756]",
       "source_range": {
@@ -400859,7 +400861,7 @@
         "triangle_start": 420
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "00c4c715ead6a187241b77c8220d390ab5f5cc04ee4970638a5e931678cb4a54",
+      "post_export_triangle_payload_sha256": "7337ab593123c72955e2584a85de158c36a52b0b3f0ebd9a9a856f3af7f2643d",
       "source_id": "site_sidewalk_31_a",
       "source_locator": "floors[F01].furniture[1366]",
       "source_range": {
@@ -403463,7 +403465,7 @@
         "triangle_start": 624
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "522d28c7a4d86a54d9e4be9af74c891253ab5b05939ac1c65bd51501764db07d",
+      "post_export_triangle_payload_sha256": "f8838c10b0282fdb61a3bbb39c528bc0f7ae112115b33e4f3ead25cb1b71706d",
       "source_id": "site_sidewalk_45_b",
       "source_locator": "floors[F01].furniture[1383]",
       "source_range": {
@@ -407243,7 +407245,7 @@
         "triangle_start": 324
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "f5f0f0e14ef1ce14118150b5e3d97fb91e4ab8b5c723f58fcb1cd4faaa5fc0a0",
+      "post_export_triangle_payload_sha256": "57045d53d88253d08072c1d4bbd9334564ccdd950881d899383f4a5a2400d783",
       "source_id": "site_sidewalk_24_a",
       "source_locator": "floors[F01].furniture[1358]",
       "source_range": {
@@ -409511,7 +409513,7 @@
         "triangle_start": 672
       },
       "owner_cell": "CELL_SITE_STREET_COMMON",
-      "post_export_triangle_payload_sha256": "c8b5d1ba0736fbe04b4e0da93ade932d7a67e9839704457f3566b8f77c6bdfd8",
+      "post_export_triangle_payload_sha256": "65a5762c760d735485684d976617b377c132cff6a13bf223b071d1d5e6efd248",
       "source_id": "site_sidewalk_49",
       "source_locator": "floors[F01].furniture[1387]",
       "source_range": {
@@ -418892,7 +418894,7 @@
       "identity_origin": "M11A_AUTHORED_THRESHOLD_ID",
       "owner_cell": "CELL_SHOP_BODEGA",
       "semantic_kind": "m11a_exterior_threshold",
-      "source_file_sha256": "1f128e4411e135acfc7e9046d5a2c3edf940d39adce54d336fbba8523f1a488a",
+      "source_file_sha256": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
       "source_id": "M11A_THRESHOLD_SHOP_BODEGA_FRONT",
       "source_locator": "game/data/orison_v2/exterior/regions.json#thresholds[id=THRESHOLD_SHOP_BODEGA_FRONT]",
       "source_record_sha256": "c76dd77238f4d3e5bb83f7e31d5256eb2da59fab128ba2937bb47025de3f343f"
@@ -468579,7 +468581,7 @@
       "owner_cell": "CELL_SHOP_NEWS_CIGARS",
       "source_id": "SITE_SHOP_DOOR_NEWS_CIGARS",
       "source_locator": "floors[F01].markers[162]",
-      "source_record_sha256": "f2f13e987f37e378869b42f20578760f1e3905ef254b7646f668571367bcb0f3"
+      "source_record_sha256": "0cac20665fa7728555ff6475127b1bb80ba379af495e2b1600a96be28910bee2"
     },
     {
       "authoring_context": "SHOP_MARKER_NEWS_CIGARS",
