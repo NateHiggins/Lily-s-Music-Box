@@ -9,6 +9,9 @@ var comparison_poses: Dictionary={}
 var two_style_controls: Dictionary={"executed":false,"completed":false,"frames":[],"attempts":[]}
 var held_controls: Dictionary={"executed":false,"two_style_closed_open":{"executed":false,"reason":"Parent route selects one reachable copy; two-style closed/open actual acquisition is not established."}}
 const NATIVE_PIXELS := Vector2i(3440,1440)
+const COMPACT_PIXELS := Vector2i(800,600)
+var _optics_pixels := NATIVE_PIXELS
+var _compact_paperback := false
 const OWNER_SOURCES: Array[String]=[
 	"res://scripts/props/v2_readable_book.gd",
 	"res://scripts/props/v2_library_movable.gd",
@@ -24,6 +27,20 @@ const OWNER_SOURCES: Array[String]=[
 	"res://scripts/props/book_print_preparation.gd",
 	"res://scripts/props/book_print_mesh.gd",
 	"res://scripts/device/companion_motion.gd"]
+
+func _ready() -> void:
+	_compact_paperback = OS.get_environment("ORISON_BOOK_COMPACT_PAPERBACK") == "1"
+	if _compact_paperback:
+		_optics_pixels = COMPACT_PIXELS
+		var viewport := get_viewport() as SubViewport
+		if not _require(viewport != null, "compact paperback uses a detached input viewport"):
+			get_tree().quit(1)
+			return
+		viewport.size = _optics_pixels
+	super._ready()
+
+func _accept_nook_book(book: Node3D) -> bool:
+	return not _compact_paperback or book.construction.get("opening_style") == "paperback"
 
 func _inspect_stock_review(book: Node3D) -> void:
 	profile_active=false # Readback, hashing and queries are not frame-budget proof.
@@ -109,14 +126,15 @@ func _observe_book(phase: String,book: Node3D) -> void:
 	for draw: MeshInstance3D in book.find_children("*","MeshInstance3D",true,false):
 		draws.append({"path":str(draw.get_path()),"layers":draw.layers,"visible":draw.is_visible_in_tree(),"lamp_layer_overlap":(draw.layers&light.light_cull_mask)!=0,"cast_shadow":draw.cast_shadow})
 	var image: Image=get_viewport().get_texture().get_image()
-	_require(image.get_size()==NATIVE_PIXELS and get_viewport().get_visible_rect().size==Vector2(NATIVE_PIXELS),"optical image and viewport are actual native3440x1440")
+	_require(image.get_size()==_optics_pixels and get_viewport().get_visible_rect().size==Vector2(_optics_pixels),
+		"optical image and viewport are actual native%dx%d" % [_optics_pixels.x,_optics_pixels.y])
 	var filename: String=phase+"_book_lamp.png"
 	var output: String=OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(output)
 	var png_path: String=output.path_join(filename)
 	_require(image.save_png(png_path)==OK,"optical comparison frame saved: "+phase)
 	var png_pixels: Vector2i=_optics_png_size(FileAccess.get_file_as_bytes(png_path))
-	_require(png_pixels==NATIVE_PIXELS,"saved optical PNG has actual native IHDR dimensions: "+phase)
+	_require(png_pixels==_optics_pixels,"saved optical PNG has actual native IHDR dimensions: "+phase)
 	var regions: Dictionary={}
 	for key: String in geometry:regions[key]=_optics_region(image,geometry[key].get("roi",[]))
 	var holding: bool=player._grab.holding_pickup() and player._grab.target.get("part")==book
