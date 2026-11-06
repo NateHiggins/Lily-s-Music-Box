@@ -16,7 +16,6 @@ const MONTAGE := [
 ]
 const MONTHS := ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"]
 const WEEKDAYS := ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"]
-const WindowOptics := preload("res://scripts/building/v2_background_window_material.gd")
 const State:=preload("res://scripts/game/prologue_state.gd")
 const Living:=preload("res://scripts/building/living_sky.gd")
 const Calendar:=preload("res://scripts/game/campaign_weather.gd")
@@ -333,7 +332,7 @@ func _publish() -> void:
 	var minute := floorf(view_clock.calendar_minutes())
 	if age >= ROOF_START and minute != _optical_minute and is_instance_valid(_city):
 		_optical_minute = minute
-		for material: ShaderMaterial in _city._window_materials.values(): WindowOptics.sync_clock(material, view_clock)
+		_city.project_window_clock(view_clock)
 	publications+=1
 	if profile_samples and sample_costs.size()<4096:sample_costs.append([age,sampled_utc,(Time.get_ticks_usec()-started)/1000.0])
 
@@ -412,7 +411,7 @@ func _cleanup() -> void:
 		director._campaign_clock=_old_clock;director._live_conditions=_old_conditions;director.extreme_weather=_old_extreme
 		director._apply(_old_clock.minute_of_day())
 	if is_instance_valid(_city) and _optical_minute != INF and is_instance_valid(_old_clock):
-		for material: ShaderMaterial in _city._window_materials.values(): WindowOptics.sync_clock(material, _old_clock)
+		_city.project_window_clock(_old_clock)
 	_optical_minute = INF
 	var lighting:int=Time.get_ticks_usec() if profile_samples else 0
 	if is_instance_valid(manager):
