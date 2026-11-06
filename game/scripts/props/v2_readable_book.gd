@@ -11,6 +11,7 @@ const SPREAD_KNOWLEDGE := {"minutes": "minutes_read"}
 const READ_OPENING := 0.6
 const MIN_READING_DEPTH := .36
 const READING_HALF_SPAN := .88
+const READING_SETTLE_DISTANCE := .0001
 var stock: RefCounted
 var title_id := "" # Physical stock_id may identify a distinct copy of this title.
 var entry: Dictionary
@@ -154,8 +155,11 @@ func _physics_process(_delta: float) -> void:
 	var before:=global_transform
 	hold_pose(_floating_camera,true)
 	_floating_frames+=1
-	# Once supported in the fixed view, no solver or repeated shape queries.
-	if global_transform.is_equal_approx(before) or _floating_frames>=180:
+	# A supported book can slide by a few micrometres each tick against the
+	# player capsule. Stop at that clearance instead of chasing the fit target.
+	var settled:=global_position.distance_to(before.origin)<=READING_SETTLE_DISTANCE \
+			and global_basis.is_equal_approx(before.basis)
+	if settled or _floating_frames>=180:
 		set_physics_process(false)
 
 func park_in_slot(index: int, pose: Transform3D) -> void:
