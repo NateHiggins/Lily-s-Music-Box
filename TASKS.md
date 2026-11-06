@@ -901,6 +901,8 @@ for street objects, whether it fires on being looked at or on not being looked
 at, and whether the rear doors change with the flank or stay correct so the two
 disagree.
 
+- **T-V2-TRAMS — Standing order, City Codex, after the city is complete.** Add trams and trolley wire on the Queens Boulevard side of the V2 street, with blue-violet flashes at the trolley pole. Increase arc frequency on the aurora nights defined in `game/data/weather/phenomena.json`. See `design/ORISON_SUN_2026-11-04.md` on `claude/sun` for the existing aurora integration.
+
 ### W — Current glazing and joinery gaps
 
 The historical W-GLAZE/W-SHOW/W-JOINERY completion and measurement journal is
