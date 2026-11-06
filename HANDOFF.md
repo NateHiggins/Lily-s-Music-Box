@@ -25,7 +25,7 @@ spread, both glyph sides, native shoulder lamp and exact return are verified.
 At default magnification the print still breaks up. Compact legibility,
 human acceptance and physical book packing remain open.
 
-**PR164 newspaper valise.** Patched-engine batch 11 passed 66 checks at the
+**PR164 newspaper valise, merged through PR167 at f9c3eaa88.** Patched-engine batch 11 passed 66 checks at the
 source published as **b589233a3**, including purchase, deposit, release, reload
 and metre UVs with mipmaps. Batch 9 preserves the premature mesh assertion
 script error. Batch 10 preserves four stock-poll timing failures. The
@@ -39,9 +39,14 @@ and disk reload. **reading_valise_stack_clearance_native_01/** was interrupted
 before launch by the reboot. **02/** passed 84 checks at **e2406f628**. **03/**
 passed 92 at **cb8fe183f**, including all seven standing clearances at the
 bookshelf and the 720→721 hand deposit and reload. Both guards passed.
-**paper_edge_appearance_01/** freezes **847ea6b92** for a bounded comparison.
-Check its live launcher before editing canonical source. Root owns admission
-and will bind the four original suites after the surface review.
+**paper_edge_appearance_01/** preserves the launch-order failure. **02/**
+passes a bounded folded-edge render. **qualification_reading_valise_03/**
+passes the four original native packets. Authority 379 checks, apartments
+60 rooms and 781 recorded checks, surfaces 38,947 checks and zero unresolved,
+and exterior six routes and 130 checks. All 82 captures reviewed, with
+existing occlusions recorded. Exact **7081fc087** passes zero regressions.
+GitHub confirms main **f9c3eaa88** has the same tree. Book transport, compact
+print, human play and artistic acceptance remain open.
 
 **Laurel scheduler.** **laurel_scheduler_native_01/** passed 22 checks and six
 legs with both guards PASS. Worst frame 68.559 ms. Three running snapshots fell
@@ -49,8 +54,9 @@ inside the 53.649 ms render bracket. The historical 162.929 ms spike did not
 recur. **laurel_steady_pass_attribution_01/** independently joins 226 historical
 profiler frames. Reverse main-view markers have a 24.611 ms median against
 1.339 ms outbound. The separate first-reverse depth event spans 52.455 ms.
-The service-light shadow-mode control at **cb5c03390** awaits native
-measurement. **laurel_service_shadow_mode_native_01/** holds its batch.
+The service-light shadow-mode control at **93eab800e** is now admitted on
+merged V2. **laurel_service_shadow_mode_native_03/** owns its frozen batch.
+Revalidate the launcher and final guard before editing canonical source.
 
 **PR162 city windows qualification:** **qualification_city_windows_01/** retains the fixture binding refusal. **02/** terminal0 and both source guards PASS at **515c75279**. The original authority/save packet independently passed 379 checks and five contracts. Apartment access passed 60 rooms, nine legs and 782 checks. Surface passed 38,947 checks, with a separate zero-defect validation of 30,921 draws. Exterior access passed six routes and 130 checks. The current packets preserve exact runtime and log bytes. All 82 changed frames were reviewed; the dumbwaiter and some apartment fixtures remain obscured. Previous evidence is archived in **art/reviews/v2_qualification_city_windows_20261106/**. Exact candidate abfd47c20 passed and PR162 merged. Laurel stutter, human play and art acceptance remain open.
 
