@@ -46,7 +46,7 @@ const POCKET_UP := Vector3(0, 0.97029573, -0.24192190)
 const CONTAINERS := {
 	"letter": {"x": -0.135, "width": 0.15, "top": -0.012, "panel": -0.055, "depth": 0.002, "front": 0.010, "w": 0.085, "h": 0.11, "skin": "paper"},
 	"news": {"x": 0.085, "width": 0.24, "top": -0.006, "panel": -0.062, "depth": 0.002, "front": 0.012, "w": 0.11, "h": 0.13, "skin": "leather_worn"},
-	"comic": {"x": 0.085, "width": 0.22, "top": -0.046, "panel": -0.088, "depth": 0.016, "front": 0.024, "w": 0.075, "h": 0.10, "skin": "leather_worn"},
+	"comic": {"x": 0.085, "width": 0.22, "top": -0.046, "panel": -0.088, "depth": 0.016, "front": 0.022, "w": 0.075, "h": 0.10, "skin": "leather_worn"},
 }
 const POCKET_BOTTOM := -0.145
 const POCKET_WIDTH := 0.42

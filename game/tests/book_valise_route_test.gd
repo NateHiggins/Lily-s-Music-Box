@@ -13,17 +13,11 @@ func _route() -> void:
 	var collections := get_tree().get_nodes_in_group("v2_library_collections")
 	var copies: Array[Book] = []
 	for collection: Node in collections:
-		var by_title := {}
 		for copy: Book in collection._books.values():
-			if copy.opening != 0.0:
-				continue
-			if by_title.has(copy.title_id):
-				copies = [by_title[copy.title_id], copy]
-				break
-			by_title[copy.title_id] = copy
-		if not copies.is_empty():
-			break
-	if not _require(copies.size() == 2, "the installed nook supplies two physical copies of a title"):
+			if copy.title_id == "missing" and copy.opening == 0.0:
+				copies.append(copy)
+	if not _require(copies.size() == 2 and copies[0].shelf == copies[1].shelf,
+			"the installed nook supplies two closed copies of the thickest binding"):
 		return
 	var original := copies[0]
 	var sibling := copies[1]
@@ -34,8 +28,17 @@ func _route() -> void:
 	var path := "user://book_valise_%s.save" % Time.get_ticks_usec()
 	RealityState.save_path = path
 	RealityState.persistence_enabled = true
+	var catalog := get_tree().get_first_node_in_group("newspaper_catalog") as NewspaperCatalog
+	if not _require(catalog != null and not catalog.papers.is_empty() and not catalog.issues.is_empty(),
+			"the original newspaper catalogue is available"):
+		return
+	var paper_id := str(catalog.papers.keys()[0])
+	var date := str(catalog.issues.keys()[0])
+	var news := NewspaperCatalog.key_of(paper_id, date)
 	if not _require(PersonInventory.carry_goods(PersonInventory.PLAYER, "route_tin", "Pipe tobacco", "tin") \
-			and RealityState.save_game(), "the isolated primary contains ordinary goods"):
+			and catalog.collect_uncommitted(paper_id, date) and PaperPocket.tuck_news(news) \
+			and PaperPocket.tuck_comic("lilith_01") and PaperPocket.file_evidence("case_route", "A note", "A note in the case.") \
+			and RealityState.save_game(), "the isolated primary contains goods, a comic, a letter and a newspaper"):
 		return
 
 	# Use a clear station near the normal runtime spawn. Setup moves the
@@ -77,6 +80,14 @@ func _route() -> void:
 		return
 	await _capture_interaction("original_copy_in_valise")
 	var place := CarriedCase.place_of(item).duplicate()
+	if not _require(int(place.x) > 0 and int(place.y) == 0 and not bool(place.turned) and view._papers.size() == 3,
+			"the thick binding uses a square beside the occupied comic pocket"):
+		return
+	await _key(KEY_TAB)
+	await _capture_interaction("occupied_valise_closing")
+	await get_tree().create_timer(0.45).timeout
+	await _key(KEY_TAB)
+	await get_tree().create_timer(0.65).timeout
 	var size := CarriedCase.form_size(str(place.form), bool(place.turned))
 	await _press(_screen(view, float(place.x) + size.x * 0.5, float(place.y) + size.y * 0.5))
 	var tin := CarriedCase.place_of("route_tin")
@@ -96,7 +107,9 @@ func _route() -> void:
 	RealityState.load_game()
 	await get_tree().physics_frame
 	if not _require(RealityState.can_continue() and CarriedCase.place_of(item) == place \
-			and original.valise_packed and not original.visible and sibling.visible, "disk reload restores one packed copy"):
+			and original.valise_packed and not original.visible and sibling.visible \
+			and PaperPocket.has_comic("lilith_01") and PaperPocket.transit_news() == news,
+			"disk reload restores one packed copy and the original paper custody"):
 		return
 
 	var obstruction := StaticBody3D.new()
