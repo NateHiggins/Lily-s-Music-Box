@@ -24,9 +24,12 @@ source published as **b589233a3**, including purchase, deposit, release, reload
 and metre UVs with mipmaps. Batch 9 preserves the premature mesh assertion
 script error. Batch 10 preserves four stock-poll timing failures. The
 single-paper capture verifies placement. The taller-pile capture is pending.
-**039fd734a** is the local paper-only merge candidate. The four original
-suite scripts are unchanged. Composed qualification and exact candidate
-verification remain open. Claude owns the external capture. Root owns admission.
+**039fd734a** exposed three unused generated display names in the spatial audit.
+**9d615fdce** removes those names and charts the new valise sheets and pocket
+boards in metres. Spatial and surface tooling tests, all 1,477 referenced
+texture imports, and the reader gate pass. The scoped native retest and
+unchanged four original suites are prepared in **valise_integration_preflight_01/**.
+Root owns admission. Claude owns the external capture.
 
 **Laurel scheduler.** **laurel_scheduler_native_01/** passed 22 checks and six
 legs with both guards PASS. Worst frame 68.559 ms. Three running snapshots fell
