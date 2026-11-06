@@ -383,7 +383,7 @@ func _container(root: Node3D, kind: String, sets: Dictionary) -> void:
 		panel.transform = Transform3D(Basis(Vector3.RIGHT, CARD_LEAN),
 				POCKET_TOP + Vector3(float(spec.x), 0, 0) + POCKET_UP * (float(board[0]) - height * 0.5) + CARD_NORMAL * float(board[1]))
 	if kind == "letter":
-		var tab := _label(root, 0.00022, 34)
+		var tab := _label(root, 0.0003, 34)
 		tab.text = "EVIDENCE"
 		tab.modulate = Color(0.12, 0.09, 0.06)
 		tab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -394,17 +394,17 @@ func _container(root: Node3D, kind: String, sets: Dictionary) -> void:
 ## What shows of a paper above its pocket: a newspaper's masthead, a comic's cover lettering, a letter's heading.
 func _cover(sheet: Node3D, paper: Dictionary, spec: Dictionary) -> void:
 	var top := float(spec.h) * 0.5
-	var head := _label(sheet, 0.00017, 34)
+	var head := _label(sheet, 0.00026, 34)
 	head.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	head.modulate = Color(0.1, 0.07, 0.05)
-	head.position = Vector3(0, top - 0.009, 0.0009)
-	head.text = str(paper.title).to_upper().left(18)
+	head.position = Vector3(0, top - 0.011, 0.0009)
+	head.text = str(paper.title).to_upper().left(16)
 	if paper.kind == "comic":
 		head.text = "LILITH"
-		head.pixel_size = 0.00034
+		head.pixel_size = 0.00046
 		head.modulate = Color(0.55, 0.1, 0.08)
 		head.position = Vector3(0, top - 0.012, 0.0009)
-		var number := _label(sheet, 0.00016, 34)
+		var number := _label(sheet, 0.00024, 34)
 		number.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		number.modulate = Color(0.1, 0.07, 0.05)
 		number.text = "No. %d" % int(paper.get("number", 0))
