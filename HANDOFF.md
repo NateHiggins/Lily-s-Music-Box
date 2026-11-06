@@ -1,6 +1,10 @@
 # Current handoff — merged V2 qualification and Laurel timing
 
-Canonical **C:/PleaseRemainOnTheLine**, branch **codex/v2-laurel-stutter-20261106** based on merged **6ac1e0a70**. Root owns integration. Check both bridge inboxes. Cases below are under **C:/ov/reports/develop_intake_20261104/**.
+Canonical **C:/PleaseRemainOnTheLine**, branch **codex/v2-region-qualification-20261106** based on merged **930c920e6**. Root owns integration. Check both bridge inboxes. Cases below are under **C:/ov/reports/develop_intake_20261104/**.
+
+**Exterior spatial renewal:** **exterior_regions_current_01/** preserves the old mask refusal. **02/** terminal0 and both guards PASS. The native source-bound replay reaches six regions via six routes in one continuous leg, with 52 endpoints, 6,609 observed poses and 130 checks. The normal standing mask includes the native hose-contact layer. The current packet and its byte-checked original logs pass independent publication. Human navigation and appearance review remain open.
+
+**PR159 merged:** The exact **23b0bd9c7** candidate passed against **6ac1e0a70** with zero regressions and 17 protected paths unchanged. Main **930c920e6** matches the verified tree. The physical washer fault is covered. Laurel wall batching was retired.
 
 **Merged qualification:** PR158 merged the exact **e6907c5c8** tree. Candidate verification against **77fe04073** reports zero regressions and 17/17 protected paths unchanged. The original native suites and all 82 frame observations remain source-bound. The archive check confirmed all 103 review files match the Git blobs. PR151, PR152 and PR156 remain in main history.
 
