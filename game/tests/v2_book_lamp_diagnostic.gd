@@ -293,6 +293,14 @@ func _optics_project(points: PackedVector3Array) -> Dictionary:
 	result.roi=[x0,y0,maxi(0,x1-x0),maxi(0,y1-y0)]
 	return result
 
+func _reading_hull_projection(book: Node3D) -> Dictionary:
+	var points:=PackedVector3Array()
+	for solid: CollisionShape3D in book._solids:
+		var hull:=solid.shape as ConvexPolygonShape3D
+		for point: Vector3 in hull.points:
+			points.append(solid.global_transform*point)
+	return _optics_project(points)
+
 func _optics_region(image: Image,roi: Array) -> Dictionary:
 	if roi.size()!=4 or int(roi[2])<=0 or int(roi[3])<=0:return {"sample_count":0,"valid_region":false}
 	var stride: int=maxi(1,ceili(sqrt(float(int(roi[2])*int(roi[3]))/65536.)))
@@ -482,12 +490,12 @@ func _two_style_run(owner: Node3D) -> void:
 		if not _require(await _two_style_hinge(PI),"actual mouse opens "+family+" cover without forced state"):return
 		_click_library()
 		if not _require(not player._grab.active(),"next primary releases "+family+" cover"):return
+		var pickup_pose: Transform3D=book._reading_pickup_pose
+		var pickup_slot: int=book._reading_pickup_slot
 		await _two_style_space()
-		if not _require(not player.inspecting() and player.held_stock_body()==book,"Space returns opened "+family+" to original physical hand"):return
-		for frame in 110:await get_tree().physics_frame
-		if not await _two_style_capture(family+"_open_held",book):return
-		_click_library()
-		if not _require(player.held_stock_body()==null and not book._held,"next primary normally releases "+family+" copy"):return
+		if not _require(not player.inspecting() and player.held_stock_body()==null and not book._held
+				and book.transform.is_equal_approx(pickup_pose) and book.shelf_slot==pickup_slot,
+				"Space sets the read "+family+" copy back at pickup"):return
 		for frame in 6:await get_tree().physics_frame
 	two_style_controls.completed=true
 
@@ -522,8 +530,7 @@ func _cold_nook_first_use(book: Node3D, space: InputEventKey) -> bool:
 		observation.print_preparation_latency_ms = book.get_meta("print_preparation_latency_ms", -1.)
 		if _require(opened and observation.print_preparation_ms >= 0.,
 				"first supported use opens the actual cover and retains the prepared printed spread"):
-			_click_library()
-			_require(not player._grab.active() and not book._held, "first-use inspection returns and releases the original binding")
+			_require(not player._grab.active() and not book._held, "first-use exit sets down the original binding")
 	if player.inspecting():
 		player.end_inspection()
 	var directory := OS.get_environment("SHOT_DIR")
@@ -600,16 +607,49 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 			installed_reading.cover_blocked = book._cover_blocked
 			installed_reading.last_body_motion = _two_style_withdrawal_state(book).body_hit
 			return false
+	var before_fit: Transform3D = book.global_transform
+	var eye_before_fit: Transform3D = camera.global_transform
+	var projection_before:=_reading_hull_projection(book)
 	_click_library()
+	installed_reading.fit_motion={"before":_reading_fit_motion(book,camera),"samples":[]}
 	if not _require(not player._grab.active() and player.inspecting() and book._print_ready
 			and book._sheets.size() == 2, "next primary releases opened binding with two printed pages"):
 		return false
-	for frame in 2:
+	for frame in 120:
+		if not book.is_physics_processing():
+			break
 		await get_tree().physics_frame
+		if frame in [0,1,2,5,15,35,59,119]:
+			installed_reading.fit_motion.samples.append(_reading_fit_motion(book,camera))
+	installed_reading.fit_motion.after=_reading_fit_motion(book,camera)
+	var projection_after:=_reading_hull_projection(book)
+	installed_reading.fit_projection={"before":projection_before,"after":projection_after}
+	if not _require(not book.is_physics_processing() and camera.global_transform.is_equal_approx(eye_before_fit)
+			and camera.global_position.distance_to(book.global_position) + .05
+				< camera.global_position.distance_to(before_fit.origin),
+			"open binding moves toward the fixed eye and settles through the physical hold"):
+		return false
+	var area_before: float=projection_before.get("projected_width_px",0.)*projection_before.get("projected_height_px",0.)
+	var area_after: float=projection_after.get("projected_width_px",0.)*projection_after.get("projected_height_px",0.)
+	if not _require(area_before>0. and area_after>area_before and not bool(projection_after.get("frame_clipped",true)),
+			"centred reading fit increases projected book area while keeping the complete binding in view"):
+		return false
 	var reading_pose: Transform3D = book.global_transform
 	var reading_eye: Vector3 = camera.global_position
 	var reading_basis: Basis = camera.global_basis
 	if not await _installed_reading_frame("installed_reading_40", book, 40., matched_msaa, original):
+		return false
+	var companion: Node3D=player.carried_device
+	var shoulder: Vector3=camera.to_local(companion.rig.to_global(companion.screen_frame.stock_bounds.get_center()))
+	installed_reading.shoulder_center_from_eye=var_to_str(shoulder)
+	if not _require(absf(shoulder.x)>.40 and shoulder.y>.05 and shoulder.z>-.04
+			and companion.inspected_readable_stock()==book,
+			"same companion reaches a shoulder station and tracks the inspected book"):
+		return false
+	var reading_aim: Dictionary=installed_reading.frames.back().reading_aim
+	if not _require(not book._held and bool(reading_aim.diagnostic_query_issued)
+			and bool(reading_aim.get("target_valid",false)),
+			"released inspection keeps a native page target for the shoulder lamp"):
 		return false
 	if not _require(await _two_style_cursor(camera.global_position - camera.global_basis.z),
 			"detached reading cursor reaches camera centre"):
@@ -652,23 +692,67 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 	if not _require(is_equal_approx(camera.fov, 40.) and camera.project_ray_normal(pixel).distance_to(pointer_ray) < .0001,
 			"same off-centre cursor returns normally to entry FOV"):
 		return false
+	var pickup_pose: Transform3D=book._reading_pickup_pose
+	var pickup_slot: int=book._reading_pickup_slot
+	var pickup_angle: float=book._reading_pickup_opening
+	var blocker: StaticBody3D
+	if OS.get_environment("ORISON_BOOK_RETURN_OBSTRUCTED")=="1":
+		blocker=StaticBody3D.new()
+		blocker.name="BookPickupDestinationObstruction"
+		var shape:=CollisionShape3D.new()
+		var box:=BoxShape3D.new()
+		box.size=Vector3(.024,.025,.024)
+		shape.shape=box
+		blocker.add_child(shape)
+		add_child(blocker)
+		var collection:=book.get_parent_node_3d()
+		blocker.global_position=collection.to_global(pickup_pose*book.pickup_centre())
+		await get_tree().physics_frame
+		await get_tree().physics_frame
+	var release_pose: Transform3D=book.global_transform
+	var return_requested: bool=book.should_return_after_reading()
+	installed_reading.return_attempt={
+		"requested":return_requested,"source_pose":var_to_str(pickup_pose),
+		"source_slot":pickup_slot,"source_opening":pickup_angle,
+		"release_pose":var_to_str(release_pose),"preflight":_reading_return_preflight(book,pickup_slot,pickup_pose,pickup_angle)
+	}
 	await _two_style_space()
+	var returned: bool=book.transform.is_equal_approx(pickup_pose) and book.shelf_slot==pickup_slot \
+		and is_equal_approx(book.opening,pickup_angle)
+	if pickup_slot>=0:
+		returned=returned and book.freeze
+		if is_zero_approx(pickup_angle):
+			returned=returned and book._solids.size()==1 and book._solids[0]==book._closed_solid
+	var released_nearby: bool=not returned and book.shelf_slot==-1 and not book.freeze \
+		and release_pose.origin.distance_to(book.global_position)<.18
+	var blocked_test:=is_instance_valid(blocker)
+	if blocked_test: blocker.queue_free()
+	installed_reading.return_attempt.merge({
+		"returned":returned,"released_nearby":released_nearby,
+		"actual_pose":var_to_str(book.transform),"actual_slot":book.shelf_slot,
+		"actual_opening":book.opening,"frozen":book.freeze,"book_held":book._held,
+		"grab_active":player._grab.active(),"inspecting":player.inspecting(),
+		"actual_fov":camera.fov,"expected_fov":held_fov
+	})
+	if not _require(not player.inspecting() and not player._grab.active()
+			and is_equal_approx(camera.fov, held_fov) and not book._held
+			and (released_nearby if blocked_test else returned),
+			"blocked pickup leaves the same read copy to settle locally" if blocked_test
+			else "normal Space puts the same read copy back at its pickup pose and restores FOV"):
+		return false
+	installed_reading.return_test_obstructed=blocked_test
+	installed_reading.return_pose=var_to_str(book.transform)
+	installed_reading.return_slot=book.shelf_slot
 	for frame in 110:
 		await get_tree().physics_frame
-	var held_goal: Vector3 = camera.global_transform * Vector3(.17, -.16, -.48)
-	if not _require(not player.inspecting() and player.held_stock_body() == book
-			and is_equal_approx(camera.fov, held_fov)
-			and (book.global_transform * book.pickup_centre()).distance_to(held_goal) < .01,
-			"normal Space returns the same open book to ordinary hand and FOV"):
-		return false
-	if not await _installed_reading_frame("installed_open_hand", book, held_fov, matched_msaa, original):
+	if not _require(not companion.screen_frame._shoulder_center.is_finite()
+			and companion.inspected_readable_stock()==null,
+			"companion leaves the shoulder after actual reading exit"):
 		return false
 	var samples: Array = installed_reading.frames
 	var reference: Vector3 = str_to_var(samples[0].carrier.native_aperture)
 	var front_and_bounded := true
 	for sample: Dictionary in samples:
-		if sample.phase == "installed_open_hand":
-			continue
 		var aperture: Vector3 = str_to_var(sample.carrier.native_aperture)
 		sample.aperture_travel_from_40_m = aperture.distance_to(reference)
 		# Wide enough for normal carrier drift, below the 248 mm failed move.
@@ -684,6 +768,50 @@ func _installed_reading_wheel(button: MouseButton) -> void:
 	wheel.pressed = true
 	wheel.factor = 8.
 	player._unhandled_input(wheel)
+
+func _reading_fit_motion(book: Node3D, camera: Camera3D) -> Dictionary:
+	var sample:=_two_style_withdrawal_state(book)
+	var carrier: Node3D=player.carried_device
+	sample["target_in_eye_frame"]=var_to_str(book._reading_target)
+	sample["body_in_eye_frame"]=var_to_str(camera.to_local(book.global_position))
+	sample["lamp_in_eye_frame"]=var_to_str(camera.to_local(player.flashlight.global_position))
+	sample["carrier_centre_in_eye_frame"]=var_to_str(camera.to_local(
+		carrier.rig.to_global(carrier.screen_frame.stock_bounds.get_center())))
+	sample["fit_frames"]=book._floating_frames
+	sample["fit_processing"]=book.is_physics_processing()
+	sample["hand_tag"]=book._hand_tag
+	return sample
+
+func _reading_return_preflight(book: Node3D, slot: int, pickup_pose: Transform3D, angle: float) -> Dictionary:
+	var collection:=book.get_parent_node_3d()
+	var source: Transform3D=book.shelf.book_slots[slot] if slot>=0 else pickup_pose
+	var destination:=collection.global_transform*source
+	var groups: Dictionary=book.stock.posed_gatherings(book.stock_id,angle)
+	var contacts:=groups.values()
+	if slot>=0 and is_zero_approx(angle):
+		contacts=[{"shape":book._closed_solid.shape,"pose":book._closed_solid.transform}]
+	var result: Dictionary={"slot_free":slot<0 or book.shelf.book_slot_is_free(slot,book),
+		"folded_start_contacts":[],"clear_through":[]}
+	var space:=book.get_world_3d().direct_space_state
+	for group: Dictionary in contacts:
+		var query:=PhysicsShapeQueryParameters3D.new()
+		query.shape=group.shape
+		query.exclude=book._query_exclusions()
+		query.collision_mask=book.collision_mask
+		query.transform=Transform3D(destination.basis,book.global_position)*group.pose
+		for hit: Dictionary in space.intersect_shape(query,8):
+			result.folded_start_contacts.append(_identity(hit.collider))
+	var path: Array[Vector3]=[]
+	if slot>=0: path.append(collection.to_global(book._reading_pickup_exit))
+	path.append(destination.origin+Vector3.UP*.004)
+	path.append(destination.origin)
+	var prefix: Array[Vector3]=[]
+	for point: Vector3 in path:
+		prefix.append(point)
+		result.clear_through.append({"goal":var_to_str(point),
+			"clear":book._reading_return_is_clear(book.global_position,destination.basis,contacts,prefix)})
+	result.clear_via_view_station=book._reading_return_via_view_station(destination.basis,contacts,path)
+	return result
 
 func _installed_reading_frame(phase: String, book: Node3D, fov: float, msaa: Viewport.MSAA,
 		original: Dictionary, lamp_on := true) -> bool:

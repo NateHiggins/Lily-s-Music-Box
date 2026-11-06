@@ -1457,9 +1457,8 @@ func end_inspection(notify_change := true) -> void:
 	var previous_owner:=inspect_owner
 	var pickup:=_inspect_pickup
 	_inspect_pickup={}
-	# A deliberate primary release may already have placed the original stock.
-	# Ask before this exit releases any current grip: an unplaced held book
-	# must still take the existing same-object return-to-hand path.
+	# Ask the owner before releasing the inspection grip. A parked or read
+	# book gives up its borrowed hand while a closed inspection can reacquire.
 	if not pickup.is_empty() and is_instance_valid(previous_owner) and is_instance_valid(pickup.get("part")) \
 			and previous_owner.has_method("inspection_pickup_return_allowed") \
 			and not previous_owner.inspection_pickup_return_allowed(pickup.part):
@@ -1470,7 +1469,10 @@ func end_inspection(notify_change := true) -> void:
 	camera.transform=_inspect_camera_pose
 	camera.fov=_inspect_camera_fov
 	Input.mouse_mode=_inspect_mouse_mode
-	if is_instance_valid(previous_owner) and previous_owner.has_method("inspection_ended"): previous_owner.call("inspection_ended")
+	if is_instance_valid(previous_owner):
+		if notify_change and previous_owner.has_method("finish_reading"):
+			previous_owner.call("finish_reading")
+		if previous_owner.has_method("inspection_ended"): previous_owner.call("inspection_ended")
 	if notify_change and not call_locked and not mouse_released and _grab!=null and not pickup.is_empty():
 		if is_instance_valid(pickup.get("part")) and is_instance_valid(pickup.get("owner")) and is_instance_valid(pickup.get("frame")):
 			var part: Node3D=pickup.part
