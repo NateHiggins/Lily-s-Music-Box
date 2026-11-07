@@ -134,8 +134,8 @@ func _route() -> void:
 	if not reloaded:
 		return
 	place = persisted_place
-	var retired_copy := weakref(original)
-	var retired_sibling := weakref(sibling)
+	var retired_copy: WeakRef = weakref(original)
+	var retired_sibling: WeakRef = weakref(sibling)
 	var copy_id := original.stock_id
 	var sibling_id := sibling.stock_id
 	world.shutdown_for_tests()
