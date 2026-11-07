@@ -318,7 +318,7 @@ func _advance_mechanism(delta: float) -> void:
 
 func key_transform(index: int) -> Transform3D:
 	var draw: GeometryInstance3D = _key_draws[index]
-	if draw is MultiMeshInstance3D: return draw.multimesh.get_instance_transform(_key_instances[index])
+	if draw is MultiMeshInstance3D: return MultiMeshPoses.pose(draw.multimesh, _key_instances[index])
 	return (draw as MeshInstance3D).transform
 
 func automated_key(owner:Node,character:String,depth:float) -> void:
@@ -335,7 +335,7 @@ func automated_key(owner:Node,character:String,depth:float) -> void:
 
 func _set_key_transform(index: int, pose: Transform3D) -> void:
 	var draw: GeometryInstance3D = _key_draws[index]
-	if draw is MultiMeshInstance3D: draw.multimesh.set_instance_transform(_key_instances[index], pose)
+	if draw is MultiMeshInstance3D: MultiMeshPoses.set_pose(draw.multimesh, _key_instances[index], pose)
 	else: (draw as MeshInstance3D).transform = pose
 	_key_labels[index].transform = pose * Transform3D(Basis(Vector3.RIGHT, PI), Vector3(0, 0, -.00225))
 

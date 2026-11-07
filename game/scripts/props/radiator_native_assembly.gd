@@ -67,7 +67,7 @@ func build(count: int, sliding_wedges := false) -> void:
 	sections.multimesh.instance_count = count
 	for index in count:
 		var pose := translation(Vector3(-_half+_shift+index*.092,.105,-.03))*source.transform
-		sections.multimesh.set_instance_transform(index,pose)
+		MultiMeshPoses.set_pose(sections.multimesh,index,pose)
 	sections.custom_aabb = AABB(Vector3(-_half+_shift-.06,.08,-.18),Vector3(2*_half+.12,.72,.3))
 	body.add_child(sections)
 	source.free()
