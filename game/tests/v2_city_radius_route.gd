@@ -70,7 +70,7 @@ class RadiusDriver extends WalkDriver:
 			touch_ticks += 1
 			if first_touch_radius_m < 0.0:
 				first_touch_radius_m = distance
-		var local := world.adapter.root.to_local(position)
+		var local: Vector3 = world.adapter.root.to_local(position)
 		samples.append([tick, phase, local.x, local.y, local.z, distance, supported,
 			touched, Input.is_action_pressed("move_forward")])
 
@@ -245,7 +245,7 @@ func _write_radius_receipt(retained: int, inputs: Dictionary) -> void:
 	if file == null:
 		return
 	var status := "PASS" if failures == 0 else "FAIL"
-	var entry := "game/" + get_script().resource_path.trim_prefix("res://")
+	var entry: String = "game/" + get_script().resource_path.trim_prefix("res://")
 	file.store_string(JSON.stringify({
 		"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
 		"scope":"Single explicit nearby historical 280 m endpoint, dry eastern apron, normal movement to physical 450 m wall and short retreat. No threshold-to-boundary continuity, bridge travel, disk saves, frame-time or artistic claim.",
