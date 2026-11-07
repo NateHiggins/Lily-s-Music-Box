@@ -5,6 +5,8 @@ const WalkDriver := preload("res://tests/orison_v2_vertical_route_test.gd")
 const STANDING_MASK := 1 | preload("res://scripts/building/v2_fire_player_contact.gd").LAYER
 const RAIL_EYE := Vector3(-290.0, 12.0, 60.0)
 const RAIL_AIM := Vector3(-390.0, -3.5, 0.0)
+const RAIL_STANDING := Vector3(-430.0, -3.5, 20.0)
+const RAIL_YARD_AIM := Vector3(-462.0, -1.5, -24.0)
 const CANAL_EYE := Vector3(20.0, 7.0, -310.0)
 const CANAL_AIM := Vector3(50.0, -6.0, -360.0)
 
@@ -138,7 +140,7 @@ func _run() -> void:
 		var rail := frame.get_node_or_null("Ground/IndustrialCutSidings") as MeshInstance3D
 		var bank := frame.get_node_or_null("Ground/CanalBulkhead") as MeshInstance3D
 		if check(rail != null and bank != null, "both direct production edge meshes"):
-			_mapped(rail, 3)
+			_mapped(rail, 4)
 			_mapped(bank, 2)
 			check(rail.get_child_count() == 0 and rail.cast_shadow == GeometryInstance3D.SHADOW_CASTING_SETTING_OFF,
 				"rail has no collision, lighting or shadow overhead")
@@ -157,6 +159,9 @@ func _run() -> void:
 				"coping top agrees with the physical stock")
 			var opposite := _ray(world, frame, Vector3(58.0, 8.0, -393.5), Vector3(58.0, -6.0, -393.5))
 			check(not opposite.is_empty() and opposite.get("collider") != physical, "opposed bank has native support")
+			var rail_floor := _ray(world, frame, RAIL_STANDING + Vector3.UP * 0.2, RAIL_STANDING - Vector3.UP * 0.2)
+			check(not rail_floor.is_empty() and (rail_floor.normal as Vector3).dot(Vector3.UP) > 0.98,
+				"proven apron standing station retains its actual floor")
 			await _bank_walk(world, frame)
 			world.player.set_physics_process(false)
 			world.player.set_lamp_enabled(false)
@@ -173,6 +178,9 @@ func _run() -> void:
 			camera.keep_aspect = world.player.camera.keep_aspect
 			camera.make_current()
 			await _view(folder, "rail_cut", camera, frame, rail, RAIL_EYE, RAIL_AIM)
+			if not rail_floor.is_empty():
+				var rail_eye := frame.to_local(rail_floor.position) + Vector3.UP * 1.6
+				await _view(folder, "rail_standing", camera, frame, rail, rail_eye, RAIL_YARD_AIM)
 			await _view(folder, "canal", camera, frame, bank, CANAL_EYE, CANAL_AIM)
 			if not opposite.is_empty():
 				var opposed_eye := frame.to_local(opposite.position) + Vector3.UP * 1.6
@@ -184,7 +192,7 @@ func _run() -> void:
 	await get_tree().process_frame
 	check(not is_instance_valid(world), "production world retired")
 	check(digest == _digest(), "production runtime source stayed fixed")
-	check(frames.size() == 6, "three paired native views")
+	check(frames.size() == 8, "four paired native views")
 	var receipt := FileAccess.open(folder.path_join("edge_review.json"), FileAccess.WRITE)
 	if check(receipt != null, "write technical evidence"):
 		receipt.store_string(JSON.stringify({"scope": "Paired loaded city edge images and nearby standing bank walk",
