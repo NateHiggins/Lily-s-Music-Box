@@ -171,3 +171,8 @@ unless she says so. See `~/homebrew-tools/README.md`.
 `tools/PIPELINE_TOOLS.md` describes the gate board, run receipts, the
 candidate verifier, the design-doc lint, the lane broker, the lane ledger
 and the rulings checker.
+
+When closing a report or capture case, follow the report artifact retention
+workflow in `tools/PIPELINE_TOOLS.md`. Record only exact disposable outputs
+after checking references and custody. Keep original qualification evidence
+and use a fresh case when work resumes.
