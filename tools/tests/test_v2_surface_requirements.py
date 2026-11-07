@@ -89,6 +89,38 @@ class Requirements(unittest.TestCase):
         material['shader']='res://scripts/device/writer_type_decal.gdshader'
         self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
 
+    def test_far_city_effects_keep_physical_stock_in_scope(self):
+        data = self.inventory()
+        draw = data['draws'][0]
+        owner = 'FarDistricts/FarMotion'
+        draw.update(owner=owner, owner_script='res://scripts/building/orison_v2_city_far_motion.gd')
+        surface = data['meshes']['mesh']['surfaces'][0]
+        surface.update(vertices=4, triangles=2)
+        material = data['materials']['material']
+        material.update(unshaded=True, normal_enabled=False)
+        data['textures']['puff'] = {'type': 'GradientTexture2D', 'mips': False}
+        for node, kind, flags, maps in (
+            ('BridgeLamps', 'distant_bridge_lamp_points', (True, True, 1), {}),
+            ('ElWindows', 'distant_el_light_strips', (False, False, 0), {}),
+            ('ChimneySmoke', 'distant_chimney_smoke', (False, False, 1), {'albedo_texture': 'puff'}),
+        ):
+            with self.subTest(node=node):
+                draw['path'] = f'{owner}/{node}'
+                billboard, additive, transparency = flags
+                material.update(billboard=billboard, additive=additive, transparency=transparency, maps=maps)
+                result = evaluate(data)
+                self.assertEqual(result['findings'], [])
+                self.assertEqual(result['separate_effects'][0]['class'], kind)
+                for field, key, value in ((draw, 'path', f'{owner}/ElCars'),
+                                          (draw, 'owner_script', 'unrelated_owner'),
+                                          (material, 'unshaded', False), (surface, 'triangles', 12)):
+                    previous = field[key]
+                    field[key] = value
+                    self.assertIn('incomplete_pbr_maps', evaluate(data)['findings'][0]['reasons'])
+                    field[key] = previous
+        data['textures']['puff']['type'] = 'CompressedTexture2D'
+        self.assertIn('missing_loaded_mips:puff', evaluate(data)['findings'][0]['reasons'])
+
     def test_new_unstaged_physical_image_is_covered_before_first_import(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory)
