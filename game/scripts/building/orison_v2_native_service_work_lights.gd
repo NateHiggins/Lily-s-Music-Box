@@ -34,6 +34,18 @@ func mount(world: Node3D, fixed: RefCounted, instruments: RefCounted) -> bool:
 		mount_draw.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		lamp.add_child(mount_draw)
 		lamp.set_meta("v2_native_work_light",variant)
+		configure_exterior_shadow_distance(lamp.light)
 		installed.append(before)
 	if installed.size()!=6: errors.append("expected the four alley and two shed owners")
 	return errors.is_empty()
+
+
+static func configure_exterior_shadow_distance(light: OmniLight3D) -> void:
+	if RenderingServer.get_current_rendering_method() != "forward_plus":
+		return
+	# The playable camera's far plane is 4000 m. Keep the colour pool
+	# unattenuated and fade only the shadow map over 42-54 m.
+	light.distance_fade_begin = 4096.0
+	light.distance_fade_shadow = 42.0
+	light.distance_fade_length = 12.0
+	light.distance_fade_enabled = true
