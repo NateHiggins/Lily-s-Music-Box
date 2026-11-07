@@ -26,14 +26,20 @@ func _aim(part: Node3D) -> Dictionary:
 	player.camera.look_at(at)
 	return player._grab.find_target()
 
-func _push(grip: Dictionary, goal: float) -> void:
+## Slides toward the goal and returns the farthest the glass got: once Stacy takes it the
+## hand lets go and it starts back, so the reach is measured while it is pushed.
+func _push(grip: Dictionary, goal: float) -> float:
+	var reach := 0.0
 	for _step in 200:
-		if float(grip.read.call()) >= goal or not player._grab.active():
-			return
+		reach = maxf(reach, float(grip.read.call()))
+		if reach >= goal or not player._grab.active():
+			return reach
 		var motion := InputEventMouseMotion.new()
 		motion.relative = Vector2(0, -6)
 		player._unhandled_input(motion)
+		reach = maxf(reach, float(grip.read.call()))
 		await get_tree().physics_frame
+	return reach
 
 func _slide_across(counter: Node3D) -> Dictionary:
 	var grip: Dictionary = await _aim(counter.glass)
@@ -43,8 +49,8 @@ func _slide_across(counter: Node3D) -> Dictionary:
 		return grip
 	await _click()
 	_require(player._grab.active() and is_zero_approx(float(grip.read.call())), "a click grabs without sliding")
-	await _push(grip, Glass.SLIDE * Glass.ACROSS_AT)
-	_require(float(grip.read.call()) >= Glass.SLIDE * Glass.ACROSS_AT, "motion slides it across: %f" % float(grip.read.call()))
+	var reach: float = await _push(grip, Glass.SLIDE * Glass.ACROSS_AT)
+	_require(reach >= Glass.SLIDE * Glass.ACROSS_AT, "motion slides it across: %f" % reach)
 	return grip
 
 func _route() -> void:
