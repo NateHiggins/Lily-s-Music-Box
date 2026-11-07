@@ -333,6 +333,11 @@ func inspected_readable_stock() -> PhysicsBody3D:
 
 func reading_view_active() -> bool: return inspected_readable_stock()!=null
 
+func reading_optical_fit(camera: Camera3D) -> Dictionary:
+	var copy:=inspected_readable_stock() as Book
+	return copy.reading_optical_fit(camera) if copy!=null else {}
+
+
 func supports_inspected_stock(body: Node3D) -> bool:
 	return is_instance_valid(_inspection_stock) and _inspection_stock==body
 

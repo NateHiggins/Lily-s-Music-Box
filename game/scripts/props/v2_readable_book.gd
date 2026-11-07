@@ -38,6 +38,7 @@ var shelf_slot := -1
 var _floating_camera := Transform3D.IDENTITY
 var _floating_frames := 0
 var _reading_projection_tangent := 0.0
+var _optical_fit_pending := false
 var _reading_target := Vector3.INF
 var _reading_pickup_pose := Transform3D.IDENTITY
 var _reading_pickup_exit := Vector3.ZERO
@@ -110,6 +111,7 @@ func end_floating_view() -> void:
 	if viewport!=null and viewport.size_changed.is_connected(_queue_reading_fit):
 		viewport.size_changed.disconnect(_queue_reading_fit)
 	_reading_target=Vector3.INF
+	_optical_fit_pending=false
 	set_physics_process(false)
 	if _closed_solid!=null: _contact_mode(shelf_slot>=0)
 
@@ -120,6 +122,7 @@ func _hold_target(camera_pose: Transform3D, centered: bool) -> Vector3:
 
 func _queue_reading_fit() -> void:
 	_reading_target=Vector3.INF
+	_optical_fit_pending=opening>=READ_OPENING
 	if opening>=READ_OPENING:
 		var bounds:=AABB()
 		var first:=true
@@ -159,6 +162,43 @@ func _physics_process(_delta: float) -> void:
 	# approach keeps pushing into the same contact and can make the book slide.
 	if _hold_blocked or global_transform.is_equal_approx(before) or _floating_frames>=180:
 		set_physics_process(false)
+
+## The physical sweep decides the supported pose. The inspection owner may
+## then fit its projection from that same eye without another physical move.
+func reading_optical_fit(camera: Camera3D) -> Dictionary:
+	if not _optical_fit_pending or _held or is_physics_processing() or opening<READ_OPENING:
+		return {}
+	_optical_fit_pending=false
+	var points:=PackedVector3Array()
+	var minimum_slope:=Vector2(INF,INF)
+	var maximum_slope:=Vector2(-INF,-INF)
+	var camera_inverse:=_floating_camera.affine_inverse()
+	for solid: CollisionShape3D in _solids:
+		var hull:=solid.shape as ConvexPolygonShape3D
+		for vertex: Vector3 in hull.points:
+			var point: Vector3=camera_inverse*(solid.global_transform*vertex)
+			if point.z>=-camera.near: return {}
+			points.append(point)
+			var slope:=Vector2(point.x,point.y)/-point.z
+			minimum_slope=minimum_slope.min(slope)
+			maximum_slope=maximum_slope.max(slope)
+	if points.is_empty(): return {}
+	var centre: Vector2=(minimum_slope+maximum_slope)*.5
+	var view_axis:=Vector3(centre.x,centre.y,-1.).normalized()
+	var framing_basis:=Basis(Quaternion(Vector3.FORWARD,view_axis))
+	var frame_inverse:=framing_basis.transposed()
+	var angular_radius:=Vector2.ZERO
+	for point: Vector3 in points:
+		var local_point: Vector3=frame_inverse*point
+		if local_point.z>=-camera.near: return {}
+		angular_radius=angular_radius.max(Vector2(local_point.x,local_point.y).abs()/-local_point.z)
+	var view_size:=get_viewport().get_visible_rect().size
+	var aspect:=maxf(view_size.x,1.)/maxf(view_size.y,1.)
+	var half_angle_tangent:=maxf(angular_radius.x/aspect,angular_radius.y)/READING_HALF_SPAN
+	if camera.keep_aspect==Camera3D.KEEP_WIDTH: half_angle_tangent*=aspect
+	return {"basis":_floating_camera.basis*framing_basis,
+		"fov":clampf(rad_to_deg(2.*atan(half_angle_tangent)),8.,100.)}
+
 
 func park_in_slot(index: int, pose: Transform3D) -> void:
 	shelf_slot=index
