@@ -75,7 +75,7 @@ class RadiusDriver extends WalkDriver:
 			touched, Input.is_action_pressed("move_forward")])
 
 	func fixture() -> bool:
-		var position := world.adapter.root.to_global(START)
+		var position: Vector3 = world.adapter.root.to_global(START)
 		var floor := ground_at(position, .25, .25)
 		if floor.is_empty() or (floor.normal as Vector3).dot(Vector3.UP) < .98:
 			return false
