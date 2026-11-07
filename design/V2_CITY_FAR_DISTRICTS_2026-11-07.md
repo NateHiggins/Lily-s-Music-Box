@@ -6,8 +6,7 @@ acceptance, whole-city qualification or Lily's artistic acceptance.
 Lily's ruling **city_finish_owner** (2026-11-07): Claude authors the next distant-city batch
 in Blender; Canonical Codex keeps integration and qualification. Proposal:
 C:/ov/reports/city_completion_proposal_20261107/PROPOSAL.md. Stacked on PR 170
-(**0eb365963**), whose bound native loaders and far-shore, rail and bulkhead composers are
-untouched.
+(**0eb365963**), whose bound native loaders, rail and bulkhead composers remain in service.
 
 ## What is added
 
@@ -62,7 +61,7 @@ Earlier captures that mounted under the ground came out mirrored; they are super
 - **Faces:** every face is oriented by construction.
 - **Size:** 56 draws and about 107k triangles. Nothing casts shadows or carries collision.
 
-## Technical view record (not acceptance)
+## Historical author captures
 
 Test: tests/V2CityFarDistrictViews.tscn, windowed on the hidden desktop. It captures ten
 views at noon, dusk and 19:10 on 23 February 1929:
@@ -73,9 +72,7 @@ views at noon, dusk and 19:10 on 23 February 1929:
 - the rail cut
 - the telescope at 14°
 
-The last complete run passed 30 of 30 frames with zero failures, and the gameplay clock was
-unchanged throughout. Frames and receipts are in C:/ov/reports/city_finish_20261107/views_06
-and lane/.
+The author run passed 30 frame writes and retained the gameplay clock. Its wrapper recorded a dirty checkout at the prior base. The east view faced a doorway, the telescope wall obscured most of its frame, and the bridge camera stood over the lower roadway. Original frames and receipts remain in **C:/ov/reports/city_finish_20261107/views_06/** and **lane/**.
 
 Matched cost (60 frames each, districts present against hidden) at the night roof views:
 
@@ -86,21 +83,16 @@ Matched cost (60 frames each, districts present against hidden) at the night roo
 
 CPU cost is +0.1 to +0.2 ms. This is one machine under lane contention, not a frame budget.
 
+## Integration verification
+
+The north bank now follows the west-north-west Manhattan grid. A 513-point exported ground sample found the retained bridge shore under all checked footprint neighborhoods. The native focused run at **b78ed2389** reviewed 30 captures with corrected east, telescope and upper timber stations. The two night roof comparisons added 31 and 17 draws. The measured viewport GPU differences were −0.276 and +0.068 ms. Cold world startup took 137.8 s in the views run and 137.1 s in the prologue run. These are single-host observations.
+
+The production prologue passed 122 checks, including far facade projection and immediate restoration, ordinary bridge lamp, elevated car and tug motion, and campaign clock custody. The first original surface run refused the two light overlays and the chimney particle sprite. The fix recognizes their exact optical signatures in the auditor. The game tree is byte-identical from the focused source to **9a3bd953e**.
+
+The original suites passed 379 authority/save checks, 60 rooms over nine apartment legs, 38,947 surface checks over 30,987 loaded draws, and 6 exterior routes. The real-controller eastern suffix reached 449.703 m at the retained wall and retreated with no unsupported ticks or recovery. Technical review covered all 82 qualification frames. See **art/reviews/v2_qualification_far_city_20261107/** for source bindings, reviews and the preserved first failure.
+
 ## Open
 
-- Lily's view of the ten views at three times. The proposal's acceptance list is that
-  review, not this record.
-- **Codex integration:**
-  - full qualification and the source-bound surface renewal
-  - the startup census or counts that now see FarDistricts
-  - LOD transitions on a walk to the edge
-  - cold-start cost
-- **Haze:** daytime haze reduces midtown to a flat silhouette, as it does the installed far
-  shore. A clearer far-field grade is a sky and atmosphere owner's call.
-- **Bridge traffic** has no daytime vehicle bodies; only lamps.
-- **Trams:** the Queens Boulevard trams (**T-V2-TRAMS**) are not built here.
-- **Cloud relief** and the near facades' dusk darkness are not changed here. They belong to
-  the sky owner and touch PR 153.
-- **Far shore grid:** orison_v2_city_far_shore.gd turns its blocks by +29.7° about up, which
-  aims Manhattan's crosstown streets west-south-west. The bridge and these districts run
-  west-north-west. That is Codex's file and is left as it is.
+- Lily's artistic review and human play. The sparse foreground and low daytime contrast remain visible from both street endpoints.
+- The continuous threshold route and a composed whole-city LOD or frame-time sweep. The eastern suffix is the bounded ground check.
+- Daytime bridge vehicle bodies, Queens Boulevard trams (**T-V2-TRAMS**) and the separate sky owner's cloud relief and haze work.

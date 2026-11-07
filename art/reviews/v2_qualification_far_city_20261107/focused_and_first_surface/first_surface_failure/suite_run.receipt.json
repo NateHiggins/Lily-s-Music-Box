@@ -1,0 +1,44 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 322.11,
+  "exit_code": 1,
+  "finished_utc": "2026-11-07T18:06:23Z",
+  "started_utc": "2026-11-07T18:01:00Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 2,
+  "fail_lines": [
+   "V2 SURFACES: FAIL 3 unresolved surfaces; {'incomplete_pbr_maps': 3, 'normal_map_disabled': 3, 'missing_loaded_mips': 1}",
+   "V2 SURFACE QUALIFICATION: FAIL; 38947 checks; 1 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/city_finish_20261107/integration_original_01/surface.log.stderr",
+  "stderr_sha256": "fb842e3b18f711b1d4948a8353dcb618a5303f01e82ab07124f07869407cb820",
+  "stdout": "C:/ov/reports/city_finish_20261107/integration_original_01/surface.log",
+  "stdout_sha256": "3683c1304f0ac9ca47db0771ab8dd7a3b192e31cfa271379391aec13db63d006"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/reports/city_finish_20261107/integration_original_01/surface",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "b78ed2389f430b4693129d81d92fa4b2ed2ffd32",
+  "repository_tree": "64672f2ac02b65d374ebf8f37b5788e3823282ac",
+  "runtime_inputs_sha256": "6ba2907bd6ad629f37f214f70eb93de86c945a2335ebe651682fc55efa6dc44e",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "934c2b565c9976e6c62c9867df4df851150263229567780f9dc90aed257261d0"
+ },
+ "windowed": true
+}

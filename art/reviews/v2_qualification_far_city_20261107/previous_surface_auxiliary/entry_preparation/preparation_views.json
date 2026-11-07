@@ -1,0 +1,46 @@
+{
+	"evidence_class": "INERT",
+	"images": [
+		{
+			"file": "preparation_00.png",
+			"forward": "(-0.0, 0.0, 1.0)",
+			"origin": "(-0.0, 1.45, 1.200001)",
+			"sha256": "716a11fd162c216deef09a9749ad57ed7e0caee4cd3788ace2987294e54ab692"
+		},
+		{
+			"file": "preparation_01.png",
+			"forward": "(-0.201415, -0.692615, 0.692615)",
+			"origin": "(8.000003, 38.63004, -38.91003)",
+			"sha256": "65fedc392cb764ef023f55e63932386241376ffaa34f2c35802c8d87fd740222"
+		},
+		{
+			"file": "preparation_02.png",
+			"forward": "(0.0, 0.0, -1.0)",
+			"origin": "(0.000002, 1.45, -24.0)",
+			"sha256": "9a63124ab7ac1c6435e37edb456e03e4f106035e8a87d6cc657bf4d0364764ff"
+		},
+		{
+			"file": "preparation_03.png",
+			"forward": "(0.201415, -0.692615, 0.692615)",
+			"origin": "(-7.999997, 38.63004, -38.91003)",
+			"sha256": "c8a089e42d0e0b641fa26f9153bf271ee3f1661b2bd13ef848ffba28ab58a5d1"
+		},
+		{
+			"file": "preparation_04.png",
+			"forward": "(0.0, 0.0, -1.0)",
+			"origin": "(0.0, 1.447278, 1.5)",
+			"sha256": "6ccdc4ec9bceecfd045a2b377ac2876abde6773a7824212b0234a486e01ba82e"
+		}
+	],
+	"policy_sha256": "8b35dbfc1e8efd0859fe8172f6ed859a1f288beb862c73c79826cc3d169f934b",
+	"preparation": {
+		"cancelled": false,
+		"completed": true,
+		"elapsed_ms": 481.261,
+		"executed": true,
+		"node_pose_unchanged": true,
+		"reason": "",
+		"render_calls": 10
+	},
+	"scope": "Actual composed production entry views and restoration. Images require optical review; no automatic visibility,playtest,performance or artistic acceptance. Readbacks perturb preparation timing."
+}

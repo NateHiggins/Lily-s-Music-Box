@@ -3620,3 +3620,6 @@ art/reviews/v2_qualification_cityscape_20261107/** -text -whitespace
 
 game/assets/props/city_far_districts.glb binary
 art/blender/data/city_far_survey/*.npy binary
+
+# Preserve the distant-city qualification archives and exact review bindings.
+art/reviews/v2_qualification_far_city_20261107/** -text -whitespace
