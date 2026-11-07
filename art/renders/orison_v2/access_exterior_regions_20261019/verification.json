@@ -18,7 +18,7 @@
     "ROUTE_STREET_TO_ARCADE",
     "ROUTE_STREET_TO_CONSTRUCTION"
   ],
-  "samples": 6277,
+  "samples": 6606,
   "waypoints": 52,
   "teardown": {
     "executed": true,
@@ -28,5 +28,8 @@
     "tracked_nodes": 3
   },
   "evidence_class": "INERT",
-  "scope": "Independent validation of original source-bound regional access only. No programme, human appearance or V1 retirement grant."
+  "scope": "Independent validation of original source-bound regional access.",
+  "source_head": "74ad19328e29adf9ebcc3b0faed934b55af4863e",
+  "runtime_inputs_sha256": "96332fc3744ee9471e26fba05a8da323ff5e5d8c1ad9de69b4f20d6b18e7e77f",
+  "surface_inputs_sha256": "0717a03fb000efab3d3d277b8d0101bd1405ab61179c08e744d99313da140576"
 }

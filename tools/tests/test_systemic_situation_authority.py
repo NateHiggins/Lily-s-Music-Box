@@ -233,6 +233,14 @@ class ReconciledReviewTests(unittest.TestCase):
                 self.assertEqual(bool(of_class(self.scan_source(text, path),
                     "HOST_CLOCK_MUTATES_WORLD")), expected)
 
+    def test_inventory_guard_comparison_is_not_a_custody_write(self):
+        source = ("func return_item() -> bool:\n"
+                  "\tif merchant == null or not merchant.inventory.has_item(ITEM):\n"
+                  "\t\treturn false\n"
+                  "\treturn true\n")
+        findings = self.scan_source(source, "game/scripts/building/counter.gd")
+        self.assertFalse(of_class(findings, "DUPLICATE_CUSTODY"))
+
     def test_title_timing_anchors_stay_in_native_receipt(self):
         rel = "game/tests/title_continue_actual_launch_test.gd"
         source = (REPO_ROOT / rel).read_text(encoding="utf-8")

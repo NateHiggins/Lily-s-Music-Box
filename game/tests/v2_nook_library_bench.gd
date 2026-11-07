@@ -149,6 +149,8 @@ func approach(book: Node3D) -> bool:
 	return false
 
 func manipulate_binding(owner: Node3D,book: Node3D) -> void:
+	var pickup_pose: Transform3D=book.transform
+	var pickup_slot: int=book.shelf_slot
 	click();check(player._grab.active() and player._grab.target.part==book,"primary grabs physical lending copy")
 	for frame in 130: await get_tree().physics_frame
 	var wanted: Vector3=player.camera.global_transform*Vector3(.17,-.16,-.48)
@@ -159,8 +161,13 @@ func manipulate_binding(owner: Node3D,book: Node3D) -> void:
 	check(not book.is_physics_processing(),"floating nook inspection settles without polling")
 	await cursor_at(book.left.to_global(Vector3(float(book.construction.width)*.7,float(book.construction.height)*.7,float(book.construction.thickness)*.5)));click()
 	if check(player._grab.active() and player._grab.target.part==book.left,"actual gathering supplies opening grip"):
-		check(await hinge(PI),"mouse opens featured spread directly on lending copy");click()
-	check(book.global_transform.is_equal_approx(pose),"operating the gathering keeps the floating binding static")
+		check(await hinge(PI),"mouse opens featured spread directly on lending copy")
+		check(book.global_transform.is_equal_approx(pose),"cover drag keeps the floating binding static")
+		click()
+	for frame in 120:
+		if not book.is_physics_processing(): break
+		await get_tree().physics_frame
+	pose=book.global_transform
 	await capture("nook_hand_opened_"+str(book.construction.format))
 	var before_fov:=player.camera.fov
 	var zoom:=InputEventMouseButton.new();zoom.pressed=true;zoom.button_index=MOUSE_BUTTON_WHEEL_UP;zoom.factor=12.
@@ -174,9 +181,9 @@ func manipulate_binding(owner: Node3D,book: Node3D) -> void:
 				for key in draw.get_blend_shape_count():check(is_zero_approx(draw.get_blend_shape_value(key)),"shared mesh does not share instance opening weights")
 	if player._grab.active(): player._grab.release()
 	await space()
-	check(player._grab.holding_pickup() and player._grab.target.part==book,"Space returns lending copy to original hand")
-	click()
-	check(not player._grab.active() and not book._held,"next primary releases returned lending copy")
+	check(not player._grab.active() and not book._held,"Space puts down the read lending copy")
+	check(book.transform.is_equal_approx(pickup_pose) and book.shelf_slot==pickup_slot,
+		"the same lending copy returns to its original pose and slot")
 
 func legacy_save_review(collection: Node3D) -> void:
 	var original: Dictionary=collection.library_snapshot()

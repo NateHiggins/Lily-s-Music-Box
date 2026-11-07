@@ -69,6 +69,8 @@ func _run() -> void:
 	var player_before_pickup:=player.global_position
 	var unplaced_instance: int=book.get_instance_id()
 	var unplaced_stock_ids: Array=shelf._books.keys()
+	var pickup_pose: Transform3D=book.transform
+	var pickup_slot: int=book.shelf_slot
 	check(await grab_visible_stock(book),"real primary click picks up binding")
 	if player._grab.active():
 		for frame in 110: await get_tree().physics_frame
@@ -121,8 +123,13 @@ func _run() -> void:
 			for frame in 2: await get_tree().physics_frame
 			check(await hinge(PI),"actual mouse opens floating cover to full spread after obstruction clears")
 			check(book._closed_solid.disabled and book._solids.size()==3,"opened binding restores three native moving groups")
+			check(book.global_transform.is_equal_approx(pose),"cover drag leaves the binding in its fixed pose")
 			await capture("floating_spread")
 			click()
+		for frame in 120:
+			if not book.is_physics_processing(): break
+			await get_tree().physics_frame
+		pose=book.global_transform
 		var fov:=player.camera.fov
 		var zoom:=InputEventMouseButton.new();zoom.pressed=true;zoom.button_index=MOUSE_BUTTON_WHEEL_UP;zoom.factor=15.
 		player._unhandled_input(zoom)
@@ -130,18 +137,22 @@ func _run() -> void:
 		check(not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"inspection releases temporary carrier exceptions")
 		await capture("floating_spread_zoom")
 		await space()
-		check(not player.inspecting() and player._grab.holding_pickup() and player._grab.target.part==book,"Space returns inspected binding to the original hand")
-		check(book._held and book.freeze,"inspection return reacquires owner permission and freezes carried body")
-		check(player.get_collision_exceptions().has(book) and book.get_collision_exceptions().has(player),"inspection return restores only carrier contact exceptions")
-		for frame in 110:await get_tree().physics_frame
-		check((book.global_transform*book.pickup_centre()).distance_to(player.camera.global_transform*Vector3(.17,-.16,-.48))<.003,"returned open binding reaches constrained FPS hand")
-		var unplaced: Dictionary={"phase":"unplaced_exit","stock_id":book.stock_id,"instance_id":book.get_instance_id(),"same_instance":book.get_instance_id()==unplaced_instance,"same_library_owner":book.shelf==shelf and shelf._books.get(book.stock_id)==book,"inventory_unchanged":shelf._books.keys()==unplaced_stock_ids,"slot":book.shelf_slot,"inspection_active":player.inspecting(),"mouse_mode":Input.mouse_mode,"grab_active":player._grab.active(),"same_book_in_hand":player._grab.holding_pickup() and player._grab.target.get("part")==book,"book_held":book._held,"frozen":book.freeze,"shelf_hand_is_book":shelf._hand_node==book,"carrier_exceptions":player.get_collision_exceptions().has(book) and book.get_collision_exceptions().has(player),"fps_centre_error_m":(book.global_transform*book.pickup_centre()).distance_to(player.camera.global_transform*Vector3(.17,-.16,-.48)),"library_valid":shelf.valid_library(shelf.library_snapshot())}
-		_book_exit_observations.append(unplaced)
-		print("BOOK EXIT OBSERVATION: ",JSON.stringify(unplaced))
-		check(unplaced.same_instance and unplaced.same_library_owner and unplaced.inventory_unchanged and unplaced.slot==-1 and unplaced.library_valid and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,"unplaced normal Space exit preserves the physical instance, loose occupancy, library inventory and FPS mode")
-		click()
-		check(not player._grab.active() and not book._held and not book.freeze,"next primary releases returned inspected binding")
-		check(not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"returned binding release restores physical carrier contact")
+		check(not player.inspecting() and not player._grab.active() and not book._held,
+			"Space ends reading without retaining the book in the hand")
+		check(not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),
+			"reading exit leaves carrier contacts enabled")
+		var returned: Dictionary={"phase":"read_return_exit","stock_id":book.stock_id,
+			"same_instance":book.get_instance_id()==unplaced_instance,
+			"same_library_owner":book.shelf==shelf and shelf._books.get(book.stock_id)==book,
+			"inventory_unchanged":shelf._books.keys()==unplaced_stock_ids,"slot":book.shelf_slot,
+			"pickup_slot":pickup_slot,"pose_matches_pickup":book.transform.is_equal_approx(pickup_pose),
+			"library_valid":shelf.valid_library(shelf.library_snapshot())}
+		_book_exit_observations.append(returned)
+		print("BOOK EXIT OBSERVATION: ",JSON.stringify(returned))
+		check(returned.same_instance and returned.same_library_owner and returned.inventory_unchanged
+			and returned.slot==pickup_slot and returned.pose_matches_pickup and returned.library_valid
+			and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,
+			"normal read exit returns the same stock to its pickup slot and restores FPS mode")
 	# Reconstruct before testing placement, with no hidden manipulation of the
 	# active hand. The slot is a save authority, not a fresh rigid-body pile.
 	shelf.restore_order(encoded)
@@ -150,7 +161,7 @@ func _run() -> void:
 	check(await _input_slot_return(shelf,book),"real pickup, inspection, mouse translation/rotation and release return a binding to its vacated slot")
 	var exit_phases: Array=[]
 	for observation: Dictionary in _book_exit_observations:exit_phases.append(observation.phase)
-	check(exit_phases.has("unplaced_exit") and exit_phases.has("parked_after_exit"),"both normal Space-exit programmes executed before mechanical fixture reset")
+	check(exit_phases.has("read_return_exit") and exit_phases.has("parked_after_exit"),"both normal Space-exit programmes executed before mechanical fixture reset")
 	# Retain the smaller contact/occupancy controls below as mechanical tests,
 	# separately from the actual input path. Restore only after input has ended.
 	player.cancel_manipulation()

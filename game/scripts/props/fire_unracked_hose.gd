@@ -135,6 +135,10 @@ func valid_deployment(value: Variant) -> bool:
 
 func _show_deployment(enabled: bool) -> void:
 	deployed=enabled;model.visible=enabled
+	if enabled:
+		add_to_group("deployed_fire_hoses")
+	else:
+		remove_from_group("deployed_fire_hoses")
 	if enabled and visual_follow_enabled:
 		actor._door_angle=maxf(actor._door_angle,actor._minimum("door"));actor._apply_hand_pose()
 	for node: Node3D in _stored:
@@ -144,6 +148,19 @@ func _show_deployment(enabled: bool) -> void:
 		for body: CollisionObject3D in node.find_children("*","CollisionObject3D",true,false):
 			if not _stock_layers.has(body):_stock_layers[body]=body.collision_layer
 			body.collision_layer=0 if enabled else _stock_layers[body]
+
+func crosses_doorway(door_to_world: Transform3D, bounds: AABB) -> bool:
+	if not deployed or rig.strand.points.size() < 2:
+		return false
+	var into_door := door_to_world.affine_inverse() * model.global_transform
+	var envelope := bounds.grow(.021 * PI * .5)
+	var previous: Vector3 = into_door * rig.strand.points[0]
+	for index in range(1, rig.strand.points.size()):
+		var current: Vector3 = into_door * rig.strand.points[index]
+		if envelope.has_point(previous) or envelope.intersects_segment(previous, current) != null:
+			return true
+		previous = current
+	return false
 
 func restore_deployment(value: Dictionary) -> void:
 	_wet_clear()
@@ -655,7 +672,10 @@ func configure_visual(owner_actor: Node3D,asset_path: String) -> bool:
 	visual_route=preload("res://scripts/props/hose_cabinet_route.gd").new()
 	visual_route.model_to_actor=model.transform
 	var up: Vector3=(model.global_basis.inverse()*Vector3.UP).normalized()
-	_guide_floor=up.dot(model.transform.affine_inverse()*Vector3(0,ground_y_local+.023,0))
+	# The dry transported ribbon can roll its wide axis toward the floor.
+	# Allow its flattened half-width and a millimetre of clearance.
+	var ribbon_clearance: float=.021*PI*.5+.001
+	_guide_floor=up.dot(model.transform.affine_inverse()*Vector3(0,ground_y_local+ribbon_clearance,0))
 	var tip: Vector3=model.transform.affine_inverse()*_extracted_receiver.origin
 	var back: Vector3=-(model.basis.inverse()*_extracted_receiver.basis.y)
 	_placement=visual_route.build(tip,back,rig.strand.anchor,rig.rest.size(),rig.strand.total_length,up,_guide_floor)

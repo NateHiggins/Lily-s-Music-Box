@@ -301,6 +301,14 @@ func _apply_visibility() -> void:
 		var area: Area3D = entry.ref.get_ref()
 		if area != null: area.collision_layer = 0 if hidden else int(entry.layer)
 
+func inspected_readable_stock() -> PhysicsBody3D:
+	if not is_instance_valid(_player) or not _player.inspecting():
+		return null
+	var owner: Node = _player.inspect_owner
+	if owner.has_method("inspected_readable_stock"):
+		return owner.inspected_readable_stock()
+	return null
+
 func world_lamp_transform() -> Transform3D:
 	_update_lamp_target()
 	# The original native optical aperture, not an offset at the player's eye.
@@ -329,7 +337,8 @@ func _update_lamp_target() -> void:
 	_lamp_target_frame = frame
 	# A carried book owns its real cover/page geometry; other stock keeps the
 	# original reticle ray below. Native aperture, power and shadows stay owned.
-	var held: PhysicsBody3D=_player.held_stock_body()
+	var held: PhysicsBody3D=inspected_readable_stock()
+	if not is_instance_valid(held): held=_player.held_stock_body()
 	if is_instance_valid(held) and held.has_method("reading_light_target"):
 		var lens: MeshInstance3D=device.teletype.torch_lens
 		if is_instance_valid(lens) and lens.mesh!=null:
@@ -391,9 +400,7 @@ func _advance_presentation(_delta: float) -> void:
 		motion.request_behavior(&"observe")
 	elif reading:
 		motion.request_behavior(&"type" if arm_busy() else &"present")
-		# Reply reading is still computer use. The closed face covers the lower
-		# copy window, so latch it only when the reader dismisses the apparatus.
-		if not arm_busy():rig.request_keyboard(motion.steady_for_input())
+		if not arm_busy(): rig.request_keyboard(false)
 	else:
 		rig.request_keyboard(false)
 		motion.request_behavior(&"accompany")

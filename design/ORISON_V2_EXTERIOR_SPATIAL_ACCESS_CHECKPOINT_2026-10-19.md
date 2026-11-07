@@ -3,22 +3,25 @@
 Evidence class: **EVIDENCE**. Automated played spatial access only.
 Status: **Six source regions and six complete routes reached in one continuous leg.**
 
-Requalified on **2026-10-20** against the current native library, fire fittings
-and repaired glass. The original **exterior1** run completes in **260.96 seconds**
-with the same 52 endpoints, 6,594 observed physics poses and 130 checks, zero
-failures. Checked publication validates the original room and regional claims,
-preserves the previous original packet under
-**art/reviews/v2_roof_access_repair_20261020/previous_exterior_packet**, and publishes
-the unchanged test-written contract, wrapper and byte-verified compressed logs.
+Requalified on **2026-11-06** in one native run at **515c75279**. The
+preceding **ae9419937** packet is preserved in the city-window review archive.
+The standing controller carries world collision and the native hose-contact
+layer, exact mask **2097153**. The previous replay stopped at the first
+waypoint because its observer expected the historical mask **1**. The
+observer and independent validator now require both source-defined bits.
+The production controller, capsule, source waypoints and arrival tolerances
+retain their existing behavior. The first failed contract and logs remain in
+**C:/ov/reports/develop_intake_20261104/exterior_regions_current_01/**.
 
-The production-selected V2 world completes the six authored exterior routes
-from one declared source street placement. Subsequent travel uses the normal
-standing controller, mask 1, without noclip, smaller capsules or intermediate
-repositioning. The original contract records 52 route endpoints and 6,594
-consecutive observed physics poses, 130 checks and zero failures. Each endpoint
-references its exact actual observation. The root, driver and observer retire:
-three tracked objects, zero retained. Seven Texture RIDs are reported at engine
-shutdown; this checkpoint does not claim those allocations are repaired.
+The production-selected V2 world completes all six routes from one street
+placement with the normal standing controller. The original contract records
+**52** endpoints and **6,588** consecutive physics observations, **130** checks
+and zero failures in **286.580** seconds of test execution. Each endpoint
+references its actual observation. All three tracked nodes retire. The
+publication checks the unchanged test-written contract and wrapper against the
+current inputs and byte-verified raw logs. The previous published packet and
+its original auxiliary files are preserved under
+**art/reviews/v2_qualification_city_windows_20261106/previous_regions/**.
 
 This checkpoint grants spatial access only for:
 
@@ -53,17 +56,18 @@ with its grounded-to-airborne transition, can exceed the ordinary vertical
 per-frame bound. Normal descent retains that bound. No observed sample is
 invented, interpolated, deleted or rewritten.
 
-The first original fails after a rendering stall consumes its inherited
-wall-clock movement budget in one physics frame. The new exterior driver uses
-bounded physics steps plus a wall-clock ceiling, retaining the same collision
-checks and arrival tolerances. Both original contracts and matching raw logs
-remain under **art/reviews/v2_region_access_20261019/**. The second original
-passes independently without any runtime or art source changes. These are
-historical diagnostics, not the current replay. The current **exterior1**
-runtime fingerprint is **757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83**;
-surface fingerprint is **10c1f1f4e60419c83277b5818f7b29b317dc660af9b41560fb7c2863be96a8b1**.
-The original contract records repository provenance **b2a067f3**; all bound
-production, geometry/surface and test inputs remain fixed throughout the run.
+The October 19 attempt failed after a rendering stall consumed the
+wall-clock movement budget in one physics frame. The exterior driver then
+switched to bounded physics steps with a wall-clock ceiling. Both October
+19 originals and their matching raw logs remain under
+**art/reviews/v2_region_access_20261019/**. The October 20 follow-up is also
+preserved under **art/reviews/v2_roof_access_repair_20261020/**.
+
+The current runtime fingerprint is
+**1fef426027b6379129b3feca1dfc721e61c93063931777caed8c380326e20ea7** and the
+current surface fingerprint is
+**1be7781a8de040874865fd598a360c89f701aef4191197a177dc52c4af4a6510**. Both
+source guards passed at **515c75279**.
 
 The shops region is witnessed in its authored bodega instance. This does not
 prove the receiving entrance, eleven arcade-shop interiors, cases, inventory,

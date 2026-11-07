@@ -29,6 +29,16 @@ var _union_angle := 0.0
 var _observed_coupled := true
 var _loose_union: RefCounted
 var _gasket_body: RigidBody3D
+var _purchased_gasket_body: RigidBody3D
+var _purchased_gasket_seated := false
+var _purchased_gasket_dressed := false
+var _purchased_undressed_rubber: Material
+var _staged_purchased_gasket: RigidBody3D
+var _purchased_gasket_stock: RefCounted
+const PURCHASED_GASKET_ID := "fire_hose_spare_gasket"
+const PURCHASED_FACE_Y := .003
+const PURCHASED_RING_RADIUS := .02275
+const PURCHASED_HOME_XZ := Vector2(.18, .15)
 var _nozzle_joint: Node3D
 var rubber_dressed := false
 var _undressed_rubber: Material
@@ -37,16 +47,231 @@ var _door_motion: RefCounted
 var last_hand_obstruction: Dictionary={}
 
 func try_dress_gasket(items: MaintenanceInventory, contact: Vector3) -> bool:
-	if rubber_dressed or items==null or not items.has_item("fire_hose_rubber_protectant") \
-			or not contact.is_finite() or not door_open or coupling_made_up or absf(_wheel_angle)>.0001:return false
+	if items == null or not contact.is_finite() or not door_open or coupling_made_up or absf(_wheel_angle) > .0001:
+		return false
+	if not items.has_item("fire_hose_rubber_protectant"):
+		return false
 	if _spare_gasket==null or _spare_gasket.mesh==null:return false
-	var at:=_spare_gasket.to_local(contact)
-	var bounds: AABB=_spare_gasket.mesh.get_aabb()
-	var radius:=Vector2(at.x,at.z).length()
-	var outer:=maxf(absf(bounds.position.x),absf(bounds.end.x))
-	var inner:=float(_joint_stock.data.dimensions.bore_radius_m)
-	if radius<inner-.003 or radius>outer+.003 or at.y<bounds.position.y-.003 or at.y>bounds.end.y+.003:return false
-	rubber_dressed=true;_rubber_finish();manipulation_changed.emit();return true
+	if is_instance_valid(_purchased_gasket_body) and _gasket_contact(_purchased_gasket_body.draw, contact):
+		if _purchased_gasket_dressed:
+			return false
+		_purchased_gasket_dressed = true
+		_apply_purchased_gasket_finish()
+	elif rubber_dressed or not _gasket_contact(_spare_gasket, contact):
+		return false
+	else:
+		rubber_dressed = true
+		_rubber_finish()
+	manipulation_changed.emit()
+	return true
+
+func _gasket_contact(draw: MeshInstance3D, contact: Vector3) -> bool:
+	var at := draw.to_local(contact)
+	var bounds := draw.mesh.get_aabb()
+	var radius := Vector2(at.x, at.z).length()
+	var outer := maxf(absf(bounds.position.x), absf(bounds.end.x))
+	var inner := float(_joint_stock.data.dimensions.bore_radius_m)
+	return radius >= inner - .003 and radius <= outer + .003 \
+			and at.y >= bounds.position.y - .003 and at.y <= bounds.end.y + .003
+
+func is_seated_gasket(body: RigidBody3D) -> bool:
+	if not gasket_seated or not is_instance_valid(body):
+		return false
+	return body == (_purchased_gasket_body if _purchased_gasket_seated else _gasket_body)
+
+func vacate_gasket_seat(body: RigidBody3D) -> void:
+	if is_seated_gasket(body):
+		gasket_seated = false
+		_purchased_gasket_seated = false
+
+func seat_physical_gasket(body: RigidBody3D) -> bool:
+	if not is_instance_valid(body) or (body != _gasket_body and body != _purchased_gasket_body):
+		return false
+	if gasket_seated and not is_seated_gasket(body):
+		return false
+	gasket_seated = true
+	_purchased_gasket_seated = body == _purchased_gasket_body
+	return true
+
+
+# Preview the paid washer at its real contact face. The counter and household
+# still own the held identity and paired save; this query moves neither body.
+func preview_purchased_gasket_fit(pickup: RigidBody3D) -> Dictionary:
+	if not is_instance_valid(pickup) or not is_instance_valid(_gasket_body) \
+			or _loose_union == null or not _loose_union.active or not _hand.is_empty() \
+			or not door_open or coupling_made_up or gasket_seated or absf(_wheel_angle) > .0001:
+		return {}
+	if is_instance_valid(_purchased_gasket_body) or not _gasket_body.position.is_equal_approx(_gasket_body.home_position) or _gasket_body._held:
+		return {}
+	var draw := pickup.get_node_or_null("Gasket") as MeshInstance3D
+	if draw == null or draw.mesh == null:
+		return {}
+	var actual := pickup.global_transform
+	var local_face: Vector3 = draw.transform * Vector3(0., draw.mesh.get_aabb().position.y, 0.)
+	var actual_face: Vector3 = actual * local_face
+	var seat := to_global(_gasket_body.seat_position())
+	var seat_basis := global_basis.orthonormalized()
+	var actual_basis := actual.basis.orthonormalized()
+	# Preserve the existing local snap reach. A sideways or inverted part
+	# must first be turned using the ordinary hand controls.
+	if actual_face.distance_to(seat) > preload("res://scripts/props/fire_line_gasket.gd").SNAP_RADIUS \
+			or draw.global_basis.y.normalized().dot(seat_basis.y) < .99:
+		return {}
+	var angle := actual_basis.get_rotation_quaternion().angle_to(seat_basis.get_rotation_quaternion())
+	var aligned := actual
+	var steps := maxi(1, ceili(angle / .025)) # Same angular sampling as held stock.
+	for step in range(1, steps + 1):
+		aligned.basis = actual_basis.slerp(seat_basis, float(step) / steps)
+		aligned.origin = actual_face - aligned.basis * local_face
+		if not pickup._clear_pose(aligned):
+			return {}
+	# End just above the real sealing face so the source-stock margin does
+	# not reject the intended contact. The cabinet validates the exact seat.
+	var seated_pose := Transform3D(seat_basis, seat - seat_basis * local_face)
+	var raised := seated_pose.translated(seat_basis.y * .0001)
+	# Centre at the incoming height before lowering through the nut. A
+	# diagonal snap can strike its lip even with a clear axial insertion.
+	var height := maxf(0., (aligned.origin - raised.origin).dot(seat_basis.y))
+	var centred := raised.translated(seat_basis.y * height)
+	if not _purchased_gasket_path_clear(pickup, aligned, centred) \
+			or not _purchased_gasket_path_clear(pickup, centred, raised):
+		return {}
+	return {"paid_body_pose":seated_pose, "seat_face":seat, "pickup_face":actual_face}
+
+
+func _purchased_gasket_path_clear(pickup: RigidBody3D, start: Transform3D, finish: Transform3D) -> bool:
+	var motion := finish.origin - start.origin
+	var space := get_world_3d().direct_space_state
+	for solid: CollisionShape3D in pickup._solids:
+		var query: PhysicsShapeQueryParameters3D = pickup._shape_query(solid, start)
+		var rest := space.get_rest_info(query)
+		if not rest.is_empty() and motion.dot(rest.normal) < -.0000001:
+			return false
+		if motion.length_squared() > 1e-12:
+			query.motion = motion
+			var clearance := space.cast_motion(query)
+			if clearance.size() != 2 or clearance[0] < 1.:
+				return false
+	return pickup._clear_pose(finish)
+
+
+func _purchased_gasket_support() -> Dictionary:
+	for draw: MeshInstance3D in find_children("*", "MeshInstance3D", true, false):
+		if draw.get_meta("native_fire_part", "") != "F011":
+			continue
+		var support := draw.get_node_or_null("NativeCaseCollision") as StaticBody3D
+		if support == null or support.get_child_count() != 1:
+			return {}
+		var collider := support.get_child(0) as CollisionShape3D
+		var box := collider.shape as BoxShape3D if collider != null else null
+		if box == null or collider.disabled:
+			return {}
+		var top_y := to_local(collider.to_global(Vector3.UP * box.size.y * .5)).y
+		var face := Vector3(PURCHASED_HOME_XZ.x, top_y, PURCHASED_HOME_XZ.y)
+		var local := collider.to_local(to_global(face))
+		if absf(local.x) + PURCHASED_RING_RADIUS >= box.size.x * .5 \
+				or absf(local.z) + PURCHASED_RING_RADIUS >= box.size.z * .5:
+			return {}
+		return {"home":face - Vector3.UP * PURCHASED_FACE_Y, "body":support}
+	return {}
+
+func _make_purchased_gasket(mesh: Mesh, finish: Material, home: Vector3) -> RigidBody3D:
+	var body := preload("res://scripts/props/fire_line_gasket.gd").new()
+	body.name = "PhysicalPurchasedGasket"
+	var draw := MeshInstance3D.new()
+	draw.mesh = mesh
+	draw.material_override = finish
+	body.add_child(draw)
+	add_child(body)
+	body.configure(self, draw, home, PURCHASED_FACE_Y)
+	return body
+
+func stage_purchased_gasket(pickup: RigidBody3D, fit: Dictionary) -> Dictionary:
+	if is_instance_valid(_staged_purchased_gasket) or is_instance_valid(_purchased_gasket_body):
+		return {}
+	var current := preview_purchased_gasket_fit(pickup)
+	if current.is_empty() or current != fit:
+		return {}
+	var support := _purchased_gasket_support()
+	if support.is_empty():
+		return {}
+	var home: Vector3 = support.home
+	var parked := Transform3D(global_basis.orthonormalized(), to_global(home + Vector3.UP * .0001))
+	if not pickup._clear_pose(parked):
+		return {}
+	var incoming := pickup.get_node("Gasket") as MeshInstance3D
+	_staged_purchased_gasket = _make_purchased_gasket(incoming.mesh, incoming.material_override, home)
+	_staged_purchased_gasket.visible = false
+	_staged_purchased_gasket.collision_layer = 0
+	_staged_purchased_gasket.collision_mask = 0
+	var next := mechanism_snapshot()
+	var paid_pose: Dictionary = _staged_purchased_gasket.snapshot()
+	var at: Vector3 = _staged_purchased_gasket.seat_position()
+	paid_pose.position = [at.x, at.y, at.z]
+	next.replacement_gasket = {"item_id":PURCHASED_GASKET_ID, "pose":paid_pose, "seated":true, "dressed":false}
+	next.facts.gasket_seated = true
+	return next
+
+func finish_staged_purchased_gasket(value: Dictionary) -> void:
+	_purchased_gasket_body = _staged_purchased_gasket
+	_staged_purchased_gasket = null
+	_purchased_gasket_body.visible = true
+	_purchased_gasket_body.collision_layer = 1
+	_purchased_gasket_body.collision_mask = 1
+	_purchased_gasket_seated = value.replacement_gasket.seated
+	_purchased_gasket_dressed = value.replacement_gasket.dressed
+	gasket_seated = value.facts.gasket_seated
+	_purchased_gasket_body.restore(value.replacement_gasket.pose)
+	if _click != null:
+		_click.play()
+
+func discard_staged_purchased_gasket() -> void:
+	if is_instance_valid(_staged_purchased_gasket):
+		_staged_purchased_gasket.free()
+	_staged_purchased_gasket = null
+
+func _apply_purchased_gasket_finish() -> void:
+	if not is_instance_valid(_purchased_gasket_body):
+		return
+	var draw: MeshInstance3D = _purchased_gasket_body.draw
+	if _purchased_undressed_rubber == null:
+		_purchased_undressed_rubber = draw.material_override
+	draw.material_override = _purchased_undressed_rubber
+	if _purchased_gasket_dressed:
+		var finish := _purchased_undressed_rubber.duplicate() as StandardMaterial3D
+		if finish != null:
+			finish.roughness *= .85
+			draw.material_override = finish
+
+func _saved_purchased_gasket_stock() -> RefCounted:
+	if _purchased_gasket_stock != null:
+		return _purchased_gasket_stock
+	var stock := preload("res://scripts/props/fire_maintenance_stock_library.gd").new()
+	if not stock.load_stock():
+		return null
+	_purchased_gasket_stock = stock
+	return stock
+
+func _prepare_saved_purchased_gasket(record: Dictionary) -> bool:
+	if record.is_empty():
+		if is_instance_valid(_purchased_gasket_body):
+			_purchased_gasket_body.free()
+		_purchased_gasket_body = null
+		_purchased_gasket_seated = false
+		_purchased_gasket_dressed = false
+		_purchased_undressed_rubber = null
+		return true
+	if not is_instance_valid(_purchased_gasket_body):
+		var support := _purchased_gasket_support()
+		if support.is_empty():
+			return false
+		var stock := _saved_purchased_gasket_stock()
+		if stock == null:
+			return false
+		_purchased_gasket_body = _make_purchased_gasket(stock.meshes.Gasket, stock.finishes.Gasket, support.home)
+	_purchased_gasket_seated = record.seated
+	_purchased_gasket_dressed = record.dressed
+	return true
 
 func _rubber_finish() -> void:
 	if _spare_gasket==null:return
@@ -105,6 +330,7 @@ func _apply_joint_pose() -> void:
 	_spare_gasket.visible=true
 	if _gasket_body!=null:_gasket_body.sync()
 	elif gasket_seated:_spare_gasket.position=_coupling.position+Vector3(0,.020,0)
+	if is_instance_valid(_purchased_gasket_body):_purchased_gasket_body.sync()
 
 func _build_reaches() -> void: pass
 func _build_primary_interaction() -> void: pass
@@ -299,7 +525,9 @@ func _obstructed(id: String, value: float) -> bool:
 	if id=="lever" and _nozzle_joint!=null and _nozzle_joint.body!=null:excluded.append(_nozzle_joint.body.get_rid())
 	if id=="lever" and is_instance_valid(_live_hose):excluded.append_array(_live_hose.inspection_control_exclusions())
 	if id=="joint" and _loose_union!=null:excluded.append_array(_loose_union._excluded)
-	if id=="joint" and gasket_seated:excluded.append(_gasket_body.get_rid())
+	if id == "joint" and gasket_seated:
+		var sealing_body := _purchased_gasket_body if _purchased_gasket_seated else _gasket_body
+		excluded.append(sealing_body.get_rid())
 	# Fixed stock in this same fitted assembly supplies the hinge/valve stops.
 	# Other moving parts, the player and surrounding architecture remain solid.
 	for body: StaticBody3D in find_children("*","StaticBody3D",true,false):
@@ -379,13 +607,39 @@ func mechanism_snapshot() -> Dictionary:
 	var value: Dictionary={"door":_door_angle,"lever":_lever_angle,"joint":_union_angle,"loose":{"active":_loose_union.active,"position":[at.x,at.y,at.z]},"gasket":_gasket_body.snapshot(),"facts":maintenance_snapshot()}
 	if _nozzle_joint!=null:value.nozzle=_nozzle_joint.snapshot()
 	value.rubber_dressed=rubber_dressed
+	if is_instance_valid(_purchased_gasket_body):
+		var paid_pose: Dictionary = _purchased_gasket_body.snapshot()
+		# A hand grip is transient. An unseated replacement reloads at its
+		# validated shelf support, including when a save occurs mid-carry.
+		if not _purchased_gasket_seated:
+			var home: Vector3 = _purchased_gasket_body.home_position
+			paid_pose = {"position":[home.x, home.y, home.z], "rotation":[0., 0., 0., 1.]}
+		value.replacement_gasket = {"item_id":PURCHASED_GASKET_ID, "pose":paid_pose,
+			"seated":_purchased_gasket_seated, "dressed":_purchased_gasket_dressed}
 	if is_instance_valid(_live_hose) and _live_hose.visual_follow_enabled:value.hose=_live_hose.deployment_snapshot()
 	return value
 
 func valid_mechanism(value: Variant) -> bool:
-	if value is not Dictionary or value.size()<3 or value.size()>9:return false
+	if value is not Dictionary or value.size()<3 or value.size()>10:return false
 	for key: String in value:
-		if key not in ["door","lever","facts","joint","loose","gasket","nozzle","rubber_dressed","hose"]:return false
+		if key not in ["door","lever","facts","joint","loose","gasket","nozzle","rubber_dressed","hose","replacement_gasket"]:return false
+	if value.has("replacement_gasket"):
+		var paid: Variant = value.replacement_gasket
+		var support := _purchased_gasket_support()
+		if not value.has("gasket") or paid is not Dictionary or paid.size() != 4 \
+				or paid.get("item_id") != PURCHASED_GASKET_ID or paid.get("seated") is not bool \
+				or paid.get("dressed") is not bool or not preload("res://scripts/props/fire_line_gasket.gd").valid(paid.get("pose")) \
+				or support.is_empty():
+			return false
+		if not is_instance_valid(_staged_purchased_gasket) and not is_instance_valid(_purchased_gasket_body) \
+				and _saved_purchased_gasket_stock() == null:
+			return false
+		if not paid.seated:
+			var parked_at := Vector3(paid.pose.position[0], paid.pose.position[1], paid.pose.position[2])
+			var q: Array = paid.pose.rotation
+			if parked_at.distance_to(support.home) > .0001 \
+					or Basis(Quaternion(q[0], q[1], q[2], q[3])).y.dot(Vector3.UP) < .9999:
+				return false
 	if value.has("hose") and (not value.has("nozzle") or not is_instance_valid(_live_hose) or not _live_hose.valid_deployment(value.hose)):return false
 	if value.has("loose") and not value.has("joint"):return false
 	if value.has("gasket") and not value.has("loose"):return false
@@ -432,16 +686,30 @@ func valid_mechanism(value: Variant) -> bool:
 			first+=Vector3(.01475,-.016,0)*(int(facts.folds_fresh)-int(folds_fresh))
 			var at:=Vector3(loose.position[0],loose.position[1],loose.position[2])
 			if not get_node("NativeHoseRuns")._live_lead.can_reach(first,at+Vector3(0,-.068,0)):return false
+	var paid_seated: bool = value.get("replacement_gasket", {}).get("seated", false)
+	if paid_seated and not facts.gasket_seated:
+		return false
 	if value.has("gasket") and facts.gasket_seated:
 		var union_at:=Vector3(.17,_joint_stock.union_pose(float(value.get("joint",_minimum("joint")))).origin.y,.098)
 		if value.get("loose",{}).get("active",false):union_at=Vector3(value.loose.position[0],value.loose.position[1],value.loose.position[2])
-		var ring_at:=Vector3(value.gasket.position[0],value.gasket.position[1],value.gasket.position[2])
-		var q: Array=value.gasket.rotation
-		if ring_at.distance_to(union_at+Vector3(0,.020,0))>.0001 or (Basis(Quaternion(q[0],q[1],q[2],q[3])).y.dot(Vector3.UP))<.9999:return false
+		var native_at := Vector3(value.gasket.position[0], value.gasket.position[1], value.gasket.position[2])
+		var ring: Dictionary = value.replacement_gasket.pose if paid_seated else value.gasket
+		var ring_at := Vector3(ring.position[0], ring.position[1], ring.position[2])
+		var q: Array = ring.rotation
+		var ring_offset := PURCHASED_FACE_Y if paid_seated else 0.
+		if ring_at.distance_to(union_at + Vector3(0., .020 - ring_offset, 0.)) > .0001 \
+				or Basis(Quaternion(q[0], q[1], q[2], q[3])).y.dot(Vector3.UP) < .9999:
+			return false
+		if paid_seated and native_at.distance_to(union_at + Vector3(0., .020, 0.)) <= .0001:
+			return false
 	return facts.door_open==(float(value.door)>=.8) and facts.nozzle_shut==(float(value.lever)>=-.0001)
 
 func restore_mechanism(value: Dictionary) -> void:
 	if not _hand.is_empty() or not valid_mechanism(value): return
+	var paid: Dictionary = value.get("replacement_gasket", {})
+	if not _prepare_saved_purchased_gasket(paid):
+		push_error("Validated purchased washer could not restore its native stock")
+		return
 	restore_maintenance_snapshot(value.facts)
 	_door_angle = float(value.door); _lever_angle = float(value.lever)
 	_union_angle=float(value.get("joint",_minimum("joint") if coupling_made_up else _maximum("joint")))
@@ -453,6 +721,9 @@ func restore_mechanism(value: Dictionary) -> void:
 	_observed_open = door_open; _observed_shut = nozzle_shut; _apply_hand_pose()
 	if value.has("gasket"):_gasket_body.restore(value.gasket)
 	else:_gasket_body.restore({"position":[.245,.048,.150],"rotation":[0.,0.,0.,1.]})
+	if not paid.is_empty():
+		_purchased_gasket_body.restore(paid.pose)
+		_apply_purchased_gasket_finish()
 	if is_instance_valid(_live_hose) and _live_hose.visual_follow_enabled:
 		if value.has("hose"):_live_hose.restore_deployment(value.hose)
 		else:_live_hose.restore_stored()

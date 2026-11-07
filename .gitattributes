@@ -1746,6 +1746,7 @@ game/assets/environment/weather/*.rg8 -text
 game/assets/environment/weather/*.r8 -text -diff
 game/assets/environment/weather/*.rgb8 -text -diff
 game/tests/orison_v2_first_slice_contract_test.gd -text
+game/tests/orison_v2_first_slice_contract_test.tscn -text
 art/renders/orison_v2/first_slice_contract_20261011/** -text
 game/tests/orison_v2_m08e_spatial_test.gd -text
 game/tests/orison_v2_integrated_test.gd -text
@@ -2479,6 +2480,7 @@ game/tests/v2_region_access_driver.gd -text
 game/tests/v2_region_access_observer.gd -text
 game/tests/V2RegionAccessContract.tscn -text
 art/renders/orison_v2/access_exterior_regions_20261019/** -text
+art/reviews/v2_exterior_access_20261106/** -text -whitespace
 art/reviews/v2_region_access_20261019/** -text
 game/tests/v2_service_programme_walk.gd -text
 game/tests/v2_service_programme_contract.gd -text
@@ -3597,3 +3599,18 @@ art/renders/orison_v2/first_slice_contract_20261011/verification.json -text -whi
 
 # Preserve raw current-cohort review bindings and prior receipts.
 art/reviews/v2_qualification_current_20261105/** -text -whitespace
+
+# Preserve the raw review and prior receipt bytes for the hose/nook cohort.
+art/reviews/v2_qualification_hose_20261106/** -text -whitespace
+
+# Preserve original city-window qualification archive and review bindings.
+art/reviews/v2_qualification_city_windows_20261106/** -text -whitespace
+
+# Preserve original reading and valise qualification archive and review bindings.
+art/reviews/v2_qualification_reading_valise_20261106/** -text -whitespace
+
+# Preserve original book transport qualification archive and review bindings.
+art/reviews/v2_qualification_book_optical_20261107/** -text -whitespace
+
+# Preserve exterior shadow qualification archives and exact review bindings.
+art/reviews/v2_qualification_exterior_shadow_20261107/** -text -whitespace

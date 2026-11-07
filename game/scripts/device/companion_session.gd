@@ -196,7 +196,7 @@ func submit(value: String) -> void:
 	var reply: Dictionary = dialogue.respond_calendar(value, context, calendar.get("clock"),
 		str(calendar.get("source", "")), calendar.get("conditions", {}),
 		calendar.get("catalog"), calendar.get("read_issue", {}))
-	close(true)
+	close()
 	if not _print(reply):
 		dialogue.memory.restore(before)
 		draft = value.left(512)
@@ -213,13 +213,13 @@ func submit(value: String) -> void:
 	# explicit Save, Load and exit still settle every queued generation.
 	RealityState.commit_background()
 
-func close(keep_keyboard_open := false) -> void:
+func close() -> void:
 	if not typing and not opening: return
 	var owned_focus := _edit.has_focus()
 	typing = false; opening = false
 	_edit.release_focus()
 	_player.release_text_input(self)
-	_carrier.rig.request_keyboard(keep_keyboard_open and _carrier.reading)
+	_carrier.rig.request_keyboard(false)
 	_carrier.motion.hold_for_hand(false)
 	_carrier.device.teletype.hide_draft()
 	if owned_focus and not _player.protected_input_active() and not get_tree().paused \
@@ -254,7 +254,8 @@ func deliver_event(id: String) -> bool:
 func _print(reply: Dictionary) -> bool:
 	if not available() or str(reply.get("text", "")).is_empty(): return false
 	_delivering = true
-	var accepted: bool = _carrier.device.print_telegram_card({"title":"CORRESPONDENCE", "body":str(reply.text)})
+	var accepted: bool = _carrier.device.print_telegram_card(
+		{"title":"CORRESPONDENCE", "body":str(reply.text)}, true, _carrier.device.teletype.FACE_COPY_ROWS)
 	_delivering = false
 	if accepted: _cooldown = 45.0
 	return accepted

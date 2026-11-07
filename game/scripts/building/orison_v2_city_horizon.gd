@@ -116,9 +116,12 @@ func _refresh_windows() -> void:
 	if not _window_clock.bind_state(): return
 	var minute := floorf(_window_clock.calendar_minutes())
 	if minute == _window_minute: return
-	for material: ShaderMaterial in _window_materials.values():
-		WindowOptics.sync_clock(material, _window_clock)
+	project_window_clock(_window_clock)
 	_window_minute = minute
+
+func project_window_clock(clock: CampaignClock) -> void:
+	for material: ShaderMaterial in _window_materials.values():
+		WindowOptics.sync_clock(material, clock)
 
 static func asset_paths(source: Dictionary, include_lower: bool=true) -> Array[String]:
 	var result: Array[String]=[]

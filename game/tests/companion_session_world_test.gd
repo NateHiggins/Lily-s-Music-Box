@@ -30,11 +30,103 @@ func _run() -> void:
 	OS.set_environment("CAMPAIGN_TIME_FREEZE", "1")
 	Engine.max_fps = 120
 	if not await build_world(): finish(); return
+	if OS.get_environment("ORISON_COMPANION_FACE_FLIGHT_REVIEW") == "1":
+		await _face_and_flight_review()
+		return
 	# Read through the existing inventory owner once before freezing authority
 	# facts; its normal legacy seeding is not a companion inventory transaction.
 	PersonInventory.pocket_lines()
 	for key_name: String in AUTHORITIES: authority_before[key_name] = RealityState.data.get(key_name, {}).duplicate(true)
 	await exercise()
+
+func _face_and_flight_review() -> void:
+	carrier.session.chatter_enabled = false
+	player.global_position = world.adapter.root.to_global(Vector3(0., .02, -10.2))
+	player.velocity = Vector3.ZERO
+	player.force_update_transform()
+	player.face_world_point(world.adapter.root.to_global(Vector3(0., 1.55, -7.8)))
+	for tick in 12: await get_tree().physics_frame
+	var screen: Node = carrier.screen_frame
+	var paper := carrier.device.teletype._paper as MeshInstance3D
+	var stock_point := paper.mesh.get_aabb().get_center()
+	var rest_distance := player.camera.global_position.distance_to(paper.to_global(stock_point))
+	await capture("travel_station.png")
+	var offsets: Array[float] = []
+	var on_floor := true
+	var max_speed := 0.0
+	var rendered: Array[Dictionary] = []
+	var sample_frame := func() -> void:
+		var crop: Rect2 = screen.image.get_rect()
+		var paper_rect := projected_bounds(paper)
+		var center := get_viewport().get_visible_rect().size * .5
+		rendered.append({"paper":str(paper_rect), "crop":str(crop),
+			"contained":crop.grow(2.).encloses(paper_rect), "center_clear":not crop.has_point(center)})
+	RenderingServer.frame_post_draw.connect(sample_frame)
+	for tick in 96:
+		if tick == 0: Input.action_press("move_forward")
+		if tick == 24: Input.action_release("move_forward")
+		await get_tree().physics_frame
+		var offset: Vector3 = screen._travel_error
+		offsets.append(offset.z)
+		on_floor = on_floor and player.is_on_floor()
+		max_speed = maxf(max_speed, player.velocity.slide(Vector3.UP).length())
+		if tick in [7, 24, 37, 55]: await capture("travel_%02d.png" % tick)
+	Input.action_release("move_forward")
+	RenderingServer.frame_post_draw.disconnect(sample_frame)
+	check(rest_distance > .26 and rest_distance < .40, "travel station matches the closer native reference")
+	check(on_floor and max_speed > 2.5 and not carrier.reading, "flight responds to normal walking in the occupied lobby")
+	check(offsets.max() > .02 and offsets.min() < -.02 and absf(offsets.back()) < .02,
+		"native walking and stopping overshoot in both directions and return to station")
+	check(rendered.size() >= 10 and rendered.all(func(row: Dictionary): return row.contained and row.center_clear),
+		"walking exaggeration keeps the paper and center sightline safe")
+	await joy(JOY_BUTTON_DPAD_DOWN)
+	var printer: Node = carrier.device.teletype
+	var recalled := await wait_for(func(): return carrier.reading and carrier.motion.steady_for_input() and printer.copy_delivered())
+	check(recalled and carrier.rig.keyboard_open < .01 and not carrier.rig.keyboard_requested,
+		"chat recall frames the paper and leaves the face exposed")
+	await capture("chat_listen.png")
+	await joy(JOY_BUTTON_A)
+	if check(await wait_for(func(): return carrier.session.typing), "explicit input opens the native keyboard"):
+		await type_text("who are you")
+		check(carrier.session.draft == "who are you" and player.text_input_owner == carrier.session,
+			"native key events reach the same draft owner")
+		await capture("typing.png")
+		await joy(JOY_BUTTON_A)
+		if check(await wait_for(func(): return printer.copy_delivered() and carrier.rig.keyboard_open < .01),
+				"submitted question prints and restores the face"):
+			var ink: Label3D = printer.ink
+			var ink_rect := projected_aabb(ink, ink.get_aabb())
+			var glass_rect := projected_bounds(carrier.rig.glazing)
+			check(not carrier.rig.keyboard_requested and carrier.reading and player.text_input_owner == null
+				and printer.ink.text.contains("CORRESPONDENCE") and glass_rect.grow(2.).encloses(ink_rect),
+				"closed-face correspondence stays on the glass and releases the input lease")
+			await capture("reply.png")
+			var pages: Array = printer.pages.duplicate()
+			if check(pages.size() > 1, "long chat copy is retained across compact pages"):
+				await key(KEY_BRACKETRIGHT)
+				check(await wait_for(func(): return printer.page == 1 and printer.copy_delivered())
+					and printer.ink.text == pages[1] and carrier.rig.keyboard_open < .01,
+					"real page input reads the remaining copy with the face visible")
+				await capture("chat_next_page.png")
+			await joy(JOY_BUTTON_A)
+			if check(await wait_for(func(): return carrier.session.typing), "next explicit reply redeploys the keyboard"):
+				await type_text("help")
+				await key(KEY_ESCAPE)
+				check(await wait_for(func(): return carrier.rig.keyboard_open < .01) and carrier.session.draft == "help",
+					"Escape restores the face and preserves the unsent draft")
+	var failed := checks.filter(func(row: Dictionary): return not row.passed)
+	var output := FileAccess.open(directory.path_join("companion_face_flight.json"), FileAccess.WRITE)
+	if output != null:
+		output.store_string(JSON.stringify({"evidence_class":"INERT", "checks":checks, "failures":failed,
+			"walk_depth_error":offsets, "rendered_travel_frames":rendered,
+			"station_distance_m":rest_distance, "walk_speed_mps":max_speed}, "\t"))
+		output.close()
+	world.shutdown_for_tests()
+	world.queue_free()
+	finished = true
+	await frames(3)
+	get_tree().quit(0 if failed.is_empty() and output != null else 1)
+
 
 func build_world() -> bool:
 	world = load(Selector.scene_path()).instantiate()

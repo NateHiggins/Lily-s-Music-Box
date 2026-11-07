@@ -3627,7 +3627,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 959.078,
+		"elapsed_s": 1065.252,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -24099,7 +24099,7 @@
 				},
 				{
 					"actual": [
-						-0.978184819221497,
+						-0.978184878826141,
 						16.000467300415,
 						7.24483489990234
 					],
@@ -25125,7 +25125,7 @@
 				},
 				{
 					"actual": [
-						3.77632284164429,
+						3.77632308006287,
 						16.000467300415,
 						7.05002403259277
 					],
@@ -25695,7 +25695,7 @@
 				},
 				{
 					"actual": [
-						-0.377851635217667,
+						-0.377851456403732,
 						16.000467300415,
 						7.05008888244629
 					],
@@ -25929,9 +25929,9 @@
 	"scope": "Spatial room access and actual grab/motion/release in 3A, 3B, 4A, 5A, 5B, 5C, 6A, 6B and 6C. Collision queries plan paths; the normal player controller executes every route. Each unit leg starts with one placement; all subsequent travel uses the ordinary controller. No vertical connection, case completion, save reconstruction, whole-building runtime or human acceptance is claimed.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "693e7cb43bd72ab1969b3d596b9dbe3a607b03e2",
-		"runtime_inputs_sha256": "7720077f5c1d2477dfc8d804923c8967324c953b69204a84bf8d69d4e293e6e5",
-		"surface_inputs_sha256": "2785a68aea1746935898f96c311cd43b410ac5faa5c2829d6f7fb2900fef0a48",
+		"repository_head": "74ad19328e29adf9ebcc3b0faed934b55af4863e",
+		"runtime_inputs_sha256": "96332fc3744ee9471e26fba05a8da323ff5e5d8c1ad9de69b4f20d6b18e7e77f",
+		"surface_inputs_sha256": "0717a03fb000efab3d3d277b8d0101bd1405ab61179c08e744d99313da140576",
 		"test_dependencies": {
 			"game/tests/OrisonV2RemainingApartmentAccessContractTest.tscn": "d68123786dcc531a7ad0063c790fd92b273b302768d6b7ee7d54c0b682bb414f",
 			"game/tests/orison_v2_4b_door_route_test.gd": "c49f7e09ee57545f7414b9fb3562fedeb880603f43acf8e7b71a753c0c400407",
@@ -25940,7 +25940,7 @@
 			"game/tests/orison_v2_first_slice_contract_test.tscn": "ed868b6b67ba8a751260d5d31411eb6fa3e02be491553c857ebf4a1d09d46e69",
 			"game/tests/orison_v2_remaining_apartment_access_contract_test.gd": "6833022637c5dfe16b26f7a6b87248f435f9ec43714f32885326331f6597aa99",
 			"game/tests/orison_v2_roof_route_test.gd": "a8f7038a623f2cee84d907c82264d894e6723c044f96579a5950af8ea5baefbf",
-			"game/tests/orison_v2_vertical_route_test.gd": "cc504acb6828f75407af41900566dfab6b666cdeee2ae595d0f73044d50a2524",
+			"game/tests/orison_v2_vertical_route_test.gd": "214d63cb231e1122c89ab3f113b8a49fa32846f6ce78f32721705c8f8c5395fb",
 			"game/tests/roof_tank_hand_test.gd": "9b2563916d6d0a2c420ba42f1154c0d122e5fbffd0aaf7aaa7e68fac8cd9a678",
 			"game/tests/v2_remaining_apartment_walk.gd": "d03478bdc821935a0cb08790cc003cb642b8ff0d4d9570d369cba396b18e5e50"
 		},

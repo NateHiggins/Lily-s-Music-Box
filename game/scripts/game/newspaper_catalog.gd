@@ -278,6 +278,15 @@ func is_collected(paper_id: String, date: String) -> bool:
 
 ## Keep a paper. True when it is new to the shelf.
 func collect(paper_id: String, date: String) -> bool:
+	if not collect_uncommitted(paper_id, date):
+		return false
+	RealityState.commit()
+	return true
+
+
+## Keep a paper without saving: for a sale's delivery, whose settlement commits once the debit, the stock, the kept
+## issue and its custody are all in place (PR164 admission: no save may hold the debit without the paper's custody).
+func collect_uncommitted(paper_id: String, date: String) -> bool:
 	if not papers.has(paper_id) or not issues.has(date):
 		return false
 	if not RealityState.data.has(STATE_KEY) or RealityState.data[STATE_KEY] is not Array:
@@ -286,7 +295,6 @@ func collect(paper_id: String, date: String) -> bool:
 	if key in RealityState.data[STATE_KEY]:
 		return false
 	RealityState.data[STATE_KEY].append(key)
-	RealityState.commit()
 	return true
 
 

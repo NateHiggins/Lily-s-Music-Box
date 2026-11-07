@@ -80,7 +80,7 @@ func interact_control(control_id: String, player: Node) -> Variant:
 	if catalog == null:
 		return {}
 	if mode == "shelf":
-		_open_panel(player, catalog, "", "")
+		_open_panel(player, catalog, "", "")  # reading the archive never empties the case (the stack's deposit does)
 		return {}
 	if shuttered():
 		return {"title": "NEWS AND CIGARS", "body": "GRILLE DRAWN STOP OPENS SIX THIRTY STOP",
@@ -93,6 +93,11 @@ func interact_control(control_id: String, player: Node) -> Variant:
 	for offer in offers:
 		options.append({"text": str(offer.label), "evidence": bool(offer.kept),
 				"action": func(): _take(player, catalog, str(offer.paper), str(offer.date))})
+	# LILITH has its own entry beside every newspaper offer, so a full rack of papers never hides it.
+	var issues := comic_offers(catalog.today())
+	if not issues.is_empty():
+		options.append({"text": "LILITH, the comic: %d on the rack." % issues.size(),
+				"action": func(): _offer_comics(player, catalog)})
 	options.append({"text": "Leave them.", "silent": true, "action": Callable()})
 	if player != null and "call_locked" in player:
 		player.call_locked = true
@@ -118,14 +123,69 @@ static func offers_for(catalog: NewspaperCatalog, date: String, published_only :
 	return out
 
 
-func _take(player: Node, catalog: NewspaperCatalog, paper_id: String, date: String) -> void:
-	if not catalog.published_now(paper_id,date): return
-	if sales != null and not catalog.is_collected(paper_id, date):
-		var item_id := SALE_ITEMS.get(paper_id, "") as String
-		if item_id != "":
-			sales.transact(item_id, sales.shop_id)
-	catalog.collect(paper_id, date)
+## A kept paper is read at the rack for nothing. A new one goes into the case's transport slot inside its sale: a
+## full slot refuses before any charge, stock or collection, and a refused sale (no money, no stock) changes nothing.
+func _take(player: Node, catalog: NewspaperCatalog, paper_id: String, date: String) -> bool:
+	if not catalog.published_now(paper_id,date): return false
+	if catalog.is_collected(paper_id, date):
+		_open_panel(player, catalog, paper_id, date)
+		return true
+	if not PaperPocket.has_room_for_news():
+		_refuse(player, "THE CASE HAS A PAPER IN IT STOP LEAVE IT ON THE STACK AT HOME FIRST STOP", "ONE PAPER")
+		return false
+	var key := NewspaperCatalog.key_of(paper_id, date)
+	var hand_over := func(): return catalog.collect_uncommitted(paper_id, date) and PaperPocket.tuck_news(key)
+	var item_id := SALE_ITEMS.get(paper_id, "") as String
+	var sold := sales.transact_delivering(item_id, sales.shop_id, hand_over) if sales != null and item_id != "" else bool(hand_over.call())
+	if not sold:
+		_refuse(player, "NOT SOLD STOP %s STOP" % _why(item_id), "NO SALE")
+		return false
+	if sales == null:
+		RealityState.commit()
 	_open_panel(player, catalog, paper_id, date)
+	return true
+
+
+## The LILITH issues on the rack by a date that she hasn't bought, newest first.
+static func comic_offers(date: String) -> Array:
+	var out: Array = PaperPocket.comics_on_sale(date).filter(func(found): return not PaperPocket.has_comic(str(found.id)))
+	out.reverse()
+	return out
+
+
+func _offer_comics(player: Node, catalog: NewspaperCatalog) -> void:
+	var options: Array = []
+	for found: Variant in comic_offers(catalog.today()).slice(0, 8):
+		options.append({"text": "LILITH No. %d, %s. Five cents." % [int(found.number), str(found.title)],
+				"action": func(): _take_comic(player, str(found.id))})
+	options.append({"text": "Not today.", "silent": true, "action": Callable()})
+	if player != null and "call_locked" in player:
+		player.call_locked = true
+	_chooser.present("NEWS AND CIGARS", "LILITH, THE SILK WIDOW. Told at the Harukiya, with interruptions.", options)
+
+
+## A comic goes into the case's comics pocket inside its sale: stock, the five cents and custody together.
+func _take_comic(player: Node, id: String) -> bool:
+	if PaperPocket.has_comic(id) or PaperPocket.issue(id).is_empty():
+		return false
+	var hand_over := func(): return PaperPocket.tuck_comic(id)
+	var sold := sales.transact_delivering(PaperPocket.comic_item(), sales.shop_id, hand_over) if sales != null else bool(hand_over.call())
+	if not sold:
+		_refuse(player, "NOT SOLD STOP %s STOP" % _why(PaperPocket.comic_item()), "NO SALE")
+		return false
+	if sales == null:
+		RealityState.commit()
+	return true
+
+
+func _why(item_id: String) -> String:
+	var status := sales.transaction_status(item_id) if sales != null and item_id != "" else ""
+	return {"insufficient_funds": "NOT ENOUGH CASH", "out_of_stock": "NONE LEFT", "no_carrier": "NO RADIO CARRIER"}.get(status, "THE STAND CANT TAKE IT")
+
+
+func _refuse(player: Node, body: String, condition: String) -> void:
+	if player != null and player.has_method("present_service_note"):
+		player.present_service_note(self, {"title": "NEWS AND CIGARS", "body": body, "condition": condition, "stamp": "SERVICE NOTE"})
 
 
 func _open_panel(player: Node, catalog: NewspaperCatalog, paper_id: String, date: String) -> void:

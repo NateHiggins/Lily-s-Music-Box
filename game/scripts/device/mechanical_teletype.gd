@@ -14,6 +14,7 @@ var model: Node3D
 var model_ready := false
 const COLUMNS := 30
 const ROWS := 10
+const FACE_COPY_ROWS := 5
 const HISTORY_LIMIT := 24
 const CHARACTER_SECONDS := 1.0/48.0
 const RETURN_SECONDS := .09
@@ -230,7 +231,7 @@ func _label(at: Vector3, pixel: float) -> Label3D:
 	label.no_depth_test=false; label.shaded=false
 	return label
 
-func present(card: Dictionary, serial: int,raised_copy:=false) -> void:
+func present(card: Dictionary, serial: int, raised_copy := false, rows_per_page := 0) -> void:
 	# A genuine field copy has priority over an unfinished automatic copy.
 	# Clear ownership before notifying its controller, so cancellation cannot
 	# restore the old page over the incoming report.
@@ -254,11 +255,14 @@ func present(card: Dictionary, serial: int,raised_copy:=false) -> void:
 			remaining=remaining.substr(cut).trim_prefix(" ")
 		lines.append(remaining)
 	pages.clear()
-	for start in range(0,lines.size(),ROWS):
-		pages.append("\n".join(lines.slice(start,mini(start+ROWS,lines.size()))))
+	var page_rows := clampi(rows_per_page, 1, ROWS) if rows_per_page > 0 else ROWS
+	for start in range(0, lines.size(), page_rows):
+		pages.append("\n".join(lines.slice(start, mini(start + page_rows, lines.size()))))
 	_serial=serial; _reviewing=false
 	if serial>0:
-		reports.append({"serial":serial,"pages":pages.duplicate()})
+		var record := {"serial":serial,"pages":pages.duplicate()}
+		if rows_per_page > 0: record["delivery_feed"] = _delivery_feed
+		reports.append(record)
 		if reports.size()>HISTORY_LIMIT: reports.pop_front()
 		report_index=reports.size()-1
 	heading.text="SERVICE WIRE / %04d" % _serial
@@ -269,7 +273,7 @@ func browse_report(direction: int) -> void:
 	if reports.is_empty(): return
 	report_index=posmod(report_index+direction,reports.size())
 	var record: Dictionary=reports[report_index]
-	_delivery_feed=DELIVERY_FEED
+	_delivery_feed = float(record.get("delivery_feed", DELIVERY_FEED))
 	pages.assign(record.pages)
 	_serial=int(record.serial)
 	heading.text="SERVICE WIRE / %04d" % _serial
