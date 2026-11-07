@@ -61,6 +61,66 @@ class LaneQueueTests(unittest.TestCase):
             self.assertEqual(broker.wait(120), 0)
         self.assertEqual(order.read_text().split(), names)
 
+    def batch(self, name: str, order: pathlib.Path, scenes: list[str], hold: float = 0.2) -> tuple[subprocess.Popen, pathlib.Path]:
+        runs = self.state / f"{name}.json"
+        runs.write_text(json.dumps([
+            {"gpu": [sys.executable, "-c", f"import time,sys;open(sys.argv[1],'a').write({s!r}+chr(10));time.sleep({hold})",
+                     str(order)], "scene": s, "log": str(self.state / f"{s}.log"), "timeout": 60} for s in scenes]),
+            encoding="utf8")
+        broker = subprocess.Popen(["pwsh", "-NoProfile", "-File", str(TOOLS / "lane.ps1"), "batch", "-BatchFile", str(runs),
+                                   "-WaitMinutes", "2"], env=self.env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        return broker, runs
+
+    def waiter_record(self, pid: int, timeout: float = 30) -> dict:
+        path = self.state / "Orison/waiters" / f"{pid}.json"
+        deadline = time.monotonic() + timeout
+        while time.monotonic() < deadline:
+            try:
+                return json.loads(path.read_text(encoding="utf-8-sig"))
+            except (OSError, ValueError):
+                time.sleep(0.05)
+        self.fail(f"no waiter record for {pid}")
+
+    def test_waiter_record_lists_each_run_of_its_batch(self):
+        order = self.state / "order.txt"
+        first = self.broker("holder", order, hold=6)
+        while not (order.exists() and "holder" in order.read_text()):
+            time.sleep(0.05)
+        second, runs = self.batch("second", order, ["alpha", "beta", "gamma"])
+        record = self.waiter_record(second.pid)
+        self.assertEqual([r["scene"] for r in record["runs"]], ["alpha", "beta", "gamma"])
+        self.assertEqual(pathlib.Path(record["batch_file"]), runs.resolve())
+        self.assertEqual(first.wait(60), 0)
+        self.assertEqual(second.wait(60), 0)
+
+    def test_a_waiting_batch_takes_edits_to_its_runs(self):
+        # Omni edits a queued batch's file: skip one run and swap two. The broker rereads it when its turn comes.
+        order = self.state / "order.txt"
+        first = self.broker("holder", order, hold=6)
+        while not (order.exists() and "holder" in order.read_text()):
+            time.sleep(0.05)
+        second, runs = self.batch("second", order, ["alpha", "beta", "gamma"])
+        self.waiter_record(second.pid)
+        specs = json.loads(runs.read_text(encoding="utf8"))
+        specs[1]["skip"] = True
+        specs[0], specs[2] = specs[2], specs[0]
+        runs.write_text(json.dumps(specs), encoding="utf8")
+        self.assertEqual(first.wait(60), 0)
+        self.assertEqual(second.wait(60), 0)
+        self.assertEqual(order.read_text().split(), ["holder", "gamma", "alpha"])
+
+    def test_a_broken_edit_falls_back_to_the_queued_runs(self):
+        order = self.state / "order.txt"
+        first = self.broker("holder", order, hold=6)
+        while not (order.exists() and "holder" in order.read_text()):
+            time.sleep(0.05)
+        second, runs = self.batch("second", order, ["alpha", "beta"])
+        self.waiter_record(second.pid)
+        runs.write_text("[{not json", encoding="utf8")
+        self.assertEqual(first.wait(60), 0)
+        self.assertEqual(second.wait(60), 0)
+        self.assertEqual(order.read_text().split(), ["holder", "alpha", "beta"])
+
     def queue_of(self, records: dict[str, dict]) -> list[int]:
         folder = self.state / "Orison/waiters"
         folder.mkdir(parents=True, exist_ok=True)
