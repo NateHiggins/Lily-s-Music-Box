@@ -151,6 +151,21 @@ class LaneQueueTests(unittest.TestCase):
         self.assertEqual(record["exit"], 0)
         self.assertGreater(record["seconds"], 0.3)
 
+    def test_a_failed_compile_check_ends_its_batch_even_when_continuing_past_failures(self):
+        # 11-07: a broken script let two tests behind a failed CompileChangedScripts run to their ceilings.
+        order = self.state / "order.txt"
+        runs = self.state / "compile_first.json"
+        mark = "import sys;open(sys.argv[1],'a').write(sys.argv[2]+chr(10));sys.exit(int(sys.argv[3]))"
+        runs.write_text(json.dumps([
+            {"gpu": [sys.executable, "-c", mark, str(order), "compile", "1"], "scene": "res://tests/CompileChangedScripts.tscn",
+             "log": str(self.state / "compile.log"), "timeout": 60},
+            {"gpu": [sys.executable, "-c", mark, str(order), "dependent", "0"], "scene": "res://tests/Dependent.tscn",
+             "log": str(self.state / "dependent.log"), "timeout": 60}]), encoding="utf8")
+        broker = subprocess.run(["pwsh", "-NoProfile", "-File", str(TOOLS / "lane.ps1"), "batch", "-BatchFile", str(runs),
+                                 "-WaitMinutes", "2", "-ContinueOnFailure"], env=self.env, capture_output=True, text=True, timeout=120)
+        self.assertNotEqual(broker.returncode, 0)
+        self.assertEqual(order.read_text().split(), ["compile"])
+
     def queue_of(self, records: dict[str, dict]) -> list[int]:
         folder = self.state / "Orison/waiters"
         folder.mkdir(parents=True, exist_ok=True)

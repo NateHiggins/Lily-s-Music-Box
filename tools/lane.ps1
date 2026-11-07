@@ -394,6 +394,12 @@ try {
         Write-Host "[LANE] $($spec.scene) exit=$code"
         if ($code -ne 0 -and $final -eq 0) { $final = $code }
         if ($code -ne 0 -and -not $ContinueOnFailure) { break }
+        if ($code -ne 0 -and "$($spec.scene)" -match 'CompileChangedScripts') {
+            # Nothing after a failed compile check can run correctly; continuing past failures would only let the
+            # dependent runs spend the lane up to their ceilings (11-07, about 30 minutes lost).
+            Write-Host "[LANE] compile check failed: the remaining $($runs.Count - $i - 1) run(s) are not started"
+            break
+        }
         if ($i -lt $runs.Count - 1) {
             # Between runs, give the lane to anyone waiting who outranks this batch, then rejoin right
             # behind the first of them (ahead of lower-priority work that queued later).
