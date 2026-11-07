@@ -401,6 +401,8 @@ func _mount_markers() -> void:
 				graph_record.pos = [mouth.x, -mouth.z, mouth.y]
 				AcousticGraphData.nodes[identity] = graph_record
 			_actors.add_child(prop)
+			if prop is LightFixtureProp and identity in ["PASSAGE_PORTAL_LT_W", "PASSAGE_PORTAL_LT_E"]:
+				preload("res://scripts/building/orison_v2_native_service_work_lights.gd").configure_exterior_shadow_distance(prop.light)
 
 func _mount_counters() -> void:
 	for item_id: String in shop_service.stock_ids():
