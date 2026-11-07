@@ -3627,7 +3627,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 1065.252,
+		"elapsed_s": 935.009,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -24099,7 +24099,7 @@
 				},
 				{
 					"actual": [
-						-0.978184878826141,
+						-0.978184819221497,
 						16.000467300415,
 						7.24483489990234
 					],
@@ -25125,7 +25125,7 @@
 				},
 				{
 					"actual": [
-						3.77632308006287,
+						3.77632284164429,
 						16.000467300415,
 						7.05002403259277
 					],
@@ -25695,7 +25695,7 @@
 				},
 				{
 					"actual": [
-						-0.377851456403732,
+						-0.377851635217667,
 						16.000467300415,
 						7.05008888244629
 					],
@@ -25929,9 +25929,9 @@
 	"scope": "Spatial room access and actual grab/motion/release in 3A, 3B, 4A, 5A, 5B, 5C, 6A, 6B and 6C. Collision queries plan paths; the normal player controller executes every route. Each unit leg starts with one placement; all subsequent travel uses the ordinary controller. No vertical connection, case completion, save reconstruction, whole-building runtime or human acceptance is claimed.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "74ad19328e29adf9ebcc3b0faed934b55af4863e",
-		"runtime_inputs_sha256": "96332fc3744ee9471e26fba05a8da323ff5e5d8c1ad9de69b4f20d6b18e7e77f",
-		"surface_inputs_sha256": "0717a03fb000efab3d3d277b8d0101bd1405ab61179c08e744d99313da140576",
+		"repository_head": "0eb3659635ff3affb4eb0a22b3fbaf73a3d16ed1",
+		"runtime_inputs_sha256": "e9e9af6031be0fe9f77c8f154e7dc9d797b2ce236cbe704c979ded2227a80b4a",
+		"surface_inputs_sha256": "217060fc03f28760c079a5ca84d1b017b237041c7a3f4fd7994b3093ff854cbd",
 		"test_dependencies": {
 			"game/tests/OrisonV2RemainingApartmentAccessContractTest.tscn": "d68123786dcc531a7ad0063c790fd92b273b302768d6b7ee7d54c0b682bb414f",
 			"game/tests/orison_v2_4b_door_route_test.gd": "c49f7e09ee57545f7414b9fb3562fedeb880603f43acf8e7b71a753c0c400407",

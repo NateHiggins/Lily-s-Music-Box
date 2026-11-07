@@ -1224,6 +1224,11 @@ func _compose_exterior() -> bool:
 	var bridge:=preload("res://scripts/building/orison_v2_city_bridge.gd").mount(city_shells)
 	if bridge==null:return false
 	bridge.set_meta("v2_mount_cpu_ms",(Time.get_ticks_usec()-bridge_started)/1000.)
+	# Add scenic stock in the composed world after the bound native loaders.
+	# CityShells offsets its source by the threshold along local Z.
+	preload("res://scripts/building/orison_v2_city_far_shore.gd").mount(city_shells, -city_shells.position.z)
+	preload("res://scripts/building/orison_v2_city_industrial_cut.gd").mount(ground)
+	preload("res://scripts/building/orison_v2_city_canal_bulkhead.gd").mount(ground)
 	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
 	if preload("res://scripts/building/orison_v2_entry_vestibule.gd").mount(self) == null:return false
 	if preload("res://scripts/building/orison_v2_street_paving_details.gd").mount(self) == null:return false
