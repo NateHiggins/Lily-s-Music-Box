@@ -134,6 +134,35 @@ func _route() -> void:
 	if not reloaded:
 		return
 	place = persisted_place
+	var retired_copy := weakref(original)
+	var retired_sibling := weakref(sibling)
+	var copy_id := original.stock_id
+	var sibling_id := sibling.stock_id
+	world.shutdown_for_tests()
+	remove_child(world)
+	world.free()
+	RealityState.reset_campaign_for_tests()
+	RealityState.load_game()
+	world = Runtime.instantiate()
+	add_child(world)
+	if not _require(not world.startup_failed and RealityState.can_continue(),
+			"the packed campaign reconstructs in a fresh production world"):
+		return
+	player = world.player
+	player.camera.make_current()
+	view = world.carried_case_view
+	original = world.household_state.packed_book(item)
+	if not _require(is_instance_valid(original) and original.stock_id == copy_id,
+			"the reconstructed case resolves the original physical copy identity"):
+		return
+	sibling = original.shelf.book_copy(sibling_id)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	if not _require(retired_copy.get_ref() == null and retired_sibling.get_ref() == null \
+			and original.valise_packed and not original.visible and sibling.visible \
+			and CarriedCase.place_of(item) == persisted_place,
+			"fresh reconstruction retires the old bodies and retains one packed copy"):
+		return
 
 	var obstruction := StaticBody3D.new()
 	var collider := CollisionShape3D.new()
