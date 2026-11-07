@@ -99,3 +99,41 @@ and the plane out to the old ring. Who fills the bare patches still left inside 
 
 First generation from the real survey: 93 street segments and 552 buildings, about 670k triangles and 16,800
 window panes, with collision only inside 215 m.
+
+## 1929 street names (research for ruling **midground_street_names**)
+
+Research of 2026-11-07, read from published sources only; no archive image is a game asset. The rule it gives
+is that in 1928–29 Long Island City had the numbered Queens grid officially, approved in 1925, while people still
+used the old names. Signs carried the new name or number large, with the old name small underneath, for example
+"40TH AVE" over "Payntar Ave". The Queens dating of that sign style is an inference.
+
+- **The plaza.** The bridge plaza streets are **Queens Plaza North** and **Queens Plaza South**, the former North
+  and South Jane Streets (LPC designation report LP-2570). "Queensboro Plaza" was the elevated station's name, and
+  "Bridge Plaza" was older and informal.
+- **North–south streets:**
+  - 21st St / Van Alst Ave
+  - 22nd St / Sunswick St
+  - 23rd St / Ely Ave
+  - 24th St / William St
+  - 28th St / Radde St
+  - 30th St / Academy St
+- **East–west avenues:**
+  - 38th Ave / Freeman Ave
+  - 40th Ave / Payntar Ave
+  - 42nd Rd / Henry St
+  - 43rd Ave / Harris Ave
+  - 44th Dr / Nott Ave
+- **Kept names:** Jackson Ave, Thomson Ave, Queens Blvd, Court Square, Hunters Point Ave and Skillman Ave.
+- **Disputed; not to be used until checked against the 1928 E. Belcher Hyde atlas:**
+  - 41st Ave's old name (Wilbur Ave or Hunter Ave)
+  - the date Jackson Ave became Northern Blvd east of the plaza
+  - Court Square's change from Anable Ave
+- **Sign form.** Most likely dark enamel with white serif capitals, two names stacked, on lamp posts. That is
+  the documented Manhattan and Bronx form; for Queens it is unconfirmed. Lettering is Label3D only (RUL-008).
+
+Sources: Powell, *American City* (Feb 1928), reprinted by Juniper Park Civic Association; Forgotten New York (the
+Long Island City necrology, side streets and humpback-sign pages); LPC LP-2570; the 1930 census street-conversion
+list (stevemorse.org).
+
+**Open.** The mid-ground grid is a fictional layout, so giving its streets these names also fixes the Orison's
+own avenue, which is an open canon question (the façade address). The mapping is ruling **midground_sign_mapping**.

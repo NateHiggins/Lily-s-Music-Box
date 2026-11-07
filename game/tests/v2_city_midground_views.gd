@@ -10,6 +10,7 @@ const ExtremeWeather := preload("res://scripts/building/queens_weather_extension
 const TIMES := {"day": 720, "dusk": 1043, "night": 1150}
 const ROAD := 9.144
 const WALK := 3.6
+const BANK := Vector2(256.53, -379.64)  # art/blender/data/city_midground_survey/layout.json landmarks
 
 var _failures: Array[String] = []
 var _frames: Array[Dictionary] = []
@@ -40,6 +41,11 @@ func _views(world: OrisonV2RuntimeRoot, _data: Dictionary) -> Array[Dictionary]:
 		if eye.is_finite():
 			views.append({"id": "out_%03d" % int(bearing), "eye": eye, "bearing": bearing, "pitch": 0.04, "fov": 72.0})
 	_check(views.size() >= 6, "standing points just inside the edge")
+	# The Queens Plaza bank clock (build_city_midground.py pick_landmark), from the Orison's roof:
+	# at street level the lofts in front hide it.
+	var roof: Vector3 = world.adapter.root.to_global(Vector3(-11.0, 20.8702503, 6.0))
+	var bank_bearing := rad_to_deg(atan2(BANK.x - roof.x, -(BANK.y - roof.z)))
+	views.append({"id": "bank_clock", "eye": roof, "bearing": bank_bearing, "pitch": 0.08, "fov": 30.0})
 	return views
 
 

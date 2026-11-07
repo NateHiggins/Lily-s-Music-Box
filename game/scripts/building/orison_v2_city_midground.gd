@@ -14,7 +14,8 @@ const WindowMaterial := preload("res://scripts/building/v2_background_window_mat
 const FAR_FACADES := {"far_brick": "brick", "far_city_grey_brick": "city_grey_brick", "far_limestone": "limestone"}
 const PLAIN := ["brick", "city_grey_brick", "limestone", "terracotta", "galvanized_roof", "roof_bitumen",
 	"door_paint", "fabric_warm", "iron_blackened", "tank_staves", "site_softwood", "asphalt", "concrete",
-	"cast_iron", "glass_frosted", "fire_cabinet_enamel", "zinc_liner", "glass_cut"]
+	"cast_iron", "glass_frosted", "fire_cabinet_enamel", "zinc_liner", "glass_cut", "milk_glass", "copper_aged",
+	"iron_neutral", "monks_cloth", "limewash_plaster"]
 ## Near detail and far masses cross over here (metres from the camera to a tile's centre).
 const NEAR_END := 250.0
 const FAR_BEGIN := 220.0
@@ -66,6 +67,8 @@ func _ready() -> void:
 			draw.visibility_range_begin = FAR_BEGIN
 			draw.visibility_range_begin_margin = FADE
 			draw.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
+		elif group == "lm":
+			pass  # landmarks keep their detail at every distance
 		elif group.begins_with("v"):
 			pass  # ground beyond the walkable edge: seen, never stood on
 		elif group.begins_with("g"):
@@ -79,6 +82,7 @@ func _ready() -> void:
 			draw.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
 	_build_panes()
 	_build_furniture(stock)
+	_build_parked()
 	_build_colliders()
 	_refresh(true)
 
@@ -99,6 +103,12 @@ func _material(key: String) -> Material:
 	# UV0 is already metric; keep the catalogue's tile scale and turn triplanar off.
 	material.uv1_triplanar = false
 	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	if key == "milk_glass":
+		# The bank's four clock dials, lit with the street lamps.
+		material.emission_enabled = true
+		material.emission = Color(1.0, 0.86, 0.62)
+		material.set_meta("lamp_energy", 1.3)
+		lamp_materials.append(material)
 	if key == "glass_frosted" or key == "glass_cut":
 		material.transparency = BaseMaterial3D.TRANSPARENCY_DISABLED
 		material.emission_enabled = true
@@ -184,6 +194,61 @@ func _build_furniture(stock: Dictionary) -> void:
 			draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 			draw.gi_mode = GeometryInstance3D.GI_MODE_DISABLED
 			add_child(draw)
+
+
+func _build_parked() -> void:
+	# Parked period stock, drawn with the street traffic's own meshes and finishes.
+	var table := OrisonV2StreetTraffic.load_table()
+	if table.is_empty():
+		return
+	var finishes := {}
+	for id: String in table.finishes:
+		var material := OrisonV2StreetTraffic.stock_material(table.finishes[id])
+		if material.emission_enabled:
+			material.emission_energy_multiplier = 0.0  # parked: lamps out, engine off
+		finishes[id] = material
+	var meshes := OrisonV2StreetTraffic.stock_meshes(str(table.stock), finishes)
+	for group: Dictionary in data.vehicles:
+		_parked_batch("Parked_", str(group.stock), group["items"], meshes, false)
+	for group: Dictionary in data.wheels:
+		_parked_batch("ParkedWheels_", str(group.stock), group["items"], meshes, true)
+
+
+func _parked_batch(prefix: String, stock: String, items: Array, meshes: Dictionary, wheels: bool) -> void:
+	# One batch per stock: each of a car's finishes is a draw, so batches are kept few.
+	if not meshes.has(stock) or items.is_empty():
+		return
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.use_colors = true
+	multimesh.mesh = meshes[stock]
+	multimesh.instance_count = items.size()
+	for i in items.size():
+		var item: Array = items[i]
+		var body := Transform3D(Basis(Vector3.UP, float(item[3])), Vector3(item[0], item[1], item[2]))
+		if wheels:
+			# Unit wheels (radius 0.5) scaled as the moving traffic scales them.
+			var s := float(item[7]) / 0.5
+			var wheel := Basis.IDENTITY.scaled(Vector3(s, s, s * float(item[8])))
+			multimesh.set_instance_transform(i, body * Transform3D(wheel, Vector3(item[4], item[5], item[6])))
+			multimesh.set_instance_color(i, Color(1, 1, 1))
+		else:
+			multimesh.set_instance_transform(i, body)
+			multimesh.set_instance_color(i, Color(item[4], item[5], item[6]))
+	_add_stock(prefix + stock, multimesh, Vector3.ZERO)
+
+
+func _add_stock(name: String, multimesh: MultiMesh, at: Vector3) -> void:
+	var draw := MultiMeshInstance3D.new()
+	draw.name = name
+	draw.position = at
+	draw.multimesh = multimesh
+	draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	draw.gi_mode = GeometryInstance3D.GI_MODE_DISABLED
+	draw.visibility_range_end = NEAR_END
+	draw.visibility_range_end_margin = FADE
+	draw.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
+	add_child(draw)
 
 
 func _build_colliders() -> void:

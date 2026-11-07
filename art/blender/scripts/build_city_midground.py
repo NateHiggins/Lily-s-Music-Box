@@ -47,6 +47,7 @@ RING = 450.0  # the old TemporaryExteriorLimit radius; the fabric still reaches 
 # Lily 2026-11-07 (ruling barrier_distance): she passes out at 200 m from the front door,
 # mist gathering over 150-200 m. Only the fabric inside WALKABLE gets collision.
 WALKABLE = 215.0
+PARK_REACH = 320.0  # parked stock further out is lost to haze and the blocks in front
 APRON = 500.0
 SEED = 19291107
 
@@ -488,6 +489,9 @@ class Builder:
         self.colliders = []
         self.furniture = {}
         self.lots_out = []
+        self.vehicles = {}
+        self.wheels = {}
+        self.landmarks = []
 
     # Facades ----------------------------------------------------------------------
     def wall_with_openings(self, p, f, length, y0, y1, openings, color):
@@ -746,7 +750,7 @@ class Builder:
         axis, side, kind = lot["axis"], lot["side"], lot["kind"]
         rng = random.Random(lot["seed"] * 1e7)
         lot["tile"] = tile_of((x0 + x1) / 2, (z0 + z1) / 2)
-        lot["wall"] = rng.choice(WALLS[kind])
+        lot["wall"] = "limestone" if lot.get("landmark") else rng.choice(WALLS[kind])
         tint = rng.uniform(-0.5, 0.5)
         lot["colour"] = (lot["seed"], KIND_CODE[kind] / 4, STOREY[kind] / 6, 0.5 + tint * 0.4)
         front_y = max(ground((x0 + x1) / 2, z0 if (axis == "x" and side > 0) else z1), ground(x0, z0)) + 0.17
@@ -755,12 +759,16 @@ class Builder:
         base = front_y
         floors = {"walkup": rng.randint(4, 6), "loft": rng.randint(5, 8), "works": rng.randint(2, 4),
                   "waterfront": rng.randint(3, 6)}[kind]
+        if lot.get("landmark"):
+            floors = 13  # the 1927 Bank of Manhattan Company building, Queens Plaza
         lot["floors"] = floors
         on_avenue = lot["street_z"] is not None and abs(lot["street_z"] - AVENUE_Z) < 1
         shop = kind == "walkup" and (lot["corner"] or rng.random() < 0.3 or on_avenue)
         shop = shop or (kind == "loft" and rng.random() < 0.45)
         lot["shop"] = shop
-        lot["awning"] = shop and rng.random() < 0.6
+        if lot.get("landmark"):
+            lot["shop"] = shop = True  # the banking hall's tall glazing
+        lot["awning"] = shop and rng.random() < 0.6 and not lot.get("landmark")
         lot["stoop_rise"] = 1.2
         ground_storey = 4.2 if shop else (STOREY[kind] + (lot["stoop_rise"] if kind == "walkup" else 0.6))
         lot["ground_top"] = base + ground_storey
@@ -792,6 +800,8 @@ class Builder:
             levels = [lot["ground_top"] + k * STOREY[kind] + 0.0 for k in range(floors - 1)]
             self.fire_escape(lot, front, u0, levels)
         self.roof(lot, x0, z0, x1, z1, top)
+        if lot.get("landmark"):
+            self.clock_tower(lot, x0, z0, x1, z1, top)
         self.colliders.append([round((x0 + x1) / 2, 3), round((lot["y0"] + top) / 2, 3), round((z0 + z1) / 2, 3),
                                round(x1 - x0, 3), round(top - lot["y0"], 3), round(z1 - z0, 3)])
         far = part("far" + lot["tile"][1:], "far_" + lot["wall"])
@@ -799,6 +809,7 @@ class Builder:
         part("far" + lot["tile"][1:], "roof_bitumen").face(
             [(x0, top, z0), (x1, top, z0), (x1, top, z1), (x0, top, z1)], [(x0, z0), (x1, z0), (x1, z1), (x0, z1)],
             centre=((x0 + x1) / 2, top - 1, (z0 + z1) / 2))
+        lot["top"] = top
         self.lots_out.append({"rect": [round(v, 2) for v in lot["rect"]], "kind": kind, "floors": floors,
                               "top": round(top, 2), "shop": shop})
         lot["front_frame"], lot["front_len"], lot["base"] = front, flen, base
@@ -1003,16 +1014,174 @@ class Builder:
             y = ground(x, z)
             self.colliders.append([round(x, 3), round(y + 0.7, 3), round(z, 3), sx, 1.6, sz])
 
+    def clock_tower(self, lot, x0, z0, x1, z1, top):
+        """A square clock stage with four lit dials and a copper pyramid, set back on the roof."""
+        # A landmark keeps its detail at every distance: its own always-drawn group, "lm".
+        tile = "lm"
+        cx, cz = (x0 + x1) / 2, (z0 + z1) / 2
+        half = min(x1 - x0, z1 - z0) * 0.3
+        stone = part(tile, "limestone")
+        y0, y1 = top - 0.9, top + 11.0
+        box_world(stone, cx - half, cz - half, cx + half, cz + half, y0, y1, lot["colour"], top=False)
+        # Cornice band and four dials, one on each face: a lit milk-glass disc with iron hands.
+        box_world(stone, cx - half - 0.4, cz - half - 0.4, cx + half + 0.4, cz + half + 0.4, y1, y1 + 0.6)
+        dial = part(tile, "milk_glass")
+        hands = part(tile, "iron_blackened")
+        r = half * 0.62
+        yc = (y0 + y1) / 2 + 1.5
+        faces = (((0, -1), (1, 0)), ((0, 1), (-1, 0)), ((-1, 0), (0, -1)), ((1, 0), (0, 1)))
+        for (nx, nz), (tx, tz) in faces:
+            ox, oz = cx + nx * (half + 0.05), cz + nz * (half + 0.05)
+            ring = [(ox + tx * r * math.cos(a), yc + r * math.sin(a), oz + tz * r * math.cos(a))
+                    for a in (2 * math.pi * k / 20 for k in range(20))]
+            dial.face(ring, [(math.cos(2 * math.pi * k / 20), math.sin(2 * math.pi * k / 20)) for k in range(20)],
+                      centre=(cx, yc, cz))
+            for length, angle in ((r * 0.55, 1.1), (r * 0.8, -0.35)):  # ten past ten, the shop-window time
+                ex, ey = math.cos(angle) * length, math.sin(angle) * length
+                w = 0.12
+                px_, pz_ = ox + nx * 0.06, oz + nz * 0.06
+                pts = [(px_ - tx * w * math.sin(angle), yc + w * math.cos(angle), pz_ - tz * w * math.sin(angle)),
+                       (px_ + tx * w * math.sin(angle), yc - w * math.cos(angle), pz_ + tz * w * math.sin(angle)),
+                       (px_ + tx * ex, yc + ey, pz_ + tz * ex)]
+                hands.face(pts, [(0, 0), (1, 0), (0.5, 1)], centre=(cx, yc, cz))
+        # Copper pyramid and finial.
+        copper = part(tile, "copper_aged")
+        apex = (cx, y1 + 9.0, cz)
+        base = [(cx - half - 0.4, cz - half - 0.4), (cx + half + 0.4, cz - half - 0.4),
+                (cx + half + 0.4, cz + half + 0.4), (cx - half - 0.4, cz + half + 0.4)]
+        for k in range(4):
+            a, b = base[k], base[(k + 1) % 4]
+            copper.face([(a[0], y1 + 0.6, a[1]), (b[0], y1 + 0.6, b[1]), apex], [(0, 0), (1, 0), (0.5, 1)],
+                        centre=(cx, y1, cz))
+        cylinder_world(copper, cx, cz, 0.12, y1 + 9.0, y1 + 12.0, 6)
+        self.landmarks.append({"name": "bank_clock", "x": round(cx, 2), "z": round(cz, 2), "top": round(y1 + 12.0, 2)})
+
+    def parked(self):
+        """Parked motor stock and pushcarts at the curbs, from the period traffic table."""
+        table = json.load(open(ROOT + "/game/data/orison_v2/exterior/street_traffic.json", encoding="utf8"))
+        kinds = {k["id"]: k for k in table["kinds"]}
+        # Few kinds: every finish of every kind is a draw call. Model A, cab and stake truck.
+        motor = [("model_a_tudor", 6), ("checker_cab", 3), ("aa_stake", 2)]
+        pushcart = table["parked"][0]
+        hydrants = [(h[0], h[2]) for h in self.furniture.get("hydrant", [])]
+        L = self.layout
+        for axis, c, a, b in L.streets:
+            rng = random.Random(int(abs(c) * 31 + a * 7) + 5)
+            for side in (-1, 1):
+                t = a + HALF + 6.0
+                while t < b - HALF - 6.0:
+                    roll = rng.random()
+                    if roll < 0.55:
+                        t += rng.uniform(5, 14)
+                        continue
+                    if roll < 0.62:
+                        stock, extent, width, wheels, paints = "pushcart", pushcart["extent"], pushcart["width"], pushcart["wheels"], [[0.5, 0.5, 0.5]]
+                    else:
+                        pick = rng.choices([m for m, _ in motor], [w for _, w in motor])[0]
+                        kind = kinds[pick]
+                        stock, extent, width, wheels, paints = kind["stock"], kind["extent"], kind["width"], kind["wheels"], kind["paint"]
+                    length = extent[1] - extent[0]
+                    lane = c + side * (ROAD / 2 - width / 2 - 0.25)
+                    mid = t + length / 2
+                    x, z = (mid, lane) if axis == "x" else (lane, mid)
+                    if math.hypot(x, z) > PARK_REACH:
+                        t += 8.0
+                        continue
+                    if any(math.hypot(x - hx, z - hz) < 4.0 for hx, hz in hydrants):
+                        t += 4.0
+                        continue
+                    # Parked with the kerb on the right: facing the way that side's traffic runs.
+                    heading = (0.0 if side > 0 else math.pi) if axis == "x" else (math.pi / 2 if side > 0 else -math.pi / 2)
+                    # Each stock's own origin sits inside its extent; centre the extent on the slot.
+                    shift = -(extent[0] + extent[1]) / 2
+                    x += math.cos(heading) * shift
+                    z -= math.sin(heading) * shift
+                    y = ground(x, z) + 0.02
+                    paint = paints[rng.randrange(len(paints))]
+                    self.vehicles.setdefault(stock, []).append([round(x, 3), round(y, 3), round(z, 3), round(heading, 4),
+                                                                 round(paint[0], 3), round(paint[1], 3), round(paint[2], 3)])
+                    for wheel in wheels:
+                        self.wheels.setdefault(wheel["stock"], []).append(
+                            [round(x, 3), round(y, 3), round(z, 3), round(heading, 4)] + [round(v, 3) for v in wheel["at"]]
+                            + [round(float(wheel["radius"]), 3), round(float(wheel["width"]), 3)])
+                    cx, cz = (mid, lane) if axis == "x" else (lane, mid)
+                    sx, sz = (length, width) if axis == "x" else (width, length)
+                    self.colliders.append([round(cx, 3), round(ground(cx, cz) + 0.6, 3), round(cz, 3), round(sx, 3), 1.2, round(sz, 3)])
+                    t += length + rng.uniform(1.2, 4.0)
+
+    def laundry(self):
+        """Lines across the yards between facing walkup rears, hung on some floors."""
+        rng = random.Random(SEED + 9)
+        walkups = [lot for lot in self.layout.lots if lot["kind"] == "walkup" and lot["axis"] == "x" and "top" in lot]
+        rears = {}
+        for lot in walkups:
+            x0, z0, x1, z1 = lot["rect"]
+            rear_z = z1 if lot["side"] > 0 else z0
+            rears.setdefault(lot["side"], []).append((lot, rear_z))
+        line = None
+        for lot, rz in rears.get(1, []):
+            x0, _, x1, _ = lot["rect"]
+            across = [(o, oz) for o, oz in rears.get(-1, []) if o["rect"][0] < x1 - 2 and o["rect"][2] > x0 + 2 and 8 < oz - rz < 40]
+            if not across or rng.random() > 0.45:
+                continue
+            other, oz = across[0]
+            tile = lot["tile"]
+            line = part(tile, "iron_neutral")
+            cloth = [part(tile, "fabric_warm"), part(tile, "monks_cloth"), part(tile, "limewash_plaster")]
+            xm = max(x0, other["rect"][0]) + 1.5
+            for floor in range(1, min(lot["floors"], other["floors"]) - 1):
+                if rng.random() > 0.55:
+                    continue
+                y = lot["ground_top"] + (floor - 1) * STOREY["walkup"] + 2.2
+                sag = 0.6
+                pts = [(xm, y, rz), (xm, y - sag, (rz + oz) / 2), (xm, y, oz)]
+                for (ax_, ay, az), (bx_, by, bz) in zip(pts[:-1], pts[1:]):
+                    f = Frame((ax_, az), (0, 1), (1, 0))
+                    line.face([(ax_, ay, az), (bx_, by, bz), (bx_, by - 0.03, bz), (ax_, ay - 0.03, az)],
+                              [(0, 0), (abs(bz - az), 0), (abs(bz - az), 0.03), (0, 0.03)], centre=(ax_ - 1, ay, az))
+                    line.face([(ax_, ay, az), (bx_, by, bz), (bx_, by - 0.03, bz), (ax_, ay - 0.03, az)],
+                              [(0, 0), (abs(bz - az), 0), (abs(bz - az), 0.03), (0, 0.03)], centre=(ax_ + 1, ay, az))
+                    del f
+                z = rz + 1.2
+                while z < oz - 1.2:
+                    if rng.random() < 0.6:
+                        w, h = rng.uniform(0.4, 1.1), rng.uniform(0.5, 1.0)
+                        s = (z - rz) / (oz - rz)
+                        yy = y - sag * (1 - (2 * s - 1) ** 2) - 0.02
+                        c = rng.choice(cloth)
+                        for off in (-0.01, 0.01):
+                            c.face([(xm + off, yy, z), (xm + off, yy, z + w), (xm + off, yy - h, z + w), (xm + off, yy - h, z)],
+                                   [(0, 0), (w, 0), (w, h), (0, h)], centre=(xm - off * 100, yy, z))
+                    z += rng.uniform(0.8, 1.8)
+
+    def pick_landmark(self):
+        """The bank goes on the loft lot nearest Queens Plaza, where the bridge approach lands."""
+        target = (250.0, -372.0)
+        best = None
+        for lot in self.layout.lots:
+            x0, z0, x1, z1 = lot["rect"]
+            w, d = x1 - x0, z1 - z0
+            if lot["kind"] not in ("loft", "works") or min(w, d) < 15:
+                continue
+            dist = math.hypot((x0 + x1) / 2 - target[0], (z0 + z1) / 2 - target[1])
+            if best is None or dist < best[0]:
+                best = (dist, lot)
+        if best:
+            best[1]["landmark"] = "bank"
+
     def run(self):
         L = self.layout
         for lot in L.lots:
             x0, z0, x1, z1 = lot["rect"]
             lot["corner"] = bool(lot["corner_ends"])
+        self.pick_landmark()
         for lot in L.lots:
             self.building(lot)
         self.streets()
         self.fences()
         self.barricades()
+        self.parked()
+        self.laundry()
         return self
 
 
@@ -1102,12 +1271,16 @@ def write_data(builder):
             "panes": [{"class": k, "size": list(PANES[k][0]), "room_kind": PANES[k][1], "items": v}
                       for k, v in builder.panes.items()],
             "furniture": [{"kind": k, "items": v} for k, v in builder.furniture.items()],
+            # Parked traffic stock (orison_v2_street_traffic.gd's meshes and finishes):
+            # vehicles [x, y, z, heading, r, g, b]; wheels [x, y, z, heading, at_x, at_y, at_z, radius, width].
+            "vehicles": [{"stock": k, "items": v} for k, v in builder.vehicles.items()],
+            "wheels": [{"stock": k, "items": v} for k, v in builder.wheels.items()],
             "colliders": [c for c in builder.colliders
                           if walkable(c[0] - c[3] / 2, c[2] - c[5] / 2, c[0] + c[3] / 2, c[2] + c[5] / 2)]}
     with open(DATA, "w", encoding="utf8", newline="\n") as handle:
         handle.write(json.dumps(data, separators=(",", ":")) + "\n")
     # The layout record is authoring evidence, not runtime data.
-    layout = {"walkable_m": WALKABLE, "lots": builder.lots_out,
+    layout = {"walkable_m": WALKABLE, "lots": builder.lots_out, "landmarks": builder.landmarks,
               "streets": [[s[0], round(s[1], 3), round(s[2], 2), round(s[3], 2)] for s in builder.layout.streets]}
     with open(OCC + "layout.json", "w", encoding="utf8", newline="\n") as handle:
         handle.write(json.dumps(layout, separators=(",", ":")) + "\n")
