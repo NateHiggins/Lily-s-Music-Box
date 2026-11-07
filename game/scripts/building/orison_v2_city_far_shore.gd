@@ -33,7 +33,7 @@ static func mount(city: Node3D, threshold_offset_m: float) -> void:
 	batch.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var generator := RandomNumberGenerator.new()
 	generator.seed = 19290223
-	var grid := Basis(Vector3.UP, deg_to_rad(STREET_GRID_DEG))
+	var grid := Basis(Vector3.UP, deg_to_rad(-STREET_GRID_DEG))
 	for row_index in ROWS.size():
 		var row := ROWS[row_index]
 		for bay in int(row.z):

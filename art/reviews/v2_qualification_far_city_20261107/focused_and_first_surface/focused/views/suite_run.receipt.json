@@ -1,0 +1,43 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 208.98,
+  "exit_code": 0,
+  "finished_utc": "2026-11-07T17:56:29Z",
+  "started_utc": "2026-11-07T17:53:00Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "FAR DISTRICTS VIEW REVIEW: PASS; 30 frames; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/city_finish_20261107/integration_native_01/views.log.stderr",
+  "stderr_sha256": "176d52672756d6eccbcb1972cc2b9dbbbc401764182eb410f55c63b6d965e246",
+  "stdout": "C:/ov/reports/city_finish_20261107/integration_native_01/views.log",
+  "stdout_sha256": "431ef85aeea268cefcc747737118a4112eb0a7d3f24a0f424e9567fb098fc877"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2CityFarDistrictViews.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/reports/city_finish_20261107/integration_native_01/views",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "b78ed2389f430b4693129d81d92fa4b2ed2ffd32",
+  "repository_tree": "64672f2ac02b65d374ebf8f37b5788e3823282ac",
+  "runtime_inputs_sha256": "6ba2907bd6ad629f37f214f70eb93de86c945a2335ebe651682fc55efa6dc44e",
+  "test_path": "game/tests/v2_city_far_district_views.gd",
+  "test_sha256": "54a0699e59de57151d8c8c5b13de85293c53042cbb9b7745b2c40bc1e8e5ed72"
+ },
+ "windowed": true
+}

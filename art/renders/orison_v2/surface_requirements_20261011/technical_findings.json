@@ -1211,15 +1211,15 @@
       "class": "electric_corona"
     },
     {
-      "id": "OrisonV2Blockout/2A_projector_stand/2A_tv/@MeshInstance3D@29775:0",
+      "id": "OrisonV2Blockout/2A_projector_stand/2A_tv/@MeshInstance3D@29778:0",
       "class": "projected_light"
     },
     {
-      "id": "OrisonV2Blockout/3B_projector_stand/3B_tv/@MeshInstance3D@29787:0",
+      "id": "OrisonV2Blockout/3B_projector_stand/3B_tv/@MeshInstance3D@29790:0",
       "class": "projected_light"
     },
     {
-      "id": "OrisonV2Blockout/4B_projector_stand/4B_tv/@MeshInstance3D@29799:0",
+      "id": "OrisonV2Blockout/4B_projector_stand/4B_tv/@MeshInstance3D@29802:0",
       "class": "projected_light"
     },
     {
@@ -1255,7 +1255,7 @@
       "class": "urban_ice_light_pillar"
     },
     {
-      "id": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/StreetLamps/@OmniLight3D@29361/IcePillar:0",
+      "id": "StreetAndBodega/ExteriorInstances/STREET_ORISON_01/StreetLamps/@OmniLight3D@29364/IcePillar:0",
       "class": "urban_ice_light_pillar"
     },
     {
@@ -1283,30 +1283,42 @@
       "class": "electric_corona"
     },
     {
+      "id": "FarDistricts/FarMotion/BridgeLamps:0",
+      "class": "distant_bridge_lamp_points"
+    },
+    {
+      "id": "FarDistricts/FarMotion/ElWindows:0",
+      "class": "distant_el_light_strips"
+    },
+    {
+      "id": "FarDistricts/FarMotion/ChimneySmoke:0",
+      "class": "distant_chimney_smoke"
+    },
+    {
       "id": "MaintenanceTentacleObserver/PreparedTentacleResources/FiniteSeamDroplets:0",
       "class": "finite_seam_scattering"
     },
     {
       "id": "DreamCritterController/Critters/TardigradeInterior:0",
       "class": "vertex_pose_data",
-      "texture": "generated:-9223366528844229359"
+      "texture": "generated:-9223366520489175509"
     },
     {
       "id": "DreamCritterController/Critters/TardigradeMembrane:0",
       "class": "vertex_pose_data",
-      "texture": "generated:-9223366528844229359"
+      "texture": "generated:-9223366520489175509"
     },
     {
       "id": "DreamCritterController/Critters/TardigradeVacuole:0",
       "class": "vertex_pose_data",
-      "texture": "generated:-9223366528844229359"
+      "texture": "generated:-9223366520489175509"
     },
     {
       "id": "LampAtmosphere/CarriedLampDust:0",
       "class": "light_scattering_dust"
     },
     {
-      "id": "@Node3D@40510/FiniteSeamDroplets:0",
+      "id": "@Node3D@40513/FiniteSeamDroplets:0",
       "class": "finite_seam_scattering"
     }
   ]

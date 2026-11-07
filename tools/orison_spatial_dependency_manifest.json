@@ -328261,6 +328261,97 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F01/marker+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "8c3cb6f0657ff994",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_city_far_district_views.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "072e4535703e767d",
+   "kind": "vector3_coordinate",
+   "token": "_views",
+   "file": "game/tests/v2_city_far_district_views.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_views"
+   ],
+   "lines": [
+    115,
+    118,
+    119
+   ],
+   "count": 3,
+   "context": [
+    "{\"id\": \"street_west_end\", \"eye\": _ground_eye(world, Vector3(-280.0, 0.0, -10.0)), \"bearing\": 280.0, \"pitch\": 0.03, \"fov\": 78.0},",
+    "{\"id\": \"canal\", \"eye\": _ground_eye(world, Vector3(-58.0, 0.0, 316.0)), \"bearing\": 260.0, \"pitch\": 0.02, \"fov\": 78.0},",
+    "{\"id\": \"rail_cut\", \"eye\": _ground_eye(world, Vector3(469.0, 0.0, 28.0)), \"bearing\": 350.0, \"pitch\": 0.03, \"fov\": 78.0},"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "db43c4b414bb9fec",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_frame_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -1229,6 +1229,8 @@ func _compose_exterior() -> bool:
 	preload("res://scripts/building/orison_v2_city_far_shore.gd").mount(city_shells, -city_shells.position.z)
 	preload("res://scripts/building/orison_v2_city_industrial_cut.gd").mount(ground)
 	preload("res://scripts/building/orison_v2_city_canal_bulkhead.gd").mount(ground)
+	# Built in the bridge's world frame (the blockout ground is turned 180 degrees).
+	preload("res://scripts/building/orison_v2_city_far_districts.gd").mount(self)
 	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
 	if preload("res://scripts/building/orison_v2_entry_vestibule.gd").mount(self) == null:return false
 	if preload("res://scripts/building/orison_v2_street_paving_details.gd").mount(self) == null:return false
