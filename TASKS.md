@@ -1509,6 +1509,10 @@ proved at `art/renders/maintenance_service_round_m1/README.md`.
 vertical-anatomy expansion briefs, but finish current route, maintenance,
 accessibility and reload repairs first. Existing authorities stay installed.
 
+## CB — Comic production
+
+- **CB-LILITH-STOCK — Codex.** Screen stock and the next daily strip for stray lettering before selection or training. Rewrite doorway poses and compare negative-prompt routing on fixed seeds. Proofread unchecked stances and rerender changed poses without approved picks. Compare pale garments on their selected seeds. Track technical verification and artistic picks separately.
+
 ## H — Housekeeping
 
 
