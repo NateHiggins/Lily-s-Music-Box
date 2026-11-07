@@ -121,6 +121,36 @@ class LaneQueueTests(unittest.TestCase):
         self.assertEqual(second.wait(60), 0)
         self.assertEqual(order.read_text().split(), ["holder", "alpha", "beta"])
 
+    def test_a_render_batch_yields_to_a_waiting_test_between_pieces(self):
+        # Lily's priorities: tests before renders. A multi-run render batch gives the lane to a waiting
+        # test after its current piece, then carries on right behind it.
+        order = self.state / "order.txt"
+        runs = self.state / "render.json"
+        code = "import time,sys;open(sys.argv[1],'a').write(sys.argv[2]+chr(10));time.sleep(float(sys.argv[3]))"
+        runs.write_text(json.dumps([
+            {"gpu": [sys.executable, "-c", code, str(order), f"piece{i}", "4" if i == 1 else "0.3"],
+             "scene": f"comic stock piece {i}", "log": str(self.state / f"piece{i}.log"), "timeout": 60} for i in (1, 2, 3)]),
+            encoding="utf8")
+        render = subprocess.Popen(["pwsh", "-NoProfile", "-File", str(TOOLS / "lane.ps1"), "batch", "-BatchFile", str(runs),
+                                   "-WaitMinutes", "2"], env=self.env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        deadline = time.monotonic() + 30
+        while not (order.exists() and "piece1" in order.read_text()):
+            self.assertLess(time.monotonic(), deadline)
+            time.sleep(0.05)
+        test = self.broker("QuickTest", order, hold=0.3)  # "Test" in the name: high priority
+        self.assertEqual(render.wait(90), 0)
+        self.assertEqual(test.wait(90), 0)
+        self.assertEqual(order.read_text().split(), ["piece1", "QuickTest", "piece2", "piece3"])
+
+    def test_every_finished_run_is_written_to_the_run_history(self):
+        order = self.state / "order.txt"
+        self.assertEqual(self.broker("historic", order, hold=0.4).wait(60), 0)
+        lines = (self.state / "Orison" / "run_history.jsonl").read_text(encoding="utf-8-sig").splitlines()
+        record = json.loads(lines[-1])
+        self.assertEqual(record["scene"], "historic")
+        self.assertEqual(record["exit"], 0)
+        self.assertGreater(record["seconds"], 0.3)
+
     def queue_of(self, records: dict[str, dict]) -> list[int]:
         folder = self.state / "Orison/waiters"
         folder.mkdir(parents=True, exist_ok=True)
