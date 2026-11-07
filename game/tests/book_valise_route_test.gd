@@ -117,11 +117,19 @@ func _route() -> void:
 	await get_tree().create_timer(0.45).timeout
 	RealityState.load_game()
 	await get_tree().physics_frame
-	if not _require(RealityState.can_continue() and CarriedCase.place_of(item) == place \
-			and original.valise_packed and not original.visible and sibling.visible \
-			and PaperPocket.has_comic("lilith_01") and PaperPocket.transit_news() == news,
-			"disk reload restores one packed copy and the original paper custody"):
+	# JSON numbers reopen as floats. Compare with the persisted form while
+	# retaining exact checks for the collection, physical copy and turn.
+	var persisted_place: Dictionary = JSON.parse_string(JSON.stringify(place))
+	var reloaded := _require(RealityState.can_continue(), "the saved book campaign reopens normally")
+	reloaded = _require(CarriedCase.place_of(item) == persisted_place,
+		"disk reload restores the original collection, copy and grid cells") and reloaded
+	reloaded = _require(original.valise_packed and not original.visible and sibling.visible,
+		"disk reload hides only the packed original body") and reloaded
+	reloaded = _require(PaperPocket.has_comic("lilith_01") and PaperPocket.transit_news() == news,
+		"disk reload preserves comic and newspaper custody") and reloaded
+	if not reloaded:
 		return
+	place = persisted_place
 
 	var obstruction := StaticBody3D.new()
 	var collider := CollisionShape3D.new()
