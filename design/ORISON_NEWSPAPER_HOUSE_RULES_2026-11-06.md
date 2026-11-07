@@ -131,7 +131,9 @@ agree with one another and with the real year:
   papers says he is no relation to the lawyer, Mr. Lucius Pell.
 - **The copper cases** hold 1,040 records with a second begun, then about 300 in the second.
 - **Frances Perkins** was named to the Industrial Commission in 1919 and has chaired the Industrial Board since 1926.
-- **The lien notices.** Four screws hold the third notice. The first two were taken down within a day.
+- **The lien notices.** The first two were taken down within a day. By Lily's ruling **paper_lien_notices**
+  (2026-11-07) Mr. Haas re-posts them on 21 February (23 February papers), so on 10 March all three notices and
+  twelve screws stand, every screw steel and of the Vantry & Co. pattern.
 - **Greenpoint** heard the tone on five nights.
 - **Licences.** The 8 June count covers the two weeks since 24 May. The totals were already right.
 - **The 6 April editorial** follows the Record's account of the Act: Senator Keel's amendment, and forms not yet printed.
