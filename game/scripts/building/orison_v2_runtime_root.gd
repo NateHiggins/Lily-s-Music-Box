@@ -117,6 +117,7 @@ var shop_clearing: RefCounted
 var carried_case_view: CanvasLayer
 var shop_counters: Dictionary = {}
 var luncheonette_counter: Node3D
+var harukiya_counter: Node3D
 var seat_gestures: Node3D
 var otis_fountain: Node3D
 var shoe_bench: Node3D
@@ -1012,6 +1013,10 @@ func _compose_authorities() -> void:
 	luncheonette_counter=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_luncheonette(self)
 	if luncheonette_counter==null:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: luncheonette counter refused");return
+	harukiya_counter=preload("res://scripts/props/harukiya_counter_glass.gd").new()
+	harukiya_counter.name="HarukiyaCounterGlass"
+	if not harukiya_counter.configure(self,bar_region,conversations):
+		startup_failed=true;push_error("ORISON V2 RUNTIME: Harukiya counter refused");return
 	clue_carriers=preload("res://scripts/building/orison_v2_clue_carriers.gd").mount(self,adapter)
 	if clue_carriers.is_empty():
 		startup_failed=true;push_error("ORISON V2 RUNTIME: clue carriers refused");return

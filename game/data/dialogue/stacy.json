@@ -1,0 +1,213 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "stacy",
+    "speaker_default": "STACY",
+    "voice_prefix": "st_x01_",
+    "voice_status": "draft_unvoiced",
+    "notes": "DRAFT, design-shape data (design/ORISON_STACY_BARTENDER_2026-11-04.md). Not a resident and not a case: she works the Harukiya's bar and belongs to its found family with Adela and Lily. Likeness of Stacy, Lily's wife, with her consent; no real biography is used. Slug stacy, no surname, named as written (Lily, 2026-11-04). From New Orleans, named in her own lines only. Animals: Judge the old dog, Lafitte the cat. Together with Lily's self-insert, never announced: small acts only, never named. Staff of an unnamed owning family, kept offstage. She is the Songbook's barman; her one written rule is no bananas before ten. Instrument: the jar by the till (lace and pressed magnolia; no moons, keys, stars or clock). Comic engine: she invents a house rule on the spot and enforces it as if it had always been law, and every rule is cover for a kindness. Never cruel, never the joke. Pours what the house pours (near beer on the board, cold tea in the pot). Holds nothing in the case: no m_ flag, no carrier, no 19 July, nothing about the bench, the pocket recorder, the take or Astoria. Undated tree: it never names Adela, so it reads the same before and after July. Needs a counter conversation point: she has no door."
+  },
+  "entries": {
+    "first_stable": "st_open",
+    "real_talk": "st_rt_open",
+    "integration": "st_int_open",
+    "resolved": "st_res_open",
+    "fallback": "st_fb_open"
+  },
+  "nodes": {
+    "st_open": {
+      "line": "Counter's that way, coats go on the hooks, and the dog is not a footrest. You're the night man from across the street. You've got the look of somebody who fixes things at three in the morning and then has to explain them. Sit. Near beer's on the board. If you want something nearer, there's cold tea in the pot behind me, and I'll thank you to call it tea.",
+      "choices": [
+        {"label": "Cold tea, then.", "goto": "st_tea", "trust": 1},
+        {"label": "Is that dog all right?", "goto": "st_dog", "trust": 1},
+        {"label": "Is any of this legal?", "goto": "st_legal", "trust": -1}
+      ],
+      "silence_goto": "st_sil1"
+    },
+    "st_sil1": {
+      "line": "Not a talker. Good. I get eleven talkers a night and one of you. House rule: the quiet ones get the stool by the radiator. That one. Go on, it's warm, I've had a coat on it since six.",
+      "choices": [
+        {"label": "Cold tea, then.", "goto": "st_tea", "trust": 1}
+      ],
+      "silence_goto": "st_tea"
+    },
+    "st_legal": {
+      "line": "It's tea. The teapot's legal. The cup's legal. The saucer has never been to court. If a man from the precinct wants to know what's in a teapot, he can sit where you're sitting and order some, and he does, Thursdays. Now. Tea?",
+      "choices": [
+        {"label": "Tea.", "goto": "st_tea", "trust": 1}
+      ],
+      "silence_goto": "st_tea"
+    },
+    "st_dog": {
+      "line": "That's Judge. He's fourteen, he's got four teeth, and every one of them has an opinion. He lies there because the boiler's under that board and the boiler is the only thing in Queens he approves of. Don't feed him. Everybody feeds him. Look at him. That's a dog who's been fed by a jury. The cat on the top shelf is Lafitte, named for the pirate, because he steals. Don't feed him either; he's already eaten your sandwich in spirit.",
+      "choices": [
+        {"label": "He looks like he's thinking it over.", "goto": "st_rules", "trust": 1},
+        {"label": "Cold tea, then.", "goto": "st_tea", "trust": 1}
+      ],
+      "silence_goto": "st_rules"
+    },
+    "st_tea": {
+      "line": "There. Cup and saucer, like a christening. Drink it slow; it's had a hard life. And take your elbow off the wet ring, I'm not wiping around you all night like you're furniture.",
+      "choices": [
+        {"label": "Do you make up a house rule for everything?", "goto": "st_rules", "trust": 1},
+        {"label": "What's the dog's name?", "goto": "st_dog"}
+      ],
+      "silence_goto": "st_rules"
+    },
+    "st_rules": {
+      "line": "Only the ones that need making. There's one on the wall: no bananas before ten. That's the written law. The rest I make up as people come in, and they come in all night. Somebody's coughing, there's a rule about the radiator. Somebody's crying, there's a rule nobody looks at the end stool. You'd be amazed how law-abiding people get, when the law is me.",
+      "choices": [
+        {"label": "The jar by the till. What's that for?", "goto": "st_jar", "trust": 1},
+        {"label": "Somebody should write them down.", "goto": "st_written", "trust": -1}
+      ],
+      "silence_goto": "st_jar"
+    },
+    "st_written": {
+      "line": "Then somebody would paint them on a sign, and then there'd be a man in here every night arguing with the sign. No. A rule you can argue with is a menu.",
+      "choices": [
+        {"label": "The jar by the till. What's that for?", "goto": "st_jar", "trust": 1}
+      ],
+      "silence_goto": "st_jar"
+    },
+    "st_jar": {
+      "line": "That's the jar. Black lace and pressed magnolia, three coats of varnish over the lot. A month of Mondays. It's the tips. It's also carfare for anybody who comes up short at closing, and soup, and once a dentist. It isn't charity. Charity has a committee. The jar has me.",
+      "flag": "st_saw_the_jar",
+      "choices": [
+        {"label": "Who taught you that?", "goto": "st_who", "trust": 1},
+        {"label": "People must rob you blind.", "goto": "st_rob", "trust": -1}
+      ],
+      "silence_goto": "st_jar_sil"
+    },
+    "st_jar_sil": {
+      "line": "You're looking at it like it might bite. It won't. Judge might.",
+      "choices": [
+        {"label": "Who taught you that?", "goto": "st_who", "trust": 1}
+      ],
+      "silence_goto": "st_who"
+    },
+    "st_rob": {
+      "line": "Twice. Once a kid, who needed it more than the jar did, and once a grown man, who's barred, and who knows exactly what Judge thinks of him. You can't run a jar on suspicion. Ask me something better.",
+      "choices": [
+        {"label": "Who taught you that?", "goto": "st_who", "trust": 1}
+      ],
+      "silence_goto": "st_who"
+    },
+    "st_who": {
+      "role": "strained",
+      "flag": "st_jar_story",
+      "line": "Nobody taught me. Somebody did it to me, which is worse, because you can't argue with it. I was sick once, in New Orleans, and broke with it, and a woman behind a bar put carfare in my glove while I was paying for a soup she didn't charge me for. I found it on the streetcar. I never went back. I've been paying it out to strangers ever since, and it doesn't come off the total. I don't think it's meant to.",
+      "choices": [
+        {"label": "Maybe she didn't want thanking.", "goto": "st_thanks", "trust": 1},
+        {"label": "You could go back now.", "goto": "st_go_back"},
+        {"label": "So you're the soft touch of Jackson Avenue.", "goto": "st_soft", "trust": -1}
+      ],
+      "silence_goto": "st_who_sil",
+      "silence_flag": "st_let_it_stand",
+      "silence_trust": 1
+    },
+    "st_who_sil": {
+      "line": "That's right. Don't say anything. That's what she did.",
+      "choices": [
+        {"label": "[Finish the tea.]", "goto": "st_last"}
+      ],
+      "silence_goto": "st_last"
+    },
+    "st_thanks": {
+      "line": "No. She didn't. She'd have gone red, and then charged me for the soup to even it up. I know her type. I see her in that mirror every night, between the bottles of nothing.",
+      "choices": [
+        {"label": "[Finish the tea.]", "goto": "st_last"}
+      ],
+      "silence_goto": "st_last"
+    },
+    "st_go_back": {
+      "line": "To a bar on Decatur Street that's a tire shop by now, to a woman who'd be seventy, and say what? I put the soup on the board and I keep the carfare moving. That's thanks. It's the only kind that holds.",
+      "choices": [
+        {"label": "[Finish the tea.]", "goto": "st_last"}
+      ],
+      "silence_goto": "st_last"
+    },
+    "st_soft": {
+      "line": "Soft. Try me for a tab past Thursday and see how soft. I'm not soft, I'm accurate. I know which of them is short because they're short and which is short because they're clever, and the jar opens for one of them.",
+      "choices": [
+        {"label": "[Finish the tea.]", "goto": "st_last"}
+      ],
+      "silence_goto": "st_last"
+    },
+    "st_last": {
+      "role": "recognition",
+      "line": "Anyway. You've had your tea and I've made a speech, and I don't make those. The jar's there. Do what you like. Judge is watching, and he has never once been wrong about anybody.",
+      "choices": [
+        {"label": "[Put a coin in the jar.]", "goto": "st_coin", "trust": 1},
+        {"label": "[Leave it.]", "goto": "st_leave"}
+      ],
+      "silence_goto": "st_leave"
+    },
+    "st_coin": {
+      "flag": "st_paid_into_the_jar",
+      "line": "(She doesn't look. She hears it land, and wipes the counter in front of you anyway, which is a thing she does for regulars.) Mind the step going up. It's been loose since Harding."
+    },
+    "st_leave": {
+      "line": "Good. Nobody should pay in to be liked. Mind the step going up. It's been loose since Harding."
+    },
+    "st_rt_open": {
+      "line": "Your stool's free. I put my cardigan on it so nobody'd take it, and three people asked whose it was. I said the night man's. They looked at a cardigan like it might fix something.",
+      "choices": [
+        {"label": "Who's that on the end stool?", "goto": "st_end_stool", "trust": 1},
+        {"label": "Why have you got his hat?", "goto": "st_hat", "trust": 1},
+        {"label": "The girl by the coats keeps watching the door.", "goto": "st_cousin", "trust": 1}
+      ],
+      "silence_goto": "st_rt_sil"
+    },
+    "st_rt_sil": {
+      "line": "Nothing to report? Then you can dry. Towel's on the rail. Glasses go mouth down, and if you put one mouth up I'll know, and so will Judge.",
+      "choices": [
+        {"label": "[Dry glasses.]", "goto": "st_rt_cup", "trust": 1, "unless": ["st_second_cup"]},
+        {"label": "[Dry glasses.]", "goto": "st_rt_quiet", "trust": 1, "requires": ["st_second_cup"]}
+      ],
+      "silence_goto": "st_rt_quiet"
+    },
+    "st_rt_cup": {
+      "flag": "st_second_cup",
+      "line": "Look at that. Mouth down, all of them. You're hired. The pay's terrible, the dog outranks you, and the cat outranks the dog. (She pours two cups and carries the second down to the end by the bass case without a word.)"
+    },
+    "st_rt_quiet": {
+      "line": "Look at that. Mouth down, all of them. You're hired. The pay's terrible, the dog outranks you, and the cat outranks the dog."
+    },
+    "st_end_stool": {
+      "flag": "st_end_stool",
+      "line": "Don't look. That's the rule. She buried her husband on Tuesday. She comes in at seven, orders what he had, and doesn't drink it. So I pour it, and at nine I take it away full, and I don't ring it up, and neither of us says a word about any of it. That's the whole arrangement. It's the best one I've got."
+    },
+    "st_hat": {
+      "flag": "st_hat_rule",
+      "line": "Because he's had exactly enough to be sure he can sing. A man won't leave without his hat. So I keep the hat, and when it's time I walk it to the corner, and he follows it like a duck, and I put the hat and the man on the Astoria car and tell the conductor which stop. He gets it back on the car. He thinks it's a game. It is a game. I win it every Saturday."
+    },
+    "st_cousin": {
+      "flag": "st_cousin_rule",
+      "line": "I know. That fella at the pool table won't take no from her, so she's my cousin now. House rule: nobody talks to my cousin. She's never met me in her life and she's been my cousin since a quarter past ten. At closing I walk her to the car, and Judge comes, and Judge has four teeth and he would use every one."
+    },
+    "st_int_open": {
+      "line": "(She comes round the end of the counter with two cups and sits on the customer side, on a stool, which nobody can remember her doing.) Don't make a thing of it. My feet have filed a complaint.",
+      "choices": [
+        {"label": "[Sit with her.]", "goto": "st_int_beat"}
+      ],
+      "silence_goto": "st_int_beat"
+    },
+    "st_int_beat": {
+      "action": "quiet_beat",
+      "line": "Sit."
+    },
+    "st_res_open": {
+      "line": "Judge let you scratch his ear last night. He's never let anybody do that but me and a priest, and the priest had been at the cold tea. You're in the book now. It's not a good book. Everyone in it owes me something, and I never collect."
+    },
+    "st_fb_open": {
+      "line": "You're cut off. Not from the tea, from the conversation. Tea's still on the board.",
+      "choices": [
+        {"label": "I'll come back another night."}
+      ],
+      "silence_goto": "st_fb_sil"
+    },
+    "st_fb_sil": {
+      "line": "Do. Mind the step."
+    }
+  }
+}
