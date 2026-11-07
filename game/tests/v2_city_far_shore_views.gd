@@ -233,7 +233,7 @@ func _review_views(output: String, world: OrisonV2RuntimeRoot, city: Node3D, sky
 	projection.director._campaign_clock = projection.view_clock
 	projection.director.extreme_weather = projection._view_extreme
 
-	var roof_eye := world.adapter.root.to_global(ROOF_EYE)
+	var roof_eye: Vector3 = world.adapter.root.to_global(ROOF_EYE)
 	var views: Array[Dictionary] = [
 		{"id": "roof_day", "bearing": 323.0, "pitch": 0.085, "utc": midnight + 720 * 60.0, "eye": roof_eye},
 		{"id": "roof_dusk", "bearing": 309.0, "pitch": 0.085, "utc": midnight + 1043 * 60.0, "eye": roof_eye},
