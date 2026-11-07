@@ -118,6 +118,7 @@ var carried_case_view: CanvasLayer
 var shop_counters: Dictionary = {}
 var luncheonette_counter: Node3D
 var harukiya_counter: Node3D
+var harukiya_strips: Node3D
 var seat_gestures: Node3D
 var otis_fountain: Node3D
 var shoe_bench: Node3D
@@ -1017,6 +1018,10 @@ func _compose_authorities() -> void:
 	harukiya_counter.name="HarukiyaCounterGlass"
 	if not harukiya_counter.configure(self,bar_region,conversations):
 		startup_failed=true;push_error("ORISON V2 RUNTIME: Harukiya counter refused");return
+	harukiya_strips=preload("res://scripts/props/harukiya_strip_stack.gd").new()
+	harukiya_strips.name="HarukiyaStripStack"
+	if not harukiya_strips.configure(self,bar_region,ShopSales.new("harukiya",shop_catalogue,shop_stock,shop_clearing),harukiya_counter.notice):
+		startup_failed=true;push_error("ORISON V2 RUNTIME: Harukiya strip stack refused");return
 	clue_carriers=preload("res://scripts/building/orison_v2_clue_carriers.gd").mount(self,adapter)
 	if clue_carriers.is_empty():
 		startup_failed=true;push_error("ORISON V2 RUNTIME: clue carriers refused");return

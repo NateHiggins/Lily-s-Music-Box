@@ -473,6 +473,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Why a texture tiles badly | `art/tools/ingest_material_sources.py`, and the compiler's `docs/provider-api.md` |
 | What clothes people wear | `design/ORISON_WARDROBE_BIBLE.md` |
 | What appliances exist | `design/ORISON_APPLIANCE_BIBLE.md` |
+| Lily's daily strips: a penny on the Harukiya's bar, kept and read from the case; adding a day with `tools/add_lily_strip.py` (INERT) | `design/ORISON_LILY_STRIPS_2026-11-07.md` |
 | How a household decorates | `design/resident_decor_profiles.json` *(brief, not loaded)* |
 
 ## The two repositories
