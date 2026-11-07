@@ -6,7 +6,6 @@ const BODY_LOD := preload("res://assets/props/city_elevations_lod1.glb")
 const FINISHES := "res://data/orison_v2/exterior/city_elevations.json"
 const WindowOptics := preload("res://scripts/building/v2_background_window_material.gd")
 const CityHorizon := preload("res://scripts/building/orison_v2_city_horizon.gd")
-const FarShore := preload("res://scripts/building/orison_v2_city_far_shore.gd")
 var _window_materials: Dictionary = {}
 var _window_minute := -INF
 var _clock := CampaignClock.new()
@@ -124,7 +123,6 @@ func _ready() -> void:
 	preload("res://scripts/building/orison_v2_city_beacons.gd").mount(self)
 	preload("res://scripts/building/orison_v2_city_transport.gd").mount(self)
 	preload("res://scripts/building/orison_v2_city_streets.gd").mount(self)
-	FarShore.mount(self, float(section.source_threshold_z))
 
 func _process(delta: float) -> void:
 	_clock_elapsed+=delta

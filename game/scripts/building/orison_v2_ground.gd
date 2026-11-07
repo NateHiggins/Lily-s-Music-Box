@@ -46,8 +46,6 @@ func _ready() -> void:
 		var body:=StaticBody3D.new();body.name="GroundCollision";draw.add_child(body)
 		var collision:=CollisionShape3D.new()
 		collision.shape=_native_shape(draw.mesh);body.add_child(collision)
-	preload("res://scripts/building/orison_v2_city_industrial_cut.gd").mount(self)
-	preload("res://scripts/building/orison_v2_city_canal_bulkhead.gd").mount(self)
 
 func _native_shape(mesh: Mesh) -> ConcavePolygonShape3D:
 	var shape:=ConcavePolygonShape3D.new();shape.set_faces(preload("res://scripts/building/orison_v2_native_faces.gd").read(mesh));return shape

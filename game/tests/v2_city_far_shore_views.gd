@@ -8,6 +8,7 @@ const STREET_NOMINAL := Vector3(-280.0, -4.0, -10.0)
 const PRODUCTION_PATHS := [
 	"res://scripts/building/orison_v2_city_far_shore.gd",
 	"res://scripts/building/orison_v2_city_shells.gd",
+	"res://scripts/building/orison_v2_runtime_root.gd",
 	"res://data/orison_v2/exterior/city_bridge.json",
 	"res://scenes/building/orison_v2_runtime.tscn",
 ]
