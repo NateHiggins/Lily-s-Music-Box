@@ -328143,6 +328143,124 @@
    "rationale": "Production code looks up a layout id at runtime. The existing V2 portal mount opts its original OmniLight into the exterior shadow fade.",
    "resolved_target": "F01/marker+acoustic_node+fixture",
    "target_exists": true
+  },
+  {
+   "key": "cb330cffbefe22d6",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_city_far_shore_views.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3,
+    13
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0dc37932b06147d0",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_city_industrial_views.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1defe99011a7012d",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/v2_city_industrial_views.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    187
+   ],
+   "count": 1,
+   "context": [
+    "await _view(folder, \"opposed_canal\", camera, frame, bank, opposed_eye, Vector3(58.0, -5.1, -343.0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c7c685b7d0e8e0a8",
+   "kind": "id_reference",
+   "token": "F01_DOOR_06",
+   "file": "game/tests/v2_city_radius_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_open_front_entrance"
+   ],
+   "lines": [
+    126
+   ],
+   "count": 1,
+   "context": [
+    "func _open_front_entrance(identity: String = \"F01_DOOR_06\") -> bool:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+v2_blockout",
+   "target_exists": true
   }
  ]
 }
