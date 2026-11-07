@@ -17,6 +17,53 @@ for work restricted to the canonical checkout.
 | `check_rulings.py` | Is every RUL-nnn citation real, sourced and current? | 1 s |
 | `preflight_spatial_test_bindings.py` | Are every spatial receipt's inherited test dependencies declared before Godot starts? | <1 s |
 | `publish_v2_spatial_packet.py` | Publish already executed played-room proof with checked sources/logs and a preserved previous packet? | source-size dependent |
+| `artifact_retention.py` | How much report output exists, and which owner-released visual files can be retired safely? | report-size dependent |
+
+## Report artifact retention
+
+At closeout, keep the source-bound evidence packet and release only named
+scratch previews or rejected seeds. Check the terminal and custody records,
+queued work, open reviews, linked reports, published evidence, comic picks and
+training inputs. Treat an unknown consumer as a hold. A completed failed run
+still needs its original failure evidence. Reuse a case's verified evidence
+when it already exists and give a new run a fresh output directory.
+
+The retention tool defaults to a read-only inventory of **C:/ov/reports**.
+Inventory sizes are logical file lengths. Use a separate retirement review
+for worktrees, Godot caches and Git storage. Leave tracked art, authored
+sources, saves, model weights, training assets and anything tied to an active
+job in their existing custody.
+
+```powershell
+python tools/artifact_retention.py inventory
+python tools/artifact_retention.py record example_case --owner owner_name --terminal TERMINAL.json --preview scratch/test-preview.png --confirm-closed-and-unreferenced
+python tools/artifact_retention.py plan example_case
+python tools/artifact_retention.py quarantine example_case --approve FULL_PLAN_ID
+python tools/artifact_retention.py restore FULL_PLAN_ID
+# After the quarantine wait, with approval of the exact plan
+python tools/artifact_retention.py purge --approve FULL_PLAN_ID
+```
+
+`record` creates one immutable release manifest in the case. Repeat
+`--preview`, `--rejected-seed` and `--pin` for individual files. The person
+closing the case owns the external consumer check. The tool also checks
+local metadata for candidate names and hashes. A match holds the file for
+review. For a log or job index that only lists outputs it produced, the
+owner may name it with `--producer-record`. Its exact hash is checked again
+at quarantine and purge. Keep consumer manifests and evidence out of this
+exemption. After release, producers use a fresh case for any further work.
+Visual output becomes eligible after 14 days for previews and 30 days for
+rejected seeds. A mixed release waits for its longest retention period.
+
+Mutation requires an idle Godot lane and refuses existing queued work. It
+uses the same mutex during file operations. CPU-only users of a case rely on
+the owner's closure check. Quarantine keeps the exact bytes on the same
+volume under **.orison-quarantine**, so space is reclaimed only at purge.
+The journal records the plan and lifecycle. An interrupted transfer can
+resume with the same ID or restore from the actual file locations. A leftover
+`.pending` journal file calls for manual inspection before continuing. Purge
+requires a separate approval after 14 days in quarantine and keeps the journal.
+Any file change, link, collision or changed terminal record stops the operation.
 
 ## Played-room packet publication
 
