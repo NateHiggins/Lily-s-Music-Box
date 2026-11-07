@@ -89,7 +89,18 @@ function Get-LaneRecord {
     if (-not (Test-Path -LiteralPath $Path)) { return $null }
     try {
         $record = Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json -DateKind String
-        $alive = $null -ne (Get-Process -Id $record.pid -ErrorAction SilentlyContinue)
+        # Live only if that pid's process started before the record was stamped, the rule
+        # Get-OrisonLaneQueue uses: after a reboot Windows reuses pids, and a dead record
+        # must not read as live because an unrelated process now holds its number.
+        $process = Get-Process -Id $record.pid -ErrorAction SilentlyContinue
+        $stamp = if ($record.since_utc) { $record.since_utc } else { $record.started_utc }
+        $alive = $false
+        if ($process -and $stamp) {
+            $at = [datetime]::Parse([string]$stamp, [cultureinfo]::InvariantCulture,
+                [System.Globalization.DateTimeStyles]::AssumeUniversal -bor [System.Globalization.DateTimeStyles]::AdjustToUniversal)
+            $alive = $process.StartTime.ToUniversalTime() -le $at.AddSeconds(5)
+        }
+        elseif ($process) { $alive = $true }
         $record | Add-Member -NotePropertyName alive -NotePropertyValue $alive -Force
         return $record
     }
