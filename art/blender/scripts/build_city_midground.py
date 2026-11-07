@@ -75,7 +75,8 @@ RESERVED_POINTS = [
 # fabric starts in the corridor between the near and far rings.
 NEAR_CITY = (-178.0, -190.0, 178.0, 166.0)
 # Codex's eastern radius route: (280,-10) -> (296,-10) -> (296,-31.65) -> east along z -31.65.
-RESERVED_RECTS = [(266, -40, 304, 2), (290, -40, 480, -23)]
+RESERVED_RECTS = [(266, -40, 304, 2), (290, -40, 480, -23),
+                  (136, -13, 210, 1), (-210, -13, -136, 1)]  # walks to the 200 m mist edge
 
 
 def walkable(x0, z0, x1, z1):
@@ -84,10 +85,12 @@ def walkable(x0, z0, x1, z1):
     return math.hypot(cx, cz) < WALKABLE
 
 
-def reserved(x0, z0, x1, z1):
+def in_near_city(x0, z0, x1, z1):
     nx0, nz0, nx1, nz1 = NEAR_CITY
-    if x0 < nx1 and x1 > nx0 and z0 < nz1 and z1 > nz0:
-        return True
+    return x0 < nx1 and x1 > nx0 and z0 < nz1 and z1 > nz0
+
+
+def reserved(x0, z0, x1, z1):
     for rx0, rz0, rx1, rz1 in RESERVED_RECTS:
         if x0 < rx1 and x1 > rx0 and z0 < rz1 and z1 > rz0:
             return True
@@ -189,6 +192,8 @@ class Layout:
 
     def clear(self, rect, pad=1.5):
         x0, z0, x1, z1 = rect
+        if in_near_city(*rect):
+            pad = max(pad, 3.0)  # a wider berth around the composed near city's own owners
         if reserved(x0 - pad, z0 - pad, x1 + pad, z1 + pad):
             return False
         for c in self.claimed:
@@ -492,6 +497,7 @@ class Builder:
         self.vehicles = {}
         self.wheels = {}
         self.landmarks = []
+        self.sign_list = []
 
     # Facades ----------------------------------------------------------------------
     def wall_with_openings(self, p, f, length, y0, y1, openings, color):
@@ -1169,6 +1175,36 @@ class Builder:
         if best:
             best[1]["landmark"] = "bank"
 
+    def signs(self):
+        """1929 corner signs at the new grid's crossings (Lily's ruling midground_sign_mapping): avenues 38th to
+        44th Dr north to south, streets 21st to 30th west to east; the old name, where researched, small beneath."""
+        avenues = {-3: ("38TH AVE", "Freeman Ave"), -2: ("39TH AVE", ""), -1: ("40TH AVE", "Payntar Ave"),
+                   0: ("41ST AVE", ""), 1: ("42ND RD", "Henry St"), 2: ("43RD AVE", "Harris Ave"), 3: ("44TH DR", "Nott Ave")}
+        streets = {-4: ("21ST ST", "Van Alst Ave"), -3: ("22ND ST", "Sunswick St"), -2: ("23RD ST", "Ely Ave"),
+                   -1: ("24TH ST", "William St"), 0: ("26TH ST", ""), 1: ("27TH ST", ""), 2: ("28TH ST", "Radde St"),
+                   3: ("29TH ST", ""), 4: ("30TH ST", "Academy St")}
+        L = self.layout
+        xs = [s for s in L.streets if s[0] == "x"]
+        zs = [s for s in L.streets if s[0] == "z"]
+        seen = set()
+        for _, zc, a, b in xs:
+            for _, xc, c, d in zs:
+                # A street laid second stops short of the first one's band by up to one 6 m step.
+                reach = HALF + 7.0
+                if not (a - reach <= xc <= b + reach and c - reach <= zc <= d + reach):
+                    continue
+                k = round((zc - AVENUE_Z) / BLOCK_D)
+                m = round(xc / BLOCK_W)
+                if k not in avenues or m not in streets or (k, m) in seen or math.hypot(xc, zc) > 300:
+                    continue
+                seen.add((k, m))
+                x, z = xc + ROAD / 2 + 0.7, zc - ROAD / 2 - 0.7  # the north-east corner
+                if reserved(x - 0.3, z - 0.3, x + 0.3, z + 0.3):
+                    continue
+                self.place("signpost", x, z, 0.0, (0.3, 3.6, 0.3))
+                self.sign_list.append({"x": round(x, 3), "y": round(ground(x, z) + 0.17, 3), "z": round(z, 3),
+                                       "avenue": list(avenues[k]), "street": list(streets[m])})
+
     def run(self):
         L = self.layout
         for lot in L.lots:
@@ -1182,6 +1218,7 @@ class Builder:
         self.barricades()
         self.parked()
         self.laundry()
+        self.signs()
         return self
 
 
@@ -1199,6 +1236,11 @@ def furniture_stock():
     lamp = p("lamp", "glass_frosted")
     box_world(lamp, -0.2, -0.2, 0.2, 0.2, 3.8, 4.35)
     box_world(iron, -0.26, -0.26, 0.26, 0.26, 4.35, 4.45)
+    # Corner signpost: the blades and their lettering are added at runtime (Label3D, RUL-008).
+    post = p("signpost", "cast_iron")
+    cylinder_world(post, 0, 0, 0.2, 0.0, 0.5, 8)
+    cylinder_world(post, 0, 0, 0.065, 0.5, 3.45, 8)
+    cylinder_world(post, 0, 0, 0.09, 3.45, 3.55, 8)
     # Hydrant.
     red = p("hydrant", "fire_cabinet_enamel")
     cylinder_world(red, 0, 0, 0.15, 0.0, 0.12, 10)
@@ -1275,6 +1317,8 @@ def write_data(builder):
             # vehicles [x, y, z, heading, r, g, b]; wheels [x, y, z, heading, at_x, at_y, at_z, radius, width].
             "vehicles": [{"stock": k, "items": v} for k, v in builder.vehicles.items()],
             "wheels": [{"stock": k, "items": v} for k, v in builder.wheels.items()],
+            # Corner signs: two blades on the post, [new name, old name or ""] for each street.
+            "signs": builder.sign_list,
             "colliders": [c for c in builder.colliders
                           if walkable(c[0] - c[3] / 2, c[2] - c[5] / 2, c[0] + c[3] / 2, c[2] + c[5] / 2)]}
     with open(DATA, "w", encoding="utf8", newline="\n") as handle:

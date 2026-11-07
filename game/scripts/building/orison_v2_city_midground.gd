@@ -83,6 +83,7 @@ func _ready() -> void:
 	_build_panes()
 	_build_furniture(stock)
 	_build_parked()
+	_build_signs()
 	_build_colliders()
 	_refresh(true)
 
@@ -249,6 +250,57 @@ func _add_stock(name: String, multimesh: MultiMesh, at: Vector3) -> void:
 	draw.visibility_range_end_margin = FADE
 	draw.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
 	add_child(draw)
+
+
+const SIGN_FONT := preload("res://assets/fonts/eb_garamond/EBGaramond[wght].ttf")
+## Lettering shows only up close; each label is a draw.
+const SIGN_RANGE := 45.0
+
+
+func _build_signs() -> void:
+	# 1929 corner signs (Lily's ruling midground_sign_mapping): two dark enamel blades on the
+	# post, the new name in white capitals with the old name small beneath, lettered with
+	# Label3D on both faces (no lettering in textures, RUL-008).
+	var enamel := MatLib.get_mat("enamel").duplicate() as StandardMaterial3D
+	enamel.albedo_color = Color(0.07, 0.1, 0.2)
+	enamel.uv1_triplanar = false
+	for sign: Dictionary in data.signs:
+		var at := Vector3(sign.x, sign.y, sign.z)
+		# The avenue blade runs along the avenue (x), the street blade along the street (z).
+		_sign_blade(at + Vector3(0, 3.22, 0), 0.0, sign.avenue, enamel)
+		_sign_blade(at + Vector3(0, 2.92, 0), PI * 0.5, sign.street, enamel)
+
+
+func _sign_blade(at: Vector3, yaw: float, names: Array, material: Material) -> void:
+	var blade := MeshInstance3D.new()
+	var box := BoxMesh.new()
+	box.size = Vector3(0.95, 0.24, 0.025)
+	blade.mesh = box
+	blade.material_override = material
+	blade.position = at
+	blade.rotation.y = yaw
+	blade.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	blade.visibility_range_end = SIGN_RANGE
+	add_child(blade)
+	for face: float in [0.0, PI]:
+		var lines: Array = [[str(names[0]), 0.035, 0.0013, 52], [str(names[1]), -0.07, 0.0008, 40]]
+		for line: Array in lines:
+			if str(line[0]).is_empty():
+				continue
+			var label := Label3D.new()
+			label.text = str(line[0])
+			label.font = SIGN_FONT
+			label.font_size = int(line[3])
+			label.pixel_size = float(line[2])
+			label.modulate = Color(0.96, 0.95, 0.9)
+			label.outline_size = 0
+			label.double_sided = false
+			label.position = Vector3(0, float(line[1]) + (0.03 if str(names[1]).is_empty() else 0.0), 0.014)
+			label.visibility_range_end = SIGN_RANGE
+			var holder := Node3D.new()
+			holder.rotation.y = face
+			holder.add_child(label)
+			blade.add_child(holder)
 
 
 func _build_colliders() -> void:
