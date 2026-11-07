@@ -25,7 +25,7 @@ func _route() -> void:
 	var item := CarriedCase.library_item(collection, original.stock_id)
 	var sibling_item := CarriedCase.library_item(collection, sibling.stock_id)
 	var sibling_pose := sibling.transform
-	var path := "user://book_valise_%s.save" % Time.get_ticks_usec()
+	var path := "user://book_valise_%d.save" % OS.get_process_id()
 	RealityState.save_path = path
 	RealityState.persistence_enabled = true
 	var catalog := get_tree().get_first_node_in_group("newspaper_catalog") as NewspaperCatalog
@@ -130,7 +130,8 @@ func _route() -> void:
 	collider.shape = block
 	obstruction.add_child(collider)
 	world.add_child(obstruction)
-	obstruction.global_position = player.camera.global_transform * Vector3(0.17, -0.16, -0.48)
+	var eye := player.camera.global_transform
+	obstruction.global_position = original._hold_target(eye, false) + eye.basis * original.pickup_centre()
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	var packed_primary := FileAccess.get_file_as_bytes(path)
