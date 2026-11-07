@@ -62,6 +62,7 @@ var _spectacle_bearings := PackedFloat32Array()
 var _arrival_caption: Label
 var _roof_eye := Vector3.ZERO
 var _city: Node
+var _far_districts: Node
 var _optical_minute := INF
 var view_clock:=RenderClock.new()
 var _campaign:Dictionary
@@ -164,6 +165,7 @@ func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Ca
 	# Surveyed northwest telescope station, plus the original player's eye height.
 	_roof_eye = world.adapter.root.to_global(Vector3(-11., 19.2702503 + 1.60, 6.))
 	_city = world.get_node_or_null("CityShells")
+	_far_districts = world.find_child("FarDistricts", true, false)
 
 	if not view_clock.seek_utc(destination_utc):return _refuse("detached clock refused destination")
 	if not player.acquire_text_input(self):return _refuse("player input lease refused: protected=%s inspection=%s mouse_released=%s owner=%s"%[player.protected_input_active(),player.inspecting(),player.mouse_released,str(player.text_input_owner)])
@@ -333,6 +335,7 @@ func _publish() -> void:
 	if age >= ROOF_START and minute != _optical_minute and is_instance_valid(_city):
 		_optical_minute = minute
 		_city.project_window_clock(view_clock)
+		if is_instance_valid(_far_districts): _far_districts.project_clock(view_clock)
 	publications+=1
 	if profile_samples and sample_costs.size()<4096:sample_costs.append([age,sampled_utc,(Time.get_ticks_usec()-started)/1000.0])
 
@@ -412,6 +415,7 @@ func _cleanup() -> void:
 		director._apply(_old_clock.minute_of_day())
 	if is_instance_valid(_city) and _optical_minute != INF and is_instance_valid(_old_clock):
 		_city.project_window_clock(_old_clock)
+		if is_instance_valid(_far_districts): _far_districts.project_clock(_old_clock)
 	_optical_minute = INF
 	var lighting:int=Time.get_ticks_usec() if profile_samples else 0
 	if is_instance_valid(manager):
