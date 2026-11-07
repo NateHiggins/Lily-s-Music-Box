@@ -1220,6 +1220,34 @@ It is the law, and loosely enforced: near beer on a bodega shelf, a wink at the 
 raid somewhere else in the paper. It adds no policing system. The Rule of Signal doesn't touch
 it, because a bottle carries no signal.
 
+#### The eclipse of 1 November 1929 and the Star God — owner ruling, 2026-11-04
+
+On the morning of 1 November 1929 the Sun goes out over Queens. The real annular
+eclipse of that day crossed West Africa and was never visible from New York. Here it
+comes anyway, unannounced and total. The grown Moon slides its dark disc across the
+morning sky, faster than any Moon moves, and holds the Sun just inside its edge for ten
+minutes. In that dark something comes out of the Sun: a figure of many limbs, of
+twisted field-line filament and flare light. It climbs the sky, bends what is behind
+it, thins to a line and is gone in one soundless ring of split colour. The Sun keeps a
+black tear across its face for the rest of the day, and that night Queens glows violet.
+It is the year's only eclipse: on every other day the Moon passes the Sun without
+covering it.
+
+Lily ruled it as the brief has it. It is the one sanctioned exception to Accord 9 in
+the sky: for these minutes spectacle outranks ordinary decay. It licenses no other
+spectacle. It is a separate event from the Emergence of 12 October, which stands.
+
+It is not explained, and nothing may explain it.
+- It is not the Tenant, which has no form and must never be given one.
+- It is not the Dream organism, the Moon's name, or a reason for the Moon's growth.
+- It looks at no one. It adds no gameplay system, resource or authority, and nothing in
+  the building answers to it.
+- The papers report it like weather, and the Bureau says Africa.
+
+Its timing and drawing live in `scripts/building/star_god.gd` and
+`data/weather/phenomena.json`; **design/ORISON_SUN_2026-11-04.md** records the Sun
+pass it belongs to.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of
