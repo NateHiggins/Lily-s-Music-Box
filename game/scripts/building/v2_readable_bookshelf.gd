@@ -176,6 +176,14 @@ func book_slot_is_free(index: int, book: Node3D) -> bool:
 		if other!=book and other.shelf_slot==index: return false
 	return true
 
+func book_copy(identity: String) -> Book:
+	return _books.get(identity) as Book
+
+
+func library_hand_is_free() -> bool:
+	return not is_instance_valid(_hand_node)
+
+
 func try_place_book(book: Node3D) -> bool:
 	if book.opening>.04: return false
 	for index in book_slots.size():
@@ -325,6 +333,11 @@ func inspected_readable_stock() -> PhysicsBody3D:
 
 func reading_view_active() -> bool: return inspected_readable_stock()!=null
 
+func reading_optical_fit(camera: Camera3D) -> Dictionary:
+	var copy:=inspected_readable_stock() as Book
+	return copy.reading_optical_fit(camera) if copy!=null else {}
+
+
 func supports_inspected_stock(body: Node3D) -> bool:
 	return is_instance_valid(_inspection_stock) and _inspection_stock==body
 
@@ -398,6 +411,8 @@ func restore_order(value: Variant) -> void:
 	if not (valid_library(value) if value is Dictionary else _valid_order(value)): return
 	_restoring_library=true
 	_hand_node=null;_hand_tag="";sorter.held=-1
+	for book: Book in _books.values():
+		if book.valise_packed: book.set_valise_packed(false)
 	if value is Array:
 		sorter.order=value.duplicate();sorter.moves=0;_arrange(sorter.order)
 		for sash: Node3D in _sashes: sash.restore({"angle":0.,"inset":0.})
@@ -419,6 +434,10 @@ func restore_order(value: Variant) -> void:
 		if not refit:
 			for side: String in _ends: _ends[side].restore_stock(value.bookends[side])
 		for index in _sashes.size(): _sashes[index].restore(value.doors[index])
+	var case_places: Dictionary=RealityState.data.get(CarriedCase.KEY,{}).get("places",{})
+	for identity: String in _books:
+		if case_places.has(CarriedCase.library_item(str(name),identity)):
+			_books[identity].set_valise_packed(true)
 	_restoring_library=false
 
 func inspection_state() -> Dictionary:

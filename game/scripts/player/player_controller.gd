@@ -48,6 +48,7 @@ var _inspection_active := false
 var _inspection_jump_consumed := false
 var _inspect_camera_fov := 72.0
 var _inspect_entry_fov := 72.0
+var _inspect_manual_zoom := false
 var _inspect_camera_pose := Transform3D.IDENTITY
 var _inspect_mouse_mode := Input.MOUSE_MODE_CAPTURED
 var _inspect_anchor := Transform3D.IDENTITY
@@ -405,6 +406,11 @@ func _process(_delta: float) -> void:
 		if not is_instance_valid(inspect_owner) or not inspect_owner.is_inside_tree() or call_locked:
 			end_inspection()
 		else:
+			if not _inspect_manual_zoom and not _grab.active() and inspect_owner.has_method("reading_optical_fit"):
+				var fit: Dictionary=inspect_owner.reading_optical_fit(camera)
+				if not fit.is_empty():
+					_inspect_anchor.basis=fit.basis
+					camera.fov=float(fit.fov)
 			camera.global_transform = _inspect_anchor
 	_advance_lamp(_delta)
 	_carry_service_light(_delta)
@@ -473,6 +479,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		return
 	if inspecting() and event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] and not _grab.active() and inspect_owner.has_method("reading_view_active") and inspect_owner.reading_view_active():
+		_inspect_manual_zoom=true
 		var pixel:=get_viewport().get_mouse_position()
 		var old_ray:=camera.global_basis.inverse()*camera.project_ray_normal(pixel)
 		camera.fov=clampf(camera.fov+(-2. if event.button_index==MOUSE_BUTTON_WHEEL_UP else 2.)*event.factor,8.,65.)
@@ -1435,6 +1442,7 @@ func begin_inspection() -> bool:
 	_inspect_camera_fov=camera.fov
 	camera.fov=clampf(float(view.get("fov",camera.fov)),40.0,100.0)
 	_inspect_entry_fov=camera.fov
+	_inspect_manual_zoom=false
 	_inspect_mouse_mode=Input.mouse_mode
 	# Inspection borrows the hand for individual mechanisms. Remember a
 	# carried object's original grip so Space returns it to the same hand.

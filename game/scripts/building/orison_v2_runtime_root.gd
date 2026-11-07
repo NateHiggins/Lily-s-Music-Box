@@ -1034,6 +1034,7 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: household save refused: %s" % [household_state.errors])
 		return
+	carried_case_view.household_state = household_state
 	var notebook := preload("res://scripts/ui/caretaker_notebook.gd").new()
 	notebook.name = "CaretakerNotebook"
 	notebook.player = player

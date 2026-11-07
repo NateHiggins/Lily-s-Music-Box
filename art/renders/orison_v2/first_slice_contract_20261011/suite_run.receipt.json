@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 811.94,
+  "elapsed_s": 1088.51,
   "exit_code": 0,
-  "finished_utc": "2026-11-06T22:41:33Z",
-  "started_utc": "2026-11-06T22:28:01Z",
+  "finished_utc": "2026-11-07T05:37:09Z",
+  "started_utc": "2026-11-07T05:19:00Z",
   "timed_out": false
  },
  "log": {
@@ -58,23 +58,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/develop_intake_20261104/qualification_reading_valise_03/first_slice.log.stderr",
+  "stderr": "C:/ov/reports/develop_intake_20261104/qualification_book_optical_01/first_slice.log.stderr",
   "stderr_sha256": "cd579e5f9230484eaf647550556a74307b36dc10c1093e285c55b55f7a45bb2d",
-  "stdout": "C:/ov/reports/develop_intake_20261104/qualification_reading_valise_03/first_slice.log",
-  "stdout_sha256": "59668401d7f2fbfb8a10b227f817187456cbfd560b3fad03a68acf910bebb331"
+  "stdout": "C:/ov/reports/develop_intake_20261104/qualification_book_optical_01/first_slice.log",
+  "stdout_sha256": "5c878a94b525794fcf43ff34fef558d3720a335a905c73abb27709bf35c816bd"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\ov\\reports\\develop_intake_20261104\\qualification_reading_valise_03\\first_slice",
+ "shot_dir": "C:\\ov\\reports\\develop_intake_20261104\\qualification_book_optical_01\\first_slice",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "847ea6b92c2d1e10162c9ca097841bd5f827aa60",
-  "repository_tree": "65da29e067fa618b3dd48f5ff2bce01aa0ae3ef9",
-  "runtime_inputs_sha256": "6138c01a11e1014a9e4db85ee5e32376897a021d2afc88b16cfcfd888b6358d3",
+  "repository_head": "6efb03d08380253577b3810f1b0b7b3bc7969ed2",
+  "repository_tree": "4d7007e939fed437138e38a210a4949faeaec1e5",
+  "runtime_inputs_sha256": "7ced59b2c63247d4f8361ba0a0027e1d8312c070a6ea2714829085a818b61d0e",
   "test_path": null,
   "test_sha256": null
  },

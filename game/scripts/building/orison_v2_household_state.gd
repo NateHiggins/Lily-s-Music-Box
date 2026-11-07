@@ -5,6 +5,7 @@ extends Node
 const KEY := "v2_household_controls"
 const GASKET_COUNTER := "FireMaintenanceCounter"
 const GASKET_ITEM := "fire_hose_spare_gasket"
+const Book := preload("res://scripts/props/v2_readable_book.gd")
 var errors: Array[String] = []
 var _subjects: Dictionary = {}
 var _kinds: Dictionary = {}
@@ -311,6 +312,88 @@ func commit_purchased_gasket(counter: Node, cabinet: Node, pickup: Node, fit: Di
 		cabinet.call("discard_staged_purchased_gasket")
 	_purchased_gasket_commit_active = false
 	return saved
+
+
+func packed_book(item: String) -> Book:
+	if not item.begins_with(CarriedCase.BOOK_PREFIX):
+		return null
+	var place := CarriedCase.place_of(item)
+	var collection: Node = _subjects.get(place.get("collection", ""))
+	if not is_instance_valid(collection) or not collection.has_method("book_copy"):
+		return null
+	return collection.book_copy(str(place.form).trim_prefix(CarriedCase.BOOK_PREFIX))
+
+
+func can_pack_book(holder: PlayerController) -> bool:
+	var copy := holder.held_stock_body() as Book
+	if not _bound or _restoring or _blocked or RealityState.save_write_blocked \
+			or not is_instance_valid(copy) or copy.valise_packed or copy.opening != 0.0:
+		return false
+	var collection := str(copy.shelf.name)
+	return _subjects.get(collection) == copy.shelf \
+		and not CarriedCase.library_fit(collection, copy.stock_id).is_empty()
+
+
+func pack_book(holder: PlayerController) -> bool:
+	if not can_pack_book(holder):
+		return false
+	var copy := holder.held_stock_body() as Book
+	var collection := str(copy.shelf.name)
+	var item := CarriedCase.library_item(collection, copy.stock_id)
+	var prepare := func(document: Dictionary) -> bool:
+		if not is_instance_valid(copy) or holder.held_stock_body() != copy or not can_pack_book(holder):
+			return false
+		document[CarriedCase.KEY].places[item] = CarriedCase.library_fit(collection, copy.stock_id)
+		return _stage_book_pose(document, collection, copy, copy.transform)
+	var publish := func(verified: Dictionary) -> void:
+		_last_saved = verified.duplicate(true)
+		_restoring = true
+		copy.valise_packed = true
+		holder._grab.release(false)
+		copy.set_valise_packed(true)
+		_restoring = false
+	return RealityState.commit_library_case_change(prepare, publish)
+
+
+func unpack_book(holder: PlayerController, item: String) -> bool:
+	var copy := packed_book(item)
+	if not _bound or _restoring or _blocked or not is_instance_valid(copy) \
+			or not copy.valise_packed or holder.call_locked or holder.inspecting() or holder._grab.active() \
+			or not copy.shelf.library_hand_is_free():
+		return false
+	var collection := str(copy.shelf.name)
+	var prepare := func(document: Dictionary) -> bool:
+		if not is_instance_valid(copy) or packed_book(item) != copy or holder._grab.active() \
+				or not copy.shelf.library_hand_is_free():
+			return false
+		var camera_pose := holder.camera.global_transform
+		var grip_pose := Transform3D(camera_pose.basis, copy._hold_target(camera_pose, false))
+		if not copy.valise_exit_is_clear(grip_pose):
+			return false
+		document[CarriedCase.KEY].places.erase(item)
+		return _stage_book_pose(document, collection, copy, copy.get_parent_node_3d().global_transform.affine_inverse() * grip_pose)
+	var publish := func(verified: Dictionary) -> void:
+		_last_saved = verified.duplicate(true)
+		_restoring = true
+		copy.set_valise_packed(false)
+		copy.restore_book(verified.records[collection].value.books[copy.stock_id])
+		var grip := copy.grip()
+		grip.hit_position = copy.to_global(copy.pickup_centre())
+		var acquired: bool = holder._grab.acquire(grip)
+		_restoring = false
+		if not acquired:
+			push_error("Verified valise exit lost the reserved library hand: " + item)
+	return RealityState.commit_library_case_change(prepare, publish)
+
+
+func _stage_book_pose(document: Dictionary, collection: String, copy: Book, pose: Transform3D) -> bool:
+	# RealityState already asked this owner to capture live controls before
+	# detaching the candidate. Change only the selected copy in that snapshot.
+	var current: Dictionary = document.get(KEY, {})
+	if not current.get("records", {}).has(collection):
+		return false
+	current.records[collection].value.books[copy.stock_id] = copy.valise_snapshot(pose)
+	return _validate(current, _kinds, _last_saved.get("records", {}), document)
 
 
 func _gasket_handoff_bound(counter: Node, cabinet: Node, pickup: Node) -> bool:

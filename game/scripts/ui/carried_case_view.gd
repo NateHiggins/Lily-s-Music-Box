@@ -46,7 +46,7 @@ const POCKET_UP := Vector3(0, 0.97029573, -0.24192190)
 const CONTAINERS := {
 	"letter": {"x": -0.135, "width": 0.15, "top": -0.012, "panel": -0.055, "depth": 0.002, "front": 0.010, "w": 0.085, "h": 0.11, "skin": "paper"},
 	"news": {"x": 0.085, "width": 0.24, "top": -0.006, "panel": -0.062, "depth": 0.002, "front": 0.012, "w": 0.11, "h": 0.13, "skin": "leather_worn"},
-	"comic": {"x": 0.085, "width": 0.22, "top": -0.046, "panel": -0.088, "depth": 0.016, "front": 0.024, "w": 0.075, "h": 0.10, "skin": "leather_worn"},
+	"comic": {"x": 0.085, "width": 0.22, "top": -0.046, "panel": -0.088, "depth": 0.016, "front": 0.022, "w": 0.075, "h": 0.10, "skin": "leather_worn"},
 }
 const POCKET_BOTTOM := -0.145
 const POCKET_WIDTH := 0.42
@@ -65,6 +65,7 @@ const DRAW_SETTLE_SECONDS := 0.2
 var player: PlayerController
 var economy: Node
 var fire_stock: Node
+var household_state: Node
 var item_use: ItemUse
 var opened := false
 var settled := false
@@ -87,6 +88,7 @@ var _pointer := Vector2.ZERO
 var _held_turned := false
 var _floor_size := Vector2.ZERO
 var _return_washer := false
+var _return_book := ""
 var held_paper := -1
 var _papers: Array[Dictionary] = []
 var _sheets: Array[Node3D] = []
@@ -110,7 +112,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _available() -> bool:
 	return player != null and not player.call_locked and not player.mouse_released \
 			and not player.inspecting() \
-			and (not player._grab.active() or (is_instance_valid(fire_stock) and fire_stock.can_pack_washer(player))) \
+			and (not player._grab.active() or (is_instance_valid(fire_stock) and fire_stock.can_pack_washer(player)) \
+				or (is_instance_valid(household_state) and household_state.can_pack_book(player))) \
 			and not is_instance_valid(player.seated_interaction)
 
 
@@ -151,10 +154,17 @@ func open_case() -> void:
 	if opened or not _build():
 		return
 	if player._grab.active():
-		if not is_instance_valid(fire_stock) or not fire_stock.pack_washer(player):
+		var item := ""
+		if is_instance_valid(household_state) and household_state.can_pack_book(player):
+			var copy: Node3D = player.held_stock_body()
+			if household_state.pack_book(player):
+				item = CarriedCase.library_item(str(copy.shelf.name), copy.stock_id)
+		elif is_instance_valid(fire_stock) and fire_stock.pack_washer(player):
+			item = CarriedCase.MAINTENANCE_WASHER
+		if item.is_empty():
 			_discard_view()
 			return
-		_lay(CarriedCase.MAINTENANCE_WASHER, _goods)
+		_lay(item, _goods)
 	opened = true
 	_mouse_before = Input.mouse_mode
 	player.call_locked = true
@@ -192,6 +202,11 @@ func _finish_close() -> void:
 		_return_washer = false
 		if is_instance_valid(fire_stock):
 			fire_stock.return_case_washer(player)
+	if not _return_book.is_empty():
+		var item := _return_book
+		_return_book = ""
+		if is_instance_valid(household_state):
+			household_state.unpack_book(player, item)
 
 
 func _discard_view() -> void:
@@ -585,11 +600,15 @@ func _lay(item: String, parent: Node3D) -> void:
 	var place := CarriedCase.place_of(item)
 	var form := str(place.form)
 	var stack := Node3D.new()
-	stack.name = item
+	stack.name = item.replace(":", "_")
 	parent.add_child(stack)
 	if item == CarriedCase.MAINTENANCE_WASHER and is_instance_valid(fire_stock):
 		var draw: MeshInstance3D = fire_stock.stock.draw(stack, "Gasket")
 		draw.position.y = -draw.get_aabb().position.y
+	elif item.begins_with(CarriedCase.BOOK_PREFIX) and is_instance_valid(household_state):
+		var copy: Node3D = household_state.packed_book(item)
+		if is_instance_valid(copy):
+			copy.draw_in_valise(stack)
 	else:
 		for template: MeshInstance3D in _forms.get(form, []):
 			var copy := template.duplicate() as MeshInstance3D
@@ -659,6 +678,11 @@ func _show_tag(item: String, at: Vector3, blocked: bool) -> void:
 	if item == CarriedCase.MAINTENANCE_WASHER:
 		count = 1
 		record = {"name": "Fire-hose coupling gasket"}
+	elif item.begins_with(CarriedCase.BOOK_PREFIX) and is_instance_valid(household_state):
+		var copy: Node3D = household_state.packed_book(item)
+		if is_instance_valid(copy):
+			count = 1
+			record = {"name": copy.entry.get("title", copy.title_id)}
 	_tag.text = "%s  x%d%s" % [str(record.get("name", item)), count, "\nNO ROOM" if blocked else ""]
 	_tag.position = at + Vector3(0, 0.05, -0.02)
 	_tag.visible = true
@@ -696,7 +720,7 @@ func _past_front(at: Vector3) -> bool:
 
 
 func _verb_tag(item: String) -> String:
-	if item == CarriedCase.MAINTENANCE_WASHER:
+	if item == CarriedCase.MAINTENANCE_WASHER or item.begins_with(CarriedCase.BOOK_PREFIX):
 		return "TAKE IN HAND"
 	if item_use == null:
 		return "NOTHING TO DO WITH IT"
@@ -710,6 +734,10 @@ func _verb_tag(item: String) -> String:
 func _take_out(item: String) -> void:
 	if item == CarriedCase.MAINTENANCE_WASHER:
 		_return_washer = true
+		close_case()
+		return
+	if item.begins_with(CarriedCase.BOOK_PREFIX):
+		_return_book = item
 		close_case()
 		return
 	if item_use == null or not item_use.use(item):

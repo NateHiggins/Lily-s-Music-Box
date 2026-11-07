@@ -1,6 +1,12 @@
-# Current handoff — merged V2 qualification and Laurel timing
+# Current handoff — book transport qualification and Laurel timing
 
-Canonical **C:/PleaseRemainOnTheLine**, branch **codex/v2-region-qualification-20261106** based on merged **930c920e6**. Root owns integration. Check both bridge inboxes. Cases below are under **C:/ov/reports/develop_intake_20261104/**.
+Canonical **C:/PleaseRemainOnTheLine**. Root owns integration. Check both bridge inboxes. Cases below are under **C:/ov/reports/develop_intake_20261104/**.
+
+**PR168 book transport and reading fit:** **book_optical_fit_native_02/** passed all 23 native custody checks, including refusals, occupied-case handling and reconstruction of one original identity from disk. **book_valise_regressions_native_01/** passed the existing goods and newspaper routes (34 and 92 checks). Reviewed compact and hardback lamp frames cover both bindings without moving the camera eye. Fine paperback footer type stays faint. Human play and artistic acceptance remain open.
+
+**Current original qualification:** **qualification_book_optical_01/** terminal0 with both guards PASS at **6efb03d08**. Original authority/save passed 379 recorded checks and five contracts. Apartments passed 60 rooms, nine legs and 781 recorded checks. Rendered surfaces passed 38,947 checks. Exterior access passed six routes and 130 checks. All 82 current frames were technically reviewed. Foreground occlusion limits several apartment views and vehicles cover parts of two city frontages. Prior raw receipts are in **art/reviews/v2_qualification_book_optical_20261107/**. Verify the exact publication candidate against **book_optical_main_f9_baseline/board.json** before merging PR168.
+
+**Next Laurel attribution:** **laurel_service_shadow_mode_native_04/** reached the six ordinary-input legs, then retained a failed control with zero eligible active cube-shadow service lights. Use the test-only **laurel_local_shadow_ready_01/** census and controlled shadow A/B/A after the book candidate clears. Keep the original movement path and compare matching views.
 
 **PR162 city windows qualification:** **qualification_city_windows_01/** retains the fixture binding refusal. **02/** terminal0 and both source guards PASS at **515c75279**. The original authority/save packet independently passed 379 checks and five contracts. Apartment access passed 60 rooms, nine legs and 782 checks. Surface passed 38,947 checks, with a separate zero-defect validation of 30,921 draws. Exterior access passed six routes and 130 checks. The current packets preserve exact runtime and log bytes. All 82 changed frames were reviewed; the dumbwaiter and some apartment fixtures remain obscured. Previous evidence is archived in **art/reviews/v2_qualification_city_windows_20261106/**. Exact candidate verification, Laurel stutter, human play and art acceptance remain open.
 

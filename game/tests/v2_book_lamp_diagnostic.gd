@@ -567,6 +567,7 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 	var viewport := get_viewport() as SubViewport
 	var camera: Camera3D = player.camera
 	var held_fov: float = player._inspect_camera_fov if already_inspecting else camera.fov
+	var held_camera: Transform3D = player._inspect_camera_pose if already_inspecting else camera.transform
 	var matched_msaa: Viewport.MSAA = get_tree().root.msaa_3d
 	installed_reading = {"attempted":true, "completed":false, "book":_identity(book),
 		"binding_style":book.construction.get("opening_style"), "timing":[], "frames":[],
@@ -639,19 +640,47 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 		await get_tree().physics_frame
 		if frame in [0,1,2,5,15,35,59,119]:
 			installed_reading.fit_motion.samples.append(_reading_fit_motion(book,camera))
+	await RenderingServer.frame_post_draw
 	installed_reading.fit_motion.after=_reading_fit_motion(book,camera)
 	var projection_after:=_reading_hull_projection(book)
 	installed_reading.fit_projection={"before":projection_before,"after":projection_after}
-	if not _require(not book.is_physics_processing() and camera.global_transform.is_equal_approx(eye_before_fit)
+	if not _require(not book.is_physics_processing() and camera.global_position.is_equal_approx(eye_before_fit.origin)
 			and camera.global_position.distance_to(book.global_position) + .05
 				< camera.global_position.distance_to(before_fit.origin),
-			"open binding moves toward the fixed eye and settles through the physical hold"):
+			"open binding settles toward the fixed eye before optical fitting"):
 		return false
 	var area_before: float=projection_before.get("projected_width_px",0.)*projection_before.get("projected_height_px",0.)
 	var area_after: float=projection_after.get("projected_width_px",0.)*projection_after.get("projected_height_px",0.)
 	if not _require(area_before>0. and area_after>area_before and not bool(projection_after.get("frame_clipped",true)),
 			"centred reading fit increases projected book area while keeping the complete binding in view"):
 		return false
+	var default_fov:=camera.fov
+	var default_bounds: Array=projection_after.projected_bounds_px
+	var default_size:=viewport.get_visible_rect().size
+	var default_margin:=minf(minf(float(default_bounds[0]),float(default_bounds[1])),
+		minf(default_size.x-float(default_bounds[2]),default_size.y-float(default_bounds[3])))
+	installed_reading.default_fit={"fov":default_fov,"projection":projection_after,"minimum_margin_px":default_margin}
+	if not _require(default_margin>=minf(default_size.x,default_size.y)*.05 and not player._inspect_manual_zoom,
+			"automatic optical fit keeps the complete binding inside a screen margin"):
+		return false
+	if not await _installed_reading_frame("installed_reading_default",book,default_fov,matched_msaa,original):
+		return false
+	if _compact_paperback:
+		for pixels: Vector2i in [Vector2i(960,600),COMPACT_PIXELS]:
+			await _resize_reading_view(book,pixels)
+			var resized:=_reading_hull_projection(book)
+			if not _require(not bool(resized.get("frame_clipped",true)) and not book._optical_fit_pending
+					and camera.global_position.is_equal_approx(eye_before_fit.origin) and not player._inspect_manual_zoom,
+					"resize refits the complete binding before manual zoom"):
+				return false
+	if not _require(await _two_style_cursor(camera.global_position-camera.global_basis.z),
+			"free cursor reaches centre for the original zoom controls"):
+		return false
+	var baseline_wheel:=InputEventMouseButton.new()
+	baseline_wheel.button_index=MOUSE_BUTTON_WHEEL_DOWN if camera.fov<40. else MOUSE_BUTTON_WHEEL_UP
+	baseline_wheel.pressed=true
+	baseline_wheel.factor=absf(camera.fov-40.)*.5
+	player._unhandled_input(baseline_wheel)
 	var reading_pose: Transform3D = book.global_transform
 	var reading_eye: Vector3 = camera.global_position
 	var reading_basis: Basis = camera.global_basis
@@ -710,6 +739,15 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 	if not _require(is_equal_approx(camera.fov, 40.) and camera.project_ray_normal(pixel).distance_to(pointer_ray) < .0001,
 			"same off-centre cursor returns normally to entry FOV"):
 		return false
+	if _compact_paperback:
+		var manual_pose:=camera.global_transform
+		var manual_fov:=camera.fov
+		for pixels: Vector2i in [Vector2i(960,600),COMPACT_PIXELS]:
+			await _resize_reading_view(book,pixels)
+			if not _require(player._inspect_manual_zoom and camera.global_transform.is_equal_approx(manual_pose)
+					and is_equal_approx(camera.fov,manual_fov),"resize preserves the player's chosen zoom and viewing axis"):
+				return false
+
 	var pickup_pose: Transform3D=book._reading_pickup_pose
 	var pickup_slot: int=book._reading_pickup_slot
 	var pickup_angle: float=book._reading_pickup_opening
@@ -754,6 +792,8 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 	})
 	if not _require(not player.inspecting() and not player._grab.active()
 			and is_equal_approx(camera.fov, held_fov) and not book._held
+			and camera.transform.origin.distance_to(held_camera.origin)<.005
+			and camera.basis.get_rotation_quaternion().angle_to(held_camera.basis.get_rotation_quaternion())<.001
 			and (released_nearby if blocked_test else returned),
 			"blocked pickup leaves the same read copy to settle locally" if blocked_test
 			else "normal Space puts the same read copy back at its pickup pose and restores FOV"):
@@ -779,6 +819,15 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 			and sample.aperture_travel_from_40_m < .10 \
 			and is_equal_approx(float(sample.companion_crop_size_m), float(samples[0].companion_crop_size_m))
 	return _require(front_and_bounded, "native aperture stays on the reading side within bounded travel and stable companion projection")
+
+func _resize_reading_view(book: Node3D, pixels: Vector2i) -> void:
+	(get_viewport() as SubViewport).size=pixels
+	for frame in 120:
+		await get_tree().physics_frame
+		if not book.is_physics_processing() and (player._inspect_manual_zoom or not book._optical_fit_pending):
+			break
+	await RenderingServer.frame_post_draw
+
 
 func _installed_reading_wheel(button: MouseButton) -> void:
 	var wheel := InputEventMouseButton.new()
