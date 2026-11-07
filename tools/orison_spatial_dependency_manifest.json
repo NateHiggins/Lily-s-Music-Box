@@ -328083,6 +328083,66 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "d381d460a6112f28",
+   "kind": "id_reference",
+   "token": "PASSAGE_PORTAL_LT_E",
+   "file": "game/scripts/building/orison_v2_passage_region.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_mount_markers"
+   ],
+   "lines": [
+    404
+   ],
+   "count": 1,
+   "context": [
+    "if prop is LightFixtureProp and identity in [\"PASSAGE_PORTAL_LT_W\", \"PASSAGE_PORTAL_LT_E\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime. The existing V2 portal mount opts its original OmniLight into the exterior shadow fade.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "2faaa462e098d1b4",
+   "kind": "id_reference",
+   "token": "PASSAGE_PORTAL_LT_W",
+   "file": "game/scripts/building/orison_v2_passage_region.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_mount_markers"
+   ],
+   "lines": [
+    404
+   ],
+   "count": 1,
+   "context": [
+    "if prop is LightFixtureProp and identity in [\"PASSAGE_PORTAL_LT_W\", \"PASSAGE_PORTAL_LT_E\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime. The existing V2 portal mount opts its original OmniLight into the exterior shadow fade.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
   }
  ]
 }
