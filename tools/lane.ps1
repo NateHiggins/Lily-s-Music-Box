@@ -166,20 +166,43 @@ function Write-LaneStatus {
     }
 }
 
+function Get-RunSummary {
+    param([hashtable]$Spec)
+    [ordered]@{ scene = [string]$Spec.scene; runner = [string]$Spec.runner; log = [string]$Spec.log
+        windowed = [bool]$Spec.windowed; timeout = $Spec.timeout; skip = [bool]$Spec.skip }
+}
+
+function Read-LaneBatch {
+    # The runs in a batch file, validated; throws on anything malformed.
+    param([string]$Path)
+    $out = @()
+    foreach ($item in (Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json)) {
+        $h = @{}
+        foreach ($prop in $item.PSObject.Properties) { $h[$prop.Name] = $prop.Value }
+        if (-not $h.log) { throw "every batch entry needs a log" }
+        $null = Get-RunEnvironment -Spec $h
+        $out += $h
+    }
+    return ,$out
+}
+
 function Wait-ForLane {
     # Returns an owned Mutex, or $null if the deadline passed. Ownership
     # requires BOTH the mutex and an empty Godot census, exactly as the
     # runners require; the mutex is released again while Godot is still
     # running elsewhere so a waiting broker never blocks the lane itself.
-    param([double]$Minutes, [string]$What)
+    param([double]$Minutes, [string]$What, [object[]]$Runs = @(), [string]$BatchPath = "")
     $deadline = (Get-Date).AddMinutes($Minutes)
     $waitDir = Join-Path (Get-OrisonLaneStateDir) "waiters"
     New-Item -ItemType Directory -Force -Path $waitDir | Out-Null
     $waitFile = Join-Path $waitDir "$PID.json"
     $stamp = "$waitFile.tmp"
+    # Each run is listed so a queue viewer (Omni) can show and edit it; a batch rereads
+    # its file when its turn comes (Read-LaneBatch), so edits made while it waits apply.
     [ordered]@{ pid = $PID; scene = $What; worktree = (Split-Path $PSScriptRoot -Parent)
-                since_utc = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ") } |
-        ConvertTo-Json | Set-Content -LiteralPath $stamp -Encoding utf8
+                since_utc = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
+                batch_file = $BatchPath; runs = @($Runs | ForEach-Object { Get-RunSummary -Spec $_ }) } |
+        ConvertTo-Json -Depth 4 | Set-Content -LiteralPath $stamp -Encoding utf8
     Move-Item -LiteralPath $stamp -Destination $waitFile -Force
     $announced = $false
     try {
@@ -314,25 +337,26 @@ switch ($Command) {
         if (-not $BatchFile -or -not (Test-Path -LiteralPath $BatchFile)) {
             Write-Error "batch needs -BatchFile <runs.json>"; exit $EXIT_USAGE
         }
-        $runs = @()
-        foreach ($item in (Get-Content -LiteralPath $BatchFile -Raw | ConvertFrom-Json)) {
-            $h = @{}
-            foreach ($prop in $item.PSObject.Properties) { $h[$prop.Name] = $prop.Value }
-            if (-not $h.log) { Write-Error "every batch entry needs a log"; exit $EXIT_USAGE }
-            try { $null = Get-RunEnvironment -Spec $h }
-            catch { Write-Error $_; exit $EXIT_USAGE }
-            $runs += $h
-        }
+        $BatchFile = (Resolve-Path -LiteralPath $BatchFile).Path
+        try { $runs = Read-LaneBatch -Path $BatchFile }
+        catch { Write-Error $_; exit $EXIT_USAGE }
     }
 }
 
 $label = if ($runs.Count -eq 1) { $runs[0].scene } else { "$($runs.Count) runs" }
-$mutex = Wait-ForLane -Minutes $WaitMinutes -What $label
+$mutex = Wait-ForLane -Minutes $WaitMinutes -What $label -Runs $runs -BatchPath $(if ($Command -eq "batch") { $BatchFile } else { "" })
 if ($null -eq $mutex) {
     Write-Error "LANE BUSY: not free within $WaitMinutes min; nothing was started."
     Write-LaneStatus (Get-LaneStatus) | ForEach-Object { Write-Host $_ }
     exit $EXIT_LANE_BUSY
 }
+if ($Command -eq "batch") {
+    # Take any edits made while this batch waited (reordered or skipped runs). A file
+    # that no longer reads keeps the runs as queued, so a bad edit never loses the turn.
+    try { $runs = Read-LaneBatch -Path $BatchFile }
+    catch { Write-Warning "batch file edit unreadable, running it as queued: $_" }
+}
+$runs = @($runs | Where-Object { -not $_.skip })
 $final = 0
 $results = @()
 $env:ORISON_LANE_BROKER = "$PID"
