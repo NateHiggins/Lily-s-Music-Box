@@ -627,6 +627,13 @@ func draw_in_valise(parent: Node3D) -> void:
 		draw.transform = global_transform.affine_inverse() * original.global_transform
 	var imprint := _spine.duplicate(0) as Node3D
 	flat.add_child(imprint)
+	for original: Label3D in printed_labels:
+		if original.get_parent() != left:
+			continue
+		var label := original.duplicate(0) as Label3D
+		flat.add_child(label)
+		label.transform = global_transform.affine_inverse() * original.global_transform
+		_matte_letter.call_deferred(label)
 
 
 static func valid_book(value: Variant) -> bool:

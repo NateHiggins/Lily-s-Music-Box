@@ -79,6 +79,10 @@ func _route() -> void:
 			and sibling.visible and sibling.transform.is_equal_approx(sibling_pose) \
 			and CarriedCase.place_of(sibling_item).is_empty(), "Tab packs only the original copy"):
 		return
+	var cover: Label3D = view._stacks[item].find_child("CoverTitle", true, false)
+	if not _require(cover != null and cover.text == str(original.entry.title) and cover.is_visible_in_tree(),
+			"the case retains the original binding title"):
+		return
 	await _capture_interaction("original_copy_in_valise")
 	var place := CarriedCase.place_of(item).duplicate()
 	if not _require(int(place.x) > 0 and int(place.y) == 0 and not bool(place.turned) and view._papers.size() == 3,
