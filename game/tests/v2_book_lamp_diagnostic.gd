@@ -669,6 +669,35 @@ func _installed_reading(book: Node3D, already_inspecting := false) -> bool:
 			and bool(reading_aim.get("target_valid",false)),
 			"released inspection keeps a native page target for the shoulder lamp"):
 		return false
+	if _compact_paperback and OS.get_environment("ORISON_BOOK_COMPACT_OPTICAL_WITNESS") == "1":
+		var baseline_bounds: Array = projection_after.projected_bounds_px
+		var centre := Vector2((float(baseline_bounds[0])+float(baseline_bounds[2]))*.5,
+			(float(baseline_bounds[1])+float(baseline_bounds[3]))*.5)
+		var axis := camera.project_ray_normal(centre)
+		var original_anchor: Transform3D = player._inspect_anchor
+		var optical_pose := original_anchor
+		optical_pose.basis = Basis(Quaternion(-reading_basis.z,axis))*reading_basis
+		player._inspect_anchor = optical_pose
+		camera.global_transform = optical_pose
+		camera.fov = 27.5
+		var frame_ok := await _installed_reading_frame("installed_reading_compact_optical_27p5",book,27.5,matched_msaa,original)
+		var fitted := _reading_hull_projection(book)
+		var fitted_bounds: Array = fitted.get("projected_bounds_px",[])
+		var fixed_stock := camera.global_position.is_equal_approx(reading_eye) and book.global_transform.is_equal_approx(reading_pose)
+		player._inspect_anchor = original_anchor
+		camera.global_transform = original_anchor
+		camera.fov = 40.
+		var margin := -1.0
+		if fitted_bounds.size() == 4:
+			var viewport_size := viewport.get_visible_rect().size
+			margin = minf(minf(float(fitted_bounds[0]),float(fitted_bounds[1])),
+				minf(viewport_size.x-float(fitted_bounds[2]),viewport_size.y-float(fitted_bounds[3])))
+		var width_gain := float(fitted.get("projected_width_px",0.))/float(projection_after.projected_width_px)
+		installed_reading.compact_optical_witness={"scope":"Fixed-eye projection experiment, independent of production input", "fov_deg":27.5,
+			"hull":fitted,"minimum_margin_px":margin,"width_gain":width_gain,"fixed_eye_and_stock":fixed_stock}
+		if not _require(frame_ok and fixed_stock and margin >= 32.0 and width_gain >= 1.40,
+				"same-eye compact optical witness gains projected size with the whole binding visible"):
+			return false
 	if not _require(await _two_style_cursor(camera.global_position - camera.global_basis.z),
 			"detached reading cursor reaches camera centre"):
 		return false
