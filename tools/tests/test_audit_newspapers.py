@@ -92,6 +92,15 @@ class AdvertisingTests(unittest.TestCase):
                     self.ad(image="res://nope.png")):
             self.assertTrue(self.run_ads([bad] + self.page()), bad)
 
+    def test_a_display_price_is_not_said_again_in_the_body(self):
+        body = " ".join(["word"] * 18)
+        repeated = self.ad(headline="Gaskets, ten cents", body=body + " ten cents.")
+        self.assertTrue(any("price" in line for line in self.run_ads([repeated] + self.page())))
+        offered = self.ad(offer="From eleven dollars", body=body + " from eleven-dollars.")
+        self.assertTrue(any("price" in line for line in self.run_ads([offered] + self.page())))
+        once = self.ad(headline="Gaskets, ten cents", body=body + " a dollar.")
+        self.assertEqual(self.run_ads([once] + self.page()), [])
+
     def test_a_firm_must_say_who_it_is_and_how_to_reach_it(self):
         for field, value in (("telephone", ""), ("address", ""), ("id_line", ""), ("name", "Mae Kessler")):
             found = []
