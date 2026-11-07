@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 352.54,
+  "elapsed_s": 348.07,
   "exit_code": 0,
-  "finished_utc": "2026-11-07T06:00:20Z",
-  "started_utc": "2026-11-07T05:54:27Z",
+  "finished_utc": "2026-11-07T08:05:10Z",
+  "started_utc": "2026-11-07T07:59:22Z",
   "timed_out": false
  },
  "log": {
@@ -19,23 +19,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/develop_intake_20261104/qualification_book_optical_01/regions.log.stderr",
+  "stderr": "C:/ov/reports/develop_intake_20261104/qualification_exterior_shadow_01/regions.log.stderr",
   "stderr_sha256": "45c769a5c9f7556adcb15097ffdfd60d1ec69231c12d96e459614e0f651b5f7f",
-  "stdout": "C:/ov/reports/develop_intake_20261104/qualification_book_optical_01/regions.log",
-  "stdout_sha256": "579028ffc25aaa864a11cf6813203269aa01c8d3ce11d8d9a955ff659a36af09"
+  "stdout": "C:/ov/reports/develop_intake_20261104/qualification_exterior_shadow_01/regions.log",
+  "stdout_sha256": "402fe52d0f7a3df7da498d26a252f0b8e2547bac87163f0ae23676eefa1da731"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/V2RegionAccessContract.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\ov\\reports\\develop_intake_20261104\\qualification_book_optical_01\\regions",
+ "shot_dir": "C:\\ov\\reports\\develop_intake_20261104\\qualification_exterior_shadow_01\\regions",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "6efb03d08380253577b3810f1b0b7b3bc7969ed2",
-  "repository_tree": "4d7007e939fed437138e38a210a4949faeaec1e5",
-  "runtime_inputs_sha256": "7ced59b2c63247d4f8361ba0a0027e1d8312c070a6ea2714829085a818b61d0e",
+  "repository_head": "74ad19328e29adf9ebcc3b0faed934b55af4863e",
+  "repository_tree": "618eeac2e6f62290eaf8240305c755af2a33fc15",
+  "runtime_inputs_sha256": "96332fc3744ee9471e26fba05a8da323ff5e5d8c1ad9de69b4f20d6b18e7e77f",
   "test_path": "game/tests/v2_region_access_contract.gd",
   "test_sha256": "40b8fa96d0a11623d6db2121f7696fb2626ce81f4331370473e2cfa54cd91adf"
  },

@@ -1,0 +1,43 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 353.04,
+  "exit_code": 0,
+  "finished_utc": "2026-11-07T05:19:00Z",
+  "started_utc": "2026-11-07T05:13:06Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 SURFACE QUALIFICATION: PASS; 38947 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/develop_intake_20261104/qualification_book_optical_01/surface.log.stderr",
+  "stderr_sha256": "2484b661839667eccad338ff1cf4fdac1291e0d05c19541cfdd346057dbab0f8",
+  "stdout": "C:/ov/reports/develop_intake_20261104/qualification_book_optical_01/surface.log",
+  "stdout_sha256": "88212859f7d416a982a595d895cc64296199f17b663a0ea2351d9ee1b1fdb99f"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\develop_intake_20261104\\qualification_book_optical_01\\surface",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "6efb03d08380253577b3810f1b0b7b3bc7969ed2",
+  "repository_tree": "4d7007e939fed437138e38a210a4949faeaec1e5",
+  "runtime_inputs_sha256": "7ced59b2c63247d4f8361ba0a0027e1d8312c070a6ea2714829085a818b61d0e",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "934c2b565c9976e6c62c9867df4df851150263229567780f9dc90aed257261d0"
+ },
+ "windowed": true
+}
