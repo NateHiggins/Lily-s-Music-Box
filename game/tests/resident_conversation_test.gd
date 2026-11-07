@@ -72,7 +72,9 @@ func _run() -> void:
 		for line in str(director.field_note(note_id, "4A").body).split("\n"):
 			widest = maxi(widest, line.length())
 		_check("note %s fits the printer's thirty columns" % note_id, widest <= 30)
-	_check("both notes loaded", director.notes.has("first_conversation") and director.notes.size() == 2)
+	var required_notes := ["first_conversation", "first_knock_unanswered", "uniform_wants_mending", "uniform_wants_washing"]
+	_check("all four field notes loaded", required_notes.all(func(id: String) -> bool: return director.notes.has(id))
+			and director.notes.size() == required_notes.size())
 	_home = true
 	_check("a knock on an occupied flat opens the conversation",
 			director.knock("4A").is_empty() and panel.attention_active()

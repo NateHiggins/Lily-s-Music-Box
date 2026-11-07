@@ -40,7 +40,7 @@
       "silence_goto": "pw_order"
     },
     "pw_order": {
-      "line": "Yes. Work order. Issued, acknowledged, countersigned by nobody. You see the difficulty. If it goes wrong there is a signature on it, and the signature is yours, and you have not read the second page, because there is no second page, which is in itself an irregularity.",
+      "line": "Yes. Work order. Issued, acknowledged, countersigned by nobody. If it goes wrong, we shall know exactly whom to blame. You, according to the signature. And you have not read the second page, because there is no second page, which is in itself an irregularity.",
       "choices": [
         {"label": "It's a corridor that keeps growing. Not a filing.", "goto": "pw_corridor"},
         {"label": "I'll sign for the second page too.", "goto": "pw_sign", "trust": -1, "flag": "signed_for_peter"}

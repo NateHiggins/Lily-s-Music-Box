@@ -117,6 +117,18 @@
     {"label": "Pictures will never last without voices.", "trust": -1,
      "reply": "They've lasted perfectly well without them, darling. It's voices that don't last. A voice is an event; a face on film is a monument. I'm in the wrong trade and have been since I could stand."}
    ]},
+    {
+      "id": "rs_op_good_clothes",
+      "from": "1929-05-24",
+      "until": "1929-06-20",
+      "topic": "Received between the soup and the fish.",
+      "line": "Mrs. Ryder of Flushing, received between the soup and the fish, came home holding a cup that wasn't hers and ordered a new hat. Darling, I've had three women at my door this week wanting to borrow something to be received in. The good black, the green, the beaded one from my second act. They stand in their yards from seven like understudies. I've let the beaded one go. If they're going to be snubbed by the stars, they'll be snubbed in bugle beads.",
+      "choices": [
+        {"label": "Have any of them been received yet?", "reply": "Not one. They stand there in my second act till ten and come in with wet hems. One of them says the waiting's the best part. Darling, she's right, and she's not to be told.", "trust": 1, "flag": "rs_lent_the_beads"},
+        {"label": "Would you go, if you were asked?", "reply": "Asked? I'd go in the beaded one and be rude first. Get in before them. You can't be snubbed by people you've already decided not to like. That's the whole of the profession."},
+        {"label": "They're making fools of themselves.", "reply": "Everybody's a fool in a yard in sequins, that's what sequins are for. Better a fool dressed for something than a wise man in his shirtsleeves waiting for nothing.", "trust": -1}
+      ]
+    },
   {"id": "rs_op_taps", "from": "1929-05-31", "until": "1929-06-28",
    "requires": ["op:rs_op_silence"],
    "topic": "Thirty-eight seconds after Taps.",
@@ -153,6 +165,17 @@
     {"label": "Seems petty, sealing an empty sleeve.", "trust": -1,
      "reply": "Petty is the word for a gesture you didn't think of first. She's said more with one empty sleeve than the Society has said in five copper cases. If I were Mr. Abbot I'd be sick with envy."}
    ]},
+    {
+      "id": "rs_op_half_a_cake",
+      "from": "1929-07-19",
+      "until": "1929-07-19",
+      "topic": "Eleven hundred tons of Hudson ice.",
+      "line": "Eleven hundred tons of Hudson ice by barge at five yesterday morning, darling, and the iceman brought me a piece the size of a hymnal and called it fifty pounds. Fifth day. I've slept with my feet in the sink and a wet stocking round my neck like a fox fur. At noon I sang to the icebox with the door open. It's the only audience in this house that's colder than I am, and it never coughs.",
+      "choices": [
+        {"label": "It sounds like a performance, the ice.", "reply": "It was. He carried it up with the tongs held out in front like a bouquet, laid it in the box and stood back. I applauded. He took a bow. Fifty-five cents, and worth every one.", "trust": 1},
+        {"label": "You could sleep in the playgrounds with everyone else.", "reply": "In public? Asleep? Darling, I've spent twenty years making sure nobody sees me with my mouth open. I'll melt indoors with the blind down, like a lady."}
+      ]
+    },
   {"id": "rs_op_tone", "from": "1929-07-25", "until": "1929-08-25",
    "topic": "A bay that 'sounds smaller.'",
    "line": "The Society split down the middle over the dawn at Alley Pond: forty-seven birds and, beneath them, the tone. Mr. Abbot says keep the records 'as heard.' Fourteen walked out to found a Circle at Flushing that records 'what is meant to be heard,' tone removed where possible. They've played their first, Flushing Bay at evening, and the members say the bay 'sounds smaller.' Of course it does, darling. You took the room out of it. Every engineer I've ever had does that to me.",
