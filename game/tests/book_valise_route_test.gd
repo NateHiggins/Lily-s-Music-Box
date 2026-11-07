@@ -146,11 +146,26 @@ func _route() -> void:
 	obstruction.global_position = original._hold_target(eye, false) + eye.basis * original.pickup_centre()
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	var packed_primary := FileAccess.get_file_as_bytes(path)
+	RealityState.flush_background_saves()
+	var observed := {"writes": 0, "custody_violations": 0}
+	# The live world can legitimately save clock, lamp and resident changes
+	# while the case closes. Every such generation must retain this copy.
+	RealityState.storage_operation_override = func(stage: String, operation: String, arguments: Dictionary) -> Variant:
+		if stage == "temp_write" and operation == "write" and arguments.get("path") == path + ".tmp":
+			observed.writes += 1
+			var bytes: PackedByteArray = arguments.bytes
+			var candidate: Dictionary = JSON.parse_string(bytes.get_string_from_utf8())
+			if candidate.get(CarriedCase.KEY, {}).get("places", {}).get(item, {}) != persisted_place:
+				observed.custody_violations += 1
+		return null
 	await _take_through_case(view, place)
+	RealityState.storage_operation_override = Callable()
+	RealityState.flush_background_saves()
+	var blocked_save: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
 	if not _require(player.held_stock_body() == null and original.valise_packed \
-			and CarriedCase.place_of(item) == place and FileAccess.get_file_as_bytes(path) == packed_primary,
-			"blocked handoff preserves packed custody, placement and primary"):
+			and CarriedCase.place_of(item) == place and observed.custody_violations == 0 \
+			and blocked_save[CarriedCase.KEY].places[item] == persisted_place,
+			"blocked handoff preserves packed custody and placement in every save"):
 		return
 	obstruction.queue_free()
 	await get_tree().physics_frame
