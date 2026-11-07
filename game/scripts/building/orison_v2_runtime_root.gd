@@ -1227,7 +1227,6 @@ func _compose_exterior() -> bool:
 	# Add scenic stock in the composed world after the bound native loaders.
 	# CityShells offsets its source by the threshold along local Z.
 	preload("res://scripts/building/orison_v2_city_far_shore.gd").mount(city_shells, -city_shells.position.z)
-	var ground := _blockout.get_node("Ground") as Node3D
 	preload("res://scripts/building/orison_v2_city_industrial_cut.gd").mount(ground)
 	preload("res://scripts/building/orison_v2_city_canal_bulkhead.gd").mount(ground)
 	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
