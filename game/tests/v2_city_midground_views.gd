@@ -35,12 +35,20 @@ func _views(world: OrisonV2RuntimeRoot, _data: Dictionary) -> Array[Dictionary]:
 	# the four compass points and on the diagonals, and look outward.
 	var views: Array[Dictionary] = []
 	for bearing: float in [0.0, 45.0, 90.0, 135.0, 180.0, 225.0, 270.0, 315.0]:
-		var radians := deg_to_rad(bearing)
-		var nominal := Vector3(sin(radians), 0.0, -cos(radians)) * 160.0
-		var eye := _floor_eye(world, nominal)
+		# The near city is filled in, so the exact point may be a roof: take the nearest street or yard
+		# around it (a little nearer or farther, a few degrees either side), still looking outward.
+		var eye := Vector3.INF
+		for radius: float in [160.0, 155.0, 165.0, 150.0, 170.0, 145.0]:
+			for offset: float in [0.0, -4.0, 4.0, -8.0, 8.0]:
+				var radians := deg_to_rad(bearing + offset)
+				eye = _floor_eye(world, Vector3(sin(radians), 0.0, -cos(radians)) * radius)
+				if eye.is_finite():
+					break
+			if eye.is_finite():
+				break
 		if eye.is_finite():
 			views.append({"id": "out_%03d" % int(bearing), "eye": eye, "bearing": bearing, "pitch": 0.04, "fov": 72.0})
-	_check(views.size() >= 6, "standing points just inside the edge")
+	_check(views.size() >= 7, "standing points just inside the edge")
 	# The Queens Plaza bank clock (build_city_midground.py pick_landmark), from the Orison's roof:
 	# at street level the lofts in front hide it.
 	var roof: Vector3 = world.adapter.root.to_global(Vector3(-11.0, 20.8702503, 6.0))
