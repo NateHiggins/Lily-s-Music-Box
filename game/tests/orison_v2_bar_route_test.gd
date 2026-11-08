@@ -67,22 +67,27 @@ func _route() -> void:
 				if not await _walk_source(bar,pool_point):return
 	var wc: DoorProp = bar.doors["F01_BAR_WC_DOOR"]
 	if not await _use(wc,wc.to_global(Vector3(wc.width*.5,1.15,0)),"wc_door"):return
-	# Architectural doors open slowly since 2026-10-22; let the leaf settle before measuring the hinge.
-	var settle := Time.get_ticks_msec()
-	while Time.get_ticks_msec() - settle < 4000 and absf(absf(rad_to_deg(wc._body.rotation.y)) - 90.0) >= .1:
-		await get_tree().physics_frame
-	if not _require(wc.open and absf(rad_to_deg(wc._body.rotation.y)-90.0)<.1,
-			"ordinary restroom input clears the retained jamb with a fitted quarter-turn hinge (open=%s, %.1f deg)" % [wc.open, rad_to_deg(wc._body.rotation.y)]):return
+	# Since the direct-manipulation ruling (RUL-013) the hand opens a leaf to 86% of its stop, and the
+	# door closer starts drawing it shut after release, so measure straight away: the fitted stop is a
+	# quarter turn and the hand reached the walk-through opening it asked for.
+	var stop_deg := absf(rad_to_deg(wc.motion_target_angle(true)))
+	var opened_deg := absf(rad_to_deg(wc._body.rotation.y))
+	if not _require(wc.open and absf(stop_deg-90.0)<.1 and opened_deg>=stop_deg*.86-.5 and opened_deg<=stop_deg+.1,
+			"ordinary restroom input clears the retained jamb with a fitted quarter-turn hinge (stop %.1f deg, opened %.1f deg)" % [stop_deg, opened_deg]):return
+	await get_tree().create_timer(.6).timeout
 	if not await _walk_source(bar,Vector3(-10.48,-2.8,36.65)):return
 	await _capture("wc_inside",bar.to_global(Vector3(-10.1,-1.9,37.5)))
 	var sink = bar.actors.get_node("F01_BAR_WC_SINK_01")
-	if not await _use(sink,sink.to_global(Vector3(0,.82,0)),"wc_sink"):return
+	# Taps are turned by hand since RUL-013: grab each valve and give it a quarter turn.
+	if not _require(sink is TapProp and sink._handles.size()==2,"retained sink keeps its two original valves"):return
+	if not await _turn_valve(sink,0,PI*.5,"wc_sink"):return
 	if not _require(sink.get_flow_state().hot and not sink.get_flow_state().cold,
 			"retained sink first opens its hot valve through ordinary input"):return
-	if not await _use(sink,sink.to_global(Vector3(0,.82,0)),"wc_sink_mixed"):return
+	if not await _turn_valve(sink,1,PI*.5,"wc_sink_mixed"):return
 	if not _require(sink.get_flow_state().hot and sink.get_flow_state().cold,
 			"retained sink admits both valves on repeated input"):return
-	if not await _use(sink,sink.to_global(Vector3(0,.82,0)),"wc_sink_off"):return
+	if not await _turn_valve(sink,0,0.0,"wc_sink_off"):return
+	if not await _turn_valve(sink,1,0.0,"wc_sink_off_cold"):return
 	if not _require(not sink.get_flow_state().hot and not sink.get_flow_state().cold,
 			"retained sink closes both valves through ordinary input"):return
 	if not await _walk_source(bar,Vector3(-10.48,-2.8,35.4)):return
@@ -95,7 +100,12 @@ func _route() -> void:
 	if not await _walk_source(bar,Vector3(1.45,-2.8,34.5)):return
 	# The bar stays resident independently while the arcade reloads on exit.
 	var bar_geometry := bar.get_node("RetainedBarGeometry")
-	for point in [Vector3(2.5,-2.8,34.5),Vector3(3.7,-2.8,34.5),Vector3(4.8,-2.8,34.55)]:
+	# Doors have closers since 2026-10-22: the red door has shut behind the player, so open it again by hand.
+	if not await _walk_source(bar,Vector3(2.5,-2.8,34.5)): return
+	if not red.open:
+		if not await _use(red,red.to_global(Vector3(red.width*.5,1.15,0)),"bar_red_door_out"): return
+		if not _require(red.open,"existing red door opens again from inside through ordinary input"): return
+	for point in [Vector3(3.7,-2.8,34.5),Vector3(4.8,-2.8,34.55)]:
 		if not await _walk_source(bar,point): return
 	descent.reverse()
 	for point: Vector3 in descent.slice(1):
@@ -104,8 +114,9 @@ func _route() -> void:
 	outward.reverse()
 	for point: Vector3 in outward:
 		if not await _walk_world(point): return
-	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5)]:
-		if not await _walk(point): return
+	# The front entrance has shut behind the player (door closers, 2026-10-22); come back in through it by hand.
+	if not await _enter_front_entrance(): return
+	if not await _walk(Vector3(1.925,0,-6.5)): return
 	_require(is_instance_valid(bar_geometry) and AcousticGraphData.nodes["F01_BAR_LT_STAIR"]==acoustic_before,
 			"return preserves bar geometry and one acoustic source authority")
 
@@ -119,3 +130,15 @@ func _capture(identity: String,target: Vector3) -> void:
 	player.camera.look_at(target)
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(output.path_join(identity+".png"))
+
+
+## Grab one of a tap's original valves with the real pointer and turn it to an angle.
+func _turn_valve(tap: TapProp, index: int, angle: float, label: String) -> bool:
+	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	await _capture_interaction(label)
+	var moved: bool = await hand.operate(tap._handles[index].global_position, angle, tap)
+	hand.free()
+	return _require(moved, "actual grab, mouse motion and release: " + label)
