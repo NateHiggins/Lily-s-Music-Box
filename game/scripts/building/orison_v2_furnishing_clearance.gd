@@ -17,7 +17,7 @@ static func finish_stock(root: Node3D) -> Array[Dictionary]:
 		var stock: MultiMesh=draw.multimesh
 		if stock==null or stock.mesh==null:continue
 		for i in stock.instance_count:
-			var pose: Transform3D=inverse*draw.global_transform*stock.get_instance_transform(i)
+			var pose: Transform3D=inverse*draw.global_transform*MultiMeshPoses.pose(stock,i)
 			result.append({"bounds":pose*stock.mesh.get_aabb(),"normal":pose.basis.z.normalized(),"owner":str(draw.get_parent().name),"part":str(draw.name)})
 	return result
 

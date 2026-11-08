@@ -333,7 +333,7 @@ func validate() -> void:
 		release();return
 	var reach: Vector3=target.reach_point.call() if target.has("reach_point") else target.part.to_global(contact)
 	if player.call_locked or player.mouse_released \
-			or (not player.touch_input and not player.inspecting() and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED) \
+			or (not player.touch_input and not player.inspecting() and not player.pointer_captured()) \
 			or not target.part.is_inside_tree() \
 			or view.global_position.distance_to(reach) > 2.4:
 		release()

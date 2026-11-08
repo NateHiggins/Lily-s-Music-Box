@@ -119,7 +119,7 @@ func _resolve_anchors() -> void:
 	anchor_ids.hoarding = str(hoarding.name)
 	# The chosen base is the first transform authored by the hoarding owner.
 	# No street-end world position is duplicated here.
-	anchor_ids.hoarding_transform = hoarding.multimesh.get_instance_transform(0)
+	anchor_ids.hoarding_transform = MultiMeshPoses.pose(hoarding.multimesh, 0)
 	var hoarding_transform: Transform3D = anchor_ids.hoarding_transform
 	anchor_ids.hoarding_base = hoarding_transform.origin \
 			- Vector3.UP * hoarding_transform.basis.y.length() * 0.5

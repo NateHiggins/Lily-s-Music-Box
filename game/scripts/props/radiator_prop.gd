@@ -301,7 +301,7 @@ func _install_native_body_grab() -> void:
 		var box := BoxShape3D.new()
 		box.size = bounds.size
 		shape.shape = box
-		shape.transform = sections.multimesh.get_instance_transform(index)*Transform3D(Basis.IDENTITY,bounds.get_center())
+		shape.transform = MultiMeshPoses.pose(sections.multimesh, index)*Transform3D(Basis.IDENTITY,bounds.get_center())
 		area.add_child(shape)
 
 func _attach_native_collision() -> void:
@@ -492,7 +492,7 @@ func _build_sections(iron: Color) -> void:
 		var transform := Transform3D(Basis.IDENTITY,
 				Vector3(sx, BODY_BOTTOM, 0.0))
 		_section_bases.append(transform)
-		instances.set_instance_transform(i, transform)
+		MultiMeshPoses.set_pose(instances, i, transform)
 		# Subtle enamel/casting variation stays coherent by batch, not random
 		# damage pasted over every section.
 		var age := 0.82 + 0.025 * float((i * 3) % 4)

@@ -230,7 +230,7 @@ static func _emit(room: Node3D, label: String, transforms: Array, sources: Packe
 	multimesh.instance_count=transforms.size()
 	for index in transforms.size():
 		var transform: Transform3D=transforms[index]
-		multimesh.set_instance_transform(index,transform)
+		MultiMeshPoses.set_pose(multimesh,index,transform)
 		multimesh.set_instance_custom_data(index,Color(transform.basis.x.length(),transform.basis.y.length(),transform.basis.z.length(),1.0 if label=="PublicWainscot" else 0.0))
 	batch.multimesh=multimesh
 	batch.set_meta("wall_sources",sources)
