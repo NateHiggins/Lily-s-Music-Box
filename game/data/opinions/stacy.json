@@ -1,0 +1,308 @@
+{
+ "resident_id": "stacy",
+ "hook": "Seen tonight's paper?",
+ "hook_line": "Sit. I read it between the seven o'clock rush and the nine o'clock rush, which is the same four people twice. Pick one and I'll tell you what's wrong with it.",
+ "opinions": [
+  {
+   "id": "st_op_snow",
+   "from": "1928-11-25",
+   "until": "1928-12-20",
+   "topic": "'Audibly still.'",
+   "line": "Three inches by midnight, and the exchange writes the borough down as 'audibly still.' Not in here. By ten I had four people who live farther than they'd walk, in shoes I wouldn't walk to the corner in. House rule: nobody goes to Corona in suede. So they slept in the booths till the plows came, and Judge slept on the one with the overcoat. Four people snoring is a brass section. The exchange can have its still.",
+   "choices": [
+    {
+     "label": "You kept the bar open all night for four people?",
+     "reply": "I kept the stove in all night for four people. The bar was shut at two, the way it always is. What happened after that was a rooming house with a very bad landlady.",
+     "trust": 1,
+     "flag": "st_heard_the_snow"
+    },
+    {
+     "label": "They could've taken a cab.",
+     "reply": "With what? One of them had a nickel and a button. The other three had less. The jar did breakfast. Don't look at me like that, it was chicory coffee and the heel of the bread, with a pickled egg each for lagniappe."
+    }
+   ]
+  },
+  {
+   "id": "st_op_party_line",
+   "from": "1928-12-15",
+   "until": "1928-12-29",
+   "topic": "The exchange cat gets a saucer.",
+   "line": "The telephone company has hired the cat. Position forty-two, for the control of mice, 'and allowed a saucer.' That's the whole wage. A saucer. She's caught one mouse and brought it to the supervisor, which is more than most supervisors get from anybody. Judge read it over my shoulder and went back under the counter in disgust. Every winter he's kept that boiler board warm and nobody in this borough has once written it up.",
+   "choices": [
+    {
+     "label": "Judge could ask for a saucer.",
+     "reply": "He has a saucer. He has two. He has a chair in the back he thinks I don't know about. He wants the notice in the paper. He wants to be hired. There's no dealing with him.",
+     "trust": 1
+    },
+    {
+     "label": "Cats in a telephone exchange can't be sanitary.",
+     "reply": "Neither are the operators, and nobody's put them on a saucer. Mice in the switchboard aren't sanitary either. Somebody's got to do the job, and she's the one who showed up.",
+     "trust": -1
+    }
+   ]
+  },
+  {
+   "id": "st_op_thaw",
+   "from": "1928-12-23",
+   "until": "1929-01-12",
+   "topic": "The ice men sent home for Christmas.",
+   "line": "Friday night's rain took the ice off the Sound, and Bowery Bay sent two hundred and ten men home until the frost comes back, with half a week's pay for Christmas. Half a week. Some of those men drink here. House rule until the freeze: anybody with a pick and no field gets soup and the stool by the radiator, and nobody asks after his wages. We walked home in it Friday under one umbrella. It's built for one and a half.",
+   "choices": [
+    {
+     "label": "The jar's going to run dry.",
+     "reply": "Then it runs dry, and the next week it fills, because the ice men come back and they remember who fed them in December. A jar isn't a bank. It's a tide.",
+     "trust": 1,
+     "flag": "st_heard_the_thaw"
+    },
+    {
+     "label": "Mr. Pratt says it freezes by New Year's or not at all.",
+     "reply": "Mr. Pratt has covered every possible outcome in one sentence. That's a foreman. I'd make him a forecaster. Meanwhile his men are on my stools, and the soup doesn't care which it is."
+    }
+   ]
+  },
+  {
+   "id": "st_op_brownie",
+   "from": "1928-12-27",
+   "until": "1929-01-25",
+   "topic": "The burglar who said good night to the dog.",
+   "line": "'It's only Vic, Brownie, go back to sleep.' And Brownie did. Now everybody wants to know what's wrong with that dog. Nothing's wrong with that dog. A dog's job is knowing who's family. Vic Lasko brought the ice up those steps for years. As far as Brownie was concerned he was a cousin with a pick. The family should have known better. The dog knew exactly what it knew. 'Brownie is not being charged.' I should hope not.",
+   "choices": [
+    {
+     "label": "Would Judge let a man in at midnight?",
+     "reply": "Judge wouldn't let the Pope in at midnight. He'd let you in, and I'd want to know what you'd paid him. Four teeth, and every one of them on the payroll.",
+     "trust": 1
+    },
+    {
+     "label": "A good watchdog would have barked.",
+     "reply": "A good watchdog barks at strangers. Vic wasn't a stranger, Vic was a thief. That's a different trade, and it's the people's trade. You don't hire a dog to read character.",
+     "trust": -1
+    }
+   ]
+  },
+  {
+   "id": "st_op_jackson",
+   "from": "1929-01-15",
+   "until": "1929-02-10",
+   "topic": "A pup named for the Avenue.",
+   "line": "Twelve hundred and twelve Record readers voted to name a puppy at the bottom of the world after Jackson Avenue, and an evening paper put up 'Static' and got forty-one. I'd have voted Static. It's a good name for a dog who's going to spend his life beside a wireless. I named the cat in the back in about two seconds. Lafitte, after the pirate, because he steals. One vote, mine, and the cat abstained.",
+   "choices": [
+    {
+     "label": "What did Lafitte steal?",
+     "reply": "Half a mackerel off a fish man on Vernon Boulevard, the week I got him. The fish man comes in now to look at the cat and say a word I won't repeat. They're both regulars.",
+     "trust": 1,
+     "flag": "st_heard_lafitte"
+    },
+    {
+     "label": "A cat in a bar? The Board of Health would object.",
+     "reply": "The Board of Health hasn't met our mice. The telephone company hired a cat in December for the same work. Lafitte's on no payroll. He's paid in mackerel, and he's never once been late.",
+     "trust": -1
+    }
+   ]
+  },
+  {
+   "id": "st_op_valentines",
+   "from": "1929-02-14",
+   "until": "1929-03-12",
+   "topic": "Two hundred and fourteen second takes.",
+   "line": "Eighteen hundred and sixty speaking valentines out of the booth across the street, fifteen cents and twenty-five seconds apiece, and two hundred and fourteen of them done twice. I like the two hundred and fourteen. That's people who heard themselves say it and said, no, I can mean it better. I had a fellow rehearse his at this bar three times, out loud, with her sitting right there pretending to read the board. She said yes to the first one. He did the other two anyway.",
+   "choices": [
+    {
+     "label": "Did you ever get a speaking valentine?",
+     "reply": "Once. Twenty-five seconds of a man breathing and then 'well.' I kept it. It's the most honest thing anybody's ever said to me. I couldn't tell you who sent it, and I've got my suspicions about every one of them.",
+     "trust": 1
+    },
+    {
+     "label": "Fifteen cents for twenty-five seconds is robbery.",
+     "reply": "Fifteen cents is a near beer and a pickled egg. You'd spend that on yourself without thinking. Twenty-five seconds of nerve is cheap at the price. Most people never pay it."
+    }
+   ]
+  },
+  {
+   "id": "st_op_exhibit",
+   "from": "1929-03-30",
+   "until": "1929-04-28",
+   "topic": "The exhibit 'not produced.'",
+   "line": "Five years and ten thousand dollars, Mr. Coolidge signed on his way out the door, and here's the first case in Queens. A Ridgewood restaurant keeper, dismissed, the exhibit 'not produced.' It was in the station house Tuesday. By Friday it wasn't. Nobody asked the officer to explain, which is the most sensible thing the court's done all year. I don't know where an exhibit goes. I know where it doesn't go: past a desk sergeant with a head cold.",
+   "choices": [
+    {
+     "label": "Does the Harukiya worry about the new law?",
+     "reply": "The Harukiya serves near beer, which is on the board, and tea, which is in the pot. Nobody in Queens has ever done five years for tea. I keep the pot hot when there's company I don't know.",
+     "trust": 1
+    },
+    {
+     "label": "Somebody in that station house drank the evidence.",
+     "reply": "That's a serious thing to say about the police department. Say it quieter. The officer from the 109th sits on that stool Thursdays and he's never once asked what's in his cup."
+    }
+   ]
+  },
+  {
+   "id": "st_op_dawn_wedding",
+   "from": "1929-04-18",
+   "until": "1929-05-04",
+   "topic": "The Babe marries at half past five.",
+   "line": "Mr. Ruth got married at half past five in the morning, and the church switched its system off at his request and recorded nothing. Sixty people stood on the steps in the dark and heard the organ through the door, and the Listening Lady says they made the vows up. Best wedding of the year. Nobody was invited to have an opinion. Fifteen minutes, then rain, and the next afternoon he hit one into the stands.",
+   "choices": [
+    {
+     "label": "Good for him, keeping it quiet.",
+     "reply": "Good for both of them. A thing between two people doesn't get better for sixty strangers hearing it through a door. It gets better with the coffee hot and the step fixed.",
+     "trust": 1
+    },
+    {
+     "label": "A man that famous owes the public a look.",
+     "reply": "He owes them a home run, and he paid it Thursday. The rest is his. A bar learns that in a week: what's said at the counter stays there, or nobody says anything worth hearing.",
+     "trust": -1
+    }
+   ]
+  },
+  {
+   "id": "st_op_major",
+   "from": "1929-05-05",
+   "until": "1929-06-02",
+   "topic": "The ice horse who walked back to work.",
+   "line": "Twenty-two years on the Steinway route, and they retired Major to a field in Bayside with the carrots and the speeches. Two weeks later he's at Steinway and Thirtieth at six in the morning, eleven miles from his field, waiting for a wagon that isn't his anymore. Did fourteen stops on his own. Fourteen kitchens put out carrots. When Duchess came up behind with the real wagon, she stopped and waited her turn. That's manners. Some of us aren't built for fields.",
+   "choices": [
+    {
+     "label": "Some of us. Do you ever take a day off?",
+     "reply": "Mondays. I spend them varnishing a jar and walking a dog who'd rather be here. Tuesday at four I'm back behind this counter like Major on Steinway, and nobody has to send a van.",
+     "trust": 1,
+     "flag": "st_heard_mondays"
+    },
+    {
+     "label": "He'll be happier in the field eventually.",
+     "reply": "Maybe. He's twenty-six. I've had a carrot in my bag every morning since, and I don't live anywhere near Steinway. It's a long shot. I'm a sentimental woman with a long walk."
+    }
+   ]
+  },
+  {
+   "id": "st_op_one_dish",
+   "from": "1929-06-28",
+   "until": "1929-07-13",
+   "topic": "One dish of ice cream a customer.",
+   "line": "Ninety-two last Saturday, six hundred thousand at Rockaway and Coney, and now the druggists ask the fountains for one dish of ice cream a customer until Monday. One dish. This borough takes ninety-two like a personal insult. In New Orleans that's a pleasant April. I don't mind heat. Heat is honest about what it wants. There's iced tea on the board, actual tea, and I'll put chicory in your coffee if you ask nicely.",
+   "choices": [
+    {
+     "label": "Don't you miss it?",
+     "reply": "The coffee. The iron balconies you can sit out on all night with your feet up on the rail. Not the work. I miss it about every ninety-two degrees, and then it passes.",
+     "trust": 1,
+     "flag": "st_heard_new_orleans"
+    },
+    {
+     "label": "Iced tea that's actually tea?",
+     "reply": "Actual tea. Brewed, sugared, a lemon in it. The other tea is in the other pot, which is cold for other reasons, and you know perfectly well which pot that is."
+    }
+   ]
+  },
+  {
+   "id": "st_op_ninety_three",
+   "from": "1929-08-05",
+   "until": "1929-08-31",
+   "topic": "Ninety-three, and three down in the street.",
+   "line": "Ninety-three, and three people overcome in Queens. There's a pitcher of ice water on the end of this counter and it's free, and anybody who tries to pay for it gets a look. Wet towels are in the icebox; put one on your neck and don't argue. The heat sends a piano flat, too. I had the tuner in Tuesday anyway. He asked who plays it now. I told him Thursdays, and badly, and to tune it like they were good.",
+   "choices": [
+    {
+     "label": "Who's playing it, Thursdays?",
+     "reply": "Lily on the bass, and Juno Kells at the keys, learning in public, which takes nerve. I put a glass of water by the piano for her. She knocks it over every week. I put it back. That's the arrangement.",
+     "trust": 1
+    },
+    {
+     "label": "Ice water for nothing. You'll go broke.",
+     "reply": "On water? The ice is a nickel the cake, and it's August. Anybody who comes in off that sidewalk white as a plate is a customer next week. Or they aren't. Either way they sit down first."
+    }
+   ]
+  },
+  {
+   "id": "st_op_nell",
+   "from": "1929-09-03",
+   "until": "1929-09-27",
+   "topic": "Nell's harness comes off at King Park.",
+   "line": "Nell led the ice drivers in the parade, and at five o'clock at King Park Mr. Pohl took her harness off in front of everybody. This morning she's gone to Jamaica and a motor truck has her route. They gave Major a field in April and he walked eleven miles back to work. I'll be watching Steinway. I've still got a carrot in my bag from May. It isn't much of a carrot now. It's the principle.",
+   "choices": [
+    {
+     "label": "Will you go out to Jamaica and see her?",
+     "reply": "Monday, with Judge, who hates trolleys, and a fresh carrot, and the old one too, so she knows I meant it the first time.",
+     "trust": 1
+    },
+    {
+     "label": "A truck's faster.",
+     "reply": "A truck doesn't stop at the houses that cancelled years ago, out of loyalty. Faster is what you say about a machine when you've run out of things to say about a horse."
+    }
+   ]
+  },
+  {
+   "id": "st_op_danko",
+   "from": "1929-09-28",
+   "until": "1929-10-11",
+   "topic": "'Danko, dog,' present.",
+   "line": "There's a terrier on the register at P.S. 11 as 'Danko, dog.' Marked present every morning, answers the roll with one bark, and three people who say they own him have written to object to the surname. The teacher wrote back to all three: 'He is very punctual.' I'd hire that teacher. I'd hire that dog. Judge read it and lay down facing the wall, which is what he does when somebody younger gets a notice.",
+   "choices": [
+    {
+     "label": "Whose dog is he, really?",
+     "reply": "Whoever he walks to school. A dog picks. You can put up all the reward money in Woodside and he'll still eat at the step where somebody sets a plate down and doesn't make a speech about it.",
+     "trust": 1
+    },
+    {
+     "label": "Dogs don't belong in a schoolroom.",
+     "reply": "He sits under the radiator and doesn't talk. Name me one boy in that class who manages either. The inspector came and couldn't find a thing wrong with him. That's more than the inspector's mother says.",
+     "trust": -1
+    }
+   ]
+  },
+  {
+   "id": "st_op_chairs",
+   "from": "1929-10-13",
+   "until": "1929-11-05",
+   "topic": "Sixty-one folding chairs and a stepladder.",
+   "line": "Four hundred thousand people on the roofs, no serious injury, and the police are holding sixty-one folding chairs and a stepladder. Six of those chairs are mine. I lent them to the Arcade crowd at nine on the understanding they'd come back, and they went up a roof on Jackson Avenue and stayed there. I'll be at the precinct on Monday with a description. They're the ones that wobble. I stayed behind the counter for the whole thing. Somebody had to keep the lights on.",
+   "choices": [
+    {
+     "label": "You didn't go up to see it?",
+     "reply": "I went to the door at midnight with a dish towel over my shoulder and looked. It's large. The radio was right about that. It didn't look at anybody, which is better manners than half my Saturday trade.",
+     "trust": 1
+    },
+    {
+     "label": "Who was here, if everybody went up?",
+     "reply": "Lily and Juno Kells, playing to the coats, and Judge, who doesn't go up ladders. Best set I've heard all fall. Nobody listened. They didn't care. I poured them tea on the house and didn't ring it."
+    }
+   ]
+  },
+  {
+   "id": "st_op_margin_call",
+   "from": "1929-10-29",
+   "until": "1929-11-09",
+   "topic": "'Exactly and at an even pace.'",
+   "line": "Fifty-eight hundred margin calls through the Queens Exchange by one in the morning, and the girls told to read them 'exactly and at an even pace.' One came here at eleven, for a man on the third stool. I took it myself. I wrote it on a napkin, folded it twice, and gave him coffee before I gave him the napkin. There's no even pace for that. He sat till closing. I'd done the room up for Halloween, black crepe and a paper skeleton, and the skeleton was the only one in here who looked well.",
+   "choices": [
+    {
+     "label": "What did you say to him?",
+     "reply": "Nothing. I took his cup when it was empty and brought it back full, chicory in it, the way it's made at home. At two I gave him his hat and told him the step's loose. He said thank you like I'd done something. I'd done coffee.",
+     "trust": 1,
+     "flag": "st_heard_the_napkin"
+    },
+    {
+     "label": "He shouldn't have bought on margin.",
+     "reply": "No, he shouldn't, and he knows it better than you do, and he knew it at eleven o'clock on my third stool. Being right at a man's back is cheap. It's on the board for nothing and nobody orders it.",
+     "trust": -1
+    }
+   ]
+  },
+  {
+   "id": "st_op_the_book",
+   "from": "1929-11-03",
+   "until": "1929-11-09",
+   "topic": "'Asked to see the book and went away.'",
+   "line": "Corona Mutual says it's had more callers this week than any since 1887, and most of them 'asked to see the book and went away.' I know the feeling. I keep a book. It's under the till with the pencil on a string. Three men asked to see theirs this week. I showed them. Then they went away looking better than they came in, because I'd been through it with the eraser on Wednesday, and I'm not going to tell you whose.",
+   "choices": [
+    {
+     "label": "You rubbed out their tabs.",
+     "reply": "I rubbed out some pencil. Pencil comes off. That's what it's for. Write a man's debt in ink in a week like this and you've made a tombstone. I've got a jar for that and a jar's quieter.",
+     "trust": 1,
+     "flag": "st_heard_the_eraser"
+    },
+    {
+     "label": "Won't you need that money?",
+     "reply": "I'll need my regulars more. A tab's a promise to come back, and I want them back. Mind you, if anybody asks, the eraser's for spelling. Mrs. Marsh has views on how I spell pickled."
+    }
+   ]
+  }
+ ]
+}
