@@ -38,7 +38,10 @@ func _route() -> void:
 			"pool inspection volume follows the retained table in the west bay"):return
 	if not _require(bar.actors.has_node("F01_BAR_SONGBOOK")
 			and bar.actors.has_node("F01_BAR_DARTS") and bar.actors.has_node("F01_BAR_POOL")
-			and bar.actors.find_children("*","ArcadeCabinetProp",true,false).size()==2,
+			# The two arcade cabinets were retired from play on 2026-10-24 (V2 shared finish and arcade
+			# retirement); none may come back as an actor, and the retirement record must stand.
+			and bar.actors.find_children("*","ArcadeCabinetProp",true,false).is_empty()
+			and bar.get_node("RetainedBarGeometry").get_node_or_null("RetiredBarCabinets")!=null,
 			"retained games and recording apparatus have their original owners"): return
 	var service = [Vector3(1.45,-2.8,33.1),Vector3(-1,-2.8,33.1),Vector3(-3,-2.8,33.1),Vector3(-5.6,-2.8,33.1),Vector3(-8.0,-2.8,33.1),Vector3(-10.5,-2.8,33.1),Vector3(-10.5,-2.8,35.4)]
 	for point in service:
