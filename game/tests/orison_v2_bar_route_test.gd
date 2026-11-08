@@ -114,8 +114,9 @@ func _route() -> void:
 	outward.reverse()
 	for point: Vector3 in outward:
 		if not await _walk_world(point): return
-	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5)]:
-		if not await _walk(point): return
+	# The front entrance has shut behind the player (door closers, 2026-10-22); come back in through it by hand.
+	if not await _enter_front_entrance(): return
+	if not await _walk(Vector3(1.925,0,-6.5)): return
 	_require(is_instance_valid(bar_geometry) and AcousticGraphData.nodes["F01_BAR_LT_STAIR"]==acoustic_before,
 			"return preserves bar geometry and one acoustic source authority")
 
