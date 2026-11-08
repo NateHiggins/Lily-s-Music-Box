@@ -64,8 +64,8 @@ func story_aperture_frame(owner: Node) -> Transform3D:
     if not is_same(owner,_story_owner):return Transform3D.IDENTITY
     # Upper sash, between real adjacent slats, clear of both ladder cords.
     var index := clampi(roundi((height*.18-.155-.055)/_pitch),0,_count-2)
-    var a := _slats.multimesh.get_instance_transform(index)
-    var b := _slats.multimesh.get_instance_transform(index+1)
+    var a := MultiMeshPoses.pose(_slats.multimesh,index)
+    var b := MultiMeshPoses.pose(_slats.multimesh,index+1)
     return global_transform*Transform3D(a.basis.orthonormalized(),(a.origin+b.origin)*.5)
 
 func end_story_aperture(owner: Node) -> void:
@@ -97,7 +97,7 @@ func _batch(label: String, mesh_name: String, count: int, finish: Material) -> M
 
 func _put(draw: MultiMeshInstance3D, index: int, pose: Transform3D,
         chart: Vector2 = Vector2.ONE) -> void:
-    draw.multimesh.set_instance_transform(index,pose)
+    MultiMeshPoses.set_pose(draw.multimesh,index,pose)
     draw.multimesh.set_instance_custom_data(index,Color(chart.x,chart.y,1,1))
 
 func _pose(at: Vector3, size: Vector3, angle: float = 0.0) -> Transform3D:

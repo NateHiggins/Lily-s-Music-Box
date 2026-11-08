@@ -48,7 +48,7 @@ func mount(world: Node3D) -> bool:
 			var index:=int(cut.index)
 			if cuts.has(index) or index<0 or index>=original.instance_count or sources[index]!=str(cut.source):
 				errors.append("trim source identity changed "+str(row.room));return false
-			var actual: Transform3D=batch.transform*original.get_instance_transform(index)
+			var actual: Transform3D=batch.transform*MultiMeshPoses.pose(original,index)
 			if not actual.is_equal_approx(_pose(cut.expected)):
 				errors.append("trim source pose changed "+str(row.room)+" / "+str(index));return false
 			cuts[index]=cut.intervals
@@ -56,7 +56,7 @@ func mount(world: Node3D) -> bool:
 		var owners:=PackedStringArray()
 		var retained:=0
 		for index in original.instance_count:
-			var at:=original.get_instance_transform(index)
+			var at:=MultiMeshPoses.pose(original,index)
 			if not cuts.has(index):poses.append(at);owners.append(sources[index]);retained+=1;continue
 			var start: float=-.5
 			for interval: Array in cuts[index]:
@@ -69,7 +69,7 @@ func mount(world: Node3D) -> bool:
 		replacement.mesh=original.mesh;replacement.instance_count=poses.size()
 		for index in poses.size():
 			var at: Transform3D=poses[index]
-			replacement.set_instance_transform(index,at)
+			MultiMeshPoses.set_pose(replacement,index,at)
 			replacement.set_instance_custom_data(index,Color(at.basis.x.length(),at.basis.y.length(),at.basis.z.length(),0))
 		proposed.append({"batch":batch,"before":original,"before_sources":sources,"after":replacement,"sources":owners,"unchanged":retained})
 	# Resolve every replacement before changing any original batch.
