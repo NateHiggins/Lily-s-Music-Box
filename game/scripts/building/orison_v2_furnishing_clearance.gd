@@ -1,6 +1,7 @@
 extends RefCounted
 ## Refit furnishing assemblies against the actual installed finish, once at
 ## composition. Never translate only the visual or change a mechanical datum.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 const FLOOR_KINDS := ["bed","nightstand","wardrobe","shelf","sofa","desk","workbench","chair","table_round","table_rect","coffee","hallstand","cardcabinet","canvasstack","hamper","crate","suitcase","easel","umbrellastand","verticalfile","plant","prep_cabinet","boottray","dressform","overflowtray","sewingmachine","ashcan","spittoon","foldedcot","softbox","tripod","wateringcan","trug","threshold"]
 const HANGING_KINDS := ["artframe","pinboard","toolboard","noticeframe","quietsign","hookstrip","headsethook","coathook","tsquare","cupboard","bathshelf","garmentrail","lostshelves","printline","blanket"]
 const FINISH_NAMES := ["HistoricMillwork","PublicWainscot","PublicWainscotFrames","PublicWainscotCap"]

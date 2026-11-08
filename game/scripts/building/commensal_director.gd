@@ -4,6 +4,7 @@ extends Node3D
 ## existing lamp, kitchen, riser and hoarding owners.  It stores nothing,
 ## routes nothing, and creates three shadowless MultiMesh draws: moths,
 ## roaches and static weeds.  Audio is only requested from AmbientSoundscape.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 
 const KITCHEN_ROOM := "F04_B_KITCHEN"
 const TICK_SECONDS := 1.0

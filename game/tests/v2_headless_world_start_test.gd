@@ -4,6 +4,7 @@ extends Node
 ## poses back went through MultiMeshPoses. Before it, the front trim splice
 ## read every millwork pose as identity and refused startup. Writes a
 ## schema-2 runtime_contract to RECEIPT_DIR.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
 
 var checks: Array[Dictionary] = []

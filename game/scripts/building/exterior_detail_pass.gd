@@ -2,6 +2,7 @@ class_name ExteriorDetailPass
 extends Node3D
 ## Cheap exterior finish pass layered over the generator's broad site pass.
 ## Everything except the damage cards is held in three shared MultiMeshes.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 
 var detail_count := 0
 var decal_count := 0
