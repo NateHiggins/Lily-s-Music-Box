@@ -100,6 +100,10 @@ func _route() -> void:
 	if not await _walk_source(bar,Vector3(1.45,-2.8,34.5)):return
 	# The bar stays resident independently while the arcade reloads on exit.
 	var bar_geometry := bar.get_node("RetainedBarGeometry")
+	# Doors have closers since 2026-10-22: the red door has shut behind the player, so open it again by hand.
+	if not red.open:
+		if not await _use(red,red.to_global(Vector3(red.width*.5,1.15,0)),"bar_red_door_out"): return
+		if not _require(red.open,"existing red door opens again from inside through ordinary input"): return
 	for point in [Vector3(2.5,-2.8,34.5),Vector3(3.7,-2.8,34.5),Vector3(4.8,-2.8,34.55)]:
 		if not await _walk_source(bar,point): return
 	descent.reverse()
