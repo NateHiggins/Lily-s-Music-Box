@@ -123,6 +123,18 @@
     {"label": "Twenty-two years. He's earned his rest.", "trust": -1,
      "reply": "Everybody says that. 'Earned his rest.' Like rest is a prize. He didn't ask for it. Nobody asked him. You earn wages. Rest is what they give you when they've bought a younger horse."}
    ]},
+    {
+      "id": "co_op_eleven",
+      "from": "1929-04-25",
+      "until": "1929-05-20",
+      "topic": "Eleven to the dozen, sincerely.",
+      "line": "Three bakers in Astoria selling eleven to the dozen and sincerely surprised. Sincerely. I believe it, because I carry the boxes. All week I've had people sign for a dozen, open the lid on the step, count, and look at me. Me. Like I ate one on the way up. I had a baker count one out in front of me. He got to two, tied the string and smiled. I've started carrying a spare roll in my pocket. Costs me a nickel a day. Cheaper than the looks.",
+      "choices": [
+        {"label": "So you make up the dozen yourself.", "reply": "Somebody has to. The baker won't, he's sure it's twelve. The customer won't, she's sure it's me. So it's me. A nickel's not much to be believed for. I've paid more.", "trust": 1, "flag": "co_spare_roll"},
+        {"label": "Nobody's cheating, the paper says.", "reply": "Nobody's cheating. That's the worst bit. If somebody was cheating you could catch him. This is just everybody stopping a bit short and not noticing, and me in the middle with a box."},
+        {"label": "Just tell them it's the baker.", "reply": "I do. They nod. Then they count again. You can't talk anybody out of a number. You can only hand them a roll.", "trust": -1}
+      ]
+    },
 
   {"id": "co_op_major_walks", "from": "1929-05-05", "until": "1929-05-30",
    "requires": ["op:co_op_major"],

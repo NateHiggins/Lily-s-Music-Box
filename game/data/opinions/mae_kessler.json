@@ -94,6 +94,18 @@
     {"label": "The grey coat should have stayed to hear it.", "trust": -1,
      "reply": "He did not need to hear it. People who leave before a verdict have usually written it. I have walked out of auction rooms before the hammer, and it was never because I did not know the price."}
    ]},
+    {
+      "id": "mk_op_dozen",
+      "from": "1929-06-04",
+      "until": "1929-06-12",
+      "topic": "'A dozen is twelve,' on a card.",
+      "line": "The Bureau of Weights and Measures has found goods sold one short in sixty-one shops, summoned nobody, and had 'a dozen is twelve' printed on a card. I attended a sale in Jamaica on Saturday. Lot forty-one, a dozen coin-silver teaspoons, Albany, about 1840. Eleven. The auctioneer counted them for the room, reached two, and brought the hammer down, and nobody in the room objected. I bought them. I have the eleven on a cloth, under the catalogue's dozen.",
+      "choices": [
+        {"label": "You bought a short lot knowing it was short.", "reply": "Knowing it, and at a short price. The catalogue says twelve and the cloth says eleven, and both will be wrong for as long as I own them. I find I like owning a disagreement. It keeps.", "trust": 1},
+        {"label": "Did the auctioneer cheat you?", "reply": "No. That is what is remarkable. He was sincere, which I can appraise, and he was wrong, which I can appraise more cheaply. I shall not tell him. He would only count them again."},
+        {"label": "It's only a teaspoon.", "reply": "It is one twelfth of a provenance. A dozen from one family is that family's. Eleven is a set somebody has been into. I should have thought that obvious to anyone who has ever divided anything.", "trust": -1}
+      ]
+    },
   {"id": "mk_op_deed", "from": "1929-06-06", "until": "1929-07-15",
    "requires": ["op:mk_op_renewals"],
    "topic": "'One dollar and other value.'",

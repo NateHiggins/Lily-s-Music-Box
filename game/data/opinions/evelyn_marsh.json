@@ -93,6 +93,18 @@
      {"label": "Did you sleep out yourself?", "reply": "Certainly not. A retired schoolmistress on the asphalt of her own playground would be a lesson nobody could unlearn. I opened both windows and lay very still and corrected the ceiling. It has a crack I have never mentioned to Management."},
      {"label": "Children shouldn't sleep in schoolyards.", "reply": "Children should sleep where they can breathe. You have put the rule ahead of the child, which is the error I made for forty years. It was a good error, well meant, and it cost a great many children their sleep.", "trust": -1}
    ]},
+    {
+      "id": "em_op_wedensday",
+      "from": "1929-07-22",
+      "until": "1929-08-15",
+      "topic": "A million at Coney Island.",
+      "line": "About a million and a hundred and fifty thousand went to Coney Island on Sunday, and the police recorders took down two hundred and twelve lost children. I went to the bodega for milk and came back. There is a notice in the laundry, from the laundry company, which says the mangle man calls on Wedensday. I have read it every morning since that Saturday. I have not corrected it. I am letting it stand, and I would be obliged if you did not ask me why.",
+      "choices": [
+        {"label": "You don't have to correct everything this week.", "reply": "No. I have discovered that, late, and it is a most unpleasant discovery, like finding one has carried a parcel for years that one might have set down at any time.", "trust": 1, "flag": "em_wedensday_stands"},
+        {"label": "Did you bake?", "reply": "On Saturday. I bake when nobody has asked. Mrs. Ortiz sent down a dish of something with peppers in it, so I sent the dish back with a seed cake, which is correct. She will not know what to do with it either."},
+        {"label": "It's spelled wrong. I'll fix it for you.", "reply": "You will not. It will be corrected when it is time to correct it. I shall know when. You will not be told, and you will not touch it.", "trust": -1}
+      ]
+    },
   {"id": "em_op_cradle", "from": "1929-08-16", "until": "1929-09-08",
    "topic": "A grandmother who did not know.",
    "line": "Seven thousand one hundred and twelve entries, and the judges chose a girl of nine from Ridgewood who held a recorder up to her grandmother singing a Hungarian cradle song. Mrs. Farkas did not know she was being recorded. And a Long Island City boy's minute of his street at night is 'retained for further hearing.' I should have given that boy the prize. Nobody asked him to listen. He listened anyway, and handed in a street. That is an examination I never set.",
@@ -101,6 +113,19 @@
      {"label": "The grandmother never agreed to be recorded.", "reply": "No. She is going into a vault for 1978 singing to a child who will be a stranger by then. I find I do not object. She did not know to be careful, so she was not. That is why it won."},
      {"label": "Seven thousand entries. Imagine marking those.", "reply": "Eleven days and two hundred and fourteen dogs. I would have finished in nine and corrected the dogs. The judges went home to lie down in a quiet room. That is the part of the story I believe most."}
    ]},
+    {
+      "id": "em_op_corrected",
+      "from": "1929-09-03",
+      "until": "1929-09-09",
+      "topic": "Nell retired; the truck does not stop.",
+      "line": "The ice horse Nell was retired at King Park in the parade, and her route goes to the motor truck, which is quicker by an hour and stops at nobody's door unless one stands in the street and waves. I stood in the street and waved. Then I came in, took my red pencil to the laundry, and corrected Wedensday. It had been up since July. I put one line through it, neatly, and wrote the word above. That is all. I wished you to know.",
+      "choices": [
+        {"label": "How did it feel?", "reply": "Like correcting a child's work after the child has left the school. One does it anyway. The next person to read it deserves the spelling, and the child, wherever she is, would have wished it.", "trust": 1, "flag": "em_wedensday_corrected"},
+        {"label": "You waited a long time.", "reply": "I waited exactly as long as it took. I could not have told you the day in advance. I knew it when the truck went past without stopping. Somebody has to stop things. I find it is still me."},
+        {"label": "It was only a notice.", "reply": "Then you will not mind that it is now correct. Most of my life has been only notices. I have kept them right. It is a modest thing to be good at, and I am very good at it.", "trust": -1}
+      ],
+      "requires": ["op:em_op_wedensday"]
+    },
   {"id": "em_op_roll", "from": "1929-09-10", "until": "1929-10-08",
    "requires": ["op:em_op_graduates"],
    "topic": "Four thousand answers beyond the register.",

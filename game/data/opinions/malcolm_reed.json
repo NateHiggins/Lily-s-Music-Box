@@ -87,6 +87,18 @@
     {"label": "It's a parade. It'll be loud again next year.", "trust": -1,
      "reply": "It might. A plant doesn't promise to flower just because it did. You'd not say that to a man with a bed of tulips in a bad March. You'd say nothing, and hope with him."}
    ]},
+    {
+      "id": "mr_op_moonflower",
+      "from": "1929-03-19",
+      "until": "1929-04-12",
+      "topic": "The Moon, 'the size it has always been.'",
+      "line": "An observatory says the Moon's the size it has always been, and it won't answer any more letters. Fine. I'm not writing. But I've moonflower seed up in a jar on the kitchen table, and every one of them has come up leaning to the window. Not the morning window. The other one. Seedlings lean to the light. That's all they know. They don't read the Record.",
+      "choices": [
+        {"label": "They know something the observatory doesn't.", "reply": "They know where the light is. That's all a seedling ever knows, and it's never once been wrong about it. ... I turned the jar round. Next morning they'd turned back. I've left them be.", "trust": 1, "flag": "mr_moonflower"},
+        {"label": "A teacher in Ridgewood says her dime won't cover it any more.", "reply": "I read that. They told her she'd tired in the arm. She's held that dime up every month since November. Her arm's the one instrument in the business nobody's thought to check."},
+        {"label": "Turn the jar every day and they'll grow straight.", "reply": "They'll grow straight and weak. A plant that's turned every day never learns where anything is. I've known people raised like that.", "trust": -1}
+      ]
+    },
 
   {"id": "mr_op_not_present", "from": "1929-04-13", "until": "1929-05-10",
    "requires": ["op:mr_op_casting"],

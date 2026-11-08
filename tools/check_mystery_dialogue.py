@@ -32,7 +32,7 @@ GAME_TEXT = ("dialogue", "mystery", "opinions", "newspapers")
 RESIDENT_FORBIDDEN = re.compile(r"\b(the tenant|signal pro|instrument)\b", re.I)
 PRE_DEATH = re.compile(r"\b(late miss|was killed|her death|funeral|the body|she fell|she died)\b", re.I)
 # The conclusive chain of section 4.5 and the one telling.
-SOLVE = ("m_white_kid", "m_glove_scrap", "m_button_book", "m_route_book", "m_letter_compared", "m_told_nadia")
+SOLVE = ("m_white_kid", "m_glove_scrap", "m_button_book", "m_route_book", "m_letter_compared", "m_told_nadia", "m_drama_disc")
 TREE_CHOICE_KEYS = {"label", "goto", "requires", "evidence", "infer", "trust", "flag"}
 TREE_NODE_KEYS = {"line", "choices", "silence_goto", "silence_trust", "flag", "flags", "bank", "speaker"}
 
