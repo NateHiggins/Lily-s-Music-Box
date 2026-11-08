@@ -137,3 +137,25 @@ list (stevemorse.org).
 
 **Open.** The mid-ground grid is a fictional layout, so giving its streets these names also fixes the Orison's
 own avenue, which is an open canon question (the façade address). The mapping is ruling **midground_sign_mapping**.
+
+## The el out of Queensboro Plaza (2026-11-08)
+
+Lily's ruling **el_viaduct_route**: east only. The el leaves the station's east end and curves onto the cross
+street away from the Orison, running out to the mist and keeping the horizon buildings.
+
+The station's own east junction, at x 68.8, lies under the station. So the line uses the first cross street east
+of the station, at x 142.9:
+- The two middle upper tracks (world z −0.8 and 4.8, rail top 15.55) leave the station at x 104.
+- They run east along the avenue, then curve north on a 30 m radius onto that street.
+- They run up the street into the mist.
+
+The survey found the corridor clear. The only nearby structure is a 13.2 m horizon block at z 138, about 199 m
+out, and it sits under the deck.
+
+The construction is plate girders, stringers, rails and ties on two-column bents at the station's 15 m pitch. The
+columns collide only inside the walkable edge.
+
+Batch 5 (`C:/ov/reports/city_midground_20261107/batch5`):
+- compile, views (33 frames, including **el_curve**), spatial ownership and the horizon bench pass
+- composition keeps main's same 78 failures
+
