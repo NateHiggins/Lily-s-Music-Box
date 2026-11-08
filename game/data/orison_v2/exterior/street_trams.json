@@ -1,0 +1,429 @@
+{
+ "schema": "orison.v2.street-trams.v1",
+ "frame": "ORISON_FRONT_DOOR_THRESHOLD",
+ "stock": "res://assets/props/v2_street_trams.glb",
+ "finishes": [
+  {
+   "id": "coachwork",
+   "catalog_key": "car_paint",
+   "tint": [
+    0.16,
+    0.25,
+    0.19,
+    1
+   ],
+   "normal": 0.55,
+   "roughness": 0.62,
+   "paint": true,
+   "albedo_mean": [
+    0.3601,
+    0.3524,
+    0.2502
+   ]
+  },
+  {
+   "id": "cream",
+   "catalog_key": "car_paint",
+   "tint": [
+    0.8,
+    0.74,
+    0.58,
+    1
+   ],
+   "normal": 0.5,
+   "roughness": 0.7,
+   "albedo_mean": [
+    0.3601,
+    0.3524,
+    0.2502
+   ]
+  },
+  {
+   "id": "japan_black",
+   "catalog_key": "car_paint",
+   "tint": [
+    0.075,
+    0.072,
+    0.07,
+    1
+   ],
+   "normal": 0.6,
+   "roughness": 0.55,
+   "albedo_mean": [
+    0.3601,
+    0.3524,
+    0.2502
+   ]
+  },
+  {
+   "id": "running_iron",
+   "catalog_key": "iron_blackened",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.2046,
+    0.2085,
+    0.2124
+   ]
+  },
+  {
+   "id": "cast_iron",
+   "catalog_key": "cast_iron",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.6801,
+    0.6496,
+    0.6142
+   ]
+  },
+  {
+   "id": "nickel",
+   "catalog_key": "nickel_plated",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.708,
+    0.6839,
+    0.6301
+   ]
+  },
+  {
+   "id": "brass",
+   "catalog_key": "brass_dull",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5425,
+    0.407,
+    0.2213
+   ]
+  },
+  {
+   "id": "roof_canvas",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.23,
+    0.22,
+    0.2,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5719,
+    0.352,
+    0.1807
+   ]
+  },
+  {
+   "id": "window",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.1,
+    0.085,
+    0.075,
+    1
+   ],
+   "normal": 0.8,
+   "roughness": 1.0,
+   "emission": [
+    1.0,
+    0.76,
+    0.46,
+    2.0
+   ],
+   "albedo_mean": [
+    0.5719,
+    0.352,
+    0.1807
+   ]
+  },
+  {
+   "id": "rope",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.62,
+    0.57,
+    0.46,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5719,
+    0.352,
+    0.1807
+   ]
+  },
+  {
+   "id": "lamp_lit",
+   "catalog_key": "milk_glass",
+   "tint": [
+    1,
+    0.93,
+    0.8,
+    1
+   ],
+   "normal": 0.5,
+   "roughness": 1.0,
+   "emission": [
+    1.0,
+    0.8,
+    0.52,
+    2.2
+   ],
+   "albedo_mean": [
+    0.8755,
+    0.86,
+    0.8223
+   ]
+  },
+  {
+   "id": "saloon_lit",
+   "catalog_key": "milk_glass",
+   "tint": [
+    1,
+    0.9,
+    0.72,
+    1
+   ],
+   "normal": 0.5,
+   "roughness": 1.0,
+   "emission": [
+    1.0,
+    0.74,
+    0.44,
+    1.4
+   ],
+   "albedo_mean": [
+    0.8755,
+    0.86,
+    0.8223
+   ]
+  },
+  {
+   "id": "lamp_tail",
+   "catalog_key": "milk_glass",
+   "tint": [
+    0.75,
+    0.16,
+    0.1,
+    1
+   ],
+   "normal": 0.5,
+   "roughness": 1.0,
+   "emission": [
+    0.85,
+    0.1,
+    0.05,
+    1.6
+   ],
+   "albedo_mean": [
+    0.8755,
+    0.86,
+    0.8223
+   ]
+  }
+ ],
+ "kind": {
+  "id": "tram",
+  "stock": "tram_car",
+  "speed": [
+   4.5,
+   6.0
+  ],
+  "paint": [
+   [
+    0.16,
+    0.25,
+    0.19
+   ],
+   [
+    0.17,
+    0.27,
+    0.2
+   ],
+   [
+    0.15,
+    0.24,
+    0.18
+   ]
+  ],
+  "extent": [
+   -6.5,
+   6.5
+  ],
+  "width": 2.45,
+  "wheels": [],
+  "horse": null,
+  "figures": [
+   [
+    5.75,
+    1.6,
+    -0.45
+   ],
+   [
+    -4.2,
+    1.55,
+    -0.72
+   ],
+   [
+    -2.65,
+    1.55,
+    0.72
+   ],
+   [
+    -1.1,
+    1.55,
+    -0.72
+   ],
+   [
+    0.45,
+    1.55,
+    0.72
+   ],
+   [
+    2.0,
+    1.55,
+    -0.72
+   ],
+   [
+    3.55,
+    1.55,
+    0.72
+   ]
+  ],
+  "voice": "heavy",
+  "class": "tram",
+  "signal_arm": []
+ },
+ "class": {
+  "id": "tram",
+  "acceleration": 0.55,
+  "service_brake": 1.25,
+  "panic_brake": 2.8,
+  "reaction": 0.8,
+  "warning": "traffic.foot_gong",
+  "brake": "traffic.brake_shriek"
+ },
+ "headway_minutes": [
+  20,
+  30,
+  30,
+  30,
+  30,
+  15,
+  8,
+  5,
+  4,
+  5,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  5,
+  4,
+  4,
+  5,
+  7,
+  8,
+  10,
+  15
+ ],
+ "line": {
+  "gauge_m": 1.435,
+  "rail_head_m": 0.07,
+  "rail_top_above_road_m": 0.006,
+  "wire_height_m": 5.5,
+  "wire_radius_m": 0.0065,
+  "span_radius_m": 0.005,
+  "sample_m": 1.0,
+  "pole_tip": [
+   -8.542,
+   5.5,
+   -0.0
+  ],
+  "pole_height_m": 7.4,
+  "span_eye_z_m": 6.35,
+  "rosette_reach_m": 0.09,
+  "pole_radius_m": 0.16
+ },
+ "supports": [
+  {
+   "x": -58.0,
+   "near": "pole"
+  },
+  {
+   "x": -33.0,
+   "near": "pole"
+  },
+  {
+   "x": -3.0,
+   "near": "rosette"
+  },
+  {
+   "x": 31.0,
+   "near": "pole"
+  },
+  {
+   "x": 57.0,
+   "near": "pole"
+  }
+ ],
+ "far_kerb_z": 14.62,
+ "near_kerb_z": 3.975,
+ "orison_facade_z": 0.05,
+ "cross": {
+  "reach_m": 60.0,
+  "support_pitch_m": 26.0,
+  "kerb_offset_m": 4.95
+ },
+ "arcs": {
+  "per_minute": 1.6,
+  "aurora_multiplier": 6.0,
+  "aurora_phenomena": [
+   "aurora",
+   "steve"
+  ],
+  "wet_multiplier": 2.0,
+  "colour": [
+   0.48,
+   0.36,
+   1.0
+  ],
+  "energy": 3.2,
+  "range_m": 9.0,
+  "seconds": [
+   0.05,
+   0.14
+  ],
+  "reduced_energy": 0.6
+ }
+}
