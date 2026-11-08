@@ -7,7 +7,7 @@ extends Node
 const PAPER := "record"
 const DAY := "1929-05-24"
 const NOTICE_HEAD := "Ditmars Photoplay adds a Saturday matinee for the Fremont Street picture"
-const CAPTION := "FREMONT STREET, 1929. Company photograph. The camera crew asked the tall one to step back."
+const CAPTION := "FREMONT STREET, 1929. The company of 'Mind the Teacup.' The camera crew asked the tall one to step back."
 
 var _fails := 0
 

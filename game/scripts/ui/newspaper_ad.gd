@@ -168,17 +168,17 @@ func _set_reason() -> Control:
 	return box.get_parent().get_parent()
 
 
-## A tradesman's card: small, centred, the mark above and the telephone below.
+## A tradesman's card: small and centred. The item and its price sit under the cut and
+## outweigh the shop's name, which comes below with the telephone.
 func _set_trade() -> Control:
 	var box := _frame(_rule_border(1))
 	_mark(box, true)
 	_cut(box)
-	_text(box, str(_firm.name), "goudy", 18, HORIZONTAL_ALIGNMENT_CENTER)
-	_text(box, str(_firm.id_line), "goudy", 11, HORIZONTAL_ALIGNMENT_CENTER)
-	_rule(box, 1)
-	_text(box, str(_ad.headline), "old_bold", 15, HORIZONTAL_ALIGNMENT_CENTER)
+	_text(box, str(_ad.headline), "old_bold", 18, HORIZONTAL_ALIGNMENT_CENTER)
 	_text(box, str(_ad.body), "goudy", 13, HORIZONTAL_ALIGNMENT_CENTER)
 	_rule(box, 1)
+	_text(box, str(_firm.name), "goudy", 15, HORIZONTAL_ALIGNMENT_CENTER)
+	_text(box, str(_firm.id_line), "goudy", 11, HORIZONTAL_ALIGNMENT_CENTER)
 	_contact_lines(box, "goudy", 12)
 	return box.get_parent().get_parent()
 
