@@ -29,11 +29,18 @@ func _ready() -> void:
 	var loaded := schedule.load_schedule(Phenomena.PATH, Callable(self, "_seasonal"))
 	for problem in schedule.errors: print("    ", problem)
 	_check("the schedule loads with no validation errors", loaded)
-	_check("42 phenomena fill the 42 sky slots", schedule.phenomena.size() == Phenomena.SLOTS
+	_check("43 phenomena fill the 43 sky slots", schedule.phenomena.size() == Phenomena.SLOTS
 			and not schedule.ids_by_slot.has(""))
 	var dated := {}
 	for entry: Dictionary in schedule.occurrences: dated[entry.id] = true
 	_check("every phenomenon is dated at least once", dated.size() == schedule.phenomena.size())
+	# The Star God's window in the papers is the one star_god.gd draws.
+	var star_god: Array = schedule.occurrences.filter(func(e): return e.id == "star_god")
+	var StarGod := preload("res://scripts/building/star_god.gd")
+	_check("the Star God is dated once, on the eclipse star_god.gd draws", star_god.size() == 1
+			and str(star_god[0].date) == StarGod.DATE
+			and is_equal_approx(float(star_god[0].end) - float(star_god[0].start), StarGod.MINUTES)
+			and is_equal_approx(fposmod(float(star_god[0].start), 1440.0), StarGod.START_LOCAL_MINUTE))
 
 	# The papers are the weather of record: each event's date must print weather that allows it.
 	var catalog := NewspaperCatalog.new()

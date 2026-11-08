@@ -29,6 +29,18 @@
       "silence_reply": "You have not asked why a man reads for the children's ages. Thank you. The question would have required an answer, and the answer is not catalogued."
     },
     {
+      "id": "np_op_mattress",
+      "from": "1928-12-18",
+      "until": "1929-01-10",
+      "topic": "Eleven hundred and forty mattresses.",
+      "line": "The Restwell company has sold one thousand one hundred and forty mattresses in four weeks, against three hundred and eighty last year, and attributes the increase to the season. It is not the season. It is Professor Lull at ten o'clock. I have not bought one. I have, however, written a condition report on my present mattress. Sound. Some sagging, central, consistent with use. Ticking intact. Recommend retention. I slept rather badly after writing it.",
+      "choices": [
+        {"label": "You wrote a report on your own bed.", "reply": "On the bed, not on the sleeper. The sleeper is not under review. ... It is the only report I have filed this year that recommends keeping a thing exactly as it is. I found it oddly hard to sign.", "trust": 1, "flag": "np_mattress_retained"},
+        {"label": "Do you listen to the Slumber Hour?", "reply": "I have heard it in the street at ten; half the block has it on. He counts very slowly. I do not count with him. I do find I stop reading at about the same page every night."},
+        {"label": "A mattress is a mattress.", "reply": "A mattress is the one object in a house that keeps the shape of a person and no record of them. I should have thought that worth a sentence. Evidently not.", "trust": -1}
+      ]
+    },
+    {
       "id": "np_op_spaniel",
       "from": "1928-12-27",
       "until": "1929-01-25",

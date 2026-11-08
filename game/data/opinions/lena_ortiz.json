@@ -126,6 +126,18 @@
     {"label": "Records keep people honest.", "trust": -1,
      "reply": "Records keep people repeating themselves. Honest is something else. She told it straight with the machine off and they paid her. If the company could believe her without the wall, so can you."}
    ]},
+    {
+      "id": "lo_op_twelve",
+      "from": "1929-07-21",
+      "until": "1929-08-15",
+      "topic": "The new baths at Middle Village.",
+      "line": "The new baths opened at Middle Village on Saturday. Six thousand two hundred in the water, and fourteen children lost and found again by the recorders on the lifeguard stands. I'd promised Cam since May we'd go the first Sunday. We didn't. Nobody in this house went anywhere that Sunday. I cooked instead. I cooked for twelve, love, and I cook for one, and I've been up and down the stairs with dishes ever since, and nothing's come back full.",
+      "choices": [
+        {"label": "Who's been eating it?", "reply": "Everybody, a little, standing up. That's how it goes. You don't ask if anyone's hungry. You put it in their hands. Mrs. Marsh sent my dish back with a seed cake on it, which is manners, and now I've a seed cake.", "trust": 1, "flag": "lo_cooked_for_twelve"},
+        {"label": "You could still go to the baths.", "reply": "Next Sunday, maybe. Cam says the water's seventy-one degrees. He read it out like it was a reason. It's not a reason, love. It's a number. I'll go when I go."},
+        {"label": "Twelve's a lot of food to waste.", "reply": "It isn't wasted. It's on the stairs. Food's the one thing you can carry to a door in a week like this without having to think what to say.", "trust": -1}
+      ]
+    },
   {"id": "lo_op_ditmars", "from": "1929-07-24", "until": "1929-08-20",
    "requires": ["op:lo_op_clinic"],
    "topic": "Nineteen brought down by ladder.",
