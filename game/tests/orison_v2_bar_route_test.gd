@@ -78,13 +78,16 @@ func _route() -> void:
 	if not await _walk_source(bar,Vector3(-10.48,-2.8,36.65)):return
 	await _capture("wc_inside",bar.to_global(Vector3(-10.1,-1.9,37.5)))
 	var sink = bar.actors.get_node("F01_BAR_WC_SINK_01")
-	if not await _use(sink,sink.to_global(Vector3(0,.82,0)),"wc_sink"):return
+	# Taps are turned by hand since RUL-013: grab each valve and give it a quarter turn.
+	if not _require(sink is TapProp and sink._handles.size()==2,"retained sink keeps its two original valves"):return
+	if not await _turn_valve(sink,0,PI*.5,"wc_sink"):return
 	if not _require(sink.get_flow_state().hot and not sink.get_flow_state().cold,
 			"retained sink first opens its hot valve through ordinary input"):return
-	if not await _use(sink,sink.to_global(Vector3(0,.82,0)),"wc_sink_mixed"):return
+	if not await _turn_valve(sink,1,PI*.5,"wc_sink_mixed"):return
 	if not _require(sink.get_flow_state().hot and sink.get_flow_state().cold,
 			"retained sink admits both valves on repeated input"):return
-	if not await _use(sink,sink.to_global(Vector3(0,.82,0)),"wc_sink_off"):return
+	if not await _turn_valve(sink,0,0.0,"wc_sink_off"):return
+	if not await _turn_valve(sink,1,0.0,"wc_sink_off_cold"):return
 	if not _require(not sink.get_flow_state().hot and not sink.get_flow_state().cold,
 			"retained sink closes both valves through ordinary input"):return
 	if not await _walk_source(bar,Vector3(-10.48,-2.8,35.4)):return
@@ -121,3 +124,15 @@ func _capture(identity: String,target: Vector3) -> void:
 	player.camera.look_at(target)
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(output.path_join(identity+".png"))
+
+
+## Grab one of a tap's original valves with the real pointer and turn it to an angle.
+func _turn_valve(tap: TapProp, index: int, angle: float, label: String) -> bool:
+	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	await _capture_interaction(label)
+	var moved: bool = await hand.operate(tap._handles[index].global_position, angle, tap)
+	hand.free()
+	return _require(moved, "actual grab, mouse motion and release: " + label)
