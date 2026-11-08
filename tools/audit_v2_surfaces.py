@@ -16,6 +16,31 @@ MICROSCOPY_CHANNELS = tuple('micro_'+stock+'_'+channel
                            for stock in ('membrane','organ','mineral')
                            for channel in ('albedo','roughness','normal'))
 
+
+def far_city_effect(draw, surface, material, textures):
+    if (draw.get('owner_script') != 'res://scripts/building/orison_v2_city_far_motion.gd'
+            or draw.get('owner') != 'FarDistricts/FarMotion'
+            or material.get('type') != 'StandardMaterial3D' or not material.get('unshaded')
+            or surface.get('vertices') != 4 or surface.get('triangles') != 2
+            or surface['missing_uv'] or surface['nonfinite_uv'] or surface['degenerate_uv_triangles']):
+        return None
+
+    maps = material.get('maps', {})
+    path = draw['path']
+    if (path == 'FarDistricts/FarMotion/BridgeLamps' and not maps
+            and material.get('billboard') and material.get('additive') and material.get('transparency') == 1):
+        return 'distant_bridge_lamp_points'
+    if (path == 'FarDistricts/FarMotion/ElWindows' and not maps
+            and material.get('billboard') is False and material.get('additive') is False
+            and material.get('transparency') == 0):
+        return 'distant_el_light_strips'
+    if (path == 'FarDistricts/FarMotion/ChimneySmoke' and set(maps) == {'albedo_texture'}
+            and material.get('transparency') == 1 and material.get('additive') is False
+            and textures.get(maps['albedo_texture'], {}).get('type') == 'GradientTexture2D'):
+        return 'distant_chimney_smoke'
+    return None
+
+
 def evaluate(data):
     if data.get('schema')!='orison.v2-surface-inventory.v1':raise ValueError('unknown inventory schema')
     if data.get('passage_state')!='RESIDENT':raise ValueError('passage was not resident; scope incomplete')
@@ -48,6 +73,9 @@ def evaluate(data):
             # Explicit external effects only. Unshaded, transparent or flat
             # materials do not automatically become exempt physical stock.
             shader=material.get('shader','')
+            distant_effect = far_city_effect(draw, surface, material, data['textures'])
+            if distant_effect:
+                effects.append({'id': identity, 'class': distant_effect});continue
             if (shader=='res://scripts/device/writer_smoke.gdshader' and
                 draw.get('owner_script')=='res://scripts/device/hot_type_writer.gd'):
                 effects.append({'id':identity,'class':'hot_type_smoke'});continue

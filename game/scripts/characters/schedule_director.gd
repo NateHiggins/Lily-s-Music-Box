@@ -100,9 +100,9 @@ func setup(target: ResidentRoutines, layout: Dictionary) -> void:
 			# Tests pin DAYNIGHT=0 for the canonical 03:00 building; the
 			# schedule stands down with the sky so they stay deterministic.
 			enabled = OS.get_environment("DAYNIGHT") != "0"
-	print("[SCHEDULE] director %s: %d residents on the clock" % [
+	print("[SCHEDULE] director %s: %d residents and %d staff on the clock" % [
 			"live" if enabled else "inert",
-			data.get("residents", {}).size()])
+			data.get("residents", {}).size(), data.get("staff", {}).size()])
 
 
 func _process(delta: float) -> void:
@@ -116,7 +116,7 @@ func _process(delta: float) -> void:
 	if not bool(info.get("valid", false)):
 		return
 	var minute := minute_now()
-	for slug in data["residents"]:
+	for slug in clocked():
 		var block := resolve(str(slug), str(info.day), minute,
 				int(info.doy), bool(info.first_sat))
 		var directive := directive_for(str(slug), block)
@@ -166,9 +166,17 @@ func day_info() -> Dictionary:
 
 ## ---- resolution ------------------------------------------------------
 
+## Everyone the clock moves: the residents, then the staff. Staff hold no unit
+## and no key, so the key-ring, presence ledger and routes read residents only,
+## and so do shop visits below: the bartender is not her own customer.
+func clocked() -> Array:
+	return data.get("residents", {}).keys() + data.get("staff", {}).keys()
+
+
 func resolve(slug: String, day: String, minute: float, doy: int,
 		first_sat: bool) -> Dictionary:
-	var spec: Dictionary = data.get("residents", {}).get(slug, {})
+	var spec: Dictionary = data.get("residents", {}).get(slug,
+			data.get("staff", {}).get(slug, {}))
 	if spec.is_empty():
 		return {}
 	var m := int(minute)
@@ -388,7 +396,7 @@ func self_test() -> int:
 	var day_shapes := [["mon", false], ["tue", false], ["wed", false],
 			["thu", false], ["fri", false], ["sat", false], ["sat", true],
 			["sun", false]]
-	for slug in data.get("residents", {}):
+	for slug in clocked():
 		for shape in day_shapes:
 			for m in range(0, 1440, 10):
 				var block := resolve(str(slug), str(shape[0]), float(m),
@@ -418,6 +426,10 @@ func self_test() -> int:
 		["malcolm_reed", "wed", 1050, 0, false, "roof", "place"],
 		["omar_bell", "wed", 1320, 194, false, "unit", "home"],
 		["lena_ortiz", "wed", 700, 84, false, "corridor", "place"],
+		["stacy", "thu", 1200, 0, false, "harukiya_bar", "exterior"],
+		["stacy", "sat", 60, 0, false, "harukiya_bar", "exterior"],
+		["stacy", "mon", 1200, 0, false, "out", "offsite"],
+		["stacy", "tue", 30, 0, false, "out", "offsite"],
 	]
 	for e in expectations:
 		var block := resolve(str(e[0]), str(e[1]), float(e[2]), int(e[3]),

@@ -89,7 +89,18 @@ function Get-LaneRecord {
     if (-not (Test-Path -LiteralPath $Path)) { return $null }
     try {
         $record = Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json -DateKind String
-        $alive = $null -ne (Get-Process -Id $record.pid -ErrorAction SilentlyContinue)
+        # Live only if that pid's process started before the record was stamped, the rule
+        # Get-OrisonLaneQueue uses: after a reboot Windows reuses pids, and a dead record
+        # must not read as live because an unrelated process now holds its number.
+        $process = Get-Process -Id $record.pid -ErrorAction SilentlyContinue
+        $stamp = if ($record.since_utc) { $record.since_utc } else { $record.started_utc }
+        $alive = $false
+        if ($process -and $stamp) {
+            $at = [datetime]::Parse([string]$stamp, [cultureinfo]::InvariantCulture,
+                [System.Globalization.DateTimeStyles]::AssumeUniversal -bor [System.Globalization.DateTimeStyles]::AdjustToUniversal)
+            $alive = $process.StartTime.ToUniversalTime() -le $at.AddSeconds(5)
+        }
+        elseif ($process) { $alive = $true }
         $record | Add-Member -NotePropertyName alive -NotePropertyValue $alive -Force
         return $record
     }
@@ -155,20 +166,65 @@ function Write-LaneStatus {
     }
 }
 
+function Get-RunSummary {
+    param([hashtable]$Spec)
+    [ordered]@{ scene = [string]$Spec.scene; runner = [string]$Spec.runner; log = [string]$Spec.log
+        windowed = [bool]$Spec.windowed; timeout = $Spec.timeout; skip = [bool]$Spec.skip }
+}
+
+function Read-LaneBatch {
+    # The runs in a batch file, validated; throws on anything malformed.
+    param([string]$Path)
+    $out = @()
+    foreach ($item in (Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json)) {
+        $h = @{}
+        foreach ($prop in $item.PSObject.Properties) { $h[$prop.Name] = $prop.Value }
+        if (-not $h.log) { throw "every batch entry needs a log" }
+        $null = Get-RunEnvironment -Spec $h
+        $out += $h
+    }
+    return ,$out
+}
+
+function Get-LanePriority {
+    # Lily's ruling (2026-11-06), the same classification as homebrew-tools/lane_priority.py:
+    # tests high (0), renders medium (1), LoRA training low (2).
+    param([string]$Scene)
+    $s = "$Scene".Trim().Trim("'")
+    if ($s.StartsWith("lora ") -or $s.StartsWith("lora:")) { return 2 }
+    if ($s.StartsWith("res://") -or $s -match '^\d+ runs?$' -or $s -match 'Test|Bench' -or $s -match '--import' -or $s -eq "") { return 0 }
+    return 1
+}
+
+function Add-LaneRunHistory {
+    # One line per finished run, so a viewer can estimate how long a job will take.
+    param([hashtable]$Spec, [datetime]$Started, [int]$Exit)
+    try {
+        $line = [ordered]@{ scene = [string]$Spec.scene; runner = [string]$Spec.runner; windowed = [bool]$Spec.windowed
+            worktree = (Split-Path $PSScriptRoot -Parent); started_utc = $Started.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
+            seconds = [math]::Round(((Get-Date) - $Started).TotalSeconds, 1); exit = $Exit } | ConvertTo-Json -Compress
+        Add-Content -LiteralPath (Join-Path (Get-OrisonLaneStateDir) "run_history.jsonl") -Value $line -Encoding utf8
+    }
+    catch { Write-Warning "run history not written: $_" }
+}
+
 function Wait-ForLane {
     # Returns an owned Mutex, or $null if the deadline passed. Ownership
     # requires BOTH the mutex and an empty Godot census, exactly as the
     # runners require; the mutex is released again while Godot is still
     # running elsewhere so a waiting broker never blocks the lane itself.
-    param([double]$Minutes, [string]$What)
+    param([double]$Minutes, [string]$What, [object[]]$Runs = @(), [string]$BatchPath = "", [string]$SinceUtc = "")
     $deadline = (Get-Date).AddMinutes($Minutes)
     $waitDir = Join-Path (Get-OrisonLaneStateDir) "waiters"
     New-Item -ItemType Directory -Force -Path $waitDir | Out-Null
     $waitFile = Join-Path $waitDir "$PID.json"
     $stamp = "$waitFile.tmp"
+    # Each run is listed so a queue viewer (Omni) can show and edit it; a batch rereads
+    # its file when its turn comes (Read-LaneBatch), so edits made while it waits apply.
     [ordered]@{ pid = $PID; scene = $What; worktree = (Split-Path $PSScriptRoot -Parent)
-                since_utc = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ") } |
-        ConvertTo-Json | Set-Content -LiteralPath $stamp -Encoding utf8
+                since_utc = $(if ($SinceUtc) { $SinceUtc } else { (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ") })
+                batch_file = $BatchPath; runs = @($Runs | ForEach-Object { Get-RunSummary -Spec $_ }) } |
+        ConvertTo-Json -Depth 4 | Set-Content -LiteralPath $stamp -Encoding utf8
     Move-Item -LiteralPath $stamp -Destination $waitFile -Force
     $announced = $false
     try {
@@ -303,41 +359,76 @@ switch ($Command) {
         if (-not $BatchFile -or -not (Test-Path -LiteralPath $BatchFile)) {
             Write-Error "batch needs -BatchFile <runs.json>"; exit $EXIT_USAGE
         }
-        $runs = @()
-        foreach ($item in (Get-Content -LiteralPath $BatchFile -Raw | ConvertFrom-Json)) {
-            $h = @{}
-            foreach ($prop in $item.PSObject.Properties) { $h[$prop.Name] = $prop.Value }
-            if (-not $h.log) { Write-Error "every batch entry needs a log"; exit $EXIT_USAGE }
-            try { $null = Get-RunEnvironment -Spec $h }
-            catch { Write-Error $_; exit $EXIT_USAGE }
-            $runs += $h
-        }
+        $BatchFile = (Resolve-Path -LiteralPath $BatchFile).Path
+        try { $runs = Read-LaneBatch -Path $BatchFile }
+        catch { Write-Error $_; exit $EXIT_USAGE }
     }
 }
 
 $label = if ($runs.Count -eq 1) { $runs[0].scene } else { "$($runs.Count) runs" }
-$mutex = Wait-ForLane -Minutes $WaitMinutes -What $label
+$mutex = Wait-ForLane -Minutes $WaitMinutes -What $label -Runs $runs -BatchPath $(if ($Command -eq "batch") { $BatchFile } else { "" })
 if ($null -eq $mutex) {
     Write-Error "LANE BUSY: not free within $WaitMinutes min; nothing was started."
     Write-LaneStatus (Get-LaneStatus) | ForEach-Object { Write-Host $_ }
     exit $EXIT_LANE_BUSY
 }
+if ($Command -eq "batch") {
+    # Take any edits made while this batch waited (reordered or skipped runs). A file
+    # that no longer reads keeps the runs as queued, so a bad edit never loses the turn.
+    try { $runs = Read-LaneBatch -Path $BatchFile }
+    catch { Write-Warning "batch file edit unreadable, running it as queued: $_" }
+}
+$runs = @($runs | Where-Object { -not $_.skip })
 $final = 0
 $results = @()
 $env:ORISON_LANE_BROKER = "$PID"
+# A batch's own priority is its most urgent run's (a batch of tests stays high).
+$batchLevel = (@($runs | ForEach-Object { Get-LanePriority $_.scene }) + @(2) | Measure-Object -Minimum).Minimum
 try {
-    foreach ($spec in $runs) {
+    for ($i = 0; $i -lt $runs.Count; $i++) {
+        $spec = $runs[$i]
+        $began = Get-Date
         $code = Invoke-OneRun -Spec $spec
+        Add-LaneRunHistory -Spec $spec -Started $began -Exit $code
         $results += [ordered]@{ scene = $spec.scene; log = $spec.log; exit = $code }
         Write-Host "[LANE] $($spec.scene) exit=$code"
         if ($code -ne 0 -and $final -eq 0) { $final = $code }
         if ($code -ne 0 -and -not $ContinueOnFailure) { break }
+        if ($code -ne 0 -and "$($spec.scene)" -match 'CompileChangedScripts') {
+            # Nothing after a failed compile check can run correctly; continuing past failures would only let the
+            # dependent runs spend the lane up to their ceilings (11-07, about 30 minutes lost).
+            Write-Host "[LANE] compile check failed: the remaining $($runs.Count - $i - 1) run(s) are not started"
+            break
+        }
+        if ($i -lt $runs.Count - 1) {
+            # Between runs, give the lane to anyone waiting who outranks this batch, then rejoin right
+            # behind the first of them (ahead of lower-priority work that queued later).
+            $outranks = @(Get-OrisonLaneQueue | Where-Object { $_.pid -ne $PID -and (Get-LanePriority $_.scene) -lt $batchLevel })
+            if ($outranks.Count) {
+                $first = $outranks[0]
+                Write-Host "[LANE] yielding to '$($first.scene)' (pid $($first.pid)) before $($runs.Count - $i - 1) more run(s)"
+                Clear-OrisonLaneHolder
+                try { $mutex.ReleaseMutex() } catch {}
+                $mutex.Dispose()
+                $mutex = $null
+                $rest = @($runs[($i + 1)..($runs.Count - 1)])
+                $since = $first.since.AddSeconds(1).ToString("yyyy-MM-ddTHH:mm:ssZ")
+                $mutex = Wait-ForLane -Minutes $WaitMinutes -What "$($rest.Count) runs" -Runs $rest -BatchPath $(if ($Command -eq "batch") { $BatchFile } else { "" }) -SinceUtc $since
+                if ($null -eq $mutex) {
+                    Write-Error "LANE BUSY after yielding: not free within $WaitMinutes min; $($rest.Count) run(s) not started."
+                    $final = $EXIT_LANE_BUSY
+                    break
+                }
+            }
+        }
     }
 }
 finally {
     Clear-OrisonLaneHolder
-    try { $mutex.ReleaseMutex() } catch {}
-    $mutex.Dispose()
+    if ($null -ne $mutex) {
+        try { $mutex.ReleaseMutex() } catch {}
+        $mutex.Dispose()
+    }
 }
 if ($Json) { $results | ConvertTo-Json -Depth 3 }
 exit $final

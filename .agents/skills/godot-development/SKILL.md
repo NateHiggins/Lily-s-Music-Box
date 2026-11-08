@@ -80,6 +80,13 @@ check only when changed inputs, failures, or unresolved concerns justify it.
 
 ## Minimize time spent running Godot
 
+Reserve the GPU lane for Godot and actual GPU work. Where repository rules
+permit, an audited CPU-only source/data or unrendered Blender export check can
+run outside that lane; inspect the invoked operations rather than assuming
+every Blender command renders. Keep its CPU/memory contention out of timed
+gameplay comparisons, and coordinate shared source custody. A successful native
+export still needs the relevant Godot behavior and appearance qualification.
+
 For this project's native-resolution captures, reuse the existing
 **native_debug_window.gd** SceneTree helper: saved GameBoot window settings can
 override CLI fullscreen and clip a 3440x1440 request to 3440x1421. Confirm the
@@ -419,6 +426,14 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   measured endpoints, keep ordinary callers unchanged, then qualify the same
   route in the composed world. See the city report's southern footway diagnosis.
   See the [pull/input repair](../../../design/V2_PASSAGE_PULL_AND_OAK_2026-10-25.md).
+  Before diagnosing stalled loose stock, record FPS-pickup versus inspection
+  mode and whether the ordinary holder callback actually runs. Disabling player
+  physics in a fixture also disables its carry follow; captured mouse motion can
+  turn the view while an old driver expects free dragging. Check actual pointer
+  delivery, selected surface and part motion across the Space handoff. Adapt the
+  fixture to the current control owner; do not set pickup=false or waive real
+  collision to restore an old pass. The city ledger's radiator probes retain
+  these reproduced failures; they do not establish a successful repair.
 - **Time and visibility:** derive reversible sky presentation from authoritative
   fractional campaign time, not scene uptime or an independent clock. Check
   pause and out-of-order return with rendered comparisons as well as uniforms.

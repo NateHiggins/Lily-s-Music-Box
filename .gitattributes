@@ -1746,6 +1746,7 @@ game/assets/environment/weather/*.rg8 -text
 game/assets/environment/weather/*.r8 -text -diff
 game/assets/environment/weather/*.rgb8 -text -diff
 game/tests/orison_v2_first_slice_contract_test.gd -text
+game/tests/orison_v2_first_slice_contract_test.tscn -text
 art/renders/orison_v2/first_slice_contract_20261011/** -text
 game/tests/orison_v2_m08e_spatial_test.gd -text
 game/tests/orison_v2_integrated_test.gd -text
@@ -2479,6 +2480,7 @@ game/tests/v2_region_access_driver.gd -text
 game/tests/v2_region_access_observer.gd -text
 game/tests/V2RegionAccessContract.tscn -text
 art/renders/orison_v2/access_exterior_regions_20261019/** -text
+art/reviews/v2_exterior_access_20261106/** -text -whitespace
 art/reviews/v2_region_access_20261019/** -text
 game/tests/v2_service_programme_walk.gd -text
 game/tests/v2_service_programme_contract.gd -text
@@ -3578,3 +3580,49 @@ game/tests/fixtures/orison_city_ground_edges.json -text
 game/scripts/building/orison_v2_city_ground_edges.gd -text
 tools/prepare_v2_city_ground_edges.py -text
 art/reviews/city_streets_20261029/city_ground_edges_native_20261103.zip -text
+
+# Source-bound legacy finish replay, independent of current V2 art.
+art/data/m11c1/floor01_material_context.json -text
+tools/m11c1_floor01_owner_first/material_context.py -text
+
+# Byte-exact historical apartment19 custody; not current qualification.
+art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/runtime_contract.json -text
+art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/apartments.log.receipt.json -text
+art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/apartments.log -text
+art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/apartments.log.stderr -text
+art/reviews/v2_qualification_debt_20261104/historical_apartment19_20261013/PROVENANCE.json -text
+
+# Original runtime14 and prior-cohort raw evidence.
+art/reviews/v2_qualification_debt_20261104/** -text -whitespace
+art/renders/orison_v2/surface_requirements_20261011/entry_preparation/preparation_views.json -text
+art/renders/orison_v2/first_slice_contract_20261011/verification.json -text -whitespace
+
+# Preserve raw current-cohort review bindings and prior receipts.
+art/reviews/v2_qualification_current_20261105/** -text -whitespace
+
+# Preserve the raw review and prior receipt bytes for the hose/nook cohort.
+art/reviews/v2_qualification_hose_20261106/** -text -whitespace
+
+# Preserve original city-window qualification archive and review bindings.
+art/reviews/v2_qualification_city_windows_20261106/** -text -whitespace
+
+# Preserve original reading and valise qualification archive and review bindings.
+art/reviews/v2_qualification_reading_valise_20261106/** -text -whitespace
+
+# Preserve original book transport qualification archive and review bindings.
+art/reviews/v2_qualification_book_optical_20261107/** -text -whitespace
+
+# Preserve exterior shadow qualification archives and exact review bindings.
+art/reviews/v2_qualification_exterior_shadow_20261107/** -text -whitespace
+
+# Preserve the cityscape qualification archives and exact review bindings.
+art/reviews/v2_qualification_cityscape_20261107/** -text -whitespace
+
+game/assets/props/city_far_districts.glb binary
+art/blender/data/city_far_survey/*.npy binary
+
+# Preserve the distant-city qualification archives and exact review bindings.
+art/reviews/v2_qualification_far_city_20261107/** -text -whitespace
+game/assets/props/city_midground.glb binary
+art/blender/data/city_midground_survey/*.f32 binary
+art/blender/data/city_midground_survey/*.i32 binary

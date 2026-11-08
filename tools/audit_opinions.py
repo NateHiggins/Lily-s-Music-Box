@@ -36,7 +36,7 @@ PREFIXES = {
     "juno_kells": "jk", "rhea_sato": "rs", "nadia_quell": "nq", "evelyn_marsh": "em",
     "teresa_vale": "tv", "lena_ortiz": "lo", "malcolm_reed": "mr", "cam_ortiz": "co",
     "noel_price": "np", "transient_guests": "tg", "iris_bell": "ib", "sacha_reed": "sr",
-    "jonah_price": "jp",
+    "jonah_price": "jp", "stacy": "st",
 }
 WORLD_FLAGS = {"mina_four_seconds", "minutes_read", "otis_sixth_deaf", "station_went_quiet",
                "vales_hours_do_not_overlap", "vantry_in_3c"}

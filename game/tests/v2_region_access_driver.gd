@@ -50,7 +50,7 @@ func _walk(local_target: Vector3, arrival_tolerance: float=.1) -> bool:
 	if not _require(observer.samples.size()>first,"endpoint has an observed physics sample"):return false
 	var sample: Dictionary=observer.samples[-1]
 	var actual: Array=sample.actual
-	var ok: bool=Vector2(float(actual[0])-local_target.x,float(actual[2])-local_target.z).length()<.18 and absf(float(actual[1])-local_target.y)<.15 and not player.noclip and player.collision_mask==1 and player.is_physics_processing()
+	var ok: bool=Vector2(float(actual[0])-local_target.x,float(actual[2])-local_target.z).length()<.18 and absf(float(actual[1])-local_target.y)<.15 and not player.noclip and player.collision_mask==Observer.STANDING_MASK and player.is_physics_processing()
 	var step: Dictionary={"target":[local_target.x,local_target.y,local_target.z],"actual":actual.duplicate(),"ok":ok,"sample_index":observer.samples.size()-1,"wall_contacts":contacts,"physics_steps":frames,"elapsed_ms":Time.get_ticks_msec()-started}
 	for key: String in ["noclip","collision_mask","capsule_radius","capsule_height","on_floor"]:step[key]=sample[key]
 	trace.append(step)

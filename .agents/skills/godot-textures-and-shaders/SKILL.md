@@ -83,6 +83,13 @@ boundaries; inspect their own instructions instead of passing SDXL options to th
 
 ## Find the actual appearance owner
 
+Trace scalar-map channels through export and the runtime binder. A source
+roughness image and a glTF metallic-roughness image may use different channels.
+Unused-channel repacking can change file hashes while preserving the visible
+lobe; diagnose it without weakening source identity or replacing newer art.
+Prove a corrected native export on a small material fixture before replaying
+the full asset. Native channel/byte proof does not qualify Godot appearance.
+
 Trace the installed loader, material slots, overrides, next passes, shader
 includes, texture generator, catalogue record and import sidecars. Inspect
 runtime bindings: editing an unused candidate or merely supplying a texture

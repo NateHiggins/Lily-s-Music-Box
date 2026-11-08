@@ -1,0 +1,711 @@
+{
+	"artistically_accepted": false,
+	"costs": [
+		{
+			"delta_draw_calls": 31,
+			"delta_gpu_ms": -0.275749977429708,
+			"hidden": {
+				"cpu_ms": 3.07718334595362,
+				"draw_calls": 4454,
+				"gpu_ms": 6.96554998556773,
+				"primitives": 3878053
+			},
+			"present": {
+				"cpu_ms": 3.0901833375295,
+				"draw_calls": 4485,
+				"gpu_ms": 6.68980000813802,
+				"primitives": 3934051
+			},
+			"view": "roof_east_night"
+		},
+		{
+			"delta_draw_calls": 17,
+			"delta_gpu_ms": 0.0683999697367348,
+			"hidden": {
+				"cpu_ms": 13.2229332923889,
+				"draw_calls": 25684,
+				"gpu_ms": 10.6203499952952,
+				"primitives": 51531643
+			},
+			"present": {
+				"cpu_ms": 12.5267000198364,
+				"draw_calls": 25701,
+				"gpu_ms": 10.6887499650319,
+				"primitives": 51596679
+			},
+			"view": "roof_west_night"
+		}
+	],
+	"draws": 58,
+	"evidence_class": "INERT",
+	"failures": [],
+	"frames": [
+		{
+			"basis": "[X: (1.0, 0.0, 0.0), Y: (0.0, 0.998205, 0.059892), Z: (0.0, -0.059892, 0.998205)]",
+			"bearing": 0.0,
+			"eye": "(11.0, 20.87025, -17.65)",
+			"facade_minute": 720.0,
+			"file": "roof_north_day.png",
+			"fov": 78.0,
+			"pitch": 0.06,
+			"sha256": "234a1fe0df559748665eb308bd6f53a1a5a5a30d11a5506b678cc55c2d412548",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 17,
+				"minute": 0,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (-0.0, 0.0, 1.0), Y: (-0.059892, 0.998205, -0.0), Z: (-0.998205, -0.059892, -0.0)]",
+			"bearing": 90.0,
+			"eye": "(11.0, 20.87025, -17.65)",
+			"facade_minute": 720.0,
+			"file": "roof_east_day.png",
+			"fov": 78.0,
+			"pitch": 0.06,
+			"sha256": "8580c02ec857b470074d60a018cc3693a06f4514df1303f41817ccbfbb5e72e7",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 17,
+				"minute": 0,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (-1.0, 0.0, 0.0), Y: (-0.0, 0.998205, -0.059892), Z: (-0.0, -0.059892, -0.998205)]",
+			"bearing": 180.0,
+			"eye": "(11.0, 20.87025, -17.65)",
+			"facade_minute": 720.0,
+			"file": "roof_south_day.png",
+			"fov": 78.0,
+			"pitch": 0.06,
+			"sha256": "8116a92c0bf20342f9f3973359011387b1651353a85bb1d5c8e1a9f2b6d17cc3",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 17,
+				"minute": 0,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.258819, 0.0, -0.965926), Y: (0.057851, 0.998205, 0.015501), Z: (0.964192, -0.059892, 0.258355)]",
+			"bearing": 285.0,
+			"eye": "(11.0, 20.87025, -17.65)",
+			"facade_minute": 720.0,
+			"file": "roof_west_day.png",
+			"fov": 78.0,
+			"pitch": 0.06,
+			"sha256": "b70dcb2d5c016275b62ce51fbcef0490b484efe799a03d90c02035b1ce854863",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 17,
+				"minute": 0,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.173649, 0.0, -0.984808), Y: (0.029531, 0.99955, 0.005207), Z: (0.984365, -0.029987, 0.173571)]",
+			"bearing": 280.0,
+			"eye": "(-280.0, -2.205497, -9.999999)",
+			"facade_minute": 720.0,
+			"file": "street_west_end_day.png",
+			"fov": 78.0,
+			"pitch": 0.03,
+			"sha256": "425f8044d27f62005a3d47d4b317e11ab5597620f49b03849338ca14a7b2c24f",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 17,
+				"minute": 0,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (-0.0, 0.0, 1.0), Y: (-0.029986, 0.99955, -0.0), Z: (-0.99955, -0.029986, -0.0)]",
+			"bearing": 90.0,
+			"eye": "(280.0, 1.39, -10.0)",
+			"facade_minute": 720.0,
+			"file": "street_east_end_day.png",
+			"fov": 78.0,
+			"pitch": 0.03,
+			"sha256": "882689c6b9caaa9e7eb80b76b159f83080840b334e3dc00357bb2c22698eeb5e",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 17,
+				"minute": 0,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.4956, 0.0, -0.868551), Y: (0.0, 1.0, 0.0), Z: (0.868551, 0.0, 0.4956)]",
+			"bearing": 299.708333706375,
+			"eye": "(-504.8932, 46.26204, -688.4156)",
+			"facade_minute": 720.0,
+			"file": "bridge_approach_day.png",
+			"fov": 78.0,
+			"pitch": 0.0,
+			"sha256": "6b16fa8088c857a7205e1fd340ab8f1938c1d2bd32cffbc0344550fe53d0295b",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 17,
+				"minute": 0,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (-0.173645, 0.0, -0.984808), Y: (0.019692, 0.9998, -0.003472), Z: (0.984611, -0.019996, -0.173611)]",
+			"bearing": 260.0,
+			"eye": "(-58.0, 1.124501, 316.0)",
+			"facade_minute": 720.0,
+			"file": "canal_day.png",
+			"fov": 78.0,
+			"pitch": 0.02,
+			"sha256": "ef3ebabd927c42a2840b1fc56dd7dba17e45f1f3d679f35fd2150a9a965e17e6",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 17,
+				"minute": 0,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.984808, 0.0, -0.173645), Y: (0.005207, 0.99955, 0.029531), Z: (0.173567, -0.029986, 0.984365)]",
+			"bearing": 350.0,
+			"eye": "(469.0, -1.880004, 28.0)",
+			"facade_minute": 720.0,
+			"file": "rail_cut_day.png",
+			"fov": 78.0,
+			"pitch": 0.03,
+			"sha256": "cc71ec6fb9a613e361525eb26e6c8170a46c5982dd7055676a55ac55518a6ba3",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 17,
+				"minute": 0,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.182235, 0.0, -0.983255), Y: (0.034393, 0.999388, 0.006374), Z: (0.982653, -0.034978, 0.182124)]",
+			"bearing": 280.5,
+			"eye": "(-14.0, 20.65025, -2.650001)",
+			"facade_minute": 720.0,
+			"file": "telescope_day.png",
+			"fov": 14.0,
+			"pitch": 0.035,
+			"sha256": "a363d9db4485d9664fa17dc656893025fd151696ff44415ece2914f3c1a029fc",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 17,
+				"minute": 0,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (1.0, 0.0, 0.0), Y: (0.0, 0.998205, 0.059892), Z: (0.0, -0.059892, 0.998205)]",
+			"bearing": 0.0,
+			"eye": "(11.0, 20.87025, -17.65)",
+			"facade_minute": 1043.0,
+			"file": "roof_north_dusk.png",
+			"fov": 78.0,
+			"pitch": 0.06,
+			"sha256": "1744a49c548c1b34227402ccbef5afe6299375322d16a5c72fac3eadfb3bb3da",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 22,
+				"minute": 23,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (-0.0, 0.0, 1.0), Y: (-0.059892, 0.998205, -0.0), Z: (-0.998205, -0.059892, -0.0)]",
+			"bearing": 90.0,
+			"eye": "(11.0, 20.87025, -17.65)",
+			"facade_minute": 1043.0,
+			"file": "roof_east_dusk.png",
+			"fov": 78.0,
+			"pitch": 0.06,
+			"sha256": "4ac982231123c37bbcf6b63f46ef5aa4291b4e0b61912534c15fc74fde791c60",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 22,
+				"minute": 23,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (-1.0, 0.0, 0.0), Y: (-0.0, 0.998205, -0.059892), Z: (-0.0, -0.059892, -0.998205)]",
+			"bearing": 180.0,
+			"eye": "(11.0, 20.87025, -17.65)",
+			"facade_minute": 1043.0,
+			"file": "roof_south_dusk.png",
+			"fov": 78.0,
+			"pitch": 0.06,
+			"sha256": "6e5d96a65e94dd9b7f545bc251b9ad64bd42c8602c6e04c43025c31d52651ca9",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 22,
+				"minute": 23,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.258819, 0.0, -0.965926), Y: (0.057851, 0.998205, 0.015501), Z: (0.964192, -0.059892, 0.258355)]",
+			"bearing": 285.0,
+			"eye": "(11.0, 20.87025, -17.65)",
+			"facade_minute": 1043.0,
+			"file": "roof_west_dusk.png",
+			"fov": 78.0,
+			"pitch": 0.06,
+			"sha256": "3689963a0c4da51f9a56147040d25306f43e1a941632d6d3040fcfcf1d626457",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 22,
+				"minute": 23,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.173649, 0.0, -0.984808), Y: (0.029531, 0.99955, 0.005207), Z: (0.984365, -0.029987, 0.173571)]",
+			"bearing": 280.0,
+			"eye": "(-280.0, -2.205497, -9.999999)",
+			"facade_minute": 1043.0,
+			"file": "street_west_end_dusk.png",
+			"fov": 78.0,
+			"pitch": 0.03,
+			"sha256": "fba2be2bc2eb96c9a3dcdfb104ae45bc43d063418f43d0890cf3daa6abaafdd1",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 22,
+				"minute": 23,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (-0.0, 0.0, 1.0), Y: (-0.029986, 0.99955, -0.0), Z: (-0.99955, -0.029986, -0.0)]",
+			"bearing": 90.0,
+			"eye": "(280.0, 1.39, -10.0)",
+			"facade_minute": 1043.0,
+			"file": "street_east_end_dusk.png",
+			"fov": 78.0,
+			"pitch": 0.03,
+			"sha256": "0dac9db3a23e563b3aee9f751c2390edc07ce750e8ae66bc572c57300f9aa79e",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 22,
+				"minute": 23,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.4956, 0.0, -0.868551), Y: (0.0, 1.0, 0.0), Z: (0.868551, 0.0, 0.4956)]",
+			"bearing": 299.708333706375,
+			"eye": "(-504.8932, 46.26204, -688.4156)",
+			"facade_minute": 1043.0,
+			"file": "bridge_approach_dusk.png",
+			"fov": 78.0,
+			"pitch": 0.0,
+			"sha256": "c158fdce586502d08bb487b6c792b308f9a548406818bb343fd58a6c21c006f4",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 22,
+				"minute": 23,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (-0.173645, 0.0, -0.984808), Y: (0.019692, 0.9998, -0.003472), Z: (0.984611, -0.019996, -0.173611)]",
+			"bearing": 260.0,
+			"eye": "(-58.0, 1.124501, 316.0)",
+			"facade_minute": 1043.0,
+			"file": "canal_dusk.png",
+			"fov": 78.0,
+			"pitch": 0.02,
+			"sha256": "77f67826654774a516874f7f58ff19e9a1f217defd80eab77dbae2d520a8b95b",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 22,
+				"minute": 23,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.984808, 0.0, -0.173645), Y: (0.005207, 0.99955, 0.029531), Z: (0.173567, -0.029986, 0.984365)]",
+			"bearing": 350.0,
+			"eye": "(469.0, -1.880004, 28.0)",
+			"facade_minute": 1043.0,
+			"file": "rail_cut_dusk.png",
+			"fov": 78.0,
+			"pitch": 0.03,
+			"sha256": "8a6634f2b37eb2fe2441c1b9b012e0ea2f7d5ef0d1ae2311ee60e7e8347550f5",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 22,
+				"minute": 23,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.182235, 0.0, -0.983255), Y: (0.034393, 0.999388, 0.006374), Z: (0.982653, -0.034978, 0.182124)]",
+			"bearing": 280.5,
+			"eye": "(-14.0, 20.65025, -2.650001)",
+			"facade_minute": 1043.0,
+			"file": "telescope_dusk.png",
+			"fov": 14.0,
+			"pitch": 0.035,
+			"sha256": "781383496dd2b64d058bc3bc4ecba5b4a1cbca8960cd870698d62e6646d9d2aa",
+			"utc": {
+				"day": 23,
+				"dst": false,
+				"hour": 22,
+				"minute": 23,
+				"month": 2,
+				"second": 0,
+				"weekday": 6,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (1.0, 0.0, 0.0), Y: (0.0, 0.998205, 0.059892), Z: (0.0, -0.059892, 0.998205)]",
+			"bearing": 0.0,
+			"eye": "(11.0, 20.87025, -17.65)",
+			"facade_minute": 1150.0,
+			"file": "roof_north_night.png",
+			"fov": 78.0,
+			"pitch": 0.06,
+			"sha256": "600cf7ec18813760f825e2a2785ef4fa50f04ffb7b4b8b4619e112bc14f62175",
+			"utc": {
+				"day": 24,
+				"dst": false,
+				"hour": 0,
+				"minute": 10,
+				"month": 2,
+				"second": 0,
+				"weekday": 0,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (-0.0, 0.0, 1.0), Y: (-0.059892, 0.998205, -0.0), Z: (-0.998205, -0.059892, -0.0)]",
+			"bearing": 90.0,
+			"eye": "(11.0, 20.87025, -17.65)",
+			"facade_minute": 1150.0,
+			"file": "roof_east_night.png",
+			"fov": 78.0,
+			"pitch": 0.06,
+			"sha256": "e0c3068f5fcb9a8648bef671ca38b18bcc73a7ae098f0d8b63951a5d49fdd805",
+			"utc": {
+				"day": 24,
+				"dst": false,
+				"hour": 0,
+				"minute": 10,
+				"month": 2,
+				"second": 0,
+				"weekday": 0,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (-1.0, 0.0, 0.0), Y: (-0.0, 0.998205, -0.059892), Z: (-0.0, -0.059892, -0.998205)]",
+			"bearing": 180.0,
+			"eye": "(11.0, 20.87025, -17.65)",
+			"facade_minute": 1150.0,
+			"file": "roof_south_night.png",
+			"fov": 78.0,
+			"pitch": 0.06,
+			"sha256": "e47dd7e1a9d53f196d4131806a750294452b401fe6f775e8fa0be285def5528a",
+			"utc": {
+				"day": 24,
+				"dst": false,
+				"hour": 0,
+				"minute": 10,
+				"month": 2,
+				"second": 0,
+				"weekday": 0,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.258819, 0.0, -0.965926), Y: (0.057851, 0.998205, 0.015501), Z: (0.964192, -0.059892, 0.258355)]",
+			"bearing": 285.0,
+			"eye": "(11.0, 20.87025, -17.65)",
+			"facade_minute": 1150.0,
+			"file": "roof_west_night.png",
+			"fov": 78.0,
+			"pitch": 0.06,
+			"sha256": "4fce580f1a898f89fb33effd899ad774705cb8845cf3717cd66217244c87fe5a",
+			"utc": {
+				"day": 24,
+				"dst": false,
+				"hour": 0,
+				"minute": 10,
+				"month": 2,
+				"second": 0,
+				"weekday": 0,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.173649, 0.0, -0.984808), Y: (0.029531, 0.99955, 0.005207), Z: (0.984365, -0.029987, 0.173571)]",
+			"bearing": 280.0,
+			"eye": "(-280.0, -2.205497, -9.999999)",
+			"facade_minute": 1150.0,
+			"file": "street_west_end_night.png",
+			"fov": 78.0,
+			"pitch": 0.03,
+			"sha256": "c7e1a535f49957b755bd4d926e28b24f94c467def5834038cfcf8e35af55b175",
+			"utc": {
+				"day": 24,
+				"dst": false,
+				"hour": 0,
+				"minute": 10,
+				"month": 2,
+				"second": 0,
+				"weekday": 0,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (-0.0, 0.0, 1.0), Y: (-0.029986, 0.99955, -0.0), Z: (-0.99955, -0.029986, -0.0)]",
+			"bearing": 90.0,
+			"eye": "(280.0, 1.39, -10.0)",
+			"facade_minute": 1150.0,
+			"file": "street_east_end_night.png",
+			"fov": 78.0,
+			"pitch": 0.03,
+			"sha256": "c89a924e401278c99a502b8c2964337cb9e38aad116fb08853ea6b0943465bd6",
+			"utc": {
+				"day": 24,
+				"dst": false,
+				"hour": 0,
+				"minute": 10,
+				"month": 2,
+				"second": 0,
+				"weekday": 0,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.4956, 0.0, -0.868551), Y: (0.0, 1.0, 0.0), Z: (0.868551, 0.0, 0.4956)]",
+			"bearing": 299.708333706375,
+			"eye": "(-504.8932, 46.26204, -688.4156)",
+			"facade_minute": 1150.0,
+			"file": "bridge_approach_night.png",
+			"fov": 78.0,
+			"pitch": 0.0,
+			"sha256": "c1dc1a1d6fbb5850a359ea629a2d3c7835ca99c021ef5eb8382fd6ec7eac4587",
+			"utc": {
+				"day": 24,
+				"dst": false,
+				"hour": 0,
+				"minute": 10,
+				"month": 2,
+				"second": 0,
+				"weekday": 0,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (-0.173645, 0.0, -0.984808), Y: (0.019692, 0.9998, -0.003472), Z: (0.984611, -0.019996, -0.173611)]",
+			"bearing": 260.0,
+			"eye": "(-58.0, 1.124501, 316.0)",
+			"facade_minute": 1150.0,
+			"file": "canal_night.png",
+			"fov": 78.0,
+			"pitch": 0.02,
+			"sha256": "2f1b8c3f3f8a1cdbddd1c1fdab9e1fe9c1683d0abca4b6df495cd71cd49e3d1d",
+			"utc": {
+				"day": 24,
+				"dst": false,
+				"hour": 0,
+				"minute": 10,
+				"month": 2,
+				"second": 0,
+				"weekday": 0,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.984808, 0.0, -0.173645), Y: (0.005207, 0.99955, 0.029531), Z: (0.173567, -0.029986, 0.984365)]",
+			"bearing": 350.0,
+			"eye": "(469.0, -1.880004, 28.0)",
+			"facade_minute": 1150.0,
+			"file": "rail_cut_night.png",
+			"fov": 78.0,
+			"pitch": 0.03,
+			"sha256": "40fc848953d84324c4fb597ddccf1fd996b3d30e5bd1dde81a9b446e46892e10",
+			"utc": {
+				"day": 24,
+				"dst": false,
+				"hour": 0,
+				"minute": 10,
+				"month": 2,
+				"second": 0,
+				"weekday": 0,
+				"year": 1929
+			}
+		},
+		{
+			"basis": "[X: (0.182235, 0.0, -0.983255), Y: (0.034393, 0.999388, 0.006374), Z: (0.982653, -0.034978, 0.182124)]",
+			"bearing": 280.5,
+			"eye": "(-14.0, 20.65025, -2.650001)",
+			"facade_minute": 1150.0,
+			"file": "telescope_night.png",
+			"fov": 14.0,
+			"pitch": 0.035,
+			"sha256": "f6c0f9daa722e8b4bf3c0eb79343d79261cfe706835e2883dc3a4519b37c039e",
+			"utc": {
+				"day": 24,
+				"dst": false,
+				"hour": 0,
+				"minute": 10,
+				"month": 2,
+				"second": 0,
+				"weekday": 0,
+				"year": 1929
+			}
+		}
+	],
+	"human_played": false,
+	"posed_view_support": {
+		"bridge_approach": {
+			"eye": "(-504.8932, 46.26204, -688.4156)",
+			"floor": "(-504.8932, 44.85204, -688.4156)",
+			"nominal_floor": "(-504.8933, 44.85201, -688.4156)",
+			"normal": "(0.029521, 0.999422, 0.016844)",
+			"owner": "/root/CityFarDistrictViews/OrisonV2Runtime/CityShells/QueensboroBridge/Bridge_13_L0__timber/SourceCollision",
+			"standing_capsule_clear": true
+		},
+		"street_east_end": {
+			"eye": "(280.0, 1.39, -10.0)",
+			"floor": "(280.0, -0.02, -10.0)",
+			"near_optical_rays": [
+				{
+					"end": "(315.6336, 2.469514, -15.00798)",
+					"first_hit": "",
+					"offset_deg": -8.0
+				},
+				{
+					"end": "(315.9838, 2.469514, -10.0)",
+					"first_hit": "",
+					"offset_deg": 0.0
+				},
+				{
+					"end": "(315.6336, 2.469514, -4.992022)",
+					"first_hit": "",
+					"offset_deg": 8.0
+				}
+			],
+			"nominal_floor": "(280.0, -0.02, -10.0)",
+			"normal": "(0.0, 1.0, 0.0)",
+			"owner": "/root/CityFarDistrictViews/OrisonV2Runtime/OrisonV2Blockout/Ground/orison_ground/DistantApron/Horizon_west__asphalt/GroundCollision",
+			"standing_capsule_clear": true
+		},
+		"telescope": {
+			"eye": "(-14.0, 20.65025, -2.650001)",
+			"floor": "(-14.0, 19.24025, -2.650001)",
+			"near_optical_rays": [
+				{
+					"end": "(-31.97186, 21.27986, -3.434669)",
+					"first_hit": "",
+					"offset_deg": -8.0
+				},
+				{
+					"end": "(-31.68776, 21.27986, -5.928233)",
+					"first_hit": "",
+					"offset_deg": 0.0
+				},
+				{
+					"end": "(-31.05938, 21.27986, -8.35799)",
+					"first_hit": "",
+					"offset_deg": 8.0
+				}
+			],
+			"nominal_floor": "(-14.0, 19.24025, -2.650001)",
+			"normal": "(-0.010001, 0.9999, -0.009997)",
+			"owner": "/root/CityFarDistrictViews/OrisonV2Runtime/OrisonV2Blockout/ROOF_DECK_SOUTH/Floor/Collision",
+			"standing_capsule_clear": true
+		}
+	},
+	"scope": "Technical views and matched render cost of the distant districts",
+	"source": {
+		"bridge_sha256": "76f51edd5aa10d082733de12c41e0081ae5cf205f5a0d25b37adc173a70af01a",
+		"test_sha256": "54a0699e59de57151d8c8c5b13de85293c53042cbb9b7745b2c40bc1e8e5ed72"
+	},
+	"status": "PASS"
+}

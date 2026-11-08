@@ -2,6 +2,7 @@ class_name ExteriorDetailPass
 extends Node3D
 ## Cheap exterior finish pass layered over the generator's broad site pass.
 ## Everything except the damage cards is held in three shared MultiMeshes.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 
 var detail_count := 0
 var decal_count := 0
@@ -642,7 +643,7 @@ void fragment() {
 		for side_index in 2:
 			var face_side := -1.0 if side_index == 0 else 1.0
 			var surface_x := x + signf(x) * 0.205 * face_side
-			multimesh.set_instance_transform(i * 2 + side_index,
+			MultiMeshPoses.set_pose(multimesh, i * 2 + side_index,
 					Transform3D(basis,
 						GameBoot.b2g([surface_x, float(row[1]), 1.20])))
 	var instance := MultiMeshInstance3D.new()

@@ -36,7 +36,8 @@ func run(bench: Node,actor: Node3D,hose: Node3D) -> void:
 	await _section_capture(bench,hose,"round_native_stock")
 	if not bench.check(await bench.inspect_operate(hand,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),-.95),"actual separate nozzle lever starts water spray"):hand.free();return
 	for frame in 35:await bench.get_tree().physics_frame
-	bench.check(hose.water.spray>.7 and hose._spray!=null and hose._spray.emitting,"open lever emits water only through the charged nozzle")
+	if bench.has_method("_swept_impact_preview"):await bench._swept_impact_preview(actor,hose)
+	bench.check(hose.water.spray>.7 and hose._swept_jet != null and hose._swept_jet.multimesh.visible_instance_count > 0 and not hose._spray.emitting,"open lever emits water only through the charged nozzle")
 	for frame in range(Engine.physics_ticks_per_second*5):await bench.get_tree().physics_frame
 	bench.check(hose.water.fill>.99 and hose.water.pressure>.79 and hose.water.spray>.7,"open supply keeps hose charged throughout sustained spraying")
 	var finish: StandardMaterial3D=hose._spray.draw_pass_1.material
@@ -61,7 +62,8 @@ func run(bench: Node,actor: Node3D,hose: Node3D) -> void:
 	bench.check(hose.water.fill>.99 and hose.water.pressure>.99,"gradual supply closure with shut nozzle retains full trapped charge")
 	if not bench.check(await bench.inspect_operate(hand,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),-.95),"separate lever can release the trapped charge with supply closed"):hand.free();return
 	for frame in range(Engine.physics_ticks_per_second*5+2):await bench.get_tree().physics_frame
-	bench.check(hose.water.fill<.001 and hose.water.pressure<.001 and hose.water.spray==0. and not hose._spray.emitting,"open nozzle drains the isolated hose and stops spray")
+	bench.check(hose.water.fill<.001 and hose.water.pressure<.001 and hose.water.spray==0. and not hose._spray.emitting and hose._swept_jet.multimesh.visible_instance_count == 0,"open nozzle drains the isolated hose and stops spray")
+	if bench.has_method("_swept_preview_idle"):await bench._swept_preview_idle(hose)
 	scale=hose.rig.skeleton.get_bone_pose_scale(hose.rig.indices[middle])
 	bench.check(scale.x<.11 and scale.z>1.5 and not hose.is_physics_processing(),"drained hose lies flat without resting simulation")
 	bench.check(not actor.tag_signed and not actor.gasket_seen,"charging and spraying do not certify or fabricate gasket inspection")
@@ -70,6 +72,6 @@ func run(bench: Node,actor: Node3D,hose: Node3D) -> void:
 	actor.gasket_seated=false
 	if not bench.check(await bench.inspect_operate(hand,wheel,wheel.to_global(Vector3(.04,0,0)),TAU*2.),"actual supply operation exercises the missing-gasket denial"):hand.free();return
 	for frame in range(Engine.physics_ticks_per_second+2):await bench.get_tree().physics_frame
-	bench.check(hose.water.fill==0. and hose.water.pressure==0. and hose.water.spray==0. and not hose._spray.emitting,"missing gasket prevents hose charging and nozzle spray")
+	bench.check(hose.water.fill==0. and hose.water.pressure==0. and hose.water.spray==0. and not hose._spray.emitting and hose._swept_jet.multimesh.visible_instance_count == 0,"missing gasket prevents hose charging and nozzle spray")
 	bench.check(await bench.inspect_operate(hand,wheel,wheel.to_global(Vector3(.04,0,0)),0.),"actual supply input returns the denied line to shut")
 	bench.key(KEY_ESCAPE);hand.free()

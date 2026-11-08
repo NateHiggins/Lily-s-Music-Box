@@ -17,6 +17,14 @@ def literal(text,name):
     return float(match[1])
 
 
+def standing_collision_mask(root):
+    source = (root/'game/scripts/building/v2_fire_player_contact.gd').read_text(encoding='utf8')
+    match = re.search(r'^const LAYER\s*:=\s*1\s*<<\s*(\d+)\s*$', source, re.M)
+    if not match or not 1 <= int(match[1]) < 32:
+        raise ValueError('source-bound player contact layer required')
+    return 1 | (1 << int(match[1]))
+
+
 def index(value,size):
     if type(value) is not int or not 0<=value<size:raise ValueError('actual trace index required')
     return value
@@ -70,6 +78,7 @@ def validate_regions(data,root,runtime_digest,surface_digest):
         basis,origin=model.interior_transform(layout,load('game/data/orison_v2/world_connection.json'))
         player=(root/'game/scripts/player/player_controller.gd').read_text(encoding='utf-8')
         step_height=controller_step_height(player)
+        standing_mask=standing_collision_mask(root)
         # CapsuleShape3D properties use the engine's 32-bit real representation.
         # Compare its independently quantized source dimensions, allowing only
         # JSON's final decimal rounding, not a smaller test-body tolerance.
@@ -94,7 +103,7 @@ def validate_regions(data,root,runtime_digest,surface_digest):
                 if previous is not None and not consecutive_motion(previous,step,step_height):errors.append('consecutive collision-bearing exterior movement required')
                 previous=step
             for step in trace+observed:
-                if step.get('noclip') is not False or step.get('collision_mask')!=1 or type(step.get('collision_mask')) is not int or not shape_value(step.get('capsule_radius'),radius) or not shape_value(step.get('capsule_height'),height):errors.append('every exterior waypoint requires the normal standing controller')
+                if step.get('noclip') is not False or step.get('collision_mask')!=standing_mask or type(step.get('collision_mask')) is not int or not shape_value(step.get('capsule_radius'),radius) or not shape_value(step.get('capsule_height'),height):errors.append('every exterior waypoint requires the normal standing controller')
             for step in trace:
                 if vec(step['actual'])!=vec(observed[index(step['sample_index'],len(observed))]['actual']):errors.append('route endpoint differs from actual physics sample')
         def point(step,field='actual'):return add(origin,apply(basis,vec(step[field])))

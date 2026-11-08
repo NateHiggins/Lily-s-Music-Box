@@ -14,7 +14,8 @@
       "with": "other resident slugs sharing the block (SIII interlock pairings)",
       "chance": "optional 0..1 probability the block fires at all that day; chance blocks overlay their base and are exempt from overlap checks",
       "role": "transient_guests only: guest_a | guest_b - the pair alternates; a single spawned actor should follow guest_b (the night-visible one)",
-      "special_days": "doy = day of year, non-leap arithmetic per the doc; blocks overlay that day's resolved timetable; proposed=true dates await ratification under the bible's evidence discipline"
+      "special_days": "doy = day of year, non-leap arithmetic per the doc; blocks overlay that day's resolved timetable; proposed=true dates await ratification under the bible's evidence discipline",
+      "staff": "people who work in the house but hold no unit and no key: the same block shape, read by the schedule director only; the key-ring, presence ledger and routes read residents alone"
     }
   },
   "residents": {
@@ -595,6 +596,34 @@
         {"doy": 152, "proposed": true, "label": "cornerstone day, 1893", "blocks": [
           {"start_min": 450, "end_min": 510, "place": "lobby", "activity": "ritual", "outfit": "street", "detail": "descends in full dress and inspects the lobby with a white glove: sill, stair rail, mail bank; recites the building's provenance flawlessly, identically, every year"},
           {"start_min": 1200, "end_min": 1260, "place": "unit:living", "activity": "ritual", "outfit": "street", "detail": "the Estate ledger comes down off the bottom shelf, is dusted, and goes back unopened"}
+        ]}
+      ]
+    }
+  },
+  "staff": {
+    "stacy": {
+      "unit": "",
+      "blocks": [
+        {"start_min": 0, "end_min": 600, "place": "out", "activity": "sleeping", "outfit": "late_night", "detail": "home, outside the house; where she lives stays unwritten"},
+        {"start_min": 600, "end_min": 720, "place": "out", "activity": "errand", "outfit": "street", "detail": "market: eggs, onions and brine for the pickling crock; Judge's morning walk, at Judge's pace"},
+        {"start_min": 720, "end_min": 900, "place": "out", "activity": "hobby", "outfit": "street", "detail": "kitchen table: a cigar box half decoupaged, a ghost story read aloud to the dog"},
+        {"start_min": 900, "end_min": 960, "place": "out", "activity": "transit", "outfit": "street", "detail": "the walk in, Judge on a string; behind the counter by four"},
+        {"start_min": 960, "end_min": 1080, "place": "harukiya_bar", "activity": "work", "outfit": "street", "days": ["tue", "wed", "thu", "fri", "sat", "sun"], "detail": "opening: stools down, stove lit, chicory coffee on, eggs into the crock on the counter, the jar counted into carfare nickels, Lafitte let out of the back room, Judge installed on the boiler board"},
+        {"start_min": 1080, "end_min": 1440, "place": "harukiya_bar", "activity": "work", "outfit": "street", "days": ["tue", "wed", "sun"], "detail": "quiet nights: the end stool, the radiator stool, the precinct man's cup of tea"},
+        {"start_min": 1080, "end_min": 1440, "place": "harukiya_bar", "activity": "work", "outfit": "street", "days": ["thu"], "detail": "rehearsal night: a glass of water by the stand before the count-in, and later a second cup carried down to the bass case without a word"},
+        {"start_min": 1080, "end_min": 1440, "place": "harukiya_bar", "activity": "work", "outfit": "street", "days": ["fri", "sat"], "detail": "the full room: the hat rule, the cousin rule, Cam made to sit for one song, Lena's corner lamp left up until the mend is done"},
+        {"start_min": 0, "end_min": 60, "place": "harukiya_bar", "activity": "work", "outfit": "street", "days": ["wed", "thu", "fri", "mon"], "detail": "closing at one: stools up, glasses mouth down, the step pointed out to everybody"},
+        {"start_min": 60, "end_min": 90, "place": "out", "activity": "transit", "outfit": "street", "days": ["wed", "thu", "fri", "mon"], "detail": "home with the dog"},
+        {"start_min": 0, "end_min": 150, "place": "harukiya_bar", "activity": "work", "outfit": "street", "days": ["sat", "sun"], "detail": "late close: the last of the regulars, the singer's hat walked to the Astoria car, Jonah left the coffee pot while the stools go up round him; she waits while Lily packs the bass, or Lily waits while she counts the jar, whichever finishes first"},
+        {"start_min": 150, "end_min": 180, "place": "out", "activity": "transit", "outfit": "late_night", "days": ["sat", "sun"], "detail": "home with the dog, two of them under one umbrella if it's raining"},
+        {"start_min": 600, "end_min": 1440, "place": "out", "activity": "hobby", "outfit": "street", "days": ["mon"], "detail": "Mondays: the long walk, the jar re-varnished when it needs it; never sets foot in the bar"}
+      ],
+      "special_days": [
+        {"doy": 285, "proposed": true, "label": "the Emergence (Sat 12 Oct 1929)", "note": "lends six chairs to the Arcade crowd at nine and never gets them back; stays behind the counter for Lily and Juno's set; goes to the door at midnight with a dish towel on her shoulder and looks", "blocks": [
+          {"start_min": 1260, "end_min": 1440, "place": "harukiya_bar", "activity": "work", "outfit": "street", "detail": "an empty room, two players and the dog; tea on the house, not rung"}
+        ]},
+        {"doy": 286, "proposed": true, "label": "after the Emergence (Sun 13 Oct 1929)", "note": "open until the last Interborough car at three", "blocks": [
+          {"start_min": 0, "end_min": 180, "place": "harukiya_bar", "activity": "work", "outfit": "street", "detail": "roof people coming down for coffee; she asks nobody what they saw"}
         ]}
       ]
     }

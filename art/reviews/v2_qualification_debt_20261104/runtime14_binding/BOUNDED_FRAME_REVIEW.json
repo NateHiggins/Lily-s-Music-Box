@@ -1,0 +1,194 @@
+{
+  "evidence_class": "INERT",
+  "reviewer": "installed_camera_architect",
+  "reviewed_utc": "2026-11-04T23:52:29.816577+00:00",
+  "technical_visibility_ok": true,
+  "human_played": false,
+  "artistically_accepted": false,
+  "frames": {
+    "probe/insert_direct_endpoint.png": "f613d53b45de7edef62adc985d0e0e234bd295773611930251fb2480d234f43f",
+    "probe/insert_dogleg_endpoint.png": "37b5dc262fd7dffb3ae85dcc8f475e3299636d7746d2510bdf24d848e0f4ddcf",
+    "probe/insert_inspected_endpoint.png": "04891bd4faf4eaa3da3a5d650093720b930bb9ba47f458abe01ed7068629feff",
+    "door/actual_receiving_view.png": "9997137cbc0c95845bbcfb3a8f81db3af99bb541a96db5ba438578c7a3293dc7",
+    "door/first_passage_open.png": "46c0cad1e50fe2437435e7e0f25e0574f8801017e1c8c0edeecc64911fc449ef",
+    "door/naturally_closed_from_inside.png": "4bc934a09016c0952b13b1fba2f4a4528bd2e2316574392d74a01f4f8d6acf79",
+    "door/same_insert_across_open_leaf.png": "4c61f8d419079da48c1fbb800f100f4df68966b767b591ef95ba10620e97bad1",
+    "installed/actual_installed_insert_parked.png": "53d9c7dfb8796ba4457ed16d4d97ea8f7ec98a2797685a70159b33637dca181e",
+    "installed/actual_installed_insert_receiving.png": "9e893f7b796a374b1239b94465c5ac966401a38342a6fb76a597a7fc26c7526f",
+    "installed/after_real_space.png": "1924c119d95b4ec9d34c9a98755ba8585f3f0a29752284de217d1ae26049e114",
+    "installed/existing_proposed_view_DIAGNOSTIC_ONLY.png": "8792a868cd7e9bfd159915d721785168b834e3a9c93ca1279b6cb7a37f26cd58",
+    "installed/initial_service_fixture.png": "0b4c5f4b423b7dbdef905037a07f97f9d6eb69f7749e53c1880910e4c7bb9270"
+  },
+  "frame_observations": [
+    {
+      "file": "probe/insert_direct_endpoint.png",
+      "sha256": "f613d53b45de7edef62adc985d0e0e234bd295773611930251fb2480d234f43f",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed": true,
+      "displayed_pixels": [
+        2048,
+        857
+      ],
+      "notes": "Isolated gray radiator/brass vent/part and floor control actually visible. Third endpoint shows original tiny released insert on floor; live input/transfer assertions corroborated separately. Tool resized display; no native-pixel optical/human/artistic acceptance."
+    },
+    {
+      "file": "probe/insert_dogleg_endpoint.png",
+      "sha256": "37b5dc262fd7dffb3ae85dcc8f475e3299636d7746d2510bdf24d848e0f4ddcf",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed": true,
+      "displayed_pixels": [
+        2048,
+        857
+      ],
+      "notes": "Isolated gray radiator/brass vent/part and floor control actually visible. Third endpoint shows original tiny released insert on floor; live input/transfer assertions corroborated separately. Tool resized display; no native-pixel optical/human/artistic acceptance."
+    },
+    {
+      "file": "probe/insert_inspected_endpoint.png",
+      "sha256": "04891bd4faf4eaa3da3a5d650093720b930bb9ba47f458abe01ed7068629feff",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed": true,
+      "displayed_pixels": [
+        2048,
+        857
+      ],
+      "notes": "Isolated gray radiator/brass vent/part and floor control actually visible. Third endpoint shows original tiny released insert on floor; live input/transfer assertions corroborated separately. Tool resized display; no native-pixel optical/human/artistic acceptance."
+    },
+    {
+      "file": "door/actual_receiving_view.png",
+      "sha256": "9997137cbc0c95845bbcfb3a8f81db3af99bb541a96db5ba438578c7a3293dc7",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed": true,
+      "displayed_pixels": [
+        2048,
+        857
+      ],
+      "notes": "Door leaf, radiator and receiving floor visible across original open/closed/passage views. Normal closed leaf fills foreground as expected; receiving view remains clear. Tool resized display; no native-pixel optical/human/artistic acceptance."
+    },
+    {
+      "file": "door/first_passage_open.png",
+      "sha256": "46c0cad1e50fe2437435e7e0f25e0574f8801017e1c8c0edeecc64911fc449ef",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed": true,
+      "displayed_pixels": [
+        2048,
+        857
+      ],
+      "notes": "Door leaf, radiator and receiving floor visible across original open/closed/passage views. Normal closed leaf fills foreground as expected; receiving view remains clear. Tool resized display; no native-pixel optical/human/artistic acceptance."
+    },
+    {
+      "file": "door/naturally_closed_from_inside.png",
+      "sha256": "4bc934a09016c0952b13b1fba2f4a4528bd2e2316574392d74a01f4f8d6acf79",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed": true,
+      "displayed_pixels": [
+        2048,
+        857
+      ],
+      "notes": "Door leaf, radiator and receiving floor visible across original open/closed/passage views. Normal closed leaf fills foreground as expected; receiving view remains clear. Tool resized display; no native-pixel optical/human/artistic acceptance."
+    },
+    {
+      "file": "door/same_insert_across_open_leaf.png",
+      "sha256": "4c61f8d419079da48c1fbb800f100f4df68966b767b591ef95ba10620e97bad1",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed": true,
+      "displayed_pixels": [
+        2048,
+        857
+      ],
+      "notes": "Door leaf, radiator and receiving floor visible across original open/closed/passage views. Normal closed leaf fills foreground as expected; receiving view remains clear. Tool resized display; no native-pixel optical/human/artistic acceptance."
+    },
+    {
+      "file": "installed/actual_installed_insert_parked.png",
+      "sha256": "53d9c7dfb8796ba4457ed16d4d97ea8f7ec98a2797685a70159b33637dca181e",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed": true,
+      "displayed_pixels": [
+        2048,
+        857
+      ],
+      "notes": "Installed radiator/brass vent/wood floor visible during original diagnostic/Space/park/return phases. Lower foreground body edge does not cover receiving fixture; hard shadow and wall appearance are not artistic acceptance. Tool resized display; no native-pixel optical/human/artistic acceptance."
+    },
+    {
+      "file": "installed/actual_installed_insert_receiving.png",
+      "sha256": "9e893f7b796a374b1239b94465c5ac966401a38342a6fb76a597a7fc26c7526f",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed": true,
+      "displayed_pixels": [
+        2048,
+        857
+      ],
+      "notes": "Installed radiator/brass vent/wood floor visible during original diagnostic/Space/park/return phases. Lower foreground body edge does not cover receiving fixture; hard shadow and wall appearance are not artistic acceptance. Tool resized display; no native-pixel optical/human/artistic acceptance."
+    },
+    {
+      "file": "installed/after_real_space.png",
+      "sha256": "1924c119d95b4ec9d34c9a98755ba8585f3f0a29752284de217d1ae26049e114",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed": true,
+      "displayed_pixels": [
+        2048,
+        857
+      ],
+      "notes": "Installed radiator/brass vent/wood floor visible during original diagnostic/Space/park/return phases. Lower foreground body edge does not cover receiving fixture; hard shadow and wall appearance are not artistic acceptance. Tool resized display; no native-pixel optical/human/artistic acceptance."
+    },
+    {
+      "file": "installed/existing_proposed_view_DIAGNOSTIC_ONLY.png",
+      "sha256": "8792a868cd7e9bfd159915d721785168b834e3a9c93ca1279b6cb7a37f26cd58",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed": true,
+      "displayed_pixels": [
+        2048,
+        857
+      ],
+      "notes": "Installed radiator/brass vent/wood floor visible during original diagnostic/Space/park/return phases. Lower foreground body edge does not cover receiving fixture; hard shadow and wall appearance are not artistic acceptance. Tool resized display; no native-pixel optical/human/artistic acceptance."
+    },
+    {
+      "file": "installed/initial_service_fixture.png",
+      "sha256": "0b4c5f4b423b7dbdef905037a07f97f9d6eb69f7749e53c1880910e4c7bb9270",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed": true,
+      "displayed_pixels": [
+        2048,
+        857
+      ],
+      "notes": "Actual installed room overview visible; close receiving hardware is covered by subsequent views. Tool resized display; no native-pixel optical/human/artistic acceptance."
+    }
+  ],
+  "source_freeze_sha256": "7f76d8fadf522788b20a410bf0a6b3376bd090cb5500b4842cffaf09294c6abe",
+  "scope": "Actual12fresh-engine boundedPNG technical visibility review and original input/control/transfer/teardown data corroboration only. Not original firstslice/9unit/surface/wholeV2 qualification; no oldengine credit."
+}

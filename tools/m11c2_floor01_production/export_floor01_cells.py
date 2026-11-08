@@ -42,6 +42,7 @@ from tools.m11c1_floor01_owner_first.owner_first_export import (  # noqa: E402
 from tools.m11c1_floor01_owner_first.run_disposable_export import (  # noqa: E402
     run_disposable_export,
 )
+from tools.m11c1_floor01_owner_first import material_context
 
 
 SCHEMA_LINEAGE = "orison.floor01.production-owner-lineage.v1"
@@ -62,6 +63,8 @@ ALIASES_NAME = "floor01_compatibility_aliases.json"
 ASSET_MANIFEST_NAME = "floor01_asset_manifest.json"
 
 OWNERSHIP_REL = PurePosixPath("art/data/m11c1/floor01_source_ownership.json")
+MATERIAL_CONTEXT_REL = PurePosixPath(material_context.DEFAULT_REL.as_posix())
+MATERIAL_CONTEXT_READER_REL = PurePosixPath("tools/m11c1_floor01_owner_first/material_context.py")
 LAYOUT_REL = PurePosixPath("art/data/building_layout.json")
 LAYOUT_MIRROR_REL = PurePosixPath("game/data/building_layout.json")
 GENERATOR_REL = PurePosixPath("art/blender/scripts/build_orison.py")
@@ -710,6 +713,10 @@ def build_production_artifacts(
     export_receipt = _require_rehearsal_receipt(
         export_root, "receipts/floor01_owner_first_export.json",
         "orison.floor01.owner-first-export.v1")
+    for label,relative in (("material_context",MATERIAL_CONTEXT_REL),
+                           ("material_context_reader",MATERIAL_CONTEXT_READER_REL)):
+        if export_receipt.get("authoritative_input_hashes",{}).get(label) != sha256_bound_input(_repo_path(repo_root,relative)):
+            raise ProductionExportError(f"rehearsal material source input is missing or stale: {label}")
     if (partition.get("target_cell_count") != len(CELL_IDS)
             or partition.get("legacy_mixed_cell_present") is not False
             or partition.get("canonical_equivalence_passed") is not True
@@ -771,6 +778,8 @@ def build_production_artifacts(
         "layout": protected[LAYOUT_REL.as_posix()],
         "runtime_layout_mirror": protected[LAYOUT_MIRROR_REL.as_posix()],
         "ownership": sha256_bound_input(_repo_path(repo_root, OWNERSHIP_REL)),
+        "material_context": sha256_bound_input(_repo_path(repo_root, MATERIAL_CONTEXT_REL)),
+        "material_context_reader": sha256_bound_input(_repo_path(repo_root, MATERIAL_CONTEXT_READER_REL)),
         "generator": sha256_bound_input(_repo_path(repo_root, GENERATOR_REL)),
         "generator_adapter": sha256_bound_input(_repo_path(repo_root, ADAPTER_REL)),
         "production_exporter": sha256_bound_input(
@@ -963,6 +972,7 @@ def run_production_export(
             generator=_repo_path(repo_root, GENERATOR_REL),
             adapter=_repo_path(repo_root, ADAPTER_REL),
             exterior_regions=_repo_path(repo_root, EXTERIOR_REGIONS_REL),
+            material_context_path=_repo_path(repo_root, MATERIAL_CONTEXT_REL),
         )
         artifacts = build_production_artifacts(export_root, repo_root)
         artifact_hashes = {

@@ -2,6 +2,91 @@
 
 Evidence class: **INERT**. Technical report, not a room or gameplay checkpoint.
 
+## November 4 — original programmes passed and published; exact candidate pending
+
+PR152 remains draft pending exact candidate verification. Original runtime14
+passed every mandatory stage and final source/contract guard on the pinned
+shutdown-fix engine with explicit process-only realBD9 WASAPI output:
+
+| Programme | Original wrapper seconds | Serialized checks | Result |
+| --- | ---: | ---: | --- |
+| First-slice authority/save | 661.75 | 379 | PASS,0failures |
+| Nine-unit apartment access | 974.80 | 781 | PASS,60rooms/9legs,0failures |
+| Physical/city/entry surfaces | 360.72 | 38947 | PASS,0unresolved |
+
+All seven scene wrappers completedexit0/untimedout with zero ERROR/SCRIPT ERROR
+or shutdown leak lines. Schema2 primary contracts and original raw wrappers/logs
+are unchanged. Independent final checks confirm runtime/physical/surface and128
+transitive test inputs, both executable hashes, profiles and stage bindings.
+Freeze head **dd1d6f652**, recorded wrappers **d0039ff78**, instrument-only staging
+head **d499aebae** remain distinct. No earlier engine PASS is current proof.
+
+Published packets: **art/renders/orison_v2/first_slice_contract_20261011/**,
+**remaining_apartments_20261013/** and **surface_requirements_20261011/**.
+Both existing atomic publishers and the corrected first-slice validator passed;
+raw contracts/wrappers and decompressed logs match their originals. Previous
+packets were preserved first under **art/reviews/v2_qualification_debt_20261104/**.
+Matching original60-room contract was recovered from Git555b01f3b/blob
+**b27f90ed6eba7f4de1d8c0413656a6139c3f1e45**, separately preserved with its exact
+original wrapper/logs and warning/dirty-source limits. Superseded metadata is
+not paired with that wrapper as current proof. Original19 archive is retained.
+
+All94PNG originals were reviewed:12bounded,18apartment,59root surface and5entry.
+Headers/decodes verify3440x1440. Apartment originals displayed2048x857; surface
+review used complete680x285 sheet frames plus12critical originals displayed
+2048x857. Exact reviews/source/binary/profile bindings are preserved in
+**runtime14_binding/**. Foreground obscures5A/6A/6B MAIN,partly5B MAIN; five
+bathrooms are close wall crops. Dumbwaiter is wall-framed, service-closet labels
+show toilets, canal/rail remain dark/flat, east roof mostly sky. These limits
+remain explicit; no all-room visibility,native-pixel optics,human play,artistic
+acceptance,whole-V2 coverage or performance improvement is claimed. Surface
+inventory passes30921draws/19914meshes/6775materials/576textures.
+
+Original runtime13 rejected shutdown leaks11219/1133ObjectDB and30/24resources;
+all failures remain intact. The10line engine patch releases pending playback
+ownership after drivers join through existing deferred cleanup. Normal mixing,
+fades,stop semantics and game audio code remain unchanged; reflection fix stays.
+Six frozen queued/started/active/paused controls now have zero audio leaks;
+earlier01active/paused source-custody diagnostics grant no acceptance. Actual
+AudioPolicyTest53PASS. DefaultRazer output stalls on both old/newengine; real
+process-only BD9 advances playback and unchanged DoorAudioLifetimeTest12/12PASS
+on both. Integrated native-debug selector12/12PASS; unlisted endpoint refuses
+exit2. Windows defaults/preferences are untouched; Razer host route and listening
+acceptance remain open. Exact build/patch/binary hashes are in committed bindings.
+
+Initial publication stager incorrectly required wrapper root-script fields for
+the scriptless Control containing the actual InputViewport/Contract programme.
+The original NULL fields remain NULL. Active verifier now proves the unique
+child attachment from the recorded Git scene/script and primary scene/script
+hashes,currentLF equality,exact scene/head and strict ledger/digest/raw-log checks.
+Partial/missingNULL and non-NULL mismatches reject.14author CPU controls plus6
+independent root negatives passed. Only this unconsumed instrument changed;
+immutable original14afterguard passed again with all consumed inputs unchanged.
+Failed helper/logs and the corrected successor are preserved. A publisher
+file-versus-directory invocation error is also retained; completed first-slice
+publication was preserved and remaining packets resumed without rewriting proof.
+
+The first exact candidate **2bbb2f096** preserved17/17protected paths,selectorV2
+and zero design-lint errors, but correctly blocked one new systemic review id
+**4cbc4a20e1c0d49a**. Its installed-camera **_campaign_context** is a pure getter:
+deepcopied campaign state,read-only flags and monotonic ticks feed only four
+diagnostic report snapshots. Independent source review confirms no world,clock
+or save authority write. Exactly that test-tier finding is now DOCUMENTed in the
+existing reviewed baseline; no other entries or detector semantics changed.
+All63 systemic self-tests pass; new-review count returns30→29,with0new actionable
+or policy violations. Original candidate failure remains in
+**C:/ov/reports/develop_intake_20261104/candidate_2bbb2f096_01/**. The immutable14
+source/contract guard passes after this unconsumed baseline-only review update;
+original game proof is reused unchanged. A fresh exact candidate remains required.
+
+Next: exact in-place candidate against the clean main4f16053e8 baseline119board,
+then manual qualified PR152 merge. Book/nook,hose impact/wetting,playable stutter,
+prologue,audio listening,golden-shift,weather,city and narrative commitments retain
+their existing authorities and open acceptance limits. Share FIFO normally with
+Claude and batch coordination; no exclusivity or GPU-pause requests.
+
+## October 20 — historical renewal
+
 Follow-up: **V2_ROOF_ACCESS_REPAIR_2026-10-20.md** records the combined route
 failure, measured roof bypass and corrected lamp test. The all-home aggregate
 scene below is historical and retired; the existing bounded cohorts are being

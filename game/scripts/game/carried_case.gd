@@ -2,13 +2,21 @@ class_name CarriedCase
 extends RefCounted
 ## Where each stack of goods lies in the player's case: a grid of stitched squares.
 ## PersonInventory stays the owner of what is carried and how many; this owns only
-## the arrangement. Keys, parts and the grocery bag are never limited by it, so a
-## full case can't block a job or the mystery. It holds bought goods only.
+## the arrangement. Paid maintenance stock can have a place without a second
+## inventory row. Keys, loose parts and the grocery bag keep their own owners.
 
 const KEY := "carried_case"
 const DATA_PATH := "res://data/carried_case.json"
+const MAINTENANCE_WASHER := "fire_hose_spare_gasket"
+const WASHER_FORM := "maintenance_washer"
+const BOOK_PREFIX := "library_book:"
+const LIBRARY_PATH := "res://data/orison_v2/readable_library.json"
+const LIBRARY_COPIES_PATH := "res://data/orison_v2/nook_readable_books.json"
+## Covers extend beyond their authored block, with clearance at both edges.
+const BOOK_FOOTPRINT_ALLOWANCE := 0.004
 
 static var _data: Dictionary = {}
+static var _book_sizes: Dictionary = {}
 
 
 static func data() -> Dictionary:
@@ -41,8 +49,44 @@ static func has_form(form: String) -> bool:
 
 
 static func form_size(form: String, turned := false) -> Vector2i:
+	if form.begins_with(BOOK_PREFIX):
+		var footprint := _book_size(form.trim_prefix(BOOK_PREFIX))
+		return Vector2i(footprint.y, footprint.x) if turned else footprint
 	var size: Array = data().get("forms", {}).get(form, {}).get("size", [1, 1])
 	return Vector2i(int(size[1]), int(size[0])) if turned else Vector2i(int(size[0]), int(size[1]))
+
+
+static func _book_size(copy: String) -> Vector2i:
+	if _book_sizes.is_empty():
+		var sizes := {}
+		var cell := float(data().get("cell", 0.0))
+		if cell <= 0.0:
+			return Vector2i.ZERO
+		for path: String in [LIBRARY_PATH, LIBRARY_COPIES_PATH]:
+			var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+			if source is not Dictionary or source.get("books") is not Dictionary:
+				return Vector2i.ZERO
+			for identity: String in source.books:
+				var construction: Dictionary = source.books[identity]
+				sizes[identity] = Vector2i(
+					ceili((float(construction.width) + BOOK_FOOTPRINT_ALLOWANCE) / cell),
+					ceili((float(construction.height) + BOOK_FOOTPRINT_ALLOWANCE) / cell))
+		_book_sizes = sizes
+	return _book_sizes.get(copy, Vector2i.ZERO)
+
+
+static func library_item(collection: String, copy: String) -> String:
+	return BOOK_PREFIX + collection + ":" + copy
+
+
+static func library_fit(collection: String, copy: String) -> Dictionary:
+	var item := library_item(collection, copy)
+	if collection.is_empty() or copy.is_empty() or book().places.has(item):
+		return {}
+	var place := first_fit(item, BOOK_PREFIX + copy)
+	if not place.is_empty():
+		place.collection = collection
+	return place
 
 
 static func book() -> Dictionary:
@@ -52,8 +96,7 @@ static func book() -> Dictionary:
 
 
 static func _rect(place: Dictionary) -> Rect2i:
-	return Rect2i(int(place.x), int(place.y), 0, 0).grow_individual(0, 0,
-			form_size(str(place.form), bool(place.turned)).x, form_size(str(place.form), bool(place.turned)).y)
+	return Rect2i(Vector2i(int(place.x), int(place.y)), form_size(str(place.form), bool(place.turned)))
 
 
 static func valid(value: Variant) -> bool:
@@ -64,9 +107,19 @@ static func valid(value: Variant) -> bool:
 	var taken: Array[Rect2i] = []
 	for item: Variant in value.places:
 		var place: Variant = value.places[item]
-		if item is not String or place is not Dictionary or not has_form(str(place.get("form", ""))) \
+		if item is not String or place is not Dictionary or place.get("form") is not String \
 				or typeof(place.get("x")) not in [TYPE_INT, TYPE_FLOAT] or typeof(place.get("y")) not in [TYPE_INT, TYPE_FLOAT] \
 				or place.get("turned") is not bool:
+			return false
+		if item.begins_with(BOOK_PREFIX):
+			var copy: String = place.form.trim_prefix(BOOK_PREFIX)
+			if not place.form.begins_with(BOOK_PREFIX) or place.get("collection") is not String \
+					or place.collection.is_empty() or item != library_item(place.collection, copy) \
+					or not is_finite(float(place.x)) or not is_finite(float(place.y)) \
+					or float(place.x) != floorf(float(place.x)) or float(place.y) != floorf(float(place.y)) \
+					or _book_size(copy) == Vector2i.ZERO:
+				return false
+		elif not has_form(place.form) or (item == MAINTENANCE_WASHER) != (place.form == WASHER_FORM):
 			return false
 		var rect := _rect(place)
 		if not bounds.encloses(rect) or taken.any(func(other: Rect2i): return other.intersects(rect)):
@@ -75,13 +128,19 @@ static func valid(value: Variant) -> bool:
 	return true
 
 
+static func washer_is_packed(document: Dictionary) -> bool:
+	var case_book: Variant = document.get(KEY)
+	return case_book is Dictionary and case_book.get("places") is Dictionary \
+			and case_book.places.has(MAINTENANCE_WASHER)
+
+
 static func place_of(item: String) -> Dictionary:
 	return book().places.get(item, {})
 
 
 static func fits(item: String, form: String, x: int, y: int, turned: bool) -> bool:
 	var rect := Rect2i(Vector2i(x, y), form_size(form, turned))
-	if not Rect2i(Vector2i.ZERO, grid()).encloses(rect):
+	if not rect.has_area() or not Rect2i(Vector2i.ZERO, grid()).encloses(rect):
 		return false
 	var places: Dictionary = book().places
 	for other: String in places:
@@ -120,6 +179,14 @@ static func move(item: String, x: int, y: int, turned: bool) -> bool:
 	var place := place_of(item)
 	if place.is_empty() or not fits(item, str(place.form), x, y, turned):
 		return false
+	if item.begins_with(BOOK_PREFIX):
+		var prepare := func(document: Dictionary) -> bool:
+			if place_of(item) != place or not fits(item, str(place.form), x, y, turned):
+				return false
+			var staged: Dictionary = document[KEY].places[item]
+			staged.merge({"x": x, "y": y, "turned": turned}, true)
+			return true
+		return RealityState.commit_library_case_change(prepare)
 	place.x = x
 	place.y = y
 	place.turned = turned

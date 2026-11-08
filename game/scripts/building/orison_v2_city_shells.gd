@@ -5,6 +5,7 @@ const ASSET := preload("res://assets/props/city_elevations.glb")
 const BODY_LOD := preload("res://assets/props/city_elevations_lod1.glb")
 const FINISHES := "res://data/orison_v2/exterior/city_elevations.json"
 const WindowOptics := preload("res://scripts/building/v2_background_window_material.gd")
+const CityHorizon := preload("res://scripts/building/orison_v2_city_horizon.gd")
 var _window_materials: Dictionary = {}
 var _window_minute := -INF
 var _clock := CampaignClock.new()
@@ -128,6 +129,14 @@ func _process(delta: float) -> void:
 	if _clock_elapsed<.5:return
 	_clock_elapsed=fmod(_clock_elapsed,.5)
 	refresh_clock_from_campaign()
+
+func project_window_clock(clock: CampaignClock) -> void:
+	# The prologue borrows both banks while the world is suspended.
+	for material: ShaderMaterial in _window_materials.values():
+		WindowOptics.sync_clock(material, clock)
+	var horizon := get_node_or_null("CityHorizon") as CityHorizon
+	if horizon != null:
+		horizon.project_window_clock(clock)
 
 func refresh_clock_from_campaign() -> bool:
 	if not _window_materials.is_empty() and _clock.bind_state():

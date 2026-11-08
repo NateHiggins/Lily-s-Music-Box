@@ -1,0 +1,230 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Technical review of 18 native apartment access captures",
+  "reviewed_utc": "2026-11-06T22:58:51.032151+00:00",
+  "runtime_head": "847ea6b92c2d1e10162c9ca097841bd5f827aa60",
+  "surface_inputs_sha256": "d0812976dfa7aa85d87b43f5862ee667c7fcc72a5cbf032ccbbc15a0c5df8d11",
+  "runtime_inputs_sha256": "6138c01a11e1014a9e4db85ee5e32376897a021d2afc88b16cfcfd888b6358d3",
+  "contract_sha256": "41f7ada6b23d218b7195e1f0d4a8130adaf034a9b835c8f1f03663740598b9f8",
+  "wrapper_sha256": "7ea1d4016d59664875bbf765391a8550580ce441b5bb2ea8b47842b877438b15",
+  "human_played": false,
+  "artistically_accepted": false,
+  "frames": [
+    {
+      "file": "3A_F03_A_BATH.png",
+      "sha256": "01cf474e6bb26412c326261858d0f2f676d0bff3fe1d525a13015e35b13411e1",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Close side-wall crop, with a switch and curtain in the light. Only the near edge of the bath appears."
+    },
+    {
+      "file": "3A_F03_A_MAIN.png",
+      "sha256": "18de9d3e7abed49b15f5b950d55548e5f7427dc35ee35e9fec24aa2b81c2d47a",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Doorway and floor route visible with furniture on the perimeter. Left side remains dim."
+    },
+    {
+      "file": "3B_F03_B_BATH.png",
+      "sha256": "6a739c1b14e036f1dfcfedb17c8f6c0f7c279d5a68202e2f9da4223782802fda",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Window curtain, bath edge, sink and wall tile present. The companion overlaps the sink side."
+    },
+    {
+      "file": "3B_F03_B_MAIN.png",
+      "sha256": "a31173f09d763c91449e762a16d1f46b30f6d937dd1f43fd2068bb26cc496770",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Window, radiator and chairs are visible. Bright adjacent doorway and darker right side."
+    },
+    {
+      "file": "4A_F04_A_BATH.png",
+      "sha256": "c40b2940d5179ec68077ce80fa5a3e5fb4145fea3b558a5172d16c3f8d1c2e25",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Tub edge, sink, mirror and curtain visible. Companion overlaps part of the sink and right wall."
+    },
+    {
+      "file": "4A_F04_A_MAIN.png",
+      "sha256": "512c7ee58f0201a76e7e1f918624bd1ca2a3831b7ee6af30ae320b63fd7dd416",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Window, radiator and table edge are visible. Foreground and corners remain dark."
+    },
+    {
+      "file": "5A_F05_A_BATH.png",
+      "sha256": "d7870b1e3713bf2933b54570764cfd4ace44314fb3c8b2c4184b7e08f9eccb5e",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Wall and tile are in focus. Fixture edges and a paper holder establish the bathroom, with the primary fittings mostly outside the crop."
+    },
+    {
+      "file": "5A_F05_A_MAIN.png",
+      "sha256": "5a093a1ac93850328b3232b59b47183496c6d959d38dffee06e68ee4eb4b4791",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Large near silhouette obscures the lower view as in the prior frame; room reachability is established by the route contract."
+    },
+    {
+      "file": "5B_F05_B_BATH.png",
+      "sha256": "df369e393f429a96f09bf5bc2c9d1b67178178a2826965b9dcc2ff472260096e",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Tiled corner and small bath edge are visible. The centred view is dominated by a blank wall and lamp spot."
+    },
+    {
+      "file": "5B_F05_B_MAIN.png",
+      "sha256": "7336757d277957a0c65fbbab28ec8c1ff8860b2d391d84a3be7c2706ba66f927",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Door, bookcase, table and furnishings visible. A dark near object partly occludes the left foreground."
+    },
+    {
+      "file": "5C_F05_C_BATH.png",
+      "sha256": "7289ff85cf8d5667a8f26a04d53584f5a6db39f0edeee4d802e8921e3ca806e5",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Curtain and lavatory fixture visible in a tight, off-centre crop. Companion overlays the right edge."
+    },
+    {
+      "file": "5C_F05_C_MAIN.png",
+      "sha256": "06c4431f4384875fa494cdd59f75fda5b0219eaa00414538e95a8ebf74312c47",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Doorway, radiator and pictures visible. Furnished foreground with clear central sightline."
+    },
+    {
+      "file": "6A_F06_A_BATH.png",
+      "sha256": "875fb50110b226233926bc19787b2448da322e737813e3932ccba8dbd147ab6f",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Close wall and tile with paper holder and a dark sliver of bath. Broad room composition is unavailable in this crop."
+    },
+    {
+      "file": "6A_F06_A_MAIN.png",
+      "sha256": "47ee002ebf02259a968766ff390554fe06ad70b0bc5fcd2c0bc0ce914c40332e",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Foreground silhouette occupies more of the lower frame than the prior image; doorway, upper pipe and lamp stay visible."
+    },
+    {
+      "file": "6B_F06_B_BATH.png",
+      "sha256": "785c75f891925cdc9b756e8ae446925f5d1ad30155cc5b998a11794f944da184",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Centred lamp spot and tile corner. The companion and a bath edge overlap the lower right."
+    },
+    {
+      "file": "6B_F06_B_MAIN.png",
+      "sha256": "9a2589d0fe0db48c616b50e6f0d2113632eea2420dd9ff239208725245e749a2",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Large near silhouette still obscures the foreground, lower than in the previous capture."
+    },
+    {
+      "file": "6C_F06_C_BATH.png",
+      "sha256": "5f26372c8ee31f9a68d49fc7f2b163e40642ac5bd4834e9fd96e09fe9e056972",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Curtain and a cropped fixture visible under the lamp. The view stays tight to the side wall."
+    },
+    {
+      "file": "6C_F06_C_MAIN.png",
+      "sha256": "8f91f6a35d2dddab8c87f61408aad43c8d3e2ecaa7697dbf989b26faf5dbda58",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native-capture contact sheets",
+      "observation": "Door, radiator, table and chair visible. The dark side opening and orange room lighting remain pronounced."
+    }
+  ]
+}

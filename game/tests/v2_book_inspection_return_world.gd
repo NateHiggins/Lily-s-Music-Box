@@ -2,34 +2,99 @@ extends "res://tests/v2_nook_world_profile.gd"
 ## Played-world source-bound interaction proof; frame arrays remain INERT.
 var _return_completed:=false
 var _disk_completed:=false
+var _park_attempted:=false
+var _park_executed:=false
+var _park_completed:=false
+var _original_books: Dictionary={}
+var _original_library: Dictionary={}
+var _park_trace: Array[Dictionary]=[]
+const TITLE_SEED_SHA := "eeca8b7a8476f5d312a74b0f481ff9118fb3d78aab82896f849e6297040633e7"
+const TITLE_EXPORT_PRIMARY := "user://tests/nook_title_fixture.json"
+const TITLE_AUTHORITY_KEYS := ["version", "intro_complete", "campaign_clock", "prologue",
+	"core_loop", "first_shift", "maintenance_items", "maintenance_jobs", "dream", "dream_seed"]
+var _title_seed_authority: Dictionary = {}
+var _title_export: Dictionary = {}
 const SOURCE_SNAPSHOT_CODE: String="""import json,sys
 from pathlib import Path
 root=Path(sys.argv[1]);sys.path.insert(0,str(root/'tools'))
 from v2_surface_evidence import file_hash,test_dependency_paths
 from run_receipt import runtime_inputs_sha256
-seeds=[root/'game/tests'/name for name in ['v2_book_inspection_return_world.gd','V2BookInspectionReturnWorld.tscn','native_debug_window.gd']]
+seeds=[root/sys.argv[2],root/sys.argv[3],root/'game/tests/native_debug_window.gd']
 seeds += [root/'tools/run_receipt.py',root/'tools/v2_surface_evidence.py']
 paths=test_dependency_paths(root,seeds)
 print(json.dumps({'runtime_inputs_sha256':runtime_inputs_sha256(root),'test_dependencies':{p.relative_to(root).as_posix():file_hash(p) for p in sorted(paths)}}))
 """
 
+func _title_export_requested() -> bool:
+	return OS.get_environment("ORISON_NOOK_TITLE_EXPORT") == "1"
+
+func _prepare_campaign() -> bool:
+	if not _title_export_requested():
+		return super._prepare_campaign()
+	var appdata := OS.get_environment("ORISON_NOOK_TITLE_ISOLATED_APPDATA").replace("\\", "/").simplify_path()
+	var live_appdata := OS.get_environment("APPDATA").replace("\\", "/").simplify_path()
+	var user_dir := OS.get_user_data_dir().replace("\\", "/").simplify_path()
+	if not _require(appdata.begins_with("C:/ov/reports/develop_intake_20261104/") and appdata == live_appdata
+			and user_dir == appdata.path_join("PleaseRemainOnTheLine") and not OS.get_environment("SHOT_DIR").is_empty(),
+			"nook title producer uses the explicit isolated profile"):
+		return false
+	if not _require(OS.get_environment("ORISON_NOOK_DISK_RELOAD") != "1"
+			and RealityState.save_path == RealityState.SAVE_PATH and not FileAccess.file_exists(TITLE_EXPORT_PRIMARY)
+			and not FileAccess.file_exists(OS.get_environment("SHOT_DIR").path_join("nook_title_export.json"))
+			and FileAccess.get_sha256(RealityState.SAVE_PATH) == TITLE_SEED_SHA
+			and RealityState.load_status().status == "loaded" and RealityState.can_continue()
+			and not RealityState.save_write_blocked
+			and RealityState.data.get("prologue", {}).get("phase", "") == "bedroom_exploration",
+			"nook title producer starts from the original validated bedroom primary"):
+		return false
+	RealityState.persistence_enabled = false
+	CampaignTime.set_frozen_for_tests(true)
+	GameBoot.settings.weather_network_enabled = false
+	seed(1928)
+	_title_seed_authority = _title_authority(RealityState.data)
+	return true
+
+func _title_authority(document: Dictionary) -> Dictionary:
+	var result: Dictionary = {}
+	for key: String in TITLE_AUTHORITY_KEYS:
+		if document.has(key):
+			result[key] = document[key]
+	return JSON.parse_string(JSON.stringify(result))
+
 func _route() -> void:
-	var test_hash: String=FileAccess.get_sha256(get_script().resource_path)
+	var test_hash: String=_source_text_hash(get_script().resource_path)
+	var executed_scene: String=get_tree().current_scene.scene_file_path
+	var scene_hash: String=_source_text_hash(executed_scene)
+	_require(get_viewport() is SubViewport and executed_scene=="res://tests/V2BookInspectionReturnWorld.tscn" and scene_hash.length()==64,"installed contract executes the bound root scene with detached input viewport")
 	var before: Dictionary=_source_snapshot()
 	if _require(str(before.get("runtime_inputs_sha256","")).length()==64 and not before.get("test_dependencies",{}).is_empty(),"consumed production and transitive test sources are available"):
 		await super._route()
 	var after: Dictionary=_source_snapshot()
-	_require(before==after and test_hash==FileAccess.get_sha256(get_script().resource_path),"executed sources remain fixed through installed nook interaction and reload")
+	_require(before==after and test_hash==_source_text_hash(get_script().resource_path) and scene_hash==_source_text_hash(executed_scene),"executed sources remain fixed through installed nook interaction and reload")
 	_require(_return_completed,"actual installed inspection-return-release programme completed")
+	if _title_export_requested():
+		_require(not _title_export.is_empty(), "requested live nook title fixture export completed")
+		if failures.is_empty():
+			_title_export.source = before
+			_title_export.test_sha256 = test_hash
+			_title_export.scene_sha256 = scene_hash
+			var out := OS.get_environment("SHOT_DIR").path_join("nook_title_export.json")
+			var report := FileAccess.open(out, FileAccess.WRITE)
+			if _require(report != null, "nook title fixture manifest can be written"):
+				report.store_string(JSON.stringify(_title_export, "\t", true, true))
+				_require(report.get_error() == OK, "nook title fixture manifest written")
+				report.close()
+		return
+	_require(_park_completed,"actual installed same-binding slot-release and normal Space exit completed")
 	var disk_requested: bool=OS.get_environment("ORISON_NOOK_DISK_RELOAD")=="1"
 	if disk_requested:_require(_disk_completed,"requested installed nook disk reconstruction completed")
 	var passed: bool=failures.is_empty()
 	var record: Dictionary={"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"Existing installed V2 nook from one nearby test placement: three local controller waypoints, actual pickup, Space inspection/return, next-primary release and optional isolated validated campaign disk reconstruction. No corridor-access, shelf-slot return, cold-start speedup, whole-game or artistic acceptance.",
+		"scope":"Existing installed V2 nook from one nearby test placement: three local controller waypoints, actual pickup, Space inspection/return, next-primary release, same-binding slot parking/normal Space exit and optional isolated validated campaign disk reconstruction. No corridor-access, cold-start speedup, whole-game or artistic acceptance.",
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
-		"source":{"test_path":"game/tests/v2_book_inspection_return_world.gd","test_sha256":test_hash,"scene_path":scene_file_path,"test_dependencies":before.get("test_dependencies",{}),"runtime_inputs_sha256":before.get("runtime_inputs_sha256","")},
-		"programme":{"completed":_return_completed and (not disk_requested or _disk_completed),"trace":trace,"failures":failures,"disk_requested":disk_requested},
-		"contracts":{"installed_book_return_release":{"executed":_return_completed,"passed":_return_completed and passed},"installed_nook_disk_reload":{"executed":_disk_completed,"passed":_disk_completed and passed}}}
+		"source":{"test_path":"game/tests/v2_book_inspection_return_world.gd","test_sha256":test_hash,"scene_path":executed_scene,"scene_sha256":scene_hash,"script_node_path":str(get_path()),"test_dependencies":before.get("test_dependencies",{}),"runtime_inputs_sha256":before.get("runtime_inputs_sha256","")},
+		"programme":{"completed":_return_completed and _park_completed and (not disk_requested or _disk_completed),"original_library":_original_library,"parked_trace":_park_trace,"trace":trace,"failures":failures,"disk_requested":disk_requested},
+		"contracts":{"installed_book_parked_exit":{"attempted":_park_attempted,"executed":_park_executed,"passed":_park_completed and passed},"installed_book_return_release":{"executed":_return_completed,"passed":_return_completed and passed},"installed_nook_disk_reload":{"executed":_disk_completed,"passed":_disk_completed and passed}}}
 	var directory: String=OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(directory)
 	var file: FileAccess=FileAccess.open(directory.path_join("nook_return.runtime.json"),FileAccess.WRITE)
@@ -39,11 +104,25 @@ func _route() -> void:
 func _source_snapshot() -> Dictionary:
 	var output: Array=[]
 	var root: String=ProjectSettings.globalize_path("res://..").simplify_path()
-	if OS.execute("python",["-c",SOURCE_SNAPSHOT_CODE,root],output)!=0 or output.is_empty():return {}
+	if OS.execute("python",["-c",SOURCE_SNAPSHOT_CODE,root,"game/"+get_script().resource_path.trim_prefix("res://"),"game/"+get_tree().current_scene.scene_file_path.trim_prefix("res://")],output)!=0 or output.is_empty():return {}
 	var parsed: Variant=JSON.parse_string(str(output[0]))
 	return parsed if parsed is Dictionary else {}
 
+func _source_text_hash(path: String) -> String:
+	if not FileAccess.file_exists(path):return ""
+	return FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
+
 func _play_route() -> void:
+	# Observe original owners/poses before the parent's first actual pickup.
+	var shelf: Node3D=world.adapter.resolve("nook_books_library")
+	if not _require(shelf!=null,"installed collection exists before first pickup"):return
+	_original_library=shelf.library_snapshot().duplicate(true)
+	if not _require(shelf.valid_library(_original_library),"original installed collection snapshot validates before pickup"):return
+	var ids: Array=shelf._books.keys()
+	for book: Node3D in shelf._books.values():
+		var slot: int=book.shelf_slot
+		if not _require(slot>=0 and slot<shelf.book_slots.size(),"original installed binding has a saved slot: "+book.stock_id):return
+		_original_books[book.stock_id]={"id":book.get_instance_id(),"owner_id":shelf.get_instance_id(),"frame_pose":shelf.global_transform,"ids":ids.duplicate(),"slot":slot,"pose":book.transform,"slot_pose":shelf.book_slots[slot],"withdrawal_world":shelf.pickup_withdrawal_for(book)}
 	await super._play_route()
 	if failures.is_empty() and OS.get_environment("ORISON_NOOK_DISK_RELOAD")=="1":
 		# Disk reconstruction is not part of this route's timing sample. Keep the
@@ -88,7 +167,7 @@ func _disk_reload_review() -> void:
 		if FileAccess.file_exists(path):DirAccess.remove_absolute(path)
 	var output:=OS.get_environment("SHOT_DIR")
 	if not output.is_empty():
-		FileAccess.open(output.path_join("nook_disk_reload.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","saved":saved,"owner":identity,"scope":"Actual installed pickup/inspection/release and validated campaign disk reconstruction. No shelf-slot return or corridor access acceptance.","failures":failures},"\t"))
+		FileAccess.open(output.path_join("nook_disk_reload.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","saved":saved,"owner":identity,"scope":"Actual installed pickup/inspection/release and validated campaign disk reconstruction. Includes same-binding slot release/normal Space exit; no corridor access acceptance.","failures":failures},"\t"))
 
 func _same_payload(a: Variant,b: Variant) -> bool:
 	if typeof(a) in [TYPE_FLOAT,TYPE_INT] and typeof(b) in [TYPE_FLOAT,TYPE_INT]:return absf(float(a)-float(b))<.00001
@@ -130,3 +209,285 @@ func _inspect_stock_review(book: Node3D) -> void:
 	for frame in 40:await get_tree().process_frame
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("return.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","stock_id":book.stock_id,"held_error_m":error,"failures":failures},"\t"))
 	_return_completed=true
+	if failures.is_empty():
+		if _title_export_requested():
+			await _export_nook_title_fixture(book)
+		else:
+			await _park_installed_book(book)
+
+func _export_nook_title_fixture(book: Node3D) -> void:
+	profile_active = false
+	var shelf: Node3D = book.shelf
+	var stock_id: String = book.stock_id
+	var original: Dictionary = _original_library.books.get(stock_id, {})
+	if not _require(stock_id == "nook_books__Volume0" and not original.is_empty() and int(original.slot) == 0,
+			"title fixture exercises original Volume0"):
+		return
+	var stable := 0
+	var previous: Transform3D = book.transform
+	for frame in 360:
+		await get_tree().physics_frame
+		if book.sleeping and book.transform.is_equal_approx(previous):
+			stable += 1
+			if stable >= 8:
+				break
+		else:
+			stable = 0
+		previous = book.transform
+	var played: Dictionary = shelf.library_snapshot()
+	var row: Dictionary = played.books.get(stock_id, {})
+	_park_observe("nook_title_export_rest", book)
+	var checks := {
+		# Godot can retain solver velocity in a naturally sleeping body.
+		"rest": stable >= 8 and book.sleeping and bool(row.get("body", {}).get("sleeping", false)),
+		"loose": book.shelf_slot == -1 and not book.freeze and not book._held and int(row.get("slot", 0)) == -1,
+		"hands": not player.inspecting() and not player._grab.active() and shelf._hand_node == null,
+		"collisions": not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),
+		"identity": shelf._books.get(stock_id) == book and played.books.keys() == _original_library.books.keys(),
+		"valid": shelf.valid_library(played),
+		"pose": row.get("body", {}).get("position", []) != original.body.position,
+		"opening": is_equal_approx(float(row.get("opening", -1.)), float(original.opening)),
+	}
+	var detail := FileAccess.open(OS.get_environment("SHOT_DIR").path_join("nook_title_release_checks.json"), FileAccess.WRITE)
+	if not _require(detail != null, "nook title release observations have a writable destination"):
+		return
+	detail.store_string(JSON.stringify({"checks":checks,"stable_frames":stable,"sleeping":book.sleeping,
+		"linear_speed_mps":book.linear_velocity.length(),"angular_speed_radps":book.angular_velocity.length(),
+		"original_row":original,"live_row":row}, "\t", true, true))
+	detail.close()
+	for name: String in checks:
+		_require(checks[name], "nook title released Volume0 " + name)
+	if not failures.is_empty():
+		return
+	var path := ProjectSettings.globalize_path(TITLE_EXPORT_PRIMARY)
+	if not _require(DirAccess.make_dir_recursive_absolute(path.get_base_dir()) == OK,
+			"isolated nook fixture directory exists"):
+		return
+	var old_path := RealityState.save_path
+	RealityState.save_path = TITLE_EXPORT_PRIMARY
+	var saved: bool = RealityState.save_game()
+	var result: Dictionary = RealityState.last_save_result()
+	RealityState.save_path = old_path
+	var bytes := FileAccess.get_file_as_bytes(TITLE_EXPORT_PRIMARY)
+	var disk: Variant = JSON.parse_string(bytes.get_string_from_utf8())
+	if not _require(saved and bool(result.get("ok", false)) and disk is Dictionary,
+			"production storage writes the isolated nook fixture"):
+		return
+	var record: Dictionary = disk.get(world.household_state.KEY, {}).get("records", {}).get(str(shelf.name), {}).get("value", {})
+	if not _require(_same_payload(record, played) and _title_authority(disk) == _title_seed_authority
+			and FileAccess.get_sha256(RealityState.SAVE_PATH) == TITLE_SEED_SHA,
+			"stored library matches played mutation and original campaign authorities"):
+		return
+	_title_export = {"evidence_class":"INERT", "primary_path":path,
+		"primary_sha256":FileAccess.get_sha256(TITLE_EXPORT_PRIMARY), "primary_size":bytes.size(),
+		"seed_sha256":TITLE_SEED_SHA, "seed_load_status":RealityState.load_status(),
+		"producer_appdata":OS.get_environment("APPDATA").replace("\\", "/").simplify_path(),
+		"owner":str(shelf.name), "stock_id":stock_id, "source_owner_instance":shelf.get_instance_id(),
+		"source_book_instance":book.get_instance_id(), "original_row":original, "saved_row":record.books[stock_id],
+		"library_sha256":JSON.stringify(record, "", true, true).sha256_text(),
+		"authority":_title_seed_authority, "stable_physics_frames":stable,
+		"storage_result":result, "release_observation":_park_trace[-1]}
+
+
+func _park_space() -> void:
+	var event:=InputEventKey.new();event.keycode=KEY_SPACE;event.physical_keycode=KEY_SPACE;event.pressed=true
+	player._unhandled_input(event)
+	for frame in 3:await get_tree().physics_frame
+	event=InputEventKey.new();event.keycode=KEY_SPACE;event.physical_keycode=KEY_SPACE;event.pressed=false;player._unhandled_input(event)
+	for frame in 3:await get_tree().physics_frame
+
+func _park_cursor(point: Vector3) -> bool:
+	var viewport:=get_viewport()
+	if not viewport is SubViewport:return false
+	var pixel:=player.camera.unproject_position(point).round()
+	if player.camera.is_position_behind(point) or not viewport.get_visible_rect().has_point(pixel):return false
+	var motion:=InputEventMouseMotion.new();motion.position=pixel;motion.global_position=pixel
+	viewport.push_input(motion,true)
+	await get_tree().process_frame
+	return viewport.get_mouse_position().distance_to(pixel)<.6
+
+# Deliberately whitelist fields: native descriptors contain live Objects and
+# Callables, and collider properties may lead back into the same scene graph.
+static func _park_vector(value: Variant) -> Variant:
+	return [value.x,value.y,value.z] if value is Vector3 else null
+
+static func _park_object(value: Variant) -> Dictionary:
+	if typeof(value)!=TYPE_OBJECT or not is_instance_valid(value):return {}
+	return {"id":value.get_instance_id(),"class":value.get_class(),"path":str(value.get_path()) if value is Node and value.is_inside_tree() else "","rid":value.get_rid().get_id() if value is CollisionObject3D else 0}
+
+static func _park_hit_fields(info: Dictionary) -> Dictionary:
+	var rid: Variant=info.get("rid")
+	var shape: Variant=info.get("shape")
+	var row: Dictionary={"present":not info.is_empty(),"collider":_park_object(info.get("collider")),"rid":rid.get_id() if typeof(rid)==TYPE_RID else 0,"shape":shape if typeof(shape)==TYPE_INT else -1}
+	for key: String in ["normal","position","point","motion"]:row[key]=_park_vector(info.get(key))
+	for key: String in ["safe","unsafe"]:
+		var value: Variant=info.get(key)
+		row[key]=value if typeof(value) in [TYPE_FLOAT,TYPE_INT] else null
+	row["unresolved_native_impact"]=info.get("unresolved_native_impact")==true
+	return row
+
+static func _park_descriptor_fields(descriptor: Dictionary) -> Dictionary:
+	var kind: Variant=descriptor.get("kind")
+	return {"owner":_park_object(descriptor.get("owner")),"part":_park_object(descriptor.get("part")),"frame":_park_object(descriptor.get("frame")),"kind":str(kind) if typeof(kind) in [TYPE_STRING,TYPE_STRING_NAME] else "","blocked":descriptor.get("blocked")==true,"pickup":descriptor.get("pickup")==true,"hit_position":_park_vector(descriptor.get("hit_position"))}
+
+func _park_ray_observe(phase: String, descriptor: Dictionary) -> void:
+	var row: Dictionary={"observation":"acquisition_ray","phase":phase,"cursor":var_to_str(get_viewport().get_mouse_position()),"ray_pixel":var_to_str(get_viewport().get_mouse_position() if player.inspecting() else player.camera.get_viewport().get_visible_rect().size*.5),"inspection":player.inspecting(),"first_hit":_park_hit_fields(player._grab.last_hit),"descriptor":_park_descriptor_fields(descriptor)}
+	_park_trace.append(row);print("INSTALLED BOOK ACQUISITION RAY: ",JSON.stringify(row))
+
+func _park_observe(phase: String, book: Node3D) -> void:
+	var row: Dictionary={"phase":phase,"stock_id":book.stock_id,"instance_id":book.get_instance_id(),"owner_id":book.shelf.get_instance_id(),"book_pose":var_to_str(book.transform),"world_pose":var_to_str(book.global_transform),"owner_pose":var_to_str(book.shelf.global_transform),"camera_pose":var_to_str(player.camera.global_transform),"local_contact":var_to_str(player._grab.contact),"world_contact":var_to_str(book.to_global(player._grab.contact)),"axis":player._grab.transform_axis,"rotating":player._grab.transform_rotating,"held":book._held,"frozen":book.freeze,"slot":book.shelf_slot,"inspection":player.inspecting(),"grab_active":player._grab.active(),"same_hand_book":player._grab.target.get("part")==book,"carrier_exceptions_clear":not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player),"body_last_motion":_park_hit_fields(book._last_motion)}
+	_park_trace.append(row);print("INSTALLED BOOK PARK: ",JSON.stringify(row))
+
+func _park_installed_book(book: Node3D) -> void:
+	_park_attempted=true
+	profile_active=false # Additional manipulation, queries/captures are not parent timings.
+	var shelf: Node3D=book.shelf
+	var original: Dictionary=_original_books.get(book.stock_id,{})
+	if not _require(not original.is_empty() and book.get_instance_id()==original.id and shelf.get_instance_id()==original.owner_id and shelf._books.keys()==original.ids,"installed return keeps original binding, collection and inventory"):return
+	var wanted: Transform3D=original.slot_pose
+	if not _require(wanted.is_equal_approx(original.pose) and shelf.book_slots[original.slot].is_equal_approx(wanted) and shelf.global_transform.is_equal_approx(original.frame_pose),"original installed slot and pre-pickup pose agree unchanged"):return
+	if not _require(book.opening<=.04,"existing installed programme leaves the binding closed for slot return"):return
+	# Reacquire the released SAME body by its actual exposed spine ray.
+	var spine:=book.get_node("ManipulateSpine").get_child(0) as CollisionShape3D
+	player.camera.look_at(spine.global_position)
+	await get_tree().physics_frame
+	var picked: Dictionary=player._grab.find_target()
+	_park_ray_observe("fps_reacquisition",picked)
+	print("INSTALLED BOOK REACQUIRE RAY: ",_park_descriptor_fields(picked))
+	_park_observe("before_reacquire",book)
+	if not _require(picked.get("part")==book and picked.get("kind")=="free","released installed binding exposes a real reachable spine ray"):return
+	_click_library()
+	if not _require(player._grab.holding_pickup() and player._grab.target.part==book,"actual primary reacquires the same released installed binding"):return
+	for frame in 100:await get_tree().physics_frame
+	await _park_space()
+	if not _require(player.inspecting(),"normal Space opens installed return inspection"):return
+	for frame in 180:await get_tree().physics_frame
+	if not _require(await _park_cursor(spine.global_position),"detached pointer reaches actual installed spine"):return
+	picked=player._grab.find_target();print("INSTALLED BOOK FREE SPINE RAY: ",_park_descriptor_fields(picked))
+	_park_ray_observe("inspection_spine_reacquisition",picked)
+	if not _require(picked.get("part")==book and picked.get("kind")=="free","actual free cursor targets the same installed binding"):return
+	_click_library()
+	if not _require(player._grab.active() and player._grab.target.part==book,"actual primary latches the installed floating spine"):return
+	_park_observe("spine_acquired",book)
+	if not await _park_clear_player_for_rotation(book):return
+	var right:=InputEventMouseButton.new();right.button_index=MOUSE_BUTTON_RIGHT;right.pressed=true;player._unhandled_input(right)
+	var aligned:=false
+	for step in 100:
+		if not player._grab.active() or player._grab.target.part!=book:break
+		var error:=Quaternion(wanted.basis*book.basis.inverse()).normalized()
+		var angle:=error.get_angle()
+		if angle>PI:angle-=TAU
+		if absf(angle)<.003:aligned=true;break
+		var turn:=error.get_axis()*angle
+		_park_axis(turn.abs().max_axis_index())
+		var motion:=InputEventMouseMotion.new();motion.relative=Vector2(clampf(turn[player._grab.transform_axis]/.008,-20.,20.),0.)
+		player._unhandled_input(motion);await get_tree().physics_frame
+	right.pressed=false;player._unhandled_input(right);_park_axis(-1)
+	_park_observe("rotated",book)
+	if not _require(aligned,"actual precision input restores original installed slot orientation"):return
+	# Reverse the OWNER'S original withdrawal, not household-case +Z.
+	var outward: Vector3=(original.frame_pose.basis.inverse()*original.withdrawal_world).normalized()
+	if not _require(outward.is_finite() and outward.length()>.99,"original installed withdrawal supplies a finite approach direction"):return
+	var lift: Vector3=(original.frame_pose.basis.inverse()*Vector3.UP).slide(outward)
+	if lift.length()>.001:lift=lift.normalized()
+	else:lift=Vector3.ZERO
+	var approach: Vector3=wanted.origin+outward*.12+lift*.008
+	var depth: float=(book.position-wanted.origin).dot(outward)
+	if not _require(depth>.12,"actual floating binding lies outside original installed withdrawal corridor"):return
+	var goals: Array[Vector3]=[approach+outward*(depth-.12),approach,wanted.origin+outward*.015+lift*.004]
+	for index in goals.size():
+		var moved: bool=await _park_carry_axes(goals[index])
+		_park_observe("approach_leg_%d"%index,book)
+		if not _require(moved,"actual installed mouse/depth approach reaches bounded leg %d"%index):return
+	_click_library()
+	_park_observe("primary_slot_release",book)
+	if not _require(not player._grab.active() and not book._held and book.freeze and book.shelf_slot==original.slot and book.transform.is_equal_approx(wanted),"actual primary release parks the SAME installed binding in its exact original slot"):return
+	_park_executed=true # The parked-exit control starts only after valid primary parking.
+	await _park_space()
+	for frame in 8:await get_tree().physics_frame
+	_park_observe("parked_after_normal_space",book)
+	var clean: bool=not player.get_collision_exceptions().has(book) and not book.get_collision_exceptions().has(player)
+	if not _require(not player.inspecting() and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED and not player._grab.active() and not book._held and book.freeze and shelf._hand_node!=book and clean,"normal Space leaves installed parked binding frozen, hand free and carrier contacts restored"):return
+	if not _require(book.get_instance_id()==original.id and shelf.get_instance_id()==original.owner_id and shelf._books.get(book.stock_id)==book and shelf._books.keys()==original.ids and book.shelf_slot==original.slot and book.transform.is_equal_approx(wanted) and shelf.valid_library(shelf.library_snapshot()),"installed parked exit preserves original identity, inventory, exact slot pose and valid save owner before disk save"):return
+	_park_completed=true
+
+func _park_carry(goal: Vector3) -> bool:
+	print("CARRY BEGIN: ",goal," target=",_park_object(player._grab.target.get("part")))
+	var stalled:=0
+	for frame in 120:
+		if not player._grab.active() or player._grab.target.kind!="free": return false
+		var target: Dictionary=player._grab.target
+		var before: Vector3=target.read.call()
+		if before.distance_to(goal)<.0001: return true
+		var point: Vector3=target.part.to_global(player._grab.contact)
+		var delta: Vector3=target.frame.global_basis*(goal-before)
+		var depth:=delta.dot((point-player.camera.global_position).normalized())
+		if absf(depth)>.000002:
+			var wheel:=InputEventMouseButton.new();wheel.pressed=true;wheel.button_index=MOUSE_BUTTON_WHEEL_DOWN if depth>0. else MOUSE_BUTTON_WHEEL_UP
+			wheel.factor=minf(.025,absf(depth))/.025;player._unhandled_input(wheel)
+		point=target.part.to_global(player._grab.contact);delta=target.frame.global_basis*(goal-target.read.call())
+		var planar:=delta-player.camera.global_basis.z*delta.dot(player.camera.global_basis.z)
+		var motion:=InputEventMouseMotion.new();motion.relative=(player.camera.unproject_position(point+planar)-player.camera.unproject_position(point)).limit_length(25.)
+		if frame<3: print("CARRY MOTION: ",frame," before=",before," mouse=",motion.relative)
+		player._unhandled_input(motion)
+		if frame<3: print("CARRY MOTION RETURN: ",frame," contact=",_park_hit_fields(target.part._last_motion))
+		await get_tree().physics_frame
+		stalled=stalled+1 if player._grab.active() and goal.distance_to(player._grab.target.read.call())>=goal.distance_to(before)-.000001 else 0
+		if stalled>8:
+			print("CARRY STOP: ",_park_hit_fields(player._grab.target.part._last_motion)," at=",player._grab.target.read.call()," goal=",goal);return false
+	return false
+
+func _park_axis(axis: int) -> void:
+	var current: int=player._grab.transform_axis
+	if current==axis:return
+	if axis<0:axis=current
+	if axis<0:return
+	var key:=InputEventKey.new();key.keycode=[KEY_X,KEY_Y,KEY_Z][axis];key.physical_keycode=key.keycode;key.pressed=true
+	player._unhandled_input(key)
+	key.pressed=false;player._unhandled_input(key)
+
+func _park_clear_player_for_rotation(book: Node3D) -> bool:
+	# The recorded down-looking inspection contacts the real full capsule.
+	# Move with the same ordinary depth/mouse grip before asking it to rotate.
+	var radius:=0.
+	for solid: CollisionShape3D in book._solids:
+		if solid.disabled:continue
+		var hull:=solid.shape as ConvexPolygonShape3D
+		if not _require(hull!=null,"installed rotation clearance uses actual native convex stock"):return false
+		for vertex: Vector3 in hull.points:radius=maxf(radius,(book.global_basis*(solid.transform*vertex)).length())
+	var radial: Vector3=book.global_position-player._shape.global_position
+	radial.y=0.
+	var separation: float=PlayerController.BODY_RADIUS+radius+.002
+	if not _require(radius>0. and radial.length()>.000001 and is_equal_approx(player._capsule.radius,PlayerController.BODY_RADIUS),"rotation clearance retains full actual capsule and measured native stock"):return false
+	var goal: Vector3=book.global_position+radial.normalized()*maxf(0.,separation-radial.length())
+	var moved: bool=await _park_carry(book.shelf.to_local(goal))
+	_park_observe("actual_player_clearance_before_rotation",book)
+	radial=book.global_position-player._shape.global_position;radial.y=0.
+	return _require(moved and radial.length()>=separation-.0001 and player._grab.active() and player._grab.target.part==book,"actual mouse/depth carry clears full player capsule before original precision rotation")
+
+func _park_carry_axes(goal: Vector3) -> bool:
+	# Actual existing frame-axis keys and depth wheel avoid the downward arc
+	# produced by the down-looking free ray. Native body sweeps still decide.
+	var stalled:=0
+	for frame in 120:
+		if not player._grab.active() or player._grab.target.kind!="free":return false
+		var target: Dictionary=player._grab.target
+		var before: Vector3=target.read.call()
+		if before.distance_to(goal)<.0001:
+			_park_axis(-1);return true
+		var delta: Vector3=goal-before
+		var axis: int=0 if absf(delta.x)>=.00005 else (1 if absf(delta.y)>=.00005 else 2)
+		_park_axis(axis)
+		var wheel:=InputEventMouseButton.new();wheel.pressed=true
+		wheel.button_index=MOUSE_BUTTON_WHEEL_DOWN if delta[axis]>0. else MOUSE_BUTTON_WHEEL_UP
+		wheel.factor=minf(.025,absf(delta[axis]))/.025
+		player._unhandled_input(wheel)
+		await get_tree().physics_frame
+		if not player._grab.active():return false
+		var after: Vector3=player._grab.target.read.call()
+		stalled=stalled+1 if after.distance_to(goal)>=before.distance_to(goal)-.000001 else 0
+		if stalled>8:
+			print("INSTALLED AXIS CARRY STOP: ",axis," at=",after," goal=",goal," contact=",_park_hit_fields(player._grab.target.part._last_motion))
+			_park_axis(-1);return false
+	_park_axis(-1)
+	return false

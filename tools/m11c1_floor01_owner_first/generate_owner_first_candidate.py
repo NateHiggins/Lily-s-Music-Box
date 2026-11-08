@@ -34,6 +34,8 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
+from tools.m11c1_floor01_owner_first import material_context
+
 from tools.m11c1_floor01_owner_first.owner_first_export import (  # noqa: E402
     CELL_IDS,
     COLLISION_NONE,
@@ -295,6 +297,7 @@ def generate_candidate(
         layout_path: Path,
         ownership_sidecar_path: Path,
         output_root: Path,
+        material_context_path: Path | None = None,
 ) -> dict[str, Any]:
     output_root = output_root.resolve()
     if output_root == REPO_ROOT or output_root.is_relative_to(REPO_ROOT) \
@@ -307,6 +310,13 @@ def generate_candidate(
     candidate_root = output_root / "candidate"
     candidate_root.mkdir(parents=True, exist_ok=True)
     generator = _load_authoritative_definitions(generator_path.resolve())
+    context_receipt = None
+    context_images: set[str] = set()
+    used_context_images: set[str] = set()
+    if material_context_path is not None:
+        context_receipt,context_images = material_context.apply_context(
+            material_context_path, REPO_ROOT,
+            candidate_root / "material_context", generator)
     layout = _load_json(layout_path.resolve(), "authoritative layout")
     if generator["LAYOUT"] != layout:
         raise OwnerFirstError(
@@ -340,6 +350,8 @@ def generate_candidate(
 
     def disposable_image(path: str, slug: str, kind: str, srgb: bool) -> Any:
         requested_source = Path(path).resolve()
+        if str(requested_source) in context_images:
+            used_context_images.add(str(requested_source))
         source = requested_source
         wall_root = (Path(str(generator["TEX_ROOT"])) / "wall_finishes").resolve()
         try:
@@ -364,11 +376,12 @@ def generate_candidate(
                     "ruled wall-finish compatibility input is absent: "
                     f"requested={requested_source} fallback={fallback}")
             if requested_source.is_file() \
-                    and _sha256_file(requested_source) != _sha256_file(fallback):
+                    and _sha256_file(requested_source) != _sha256_file(fallback) \
+                    and not (context_receipt is not None and material_context.ignored_wall_cache(requested_source, REPO_ROOT)):
                 raise OwnerFirstError(
                     "wall-finish authoring map differs from protected "
                     f"compatibility input: {requested_source}")
-            if not requested_source.is_file():
+            if context_receipt is not None or not requested_source.is_file():
                 source = fallback
             compatibility_row = {
                 "identity": "LEGACY_COMPATIBILITY_TEXTURE_INPUT",
@@ -377,7 +390,8 @@ def generate_candidate(
                 "source_sha256": _sha256_file(source),
                 "source_bytes": source.stat().st_size,
                 "read_only": True,
-                "reason": "MISSING_WALL_FINISH_AUTHORING_MAP_USE_TRACKED_EXPORT_INPUT",
+                "reason": ("PINNED_LEGACY_CONTEXT_TRACKED_WALL_INPUT" if context_receipt is not None
+                           else "MISSING_WALL_FINISH_AUTHORING_MAP_USE_TRACKED_EXPORT_INPUT"),
             }
             compatibility_texture_inputs[str(requested_source)] = compatibility_row
         elif not source.is_file():
@@ -842,6 +856,14 @@ def generate_candidate(
             key=lambda item: (CELL_IDS.index(item.owner_cell), item.material,
                               item.legacy_identity, item.buffer_id))],
     }
+    if context_receipt is not None:
+        context_receipt["used_images"] = sorted(used_context_images)
+        if used_context_images != context_images:
+            raise OwnerFirstError("historical material context was not fully consumed")
+        lineage["authoritative_inputs"]["material_context"] = context_receipt["binding"]
+        lineage["authoritative_inputs"]["material_context_reader"] = context_receipt["reader"]
+        lineage["producer"]["material_context"] = context_receipt
+        lineage["producer"]["command_contract"].append("--material-context")
     write_json(lineage_path, lineage)
     bound = bind_candidate_triangle_slices(candidate_gltf, lineage_path)
     bound["status"] = "PASS"
@@ -864,6 +886,7 @@ def _parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--layout", type=Path, required=True)
     parser.add_argument("--ownership-sidecar", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--material-context", type=Path)
     return parser.parse_args(argv)
 
 
@@ -873,7 +896,7 @@ def main() -> int:
     try:
         summary = generate_candidate(
             args.generator, args.layout, args.ownership_sidecar,
-            args.output)
+            args.output, args.material_context)
     except Exception as error:  # Blender otherwise reports some script errors as 0.
         traceback.print_exc()
         print(f"M11C1 CANDIDATE GENERATION FAIL: {error}", file=sys.stderr)

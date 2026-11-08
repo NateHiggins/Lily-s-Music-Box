@@ -67,6 +67,9 @@ var _voices: Array[AudioStreamPlayer3D] = []
 var _streams: Dictionary = {}
 ## Presented warnings, newest last, for tests and the review capture.
 var warnings: Array[Dictionary] = []
+## Rail vehicles (OrisonV2StreetTrams): their stock meshes, and the line that spawns them on its own headway.
+var extra_meshes: Dictionary = {}
+var rail: Object = null
 
 
 static func mount(world: Node) -> OrisonV2StreetTraffic:
@@ -75,11 +78,15 @@ static func mount(world: Node) -> OrisonV2StreetTraffic:
 	if not traffic.configure(world.player):
 		traffic.free()
 		return null
+	# The trolley line shares the road: its cars are traffic, its rails and wire follow their path.
+	var trams: Node3D = preload("res://scripts/building/orison_v2_street_trams.gd").attach(traffic, world)
 	var street: Node3D = world.exterior_cell.instance_node(str(traffic.data.street_instance))
 	if street == null:
 		traffic.free()
 		return null
 	street.add_child(traffic)
+	if trams != null and not traffic.startup_failed:
+		street.add_child(trams)
 	return traffic if not traffic.startup_failed else null
 
 
@@ -198,6 +205,8 @@ func _step(delta: float) -> void:
 	_advance_cross(delta)
 	_spawn(delta)
 	_spawn_cross(delta)
+	if rail != null:
+		rail.spawn_step(delta)
 
 
 ## The stock GLB carries one mesh per (stock, finish). Each stock becomes one
@@ -206,7 +215,10 @@ func _step(delta: float) -> void:
 func _stock_meshes() -> Dictionary:
 	for id: String in data.finishes:
 		_materials[id] = stock_material(data.finishes[id])
-	return stock_meshes(str(data.stock), _materials)
+	var meshes := stock_meshes(str(data.stock), _materials)
+	if not meshes.is_empty():
+		meshes.merge(extra_meshes)
+	return meshes
 
 
 static func stock_meshes(path: String, materials: Dictionary) -> Dictionary:
@@ -347,6 +359,8 @@ func _flow_per_minute() -> float:
 	var total := 0.0
 	var weights := 0.0
 	for kind: Dictionary in _kinds:
+		if bool(kind.get("rail", false)):
+			continue
 		total += float(kind.weight) * _kind_rate(kind)
 		weights += float(kind.weight)
 	var day := CampaignClock.DAY_NAMES.find(str(_now.get("day", "mon")))
@@ -709,7 +723,13 @@ func _spawn(delta: float) -> void:
 	_live.append(_journey(index, _rng.randf() < 0.5))
 
 
-func _journey(index: int, lane_west: bool, at_p := NAN) -> Dictionary:
+## A rail car's journey: it always turns between this street and the far-side cross streets, so its path is the
+## same every time and its rails can be laid along it.
+func rail_journey(index: int, lane_west: bool) -> Dictionary:
+	return _journey(index, lane_west, NAN, 1.0 if not lane_west else -1.0)
+
+
+func _journey(index: int, lane_west: bool, at_p := NAN, side := 0.0) -> Dictionary:
 	var kind: Dictionary = _kinds[index]
 	var paints: Array = kind.paint
 	var paint: Array = paints[_rng.randi() % paints.size()]
@@ -722,7 +742,7 @@ func _journey(index: int, lane_west: bool, at_p := NAN) -> Dictionary:
 			"cruise": cruise, "speed": cruise * 0.5, "travel": _rng.randf() * 10.0,
 			"paint": _palette(Color(paint[0], paint[1], paint[2]).lerp(Color(0.5, 0.5, 0.5), _rng.randf() * 0.12)),
 			"coat": _palette(Color(coat[0], coat[1], coat[2])),
-			"side": -1.0 if _rng.randf() < 0.5 else 1.0, "hand": "", "alarm": 0.0, "react": 0.0, "warned": false, "notes": 0,
+			"side": side if side != 0.0 else (-1.0 if _rng.randf() < 0.5 else 1.0), "hand": "", "alarm": 0.0, "react": 0.0, "warned": false, "notes": 0,
 			"blocked": 0.0, "arc": 0.0, "run": 0.0, "radius": 4.0, "p": 0.0, "ps": 0.0, "pe": 0.0, "wait": 0.0}
 	if not is_nan(at_p):
 		v.phase = "street"
@@ -742,6 +762,9 @@ func _pick() -> int:
 	var rates: Array[float] = []
 	var total := 0.0
 	for kind: Dictionary in _kinds:
+		if bool(kind.get("rail", false)):
+			rates.append(0.0)  # rail cars run to their line's headway, never by the street's lottery
+			continue
 		var rate := float(kind.weight) * _kind_rate(kind)
 		rates.append(rate)
 		total += rate

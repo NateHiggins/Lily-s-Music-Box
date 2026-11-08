@@ -47,6 +47,8 @@ var inspect_owner: Node3D
 var _inspection_active := false
 var _inspection_jump_consumed := false
 var _inspect_camera_fov := 72.0
+var _inspect_entry_fov := 72.0
+var _inspect_manual_zoom := false
 var _inspect_camera_pose := Transform3D.IDENTITY
 var _inspect_mouse_mode := Input.MOUSE_MODE_CAPTURED
 var _inspect_anchor := Transform3D.IDENTITY
@@ -105,6 +107,15 @@ var _stride_last := Vector3.INF
 ## capture, so anything gated on MOUSE_MODE_CAPTURED has to consult this
 ## instead or it simply never runs there.
 var touch_input := false
+
+## The pointer is captured for play. Godot's headless DisplayServer cannot
+## capture the mouse (Input.mouse_mode stays VISIBLE there), so a headless
+## run counts as captured unless the player deliberately released it;
+## otherwise every scripted click would recapture instead of grabbing.
+func pointer_captured() -> bool:
+	return Input.mouse_mode == Input.MOUSE_MODE_CAPTURED \
+			or (DisplayServer.get_name() == "headless" and not mouse_released)
+
 ## Set while the player has deliberately released the pointer with the
 ## release_mouse key. A click must not silently take it back: that is what
 ## made every free pointer last exactly until the next click.
@@ -317,11 +328,11 @@ func _update_prompt() -> void:
 	if _grab != null:
 		_grab.validate()
 		# A latched hand retains its part; hovering must not scan another object.
-		var can_aim := not call_locked and not mouse_released and (inspecting() or touch_input or Input.mouse_mode==Input.MOUSE_MODE_CAPTURED)
+		var can_aim := not call_locked and not mouse_released and (inspecting() or touch_input or pointer_captured())
 		var aimed: Dictionary = {} if _grab.active() or not can_aim else _grab.find_target()
 		var available: bool = not call_locked and not mouse_released and aimed.get("part") is Node3D
 		var feedback: Dictionary = _grab.feedback(aimed)
-		if call_locked or mouse_released or (not inspecting() and not touch_input and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED): feedback.state="hidden"
+		if call_locked or mouse_released or (not inspecting() and not touch_input and not pointer_captured()): feedback.state="hidden"
 		_target_dot.present(feedback.state,feedback.inspectable,
 			get_viewport().get_mouse_position() if inspecting() else get_viewport().get_visible_rect().size*.5,feedback.get("transform_axis",-1),feedback.get("transform_rotating",false))
 		if _grab.active() or available or aimed.get("blocked",false): return
@@ -332,7 +343,7 @@ func _update_prompt() -> void:
 			_prompt_panel.visible = _prompt.text != ""
 		return
 	if call_locked or (not touch_input
-			and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED):
+			and not pointer_captured()):
 		return
 	# The same ray supplies legacy semantic prompts. Do not rescan the world.
 	var hit: Dictionary = _grab.last_hit if _grab != null else {}
@@ -404,6 +415,11 @@ func _process(_delta: float) -> void:
 		if not is_instance_valid(inspect_owner) or not inspect_owner.is_inside_tree() or call_locked:
 			end_inspection()
 		else:
+			if not _inspect_manual_zoom and not _grab.active() and inspect_owner.has_method("reading_optical_fit"):
+				var fit: Dictionary=inspect_owner.reading_optical_fit(camera)
+				if not fit.is_empty():
+					_inspect_anchor.basis=fit.basis
+					camera.fov=float(fit.fov)
 			camera.global_transform = _inspect_anchor
 	_advance_lamp(_delta)
 	_carry_service_light(_delta)
@@ -472,6 +488,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		return
 	if inspecting() and event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] and not _grab.active() and inspect_owner.has_method("reading_view_active") and inspect_owner.reading_view_active():
+		_inspect_manual_zoom=true
 		var pixel:=get_viewport().get_mouse_position()
 		var old_ray:=camera.global_basis.inverse()*camera.project_ray_normal(pixel)
 		camera.fov=clampf(camera.fov+(-2. if event.button_index==MOUSE_BUTTON_WHEEL_UP else 2.)*event.factor,8.,65.)
@@ -495,7 +512,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if call_locked:
 		return
 	if event is InputEventMouseMotion \
-			and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			and pointer_captured():
 		if _grab != null and _grab.active(): _grab.move(event.relative)
 		else: apply_look(event.relative)
 	elif event.is_action_pressed("release_mouse"):
@@ -503,7 +520,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton and event.pressed \
 			and not touch_input and not mouse_released:
-		if event.button_index == MOUSE_BUTTON_LEFT and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		if event.button_index == MOUSE_BUTTON_LEFT and pointer_captured():
 			use_primary_interaction()
 			get_viewport().set_input_as_handled()
 			return
@@ -1051,7 +1068,7 @@ func end_seated_interaction(owner: Node = null) -> void:
 
 func use_primary_interaction() -> void:
 	if _grab != null and _grab.active():
-		_grab.release()
+		_grab.release(true, true) # Explicit primary release.
 		return
 	if is_instance_valid(seated_interaction):
 		if seated_interaction.has_method("interact"):
@@ -1066,7 +1083,7 @@ func use_primary_interaction() -> void:
 
 
 func use_key_interaction() -> void:
-	if call_locked or is_instance_valid(seated_interaction) or (not touch_input and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED): return
+	if call_locked or is_instance_valid(seated_interaction) or (not touch_input and not pointer_captured()): return
 	var query := PhysicsRayQueryParameters3D.create(camera.global_position,
 			camera.global_position-camera.global_basis.z*2.1)
 	query.collide_with_areas = true
@@ -1405,6 +1422,12 @@ func held_stock_body() -> PhysicsBody3D:
 func inspecting() -> bool:
 	return _inspection_active and is_instance_valid(inspect_owner)
 
+func companion_framing_fov() -> float:
+	if inspecting() and inspect_owner.has_method("reading_view_active") and inspect_owner.reading_view_active():
+		return _inspect_entry_fov
+	return camera.fov
+
+
 func begin_inspection() -> bool:
 	if call_locked or mouse_released or _grab == null: return false
 	var owner: Node3D
@@ -1427,6 +1450,8 @@ func begin_inspection() -> bool:
 	_inspect_camera_pose=camera.transform
 	_inspect_camera_fov=camera.fov
 	camera.fov=clampf(float(view.get("fov",camera.fov)),40.0,100.0)
+	_inspect_entry_fov=camera.fov
+	_inspect_manual_zoom=false
 	_inspect_mouse_mode=Input.mouse_mode
 	# Inspection borrows the hand for individual mechanisms. Remember a
 	# carried object's original grip so Space returns it to the same hand.
@@ -1449,13 +1474,22 @@ func end_inspection(notify_change := true) -> void:
 	var previous_owner:=inspect_owner
 	var pickup:=_inspect_pickup
 	_inspect_pickup={}
+	# Ask the owner before releasing the inspection grip. A parked or read
+	# book gives up its borrowed hand while a closed inspection can reacquire.
+	if not pickup.is_empty() and is_instance_valid(previous_owner) and is_instance_valid(pickup.get("part")) \
+			and previous_owner.has_method("inspection_pickup_return_allowed") \
+			and not previous_owner.inspection_pickup_return_allowed(pickup.part):
+		pickup={}
 	if _grab != null: _grab.release(notify_change)
 	inspect_owner=null
 	_inspection_active=false
 	camera.transform=_inspect_camera_pose
 	camera.fov=_inspect_camera_fov
 	Input.mouse_mode=_inspect_mouse_mode
-	if is_instance_valid(previous_owner) and previous_owner.has_method("inspection_ended"): previous_owner.call("inspection_ended")
+	if is_instance_valid(previous_owner):
+		if notify_change and previous_owner.has_method("finish_reading"):
+			previous_owner.call("finish_reading")
+		if previous_owner.has_method("inspection_ended"): previous_owner.call("inspection_ended")
 	if notify_change and not call_locked and not mouse_released and _grab!=null and not pickup.is_empty():
 		if is_instance_valid(pickup.get("part")) and is_instance_valid(pickup.get("owner")) and is_instance_valid(pickup.get("frame")):
 			var part: Node3D=pickup.part

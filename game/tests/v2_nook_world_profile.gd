@@ -25,6 +25,7 @@ func _play_route() -> void:
 	profile_phase="nook_acquire_excluded"
 	var selected: Node3D
 	for book: Node3D in shelf._books.values():
+		if not _accept_nook_book(book): continue
 		var point:=book.to_global(Vector3(-.001,float(book.construction.height)*.65,0))
 		if player.camera.global_position.distance_to(point)>2.1: continue
 		player.camera.look_at(point)
@@ -46,6 +47,7 @@ func _play_route() -> void:
 		player._unhandled_input(event);await get_tree().process_frame
 	profile_phase="nook_enter_inspection"
 	var space:=InputEventKey.new();space.keycode=KEY_SPACE;space.physical_keycode=KEY_SPACE;space.pressed=true
+	if await _cold_nook_first_use(selected,space):return
 	player._unhandled_input(space)
 	if not _require(player.inspecting(),"Space enters actual floating inspection"):return
 	for frame in 100: await get_tree().process_frame
@@ -59,6 +61,10 @@ func _play_route() -> void:
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("nook_state.json"),FileAccess.WRITE).store_string(JSON.stringify(data,"\t"))
 	await _inspect_stock_review(selected)
 	player.end_inspection()
+
+func _cold_nook_first_use(_book: Node3D, _space: InputEventKey) -> bool:return false
+
+func _accept_nook_book(_book: Node3D) -> bool:return true
 
 func _inspect_stock_review(_selected: Node3D) -> void:pass
 

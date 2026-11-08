@@ -1,0 +1,3775 @@
+{
+	"checks": [
+		{
+			"label": "record current runtime inputs",
+			"ok": true
+		},
+		{
+			"label": "record current physical inputs",
+			"ok": true
+		},
+		{
+			"label": "production-composed v2 root starts",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F01_WATCHMAN_DETECTOR",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F01_WATCHMAN_DETECTOR",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F01_NIGHT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F01_NIGHT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F01_SIGNAL_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F01_SIGNAL_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F01_TOUR_KEY_GUARD",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F01_TOUR_KEY_GUARD",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "one lifecycle and save authority per contract",
+			"ok": true
+		},
+		{
+			"label": "review-only cues are absent from production runtime",
+			"ok": true
+		},
+		{
+			"label": "central formatter produces carrier-neutral prompts",
+			"ok": true
+		},
+		{
+			"label": "ritual denial states refuse invented acts",
+			"ok": true
+		},
+		{
+			"label": "arrival refuses premature clock-out and report acceptance",
+			"ok": true
+		},
+		{
+			"label": "empty spindle cannot invent an opening report",
+			"ok": true
+		},
+		{
+			"label": "open detector cover through actual pointer motion",
+			"ok": true
+		},
+		{
+			"label": "production detector key stroke clocks in and offers exactly the authored opening job",
+			"ok": true
+		},
+		{
+			"label": "physical spindle lift acknowledges one report and denies duplicate taking",
+			"ok": true
+		},
+		{
+			"label": "one network carries a box from every floor",
+			"ok": true
+		},
+		{
+			"label": "the register has a drop for every box",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "guard latch opens through mouse travel",
+			"ok": true
+		},
+		{
+			"label": "key physically lifts from its hook",
+			"ok": true
+		},
+		{
+			"label": "original custody authorizes the round after physical lift",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "grab and swing station door: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "grab and wind full crank stroke: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "full physical stroke publishes station mark: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "physically close station door: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "every mark reached the register",
+			"ok": true
+		},
+		{
+			"label": "the register's sequence is the round: plant, floors 2 to 6, lobby",
+			"ok": true
+		},
+		{
+			"label": "register drop 1 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 2 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 3 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 4 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 5 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 6 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 7 down",
+			"ok": true
+		},
+		{
+			"label": "carried key physically returns to hook",
+			"ok": true
+		},
+		{
+			"label": "original network receives returned custody",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "supervisor resets box: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "register reset lever works through mouse travel",
+			"ok": true
+		},
+		{
+			"label": "physical reset restores shutters without erasing signal count",
+			"ok": true
+		},
+		{
+			"label": "physical guard and first-shift observer agree on returned tour key",
+			"ok": true
+		},
+		{
+			"label": "service director binds the installed native owners",
+			"ok": true
+		},
+		{
+			"label": "call issues one original radiator obligation",
+			"ok": true
+		},
+		{
+			"label": "premature legacy stimuli cannot counterfeit progress",
+			"ok": true
+		},
+		{
+			"label": "service walking (-1.8, 0.0, -1.5) actual=(-1.867803, 0.0, -1.471886)",
+			"ok": true
+		},
+		{
+			"label": "service walking (-1.8, 0.0, -3.45) actual=(-1.802381, 0.0, -3.376744)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.0, -3.45) actual=(1.851784, 0.0, -3.448661)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.0, -3.0) actual=(1.917533, 0.213117, -3.061166)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.16, -2.9575) actual=(1.923371, 0.384615, -3.030766)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.32, -2.6725) actual=(1.924699, 0.54388, -2.745054)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.48, -2.3875) actual=(1.924944, 0.703856, -2.460052)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.64, -2.1025) actual=(1.924989, 0.863889, -2.17505)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.8, -1.8175) actual=(1.924998, 1.023864, -1.890052)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.96, -1.5325) actual=(1.924999, 1.18385, -1.605055)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.12, -1.2475) actual=(1.925, 1.343889, -1.32005)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.28, -0.9625) actual=(1.925, 1.503864, -1.035051)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.44, -0.6775) actual=(1.925, 1.663849, -0.750054)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.6, -0.3925) actual=(1.925, 1.600834, -0.464473)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.6, 1.25) actual=(1.925, 1.600444, 1.177613)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 1.6, 1.25) actual=(3.900374, 1.600444, 1.247615)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 1.76, 0.8875) actual=(3.961509, 1.760106, 0.959167)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 1.92, 0.6025) actual=(3.973904, 1.920088, 0.674788)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.08, 0.3175) actual=(3.974778, 2.080086, 0.389801)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.24, 0.0325) actual=(3.974955, 2.240093, 0.104802)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.4, -0.2525) actual=(3.974991, 2.400086, -0.180198)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.56, -0.5375) actual=(3.974998, 2.560086, -0.465198)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.72, -0.8225) actual=(3.974999, 2.720086, -0.750196)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.88, -1.1075) actual=(3.974999, 2.880086, -1.035197)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 3.04, -1.3925) actual=(3.974999, 3.040086, -1.320197)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 3.2, -1.6775) actual=(3.974999, 3.200612, -1.605175)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 3.2, -2.9) actual=(3.668132, 3.200221, -2.828641)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 3.2, -3.15) actual=(3.652772, 3.200221, -3.077201)",
+			"ok": true
+		},
+		{
+			"label": "service walking (5.9, 3.2, -3.15) actual=(5.825576, 3.200221, -3.147751)",
+			"ok": true
+		},
+		{
+			"label": "service walking (8.55, 3.2, -3.25) actual=(8.47694, 3.200221, -3.247258)",
+			"ok": true
+		},
+		{
+			"label": "service route has an actual door: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual hand opens service route leaf: F02_B_ENTRY_DOOR_Leaf",
+			"ok": true
+		},
+		{
+			"label": "service walking (10.95, 3.2, -3.25) actual=(10.87714, 3.200587, -3.249918)",
+			"ok": true
+		},
+		{
+			"label": "service walking (10.95, 3.2, -2.5) actual=(10.9435, 3.200587, -2.57455)",
+			"ok": true
+		},
+		{
+			"label": "service walking (12.5, 3.2, -2.5) actual=(12.42802, 3.200587, -2.503018)",
+			"ok": true
+		},
+		{
+			"label": "service walking (13.6, 3.2, -1.8) actual=(13.53794, 3.200587, -1.837549)",
+			"ok": true
+		},
+		{
+			"label": "resident threshold acknowledges original work order",
+			"ok": true
+		},
+		{
+			"label": "service walking (14.5, 3.2, -3.0) actual=(14.45434, 3.200587, -2.944236)",
+			"ok": true
+		},
+		{
+			"label": "physical one-pipe supply travel to 0.0",
+			"ok": true
+		},
+		{
+			"label": "Space inspection earns original radiator evidence",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: F02_B_RADIATOR_01_ORIFICE",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: F02_B_RADIATOR_01_ORIFICE",
+			"ok": true
+		},
+		{
+			"label": "old insert actually unthreads without changing identity",
+			"ok": true
+		},
+		{
+			"label": "actual free part acquisition: F02_B_RADIATOR_01_ORIFICE",
+			"ok": true
+		},
+		{
+			"label": "old insert physically moves clear of its seat",
+			"ok": true
+		},
+		{
+			"label": "actual Space returns service inspection before walking",
+			"ok": true
+		},
+		{
+			"label": "service walking (13.6, 3.2, -2.8) actual=(13.67142, 3.200587, -2.812578)",
+			"ok": true
+		},
+		{
+			"label": "service walking (12.5, 3.2, -2.5) actual=(12.5698, 3.200587, -2.518711)",
+			"ok": true
+		},
+		{
+			"label": "service walking (10.95, 3.2, -2.5) actual=(11.02273, 3.200587, -2.500648)",
+			"ok": true
+		},
+		{
+			"label": "service walking (10.95, 3.2, -3.25) actual=(10.95639, 3.200587, -3.175482)",
+			"ok": true
+		},
+		{
+			"label": "service route has an actual door: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual hand opens service route leaf: F02_B_ENTRY_DOOR_Leaf",
+			"ok": true
+		},
+		{
+			"label": "service walking (8.55, 3.2, -3.25) actual=(8.62195, 3.200196, -3.24791)",
+			"ok": true
+		},
+		{
+			"label": "service walking (5.9, 3.2, -3.15) actual=(5.972906, 3.200196, -3.152629)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 3.2, -3.15) actual=(3.722903, 3.200196, -3.150084)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 3.2, -3.15) actual=(3.722903, 3.200196, -3.150084)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 3.2, -2.9) actual=(3.668534, 3.200196, -2.969748)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 3.2, -1.6775) actual=(3.957902, 3.200392, -1.748499)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 3.04, -1.3925) actual=(3.972549, 3.164845, -1.466632)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.88, -1.1075) actual=(3.974515, 3.004176, -1.178)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.72, -0.8225) actual=(3.974904, 2.843512, -0.891589)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.56, -0.5375) actual=(3.97498, 2.685352, -0.611862)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.4, -0.2525) actual=(3.974996, 2.524272, -0.323224)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.24, 0.0325) actual=(3.974999, 2.363539, -0.036643)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.08, 0.3175) actual=(3.974999, 2.205362, 0.243126)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 1.92, 0.6025) actual=(3.974999, 2.044276, 0.531771)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 1.76, 0.8875) actual=(3.974999, 1.88354, 0.818357)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 1.6, 1.25) actual=(3.974999, 1.67102, 1.17564)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.6, 1.25) actual=(1.999594, 1.60081, 1.249316)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.6, -0.3925) actual=(1.92805, 1.617844, -0.31856)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.44, -0.6775) actual=(1.925609, 1.593137, -0.60577)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.28, -0.9625) actual=(1.925126, 1.433054, -0.888994)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.12, -1.2475) actual=(1.925026, 1.272916, -1.173311)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.96, -1.5325) actual=(1.925005, 1.112882, -1.458473)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.8, -1.8175) actual=(1.925001, 0.952878, -1.743484)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.64, -2.1025) actual=(1.925, 0.792878, -2.028485)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.48, -2.3875) actual=(1.925, 0.632878, -2.313485)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.32, -2.6725) actual=(1.925, 0.472878, -2.598485)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.16, -2.9575) actual=(1.925, 0.312878, -2.883485)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.0, -3.45) actual=(1.925, 0.000836, -3.385932)",
+			"ok": true
+		},
+		{
+			"label": "service walking (-1.8, 0.0, -3.45) actual=(-1.726686, 0.00086, -3.446418)",
+			"ok": true
+		},
+		{
+			"label": "service walking (-1.8, 0.0, -1.5) actual=(-1.797408, 0.00086, -1.574378)",
+			"ok": true
+		},
+		{
+			"label": "service walking (-2.0, 0.0, -0.65) actual=(-1.983823, 0.00086, -0.722547)",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @MeshInstance3D@3578",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @MeshInstance3D@3578",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @MeshInstance3D@3600",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @MeshInstance3D@3600",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @MeshInstance3D@3601",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @MeshInstance3D@3601",
+			"ok": true
+		},
+		{
+			"label": "physical flag/contact/reset cycle publishes exactly one comparison",
+			"ok": true
+		},
+		{
+			"label": "physical board outcome reaches original ordered comparison",
+			"ok": true
+		},
+		{
+			"label": "service walking (-1.8, 0.0, -1.5) actual=(-1.816737, 0.00086, -1.427419)",
+			"ok": true
+		},
+		{
+			"label": "service walking (-1.8, 0.0, -3.45) actual=(-1.800344, 0.00086, -3.377095)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.0, -3.45) actual=(1.851896, 0.00086, -3.448723)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.0, -3.45) actual=(1.851896, 0.00086, -3.448723)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 0.0, -3.45) actual=(3.57557, 0.00086, -3.449947)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 0.0, -2.9) actual=(3.641511, 0.00086, -2.974482)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 0.0, -1.6775) actual=(3.95636, 0.000888, -1.748844)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -0.16, -1.3925) actual=(3.972663, -0.035245, -1.46657)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -0.32, -1.1075) actual=(3.974537, -0.195849, -1.177963)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -0.48, -0.8225) actual=(3.974909, -0.356494, -0.891577)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -0.64, -0.5375) actual=(3.974981, -0.514651, -0.611857)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -0.8, -0.2525) actual=(3.974996, -0.675729, -0.323221)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -0.96, 0.0325) actual=(3.974999, -0.836461, -0.036642)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -1.12, 0.3175) actual=(3.974999, -0.994639, 0.243126)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -1.28, 0.6025) actual=(3.974999, -1.155725, 0.531772)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -1.44, 0.8875) actual=(3.974999, -1.316461, 0.818357)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -1.6, 1.25) actual=(3.974999, -1.528978, 1.175639)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -1.6, 1.25) actual=(1.999594, -1.5992, 1.249316)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -1.6, -0.3925) actual=(1.928051, -1.582013, -0.318529)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -1.76, -0.6775) actual=(1.925637, -1.605743, -0.602531)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -1.92, -0.9625) actual=(1.925131, -1.767101, -0.88841)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -2.08, -1.2475) actual=(1.925027, -1.92712, -1.173478)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -2.24, -1.5325) actual=(1.925006, -2.087122, -1.458485)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -2.4, -1.8175) actual=(1.925001, -2.247122, -1.743485)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -2.56, -2.1025) actual=(1.925, -2.407122, -2.028485)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -2.72, -2.3875) actual=(1.925, -2.567122, -2.313485)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -2.88, -2.6725) actual=(1.925, -2.727122, -2.598485)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -3.04, -2.9575) actual=(1.925, -2.887122, -2.883485)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -3.2, -3.45) actual=(1.925, -3.199207, -3.385948)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, -3.2, -3.45) actual=(3.576922, -3.199207, -3.447573)",
+			"ok": true
+		},
+		{
+			"label": "service walking (4.9, -3.2, -2.5) actual=(4.840724, -3.199207, -2.542952)",
+			"ok": true
+		},
+		{
+			"label": "service walking (4.9, -3.2, -0.4) actual=(4.898116, -3.199207, -0.474152)",
+			"ok": true
+		},
+		{
+			"label": "service walking (7.2, -3.2, -0.4) actual=(7.125243, -3.199207, -0.402264)",
+			"ok": true
+		},
+		{
+			"label": "service walking (8.7, -3.2, -0.4) actual=(8.626985, -3.199207, -0.400105)",
+			"ok": true
+		},
+		{
+			"label": "service route has an actual door: B1_BOILER_FIRE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual hand opens service route leaf: B1_BOILER_FIRE_DOOR_Leaf",
+			"ok": true
+		},
+		{
+			"label": "service walking (10.1, -3.2, -0.4) actual=(10.02709, -3.199207, -0.400005)",
+			"ok": true
+		},
+		{
+			"label": "service walking (10.9, -3.2, -0.5) actual=(10.82725, -3.199207, -0.491426)",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @Node3D@7135",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @Node3D@7135",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @Node3D@7138",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @Node3D@7138",
+			"ok": true
+		},
+		{
+			"label": "actual boiler drain lever acquisition",
+			"ok": true
+		},
+		{
+			"label": "held drain empties the real isolated column",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: WaterWitnessMarker",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: WaterWitnessMarker",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @Node3D@7135",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @Node3D@7135",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: @Node3D@7138",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: @Node3D@7138",
+			"ok": true
+		},
+		{
+			"label": "wrong physical witness cannot certify returned water",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: WaterWitnessMarker",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: WaterWitnessMarker",
+			"ok": true
+		},
+		{
+			"label": "physical drain, return and correct witness publish one boiler comparison",
+			"ok": true
+		},
+		{
+			"label": "real board and boiler outcomes earn repairability",
+			"ok": true
+		},
+		{
+			"label": "service walking (10.9, -3.2, -0.4) actual=(10.85514, -3.199207, -0.45889)",
+			"ok": true
+		},
+		{
+			"label": "service route has an actual door: B1_BOILER_FIRE_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual hand opens service route leaf: B1_BOILER_FIRE_DOOR_Leaf",
+			"ok": true
+		},
+		{
+			"label": "service walking (8.7, -3.2, -0.4) actual=(8.771871, -3.199207, -0.401739)",
+			"ok": true
+		},
+		{
+			"label": "service walking (7.4, -3.2, -0.4) actual=(7.47284, -3.199207, -0.400093)",
+			"ok": true
+		},
+		{
+			"label": "service route has an actual door: B1_SHOP_DOOR",
+			"ok": true
+		},
+		{
+			"label": "actual hand opens service route leaf: B1_SHOP_DOOR_Leaf",
+			"ok": true
+		},
+		{
+			"label": "service walking (7.4, -3.2, 1.0) actual=(7.40361, -3.199207, 0.925377)",
+			"ok": true
+		},
+		{
+			"label": "service walking (7.4, -3.2, 3.0) actual=(7.400127, -3.199207, 2.926993)",
+			"ok": true
+		},
+		{
+			"label": "service walking (7.65, -3.2, 4.45) actual=(7.633961, -3.199207, 4.355291)",
+			"ok": true
+		},
+		{
+			"label": "actual free part acquisition: VENT_SPARE_2",
+			"ok": true
+		},
+		{
+			"label": "actual FPS callback lifts the owned workshop insert to the production hand pose",
+			"ok": true
+		},
+		{
+			"label": "service walking (7.4, -3.2, 3.0) actual=(7.412156, -3.199207, 3.072042)",
+			"ok": true
+		},
+		{
+			"label": "service walking (7.4, -3.2, 1.0) actual=(7.400164, -3.199207, 1.072871)",
+			"ok": true
+		},
+		{
+			"label": "service route has an actual door: B1_SHOP_DOOR",
+			"ok": true
+		},
+		{
+			"label": "service doorway cargo retains its finite stock owner",
+			"ok": true
+		},
+		{
+			"label": "doorway setdown returns the same stock before ordinary release",
+			"ok": true
+		},
+		{
+			"label": "doorway stock releases through the normal physical owner",
+			"ok": true
+		},
+		{
+			"label": "actual hand opens service route leaf: B1_SHOP_DOOR_Leaf",
+			"ok": true
+		},
+		{
+			"label": "actual free part acquisition: VENT_SPARE_2",
+			"ok": true
+		},
+		{
+			"label": "ordinary holder callback recovers the same doorway stock",
+			"ok": true
+		},
+		{
+			"label": "service walking (7.4, -3.2, -0.4) actual=(7.400008, -3.199207, -0.327101)",
+			"ok": true
+		},
+		{
+			"label": "service walking (4.9, -3.2, -0.4) actual=(4.974625, -3.199207, -0.398045)",
+			"ok": true
+		},
+		{
+			"label": "service walking (4.9, -3.2, -2.5) actual=(4.902508, -3.199207, -2.425236)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, -3.2, -3.45) actual=(3.706341, -3.199207, -3.40416)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -3.2, -3.45) actual=(1.998462, -3.199207, -3.448495)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -3.2, -3.0) actual=(1.932484, -2.986884, -3.061148)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -3.04, -2.9575) actual=(1.926632, -2.815382, -3.030765)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -2.88, -2.6725) actual=(1.925302, -2.656125, -2.745051)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -2.72, -2.3875) actual=(1.925056, -2.496151, -2.460052)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -2.56, -2.1025) actual=(1.92501, -2.336111, -2.175051)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -2.4, -1.8175) actual=(1.925002, -2.176136, -1.890052)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -2.24, -1.5325) actual=(1.925, -2.016151, -1.605055)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -2.08, -1.2475) actual=(1.925, -1.856111, -1.32005)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -1.92, -0.9625) actual=(1.925, -1.696131, -1.035052)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -1.76, -0.6775) actual=(1.925, -1.536152, -0.750052)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -1.6, -0.3925) actual=(1.925, -1.599166, -0.464473)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, -1.6, 1.25) actual=(1.925, -1.599556, 1.177613)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -1.6, 1.25) actual=(3.900374, -1.599556, 1.247615)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -1.44, 0.8875) actual=(3.961509, -1.439894, 0.959167)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -1.28, 0.6025) actual=(3.973904, -1.279912, 0.674788)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -1.12, 0.3175) actual=(3.974778, -1.119914, 0.389801)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -0.96, 0.0325) actual=(3.974955, -0.959914, 0.104802)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -0.8, -0.2525) actual=(3.974991, -0.799914, -0.180198)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -0.64, -0.5375) actual=(3.974998, -0.639914, -0.465198)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -0.48, -0.8225) actual=(3.974999, -0.479914, -0.750197)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -0.32, -1.1075) actual=(3.974999, -0.319914, -1.035197)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, -0.16, -1.3925) actual=(3.974999, -0.159914, -1.320197)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 0.0, -1.6775) actual=(3.974999, 0.000613, -1.605175)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 0.0, -2.9) actual=(3.668132, 0.000222, -2.828641)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 0.0, -3.45) actual=(3.651154, 0.000222, -3.377163)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.0, -3.45) actual=(1.998145, 0.000222, -3.447106)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.16, -2.9575) actual=(1.93052, 0.384616, -3.031214)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.32, -2.6725) actual=(1.925943, 0.544614, -2.745662)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.48, -2.3875) actual=(1.925174, 0.703889, -2.46005)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.64, -2.1025) actual=(1.925032, 0.863859, -2.175052)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.8, -1.8175) actual=(1.925006, 1.023846, -1.890056)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 0.96, -1.5325) actual=(1.925001, 1.183881, -1.60505)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.12, -1.2475) actual=(1.925, 1.343857, -1.320052)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.28, -0.9625) actual=(1.925, 1.50389, -1.035048)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.44, -0.6775) actual=(1.925, 1.663865, -0.750051)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.6, -0.3925) actual=(1.925, 1.600835, -0.464473)",
+			"ok": true
+		},
+		{
+			"label": "service walking (1.925, 1.6, 1.25) actual=(1.925, 1.600444, 1.177613)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 1.6, 1.25) actual=(3.900374, 1.600444, 1.247615)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 1.76, 0.8875) actual=(3.961509, 1.760106, 0.959167)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 1.92, 0.6025) actual=(3.973904, 1.920088, 0.674788)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.08, 0.3175) actual=(3.974778, 2.080086, 0.389801)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.24, 0.0325) actual=(3.974955, 2.240093, 0.104802)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.4, -0.2525) actual=(3.974991, 2.400086, -0.180198)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.56, -0.5375) actual=(3.974998, 2.560086, -0.465198)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.72, -0.8225) actual=(3.974999, 2.720086, -0.750196)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 2.88, -1.1075) actual=(3.974999, 2.880086, -1.035197)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 3.04, -1.3925) actual=(3.974999, 3.040086, -1.320197)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.975, 3.2, -1.6775) actual=(3.974999, 3.200612, -1.605175)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 3.2, -2.9) actual=(3.668132, 3.200221, -2.828641)",
+			"ok": true
+		},
+		{
+			"label": "service walking (3.65, 3.2, -3.15) actual=(3.652772, 3.200221, -3.077201)",
+			"ok": true
+		},
+		{
+			"label": "service walking (5.9, 3.2, -3.15) actual=(5.825576, 3.200221, -3.147751)",
+			"ok": true
+		},
+		{
+			"label": "service walking (8.55, 3.2, -3.25) actual=(8.47694, 3.200221, -3.247258)",
+			"ok": true
+		},
+		{
+			"label": "service route has an actual door: F02_B_ENTRY_DOOR",
+			"ok": true
+		},
+		{
+			"label": "service doorway cargo retains its finite stock owner",
+			"ok": true
+		},
+		{
+			"label": "doorway setdown returns the same stock before ordinary release",
+			"ok": true
+		},
+		{
+			"label": "doorway stock releases through the normal physical owner",
+			"ok": true
+		},
+		{
+			"label": "actual hand opens service route leaf: F02_B_ENTRY_DOOR_Leaf",
+			"ok": true
+		},
+		{
+			"label": "actual free part acquisition: VENT_SPARE_2",
+			"ok": true
+		},
+		{
+			"label": "ordinary holder callback recovers the same doorway stock",
+			"ok": true
+		},
+		{
+			"label": "service walking (10.95, 3.2, -3.25) actual=(10.87714, 3.200587, -3.249918)",
+			"ok": true
+		},
+		{
+			"label": "service walking (10.95, 3.2, -2.5) actual=(10.9435, 3.200587, -2.57455)",
+			"ok": true
+		},
+		{
+			"label": "service walking (12.5, 3.2, -2.5) actual=(12.42802, 3.200587, -2.503018)",
+			"ok": true
+		},
+		{
+			"label": "service walking (13.6, 3.2, -2.8) actual=(13.53025, 3.200587, -2.781789)",
+			"ok": true
+		},
+		{
+			"label": "service walking (14.5, 3.2, -3.0) actual=(14.42763, 3.200587, -2.983715)",
+			"ok": true
+		},
+		{
+			"label": "delivered spare catches thread without auto seating",
+			"ok": true
+		},
+		{
+			"label": "service cursor resolves actual part: VENT_SPARE_2",
+			"ok": true
+		},
+		{
+			"label": "grab, mouse travel and release: VENT_SPARE_2",
+			"ok": true
+		},
+		{
+			"label": "physical exchange preserves all 28 identities and sets actual vent grade",
+			"ok": true
+		},
+		{
+			"label": "physical one-pipe supply travel to 0.42",
+			"ok": true
+		},
+		{
+			"label": "partial one-pipe supply cannot prove repair",
+			"ok": true
+		},
+		{
+			"label": "physical one-pipe supply travel to 1.0",
+			"ok": true
+		},
+		{
+			"label": "sustained real steam completes original physical repair",
+			"ok": true
+		},
+		{
+			"label": "service walking (13.6, 3.2, -1.8) actual=(13.64267, 3.200587, -1.860715)",
+			"ok": true
+		},
+		{
+			"label": "resident return closes authored round after actual repair",
+			"ok": true
+		},
+		{
+			"label": "physical production trace preserves complete ordered round",
+			"ok": true
+		},
+		{
+			"label": "serialized issue timestamp retains sub-nanominute precision",
+			"ok": true
+		},
+		{
+			"label": "real disk contains the complete serialized round record",
+			"ok": true
+		},
+		{
+			"label": "save, destroy, CampaignShell reconstruct, and load preserve round facts",
+			"ok": true
+		},
+		{
+			"label": "v2 wake uses explicit bedside-return contract",
+			"ok": true
+		},
+		{
+			"label": "disk load reconstructs durable ritual facts without repeating the opening job",
+			"ok": true
+		},
+		{
+			"label": "reconstruction preserves transient custody and register semantics without inventing saved marks",
+			"ok": true
+		},
+		{
+			"label": "reconstructed production owners preserve the closed Lena round",
+			"ok": true
+		},
+		{
+			"label": "reconstruction creates no additional shared radiator shapes",
+			"ok": true
+		},
+		{
+			"label": "production layout remains byte-stable",
+			"ok": true
+		},
+		{
+			"label": "committed selector is v2",
+			"ok": true
+		},
+		{
+			"label": "both production worlds release tracked nodes, authority shapes and observed audio playbacks",
+			"ok": true
+		},
+		{
+			"label": "record repository provenance",
+			"ok": true
+		},
+		{
+			"label": "record current runtime inputs",
+			"ok": true
+		},
+		{
+			"label": "record current physical inputs",
+			"ok": true
+		},
+		{
+			"label": "test, production code and physical inputs remain unchanged throughout execution",
+			"ok": true
+		},
+		{
+			"label": "open runtime contract output",
+			"ok": true
+		}
+	],
+	"contracts": {
+		"physical_service_round": {
+			"executed": true,
+			"scope": "Actual part input, controller movement and finite workshop insert delivery; call/dialogue choices remain stimuli.",
+			"status": "PASS"
+		},
+		"premature_action_denial": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"identities": [
+				"F01_WATCHMAN_DETECTOR",
+				"F01_NIGHT_REGISTER",
+				"F01_SIGNAL_REGISTER",
+				"F01_TOUR_KEY_GUARD",
+				"F02_B_RADIATOR_01",
+				"B1_BOILER_01",
+				"LobbyPorterBoard"
+			],
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"resource_scope": "Unpathed collision shapes below the seven exercised authorities; exact process-owned radiator cache IDs separately measured.",
+			"retained_borrowed_shapes": 168,
+			"retained_nodes": 0,
+			"retained_playbacks": 0,
+			"retained_resources": 0,
+			"shared_cache_count": 84,
+			"status": "PASS",
+			"tracked_borrowed_shapes": 168,
+			"tracked_nodes": 177904,
+			"tracked_playbacks": 170,
+			"tracked_resources": 234
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 743.138,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": 0,
+	"production_runtime": true,
+	"route_beats": [
+		"call",
+		"resident",
+		"radiator_evidence",
+		"lobby_comparison",
+		"basement_comparison",
+		"diagnosis",
+		"repair",
+		"resident_return"
+	],
+	"schema_version": 2,
+	"scope": "Seven first-slice authorities: opening detector/report, seven player-ray patrol stations, ordered Lena round, actual disk save and CampaignShell rebuild. Call/dialogue and the closed prior-job gate are fixtures; board, boiler and radiator outcomes come from physical input. Service travel and workshop insert delivery use the collision-bearing controller. Patrol stance placement and whole-world visual acceptance remain separate.",
+	"selector": "v2",
+	"service_travel": [
+		{
+			"actual": "(-1.867803, 0.0, -1.471886)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_WATCH/Floor/Collision"
+			],
+			"from": "(-3.95, 0.0, -0.6)",
+			"ok": true,
+			"target": "(-1.8, 0.0, -1.5)"
+		},
+		{
+			"actual": "(-1.802381, 0.0, -3.376744)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_WATCH/Floor/Collision"
+			],
+			"from": "(-1.867803, 0.0, -1.471886)",
+			"ok": true,
+			"target": "(-1.8, 0.0, -3.45)"
+		},
+		{
+			"actual": "(1.851784, 0.0, -3.448661)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(-1.802381, 0.0, -3.376744)",
+			"ok": true,
+			"target": "(1.925, 0.0, -3.45)"
+		},
+		{
+			"actual": "(1.917533, 0.213117, -3.061166)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.851784, 0.0, -3.448661)",
+			"ok": true,
+			"target": "(1.925, 0.0, -3.0)"
+		},
+		{
+			"actual": "(1.923371, 0.384615, -3.030766)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.917533, 0.213117, -3.061166)",
+			"ok": true,
+			"target": "(1.925, 0.16, -2.9575)"
+		},
+		{
+			"actual": "(1.924699, 0.54388, -2.745054)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.923371, 0.384615, -3.030766)",
+			"ok": true,
+			"target": "(1.925, 0.32, -2.6725)"
+		},
+		{
+			"actual": "(1.924944, 0.703856, -2.460052)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.924699, 0.54388, -2.745054)",
+			"ok": true,
+			"target": "(1.925, 0.48, -2.3875)"
+		},
+		{
+			"actual": "(1.924989, 0.863889, -2.17505)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.924944, 0.703856, -2.460052)",
+			"ok": true,
+			"target": "(1.925, 0.64, -2.1025)"
+		},
+		{
+			"actual": "(1.924998, 1.023864, -1.890052)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.924989, 0.863889, -2.17505)",
+			"ok": true,
+			"target": "(1.925, 0.8, -1.8175)"
+		},
+		{
+			"actual": "(1.924999, 1.18385, -1.605055)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.924998, 1.023864, -1.890052)",
+			"ok": true,
+			"target": "(1.925, 0.96, -1.5325)"
+		},
+		{
+			"actual": "(1.925, 1.343889, -1.32005)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.924999, 1.18385, -1.605055)",
+			"ok": true,
+			"target": "(1.925, 1.12, -1.2475)"
+		},
+		{
+			"actual": "(1.925, 1.503864, -1.035051)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925, 1.343889, -1.32005)",
+			"ok": true,
+			"target": "(1.925, 1.28, -0.9625)"
+		},
+		{
+			"actual": "(1.925, 1.663849, -0.750054)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925, 1.503864, -1.035051)",
+			"ok": true,
+			"target": "(1.925, 1.44, -0.6775)"
+		},
+		{
+			"actual": "(1.925, 1.600834, -0.464473)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightA_Step09/Collision"
+			],
+			"from": "(1.925, 1.663849, -0.750054)",
+			"ok": true,
+			"target": "(1.925, 1.6, -0.3925)"
+		},
+		{
+			"actual": "(1.925, 1.600444, 1.177613)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/HalfLanding/Collision"
+			],
+			"from": "(1.925, 1.600834, -0.464473)",
+			"ok": true,
+			"target": "(1.925, 1.6, 1.25)"
+		},
+		{
+			"actual": "(3.900374, 1.600444, 1.247615)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/HalfLanding/Collision"
+			],
+			"from": "(1.925, 1.600444, 1.177613)",
+			"ok": true,
+			"target": "(3.975, 1.6, 1.25)"
+		},
+		{
+			"actual": "(3.961509, 1.760106, 0.959167)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.900374, 1.600444, 1.247615)",
+			"ok": true,
+			"target": "(3.975, 1.76, 0.8875)"
+		},
+		{
+			"actual": "(3.973904, 1.920088, 0.674788)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.961509, 1.760106, 0.959167)",
+			"ok": true,
+			"target": "(3.975, 1.92, 0.6025)"
+		},
+		{
+			"actual": "(3.974778, 2.080086, 0.389801)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.973904, 1.920088, 0.674788)",
+			"ok": true,
+			"target": "(3.975, 2.08, 0.3175)"
+		},
+		{
+			"actual": "(3.974955, 2.240093, 0.104802)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974778, 2.080086, 0.389801)",
+			"ok": true,
+			"target": "(3.975, 2.24, 0.0325)"
+		},
+		{
+			"actual": "(3.974991, 2.400086, -0.180198)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974955, 2.240093, 0.104802)",
+			"ok": true,
+			"target": "(3.975, 2.4, -0.2525)"
+		},
+		{
+			"actual": "(3.974998, 2.560086, -0.465198)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974991, 2.400086, -0.180198)",
+			"ok": true,
+			"target": "(3.975, 2.56, -0.5375)"
+		},
+		{
+			"actual": "(3.974999, 2.720086, -0.750196)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974998, 2.560086, -0.465198)",
+			"ok": true,
+			"target": "(3.975, 2.72, -0.8225)"
+		},
+		{
+			"actual": "(3.974999, 2.880086, -1.035197)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974999, 2.720086, -0.750196)",
+			"ok": true,
+			"target": "(3.975, 2.88, -1.1075)"
+		},
+		{
+			"actual": "(3.974999, 3.040086, -1.320197)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974999, 2.880086, -1.035197)",
+			"ok": true,
+			"target": "(3.975, 3.04, -1.3925)"
+		},
+		{
+			"actual": "(3.974999, 3.200612, -1.605175)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step09/Collision"
+			],
+			"from": "(3.974999, 3.040086, -1.320197)",
+			"ok": true,
+			"target": "(3.975, 3.2, -1.6775)"
+		},
+		{
+			"actual": "(3.668132, 3.200221, -2.828641)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.974999, 3.200612, -1.605175)",
+			"ok": true,
+			"target": "(3.65, 3.2, -2.9)"
+		},
+		{
+			"actual": "(3.652772, 3.200221, -3.077201)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.668132, 3.200221, -2.828641)",
+			"ok": true,
+			"target": "(3.65, 3.2, -3.15)"
+		},
+		{
+			"actual": "(5.825576, 3.200221, -3.147751)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_EAST_HALL/Floor/Collision"
+			],
+			"from": "(3.652772, 3.200221, -3.077201)",
+			"ok": true,
+			"target": "(5.9, 3.2, -3.15)"
+		},
+		{
+			"actual": "(8.47694, 3.200221, -3.247258)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_SERVICE_CROSSING/Floor/Collision"
+			],
+			"from": "(5.825576, 3.200221, -3.147751)",
+			"ok": true,
+			"target": "(8.55, 3.2, -3.25)"
+		},
+		{
+			"actual": "(10.87714, 3.200587, -3.249918)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_VESTIBULE/Floor/Collision"
+			],
+			"from": "(8.47694, 3.200221, -3.247258)",
+			"ok": true,
+			"target": "(10.95, 3.2, -3.25)"
+		},
+		{
+			"actual": "(10.9435, 3.200587, -2.57455)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_VESTIBULE/Floor/Collision"
+			],
+			"from": "(10.87714, 3.200587, -3.249918)",
+			"ok": true,
+			"target": "(10.95, 3.2, -2.5)"
+		},
+		{
+			"actual": "(12.42802, 3.200587, -2.503018)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
+			],
+			"from": "(10.9435, 3.200587, -2.57455)",
+			"ok": true,
+			"target": "(12.5, 3.2, -2.5)"
+		},
+		{
+			"actual": "(13.53794, 3.200587, -1.837549)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
+			],
+			"from": "(12.42802, 3.200587, -2.503018)",
+			"ok": true,
+			"target": "(13.6, 3.2, -1.8)"
+		},
+		{
+			"actual": "(14.45434, 3.200587, -2.944236)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
+			],
+			"from": "(13.53794, 3.200587, -1.837549)",
+			"ok": true,
+			"target": "(14.5, 3.2, -3.0)"
+		},
+		{
+			"actual": "(13.67142, 3.200587, -2.812578)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
+			],
+			"from": "(14.45434, 3.200587, -2.944236)",
+			"ok": true,
+			"target": "(13.6, 3.2, -2.8)"
+		},
+		{
+			"actual": "(12.5698, 3.200587, -2.518711)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
+			],
+			"from": "(13.67142, 3.200587, -2.812578)",
+			"ok": true,
+			"target": "(12.5, 3.2, -2.5)"
+		},
+		{
+			"actual": "(11.02273, 3.200587, -2.500648)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_VESTIBULE/Floor/Collision"
+			],
+			"from": "(12.5698, 3.200587, -2.518711)",
+			"ok": true,
+			"target": "(10.95, 3.2, -2.5)"
+		},
+		{
+			"actual": "(10.95639, 3.200587, -3.175482)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_VESTIBULE/Floor/Collision"
+			],
+			"from": "(11.02273, 3.200587, -2.500648)",
+			"ok": true,
+			"target": "(10.95, 3.2, -3.25)"
+		},
+		{
+			"actual": "(8.62195, 3.200196, -3.24791)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_SERVICE_CROSSING/Floor/Collision"
+			],
+			"from": "(10.95639, 3.200587, -3.175482)",
+			"ok": true,
+			"target": "(8.55, 3.2, -3.25)"
+		},
+		{
+			"actual": "(5.972906, 3.200196, -3.152629)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_EAST_HALL/Floor/Collision"
+			],
+			"from": "(8.62195, 3.200196, -3.24791)",
+			"ok": true,
+			"target": "(5.9, 3.2, -3.15)"
+		},
+		{
+			"actual": "(3.722903, 3.200196, -3.150084)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(5.972906, 3.200196, -3.152629)",
+			"ok": true,
+			"target": "(3.65, 3.2, -3.15)"
+		},
+		{
+			"actual": "(3.722903, 3.200196, -3.150084)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.722903, 3.200196, -3.150084)",
+			"ok": true,
+			"target": "(3.65, 3.2, -3.15)"
+		},
+		{
+			"actual": "(3.668534, 3.200196, -2.969748)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.722903, 3.200196, -3.150084)",
+			"ok": true,
+			"target": "(3.65, 3.2, -2.9)"
+		},
+		{
+			"actual": "(3.957902, 3.200392, -1.748499)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step09/Collision"
+			],
+			"from": "(3.668534, 3.200196, -2.969748)",
+			"ok": true,
+			"target": "(3.975, 3.2, -1.6775)"
+		},
+		{
+			"actual": "(3.972549, 3.164845, -1.466632)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.957902, 3.200392, -1.748499)",
+			"ok": true,
+			"target": "(3.975, 3.04, -1.3925)"
+		},
+		{
+			"actual": "(3.974515, 3.004176, -1.178)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step08/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step08/Collision"
+			],
+			"from": "(3.972549, 3.164845, -1.466632)",
+			"ok": true,
+			"target": "(3.975, 2.88, -1.1075)"
+		},
+		{
+			"actual": "(3.974904, 2.843512, -0.891589)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step07/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step07/Collision"
+			],
+			"from": "(3.974515, 3.004176, -1.178)",
+			"ok": true,
+			"target": "(3.975, 2.72, -0.8225)"
+		},
+		{
+			"actual": "(3.97498, 2.685352, -0.611862)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974904, 2.843512, -0.891589)",
+			"ok": true,
+			"target": "(3.975, 2.56, -0.5375)"
+		},
+		{
+			"actual": "(3.974996, 2.524272, -0.323224)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step05/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step05/Collision"
+			],
+			"from": "(3.97498, 2.685352, -0.611862)",
+			"ok": true,
+			"target": "(3.975, 2.4, -0.2525)"
+		},
+		{
+			"actual": "(3.974999, 2.363539, -0.036643)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step04/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step04/Collision"
+			],
+			"from": "(3.974996, 2.524272, -0.323224)",
+			"ok": true,
+			"target": "(3.975, 2.24, 0.0325)"
+		},
+		{
+			"actual": "(3.974999, 2.205362, 0.243126)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974999, 2.363539, -0.036643)",
+			"ok": true,
+			"target": "(3.975, 2.08, 0.3175)"
+		},
+		{
+			"actual": "(3.974999, 2.044276, 0.531771)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step02/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step02/Collision"
+			],
+			"from": "(3.974999, 2.205362, 0.243126)",
+			"ok": true,
+			"target": "(3.975, 1.92, 0.6025)"
+		},
+		{
+			"actual": "(3.974999, 1.88354, 0.818357)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step01/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step01/Collision"
+			],
+			"from": "(3.974999, 2.044276, 0.531771)",
+			"ok": true,
+			"target": "(3.975, 1.76, 0.8875)"
+		},
+		{
+			"actual": "(3.974999, 1.67102, 1.17564)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974999, 1.88354, 0.818357)",
+			"ok": true,
+			"target": "(3.975, 1.6, 1.25)"
+		},
+		{
+			"actual": "(1.999594, 1.60081, 1.249316)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/HalfLanding/Collision"
+			],
+			"from": "(3.974999, 1.67102, 1.17564)",
+			"ok": true,
+			"target": "(1.925, 1.6, 1.25)"
+		},
+		{
+			"actual": "(1.92805, 1.617844, -0.31856)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.999594, 1.60081, 1.249316)",
+			"ok": true,
+			"target": "(1.925, 1.6, -0.3925)"
+		},
+		{
+			"actual": "(1.925609, 1.593137, -0.60577)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.92805, 1.617844, -0.31856)",
+			"ok": true,
+			"target": "(1.925, 1.44, -0.6775)"
+		},
+		{
+			"actual": "(1.925126, 1.433054, -0.888994)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925609, 1.593137, -0.60577)",
+			"ok": true,
+			"target": "(1.925, 1.28, -0.9625)"
+		},
+		{
+			"actual": "(1.925026, 1.272916, -1.173311)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925126, 1.433054, -0.888994)",
+			"ok": true,
+			"target": "(1.925, 1.12, -1.2475)"
+		},
+		{
+			"actual": "(1.925005, 1.112882, -1.458473)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925026, 1.272916, -1.173311)",
+			"ok": true,
+			"target": "(1.925, 0.96, -1.5325)"
+		},
+		{
+			"actual": "(1.925001, 0.952878, -1.743484)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925005, 1.112882, -1.458473)",
+			"ok": true,
+			"target": "(1.925, 0.8, -1.8175)"
+		},
+		{
+			"actual": "(1.925, 0.792878, -2.028485)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925001, 0.952878, -1.743484)",
+			"ok": true,
+			"target": "(1.925, 0.64, -2.1025)"
+		},
+		{
+			"actual": "(1.925, 0.632878, -2.313485)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925, 0.792878, -2.028485)",
+			"ok": true,
+			"target": "(1.925, 0.48, -2.3875)"
+		},
+		{
+			"actual": "(1.925, 0.472878, -2.598485)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925, 0.632878, -2.313485)",
+			"ok": true,
+			"target": "(1.925, 0.32, -2.6725)"
+		},
+		{
+			"actual": "(1.925, 0.312878, -2.883485)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925, 0.472878, -2.598485)",
+			"ok": true,
+			"target": "(1.925, 0.16, -2.9575)"
+		},
+		{
+			"actual": "(1.925, 0.000836, -3.385932)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightA_Step00/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_PUBLIC_LANDING_S/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(1.925, 0.312878, -2.883485)",
+			"ok": true,
+			"target": "(1.925, 0.0, -3.45)"
+		},
+		{
+			"actual": "(-1.726686, 0.00086, -3.446418)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_WATCH/Floor/Collision"
+			],
+			"from": "(1.925, 0.000836, -3.385932)",
+			"ok": true,
+			"target": "(-1.8, 0.0, -3.45)"
+		},
+		{
+			"actual": "(-1.797408, 0.00086, -1.574378)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_WATCH/Floor/Collision"
+			],
+			"from": "(-1.726686, 0.00086, -3.446418)",
+			"ok": true,
+			"target": "(-1.8, 0.0, -1.5)"
+		},
+		{
+			"actual": "(-1.983823, 0.00086, -0.722547)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_WATCH/Floor/Collision"
+			],
+			"from": "(-1.797408, 0.00086, -1.574378)",
+			"ok": true,
+			"target": "(-2.0, 0.0, -0.65)"
+		},
+		{
+			"actual": "(-1.816737, 0.00086, -1.427419)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_WATCH/Floor/Collision"
+			],
+			"from": "(-1.983823, 0.00086, -0.722547)",
+			"ok": true,
+			"target": "(-1.8, 0.0, -1.5)"
+		},
+		{
+			"actual": "(-1.800344, 0.00086, -3.377095)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_WATCH/Floor/Collision"
+			],
+			"from": "(-1.816737, 0.00086, -1.427419)",
+			"ok": true,
+			"target": "(-1.8, 0.0, -3.45)"
+		},
+		{
+			"actual": "(1.851896, 0.00086, -3.448723)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(-1.800344, 0.00086, -3.377095)",
+			"ok": true,
+			"target": "(1.925, 0.0, -3.45)"
+		},
+		{
+			"actual": "(1.851896, 0.00086, -3.448723)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(1.851896, 0.00086, -3.448723)",
+			"ok": true,
+			"target": "(1.925, 0.0, -3.45)"
+		},
+		{
+			"actual": "(3.57557, 0.00086, -3.449947)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(1.851896, 0.00086, -3.448723)",
+			"ok": true,
+			"target": "(3.65, 0.0, -3.45)"
+		},
+		{
+			"actual": "(3.641511, 0.00086, -2.974482)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.57557, 0.00086, -3.449947)",
+			"ok": true,
+			"target": "(3.65, 0.0, -2.9)"
+		},
+		{
+			"actual": "(3.95636, 0.000888, -1.748844)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step09/Collision"
+			],
+			"from": "(3.641511, 0.00086, -2.974482)",
+			"ok": true,
+			"target": "(3.975, 0.0, -1.6775)"
+		},
+		{
+			"actual": "(3.972663, -0.035245, -1.46657)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.95636, 0.000888, -1.748844)",
+			"ok": true,
+			"target": "(3.975, -0.16, -1.3925)"
+		},
+		{
+			"actual": "(3.974537, -0.195849, -1.177963)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step08/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step08/Collision"
+			],
+			"from": "(3.972663, -0.035245, -1.46657)",
+			"ok": true,
+			"target": "(3.975, -0.32, -1.1075)"
+		},
+		{
+			"actual": "(3.974909, -0.356494, -0.891577)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step07/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step07/Collision"
+			],
+			"from": "(3.974537, -0.195849, -1.177963)",
+			"ok": true,
+			"target": "(3.975, -0.48, -0.8225)"
+		},
+		{
+			"actual": "(3.974981, -0.514651, -0.611857)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974909, -0.356494, -0.891577)",
+			"ok": true,
+			"target": "(3.975, -0.64, -0.5375)"
+		},
+		{
+			"actual": "(3.974996, -0.675729, -0.323221)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step05/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step05/Collision"
+			],
+			"from": "(3.974981, -0.514651, -0.611857)",
+			"ok": true,
+			"target": "(3.975, -0.8, -0.2525)"
+		},
+		{
+			"actual": "(3.974999, -0.836461, -0.036642)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step04/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step04/Collision"
+			],
+			"from": "(3.974996, -0.675729, -0.323221)",
+			"ok": true,
+			"target": "(3.975, -0.96, 0.0325)"
+		},
+		{
+			"actual": "(3.974999, -0.994639, 0.243126)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974999, -0.836461, -0.036642)",
+			"ok": true,
+			"target": "(3.975, -1.12, 0.3175)"
+		},
+		{
+			"actual": "(3.974999, -1.155725, 0.531772)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step02/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step02/Collision"
+			],
+			"from": "(3.974999, -0.994639, 0.243126)",
+			"ok": true,
+			"target": "(3.975, -1.28, 0.6025)"
+		},
+		{
+			"actual": "(3.974999, -1.316461, 0.818357)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step01/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step01/Collision"
+			],
+			"from": "(3.974999, -1.155725, 0.531772)",
+			"ok": true,
+			"target": "(3.975, -1.44, 0.8875)"
+		},
+		{
+			"actual": "(3.974999, -1.528978, 1.175639)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(3.974999, -1.316461, 0.818357)",
+			"ok": true,
+			"target": "(3.975, -1.6, 1.25)"
+		},
+		{
+			"actual": "(1.999594, -1.5992, 1.249316)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/HalfLanding/Collision"
+			],
+			"from": "(3.974999, -1.528978, 1.175639)",
+			"ok": true,
+			"target": "(1.925, -1.6, 1.25)"
+		},
+		{
+			"actual": "(1.928051, -1.582013, -0.318529)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.999594, -1.5992, 1.249316)",
+			"ok": true,
+			"target": "(1.925, -1.6, -0.3925)"
+		},
+		{
+			"actual": "(1.925637, -1.605743, -0.602531)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.928051, -1.582013, -0.318529)",
+			"ok": true,
+			"target": "(1.925, -1.76, -0.6775)"
+		},
+		{
+			"actual": "(1.925131, -1.767101, -0.88841)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925637, -1.605743, -0.602531)",
+			"ok": true,
+			"target": "(1.925, -1.92, -0.9625)"
+		},
+		{
+			"actual": "(1.925027, -1.92712, -1.173478)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925131, -1.767101, -0.88841)",
+			"ok": true,
+			"target": "(1.925, -2.08, -1.2475)"
+		},
+		{
+			"actual": "(1.925006, -2.087122, -1.458485)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925027, -1.92712, -1.173478)",
+			"ok": true,
+			"target": "(1.925, -2.24, -1.5325)"
+		},
+		{
+			"actual": "(1.925001, -2.247122, -1.743485)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925006, -2.087122, -1.458485)",
+			"ok": true,
+			"target": "(1.925, -2.4, -1.8175)"
+		},
+		{
+			"actual": "(1.925, -2.407122, -2.028485)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925001, -2.247122, -1.743485)",
+			"ok": true,
+			"target": "(1.925, -2.56, -2.1025)"
+		},
+		{
+			"actual": "(1.925, -2.567122, -2.313485)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925, -2.407122, -2.028485)",
+			"ok": true,
+			"target": "(1.925, -2.72, -2.3875)"
+		},
+		{
+			"actual": "(1.925, -2.727122, -2.598485)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925, -2.567122, -2.313485)",
+			"ok": true,
+			"target": "(1.925, -2.88, -2.6725)"
+		},
+		{
+			"actual": "(1.925, -2.887122, -2.883485)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [],
+			"from": "(1.925, -2.727122, -2.598485)",
+			"ok": true,
+			"target": "(1.925, -3.04, -2.9575)"
+		},
+		{
+			"actual": "(1.925, -3.199207, -3.385948)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightA_Step00/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_PUBLIC_LANDING_S/Collision",
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(1.925, -2.887122, -2.883485)",
+			"ok": true,
+			"target": "(1.925, -3.2, -3.45)"
+		},
+		{
+			"actual": "(3.576922, -3.199207, -3.447573)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(1.925, -3.199207, -3.385948)",
+			"ok": true,
+			"target": "(3.65, -3.2, -3.45)"
+		},
+		{
+			"actual": "(4.840724, -3.199207, -2.542952)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.576922, -3.199207, -3.447573)",
+			"ok": true,
+			"target": "(4.9, -3.2, -2.5)"
+		},
+		{
+			"actual": "(4.898116, -3.199207, -0.474152)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_PUBLIC_LANDING_E/Collision"
+			],
+			"from": "(4.840724, -3.199207, -2.542952)",
+			"ok": true,
+			"target": "(4.9, -3.2, -0.4)"
+		},
+		{
+			"actual": "(7.125243, -3.199207, -0.402264)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_APPROACH/Floor/Collision"
+			],
+			"from": "(4.898116, -3.199207, -0.474152)",
+			"ok": true,
+			"target": "(7.2, -3.2, -0.4)"
+		},
+		{
+			"actual": "(8.626985, -3.199207, -0.400105)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_APPROACH/Floor/Collision"
+			],
+			"from": "(7.125243, -3.199207, -0.402264)",
+			"ok": true,
+			"target": "(8.7, -3.2, -0.4)"
+		},
+		{
+			"actual": "(10.02709, -3.199207, -0.400005)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_ROOM/Floor/Collision"
+			],
+			"from": "(8.626985, -3.199207, -0.400105)",
+			"ok": true,
+			"target": "(10.1, -3.2, -0.4)"
+		},
+		{
+			"actual": "(10.82725, -3.199207, -0.491426)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_ROOM/Floor/Collision"
+			],
+			"from": "(10.02709, -3.199207, -0.400005)",
+			"ok": true,
+			"target": "(10.9, -3.2, -0.5)"
+		},
+		{
+			"actual": "(10.85514, -3.199207, -0.45889)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_ROOM/Floor/Collision"
+			],
+			"from": "(10.82725, -3.199207, -0.491426)",
+			"ok": true,
+			"target": "(10.9, -3.2, -0.4)"
+		},
+		{
+			"actual": "(8.771871, -3.199207, -0.401739)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_APPROACH/Floor/Collision"
+			],
+			"from": "(10.85514, -3.199207, -0.45889)",
+			"ok": true,
+			"target": "(8.7, -3.2, -0.4)"
+		},
+		{
+			"actual": "(7.47284, -3.199207, -0.400093)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_APPROACH/Floor/Collision"
+			],
+			"from": "(8.771871, -3.199207, -0.401739)",
+			"ok": true,
+			"target": "(7.4, -3.2, -0.4)"
+		},
+		{
+			"actual": "(7.40361, -3.199207, 0.925377)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_MAINTENANCE_SHOP/Floor/Collision"
+			],
+			"from": "(7.47284, -3.199207, -0.400093)",
+			"ok": true,
+			"target": "(7.4, -3.2, 1.0)"
+		},
+		{
+			"actual": "(7.400127, -3.199207, 2.926993)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_MAINTENANCE_SHOP/Floor/Collision"
+			],
+			"from": "(7.40361, -3.199207, 0.925377)",
+			"ok": true,
+			"target": "(7.4, -3.2, 3.0)"
+		},
+		{
+			"actual": "(7.633961, -3.199207, 4.355291)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/b1_repair_bench"
+			],
+			"from": "(7.400127, -3.199207, 2.926993)",
+			"ok": true,
+			"target": "(7.65, -3.2, 4.45)"
+		},
+		{
+			"actual": "(7.412156, -3.199207, 3.072042)",
+			"cargo": {
+				"at": "(7.499924, -1.953207, 2.570448)",
+				"camera_distance": 0.53497314453125,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(7.499049, -1.951572, 2.575448)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_MAINTENANCE_SHOP/Floor/Collision"
+			],
+			"from": "(7.633961, -3.199207, 4.355291)",
+			"ok": true,
+			"target": "(7.4, -3.2, 3.0)"
+		},
+		{
+			"actual": "(7.400164, -3.199207, 1.072871)",
+			"cargo": {
+				"at": "(7.569083, -1.953207, 0.59249)",
+				"camera_distance": 0.534972488880157,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(7.567325, -1.9515, 0.59749)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_MAINTENANCE_SHOP/Floor/Collision"
+			],
+			"from": "(7.412156, -3.199207, 3.072042)",
+			"ok": true,
+			"target": "(7.4, -3.2, 1.0)"
+		},
+		{
+			"actual": "(7.400008, -3.199207, -0.327101)",
+			"cargo": {
+				"at": "(7.567363, -1.949644, -0.804105)",
+				"camera_distance": 0.530358850955963,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(7.564392, -1.946795, -0.795635)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_BOILER_APPROACH/Floor/Collision"
+			],
+			"from": "(7.400164, -3.199207, 1.072871)",
+			"ok": true,
+			"target": "(7.4, -3.2, -0.4)"
+		},
+		{
+			"actual": "(4.974625, -3.199207, -0.398045)",
+			"cargo": {
+				"at": "(4.496651, -1.949644, -0.577542)",
+				"camera_distance": 0.535180747509003,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.502191, -1.947785, -0.575461)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_PUBLIC_LANDING_E/Collision"
+			],
+			"from": "(7.400008, -3.199207, -0.327101)",
+			"ok": true,
+			"target": "(4.9, -3.2, -0.4)"
+		},
+		{
+			"actual": "(4.902508, -3.199207, -2.425236)",
+			"cargo": {
+				"at": "(5.053728, -1.949644, -2.90765)",
+				"camera_distance": 0.530406177043915,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(5.051004, -1.946755, -2.898962)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(4.974625, -3.199207, -0.398045)",
+			"ok": true,
+			"target": "(4.9, -3.2, -2.5)"
+		},
+		{
+			"actual": "(3.706341, -3.199207, -3.40416)",
+			"cargo": {
+				"at": "(3.438706, -1.949644, -3.77696)",
+				"camera_distance": 0.486155837774277,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(3.442215, -1.947541, -3.772072)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(4.902508, -3.199207, -2.425236)",
+			"ok": true,
+			"target": "(3.65, -3.2, -3.45)"
+		},
+		{
+			"actual": "(1.998462, -3.199207, -3.448495)",
+			"cargo": {
+				"at": "(1.519453, -1.949644, -3.625274)",
+				"camera_distance": 0.535201191902161,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(1.525017, -1.94778, -3.62322)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.706341, -3.199207, -3.40416)",
+			"ok": true,
+			"target": "(1.925, -3.2, -3.45)"
+		},
+		{
+			"actual": "(1.932484, -2.986884, -3.061148)",
+			"cargo": {
+				"at": "(1.70284, -1.737321, -2.60234)",
+				"camera_distance": 0.537569522857666,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(1.704634, -1.736068, -2.605924)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.998462, -3.199207, -3.448495)",
+			"ok": true,
+			"target": "(1.925, -3.2, -3.0)"
+		},
+		{
+			"actual": "(1.926632, -2.815382, -3.030765)",
+			"cargo": {
+				"at": "(1.743391, -1.565819, -2.551655)",
+				"camera_distance": 0.537460267543793,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.744865, -1.564528, -2.555509)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.932484, -2.986884, -3.061148)",
+			"ok": true,
+			"target": "(1.925, -3.04, -2.9575)"
+		},
+		{
+			"actual": "(1.925302, -2.656125, -2.745051)",
+			"cargo": {
+				"at": "(1.750715, -1.406561, -2.262748)",
+				"camera_distance": 0.537435948848724,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(1.752128, -1.405262, -2.266653)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.926632, -2.815382, -3.030765)",
+			"ok": true,
+			"target": "(1.925, -2.88, -2.6725)"
+		},
+		{
+			"actual": "(1.925056, -2.496151, -2.460052)",
+			"cargo": {
+				"at": "(1.752094, -1.246588, -1.977167)",
+				"camera_distance": 0.537432074546814,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(1.753496, -1.245287, -1.981082)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925302, -2.656125, -2.745051)",
+			"ok": true,
+			"target": "(1.925, -2.72, -2.3875)"
+		},
+		{
+			"actual": "(1.92501, -2.336111, -2.175051)",
+			"cargo": {
+				"at": "(1.75235, -1.086548, -1.69206)",
+				"camera_distance": 0.537431061267853,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.75375, -1.085247, -1.695975)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925056, -2.496151, -2.460052)",
+			"ok": true,
+			"target": "(1.925, -2.56, -2.1025)"
+		},
+		{
+			"actual": "(1.925002, -2.176136, -1.890052)",
+			"cargo": {
+				"at": "(1.752397, -0.926573, -1.407042)",
+				"camera_distance": 0.537430286407471,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.753797, -0.925272, -1.410958)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.92501, -2.336111, -2.175051)",
+			"ok": true,
+			"target": "(1.925, -2.4, -1.8175)"
+		},
+		{
+			"actual": "(1.925, -2.016151, -1.605055)",
+			"cargo": {
+				"at": "(1.752405, -0.766587, -1.122041)",
+				"camera_distance": 0.537430644035339,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.753805, -0.765287, -1.125957)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925002, -2.176136, -1.890052)",
+			"ok": true,
+			"target": "(1.925, -2.24, -1.5325)"
+		},
+		{
+			"actual": "(1.925, -1.856111, -1.32005)",
+			"cargo": {
+				"at": "(1.752407, -0.606548, -0.837035)",
+				"camera_distance": 0.537430942058563,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(1.753806, -0.605247, -0.840952)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925, -2.016151, -1.605055)",
+			"ok": true,
+			"target": "(1.925, -2.08, -1.2475)"
+		},
+		{
+			"actual": "(1.925, -1.696131, -1.035052)",
+			"cargo": {
+				"at": "(1.752407, -0.446568, -0.552037)",
+				"camera_distance": 0.537430942058563,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.753806, -0.445267, -0.555954)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925, -1.856111, -1.32005)",
+			"ok": true,
+			"target": "(1.925, -1.92, -0.9625)"
+		},
+		{
+			"actual": "(1.925, -1.536152, -0.750052)",
+			"cargo": {
+				"at": "(1.752407, -0.286589, -0.267037)",
+				"camera_distance": 0.537430942058563,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(1.753806, -0.285287, -0.270954)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925, -1.696131, -1.035052)",
+			"ok": true,
+			"target": "(1.925, -1.76, -0.6775)"
+		},
+		{
+			"actual": "(1.925, -1.599166, -0.464473)",
+			"cargo": {
+				"at": "(1.752407, -0.349602, 0.018542)",
+				"camera_distance": 0.537430942058563,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.753806, -0.348301, 0.014626)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightA_Step09/Collision"
+			],
+			"from": "(1.925, -1.536152, -0.750052)",
+			"ok": true,
+			"target": "(1.925, -1.6, -0.3925)"
+		},
+		{
+			"actual": "(1.925, -1.599556, 1.177613)",
+			"cargo": {
+				"at": "(1.752407, -0.349993, 1.660628)",
+				"camera_distance": 0.537430942058563,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.753806, -0.348692, 1.656712)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/HalfLanding/Collision"
+			],
+			"from": "(1.925, -1.599166, -0.464473)",
+			"ok": true,
+			"target": "(1.925, -1.6, 1.25)"
+		},
+		{
+			"actual": "(3.900374, -1.599556, 1.247615)",
+			"cargo": {
+				"at": "(4.372108, -0.349993, 1.435876)",
+				"camera_distance": 0.532649219036102,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.368104, -0.348631, 1.434277)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/HalfLanding/Collision"
+			],
+			"from": "(1.925, -1.599556, 1.177613)",
+			"ok": true,
+			"target": "(3.975, -1.6, 1.25)"
+		},
+		{
+			"actual": "(3.961509, -1.439894, 0.959167)",
+			"cargo": {
+				"at": "(4.214785, -0.190331, 0.521919)",
+				"camera_distance": 0.530164897441864,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.210531, -0.187637, 0.529263)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.900374, -1.599556, 1.247615)",
+			"ok": true,
+			"target": "(3.975, -1.44, 0.8875)"
+		},
+		{
+			"actual": "(3.973904, -1.279912, 0.674788)",
+			"cargo": {
+				"at": "(4.148571, -0.030349, 0.200436)",
+				"camera_distance": 0.530337691307068,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.145489, -0.027518, 0.208807)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.961509, -1.439894, 0.959167)",
+			"ok": true,
+			"target": "(3.975, -1.28, 0.6025)"
+		},
+		{
+			"actual": "(3.974778, -1.119914, 0.389801)",
+			"cargo": {
+				"at": "(4.143658, 0.12965, -0.08666)",
+				"camera_distance": 0.530354201793671,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.140663, 0.132495, -0.078212)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.973904, -1.279912, 0.674788)",
+			"ok": true,
+			"target": "(3.975, -1.12, 0.3175)"
+		},
+		{
+			"actual": "(3.974955, -0.959914, 0.104802)",
+			"cargo": {
+				"at": "(4.142662, 0.289649, -0.372077)",
+				"camera_distance": 0.530357778072357,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.139686, 0.292497, -0.363612)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.974778, -1.119914, 0.389801)",
+			"ok": true,
+			"target": "(3.975, -0.96, 0.0325)"
+		},
+		{
+			"actual": "(3.974991, -0.799914, -0.180198)",
+			"cargo": {
+				"at": "(4.14246, 0.449649, -0.657161)",
+				"camera_distance": 0.530358076095581,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.139488, 0.452497, -0.648693)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.974955, -0.959914, 0.104802)",
+			"ok": true,
+			"target": "(3.975, -0.8, -0.2525)"
+		},
+		{
+			"actual": "(3.974998, -0.639914, -0.465198)",
+			"cargo": {
+				"at": "(4.14242, 0.60965, -0.942177)",
+				"camera_distance": 0.530357837677002,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.139448, 0.612498, -0.933709)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.974991, -0.799914, -0.180198)",
+			"ok": true,
+			"target": "(3.975, -0.64, -0.5375)"
+		},
+		{
+			"actual": "(3.974999, -0.479914, -0.750197)",
+			"cargo": {
+				"at": "(4.142413, 0.769649, -1.22718)",
+				"camera_distance": 0.53035843372345,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.139441, 0.772497, -1.218712)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.974998, -0.639914, -0.465198)",
+			"ok": true,
+			"target": "(3.975, -0.48, -0.8225)"
+		},
+		{
+			"actual": "(3.974999, -0.319914, -1.035197)",
+			"cargo": {
+				"at": "(4.142413, 0.929649, -1.51218)",
+				"camera_distance": 0.53035843372345,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.13944, 0.932498, -1.503713)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.974999, -0.479914, -0.750197)",
+			"ok": true,
+			"target": "(3.975, -0.32, -1.1075)"
+		},
+		{
+			"actual": "(3.974999, -0.159914, -1.320197)",
+			"cargo": {
+				"at": "(4.142413, 1.08965, -1.79718)",
+				"camera_distance": 0.53035831451416,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.13944, 1.092498, -1.788713)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.974999, -0.319914, -1.035197)",
+			"ok": true,
+			"target": "(3.975, -0.16, -1.3925)"
+		},
+		{
+			"actual": "(3.974999, 0.000613, -1.605175)",
+			"cargo": {
+				"at": "(4.142413, 1.250176, -2.082158)",
+				"camera_distance": 0.53035831451416,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.139441, 1.253024, -2.07369)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_B1_F01/FlightB_Step09/Collision"
+			],
+			"from": "(3.974999, -0.159914, -1.320197)",
+			"ok": true,
+			"target": "(3.975, 0.0, -1.6775)"
+		},
+		{
+			"actual": "(3.668132, 0.000222, -2.828641)",
+			"cargo": {
+				"at": "(3.712097, 1.249785, -3.332707)",
+				"camera_distance": 0.53080689907074,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(3.71139, 1.252368, -3.324594)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.974999, 0.000613, -1.605175)",
+			"ok": true,
+			"target": "(3.65, 0.0, -2.9)"
+		},
+		{
+			"actual": "(3.651154, 0.000222, -3.377163)",
+			"cargo": {
+				"at": "(3.810952, 1.249785, -3.778033)",
+				"camera_distance": 0.460403800010681,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(3.80768, 1.253071, -3.769822)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.668132, 0.000222, -2.828641)",
+			"ok": true,
+			"target": "(3.65, 0.0, -3.45)"
+		},
+		{
+			"actual": "(1.998145, 0.000222, -3.447106)",
+			"cargo": {
+				"at": "(1.522648, 1.249785, -3.632931)",
+				"camera_distance": 0.535133540630341,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(1.528134, 1.251636, -3.630787)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F01_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.651154, 0.000222, -3.377163)",
+			"ok": true,
+			"target": "(1.925, 0.0, -3.45)"
+		},
+		{
+			"actual": "(1.93052, 0.384616, -3.031214)",
+			"cargo": {
+				"at": "(1.722558, 1.634179, -2.562234)",
+				"camera_distance": 0.537522435188293,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(1.724203, 1.635449, -2.565945)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.998145, 0.000222, -3.447106)",
+			"ok": true,
+			"target": "(1.925, 0.16, -2.9575)"
+		},
+		{
+			"actual": "(1.925943, 0.544614, -2.745662)",
+			"cargo": {
+				"at": "(1.747176, 1.794178, -2.264878)",
+				"camera_distance": 0.537448108196259,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(1.748619, 1.795472, -2.268759)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.93052, 0.384616, -3.031214)",
+			"ok": true,
+			"target": "(1.925, 0.32, -2.6725)"
+		},
+		{
+			"actual": "(1.925174, 0.703889, -2.46005)",
+			"cargo": {
+				"at": "(1.751428, 1.953452, -1.977445)",
+				"camera_distance": 0.537433862686157,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.752836, 1.954752, -1.981355)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925943, 0.544614, -2.745662)",
+			"ok": true,
+			"target": "(1.925, 0.48, -2.3875)"
+		},
+		{
+			"actual": "(1.925032, 0.863859, -2.175052)",
+			"cargo": {
+				"at": "(1.752228, 2.113423, -1.692112)",
+				"camera_distance": 0.537431001663208,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(1.753629, 2.114724, -1.696028)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925174, 0.703889, -2.46005)",
+			"ok": true,
+			"target": "(1.925, 0.64, -2.1025)"
+		},
+		{
+			"actual": "(1.925006, 1.023846, -1.890056)",
+			"cargo": {
+				"at": "(1.752376, 2.273409, -1.407054)",
+				"camera_distance": 0.53743052482605,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.753776, 2.27471, -1.41097)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925032, 0.863859, -2.175052)",
+			"ok": true,
+			"target": "(1.925, 0.8, -1.8175)"
+		},
+		{
+			"actual": "(1.925001, 1.183881, -1.60505)",
+			"cargo": {
+				"at": "(1.752403, 2.433444, -1.122037)",
+				"camera_distance": 0.537430822849274,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(1.753803, 2.434745, -1.125954)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925006, 1.023846, -1.890056)",
+			"ok": true,
+			"target": "(1.925, 0.96, -1.5325)"
+		},
+		{
+			"actual": "(1.925, 1.343857, -1.320052)",
+			"cargo": {
+				"at": "(1.752407, 2.593421, -0.837037)",
+				"camera_distance": 0.537430942058563,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(1.753806, 2.594722, -0.840954)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925001, 1.183881, -1.60505)",
+			"ok": true,
+			"target": "(1.925, 1.12, -1.2475)"
+		},
+		{
+			"actual": "(1.925, 1.50389, -1.035048)",
+			"cargo": {
+				"at": "(1.752407, 2.753453, -0.552033)",
+				"camera_distance": 0.537431061267853,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.753806, 2.754754, -0.55595)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925, 1.343857, -1.320052)",
+			"ok": true,
+			"target": "(1.925, 1.28, -0.9625)"
+		},
+		{
+			"actual": "(1.925, 1.663865, -0.750051)",
+			"cargo": {
+				"at": "(1.752407, 2.913428, -0.267036)",
+				"camera_distance": 0.537431061267853,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.753806, 2.914729, -0.270953)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(1.925, 1.50389, -1.035048)",
+			"ok": true,
+			"target": "(1.925, 1.44, -0.6775)"
+		},
+		{
+			"actual": "(1.925, 1.600835, -0.464473)",
+			"cargo": {
+				"at": "(1.752407, 2.850398, 0.018542)",
+				"camera_distance": 0.537431061267853,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.753806, 2.851698, 0.014626)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightA_Step09/Collision"
+			],
+			"from": "(1.925, 1.663865, -0.750051)",
+			"ok": true,
+			"target": "(1.925, 1.6, -0.3925)"
+		},
+		{
+			"actual": "(1.925, 1.600444, 1.177613)",
+			"cargo": {
+				"at": "(1.752407, 2.850007, 1.660628)",
+				"camera_distance": 0.537430942058563,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2",
+				"sight_position": "(1.753806, 2.851308, 1.656712)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/HalfLanding/Collision"
+			],
+			"from": "(1.925, 1.600835, -0.464473)",
+			"ok": true,
+			"target": "(1.925, 1.6, 1.25)"
+		},
+		{
+			"actual": "(3.900374, 1.600444, 1.247615)",
+			"cargo": {
+				"at": "(4.372108, 2.850007, 1.435876)",
+				"camera_distance": 0.532649219036102,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.368104, 2.851369, 1.434277)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/HalfLanding/Collision"
+			],
+			"from": "(1.925, 1.600444, 1.177613)",
+			"ok": true,
+			"target": "(3.975, 1.6, 1.25)"
+		},
+		{
+			"actual": "(3.961509, 1.760106, 0.959167)",
+			"cargo": {
+				"at": "(4.214785, 3.009669, 0.521919)",
+				"camera_distance": 0.530164897441864,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.210531, 3.012363, 0.529263)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.900374, 1.600444, 1.247615)",
+			"ok": true,
+			"target": "(3.975, 1.76, 0.8875)"
+		},
+		{
+			"actual": "(3.973904, 1.920088, 0.674788)",
+			"cargo": {
+				"at": "(4.148571, 3.169652, 0.200436)",
+				"camera_distance": 0.530337691307068,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.145489, 3.172482, 0.208807)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.961509, 1.760106, 0.959167)",
+			"ok": true,
+			"target": "(3.975, 1.92, 0.6025)"
+		},
+		{
+			"actual": "(3.974778, 2.080086, 0.389801)",
+			"cargo": {
+				"at": "(4.143658, 3.329649, -0.08666)",
+				"camera_distance": 0.530354201793671,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.140664, 3.332494, -0.078212)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.973904, 1.920088, 0.674788)",
+			"ok": true,
+			"target": "(3.975, 2.08, 0.3175)"
+		},
+		{
+			"actual": "(3.974955, 2.240093, 0.104802)",
+			"cargo": {
+				"at": "(4.142662, 3.489656, -0.372077)",
+				"camera_distance": 0.530357897281647,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.139685, 3.492503, -0.363613)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.974778, 2.080086, 0.389801)",
+			"ok": true,
+			"target": "(3.975, 2.24, 0.0325)"
+		},
+		{
+			"actual": "(3.974991, 2.400086, -0.180198)",
+			"cargo": {
+				"at": "(4.14246, 3.649649, -0.657161)",
+				"camera_distance": 0.530358254909515,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.139487, 3.652498, -0.648694)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.974955, 2.240093, 0.104802)",
+			"ok": true,
+			"target": "(3.975, 2.4, -0.2525)"
+		},
+		{
+			"actual": "(3.974998, 2.560086, -0.465198)",
+			"cargo": {
+				"at": "(4.14242, 3.809649, -0.942177)",
+				"camera_distance": 0.530357956886292,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.139448, 3.812497, -0.933709)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.974991, 2.400086, -0.180198)",
+			"ok": true,
+			"target": "(3.975, 2.56, -0.5375)"
+		},
+		{
+			"actual": "(3.974999, 2.720086, -0.750196)",
+			"cargo": {
+				"at": "(4.142413, 3.969649, -1.22718)",
+				"camera_distance": 0.530358552932739,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.139441, 3.972497, -1.218712)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.974998, 2.560086, -0.465198)",
+			"ok": true,
+			"target": "(3.975, 2.72, -0.8225)"
+		},
+		{
+			"actual": "(3.974999, 2.880086, -1.035197)",
+			"cargo": {
+				"at": "(4.142413, 4.129649, -1.51218)",
+				"camera_distance": 0.53035843372345,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.139441, 4.132497, -1.503713)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.974999, 2.720086, -0.750196)",
+			"ok": true,
+			"target": "(3.975, 2.88, -1.1075)"
+		},
+		{
+			"actual": "(3.974999, 3.040086, -1.320197)",
+			"cargo": {
+				"at": "(4.142413, 4.289649, -1.79718)",
+				"camera_distance": 0.53035831451416,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.139441, 4.292497, -1.788712)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [],
+			"from": "(3.974999, 2.880086, -1.035197)",
+			"ok": true,
+			"target": "(3.975, 3.04, -1.3925)"
+		},
+		{
+			"actual": "(3.974999, 3.200612, -1.605175)",
+			"cargo": {
+				"at": "(4.142413, 4.450176, -2.082158)",
+				"camera_distance": 0.53035831451416,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(4.139441, 4.453024, -2.07369)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step09/Collision"
+			],
+			"from": "(3.974999, 3.040086, -1.320197)",
+			"ok": true,
+			"target": "(3.975, 3.2, -1.6775)"
+		},
+		{
+			"actual": "(3.668132, 3.200221, -2.828641)",
+			"cargo": {
+				"at": "(3.712097, 4.449785, -3.332707)",
+				"camera_distance": 0.530806839466095,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(3.71139, 4.452367, -3.324594)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.974999, 3.200612, -1.605175)",
+			"ok": true,
+			"target": "(3.65, 3.2, -2.9)"
+		},
+		{
+			"actual": "(3.652772, 3.200221, -3.077201)",
+			"cargo": {
+				"at": "(3.801794, 4.449785, -3.560307)",
+				"camera_distance": 0.530413568019867,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(3.799105, 4.45268, -3.551588)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"from": "(3.668132, 3.200221, -2.828641)",
+			"ok": true,
+			"target": "(3.65, 3.2, -3.15)"
+		},
+		{
+			"actual": "(5.825576, 3.200221, -3.147751)",
+			"cargo": {
+				"at": "(6.307903, 4.449785, -2.989319)",
+				"camera_distance": 0.532428324222565,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(6.303735, 4.451171, -2.990687)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_EAST_HALL/Floor/Collision"
+			],
+			"from": "(3.652772, 3.200221, -3.077201)",
+			"ok": true,
+			"target": "(5.9, 3.2, -3.15)"
+		},
+		{
+			"actual": "(8.47694, 3.200221, -3.247258)",
+			"cargo": {
+				"at": "(8.960387, 4.449785, -3.092365)",
+				"camera_distance": 0.532402873039246,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(8.9562, 4.451173, -3.093707)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_SERVICE_CROSSING/Floor/Collision"
+			],
+			"from": "(5.825576, 3.200221, -3.147751)",
+			"ok": true,
+			"target": "(8.55, 3.2, -3.25)"
+		},
+		{
+			"actual": "(10.87714, 3.200587, -3.249918)",
+			"cargo": {
+				"at": "(11.35531, 4.449887, -3.077075)",
+				"camera_distance": 0.53324693441391,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(11.3514, 4.451203, -3.078491)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_VESTIBULE/Floor/Collision"
+			],
+			"from": "(8.47694, 3.200221, -3.247258)",
+			"ok": true,
+			"target": "(10.95, 3.2, -3.25)"
+		},
+		{
+			"actual": "(10.9435, 3.200587, -2.57455)",
+			"cargo": {
+				"at": "(10.8138, 4.449887, -2.07822)",
+				"camera_distance": 0.537577986717224,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(10.81481, 4.451141, -2.082089)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_VESTIBULE/Floor/Collision"
+			],
+			"from": "(10.87714, 3.200587, -3.249918)",
+			"ok": true,
+			"target": "(10.95, 3.2, -2.5)"
+		},
+		{
+			"actual": "(12.42802, 3.200587, -2.503018)",
+			"cargo": {
+				"at": "(12.89846, 4.449887, -2.309675)",
+				"camera_distance": 0.533406257629395,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(12.89463, 4.451197, -2.311252)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
+			],
+			"from": "(10.9435, 3.200587, -2.57455)",
+			"ok": true,
+			"target": "(12.5, 3.2, -2.5)"
+		},
+		{
+			"actual": "(13.53025, 3.200587, -2.781789)",
+			"cargo": {
+				"at": "(14.03562, 4.449887, -2.735188)",
+				"camera_distance": 0.532342195510864,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(14.0312, 4.451291, -2.735595)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
+			],
+			"from": "(12.42802, 3.200587, -2.503018)",
+			"ok": true,
+			"target": "(13.6, 3.2, -2.8)"
+		},
+		{
+			"actual": "(14.42763, 3.200587, -2.983715)",
+			"cargo": {
+				"at": "(14.93122, 4.449887, -2.919852)",
+				"camera_distance": 0.532458424568176,
+				"grip_active": true,
+				"sight_hit": "/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/B1_VENT_SERVICE_STOCK/VENT_SPARE_2/VentOrificeInsert_2/ManipulationTarget",
+				"sight_position": "(14.92688, 4.451275, -2.920403)"
+			},
+			"carried": "VENT_SPARE_2",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
+			],
+			"from": "(13.53025, 3.200587, -2.781789)",
+			"ok": true,
+			"target": "(14.5, 3.2, -3.0)"
+		},
+		{
+			"actual": "(13.64267, 3.200587, -1.860715)",
+			"cargo": {},
+			"carried": "",
+			"contacts": [
+				"/root/OrisonV2FirstSliceContractTest/InputViewport/Contract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision"
+			],
+			"from": "(14.42763, 3.200587, -2.983715)",
+			"ok": true,
+			"target": "(13.6, 3.2, -1.8)"
+		}
+	],
+	"source": {
+		"physical_inputs_sha256": "2ebbc214a160bf4886385bf5a4543f8cae779b419ed32f7caa4400c178ea8db3",
+		"repository_head": "847ea6b92c2d1e10162c9ca097841bd5f827aa60",
+		"runtime_inputs_sha256": "6138c01a11e1014a9e4db85ee5e32376897a021d2afc88b16cfcfd888b6358d3",
+		"test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
+		"test_scene_path": "game/tests/orison_v2_first_slice_contract_test.tscn",
+		"test_scene_sha256": "ed868b6b67ba8a751260d5d31411eb6fa3e02be491553c857ebf4a1d09d46e69",
+		"test_sha256": "ef4ee722b46c92ed9309759c04ce57ca6e7f83c53437c5cfd33802a031628d9c"
+	}
+}

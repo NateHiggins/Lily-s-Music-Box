@@ -7,6 +7,7 @@ const InteriorShader = preload("res://shaders/v2_background_window_interior.gdsh
 static func kind_for(typology: String) -> int:
 	if typology == "factory": return 2
 	if typology == "commercial": return 1
+	if typology == "rowhouse": return 4
 	return 0
 
 static func neighbour_kind(identity: String) -> int:
@@ -25,7 +26,7 @@ static func glazing_is_bound(draw: MeshInstance3D) -> bool:
 		and optical.get_shader_parameter("physical_uv_scale") == Vector2(source.uv1_scale.x, source.uv1_scale.y)
 
 static func create(identity: String, kind: int, size_metres: Vector2) -> ShaderMaterial:
-	assert(kind >= 0 and kind <= 3 and size_metres.x > 0.0 and size_metres.y > 0.0)
+	assert(kind >= 0 and kind <= 4 and size_metres.x > 0.0 and size_metres.y > 0.0)
 	var glass: StandardMaterial3D = MatLib.get_mat("mirror_aged")
 	var wall: StandardMaterial3D = MatLib.get_mat("limewash_plaster")
 	var wood: StandardMaterial3D = MatLib.get_mat("wood_dark")

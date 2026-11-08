@@ -19,6 +19,8 @@ const RED := Color(0.58, 0.12, 0.10)
 const BROWN := Color(0.18, 0.106, 0.055)
 const CREAM := Color(0.886, 0.824, 0.706)
 const GUTTER := 12
+## The Listening Lady's drawing stands about as deep as this many words of a side column.
+const LADY_DEPTH := 110
 
 var catalog: NewspaperCatalog
 var page: VBoxContainer
@@ -106,10 +108,20 @@ func _speaker_three_columns(lead: Dictionary, issue: Dictionary, picture: Dictio
 		_text(centre, str(picture.caption), 14, INK, ITALIC, HORIZONTAL_ALIGNMENT_CENTER, middle)
 		_text(right, str(lead.get("body", "")), 16, INK, SERIF, HORIZONTAL_ALIGNMENT_FILL, side)
 		_rule(right, 1)
+	# Each story goes into the shorter side, so neither leaves a long empty field. The
+	# Listening Lady keeps the right, and her drawing counts for its depth.
 	var columns: Array = issue.get("columns", [])
-	for index in columns.size():
-		var column: Dictionary = columns[index]
-		var into := right if str(column.get("headline", "")).begins_with("The Listening Lady") or (picture.is_empty() and index > 0) else left
+	var depth := {left: 0, right: 0 if picture.is_empty() else _words(str(lead.get("body", "")))}
+	var order := []
+	for column: Dictionary in columns:
+		if str(column.get("headline", "")).begins_with("The Listening Lady"):
+			order.push_front(column)
+		else:
+			order.append(column)
+	for column: Dictionary in order:
+		var lady := str(column.get("headline", "")).begins_with("The Listening Lady")
+		var into: Control = right if lady or int(depth[right]) < int(depth[left]) else left
+		depth[into] = int(depth[into]) + _words(str(column.get("headline", ""))) + _words(str(column.get("body", ""))) + (LADY_DEPTH if lady else 0)
 		_speaker_story(into, column, side)
 		_rule(into, 1)
 	if not picture.is_empty():
@@ -123,23 +135,33 @@ func _speaker_story(into: Control, column: Dictionary, column_width: int) -> voi
 		var plate := catalog.lady_plate(date)
 		if not plate.is_empty():
 			_print_into(into, {"image": plate, "treatment": "ink"}, mini(column_width, 200))
-	_text(into, head.to_upper(), 16, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_CENTER, column_width)
+	_text(into, keep_hyphens(head.to_upper()), 16, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_CENTER, column_width)
 	_text(into, str(column.get("body", "")), 15, INK, SERIF, HORIZONTAL_ALIGNMENT_FILL, column_width)
 
 
 func record_front(meta: Dictionary, issue: Dictionary) -> void:
 	var head := _row(page, 10)
 	var ear := _boxed(head, 150)
-	var block := catalog.weather_block(str(issue.get("ear", "")))
+	var ear_text := str(issue.get("ear", ""))
+	var extra := ""
+	if ear_text.begins_with(NewspaperCatalog.EXTRA_PREFIX):
+		var after := ear_text.substr(NewspaperCatalog.EXTRA_PREFIX.length())
+		var stamp_end := after.find(".m.") + 3
+		extra = after.substr(0, stamp_end)
+		ear_text = after.substr(stamp_end).strip_edges().trim_prefix(".").strip_edges()
+	var block := catalog.weather_block(ear_text)
 	if not block.is_empty():
 		_print_into(ear, {"image": block, "treatment": "ink"}, 134)
-	_text(ear, str(issue.get("ear", "")), 13, INK, ITALIC, HORIZONTAL_ALIGNMENT_CENTER, 134)
+	_text(ear, ear_text, 13, INK, ITALIC, HORIZONTAL_ALIGNMENT_CENTER, 134)
 	var plate := _column(head, 0, 0)
 	plate.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	_text(plate, str(meta.get("name", paper_id)), int(clampf(width / 13.5, 44.0, 76.0)), INK, BLACKLETTER, HORIZONTAL_ALIGNMENT_CENTER)
 	_text(plate, str(meta.get("masthead_line", "")), 15, SOFT, ITALIC, HORIZONTAL_ALIGNMENT_CENTER)
 	var price := _boxed(head, 120)
-	_text(price, "%s\nEDITION" % str(meta.get("edition", "")).to_upper(), 14, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_CENTER, 104)
+	if extra != "":
+		_text(price, "EXTRA\n%s" % extra.to_upper(), 14, RED, OLD_BOLD, HORIZONTAL_ALIGNMENT_CENTER, 104)
+	else:
+		_text(price, "%s\nEDITION" % str(meta.get("edition", "")).to_upper(), 14, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_CENTER, 104)
 	_text(price, str(meta.get("price", "")), 13, INK, ITALIC, HORIZONTAL_ALIGNMENT_CENTER, 104)
 	_rule(page, 3)
 	var line := _row(page, 16)
@@ -154,17 +176,19 @@ func record_front(meta: Dictionary, issue: Dictionary) -> void:
 	var lead_width := unit * 2 + GUTTER
 	var lead_box := _column(grid, lead_width, 6)
 	var lead: Dictionary = issue.get("lead", {})
-	_text(lead_box, str(lead.get("headline", "")).to_upper(), 25, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_CENTER, lead_width)
+	_text(lead_box, keep_hyphens(str(lead.get("headline", "")).to_upper()), 25, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_CENTER, lead_width)
 	_rule(lead_box, 1)
 	_text(lead_box, str(lead.get("deck", "")), 17, INK, ITALIC, HORIZONTAL_ALIGNMENT_CENTER, lead_width)
 	_rule(lead_box, 1)
 	if portrait:
 		_print_into(lead_box, picture, int(lead_width * 0.64))
 		_text(lead_box, str(picture.caption), 13, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_CENTER, lead_width)
-	var half := int((lead_width - GUTTER) / 2.0)
+	# A rule between the halves and a shared top line: the second column reads on from the first.
+	var half := int((lead_width - GUTTER * 2 - 1) / 2.0)
 	var parts := _halves(str(lead.get("body", "")), SERIF, 15, half)
 	var run := _row(lead_box, GUTTER)
 	_text(run, parts[0], 15, INK, SERIF, HORIZONTAL_ALIGNMENT_FILL, half)
+	_vrule(run)
 	_text(run, parts[1], 15, INK, SERIF, HORIZONTAL_ALIGNMENT_FILL, half)
 	_vrule(grid)
 	var rest_width := width - lead_width - GUTTER - 1
@@ -176,15 +200,17 @@ func record_front(meta: Dictionary, issue: Dictionary) -> void:
 		if index > 0:
 			_vrule(three)
 		var box := _column(three, each)
-		_text(box, str(columns[index].get("headline", "")).to_upper(), 17, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_CENTER, each)
+		_text(box, keep_hyphens(str(columns[index].get("headline", "")).to_upper()), 17, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_CENTER, each)
 		_rule(box, 1)
 		_text(box, str(columns[index].get("body", "")), 15, INK, SERIF, HORIZONTAL_ALIGNMENT_FILL, each)
 	_rule(rest, 1)
-	if not picture.is_empty() and not portrait:
-		_print_into(rest, picture, rest_width)
-		_text(rest, str(picture.caption), 14, INK, ITALIC, HORIZONTAL_ALIGNMENT_CENTER, rest_width)
-		_rule(rest, 1)
 	_weather_desk(rest, issue, rest_width)
+	# A landscape picture spans the page under the lead and columns, rather than standing under three
+	# unrelated briefs and leaving a tall blank beside it.
+	if not picture.is_empty() and not portrait:
+		_rule(page, 1)
+		_print_into(page, picture, int(width * 0.8))
+		_text(page, str(picture.caption), 14, INK, ITALIC, HORIZONTAL_ALIGNMENT_CENTER)
 	_issue_foot(issue, INK, false)
 
 
@@ -199,9 +225,20 @@ func _issue_foot(issue: Dictionary, accent: Color, chair_boxed: bool) -> void:
 		_text(page, str(chair.get("byline", "")), 14, SOFT, ITALIC, HORIZONTAL_ALIGNMENT_RIGHT)
 	_rule(page, 1)
 	_text(page, str(issue.get("wire", "")), 14, SOFT, ITALIC)
-	for notice: Dictionary in catalog.sky_notices(date):
-		_text(page, str(notice.get("headline", "")).to_upper(), 14, INK, OLD_BOLD)
-		_text(page, str(notice.get(paper_id, "")), 14, INK)
+	var notices := catalog.sky_notices(date)
+	if notices.size() > 1:
+		_text(page, "WEATHER AND SKY DISPATCHES", 14, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_CENTER)
+		var pair := _row(page, GUTTER * 2)
+		var half := int((width - GUTTER * 2) / 2.0)
+		var halves := [_column(pair, half), _column(pair, half)]
+		for index in notices.size():
+			var into: Control = halves[0 if index < ceili(notices.size() / 2.0) else 1]
+			_text(into, str(notices[index].get("headline", "")).to_upper(), 14, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_LEFT, half)
+			_text(into, str(notices[index].get(paper_id, "")), 14, INK, SERIF, HORIZONTAL_ALIGNMENT_LEFT, half)
+	else:
+		for notice: Dictionary in notices:
+			_text(page, str(notice.get("headline", "")).to_upper(), 14, INK, OLD_BOLD)
+			_text(page, str(notice.get(paper_id, "")), 14, INK)
 	_text(page, "ESC closes the paper", 12, SOFT, ITALIC, HORIZONTAL_ALIGNMENT_RIGHT)
 
 
@@ -210,18 +247,24 @@ func _weather_desk(into: Control, issue: Dictionary, column_width: int) -> void:
 	if weather.is_empty():
 		return
 	_text(into, "WEATHER DESK / %s E.S.T." % CampaignWeather.print_time(str(weather.get("issued_at", ""))), 13, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_LEFT, column_width)
-	_text(into, str(weather.get("observation", "")), 14, SOFT, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
-	_text(into, "%s %s" % [weather.get("prediction", ""), weather.get("outlook", "")], 15, INK, SERIF, HORIZONTAL_ALIGNMENT_LEFT, column_width)
-	_text(into, "Outlook: %s. Valid %s to %s E.S.T." % [weather.get("confidence", ""),
-			CampaignWeather.print_time(str(weather.get("valid_from", ""))),
-			CampaignWeather.print_time(str(weather.get("valid_until", "")))], 12, SOFT, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
+	# Today's reading, the forecast and any earlier dispatch are each named, and none is
+	# set small or pale: the desk has to read at play size.
+	_text(into, "Observed: %s" % str(weather.get("observation", "")), 14, INK, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
+	_text(into, "Forecast, %s to %s E.S.T.: %s %s" % [CampaignWeather.print_time(str(weather.get("valid_from", ""))),
+			CampaignWeather.print_time(str(weather.get("valid_until", ""))),
+			weather.get("prediction", ""), weather.get("outlook", "")], 15, INK, SERIF, HORIZONTAL_ALIGNMENT_LEFT, column_width)
+	_text(into, "Forecast confidence: %s." % weather.get("confidence", ""), 13, INK, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
 	if str(weather.get("revision", "")) != "":
-		_text(into, str(weather.revision), 14, SOFT, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
+		_text(into, str(weather.revision), 14, INK, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
+	var earlier := false
 	for dispatch: Dictionary in weather.get("timeline", []):
 		if str(dispatch.get("issued_at", "")) == str(weather.get("issued_at", "")):
 			continue
-		_text(into, "Previous dispatch, %s E.S.T.: %s" % [CampaignWeather.print_time(str(dispatch.get("issued_at", ""))),
-				dispatch.get("prediction", "")], 12, SOFT, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
+		if not earlier:
+			_text(into, "EARLIER DISPATCHES, SUPERSEDED", 12, INK, OLD_BOLD, HORIZONTAL_ALIGNMENT_LEFT, column_width)
+			earlier = true
+		_text(into, "%s E.S.T.: %s" % [CampaignWeather.print_time(str(dispatch.get("issued_at", ""))),
+				dispatch.get("prediction", "")], 13, INK, ITALIC, HORIZONTAL_ALIGNMENT_LEFT, column_width)
 
 
 ## --- the back of the sheet ---------------------------------------------------
@@ -243,6 +286,9 @@ func photo_drama(drama: Dictionary) -> void:
 		_text(frame, str(still.caption), 16, INK, ITALIC, HORIZONTAL_ALIGNMENT_CENTER, each)
 	_text(box, str(drama.next), 13, SOFT, ITALIC, HORIZONTAL_ALIGNMENT_RIGHT)
 	_rule(page, 2)
+	var room := Control.new()
+	room.custom_minimum_size = Vector2(0, 14)
+	page.add_child(room)
 
 
 ## A line cut with its caption, on the back above the columns.
@@ -275,17 +321,23 @@ func brown_section(meta: Dictionary, section: Dictionary) -> void:
 	box.name = "BrownSection"
 	box.add_theme_constant_override("separation", 8)
 	page.add_child(box)
+	# Each row's two pictures are set to one height, so their captions share a baseline.
 	var pictures: Array = section.pictures
-	var first_width := int((width - 18) * 0.66)
-	var second_width := width - 18 - first_width
-	var top := _row(box, 18)
-	_gravure(top, pictures[0], first_width)
-	_gravure(top, pictures[1], second_width)
-	var low := _row(box, 18)
-	var third_width := int((width - 18) * 0.5)
-	_gravure(low, pictures[2], third_width)
-	_gravure(low, pictures[3], width - 18 - third_width)
+	for pair: Array in [[pictures[0], pictures[1]], [pictures[2], pictures[3]]]:
+		var row := _row(box, 18)
+		var first_width := _equal_height_width(pair[0], pair[1], width - 18)
+		_gravure(row, pair[0], first_width)
+		_gravure(row, pair[1], width - 18 - first_width)
 	_text(page, "ESC closes the paper", 12, BROWN, ITALIC, HORIZONTAL_ALIGNMENT_RIGHT)
+
+
+## The width of the first of two pictures set side by side at one height in `across`.
+func _equal_height_width(first: Dictionary, second: Dictionary, across: int) -> int:
+	var a: Texture2D = load(str(first.image))
+	var b: Texture2D = load(str(second.image))
+	var ra := float(a.get_width()) / a.get_height()
+	var rb := float(b.get_width()) / b.get_height()
+	return int(clampf(round(across * ra / (ra + rb)), across * 0.34, across * 0.66))
 
 
 func _gravure(into: Control, picture: Dictionary, column_width: int) -> void:
@@ -342,6 +394,7 @@ func _text(into: Control, text: String, size: int, color := INK, font: Font = nu
 
 ## A headline set as large as will go in the lines allowed.
 func _banner(into: Control, text: String, font: Font, largest: int, lines: int, color := INK) -> void:
+	text = keep_hyphens(text)
 	var size := largest
 	while size > 20:
 		var measure := TextParagraph.new()
@@ -353,6 +406,38 @@ func _banner(into: Control, text: String, font: Font, largest: int, lines: int, 
 	_text(into, text, size, color, font, HORIZONTAL_ALIGNMENT_CENTER)
 
 
+## A display line never breaks at a hyphen inside a word or number (THIRTY-ONE, 1610-A): a word
+## joiner after each such hyphen keeps the pieces on one line.
+static func keep_hyphens(text: String) -> String:
+	var out := ""
+	for i in text.length():
+		out += text[i]
+		if text[i] == "-" and i > 0 and i + 1 < text.length() and text[i - 1] != " " and text[i + 1] != " ":
+			out += "\u2060"
+	return out
+
+
+const ABBREVIATIONS := ["Mr", "Mrs", "Dr", "St", "Jr", "Co", "Inc", "Messrs", "Rev", "Gen", "Capt", "No", "a.m", "p.m"]
+
+
+## True when the full stop at `at` closes a sentence: the next word is capitalised and the word
+## before is not a title, an initial or "a.m."/"p.m." in the middle of a sentence.
+static func _ends_sentence(text: String, at: int) -> bool:
+	if at + 2 >= text.length():
+		return false
+	var next := text[at + 2]
+	var capital := next != next.to_lower() and next == next.to_upper()
+	if not (capital or next == "'" or next == "\""):
+		return false
+	var start := text.rfind(" ", at - 1) + 1
+	var word := text.substr(start, at - start)
+	return word.length() > 1 and not word in ABBREVIATIONS
+
+
+static func _words(text: String) -> int:
+	return text.split(" ", false).size()
+
+
 ## A run of text cut by the line into two equal columns.
 func _halves(text: String, font: Font, size: int, column_width: int) -> Array[String]:
 	var measure := TextParagraph.new()
@@ -362,6 +447,15 @@ func _halves(text: String, font: Font, size: int, column_width: int) -> Array[St
 	if count < 2:
 		return [text, ""]
 	var cut := measure.get_line_range(ceili(count / 2.0) - 1).y
+	# Turn at the sentence end nearest the middle, so the second column starts a sentence.
+	var best := -1
+	var at := text.find(". ")
+	while at >= 0:
+		if _ends_sentence(text, at) and (best < 0 or absi(at + 1 - cut) < absi(best - cut)):
+			best = at + 1
+		at = text.find(". ", at + 1)
+	if best > 0 and absi(best - cut) < text.length() / 4:
+		cut = best
 	return [text.substr(0, cut).strip_edges(), text.substr(cut).strip_edges()]
 
 
