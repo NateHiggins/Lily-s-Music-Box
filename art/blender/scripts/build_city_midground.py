@@ -318,6 +318,7 @@ class Layout:
         return self
 
 
+
 def plan_png(layout, path):
     from PIL import Image, ImageDraw
     occ = layout.occ
@@ -1205,6 +1206,92 @@ class Builder:
                 self.sign_list.append({"x": round(x, 3), "y": round(ground(x, z) + 0.17, 3), "z": round(z, 3),
                                        "avenue": list(avenues[k]), "street": list(streets[m])})
 
+    def el_viaduct(self):
+        """The el out of Queensboro Plaza (Lily's ruling el_viaduct_route, 2026-11-08): east only. The station's two
+        middle upper tracks (world z -0.8 and 4.8, rail top 15.55) leave its east end at x 104, run east along the
+        avenue, curve north onto the street at x 142.9 (the first cross street east of the station; the avenue's
+        own east junction at x 68.8 lies under the station) and run up it into the mist, keeping every horizon
+        building. Surveyed clear: the only thing near the line is a 13.2 m horizon block at z 138, under the deck,
+        already 199 m out. Plate girders on two-column bents at the station's 15 m pitch; collision for the columns
+        inside the walkable edge only."""
+        tile = "lm"
+        steel = part(tile, "iron_neutral")
+        ties = part(tile, "site_softwood")
+        deck_top, girder_depth, rail_top = 15.4, 1.05, 15.55
+        x0, z0, x_turn, radius, z_end = 104.0, 2.0, 142.868, 30.0, 150.0
+        track_half, gauge_half, girder_off, column_off = 2.8, 0.7175, 3.75, 3.75
+
+        def centre(s):
+            """Centreline point and heading (unit x, z) at distance s from the station end."""
+            straight = x_turn - radius - x0
+            arc = radius * math.pi / 2
+            if s <= straight:
+                return (x0 + s, z0), (1.0, 0.0)
+            if s <= straight + arc:
+                a = (s - straight) / radius
+                cx, cz = x_turn - radius, z0 + radius
+                return (cx + radius * math.sin(a), cz - radius * math.cos(a)), (math.cos(a), math.sin(a))
+            return (x_turn, z0 + radius + (s - straight - arc)), (0.0, 1.0)
+
+        total = (x_turn - radius - x0) + radius * math.pi / 2 + (z_end - z0 - radius)
+        step = 1.5
+
+        def ribbon(p, off, half_w, y0, y1, colour=(0.5, 0, 0.5, 0.5)):
+            """A box swept along the centreline at a lateral offset: sides and top, mapped in metres."""
+            s = 0.0
+            while s < total - 1e-6:
+                s1 = min(total, s + step)
+                (pa, ta), (pb, tb) = centre(s), centre(s1)
+                na, nb = (-ta[1], ta[0]), (-tb[1], tb[0])
+                def at(pt, n, d): return (pt[0] + n[0] * (off + d), pt[1] + n[1] * (off + d))
+                l0a, l1a, l0b, l1b = at(pa, na, -half_w), at(pa, na, half_w), at(pb, nb, -half_w), at(pb, nb, half_w)
+                mid = ((pa[0] + pb[0]) / 2 + na[0] * off, (y0 + y1) / 2, (pa[1] + pb[1]) / 2 + na[1] * off)
+                for qa, qb in ((l0a, l0b), (l1a, l1b)):
+                    p.face([(qa[0], y0, qa[1]), (qb[0], y0, qb[1]), (qb[0], y1, qb[1]), (qa[0], y1, qa[1])],
+                           [(s, y0), (s1, y0), (s1, y1), (s, y1)], colour, mid)
+                p.face([(l0a[0], y1, l0a[1]), (l0b[0], y1, l0b[1]), (l1b[0], y1, l1b[1]), (l1a[0], y1, l1a[1])],
+                       [(s, 0), (s1, 0), (s1, 2 * half_w), (s, 2 * half_w)], colour, (mid[0], y1 - 1, mid[2]))
+                p.face([(l0a[0], y0, l0a[1]), (l0b[0], y0, l0b[1]), (l1b[0], y0, l1b[1]), (l1a[0], y0, l1a[1])],
+                       [(s, 0), (s1, 0), (s1, 2 * half_w), (s, 2 * half_w)], colour, (mid[0], y0 + 1, mid[2]))
+                s = s1
+
+        # Plate girders, the track stringers and the running rails.
+        for side in (-1, 1):
+            ribbon(steel, side * girder_off, 0.16, deck_top - girder_depth, deck_top + 0.35)
+            for track in (-1, 1):
+                ribbon(steel, track * track_half + side * gauge_half, 0.04, deck_top + 0.08, rail_top)
+        for track in (-1, 1):
+            ribbon(steel, track * track_half, 0.9, deck_top - 0.4, deck_top - 0.12)
+        # Ties at the station's sleeper pitch, across both tracks.
+        s = 0.3
+        while s < total:
+            (pt, tg) = centre(s)
+            n = (-tg[1], tg[0])
+            for track in (-1, 1):
+                c = (pt[0] + n[0] * track * track_half, pt[1] + n[1] * track * track_half)
+                f = Frame((c[0] - n[0] * 1.3, c[1] - n[1] * 1.3), n, (tg[0], tg[1]))
+                slab(ties, f, 0.0, 2.6, deck_top - 0.12, deck_top + 0.08, -0.11, 0.11)
+            s += 0.66
+        # Bents: two built-up columns, a cross girder and footings, every 15 m.
+        s = 7.5
+        while s < total:
+            (pt, tg) = centre(s)
+            n = (-tg[1], tg[0])
+            feet = []
+            for side in (-1, 1):
+                cx, cz = pt[0] + n[0] * side * column_off, pt[1] + n[1] * side * column_off
+                y = ground(cx, cz)
+                feet.append((cx, cz, y))
+                box_world(steel, cx - 0.23, cz - 0.23, cx + 0.23, cz + 0.23, y, deck_top - girder_depth, top=False)
+                box_world(steel, cx - 0.42, cz - 0.42, cx + 0.42, cz + 0.42, y, y + 0.06)
+                if walkable(cx - 0.3, cz - 0.3, cx + 0.3, cz + 0.3):
+                    h = deck_top - girder_depth - y
+                    self.colliders.append([round(cx, 3), round(y + h / 2, 3), round(cz, 3), 0.5, round(h, 3), 0.5])
+            f = Frame((feet[0][0], feet[0][1]), n, (tg[0], tg[1]))
+            slab(steel, f, -0.3, 2 * column_off + 0.3, deck_top - girder_depth - 0.7, deck_top - girder_depth, -0.2, 0.2)
+            s += 15.0
+        self.landmarks.append({"name": "el_viaduct", "x": round(x_turn, 2), "z": round(z0 + radius, 2), "top": rail_top})
+
     def run(self):
         L = self.layout
         for lot in L.lots:
@@ -1219,6 +1306,7 @@ class Builder:
         self.parked()
         self.laundry()
         self.signs()
+        self.el_viaduct()
         return self
 
 

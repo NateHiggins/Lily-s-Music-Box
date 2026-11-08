@@ -54,6 +54,12 @@ func _views(world: OrisonV2RuntimeRoot, _data: Dictionary) -> Array[Dictionary]:
 	var roof: Vector3 = world.adapter.root.to_global(Vector3(-11.0, 20.8702503, 6.0))
 	var bank_bearing := rad_to_deg(atan2(BANK.x - roof.x, -(BANK.y - roof.z)))
 	views.append({"id": "bank_clock", "eye": roof, "bearing": bank_bearing, "pitch": 0.08, "fov": 30.0})
+	# The el out of Queensboro Plaza (ruling el_viaduct_route): from the avenue east of the station, looking up at
+	# the curve onto the x 142.9 street.
+	var el_eye := _floor_eye(world, Vector3(110.0, 0.0, 11.0))
+	if _check(el_eye.is_finite(), "a street standing point under the el"):
+		views.append({"id": "el_curve", "eye": el_eye, "bearing": rad_to_deg(atan2(140.0 - el_eye.x, -(34.0 - el_eye.z))),
+				"pitch": 0.32, "fov": 70.0})
 	return views
 
 
