@@ -420,7 +420,18 @@ func _cover(sheet: Node3D, paper: Dictionary, spec: Dictionary) -> void:
 	head.modulate = Color(0.1, 0.07, 0.05)
 	head.position = Vector3(0, top - 0.011, 0.0009)
 	head.text = str(paper.title).to_upper().left(16)
-	if paper.kind == "comic":
+	if paper.kind == "comic" and paper.get("strip", false):
+		# One of Lily's strips: her name across the top and the strip's day under it.
+		head.text = "LILY"
+		head.pixel_size = 0.00040
+		head.modulate = Color(0.1, 0.07, 0.05)
+		head.position = Vector3(0, top - 0.012, 0.0009)
+		var day := _label(sheet, 0.00020, 34)
+		day.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		day.modulate = Color(0.1, 0.07, 0.05)
+		day.text = str(paper.get("date", "")).right(5).replace("-", "/")
+		day.position = Vector3(0, top - 0.026, 0.0009)
+	elif paper.kind == "comic":
 		head.text = "LILITH"
 		head.pixel_size = 0.00046
 		head.modulate = Color(0.55, 0.1, 0.08)

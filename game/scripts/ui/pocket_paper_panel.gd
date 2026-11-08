@@ -1,7 +1,7 @@
 class_name PocketPaperPanel
 extends CanvasLayer
 ## One paper drawn from the case, held up to read: a letter as the box delivered it,
-## or a comic's cover. It is the hand's: the next click lets it go back into the pocket
+## a comic's cover, or one of Lily's strips, a picture with its lettering drawn in. It is the hand's: the next click lets it go back into the pocket
 ## (RUL-013), and ESC or the case key does the same. The case keeps the pointer
 ## and the player's lock; this panel only shows the sheet.
 
@@ -11,6 +11,7 @@ const INK := Color(0.12, 0.10, 0.08)
 const INK_SOFT := Color(0.36, 0.32, 0.27)
 const PAPER := Color(0.91, 0.87, 0.77)
 const SHEET_WIDTH := 620.0
+const STRIP_WIDTH := 1180.0
 
 var entry: Dictionary = {}
 var sheet: PanelContainer
@@ -39,7 +40,14 @@ func open(paper: Dictionary, on_close := Callable()) -> void:
 	add_child(centre)
 	sheet = PanelContainer.new()
 	sheet.name = "Sheet"
-	sheet.custom_minimum_size = Vector2(SHEET_WIDTH * k, 0)
+	var screen := get_viewport().get_visible_rect().size
+	var width := SHEET_WIDTH * k
+	var picture: Texture2D = null
+	if str(paper.get("image", "")) != "":
+		picture = load(str(paper.image)) as Texture2D
+		# A strip is three panels side by side: the sheet takes most of the screen's width for it.
+		width = minf(screen.x * 0.9, STRIP_WIDTH * k)
+	sheet.custom_minimum_size = Vector2(width, 0)
 	var style := StyleBoxFlat.new()
 	style.bg_color = PAPER
 	style.border_color = Color(0.55, 0.49, 0.40)
@@ -55,16 +63,27 @@ func open(paper: Dictionary, on_close := Callable()) -> void:
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 14)
 	sheet.add_child(column)
-	column.add_child(_line(str(paper.get("heading", "BOX 4B — LETTER")), TYPE, int(14 * k), INK_SOFT, k))
-	column.add_child(_line(str(paper.get("title", "")), TYPE_BOLD, int(22 * k), INK, k))
-	column.add_child(_line(str(paper.get("body", "")), TYPE, int(18 * k), INK, k))
+	column.add_child(_line(str(paper.get("heading", "BOX 4B — LETTER")), TYPE, int(14 * k), INK_SOFT, k, width))
+	column.add_child(_line(str(paper.get("title", "")), TYPE_BOLD, int(22 * k), INK, k, width))
+	if picture != null:
+		var art := TextureRect.new()
+		art.name = "Strip"
+		art.texture = picture
+		art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		var shown := width - 88 * k
+		art.custom_minimum_size = Vector2(shown, shown * picture.get_height() / float(picture.get_width()))
+		art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		column.add_child(art)
+	if str(paper.get("body", "")) != "":
+		column.add_child(_line(str(paper.get("body", "")), TYPE, int(18 * k), INK, k, width))
 
 
-func _line(text: String, font: Font, size: int, color: Color, k := 1.0) -> Label:
+func _line(text: String, font: Font, size: int, color: Color, k := 1.0, width := SHEET_WIDTH) -> Label:
 	var label := Label.new()
 	label.text = text
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.custom_minimum_size = Vector2((SHEET_WIDTH - 88) * k, 0)
+	label.custom_minimum_size = Vector2(width - 88 * k, 0)
 	label.add_theme_font_override("font", font)
 	label.add_theme_font_size_override("font_size", size)
 	label.add_theme_color_override("font_color", color)
