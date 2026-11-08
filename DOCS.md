@@ -37,6 +37,8 @@ Knowing which kind you are reading tells you how much to trust it.
 | The Year You Died murder treatment: Adela Voss, the night man, the evidence chain, both endings and the conspiracy option A (INERT; Lily reads her lines by playtest) | `design/THE_YEAR_YOU_DIED_TREATMENT_2026-10-30.md` |
 | Erica-inspired Adela, regular Harukiya performances, Lily on alternating drums/bass, found-family writing and the measured stage commission (INERT) | `design/V2_ADELA_PERFORMANCE_AND_FOUND_FAMILY_2026-11-01.md` |
 | Four background oddities, first draft: the Unlisted Stop, the Extra pigeon, the Society for the Prevention, the Ash Man (INERT) | `design/ORISON_BACKGROUND_ODDITIES_2026-11-01.md` |
+| Toons (Bible §VIII.5.q): the Fremont Street photograph, Slumberland as Toon Town, mixed-cast pictures; the 24 May 1929 film notice, the edited proposal and the penny strips at the Harukiya (INERT) | `design/ORISON_TOONS_2026-11-06.md` |
+| Newspaper house rules: Codex's May 24-26 markup generalized to the year (layout L1-L6, editorial E1-E10), the year-wide sweep and its open items (INERT) | `design/ORISON_NEWSPAPER_HOUSE_RULES_2026-11-06.md` |
 | Adela's name cut into the Moon on Lily's rulings, first draft: the story, the sky, the papers and the threads (INERT) | `design/ORISON_MOON_NAME_2026-11-02.md` |
 | Three year-long subplots on Lily's rulings: One Short (radio), Not at Home (aliens), the Emergence, 12 Oct 1929 (INERT, unbuilt) | `design/ORISON_YEAR_SUBPLOTS_2026-11-01.md` |
 | Adela's singing in the plot: the fictional Astoria offer, the May take, Lily and first-draft threads, with rulings owed (INERT) | `design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md` |

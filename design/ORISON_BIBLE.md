@@ -1220,6 +1220,40 @@ It is the law, and loosely enforced: near beer on a bodega shelf, a wink at the 
 raid somewhere else in the paper. It adds no policing system. The Rule of Signal doesn't touch
 it, because a bottle carries no signal.
 
+**VIII.5.q — TOONS ARE REAL, AND PEOPLE GO TO THE PICTURES TO SEE WHAT THEY CAN DO TOGETHER.**
+*(Owner rulings, 2026-11-06.)*
+
+Lily made three things canon.
+
+1. **Toons are performers.** Animated performers are as real in Orison's world as the
+   people beside them. They have names and craft, and they have opinions about how
+   they're billed. A toon and a human camera crew register on the same negative. The
+   camera records what a toon does and doesn't draw it, so the filmmaking is in the
+   staging, the timing and the physical business between performers. A real teacup is
+   set down by an actor, a toon's arm crosses the room to take it, and the laugh needs
+   both of them to hit their marks.
+2. **Mixed-cast pictures are a celebrated art form.** Live-action pictures starring toons
+   are what people go to the pictures for. Orison's asymmetry (§VIII.4) still holds:
+   sound is cheap and pictures are dear. The public knows a mixed-cast star from an
+   engraving, a radio interview or a review without having seen one of their pictures,
+   and a mixed bill can be the event of the season and still be a splurge.
+3. **The Fremont Street company photograph is real.** The *1929 Fremont Street Cartoon
+   Ensemble*, a company portrait of a camera crew, actresses and toon performers on a
+   studio street, is an ordinary photograph of an extraordinary cast. The owner's image
+   is the private canon reference. It ships in a build only after asset clearance;
+   until then an original, cleared company still stands in for it.
+4. **Little Nemo's Slumberland is Toon Town.** It is where toons come from. It is not
+   the Orison Dream (§IX), it is not the hum (§III) and it has no part in Adela's case.
+   Nothing in Slumberland answers anything in the Dream, and the reverse also holds.
+
+Toons carry no signal, so the Rule of Signal (§VIII.2) neither explains nor licenses
+them. A toon in the street is a performer in the street; it isn't a device.
+
+**Left open on purpose:** Slumberland's geography, how anyone gets in or out, toon
+biology, and who the unconfirmed faces in the Fremont photograph are. Don't settle
+any of these in passing. The working brief, with what is built and what is proposed,
+is **design/ORISON_TOONS_2026-11-06.md**.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of

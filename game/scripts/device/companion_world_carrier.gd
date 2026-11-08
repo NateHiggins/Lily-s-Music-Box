@@ -411,7 +411,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if is_capture_hidden(): return
 	if not world_ready or event.is_echo() or _player.call_locked or _player.mouse_released or get_tree().paused: return
 	if not _player.camera.is_current(): return
-	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not _player.inspecting() and not _player.touch_input: return
+	if not _player.pointer_captured() and not _player.inspecting() and not _player.touch_input: return
 	if reading and not _player.inspecting() and event.is_action_pressed("companion_type"):
 		if session.begin(): get_viewport().set_input_as_handled()
 		return

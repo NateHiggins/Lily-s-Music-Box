@@ -18,6 +18,9 @@ var _restoring := false
 var _blocked := false
 var _purchased_gasket_commit_active := false
 const SERVICE_KINDS := {"B1_FUSE_PANEL":"fuse_service", "ROOF_TANK_BALLCOCK":"tank_service", "B1_BOILER_01":"boiler_service"}
+const SAVED_KINDS := ["mechanism", "light", "blind", "radiator", "prep", "books", "mirror", "window", "fuse_service", "tank_service", "boiler_service"]
+## Saved identities set aside because the world no longer builds their fitting.
+var retired_identities: Array[String] = []
 const SERVICE_ACTIVITIES := {"fuse_service":"fuse_panel_rating_service",
 	"tank_service":"roof_tank_ballcock_service", "boiler_service":"boiler_water_column_test"}
 var _service_defaults: Dictionary = {}
@@ -160,7 +163,31 @@ func _connect(owner: Object, event: String, callback: Callable) -> void:
 	_connections.append([owner, event, callback])
 
 func _saved_value() -> Variant:
-	return RealityState.data[KEY] if RealityState.data.has(KEY) else {"schema_version":1, "records":{}}
+	return _without_retired_fittings(RealityState.data[KEY] if RealityState.data.has(KEY) else {"schema_version":1, "records":{}})
+
+## A save written before a fitting left the world keeps that fitting's record
+## (F01_INNER_DOOR was unhung on 2026-10-26). Nothing owns it any more, so the
+## record is set aside instead of refusing the whole household and with it the
+## world: _restore() and snapshot() only walk owned fittings, so the next save
+## omits it. Only well-formed records of a saved kind are set aside; malformed
+## records and kind mismatches still fail validation.
+func _without_retired_fittings(saved: Variant) -> Variant:
+	if _kinds.is_empty() or saved is not Dictionary or saved.get("records") is not Dictionary: return saved
+	var retired: Array[String] = []
+	for identity: Variant in saved.records:
+		if identity is not String or _kinds.has(identity): continue
+		var record: Variant = saved.records[identity]
+		if record is Dictionary and record.size() == 2 and record.has("value") \
+				and record.get("kind") is String and record.kind in SAVED_KINDS:
+			retired.append(identity)
+	if retired.is_empty(): return saved
+	var kept: Dictionary = saved.duplicate()
+	kept.records = saved.records.duplicate()
+	for identity: String in retired: kept.records.erase(identity)
+	if retired != retired_identities:
+		retired_identities = retired
+		push_warning("V2 household: set aside saved records for fittings the world no longer has: %s" % [retired])
+	return kept
 
 func validate(value: Variant, kinds: Dictionary) -> bool:
 	# Public/load validation always checks the complete payload.
@@ -185,7 +212,9 @@ func _validate(value: Variant, kinds: Dictionary, trusted_records: Dictionary, d
 		if identity is not String or not kinds.has(identity) or record is not Dictionary \
 				or record.size() != 2 or record.get("kind") is not String \
 				or record.kind != kinds[identity]:
-			errors.append("unknown or malformed household save identity")
+			errors.append("unknown or malformed household save identity: %s (saved %s, world %s)" % [
+				str(identity), str(record.get("kind")) if record is Dictionary else type_string(typeof(record)),
+				str(kinds.get(identity, "absent")) if identity is String else "not a name"])
 			continue
 		var setting: Variant = record.get("value")
 		if record.kind == "mechanism" and setting is Dictionary and setting.has("replacement_gasket"):

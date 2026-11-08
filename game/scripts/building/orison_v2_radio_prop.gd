@@ -1,6 +1,10 @@
 extends "res://scripts/props/domestic_radio_prop.gd"
 ## V2 presentation over the existing household receiver's controls, event
 ## gating and audio lifetime. The source radio family remains authoritative.
+## A switched-on set joins the house broadcast (OrisonV2Broadcast) at its live
+## position instead of the old programme murmur.
+const Broadcast := preload("res://scripts/audio/orison_v2_broadcast.gd")
+const BROADCAST_DB := -18.0
 var native_visuals: RefCounted
 
 func _build_visual() -> void:
@@ -41,6 +45,25 @@ func _build_visual() -> void:
 	if not native_visuals.mount_on(self):
 		push_error("V2 receiver native visual mount refused: " + unit)
 
+func interact(actor: Node = null) -> Dictionary:
+	var result := super.interact(actor)
+	if powered:
+		Broadcast.join(_programme, BROADCAST_DB)
+	else:
+		Broadcast.leave(_programme)
+	result.on_air = Broadcast.on_air(_programme)
+	return result
+
+func _perform_synced_event(index: int, accent: float, pitch: float) -> void:
+	super._perform_synced_event(index, accent, pitch)
+	# The tuning knob may drift with the house; a record is never pitched by it.
+	if _programme != null and _programme.has_meta("broadcast_record"):
+		_programme.pitch_scale = 1.0
+
+func _exit_tree() -> void:
+	Broadcast.restore_carrier(_programme)
+	super._exit_tree()
+
 func interact_prompt() -> String:
 	if family == "crystal_set":
 		var resident := str(radio_profile.get("resident", unit)).split(" ")[0]
@@ -50,6 +73,7 @@ func interact_prompt() -> String:
 func public_state() -> Dictionary:
 	var result := super.public_state()
 	if family == "crystal_set": result.reach = 1.6
+	result.on_air = Broadcast.on_air(_programme)
 	return result
 
 func service_wire_card() -> Dictionary:
@@ -59,5 +83,6 @@ func service_wire_card() -> Dictionary:
 	if family == "crystal_set":
 		body = "Listening through the headphones." if powered else "Headphones set down."
 	elif powered:
-		body = "The wireless is playing."
+		var record := Broadcast.on_air(_programme)
+		body = "The wireless is playing %s." % record if not record.is_empty() else "The wireless is playing."
 	return {"title":title,"body":body,"condition":"PLAYING" if powered else "SILENT","stamp":"WIRELESS"}

@@ -59,8 +59,10 @@ func _run() -> void:
 		DirAccess.make_dir_recursive_absolute(directory)
 		var file := FileAccess.open(directory.path_join("route.json"), FileAccess.WRITE)
 		file.store_string(JSON.stringify({"failures": failures, "trace": trace}, "  "))
-		await RenderingServer.frame_post_draw
-		get_viewport().get_texture().get_image().save_png(directory.path_join("last_position.png"))
+		# The headless renderer draws no frames, so frame_post_draw never arrives.
+		if DisplayServer.get_name() != "headless":
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(directory.path_join("last_position.png"))
 	world.shutdown_for_tests()
 	remove_child(world)
 	world.free()

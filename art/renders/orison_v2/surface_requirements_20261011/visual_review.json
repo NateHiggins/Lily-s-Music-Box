@@ -3,306 +3,306 @@
   "human_played": false,
   "artistically_accepted": false,
   "native_pixel_optical_acceptance": false,
-  "surface_inputs_sha256": "0717a03fb000efab3d3d277b8d0101bd1405ab61179c08e744d99313da140576",
+  "surface_inputs_sha256": "398f232b43fa6da7a2b7b08f6472ddf3520aa9cfec378a4222dfa186750c5ea5",
   "scope": "Technical surface capture review",
   "status": "PASS",
   "status_scope": "Comparison review complete. Captures retain recorded visibility and lighting limits.",
-  "source_review_raw_sha256": "2d737f62c55a45d3a7ef5b0419cc670b388c4a2192e73c4d450a1ea55666797e",
+  "source_review_raw_sha256": "5480a86e8f87499ed2eb7f14b7a8056612a65498842c8574d45926619a0680a2",
   "images": [
     {
       "file": "boiler.png",
-      "sha256": "b2d80ec0e2ef790011c91c2719265638f6d958f4e220a7702426f2a648e04bf9",
-      "observation": "Boiler castings, gauge and overhead pipework remain comparable. The near right partition still obscures part of the room."
+      "sha256": "d08636688f5bfe686c7dce1c40778e08e78d9db3b3333c3d6bf5a0aa3e50137a",
+      "observation": "The front casting, gauge and left control outlines remain visible, but the incoming back and right walls are markedly darker, the overhead elbows lose their bright edge, and the base rectangle and rear-right wire fitting are no longer distinct. The near right wall still crops the room. The separate integration_original_01 capture on byte-identical game inputs retains bright rear walls, elbows and base plate. The two incoming captures differ in illumination."
     },
     {
       "file": "bookcase.png",
-      "sha256": "c793c56a122559261ef089f070fb4cd0a80367bd2b40fcd799684d3d55a2c7d8",
-      "observation": "The glazed case and wood floor retain the same coverage and material appearance. Closed doors and dim shelves limit stock detail."
+      "sha256": "7f640dcee94fc8c45a9b6234e1cabe5385fe0abaf01cf8b257d3bda4ca5183ed",
+      "observation": "The case glazing, lower shelf, floorboards and lit rear doorway remain in frame with comparable visibility. Dim enclosed shelves continue to obscure individual books."
     },
     {
       "file": "city_batch_site_far_n_roof_day.png",
-      "sha256": "64aac52e03865bd03b328bf84bf68fa80bd31622617adc41464b2366385d9d6a",
-      "observation": "Day roof plane, parapet and visible tank supports remain comparable. The surrounding grade remains dark."
+      "sha256": "9c42991ffc9b76cd4af0a646a112400357e4fedf59d04a68afc2fa2d6e75ec87",
+      "observation": "The broad north roof, upper tank and three cornice projections retain their outlines, and the gray facade and neighboring warm windows read comparably. The lower street remains shadowed."
     },
     {
       "file": "city_batch_site_far_n_roof_dusk.png",
-      "sha256": "39c4d7f8b77d3895ab50a40e8cdc7b102a29ddb5c2d6a0d090d4a23570c22fe9",
-      "observation": "Dark dusk roof, window pattern and tank silhouette remain visible. The roof finish is largely unreadable in this light."
+      "sha256": "c1298b0e360d3e04cc18f3f1c70f218d741281a5d39d05be56768f3a8f9e4176",
+      "observation": "The cool window grid, thin amber grade-level lines and right-hand occupied panes retain their separation. Dark roof and ground limit surface detail at dusk."
     },
     {
       "file": "city_batch_site_far_n_street.png",
-      "sha256": "7affb11c82291cae32739b341ee830ca63bd6231b61746f0b89f78ec8f47dcd7",
-      "observation": "Upward view retains masonry, sash and roof edge. It provides little street-level context."
+      "sha256": "73cfb6d6fadf002880d1b6292f61d91bf2ade0922dc61d9ea346af8e9394dc39",
+      "observation": "The stepped north cornice and window rows remain clear against the blue sky. A close wall on the upper left cuts into both frames and the entrance is below this steep view."
     },
     {
       "file": "city_batch_site_far_ne_roof_day.png",
-      "sha256": "bc8e33dfe5c29112a296ec95980d77a3699f394649146cecd31992cd9e527d09",
-      "observation": "The red roof structure, recessed wall and parapet remain comparable. Low illumination limits the grade and roof finish."
+      "sha256": "e7c77e9d84410802222dbef4a2b5c27d36318d34a9f5bc179992392f823aa655",
+      "observation": "The inset red frontage, terracotta roof pavilion and central pale plinth retain their coverage. The street below still has a deep angular shadow."
     },
     {
       "file": "city_batch_site_far_ne_roof_dusk.png",
-      "sha256": "1783a00cc602cf60a41d35ab106a9d207b255add40ec3f5a3bea206310e50e1a",
-      "observation": "The dusk recess, roof outline and repeated windows are still visible. Most lower stock remains in shadow."
+      "sha256": "e06d779b4ed65cf7e96b7f492cd5c86c00f9851658c9b997dec77a69fd7659ed",
+      "observation": "The courtyard edges and cool window openings remain readable, with the low pavilion roof and yard falling nearly black in both."
     },
     {
       "file": "city_batch_site_far_ne_street.png",
-      "sha256": "a7d3178fd800e40e75dad34db3ceb05986a2e8ccdb9f60ec6d4b69102b7098dc",
-      "observation": "Brick, light sills and the top of the entry surround retain the same coverage. Lower street furniture lies outside the frame."
+      "sha256": "6a1bdaca3ec540f6f4976d7dac530a5400d66bd06c63771510fc00077276c49a",
+      "observation": "The U-shaped brick court preserves its bright sky opening and evenly readable light sashes. The upward crop retains only the top of the entrance arch."
     },
     {
       "file": "city_batch_site_far_s_roof_day.png",
-      "sha256": "66b6d4fd1189dcfec0e0036ffbd98505f111f94ba4f9573f3630bf3e57f7713f",
-      "observation": "Dormers, gutters and the adjacent structural roof remain visible. The spaces between buildings are dark."
+      "sha256": "d31b4378b4e04acac0c28b5310614a5422797e3b791db8f3181851652f4960c2",
+      "observation": "The row of mansard dormers, lower return and close orange gridded roof read at comparable coverage. There is little readable ground beyond the facade shadow."
     },
     {
       "file": "city_batch_site_far_s_roof_dusk.png",
-      "sha256": "7493f19334c3c750bf5844afd74443927df959700893f9d260b71c0b8a815964",
-      "observation": "The warm neighboring roof is visible below the dormers. Main facade and paving remain dark at dusk."
+      "sha256": "b7759823ad2e5589146ae35b06b6da805fd8e9e302e733972c4eba980392bc08",
+      "observation": "The white dormer windows and lit orange structure below remain discernible. The surrounding dark roof and brick tone retain little detail."
     },
     {
       "file": "city_batch_site_far_s_street.png",
-      "sha256": "83da9b27abc17ec56ac1ae11cc8c654c2684f234269886e3b60ae5c8996a7f25",
-      "observation": "The dormers and repeated window reveals match at the sampled scale. This steep view cuts off the street entry."
+      "sha256": "9b1886af849339ad106f37430b87bb7c3f8488878883615e105e7ba4a82e87e2",
+      "observation": "Tall white sashes and the four small dormer silhouettes remain legible against the sky. Most of the dark brick and low entrance are outside useful detail in this steep shot."
     },
     {
       "file": "city_batch_site_far_se_roof_day.png",
-      "sha256": "06763abf12923d086d65171e86e3a80805afd83a08f8bf213273aafbfcae660e",
-      "observation": "The broad roof and its parapet remain visible above the amber wall. Elevated structure and ground stay partly in shadow."
+      "sha256": "cef82c8b816b2f7303bb99b62992914033443a88786f0bf3539cef3e92bd6309",
+      "observation": "The tan inset roof, center facade projection and lower neighboring windows keep comparable coverage. Ground on the right remains visually flat and dark."
     },
     {
       "file": "city_batch_site_far_se_roof_dusk.png",
-      "sha256": "80a971068c0ea8c864a6aaca0de3165bb994cbca786931fdaf0382deda956431",
-      "observation": "The dark dusk roof and sparse illuminated panes remain visible. The foreground ground finish cannot be judged."
+      "sha256": "3e9ebc7040d03107e04718995645ae07995128b07c477c5948aa28e51187771c",
+      "observation": "The tan roof inset, front window rows and isolated warm panes at the left remain visible. The lower half of the street and much of the right frontage stay dark."
     },
     {
       "file": "city_batch_site_far_se_street.png",
-      "sha256": "df316afa0bfff58c652dcdac1c03166c25d65c0d506b4c20513a5d5b146e2803",
-      "observation": "Cornices, paired sashes and the top of the balustrade remain in view. The entrance base is cropped."
+      "sha256": "1520514e6ef79b575cebb888db320da55cab38b87965451873ee436cd6cbfe9e",
+      "observation": "The center arched pane, lower balustrade and twin upper cornices retain their silhouettes. The surrounding brick is still dark, especially between the recessed window rows."
     },
     {
       "file": "city_batch_site_far_sw_roof_day.png",
-      "sha256": "702929649575ebd69de1ca4775583103c75d4df7b24e17f59ae61753bffbe45c",
-      "observation": "Tank, antennas, parapet and roof upstands remain visible with comparable shadow coverage."
+      "sha256": "1675055f821b21e03da3ab34687919597d107c6e6f0b65102f8c949572cdea1c",
+      "observation": "Water tanks, roof mast stays and facade returns retain their legibility. The incoming street shows vehicles at different positions toward the base, with the view of the roofing preserved."
     },
     {
       "file": "city_batch_site_far_sw_roof_dusk.png",
-      "sha256": "a6f5b7b00144d69c2f61a9c95caab6e13100f2dc50ba14339f5d8e6d29f273c2",
-      "observation": "The retained bright yard and tank silhouette remain comparable. Several low rooftop fittings blend into the dark roof."
+      "sha256": "ee4df969965972f93be87e1a87a65ef8869581770893e6ea1b447a3489626107",
+      "observation": "The tank and guy-wire silhouettes, courtyard openings and warm highlights along the left roof remain clear. Traffic shifts in the very dark lower street."
     },
     {
       "file": "city_batch_site_far_sw_street.png",
-      "sha256": "c9d8c2f3b4613763203dd2abee2c63654c8ea4e9ad6451561a772e6a410b066d",
-      "observation": "An upward view preserves the pale sash faces and sloped side walls. The bottom of the courtyard remains outside the frame."
+      "sha256": "304f0bcb2d156e166c603ab46ba86116cedd5fc879735cca27a906a4d6ce3de0",
+      "observation": "The center arched sash and stepped brick roof outline remain discernible. A close dark side wall occupies the upper-left sector, and the low railing remains cropped at the foot."
     },
     {
       "file": "city_batch_site_far_w_roof_day.png",
-      "sha256": "b21b28c20ee163c015bb3ae23c66e7a8c098dcd617e9ac4cbb53647a515d9dc8",
-      "observation": "Day roof tank, rooftop dark vent and upper wall remain in view. Most street detail lies in shadow."
+      "sha256": "3331a0a72c857206338ddc8813e87cddf6ae83ca1b8c611d6f85affd113402ec",
+      "observation": "The flat tan roof, raised tank, dish and molded center facade stay in the same coverage. Cool panes on the front and warmer panes in the nearby row remain distinct."
     },
     {
       "file": "city_batch_site_far_w_roof_dusk.png",
-      "sha256": "e20dbec3c4d59a71b858483ebba98d62e57ae528d60635a556e899b92c4abef0",
-      "observation": "The tank casts a readable long shadow over the warm roof. Lower walls remain mostly dark."
+      "sha256": "a5bf5b614f5a4a83a766ab07cd0a8922dfce3a17ade8d83ffcecbd7dcdb0f2b2",
+      "observation": "The amber roof and tank silhouette remain readable, and the front sash pattern is comparable. The court and base of the center projection still fall into shadow."
     },
     {
       "file": "city_batch_site_far_w_street.png",
-      "sha256": "299a1f0f15e8acba82168c5cd227c6bea3f7c9382c5c92e47dbd7b9e1047ee8d",
-      "observation": "The roof crest and sash arrangement are retained below a large patch of sky. Street-level finish is cropped."
+      "sha256": "0b0559388ef00162d09a5b4025c73ef8fc77418ad78fd1c866d685a8ae0f2935",
+      "observation": "The arched center window and deep cornices stay sharp against the sky. The camera cuts below the lower sash rows, leaving the doorway and pavement outside this view."
     },
     {
       "file": "city_east_roof.png",
-      "sha256": "ab5af791ba16757bfbfd0f0cb92f92e0b73b99c894b0715a9be445fd6e8f0d67",
-      "observation": "Sky and rooftop silhouettes dominate both frames. They provide little coverage of the actual roof materials."
+      "sha256": "29b20ee3418b4265771d9afeaa968632387ba4851944e9e3c259ad44d04fea60",
+      "observation": "The tank silhouettes and short foreground roof strips remain comparable beneath the dominant sky. The frame contains too little horizon to establish eastern district coverage."
     },
     {
       "file": "city_ground_edge_0.png",
-      "sha256": "5c398621300778530799a4bb52ddea2d89b7a686972ff4e31e034937c18b82ca",
-      "observation": "The graded edge, curb strip and distant span remain in the same broad view. The foreground remains sparsely lit."
+      "sha256": "5c6062599d811f588affc6b6215500af63ca22bcbdc223eb95df4a421b10ef8f",
+      "observation": "The incoming far-right horizon gains low industrial blocks with warm openings. The near retaining bank, channel edge strip and short stock remain comparable, though the foreground water is very dark."
     },
     {
       "file": "city_ground_edge_2.png",
-      "sha256": "7228f88e344ffca1e2382de56772f69b7f54347d711177ee50ec5f40e2b01866",
-      "observation": "The slope edge and rows of facades match at this scale. Small contact details remain too dark to judge."
+      "sha256": "3eba77c0ae582cd74064efb7dcd3213cb6fb8422347e2271735998ce0be00f10",
+      "observation": "The previously open left horizon gains factories and a narrow hazy low skyline. The right embankment silhouette and the small edge stock remain in frame without losing the near-bank outline."
     },
     {
       "file": "city_ground_seam.png",
-      "sha256": "77fa5aa33ae94a6dc43c60bb2f1f74c2c42e13fb34f3189c33a6b0fcbaae02bf",
-      "observation": "Facade corner, floor seam and distant block context remain visible. Shadow and haze reduce near-grade contrast."
+      "sha256": "a5761557e33ed090efffd93c2cf7d275f36fd96f854e9a8cdedea3aa679eb4cf",
+      "observation": "The corner masonry, sashes and pale base remain visible at the same angle. The very dark ground left of the building still makes fine seam detail difficult to inspect."
     },
     {
       "file": "city_horizon_context.png",
-      "sha256": "3444a327f4ca0364537f19ff5c7670ea1bc9df4373e0043b7ded110078ad0ef1",
-      "observation": "Industrial glazing retains the visible lit interior silhouettes and cool/warm alternation. The low foreground is cropped."
+      "sha256": "7cb2bd6e43f71083e4b9df9846c59ebb3fa050aad745bad0022220b8f1224902",
+      "observation": "The nearby factory's occupied window grids and the darker narrow courtyard houses remain clear at the same coverage. The enclosed foreground blocks views of the distant district."
     },
     {
       "file": "city_north_roof.png",
-      "sha256": "6dfcbe14ed8cdf7c9624a134730d2941e88c52bd6dbc75a3190b8d220ce19496",
-      "observation": "The bridge and rooftop silhouettes stay visible under the broad sky. The shot provides little roof surface coverage."
+      "sha256": "a6b29c5b7b96454763e94a17ba9fca6cb30ff81a990e716c2b4597425f59b255",
+      "observation": "The incoming far skyline rises to the left of the existing bridge spans. Near roof equipment and the gray block at the left still frame the low part of the view, and the main truss profile remains clear."
     },
     {
       "file": "city_open_west_frontage.png",
-      "sha256": "816468427abab26fceccc1fd113f17bf3da9229798d1b7dd38342fe59df0b7df",
-      "observation": "The street depth, right storefront glass and curb stay readable. Incoming traffic now obscures part of the lower-left frontage."
+      "sha256": "17d9492f3cbd26477c8a106105b3882efccb472f63beee7977c097d570980c13",
+      "observation": "The foreground traffic visible in the baseline clears in the incoming view, exposing the left road edge and near crossing. The warm storefront glazing and right brick pier remain clear."
     },
     {
       "file": "city_relief_canal.png",
-      "sha256": "bf789bcd59a4f4d17ae48c46c76ece57bd5ab442be9b7a3d5de57bd0e8db2f0d",
-      "observation": "Canal-side relief and graded edge remain visible as silhouettes. The low texture contrast and sparse background remain."
+      "sha256": "286ffd763f55c7c940d52156fd3b4cb99d3afdbd0f14a226e231add91431a675",
+      "observation": "The empty baseline horizon gains industrial facades and multiple stack groups, including a distinct four-stack mass. The diagonal foreground bank edge remains visible but the dark water carries little local detail."
     },
     {
       "file": "city_relief_rail_cut.png",
-      "sha256": "ca095a272bf2d38f4273375d9d48b30c250b249352ad206346ba60041e0541de",
-      "observation": "The rail-cut silhouette is visible with the same dark grade. No fine rail or finish detail is supported by this framing."
+      "sha256": "47539233cfba5c89cdbca8acc7a58b5f8624fc22611796c9de06f530046e2309",
+      "observation": "The distant line gains low warehouses and a few raised roof masses across the opening. The near graded cut is still dark and individual track elements are difficult to distinguish."
     },
     {
       "file": "city_relief_river.png",
-      "sha256": "6cddd55eae91f30c61b33d3e6bce8fa906e6ea8f93e340606f409fef4d0d04c5",
-      "observation": "The distant block and lit panes remain visible through haze. The dark foreground and open horizon remain sparse."
+      "sha256": "78c9390bbf719bfea84828b9077f94b91fa9f4b3c4c15af6296e9f69cc571e34",
+      "observation": "The nearby rows and the tall narrow building remain visible, with new industrial shapes extending the horizon to the right. Haze still softens the base of the far shore above the dark water."
     },
     {
       "file": "city_site_back_e_window.png",
-      "sha256": "8cc6a0eb5b63af71380f096f80f4fbe8fabe97dd1753ad9dcae4cc10be7c79fe",
-      "observation": "Roofhouse brick, panes, aerials and tank legs retain the prior coverage. The low ground is mostly out of frame."
+      "sha256": "59a7737866831ba10bb8806c1303bf46307aae07e727f1edc92bfa2e1f45710c",
+      "observation": "The rooftop red wall, white window reveals, masts and side tank remain readable. New distant mass shows at the far left while the local facade retains its outline."
     },
     {
       "file": "city_site_nbr_e_window.png",
-      "sha256": "6fd41313527b3815d8e80bf80eb610e0b78bb6d58a1c3713df4797cdc3959cee",
-      "observation": "Window interiors, sill stock, sign and elevated frame remain visible. The dark steel at right still occludes background material."
+      "sha256": "220b946406a0b67204bd5305809094b298fac942ac19e8f43eb609f743cb54f9",
+      "observation": "The near brick, lit panes and stair rail remain clear next to the pale facade, while the black scaffold still overlaps the right-hand windows."
     },
     {
       "file": "city_site_ne1_window.png",
-      "sha256": "0c3b76748b524e8a1f7497d8e9c14b8518e7c27f0324e32ddf0ef47219db9f32",
-      "observation": "Tall cabinet and low table remain distinguishable behind adjacent cool sash panes, with separate warm panes below. The dark wall at left and deep facade shadow limit masonry and interior detail."
+      "sha256": "b3ba87010e29bc12dfbfc303661efc021a160c8ff5366f0f2afd104e3d4e4bc8",
+      "observation": "Cool sash panes still show a tall cabinet and low interior furniture alongside the warm lower panes. The dark near wall continues to limit the view on the left."
     },
     {
       "file": "city_site_nw2_window.png",
-      "sha256": "b16b268d37ae97cae420799cfe026b5ee992e4c890528b50cd63fd4af4fe6165",
-      "observation": "Gray molded surrounds, red brick arches and stepped trim retain their outlines. The cool center panes and warm foreground panes still show distinct silhouettes. Dark trim recesses limit fine detail."
+      "sha256": "44e1d2e22f90b4b3f4c91209f7866878998f286b7b8af0933ca592a812e5556e",
+      "observation": "The gray window surrounds, brick arches and stepped trim remain comparable. The warm foreground windows separate clearly from the cooler panes in the center, with dark recesses under the cornice."
     },
     {
       "file": "city_street_skyline.png",
-      "sha256": "6a06a30403b1ed7237c3822edce5df0997749c31158772622082145dcea0e791",
-      "observation": "Brick, projecting trim, lit blind, awning, curved lamp and distant roofs remain legible. A dark vehicle occupying the prior lower-left foreground is absent from that area in the incoming view. Pedestrians remain in the dark street foreground."
+      "sha256": "b355053af27aa7dcbd772d6075395fd7926bcce978a6949ac75faa55df65110c",
+      "observation": "The prior olive vehicle has cleared the incoming lower-left edge, exposing more of the dark street. The curved lamp, awning, lit blind and distant blocks remain visible."
     },
     {
       "file": "city_townhouse_street_front.png",
-      "sha256": "6e3fe555307b344a5b85a508b77f2c3d504ad1742a9ce48dcaa37fd61190bf7f",
-      "observation": "Masonry, cornices, roof profiles and warm and cool panes remain visible. The prior large vehicle has cleared the lower right frontage, exposing doors and windows there. A dark vehicle now covers part of the lower-left foreground."
+      "sha256": "31094f539da4803421d3573f99e3ef29eb40cae51857d12000889bf24f7cc40f",
+      "observation": "Both dark foreground vehicles have cleared in the incoming frame, exposing the townhouse bases and doorways. Cornices, surrounds and warm and cool panes retain their profiles."
     },
     {
       "file": "city_weather_dry.png",
-      "sha256": "90d48fa4907c947fb0d05443573ddbd3fdc2f26e69d799c10f738862f228697f",
-      "observation": "Blue sky, pale cloud patches, antenna lines and roof and tank silhouettes read similarly. The high aim crops most roof surfaces, restricting comparison to the lower edge."
+      "sha256": "1bd498a08c1741fcdb78724f65920e2ae81eed7ab309709443fbe8c47a4eb503",
+      "observation": "Pale cloud streaks, blue openings, mast lines and the tops of the near tanks retain comparable silhouettes. The high camera leaves most of the roof below the frame."
     },
     {
       "file": "city_weather_fog.png",
-      "sha256": "9aa2d797f894985ed438316c74900443bd502ff248a2fc1a9bafb2d130d45ab7",
-      "observation": "Pale cloud layers and softened distant roof outlines retain their fog appearance. Near tanks and mast wires remain recognizable at the lower edge. Fog and framing obscure distant surface detail."
+      "sha256": "3742c16cc76b635d2a2b3277b57a982dfa64e1ccbd6514b78b234222c780e9f3",
+      "observation": "Brightened diffuse clouds and softened distant roof outlines remain visible in the fog. Near wires and tank silhouettes stay identifiable, while haze hides fine surface detail."
     },
     {
       "file": "city_weather_storm.png",
-      "sha256": "620bdbd7127b802ded6d1088bb437653ebfb7ed297a413eb2ac6b2b750818419",
-      "observation": "Gray sky and its muted warm horizon retain the same overall gradient. Near tanks and fine mast lines remain visible, while the weather reduces distant structures to low-contrast silhouettes."
+      "sha256": "53ce8a8ee09a186d0c05fb22f9f6833ac5641c1d59b25e7e579a32baded7ac54",
+      "observation": "The gray field and subdued warm horizon retain comparable gradients. Thin mast lines and near tanks remain visible, with distant surfaces reduced to low-contrast silhouettes."
     },
     {
       "file": "city_west_roof.png",
-      "sha256": "5ed552c86428571f3d302d6530721d6e7f15b5e28ccc959c4930b05407a7f121",
-      "observation": "Bridge truss at far right, tanks, antenna lines, layered clouds and scattered warm windows remain visible. Dark roof planes and distance limit surface detail across the far skyline."
+      "sha256": "540415aeb0c0f93a5d66f15b8eb5c82f3495a34641a3d328bfd61a364580dc76",
+      "observation": "The incoming horizon gains a broad low city band with a few taller vertical accents between the rooftops and bridge. The bridge truss, near tanks and wires remain legible. Distance and haze still conceal fine facade detail."
     },
     {
       "file": "closet_vent_bypass_services.png",
-      "sha256": "0043dc9cce48086e0c639d65ac8ffc50cc2f920024c11d531248794e583815ed",
-      "observation": "The tile, painted upper wall, dark vertical strip and partial toilet retain their appearance. The service connection remains outside the shot."
+      "sha256": "c011d19ced4c3b67aa324752b90d97817ad3df0f09245597d2dcda835e6c4ef0",
+      "observation": "The painted upper wall, pale tile joints and partial toilet remain comparable. The framing still leaves the named bypass connection out of view."
     },
     {
       "file": "dumbwaiter.png",
-      "sha256": "f1bbfaae99ed9594d0b26fb9b8d2c29214fce726601be549fe1dca805e0c2f71",
-      "observation": "Dark close brick fills both captures. The dumbwaiter remains hidden, so this frame provides no visual inspection of the named fixture."
+      "sha256": "9cd19316f5d4db95c76b604c92ecff1443ca2ca2576ad3a9df28dc5acd522b65",
+      "observation": "A close, dim brick wall fills both images. The named dumbwaiter remains outside the visible frame."
     },
     {
       "file": "F02_A_MAIN.png",
-      "sha256": "73b00ee98fe5cffa3ebc64834647b8b81cee4d80ac617732c59fbc53a048270b",
-      "observation": "Warm room lighting, plank floor, tables, doorway and rear radiator remain visible in similar framing. The companion still obscures part of the right-side shelving."
+      "sha256": "f676cea1f9bfaf14fbf8fd8ff5a7be66a2d6d0a08a626fb2def2574d6a40757a",
+      "observation": "The warm pendant lights the central table and floorboards in both views. The left equipment table and radiator remain visible, while the companion overlaps the right shelving and the lower frame crops the closest instrument."
     },
     {
       "file": "F03_B_BATH_reflection_repair.png",
-      "sha256": "6ac818090e44fa4c931f0ed90b486b5656e4602bf120b544078cbba403fa6152",
-      "observation": "The round warm beam, curtain and tile joint lines remain apparent. The bottom crops the toilet, and the unlit wall and curtain obscure finer surface and reflection detail."
+      "sha256": "b01ba9f7be9dc89ca1d388846e001342ea1f88c4f57b1f69efe2f02ff6e96c86",
+      "observation": "The round lamp pool, curtain and horizontal tile line retain comparable appearance. The close framing and right-side companion leave only part of the toilet visible."
     },
     {
       "file": "F03_B_MAIN.png",
-      "sha256": "f071241364747ed506b802383dda034b81ebf361eaa4b3d33cdb7f5436601a4b",
-      "observation": "Radiator, floorboards, table, blind and rear workbench retain their contours and warm lighting. The resident and companion remain in frame with small pose differences, and the companion overlaps the right shelving."
+      "sha256": "8110af66e91f91753b8936f30e640d8a27687dfa8c22504851159c827866574c",
+      "observation": "The resident, round table, radiator, blinds and back workbench retain comparable visibility under warm light. The companion continues to obscure part of the shelves at right."
     },
     {
       "file": "F04_C_MAIN.png",
-      "sha256": "d3f49b7ff2f979bf1aac6f728739a9e3245cb70e449dac46ff5b4b2bf3be0568",
-      "observation": "The warm light pool, floorboards, table, chair, window and left radiator remain visible. The companion occupies part of the right-side table area, and the radiator is cropped at left."
+      "sha256": "06e42282e433240e648a3906e291ef8d9c3fe5472bdf2606c71a1f55f0bf69f9",
+      "observation": "The foreground chair, desk, window shade and side radiator remain visible in both frames. The floor shows the same warm light falloff, and the companion masks part of the right furniture."
     },
     {
       "file": "F06_B_KITCHEN_reflection_repair.png",
-      "sha256": "74fb6e18b387dc2e99c4f84d680eb38f31a2d3a5959050fecb24fe795e74f4b1",
-      "observation": "The sink, exposed pipes, cabinets and mottled wall retain their visible forms. Strong warm light and companion overlap at right limit fine reflection and sink-surface inspection."
+      "sha256": "56376856d4e8b4743965cf7a5ecb803c3e720cebf7066fb69b6a08c9481dea96",
+      "observation": "The upper cupboard, pale kettle, sink rims and lower pipework remain visible around the wall light. The companion and close right crop conceal part of the sink."
     },
     {
       "file": "fuse_panel.png",
-      "sha256": "3f50795532e5d95124cdeb074c4961bf1b5e8bc81f36ad851481b3677e7e7622",
-      "observation": "The fuse arrangement and framing match. The incoming door's inner face is visibly gray rather than near-black, and the lower conduit and shelf supports are lighter and clearer. Some cabinet interior remains shadowed and the lower conduit ends at the bottom crop."
+      "sha256": "dd9f9b2cb97ac56f6a993ba2dd7d2004999e60e807312ff5740b74a93d973a6b",
+      "observation": "The open cabinet and fuse faces retain their positions and comparable lighting. The inside of the door and lower conduit remain dark, while the wall finish and right shelf are visible."
     },
     {
       "file": "mail_bank.png",
-      "sha256": "0d1ad382f10bf56a8d9ebd4af84cfc183e0be960a066bebfc714c3eb2359de3a",
-      "observation": "Brass mailbox rows, empty openings and lower slot remain recognizable in the dark recess. The framing and low light make the small labels difficult to read."
+      "sha256": "2d138355508f664a9bc41ecba0fd66696077f3d38b26eec013edf214d691b76f",
+      "observation": "The brass mailbox grid, dark empty slots and lower letter slot remain identifiable. Small labels and the surrounding wall are harder to read in the dim exposure."
     },
     {
       "file": "radiator.png",
-      "sha256": "4fa884c9d08e17de3c2c6a0d542fd47feeb7a18cc68981053f830a233ffa7d7e",
-      "observation": "Ribs and the valve below the window remain visible beside the table and curtains. A large pale form obscures the left side and the floor connection remains below the crop."
+      "sha256": "f9ac9e76a302d3a3b1ad17a1b38f18db0b4dc4477184e6dc2362ef0a36acd679",
+      "observation": "Ribs, brass fittings, blinds and the adjoining table remain visible with comparable warm light. The dress form and lower edge still crop the full installation."
     },
     {
       "file": "roof_drive_uv.png",
-      "sha256": "3898881b61da8fe38962cab7a5781a5efb3f52d2e96a3d82c7e3933e8480dfbe",
-      "observation": "The incoming ceiling lamp pool and nearby walls and floor are brighter. The cage, drive, stairs, conduit, roof sign and long cage shadows remain visible, with bars cutting across machinery and limiting inspection of its surfaces."
+      "sha256": "207170cdedbf7c4683e77ecd5b6ed67d7c7170a6276aaa1910e32de3177cea40",
+      "observation": "The cage rails, drive housing, roof sign and stair opening retain their shapes under the overhead lamp. Cage bars and shadow limit detail within the drive assembly."
     },
     {
       "file": "roof_tank_uv.png",
-      "sha256": "06dbedf35c23e72dbf5f7ca7371a4a27d31a942424fadfe825a9716062944378",
-      "observation": "The tank, catwalk, legs and pale footings remain readable against the clouds and rooftops. Dark tank and support faces limit texture inspection."
+      "sha256": "1eee4199346616e251ab8e932d30d5b86ce545bff1385f194de7bbcc2706e089",
+      "observation": "Tank cap, access rails and support feet remain clear against the roof. A low distant industrial band appears behind the rooftops in the incoming frame, while the dark foreground support still limits material detail."
     },
     {
       "file": "shot_001.png",
-      "sha256": "a21b20a4ca36300211ce68d99f5b1c2dd699035decb39ace479f76f7ba107985",
-      "observation": "Gray stone surrounds, red brick arches and warm and cool panes remain legible. The large vehicle formerly masking the lower center and right has cleared those doors and windows. A dark vehicle still cuts into the lower-left foreground."
+      "sha256": "69c1288064b84dccaee8fc592cc5e864c5b9627cb4dd74956d06230db7c9da16",
+      "observation": "The incoming frame clears the vehicles that occupied the prior lower-left and lower-right road edges. Street-level windows and thresholds are more exposed, with upper molding and lit panes still legible."
     },
     {
       "file": "signal_terminal.png",
-      "sha256": "ae90c05117c8b0177cc018fb76f9ac397c21d8f5ceed71726dd25d086accee7c",
-      "observation": "The terminal and its indicator light, tabletop, note board and floorboards remain visible. This oblique view favors the terminal's side and does not resolve small controls or text."
+      "sha256": "77696fe082d8572892217cd7351db8e48abd6ba1c47bfefeb88b8e8664939115",
+      "observation": "The terminal body, green tabletop reflection and floorboards remain distinct against the seating and framed wall object. The oblique close angle still hides the terminal's far side."
     },
     {
       "file": "staff_closet_deep_services.png",
-      "sha256": "dd1544d76fedd748927a1047eac693e3b9de31bae489b70ccf5224dd507e1de6",
-      "observation": "Painted wall, glazed tile, cistern and support bars remain visible. The seat is partly cropped and the deep service fitting remains outside the frame."
+      "sha256": "4e1100d9da1a4a60a61cf0fef0e5ca5eb8c144754be5fda11820dae185db06ef",
+      "observation": "The tiled corner, wall trim and partly cropped toilet remain visible. The named deep service fittings are still outside the view."
     },
     {
       "file": "tentacle_flowing_residue.png",
-      "sha256": "096b2407af1ca7f5bb3be482e338c7ffe4dae720e4ac2a9b44e7178c3151d80b",
-      "observation": "The warm beam still exposes the iridescent pool and curled forms beneath the radiator. The surrounding floor is mostly dark, and a still cannot establish flow rate or path."
+      "sha256": "b5ae3319da546f4831bfa404eb18a4e1084c390b5dd556619b2b45c4686a51ac",
+      "observation": "The raised residue pieces and saturated pool remain visible beneath the radiator inside the lamp circle. The floor perimeter and adjacent fittings remain dark, with the companion occupying the right foreground."
     },
     {
       "file": "tentacle_installed_surfaces.png",
-      "sha256": "625e7bd902292a3d692dac12f1849823a6b657ace73d2cd41bfc34a196581782",
-      "observation": "The reddish upright and curled surfaces retain their outlines under the warm beam in front of the radiator. The frame shows their exposed surfaces and cannot establish motion."
+      "sha256": "e331760dc695295cb82391fe8d38f9efe4cd1867180be7bc642efbee02d35755",
+      "observation": "The upright form, radiator ribs and lit floorboards retain comparable visibility. The incoming tabletop disk catches more light and a few faint pale marks appear at the edge of the left foreground garment. The companion still obscures part of the right."
     },
     {
       "file": "toaster_crumbs.png",
-      "sha256": "ea144284634734476e01218fffc712bb1106dcaa9260274a1341096a9b6c08dd",
-      "observation": "The toaster face, extended tray and individual crumb flecks remain visible beside the kettle, vessels and wood table. The rear face and underside are outside the useful view."
+      "sha256": "dc7ca3b038e83388815df76a51d07a840925ada40cf86c8b7969e9a70de89ce0",
+      "observation": "Crumbs on the open toaster tray, the pale kettle and the surrounding worktops remain distinguishable in warm light. The crop still cuts through part of the right-hand table."
     },
     {
       "file": "watch_station.png",
-      "sha256": "05d5e5815e8412da2083b15d0e80e09284fcfeb5372e25745b603de6ce7e41a9",
-      "observation": "The Station 1 plate and brass circular part remain identifiable. The low light limits cabinet and wall detail, and a pale foreground tool still enters at lower right."
+      "sha256": "cc51db059bad0d7c67a0b20b590c384b50bb601bd2424b92701728a3932715c7",
+      "observation": "The station label and gold dial remain visible against a textured wall. Low ambient light and the partial pale sign at lower right limit context outside the fixture."
     }
   ]
 }

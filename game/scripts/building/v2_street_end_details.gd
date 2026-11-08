@@ -39,7 +39,7 @@ func _build_street_ends(parent: Node3D,open_east_north: bool=false) -> void:
 	retained.transform_format=MultiMesh.TRANSFORM_3D
 	retained.mesh=prior.mesh
 	retained.instance_count=prior.instance_count-2
-	for index in range(2,prior.instance_count): retained.set_instance_transform(index-2,prior.get_instance_transform(index))
+	for index in range(2,prior.instance_count): MultiMeshPoses.set_pose(retained,index-2,MultiMeshPoses.pose(prior,index))
 	faces.multimesh=retained
 	_build_street_end_marker_lamps(parent,open_east_north)
 	var beacons := parent.get_node("StreetEndWorkBeacons") as MultiMeshInstance3D

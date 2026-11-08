@@ -82,6 +82,12 @@ func run() -> void:
 	check(RealityState.data.campaign_clock==before,"render clock projection leaves the actual clock unchanged")
 	if OS.get_environment("PROLOGUE_APERTURE_REVIEW")=="1":
 		await review_aperture(target);finish();return
+	var far_districts := world.get_node_or_null("FarDistricts")
+	if FileAccess.file_exists("res://scripts/building/orison_v2_city_far_districts.gd") \
+			and not check(far_districts != null, "installed far districts mount in the waking world"):
+		finish();return
+	if far_districts != null:
+		await review_far_motion(far_districts)
 	var manager:Node=world.get_node("WakingAtmosphere").weather_manager
 	manager.conditions_changed.connect(func(_conditions:Dictionary):publications+=1)
 	var mode:int=world.process_mode
@@ -105,6 +111,10 @@ func run() -> void:
 			initial_pan_basis = clip.camera.global_basis
 		if stamp >= TemporalSky.ROOF_START:
 			check(clip.camera.global_position.is_equal_approx(clip._roof_eye), "roof pan uses the surveyed station: " + str(stamp))
+		if far_districts != null and stamp in [12.0, 17.75]:
+			var borrowed_minute: float = clip.view_clock.minute_of_day()
+			check(far_facades_match(far_districts, borrowed_minute),
+				"mounted far facades follow the borrowed roof clock at " + str(stamp))
 		if stamp in [16.25, 17.75, 19.25, 20.75, 22.25]:
 			var index := floori((stamp - TemporalSky.RAMP_END) / 1.5)
 			var intended: String = TemporalSky.MONTAGE[index][0]
@@ -139,7 +149,18 @@ func run() -> void:
 	await frames(3)
 	check(clip.age==age and player.text_input_owner==clip,"pause holds cinematic time and its input lease")
 	get_tree().paused=false
+	if far_districts != null:
+		# End at a known distinct roof sample so a missed restore cannot pass
+		# by coincidence at the randomly sampled destination's time of day.
+		clip.seek(12.0)
+		var borrowed_minute: float = clip.view_clock.minute_of_day()
+		check(absf(borrowed_minute - clock.minute_of_day()) > 1.0
+			and far_facades_match(far_districts, borrowed_minute),
+			"far facades hold the distinct borrowed minute before cancellation")
 	clip.cancel()
+	if far_districts != null:
+		check(far_facades_match(far_districts, clock.minute_of_day()),
+			"actual cinematic cleanup immediately restores the far facades to campaign time")
 	check(register._owner==null and register.phase=="idle" and register.capacitor.get_shader_parameter("capacitor_charge")==0.0,"cancelled cinematic releases register and capacitor without stale presentation")
 	check(world.process_mode==mode and player.text_input_owner==null and player.camera.is_current() and not world.service_set_carrier.is_story_absent(),"cancellation restores world, player camera, input and companion visibility")
 	# Repeat the actual full32-second clip without screenshot stalls.
@@ -209,6 +230,54 @@ func run() -> void:
 		Input.parse_input_event(press);Input.flush_buffered_events();await frames(2)
 		check(director.state.phase=="prologue_complete" and director.temporal_sky.was_skipped and player.text_input_owner==null,"actual skip input completes through the same clock owner and releases its lease")
 	finish()
+
+func far_facades_match(districts: Node, minute: float) -> bool:
+	var facades: Variant = districts.get("facade_materials")
+	if not facades is Array or facades.is_empty():
+		return false
+	for material: ShaderMaterial in facades:
+		var visible_minute: Variant = material.get_shader_parameter("minute_of_day")
+		if not visible_minute is float or absf(float(visible_minute) - minute) > 0.001:
+			return false
+	return true
+
+
+func review_far_motion(districts: Node) -> void:
+	var lamps := districts.get_node_or_null("FarMotion/BridgeLamps") as MultiMeshInstance3D
+	var cars := districts.get_node_or_null("FarMotion/ElCars") as MultiMeshInstance3D
+	var tug := districts.get_node_or_null("FarMotion/Tug") as Node3D
+	if not check(lamps != null and lamps.multimesh != null and lamps.multimesh.instance_count > 0
+			and cars != null and cars.multimesh != null and cars.multimesh.instance_count > 0
+			and tug != null, "loaded bridge lamps, elevated cars and tug exist before cinematic freeze"):
+		return
+
+	# Freeze only the existing test clock driver. All motion nodes still run
+	# their normal process callbacks and no save authority is exercised here.
+	var was_frozen: bool = CampaignTime._frozen_for_tests
+	CampaignTime.set_frozen_for_tests(true)
+	var clock_before: Dictionary = RealityState.data.campaign_clock.duplicate(true)
+	await frames(3)
+	var lamp_origin := lamps.multimesh.get_instance_transform(0).origin
+	var car_index := -1
+	for index in cars.multimesh.instance_count:
+		if cars.multimesh.get_instance_transform(index).origin.y > 0.0:
+			car_index = index
+			break
+	var car_origin := cars.multimesh.get_instance_transform(car_index).origin if car_index >= 0 else Vector3.ZERO
+	var tug_origin := tug.position
+	await frames(8)
+	var clock_preserved: bool = RealityState.data.campaign_clock == clock_before
+	CampaignTime.set_frozen_for_tests(was_frozen)
+	check(clock_preserved, "ordinary distant motion leaves the held campaign clock exact")
+	check(lamp_origin.distance_to(lamps.multimesh.get_instance_transform(0).origin) > 0.01,
+		"a mounted bridge lamp advances across ordinary process frames")
+	if check(car_index >= 0, "at least one loaded elevated car is on the span"):
+		var car_after := cars.multimesh.get_instance_transform(car_index).origin
+		check(Vector2(car_origin.x, car_origin.z).distance_to(Vector2(car_after.x, car_after.z)) > 0.01,
+			"the selected elevated car advances along the span across ordinary process frames")
+	check(tug_origin.distance_to(tug.position) > 0.01,
+		"the mounted tug advances across ordinary process frames")
+
 
 ## One unaccelerated loaded-world sequence. Earlier bathroom beats are staged,
 ## not claimed as played. Normal director/printer/arm/sky/stinger own every beat.
