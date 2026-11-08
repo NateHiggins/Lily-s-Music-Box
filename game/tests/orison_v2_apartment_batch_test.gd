@@ -40,9 +40,14 @@ func _ready() -> void:
 	for record: Dictionary in accessory_source.accessories:
 		if AcousticGraphData.nodes.has(record.id):
 			accessory_acoustics[record.id] = AcousticGraphData.nodes[record.id].duplicate(true)
-	for unit: String in preload("res://scripts/building/orison_v2_heating.gd").UNITS:
-		var identity := "F0"+unit[0]+"_"+unit[1]+"_RADIATOR_01"
-		heating_acoustics[identity] = AcousticGraphData.nodes[identity].duplicate(true)
+	# Every installed radiator by its own id; the lobby set (10-16) has no two-character unit to build one from.
+	var heating: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
+			preload("res://scripts/building/orison_v2_heating.gd").PATH))
+	for record: Dictionary in heating.installed:
+		var identity := str(record.id)
+		check(AcousticGraphData.nodes.has(identity), "installed radiator has an acoustic node: " + identity)
+		if AcousticGraphData.nodes.has(identity):
+			heating_acoustics[identity] = AcousticGraphData.nodes[identity].duplicate(true)
 	for cycle in 2:
 		RealityState.reset_campaign_for_tests()
 		var world := Runtime.instantiate() as OrisonV2RuntimeRoot
