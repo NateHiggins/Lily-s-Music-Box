@@ -1,11 +1,16 @@
 extends Node3D
 ## Open exterior exploration. Native scaffold framing keeps its front-door
-## registration; only the distant temporary radius limits normal locomotion.
+## registration. The walkable city ends at 200 m from the front door (Lily's
+## ruling barrier_distance, 2026-11-07): OrisonV2CityEdgeMist gathers a
+## supernatural mist from 150 m and the player passes out at 200 m and wakes in
+## 4B. The radial physics wall stands just beyond, as the backstop for a player
+## another owner holds at the edge.
 const SOURCE := "res://data/orison_v2/exterior/construction_shed.json"
 const NATIVE := "res://assets/props/construction_shed.glb"
 const NATIVE_ORIGIN := Vector3(22.25,0,0)
-const EXPLORATION_RADIUS_M := 450.0
+const EXPLORATION_RADIUS_M := 205.0
 const EXPLORATION_SEGMENTS := 256
+const EdgeMist := preload("res://scripts/building/orison_v2_city_edge_mist.gd")
 var startup_failed:=false
 var _programmes: Variant
 var _exterior_safety_net: SafetyNet
@@ -35,6 +40,7 @@ func _ready() -> void:
 		push_error("Street boundaries require the supported front-door source frame")
 		return
 	_mount_exploration_limit()
+	_mount_edge_mist()
 	_register_exterior_ground()
 	_mount_native_stock()
 	for record: Dictionary in source.boxes:
@@ -91,8 +97,9 @@ func _mount_native_stock() -> void:
 	add_child(model)
 
 func _mount_exploration_limit() -> void:
-	# Temporary, non-diegetic physics wall. It neither changes player position
-	# nor writes narrative/save state; the later sleep/bed event has no owner here.
+	# Non-diegetic physics backstop just beyond the mist's pass-out ring. It
+	# neither changes player position nor writes narrative/save state; the
+	# pass-out and bed return belong to CityEdgeMist.
 	var faces := PackedVector3Array()
 	for index in EXPLORATION_SEGMENTS:
 		var angle := TAU * index / EXPLORATION_SEGMENTS
@@ -114,6 +121,14 @@ func _mount_exploration_limit() -> void:
 	collision.shape = shape
 	body.add_child(collision)
 	add_child(body)
+
+func _mount_edge_mist() -> void:
+	assert(EXPLORATION_RADIUS_M > EdgeMist.PASS_OUT_M, "the wall must stand beyond the pass-out ring")
+	var mist := EdgeMist.new()
+	mist.name = "CityEdgeMist"
+	# Outside the production world (spatial fixtures) there is no player to take.
+	mist.configure(self, get_parent() as OrisonV2RuntimeRoot)
+	add_child(mist)
 
 func _register_exterior_ground() -> void:
 	if _exterior_safety_net != null: return

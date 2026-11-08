@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 217.78,
+  "exit_code": 0,
+  "finished_utc": "2026-10-13T17:59:25Z",
+  "started_utc": "2026-10-13T17:55:47Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 APARTMENT ACCESS CONTRACT: PASS; 19 rooms; 268 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-entry-clearance-20261013/apartments_detailed.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-entry-clearance-20261013/apartments_detailed.log",
+  "stdout_sha256": "70e57dfb8988ea0eca0c6e675007e2903e75158eaaa9b3f0c780c0ab3da14445"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2ApartmentAccessContractTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-entry-clearance-20261013/apartments_detailed",
+ "source": {
+  "dirty_paths": 1440,
+  "dirty_sample": [
+   "M  .gitattributes",
+   " M DOCS.md",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/4A_review.png",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/5B_review.png",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/5C_review.png",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/before.png",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/V2EntryClearanceDiagnostic.tscn.txt",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/before_fixes.log",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/before_fixes.log.receipt.json",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/before_fixes.log.stderr",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/before_fixes_runtime_contract.json",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/focused-results.json",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/focused.log",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/focused.log.receipt.json",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/focused.log.stderr",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/review_5b.py.txt",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/diagnostic/v2_entry_clearance_diagnostic.gd.txt",
+   "A  art/renders/orison_v2/remaining_apartments_20261013/placement-comparison.json"
+  ],
+  "repository_head": "26681527ac72e0cdd6ac7a4e64e143c51968e5ae",
+  "repository_tree": "18ccc42be69e08ddef898fe8dfff1829d62da151",
+  "runtime_inputs_sha256": "b8acd4922a4aea7082e165bc46acb12ae14a3508e1b03c7f6727ace16b6314cf",
+  "test_path": "game/tests/orison_v2_apartment_access_contract_test.gd",
+  "test_sha256": "a1480f27f488006185702af8cecf1f7f8f0ceea1d9da42a6a06dbcac2069764d"
+ },
+ "windowed": true
+}

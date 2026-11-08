@@ -30,10 +30,16 @@ var interaction_checks: Array[Dictionary] = []
 func _ready() -> void:
 	if not externally_managed: call_deferred("_run")
 
-func _run() -> void:
+func _prepare_campaign() -> bool:
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928, 11, 10, 20 * 60)
+	return true
+
+func _run() -> void:
+	if not _prepare_campaign():
+		get_tree().quit(1)
+		return
 	world = Runtime.instantiate()
 	add_child(world)
 	await get_tree().create_timer(0.5).timeout
@@ -53,8 +59,10 @@ func _run() -> void:
 		DirAccess.make_dir_recursive_absolute(directory)
 		var file := FileAccess.open(directory.path_join("route.json"), FileAccess.WRITE)
 		file.store_string(JSON.stringify({"failures": failures, "trace": trace}, "  "))
-		await RenderingServer.frame_post_draw
-		get_viewport().get_texture().get_image().save_png(directory.path_join("last_position.png"))
+		# The headless renderer draws no frames, so frame_post_draw never arrives.
+		if DisplayServer.get_name() != "headless":
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(directory.path_join("last_position.png"))
 	world.shutdown_for_tests()
 	remove_child(world)
 	world.free()

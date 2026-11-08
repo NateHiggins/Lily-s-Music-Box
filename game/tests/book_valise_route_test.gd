@@ -1,0 +1,216 @@
+extends "res://tests/carried_case_route_test.gd"
+## A real player hand, case input and isolated primary generation.
+
+const Book := preload("res://scripts/props/v2_readable_book.gd")
+
+
+func _init() -> void:
+	route_label = "BOOK VALISE ROUTE"
+
+
+func _route() -> void:
+	var view: Node = world.carried_case_view
+	var collections := get_tree().get_nodes_in_group("v2_library_collections")
+	var copies: Array[Book] = []
+	for collection: Node in collections:
+		for copy: Book in collection._books.values():
+			if copy.title_id == "missing" and copy.opening == 0.0:
+				copies.append(copy)
+	if not _require(copies.size() == 2 and copies[0].shelf == copies[1].shelf,
+			"the installed nook supplies two closed copies of the thickest binding"):
+		return
+	var original := copies[0]
+	var sibling := copies[1]
+	var collection := str(original.shelf.name)
+	var item := CarriedCase.library_item(collection, original.stock_id)
+	var sibling_item := CarriedCase.library_item(collection, sibling.stock_id)
+	var sibling_pose := sibling.transform
+	var path := "user://book_valise_%d.save" % OS.get_process_id()
+	RealityState.save_path = path
+	RealityState.persistence_enabled = true
+	var catalog := get_tree().get_first_node_in_group("newspaper_catalog") as NewspaperCatalog
+	if not _require(catalog != null and not catalog.papers.is_empty() and not catalog.issues.is_empty(),
+			"the original newspaper catalogue is available"):
+		return
+	var paper_id := str(catalog.papers.keys()[0])
+	var date := str(catalog.issues.keys()[0])
+	var news := NewspaperCatalog.key_of(paper_id, date)
+	if not _require(PersonInventory.carry_goods(PersonInventory.PLAYER, "route_tin", "Pipe tobacco", "tin") \
+			and catalog.collect_uncommitted(paper_id, date) and PaperPocket.tuck_news(news) \
+			and PaperPocket.tuck_comic("lilith_01") and PaperPocket.file_evidence("case_route", "A note", "A note in the case.") \
+			and RealityState.save_game(), "the isolated primary contains goods, a comic, a letter and a newspaper"):
+		return
+
+	# Use a clear station near the normal runtime spawn. Setup moves the
+	# original stock, then the ordinary player ray and click pick it up.
+	var camera_pose := player.camera.global_transform
+	original.global_transform = Transform3D(camera_pose.basis,
+		camera_pose * Vector3(0.0, 0.0, -0.62) - camera_pose.basis * original.pickup_centre())
+	original.shelf_slot = -1
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	player.use_primary_interaction()
+	if not _require(player.held_stock_body() == original, "ordinary player ray takes the original copy"):
+		return
+	RealityState.flush_background_saves()
+	var before := FileAccess.get_file_as_bytes(path)
+	var fault := {"hits": 0}
+	var refuse_case_write := func(stage: String, operation: String, arguments: Dictionary) -> Variant:
+		if stage != "temp_write" or operation != "write" or arguments.get("path") != path + ".tmp":
+			return null
+		var bytes: PackedByteArray = arguments.bytes
+		var candidate: Variant = JSON.parse_string(bytes.get_string_from_utf8())
+		if candidate is not Dictionary or not candidate.get(CarriedCase.KEY, {}).get("places", {}).has(item):
+			return null
+		fault.hits += 1
+		return {"ok":false, "error":ERR_FILE_CANT_WRITE}
+	RealityState.storage_operation_override = refuse_case_write
+	await _key(KEY_TAB)
+	RealityState.storage_operation_override = Callable()
+	if not _require(fault.hits == 1 and not view.opened and player.held_stock_body() == original \
+			and original.visible and CarriedCase.place_of(item).is_empty() \
+			and FileAccess.get_file_as_bytes(path) == before, "refused write retains the original hand and primary"):
+		return
+
+	await _key(KEY_TAB)
+	await get_tree().create_timer(0.65).timeout
+	if not _require(view.opened and view.settled and view._stacks.has(item) and original.valise_packed \
+			and not original.visible and player.held_stock_body() == null \
+			and sibling.visible and sibling.transform.is_equal_approx(sibling_pose) \
+			and CarriedCase.place_of(sibling_item).is_empty(), "Tab packs only the original copy"):
+		return
+	var cover: Label3D = view._stacks[item].find_child("CoverTitle", true, false)
+	if not _require(cover != null and cover.text == str(original.entry.title) and cover.is_visible_in_tree(),
+			"the case retains the original binding title"):
+		return
+	await _capture_interaction("original_copy_in_valise")
+	var place := CarriedCase.place_of(item).duplicate()
+	if not _require(int(place.x) > 0 and int(place.y) == 0 and not bool(place.turned) and view._papers.size() == 3,
+			"the thick binding uses a square beside the occupied comic pocket"):
+		return
+	await _key(KEY_TAB)
+	await _capture_interaction("occupied_valise_closing")
+	await get_tree().create_timer(0.45).timeout
+	await _key(KEY_TAB)
+	await get_tree().create_timer(0.65).timeout
+	var size := CarriedCase.form_size(str(place.form), bool(place.turned))
+	await _press(_screen(view, float(place.x) + size.x * 0.5, float(place.y) + size.y * 0.5))
+	var tin := CarriedCase.place_of("route_tin")
+	await _press(_screen(view, float(tin.x) + 0.5, float(tin.y) + 0.5))
+	if not _require(view.held_item == item and CarriedCase.place_of(item) == place,
+			"ordinary goods refuse an occupied placement and keep the book in the case hand"):
+		return
+	await _press(_pointer_free(view), MOUSE_BUTTON_RIGHT)
+	if not _require(view._held_turned != bool(place.turned), "ordinary turn input rotates the carried binding"):
+		return
+	var rotated_target := _pointer_free(view)
+	RealityState.flush_background_saves()
+	var before_move := FileAccess.get_file_as_bytes(path)
+	fault.hits = 0
+	RealityState.storage_operation_override = refuse_case_write
+	await _press(rotated_target)
+	RealityState.storage_operation_override = Callable()
+	if not _require(fault.hits == 1 and view.held_item == item and CarriedCase.place_of(item) == place \
+			and FileAccess.get_file_as_bytes(path) == before_move, "refused grid write keeps the prior square and case hand"):
+		return
+	await _press(rotated_target)
+	if not _require(view.held_item.is_empty(), "the rotated book can settle on legal cells"):
+		return
+	place = CarriedCase.place_of(item).duplicate()
+	await _key(KEY_TAB)
+	await get_tree().create_timer(0.45).timeout
+	RealityState.load_game()
+	await get_tree().physics_frame
+	# JSON numbers reopen as floats. Compare with the persisted form while
+	# retaining exact checks for the collection, physical copy and turn.
+	var persisted_place: Dictionary = JSON.parse_string(JSON.stringify(place))
+	var reloaded := _require(RealityState.can_continue(), "the saved book campaign reopens normally")
+	reloaded = _require(CarriedCase.place_of(item) == persisted_place,
+		"disk reload restores the original collection, copy and grid cells") and reloaded
+	reloaded = _require(original.valise_packed and not original.visible and sibling.visible,
+		"disk reload hides only the packed original body") and reloaded
+	reloaded = _require(PaperPocket.has_comic("lilith_01") and PaperPocket.transit_news() == news,
+		"disk reload preserves comic and newspaper custody") and reloaded
+	if not reloaded:
+		return
+	place = persisted_place
+	var retired_copy: WeakRef = weakref(original)
+	var retired_sibling: WeakRef = weakref(sibling)
+	var copy_id := original.stock_id
+	var sibling_id := sibling.stock_id
+	world.shutdown_for_tests()
+	remove_child(world)
+	world.free()
+	RealityState.reset_campaign_for_tests()
+	RealityState.load_game()
+	world = Runtime.instantiate()
+	add_child(world)
+	if not _require(not world.startup_failed and RealityState.can_continue(),
+			"the packed campaign reconstructs in a fresh production world"):
+		return
+	player = world.player
+	player.camera.make_current()
+	view = world.carried_case_view
+	original = world.household_state.packed_book(item)
+	if not _require(is_instance_valid(original) and original.stock_id == copy_id,
+			"the reconstructed case resolves the original physical copy identity"):
+		return
+	sibling = original.shelf.book_copy(sibling_id)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	if not _require(retired_copy.get_ref() == null and retired_sibling.get_ref() == null \
+			and original.valise_packed and not original.visible and sibling.visible \
+			and CarriedCase.place_of(item) == persisted_place,
+			"fresh reconstruction retires the old bodies and retains one packed copy"):
+		return
+
+	var obstruction := StaticBody3D.new()
+	var collider := CollisionShape3D.new()
+	var block := BoxShape3D.new()
+	block.size = Vector3(0.12, 0.12, 0.12)
+	collider.shape = block
+	obstruction.add_child(collider)
+	world.add_child(obstruction)
+	var eye := player.camera.global_transform
+	obstruction.global_position = original._hold_target(eye, false) + eye.basis * original.pickup_centre()
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	RealityState.flush_background_saves()
+	var observed := {"writes": 0, "custody_violations": 0}
+	# The live world can legitimately save clock, lamp and resident changes
+	# while the case closes. Every such generation must retain this copy.
+	RealityState.storage_operation_override = func(stage: String, operation: String, arguments: Dictionary) -> Variant:
+		if stage == "temp_write" and operation == "write" and arguments.get("path") == path + ".tmp":
+			observed.writes += 1
+			var bytes: PackedByteArray = arguments.bytes
+			var candidate: Dictionary = JSON.parse_string(bytes.get_string_from_utf8())
+			if candidate.get(CarriedCase.KEY, {}).get("places", {}).get(item, {}) != persisted_place:
+				observed.custody_violations += 1
+		return null
+	await _take_through_case(view, place)
+	RealityState.storage_operation_override = Callable()
+	RealityState.flush_background_saves()
+	var blocked_save: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not _require(player.held_stock_body() == null and original.valise_packed \
+			and CarriedCase.place_of(item) == place and observed.custody_violations == 0 \
+			and blocked_save[CarriedCase.KEY].places[item] == persisted_place,
+			"blocked handoff preserves packed custody and placement in every save"):
+		return
+	obstruction.queue_free()
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	await _take_through_case(view, place)
+	_require(player.held_stock_body() == original and original.visible and not original.valise_packed \
+		and CarriedCase.place_of(item).is_empty() and sibling.visible, "ordinary take-out restores the same native body")
+	await _capture_interaction("original_copy_returned_to_hand")
+
+
+func _take_through_case(view: Node, place: Dictionary) -> void:
+	await _key(KEY_TAB)
+	await get_tree().create_timer(0.65).timeout
+	if not _require(view.opened and view.settled, "case opens for the take-out input"):
+		return
+	var size := CarriedCase.form_size(str(place.form), bool(place.turned))
+	await _press(_screen(view, float(place.x) + size.x * 0.5, float(place.y) + size.y * 0.5))
+	await _press(_screen(view, float(place.x) + size.x * 0.5, CarriedCase.grid().y + 0.65))
+	await get_tree().create_timer(0.45).timeout

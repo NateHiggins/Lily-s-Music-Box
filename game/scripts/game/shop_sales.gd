@@ -71,6 +71,24 @@ func transact(item_id: String, shop: String) -> bool:
 	return clearing.settle_repeat(shop_id, item_id, int(record.cents), func(): return _deliver(record))
 
 
+## A sale whose goods are handed over by the caller (a paper into the case's transport slot, a comic into its
+## pocket): `hand_over` runs inside the settlement, after the stock is taken. If it refuses, the stock goes back and
+## the economy refunds, so stock, the exact debit and custody change together or not at all.
+func transact_delivering(item_id: String, shop: String, hand_over: Callable) -> bool:
+	if shop != shop_id or not hand_over.is_valid() or transaction_status(item_id) != "available":
+		return false
+	var record := catalogue.item(shop_id, item_id)
+	return clearing.settle_repeat(shop_id, item_id, int(record.cents), func():
+		if not _deliver(record):
+			return false
+		if bool(hand_over.call()):
+			return true
+		var group := str(record.get("group", ""))
+		if group != "":
+			stock.put_back(shop_id, group)
+		return false)
+
+
 func _deliver(record: Dictionary) -> bool:
 	if str(record.kind) == "post":
 		return MailOrders.post(str(record.order))

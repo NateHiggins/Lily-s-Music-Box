@@ -33,6 +33,8 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
+from tools.m11c1_floor01_owner_first import material_context
+
 from tools.rehearse_orison_floor01_partition import (  # noqa: E402
     AssetView,
     Canonicalizer,
@@ -341,6 +343,16 @@ def validate_generation_lineage(
                    for value in command)):
         raise OwnerFirstError("candidate producer command admits a protected asset input")
     _validate_expected_input_bindings(inputs, producer, expected_input_bindings)
+    if "material_context" in expected_input_bindings:
+        try:
+            material_context.validate_receipt(
+                producer.get("material_context", {}),
+                Path(expected_input_bindings["material_context"]["path"]),
+                REPO_ROOT, candidate.path.parent)
+        except (ValueError, OSError) as error:
+            raise OwnerFirstError(f"historical material context invalid: {error}") from error
+    elif producer.get("material_context") or inputs.get("material_context"):
+        raise OwnerFirstError("unsolicited historical material context")
     compatibility_inputs = producer.get("compatibility_texture_inputs")
     if not isinstance(compatibility_inputs, list) or len(compatibility_inputs) != 30:
         raise OwnerFirstError(
@@ -369,9 +381,12 @@ def validate_generation_lineage(
         if row.get("identity") != "LEGACY_COMPATIBILITY_TEXTURE_INPUT" \
                 or row.get("read_only") is not True:
             raise OwnerFirstError("compatibility texture identity/policy drifted")
-        if requested.is_file() and _sha256_file(requested) != _sha256_file(source):
+        if requested.is_file() and _sha256_file(requested) != _sha256_file(source) \
+                and not ("material_context" in expected_input_bindings and material_context.ignored_wall_cache(requested, REPO_ROOT)):
             raise OwnerFirstError(
                 f"authoring wall finish differs from compatibility source {requested}")
+        if "material_context" in expected_input_bindings and row.get("reason") != "PINNED_LEGACY_CONTEXT_TRACKED_WALL_INPUT":
+            raise OwnerFirstError("legacy material context must name the tracked wall input authority")
         if not source.is_file() or not staged.is_file():
             raise OwnerFirstError("compatibility source/staged file is missing")
         source_hash = _sha256_file(source)
@@ -1595,6 +1610,7 @@ def run_owner_first_export(
         *,
         prepare_output: bool = True,
         require_orchestrator_receipts: bool = False,
+        material_context_path: Path | None = None,
 ) -> dict[str, Any]:
     """Validate, split, receipt, and equivalence-check one candidate."""
 
@@ -1663,6 +1679,12 @@ def run_owner_first_export(
         "adapter": {
             "path": str(adapter_path), "sha256": _sha256_file(adapter_path)},
     }
+    if material_context_path is not None:
+        context_doc = json.loads(material_context_path.read_text(encoding="utf-8"))
+        if context_doc.get("compatible_floor01_sha256") != protected_before["gltf"]:
+            raise OwnerFirstError("historical material context targets a different protected asset")
+        expected_input_bindings["material_context"] = material_context.binding(material_context_path)
+        expected_input_bindings["material_context_reader"] = material_context.reader_binding()
     validated = validate_generation_lineage(
         candidate, candidate_lineage, catalog_by_locator,
         authoritative_layout, expected_input_bindings)
@@ -1726,6 +1748,9 @@ def run_owner_first_export(
         "adapter": _sha256_file(adapter_path),
         "exterior_regions": _sha256_file(exterior_regions_path),
     }
+    if material_context_path is not None:
+        authoritative_input_hashes["material_context"] = material_context.binding(material_context_path)["sha256"]
+        authoritative_input_hashes["material_context_reader"] = material_context.reader_binding()["sha256"]
     run_id = "M11C1-" + canonical_hash({
         "schema": SCHEMA_TRANSACTION,
         "disposable_root": str(output_root),
@@ -1826,6 +1851,9 @@ def run_owner_first_export(
         "adapter": expected_input_bindings["adapter"]["sha256"],
         "exterior_regions": exterior_regions_before,
     }
+    if material_context_path is not None:
+        expected_authoritative["material_context"] = expected_input_bindings["material_context"]["sha256"]
+        expected_authoritative["material_context_reader"] = expected_input_bindings["material_context_reader"]["sha256"]
     if authoritative_after != expected_authoritative:
         raise OwnerFirstError("authoritative inputs changed during disposable export")
 
@@ -1905,6 +1933,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--adapter", type=Path, required=True)
     parser.add_argument("--exterior-regions", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--material-context", type=Path)
     return parser.parse_args(argv)
 
 
@@ -1921,6 +1950,7 @@ def main(argv: list[str] | None = None) -> int:
             args.adapter,
             args.exterior_regions,
             args.output,
+            material_context_path=args.material_context,
         )
     except (OwnerFirstError, OSError, ValueError) as error:
         print(f"M11C1 OWNER-FIRST EXPORT FAIL: {error}", file=sys.stderr)

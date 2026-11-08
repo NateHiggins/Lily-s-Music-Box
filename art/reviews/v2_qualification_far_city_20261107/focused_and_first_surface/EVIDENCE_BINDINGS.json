@@ -1,0 +1,235 @@
+{
+  "evidence_class": "INERT",
+  "human_played": false,
+  "artistically_accepted": false,
+  "scope": "Focused compile, posed views and live motion/clock review plus original failed surface custody",
+  "sources": {
+    "base": "3fb73fc63925e26b82a20f3ef4c2541c2b62353d",
+    "focused_head": "b78ed2389f430b4693129d81d92fa4b2ed2ffd32",
+    "retry_head": "9a3bd953e21f3b3ab280e87bc7e24d0d01ce2d89",
+    "game_tree": "294675e258e3c9daffafbd196d9d66e793872a7a",
+    "game_tree_byte_identical": true,
+    "changed_paths": [
+      "tools/audit_v2_surfaces.py",
+      "tools/tests/test_v2_surface_requirements.py"
+    ],
+    "engine_sha256": "7965e75a4f847484a4d1596729b508cb1ef23ae17ab6407eaffd9683364f0f8c",
+    "focus_freeze": {
+      "path": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\SOURCE_FREEZE.json",
+      "sha256": "fe68166de12d205c938477ec6d22237a8d905027930272ac87242ff0424b0ec8",
+      "head": "b78ed2389f430b4693129d81d92fa4b2ed2ffd32",
+      "batch_sha256": "c5e4f1885d9856b342552248052908713e422b4f244797e4baaa9d5f6dc455bb",
+      "files": 11363,
+      "verified_guard_phases": [
+        "before",
+        "after"
+      ]
+    },
+    "failed_surface_freeze": {
+      "path": "C:\\ov\\reports\\city_finish_20261107\\integration_original_01\\SOURCE_FREEZE.json",
+      "sha256": "b4f34267e80df2c584125fcfe0725335b14e96ced9037e41286e4033936aa8bb",
+      "head": "b78ed2389f430b4693129d81d92fa4b2ed2ffd32",
+      "batch_sha256": "a2dddbccf7ef54b6464945463b135c24b7bead5c2f2c9021da268d7f8219ffbf",
+      "files": 11363,
+      "verified_guard_phases": [
+        "before",
+        "after"
+      ]
+    },
+    "retry_freeze": {
+      "path": "C:\\ov\\reports\\city_finish_20261107\\integration_original_02\\SOURCE_FREEZE.json",
+      "sha256": "e305fa9b4484b453c24a1a516836d13df7691b3b05a25808084864a317cdb11b",
+      "head": "9a3bd953e21f3b3ab280e87bc7e24d0d01ce2d89",
+      "batch_sha256": "9eaa68172a6ebc9f7739f72858169a44ef37621a2753844af81b723b0ab6cc99",
+      "files": 11365,
+      "verified_guard_phases": [
+        "before"
+      ]
+    }
+  },
+  "runtime_inputs_sha256": "6ba2907bd6ad629f37f214f70eb93de86c945a2335ebe651682fc55efa6dc44e",
+  "focused": {
+    "compile_scripts": 7,
+    "authenticated_native_frames": 30,
+    "prologue_checks": 122,
+    "motion_and_clock_checks": [
+      "a mounted bridge lamp advances across ordinary process frames",
+      "actual cinematic cleanup immediately restores the far facades to campaign time",
+      "at least one loaded elevated car is on the span",
+      "far facades hold the distinct borrowed minute before cancellation",
+      "installed far districts mount in the waking world",
+      "loaded bridge lamps, elevated cars and tug exist before cinematic freeze",
+      "mounted far facades follow the borrowed roof clock at 12.0",
+      "mounted far facades follow the borrowed roof clock at 17.75",
+      "ordinary distant motion leaves the held campaign clock exact",
+      "the mounted tug advances across ordinary process frames",
+      "the selected elevated car advances along the span across ordinary process frames"
+    ]
+  },
+  "first_surface_failure": {
+    "original_result": "FAIL",
+    "checks": 38947,
+    "failing_surfaces": 3,
+    "original_inventory": "C:\\ov\\reports\\city_finish_20261107\\integration_original_01\\surface\\surface-inventory.json",
+    "original_inventory_sha256": "870d93048408323e6a57de18e2db02b7fdd15443b85ed0c3004544e342289e9e",
+    "surface_inputs_sha256": "80ee40600d888d7389e5e7bda884826115e6735bda528633738ed7aca6de6055",
+    "replay_result": "PASS_TECHNICAL_ONLY",
+    "replay_new_optical_classes": {
+      "FarDistricts/FarMotion/BridgeLamps:0": "distant_bridge_lamp_points",
+      "FarDistricts/FarMotion/ElWindows:0": "distant_el_light_strips",
+      "FarDistricts/FarMotion/ChimneySmoke:0": "distant_chimney_smoke"
+    }
+  },
+  "files": {
+    "first_surface_failure/GUARD_after.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_original_01\\GUARD_after.json",
+      "sha256": "83fb7360bfd1dc3f7b954a66c71af237c8b72f0d06eac1d3449034b088a15508",
+      "bytes": 104,
+      "raw_sha256": "83fb7360bfd1dc3f7b954a66c71af237c8b72f0d06eac1d3449034b088a15508"
+    },
+    "first_surface_failure/GUARD_before.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_original_01\\GUARD_before.json",
+      "sha256": "83fb7360bfd1dc3f7b954a66c71af237c8b72f0d06eac1d3449034b088a15508",
+      "bytes": 104,
+      "raw_sha256": "83fb7360bfd1dc3f7b954a66c71af237c8b72f0d06eac1d3449034b088a15508"
+    },
+    "first_surface_failure/TERMINAL.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_original_01\\TERMINAL.json",
+      "sha256": "8d0c86828ba7ed2884dd04de9ffaec8d0a5cf1ed16d8ddcd196321d81f2b54db",
+      "bytes": 102,
+      "raw_sha256": "8d0c86828ba7ed2884dd04de9ffaec8d0a5cf1ed16d8ddcd196321d81f2b54db"
+    },
+    "first_surface_failure/replayed_surface_audit.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_controls\\replayed_surface_audit.json",
+      "sha256": "8513212f7ff6f6ff5bba56c9b910cc9b2cb87e21c643f0a520c49af0ee70f898",
+      "bytes": 40882,
+      "raw_sha256": "8513212f7ff6f6ff5bba56c9b910cc9b2cb87e21c643f0a520c49af0ee70f898"
+    },
+    "first_surface_failure/runtime_contract.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_original_01\\surface\\runtime_contract.json",
+      "sha256": "aca789ca4c6cebc7bdc34b06464185685784c6fa0766315ef2f56a83fd5f90bd",
+      "bytes": 2399,
+      "raw_sha256": "aca789ca4c6cebc7bdc34b06464185685784c6fa0766315ef2f56a83fd5f90bd"
+    },
+    "first_surface_failure/suite_run.receipt.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_original_01\\surface.log.receipt.json",
+      "sha256": "271b71e35e56b06e484bd447e30784641bc0d6718504e740f7cc851d0118b6bb",
+      "bytes": 1836,
+      "raw_sha256": "271b71e35e56b06e484bd447e30784641bc0d6718504e740f7cc851d0118b6bb"
+    },
+    "first_surface_failure/suite_run.stderr.log.gz": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_original_01\\surface.log.stderr",
+      "sha256": "c26b04e8dcf32df61c0b8026563fe363b9086cbf7a3efedbe824263be52342ea",
+      "bytes": 781,
+      "raw_sha256": "fb842e3b18f711b1d4948a8353dcb618a5303f01e82ab07124f07869407cb820"
+    },
+    "first_surface_failure/suite_run.stdout.log.gz": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_original_01\\surface.log",
+      "sha256": "4e9ec3929bd692fbcddb3c3dbcd260dd760720a1bf41fd121a9ae547c5094cb3",
+      "bytes": 2301,
+      "raw_sha256": "3683c1304f0ac9ca47db0771ab8dd7a3b192e31cfa271379391aec13db63d006"
+    },
+    "first_surface_failure/technical_findings.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_original_01\\surface\\technical_findings.json",
+      "sha256": "ef0c25dd9f0948828844e6a7c26265ac84127e960d00a71d468b60f7dc742d9f",
+      "bytes": 41721,
+      "raw_sha256": "ef0c25dd9f0948828844e6a7c26265ac84127e960d00a71d468b60f7dc742d9f"
+    },
+    "focused/FOCUSED_ADMISSION.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_original_01\\FOCUSED_ADMISSION.json",
+      "sha256": "80a4af15704c57ff41e6a9efb5416981e56cfb053b6e1df58362ba235ac4c370",
+      "bytes": 852,
+      "raw_sha256": "80a4af15704c57ff41e6a9efb5416981e56cfb053b6e1df58362ba235ac4c370"
+    },
+    "focused/GUARD_after.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\GUARD_after.json",
+      "sha256": "83fb7360bfd1dc3f7b954a66c71af237c8b72f0d06eac1d3449034b088a15508",
+      "bytes": 104,
+      "raw_sha256": "83fb7360bfd1dc3f7b954a66c71af237c8b72f0d06eac1d3449034b088a15508"
+    },
+    "focused/GUARD_before.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\GUARD_before.json",
+      "sha256": "83fb7360bfd1dc3f7b954a66c71af237c8b72f0d06eac1d3449034b088a15508",
+      "bytes": 104,
+      "raw_sha256": "83fb7360bfd1dc3f7b954a66c71af237c8b72f0d06eac1d3449034b088a15508"
+    },
+    "focused/TERMINAL.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\TERMINAL.json",
+      "sha256": "11adec96e721018706cbafa42a525b5bd37306f500c5feebee99f4111bfaf02e",
+      "bytes": 102,
+      "raw_sha256": "11adec96e721018706cbafa42a525b5bd37306f500c5feebee99f4111bfaf02e"
+    },
+    "focused/compile/suite_run.receipt.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\compile.log.receipt.json",
+      "sha256": "2674dfd668a740dde1c94434ce39b317ceb720bf31fb05dcf7faac90b73d949b",
+      "bytes": 1709,
+      "raw_sha256": "2674dfd668a740dde1c94434ce39b317ceb720bf31fb05dcf7faac90b73d949b"
+    },
+    "focused/compile/suite_run.stderr.log.gz": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\compile.log.stderr",
+      "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+      "bytes": 20,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "focused/compile/suite_run.stdout.log.gz": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\compile.log",
+      "sha256": "ffb477866f99f17a7e7f28d350d106083b2193ed16631c74423279afd553357d",
+      "bytes": 287,
+      "raw_sha256": "359d45b2e0133fc0c45f9fc854e788e42333cf92c3335435c629413331abebae"
+    },
+    "focused/prologue/review.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\prologue\\review.json",
+      "sha256": "c9551c5d6d7929ede1e4906331fb46d08a07920c74e5500dc208ad48d9104d0b",
+      "bytes": 12992,
+      "raw_sha256": "c9551c5d6d7929ede1e4906331fb46d08a07920c74e5500dc208ad48d9104d0b"
+    },
+    "focused/prologue/suite_run.receipt.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\prologue.log.receipt.json",
+      "sha256": "86e0acceefa850cdf58b0512543928e900e68aaf6ca4199735ea91cd4b2d9e7b",
+      "bytes": 5330,
+      "raw_sha256": "86e0acceefa850cdf58b0512543928e900e68aaf6ca4199735ea91cd4b2d9e7b"
+    },
+    "focused/prologue/suite_run.stderr.log.gz": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\prologue.log.stderr",
+      "sha256": "ecd3f1a72e26f664408c146711b784dbd0018c88bc1cb9b9ec902355142ca40c",
+      "bytes": 686,
+      "raw_sha256": "3c158c7fab99e55bc57dcfde38ab746bf6ef5b56fa0c7bda35da64ec1fed7a7c"
+    },
+    "focused/prologue/suite_run.stdout.log.gz": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\prologue.log",
+      "sha256": "c8fa731cc2c30cd03b8f096c7378cdbd41b70929046cce99fd7d65e8303deff7",
+      "bytes": 3871,
+      "raw_sha256": "62c0086c4a0b230fc057798d74b09a8f0969857a0e8413e1daf045831f69ac09"
+    },
+    "focused/views/VIEW_REVIEW.md": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\VIEW_REVIEW.md",
+      "sha256": "9a0d7362208c7580a28c4abd0845f8df3507481ab5d88ac5e77bbb88fcaa961c",
+      "bytes": 2166,
+      "raw_sha256": "9a0d7362208c7580a28c4abd0845f8df3507481ab5d88ac5e77bbb88fcaa961c"
+    },
+    "focused/views/far_district_review.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\views\\far_district_review.json",
+      "sha256": "26478a24e7749f63528ef7b1937a1c89a49b64f4e9c71cca3bfad5d3e31a5a92",
+      "bytes": 18202,
+      "raw_sha256": "26478a24e7749f63528ef7b1937a1c89a49b64f4e9c71cca3bfad5d3e31a5a92"
+    },
+    "focused/views/suite_run.receipt.json": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\views.log.receipt.json",
+      "sha256": "f45821a43eee5eebe00258205d1655f151bf22c776ee691090c80486d40cc996",
+      "bytes": 1693,
+      "raw_sha256": "f45821a43eee5eebe00258205d1655f151bf22c776ee691090c80486d40cc996"
+    },
+    "focused/views/suite_run.stderr.log.gz": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\views.log.stderr",
+      "sha256": "7f15ea15f2b0289187e2ba6b7cce95916ff0b5287160a156a9c7099410ed49e9",
+      "bytes": 685,
+      "raw_sha256": "176d52672756d6eccbcb1972cc2b9dbbbc401764182eb410f55c63b6d965e246"
+    },
+    "focused/views/suite_run.stdout.log.gz": {
+      "source": "C:\\ov\\reports\\city_finish_20261107\\integration_native_01\\views.log",
+      "sha256": "cf6d67fc148054e6224946e0746e857e98ab077af098403e04f30097adb40998",
+      "bytes": 1788,
+      "raw_sha256": "431ef85aeea268cefcc747737118a4112eb0a7d3f24a0f424e9567fb098fc877"
+    }
+  }
+}

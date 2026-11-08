@@ -91,6 +91,7 @@ func run() -> void:
 					var texture: Texture2D = draw.material_override.get_shader_parameter(key)
 					check(texture != null and texture.get_image().has_mipmaps(), "installed optical map has loaded mips " + key)
 			var source: Mesh = draw.get_meta("v2_window_source_mesh", null)
+			check(int(draw.mesh.get_meta("optical_faces", 0)) > 0, "window partition has projected panes " + str(draw.name))
 			check(source != null, "original physical pane retained")
 			if source != null:
 				var before := source.surface_get_arrays(0)
@@ -99,7 +100,15 @@ func run() -> void:
 					check(before[channel] == after[channel], "physical array retained %d" % channel)
 				check(RenderingServer.mesh_get_surface(source.get_rid(), 0).get("lods", []) == RenderingServer.mesh_get_surface(draw.mesh.get_rid(), 0).get("lods", []), "LOD index bytes retained")
 			bindings += 1
-	check(bindings > 50, "background windows installed across the city")
+	check(bindings - near_bindings == 124, "all 124 horizon building window partitions installed")
+	var optical_clock := preload("res://scripts/game/prologue_temporal_sky.gd").RenderClock.new()
+	check(optical_clock.seek_utc(Time.get_unix_time_from_datetime_string("1929-02-25T19:07:00")), "detached weekday window sample")
+	var saved_clock: Dictionary = RealityState.data.campaign_clock.duplicate(true)
+	city.project_window_clock(optical_clock)
+	check_window_clock(city, horizon, optical_clock)
+	city.project_window_clock(clock)
+	check_window_clock(city, horizon, clock)
+	check(saved_clock == RealityState.data.campaign_clock, "window projection leaves saved campaign time intact")
 	check(near_bindings == 25, "all twenty-five neighbouring building window partitions installed")
 	for draw: MeshInstance3D in world.find_children("*", "MeshInstance3D", true, false):
 		if city.is_ancestor_of(draw) or draw.mesh == null: continue
@@ -129,6 +138,16 @@ func run() -> void:
 	world.free()
 	await get_tree().physics_frame
 	finish()
+
+func check_window_clock(city: Node3D, horizon: Node3D, clock: CampaignClock) -> void:
+	var expected_weekend := str(clock.day_info().day) in ["sat", "sun"]
+	for bank: Node3D in [city, horizon]:
+		if bank == null: continue
+		check(not bank._window_materials.is_empty(), "window material bank present " + str(bank.name))
+		for material: ShaderMaterial in bank._window_materials.values():
+			check(is_equal_approx(float(material.get_shader_parameter("minute_of_day")), clock.minute_of_day())
+				and material.get_shader_parameter("weekend") == expected_weekend,
+				"window clock and weekday projected for " + str(bank.name))
 
 func run_composed(world: OrisonV2RuntimeRoot, host: Node) -> Dictionary:
 	# Caller sets externally_managed before adding this helper. Never construct

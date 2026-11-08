@@ -2,6 +2,20 @@ extends Node
 ## A bounded presentation clip, never an intermediate campaign/weather writer.
 signal finished(completed:bool)
 const DURATION:=32.0
+const ROOF_START := 8.0
+const RAMP_END := 15.5
+const ARRIVAL_START := 23.0
+const ARRIVAL_END := 29.5
+const DAY_SECONDS := 86400.0
+const MONTAGE := [
+	["striated_supercell", "1929-07-19"],
+	["aurora", "1928-12-14"],
+	["overshooting_top", "1929-06-25"],
+	["kelvin_helmholtz", "1929-02-06"],
+	["noctilucent", "1929-07-03"],
+]
+const MONTHS := ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"]
+const WEEKDAYS := ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"]
 const State:=preload("res://scripts/game/prologue_state.gd")
 const Living:=preload("res://scripts/building/living_sky.gd")
 const Calendar:=preload("res://scripts/game/campaign_weather.gd")
@@ -42,7 +56,15 @@ var sample_costs:Array=[]
 var finish_costs:Dictionary={}
 var source_utc:=0.0
 var destination_utc:=0.0
-var _travel_destination:=0.0
+var _montage_utc: Array[float] = []
+var _spectacle_levels := PackedFloat32Array()
+var _spectacle_bearings := PackedFloat32Array()
+var _arrival_caption: Label
+var _roof_eye := Vector3.ZERO
+var _city: Node
+var _far_districts: Node
+var _midground: Node
+var _optical_minute := INF
 var view_clock:=RenderClock.new()
 var _campaign:Dictionary
 var _completion:Callable
@@ -79,30 +101,50 @@ func _init() -> void:
 	process_mode=Node.PROCESS_MODE_ALWAYS
 	set_process(false);set_process_unhandled_input(false)
 
-static func time_at(seconds:float,source:float,destination:float) -> float:
-	var span:=absf(destination-source)
-	if span<.00001:return destination
-	if seconds<=2:return source
-	if seconds>=30:return destination
-	var u:=(seconds-2.0)/28.0
-	# Integrate one speed envelope: log(speed) is a smooth parabola, rather
-	# than stopping at every date knot. Subtract its tiny endpoint speed so
-	# the two-second holds join at rest. Span controls the orders of magnitude.
-	var k:=clampf(4.0*log(maxf(1.0,span/28.0)),12.0,96.0)
-	var root:=sqrt(k)
-	var base:=exp(-k*.25)
-	var end_tail:=_erfc(root*.5)
-	var width:=sqrt(PI/k)
-	# Integrate from the nearer end to retain seconds at a century's end.
-	var near_end:=minf(u,1.0-u)
-	var area:=.5*width*(_erfc(root*(.5-near_end))-end_tail)-base*near_end
-	var fraction:=clampf(area/(width*(_erfc(0)-end_tail)-base),0,.5)
-	return lerpf(source,destination,fraction if u<=.5 else 1.0-fraction)
+static func time_at(seconds: float, source: float, destination: float, montage: Array[float]) -> float:
+	if seconds < RAMP_END:
+		var ramp := clampf((seconds - ROOF_START) / (RAMP_END - ROOF_START), 0., 1.)
+		return source + DAY_SECONDS * pow(ramp, 2.4)
+	if seconds < ARRIVAL_START:
+		var stage := (seconds - RAMP_END) / (ARRIVAL_START - RAMP_END) * montage.size()
+		var index := clampi(floori(stage), 0, montage.size() - 1)
+		return montage[index] + (fposmod(stage, 1.) - .5) * 48.
+	var arrival := clampf((seconds - ARRIVAL_START) / (ARRIVAL_END - ARRIVAL_START), 0., 1.)
+	return destination - DAY_SECONDS * pow(1. - arrival, 2.4)
 
-static func _erfc(x:float) -> float:
-	# Complementary Gaussian integral; x>=0. Bounded, no per-frame quadrature.
-	var t:=1.0/(1.0+.5*x)
-	return t*exp(-x*x-1.26551223+t*(1.00002368+t*(.37409196+t*(.09678418+t*(-.18628806+t*(.27886807+t*(-1.13520398+t*(1.48851587+t*(-.82215223+t*.17087277)))))))))
+func _bind_montage() -> bool:
+	_montage_utc.clear()
+	for wanted: Array in MONTAGE:
+		for entry: Dictionary in manager.schedule.occurrences:
+			if entry.id != wanted[0] or entry.date != wanted[1]: continue
+			var local_midnight := Time.get_unix_time_from_datetime_string(str(entry.date) + "T00:00:00")
+			var local_minute := fposmod(float(entry.start), 1440.) + (float(entry.end) - float(entry.start)) * .5
+			_montage_utc.append(float(local_midnight) + 18000. + local_minute * 60.)
+			break
+	return _montage_utc.size() == MONTAGE.size()
+
+static func arrival_text(utc: float) -> String:
+	var local := Time.get_datetime_dict_from_unix_time(int(floor(utc)) - 18000)
+	var hour := int(local.hour)
+	return "ORISON, QUEENS\n%s, %s %d, %d  /  %d:%02d %s" % [WEEKDAYS[int(local.weekday)],
+		MONTHS[int(local.month) - 1], local.day, local.year, (hour - 1 + 12) % 12 + 1, local.minute,
+		"AM" if hour < 12 else "PM"]
+
+func _build_arrival_caption(layer: CanvasLayer) -> void:
+	_arrival_caption = Label.new()
+	layer.add_child(_arrival_caption)
+	var viewport_size := get_viewport().get_visible_rect().size
+	_arrival_caption.anchor_left = .061; _arrival_caption.anchor_right = .061
+	_arrival_caption.anchor_top = .79; _arrival_caption.anchor_bottom = .79
+	_arrival_caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_arrival_caption.text = arrival_text(destination_utc)
+	_arrival_caption.add_theme_font_override("font", TelegramStyle.BOLD_FONT)
+	_arrival_caption.add_theme_font_size_override("font_size", maxi(16, roundi(viewport_size.y * .030)))
+	_arrival_caption.add_theme_color_override("font_color", Color(.45, 1., .65))
+	_arrival_caption.add_theme_color_override("font_shadow_color", Color(.012, .026, .017, .95))
+	_arrival_caption.add_theme_constant_override("shadow_offset_x", 2)
+	_arrival_caption.add_theme_constant_override("shadow_offset_y", 2)
+	_arrival_caption.hide()
 
 func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Callable()) -> bool:
 	if active or get_tree().paused or not is_instance_valid(owner_world) or not completion.is_valid():return _refuse("active, paused or missing owner/completion")
@@ -120,7 +162,13 @@ func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Ca
 	if not clock.bind_state():return _refuse("campaign clock refused binding")
 	source_utc=State.wrap_loop_utc(Calendar.clock_seconds(clock)+18000.0)
 	destination_utc=float(State.annual_destination(opening.target).utc_unix_seconds)
-	_travel_destination=State.showcase_end(source_utc,destination_utc)
+	if not resuming and not _bind_montage(): return _refuse("missing authored sky events for the rooftop montage")
+	# Surveyed northwest telescope station, plus the original player's eye height.
+	_roof_eye = world.adapter.root.to_global(Vector3(-11., 19.2702503 + 1.60, 6.))
+	_city = world.get_node_or_null("CityShells")
+	_far_districts = world.find_child("FarDistricts", true, false)
+	_midground = world.find_child("Midground", true, false)
+
 	if not view_clock.seek_utc(destination_utc):return _refuse("detached clock refused destination")
 	if not player.acquire_text_input(self):return _refuse("player input lease refused: protected=%s inspection=%s mouse_released=%s owner=%s"%[player.protected_input_active(),player.inspecting(),player.mouse_released,str(player.text_input_owner)])
 	_campaign=RealityState.data;_completion=completion;_cutaway_completion=cutaway_completion;_old_mode=world.process_mode
@@ -151,6 +199,7 @@ func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Ca
 	var layer:=CanvasLayer.new();layer.layer=80;add_child(layer)
 	_veil=ColorRect.new();layer.add_child(_veil);_veil.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_veil.mouse_filter=Control.MOUSE_FILTER_IGNORE;_veil.color=Color(0,0,0,0)
+	_build_arrival_caption(layer)
 	if resuming:
 		holding=true
 		if _start_cutaway():return true
@@ -198,7 +247,7 @@ func _find_window() -> bool:
 func seek(seconds:float) -> void:
 	if not active or not is_finite(seconds):return
 	age=clampf(seconds,0,DURATION)
-	sampled_utc=destination_utc if age>=30 else State.wrap_loop_utc(time_at(age,source_utc,_travel_destination))
+	sampled_utc = State.wrap_loop_utc(time_at(age, source_utc, destination_utc, _montage_utc))
 	if not view_clock.seek_utc(sampled_utc):cancel();return
 	if _carrier.rig.temporal_register != null:
 		var register:Node=_carrier.rig.temporal_register
@@ -218,6 +267,15 @@ func seek(seconds:float) -> void:
 	var aim:=Basis.looking_at((_outward+Vector3.UP*lerpf(.03,.55,rising)).normalized(),Vector3.UP)
 	camera.global_transform=Transform3D(start_view.basis.slerp(aim,entering),at)
 	camera.near=lerpf(_old_camera.near,.002,smoothstep(4,5,age)*(1-smoothstep(6.2,8.0,age)))
+	camera.fov = _old_camera.fov
+	if age >= ROOF_START:
+		var pan := smoothstep(ROOF_START, DURATION, age)
+		var bearing := deg_to_rad(lerpf(309., 338., pan))
+		var skyline := Vector3(sin(bearing), .085, -cos(bearing))
+		camera.global_transform = Transform3D(Basis.looking_at(skyline), _roof_eye)
+		camera.fov = 78.
+	_arrival_caption.visible = age >= ARRIVAL_END and not was_skipped
+	_arrival_caption.visible_ratio = clampf((age - ARRIVAL_END) / .93, 0., 1.)
 	if age>=4.0:
 		if not _view_departed:
 			if not _old_camera.is_current() and not camera.is_current():cancel();return
@@ -228,7 +286,7 @@ func seek(seconds:float) -> void:
 	# Reduced-flash presentation still protects against rapid day/night cycles.
 	_veil.color.a=(smoothstep(4,6,age)*(1-smoothstep(29,31,age))) if _quiet else 0.0
 	# Bounded morphology/ephemeris work, independent of elapsed campaign days.
-	if (sampled_utc!=_published_utc or camera.global_position!=_published_camera) and (age-_publish_age>=.05 or age<_publish_age or (age>=30 and _publish_age<30)):
+	if (sampled_utc!=_published_utc or camera.global_position!=_published_camera) and (age-_publish_age>=.05 or age<_publish_age or (age>=ARRIVAL_END and _publish_age<ARRIVAL_END)):
 		_publish_age=age;_published_utc=sampled_utc;_published_camera=camera.global_position;_publish()
 	if age>=DURATION:_finish()
 
@@ -236,7 +294,26 @@ func _publish() -> void:
 	var started:int=Time.get_ticks_usec() if profile_samples else 0
 	var date:=view_clock.local_datetime()
 	var authored:=Calendar.snapshot(date)
-	var conditions:=Weather.Service.presentation(authored if not authored.is_empty() else Weather.seasonal_snapshot(date))
+	var weather_sample: Dictionary = authored if not authored.is_empty() else Weather.seasonal_snapshot(date)
+	var scheduled: Array[Dictionary] = manager.schedule.active_at(view_clock.calendar_minutes())
+	if not scheduled.is_empty(): weather_sample = weather_sample.duplicate()
+	if _spectacle_levels.is_empty():
+		_spectacle_levels.resize(Weather.Phenomena.SLOTS)
+		_spectacle_bearings.resize(Weather.Phenomena.SLOTS)
+	_spectacle_levels.fill(0.)
+	_spectacle_bearings.fill(0.)
+	for entry: Dictionary in scheduled:
+		# Detached cuts reuse scheduled morphology. No live weather dispatch or
+		# electrical flashes are needed to sell the jumps in time.
+		if entry.flash: continue
+		var slot := int(entry.slot)
+		_spectacle_levels[slot] = float(entry.level)
+		_spectacle_bearings[slot] = float(entry.bearing)
+		if float(entry.level) >= .8: weather_sample.merge(entry.weather, true)
+	var conditions:=Weather.Service.presentation(weather_sample)
+	manager.sky.set_shader_parameter("spectacle", _spectacle_levels)
+	manager.sky.set_shader_parameter("spectacle_bearing", _spectacle_bearings)
+	manager.sky.set_shader_parameter("spectacle_time", sampled_utc - State.LOOP_START_UTC)
 	# Every detached sample is in the authored year; no modern-year weather proxy.
 	conditions.season_weights=Weather.season_weights(int(date.month),int(date.day))
 	var shape:=Living.sample(date,conditions,manager._seed_value())
@@ -256,6 +333,12 @@ func _publish() -> void:
 	manager.sky.set_shader_parameter("season_weights",conditions.season_weights)
 	manager.sky.set_shader_parameter("humidity",float(conditions.relative_humidity))
 	manager.sky.set_shader_parameter("storm_strength",float(conditions.precipitation_intensity))
+	var minute := floorf(view_clock.calendar_minutes())
+	if age >= ROOF_START and minute != _optical_minute and is_instance_valid(_city):
+		_optical_minute = minute
+		_city.project_window_clock(view_clock)
+		if is_instance_valid(_far_districts): _far_districts.project_clock(view_clock)
+		if is_instance_valid(_midground): _midground.project_clock(view_clock)
 	publications+=1
 	if profile_samples and sample_costs.size()<4096:sample_costs.append([age,sampled_utc,(Time.get_ticks_usec()-started)/1000.0])
 
@@ -278,6 +361,7 @@ func _finish() -> void:
 	if _cutaway_completion.is_valid():
 		active=false;holding=true;set_process(false);set_process_unhandled_input(false)
 		var accepted:bool=_completion.call() if _completion.is_valid() else false
+		if is_instance_valid(_arrival_caption): _arrival_caption.hide()
 		if accepted and holding and _start_cutaway():
 			if profile_samples:finish_costs["handoff_ms"]=(Time.get_ticks_usec()-began)/1000.0
 			finished.emit(true);return
@@ -332,6 +416,11 @@ func _cleanup() -> void:
 	if is_instance_valid(director):
 		director._campaign_clock=_old_clock;director._live_conditions=_old_conditions;director.extreme_weather=_old_extreme
 		director._apply(_old_clock.minute_of_day())
+	if is_instance_valid(_city) and _optical_minute != INF and is_instance_valid(_old_clock):
+		_city.project_window_clock(_old_clock)
+		if is_instance_valid(_far_districts): _far_districts.project_clock(_old_clock)
+		if is_instance_valid(_midground): _midground.project_clock(_old_clock)
+	_optical_minute = INF
 	var lighting:int=Time.get_ticks_usec() if profile_samples else 0
 	if is_instance_valid(manager):
 		for parameter:String in _old_parameters:manager.sky.set_shader_parameter(parameter,_old_parameters[parameter])

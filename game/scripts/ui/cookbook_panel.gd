@@ -19,8 +19,12 @@ var larder: KitchenLarder
 var dish_id := ""
 var _player: Node
 var _on_close: Callable = Callable()
+var _layout: BoxContainer
+var _scroll: ScrollContainer
+var _margin: MarginContainer
 var _page: VBoxContainer
 var _contents: ItemList
+var _reading_scale := 1.0
 var _ids: Array[String] = []
 var _bold: FontVariation
 var _italic: FontVariation
@@ -54,20 +58,17 @@ func _build() -> void:
 	bg.color = Color(0.05, 0.045, 0.04, 0.96)
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(bg)
-	var row := HBoxContainer.new()
-	row.name = "Row"
-	row.set_anchors_preset(Control.PRESET_FULL_RECT)
-	row.add_theme_constant_override("separation", 0)
-	add_child(row)
+	_layout = BoxContainer.new()
+	_layout.name = "Row"
+	_layout.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_layout.add_theme_constant_override("separation", 0)
+	add_child(_layout)
 	_contents = ItemList.new()
 	_contents.name = "Contents"
-	_contents.custom_minimum_size = Vector2(330, 0)
-	_contents.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_contents.add_theme_font_override("font", SERIF)
-	_contents.add_theme_font_size_override("font_size", 16)
 	_contents.item_selected.connect(_on_selected)
 	_contents.item_activated.connect(_on_selected)
-	row.add_child(_contents)
+	_layout.add_child(_contents)
 	_contents.add_item("Foreword")
 	_ids.append("")
 	for dish: Dictionary in larder.cookbook.dishes:
@@ -78,21 +79,38 @@ func _build() -> void:
 	sheet.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	sheet.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	sheet.add_theme_stylebox_override("panel", TelegramStyle.paper_panel())
-	row.add_child(sheet)
-	var scroll := ScrollContainer.new()
-	scroll.name = "Scroll"
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	sheet.add_child(scroll)
-	var margin := MarginContainer.new()
-	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	for side in ["left", "right", "top", "bottom"]:
-		margin.add_theme_constant_override("margin_" + side, MARGIN)
-	scroll.add_child(margin)
+	_layout.add_child(sheet)
+	_scroll = ScrollContainer.new()
+	_scroll.name = "Scroll"
+	_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	sheet.add_child(_scroll)
+	_margin = MarginContainer.new()
+	_margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_scroll.add_child(_margin)
 	_page = VBoxContainer.new()
 	_page.name = "Page"
 	_page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_page.add_theme_constant_override("separation", 8)
-	margin.add_child(_page)
+	_margin.add_child(_page)
+	get_viewport().size_changed.connect(_fit_page)
+	_fit_page()
+
+
+func _fit_page() -> void:
+	var screen := get_viewport().get_visible_rect().size
+	var compact := screen.x < 900
+	_reading_scale = clampf(minf(screen.x / 1280.0, screen.y / 720.0), 0.9, 2.0)
+	_layout.vertical = compact
+	_contents.size_flags_vertical = Control.SIZE_FILL if compact else Control.SIZE_EXPAND_FILL
+	_contents.custom_minimum_size = Vector2(0, clampf(screen.y * 0.20, 60.0, 120.0)) if compact \
+			else Vector2(minf(330.0 * _reading_scale, screen.x * 0.28), 0)
+	_contents.add_theme_font_size_override("font_size", roundi(16 * _reading_scale))
+	var margin := 16 if compact else roundi(MARGIN * _reading_scale)
+	for side: String in ["left", "right", "top", "bottom"]:
+		_margin.add_theme_constant_override("margin_" + side, margin)
+	_page.add_theme_constant_override("separation", roundi(8 * _reading_scale))
+	for child: Node in _page.get_children():
+		if child is Label:
+			child.add_theme_font_size_override("font_size", roundi(int(child.get_meta("page_font_size")) * _reading_scale))
 
 
 func _foreword() -> void:
@@ -179,6 +197,7 @@ func _clear() -> void:
 	for child in _page.get_children():
 		_page.remove_child(child)
 		child.queue_free()
+	_scroll.set_deferred("scroll_vertical", 0)
 
 
 func _label(text: String, size: int, color: Color, font: Font = null,
@@ -189,7 +208,8 @@ func _label(text: String, size: int, color: Color, font: Font = null,
 	label.horizontal_alignment = align
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	label.add_theme_font_override("font", font if font != null else SERIF)
-	label.add_theme_font_size_override("font_size", size)
+	label.set_meta("page_font_size", size)
+	label.add_theme_font_size_override("font_size", roundi(size * _reading_scale))
 	label.add_theme_color_override("font_color", color)
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_page.add_child(label)

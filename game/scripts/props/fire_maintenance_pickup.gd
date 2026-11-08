@@ -1,5 +1,6 @@
 extends "res://scripts/props/v2_library_movable.gd"
 ## A service bottle or replacement washer follows the common held-stock path.
+const GASKET_ID := "fire_hose_spare_gasket"
 var item_id := ""
 var cap: Node3D
 const CAP_TRAVEL := 1.9
@@ -22,11 +23,50 @@ func requires_shelf_withdrawal() -> bool:
 
 func grip() -> Dictionary:
 	if shelf==null or not shelf.can_take(self):return {"blocked":true}
-	return super.grip()
+	var target: Dictionary=super.grip()
+	if item_id==GASKET_ID:
+		target.primary_end=_primary_gasket_release
+		# The washer remains in hand past the receiver's lip. Its normal
+		# stock sweeps and the cabinet's release check still own clearance.
+		target.unobstructed_hold=true
+	return target
+
+func _primary_gasket_release() -> void:
+	if not shelf.try_fit_purchased_gasket(self):_release()
+
+func set_gasket_retired(retired: bool) -> void:
+	if item_id!=GASKET_ID:return
+	visible=not retired
+	collision_layer=0 if retired else 1
+	collision_mask=0 if retired else 1
+	if retired:
+		_forget_support()
+		_rest_until=-1
+		end_static_inspection()
+		freeze=true;linear_velocity=Vector3.ZERO;angular_velocity=Vector3.ZERO
 
 func _claim(tag: String) -> bool:
 	if not super._claim(tag):return false
-	if tag=="body":_floating=false
+	if tag=="body":
+		_floating=false
+		if item_id==GASKET_ID and _pickup_extracted and not shelf.is_inspecting(self):
+			# Separate the thin washer from its floor support before the
+			# diagonal carry sweep. Loose stock needs no sideways withdrawal.
+			_pickup_lifted=false
+			_pickup_extracted=false
+			_pickup_exit=_pickup_lift_goal
+		elif item_id==GASKET_ID and not _pickup_extracted:
+			var tin:=shelf.get_node_or_null("SpareWasherTin/Tin") as MeshInstance3D
+			var draw:=get_node_or_null("Gasket") as MeshInstance3D
+			if tin!=null and draw!=null:
+				var rim: AABB=tin.global_transform*tin.get_aabb()
+				var washer: AABB=draw.global_transform*draw.get_aabb()
+				if rim.intersects(washer):
+					# Clear the actual pressed rim before the usual sideways withdrawal.
+					var lift:=rim.end.y-washer.position.y+.001
+					var extra:=maxf(0.,lift-(_pickup_lift_goal.y-global_position.y))
+					_pickup_lift_goal.y+=extra
+					_pickup_exit.y+=extra
 	return true
 
 func hold_pose(camera_pose: Transform3D, centered := false) -> void:

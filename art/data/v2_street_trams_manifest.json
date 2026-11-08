@@ -1,0 +1,18 @@
+{
+ "evidence_class": "INERT",
+ "source": "art/blender/scripts/build_v2_street_trams.py",
+ "design": "design/V2_STREET_TRAMS_2026-11-08.md",
+ "runtime_table": "game/data/orison_v2/exterior/street_trams.json",
+ "export_proof": {
+  "primitives": 16,
+  "triangles": 4034,
+  "minimum_tangent_agreement": 0.9999999609093756,
+  "status": "PASS"
+ },
+ "triangles": {
+  "tram_car": 3058,
+  "tram_span_pole": 652,
+  "tram_rosette": 324
+ },
+ "period": "Closed double-truck car of the New York & Queens County Railway / Manhattan & Queens lines, Queensboro Plaza, 1929. Single trolley pole, owl service through the night."
+}

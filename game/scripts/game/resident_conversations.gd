@@ -2,7 +2,7 @@ class_name ResidentConversations
 extends Node
 ## Threshold conversations with the people of the building.
 ##
-## The seventeen authored trees in res://data/dialogue/ (see
+## The eighteen authored trees in res://data/dialogue/ (see
 ## design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md) share one CaseDialoguePanel.
 ## This node picks the entry for a resident from what the player has earned,
 ## runs the tree, and files what the conversation produced:
@@ -46,6 +46,7 @@ const TREE_PATHS: Array[String] = [
 	"res://data/dialogue/peter_wren.json",
 	"res://data/dialogue/rhea_sato.json",
 	"res://data/dialogue/sacha_reed.json",
+	"res://data/dialogue/stacy.json",
 	"res://data/dialogue/teresa_vale.json",
 	"res://data/dialogue/transient_guests.json",
 ]
@@ -75,6 +76,7 @@ const OPINION_PATHS: Array[String] = [
 	"res://data/opinions/peter_wren.json",
 	"res://data/opinions/rhea_sato.json",
 	"res://data/opinions/sacha_reed.json",
+	"res://data/opinions/stacy.json",
 	"res://data/opinions/teresa_vale.json",
 	"res://data/opinions/transient_guests.json",
 ]
@@ -306,6 +308,10 @@ func _integration_flag(resident_id: String) -> String:
 func _available(resident_id: String, choice: Dictionary) -> bool:
 	for flag in choice.get("requires", []):
 		if not RealityState.has_knowledge(str(flag)):
+			return false
+	# The other side of requires: a choice that stops once its flag is held.
+	for flag in choice.get("unless", []):
+		if RealityState.has_knowledge(str(flag)):
 			return false
 	if choice.has("evidence") and player_unit() != unit_of(resident_id):
 		return false
@@ -941,6 +947,10 @@ func _valid_tree(tree: Dictionary, path: String) -> bool:
 				ok = false
 			if choice.has("requires") and choice.requires is not Array:
 				errors.append("%s: node %s requires is not a list" % [path, node_id])
+				ok = false
+			if choice.has("unless") and (choice.unless is not Array or choice.unless.is_empty()
+					or choice.unless.any(func(f): return f is not String or str(f).strip_edges() == "")):
+				errors.append("%s: node %s unless is not a list of names" % [path, node_id])
 				ok = false
 			if choice.has("evidence") and str(choice.evidence) == "":
 				errors.append("%s: node %s evidence names nothing" % [path, node_id])

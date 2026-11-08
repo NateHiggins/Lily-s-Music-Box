@@ -216,7 +216,7 @@ func follow_holder() -> void:
 	if not before.is_equal_approx(target.read.call()): changed=true
 	validate()
 
-func release(notify_change := true) -> void:
+func release(notify_change := true, by_primary := false) -> void:
 	if not active(): return
 	_observe_motion()
 	var old := target
@@ -230,7 +230,11 @@ func release(notify_change := true) -> void:
 		var started := Time.get_ticks_usec() if profiling else 0
 		var owner_name := str(old.owner.name)
 		if old.has("owns") and not old.owns.call(): changed=false;return
-		if old.has("end"): old.end.call()
+		# A durable placement may be accepted only on the explicit primary action.
+		if by_primary and old.has("primary_end"):
+			old.primary_end.call()
+		elif old.has("end"):
+			old.end.call()
 		_record_cost("end",owner_name,started)
 		if accepted_change and notify_change:
 			var origin: Vector3=old.owner.global_position
@@ -329,7 +333,7 @@ func validate() -> void:
 		release();return
 	var reach: Vector3=target.reach_point.call() if target.has("reach_point") else target.part.to_global(contact)
 	if player.call_locked or player.mouse_released \
-			or (not player.touch_input and not player.inspecting() and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED) \
+			or (not player.touch_input and not player.inspecting() and not player.pointer_captured()) \
 			or not target.part.is_inside_tree() \
 			or view.global_position.distance_to(reach) > 2.4:
 		release()

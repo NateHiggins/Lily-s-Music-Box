@@ -1,6 +1,7 @@
 extends RefCounted
 ## Finish every actual room-facing wall, including shared stock and cut walls.
 ## Geometry/collision ownership remains with the shell. All trim is visual.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 const PROFILE := preload("res://assets/props/millwork_profile.glb")
 const STOCK_SHADER := preload("res://shaders/v2_millwork_stock.gdshader")
 static var _meshes: Dictionary = {}
@@ -230,7 +231,7 @@ static func _emit(room: Node3D, label: String, transforms: Array, sources: Packe
 	multimesh.instance_count=transforms.size()
 	for index in transforms.size():
 		var transform: Transform3D=transforms[index]
-		multimesh.set_instance_transform(index,transform)
+		MultiMeshPoses.set_pose(multimesh,index,transform)
 		multimesh.set_instance_custom_data(index,Color(transform.basis.x.length(),transform.basis.y.length(),transform.basis.z.length(),1.0 if label=="PublicWainscot" else 0.0))
 	batch.multimesh=multimesh
 	batch.set_meta("wall_sources",sources)

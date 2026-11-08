@@ -3,6 +3,106 @@
 Evidence class: **INERT**. Repair/diagnostic report, 2026-10-22.
 No runtime-contract qualification or human acceptance.
 
+## November 5 UTC — sampled native reading zoom
+
+**book_hose_visual_01/reading_zoom/** at **d85396d4b** passes both actual binding
+programmes with four original native frames plus eight witness frames. Same
+opened held pose/FOV72 captured with SubViewport MSAA0 and matched actual root8x;
+MSAA alone leaves fine held-scale strokes small. Actual Space opens the supported
+reading view at40degrees and normal wheel brings it to24degrees at the same eye
+and book pose. Unscaled native crops inspected: sampled hardback and paperback
+headings/body can be read at that zoom, with thin fine print; normal Space returns
+the same open body and original held FOV, then actual primary releases. No text,
+font, paper, lamp or collision changes. Not whole-catalogue/human/artistic
+acceptance. Compile14/0 and reading wrapperexit0; later independent hose failed,
+full batch finalsourceguardPASS. Raw images/source and all failures preserved.
+
+## November 5 UTC — installed parked exit and validated disk pass
+
+**book_park_installed_04/** at **90fb70926** passes107checks/0 in369s,
+wrapperexit0, before/after complete sourceguardsPASS. The same real Volume0
+clears the full player capsule, rotates, follows the three unchanged owner-slot
+goals using existing axis keys/wheel, parks exactslot0 through primary and
+remains frozen/hand-free after normal Space with carrier exceptions restored.
+The existing RealityState programme writes the actual library to an isolated
+save, validates all disk domains, retires the prior world and reconstructs an
+independent production owner with matching book slots/poses/opening and no
+resurrected hand/inspection. Original save path restored. Test-written schema2
+**installed/nook_return.runtime.json** binds the script, executed detached root
+scene and consumed sources; all three contracts executed/passed. Native three
+3440x1440 images decoded. Twenty known resident UID fallback warnings across
+two roots; no script errors/shutdown leaks. No corridor renewal is needed for
+this test-only route change. This is not full CampaignShell Continue, human play,
+artistic or general page readability acceptance. All prior failures retained.
+
+## November 5 UTC — nearby native handling passes
+
+**book_local_controls_03/** at **aec8e8997**: compile4/0, local actual hardback
+Volume34 and paperback Volume15 closed/open pickup/hinge/Space return in25.36s,
+four native3440x1440 images; local Volume0 actual unplaced return plus exact
+slot0 primary park and normal Space exit102/0 in28.44s. Empty stderr and all
+sourceguardsPASS. Both use full standing capsule and native nook stock; actual
+axis-key/wheel approach preserves original goals, tolerances and collisions.
+Installed_03 proves real outward clearance and precision rotation, then fails
+at the native front ledge when the previous free-ray input dips the binding.
+Local14compile/1.94s capsule probe names fresh Player contact and176clear rotation
+substeps at the measured outward goal. Separate6.01s actual Volume17 pickup
+reproduces its first lift blocked by Volume32; native stack constraints stay.
+Nearby evidence does not execute installed validated disk or establish art.
+
+Continuous wrapper geometry is observed for flexible covers. Inspect native
+printed images at the game root's actual MSAA and normal reading zoom before
+changing production typography; the local detached viewport lacked root8x MSAA.
+No publisher/format/page text, material or lamp output is altered by these tests.
+
+## November 5 UTC — native opaque control and actual handling stops
+
+**book_held_controls_01/** at **e411cbf72**, terminal1, finalsourceguardPASS:
+clean deferred native snapshot10/0 with real collider/path and empty stderr.
+Original four optical phases plus SAME held closed-copy clear/owned opaque
+panel/restored phases execute. Exact first solid changes book→panel→book;
+three unscaled native cover crops show illumination→darkness→restoration.
+Production query counter deltas7/5/6 over12physics ticks remain bounded;
+actual next-primary empty-hand eligibility/fallback passes. These are technical
+fixture-inserted blocker controls, not a player-operated mechanism or performance
+proof. Title legible; author tiny. No artistic acceptance.
+
+The following actual two-style attempt selects **nook_books__Volume17/concrete**
+hardback: true spine ray and primary pickup pass; ordinary130frame hand follow
+misses3mm tolerance. No open/flexible stage ran. Preserve the raw failure;
+bounded before/after withdrawal/contact observations are added for diagnosis.
+A nearby actual native nook reproduction precedes any city retry.
+
+**book_hose_controls_02/** installed parked extension no longer recurses, reaches
+same-body floating spine grip, then requested precision rotation fails. Retained
+body sweep names Player; it is not a fresh rotation-query hit. The staged native
+capsule probe must establish that before a real outward carry amendment. Schema2
+parked attemptedtrue/executedfalse/passedfalse and disk unexecuted, three failures,
+finalsourceguardPASS. No parked/disk qualification. False custom-SceneTree and
+parent-busy snapshot attempts remain raw; the later clean preflight supersedes
+neither their logs nor their producer hashes.
+
+## November 4 — current technical evidence and remaining installed proof
+
+**Latest batch book_reading_installed_02/** at **eb7b27a71** is terminal: compile30/0, native input9/0, default lamp21/0, installed optical four phases/0failures, access11waypoints/0failures, installed compile1/0; before/after sourceguardsPASS. Native frames and unscaled crops reviewed: closed held title legible, author tiny (~40x11px); on/off/restored illumination causal, six on-held samples inside unchanged cone, exact first solid that cover ~6–7um before profile. This does not prove open/two-binding/opaque-held control, performance or artistic acceptance.
+
+**Installed parked/disk remains unqualified:** original return/release and real same-body free-spine reacquisition pass, then _park_observe var_to_str(book._last_motion) recursively serializes a live collider. Exact owned PID67496/birth/command recorded; only this stuck diagnostic stopped. Wrapperexit-1 at260s, not timeout; raw errors/OWNED_DIAGNOSTIC_STOP.json preserved. No parked/disk control completed. Outer session62491 terminal1, finalguard0, lane released. Next explicit scalar/identity snapshots + tiny native preflight before repeating installed route. Optional opaque-panel/two-binding actual-input controls are now installed, uncompiled/unrun. Production unchanged from eb7b27a71. Claude renders finished, LoRA paused for Lily's GPU window; signal release when done. Root owns canonical sources. No human/whole-V2/artistic completion.
+
+Matched amended **book_park_before_02/** reproduces the original parked Space
+reacquisition at106checks/2expected failures; fixed **book_park_after_02/** passes
+106/0 with empty stderr. Unplaced SAME-book return passes both; only the two
+production return owners differ. Original neighbor collision After01 and every
+failed receipt remain preserved. New held-reading target uses native printed
+geometry and an unfiltered inside-aware aperture ray; power, cone, range,
+shadows, book poses/materials and validated save owners are unchanged.
+
+Current cases: **C:/ov/reports/develop_intake_20261104/**. Optical receipt records
+211.50s. Wrapper receipts are not schema2 runtime-contract proof. Earlier
+**book_reading_installed_01/** failed a genuine observer get_world_3d parse error,
+corrected to the player's world; no stale-cache excuse or old receipt repin.
+
+## Historical inherited preflight and queue custody
+
 ## Latest continuation — inherited API repair compiles; actual world queued
 
 **walk_api_13/compile.log.receipt.json** records source **ea18e8082**, patched

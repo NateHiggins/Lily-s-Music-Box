@@ -301,6 +301,14 @@ func _apply_visibility() -> void:
 		var area: Area3D = entry.ref.get_ref()
 		if area != null: area.collision_layer = 0 if hidden else int(entry.layer)
 
+func inspected_readable_stock() -> PhysicsBody3D:
+	if not is_instance_valid(_player) or not _player.inspecting():
+		return null
+	var owner: Node = _player.inspect_owner
+	if owner.has_method("inspected_readable_stock"):
+		return owner.inspected_readable_stock()
+	return null
+
 func world_lamp_transform() -> Transform3D:
 	_update_lamp_target()
 	# The original native optical aperture, not an offset at the player's eye.
@@ -327,6 +335,25 @@ func _update_lamp_target() -> void:
 	var frame := Engine.get_physics_frames()
 	if frame == _lamp_target_frame: return
 	_lamp_target_frame = frame
+	# A carried book owns its real cover/page geometry; other stock keeps the
+	# original reticle ray below. Native aperture, power and shadows stay owned.
+	var held: PhysicsBody3D=inspected_readable_stock()
+	if not is_instance_valid(held): held=_player.held_stock_body()
+	if is_instance_valid(held) and held.has_method("reading_light_target"):
+		var lens: MeshInstance3D=device.teletype.torch_lens
+		if is_instance_valid(lens) and lens.mesh!=null:
+			var aperture: Vector3=lens.to_global(lens.mesh.get_aabb().get_center())
+			var target: Variant=held.call("reading_light_target",aperture)
+			if target is Vector3 and target.is_finite() and aperture.distance_to(target)<=_player.flashlight.spot_range:
+				var reading_query:=PhysicsRayQueryParameters3D.create(aperture,target,1)
+				reading_query.collide_with_bodies=true;reading_query.collide_with_areas=false
+				reading_query.hit_from_inside=true;reading_query.hit_back_faces=true
+				# Unfiltered first solid, including book/player/native stock. Never
+				# skip a blocker to reach the requested printed surface.
+				var reading_hit: Dictionary=_player.get_world_3d().direct_space_state.intersect_ray(reading_query)
+				lamp_target_queries+=1
+				motion.light_target=target if reading_hit.is_empty() else reading_hit.position
+				return
 	var camera: Camera3D = _player.camera
 	var centre := camera.get_viewport().get_visible_rect().size * .5
 	var origin := camera.project_ray_origin(centre)
@@ -373,9 +400,7 @@ func _advance_presentation(_delta: float) -> void:
 		motion.request_behavior(&"observe")
 	elif reading:
 		motion.request_behavior(&"type" if arm_busy() else &"present")
-		# Reply reading is still computer use. The closed face covers the lower
-		# copy window, so latch it only when the reader dismisses the apparatus.
-		if not arm_busy():rig.request_keyboard(motion.steady_for_input())
+		if not arm_busy(): rig.request_keyboard(false)
 	else:
 		rig.request_keyboard(false)
 		motion.request_behavior(&"accompany")
@@ -386,7 +411,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if is_capture_hidden(): return
 	if not world_ready or event.is_echo() or _player.call_locked or _player.mouse_released or get_tree().paused: return
 	if not _player.camera.is_current(): return
-	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not _player.inspecting() and not _player.touch_input: return
+	if not _player.pointer_captured() and not _player.inspecting() and not _player.touch_input: return
 	if reading and not _player.inspecting() and event.is_action_pressed("companion_type"):
 		if session.begin(): get_viewport().set_input_as_handled()
 		return

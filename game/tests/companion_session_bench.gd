@@ -199,7 +199,8 @@ func exercise() -> void:
 	var glass_rect := projected_bounds(carrier.rig.glazing)
 	FileAccess.open(directory.path_join("reply_layout.json"), FileAccess.WRITE).store_string(JSON.stringify({"ink":str(ink_rect), "glass":str(glass_rect), "ink_local":str(ink.position), "text":ink.text}, "\t"))
 	check(glass_rect.grow(2.0).encloses(ink_rect), "delivered physical copy fits within the reading glass after feed settles")
-	check(carrier.rig.keyboard_open > .99, "reply reading keeps the keyboard beneath the copy rather than folding its face across it")
+	check(carrier.rig.keyboard_open < .01 and not carrier.rig.keyboard_requested and carrier.reading,
+		"reply reading keeps the companion face visible after typing ends")
 	await capture("reply.png")
 	await key(KEY_ENTER)
 	if not check(await wait_for(func(): return carrier.session.typing), "next exchange deploys keyboard"):

@@ -46,6 +46,14 @@ func _route() -> void:
 	if _require(panel != null, "the cookbook opens"):
 		_require(panel._contents.item_count == 19, "the contents list the foreword and eighteen dishes")
 		await _ui_shot("cookbook_foreword")
+		await get_tree().process_frame
+		var viewport_size := get_viewport().get_visible_rect().size
+		var sheet := (panel._scroll.get_parent() as Control).get_global_rect()
+		var compact := viewport_size.x < 900
+		_require(panel._layout.vertical == compact and sheet.end.x <= viewport_size.x + 1.0
+				and sheet.size.x >= viewport_size.x * (0.95 if compact else 0.68)
+				and sheet.size.y >= viewport_size.y * (0.75 if compact else 0.95),
+				"cookbook contents leave the reading sheet most of the actual viewport")
 		panel.show_dish("sabbath_fijones")
 		_require(panel.dish_id == "sabbath_fijones", "a dish page opens")
 		await _ui_shot("cookbook_fijones")

@@ -1,0 +1,43 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 312.24,
+  "exit_code": 0,
+  "finished_utc": "2026-11-07T11:02:26Z",
+  "started_utc": "2026-11-07T10:57:14Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 REGION ACCESS CONTRACT: PASS regions=6 routes=6 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/develop_intake_20261104/qualification_cityscape_02/regions.log.stderr",
+  "stderr_sha256": "45c769a5c9f7556adcb15097ffdfd60d1ec69231c12d96e459614e0f651b5f7f",
+  "stdout": "C:/ov/reports/develop_intake_20261104/qualification_cityscape_02/regions.log",
+  "stdout_sha256": "4f15aff0d4b5dbee42a911f95e7b462e2b41824e0fe9283ee76ad60a7fe0f3bb"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2RegionAccessContract.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/reports/develop_intake_20261104/qualification_cityscape_02/regions",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "0eb3659635ff3affb4eb0a22b3fbaf73a3d16ed1",
+  "repository_tree": "b8a029d8fc8f83a63e82bdbb83f322bea9d2f706",
+  "runtime_inputs_sha256": "e9e9af6031be0fe9f77c8f154e7dc9d797b2ce236cbe704c979ded2227a80b4a",
+  "test_path": "game/tests/v2_region_access_contract.gd",
+  "test_sha256": "40b8fa96d0a11623d6db2121f7696fb2626ce81f4331370473e2cfa54cd91adf"
+ },
+ "windowed": true
+}

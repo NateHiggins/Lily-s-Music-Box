@@ -47,7 +47,10 @@ func _run() -> void:
 	await get_tree().process_frame
 
 	_check("every authored tree loads without an error",
-			director.errors.is_empty() and director.resident_ids().size() == 17)
+			director.errors.is_empty() and director.resident_ids() == [
+				"cal_dwyer", "cam_ortiz", "evelyn_marsh", "iris_bell", "jonah_price", "juno_kells",
+				"lena_ortiz", "mae_kessler", "malcolm_reed", "nadia_quell", "noel_price", "omar_bell",
+				"peter_wren", "rhea_sato", "sacha_reed", "stacy", "teresa_vale", "transient_guests"])
 	if not director.errors.is_empty():
 		for line in director.errors:
 			print("  tree error: ", line)
@@ -175,6 +178,22 @@ func _run() -> void:
 			panel.current_node_id != first and panel.current_node_id in ["co_open", "np_open"])
 	panel.close()
 
+	# --- Stacy's second cup is poured once, and stays poured across a reload ----------
+	RealityState.add_resident_trust("stacy", 3)
+	_check("Stacy's quiet route offers the cup the first time", _stacy_quiet_route(director, panel) == "st_rt_cup"
+			and RealityState.has_knowledge("st_second_cup"))
+	_check("the second time the glasses are dried without the cup",
+			_stacy_quiet_route(director, panel) == "st_rt_quiet")
+	var original_save: String = RealityState.save_path
+	RealityState.save_path = "user://tests/stacy_cup_%d.json" % OS.get_process_id()
+	RealityState.persistence_enabled = true
+	_check("the poured cup is saved", RealityState.save_game())
+	RealityState.load_game()
+	RealityState.persistence_enabled = false
+	RealityState.save_path = original_save
+	_check("after a reload the cup is still not offered", RealityState.has_knowledge("st_second_cup")
+			and _stacy_quiet_route(director, panel) == "st_rt_quiet")
+
 	# --- dated opinions: the news grafted onto the tree ------------------------------
 	RealityState.reset_campaign_for_tests()
 	var saved_opinions: Dictionary = director.opinions.duplicate(true)
@@ -247,6 +266,22 @@ static func _has(labels: Array, text: String) -> bool:
 		if str(label).contains(text):
 			return true
 	return false
+
+
+## Real talk with Stacy, silent at the open, then drying glasses. Returns where it lands.
+func _stacy_quiet_route(director: ResidentConversations, panel: CaseDialoguePanel) -> String:
+	if not director.start("stacy") or panel.current_node_id != "st_rt_open":
+		return "no real talk: " + panel.current_node_id
+	panel.choose_silence()
+	var labels: Array = panel.offered_labels()
+	var dry := _index(labels, "[Dry glasses.]")
+	if panel.current_node_id != "st_rt_sil" or dry < 0 			or labels.filter(func(label): return str(label).contains("[Dry glasses.]")).size() != 1:
+		return "no single dry choice: " + panel.current_node_id
+	panel.choose(dry)
+	var landed := panel.current_node_id
+	panel.close()
+	panel.current_node_id = ""
+	return landed
 
 
 static func _index(labels: Array, text: String) -> int:

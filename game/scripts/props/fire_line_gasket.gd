@@ -1,15 +1,20 @@
 extends RigidBody3D
-## Retained native washer: direct hand placement, authored seat and storage.
+## Native washer body: direct hand placement, shared seat and authored home.
 var actor: Node3D
 var draw: MeshInstance3D
 var _held:=false
 var _observed_seated:=false
 var home_position:=Vector3.ZERO
+var _local_face_y:=0.
 const SNAP_RADIUS:=.025
 
-func configure(owner_actor: Node3D) -> void:
-	actor=owner_actor;draw=actor._spare_gasket
-	home_position=draw.position;position=home_position;mass=.012;freeze=true;collision_layer=1;collision_mask=1
+func configure(owner_actor: Node3D, supplied_draw: MeshInstance3D = null,
+		supplied_home: Vector3 = Vector3.ZERO, local_face_y: float = 0.) -> void:
+	actor=owner_actor
+	draw=actor._spare_gasket if supplied_draw==null else supplied_draw
+	home_position=draw.position if supplied_draw==null else supplied_home
+	_local_face_y=local_face_y
+	position=home_position;mass=.012;freeze=true;collision_layer=1;collision_mask=1
 	physics_material_override=PhysicsMaterial.new();physics_material_override.friction=.85
 	var bounds: AABB=draw.mesh.get_aabb()
 	var cuts: Array[float]=[bounds.position.y,bounds.end.y]
@@ -17,27 +22,32 @@ func configure(owner_actor: Node3D) -> void:
 		var collision:=CollisionShape3D.new();collision.shape=shape;add_child(collision)
 	sync()
 
-func seat_position() -> Vector3:return actor._coupling.position+Vector3(0,.020,0)
+func seat_position() -> Vector3:
+	# The imported mating face may be above the body's local origin.
+	return actor._coupling.position+Vector3(0,.020-_local_face_y,0)
 
 func seatable() -> bool:
 	if not actor.door_open or actor.coupling_made_up:return false
 	var distance: float=position.distance_to(seat_position())
 	return distance<=SNAP_RADIUS and distance<position.distance_to(home_position)
 
-func _fit() -> void:
-	actor.gasket_seated=true;freeze=true;linear_velocity=Vector3.ZERO;angular_velocity=Vector3.ZERO
+func _fit() -> bool:
+	if not actor.seat_physical_gasket(self):return false
+	freeze=true;linear_velocity=Vector3.ZERO;angular_velocity=Vector3.ZERO
 	position=seat_position();basis=Basis.IDENTITY;sync()
 	if actor._click!=null:actor._click.play()
 	# Fitting alone does not manufacture the separate seen/inspection fact.
 	# The existing release owner commits the final snapshot exactly once.
+	return true
 
 func sync() -> void:
 	if actor==null or draw==null:return
-	if actor.gasket_seated:
+	var seated: bool=actor.is_seated_gasket(self)
+	if seated:
 		freeze=true;position=seat_position();basis=Basis.IDENTITY
 	elif _observed_seated and not _held:
 		position=home_position;basis=Basis.IDENTITY
-	_observed_seated=actor.gasket_seated
+	_observed_seated=seated
 	draw.global_transform=global_transform;draw.visible=true
 
 func observe(hit: Dictionary) -> void:
@@ -45,6 +55,8 @@ func observe(hit: Dictionary) -> void:
 	var player: Node=actor.get_tree().get_first_node_in_group("player_controller")
 	if player==null or not player.inspecting() or player.inspect_owner!=actor:return
 	var local: Vector3=actor._coupling.to_local(hit.position)
+	# Also called by the loose union. Inspect the union's active surface,
+	# even if the original body carrying this observer no longer owns it.
 	var surface_y: float=.020+float(actor._joint_stock.data.dimensions.gasket_thickness_m) if actor.gasket_seated else .020
 	var radius: float=Vector2(local.x,local.z).length()
 	if absf(local.y-surface_y)>.0001 or radius<.01915 or radius>.02265:return
@@ -52,7 +64,7 @@ func observe(hit: Dictionary) -> void:
 
 func manipulation_target(hit: Dictionary) -> Dictionary:
 	if actor==null or not actor.door_open:return {}
-	if actor.gasket_seated:
+	if actor.is_seated_gasket(self):
 		observe(hit)
 		if actor.coupling_made_up:return {}
 	return {"owner":actor,"part":self,"frame":actor,"kind":"free",
@@ -61,12 +73,14 @@ func manipulation_target(hit: Dictionary) -> Dictionary:
 			if _held:_carry(value),
 		"begin":func():
 			if not actor._claim("gasket"):return false
-			_held=true;actor.gasket_seated=false;return true,
+			_held=true
+			if actor.is_seated_gasket(self):actor.vacate_gasket_seat(self)
+			return true,
 		"owns":func():return _held and actor._hand=="gasket",
 		"end":func():
 			_held=false
-			if seatable():_fit()
-			else:position=home_position;basis=Basis.IDENTITY;sync()
+			if not seatable() or not _fit():
+				position=home_position;basis=Basis.IDENTITY;sync()
 			actor._release()}
 func _rotate(value: Basis) -> void:
 	if _held and value.is_finite():basis=value.orthonormalized();sync()

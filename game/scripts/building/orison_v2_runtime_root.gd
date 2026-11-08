@@ -53,6 +53,9 @@ var newspapers: NewspaperCatalog
 ## anchor), at a reachable shelf height above its base.
 const PLAYER_SHELF_ANCHOR := "4B_shelf"
 const SHELF_PAPERS_HEIGHT := 1.0
+## Floor stack beside the shelf, along the east wall in the shelf anchor's frame.
+const NEWS_STACK_AT := Vector3(-0.56, 0.0, -0.53)
+var news_stack: Node3D
 const COOKBOOK_TABLE := "KitchenPrep_4B"
 const COOKBOOK_AT := Vector3(0.33, 0.9, -0.13)
 var boiler_tend: BoilerTend
@@ -114,6 +117,7 @@ var shop_clearing: RefCounted
 var carried_case_view: CanvasLayer
 var shop_counters: Dictionary = {}
 var luncheonette_counter: Node3D
+var harukiya_counter: Node3D
 var seat_gestures: Node3D
 var otis_fountain: Node3D
 var shoe_bench: Node3D
@@ -841,6 +845,12 @@ func _compose_authorities() -> void:
 		shelf_papers.setup("shelf", Vector3(0.75, 0.5, 0.55))
 		add_child(shelf_papers)
 		shelf_papers.global_position = shelf.global_position + Vector3.UP * SHELF_PAPERS_HEIGHT
+		# Kept papers accumulate beside the shelf, with the approach on the room side.
+		news_stack = preload("res://scripts/props/news_stack_prop.gd").new()
+		news_stack.name = "NewsStack"
+		news_stack.configure(newspapers)
+		add_child(news_stack)
+		news_stack.global_transform = shelf.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5), NEWS_STACK_AT)
 	else:
 		push_warning("ORISON V2 RUNTIME: no %s; kept papers have no shelf" % PLAYER_SHELF_ANCHOR)
 	open_shift_ecosystem = preload("res://scripts/game/open_shift_radiator_ecosystem.gd").new()
@@ -957,6 +967,7 @@ func _compose_authorities() -> void:
 	carried_case_view.name="CarriedCaseView"
 	carried_case_view.player=player
 	carried_case_view.economy=economy
+	carried_case_view.fire_stock=fire_maintenance_counter
 	add_child(carried_case_view)
 	var item_use:=ItemUse.new()
 	item_use.name="ItemUse"
@@ -1002,6 +1013,10 @@ func _compose_authorities() -> void:
 	luncheonette_counter=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_luncheonette(self)
 	if luncheonette_counter==null:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: luncheonette counter refused");return
+	harukiya_counter=preload("res://scripts/props/harukiya_counter_glass.gd").new()
+	harukiya_counter.name="HarukiyaCounterGlass"
+	if not harukiya_counter.configure(self,bar_region,conversations):
+		startup_failed=true;push_error("ORISON V2 RUNTIME: Harukiya counter refused");return
 	clue_carriers=preload("res://scripts/building/orison_v2_clue_carriers.gd").mount(self,adapter)
 	if clue_carriers.is_empty():
 		startup_failed=true;push_error("ORISON V2 RUNTIME: clue carriers refused");return
@@ -1024,6 +1039,7 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: household save refused: %s" % [household_state.errors])
 		return
+	carried_case_view.household_state = household_state
 	var notebook := preload("res://scripts/ui/caretaker_notebook.gd").new()
 	notebook.name = "CaretakerNotebook"
 	notebook.player = player
@@ -1213,6 +1229,16 @@ func _compose_exterior() -> bool:
 	var bridge:=preload("res://scripts/building/orison_v2_city_bridge.gd").mount(city_shells)
 	if bridge==null:return false
 	bridge.set_meta("v2_mount_cpu_ms",(Time.get_ticks_usec()-bridge_started)/1000.)
+	# Add scenic stock in the composed world after the bound native loaders.
+	# CityShells offsets its source by the threshold along local Z.
+	preload("res://scripts/building/orison_v2_city_far_shore.gd").mount(city_shells, -city_shells.position.z)
+	preload("res://scripts/building/orison_v2_city_industrial_cut.gd").mount(ground)
+	preload("res://scripts/building/orison_v2_city_canal_bulkhead.gd").mount(ground)
+	# Built in the bridge's world frame (the blockout ground is turned 180 degrees).
+	preload("res://scripts/building/orison_v2_city_far_districts.gd").mount(self)
+	# Walkable streets and blocks out to the exterior limit, laid out around a survey of
+	# the installed owners (art/blender/scripts/build_city_midground.py).
+	preload("res://scripts/building/orison_v2_city_midground.gd").mount(self)
 	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
 	if preload("res://scripts/building/orison_v2_entry_vestibule.gd").mount(self) == null:return false
 	if preload("res://scripts/building/orison_v2_street_paving_details.gd").mount(self) == null:return false

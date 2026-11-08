@@ -1,6 +1,8 @@
 extends Node
 ## Observe the actual live controller; no fabricated or interpolated route poses.
 ## Observe actual post-controller physics poses; never interpolate witnesses.
+const STANDING_MASK := 1 | preload("res://scripts/building/v2_fire_player_contact.gd").LAYER
+
 var world: OrisonV2RuntimeRoot
 var player: PlayerController
 var samples: Array[Dictionary]=[]
@@ -38,7 +40,7 @@ func _physics_process(_delta: float) -> void:
 		"capsule_radius":player._capsule.radius,"capsule_height":player._capsule.height,
 		"on_floor":player.is_on_floor()}
 	var index:=samples.size();samples.append(row)
-	if player.noclip or not player.is_on_floor() or player.collision_mask!=1:return
+	if player.noclip or not player.is_on_floor() or player.collision_mask!=STANDING_MASK:return
 	if claims.size()==6:return
 	var source_point: Vector3=world.to_local(player.global_position)
 	for floor: Dictionary in _floors:

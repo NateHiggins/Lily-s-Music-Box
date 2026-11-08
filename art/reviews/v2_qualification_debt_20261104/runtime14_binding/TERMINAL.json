@@ -1,0 +1,1197 @@
+{
+  "evidence_class": "INERT",
+  "recorded_utc": "2026-11-05T00:33:06.107174+00:00",
+  "result": "FRESH_ENGINE_ORIGINAL_PROGRAMMES_AND_FINAL_GUARD_PASS_SCOPED",
+  "canonical_frozen_head": "dd1d6f652b9087c410b82a81b40284124c92e92c",
+  "canonical_terminal_head": "d0039ff78da1451c68ddffebfd93672e46baf472",
+  "canonical_clean": true,
+  "tracker_only_diff": [
+    "HANDOFF.md",
+    "TASKS.md"
+  ],
+  "broker_retired": true,
+  "identity": "Initial full38556command and creationticks639294327420302880 matched root custody",
+  "receipts": {
+    "compile": {
+      "receipt_sha256": "726cd4c033ad61779e2c8ea97df7123e769210083bc38257280c8b64e56f4e0d",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 11.85,
+        "exit_code": 0,
+        "finished_utc": "2026-11-04T23:46:04Z",
+        "started_utc": "2026-11-04T23:45:52Z",
+        "timed_out": false
+      },
+      "source": {
+        "dirty_paths": 0,
+        "dirty_sample": [],
+        "repository_head": "dd1d6f652b9087c410b82a81b40284124c92e92c",
+        "repository_tree": "e27ba6c76850d74e867aa436ee77687a49d1f6c2",
+        "runtime_inputs_sha256": "1051c14da9658c05759af9ecc6e4f31b64f7d3e67b0e356b5e85a588fb361d5f",
+        "test_path": "game/tests/compile_changed_scripts.gd",
+        "test_sha256": "2041e50d32e1ec0d3551ba086cdd73f36720aa0b8f8f6fd37b2a0302998570dc"
+      },
+      "raw_log_hash_matches": {
+        "stdout": true,
+        "stderr": true
+      },
+      "script_error_count": 0,
+      "warning_count": 0,
+      "error_lines": [],
+      "leak_lines": [],
+      "audio_endpoint_confirmed": true
+    },
+    "probe": {
+      "receipt_sha256": "960d1f1db7578fa80a808c4c9e5aa4a607be095353fdf908539a2e4ed281b98f",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 18.46,
+        "exit_code": 0,
+        "finished_utc": "2026-11-04T23:46:23Z",
+        "started_utc": "2026-11-04T23:46:04Z",
+        "timed_out": false
+      },
+      "source": {
+        "dirty_paths": 0,
+        "dirty_sample": [],
+        "repository_head": "dd1d6f652b9087c410b82a81b40284124c92e92c",
+        "repository_tree": "e27ba6c76850d74e867aa436ee77687a49d1f6c2",
+        "runtime_inputs_sha256": "1051c14da9658c05759af9ecc6e4f31b64f7d3e67b0e356b5e85a588fb361d5f",
+        "test_path": null,
+        "test_sha256": null
+      },
+      "raw_log_hash_matches": {
+        "stdout": true,
+        "stderr": true
+      },
+      "script_error_count": 0,
+      "warning_count": 0,
+      "error_lines": [],
+      "leak_lines": [],
+      "audio_endpoint_confirmed": true
+    },
+    "door": {
+      "receipt_sha256": "c3f0ae45c369344901b08b4a6c251ab0b45531b8f7a835af12109550470ebd4a",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 43.42,
+        "exit_code": 0,
+        "finished_utc": "2026-11-04T23:47:07Z",
+        "started_utc": "2026-11-04T23:46:24Z",
+        "timed_out": false
+      },
+      "source": {
+        "dirty_paths": 0,
+        "dirty_sample": [],
+        "repository_head": "d0039ff78da1451c68ddffebfd93672e46baf472",
+        "repository_tree": "ebfc27b473744e4e4f0d8d8774fdf044343c2541",
+        "runtime_inputs_sha256": "1051c14da9658c05759af9ecc6e4f31b64f7d3e67b0e356b5e85a588fb361d5f",
+        "test_path": null,
+        "test_sha256": null
+      },
+      "raw_log_hash_matches": {
+        "stdout": true,
+        "stderr": true
+      },
+      "script_error_count": 0,
+      "warning_count": 0,
+      "error_lines": [],
+      "leak_lines": [],
+      "audio_endpoint_confirmed": true
+    },
+    "installed": {
+      "receipt_sha256": "2ea08c70d15f2fddb6245a3090dfb7483bb0e4d8086fbd7ab78e9115f5901f6e",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 209.79,
+        "exit_code": 0,
+        "finished_utc": "2026-11-04T23:50:38Z",
+        "started_utc": "2026-11-04T23:47:08Z",
+        "timed_out": false
+      },
+      "source": {
+        "dirty_paths": 0,
+        "dirty_sample": [],
+        "repository_head": "d0039ff78da1451c68ddffebfd93672e46baf472",
+        "repository_tree": "ebfc27b473744e4e4f0d8d8774fdf044343c2541",
+        "runtime_inputs_sha256": "1051c14da9658c05759af9ecc6e4f31b64f7d3e67b0e356b5e85a588fb361d5f",
+        "test_path": null,
+        "test_sha256": null
+      },
+      "raw_log_hash_matches": {
+        "stdout": true,
+        "stderr": true
+      },
+      "script_error_count": 0,
+      "warning_count": 10,
+      "error_lines": [],
+      "leak_lines": [],
+      "audio_endpoint_confirmed": true
+    },
+    "first_slice": {
+      "receipt_sha256": "f926d2cf0a3c5b8b59a4745dd845dacf890673f571e5be53eb3f8a89239da7d1",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 661.75,
+        "exit_code": 0,
+        "finished_utc": "2026-11-05T00:03:42Z",
+        "started_utc": "2026-11-04T23:52:40Z",
+        "timed_out": false
+      },
+      "source": {
+        "dirty_paths": 0,
+        "dirty_sample": [],
+        "repository_head": "d0039ff78da1451c68ddffebfd93672e46baf472",
+        "repository_tree": "ebfc27b473744e4e4f0d8d8774fdf044343c2541",
+        "runtime_inputs_sha256": "1051c14da9658c05759af9ecc6e4f31b64f7d3e67b0e356b5e85a588fb361d5f",
+        "test_path": null,
+        "test_sha256": null
+      },
+      "raw_log_hash_matches": {
+        "stdout": true,
+        "stderr": true
+      },
+      "script_error_count": 0,
+      "warning_count": 20,
+      "error_lines": [],
+      "leak_lines": [],
+      "audio_endpoint_confirmed": true
+    },
+    "apartments": {
+      "receipt_sha256": "d841ebdb335dfebfdbeda9855800358786bed6153875b3ca48c581c4bcfa000f",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 974.8,
+        "exit_code": 0,
+        "finished_utc": "2026-11-05T00:19:57Z",
+        "started_utc": "2026-11-05T00:03:42Z",
+        "timed_out": false
+      },
+      "source": {
+        "dirty_paths": 0,
+        "dirty_sample": [],
+        "repository_head": "d0039ff78da1451c68ddffebfd93672e46baf472",
+        "repository_tree": "ebfc27b473744e4e4f0d8d8774fdf044343c2541",
+        "runtime_inputs_sha256": "1051c14da9658c05759af9ecc6e4f31b64f7d3e67b0e356b5e85a588fb361d5f",
+        "test_path": "game/tests/orison_v2_remaining_apartment_access_contract_test.gd",
+        "test_sha256": "6833022637c5dfe16b26f7a6b87248f435f9ec43714f32885326331f6597aa99"
+      },
+      "raw_log_hash_matches": {
+        "stdout": true,
+        "stderr": true
+      },
+      "script_error_count": 0,
+      "warning_count": 10,
+      "error_lines": [],
+      "leak_lines": [],
+      "audio_endpoint_confirmed": true
+    },
+    "surface": {
+      "receipt_sha256": "04d3cbdef450ba7acd6635db9419571598b63e0b9919c198990d54b8be07a6d1",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 360.72,
+        "exit_code": 0,
+        "finished_utc": "2026-11-05T00:25:59Z",
+        "started_utc": "2026-11-05T00:19:58Z",
+        "timed_out": false
+      },
+      "source": {
+        "dirty_paths": 0,
+        "dirty_sample": [],
+        "repository_head": "d0039ff78da1451c68ddffebfd93672e46baf472",
+        "repository_tree": "ebfc27b473744e4e4f0d8d8774fdf044343c2541",
+        "runtime_inputs_sha256": "1051c14da9658c05759af9ecc6e4f31b64f7d3e67b0e356b5e85a588fb361d5f",
+        "test_path": "game/tests/orison_v2_surface_inventory.gd",
+        "test_sha256": "934c2b565c9976e6c62c9867df4df851150263229567780f9dc90aed257261d0"
+      },
+      "raw_log_hash_matches": {
+        "stdout": true,
+        "stderr": true
+      },
+      "script_error_count": 0,
+      "warning_count": 10,
+      "error_lines": [],
+      "leak_lines": [],
+      "audio_endpoint_confirmed": true
+    }
+  },
+  "test_written_contracts": {
+    "first_slice": {
+      "path": "first_slice\\runtime_authority_receipt.json",
+      "sha256": "02712f6980fc4d5c3f135e238eb459d86c0ad8c92bf724c6b9a14f5b8c3c057e",
+      "schema_version": 2,
+      "evidence_kind": "runtime_contract",
+      "failures": 0,
+      "check_count": 379,
+      "contract_statuses": {
+        "physical_service_round": "PASS",
+        "premature_action_denial": "PASS",
+        "production_composition": "PASS",
+        "save_reconstruction": "PASS",
+        "teardown": "PASS"
+      }
+    },
+    "apartments": {
+      "path": "apartments\\runtime_contract.json",
+      "sha256": "43ddc4f1feddabc6a5321faedfa848d2180aec68e396d37afb26607525672346",
+      "schema_version": 2,
+      "evidence_kind": "runtime_contract",
+      "failures": 0,
+      "check_count": 781,
+      "contract_statuses": {
+        "production_composition": "PASS",
+        "room_access": "PASS",
+        "teardown": "PASS"
+      }
+    },
+    "surface": {
+      "path": "surface\\runtime_contract.json",
+      "sha256": "e53dd51be80294952cc71ef0b4af828a623db6cb36df01c6034c59ef22de1f9b",
+      "schema_version": 2,
+      "evidence_kind": "runtime_contract",
+      "failures": [],
+      "check_count": 38947,
+      "contract_statuses": {
+        "production_composition": "PASS",
+        "save_reconstruction": "NOT_EXECUTED",
+        "surface_requirements": "PASS",
+        "teardown": "PASS"
+      }
+    }
+  },
+  "after_log_sha256": "612243190c411c6464c6311943f9a1e36954cf75df80f37c95f4be3f6a88c3d0",
+  "source_equality": {
+    "method": "Unchanged producer definitions/direct check_sources(runtime_14), CLI excluded; independent terminal exit0",
+    "runtime": "1051c14da9658c05759af9ecc6e4f31b64f7d3e67b0e356b5e85a588fb361d5f",
+    "physical": "2ebbc214a160bf4886385bf5a4543f8cae779b419ed32f7caa4400c178ea8db3",
+    "surface": "1bf2aa2d4a2973dd5431a166ebc795f0d55fb3132342d30700065bea641a5cfe",
+    "test_closure": 128,
+    "engine_binding": {
+      "manifest_path": "C:\\PleaseRemainOnTheLine\\.godot-engine.json",
+      "manifest_raw_sha256": "dfc8104a9a92e991d1c3c7bc640dd4778b81d98b3204e53d5185cfe11ee45f7b",
+      "manifest_lf_sha256": "6bf3be9bd598aa397cc1c5f2a7ff36c06d48767929ef5ef93b53f288b2a9e759",
+      "path": "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe",
+      "binaries": {
+        "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe": "7965e75a4f847484a4d1596729b508cb1ef23ae17ab6407eaffd9683364f0f8c",
+        "C:\\devkit\\tentacle-audio-20261104-01\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.exe": "e954c1db69ebe4b60878ae92cdc3a0e464fe92bd06b78c19402055e9f7bafce1"
+      }
+    },
+    "diagnostic_audio_output": "Headphones (BD9)",
+    "historical_credit": false,
+    "all_match": true
+  },
+  "bounded_review": {
+    "file": "BOUNDED_FRAME_REVIEW.json",
+    "sha256": "f88a2163bec58c283f7a4f4a04336b0c49fa2e62df9a470de35dcd98b82f74c6",
+    "actual_frames": 12,
+    "displayed_pixels": [
+      2048,
+      857
+    ],
+    "human_played": false,
+    "artistically_accepted": false,
+    "reviewer": "installed_camera_architect",
+    "independently_revalidated_after_terminal": true
+  },
+  "native_image_admission": {
+    "actual_apartments": 18,
+    "actual_surface": 64,
+    "entry_subset": 5,
+    "pixel_size": [
+      3440,
+      1440
+    ],
+    "Pillow_payload_admitted_by_original_after_guard": true,
+    "hashes_independently_match": true
+  },
+  "images": [
+    {
+      "file": "apartments/3A_F03_A_BATH.png",
+      "sha256": "e253543a56763583d44d94468ef52995f7ac7db249d3ca3a5425817f241a9459",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/3A_F03_A_MAIN.png",
+      "sha256": "ed13b6f5bbe92f6884350f06de0f4c22c1c86a4b3542b85e8015f796b5af5849",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/3B_F03_B_BATH.png",
+      "sha256": "032c9ab61486f35204d8c1c8f79a4bc63f48137e6ecf9ee53fdb91483cdf0907",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/3B_F03_B_MAIN.png",
+      "sha256": "3daf5650a89fd9522bc2fe65f2ee0be2b1aee66bf4e60e14d686fae45e280a3a",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/4A_F04_A_BATH.png",
+      "sha256": "11172fa36cc46020992a0ad5e6f84a93a7a6dd14cbfd96109c82333da5eddf5c",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/4A_F04_A_MAIN.png",
+      "sha256": "0807b1797178f769661eb57d7c4149c9da8d9b519be5e7d25b62befda254d407",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/5A_F05_A_BATH.png",
+      "sha256": "562d2c12d8eff9afa5c36d39fcce98051f875aa4e83c2176ef89171c0edfc4ca",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/5A_F05_A_MAIN.png",
+      "sha256": "5de783123f2ffd159607d3d60696251ad74365f7046653a02d65a5332feb462d",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/5B_F05_B_BATH.png",
+      "sha256": "6053b7540bd3ada6c89680e2e9b93c04b608226df0adccbd85f4a978b86b0ea4",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/5B_F05_B_MAIN.png",
+      "sha256": "2179c41eb4e862095e44e5e19ac17c5235233306c7bbb28f6b8b95f8b437fa1d",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/5C_F05_C_BATH.png",
+      "sha256": "ff6a52cce05e52209bd08baabf4543922bfd5abba27d1dddccf73785c7bddc3c",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/5C_F05_C_MAIN.png",
+      "sha256": "cb3b950b0d9101c5375f493b5d9ad8df787d2c5e005c26b394cffed76fa7a1f6",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/6A_F06_A_BATH.png",
+      "sha256": "1d8cba27363e08e651d059b2ff18e6f8f34aaeca54ac8c35bde59954a5605e17",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/6A_F06_A_MAIN.png",
+      "sha256": "1659a8c6f0259042d3659bb1bc5eb83744b0e8542771cb8b7f1e3d45b3f67a10",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/6B_F06_B_BATH.png",
+      "sha256": "2d928442f32b771d009ad87849477892740f6c88a5e370bfd08ed1d2416b5a18",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/6B_F06_B_MAIN.png",
+      "sha256": "c4f86616a0519d444c9365b1b2274863aa878514ed0a734d1c29c199fd8835a9",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/6C_F06_C_BATH.png",
+      "sha256": "a803c6f167f04fc5cd2b885b7c3696dcb5c37c9c8a4ed256725bfd2b8b20d804",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "apartments/6C_F06_C_MAIN.png",
+      "sha256": "51f9daf1a2c71665bb7974998bbd5f1480fd0e08ace7a4241d7396dacd295257",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "door/actual_receiving_view.png",
+      "sha256": "9997137cbc0c95845bbcfb3a8f81db3af99bb541a96db5ba438578c7a3293dc7",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": true
+    },
+    {
+      "file": "door/first_passage_open.png",
+      "sha256": "46c0cad1e50fe2437435e7e0f25e0574f8801017e1c8c0edeecc64911fc449ef",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": true
+    },
+    {
+      "file": "door/naturally_closed_from_inside.png",
+      "sha256": "4bc934a09016c0952b13b1fba2f4a4528bd2e2316574392d74a01f4f8d6acf79",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": true
+    },
+    {
+      "file": "door/same_insert_across_open_leaf.png",
+      "sha256": "4c61f8d419079da48c1fbb800f100f4df68966b767b591ef95ba10620e97bad1",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": true
+    },
+    {
+      "file": "installed/actual_installed_insert_parked.png",
+      "sha256": "53d9c7dfb8796ba4457ed16d4d97ea8f7ec98a2797685a70159b33637dca181e",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": true
+    },
+    {
+      "file": "installed/actual_installed_insert_receiving.png",
+      "sha256": "9e893f7b796a374b1239b94465c5ac966401a38342a6fb76a597a7fc26c7526f",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": true
+    },
+    {
+      "file": "installed/after_real_space.png",
+      "sha256": "1924c119d95b4ec9d34c9a98755ba8585f3f0a29752284de217d1ae26049e114",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": true
+    },
+    {
+      "file": "installed/existing_proposed_view_DIAGNOSTIC_ONLY.png",
+      "sha256": "8792a868cd7e9bfd159915d721785168b834e3a9c93ca1279b6cb7a37f26cd58",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": true
+    },
+    {
+      "file": "installed/initial_service_fixture.png",
+      "sha256": "0b4c5f4b423b7dbdef905037a07f97f9d6eb69f7749e53c1880910e4c7bb9270",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": true
+    },
+    {
+      "file": "probe/insert_direct_endpoint.png",
+      "sha256": "f613d53b45de7edef62adc985d0e0e234bd295773611930251fb2480d234f43f",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": true
+    },
+    {
+      "file": "probe/insert_dogleg_endpoint.png",
+      "sha256": "37b5dc262fd7dffb3ae85dcc8f475e3299636d7746d2510bdf24d848e0f4ddcf",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": true
+    },
+    {
+      "file": "probe/insert_inspected_endpoint.png",
+      "sha256": "04891bd4faf4eaa3da3a5d650093720b930bb9ba47f458abe01ed7068629feff",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": true
+    },
+    {
+      "file": "surface/boiler.png",
+      "sha256": "b6b4d060c9b68edc226545511ef07357b11710cfba086ba07721fc3fd3a80b3c",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/bookcase.png",
+      "sha256": "9fa4ba371ffb19fd20f53ad6dd10602bd4a78efb2af70361e5b982369676b1bd",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_n_roof_day.png",
+      "sha256": "643b5ece886fccc925bce1cb3bdcaabbc27dbc7b6e7e7f7f4b5fd3992c79e58d",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_n_roof_dusk.png",
+      "sha256": "f6d7930c374b8a5a10ada0860523e714a6448f4d4a5a9909724c139459b6589e",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_n_street.png",
+      "sha256": "fb5a5f6ea26b4b8035ae2ea67bebbbc892b7182f5b7016928e1a93910f0f1259",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_ne_roof_day.png",
+      "sha256": "30c89d327227758071504e02415047d616dcde6e25d61e7243567dc1a26cc9bf",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_ne_roof_dusk.png",
+      "sha256": "53f0b150bf192ddd75e06b610e83d6b93bb3e63511fc0f4a47b8338fea9ce19e",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_ne_street.png",
+      "sha256": "920e1fcea5dc4a62da264af24f0b49667ecdbf8402565871627cae5c91e61dcb",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_s_roof_day.png",
+      "sha256": "1c06c5678c329f4116805888de03c4d33522f388a068f5fb2e1921e9d34b7d6b",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_s_roof_dusk.png",
+      "sha256": "adfbde8286dbdf06bb898302bd4bb2de14c487bb81c6df406ccad100d4b7fa0f",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_s_street.png",
+      "sha256": "258258280c1ee325fe7bb2e69f514806fb6d96dd911a971867fdf369cef551ad",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_se_roof_day.png",
+      "sha256": "1fd0e9528620e33843bb4bb8135be4b57f901414cfbedf0dc5c857874caa2954",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_se_roof_dusk.png",
+      "sha256": "9dbfb373dd6e7ce08184d3bacd66854a96a2bde2e57d8ba82eb33cc579723f33",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_se_street.png",
+      "sha256": "8c3071f1cd749cc5379b2b9c8820206ade972a8d76007fcbdcf07fa7b34313eb",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_sw_roof_day.png",
+      "sha256": "7bd76662dbe88fe7d182e497da4e6893ad2075e34fe404c6bf8e53859a8bb883",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_sw_roof_dusk.png",
+      "sha256": "67f5193245fe32ad9f1a5f8497643bd475a2d2e7ae3eb40637cade7c86303339",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_sw_street.png",
+      "sha256": "b1d2579ffdc17330683601f0eb9c3348b05a26461fe224e7566313886c42c41a",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_w_roof_day.png",
+      "sha256": "d05e1a42c710c9896f76528090a24c93a9937bcd65e699c30431d865595edc8c",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_w_roof_dusk.png",
+      "sha256": "401dd599d69d85d3f3a84ceb327e253cc040bb066d0efcc74ea111400c95ed48",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_batch_site_far_w_street.png",
+      "sha256": "1fc87cc980a021045cb5834ccc42822708bb5517ef2c78f8a918dd7a65add2dc",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_east_roof.png",
+      "sha256": "651037bcc845d557eaac0d099f7b3b99f050a94f610205751c0894cba1d67470",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_ground_edge_0.png",
+      "sha256": "46e2d91c0b072ef8620345679fe59f4ff3dc270c3b48eebf7d1fe8d71e282231",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_ground_edge_2.png",
+      "sha256": "3718d47e5ea87d1a3eb8877f045252a70732f2a1dbc0d34d9dd35044886eff0e",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_ground_seam.png",
+      "sha256": "2a57f06e812f5640441e376594982d6dfa9a57d349113e8ff11c18ac9cb55bb6",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_horizon_context.png",
+      "sha256": "58402c0eaf882352dc1238c59fb8f2ffc99486e16d3be3435b59fa58bdbedb86",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_north_roof.png",
+      "sha256": "12077b0090f237835a743dfdfceffa69a4bec99bbaeeb2291dc15b6e7c7aab51",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_open_west_frontage.png",
+      "sha256": "02c4dcad074043c05bf8a401ba9c26193dd287a951c377aef5bc51e4af149fd8",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_relief_canal.png",
+      "sha256": "fdc0289675113dbe090452f57f36bc7d148465aac65c1010f11a5fbdeda9c82c",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_relief_rail_cut.png",
+      "sha256": "4a82d587a6e437b928e081f13f32c70aa2e10400ea5f764e709361a612ee4941",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_relief_river.png",
+      "sha256": "b639e5e442a1bba2138b58115aec7d60b7fc4cbdcf94451162e9d1eb6d41e265",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_site_back_e_window.png",
+      "sha256": "2c33cca97eefb45fa7e85d2a0fc33c91466beed7875ae25ed7b5a09a14289a11",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_site_nbr_e_window.png",
+      "sha256": "97dadee57a7eb8b54613e7cfc95185dfc49f9e627915fad001b5ec784286e1a9",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_site_ne1_window.png",
+      "sha256": "bd6855c3a6411f891a3ea9041b50202a88e64a0803ad5f437d7ab5cfcccde993",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_site_nw2_window.png",
+      "sha256": "9d9a1b863954172749ea4f60787f84d3e5627f567094ff6ace3475d9ba4296a4",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_street_skyline.png",
+      "sha256": "588798044f0f7d5e23435d90d2daeb60ed3e08ae7bf995ac9a1f966c9989231d",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_townhouse_street_front.png",
+      "sha256": "dbd005b063cea2bedcee3381d3348a6a17cec65afa338e9ca97eb9b8c860cb8f",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_weather_dry.png",
+      "sha256": "e5539a6c89949bcdbc22769ef42ecbef3e80a127eef10616f111668d7151db26",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_weather_fog.png",
+      "sha256": "19b528b01876070f5828eceb4047cdcbd081ec4aba4c01e6d005d69958a40455",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_weather_storm.png",
+      "sha256": "7065f52709fd79a19babb5b52e1de2e71c1fa87559c9e0572c512d956d87e0c3",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/city_west_roof.png",
+      "sha256": "51ca476d6283f883ea9ff954ae1879f22a04690d84fd6c4de108aa0b00c1afa3",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/closet_vent_bypass_services.png",
+      "sha256": "c3621ebf734639b114e995e02d355e5490b5080d326435239da8ab471716f5d0",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/dumbwaiter.png",
+      "sha256": "b20ccdc53bce2e0667552cf1797dbd3e0e60246b11bcdd7f7713d10d939c2ab6",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/entry_preparation/preparation_00.png",
+      "sha256": "88ffb62354e18a63eada9b7a8378f54c170db151c9c32dde4aae2949042d560a",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/entry_preparation/preparation_01.png",
+      "sha256": "62a0ba181e0db2507cc24b0cbe269d742b806045b61156e0e1f24428a898f378",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/entry_preparation/preparation_02.png",
+      "sha256": "a9102c6d4547669cc703b25c028af69d0acb42f1c97a03a09927d33dd6f4241c",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/entry_preparation/preparation_03.png",
+      "sha256": "973a6a04d0890c037789c0ba2d949f812d401667b736fd45c52321e735d54531",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/entry_preparation/preparation_04.png",
+      "sha256": "21fbde53f1e30ce39685970416e218ba360f04ce085b118c27f580d9b09115ab",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/F02_A_MAIN.png",
+      "sha256": "3a96190847a061e4255882fc5f89561a1ed604f6c3bcb9ab7a6ebbf3a6405d6d",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/F03_B_BATH_reflection_repair.png",
+      "sha256": "95e45fdc7957dcdce2bd395b08bacd677f5ec0356183f7b227263ca8b034a1cd",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/F03_B_MAIN.png",
+      "sha256": "389011d6675674cbd8159b3012667304a8e7fd44e843208185cbeb6d4b1f5894",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/F04_C_MAIN.png",
+      "sha256": "660eb8ab88faff563271d01ec500939e7eb367064ca0a4165c7682362b03280b",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/F06_B_KITCHEN_reflection_repair.png",
+      "sha256": "70c23a3a52b63ccb7427eb4a42b2858702dba74a79553d731f91e6f34877594a",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/fuse_panel.png",
+      "sha256": "62203e47179316219b4580158a472a2376650f8cca5124f79938021c876998f9",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/mail_bank.png",
+      "sha256": "3a301b539b2ac0e30c82de3a63718cdbbba80106604d1e2da90532f334207280",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/radiator.png",
+      "sha256": "ec950b85b83c0d40ff8484003f17bd3e8887ad3e6edf6c17045fa2e156d840ec",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/roof_drive_uv.png",
+      "sha256": "8d531f4bbebc05c977ff5464b25b815d22c4c5e97c848c5c0088101ea4c7fd7e",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/roof_tank_uv.png",
+      "sha256": "261ddf2a3b10ad8ba3f55c9aa9b220f96d15b6daf1f9236909c39342be3f1ba7",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/shot_001.png",
+      "sha256": "86d149aa31f31c0e13efa8caa671c37c3247c8d1162226b502d8ed40c2298615",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/signal_terminal.png",
+      "sha256": "c7bb977f9d81dc068d10e6c2cd1478f3c2d8eb1ed3a5d5ce3bd7523834070935",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/staff_closet_deep_services.png",
+      "sha256": "ce64c5bc51923ab5c1ec53f9e3bbcb9759c4c0d2a59c64986f81d20471bdd907",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/tentacle_flowing_residue.png",
+      "sha256": "d287eaf18e208bbf9b68f664bacdca49ad4063ef8cc15063fe152ba8ea56c699",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/tentacle_installed_surfaces.png",
+      "sha256": "f811e123762f80be0579369d971fbcd51bc0a259c0864f6b5567b7c861e1d255",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/toaster_crumbs.png",
+      "sha256": "04b051ebc49bd9358ef8b5d741c2a8d4272191127eb8f019645bd1587ea99af9",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    },
+    {
+      "file": "surface/watch_station.png",
+      "sha256": "afcdd5cb9b4075a26bfd394c90565a5d00efc8c4c5b93fd51a8605e953ea73e3",
+      "pixels": [
+        3440,
+        1440
+      ],
+      "actually_viewed_this_run": false
+    }
+  ],
+  "profiles": {
+    "compile": {
+      "file_count": 1,
+      "non_log_cache_files": []
+    },
+    "probe": {
+      "file_count": 6,
+      "non_log_cache_files": []
+    },
+    "door": {
+      "file_count": 7,
+      "non_log_cache_files": []
+    },
+    "installed": {
+      "file_count": 203,
+      "non_log_cache_files": []
+    },
+    "first_slice": {
+      "file_count": 216,
+      "non_log_cache_files": [
+        {
+          "file": "PleaseRemainOnTheLine/tests/m08f_runtime_9467cc443d37d83e.json",
+          "sha256": "35bec9646c7bb109add152c0a1c9314242580a8e7bdc38c6ccd6c78107f56e54"
+        },
+        {
+          "file": "PleaseRemainOnTheLine/tests/m08f_runtime_9467cc443d37d83e.json.bak",
+          "sha256": "b5a3d6aed50e7da8f9bc47257cff5b9fd1802b456e65683c69837b9183b8a6c9"
+        }
+      ]
+    },
+    "apartments": {
+      "file_count": 203,
+      "non_log_cache_files": []
+    },
+    "surface": {
+      "file_count": 203,
+      "non_log_cache_files": []
+    }
+  },
+  "limits": "Only12boundedframes actually re-viewed this run per assignment.82later captures checked by original payload admission and independent bytes/dimensions; no new artistic acceptance. Physical-only surface mode excludes interaction programmes. No whole-V2/vertical-navigation/performance/owner acceptance or merge approval. Historical failures retained and oldengine evidence grants no current pass.",
+  "custody": "Terminal source/binary/env/log/contract/frame-map/profile checks complete; consumed-source hold and monitor custody explicitly RELEASED to integration lead. No source/Git/producer mutation or duplicate launch."
+}

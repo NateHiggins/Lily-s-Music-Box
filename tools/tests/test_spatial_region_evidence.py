@@ -13,7 +13,7 @@ ROOT=Path(__file__).resolve().parents[2]
 class RegionProofTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
-        for name in ['game/data/orison_v2/exterior/regions.json','game/data/orison_v2/world_connection.json','game/data/orison_v2_blockout.json']:
+        for name in ['game/data/orison_v2/exterior/regions.json','game/data/orison_v2/world_connection.json','game/data/orison_v2_blockout.json','game/scripts/building/v2_fire_player_contact.gd']:
             p=self.root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((ROOT/name).read_bytes())
         def read(name):return json.loads((self.root/name).read_text())
         source=read('game/data/orison_v2/exterior/regions.json');model=ExteriorSource(source)
@@ -21,7 +21,7 @@ class RegionProofTests(unittest.TestCase):
         def inside(p):return [dot(column,sub(p,origin)) for column in basis]
         player=self.root/'game/scripts/player/player_controller.gd';player.parent.mkdir(parents=True);player.write_text('const BODY_RADIUS := 0.33\nconst STANDING_HEIGHT := 1.524\nfunc _try_step_up(delta: float) -> void:\n\tvar lift := Vector3.UP * 0.30\n\tglobal_position.y += 0.30\n')
         entry=self.root/'game/tests/access.gd';entry.parent.mkdir(parents=True);entry.write_text('extends Node\n');digest=hashlib.sha256(entry.read_bytes().replace(b'\r\n',b'\n')).hexdigest()
-        mode=dict(noclip=False,collision_mask=1,capsule_radius=struct.unpack('<f',struct.pack('<f',.33))[0],capsule_height=struct.unpack('<f',struct.pack('<f',1.524))[0],on_floor=True)
+        mode=dict(noclip=False,collision_mask=1 | (1 << 21),capsule_radius=struct.unpack('<f',struct.pack('<f',.33))[0],capsule_height=struct.unpack('<f',struct.pack('<f',1.524))[0],on_floor=True)
         samples=[];trace=[];routes={};position=None
         for route in source['routes']:
             nodes=[]
@@ -89,7 +89,7 @@ class RegionProofTests(unittest.TestCase):
         data=copy.deepcopy(self.data);data['contracts']['region_access']['regions']['REGION_STREET']['actual']=[999,0,999];self.assertTrue(self.check(data))
 
     def test_noclip_mask_and_small_controller_cannot_prove_access(self):
-        for field,value in [('noclip',True),('collision_mask',0),('collision_mask',True),('capsule_radius',.05),('capsule_height',.5)]:
+        for field,value in [('noclip',True),('collision_mask',0),('collision_mask',1),('collision_mask',3),('collision_mask',True),('capsule_radius',.05),('capsule_height',.5)]:
             data=copy.deepcopy(self.data);data['legs'][0]['samples'][1][field]=value
             with self.subTest(field=field,value=value):self.assertTrue(self.check(data))
 

@@ -77,7 +77,7 @@ func aimed_subject() -> Node:
 func inspection_available() -> bool:
 	return not opened and not player.call_locked and not is_instance_valid(player.seated_interaction) \
 		and not get_tree().paused and player.camera.is_current() and player.is_processing() \
-		and not player.mouse_released and (player.touch_input or Input.mouse_mode==Input.MOUSE_MODE_CAPTURED)
+		and not player.mouse_released and (player.touch_input or player.pointer_captured())
 
 func action_hint() -> String:
 	if not inspection_available() or aimed_subject()==null: return ""

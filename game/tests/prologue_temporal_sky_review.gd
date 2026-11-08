@@ -80,15 +80,14 @@ func run() -> void:
 	var projection:=TemporalSky.RenderClock.new()
 	check(projection.seek_utc(float(target.utc_unix_seconds)) and not projection.apply_prologue_destination() and not projection.configure_date(1928,11,10),"detached sky clock can project dates but cannot apply or configure campaign time")
 	check(RealityState.data.campaign_clock==before,"render clock projection leaves the actual clock unchanged")
-	var source:=float(Time.get_unix_time_from_datetime_dict(clock.utc_datetime()))
-	var ending:float=Opening.showcase_end(source,float(target.utc_unix_seconds))
-	var previous:=source;var monotone:=true
-	for step in 1025:
-		var stamp:float=TemporalSky.time_at(float(step)/32,source,ending)
-		monotone=monotone and stamp>=previous;previous=stamp
-	check(monotone and ending-source>=Opening.LOOP_SECONDS and ending-source<2*Opening.LOOP_SECONDS and Opening.wrap_loop_utc(TemporalSky.time_at(32,source,ending))==float(target.utc_unix_seconds),"continuous showcase takes one to two seasonal laps and lands on the exact historical destination")
 	if OS.get_environment("PROLOGUE_APERTURE_REVIEW")=="1":
 		await review_aperture(target);finish();return
+	var far_districts := world.get_node_or_null("FarDistricts")
+	if FileAccess.file_exists("res://scripts/building/orison_v2_city_far_districts.gd") \
+			and not check(far_districts != null, "installed far districts mount in the waking world"):
+		finish();return
+	if far_districts != null:
+		await review_far_motion(far_districts)
 	var manager:Node=world.get_node("WakingAtmosphere").weather_manager
 	manager.conditions_changed.connect(func(_conditions:Dictionary):publications+=1)
 	var mode:int=world.process_mode
@@ -102,12 +101,34 @@ func run() -> void:
 	var register:Node=world.service_set_carrier.rig.temporal_register
 	check(register._owner!=null and register._owner.get_ref()==clip and register._target==Opening.annual_destination(target),"sky borrows the installed temporal register with the original immutable destination")
 	var frozen:Dictionary=RealityState.data.campaign_clock.duplicate(true)
-	for stamp:float in [0.0,1.9,3.5,4.5,6.5,9.0,15.0,24.0,29.8]:
+	clip.set_process(false)
+	var initial_pan_basis := Basis.IDENTITY
+	for stamp:float in [0.0,1.9,3.5,4.5,6.5,8.0,12.0,15.49,16.25,17.75,19.25,20.75,22.25,23.0,26.0,30.8]:
 		clip.seek(stamp)
 		check(clip.sampled_utc>=Opening.LOOP_START_UTC and clip.sampled_utc<Opening.LOOP_START_UTC+Opening.LOOP_SECONDS,"actual detached sky sample stays in the authored year: "+str(stamp))
 		check(register.row_values[1]==register._date(clip.sampled_utc,-300) and register.row_values[0].is_empty() and register.labels.Unknown.text=="UNKNOWN","physical passing row follows the actual borrowed sky clock without inventing departure: "+str(stamp))
+		if stamp == TemporalSky.ROOF_START:
+			initial_pan_basis = clip.camera.global_basis
+		if stamp >= TemporalSky.ROOF_START:
+			check(clip.camera.global_position.is_equal_approx(clip._roof_eye), "roof pan uses the surveyed station: " + str(stamp))
+		if far_districts != null and stamp in [12.0, 17.75]:
+			var borrowed_minute: float = clip.view_clock.minute_of_day()
+			check(far_facades_match(far_districts, borrowed_minute),
+				"mounted far facades follow the borrowed roof clock at " + str(stamp))
+		if stamp in [16.25, 17.75, 19.25, 20.75, 22.25]:
+			var index := floori((stamp - TemporalSky.RAMP_END) / 1.5)
+			var intended: String = TemporalSky.MONTAGE[index][0]
+			var slot := int(manager.schedule.phenomena[intended].slot)
+			var levels: PackedFloat32Array = manager.sky.get_shader_parameter("spectacle")
+			check(levels[slot] > .5, "detached montage projects the authored " + intended)
 		await frames(3)
-		await capture("sky_%02d.png"%int(stamp*10))
+		await capture("sky_%03d.png"%int(stamp*10))
+	var final_pan: Basis = clip.camera.global_basis
+	var pan_angle := rad_to_deg(initial_pan_basis.z.angle_to(final_pan.z))
+	check(pan_angle > 24. and pan_angle < 33., "one slow panorama turns about 29 degrees at a fixed eye")
+	check(clip._arrival_caption.visible and is_equal_approx(clip._arrival_caption.visible_ratio, 1.)
+		and clip._arrival_caption.text == TemporalSky.arrival_text(clip.destination_utc)
+		and clip.sampled_utc == clip.destination_utc, "green scene card holds the exact historical arrival")
 	# Isolate the observed centre seam at a fixed sky/camera/time.
 	clip.seek(24);clip.set_process(false)
 	var mask:int=clip.camera.cull_mask
@@ -128,7 +149,18 @@ func run() -> void:
 	await frames(3)
 	check(clip.age==age and player.text_input_owner==clip,"pause holds cinematic time and its input lease")
 	get_tree().paused=false
+	if far_districts != null:
+		# End at a known distinct roof sample so a missed restore cannot pass
+		# by coincidence at the randomly sampled destination's time of day.
+		clip.seek(12.0)
+		var borrowed_minute: float = clip.view_clock.minute_of_day()
+		check(absf(borrowed_minute - clock.minute_of_day()) > 1.0
+			and far_facades_match(far_districts, borrowed_minute),
+			"far facades hold the distinct borrowed minute before cancellation")
 	clip.cancel()
+	if far_districts != null:
+		check(far_facades_match(far_districts, clock.minute_of_day()),
+			"actual cinematic cleanup immediately restores the far facades to campaign time")
 	check(register._owner==null and register.phase=="idle" and register.capacitor.get_shader_parameter("capacitor_charge")==0.0,"cancelled cinematic releases register and capacitor without stale presentation")
 	check(world.process_mode==mode and player.text_input_owner==null and player.camera.is_current() and not world.service_set_carrier.is_story_absent(),"cancellation restores world, player camera, input and companion visibility")
 	# Repeat the actual full32-second clip without screenshot stalls.
@@ -198,6 +230,54 @@ func run() -> void:
 		Input.parse_input_event(press);Input.flush_buffered_events();await frames(2)
 		check(director.state.phase=="prologue_complete" and director.temporal_sky.was_skipped and player.text_input_owner==null,"actual skip input completes through the same clock owner and releases its lease")
 	finish()
+
+func far_facades_match(districts: Node, minute: float) -> bool:
+	var facades: Variant = districts.get("facade_materials")
+	if not facades is Array or facades.is_empty():
+		return false
+	for material: ShaderMaterial in facades:
+		var visible_minute: Variant = material.get_shader_parameter("minute_of_day")
+		if not visible_minute is float or absf(float(visible_minute) - minute) > 0.001:
+			return false
+	return true
+
+
+func review_far_motion(districts: Node) -> void:
+	var lamps := districts.get_node_or_null("FarMotion/BridgeLamps") as MultiMeshInstance3D
+	var cars := districts.get_node_or_null("FarMotion/ElCars") as MultiMeshInstance3D
+	var tug := districts.get_node_or_null("FarMotion/Tug") as Node3D
+	if not check(lamps != null and lamps.multimesh != null and lamps.multimesh.instance_count > 0
+			and cars != null and cars.multimesh != null and cars.multimesh.instance_count > 0
+			and tug != null, "loaded bridge lamps, elevated cars and tug exist before cinematic freeze"):
+		return
+
+	# Freeze only the existing test clock driver. All motion nodes still run
+	# their normal process callbacks and no save authority is exercised here.
+	var was_frozen: bool = CampaignTime._frozen_for_tests
+	CampaignTime.set_frozen_for_tests(true)
+	var clock_before: Dictionary = RealityState.data.campaign_clock.duplicate(true)
+	await frames(3)
+	var lamp_origin := lamps.multimesh.get_instance_transform(0).origin
+	var car_index := -1
+	for index in cars.multimesh.instance_count:
+		if cars.multimesh.get_instance_transform(index).origin.y > 0.0:
+			car_index = index
+			break
+	var car_origin := cars.multimesh.get_instance_transform(car_index).origin if car_index >= 0 else Vector3.ZERO
+	var tug_origin := tug.position
+	await frames(8)
+	var clock_preserved: bool = RealityState.data.campaign_clock == clock_before
+	CampaignTime.set_frozen_for_tests(was_frozen)
+	check(clock_preserved, "ordinary distant motion leaves the held campaign clock exact")
+	check(lamp_origin.distance_to(lamps.multimesh.get_instance_transform(0).origin) > 0.01,
+		"a mounted bridge lamp advances across ordinary process frames")
+	if check(car_index >= 0, "at least one loaded elevated car is on the span"):
+		var car_after := cars.multimesh.get_instance_transform(car_index).origin
+		check(Vector2(car_origin.x, car_origin.z).distance_to(Vector2(car_after.x, car_after.z)) > 0.01,
+			"the selected elevated car advances along the span across ordinary process frames")
+	check(tug_origin.distance_to(tug.position) > 0.01,
+		"the mounted tug advances across ordinary process frames")
+
 
 ## One unaccelerated loaded-world sequence. Earlier bathroom beats are staged,
 ## not claimed as played. Normal director/printer/arm/sky/stinger own every beat.
@@ -337,20 +417,38 @@ func review_interrupted_reload(target:Dictionary) -> void:
 
 
 func review_time_curve() -> void:
-	for span:float in [1.0,86400.0,31536000.0,3090000000.0,-3090000000.0]:
-		var source:=-1298242800.0;var destination:=source+span
-		var last:=source;var monotone:=true
-		for tick in 1921:
-			var stamp:=TemporalSky.time_at(float(tick)/60,source,destination)
-			monotone=monotone and (stamp-last)*signf(span)>=-.000001;last=stamp
-		check(monotone and TemporalSky.time_at(2,source,destination)==source and TemporalSky.time_at(30,source,destination)==destination,"smooth speed envelope preserves holds, direction and exact endpoints: "+str(span))
-	var previous:=0.0;var accelerating:=true
-	for tick in range(40,161):
-		var t:=float(tick)*.1
-		var speed:=(TemporalSky.time_at(t+.005,0,3090000000)-TemporalSky.time_at(t-.005,0,3090000000))/.01
-		accelerating=accelerating and speed>=previous;previous=speed
-	check(accelerating,"one continuous acceleration has no intermediate date-knot stops")
-	check(absf(TemporalSky.time_at(16,0,3090000000)-1545000000)<1 and TemporalSky.time_at(29,0,3090000000)>3089999880,"century clip decelerates symmetrically to readable final seconds")
+	var source := -1298242800.0
+	var destination := -1287013800.0
+	var montage: Array[float] = [-1280000000., -1295000000., -1282000000., -1291000000., -1281000000.]
+	var day := 86400.
+	var accelerating := true
+	var decelerating := true
+	var last_accel := 0.
+	var last_decel := INF
+	for index in 128:
+		var ramp_span := TemporalSky.RAMP_END - TemporalSky.ROOF_START
+		var up := TemporalSky.ROOF_START + ramp_span * float(index) / 128.
+		var rise := TemporalSky.time_at(up + .01, source, destination, montage) - TemporalSky.time_at(up, source, destination, montage)
+		accelerating = accelerating and rise >= last_accel
+		last_accel = rise
+		var arrival_span := TemporalSky.ARRIVAL_END - TemporalSky.ARRIVAL_START
+		var down := TemporalSky.ARRIVAL_START + arrival_span * float(index) / 128.
+		var fall := TemporalSky.time_at(down + .01, source, destination, montage) - TemporalSky.time_at(down, source, destination, montage)
+		decelerating = decelerating and fall <= last_decel
+		last_decel = fall
+	check(accelerating and TemporalSky.time_at(TemporalSky.ROOF_START, source, destination, montage) == source
+		and absf(TemporalSky.time_at(TemporalSky.RAMP_END - .00001, source, destination, montage) - source - day) < 1.,
+		"the first rooftop beat accelerates smoothly through one day")
+	for index in montage.size():
+		var center := lerpf(TemporalSky.RAMP_END, TemporalSky.ARRIVAL_START, (index + .5) / montage.size())
+		check(TemporalSky.time_at(center, source, destination, montage) == montage[index], "montage selects authored event center " + str(index))
+	check(decelerating and TemporalSky.time_at(TemporalSky.ARRIVAL_START, source, destination, montage) == destination - day
+		and TemporalSky.time_at(TemporalSky.ARRIVAL_END, source, destination, montage) == destination
+		and TemporalSky.time_at(TemporalSky.DURATION, source, destination, montage) == destination,
+		"the final day decelerates to the exact destination and holds")
+	check(TemporalSky.arrival_text(-1298314800.) == "ORISON, QUEENS\nSATURDAY, NOVEMBER 10, 1928  /  12:00 AM",
+		"arrival typography converts the actual local date and midnight")
+
 
 func review_aperture(target:Dictionary) -> void:
 	if not check(director.begin_temporal_sky(),"actual installed window aperture starts"):return

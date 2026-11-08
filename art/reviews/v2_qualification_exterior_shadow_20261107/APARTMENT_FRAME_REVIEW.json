@@ -1,0 +1,230 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Technical review of 18 native apartment access captures",
+  "reviewed_utc": "2026-11-07T08:00:56.577081+00:00",
+  "runtime_head": "74ad19328e29adf9ebcc3b0faed934b55af4863e",
+  "surface_inputs_sha256": "0717a03fb000efab3d3d277b8d0101bd1405ab61179c08e744d99313da140576",
+  "runtime_inputs_sha256": "96332fc3744ee9471e26fba05a8da323ff5e5d8c1ad9de69b4f20d6b18e7e77f",
+  "contract_sha256": "00cdf6b017479d5ef9ef14fd4476860ef774de872114896efdd55be23a0f181e",
+  "wrapper_sha256": "d23c12101ff310f50804641c31b111f06c007fb409a44f166e5f2afcbacc0ab6",
+  "human_played": false,
+  "artistically_accepted": false,
+  "frames": [
+    {
+      "file": "3A_F03_A_BATH.png",
+      "sha256": "cd85204e8c048c06b7367bd92f60ab250be7bc0423a1107dedcd2effa2bd2a5d",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "The lit switch and curtain remain visible. Only the near bath rim is in frame."
+    },
+    {
+      "file": "3A_F03_A_MAIN.png",
+      "sha256": "46095022821e9fa4dae2a0b5b792ab7b74703e5e6ac117af63d323351326055c",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "The door opening, floor and cabinet remain clear. The left table remains in shadow."
+    },
+    {
+      "file": "3B_F03_B_BATH.png",
+      "sha256": "c57c496af64f793482baf6102e94bbb844b0059295f0cddf87d692fa914e50e8",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "Tile, curtain and basin remain visible. The companion overlaps the right side."
+    },
+    {
+      "file": "3B_F03_B_MAIN.png",
+      "sha256": "6d4026ac05f6e1ccc8a4ea935fafaf656f64ce023f968d5480b3dde32daa5729",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "Radiator, seating, window and the open room remain visible. The companion fills the right foreground."
+    },
+    {
+      "file": "4A_F04_A_BATH.png",
+      "sha256": "8a29b8b7917eed2cc2306343839e1a88399f17ac98a6a38aaa532374e115a7c8",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "Mirror, tiles and basin remain recognizable. The companion partly overlaps the sink."
+    },
+    {
+      "file": "4A_F04_A_MAIN.png",
+      "sha256": "e9d1b78900360cdb4473877e7a94389ddff713b8854371da831a33e6c8ac79bf",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "The window, radiator and chair remain visible. Window glare and the shadowed left side are comparable."
+    },
+    {
+      "file": "5A_F05_A_BATH.png",
+      "sha256": "b29140eb33565e68c0253a53d91634de375066a8dc9d259f30b4b70b1e02677e",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "The beam reveals the tile and clipped toilet. Lower tiles remain in shadow."
+    },
+    {
+      "file": "5A_F05_A_MAIN.png",
+      "sha256": "30a8c348c0dcaf2483fbbb10c8df371ba1caae72cc7c9536d5c9f2835b7c5dec",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "A dark foreground shape sits higher in the incoming capture and obscures most of the room. The door tops remain visible."
+    },
+    {
+      "file": "5B_F05_B_BATH.png",
+      "sha256": "ec2f387c94ffd5c214ec49d395c6fd2318513a4606eea292180137b5f3f7db96",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "The lit tiles remain visible. The companion partly crops the toilet."
+    },
+    {
+      "file": "5B_F05_B_MAIN.png",
+      "sha256": "58e7aa877894e79aa6b73fd5b29e38943eced4ec999e78de6a54acb9d030b2bf",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "Shelves, table and doorway remain visible. A dark foreground shape remains at the left."
+    },
+    {
+      "file": "5C_F05_C_BATH.png",
+      "sha256": "c27e944c2929b995baf8da26512b5d2f95d9e55cb7bd0c2aa7773950030bfaeb",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "Curtain, tile and toilet remain visible. The companion sits lower and still crops part of the fixture."
+    },
+    {
+      "file": "5C_F05_C_MAIN.png",
+      "sha256": "6064a713f7ba286104ff87a7b6b684622a847ecbcd9e99ad2310fc66c3dc25de",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "Wall prints, radiator and openings remain visible. Near furniture remains partly cropped."
+    },
+    {
+      "file": "6A_F06_A_BATH.png",
+      "sha256": "f1255be7ed83286b3f794758879bdb296ec6359698253c0e99e221e4c0191b7f",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "The light reveals the wall tile and paper holder. The companion sits to the right and only the edge of the toilet appears."
+    },
+    {
+      "file": "6A_F06_A_MAIN.png",
+      "sha256": "db7588b57c7706f440b6aa9e8110c03ae73f239f4aca567b5381c8fc0959786a",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "More floor is visible with the lower foreground shape. Both openings, vents and red pipe remain clear."
+    },
+    {
+      "file": "6B_F06_B_BATH.png",
+      "sha256": "5b08efa36bf637fe304c66fd43ad00cf0d4d253a6d4ecdc9a528151d98d2fd9a",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "The light reveals the tile corner. The companion and lower frame still mask most of the fixture."
+    },
+    {
+      "file": "6B_F06_B_MAIN.png",
+      "sha256": "7571e621ef43417757efd24122389efc8833705e978ba8d93bfa10dda02fa905",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "The incoming foreground shape rises across most of the room and covers more of the center and doorway. Edge shelving and the right opening remain visible."
+    },
+    {
+      "file": "6C_F06_C_BATH.png",
+      "sha256": "1c949801693144a17a77f7d90378f9485ac9100d1f577441f4af9f5178a19a52",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "Curtain, toilet and tile remain clearly identifiable in both frames."
+    },
+    {
+      "file": "6C_F06_C_MAIN.png",
+      "sha256": "ebbcadbd333ca656e8b6d1007acb12501f5fd0680688ff24181fb6a940a39e2d",
+      "png_pixels": [
+        3440,
+        1440
+      ],
+      "full_png_decoded": true,
+      "review_state": "fresh_visual_review",
+      "method": "Paired native capture contact sheets",
+      "observation": "The radiator, doorway and near table remain clear. The right-side companion and dark left opening remain comparable."
+    }
+  ]
+}

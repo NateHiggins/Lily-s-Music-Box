@@ -138,6 +138,11 @@ repository skill [godot-development](.agents/skills/godot-development/SKILL.md).
 Its ethos is **deeper, not bigger**: improve execution without expanding scope;
 use a lightweight pass for small edits.
 
+For measured performance, loading/memory cost and audited size reduction, use
+[orison-optimization](.agents/skills/orison-optimization/SKILL.md) alongside the
+Godot workflow. Coordinate with the integration lead, preserve game behavior
+and atmosphere, and verify comparable measurements before claiming a gain.
+
 For generating images, this machine has a local generator: SDXL on the RTX 4080,
 `python art/tools/imagegen.py --prompt "..." --out <dir> --seeds 4` (or `--batch`).
 It costs nothing and sends nothing anywhere, and works for Codex/ChatGPT as well
@@ -166,3 +171,8 @@ unless she says so. See `~/homebrew-tools/README.md`.
 `tools/PIPELINE_TOOLS.md` describes the gate board, run receipts, the
 candidate verifier, the design-doc lint, the lane broker, the lane ledger
 and the rulings checker.
+
+When closing a report or capture case, follow the report artifact retention
+workflow in `tools/PIPELINE_TOOLS.md`. Record only exact disposable outputs
+after checking references and custody. Keep original qualification evidence
+and use a fresh case when work resumes.

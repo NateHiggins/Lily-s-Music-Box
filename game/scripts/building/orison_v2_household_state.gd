@@ -3,6 +3,9 @@ extends Node
 ## Physical library stock also keeps its pose and velocity here. No second save
 ## owner is introduced; animations, playing audio and service panels do not persist.
 const KEY := "v2_household_controls"
+const GASKET_COUNTER := "FireMaintenanceCounter"
+const GASKET_ITEM := "fire_hose_spare_gasket"
+const Book := preload("res://scripts/props/v2_readable_book.gd")
 var errors: Array[String] = []
 var _subjects: Dictionary = {}
 var _kinds: Dictionary = {}
@@ -13,7 +16,11 @@ var _connections: Array = []
 var _bound := false
 var _restoring := false
 var _blocked := false
+var _purchased_gasket_commit_active := false
 const SERVICE_KINDS := {"B1_FUSE_PANEL":"fuse_service", "ROOF_TANK_BALLCOCK":"tank_service", "B1_BOILER_01":"boiler_service"}
+const SAVED_KINDS := ["mechanism", "light", "blind", "radiator", "prep", "books", "mirror", "window", "fuse_service", "tank_service", "boiler_service"]
+## Saved identities set aside because the world no longer builds their fitting.
+var retired_identities: Array[String] = []
 const SERVICE_ACTIVITIES := {"fuse_service":"fuse_panel_rating_service",
 	"tank_service":"roof_tank_ballcock_service", "boiler_service":"boiler_water_column_test"}
 var _service_defaults: Dictionary = {}
@@ -156,13 +163,37 @@ func _connect(owner: Object, event: String, callback: Callable) -> void:
 	_connections.append([owner, event, callback])
 
 func _saved_value() -> Variant:
-	return RealityState.data[KEY] if RealityState.data.has(KEY) else {"schema_version":1, "records":{}}
+	return _without_retired_fittings(RealityState.data[KEY] if RealityState.data.has(KEY) else {"schema_version":1, "records":{}})
+
+## A save written before a fitting left the world keeps that fitting's record
+## (F01_INNER_DOOR was unhung on 2026-10-26). Nothing owns it any more, so the
+## record is set aside instead of refusing the whole household and with it the
+## world: _restore() and snapshot() only walk owned fittings, so the next save
+## omits it. Only well-formed records of a saved kind are set aside; malformed
+## records and kind mismatches still fail validation.
+func _without_retired_fittings(saved: Variant) -> Variant:
+	if _kinds.is_empty() or saved is not Dictionary or saved.get("records") is not Dictionary: return saved
+	var retired: Array[String] = []
+	for identity: Variant in saved.records:
+		if identity is not String or _kinds.has(identity): continue
+		var record: Variant = saved.records[identity]
+		if record is Dictionary and record.size() == 2 and record.has("value") \
+				and record.get("kind") is String and record.kind in SAVED_KINDS:
+			retired.append(identity)
+	if retired.is_empty(): return saved
+	var kept: Dictionary = saved.duplicate()
+	kept.records = saved.records.duplicate()
+	for identity: String in retired: kept.records.erase(identity)
+	if retired != retired_identities:
+		retired_identities = retired
+		push_warning("V2 household: set aside saved records for fittings the world no longer has: %s" % [retired])
+	return kept
 
 func validate(value: Variant, kinds: Dictionary) -> bool:
 	# Public/load validation always checks the complete payload.
-	return _validate(value,kinds,{})
+	return _validate(value, kinds, {}, RealityState.data)
 
-func _validate(value: Variant, kinds: Dictionary, trusted_records: Dictionary) -> bool:
+func _validate(value: Variant, kinds: Dictionary, trusted_records: Dictionary, document: Dictionary) -> bool:
 	var profile_started:=_profile_start()
 	errors.clear()
 	if value is not Dictionary or value.size() != 2 \
@@ -175,14 +206,22 @@ func _validate(value: Variant, kinds: Dictionary, trusted_records: Dictionary) -
 		errors.append("household save version must be numeric")
 		_profile_end("validate_invalid_version",profile_started)
 		return false
+	var adopted_gasket_station := ""
 	for identity: Variant in value.records:
 		var record: Variant = value.records[identity]
 		if identity is not String or not kinds.has(identity) or record is not Dictionary \
 				or record.size() != 2 or record.get("kind") is not String \
 				or record.kind != kinds[identity]:
-			errors.append("unknown or malformed household save identity")
+			errors.append("unknown or malformed household save identity: %s (saved %s, world %s)" % [
+				str(identity), str(record.get("kind")) if record is Dictionary else type_string(typeof(record)),
+				str(kinds.get(identity, "absent")) if identity is String else "not a name"])
 			continue
 		var setting: Variant = record.get("value")
+		if record.kind == "mechanism" and setting is Dictionary and setting.has("replacement_gasket"):
+			if not adopted_gasket_station.is_empty() or _gasket_station_id(_subjects.get(identity)) != identity:
+				errors.append("duplicate or unknown purchased gasket cabinet")
+				continue
+			adopted_gasket_station = identity
 		# capture_now alone supplies the owner's previous validated deep copy.
 		# Compare the complete record, including kind and nested values. Related
 		# identities are checked below even when an individual record is reused.
@@ -213,8 +252,232 @@ func _validate(value: Variant, kinds: Dictionary, trusted_records: Dictionary) -
 		for identity: String in _subjects:
 			if _subjects[identity].has_method("validate_related_records") and not _subjects[identity].validate_related_records(value.records):
 				errors.append("inconsistent related mechanism identities")
+	if errors.is_empty() and not _valid_purchased_gasket_pair(value.records, document, adopted_gasket_station):
+		errors.append("inconsistent purchased gasket custody")
 	_profile_end("validate",profile_started)
 	return errors.is_empty()
+
+
+func _valid_purchased_gasket_pair(records: Dictionary, document: Dictionary, adopted_station: String) -> bool:
+	var counter_row := _gasket_counter_row(records)
+	if not counter_row.has("fitted_station"):
+		# A legacy inventory-only consumption has no installed provenance.
+		return adopted_station.is_empty()
+	var fitted: Variant = counter_row.fitted_station
+	var counter: Node = _subjects.get(GASKET_COUNTER)
+	return fitted is String and not fitted.is_empty() and fitted == adopted_station \
+			and is_instance_valid(counter) and counter.has_method("adopt_purchased_gasket_handoff") \
+			and _gasket_payment_valid(document, true)
+
+
+func _gasket_counter_row(records: Dictionary) -> Dictionary:
+	var counter: Dictionary = records.get(GASKET_COUNTER, {})
+	var mechanism: Variant = counter.get("value")
+	if counter.get("kind") != "mechanism" or mechanism is not Dictionary:
+		return {}
+	var row: Variant = mechanism.get(GASKET_ITEM)
+	return row if row is Dictionary else {}
+
+
+func _cached_gasket_payment_valid(value: Dictionary) -> bool:
+	# Unchanged household records keep the normal fast path. An adopted pair
+	# also depends on the inventory and receipt in the current document.
+	return not _gasket_counter_row(value.records).has("fitted_station") \
+			or _gasket_payment_valid(RealityState.data, true)
+
+
+func _gasket_payment_valid(document: Dictionary, consumed: bool) -> bool:
+	var items: Variant = document.get("maintenance_items")
+	var ledger: Variant = document.get("caretaker_economy")
+	if items is not Dictionary or ledger is not Dictionary:
+		return false
+	var item: Variant = items.get(GASKET_ITEM)
+	var purchases: Variant = ledger.get("purchases")
+	if item is not Dictionary or item.get("shop_id") != "hardware_paint" \
+			or item.get("consumed") is not bool or bool(item.consumed) != consumed \
+			or purchases is not Dictionary:
+		return false
+	var receipt: Variant = purchases.get("maintenance_supply:" + GASKET_ITEM)
+	if receipt is not Dictionary or receipt.size() != 3 or receipt.get("merchant") != "hardware_paint" \
+			or receipt.get("item") != GASKET_ITEM or typeof(receipt.get("cents")) not in [TYPE_INT, TYPE_FLOAT]:
+		return false
+	return float(receipt.cents) == 10.0
+
+
+func _gasket_station_id(cabinet: Node) -> String:
+	if not is_instance_valid(cabinet) or not cabinet.has_method("stage_purchased_gasket"):
+		return ""
+	var identity := str(cabinet.get("station_id"))
+	return identity if str(cabinet.name) == identity and _subjects.get(identity) == cabinet else ""
+
+
+## Invoked by the counter only after an authorized primary release. Staging
+## allocates a hidden cabinet body before save preparation. It stays absent
+## from the live mechanism snapshot until the verified publication.
+func commit_purchased_gasket(counter: Node, cabinet: Node, pickup: Node, fit: Dictionary) -> bool:
+	if _purchased_gasket_commit_active or fit.is_empty() \
+			or not _gasket_handoff_bound(counter, cabinet, pickup) \
+			or not RealityState.has_method("commit_purchased_gasket_handoff") \
+			or not _gasket_payment_valid(RealityState.data, false):
+		return false
+	var merchant := counter.get("merchant") as MaintenanceShopService
+	if not is_instance_valid(merchant) or not is_instance_valid(merchant.inventory):
+		return false
+	var inventory: MaintenanceInventory = merchant.inventory
+	var station_id := _gasket_station_id(cabinet)
+	_purchased_gasket_commit_active = true
+	var staged: Dictionary = cabinet.call("stage_purchased_gasket", pickup, fit)
+	var saved := false
+	if not staged.is_empty():
+		var prepare := func(document: Dictionary) -> Dictionary:
+			if not is_instance_valid(counter) or not is_instance_valid(merchant) \
+					or counter.get("merchant") != merchant or merchant.inventory != inventory:
+				return {}
+			return _prepare_gasket_household(counter, cabinet, pickup, station_id, staged, document)
+		var publish := func(verified: Dictionary) -> void:
+			_publish_gasket_household(counter, cabinet, station_id, verified)
+		saved = bool(RealityState.call("commit_purchased_gasket_handoff", inventory, prepare, publish))
+	if not saved and is_instance_valid(cabinet):
+		cabinet.call("discard_staged_purchased_gasket")
+	_purchased_gasket_commit_active = false
+	return saved
+
+
+func packed_book(item: String) -> Book:
+	if not item.begins_with(CarriedCase.BOOK_PREFIX):
+		return null
+	var place := CarriedCase.place_of(item)
+	var collection: Node = _subjects.get(place.get("collection", ""))
+	if not is_instance_valid(collection) or not collection.has_method("book_copy"):
+		return null
+	return collection.book_copy(str(place.form).trim_prefix(CarriedCase.BOOK_PREFIX))
+
+
+func can_pack_book(holder: PlayerController) -> bool:
+	var copy := holder.held_stock_body() as Book
+	if not _bound or _restoring or _blocked or RealityState.save_write_blocked \
+			or not is_instance_valid(copy) or copy.valise_packed or copy.opening != 0.0:
+		return false
+	var collection := str(copy.shelf.name)
+	return _subjects.get(collection) == copy.shelf \
+		and not CarriedCase.library_fit(collection, copy.stock_id).is_empty()
+
+
+func pack_book(holder: PlayerController) -> bool:
+	if not can_pack_book(holder):
+		return false
+	var copy := holder.held_stock_body() as Book
+	var collection := str(copy.shelf.name)
+	var item := CarriedCase.library_item(collection, copy.stock_id)
+	var prepare := func(document: Dictionary) -> bool:
+		if not is_instance_valid(copy) or holder.held_stock_body() != copy or not can_pack_book(holder):
+			return false
+		document[CarriedCase.KEY].places[item] = CarriedCase.library_fit(collection, copy.stock_id)
+		return _stage_book_pose(document, collection, copy, copy.transform)
+	var publish := func(verified: Dictionary) -> void:
+		_last_saved = verified.duplicate(true)
+		_restoring = true
+		copy.valise_packed = true
+		holder._grab.release(false)
+		copy.set_valise_packed(true)
+		_restoring = false
+	return RealityState.commit_library_case_change(prepare, publish)
+
+
+func unpack_book(holder: PlayerController, item: String) -> bool:
+	var copy := packed_book(item)
+	if not _bound or _restoring or _blocked or not is_instance_valid(copy) \
+			or not copy.valise_packed or holder.call_locked or holder.inspecting() or holder._grab.active() \
+			or not copy.shelf.library_hand_is_free():
+		return false
+	var collection := str(copy.shelf.name)
+	var prepare := func(document: Dictionary) -> bool:
+		if not is_instance_valid(copy) or packed_book(item) != copy or holder._grab.active() \
+				or not copy.shelf.library_hand_is_free():
+			return false
+		var camera_pose := holder.camera.global_transform
+		var grip_pose := Transform3D(camera_pose.basis, copy._hold_target(camera_pose, false))
+		if not copy.valise_exit_is_clear(grip_pose):
+			return false
+		document[CarriedCase.KEY].places.erase(item)
+		return _stage_book_pose(document, collection, copy, copy.get_parent_node_3d().global_transform.affine_inverse() * grip_pose)
+	var publish := func(verified: Dictionary) -> void:
+		_last_saved = verified.duplicate(true)
+		_restoring = true
+		copy.set_valise_packed(false)
+		copy.restore_book(verified.records[collection].value.books[copy.stock_id])
+		var grip := copy.grip()
+		grip.hit_position = copy.to_global(copy.pickup_centre())
+		var acquired: bool = holder._grab.acquire(grip)
+		_restoring = false
+		if not acquired:
+			push_error("Verified valise exit lost the reserved library hand: " + item)
+	return RealityState.commit_library_case_change(prepare, publish)
+
+
+func _stage_book_pose(document: Dictionary, collection: String, copy: Book, pose: Transform3D) -> bool:
+	# RealityState already asked this owner to capture live controls before
+	# detaching the candidate. Change only the selected copy in that snapshot.
+	var current: Dictionary = document.get(KEY, {})
+	if not current.get("records", {}).has(collection):
+		return false
+	current.records[collection].value.books[copy.stock_id] = copy.valise_snapshot(pose)
+	return _validate(current, _kinds, _last_saved.get("records", {}), document)
+
+
+func _gasket_handoff_bound(counter: Node, cabinet: Node, pickup: Node) -> bool:
+	if not _bound or _restoring or _blocked or not is_inside_tree() or RealityState.save_write_blocked \
+			or not is_same(_state_document, RealityState.data):
+		return false
+	for subject: Node in [counter, cabinet, pickup]:
+		if not is_instance_valid(subject) or not subject.is_inside_tree() or subject.is_queued_for_deletion():
+			return false
+	if _subjects.get(GASKET_COUNTER) != counter or str(counter.name) != GASKET_COUNTER \
+			or _gasket_station_id(cabinet).is_empty() or counter == cabinet \
+			or _kinds.get(GASKET_COUNTER) != "mechanism" or _kinds.get(str(cabinet.name)) != "mechanism":
+		return false
+	var pickups: Variant = counter.get("pickups")
+	return pickups is Dictionary and pickups.get(GASKET_ITEM) == pickup \
+			and pickup.get("item_id") == GASKET_ITEM \
+			and counter.has_method("purchased_gasket_handoff_snapshot") \
+			and counter.has_method("adopt_purchased_gasket_handoff") \
+			and cabinet.has_method("finish_staged_purchased_gasket") \
+			and cabinet.has_method("discard_staged_purchased_gasket") \
+			and cabinet.has_signal("manipulation_changed") and counter.has_signal("manipulation_changed")
+
+
+func _prepare_gasket_household(counter: Node, cabinet: Node, pickup: Node, station_id: String,
+		staged: Dictionary, document: Dictionary) -> Dictionary:
+	if not _gasket_handoff_bound(counter, cabinet, pickup) or _gasket_station_id(cabinet) != station_id:
+		return {}
+	var current := snapshot()
+	if current.is_empty():
+		return {}
+	var projected_counter: Dictionary = counter.call("purchased_gasket_handoff_snapshot", station_id)
+	var projected_row: Variant = projected_counter.get(GASKET_ITEM)
+	# Legacy unbound records remain loadable, but a live handoff must project
+	# both provenance records before its inventory row can be consumed.
+	if not staged.has("replacement_gasket") or projected_row is not Dictionary \
+			or projected_row.get("fitted_station") != station_id:
+		return {}
+	current.records[station_id].value = staged.duplicate(true)
+	current.records[GASKET_COUNTER].value = projected_counter.duplicate(true)
+	return current if _validate(current, _kinds, {}, document) else {}
+
+
+func _publish_gasket_household(counter: Node, cabinet: Node, station_id: String, verified: Dictionary) -> void:
+	# Owner adoption methods are silent. All notifications follow both
+	# physical projections and the cache update. The restoring guard prevents
+	# the signals from capturing a second save during this verified handoff.
+	_restoring = true
+	cabinet.call("finish_staged_purchased_gasket", verified.records[station_id].value)
+	counter.call("adopt_purchased_gasket_handoff", verified.records[GASKET_COUNTER].value)
+	_last_saved = verified.duplicate(true)
+	_state_document = RealityState.data
+	cabinet.emit_signal("manipulation_changed")
+	counter.emit_signal("manipulation_changed")
+	_restoring = false
+
 
 func _valid_book_order(identity: String, value: Variant) -> bool:
 	if not _defaults.get("records", {}).has(identity): return false
@@ -324,7 +587,8 @@ func _on_state_changed() -> void:
 	# A deep-equal copy of our last validated payload in the same campaign
 	# document is already trusted. Load/reset replaces the document; changed
 	# values or recovery from a blocked state still take full validation below.
-	if reuse_unchanged_validation and not _blocked and saved == _last_saved and is_same(_state_document, RealityState.data):
+	if reuse_unchanged_validation and not _blocked and saved == _last_saved \
+			and is_same(_state_document, RealityState.data) and _cached_gasket_payment_valid(saved):
 		errors.clear();_profile_end("state_cached",profile_started);return
 	# A load/reset replaces facts underneath an existing world. Adopt only a
 	# fully valid document; never flush stale controls back into the new save.
@@ -352,10 +616,11 @@ func capture_now() -> bool:
 	# A fresh snapshot equal to the same validated saved payload needs no
 	# second validation. Changed records still pass their complete validators;
 	# every related-record constraint runs against the complete fresh snapshot.
-	if reuse_unchanged_validation and not current.is_empty() and current == saved:
+	if reuse_unchanged_validation and not current.is_empty() and current == saved \
+			and _cached_gasket_payment_valid(saved):
 		errors.clear();_profile_end("capture_cached",profile_started);return false
 	var trusted: Dictionary=_last_saved.get("records",{}) if reuse_unchanged_validation else {}
-	if current.is_empty() or not _validate(current, _kinds, trusted) or current == saved:
+	if current.is_empty() or not _validate(current, _kinds, trusted, RealityState.data) or current == saved:
 		_profile_end("capture_unchanged_or_invalid",profile_started);return false
 	RealityState.data[KEY] = current
 	_last_saved = current.duplicate(true)

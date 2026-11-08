@@ -1,6 +1,7 @@
 extends RefCounted
 ## Refit furnishing assemblies against the actual installed finish, once at
 ## composition. Never translate only the visual or change a mechanical datum.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 const FLOOR_KINDS := ["bed","nightstand","wardrobe","shelf","sofa","desk","workbench","chair","table_round","table_rect","coffee","hallstand","cardcabinet","canvasstack","hamper","crate","suitcase","easel","umbrellastand","verticalfile","plant","prep_cabinet","boottray","dressform","overflowtray","sewingmachine","ashcan","spittoon","foldedcot","softbox","tripod","wateringcan","trug","threshold"]
 const HANGING_KINDS := ["artframe","pinboard","toolboard","noticeframe","quietsign","hookstrip","headsethook","coathook","tsquare","cupboard","bathshelf","garmentrail","lostshelves","printline","blanket"]
 const FINISH_NAMES := ["HistoricMillwork","PublicWainscot","PublicWainscotFrames","PublicWainscotCap"]
@@ -17,7 +18,7 @@ static func finish_stock(root: Node3D) -> Array[Dictionary]:
 		var stock: MultiMesh=draw.multimesh
 		if stock==null or stock.mesh==null:continue
 		for i in stock.instance_count:
-			var pose: Transform3D=inverse*draw.global_transform*stock.get_instance_transform(i)
+			var pose: Transform3D=inverse*draw.global_transform*MultiMeshPoses.pose(stock,i)
 			result.append({"bounds":pose*stock.mesh.get_aabb(),"normal":pose.basis.z.normalized(),"owner":str(draw.get_parent().name),"part":str(draw.name)})
 	return result
 

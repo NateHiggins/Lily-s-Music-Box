@@ -1,0 +1,74 @@
+{
+	"checks": 38947,
+	"city_context_review": {
+		"scope": "Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance.",
+		"views": []
+	},
+	"city_geometry_diagnostic": {
+		"checks": 38193,
+		"executed": true,
+		"failures": 0,
+		"scope": "Source/composition city geometry and posed camera diagnostic; no played access or artistic acceptance."
+	},
+	"civic_world_access": {
+		"executed": false,
+		"passed": false
+	},
+	"companion_sequence": {
+		"executed": false
+	},
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"surface_requirements": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 337.376,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"interaction_programmes": {
+		"fire_service": {
+			"executed": false,
+			"scope": "separate interaction programme; physical draws remain in the inventory"
+		},
+		"other_family_programmes": {
+			"executed": false,
+			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
+		}
+	},
+	"inventory_sha256": "c76bb34d574008e8a2c734a6b24a1302b2c176c9624ba5a626e8681b8d5aa4d6",
+	"lamp_context_review": {
+		"executed": false,
+		"scope": "Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."
+	},
+	"production_runtime": true,
+	"qualification_mode": "physical_surfaces_only",
+	"schema_version": 2,
+	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
+	"selector": "v2",
+	"source": {
+		"repository_head": "47224bd4b13f7252c51a5aff7e2eea87450e0b54",
+		"runtime_inputs_sha256": "408d2692b6e495a1615b87dcad3a9d19dde9b41fb4969e712d5d499968ed4f2f",
+		"test_path": "game/tests/orison_v2_surface_inventory.gd",
+		"test_sha256": "934c2b565c9976e6c62c9867df4df851150263229567780f9dc90aed257261d0"
+	},
+	"surface_inputs_sha256": "2cb86c5b9f31052df16ac6ff7382008e39df68e4066bd0fa8f67a3bdb5b2cc6d"
+}

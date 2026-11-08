@@ -309,6 +309,22 @@ class UntouchedFixtureTests(unittest.TestCase):
         record = req(self.payload, "case.juno_feedback_tetris")
         self.assertIn("unit 2C absent from v2", record["blocked_by"])
 
+    def test_keyed_case_definitions_keep_their_identity_and_origin(self):
+        with TempRepo() as root:
+            case_path = root / "game/data/reality_cases.json"
+            case_path.write_text(json.dumps({
+                "mina_caption_crisis": {
+                    "unit": "2A", "origin_node": "F02_A_MONITOR_01", "enabled": True,
+                },
+                "juno_feedback_tetris": {"unit": "2C", "enabled": False},
+            }), encoding="utf-8")
+            _, keyed, _ = run_payload(root)
+            for case_id in ("mina_caption_crisis", "juno_feedback_tetris"):
+                rid = f"case.{case_id}"
+                self.assertEqual(req(keyed, rid), req(self.payload, rid), rid)
+            self.assertEqual(req(keyed, "save.unit_rect_facts"),
+                             req(self.payload, "save.unit_rect_facts"))
+
     def test_queue_starts_with_m08e(self):
         queue = self.payload["queue"]
         self.assertEqual(queue[0]["id"], "M08E-f01-rituals-2b-b1")
@@ -1075,6 +1091,30 @@ class ChronologyTests(unittest.TestCase):
             self.assertTrue(census(before))
             self.assertEqual(census(before), census(after))
             self.assertTrue(set(census(after)) <= set(audit.M08D_PROVEN_PARITY_IDS))
+
+    def test_runtime_receipt_binds_declared_scene(self):
+        with TempRepo() as root:
+            make_slice_complete(root)
+            receipt = root / "art/renders/orison_v2/mini_m08f_composition/runtime_authority_receipt.json"
+            data = json.loads(receipt.read_text(encoding="utf-8"))
+            scene = root / "game/tests/runtime_fixture.tscn"
+            scene.write_text('[gd_scene format=3]\n[node name="Fixture" type="Node"]\n', encoding="utf-8")
+            data["source"].update(test_scene_path=scene.relative_to(root).as_posix(),
+                                  test_scene_sha256=audit.sha256_file(scene))
+            self.assertEqual(audit.runtime_receipt_errors(data, root), [])
+            original = scene.read_bytes()
+            scene.write_bytes(original + b"\n# Scene composition changed.\n")
+            self.assertIn("test-scene SHA-256 is stale", audit.runtime_receipt_errors(data, root))
+            scene.write_bytes(original)
+            for bad in ["../outside.tscn", "game/tests/missing.tscn", "game/data/maintenance_jobs.json"]:
+                with self.subTest(path=bad):
+                    changed = json.loads(json.dumps(data))
+                    changed["source"]["test_scene_path"] = bad
+                    self.assertIn("actual root-relative game/tests scene and SHA-256 required",
+                                  audit.runtime_receipt_errors(changed, root))
+            data["source"].pop("test_scene_sha256")
+            self.assertIn("actual root-relative game/tests scene and SHA-256 required",
+                          audit.runtime_receipt_errors(data, root))
 
     def test_runtime_receipt_rejects_changed_production_with_unchanged_test(self):
         with TempRepo() as root:

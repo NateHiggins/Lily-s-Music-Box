@@ -1,0 +1,13 @@
+{
+  "evidence_class": "INERT",
+  "tool_session": 97771,
+  "exit_code": 1,
+  "error": "Original contract/wrapper binding mismatch: test_path",
+  "failure_kind": "stager assumed root-script fields for a child programme; original run remained passed",
+  "failed_helper_raw_sha256": "7c669e9cd0fe777090b7dc7d65ff23045839adb089cfa4d594bf92301afc8796",
+  "original_guard_logs_preserved": [
+    "PACKET_STAGING_GUARD.log",
+    "PACKET_STAGING_GUARD.stderr"
+  ],
+  "runtime_receipts_modified": false
+}

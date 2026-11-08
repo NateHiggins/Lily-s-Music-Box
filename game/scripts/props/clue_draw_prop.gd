@@ -79,6 +79,9 @@ func _found() -> void:
 		return
 	if not goods.is_empty():
 		PersonInventory.carry_goods(PersonInventory.PLAYER, str(goods.id), str(goods.name), str(goods.form))
+	if not note.is_empty():
+		# What was found is kept, not only printed once: it goes in the case's evidence folder.
+		PaperPocket.file_evidence(flag, str(note.get("title", "")), str(note.get("body", "")))
 	RealityState.commit()
 	var player := get_tree().get_first_node_in_group("player_controller") as PlayerController
 	if player != null and not note.is_empty():

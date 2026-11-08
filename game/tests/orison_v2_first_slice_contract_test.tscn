@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://tests/orison_v2_first_slice_contract_test.gd" id="1"]
 
-[node name="OrisonV2FirstSliceContractTest" type="Node"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_contract"]
+resource_local_to_scene = true
+viewport_path = NodePath("InputViewport")
+
+[node name="OrisonV2FirstSliceContractTest" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InputViewport" type="SubViewport" parent="."]
+size = Vector2i(3440, 1440)
+render_target_update_mode = 4
+
+[node name="Contract" type="Node" parent="InputViewport"]
 script = ExtResource("1")
+
+[node name="Presentation" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_contract")

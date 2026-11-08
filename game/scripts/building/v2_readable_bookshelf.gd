@@ -170,16 +170,27 @@ func _mount_decoration(identity: String,style: String,at: Vector3,yaw: float) ->
 		solid.transform=draw.transform if bool(record.open_vessel) else native_stock.hull_poses[part]
 		body.add_child(solid)
 
+func book_slot_is_free(index: int, book: Node3D) -> bool:
+	if index<0 or index>=book_slots.size(): return false
+	for other: Node3D in _books.values():
+		if other!=book and other.shelf_slot==index: return false
+	return true
+
+func book_copy(identity: String) -> Book:
+	return _books.get(identity) as Book
+
+
+func library_hand_is_free() -> bool:
+	return not is_instance_valid(_hand_node)
+
+
 func try_place_book(book: Node3D) -> bool:
 	if book.opening>.04: return false
 	for index in book_slots.size():
 		var pose:=book_slots[index]
 		if book.position.distance_to(pose.origin)>.065: continue
 		if book.basis.get_rotation_quaternion().angle_to(pose.basis.get_rotation_quaternion())>.20: continue
-		var occupied:=false
-		for other: Node3D in _books.values():
-			if other!=book and other.shelf_slot==index: occupied=true;break
-		if occupied: continue
+		if not book_slot_is_free(index,book): continue
 		# Use the same swept carry as the hand. Existing resting contacts may
 		# separate; an occupancy sample alone incorrectly rejects that escape.
 		# The original world/contact authority still vetoes travel into stock.
@@ -299,6 +310,17 @@ func inspection_started() -> void:
 		if _inspection_stock is Book:
 			_inspection_stock.begin_floating_view(get_viewport().get_camera_3d().global_transform)
 
+## A placed or read binding releases the borrowed FPS hand. A closed
+## inspection can still return the same loose copy to that hand.
+func inspection_pickup_return_allowed(part: Node3D) -> bool:
+	if part is Book and part.shelf==self and _books.get(part.stock_id)==part:
+		return part.shelf_slot<0 and not part.should_return_after_reading()
+	return true
+
+func finish_reading() -> void:
+	if is_instance_valid(_inspection_stock) and _inspection_stock is Book:
+		_inspection_stock.return_after_reading()
+
 func inspection_ended() -> void:
 	if is_instance_valid(_inspection_stock):
 		if _inspection_stock is Book: _inspection_stock.end_floating_view()
@@ -306,7 +328,15 @@ func inspection_ended() -> void:
 		_inspection_stock.freeze=parked;_inspection_stock.sleeping=parked
 	_inspection_stock=null;_pending_inspection_stock=null
 
-func reading_view_active() -> bool: return is_instance_valid(_inspection_stock) and _inspection_stock is Book
+func inspected_readable_stock() -> PhysicsBody3D:
+	return _inspection_stock as PhysicsBody3D if is_instance_valid(_inspection_stock) and _inspection_stock is Book else null
+
+func reading_view_active() -> bool: return inspected_readable_stock()!=null
+
+func reading_optical_fit(camera: Camera3D) -> Dictionary:
+	var copy:=inspected_readable_stock() as Book
+	return copy.reading_optical_fit(camera) if copy!=null else {}
+
 
 func supports_inspected_stock(body: Node3D) -> bool:
 	return is_instance_valid(_inspection_stock) and _inspection_stock==body
@@ -381,6 +411,8 @@ func restore_order(value: Variant) -> void:
 	if not (valid_library(value) if value is Dictionary else _valid_order(value)): return
 	_restoring_library=true
 	_hand_node=null;_hand_tag="";sorter.held=-1
+	for book: Book in _books.values():
+		if book.valise_packed: book.set_valise_packed(false)
 	if value is Array:
 		sorter.order=value.duplicate();sorter.moves=0;_arrange(sorter.order)
 		for sash: Node3D in _sashes: sash.restore({"angle":0.,"inset":0.})
@@ -402,6 +434,10 @@ func restore_order(value: Variant) -> void:
 		if not refit:
 			for side: String in _ends: _ends[side].restore_stock(value.bookends[side])
 		for index in _sashes.size(): _sashes[index].restore(value.doors[index])
+	var case_places: Dictionary=RealityState.data.get(CarriedCase.KEY,{}).get("places",{})
+	for identity: String in _books:
+		if case_places.has(CarriedCase.library_item(str(name),identity)):
+			_books[identity].set_valise_packed(true)
 	_restoring_library=false
 
 func inspection_state() -> Dictionary:
