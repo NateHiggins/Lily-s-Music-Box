@@ -1,6 +1,7 @@
 extends RefCounted
 ## Finish every actual room-facing wall, including shared stock and cut walls.
 ## Geometry/collision ownership remains with the shell. All trim is visual.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 const PROFILE := preload("res://assets/props/millwork_profile.glb")
 const STOCK_SHADER := preload("res://shaders/v2_millwork_stock.gdshader")
 static var _meshes: Dictionary = {}

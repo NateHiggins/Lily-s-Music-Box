@@ -1,4 +1,3 @@
-class_name MultiMeshPoses
 extends RefCounted
 ## MultiMesh instance poses that read back the same under every renderer.
 ##

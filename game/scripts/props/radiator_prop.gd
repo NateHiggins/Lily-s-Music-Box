@@ -4,6 +4,7 @@ extends FunctionalProp
 ## sections rather than drawn as a row of pipes. The Orison is one-pipe steam:
 ## the angle valve is either open or shut, while a replaceable air-vent orifice
 ## decides how quickly this radiator wins steam from the building's fixed cycle.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 
 signal supply_changed(open: bool, position: float)
 signal vent_changed(grade: int)

@@ -1,5 +1,6 @@
 extends Node3D
 ## Independent lift, slat tilt and curtain draw; HouseholdState owns saves.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 signal settings_changed
 ## Physical release only; restore/tween/legacy toggles do not witness a gesture.
 signal control_released(control: String, before: float, after: float)

@@ -1,5 +1,6 @@
 extends RefCounted
 ## Bounded visual splices; wall bodies, actors and control/save owners remain.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 const DATA_PATH="res://data/orison_v2/front_lighting_trim.json"
 var errors: Array[String]=[]
 var installed: Array[MeshInstance3D]=[]

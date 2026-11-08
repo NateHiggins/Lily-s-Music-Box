@@ -2,6 +2,7 @@ class_name RadiatorNativeAssembly
 extends Node3D
 ## The native mechanical rig. Heating, case and inventory facts stay with
 ## RadiatorProp; this node accepts physical positions and owns presentation.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 
 var section_count := 10
 var body: Node3D

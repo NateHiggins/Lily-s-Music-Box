@@ -1,6 +1,7 @@
 extends Node3D
 ## Native accessory animator. Radio, lamp, print and work state stay on `device`.
 ## Created explicitly by a companion presentation; no production autoload.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 signal keyboard_settled(open: bool)
 const DATA := "res://data/device/service_companion_v2.json"
 const KEY_TRAVEL:=.0014
