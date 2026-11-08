@@ -72,6 +72,7 @@ func _ready() -> void:
 	second.queue_free()
 	await get_tree().create_timer(0.2).timeout
 	await _check_household_receiver()
+	await _check_specialist_receivers()
 	print("[V2 BROADCAST] RESULT: %s (%d failures)" % [
 			"PASS" if _fails == 0 else "FAIL", _fails])
 	get_tree().quit(_fails)
@@ -108,3 +109,49 @@ func _check_household_receiver() -> void:
 	_check("a playing set leaving the tree gives up the broadcast record",
 			not emitter.playing and emitter.stream != record)
 	radio.queue_free()
+
+
+## The specialist valve sets (the five original household radios): switching one
+## on joins the live programme at the broadcast level, two sets carry the same
+## record, switching off falls silent, and leaving the tree hands the murmur
+## carrier back before the prop releases it.
+func _check_specialist_receivers() -> void:
+	const Specialist := preload("res://scripts/building/orison_v2_specialist_radio.gd")
+	var sets: Array = []
+	for identity: String in ["2A_RADIO_TEST", "3B_RADIO_TEST"]:
+		var radio: Node = Specialist.new()
+		radio.setup({"asm": "radio", "id": identity})
+		add_child(radio)
+		sets.append(radio)
+	await get_tree().process_frame
+	var first: Node = sets[0]
+	var carrier: AudioStream = first._radio_bed.stream
+	_check("a specialist set starts on its murmur carrier, switched off",
+			carrier != null and not first._powered and not first._radio_bed.playing)
+	for radio: Node in sets:
+		radio.interact()
+	var live := Broadcast.now_playing()
+	for radio: Node in sets:
+		var bed: AudioStreamPlayer3D = radio._radio_bed
+		_check("specialist %s switched on plays the broadcast record at %.0f dB" % [radio.record_id, Specialist.BROADCAST_DB],
+				radio._powered and bed.playing and bed.stream == live.get("stream")
+				and is_equal_approx(bed.volume_db, Specialist.BROADCAST_DB) and bed.bus == "Broadcast")
+		_check("specialist %s reports the record on the air" % radio.record_id,
+				Broadcast.on_air(bed) == str(live.get("title")))
+	_check("two specialist sets carry the same record",
+			sets[0]._radio_bed.stream == sets[1]._radio_bed.stream)
+	first.interact()
+	_check("a specialist set switched off falls silent and leaves the broadcast",
+			not first._powered and not first._radio_bed.playing and Broadcast.on_air(first._radio_bed).is_empty())
+	_check("the other set keeps playing", sets[1]._radio_bed.playing)
+	# Leaving the tree while playing: the carrier comes back, then the prop's own cleanup releases it.
+	var second: Node = sets[1]
+	var bed: AudioStreamPlayer3D = second._radio_bed
+	remove_child(second)
+	_check("a playing specialist set leaving the tree stops and lets go of its streams",
+			not bed.playing and bed.stream == null and not bed.has_meta("broadcast_on"))
+	_check("the broadcast record is still on the air for other listeners",
+			Broadcast.now_playing().get("stream") == live.get("stream"))
+	for radio: Node in sets:
+		radio.queue_free()
+	await get_tree().process_frame

@@ -38,7 +38,10 @@ func _route() -> void:
 			"pool inspection volume follows the retained table in the west bay"):return
 	if not _require(bar.actors.has_node("F01_BAR_SONGBOOK")
 			and bar.actors.has_node("F01_BAR_DARTS") and bar.actors.has_node("F01_BAR_POOL")
-			and bar.actors.find_children("*","ArcadeCabinetProp",true,false).size()==2,
+			# The two arcade cabinets were retired from play on 2026-10-24 (V2 shared finish and arcade
+			# retirement); none may come back as an actor, and the retirement record must stand.
+			and bar.actors.find_children("*","ArcadeCabinetProp",true,false).is_empty()
+			and bar.get_node("RetainedBarGeometry").get_node_or_null("RetiredBarCabinets")!=null,
 			"retained games and recording apparatus have their original owners"): return
 	var service = [Vector3(1.45,-2.8,33.1),Vector3(-1,-2.8,33.1),Vector3(-3,-2.8,33.1),Vector3(-5.6,-2.8,33.1),Vector3(-8.0,-2.8,33.1),Vector3(-10.5,-2.8,33.1),Vector3(-10.5,-2.8,35.4)]
 	for point in service:
@@ -64,9 +67,12 @@ func _route() -> void:
 				if not await _walk_source(bar,pool_point):return
 	var wc: DoorProp = bar.doors["F01_BAR_WC_DOOR"]
 	if not await _use(wc,wc.to_global(Vector3(wc.width*.5,1.15,0)),"wc_door"):return
-	await get_tree().create_timer(.6).timeout
+	# Architectural doors open slowly since 2026-10-22; let the leaf settle before measuring the hinge.
+	var settle := Time.get_ticks_msec()
+	while Time.get_ticks_msec() - settle < 4000 and absf(absf(rad_to_deg(wc._body.rotation.y)) - 90.0) >= .1:
+		await get_tree().physics_frame
 	if not _require(wc.open and absf(rad_to_deg(wc._body.rotation.y)-90.0)<.1,
-			"ordinary restroom input clears the retained jamb with a fitted quarter-turn hinge"):return
+			"ordinary restroom input clears the retained jamb with a fitted quarter-turn hinge (open=%s, %.1f deg)" % [wc.open, rad_to_deg(wc._body.rotation.y)]):return
 	if not await _walk_source(bar,Vector3(-10.48,-2.8,36.65)):return
 	await _capture("wc_inside",bar.to_global(Vector3(-10.1,-1.9,37.5)))
 	var sink = bar.actors.get_node("F01_BAR_WC_SINK_01")
