@@ -33,11 +33,13 @@ var state := Vector4.ZERO
 var code := ""
 var last_projection_parameters := PackedFloat32Array()
 
-func _init() -> void:
+## compute: the ray-bending pass. The Star God's lens (star_god_lens.gd) shares
+## this capture, copy and lifetime with a different pass.
+func _init(compute := "res://shaders/skywatch_mirage.compute") -> void:
 	effect_callback_type=EFFECT_CALLBACK_TYPE_POST_TRANSPARENT
 	access_resolved_color=true;access_resolved_depth=true;enabled=false
 	capture=OpaqueCapture.new(self)
-	code=FileAccess.get_file_as_string("res://shaders/skywatch_mirage.compute")
+	code=FileAccess.get_file_as_string(compute)
 	# Compile at world preparation, not the first rare inversion frame.
 	RenderingServer.call_on_render_thread(_prepare)
 

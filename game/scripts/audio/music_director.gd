@@ -50,6 +50,12 @@ func _ready() -> void:
 	_radio.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
 	add_child(_radio)
 	_radio.finished.connect(_on_track_finished)
+	# The aurora nights' storm is heard on this radio (geomagnetic_static.gd).
+	var storm := preload("res://scripts/audio/geomagnetic_static.gd").new()
+	storm.name = "GeomagneticStatic"
+	storm.max_distance = _radio.max_distance
+	storm.attenuation_model = _radio.attenuation_model
+	_radio.add_child(storm)
 	_choose_radio_destination(true)
 	_dialogue = CaseDialoguePanel.new()
 	add_child(_dialogue)

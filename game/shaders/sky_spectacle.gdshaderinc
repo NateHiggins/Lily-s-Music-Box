@@ -4,9 +4,15 @@ uniform float electrical_age = 0.0;
 // Shared scheduled phenomena; extracted without arithmetic changes from main2b7bf3db.
 // Spectacle (data/weather/phenomena.json via WeatherManager): one intensity
 // and one bearing per phenomenon slot. Zero costs a uniform branch, no node.
-uniform float spectacle[42];
-uniform float spectacle_bearing[42];
+uniform float spectacle[43];
+uniform float spectacle_bearing[43];
 uniform float emergence_progress = 0.0;
+// The Star God (star_god.gd), published by the day/night director.
+uniform float star_god_entity = 0.0;   // phase B: grown out of the Sun, 0-1
+uniform float star_god_line = 0.0;     // phase C: thinned to one bright line
+uniform vec3 star_god_centre = vec3(0.0, 0.1, -1.0);
+uniform float star_god_size = 0.07;    // radians, half-height of the figure
+uniform float star_god_afterglow = 0.0; // the violet night after
 uniform float spectacle_time = 0.0;
 // V2 derives these from the existing weather/observer owner. The retained
 // seasonal renderer keeps its original presentation when this switch is off.
@@ -53,6 +59,7 @@ const int S_IRIDESCENCE = 38;
 const int S_GREEN_FLASH = 39;
 const int S_FATA_MORGANA = 40;
 const int S_EMERGENCE = 41;
+const int S_STAR_GOD = 42; // drawn from star_god.gd uniforms; the slot dates it for the papers
 
 
 // --- Spectacle helpers ---------------------------------------------------------
@@ -841,6 +848,56 @@ vec3 emergence(vec3 dir,vec3 colour) {
     colour+=vec3(1.0,.42,.2)*exp(-length(q)*length(q)*40.0)*smoothstep(.78,1.0,p)*level;
     return colour;
 }
+// The Star God, 1 November 1929. Out of the eclipsed Sun something unfolds: many
+// limbs of twisted field-line filament round a white core, the light of the flare
+// in it and hydrogen red at its edges. It climbs, thins to a line and is gone.
+vec3 star_god(vec3 dir) {
+    float presence=max(star_god_entity,star_god_line);
+    if(presence<=0.0) return vec3(0.0);
+    vec3 c=normalize(star_god_centre);
+    if(dot(dir,c)<cos(star_god_size*3.0)) return vec3(0.0);
+    vec3 side=normalize(cross(vec3(0.0,1.0,0.0),c));
+    vec3 up=cross(c,side);
+    vec2 q=vec2(dot(dir,side),dot(dir,up))/max(star_god_size,1e-4);
+    // The line: everything drawn in to one vertical stroke.
+    q.x/=mix(1.0,.03,star_god_line);
+    q.y/=mix(1.0,2.4,star_god_line);
+    float t=spectacle_time*.05;
+    float r=length(q);
+    float phi=atan(q.x,q.y); // 0 straight up
+    float reach=star_god_entity*1.35+star_god_line;
+    float light=0.0, red=0.0;
+    // Six limbs in three pairs, curling as they grow.
+    for(int k=0;k<6;k++) {
+        float pair=float(k/2);
+        float hand=(k%2==0)?1.0:-1.0;
+        float base=hand*(.45+pair*.62);
+        float curl=hand*(.55-pair*.2)*r+.12*sin(r*5.0-t*3.0+float(k));
+        float off=abs(atan(sin(phi-base-curl),cos(phi-base-curl)))*r;
+        float length_k=reach*(1.0-pair*.18);
+        float along=1.0-smoothstep(length_k*.85,length_k,r);
+        float width=.035*(1.0-r/max(length_k,.01))+.006;
+        // Strands twisted round each limb, like field lines.
+        float strands=.55+.45*sin((phi-base-curl)*r*70.0+r*9.0-t*4.0);
+        float limb=(1.0-smoothstep(width*.5,width,off))*along*step(.08,r);
+        light+=limb*strands;
+        red+=(1.0-smoothstep(width,width*2.6,off))*along*step(.08,r)*.6;
+    }
+    // A long body below and a crown above.
+    float body=(1.0-smoothstep(.03,.06,abs(q.x)+.02*sin(q.y*9.0+t*2.0)))*step(-reach*1.2,q.y)*step(q.y,reach*.5);
+    float core=exp(-r*r*55.0);
+    light+=body*.8+core*3.0;
+    float glow=exp(-r*1.6)*.25*presence;
+    vec3 white=vec3(1.0,.97,.9);
+    vec3 hydrogen=vec3(.95,.12,.1);
+    return (white*light*1.6+hydrogen*red*.7+vec3(1.0,.85,.6)*glow)*presence*(1.0+star_god_line*4.0);
+}
+// The night after: the sky over Queens glows violet from the horizon up.
+vec3 star_god_night(vec3 dir) {
+    float up=smoothstep(-.02,.2,dir.y);
+    float band=exp(-pow((elevation_degrees(dir)-18.0)/22.0,2.0));
+    return vec3(.020,.004,.032)*(.4+band)*up*star_god_afterglow;
+}
 // Behind the lower clouds: the high layers, electricity above the storm, ice optics.
 vec3 spectacle_behind(vec3 dir,vec3 colour) {
     if (spectacle[S_NOCTILUCENT]>0.0) colour+=noctilucent(dir)*spectacle[S_NOCTILUCENT];
@@ -856,6 +913,8 @@ vec3 spectacle_behind(vec3 dir,vec3 colour) {
     if (spectacle[S_FATA_MORGANA]>0.0 && !skywatch_extended_optics) colour=fata_morgana(dir,colour);
     if (spectacle[S_GLORY]>0.0) colour+=glory(dir);
     if (spectacle[S_EMERGENCE]>0.0) colour=emergence(dir,colour);
+    if (star_god_entity+star_god_line>0.0) colour+=star_god(dir);
+    if (star_god_afterglow>0.0) colour+=star_god_night(dir);
     return colour;
 }
 // In front of the lower clouds: what forms in the rain, on the cloud base, in the dust.
