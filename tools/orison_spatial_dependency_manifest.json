@@ -194187,7 +194187,7 @@
     "_choose_radio_destination"
    ],
    "lines": [
-    147
+    153
    ],
    "count": 1,
    "context": [
@@ -196450,7 +196450,7 @@
     "_resolve_anchors"
    ],
    "lines": [
-    86
+    87
    ],
    "count": 1,
    "context": [
@@ -196480,7 +196480,7 @@
     "_resolve_anchors"
    ],
    "lines": [
-    101
+    102
    ],
    "count": 1,
    "context": [
@@ -196510,7 +196510,7 @@
     "_resolve_anchors"
    ],
    "lines": [
-    78
+    79
    ],
    "count": 1,
    "context": [
@@ -196540,7 +196540,7 @@
     "<module>"
    ],
    "lines": [
-    8
+    9
    ],
    "count": 1,
    "context": [
@@ -196570,7 +196570,7 @@
     "_resolve_anchors"
    ],
    "lines": [
-    114
+    115
    ],
    "count": 1,
    "context": [
@@ -196600,7 +196600,7 @@
     "_resolve_anchors"
    ],
    "lines": [
-    114
+    115
    ],
    "count": 1,
    "context": [
@@ -196630,7 +196630,7 @@
     "_resolve_anchors"
    ],
    "lines": [
-    82
+    83
    ],
    "count": 1,
    "context": [
@@ -196689,15 +196689,15 @@
     "_apply"
    ],
    "lines": [
-    55,
-    66,
-    77,
-    88,
-    99,
-    110,
-    121,
-    132,
-    268
+    63,
+    74,
+    85,
+    96,
+    107,
+    118,
+    129,
+    140,
+    276
    ],
    "count": 9,
    "context": [
@@ -196730,7 +196730,7 @@
     "_apply_atrium"
    ],
    "lines": [
-    551
+    595
    ],
    "count": 1,
    "context": [
@@ -196760,7 +196760,7 @@
     "_apply_atrium"
    ],
    "lines": [
-    556
+    600
    ],
    "count": 1,
    "context": [
@@ -196790,7 +196790,7 @@
     "_apply_atrium"
    ],
    "lines": [
-    551
+    595
    ],
    "count": 1,
    "context": [
@@ -196820,7 +196820,7 @@
     "_apply_atrium"
    ],
    "lines": [
-    556
+    600
    ],
    "count": 1,
    "context": [
@@ -197177,7 +197177,7 @@
     "_emit_puddles"
    ],
    "lines": [
-    1073
+    1074
    ],
    "count": 1,
    "context": [],
@@ -197205,7 +197205,7 @@
     "build"
    ],
    "lines": [
-    35
+    36
    ],
    "count": 1,
    "context": [
@@ -197235,8 +197235,8 @@
     "_build_street_end_weather"
    ],
    "lines": [
-    697,
-    704
+    698,
+    705
    ],
    "count": 2,
    "context": [
@@ -197267,7 +197267,7 @@
     "configure_street_lights"
    ],
    "lines": [
-    88
+    89
    ],
    "count": 1,
    "context": [
@@ -197321,7 +197321,7 @@
     "_build_composition_lights"
    ],
    "lines": [
-    783
+    784
    ],
    "count": 1,
    "context": [
@@ -197351,7 +197351,7 @@
     "_build_transit_shelter_sign"
    ],
    "lines": [
-    178
+    179
    ],
    "count": 1,
    "context": [
@@ -197381,7 +197381,7 @@
     "configure_street_lights"
    ],
    "lines": [
-    81
+    82
    ],
    "count": 1,
    "context": [
@@ -197411,7 +197411,7 @@
     "_build_street_end_hoarding_faces"
    ],
    "lines": [
-    649
+    650
    ],
    "count": 1,
    "context": [
@@ -203332,6 +203332,66 @@
    "target_exists": null
   },
   {
+   "key": "2be238a8c87253be",
+   "kind": "generated_name",
+   "token": "_build_furniture",
+   "file": "game/scripts/building/orison_v2_city_midground.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_furniture"
+   ],
+   "lines": [
+    192
+   ],
+   "count": 1,
+   "context": [
+    "\"Furniture_\" + str(source.name)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "4585b589805873cd",
+   "kind": "generated_name",
+   "token": "_build_panes",
+   "file": "game/scripts/building/orison_v2_city_midground.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_panes"
+   ],
+   "lines": [
+    165
+   ],
+   "count": 1,
+   "context": [
+    "\"Panes_%s_%d_%d\" % [cls, key.x, key.y]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "7be220af057776b2",
    "kind": "generated_name",
    "token": "_ready",
@@ -206254,7 +206314,7 @@
     "mount"
    ],
    "lines": [
-    86
+    87
    ],
    "count": 1,
    "context": [
@@ -206284,7 +206344,7 @@
     "_followers"
    ],
    "lines": [
-    245
+    246
    ],
    "count": 1,
    "context": [
@@ -206312,7 +206372,7 @@
     "_followers"
    ],
    "lines": [
-    245
+    246
    ],
    "count": 1,
    "context": [
@@ -206340,7 +206400,7 @@
     "_followers"
    ],
    "lines": [
-    246
+    247
    ],
    "count": 1,
    "context": [
@@ -206368,7 +206428,7 @@
     "_followers"
    ],
    "lines": [
-    246
+    247
    ],
    "count": 1,
    "context": [
@@ -206396,7 +206456,7 @@
     "_followers"
    ],
    "lines": [
-    249
+    250
    ],
    "count": 1,
    "context": [
@@ -206424,7 +206484,7 @@
     "_followers"
    ],
    "lines": [
-    249
+    250
    ],
    "count": 1,
    "context": [
@@ -206454,7 +206514,7 @@
     "_followers"
    ],
    "lines": [
-    247
+    248
    ],
    "count": 1,
    "context": [
@@ -206482,7 +206542,7 @@
     "_followers"
    ],
    "lines": [
-    247
+    248
    ],
    "count": 1,
    "context": [
@@ -206510,7 +206570,7 @@
     "_followers"
    ],
    "lines": [
-    247
+    248
    ],
    "count": 1,
    "context": [
@@ -206538,7 +206598,7 @@
     "_followers"
    ],
    "lines": [
-    250
+    251
    ],
    "count": 1,
    "context": [
@@ -206566,7 +206626,7 @@
     "_followers"
    ],
    "lines": [
-    250
+    251
    ],
    "count": 1,
    "context": [
@@ -206594,7 +206654,7 @@
     "<module>"
    ],
    "lines": [
-    4
+    5
    ],
    "count": 1,
    "context": [
@@ -206624,7 +206684,7 @@
     "<module>"
    ],
    "lines": [
-    4
+    5
    ],
    "count": 1,
    "context": [
@@ -207976,7 +208036,7 @@
     "bind"
    ],
    "lines": [
-    75
+    78
    ],
    "count": 1,
    "context": [
@@ -208420,7 +208480,7 @@
     "_casing_boxes"
    ],
    "lines": [
-    248
+    249
    ],
    "count": 1,
    "context": [
@@ -211289,7 +211349,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1377
+    1390
    ],
    "count": 1,
    "context": [
@@ -211319,8 +211379,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1457,
-    1460
+    1470,
+    1473
    ],
    "count": 2,
    "context": [
@@ -211351,7 +211411,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    886
+    888
    ],
    "count": 1,
    "context": [
@@ -211561,7 +211621,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1605
+    1618
    ],
    "count": 1,
    "context": [
@@ -211622,9 +211682,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1371,
-    1374,
-    1436
+    1384,
+    1387,
+    1449
    ],
    "count": 3,
    "context": [
@@ -211656,7 +211716,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1386
+    1399
    ],
    "count": 1,
    "context": [
@@ -211686,7 +211746,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1378
+    1391
    ],
    "count": 1,
    "context": [
@@ -211716,7 +211776,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1395
+    1408
    ],
    "count": 1,
    "context": [
@@ -211746,7 +211806,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1603
+    1616
    ],
    "count": 1,
    "context": [
@@ -211806,7 +211866,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1387
+    1400
    ],
    "count": 1,
    "context": [
@@ -211836,7 +211896,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1599
+    1612
    ],
    "count": 1,
    "context": [
@@ -211866,7 +211926,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1601
+    1614
    ],
    "count": 1,
    "context": [
@@ -211896,7 +211956,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    792
+    794
    ],
    "count": 1,
    "context": [
@@ -211926,7 +211986,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1601
+    1614
    ],
    "count": 1,
    "context": [
@@ -211956,7 +212016,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1599
+    1612
    ],
    "count": 1,
    "context": [
@@ -211986,7 +212046,7 @@
     "_ready"
    ],
    "lines": [
-    201
+    203
    ],
    "count": 1,
    "context": [
@@ -212016,7 +212076,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    793
+    795
    ],
    "count": 1,
    "context": [
@@ -212046,7 +212106,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    793
+    795
    ],
    "count": 1,
    "context": [
@@ -212076,7 +212136,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1599
+    1612
    ],
    "count": 1,
    "context": [
@@ -212106,7 +212166,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1599
+    1612
    ],
    "count": 1,
    "context": [
@@ -212136,7 +212196,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    792
+    794
    ],
    "count": 1,
    "context": [
@@ -212196,9 +212256,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1454,
-    1458,
-    1461
+    1467,
+    1471,
+    1474
    ],
    "count": 3,
    "context": [
@@ -212230,7 +212290,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    581
+    583
    ],
    "count": 1,
    "context": [
@@ -212260,7 +212320,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    581
+    583
    ],
    "count": 1,
    "context": [
@@ -212290,7 +212350,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    580
+    582
    ],
    "count": 1,
    "context": [
@@ -212320,7 +212380,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    580
+    582
    ],
    "count": 1,
    "context": [
@@ -212350,7 +212410,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1362
+    1375
    ],
    "count": 1,
    "context": [
@@ -212380,7 +212440,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1363
+    1376
    ],
    "count": 1,
    "context": [
@@ -212410,7 +212470,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    581
+    583
    ],
    "count": 1,
    "context": [
@@ -212500,7 +212560,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1264
+    1277
    ],
    "count": 1,
    "context": [
@@ -212530,7 +212590,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    632
+    634
    ],
    "count": 1,
    "context": [
@@ -212561,8 +212621,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1127,
-    1249
+    1137,
+    1262
    ],
    "count": 2,
    "context": [
@@ -212593,7 +212653,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1250
+    1263
    ],
    "count": 1,
    "context": [
@@ -212713,7 +212773,7 @@
     "_ready"
    ],
    "lines": [
-    253
+    255
    ],
    "count": 1,
    "context": [
@@ -212743,7 +212803,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1420
+    1433
    ],
    "count": 1,
    "context": [
@@ -212773,7 +212833,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1421
+    1434
    ],
    "count": 1,
    "context": [
@@ -212803,7 +212863,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1422
+    1435
    ],
    "count": 1,
    "context": [
@@ -212833,7 +212893,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1419
+    1432
    ],
    "count": 1,
    "context": [
@@ -212894,7 +212954,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    624
+    626
    ],
    "count": 1,
    "context": [
@@ -212926,8 +212986,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1355,
-    1420
+    1368,
+    1433
    ],
    "count": 2,
    "context": [
@@ -212960,8 +213020,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1358,
-    1421
+    1371,
+    1434
    ],
    "count": 2,
    "context": [
@@ -212994,8 +213054,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1361,
-    1422
+    1374,
+    1435
    ],
    "count": 2,
    "context": [
@@ -213028,8 +213088,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1352,
-    1419
+    1365,
+    1432
    ],
    "count": 2,
    "context": [
@@ -213061,7 +213121,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    622
+    624
    ],
    "count": 1,
    "context": [
@@ -213092,7 +213152,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    498
+    500
    ],
    "count": 1,
    "context": [
@@ -213124,8 +213184,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    248,
-    503
+    250,
+    505
    ],
    "count": 2,
    "context": [
@@ -213157,7 +213217,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    629
+    631
    ],
    "count": 1,
    "context": [
@@ -213188,7 +213248,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    506
+    508
    ],
    "count": 1,
    "context": [
@@ -213220,8 +213280,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    622,
-    1460
+    624,
+    1473
    ],
    "count": 2,
    "context": [
@@ -213252,7 +213312,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1319
+    1332
    ],
    "count": 1,
    "context": [
@@ -213282,7 +213342,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1320
+    1333
    ],
    "count": 1,
    "context": [
@@ -215478,7 +215538,7 @@
     "_control"
    ],
    "lines": [
-    186
+    187
    ],
    "count": 1,
    "context": [
@@ -219586,8 +219646,8 @@
     37,
     38,
     41,
-    346,
-    357
+    354,
+    365
    ],
    "count": 6,
    "context": [
@@ -219711,8 +219771,8 @@
     "build"
    ],
    "lines": [
-    126,
-    136
+    127,
+    137
    ],
    "count": 2,
    "context": [
@@ -220688,7 +220748,7 @@
     "_find_window"
    ],
    "lines": [
-    230
+    232
    ],
    "count": 1,
    "context": [
@@ -228608,7 +228668,7 @@
     "warehouse_variants"
    ],
    "lines": [
-    168
+    169
    ],
    "count": 1,
    "context": [
@@ -228639,8 +228699,8 @@
     "native_union_grip"
    ],
    "lines": [
-    109,
-    383
+    110,
+    384
    ],
    "count": 2,
    "context": [
@@ -231350,7 +231410,7 @@
     "_build_music"
    ],
    "lines": [
-    386
+    414
    ],
    "count": 1,
    "context": [
@@ -249238,6 +249298,37 @@
    "target_exists": true
   },
   {
+   "key": "0fc90001c794c662",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/harukiya_counter_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    64
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position = counter.glass.global_position + Vector3(0.0, -1.08, 1.25)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "ff16b977e9b25f4e",
    "kind": "asset_path",
    "token": "res://scenes/building/orison_root.tscn",
@@ -249262,6 +249353,37 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "95ee34c478e402a5",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/harukiya_strip_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    57
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position = stack.global_position + Vector3(0.0, -1.08, 1.25)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
   },
@@ -257010,7 +257132,7 @@
     "_check_room_circuits"
    ],
    "lines": [
-    256
+    261
    ],
    "count": 1,
    "context": [
@@ -257040,7 +257162,7 @@
     "_check_room_circuits"
    ],
    "lines": [
-    256
+    261
    ],
    "count": 1,
    "context": [
@@ -257070,7 +257192,7 @@
     "_check_room_circuits"
    ],
    "lines": [
-    256
+    261
    ],
    "count": 1,
    "context": [
@@ -257100,7 +257222,7 @@
     "_check_room_circuits"
    ],
    "lines": [
-    256
+    261
    ],
    "count": 1,
    "context": [
@@ -257130,7 +257252,7 @@
     "_check_room_circuits"
    ],
    "lines": [
-    256
+    261
    ],
    "count": 1,
    "context": [
@@ -257160,7 +257282,7 @@
     "_check_room_circuits"
    ],
    "lines": [
-    256
+    261
    ],
    "count": 1,
    "context": [
@@ -257190,7 +257312,7 @@
     "_check_specialist_devices"
    ],
    "lines": [
-    659
+    664
    ],
    "count": 1,
    "context": [
@@ -257221,8 +257343,8 @@
     "_check_specialist_devices"
    ],
    "lines": [
-    591,
-    658
+    596,
+    663
    ],
    "count": 2,
    "context": [
@@ -257253,7 +257375,7 @@
     "_check_prep_cabinets"
    ],
    "lines": [
-    586
+    591
    ],
    "count": 1,
    "context": [
@@ -257281,7 +257403,7 @@
     "_check_bath_details"
    ],
    "lines": [
-    951
+    956
    ],
    "count": 1,
    "context": [
@@ -257311,7 +257433,7 @@
     "_ready"
    ],
    "lines": [
-    111
+    116
    ],
    "count": 1,
    "context": [
@@ -257341,7 +257463,7 @@
     "_check_projectors"
    ],
    "lines": [
-    749
+    754
    ],
    "count": 1,
    "context": [
@@ -257370,8 +257492,8 @@
     "_check_specialist_devices"
    ],
    "lines": [
-    590,
-    665
+    595,
+    670
    ],
    "count": 2,
    "context": [
@@ -257402,7 +257524,7 @@
     "_check_specialist_devices"
    ],
    "lines": [
-    672
+    677
    ],
    "count": 1,
    "context": [
@@ -257430,7 +257552,7 @@
     "_ready"
    ],
    "lines": [
-    76
+    81
    ],
    "count": 1,
    "context": [
@@ -257458,7 +257580,7 @@
     "_check_heating"
    ],
    "lines": [
-    829
+    834
    ],
    "count": 1,
    "context": [
@@ -257488,8 +257610,8 @@
     "_check_wall_extensions"
    ],
    "lines": [
-    413,
-    419
+    418,
+    424
    ],
    "count": 2,
    "context": [
@@ -257520,7 +257642,7 @@
     "_ready"
    ],
    "lines": [
-    69
+    74
    ],
    "count": 1,
    "context": [
@@ -257548,7 +257670,7 @@
     "_ready"
    ],
    "lines": [
-    69
+    74
    ],
    "count": 1,
    "context": [
@@ -257576,7 +257698,7 @@
     "_ready"
    ],
    "lines": [
-    68
+    73
    ],
    "count": 1,
    "context": [
@@ -257604,7 +257726,7 @@
     "_ready"
    ],
    "lines": [
-    68
+    73
    ],
    "count": 1,
    "context": [
@@ -257632,7 +257754,7 @@
     "_ready"
    ],
    "lines": [
-    69
+    74
    ],
    "count": 1,
    "context": [
@@ -257661,8 +257783,8 @@
     "_check_heating"
    ],
    "lines": [
-    127,
-    834
+    132,
+    839
    ],
    "count": 2,
    "context": [
@@ -257693,8 +257815,8 @@
     "_check_heating"
    ],
    "lines": [
-    835,
-    839
+    840,
+    844
    ],
    "count": 2,
    "context": [
@@ -257725,8 +257847,8 @@
     "_check_surface_props"
    ],
    "lines": [
-    333,
-    353
+    338,
+    358
    ],
    "count": 2,
    "context": [
@@ -257757,8 +257879,8 @@
     "_check_surface_props"
    ],
    "lines": [
-    333,
-    353
+    338,
+    358
    ],
    "count": 2,
    "context": [
@@ -257794,10 +257916,10 @@
    "lines": [
     4,
     5,
-    333,
-    353,
-    485,
-    558
+    338,
+    358,
+    490,
+    563
    ],
    "count": 6,
    "context": [
@@ -257835,11 +257957,11 @@
    "lines": [
     4,
     5,
-    333,
-    353,
-    485,
-    868,
-    894
+    338,
+    358,
+    490,
+    873,
+    899
    ],
    "count": 7,
    "context": [
@@ -257872,8 +257994,8 @@
     "_check_surface_props"
    ],
    "lines": [
-    333,
-    353
+    338,
+    358
    ],
    "count": 2,
    "context": [
@@ -257908,11 +258030,11 @@
    ],
    "lines": [
     5,
-    333,
-    353,
-    485,
-    535,
-    562
+    338,
+    358,
+    490,
+    540,
+    567
    ],
    "count": 6,
    "context": [
@@ -257950,10 +258072,10 @@
    "lines": [
     4,
     5,
-    333,
-    353,
-    485,
-    587
+    338,
+    358,
+    490,
+    592
    ],
    "count": 6,
    "context": [
@@ -257986,8 +258108,8 @@
     "_check_surface_props"
    ],
    "lines": [
-    333,
-    353
+    338,
+    358
    ],
    "count": 2,
    "context": [
@@ -258022,10 +258144,10 @@
    ],
    "lines": [
     5,
-    333,
-    353,
-    485,
-    540
+    338,
+    358,
+    490,
+    545
    ],
    "count": 5,
    "context": [
@@ -258064,12 +258186,12 @@
    "lines": [
     4,
     5,
-    76,
-    79,
-    221,
-    333,
-    353,
-    485
+    81,
+    84,
+    226,
+    338,
+    358,
+    490
    ],
    "count": 8,
    "context": [
@@ -258102,8 +258224,8 @@
     "_check_surface_props"
    ],
    "lines": [
-    333,
-    353
+    338,
+    358
    ],
    "count": 2,
    "context": [
@@ -258134,8 +258256,8 @@
     "_check_surface_props"
    ],
    "lines": [
-    333,
-    353
+    338,
+    358
    ],
    "count": 2,
    "context": [
@@ -258167,9 +258289,9 @@
     "_check_storage_tables_boards"
    ],
    "lines": [
-    333,
-    353,
-    485
+    338,
+    358,
+    490
    ],
    "count": 3,
    "context": [
@@ -258202,9 +258324,9 @@
     "_check_storage_tables_boards"
    ],
    "lines": [
-    333,
-    353,
-    485
+    338,
+    358,
+    490
    ],
    "count": 3,
    "context": [
@@ -258238,10 +258360,10 @@
     "_check_household_radios"
    ],
    "lines": [
-    333,
-    353,
-    485,
-    535
+    338,
+    358,
+    490,
+    540
    ],
    "count": 4,
    "context": [
@@ -258275,9 +258397,9 @@
     "_check_storage_tables_boards"
    ],
    "lines": [
-    333,
-    353,
-    485
+    338,
+    358,
+    490
    ],
    "count": 3,
    "context": [
@@ -258310,9 +258432,9 @@
     "_check_storage_tables_boards"
    ],
    "lines": [
-    333,
-    353,
-    485
+    338,
+    358,
+    490
    ],
    "count": 3,
    "context": [
@@ -258345,9 +258467,9 @@
     "_check_storage_tables_boards"
    ],
    "lines": [
-    333,
-    353,
-    485
+    338,
+    358,
+    490
    ],
    "count": 3,
    "context": [
@@ -258379,7 +258501,7 @@
     "_check_projector_surface_failures"
    ],
    "lines": [
-    793
+    798
    ],
    "count": 1,
    "context": [
@@ -259248,7 +259370,7 @@
     11,
     12,
     13,
-    103
+    106
    ],
    "count": 4,
    "context": [
@@ -259282,7 +259404,7 @@
    ],
    "lines": [
     40,
-    49
+    52
    ],
    "count": 2,
    "context": [
@@ -259373,7 +259495,7 @@
     "_route"
    ],
    "lines": [
-    65
+    68
    ],
    "count": 1,
    "context": [
@@ -259403,7 +259525,7 @@
     "_route"
    ],
    "lines": [
-    72
+    75
    ],
    "count": 1,
    "context": [
@@ -259496,7 +259618,7 @@
    ],
    "lines": [
     40,
-    49
+    52
    ],
    "count": 2,
    "context": [
@@ -259559,7 +259681,7 @@
     "_route"
    ],
    "lines": [
-    72
+    75
    ],
    "count": 1,
    "context": [
@@ -259635,12 +259757,12 @@
     33,
     35,
     37,
-    43,
-    43,
-    43,
-    43,
-    43,
-    43
+    46,
+    46,
+    46,
+    46,
+    46,
+    46
    ],
    "count": 36,
    "context": [
@@ -265450,6 +265572,36 @@
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "10dc37b69187a0ab",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/orison_v2_broadcast_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_household_receiver"
+   ],
+   "lines": [
+    88
+   ],
+   "count": 1,
+   "context": [
+    "if str(entry.get(\"unit\", \"\")) == \"4B\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
    "target_exists": true
   },
   {
@@ -303273,13 +303425,13 @@
     "_run"
    ],
    "lines": [
-    57,
-    61,
-    67,
-    72,
-    78,
-    90,
-    92
+    60,
+    64,
+    70,
+    75,
+    83,
+    95,
+    97
    ],
    "count": 7,
    "context": [
@@ -303312,9 +303464,9 @@
     "_run"
    ],
    "lines": [
-    56,
-    167,
-    171
+    59,
+    172,
+    176
    ],
    "count": 3,
    "context": [
@@ -306310,8 +306462,8 @@
     "atmosphere_review"
    ],
    "lines": [
-    530,
-    549
+    536,
+    555
    ],
    "count": 2,
    "context": [
@@ -313312,6 +313464,65 @@
    "target_exists": null
   },
   {
+   "key": "9ee7f1aa807456c3",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_city_midground_views.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6d8172a60bc1bdaa",
+   "kind": "vector3_coordinate",
+   "token": "_review",
+   "file": "game/tests/v2_city_midground_views.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review"
+   ],
+   "lines": [
+    164
+   ],
+   "count": 1,
+   "context": [
+    "views.append({\"id\": \"roof_south\", \"eye\": world.adapter.root.to_global(Vector3(-11.0, 20.8702503, 6.0)), \"bearing\": 180.0, \"pitch\": -0.05, \"fov\": 78.0})"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "c7c685b7d0e8e0a8",
    "kind": "id_reference",
    "token": "F01_DOOR_06",
@@ -315885,7 +316096,7 @@
     "<module>"
    ],
    "lines": [
-    7
+    8
    ],
    "count": 1,
    "context": [],
@@ -315913,7 +316124,7 @@
     "_world_checks"
    ],
    "lines": [
-    89
+    90
    ],
    "count": 1,
    "context": [
@@ -315944,7 +316155,7 @@
     "_world_checks"
    ],
    "lines": [
-    89
+    90
    ],
    "count": 1,
    "context": [
@@ -316424,6 +316635,44 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "f7302986cd2e2fe8",
+   "kind": "id_candidate",
+   "token": "F01_LOBBY_LT",
+   "file": "game/tests/v2_household_retired_fitting_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    13,
+    18,
+    23,
+    35,
+    41,
+    49
+   ],
+   "count": 6,
+   "context": [
+    "household._kinds = {\"F01_LOBBY_LT\": \"light\", \"F04_B_HALL_DOOR_Leaf\": \"mechanism\"}",
+    "\"F01_LOBBY_LT\": {\"kind\": \"light\", \"value\": true},",
+    "if kept.records.has(\"F01_INNER_DOOR_Leaf\") or not kept.records.has(\"F01_LOBBY_LT\"):",
+    "var untouched := {\"schema_version\": 1, \"records\": {\"F01_LOBBY_LT\": {\"kind\": \"light\", \"value\": false}}}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
   },
   {
    "key": "dea8557c1a49b706",
@@ -317266,6 +317515,34 @@
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
+  },
+  {
+   "key": "434c4d03c74ba872",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_midground_occupancy_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "6fcd291946c1b19b",
