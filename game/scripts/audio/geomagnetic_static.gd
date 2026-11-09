@@ -9,6 +9,9 @@ const AURORA_SLOTS := [20, 21] # aurora, steve (data/weather/phenomena.json)
 const RATE := 22050.0
 
 var level := 0.0
+## The bus the static plays on. V1 hears it on the ghost radio; a V2 set
+## hears it on its own programme's bus.
+var bus_name := "GhostRadio"
 var _playback: AudioStreamGeneratorPlayback
 var _burst := 0.0
 var _whistle := -1.0
@@ -21,7 +24,7 @@ func _ready() -> void:
 	generator.mix_rate = RATE
 	generator.buffer_length = 0.25
 	stream = generator
-	bus = "GhostRadio"
+	bus = bus_name
 	unit_size = 6.0
 	_rng.seed = 1929
 
