@@ -82,15 +82,15 @@ func bind(adapter: Variant, switches: SwitchSystem, additional_mechanisms: Dicti
 		return false
 	# Named installed owners retain partial mechanical positions in the same
 	# household save domain, without serializing pointer/grab/transient tweens.
-	var explicit_owners: Array[Node] = []
+	var explicit_owners: Dictionary = {}  # Node -> true; looked up once per world node below
 	for identity: String in _kinds:
 		var subject: Node = adapter.resolve(identity)
 		if subject == null: continue
 		if _kinds[identity]=="window": subject=subject.get_node_or_null("OperatingWindow")
 		elif _kinds[identity]=="blind": subject=subject.get_node_or_null("WindowTreatment")
-		if subject != null: explicit_owners.append(subject)
+		if subject != null: explicit_owners[subject] = true
 	for mechanism: Node in adapter.root.find_children("*","Node3D",true,false):
-		if mechanism in explicit_owners or not mechanism.has_method("mechanism_snapshot"): continue
+		if not mechanism.has_method("mechanism_snapshot") or explicit_owners.has(mechanism): continue
 		var identity := str(mechanism.name)
 		if adapter.resolve(identity) != mechanism: continue
 		if _kinds.has(identity): continue
