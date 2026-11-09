@@ -96,7 +96,7 @@ There will be **one registry**: one record per material id. Every other table
 becomes either generated from it or retired. Each record holds:
 
 - id, substance and provenance (RUL-007)
-- status: `live`, `v1_only` or `retired`
+- status: `live` or `retired`
 - shader recipe: `standard`, `orison_surface`, or a named optical recipe such as
   clear glass
 - map set: albedo, normal, packed ORM or roughness, and optional
@@ -162,8 +162,7 @@ comparison. Each phase is reversible on its own.
    - the vertical and street routes
    - the city walk
    - the dream suite
-   - one V1 rollback walk (`ORISON_BUILDING_ROOT=v1`)
-4. Sort every texture into `v2_live`, `v1_only`, `dream`, `ui` or `never_loaded`.
+4. Sort every texture into `v2_live`, `dream`, `ui` or `never_loaded`. A texture that only V1 code names counts as `never_loaded`.
 
 That sort is the only acceptable evidence that a texture is deprecated.
 
@@ -183,16 +182,18 @@ That sort is the only acceptable evidence that a texture is deprecated.
 - Resample non-power-of-two maps to the nearest power of two (972/781 to 1024 or
   512, 1254 to 1024), regenerating from the source plate rather than
   resampling the derived file.
-- Decide roughness packing (section 6). This saves **about 450–600 MB**.
+- Pack AO, roughness and metal into one ORM map per material (ruling
+  `tex_roughness`). This saves **about 450–600 MB**.
 - Test the sky domes for banding at BPTC; keep the lossless copy only where it
   bands. This saves up to **about 70 MB**.
 
 **Phase 3: retire.**
 
-- Textures traced as `never_loaded` in every route move out of `game/` to a
-  holding folder outside the repo, with a manifest. They are not deleted; git
-  history keeps them anyway.
-- `v1_only` textures stay until Lily rules on the V1 rollback (section 6).
+- Textures traced as `never_loaded` on every route move to
+  `C:/ov/holding/retired_textures` with a manifest, and are then removed from git
+  (ruling `tex_retired`).
+- Textures that only V1 code names go with the V1 retirement (ruling
+  `tex_v1_textures`).
 
 **Phase 4: unify.**
 
@@ -235,13 +236,31 @@ cure.
 Meshes are the other 1.0 GB of the build: they could be compressed and their
 LODs pruned. That is outside this plan and belongs in its own.
 
-## 6. Decisions for Lily (filed as rulings)
+## 6. Lily's rulings (2026-11-09, answered in Omni)
 
-1. **V1 rollback textures.** Textures only V1 uses can either keep shipping, or
-   be left out of the V2 export while staying in the repo so the explicit
-   `ORISON_BUILDING_ROOT=v1` rollback still works from source.
-2. **Roughness storage.** Pack AO, roughness and metal into one ORM map (one
-   texture per material instead of up to three). The alternative is a
-   single-channel roughness map at half resolution, a smaller change.
-3. **Retired textures.** Move them to a holding folder outside the repo with a
-   manifest, or simply remove them from git, since history keeps them.
+1. **`tex_v1_textures`: "Retire V1 entirely and remove its textures."** This
+   overrides the 2026-09-21 direction to keep the explicit
+   `ORISON_BUILDING_ROOT=v1` rollback, and the selector protection in RUL-004.
+   - Retiring V1 is bigger than textures. It covers the selector, the V1
+     building generator, the scenes and tests, and the 17-path protected receipt.
+   - So it gets its own plan and a RULINGS.json entry that supersedes the rollback
+     clause, before any V1 file moves.
+   - For this plan, the load trace drops the V1 rollback walk. Textures that only
+     V1 loads are retired with the V1 code, not kept.
+2. **`tex_roughness`: pack AO, roughness and metal into one ORM map per
+   material.**
+   - Phase 2 builds the ORM channel packing into the registry generator: AO in R,
+     roughness in G, metal in B, linear.
+   - Materials set `roughness_texture_channel` and `metallic_texture_channel`
+     against the one map. The Orison surface shader samples the same map.
+   - Uniform metal stays a scalar, as RUL-012 allows. The channel stays white or
+     black.
+3. **`tex_retired`: move them to `C:/ov/holding/retired_textures` with a
+   manifest, then remove them from git.**
+   - Phase 3 copies each retired texture there with its `.import`.
+   - The manifest records path, SHA-256, size and the load-trace evidence.
+   - The phase verifies the copy byte for byte before `git rm`.
+
+A fourth ruling filed with this plan, `public_2d_art_source`, is handled
+separately: the folder is untracked in its own PR, with a copy kept outside the
+repo.
