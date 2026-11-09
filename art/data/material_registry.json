@@ -1,0 +1,4628 @@
+{
+ "schema": "orison.material-registry.v1",
+ "about": "One record per material id. art/data/material_catalog.json, game/data/material_catalog.json and art/textures/catalog_mapping.json are generated from this file by art/tools/material_registry.py --write.",
+ "legacy_order": {
+  "catalog_mapping": [
+   "nook_woven_wool",
+   "limewash_plaster",
+   "appliance",
+   "appliance_b",
+   "appliance_c",
+   "art",
+   "asphalt",
+   "asphalt_b",
+   "asphalt_c",
+   "asphalt_d",
+   "awning_vinyl",
+   "bakelite",
+   "bakelite_b",
+   "bakelite_black",
+   "bakelite_c",
+   "bakelite_d",
+   "baluster",
+   "baluster_b",
+   "baluster_c",
+   "bar_wall",
+   "bar_wall_b",
+   "bar_wall_c",
+   "bar_wall_d",
+   "bar_wall_red",
+   "bar_wall_red_b",
+   "bar_wall_red_c",
+   "bar_wall_red_d",
+   "beacon_lacquer",
+   "billiard_resin",
+   "blind_slat",
+   "book_brown",
+   "book_burgundy",
+   "book_green",
+   "book_navy",
+   "book_ochre",
+   "book_teal",
+   "brass",
+   "brass_b",
+   "brass_bright",
+   "brass_c",
+   "brass_dull",
+   "brass_mesh",
+   "brick",
+   "brick_b",
+   "brick_c",
+   "brick_patched",
+   "brick_patched_b",
+   "brick_patched_c",
+   "bronze",
+   "bronze_sheet",
+   "car_paint",
+   "cast_iron",
+   "cast_iron_b",
+   "cast_iron_c",
+   "cast_iron_d",
+   "ceramic",
+   "ceramic_b",
+   "ceramic_c",
+   "char",
+   "char_b",
+   "char_c",
+   "char_d",
+   "chochin",
+   "chrome",
+   "chrome_b",
+   "chrome_c",
+   "chrome_d",
+   "common_brick",
+   "common_brick_b",
+   "common_brick_c",
+   "concrete",
+   "concrete_b",
+   "concrete_c",
+   "concrete_d",
+   "copper_aged",
+   "countertop",
+   "countertop_b",
+   "countertop_c",
+   "door_brass",
+   "enamel",
+   "enamel_appliance",
+   "enamel_b",
+   "enamel_c",
+   "enamel_d",
+   "fabric_cool",
+   "fabric_cool_b",
+   "fabric_cool_c",
+   "fabric_green",
+   "fabric_green_b",
+   "fabric_green_c",
+   "fabric_warm",
+   "fabric_warm_b",
+   "fabric_warm_c",
+   "face_brick",
+   "face_brick_b",
+   "face_brick_c",
+   "felt_violet",
+   "felt_violet_b",
+   "felt_violet_c",
+   "felt_violet_d",
+   "floor_oak",
+   "floor_oak_b",
+   "floor_oak_c",
+   "fx_ao",
+   "fx_burn",
+   "fx_ceiling_soffit_failed",
+   "fx_damp",
+   "fx_drip",
+   "fx_grease",
+   "fx_patch",
+   "fx_scuff",
+   "fx_shadow",
+   "fx_traffic",
+   "galvanized_roof",
+   "glassish",
+   "handrail_wood",
+   "handrail_wood_b",
+   "handrail_wood_c",
+   "hoarding",
+   "hoarding_b",
+   "hoarding_c",
+   "hoarding_d",
+   "indicator_enamel",
+   "iron_blackened",
+   "iron_neutral",
+   "lacquer_red",
+   "lacquer_red_b",
+   "lacquer_red_c",
+   "lacquer_red_d",
+   "landing",
+   "leaf_fall",
+   "leaf_fall_b",
+   "leaf_fall_c",
+   "leather_worn",
+   "limestone",
+   "limestone_b",
+   "limestone_c",
+   "linen",
+   "linen_b",
+   "linen_c",
+   "linen_d",
+   "linoleum",
+   "linoleum_b",
+   "linoleum_c",
+   "marble_lobby",
+   "marble_lobby_b",
+   "marble_lobby_c",
+   "marble_lobby_d",
+   "metal",
+   "metal_b",
+   "metal_c",
+   "mica_heater",
+   "milk_glass",
+   "mineral_scale",
+   "mirror_aged",
+   "nickel_plated",
+   "oak_quartered",
+   "oak_work_surface",
+   "paper",
+   "paper_b",
+   "paper_c",
+   "plant",
+   "plant_b",
+   "plant_c",
+   "plant_d",
+   "plaster",
+   "plaster_b",
+   "plaster_c",
+   "plaster_stained",
+   "plaster_stained_b",
+   "plaster_stained_c",
+   "plywood",
+   "plywood_b",
+   "plywood_c",
+   "plywood_d",
+   "porcelain",
+   "porcelain_b",
+   "porcelain_c",
+   "porcelain_fixture",
+   "puddle",
+   "puddle_b",
+   "puddle_c",
+   "quarry_tile",
+   "quarry_tile_b",
+   "quarry_tile_c",
+   "quarry_tile_d",
+   "road_paint",
+   "roof_bitumen",
+   "rubber_aged",
+   "rug_cool",
+   "rug_green",
+   "rug_warm",
+   "rug_warm_b",
+   "rug_warm_c",
+   "rug_warm_d",
+   "safety_orange",
+   "safety_orange_b",
+   "safety_orange_c",
+   "safety_orange_d",
+   "sash",
+   "screen",
+   "shower_duck",
+   "sidewalk_grout",
+   "sidewalk_grout_b",
+   "sidewalk_grout_c",
+   "sidewalk_grout_d",
+   "sidewalk_haunted",
+   "sidewalk_haunted_b",
+   "sign_board",
+   "slab",
+   "slab_b",
+   "slab_c",
+   "slab_d",
+   "smoked_plaster",
+   "soil",
+   "soil_b",
+   "soil_c",
+   "soot",
+   "soot_b",
+   "soot_c",
+   "soot_d",
+   "stair",
+   "stair_b",
+   "stair_c",
+   "stair_treads",
+   "stairwell_teal",
+   "stairwell_teal_b",
+   "stairwell_teal_c",
+   "stairwell_teal_d",
+   "subway_tile",
+   "subway_tile_b",
+   "subway_tile_c",
+   "tank_staves",
+   "terracotta",
+   "terracotta_b",
+   "terracotta_c",
+   "terrazzo",
+   "terrazzo_b",
+   "terrazzo_c",
+   "terrazzo_d",
+   "terrazzo_dark",
+   "timber",
+   "timber_b",
+   "timber_c",
+   "tin_ceiling",
+   "tin_ceiling_b",
+   "tin_ceiling_c",
+   "tin_ceiling_d",
+   "toast_crumb",
+   "trim",
+   "trim_b",
+   "trim_c",
+   "vinyl_oxblood",
+   "vinyl_oxblood_b",
+   "vinyl_oxblood_c",
+   "vinyl_oxblood_d",
+   "wainscot",
+   "wainscot_b",
+   "wainscot_c",
+   "wainscot_d",
+   "wallpaper_old",
+   "water_clear",
+   "wet_asphalt",
+   "wet_asphalt_b",
+   "wet_asphalt_c",
+   "wood_dark",
+   "wood_dark_b",
+   "wood_dark_c",
+   "zinc_liner",
+   "zinc_quiet",
+   "door_oak",
+   "door_paint",
+   "faucet_nickel",
+   "bath_wall_tile",
+   "bath_floor_tile",
+   "washer_zinc",
+   "washer_enamel",
+   "washer_brass",
+   "washer_rubber",
+   "graphited_packing",
+   "radiator_cast_iron",
+   "radiator_service_brass",
+   "site_softwood",
+   "site_softwood_endgrain",
+   "arcade_terrazzo",
+   "arcade_terrazzo_dark",
+   "stove_clinker",
+   "stove_lime",
+   "arcade_brick_face",
+   "arcade_brick_bond",
+   "arcade_lime_mortar",
+   "fire_cabinet_enamel",
+   "fire_cabinet_lining",
+   "fire_hardware_steel",
+   "glass_drawn_expressive",
+   "glass_reeded",
+   "glass_cut",
+   "glass_frosted",
+   "player_doodle",
+   "monks_cloth",
+   "velour",
+   "ninon",
+   "resident_evelyn_marsh",
+   "resident_teresa_vale",
+   "resident_mina_vale",
+   "resident_lena_ortiz",
+   "resident_juno_kells",
+   "resident_malcolm_reed",
+   "resident_omar_bell",
+   "resident_rhea_sato",
+   "resident_peter_wren",
+   "resident_cam_ortiz",
+   "resident_noel_price",
+   "resident_transient_guests",
+   "resident_nadia_quell",
+   "resident_cal_dwyer",
+   "resident_iris_bell",
+   "resident_sacha_reed",
+   "resident_jonah_price",
+   "resident_mae_kessler",
+   "tardigrade_membrane",
+   "tardigrade_mineral",
+   "tardigrade_organ",
+   "weather_frog_skin",
+   "city_grey_brick",
+   "city_slate",
+   "city_roof_clay",
+   "resident_adela_voss",
+   "tentacle_gang_membrane",
+   "tentacle_gang_tissue",
+   "tentacle_gang_eye",
+   "guide_bell_membrane",
+   "guide_bell_tissue",
+   "tentacle_gang_residue"
+  ],
+  "about": "Key order of catalog_mapping.json, kept only so the generated file stays byte-identical while fixtures pin it. Removed at the renewal pass."
+ },
+ "materials": [
+  {
+   "id": "nook_woven_wool",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/nook_woven_wool",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "limewash_plaster",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/limewash_plaster",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plaster",
+   "catalog": {
+    "base_color": [
+     0.62,
+     0.64,
+     0.58,
+     1.0
+    ],
+    "roughness": 0.8
+   },
+   "source_set": "ai_materials/plaster",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "wallpaper_old",
+   "catalog": {
+    "base_color": [
+     0.56,
+     0.52,
+     0.37,
+     1.0
+    ],
+    "roughness": 0.9
+   },
+   "source_set": "library/architectural/haunted_wallpaper",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "brick",
+   "catalog": {
+    "base_color": [
+     0.42,
+     0.27,
+     0.22,
+     1.0
+    ],
+    "roughness": 0.85
+   },
+   "source_set": "ai_materials/brick",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "concrete",
+   "catalog": {
+    "base_color": [
+     0.48,
+     0.48,
+     0.47,
+     1.0
+    ],
+    "roughness": 0.75
+   },
+   "source_set": "ai_materials/concrete",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "sidewalk_haunted",
+   "catalog": {
+    "base_color": [
+     0.31,
+     0.3,
+     0.28,
+     1.0
+    ],
+    "roughness": 0.82
+   },
+   "source_set": "ai_materials/sidewalk_haunted",
+   "in_game_catalog": true,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "sidewalk_grout",
+   "catalog": {
+    "base_color": [
+     0.075,
+     0.065,
+     0.055,
+     1.0
+    ],
+    "roughness": 0.93
+   },
+   "source_set": "ai_materials/sidewalk_grout",
+   "in_game_catalog": true,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "trim",
+   "catalog": {
+    "base_color": [
+     0.85,
+     0.83,
+     0.77,
+     1.0
+    ],
+    "roughness": 0.45
+   },
+   "source_set": "ai_materials/trim",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "sash",
+   "catalog": {
+    "base_color": [
+     0.82,
+     0.8,
+     0.745,
+     1.0
+    ],
+    "roughness": 0.42
+   },
+   "source_set": "generated/sash",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "blind_slat",
+   "catalog": {
+    "base_color": [
+     0.855,
+     0.845,
+     0.805,
+     1.0
+    ],
+    "roughness": 0.3
+   },
+   "source_set": "generated/blind_slat",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "floor_oak",
+   "catalog": {
+    "base_color": [
+     0.45,
+     0.33,
+     0.22,
+     1.0
+    ],
+    "roughness": 0.55
+   },
+   "source_set": "ai_materials/floor_oak",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "terrazzo",
+   "catalog": {
+    "base_color": [
+     0.72,
+     0.7,
+     0.66,
+     1.0
+    ],
+    "roughness": 0.4
+   },
+   "source_set": "ai_materials/terrazzo",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "subway_tile",
+   "catalog": {
+    "base_color": [
+     0.88,
+     0.87,
+     0.83,
+     1.0
+    ],
+    "roughness": 0.28
+   },
+   "source_set": "ai_materials/subway_tile",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "landing",
+   "catalog": {
+    "base_color": [
+     0.7,
+     0.68,
+     0.63,
+     1.0
+    ],
+    "roughness": 0.42
+   },
+   "source_set": "ai_materials/terrazzo",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_iron",
+   "catalog": {
+    "base_color": [
+     0.52,
+     0.5,
+     0.48,
+     1.0
+    ],
+    "roughness": 0.6,
+    "metallic": 0.35
+   },
+   "source_set": "ai_materials/cast_iron",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "tin_ceiling",
+   "catalog": {
+    "base_color": [
+     0.82,
+     0.79,
+     0.72,
+     1.0
+    ],
+    "roughness": 0.45,
+    "metallic": 0.08
+   },
+   "source_set": "ai_materials/tin_ceiling",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "marble_lobby",
+   "catalog": {
+    "base_color": [
+     0.86,
+     0.85,
+     0.82,
+     1.0
+    ],
+    "roughness": 0.3
+   },
+   "source_set": "ai_materials/marble_lobby",
+   "in_game_catalog": true,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "stair_treads",
+   "catalog": {
+    "base_color": [
+     0.82,
+     0.81,
+     0.79,
+     1.0
+    ],
+    "roughness": 0.42
+   },
+   "source_set": "ai_materials/stair_treads",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "brass_dull",
+   "catalog": {
+    "base_color": [
+     0.62,
+     0.48,
+     0.22,
+     1.0
+    ],
+    "roughness": 0.52,
+    "metallic": 0.3
+   },
+   "source_set": "ai_materials/brass",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "nickel_plated",
+   "catalog": {
+    "base_color": [
+     0.72,
+     0.7,
+     0.66,
+     1.0
+    ],
+    "roughness": 0.38,
+    "metallic": 0.7
+   },
+   "source_set": "ai_materials/nickel_plated",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "mirror_aged",
+   "catalog": {
+    "base_color": [
+     0.68,
+     0.69,
+     0.67,
+     1.0
+    ],
+    "roughness": 0.45,
+    "metallic": 0.35
+   },
+   "source_set": "ai_materials/mirror_aged",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "mica_heater",
+   "catalog": {
+    "base_color": [
+     0.58,
+     0.36,
+     0.12,
+     1.0
+    ],
+    "roughness": 0.78,
+    "metallic": 0.0
+   },
+   "source_set": "ai_materials/mica_heater",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "zinc_liner",
+   "catalog": {
+    "base_color": [
+     0.66,
+     0.67,
+     0.67,
+     1.0
+    ],
+    "roughness": 0.82,
+    "metallic": 0.12
+   },
+   "source_set": "ai_materials/zinc_liner",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "copper_aged",
+   "catalog": {
+    "base_color": [
+     0.55,
+     0.33,
+     0.21,
+     1.0
+    ],
+    "roughness": 0.58,
+    "metallic": 0.72
+   },
+   "source_set": "ai_materials/copper_aged",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "brass_bright",
+   "catalog": {
+    "base_color": [
+     0.541,
+     0.416,
+     0.2,
+     1.0
+    ],
+    "roughness": 0.34,
+    "metallic": 0.85
+   },
+   "source_set": "ai_materials/brass_bright",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bronze",
+   "catalog": {
+    "base_color": [
+     0.275,
+     0.251,
+     0.184,
+     1.0
+    ],
+    "roughness": 0.62,
+    "metallic": 0.75
+   },
+   "source_set": "ai_materials/bronze",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "car_paint",
+   "catalog": {
+    "base_color": [
+     0.369,
+     0.361,
+     0.259,
+     1.0
+    ],
+    "roughness": 0.55
+   },
+   "source_set": "ai_materials/car_paint",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "oak_quartered",
+   "catalog": {
+    "base_color": [
+     0.522,
+     0.345,
+     0.196,
+     1.0
+    ],
+    "roughness": 0.45
+   },
+   "source_set": "ai_materials/oak_quartered",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "milk_glass",
+   "catalog": {
+    "base_color": [
+     0.894,
+     0.882,
+     0.847,
+     1.0
+    ],
+    "roughness": 0.22
+   },
+   "source_set": "ai_materials/milk_glass",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bakelite_black",
+   "catalog": {
+    "base_color": [
+     0.141,
+     0.125,
+     0.114,
+     1.0
+    ],
+    "roughness": 0.28
+   },
+   "source_set": "ai_materials/bakelite_black",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "terrazzo_dark",
+   "catalog": {
+    "base_color": [
+     0.29,
+     0.267,
+     0.235,
+     1.0
+    ],
+    "roughness": 0.4
+   },
+   "source_set": "ai_materials/terrazzo_dark",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "brass_mesh",
+   "catalog": {
+    "base_color": [
+     0.416,
+     0.322,
+     0.157,
+     1.0
+    ],
+    "roughness": 0.52,
+    "metallic": 0.8
+   },
+   "source_set": "ai_materials/brass_mesh",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "indicator_enamel",
+   "catalog": {
+    "base_color": [
+     0.878,
+     0.835,
+     0.745,
+     1.0
+    ],
+    "roughness": 0.24
+   },
+   "source_set": "ai_materials/indicator_enamel",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "rubber_aged",
+   "catalog": {
+    "base_color": [
+     0.1,
+     0.09,
+     0.08,
+     1.0
+    ],
+    "roughness": 0.82,
+    "metallic": 0.0
+   },
+   "source_set": "ai_materials/rubber_aged",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "metal",
+   "catalog": {
+    "base_color": [
+     0.55,
+     0.56,
+     0.58,
+     1.0
+    ],
+    "roughness": 0.35,
+    "metallic": 0.9
+   },
+   "source_set": "ai_materials/metal",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "slab",
+   "catalog": {
+    "base_color": [
+     0.35,
+     0.34,
+     0.33,
+     1.0
+    ],
+    "roughness": 0.7
+   },
+   "source_set": "ai_materials/slab",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "stair",
+   "catalog": {
+    "base_color": [
+     0.58,
+     0.56,
+     0.52,
+     1.0
+    ],
+    "roughness": 0.5
+   },
+   "source_set": "ai_materials/stair",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "glassish",
+   "catalog": {
+    "base_color": [
+     0.35,
+     0.45,
+     0.5,
+     1.0
+    ],
+    "roughness": 0.12
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "wainscot",
+   "catalog": {
+    "base_color": [
+     0.3,
+     0.4,
+     0.34,
+     1.0
+    ],
+    "roughness": 0.55
+   },
+   "source_set": "ai_materials/wainscot",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "handrail_wood",
+   "catalog": {
+    "base_color": [
+     0.24,
+     0.16,
+     0.11,
+     1.0
+    ],
+    "roughness": 0.35
+   },
+   "source_set": "ai_materials/handrail_wood",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "baluster",
+   "catalog": {
+    "base_color": [
+     0.82,
+     0.8,
+     0.74,
+     1.0
+    ],
+    "roughness": 0.5
+   },
+   "source_set": "ai_materials/baluster",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "ceramic",
+   "catalog": {
+    "base_color": [
+     0.79,
+     0.81,
+     0.8,
+     1.0
+    ],
+    "roughness": 0.22
+   },
+   "source_set": "ai_materials/ceramic",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "wood_dark",
+   "catalog": {
+    "base_color": [
+     0.28,
+     0.2,
+     0.14,
+     1.0
+    ],
+    "roughness": 0.5
+   },
+   "source_set": "ai_materials/wood_dark",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "linen",
+   "catalog": {
+    "base_color": [
+     0.86,
+     0.85,
+     0.81,
+     1.0
+    ],
+    "roughness": 0.85
+   },
+   "source_set": "ai_materials/linen",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "shower_duck",
+   "catalog": {
+    "base_color": [
+     0.73,
+     0.68,
+     0.54,
+     1.0
+    ],
+    "roughness": 0.62,
+    "metallic": 0.0
+   },
+   "source_set": "library/furniture/linen",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "paper",
+   "catalog": {
+    "base_color": [
+     0.9,
+     0.88,
+     0.82,
+     1.0
+    ],
+    "roughness": 0.85
+   },
+   "source_set": "ai_materials/paper",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "countertop",
+   "catalog": {
+    "base_color": [
+     0.78,
+     0.75,
+     0.64,
+     1.0
+    ],
+    "roughness": 0.62
+   },
+   "source_set": "ai_materials/countertop",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "book_burgundy",
+   "catalog": {
+    "base_color": [
+     0.34,
+     0.1,
+     0.1,
+     1.0
+    ],
+    "roughness": 0.72
+   },
+   "source_set": "procedural/book_burgundy",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "book_green",
+   "catalog": {
+    "base_color": [
+     0.12,
+     0.24,
+     0.16,
+     1.0
+    ],
+    "roughness": 0.72
+   },
+   "source_set": "procedural/book_green",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "book_navy",
+   "catalog": {
+    "base_color": [
+     0.1,
+     0.15,
+     0.25,
+     1.0
+    ],
+    "roughness": 0.72
+   },
+   "source_set": "procedural/book_navy",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "book_ochre",
+   "catalog": {
+    "base_color": [
+     0.58,
+     0.34,
+     0.08,
+     1.0
+    ],
+    "roughness": 0.72
+   },
+   "source_set": "procedural/book_ochre",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "book_teal",
+   "catalog": {
+    "base_color": [
+     0.13,
+     0.31,
+     0.31,
+     1.0
+    ],
+    "roughness": 0.72
+   },
+   "source_set": "procedural/book_teal",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "book_brown",
+   "catalog": {
+    "base_color": [
+     0.28,
+     0.17,
+     0.1,
+     1.0
+    ],
+    "roughness": 0.72
+   },
+   "source_set": "procedural/book_brown",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fabric_warm",
+   "catalog": {
+    "base_color": [
+     0.56,
+     0.35,
+     0.27,
+     1.0
+    ],
+    "roughness": 0.92
+   },
+   "source_set": "ai_materials/fabric_warm",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fabric_cool",
+   "catalog": {
+    "base_color": [
+     0.36,
+     0.42,
+     0.51,
+     1.0
+    ],
+    "roughness": 0.92
+   },
+   "source_set": "ai_materials/fabric_cool",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fabric_green",
+   "catalog": {
+    "base_color": [
+     0.38,
+     0.46,
+     0.36,
+     1.0
+    ],
+    "roughness": 0.92
+   },
+   "source_set": "ai_materials/fabric_green",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "rug_warm",
+   "catalog": {
+    "base_color": [
+     0.47,
+     0.26,
+     0.21,
+     1.0
+    ],
+    "roughness": 0.95
+   },
+   "source_set": "ai_materials/rug_warm",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "rug_cool",
+   "catalog": {
+    "base_color": [
+     0.26,
+     0.31,
+     0.39,
+     1.0
+    ],
+    "roughness": 0.95
+   },
+   "source_set": "ai_materials/rug_cool",
+   "in_game_catalog": true,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "rug_green",
+   "catalog": {
+    "base_color": [
+     0.31,
+     0.38,
+     0.3,
+     1.0
+    ],
+    "roughness": 0.95
+   },
+   "source_set": "ai_materials/rug_green",
+   "in_game_catalog": true,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plant",
+   "catalog": {
+    "base_color": [
+     0.25,
+     0.39,
+     0.22,
+     1.0
+    ],
+    "roughness": 0.8
+   },
+   "source_set": "ai_materials/plant",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "screen",
+   "catalog": {
+    "base_color": [
+     0.07,
+     0.08,
+     0.09,
+     1.0
+    ],
+    "roughness": 0.25
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "appliance",
+   "catalog": {
+    "base_color": [
+     0.87,
+     0.88,
+     0.86,
+     1.0
+    ],
+    "roughness": 0.3
+   },
+   "source_set": "ai_materials/appliance",
+   "in_game_catalog": true,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "soot",
+   "catalog": {
+    "base_color": [
+     0.09,
+     0.09,
+     0.09,
+     1.0
+    ],
+    "roughness": 0.9
+   },
+   "source_set": "ai_materials/soot",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "brass",
+   "catalog": {
+    "base_color": [
+     0.55,
+     0.46,
+     0.26,
+     1.0
+    ],
+    "roughness": 0.3,
+    "metallic": 0.85
+   },
+   "source_set": "ai_materials/brass",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "art",
+   "catalog": {
+    "base_color": [
+     0.52,
+     0.44,
+     0.34,
+     1.0
+    ],
+    "roughness": 0.6
+   },
+   "source_set": "ai_materials/art",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "face_brick",
+   "catalog": {
+    "base_color": [
+     0.38,
+     0.16,
+     0.12,
+     1.0
+    ],
+    "roughness": 0.82
+   },
+   "source_set": "ai_materials/face_brick",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "common_brick",
+   "catalog": {
+    "base_color": [
+     0.62,
+     0.42,
+     0.31,
+     1.0
+    ],
+    "roughness": 0.88
+   },
+   "source_set": "ai_materials/common_brick",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "limestone",
+   "catalog": {
+    "base_color": [
+     0.78,
+     0.75,
+     0.67,
+     1.0
+    ],
+    "roughness": 0.6
+   },
+   "source_set": "ai_materials/limestone",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "timber",
+   "catalog": {
+    "base_color": [
+     0.43,
+     0.32,
+     0.22,
+     1.0
+    ],
+    "roughness": 0.75
+   },
+   "source_set": "ai_materials/timber",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fx_shadow",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fx_ao",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "asphalt",
+   "catalog": {
+    "base_color": [
+     0.16,
+     0.16,
+     0.17,
+     1.0
+    ],
+    "roughness": 0.9
+   },
+   "source_set": "ai_materials/asphalt",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "linoleum",
+   "catalog": {
+    "base_color": [
+     0.55,
+     0.5,
+     0.4,
+     1.0
+    ],
+    "roughness": 0.5
+   },
+   "source_set": "ai_materials/linoleum",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plywood",
+   "catalog": {
+    "base_color": [
+     0.64,
+     0.54,
+     0.38,
+     1.0
+    ],
+    "roughness": 0.8
+   },
+   "source_set": "ai_materials/plywood",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "char",
+   "catalog": {
+    "base_color": [
+     0.06,
+     0.055,
+     0.05,
+     1.0
+    ],
+    "roughness": 0.95
+   },
+   "source_set": "ai_materials/char",
+   "in_game_catalog": true,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "brick_patched",
+   "catalog": {
+    "base_color": [
+     0.55,
+     0.35,
+     0.28,
+     1.0
+    ],
+    "roughness": 0.85
+   },
+   "source_set": "ai_materials/brick_patched",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plaster_stained",
+   "catalog": {
+    "base_color": [
+     0.46,
+     0.44,
+     0.39,
+     1.0
+    ],
+    "roughness": 0.75
+   },
+   "source_set": "ai_materials/plaster_stained",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fx_traffic",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fx_scuff",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fx_drip",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fx_grease",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fx_burn",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fx_patch",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fx_damp",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fx_ceiling_soffit_failed",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "chrome",
+   "catalog": {
+    "base_color": [
+     0.8,
+     0.82,
+     0.85,
+     1.0
+    ],
+    "roughness": 0.12,
+    "metallic": 1.0
+   },
+   "source_set": "ai_materials/chrome",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "enamel",
+   "catalog": {
+    "base_color": [
+     0.91,
+     0.89,
+     0.83,
+     1.0
+    ],
+    "roughness": 0.18
+   },
+   "source_set": "ai_materials/enamel",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "enamel_appliance",
+   "catalog": {
+    "base_color": [
+     0.91,
+     0.89,
+     0.83,
+     1.0
+    ],
+    "roughness": 0.2
+   },
+   "source_set": "ai_materials/enamel_appliance",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bakelite",
+   "catalog": {
+    "base_color": [
+     0.16,
+     0.12,
+     0.1,
+     1.0
+    ],
+    "roughness": 0.3
+   },
+   "source_set": "procedural/bakelite",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "porcelain",
+   "catalog": {
+    "base_color": [
+     0.92,
+     0.93,
+     0.92,
+     1.0
+    ],
+    "roughness": 0.14
+   },
+   "source_set": "ai_materials/porcelain",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "porcelain_fixture",
+   "catalog": {
+    "base_color": [
+     0.92,
+     0.91,
+     0.84,
+     1.0
+    ],
+    "roughness": 0.16
+   },
+   "source_set": "ai_materials/porcelain_fixture",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "terracotta",
+   "catalog": {
+    "base_color": [
+     0.66,
+     0.38,
+     0.26,
+     1.0
+    ],
+    "roughness": 0.72
+   },
+   "source_set": "ai_materials/terracotta",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "soil",
+   "catalog": {
+    "base_color": [
+     0.2,
+     0.15,
+     0.11,
+     1.0
+    ],
+    "roughness": 0.95
+   },
+   "source_set": "ai_materials/soil",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "wet_asphalt",
+   "catalog": {
+    "base_color": [
+     0.09,
+     0.09,
+     0.1,
+     1.0
+    ],
+    "roughness": 0.22
+   },
+   "source_set": "ai_materials/wet_asphalt",
+   "in_game_catalog": true,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "puddle",
+   "catalog": {
+    "base_color": [
+     0.04,
+     0.045,
+     0.055,
+     1.0
+    ],
+    "roughness": 0.05,
+    "metallic": 0.35
+   },
+   "source_set": "ai_materials/puddle",
+   "in_game_catalog": true,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "leaf_fall",
+   "catalog": {
+    "base_color": [
+     0.42,
+     0.28,
+     0.13,
+     1.0
+    ],
+    "roughness": 0.65
+   },
+   "source_set": "ai_materials/leaf_fall",
+   "in_game_catalog": true,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "safety_orange",
+   "catalog": {
+    "base_color": [
+     0.88,
+     0.22,
+     0.035,
+     1.0
+    ],
+    "roughness": 0.62
+   },
+   "source_set": "ai_materials/safety_orange",
+   "in_game_catalog": true,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "road_paint",
+   "catalog": {
+    "base_color": [
+     0.78,
+     0.77,
+     0.72,
+     1.0
+    ],
+    "roughness": 0.62
+   },
+   "source_set": "generated/road_paint",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "quarry_tile",
+   "catalog": {
+    "base_color": [
+     0.42,
+     0.2,
+     0.13,
+     1.0
+    ],
+    "roughness": 0.72
+   },
+   "source_set": "ai_materials/quarry_tile",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "felt_violet",
+   "catalog": {
+    "base_color": [
+     0.17,
+     0.12,
+     0.32,
+     1.0
+    ],
+    "roughness": 0.94
+   },
+   "source_set": "ai_materials/felt_violet",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "stairwell_teal",
+   "catalog": {
+    "base_color": [
+     0.2,
+     0.36,
+     0.3,
+     1.0
+    ],
+    "roughness": 0.55
+   },
+   "source_set": "ai_materials/stairwell_teal",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bar_wall",
+   "catalog": {
+    "base_color": [
+     0.3,
+     0.31,
+     0.16,
+     1.0
+    ],
+    "roughness": 0.6
+   },
+   "source_set": "ai_materials/bar_wall",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bar_wall_red",
+   "catalog": {
+    "base_color": [
+     0.25,
+     0.1,
+     0.09,
+     1.0
+    ],
+    "roughness": 0.62
+   },
+   "source_set": "ai_materials/bar_wall_red",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "lacquer_red",
+   "catalog": {
+    "base_color": [
+     0.52,
+     0.14,
+     0.11,
+     1.0
+    ],
+    "roughness": 0.35
+   },
+   "source_set": "ai_materials/lacquer_red",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "vinyl_oxblood",
+   "catalog": {
+    "base_color": [
+     0.26,
+     0.12,
+     0.11,
+     1.0
+    ],
+    "roughness": 0.55
+   },
+   "source_set": "ai_materials/vinyl_oxblood",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "hoarding",
+   "catalog": {
+    "base_color": [
+     0.4,
+     0.37,
+     0.34,
+     1.0
+    ],
+    "roughness": 0.82
+   },
+   "source_set": "ai_materials/hoarding",
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "awning_vinyl",
+   "catalog": {
+    "base_color": [
+     0.61,
+     0.51,
+     0.09,
+     1.0
+    ],
+    "roughness": 0.42
+   },
+   "source_set": "ai_materials/awning_vinyl",
+   "in_game_catalog": true,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "sign_board",
+   "catalog": {
+    "base_color": [
+     0.6,
+     0.56,
+     0.5,
+     1.0
+    ],
+    "roughness": 0.72
+   },
+   "source_set": "ai_materials/sign_board",
+   "in_game_catalog": true,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "chochin",
+   "catalog": {
+    "base_color": [
+     0.54,
+     0.15,
+     0.12,
+     1.0
+    ],
+    "roughness": 0.88
+   },
+   "source_set": "ai_materials/chochin",
+   "in_game_catalog": true,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "roof_bitumen",
+   "catalog": {
+    "base_color": [
+     0.16,
+     0.16,
+     0.15,
+     1.0
+    ],
+    "roughness": 0.86,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/roof_bitumen",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "tank_staves",
+   "catalog": {
+    "base_color": [
+     0.576,
+     0.486,
+     0.369,
+     1.0
+    ],
+    "roughness": 0.67
+   },
+   "source_set": "procedural/tank_staves",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "beacon_lacquer",
+   "catalog": {
+    "base_color": [
+     0.5215686274509804,
+     0.1411764705882353,
+     0.10980392156862745,
+     1
+    ],
+    "roughness": 0.34,
+    "metallic": 0
+   },
+   "source_set": "procedural/beacon_lacquer",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bronze_sheet",
+   "catalog": {
+    "base_color": [
+     0.4392156862745098,
+     0.3568627450980392,
+     0.2235294117647059,
+     1
+    ],
+    "roughness": 0.56,
+    "metallic": 0.75
+   },
+   "source_set": "procedural/bronze_sheet",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "galvanized_roof",
+   "catalog": {
+    "base_color": [
+     0.6392156862745098,
+     0.6549019607843137,
+     0.6588235294117647,
+     1
+    ],
+    "roughness": 0.58,
+    "metallic": 0.9
+   },
+   "source_set": "procedural/galvanized_roof",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "iron_blackened",
+   "catalog": {
+    "base_color": [
+     0.20392156862745098,
+     0.20784313725490197,
+     0.21176470588235294,
+     1.0
+    ],
+    "roughness": 0.72,
+    "metallic": 0.55
+   },
+   "source_set": "procedural/iron_blackened",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "billiard_resin",
+   "catalog": {
+    "base_color": [
+     0.9411764705882353,
+     0.9411764705882353,
+     0.9411764705882353,
+     1.0
+    ],
+    "roughness": 0.23,
+    "metallic": 0
+   },
+   "source_set": "procedural/billiard_resin",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "smoked_plaster",
+   "catalog": {
+    "base_color": [
+     0.11,
+     0.109,
+     0.11,
+     1.0
+    ],
+    "roughness": 0.935,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/smoked_plaster",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "oak_work_surface",
+   "catalog": {
+    "base_color": [
+     0.39,
+     0.255,
+     0.135,
+     1.0
+    ],
+    "roughness": 0.425,
+    "metallic": 0.0
+   },
+   "source_set": "ai_materials/oak_work_surface",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "iron_neutral",
+   "catalog": {
+    "base_color": [
+     0.36,
+     0.36,
+     0.36,
+     1.0
+    ],
+    "roughness": 0.68,
+    "metallic": 0.65
+   },
+   "source_set": "ai_materials/iron_neutral",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "zinc_quiet",
+   "catalog": {
+    "base_color": [
+     0.62,
+     0.63,
+     0.64,
+     1.0
+    ],
+    "roughness": 0.58,
+    "metallic": 0.82
+   },
+   "source_set": "ai_materials/zinc_quiet",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "toast_crumb",
+   "catalog": {
+    "base_color": [
+     0.72,
+     0.43,
+     0.18,
+     1.0
+    ],
+    "roughness": 0.88,
+    "metallic": 0.0
+   },
+   "source_set": "ai_materials/toast_crumb",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "leather_worn",
+   "catalog": {
+    "base_color": [
+     0.43,
+     0.25,
+     0.14,
+     1.0
+    ],
+    "roughness": 0.76
+   },
+   "source_set": "ai_materials/leather_worn",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "mineral_scale",
+   "catalog": {
+    "base_color": [
+     0.85,
+     0.83,
+     0.76,
+     1.0
+    ],
+    "roughness": 0.92
+   },
+   "source_set": "ai_materials/mineral_scale",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "water_clear",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 0.08,
+    "metallic": 0.0
+   },
+   "source_set": "ai_materials/water_clear",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "door_brass",
+   "catalog": {
+    "base_color": [
+     0.8,
+     0.66,
+     0.41,
+     1.0
+    ],
+    "roughness": 0.3,
+    "metallic": 0.92
+   },
+   "source_set": "procedural/door_brass",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "door_oak",
+   "catalog": {
+    "base_color": [
+     0.65,
+     0.39,
+     0.18,
+     1.0
+    ],
+    "roughness": 0.38,
+    "metallic": 0.0
+   },
+   "source_set": "ai_materials/door_oak",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "door_paint",
+   "catalog": {
+    "base_color": [
+     0.925,
+     0.922,
+     0.906,
+     1.0
+    ],
+    "roughness": 0.44,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/door_paint",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "faucet_nickel",
+   "catalog": {
+    "base_color": [
+     0.827,
+     0.82,
+     0.792,
+     1.0
+    ],
+    "roughness": 0.24,
+    "metallic": 0.92
+   },
+   "source_set": "procedural/faucet_nickel",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bath_wall_tile",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0
+   },
+   "source_set": "procedural/bath_wall_tile",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bath_floor_tile",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0
+   },
+   "source_set": "procedural/bath_floor_tile",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "washer_zinc",
+   "catalog": {
+    "base_color": [
+     0.62,
+     0.64,
+     0.65,
+     1
+    ],
+    "roughness": 0.43,
+    "metallic": 0.94
+   },
+   "source_set": "procedural/washer_zinc",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "washer_enamel",
+   "catalog": {
+    "base_color": [
+     0.89,
+     0.88,
+     0.83,
+     1
+    ],
+    "roughness": 0.24,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/washer_enamel",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "washer_brass",
+   "catalog": {
+    "base_color": [
+     0.71,
+     0.53,
+     0.23,
+     1
+    ],
+    "roughness": 0.31,
+    "metallic": 1.0
+   },
+   "source_set": "procedural/washer_brass",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "washer_rubber",
+   "catalog": {
+    "base_color": [
+     0.095,
+     0.1,
+     0.092,
+     1
+    ],
+    "roughness": 0.66,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/washer_rubber",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "graphited_packing",
+   "catalog": {
+    "base_color": [
+     0.169,
+     0.173,
+     0.169,
+     1.0
+    ],
+    "roughness": 0.83,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/graphited_packing",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "radiator_service_brass",
+   "catalog": {
+    "base_color": [
+     0.651,
+     0.537,
+     0.314,
+     1.0
+    ],
+    "roughness": 0.4,
+    "metallic": 0.92
+   },
+   "source_set": "procedural/radiator_service_brass",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "radiator_cast_iron",
+   "catalog": {
+    "base_color": [
+     0.263,
+     0.278,
+     0.286,
+     1.0
+    ],
+    "roughness": 0.6,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/radiator_cast_iron",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "site_softwood",
+   "catalog": {
+    "base_color": [
+     0.714,
+     0.678,
+     0.588,
+     1.0
+    ],
+    "roughness": 0.79,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/site_softwood",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "site_softwood_endgrain",
+   "catalog": {
+    "base_color": [
+     0.694,
+     0.647,
+     0.545,
+     1.0
+    ],
+    "roughness": 0.805,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/site_softwood_endgrain",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "arcade_terrazzo",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/arcade_terrazzo",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "arcade_terrazzo_dark",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/arcade_terrazzo_dark",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "stove_clinker",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/stove_clinker",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "stove_lime",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/stove_lime",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "arcade_brick_face",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/arcade_brick_face",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "arcade_brick_bond",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/arcade_brick_bond",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "arcade_lime_mortar",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/arcade_lime_mortar",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fire_cabinet_enamel",
+   "catalog": {
+    "base_color": [
+     0.39,
+     0.035,
+     0.022,
+     1.0
+    ],
+    "roughness": 0.31,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/fire_cabinet_enamel",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fire_cabinet_lining",
+   "catalog": {
+    "base_color": [
+     0.69,
+     0.67,
+     0.59,
+     1.0
+    ],
+    "roughness": 0.26,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/fire_cabinet_lining",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fire_hardware_steel",
+   "catalog": {
+    "base_color": [
+     0.23,
+     0.25,
+     0.26,
+     1.0
+    ],
+    "roughness": 0.32,
+    "metallic": 0.88
+   },
+   "source_set": "procedural/fire_hardware_steel",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "glass_drawn_expressive",
+   "catalog": {
+    "base_color": [
+     0.94,
+     0.98,
+     0.97,
+     1.0
+    ],
+    "roughness": 0.09,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/glass_drawn_expressive",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "glass_reeded",
+   "catalog": {
+    "base_color": [
+     0.94,
+     0.98,
+     0.97,
+     1.0
+    ],
+    "roughness": 0.09,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/glass_reeded",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "glass_cut",
+   "catalog": {
+    "base_color": [
+     0.96,
+     0.985,
+     0.98,
+     1.0
+    ],
+    "roughness": 0.065,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/glass_cut",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "glass_frosted",
+   "catalog": {
+    "base_color": [
+     0.96,
+     0.98,
+     0.97,
+     1.0
+    ],
+    "roughness": 0.39,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/glass_frosted",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "player_doodle",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/player_doodle",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "monks_cloth",
+   "catalog": {
+    "base_color": [
+     0.71,
+     0.66,
+     0.55,
+     1.0
+    ],
+    "roughness": 0.9
+   },
+   "source_set": "procedural/monks_cloth",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "velour",
+   "catalog": {
+    "base_color": [
+     0.57,
+     0.54,
+     0.52,
+     1.0
+    ],
+    "roughness": 0.8
+   },
+   "source_set": "procedural/velour",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "ninon",
+   "catalog": {
+    "base_color": [
+     0.92,
+     0.91,
+     0.89,
+     1.0
+    ],
+    "roughness": 0.68
+   },
+   "source_set": "procedural/ninon",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_evelyn_marsh",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_evelyn_marsh",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_teresa_vale",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_teresa_vale",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_mina_vale",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_mina_vale",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_lena_ortiz",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_lena_ortiz",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_juno_kells",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_juno_kells",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_malcolm_reed",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_malcolm_reed",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_omar_bell",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_omar_bell",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_rhea_sato",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_rhea_sato",
+   "in_game_catalog": false,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_peter_wren",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_peter_wren",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_cam_ortiz",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_cam_ortiz",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_noel_price",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_noel_price",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_transient_guests",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_transient_guests",
+   "in_game_catalog": false,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_nadia_quell",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_nadia_quell",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_cal_dwyer",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_cal_dwyer",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_iris_bell",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_iris_bell",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_sacha_reed",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_sacha_reed",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_jonah_price",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_jonah_price",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_mae_kessler",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_mae_kessler",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "tardigrade_membrane",
+   "catalog": {
+    "base_color": [
+     0.78,
+     0.76,
+     0.66,
+     1.0
+    ],
+    "roughness": 0.28,
+    "metallic": 0
+   },
+   "source_set": "ai_materials/tardigrade_membrane",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "tardigrade_organ",
+   "catalog": {
+    "base_color": [
+     0.55,
+     0.43,
+     0.32,
+     1.0
+    ],
+    "roughness": 0.64,
+    "metallic": 0
+   },
+   "source_set": "ai_materials/tardigrade_organ",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "tardigrade_mineral",
+   "catalog": {
+    "base_color": [
+     0.83,
+     0.54,
+     0.18,
+     1.0
+    ],
+    "roughness": 0.22,
+    "metallic": 1
+   },
+   "source_set": "ai_materials/tardigrade_mineral",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "tentacle_gang_membrane",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "tentacle_gang_tissue",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "tentacle_gang_eye",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "guide_bell_membrane",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "guide_bell_tissue",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "tentacle_gang_residue",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "weather_frog_skin",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/weather_frog_skin",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "city_grey_brick",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/city_grey_brick",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "city_slate",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/city_slate",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "city_roof_clay",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "procedural/city_roof_clay",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "resident_adela_voss",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0.0
+   },
+   "source_set": "library/resident_adela_voss",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "appliance_b",
+   "catalog": null,
+   "source_set": "ai_materials/appliance_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "appliance_c",
+   "catalog": null,
+   "source_set": "ai_materials/appliance_c",
+   "in_game_catalog": false,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "asphalt_b",
+   "catalog": null,
+   "source_set": "ai_materials/asphalt_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "asphalt_c",
+   "catalog": null,
+   "source_set": "ai_materials/asphalt_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "asphalt_d",
+   "catalog": null,
+   "source_set": "ai_materials/asphalt_d",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bakelite_b",
+   "catalog": null,
+   "source_set": "ai_materials/bakelite_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bakelite_c",
+   "catalog": null,
+   "source_set": "ai_materials/bakelite_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bakelite_d",
+   "catalog": null,
+   "source_set": "ai_materials/bakelite_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "baluster_b",
+   "catalog": null,
+   "source_set": "ai_materials/baluster_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "baluster_c",
+   "catalog": null,
+   "source_set": "ai_materials/baluster_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bar_wall_b",
+   "catalog": null,
+   "source_set": "ai_materials/bar_wall_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bar_wall_c",
+   "catalog": null,
+   "source_set": "ai_materials/bar_wall_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bar_wall_d",
+   "catalog": null,
+   "source_set": "ai_materials/bar_wall_d",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bar_wall_red_b",
+   "catalog": null,
+   "source_set": "ai_materials/bar_wall_red_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bar_wall_red_c",
+   "catalog": null,
+   "source_set": "ai_materials/bar_wall_red_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "bar_wall_red_d",
+   "catalog": null,
+   "source_set": "ai_materials/bar_wall_red_d",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "brass_b",
+   "catalog": null,
+   "source_set": "ai_materials/brass_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "brass_c",
+   "catalog": null,
+   "source_set": "ai_materials/brass_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "brick_b",
+   "catalog": null,
+   "source_set": "ai_materials/brick_b",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "brick_c",
+   "catalog": null,
+   "source_set": "ai_materials/brick_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "brick_patched_b",
+   "catalog": null,
+   "source_set": "ai_materials/brick_patched_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "brick_patched_c",
+   "catalog": null,
+   "source_set": "ai_materials/brick_patched_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_iron_b",
+   "catalog": null,
+   "source_set": "ai_materials/cast_iron_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_iron_c",
+   "catalog": null,
+   "source_set": "ai_materials/cast_iron_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_iron_d",
+   "catalog": null,
+   "source_set": "ai_materials/cast_iron_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "ceramic_b",
+   "catalog": null,
+   "source_set": "ai_materials/ceramic_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "ceramic_c",
+   "catalog": null,
+   "source_set": "ai_materials/ceramic_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "char_b",
+   "catalog": null,
+   "source_set": "ai_materials/char_b",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "char_c",
+   "catalog": null,
+   "source_set": "ai_materials/char_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "char_d",
+   "catalog": null,
+   "source_set": "ai_materials/char_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "chrome_b",
+   "catalog": null,
+   "source_set": "ai_materials/chrome_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "chrome_c",
+   "catalog": null,
+   "source_set": "ai_materials/chrome_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "chrome_d",
+   "catalog": null,
+   "source_set": "ai_materials/chrome_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "common_brick_b",
+   "catalog": null,
+   "source_set": "ai_materials/common_brick_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "common_brick_c",
+   "catalog": null,
+   "source_set": "ai_materials/common_brick_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "concrete_b",
+   "catalog": null,
+   "source_set": "ai_materials/concrete_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "concrete_c",
+   "catalog": null,
+   "source_set": "ai_materials/concrete_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "concrete_d",
+   "catalog": null,
+   "source_set": "ai_materials/concrete_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "countertop_b",
+   "catalog": null,
+   "source_set": "ai_materials/countertop_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "countertop_c",
+   "catalog": null,
+   "source_set": "ai_materials/countertop_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "enamel_b",
+   "catalog": null,
+   "source_set": "ai_materials/enamel_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "enamel_c",
+   "catalog": null,
+   "source_set": "ai_materials/enamel_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "enamel_d",
+   "catalog": null,
+   "source_set": "ai_materials/enamel_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fabric_cool_b",
+   "catalog": null,
+   "source_set": "ai_materials/fabric_cool_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fabric_cool_c",
+   "catalog": null,
+   "source_set": "ai_materials/fabric_cool_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fabric_green_b",
+   "catalog": null,
+   "source_set": "ai_materials/fabric_green_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fabric_green_c",
+   "catalog": null,
+   "source_set": "ai_materials/fabric_green_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fabric_warm_b",
+   "catalog": null,
+   "source_set": "ai_materials/fabric_warm_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "fabric_warm_c",
+   "catalog": null,
+   "source_set": "ai_materials/fabric_warm_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "face_brick_b",
+   "catalog": null,
+   "source_set": "ai_materials/face_brick_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "face_brick_c",
+   "catalog": null,
+   "source_set": "ai_materials/face_brick_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "felt_violet_b",
+   "catalog": null,
+   "source_set": "ai_materials/felt_violet_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "felt_violet_c",
+   "catalog": null,
+   "source_set": "ai_materials/felt_violet_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "felt_violet_d",
+   "catalog": null,
+   "source_set": "ai_materials/felt_violet_d",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "floor_oak_b",
+   "catalog": null,
+   "source_set": "ai_materials/floor_oak_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "floor_oak_c",
+   "catalog": null,
+   "source_set": "ai_materials/floor_oak_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "handrail_wood_b",
+   "catalog": null,
+   "source_set": "ai_materials/handrail_wood_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "handrail_wood_c",
+   "catalog": null,
+   "source_set": "ai_materials/handrail_wood_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "hoarding_b",
+   "catalog": null,
+   "source_set": "ai_materials/hoarding_b",
+   "in_game_catalog": false,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "hoarding_c",
+   "catalog": null,
+   "source_set": "ai_materials/hoarding_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "hoarding_d",
+   "catalog": null,
+   "source_set": "ai_materials/hoarding_d",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "lacquer_red_b",
+   "catalog": null,
+   "source_set": "ai_materials/lacquer_red_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "lacquer_red_c",
+   "catalog": null,
+   "source_set": "ai_materials/lacquer_red_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "lacquer_red_d",
+   "catalog": null,
+   "source_set": "ai_materials/lacquer_red_d",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "leaf_fall_b",
+   "catalog": null,
+   "source_set": "ai_materials/leaf_fall_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "leaf_fall_c",
+   "catalog": null,
+   "source_set": "ai_materials/leaf_fall_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "limestone_b",
+   "catalog": null,
+   "source_set": "ai_materials/limestone_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "limestone_c",
+   "catalog": null,
+   "source_set": "ai_materials/limestone_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "linen_b",
+   "catalog": null,
+   "source_set": "ai_materials/linen_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "linen_c",
+   "catalog": null,
+   "source_set": "ai_materials/linen_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "linen_d",
+   "catalog": null,
+   "source_set": "ai_materials/linen_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "linoleum_b",
+   "catalog": null,
+   "source_set": "ai_materials/linoleum_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "linoleum_c",
+   "catalog": null,
+   "source_set": "ai_materials/linoleum_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "marble_lobby_b",
+   "catalog": null,
+   "source_set": "ai_materials/marble_lobby_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "marble_lobby_c",
+   "catalog": null,
+   "source_set": "ai_materials/marble_lobby_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "marble_lobby_d",
+   "catalog": null,
+   "source_set": "ai_materials/marble_lobby_d",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "metal_b",
+   "catalog": null,
+   "source_set": "ai_materials/metal_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "metal_c",
+   "catalog": null,
+   "source_set": "ai_materials/metal_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "paper_b",
+   "catalog": null,
+   "source_set": "ai_materials/paper_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "paper_c",
+   "catalog": null,
+   "source_set": "ai_materials/paper_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plant_b",
+   "catalog": null,
+   "source_set": "ai_materials/plant_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plant_c",
+   "catalog": null,
+   "source_set": "ai_materials/plant_c",
+   "in_game_catalog": false,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plant_d",
+   "catalog": null,
+   "source_set": "ai_materials/plant_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plaster_b",
+   "catalog": null,
+   "source_set": "ai_materials/plaster_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plaster_c",
+   "catalog": null,
+   "source_set": "ai_materials/plaster_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plaster_stained_b",
+   "catalog": null,
+   "source_set": "ai_materials/plaster_stained_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plaster_stained_c",
+   "catalog": null,
+   "source_set": "ai_materials/plaster_stained_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plywood_b",
+   "catalog": null,
+   "source_set": "ai_materials/plywood_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plywood_c",
+   "catalog": null,
+   "source_set": "ai_materials/plywood_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "plywood_d",
+   "catalog": null,
+   "source_set": "ai_materials/plywood_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "porcelain_b",
+   "catalog": null,
+   "source_set": "ai_materials/porcelain_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "porcelain_c",
+   "catalog": null,
+   "source_set": "ai_materials/porcelain_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "puddle_b",
+   "catalog": null,
+   "source_set": "ai_materials/puddle_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "puddle_c",
+   "catalog": null,
+   "source_set": "ai_materials/puddle_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "quarry_tile_b",
+   "catalog": null,
+   "source_set": "ai_materials/quarry_tile_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "quarry_tile_c",
+   "catalog": null,
+   "source_set": "ai_materials/quarry_tile_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "quarry_tile_d",
+   "catalog": null,
+   "source_set": "ai_materials/quarry_tile_d",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "rug_warm_b",
+   "catalog": null,
+   "source_set": "ai_materials/rug_warm_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "rug_warm_c",
+   "catalog": null,
+   "source_set": "ai_materials/rug_warm_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "rug_warm_d",
+   "catalog": null,
+   "source_set": "ai_materials/rug_warm_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "safety_orange_b",
+   "catalog": null,
+   "source_set": "ai_materials/safety_orange_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "safety_orange_c",
+   "catalog": null,
+   "source_set": "ai_materials/safety_orange_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "safety_orange_d",
+   "catalog": null,
+   "source_set": "ai_materials/safety_orange_d",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "sidewalk_grout_b",
+   "catalog": null,
+   "source_set": "ai_materials/sidewalk_grout_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "sidewalk_grout_c",
+   "catalog": null,
+   "source_set": "ai_materials/sidewalk_grout_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "sidewalk_grout_d",
+   "catalog": null,
+   "source_set": "ai_materials/sidewalk_grout_d",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "sidewalk_haunted_b",
+   "catalog": null,
+   "source_set": "ai_materials/sidewalk_haunted_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "slab_b",
+   "catalog": null,
+   "source_set": "ai_materials/slab_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "slab_c",
+   "catalog": null,
+   "source_set": "ai_materials/slab_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "slab_d",
+   "catalog": null,
+   "source_set": "ai_materials/slab_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "soil_b",
+   "catalog": null,
+   "source_set": "ai_materials/soil_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "soil_c",
+   "catalog": null,
+   "source_set": "ai_materials/soil_c",
+   "in_game_catalog": false,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "soot_b",
+   "catalog": null,
+   "source_set": "ai_materials/soot_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "soot_c",
+   "catalog": null,
+   "source_set": "ai_materials/soot_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "soot_d",
+   "catalog": null,
+   "source_set": "ai_materials/soot_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "stair_b",
+   "catalog": null,
+   "source_set": "ai_materials/stair_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "stair_c",
+   "catalog": null,
+   "source_set": "ai_materials/stair_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "stairwell_teal_b",
+   "catalog": null,
+   "source_set": "ai_materials/stairwell_teal_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "stairwell_teal_c",
+   "catalog": null,
+   "source_set": "ai_materials/stairwell_teal_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "stairwell_teal_d",
+   "catalog": null,
+   "source_set": "ai_materials/stairwell_teal_d",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "subway_tile_b",
+   "catalog": null,
+   "source_set": "ai_materials/subway_tile_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "subway_tile_c",
+   "catalog": null,
+   "source_set": "ai_materials/subway_tile_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "terracotta_b",
+   "catalog": null,
+   "source_set": "ai_materials/terracotta_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "terracotta_c",
+   "catalog": null,
+   "source_set": "ai_materials/terracotta_c",
+   "in_game_catalog": false,
+   "texture_status": "unloaded",
+   "import_tier": "surface"
+  },
+  {
+   "id": "terrazzo_b",
+   "catalog": null,
+   "source_set": "ai_materials/terrazzo_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "terrazzo_c",
+   "catalog": null,
+   "source_set": "ai_materials/terrazzo_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "terrazzo_d",
+   "catalog": null,
+   "source_set": "ai_materials/terrazzo_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "timber_b",
+   "catalog": null,
+   "source_set": "ai_materials/timber_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "timber_c",
+   "catalog": null,
+   "source_set": "ai_materials/timber_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "tin_ceiling_b",
+   "catalog": null,
+   "source_set": "ai_materials/tin_ceiling_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "tin_ceiling_c",
+   "catalog": null,
+   "source_set": "ai_materials/tin_ceiling_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "tin_ceiling_d",
+   "catalog": null,
+   "source_set": "ai_materials/tin_ceiling_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "trim_b",
+   "catalog": null,
+   "source_set": "ai_materials/trim_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "trim_c",
+   "catalog": null,
+   "source_set": "ai_materials/trim_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "vinyl_oxblood_b",
+   "catalog": null,
+   "source_set": "ai_materials/vinyl_oxblood_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "vinyl_oxblood_c",
+   "catalog": null,
+   "source_set": "ai_materials/vinyl_oxblood_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "vinyl_oxblood_d",
+   "catalog": null,
+   "source_set": "ai_materials/vinyl_oxblood_d",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "wainscot_b",
+   "catalog": null,
+   "source_set": "ai_materials/wainscot_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "wainscot_c",
+   "catalog": null,
+   "source_set": "ai_materials/wainscot_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "wainscot_d",
+   "catalog": null,
+   "source_set": "ai_materials/wainscot_d",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "wet_asphalt_b",
+   "catalog": null,
+   "source_set": "ai_materials/wet_asphalt_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "wet_asphalt_c",
+   "catalog": null,
+   "source_set": "ai_materials/wet_asphalt_c",
+   "in_game_catalog": false,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "wood_dark_b",
+   "catalog": null,
+   "source_set": "ai_materials/wood_dark_b",
+   "in_game_catalog": false,
+   "texture_status": "live",
+   "import_tier": "surface"
+  },
+  {
+   "id": "wood_dark_c",
+   "catalog": null,
+   "source_set": "ai_materials/wood_dark_c",
+   "in_game_catalog": false,
+   "texture_status": "v1_only",
+   "import_tier": "surface"
+  }
+ ]
+}
