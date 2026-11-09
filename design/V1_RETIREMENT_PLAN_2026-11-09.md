@@ -193,3 +193,25 @@ surface props on furniture (1D's alarm clock on the fridge, 3B's on the bed)
 and hangs frames and pinboards as wall furniture. Witness clocks follow
 those: mantel and travelling-alarm styles on furniture, the rest hung beside
 the resident's existing frames.
+
+## 8. Runtime census (2026-11-09)
+
+The reference census in section 1 counts a file as V2's when V2 code names
+it, even when V2 never builds it. A second census booted each root and
+listed the scripts live on nodes: 180 in V1, 257 in V2. Of V1's, 24 run in
+V2 as a V2 subclass. 64 do not run in V2 at all.
+
+Beyond the systems already ruled, that adds:
+
+| System | Disposition |
+|---|---|
+| Arcade cabinets (`arcade_machine.gd`, ten cabinets) | Dropped: Lily asked for their complete removal pending a later redesign (`design/V2_SHARED_FINISH_OWNERSHIP_AND_ARCADE_RETIREMENT_2026-10-24.md`). |
+| V1 street traffic | V2's own traffic and trams stand. |
+| V1 resident navigation and routines | V2's resident routes, agendas and presentation stand. |
+| Radiator hand surfaces (161) | V2's radiator assemblies stand. |
+| Exterior detail pass | V2's city stands. |
+| The waking organism: apartment encroachment, the waking ecology (moss, residue, tendrils, margin palps, cellular audio) | Ruling **v1r_waking_organism_20261109**. Organism incidents depend on it. |
+| Story decals (98) and exterior ground decals (11) | Ruling **v1r_story_decals_20261109**. |
+
+The census probe is scratch and is not committed; its outputs are
+`C:/ov/reports/v1r_import/live_v1.json` and `live_v2.json` (unfiled).
