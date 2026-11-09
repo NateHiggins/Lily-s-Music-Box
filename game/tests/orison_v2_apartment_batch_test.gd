@@ -87,8 +87,15 @@ func _ready() -> void:
 			check(wc != null, "toilet mounted for " + unit)
 			if wc != null:
 				refs.append(weakref(wc))
-				wc.interact(world.player)
-				check("refilling" in wc.interact_prompt(), "shared flush operates for " + unit)
+				# The legacy entry point cannot work the handle (RUL-013); drive the
+				# handle's own grab contract through a full stroke and release it.
+				var handle: Dictionary = wc.call("_target", "CisternHandle") if wc.has_method("_target") else {}
+				var grabbed: bool = not handle.is_empty() and bool(handle.begin.call())
+				if grabbed:
+					handle.write.call(deg_to_rad(-34.0))
+					handle.end.call()
+				check(grabbed and bool(wc.get("_flush_stroke_completed")) and bool(wc.get("_refilling")),
+						"shared flush operates by its handle for " + unit)
 			var counts := {"sink":0, "shower":0, "stove":0, "fridge":0}
 			for record: Dictionary in fittings.fittings:
 				if record.unit != unit: continue
@@ -100,6 +107,13 @@ func _ready() -> void:
 				if prop is TapProp:
 					check(world.boiler_tend != null and world.boiler_tend.taps.count(prop) == 1,
 							"water fitting has one real supply: " + str(record.id))
+					if prop.get_script() == preload("res://scripts/props/clawfoot_bath_prop.gd"):
+						# 4B's native bath (10-28): each deck valve carries its own grab target.
+						for index in 2:
+							var handle := (prop.get("_handles") as Array)[index] as Node3D
+							check(handle != null and handle.get_node_or_null("ManipulationTarget") is Area3D,
+									"independent bath valve grab: " + str(record.id) + "/" + str(index))
+						continue
 					for control_name in ["HotValveControl", "ColdValveControl"]:
 						var control := prop.get_node_or_null(control_name) as Area3D
 						check(control != null and control.get("tap") == prop,
@@ -132,9 +146,13 @@ func _ready() -> void:
 		var servicing := world.adapter.resolve("F03_A_RADIATOR_01") as RadiatorProp
 		var panel: MaintenanceActivityPanel
 		if servicing != null:
-			servicing.perform_physical_action("service_vent")
+			var vent: Dictionary = servicing.perform_physical_action("service_vent")
 			panel = servicing.get("_service_panel") as MaintenanceActivityPanel
-			check(panel != null and world.player.call_locked, "household vent activity owns player input")
+			# Native V2 radiators are vented at the physical cap (RUL-013); the
+			# retired activity panel never opens or takes the player's input.
+			check(panel == null and not world.player.call_locked and vent.observation == "service_already_open"
+					and servicing.get("native_vent_cap") != null,
+					"household vent is serviced by hand, not by an activity panel")
 		for record: Dictionary in accessory_source.accessories:
 			var accessory := world.adapter.resolve(str(record.id)) as FunctionalProp
 			if accessory is ToasterProp:
@@ -408,7 +426,7 @@ func _check_wall_extensions() -> void:
 							> maxf(low.y, float(window.sill)) + .0001
 					check(not (overlaps_width and overlaps_height), "window aperture remains free of wall geometry")
 			holder.free()
-	check(count == 53, "41 developed-home and 12 completion-interior wall intervals have build coverage")
+	check(count == 63, "41 developed-home, 12 completion-interior and 10 restored front-volume wall intervals have build coverage")
 	# Reject corrupt interval data before building any geometry.
 	for bad: Variant in [{"side":"east","start":-100.0,"end":0.0},
 			{"side":"east","start":NAN,"end":0.0}, {"side":"up","start":0.0,"end":1.0},
@@ -621,10 +639,9 @@ func _check_prep_cabinets(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 	check(cabinets.size() == 6 and panels.size() == 6, "complete six-kitchen preparation category")
 	for i in cabinets.size():
 		var state_before: Dictionary = world.household_state.snapshot()
-		cabinets[i].call("interact", world.player)
-		state_before.records[cabinets[i].get("unit") + "_prep_cabinet"].value = true
-		check(RealityState.data[world.household_state.KEY] == state_before,
-			"cabinet opening persists only its own household control")
+		await _slide_cabinet(cabinets[i], panels[i], preload("res://scripts/building/orison_v2_prep_cabinet.gd").TRAVEL)
+		state_before.records[cabinets[i].get("unit") + "_prep_cabinet"].value = 1.0
+		_check_household_record(world, state_before, "cabinet opening persists only its own household control")
 		for j in cabinets.size():
 			check(bool(cabinets[j].get("opened")) == (j <= i), "cabinet switch has local household state")
 	await get_tree().create_timer(.36).timeout
@@ -638,10 +655,9 @@ func _check_prep_cabinets(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 		check(world.get_world_3d().direct_space_state.intersect_ray(query).get("collider") == cabinet,
 				"open shelf retains its physical back panel")
 		var state_before: Dictionary = world.household_state.snapshot()
-		panel.call("interact", world.player)
-		state_before.records[cabinet.get("unit") + "_prep_cabinet"].value = false
-		check(RealityState.data[world.household_state.KEY] == state_before,
-			"cabinet closing persists only its own household control")
+		await _slide_cabinet(cabinet, panel, 0.0)
+		state_before.records[cabinet.get("unit") + "_prep_cabinet"].value = 0.0
+		_check_household_record(world, state_before, "cabinet closing persists only its own household control")
 	await get_tree().create_timer(.36).timeout
 	await get_tree().physics_frame
 	for cabinet in cabinets:
@@ -653,6 +669,33 @@ func _check_prep_cabinets(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 		cabinet.call("interact", world.player)
 		cabinet.call("interact", world.player)
 		cabinet.call("interact", world.player)
+
+## Compare the persisted preparation-cabinet records, naming what differs on
+## failure. Live mechanisms (the watchman's clock, closing doors) keep moving
+## while the hand holds the panel, so only the cabinet category is compared.
+func _check_household_record(world: Node, expected: Dictionary, label: String) -> void:
+	var saved: Dictionary = RealityState.data.get(world.household_state.KEY, {}).get("records", {})
+	var differing: Array = []
+	for identity: String in expected.get("records", {}):
+		if expected.records[identity].kind != "prep": continue
+		var want: Variant = expected.records[identity].value
+		var have: Variant = saved.get(identity, {}).get("value")
+		if typeof(have) not in [TYPE_FLOAT, TYPE_INT] or not is_equal_approx(float(have), float(want)):
+			differing.append("%s=%s (saved %s)" % [identity, want, have])
+	check(differing.is_empty(), label if differing.is_empty() else "%s: differs %s; errors %s" % [label, differing, world.household_state.errors])
+
+## The panel's own grab contract: take hold, slide it to travel, let go. The
+## household state records the travel fraction when the hand releases.
+func _slide_cabinet(cabinet: Node3D, panel: Node3D, travel: float) -> void:
+	var grip: Dictionary = cabinet.call("manipulation_target", {"collider": panel})
+	check(not grip.is_empty() and bool(grip.begin.call()), "cabinet panel takes the hand")
+	if grip.is_empty(): return
+	grip.write.call(travel)
+	# The panel syncs to physics: a hand holds it while the move lands, as a
+	# real one does over several frames, before letting go.
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	grip.end.call()
 
 func _cabinet_aperture_hit(cabinet: Node3D) -> Dictionary:
 	var query := PhysicsRayQueryParameters3D.create(cabinet.to_global(Vector3(-.19,.55,-.6)),
@@ -858,13 +901,23 @@ func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 		check(Vector3(acoustic.pos[0],acoustic.pos[2],-acoustic.pos[1]).is_equal_approx(radiator.global_position), "heating acoustic endpoint follows installed pose")
 		check(radiator.section_count == record.sections, "household casting count retained")
 		var body := radiator.get_node_or_null("InstalledRadiatorCollision") as StaticBody3D
-		check(body != null and body.get_child_count() == 2, "installed radiator blocks movement with case and pipe hulls")
+		# The native rig (10-17) replaces the two solid hulls with the three fitted
+		# feed surfaces, and gives the castings their own rigid body.
+		check(body != null and body.get_child_count() == 3 and radiator.native_rig != null
+				and radiator.native_rig.body.get_node_or_null("RigidCastingsCollision") is StaticBody3D,
+				"installed radiator blocks movement with feed surfaces and casting hull")
 		if body != null: refs.append(weakref(body))
 		var stance := world.adapter.resolve(str(record.id).replace("_01","_STANCE")) as Node3D
-		var area := radiator.get_node_or_null("TurnValveSurface") as Area3D
-		check(stance != null and area != null, "physical handwheel and stance resolve")
-		if stance != null and area != null:
-			var origin := stance.global_position + Vector3.UP*1.41
+		# The supply valve is turned by grabbing the handwheel itself (RUL-013).
+		var area := radiator.native_rig.wheel.get_node_or_null("ManipulationTarget") as Area3D \
+				if radiator.native_rig != null else null
+		# The lobby and the four restricted-cell rooms (10-16/10-17) carry no stance
+		# anchor; they are served from the completion test's spot, 0.95 m in front.
+		check(stance != null or record.unit in ["LOBBY","2D","3C","5D","6D"], "radiator stance resolves: " + str(record.id))
+		var stand := stance.global_position if stance != null 				else radiator.global_position - Vector3.UP*.75 - radiator.global_basis.z*.95
+		check(area != null, "physical handwheel resolves on the native valve: " + str(record.id))
+		if area != null:
+			var origin := stand + Vector3.UP*1.41
 			var query := PhysicsRayQueryParameters3D.create(origin,area.global_position,1,[world.player.get_rid()])
 			query.collide_with_areas = true
 			check(world.get_world_3d().direct_space_state.intersect_ray(query).get("collider") == area, "handwheel ray clears furniture and radiator hull: " + str(record.id))
@@ -881,7 +934,7 @@ func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 			radiator.apply_maintenance_result({"mechanism_patch":{"vent_grade":radiator.vent_grade,"supply_position":1.0}})
 			radiator.set_supply_open(false)
 			check(radiator.perform_physical_action("turn_valve").observation == "supply_open", "household valve reaches healthy detent")
-	check(count == 18, "complete eighteen-household heating category")
+	check(count == 23 and count == source.installed.size(), "complete heating category: 22 households and the lobby")
 	check(JSON.stringify(world.maintenance_inventory.serialize()) == packing_before, "household actions cannot acquire or consume 2B packing")
 	var water := boiler.water_level
 	boiler.set_water_level(0)
