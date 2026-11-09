@@ -156,3 +156,40 @@ zone.
 **Order**: the director first (witness tells, organism incidents and case
 presentation bind to it); the radio group (static, library, broadcast);
 then the rest; the first-floor reorganization; then plumbing and removal.
+
+## 7. What RUL-012 means for the imports (found 2026-11-09)
+
+Every V2 physical surface needs authored UVs, a registered custom PBR recipe
+and full mip chains, with no legacy exemption (**RUL-012**,
+`design/V2_SURFACE_REQUIREMENTS_2026-10-11.md`). V1's props build their own
+procedural geometry with V1 materials, so none of that geometry can be
+carried into V2 as it is. The imports therefore split in two.
+
+**Behaviour, sound and text: import directly, in this order**
+
+1. The director (done: PR 199).
+2. Organism incidents: no geometry of their own.
+3. Case presentation: the controllers and thresholds, onto V2 rooms.
+4. Possessed-object tells: the behaviour, attached to V2's own household
+   props where a matching V2 object exists.
+5. The radio group: geomagnetic static, the earned music library, the
+   broadcast programme.
+6. Night glows and uncanny marks: optical effects and decals, reviewed under
+   the optical and decal clauses of the surface rule.
+
+**Visible objects: new Blender assets first** (art/blender/v2_batch_workflow.md,
+one batch per related set, rendered before a combined Godot capture)
+
+- The eighteen witness clocks (one batch of dial styles) and any possessed
+  object with no V2 counterpart.
+- Lobby group: bulletin board, Orison advert board (carrying the historical
+  radio notice), mail chute.
+- Apparatus group: soda-acid extinguisher, roof-stair door closer.
+- The honest clocks, the residents' memory art, the aircraft, the commensals'
+  bodies.
+
+V2 precedent for where the clocks go: V2 already keeps apartment clocks as
+surface props on furniture (1D's alarm clock on the fridge, 3B's on the bed)
+and hangs frames and pinboards as wall furniture. Witness clocks follow
+those: mantel and travelling-alarm styles on furniture, the rest hung beside
+the resident's existing frames.
