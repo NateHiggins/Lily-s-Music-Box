@@ -18,6 +18,21 @@ for work restricted to the canonical checkout.
 | `preflight_spatial_test_bindings.py` | Are every spatial receipt's inherited test dependencies declared before Godot starts? | <1 s |
 | `publish_v2_spatial_packet.py` | Publish already executed played-room proof with checked sources/logs and a preserved previous packet? | source-size dependent |
 | `artifact_retention.py` | How much report output exists, and which owner-released visual files can be retired safely? | report-size dependent |
+| `test_census.py` | Which Godot test scenes are alive, what do they cost, and how fast does the world start? | 10-60 s (reads every receipt) |
+
+## Test census
+
+```
+python tools/test_census.py [--reports C:/ov/reports] [--out DIR] [--json]
+```
+
+Reads every run receipt under the reports root and every scene in
+`game/tests`, and writes `census.json` and `census.md`: per scene its runs,
+lane seconds, timeouts, last outcome and idle days (or that it never ran); the
+scenes costing the most lane time; and world startup by week, from each run's
+own `[ORISON V2 RUNTIME] ready startup_ms=` line. A startup regression shows
+as a step in that table. It runs nothing. A receipt's `exit-0` says the
+process ended cleanly, not that the test's contract passed.
 
 ## Report artifact retention
 
