@@ -147,6 +147,23 @@ var field_lights: Dictionary = {}
 ## Every surface material on a storey the field was bound to (for refresh).
 var storey_materials: Dictionary = {}
 const STOREY_RECT := Vector4(-13.9, -9.9, 13.9, 9.9)
+## The storey a field covers. V1 keeps STOREY_RECT; V2 sets its own wider
+## storey before build().
+var storey_rect := STOREY_RECT
+## V2 groups its draws by room, not by storey: floor_id -> the room nodes that
+## make up that storey. When a storey has members they replace the single
+## floor node as the scope for living surfaces. V1 leaves this empty.
+var floor_scopes: Dictionary = {}
+var _scope_sets: Dictionary = {}
+## Per-world pruning. V1 builds everything; V2 (Lily, 2026-11-09: "drop
+## critter and tendrils") turns these off before build().
+var with_tendrils := true
+var with_critters := true
+## V2: the margin and its palps only run while the player is on the storey
+## the dream field was seeded on; elsewhere they pause and hide.
+var margin_on_storey_only := false
+var _margin_floor := ""
+var _margin_live := true
 const PALETTE_INDEX := {"mina_caption_crisis": 0, "peter_form_corridor": 1,
 		"juno_feedback_tetris": 2, "mae_contradictory_antiques": 3,
 		"cal_memory_radio": 4, "omar_unrepairable": 5}
@@ -198,9 +215,9 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			continue
 		units[case_id] = {"rect": rect, "floor_y": floor_y, "floor_node": floor_node}
 		var rows: Array = []
-		for node in floor_node.find_children("*", "MeshInstance3D", true, false):
+		for node in _storey_meshes(floor_node, floor_id):
 			var mi := node as MeshInstance3D
-			if not _living_candidate(mi, floor_node):
+			if not _in_storey(mi, floor_node, floor_id):
 				continue
 			if mi.mesh == null or not mi.name.contains("_finish_"):
 				continue
@@ -234,7 +251,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			var field = fields.get(floor_id)
 			if field == null:
 				field = LivingFieldScript.new()
-				field.configure(STOREY_RECT, floor_y, floor_id.hash())
+				field.configure(storey_rect, floor_y, floor_id.hash())
 				fields[floor_id] = field
 				_bind_storey(floor_node, floor_id, field)
 			var source := Vector3((rect.x + rect.z) * 0.5, floor_y + 1.0, (rect.y + rect.w) * 0.5)
@@ -255,6 +272,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 		for case_id in units:
 			seed_floor = _floor_of(case_id)
 			break
+		_margin_floor = seed_floor
 		# Seed the field on a case's own flat, not the storey's centre: the
 		# body is where the cases are.
 		var seed_at := Vector3.INF
@@ -263,7 +281,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			var ur: Vector4 = u0.rect
 			seed_at = Vector3((ur.x + ur.z) * 0.5, float(u0.floor_y) + 1.3,
 					(ur.y + ur.w) * 0.5)
-		dream_field.setup("dreamfield".hash(), STOREY_RECT,
+		dream_field.setup("dreamfield".hash(), storey_rect,
 				float(units.values()[0].floor_y) if units.size() > 0 else 0.0, seed_at)
 		if fields.size() > 0:
 			dream_field.living_field = fields.values()[0]
@@ -272,7 +290,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			dream_field.player = root_node.player
 		# DF-13: the shelved procedural limb, at a tenth the size and a
 		# hundred at a time — one body meeting our space in many places.
-		if OS.get_environment("DREAM_TENDRILS") != "0":
+		if with_tendrils and OS.get_environment("DREAM_TENDRILS") != "0":
 			surface_tendrils = DreamTendrilScript.new()
 			add_child(surface_tendrils)
 			surface_tendrils.setup(dream_field, "tendrils".hash())
@@ -292,7 +310,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			palp_renderer.setup(margin)
 		# THE CRITTERS (§14). They use the margin as habitat, so they come
 		# after it.
-		if OS.get_environment("DREAM_CRITTERS") != "0":
+		if with_critters and OS.get_environment("DREAM_CRITTERS") != "0":
 			critters = DreamCritterScript.new()
 			add_child(critters)
 			critters.setup(dream_field, "critters".hash())
@@ -569,6 +587,8 @@ func service_response_census() -> Dictionary:
 ## phase is pushed per tick.
 func _physics_process(delta: float) -> void:
 	_receive_architecture_signals()
+	if margin_on_storey_only and margin != null:
+		_set_margin_live(_player_floor() == _margin_floor)
 	for case_id in field_source:
 		var floor_id := _floor_of(case_id)
 		if fields.has(floor_id):
@@ -744,6 +764,17 @@ func architecture_signal_census() -> Dictionary:
 
 
 ## The storey the player stands on, by the floors the cases told us about.
+func _set_margin_live(live: bool) -> void:
+	if live == _margin_live:
+		return
+	_margin_live = live
+	var mode := Node.PROCESS_MODE_INHERIT if live else Node.PROCESS_MODE_DISABLED
+	margin.process_mode = mode
+	if palp_renderer != null:
+		palp_renderer.process_mode = mode
+		palp_renderer.visible = live
+
+
 func _player_floor() -> String:
 	var root := get_parent()
 	if root == null or not ("player" in root) or root.player == null:
@@ -820,9 +851,9 @@ func _bind_storey(floor_node: Node, floor_id: String, _field) -> void:
 		storey_materials[floor_id] = []
 	else:
 		(storey_materials[floor_id] as Array).clear()
-	for node in floor_node.find_children("*", "MeshInstance3D", true, false):
+	for node in _storey_meshes(floor_node, floor_id):
 		var mi := node as MeshInstance3D
-		if not _living_candidate(mi, floor_node) or mi.mesh == null:
+		if not _in_storey(mi, floor_node, floor_id) or mi.mesh == null:
 			continue
 		var over := mi.material_override as ShaderMaterial
 		if _is_living_surface(over):
@@ -880,6 +911,44 @@ func _storey_material(material: ShaderMaterial, floor_id: String, copies: Dictio
 static func _is_living_surface(material: ShaderMaterial) -> bool:
 	return material != null and material.shader != null \
 			and material.shader.resource_path.get_file().begins_with("orison_surface")
+
+
+## Every draw on a storey: under its floor node (V1) or its room members (V2).
+func _storey_meshes(floor_node: Node, floor_id: String) -> Array:
+	if not floor_scopes.has(floor_id):
+		return floor_node.find_children("*", "MeshInstance3D", true, false)
+	var out: Array = []
+	for member in floor_scopes[floor_id]:
+		if is_instance_valid(member):
+			out.append_array((member as Node).find_children("*", "MeshInstance3D", true, false))
+	return out
+
+
+func _in_storey(mi: MeshInstance3D, floor_node: Node, floor_id: String) -> bool:
+	if not floor_scopes.has(floor_id):
+		return _living_candidate(mi, floor_node)
+	# One ancestor walk against the storey's room set, not one per room.
+	if not _scope_sets.has(floor_id):
+		var members: Dictionary = {}
+		for member in floor_scopes[floor_id]:
+			if is_instance_valid(member):
+				members[member] = true
+		_scope_sets[floor_id] = members
+	var rooms: Dictionary = _scope_sets[floor_id]
+	var cursor: Node = mi
+	while cursor != null:
+		if _excluded_from_living(cursor):
+			return false
+		if rooms.has(cursor):
+			return true
+		cursor = cursor.get_parent()
+	return false
+
+
+static func _excluded_from_living(node: Node) -> bool:
+	return node.is_queued_for_deletion() or node is SubViewport or node is CharacterBody3D \
+			or node.is_in_group("resident_placeholders") or node.is_in_group("animated_residents") \
+			or str(node.name).begins_with("NPC_")
 
 
 static func _living_candidate(mi: MeshInstance3D, scope: Node) -> bool:
