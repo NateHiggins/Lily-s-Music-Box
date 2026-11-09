@@ -283,15 +283,6 @@ whether the ledger admits the document. WARN on a missing or unclassified
 header, and on id-like backticks in an inert document. For evidence
 documents it prints the ledger's `--evidence-impact`.
 
-## Roughness import cap
-
-`art/tools/cap_roughness_imports.py` imports every square VRAM roughness map at half
-its albedo's longer side, rounded down to a multiple of four (ruling
-`tex_orm_resolution_20261109`). It owns only `process/size_limit` on those
-sidecars; `fix_runtime_texture_imports.py` owns the other keys. Dream plates and
-the two fixture-pinned sidecars are left alone. Run `--check` before committing
-new roughness maps, then re-import twice.
-
 ## Lane broker
 
 ```
@@ -376,6 +367,15 @@ all three before and after execution; the ledger independently rechecks them.
 A geometry edit invalidates the old physical pass, including same-size edits
 with restored timestamps. Reuse a gameplay run after an optical-only change
 only while its physical and production input bindings remain current.
+
+## Roughness import cap
+
+`art/tools/cap_roughness_imports.py` imports every square VRAM roughness map at half
+its albedo's longer side, rounded down to a multiple of four (ruling
+`tex_orm_resolution_20261109`). It owns only `process/size_limit` on those
+sidecars; `fix_runtime_texture_imports.py` owns the other keys. Dream plates and
+the two fixture-pinned sidecars are left alone. Run `--check` before committing
+new roughness maps, then re-import twice.
 
 ## Local image generation
 
