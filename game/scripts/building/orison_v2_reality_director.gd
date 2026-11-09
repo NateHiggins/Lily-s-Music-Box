@@ -67,3 +67,45 @@ static func is_fixed(node: Node) -> bool:
 			return true
 		script = script.get_base_script()
 	return false
+
+
+## Case presentation (v1r_case_presentation_20261109): one reality controller
+## per case flat, sized to the flat's MAIN room in V2's own layout, as V1 fell
+## back to when a flat had no living room. The controller bends gravity and
+## builds the loop thresholds while the case's rule is live, and restores what
+## it registered when the case stabilises. Returns case_id -> controller.
+static func mount_controllers(root: Node3D, blockout: Node3D, layout: Dictionary) -> Dictionary:
+	var levels: Dictionary = {}
+	for row: Dictionary in layout.get("levels", []):
+		levels[str(row.id)] = float(row.y)
+	var spaces: Dictionary = {}
+	for space: Dictionary in layout.get("spaces", []):
+		spaces[str(space.id)] = space
+	var storey := float(layout.get("dimensions", {}).get("floor_to_floor", 3.2))
+	var to_root := root.global_transform.affine_inverse() * blockout.global_transform
+	var controllers: Dictionary = {}
+	for case_id: String in RealityCases.definitions:
+		var unit := str(RealityCases.definition(case_id).get("unit", ""))
+		if unit.length() < 2:
+			continue
+		var space_id := "F0%s_%s_MAIN" % [unit.left(1), unit.substr(1)]
+		if not spaces.has(space_id):
+			push_warning("V2 reality controller: no %s for %s" % [space_id, case_id])
+			continue
+		var space: Dictionary = spaces[space_id]
+		var r: Array = space.rect
+		var y := float(levels.get(str(space.level), 0.0))
+		var low := Vector3.INF
+		var high := -Vector3.INF
+		for corner in 8:
+			var local := Vector3(float(r[2]) if corner & 1 else float(r[0]),
+				y + (storey - 0.15 if corner & 2 else 0.0),
+				float(r[3]) if corner & 4 else float(r[1]))
+			var point := to_root * local
+			low = low.min(point)
+			high = high.max(point)
+		var controller := ApartmentRealityController.new()
+		controller.setup(case_id, unit, low, high)
+		root.add_child(controller)
+		controllers[case_id] = controller
+	return controllers
