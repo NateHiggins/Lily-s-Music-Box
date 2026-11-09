@@ -44,6 +44,7 @@ var sanity: SanityDirector
 var building_personality: BuildingPersonalityDirector
 var _intrusion_props: Array = []
 var _intrusion_fits: Array = []
+var reality_controllers: Dictionary = {}
 var apartment_encroachment: Node
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
@@ -346,6 +347,7 @@ func _ready() -> void:
 	intrusions = director.intrusions
 	sanity = director.sanity
 	building_personality = director.personality
+	reality_controllers = RealityDirector.mount_controllers(self, _blockout, layout)
 	_record_startup_milestone("reality_director_ready")
 	# The dream reaching into the case flats (v1r_waking_organism_20261109).
 	apartment_encroachment = preload("res://scripts/building/orison_v2_waking_organism.gd").mount(self, _blockout, layout, player)

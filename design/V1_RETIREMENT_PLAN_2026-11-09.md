@@ -156,3 +156,62 @@ zone.
 **Order**: the director first (witness tells, organism incidents and case
 presentation bind to it); the radio group (static, library, broadcast);
 then the rest; the first-floor reorganization; then plumbing and removal.
+
+## 7. What RUL-012 means for the imports (found 2026-11-09)
+
+Every V2 physical surface needs authored UVs, a registered custom PBR recipe
+and full mip chains, with no legacy exemption (**RUL-012**,
+`design/V2_SURFACE_REQUIREMENTS_2026-10-11.md`). V1's props build their own
+procedural geometry with V1 materials, so none of that geometry can be
+carried into V2 as it is. The imports therefore split in two.
+
+**Behaviour, sound and text: import directly, in this order**
+
+1. The director (done: PR 199).
+2. Organism incidents: no geometry of their own.
+3. Case presentation: the controllers and thresholds, onto V2 rooms.
+4. Possessed-object tells: the behaviour, attached to V2's own household
+   props where a matching V2 object exists.
+5. The radio group: geomagnetic static, the earned music library, the
+   broadcast programme.
+6. Night glows and uncanny marks: optical effects and decals, reviewed under
+   the optical and decal clauses of the surface rule.
+
+**Visible objects: new Blender assets first** (art/blender/v2_batch_workflow.md,
+one batch per related set, rendered before a combined Godot capture)
+
+- The eighteen witness clocks (one batch of dial styles) and any possessed
+  object with no V2 counterpart.
+- Lobby group: bulletin board, Orison advert board (carrying the historical
+  radio notice), mail chute.
+- Apparatus group: soda-acid extinguisher, roof-stair door closer.
+- The honest clocks, the residents' memory art, the aircraft, the commensals'
+  bodies.
+
+V2 precedent for where the clocks go: V2 already keeps apartment clocks as
+surface props on furniture (1D's alarm clock on the fridge, 3B's on the bed)
+and hangs frames and pinboards as wall furniture. Witness clocks follow
+those: mantel and travelling-alarm styles on furniture, the rest hung beside
+the resident's existing frames.
+
+## 8. Runtime census (2026-11-09)
+
+The reference census in section 1 counts a file as V2's when V2 code names
+it, even when V2 never builds it. A second census booted each root and
+listed the scripts live on nodes: 180 in V1, 257 in V2. Of V1's, 24 run in
+V2 as a V2 subclass. 64 do not run in V2 at all.
+
+Beyond the systems already ruled, that adds:
+
+| System | Disposition |
+|---|---|
+| Arcade cabinets (`arcade_machine.gd`, ten cabinets) | Dropped: Lily asked for their complete removal pending a later redesign (`design/V2_SHARED_FINISH_OWNERSHIP_AND_ARCADE_RETIREMENT_2026-10-24.md`). |
+| V1 street traffic | V2's own traffic and trams stand. |
+| V1 resident navigation and routines | V2's resident routes, agendas and presentation stand. |
+| Radiator hand surfaces (161) | V2's radiator assemblies stand. |
+| Exterior detail pass | V2's city stands. |
+| The waking organism: apartment encroachment, the waking ecology (moss, residue, tendrils, margin palps, cellular audio) | Ruled: import it onto V2 apartment walls and props (**v1r_waking_organism_20261109**). Organism incidents follow it. |
+| Story decals (98) and exterior ground decals (11) | Ruled: import the story decals onto V2 surfaces; V2's exterior ground stands (**v1r_story_decals_20261109**). |
+
+The census probe is scratch and is not committed; its outputs are
+`C:/ov/reports/v1r_import/live_v1.json` and `live_v2.json` (unfiled).
