@@ -174,6 +174,19 @@
     "art"
    ],
    "supersedes": []
+  },
+  {
+   "id": "RUL-015",
+   "date": "2026-11-09",
+   "authority": "owner",
+   "summary": "No in-game AI: the integrated language-model concept is dropped and scrubbed. No model runs in the shipped game or chooses, writes or voices anything the player meets (companion, residents, overheard talk, dreams, work orders, maintenance). All game text is authored. This supersedes the optional generative reasoning in design/astra/OWNER_MANDATE.md. Local models stay development tools outside the game.",
+   "source": "Lily, in chat, 2026-11-09",
+   "scope": [
+    "game",
+    "companion",
+    "writing"
+   ],
+   "supersedes": []
   }
  ]
 }
