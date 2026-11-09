@@ -7,6 +7,8 @@ const REQUIRED: Array[String] = [
 	"F04_B_BED", "F04_B_BEDSIDE_RETURN", "LobbyMailBank",
 	"LobbyPorterBoard", "F01_HOUSE_TELEPHONE_BOARD", "LobbyServiceDumbwaiter"]
 
+const NameIndex := preload("res://scripts/building/orison_v2_name_index.gd")
+
 var root: Node
 var _acoustic_originals := {}
 var _mounted := {}
@@ -17,8 +19,25 @@ func _init(selected_root: Node) -> void:
 func resolve(identity: String) -> Node:
 	if root == null:
 		return null
+	# A literal name is answered by the root's live name index; a pattern, or a
+	# root outside the tree, still takes the real traversal.
+	if not identity.contains("*") and not identity.contains("?"):
+		var index := _name_index()
+		if index != null:
+			return index.unique(identity)
 	var matches := root.find_children(identity, "", true, false)
 	return matches[0] if matches.size() == 1 else null
+
+## The one name index every adapter over this root shares, or null while the
+## root is detached and cannot be indexed.
+func _name_index() -> NameIndex:
+	if not root.is_inside_tree():
+		return null
+	var index: NameIndex = root.get_meta(NameIndex.META) if root.has_meta(NameIndex.META) else null
+	if index == null:
+		index = NameIndex.new(root)
+		root.set_meta(NameIndex.META, index)
+	return index if index.ensure_live() else null
 
 func resolves_required_uniquely() -> bool:
 	for identity in REQUIRED:
