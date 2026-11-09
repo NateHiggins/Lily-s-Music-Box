@@ -264,3 +264,51 @@ LODs pruned. That is outside this plan and belongs in its own.
 A fourth ruling filed with this plan, `public_2d_art_source`, is handled
 separately: the folder is untracked in its own PR, with a copy kept outside the
 repo.
+
+## 7. Measured corrections (2026-11-09, after phases 0–2)
+
+The phase 0 trace and the first two phases measured what the section 4 and 5
+estimates had guessed. Several were wrong. Where this section and an earlier one
+disagree, this section stands.
+
+- **V2 loads its whole texture set at startup.** All 19 V2 and city routes load
+  the same 749 textures (1,571 MB imported). Cell streaming changes nothing
+  about texture residency. Work order w6eebc7c1c94b covers that.
+- **Phase 1 is about 86 MB, not 400 MB.**
+  - The 126 dream maps that are lossless with mipmaps are packed substance data
+    under a tested residency ceiling (`dream_incarnation_plate_test`). They are
+    the `data` tier, not a mistake.
+  - The city prop and piano-truck maps are not tracked files. Godot extracts
+    them from the `.glb`, and git ignores them, so their compression, and about
+    20 duplicate groups, can only change in the model export.
+- **Pins are narrower than they looked.** The September whole-tree evidence
+  snapshots under `design/astra/evidence` are history, not live checks.
+  - Tests and tools pin 263 textures.
+  - The generated tables are pinned by many more fixtures:
+    `runtime_material_sets.json` by 106, `material_sets.gd` by 69, the art
+    catalogue by 58, the mapping by 53 and the generator by 51.
+  - Phase 2 removed 18 more duplicates and capped Evelyn's unused 8K model skin,
+    about 130 MB. V2 overrides every resident's model material, so that skin is
+    never drawn.
+- **ORM packing saves nothing at full size.** The library has no metallic maps
+  and one AO map. Roughness maps are already stored at the smallest compressed
+  size per pixel.
+  - An ORM map at the albedo's size costs the same as today's roughness map.
+  - The 593 MB of roughness shrinks only if the packed map is smaller than the
+    albedo. Half size saves about 440 MB.
+  - The resolution is filed as ruling `tex_orm_resolution_20261109`.
+- **The generator already shares byte-identical images** between material
+  sets (`generate_runtime_materials.py`, by channel). The duplicates left after
+  phase 2 are reached through other routes: V2 recipe JSON, extracted model
+  textures, and aliases.
+- **One registry pass** (ruling `tex_registry_pass_20261109`, answered "go for
+  it" in chat).
+  1. The registry is introduced first. It regenerates today's catalogues and
+     mapping byte for byte, so no fixture changes.
+  2. The ORM change, the remaining folds and the renewal of the pinned fixtures
+     then land together as the one pass.
+
+| | Before | After phases 0–2 | If ORM goes to half size |
+|---|---|---|---|
+| Imported textures | 3,310 MB | about 3,090 MB | about 2,650 MB |
+| Retiring V1 textures (ruled) | | | a further 790 MB |
