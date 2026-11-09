@@ -59,7 +59,7 @@ happens to V1's code under that deferral, never to reopen the fiction.
 ## 3. Systems V2 has no answer for: one ruling each
 
 Each is filed to Lily's rulings widget, recommended option first. Status of
-every item: **awaiting ruling**.
+every item: **ruled 2026-11-09**; Lily's answers are in section 6.
 
 | Ruling id | System (V1 files) | Recommended |
 |---|---|---|
@@ -113,3 +113,46 @@ every item: **awaiting ruling**.
 4. Retire V1: tag main, remove the 88 files and V1 tests, change the
    selector, update AGENTS.md and RULINGS.json for the rollback ruling.
    Gate board against main, compile pass, world startup.
+
+## 6. Lily's answers (2026-11-09, 17:40 to 18:00)
+
+Recorded from her rulings widget (`toolbox.py decisions`). Each import below
+is its own PR; nothing in V1 is removed until all of them are merged
+(**v1r_rollback_20261109**).
+
+**Import**
+
+| System | As ruled |
+|---|---|
+| Invisible director (sanity, personality, intrusions) | Import, rebuilt on V2 anchors |
+| Witness clocks and possessed household objects | Import together with the director |
+| Organism incidents | Import |
+| Case presentation (reality controller, thresholds, portal display, affected props) | Import into V2 case placement |
+| Geomagnetic static | Onto the V2 radios now |
+| Music director | Import the earned library; V2's station stands |
+| Broadcast director | Import as the programme behind the V2 radios |
+| Historical radio notice | Import onto the lobby boards (**v1r_historical_radio_b_20261109**) |
+| Night glows (door, window, moon fill, vault lights) | Import all four |
+| Commensals | Import |
+| Period layer | The aircraft only |
+| Uncanny marks | Import onto V2 wear |
+| Found art | The residents' memory art only |
+| Lobby boards (bulletin and Orison advert) | Import both |
+| Mail chute | Beside the V2 mail bank |
+| Soda-acid extinguisher | Beside the V2 fire cabinets |
+| Door closer | On the V2 roof stair door, by direct manipulation (**v1r_door_closer_b_20261109**) |
+| Small props | The honest clocks only |
+
+**Into the first-floor reorganization** (new work order): dead letters and
+the maintenance headquarters. Lily: reorganize the lobby and first-floor
+common area so the maintenance interactive objects, the switchboard and the
+like, are better distributed and easy for every resident to reach.
+
+**Drop** (the tag keeps them): Room 0, the 4B seam and case doors; the
+detail pass; found-art pieces other than memory art; the period layer
+other than the aircraft; the ceiling bowl, porch deck, box fan and bench
+zone.
+
+**Order**: the director first (witness tells, organism incidents and case
+presentation bind to it); the radio group (static, library, broadcast);
+then the rest; the first-floor reorganization; then plumbing and removal.
