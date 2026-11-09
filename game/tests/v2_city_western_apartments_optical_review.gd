@@ -94,6 +94,7 @@ func _difference(a:Image,b:Image,c:Image,rect:Rect2)->Dictionary:
 
 func _after_discovery(world:OrisonV2RuntimeRoot)->void:
     var horizon:=world.get_node("CityShells/CityHorizon") as Node3D
+    preload("res://tests/v2_horizon_inspection_collision.gd").install(horizon)
     var cache:Dictionary={}
     for identity:String in IDS:cache[identity]=_body(horizon,identity)
     var prior:=get_viewport().get_camera_3d()

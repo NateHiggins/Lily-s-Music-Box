@@ -29,6 +29,7 @@ func run(world:OrisonV2RuntimeRoot,host:Node)->Dictionary:
 
 func run_owners(actor:PlayerController,horizon:Node3D,streets:Node3D,host:Node,safety:Variant=null)->Dictionary:
     _host=host;player=actor;_horizon=horizon
+    if horizon!=null:preload("res://tests/v2_horizon_inspection_collision.gd").install(horizon)
     directory=OS.get_environment("SHOT_DIR")
     check(_horizon!=null and streets!=null and player!=null,"installed horizon,street and production player owners exist")
     if not failures.is_empty():return _record(false)

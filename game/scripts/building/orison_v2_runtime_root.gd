@@ -1228,7 +1228,12 @@ func _compose_exterior() -> bool:
 	var horizon := preload("res://scripts/building/orison_v2_city_horizon.gd").new()
 	horizon.name = "CityHorizon"
 	horizon.transform = city_shells.global_transform.affine_inverse() * _blockout.global_transform
+	# Collision only where the player can reach: inside the boundary wall, plus
+	# a metre for the capsule.
+	horizon.reach_frame = get_node("StreetBoundaries") as Node3D
+	horizon.reach_radius_m = StreetBoundaries.EXPLORATION_RADIUS_M + 1.0
 	city_shells.add_child(horizon)
+	print("[V2 CITY HORIZON] collision on %d reachable parts; none on %d beyond the boundary" % [horizon.collision_parts, horizon.unreachable_parts])
 	_record_startup_milestone("city_horizon_ready")
 	var bridge_started:=Time.get_ticks_usec()
 	var bridge:=preload("res://scripts/building/orison_v2_city_bridge.gd").mount(city_shells)
