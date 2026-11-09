@@ -283,6 +283,35 @@ whether the ledger admits the document. WARN on a missing or unclassified
 header, and on id-like backticks in an inert document. For evidence
 documents it prints the ledger's `--evidence-impact`.
 
+## Texture audit
+
+```
+python tools/audit_textures.py --out C:/ov/reports/x
+python tools/audit_textures.py --repo C:/ov/tree --out C:/ov/reports/x --trace a.log --trace b.log
+```
+
+The audit is read-only and covers every texture the export presets ship. For
+each one it reports:
+
+- source size, and imported size (which needs the checkout's `.godot` cache)
+- pixel size and channel mode
+- import settings
+- exact duplicates
+- how it is referenced: by `res://` path or uid, by file stem only, by folder
+  only, or not at all
+
+Each `--trace` is a Godot log from a run with `extra_args: ["--verbose"]`.
+Godot prints `Loading resource:` for every load, including paths built at
+runtime, so a texture missing from every trace was never loaded on those
+routes. That is the only evidence of deprecation that the texture plan
+(`design/TEXTURE_LIBRARY_OPTIMIZATION_PLAN_2026-11-09.md`) accepts.
+
+UI, book, arcade and audio folders are marked `not_traced`. A route trace never
+calls them dead.
+
+The audit writes `texture_audit.json` (schema `orison.texture-audit.v1`) and
+`never_loaded.txt`.
+
 ## Lane broker
 
 ```
