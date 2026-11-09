@@ -210,8 +210,8 @@ Beyond the systems already ruled, that adds:
 | V1 resident navigation and routines | V2's resident routes, agendas and presentation stand. |
 | Radiator hand surfaces (161) | V2's radiator assemblies stand. |
 | Exterior detail pass | V2's city stands. |
-| The waking organism: apartment encroachment, the waking ecology (moss, residue, tendrils, margin palps, cellular audio) | Ruling **v1r_waking_organism_20261109**. Organism incidents depend on it. |
-| Story decals (98) and exterior ground decals (11) | Ruling **v1r_story_decals_20261109**. |
+| The waking organism: apartment encroachment, the waking ecology (moss, residue, tendrils, margin palps, cellular audio) | Ruled: import it onto V2 apartment walls and props (**v1r_waking_organism_20261109**). Organism incidents follow it. |
+| Story decals (98) and exterior ground decals (11) | Ruled: import the story decals onto V2 surfaces; V2's exterior ground stands (**v1r_story_decals_20261109**). |
 
 The census probe is scratch and is not committed; its outputs are
 `C:/ov/reports/v1r_import/live_v1.json` and `live_v2.json` (unfiled).
