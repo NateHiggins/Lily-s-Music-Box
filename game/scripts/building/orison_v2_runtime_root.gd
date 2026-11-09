@@ -44,6 +44,7 @@ var sanity: SanityDirector
 var building_personality: BuildingPersonalityDirector
 var _intrusion_props: Array = []
 var _intrusion_fits: Array = []
+var reality_controllers: Dictionary = {}
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var prologue_director: Node
@@ -345,6 +346,7 @@ func _ready() -> void:
 	intrusions = director.intrusions
 	sanity = director.sanity
 	building_personality = director.personality
+	reality_controllers = RealityDirector.mount_controllers(self, _blockout, layout)
 	_record_startup_milestone("reality_director_ready")
 	var adela_preview_mode:=OS.get_environment("ORISON_ADELA_FOLLOW")
 	if adela_preview_mode=="1" or (adela_preview_mode!="0" and OS.is_debug_build()):
