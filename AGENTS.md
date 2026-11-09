@@ -121,6 +121,14 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
   not a precedent for new additions. Old interaction tests do not prove the
   new contract; exercise actual grabbing, motion and release.
 
+## No in-game AI (RUL-015)
+
+- Lily dropped the integrated-AI concept on 2026-11-09. No language model
+  runs in the shipped game, and none chooses, writes or voices anything the
+  player meets: companion, residents, overheard talk, dreams, work orders.
+  All game text is authored. Older plans and the Astra mandate's generative
+  passages are superseded. Local models remain development tools only.
+
 ## Tools
 
 For session recovery, context resets and handoffs, use
