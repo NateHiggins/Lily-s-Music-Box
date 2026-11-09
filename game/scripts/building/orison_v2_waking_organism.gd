@@ -76,6 +76,15 @@ static func mount(root: Node3D, blockout: Node3D, layout: Dictionary, player: No
 		anchor.name = floor_id
 		encroachment.add_child(anchor)
 		floor_nodes[floor_id] = anchor
-	encroachment.build({"floors": floors.values()}, floor_nodes, null)
+	var source_layout := {"floors": floors.values()}
+	encroachment.build(source_layout, floor_nodes, null)
 	encroachment.bind_player(player)
+	# Organism incidents (v1r_organism_incidents_20261109): every case flat on
+	# a living storey can notice a foreign organism and report it through V2's
+	# work orders, with the chance of a fixable fault on one of its appliances.
+	var incidents: Node = preload("res://scripts/reality/organism_incidents.gd").new()
+	root.add_child(incidents)
+	incidents.build(source_layout, encroachment, root.work_orders, root)
+	incidents.attach_props()
+	root.set("organism_incidents", incidents)
 	return encroachment
