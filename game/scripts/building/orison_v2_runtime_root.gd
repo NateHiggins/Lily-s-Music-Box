@@ -38,6 +38,12 @@ var virus_director: VirusSoundDirector
 var mina_gameplay: MinaCaseGameplay
 var core_loop: CoreLoopDirector
 var safety_net: SafetyNet
+var fourth_wall: FourthWallLayer
+var intrusions: Intrusions
+var sanity: SanityDirector
+var building_personality: BuildingPersonalityDirector
+var _intrusion_props: Array = []
+var _intrusion_fits: Array = []
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var prologue_director: Node
@@ -328,6 +334,18 @@ func _ready() -> void:
 	structural_occlusion.name="V2StructuralOcclusion"
 	add_child(structural_occlusion)
 	structural_occlusion.setup(_blockout)
+	# The invisible director (v1r_sanity_layer_20261109). Composed last so
+	# every prop it may touch already stands.
+	var RealityDirector := preload("res://scripts/building/orison_v2_reality_director.gd")
+	var prop_pools: Dictionary = RealityDirector.collect_props(self)
+	_intrusion_props = prop_pools.movable
+	_intrusion_fits = prop_pools.fits
+	var director: Dictionary = RealityDirector.mount(self, player)
+	fourth_wall = director.fourth_wall
+	intrusions = director.intrusions
+	sanity = director.sanity
+	building_personality = director.personality
+	_record_startup_milestone("reality_director_ready")
 	var adela_preview_mode:=OS.get_environment("ORISON_ADELA_FOLLOW")
 	if adela_preview_mode=="1" or (adela_preview_mode!="0" and OS.is_debug_build()):
 		adela_preview_follower=preload("res://scripts/characters/adela_preview_follower.gd").new()
@@ -1641,6 +1659,23 @@ static func unit_of_room(room_id: String) -> String:
 	if parts.size() >= 3 and parts[0].begins_with("F0") and parts[1] in ["A", "B", "C", "D"]:
 		return parts[0].trim_prefix("F0") + parts[1]
 	return ""
+
+
+## Which apartment unit ("4B") a point is in, or "" outside any unit.
+func unit_at_world(world_position: Vector3) -> String:
+	return unit_of_room(room_at_world(world_position))
+
+
+## The props the invisible director may act on; freed ones drop out.
+func intrusion_props() -> Array:
+	_intrusion_props = _intrusion_props.filter(func(n): return is_instance_valid(n))
+	return _intrusion_props
+
+
+## The props that can have a fit (possess_fit), fixed ones included.
+func intrusion_fit_props() -> Array:
+	_intrusion_fits = _intrusion_fits.filter(func(n): return is_instance_valid(n))
+	return _intrusion_fits
 
 
 func room_at_world(world_position: Vector3) -> String:
