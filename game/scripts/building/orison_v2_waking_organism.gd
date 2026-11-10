@@ -68,6 +68,8 @@ static func mount(root: Node3D, blockout: Node3D, layout: Dictionary, player: No
 	encroachment.with_tendrils = false
 	encroachment.with_critters = false
 	encroachment.margin_on_storey_only = true
+	encroachment.moss_waking_style = true
+	encroachment.source_points = _floor_roots(root, to_world, levels, layout)
 	root.add_child(encroachment)
 	# The encroachment names a case's storey by its floor node. V2 has no
 	# storey node, so each storey gets an empty, named anchor.
@@ -88,3 +90,38 @@ static func mount(root: Node3D, blockout: Node3D, layout: Dictionary, player: No
 	incidents.attach_props()
 	root.set("organism_incidents", incidents)
 	return encroachment
+
+
+## Each organism case is rooted on open floor in its flat's main room (Lily,
+## 2026-11-09: "the moss needs to be on the floor"). Walk a spiral out from
+## the room's centre and take the first point whose downward ray meets the
+## floor itself, not a table, bed or cabinet.
+static func _floor_roots(root: Node3D, to_world: Transform3D, levels: Dictionary, layout: Dictionary) -> Dictionary:
+	var space := root.get_world_3d().direct_space_state
+	var spaces: Dictionary = {}
+	for space_row: Dictionary in layout.get("spaces", []):
+		spaces[str(space_row.id)] = space_row
+	var roots: Dictionary = {}
+	for case_id: String in EncroachmentScript.CASES:
+		var unit := str(EncroachmentScript.CASES[case_id].unit)
+		var row: Dictionary = spaces.get("F0%s_%s_MAIN" % [unit.left(1), unit.substr(1)], {})
+		if row.is_empty():
+			continue
+		var r: Array = row.rect
+		var y := float(levels.get(str(row.level), 0.0))
+		var centre := Vector2((float(r[0]) + float(r[2])) * 0.5, (float(r[1]) + float(r[3])) * 0.5)
+		var half := Vector2(absf(float(r[2]) - float(r[0])), absf(float(r[3]) - float(r[1]))) * 0.5 - Vector2(0.6, 0.6)
+		for step in 64:
+			var a := float(step) * 2.399963
+			var k := sqrt(float(step) / 64.0)
+			var local := centre + Vector2(cos(a) * half.x, sin(a) * half.y) * k
+			var top := to_world * Vector3(local.x, y + 1.6, local.y)
+			var bottom := to_world * Vector3(local.x, y - 0.3, local.y)
+			var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(top, bottom))
+			if hit.is_empty():
+				continue
+			var at: Vector3 = hit.position
+			if at.y < y + 0.08 and (hit.normal as Vector3).y > 0.9:
+				roots[case_id] = at + Vector3(0.0, 0.01, 0.0)
+				break
+	return roots

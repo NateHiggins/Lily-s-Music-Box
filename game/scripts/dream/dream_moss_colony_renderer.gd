@@ -16,6 +16,18 @@ const CellularStateScript := preload("res://scripts/dream/dream_cellular_state.g
 const PhenotypeScript := preload("res://scripts/dream/dream_cellular_phenotype.gd")
 
 var colony = null
+## V2's waking colonies (Lily, 2026-11-09) are drawn from the Blender-authored
+## cell in res://assets/dream/waking_colony: an opalescent, lensing membrane over
+## genuinely interior organelles that stream around the cell, and a fringe of
+## jointed cilia that step in a metachronal wave. The procedural presentation
+## stays built (its census and report seams are unchanged) but is hidden.
+## Set before setup.
+var waking_style := false
+const WAKING_CELL := "res://assets/dream/waking_colony/waking_colony.glb"
+const WAKING_CILIA := 150
+var _waking: Node3D
+var _waking_materials: Array[ShaderMaterial] = []
+var _organelles: Array[Dictionary] = []
 var _heart: MeshInstance3D
 var _sheet: MeshInstance3D
 var _network: MeshInstance3D
@@ -55,6 +67,8 @@ func setup(owner_colony) -> void:
 	_build_ether()
 	_build_pulse()
 	_build_proteins()
+	if waking_style:
+		_build_waking()
 	_refresh(true)
 
 
@@ -77,6 +91,9 @@ func _process(delta: float) -> void:
 	if _refresh_clock <= 0.0:
 		_refresh(false)
 		_refresh_clock = 0.20
+	if waking_style and _waking != null:
+		_animate_waking()
+		return
 	_animate_heart()
 	_animate_cilia()
 	_animate_ether()
@@ -540,3 +557,112 @@ func _count_class(kind: int) -> int:
 
 static func _hash01(value: int) -> float:
 	return float(posmod(value * 1103515245 + 12345, 65521)) / 65520.0
+
+
+# ------------------------------------------------------------------ waking
+
+const ORGANELLE_LOOK := {
+	"Nucleus": [1.0, Color(0.55, 0.18, 0.42), Color(0.9, 0.4, 0.8), 0.22, 0.0],
+	"Nucleolus": [2.0, Color(0.30, 0.05, 0.25), Color(1.0, 0.5, 0.9), 0.5, 0.0],
+	"Vacuole": [3.0, Color(0.55, 0.78, 0.85), Color(0.6, 0.9, 1.0), 0.08, 1.0],
+	"Mito": [4.0, Color(0.85, 0.45, 0.20), Color(1.0, 0.6, 0.3), 0.3, 0.0],
+	"Granules": [5.0, Color(0.95, 0.85, 0.40), Color(1.0, 0.9, 0.5), 0.4, 0.0],
+	"Filaments": [6.0, Color(0.60, 0.30, 0.75), Color(0.8, 0.5, 1.0), 0.2, 0.0],
+}
+
+
+func _build_waking() -> void:
+	for node: Node3D in [_heart, _sheet, _network, _cilia, _cilia_carpet, _ether, _pulse, _proteins]:
+		if node != null:
+			node.visible = false
+	var packed := load(WAKING_CELL) as PackedScene
+	if packed == null:
+		push_error("waking colony cell missing: " + WAKING_CELL)
+		return
+	_waking = packed.instantiate() as Node3D
+	_waking.name = "WakingCell"
+	add_child(_waking)
+	var membrane_shader := preload("res://shaders/waking_colony_membrane.gdshader")
+	var organelle_shader := preload("res://shaders/waking_colony_organelle.gdshader")
+	var cilium_mesh: Mesh = null
+	for mi: MeshInstance3D in _waking.find_children("*", "MeshInstance3D", true, false):
+		var key := str(mi.name)
+		if key == "Cilium":
+			cilium_mesh = mi.mesh
+			mi.visible = false
+			continue
+		var material := ShaderMaterial.new()
+		if key == "Membrane":
+			material.shader = membrane_shader
+			material.set_shader_parameter("tardi_normal", load("res://assets/dream/microscopy/tardigrade_membrane/normal.png"))
+		else:
+			material.shader = organelle_shader
+			var look: Array = ORGANELLE_LOOK.get(key.get_slice("_", 0), ORGANELLE_LOOK.Nucleus)
+			material.set_shader_parameter("region", look[0])
+			material.set_shader_parameter("base_color", look[1])
+			material.set_shader_parameter("glow_color", look[2])
+			material.set_shader_parameter("glow", look[3])
+			material.set_shader_parameter("glassy", look[4])
+			# Cyclosis: each organelle streams around the cell at its own pace,
+			# on its own ellipse, so the interior keeps rearranging under the lens.
+			var h := _hash01(key.hash() + int(colony.seed))
+			_organelles.append({"node": mi, "rest": mi.position,
+				"speed": (0.05 + 0.12 * h) * (1.0 if h > 0.3 else -1.0), "bob": 0.004 + 0.006 * h, "phase": h * TAU})
+		mi.material_override = material
+		_waking_materials.append(material)
+	if cilium_mesh != null:
+		_build_waking_cilia(cilium_mesh)
+
+
+func _build_waking_cilia(mesh: Mesh) -> void:
+	var material := ShaderMaterial.new()
+	material.shader = preload("res://shaders/waking_colony_cilium.gdshader")
+	_waking_materials.append(material)
+	var cilia := MultiMeshInstance3D.new()
+	cilia.name = "WakingCilia"
+	cilia.material_override = material
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.use_custom_data = true
+	multimesh.mesh = mesh
+	multimesh.instance_count = WAKING_CILIA
+	# The membrane's skirt, in Godot axes (Blender x, -y), from the build manifest.
+	var rx := 0.27
+	var rz := 0.23
+	for i in WAKING_CILIA:
+		var u := _hash01(i * 131 + int(colony.seed))
+		var v := _hash01(i * 197 + int(colony.seed) * 5)
+		var w := _hash01(i * 263 + int(colony.seed) * 7)
+		var around := (float(i) + u * 0.8) / float(WAKING_CILIA)
+		var a := around * TAU
+		var reach := 0.97 + v * 0.16
+		var root := Vector3(cos(a) * rx * reach, 0.0, sin(a) * rz * reach)
+		var outward := Vector3(cos(a) / rx, 0.0, sin(a) / rz).normalized()
+		# The rest curl bends toward local +Z: point it outward, and lean a little.
+		var basis := Basis.looking_at(-outward, Vector3.UP).rotated(outward.cross(Vector3.UP).normalized(), (w - 0.5) * 0.4)
+		basis = basis.scaled(Vector3.ONE * (0.7 + 0.6 * w))
+		multimesh.set_instance_transform(i, Transform3D(basis, root))
+		multimesh.set_instance_custom_data(i, Color(around, v, 0.0, 1.0))
+	cilia.multimesh = multimesh
+	cilia.custom_aabb = AABB(Vector3(-0.6, -0.05, -0.6), Vector3(1.2, 0.5, 1.2))
+	_waking.add_child(cilia)
+
+
+func _animate_waking() -> void:
+	for material in _waking_materials:
+		material.set_shader_parameter("cell_time", _clock)
+	var rx := 0.27
+	var rz := 0.23
+	for row: Dictionary in _organelles:
+		var rest: Vector3 = row.rest
+		# Rotate on the cell's own ellipse: normalise, turn, scale back, so a
+		# streaming organelle never leaves the membrane.
+		var nx := rest.x / rx
+		var nz := rest.z / rz
+		var ang: float = _clock * float(row.speed) + float(row.phase) * 0.0
+		var c := cos(ang)
+		var s := sin(ang)
+		var node: Node3D = row.node
+		node.position = Vector3((nx * c - nz * s) * rx, rest.y + float(row.bob) * sin(_clock * 0.7 + float(row.phase)),
+				(nx * s + nz * c) * rz)
+		node.rotation.y = ang

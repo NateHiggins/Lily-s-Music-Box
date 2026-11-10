@@ -48,6 +48,30 @@ func _ready() -> void:
 		print("[V2 WAKING ORGANISM] %s binds %d V2 materials" % [floor_id, bound])
 		_check(bound >= 5, "the %s field binds its case flats' V2 materials" % floor_id)
 	_check(enc.dream_field != null, "the waking dream field runs")
+	# Rooted on the floor, drawn in the waking style.
+	var mosses: Array = []
+	for child in enc.get_children():
+		if child.get_script() != null and str(child.get_script().resource_path).ends_with("dream_moss_colony_renderer.gd"):
+			mosses.append(child)
+	_check(mosses.size() == enc.units.size(), "every organism case has a moss colony (%d)" % mosses.size())
+	for case_id: String in enc.units:
+		_check(enc.source_points.has(case_id), "%s is rooted on open floor" % case_id)
+	for moss: Node3D in mosses:
+		var floor_y := INF
+		for case_id: String in enc.units:
+			if enc.source_points.has(case_id) and (enc.source_points[case_id] as Vector3).distance_to(moss.global_position) < 0.05:
+				floor_y = float(enc.units[case_id].floor_y)
+		_check(floor_y < INF and absf(moss.global_position.y - floor_y) < 0.1,
+			"a moss colony sits on its flat's floor (y %.2f, floor %.2f)" % [moss.global_position.y, floor_y])
+		_check(moss.waking_style and moss._waking != null, "the colony is the Blender-authored cell")
+		if moss._waking != null:
+			var membrane := moss._waking.find_child("Membrane", true, false) as MeshInstance3D
+			_check(membrane != null and (membrane.material_override as ShaderMaterial).shader.resource_path.ends_with("waking_colony_membrane.gdshader"),
+				"the membrane is the lensing, opalescent film")
+			_check(moss._organelles.size() >= 15, "the cell holds its organelles (%d)" % moss._organelles.size())
+			var cilia := moss._waking.find_child("WakingCilia", true, false) as MultiMeshInstance3D
+			_check(cilia != null and cilia.multimesh.instance_count == moss.WAKING_CILIA, "the jointed cilia fringe the skirt")
+			_check(not moss._heart.visible and not moss._cilia.visible, "the procedural colony is hidden")
 	_check(enc.surface_tendrils == null and enc.critters == null, "V2 builds no tendrils and no critters")
 	_check(enc.margin != null and enc.palp_renderer != null, "the margin and its palps are built")
 	# The margin runs only on the storey the dream field was seeded on.

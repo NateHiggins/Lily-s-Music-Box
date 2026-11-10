@@ -162,6 +162,10 @@ var with_critters := true
 ## V2: the margin and its palps only run while the player is on the storey
 ## the dream field was seeded on; elsewhere they pause and hide.
 var margin_on_storey_only := false
+## V2: where each case's organism is rooted (case_id -> world point on the
+## flat's floor), and its colonies drawn in the waking style.
+var source_points: Dictionary = {}
+var moss_waking_style := false
 var _margin_floor := ""
 var _margin_live := true
 const PALETTE_INDEX := {"mina_caption_crisis": 0, "peter_form_corridor": 1,
@@ -257,6 +261,8 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			var source := Vector3((rect.x + rect.z) * 0.5, floor_y + 1.0, (rect.y + rect.w) * 0.5)
 			if beachhead != null and beachhead is Node3D:
 				source = (beachhead as Node3D).global_position
+			if source_points.has(case_id):
+				source = source_points[case_id]
 			field_source[case_id] = field.add_source(source, int(PALETTE_INDEX.get(case_id, 0)))
 			ecology_source[case_id] = case_id.hash()
 			for row in rows:
@@ -389,6 +395,7 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 				var colony = ecology.register_moss_colony(colony_id,
 						case_id.hash(), field.sources[source_index].position)
 				var renderer = DreamMossRendererScript.new()
+				renderer.waking_style = moss_waking_style
 				add_child(renderer)
 				renderer.setup(colony)
 				moss_presentations[colony_id] = renderer
