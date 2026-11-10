@@ -46,6 +46,7 @@ var _intrusion_props: Array = []
 var _intrusion_fits: Array = []
 var reality_controllers: Dictionary = {}
 var apartment_encroachment: Node
+var organism_incidents: Node
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var prologue_director: Node
