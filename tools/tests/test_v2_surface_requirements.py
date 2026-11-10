@@ -464,6 +464,20 @@ class Requirements(unittest.TestCase):
         self.assertEqual(result['separate_effects'][0]['class'],'electric_corona')
         draw['owner_script']='res://scripts/building/orison_v2_city_horizon.gd'
         self.assertTrue(evaluate(data)['findings'])
+    def test_door_light_spill_is_admitted_only_from_its_owner(self):
+        data=self.inventory();draw=data['draws'][0]
+        draw.update(path='NightGlows/DoorSpill_F04_WEST_HALL',surface_role='door_light_spill',
+            owner_script='res://scripts/building/orison_v2_night_glows.gd')
+        data['meshes']['mesh']['surfaces'][0]['missing_uv']=True
+        data['materials']['material']={'type':'StandardMaterial3D','unshaded':True,'additive':True,'maps':{}}
+        result=evaluate(data)
+        self.assertFalse(result['findings'])
+        self.assertEqual(result['separate_effects'][0]['class'],'door_light_spill')
+        data['materials']['material']['additive']=False
+        self.assertTrue(evaluate(data)['findings'])
+        data['materials']['material']['additive']=True
+        draw['owner_script']='res://scripts/building/orison_v2_blockout.gd'
+        self.assertTrue(evaluate(data)['findings'])
     def test_import_repair_preserves_other_authority(self):
         with tempfile.TemporaryDirectory() as directory:
             path=Path(directory)/'normal.png.import';path.write_text('[params]\nprocess/normal_map_invert_y=false\nmipmaps/generate=false\n')

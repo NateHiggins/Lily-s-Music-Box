@@ -209095,6 +209095,126 @@
    "target_exists": null
   },
   {
+   "key": "9f293a9f12312c10",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/scripts/building/orison_v2_night_glows.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "setup"
+   ],
+   "lines": [
+    81
+   ],
+   "count": 1,
+   "context": [
+    "if str(window.get(\"level\", \"\")) != \"B1\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "aa734dbd29653e5c",
+   "kind": "generated_name",
+   "token": "_rebuild",
+   "file": "game/scripts/building/orison_v2_night_glows.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_rebuild"
+   ],
+   "lines": [
+    285
+   ],
+   "count": 1,
+   "context": [
+    "\"DoorSpill_\" + hall"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a388687b536ce67d",
+   "kind": "vector3_coordinate",
+   "token": "_follow_moon",
+   "file": "game/scripts/building/orison_v2_night_glows.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_follow_moon"
+   ],
+   "lines": [
+    358
+   ],
+   "count": 1,
+   "context": [
+    "moon_fill.global_position = _eye_position() + Vector3(0.0, 1.6, 0.0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "REPLACE_WITH_NAMED_ANCHOR",
+   "confidence": "MEDIUM",
+   "rationale": "Production Godot-space coordinate with gameplay context; candidate named anchor.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b8c514a495916bd1",
+   "kind": "vector3_coordinate",
+   "token": "_process",
+   "file": "game/scripts/building/orison_v2_night_glows.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_process"
+   ],
+   "lines": [
+    242
+   ],
+   "count": 1,
+   "context": [
+    "moon_fill.global_position = _eye_position() + Vector3(0.0, 1.6, 0.0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "REPLACE_WITH_NAMED_ANCHOR",
+   "confidence": "MEDIUM",
+   "rationale": "Production Godot-space coordinate with gameplay context; candidate named anchor.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "7d939a6e870ecc33",
    "kind": "id_reference",
    "token": "F01_DOOR_06",
@@ -211379,7 +211499,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1434
+    1442
    ],
    "count": 1,
    "context": [
@@ -211409,8 +211529,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1514,
-    1517
+    1522,
+    1525
    ],
    "count": 2,
    "context": [
@@ -211441,7 +211561,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    927
+    935
    ],
    "count": 1,
    "context": [
@@ -211471,7 +211591,7 @@
     "<module>"
    ],
    "lines": [
-    103
+    105
    ],
    "count": 1,
    "context": [
@@ -211501,7 +211621,7 @@
     "<module>"
    ],
    "lines": [
-    98
+    100
    ],
    "count": 1,
    "context": [
@@ -211531,7 +211651,7 @@
     "<module>"
    ],
    "lines": [
-    99
+    101
    ],
    "count": 1,
    "context": [
@@ -211561,7 +211681,7 @@
     "<module>"
    ],
    "lines": [
-    100
+    102
    ],
    "count": 1,
    "context": [
@@ -211591,7 +211711,7 @@
     "<module>"
    ],
    "lines": [
-    101
+    103
    ],
    "count": 1,
    "context": [
@@ -211621,7 +211741,7 @@
     "<module>"
    ],
    "lines": [
-    102
+    104
    ],
    "count": 1,
    "context": [
@@ -211651,7 +211771,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1662
+    1670
    ],
    "count": 1,
    "context": [
@@ -211681,7 +211801,7 @@
     "<module>"
    ],
    "lines": [
-    65
+    67
    ],
    "count": 1,
    "context": [
@@ -211712,9 +211832,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1428,
-    1431,
-    1493
+    1436,
+    1439,
+    1501
    ],
    "count": 3,
    "context": [
@@ -211746,7 +211866,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1443
+    1451
    ],
    "count": 1,
    "context": [
@@ -211776,7 +211896,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1435
+    1443
    ],
    "count": 1,
    "context": [
@@ -211806,7 +211926,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1452
+    1460
    ],
    "count": 1,
    "context": [
@@ -211836,7 +211956,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1660
+    1668
    ],
    "count": 1,
    "context": [
@@ -211866,7 +211986,7 @@
     "<module>"
    ],
    "lines": [
-    97
+    99
    ],
    "count": 1,
    "context": [
@@ -211896,7 +212016,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1444
+    1452
    ],
    "count": 1,
    "context": [
@@ -211926,7 +212046,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1656
+    1664
    ],
    "count": 1,
    "context": [
@@ -211956,7 +212076,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1658
+    1666
    ],
    "count": 1,
    "context": [
@@ -211986,7 +212106,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    827
+    835
    ],
    "count": 1,
    "context": [
@@ -212016,7 +212136,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1658
+    1666
    ],
    "count": 1,
    "context": [
@@ -212046,7 +212166,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1656
+    1664
    ],
    "count": 1,
    "context": [
@@ -212076,7 +212196,7 @@
     "_ready"
    ],
    "lines": [
-    214
+    216
    ],
    "count": 1,
    "context": [
@@ -212106,7 +212226,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    828
+    836
    ],
    "count": 1,
    "context": [
@@ -212136,7 +212256,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    828
+    836
    ],
    "count": 1,
    "context": [
@@ -212166,7 +212286,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1656
+    1664
    ],
    "count": 1,
    "context": [
@@ -212196,7 +212316,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1656
+    1664
    ],
    "count": 1,
    "context": [
@@ -212226,7 +212346,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    827
+    835
    ],
    "count": 1,
    "context": [
@@ -212256,7 +212376,7 @@
     "<module>"
    ],
    "lines": [
-    103
+    105
    ],
    "count": 1,
    "context": [
@@ -212286,9 +212406,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1511,
-    1515,
-    1518
+    1519,
+    1523,
+    1526
    ],
    "count": 3,
    "context": [
@@ -212320,7 +212440,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    616
+    624
    ],
    "count": 1,
    "context": [
@@ -212350,7 +212470,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    616
+    624
    ],
    "count": 1,
    "context": [
@@ -212380,7 +212500,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    615
+    623
    ],
    "count": 1,
    "context": [
@@ -212410,7 +212530,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    615
+    623
    ],
    "count": 1,
    "context": [
@@ -212440,7 +212560,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1419
+    1427
    ],
    "count": 1,
    "context": [
@@ -212470,7 +212590,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1420
+    1428
    ],
    "count": 1,
    "context": [
@@ -212500,7 +212620,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    616
+    624
    ],
    "count": 1,
    "context": [
@@ -212530,7 +212650,7 @@
     "<module>"
    ],
    "lines": [
-    98
+    100
    ],
    "count": 1,
    "context": [
@@ -212560,7 +212680,7 @@
     "<module>"
    ],
    "lines": [
-    99
+    101
    ],
    "count": 1,
    "context": [
@@ -212590,7 +212710,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1321
+    1329
    ],
    "count": 1,
    "context": [
@@ -212620,7 +212740,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    667
+    675
    ],
    "count": 1,
    "context": [
@@ -212651,8 +212771,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1176,
-    1306
+    1184,
+    1314
    ],
    "count": 2,
    "context": [
@@ -212683,7 +212803,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1307
+    1315
    ],
    "count": 1,
    "context": [
@@ -212713,7 +212833,7 @@
     "<module>"
    ],
    "lines": [
-    100
+    102
    ],
    "count": 1,
    "context": [
@@ -212743,7 +212863,7 @@
     "<module>"
    ],
    "lines": [
-    101
+    103
    ],
    "count": 1,
    "context": [
@@ -212773,7 +212893,7 @@
     "<module>"
    ],
    "lines": [
-    102
+    104
    ],
    "count": 1,
    "context": [
@@ -212803,7 +212923,7 @@
     "_ready"
    ],
    "lines": [
-    266
+    268
    ],
    "count": 1,
    "context": [
@@ -212833,7 +212953,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1477
+    1485
    ],
    "count": 1,
    "context": [
@@ -212863,7 +212983,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1478
+    1486
    ],
    "count": 1,
    "context": [
@@ -212893,7 +213013,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1479
+    1487
    ],
    "count": 1,
    "context": [
@@ -212923,7 +213043,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1476
+    1484
    ],
    "count": 1,
    "context": [
@@ -212953,7 +213073,7 @@
     "<module>"
    ],
    "lines": [
-    97
+    99
    ],
    "count": 1,
    "context": [
@@ -212984,7 +213104,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    659
+    667
    ],
    "count": 1,
    "context": [
@@ -213016,8 +213136,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1412,
-    1477
+    1420,
+    1485
    ],
    "count": 2,
    "context": [
@@ -213050,8 +213170,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1415,
-    1478
+    1423,
+    1486
    ],
    "count": 2,
    "context": [
@@ -213084,8 +213204,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1418,
-    1479
+    1426,
+    1487
    ],
    "count": 2,
    "context": [
@@ -213118,8 +213238,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1409,
-    1476
+    1417,
+    1484
    ],
    "count": 2,
    "context": [
@@ -213151,7 +213271,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    657
+    665
    ],
    "count": 1,
    "context": [
@@ -213182,7 +213302,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    533
+    541
    ],
    "count": 1,
    "context": [
@@ -213214,8 +213334,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    261,
-    538
+    263,
+    546
    ],
    "count": 2,
    "context": [
@@ -213247,7 +213367,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    664
+    672
    ],
    "count": 1,
    "context": [
@@ -213278,7 +213398,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    541
+    549
    ],
    "count": 1,
    "context": [
@@ -213310,8 +213430,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    657,
-    1517
+    665,
+    1525
    ],
    "count": 2,
    "context": [
@@ -213342,7 +213462,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1376
+    1384
    ],
    "count": 1,
    "context": [
@@ -213372,7 +213492,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1377
+    1385
    ],
    "count": 1,
    "context": [
@@ -269948,6 +270068,307 @@
    "disposition": "REGENERATE_CONSUMER",
    "confidence": "HIGH",
    "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6ba7adf79b9d2e83",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_night_glows_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    42
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d98afa156987fc19",
+   "kind": "id_reference",
+   "token": "F02_B_ENTRY_DOOR",
+   "file": "game/tests/v2_night_glows_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    70
+   ],
+   "count": 1,
+   "context": [
+    "for door_id: String in [\"F04_B_BATH_DOOR\", \"F04_DOOR_03\", \"F03_DOOR_02\", \"F02_B_ENTRY_DOOR\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cd7620eebbb160ec",
+   "kind": "id_reference",
+   "token": "F03_DOOR_02",
+   "file": "game/tests/v2_night_glows_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    70
+   ],
+   "count": 1,
+   "context": [
+    "for door_id: String in [\"F04_B_BATH_DOOR\", \"F04_DOOR_03\", \"F03_DOOR_02\", \"F02_B_ENTRY_DOOR\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F03/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5f62d141cddcb184",
+   "kind": "id_reference",
+   "token": "F04_B_BATH_DOOR",
+   "file": "game/tests/v2_night_glows_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    70
+   ],
+   "count": 1,
+   "context": [
+    "for door_id: String in [\"F04_B_BATH_DOOR\", \"F04_DOOR_03\", \"F03_DOOR_02\", \"F02_B_ENTRY_DOOR\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c851e23233682a6c",
+   "kind": "id_reference",
+   "token": "F04_B_MAIN",
+   "file": "game/tests/v2_night_glows_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    120,
+    121,
+    122,
+    123,
+    136
+   ],
+   "count": 5,
+   "context": [
+    "if rects.has(\"F04_B_MAIN\"):",
+    "if glows.is_lit(\"F04_B_MAIN\"):",
+    "switches.toggle_room(\"F04_B_MAIN\")",
+    "var rect: Array = rects[\"F04_B_MAIN\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e2ee1272eaf9ff2b",
+   "kind": "id_reference",
+   "token": "F04_DOOR_03",
+   "file": "game/tests/v2_night_glows_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    70
+   ],
+   "count": 1,
+   "context": [
+    "for door_id: String in [\"F04_B_BATH_DOOR\", \"F04_DOOR_03\", \"F03_DOOR_02\", \"F02_B_ENTRY_DOOR\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cfc6b29bb7f0e085",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_night_glows_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    51
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6fa134bb29b0be59",
+   "kind": "floor_reference",
+   "token": "F04",
+   "file": "game/tests/v2_night_glows_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    181,
+    188
+   ],
+   "count": 2,
+   "context": [
+    "eye.global_position = _centre(blockout, rects[windowed], levels[\"F04\"])",
+    "eye.global_position = _centre(blockout, rects[blind], levels[\"F04\"])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f8bb8c8058d7a0c9",
+   "kind": "id_reference",
+   "token": "F04_B_BATH_DOOR",
+   "file": "game/tests/v2_night_glows_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    97
+   ],
+   "count": 1,
+   "context": [
+    "var door_id := \"F04_B_BATH_DOOR\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1264e7b18825f960",
+   "kind": "vector3_coordinate",
+   "token": "_ready",
+   "file": "game/tests/v2_night_glows_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    187
+   ],
+   "count": 1,
+   "context": [
+    "_check(moon.global_position.distance_to(eye.global_position + Vector3(0, 1.6, 0)) < 0.05, \"and hangs above the eye\")"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "DISTANCE_THRESHOLD",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
   },
