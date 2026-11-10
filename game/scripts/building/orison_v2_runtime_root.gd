@@ -49,6 +49,8 @@ var apartment_encroachment: Node
 var organism_incidents: Node
 var music_library: Node
 var broadcast: Node
+var night_glows: Node3D
+var moon_fill: OmniLight3D
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var prologue_director: Node
@@ -357,6 +359,12 @@ func _ready() -> void:
 	broadcast.name = "BroadcastDirector"
 	add_child(broadcast)
 	broadcast.setup(_intrusion_props)
+	# Night glows (v1r_night_glows_20261109): the spill under a lit room's
+	# closed door and the moon fill, from V2's own lamps, doors and windows.
+	night_glows = preload("res://scripts/building/orison_v2_night_glows.gd").new()
+	add_child(night_glows)
+	night_glows.setup(self, _blockout, layout, adapter)
+	moon_fill = night_glows.moon_fill
 	_record_startup_milestone("reality_director_ready")
 	# The dream reaching into the case flats (v1r_waking_organism_20261109).
 	apartment_encroachment = preload("res://scripts/building/orison_v2_waking_organism.gd").mount(self, _blockout, layout, player)

@@ -100,6 +100,13 @@ def evaluate(data):
                 draw['path'].split('/')[-1] in ('GPUWeatherRain','GPUWeatherSleet','GPUWeatherSnow','GPUWeatherHail','GPUWeatherSplash') and
                 shader=='res://shaders/queens_precipitation_draw.gdshader' and material.get('shader_unshaded')):
                 effects.append({'id':identity,'class':'weather_optics'});continue
+            # The bar of light under a lit room's closed door: vertex-coloured,
+            # unshaded and additive, with no maps to sample.
+            if (draw.get('surface_role')=='door_light_spill' and
+                draw.get('owner_script')=='res://scripts/building/orison_v2_night_glows.gd' and
+                draw['path'].split('/')[-1].startswith('DoorSpill_') and
+                material.get('unshaded') and material.get('additive') and not maps):
+                effects.append({'id':identity,'class':'door_light_spill'});continue
             if (draw.get('surface_role')=='electric_corona' and
                 draw.get('owner_script')=='res://scripts/building/orison_v2_st_elmo.gd' and
                 shader=='res://shaders/v2_st_elmo_corona.gdshader' and
