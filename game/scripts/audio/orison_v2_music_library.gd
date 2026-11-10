@@ -164,9 +164,7 @@ func anecdote(resident_id: String) -> Dictionary:
 	var case_id := RealityCases.case_for_resident(resident_id)
 	var words := str(resident.get("anecdote", ""))
 	if bool(RealityState.case_state(case_id).get("resolved", false)):
-		words += "
-
-" + str(resident.get("gift_line", ""))
+		words += "\n\n" + str(resident.get("gift_line", ""))
 	return {"track": favorite, "name": str(resident.get("name", "")), "words": words}
 
 
@@ -192,7 +190,8 @@ func try_music_conversation(resident_id: String) -> bool:
 	if dialogue == null or dialogue.attention_active():
 		return false
 	var conversations := get_tree().get_first_node_in_group("resident_conversations")
-	if conversations != null and conversations.has_method("has_tree") 			and conversations.has_tree(resident_id):
+	if conversations != null and conversations.has_method("has_tree") \
+			and conversations.has_tree(resident_id):
 		return false  # their own tree carries the topic
 	var heard := anecdote(resident_id)
 	if heard.is_empty():
@@ -353,16 +352,13 @@ func _refresh_now_playing() -> void:
 		_lore.text = ""
 		return
 	var heard := not Broadcast.listeners().is_empty()
-	_now_playing.text = "%s
-%s — %s" % [
+	_now_playing.text = "%s\n%s — %s" % [
 			"ON THE AIR" if heard else "ON THE AIR. SWITCH ON A WIRELESS TO HEAR IT.",
 			str(now.title), str(now.performers)]
 	var track: Dictionary = catalog.get("tracks", {}).get(_shown_record, {})
 	var cover := str(track.get("cover", ""))
 	_cover.texture = load(cover) as Texture2D if cover != "" and ResourceLoader.exists(cover) else null
-	_lore.text = "%s
-
-Mood: %s" % [str(track.provenance), str(track.mood)] if not track.is_empty() else ""
+	_lore.text = "%s\n\nMood: %s" % [str(track.provenance), str(track.mood)] if not track.is_empty() else ""
 
 
 func _exit_tree() -> void:
