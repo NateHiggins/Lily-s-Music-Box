@@ -124,6 +124,9 @@ const PARCEL_ASK := "parcel:ask"
 const PARCEL_THANKS := "parcel:thanks"
 const PARCEL_WAIT := "parcel:wait"
 const GIFT_PREFIX := "gift:"
+## A resident's favourite record, on the air where it can be heard (the earned
+## music library, v1r_music_director_20261109).
+const MUSIC_PREFIX := "music:"
 
 ## Trust at which a resident moves on from first contact, and at which the one
 ## quiet integration beat is offered. Mina's case uses its own stages.
@@ -140,6 +143,7 @@ var opinions: Dictionary = {}   # resident_id -> {hook, hook_line, opinions: [..
 var mystery: Dictionary = {}    # resident_id -> {meta, entries, threads, nodes}
 var errands: ResidentErrands
 var gifts: ResidentGifts
+var music: Node
 ## Set only by the playtest panel: read the threads as of this date and minute,
 ## with held threads open, without moving the clock or anything that reads it.
 var playtest_date := ""
@@ -248,8 +252,8 @@ func start(resident_id: String) -> bool:
 			RealityCases.interact_with_resident(resident_id)
 			return true
 		return false
-	var tree: Dictionary = with_gifts(resident_id, with_parcel(resident_id, with_errand(resident_id, with_weather(resident_id,with_opinions(resident_id,
-			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today())))))
+	var tree: Dictionary = with_music(resident_id, with_gifts(resident_id, with_parcel(resident_id, with_errand(resident_id, with_weather(resident_id,with_opinions(resident_id,
+			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today()))))))
 	var entry_id := entry_for(resident_id)
 	var entries: Dictionary = tree.get("entries", {})
 	var node_id := str(entries.get(entry_id, entries.get("first_stable", "")))
@@ -336,6 +340,10 @@ func _record(resident_id: String, flag: String, trust: int) -> void:
 		return
 	if flag.begins_with(GIFT_PREFIX):
 		gifts.give(resident_id, flag.trim_prefix(GIFT_PREFIX))
+		return
+	if flag.begins_with(MUSIC_PREFIX):
+		if is_instance_valid(music):
+			music.note_heard(resident_id, flag.trim_prefix(MUSIC_PREFIX))
 		return
 	if flag.begins_with("wx:") or flag.begins_with(MYSTERY_FLAG_PREFIX) \
 			or flag.begins_with(MYSTERY_HEARD_PREFIX):
@@ -593,6 +601,17 @@ func _with_topic(resident_id: String, tree: Dictionary, topic: String, node_id: 
 			choices.append({"label": topic, "goto": node_id})
 		node["choices"] = choices
 	return copy
+
+
+## A copy of the tree with the resident's favourite record on it, while the house
+## broadcast is playing that record to a set that is switched on.
+func with_music(resident_id: String, tree: Dictionary) -> Dictionary:
+	if not is_instance_valid(music):
+		return tree
+	var topic: Dictionary = music.conversation_topic(resident_id)
+	if topic.is_empty():
+		return tree
+	return _with_topic(resident_id, tree, str(topic.label), MUSIC_PREFIX + str(topic.track), str(topic.line))
 
 
 ## A copy of the tree offering what the player carries that can be given. One gift

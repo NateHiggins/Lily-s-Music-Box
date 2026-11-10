@@ -47,6 +47,7 @@ var _intrusion_fits: Array = []
 var reality_controllers: Dictionary = {}
 var apartment_encroachment: Node
 var organism_incidents: Node
+var music_library: Node
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var prologue_director: Node
@@ -857,6 +858,12 @@ func _compose_authorities() -> void:
 			Callable(self, "resident_is_home"))
 	if not conversations.errors.is_empty():
 		push_warning("ORISON V2 RUNTIME: dialogue trees: %s" % [conversations.errors])
+	# The earned music library (v1r_music_director_20261109): what residents
+	# share when their cases settle, asked of the house broadcast as a request.
+	music_library = preload("res://scripts/audio/orison_v2_music_library.gd").new()
+	music_library.setup(self, player, conversation_panel)
+	add_child(music_library)
+	conversations.music = music_library
 	# The two daily papers: the catalogue answers the rack and the shelf; the
 	# desk in 4B keeps what the player bought at News & Cigars.
 	newspapers = NewspaperCatalog.new()

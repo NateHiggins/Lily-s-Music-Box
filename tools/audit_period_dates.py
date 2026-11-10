@@ -22,6 +22,8 @@ EXPECTED_CONSUMERS = {
     "game/scripts/audio/music_director.gd": "player_readable_catalogue",
     # The V2 broadcast reads each record's year from the same catalogue.
     "game/scripts/audio/orison_v2_broadcast.gd": "player_readable_catalogue",
+    # The earned library lists each record it holds with the catalogue's year.
+    "game/scripts/audio/orison_v2_music_library.gd": "player_readable_catalogue",
     "game/scripts/building/celestial_ephemeris.gd": "astronomy_calculation_only",
     "game/scripts/building/skywatch_astronomy.gd": "campaign_utc_historical_astronomy_only",
     "game/scripts/building/WeatherManager.gd": "campaign_season_and_weather_presentation",
