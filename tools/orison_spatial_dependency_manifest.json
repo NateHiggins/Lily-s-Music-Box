@@ -146462,9 +146462,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 5,
+   "count": 6,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -146547,7 +146548,7 @@
     0,
     0
    ],
-   "count": 20,
+   "count": 21,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -146594,7 +146595,7 @@
     0,
     0
    ],
-   "count": 23,
+   "count": 24,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -146641,7 +146642,7 @@
     0,
     0
    ],
-   "count": 26,
+   "count": 27,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -146688,7 +146689,7 @@
     0,
     0
    ],
-   "count": 21,
+   "count": 22,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -146735,7 +146736,7 @@
     0,
     0
    ],
-   "count": 20,
+   "count": 21,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -146838,6 +146839,34 @@
    "key": "0766282a4fb5b4f8",
    "kind": "id_candidate",
    "token": "B1_ELECTRICAL_RECESS_WEAR_ARC",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "2f882070668e6d8d",
+   "kind": "id_candidate",
+   "token": "B1_PUBLIC_CORE_WEAR_UNCANNY",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -147507,6 +147536,34 @@
    "target_exists": false
   },
   {
+   "key": "fa0964fbdffcedf9",
+   "kind": "id_candidate",
+   "token": "F02_SOUTHWEST_HALL_WEAR_UNCANNY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "e2a08f24f7b27ca7",
    "kind": "id_candidate",
    "token": "F02_WEST_HALL_WEAR_CORNER",
@@ -148126,6 +148183,34 @@
    "key": "c6e43f5a4d870a32",
    "kind": "id_candidate",
    "token": "F03_SOUTHWEST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "be68409c2f8aad26",
+   "kind": "id_candidate",
+   "token": "F03_SOUTHWEST_HALL_WEAR_UNCANNY",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -148879,6 +148964,34 @@
    "target_exists": false
   },
   {
+   "key": "7885823d45f63120",
+   "kind": "id_candidate",
+   "token": "F04_SOUTHWEST_HALL_WEAR_UNCANNY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "bc7508a4db8e2e06",
    "kind": "id_candidate",
    "token": "F04_WEST_HALL_WEAR_CORNER",
@@ -149302,6 +149415,34 @@
    "key": "a9ca631a2f67939f",
    "kind": "id_candidate",
    "token": "F05_EAST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "6d44c0bcbb923155",
+   "kind": "id_candidate",
+   "token": "F05_EAST_HALL_WEAR_UNCANNY",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -150139,6 +150280,34 @@
    "target_exists": false
   },
   {
+   "key": "98f9918eba2b9d06",
+   "kind": "id_candidate",
+   "token": "F06_WEST_HALL_WEAR_UNCANNY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "1aeb1516af4b754e",
    "kind": "id_reference",
    "token": "B1_BOILER_APPROACH",
@@ -150220,6 +150389,32 @@
    "key": "391488dd9bfa67be",
    "kind": "id_reference",
    "token": "B1_ELECTRICAL_RECESS",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5ad88dda3237c195",
+   "kind": "id_reference",
+   "token": "B1_PUBLIC_CORE",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -150463,9 +150658,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 4,
+   "count": 5,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -150667,9 +150863,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 4,
+   "count": 5,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -150901,9 +151098,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 4,
+   "count": 5,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151048,9 +151246,10 @@
    "lines": [
     0,
     0,
+    0,
     0
    ],
-   "count": 3,
+   "count": 4,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151308,9 +151507,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 5,
+   "count": 6,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -210057,7 +210257,7 @@
     "<module>"
    ],
    "lines": [
-    10
+    13
    ],
    "count": 1,
    "context": [],
@@ -271881,6 +272081,214 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "259c91bd296cd891",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_uncanny_marks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    40
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "691e3ad3efd40401",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/tests/v2_uncanny_marks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "const STOREYS := [\"B1\", \"F02\", \"F03\", \"F04\", \"F05\", \"F06\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e468d15f555f07f0",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/tests/v2_uncanny_marks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "const STOREYS := [\"B1\", \"F02\", \"F03\", \"F04\", \"F05\", \"F06\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "47316c11f71ee76e",
+   "kind": "floor_reference",
+   "token": "F03",
+   "file": "game/tests/v2_uncanny_marks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "const STOREYS := [\"B1\", \"F02\", \"F03\", \"F04\", \"F05\", \"F06\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b475a0a2feae47c6",
+   "kind": "floor_reference",
+   "token": "F04",
+   "file": "game/tests/v2_uncanny_marks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "const STOREYS := [\"B1\", \"F02\", \"F03\", \"F04\", \"F05\", \"F06\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0f46c4566b599dcd",
+   "kind": "floor_reference",
+   "token": "F05",
+   "file": "game/tests/v2_uncanny_marks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "const STOREYS := [\"B1\", \"F02\", \"F03\", \"F04\", \"F05\", \"F06\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e6ef0ad6166bbcdd",
+   "kind": "floor_reference",
+   "token": "F06",
+   "file": "game/tests/v2_uncanny_marks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "const STOREYS := [\"B1\", \"F02\", \"F03\", \"F04\", \"F05\", \"F06\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
   },
   {
    "key": "2431b360a0b1a3ce",
