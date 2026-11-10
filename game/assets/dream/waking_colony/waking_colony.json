@@ -1,0 +1,252 @@
+{
+ "schema_version": 1,
+ "seed": 1929,
+ "membrane_half_extents_m": [
+  0.27,
+  0.23,
+  0.16
+ ],
+ "regions": {
+  "membrane": 0,
+  "nucleus": 1,
+  "nucleolus": 2,
+  "vacuole": 3,
+  "mitochondrion": 4,
+  "granule": 5,
+  "filament": 6,
+  "cilium": 7
+ },
+ "objects": [
+  {
+   "name": "Membrane",
+   "region": "membrane",
+   "triangles": 5040,
+   "location": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Nucleus",
+   "region": "nucleus",
+   "triangles": 1280,
+   "location": [
+    0.03500000014901161,
+    -0.017999999225139618,
+    0.06800000369548798
+   ]
+  },
+  {
+   "name": "Nucleolus",
+   "region": "nucleolus",
+   "triangles": 320,
+   "location": [
+    0.05000000074505806,
+    -0.026000000536441803,
+    0.07400000095367432
+   ]
+  },
+  {
+   "name": "Vacuole_0",
+   "region": "vacuole",
+   "triangles": 1280,
+   "location": [
+    -0.10000000149011612,
+    0.05000000074505806,
+    0.04500000178813934
+   ]
+  },
+  {
+   "name": "Vacuole_1",
+   "region": "vacuole",
+   "triangles": 1280,
+   "location": [
+    -0.029999999329447746,
+    0.10000000149011612,
+    0.03999999910593033
+   ]
+  },
+  {
+   "name": "Vacuole_2",
+   "region": "vacuole",
+   "triangles": 1280,
+   "location": [
+    0.12999999523162842,
+    0.05999999865889549,
+    0.03500000014901161
+   ]
+  },
+  {
+   "name": "Vacuole_3",
+   "region": "vacuole",
+   "triangles": 1280,
+   "location": [
+    -0.14000000059604645,
+    -0.07000000029802322,
+    0.03500000014901161
+   ]
+  },
+  {
+   "name": "Mito_0",
+   "region": "mitochondrion",
+   "triangles": 432,
+   "location": [
+    -0.08946119248867035,
+    0.04463657736778259,
+    0.06009820103645325
+   ]
+  },
+  {
+   "name": "Mito_1",
+   "region": "mitochondrion",
+   "triangles": 432,
+   "location": [
+    0.07088577002286911,
+    -0.058326177299022675,
+    0.06462044268846512
+   ]
+  },
+  {
+   "name": "Mito_2",
+   "region": "mitochondrion",
+   "triangles": 432,
+   "location": [
+    -0.08452104032039642,
+    0.08375446498394012,
+    0.04587336257100105
+   ]
+  },
+  {
+   "name": "Mito_3",
+   "region": "mitochondrion",
+   "triangles": 432,
+   "location": [
+    -0.014278809539973736,
+    -0.07655735313892365,
+    0.04091991111636162
+   ]
+  },
+  {
+   "name": "Mito_4",
+   "region": "mitochondrion",
+   "triangles": 432,
+   "location": [
+    -0.12743538618087769,
+    -0.039075132459402084,
+    0.07038835436105728
+   ]
+  },
+  {
+   "name": "Mito_5",
+   "region": "mitochondrion",
+   "triangles": 432,
+   "location": [
+    0.04528798535466194,
+    0.10351799428462982,
+    0.05196082219481468
+   ]
+  },
+  {
+   "name": "Mito_6",
+   "region": "mitochondrion",
+   "triangles": 432,
+   "location": [
+    0.11144685000181198,
+    -0.058867596089839935,
+    0.07488168030977249
+   ]
+  },
+  {
+   "name": "Mito_7",
+   "region": "mitochondrion",
+   "triangles": 432,
+   "location": [
+    -0.09280502051115036,
+    0.030691830441355705,
+    0.03098258562386036
+   ]
+  },
+  {
+   "name": "Mito_8",
+   "region": "mitochondrion",
+   "triangles": 432,
+   "location": [
+    -0.005970948841422796,
+    -0.13833752274513245,
+    0.06561513990163803
+   ]
+  },
+  {
+   "name": "Mito_9",
+   "region": "mitochondrion",
+   "triangles": 432,
+   "location": [
+    -0.008151885122060776,
+    0.0992729663848877,
+    0.07631590217351913
+   ]
+  },
+  {
+   "name": "Mito_10",
+   "region": "mitochondrion",
+   "triangles": 432,
+   "location": [
+    0.1257069855928421,
+    -0.011065943166613579,
+    0.04742781072854996
+   ]
+  },
+  {
+   "name": "Granules_0",
+   "region": "granule",
+   "triangles": 520,
+   "location": [
+    0.11052732169628143,
+    0.03894183412194252,
+    0.029999999329447746
+   ]
+  },
+  {
+   "name": "Granules_1",
+   "region": "granule",
+   "triangles": 520,
+   "location": [
+    -0.09573320299386978,
+    0.06029530614614487,
+    0.029999999329447746
+   ]
+  },
+  {
+   "name": "Granules_2",
+   "region": "granule",
+   "triangles": 520,
+   "location": [
+    -0.014794118702411652,
+    -0.09923713654279709,
+    0.029999999329447746
+   ]
+  },
+  {
+   "name": "Filaments",
+   "region": "filament",
+   "triangles": 1656,
+   "location": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Cilium",
+   "region": "cilium",
+   "triangles": 392,
+   "location": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ ],
+ "triangles_total": 20120
+}
