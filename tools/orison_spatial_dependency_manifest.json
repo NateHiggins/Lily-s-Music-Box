@@ -151524,6 +151524,256 @@
    "target_exists": true
   },
   {
+   "key": "09d9d0c6d85784b6",
+   "kind": "id_reference",
+   "token": "3A_story_specimen",
+   "file": "game/data/orison_v2/possessed_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/tells[0]/node"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c647db4cc0847b2c",
+   "kind": "id_reference",
+   "token": "5C_canvas_a",
+   "file": "game/data/orison_v2/possessed_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/tells[*]/node"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "87dde9a0667edb44",
+   "kind": "id_reference",
+   "token": "6A_tripod",
+   "file": "game/data/orison_v2/possessed_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/tells[1]/node"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "07f0e37a6aebedd7",
+   "kind": "unit_reference",
+   "token": "2C",
+   "file": "game/data/orison_v2/possessed_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/tells[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "8b2777f0c23bf16d",
+   "kind": "unit_reference",
+   "token": "3A",
+   "file": "game/data/orison_v2/possessed_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/tells[0]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "4899ddc9dd8c501d",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/data/orison_v2/possessed_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/tells[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "d87ff5b91fb32353",
+   "kind": "unit_reference",
+   "token": "5B",
+   "file": "game/data/orison_v2/possessed_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/tells[2]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "60afc3df14e08df8",
+   "kind": "unit_reference",
+   "token": "5C",
+   "file": "game/data/orison_v2/possessed_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/tells[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "084ebde29315be56",
+   "kind": "unit_reference",
+   "token": "6A",
+   "file": "game/data/orison_v2/possessed_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/tells[1]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "79485e64cf1a3ae6",
    "kind": "id_reference",
    "token": "1D_prep_cabinet",
@@ -205963,6 +206213,36 @@
    "target_exists": true
   },
   {
+   "key": "539ce4a7ab4809f8",
+   "kind": "id_reference",
+   "token": "F01_D_BED_VANTRY_POINT",
+   "file": "game/scripts/building/orison_v2_domestic_witnesses.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    63
+   ],
+   "count": 1,
+   "context": [
+    "and (vantry_points.points as Dictionary).has(\"F01_D_BED_VANTRY_POINT\"):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/vantry+acoustic_node",
+   "target_exists": true
+  },
+  {
    "key": "83cedb86f531fc82",
    "kind": "generated_name",
    "token": "_light_show_globes",
@@ -211699,7 +211979,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1442
+    1449
    ],
    "count": 1,
    "context": [
@@ -211729,8 +212009,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1522,
-    1525
+    1529,
+    1532
    ],
    "count": 2,
    "context": [
@@ -211761,7 +212041,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    935
+    942
    ],
    "count": 1,
    "context": [
@@ -211791,7 +212071,7 @@
     "<module>"
    ],
    "lines": [
-    105
+    106
    ],
    "count": 1,
    "context": [
@@ -211821,7 +212101,7 @@
     "<module>"
    ],
    "lines": [
-    100
+    101
    ],
    "count": 1,
    "context": [
@@ -211851,7 +212131,7 @@
     "<module>"
    ],
    "lines": [
-    101
+    102
    ],
    "count": 1,
    "context": [
@@ -211881,7 +212161,7 @@
     "<module>"
    ],
    "lines": [
-    102
+    103
    ],
    "count": 1,
    "context": [
@@ -211911,7 +212191,7 @@
     "<module>"
    ],
    "lines": [
-    103
+    104
    ],
    "count": 1,
    "context": [
@@ -211941,7 +212221,7 @@
     "<module>"
    ],
    "lines": [
-    104
+    105
    ],
    "count": 1,
    "context": [
@@ -211971,7 +212251,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1670
+    1677
    ],
    "count": 1,
    "context": [
@@ -212001,7 +212281,7 @@
     "<module>"
    ],
    "lines": [
-    67
+    68
    ],
    "count": 1,
    "context": [
@@ -212032,9 +212312,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1436,
-    1439,
-    1501
+    1443,
+    1446,
+    1508
    ],
    "count": 3,
    "context": [
@@ -212066,7 +212346,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1451
+    1458
    ],
    "count": 1,
    "context": [
@@ -212096,7 +212376,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1443
+    1450
    ],
    "count": 1,
    "context": [
@@ -212126,7 +212406,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1460
+    1467
    ],
    "count": 1,
    "context": [
@@ -212156,7 +212436,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1668
+    1675
    ],
    "count": 1,
    "context": [
@@ -212186,7 +212466,7 @@
     "<module>"
    ],
    "lines": [
-    99
+    100
    ],
    "count": 1,
    "context": [
@@ -212216,7 +212496,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1452
+    1459
    ],
    "count": 1,
    "context": [
@@ -212246,7 +212526,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1664
+    1671
    ],
    "count": 1,
    "context": [
@@ -212276,7 +212556,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1666
+    1673
    ],
    "count": 1,
    "context": [
@@ -212306,7 +212586,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    835
+    842
    ],
    "count": 1,
    "context": [
@@ -212336,7 +212616,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1666
+    1673
    ],
    "count": 1,
    "context": [
@@ -212366,7 +212646,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1664
+    1671
    ],
    "count": 1,
    "context": [
@@ -212396,7 +212676,7 @@
     "_ready"
    ],
    "lines": [
-    216
+    217
    ],
    "count": 1,
    "context": [
@@ -212426,7 +212706,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    836
+    843
    ],
    "count": 1,
    "context": [
@@ -212456,7 +212736,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    836
+    843
    ],
    "count": 1,
    "context": [
@@ -212486,7 +212766,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1664
+    1671
    ],
    "count": 1,
    "context": [
@@ -212516,7 +212796,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1664
+    1671
    ],
    "count": 1,
    "context": [
@@ -212546,7 +212826,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    835
+    842
    ],
    "count": 1,
    "context": [
@@ -212576,7 +212856,7 @@
     "<module>"
    ],
    "lines": [
-    105
+    106
    ],
    "count": 1,
    "context": [
@@ -212606,9 +212886,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1519,
-    1523,
-    1526
+    1526,
+    1530,
+    1533
    ],
    "count": 3,
    "context": [
@@ -212640,7 +212920,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    624
+    631
    ],
    "count": 1,
    "context": [
@@ -212670,7 +212950,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    624
+    631
    ],
    "count": 1,
    "context": [
@@ -212700,7 +212980,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    623
+    630
    ],
    "count": 1,
    "context": [
@@ -212730,7 +213010,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    623
+    630
    ],
    "count": 1,
    "context": [
@@ -212760,7 +213040,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1427
+    1434
    ],
    "count": 1,
    "context": [
@@ -212790,7 +213070,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1428
+    1435
    ],
    "count": 1,
    "context": [
@@ -212820,7 +213100,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    624
+    631
    ],
    "count": 1,
    "context": [
@@ -212850,7 +213130,7 @@
     "<module>"
    ],
    "lines": [
-    100
+    101
    ],
    "count": 1,
    "context": [
@@ -212880,7 +213160,7 @@
     "<module>"
    ],
    "lines": [
-    101
+    102
    ],
    "count": 1,
    "context": [
@@ -212910,7 +213190,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1329
+    1336
    ],
    "count": 1,
    "context": [
@@ -212940,7 +213220,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    675
+    682
    ],
    "count": 1,
    "context": [
@@ -212971,8 +213251,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1184,
-    1314
+    1191,
+    1321
    ],
    "count": 2,
    "context": [
@@ -213003,7 +213283,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1315
+    1322
    ],
    "count": 1,
    "context": [
@@ -213033,7 +213313,7 @@
     "<module>"
    ],
    "lines": [
-    102
+    103
    ],
    "count": 1,
    "context": [
@@ -213063,7 +213343,7 @@
     "<module>"
    ],
    "lines": [
-    103
+    104
    ],
    "count": 1,
    "context": [
@@ -213093,7 +213373,7 @@
     "<module>"
    ],
    "lines": [
-    104
+    105
    ],
    "count": 1,
    "context": [
@@ -213123,7 +213403,7 @@
     "_ready"
    ],
    "lines": [
-    268
+    269
    ],
    "count": 1,
    "context": [
@@ -213153,7 +213433,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1485
+    1492
    ],
    "count": 1,
    "context": [
@@ -213183,7 +213463,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1486
+    1493
    ],
    "count": 1,
    "context": [
@@ -213213,7 +213493,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1487
+    1494
    ],
    "count": 1,
    "context": [
@@ -213243,7 +213523,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1484
+    1491
    ],
    "count": 1,
    "context": [
@@ -213273,7 +213553,7 @@
     "<module>"
    ],
    "lines": [
-    99
+    100
    ],
    "count": 1,
    "context": [
@@ -213304,7 +213584,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    667
+    674
    ],
    "count": 1,
    "context": [
@@ -213336,8 +213616,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1420,
-    1485
+    1427,
+    1492
    ],
    "count": 2,
    "context": [
@@ -213370,8 +213650,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1423,
-    1486
+    1430,
+    1493
    ],
    "count": 2,
    "context": [
@@ -213404,8 +213684,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1426,
-    1487
+    1433,
+    1494
    ],
    "count": 2,
    "context": [
@@ -213438,8 +213718,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1417,
-    1484
+    1424,
+    1491
    ],
    "count": 2,
    "context": [
@@ -213471,7 +213751,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    665
+    672
    ],
    "count": 1,
    "context": [
@@ -213502,7 +213782,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    541
+    548
    ],
    "count": 1,
    "context": [
@@ -213534,8 +213814,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    263,
-    546
+    264,
+    553
    ],
    "count": 2,
    "context": [
@@ -213567,7 +213847,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    672
+    679
    ],
    "count": 1,
    "context": [
@@ -213598,7 +213878,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    549
+    556
    ],
    "count": 1,
    "context": [
@@ -213630,8 +213910,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    665,
-    1525
+    672,
+    1532
    ],
    "count": 2,
    "context": [
@@ -213662,7 +213942,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1384
+    1391
    ],
    "count": 1,
    "context": [
@@ -213692,7 +213972,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1385
+    1392
    ],
    "count": 1,
    "context": [
@@ -267739,6 +268019,128 @@
    "count": 1,
    "context": [
     "var extra:=CollisionShape3D.new();extra.shape=BoxShape3D.new();extra.position=Vector3(10,10,10);body.add_child(extra)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a949cf52402955a1",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_domestic_witnesses_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1753f7ef35e7f846",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/v2_domestic_witnesses_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    47
+   ],
+   "count": 1,
+   "context": [
+    "[\"sacha_camera\", \"sacha_camera_delay\", Vector3(1.4, 0, 1.4)],"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "8ecb304138335d4a",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_domestic_witnesses_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    40
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "35a5a787a8a5b2b7",
+   "kind": "vector3_coordinate",
+   "token": "_ready",
+   "file": "game/tests/v2_domestic_witnesses_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    119,
+    120,
+    122,
+    123
+   ],
+   "count": 4,
+   "context": [
+    "world.player.global_position = at + Vector3(1.3, 0.0, 0.3) - Vector3(0, fposmod(at.y, 3.2), 0)",
+    "world.player.camera.look_at(at + Vector3(0, 0.1, 0))"
    ],
    "gameplay_binding": true,
    "authority": [

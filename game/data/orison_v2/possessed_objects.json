@@ -1,0 +1,83 @@
+{
+ "schema_version": 1,
+ "tells": [
+  {
+   "id": "malcolm_plant",
+   "unit": "3A",
+   "kind": "houseplant",
+   "tell": "turns_to_listen",
+   "cases": [
+    "malcolm_memory_plants"
+   ],
+   "node": "3A_story_specimen",
+   "motion": {
+    "turn_y": 1.0996
+   }
+  },
+  {
+   "id": "sacha_camera",
+   "unit": "6A",
+   "kind": "security_camera",
+   "tell": "tracks_after",
+   "cases": [
+    "sacha_camera_delay"
+   ],
+   "node": "6A_tripod",
+   "motion": {
+    "turn_y": 0.34,
+    "per_tier": true
+   }
+  },
+  {
+   "id": "cal_radio",
+   "unit": "5B",
+   "kind": "table_radio",
+   "tell": "previous_room",
+   "cases": [
+    "cal_memory_radio"
+   ],
+   "node": "DomesticRadio_5B",
+   "motion": {
+    "knob_z": 1.1
+   }
+  },
+  {
+   "id": "juno_speaker",
+   "unit": "2C",
+   "kind": "smart_speaker",
+   "tell": "stolen_voice",
+   "cases": [
+    "juno_feedback_tetris"
+   ],
+   "node": "DomesticRadio_2C",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "iris_picture_frame",
+   "unit": "5C",
+   "kind": "picture_frame",
+   "tell": "changed_pose",
+   "cases": [
+    "iris_runaway_paint"
+   ],
+   "node": "5C_canvas_a",
+   "motion": {
+    "flip": true
+   }
+  },
+  {
+   "id": "player_smart_speaker",
+   "unit": "4B",
+   "kind": "smart_speaker",
+   "tell": "stolen_voice",
+   "cases": [],
+   "relay_all": true,
+   "node": "DomesticRadio_4B",
+   "motion": {
+    "seize": true
+   }
+  }
+ ]
+}
