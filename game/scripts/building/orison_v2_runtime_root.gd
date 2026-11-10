@@ -50,6 +50,7 @@ var organism_incidents: Node
 var music_library: Node
 var broadcast: Node
 var night_glows: Node3D
+var domestic_witnesses: Node
 var moon_fill: OmniLight3D
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
@@ -365,6 +366,12 @@ func _ready() -> void:
 	add_child(night_glows)
 	night_glows.setup(self, _blockout, layout, adapter)
 	moon_fill = night_glows.moon_fill
+	# The domestic witnesses (v1r_witness_tells_20261109): each intrusion reaches
+	# the resident's own household object, and one of 4B's own things answers.
+	domestic_witnesses = preload("res://scripts/building/orison_v2_domestic_witnesses.gd").new()
+	add_child(domestic_witnesses)
+	domestic_witnesses.mount(adapter, vantry_points)
+	domestic_witnesses.bind_director(sanity, player)
 	_record_startup_milestone("reality_director_ready")
 	# The dream reaching into the case flats (v1r_waking_organism_20261109).
 	apartment_encroachment = preload("res://scripts/building/orison_v2_waking_organism.gd").mount(self, _blockout, layout, player)
