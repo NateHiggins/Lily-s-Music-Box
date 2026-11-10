@@ -6,6 +6,10 @@ Run Godot through the repository's shared-lane wrappers; see `AGENTS.md`
 and `tools/engine_patches/README.md` in the repository root. The selector
 defaults to V2 and retains the explicit V1 rollback.
 
+On Windows desktop, V2 runs on **Vulkan with Godot's Forward+ renderer**.
+The title launch and the 98-waypoint golden-shift route verified this on the
+patched Godot 4.7.1 build.
+
 ## Controls
 
 - **WASD** move · **Shift** run · **Space** jump · **C** crouch
