@@ -5,7 +5,12 @@ extends "res://scripts/props/domestic_radio_prop.gd"
 ## position instead of the old programme murmur.
 const Broadcast := preload("res://scripts/audio/orison_v2_broadcast.gd")
 const BROADCAST_DB := -18.0
+## How far a seized set's programme sinks, and how far it wavers below that.
+const POSSESSED_DUCK_DB := 9.0
+const POSSESSED_WAVER_DB := 5.0
 var native_visuals: RefCounted
+var possessed := false
+var _listener_left_on := false
 
 func _build_visual() -> void:
 	super._build_visual()
@@ -85,8 +90,39 @@ func service_wire_card() -> Dictionary:
 		body = "Listening through the headphones." if powered else "Headphones set down."
 	elif powered:
 		var record := Broadcast.on_air(_programme)
-		body = "The wireless is playing %s." % record if not record.is_empty() else "The wireless is playing."
+		var card := Broadcast.card_on_air(_programme)
+		if not card.is_empty():
+			body = "The wireless says: %s." % card
+		else:
+			body = "The wireless is playing %s." % record if not record.is_empty() else "The wireless is playing."
 	return {"title":title,"body":body,"condition":"PLAYING" if powered else "SILENT","stamp":"WIRELESS"}
+
+
+## The station's hand (the programme director's possess hook,
+## v1r_broadcast_director_20261109). A seized set switches itself on and its
+## programme sinks and wavers; let go, it is as its listener left it.
+func set_possessed(on: bool) -> void:
+	if possessed == on:
+		return
+	possessed = on
+	if on:
+		_listener_left_on = powered
+		if not powered:
+			interact()
+	elif powered and not _listener_left_on:
+		interact()
+	elif powered:
+		Broadcast.join(_programme, BROADCAST_DB)
+
+
+## Called by the director each frame while the set is seized.
+func possession_waver(clock: float) -> void:
+	if not possessed or not powered or _programme == null:
+		return
+	var phase := float(hash(unit) % 628) / 100.0
+	_programme.volume_db = BROADCAST_DB - POSSESSED_DUCK_DB \
+			- POSSESSED_WAVER_DB * absf(sin(clock * 2.3 + phase))
+	_programme.pitch_scale = 1.0 + 0.05 * sin(clock * 5.1 + phase * 1.7)
 
 
 ## On the aurora nights a switched-on set picks up the storm (Lily's sun_storms
