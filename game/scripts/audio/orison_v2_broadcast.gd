@@ -14,7 +14,11 @@ const CATALOG := "res://data/music_catalog.json"
 
 static var _records: Array[Dictionary] = []
 static var _loaded := false
-static var _started_msec := -1
+## The clock is a tick count that a request may push before zero, so whether
+## the broadcast has started is kept apart from it.
+static var _started := false
+static var _started_msec := 0
+static var _on_air: Array[WeakRef] = []
 static var errors: Array[String] = []
 
 
@@ -71,7 +75,8 @@ static func _load() -> void:
 
 ## Starts the broadcast clock if nobody has yet. Called when a set is switched on.
 static func tune_in() -> Dictionary:
-	if _started_msec < 0:
+	if not _started:
+		_started = true
 		_started_msec = Time.get_ticks_msec()
 	return now_playing()
 
@@ -80,7 +85,7 @@ static func tune_in() -> Dictionary:
 ## Empty when the programme has not started or holds nothing playable.
 static func now_playing() -> Dictionary:
 	var order := records()
-	if _started_msec < 0 or order.is_empty():
+	if not _started or order.is_empty():
 		return {}
 	var total := 0.0
 	for record in order:
@@ -109,10 +114,12 @@ static func join(player: AudioStreamPlayer3D, volume_db: float) -> Dictionary:
 	if not player.has_meta("broadcast_carrier"):
 		player.set_meta("broadcast_carrier", player.stream)
 		player.set_meta("broadcast_carrier_db", player.volume_db)
+		_on_air.append(weakref(player))
 		player.finished.connect(func():
 			if player.has_meta("broadcast_on"):
 				join(player, volume_db))
 	player.set_meta("broadcast_on", true)
+	player.set_meta("broadcast_db", volume_db)
 	if now.is_empty():
 		restore_carrier(player)
 		player.set_meta("broadcast_on", true)
@@ -153,7 +160,40 @@ static func on_air(player: AudioStreamPlayer3D) -> String:
 	return str(player.get_meta("broadcast_title", ""))
 
 
+## The sets on the air now. A set that has been freed or switched off is not one.
+static func listeners() -> Array[AudioStreamPlayer3D]:
+	var found: Array[AudioStreamPlayer3D] = []
+	var kept: Array[WeakRef] = []
+	for held in _on_air:
+		var player := held.get_ref() as AudioStreamPlayer3D
+		if player == null or not is_instance_valid(player):
+			continue
+		kept.append(held)
+		if player.has_meta("broadcast_on"):
+			found.append(player)
+	_on_air = kept
+	return found
+
+
+## A request (the earned library, v1r_music_director_20261109): the named record
+## goes on the air now from its first bar, on every set that is on, and the
+## running order carries on from it. False when the programme has no such record.
+static func request(record_id: String) -> bool:
+	var before := 0.0
+	for record in records():
+		if str(record.id) == record_id:
+			_started = true
+			_started_msec = Time.get_ticks_msec() - int(ceil(before * 1000.0)) - 1
+			for player in listeners():
+				join(player, float(player.get_meta("broadcast_db", player.volume_db)))
+			return true
+		before += float(record.length)
+	return false
+
+
 ## Tests only: forget the clock so the next tune_in starts from the first record.
 static func reset_for_test() -> void:
-	_started_msec = -1
+	_started = false
+	_started_msec = 0
 	_loaded = false
+	_on_air.clear()

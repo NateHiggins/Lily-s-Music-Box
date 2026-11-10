@@ -194207,6 +194207,36 @@
    "target_exists": null
   },
   {
+   "key": "3a23c1624c95af69",
+   "kind": "generated_name",
+   "token": "_refresh_library",
+   "file": "game/scripts/audio/orison_v2_music_library.gd",
+   "tier": "production",
+   "subsystem": "audio",
+   "symbols": [
+    "_refresh_library"
+   ],
+   "lines": [
+    325
+   ],
+   "count": 1,
+   "context": [
+    "\"Record_\" + str(track_id)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "82670e9d200ed48d",
    "kind": "id_reference",
    "token": "B1_BOILER_01",
@@ -211349,7 +211379,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1420
+    1427
    ],
    "count": 1,
    "context": [
@@ -211379,8 +211409,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1500,
-    1503
+    1507,
+    1510
    ],
    "count": 2,
    "context": [
@@ -211411,7 +211441,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    913
+    920
    ],
    "count": 1,
    "context": [
@@ -211441,7 +211471,7 @@
     "<module>"
    ],
    "lines": [
-    101
+    102
    ],
    "count": 1,
    "context": [
@@ -211471,7 +211501,7 @@
     "<module>"
    ],
    "lines": [
-    96
+    97
    ],
    "count": 1,
    "context": [
@@ -211501,7 +211531,7 @@
     "<module>"
    ],
    "lines": [
-    97
+    98
    ],
    "count": 1,
    "context": [
@@ -211531,7 +211561,7 @@
     "<module>"
    ],
    "lines": [
-    98
+    99
    ],
    "count": 1,
    "context": [
@@ -211561,7 +211591,7 @@
     "<module>"
    ],
    "lines": [
-    99
+    100
    ],
    "count": 1,
    "context": [
@@ -211591,7 +211621,7 @@
     "<module>"
    ],
    "lines": [
-    100
+    101
    ],
    "count": 1,
    "context": [
@@ -211621,7 +211651,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1648
+    1655
    ],
    "count": 1,
    "context": [
@@ -211651,7 +211681,7 @@
     "<module>"
    ],
    "lines": [
-    63
+    64
    ],
    "count": 1,
    "context": [
@@ -211682,9 +211712,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1414,
-    1417,
-    1479
+    1421,
+    1424,
+    1486
    ],
    "count": 3,
    "context": [
@@ -211716,7 +211746,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1429
+    1436
    ],
    "count": 1,
    "context": [
@@ -211746,7 +211776,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1421
+    1428
    ],
    "count": 1,
    "context": [
@@ -211776,7 +211806,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1438
+    1445
    ],
    "count": 1,
    "context": [
@@ -211806,7 +211836,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1646
+    1653
    ],
    "count": 1,
    "context": [
@@ -211836,7 +211866,7 @@
     "<module>"
    ],
    "lines": [
-    95
+    96
    ],
    "count": 1,
    "context": [
@@ -211866,7 +211896,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1430
+    1437
    ],
    "count": 1,
    "context": [
@@ -211896,7 +211926,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1642
+    1649
    ],
    "count": 1,
    "context": [
@@ -211926,7 +211956,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1644
+    1651
    ],
    "count": 1,
    "context": [
@@ -211956,7 +211986,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    819
+    820
    ],
    "count": 1,
    "context": [
@@ -211986,7 +212016,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1644
+    1651
    ],
    "count": 1,
    "context": [
@@ -212016,7 +212046,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1642
+    1649
    ],
    "count": 1,
    "context": [
@@ -212046,7 +212076,7 @@
     "_ready"
    ],
    "lines": [
-    212
+    213
    ],
    "count": 1,
    "context": [
@@ -212076,7 +212106,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    820
+    821
    ],
    "count": 1,
    "context": [
@@ -212106,7 +212136,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    820
+    821
    ],
    "count": 1,
    "context": [
@@ -212136,7 +212166,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1642
+    1649
    ],
    "count": 1,
    "context": [
@@ -212166,7 +212196,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1642
+    1649
    ],
    "count": 1,
    "context": [
@@ -212196,7 +212226,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    819
+    820
    ],
    "count": 1,
    "context": [
@@ -212226,7 +212256,7 @@
     "<module>"
    ],
    "lines": [
-    101
+    102
    ],
    "count": 1,
    "context": [
@@ -212256,9 +212286,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1497,
-    1501,
-    1504
+    1504,
+    1508,
+    1511
    ],
    "count": 3,
    "context": [
@@ -212290,7 +212320,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    608
+    609
    ],
    "count": 1,
    "context": [
@@ -212320,7 +212350,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    608
+    609
    ],
    "count": 1,
    "context": [
@@ -212350,7 +212380,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    607
+    608
    ],
    "count": 1,
    "context": [
@@ -212380,7 +212410,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    607
+    608
    ],
    "count": 1,
    "context": [
@@ -212410,7 +212440,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1405
+    1412
    ],
    "count": 1,
    "context": [
@@ -212440,7 +212470,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1406
+    1413
    ],
    "count": 1,
    "context": [
@@ -212470,7 +212500,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    608
+    609
    ],
    "count": 1,
    "context": [
@@ -212500,7 +212530,7 @@
     "<module>"
    ],
    "lines": [
-    96
+    97
    ],
    "count": 1,
    "context": [
@@ -212530,7 +212560,7 @@
     "<module>"
    ],
    "lines": [
-    97
+    98
    ],
    "count": 1,
    "context": [
@@ -212560,7 +212590,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1307
+    1314
    ],
    "count": 1,
    "context": [
@@ -212590,7 +212620,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    659
+    660
    ],
    "count": 1,
    "context": [
@@ -212621,8 +212651,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1162,
-    1292
+    1169,
+    1299
    ],
    "count": 2,
    "context": [
@@ -212653,7 +212683,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1293
+    1300
    ],
    "count": 1,
    "context": [
@@ -212683,7 +212713,7 @@
     "<module>"
    ],
    "lines": [
-    98
+    99
    ],
    "count": 1,
    "context": [
@@ -212713,7 +212743,7 @@
     "<module>"
    ],
    "lines": [
-    99
+    100
    ],
    "count": 1,
    "context": [
@@ -212743,7 +212773,7 @@
     "<module>"
    ],
    "lines": [
-    100
+    101
    ],
    "count": 1,
    "context": [
@@ -212773,7 +212803,7 @@
     "_ready"
    ],
    "lines": [
-    264
+    265
    ],
    "count": 1,
    "context": [
@@ -212803,7 +212833,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1463
+    1470
    ],
    "count": 1,
    "context": [
@@ -212833,7 +212863,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1464
+    1471
    ],
    "count": 1,
    "context": [
@@ -212863,7 +212893,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1465
+    1472
    ],
    "count": 1,
    "context": [
@@ -212893,7 +212923,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1462
+    1469
    ],
    "count": 1,
    "context": [
@@ -212923,7 +212953,7 @@
     "<module>"
    ],
    "lines": [
-    95
+    96
    ],
    "count": 1,
    "context": [
@@ -212954,7 +212984,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    651
+    652
    ],
    "count": 1,
    "context": [
@@ -212986,8 +213016,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1398,
-    1463
+    1405,
+    1470
    ],
    "count": 2,
    "context": [
@@ -213020,8 +213050,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1401,
-    1464
+    1408,
+    1471
    ],
    "count": 2,
    "context": [
@@ -213054,8 +213084,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1404,
-    1465
+    1411,
+    1472
    ],
    "count": 2,
    "context": [
@@ -213088,8 +213118,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1395,
-    1462
+    1402,
+    1469
    ],
    "count": 2,
    "context": [
@@ -213121,7 +213151,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    649
+    650
    ],
    "count": 1,
    "context": [
@@ -213152,7 +213182,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    525
+    526
    ],
    "count": 1,
    "context": [
@@ -213184,8 +213214,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    259,
-    530
+    260,
+    531
    ],
    "count": 2,
    "context": [
@@ -213217,7 +213247,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    656
+    657
    ],
    "count": 1,
    "context": [
@@ -213248,7 +213278,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    533
+    534
    ],
    "count": 1,
    "context": [
@@ -213280,8 +213310,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    649,
-    1503
+    650,
+    1510
    ],
    "count": 2,
    "context": [
@@ -213312,7 +213342,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1362
+    1369
    ],
    "count": 1,
    "context": [
@@ -213342,7 +213372,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1363
+    1370
    ],
    "count": 1,
    "context": [
@@ -269604,6 +269634,64 @@
    "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "bf9d07901636f026",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_music_library_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    25
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cda86fab33b8cb13",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/v2_music_library_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    52
+   ],
+   "count": 1,
+   "context": [
+    "if node.get_script() == RadioProp and str(node.get(\"unit\")) == \"4B\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
   },
   {
    "key": "45ac2ab44e794dae",
