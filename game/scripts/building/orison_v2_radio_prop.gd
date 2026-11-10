@@ -51,6 +51,7 @@ func interact(actor: Node = null) -> Dictionary:
 		Broadcast.join(_programme, BROADCAST_DB)
 	else:
 		Broadcast.leave(_programme)
+	_tune_storm(powered)
 	result.on_air = Broadcast.on_air(_programme)
 	return result
 
@@ -86,3 +87,19 @@ func service_wire_card() -> Dictionary:
 		var record := Broadcast.on_air(_programme)
 		body = "The wireless is playing %s." % record if not record.is_empty() else "The wireless is playing."
 	return {"title":title,"body":body,"condition":"PLAYING" if powered else "SILENT","stamp":"WIRELESS"}
+
+
+## On the aurora nights a switched-on set picks up the storm (Lily's sun_storms
+## ruling, 2026-11-04; v1r_geomagnetic_static_20261109). The static is heard at
+## the set, on its programme's bus, and goes when the set is switched off.
+func _tune_storm(on: bool) -> void:
+	var storm := get_node_or_null("GeomagneticStatic")
+	if on and storm == null and _programme != null:
+		storm = preload("res://scripts/audio/geomagnetic_static.gd").new()
+		storm.name = "GeomagneticStatic"
+		storm.bus_name = _programme.bus
+		storm.max_distance = _programme.max_distance
+		_programme.add_sibling(storm)
+		storm.position = _programme.position
+	elif not on and storm != null:
+		storm.queue_free()
