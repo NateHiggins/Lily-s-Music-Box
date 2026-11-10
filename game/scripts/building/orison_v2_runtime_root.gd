@@ -48,6 +48,7 @@ var reality_controllers: Dictionary = {}
 var apartment_encroachment: Node
 var organism_incidents: Node
 var music_library: Node
+var broadcast: Node
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var prologue_director: Node
@@ -350,6 +351,12 @@ func _ready() -> void:
 	sanity = director.sanity
 	building_personality = director.personality
 	reality_controllers = RealityDirector.mount_controllers(self, _blockout, layout)
+	# The station's programme director (v1r_broadcast_director_20261109): card
+	# breaks behind the house broadcast, and the hand tv_infect asks for.
+	broadcast = preload("res://scripts/building/orison_v2_broadcast_director.gd").new()
+	broadcast.name = "BroadcastDirector"
+	add_child(broadcast)
+	broadcast.setup(_intrusion_props)
 	_record_startup_milestone("reality_director_ready")
 	# The dream reaching into the case flats (v1r_waking_organism_20261109).
 	apartment_encroachment = preload("res://scripts/building/orison_v2_waking_organism.gd").mount(self, _blockout, layout, player)

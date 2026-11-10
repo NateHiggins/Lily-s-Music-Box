@@ -19,6 +19,15 @@ static var _loaded := false
 static var _started := false
 static var _started_msec := 0
 static var _on_air: Array[WeakRef] = []
+## Card breaks (the programme director, v1r_broadcast_director_20261109): after
+## every `break_every` records the station holds for `break_seconds` while a
+## card is read. With either at zero the running order never breaks.
+static var break_every := 0
+static var break_seconds := 0.0
+## The words of the card being read, set by the director while a break runs.
+static var card := ""
+static var _slot_cache: Array = []
+static var _slot_rule: Array = []
 static var errors: Array[String] = []
 
 
@@ -81,36 +90,62 @@ static func tune_in() -> Dictionary:
 	return now_playing()
 
 
-## What is on the air now: the record and how far into it the broadcast is.
-## Empty when the programme has not started or holds nothing playable.
+## The air time in order, as [record index, seconds] with -1 for a card break.
+## Rebuilt only when the running order or the break rule changes.
+static func _slots() -> Array:
+	var order := records()
+	if _slot_rule == [order.size(), break_every, break_seconds]:
+		return _slot_cache
+	_slot_rule = [order.size(), break_every, break_seconds]
+	_slot_cache = []
+	var breaks := break_every > 0 and break_seconds > 0.0
+	for index in order.size():
+		_slot_cache.append([index, float(order[index].length)])
+		if breaks and (index + 1) % break_every == 0:
+			_slot_cache.append([-1, break_seconds])
+	return _slot_cache
+
+
+## What is on the air now: the record and how far into it the broadcast is, or
+## {"break": true, "remaining": seconds} while a card is read. Empty when the
+## programme has not started or holds nothing playable.
 static func now_playing() -> Dictionary:
 	var order := records()
 	if not _started or order.is_empty():
 		return {}
+	var slots := _slots()
 	var total := 0.0
-	for record in order:
-		total += float(record.length)
+	for slot: Array in slots:
+		total += float(slot[1])
 	var at := fposmod((Time.get_ticks_msec() - _started_msec) / 1000.0, total)
-	for index in order.size():
-		var record: Dictionary = order[index]
-		if at < float(record.length):
-			return {"index": index, "id": record.id, "title": record.title,
-					"performers": record.performers, "year": record.year,
-					"stream": record.stream, "offset": at}
-		at -= float(record.length)
-	return {"index": 0, "id": order[0].id, "title": order[0].title,
-			"performers": order[0].performers, "year": order[0].year,
-			"stream": order[0].stream, "offset": 0.0}
+	for slot: Array in slots:
+		var length := float(slot[1])
+		if at < length:
+			if int(slot[0]) < 0:
+				return {"break": true, "offset": at, "remaining": length - at}
+			return _on_the_air(int(slot[0]), at)
+		at -= length
+	return _on_the_air(0, 0.0)
+
+
+static func _on_the_air(index: int, offset: float) -> Dictionary:
+	var record: Dictionary = records()[index]
+	return {"index": index, "id": record.id, "title": record.title,
+			"performers": record.performers, "year": record.year,
+			"stream": record.stream, "offset": offset}
 
 
 ## Puts a switched-on receiver's emitter on the air at the live position. The
 ## emitter's own carrier stream (the old programme murmur) is kept aside and is
 ## what plays if the programme holds nothing playable. When a record ends the
-## emitter rejoins, which is the next record from its first bar.
+## emitter rejoins, which is the next record from its first bar. During a card
+## break the emitter plays its carrier and rejoins when the break is over.
 static func join(player: AudioStreamPlayer3D, volume_db: float) -> Dictionary:
 	if player == null:
 		return {}
 	var now := tune_in()
+	var turn := int(player.get_meta("broadcast_turn", 0)) + 1
+	player.set_meta("broadcast_turn", turn)
 	if not player.has_meta("broadcast_carrier"):
 		player.set_meta("broadcast_carrier", player.stream)
 		player.set_meta("broadcast_carrier_db", player.volume_db)
@@ -125,6 +160,21 @@ static func join(player: AudioStreamPlayer3D, volume_db: float) -> Dictionary:
 		player.set_meta("broadcast_on", true)
 		player.play()
 		return now
+	if bool(now.get("break", false)):
+		player.stream = player.get_meta("broadcast_carrier")
+		player.volume_db = float(player.get_meta("broadcast_carrier_db"))
+		player.pitch_scale = 1.0
+		player.play()
+		player.remove_meta("broadcast_record")
+		player.remove_meta("broadcast_title")
+		player.set_meta("broadcast_break", true)
+		if player.is_inside_tree():
+			player.get_tree().create_timer(float(now.remaining) + 0.03).timeout.connect(func():
+				if is_instance_valid(player) and player.has_meta("broadcast_on") \
+						and int(player.get_meta("broadcast_turn", 0)) == turn:
+					join(player, volume_db))
+		return now
+	player.remove_meta("broadcast_break")
 	player.stream = now.stream
 	player.volume_db = volume_db
 	player.pitch_scale = 1.0
@@ -140,6 +190,7 @@ static func leave(player: AudioStreamPlayer3D) -> void:
 	player.remove_meta("broadcast_on")
 	player.remove_meta("broadcast_record")
 	player.remove_meta("broadcast_title")
+	player.remove_meta("broadcast_break")
 	player.stop()
 
 
@@ -152,12 +203,20 @@ static func restore_carrier(player: AudioStreamPlayer3D) -> void:
 	player.stream = player.get_meta("broadcast_carrier")
 	player.volume_db = float(player.get_meta("broadcast_carrier_db"))
 	player.remove_meta("broadcast_on")
+	player.remove_meta("broadcast_break")
 
 
 static func on_air(player: AudioStreamPlayer3D) -> String:
 	if player == null:
 		return ""
 	return str(player.get_meta("broadcast_title", ""))
+
+
+## The card a set is carrying: the words being read while it is in a break.
+static func card_on_air(player: AudioStreamPlayer3D) -> String:
+	if player == null or not player.has_meta("broadcast_break"):
+		return ""
+	return card
 
 
 ## The sets on the air now. A set that has been freed or switched off is not one.
@@ -179,15 +238,16 @@ static func listeners() -> Array[AudioStreamPlayer3D]:
 ## goes on the air now from its first bar, on every set that is on, and the
 ## running order carries on from it. False when the programme has no such record.
 static func request(record_id: String) -> bool:
+	var order := records()
 	var before := 0.0
-	for record in records():
-		if str(record.id) == record_id:
+	for slot: Array in _slots():
+		if int(slot[0]) >= 0 and str(order[int(slot[0])].id) == record_id:
 			_started = true
 			_started_msec = Time.get_ticks_msec() - int(ceil(before * 1000.0)) - 1
 			for player in listeners():
 				join(player, float(player.get_meta("broadcast_db", player.volume_db)))
 			return true
-		before += float(record.length)
+		before += float(slot[1])
 	return false
 
 
@@ -197,3 +257,5 @@ static func reset_for_test() -> void:
 	_started_msec = 0
 	_loaded = false
 	_on_air.clear()
+	card = ""
+	_slot_rule = []
