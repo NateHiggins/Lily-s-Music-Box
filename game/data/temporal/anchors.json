@@ -743,12 +743,12 @@
 				"body": "A.V. 13. THE WET DECK. AN ARM AND SHOULDER AT THE NEAR EDGE. A PALE GLOVE. SACHA: I HAVE NOT REPAIRED THE REST INTO IT."
 			},
 			"season": "autumn",
-			"occasion": "two days before Hallowe'en",
+			"occasion": "the day the market broke, two days before Hallowe'en",
 			"dressing": [
-				"A jack-o'-lantern on the stoop.",
-				"Evening papers stacked high at the stand, sold out early.",
-				"Coats on every hallstand.",
-				"The radiators hot."
+				"Extras cried in the street all afternoon; the evening papers are gone from the stand.",
+				"A wireless on in every flat, all on the market report.",
+				"A jack-o'-lantern on the stoop that nobody has lit.",
+				"Coats on every hallstand and doors left ajar for news."
 			],
 			"where": "6A",
 			"windows": {
@@ -857,7 +857,7 @@
 			"dressing": [
 				"Poppies and a flag in the lobby for Monday.",
 				"Election posters from Tuesday still up on the hoardings.",
-				"Storm sashes hung; the house smells of coal.",
+				"The sale room full of things brought in to sell since the market broke, and nobody buying.",
 				"Nadia's Armistice card unfinished in the shop window."
 			],
 			"where": "6C",
@@ -907,26 +907,26 @@
 		}
 	},
 	"scrawls": [
-		"19 JULY",
-		"6.40 P.M.",
-		"9.01 TO 3.02",
-		"WHO HEARD THE DOOR?",
-		"WHITE KID",
-		"ONE PEARL",
-		"1 AUGUST",
-		"13 JUNE",
-		"WHO HAD THE ROOF KEY?",
-		"MONDAY THE 22ND",
-		"PLATE 13",
-		"NOT FOR SALE",
-		"HOLD. FIRST RUN SAT.",
-		"THE TWELFTH, AGAIN",
-		"WHAT DID NOT BURN",
+		"19 July",
+		"6.40 p.m.",
+		"9.01 to 3.02",
+		"Who heard the door?",
+		"White kid",
+		"One pearl",
+		"1 August",
+		"13 June",
+		"Who had the roof key?",
+		"Monday the 22nd",
+		"Plate 13",
+		"Not for sale",
+		"Hold. First run Sat.",
+		"The twelfth, again",
+		"What did not burn",
 		"6C",
-		"ASK CAM",
-		"THE SCHEDULE, NOT THE DEED",
-		"SHE WAS REFUSED",
-		"WHO SAID NOTHING?"
+		"Ask Cam",
+		"The schedule, not the deed",
+		"She was refused",
+		"Who said nothing?"
 	],
 	"calendar": [
 		{
@@ -1040,5 +1040,18 @@
 		"PHOTO SUPPLIES",
 		"THE EL",
 		"HELL GATE"
+	],
+	"events": [
+		{
+			"id": "crash",
+			"mark": "THE BREAK",
+			"from": "1929-10-24",
+			"breaks": "1929-10-29",
+			"until": "1929-11-09",
+			"tip_percent": 60,
+			"allowance_cents": 10,
+			"slip": "The market broke on Tuesday. Management has cut the allowance to ten cents, and the tenants are counting theirs. Expect smaller tips until the year turns.",
+			"before": "The ticker is running behind and nobody in the house will say why they keep looking at the paper."
+		}
 	]
 }

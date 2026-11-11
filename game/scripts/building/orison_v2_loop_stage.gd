@@ -9,7 +9,12 @@ extends Node3D
 ## mesh and registered finish); the words are Label3D.
 
 const Grip := preload("res://scripts/props/loop_shift_grip.gd")
+const Evidence := preload("res://scripts/building/orison_v2_evidence_stock.gd")
 const FONT := preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
+## Adela's own hand (Lily's choice, 2026-11-11): Cedarville Cursive, written
+## thick, as with a marking crayon, so it reads from across the room.
+const HAND := preload("res://assets/fonts/cedarvillecursive/Cedarville-Cursive.ttf")
+const HAND_INK := Color(0.07, 0.07, 0.12)
 const PAPER_SOURCE := "4B_wake_slip"
 const ROOM_REFERENCE := "4B_meal_table"
 const INK := Color(0.09, 0.08, 0.07)
@@ -67,6 +72,10 @@ var wall_cards: Dictionary = {}
 ## The carried item waiting at the wall to be pinned.
 var tucked: Node3D
 var tucked_grip: Node
+var tucked_item := ""
+## The modelled pieces of evidence, the newspaper bundle and the map pin.
+var stock: RefCounted
+var pile_tops: Array[Node3D] = []
 var _paper: Node3D
 var _poll := 0.0
 var _wall_frame := Transform3D()
@@ -114,7 +123,12 @@ func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
 		errors.append("no paper to copy: " + PAPER_SOURCE)
 	if wall == null:
 		errors.append("no case wall: " + str(loop.table.wall))
+	stock = Evidence.new()
+	if not stock.prepare():
+		errors.append("evidence pieces refused: %s" % str(stock.errors))
 	for anchor_id: String in loop.table.anchors:
+		if not stock.has(str(loop.clue_of(anchor_id).id)):
+			errors.append("no modelled piece for " + str(loop.clue_of(anchor_id).id))
 		var anchor: Dictionary = loop.table.anchors[anchor_id]
 		for step: Dictionary in anchor.steps:
 			if str(step.kind) == "shift":
@@ -251,6 +265,44 @@ func _words(text: String, facing: Basis, width_m := 0.16) -> Label3D:
 	return label
 
 
+## Words in Adela's hand. The outline is the same ink, which thickens the stroke.
+func _hand(text: String, width_m: float, letter_px := 64) -> Label3D:
+	var label := Label3D.new()
+	label.text = text
+	label.font = HAND
+	label.font_size = letter_px
+	label.pixel_size = width_m / 430.0
+	label.modulate = HAND_INK
+	label.outline_modulate = HAND_INK
+	label.outline_size = maxi(4, letter_px / 7)
+	label.width = 430.0
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.shaded = true
+	label.double_sided = false
+	label.visibility_range_end = 9.0
+	return label
+
+
+## A modelled piece of evidence, placed with its back on `at`. `facing.z` is
+## the way its face looks and `facing.y` its top. `fit` (metres) shrinks a
+## piece too big for its place; zero leaves it life size.
+func _piece(item_id: String, facing: Basis, at: Vector3, fit := 0.0) -> Node3D:
+	var holder := Node3D.new()
+	add_child(holder)
+	var body: Node3D = stock.build(item_id) if stock.has(item_id) else null
+	var scale := 1.0
+	if body == null:
+		body = _copy_paper()
+		body.transform = Transform3D(_sized(Basis(), 0.12, 0.09) * _paper_square, Vector3.ZERO)
+	elif fit > 0.0:
+		var size: Vector3 = stock.size(item_id)
+		scale = minf(1.0, fit / maxf(maxf(size.x, size.y), 0.001))
+	holder.add_child(body)
+	var square := facing.orthonormalized()
+	holder.global_transform = Transform3D(Basis(square.x * scale, square.y * scale, square.z * scale), at)
+	return holder
+
+
 ## The evidence of one anchor, lying where its last object stood.
 func _card_for(anchor_id: String) -> void:
 	var clue: Dictionary = loop.clue_of(anchor_id)
@@ -260,16 +312,10 @@ func _card_for(anchor_id: String) -> void:
 		return
 	if _paper == null:
 		return
-	var card := _copy_paper()
-	card.name = "LoopClue_" + str(clue.id)
-	add_child(card)
 	var offset: Array = clue.get("rest_offset", [0.0, 0.0, 0.0])
-	_place(card, _sized(Basis(Vector3.RIGHT, Vector3.FORWARD, Vector3.UP), 0.16, 0.11),
+	var card := _piece(str(clue.id), Basis(Vector3.RIGHT, Vector3.FORWARD, Vector3.UP),
 			rest.global_position + Vector3(float(offset[0]), float(offset[1]), float(offset[2])))
-	var label := _words(str(clue.title).to_upper(), Basis())
-	card.add_child(label)
-	label.global_transform = Transform3D(Basis(Vector3.RIGHT, Vector3.FORWARD, Vector3.UP),
-			card.global_position + Vector3.UP * 0.004)
+	card.name = "LoopClue_" + str(clue.id)
 	var grip := Grip.new()
 	grip.name = "Take"
 	card.add_child(grip)
@@ -330,28 +376,38 @@ func _foot() -> Vector3:
 	return _wall_frame * Vector3(_wall_size.x * 0.34, -_wall_size.y * 0.42, 0.0)
 
 
-func _hang(card: Node3D, at: Vector3, text: String) -> void:
-	_place(card, _sized(_wall_frame.basis, 0.15, 0.1), at)
-	for old: Node in card.find_children("*", "Label3D", true, false):
-		old.free()
-	var label := _words(text, Basis(), 0.13)
-	card.add_child(label)
-	label.global_transform = Transform3D(_wall_frame.basis, at + _wall_frame.basis.z * 0.004)
-
-
-## The next carried item, tucked at the foot of the wall for the hand to pin.
+## The carried piece waiting at the foot of the wall for the hand to pin. It is
+## built afresh for each piece, because the hand takes hold of its real shape.
 func _tuck() -> void:
-	tucked = _copy_paper()
+	tucked = Node3D.new()
 	tucked.name = "LoopCarried"
 	add_child(tucked)
+	tucked.visible = false
+
+
+func _show_tucked(item_id: String) -> void:
+	if item_id == tucked_item and tucked != null:
+		tucked.visible = not item_id.is_empty()
+		return
+	tucked_item = item_id
+	if tucked != null:
+		tucked.queue_free()
+	tucked_grip = null
+	if item_id.is_empty():
+		_tuck()
+		return
+	var at := _foot() + _wall_frame.basis.z * 0.004
+	tucked = _piece(item_id, _wall_frame.basis, at, 0.2)
+	tucked.name = "LoopCarried"
+	var label := _words(str(loop.item_text(item_id).title).to_upper(), Basis(), 0.16)
+	tucked.add_child(label)
+	label.global_transform = Transform3D(_wall_frame.basis, at - _wall_frame.basis.y * 0.13 + _wall_frame.basis.z * 0.003)
 	tucked_grip = Grip.new()
 	tucked_grip.name = "Pin"
 	tucked.add_child(tucked_grip)
-	_hang(tucked, _foot(), "")
 	tucked_grip.configure(tucked, Vector3.UP, PIN_REACH)
 	tucked_grip.live = func() -> bool: return not loop.in_visit() and not loop.carried().is_empty()
 	tucked_grip.carried = _pinned
-	tucked.visible = false
 
 
 func _note(owner: Node, title: String, body: String, condition: String) -> void:
@@ -362,7 +418,8 @@ func _note(owner: Node, title: String, body: String, condition: String) -> void:
 
 func _pinned() -> void:
 	var result: Dictionary = loop.pin_next()
-	tucked_grip.put_back()
+	if tucked_grip != null:
+		tucked_grip.put_back()
 	if not result.ok:
 		return
 	var body := str(loop.item_text(str(result.item)).body)
@@ -460,23 +517,14 @@ func _sync() -> void:
 	if tucked == null:
 		return
 	var waiting: Array[String] = loop.carried()
-	var show: bool = not loop.in_visit() and not waiting.is_empty()
-	if show:
-		tucked_grip.put_back()
-		_hang(tucked, _foot(), str(loop.item_text(waiting[0]).title).to_upper())
-	tucked.visible = show
+	_show_tucked(waiting[0] if not loop.in_visit() and not waiting.is_empty() else "")
 	# Pinned pieces: a slip over the board's own blank one, with a pin to pull.
 	for item_id: String in loop.on_wall():
 		if wall_cards.has(item_id):
 			continue
-		var pinned := _copy_paper()
-		pinned.name = "LoopPinned_" + item_id
-		add_child(pinned)
 		var at := slot_position(int(loop.ledger().items[item_id].get("slot", wall_cards.size()))) + _wall_frame.basis.z * 0.004
-		_place(pinned, _sized(_wall_frame.basis, 0.085, 0.1), at)
-		var label := _words(str(loop.item_text(item_id).title).to_upper(), Basis(), SLIP_WORDS_WIDTH)
-		pinned.add_child(label)
-		label.global_transform = Transform3D(_wall_frame.basis, at + _wall_frame.basis.z * 0.003)
+		var pinned := _piece(item_id, _wall_frame.basis, at, 0.095)
+		pinned.name = "LoopPinned_" + item_id
 		var grip := Grip.new()
 		grip.name = "Pull"
 		pinned.add_child(grip)
@@ -517,7 +565,7 @@ func _sync() -> void:
 		add_child(drawn)
 		var at := _deduction_place(str(deduction_id)) + _wall_frame.basis.z * 0.005
 		_place(drawn, _sized(_wall_frame.basis, 0.24, 0.25), at)
-		var label := _words(str(loop.table.deductions[str(deduction_id)].line), Basis(), 0.21)
+		var label := _hand(str(loop.table.deductions[str(deduction_id)].line), 0.22, 34)
 		drawn.add_child(label)
 		label.global_transform = Transform3D(_wall_frame.basis, at + _wall_frame.basis.z * 0.004)
 		deduction_cards[str(deduction_id)] = drawn
@@ -586,6 +634,12 @@ func _dress_wall() -> void:
 		_lettering(str(month[1]), Vector2(day_x(int(month[0])) + 0.012, y + 0.03), 0.3, 0.007)
 	for day: Dictionary in loop.table.calendar:
 		_bar(Vector2(day_x(loop.day_of_year(str(day.date))), y - 0.01), Vector2(0.003, 0.012), Color(0.55, 0.05, 0.05), 0.008)
+	# The year's events: a mark on the tape at the day each breaks.
+	for event: Dictionary in loop.table.events:
+		var at := day_x(loop.day_of_year(str(event.breaks)))
+		_bar(Vector2(at, y), Vector2(0.006, 0.05), Color(0.1, 0.3, 0.16), 0.009)
+		_lettering(str(event.mark), Vector2(at, y - 0.04), 0.18, 0.009)
+		year_parts += 1
 	# The hours nobody heard.
 	_bar(Vector2(day_x(BLACKOUT_DAY), y), Vector2(0.008, 0.05), Color(0.02, 0.02, 0.02), 0.009)
 	# The Orison in section.
@@ -828,7 +882,7 @@ func _grow() -> void:
 		var at: Vector3 = (spot.position as Vector3) + normal * (0.004 + 0.0004 * float(index % 5))
 		_place(sheet, facing, at)
 		if index % 3 == 0 and not scrawls.is_empty():
-			var label := _words(str(scrawls[(index / 3) % scrawls.size()]), Basis(), size * 0.85)
+			var label := _hand(str(scrawls[(index / 3) % scrawls.size()]), size * 0.85)
 			sheet.add_child(label)
 			label.global_transform = Transform3D(Basis(level, normal.cross(level), normal), at + normal * 0.003)
 		papers.append(sheet)
@@ -853,6 +907,18 @@ func _grow() -> void:
 		var turn := Basis(Vector3.UP, float(index) * 1.7)
 		var stretch := Basis(turn.x * (wide / _bundle_size.x), Vector3.UP * (tall / _bundle_size.y), turn.z * (wide * 0.72 / _bundle_size.z))
 		pile.global_transform = Transform3D(stretch, (pile_spots[index].position as Vector3) - stretch * _bundle_foot)
+		# A tied bundle of newspapers on top of each pile.
+		if stock.has("bundle"):
+			while pile_tops.size() <= index:
+				var top: Node3D = stock.build("bundle")
+				top.name = "LoopBundle_%d" % pile_tops.size()
+				add_child(top)
+				pile_tops.append(top)
+			var away: Vector3 = turn.z
+			pile_tops[index].global_transform = Transform3D(Basis(away.cross(Vector3.UP), away, Vector3.UP),
+					(pile_spots[index].position as Vector3) + Vector3.UP * tall)
+	for index in pile_tops.size():
+		pile_tops[index].visible = index < pile_count
 	# The web: red string overhead, from the board outward and wall to wall.
 	var strand_count: int = int(float(MAX_STRANDS) * clampf((share - 0.1) / 0.9, 0.0, 1.0)) if high_spots.size() >= 4 else 0
 	while strands.size() < strand_count:

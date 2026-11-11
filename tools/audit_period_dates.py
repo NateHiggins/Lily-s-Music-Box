@@ -26,6 +26,8 @@ EXPECTED_CONSUMERS = {
     "game/scripts/audio/orison_v2_music_library.gd": "player_readable_catalogue",
     # Reads the campaign date to tell the house which occasion it falls beside.
     "game/scripts/building/orison_v2_season_fittings.gd": "campaign_season_and_weather_presentation",
+    # Reads the campaign date to find the year's event (the market's break) it falls in.
+    "game/scripts/game/temporal_loop.gd": "campaign_season_and_weather_presentation",
     "game/scripts/building/celestial_ephemeris.gd": "astronomy_calculation_only",
     "game/scripts/building/skywatch_astronomy.gd": "campaign_utc_historical_astronomy_only",
     "game/scripts/building/WeatherManager.gd": "campaign_season_and_weather_presentation",

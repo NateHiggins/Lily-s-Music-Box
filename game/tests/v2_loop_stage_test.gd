@@ -168,7 +168,10 @@ func _ready() -> void:
 	# Home, and the wall.
 	_check(loop.go_home().ok, "home")
 	await _frames(5)
-	_check(stage.tucked.visible, "the carried slip waits at the foot of the wall")
+	_check(stage.tucked.visible and stage.tucked_item == "order_slip"
+			and absf(stage._wall_frame.basis.z.dot(stage.tucked.global_transform.basis.z.normalized()) - 1.0) < 0.001,
+			"the carried slip waits at the foot of the wall, face out")
+	_check(not stage.tucked.find_children("*", "MeshInstance3D", true, false).is_empty(), "and it is the modelled slip, with a shape to take hold of")
 	var wall_face: Vector3 = stage.slot_position(1)
 	var out: Vector3 = stage._wall_frame.basis.z
 	_feet = Vector3(wall_face.x, floorf((wall_face.y + 0.05) / 3.2) * 3.2, wall_face.z) + out * 1.3
@@ -180,8 +183,7 @@ func _ready() -> void:
 	await _frames(5)
 	_check(loop.pinned("order_slip") and stage.wall_cards.has("order_slip") and not stage.tucked.visible, "it is pinned and nothing waits")
 	_check((stage.wall_cards["order_slip"] as Node3D).global_position.distance_to(stage.slot_position(0)) < 0.12, "over the wall's first slip")
-	_check(absf(stage._wall_frame.basis.z.dot((stage.tucked.global_transform.basis * stage._paper_square.inverse()).z) - 1.0) < 0.001,
-			"the carried slip hangs square to the wall")
+	_check(stage.stock.has("order_slip") and stage.stock.has("bundle") and stage.stock.has("pin"), "the pieces of evidence are modelled objects")
 	_check("friday" in loop.unlocked() and "stairs" in loop.unlocked(), "the wall has opened two leads")
 	await _snap("wall_pinned")
 
@@ -197,7 +199,7 @@ func _ready() -> void:
 	var pull_order: Node = (stage.wall_cards["order_slip"] as Node3D).get_meta("grip")
 
 	# Filing: the year across the board, and the building map beside it.
-	_check(stage.year_parts == 5 and stage.cell_pins.size() == 26, "the year is on the board in five seasons, and the map has a pin for every flat, the roof and the basement (%d)" % stage.cell_pins.size())
+	_check(stage.year_parts == 6 and stage.cell_pins.size() == 26, "the year is on the board in five seasons with the market's break marked, and the map has a pin for every flat, the roof and the basement (%d, %d)" % [stage.year_parts, stage.cell_pins.size()])
 	_check(stage.loose_tag.visible and stage.loose_tag_item == "order_slip", "the order slip's tag waits at the start of the year")
 	_check(_carry(pull_order) and _carry(pull_order), "string taken up and put down")
 	var slide: Dictionary = stage.loose_tag_grip.grip()
