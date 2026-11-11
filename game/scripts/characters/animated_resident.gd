@@ -21,6 +21,8 @@ var preferred_idle := ""
 var preferred_walk := ""
 var face_interacting_player := false
 var mina_animation: MinaAnimationBehavior
+## The one owner of where this resident looks; null on a body with no rig profile.
+var attention: Node
 
 
 func setup(character_name: String, character_id: String,
@@ -60,6 +62,7 @@ func _ready() -> void:
 			preferred_walk = "mina_walk"
 		else:
 			push_error("Mina Gray Resolve batch is incomplete")
+	attention = preload("res://scripts/characters/resident_attention.gd").install(self, _model, resident_id)
 	_build_interaction()
 	_build_nameplate()
 	RealityCases.case_changed.connect(_on_case_changed)
