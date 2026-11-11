@@ -1,0 +1,46 @@
+{
+ "schema_version": 1,
+ "asset": "res://assets/props/airmail_biplane.glb",
+ "parts": [
+  {
+   "id": "fuselage",
+   "mesh": "Mailwing__Fuselage_ON_linen",
+   "material": "linen",
+   "tint": "241a15",
+   "alpha": 1.0
+  },
+  {
+   "id": "wings",
+   "mesh": "Mailwing__Wings_ON_linen",
+   "material": "linen",
+   "tint": "d2a63c",
+   "alpha": 1.0
+  },
+  {
+   "id": "metal",
+   "mesh": "Mailwing__Metal_ON_iron_blackened",
+   "material": "iron_blackened",
+   "tint": "ffffff",
+   "alpha": 1.0
+  },
+  {
+   "id": "propeller",
+   "mesh": "Mailwing__PropellerDisc_ON_wood_dark",
+   "material": "wood_dark",
+   "tint": "ffffff",
+   "alpha": 0.28
+  }
+ ],
+ "track_start": [
+  -326.0,
+  180.0,
+  -269.0
+ ],
+ "track_finish": [
+  347.0,
+  205.0,
+  290.0
+ ],
+ "visibility_range_m": 900.0,
+ "propeller_turns_per_second": 4.0
+}
