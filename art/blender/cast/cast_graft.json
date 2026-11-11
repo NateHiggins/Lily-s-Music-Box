@@ -21,19 +21,22 @@
   "eyes": "brownlight",
   "face_top": 1.553,
   "head": "rebuild",
-  "hair": "bob02",
-  "hair_colour": [
-   0.07,
-   0.06,
-   0.06
-  ],
   "hat": "cloche",
   "hat_colour": [
    0.035,
    0.035,
    0.04
   ],
-  "spectacles": true
+  "spectacles": true,
+  "strands": {
+   "style": "bob",
+   "root_max_above_nose": 0.1,
+   "colour": [
+    0.06,
+    0.05,
+    0.05
+   ]
+  }
  },
  "cal_dwyer": {
   "macro": {
@@ -55,20 +58,22 @@
   "eyes": "grey",
   "face_top": 1.64,
   "head": "rebuild",
-  "hair": "short02",
-  "hair_colour": [
-   0.78,
-   0.76,
-   0.7
-  ]
+  "strands": {
+   "style": "short",
+   "colour": [
+    0.8,
+    0.78,
+    0.72
+   ]
+  }
  },
  "adela_voss": {
   "macro": {
    "gender": 0.0,
-   "age": 0.5,
-   "muscle": 0.4,
-   "weight": 0.42,
-   "proportions": 0.65,
+   "age": 0.46,
+   "muscle": 0.38,
+   "weight": 0.4,
+   "proportions": 1.0,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.5
@@ -95,9 +100,9 @@
   "head_weights_from": -0.085,
   "nose_low": -0.05,
   "nose_high": 0.05,
-  "eyebrows": "none",
+  "eyebrows": "eyebrow003",
   "own_face_feather": 24,
-  "eye_paint_radius": 0.0145,
+  "eye_paint_radius": 0.017,
   "eye_tone": {
    "colour": 0.45,
    "tint": [
@@ -107,6 +112,29 @@
    ]
   },
   "old_hair": "remove",
-  "hair_style": "long_curls"
+  "strands": {
+   "style": "ringlets",
+   "first_angle": 62.0,
+   "radius": [
+    0.008,
+    0.012
+   ],
+   "turns": [
+    3.0,
+    4.0
+   ],
+   "length": [
+    0.25,
+    0.31
+   ],
+   "follow_radius": 0.004,
+   "local_stiffness": 0.985,
+   "root_shade": 0.95,
+   "tip_shade": 1.2
+  },
+  "upright": true,
+  "own_face_shape": 0.0,
+  "own_face_paint_reach": 0.02,
+  "own_face_skip_mouth": true
  }
 }

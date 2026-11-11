@@ -338,6 +338,7 @@ crown = [old_colour[i] for i, v in enumerate(shell.data.vertices)
          if old_weights[i].get("Head", 0.0) > 0.5 and (shell_world @ v.co).z > joint("Head").z + float(CFG.get("crown_above_head", 0.11))]
 hair_ref = numpy.median(numpy.array(crown), axis=0) if len(crown) > 20 else None
 feature_marks = None
+turned_move = None
 print("HAIR ref", [round(float(c), 3) for c in (hair_ref / float(hair_ref.sum()))] if hair_ref is not None else None, "skin", [round(float(c), 3) for c in (skin_ref / float(skin_ref.sum()))])
 
 
@@ -415,6 +416,12 @@ if CFG.get("align") == "features":
         size = float((sing * numpy.diag(fix)).sum() / (a_ ** 2).sum())
         size *= float(CFG.get("head_scale_trim", 1.0))
         new_move = Matrix.Translation(Vector(dst_mid)) @ Matrix([list(row) for row in turn]).to_4x4() @ Matrix.Scale(size, 4) @ Matrix.Translation(-Vector(src_mid))
+        turned_move = new_move.copy()
+        if CFG.get("upright"):
+            anchor = Vector(dst_mid)
+            new_move = Matrix.Translation(anchor) @ Matrix.Scale(size, 4) @ Matrix.Translation(-Vector(src_mid))
+            # Keep the nose where the old nose is.
+            new_move = Matrix.Translation(nose_old - (new_move @ nose_new)) @ new_move
         correction = new_move @ head_move.inverted()
         for obj in [head] + parts:
             obj.data.transform(correction, shape_keys=True)
@@ -478,7 +485,7 @@ if CFG.get("own_face"):
         if hit[0] is None or weight <= 0.0:
             continue
         # A hair's breadth proud of the old surface, so nothing old shows through.
-        shifts[vertex.index] = (hit[0] + hit[1] * 0.0009 - co) * weight
+        shifts[vertex.index] = (hit[0] + hit[1] * 0.0009 - co) * weight * float(CFG.get("own_face_shape", 1.0))
     # Even the pull out over neighbours, so the surface does not crumple.
     near = {v.index: set() for v in mesh.vertices}
     for edge in mesh.edges:
@@ -524,6 +531,11 @@ if CFG.get("own_face"):
     eye_marks = feature_marks[1:3] if feature_marks is not None else []
     eye_radius = float(CFG.get("eye_paint_radius", 0.019))
     touched = set(shifts)
+    if float(CFG.get("own_face_shape", 1.0)) < 0.99 or CFG.get("upright"):
+        touched = {v.index for v in head.data.vertices if v.co.y < nose_old.y + 0.09 * scale and abs(v.co.z - nose_old.z) < 0.11 * scale}
+    to_turned = (turned_move @ head_move.inverted()) if (CFG.get("upright") and turned_move is not None) else None
+    mouth_mark = feature_marks[3] if (feature_marks is not None and CFG.get("own_face_skip_mouth")) else None
+    mouth_radius = float(CFG.get("mouth_paint_radius", 0.024))
     filled = 0
     for polygon in head.data.polygons:
         if not any(v in touched for v in polygon.vertices):
@@ -546,9 +558,13 @@ if CFG.get("own_face"):
                     if w0 < -0.02 or w1 < -0.02 or w2 < -0.02:
                         continue
                     at = tri[0] * w0 + tri[1] * w1 + tri[2] * w2
+                    if to_turned is not None:
+                        at = to_turned @ at
                     if any((at - mark).length < eye_radius for mark in eye_marks):
                         continue
-                    hit = paint_tree.find_nearest(at, 0.006)
+                    if mouth_mark is not None and (at - mouth_mark).length < mouth_radius:
+                        continue
+                    hit = paint_tree.find_nearest(at, float(CFG.get("own_face_paint_reach", 0.006)))
                     if hit[0] is None:
                         continue
                     a_, b_, c_ = old_corner[hit[2]]
@@ -672,7 +688,7 @@ if REBUILD or own_face is not None:
     # (With her own face kept, a face mostly in the cut goes: chips of old skin
     # along the hairline are worse than a hair's edge trimmed.)
     gone = [f for f in bm.faces if all(v.index in doomed for v in f.verts)]
-    if own_face is not None:
+    if own_face is not None and not REBUILD:
         # A face half in the cut goes too when what is painted on its middle is skin.
         uv_layer = bm.loops.layers.uv.active
         taken = set(gone)
@@ -1368,8 +1384,19 @@ for leftover in [human, rig]:
 # authored here as Blender hair curves (a centre parting, hair lying over the
 # skull to the sides and back, then falling in ringlets), and written with
 # that addon's own exporter, with closed colliders for the head and the body.
-if CFG.get("hair_style") == "long_curls":
+STRANDS = CFG.get("strands")
+if STRANDS:
     import importlib.util
+    STYLES = {
+        "ringlets": {"points": 32, "lying": 10, "length": [0.27, 0.36], "radius": [0.011, 0.016], "turns": [3.8, 5.2], "first_angle": 52.0, "per_side": 20,
+                     "guides": 1500, "follow": 5, "follow_radius": 0.006, "local_stiffness": 0.97, "global_stiffness": 0.5, "global_range": 0.34},
+        "bob": {"points": 16, "lying": 7, "length": [0.075, 0.105], "radius": [0.003, 0.005], "turns": [0.45, 0.7], "first_angle": 48.0, "per_side": 16,
+                "guides": 1400, "follow": 4, "follow_radius": 0.005, "local_stiffness": 0.98, "global_stiffness": 0.7, "global_range": 0.5},
+        "short": {"points": 8, "lying": 8, "length": [0.05, 0.085], "radius": [0.0, 0.0], "turns": [0.0, 0.0], "first_angle": 30.0, "per_side": 14,
+                  "guides": 2200, "follow": 4, "follow_radius": 0.004, "local_stiffness": 0.99, "global_stiffness": 0.92, "global_range": 0.9},
+    }
+    STYLE = dict(STYLES[STRANDS.get("style", "ringlets")])
+    STYLE.update({k: v for k, v in STRANDS.items() if k != "style"})
     exporter_path = CFG.get("tressfx_exporter", "C:/ov/tools/tressfx_godot/addons/tressfx/tools/tressfx_blender_export.py")
     spec = importlib.util.spec_from_file_location("tressfx_blender_export", exporter_path)
     tfx = importlib.util.module_from_spec(spec)
@@ -1394,17 +1421,22 @@ if CFG.get("hair_style") == "long_curls":
     root_pool = [to_own @ v.co for v in head.data.vertices if scalp(to_own @ v.co)]
     rng = numpy.random.default_rng(23)
     ringlets = []
-    per_side = int(CFG.get("ringlets_per_side", 20))
+    per_side = int(STYLE["per_side"])
+    first_angle = float(STYLE["first_angle"])
     for side in (1.0, -1.0):
         for k in range(per_side):
-            angle = math.radians(38.0 + (180.0 - 38.0) * (k + 0.5) / per_side)
+            angle = math.radians(first_angle + (180.0 - first_angle) * (k + 0.5) / per_side)
             ringlets.append({"side": side, "angle": angle,
                              "drop": Vector((side * math.sin(angle) * 0.083, mid_y - math.cos(angle) * 0.09, nose_own.z + float(rng.uniform(-0.01, 0.02)))),
-                             "length": float(rng.uniform(0.27, 0.36)), "phase": float(rng.uniform(0, math.tau)), "turns": float(rng.uniform(3.8, 5.2)) * (1 if k % 2 else -1),
-                             "radius": float(rng.uniform(0.011, 0.016))})
-    points_per = 32
-    lying = 10
-    guides = int(CFG.get("guide_strands", 1500))
+                             "length": float(rng.uniform(*STYLE["length"])), "phase": float(rng.uniform(0, math.tau)), "turns": float(rng.uniform(*STYLE["turns"])) * (1 if k % 2 else -1),
+                             "radius": float(rng.uniform(*STYLE["radius"]))})
+    points_per = int(STYLE["points"])
+    lying = int(STYLE["lying"])
+    guides = int(STYLE["guides"])
+    short_cut = STRANDS.get("style") == "short"
+    root_ceiling = nose_own.z + float(STRANDS["root_max_above_nose"]) if "root_max_above_nose" in STRANDS else None
+    if root_ceiling is not None:
+        root_pool = [q for q in root_pool if q.z < root_ceiling]
     rows = []
     for number in range(guides * 3):
         if len(rows) >= guides:
@@ -1415,17 +1447,21 @@ if CFG.get("hair_style") == "long_curls":
         mine = min((r for r in ringlets if r["side"] == side), key=lambda r: abs(r["angle"] - angle) + float(rng.uniform(0, 0.25)))
         d0 = (root - skull_mid).normalized()
         d1 = (mine["drop"] - skull_mid).normalized()
+        reach = 1.0
+        if short_cut:
+            d1 = (Vector((side * 0.02, mid_y + 0.09, nose_own.z - 0.03)) - skull_mid).normalized()
+            reach = min(1.0, mine["length"] / max(d0.angle(d1) * 0.095, 0.001))
         own_offset = Vector((float(rng.normal(0, 0.0028)), float(rng.normal(0, 0.0028)), 0.0))
         strand = []
         ok = True
         for i in range(lying):
             t = i / (lying - 1.0)
-            direction = (head_move.to_3x3() @ d0.slerp(d1, t)).normalized()
+            direction = (head_move.to_3x3() @ d0.slerp(d1, t * reach)).normalized()
             hit = head_tree.ray_cast(skull_world, direction, 0.4)
             if hit[0] is None:
                 ok = False
                 break
-            strand.append(hit[0] + direction * (0.004 + 0.012 * t) * scale)
+            strand.append(hit[0] + direction * ((0.003 + 0.007 * math.sin(t * math.pi * 0.9)) if short_cut else (0.004 + 0.012 * t)) * scale)
         if not ok:
             continue
         start = strand[-1]
@@ -1433,7 +1469,7 @@ if CFG.get("hair_style") == "long_curls":
         away = Vector((start.x - skull_world.x, start.y - skull_world.y, 0.0))
         away = away.normalized() if away.length > 1e-6 else Vector((side, 0, 0))
         for i in range(1, points_per - lying + 1):
-            sdown = i / float(points_per - lying)
+            sdown = i / float(max(points_per - lying, 1))
             grow = min(1.0, sdown * 3.0)
             turn_ = mine["phase"] + sdown * mine["turns"] * math.tau
             across = away.cross(down).normalized()
@@ -1498,6 +1534,16 @@ if CFG.get("hair_style") == "long_curls":
                           ("body collider", tfx.export_collider(bpy.context, body_collider, os.path.join(OUT, CID + "_body.tfxmesh"), True))):
         print("TRESSFX", label, result)
     hair_object.hide_render = True
+    tone = hair_ref if hair_ref is not None else numpy.array([0.4, 0.3, 0.2], dtype=numpy.float32)
+    tone = numpy.array(STRANDS["colour"], dtype=numpy.float32) if "colour" in STRANDS else tone
+    recipe = {"schema_version": 1, "hair": CID + "_hair.tfx", "bones": CID + "_hair.tfxbone",
+              "colliders": [{"file": CID + "_head.tfxmesh", "bone": own_name("Head")}, {"file": CID + "_body.tfxmesh", "bone": own_name("Spine")}],
+              "follow": int(STYLE["follow"]), "follow_radius": float(STYLE["follow_radius"]), "local_stiffness": float(STYLE["local_stiffness"]),
+              "global_stiffness": float(STYLE["global_stiffness"]), "global_range": float(STYLE["global_range"]),
+              "base_colour": [round(float(c), 4) for c in numpy.clip(tone * float(STRANDS.get("root_shade", 0.85)), 0, 1)],
+              "tip_colour": [round(float(c), 4) for c in numpy.clip(tone * float(STRANDS.get("tip_shade", 1.1)), 0, 1)],
+              "fibre_radius": float(STRANDS.get("fibre_radius", 0.0011))}
+    json.dump(recipe, open(os.path.join(OUT, CID + "_hair.json"), "w", encoding="utf-8"), indent=1)
 
 shell.name = "Clothes"
 bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, CID + ".blend"))
