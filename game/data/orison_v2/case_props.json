@@ -1,0 +1,1727 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/case_props.glb",
+  "uv": "metres divided by the catalogue material's meters_per_tile; uv1_scale stays 1",
+  "assemblies": [
+    {
+      "id": "bell",
+      "note": "desk call bell: cast foot, spun brass gong, nickel plunger",
+      "triangles": 482,
+      "bounds": [
+        [
+          -0.05,
+          0.0,
+          -0.05
+        ],
+        [
+          0.05,
+          0.08,
+          0.05
+        ]
+      ],
+      "parts": [
+        {
+          "name": "bell__Body_ON_cast_iron",
+          "component": "Body",
+          "material": "cast_iron",
+          "triangles": 120
+        },
+        {
+          "name": "bell__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 272
+        },
+        {
+          "name": "bell__Plunger_ON_nickel_plated",
+          "component": "Plunger",
+          "material": "nickel_plated",
+          "triangles": 90,
+          "motion": "bob",
+          "amount": 0.006,
+          "pivot": [
+            0.0,
+            0.06,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pager",
+      "note": "Vantry pocket call receiver: signal apparatus, forty years early",
+      "triangles": 270,
+      "bounds": [
+        [
+          -0.029,
+          0.0,
+          -0.047
+        ],
+        [
+          0.037,
+          0.0225,
+          0.047
+        ]
+      ],
+      "parts": [
+        {
+          "name": "pager__Body_ON_bakelite_black",
+          "component": "Body",
+          "material": "bakelite_black",
+          "triangles": 144
+        },
+        {
+          "name": "pager__Body_ON_nickel_plated",
+          "component": "Body",
+          "material": "nickel_plated",
+          "triangles": 12
+        },
+        {
+          "name": "pager__Body_ON_milk_glass",
+          "component": "Body",
+          "material": "milk_glass",
+          "triangles": 50
+        },
+        {
+          "name": "pager__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 64
+        }
+      ]
+    },
+    {
+      "id": "notebook",
+      "note": "cloth-bound manuscript book with a ribbon",
+      "triangles": 60,
+      "bounds": [
+        [
+          -0.0774,
+          0.0,
+          -0.105
+        ],
+        [
+          0.075,
+          0.02,
+          0.1502
+        ]
+      ],
+      "parts": [
+        {
+          "name": "notebook__Body_ON_book_green",
+          "component": "Body",
+          "material": "book_green",
+          "triangles": 36
+        },
+        {
+          "name": "notebook__Body_ON_paper",
+          "component": "Body",
+          "material": "paper",
+          "triangles": 12
+        },
+        {
+          "name": "notebook__Body_ON_linen__madder",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 12,
+          "tint": [
+            0.62,
+            0.13,
+            0.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pencil",
+      "note": "hexagonal lacquered pencil, ferrule and rubber",
+      "triangles": 78,
+      "bounds": [
+        [
+          -0.095,
+          -0.0007,
+          -0.0039
+        ],
+        [
+          0.086,
+          0.0071,
+          0.0039
+        ]
+      ],
+      "parts": [
+        {
+          "name": "pencil__Body_ON_book_burgundy",
+          "component": "Body",
+          "material": "book_burgundy",
+          "triangles": 12
+        },
+        {
+          "name": "pencil__Body_ON_timber",
+          "component": "Body",
+          "material": "timber",
+          "triangles": 12
+        },
+        {
+          "name": "pencil__Body_ON_soot",
+          "component": "Body",
+          "material": "soot",
+          "triangles": 6
+        },
+        {
+          "name": "pencil__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 24
+        },
+        {
+          "name": "pencil__Body_ON_rubber_aged",
+          "component": "Body",
+          "material": "rubber_aged",
+          "triangles": 24
+        }
+      ]
+    },
+    {
+      "id": "spools",
+      "note": "three wooden cotton reels, two standing and one rolled over",
+      "triangles": 662,
+      "bounds": [
+        [
+          -0.056,
+          0.0,
+          -0.0288
+        ],
+        [
+          0.0814,
+          0.04,
+          0.0407
+        ]
+      ],
+      "parts": [
+        {
+          "name": "spools__Body_ON_timber",
+          "component": "Body",
+          "material": "timber",
+          "triangles": 450
+        },
+        {
+          "name": "spools__Body_ON_linen__madder",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 60,
+          "tint": [
+            0.62,
+            0.13,
+            0.12
+          ]
+        },
+        {
+          "name": "spools__Body_ON_linen__indigo",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 60,
+          "tint": [
+            0.16,
+            0.22,
+            0.46
+          ]
+        },
+        {
+          "name": "spools__Body_ON_linen__cream",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 92,
+          "tint": [
+            0.93,
+            0.87,
+            0.7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cassette",
+      "note": "sealed twin-hub signal cartridge: a cassette, forty years early",
+      "triangles": 476,
+      "bounds": [
+        [
+          -0.051,
+          0.0,
+          -0.032
+        ],
+        [
+          0.051,
+          0.013,
+          0.032
+        ]
+      ],
+      "parts": [
+        {
+          "name": "cassette__Body_ON_bakelite_black",
+          "component": "Body",
+          "material": "bakelite_black",
+          "triangles": 160
+        },
+        {
+          "name": "cassette__Body_ON_milk_glass",
+          "component": "Body",
+          "material": "milk_glass",
+          "triangles": 12
+        },
+        {
+          "name": "cassette__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 72
+        },
+        {
+          "name": "cassette__HubA_ON_nickel_plated",
+          "component": "HubA",
+          "material": "nickel_plated",
+          "triangles": 116,
+          "motion": "spin",
+          "amount": 2.4,
+          "pivot": [
+            -0.021,
+            0.0055,
+            -0.004
+          ]
+        },
+        {
+          "name": "cassette__HubB_ON_nickel_plated",
+          "component": "HubB",
+          "material": "nickel_plated",
+          "triangles": 116,
+          "motion": "spin",
+          "amount": -2.4,
+          "pivot": [
+            0.021,
+            0.0055,
+            -0.004
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tool_case",
+      "note": "japanned steel hip-roof tool box with tote tray handle",
+      "triangles": 268,
+      "bounds": [
+        [
+          -0.234,
+          0.0,
+          -0.103
+        ],
+        [
+          0.234,
+          0.2396,
+          0.1075
+        ]
+      ],
+      "parts": [
+        {
+          "name": "tool_case__Body_ON_iron_blackened",
+          "component": "Body",
+          "material": "iron_blackened",
+          "triangles": 156
+        },
+        {
+          "name": "tool_case__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 48
+        },
+        {
+          "name": "tool_case__Body_ON_nickel_plated",
+          "component": "Body",
+          "material": "nickel_plated",
+          "triangles": 64
+        }
+      ]
+    },
+    {
+      "id": "tags",
+      "note": "six manila string tags, tied in a loose bundle",
+      "triangles": 784,
+      "bounds": [
+        [
+          -0.0686,
+          0.0,
+          -0.0474
+        ],
+        [
+          0.0948,
+          0.0069,
+          0.0625
+        ]
+      ],
+      "parts": [
+        {
+          "name": "tags__Body_ON_paper__manila",
+          "component": "Body",
+          "material": "paper",
+          "triangles": 288,
+          "tint": [
+            0.8,
+            0.66,
+            0.42
+          ]
+        },
+        {
+          "name": "tags__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 288
+        },
+        {
+          "name": "tags__Body_ON_linen__cream",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 208,
+          "tint": [
+            0.93,
+            0.87,
+            0.7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tape_reel",
+      "note": "open reel of signal tape lying on its plain card box",
+      "triangles": 520,
+      "bounds": [
+        [
+          -0.1014,
+          0.0,
+          -0.1017
+        ],
+        [
+          0.1014,
+          0.035,
+          0.1014
+        ]
+      ],
+      "parts": [
+        {
+          "name": "tape_reel__Body_ON_paper__manila",
+          "component": "Body",
+          "material": "paper",
+          "triangles": 12,
+          "tint": [
+            0.8,
+            0.66,
+            0.42
+          ]
+        },
+        {
+          "name": "tape_reel__Body_ON_paper__cream",
+          "component": "Body",
+          "material": "paper",
+          "triangles": 12,
+          "tint": [
+            0.93,
+            0.87,
+            0.7
+          ]
+        },
+        {
+          "name": "tape_reel__Reel_ON_nickel_plated",
+          "component": "Reel",
+          "material": "nickel_plated",
+          "triangles": 344,
+          "motion": "spin",
+          "amount": 1.6,
+          "pivot": [
+            0.0,
+            0.022,
+            -0.0
+          ]
+        },
+        {
+          "name": "tape_reel__Reel_ON_bakelite__tape",
+          "component": "Reel",
+          "material": "bakelite",
+          "triangles": 152,
+          "tint": [
+            0.3,
+            0.17,
+            0.1
+          ],
+          "motion": "spin",
+          "amount": 1.6,
+          "pivot": [
+            0.0,
+            0.022,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "microphone",
+      "note": "floor stand, ring-and-spring transmitter, cracked gauze screen",
+      "triangles": 1144,
+      "bounds": [
+        [
+          -0.14,
+          0.0,
+          -0.14
+        ],
+        [
+          0.14,
+          1.4706,
+          0.14
+        ]
+      ],
+      "parts": [
+        {
+          "name": "microphone__Body_ON_cast_iron",
+          "component": "Body",
+          "material": "cast_iron",
+          "triangles": 192
+        },
+        {
+          "name": "microphone__Body_ON_nickel_plated",
+          "component": "Body",
+          "material": "nickel_plated",
+          "triangles": 432
+        },
+        {
+          "name": "microphone__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 120
+        },
+        {
+          "name": "microphone__Body_ON_bakelite_black",
+          "component": "Body",
+          "material": "bakelite_black",
+          "triangles": 96
+        },
+        {
+          "name": "microphone__Body_ON_brass_mesh",
+          "component": "Body",
+          "material": "brass_mesh",
+          "triangles": 12
+        },
+        {
+          "name": "microphone__Body_ON_wood_dark",
+          "component": "Body",
+          "material": "wood_dark",
+          "triangles": 216
+        },
+        {
+          "name": "microphone__Body_ON_linen__black",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 76,
+          "tint": [
+            0.1,
+            0.1,
+            0.1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stamp",
+      "note": "hand stamp with turned handle, resting by its inking tin",
+      "triangles": 434,
+      "bounds": [
+        [
+          -0.074,
+          0.0,
+          -0.056
+        ],
+        [
+          0.158,
+          0.091,
+          0.108
+        ]
+      ],
+      "parts": [
+        {
+          "name": "stamp__Body_ON_zinc_quiet",
+          "component": "Body",
+          "material": "zinc_quiet",
+          "triangles": 224
+        },
+        {
+          "name": "stamp__Body_ON_linen__indigo",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 16,
+          "tint": [
+            0.16,
+            0.22,
+            0.46
+          ]
+        },
+        {
+          "name": "stamp__Stamp_ON_rubber_aged",
+          "component": "Stamp",
+          "material": "rubber_aged",
+          "triangles": 12,
+          "motion": "bob",
+          "amount": 0.01,
+          "pivot": [
+            -0.045,
+            0.0,
+            0.01
+          ]
+        },
+        {
+          "name": "stamp__Stamp_ON_wood_dark",
+          "component": "Stamp",
+          "material": "wood_dark",
+          "triangles": 122,
+          "motion": "bob",
+          "amount": 0.01,
+          "pivot": [
+            -0.045,
+            0.0,
+            0.01
+          ]
+        },
+        {
+          "name": "stamp__Stamp_ON_brass",
+          "component": "Stamp",
+          "material": "brass",
+          "triangles": 60,
+          "motion": "bob",
+          "amount": 0.01,
+          "pivot": [
+            -0.045,
+            0.0,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "briefcase",
+      "note": "leather document case with flap, straps and lock",
+      "triangles": 336,
+      "bounds": [
+        [
+          -0.203,
+          -0.0,
+          -0.0445
+        ],
+        [
+          0.203,
+          0.3329,
+          0.0565
+        ]
+      ],
+      "parts": [
+        {
+          "name": "briefcase__Body_ON_leather_worn",
+          "component": "Body",
+          "material": "leather_worn",
+          "triangles": 84
+        },
+        {
+          "name": "briefcase__Body_ON_leather_worn__oxblood",
+          "component": "Body",
+          "material": "leather_worn",
+          "triangles": 144,
+          "tint": [
+            0.42,
+            0.16,
+            0.12
+          ]
+        },
+        {
+          "name": "briefcase__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 108
+        }
+      ]
+    },
+    {
+      "id": "helmet",
+      "note": "dispatch rider's padded leather crash helmet, scuffed crown down one side",
+      "triangles": 1076,
+      "bounds": [
+        [
+          -0.1336,
+          -0.016,
+          -0.1289
+        ],
+        [
+          0.115,
+          0.1389,
+          0.158
+        ]
+      ],
+      "parts": [
+        {
+          "name": "helmet__Body_ON_leather_worn",
+          "component": "Body",
+          "material": "leather_worn",
+          "triangles": 400
+        },
+        {
+          "name": "helmet__Body_ON_linen__black",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 16,
+          "tint": [
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        {
+          "name": "helmet__Body_ON_leather_worn__oxblood",
+          "component": "Body",
+          "material": "leather_worn",
+          "triangles": 588,
+          "tint": [
+            0.42,
+            0.16,
+            0.12
+          ]
+        },
+        {
+          "name": "helmet__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 48
+        },
+        {
+          "name": "helmet__Body_ON_leather_worn__bone",
+          "component": "Body",
+          "material": "leather_worn",
+          "triangles": 24,
+          "tint": [
+            0.86,
+            0.8,
+            0.66
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wedges",
+      "note": "four rubber furniture wedges, kicked into a loose row",
+      "triangles": 32,
+      "bounds": [
+        [
+          -0.2817,
+          -0.0,
+          -0.125
+        ],
+        [
+          0.2998,
+          0.048,
+          0.107
+        ]
+      ],
+      "parts": [
+        {
+          "name": "wedges__Body_ON_rubber_aged",
+          "component": "Body",
+          "material": "rubber_aged",
+          "triangles": 32
+        }
+      ]
+    },
+    {
+      "id": "bag",
+      "note": "overloaded canvas courier satchel, strap spilled on the floor",
+      "triangles": 678,
+      "bounds": [
+        [
+          -0.3095,
+          -0.0078,
+          -0.075
+        ],
+        [
+          0.2968,
+          0.42,
+          0.2788
+        ]
+      ],
+      "parts": [
+        {
+          "name": "bag__Body_ON_monks_cloth__canvas",
+          "component": "Body",
+          "material": "monks_cloth",
+          "triangles": 60,
+          "tint": [
+            0.55,
+            0.5,
+            0.38
+          ]
+        },
+        {
+          "name": "bag__Body_ON_leather_worn",
+          "component": "Body",
+          "material": "leather_worn",
+          "triangles": 426
+        },
+        {
+          "name": "bag__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 120
+        },
+        {
+          "name": "bag__Body_ON_paper__manila",
+          "component": "Body",
+          "material": "paper",
+          "triangles": 44,
+          "tint": [
+            0.8,
+            0.66,
+            0.42
+          ]
+        },
+        {
+          "name": "bag__Body_ON_paper__cream",
+          "component": "Body",
+          "material": "paper",
+          "triangles": 12,
+          "tint": [
+            0.93,
+            0.87,
+            0.7
+          ]
+        },
+        {
+          "name": "bag__Body_ON_linen__cream",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 16,
+          "tint": [
+            0.93,
+            0.87,
+            0.7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "artifact_box",
+      "note": "plain deal archive box, lid tied down with tape",
+      "triangles": 252,
+      "bounds": [
+        [
+          -0.1756,
+          0.0,
+          -0.106
+        ],
+        [
+          0.1758,
+          0.1391,
+          0.106
+        ]
+      ],
+      "parts": [
+        {
+          "name": "artifact_box__Body_ON_site_softwood",
+          "component": "Body",
+          "material": "site_softwood",
+          "triangles": 24
+        },
+        {
+          "name": "artifact_box__Body_ON_linen__cream",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 136,
+          "tint": [
+            0.93,
+            0.87,
+            0.7
+          ]
+        },
+        {
+          "name": "artifact_box__Body_ON_paper__cream",
+          "component": "Body",
+          "material": "paper",
+          "triangles": 12,
+          "tint": [
+            0.93,
+            0.87,
+            0.7
+          ]
+        },
+        {
+          "name": "artifact_box__Body_ON_linen__canvas",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 80,
+          "tint": [
+            0.55,
+            0.5,
+            0.38
+          ]
+        }
+      ]
+    },
+    {
+      "id": "antique_box",
+      "note": "walnut casket with brass corners, escutcheon and ball feet",
+      "triangles": 428,
+      "bounds": [
+        [
+          -0.1356,
+          0.0,
+          -0.0905
+        ],
+        [
+          0.1356,
+          0.142,
+          0.093
+        ]
+      ],
+      "parts": [
+        {
+          "name": "antique_box__Body_ON_wood_dark",
+          "component": "Body",
+          "material": "wood_dark",
+          "triangles": 36
+        },
+        {
+          "name": "antique_box__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 392
+        }
+      ]
+    },
+    {
+      "id": "keycards",
+      "note": "five punched room-key cards on a ring: signal stores, forty years early",
+      "triangles": 952,
+      "bounds": [
+        [
+          -0.0506,
+          0.0,
+          -0.052
+        ],
+        [
+          0.0629,
+          0.0058,
+          0.0403
+        ]
+      ],
+      "parts": [
+        {
+          "name": "keycards__Body_ON_paper__ivory",
+          "component": "Body",
+          "material": "paper",
+          "triangles": 820,
+          "tint": [
+            0.92,
+            0.88,
+            0.76
+          ]
+        },
+        {
+          "name": "keycards__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 132
+        }
+      ]
+    },
+    {
+      "id": "folded_cloth",
+      "note": "hotel hand towel folded in three, woven band at one end",
+      "triangles": 156,
+      "bounds": [
+        [
+          -0.15,
+          0.0,
+          -0.101
+        ],
+        [
+          0.15,
+          0.0488,
+          0.092
+        ]
+      ],
+      "parts": [
+        {
+          "name": "folded_cloth__Body_ON_linen__white",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 132,
+          "tint": [
+            1.0,
+            0.98,
+            0.94
+          ]
+        },
+        {
+          "name": "folded_cloth__Body_ON_linen__madder",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 24,
+          "tint": [
+            0.62,
+            0.13,
+            0.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "antenna",
+      "note": "frame aerial: square walnut loop wound with copper on a turned foot",
+      "triangles": 628,
+      "bounds": [
+        [
+          -0.294,
+          0.0,
+          -0.115
+        ],
+        [
+          0.294,
+          0.824,
+          0.115
+        ]
+      ],
+      "parts": [
+        {
+          "name": "antenna__Body_ON_wood_dark",
+          "component": "Body",
+          "material": "wood_dark",
+          "triangles": 264
+        },
+        {
+          "name": "antenna__Body_ON_copper_aged",
+          "component": "Body",
+          "material": "copper_aged",
+          "triangles": 240
+        },
+        {
+          "name": "antenna__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 112
+        },
+        {
+          "name": "antenna__Body_ON_bakelite_black",
+          "component": "Body",
+          "material": "bakelite_black",
+          "triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "palette",
+      "note": "walnut hand palette with thumb hole and the day's colours",
+      "triangles": 446,
+      "bounds": [
+        [
+          -0.1786,
+          0.0,
+          -0.101
+        ],
+        [
+          0.1786,
+          0.0145,
+          0.1168
+        ]
+      ],
+      "parts": [
+        {
+          "name": "palette__Body_ON_wood_dark",
+          "component": "Body",
+          "material": "wood_dark",
+          "triangles": 128
+        },
+        {
+          "name": "palette__Body_ON_enamel__madder",
+          "component": "Body",
+          "material": "enamel",
+          "triangles": 80,
+          "tint": [
+            0.62,
+            0.13,
+            0.12
+          ]
+        },
+        {
+          "name": "palette__Body_ON_enamel__ochre",
+          "component": "Body",
+          "material": "enamel",
+          "triangles": 80,
+          "tint": [
+            0.8,
+            0.58,
+            0.16
+          ]
+        },
+        {
+          "name": "palette__Body_ON_enamel__viridian",
+          "component": "Body",
+          "material": "enamel",
+          "triangles": 40,
+          "tint": [
+            0.2,
+            0.5,
+            0.38
+          ]
+        },
+        {
+          "name": "palette__Body_ON_enamel__sour",
+          "component": "Body",
+          "material": "enamel",
+          "triangles": 88,
+          "tint": [
+            0.62,
+            0.74,
+            0.2
+          ]
+        },
+        {
+          "name": "palette__Body_ON_timber",
+          "component": "Body",
+          "material": "timber",
+          "triangles": 30
+        }
+      ]
+    },
+    {
+      "id": "paint_cans",
+      "note": "two tinned paint cans, one opened on a colour that is plainly wrong",
+      "triangles": 902,
+      "bounds": [
+        [
+          -0.1304,
+          0.0,
+          -0.0856
+        ],
+        [
+          0.1351,
+          0.1663,
+          0.1537
+        ]
+      ],
+      "parts": [
+        {
+          "name": "paint_cans__Body_ON_zinc_quiet",
+          "component": "Body",
+          "material": "zinc_quiet",
+          "triangles": 632
+        },
+        {
+          "name": "paint_cans__Body_ON_enamel__sour",
+          "component": "Body",
+          "material": "enamel",
+          "triangles": 82,
+          "tint": [
+            0.62,
+            0.74,
+            0.2
+          ]
+        },
+        {
+          "name": "paint_cans__Body_ON_iron_blackened",
+          "component": "Body",
+          "material": "iron_blackened",
+          "triangles": 176
+        },
+        {
+          "name": "paint_cans__Body_ON_timber",
+          "component": "Body",
+          "material": "timber",
+          "triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "recorder",
+      "note": "portable capture deck: twin reels, head block, three keys and a pilot lens",
+      "triangles": 1320,
+      "bounds": [
+        [
+          -0.16,
+          0.0,
+          -0.12
+        ],
+        [
+          0.16,
+          0.117,
+          0.1518
+        ]
+      ],
+      "parts": [
+        {
+          "name": "recorder__Body_ON_bakelite_black",
+          "component": "Body",
+          "material": "bakelite_black",
+          "triangles": 138
+        },
+        {
+          "name": "recorder__Body_ON_enamel_appliance__grey",
+          "component": "Body",
+          "material": "enamel_appliance",
+          "triangles": 60,
+          "tint": [
+            0.45,
+            0.46,
+            0.46
+          ]
+        },
+        {
+          "name": "recorder__Body_ON_nickel_plated",
+          "component": "Body",
+          "material": "nickel_plated",
+          "triangles": 148
+        },
+        {
+          "name": "recorder__ReelA_ON_nickel_plated",
+          "component": "ReelA",
+          "material": "nickel_plated",
+          "triangles": 316,
+          "motion": "spin",
+          "amount": 1.6,
+          "pivot": [
+            -0.078,
+            0.101,
+            -0.04
+          ]
+        },
+        {
+          "name": "recorder__ReelA_ON_bakelite__tape",
+          "component": "ReelA",
+          "material": "bakelite",
+          "triangles": 108,
+          "tint": [
+            0.3,
+            0.17,
+            0.1
+          ],
+          "motion": "spin",
+          "amount": 1.6,
+          "pivot": [
+            -0.078,
+            0.101,
+            -0.04
+          ]
+        },
+        {
+          "name": "recorder__ReelB_ON_nickel_plated",
+          "component": "ReelB",
+          "material": "nickel_plated",
+          "triangles": 316,
+          "motion": "spin",
+          "amount": 1.1,
+          "pivot": [
+            0.078,
+            0.101,
+            -0.04
+          ]
+        },
+        {
+          "name": "recorder__ReelB_ON_bakelite__tape",
+          "component": "ReelB",
+          "material": "bakelite",
+          "triangles": 108,
+          "tint": [
+            0.3,
+            0.17,
+            0.1
+          ],
+          "motion": "spin",
+          "amount": 1.1,
+          "pivot": [
+            0.078,
+            0.101,
+            -0.04
+          ]
+        },
+        {
+          "name": "recorder__Body_ON_bakelite__tape",
+          "component": "Body",
+          "material": "bakelite",
+          "triangles": 40,
+          "tint": [
+            0.3,
+            0.17,
+            0.1
+          ]
+        },
+        {
+          "name": "recorder__Body_ON_bakelite__ivory",
+          "component": "Body",
+          "material": "bakelite",
+          "triangles": 36,
+          "tint": [
+            0.92,
+            0.88,
+            0.76
+          ]
+        },
+        {
+          "name": "recorder__Body_ON_milk_glass",
+          "component": "Body",
+          "material": "milk_glass",
+          "triangles": 50
+        }
+      ]
+    },
+    {
+      "id": "word_tiles",
+      "note": "a spilled set of blank boxwood anagram tiles",
+      "triangles": 376,
+      "bounds": [
+        [
+          -0.2101,
+          0.0,
+          -0.1468
+        ],
+        [
+          0.1772,
+          0.022,
+          0.127
+        ]
+      ],
+      "parts": [
+        {
+          "name": "word_tiles__Body_ON_timber__bone",
+          "component": "Body",
+          "material": "timber",
+          "triangles": 216,
+          "tint": [
+            0.86,
+            0.8,
+            0.66
+          ]
+        },
+        {
+          "name": "word_tiles__Body_ON_linen__indigo",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 80,
+          "tint": [
+            0.16,
+            0.22,
+            0.46
+          ]
+        },
+        {
+          "name": "word_tiles__Body_ON_linen__cream",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 80,
+          "tint": [
+            0.93,
+            0.87,
+            0.7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gloves",
+      "note": "a pair of white cotton handling gloves laid side by side",
+      "triangles": 600,
+      "bounds": [
+        [
+          -0.1524,
+          -0.0044,
+          -0.1176
+        ],
+        [
+          0.1568,
+          0.0124,
+          0.1094
+        ]
+      ],
+      "parts": [
+        {
+          "name": "gloves__Body_ON_linen__white",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 600,
+          "tint": [
+            1.0,
+            0.98,
+            0.94
+          ]
+        }
+      ]
+    },
+    {
+      "id": "service_cart",
+      "note": "two-shelf maintenance trolley on rubber castors",
+      "triangles": 1128,
+      "bounds": [
+        [
+          -0.42,
+          0.0011,
+          -0.217
+        ],
+        [
+          0.4904,
+          0.8806,
+          0.217
+        ]
+      ],
+      "parts": [
+        {
+          "name": "service_cart__Body_ON_iron_blackened",
+          "component": "Body",
+          "material": "iron_blackened",
+          "triangles": 512
+        },
+        {
+          "name": "service_cart__Body_ON_rubber_aged",
+          "component": "Body",
+          "material": "rubber_aged",
+          "triangles": 336
+        },
+        {
+          "name": "service_cart__Body_ON_oak_work_surface",
+          "component": "Body",
+          "material": "oak_work_surface",
+          "triangles": 24
+        },
+        {
+          "name": "service_cart__Body_ON_nickel_plated",
+          "component": "Body",
+          "material": "nickel_plated",
+          "triangles": 64
+        },
+        {
+          "name": "service_cart__Body_ON_zinc_quiet",
+          "component": "Body",
+          "material": "zinc_quiet",
+          "triangles": 168
+        },
+        {
+          "name": "service_cart__Body_ON_linen__canvas",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 12,
+          "tint": [
+            0.55,
+            0.5,
+            0.38
+          ]
+        },
+        {
+          "name": "service_cart__Body_ON_linen__cream",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 12,
+          "tint": [
+            0.93,
+            0.87,
+            0.7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clipboard",
+      "note": "inspection board: ply back, sprung brass clip, ruled sheets",
+      "triangles": 154,
+      "bounds": [
+        [
+          -0.115,
+          0.0,
+          -0.16
+        ],
+        [
+          0.1506,
+          0.016,
+          0.172
+        ]
+      ],
+      "parts": [
+        {
+          "name": "clipboard__Body_ON_plywood",
+          "component": "Body",
+          "material": "plywood",
+          "triangles": 12
+        },
+        {
+          "name": "clipboard__Body_ON_paper__cream",
+          "component": "Body",
+          "material": "paper",
+          "triangles": 12,
+          "tint": [
+            0.93,
+            0.87,
+            0.7
+          ]
+        },
+        {
+          "name": "clipboard__Body_ON_paper",
+          "component": "Body",
+          "material": "paper",
+          "triangles": 12
+        },
+        {
+          "name": "clipboard__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 56
+        },
+        {
+          "name": "clipboard__Body_ON_linen__cream",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 32,
+          "tint": [
+            0.93,
+            0.87,
+            0.7
+          ]
+        },
+        {
+          "name": "clipboard__Body_ON_book_burgundy",
+          "component": "Body",
+          "material": "book_burgundy",
+          "triangles": 12
+        },
+        {
+          "name": "clipboard__Body_ON_timber",
+          "component": "Body",
+          "material": "timber",
+          "triangles": 18
+        }
+      ]
+    },
+    {
+      "id": "tape_measure",
+      "note": "leather-cased winding tape with folding brass crank",
+      "triangles": 336,
+      "bounds": [
+        [
+          -0.047,
+          0.0,
+          -0.047
+        ],
+        [
+          0.1461,
+          0.031,
+          0.1088
+        ]
+      ],
+      "parts": [
+        {
+          "name": "tape_measure__Body_ON_leather_worn",
+          "component": "Body",
+          "material": "leather_worn",
+          "triangles": 128
+        },
+        {
+          "name": "tape_measure__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 106
+        },
+        {
+          "name": "tape_measure__Crank_ON_brass",
+          "component": "Crank",
+          "material": "brass",
+          "triangles": 54,
+          "motion": "spin",
+          "amount": -3.0,
+          "pivot": [
+            0.0,
+            0.0215,
+            -0.0
+          ]
+        },
+        {
+          "name": "tape_measure__Body_ON_linen__ochre",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 48,
+          "tint": [
+            0.8,
+            0.58,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "portal_tags",
+      "note": "five stamped brass tally tags on a split iron ring",
+      "triangles": 760,
+      "bounds": [
+        [
+          -0.0195,
+          0.0,
+          -0.0945
+        ],
+        [
+          0.106,
+          0.0096,
+          0.0945
+        ]
+      ],
+      "parts": [
+        {
+          "name": "portal_tags__Body_ON_brass_dull",
+          "component": "Body",
+          "material": "brass_dull",
+          "triangles": 620
+        },
+        {
+          "name": "portal_tags__Body_ON_iron_blackened",
+          "component": "Body",
+          "material": "iron_blackened",
+          "triangles": 140
+        }
+      ]
+    },
+    {
+      "id": "storage_crate",
+      "note": "slatted softwood packing crate with nailed lid and rope beckets",
+      "triangles": 732,
+      "bounds": [
+        [
+          -0.41,
+          0.0,
+          -0.258
+        ],
+        [
+          0.41,
+          0.494,
+          0.258
+        ]
+      ],
+      "parts": [
+        {
+          "name": "storage_crate__Body_ON_site_softwood",
+          "component": "Body",
+          "material": "site_softwood",
+          "triangles": 324
+        },
+        {
+          "name": "storage_crate__Body_ON_linen__canvas",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 120,
+          "tint": [
+            0.55,
+            0.5,
+            0.38
+          ]
+        },
+        {
+          "name": "storage_crate__Body_ON_iron_blackened",
+          "component": "Body",
+          "material": "iron_blackened",
+          "triangles": 288
+        }
+      ]
+    },
+    {
+      "id": "cable_bundle",
+      "note": "braided patch cords coiled on the floor, plugs loose",
+      "triangles": 1448,
+      "bounds": [
+        [
+          -0.2759,
+          -0.0022,
+          -0.2891
+        ],
+        [
+          0.2794,
+          0.032,
+          0.2872
+        ]
+      ],
+      "parts": [
+        {
+          "name": "cable_bundle__Body_ON_linen__black",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 880,
+          "tint": [
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        {
+          "name": "cable_bundle__Body_ON_linen__oxblood",
+          "component": "Body",
+          "material": "linen",
+          "triangles": 240,
+          "tint": [
+            0.42,
+            0.16,
+            0.12
+          ]
+        },
+        {
+          "name": "cable_bundle__Body_ON_bakelite_black",
+          "component": "Body",
+          "material": "bakelite_black",
+          "triangles": 160
+        },
+        {
+          "name": "cable_bundle__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 168
+        }
+      ]
+    },
+    {
+      "id": "rule_board",
+      "note": "storage-room rule board: walnut ground in a mitred oak frame, hung on iron straps",
+      "triangles": 464,
+      "bounds": [
+        [
+          -0.775,
+          -0.525,
+          -0.04
+        ],
+        [
+          0.775,
+          0.675,
+          0.084
+        ]
+      ],
+      "parts": [
+        {
+          "name": "rule_board__Body_ON_wood_dark",
+          "component": "Body",
+          "material": "wood_dark",
+          "triangles": 12
+        },
+        {
+          "name": "rule_board__Body_ON_oak_quartered",
+          "component": "Body",
+          "material": "oak_quartered",
+          "triangles": 60
+        },
+        {
+          "name": "rule_board__Body_ON_site_softwood",
+          "component": "Body",
+          "material": "site_softwood",
+          "triangles": 24
+        },
+        {
+          "name": "rule_board__Body_ON_iron_blackened",
+          "component": "Body",
+          "material": "iron_blackened",
+          "triangles": 48
+        },
+        {
+          "name": "rule_board__Body_ON_brass",
+          "component": "Body",
+          "material": "brass",
+          "triangles": 320
+        }
+      ]
+    }
+  ]
+}

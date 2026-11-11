@@ -51,6 +51,11 @@ var music_library: Node
 var broadcast: Node
 var night_glows: Node3D
 var domestic_witnesses: Node
+## The V1 sets rebuilt for V2 (retirement plan, section B): what each composer returned.
+var fire_apparatus: Dictionary = {}
+var lobby_set: Dictionary = {}
+var witness_clocks: Dictionary = {}
+var case_props: Dictionary = {}
 var moon_fill: OmniLight3D
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
@@ -366,11 +371,17 @@ func _ready() -> void:
 	add_child(night_glows)
 	night_glows.setup(self, _blockout, layout, adapter)
 	moon_fill = night_glows.moon_fill
+	# V1 sets rebuilt in Blender for V2 (retirement plan, section B).
+	fire_apparatus = preload("res://scripts/building/orison_v2_fire_apparatus.gd").mount(self, _blockout, layout, adapter)
+	lobby_set = preload("res://scripts/building/orison_v2_lobby_set.gd").mount(self, _blockout, layout, adapter)
+	witness_clocks = preload("res://scripts/building/orison_v2_witness_clocks.gd").mount(self, _blockout, layout, adapter)
+	case_props = preload("res://scripts/building/orison_v2_case_props.gd").mount(self, _blockout, layout, adapter, reality_controllers)
 	# The domestic witnesses (v1r_witness_tells_20261109): each intrusion reaches
 	# the resident's own household object, and one of 4B's own things answers.
 	domestic_witnesses = preload("res://scripts/building/orison_v2_domestic_witnesses.gd").new()
 	add_child(domestic_witnesses)
 	domestic_witnesses.mount(adapter, vantry_points)
+	domestic_witnesses.bind_clocks(witness_clocks.get("clocks", {}))
 	domestic_witnesses.bind_director(sanity, player)
 	_record_startup_milestone("reality_director_ready")
 	# The dream reaching into the case flats (v1r_waking_organism_20261109).

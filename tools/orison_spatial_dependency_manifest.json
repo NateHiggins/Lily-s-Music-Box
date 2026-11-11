@@ -59619,6 +59619,1017 @@
    "target_exists": true
   },
   {
+   "key": "2fa3b65b9dcc0b3d",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/storage_portal_tags/level",
+    "/props/storage_grief_crate/level",
+    "/props/storage_shame_crate/level",
+    "/rule_board/level"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c93f6b5fdf9d3add",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/maintenance_service_cart/level",
+    "/props/maintenance_clipboard/level",
+    "/props/impossible_tape_measure/level"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "163404d2e9368a58",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/juno_patch_cables/level"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "81a3ebf752a4e0f0",
+   "kind": "floor_reference",
+   "token": "F03",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/omar_tool_case/level",
+    "/props/rhea_pop_filter/level"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3f41bcba7ddea5d0",
+   "kind": "floor_reference",
+   "token": "F04",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/peter_document_case/level",
+    "/props/cam_rubber_wedges/level",
+    "/props/cam_courier_bag/level"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8de2e4b2022efec3",
+   "kind": "floor_reference",
+   "token": "F05",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/cal_loop_antenna/level",
+    "/props/iris_wrong_paint/level"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "63e2df064b4043a7",
+   "kind": "floor_reference",
+   "token": "F06",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/jonah_word_tiles/level"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7b440ec38e01b62d",
+   "kind": "id_reference",
+   "token": "1A_study_desk",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/evelyn_school_bell/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cf86899a484778f2",
+   "kind": "id_reference",
+   "token": "1D_din_t",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/teresa_pager/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a52e14859c791129",
+   "kind": "id_reference",
+   "token": "1D_house_bell",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/teresa_call_bell/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f0cd910359301a39",
+   "kind": "id_reference",
+   "token": "2A_desk",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/mina_style_guide/support",
+    "/props/mina_redaction_pencil/support"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8a2c6fb3a996d22e",
+   "kind": "id_reference",
+   "token": "2A_papers",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/mina_caption_cards/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "934129eb1ff2e16c",
+   "kind": "id_reference",
+   "token": "2B_fabric_worktable",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/lena_thread_spools/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9989918b3d912386",
+   "kind": "id_reference",
+   "token": "2B_sewing_machine",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/lena_sewing_machine/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d127433200d82ea6",
+   "kind": "id_reference",
+   "token": "2C_rig_table",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/juno_master_cassette/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d8b8ffd868ec50f3",
+   "kind": "id_reference",
+   "token": "3A_story_cuttings",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/malcolm_memory_cutting/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "79bbca2776cccbc0",
+   "kind": "id_reference",
+   "token": "3B_workbench",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/omar_unrepairable_tags/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bf52372251c696ee",
+   "kind": "id_reference",
+   "token": "3D_table",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/rhea_take_reel/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8ff55cc68c4d2a73",
+   "kind": "id_reference",
+   "token": "4A_writing_table",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/peter_notary_stamp/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c4fb706882120645",
+   "kind": "id_reference",
+   "token": "4C_din_t",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/cam_courier_helmet/support",
+    "/props/noel_artifact_box/support"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7c5265de2ec7f1be",
+   "kind": "id_reference",
+   "token": "4D_case",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/guest_mismatched_luggage/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "91a799bd7d353cf1",
+   "kind": "id_reference",
+   "token": "4D_table",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/guest_keycards/support",
+    "/props/guest_hotel_towel/support"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c4ec9271868e6cc0",
+   "kind": "id_reference",
+   "token": "5A_din_t",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/nadia_violation_stamp/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8dcb7c4e1900817e",
+   "kind": "id_reference",
+   "token": "5A_papers1",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/nadia_contradictory_plans/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e9bfdcdef99be77e",
+   "kind": "id_reference",
+   "token": "5B_story_radio",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/cal_bakelite_radio/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "09856bfbb65195e2",
+   "kind": "id_reference",
+   "token": "5C_easel",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/iris_private_canvas/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f894efc7dd56cbaa",
+   "kind": "id_reference",
+   "token": "5C_pigment_table",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/iris_stained_palette/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c6c4cb595843cc8e",
+   "kind": "id_reference",
+   "token": "6A_coil1",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/sacha_adapter_tangle/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "38f3fd513c9ef79e",
+   "kind": "id_reference",
+   "token": "6A_deskwall",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/sacha_delay_monitor/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "dd8856e21a427aa2",
+   "kind": "id_reference",
+   "token": "6A_tripod",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/sacha_primary_camera/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5a95470dcac676f9",
+   "kind": "id_reference",
+   "token": "6B_story_cold_coffee",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/jonah_cold_mug/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "102bcd245adb6985",
+   "kind": "id_reference",
+   "token": "6B_story_draft",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/jonah_unfinished_notebook/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "358e10fe89f6c965",
+   "kind": "id_reference",
+   "token": "6C_archive_table",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/mae_numbered_box/support",
+    "/props/mae_white_gloves/support",
+    "/props/mae_catalog_tags/support"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5cfa628cbb2e5a9a",
+   "kind": "id_reference",
+   "token": "F01_lobby_board",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/lobby_work_order_board/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f75a59e6c5af35b8",
+   "kind": "id_reference",
+   "token": "F03_3B_TOASTER_01",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/omar_wrong_toaster/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "b6c952e0c61489f5",
+   "kind": "runtime_id",
+   "token": "LobbyPorterBoard",
+   "file": "game/data/orison_v2/case_prop_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/props/elevator_reality_stabilizer/counterpart"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY",
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
    "key": "64a0b92f871a703c",
    "kind": "id_reference",
    "token": "storm_shop_shoe_rebuilding_bench",
@@ -111929,6 +112940,144 @@
    "target_exists": true
   },
   {
+   "key": "02b8b7df3af24d61",
+   "kind": "floor_reference",
+   "token": "F03",
+   "file": "game/data/orison_v2/fire_apparatus_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/extinguishers[0]/level"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ebcbf97a79c1bc89",
+   "kind": "id_reference",
+   "token": "F03_FIRE_LINE_STAIR",
+   "file": "game/data/orison_v2/fire_apparatus_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/extinguishers[0]/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7996f3e920861681",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_DOOR",
+   "file": "game/data/orison_v2/fire_apparatus_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/door_check/door"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c1f266efa0bde9c3",
+   "kind": "runtime_id",
+   "token": "F03_EXTINGUISHER_STAIR",
+   "file": "game/data/orison_v2/fire_apparatus_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/extinguishers[0]/station_id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY",
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "def7f2e6c18a8ad9",
+   "kind": "runtime_id",
+   "token": "ROOF_DOOR_CHECK",
+   "file": "game/data/orison_v2/fire_apparatus_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/door_check/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY",
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "runtime_created",
+   "target_exists": true
+  },
+  {
    "key": "c35f0b2e21a09137",
    "kind": "id_reference",
    "token": "B1_FIRE_LINE_STAIR",
@@ -135499,6 +136648,116 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "14bfd6d594e221dc",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/data/orison_v2/lobby_set_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/advert/level",
+    "/chute/level"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4cee7a8ab312ad1b",
+   "kind": "id_reference",
+   "token": "F01_LOBBY",
+   "file": "game/data/orison_v2/lobby_set_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/advert/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "dc599cf7684f42be",
+   "kind": "id_reference",
+   "token": "F01_MAIL_TELEPHONE",
+   "file": "game/data/orison_v2/lobby_set_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/chute/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c7b2edaa34b4c62e",
+   "kind": "id_reference",
+   "token": "F01_lobby_board",
+   "file": "game/data/orison_v2/lobby_set_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/bulletin/anchor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -175901,6 +177160,1522 @@
    "target_exists": true
   },
   {
+   "key": "8edf754f83fc6857",
+   "kind": "id_reference",
+   "token": "1A_frame_b",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/evelyn_paper_jam/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "abfc7bd973dd9ebe",
+   "kind": "id_reference",
+   "token": "1D_story_pattern_board",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/teresa_call_bells/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5921bbb1ce078279",
+   "kind": "id_reference",
+   "token": "2A_caption_wall",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/mina_caption_crisis/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e5eab0be58a446d2",
+   "kind": "id_reference",
+   "token": "2B_story_pattern_board",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/lena_unraveling/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e168d4fdf50a3ea6",
+   "kind": "id_reference",
+   "token": "2C_cable_hooks",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/juno_feedback_tetris/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c4f90418dd4639c8",
+   "kind": "id_reference",
+   "token": "3A_diagram",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/malcolm_memory_plants/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6a41a5943462931b",
+   "kind": "id_reference",
+   "token": "3B_toolboard",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/omar_unrepairable/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "01c51c7366d81731",
+   "kind": "id_reference",
+   "token": "3D_image_b",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/rhea_bad_karaoke/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0e4f2c75c63d69b3",
+   "kind": "id_reference",
+   "token": "4A_frame_b",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/peter_form_corridor/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "729c35bb82b4e31e",
+   "kind": "id_reference",
+   "token": "4C_museum_shelf",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/noel_domestic_museum/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7f4e3dd55522994f",
+   "kind": "id_reference",
+   "token": "4C_story_colorboard",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/cam_tilted_room/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8a287768fe9ee7ca",
+   "kind": "id_reference",
+   "token": "4D_lamp_table",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/transient_infinite_checkout/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "45c471fdaed991c4",
+   "kind": "id_reference",
+   "token": "5A_plan_wall",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/nadia_code_pinball/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f1e963eb43fd7a93",
+   "kind": "id_reference",
+   "token": "5B_work_a",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/cal_memory_radio/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2111311b6ea891d8",
+   "kind": "id_reference",
+   "token": "5C_canvas_a",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/iris_runaway_paint/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fcd957cd7162e741",
+   "kind": "id_reference",
+   "token": "6A_editorial_c",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/sacha_camera_delay/beside"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8f141bf8f30b757b",
+   "kind": "id_reference",
+   "token": "F01_A_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/evelyn_paper_jam/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "38123efa8782667f",
+   "kind": "id_reference",
+   "token": "F01_D_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/teresa_call_bells/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5a0bab4a9f92af4c",
+   "kind": "id_reference",
+   "token": "F01_LOBBY",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/honest[0]/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "08e96d8594f2675d",
+   "kind": "id_reference",
+   "token": "F01_LOBBY_CLOCK_01",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/honest[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "a2e813efdf493f4a",
+   "kind": "id_reference",
+   "token": "F02_A_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/mina_caption_crisis/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "85fc480e0ba5a218",
+   "kind": "id_reference",
+   "token": "F02_B_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/lena_unraveling/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7ee1dca220a426cc",
+   "kind": "id_reference",
+   "token": "F02_C_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/juno_feedback_tetris/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c5befe27be5bbde8",
+   "kind": "id_reference",
+   "token": "F03_A_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/malcolm_memory_plants/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "700b43499f34b2f5",
+   "kind": "id_reference",
+   "token": "F03_B_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/omar_unrepairable/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6d2e1a9c49686295",
+   "kind": "id_reference",
+   "token": "F03_D_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/rhea_bad_karaoke/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0a11911e9a416c55",
+   "kind": "id_reference",
+   "token": "F04_A_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/peter_form_corridor/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fca94ef2b14d87ab",
+   "kind": "id_reference",
+   "token": "F04_B_CLOCK_01",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/honest[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "211bb71db12f7318",
+   "kind": "id_reference",
+   "token": "F04_B_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/honest[1]/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "47df5418e8213d6d",
+   "kind": "id_reference",
+   "token": "F04_C_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/cam_tilted_room/space",
+    "/witness/noel_domestic_museum/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f30cab3a72ca008b",
+   "kind": "id_reference",
+   "token": "F04_D_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/transient_infinite_checkout/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6e282e1f2f451836",
+   "kind": "id_reference",
+   "token": "F05_A_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/nadia_code_pinball/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "aa985e4f119d73e6",
+   "kind": "id_reference",
+   "token": "F05_B_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/cal_memory_radio/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5c3ae3fd35cdb595",
+   "kind": "id_reference",
+   "token": "F05_C_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/iris_runaway_paint/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7d39266ad8a6cb3e",
+   "kind": "id_reference",
+   "token": "F06_A_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/sacha_camera_delay/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8cbc9ebc41bec448",
+   "kind": "id_reference",
+   "token": "F06_B_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/jonah_sentence_insects/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c8ebfaa4b1254e5c",
+   "kind": "id_reference",
+   "token": "F06_C_MAIN",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/mae_contradictory_antiques/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "be4f72513e391aa6",
+   "kind": "unit_reference",
+   "token": "1A",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/evelyn_paper_jam/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "eaf44dd956fb3678",
+   "kind": "unit_reference",
+   "token": "1D",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/teresa_call_bells/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "ac60f1ee7993caee",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/mina_caption_crisis/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "36a0419b410e5865",
+   "kind": "unit_reference",
+   "token": "2B",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/lena_unraveling/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "e115100d97364330",
+   "kind": "unit_reference",
+   "token": "2C",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/juno_feedback_tetris/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "db8fb247d4f3a238",
+   "kind": "unit_reference",
+   "token": "3A",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/malcolm_memory_plants/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "bbfd5fcee82423e2",
+   "kind": "unit_reference",
+   "token": "3B",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/omar_unrepairable/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "b06c41ec57f370b0",
+   "kind": "unit_reference",
+   "token": "3D",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/rhea_bad_karaoke/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "481c6e94de5686fe",
+   "kind": "unit_reference",
+   "token": "4A",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/peter_form_corridor/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "39197ec2158ed396",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/honest[1]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "ce22ed1dbf006b9d",
+   "kind": "unit_reference",
+   "token": "4C",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/cam_tilted_room/unit",
+    "/witness/noel_domestic_museum/unit"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "c3cea5919bfec228",
+   "kind": "unit_reference",
+   "token": "4D",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/transient_infinite_checkout/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "22bb5f417fb1a684",
+   "kind": "unit_reference",
+   "token": "5A",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/nadia_code_pinball/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "c5370a0a9f862fd6",
+   "kind": "unit_reference",
+   "token": "5B",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/cal_memory_radio/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "65d9ba15e77ee087",
+   "kind": "unit_reference",
+   "token": "5C",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/iris_runaway_paint/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "8f6e34242b67f3e4",
+   "kind": "unit_reference",
+   "token": "6A",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/sacha_camera_delay/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "626b11f1a8d2c891",
+   "kind": "unit_reference",
+   "token": "6B",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/jonah_sentence_insects/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "aa0b0f5c4f4af087",
+   "kind": "unit_reference",
+   "token": "6C",
+   "file": "game/data/orison_v2/witness_clock_placements.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/witness/mae_contradictory_antiques/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "440f75d299806ed8",
    "kind": "id_reference",
    "token": "2A_desk",
@@ -205835,6 +208610,36 @@
    "target_exists": true
   },
   {
+   "key": "c4c8634bd53468b9",
+   "kind": "generated_name",
+   "token": "_reach",
+   "file": "game/scripts/building/orison_v2_door_check_prop.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_reach"
+   ],
+   "lines": [
+    133
+   ],
+   "count": 1,
+   "context": [
+    "\"Reach_%s\" % control_id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "83cedb86f531fc82",
    "kind": "generated_name",
    "token": "_light_show_globes",
@@ -208452,6 +211257,66 @@
    "target_exists": null
   },
   {
+   "key": "a32a3c3d9e5d144e",
+   "kind": "generated_name",
+   "token": "_ready",
+   "file": "game/scripts/building/orison_v2_lobby_bulletin_board.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    37
+   ],
+   "count": 1,
+   "context": [
+    "\"Notice_%s\" % str(plan.notices[index].key)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "aff7339d970fb439",
+   "kind": "runtime_id",
+   "token": "LobbyMailChute",
+   "file": "game/scripts/building/orison_v2_lobby_set.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    61
+   ],
+   "count": 1,
+   "context": [
+    "chute.name = \"LobbyMailChute\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "runtime_created",
+   "target_exists": true
+  },
+  {
    "key": "58b5ad7f31762942",
    "kind": "floor_reference",
    "token": "B1",
@@ -209105,6 +211970,36 @@
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "F01/marker+acoustic_node",
    "target_exists": true
+  },
+  {
+   "key": "b664c549fccbd58b",
+   "kind": "generated_name",
+   "token": "mount_on",
+   "file": "game/scripts/building/orison_v2_native_witness_clocks.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_on"
+   ],
+   "lines": [
+    108
+   ],
+   "count": 1,
+   "context": [
+    "\"Numeral%02d\" % numerals.size()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "9dfabfe8354210ef",
@@ -211481,7 +214376,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1444
+    1455
    ],
    "count": 1,
    "context": [
@@ -211511,8 +214406,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1524,
-    1527
+    1535,
+    1538
    ],
    "count": 2,
    "context": [
@@ -211543,7 +214438,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    937
+    948
    ],
    "count": 1,
    "context": [
@@ -211573,7 +214468,7 @@
     "<module>"
    ],
    "lines": [
-    106
+    111
    ],
    "count": 1,
    "context": [
@@ -211603,7 +214498,7 @@
     "<module>"
    ],
    "lines": [
-    101
+    106
    ],
    "count": 1,
    "context": [
@@ -211633,7 +214528,7 @@
     "<module>"
    ],
    "lines": [
-    102
+    107
    ],
    "count": 1,
    "context": [
@@ -211663,7 +214558,7 @@
     "<module>"
    ],
    "lines": [
-    103
+    108
    ],
    "count": 1,
    "context": [
@@ -211693,7 +214588,7 @@
     "<module>"
    ],
    "lines": [
-    104
+    109
    ],
    "count": 1,
    "context": [
@@ -211723,7 +214618,7 @@
     "<module>"
    ],
    "lines": [
-    105
+    110
    ],
    "count": 1,
    "context": [
@@ -211753,7 +214648,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1672
+    1683
    ],
    "count": 1,
    "context": [
@@ -211783,7 +214678,7 @@
     "<module>"
    ],
    "lines": [
-    68
+    73
    ],
    "count": 1,
    "context": [
@@ -211814,9 +214709,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1438,
-    1441,
-    1503
+    1449,
+    1452,
+    1514
    ],
    "count": 3,
    "context": [
@@ -211848,7 +214743,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1453
+    1464
    ],
    "count": 1,
    "context": [
@@ -211878,7 +214773,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1445
+    1456
    ],
    "count": 1,
    "context": [
@@ -211908,7 +214803,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1462
+    1473
    ],
    "count": 1,
    "context": [
@@ -211938,7 +214833,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1670
+    1681
    ],
    "count": 1,
    "context": [
@@ -211968,7 +214863,7 @@
     "<module>"
    ],
    "lines": [
-    100
+    105
    ],
    "count": 1,
    "context": [
@@ -211998,7 +214893,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1454
+    1465
    ],
    "count": 1,
    "context": [
@@ -212028,7 +214923,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1666
+    1677
    ],
    "count": 1,
    "context": [
@@ -212058,7 +214953,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1668
+    1679
    ],
    "count": 1,
    "context": [
@@ -212088,7 +214983,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    837
+    848
    ],
    "count": 1,
    "context": [
@@ -212118,7 +215013,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1668
+    1679
    ],
    "count": 1,
    "context": [
@@ -212148,7 +215043,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1666
+    1677
    ],
    "count": 1,
    "context": [
@@ -212178,7 +215073,7 @@
     "_ready"
    ],
    "lines": [
-    217
+    222
    ],
    "count": 1,
    "context": [
@@ -212208,7 +215103,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    838
+    849
    ],
    "count": 1,
    "context": [
@@ -212238,7 +215133,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    838
+    849
    ],
    "count": 1,
    "context": [
@@ -212268,7 +215163,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1666
+    1677
    ],
    "count": 1,
    "context": [
@@ -212298,7 +215193,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1666
+    1677
    ],
    "count": 1,
    "context": [
@@ -212328,7 +215223,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    837
+    848
    ],
    "count": 1,
    "context": [
@@ -212358,7 +215253,7 @@
     "<module>"
    ],
    "lines": [
-    106
+    111
    ],
    "count": 1,
    "context": [
@@ -212388,9 +215283,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1521,
-    1525,
-    1528
+    1532,
+    1536,
+    1539
    ],
    "count": 3,
    "context": [
@@ -212422,7 +215317,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    631
+    642
    ],
    "count": 1,
    "context": [
@@ -212452,7 +215347,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    631
+    642
    ],
    "count": 1,
    "context": [
@@ -212482,7 +215377,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    630
+    641
    ],
    "count": 1,
    "context": [
@@ -212512,7 +215407,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    630
+    641
    ],
    "count": 1,
    "context": [
@@ -212542,7 +215437,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1429
+    1440
    ],
    "count": 1,
    "context": [
@@ -212572,7 +215467,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1430
+    1441
    ],
    "count": 1,
    "context": [
@@ -212602,7 +215497,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    631
+    642
    ],
    "count": 1,
    "context": [
@@ -212632,7 +215527,7 @@
     "<module>"
    ],
    "lines": [
-    101
+    106
    ],
    "count": 1,
    "context": [
@@ -212662,7 +215557,7 @@
     "<module>"
    ],
    "lines": [
-    102
+    107
    ],
    "count": 1,
    "context": [
@@ -212692,7 +215587,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1331
+    1342
    ],
    "count": 1,
    "context": [
@@ -212722,7 +215617,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    682
+    693
    ],
    "count": 1,
    "context": [
@@ -212753,8 +215648,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1186,
-    1316
+    1197,
+    1327
    ],
    "count": 2,
    "context": [
@@ -212785,7 +215680,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1317
+    1328
    ],
    "count": 1,
    "context": [
@@ -212815,7 +215710,7 @@
     "<module>"
    ],
    "lines": [
-    103
+    108
    ],
    "count": 1,
    "context": [
@@ -212845,7 +215740,7 @@
     "<module>"
    ],
    "lines": [
-    104
+    109
    ],
    "count": 1,
    "context": [
@@ -212875,7 +215770,7 @@
     "<module>"
    ],
    "lines": [
-    105
+    110
    ],
    "count": 1,
    "context": [
@@ -212905,7 +215800,7 @@
     "_ready"
    ],
    "lines": [
-    269
+    274
    ],
    "count": 1,
    "context": [
@@ -212935,7 +215830,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1487
+    1498
    ],
    "count": 1,
    "context": [
@@ -212965,7 +215860,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1488
+    1499
    ],
    "count": 1,
    "context": [
@@ -212995,7 +215890,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1489
+    1500
    ],
    "count": 1,
    "context": [
@@ -213025,7 +215920,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1486
+    1497
    ],
    "count": 1,
    "context": [
@@ -213055,7 +215950,7 @@
     "<module>"
    ],
    "lines": [
-    100
+    105
    ],
    "count": 1,
    "context": [
@@ -213086,7 +215981,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    674
+    685
    ],
    "count": 1,
    "context": [
@@ -213118,8 +216013,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1422,
-    1487
+    1433,
+    1498
    ],
    "count": 2,
    "context": [
@@ -213152,8 +216047,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1425,
-    1488
+    1436,
+    1499
    ],
    "count": 2,
    "context": [
@@ -213186,8 +216081,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1428,
-    1489
+    1439,
+    1500
    ],
    "count": 2,
    "context": [
@@ -213220,8 +216115,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1419,
-    1486
+    1430,
+    1497
    ],
    "count": 2,
    "context": [
@@ -213253,7 +216148,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    672
+    683
    ],
    "count": 1,
    "context": [
@@ -213284,7 +216179,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    548
+    559
    ],
    "count": 1,
    "context": [
@@ -213316,8 +216211,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    264,
-    553
+    269,
+    564
    ],
    "count": 2,
    "context": [
@@ -213349,7 +216244,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    679
+    690
    ],
    "count": 1,
    "context": [
@@ -213380,7 +216275,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    556
+    567
    ],
    "count": 1,
    "context": [
@@ -213412,8 +216307,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    672,
-    1527
+    683,
+    1538
    ],
    "count": 2,
    "context": [
@@ -213444,7 +216339,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1386
+    1397
    ],
    "count": 1,
    "context": [
@@ -213474,7 +216369,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1387
+    1398
    ],
    "count": 1,
    "context": [
@@ -266219,6 +269114,246 @@
    "target_exists": null
   },
   {
+   "key": "dacd20921e361756",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_case_props_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    35
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "9c4e340355feb754",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/tests/v2_case_props_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    108,
+    108,
+    114
+   ],
+   "count": 3,
+   "context": [
+    "var level := \"B1\" if str(placements[id].get(\"level\", \"\")) == \"B1\" else \"\"",
+    "if level == \"B1\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e9c3f886156a2861",
+   "kind": "id_reference",
+   "token": "B1_RESIDENT_STORAGE",
+   "file": "game/tests/v2_case_props_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    157
+   ],
+   "count": 1,
+   "context": [
+    "_check(str(world.room_at_world(board.global_position)) == \"B1_RESIDENT_STORAGE\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "affe37385a7c2479",
+   "kind": "unit_reference",
+   "token": "2C",
+   "file": "game/tests/v2_case_props_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_film_live"
+   ],
+   "lines": [
+    320
+   ],
+   "count": 1,
+   "context": [
+    "if str(cluster.unit) not in [\"2C\", \"3D\", \"4C\", \"5C\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "feab8133ecc94823",
+   "kind": "unit_reference",
+   "token": "3D",
+   "file": "game/tests/v2_case_props_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_film_live"
+   ],
+   "lines": [
+    320
+   ],
+   "count": 1,
+   "context": [
+    "if str(cluster.unit) not in [\"2C\", \"3D\", \"4C\", \"5C\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "30de775b182cf870",
+   "kind": "unit_reference",
+   "token": "4C",
+   "file": "game/tests/v2_case_props_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_film_live"
+   ],
+   "lines": [
+    320
+   ],
+   "count": 1,
+   "context": [
+    "if str(cluster.unit) not in [\"2C\", \"3D\", \"4C\", \"5C\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "844ab5d891a5296c",
+   "kind": "unit_reference",
+   "token": "5C",
+   "file": "game/tests/v2_case_props_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_film_live"
+   ],
+   "lines": [
+    320
+   ],
+   "count": 1,
+   "context": [
+    "if str(cluster.unit) not in [\"2C\", \"3D\", \"4C\", \"5C\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "0f71fcd13d844552",
+   "kind": "vector3_coordinate",
+   "token": "_centre",
+   "file": "game/tests/v2_case_props_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_centre"
+   ],
+   "lines": [
+    247
+   ],
+   "count": 1,
+   "context": [
+    "return node.global_position + Vector3(0, 0.05, 0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "aa9fb73776b0120d",
    "kind": "generated_name",
    "token": "_run",
@@ -267655,6 +270790,154 @@
    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
    "resolved_target": null,
    "target_exists": false
+  },
+  {
+   "key": "897d4ac3c3571f26",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_fire_apparatus_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f5d578e55d2394a6",
+   "kind": "floor_reference",
+   "token": "ROOF",
+   "file": "game/tests/v2_fire_apparatus_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_place"
+   ],
+   "lines": [
+    472
+   ],
+   "count": 1,
+   "context": [
+    "and str(record.get(\"level\", \"\")) == \"ROOF\" and \"ROOF_PUBLIC_CORE\" in record.get(\"connects\", []),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "74d5a9426379b531",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_CORE",
+   "file": "game/tests/v2_fire_apparatus_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_place"
+   ],
+   "lines": [
+    472
+   ],
+   "count": 1,
+   "context": [
+    "and str(record.get(\"level\", \"\")) == \"ROOF\" and \"ROOF_PUBLIC_CORE\" in record.get(\"connects\", []),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "691652db481658d8",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_DOOR",
+   "file": "game/tests/v2_fire_apparatus_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_place"
+   ],
+   "lines": [
+    469,
+    471
+   ],
+   "count": 2,
+   "context": [
+    "if str(door.id) == \"ROOF_PUBLIC_DOOR\":",
+    "_check(leaf != null and check.get_parent() == leaf and str(leaf.get_meta(\"semantic_id\", \"\")) == \"ROOF_PUBLIC_DOOR\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a71ab235c486e0fa",
+   "kind": "vector3_coordinate",
+   "token": "_captures",
+   "file": "game/tests/v2_fire_apparatus_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_captures"
+   ],
+   "lines": [
+    762,
+    762
+   ],
+   "count": 2,
+   "context": [
+    "await _shot(tag + \"_station_standing\", unit, Vector3(0.38, 0.50, 0.0), Vector3(0.60, 0.92, 1.80))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "3f966561f693619d",
@@ -269557,6 +272840,156 @@
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F06/marker+acoustic_node+fixture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "046f63e4926228fb",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/",
+   "file": "game/tests/v2_lobby_set_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_surfaces"
+   ],
+   "lines": [
+    550
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "eb4bcfd8f896d131",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_lobby_set_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    67
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "14a46c2722959dcf",
+   "kind": "id_reference",
+   "token": "F01_LOBBY",
+   "file": "game/tests/v2_lobby_set_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_placement"
+   ],
+   "lines": [
+    151
+   ],
+   "count": 1,
+   "context": [
+    "for row: Array in [[board, \"F01_LOBBY\", \"notice board\"], [advert, str(plan.advert.space), \"Orison broadside\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cefe02fbcd823eef",
+   "kind": "runtime_id",
+   "token": "LobbyMailBank",
+   "file": "game/tests/v2_lobby_set_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_placement",
+    "_capture"
+   ],
+   "lines": [
+    181,
+    570
+   ],
+   "count": 2,
+   "context": [
+    "var bank := _world.adapter.resolve(\"LobbyMailBank\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "6aa57d2aeb006999",
+   "kind": "runtime_id",
+   "token": "LobbyMailChute",
+   "file": "game/tests/v2_lobby_set_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_chute"
+   ],
+   "lines": [
+    377
+   ],
+   "count": 1,
+   "context": [
+    "_check(chute.prop_type == \"mail_chute\" and chute.name == \"LobbyMailChute\", \"the chute keeps its V1 identity\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "runtime_created",
    "target_exists": true
   },
   {
@@ -272573,6 +276006,94 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "6927cfa88a2fae54",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_witness_clocks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    34
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "dd932bb0080d4381",
+   "kind": "id_reference",
+   "token": "F01_LOBBY",
+   "file": "game/tests/v2_witness_clocks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_place_checks"
+   ],
+   "lines": [
+    97
+   ],
+   "count": 1,
+   "context": [
+    "_check(_world.room_at_world(honest[0].global_position + honest[0].global_transform.basis.z * 0.12) == \"F01_LOBBY\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f49ec7cf6db61705",
+   "kind": "id_reference",
+   "token": "F04_B_MAIN",
+   "file": "game/tests/v2_witness_clocks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_place_checks"
+   ],
+   "lines": [
+    99
+   ],
+   "count": 1,
+   "context": [
+    "_check(_world.room_at_world(honest[1].global_position + honest[1].global_transform.basis.z * 0.12) == \"F04_B_MAIN\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
   },
   {
    "key": "71d5337ad01a8e22",
