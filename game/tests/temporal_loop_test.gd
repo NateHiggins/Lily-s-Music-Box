@@ -40,8 +40,16 @@ func tick() -> void:
 	loop._process(0.1)
 
 
+## Give every pinned piece its day and its place.
+func file_all() -> void:
+	for item_id: String in loop.on_wall():
+		loop.file_date(item_id, loop.item_day(item_id))
+		loop.file_place(item_id, loop.item_where(item_id))
+
+
 ## Run string between the pieces of every deduction the wall could draw now.
 func join_all() -> void:
+	file_all()
 	for guard in 6:
 		var loose: Dictionary = loop.open_deduction()
 		if loose.is_empty():
@@ -278,6 +286,20 @@ func _ready() -> void:
 	var spread_before: int = loop.spread()
 	check(loop.pin_next().ok and "notebook" not in loop.unlocked() and (loop.ledger().deductions as Array).is_empty(),
 			"the route leaf pinned opens nothing by itself: the two pieces have to be joined")
+	# Filing: a day and a place for each piece.
+	check(str(loop.home_hint()).contains("has no day") and not loop.link("order_slip", "route_leaf").ok,
+			"pinned pieces must be filed before any string will run between them")
+	check(loop.item_day("order_slip") == 215 and loop.days_in_year() == 365, "13 June is day 215 of the year that began on 10 November")
+	var wrong_day: Dictionary = loop.file_date("order_slip", 100)
+	check(wrong_day.ok and not wrong_day.held and not loop.dated("order_slip"), "set against the wrong part of the year, the tag does not hold")
+	check(loop.file_date("order_slip", 219).held and loop.dated("order_slip") and not loop.file_date("order_slip", 215).ok,
+			"within a few days of its day, it holds, once")
+	check(str(loop.home_hint()).contains("no place"), "then the companion asks for its place")
+	var wrong_place: Dictionary = loop.file_place("order_slip", "5B")
+	check(wrong_place.ok and not wrong_place.held and not loop.file_place("order_slip", "9Z").ok, "a string to the wrong room falls, and a room not on the map is no room")
+	check(loop.file_place("order_slip", "6C").held and loop.filed("order_slip"), "to 6C, where it was found, it holds")
+	file_all()
+	check(loop.filed("route_leaf") and loop.undated() == "", "the route leaf is filed too")
 	check(str(loop.home_hint()).contains("wants joining"), "the companion says something wants joining")
 	check(not loop.link("order_slip", "order_slip").ok and not loop.link("order_slip", "nurse_note").ok,
 			"a string needs two different pieces, both on the wall")
@@ -301,6 +323,7 @@ func _ready() -> void:
 		var got: Dictionary = loop.take_clue()
 		var home: Dictionary = loop.go_home()
 		var put: Dictionary = loop.pin_next()
+		file_all()
 		if anchor_id == "stairs":
 			var wrong: Dictionary = loop.link("order_slip", "nurse_note")
 			check(wrong.ok and not wrong.held and loop.strings().size() == 1, "a string between two pieces that do not belong falls away")
@@ -318,7 +341,7 @@ func _ready() -> void:
 	check(walked, "every lead opens from the wall in turn and gives up its evidence")
 	check(loop.on_wall().size() == 11 and loop.unlocked().size() == 11 and loop.ledger().deductions.size() == 5 and loop.strings().size() == 6,
 			"eleven pieces on the wall, six strings, five deductions (%d, %d, %d)" % [loop.on_wall().size(), loop.strings().size(), loop.ledger().deductions.size()])
-	check(loop.spread() == 11 * 5 + 6 * 6 + 5 * 12, "the finished case is at its full spread (%d)" % loop.spread())
+	check(loop.spread() == 11 * 5 + 6 * 6 + 5 * 12 and is_equal_approx(loop.spread_fraction(), 1.0), "the finished case is at its full spread (%d)" % loop.spread())
 	check("the_case" in loop.ledger().deductions, "the last deduction is the case")
 	check(str(loop.home_hint()).contains("Read the wall"), "the companion has nothing left to send the player to")
 

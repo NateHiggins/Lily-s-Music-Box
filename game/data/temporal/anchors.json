@@ -55,7 +55,8 @@
 				"Flags laid out in the lobby for tomorrow.",
 				"Iced tea, not hot: the glasses sweat on the tray.",
 				"The radiators are cold and the player is there to bleed one anyway."
-			]
+			],
+			"where": "6C"
 		},
 		"friday": {
 			"title": "Friday's errand",
@@ -107,7 +108,8 @@
 				"Electric fans turning in the flats that have them.",
 				"The sky yellow in the west; awnings cranked in before the storm.",
 				"The ice card in a window turned to fifty pounds."
-			]
+			],
+			"where": "4C"
 		},
 		"stairs": {
 			"title": "The stairs before light",
@@ -165,7 +167,8 @@
 				"Lamps out where the lightning took the lights; one candle in 1D.",
 				"Windows shut in a hurry, curtains soaked.",
 				"The street washed clean and steaming."
-			]
+			],
+			"where": "1D"
 		},
 		"notebook": {
 			"title": "The writer upstairs",
@@ -229,7 +232,8 @@
 				"Shades drawn all day.",
 				"Bottles of soda water in a basin of ice.",
 				"Moths at the lamp."
-			]
+			],
+			"where": "6B"
 		},
 		"button": {
 			"title": "The mending basket",
@@ -299,7 +303,8 @@
 				"Washing hung indoors because the yard is wet.",
 				"A milk bottle and the ice card on the sill.",
 				"Leaves and grit blown in under the door."
-			]
+			],
+			"where": "2B"
 		},
 		"drain": {
 			"title": "The yard drain",
@@ -344,7 +349,8 @@
 				"The boiler cold and its room the coolest in the house.",
 				"Flypaper in the basement passage.",
 				"Coal bin swept and empty."
-			]
+			],
+			"where": "B1"
 		},
 		"drama": {
 			"title": "The twelfth record",
@@ -427,7 +433,8 @@
 				"The first school notices on the lobby board.",
 				"A fan still running but the evenings drawing in.",
 				"Peaches in a bowl."
-			]
+			],
+			"where": "5B"
 		},
 		"bench": {
 			"title": "Glass from the ash",
@@ -504,7 +511,8 @@
 				"Windows shut; storm sashes stacked in the hall, not yet hung.",
 				"Coal dust on the basement stairs.",
 				"Asters in a jar."
-			]
+			],
+			"where": "3B"
 		},
 		"duplicate": {
 			"title": "The sleeve check",
@@ -594,7 +602,8 @@
 				"Steam heat on and the windows fogged.",
 				"Bunting from the Columbus Day parade folded on the lobby shelf.",
 				"Dark by half past five."
-			]
+			],
+			"where": "6A"
 		},
 		"plate": {
 			"title": "Plate thirteen",
@@ -695,7 +704,8 @@
 				"Evening papers stacked high at the stand, sold out early.",
 				"Coats on every hallstand.",
 				"The radiators hot."
-			]
+			],
+			"where": "6A"
 		},
 		"box": {
 			"title": "Mrs. Kessler's box",
@@ -799,7 +809,8 @@
 				"Election posters from Tuesday still up on the hoardings.",
 				"Storm sashes hung; the house smells of coal.",
 				"Nadia's Armistice card unfinished in the shop window."
-			]
+			],
+			"where": "6C"
 		}
 	},
 	"deductions": {
@@ -948,5 +959,31 @@
 			"name": "Election Day",
 			"season": "late autumn"
 		}
+	],
+	"filing": {
+		"tolerance_days": 6,
+		"places": [
+			"ROOF",
+			"6",
+			"5",
+			"4",
+			"3",
+			"2",
+			"1",
+			"B1"
+		],
+		"columns": [
+			"A",
+			"B",
+			"C",
+			"D"
+		]
+	},
+	"neighbourhood": [
+		"THE ORISON",
+		"VANTRY ARCADE",
+		"PHOTO SUPPLIES",
+		"THE EL",
+		"HELL GATE"
 	]
 }

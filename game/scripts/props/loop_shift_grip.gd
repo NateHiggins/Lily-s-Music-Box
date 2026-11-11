@@ -15,7 +15,13 @@ var travel := 0.0
 var live := Callable()
 ## Called once when the thing has been carried its whole reach.
 var carried := Callable()
+## When set, the thing may be let go anywhere along its reach. Called with
+## the travel at release; returns where it should rest, or less than zero to
+## let it sink back.
+var settle := Callable()
+var gesture := Vector2.UP
 var area: Area3D
+var _parked := false
 var _held := false
 var _fired := false
 var _origin := Vector3.ZERO
@@ -35,7 +41,7 @@ func grip() -> Dictionary:
 	if part == null or _fired or (live.is_valid() and not bool(live.call())):
 		return {}
 	return {"owner": self, "part": part, "frame": part.get_parent(), "kind": "slide", "axis": axis,
-		"minimum": 0.0, "maximum": reach, "gesture_travel_px": GESTURE_PIXELS, "gesture_screen_axis": Vector2.UP,
+		"minimum": 0.0, "maximum": reach, "gesture_travel_px": GESTURE_PIXELS, "gesture_screen_axis": gesture,
 		"read": func(): return travel,
 		"write": func(value: float):
 			if _held:
@@ -46,7 +52,18 @@ func grip() -> Dictionary:
 			_held = true
 			return true,
 		"owns": func(): return _held,
-		"end": func(): _held = false}
+		"end": _let_go}
+
+
+func _let_go() -> void:
+	_held = false
+	if not settle.is_valid():
+		return
+	var rest := float(settle.call(travel))
+	if rest >= 0.0:
+		travel = clampf(rest, 0.0, reach)
+		part.position = _origin + axis * travel
+		_parked = true
 
 
 func move(value: float) -> void:
@@ -54,7 +71,7 @@ func move(value: float) -> void:
 		return
 	travel = clampf(value, 0.0, reach)
 	part.position = _origin + axis * travel
-	if travel >= reach - 0.000001:
+	if travel >= reach - 0.000001 and not settle.is_valid():
 		_fired = true
 		_held = false
 		if carried.is_valid():
@@ -70,12 +87,13 @@ func put_back() -> void:
 	travel = 0.0
 	_fired = false
 	_held = false
+	_parked = false
 	part.position = _origin
 	part.visible = _shown
 
 
 func _physics_process(delta: float) -> void:
-	if _held or _fired or travel <= 0.0:
+	if _held or _fired or _parked or travel <= 0.0:
 		return
 	travel = move_toward(travel, 0.0, delta * 0.3)
 	part.position = _origin + axis * travel

@@ -16,6 +16,24 @@ const INK := Color(0.09, 0.08, 0.07)
 const TAKE_REACH := 0.12
 const PIN_REACH := 0.25
 const PULL_REACH := 0.05
+## The year across the board, as fractions of the board: where the tape runs
+## and how far to either side.
+const YEAR_Y := -0.06
+const YEAR_HALF := 0.45
+const TAG_DROP := 0.05
+## Seasons along the year, by the day each begins (day 0 is 10 November 1928).
+const SEASON_BANDS := [[0, Color(0.74, 0.5, 0.36)], [21, Color(0.66, 0.74, 0.8)], [111, Color(0.68, 0.8, 0.62)],
+		[203, Color(0.9, 0.8, 0.5)], [295, Color(0.78, 0.52, 0.34)], [365, Color.BLACK]]
+const MONTHS := [[0, "N"], [21, "D"], [52, "J"], [83, "F"], [111, "M"], [142, "A"], [172, "M"], [203, "J"], [233, "J"],
+		[264, "A"], [295, "S"], [325, "O"], [356, "N"]]
+const BLACKOUT_DAY := 251
+## The building map, to the right of the board: its centre from the board's
+## centre, and its size, in metres.
+const MAP_CENTRE := Vector2(1.32, 0.02)
+const MAP_SIZE := Vector2(1.0, 1.2)
+const AREA_CENTRE := Vector2(1.32, -0.84)
+const AREA_SIZE := Vector2(0.9, 0.36)
+const AREA_SPOTS := [Vector2(-0.18, -0.02), Vector2(0.16, 0.08), Vector2(0.28, -0.1), Vector2(-0.3, 0.12), Vector2(0.02, -0.14)]
 const STRING_RED := Color(0.6, 0.04, 0.05)
 const STRING_WIDTH := 0.005
 const SURVEY_RAYS := 700
@@ -59,6 +77,16 @@ var string_from := ""
 var string_nodes: Dictionary = {}
 var loose_end: Node3D
 var _string_finish: StandardMaterial3D
+var _tints: Dictionary = {}
+## Place code to the pin on the building map.
+var cell_pins: Dictionary = {}
+## The pinned piece waiting for its day, as a tag on the year.
+var loose_tag: Node3D
+var loose_tag_grip: Node
+var loose_tag_item := ""
+var date_tags: Dictionary = {}
+var place_strings: Dictionary = {}
+var year_parts := 0
 var deduction_cards: Dictionary = {}
 ## Where paper can go in 4B, nearest the board first, and the paper there.
 var spots: Array[Dictionary] = []
@@ -109,6 +137,7 @@ func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
 	if wall != null and _paper != null:
 		_frame_wall()
 		_tuck()
+		_dress_wall()
 	loop.changed.connect(_sync)
 	loop.stage_reset.connect(_put_back)
 	_sync()
@@ -298,7 +327,7 @@ func slot_position(slot: int) -> Vector3:
 
 
 func _foot() -> Vector3:
-	return _wall_frame * Vector3(0.0, -_wall_size.y * 0.22, 0.0)
+	return _wall_frame * Vector3(_wall_size.x * 0.34, -_wall_size.y * 0.42, 0.0)
 
 
 func _hang(card: Node3D, at: Vector3, text: String) -> void:
@@ -361,6 +390,8 @@ func _pulled(item_id: String) -> void:
 	string_from = ""
 	var result: Dictionary = loop.link(from, item_id)
 	if not result.ok:
+		if str(result.get("code", "")) == "unfiled":
+			_note(wall, "NOT YET", "Give each piece its day and its place before you join them.", "FILE FIRST")
 		_sync()
 		return
 	if not bool(result.held):
@@ -414,7 +445,7 @@ func _ribbon(from: Vector3, to: Vector3) -> Node3D:
 func _deduction_place(deduction_id: String) -> Vector3:
 	var place: int = (loop.ledger().deductions as Array).find(deduction_id)
 	return _wall_frame * Vector3((-0.32 + 0.32 * float(place % 3)) * _wall_size.x,
-			(-0.08 - 0.2 * float(place / 3)) * _wall_size.y, 0.0)
+			(-0.26 - 0.16 * float(place / 3)) * _wall_size.y, 0.0)
 
 
 ## Bring every card in line with the ledger.
@@ -485,12 +516,208 @@ func _sync() -> void:
 		drawn.name = "LoopDeduction_" + str(deduction_id)
 		add_child(drawn)
 		var at := _deduction_place(str(deduction_id)) + _wall_frame.basis.z * 0.005
-		_place(drawn, _sized(_wall_frame.basis, 0.24, 0.17), at)
+		_place(drawn, _sized(_wall_frame.basis, 0.24, 0.15), at)
 		var label := _words(str(loop.table.deductions[str(deduction_id)].line), Basis(), 0.21)
 		drawn.add_child(label)
 		label.global_transform = Transform3D(_wall_frame.basis, at + _wall_frame.basis.z * 0.004)
 		deduction_cards[str(deduction_id)] = drawn
+	_sync_filing()
 	_grow()
+
+
+# --- The year and the maps ----------------------------------------------------------
+
+## A flat piece of the paper stock at a place on the wall (metres from the
+## board's centre), dyed.
+func _bar(at: Vector2, size: Vector2, tint: Color, lift: float, roll := 0.0) -> Node3D:
+	var bar := _copy_paper()
+	var key := tint.to_html()
+	if not _tints.has(key):
+		var finish := MatLib.get_mat("paper").duplicate() as StandardMaterial3D
+		finish.uv1_triplanar = false
+		finish.albedo_color = tint
+		_tints[key] = finish
+	for draw: MeshInstance3D in bar.get_children():
+		draw.material_override = _tints[key]
+	add_child(bar)
+	var turned := Basis(_wall_frame.basis.x.rotated(_wall_frame.basis.z, roll), _wall_frame.basis.y.rotated(_wall_frame.basis.z, roll), _wall_frame.basis.z)
+	_place(bar, _sized(turned, size.x, size.y), _wall_frame * Vector3(at.x, at.y, lift))
+	return bar
+
+
+func _lettering(text: String, at: Vector2, width: float, lift: float) -> Label3D:
+	var label := _words(text, Basis(), width)
+	add_child(label)
+	label.global_transform = Transform3D(_wall_frame.basis, _wall_frame * Vector3(at.x, at.y, lift))
+	return label
+
+
+## Where a day of the year falls on the tape, in metres from the board's centre.
+func day_x(day: int) -> float:
+	return (-YEAR_HALF + 2.0 * YEAR_HALF * float(day) / float(loop.days_in_year())) * _wall_size.x
+
+
+func year_length() -> float:
+	return 2.0 * YEAR_HALF * _wall_size.x
+
+
+## The centre of a place on the building map, in metres from the board's centre.
+func cell_at(where: String) -> Vector2:
+	var cell: Vector2i = loop._map_cell(loop.table, where)
+	var rows: int = (loop.table.filing.places as Array).size()
+	var columns: int = (loop.table.filing.columns as Array).size()
+	var whole_floor: bool = where in loop.table.filing.places
+	var x := MAP_CENTRE.x + (0.0 if whole_floor else (-0.5 + (float(cell.x) + 0.5) / float(columns)) * MAP_SIZE.x)
+	return Vector2(x, MAP_CENTRE.y + (0.5 - (float(cell.y) + 0.5) / float(rows)) * (MAP_SIZE.y - 0.1) - 0.05)
+
+
+## The year across the board, banded by season, and the two maps beside it.
+func _dress_wall() -> void:
+	var ink := Color(0.1, 0.09, 0.08)
+	var y := YEAR_Y * _wall_size.y
+	for index in SEASON_BANDS.size() - 1:
+		var from := day_x(int(SEASON_BANDS[index][0]))
+		var to := day_x(int(SEASON_BANDS[index + 1][0]))
+		_bar(Vector2((from + to) * 0.5, y), Vector2(to - from, 0.03), SEASON_BANDS[index][1], 0.004)
+		year_parts += 1
+	_bar(Vector2(0.0, y), Vector2(year_length(), 0.003), ink, 0.006)
+	for month: Array in MONTHS:
+		_bar(Vector2(day_x(int(month[0])), y), Vector2(0.002, 0.03), ink, 0.007)
+		_lettering(str(month[1]), Vector2(day_x(int(month[0])) + 0.012, y + 0.03), 0.3, 0.007)
+	for day: Dictionary in loop.table.calendar:
+		_bar(Vector2(day_x(loop.day_of_year(str(day.date))), y - 0.01), Vector2(0.003, 0.012), Color(0.55, 0.05, 0.05), 0.008)
+	# The hours nobody heard.
+	_bar(Vector2(day_x(BLACKOUT_DAY), y), Vector2(0.008, 0.05), Color(0.02, 0.02, 0.02), 0.009)
+	# The Orison in section.
+	_bar(MAP_CENTRE, MAP_SIZE, Color(0.86, 0.82, 0.7), 0.003)
+	_lettering("THE ORISON, IN SECTION", Vector2(MAP_CENTRE.x, MAP_CENTRE.y + MAP_SIZE.y * 0.5 - 0.04), 0.5, 0.006)
+	var rows: Array = loop.table.filing.places
+	var columns: Array = loop.table.filing.columns
+	var row_height := (MAP_SIZE.y - 0.1) / float(rows.size())
+	var top := MAP_CENTRE.y + (MAP_SIZE.y - 0.1) * 0.5 - 0.05
+	for row in rows.size() + 1:
+		_bar(Vector2(MAP_CENTRE.x, top - row_height * float(row)), Vector2(MAP_SIZE.x - 0.06, 0.004), ink, 0.005)
+	for column in columns.size() + 1:
+		var x := MAP_CENTRE.x + (-0.5 + float(column) / float(columns.size())) * (MAP_SIZE.x - 0.06)
+		var edge: bool = column == 0 or column == columns.size()
+		# Flats are divided only on the six living floors.
+		var from_row := 0 if edge else 1
+		var to_row := rows.size() if edge else rows.size() - 1
+		_bar(Vector2(x, top - row_height * float(from_row + to_row) * 0.5), Vector2(0.004, row_height * float(to_row - from_row)), ink, 0.005)
+	for row in rows.size():
+		var floor_code := str(rows[row])
+		var codes: Array[String] = []
+		if floor_code.length() > 1:
+			codes.append(floor_code)
+		else:
+			for column: Variant in columns:
+				codes.append(floor_code + str(column))
+		for code: String in codes:
+			var at := cell_at(code)
+			_lettering("BASEMENT" if code == "B1" else code, at + Vector2(0.0, row_height * 0.22), 0.2, 0.006)
+			var pin := _bar(at - Vector2(0.0, row_height * 0.16), Vector2(0.034, 0.034), Color(0.55, 0.05, 0.05), 0.008)
+			pin.name = "LoopPlace_" + code
+			var grip := Grip.new()
+			grip.name = "Pull"
+			pin.add_child(grip)
+			grip.configure(pin, _wall_frame.basis.z, PULL_REACH)
+			grip.live = func() -> bool: return not loop.in_visit()
+			grip.carried = func() -> void: _cell_pulled(code)
+			pin.set_meta("grip", grip)
+			cell_pins[code] = pin
+	# The neighbourhood, as a sketch.
+	_bar(AREA_CENTRE, AREA_SIZE, Color(0.86, 0.82, 0.7), 0.003)
+	_bar(AREA_CENTRE + Vector2(-0.05, 0.0), Vector2(0.95, 0.006), ink, 0.005, 0.32)
+	_bar(AREA_CENTRE + Vector2(0.0, -0.02), Vector2(0.7, 0.004), ink, 0.005)
+	_bar(AREA_CENTRE + Vector2(0.1, 0.0), Vector2(0.004, 0.3), ink, 0.005)
+	_bar(AREA_CENTRE + Vector2(0.36, 0.1), Vector2(0.2, 0.012), Color(0.45, 0.55, 0.62), 0.005, -0.5)
+	var names: Array = loop.table.neighbourhood
+	for index in mini(names.size(), AREA_SPOTS.size()):
+		_lettering(str(names[index]), AREA_CENTRE + AREA_SPOTS[index], 0.26, 0.006)
+	# The tag that waits for its day.
+	loose_tag = _copy_paper()
+	loose_tag.name = "LoopTag"
+	add_child(loose_tag)
+	_place(loose_tag, _sized(_wall_frame.basis, 0.05, 0.065), _wall_frame * Vector3(day_x(0), y - TAG_DROP, 0.011))
+	loose_tag_grip = Grip.new()
+	loose_tag_grip.name = "Slide"
+	loose_tag.add_child(loose_tag_grip)
+	loose_tag_grip.gesture = Vector2.RIGHT
+	loose_tag_grip.configure(loose_tag, _wall_frame.basis.x, year_length())
+	loose_tag_grip.live = func() -> bool: return not loop.in_visit() and not loose_tag_item.is_empty()
+	loose_tag_grip.settle = _tag_let_go
+	loose_tag.visible = false
+
+
+## The tag was let go somewhere along the year.
+func _tag_let_go(travel: float) -> float:
+	if loose_tag_item.is_empty():
+		return -1.0
+	var day := int(round(travel / year_length() * float(loop.days_in_year())))
+	var item_id := loose_tag_item
+	var result: Dictionary = loop.file_date(item_id, day)
+	if not result.ok:
+		return -1.0
+	if not bool(result.held):
+		_note(wall, "IT WILL NOT STAY", "%s does not belong to that part of the year." % str(loop.item_text(item_id).title), "NO")
+		return -1.0
+	return -1.0 # filed: _sync has hung its own tag, and this one goes back for the next
+
+
+## A room's pin on the map was pulled. With the string in hand it is run there.
+func _cell_pulled(where: String) -> void:
+	((cell_pins[where] as Node3D).get_meta("grip") as Node).put_back()
+	if string_from.is_empty():
+		_note(wall, where, "Take up the string from a piece first: pull its pin.", "THE MAP")
+		return
+	var item_id := string_from
+	string_from = ""
+	var result: Dictionary = loop.file_place(item_id, where)
+	if result.ok and not bool(result.held):
+		_note(wall, "THE STRING FALLS", "%s was not found in %s." % [str(loop.item_text(item_id).title), "the basement" if where == "B1" else where], "NO")
+	_sync()
+
+
+func _sync_filing() -> void:
+	if loose_tag == null:
+		return
+	var y := YEAR_Y * _wall_size.y - TAG_DROP
+	# The tag waiting for its day.
+	var waiting: String = "" if loop.in_visit() else str(loop.undated())
+	if waiting != loose_tag_item:
+		loose_tag_item = waiting
+		loose_tag_grip.put_back()
+		for old: Node in loose_tag.find_children("*", "Label3D", true, false):
+			old.free()
+		if not waiting.is_empty():
+			var label := _words(str(loop.item_text(waiting).title).to_upper(), Basis(), 0.046)
+			loose_tag.add_child(label)
+			label.global_transform = Transform3D(_wall_frame.basis, loose_tag.global_transform * Vector3.ZERO + _wall_frame.basis.z * 0.004)
+			label.global_position = _wall_frame * Vector3(day_x(0), y, 0.014)
+	loose_tag.visible = not loose_tag_item.is_empty()
+	# Tags that have their day.
+	for item_id: String in loop.on_wall():
+		if loop.dated(item_id) and not date_tags.has(item_id):
+			var at := Vector2(day_x(loop.item_day(item_id)), y - 0.07 * float(date_tags.size() % 2))
+			var tag := _bar(at, Vector2(0.05, 0.065), Color(0.93, 0.9, 0.8), 0.01)
+			tag.name = "LoopDated_" + item_id
+			var label := _words(str(loop.item_text(item_id).title).to_upper(), Basis(), 0.046)
+			tag.add_child(label)
+			label.global_transform = Transform3D(_wall_frame.basis, _wall_frame * Vector3(at.x, at.y, 0.013))
+			tag.set_meta("at", at)
+			date_tags[item_id] = tag
+		if loop.placed(item_id) and date_tags.has(item_id) and not place_strings.has(item_id):
+			var from: Vector2 = (date_tags[item_id] as Node3D).get_meta("at")
+			var to := cell_at(loop.item_where(item_id)) - Vector2(0.0, 0.03)
+			place_strings[item_id] = _ribbon(_wall_frame * Vector3(from.x, from.y, 0.004), _wall_frame * Vector3(to.x, to.y, 0.004))
+	for item_id: String in date_tags.keys():
+		if not loop.dated(item_id):
+			(date_tags[item_id] as Node).queue_free()
+			date_tags.erase(item_id)
+	for item_id: String in place_strings.keys():
+		if not loop.placed(item_id):
+			(place_strings[item_id] as Node).queue_free()
+			place_strings.erase(item_id)
 
 
 # --- The case takes the flat -------------------------------------------------------
@@ -514,6 +741,11 @@ func _survey() -> void:
 		var thing := adapter.resolve(object_id) as Node3D
 		if thing != null and world.unit_at_world(thing.global_position) == "4B":
 			eyes.append(thing.global_position)
+	for corner: Vector2 in [MAP_CENTRE + MAP_SIZE * 0.45, MAP_CENTRE - MAP_SIZE * 0.45, AREA_CENTRE + AREA_SIZE * 0.45, AREA_CENTRE - AREA_SIZE * 0.45]:
+		var from: Vector3 = _wall_frame * Vector3(corner.x, corner.y, 0.4)
+		var behind := space.intersect_ray(PhysicsRayQueryParameters3D.create(from, from - out * 0.7))
+		if behind.is_empty() or absf(from.distance_to(behind.position) - 0.4) > 0.12:
+			errors.append("no wall behind the map at %s" % str(corner))
 	var found: Array[Dictionary] = []
 	var cells := {}
 	for eye_index in eyes.size():
@@ -528,6 +760,9 @@ func _survey() -> void:
 			var where: Vector3 = hit.position
 			var on_board: Vector3 = _wall_frame.affine_inverse() * where
 			if absf(on_board.z) < 0.08 and absf(on_board.x) < _wall_size.x * 0.5 + 0.06 and absf(on_board.y) < _wall_size.y * 0.5 + 0.06:
+				continue
+			if absf(on_board.z) < 0.08 and absf(on_board.x - MAP_CENTRE.x) < MAP_SIZE.x * 0.5 + 0.04 \
+					and on_board.y < MAP_CENTRE.y + MAP_SIZE.y * 0.5 + 0.04 and on_board.y > AREA_CENTRE.y - AREA_SIZE.y * 0.5 - 0.04:
 				continue
 			if world.unit_at_world(where) != "4B":
 				continue

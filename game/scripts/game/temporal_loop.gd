@@ -81,7 +81,7 @@ static func _load_table() -> Dictionary:
 	var clues := {}
 	for anchor_id: String in parsed.anchors:
 		var anchor: Dictionary = parsed.anchors[anchor_id]
-		for field: String in ["title", "place", "date", "start", "minutes", "question", "tier", "needs", "steps", "clue"]:
+		for field: String in ["title", "place", "where", "date", "start", "minutes", "question", "tier", "needs", "steps", "clue"]:
 			if not anchor.has(field):
 				return {}
 		anchor["strict"] = bool(anchor.get("strict", false))
@@ -122,6 +122,13 @@ static func _load_table() -> Dictionary:
 					if str(step.get("flag", "")).is_empty(): return {}
 	if parsed.get("deductions") is not Dictionary or parsed.get("scrawls") is not Array or parsed.get("calendar") is not Array:
 		return {}
+	var filing: Variant = parsed.get("filing")
+	if filing is not Dictionary or int(filing.get("tolerance_days", 0)) <= 0 or filing.get("places") is not Array \
+			or filing.get("columns") is not Array or parsed.get("neighbourhood") is not Array:
+		return {}
+	for anchor_id: String in parsed.anchors:
+		if _map_cell(parsed, str(parsed.anchors[anchor_id].where)).x < 0:
+			return {}
 	for day: Variant in parsed.calendar:
 		if day is not Dictionary or str(day.get("date", "")).split("-").size() != 3 \
 				or str(day.get("name", "")).is_empty() or str(day.get("season", "")).is_empty():
@@ -147,6 +154,18 @@ static func _load_table() -> Dictionary:
 					return {}
 	parsed["clue_anchor"] = clues
 	return parsed
+
+
+## Where a place code sits on the building map: x is the column (0 for a whole
+## floor), y the row from the top. (-1, -1) when the code is not on the map.
+static func _map_cell(source: Dictionary, where: String) -> Vector2i:
+	var rows: Array = source.filing.places
+	var columns: Array = source.filing.columns
+	if where in rows:
+		return Vector2i(0, rows.find(where))
+	if where.length() == 2 and where.left(1) in rows and where.right(1) in columns:
+		return Vector2i(columns.find(where.right(1)), rows.find(where.left(1)))
+	return Vector2i(-1, -1)
 
 
 static func _minute_of(text: String) -> int:
@@ -280,6 +299,75 @@ func unlocked() -> Array[String]:
 	return ids
 
 
+# --- Filing: every piece has a day and a place --------------------------------------
+
+## Days from the start of the historical year to a date ("1929-07-19").
+static func day_of_year(date: String) -> int:
+	var parts := date.split("-")
+	if parts.size() != 3:
+		return -1
+	return int(round((CampaignClock.calendar_minute_of(int(parts[0]), int(parts[1]), int(parts[2]), 0.0)
+			- CampaignClock.loop_beginning_minute()) / CampaignClock.MINUTES_PER_DAY))
+
+
+func days_in_year() -> int:
+	return int(round(CampaignClock.loop_length_minutes() / CampaignClock.MINUTES_PER_DAY))
+
+
+func item_day(item_id: String) -> int:
+	return day_of_year(str(table.anchors[str(table.clue_anchor[item_id])].date))
+
+
+func item_where(item_id: String) -> String:
+	return str(table.anchors[str(table.clue_anchor[item_id])].where)
+
+
+func dated(item_id: String) -> bool:
+	return pinned(item_id) and bool(ledger().items[item_id].get("dated", false))
+
+
+func placed(item_id: String) -> bool:
+	return pinned(item_id) and bool(ledger().items[item_id].get("placed", false))
+
+
+func filed(item_id: String) -> bool:
+	return dated(item_id) and placed(item_id)
+
+
+## The pinned piece waiting for its day, or "" when every pinned piece has one.
+func undated() -> String:
+	for item_id: String in on_wall():
+		if not dated(item_id):
+			return item_id
+	return ""
+
+
+## Set a pinned piece against a day of the year on the timeline. It holds
+## only within a few days of the day it comes from.
+func file_date(item_id: String, day: int) -> Dictionary:
+	if in_visit() or not pinned(item_id) or dated(item_id):
+		return {"ok": false}
+	if absi(day - item_day(item_id)) > int(table.filing.tolerance_days):
+		return {"ok": true, "held": false}
+	ledger().items[item_id]["dated"] = true
+	RealityState.commit()
+	changed.emit()
+	return {"ok": true, "held": true, "day": item_day(item_id)}
+
+
+## Run a string from a pinned piece to a place on the building map. It holds
+## only at the place the piece was found.
+func file_place(item_id: String, where: String) -> Dictionary:
+	if in_visit() or not pinned(item_id) or placed(item_id) or _map_cell(table, where).x < 0:
+		return {"ok": false}
+	if where != item_where(item_id):
+		return {"ok": true, "held": false}
+	ledger().items[item_id]["placed"] = true
+	RealityState.commit()
+	changed.emit()
+	return {"ok": true, "held": true}
+
+
 # --- Making sense of it: string between the pieces ------------------------------
 
 func strings() -> Array:
@@ -325,7 +413,7 @@ func open_deduction() -> Dictionary:
 			continue
 		var ready := true
 		for need: Variant in table.deductions[deduction_id].needs:
-			ready = ready and pinned(str(need))
+			ready = ready and filed(str(need))
 		if ready:
 			return {"id": deduction_id, "needs": table.deductions[deduction_id].needs}
 	return {}
@@ -342,6 +430,8 @@ func link(a: String, b: String) -> Dictionary:
 		return {"ok": false, "code": "not_pinned"}
 	if joined(a, b):
 		return {"ok": false, "code": "joined"}
+	if not filed(a) or not filed(b):
+		return {"ok": false, "code": "unfiled"}
 	var book := ledger()
 	book["tries"] = int(book.get("tries", 0)) + 1
 	if not belong(a, b):
@@ -371,7 +461,10 @@ func link(a: String, b: String) -> Dictionary:
 
 ## How far the case has grown over the flat: the wall spreads with it.
 func spread() -> int:
-	return on_wall().size() * 5 + strings().size() * 6 + (ledger().deductions as Array).size() * 12
+	var filings := 0
+	for item_id: String in on_wall():
+		filings += (1 if dated(item_id) else 0) + (1 if placed(item_id) else 0)
+	return on_wall().size() * 3 + filings + strings().size() * 6 + (ledger().deductions as Array).size() * 12
 
 
 ## The same as a share of the finished case, 0 to 1. At 1 the flat is consumed.
@@ -773,6 +866,11 @@ func visit_hint() -> String:
 func home_hint() -> String:
 	if not carried().is_empty():
 		return "You are carrying %s. Pin it to the case wall in 4B. The wall decides what opens." % str(item_text(carried()[0]).title)
+	for item_id: String in on_wall():
+		if not dated(item_id):
+			return "%s is pinned but has no day. Slide its tag along the year to the day it comes from." % str(item_text(item_id).title)
+		if not placed(item_id):
+			return "%s has its day but no place. Pull its pin, then the pin of the room on the map where you found it." % str(item_text(item_id).title)
 	var loose := open_deduction()
 	if not loose.is_empty():
 		var tries := int(ledger().get("tries", 0))
@@ -912,7 +1010,7 @@ func leads_text() -> String:
 func wall_text() -> String:
 	var lines: Array[String] = ["THE WALL, 4B."]
 	for item_id: String in on_wall():
-		lines.append("- %s" % str(item_text(item_id).title).to_upper())
+		lines.append("- %s%s" % [str(item_text(item_id).title).to_upper(), "" if filed(item_id) else "  (not filed)"])
 	for item_id: String in carried():
 		lines.append("  (carried) %s" % str(item_text(item_id).title))
 	for string: Array in strings():

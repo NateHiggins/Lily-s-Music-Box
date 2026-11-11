@@ -195,6 +195,36 @@ func _ready() -> void:
 	_check(stage.wall_cards.size() == 3 and loop.strings().is_empty() and "notebook" not in loop.unlocked(),
 			"three pieces on the wall, nothing joined, and the writer upstairs still shut")
 	var pull_order: Node = (stage.wall_cards["order_slip"] as Node3D).get_meta("grip")
+
+	# Filing: the year across the board, and the building map beside it.
+	_check(stage.year_parts == 5 and stage.cell_pins.size() == 26, "the year is on the board in five seasons, and the map has a pin for every flat, the roof and the basement (%d)" % stage.cell_pins.size())
+	_check(stage.loose_tag.visible and stage.loose_tag_item == "order_slip", "the order slip's tag waits at the start of the year")
+	_check(_carry(pull_order) and _carry(pull_order), "string taken up and put down")
+	var slide: Dictionary = stage.loose_tag_grip.grip()
+	_check(not slide.is_empty() and bool(slide.begin.call()), "the hand takes the tag")
+	slide.write.call(stage.year_length() * 100.0 / 365.0)
+	slide.end.call()
+	_check(not loop.dated("order_slip") and stage.date_tags.is_empty(), "let go in February, it does not stay")
+	stage.loose_tag_grip.put_back()
+	slide = stage.loose_tag_grip.grip()
+	slide.begin.call()
+	slide.write.call(stage.year_length() * 217.0 / 365.0)
+	slide.end.call()
+	await _frames(3)
+	_check(loop.dated("order_slip") and stage.date_tags.has("order_slip") and stage.loose_tag_item == "route_leaf",
+			"let go in the middle of June, it stays, and the next piece's tag is waiting")
+	_check(absf(((stage.date_tags["order_slip"] as Node3D).get_meta("at") as Vector2).x - stage.day_x(215)) < 0.001, "its tag hangs at 13 June")
+	_check(_carry(pull_order) and _carry((stage.cell_pins["5B"] as Node3D).get_meta("grip")) and not loop.placed("order_slip") and stage.place_strings.is_empty(),
+			"string run to 5B on the map falls")
+	_check(_carry(pull_order) and _carry((stage.cell_pins["6C"] as Node3D).get_meta("grip")), "string run to 6C")
+	await _frames(3)
+	_check(loop.filed("order_slip") and stage.place_strings.has("order_slip"), "it holds: the slip has its day and its place")
+	await _snap("wall_filed")
+	for item_id: String in ["route_leaf", "nurse_note"]:
+		loop.file_date(item_id, loop.item_day(item_id))
+		loop.file_place(item_id, loop.item_where(item_id))
+	await _frames(3)
+	_check(stage.date_tags.size() == 3 and stage.place_strings.size() == 3 and not stage.loose_tag.visible, "all three pieces filed")
 	var pull_nurse: Node = (stage.wall_cards["nurse_note"] as Node3D).get_meta("grip")
 	var pull_route: Node = (stage.wall_cards["route_leaf"] as Node3D).get_meta("grip")
 	_check(_carry(pull_order) and stage.string_from == "order_slip" and stage.loose_end != null, "the order slip's pin pulled: a loose red end hangs from it")
@@ -228,7 +258,7 @@ func _ready() -> void:
 		for anchor_id: String in loop.table.anchors:
 			var item_id := str(loop.table.anchors[anchor_id].clue.id)
 			if not loop.holds(item_id):
-				loop.ledger().items[item_id] = {"pinned": true, "anchor": anchor_id, "run": 1, "slot": slot}
+				loop.ledger().items[item_id] = {"pinned": true, "anchor": anchor_id, "run": 1, "slot": slot, "dated": true, "placed": true}
 				slot += 1
 		for deduction_id: String in loop.table.deductions:
 			var needs: Array = loop.table.deductions[deduction_id].needs
