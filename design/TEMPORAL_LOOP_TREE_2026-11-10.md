@@ -228,7 +228,7 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 
 ## What is not settled
 
-- Every evidence text and hint is a first draft. Three are not from the treatment and are my invention: the wording of the order slip, Jonah's struck page, and Cal's timing card.
+- Every evidence text and hint is a first draft. Three are not from the treatment and are my invention: the wording of the order slip, Jonah's struck page, and Cal's timing card. Lily ruled on 2026-11-10 that new evidence items may be invented as the need arises.
 - The choice of objects is by name from the V2 furniture data. Whether each lift reads well in the room has been looked at for the tea only.
 - The drain's evidence hangs in the air by the boiler room switch; it needs a surface.
 - Whether the player can get into each flat at each hour (keys, a resident at home) has not been played.

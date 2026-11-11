@@ -128,6 +128,10 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
   player meets: companion, residents, overheard talk, dreams, work orders.
   All game text is authored. Older plans and the Astra mandate's generative
   passages are superseded. Local models remain development tools only.
+- Clarified by Lily on 2026-11-10: game AI in the traditional sense is fine.
+  Rules, state machines, schedules, pathfinding and a companion that acts and
+  hints from authored lines are all allowed. The ruling bars a large language
+  model loaded in the game, nothing else.
 
 ## Tools
 
