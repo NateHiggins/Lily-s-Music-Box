@@ -98,6 +98,21 @@ func _ready() -> void:
 				"%s stands where the table puts it (%s)" % [identity, str(here)])
 		_check(world.room_at_world(thing.global_position + Vector3.UP * 0.3) == str(rooms[identity]),
 				"%s is in %s (%s)" % [identity, str(rooms[identity]), world.room_at_world(thing.global_position + Vector3.UP * 0.3)])
+	# Each of the three can be seen: it has drawn surfaces, shown, with a real extent.
+	for identity: String in ["LobbyMailBank", "LobbyPorterBoard", "F01_HOUSE_TELEPHONE_BOARD"]:
+		var thing := world.adapter.resolve(identity) as Node3D
+		var shown := 0
+		var box := AABB()
+		for draw: Node in thing.find_children("*", "GeometryInstance3D", true, false):
+			var instance := draw as GeometryInstance3D
+			if instance.is_visible_in_tree():
+				var part := instance.global_transform * instance.get_aabb()
+				box = part if shown == 0 else box.merge(part)
+				shown += 1
+		var local_box: AABB = world.adapter.root.global_transform.affine_inverse() * box
+		print("FIRST FLOOR: %s shows %d surfaces, x %.2f..%.2f  y %.2f..%.2f  z %.2f..%.2f" % [identity, shown,
+				local_box.position.x, local_box.end.x, local_box.position.y, local_box.end.y, local_box.position.z, local_box.end.z])
+		_check(shown >= 3 and box.size.length() > 0.3, "%s is drawn (%d surfaces)" % [identity, shown])
 	# The three fittings: a wall close behind, clear floor in front.
 	for identity: String in ["LobbyMailBank", "LobbyPorterBoard", "F01_HOUSE_TELEPHONE_BOARD"]:
 		var thing := world.adapter.resolve(identity) as Node3D
@@ -133,7 +148,10 @@ func _ready() -> void:
 	await _snap("lobby_mail_bank", Vector3(bank.global_position.x - 3.2, floor_y, bank.global_position.z + 0.6), bank.global_position + Vector3.UP * 1.2)
 	await _snap("lobby_porter_board", Vector3(board.global_position.x + 0.4, floor_y, board.global_position.z - 2.6), board.global_position)
 	await _snap("lobby_whole", world.adapter.root.to_global(Vector3(-3.8, 0.0, -8.4)), world.adapter.root.to_global(Vector3(3.0, 1.3, -5.5)))
-	await _snap("house_office_telephone", Vector3(phones.global_position.x - 2.8, floor_y, phones.global_position.z + 0.5), phones.global_position)
+	world.player.set_lamp_enabled(true)
+	await _snap("house_office_telephone", Vector3(phones.global_position.x - 1.7, floor_y, phones.global_position.z + 0.3), phones.global_position)
+	await _snap("house_office_wide", world.adapter.root.to_global(Vector3(-13.5, 0.0, 2.5)), world.adapter.root.to_global(Vector3(-9.3, 1.1, -1.3)))
+	await _snap("lobby_mail_bank_near", Vector3(bank.global_position.x - 2.0, floor_y, bank.global_position.z + 0.3), bank.global_position + Vector3.UP * 1.1)
 	await _snap("old_mail_room", world.adapter.root.to_global(Vector3(-6.2, 0.0, -1.0)), world.adapter.root.to_global(Vector3(-9.0, 1.2, -1.3)))
 	_finish()
 
