@@ -1,0 +1,44 @@
+{
+ "mina_vale": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.52,
+   "muscle": 0.4,
+   "weight": 0.4,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "young_caucasian_female",
+  "nose": [
+   0.004,
+   -0.117,
+   1.512
+  ],
+  "head_scale": 0.86,
+  "keep_above": 1.575,
+  "eyes": "brownlight",
+  "face_top": 1.553
+ },
+ "cal_dwyer": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.88,
+   "muscle": 0.45,
+   "weight": 0.55,
+   "proportions": 0.5,
+   "height": 0.5
+  },
+  "skin": "old_caucasian_male",
+  "nose": [
+   0.007,
+   -0.121,
+   1.552
+  ],
+  "head_scale": 0.98,
+  "keep_above": 1.655,
+  "eyes": "grey",
+  "face_top": 1.64
+ }
+}
