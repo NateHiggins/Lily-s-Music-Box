@@ -386,7 +386,7 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         return None
     # Hems, cuffs and necklines are cut along the mesh's own faces and come
     # out toothed; ease every open edge toward its neighbours along the edge.
-    for _ in range(8):
+    for _ in range(22):
         moved = {}
         for v in bm.verts:
             beside = [e.other_vert(v) for e in v.link_edges if e.is_boundary]
@@ -584,6 +584,12 @@ def legs(v, low, high):
     return low < v.co.z < high and weight(v, ARM) < 0.3
 
 
+def seat_room(co):
+    """Extra clearance over the seat and hips, most of it behind: the review
+    found the body showing through skirts there, and under-layers through coats."""
+    return 0.02 * max(0.0, 1.0 - abs(co.z - (hip - 0.08)) / 0.16) * (1.0 if co.y > 0.0 else 0.3)
+
+
 def skirt_shape(hem, flare, pleats=0):
     top = hip + 0.07
     natural_hem = 0.12
@@ -627,18 +633,20 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         sleeves = float(row.get("sleeves", 0.5))
         piece("DressTop", "helper-tights", lambda v, r=row, sl=sleeves: torso(v, low=hip - 0.02, sleeves=sl, vee=float(r.get("vee", 0.06))), 0.006, colour, 0.85,
               pattern=row.get("pattern"), cloth=cloth or "cotton")
-        piece("DressSkirt", "helper-skirt", lambda v: True, 0.006, colour, 0.85,
+        piece("DressSkirt", "helper-skirt", lambda v: True, 0.01, colour, 0.85, thicken=seat_room,
               reshape=skirt_shape(float(row.get("hem", 0.4)), float(row.get("flare", 0.2)), int(row.get("pleats", 0))), pattern=row.get("pattern"), cloth=cloth or "cotton", subdivide=1)
     elif kind == "cardigan":
         piece("Cardigan", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.05, sleeves=1.0, vee=float(r.get("vee", 0.34))), 0.018, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
     elif kind == "coat":
         piece("CoatTop", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.02, sleeves=1.0, vee=float(r.get("vee", 0.2))), 0.023, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "wool")
-        piece("CoatSkirt", "helper-skirt", lambda v: True, 0.02, colour, 0.85, reshape=skirt_shape(float(row.get("hem", 0.45)), float(row.get("flare", 0.12))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
+        piece("CoatSkirt", "helper-skirt", lambda v: True, 0.034, colour, 0.85, thicken=seat_room, reshape=skirt_shape(float(row.get("hem", 0.45)), float(row.get("flare", 0.12))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
     elif kind == "bib":
         piece("Bib", "helper-tights", lambda v: weight(v, ARM) < 0.3 and v.co.y < bone("Spine2").y - 0.01 and waist - 0.02 < v.co.z < neck - 0.13 and abs(v.co.x) < 0.11,
               0.018, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "cotton")
     elif kind == "apron":
-        piece("Apron", "helper-skirt", lambda v: v.co.y < 0.0, 0.016, colour, 0.85, reshape=skirt_shape(float(row.get("hem", 0.5)), float(row.get("flare", 0.15))), cloth=cloth or "cotton", subdivide=1)
+        piece("ApronStraps", "helper-tights", lambda v: weight(v, ARM) < 0.3 and v.co.y < bone("Spine2").y + 0.0 and neck - 0.14 <= v.co.z < neck + 0.01 and 0.045 < abs(v.co.x) < 0.085,
+              0.022, colour, 0.85, cloth=cloth or "cotton")
+        piece("Apron", "helper-skirt", lambda v: v.co.y < 0.0 and abs(math.atan2(v.co.x, -(v.co.y - 0.02))) < 0.95, 0.026, colour, 0.85, reshape=skirt_shape(float(row.get("hem", 0.5)), 0.0), cloth=cloth or "cotton", subdivide=1)
         piece("ApronBib", "helper-tights", lambda v: weight(v, ARM) < 0.3 and v.co.y < bone("Spine2").y - 0.01 and waist - 0.02 < v.co.z < neck - 0.12 and abs(v.co.x) < 0.1,
               0.02, colour, 0.85, cloth=cloth or "cotton")
     elif kind == "sash":
@@ -668,12 +676,14 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
                 for j in range(steps):
                     a = math.tau * j / steps
                     back = max(0.0, math.sin(a))
-                    depth = t * (L + P * back ** 3)
+                    depth = t * (L * (0.9 + 0.2 * back) + P * back ** 3)
                     over = ease(depth / 0.12)
-                    rx = 0.068 + (shoulder.x + 0.08 - 0.068) * over + 0.45 * max(0.0, depth - 0.06)
+                    rx = 0.068 + (shoulder.x + (0.08 if P == 0.0 else 0.05) - 0.068) * over + (0.45 if P == 0.0 else 0.3) * max(0.0, depth - 0.06)
+                    fold = 1.0 + 0.04 * math.sin(a * 11.0) * min(1.0, depth / 0.16)
+                    rx *= fold
                     ry = 0.07 + (0.165 if math.sin(a) < 0 else 0.14) * over - 0.07 * over + 0.04 * depth / L
                     cy = neck_y + (chest_y - neck_y) * over
-                    ring.append(bm.verts.new((math.cos(a) * rx, cy + math.sin(a) * ry, neck + 0.012 - depth)))
+                    ring.append(bm.verts.new((math.cos(a) * rx, cy + math.sin(a) * ry * fold, neck + 0.012 - depth)))
                 rings.append(ring)
             for upper, lower in zip(rings, rings[1:]):
                 for j in range(steps):
@@ -706,7 +716,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     elif kind == "stockings":
         piece("Stockings", "helper-tights", lambda v: legs(v, ankle - 0.08, hip - 0.1), 0.002, colour, 0.5, cloth="silk")
     elif kind == "skirt":
-        piece(row.get("name", "Skirt"), "helper-skirt", lambda v: True, 0.004, colour, 0.85, reshape=skirt_shape(float(row.get("hem", 0.38)), float(row.get("flare", 0.25)), int(row.get("pleats", 0))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
+        piece(row.get("name", "Skirt"), "helper-skirt", lambda v: True, 0.009, colour, 0.85, thicken=seat_room, reshape=skirt_shape(float(row.get("hem", 0.38)), float(row.get("flare", 0.25)), int(row.get("pleats", 0))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
     elif kind == "belt":
         piece("Belt", "helper-tights", lambda v, r=row: abs(v.co.z - (waist + float(r.get("drop", 0.0)))) < 0.04 and weight(v, ARM) < 0.3, float(row.get("off", 0.017)), colour, 0.4, cloth="leather")
     elif kind == "collar":
@@ -1163,7 +1173,7 @@ bmesh.ops.delete(bm, geom=[f for f in bm.faces if f not in set(keep_faces)], con
 bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
 bm.normal_update()
 for v in bm.verts:
-    v.co = v.co + v.normal * 0.0025
+    v.co = v.co + v.normal * 0.0045
 cap_mesh = bpy.data.meshes.new("HairCap")
 bm.to_mesh(cap_mesh)
 bm.free()
@@ -1331,7 +1341,7 @@ for HAT in (HATS if skull else []):
     #            crown: lift, width, roundness of the side, flatness of the top, how far the back dips
     crowns = {"cloche": (0.014, 1.085, 0.8, 1.25, 0.55), "toque": (0.04, 1.14, 0.5, 1.7, 0.3), "wide": (0.004, 1.06, 0.8, 1.1, 0.3),
               "cap": (0.006, 1.12, 0.7, 1.6, 0.3), "derby": (0.03, 1.07, 0.7, 1.5, 0.2), "fedora": (0.042, 1.05, 0.45, 2.6, 0.2),
-              "boater": (0.022, 1.06, 0.22, 7.0, 0.1), "beret": (0.012, 1.32, 0.35, 3.0, 0.4), "headscarf": (0.008, 1.045, 0.8, 1.25, 0.9)}
+              "boater": (0.022, 1.06, 0.22, 7.0, 0.1), "beret": (-0.004, 1.4, 0.5, 1.5, 0.7), "headscarf": (0.008, 1.045, 0.8, 1.25, 0.9)}
     lift, wide_, side_, flat_, dip_ = crowns.get(hat_kind, crowns["cloche"])
     crown_top = top_z + lift + float(HAT.get("tall", 0.0))
     hat_rows = []
@@ -1341,8 +1351,8 @@ for HAT in (HATS if skull else []):
         hat_rows.append((math.sin(angle) ** side_ * wide_, crown_top - (1 - math.cos(angle)) ** flat_ * (crown_top - crown_foot), t * dip_))
     if hat_kind == "cloche":
         # A bell: the brim turns down close round the face.
-        hat_rows += [(1.1, bz + 0.022, 0.7), (1.13, bz + 0.008, 0.85), (1.19, bz - 0.012, 1.0), (1.22, bz - 0.03, 1.0),
-                     (1.2, bz - 0.033, 1.0), (1.14, bz - 0.012, 1.0), (1.1, bz + 0.01, 0.85), (1.05, bz + 0.03, 0.6)]
+        hat_rows += [(1.1, bz + 0.03, 0.7), (1.13, bz + 0.02, 0.85), (1.18, bz + 0.004, 1.0), (1.2, bz - 0.01, 1.0),
+                     (1.18, bz - 0.012, 1.0), (1.14, bz + 0.002, 1.0), (1.1, bz + 0.016, 0.85), (1.05, bz + 0.032, 0.6)]
     elif hat_kind in ("boater", "wide"):
         # A flat, level brim.
         hat_rows += [(1.08, bz + 0.024, 0.2), (1.1, bz + 0.015, 0.2), (1.1 + 0.2 * brim, bz + 0.012, 0.2), (1.1 + 0.27 * brim, bz + 0.011, 0.2),

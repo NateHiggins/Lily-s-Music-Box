@@ -193,29 +193,6 @@
     ],
     "trim": []
    },
-   "b_head": {
-    "slot": "head",
-    "set": "b",
-    "tags": [
-     "formal",
-     "street"
-    ],
-    "covers": [],
-    "trim": [],
-    "rows": [
-     {
-      "kind": "asset",
-      "asset": "aethelraed_unraed_cloche_hat",
-      "colour": [
-       0.0,
-       0.156,
-       0.084
-      ],
-      "name": "Hat",
-      "atype": "Hat"
-     }
-    ]
-   },
    "b_feet": {
     "slot": "feet",
     "set": "b",
@@ -317,7 +294,6 @@
    ],
    "b": [
     "b_top",
-    "b_head",
     "b_feet"
    ],
    "c": [
@@ -328,7 +304,6 @@
    "mix1": [
     "a_top",
     "c_over",
-    "b_head",
     "a_feet"
    ],
    "mix2": [
@@ -471,19 +446,7 @@
       }
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "darn",
-      "at": "elbow_l",
-      "size": 0.06,
-      "colour": [
-       0.5,
-       0.6,
-       0.9
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_feet": {
     "slot": "feet",
@@ -606,17 +569,6 @@
       ],
       "up": -0.02,
       "lift": 0.036
-     },
-     {
-      "kind": "decal",
-      "cell": "pocket",
-      "at": "chest_l",
-      "size": 0.06,
-      "colour": [
-       0.75,
-       0.8,
-       0.95
-      ]
      }
     ]
    },
@@ -876,17 +828,6 @@
       "step": 0.045,
       "lift": 0.012,
       "size": 0.006
-     },
-     {
-      "kind": "decal",
-      "cell": "darn",
-      "at": "elbow_r",
-      "size": 0.07,
-      "colour": [
-       0.4,
-       0.2,
-       0.05
-      ]
      }
     ]
    },
@@ -955,17 +896,6 @@
       "step": 0.06,
       "lift": 0.026,
       "size": 0.007
-     },
-     {
-      "kind": "decal",
-      "cell": "pocket",
-      "at": "hip_l",
-      "size": 0.07,
-      "colour": [
-       0.2,
-       0.08,
-       0.03
-      ]
      }
     ]
    },
@@ -1300,19 +1230,7 @@
       "turnups": false
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "patch",
-      "at": "knee_l",
-      "size": 0.08,
-      "colour": [
-       0.25,
-       0.14,
-       0.06
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_over": {
     "slot": "over",
@@ -1555,19 +1473,7 @@
       "cloth": "cotton"
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "stain",
-      "at": "hip_r",
-      "size": 0.1,
-      "colour": [
-       0.15,
-       0.1,
-       0.06
-      ]
-     }
-    ]
+    "trim": []
    },
    "c_feet": {
     "slot": "feet",
@@ -1738,19 +1644,7 @@
       "vee": 0.32
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "pocket",
-      "at": "hip_r",
-      "size": 0.07,
-      "colour": [
-       0.6,
-       0.3,
-       0.55
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_feet": {
     "slot": "feet",
@@ -2156,19 +2050,7 @@
       "hem": 0.46
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "stain",
-      "at": "belly",
-      "size": 0.12,
-      "colour": [
-       0.1,
-       0.5,
-       0.3
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_head": {
     "slot": "head",
@@ -2937,19 +2819,7 @@
       ]
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "darn",
-      "at": "knee_r",
-      "size": 0.07,
-      "colour": [
-       0.1,
-       0.3,
-       0.32
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_over": {
     "slot": "over",
@@ -3271,30 +3141,7 @@
       }
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "patch",
-      "at": "elbow_l",
-      "size": 0.075,
-      "colour": [
-       0.5,
-       0.1,
-       0.15
-      ]
-     },
-     {
-      "kind": "decal",
-      "cell": "patch",
-      "at": "elbow_r",
-      "size": 0.075,
-      "colour": [
-       0.55,
-       0.12,
-       0.1
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_bottom": {
     "slot": "bottom",
@@ -3339,19 +3186,7 @@
       "hem": 0.46
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "pocket",
-      "at": "hip_l",
-      "size": 0.08,
-      "colour": [
-       0.6,
-       0.6,
-       0.55
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_head": {
     "slot": "head",
@@ -4975,19 +4810,7 @@
       "hem": 0.46
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "stain",
-      "at": "belly",
-      "size": 0.09,
-      "colour": [
-       0.5,
-       0.45,
-       0.35
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_feet": {
     "slot": "feet",
@@ -5390,30 +5213,7 @@
       ]
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "patch",
-      "at": "knee_r",
-      "size": 0.08,
-      "colour": [
-       0.35,
-       0.2,
-       0.05
-      ]
-     },
-     {
-      "kind": "decal",
-      "cell": "pocket",
-      "at": "chest_l",
-      "size": 0.07,
-      "colour": [
-       0.3,
-       0.16,
-       0.02
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_over": {
     "slot": "over",
@@ -5435,19 +5235,7 @@
       "hem": 0.46
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "stain",
-      "at": "belly",
-      "size": 0.12,
-      "colour": [
-       0.1,
-       0.08,
-       0.07
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_head": {
     "slot": "head",
@@ -6594,19 +6382,7 @@
       "width": 0.03
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "patch",
-      "at": "knee_l",
-      "size": 0.08,
-      "colour": [
-       0.08,
-       0.2,
-       0.16
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_over": {
     "slot": "over",
@@ -7066,19 +6842,7 @@
       "hem": 0.46
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "pocket",
-      "at": "hip_r",
-      "size": 0.08,
-      "colour": [
-       0.6,
-       0.6,
-       0.55
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_feet": {
     "slot": "feet",
@@ -7500,19 +7264,7 @@
       "width": 0.03
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "patch",
-      "at": "knee_r",
-      "size": 0.08,
-      "colour": [
-       0.4,
-       0.4,
-       0.42
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_over": {
     "slot": "over",
@@ -7769,17 +7521,6 @@
       "lift": 0.036,
       "size": 0.013,
       "below": 0.12
-     },
-     {
-      "kind": "decal",
-      "cell": "darn",
-      "at": "elbow_l",
-      "size": 0.07,
-      "colour": [
-       0.2,
-       0.2,
-       0.22
-      ]
      }
     ]
    },
@@ -7983,19 +7724,7 @@
       "vee": 0.32
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "darn",
-      "at": "elbow_r",
-      "size": 0.07,
-      "colour": [
-       0.4,
-       0.38,
-       0.4
-      ]
-     }
-    ]
+    "trim": []
    },
    "a_head": {
     "slot": "head",
@@ -8114,19 +7843,7 @@
       }
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "ticket",
-      "at": "lapel_l",
-      "size": 0.05,
-      "colour": [
-       0.85,
-       0.8,
-       0.6
-      ]
-     }
-    ]
+    "trim": []
    },
    "b_head": {
     "slot": "head",
@@ -8219,19 +7936,7 @@
       "cloth": "silk"
      }
     ],
-    "trim": [
-     {
-      "kind": "decal",
-      "cell": "patch",
-      "at": "hip_l",
-      "size": 0.07,
-      "colour": [
-       0.3,
-       0.2,
-       0.2
-      ]
-     }
-    ]
+    "trim": []
    },
    "c_feet": {
     "slot": "feet",

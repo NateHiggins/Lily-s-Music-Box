@@ -149,6 +149,21 @@ for path, time_scale in SOURCES:
         for pose_bone in target.pose.bones:
             pose_bone.rotation_mode = "QUATERNION"
             pose_bone.matrix_basis = Matrix.Identity(4)
+        # Review: hands were flat and fanned. The clips carry no fingers, so
+        # every clip holds a relaxed curl, each joint bent toward the palm.
+        for pose_bone in target.pose.bones:
+            for finger, bend in (("Thumb", 0.12), ("Index", 0.3), ("Middle", 0.36), ("Ring", 0.42), ("Pinky", 0.46)):
+                if "Hand" + finger in pose_bone.name:
+                    rest_turn = (target_world.to_3x3() @ target.data.bones[pose_bone.name].matrix_local.to_3x3())
+                    best = None
+                    for axis in ("X", "Z"):
+                        for sign in (1.0, -1.0):
+                            turn = Matrix.Rotation(sign * bend, 3, axis)
+                            down = (rest_turn @ (turn @ Vector((0.0, 1.0, 0.0)))).z
+                            if best is None or down < best[0]:
+                                best = (down, turn.to_quaternion())
+                    pose_bone.rotation_quaternion = best[1]
+                    pose_bone.keyframe_insert("rotation_quaternion", frame=1)
         previous = {}
         for frame in range(first, last + 1):
             scene.frame_set(frame)

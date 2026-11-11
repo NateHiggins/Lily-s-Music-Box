@@ -167,7 +167,7 @@ def feet(kind, colour):
 
 # id: three sets, each (top, bottom, over, head, feet); "-" leaves that slot empty.
 STYLES = {
-    "adela_voss": [("wrap_blouse", "full_skirt", "cardigan", "-", "tbar"), ("skirt_suit", "-", "-", "cloche", "pumps"), ("flapper_dress", "-", "stole", "-", "mary_jane")],
+    "adela_voss": [("wrap_blouse", "full_skirt", "cardigan", "-", "tbar"), ("skirt_suit", "-", "-", "-", "pumps"), ("flapper_dress", "-", "stole", "-", "mary_jane")],
     "mina_vale": [("knit", "pleated_midi", "knit_vest", "-", "mary_jane"), ("blouse_pencil", "-", "blazer", "beret", "tbar"), ("shift_dress", "-", "cape", "toque", "lady_boots")],
     "cal_dwyer": [("henley", "check_trousers", "waistcoat", "newsboy", "brogues"), ("tie_suit", "-", "-", "pack_fedora", "dress_shoes"), ("robe", "-", "-", "-", "oxford")],
     "cam_ortiz": [("jersey", "knickerbockers", "knit_vest", "newsboy", "ankle_boots"), ("trouser_suit", "-", "-", "-", "brogues"), ("work_shirt", "sailor_trousers", "duster", "-", "work_boots")],
@@ -293,6 +293,8 @@ def add_parts(cast):
         looks["mix1"] = [n for n in ("a_top", "b_bottom", "c_over", "b_head", "a_feet") if n in parts]
         looks["mix2"] = [n for n in ("c_top", "a_bottom", "b_over", "c_head", "b_feet") if n in parts]
         for row in DETAILS.get(cid, []):
+            if row.get("cell") in ("patch", "pocket", "ticket", "darn", "stain", "stripe"):
+                continue
             row = dict(row)
             target = row.pop("_to")
             if target in parts:
