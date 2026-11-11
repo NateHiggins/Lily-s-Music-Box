@@ -6,14 +6,18 @@ extends SkeletonModifier3D
 ## front of the skirt with it, so the leg never comes through the cloth.
 ## Spring bones placed after this one then add the sway and the settling.
 ##
-## It writes only the first bone of each skirt chain, and reads the thighs and
-## hips; nothing else writes those bones before the springs.
+## It writes the first two bones of each skirt chain, and reads the hips,
+## thighs and shins; nothing else writes those bones before the springs.
 
 const CHAINS := 8
 ## How much of a thigh's swing its side of the skirt takes.
 @export var follow := 1.0
 
 var _chain_bones: Array[int] = []
+var _chain_second: Array[int] = []
+var _shins: Array[int] = []
+## How much of a knee's bend the lower skirt on that side takes.
+@export var follow_knee := 0.7
 var _chain_side: Array[float] = []
 var _chain_front: Array[float] = []
 var _hips := -1
@@ -36,11 +40,13 @@ func bind() -> bool:
 		if bone < 0:
 			return false
 		_chain_bones.append(bone)
+		_chain_second.append(body.find_bone("Skirt%d_2" % chain))
 		# Where the chain sits round the hips at rest: +1 fully on the left side, -1 on the right.
 		var out := body.get_bone_global_rest(bone).origin - body.get_bone_global_rest(_hips).origin
 		out.y = 0.0
 		_chain_side.append(out.normalized().x if out.length() > 0.001 else 0.0)
 		_chain_front.append(out.normalized().z if out.length() > 0.001 else 0.0)
+	_shins = [body.find_bone("LeftLeg"), body.find_bone("RightLeg")]
 	return _hips >= 0 and _left >= 0 and _right >= 0
 
 
@@ -76,3 +82,26 @@ func _process_modification() -> void:
 			var turn := Basis(Quaternion.IDENTITY.slerp(swings[leg], share))
 			posed = Transform3D(turn * posed.basis, pivots[leg] + turn * (posed.origin - pivots[leg]))
 		body.set_bone_global_pose(_chain_bones[index], hips_now * posed)
+		# Below the knee the skirt goes with the shin: a raised knee does not
+		# leave the lower leg standing out in front of the cloth.
+		var second := _chain_second[index]
+		if second < 0:
+			continue
+		var lower := body.get_bone_global_pose(second)
+		var thighs: Array[int] = [_left, _right]
+		for leg in 2:
+			if _shins[leg] < 0:
+				continue
+			var toward := (swings[leg] * Vector3.DOWN).z
+			var facing := smoothstep(-0.5, 0.5, signf(toward) * _chain_front[index])
+			var share := (left_share if leg == 0 else right_share) * follow_knee * lerpf(0.2, 1.0, facing)
+			if share <= 0.001:
+				continue
+			var thigh_now := body.get_bone_global_pose(thighs[leg])
+			var shin_now := body.get_bone_global_pose(_shins[leg])
+			var shin_in_thigh_rest := body.get_bone_global_rest(thighs[leg]).affine_inverse() * body.get_bone_global_rest(_shins[leg])
+			var unbent := (thigh_now * shin_in_thigh_rest).basis.orthonormalized()
+			var bend := Quaternion(shin_now.basis.orthonormalized() * unbent.inverse())
+			var turn := Basis(Quaternion.IDENTITY.slerp(bend, share))
+			lower = Transform3D(turn * lower.basis, shin_now.origin + turn * (lower.origin - shin_now.origin))
+		body.set_bone_global_pose(second, lower)

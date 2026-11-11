@@ -81,6 +81,11 @@ for path, time_scale in SOURCES:
     source_dir = {n: (source_world.to_3x3() @ (source.data.bones[o].tail_local - source.data.bones[o].head_local)).normalized() for n, o in names.items()}
     # Line the two rest directions up, bone by bone.
     align = {n: source_dir[n].rotation_difference(target_dir[n]).inverted() for n in names}
+    # The hips are the body's own frame, not a limb: both bodies stand upright
+    # facing the same way, so their turn carries across as it is. (Lining up
+    # two hip bones that point opposite ways turned a forward lean into a
+    # backward one.)
+    align["Hips"] = Quaternion()
     source_hips = source_world @ source.data.bones[names["Hips"]].head_local
     travel = target_hips.z / max(source_hips.z, 1e-6)
     print("SOURCE", os.path.basename(path), "bones", len(names), "of", len(MAP), "actions", len(actions), "travel", round(travel, 3), "time", time_scale)
