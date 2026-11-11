@@ -46,6 +46,10 @@ def asset(kind, name, ext="mhclo"):
 
 
 def plain(name, colour, rough=0.75, metal=0.0):
+    if metal < 0.5 and "skin" not in name:
+        grey_ = 0.3 * colour[0] + 0.55 * colour[1] + 0.15 * colour[2]
+        mute_ = float(TABLE.get("_mute", 0.3))
+        colour = [c + (grey_ - c) * mute_ for c in colour]
     material = bpy.data.materials.new(name)
     material.use_nodes = True
     shader = material.node_tree.nodes["Principled BSDF"]
@@ -75,19 +79,20 @@ TS.bake_targets(human)
 HS.set_character_skin(asset("skins", CFG["skin"], "mhmat"), human, skin_type="GAMEENGINE", material_instances=False)
 rig = HS.add_builtin_rig(human, "mixamo")
 parts = []
-for kind, name, atype in [("eyes", "low-poly", "Eyes"), ("eyebrows", CFG.get("eyebrows", "eyebrow001"), "Eyebrows"),
+for kind, name, atype in [] if OUTFIT else [("eyes", "low-poly", "Eyes"), ("eyebrows", CFG.get("eyebrows", "eyebrow001"), "Eyebrows"),
                           ("eyelashes", "eyelashes01", "Eyelashes"), ("teeth", "teeth_base", "Teeth"), ("tongue", "tongue01", "Tongue")]:
     part = HS.add_mhclo_asset(asset(kind, name), human, asset_type=atype, subdiv_levels=0, material_type="GAMEENGINE")
     part.name = "Face_" + kind
     parts.append(part)
-if CFG.get("shoes") and not any(r["kind"] == "shoes" for r in CFG["outfit"]):
+if OUTFIT and CFG.get("shoes") and not any(r["kind"] == "shoes" for r in CFG["outfit"]):
     shoes = HS.add_mhclo_asset(asset("clothes", CFG["shoes"]["asset"]), human, asset_type="Clothes", subdiv_levels=0, material_type="GAMEENGINE")
     shoes.name = "Shoes"
     shoes.data.materials.clear()
     shoes.data.materials.append(plain(CID + "_shoes", CFG["shoes"].get("colour", [0.08, 0.05, 0.03]), 0.4))
     parts.append(shoes)
-FS.load_targets(human, load_microsoft_visemes=False, load_meta_visemes=True, load_arkit_faceunits=True)
-FS.interpolate_targets(human)
+if not OUTFIT:
+    FS.load_targets(human, load_microsoft_visemes=False, load_meta_visemes=True, load_arkit_faceunits=True)
+    FS.interpolate_targets(human)
 for modifier in [m for m in human.modifiers if m.type == "MASK"]:
     human.modifiers.remove(modifier)
 
@@ -141,7 +146,19 @@ CLOTHS = {
 }
 
 
+MUTE = float(TABLE.get("_mute", CFG.get("mute", 0.3)))
+WEAR = float(TABLE.get("_wear", CFG.get("wear", 1.0)))
+
+
+def worn_colour(colour):
+    grey = 0.3 * colour[0] + 0.55 * colour[1] + 0.15 * colour[2]
+    return [min(1.0, (c + (grey - c) * MUTE) * (0.94 + 0.1 * MUTE)) for c in colour]
+
+
 def patterned(name, colour, pattern, rough, cloth="cotton"):
+    colour = worn_colour(colour)
+    if pattern and "colour" in pattern:
+        pattern = dict(pattern, colour=worn_colour(pattern["colour"]))
     """A cloth material: its colours (plain or a two-colour pattern), the grain
     of its weave or knit worked into the colour, and a normal map of the same
     grain so light catches it."""
@@ -186,6 +203,21 @@ def patterned(name, colour, pattern, rough, cloth="cotton"):
     grid[:, :, 3] = 1.0
     grid[:, :, :3] = numpy.where(mask[:, :, None], other[None, None, :], first[None, None, :])
     grid[:, :, :3] = numpy.clip(grid[:, :, :3] * (1.0 - kind_of["shade"] + 2.0 * kind_of["shade"] * height_map[:, :, None]), 0, 1)
+    if WEAR > 0.0:
+        # Uneven fading: broad soft patches, lighter and a little greyer.
+        patch = rng.random((size // 16, size // 16)).astype(numpy.float32)
+        patch = numpy.kron(patch, numpy.ones((16, 16), dtype=numpy.float32))
+        for _ in range(10):
+            patch = (patch + numpy.roll(patch, 3, 0) + numpy.roll(patch, -3, 0) + numpy.roll(patch, 3, 1) + numpy.roll(patch, -3, 1)) / 5.0
+        patch = (patch - patch.min()) / max(float(patch.max() - patch.min()), 1e-6)
+        fade = (patch[:, :, None] - 0.5) * 0.22 * WEAR
+        luma = grid[:, :, :3].mean(axis=2, keepdims=True)
+        grid[:, :, :3] = numpy.clip(grid[:, :, :3] * (1.0 + fade) + (luma - grid[:, :, :3]) * numpy.clip(fade * 1.5, 0, 1), 0, 1)
+        # Pilling and lint: sparse pale flecks; a few darker threads.
+        flecks = rng.random((size, size)) > (1.0 - 0.006 * WEAR)
+        grid[:, :, :3] = numpy.where(flecks[:, :, None], numpy.clip(grid[:, :, :3] * 1.25 + 0.04, 0, 1), grid[:, :, :3])
+        threads = rng.random((size, size)) > (1.0 - 0.004 * WEAR)
+        grid[:, :, :3] = numpy.where(threads[:, :, None], grid[:, :, :3] * 0.72, grid[:, :, :3])
     dx = (numpy.roll(height_map, -1, 1) - numpy.roll(height_map, 1, 1)) * kind_of["depth"]
     dy = (numpy.roll(height_map, -1, 0) - numpy.roll(height_map, 1, 0)) * kind_of["depth"]
     normal = numpy.zeros((size, size, 4), dtype=numpy.float32)
@@ -210,7 +242,18 @@ def patterned(name, colour, pattern, rough, cloth="cotton"):
     shader = nodes["Principled BSDF"]
     colour_node = nodes.new("ShaderNodeTexImage")
     colour_node.image = pictures[0]
-    links.new(colour_node.outputs[0], shader.inputs["Base Color"])
+    if WEAR > 0.0:
+        wear_node = nodes.new("ShaderNodeVertexColor")
+        wear_node.layer_name = "Wear"
+        mix = nodes.new("ShaderNodeMix")
+        mix.data_type = "RGBA"
+        mix.blend_type = "MULTIPLY"
+        mix.inputs[0].default_value = 1.0
+        links.new(colour_node.outputs[0], mix.inputs[6])
+        links.new(wear_node.outputs[0], mix.inputs[7])
+        links.new(mix.outputs[2], shader.inputs["Base Color"])
+    else:
+        links.new(colour_node.outputs[0], shader.inputs["Base Color"])
     normal_picture = nodes.new("ShaderNodeTexImage")
     normal_picture.image = pictures[1]
     normal_node = nodes.new("ShaderNodeNormalMap")
@@ -270,6 +313,31 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
     bpy.context.scene.collection.objects.link(obj)
     for index, group_name in names.items():
         obj.vertex_groups.new(name=group_name)
+    if WEAR > 0.0:
+        # Grime gathers at hems and cuffs, cloth fades and shines at elbows,
+        # knees and seat. Carried as point colours, which multiply the cloth.
+        lowest = min(v.co.z for v in out.vertices)
+        highest = max(v.co.z for v in out.vertices)
+        span = max(highest - lowest, 1e-4)
+        layer = out.color_attributes.new(name="Wear", type="BYTE_COLOR", domain="CORNER")
+        noise = numpy.random.default_rng(abs(hash(STEM + name)) % (2 ** 32))
+        jitter = noise.random(len(out.vertices))
+        tint = []
+        for v in out.vertices:
+            co = v.co
+            hem = max(0.0, 1.0 - (co.z - lowest) / (0.16 * span + 0.03))
+            dark = 1.0 - (0.2 * hem ** 1.5 + 0.06 * jitter[v.index]) * WEAR
+            light = 0.0
+            for spot, radius in ((Vector((elbow.x, elbow.y, elbow.z)), 0.07), (Vector((-elbow.x, elbow.y, elbow.z)), 0.07),
+                                 (Vector((0.09, -0.06, knee)), 0.08), (Vector((-0.09, -0.06, knee)), 0.08), (Vector((0.0, 0.11, hip - 0.04)), 0.13)):
+                light = max(light, max(0.0, 1.0 - (co - spot).length / radius))
+            if abs(co.x) > shoulder.x * 0.9 and along_arm(co) > 0.86:
+                dark -= 0.1 * WEAR
+            value = max(0.45, min(1.0, dark + 0.0)) * (1.0 + 0.0)
+            warm = 1.0 - 0.05 * hem * WEAR
+            tint.append((min(1.0, value + 0.14 * light * WEAR), min(1.0, value * warm + 0.14 * light * WEAR), min(1.0, value * warm * warm + 0.14 * light * WEAR), 1.0))
+        for loop in out.loops:
+            layer.data[loop.index].color = tint[loop.vertex_index]
     while out.uv_layers:
         out.uv_layers.remove(out.uv_layers[0])
     wrap_uv(out, float((pattern or {}).get("repeat", 6.0)))
@@ -317,7 +385,7 @@ def skirt_shape(hem, flare, pleats=0):
 
 
 pending_collars = []
-for row in CFG["outfit"]:
+for row in (CFG.get("outfit", []) if OUTFIT else []):
     kind = row["kind"]
     colour = row["colour"]
     cloth = row.get("cloth")
@@ -434,7 +502,7 @@ def chest_front(z, x=0.0, lift=0.02):
 small = bmesh.new()
 small_material_rows = []
 trim_face_slot = {}
-for row in CFG.get("trim", []):
+for row in (CFG.get("trim", []) if OUTFIT else []):
     faces_before = len(small.faces)
     if row["kind"] == "buttons":
         z = neck - 0.06
@@ -506,6 +574,35 @@ if small.verts:
 small.free()
 
 # ---------------------------------------------------------------- the body itself
+torso_seed = [v.co.copy() for v in mesh.vertices if in_group(v, "body") and waist - 0.2 < v.co.z < neck + 0.03 and abs(v.co.x) < 0.2 and weight(v, ARM) < 0.35][::3]
+skin_parts = []
+if not OUTFIT:
+    neck_cut = neck - 0.03
+    rules = {
+        "head": lambda v: v.co.z > neck_cut and weight(v, ARM) < 0.5,
+        "hands": lambda v: weight(v, ("Hand",)) > 0.25,
+        "arms": lambda v: weight(v, ARM) > 0.45 and weight(v, ("Hand",)) <= 0.25,
+        "chest": lambda v: neck - 0.24 < v.co.z <= neck_cut + 0.012 and v.co.y < bone("Spine2").y + 0.03 and abs(v.co.x) < 0.13 and weight(v, ARM) < 0.3,
+        "legs": lambda v: weight(v, LEG) > 0.5 and v.co.z < hip - 0.1,
+    }
+    for label, rule in rules.items():
+        twin = human.copy()
+        twin.data = human.data.copy()
+        twin.name = "Skin_" + label
+        bpy.context.scene.collection.objects.link(twin)
+        if label != "head":
+            twin.shape_key_clear()
+        keep = {v.index for v in twin.data.vertices if in_group(v, "body") and rule(v)}
+        bm = bmesh.new()
+        bm.from_mesh(twin.data)
+        bm.verts.ensure_lookup_table()
+        bmesh.ops.delete(bm, geom=[f for f in bm.faces if not all(v.index in keep for v in f.verts)], context="FACES")
+        bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
+        bm.to_mesh(twin.data)
+        bm.free()
+        skin_parts.append(twin)
+        print("SKIN part", label, len(twin.data.polygons))
+
 # Only what shows is kept: head, neck, hands, and whatever the outfit bares.
 bare_to = float(CFG.get("bare_arm_from", 1.0))
 body_index = group_index["body"]
@@ -547,7 +644,7 @@ if image is not None and "skin_tone" in CFG:
     toned.save()
     node.image = toned
 eye_file = os.path.join(USER, "eyes", "materials", CFG.get("eyes", "brown") + "_eye.png")
-eye_node, _ = base_image(parts[0])
+eye_node, _ = base_image(parts[0]) if parts else (None, None)
 if eye_node is not None and os.path.exists(eye_file):
     eye_node.image = bpy.data.images.load(eye_file)
 
@@ -604,6 +701,8 @@ STYLES = {
 }
 STYLE = dict(STYLES[CFG["hair"].get("style", "bob")])
 STYLE.update({k: v for k, v in CFG["hair"].items() if k in STYLE})
+if OUTFIT:
+    STYLE["guides"] = 8  # an outfit's file carries no hair; do not spend time on it
 head_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
 cloth_points = [tuple(g.matrix_world @ v.co) for g in garments for v in g.data.vertices]
 cloth_polys = []
@@ -611,7 +710,8 @@ start = 0
 for g in garments:
     cloth_polys += [tuple(i + start for i in q.vertices) for q in g.data.polygons]
     start += len(g.data.vertices)
-cloth_tree = BVHTree.FromPolygons(cloth_points, cloth_polys) if cloth_polys else None
+cloth_tree = BVHTree.FromPolygons(cloth_points, cloth_polys) if cloth_polys else body_tree
+cloth_margin = 0.014 if cloth_polys else 0.034
 root_pool = [v.co.copy() for v in mesh.vertices if scalp(v.co)]
 if "root_max_above_nose" in CFG["hair"]:
     root_pool = [q for q in root_pool if q.z < nose.z + float(CFG["hair"]["root_max_above_nose"])]
@@ -667,8 +767,8 @@ for number in range(int(STYLE["guides"]) * 3):
                 near = cloth_tree.find_nearest(where, 0.08)
                 if near[0] is None:
                     break
-                if (where - near[0]).dot(near[1]) < 0.014:
-                    where = near[0] + near[1] * 0.016
+                if (where - near[0]).dot(near[1]) < cloth_margin:
+                    where = near[0] + near[1] * (cloth_margin + 0.002)
         strand.append(where)
     for _ in range(2):
         eased = list(strand)
@@ -709,8 +809,8 @@ def hull(name, points, bone_name, shrink):
 
 
 head_collider = hull(CID + "_head_collider", [v.co.copy() for v in mesh.vertices if v.co.z > nose.z - 0.08][::3], PREFIX + "Head", 0.955)
-torso_points = [Vector(p) for p in cloth_points if waist - 0.2 < p[2] < neck + 0.03 and abs(p[0]) < 0.24][::3]
-body_collider = hull(CID + "_body_collider", torso_points, PREFIX + "Spine2", 0.97)
+torso_points = [Vector(p) for p in cloth_points if waist - 0.2 < p[2] < neck + 0.03 and abs(p[0]) < 0.24][::3] if cloth_points else torso_seed
+body_collider = hull(CID + "_body_collider", torso_points, PREFIX + "Spine2", 0.97 if cloth_points else 1.12)
 
 def on_head(obj):
     obj.vertex_groups.new(name=PREFIX + "Head").add(list(range(len(obj.data.vertices))), 1.0, "REPLACE")
@@ -720,7 +820,7 @@ def on_head(obj):
 
 
 skull = [v.co.copy() for v in mesh.vertices if v.co.z > nose.z + 0.066]
-if CFG.get("hat") and skull:
+if OUTFIT and CFG.get("hat") and skull:
     top_z = max(q.z for q in skull)
     brow_z = nose.z + 0.066
     centre = Vector(((max(q.x for q in skull) + min(q.x for q in skull)) / 2, (max(q.y for q in skull) + min(q.y for q in skull)) / 2, 0))
@@ -817,7 +917,7 @@ exporter = CFG.get("tressfx_exporter", TABLE.get("_tressfx_exporter", "C:/ov/too
 spec = importlib.util.spec_from_file_location("tressfx_blender_export", exporter)
 tfx = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(tfx)
-for label, result in (("hair", tfx.export_hair(bpy.context, hair_object, os.path.join(OUT, CID + "_hair.tfx"), points_per, True)),
+for label, result in () if OUTFIT else (("hair", tfx.export_hair(bpy.context, hair_object, os.path.join(OUT, CID + "_hair.tfx"), points_per, True)),
                       ("head collider", tfx.export_collider(bpy.context, head_collider, os.path.join(OUT, CID + "_head.tfxmesh"), True)),
                       ("body collider", tfx.export_collider(bpy.context, body_collider, os.path.join(OUT, CID + "_body.tfxmesh"), True))):
     print("TRESSFX", label, result)
@@ -828,7 +928,12 @@ recipe = {"schema_version": 1, "rig_scale_baked": 1.0, "hair": CID + "_hair.tfx"
           "global_stiffness": float(STYLE["global_stiffness"]), "global_range": float(STYLE["global_range"]),
           "base_colour": [round(float(c), 4) for c in numpy.clip(hair_tone * 0.95, 0, 1)], "tip_colour": [round(float(c), 4) for c in numpy.clip(hair_tone * 1.3, 0, 1)],
           "fibre_radius": float(CFG["hair"].get("fibre_radius", 0.001))}
-json.dump(recipe, open(os.path.join(OUT, CID + "_hair.json"), "w", encoding="utf-8"), indent=1)
+if not OUTFIT:
+    json.dump(recipe, open(os.path.join(OUT, CID + "_hair.json"), "w", encoding="utf-8"), indent=1)
+else:
+    show = ["head", "hands"] + (["arms"] if float(CFG.get("bare_arm_from", 1.0)) < 1.0 else []) + (["chest"] if float(CFG.get("bare_chest_vee", 0.0)) > 0.0 else []) + (["legs"] if CFG.get("bare_legs") else [])
+    json.dump({"schema_version": 1, "person": CID, "outfit": OUTFIT, "show": show, "garments": [g.name for g in garments]},
+              open(os.path.join(OUT, STEM + ".json"), "w", encoding="utf-8"), indent=1)
 
 bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, STEM + ".blend"))
 
@@ -852,7 +957,9 @@ for loc, energy in [((1.4, -2.4, 2.3), 110), ((-1.8, -1.6, 1.5), 40), ((0.0, 2.0
     light.location = loc
     light.rotation_euler = (Vector((0, 0, 1.0)) - Vector(loc)).to_track_quat("-Z", "Y").to_euler()
     scene.collection.objects.link(light)
-for name, yaw in (("front", 0.0), ("three_quarter", 35.0)):
+for part_ in skin_parts:
+    part_.hide_render = True
+for name, yaw in (() if not OUTFIT else (("three_quarter", 35.0),)):
     at = Vector((0, 0, 0.86))
     cam.location = at + Matrix.Rotation(math.radians(yaw), 3, "Z") @ Vector((0, -3.5, 0))
     cam.rotation_euler = (at - cam.location).to_track_quat("-Z", "Y").to_euler()
@@ -863,9 +970,14 @@ for name, yaw in (("front", 0.0), ("three_quarter", 35.0)):
     except Exception:
         traceback.print_exc()
 bpy.ops.object.select_all(action="DESELECT")
-for obj in [rig, human] + parts + garments + extras:
+hats = [o for o in extras if o.name == "Hat"]
+if OUTFIT:
+    chosen = [rig] + garments + hats + [p_ for p_ in parts if p_.name == "Shoes"]
+else:
+    chosen = [rig] + skin_parts + parts + [o for o in extras if o.name != "Hat"]
+for obj in chosen:
     obj.select_set(True)
 bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, STEM + ".glb"), use_selection=True, export_format="GLB",
-                          export_morph=True, export_morph_normal=False, export_animations=False, export_yup=True)
+                          export_morph=True, export_morph_normal=False, export_animations=False, export_yup=True, export_vertex_color="ACTIVE")
 print("EXPORTED", os.path.getsize(os.path.join(OUT, STEM + ".glb")))
 print("DONE")

@@ -204,11 +204,53 @@ GOLD = [0.85, 0.6, 0.05]
 CAST = {}
 
 
-def add(cid, person, casual, formal, occasion):
+def nightwear(c, a, is_man):
+    pale = [min(1.0, 0.55 + 0.45 * x) for x in c]
+    if is_man:
+        rows = [{"kind": "trousers", "colour": pale, "pattern": stripes(c, 1), "cloth": "cotton", "turnups": False}, {"kind": "shirt", "colour": pale, "vee": 0.1, "pattern": stripes(c, 1)},
+                {"kind": "coat", "colour": c, "vee": 0.3, "hem": 0.36, "flare": 0.1, "cloth": "silk"}, {"kind": "sash", "colour": a, "up": 0.08, "off": 0.027}, shoes(shade(c, 0.4))]
+        return {"outfit": rows, "trim": [], "bare_chest_vee": 0.1}
+    rows = [{"kind": "dress", "colour": pale, "vee": 0.1, "sleeves": 0.9, "hem": 0.2, "flare": 0.25, "cloth": "cotton"},
+            {"kind": "coat", "colour": c, "vee": 0.3, "hem": 0.3, "flare": 0.16, "cloth": "silk"}, {"kind": "sash", "colour": a, "up": 0.08, "off": 0.027}, shoes(shade(c, 0.4))]
+    return {"outfit": rows, "trim": [], "bare_chest_vee": 0.1}
+
+
+def winter(c, a, is_man, hat):
+    deep = shade(c, 0.55)
+    legs = {"kind": "trousers", "colour": shade(c, 0.3)} if is_man else {"kind": "stockings", "colour": [0.12, 0.1, 0.1]}
+    rows = [legs, {"kind": "coat", "colour": deep, "vee": 0.06, "hem": 0.3 if is_man else 0.26, "flare": 0.1, "cloth": "wool", "pattern": checks(shade(deep, 1.5), 1) if is_man else None},
+            {"kind": "scarf", "colour": a, "cloth": "knit"}, {"kind": "cuffs", "colour": shade(deep, 0.6), "at": 0.9, "off": 0.03}, shoes(BLACK)]
+    return {"outfit": rows, "trim": [{"kind": "buttons", "colour": shade(deep, 0.5), "step": 0.1, "lift": 0.036, "size": 0.013, "below": 0.12}], "bare_chest_vee": 0.0, "hat": hat}
+
+
+def work(c, a, is_man):
+    if is_man:
+        rows = [{"kind": "trousers", "colour": shade(c, 0.4)}, {"kind": "shirt", "colour": CREAM, "vee": 0.07, "sleeves": 0.55}, {"kind": "waistcoat", "colour": c, "vee": 0.22}, shoes([0.15, 0.08, 0.04])]
+        return {"outfit": rows, "trim": [{"kind": "buttons", "colour": a, "step": 0.06, "lift": 0.02, "size": 0.007}], "bare_arm_from": 0.55, "bare_chest_vee": 0.07}
+    rows = [{"kind": "stockings", "colour": [0.4, 0.3, 0.22]}, {"kind": "shirt", "name": "Blouse", "colour": CREAM, "vee": 0.06, "sleeves": 0.9}, {"kind": "skirt", "colour": c, "hem": 0.38, "flare": 0.2, "pleats": 8},
+            {"kind": "apron", "colour": shade(WHITE, 0.95), "hem": 0.46}, shoes(shade(c, 0.35), True)]
+    return {"outfit": rows, "trim": [], "bare_chest_vee": 0.06}
+
+
+def mourning(c, a, is_man, hat):
+    if is_man:
+        out = suit(BLACK, shade(c, 0.5))
+    else:
+        out = coat_dress(BLACK, shade(c, 0.6), hem=0.3)
+    out["hat"] = dict(hat, colour=BLACK, band=shade(c, 0.5))
+    return out
+
+
+def add(cid, person, casual, formal, occasion, extra=None):
     person = dict(person)
-    person.pop("colour")
-    person.pop("accent")
-    person["outfits"] = {"casual": casual, "formal": formal, "occasion": occasion}
+    c_ = person.pop("colour")
+    a_ = person.pop("accent")
+    is_man = person["macro"]["gender"] > 0.5
+    hat = formal.get("hat") or (cap(shade(c_, 0.5)) if is_man else cloche(shade(c_, 0.6), a_))
+    outfits = {"casual": casual, "formal": formal, "occasion": occasion, "night": nightwear(c_, a_, is_man), "winter": winter(c_, a_, is_man, hat),
+               "work": work(c_, a_, is_man), "mourning": mourning(c_, a_, is_man, hat)}
+    outfits.update(extra or {})
+    person["outfits"] = outfits
     CAST[cid] = person
 
 
@@ -223,7 +265,7 @@ add("cal_dwyer", man(0.88, "old_caucasian_male", "short", white_hair, c, a, eyes
     jumper(c, a, trousers=[0.16, 0.07, 0.03], pattern=checks([0.34, 0.18, 0.06]), hat=cap(shade(c, 0.6))), suit(shade(c, 0.7), a, pattern=checks(shade(c, 0.45)), hat=cap(shade(c, 0.5))),
     evening_suit(c, a))
 c, a = MAROON, GOLD
-add("cam_ortiz", man(0.55, "young_caucasian_male", "short", black, c, a, MIX, gender=0.85),
+add("cam_ortiz", man(0.55, "young_caucasian_male", "short", black, c, a, MIX, gender=0.55, weight=0.42),
     jumper(c, a, trousers=[0.2, 0.14, 0.08], hat=cap(c), short=True), suit(shade(c, 0.8), a, hat=cap(shade(c, 0.6))), evening_suit(c, a))
 c, a = PLUM, GOLD
 add("evelyn_marsh", woman(0.82, "old_caucasian_female", "bob", grey_hair, c, a, spectacles=True, eyes="grey", hair_extra={"length": [0.03, 0.05]}),
@@ -268,13 +310,24 @@ c, a = NAVY, SCARLET
 add("teresa_vale", woman(0.66, "middleage_asian_female", "bob", black, c, a, AS, hair_extra={"length": [0.03, 0.05]}),
     blouse_skirt(c, a, blouse=WHITE), coat_dress(c, a, hem=0.36), evening_dress(c, a, hem=0.3, sleeves=0.5, scarf=a))
 c, a = GREY, [0.7, 0.55, 0.2]
-add("transient_guests", man(0.58, "young_caucasian_male", "bob", brown, c, a, hair_extra={"length": [0.1, 0.14]}),
-    shirt_sleeves(c, a, shirt=[0.7, 0.7, 0.66]), suit(c, a, pattern=checks(shade(c, 1.5))), evening_suit(c, a))
+for guest, guest_person in (("transient_guests_a", man(0.58, "young_caucasian_male", "bob", brown, c, a, hair_extra={"length": [0.1, 0.14]})),
+                            ("transient_guests_b", woman(0.55, "young_caucasian_female", "bob", [0.2, 0.13, 0.08], c, a))):
+    add(guest, guest_person, shirt_sleeves(c, a, shirt=[0.7, 0.7, 0.66]) if guest.endswith("_a") else blouse_skirt(c, a, blouse=[0.7, 0.7, 0.66]),
+        suit(c, a, pattern=checks(shade(c, 1.5))) if guest.endswith("_a") else lady_suit(c, a, pattern=checks(shade(c, 1.5))),
+        evening_suit(c, a) if guest.endswith("_a") else evening_dress(c, a, hem=0.3))
 
 for person in CAST.values():
     extra = person.pop("hair_extra", None)
     if extra:
         person["hair"].update(extra)
+CAST["teresa_vale"]["outfits"]["work"] = {"outfit": [{"kind": "stockings", "colour": WHITE}, {"kind": "dress", "colour": WHITE, "vee": 0.04, "sleeves": 0.6, "hem": 0.36, "flare": 0.15},
+    {"kind": "apron", "colour": WHITE, "hem": 0.42}, {"kind": "coat", "colour": NAVY, "vee": 0.4, "hem": 0.5, "flare": 0.2}, {"kind": "sash", "colour": SCARLET, "up": 0.1, "off": 0.03}, shoes(BLACK, True)],
+    "trim": [], "bare_chest_vee": 0.04, "hat": toque(WHITE, NAVY)}
+CAST["malcolm_reed"]["outfits"]["work"] = overalls(MOSS, [0.55, 0.2, 0.05], shirt=shade(MOSS, 1.6), hat=cap(shade(MOSS, 0.5)))
+CAST["omar_bell"]["outfits"]["work"] = overalls(shade(OCHRE, 0.7), [0.2, 0.1, 0.04], hat=cap(shade(OCHRE, 0.5)))
+CAST["iris_bell"]["outfits"]["work"] = overalls(ULTRA, [0.9, 0.5, 0.05], shirt=[0.85, 0.8, 0.7], hat=toque([0.9, 0.5, 0.05], ULTRA))
+CAST["noel_price"]["outfits"]["work"] = work_coat(INDIGO, WHITE, hem=0.5)
+CAST["cam_ortiz"]["outfits"]["work"] = jumper(MAROON, GOLD, trousers=[0.2, 0.14, 0.08], hat=cap(MAROON), short=True)
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cast_wardrobe.json")
 json.dump(CAST, open(out, "w", encoding="utf-8"), indent=1)
 print(len(CAST), "people,", sum(len(p["outfits"]) for p in CAST.values()), "outfits ->", out)

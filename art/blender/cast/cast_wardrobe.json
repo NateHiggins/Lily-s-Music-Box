@@ -253,6 +253,261 @@
     "trim": [],
     "bare_arm_from": 0.0,
     "bare_chest_vee": 0.12
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "dress",
+      "colour": [
+       0.55,
+       0.667,
+       0.6130000000000001
+      ],
+      "vee": 0.1,
+      "sleeves": 0.9,
+      "hem": 0.2,
+      "flare": 0.25,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.0,
+       0.26,
+       0.14
+      ],
+      "vee": 0.3,
+      "hem": 0.3,
+      "flare": 0.16,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.75,
+       0.1,
+       0.12
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.0,
+       0.104,
+       0.056
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.12,
+       0.1,
+       0.1
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.0,
+       0.143,
+       0.077
+      ],
+      "vee": 0.06,
+      "hem": 0.26,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": null
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.75,
+       0.1,
+       0.12
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.0,
+       0.0858,
+       0.0462
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0,
+       0.0715,
+       0.0385
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.03,
+      0.08,
+      0.3
+     ],
+     "band": [
+      0.85,
+      0.6,
+      0.05
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.4,
+       0.3,
+       0.22
+      ]
+     },
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.06,
+      "sleeves": 0.9
+     },
+     {
+      "kind": "skirt",
+      "colour": [
+       0.0,
+       0.26,
+       0.14
+      ],
+      "hem": 0.38,
+      "flare": 0.2,
+      "pleats": 8
+     },
+     {
+      "kind": "apron",
+      "colour": [
+       0.874,
+       0.855,
+       0.798
+      ],
+      "hem": 0.46
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.0,
+       0.091,
+       0.049
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.06
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.3,
+       0.22,
+       0.18
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.1,
+      "hem": 0.3,
+      "flare": 0.14,
+      "pattern": null
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.0,
+       0.156,
+       0.084
+      ],
+      "up": 0.03,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0,
+       0.156,
+       0.084
+      ],
+      "step": 0.09,
+      "lift": 0.034,
+      "size": 0.012
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.0,
+      0.13,
+      0.07
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
@@ -531,6 +786,261 @@
     "trim": [],
     "bare_arm_from": 0.5,
     "bare_chest_vee": 0.12
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "dress",
+      "colour": [
+       0.5950000000000001,
+       0.64,
+       0.7570000000000001
+      ],
+      "vee": 0.1,
+      "sleeves": 0.9,
+      "hem": 0.2,
+      "flare": 0.25,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.1,
+       0.2,
+       0.46
+      ],
+      "vee": 0.3,
+      "hem": 0.3,
+      "flare": 0.16,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.85,
+       0.6,
+       0.05
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.04,
+       0.08,
+       0.184
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.12,
+       0.1,
+       0.1
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.055,
+       0.11,
+       0.253
+      ],
+      "vee": 0.06,
+      "hem": 0.26,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": null
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.85,
+       0.6,
+       0.05
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.033,
+       0.066,
+       0.1518
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0275,
+       0.055,
+       0.1265
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.3,
+      0.3,
+      0.34
+     ],
+     "band": [
+      0.85,
+      0.6,
+      0.05
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.4,
+       0.3,
+       0.22
+      ]
+     },
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.06,
+      "sleeves": 0.9
+     },
+     {
+      "kind": "skirt",
+      "colour": [
+       0.1,
+       0.2,
+       0.46
+      ],
+      "hem": 0.38,
+      "flare": 0.2,
+      "pleats": 8
+     },
+     {
+      "kind": "apron",
+      "colour": [
+       0.874,
+       0.855,
+       0.798
+      ],
+      "hem": 0.46
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.035,
+       0.07,
+       0.161
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.06
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.3,
+       0.22,
+       0.18
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.1,
+      "hem": 0.3,
+      "flare": 0.14,
+      "pattern": null
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.06,
+       0.12,
+       0.276
+      ],
+      "up": 0.03,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.06,
+       0.12,
+       0.276
+      ],
+      "step": 0.09,
+      "lift": 0.034,
+      "size": 0.012
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.05,
+      0.1,
+      0.23
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
@@ -832,15 +1342,335 @@
      }
     ],
     "bare_chest_vee": 0.05
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.8740000000000001,
+       0.7390000000000001,
+       0.5545
+      ],
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.72,
+        0.42,
+        0.01
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      },
+      "cloth": "cotton",
+      "turnups": false
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.8740000000000001,
+       0.7390000000000001,
+       0.5545
+      ],
+      "vee": 0.1,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.72,
+        0.42,
+        0.01
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.72,
+       0.42,
+       0.01
+      ],
+      "vee": 0.3,
+      "hem": 0.36,
+      "flare": 0.1,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.6,
+       0.08,
+       0.1
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.288,
+       0.168,
+       0.004
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.216,
+       0.126,
+       0.003
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.396,
+       0.231,
+       0.0055
+      ],
+      "vee": 0.06,
+      "hem": 0.3,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.594,
+        0.3465,
+        0.0083
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.6,
+       0.08,
+       0.1
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.2376,
+       0.1386,
+       0.0033
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.198,
+       0.1155,
+       0.0027
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.36,
+      0.21,
+      0.005
+     ],
+     "band": [
+      0.36,
+      0.21,
+      0.005
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.288,
+       0.168,
+       0.004
+      ]
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.07,
+      "sleeves": 0.55
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.72,
+       0.42,
+       0.01
+      ],
+      "vee": 0.22
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.15,
+       0.08,
+       0.04
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.6,
+       0.08,
+       0.1
+      ],
+      "step": 0.06,
+      "lift": 0.02,
+      "size": 0.007
+     }
+    ],
+    "bare_arm_from": 0.55,
+    "bare_chest_vee": 0.07
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "pattern": null
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.05
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.2
+     },
+     {
+      "kind": "jacket",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.3,
+      "pattern": null
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "vee": 0.3
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "tie",
+      "colour": [
+       0.36,
+       0.21,
+       0.005
+      ],
+      "length": 0.2
+     },
+     {
+      "kind": "pockets",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "up": 0.03,
+      "lift": 0.03
+     }
+    ],
+    "bare_chest_vee": 0.05,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.36,
+      0.21,
+      0.005
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
  "cam_ortiz": {
   "macro": {
-   "gender": 0.85,
+   "gender": 0.55,
    "age": 0.55,
    "muscle": 0.48,
-   "weight": 0.5,
+   "weight": 0.42,
    "proportions": 0.6,
    "height": 0.5
   },
@@ -1118,6 +1948,355 @@
      }
     ],
     "bare_chest_vee": 0.05
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.7390000000000001,
+       0.559,
+       0.5815
+      ],
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.42,
+        0.02,
+        0.07
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      },
+      "cloth": "cotton",
+      "turnups": false
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.7390000000000001,
+       0.559,
+       0.5815
+      ],
+      "vee": 0.1,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.42,
+        0.02,
+        0.07
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.42,
+       0.02,
+       0.07
+      ],
+      "vee": 0.3,
+      "hem": 0.36,
+      "flare": 0.1,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.85,
+       0.6,
+       0.05
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.168,
+       0.008,
+       0.028
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.126,
+       0.006,
+       0.021
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.231,
+       0.011,
+       0.0385
+      ],
+      "vee": 0.06,
+      "hem": 0.3,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.3465,
+        0.0165,
+        0.0577
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.85,
+       0.6,
+       0.05
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.1386,
+       0.0066,
+       0.0231
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.1155,
+       0.0055,
+       0.0192
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.252,
+      0.012,
+      0.042
+     ],
+     "band": [
+      0.252,
+      0.012,
+      0.042
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.85,
+       0.6,
+       0.05
+      ]
+     },
+     {
+      "kind": "trousers",
+      "colour": [
+       0.2,
+       0.14,
+       0.08
+      ],
+      "pattern": null,
+      "ends": 0.36,
+      "turnups": false
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.0
+     },
+     {
+      "kind": "jumper",
+      "colour": [
+       0.42,
+       0.02,
+       0.07
+      ],
+      "vee": 0.1
+     },
+     {
+      "kind": "hem",
+      "colour": [
+       0.231,
+       0.011,
+       0.0385
+      ],
+      "drop": 0.01
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.231,
+       0.011,
+       0.0385
+      ],
+      "at": 0.9
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.25,
+       0.12,
+       0.05
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.42,
+      0.02,
+      0.07
+     ],
+     "band": [
+      0.42,
+      0.02,
+      0.07
+     ],
+     "brim": 1.0
+    }
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "pattern": null
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.05
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.2
+     },
+     {
+      "kind": "jacket",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.3,
+      "pattern": null
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "vee": 0.3
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "tie",
+      "colour": [
+       0.21,
+       0.01,
+       0.035
+      ],
+      "length": 0.2
+     },
+     {
+      "kind": "pockets",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "up": 0.03,
+      "lift": 0.03
+     }
+    ],
+    "bare_chest_vee": 0.05,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.21,
+      0.01,
+      0.035
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
@@ -1352,6 +2531,261 @@
     "trim": [],
     "bare_arm_from": 0.7,
     "bare_chest_vee": 0.12
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "dress",
+      "colour": [
+       0.7030000000000001,
+       0.5635,
+       0.685
+      ],
+      "vee": 0.1,
+      "sleeves": 0.9,
+      "hem": 0.2,
+      "flare": 0.25,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.34,
+       0.03,
+       0.3
+      ],
+      "vee": 0.3,
+      "hem": 0.3,
+      "flare": 0.16,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.85,
+       0.6,
+       0.05
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.136,
+       0.012,
+       0.12
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.12,
+       0.1,
+       0.1
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.187,
+       0.0165,
+       0.165
+      ],
+      "vee": 0.06,
+      "hem": 0.26,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": null
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.85,
+       0.6,
+       0.05
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.1122,
+       0.0099,
+       0.099
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0935,
+       0.0083,
+       0.0825
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.34,
+      0.03,
+      0.3
+     ],
+     "band": [
+      0.85,
+      0.6,
+      0.05
+     ],
+     "brim": 0.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.4,
+       0.3,
+       0.22
+      ]
+     },
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.06,
+      "sleeves": 0.9
+     },
+     {
+      "kind": "skirt",
+      "colour": [
+       0.34,
+       0.03,
+       0.3
+      ],
+      "hem": 0.38,
+      "flare": 0.2,
+      "pleats": 8
+     },
+     {
+      "kind": "apron",
+      "colour": [
+       0.874,
+       0.855,
+       0.798
+      ],
+      "hem": 0.46
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.119,
+       0.0105,
+       0.105
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.06
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.3,
+       0.22,
+       0.18
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.1,
+      "hem": 0.3,
+      "flare": 0.14,
+      "pattern": null
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.204,
+       0.018,
+       0.18
+      ],
+      "up": 0.03,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.204,
+       0.018,
+       0.18
+      ],
+      "step": 0.09,
+      "lift": 0.034,
+      "size": 0.012
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.17,
+      0.015,
+      0.15
+     ],
+     "brim": 0.0
+    }
    }
   }
  },
@@ -1595,6 +3029,283 @@
     "trim": [],
     "bare_arm_from": 0.0,
     "bare_chest_vee": 0.12
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "dress",
+      "colour": [
+       0.5635,
+       0.5770000000000001,
+       0.8425
+      ],
+      "vee": 0.1,
+      "sleeves": 0.9,
+      "hem": 0.2,
+      "flare": 0.25,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.03,
+       0.06,
+       0.65
+      ],
+      "vee": 0.3,
+      "hem": 0.3,
+      "flare": 0.16,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.9,
+       0.5,
+       0.05
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.012,
+       0.024,
+       0.26
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.12,
+       0.1,
+       0.1
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.0165,
+       0.033,
+       0.3575
+      ],
+      "vee": 0.06,
+      "hem": 0.26,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": null
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.9,
+       0.5,
+       0.05
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.0099,
+       0.0198,
+       0.2145
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0083,
+       0.0165,
+       0.1787
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.018,
+      0.036,
+      0.39
+     ],
+     "band": [
+      0.9,
+      0.5,
+      0.05
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.03,
+       0.06,
+       0.65
+      ]
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.85,
+       0.8,
+       0.7
+      ],
+      "vee": 0.07,
+      "sleeves": 0.55
+     },
+     {
+      "kind": "bib",
+      "colour": [
+       0.03,
+       0.06,
+       0.65
+      ]
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.2,
+       0.1,
+       0.05
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "braces",
+      "colour": [
+       0.03,
+       0.06,
+       0.65
+      ],
+      "lift": 0.02
+     },
+     {
+      "kind": "buttons",
+      "colour": [
+       0.9,
+       0.5,
+       0.05
+      ],
+      "step": 0.3,
+      "lift": 0.03,
+      "size": 0.012
+     }
+    ],
+    "bare_arm_from": 0.55,
+    "bare_chest_vee": 0.07,
+    "hat": {
+     "colour": [
+      0.9,
+      0.5,
+      0.05
+     ],
+     "band": [
+      0.03,
+      0.06,
+      0.65
+     ],
+     "brim": 0.0
+    }
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.3,
+       0.22,
+       0.18
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.1,
+      "hem": 0.3,
+      "flare": 0.14,
+      "pattern": null
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.018,
+       0.036,
+       0.39
+      ],
+      "up": 0.03,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.018,
+       0.036,
+       0.39
+      ],
+      "step": 0.09,
+      "lift": 0.034,
+      "size": 0.012
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.015,
+      0.03,
+      0.325
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
@@ -1858,6 +3569,326 @@
      }
     ],
     "bare_chest_vee": 0.05
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.559,
+       0.5725,
+       0.676
+      ],
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.02,
+        0.05,
+        0.28
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      },
+      "cloth": "cotton",
+      "turnups": false
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.559,
+       0.5725,
+       0.676
+      ],
+      "vee": 0.1,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.02,
+        0.05,
+        0.28
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.05,
+       0.28
+      ],
+      "vee": 0.3,
+      "hem": 0.36,
+      "flare": 0.1,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.008,
+       0.02,
+       0.112
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.006,
+       0.015,
+       0.084
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.011,
+       0.0275,
+       0.154
+      ],
+      "vee": 0.06,
+      "hem": 0.3,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.0165,
+        0.0413,
+        0.231
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.0066,
+       0.0165,
+       0.0924
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0055,
+       0.0138,
+       0.077
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.01,
+      0.025,
+      0.14
+     ],
+     "band": [
+      0.01,
+      0.025,
+      0.14
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.008,
+       0.02,
+       0.112
+      ]
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.07,
+      "sleeves": 0.55
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.02,
+       0.05,
+       0.28
+      ],
+      "vee": 0.22
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.15,
+       0.08,
+       0.04
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "step": 0.06,
+      "lift": 0.02,
+      "size": 0.007
+     }
+    ],
+    "bare_arm_from": 0.55,
+    "bare_chest_vee": 0.07
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "pattern": null
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.05
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.2
+     },
+     {
+      "kind": "jacket",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.3,
+      "pattern": null
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "vee": 0.3
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "tie",
+      "colour": [
+       0.01,
+       0.025,
+       0.14
+      ],
+      "length": 0.2
+     },
+     {
+      "kind": "pockets",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "up": 0.03,
+      "lift": 0.03
+     }
+    ],
+    "bare_chest_vee": 0.05,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.01,
+      0.025,
+      0.14
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
@@ -2051,6 +4082,261 @@
     "trim": [],
     "bare_arm_from": 0.0,
     "bare_chest_vee": 0.12
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "dress",
+      "colour": [
+       0.55,
+       0.6985000000000001,
+       0.7120000000000001
+      ],
+      "vee": 0.1,
+      "sleeves": 0.9,
+      "hem": 0.2,
+      "flare": 0.25,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.0,
+       0.33,
+       0.36
+      ],
+      "vee": 0.3,
+      "hem": 0.3,
+      "flare": 0.16,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.85,
+       0.2,
+       0.3
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.0,
+       0.132,
+       0.144
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.12,
+       0.1,
+       0.1
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.0,
+       0.1815,
+       0.198
+      ],
+      "vee": 0.06,
+      "hem": 0.26,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": null
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.85,
+       0.2,
+       0.3
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.0,
+       0.1089,
+       0.1188
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0,
+       0.0907,
+       0.099
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.0,
+      0.198,
+      0.216
+     ],
+     "band": [
+      0.85,
+      0.2,
+      0.3
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.4,
+       0.3,
+       0.22
+      ]
+     },
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.06,
+      "sleeves": 0.9
+     },
+     {
+      "kind": "skirt",
+      "colour": [
+       0.0,
+       0.33,
+       0.36
+      ],
+      "hem": 0.38,
+      "flare": 0.2,
+      "pleats": 8
+     },
+     {
+      "kind": "apron",
+      "colour": [
+       0.874,
+       0.855,
+       0.798
+      ],
+      "hem": 0.46
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.0,
+       0.1155,
+       0.126
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.06
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.3,
+       0.22,
+       0.18
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.1,
+      "hem": 0.3,
+      "flare": 0.14,
+      "pattern": null
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.0,
+       0.198,
+       0.216
+      ],
+      "up": 0.03,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0,
+       0.198,
+       0.216
+      ],
+      "step": 0.09,
+      "lift": 0.034,
+      "size": 0.012
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.0,
+      0.165,
+      0.18
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
@@ -2263,6 +4549,261 @@
     "trim": [],
     "bare_arm_from": 0.6,
     "bare_chest_vee": 0.12
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "dress",
+      "colour": [
+       0.7210000000000001,
+       0.5545,
+       0.5950000000000001
+      ],
+      "vee": 0.1,
+      "sleeves": 0.9,
+      "hem": 0.2,
+      "flare": 0.25,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.38,
+       0.01,
+       0.1
+      ],
+      "vee": 0.3,
+      "hem": 0.3,
+      "flare": 0.16,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.152,
+       0.004,
+       0.04
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.12,
+       0.1,
+       0.1
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.209,
+       0.0055,
+       0.055
+      ],
+      "vee": 0.06,
+      "hem": 0.26,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": null
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.1254,
+       0.0033,
+       0.033
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.1045,
+       0.0027,
+       0.0275
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.228,
+      0.006,
+      0.06
+     ],
+     "band": [
+      0.85,
+      0.6,
+      0.05
+     ],
+     "brim": 0.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.4,
+       0.3,
+       0.22
+      ]
+     },
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.06,
+      "sleeves": 0.9
+     },
+     {
+      "kind": "skirt",
+      "colour": [
+       0.38,
+       0.01,
+       0.1
+      ],
+      "hem": 0.38,
+      "flare": 0.2,
+      "pleats": 8
+     },
+     {
+      "kind": "apron",
+      "colour": [
+       0.874,
+       0.855,
+       0.798
+      ],
+      "hem": 0.46
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.133,
+       0.0035,
+       0.035
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.06
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.3,
+       0.22,
+       0.18
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.1,
+      "hem": 0.3,
+      "flare": 0.14,
+      "pattern": null
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.228,
+       0.006,
+       0.06
+      ],
+      "up": 0.03,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.228,
+       0.006,
+       0.06
+      ],
+      "step": 0.09,
+      "lift": 0.034,
+      "size": 0.012
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.19,
+      0.005,
+      0.05
+     ],
+     "brim": 0.0
+    }
    }
   }
  },
@@ -2488,6 +5029,261 @@
     "trim": [],
     "bare_arm_from": 0.9,
     "bare_chest_vee": 0.12
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "dress",
+      "colour": [
+       0.55,
+       0.649,
+       0.5950000000000001
+      ],
+      "vee": 0.1,
+      "sleeves": 0.9,
+      "hem": 0.2,
+      "flare": 0.25,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.0,
+       0.22,
+       0.1
+      ],
+      "vee": 0.3,
+      "hem": 0.3,
+      "flare": 0.16,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.0,
+       0.088,
+       0.04
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.12,
+       0.1,
+       0.1
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.0,
+       0.121,
+       0.055
+      ],
+      "vee": 0.06,
+      "hem": 0.26,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": null
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.0,
+       0.0726,
+       0.033
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0,
+       0.0605,
+       0.0275
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.0,
+      0.22,
+      0.1
+     ],
+     "band": [
+      0.92,
+      0.9,
+      0.84
+     ],
+     "brim": 0.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.4,
+       0.3,
+       0.22
+      ]
+     },
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.06,
+      "sleeves": 0.9
+     },
+     {
+      "kind": "skirt",
+      "colour": [
+       0.0,
+       0.22,
+       0.1
+      ],
+      "hem": 0.38,
+      "flare": 0.2,
+      "pleats": 8
+     },
+     {
+      "kind": "apron",
+      "colour": [
+       0.874,
+       0.855,
+       0.798
+      ],
+      "hem": 0.46
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.0,
+       0.077,
+       0.035
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.06
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.3,
+       0.22,
+       0.18
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.1,
+      "hem": 0.3,
+      "flare": 0.14,
+      "pattern": null
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.0,
+       0.132,
+       0.06
+      ],
+      "up": 0.03,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0,
+       0.132,
+       0.06
+      ],
+      "step": 0.09,
+      "lift": 0.034,
+      "size": 0.012
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.0,
+      0.11,
+      0.05
+     ],
+     "brim": 0.0
+    }
    }
   }
  },
@@ -2752,6 +5548,348 @@
      }
     ],
     "bare_chest_vee": 0.05
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.649,
+       0.7030000000000001,
+       0.5635
+      ],
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.22,
+        0.34,
+        0.03
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      },
+      "cloth": "cotton",
+      "turnups": false
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.649,
+       0.7030000000000001,
+       0.5635
+      ],
+      "vee": 0.1,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.22,
+        0.34,
+        0.03
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.22,
+       0.34,
+       0.03
+      ],
+      "vee": 0.3,
+      "hem": 0.36,
+      "flare": 0.1,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.55,
+       0.2,
+       0.05
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.088,
+       0.136,
+       0.012
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.066,
+       0.102,
+       0.009
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.121,
+       0.187,
+       0.0165
+      ],
+      "vee": 0.06,
+      "hem": 0.3,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.1815,
+        0.2805,
+        0.0248
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.55,
+       0.2,
+       0.05
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.0726,
+       0.1122,
+       0.0099
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0605,
+       0.0935,
+       0.0083
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.11,
+      0.17,
+      0.015
+     ],
+     "band": [
+      0.11,
+      0.17,
+      0.015
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.22,
+       0.34,
+       0.03
+      ]
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.352,
+       0.544,
+       0.048
+      ],
+      "vee": 0.07,
+      "sleeves": 0.55
+     },
+     {
+      "kind": "bib",
+      "colour": [
+       0.22,
+       0.34,
+       0.03
+      ]
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.2,
+       0.1,
+       0.05
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "braces",
+      "colour": [
+       0.22,
+       0.34,
+       0.03
+      ],
+      "lift": 0.02
+     },
+     {
+      "kind": "buttons",
+      "colour": [
+       0.55,
+       0.2,
+       0.05
+      ],
+      "step": 0.3,
+      "lift": 0.03,
+      "size": 0.012
+     }
+    ],
+    "bare_arm_from": 0.55,
+    "bare_chest_vee": 0.07,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.11,
+      0.17,
+      0.015
+     ],
+     "band": [
+      0.11,
+      0.17,
+      0.015
+     ],
+     "brim": 1.0
+    }
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "pattern": null
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.05
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.2
+     },
+     {
+      "kind": "jacket",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.3,
+      "pattern": null
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "vee": 0.3
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "tie",
+      "colour": [
+       0.11,
+       0.17,
+       0.015
+      ],
+      "length": 0.2
+     },
+     {
+      "kind": "pockets",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "up": 0.03,
+      "lift": 0.03
+     }
+    ],
+    "bare_chest_vee": 0.05,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.11,
+      0.17,
+      0.015
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
@@ -3000,6 +6138,261 @@
     "trim": [],
     "bare_arm_from": 0.0,
     "bare_chest_vee": 0.12
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "dress",
+      "colour": [
+       0.6985000000000001,
+       0.5545,
+       0.5567500000000001
+      ],
+      "vee": 0.1,
+      "sleeves": 0.9,
+      "hem": 0.2,
+      "flare": 0.25,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.33,
+       0.01,
+       0.015
+      ],
+      "vee": 0.3,
+      "hem": 0.3,
+      "flare": 0.16,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.132,
+       0.004,
+       0.006
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.12,
+       0.1,
+       0.1
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.1815,
+       0.0055,
+       0.0083
+      ],
+      "vee": 0.06,
+      "hem": 0.26,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": null
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.1089,
+       0.0033,
+       0.005
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0907,
+       0.0027,
+       0.0042
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.33,
+      0.01,
+      0.015
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.4,
+       0.3,
+       0.22
+      ]
+     },
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.06,
+      "sleeves": 0.9
+     },
+     {
+      "kind": "skirt",
+      "colour": [
+       0.33,
+       0.01,
+       0.015
+      ],
+      "hem": 0.38,
+      "flare": 0.2,
+      "pleats": 8
+     },
+     {
+      "kind": "apron",
+      "colour": [
+       0.874,
+       0.855,
+       0.798
+      ],
+      "hem": 0.46
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.1155,
+       0.0035,
+       0.0052
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.06
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.3,
+       0.22,
+       0.18
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.1,
+      "hem": 0.3,
+      "flare": 0.14,
+      "pattern": null
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.198,
+       0.006,
+       0.009
+      ],
+      "up": 0.03,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.198,
+       0.006,
+       0.009
+      ],
+      "step": 0.09,
+      "lift": 0.034,
+      "size": 0.012
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.165,
+      0.005,
+      0.0075
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
@@ -3215,6 +6608,325 @@
      }
     ],
     "bare_chest_vee": 0.05
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.5950000000000001,
+       0.5680000000000001,
+       0.7525000000000001
+      ],
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.1,
+        0.04,
+        0.45
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      },
+      "cloth": "cotton",
+      "turnups": false
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.5950000000000001,
+       0.5680000000000001,
+       0.7525000000000001
+      ],
+      "vee": 0.1,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.1,
+        0.04,
+        0.45
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.1,
+       0.04,
+       0.45
+      ],
+      "vee": 0.3,
+      "hem": 0.36,
+      "flare": 0.1,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.04,
+       0.016,
+       0.18
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.03,
+       0.012,
+       0.135
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.055,
+       0.022,
+       0.2475
+      ],
+      "vee": 0.06,
+      "hem": 0.3,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.0825,
+        0.033,
+        0.3712
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.033,
+       0.0132,
+       0.1485
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0275,
+       0.011,
+       0.1237
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.05,
+      0.02,
+      0.225
+     ],
+     "band": [
+      0.1,
+      0.04,
+      0.45
+     ],
+     "brim": 0.8
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.04,
+       0.016,
+       0.18
+      ]
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.06
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.1,
+       0.04,
+       0.45
+      ],
+      "vee": 0.18,
+      "hem": 0.5,
+      "flare": 0.08
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.12,
+       0.07,
+       0.04
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.012,
+      "below": 0.1
+     }
+    ],
+    "bare_chest_vee": 0.06
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "pattern": null
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.05
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.2
+     },
+     {
+      "kind": "jacket",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.3,
+      "pattern": null
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "vee": 0.3
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "tie",
+      "colour": [
+       0.05,
+       0.02,
+       0.225
+      ],
+      "length": 0.2
+     },
+     {
+      "kind": "pockets",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "up": 0.03,
+      "lift": 0.03
+     }
+    ],
+    "bare_chest_vee": 0.05,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.05,
+      0.02,
+      0.225
+     ],
+     "brim": 0.8
+    }
    }
   }
  },
@@ -3476,6 +7188,348 @@
      }
     ],
     "bare_chest_vee": 0.05
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.8290000000000001,
+       0.7030000000000001,
+       0.5680000000000001
+      ],
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.62,
+        0.34,
+        0.04
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      },
+      "cloth": "cotton",
+      "turnups": false
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.8290000000000001,
+       0.7030000000000001,
+       0.5680000000000001
+      ],
+      "vee": 0.1,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.62,
+        0.34,
+        0.04
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.62,
+       0.34,
+       0.04
+      ],
+      "vee": 0.3,
+      "hem": 0.36,
+      "flare": 0.1,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.2,
+       0.1,
+       0.04
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.248,
+       0.136,
+       0.016
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.186,
+       0.102,
+       0.012
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.341,
+       0.187,
+       0.022
+      ],
+      "vee": 0.06,
+      "hem": 0.3,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.5115,
+        0.2805,
+        0.033
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.2,
+       0.1,
+       0.04
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.2046,
+       0.1122,
+       0.0132
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.1705,
+       0.0935,
+       0.011
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.279,
+      0.153,
+      0.018
+     ],
+     "band": [
+      0.279,
+      0.153,
+      0.018
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.434,
+       0.238,
+       0.028
+      ]
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.07,
+      "sleeves": 0.55
+     },
+     {
+      "kind": "bib",
+      "colour": [
+       0.434,
+       0.238,
+       0.028
+      ]
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.2,
+       0.1,
+       0.05
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "braces",
+      "colour": [
+       0.434,
+       0.238,
+       0.028
+      ],
+      "lift": 0.02
+     },
+     {
+      "kind": "buttons",
+      "colour": [
+       0.2,
+       0.1,
+       0.04
+      ],
+      "step": 0.3,
+      "lift": 0.03,
+      "size": 0.012
+     }
+    ],
+    "bare_arm_from": 0.55,
+    "bare_chest_vee": 0.07,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.31,
+      0.17,
+      0.02
+     ],
+     "band": [
+      0.31,
+      0.17,
+      0.02
+     ],
+     "brim": 1.0
+    }
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "pattern": null
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.05
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.2
+     },
+     {
+      "kind": "jacket",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.3,
+      "pattern": null
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "vee": 0.3
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "tie",
+      "colour": [
+       0.31,
+       0.17,
+       0.02
+      ],
+      "length": 0.2
+     },
+     {
+      "kind": "pockets",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "up": 0.03,
+      "lift": 0.03
+     }
+    ],
+    "bare_chest_vee": 0.05,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.31,
+      0.17,
+      0.02
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
@@ -3756,6 +7810,324 @@
      }
     ],
     "bare_chest_vee": 0.05
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.6715000000000001,
+       0.5995,
+       0.5635
+      ],
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.27,
+        0.11,
+        0.03
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      },
+      "cloth": "cotton",
+      "turnups": false
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.6715000000000001,
+       0.5995,
+       0.5635
+      ],
+      "vee": 0.1,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.27,
+        0.11,
+        0.03
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.27,
+       0.11,
+       0.03
+      ],
+      "vee": 0.3,
+      "hem": 0.36,
+      "flare": 0.1,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.75,
+       0.45,
+       0.05
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.108,
+       0.044,
+       0.012
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.081,
+       0.033,
+       0.009
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.1485,
+       0.0605,
+       0.0165
+      ],
+      "vee": 0.06,
+      "hem": 0.3,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.2228,
+        0.0907,
+        0.0248
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.75,
+       0.45,
+       0.05
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.0891,
+       0.0363,
+       0.0099
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0742,
+       0.0302,
+       0.0083
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.108,
+      0.044,
+      0.012
+     ],
+     "band": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "brim": 0.55
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.108,
+       0.044,
+       0.012
+      ]
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.07,
+      "sleeves": 0.55
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.27,
+       0.11,
+       0.03
+      ],
+      "vee": 0.22
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.15,
+       0.08,
+       0.04
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.75,
+       0.45,
+       0.05
+      ],
+      "step": 0.06,
+      "lift": 0.02,
+      "size": 0.007
+     }
+    ],
+    "bare_arm_from": 0.55,
+    "bare_chest_vee": 0.07
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "pattern": null
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.05
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.2
+     },
+     {
+      "kind": "jacket",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.3,
+      "pattern": null
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "vee": 0.3
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "tie",
+      "colour": [
+       0.135,
+       0.055,
+       0.015
+      ],
+      "length": 0.2
+     },
+     {
+      "kind": "pockets",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "up": 0.03,
+      "lift": 0.03
+     }
+    ],
+    "bare_chest_vee": 0.05,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.135,
+      0.055,
+      0.015
+     ],
+     "brim": 0.55
+    }
    }
   }
  },
@@ -4004,6 +8376,261 @@
     "trim": [],
     "bare_arm_from": 0.0,
     "bare_chest_vee": 0.12
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "dress",
+      "colour": [
+       0.5860000000000001,
+       0.559,
+       0.6940000000000001
+      ],
+      "vee": 0.1,
+      "sleeves": 0.9,
+      "hem": 0.2,
+      "flare": 0.25,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.08,
+       0.02,
+       0.32
+      ],
+      "vee": 0.3,
+      "hem": 0.3,
+      "flare": 0.16,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.85,
+       0.1,
+       0.25
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.032,
+       0.008,
+       0.128
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.12,
+       0.1,
+       0.1
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.044,
+       0.011,
+       0.176
+      ],
+      "vee": 0.06,
+      "hem": 0.26,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": null
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.85,
+       0.1,
+       0.25
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.0264,
+       0.0066,
+       0.1056
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.022,
+       0.0055,
+       0.088
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.85,
+      0.1,
+      0.25
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.4,
+       0.3,
+       0.22
+      ]
+     },
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.06,
+      "sleeves": 0.9
+     },
+     {
+      "kind": "skirt",
+      "colour": [
+       0.08,
+       0.02,
+       0.32
+      ],
+      "hem": 0.38,
+      "flare": 0.2,
+      "pleats": 8
+     },
+     {
+      "kind": "apron",
+      "colour": [
+       0.874,
+       0.855,
+       0.798
+      ],
+      "hem": 0.46
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.028,
+       0.007,
+       0.112
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.06
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.3,
+       0.22,
+       0.18
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.1,
+      "hem": 0.3,
+      "flare": 0.14,
+      "pattern": null
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.048,
+       0.012,
+       0.192
+      ],
+      "up": 0.03,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.048,
+       0.012,
+       0.192
+      ],
+      "step": 0.09,
+      "lift": 0.034,
+      "size": 0.012
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.04,
+      0.01,
+      0.16
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
@@ -4259,6 +8886,326 @@
      }
     ],
     "bare_chest_vee": 0.05
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.6040000000000001,
+       0.6940000000000001,
+       0.667
+      ],
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.12,
+        0.32,
+        0.26
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      },
+      "cloth": "cotton",
+      "turnups": false
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.6040000000000001,
+       0.6940000000000001,
+       0.667
+      ],
+      "vee": 0.1,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.12,
+        0.32,
+        0.26
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.12,
+       0.32,
+       0.26
+      ],
+      "vee": 0.3,
+      "hem": 0.36,
+      "flare": 0.1,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.8,
+       0.55,
+       0.1
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.048,
+       0.128,
+       0.104
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.036,
+       0.096,
+       0.078
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.066,
+       0.176,
+       0.143
+      ],
+      "vee": 0.06,
+      "hem": 0.3,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.099,
+        0.264,
+        0.2145
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.8,
+       0.55,
+       0.1
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.0396,
+       0.1056,
+       0.0858
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.033,
+       0.088,
+       0.0715
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.06,
+      0.16,
+      0.13
+     ],
+     "band": [
+      0.06,
+      0.16,
+      0.13
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.048,
+       0.128,
+       0.104
+      ]
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.07,
+      "sleeves": 0.55
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.12,
+       0.32,
+       0.26
+      ],
+      "vee": 0.22
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.15,
+       0.08,
+       0.04
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.8,
+       0.55,
+       0.1
+      ],
+      "step": 0.06,
+      "lift": 0.02,
+      "size": 0.007
+     }
+    ],
+    "bare_arm_from": 0.55,
+    "bare_chest_vee": 0.07
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "pattern": null
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.05
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.2
+     },
+     {
+      "kind": "jacket",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.3,
+      "pattern": null
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "vee": 0.3
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "tie",
+      "colour": [
+       0.06,
+       0.16,
+       0.13
+      ],
+      "length": 0.2
+     },
+     {
+      "kind": "pockets",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "up": 0.03,
+      "lift": 0.03
+     }
+    ],
+    "bare_chest_vee": 0.05,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.06,
+      0.16,
+      0.13
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
@@ -4475,10 +9422,289 @@
     "trim": [],
     "bare_arm_from": 0.5,
     "bare_chest_vee": 0.12
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "dress",
+      "colour": [
+       0.559,
+       0.5725,
+       0.676
+      ],
+      "vee": 0.1,
+      "sleeves": 0.9,
+      "hem": 0.2,
+      "flare": 0.25,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.05,
+       0.28
+      ],
+      "vee": 0.3,
+      "hem": 0.3,
+      "flare": 0.16,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.72,
+       0.03,
+       0.03
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.008,
+       0.02,
+       0.112
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.12,
+       0.1,
+       0.1
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.011,
+       0.0275,
+       0.154
+      ],
+      "vee": 0.06,
+      "hem": 0.26,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": null
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.72,
+       0.03,
+       0.03
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.0066,
+       0.0165,
+       0.0924
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0055,
+       0.0138,
+       0.077
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.012,
+      0.03,
+      0.168
+     ],
+     "band": [
+      0.72,
+      0.03,
+      0.03
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ]
+     },
+     {
+      "kind": "dress",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.04,
+      "sleeves": 0.6,
+      "hem": 0.36,
+      "flare": 0.15
+     },
+     {
+      "kind": "apron",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "hem": 0.42
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.05,
+       0.28
+      ],
+      "vee": 0.4,
+      "hem": 0.5,
+      "flare": 0.2
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.72,
+       0.03,
+       0.03
+      ],
+      "up": 0.1,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.04,
+    "hat": {
+     "colour": [
+      0.92,
+      0.9,
+      0.84
+     ],
+     "band": [
+      0.02,
+      0.05,
+      0.28
+     ],
+     "brim": 0.0
+    }
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.3,
+       0.22,
+       0.18
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.1,
+      "hem": 0.3,
+      "flare": 0.14,
+      "pattern": null
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.012,
+       0.03,
+       0.168
+      ],
+      "up": 0.03,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.012,
+       0.03,
+       0.168
+      ],
+      "step": 0.09,
+      "lift": 0.034,
+      "size": 0.012
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.01,
+      0.025,
+      0.14
+     ],
+     "brim": 1.0
+    }
    }
   }
  },
- "transient_guests": {
+ "transient_guests_a": {
   "macro": {
    "gender": 1.0,
    "age": 0.58,
@@ -4726,6 +9952,830 @@
      }
     ],
     "bare_chest_vee": 0.05
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.685,
+       0.685,
+       0.6940000000000001
+      ],
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.3,
+        0.3,
+        0.32
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      },
+      "cloth": "cotton",
+      "turnups": false
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.685,
+       0.685,
+       0.6940000000000001
+      ],
+      "vee": 0.1,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.3,
+        0.3,
+        0.32
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "vee": 0.3,
+      "hem": 0.36,
+      "flare": 0.1,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.12,
+       0.12,
+       0.128
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.09,
+       0.09,
+       0.096
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.165,
+       0.165,
+       0.176
+      ],
+      "vee": 0.06,
+      "hem": 0.3,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.2475,
+        0.2475,
+        0.264
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.099,
+       0.099,
+       0.1056
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0825,
+       0.0825,
+       0.088
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.15,
+      0.15,
+      0.16
+     ],
+     "band": [
+      0.15,
+      0.15,
+      0.16
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.12,
+       0.12,
+       0.128
+      ]
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.07,
+      "sleeves": 0.55
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "vee": 0.22
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.15,
+       0.08,
+       0.04
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "step": 0.06,
+      "lift": 0.02,
+      "size": 0.007
+     }
+    ],
+    "bare_arm_from": 0.55,
+    "bare_chest_vee": 0.07
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "pattern": null
+     },
+     {
+      "kind": "shirt",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.05
+     },
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.2
+     },
+     {
+      "kind": "jacket",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.3,
+      "pattern": null
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "vee": 0.3
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "tie",
+      "colour": [
+       0.15,
+       0.15,
+       0.16
+      ],
+      "length": 0.2
+     },
+     {
+      "kind": "pockets",
+      "colour": [
+       0.012,
+       0.012,
+       0.015
+      ],
+      "up": 0.03,
+      "lift": 0.03
+     }
+    ],
+    "bare_chest_vee": 0.05,
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.15,
+      0.15,
+      0.16
+     ],
+     "brim": 1.0
+    }
+   }
+  }
+ },
+ "transient_guests_b": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.55,
+   "muscle": 0.4,
+   "weight": 0.42,
+   "proportions": 0.65,
+   "height": 0.5,
+   "cupsize": 0.42,
+   "firmness": 0.5
+  },
+  "skin": "young_caucasian_female",
+  "eyes": "brown",
+  "hair": {
+   "style": "bob",
+   "colour": [
+    0.2,
+    0.13,
+    0.08
+   ]
+  },
+  "outfits": {
+   "casual": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.5,
+       0.36,
+       0.26
+      ]
+     },
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.7,
+       0.7,
+       0.66
+      ],
+      "vee": 0.09,
+      "sleeves": 0.55,
+      "cloth": "silk",
+      "pattern": null
+     },
+     {
+      "kind": "skirt",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "hem": 0.36,
+      "flare": 0.3,
+      "pleats": 18
+     },
+     {
+      "kind": "belt",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "off": 0.012
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.12,
+       0.12,
+       0.128
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "step": 0.07,
+      "lift": 0.014,
+      "size": 0.007
+     }
+    ],
+    "bare_arm_from": 0.55,
+    "bare_chest_vee": 0.09
+   },
+   "formal": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.62,
+       0.55,
+       0.45
+      ]
+     },
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.07,
+      "cloth": "silk"
+     },
+     {
+      "kind": "skirt",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "hem": 0.42,
+      "flare": 0.12,
+      "pleats": 10,
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.45,
+        0.45,
+        0.48
+       ],
+       "width": 2,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "jacket",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "vee": 0.24,
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.45,
+        0.45,
+        0.48
+       ],
+       "width": 2,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.18,
+       0.18,
+       0.192
+      ],
+      "vee": 0.24
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "step": 0.085,
+      "lift": 0.03,
+      "size": 0.011
+     },
+     {
+      "kind": "pockets",
+      "colour": [
+       0.18,
+       0.18,
+       0.192
+      ],
+      "up": 0.03,
+      "lift": 0.03
+     }
+    ],
+    "bare_chest_vee": 0.07
+   },
+   "occasion": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.7,
+       0.6,
+       0.5
+      ]
+     },
+     {
+      "kind": "dress",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "vee": 0.12,
+      "sleeves": 0.0,
+      "hem": 0.3,
+      "flare": 0.3,
+      "pleats": 14,
+      "cloth": "silk",
+      "pattern": null
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "up": 0.02,
+      "off": 0.016
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [],
+    "bare_arm_from": 0.0,
+    "bare_chest_vee": 0.12
+   },
+   "night": {
+    "outfit": [
+     {
+      "kind": "dress",
+      "colour": [
+       0.685,
+       0.685,
+       0.6940000000000001
+      ],
+      "vee": 0.1,
+      "sleeves": 0.9,
+      "hem": 0.2,
+      "flare": 0.25,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "vee": 0.3,
+      "hem": 0.3,
+      "flare": 0.16,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "up": 0.08,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.12,
+       0.12,
+       0.128
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.1
+   },
+   "winter": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.12,
+       0.1,
+       0.1
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.165,
+       0.165,
+       0.176
+      ],
+      "vee": 0.06,
+      "hem": 0.26,
+      "flare": 0.1,
+      "cloth": "wool",
+      "pattern": null
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "cloth": "knit"
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.099,
+       0.099,
+       0.1056
+      ],
+      "at": 0.9,
+      "off": 0.03
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": false
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0825,
+       0.0825,
+       0.088
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.18,
+      0.18,
+      0.192
+     ],
+     "band": [
+      0.7,
+      0.55,
+      0.2
+     ],
+     "brim": 1.0
+    }
+   },
+   "work": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.4,
+       0.3,
+       0.22
+      ]
+     },
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.9,
+       0.84,
+       0.66
+      ],
+      "vee": 0.06,
+      "sleeves": 0.9
+     },
+     {
+      "kind": "skirt",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "hem": 0.38,
+      "flare": 0.2,
+      "pleats": 8
+     },
+     {
+      "kind": "apron",
+      "colour": [
+       0.874,
+       0.855,
+       0.798
+      ],
+      "hem": 0.46
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.105,
+       0.105,
+       0.112
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [],
+    "bare_chest_vee": 0.06
+   },
+   "mourning": {
+    "outfit": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.3,
+       0.22,
+       0.18
+      ]
+     },
+     {
+      "kind": "coat",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "vee": 0.1,
+      "hem": 0.3,
+      "flare": 0.14,
+      "pattern": null
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.18,
+       0.18,
+       0.192
+      ],
+      "up": 0.03,
+      "off": 0.027
+     },
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "strap": true
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.18,
+       0.18,
+       0.192
+      ],
+      "step": 0.09,
+      "lift": 0.034,
+      "size": 0.012
+     }
+    ],
+    "bare_chest_vee": 0.0,
+    "hat": {
+     "colour": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "band": [
+      0.15,
+      0.15,
+      0.16
+     ],
+     "brim": 1.0
+    }
    }
   }
  }
