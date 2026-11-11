@@ -19,6 +19,7 @@ const CATALOG := "res://data/character_memory_art.json"
 const DATA := "res://data/orison_v2/memory_art.json"
 const SELF := "res://scripts/building/orison_v2_memory_art.gd"
 const Piece := preload("res://scripts/building/orison_v2_memory_art_piece.gd")
+const Footprints := preload("res://scripts/building/orison_v2_space_footprints.gd")
 const HOLDER := "MemoryArt"
 
 var errors: Array[String] = []
@@ -66,9 +67,6 @@ func compose(layout: Dictionary) -> void:
 	var places: Dictionary = {}
 	for place: Dictionary in data.places:
 		places[str(place.id)] = place
-	var spaces: Dictionary = {}
-	for space: Dictionary in layout.get("spaces", []):
-		spaces[str(space.id)] = true
 	if not errors.is_empty():
 		return
 	for spec: Dictionary in catalog.pieces:
@@ -76,9 +74,15 @@ func compose(layout: Dictionary) -> void:
 		var place: Dictionary = places.get(id, {})
 		var mounting := str(spec.get("placement", "wall"))
 		var medium := str(spec.get("medium", "photo"))
-		if place.is_empty() or not spaces.has(str(place.space)) \
-				or OrisonV2RuntimeRoot.unit_of_room(str(place.space)) != str(spec.unit):
-			errors.append("no V2 place in flat %s for %s" % [spec.unit, id])
+		if place.is_empty():
+			errors.append("no V2 place for %s" % id)
+			continue
+		var at: Array = place.position
+		var pose := Transform3D(Basis(Vector3.UP, deg_to_rad(float(place.yaw_deg))), Vector3(at[0], at[1], at[2]))
+		# The place must be in the main room of the resident V1 gave the piece to.
+		var room: String = Footprints.room_at(layout, pose * Vector3(0.0, 0.05, 0.15))
+		if OrisonV2RuntimeRoot.unit_of_room(room) != str(spec.unit) or not room.ends_with("_MAIN"):
+			errors.append("%s is placed in '%s', not in %s's main room" % [id, room, spec.unit])
 			continue
 		if not mountings.has(mounting) or media.get(medium) == null:
 			errors.append("no frame for %s (%s, %s)" % [id, mounting, medium])
@@ -89,9 +93,7 @@ func compose(layout: Dictionary) -> void:
 		for row: Dictionary in mountings[mounting]:
 			var finish: Material = media[medium] if str(row.finish) == "medium" else _finish(str(row.finish), Color.WHITE)
 			piece.stock.append({"part": row.part, "mesh": row.mesh, "pose": row.pose, "finish": finish})
-		var at: Array = place.position
-		piece.position = Vector3(at[0], at[1], at[2])
-		piece.rotation.y = deg_to_rad(float(place.yaw_deg))
+		piece.transform = pose
 		add_child(piece)
 		pieces[id] = piece
 	# V1's own count check.

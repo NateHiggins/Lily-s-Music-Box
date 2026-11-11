@@ -118,7 +118,8 @@ func _place_checks(node: Node, catalog: Dictionary) -> void:
 				else:
 					worst = maxf(worst, absf((hit.position as Vector3).distance_to(from) - 0.05))
 			var height := piece.global_position.y - _floor_of(piece)
-			_check(missed == 0 and worst <= 0.004 and height > 0.55 and height < 1.1,
+			# The table's drawn top is its furniture bound; its collider sits 5 mm off it.
+			_check(missed == 0 and worst <= 0.006 and height > 0.55 and height < 1.1,
 				"%s rests on a real support %.2f m up (%d of 5 rays missed, worst gap %.1f mm)" % [id, height, missed, worst * 1000.0])
 		else:
 			hung += 1
