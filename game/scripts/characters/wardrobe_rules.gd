@@ -185,4 +185,8 @@ static func _owned(notes: Dictionary, slot: String, sets: Array, tag: String) ->
 
 
 static func _turn(person: String, date: String, what: String) -> int:
-	return absi(hash(person + "|" + date + "|" + what))
+	# Stir the bits: neighbouring days and slots must not move together.
+	var mixed := hash(person + "|" + date + "|" + what) & 0x7fffffff
+	mixed = ((mixed ^ (mixed >> 15)) * 2246822519) & 0x7fffffff
+	mixed = ((mixed ^ (mixed >> 13)) * 3266489917) & 0x7fffffff
+	return mixed ^ (mixed >> 16)
