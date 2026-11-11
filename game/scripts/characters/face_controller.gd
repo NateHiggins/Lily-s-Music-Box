@@ -48,6 +48,9 @@ func bind(model: Node, seed_text: String) -> bool:
 	if document is not Dictionary or int(document.get("schema_version", 0)) != 1:
 		return false
 	_data = document
+	# The file keeps rows; the controller works from tables.
+	_data["expressions"] = _table(document.get("expressions", []), "name")
+	_data["mouth_shapes"] = _table(document.get("mouth_shapes", []), "letter")
 	_random.seed = hash(seed_text)
 	targets.clear()
 	for mesh: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
@@ -64,6 +67,17 @@ func bind(model: Node, seed_text: String) -> bool:
 		_lean[shape] = _random.randf_range(0.86, 1.0)
 	_blink_at = _random.randf_range(0.6, 3.0)
 	return bound
+
+
+static func _table(rows: Variant, key: String) -> Dictionary:
+	var table: Dictionary = {}
+	if rows is Array:
+		for row: Dictionary in rows:
+			var shapes: Dictionary = {}
+			for pair: Array in row.get("shapes", []):
+				shapes[str(pair[0])] = float(pair[1])
+			table[str(row.get(key, ""))] = shapes
+	return table
 
 
 func can_speak_shapes() -> bool:
