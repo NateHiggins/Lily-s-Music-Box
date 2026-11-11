@@ -1145,7 +1145,7 @@ func _compose_debug_controls() -> void:
 		return
 	warehouse = PropWarehouse.new()
 	add_child(warehouse)
-	warehouse.build(preload("res://scripts/building/building_root.gd").PROP_SCRIPTS)
+	warehouse.build(preload("res://scripts/props/prop_script_table.gd").TABLE)
 	safety_net.exempt_zones.append(warehouse.hall_aabb())
 	var panel := BuildingDebug.new()
 	building_debug = panel
