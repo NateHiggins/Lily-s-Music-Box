@@ -215,3 +215,91 @@ Beyond the systems already ruled, that adds:
 
 The census probe is scratch and is not committed; its outputs are
 `C:/ov/reports/v1r_import/live_v1.json` and `live_v2.json` (unfiled).
+
+## 9. Removal (2026-11-11)
+
+Done on branch `claude/v1-removal` under **v1r_rollback_20261109**, after the
+last import (the house office, PR 227) merged. The tag
+`before-v1-removal-20261111` is main at 54652e463, the last tree that holds V1.
+
+### Removed
+
+213 files, 79.1 MB, counted against the tag.
+
+| What | Files | Size |
+|---|---|---|
+| The V1 scene `orison_root.tscn` | 1 | 0.2 KB |
+| Scripts and one shader: `building_root.gd`, `music_director.gd`, the atmospheric decal, domestic radio, found art, furniture interaction, floor coverage, heightmap, detail, wayfinding signage and railing passes, door, window and vault-light glows, the floor-01 cell registry and geometry configuration, `npc_placeholder.gd`, `bench_zone.gd`, `elevator_interlock_prop.gd`, `domestic_witness_system.gd`, the floor coverage shader | 21 | 369 KB |
+| Data tables: wall art, hallway art, stair-landing art, found-art catalogue, house telephones, resident story details, V1's anomaly prop catalogue | 7 | 17 KB |
+| Geometry: `floor_02` to `floor_06` and `roof`, glTF and buffers | 12 | 34.5 MB |
+| Textures, moved to `C:/ov/holding/retired_textures/v1_removal_20261111/` with `manifest.json` (path, bytes, sha256) before leaving the repository | 24 | 43.2 MB |
+| Tests that boot the V1 root, and their scenes | 49 | 866 KB |
+| Tools and tools tests that served only those harnesses | 8 | 199 KB |
+| Notes in `game/docs` for the removed tables and the detail pass | 3 | 5 KB |
+| `.uid` and `.import` sidecars of the above | 88 | 38 KB |
+
+The selector keeps its file, class, `scene_path()`, `path_for()` and
+`reset_for_tests()`. `PATHS` holds only V2; an unknown or `v1` value warns and
+runs V2. `tools/verify_candidate.py` accepts that exact edit and the absence
+of the ten protected paths that were V1's upper-floor geometry, and nothing
+else (**RUL-004**).
+
+### Kept, though the census called it V1-only
+
+| File | Why |
+|---|---|
+| `data/character_memory_art.json`, `scripts/props/character_memory_art.gd` | Memory art is V2 work, held unmounted until the pictures are redrawn. |
+| `assets/building/floor_b1.gltf` and its buffer | Seventeen V2 Blender builders read its material table and bind its hash in their construction records and test fixtures. Nothing loads it at run time. |
+| `assets/building/textures/atmospheric_decals/institutional_wear_atlas.png`, `uncanny_trace_atlas.png` and their chroma sources | `art/tools/build_wear_decals.py` reads the first; V2's four uncanny wear decals were cut from the second. Authoring sources, not loaded at run time. |
+| `shaders/floor_coverage.gd` | Never existed: the census cut the floor coverage shader's name short. The shader itself was V1-only and is removed. |
+
+Also left in place: `floor_01.gltf` and `floor_01_cells` (V2's front facade,
+bar and passage read them); both copies of `building_layout.json` (protected,
+and the source of the acoustic graph); `acoustic_graph.json`, still authored
+against V1 geometry (**acoustic.v2_rederivation** stays open).
+
+### What V1's removal leaves behind
+
+- 89 data fields lost their only reader. They sit in files this removal may
+  not edit or should not: `building_layout.json` (32, protected),
+  `floor_01_cell_registry.json` (42, hash-bound), `character_memory_art.json`
+  (7, held), `reality_affected_props.json` (5), `domestic_witness_clocks.json`
+  (2), `signage_plates.json` (1). The reader baseline records them as debt.
+  They are not excepted.
+- `tools/m11c2_floor01_production/export_floor01_cells.py` is bound by hash
+  into the floor-01 manifest and so is unchanged; it refuses to run without
+  the retired floors. Re-exporting the floor-01 cells needs an owner decision.
+- About 354 building textures are now named only by their folder, because the
+  removed glTF files were the last to name them by stem. Whether V2 loads them
+  through the material catalogue needs a load trace
+  (`tools/audit_textures.py --trace`); none was removed.
+- Comments in V2 scripts still describe V1 passes by name. `HANDOFF.md`,
+  `TASKS.md` and older notes in `game/docs` are history and were not rewritten.
+- The completeness ledger still describes a V1 fallback in its
+  **selector.reversible_two_root** row. Its counts did not change.
+
+### Coverage lost
+
+None of these could be pointed at V2 by a small honest change: each drives V1
+node names, V1 root fields or V1 coordinates.
+
+| Removed | What it proved, on V1 | V2 has |
+|---|---|---|
+| `walk_test.gd` | The headless whole-building walk (floors, stairs, lift, art sweep) | Its own route and access suites; no single equivalent |
+| `perf_probe.gd`, `Perf.tscn`, `shadow_policy_shot.gd`, `run_release_performance_matrix.ps1` | Station frame times, the dream benchmark mode, and the second-machine release performance receipt | Per-feature V2 profiles; **no release performance matrix** |
+| `first_shift_opening_live_test.gd` | The opening ritual in the production world | `first_shift_ritual_test`, `first_shift_custody_test` (no world) |
+| `night_register_live_test.gd`, `watch_register_live_test.gd`, `watch_station_live_test.gd` and their shot scripts | Register, watch line and station in place in the building | The hand tests and `v2_watch_stations_review` |
+| `maintenance_fuse_shot.gd`, `maintenance_watchman_shot.gd` | Proof sheets of the panelboard and the detector | `fuse_panel_hand_test`; V2 first-floor suites |
+| `service_set_test.gd` | The service set and E prompt in the production scene | `v2_service_set_hand_world_test` |
+| `weather_sky_test.gd` | One weather clock, four skies, fog, rain and exposure on the V1 root | `campaign_weather_test`, `live_weather_service_test`, V2 weather profiles |
+| `street_shot.gd`, `street_id_shot.gd`, `route_probe.gd` | V1 street stream, buffer ownership and shop routes | V2 street, tram and route tests |
+| `dream_hero_lifecycle_live_test.gd`, `dream_hero_lifecycle_shot.gd`, `dream_voxel_v1_runtime_shot.gd`, `dream_voxel_v1a_runtime_shot.gd` | The modelled hero's lifecycle and voxel light inside V1's apartment encroachment | The waking organism's V2 suites; not these stop gates |
+| `interaction_inventory.gd` | A census of every interactable in the V1 world | The source-only implementor and carrier audits |
+| `orison_v2_two_root_matrix_test.gd` | Selecting either root and switching between them | Nothing: there is one root |
+| `orison_v2_m11c2_production_matrix.gd`, `..._capture.gd`, the teardown fixture, the door-crossing support, the `orison_v2_m11c1_owner_first` harness | The floor-01 cell cut rehearsed and proven against the V1 monolith | Nothing: history |
+| `free_cam.gd`, `screenshot_run.gd` | Developer camera and screenshot driver for V1 | V2 review scenes |
+| Tools tests `test_m11c1_scanner_consumer_adapter`, `test_m11c1_runtime_rehearsal`, `test_m11c2_production_harness_contract`; tools `m11c1_floor01_rehearsal/`, `merge_m11c2_capture_receipts.py` | Source contracts of those harnesses | Nothing: history |
+
+Two source tests lost one case each with the file it pinned:
+`test_interaction_implementors` (the wayfinding buzzer) and
+`test_orison_spatial_dependencies` (the cell registry's floor asset path).

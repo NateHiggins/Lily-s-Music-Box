@@ -217,7 +217,7 @@ uses the long runner's 1,500-second ceiling.
 
 Checks, in order: fresh checkout clean under the machine's autocrlf; this
 tree's gate board in candidate and merge-base, compared; changed gate files
-flagged for review; changed design documents linted; 17 protected paths and
+flagged for review; changed design documents linted; the protected paths and
 selector V2; optional Godot imports and suites through this tree's runners
 with receipt verification; optional report sidecar compared claim by claim.
 Output goes to `C:/ov/reports/<sha12>/verification.{md,json}`. The last line
@@ -237,9 +237,20 @@ canonical checkout, for example `tmp/v2-cutover/verification`.
 The owner authorized the V1-to-V2 default on 2026-09-21. The verifier permits
 only that exact selector literal change while retaining the historical
 17-path receipt. It reports 16 unchanged paths plus one authorized change at
-cutover, and rejects any other selector or protected-path edit. The V1 scene
-remains available through `ORISON_BUILDING_ROOT=v1`; neither selector choice
-is persisted into saves.
+cutover, and rejects any other selector or protected-path edit.
+
+V1 and its rollback were removed on 2026-11-11 by the owner's ruling
+v1r_rollback_20261109. The verifier permits that one further selector edit
+(the V1 entry leaves `PATHS`) and accepts the absence of the ten protected
+paths that were V1's upper-floor geometry (`floor_02` to `floor_06`, glTF and
+buffer). A candidate that removes them reports seven unchanged, one
+authorized selector change and ten removed with V1; later candidates report
+17/17, the ten counted as settled because neither side has them. Any other
+change to a protected path still blocks. `ORISON_BUILDING_ROOT=v1` now warns
+and runs V2; the selector is not persisted into saves.
+
+The release performance matrix (`run_release_performance_matrix.ps1`) measured
+the V1 building and left with it. V2 has no release performance matrix yet.
 
 ### Report sidecar (`orison.dispatch-report.v1`)
 
