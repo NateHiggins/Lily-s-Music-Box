@@ -90,6 +90,29 @@ human = HS.create_human(macro_detail_dict=macro)
 TS.bake_targets(human)
 HS.set_character_skin(asset("skins", CFG["skin"], "mhmat"), human, skin_type="GAMEENGINE", material_instances=False)
 rig = HS.add_builtin_rig(human, "mixamo")
+SKIRT_CHAINS = 8
+SKIRT_SEGMENTS = 3
+SKIRT_SEGMENT = 0.2
+SKIRT_AXIS_Y = 0.02
+bpy.ops.object.select_all(action="DESELECT")
+rig.select_set(True)
+bpy.context.view_layer.objects.active = rig
+bpy.ops.object.mode_set(mode="EDIT")
+hips_bone = rig.data.edit_bones["mixamorig:Hips"]
+skirt_top = hips_bone.head.z + 0.03
+for chain in range(SKIRT_CHAINS):
+    angle = math.tau * chain / SKIRT_CHAINS  # 0 is the front
+    parent_bone = hips_bone
+    for segment in range(SKIRT_SEGMENTS):
+        made_bone = rig.data.edit_bones.new("mixamorig:Skirt%d_%d" % (chain, segment + 1))
+        r0 = 0.15 + 0.045 * segment
+        r1 = 0.15 + 0.045 * (segment + 1)
+        made_bone.head = (math.sin(angle) * r0, SKIRT_AXIS_Y - math.cos(angle) * r0, skirt_top - segment * SKIRT_SEGMENT)
+        made_bone.tail = (math.sin(angle) * r1, SKIRT_AXIS_Y - math.cos(angle) * r1, skirt_top - (segment + 1) * SKIRT_SEGMENT)
+        made_bone.parent = parent_bone
+        made_bone.use_connect = False
+        parent_bone = made_bone
+bpy.ops.object.mode_set(mode="OBJECT")
 parts = []
 for kind, name, atype in [] if OUTFIT else [("eyes", "low-poly", "Eyes"), ("eyebrows", CFG.get("eyebrows", "eyebrow001"), "Eyebrows"),
                           ("eyelashes", "eyelashes01", "Eyelashes"), ("teeth", "teeth_base", "Teeth"), ("tongue", "tongue01", "Tongue")]:
@@ -288,6 +311,37 @@ def wrap_uv(out_mesh, repeat):
             layer.data[loop_index].uv = (around / math.tau * repeat, co.z * repeat / 0.9)
 
 
+def hang_on_skirt_bones(obj):
+    """Weights for cloth made from the skirt helper: the waistband to the hips,
+    everything below shared between the two nearest chains and, down its
+    length, between a segment and the one above."""
+    obj.vertex_groups.clear()
+    groups = {}
+
+    def add(group_name, index, amount):
+        if amount <= 0.0005:
+            return
+        if group_name not in groups:
+            groups[group_name] = obj.vertex_groups.new(name=group_name)
+        groups[group_name].add([index], amount, "ADD")
+
+    for v in obj.data.vertices:
+        depth = skirt_top - v.co.z
+        if depth <= 0.0:
+            add(PREFIX + "Hips", v.index, 1.0)
+            continue
+        around = (math.atan2(v.co.x, -(v.co.y - SKIRT_AXIS_Y)) % math.tau) / math.tau * SKIRT_CHAINS
+        first = int(around) % SKIRT_CHAINS
+        share = around - int(around)
+        along = min(depth / SKIRT_SEGMENT, SKIRT_SEGMENTS - 0.001)
+        segment = int(along)
+        into = min(1.0, (along - segment) / 0.6)
+        for chain, part in ((first, 1.0 - share), ((first + 1) % SKIRT_CHAINS, share)):
+            add(PREFIX + "Skirt%d_%d" % (chain, segment + 1), v.index, part * into)
+            above = PREFIX + "Hips" if segment == 0 else PREFIX + "Skirt%d_%d" % (chain, segment)
+            add(above, v.index, part * (1.0 - into))
+
+
 def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0):
     """A garment: the faces of a clothing helper whose corners all pass `keep`,
     set off from the skin by `offset` metres."""
@@ -354,6 +408,8 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         out.uv_layers.remove(out.uv_layers[0])
     wrap_uv(out, float((pattern or {}).get("repeat", 6.0)))
     obj.data.materials.append(patterned("%s_%s" % (STEM, name), colour, pattern, rough, cloth))
+    if source == "helper-skirt":
+        hang_on_skirt_bones(obj)
     obj.parent = rig
     obj.modifiers.new("Armature", "ARMATURE").object = rig
     obj["part"] = CURRENT_PART
