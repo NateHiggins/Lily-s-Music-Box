@@ -367,6 +367,29 @@ func _ready() -> void:
 	check(str(loop.command("deposit 10").text).contains("BANKED") and loop.bank_cents() == banked + 10, "DEPOSIT on paper banks")
 	check(RealityState.save_game(), "the finished wall saves")
 
+	# The market breaks, and the house feels it.
+	loop.aide().quiet = false
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 10, 20, 600.0)) and loop.tip_percent_now() == 100
+			and loop.allowance_cents() == 15 and loop.event_on(loop.today()).is_empty(), "on 20 October money is as it was")
+	var whole_tip: int = economy.tip("test:before", "mina_vale", 1.0, clock.elapsed_minutes(), false)
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 10, 25, 600.0)) and not loop.event_on(loop.today()).is_empty()
+			and not bool(loop.event_on(loop.today()).broken) and loop.tip_percent_now() == 100, "on the 25th the market is falling but nothing has been cut yet")
+	loop.aide().drawn_day = int(clock.elapsed_minutes() / 1440.0)
+	slips.clear()
+	tick()
+	check(slips.size() == 1 and slips[0].begins_with("THE BREAK|") and slips[0].contains("ticker"), "the companion says the house is uneasy, once")
+	tick()
+	check(not slips[slips.size() - 1].begins_with("THE BREAK|"), "and does not say it twice")
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 10, 30, 600.0)) and loop.tip_percent_now() == 60
+			and loop.allowance_cents() == 10, "from the 29th tips are six tenths and the allowance is ten cents")
+	var short_tip: int = economy.tip("test:after", "mina_vale", 1.0, clock.elapsed_minutes(), false)
+	check(whole_tip > 0 and short_tip == maxi(1, whole_tip * 60 / 100), "a tip for the same job is smaller (%d, then %d)" % [whole_tip, short_tip])
+	slips.clear()
+	tick()
+	check(slips.size() == 1 and slips[0].begins_with("THE BREAK|") and slips[0].contains("cut the allowance"), "the companion says what has been cut")
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1928, 11, 12, 600.0)) and loop.tip_percent_now() == 100
+			and loop.allowance_cents() == 15, "when the year turns, money is as it was")
+
 	RealityState.flush_background_saves()
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(RealityState.save_path))
 	RealityState.persistence_enabled = false

@@ -61,6 +61,8 @@ func setup(campaign_clock: CampaignClock, caretaker_economy: Node) -> bool:
 	if table.is_empty() or clock == null or PaperPocket.KEY in REWOUND or "knowledge_flags" in REWOUND:
 		return false
 	add_to_group("temporal_loop")
+	if economy != null:
+		economy.tip_percent = tip_percent_now
 	return true
 
 
@@ -128,6 +130,17 @@ static func _load_table() -> Dictionary:
 					if str(step.get("flag", "")).is_empty(): return {}
 	if parsed.get("deductions") is not Dictionary or parsed.get("scrawls") is not Array or parsed.get("calendar") is not Array:
 		return {}
+	if parsed.get("events") is not Array:
+		return {}
+	for event: Variant in parsed.events:
+		if event is not Dictionary:
+			return {}
+		for field: String in ["id", "mark", "from", "breaks", "until", "slip", "before"]:
+			if str(event.get(field, "")).is_empty():
+				return {}
+		if int(event.get("tip_percent", 0)) < 1 or int(event.tip_percent) > 100 or int(event.get("allowance_cents", -1)) < 0 \
+				or not (str(event.from) <= str(event.breaks) and str(event.breaks) <= str(event.until)):
+			return {}
 	var filing: Variant = parsed.get("filing")
 	if filing is not Dictionary or int(filing.get("tolerance_days", 0)) <= 0 or filing.get("places") is not Array \
 			or filing.get("columns") is not Array or parsed.get("neighbourhood") is not Array:
@@ -634,6 +647,35 @@ func _transact(identity: String, cents: int) -> bool:
 	return true
 
 
+# --- The year's events ---------------------------------------------------------------
+
+func today() -> String:
+	var now := clock.local_datetime()
+	return "" if now.is_empty() else "%04d-%02d-%02d" % [int(now.year), int(now.month), int(now.day)]
+
+
+## The event the date falls in, with "broken" true from the day it breaks:
+## the market's crash of October 1929 is the one the year has. {} otherwise.
+func event_on(date: String) -> Dictionary:
+	for event: Dictionary in table.events:
+		if date >= str(event.from) and date <= str(event.until):
+			var found := event.duplicate()
+			found["broken"] = date >= str(event.breaks)
+			return found
+	return {}
+
+
+## The share of a usual tip the tenants can spare today.
+func tip_percent_now() -> int:
+	var event := event_on(today())
+	return int(event.tip_percent) if not event.is_empty() and bool(event.broken) else 100
+
+
+func allowance_cents() -> int:
+	var event := event_on(today())
+	return int(event.allowance_cents) if not event.is_empty() and bool(event.broken) else int(table.stipend.cents)
+
+
 ## The house's daily allowance, once per day of the player's own time and only
 ## at home. It is the floor under the economy: a player with nothing can
 ## always afford the next lead in a few days.
@@ -641,11 +683,12 @@ func claim_stipend() -> Dictionary:
 	if in_visit():
 		return {"ok": false, "code": "away"}
 	var day := int(clock.elapsed_minutes() / CampaignClock.MINUTES_PER_DAY)
-	if not _transact("stipend:%d" % day, int(table.stipend.cents)):
+	var cents := allowance_cents()
+	if not _transact("stipend:%d" % day, cents):
 		return {"ok": false, "code": "already_drawn"}
 	RealityState.commit()
 	changed.emit()
-	return {"ok": true, "cents": int(table.stipend.cents)}
+	return {"ok": true, "cents": cents}
 
 
 ## Pocket cash into the bank: one committed transaction, at home only. A
@@ -823,6 +866,15 @@ func _attend_home() -> void:
 		if drawn.ok and not bool(notes.quiet):
 			slip.emit("DRAWN FOR YOU", "The day's allowance, %s. Banked %s." % [Economy.money(int(drawn.cents)), Economy.money(bank_cents())])
 		return
+	# The year's events are told once each time the present comes to them.
+	var event := event_on(today())
+	if not event.is_empty():
+		var telling := "%s:%s:%d" % [str(event.id), "broken" if bool(event.broken) else "before", day / days_in_year()]
+		if str(notes.get("event_told", "")) != telling:
+			notes["event_told"] = telling
+			if not bool(notes.quiet):
+				slip.emit(str(event.mark), str(event.slip) if bool(event.broken) else str(event.before))
+			return
 	if int(notes.nudged_day) == day or bool(notes.quiet):
 		return
 	notes.nudged_day = day

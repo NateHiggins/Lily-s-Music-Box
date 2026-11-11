@@ -10,6 +10,10 @@ extends Node3D
 
 const Grip := preload("res://scripts/props/loop_shift_grip.gd")
 const FONT := preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
+## Adela's own hand (Lily's choice, 2026-11-11): Cedarville Cursive, written
+## thick, as with a marking crayon, so it reads from across the room.
+const HAND := preload("res://assets/fonts/cedarvillecursive/Cedarville-Cursive.ttf")
+const HAND_INK := Color(0.07, 0.07, 0.12)
 const PAPER_SOURCE := "4B_wake_slip"
 const ROOM_REFERENCE := "4B_meal_table"
 const INK := Color(0.09, 0.08, 0.07)
@@ -248,6 +252,24 @@ func _words(text: String, facing: Basis, width_m := 0.16) -> Label3D:
 	label.double_sided = false
 	label.visibility_range_end = 6.0
 	label.basis = facing
+	return label
+
+
+## Words in Adela's hand. The outline is the same ink, which thickens the stroke.
+func _hand(text: String, width_m: float) -> Label3D:
+	var label := Label3D.new()
+	label.text = text
+	label.font = HAND
+	label.font_size = 64
+	label.pixel_size = width_m / 430.0
+	label.modulate = HAND_INK
+	label.outline_modulate = HAND_INK
+	label.outline_size = 9
+	label.width = 430.0
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.shaded = true
+	label.double_sided = false
+	label.visibility_range_end = 9.0
 	return label
 
 
@@ -517,7 +539,7 @@ func _sync() -> void:
 		add_child(drawn)
 		var at := _deduction_place(str(deduction_id)) + _wall_frame.basis.z * 0.005
 		_place(drawn, _sized(_wall_frame.basis, 0.24, 0.25), at)
-		var label := _words(str(loop.table.deductions[str(deduction_id)].line), Basis(), 0.21)
+		var label := _hand(str(loop.table.deductions[str(deduction_id)].line), 0.21)
 		drawn.add_child(label)
 		label.global_transform = Transform3D(_wall_frame.basis, at + _wall_frame.basis.z * 0.004)
 		deduction_cards[str(deduction_id)] = drawn
@@ -586,6 +608,12 @@ func _dress_wall() -> void:
 		_lettering(str(month[1]), Vector2(day_x(int(month[0])) + 0.012, y + 0.03), 0.3, 0.007)
 	for day: Dictionary in loop.table.calendar:
 		_bar(Vector2(day_x(loop.day_of_year(str(day.date))), y - 0.01), Vector2(0.003, 0.012), Color(0.55, 0.05, 0.05), 0.008)
+	# The year's events: a mark on the tape at the day each breaks.
+	for event: Dictionary in loop.table.events:
+		var at := day_x(loop.day_of_year(str(event.breaks)))
+		_bar(Vector2(at, y), Vector2(0.006, 0.05), Color(0.1, 0.3, 0.16), 0.009)
+		_lettering(str(event.mark), Vector2(at, y - 0.04), 0.18, 0.009)
+		year_parts += 1
 	# The hours nobody heard.
 	_bar(Vector2(day_x(BLACKOUT_DAY), y), Vector2(0.008, 0.05), Color(0.02, 0.02, 0.02), 0.009)
 	# The Orison in section.
@@ -828,7 +856,7 @@ func _grow() -> void:
 		var at: Vector3 = (spot.position as Vector3) + normal * (0.004 + 0.0004 * float(index % 5))
 		_place(sheet, facing, at)
 		if index % 3 == 0 and not scrawls.is_empty():
-			var label := _words(str(scrawls[(index / 3) % scrawls.size()]), Basis(), size * 0.85)
+			var label := _hand(str(scrawls[(index / 3) % scrawls.size()]), size * 0.85)
 			sheet.add_child(label)
 			label.global_transform = Transform3D(Basis(level, normal.cross(level), normal), at + normal * 0.003)
 		papers.append(sheet)
