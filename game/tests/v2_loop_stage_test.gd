@@ -199,7 +199,7 @@ func _ready() -> void:
 	var pull_order: Node = (stage.wall_cards["order_slip"] as Node3D).get_meta("grip")
 
 	# Filing: the year across the board, and the building map beside it.
-	_check(stage.year_parts == 5 and stage.cell_pins.size() == 26, "the year is on the board in five seasons, and the map has a pin for every flat, the roof and the basement (%d)" % stage.cell_pins.size())
+	_check(stage.year_parts == 6 and stage.cell_pins.size() == 26, "the year is on the board in five seasons with the market's break marked, and the map has a pin for every flat, the roof and the basement (%d, %d)" % [stage.year_parts, stage.cell_pins.size()])
 	_check(stage.loose_tag.visible and stage.loose_tag_item == "order_slip", "the order slip's tag waits at the start of the year")
 	_check(_carry(pull_order) and _carry(pull_order), "string taken up and put down")
 	var slide: Dictionary = stage.loose_tag_grip.grip()
