@@ -644,6 +644,47 @@ including precession/perturbations, not matching Gregorian month/day strings.
 This explanation adds no automatic access prohibition, resource currency,
 cooldown, damage or paradox penalty. Preserve free-order investigation.
 
+*Amended 2026-11-10, at the owner's direction (RUL-016):* a dated visit has
+a fare, and the leads open in order. This replaces "no resource currency" and
+"free-order investigation" above; the rest stands.
+
+- **Leads.** A lead is a place, a date, a start, a length and a question.
+  The leads form a tree that grows harder as it climbs. A lead opens when
+  the evidence it needs is pinned to the case wall in 4B. The first is open
+  from the start.
+- **The goal of a visit.** The player works the room with their hands until
+  it gives up one piece of evidence: a note, a picture, a thing. They take
+  it, go home, pin it to the wall, and choose the next jump with it in front
+  of them. The scripted tree is
+  **design/TEMPORAL_LOOP_TREE_2026-11-10.md**.
+- **The fare.** Opening the channel to a lead's Temporal Coordinate is paid
+  from banked funds. The fare is fixed by the coordinate and by how far the
+  present stands from it in the year. The first call to the opening lead is
+  free, and an answered lead costs part fare.
+- **The hours again.** Inside a paid visit the lead's hours may be run again
+  without charge, as often as wanted, and begin again by themselves when they
+  run out.
+- **Evidence is kept.** That is the purpose of each trip. Evidence taken in
+  a visit comes home and stays through every rerun, and so does what was
+  heard and what was collected into the valise.
+- **Making sense of it is a game of its own.** On the wall the player runs
+  red string from one piece to another by hand. A string between pieces that
+  belong together holds; any other falls. When all the pieces of a deduction
+  are strung together it is written out on the wall, and it may open leads.
+- **The wall takes the flat.** As the case grows, paper spreads from the
+  board over 4B's walls, door and furniture.
+- **What does not come home.** Pocket money, tools and stores, keys, and the
+  visited day itself are as they were. Nothing earned in a visit can be banked.
+- **The bank.** The night man earns by maintenance in the present and puts
+  money by at the savings bank, at home only. The house pays a small daily
+  allowance, so the next fare is always within reach and no lead can be
+  closed for good.
+- **The player's own time.** A visit moves the calendar and nothing else.
+  Rent, deliveries and errands run on the time the player has lived, which
+  never goes back.
+
+There is still no cooldown, damage or paradox penalty.
+
 Phase-Locked information can produce environmental writing and mechanical
 messages without matter transfer. The prologue's incomplete reflected companion
 crosses only through a stabilized, translated Temporal Aperture aligned to the
@@ -1024,6 +1065,27 @@ additional canon or a new simulation authority.
 everything written on it; replies arrive as numbered received copies. The
 companion acts on nothing and knows nothing of what it serves.
 
+*Amended 2026-11-10, at the owner's direction (RUL-016):* this replaces "acts
+on nothing". In the investigation the companion has full autonomy to act and
+to give hints.
+
+- **It takes orders.** Its keyboard is where the investigation's orders are
+  typed and its paper is where they are answered: the leads, a jump to one,
+  the hours again, home, the bank (§VIII.2).
+- **It acts unasked.** It draws the day's allowance into the bank. It files
+  what the player learns. When a visit's hours end with the question
+  answered it brings the player home; otherwise it begins the hours again.
+- **It hints unasked.** At home, once a day, it says which line is open or
+  what stands between the player and the next fare. In a visit it offers a
+  hint when a while passes with the question open, each plainer than the
+  last, and warns before the hours end. Asked for a hint, it gives the next.
+- **It can be told to be quiet,** and then only acts and answers.
+- **It does not spend or risk for the player.** It never pays a fare, banks
+  pocket money or chooses a lead on its own.
+
+Every word it prints is authored (RUL-015). It still knows nothing of what it
+serves: its hints point at a door, a person and an hour, never at the answer.
+
 **VIII.5.l — THE WORLD IS A FIDGET TOY.**
 *(Ruled 2026-10-12, at the owner's direction; RUL-013. Implementation and
 migration requirements: `design/DIRECT_MANIPULATION_2026-10-12.md`.)*
@@ -1111,7 +1173,14 @@ wall, waited behind the roof tank for the first stroke, and took the exposed
 plate from the camera. **The murder hours are dark to the building.**
 Lightning silenced the house from 9:01 p.m. to 3:02 a.m.; nothing of those
 hours is in the record, the Tenant did not hear them, and no visit may enter
-them. The crime is reconstructed, never watched. The mystery's design
+them. The crime is reconstructed, never watched. *Amended 2026-11-10, at the
+owner's direction (RUL-016):* this binds every way time can move, not only
+the choice of a date: a paid visit, its hours run again, the return to the
+present, the prologue's handoff, and time simply running. A visit's hours end
+by 9:00 p.m. on the 19th or begin at 3:02 a.m. on the 20th, and time that
+runs into the dark comes out at 3:02. Maintenance is also no longer only a
+side matter: it is the income that pays the fares (§VIII.2), though it remains
+free of any required repair ladder. The mystery's design
 documents carry the evidence chain; the larger conspiracy is not ruled here.
 Preserve the opening and other owner-authored material in
 **design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md**.

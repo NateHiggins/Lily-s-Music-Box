@@ -98,6 +98,8 @@ var resident_routes: Dictionary = {}
 ## Temporary visual follower requested by Lily; no resident/case/save registration.
 var adela_preview_follower: Node3D
 var campaign_clock: CampaignClock
+var temporal_loop: Node
+var loop_stage: Node3D
 var corruption_lineages: CorruptionLineageRegistry
 var watch_station_network: WatchStationNetwork
 ## Patrol station anchor -> WatchStationProp.STATIONS id, one box per floor.
@@ -1010,6 +1012,23 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: caretaker ledger refused")
 		return
+	# The temporal investigation loop: dated leads, fares from the bank, and
+	# the hours of a visit run again for nothing.
+	temporal_loop = preload("res://scripts/game/temporal_loop.gd").new()
+	temporal_loop.name = "TemporalLoop"
+	add_child(temporal_loop)
+	if not temporal_loop.setup(campaign_clock, economy):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: temporal loop refused its anchors")
+		return
+	# The loop in the rooms: the things each lead's steps lift, the evidence
+	# they uncover, and the case wall in 4B. A room it cannot stage is an
+	# error to fix, not a reason to refuse the building.
+	loop_stage = preload("res://scripts/building/orison_v2_loop_stage.gd").new()
+	loop_stage.name = "LoopStage"
+	add_child(loop_stage)
+	if not loop_stage.setup(self, temporal_loop, adapter):
+		push_error("ORISON V2 RUNTIME: loop stage incomplete: %s" % [loop_stage.errors])
 	var installed_fire: RefCounted=adapter.root.get_meta("v2_native_fire_service")
 	fire_maintenance_counter=preload("res://scripts/building/orison_v2_fire_maintenance_counter.gd").mount(self,economy,installed_fire.stations)
 	if fire_maintenance_counter==null:
