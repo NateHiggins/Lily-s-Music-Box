@@ -251,6 +251,7 @@ def add(cid, person, casual, formal, occasion, extra=None):
                "work": work(c_, a_, is_man), "mourning": mourning(c_, a_, is_man, hat)}
     outfits.update(extra or {})
     person["outfits"] = outfits
+    person["palette"] = {"colour": c_, "accent": a_}
     CAST[cid] = person
 
 
@@ -328,6 +329,10 @@ CAST["omar_bell"]["outfits"]["work"] = overalls(shade(OCHRE, 0.7), [0.2, 0.1, 0.
 CAST["iris_bell"]["outfits"]["work"] = overalls(ULTRA, [0.9, 0.5, 0.05], shirt=[0.85, 0.8, 0.7], hat=toque([0.9, 0.5, 0.05], ULTRA))
 CAST["noel_price"]["outfits"]["work"] = work_coat(INDIGO, WHITE, hem=0.5)
 CAST["cam_ortiz"]["outfits"]["work"] = jumper(MAROON, GOLD, trousers=[0.2, 0.14, 0.08], hat=cap(MAROON), short=True)
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from cast_parts import add_parts
+add_parts(CAST)
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cast_wardrobe.json")
 json.dump(CAST, open(out, "w", encoding="utf-8"), indent=1)
-print(len(CAST), "people,", sum(len(p["outfits"]) for p in CAST.values()), "outfits ->", out)
+print(len(CAST), "people,", sum(len(p["parts"]) for p in CAST.values()), "parts ->", out)

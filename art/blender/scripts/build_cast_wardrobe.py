@@ -19,12 +19,24 @@ CID, CONFIG, OUT = ARGS[:3]
 OUTFIT = ARGS[3] if len(ARGS) > 3 else ""
 TABLE = json.load(open(CONFIG, encoding="utf-8"))
 CFG = dict(TABLE[CID])
-if OUTFIT:
-    # An outfit is a set of overrides on the person: garments, trim, hat, what is bare.
+PARTS = {}
+HATS = []
+if OUTFIT == "parts":
+    # Mix and match: each part (a top, a bottom, an outer layer, headwear,
+    # footwear) is made and saved on its own. All are made in this one run.
+    PARTS = TABLE[CID]["parts"]
+    CFG["outfit"] = [dict(row, _part=name) for name, part in PARTS.items() for row in part.get("rows", [])]
+    CFG["trim"] = [dict(row, _part=name) for name, part in PARTS.items() for row in part.get("trim", [])]
+    HATS = [dict(part["hat"], _part=name) for name, part in PARTS.items() if part.get("hat")]
+    CFG["bare_arm_from"] = 0.0
+    CFG["bare_chest_vee"] = 0.14
+elif OUTFIT:
     for key in ("outfit", "trim", "hat", "bare_arm_from", "bare_chest_vee"):
         CFG.pop(key, None)
     CFG.update(TABLE[CID]["outfits"][OUTFIT])
     CFG.setdefault("trim", [])
+    HATS = [CFG["hat"]] if CFG.get("hat") else []
+CURRENT_PART = ""
 STEM = CID + ("__" + OUTFIT if OUTFIT else "")
 os.makedirs(OUT, exist_ok=True)
 M = "bl_ext.blender_org.mpfb"
@@ -344,6 +356,7 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
     obj.data.materials.append(patterned("%s_%s" % (STEM, name), colour, pattern, rough, cloth))
     obj.parent = rig
     obj.modifiers.new("Armature", "ARMATURE").object = rig
+    obj["part"] = CURRENT_PART
     garments.append(obj)
     print("GARMENT", name, len(out.polygons), "faces")
     return obj
@@ -386,6 +399,7 @@ def skirt_shape(hem, flare, pleats=0):
 
 pending_collars = []
 for row in (CFG.get("outfit", []) if OUTFIT else []):
+    CURRENT_PART = row.get("_part", "")
     kind = row["kind"]
     colour = row["colour"]
     cloth = row.get("cloth")
@@ -394,13 +408,18 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         if row.get("strap"):
             piece("ShoeStraps", "helper-tights", lambda v: ankle + 0.02 < v.co.z < ankle + 0.06 and weight(v, LEG) > 0.3, 0.006, colour, 0.35, cloth="leather")
     elif kind == "shirt":
-        piece(row.get("name", "Shirt"), "helper-tights", lambda v, r=row: torso(v, low=waist - 0.09, sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))), 0.004, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "cotton")
+        piece(row.get("name", "Shirt"), "helper-tights", lambda v, r=row: torso(v, low=waist - float(r.get("length", 0.09)), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))), float(row.get("ease", 0.004)), colour, 0.85,
+              pattern=row.get("pattern"), cloth=cloth or "cotton",
+              thicken=lambda co, r=row: float(r.get("blouson", 0.0)) * max(0.0, 1.0 - abs(co.z - (waist + 0.06)) / 0.14))
     elif kind == "jumper":
-        piece("Jumper", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.01, sleeves=1.0, vee=float(r.get("vee", 0.0))), 0.017, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
+        piece("Jumper", "helper-tights", lambda v, r=row: torso(v, low=hip - float(r.get("length", 0.01)), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))),
+              float(row.get("ease", 0.017)), colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
     elif kind == "waistcoat":
         piece("Waistcoat", "helper-tights", lambda v, r=row: torso(v, low=waist - 0.04, sleeves=0.0, vee=float(r.get("vee", 0.2))) and weight(v, ARM) < 0.3, 0.011, colour, 0.7, pattern=row.get("pattern"), cloth=cloth or "wool")
     elif kind == "jacket":
-        piece("Jacket", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.06, sleeves=1.0, vee=float(r.get("vee", 0.3))), 0.016, colour, 0.8, pattern=row.get("pattern"), cloth=cloth or "wool")
+        piece("Jacket", "helper-tights", lambda v, r=row: torso(v, low=hip - float(r.get("length", 0.06)), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.3))),
+              float(row.get("ease", 0.016)), colour, 0.8, pattern=row.get("pattern"), cloth=cloth or "wool",
+              thicken=lambda co, r=row: float(r.get("shoulders", 0.0)) * max(0.0, 1.0 - abs(co.z - shoulder.z) / 0.08) + float(r.get("skirted", 0.0)) * max(0.0, min(1.0, (waist - co.z) / 0.2)))
     elif kind == "dress":
         sleeves = float(row.get("sleeves", 0.5))
         piece("DressTop", "helper-tights", lambda v, r=row, sl=sleeves: torso(v, low=hip - 0.02, sleeves=sl, vee=float(r.get("vee", 0.06))), 0.006, colour, 0.85,
@@ -423,6 +442,15 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         piece("Sash", "helper-tights", lambda v, r=row: abs(v.co.z - (hip + float(r.get("up", 0.03)))) < 0.045 and weight(v, ARM) < 0.3, float(row.get("off", 0.014)), colour, 0.5, cloth=cloth or "silk")
     elif kind == "scarf":
         piece("Scarf", "helper-tights", lambda v: neck - 0.05 < v.co.z < neck + 0.03 and weight(v, ARM) < 0.3, 0.014, colour, 0.8, pattern=row.get("pattern"), cloth=cloth or "silk")
+    elif kind == "cape":
+        length = float(row.get("length", 0.3))
+        piece("Cape", "helper-tights", lambda v, L=length: (neck - L < v.co.z < neck + 0.015) and (weight(v, ARM) < 0.45 or along_arm(v.co) < 0.42), 0.02, colour, 0.85,
+              thicken=lambda co, L=length: float(row.get("swing", 0.07)) * max(0.0, min(1.0, (neck - co.z) / L)) ** 0.8, pattern=row.get("pattern"), cloth=cloth or "wool")
+    elif kind == "shawl":
+        piece("Shawl", "helper-tights", lambda v: neck - 0.2 < v.co.z < neck + 0.02 and (weight(v, ARM) < 0.45 or along_arm(v.co) < 0.3) and (v.co.y > bone("Spine2").y - 0.05 or abs(v.co.x) > 0.07),
+              0.024, colour, 0.9, pattern=row.get("pattern"), cloth=cloth or "knit")
+    elif kind == "boots":
+        piece("Boots", "helper-tights", lambda v, r=row: v.co.z < ankle + float(r.get("height", 0.16)) and weight(v, LEG) > 0.3, 0.011, colour, 0.35, cloth="leather")
     elif kind == "lapels":
         deep = float(row.get("vee", 0.3))
         piece("Lapels", "helper-tights", lambda v, d=deep: weight(v, ARM) < 0.3 and v.co.y < bone("Spine2").y - 0.02 and 0.0 < (neck + 0.01) - v.co.z < d
@@ -491,6 +519,7 @@ for row in pending_collars:
     collar.vertex_groups.new(name=PREFIX + "Spine2").add(list(range(len(collar_mesh.vertices))), 0.5, "REPLACE")
     collar.parent = rig
     collar.modifiers.new("Armature", "ARMATURE").object = rig
+    collar["part"] = row.get("_part", "")
     garments.append(collar)
 
 
@@ -513,7 +542,7 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
                 for v in made["verts"]:
                     v.co = Vector((v.co.x, v.co.y * 0.45, v.co.z)) + at
             z -= float(row.get("step", 0.07))
-        small_material_rows.append(("Buttons", row["colour"]))
+        small_material_rows.append(("Buttons", row["colour"], row.get("_part", "")))
     elif row["kind"] == "braces":
         for side in (1.0, -1.0):
             strip = []
@@ -524,13 +553,13 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
                     strip.append((small.verts.new(at + Vector((-0.011, 0, 0))), small.verts.new(at + Vector((0.011, 0, 0)))))
             for a, b in zip(strip, strip[1:]):
                 small.faces.new((a[0], a[1], b[1], b[0]))
-        small_material_rows.append(("Braces", row["colour"]))
+        small_material_rows.append(("Braces", row["colour"], row.get("_part", "")))
     elif row["kind"] == "bow":
         at = chest_front(neck - 0.045, lift=float(row.get("lift", 0.022)))
         if at is not None:
             for side in (1.0, -1.0):
                 small.faces.new([small.verts.new(at + Vector((dx * side, 0, dz))) for dx, dz in ((0.0, 0.006), (0.04, 0.018), (0.04, -0.018), (0.0, -0.006))])
-        small_material_rows.append(("Bow", row["colour"]))
+        small_material_rows.append(("Bow", row["colour"], row.get("_part", "")))
     elif row["kind"] == "pockets":
         for side in (1.0, -1.0):
             at = chest_front(hip + float(row.get("up", 0.05)), x=side * 0.09, lift=float(row.get("lift", 0.027)))
@@ -539,7 +568,7 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
             w_, h_ = 0.04, 0.014
             quad = [small.verts.new(at + Vector((dx, 0, dz))) for dx, dz in ((-w_, h_), (w_, h_), (w_, -h_), (-w_, -h_))]
             small.faces.new(quad)
-        small_material_rows.append(("Pockets", row["colour"]))
+        small_material_rows.append(("Pockets", row["colour"], row.get("_part", "")))
     elif row["kind"] == "tie":
         top = neck - 0.035
         length = float(row.get("length", 0.3))
@@ -552,7 +581,7 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
             rings.append((small.verts.new(at + Vector((-half, 0, 0))), small.verts.new(at + Vector((half, 0, 0)))))
         for a, b in zip(rings, rings[1:]):
             small.faces.new((a[0], a[1], b[1], b[0]))
-        small_material_rows.append(("Tie", row["colour"]))
+        small_material_rows.append(("Tie", row["colour"], row.get("_part", "")))
     small.faces.ensure_lookup_table()
     for index_ in range(faces_before, len(small.faces)):
         trim_face_slot[index_] = len(small_material_rows) - 1
@@ -563,14 +592,29 @@ if small.verts:
     small.to_mesh(small_mesh)
     trim = bpy.data.objects.new("Trim", small_mesh)
     bpy.context.scene.collection.objects.link(trim)
-    for label_, colour_ in small_material_rows:
-        trim.data.materials.append(plain(CID + "_" + label_.lower(), colour_, 0.35))
+    for label_, colour_, part_name in small_material_rows:
+        trim.data.materials.append(plain("%s_%s_%d" % (CID, label_.lower(), len(trim.data.materials)), colour_, 0.35))
     for polygon in small_mesh.polygons:
         polygon.material_index = min(trim_face_slot.get(polygon.index, 0), len(small_material_rows) - 1)
     trim.vertex_groups.new(name=PREFIX + "Spine2").add(list(range(len(small_mesh.vertices))), 1.0, "REPLACE")
     trim.parent = rig
     trim.modifiers.new("Armature", "ARMATURE").object = rig
-    garments.append(trim)
+    # One object per kind of trim, so each goes with the part it trims.
+    for slot_index, (label_, colour_, part_name) in enumerate(small_material_rows):
+        twin = trim.copy()
+        twin.data = trim.data.copy()
+        twin.name = "Trim_%s_%d" % (label_, slot_index)
+        bpy.context.scene.collection.objects.link(twin)
+        bm_ = bmesh.new()
+        bm_.from_mesh(twin.data)
+        bmesh.ops.delete(bm_, geom=[f for f in bm_.faces if f.material_index != slot_index], context="FACES")
+        bmesh.ops.delete(bm_, geom=[v for v in bm_.verts if not v.link_faces], context="VERTS")
+        bm_.to_mesh(twin.data)
+        bm_.free()
+        twin["part"] = part_name
+        if len(twin.data.polygons):
+            garments.append(twin)
+    bpy.data.objects.remove(trim)
 small.free()
 
 # ---------------------------------------------------------------- the body itself
@@ -820,7 +864,7 @@ def on_head(obj):
 
 
 skull = [v.co.copy() for v in mesh.vertices if v.co.z > nose.z + 0.066]
-if OUTFIT and CFG.get("hat") and skull:
+for HAT in (HATS if skull else []):
     top_z = max(q.z for q in skull)
     brow_z = nose.z + 0.066
     centre = Vector(((max(q.x for q in skull) + min(q.x for q in skull)) / 2, (max(q.y for q in skull) + min(q.y for q in skull)) / 2, 0))
@@ -833,8 +877,9 @@ if OUTFIT and CFG.get("hat") and skull:
         t = k / 12.0
         angle = t * math.pi / 2
         hat_rows.append((math.sin(angle) ** 0.8 * 1.085, crown_top - (1 - math.cos(angle)) ** 1.25 * (crown_top - crown_foot), t * 0.55))
-    brim = float(CFG["hat"].get("brim", 1.0))
-    if CFG["hat"].get("kind") == "cap":
+    brim = float(HAT.get("brim", 1.0))
+    crown_top = top_z + 0.014 + float(HAT.get("tall", 0.0))
+    if HAT.get("kind") == "cap":
         crown_top = top_z + 0.006
         hat_rows = []
         for k in range(13):
@@ -852,7 +897,7 @@ if OUTFIT and CFG.get("hat") and skull:
             a = math.tau * k / steps
             dip = 0.024 * (1 + math.sin(a)) * 0.5 * low
             reach_ = r
-            if CFG["hat"].get("kind") == "cap" and r > 1.1:
+            if HAT.get("kind") == "cap" and r > 1.1:
                 # The peak: only at the front.
                 reach_ = 1.1 + (r - 1.1) * 1.6 * max(0.0, -math.sin(a)) ** 2
             ring.append(bm.verts.new((centre.x + math.cos(a) * reach_ * half_w, centre.y + math.sin(a) * reach_ * half_d, z - dip)))
@@ -873,8 +918,9 @@ if OUTFIT and CFG.get("hat") and skull:
         for loop_index in polygon.loop_indices:
             co = hat_mesh.vertices[hat_mesh.loops[loop_index].vertex_index].co
             hat_uv.data[loop_index].uv = (math.atan2(co.x - centre.x, -(co.y - centre.y)) / math.tau * 3.0, co.z * 6.0)
-    hat.data.materials.append(patterned(CID + "_hat", CFG["hat"]["colour"], None, 0.9, "felt"))
-    hat.data.materials.append(plain(CID + "_hat_band", CFG["hat"].get("band", [c * 0.35 for c in CFG["hat"]["colour"]]), 0.5))
+    hat.data.materials.append(patterned("%s_hat_%s" % (CID, HAT.get("_part", "x")), HAT["colour"], None, 0.9, "felt"))
+    hat.data.materials.append(plain("%s_hat_band_%s" % (CID, HAT.get("_part", "x")), HAT.get("band", [c * 0.35 for c in HAT["colour"]]), 0.5))
+    hat["part"] = HAT.get("_part", "")
     on_head(hat)
 if CFG.get("spectacles"):
     bm = bmesh.new()
@@ -970,7 +1016,42 @@ for name, yaw in (() if not OUTFIT else (("three_quarter", 35.0),)):
     except Exception:
         traceback.print_exc()
 bpy.ops.object.select_all(action="DESELECT")
-hats = [o for o in extras if o.name == "Hat"]
+hats = [o for o in extras if o.name.startswith("Hat")]
+if OUTFIT == "parts":
+    wearable = garments + hats
+    # Pictures: each designed set, then two mixes across sets.
+    looks = [(name, pick) for name, pick in TABLE[CID].get("looks", {}).items()]
+    for part_ in skin_parts:
+        part_.hide_render = True
+    for look_name, pick in looks:
+        for obj in wearable:
+            obj.hide_render = obj.get("part", "") not in pick
+        at = Vector((0, 0, 0.86))
+        cam.location = at + Matrix.Rotation(math.radians(35.0), 3, "Z") @ Vector((0, -3.5, 0))
+        cam.rotation_euler = (at - cam.location).to_track_quat("-Z", "Y").to_euler()
+        cam.data.lens = 55
+        scene.render.filepath = os.path.join(OUT, "%s__look_%s.png" % (CID, look_name))
+        try:
+            bpy.ops.render.render(write_still=True)
+        except Exception:
+            traceback.print_exc()
+    for obj in wearable:
+        obj.hide_render = False
+    for part_name, part in PARTS.items():
+        mine = [o for o in wearable if o.get("part", "") == part_name]
+        if not mine:
+            print("PART", part_name, "made nothing")
+            continue
+        bpy.ops.object.select_all(action="DESELECT")
+        for obj in [rig] + mine:
+            obj.select_set(True)
+        target = os.path.join(OUT, "%s__%s.glb" % (CID, part_name))
+        bpy.ops.export_scene.gltf(filepath=target, use_selection=True, export_format="GLB", export_morph=False, export_animations=False, export_yup=True, export_vertex_color="ACTIVE")
+        note = {"schema_version": 1, "person": CID, "part": part_name, "slot": part["slot"], "set": part.get("set", ""), "tags": part.get("tags", []), "covers": part.get("covers", [])}
+        json.dump(note, open(os.path.join(OUT, "%s__%s.json" % (CID, part_name)), "w", encoding="utf-8"), indent=1)
+        print("PART", part_name, part["slot"], os.path.getsize(target))
+    print("DONE")
+    sys.exit(0)
 if OUTFIT:
     chosen = [rig] + garments + hats + [p_ for p_ in parts if p_.name == "Shoes"]
 else:
