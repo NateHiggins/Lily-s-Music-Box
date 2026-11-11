@@ -50,6 +50,7 @@ var _paper_centre := Vector3.ZERO
 var string_from := ""
 var string_nodes: Dictionary = {}
 var loose_end: Node3D
+var _string_finish: StandardMaterial3D
 var deduction_cards: Dictionary = {}
 ## Where paper can go in 4B, nearest the board first, and the paper there.
 var spots: Array[Dictionary] = []
@@ -200,7 +201,7 @@ func _card_for(anchor_id: String) -> void:
 	card.name = "LoopClue_" + str(clue.id)
 	add_child(card)
 	var offset: Array = clue.get("rest_offset", [0.0, 0.0, 0.0])
-	card.global_transform = Transform3D(Basis(Vector3.RIGHT, Vector3.FORWARD, Vector3.UP) * _paper_square,
+	_place(card, _sized(Basis(Vector3.RIGHT, Vector3.FORWARD, Vector3.UP), 0.16, 0.11),
 			rest.global_position + Vector3(float(offset[0]), float(offset[1]), float(offset[2])))
 	var label := _words(str(clue.title).to_upper(), Basis())
 	card.add_child(label)
@@ -267,10 +268,10 @@ func _foot() -> Vector3:
 
 
 func _hang(card: Node3D, at: Vector3, text: String) -> void:
-	card.global_transform = Transform3D(_wall_frame.basis * _paper_square, at)
+	_place(card, _sized(_wall_frame.basis, 0.15, 0.1), at)
 	for old: Node in card.find_children("*", "Label3D", true, false):
 		old.free()
-	var label := _words(text, Basis())
+	var label := _words(text, Basis(), 0.13)
 	card.add_child(label)
 	label.global_transform = Transform3D(_wall_frame.basis, at + _wall_frame.basis.z * 0.004)
 
@@ -340,6 +341,12 @@ func _pulled(item_id: String) -> void:
 	_sync()
 
 
+## `facing` stretched so a copy of the slip comes out `width` by `height` metres.
+func _sized(facing: Basis, width: float, height: float) -> Basis:
+	var size: Vector2 = get_meta("paper_size", Vector2(0.1, 0.06))
+	return Basis(facing.x.normalized() * (width / size.x), facing.y.normalized() * (height / size.y), facing.z.normalized())
+
+
 ## Put a copy of the slip somewhere, its face along `facing.z`, its long side
 ## along `facing.x`, centred on `at`.
 func _place(node: Node3D, facing: Basis, at: Vector3) -> void:
@@ -350,27 +357,24 @@ func _place(node: Node3D, facing: Basis, at: Vector3) -> void:
 ## Red string, as a narrow strip of the same paper stock dyed red.
 func _ribbon(from: Vector3, to: Vector3) -> Node3D:
 	var strip := _copy_paper()
+	if _string_finish == null:
+		_string_finish = MatLib.get_mat("paper").duplicate() as StandardMaterial3D
+		_string_finish.uv1_triplanar = false
+		_string_finish.albedo_color = STRING_RED
 	for draw: MeshInstance3D in strip.get_children():
-		var finish := draw.get_active_material(0)
-		if finish is BaseMaterial3D:
-			var dyed := finish.duplicate() as BaseMaterial3D
-			dyed.albedo_color = STRING_RED
-			draw.material_override = dyed
+		draw.material_override = _string_finish
 	add_child(strip)
 	var out: Vector3 = _wall_frame.basis.z
 	var along := to - from
-	var size: Vector2 = get_meta("paper_size", Vector2(0.1, 0.06))
-	var facing := Basis(along.normalized() * (along.length() / size.x), out.cross(along.normalized()) * (STRING_WIDTH / size.y), out)
-	_place(strip, facing, (from + to) * 0.5 + out * 0.007)
+	_place(strip, _sized(Basis(along.normalized(), out.cross(along.normalized()), out), along.length(), STRING_WIDTH),
+			(from + to) * 0.5 + out * 0.009)
 	return strip
 
 
 func _deduction_place(deduction_id: String) -> Vector3:
-	var centre := Vector3.ZERO
-	var needs: Array = loop.table.deductions[deduction_id].needs
-	for need: Variant in needs:
-		centre += slot_position(int(loop.ledger().items[str(need)].get("slot", 0)))
-	return centre / float(needs.size()) - _wall_frame.basis.y * (_wall_size.y * (0.36 + 0.07 * float((loop.ledger().deductions as Array).find(deduction_id))))
+	var place: int = (loop.ledger().deductions as Array).find(deduction_id)
+	return _wall_frame * Vector3((-0.32 + 0.32 * float(place % 3)) * _wall_size.x,
+			(-0.08 - 0.2 * float(place / 3)) * _wall_size.y, 0.0)
 
 
 ## Bring every card in line with the ledger.
@@ -398,7 +402,7 @@ func _sync() -> void:
 		pinned.name = "LoopPinned_" + item_id
 		add_child(pinned)
 		var at := slot_position(int(loop.ledger().items[item_id].get("slot", wall_cards.size()))) + _wall_frame.basis.z * 0.004
-		_place(pinned, _wall_frame.basis, at)
+		_place(pinned, _sized(_wall_frame.basis, 0.085, 0.1), at)
 		var label := _words(str(loop.item_text(item_id).title).to_upper(), Basis(), SLIP_WORDS_WIDTH)
 		pinned.add_child(label)
 		label.global_transform = Transform3D(_wall_frame.basis, at + _wall_frame.basis.z * 0.003)
@@ -441,8 +445,8 @@ func _sync() -> void:
 		drawn.name = "LoopDeduction_" + str(deduction_id)
 		add_child(drawn)
 		var at := _deduction_place(str(deduction_id)) + _wall_frame.basis.z * 0.005
-		_place(drawn, Basis(_wall_frame.basis.x * 2.2, _wall_frame.basis.y * 2.2, _wall_frame.basis.z), at)
-		var label := _words(str(loop.table.deductions[str(deduction_id)].line), Basis(), 0.2)
+		_place(drawn, _sized(_wall_frame.basis, 0.24, 0.17), at)
+		var label := _words(str(loop.table.deductions[str(deduction_id)].line), Basis(), 0.21)
 		drawn.add_child(label)
 		label.global_transform = Transform3D(_wall_frame.basis, at + _wall_frame.basis.z * 0.004)
 		deduction_cards[str(deduction_id)] = drawn
@@ -464,7 +468,7 @@ func _survey() -> void:
 	var found: Array[Dictionary] = []
 	for index in SURVEY_RAYS:
 		var yaw := float(index) * 2.399963
-		var height := floor_y + 0.45 + 1.95 * fposmod(float(index) * 0.6180339, 1.0)
+		var height := floor_y + 0.4 + 2.0 * fposmod(float(index) * 0.7548776662, 1.0)
 		var from := Vector3(eye.x, height, eye.z)
 		var query := PhysicsRayQueryParameters3D.create(from, from + Vector3(cos(yaw), 0.0, sin(yaw)) * 9.0)
 		var hit := space.intersect_ray(query)
@@ -499,16 +503,16 @@ func _grow() -> void:
 		var normal: Vector3 = spot.normal
 		var across := Vector3.UP.cross(normal).normalized()
 		var roll := (fposmod(float(index) * 0.7548776, 1.0) - 0.5) * 0.5
-		var size := 1.5 + 1.1 * fposmod(float(index) * 0.5698403, 1.0)
+		var size := 0.14 + 0.13 * fposmod(float(index) * 0.5698403, 1.0)
 		var level := across.rotated(normal, roll)
-		var facing := Basis(level * size, normal.cross(level) * size, normal)
+		var facing := _sized(Basis(level, normal.cross(level), normal), size, size * (0.72 + 0.5 * fposmod(float(index) * 0.3247, 1.0)))
 		var sheet := _copy_paper()
 		sheet.name = "LoopPaper_%d" % index
 		add_child(sheet)
 		var at: Vector3 = (spot.position as Vector3) + normal * (0.004 + 0.0004 * float(index % 5))
 		_place(sheet, facing, at)
 		if index % 3 == 0 and not scrawls.is_empty():
-			var label := _words(str(scrawls[(index / 3) % scrawls.size()]), Basis(), 0.11 * size)
+			var label := _words(str(scrawls[(index / 3) % scrawls.size()]), Basis(), size * 0.85)
 			sheet.add_child(label)
 			label.global_transform = Transform3D(Basis(level, normal.cross(level), normal), at + normal * 0.003)
 		papers.append(sheet)
