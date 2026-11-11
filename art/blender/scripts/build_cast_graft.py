@@ -120,6 +120,9 @@ for side in ("L", "R"):
             keep.add(index)
     hand_keep[side] = keep
 
+mouth_points = [human.matrix_world @ v.co for i, v in enumerate(human.data.vertices)
+                if is_body[i] and sum(w for n, w in weights[i].items() if n.startswith("oris")) > 0.6]
+mouth_new = sum(mouth_points, Vector()) / max(len(mouth_points), 1)
 head = copy_object(human, "Face_skin")
 keep_only(head, head_keep)
 hands = {}
@@ -172,6 +175,23 @@ for common, own in RENAMED.items():
     group = shell.vertex_groups.get(own)
     if group is not None:
         group.name = common
+# Some skeletons hang the jaw and mouth on the neck bone. Give everything from
+# the chin up to the head bone, so a face is one thing.
+if "head_weights_from" in CFG:
+    floor_z = (old_rig.matrix_world @ old_rig.data.bones["Head"].head_local).z + float(CFG["head_weights_from"])
+    head_group = shell.vertex_groups["Head"]
+    neck_group = shell.vertex_groups["neck"]
+    moved = 0
+    for vertex in shell.data.vertices:
+        if (shell.matrix_world @ vertex.co).z < floor_z:
+            continue
+        share = {g.group: g.weight for g in vertex.groups}
+        neck_share = share.get(neck_group.index, 0.0)
+        if neck_share > 0.0:
+            head_group.add([vertex.index], share.get(head_group.index, 0.0) + neck_share, "REPLACE")
+            neck_group.remove([vertex.index])
+            moved += 1
+    print("HEAD WEIGHTS moved", moved)
 # A body that takes its finish from the game's material library has no
 # material of its own in the file.
 if CFG.get("albedo") and not any(slot.material for slot in shell.material_slots):
@@ -208,7 +228,7 @@ if CFG.get("nose", "auto") == "auto":
     head_at = joint("Head")
     front = [shell_world @ v.co for i, v in enumerate(shell.data.vertices)
              if old_weights[i].get("Head", 0.0) > 0.5 and abs((shell_world @ v.co).x - head_at.x) < 0.012
-             and head_at.z - 0.03 < (shell_world @ v.co).z < head_at.z + 0.075]
+             and head_at.z + float(CFG.get("nose_low", -0.03)) < (shell_world @ v.co).z < head_at.z + float(CFG.get("nose_high", 0.075))]
     nose_old = min(front, key=lambda point: point.y).copy()
     print("NOSE", [round(c, 4) for c in nose_old])
 else:
@@ -311,6 +331,166 @@ def is_skin(colour, loose=False):
     reach = float(CFG.get("skin_chroma", 0.03)) * (1.6 if loose else 1.0)
     return float(numpy.abs(chroma).max()) < reach and (0.06 if loose else 0.5) < total / ref_total < 1.6
 
+
+# ---------------------------------------------------------------- set the head by the old face's features
+# A head that was sculpted turned or tilted cannot be matched by its nose
+# alone. Find the old face's painted eyes and mouth, and turn, size and place
+# the new head so its eyes, nose and mouth sit on them.
+if CFG.get("align") == "features":
+    ref = skin_ref / float(skin_ref.sum())
+    eye_points = {"L": [], "R": []}
+    lip_points = []
+    # The face has few points of its own, so read the painting itself: many
+    # samples across each face of the old head's front.
+    _, painting = base_image(shell)
+    wide, high = painting.size
+    paint = numpy.array(painting.pixels[:], dtype=numpy.float32).reshape(high, wide, 4)
+    uv_data = shell.data.uv_layers.active.data
+    grid = [(i / 8.0, j / 8.0) for i in range(9) for j in range(9 - i)]
+    for polygon in shell.data.polygons:
+        if any(old_weights[v].get("Head", 0.0) < 0.5 for v in polygon.vertices):
+            continue
+        corners = [shell_world @ shell.data.vertices[v].co for v in polygon.vertices]
+        middle = sum(corners, Vector()) / len(corners)
+        if middle.y > nose_old.y + 0.05 or abs(middle.x - nose_old.x) > 0.06 or abs(middle.z - nose_old.z) > 0.07:
+            continue
+        uvs = [uv_data[l].uv.copy() for l in polygon.loop_indices]
+        for k in range(1, len(corners) - 1):
+            for a_, b_ in grid:
+                c_ = 1.0 - a_ - b_
+                co = corners[0] * a_ + corners[k] * b_ + corners[k + 1] * c_
+                uv = uvs[0] * a_ + uvs[k] * b_ + uvs[k + 1] * c_
+                colour = paint[int((uv.y % 1.0) * (high - 1)), int((uv.x % 1.0) * (wide - 1)), :3]
+                total = float(colour.sum())
+                if total < 0.15:
+                    continue
+                chroma = colour / total
+                rise = co.z - nose_old.z
+                if 0.012 < rise < 0.06 and abs(co.x - nose_old.x) > 0.012 and float(chroma[2] - ref[2]) > float(CFG.get("eye_blue", 0.05)):
+                    eye_points["L" if co.x > nose_old.x else "R"].append(co)
+                if -0.05 < rise < -0.008 and abs(co.x - nose_old.x) < 0.035 and float(chroma[0] - ref[0]) > 0.03 and float(chroma[1]) < float(ref[1]) - 0.02:
+                    lip_points.append(co)
+    probe = [(shell_world @ v.co, old_colour[i]) for i, v in enumerate(shell.data.vertices) if old_weights[i].get("Head", 0.0) >= 0.5]
+    probe = [(c, k) for c, k in probe if c.y < nose_old.y + 0.05 and abs(c.x - nose_old.x) < 0.06 and float(k.sum()) > 0.2]
+    print("FEATURES probe", len(probe), "ref", [round(float(x), 3) for x in ref])
+    for low, high in ((-0.05, -0.03), (-0.03, -0.008), (0.012, 0.03), (0.03, 0.045), (0.045, 0.06)):
+        rows = [k / float(k.sum()) for c, k in probe if low < c.z - nose_old.z < high]
+        if rows:
+            arr = numpy.array(rows)
+            print("FEATURES band %.3f..%.3f n=%d r %.3f..%.3f g %.3f..%.3f b %.3f..%.3f neutral_min %.3f" % (low, high, len(rows), arr[:,0].min(), arr[:,0].max(), arr[:,1].min(), arr[:,1].max(), arr[:,2].min(), arr[:,2].max(), float(numpy.abs(arr - 1/3).max(axis=1).min())))
+    print("FEATURES eyes", len(eye_points["L"]), len(eye_points["R"]), "lips", len(lip_points))
+    if min(len(eye_points["L"]), len(eye_points["R"]), len(lip_points)) >= 6:
+        old_marks = [nose_old] + [sum(eye_points[side], Vector()) / len(eye_points[side]) for side in ("L", "R")] + [sum(lip_points, Vector()) / len(lip_points)]
+        new_marks = [nose_new] + [eye_at[side] + Vector((0, -0.0125, 0)) for side in ("L", "R")] + [Vector((mouth_new.x, min(q.y for q in mouth_points), mouth_new.z))]
+        src = numpy.array([list(q) for q in new_marks])
+        dst = numpy.array([list(q) for q in old_marks])
+        src_mid = src.mean(axis=0)
+        dst_mid = dst.mean(axis=0)
+        a_ = src - src_mid
+        b_ = dst - dst_mid
+        u, sing, vt = numpy.linalg.svd(b_.T @ a_)
+        fix = numpy.diag([1.0, 1.0, numpy.sign(numpy.linalg.det(u @ vt))])
+        turn = u @ fix @ vt
+        size = float((sing * numpy.diag(fix)).sum() / (a_ ** 2).sum())
+        size *= float(CFG.get("head_scale_trim", 1.0))
+        new_move = Matrix.Translation(Vector(dst_mid)) @ Matrix([list(row) for row in turn]).to_4x4() @ Matrix.Scale(size, 4) @ Matrix.Translation(-Vector(src_mid))
+        correction = new_move @ head_move.inverted()
+        for obj in [head] + parts:
+            obj.data.transform(correction, shape_keys=True)
+            obj.data.update()
+        head_move = new_move
+        scale = size
+        print("FEATURES size %.3f turn %s" % (size, [round(math.degrees(a), 1) for a in Matrix([list(row) for row in turn]).to_euler()]))
+        print("FEATURES old marks", [[round(c, 3) for c in q] for q in old_marks])
+
+if os.environ.get("CAST_PROBE"):
+    sys.exit(0)
+# ---------------------------------------------------------------- her own face
+# For a body whose face was sculpted and painted with care: the new face is
+# drawn onto the old one's surface, so it keeps that face's own shape, and the
+# old face's painted skin is carried across onto it. Eyes, lids, lips and the
+# inside of the mouth stay the new head's, so they can move.
+def ramp(low, high, value):
+    t = max(0.0, min(1.0, (value - low) / (high - low)))
+    return t * t * (3.0 - 2.0 * t)
+
+
+own_face = None
+if CFG.get("own_face"):
+    twin = shell.copy()
+    twin.data = shell.data.copy()
+    twin.name = "OldFaceSkin"
+    bpy.context.scene.collection.objects.link(twin)
+    bm = bmesh.new()
+    bm.from_mesh(twin.data)
+    bm.verts.ensure_lookup_table()
+    lose = [f for f in bm.faces if not (all(old_weights[v.index].get("Head", 0.0) + old_weights[v.index].get("neck", 0.0) > 0.5 for v in f.verts)
+                                        and sum(1 for v in f.verts if is_skin(old_colour[v.index], True)) >= 2)]
+    bmesh.ops.delete(bm, geom=lose, context="FACES")
+    bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
+    bm.to_mesh(twin.data)
+    bm.free()
+    face_tree = BVHTree.FromPolygons([tuple(twin.matrix_world @ v.co) for v in twin.data.vertices], [tuple(q.vertices) for q in twin.data.polygons])
+    eyes_now = [head_move @ eye_at[side] for side in ("L", "R")]
+    mesh = head.data
+    shifts = {}
+    for vertex in mesh.vertices:
+        co = vertex.co
+        depth = co.y - nose_old.y
+        if depth > 0.085 * scale or co.z < nose_old.z - 0.09 * scale or co.z > nose_old.z + 0.12 * scale:
+            continue
+        weight = 1.0 - ramp(0.05 * scale, 0.085 * scale, depth)
+        weight *= ramp(0.022 * scale, 0.04 * scale, min((co - eye).length for eye in eyes_now))
+        # The mouth's own line and inside are left alone.
+        weight *= ramp(0.0, 0.006, vertex.normal.dot(Vector((0, -1, 0))) + 0.25)
+        hit = face_tree.find_nearest(co, float(CFG.get("own_face_reach", 0.02)))
+        if hit[0] is None or weight <= 0.0:
+            continue
+        shifts[vertex.index] = (hit[0] - co) * weight
+    # Even the pull out over neighbours, so the surface does not crumple.
+    near = {v.index: set() for v in mesh.vertices}
+    for edge in mesh.edges:
+        a, b = edge.vertices
+        near[a].add(b)
+        near[b].add(a)
+    for _ in range(4):
+        evened = {}
+        for index in shifts:
+            total = shifts[index].copy()
+            count = 1
+            for other in near[index]:
+                total += shifts.get(other, Vector())
+                count += 1
+            evened[index] = total / count
+        shifts = evened
+    blocks = mesh.shape_keys.key_blocks if mesh.shape_keys else None
+    for index, shift in shifts.items():
+        if blocks:
+            for block in blocks:
+                block.data[index].co = block.data[index].co + shift
+        mesh.vertices[index].co = mesh.vertices[index].co + shift
+    mesh.update()
+    print("OWN FACE drew", len(shifts), "points onto the old face")
+    # Carry the painted skin across.
+    node, image = base_image(head)
+    size = image.size[0]
+    own_face = bpy.data.images.new(CID + "_own_face", size, size, alpha=True)
+    own_face.generated_color = (0, 0, 0, 0)
+    tree_nodes = head.material_slots[0].material.node_tree.nodes
+    target = tree_nodes.new("ShaderNodeTexImage")
+    target.image = own_face
+    tree_nodes.active = target
+    scene_ = bpy.context.scene
+    scene_.render.engine = "CYCLES"
+    scene_.cycles.device = "CPU"
+    scene_.cycles.samples = 2
+    bpy.ops.object.select_all(action="DESELECT")
+    twin.select_set(True)
+    head.select_set(True)
+    bpy.context.view_layer.objects.active = head
+    bpy.ops.object.bake(type="DIFFUSE", pass_filter={"COLOR"}, use_selected_to_active=True, cage_extrusion=0.008, max_ray_distance=0.02, margin=2)
+    tree_nodes.remove(target)
+    bpy.data.objects.remove(twin)
 
 depsgraph = bpy.context.evaluated_depsgraph_get()
 tree = BVHTree.FromObject(head, depsgraph)
@@ -481,6 +661,15 @@ if image is not None:
     new_ref = numpy.median(numpy.array(face), axis=0)
     ratio = numpy.clip(skin_ref / numpy.maximum(new_ref, 0.01), 0.55, 1.35) * float(CFG.get("skin_gain", 1.0))
     pixels[:, :, :3] = numpy.clip(pixels[:, :, :3] * ratio, 0.0, 1.0)
+    if own_face is not None:
+        carried = numpy.array(own_face.pixels[:], dtype=numpy.float32).reshape(height, width, 4)
+        cover = carried[:, :, 3].copy()
+        # Feather the edge of what was carried across.
+        for _ in range(int(CFG.get("own_face_feather", 10))):
+            cover = (cover + numpy.roll(cover, 1, 0) + numpy.roll(cover, -1, 0) + numpy.roll(cover, 1, 1) + numpy.roll(cover, -1, 1)) / 5.0
+        cover = numpy.minimum(cover, carried[:, :, 3])[:, :, None] * float(CFG.get("own_face_strength", 1.0))
+        pixels[:, :, :3] = pixels[:, :, :3] * (1.0 - cover) + carried[:, :, :3] * cover
+        print("OWN FACE carried %.1f%% of the skin picture" % (100.0 * float(cover.mean())))
     toned = bpy.data.images.new(CID + "_skin", width, height, alpha=True)
     toned.pixels = pixels.ravel()
     toned.filepath_raw = os.path.join(OUT, CID + "_skin.png")

@@ -87,12 +87,13 @@
    "RightForeArm": "forearm.R"
   },
   "albedo": "assets/building/textures/T_library_resident_adela_voss_albedo.png",
-  "head": "rebuild",
-  "hair": "long01",
-  "hair_colour": [
-   0.62,
-   0.24,
-   0.07
-  ]
+  "head": "fit",
+  "own_face": true,
+  "keep_above": 1.6,
+  "face_top": 1.585,
+  "align": "features",
+  "head_weights_from": -0.085,
+  "nose_low": -0.05,
+  "nose_high": 0.05
  }
 }
