@@ -2,6 +2,7 @@
 from pathlib import Path
 import copy
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -62,7 +63,8 @@ class VoiceIntakeTests(unittest.TestCase):
         reference = self.root / "cal.wav"
         reference.write_bytes(b"a test reference")
         profile = self.registry["profiles"]["cal_dwyer"]
-        profile["reference"].update(file="cal.wav", sha256=intake.fingerprint(reference))
+        profile["reference"] = {"file": "cal.wav", "sha256": intake.fingerprint(reference),
+                                "text": "The reference words."}
         with self.assertRaisesRegex(ValueError, "reference-root"):
             intake.voice_request(self.registry, "cal_dwyer", "Listen.")
         request = intake.voice_request(self.registry, "cal_dwyer", "Listen.", self.root)
@@ -154,6 +156,24 @@ class VoiceIntakeTests(unittest.TestCase):
             rows = list(intake.csv.DictReader(stream))
         self.assertEqual(rows[0]["line_id"], "cal_dwyer__open")
         self.assertEqual(rows[0]["text"], 'First line, "quoted".\nSecond line.')
+
+    def test_request_output_supports_unicode_on_a_legacy_windows_console(self):
+        environment = dict(os.environ, PYTHONIOENCODING="ascii")
+        words = "A café. Ω. 東."
+        result = subprocess.run([sys.executable, str(Path(intake.__file__)), "request",
+                                 "--profile-id", "mina_vale", "--text", words],
+                                capture_output=True, text=True, env=environment)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout)["args"]["text"], words)
+
+    def test_acting_direction_preserves_the_exact_audition_words(self):
+        words = "A new audition."
+        intent = "The speaker reluctantly lets the visitor stay."
+        self.registry["profiles"]["cal_dwyer"]["reference"] = None
+        request = intake.voice_request(self.registry, "cal_dwyer", words, performance_note=intent)
+        self.assertEqual(request["args"]["text"], words)
+        self.assertIn(intent, request["args"]["voice"])
+        self.assertIn(self.registry["profiles"]["cal_dwyer"]["accent_direction"], request["args"]["voice"])
 
     def test_invalid_and_overlapping_mouth_cues_are_rejected(self):
         good = {"metadata": {"duration": 1}, "mouthCues": [{"start": 0, "end": 1, "value": "A"}]}

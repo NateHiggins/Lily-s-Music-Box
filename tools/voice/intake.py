@@ -130,7 +130,7 @@ def recording_lines(dialogue_dir: Path, registry: dict) -> list[dict]:
 
 
 def voice_request(registry: dict, profile_id: str, text: str,
-                  reference_root: Path | None = None) -> dict:
+                  reference_root: Path | None = None, performance_note: str = "") -> dict:
     profile = registry["profiles"][profile_id]
     if profile["delivery"] != "spoken":
         raise ValueError(f"{profile_id} is {profile['delivery']}; no spoken voice request")
@@ -153,8 +153,9 @@ def voice_request(registry: dict, profile_id: str, text: str,
     else:
         if profile.get("requires_reference"):
             raise ValueError(f"{profile_id} needs a supplied voice reference before generation")
-        args["voice"] = " ".join((profile["voice_description"], profile["delivery_direction"],
-                                   registry["recording_direction"]))
+        args["voice"] = " ".join((
+            profile["voice_description"], profile.get("accent_direction", ""),
+            profile["delivery_direction"], performance_note, registry["recording_direction"]))
     return {"kind": "voice", "args": args}
 
 
@@ -232,7 +233,9 @@ def main() -> None:
     selection = request.add_mutually_exclusive_group(required=True)
     selection.add_argument("--line-id")
     selection.add_argument("--profile-id")
-    request.add_argument("--text", help="Authored words when selecting a profile directly")
+    words = request.add_mutually_exclusive_group()
+    words.add_argument("--text", help="Authored words when selecting a profile directly")
+    words.add_argument("--audition", action="store_true", help="Use this profile's proposed casting line")
     request.add_argument("--reference-root", type=Path)
     cues = commands.add_parser("cues", help="Run Rhubarb over named WAV recordings")
     cues.add_argument("--wavs", type=Path, required=True)
@@ -243,10 +246,11 @@ def main() -> None:
     try:
         registry = load_profiles(args.profiles)
         if args.command == "request" and args.profile_id:
-            if args.text is None:
-                parser.error("--profile-id requires --text")
-            print(json.dumps(voice_request(registry, args.profile_id, args.text, args.reference_root),
-                             ensure_ascii=False, indent=2))
+            text = registry["profiles"][args.profile_id].get("audition_text", "") if args.audition else args.text
+            if text is None:
+                parser.error("--profile-id requires --text or --audition")
+            intent = registry["profiles"][args.profile_id].get("audition_intent", "") if args.audition else ""
+            print(json.dumps(voice_request(registry, args.profile_id, text, args.reference_root, intent), indent=2))
             return
         rows = recording_lines(args.dialogue_dir, registry)
         if args.command == "sheet":
@@ -257,11 +261,12 @@ def main() -> None:
                 writer.writerows(rows)
             print(f"Wrote {len(rows)} lines to {args.out}")
         elif args.command == "request":
+            if args.text is not None or args.audition:
+                parser.error("--line-id uses the exact authored dialogue text")
             row = next((row for row in rows if row["line_id"] == args.line_id), None)
             if row is None or row["delivery"] != "spoken":
                 parser.error("Select an existing spoken line ID")
-            print(json.dumps(voice_request(registry, row["profile_id"], row["text"], args.reference_root),
-                             ensure_ascii=False, indent=2))
+            print(json.dumps(voice_request(registry, row["profile_id"], row["text"], args.reference_root), indent=2))
         else:
             if not args.rhubarb or not math.isfinite(args.timeout) or args.timeout <= 0:
                 parser.error("Provide --rhubarb and a positive finite --timeout")

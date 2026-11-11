@@ -2,14 +2,14 @@
 
 The per-character entries in `voice_profiles.json` are the official authoring
 voice directions requested by Lily on November 11, 2026. The descriptions
-follow the cast voice map. New timbres need listening review. Cal and Stacy
-have references selected by Lily from the Omni Studio experiments.
+follow the cast voice map. Lily requested a fresh casting round and superseded
+the initial Cal and Stacy selection. Every generated voice awaits her listening
+review. The earlier WAVs are retained as experiment history.
 
-Each reference records its exact transcript, SHA-256, original voice-design
-prompt and Studio job. Their WAV files are in the external authoring bank
-`C:/ov/voice-references/20261111/`, named `cal_dwyer.wav` and `stacy.wav`.
-The originals also remain in Omni Studio. Copy the two WAVs to another
-authoring machine's reference folder and pass that folder explicitly.
+An active reference, once selected, records its exact transcript, SHA-256,
+original voice-design prompt and Studio job. An authoring machine supplies
+that exact WAV through an explicit reference folder. Reference validation
+protects a chosen voice against accidental replacement between lines.
 
 ## Recording sheet
 
@@ -37,20 +37,30 @@ need a later explicit intake extension. The source dialogue is read only.
 Print a request for Omni's Studio voice tool.
 
 ```powershell
-python tools/voice/intake.py request --line-id cal_dwyer__cd_open --reference-root C:/ov/voice-references/20261111
+python tools/voice/intake.py request --line-id cal_dwyer__cd_open
 python tools/voice/intake.py request --profile-id mina_vale --text "The exact authored line."
+python tools/voice/intake.py request --profile-id stacy --audition
 ```
 
 Pass the printed `kind` and `args` to Omni's `studio` tool. It generates WAVs
 through the local Qwen3-TTS authoring backend and queues on the shared GPU
 lane. Respect test priority through `lane_priority.py` before submission.
 
-Selected voices use their exact reference WAV and transcript with Qwen's
-Base model. A missing or changed reference fails validation. Other voices
-use their description, delivery direction and fixed seed with VoiceDesign
-for a first audition. Select a reference after listening before generating
-a production batch. Lily's own profile requires her recorded reference.
-The transient guest group requires a distinct A or B profile.
+Voices with an active reference use its exact WAV and transcript with Qwen's
+Base model. A missing or changed reference fails validation. Fresh auditions
+use the description, accent direction, delivery guidance and fixed seed with
+VoiceDesign. Audition requests also include the proposed line's acting intent.
+Select a reference after listening before generating a production batch.
+Lily's own profile requires her recorded reference. The transient guest group
+requires a distinct A or B profile.
+
+The shared opening sentence lets Lily compare voices on the same words.
+The following character lines are proposed casting drafts. Their source-node
+links indicate writing inspiration. They need scene-context review before
+integration with clues, choices and flag changes. Stacy's New Orleans origin
+is explicit in her dialogue. Other regional directions are provisional
+casting choices and establish no new biography. Accent and acting judgments
+belong to Lily. Transcription and signal checks provide technical review.
 
 ## Mouth timing
 
