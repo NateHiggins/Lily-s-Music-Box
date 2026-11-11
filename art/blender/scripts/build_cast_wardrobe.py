@@ -456,7 +456,7 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
     return obj
 
 
-def tinted_image(image, colour, name, size=512, hair=False):
+def tinted_image(image, colour, name, size=512, hair=False, deep_only=False):
     """A pack garment's own picture, recoloured to a person's colour: its
     darks and mids take the colour, its lights go pale, its drawing stays."""
     small = image.copy()
@@ -479,7 +479,7 @@ def tinted_image(image, colour, name, size=512, hair=False):
         # Hair keeps its own darkness: black stays black, with a sheen no brighter than twice its tone.
         deep = tone * 1.15
         pale = numpy.clip(tone * 2.0 + 0.04, 0.0, 1.0)
-    rise = numpy.clip((light - 0.62) / 0.3, 0.0, 1.0)[..., None]
+    rise = numpy.clip((light - (0.93 if deep_only else 0.62)) / (0.07 if deep_only else 0.3), 0.0, 1.0)[..., None]
     out = numpy.clip(light / 0.62, 0.0, 1.0)[..., None] * deep * (1.0 - rise) + pale * light[..., None] * rise
     result = numpy.concatenate([out, data[..., 3:4]], axis=2).astype(numpy.float32)
     picture = bpy.data.images.new(name, width, height, alpha=True)
@@ -518,7 +518,7 @@ def skirt_weights(co):
     return out_
 
 
-def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Clothes"):
+def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Clothes", deep_only=False):
     """A garment from the MakeHuman community packs (CC0), fitted to this body,
     recoloured to the person's colour. `skirt` rehangs what falls below the
     hips on the skirt bones, so it does not split between the legs."""
@@ -526,7 +526,7 @@ def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Cl
     obj.name = name
     node, image = base_image(obj)
     if image is not None:
-        node.image = tinted_image(image, colour, "%s_%s_%s" % (STEM, CURRENT_PART or "x", name))
+        node.image = tinted_image(image, colour, "%s_%s_%s" % (STEM, CURRENT_PART or "x", name), deep_only=deep_only)
     else:
         obj.data.materials.clear()
         obj.data.materials.append(plain("%s_%s" % (STEM, name), worn_colour(colour), 0.8))
@@ -568,7 +568,10 @@ def torso(v, low=None, high=None, sleeves=1.0, vee=0.0):
     high = neck + 0.02 if high is None else high
     co = v.co
     arm = weight(v, ARM)
-    if arm > 0.45:
+    if sleeves <= 0.0:
+        if abs(co.x) > shoulder.x - 0.012 or arm > 0.75:
+            return False
+    elif arm > 0.45:
         return along_arm(co) < sleeves
     if not (low < co.z < high):
         return False
@@ -611,7 +614,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     colour = row["colour"]
     cloth = row.get("cloth")
     if kind == "asset":
-        asset_piece(row.get("name", "Pack"), row["asset"], colour, skirt=bool(row.get("skirt")), atype=row.get("atype", "Clothes"))
+        asset_piece(row.get("name", "Pack"), row["asset"], colour, skirt=bool(row.get("skirt")), atype=row.get("atype", "Clothes"), deep_only=bool(row.get("deep")))
     elif kind == "shoes":
         piece("Shoes", "helper-tights", lambda v: v.co.z < ankle + 0.03 and weight(v, ("Foot", "Toe")) > 0.2, 0.009, colour, 0.35, cloth="leather")
         if row.get("strap"):
@@ -624,7 +627,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         piece("Jumper", "helper-tights", lambda v, r=row: torso(v, low=hip - float(r.get("length", 0.01)), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))),
               float(row.get("ease", 0.017)), colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
     elif kind == "waistcoat":
-        piece("Waistcoat", "helper-tights", lambda v, r=row: torso(v, low=waist - 0.04, sleeves=0.0, vee=float(r.get("vee", 0.2))) and weight(v, ARM) < 0.3, 0.017, colour, 0.7, pattern=row.get("pattern"), cloth=cloth or "wool")
+        piece("Waistcoat", "helper-tights", lambda v, r=row: torso(v, low=waist - 0.04, sleeves=0.0, vee=float(r.get("vee", 0.2))), 0.017, colour, 0.7, pattern=row.get("pattern"), cloth=cloth or "wool")
     elif kind == "jacket":
         piece("Jacket", "helper-tights", lambda v, r=row: torso(v, low=hip - float(r.get("length", 0.06)), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.3))),
               max(0.02, float(row.get("ease", 0.02))), colour, 0.8, pattern=row.get("pattern"), cloth=cloth or "wool",
@@ -676,9 +679,9 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
                 for j in range(steps):
                     a = math.tau * j / steps
                     back = max(0.0, math.sin(a))
-                    depth = t * (L * (0.9 + 0.2 * back) + P * back ** 3)
+                    depth = t * (L * (0.6 + 0.5 * (0.5 + 0.5 * math.sin(a))) + P * back ** 3)
                     over = ease(depth / 0.12)
-                    rx = 0.068 + (shoulder.x + (0.08 if P == 0.0 else 0.05) - 0.068) * over + (0.45 if P == 0.0 else 0.3) * max(0.0, depth - 0.06)
+                    rx = 0.068 + (shoulder.x + (0.08 if P == 0.0 else 0.05) - 0.068) * over + (0.3 if P == 0.0 else 0.24) * max(0.0, depth - 0.06)
                     fold = 1.0 + 0.04 * math.sin(a * 11.0) * min(1.0, depth / 0.16)
                     rx *= fold
                     ry = 0.07 + (0.165 if math.sin(a) < 0 else 0.14) * over - 0.07 * over + 0.04 * depth / L
@@ -1193,10 +1196,22 @@ if PACK_HAIR:
     if hair_image is not None:
         hair_node.image = tinted_image(hair_image, [float(c) for c in hair_tone], CID + "_hair_picture", 1024, hair=True)
     shrink_pictures(pack_hair, hair_node)
+    skull_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
+    under_hat = pack_hair.copy()
+    under_hat.data = pack_hair.data.copy()
+    under_hat.name = "HatHair"
+    bpy.context.scene.collection.objects.link(under_hat)
+    hat_line = nose.z + 0.045
+    for v in under_hat.data.vertices:
+        press = max(0.0, min(1.0, (v.co.z - hat_line) / 0.03))
+        if press <= 0.0:
+            continue
+        hit = skull_tree.find_nearest(v.co)
+        if hit[0] is not None:
+            v.co = v.co.lerp(hit[0] + hit[1] * 0.004, press)
+    parts.append(under_hat)
     CFG["hair"]["style"] = "short"
-    bpy.data.objects.remove(cap)
-else:
-    extras.append(cap)
+extras.append(cap)
 
 STYLES = {
     "ringlets": {"points": 32, "lying": 10, "length": [0.25, 0.31], "radius": [0.011, 0.015], "turns": [1.5, 2.1], "first_angle": 62.0, "per_side": 20,

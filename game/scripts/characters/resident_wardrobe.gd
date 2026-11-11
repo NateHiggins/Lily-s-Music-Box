@@ -16,6 +16,9 @@ const SLOTS: Array[String] = ["bottom", "top", "over", "feet", "head"]
 
 var person_id := ""
 var keep_body := false
+## Modelled hair, and the same hair pressed to the skull for wearing under a hat.
+var _hair: MeshInstance3D
+var _hat_hair: MeshInstance3D
 var skeleton: Skeleton3D
 ## Slot to the name of the part worn in it.
 var worn: Dictionary = {}
@@ -34,6 +37,13 @@ func bind(model: Node, id: String) -> bool:
 	skeleton = skeletons[0] as Skeleton3D
 	for mesh: MeshInstance3D in model.find_children(SKIN_PREFIX + "*", "MeshInstance3D", true, false):
 		_skin[str(mesh.name).trim_prefix(SKIN_PREFIX)] = mesh
+	for mesh: MeshInstance3D in model.find_children("*Hair*", "MeshInstance3D", true, false):
+		if str(mesh.name).begins_with("HatHair"):
+			_hat_hair = mesh
+		elif str(mesh.name).begins_with("Hair") and not str(mesh.name).begins_with("HairCap"):
+			_hair = mesh
+	if _hat_hair != null:
+		_hat_hair.visible = false
 	return not _skin.is_empty()
 
 
@@ -109,6 +119,9 @@ func _put_on(part: String, loader: Callable) -> bool:
 ## fits closely over it (its note lists what it covers), so a lifted skirt or
 ## an open coat shows a person and not a hole. keep_body shows every part.
 func _show_skin() -> void:
+	if _hair != null and _hat_hair != null:
+		_hair.visible = not worn.has("head")
+		_hat_hair.visible = worn.has("head")
 	var covered: Dictionary = {}
 	if keep_body:
 		for area: String in _skin:

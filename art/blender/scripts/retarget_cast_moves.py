@@ -162,8 +162,12 @@ for path, time_scale in SOURCES:
                             down = (rest_turn @ (turn @ Vector((0.0, 1.0, 0.0)))).z
                             if best is None or down < best[0]:
                                 best = (down, turn.to_quaternion())
-                    pose_bone.rotation_quaternion = best[1]
-                    pose_bone.keyframe_insert("rotation_quaternion", frame=1)
+                    # Three keys that differ a hair, or the exporter drops the channel as constant and the hand goes flat.
+                    last_out = 1 + (last - first) * time_scale
+                    for at, more in ((1, 1.0), (1 + (last_out - 1) * 0.5, 1.08), (last_out, 1.0)):
+                        axis_, angle_ = best[1].to_axis_angle()
+                        pose_bone.rotation_quaternion = Quaternion(axis_, angle_ * more)
+                        pose_bone.keyframe_insert("rotation_quaternion", frame=at)
         previous = {}
         for frame in range(first, last + 1):
             scene.frame_set(frame)

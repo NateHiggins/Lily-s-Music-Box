@@ -52,7 +52,7 @@ def top(kind, colour, accent, pale):
         "tie_suit": ([pack("toigo_male_suit_tie_and_jacket", colour, name="Suit")], [], WHOLE),
         "db_suit": ([pack("toigo_male_double-breasted_suit", colour, name="Suit")], [], WHOLE),
         "lounge_suit": ([pack("toigo_male_suit_3", colour, name="Suit")], [], WHOLE),
-        "dinner_suit": ([pack("toigo_suit_with_dinner_jacket", colour, name="Suit")], [], WHOLE),
+        "dinner_suit": ([pack("toigo_suit_with_dinner_jacket", colour, name="Suit", deep=True)], [], WHOLE),
         "bowtie_suit": ([pack("toigo_suit_with_jacket_and_bowtie", colour, name="Suit")], [], WHOLE),
         "elegant_suit": ([pack("male_elegantsuit01", colour, name="Suit")], [], WHOLE),
         "work_overalls": ([pack("male_worksuit01", colour, name="Overalls")], [], ["chest", "trunk", "hips", "legs"]),
