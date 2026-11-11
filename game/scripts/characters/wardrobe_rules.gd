@@ -72,14 +72,25 @@ func in_mourning(situation: Dictionary) -> bool:
 	var window: Dictionary = table.get("mourning", {})
 	var today := _day_number(str(situation.get("date", "")))
 	var first := _day_number(str(window.get("from", "")))
-	return today >= 0 and first >= 0 and today >= first and today < first + int(window.get("days", 0))
+	return today != NO_DAY and first != NO_DAY and today >= first and today < first + int(window.get("days", 0))
 
 
+const NO_DAY := -2147483648
+
+
+## A count of days that runs on through any year (the story is before 1970,
+## where the engine's own clock does not go).
 static func _day_number(date: String) -> int:
 	var parts := date.split("-")
 	if parts.size() != 3:
-		return -1
-	return int(Time.get_unix_time_from_datetime_dict({"year": int(parts[0]), "month": int(parts[1]), "day": int(parts[2]), "hour": 12, "minute": 0, "second": 0}) / 86400)
+		return NO_DAY
+	var year := int(parts[0])
+	var month := int(parts[1])
+	var day := int(parts[2])
+	var shift := (14 - month) / 12
+	var y := year + 4800 - shift
+	var m := month + 12 * shift - 3
+	return day + (153 * m + 2) / 5 + 365 * y + y / 4 - y / 100 + y / 400 - 32045
 
 
 func _holds(rule: Dictionary, situation: Dictionary) -> bool:
