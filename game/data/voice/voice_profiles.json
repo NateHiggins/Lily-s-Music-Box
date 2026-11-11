@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "Official authoring voice directions requested by Lily on 2026-11-11. Lily then requested a fresh character-led casting round and explicitly superseded the initial Cal and Stacy selection. All generated voices now await her listening judgment. Audition texts are proposed writing-room drafts, not runtime dialogue.",
+  "description": "Official authoring voice directions requested by Lily on 2026-11-11. The fresh character-led round supersedes the initial Cal and Stacy selection. Lily selected the fresh Mina and Cal takes; remaining voices await her listening judgment. Audition texts are proposed writing-room drafts, not runtime dialogue.",
   "language": "English",
   "model_design": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
   "model_reference": "Qwen3-TTS-12Hz-1.7B-Base",
@@ -50,7 +50,14 @@
       "delivery_direction": "Accumulate corrections carefully, with small thinking pauses. Official precision can fray into an intimate, less polished confession.",
       "seed": 836861879,
       "delivery": "spoken",
-      "reference": null,
+      "reference": {
+        "file": "mina_vale.wav",
+        "sha256": "c7da69e28807476a7845a3d5c4dc03651c3a8b83b840d05bc6b8f3222873a888",
+        "text": "Give me a moment. I caught every word. It was the pause that wouldn't behave. I've put four seconds in brackets. The brackets are quite steady.",
+        "approval": "Lily: mina sounds amazing (2026-11-11). Keep this take as her reference.",
+        "studio_job": "1111_103655_8940",
+        "design_prompt": "A mature woman's cool clear middle register, narrowly focused and carefully articulated, with controlled breath and an intimate undertone. Precise northeastern American English with a faint New York cadence. Take care over the last consonant of a correction. Accumulate corrections carefully, with small thinking pauses. Official precision can fray into an intimate, less polished confession. She defends the record while accidentally admitting how difficult its silence is for her. Clean close-microphone speech at a conversational level. Preserve authored words, pauses and speaker identity. Produce dry voice audio for later in-game acoustics."
+      },
       "accent_direction": "Precise northeastern American English with a faint New York cadence. Take care over the last consonant of a correction.",
       "audition_text": "Give me a moment. I caught every word. It was the pause that wouldn't behave. I've put four seconds in brackets. The brackets are quite steady.",
       "audition_intent": "She defends the record while accidentally admitting how difficult its silence is for her.",
@@ -230,7 +237,14 @@
       "delivery_direction": "Deliberate pauses, restrained unease and a trace of stubborn certainty. Patient technical clauses give way to a plain sentence when the carrier falls silent.",
       "seed": 764217562,
       "delivery": "spoken",
-      "reference": null,
+      "reference": {
+        "file": "cal_dwyer.wav",
+        "sha256": "43c07a79e125baada163fe861444c2ca7c0a1fa591012660bdfbbb452c497f5d",
+        "text": "Give me a moment. Shut the door. You're letting the room in. That kettle is last Tuesday. I've checked the log twice. I was hoping the second time would improve it.",
+        "approval": "Lily: cal is perfect (2026-11-11). Selected this fresh take.",
+        "studio_job": "1111_105423_a671",
+        "design_prompt": "A mature man's restrained low-middle voice with dry papery grain, narrow resonance and careful technical diction. Quiet concentration carries a small stubborn edge. Light older New York English, conversational rather than broadcast delivery. Let technical clauses run patiently and plain admissions fall short. Deliberate pauses, restrained unease and a trace of stubborn certainty. Patient technical clauses give way to a plain sentence when the carrier falls silent. A man checks an unwanted result again because accepting the measurement would make it personal. Clean close-microphone speech at a conversational level. Preserve authored words, pauses and speaker identity. Produce dry voice audio for later in-game acoustics."
+      },
       "accent_direction": "Light older New York English, conversational rather than broadcast delivery. Let technical clauses run patiently and plain admissions fall short.",
       "audition_text": "Give me a moment. Shut the door. You're letting the room in. That kettle is last Tuesday. I've checked the log twice. I was hoping the second time would improve it.",
       "audition_intent": "A man checks an unwanted result again because accepting the measurement would make it personal.",

@@ -75,6 +75,7 @@ class VoiceIntakeTests(unittest.TestCase):
             intake.voice_request(self.registry, "cal_dwyer", "Listen.", self.root)
 
     def test_requests_reuse_direction_and_seed_and_block_unvoiced_roles(self):
+        self.registry["profiles"]["mina_vale"]["reference"] = None
         first = intake.voice_request(self.registry, "mina_vale", "First line.")
         second = intake.voice_request(self.registry, "mina_vale", "Second line.")
         self.assertEqual(first["args"]["voice"], second["args"]["voice"])
@@ -160,7 +161,11 @@ class VoiceIntakeTests(unittest.TestCase):
     def test_request_output_supports_unicode_on_a_legacy_windows_console(self):
         environment = dict(os.environ, PYTHONIOENCODING="ascii")
         words = "A café. Ω. 東."
-        result = subprocess.run([sys.executable, str(Path(intake.__file__)), "request",
+        profiles = intake.read_json(intake.PROFILES)
+        next(row for row in profiles["profiles"] if row["id"] == "mina_vale")["reference"] = None
+        fixture = self.root / "profiles.json"
+        fixture.write_text(json.dumps(profiles), encoding="utf-8")
+        result = subprocess.run([sys.executable, str(Path(intake.__file__)), "--profiles", str(fixture), "request",
                                  "--profile-id", "mina_vale", "--text", words],
                                 capture_output=True, text=True, env=environment)
         self.assertEqual(result.returncode, 0, result.stderr)

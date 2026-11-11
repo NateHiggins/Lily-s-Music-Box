@@ -15,7 +15,10 @@ map supplies characterization. Timbre and regional directions are casting
 choices for this pass. Stacy's New Orleans origin comes from her source
 dialogue. Each eligible speaking profile carries a proposed audition line
 and acting intent. Twenty-two voices are in the first casting round.
-Lily judges the performances. All timbres await her listening review.
+Lily judges the performances. She selected the fresh Mina and Cal takes;
+their registry references preserve exact WAV hashes, transcripts and prompts.
+Remaining timbres await her listening review. The frozen first-round requests
+stay unchanged as those decisions update the current registry.
 
 The intake command exports exact dialogue text and stable tree/node IDs,
 prepares Omni Studio requests from the character profile, and aligns named

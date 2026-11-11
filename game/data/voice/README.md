@@ -3,13 +3,20 @@
 The per-character entries in `voice_profiles.json` are the official authoring
 voice directions requested by Lily on November 11, 2026. The descriptions
 follow the cast voice map. Lily requested a fresh casting round and superseded
-the initial Cal and Stacy selection. Every generated voice awaits her listening
-review. The earlier WAVs are retained as experiment history.
+the initial Cal and Stacy selection. She selected the fresh Mina and Cal takes;
+the remaining voices await her listening review. The earlier WAVs are retained
+as experiment history.
 
 An active reference, once selected, records its exact transcript, SHA-256,
 original voice-design prompt and Studio job. An authoring machine supplies
 that exact WAV through an explicit reference folder. Reference validation
 protects a chosen voice against accidental replacement between lines.
+The selected November 11 references are currently stored at
+`C:/ov/voice-references/20261111_cast_round01`. Restore those WAVs into an
+explicit reference folder on another authoring machine and verify their registry
+hashes. Generated requests fail safely if a selected reference is unavailable.
+The round's frozen request sheet and profile snapshot stay unchanged when a
+listening decision updates the current registry.
 
 ## Recording sheet
 
@@ -37,8 +44,8 @@ need a later explicit intake extension. The source dialogue is read only.
 Print a request for Omni's Studio voice tool.
 
 ```powershell
-python tools/voice/intake.py request --line-id cal_dwyer__cd_open
-python tools/voice/intake.py request --profile-id mina_vale --text "The exact authored line."
+python tools/voice/intake.py request --line-id cal_dwyer__cd_open --reference-root C:/ov/voice-references/20261111_cast_round01
+python tools/voice/intake.py request --profile-id mina_vale --text "The exact authored line." --reference-root C:/ov/voice-references/20261111_cast_round01
 python tools/voice/intake.py request --profile-id stacy --audition
 ```
 
