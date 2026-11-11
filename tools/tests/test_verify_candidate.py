@@ -148,27 +148,26 @@ class AuthorizedCutoverTests(unittest.TestCase):
         self.assertFalse(vc.selector_default_cutover(after, before))
 
     def test_v1_removal_is_the_only_other_selector_edit(self):
-        before = (b'const DEFAULT_ID := "v2" # Future cutover and rollback change this value only.
-'
-                  b'const PATHS := {
-	"v1": "res://scenes/building/orison_root.tscn",
-'
-                  b'	"v2": "res://scenes/building/orison_v2_runtime.tscn",
-}
-')
+        before = (b'const DEFAULT_ID := "v2" # Future cutover and rollback change this value only.\n'
+                  b'const PATHS := {\n\t"v1": "res://scenes/building/orison_root.tscn",\n'
+                  b'\t"v2": "res://scenes/building/orison_v2_runtime.tscn",\n}\n')
         after = before
         for was, now in vc.SELECTOR_V1_REMOVAL_EDITS:
             after = after.replace(was, now)
+        self.assertNotIn(b'"v1"', after)
         self.assertTrue(vc.selector_v1_removal(before, after))
-        self.assertTrue(vc.selector_v1_removal(before.replace(b"
-", b"
-"), after))
-        self.assertFalse(vc.selector_v1_removal(before, after + b"# other change
-"))
+        self.assertTrue(vc.selector_v1_removal(before.replace(b"\n", b"\r\n"), after))
+        self.assertFalse(vc.selector_v1_removal(before, after + b"# other change\n"))
         self.assertFalse(vc.selector_v1_removal(before, after.replace(b"orison_v2_runtime", b"other")))
         self.assertFalse(vc.selector_v1_removal(after, after))
         self.assertFalse(vc.selector_v1_removal(None, after))
         self.assertFalse(vc.selector_v1_removal(before, None))
+
+    def test_committed_selector_is_the_authorized_removal(self):
+        before = vc.git_bytes("show", f"before-v1-removal-20261111:{vc.SELECTOR_PATH}")
+        if before is None:
+            self.skipTest("the before-v1-removal tag is not in this clone")
+        self.assertTrue(vc.selector_v1_removal(before, (vc.REPO / vc.SELECTOR_PATH).read_bytes()))
 
     def test_retired_geometry_may_only_be_absent(self):
         retired = sorted(vc.RETIRED_WITH_V1)[0]
@@ -197,7 +196,8 @@ class AuthorizedCutoverTests(unittest.TestCase):
         with patch.object(vc, "git_bytes", side_effect=blobs), patch.object(vc, "git", side_effect=oids(False)):
             result = vc.protected_check(BASE, CAND)
             self.assertEqual((result["status"], result["matched"], result["retired_with_v1"]), ("PASS", 2, 0))
-        with patch.object(vc, "git_bytes", side_effect=blobs),                 patch.object(vc, "git", side_effect=oids(True, changed=True)):
+        with patch.object(vc, "git_bytes", side_effect=blobs), \
+                patch.object(vc, "git", side_effect=oids(True, changed=True)):
             self.assertEqual(vc.protected_check(BASE, CAND)["status"], "FAIL")
 
     def test_v1_is_no_longer_a_valid_default(self):

@@ -29,13 +29,6 @@
    "token": "[E]"
   },
   {
-   "file": "building/wayfinding_signage_pass.gd",
-   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
-   "literal": "[E]  Ring directory buzzer",
-   "method": "interact_prompt",
-   "token": "[E]"
-  },
-  {
    "file": "call/desk_zone.gd",
    "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
    "literal": "[E]  %s",
@@ -184,20 +177,6 @@
   },
   {
    "file": "props/bar_seat_zone.gd",
-   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
-   "literal": "[E]  Stand up",
-   "method": "interact_prompt",
-   "token": "[E]"
-  },
-  {
-   "file": "props/bench_zone.gd",
-   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
-   "literal": "[E]  Sit on the bench",
-   "method": "interact_prompt",
-   "token": "[E]"
-  },
-  {
-   "file": "props/bench_zone.gd",
    "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
    "literal": "[E]  Stand up",
    "method": "interact_prompt",
@@ -403,20 +382,6 @@
    "file": "props/dumbwaiter_prop.gd",
    "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
    "literal": "[E]  Prove the holding brake",
-   "method": "control_prompt",
-   "token": "[E]"
-  },
-  {
-   "file": "props/elevator_interlock_prop.gd",
-   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
-   "literal": "[E]  Check the landing interlock",
-   "method": "control_prompt",
-   "token": "[E]"
-  },
-  {
-   "file": "props/elevator_interlock_prop.gd",
-   "justification": "pre-existing legacy carrier; migration debt, not approved new authoring",
-   "literal": "[E]  Examine the landing interlock",
    "method": "control_prompt",
    "token": "[E]"
   },

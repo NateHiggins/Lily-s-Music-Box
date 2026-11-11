@@ -19,7 +19,6 @@ from typing import Any
 YEAR_ACCESS = re.compile(r'(?:\.year\b|get\(\s*["\']year["\']|\[["\']year["\']\])')
 INSTALLATION_YEAR = re.compile(r"\binstalled\s+(\d{4})\b", re.IGNORECASE)
 EXPECTED_CONSUMERS = {
-    "game/scripts/audio/music_director.gd": "player_readable_catalogue",
     # The V2 broadcast reads each record's year from the same catalogue.
     "game/scripts/audio/orison_v2_broadcast.gd": "player_readable_catalogue",
     # The earned library lists each record it holds with the catalogue's year.
