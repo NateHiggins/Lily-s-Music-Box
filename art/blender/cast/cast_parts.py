@@ -31,12 +31,12 @@ def top(kind, colour, accent, pale):
         "blouse_short": ([{"kind": "shirt", "name": "Blouse", "colour": pale, "vee": 0.08, "sleeves": 0.5, "blouson": 0.012, "cloth": "silk"}],
                          [{"kind": "buttons", "colour": accent, "step": 0.07, "lift": 0.016, "size": 0.007}], []),
         "blouse_long": ([{"kind": "shirt", "name": "Blouse", "colour": pale, "vee": 0.05, "sleeves": 1.0, "blouson": 0.014}], [], ["arms"]),
-        "smock": ([{"kind": "jumper", "colour": colour, "vee": 0.06, "sleeves": 0.7, "ease": 0.03, "length": 0.14, "cloth": "cotton", "pattern": dots(accent, 2)}], [], []),
-        "knit": ([{"kind": "jumper", "colour": colour, "vee": 0.09, "ease": 0.02, "length": 0.03}, {"kind": "hem", "colour": shade(colour, 0.6), "drop": -0.01}], [], ["arms"]),
+        "smock": ([{"kind": "jumper", "colour": colour, "vee": 0.06, "sleeves": 0.7, "ease": 0.018, "length": 0.14, "cloth": "cotton", "pattern": dots(accent, 2)}], [], []),
+        "knit": ([{"kind": "jumper", "colour": colour, "vee": 0.09, "ease": 0.012, "length": 0.03}, {"kind": "hem", "colour": shade(colour, 0.6), "drop": -0.01}], [], ["arms"]),
         "evening_top": ([{"kind": "shirt", "name": "Bodice", "colour": colour, "vee": 0.13, "sleeves": 0.0, "length": 0.14, "cloth": "silk"}], [], []),
         "shirt_rolled": ([{"kind": "shirt", "colour": pale, "vee": 0.08, "sleeves": 0.55, "blouson": 0.01}], [{"kind": "braces", "colour": accent}], []),
         "shirt_long": ([{"kind": "shirt", "colour": pale, "vee": 0.05, "sleeves": 1.0}], [{"kind": "tie", "colour": accent, "length": 0.2}], ["arms"]),
-        "jersey": ([{"kind": "jumper", "colour": colour, "vee": 0.0, "ease": 0.012, "length": 0.0,
+        "jersey": ([{"kind": "jumper", "colour": colour, "vee": 0.0, "ease": 0.008, "length": 0.0,
                      "pattern": {"kind": "bands", "colour": accent, "width": 3, "cells": 3, "repeat": 4}}], [], ["arms", "chest"]),
         "pyjama_top": ([{"kind": "shirt", "colour": pale, "vee": 0.1, "sleeves": 1.0, "ease": 0.012, "length": 0.14, "pattern": stripes(colour, 1)}], [], ["arms"]),
     }
@@ -50,12 +50,12 @@ def bottom(kind, colour, accent, legs):
         "straight_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.42, "flare": 0.04}],
         "long_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.14, "flare": 0.28, "pleats": 12, "cloth": "silk"}],
         "short_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.5, "flare": 0.22, "pleats": 16}],
-        "wide_trousers": [{"kind": "trousers", "colour": colour, "width": 0.06}],
+        "wide_trousers": [{"kind": "trousers", "colour": colour, "width": 0.03}],
         "narrow_trousers": [{"kind": "trousers", "colour": colour, "width": 0.012, "pattern": stripes(shade(colour, 1.8), 1)}],
-        "check_trousers": [{"kind": "trousers", "colour": colour, "width": 0.035, "pattern": checks(shade(colour, 1.8))}],
-        "knickerbockers": [{"kind": "stockings", "colour": accent}, {"kind": "trousers", "colour": colour, "width": 0.05, "ends": 0.36, "turnups": False}],
-        "overalls": [{"kind": "trousers", "colour": colour, "width": 0.05}, {"kind": "bib", "colour": colour}],
-        "pyjama_trousers": [{"kind": "trousers", "colour": [min(1.0, 0.55 + 0.45 * x) for x in colour], "width": 0.05, "turnups": False,
+        "check_trousers": [{"kind": "trousers", "colour": colour, "width": 0.02, "pattern": checks(shade(colour, 1.8))}],
+        "knickerbockers": [{"kind": "stockings", "colour": accent}, {"kind": "trousers", "colour": colour, "width": 0.028, "ends": 0.36, "turnups": False}],
+        "overalls": [{"kind": "trousers", "colour": colour, "width": 0.028}, {"kind": "bib", "colour": colour}],
+        "pyjama_trousers": [{"kind": "trousers", "colour": [min(1.0, 0.55 + 0.45 * x) for x in colour], "width": 0.028, "turnups": False,
                              "pattern": stripes(colour, 1), "cloth": "cotton"}],
     }
     return table[kind]
@@ -64,7 +64,7 @@ def bottom(kind, colour, accent, legs):
 def over(kind, colour, accent):
     table = {
         "cardigan": ([{"kind": "cardigan", "colour": colour, "vee": 0.32}], [], ["warm"]),
-        "boxy_jacket": ([{"kind": "jacket", "colour": colour, "vee": 0.24, "length": 0.01, "ease": 0.024, "shoulders": 0.012}, {"kind": "lapels", "colour": shade(colour, 0.6), "vee": 0.24}],
+        "boxy_jacket": ([{"kind": "jacket", "colour": colour, "vee": 0.24, "length": 0.01, "ease": 0.016, "shoulders": 0.004}, {"kind": "lapels", "colour": shade(colour, 0.6), "vee": 0.24}],
                         [{"kind": "buttons", "colour": accent, "step": 0.085, "lift": 0.034, "size": 0.011}], []),
         "long_jacket": ([{"kind": "jacket", "colour": colour, "vee": 0.3, "length": 0.17, "skirted": 0.012, "pattern": stripes(shade(colour, 1.9), 1)},
                          {"kind": "lapels", "colour": shade(colour, 0.6), "vee": 0.3}], [{"kind": "pockets", "colour": shade(colour, 0.6), "up": -0.03, "lift": 0.034}], []),

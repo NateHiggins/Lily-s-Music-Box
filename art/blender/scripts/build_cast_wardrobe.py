@@ -505,9 +505,9 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         piece("DressSkirt", "helper-skirt", lambda v: True, 0.006, colour, 0.85,
               reshape=skirt_shape(float(row.get("hem", 0.4)), float(row.get("flare", 0.2)), int(row.get("pleats", 0))), pattern=row.get("pattern"), cloth=cloth or "cotton", subdivide=1)
     elif kind == "cardigan":
-        piece("Cardigan", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.05, sleeves=1.0, vee=float(r.get("vee", 0.34))), 0.018, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
+        piece("Cardigan", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.05, sleeves=1.0, vee=float(r.get("vee", 0.34))), 0.013, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
     elif kind == "coat":
-        piece("CoatTop", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.02, sleeves=1.0, vee=float(r.get("vee", 0.2))), 0.022, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "wool")
+        piece("CoatTop", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.02, sleeves=1.0, vee=float(r.get("vee", 0.2))), 0.016, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "wool")
         piece("CoatSkirt", "helper-skirt", lambda v: True, 0.02, colour, 0.85, reshape=skirt_shape(float(row.get("hem", 0.45)), float(row.get("flare", 0.12))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
     elif kind == "bib":
         piece("Bib", "helper-tights", lambda v: weight(v, ARM) < 0.3 and v.co.y < bone("Spine2").y - 0.01 and waist - 0.02 < v.co.z < neck - 0.13 and abs(v.co.x) < 0.11,
@@ -535,11 +535,11 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
               and (d - ((neck + 0.01) - v.co.z)) * 0.42 <= abs(v.co.x) < (d - ((neck + 0.01) - v.co.z)) * 0.42 + 0.05, 0.0195, colour, 0.8, cloth=cloth or "wool")
     elif kind == "trousers":
         ends = float(row.get("ends", 0.035))
-        piece("Trousers", "helper-tights", lambda v, e=ends: legs(v, ankle + e - 0.02, waist + 0.02), 0.014, colour, 0.85,
+        piece("Trousers", "helper-tights", lambda v, e=ends: legs(v, ankle + e - 0.02, waist + 0.02), 0.010, colour, 0.85,
               thicken=lambda co: float(row.get("width", 0.03)) * max(0.0, min(1.0, (hip - 0.08 - co.z) / (hip - 0.08 - knee))) ** 0.7, pattern=row.get("pattern"), cloth=cloth or "wool",
               reshape=lambda co, e=ends: Vector((co.x, co.y, max(co.z, ankle + e))))
         if row.get("turnups", True):
-            piece("TurnUps", "helper-tights", lambda v: ankle + 0.035 < v.co.z < ankle + 0.085 and weight(v, ARM) < 0.3, 0.014 + float(row.get("width", 0.03)) + 0.005, colour, 0.85,
+            piece("TurnUps", "helper-tights", lambda v: ankle + 0.035 < v.co.z < ankle + 0.085 and weight(v, ARM) < 0.3, 0.010 + float(row.get("width", 0.03)) + 0.005, colour, 0.85,
                   pattern=row.get("pattern"), cloth=cloth or "wool")
     elif kind == "stockings":
         piece("Stockings", "helper-tights", lambda v: legs(v, ankle - 0.08, hip - 0.1), 0.002, colour, 0.5, cloth="silk")
