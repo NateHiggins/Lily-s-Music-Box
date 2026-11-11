@@ -174,31 +174,31 @@ class AuthorizedCutoverTests(unittest.TestCase):
         kept = "game/data/building_layout.json"
         receipt = json.dumps({"files": [{"path": retired}, {"path": kept}]}).encode()
 
-        def blobs(*args):
-            spec = args[-1]
-            if spec.endswith(vc.PROTECTED_RECEIPT):
-                return receipt
-            return None if spec.endswith(retired) else b"kept"
-
-        def oids(present_at_base, changed=False):
-            def run(*args, **kwargs):
+        def blobs(at_base, at_cand):
+            def run(*args):
                 spec = args[-1]
-                if spec.endswith(kept):
-                    return "same"
-                if spec.startswith(BASE):
-                    return "old" if present_at_base else ""
-                return "new" if changed else ""
+                if spec.endswith(vc.PROTECTED_RECEIPT):
+                    return receipt
+                if not spec.endswith(retired):
+                    return b"kept"
+                return at_base if spec.startswith(BASE) else at_cand
             return run
 
-        with patch.object(vc, "git_bytes", side_effect=blobs), patch.object(vc, "git", side_effect=oids(True)):
-            result = vc.protected_check(BASE, CAND)
-            self.assertEqual((result["status"], result["matched"], result["retired_with_v1"]), ("PASS", 1, 1))
-        with patch.object(vc, "git_bytes", side_effect=blobs), patch.object(vc, "git", side_effect=oids(False)):
-            result = vc.protected_check(BASE, CAND)
-            self.assertEqual((result["status"], result["matched"], result["retired_with_v1"]), ("PASS", 2, 0))
-        with patch.object(vc, "git_bytes", side_effect=blobs), \
-                patch.object(vc, "git", side_effect=oids(True, changed=True)):
-            self.assertEqual(vc.protected_check(BASE, CAND)["status"], "FAIL")
+        def oids(*args, **kwargs):
+            # As git does: a known path gives an id, an unknown spec is echoed.
+            spec = args[-1]
+            return "same" if spec.endswith(kept) else spec
+
+        def check(at_base, at_cand):
+            with patch.object(vc, "git_bytes", side_effect=blobs(at_base, at_cand)), \
+                    patch.object(vc, "git", side_effect=oids):
+                result = vc.protected_check(BASE, CAND)
+            return result["status"], result["matched"], result["retired_with_v1"]
+
+        self.assertEqual(check(b"floor", None), ("PASS", 1, 1))   # this candidate removes it
+        self.assertEqual(check(None, None), ("PASS", 2, 0))       # already gone at the merge-base
+        self.assertEqual(check(b"floor", b"edited")[0], "FAIL")   # present and changed
+        self.assertEqual(check(None, b"returned")[0], "FAIL")     # brought back
 
     def test_v1_is_no_longer_a_valid_default(self):
         with patch.object(vc, "git_bytes", return_value=b'const DEFAULT_ID := "v1"\n'):

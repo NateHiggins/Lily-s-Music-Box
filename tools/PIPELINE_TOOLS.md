@@ -243,7 +243,7 @@ V1 and its rollback were removed on 2026-11-11 by the owner's ruling
 v1r_rollback_20261109. The verifier permits that one further selector edit
 (the V1 entry leaves `PATHS`) and accepts the absence of the ten protected
 paths that were V1's upper-floor geometry (`floor_02` to `floor_06`, glTF and
-buffer). A candidate that removes them reports seven unchanged, one
+buffer). A candidate that removes them reports six unchanged, one
 authorized selector change and ten removed with V1; later candidates report
 17/17, the ten counted as settled because neither side has them. Any other
 change to a protected path still blocks. `ORISON_BUILDING_ROOT=v1` now warns

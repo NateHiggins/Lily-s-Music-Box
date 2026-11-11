@@ -138,8 +138,11 @@ def protected_check(merge_base: str, cand: str) -> dict:
         # A path retired with V1 (2026-11-11) is settled when it is absent
         # from the candidate, whether this candidate removed it or the
         # merge-base already had.
-        retired = path in RETIRED_WITH_V1 and not cand_oid
-        unchanged = (bool(cand_oid) and cand_oid == base_oid) or (retired and not base_oid)
+        # Absence is read from the blob: rev-parse echoes an unknown spec
+        # back instead of returning nothing.
+        retired = path in RETIRED_WITH_V1 and blob is None
+        absent_at_base = retired and git_bytes("show", f"{merge_base}:{path}") is None
+        unchanged = (blob is not None and bool(cand_oid) and cand_oid == base_oid) or absent_at_base
         # Owner-authorized exceptions, and no others: the 2026-09-21 default
         # literal cutover, and the 2026-11-11 removal of the V1 entry
         # (ruling v1r_rollback_20261109). Keep the historical 17-path receipt
