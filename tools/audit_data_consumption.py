@@ -142,6 +142,13 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "mystery/carriers.json": frozenset({"carriers"}),
     "mystery/companion_mystery.json": frozenset({"surfaces"}),
     # Shop catalogues: stock groups keyed by id, read by ShopCatalogue and ShopStock.
+    # V1 sets rebuilt for V2: placements keyed by catalogue prop id and by
+    # case id, clock styles keyed by style. The composers read each record's fields.
+    "orison_v2/case_prop_placements.json": frozenset({"props"}),
+    "orison_v2/witness_clock_placements.json": frozenset({"witness"}),
+    "orison_v2/witness_clocks.json": frozenset({"styles"}),
+    # The temporal loop: anchors and deductions keyed by id, read by temporal_loop.gd.
+    "temporal/anchors.json": frozenset({"anchors", "deductions"}),
     "carried_case.json": frozenset({"forms"}),
     "shops/bodega.json": frozenset({"groups"}),
     "shops/funeral_parlour.json": frozenset({"groups"}),

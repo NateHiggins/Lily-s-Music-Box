@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/lobby_set.glb",
+  "triangles": 6988,
+  "parts": [
+    {
+      "name": "Bulletin__Frame_ON_oak_quartered",
+      "assembly": "Bulletin",
+      "component": "Frame",
+      "material": "oak_quartered",
+      "role": "static",
+      "tint": [
+        0.62,
+        0.5,
+        0.4
+      ]
+    },
+    {
+      "name": "Bulletin__Field_ON_monks_cloth",
+      "assembly": "Bulletin",
+      "component": "Field",
+      "material": "monks_cloth",
+      "role": "static",
+      "tint": [
+        0.78,
+        0.56,
+        0.34
+      ]
+    },
+    {
+      "name": "Bulletin__Brass_ON_brass",
+      "assembly": "Bulletin",
+      "component": "Brass",
+      "material": "brass",
+      "role": "static"
+    },
+    {
+      "name": "Bulletin__Pin_ON_brass",
+      "assembly": "Bulletin",
+      "component": "Pin",
+      "material": "brass",
+      "role": "instanced"
+    },
+    {
+      "name": "Bulletin__Notice0_ON_paper",
+      "assembly": "Bulletin",
+      "component": "Notice",
+      "material": "paper",
+      "role": "sheet",
+      "tint": [
+        0.97375,
+        0.96805,
+        0.95965
+      ]
+    },
+    {
+      "name": "Bulletin__Notice1_ON_paper",
+      "assembly": "Bulletin",
+      "component": "Notice",
+      "material": "paper",
+      "role": "sheet",
+      "tint": [
+        0.9265,
+        0.91054,
+        0.88702
+      ]
+    },
+    {
+      "name": "Bulletin__Notice2_ON_paper",
+      "assembly": "Bulletin",
+      "component": "Notice",
+      "material": "paper",
+      "role": "sheet",
+      "tint": [
+        0.9475,
+        0.9361,
+        0.9193
+      ]
+    },
+    {
+      "name": "Bulletin__Notice3_ON_paper",
+      "assembly": "Bulletin",
+      "component": "Notice",
+      "material": "paper",
+      "role": "sheet",
+      "tint": [
+        0.90375,
+        0.88285,
+        0.85205
+      ]
+    },
+    {
+      "name": "Bulletin__Notice4_ON_paper",
+      "assembly": "Bulletin",
+      "component": "Notice",
+      "material": "paper",
+      "role": "sheet",
+      "tint": [
+        0.881,
+        0.85516,
+        0.81708
+      ]
+    },
+    {
+      "name": "Bulletin__Notice5_ON_paper",
+      "assembly": "Bulletin",
+      "component": "Notice",
+      "material": "paper",
+      "role": "sheet",
+      "tint": [
+        0.86,
+        0.8296,
+        0.7847999999999999
+      ]
+    },
+    {
+      "name": "Bulletin__Notice6_ON_paper",
+      "assembly": "Bulletin",
+      "component": "Notice",
+      "material": "paper",
+      "role": "sheet",
+      "tint": [
+        0.839,
+        0.80404,
+        0.75252
+      ]
+    },
+    {
+      "name": "Bulletin__Notice7_ON_paper",
+      "assembly": "Bulletin",
+      "component": "Notice",
+      "material": "paper",
+      "role": "sheet",
+      "tint": [
+        0.9615,
+        0.95314,
+        0.94082
+      ]
+    },
+    {
+      "name": "Bulletin__Wireless_ON_paper",
+      "assembly": "Bulletin",
+      "component": "Wireless",
+      "material": "paper",
+      "role": "sheet",
+      "tint": [
+        0.92,
+        0.88,
+        0.76
+      ]
+    },
+    {
+      "name": "Bulletin__Rule_ON_paper",
+      "assembly": "Bulletin",
+      "component": "Rule",
+      "material": "paper",
+      "role": "instanced",
+      "tint": [
+        0.16,
+        0.14,
+        0.12
+      ]
+    },
+    {
+      "name": "Advert__Frame_ON_wood_dark",
+      "assembly": "Advert",
+      "component": "Frame",
+      "material": "wood_dark",
+      "role": "static",
+      "tint": [
+        0.5,
+        0.42,
+        0.38
+      ]
+    },
+    {
+      "name": "Advert__Sheet_ON_paper",
+      "assembly": "Advert",
+      "component": "Sheet",
+      "material": "paper",
+      "role": "static",
+      "tint": [
+        0.86,
+        0.74,
+        0.52
+      ]
+    },
+    {
+      "name": "Advert__LooseCorner_ON_paper",
+      "assembly": "Advert",
+      "component": "LooseCorner",
+      "material": "paper",
+      "role": "moving",
+      "tint": [
+        0.86,
+        0.74,
+        0.52
+      ]
+    },
+    {
+      "name": "Advert__Ink_ON_paper",
+      "assembly": "Advert",
+      "component": "Ink",
+      "material": "paper",
+      "role": "static",
+      "tint": [
+        0.17,
+        0.12,
+        0.09
+      ]
+    },
+    {
+      "name": "Advert__Slips_ON_paper",
+      "assembly": "Advert",
+      "component": "Slips",
+      "material": "paper",
+      "role": "static",
+      "tint": [
+        0.62,
+        0.55,
+        0.4
+      ]
+    },
+    {
+      "name": "Advert__Brass_ON_brass",
+      "assembly": "Advert",
+      "component": "Brass",
+      "material": "brass",
+      "role": "static"
+    },
+    {
+      "name": "Advert__InspectionBoss_ON_brass",
+      "assembly": "Advert",
+      "component": "InspectionBoss",
+      "material": "brass",
+      "role": "moving"
+    },
+    {
+      "name": "Advert__Chain_ON_brass",
+      "assembly": "Advert",
+      "component": "Chain",
+      "material": "brass",
+      "role": "moving"
+    },
+    {
+      "name": "Advert__Debris_ON_limewash_plaster",
+      "assembly": "Advert",
+      "component": "Debris",
+      "material": "limewash_plaster",
+      "role": "static",
+      "tint": [
+        0.78,
+        0.74,
+        0.66
+      ]
+    },
+    {
+      "name": "Chute__Body_ON_iron_blackened",
+      "assembly": "Chute",
+      "component": "Body",
+      "material": "iron_blackened",
+      "role": "static"
+    },
+    {
+      "name": "Chute__Brass_ON_brass",
+      "assembly": "Chute",
+      "component": "Brass",
+      "material": "brass",
+      "role": "static"
+    },
+    {
+      "name": "Chute__Glass_ON_glass",
+      "assembly": "Chute",
+      "component": "Glass",
+      "material": "glass",
+      "role": "moving"
+    },
+    {
+      "name": "Chute__UpperGlass_ON_glass",
+      "assembly": "Chute",
+      "component": "UpperGlass",
+      "material": "glass",
+      "role": "static"
+    },
+    {
+      "name": "Chute__ArchWest_ON_paper",
+      "assembly": "Chute",
+      "component": "ArchWest",
+      "material": "paper",
+      "role": "moving",
+      "tint": [
+        0.92,
+        0.9,
+        0.8
+      ]
+    },
+    {
+      "name": "Chute__ArchEast_ON_paper",
+      "assembly": "Chute",
+      "component": "ArchEast",
+      "material": "paper",
+      "role": "moving",
+      "tint": [
+        0.86,
+        0.83,
+        0.72
+      ]
+    },
+    {
+      "name": "Chute__Load_ON_paper",
+      "assembly": "Chute",
+      "component": "Load",
+      "material": "paper",
+      "role": "moving",
+      "tint": [
+        0.9,
+        0.87,
+        0.76
+      ]
+    },
+    {
+      "name": "Chute__Cover_ON_brass",
+      "assembly": "Chute",
+      "component": "Cover",
+      "material": "brass",
+      "role": "moving"
+    },
+    {
+      "name": "Chute__Key_ON_brass",
+      "assembly": "Chute",
+      "component": "Key",
+      "material": "brass",
+      "role": "moving"
+    },
+    {
+      "name": "Chute__Tray_ON_metal",
+      "assembly": "Chute",
+      "component": "Tray",
+      "material": "metal",
+      "role": "moving"
+    },
+    {
+      "name": "Chute__Blade_ON_metal",
+      "assembly": "Chute",
+      "component": "Blade",
+      "material": "metal",
+      "role": "moving"
+    },
+    {
+      "name": "Chute__BoxDoor_ON_brass",
+      "assembly": "Chute",
+      "component": "BoxDoor",
+      "material": "brass",
+      "role": "moving"
+    },
+    {
+      "name": "Chute__BoxDoorGlass_ON_glass",
+      "assembly": "Chute",
+      "component": "BoxDoorGlass",
+      "material": "glass",
+      "role": "moving"
+    },
+    {
+      "name": "Chute__TestPiece_ON_paper",
+      "assembly": "Chute",
+      "component": "TestPiece",
+      "material": "paper",
+      "role": "moving",
+      "tint": [
+        1.0,
+        0.98,
+        0.9
+      ]
+    },
+    {
+      "name": "Chute__LampIndex_ON_brass",
+      "assembly": "Chute",
+      "component": "LampIndex",
+      "material": "brass",
+      "role": "moving"
+    }
+  ]
+}

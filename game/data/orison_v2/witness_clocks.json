@@ -1,0 +1,2916 @@
+{
+ "schema_version": 1,
+ "asset": "res://assets/props/witness_clocks.glb",
+ "frame": "x right, y up, z out of the dial; wall clocks: origin is the dial centre on the wall plane; table clocks: origin is the footprint centre on the surface",
+ "uv": "metres; the runtime keeps each catalogue material's own metres-per-tile",
+ "styles": {
+  "schoolhouse": {
+   "root": "WC_schoolhouse",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.052
+   ],
+   "bounds": [
+    [
+     -0.208,
+     -0.512,
+     0.0
+    ],
+    [
+     0.208,
+     0.247,
+     0.068
+    ]
+   ],
+   "triangles": 2280,
+   "parts": [
+    {
+     "name": "WC_schoolhouse__Case_ON_oak_quartered",
+     "component": "Case",
+     "material": "oak_quartered",
+     "triangles": 184,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_schoolhouse__Case_ON_wood_dark",
+     "component": "Case",
+     "material": "wood_dark",
+     "triangles": 44,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_schoolhouse__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 172,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_schoolhouse__Case_ON_brass",
+     "component": "Case",
+     "material": "brass",
+     "triangles": 756,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_schoolhouse__Dial_ON_paper",
+     "component": "Dial",
+     "material": "paper",
+     "triangles": 160,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_schoolhouse__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 480,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_schoolhouse__HourHand_ON_bakelite_black",
+     "component": "HourHand",
+     "material": "bakelite_black",
+     "triangles": 88,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_schoolhouse__MinuteHand_ON_bakelite_black",
+     "component": "MinuteHand",
+     "material": "bakelite_black",
+     "triangles": 88,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_schoolhouse__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_schoolhouse__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    }
+   ],
+   "labels": [
+    {
+     "text": "12",
+     "at": [
+      0.0,
+      0.118,
+      0.0532
+     ],
+     "height": 0.03,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "3",
+     "at": [
+      0.118,
+      0.0,
+      0.0532
+     ],
+     "height": 0.03,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "6",
+     "at": [
+      0.0,
+      -0.118,
+      0.0532
+     ],
+     "height": 0.03,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "9",
+     "at": [
+      -0.118,
+      -0.0,
+      0.0532
+     ],
+     "height": 0.03,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    }
+   ],
+   "display": {
+    "at": [
+     0,
+     -0.0045,
+     0.0655
+    ],
+    "height": 0.028,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   },
+   "possessed": {
+    "kind": "label",
+    "index": 2,
+    "text": "9",
+    "note": "the 6 at the foot of the dial reads 9"
+   }
+  },
+  "hospital": {
+   "root": "WC_hospital",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.05
+   ],
+   "bounds": [
+    [
+     -0.223,
+     -0.198,
+     0.0
+    ],
+    [
+     0.223,
+     0.198,
+     0.067
+    ]
+   ],
+   "triangles": 2772,
+   "parts": [
+    {
+     "name": "WC_hospital__Case_ON_enamel",
+     "component": "Case",
+     "material": "enamel",
+     "triangles": 792,
+     "rig": "case",
+     "moving": false,
+     "tint": "c2c9bf"
+    },
+    {
+     "name": "WC_hospital__Trim_ON_nickel_plated",
+     "component": "Trim",
+     "material": "nickel_plated",
+     "triangles": 736,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_hospital__Dial_ON_porcelain",
+     "component": "Dial",
+     "material": "porcelain",
+     "triangles": 160,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_hospital__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 480,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_hospital__HourHand_ON_bakelite_black",
+     "component": "HourHand",
+     "material": "bakelite_black",
+     "triangles": 68,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_hospital__MinuteHand_ON_bakelite_black",
+     "component": "MinuteHand",
+     "material": "bakelite_black",
+     "triangles": 68,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_hospital__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_hospital__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_hospital__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 160,
+     "rig": "case",
+     "moving": false
+    }
+   ],
+   "labels": [
+    {
+     "text": "12",
+     "at": [
+      0.0,
+      0.125,
+      0.0512
+     ],
+     "height": 0.032,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "3",
+     "at": [
+      0.125,
+      0.0,
+      0.0512
+     ],
+     "height": 0.032,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "6",
+     "at": [
+      0.0,
+      -0.125,
+      0.0512
+     ],
+     "height": 0.032,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "9",
+     "at": [
+      -0.125,
+      -0.0,
+      0.0512
+     ],
+     "height": 0.032,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    }
+   ],
+   "display": {
+    "at": [
+     0,
+     -0.0048,
+     0.0635
+    ],
+    "height": 0.028,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   },
+   "possessed": {
+    "kind": "label",
+    "index": 0,
+    "text": "13",
+    "note": "the 12 at the head of the dial reads 13"
+   }
+  },
+  "bauhaus": {
+   "root": "WC_bauhaus",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.04
+   ],
+   "bounds": [
+    [
+     -0.205,
+     -0.205,
+     0.0
+    ],
+    [
+     0.205,
+     0.205,
+     0.056
+    ]
+   ],
+   "triangles": 1964,
+   "parts": [
+    {
+     "name": "WC_bauhaus__Case_ON_enamel",
+     "component": "Case",
+     "material": "enamel",
+     "triangles": 384,
+     "rig": "case",
+     "moving": false,
+     "tint": "e6e6e0"
+    },
+    {
+     "name": "WC_bauhaus__Dial_ON_porcelain",
+     "component": "Dial",
+     "material": "porcelain",
+     "triangles": 160,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_bauhaus__Trim_ON_chrome",
+     "component": "Trim",
+     "material": "chrome",
+     "triangles": 672,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_bauhaus__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 132,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_bauhaus__OddMark_ON_bakelite_black",
+     "component": "OddMark",
+     "material": "bakelite_black",
+     "triangles": 12,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_bauhaus__HourHand_ON_bakelite_black",
+     "component": "HourHand",
+     "material": "bakelite_black",
+     "triangles": 68,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_bauhaus__MinuteHand_ON_bakelite_black",
+     "component": "MinuteHand",
+     "material": "bakelite_black",
+     "triangles": 68,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_bauhaus__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_bauhaus__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_bauhaus__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 160,
+     "rig": "case",
+     "moving": false
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     -0.00498,
+     0.053500000000000006
+    ],
+    "height": 0.028,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   },
+   "possessed": {
+    "kind": "part",
+    "angle_deg": 60.0,
+    "radius": 0.112,
+    "spin_deg": 0.0,
+    "note": "the bar at 2 has slid inward off the ring of marks"
+   }
+  },
+  "stitch": {
+   "root": "WC_stitch",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.022
+   ],
+   "bounds": [
+    [
+     -0.19,
+     -0.19,
+     0.0
+    ],
+    [
+     0.19,
+     0.218,
+     0.031
+    ]
+   ],
+   "triangles": 1988,
+   "parts": [
+    {
+     "name": "WC_stitch__Case_ON_bakelite_black",
+     "component": "Case",
+     "material": "bakelite_black",
+     "triangles": 12,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_stitch__Case_ON_oak_quartered",
+     "component": "Case",
+     "material": "oak_quartered",
+     "triangles": 896,
+     "rig": "case",
+     "moving": false,
+     "tint": "ead9bd"
+    },
+    {
+     "name": "WC_stitch__Trim_ON_brass",
+     "component": "Trim",
+     "material": "brass",
+     "triangles": 92,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_stitch__Case_ON_brass",
+     "component": "Case",
+     "material": "brass",
+     "triangles": 24,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_stitch__Dial_ON_linen",
+     "component": "Dial",
+     "material": "linen",
+     "triangles": 224,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_stitch__DialMarks_ON_linen",
+     "component": "DialMarks",
+     "material": "linen",
+     "triangles": 276,
+     "rig": "face",
+     "moving": false,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_stitch__OddMark_ON_linen",
+     "component": "OddMark",
+     "material": "linen",
+     "triangles": 12,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_stitch__HourHand_ON_brass",
+     "component": "HourHand",
+     "material": "brass",
+     "triangles": 72,
+     "rig": "face",
+     "moving": true
+    },
+    {
+     "name": "WC_stitch__MinuteHand_ON_brass",
+     "component": "MinuteHand",
+     "material": "brass",
+     "triangles": 72,
+     "rig": "face",
+     "moving": true
+    },
+    {
+     "name": "WC_stitch__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_stitch__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     -0.0045,
+     0.036000000000000004
+    ],
+    "height": 0.028,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   },
+   "possessed": {
+    "kind": "part",
+    "angle_deg": 210.0,
+    "radius": 0.132,
+    "spin_deg": 90.0,
+    "note": "the stitch at 7 lies across the dial instead of along it"
+   }
+  },
+  "vantry_modular": {
+   "root": "WC_vantry_modular",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.06
+   ],
+   "bounds": [
+    [
+     -0.21,
+     -0.2185,
+     0.0
+    ],
+    [
+     0.21,
+     0.11,
+     0.075
+    ]
+   ],
+   "triangles": 2448,
+   "parts": [
+    {
+     "name": "WC_vantry_modular__Case_ON_bakelite_black",
+     "component": "Case",
+     "material": "bakelite_black",
+     "triangles": 40,
+     "rig": "case",
+     "moving": false,
+     "tint": "1c2029"
+    },
+    {
+     "name": "WC_vantry_modular__Trim_ON_nickel_plated",
+     "component": "Trim",
+     "material": "nickel_plated",
+     "triangles": 1056,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_vantry_modular__Dial_ON_porcelain",
+     "component": "Dial",
+     "material": "porcelain",
+     "triangles": 160,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_vantry_modular__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 132,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_vantry_modular__OddMark_ON_bakelite_black",
+     "component": "OddMark",
+     "material": "bakelite_black",
+     "triangles": 12,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_vantry_modular__Lens_ON_milk_glass",
+     "component": "Lens",
+     "material": "milk_glass",
+     "triangles": 288,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_vantry_modular__Trim_ON_enamel",
+     "component": "Trim",
+     "material": "enamel",
+     "triangles": 12,
+     "rig": "case",
+     "moving": false,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_vantry_modular__Trim_ON_brass_dull",
+     "component": "Trim",
+     "material": "brass_dull",
+     "triangles": 144,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_vantry_modular__HourHand_ON_bakelite_black",
+     "component": "HourHand",
+     "material": "bakelite_black",
+     "triangles": 68,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_vantry_modular__MinuteHand_ON_bakelite_black",
+     "component": "MinuteHand",
+     "material": "bakelite_black",
+     "triangles": 68,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_vantry_modular__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_vantry_modular__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_vantry_modular__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 160,
+     "rig": "case",
+     "moving": false
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     -0.0026999999999999997,
+     0.0735
+    ],
+    "height": 0.021599999999999998,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   },
+   "possessed": {
+    "kind": "part",
+    "angle_deg": 105.0,
+    "radius": 0.074,
+    "spin_deg": -15.0,
+    "note": "the block at 3 sits half an hour late, between 3 and 4"
+   }
+  },
+  "sunray_1920": {
+   "root": "WC_sunray_1920",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.046
+   ],
+   "bounds": [
+    [
+     -0.31,
+     -0.31,
+     0.0
+    ],
+    [
+     0.31,
+     0.31,
+     0.062
+    ]
+   ],
+   "triangles": 2564,
+   "parts": [
+    {
+     "name": "WC_sunray_1920__Case_ON_wood_dark",
+     "component": "Case",
+     "material": "wood_dark",
+     "triangles": 384,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_sunray_1920__Rays_ON_brass_dull",
+     "component": "Rays",
+     "material": "brass_dull",
+     "triangles": 288,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_sunray_1920__Dial_ON_paper",
+     "component": "Dial",
+     "material": "paper",
+     "triangles": 160,
+     "rig": "face",
+     "moving": false,
+     "tint": "f1e6c8"
+    },
+    {
+     "name": "WC_sunray_1920__Trim_ON_brass",
+     "component": "Trim",
+     "material": "brass",
+     "triangles": 576,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_sunray_1920__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 132,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_sunray_1920__OddMark_ON_bakelite_black",
+     "component": "OddMark",
+     "material": "bakelite_black",
+     "triangles": 12,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_sunray_1920__DialMarks_ON_brass",
+     "component": "DialMarks",
+     "material": "brass",
+     "triangles": 384,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_sunray_1920__HourHand_ON_bakelite_black",
+     "component": "HourHand",
+     "material": "bakelite_black",
+     "triangles": 88,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_sunray_1920__MinuteHand_ON_bakelite_black",
+     "component": "MinuteHand",
+     "material": "bakelite_black",
+     "triangles": 72,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_sunray_1920__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_sunray_1920__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_sunray_1920__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 160,
+     "rig": "case",
+     "moving": false
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     -0.00312,
+     0.059500000000000004
+    ],
+    "height": 0.02496,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   },
+   "possessed": {
+    "kind": "part",
+    "angle_deg": 348.0,
+    "radius": 0.088,
+    "spin_deg": 18.0,
+    "note": "the mark at 11 has crept up against 12"
+   }
+  },
+  "industrial": {
+   "root": "WC_industrial",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.066
+   ],
+   "bounds": [
+    [
+     -0.208,
+     -0.208,
+     0.0
+    ],
+    [
+     0.208,
+     0.208,
+     0.1108
+    ]
+   ],
+   "triangles": 3316,
+   "parts": [
+    {
+     "name": "WC_industrial__Case_ON_enamel",
+     "component": "Case",
+     "material": "enamel",
+     "triangles": 1344,
+     "rig": "case",
+     "moving": false,
+     "tint": "5d6466"
+    },
+    {
+     "name": "WC_industrial__Trim_ON_iron_blackened",
+     "component": "Trim",
+     "material": "iron_blackened",
+     "triangles": 288,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_industrial__Dial_ON_enamel",
+     "component": "Dial",
+     "material": "enamel",
+     "triangles": 160,
+     "rig": "face",
+     "moving": false,
+     "tint": "e2dfd2"
+    },
+    {
+     "name": "WC_industrial__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 84,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_industrial__OddMark_ON_bakelite_black",
+     "component": "OddMark",
+     "material": "bakelite_black",
+     "triangles": 12,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_industrial__Guard_ON_iron_blackened",
+     "component": "Guard",
+     "material": "iron_blackened",
+     "triangles": 824,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_industrial__HourHand_ON_bakelite_black",
+     "component": "HourHand",
+     "material": "bakelite_black",
+     "triangles": 68,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_industrial__MinuteHand_ON_bakelite_black",
+     "component": "MinuteHand",
+     "material": "bakelite_black",
+     "triangles": 68,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_industrial__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_industrial__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_industrial__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 160,
+     "rig": "case",
+     "moving": false
+    }
+   ],
+   "labels": [
+    {
+     "text": "12",
+     "at": [
+      0.0,
+      0.122,
+      0.0672
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "3",
+     "at": [
+      0.122,
+      0.0,
+      0.0672
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "6",
+     "at": [
+      0.0,
+      -0.122,
+      0.0672
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "9",
+     "at": [
+      -0.122,
+      -0.0,
+      0.0672
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    }
+   ],
+   "display": {
+    "at": [
+     0,
+     -0.00474,
+     0.0795
+    ],
+    "height": 0.028,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   },
+   "possessed": {
+    "kind": "part",
+    "angle_deg": 120.0,
+    "radius": 0.106,
+    "spin_deg": 0.0,
+    "note": "the bar at 4 has dropped inward toward the arbor"
+   }
+  },
+  "studio": {
+   "root": "WC_studio",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.06
+   ],
+   "bounds": [
+    [
+     -0.21,
+     -0.114,
+     0.0
+    ],
+    [
+     0.21,
+     0.11,
+     0.075
+    ]
+   ],
+   "triangles": 2132,
+   "parts": [
+    {
+     "name": "WC_studio__Case_ON_enamel",
+     "component": "Case",
+     "material": "enamel",
+     "triangles": 28,
+     "rig": "case",
+     "moving": false,
+     "tint": "2b2b2d"
+    },
+    {
+     "name": "WC_studio__Case_ON_bakelite_black",
+     "component": "Case",
+     "material": "bakelite_black",
+     "triangles": 12,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_studio__Dial_ON_paper",
+     "component": "Dial",
+     "material": "paper",
+     "triangles": 160,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_studio__Trim_ON_nickel_plated",
+     "component": "Trim",
+     "material": "nickel_plated",
+     "triangles": 672,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_studio__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 384,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_studio__Dial2_ON_paper",
+     "component": "Dial2",
+     "material": "paper",
+     "triangles": 24,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_studio__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 184,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_studio__Trim_ON_brass",
+     "component": "Trim",
+     "material": "brass",
+     "triangles": 160,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_studio__Trim_ON_bakelite_black",
+     "component": "Trim",
+     "material": "bakelite_black",
+     "triangles": 64,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_studio__HourHand_ON_bakelite_black",
+     "component": "HourHand",
+     "material": "bakelite_black",
+     "triangles": 68,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_studio__MinuteHand_ON_bakelite_black",
+     "component": "MinuteHand",
+     "material": "bakelite_black",
+     "triangles": 68,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_studio__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_studio__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     -0.0026399999999999996,
+     0.0735
+    ],
+    "height": 0.021119999999999996,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   }
+  },
+  "railway": {
+   "root": "WC_railway",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.05
+   ],
+   "bounds": [
+    [
+     -0.212,
+     -0.267,
+     0.0
+    ],
+    [
+     0.212,
+     0.212,
+     0.072
+    ]
+   ],
+   "triangles": 3440,
+   "parts": [
+    {
+     "name": "WC_railway__Case_ON_enamel",
+     "component": "Case",
+     "material": "enamel",
+     "triangles": 1068,
+     "rig": "case",
+     "moving": false,
+     "tint": "17171a"
+    },
+    {
+     "name": "WC_railway__Trim_ON_brass",
+     "component": "Trim",
+     "material": "brass",
+     "triangles": 80,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_railway__Dial_ON_porcelain",
+     "component": "Dial",
+     "material": "porcelain",
+     "triangles": 160,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_railway__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 1488,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_railway__HourHand_ON_bakelite_black",
+     "component": "HourHand",
+     "material": "bakelite_black",
+     "triangles": 88,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_railway__MinuteHand_ON_bakelite_black",
+     "component": "MinuteHand",
+     "material": "bakelite_black",
+     "triangles": 88,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_railway__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_railway__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_railway__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 160,
+     "rig": "case",
+     "moving": false
+    }
+   ],
+   "labels": [
+    {
+     "text": "12",
+     "at": [
+      0.0,
+      0.112,
+      0.0512
+     ],
+     "height": 0.04,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "3",
+     "at": [
+      0.112,
+      0.0,
+      0.0512
+     ],
+     "height": 0.04,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "6",
+     "at": [
+      0.0,
+      -0.112,
+      0.0512
+     ],
+     "height": 0.04,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "9",
+     "at": [
+      -0.112,
+      -0.0,
+      0.0512
+     ],
+     "height": 0.04,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    }
+   ],
+   "display": {
+    "at": [
+     0,
+     -0.00504,
+     0.0645
+    ],
+    "height": 0.028,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   },
+   "possessed": {
+    "kind": "label",
+    "index": 0,
+    "text": "21",
+    "note": "the 12 at the head of the dial reads 21"
+   }
+  },
+  "courier": {
+   "root": "WC_courier",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.016
+   ],
+   "bounds": [
+    [
+     -0.211,
+     -0.2445,
+     0.0
+    ],
+    [
+     0.211,
+     0.211,
+     0.025
+    ]
+   ],
+   "triangles": 2832,
+   "parts": [
+    {
+     "name": "WC_courier__Case_ON_bakelite_black",
+     "component": "Case",
+     "material": "bakelite_black",
+     "triangles": 12,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_courier__Case_ON_nickel_plated",
+     "component": "Case",
+     "material": "nickel_plated",
+     "triangles": 1076,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_courier__Trim_ON_brass",
+     "component": "Trim",
+     "material": "brass",
+     "triangles": 320,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_courier__DialMarks_ON_brass",
+     "component": "DialMarks",
+     "material": "brass",
+     "triangles": 880,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_courier__OddMark_ON_brass",
+     "component": "OddMark",
+     "material": "brass",
+     "triangles": 80,
+     "rig": "face",
+     "moving": true
+    },
+    {
+     "name": "WC_courier__Case_ON_enamel",
+     "component": "Case",
+     "material": "enamel",
+     "triangles": 12,
+     "rig": "case",
+     "moving": false,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_courier__HourHand_ON_nickel_plated",
+     "component": "HourHand",
+     "material": "nickel_plated",
+     "triangles": 72,
+     "rig": "face",
+     "moving": true
+    },
+    {
+     "name": "WC_courier__MinuteHand_ON_nickel_plated",
+     "component": "MinuteHand",
+     "material": "nickel_plated",
+     "triangles": 72,
+     "rig": "face",
+     "moving": true
+    },
+    {
+     "name": "WC_courier__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_courier__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     -0.0045,
+     0.029500000000000002
+    ],
+    "height": 0.028,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   },
+   "possessed": {
+    "kind": "part",
+    "angle_deg": 300.0,
+    "radius": 0.222,
+    "spin_deg": 0.0,
+    "note": "the rivet at 10 stands outside the ring, past the teeth"
+   }
+  },
+  "mantel": {
+   "root": "WC_mantel",
+   "mounting": "table",
+   "dial_center": [
+    0,
+    0.128,
+    0.058
+   ],
+   "bounds": [
+    [
+     -0.25,
+     -0.0,
+     -0.065
+    ],
+    [
+     0.25,
+     0.22,
+     0.071
+    ]
+   ],
+   "triangles": 2112,
+   "parts": [
+    {
+     "name": "WC_mantel__Case_ON_wood_dark",
+     "component": "Case",
+     "material": "wood_dark",
+     "triangles": 204,
+     "rig": "case",
+     "moving": false,
+     "tint": "b9a48f"
+    },
+    {
+     "name": "WC_mantel__Trim_ON_brass",
+     "component": "Trim",
+     "material": "brass",
+     "triangles": 864,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_mantel__Case_ON_iron_blackened",
+     "component": "Case",
+     "material": "iron_blackened",
+     "triangles": 160,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_mantel__Dial_ON_porcelain",
+     "component": "Dial",
+     "material": "porcelain",
+     "triangles": 160,
+     "rig": "face",
+     "moving": false,
+     "tint": "f0e8d2"
+    },
+    {
+     "name": "WC_mantel__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 96,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_mantel__HourHand_ON_bakelite_black",
+     "component": "HourHand",
+     "material": "bakelite_black",
+     "triangles": 88,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_mantel__MinuteHand_ON_bakelite_black",
+     "component": "MinuteHand",
+     "material": "bakelite_black",
+     "triangles": 72,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_mantel__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_mantel__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_mantel__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 160,
+     "rig": "case",
+     "moving": false
+    }
+   ],
+   "labels": [
+    {
+     "text": "XII",
+     "at": [
+      0.0,
+      0.182,
+      0.0592
+     ],
+     "height": 0.014,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "III",
+     "at": [
+      0.054,
+      0.128,
+      0.0592
+     ],
+     "height": 0.014,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "VI",
+     "at": [
+      0.0,
+      0.074,
+      0.0592
+     ],
+     "height": 0.014,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "IX",
+     "at": [
+      -0.054,
+      0.128,
+      0.0592
+     ],
+     "height": 0.014,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    }
+   ],
+   "display": {
+    "at": [
+     0,
+     0.126,
+     0.07150000000000001
+    ],
+    "height": 0.016,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   },
+   "possessed": {
+    "kind": "label",
+    "index": 3,
+    "text": "XI",
+    "note": "the IX reads XI"
+   }
+  },
+  "travel_alarm": {
+   "root": "WC_travel_alarm",
+   "mounting": "table",
+   "dial_center": [
+    0,
+    0.068,
+    0.0165
+   ],
+   "bounds": [
+    [
+     -0.081,
+     0.0,
+     -0.118
+    ],
+    [
+     0.081,
+     0.14,
+     0.0183
+    ]
+   ],
+   "triangles": 436,
+   "parts": [
+    {
+     "name": "WC_travel_alarm__Case_ON_leather_worn",
+     "component": "Case",
+     "material": "leather_worn",
+     "triangles": 24,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_travel_alarm__Trim_ON_nickel_plated",
+     "component": "Trim",
+     "material": "nickel_plated",
+     "triangles": 208,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_travel_alarm__Dial_ON_bakelite_black",
+     "component": "Dial",
+     "material": "bakelite_black",
+     "triangles": 12,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_travel_alarm__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     0.068,
+     0.018
+    ],
+    "height": 0.026,
+    "font": "res://assets/fonts/jost/Jost[wght].ttf"
+   }
+  },
+  "architect": {
+   "root": "WC_architect",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.058
+   ],
+   "bounds": [
+    [
+     -0.166,
+     -0.2452,
+     0.0
+    ],
+    [
+     0.1987,
+     0.166,
+     0.067
+    ]
+   ],
+   "triangles": 2904,
+   "parts": [
+    {
+     "name": "WC_architect__Posts_ON_brass",
+     "component": "Posts",
+     "material": "brass",
+     "triangles": 736,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_architect__Case_ON_nickel_plated",
+     "component": "Case",
+     "material": "nickel_plated",
+     "triangles": 560,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_architect__Works_ON_brass",
+     "component": "Works",
+     "material": "brass",
+     "triangles": 992,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_architect__DialMarks_ON_enamel",
+     "component": "DialMarks",
+     "material": "enamel",
+     "triangles": 24,
+     "rig": "face",
+     "moving": false,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_architect__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 96,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_architect__OddMark_ON_enamel",
+     "component": "OddMark",
+     "material": "enamel",
+     "triangles": 8,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_architect__Trim_ON_enamel",
+     "component": "Trim",
+     "material": "enamel",
+     "triangles": 36,
+     "rig": "case",
+     "moving": false,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_architect__HourHand_ON_nickel_plated",
+     "component": "HourHand",
+     "material": "nickel_plated",
+     "triangles": 72,
+     "rig": "face",
+     "moving": true
+    },
+    {
+     "name": "WC_architect__MinuteHand_ON_nickel_plated",
+     "component": "MinuteHand",
+     "material": "nickel_plated",
+     "triangles": 72,
+     "rig": "face",
+     "moving": true
+    },
+    {
+     "name": "WC_architect__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_architect__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     -0.0045,
+     0.07150000000000001
+    ],
+    "height": 0.028,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   },
+   "possessed": {
+    "kind": "part",
+    "angle_deg": 90.0,
+    "radius": 0.137,
+    "spin_deg": 180.0,
+    "note": "the triangle at 3 points outward, away from the arbor"
+   }
+  },
+  "split_flap": {
+   "root": "WC_split_flap",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.06
+   ],
+   "bounds": [
+    [
+     -0.21,
+     -0.2185,
+     0.0
+    ],
+    [
+     0.21,
+     0.11,
+     0.092
+    ]
+   ],
+   "triangles": 656,
+   "parts": [
+    {
+     "name": "WC_split_flap__Case_ON_enamel",
+     "component": "Case",
+     "material": "enamel",
+     "triangles": 40,
+     "rig": "case",
+     "moving": false,
+     "tint": "968f7b"
+    },
+    {
+     "name": "WC_split_flap__Case_ON_bakelite_black",
+     "component": "Case",
+     "material": "bakelite_black",
+     "triangles": 12,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_split_flap__Dial_ON_bakelite_black",
+     "component": "Dial",
+     "material": "bakelite_black",
+     "triangles": 72,
+     "rig": "face",
+     "moving": false,
+     "tint": "3a362e"
+    },
+    {
+     "name": "WC_split_flap__Trim_ON_nickel_plated",
+     "component": "Trim",
+     "material": "nickel_plated",
+     "triangles": 196,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_split_flap__Trim_ON_brass_dull",
+     "component": "Trim",
+     "material": "brass_dull",
+     "triangles": 144,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_split_flap__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     0.003,
+     0.0735
+    ],
+    "height": 0.052,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   }
+  },
+  "palette": {
+   "root": "WC_palette",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.03
+   ],
+   "bounds": [
+    [
+     -0.22,
+     -0.188,
+     0.0
+    ],
+    [
+     0.244,
+     0.188,
+     0.039
+    ]
+   ],
+   "triangles": 1356,
+   "parts": [
+    {
+     "name": "WC_palette__Case_ON_bakelite_black",
+     "component": "Case",
+     "material": "bakelite_black",
+     "triangles": 12,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_palette__Case_ON_plywood",
+     "component": "Case",
+     "material": "plywood",
+     "triangles": 356,
+     "rig": "case",
+     "moving": false,
+     "tint": "e8c9a0"
+    },
+    {
+     "name": "WC_palette__DialMarks_ON_enamel",
+     "component": "DialMarks",
+     "material": "enamel",
+     "triangles": 440,
+     "rig": "face",
+     "moving": false,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_palette__OddMark_ON_enamel",
+     "component": "OddMark",
+     "material": "enamel",
+     "triangles": 40,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_palette__Trim_ON_enamel",
+     "component": "Trim",
+     "material": "enamel",
+     "triangles": 56,
+     "rig": "case",
+     "moving": false,
+     "tint": "ecebe4"
+    },
+    {
+     "name": "WC_palette__HourHand_ON_brass_dull",
+     "component": "HourHand",
+     "material": "brass_dull",
+     "triangles": 72,
+     "rig": "face",
+     "moving": true
+    },
+    {
+     "name": "WC_palette__MinuteHand_ON_brass_dull",
+     "component": "MinuteHand",
+     "material": "brass_dull",
+     "triangles": 72,
+     "rig": "face",
+     "moving": true
+    },
+    {
+     "name": "WC_palette__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_palette__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     -0.0045,
+     0.043500000000000004
+    ],
+    "height": 0.028,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   },
+   "possessed": {
+    "kind": "part",
+    "angle_deg": 255.0,
+    "radius": 0.118,
+    "spin_deg": 0.0,
+    "note": "the paint for 8 has run to half past, in toward the middle"
+   }
+  },
+  "nixie": {
+   "root": "WC_nixie",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.06
+   ],
+   "bounds": [
+    [
+     -0.21,
+     -0.2185,
+     0.0
+    ],
+    [
+     0.21,
+     0.1106,
+     0.0723
+    ]
+   ],
+   "triangles": 1452,
+   "parts": [
+    {
+     "name": "WC_nixie__Case_ON_bakelite_black",
+     "component": "Case",
+     "material": "bakelite_black",
+     "triangles": 76,
+     "rig": "case",
+     "moving": false,
+     "tint": "17191b"
+    },
+    {
+     "name": "WC_nixie__Trim_ON_nickel_plated",
+     "component": "Trim",
+     "material": "nickel_plated",
+     "triangles": 304,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_nixie__Dial_ON_mica_heater",
+     "component": "Dial",
+     "material": "mica_heater",
+     "triangles": 640,
+     "rig": "face",
+     "moving": false,
+     "tint": "7a3d1c"
+    },
+    {
+     "name": "WC_nixie__Trim_ON_iron_blackened",
+     "component": "Trim",
+     "material": "iron_blackened",
+     "triangles": 84,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_nixie__Trim_ON_brass_dull",
+     "component": "Trim",
+     "material": "brass_dull",
+     "triangles": 144,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_nixie__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 12,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_nixie__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     -0.002,
+     0.0672
+    ],
+    "height": 0.06,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   }
+  },
+  "writer": {
+   "root": "WC_writer",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.06
+   ],
+   "bounds": [
+    [
+     -0.225,
+     -0.11,
+     0.0
+    ],
+    [
+     0.225,
+     0.121,
+     0.0995
+    ]
+   ],
+   "triangles": 1660,
+   "parts": [
+    {
+     "name": "WC_writer__Case_ON_enamel",
+     "component": "Case",
+     "material": "enamel",
+     "triangles": 64,
+     "rig": "case",
+     "moving": false,
+     "tint": "1c1c1e"
+    },
+    {
+     "name": "WC_writer__Platen_ON_rubber_aged",
+     "component": "Platen",
+     "material": "rubber_aged",
+     "triangles": 96,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_writer__Trim_ON_bakelite_black",
+     "component": "Trim",
+     "material": "bakelite_black",
+     "triangles": 160,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_writer__Dial_ON_paper",
+     "component": "Dial",
+     "material": "paper",
+     "triangles": 12,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_writer__Trim_ON_nickel_plated",
+     "component": "Trim",
+     "material": "nickel_plated",
+     "triangles": 536,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_writer__Trim_ON_rubber_aged",
+     "component": "Trim",
+     "material": "rubber_aged",
+     "triangles": 96,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_writer__Keys_ON_bakelite_black",
+     "component": "Keys",
+     "material": "bakelite_black",
+     "triangles": 504,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_writer__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     0.066,
+     0.0902
+    ],
+    "height": 0.052,
+    "font": "res://assets/fonts/specialelite/SpecialElite-Regular.ttf"
+   }
+  },
+  "deco": {
+   "root": "WC_deco",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.046
+   ],
+   "bounds": [
+    [
+     -0.22,
+     -0.195,
+     0.0
+    ],
+    [
+     0.22,
+     0.195,
+     0.064
+    ]
+   ],
+   "triangles": 2436,
+   "parts": [
+    {
+     "name": "WC_deco__Case_ON_enamel",
+     "component": "Case",
+     "material": "enamel",
+     "triangles": 472,
+     "rig": "case",
+     "moving": false,
+     "tint": "1e3330"
+    },
+    {
+     "name": "WC_deco__Trim_ON_enamel",
+     "component": "Trim",
+     "material": "enamel",
+     "triangles": 72,
+     "rig": "case",
+     "moving": false,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_deco__Dial_ON_porcelain",
+     "component": "Dial",
+     "material": "porcelain",
+     "triangles": 160,
+     "rig": "face",
+     "moving": false,
+     "tint": "efe7d0"
+    },
+    {
+     "name": "WC_deco__Trim_ON_chrome",
+     "component": "Trim",
+     "material": "chrome",
+     "triangles": 896,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_deco__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 208,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_deco__HourHand_ON_bakelite_black",
+     "component": "HourHand",
+     "material": "bakelite_black",
+     "triangles": 80,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_deco__MinuteHand_ON_bakelite_black",
+     "component": "MinuteHand",
+     "material": "bakelite_black",
+     "triangles": 80,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_deco__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_deco__TellMark_ON_enamel",
+     "component": "TellMark",
+     "material": "enamel",
+     "triangles": 192,
+     "rig": "case",
+     "moving": true,
+     "tint": "accent"
+    },
+    {
+     "name": "WC_deco__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 160,
+     "rig": "case",
+     "moving": false
+    }
+   ],
+   "labels": [],
+   "display": {
+    "at": [
+     0,
+     -0.00384,
+     0.059500000000000004
+    ],
+    "height": 0.028,
+    "font": "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf"
+   }
+  },
+  "drop_octagon": {
+   "root": "WC_drop_octagon",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.07
+   ],
+   "bounds": [
+    [
+     -0.224,
+     -0.52,
+     0.0
+    ],
+    [
+     0.224,
+     0.27,
+     0.09
+    ]
+   ],
+   "triangles": 3408,
+   "parts": [
+    {
+     "name": "WC_drop_octagon__Case_ON_oak_quartered",
+     "component": "Case",
+     "material": "oak_quartered",
+     "triangles": 180,
+     "rig": "case",
+     "moving": false,
+     "tint": "c29e75"
+    },
+    {
+     "name": "WC_drop_octagon__Case_ON_wood_dark",
+     "component": "Case",
+     "material": "wood_dark",
+     "triangles": 44,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_drop_octagon__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 172,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_drop_octagon__Case_ON_brass",
+     "component": "Case",
+     "material": "brass",
+     "triangles": 12,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_drop_octagon__Dial_ON_paper",
+     "component": "Dial",
+     "material": "paper",
+     "triangles": 160,
+     "rig": "face",
+     "moving": false
+    },
+    {
+     "name": "WC_drop_octagon__Trim_ON_brass",
+     "component": "Trim",
+     "material": "brass",
+     "triangles": 800,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_drop_octagon__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 1568,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_drop_octagon__Pendulum_ON_brass",
+     "component": "Pendulum",
+     "material": "brass",
+     "triangles": 180,
+     "rig": "case",
+     "moving": true
+    },
+    {
+     "name": "WC_drop_octagon__HourHand_ON_bakelite_black",
+     "component": "HourHand",
+     "material": "bakelite_black",
+     "triangles": 88,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_drop_octagon__MinuteHand_ON_bakelite_black",
+     "component": "MinuteHand",
+     "material": "bakelite_black",
+     "triangles": 88,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_drop_octagon__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "611310"
+    }
+   ],
+   "labels": [
+    {
+     "text": "XII",
+     "at": [
+      0.0,
+      0.112,
+      0.0712
+     ],
+     "height": 0.024,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "I",
+     "at": [
+      0.056,
+      0.09699,
+      0.0712
+     ],
+     "height": 0.024,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "II",
+     "at": [
+      0.09699,
+      0.056,
+      0.0712
+     ],
+     "height": 0.024,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "III",
+     "at": [
+      0.112,
+      0.0,
+      0.0712
+     ],
+     "height": 0.024,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "IIII",
+     "at": [
+      0.09699,
+      -0.056,
+      0.0712
+     ],
+     "height": 0.024,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "V",
+     "at": [
+      0.056,
+      -0.09699,
+      0.0712
+     ],
+     "height": 0.024,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "VI",
+     "at": [
+      0.0,
+      -0.112,
+      0.0712
+     ],
+     "height": 0.024,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "VII",
+     "at": [
+      -0.056,
+      -0.09699,
+      0.0712
+     ],
+     "height": 0.024,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "VIII",
+     "at": [
+      -0.09699,
+      -0.056,
+      0.0712
+     ],
+     "height": 0.024,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "IX",
+     "at": [
+      -0.112,
+      -0.0,
+      0.0712
+     ],
+     "height": 0.024,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "X",
+     "at": [
+      -0.09699,
+      0.056,
+      0.0712
+     ],
+     "height": 0.024,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "XI",
+     "at": [
+      -0.056,
+      0.09699,
+      0.0712
+     ],
+     "height": 0.024,
+     "font": "res://assets/fonts/oldstandardtt/OldStandard-Bold.ttf",
+     "color": "1a1612"
+    }
+   ],
+   "display": null,
+   "winding_reach": [
+    -0.046,
+    -0.04,
+    0.1
+   ]
+  },
+  "vantry_master": {
+   "root": "WC_vantry_master",
+   "mounting": "wall",
+   "dial_center": [
+    0,
+    0,
+    0.072
+   ],
+   "bounds": [
+    [
+     -0.246,
+     -0.275,
+     0.0
+    ],
+    [
+     0.246,
+     0.3635,
+     0.0938
+    ]
+   ],
+   "triangles": 3988,
+   "parts": [
+    {
+     "name": "WC_vantry_master__Case_ON_bakelite_black",
+     "component": "Case",
+     "material": "bakelite_black",
+     "triangles": 908,
+     "rig": "case",
+     "moving": false,
+     "tint": "6e6152"
+    },
+    {
+     "name": "WC_vantry_master__Dial_ON_enamel",
+     "component": "Dial",
+     "material": "enamel",
+     "triangles": 224,
+     "rig": "face",
+     "moving": false,
+     "tint": "e4e4da"
+    },
+    {
+     "name": "WC_vantry_master__Trim_ON_brass",
+     "component": "Trim",
+     "material": "brass",
+     "triangles": 672,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_vantry_master__Trim2_ON_nickel_plated",
+     "component": "Trim2",
+     "material": "nickel_plated",
+     "triangles": 256,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_vantry_master__DialMarks_ON_bakelite_black",
+     "component": "DialMarks",
+     "material": "bakelite_black",
+     "triangles": 1168,
+     "rig": "face",
+     "moving": false,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_vantry_master__Cover_ON_brass",
+     "component": "Cover",
+     "material": "brass",
+     "triangles": 140,
+     "rig": "case",
+     "moving": true
+    },
+    {
+     "name": "WC_vantry_master__Trim_ON_brass_dull",
+     "component": "Trim",
+     "material": "brass_dull",
+     "triangles": 144,
+     "rig": "case",
+     "moving": false
+    },
+    {
+     "name": "WC_vantry_master__HourHand_ON_bakelite_black",
+     "component": "HourHand",
+     "material": "bakelite_black",
+     "triangles": 68,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_vantry_master__MinuteHand_ON_bakelite_black",
+     "component": "MinuteHand",
+     "material": "bakelite_black",
+     "triangles": 68,
+     "rig": "face",
+     "moving": true,
+     "tint": "1a1612"
+    },
+    {
+     "name": "WC_vantry_master__SecondHand_ON_enamel",
+     "component": "SecondHand",
+     "material": "enamel",
+     "triangles": 116,
+     "rig": "face",
+     "moving": true,
+     "tint": "611310"
+    },
+    {
+     "name": "WC_vantry_master__Glass_ON_glassish",
+     "component": "Glass",
+     "material": "glassish",
+     "triangles": 224,
+     "rig": "case",
+     "moving": false
+    }
+   ],
+   "labels": [
+    {
+     "text": "12",
+     "at": [
+      0.0,
+      0.145,
+      0.0732
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "1",
+     "at": [
+      0.0725,
+      0.12557,
+      0.0732
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "2",
+     "at": [
+      0.12557,
+      0.0725,
+      0.0732
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "3",
+     "at": [
+      0.145,
+      0.0,
+      0.0732
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "4",
+     "at": [
+      0.12557,
+      -0.0725,
+      0.0732
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "5",
+     "at": [
+      0.0725,
+      -0.12557,
+      0.0732
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "6",
+     "at": [
+      0.0,
+      -0.145,
+      0.0732
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "7",
+     "at": [
+      -0.0725,
+      -0.12557,
+      0.0732
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "8",
+     "at": [
+      -0.12557,
+      -0.0725,
+      0.0732
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "9",
+     "at": [
+      -0.145,
+      -0.0,
+      0.0732
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "10",
+     "at": [
+      -0.12557,
+      0.0725,
+      0.0732
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    },
+    {
+     "text": "11",
+     "at": [
+      -0.0725,
+      0.12557,
+      0.0732
+     ],
+     "height": 0.036,
+     "font": "res://assets/fonts/jost/Jost[wght].ttf",
+     "color": "1a1612"
+    }
+   ],
+   "display": null
+  }
+ }
+}
