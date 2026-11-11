@@ -153,7 +153,7 @@ CLOTHS = {
     "wool": {"rough": 0.92, "depth": 0.9, "shade": 0.09},
     "knit": {"rough": 0.96, "depth": 1.6, "shade": 0.14},
     "felt": {"rough": 0.95, "depth": 0.35, "shade": 0.06},
-    "silk": {"rough": 0.38, "depth": 0.2, "shade": 0.03},
+    "silk": {"rough": 0.6, "depth": 0.12, "shade": 0.03},
     "leather": {"rough": 0.32, "depth": 0.25, "shade": 0.05},
 }
 
@@ -476,6 +476,177 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     elif kind == "hem":
         piece("Hem", "helper-tights", lambda v, r=row: abs(v.co.z - (hip + float(r.get("drop", -0.02)))) < 0.04 and weight(v, ARM) < 0.3, float(row.get("off", 0.021)), colour, 0.9, cloth=cloth or "knit")
 
+DECAL_CELLS = ["patch", "darn", "pocket", "button", "flower", "brooch", "stain", "lace", "stitch", "pin", "bow", "ticket", "diamond", "leaf", "stripe", "blank"]
+
+
+def decal_sheet():
+    """Sixteen small drawn details, white on clear, to be tinted where used."""
+    cell = 128
+    sheet = numpy.zeros((cell * 4, cell * 4, 4), dtype=numpy.float32)
+    ys, xs = numpy.mgrid[0:cell, 0:cell].astype(numpy.float32)
+    cx = xs - cell / 2
+    cy = ys - cell / 2
+    radius = numpy.sqrt(cx * cx + cy * cy)
+    angle = numpy.arctan2(cy, cx)
+    rng = numpy.random.default_rng(3)
+    drawn = {}
+    box = (numpy.abs(cx) < 46) & (numpy.abs(cy) < 46)
+    edge = box & ~((numpy.abs(cx) < 40) & (numpy.abs(cy) < 40))
+    stitches = edge & (((xs + ys) % 10) < 5)
+    drawn["patch"] = (numpy.where(stitches, 1.0, 0.82), box.astype(numpy.float32))
+    oval = (cx / 44) ** 2 + (cy / 30) ** 2 < 1
+    hatch = ((xs % 7) < 2) | ((ys % 7) < 2)
+    drawn["darn"] = (numpy.where(hatch, 1.0, 0.7), (oval & (hatch | (rng.random((cell, cell)) > 0.5))).astype(numpy.float32))
+    outline = ((numpy.abs(cx) < 44) & (cy > -36) & (cy < 48)) & ~((numpy.abs(cx) < 40) & (cy > -32) & (cy < 44))
+    flap = (numpy.abs(cx) < 44) & (numpy.abs(cy + 20 - numpy.abs(cx) * 0.25) < 2.5)
+    drawn["pocket"] = (numpy.ones((cell, cell)), ((outline & (((xs + ys) % 8) < 5)) | flap).astype(numpy.float32))
+    holes = numpy.zeros((cell, cell), dtype=bool)
+    for hx, hy in ((-9, -9), (9, -9), (-9, 9), (9, 9)):
+        holes |= (cx - hx) ** 2 + (cy - hy) ** 2 < 16
+    drawn["button"] = (numpy.where(radius > 30, 0.75, 1.0), ((radius < 36) & ~holes).astype(numpy.float32))
+    petals = radius < 20 + 22 * numpy.abs(numpy.cos(angle * 2.5))
+    drawn["flower"] = (numpy.where(radius < 11, 0.5, 1.0), petals.astype(numpy.float32))
+    ring = ((cx / 34) ** 2 + (cy / 44) ** 2 < 1)
+    inner = ((cx / 24) ** 2 + (cy / 34) ** 2 < 1)
+    drawn["brooch"] = (numpy.where(inner, 0.45, 1.0), ring.astype(numpy.float32))
+    blot = radius < 30 + 14 * numpy.sin(angle * 3 + 1.0) + 8 * numpy.sin(angle * 7)
+    drawn["stain"] = (numpy.ones((cell, cell)) * 0.9, blot.astype(numpy.float32) * numpy.clip(1.2 - radius / 50, 0, 1) * 0.75)
+    scallop = (cy < 10) & (cy > -30 + 26 * numpy.abs(numpy.sin(xs * numpy.pi / 32)))
+    eyelets = ((xs % 32 - 16) ** 2 + (cy + 2) ** 2) < 20
+    drawn["lace"] = (numpy.ones((cell, cell)), (scallop & ~eyelets).astype(numpy.float32))
+    drawn["stitch"] = (numpy.ones((cell, cell)), ((numpy.abs(cy) < 2.5) & ((xs % 16) < 10)).astype(numpy.float32))
+    star = radius < 16 + 20 * numpy.abs(numpy.cos(angle * 2.5)) ** 3
+    drawn["pin"] = (numpy.ones((cell, cell)), star.astype(numpy.float32))
+    knot = (numpy.abs(cx) < 8) & (numpy.abs(cy) < 10)
+    wings = (numpy.abs(cy) < 4 + numpy.abs(cx) * 0.45) & (numpy.abs(cx) < 46)
+    drawn["bow"] = (numpy.where(knot, 0.7, 1.0), (knot | wings).astype(numpy.float32))
+    stub = (numpy.abs(cx) < 26) & (numpy.abs(cy) < 44) & ~((radius < 9) & (cy < -30))
+    drawn["ticket"] = (numpy.where((numpy.abs(cy - 20) < 2) & (numpy.abs(cx) < 20), 0.5, 1.0), stub.astype(numpy.float32))
+    drawn["diamond"] = (numpy.ones((cell, cell)), ((numpy.abs(cx) / 30 + numpy.abs(cy) / 46) < 1).astype(numpy.float32))
+    leaf = ((cx / 20) ** 2 + (cy / 46) ** 2 < 1)
+    drawn["leaf"] = (numpy.where(numpy.abs(cx) < 2, 0.6, 1.0), leaf.astype(numpy.float32))
+    drawn["stripe"] = (numpy.ones((cell, cell)), (numpy.abs(cx) < 9).astype(numpy.float32))
+    drawn["blank"] = (numpy.ones((cell, cell)), numpy.zeros((cell, cell), dtype=numpy.float32))
+    for index, name in enumerate(DECAL_CELLS):
+        value, alpha = drawn[name]
+        row, col = index // 4, index % 4
+        sheet[row * cell:(row + 1) * cell, col * cell:(col + 1) * cell, :3] = value[:, :, None]
+        sheet[row * cell:(row + 1) * cell, col * cell:(col + 1) * cell, 3] = alpha
+    picture = bpy.data.images.new("cast_decals", cell * 4, cell * 4, alpha=True)
+    picture.pixels = sheet.ravel()
+    picture.filepath_raw = os.path.join(OUT, "cast_decals.png")
+    picture.file_format = "PNG"
+    picture.save()
+    material = bpy.data.materials.new("cast_decals")
+    material.use_nodes = True
+    material.blend_method = "BLEND"
+    nodes = material.node_tree.nodes
+    links = material.node_tree.links
+    shader = nodes["Principled BSDF"]
+    node = nodes.new("ShaderNodeTexImage")
+    node.image = picture
+    tint = nodes.new("ShaderNodeVertexColor")
+    tint.layer_name = "Tint"
+    mix = nodes.new("ShaderNodeMix")
+    mix.data_type = "RGBA"
+    mix.blend_type = "MULTIPLY"
+    mix.inputs[0].default_value = 1.0
+    links.new(node.outputs[0], mix.inputs[6])
+    links.new(tint.outputs[0], mix.inputs[7])
+    links.new(mix.outputs[2], shader.inputs["Base Color"])
+    links.new(node.outputs[1], shader.inputs["Alpha"])
+    shader.inputs["Roughness"].default_value = 0.85
+    return material
+
+
+DECAL_ANCHORS = {
+    "chest_l": lambda: (Vector((0.075, -1.0, neck - 0.13)), Vector((0, 1, 0))),
+    "chest_r": lambda: (Vector((-0.075, -1.0, neck - 0.13)), Vector((0, 1, 0))),
+    "lapel_l": lambda: (Vector((0.06, -1.0, neck - 0.08)), Vector((0, 1, 0))),
+    "throat": lambda: (Vector((0.0, -1.0, neck - 0.045)), Vector((0, 1, 0))),
+    "belly": lambda: (Vector((0.03, -1.0, waist + 0.02)), Vector((0, 1, 0))),
+    "hip_l": lambda: (Vector((0.1, -1.0, hip + 0.03)), Vector((0, 1, 0))),
+    "hip_r": lambda: (Vector((-0.1, -1.0, hip + 0.03)), Vector((0, 1, 0))),
+    "knee_l": lambda: (Vector((0.09, -1.0, knee + 0.01)), Vector((0, 1, 0))),
+    "knee_r": lambda: (Vector((-0.09, -1.0, knee + 0.01)), Vector((0, 1, 0))),
+    "thigh_l": lambda: (Vector((0.1, -1.0, hip - 0.16)), Vector((0, 1, 0))),
+    "shin_r": lambda: (Vector((-0.09, -1.0, knee - 0.14)), Vector((0, 1, 0))),
+    "elbow_l": lambda: (Vector((elbow.x, 1.0, elbow.z)), Vector((0, -1, 0))),
+    "elbow_r": lambda: (Vector((-elbow.x, 1.0, elbow.z)), Vector((0, -1, 0))),
+    "seat": lambda: (Vector((0.07, 1.0, hip - 0.05)), Vector((0, -1, 0))),
+    "back": lambda: (Vector((0.0, 1.0, neck - 0.16)), Vector((0, -1, 0))),
+}
+decal_material = None
+decal_rows = [dict(row) for row in (CFG.get("trim", []) if OUTFIT else []) if row.get("kind") == "decal"]
+by_part = {}
+for row in decal_rows:
+    by_part.setdefault(row.get("_part", ""), []).append(row)
+for part_name, rows_ in by_part.items():
+    mine = [g for g in garments if g.get("part", "") == part_name and g.type == "MESH" and len(g.data.polygons)]
+    if not mine:
+        continue
+    points_, polys_, start_ = [], [], 0
+    for g in mine:
+        points_ += [tuple(v.co) for v in g.data.vertices]
+        polys_ += [tuple(i + start_ for i in q.vertices) for q in g.data.polygons]
+        start_ += len(g.data.vertices)
+    cloth_here = BVHTree.FromPolygons(points_, polys_)
+    bm = bmesh.new()
+    uv_layer = bm.loops.layers.uv.verify()
+    tint_layer = bm.loops.layers.color.new("Tint")
+    for row in rows_:
+        origin, direction = DECAL_ANCHORS[row["at"]]()
+        origin = origin + Vector((float(row.get("dx", 0.0)), 0.0, float(row.get("dz", 0.0))))
+        hit = cloth_here.ray_cast(origin, direction, 3.0)
+        if hit[0] is None:
+            continue
+        normal = hit[1].normalized()
+        if normal.dot(direction) > 0:
+            normal = -normal
+        up = Vector((0, 0, 1)) - normal * normal.z
+        up = up.normalized() if up.length > 1e-5 else Vector((0, 1, 0))
+        right = up.cross(normal).normalized()
+        turn = math.radians(float(row.get("turn", 0.0)))
+        up, right = up * math.cos(turn) + right * math.sin(turn), right * math.cos(turn) - up * math.sin(turn)
+        half = float(row.get("size", 0.05)) * 0.5
+        wide = half * float(row.get("wide", 1.0))
+        centre = hit[0] + normal * 0.0025
+        index = DECAL_CELLS.index(row["cell"])
+        u0, v0 = (index % 4) / 4.0, (index // 4) / 4.0  # the sheet's first row is the picture's bottom row
+        corners = [(-wide, -half, u0, v0), (wide, -half, u0 + 0.25, v0), (wide, half, u0 + 0.25, v0 + 0.25), (-wide, half, u0, v0 + 0.25)]
+        face = bm.faces.new([bm.verts.new(centre + right * a + up * b) for a, b, _, _ in corners])
+        colour = worn_colour(row.get("colour", [0.9, 0.88, 0.8]))
+        for loop, (_, _, u, v) in zip(face.loops, corners):
+            loop[uv_layer].uv = (u, v)
+            loop[tint_layer] = (colour[0], colour[1], colour[2], 1.0)
+    if not bm.faces:
+        bm.free()
+        continue
+    if decal_material is None:
+        decal_material = decal_sheet()
+    decal_mesh = bpy.data.meshes.new("Decals")
+    bm.to_mesh(decal_mesh)
+    bm.free()
+    decals = bpy.data.objects.new("Decals_" + part_name, decal_mesh)
+    bpy.context.scene.collection.objects.link(decals)
+    decals.data.materials.append(decal_material)
+    # A detail rides on the cloth it lies on: weighted as the nearest point of that cloth.
+    decals.parent = rig
+    decals.modifiers.new("Armature", "ARMATURE").object = rig
+    transfer = decals.modifiers.new("Weights", "DATA_TRANSFER")
+    transfer.object = mine[0]
+    transfer.use_vert_data = True
+    transfer.data_types_verts = {"VGROUP_WEIGHTS"}
+    transfer.vert_mapping = "NEAREST"
+    bpy.context.view_layer.objects.active = decals
+    for group_name in [g.name for g in mine[0].vertex_groups]:
+        decals.vertex_groups.new(name=group_name)
+    bpy.ops.object.modifier_move_to_index(modifier="Weights", index=0)
+    bpy.ops.object.modifier_apply(modifier="Weights")
+    decals["part"] = part_name
+    garments.append(decals)
+    print("DECALS", part_name, len(decal_mesh.polygons))
+
 # Buttons and a tie are small made things on the chest's front.
 body_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
 
@@ -532,6 +703,8 @@ small = bmesh.new()
 small_material_rows = []
 trim_face_slot = {}
 for row in (CFG.get("trim", []) if OUTFIT else []):
+    if row.get("kind") == "decal":
+        continue
     faces_before = len(small.faces)
     if row["kind"] == "buttons":
         z = neck - 0.06

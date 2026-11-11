@@ -123,6 +123,50 @@ STYLES = {
     "transient_guests_b": [("smock", "short_skirt", "cardigan", "headscarf", "strap"), ("blouse_long", "straight_skirt", "swing_coat", "cloche", "strap"), ("knit", "full_skirt", "shawl", "-", "boots")],
 }
 SET_TAGS = [["casual", "home"], ["formal", "street"], ["occasion"]]
+# A second colour for each person, chosen to stand against their own.
+SECOND = {
+    "adela_voss": [0.03, 0.08, 0.3], "mina_vale": [0.72, 0.42, 0.04], "cal_dwyer": [0.42, 0.05, 0.06], "cam_ortiz": [0.75, 0.5, 0.04], "evelyn_marsh": [0.02, 0.3, 0.3],
+    "iris_bell": [0.85, 0.42, 0.03], "jonah_price": [0.5, 0.15, 0.05], "juno_kells": [0.7, 0.12, 0.25], "lena_ortiz": [0.7, 0.45, 0.05], "mae_kessler": [0.4, 0.34, 0.55],
+    "malcolm_reed": [0.55, 0.2, 0.05], "nadia_quell": [0.8, 0.7, 0.5], "noel_price": [0.65, 0.3, 0.05], "omar_bell": [0.45, 0.06, 0.06], "peter_wren": [0.1, 0.25, 0.22],
+    "rhea_sato": [0.75, 0.06, 0.2], "sacha_reed": [0.75, 0.5, 0.08], "teresa_vale": [0.72, 0.03, 0.03], "transient_guests_a": [0.6, 0.48, 0.12], "transient_guests_b": [0.5, 0.2, 0.25],
+}
+NEUTRALS = [[0.16, 0.13, 0.11], [0.35, 0.3, 0.24], [0.08, 0.08, 0.09]]
+
+
+def decal(part, cell, at, size=0.05, colour=None, **more):
+    return dict({"kind": "decal", "_to": part, "cell": cell, "at": at, "size": size, "colour": colour or [0.9, 0.88, 0.8]}, **more)
+
+
+# Details the wardrobe bible names, and a little wear, per person.
+DETAILS = {
+    "adela_voss": [decal("a_top", "flower", "chest_l", 0.045, [0.75, 0.1, 0.12]), decal("b_over", "brooch", "lapel_l", 0.035, [0.8, 0.6, 0.1])],
+    "mina_vale": [decal("b_over", "pocket", "chest_l", 0.06, [0.75, 0.8, 0.95]), decal("a_over", "darn", "elbow_l", 0.06, [0.5, 0.6, 0.9])],
+    "cal_dwyer": [decal("a_over", "pocket", "hip_l", 0.07, [0.2, 0.08, 0.03]), decal("a_top", "darn", "elbow_r", 0.07, [0.4, 0.2, 0.05]), decal("c_over", "patch", "elbow_l", 0.08, [0.2, 0.05, 0.05])],
+    "cam_ortiz": [decal("a_bottom", "patch", "knee_l", 0.08, [0.25, 0.14, 0.06]), decal("a_top", "pin", "chest_l", 0.035, [0.8, 0.6, 0.1]), decal("c_over", "stain", "hip_r", 0.1, [0.15, 0.1, 0.06])],
+    "evelyn_marsh": [decal("b_over", "brooch", "throat", 0.035, [0.8, 0.6, 0.1]), decal("a_over", "pocket", "hip_r", 0.07, [0.6, 0.3, 0.55])],
+    "iris_bell": [decal("a_bottom", "stain", "thigh_l", 0.11, [0.9, 0.5, 0.05]), decal("a_bottom", "stain", "shin_r", 0.09, [0.8, 0.1, 0.12]), decal("a_bottom", "stain", "knee_l", 0.07, [0.9, 0.9, 0.85]),
+                  decal("a_over", "stain", "belly", 0.12, [0.1, 0.5, 0.3]), decal("b_top", "flower", "chest_r", 0.05, [0.9, 0.5, 0.05])],
+    "jonah_price": [decal("a_over", "stain", "chest_l", 0.07, [0.05, 0.04, 0.08]), decal("b_over", "darn", "elbow_l", 0.07, [0.1, 0.15, 0.4])],
+    "juno_kells": [decal("b_over", "patch", "elbow_r", 0.08, [0.05, 0.2, 0.22]), decal("a_top", "pin", "chest_l", 0.03, [0.85, 0.2, 0.3]), decal("a_bottom", "darn", "knee_r", 0.07, [0.1, 0.3, 0.32])],
+    "lena_ortiz": [decal("a_top", "patch", "elbow_l", 0.075, [0.5, 0.1, 0.15]), decal("a_top", "patch", "elbow_r", 0.075, [0.55, 0.12, 0.1]), decal("a_over", "pocket", "hip_l", 0.08, [0.6, 0.6, 0.55]),
+                   decal("b_top", "lace", "throat", 0.07, [0.95, 0.93, 0.88], wide=1.6)],
+    "mae_kessler": [decal("b_over", "brooch", "throat", 0.04, [0.05, 0.05, 0.06]), decal("a_top", "lace", "throat", 0.07, [0.95, 0.93, 0.88], wide=1.6), decal("c_over", "brooch", "chest_l", 0.035, [0.75, 0.75, 0.7])],
+    "malcolm_reed": [decal("a_bottom", "stain", "knee_l", 0.11, [0.12, 0.08, 0.04]), decal("a_bottom", "stain", "knee_r", 0.1, [0.14, 0.09, 0.04]), decal("a_bottom", "pocket", "chest_l", 0.07, [0.1, 0.16, 0.02]),
+                     decal("b_over", "leaf", "lapel_l", 0.04, [0.2, 0.45, 0.05])],
+    "nadia_quell": [decal("b_over", "pocket", "chest_l", 0.06, [0.15, 0.0, 0.01]), decal("c_over", "pin", "lapel_l", 0.035, [0.8, 0.7, 0.5])],
+    "noel_price": [decal("b_over", "pocket", "chest_l", 0.07, [0.03, 0.01, 0.2]), decal("a_over", "stain", "belly", 0.09, [0.5, 0.45, 0.35])],
+    "omar_bell": [decal("a_over", "stain", "belly", 0.12, [0.1, 0.08, 0.07]), decal("a_bottom", "patch", "knee_r", 0.08, [0.35, 0.2, 0.05]), decal("a_bottom", "pocket", "chest_l", 0.07, [0.3, 0.16, 0.02])],
+    "peter_wren": [decal("b_over", "darn", "elbow_l", 0.07, [0.2, 0.1, 0.04]), decal("b_over", "darn", "elbow_r", 0.07, [0.2, 0.1, 0.04]), decal("a_over", "stitch", "chest_l", 0.06, [0.6, 0.4, 0.1])],
+    "rhea_sato": [decal("c_top", "flower", "chest_l", 0.05, [0.85, 0.1, 0.25]), decal("b_over", "pin", "lapel_l", 0.03, [0.85, 0.1, 0.25])],
+    "sacha_reed": [decal("b_over", "stripe", "chest_l", 0.3, [0.2, 0.1, 0.04], turn=28, wide=0.12), decal("a_bottom", "patch", "knee_l", 0.08, [0.08, 0.2, 0.16])],
+    "teresa_vale": [decal("b_over", "pin", "chest_l", 0.035, [0.75, 0.75, 0.7]), decal("a_over", "pocket", "hip_r", 0.08, [0.6, 0.6, 0.55])],
+    "transient_guests_a": [decal("b_over", "ticket", "lapel_l", 0.05, [0.85, 0.8, 0.6]), decal("a_bottom", "patch", "knee_r", 0.08, [0.4, 0.4, 0.42]), decal("c_over", "darn", "elbow_l", 0.07, [0.2, 0.2, 0.22])],
+    "transient_guests_b": [decal("b_over", "ticket", "lapel_l", 0.05, [0.85, 0.8, 0.6]), decal("a_over", "darn", "elbow_r", 0.07, [0.4, 0.38, 0.4]), decal("c_over", "patch", "hip_l", 0.07, [0.3, 0.2, 0.2])],
+}
+
+
+def hash_index(text):
+    return sum(ord(ch) for ch in text)
 
 
 def add_parts(cast):
@@ -135,9 +179,12 @@ def add_parts(cast):
         looks = {}
         for index, (t, b, o, h, f) in enumerate(sets):
             letter = "abc"[index]
-            colour = [c0, shade(c0, 0.62), shade(c0, 0.85)][index]
-            over_colour = [shade(c0, 1.3), c0, a0 if sum(a0) < 2.2 else shade(c0, 0.45)][index]
-            rows, trim, covers = top(t, colour if index == 2 else c0, a0, [pale, WHITE, pale][index])
+            s0 = SECOND[cid]
+            # Each set leads with a different colour: the person's own, then a
+            # dark neutral under their colour, then their second colour.
+            colour = [c0, NEUTRALS[hash_index(cid) % 3], shade(s0, 0.75)][index]
+            over_colour = [shade(s0, 0.9), c0, shade(c0, 0.5)][index]
+            rows, trim, covers = top(t, [c0, c0, s0][index], a0, [pale, WHITE, [min(1.0, 0.6 + 0.4 * x) for x in s0]][index])
             parts[letter + "_top"] = {"slot": "top", "set": letter, "tags": SET_TAGS[index] + (["night"] if t.startswith("pyjama") else []), "covers": covers, "rows": rows, "trim": trim}
             parts[letter + "_bottom"] = {"slot": "bottom", "set": letter,
                                          "tags": SET_TAGS[index] + (["night"] if b.startswith("pyjama") else []) + (["work"] if b == "overalls" else []), "covers": ["legs"],
@@ -152,6 +199,11 @@ def add_parts(cast):
             looks[letter] = [name for name in parts if name.startswith(letter + "_")]
         looks["mix1"] = [n for n in ("a_top", "b_bottom", "c_over", "b_head", "a_feet") if n in parts]
         looks["mix2"] = [n for n in ("c_top", "a_bottom", "b_over", "c_head", "b_feet") if n in parts]
+        for row in DETAILS.get(cid, []):
+            row = dict(row)
+            target = row.pop("_to")
+            if target in parts:
+                parts[target]["trim"] = parts[target]["trim"] + [row]
         person["parts"] = parts
         person["looks"] = looks
         person.pop("outfits", None)
