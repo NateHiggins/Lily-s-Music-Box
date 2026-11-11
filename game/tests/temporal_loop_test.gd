@@ -239,7 +239,7 @@ func _ready() -> void:
 	tick()
 	check(loop.bank_cents() == 75 and slips.size() == 1 and slips[0].begins_with("DRAWN FOR YOU"), "at home the companion draws the day's allowance itself")
 	tick()
-	check(slips.size() == 2 and slips[1].begins_with("ADVICE") and slips[1].contains("Friday's errand"), "and then says which line is open")
+	check(slips.size() == 2 and slips[1].begins_with("ADVICE") and slips[1].contains("has no day"), "and then says the pinned slip wants its day")
 	tick()
 	check(slips.size() == 2 and loop.bank_cents() == 75, "once a day, not every second")
 
