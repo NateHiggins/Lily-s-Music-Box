@@ -60,7 +60,10 @@ func _ready() -> void:
 	_blockout = _world._blockout
 	await _settle()
 
-	var dressing: Node3D = Dressing.mount(_world, _blockout, _world.layout, _world.adapter)
+	# The root mounts the dressing and its calendar; the test takes the dressing
+	# over so the date does not change it under the checks.
+	_world.season_fittings.occasion = null
+	var dressing: Node3D = _world.occasion_dressing
 	_check(dressing != null and dressing.errors.is_empty(), "the composer mounts without errors (%s)" % [dressing.errors])
 	_check(dressing.get_parent() == _blockout, "the dressing lies in the blockout's own frame")
 	_check(dressing.dressed() == "", "the house starts undressed")
