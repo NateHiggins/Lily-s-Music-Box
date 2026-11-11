@@ -74,7 +74,7 @@ func build(id: String) -> Node3D:
 	var extent: Vector3 = record.size
 	var large := maxf(extent.x, maxf(extent.y, extent.z)) > 0.25
 	var holder := Node3D.new()
-	holder.name = "Evidence_" + id
+	holder.name = id
 	holder.set_meta("evidence_piece", id)
 	for part: Dictionary in record.parts:
 		var draw := MeshInstance3D.new()

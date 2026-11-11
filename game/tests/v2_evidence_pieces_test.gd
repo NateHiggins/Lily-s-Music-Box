@@ -211,7 +211,7 @@ func _ready() -> void:
 	_check(laid.size() == ids.size() and hung.size() == ids.size(), "all thirteen hang and all thirteen lie")
 	for i in 5:
 		await get_tree().process_frame
-	_check(world.find_children("Evidence_*", "Node3D", true, false).size() == ids.size() * 2, "the pieces stand in the world")
+	_check(holder.get_child_count() == ids.size() * 2 and holder.is_inside_tree(), "the pieces stand in the world")
 
 	var shots := OS.get_environment("SHOT_DIR")
 	if shots != "":
