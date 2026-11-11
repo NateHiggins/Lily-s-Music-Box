@@ -3,7 +3,7 @@ extends Node
 ## the mail bank and the porter's board stand in the lobby, the telephone board
 ## and its operator's things in common room B, each against a wall with clear
 ## floor in front, and the residents' mail walk ends at the bank. With SHOT_DIR
-## and a window it takes review captures (not runtime proof).
+## and a window it also saves review captures. A placement check only.
 
 var _fails := 0
 var _checks := 0
@@ -144,8 +144,7 @@ func _ready() -> void:
 
 	# Views are given in the blockout's own frame: the world's is turned from it.
 	var frame: Node3D = world.adapter.root
-	world.player.set_lamp_enabled(true)
-	await _snap("lobby_mail_bank", frame.to_global(Vector3(2.9, 0.0, -6.4)), frame.to_global(Vector3(5.3, 1.2, -7.2)))
+	await _snap("lobby_mail_bank", frame.to_global(Vector3(2.7, 0.0, -6.9)), frame.to_global(Vector3(5.3, 1.25, -7.4)))
 	await _snap("lobby_porter_board", frame.to_global(Vector3(-0.5, 0.0, -6.4)), frame.to_global(Vector3(-0.9, 1.45, -4.05)))
 	await _snap("lobby_whole", frame.to_global(Vector3(-3.8, 0.0, -8.4)), frame.to_global(Vector3(3.0, 1.3, -5.5)))
 	await _snap("house_office_telephone", frame.to_global(Vector3(-11.3, 0.0, -0.8)), frame.to_global(Vector3(-9.4, 1.15, -1.3)))

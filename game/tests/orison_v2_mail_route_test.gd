@@ -14,7 +14,7 @@ func _route() -> void:
 	# (v1r_first_floor_layout_20261111): back out of the watch room, through the
 	# core and into the lobby. No door of the watch room is on the way any more.
 	for point in [Vector3(-1.8,0,-1.5),Vector3(-1.8,0,-3.3),Vector3(0,0,-3.35),Vector3(1.925,0,-3.5),
-			Vector3(1.925,0,-6.5),Vector3(4.3,0,-7.0)]:
+			Vector3(1.925,0,-6.5),Vector3(4.3,0,-7.66)]:
 		if not await _walk(point): return
 	var mail: Node3D = world.adapter.resolve("LobbyMailBank")
 	var stance := mail.global_position-mail.global_basis.z*.9
@@ -27,5 +27,5 @@ func _route() -> void:
 	if not directory.is_empty():
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(directory.path_join("mail_bank.png"))
-	for point in [Vector3(4.3,0,-7.0),Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5),Vector3(0,0,-3.35)]:
+	for point in [Vector3(4.3,0,-7.66),Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5),Vector3(0,0,-3.35)]:
 		if not await _walk(point): return
