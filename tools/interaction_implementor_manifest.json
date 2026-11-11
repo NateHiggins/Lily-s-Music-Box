@@ -130,22 +130,6 @@
    "role": "production"
   },
   {
-   "action_method": "interact_area",
-   "action_owner": "same node",
-   "action_source": "building/wayfinding_signage_pass.gd",
-   "extraction": "game-only",
-   "family": "interact_prompt",
-   "file": "building/wayfinding_signage_pass.gd",
-   "identity": {
-    "family": "interact_prompt",
-    "file": "building/wayfinding_signage_pass.gd"
-   },
-   "method": "interact_prompt",
-   "protocol": "composed/interact-area",
-   "rationale": "composed dispatch through interact_area",
-   "role": "production"
-  },
-  {
    "action_method": "interact",
    "action_owner": "same node",
    "action_source": "call/desk_zone.gd",
@@ -192,22 +176,6 @@
    "protocol": "whole-object",
    "rationale": "same node action (interact) resolved by source tracing",
    "role": "production"
-  },
-  {
-   "action_method": "interact",
-   "action_owner": "same node",
-   "action_source": "characters/npc_placeholder.gd",
-   "extraction": "game-only",
-   "family": "interact_prompt",
-   "file": "characters/npc_placeholder.gd",
-   "identity": {
-    "family": "interact_prompt",
-    "file": "characters/npc_placeholder.gd"
-   },
-   "method": "interact_prompt",
-   "protocol": "whole-object",
-   "rationale": "same node action (interact) resolved by source tracing",
-   "role": "debug-only"
   },
   {
    "action_method": "interact",
@@ -283,22 +251,6 @@
    "identity": {
     "family": "interact_prompt",
     "file": "props/bar_seat_zone.gd"
-   },
-   "method": "interact_prompt",
-   "protocol": "whole-object",
-   "rationale": "same node action (interact) resolved by source tracing",
-   "role": "production"
-  },
-  {
-   "action_method": "interact",
-   "action_owner": "same node",
-   "action_source": "props/bench_zone.gd",
-   "extraction": "game-only",
-   "family": "interact_prompt",
-   "file": "props/bench_zone.gd",
-   "identity": {
-    "family": "interact_prompt",
-    "file": "props/bench_zone.gd"
    },
    "method": "interact_prompt",
    "protocol": "whole-object",
@@ -571,22 +523,6 @@
    "identity": {
     "family": "control_prompt",
     "file": "props/dumbwaiter_prop.gd"
-   },
-   "method": "control_prompt",
-   "protocol": "named-control",
-   "rationale": "same node action (interact_control) resolved by source tracing",
-   "role": "production"
-  },
-  {
-   "action_method": "interact_control",
-   "action_owner": "same node",
-   "action_source": "props/elevator_interlock_prop.gd",
-   "extraction": "game-only",
-   "family": "control_prompt",
-   "file": "props/elevator_interlock_prop.gd",
-   "identity": {
-    "family": "control_prompt",
-    "file": "props/elevator_interlock_prop.gd"
    },
    "method": "control_prompt",
    "protocol": "named-control",

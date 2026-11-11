@@ -59,7 +59,8 @@ another handbook or load every project report by default.
 - Preserve inventory, work orders, residents, reading/publication, clock/weather,
   dialogue/input and validated save owners. The companion presents those facts;
   it cannot manufacture them. Temporal render clocks and cinematic cutaways must
-  not become gameplay-clock writers. Keep the explicit V1 rollback.
+  not become gameplay-clock writers. V1 and its rollback were removed on
+  2026-11-11; V2 is the only building.
 - Separate implemented, native-verified, loaded diagnostic, runtime-qualified,
   actually played and artistically accepted. Only test-written schema2 contracts
   establish runtime proof. A wrapper exit0, parsed file, screenshot, authored

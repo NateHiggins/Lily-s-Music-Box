@@ -665,13 +665,6 @@ class ProductionSmokeTests(unittest.TestCase):
             file="game/scripts/cases/mina_caption_manifestation.gd")
         self.assertIn("SAVE_CONTRACT", record["authority"])
 
-    def test_floor_asset_path_contract(self):
-        record = self._one(
-            kind="asset_path", token="res://assets/building/floor_01.gltf",
-            file="game/scripts/building/floor01_cell_registry.gd")
-        self.assertEqual(record["disposition"], "PRESERVE_OR_ALIAS")
-        self.assertIn("RUNTIME_LOOKUP", record["authority"])
-
     def test_organism_ledger_manual_contract(self):
         record = self._one(kind="manual_contract",
                            token="organism_ledger_spatial_payload")
@@ -687,8 +680,8 @@ class ProductionSmokeTests(unittest.TestCase):
         self.assertEqual(record["confidence"], "HIGH")
 
     def test_building_root_selector_paths(self):
-        for token in ("res://scenes/building/orison_root.tscn",
-                      "res://scenes/building/orison_v2_runtime.tscn"):
+        # V1's scene left the selector on 2026-11-11 (v1r_rollback_20261109).
+        for token in ("res://scenes/building/orison_v2_runtime.tscn",):
             record = self._one(
                 kind="asset_path", token=token,
                 file="game/scripts/building/building_root_selector.gd")

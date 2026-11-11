@@ -184,8 +184,28 @@ class ProductionFloor01ExportTests(unittest.TestCase):
         self.assertEqual(
             sha256_file(self.asset_root / ASSET_MANIFEST_NAME),
             self.registry["asset_manifest_sha256"])
-        self.assertEqual(self.assets["protected_hashes"],
-                         collect_protected_hashes(REPO_ROOT))
+        # The manifest was exported while V1 stood. V1's removal on 2026-11-11
+        # (ruling v1r_rollback_20261109) took its upper floors and roof and
+        # the selector's V1 entry; every other protected input is unchanged.
+        # The exporter is itself bound into the manifest, so it is unchanged
+        # and still refuses to run without the retired inputs; this test
+        # reads the surviving ones directly.
+        recorded = self.assets["protected_hashes"]
+        selector = "game/scripts/building/building_root_selector.gd"
+        retired = {
+            f"game/assets/building/{stem}.{suffix}"
+            for stem in ("floor_02", "floor_03", "floor_04", "floor_05", "floor_06", "roof")
+            for suffix in ("gltf", "bin")}
+        with self.assertRaises(ProductionExportError):
+            collect_protected_hashes(REPO_ROOT)
+        absent = {key for key in recorded
+                  if not REPO_ROOT.joinpath(*key.split("/")).is_file()}
+        self.assertEqual(absent, retired)
+        for key, value in recorded.items():
+            if key in retired or key == selector:
+                continue
+            self.assertEqual(
+                value, sha256_bound_input(REPO_ROOT.joinpath(*key.split("/"))), key)
         self.assertEqual(
             set(self.assets["protected_hashes"]),
             {path.as_posix() for path in PROTECTED_RELATIVE_PATHS})

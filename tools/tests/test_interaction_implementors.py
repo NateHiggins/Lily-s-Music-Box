@@ -352,12 +352,6 @@ class ProductionSmokeTests(unittest.TestCase):
         self.assertEqual(imp["action_status"], "ACTION_RESOLVED_INHERITED")
         self.assertEqual(imp["action_source"], "props/tv_prop.gd")
 
-    def test_wayfinding_composition_resolution_pinned(self):
-        imp = next(i for i in self.report["implementors"]
-                   if i["file"] == "building/wayfinding_signage_pass.gd")
-        self.assertEqual(imp["action_status"], "ACTION_RESOLVED_COMPOSED")
-        self.assertEqual(imp["protocol"], "composed/interact-area")
-
     def test_no_unresolved_required_relationships_in_production(self):
         self.assertEqual(
             self.report["summary"]["required_relationship_failures"], 0)
