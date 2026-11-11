@@ -255,6 +255,49 @@ func _ready() -> void:
 		_check(_degrees(pipeline.facing_world(), axes.forward) < 25.0, "%s faces front again (%.1f degrees off her own front)" % [id, _degrees(pipeline.facing_world(), axes.forward)])
 	await _snap("04_released")
 
+	print("NPC POSE PIPELINE: a resident actor owns its own attention")
+	var resident := AnimatedResident.new()
+	resident.setup("Mina Vale", "mina_vale", "4B", _model_path("mina_vale"))
+	resident.position = Vector3(20, 0, 0)
+	_stage.add_child(resident)
+	await _frames(10)
+	var attention: Node = resident.attention
+	_check(attention != null and attention.pipeline != null, "the actor fits an attention owner and a pose pipeline to its own model")
+	if attention != null:
+		var owner_pipeline: Node = attention.pipeline
+		var resident_front: Vector3 = (owner_pipeline.get_skeleton() as Skeleton3D).global_transform.basis.orthonormalized() * (owner_pipeline.profile.forward as Vector3)
+		var side_step := Vector3.UP.cross(resident_front).normalized()
+		Engine.time_scale = 4.0
+		attention.staged_target = resident.global_position + Vector3(0, 1.5, 0) + resident_front * 12.0
+		await _frames(60)
+		_check(not attention.is_looking() and is_zero_approx(owner_pipeline.gaze_weight()), "someone twelve metres off is not attended to")
+		attention.staged_target = resident.global_position + Vector3(0, 1.55, 0) + resident_front * 1.6 + side_step * 1.2
+		var looked := 0
+		var looked_away := 0
+		var was_looking := false
+		var noticed_after := -1
+		for frame in 900:
+			await get_tree().process_frame
+			var looking: bool = attention.is_looking()
+			if looking and not was_looking:
+				looked += 1
+				if noticed_after < 0:
+					noticed_after = frame
+			if was_looking and not looking:
+				looked_away += 1
+			was_looking = looking
+		_check(looked >= 1 and noticed_after > 2, "someone who comes near is noticed after a moment, not at once (frame %d)" % noticed_after)
+		_check(looked >= 2 and looked_away >= 1, "the resident looks, looks away and looks back (%d looks, %d away)" % [looked, looked_away])
+		attention.staged_target = resident.global_position + Vector3(0, 1.5, 0) + resident_front * 12.0
+		await _frames(120)
+		_check(not attention.is_looking(), "when they leave, the resident lets them go")
+		attention.conversing = true
+		attention._begin_look()
+		await _frames(30)
+		_check(attention.is_looking(), "in conversation the resident holds the caller's eye from any distance")
+		attention.conversing = false
+		Engine.time_scale = 1.0
+
 	print("NPC POSE PIPELINE: cost")
 	for id: String in families:
 		var pipeline: Node = _actors[id].pipeline
