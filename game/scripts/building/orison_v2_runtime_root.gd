@@ -102,6 +102,7 @@ var campaign_clock: CampaignClock
 var temporal_loop: Node
 var loop_stage: Node3D
 var season_fittings: Node
+var occasion_dressing: Node3D
 var corruption_lineages: CorruptionLineageRegistry
 var watch_station_network: WatchStationNetwork
 ## Patrol station anchor -> WatchStationProp.STATIONS id, one box per floor.
@@ -1041,6 +1042,12 @@ func _compose_authorities() -> void:
 	add_child(season_fittings)
 	if not season_fittings.setup(self, temporal_loop):
 		push_error("ORISON V2 RUNTIME: season fittings found no windows")
+	# What the house hangs out for the year's occasions, shown for the date
+	# the clock reads. A prop it cannot place is an error, not a refusal.
+	occasion_dressing = preload("res://scripts/building/orison_v2_occasion_dressing.gd").mount(self, _blockout, layout, adapter)
+	if occasion_dressing == null or not occasion_dressing.errors.is_empty():
+		push_error("ORISON V2 RUNTIME: occasion dressing incomplete")
+	season_fittings.occasion = occasion_dressing
 	var installed_fire: RefCounted=adapter.root.get_meta("v2_native_fire_service")
 	fire_maintenance_counter=preload("res://scripts/building/orison_v2_fire_maintenance_counter.gd").mount(self,economy,installed_fire.stations)
 	if fire_maintenance_counter==null:

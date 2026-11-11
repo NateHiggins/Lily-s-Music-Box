@@ -1,0 +1,987 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/occasion_dressing.glb",
+  "props": [
+    {
+      "id": "flag",
+      "shadow": true,
+      "reach": 40.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Flag__Bracket_ON_cast_iron",
+          "material": "cast_iron",
+          "tint": [
+            0.3,
+            0.3,
+            0.29
+          ]
+        },
+        {
+          "mesh": "Flag__Staff_ON_oak_quartered",
+          "material": "oak_quartered",
+          "tint": [
+            0.62,
+            0.48,
+            0.34
+          ]
+        },
+        {
+          "mesh": "Flag__Stripes_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.74,
+            0.13,
+            0.12
+          ]
+        },
+        {
+          "mesh": "Flag__Field_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.96,
+            0.94,
+            0.88
+          ]
+        },
+        {
+          "mesh": "Flag__Canton_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.16,
+            0.2,
+            0.44
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bunting",
+      "shadow": true,
+      "reach": 30.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Bunting__Inner_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.16,
+            0.2,
+            0.44
+          ]
+        },
+        {
+          "mesh": "Bunting__Middle_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.96,
+            0.94,
+            0.88
+          ]
+        },
+        {
+          "mesh": "Bunting__Outer_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.74,
+            0.13,
+            0.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bunting_autumn",
+      "shadow": true,
+      "reach": 30.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Bunting__Inner_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.42,
+            0.24,
+            0.12
+          ]
+        },
+        {
+          "mesh": "Bunting__Middle_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.9,
+            0.78,
+            0.48
+          ]
+        },
+        {
+          "mesh": "Bunting__Outer_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.8,
+            0.4,
+            0.1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wreath",
+      "shadow": true,
+      "reach": 30.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Wreath__Boughs_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.34,
+            0.5,
+            0.3
+          ]
+        },
+        {
+          "mesh": "Wreath__Bow_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.74,
+            0.13,
+            0.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tree",
+      "shadow": true,
+      "reach": 30.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Tree__Pot_ON_terracotta",
+          "material": "terracotta",
+          "tint": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "mesh": "Tree__Soil_ON_soil",
+          "material": "soil",
+          "tint": [
+            0.55,
+            0.42,
+            0.32
+          ]
+        },
+        {
+          "mesh": "Tree__Boughs_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.3,
+            0.46,
+            0.28
+          ]
+        },
+        {
+          "mesh": "Tree__Chain_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.86,
+            0.26,
+            0.2
+          ]
+        },
+        {
+          "mesh": "Tree__Balls_ON_mirror_aged",
+          "material": "mirror_aged",
+          "tint": [
+            0.95,
+            0.42,
+            0.3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poppies",
+      "shadow": true,
+      "reach": 16.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Poppies__Jar_ON_milk_glass",
+          "material": "milk_glass",
+          "tint": [
+            0.86,
+            0.9,
+            0.88
+          ]
+        },
+        {
+          "mesh": "Poppies__Stems_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.22,
+            0.3,
+            0.16
+          ]
+        },
+        {
+          "mesh": "Poppies__Petals_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.86,
+            0.14,
+            0.1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poppy_pin",
+      "shadow": false,
+      "reach": 10.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "PoppyPin__Petals_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.86,
+            0.14,
+            0.1
+          ]
+        },
+        {
+          "mesh": "PoppyPin__Stem_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.22,
+            0.3,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carnations",
+      "shadow": true,
+      "reach": 16.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Carnations__Vase_ON_milk_glass",
+          "material": "milk_glass",
+          "tint": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "mesh": "Carnations__Stems_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.36,
+            0.52,
+            0.36
+          ]
+        },
+        {
+          "mesh": "Carnations__Heads_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.94,
+            0.6,
+            0.66
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lilies",
+      "shadow": true,
+      "reach": 20.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Lilies__Pot_ON_terracotta",
+          "material": "terracotta",
+          "tint": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "mesh": "Lilies__Soil_ON_soil",
+          "material": "soil",
+          "tint": [
+            0.55,
+            0.42,
+            0.32
+          ]
+        },
+        {
+          "mesh": "Lilies__Greens_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.34,
+            0.52,
+            0.3
+          ]
+        },
+        {
+          "mesh": "Lilies__Blooms_ON_paper",
+          "material": "paper",
+          "tint": [
+            1.0,
+            0.99,
+            0.95
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pumpkin",
+      "shadow": true,
+      "reach": 30.0,
+      "candle": [
+        0.0,
+        0.069,
+        0.0
+      ],
+      "parts": [
+        {
+          "mesh": "Pumpkin__Shell_ON_terracotta",
+          "material": "terracotta",
+          "tint": [
+            1.0,
+            0.78,
+            0.24
+          ]
+        },
+        {
+          "mesh": "Pumpkin__Stalk_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.52,
+            0.5,
+            0.3
+          ]
+        },
+        {
+          "mesh": "Pumpkin__Candle_ON_milk_glass",
+          "material": "milk_glass",
+          "tint": [
+            0.96,
+            0.9,
+            0.72
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cutout_pumpkins",
+      "shadow": false,
+      "reach": 14.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Cutouts__Pumpkins_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.92,
+            0.48,
+            0.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cutout_hearts",
+      "shadow": false,
+      "reach": 14.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Cutouts__Hearts_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.84,
+            0.12,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cutout_shamrocks",
+      "shadow": false,
+      "reach": 14.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Cutouts__Shamrocks_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.2,
+            0.52,
+            0.22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cutout_eggs",
+      "shadow": false,
+      "reach": 14.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Cutouts__Eggs_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.66,
+            0.8,
+            0.9
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cutout_turkeys",
+      "shadow": false,
+      "reach": 14.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Cutouts__Turkeys_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.5,
+            0.3,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crepe",
+      "shadow": false,
+      "reach": 24.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Crepe__First_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.74,
+            0.13,
+            0.12
+          ]
+        },
+        {
+          "mesh": "Crepe__Second_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.24,
+            0.52,
+            0.26
+          ]
+        }
+      ]
+    }
+  ],
+  "placements": [
+    {
+      "id": "flag_entrance_west",
+      "prop": "flag",
+      "space": "F01_STREET_APRON",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -2.5,
+        2.45,
+        -12.63
+      ],
+      "yaw": 3.141593
+    },
+    {
+      "id": "flag_entrance_east",
+      "prop": "flag",
+      "space": "F01_STREET_APRON",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.5,
+        2.45,
+        -12.63
+      ],
+      "yaw": 3.141593
+    },
+    {
+      "id": "wreath_entrance_door",
+      "prop": "wreath",
+      "space": "F01_STREET_APRON",
+      "level": "F01",
+      "rest": "leaf",
+      "host": "F01_DOOR_06",
+      "node": "F01_DOOR_06_Leaf/CenturyOakLeaf",
+      "position": [
+        0.55,
+        1.68,
+        -0.014
+      ],
+      "yaw": 3.141593
+    },
+    {
+      "id": "pumpkin_stoop",
+      "prop": "pumpkin",
+      "space": "F01_STREET_APRON",
+      "level": "F01",
+      "rest": "support",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.25,
+        0.0,
+        -12.3
+      ],
+      "yaw": 3.141593
+    },
+    {
+      "id": "bunting_lobby_door",
+      "prop": "bunting",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        0.0,
+        2.83,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "bunting_autumn_lobby_door",
+      "prop": "bunting_autumn",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        0.0,
+        2.83,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "bunting_landing",
+      "prop": "bunting",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.93,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "crepe_lobby_board",
+      "prop": "crepe",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.75,
+        2.78,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "crepe_landing",
+      "prop": "crepe",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.92,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "pumpkins_lobby_board",
+      "prop": "cutout_pumpkins",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.75,
+        2.44,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "pumpkins_landing",
+      "prop": "cutout_pumpkins",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.6,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "hearts_lobby_board",
+      "prop": "cutout_hearts",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.75,
+        2.44,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "hearts_landing",
+      "prop": "cutout_hearts",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.6,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "shamrocks_lobby_board",
+      "prop": "cutout_shamrocks",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.75,
+        2.44,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "shamrocks_landing",
+      "prop": "cutout_shamrocks",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.6,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "eggs_lobby_board",
+      "prop": "cutout_eggs",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.75,
+        2.44,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "eggs_landing",
+      "prop": "cutout_eggs",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.6,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "turkeys_lobby_board",
+      "prop": "cutout_turkeys",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.75,
+        2.44,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "turkeys_landing",
+      "prop": "cutout_turkeys",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.6,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "tree_lobby_radiator",
+      "prop": "tree",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "support",
+      "host": "",
+      "node": "",
+      "position": [
+        -5.2,
+        0.7925,
+        -6.55
+      ],
+      "yaw": 1.570796
+    },
+    {
+      "id": "poppies_lobby_radiator",
+      "prop": "poppies",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "support",
+      "host": "",
+      "node": "",
+      "position": [
+        -5.2,
+        0.7945,
+        -6.25
+      ],
+      "yaw": 1.570796
+    },
+    {
+      "id": "lilies_lobby_radiator",
+      "prop": "lilies",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "support",
+      "host": "",
+      "node": "",
+      "position": [
+        -5.2,
+        0.794,
+        -6.35
+      ],
+      "yaw": 1.570796
+    },
+    {
+      "id": "carnations_lobby_radiator",
+      "prop": "carnations",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "support",
+      "host": "",
+      "node": "",
+      "position": [
+        -5.2,
+        0.7945,
+        -6.25
+      ],
+      "yaw": 1.570796
+    },
+    {
+      "id": "poppy_lobby_board",
+      "prop": "poppy_pin",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -2.92,
+        1.95,
+        -9.18
+      ],
+      "yaw": 0.0
+    }
+  ],
+  "occasions": [
+    {
+      "id": "Armistice Day",
+      "show": [
+        "flag_entrance_west",
+        "poppies_lobby_radiator",
+        "poppy_lobby_board"
+      ]
+    },
+    {
+      "id": "Thanksgiving",
+      "show": [
+        "turkeys_lobby_board",
+        "turkeys_landing",
+        "bunting_autumn_lobby_door"
+      ]
+    },
+    {
+      "id": "Christmas",
+      "show": [
+        "wreath_entrance_door",
+        "tree_lobby_radiator",
+        "crepe_lobby_board",
+        "crepe_landing"
+      ]
+    },
+    {
+      "id": "New Year's Day",
+      "show": [
+        "tree_lobby_radiator",
+        "crepe_lobby_board",
+        "crepe_landing"
+      ]
+    },
+    {
+      "id": "Lincoln's Birthday",
+      "show": [
+        "flag_entrance_west"
+      ]
+    },
+    {
+      "id": "St. Valentine's Day",
+      "show": [
+        "hearts_lobby_board",
+        "hearts_landing"
+      ]
+    },
+    {
+      "id": "Washington's Birthday",
+      "show": [
+        "flag_entrance_west"
+      ]
+    },
+    {
+      "id": "St. Patrick's Day",
+      "show": [
+        "shamrocks_lobby_board",
+        "shamrocks_landing"
+      ]
+    },
+    {
+      "id": "Easter",
+      "show": [
+        "lilies_lobby_radiator",
+        "eggs_lobby_board",
+        "eggs_landing"
+      ]
+    },
+    {
+      "id": "Mother's Day",
+      "show": [
+        "carnations_lobby_radiator"
+      ]
+    },
+    {
+      "id": "Decoration Day",
+      "show": [
+        "flag_entrance_west",
+        "flag_entrance_east",
+        "bunting_lobby_door",
+        "bunting_landing",
+        "poppies_lobby_radiator"
+      ]
+    },
+    {
+      "id": "Flag Day",
+      "show": [
+        "flag_entrance_west",
+        "flag_entrance_east"
+      ]
+    },
+    {
+      "id": "Independence Day",
+      "show": [
+        "flag_entrance_west",
+        "flag_entrance_east",
+        "bunting_lobby_door",
+        "bunting_landing"
+      ]
+    },
+    {
+      "id": "Labor Day",
+      "show": [
+        "flag_entrance_west"
+      ]
+    },
+    {
+      "id": "Columbus Day",
+      "show": [
+        "flag_entrance_west"
+      ]
+    },
+    {
+      "id": "Hallowe'en",
+      "show": [
+        "pumpkin_stoop",
+        "pumpkins_lobby_board",
+        "pumpkins_landing"
+      ]
+    },
+    {
+      "id": "Election Day",
+      "show": [
+        "flag_entrance_west"
+      ]
+    }
+  ]
+}
