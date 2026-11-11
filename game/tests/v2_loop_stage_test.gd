@@ -215,7 +215,7 @@ func _ready() -> void:
 	var early_piles := 0
 	for pile: Node3D in stage.piles:
 		early_piles += 1 if pile.visible else 0
-	_check(early_piles >= 1 and early_piles <= 4, "and the first newspapers have been kept (%d piles)" % early_piles)
+	_check(early_piles >= 1 and early_piles <= 8, "and the first newspapers have been kept (%d piles)" % early_piles)
 	var inside := true
 	for sheet: Node3D in stage.papers:
 		inside = inside and world.unit_at_world(sheet.global_position) == "4B"

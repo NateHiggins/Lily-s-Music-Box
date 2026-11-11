@@ -20,6 +20,8 @@ const STRING_RED := Color(0.6, 0.04, 0.05)
 const STRING_WIDTH := 0.005
 const SURVEY_RAYS := 700
 const MAX_STRANDS := 70
+const MAX_SHEETS := 650
+const MAX_PILES := 60
 ## A stack of paper already in 4B, copied for the gathered newspapers.
 const BUNDLE_SOURCE := "4B_slip_stack"
 ## Things standing in 4B's rooms, to look out from when finding where paper can go.
@@ -533,7 +535,7 @@ func _survey() -> void:
 			cells[cell] = true
 			found.append({"position": where, "normal": (hit.normal as Vector3).normalized(), "far": where.distance_to(_wall_frame.origin)})
 	found.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return float(a.far) < float(b.far))
-	spots = found
+	spots = _thinned(found, MAX_SHEETS)
 	# Piles: straight down from a little out from each papered place.
 	var piles: Array[Dictionary] = []
 	var pile_cells := {}
@@ -547,12 +549,23 @@ func _survey() -> void:
 			continue
 		pile_cells[cell] = true
 		piles.append({"position": hit.position, "far": float(spot.far)})
-	pile_spots = piles
+	pile_spots = _thinned(piles, MAX_PILES)
 	# The web's anchors: papered places above head height.
 	for spot: Dictionary in spots:
 		if (spot.position as Vector3).y > floor_y + 1.85:
 			high_spots.append(spot)
 	_grow()
+
+
+## At most `limit` of the places found, taken evenly so they still reach the
+## far rooms, and still nearest the board first.
+func _thinned(found: Array[Dictionary], limit: int) -> Array[Dictionary]:
+	if found.size() <= limit:
+		return found
+	var kept: Array[Dictionary] = []
+	for index in limit:
+		kept.append(found[index * found.size() / limit])
+	return kept
 
 
 ## Everything up to the case's present spread, nearest the board first.
@@ -562,7 +575,7 @@ func _grow() -> void:
 	var share: float = loop.spread_fraction()
 	var scrawls: Array = loop.table.scrawls
 	# Paper on the walls and furniture.
-	var count: int = int(ceil(float(spots.size()) * pow(share, 1.25)))
+	var count: int = int(ceil(float(spots.size()) * pow(share, 1.5)))
 	while papers.size() < count:
 		var index := papers.size()
 		var spot: Dictionary = spots[index]
