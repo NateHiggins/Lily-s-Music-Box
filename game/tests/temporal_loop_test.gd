@@ -310,9 +310,9 @@ func _ready() -> void:
 			print("  failed at: ", anchor_id, " ", went, got, home, put)
 			break
 	check(walked, "every lead opens from the wall in turn and gives up its evidence")
-	check(loop.on_wall().size() == 11 and loop.unlocked().size() == 11 and loop.ledger().deductions.size() == 5 and loop.strings().size() == 7,
-			"eleven pieces on the wall, seven strings, five deductions (%d, %d, %d)" % [loop.on_wall().size(), loop.strings().size(), loop.ledger().deductions.size()])
-	check(loop.spread() == 11 * 5 + 7 * 6 + 5 * 12, "the finished case is at its full spread (%d)" % loop.spread())
+	check(loop.on_wall().size() == 11 and loop.unlocked().size() == 11 and loop.ledger().deductions.size() == 5 and loop.strings().size() == 6,
+			"eleven pieces on the wall, six strings, five deductions (%d, %d, %d)" % [loop.on_wall().size(), loop.strings().size(), loop.ledger().deductions.size()])
+	check(loop.spread() == 11 * 5 + 6 * 6 + 5 * 12, "the finished case is at its full spread (%d)" % loop.spread())
 	check("the_case" in loop.ledger().deductions, "the last deduction is the case")
 	check(str(loop.home_hint()).contains("Read the wall"), "the companion has nothing left to send the player to")
 
