@@ -14,9 +14,15 @@ const PAPER_SOURCE := "4B_wake_slip"
 const ROOM_REFERENCE := "4B_meal_table"
 const INK := Color(0.09, 0.08, 0.07)
 const TAKE_REACH := 0.12
-const PIN_REACH := 0.3
-const WALL_COLUMNS := 4
-const WALL_PITCH := Vector2(0.27, 0.2)
+const PIN_REACH := 0.25
+## The case wall already carries three rows of eight blank slips. Evidence is
+## written onto them in order. These are the slips' places as fractions of
+## the board, measured from a capture of the V2 board.
+const WALL_COLUMNS := 8
+const WALL_ROWS := 3
+const SLIP_FIRST := Vector2(0.072, 0.09)
+const SLIP_PITCH := Vector2(0.1197, 0.1325)
+const SLIP_WORDS_WIDTH := 0.1
 
 var world: Node3D
 var loop: Node
@@ -34,6 +40,10 @@ var tucked_grip: Node
 var _paper: Node3D
 var _poll := 0.0
 var _wall_frame := Transform3D()
+var _wall_size := Vector2.ONE
+## Turns the copied slip from however it lies in 4B to flat, long side along X,
+## face along Z.
+var _paper_square := Basis()
 
 
 func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
@@ -52,6 +62,8 @@ func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
 			if str(step.kind) == "shift":
 				_grip_for(str(step.object), step)
 		_card_for(anchor_id)
+	if _paper != null:
+		_square_paper()
 	if wall != null and _paper != null:
 		_frame_wall()
 		_tuck()
@@ -120,12 +132,35 @@ func _copy_paper() -> Node3D:
 	return sheet
 
 
-func _words(text: String, facing: Basis) -> Label3D:
+## The slip's own long, short and thin directions, so a copy can be laid or
+## hung square whatever way the original happens to lie.
+func _square_paper() -> void:
+	var box := AABB()
+	var first := true
+	for draw: MeshInstance3D in _paper.find_children("*", "MeshInstance3D", true, false) + ([_paper] if _paper is MeshInstance3D else []):
+		var part_box := (_paper.global_transform.affine_inverse() * draw.global_transform) * draw.get_aabb()
+		box = part_box if first else box.merge(part_box)
+		first = false
+	var axes: Array[Vector3] = [Vector3.RIGHT, Vector3.UP, Vector3.BACK]
+	var sizes: Array[float] = [box.size.x, box.size.y, box.size.z]
+	var thin := 0
+	var long := 0
+	for index in 3:
+		if sizes[index] < sizes[thin]: thin = index
+		if sizes[index] > sizes[long]: long = index
+	if thin == long:
+		return
+	var local := Basis(axes[long], axes[thin].cross(axes[long]), axes[thin])
+	_paper_square = local.inverse()
+	set_meta("paper_size", Vector2(sizes[long], sizes[3 - thin - long]))
+
+
+func _words(text: String, facing: Basis, width_m := 0.16) -> Label3D:
 	var label := Label3D.new()
 	label.text = text
 	label.font = FONT
 	label.font_size = 40
-	label.pixel_size = 0.00042
+	label.pixel_size = width_m / 380.0
 	label.modulate = INK
 	label.outline_size = 0
 	label.width = 380.0
@@ -150,7 +185,7 @@ func _card_for(anchor_id: String) -> void:
 	card.name = "LoopClue_" + str(clue.id)
 	add_child(card)
 	var offset: Array = clue.get("rest_offset", [0.0, 0.0, 0.0])
-	card.global_transform = Transform3D(_paper.global_transform.basis.orthonormalized(),
+	card.global_transform = Transform3D(Basis(Vector3.RIGHT, Vector3.FORWARD, Vector3.UP) * _paper_square,
 			rest.global_position + Vector3(float(offset[0]), float(offset[1]), float(offset[2])))
 	var label := _words(str(clue.title).to_upper(), Basis())
 	card.add_child(label)
@@ -200,20 +235,24 @@ func _frame_wall() -> void:
 	var across := Vector3.UP.cross(out).normalized()
 	var depth := (box.size.x if out.abs() == Vector3.RIGHT else box.size.z) * 0.5
 	_wall_frame = Transform3D(Basis(across, Vector3.UP, out), box.get_center() + out * (depth + 0.006))
-	set_meta("wall_extent", Vector2(box.size.z if out.abs() == Vector3.RIGHT else box.size.x, box.size.y))
+	_wall_size = Vector2(box.size.z if out.abs() == Vector3.RIGHT else box.size.x, box.size.y)
 
 
+## The place of the board's blank slip number `slot`, reading left to right
+## and top to bottom.
 func slot_position(slot: int) -> Vector3:
 	var column := slot % WALL_COLUMNS
-	var row := slot / WALL_COLUMNS
-	return _wall_frame * Vector3((float(column) - float(WALL_COLUMNS - 1) * 0.5) * WALL_PITCH.x,
-			0.3 - float(row) * WALL_PITCH.y, 0.0)
+	var row := mini(slot / WALL_COLUMNS, WALL_ROWS - 1)
+	return _wall_frame * Vector3((-0.5 + SLIP_FIRST.x + SLIP_PITCH.x * float(column)) * _wall_size.x,
+			(0.5 - SLIP_FIRST.y - SLIP_PITCH.y * float(row)) * _wall_size.y, 0.0)
+
+
+func _foot() -> Vector3:
+	return _wall_frame * Vector3(0.0, -_wall_size.y * 0.22, 0.0)
 
 
 func _hang(card: Node3D, at: Vector3, text: String) -> void:
-	# The slip lies flat where it was copied from; stand it up against the wall.
-	var stand := Basis(Quaternion(Vector3.UP, _wall_frame.basis.z))
-	card.global_transform = Transform3D(stand * _paper.global_transform.basis.orthonormalized(), at)
+	card.global_transform = Transform3D(_wall_frame.basis * _paper_square, at)
 	for old: Node in card.find_children("*", "Label3D", true, false):
 		old.free()
 	var label := _words(text, Basis())
@@ -229,7 +268,7 @@ func _tuck() -> void:
 	tucked_grip = Grip.new()
 	tucked_grip.name = "Pin"
 	tucked.add_child(tucked_grip)
-	_hang(tucked, _wall_frame * Vector3(0.0, -0.45, 0.0), "")
+	_hang(tucked, _foot(), "")
 	tucked_grip.configure(tucked, Vector3.UP, PIN_REACH)
 	tucked_grip.live = func() -> bool: return not loop.in_visit() and not loop.carried().is_empty()
 	tucked_grip.carried = _pinned
@@ -268,16 +307,17 @@ func _sync() -> void:
 	var show: bool = not loop.in_visit() and not waiting.is_empty()
 	if show:
 		tucked_grip.put_back()
-		_hang(tucked, _wall_frame * Vector3(0.0, -0.45, 0.0), str(loop.item_text(waiting[0]).title).to_upper())
+		_hang(tucked, _foot(), str(loop.item_text(waiting[0]).title).to_upper())
 	tucked.visible = show
 	for item_id: String in loop.on_wall():
 		if wall_cards.has(item_id):
 			continue
-		var pinned := _copy_paper()
+		# Written on the board's own blank slip.
+		var pinned := _words(str(loop.item_text(item_id).title).to_upper(), Basis(), SLIP_WORDS_WIDTH)
 		pinned.name = "LoopPinned_" + item_id
 		add_child(pinned)
-		_hang(pinned, slot_position(int(loop.ledger().items[item_id].get("slot", wall_cards.size()))),
-				str(loop.item_text(item_id).title).to_upper())
+		pinned.global_transform = Transform3D(_wall_frame.basis,
+				slot_position(int(loop.ledger().items[item_id].get("slot", wall_cards.size()))) + _wall_frame.basis.z * 0.003)
 		wall_cards[item_id] = pinned
 	for item_id: String in wall_cards.keys():
 		if not loop.pinned(item_id):

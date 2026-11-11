@@ -108,7 +108,7 @@ func _ready() -> void:
 					"%s: %s has something to take hold of" % [anchor_id, str(step.object)])
 		_check(stage.cards.has(str(anchor.clue.id)) and not (stage.cards[str(anchor.clue.id)] as Node3D).visible,
 				"%s: its evidence is staged and out of sight" % anchor_id)
-	_check(objects == 31, "thirty-one lifts across the eleven leads (%d)" % objects)
+	_check(objects == 30 and stage.grips.size() == 29, "thirty lifts across the eleven leads, on twenty-nine objects (%d, %d)" % [objects, stage.grips.size()])
 	_check(stage.wall != null and world.unit_at_world(stage.wall.global_position) == "4B", "the case wall is in 4B")
 	_check(stage.tucked != null and not stage.tucked.visible and stage.wall_cards.is_empty(), "the wall is bare and nothing waits to be pinned")
 
@@ -133,8 +133,9 @@ func _ready() -> void:
 	var slip: Node3D = stage.cards["order_slip"]
 	var went: Dictionary = loop.jump("tea")
 	_check(went.ok, "the jump to the tea")
-	_check(tray.grip().is_empty(), "the tray cannot be lifted before the player is in 6C")
 	var tray_rest: Vector3 = tray.part.global_position
+	_check(_carry(tray) and loop.steps_done() == 0 and tray.part.visible and tray.part.global_position.distance_to(tray_rest) < 0.002,
+			"lifted before the player has arrived in 6C, the tray goes straight back and nothing happens")
 	_feet = Vector3(tray_rest.x, floorf((tray_rest.y + 0.05) / 3.2) * 3.2, tray_rest.z) + Vector3(0.9, 0.0, 0.5)
 	_look = tray_rest
 	_pinned = true
@@ -178,7 +179,9 @@ func _ready() -> void:
 	_check(_carry(stage.tucked_grip), "the hand slides it up the wall")
 	await _frames(5)
 	_check(loop.pinned("order_slip") and stage.wall_cards.has("order_slip") and not stage.tucked.visible, "it is pinned and nothing waits")
-	_check((stage.wall_cards["order_slip"] as Node3D).global_position.distance_to(stage.slot_position(0)) < 0.01, "in the wall's first place")
+	_check((stage.wall_cards["order_slip"] as Node3D).global_position.distance_to(stage.slot_position(0)) < 0.01, "written on the wall's first slip")
+	_check(absf(stage._wall_frame.basis.z.dot((stage.tucked.global_transform.basis * stage._paper_square.inverse()).z) - 1.0) < 0.001,
+			"the carried slip hangs square to the wall")
 	_check("friday" in loop.unlocked() and "stairs" in loop.unlocked(), "the wall has opened two leads")
 	await _snap("wall_pinned")
 	_pinned = false
