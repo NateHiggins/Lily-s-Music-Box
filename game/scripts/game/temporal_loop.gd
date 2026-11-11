@@ -115,19 +115,27 @@ static func _load_table() -> Dictionary:
 							or float(step.get("reach", 0.0)) <= 0.0: return {}
 				"flag":
 					if str(step.get("flag", "")).is_empty(): return {}
-	# The tree: every need is some other anchor's clue, and tiers only climb.
-	for anchor_id: String in parsed.anchors:
-		for need: Variant in parsed.anchors[anchor_id].needs:
-			if not clues.has(str(need)) or str(clues[str(need)]) == anchor_id \
-					or int(parsed.anchors[str(clues[str(need)])].tier) >= int(parsed.anchors[anchor_id].tier):
-				return {}
-	for deduction_id: String in parsed.get("deductions", {}):
+	if parsed.get("deductions") is not Dictionary or parsed.get("scrawls") is not Array:
+		return {}
+	for deduction_id: String in parsed.deductions:
 		var deduction: Dictionary = parsed.deductions[deduction_id]
-		if deduction.get("needs") is not Array or str(deduction.get("line", "")).is_empty():
+		if deduction.get("needs") is not Array or (deduction.needs as Array).size() < 2 \
+				or str(deduction.get("line", "")).is_empty() or clues.has(deduction_id):
 			return {}
 		for need: Variant in deduction.needs:
 			if not clues.has(str(need)):
 				return {}
+	# The tree: a lead needs evidence pinned or a deduction drawn, always from
+	# rooms of a lower tier, so the tiers only climb.
+	for anchor_id: String in parsed.anchors:
+		for need: Variant in parsed.anchors[anchor_id].needs:
+			var pieces: Array = [need]
+			if parsed.deductions.has(str(need)):
+				pieces = parsed.deductions[str(need)].needs
+			for piece: Variant in pieces:
+				if not clues.has(str(piece)) or str(clues[str(piece)]) == anchor_id \
+						or int(parsed.anchors[str(clues[str(piece)])].tier) >= int(parsed.anchors[anchor_id].tier):
+					return {}
 	parsed["clue_anchor"] = clues
 	return parsed
 
@@ -153,7 +161,7 @@ func ledger() -> Dictionary:
 	var value: Variant = RealityState.data.get(KEY)
 	if value is not Dictionary or int(value.get("version", 0)) != 2:
 		value = {"version": 2, "state": "CHOOSE_NEXT_ACTION", "bank_cents": 0,
-				"transactions": {}, "anchors": {}, "items": {}, "deductions": [],
+				"transactions": {}, "anchors": {}, "items": {}, "deductions": [], "strings": [],
 				"visit": {}, "selected": ""}
 		RealityState.data[KEY] = value
 	return value
@@ -165,8 +173,11 @@ static func valid(value: Variant) -> bool:
 	for field: String in ["transactions", "anchors", "visit", "items"]:
 		if value.get(field) is not Dictionary:
 			return false
-	if value.get("deductions") is not Array:
+	if value.get("deductions") is not Array or value.get("strings") is not Array:
 		return false
+	for string: Variant in value.strings:
+		if string is not Array or (string as Array).size() != 2:
+			return false
 	for item: Variant in (value.items as Dictionary).values():
 		if item is not Dictionary or item.get("pinned") is not bool:
 			return false
@@ -247,16 +258,111 @@ func item_text(item_id: String) -> Dictionary:
 	return clue_of(str(table.clue_anchor[item_id]))
 
 
-## A lead is open when everything it needs is pinned to the wall.
+## A lead is open when everything it needs is on the wall: a piece of
+## evidence pinned, or a deduction drawn by joining pieces with string.
 func unlocked() -> Array[String]:
 	var ids: Array[String] = []
 	for anchor_id: String in table.anchors:
 		var open := true
 		for need: Variant in table.anchors[anchor_id].needs:
-			open = open and pinned(str(need))
+			open = open and (pinned(str(need)) or str(need) in ledger().deductions)
 		if open:
 			ids.append(anchor_id)
 	return ids
+
+
+# --- Making sense of it: string between the pieces ------------------------------
+
+func strings() -> Array:
+	return ledger().strings
+
+
+func joined(a: String, b: String) -> bool:
+	for string: Array in strings():
+		if (str(string[0]) == a and str(string[1]) == b) or (str(string[0]) == b and str(string[1]) == a):
+			return true
+	return false
+
+
+## True when two pieces belong to one deduction: a string between them holds.
+func belong(a: String, b: String) -> bool:
+	for deduction_id: String in table.deductions:
+		var needs: Array = table.deductions[deduction_id].needs
+		if a in needs and b in needs:
+			return true
+	return false
+
+
+func _strung_together(pieces: Array) -> bool:
+	var reached: Array[String] = [str(pieces[0])]
+	var grew := true
+	while grew:
+		grew = false
+		for string: Array in strings():
+			for way in 2:
+				var near := str(string[way])
+				var far := str(string[1 - way])
+				if near in reached and far not in reached and far in pieces:
+					reached.append(far)
+					grew = true
+	return reached.size() == pieces.size()
+
+
+## A deduction the wall could draw now: its pieces are all pinned but not yet
+## all joined. {} when there is none.
+func open_deduction() -> Dictionary:
+	for deduction_id: String in table.deductions:
+		if deduction_id in ledger().deductions:
+			continue
+		var ready := true
+		for need: Variant in table.deductions[deduction_id].needs:
+			ready = ready and pinned(str(need))
+		if ready:
+			return {"id": deduction_id, "needs": table.deductions[deduction_id].needs}
+	return {}
+
+
+## Run a string from one pinned piece to another. Home only. A string between
+## two pieces that belong together holds; any other falls away. When every
+## piece of a deduction is strung together, the deduction is drawn and may
+## open leads.
+func link(a: String, b: String) -> Dictionary:
+	if in_visit():
+		return {"ok": false, "code": "away"}
+	if a == b or not pinned(a) or not pinned(b):
+		return {"ok": false, "code": "not_pinned"}
+	if joined(a, b):
+		return {"ok": false, "code": "joined"}
+	var book := ledger()
+	book["tries"] = int(book.get("tries", 0)) + 1
+	if not belong(a, b):
+		RealityState.commit_background()
+		return {"ok": true, "held": false, "deductions": [], "opened": []}
+	var before := unlocked()
+	(book.strings as Array).append([a, b])
+	var drawn: Array[String] = []
+	for deduction_id: String in table.deductions:
+		if deduction_id in book.deductions:
+			continue
+		var needs: Array = table.deductions[deduction_id].needs
+		var ready := true
+		for need: Variant in needs:
+			ready = ready and pinned(str(need))
+		if ready and _strung_together(needs):
+			book.deductions.append(deduction_id)
+			drawn.append(deduction_id)
+	var opened: Array[String] = []
+	for anchor_id: String in unlocked():
+		if anchor_id not in before:
+			opened.append(anchor_id)
+	RealityState.commit()
+	changed.emit()
+	return {"ok": true, "held": true, "deductions": drawn, "opened": opened}
+
+
+## How far the case has grown over the flat: the wall spreads with it.
+func spread() -> int:
+	return on_wall().size() * 5 + strings().size() * 6 + (ledger().deductions as Array).size() * 12
 
 
 func answered(anchor_id: String) -> bool:
@@ -280,19 +386,9 @@ func pin_next() -> Dictionary:
 	for anchor_id: String in unlocked():
 		if anchor_id not in before:
 			opened.append(anchor_id)
-	var drawn: Array[String] = []
-	for deduction_id: String in table.get("deductions", {}):
-		if deduction_id in book.deductions:
-			continue
-		var complete := true
-		for need: Variant in table.deductions[deduction_id].needs:
-			complete = complete and pinned(str(need))
-		if complete:
-			book.deductions.append(deduction_id)
-			drawn.append(deduction_id)
 	RealityState.commit()
 	changed.emit()
-	return {"ok": true, "item": item_id, "opened": opened, "deductions": drawn}
+	return {"ok": true, "item": item_id, "opened": opened}
 
 
 # --- The room's steps ----------------------------------------------------------
@@ -660,6 +756,12 @@ func visit_hint() -> String:
 func home_hint() -> String:
 	if not carried().is_empty():
 		return "You are carrying %s. Pin it to the case wall in 4B. The wall decides what opens." % str(item_text(carried()[0]).title)
+	var loose := open_deduction()
+	if not loose.is_empty():
+		var tries := int(ledger().get("tries", 0))
+		if tries < 3:
+			return "Something on the wall wants joining. Pull the pin of one piece, then the pin of another, and see if the string holds."
+		return "Try a string from %s to %s." % [str(item_text(str(loose.needs[0])).title), str(item_text(str(loose.needs[1])).title)]
 	var index := 0
 	var cheapest := -1
 	for anchor_id: String in unlocked():
@@ -766,6 +868,8 @@ func wall_text() -> String:
 		lines.append("- %s" % str(item_text(item_id).title).to_upper())
 	for item_id: String in carried():
 		lines.append("  (carried) %s" % str(item_text(item_id).title))
+	for string: Array in strings():
+		lines.append("  ~ %s to %s" % [str(item_text(str(string[0])).title), str(item_text(str(string[1])).title)])
 	for deduction_id: Variant in ledger().deductions:
 		lines.append("* %s" % str(table.deductions[str(deduction_id)].line))
 	if lines.size() == 1:

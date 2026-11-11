@@ -40,6 +40,16 @@ func tick() -> void:
 	loop._process(0.1)
 
 
+## Run string between the pieces of every deduction the wall could draw now.
+func join_all() -> void:
+	for guard in 6:
+		var loose: Dictionary = loop.open_deduction()
+		if loose.is_empty():
+			return
+		for index in range(1, (loose.needs as Array).size()):
+			loop.link(str(loose.needs[index - 1]), str(loose.needs[index]))
+
+
 ## Do what the hand would do for every remaining step of the room, in order.
 func work_room() -> void:
 	for guard in 12:
@@ -258,8 +268,18 @@ func _ready() -> void:
 	went = loop.jump("stairs")
 	check(not went.ok and str(went.code) == "fare" and not loop.in_visit() and RealityState.data.campaign_clock == before
 			and loop.bank_cents() == 21, "a fare the bank cannot meet moves nothing")
-	check(loop.pin_next().ok and "notebook" in loop.unlocked(), "the route leaf pinned opens the writer upstairs")
-	check("she_asked_first" in loop.ledger().deductions, "two pieces on the wall draw the first deduction")
+	# Making sense of it: string between the pieces.
+	var spread_before: int = loop.spread()
+	check(loop.pin_next().ok and "notebook" not in loop.unlocked() and (loop.ledger().deductions as Array).is_empty(),
+			"the route leaf pinned opens nothing by itself: the two pieces have to be joined")
+	check(str(loop.home_hint()).contains("wants joining"), "the companion says something wants joining")
+	check(not loop.link("order_slip", "order_slip").ok and not loop.link("order_slip", "nurse_note").ok,
+			"a string needs two different pieces, both on the wall")
+	var string: Dictionary = loop.link("order_slip", "route_leaf")
+	check(string.ok and string.held and string.deductions == (["she_asked_first"] as Array[String]) and "notebook" in string.opened,
+			"the string from the order slip to the route leaf holds, draws the first deduction and opens the writer upstairs")
+	check(not loop.link("route_leaf", "order_slip").ok and loop.strings().size() == 1, "the same two pieces cannot be strung twice")
+	check(loop.spread() > spread_before, "the case has spread")
 
 	# The rest of the tree, walked. The bank is filled directly: fares are proved above.
 	loop.ledger().bank_cents = 5000
@@ -275,13 +295,24 @@ func _ready() -> void:
 		var got: Dictionary = loop.take_clue()
 		var home: Dictionary = loop.go_home()
 		var put: Dictionary = loop.pin_next()
+		if anchor_id == "stairs":
+			var wrong: Dictionary = loop.link("order_slip", "nurse_note")
+			check(wrong.ok and not wrong.held and loop.strings().size() == 1, "a string between two pieces that do not belong falls away")
+		if anchor_id == "drain":
+			var first: Dictionary = loop.link("nurse_note", "glove_scrap")
+			check(first.held and (first.deductions as Array).is_empty() and "bench" not in loop.unlocked(),
+					"a deduction of three pieces is not drawn by its first string")
+			var second: Dictionary = loop.link("glove_scrap", "button_leaf")
+			check(second.held and "the_glove" in second.deductions and "bench" in second.opened, "the second string draws it and opens the bench")
+		join_all()
 		walked = walked and went.ok and got.ok and home.ok and put.ok and not CampaignClock.in_blackout(clock.calendar_minutes())
 		if not walked:
 			print("  failed at: ", anchor_id, " ", went, got, home, put)
 			break
 	check(walked, "every lead opens from the wall in turn and gives up its evidence")
-	check(loop.on_wall().size() == 11 and loop.unlocked().size() == 11 and loop.ledger().deductions.size() == 5,
-			"eleven pieces on the wall, five deductions (%d, %d)" % [loop.on_wall().size(), loop.ledger().deductions.size()])
+	check(loop.on_wall().size() == 11 and loop.unlocked().size() == 11 and loop.ledger().deductions.size() == 5 and loop.strings().size() == 7,
+			"eleven pieces on the wall, seven strings, five deductions (%d, %d, %d)" % [loop.on_wall().size(), loop.strings().size(), loop.ledger().deductions.size()])
+	check(loop.spread() == 11 * 5 + 7 * 6 + 5 * 12, "the finished case is at its full spread (%d)" % loop.spread())
 	check("the_case" in loop.ledger().deductions, "the last deduction is the case")
 	check(str(loop.home_hint()).contains("Read the wall"), "the companion has nothing left to send the player to")
 

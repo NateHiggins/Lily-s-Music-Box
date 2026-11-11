@@ -179,11 +179,71 @@ func _ready() -> void:
 	_check(_carry(stage.tucked_grip), "the hand slides it up the wall")
 	await _frames(5)
 	_check(loop.pinned("order_slip") and stage.wall_cards.has("order_slip") and not stage.tucked.visible, "it is pinned and nothing waits")
-	_check((stage.wall_cards["order_slip"] as Node3D).global_position.distance_to(stage.slot_position(0)) < 0.01, "written on the wall's first slip")
+	_check((stage.wall_cards["order_slip"] as Node3D).global_position.distance_to(stage.slot_position(0)) < 0.12, "over the wall's first slip")
 	_check(absf(stage._wall_frame.basis.z.dot((stage.tucked.global_transform.basis * stage._paper_square.inverse()).z) - 1.0) < 0.001,
 			"the carried slip hangs square to the wall")
 	_check("friday" in loop.unlocked() and "stairs" in loop.unlocked(), "the wall has opened two leads")
 	await _snap("wall_pinned")
+
+	# Making sense of it. Two more pieces come home (given directly; their rooms are the engine test's).
+	for item_id: String in ["route_leaf", "nurse_note"]:
+		loop.ledger().items[item_id] = {"pinned": false, "anchor": str(loop.table.clue_anchor[item_id]), "run": 1}
+		loop.changed.emit()
+		await _frames(3)
+		_check(stage.tucked.visible and _carry(stage.tucked_grip), "%s is pinned by hand" % item_id)
+		await _frames(3)
+	_check(stage.wall_cards.size() == 3 and loop.strings().is_empty() and "notebook" not in loop.unlocked(),
+			"three pieces on the wall, nothing joined, and the writer upstairs still shut")
+	var pull_order: Node = (stage.wall_cards["order_slip"] as Node3D).get_meta("grip")
+	var pull_nurse: Node = (stage.wall_cards["nurse_note"] as Node3D).get_meta("grip")
+	var pull_route: Node = (stage.wall_cards["route_leaf"] as Node3D).get_meta("grip")
+	_check(_carry(pull_order) and stage.string_from == "order_slip" and stage.loose_end != null, "the order slip's pin pulled: a loose red end hangs from it")
+	await _snap("wall_loose_end")
+	_check(_carry(pull_nurse) and stage.string_from == "" and stage.string_nodes.is_empty() and loop.strings().is_empty(),
+			"run to the nurse's note, the string falls: those two do not belong")
+	_check(_carry(pull_order) and _carry(pull_order) and stage.string_from == "" and stage.loose_end == null, "pulled twice, the string is put down again")
+	_check(_carry(pull_order) and _carry(pull_route), "from the order slip to the route leaf")
+	await _frames(3)
+	_check(stage.string_nodes.size() == 1 and stage.deduction_cards.has("she_asked_first") and "notebook" in loop.unlocked(),
+			"it holds: a red string, the deduction written under it, and the writer upstairs open")
+	await _frames(20)
+	_check(stage.surveyed and stage.spots.size() >= 60, "the flat has been surveyed for paper (%d places)" % stage.spots.size())
+	_check(stage.papers.size() == mini(loop.spread(), stage.spots.size()) and stage.papers.size() >= 20,
+			"the wall has begun to spread (%d sheets for a spread of %d)" % [stage.papers.size(), loop.spread()])
+	var inside := true
+	for sheet: Node3D in stage.papers:
+		inside = inside and world.unit_at_world(sheet.global_position) == "4B"
+	_check(inside, "every sheet is in 4B")
+	await _snap("wall_first_string")
+
+	# Review only: the whole case on the wall, to look at the flat taken over.
+	if not OS.get_environment("SHOT_DIR").is_empty() and DisplayServer.get_name() != "headless":
+		var slot := 3
+		for anchor_id: String in loop.table.anchors:
+			var item_id := str(loop.table.anchors[anchor_id].clue.id)
+			if not loop.holds(item_id):
+				loop.ledger().items[item_id] = {"pinned": true, "anchor": anchor_id, "run": 1, "slot": slot}
+				slot += 1
+		for deduction_id: String in loop.table.deductions:
+			var needs: Array = loop.table.deductions[deduction_id].needs
+			for index in range(1, needs.size()):
+				if not loop.joined(str(needs[index - 1]), str(needs[index])):
+					loop.strings().append([str(needs[index - 1]), str(needs[index])])
+			if deduction_id not in loop.ledger().deductions:
+				loop.ledger().deductions.append(deduction_id)
+		loop.changed.emit()
+		await _frames(10)
+		await _snap("wall_whole_case")
+		var centre: Vector3 = stage._wall_frame.origin + out * 1.6
+		_feet = Vector3(centre.x, _feet.y, centre.z) + out * 1.2
+		_look = stage._wall_frame.origin
+		await _snap("flat_from_back")
+		_look = _feet + stage._wall_frame.basis.x * 2.0 + Vector3.UP * 1.4
+		await _snap("flat_side_a")
+		_look = _feet - stage._wall_frame.basis.x * 2.0 + Vector3.UP * 1.4
+		await _snap("flat_side_b")
+		_look = _feet + out * 2.0 + Vector3.UP * 1.4
+		await _snap("flat_behind")
 	_pinned = false
 	_finish()
 

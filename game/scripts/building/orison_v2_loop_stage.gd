@@ -15,6 +15,10 @@ const ROOM_REFERENCE := "4B_meal_table"
 const INK := Color(0.09, 0.08, 0.07)
 const TAKE_REACH := 0.12
 const PIN_REACH := 0.25
+const PULL_REACH := 0.05
+const STRING_RED := Color(0.6, 0.04, 0.05)
+const STRING_WIDTH := 0.005
+const SURVEY_RAYS := 900
 ## The case wall already carries three rows of eight blank slips. Evidence is
 ## written onto them in order. These are the slips' places as fractions of
 ## the board, measured from a capture of the V2 board.
@@ -41,6 +45,16 @@ var _paper: Node3D
 var _poll := 0.0
 var _wall_frame := Transform3D()
 var _wall_size := Vector2.ONE
+var _paper_centre := Vector3.ZERO
+## The piece the string has been taken from and not yet run anywhere.
+var string_from := ""
+var string_nodes: Dictionary = {}
+var loose_end: Node3D
+var deduction_cards: Dictionary = {}
+## Where paper can go in 4B, nearest the board first, and the paper there.
+var spots: Array[Dictionary] = []
+var papers: Array[Node3D] = []
+var surveyed := false
 ## Turns the copied slip from however it lies in 4B to flat, long side along X,
 ## face along Z.
 var _paper_square := Basis()
@@ -152,6 +166,7 @@ func _square_paper() -> void:
 		return
 	var local := Basis(axes[long], axes[thin].cross(axes[long]), axes[thin])
 	_paper_square = local.inverse()
+	_paper_centre = _paper_square * box.get_center()
 	set_meta("paper_size", Vector2(sizes[long], sizes[3 - thin - long]))
 
 
@@ -275,6 +290,12 @@ func _tuck() -> void:
 	tucked.visible = false
 
 
+func _note(owner: Node, title: String, body: String, condition: String) -> void:
+	var player := world.get("player") as PlayerController
+	if player != null:
+		player.present_service_note(owner, {"title": title, "body": body, "condition": condition, "stamp": "THE WALL"})
+
+
 func _pinned() -> void:
 	var result: Dictionary = loop.pin_next()
 	tucked_grip.put_back()
@@ -283,13 +304,73 @@ func _pinned() -> void:
 	var body := str(loop.item_text(str(result.item)).body)
 	for anchor_id: String in result.opened:
 		body += "\nNEW LEAD: %s." % str(loop.table.anchors[anchor_id].title).to_upper()
-	for deduction_id: String in result.deductions:
-		body += "\n" + str(loop.table.deductions[deduction_id].line)
-	var player := world.get("player") as PlayerController
-	if player != null:
-		player.present_service_note(wall, {"title": str(loop.item_text(str(result.item)).title).to_upper(), "body": body,
-				"condition": "PINNED", "stamp": "THE WALL"})
+	if not loop.open_deduction().is_empty():
+		body += "\nSOMETHING HERE WANTS JOINING."
+	_note(wall, str(loop.item_text(str(result.item)).title).to_upper(), body, "PINNED")
 	_sync()
+
+
+## A pinned piece's pin was pulled. The first pull takes the string from that
+## piece; the second, on another piece, runs it there.
+func _pulled(item_id: String) -> void:
+	((wall_cards[item_id] as Node3D).get_meta("grip") as Node).put_back()
+	if string_from.is_empty():
+		string_from = item_id
+		_sync()
+		return
+	if string_from == item_id:
+		string_from = ""
+		_sync()
+		return
+	var from := string_from
+	string_from = ""
+	var result: Dictionary = loop.link(from, item_id)
+	if not result.ok:
+		_sync()
+		return
+	if not bool(result.held):
+		_note(wall, "THE STRING FALLS", "Nothing joins %s to %s." % [str(loop.item_text(from).title), str(loop.item_text(item_id).title)], "NO")
+	elif not (result.deductions as Array).is_empty():
+		var body := ""
+		for deduction_id: String in result.deductions:
+			body += str(loop.table.deductions[deduction_id].line) + "\n"
+		for anchor_id: String in result.opened:
+			body += "NEW LEAD: %s.\n" % str(loop.table.anchors[anchor_id].title).to_upper()
+		_note(wall, "IT HOLDS", body.strip_edges(), "DEDUCED")
+	_sync()
+
+
+## Put a copy of the slip somewhere, its face along `facing.z`, its long side
+## along `facing.x`, centred on `at`.
+func _place(node: Node3D, facing: Basis, at: Vector3) -> void:
+	var turned := facing * _paper_square
+	node.global_transform = Transform3D(turned, at - facing * _paper_centre)
+
+
+## Red string, as a narrow strip of the same paper stock dyed red.
+func _ribbon(from: Vector3, to: Vector3) -> Node3D:
+	var strip := _copy_paper()
+	for draw: MeshInstance3D in strip.get_children():
+		var finish := draw.get_active_material(0)
+		if finish is BaseMaterial3D:
+			var dyed := finish.duplicate() as BaseMaterial3D
+			dyed.albedo_color = STRING_RED
+			draw.material_override = dyed
+	add_child(strip)
+	var out: Vector3 = _wall_frame.basis.z
+	var along := to - from
+	var size: Vector2 = get_meta("paper_size", Vector2(0.1, 0.06))
+	var facing := Basis(along.normalized() * (along.length() / size.x), out.cross(along.normalized()) * (STRING_WIDTH / size.y), out)
+	_place(strip, facing, (from + to) * 0.5 + out * 0.007)
+	return strip
+
+
+func _deduction_place(deduction_id: String) -> Vector3:
+	var centre := Vector3.ZERO
+	var needs: Array = loop.table.deductions[deduction_id].needs
+	for need: Variant in needs:
+		centre += slot_position(int(loop.ledger().items[str(need)].get("slot", 0)))
+	return centre / float(needs.size()) - _wall_frame.basis.y * (_wall_size.y * (0.36 + 0.07 * float((loop.ledger().deductions as Array).find(deduction_id))))
 
 
 ## Bring every card in line with the ledger.
@@ -309,20 +390,135 @@ func _sync() -> void:
 		tucked_grip.put_back()
 		_hang(tucked, _foot(), str(loop.item_text(waiting[0]).title).to_upper())
 	tucked.visible = show
+	# Pinned pieces: a slip over the board's own blank one, with a pin to pull.
 	for item_id: String in loop.on_wall():
 		if wall_cards.has(item_id):
 			continue
-		# Written on the board's own blank slip.
-		var pinned := _words(str(loop.item_text(item_id).title).to_upper(), Basis(), SLIP_WORDS_WIDTH)
+		var pinned := _copy_paper()
 		pinned.name = "LoopPinned_" + item_id
 		add_child(pinned)
-		pinned.global_transform = Transform3D(_wall_frame.basis,
-				slot_position(int(loop.ledger().items[item_id].get("slot", wall_cards.size()))) + _wall_frame.basis.z * 0.003)
+		var at := slot_position(int(loop.ledger().items[item_id].get("slot", wall_cards.size()))) + _wall_frame.basis.z * 0.004
+		_place(pinned, _wall_frame.basis, at)
+		var label := _words(str(loop.item_text(item_id).title).to_upper(), Basis(), SLIP_WORDS_WIDTH)
+		pinned.add_child(label)
+		label.global_transform = Transform3D(_wall_frame.basis, at + _wall_frame.basis.z * 0.003)
+		var grip := Grip.new()
+		grip.name = "Pull"
+		pinned.add_child(grip)
+		grip.configure(pinned, _wall_frame.basis.z, PULL_REACH)
+		grip.live = func() -> bool: return not loop.in_visit()
+		grip.carried = func() -> void: _pulled(item_id)
+		pinned.set_meta("grip", grip)
 		wall_cards[item_id] = pinned
 	for item_id: String in wall_cards.keys():
 		if not loop.pinned(item_id):
 			(wall_cards[item_id] as Node).queue_free()
 			wall_cards.erase(item_id)
+	# Strings that held.
+	var wanted := {}
+	for string: Array in loop.strings():
+		var key := str(string[0]) + "|" + str(string[1])
+		wanted[key] = true
+		if not string_nodes.has(key) and loop.pinned(str(string[0])) and loop.pinned(str(string[1])):
+			string_nodes[key] = _ribbon(slot_position(int(loop.ledger().items[str(string[0])].slot)),
+					slot_position(int(loop.ledger().items[str(string[1])].slot)))
+	for key: String in string_nodes.keys():
+		if not wanted.has(key):
+			(string_nodes[key] as Node).queue_free()
+			string_nodes.erase(key)
+	# The loose end, hanging from the piece the string was taken from.
+	if loose_end != null:
+		loose_end.queue_free()
+		loose_end = null
+	if not string_from.is_empty() and loop.pinned(string_from):
+		var top := slot_position(int(loop.ledger().items[string_from].slot))
+		loose_end = _ribbon(top, top - _wall_frame.basis.y * 0.14 + _wall_frame.basis.x * 0.03)
+	# Deductions drawn, written out under the pieces they join.
+	for deduction_id: Variant in loop.ledger().deductions:
+		if deduction_cards.has(str(deduction_id)):
+			continue
+		var drawn := _copy_paper()
+		drawn.name = "LoopDeduction_" + str(deduction_id)
+		add_child(drawn)
+		var at := _deduction_place(str(deduction_id)) + _wall_frame.basis.z * 0.005
+		_place(drawn, Basis(_wall_frame.basis.x * 2.2, _wall_frame.basis.y * 2.2, _wall_frame.basis.z), at)
+		var label := _words(str(loop.table.deductions[str(deduction_id)].line), Basis(), 0.2)
+		drawn.add_child(label)
+		label.global_transform = Transform3D(_wall_frame.basis, at + _wall_frame.basis.z * 0.004)
+		deduction_cards[str(deduction_id)] = drawn
+	_grow()
+
+
+# --- The wall takes the flat ------------------------------------------------------
+
+## Find where paper can go: every upright surface in sight of the middle of
+## the room, nearest the board first. Done once, on a physics frame.
+func _survey() -> void:
+	surveyed = true
+	var space := world.get_world_3d().direct_space_state
+	if space == null:
+		return
+	var out: Vector3 = _wall_frame.basis.z
+	var eye: Vector3 = _wall_frame.origin + out * 1.5
+	var floor_y := floorf((eye.y + 0.05) / 3.2) * 3.2
+	var found: Array[Dictionary] = []
+	for index in SURVEY_RAYS:
+		var yaw := float(index) * 2.399963
+		var height := floor_y + 0.45 + 1.95 * fposmod(float(index) * 0.6180339, 1.0)
+		var from := Vector3(eye.x, height, eye.z)
+		var query := PhysicsRayQueryParameters3D.create(from, from + Vector3(cos(yaw), 0.0, sin(yaw)) * 9.0)
+		var hit := space.intersect_ray(query)
+		if hit.is_empty() or absf((hit.normal as Vector3).y) > 0.2 or from.distance_to(hit.position) < 0.5:
+			continue
+		var on_board: Vector3 = _wall_frame.affine_inverse() * (hit.position as Vector3)
+		if absf(on_board.z) < 0.08 and absf(on_board.x) < _wall_size.x * 0.5 + 0.06 and absf(on_board.y) < _wall_size.y * 0.5 + 0.06:
+			continue
+		if world.unit_at_world(hit.position as Vector3) != "4B":
+			continue
+		var crowded := false
+		for other: Dictionary in found:
+			crowded = crowded or (other.position as Vector3).distance_to(hit.position) < 0.17
+		if crowded:
+			continue
+		found.append({"position": hit.position, "normal": (hit.normal as Vector3).normalized(),
+				"far": (hit.position as Vector3).distance_to(_wall_frame.origin)})
+	found.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return float(a.far) < float(b.far))
+	spots = found
+	_grow()
+
+
+## Paper up to the case's present spread, nearest the board first.
+func _grow() -> void:
+	if not surveyed or _paper == null:
+		return
+	var count: int = mini(int(loop.spread()), spots.size())
+	var scrawls: Array = loop.table.scrawls
+	while papers.size() < count:
+		var index := papers.size()
+		var spot: Dictionary = spots[index]
+		var normal: Vector3 = spot.normal
+		var across := Vector3.UP.cross(normal).normalized()
+		var roll := (fposmod(float(index) * 0.7548776, 1.0) - 0.5) * 0.5
+		var size := 1.5 + 1.1 * fposmod(float(index) * 0.5698403, 1.0)
+		var level := across.rotated(normal, roll)
+		var facing := Basis(level * size, normal.cross(level) * size, normal)
+		var sheet := _copy_paper()
+		sheet.name = "LoopPaper_%d" % index
+		add_child(sheet)
+		var at: Vector3 = (spot.position as Vector3) + normal * (0.004 + 0.0004 * float(index % 5))
+		_place(sheet, facing, at)
+		if index % 3 == 0 and not scrawls.is_empty():
+			var label := _words(str(scrawls[(index / 3) % scrawls.size()]), Basis(), 0.11 * size)
+			sheet.add_child(label)
+			label.global_transform = Transform3D(Basis(level, normal.cross(level), normal), at + normal * 0.003)
+		papers.append(sheet)
+	for index in papers.size():
+		(papers[index] as Node3D).visible = index < count
+
+
+func _physics_process(_delta: float) -> void:
+	if not surveyed and wall != null and _paper != null and world.get("startup_ms") != null and float(world.startup_ms) > 0.0:
+		_survey()
 
 
 func _process(delta: float) -> void:

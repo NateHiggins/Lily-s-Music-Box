@@ -151,7 +151,7 @@
 			"minutes": 90,
 			"tier": 3,
 			"needs": [
-				"route_leaf"
+				"she_asked_first"
 			],
 			"question": "What did Jonah Price hear, and what did he make up?",
 			"steps": [
@@ -382,7 +382,7 @@
 			"tier": 4,
 			"strict": true,
 			"needs": [
-				"glove_scrap"
+				"the_glove"
 			],
 			"question": "What did not burn?",
 			"steps": [
@@ -451,8 +451,8 @@
 			"tier": 4,
 			"strict": true,
 			"needs": [
-				"button_leaf",
-				"route_leaf"
+				"she_asked_first",
+				"button_leaf"
 			],
 			"question": "What did Adela give Sacha Reed to keep?",
 			"steps": [
@@ -533,8 +533,7 @@
 			"tier": 5,
 			"strict": true,
 			"needs": [
-				"dark_slide",
-				"duplicate_negative"
+				"the_reason"
 			],
 			"question": "What is on the half that survived?",
 			"steps": [
@@ -627,11 +626,10 @@
 			"tier": 6,
 			"strict": true,
 			"needs": [
-				"plate_half",
-				"disc_label",
-				"glove_scrap",
-				"button_leaf",
-				"route_leaf"
+				"the_glove",
+				"the_evening_was_made",
+				"the_reason",
+				"plate_half"
 			],
 			"question": "What did she keep?",
 			"steps": [
@@ -753,5 +751,27 @@
 			],
 			"line": "She kept the note that gave her the date. The case against Mae Kessler stands without a confession."
 		}
-	}
+	},
+	"scrawls": [
+		"19 JULY",
+		"6.40 P.M.",
+		"9.01 TO 3.02",
+		"WHO HEARD THE DOOR?",
+		"WHITE KID",
+		"ONE PEARL",
+		"1 AUGUST",
+		"13 JUNE",
+		"WHO HAD THE ROOF KEY?",
+		"MONDAY THE 22ND",
+		"PLATE 13",
+		"NOT FOR SALE",
+		"HOLD. FIRST RUN SAT.",
+		"THE TWELFTH, AGAIN",
+		"WHAT DID NOT BURN",
+		"6C",
+		"ASK CAM",
+		"THE SCHEDULE, NOT THE DEED",
+		"SHE WAS REFUSED",
+		"WHO SAID NOTHING?"
+	]
 }
