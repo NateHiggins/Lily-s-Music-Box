@@ -495,6 +495,493 @@
       ]
     }
   ],
-  "placements": [],
-  "occasions": []
+  "placements": [
+    {
+      "id": "flag_entrance_west",
+      "prop": "flag",
+      "space": "F01_STREET_APRON",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -2.5,
+        2.45,
+        -12.63
+      ],
+      "yaw": 3.141593
+    },
+    {
+      "id": "flag_entrance_east",
+      "prop": "flag",
+      "space": "F01_STREET_APRON",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.5,
+        2.45,
+        -12.63
+      ],
+      "yaw": 3.141593
+    },
+    {
+      "id": "wreath_entrance_door",
+      "prop": "wreath",
+      "space": "F01_STREET_APRON",
+      "level": "F01",
+      "rest": "leaf",
+      "host": "F01_DOOR_06",
+      "node": "F01_DOOR_06_Leaf/CenturyOakLeaf",
+      "position": [
+        0.55,
+        1.68,
+        -0.014
+      ],
+      "yaw": 3.141593
+    },
+    {
+      "id": "pumpkin_stoop",
+      "prop": "pumpkin",
+      "space": "F01_STREET_APRON",
+      "level": "F01",
+      "rest": "support",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.25,
+        0.0,
+        -12.3
+      ],
+      "yaw": 3.141593
+    },
+    {
+      "id": "bunting_lobby_door",
+      "prop": "bunting",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        0.0,
+        2.83,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "bunting_autumn_lobby_door",
+      "prop": "bunting_autumn",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        0.0,
+        2.83,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "bunting_landing",
+      "prop": "bunting",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.75,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "crepe_lobby_board",
+      "prop": "crepe",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.75,
+        2.78,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "crepe_landing",
+      "prop": "crepe",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.45,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "pumpkins_lobby_board",
+      "prop": "cutout_pumpkins",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.75,
+        2.44,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "pumpkins_landing",
+      "prop": "cutout_pumpkins",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.0,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "hearts_lobby_board",
+      "prop": "cutout_hearts",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.75,
+        2.44,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "hearts_landing",
+      "prop": "cutout_hearts",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.0,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "shamrocks_lobby_board",
+      "prop": "cutout_shamrocks",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.75,
+        2.44,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "shamrocks_landing",
+      "prop": "cutout_shamrocks",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.0,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "eggs_lobby_board",
+      "prop": "cutout_eggs",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.75,
+        2.44,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "eggs_landing",
+      "prop": "cutout_eggs",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.0,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "turkeys_lobby_board",
+      "prop": "cutout_turkeys",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -1.75,
+        2.44,
+        -9.18
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "turkeys_landing",
+      "prop": "cutout_turkeys",
+      "space": "F02_LANDING",
+      "level": "F02",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        2.6,
+        2.0,
+        -3.78
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "tree_lobby_radiator",
+      "prop": "tree",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "support",
+      "host": "",
+      "node": "",
+      "position": [
+        -5.2,
+        0.7925,
+        -6.55
+      ],
+      "yaw": 1.570796
+    },
+    {
+      "id": "poppies_lobby_radiator",
+      "prop": "poppies",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "support",
+      "host": "",
+      "node": "",
+      "position": [
+        -5.2,
+        0.7945,
+        -6.25
+      ],
+      "yaw": 1.570796
+    },
+    {
+      "id": "lilies_lobby_radiator",
+      "prop": "lilies",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "support",
+      "host": "",
+      "node": "",
+      "position": [
+        -5.2,
+        0.794,
+        -6.35
+      ],
+      "yaw": 1.570796
+    },
+    {
+      "id": "carnations_lobby_radiator",
+      "prop": "carnations",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "support",
+      "host": "",
+      "node": "",
+      "position": [
+        -5.2,
+        0.7945,
+        -6.25
+      ],
+      "yaw": 1.570796
+    },
+    {
+      "id": "poppy_lobby_board",
+      "prop": "poppy_pin",
+      "space": "F01_LOBBY",
+      "level": "F01",
+      "rest": "wall",
+      "host": "",
+      "node": "",
+      "position": [
+        -2.92,
+        1.95,
+        -9.18
+      ],
+      "yaw": 0.0
+    }
+  ],
+  "occasions": [
+    {
+      "id": "Armistice Day",
+      "show": [
+        "flag_entrance_west",
+        "poppies_lobby_radiator",
+        "poppy_lobby_board"
+      ]
+    },
+    {
+      "id": "Thanksgiving",
+      "show": [
+        "turkeys_lobby_board",
+        "turkeys_landing",
+        "bunting_autumn_lobby_door"
+      ]
+    },
+    {
+      "id": "Christmas",
+      "show": [
+        "wreath_entrance_door",
+        "tree_lobby_radiator",
+        "crepe_lobby_board",
+        "crepe_landing"
+      ]
+    },
+    {
+      "id": "New Year's Day",
+      "show": [
+        "tree_lobby_radiator",
+        "crepe_lobby_board",
+        "crepe_landing"
+      ]
+    },
+    {
+      "id": "Lincoln's Birthday",
+      "show": [
+        "flag_entrance_west"
+      ]
+    },
+    {
+      "id": "St. Valentine's Day",
+      "show": [
+        "hearts_lobby_board",
+        "hearts_landing"
+      ]
+    },
+    {
+      "id": "Washington's Birthday",
+      "show": [
+        "flag_entrance_west"
+      ]
+    },
+    {
+      "id": "St. Patrick's Day",
+      "show": [
+        "shamrocks_lobby_board",
+        "shamrocks_landing"
+      ]
+    },
+    {
+      "id": "Easter",
+      "show": [
+        "lilies_lobby_radiator",
+        "eggs_lobby_board",
+        "eggs_landing"
+      ]
+    },
+    {
+      "id": "Mother's Day",
+      "show": [
+        "carnations_lobby_radiator"
+      ]
+    },
+    {
+      "id": "Decoration Day",
+      "show": [
+        "flag_entrance_west",
+        "flag_entrance_east",
+        "bunting_lobby_door",
+        "bunting_landing",
+        "poppies_lobby_radiator"
+      ]
+    },
+    {
+      "id": "Flag Day",
+      "show": [
+        "flag_entrance_west",
+        "flag_entrance_east"
+      ]
+    },
+    {
+      "id": "Independence Day",
+      "show": [
+        "flag_entrance_west",
+        "flag_entrance_east",
+        "bunting_lobby_door",
+        "bunting_landing"
+      ]
+    },
+    {
+      "id": "Labor Day",
+      "show": [
+        "flag_entrance_west"
+      ]
+    },
+    {
+      "id": "Columbus Day",
+      "show": [
+        "flag_entrance_west"
+      ]
+    },
+    {
+      "id": "Hallowe'en",
+      "show": [
+        "pumpkin_stoop",
+        "pumpkins_lobby_board",
+        "pumpkins_landing"
+      ]
+    },
+    {
+      "id": "Election Day",
+      "show": [
+        "flag_entrance_west"
+      ]
+    }
+  ]
 }

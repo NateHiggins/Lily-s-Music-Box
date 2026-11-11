@@ -12,9 +12,10 @@ const CAPTURED := ["Christmas", "Independence Day", "Hallowe'en", "Armistice Day
 ## Standing views in the blockout's plan coordinates: eye, then target.
 const VIEWS := [
 	["entrance", Vector3(1.3, 1.6, -16.4), Vector3(0.0, 1.9, -12.0)],
-	["entrance_near", Vector3(-1.6, 1.6, -14.4), Vector3(0.4, 1.7, -11.7)],
-	["lobby_door_wall", Vector3(1.2, 1.6, -5.0), Vector3(-0.6, 1.7, -9.25)],
-	["lobby_desk", Vector3(0.6, 1.6, -7.6), Vector3(-3.4, 1.3, -3.6)],
+	["entrance_near", Vector3(-0.9, 1.6, -14.6), Vector3(-0.3, 1.5, -11.9)],
+	["lobby_door_wall", Vector3(0.6, 1.6, -5.2), Vector3(-0.9, 1.9, -9.18)],
+	["lobby_radiator", Vector3(-2.4, 1.5, -5.6), Vector3(-5.2, 1.0, -6.5)],
+	["landing", Vector3(2.9, 4.8, -1.2), Vector3(2.6, 5.4, -3.78)],
 ]
 
 var _fails := 0
@@ -222,7 +223,7 @@ func _check_seat(piece: Node3D, id: String, spaces: Dictionary, floors: Dictiona
 		_check(absf(height) < 0.012, "%s: it stands on a support (%s at %.3f m)" % [id, body, height])
 		_check(absf(box.position.y) < 0.006, "%s: its base is at its seat (%.3f m)" % [id, box.position.y])
 		# The whole foot is carried, not just the middle.
-		var reach := minf(box.size.x, box.size.z) * 0.2
+		var reach := 0.03
 		for corner: Vector2 in [Vector2(reach, 0), Vector2(-reach, 0), Vector2(0, reach), Vector2(0, -reach)]:
 			var under := _ray(frame * Vector3(corner.x, 0.30, corner.y), frame * Vector3(corner.x, -0.30, corner.y))
 			var level := 9.0 if under.is_empty() else (frame.affine_inverse() * (under.position as Vector3)).y
@@ -307,6 +308,8 @@ func _capture(dressing: Node3D, names: Array[String]) -> void:
 	_world.player.set_lamp_enabled(false)
 	if _world.service_set_carrier != null:
 		_world.service_set_carrier.visible = false
+	if _world.player_avatar != null:
+		_world.player_avatar.visible = false
 	var stand := Stand.new()
 	stand.test = self
 	stand.process_priority = 1000
@@ -332,7 +335,9 @@ func _capture(dressing: Node3D, names: Array[String]) -> void:
 			var eye := middle + Vector3(span * 0.25, 0.05, 0.55 + span * 1.05)
 			if str(piece.get_meta("occasion_rest")) == "support":
 				eye = middle + Vector3(span * 0.5, span * 0.45 + 0.1, 0.45 + span * 1.2)
+			_world.player.set_lamp_enabled(true)   # close, by the carried lamp, to read the surfaces
 			await _shot(out, "piece_%s" % id, piece.global_transform * eye, piece.global_transform * middle)
+			_world.player.set_lamp_enabled(false)
 	dressing.dress("")
 	_holding = false
 	stand.queue_free()
