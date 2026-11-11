@@ -75,6 +75,8 @@ rig = HS.add_builtin_rig(human, "default_no_toes")
 parts = []
 for kind, name, atype in [("eyes", "low-poly", "Eyes"), ("eyebrows", CFG.get("eyebrows", "eyebrow001"), "Eyebrows"),
                           ("eyelashes", "eyelashes01", "Eyelashes"), ("teeth", "teeth_base", "Teeth"), ("tongue", "tongue01", "Tongue")]:
+    if name == "none":
+        continue
     part = HS.add_mhclo_asset(asset(kind, name), human, asset_type=atype, subdiv_levels=0, material_type="GAMEENGINE")
     part.name = "Face_" + kind
     parts.append(part)
@@ -332,6 +334,25 @@ def is_skin(colour, loose=False):
     return float(numpy.abs(chroma).max()) < reach and (0.06 if loose else 0.5) < total / ref_total < 1.6
 
 
+crown = [old_colour[i] for i, v in enumerate(shell.data.vertices)
+         if old_weights[i].get("Head", 0.0) > 0.5 and (shell_world @ v.co).z > joint("Head").z + float(CFG.get("crown_above_head", 0.11))]
+hair_ref = numpy.median(numpy.array(crown), axis=0) if len(crown) > 20 else None
+feature_marks = None
+print("HAIR ref", [round(float(c), 3) for c in (hair_ref / float(hair_ref.sum()))] if hair_ref is not None else None, "skin", [round(float(c), 3) for c in (skin_ref / float(skin_ref.sum()))])
+
+
+def is_hair(colour, reach=None):
+    if hair_ref is None:
+        return False
+    total = float(colour.sum())
+    if total < 0.03:
+        return True
+    chroma = colour / total
+    if reach is not None and float(chroma[2]) > float(hair_ref[2] / hair_ref.sum()) + 0.075:
+        return False
+    return float(numpy.abs(chroma - hair_ref / float(hair_ref.sum())).max()) < (reach if reach is not None else float(CFG.get("hair_chroma", 0.035)))
+
+
 # ---------------------------------------------------------------- set the head by the old face's features
 # A head that was sculpted turned or tilted cannot be matched by its nose
 # alone. Find the old face's painted eyes and mouth, and turn, size and place
@@ -401,10 +422,9 @@ if CFG.get("align") == "features":
         head_move = new_move
         scale = size
         print("FEATURES size %.3f turn %s" % (size, [round(math.degrees(a), 1) for a in Matrix([list(row) for row in turn]).to_euler()]))
+        feature_marks = old_marks
         print("FEATURES old marks", [[round(c, 3) for c in q] for q in old_marks])
 
-if os.environ.get("CAST_PROBE"):
-    sys.exit(0)
 # ---------------------------------------------------------------- her own face
 # For a body whose face was sculpted and painted with care: the new face is
 # drawn onto the old one's surface, so it keeps that face's own shape, and the
@@ -424,8 +444,19 @@ if CFG.get("own_face"):
     bm = bmesh.new()
     bm.from_mesh(twin.data)
     bm.verts.ensure_lookup_table()
-    lose = [f for f in bm.faces if not (all(old_weights[v.index].get("Head", 0.0) + old_weights[v.index].get("neck", 0.0) > 0.5 for v in f.verts)
-                                        and sum(1 for v in f.verts if is_skin(old_colour[v.index], True)) >= 2)]
+    def of_the_face(f):
+        if any(old_weights[v.index].get("Head", 0.0) + old_weights[v.index].get("neck", 0.0) <= 0.5 for v in f.verts):
+            return False
+        if any(is_hair(old_colour[v.index]) for v in f.verts):
+            return False
+        middle = twin.matrix_world @ f.calc_center_median()
+        return middle.y < nose_old.y + 0.1 * scale and middle.z > nose_old.z - 0.1 * scale
+    zone = [f for f in bm.faces if (twin.matrix_world @ f.calc_center_median()).y < nose_old.y + 0.1 * scale and abs((twin.matrix_world @ f.calc_center_median()).z - nose_old.z) < 0.1 * scale]
+    print("OWN FACE zone faces", len(zone), "weight-fail", sum(1 for f in zone if any(old_weights[v.index].get("Head", 0.0) + old_weights[v.index].get("neck", 0.0) <= 0.5 for v in f.verts)),
+          "hair-fail", sum(1 for f in zone if any(is_hair(old_colour[v.index]) for v in f.verts)), "verts", len(bm.verts), "weights", len(old_weights), "colours", len(old_colour))
+    if os.environ.get("CAST_PROBE"):
+        sys.exit(0)
+    lose = [f for f in bm.faces if not of_the_face(f)]
     bmesh.ops.delete(bm, geom=lose, context="FACES")
     bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
     bm.to_mesh(twin.data)
@@ -446,7 +477,8 @@ if CFG.get("own_face"):
         hit = face_tree.find_nearest(co, float(CFG.get("own_face_reach", 0.02)))
         if hit[0] is None or weight <= 0.0:
             continue
-        shifts[vertex.index] = (hit[0] - co) * weight
+        # A hair's breadth proud of the old surface, so nothing old shows through.
+        shifts[vertex.index] = (hit[0] + hit[1] * 0.0009 - co) * weight
     # Even the pull out over neighbours, so the surface does not crumple.
     near = {v.index: set() for v in mesh.vertices}
     for edge in mesh.edges:
@@ -471,25 +503,81 @@ if CFG.get("own_face"):
         mesh.vertices[index].co = mesh.vertices[index].co + shift
     mesh.update()
     print("OWN FACE drew", len(shifts), "points onto the old face")
-    # Carry the painted skin across.
+    # Carry the painted skin across: for every point of the new face's own
+    # picture, find the place on the old face it now lies on and take the
+    # colour painted there.
+    bm = bmesh.new()
+    bm.from_mesh(twin.data)
+    bmesh.ops.triangulate(bm, faces=bm.faces)
+    bm.to_mesh(twin.data)
+    bm.free()
+    old_corner = [[twin.matrix_world @ twin.data.vertices[v].co for v in q.vertices] for q in twin.data.polygons]
+    old_uv = [[twin.data.uv_layers.active.data[l].uv.copy() for l in q.loop_indices] for q in twin.data.polygons]
+    paint_tree = BVHTree.FromPolygons([tuple(twin.matrix_world @ v.co) for v in twin.data.vertices], [tuple(q.vertices) for q in twin.data.polygons])
+    _, painting = base_image(shell)
+    wide, high = painting.size
+    paint = numpy.array(painting.pixels[:], dtype=numpy.float32).reshape(high, wide, 4)
     node, image = base_image(head)
     size = image.size[0]
+    carried = numpy.zeros((size, size, 4), dtype=numpy.float32)
+    new_uv = head.data.uv_layers.active.data
+    eye_marks = feature_marks[1:3] if feature_marks is not None else []
+    eye_radius = float(CFG.get("eye_paint_radius", 0.019))
+    touched = set(shifts)
+    filled = 0
+    for polygon in head.data.polygons:
+        if not any(v in touched for v in polygon.vertices):
+            continue
+        corners = [head.data.vertices[v].co for v in polygon.vertices]
+        uvs = [new_uv[l].uv for l in polygon.loop_indices]
+        for k in range(1, len(corners) - 1):
+            tri = (corners[0], corners[k], corners[k + 1])
+            tuv = (uvs[0], uvs[k], uvs[k + 1])
+            xs = [u.x * (size - 1) for u in tuv]
+            ys = [u.y * (size - 1) for u in tuv]
+            area = (xs[1] - xs[0]) * (ys[2] - ys[0]) - (xs[2] - xs[0]) * (ys[1] - ys[0])
+            if abs(area) < 1e-9:
+                continue
+            for py in range(max(int(min(ys)), 0), min(int(max(ys)) + 2, size)):
+                for px in range(max(int(min(xs)), 0), min(int(max(xs)) + 2, size)):
+                    w1 = ((px - xs[0]) * (ys[2] - ys[0]) - (xs[2] - xs[0]) * (py - ys[0])) / area
+                    w2 = ((xs[1] - xs[0]) * (py - ys[0]) - (px - xs[0]) * (ys[1] - ys[0])) / area
+                    w0 = 1.0 - w1 - w2
+                    if w0 < -0.02 or w1 < -0.02 or w2 < -0.02:
+                        continue
+                    at = tri[0] * w0 + tri[1] * w1 + tri[2] * w2
+                    if any((at - mark).length < eye_radius for mark in eye_marks):
+                        continue
+                    hit = paint_tree.find_nearest(at, 0.006)
+                    if hit[0] is None:
+                        continue
+                    a_, b_, c_ = old_corner[hit[2]]
+                    v0 = b_ - a_
+                    v1 = c_ - a_
+                    v2 = hit[0] - a_
+                    d00 = v0.dot(v0)
+                    d01 = v0.dot(v1)
+                    d11 = v1.dot(v1)
+                    d20 = v2.dot(v0)
+                    d21 = v2.dot(v1)
+                    denom = d00 * d11 - d01 * d01
+                    if abs(denom) < 1e-14:
+                        continue
+                    bv = (d11 * d20 - d01 * d21) / denom
+                    bw = (d00 * d21 - d01 * d20) / denom
+                    uv = old_uv[hit[2]][0] * (1.0 - bv - bw) + old_uv[hit[2]][1] * bv + old_uv[hit[2]][2] * bw
+                    taken = paint[int((uv.y % 1.0) * (high - 1)), int((uv.x % 1.0) * (wide - 1)), :3]
+                    if is_hair(taken, 0.08):
+                        continue
+                    carried[py, px, :3] = taken
+                    carried[py, px, 3] = 1.0
+                    filled += 1
+    print("OWN FACE picture points carried", filled)
     own_face = bpy.data.images.new(CID + "_own_face", size, size, alpha=True)
-    own_face.generated_color = (0, 0, 0, 0)
-    tree_nodes = head.material_slots[0].material.node_tree.nodes
-    target = tree_nodes.new("ShaderNodeTexImage")
-    target.image = own_face
-    tree_nodes.active = target
-    scene_ = bpy.context.scene
-    scene_.render.engine = "CYCLES"
-    scene_.cycles.device = "CPU"
-    scene_.cycles.samples = 2
-    bpy.ops.object.select_all(action="DESELECT")
-    twin.select_set(True)
-    head.select_set(True)
-    bpy.context.view_layer.objects.active = head
-    bpy.ops.object.bake(type="DIFFUSE", pass_filter={"COLOR"}, use_selected_to_active=True, cage_extrusion=0.008, max_ray_distance=0.02, margin=2)
-    tree_nodes.remove(target)
+    own_face.pixels = carried.ravel()
+    own_face.filepath_raw = os.path.join(OUT, CID + "_own_face_bake.png")
+    own_face.file_format = "PNG"
+    own_face.save()
     bpy.data.objects.remove(twin)
 
 depsgraph = bpy.context.evaluated_depsgraph_get()
@@ -499,6 +587,36 @@ keep_above = float(CFG.get("keep_above", 99.0))
 neck_z = joint("neck").z
 REBUILD = CFG.get("head", "rebuild") == "rebuild"
 doomed = set()
+# Loose locks are their own pieces of the old shell: find the pieces that are
+# mostly hair, so they can go whole and the clothes under them stay whole.
+hair_pieces = set()
+body_piece = set()
+if CFG.get("old_hair") == "remove":
+    probe = bmesh.new()
+    probe.from_mesh(shell.data)
+    probe.verts.ensure_lookup_table()
+    unseen = set(range(len(probe.verts)))
+    pieces = []
+    while unseen:
+        first = unseen.pop()
+        piece = [first]
+        stack = [first]
+        while stack:
+            for edge in probe.verts[stack.pop()].link_edges:
+                for other in edge.verts:
+                    if other.index in unseen:
+                        unseen.discard(other.index)
+                        piece.append(other.index)
+                        stack.append(other.index)
+        pieces.append(piece)
+    probe.free()
+    pieces.sort(key=len, reverse=True)
+    body_piece = set(pieces[0])
+    for piece in pieces[1:]:
+        hairy = sum(1 for i in piece if is_hair(old_colour[i], 0.09))
+        if hairy > 0.45 * len(piece):
+            hair_pieces.update(piece)
+    print("HAIR pieces", len(pieces), "body", len(body_piece), "hair points in loose pieces", len(hair_pieces))
 face_top = float(CFG.get("face_top", keep_above))
 stub_floor = min(v.co.z for v in head.data.vertices) + 0.012
 hand_axis = {}
@@ -517,6 +635,20 @@ for index, vertex in enumerate(shell.data.vertices):
             if past_wrist > float(CFG.get("wrist_cut", 0.0)) or (is_skin(old_colour[index], True) and past_wrist > -0.1):
                 doomed.add(index)
     upper = w.get("Head", 0.0) + w.get("neck", 0.0)
+    if own_face is not None and CFG.get("old_hair") == "remove":
+        # A new style is being built: every lock of the old hair goes, wherever
+        # it lies, and the whole old head with it.
+        if index in hair_pieces or w.get("Head", 0.0) > 0.5:
+            doomed.add(index)
+        elif co.z > joint("Spine").z - 0.3 and is_hair(old_colour[index], 0.045 if index in body_piece else 0.09):
+            doomed.add(index)
+        continue
+    if own_face is not None and not REBUILD:
+        if is_hair(old_colour[index]):
+            continue
+        if w.get("Head", 0.0) > 0.5 and co.y < nose_old.y + 0.1 * scale and co.z > nose_old.z - 0.1 * scale:
+            doomed.add(index)
+        continue
     if REBUILD:
         # The whole old head goes: face, hair, hat and all. A new one is built.
         # The old neck and collar stay; the new neck comes down over them.
@@ -535,9 +667,27 @@ for index, vertex in enumerate(shell.data.vertices):
 bm = bmesh.new()
 bm.from_mesh(shell.data)
 bm.verts.ensure_lookup_table()
-if REBUILD:
+if REBUILD or own_face is not None:
     # Only faces wholly in the cut go, so a collar's own edge is never nibbled.
+    # (With her own face kept, a face mostly in the cut goes: chips of old skin
+    # along the hairline are worse than a hair's edge trimmed.)
     gone = [f for f in bm.faces if all(v.index in doomed for v in f.verts)]
+    if own_face is not None:
+        # A face half in the cut goes too when what is painted on its middle is skin.
+        uv_layer = bm.loops.layers.uv.active
+        taken = set(gone)
+        for f in bm.faces:
+            if f in taken or sum(1 for v in f.verts if v.index in doomed) < 1:
+                continue
+            u = sum((loop[uv_layer].uv for loop in f.loops), Vector((0.0, 0.0))) / len(f.loops)
+            middle = paint[int((u.y % 1.0) * (high - 1)), int((u.x % 1.0) * (wide - 1)), :3]
+            if (is_hair(middle, 0.05) if CFG.get("old_hair") == "remove" else not is_hair(middle)):
+                gone.append(f)
+    if CFG.get("old_hair") == "remove":
+        # Below the chin, a face any corner of which was hair goes: no flaps.
+        taken = set(gone)
+        gone += [f for f in bm.faces if f not in taken and any(v.index in doomed for v in f.verts)
+                 and (shell_world @ f.calc_center_median()).z < nose_old.z - 0.09]
     bmesh.ops.delete(bm, geom=gone, context="FACES")
     bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
 else:
@@ -565,6 +715,50 @@ for start in bm.verts:
     if len(island) < int(CFG.get("crumb_size", 160)) and sum(v[deform].get(head_index, 0.0) for v in island) / len(island) > 0.3:
         crumbs.extend(island)
 bmesh.ops.delete(bm, geom=crumbs, context="VERTS")
+if CFG.get("old_hair") == "remove":
+    bm.verts.ensure_lookup_table()
+    seen_ = set()
+    scraps = []
+    for start_ in bm.verts:
+        if start_.index in seen_:
+            continue
+        island_ = [start_]
+        stack_ = [start_]
+        seen_.add(start_.index)
+        while stack_:
+            for edge in stack_.pop().link_edges:
+                for other in edge.verts:
+                    if other.index not in seen_:
+                        seen_.add(other.index)
+                        island_.append(other)
+                        stack_.append(other)
+        if len(island_) < int(CFG.get("scrap_size", 500)):
+            scraps.extend(island_)
+    bmesh.ops.delete(bm, geom=scraps, context="VERTS")
+    uv_layer = bm.loops.layers.uv.active
+    before_faces = set(bm.faces)
+    rim = [e for e in bm.edges if e.is_boundary and all((shell_world @ v.co).z < nose_old.z - 0.1 for v in e.verts)]
+    if CFG.get("mend"):
+        bmesh.ops.holes_fill(bm, edges=rim, sides=int(CFG.get("mend_sides", 0)))
+    mended = [f for f in bm.faces if f not in before_faces]
+    # Mended faces take one plain point of the blouse's own cloth.
+    deform_ = bm.verts.layers.deform.verify()
+    spine_index = shell.vertex_groups["Spine"].index
+    spine_at = joint("Spine")
+    cloth = [v for v in bm.verts if v[deform_].get(spine_index, 0.0) > 0.4 and spine_at.z - 0.2 < (shell_world @ v.co).z < spine_at.z - 0.08
+             and (shell_world @ v.co).y < spine_at.y and v.link_loops]
+    cloth_uv = None
+    if cloth:
+        tones = numpy.array([paint[int((v.link_loops[0][uv_layer].uv.y % 1.0) * (high - 1)), int((v.link_loops[0][uv_layer].uv.x % 1.0) * (wide - 1)), :3] for v in cloth])
+        middle_tone = numpy.median(tones, axis=0)
+        pick = int(numpy.abs(tones - middle_tone).sum(axis=1).argmin())
+        cloth_uv = cloth[pick].link_loops[0][uv_layer].uv.copy()
+    for f in mended:
+        for loop in f.loops:
+            if cloth_uv is not None:
+                loop[uv_layer].uv = cloth_uv
+        f.smooth = True
+    print("MENDED", len(mended), "faces; scraps", len(scraps))
 bm.to_mesh(shell.data)
 bm.free()
 print("CUT", len(doomed), "old skin points and", len(crumbs), "crumbs; shell now", len(shell.data.vertices))
@@ -578,7 +772,7 @@ chin_z = nose_old.z - 0.075 * scale
 # A rebuilt head's neck is drawn out to just cover the old neck's skin, and
 # its lowest edge is drawn in under it, so the join is where one neck meets
 # the other, in matched skin, and not a cut edge.
-if REBUILD:
+if REBUILD or own_face is not None:
     neck_floor = min(v.co.z for v in head.data.vertices)
     polygons = shell.data.polygons
     blocks = head.data.shape_keys.key_blocks if head.data.shape_keys else None
@@ -612,7 +806,7 @@ if REBUILD:
 tucked = 0
 dropped = 0
 skull_centre = nose_old + Vector((0.0, 0.1 * scale, 0.035 * scale))
-for piece in ([] if REBUILD else [head]):
+for piece in ([] if (REBUILD or CFG.get("old_hair") == "remove") else [head]):
     blocks = piece.data.shape_keys.key_blocks if piece.data.shape_keys else None
     side = "Left" if piece is hands["L"] else "Right"
     drop = set()
@@ -661,6 +855,21 @@ if image is not None:
     new_ref = numpy.median(numpy.array(face), axis=0)
     ratio = numpy.clip(skin_ref / numpy.maximum(new_ref, 0.01), 0.55, 1.35) * float(CFG.get("skin_gain", 1.0))
     pixels[:, :, :3] = numpy.clip(pixels[:, :, :3] * ratio, 0.0, 1.0)
+    if own_face is not None and hair_ref is not None:
+        uv_new = head.data.uv_layers.active.data
+        scalp_colour = numpy.clip(hair_ref * float(CFG.get("scalp_shade", 0.8)), 0, 1)
+        for polygon in head.data.polygons:
+            cos = [head.data.vertices[v].co for v in polygon.vertices]
+            if not all((c.z > nose_old.z + 0.085 * scale and c.y > nose_old.y + 0.02 * scale) or c.y > nose_old.y + 0.12 * scale for c in cos):
+                continue
+            if any(c.z < nose_old.z - 0.02 * scale for c in cos):
+                continue
+            us = [uv_new[l].uv for l in polygon.loop_indices]
+            x0 = max(int(min(u.x for u in us) * (width - 1)) - 1, 0)
+            x1 = min(int(max(u.x for u in us) * (width - 1)) + 2, width)
+            y0 = max(int(min(u.y for u in us) * (height - 1)) - 1, 0)
+            y1 = min(int(max(u.y for u in us) * (height - 1)) + 2, height)
+            pixels[y0:y1, x0:x1, :3] = scalp_colour
     if own_face is not None:
         carried = numpy.array(own_face.pixels[:], dtype=numpy.float32).reshape(height, width, 4)
         cover = carried[:, :, 3].copy()
@@ -681,7 +890,20 @@ eye_file = os.path.join(USER, "eyes", "materials", CFG.get("eyes", "brown") + "_
 eye_node, eye_image = base_image(parts[0])
 print("EYES", eye_file, os.path.exists(eye_file), eye_node, eye_image.filepath if eye_image else None)
 if eye_node is not None and os.path.exists(eye_file):
-    eye_node.image = bpy.data.images.load(eye_file)
+    eye_picture = bpy.data.images.load(eye_file)
+    if "eye_tone" in CFG:
+        ew, eh = eye_picture.size
+        ep = numpy.array(eye_picture.pixels[:], dtype=numpy.float32).reshape(eh, ew, 4)
+        grey = ep[:, :, :3].mean(axis=2, keepdims=True)
+        keep = float(CFG["eye_tone"].get("colour", 1.0))
+        ep[:, :, :3] = numpy.clip((grey + (ep[:, :, :3] - grey) * keep) * numpy.array(CFG["eye_tone"].get("tint", [1, 1, 1]), dtype=numpy.float32), 0, 1)
+        toned_eye = bpy.data.images.new(CID + "_eye", ew, eh, alpha=True)
+        toned_eye.pixels = ep.ravel()
+        toned_eye.filepath_raw = os.path.join(OUT, CID + "_eye.png")
+        toned_eye.file_format = "PNG"
+        toned_eye.save()
+        eye_picture = toned_eye
+    eye_node.image = eye_picture
 
 # ---------------------------------------------------------------- finger bones on the old skeleton
 bpy.context.view_layer.objects.active = old_rig
@@ -834,6 +1056,268 @@ if CFG.get("hat") == "cloche":
         # Hair the hat covers is not there, nor a fringe across the face.
         covered = {v.index for v in hair.data.vertices if v.co.z > brow_z + 0.03 or v.co.y < nose_old.y + 0.05 * scale}
         keep_only(hair, set(range(len(hair.data.vertices))) - covered)
+if CFG.get("hair_style") == "updo":
+    # Hair dressed up off the neck: a soft full cap swept back from a centre
+    # parting, waved, gathered into a low coil at the back of the head. Built
+    # on the new head in its own untilted frame, then set where the head is.
+    to_own = head_move.inverted()
+    tone = hair_ref if hair_ref is not None else numpy.array(CFG.get("hair_colour", [0.5, 0.25, 0.1]), dtype=numpy.float32)
+    strands = numpy.zeros((256, 512, 4), dtype=numpy.float32)
+    rng = numpy.random.default_rng(7)
+    streak = rng.random(512)
+    for width_ in (3, 9, 27):
+        streak = streak + numpy.convolve(rng.random(512), numpy.ones(width_) / width_, mode="same")
+    streak = (streak - streak.min()) / (streak.max() - streak.min())
+    shade = 0.7 + 0.5 * streak
+    strands[:, :, :3] = numpy.clip(tone[None, None, :] * shade[None, :, None], 0, 1)
+    strands[:, :, 3] = 1.0
+    hair_picture = bpy.data.images.new(CID + "_updo", 512, 256, alpha=True)
+    hair_picture.pixels = strands.ravel()
+    hair_picture.filepath_raw = os.path.join(OUT, CID + "_updo.png")
+    hair_picture.file_format = "PNG"
+    hair_picture.save()
+    hair_material = bpy.data.materials.new(CID + "_updo")
+    hair_material.use_nodes = True
+    hair_node = hair_material.node_tree.nodes.new("ShaderNodeTexImage")
+    hair_node.image = hair_picture
+    hair_shader = hair_material.node_tree.nodes["Principled BSDF"]
+    hair_material.node_tree.links.new(hair_node.outputs[0], hair_shader.inputs["Base Color"])
+    hair_shader.inputs["Roughness"].default_value = 0.55
+
+    nose_own = to_own @ nose_old
+    k = 1.0  # the base's own size; the head's scale comes back with head_move
+    hairline = nose_own.z + float(CFG.get("hairline_above_nose", 0.086))
+    ear_y = nose_own.y + 0.105
+    nape = nose_own.z - 0.055
+
+    def under_hair(q):
+        # q in the head's own frame. Front: above the hairline, which dips at
+        # the temples; behind the ears: down to the nape.
+        if q.y < ear_y - 0.02:
+            temple = max(0.0, abs(q.x) - 0.035) * 0.55
+            return q.z > hairline - temple + max(0.0, (ear_y - 0.02 - q.y) - 0.1) * 0.0
+        if q.y < ear_y + 0.02:
+            return q.z > nose_own.z - 0.012 - max(0.0, (ear_y - 0.02) - q.y) * 2.5 if q.y > ear_y - 0.045 else q.z > hairline
+        return q.z > nape
+
+    bm = bmesh.new()
+    bm.from_mesh(head.data)
+    bm.verts.ensure_lookup_table()
+    own = {v.index: to_own @ v.co for v in bm.verts}
+    keep_faces = [f for f in bm.faces if all(under_hair(own[v.index]) for v in f.verts)]
+    bmesh.ops.delete(bm, geom=[f for f in bm.faces if f not in set(keep_faces)], context="FACES")
+    bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
+    # Even out the cap's edge, so a hairline is a line and not a saw.
+    for _ in range(int(CFG.get("hairline_smoothing", 8))):
+        moved = {}
+        for v in bm.verts:
+            rim = [e.other_vert(v) for e in v.link_edges if e.is_boundary]
+            if len(rim) == 2:
+                moved[v] = (v.co * 2.0 + rim[0].co + rim[1].co) / 4.0
+        for v, where in moved.items():
+            v.co = where
+    bmesh.ops.subdivide_edges(bm, edges=bm.edges[:], cuts=1, use_grid_fill=True)
+    bm.verts.ensure_lookup_table()
+    bm.normal_update()
+    # How far each point is from the cap's edge, along the surface.
+    import heapq
+    far = {v: 1e9 for v in bm.verts}
+    queue = []
+    for edge in bm.edges:
+        if edge.is_boundary:
+            for v in edge.verts:
+                if far[v] > 0.0:
+                    far[v] = 0.0
+                    heapq.heappush(queue, (0.0, v.index))
+    while queue:
+        dist, index = heapq.heappop(queue)
+        v = bm.verts[index]
+        if dist > far[v]:
+            continue
+        for edge in v.link_edges:
+            other = edge.other_vert(v)
+            step = dist + edge.calc_length()
+            if step < far[other]:
+                far[other] = step
+                heapq.heappush(queue, (step, other.index))
+    uv_layer = bm.loops.layers.uv.verify()
+    skull_mid = Vector((0.0, nose_own.y + 0.1, nose_own.z + 0.055))
+    placed = {}
+    for v in bm.verts:
+        q = to_own @ v.co
+        out = (q - skull_mid)
+        height = math.atan2(out.z, math.hypot(out.x, out.y))
+        around = math.atan2(out.y, abs(out.x) + 1e-6)
+        # Finger waves running back from the face, deeper at the sides.
+        wave = math.sin(around * 6.5 + height * 2.6) * 0.5 + 0.5
+        side = min(1.0, abs(q.x) / 0.05)
+        thick = 0.012 + 0.012 * side + 0.0085 * wave * (0.35 + 0.65 * side)
+        thick -= 0.004 * math.exp(-(q.x / 0.006) ** 2)  # the parting
+        thick += 0.008 * max(0.0, min(1.0, (q.y - ear_y) / 0.05)) * max(0.0, 1.0 - abs(height))  # fuller toward the back
+        if q.z < nose_own.z + 0.02 and q.y > ear_y + 0.03:
+            thick *= 0.6  # drawn in at the nape, under the curls
+        thick *= ramp(0.0, 0.014, far[v]) * float(CFG.get("hair_fullness", 1.0))
+        thick += 0.0012
+        normal_own = (to_own.to_3x3() @ v.normal).normalized()
+        q2 = q + normal_own * (thick / scale)
+        placed[v] = (head_move @ q2, height, around, q.x)
+    for v, (where, height, around, side_x) in placed.items():
+        v.co = where
+    for f in bm.faces:
+        f.smooth = True
+        for loop in f.loops:
+            where, height, around, side_x = placed[loop.vert]
+            loop[uv_layer].uv = (0.5 + (0.08 + height * 0.42) * (1.0 if side_x >= 0 else -1.0), around * 0.3 + 0.5)
+    mesh = bpy.data.meshes.new("HairUpdo")
+    bm.to_mesh(mesh)
+    bm.free()
+    updo = bpy.data.objects.new("HairUpdo", mesh)
+    bpy.context.scene.collection.objects.link(updo)
+    updo.data.materials.append(hair_material)
+    to_head(updo)
+    extras.append(updo)
+
+    # The mass of curls at the nape: several rolled curls, low and full.
+    curl_mid = Vector((0.0, nose_own.y + float(CFG.get("coil_back", 0.185)), nose_own.z + float(CFG.get("coil_height", -0.03))))
+    curl_rows = [(-0.04, 0.0, 0.03, 0.034), (0.04, 0.0, 0.03, 0.034), (0.0, 0.022, 0.036, 0.036), (-0.06, -0.022, 0.0, 0.032), (0.06, -0.022, 0.0, 0.032),
+                 (-0.026, 0.026, -0.004, 0.036), (0.026, 0.026, -0.004, 0.036), (-0.045, -0.004, -0.034, 0.03), (0.045, -0.004, -0.034, 0.03), (0.0, 0.018, -0.04, 0.032)]
+    bm = bmesh.new()
+    uv_layer = bm.loops.layers.uv.verify()
+    for number, (cx, cy, cz, radius) in enumerate(curl_rows):
+        made = bmesh.ops.create_uvsphere(bm, u_segments=20, v_segments=12, radius=1.0)
+        middle = curl_mid + Vector((cx, cy, cz))
+        spin = 1.0 if number % 2 == 0 else -1.0
+        for v in made["verts"]:
+            unit = v.co.normalized()
+            turn_ = math.atan2(unit.z, unit.x)
+            ring = math.acos(max(-1.0, min(1.0, unit.y)))
+            ridge = math.sin(spin * turn_ + ring * 7.0) * 0.09 * math.sin(ring) ** 0.5
+            v.co = head_move @ (middle + Vector((unit.x, unit.y * 0.8, unit.z)) * radius * (1.0 + ridge))
+            for loop in v.link_loops:
+                loop[uv_layer].uv = (0.5 + (ring / math.pi - 0.5) * 0.8, turn_ / math.tau + 0.5)
+    for f in bm.faces:
+        f.smooth = True
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    mesh = bpy.data.meshes.new("HairCurls")
+    bm.to_mesh(mesh)
+    bm.free()
+    coil = bpy.data.objects.new("HairCurls", mesh)
+    bpy.context.scene.collection.objects.link(coil)
+    coil.data.materials.append(hair_material)
+    to_head(coil)
+    extras.append(coil)
+    # Modelled strands: thousands of fine ribbons laid over the shape, each
+    # running back from its root to where the hair is gathered, following the
+    # waves, so the hair has strands at its edges and across its surface and
+    # is not a painted shell.
+    cap_tree = BVHTree.FromPolygons([tuple(v.co) for v in updo.data.vertices], [tuple(q.vertices) for q in updo.data.polygons])
+    rng = numpy.random.default_rng(11)
+    skull_world = head_move @ skull_mid
+    gather_own = curl_mid + Vector((0.0, -0.035, 0.03))
+    roots = [to_own @ v.co for v in updo.data.vertices]
+    count = int(CFG.get("strand_count", 3600))
+    width = float(CFG.get("strand_width", 0.0016))
+    steps_ = 14
+    bm = bmesh.new()
+    uv_layer = bm.loops.layers.uv.verify()
+    laid = 0
+    for number in range(count):
+        root = roots[int(rng.integers(len(roots)))] + Vector(tuple(rng.normal(0, 0.003, 3)))
+        end_ = gather_own + Vector((float(rng.normal(0, 0.03)), float(rng.normal(0, 0.008)), float(rng.normal(0, 0.02))))
+        d0 = (root - skull_mid).normalized()
+        d1 = (end_ - skull_mid).normalized()
+        if d0.angle(d1) < 0.25:
+            continue
+        lift = 0.0006 + abs(float(rng.normal(0, 0.0012)))
+        phase = float(rng.uniform(0, math.tau))
+        sway = float(rng.uniform(0.001, 0.0035))
+        column = float(rng.random())
+        points = []
+        for step in range(steps_):
+            t = step / (steps_ - 1.0)
+            d = d0.slerp(d1, t * float(rng.uniform(0.82, 0.97)) if step == steps_ - 1 else t * 0.9)
+            hit = cap_tree.ray_cast(skull_world, (head_move.to_3x3() @ d).normalized(), 0.4)
+            if hit[0] is None:
+                points = []
+                break
+            side_dir = d.cross(d1 - d0).normalized() if (d1 - d0).length > 1e-6 else Vector((1, 0, 0))
+            outward = (hit[0] - skull_world).normalized()
+            wobble = math.sin(t * 9.0 + phase) * sway
+            points.append((hit[0] + outward * lift * scale + (head_move.to_3x3() @ side_dir).normalized() * wobble * scale, outward))
+        if len(points) < steps_:
+            continue
+        ring = []
+        for index, (where, outward) in enumerate(points):
+            ahead = points[min(index + 1, steps_ - 1)][0] - points[max(index - 1, 0)][0]
+            across = ahead.cross(outward)
+            if across.length < 1e-9:
+                across = Vector((1, 0, 0))
+            across = across.normalized() * (width * scale * 0.5 * (0.35 if index in (0, steps_ - 1) else 1.0))
+            ring.append((bm.verts.new(where - across), bm.verts.new(where + across)))
+        for index in range(steps_ - 1):
+            face = bm.faces.new((ring[index][0], ring[index][1], ring[index + 1][1], ring[index + 1][0]))
+            face.smooth = True
+            vs = (index / (steps_ - 1.0), (index + 1) / (steps_ - 1.0))
+            for loop, (du, v_) in zip(face.loops, ((0.0, vs[0]), (0.004, vs[0]), (0.004, vs[1]), (0.0, vs[1]))):
+                loop[uv_layer].uv = (column * 0.99 + du, v_)
+        laid += 1
+    # And round each curl.
+    for number, (cx, cy, cz, radius) in enumerate(curl_rows):
+        middle = curl_mid + Vector((cx, cy, cz))
+        spin = 1.0 if number % 2 == 0 else -1.0
+        for strand in range(int(CFG.get("curl_strands", 70))):
+            start_turn = float(rng.uniform(0, math.tau))
+            start_ring = float(rng.uniform(0.25, 0.8))
+            column = float(rng.random())
+            ring = []
+            for index in range(16):
+                t = index / 15.0
+                turn_ = start_turn + spin * t * 4.2
+                ring_ = (start_ring + t * 0.9) * math.pi * 0.62
+                unit = Vector((math.sin(ring_) * math.cos(turn_), math.cos(ring_) * 0.8, math.sin(ring_) * math.sin(turn_)))
+                where = head_move @ (middle + unit * radius * 1.035)
+                outward = (head_move.to_3x3() @ unit).normalized()
+                ring.append((where, outward))
+            made = []
+            for index, (where, outward) in enumerate(ring):
+                ahead = ring[min(index + 1, 15)][0] - ring[max(index - 1, 0)][0]
+                across = ahead.cross(outward)
+                across = (across.normalized() if across.length > 1e-9 else Vector((1, 0, 0))) * (width * scale * 0.5)
+                made.append((bm.verts.new(where - across), bm.verts.new(where + across)))
+            for index in range(15):
+                face = bm.faces.new((made[index][0], made[index][1], made[index + 1][1], made[index + 1][0]))
+                face.smooth = True
+                for loop, (du, v_) in zip(face.loops, ((0.0, index / 15.0), (0.004, index / 15.0), (0.004, (index + 1) / 15.0), (0.0, (index + 1) / 15.0))):
+                    loop[uv_layer].uv = (column * 0.99 + du, v_)
+    mesh = bpy.data.meshes.new("HairStrands")
+    bm.to_mesh(mesh)
+    bm.free()
+    strands_object = bpy.data.objects.new("HairStrands", mesh)
+    bpy.context.scene.collection.objects.link(strands_object)
+    strand_material = hair_material.copy()
+    strand_material.name = CID + "_strands"
+    strand_material.use_backface_culling = False
+    strands_object.data.materials.append(strand_material)
+    to_head(strands_object)
+    extras.append(strands_object)
+    print("STRANDS laid", laid, "faces", len(mesh.polygons))
+
+    # The clip.
+    bm = bmesh.new()
+    made = bmesh.ops.create_cube(bm, size=1.0)
+    clip_at = Vector((float(CFG.get("clip_side", 0.052)), nose_own.y + 0.168, nose_own.z + 0.07))
+    clip_turn = Matrix.Rotation(math.radians(35), 4, "X") @ Matrix.Rotation(math.radians(-38), 4, "Z")
+    for v in made["verts"]:
+        v.co = head_move @ (clip_at + (clip_turn @ Vector((v.co.x * 0.008, v.co.y * 0.05, v.co.z * 0.012))) + Vector((0.016, 0.0, 0.0)))
+    mesh = bpy.data.meshes.new("HairClip")
+    bm.to_mesh(mesh)
+    bm.free()
+    clip = bpy.data.objects.new("HairClip", mesh)
+    bpy.context.scene.collection.objects.link(clip)
+    clip.data.materials.append(plain(CID + "_clip", [0.5, 0.36, 0.14], 0.3, 1.0))
+    to_head(clip)
+    extras.append(clip)
+
 if CFG.get("spectacles"):
     bm = bmesh.new()
 
@@ -927,6 +1411,11 @@ try:
     look("face_speaking_smile", face_at, 0.9, 85, yaw=-20, values={"viseme_aa": 0.8, "mouthSmileLeft": 0.6, "mouthSmileRight": 0.5, "browInnerUp": 0.4})
     look("face_blink_concern", face_at, 0.9, 85, values={"eyeBlinkLeft": 1.0, "eyeBlinkRight": 1.0, "browDownLeft": 0.6, "browDownRight": 0.5, "mouthFrownLeft": 0.5, "mouthFrownRight": 0.5})
     look("body", (0, 0, 0.88), 4.6, 50)
+    for hidden in [head] + parts + extras:
+        hidden.hide_render = True
+    look("chest_shell_only", nose_old + Vector((0, 0.08, -0.2)), 1.3, 60, yaw=25)
+    for hidden in [head] + parts + extras:
+        hidden.hide_render = False
     look("hand_left", joint(RENAMED.get("LeftHand", "LeftHand")) + Vector((0.02, 0, -0.06)), 0.7, 70, yaw=60)
     look("hand_right", joint(RENAMED.get("RightHand", "RightHand")) + Vector((-0.02, 0, -0.06)), 0.7, 70, yaw=-60)
 except Exception:

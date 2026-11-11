@@ -89,11 +89,24 @@
   "albedo": "assets/building/textures/T_library_resident_adela_voss_albedo.png",
   "head": "fit",
   "own_face": true,
-  "keep_above": 1.6,
+  "keep_above": 1.575,
   "face_top": 1.585,
   "align": "features",
   "head_weights_from": -0.085,
   "nose_low": -0.05,
-  "nose_high": 0.05
+  "nose_high": 0.05,
+  "eyebrows": "none",
+  "own_face_feather": 24,
+  "eye_paint_radius": 0.0145,
+  "eye_tone": {
+   "colour": 0.45,
+   "tint": [
+    0.9,
+    0.93,
+    0.95
+   ]
+  },
+  "old_hair": "remove",
+  "hair_style": "updo"
  }
 }
