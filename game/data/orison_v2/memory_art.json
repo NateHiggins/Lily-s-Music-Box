@@ -1,0 +1,60 @@
+{
+ "schema_version": 1,
+ "asset": "res://assets/props/memory_art_frames.glb",
+ "visibility_range_m": 14.0,
+ "mountings": [
+  {
+   "id": "wall",
+   "parts": [
+    {
+     "mesh": "MemoryWall__Moulding_ON_wood",
+     "finish": "medium"
+    },
+    {
+     "mesh": "MemoryWall__Mount_ON_paper",
+     "finish": "paper"
+    },
+    {
+     "mesh": "MemoryWall__Hanger_ON_brass_dull",
+     "finish": "brass_dull"
+    }
+   ]
+  },
+  {
+   "id": "tabletop",
+   "parts": [
+    {
+     "mesh": "MemoryTable__Moulding_ON_wood",
+     "finish": "medium"
+    },
+    {
+     "mesh": "MemoryTable__Mount_ON_paper",
+     "finish": "paper"
+    }
+   ]
+  }
+ ],
+ "media": [
+  {
+   "id": "photo",
+   "finish": "wood_dark",
+   "tint": "ffffff"
+  },
+  {
+   "id": "watercolor",
+   "finish": "wood_dark",
+   "tint": "ffffff"
+  },
+  {
+   "id": "painting",
+   "finish": "oak_quartered",
+   "tint": "d9b26a"
+  },
+  {
+   "id": "polaroid",
+   "finish": "wood_dark",
+   "tint": "7a7a7a"
+  }
+ ],
+ "places": []
+}
