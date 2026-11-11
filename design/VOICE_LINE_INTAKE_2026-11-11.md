@@ -2,6 +2,10 @@ Evidence class: **INERT**
 
 # Voice line intake and character direction
 
+Status: implemented and technically verified, draft PR230. All twenty-two
+auditions are generated; eight are selected by Lily and fourteen await review.
+Runtime playback and played facial acceptance remain with Fable's integration.
+
 Codex owns work order **w55379c52f884**. Fable owns the character controller,
 dialogue integration and its playback lifecycle. Lily expanded intake to
 include official character voice descriptions and proposed dialogue punch-up
