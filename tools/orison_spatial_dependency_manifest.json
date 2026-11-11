@@ -196680,6 +196680,336 @@
    "target_exists": true
   },
   {
+   "key": "a359dbab2f7ed79f",
+   "kind": "id_reference",
+   "token": "2B_story_notions",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/button/steps[*]/object",
+    "/anchors/button/clue/rest"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cf8bd80c36a8b162",
+   "kind": "id_reference",
+   "token": "3B_partscrate",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/bench/steps[2]/object"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1e26bb01563a56c7",
+   "kind": "id_reference",
+   "token": "3B_tray1",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/bench/steps[*]/object"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1c76a4cc01fccc7a",
+   "kind": "id_reference",
+   "token": "3B_tray2",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/bench/steps[*]/object",
+    "/anchors/bench/clue/rest"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "be89a905377f8983",
+   "kind": "id_reference",
+   "token": "4B_case_wall",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/wall"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "108760228dc739d6",
+   "kind": "id_reference",
+   "token": "5B_story_headphones",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/drama/steps[1]/object"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8d53e7dfbb103956",
+   "kind": "id_reference",
+   "token": "6A_archive_box_a",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/duplicate/steps[*]/object"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cfad08fbd4aba745",
+   "kind": "id_reference",
+   "token": "6A_archive_box_b",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/duplicate/steps[*]/object"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a0ceb7de45a764ae",
+   "kind": "id_reference",
+   "token": "6A_archive_box_c",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/duplicate/steps[2]/object"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6e60a8eb770134d6",
+   "kind": "id_reference",
+   "token": "6A_cans",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/plate/steps[*]/object"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a8280d022c234ae3",
+   "kind": "id_reference",
+   "token": "6B_story_draft",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/notebook/steps[2]/object"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7450f47149646def",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM_SWITCH",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/drain/clue/rest"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "89eede681f37cde7",
    "kind": "unit_reference",
    "token": "1D",
@@ -196687,12 +197017,104 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/anchors/yard/place"
+    "/anchors/stairs/place",
+    "/anchors/stairs/steps[0]/unit"
    ],
    "lines": [
+    0,
     0
    ],
-   "count": 1,
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "0822107e06b71d50",
+   "kind": "unit_reference",
+   "token": "2B",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/button/place",
+    "/anchors/button/steps[0]/unit"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "2e83a02fc70df9a0",
+   "kind": "unit_reference",
+   "token": "3B",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/bench/place",
+    "/anchors/bench/steps[1]/unit"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "baf44558197af044",
+   "kind": "unit_reference",
+   "token": "4C",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/friday/place",
+    "/anchors/friday/steps[1]/unit"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -196715,12 +197137,78 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/anchors/playback/place"
+    "/anchors/drama/place",
+    "/anchors/drama/steps[0]/unit"
    ],
    "lines": [
+    0,
     0
    ],
-   "count": 1,
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "7b49c732849f77a1",
+   "kind": "unit_reference",
+   "token": "6A",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/duplicate/place",
+    "/anchors/duplicate/steps[1]/unit",
+    "/anchors/plate/place",
+    "/anchors/plate/steps[1]/unit"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "9c61e38ed98f513b",
+   "kind": "unit_reference",
+   "token": "6B",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/notebook/place",
+    "/anchors/notebook/steps[0]/unit"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -196743,12 +197231,18 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/anchors/tea/place"
+    "/anchors/tea/place",
+    "/anchors/tea/steps[0]/unit",
+    "/anchors/box/place",
+    "/anchors/box/steps[1]/unit"
    ],
    "lines": [
+    0,
+    0,
+    0,
     0
    ],
-   "count": 1,
+   "count": 4,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -211401,6 +211895,124 @@
    "target_exists": true
   },
   {
+   "key": "db4880f6b1cc8864",
+   "kind": "generated_name",
+   "token": "_card_for",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_card_for"
+   ],
+   "lines": [
+    185
+   ],
+   "count": 1,
+   "context": [
+    "\"LoopClue_\" + str(clue.id)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "301279f7af23d804",
+   "kind": "generated_name",
+   "token": "_grip_for",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_grip_for"
+   ],
+   "lines": [
+    84
+   ],
+   "count": 1,
+   "context": [
+    "\"LoopGrip_\" + object_id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a2ee71e17c9d1ce4",
+   "kind": "generated_name",
+   "token": "_sync",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_sync"
+   ],
+   "lines": [
+    317
+   ],
+   "count": 1,
+   "context": [
+    "\"LoopPinned_\" + item_id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0580faa57c12eeb5",
+   "kind": "id_reference",
+   "token": "4B_meal_table",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "const ROOM_REFERENCE := \"4B_meal_table\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "58b5ad7f31762942",
    "kind": "floor_reference",
    "token": "B1",
@@ -214460,7 +215072,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1465
+    1474
    ],
    "count": 1,
    "context": [
@@ -214490,8 +215102,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1545,
-    1548
+    1554,
+    1557
    ],
    "count": 2,
    "context": [
@@ -214522,7 +215134,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    949
+    950
    ],
    "count": 1,
    "context": [
@@ -214552,7 +215164,7 @@
     "<module>"
    ],
    "lines": [
-    112
+    113
    ],
    "count": 1,
    "context": [
@@ -214582,7 +215194,7 @@
     "<module>"
    ],
    "lines": [
-    107
+    108
    ],
    "count": 1,
    "context": [
@@ -214612,7 +215224,7 @@
     "<module>"
    ],
    "lines": [
-    108
+    109
    ],
    "count": 1,
    "context": [
@@ -214642,7 +215254,7 @@
     "<module>"
    ],
    "lines": [
-    109
+    110
    ],
    "count": 1,
    "context": [
@@ -214672,7 +215284,7 @@
     "<module>"
    ],
    "lines": [
-    110
+    111
    ],
    "count": 1,
    "context": [
@@ -214702,7 +215314,7 @@
     "<module>"
    ],
    "lines": [
-    111
+    112
    ],
    "count": 1,
    "context": [
@@ -214732,7 +215344,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1693
+    1702
    ],
    "count": 1,
    "context": [
@@ -214793,9 +215405,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1459,
-    1462,
-    1524
+    1468,
+    1471,
+    1533
    ],
    "count": 3,
    "context": [
@@ -214827,7 +215439,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1474
+    1483
    ],
    "count": 1,
    "context": [
@@ -214857,7 +215469,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1466
+    1475
    ],
    "count": 1,
    "context": [
@@ -214887,7 +215499,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1483
+    1492
    ],
    "count": 1,
    "context": [
@@ -214917,7 +215529,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1691
+    1700
    ],
    "count": 1,
    "context": [
@@ -214947,7 +215559,7 @@
     "<module>"
    ],
    "lines": [
-    106
+    107
    ],
    "count": 1,
    "context": [
@@ -214977,7 +215589,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1475
+    1484
    ],
    "count": 1,
    "context": [
@@ -215007,7 +215619,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1687
+    1696
    ],
    "count": 1,
    "context": [
@@ -215037,7 +215649,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1689
+    1698
    ],
    "count": 1,
    "context": [
@@ -215067,7 +215679,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    849
+    850
    ],
    "count": 1,
    "context": [
@@ -215097,7 +215709,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1689
+    1698
    ],
    "count": 1,
    "context": [
@@ -215127,7 +215739,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1687
+    1696
    ],
    "count": 1,
    "context": [
@@ -215157,7 +215769,7 @@
     "_ready"
    ],
    "lines": [
-    223
+    224
    ],
    "count": 1,
    "context": [
@@ -215187,7 +215799,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    850
+    851
    ],
    "count": 1,
    "context": [
@@ -215217,7 +215829,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    850
+    851
    ],
    "count": 1,
    "context": [
@@ -215247,7 +215859,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1687
+    1696
    ],
    "count": 1,
    "context": [
@@ -215277,7 +215889,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1687
+    1696
    ],
    "count": 1,
    "context": [
@@ -215307,7 +215919,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    849
+    850
    ],
    "count": 1,
    "context": [
@@ -215337,7 +215949,7 @@
     "<module>"
    ],
    "lines": [
-    112
+    113
    ],
    "count": 1,
    "context": [
@@ -215367,9 +215979,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1542,
-    1546,
-    1549
+    1551,
+    1555,
+    1558
    ],
    "count": 3,
    "context": [
@@ -215401,7 +216013,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    643
+    644
    ],
    "count": 1,
    "context": [
@@ -215431,7 +216043,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    643
+    644
    ],
    "count": 1,
    "context": [
@@ -215461,7 +216073,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    642
+    643
    ],
    "count": 1,
    "context": [
@@ -215491,7 +216103,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    642
+    643
    ],
    "count": 1,
    "context": [
@@ -215521,7 +216133,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1450
+    1459
    ],
    "count": 1,
    "context": [
@@ -215551,7 +216163,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1451
+    1460
    ],
    "count": 1,
    "context": [
@@ -215581,7 +216193,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    643
+    644
    ],
    "count": 1,
    "context": [
@@ -215611,7 +216223,7 @@
     "<module>"
    ],
    "lines": [
-    107
+    108
    ],
    "count": 1,
    "context": [
@@ -215641,7 +216253,7 @@
     "<module>"
    ],
    "lines": [
-    108
+    109
    ],
    "count": 1,
    "context": [
@@ -215671,7 +216283,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1352
+    1361
    ],
    "count": 1,
    "context": [
@@ -215701,7 +216313,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    694
+    695
    ],
    "count": 1,
    "context": [
@@ -215732,8 +216344,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1207,
-    1337
+    1216,
+    1346
    ],
    "count": 2,
    "context": [
@@ -215764,7 +216376,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1338
+    1347
    ],
    "count": 1,
    "context": [
@@ -215794,7 +216406,7 @@
     "<module>"
    ],
    "lines": [
-    109
+    110
    ],
    "count": 1,
    "context": [
@@ -215824,7 +216436,7 @@
     "<module>"
    ],
    "lines": [
-    110
+    111
    ],
    "count": 1,
    "context": [
@@ -215854,7 +216466,7 @@
     "<module>"
    ],
    "lines": [
-    111
+    112
    ],
    "count": 1,
    "context": [
@@ -215884,7 +216496,7 @@
     "_ready"
    ],
    "lines": [
-    275
+    276
    ],
    "count": 1,
    "context": [
@@ -215914,7 +216526,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1508
+    1517
    ],
    "count": 1,
    "context": [
@@ -215944,7 +216556,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1509
+    1518
    ],
    "count": 1,
    "context": [
@@ -215974,7 +216586,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1510
+    1519
    ],
    "count": 1,
    "context": [
@@ -216004,7 +216616,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1507
+    1516
    ],
    "count": 1,
    "context": [
@@ -216034,7 +216646,7 @@
     "<module>"
    ],
    "lines": [
-    106
+    107
    ],
    "count": 1,
    "context": [
@@ -216065,7 +216677,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    686
+    687
    ],
    "count": 1,
    "context": [
@@ -216097,8 +216709,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1443,
-    1508
+    1452,
+    1517
    ],
    "count": 2,
    "context": [
@@ -216131,8 +216743,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1446,
-    1509
+    1455,
+    1518
    ],
    "count": 2,
    "context": [
@@ -216165,8 +216777,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1449,
-    1510
+    1458,
+    1519
    ],
    "count": 2,
    "context": [
@@ -216199,8 +216811,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1440,
-    1507
+    1449,
+    1516
    ],
    "count": 2,
    "context": [
@@ -216232,7 +216844,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    684
+    685
    ],
    "count": 1,
    "context": [
@@ -216263,7 +216875,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    560
+    561
    ],
    "count": 1,
    "context": [
@@ -216295,8 +216907,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    270,
-    565
+    271,
+    566
    ],
    "count": 2,
    "context": [
@@ -216328,7 +216940,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    691
+    692
    ],
    "count": 1,
    "context": [
@@ -216359,7 +216971,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    568
+    569
    ],
    "count": 1,
    "context": [
@@ -216391,8 +217003,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    684,
-    1548
+    685,
+    1557
    ],
    "count": 2,
    "context": [
@@ -216423,7 +217035,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1407
+    1416
    ],
    "count": 1,
    "context": [
@@ -216453,7 +217065,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1408
+    1417
    ],
    "count": 1,
    "context": [
@@ -268327,6 +268939,157 @@
    "target_exists": null
   },
   {
+   "key": "f9d162588b607ba4",
+   "kind": "id_reference",
+   "token": "5B_story_headphones",
+   "file": "game/tests/temporal_loop_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    291
+   ],
+   "count": 1,
+   "context": [
+    "check(loop.report_shift(\"5B_story_headphones\") == \"step\" and loop.steps_done() == 2, \"the twelfth record: first the headphones\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F05/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6cb47af22cdd004c",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/temporal_loop_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    154
+   ],
+   "count": 1,
+   "context": [
+    "loop.observe(\"4B\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "33bdf814eac4f1f8",
+   "kind": "unit_reference",
+   "token": "4C",
+   "file": "game/tests/temporal_loop_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    233,
+    241
+   ],
+   "count": 2,
+   "context": [
+    "loop.observe(\"4C\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "1c00d3abd0b95be7",
+   "kind": "unit_reference",
+   "token": "5B",
+   "file": "game/tests/temporal_loop_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    290
+   ],
+   "count": 1,
+   "context": [
+    "loop.observe(\"5B\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "665660a636681a58",
+   "kind": "unit_reference",
+   "token": "6C",
+   "file": "game/tests/temporal_loop_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    156
+   ],
+   "count": 1,
+   "context": [
+    "loop.observe(\"6C\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "8770cb5e9f5bc424",
    "kind": "runtime_id",
    "token": "F04_B_BED",
@@ -273074,6 +273837,96 @@
    "confidence": "HIGH",
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "9cdbd279f30b9dde",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_loop_stage_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    78
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "562103774f62426f",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/v2_loop_stage_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    112,
+    177
+   ],
+   "count": 2,
+   "context": [
+    "_check(stage.wall != null and world.unit_at_world(stage.wall.global_position) == \"4B\", \"the case wall is in 4B\")",
+    "_check(world.player_unit() == \"4B\", \"the player stands at the wall in 4B (%s)\" % world.player_unit())"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "0e468e44570f57ad",
+   "kind": "unit_reference",
+   "token": "6C",
+   "file": "game/tests/v2_loop_stage_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    143
+   ],
+   "count": 1,
+   "context": [
+    "_check(world.player_unit() == \"6C\", \"the player stands in 6C (%s)\" % world.player_unit())"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
    "target_exists": true
   },
   {

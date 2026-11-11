@@ -648,9 +648,15 @@ cooldown, damage or paradox penalty. Preserve free-order investigation.
 a fare, and the leads open in order. This replaces "no resource currency" and
 "free-order investigation" above; the rest stands.
 
-- **Leads.** A lead is a place, a date, a start, a length and a question. A
-  lead opens when the question before it is answered. The first is open from
-  the start.
+- **Leads.** A lead is a place, a date, a start, a length and a question.
+  The leads form a tree that grows harder as it climbs. A lead opens when
+  the evidence it needs is pinned to the case wall in 4B. The first is open
+  from the start.
+- **The goal of a visit.** The player works the room with their hands until
+  it gives up one piece of evidence: a note, a picture, a thing. They take
+  it, go home, pin it to the wall, and choose the next jump with it in front
+  of them. The scripted tree is
+  **design/TEMPORAL_LOOP_TREE_2026-11-10.md**.
 - **The fare.** Opening the channel to a lead's Temporal Coordinate is paid
   from banked funds. The fare is fixed by the coordinate and by how far the
   present stands from it in the year. The first call to the opening lead is
@@ -658,10 +664,10 @@ a fare, and the leads open in order. This replaces "no resource currency" and
 - **The hours again.** Inside a paid visit the lead's hours may be run again
   without charge, as often as wanted, and begin again by themselves when they
   run out.
-- **Evidence is kept.** That is the purpose of each trip. What was heard,
-  and what was collected into the valise (written finds, letters, papers),
-  comes home and stays through every rerun, with the deductions drawn from
-  it and the leads it opens.
+- **Evidence is kept.** That is the purpose of each trip. Evidence taken in
+  a visit comes home and stays through every rerun, and so does what was
+  heard and what was collected into the valise. Pinned to the wall, it opens
+  leads and draws deductions.
 - **What does not come home.** Pocket money, tools and stores, keys, and the
   visited day itself are as they were. Nothing earned in a visit can be banked.
 - **The bank.** The night man earns by maintenance in the present and puts
