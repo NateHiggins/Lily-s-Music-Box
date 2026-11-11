@@ -142,17 +142,15 @@ func _ready() -> void:
 		var thing := world.adapter.resolve(identity) as Node3D
 		_check(thing != null and world.room_at_world(thing.global_position + Vector3.UP * 0.2) == "F01_WATCH", identity + " stays in the watch room")
 
-	var floor_y: float = world.adapter.root.to_global(Vector3.ZERO).y
-	var board := world.adapter.resolve("LobbyPorterBoard") as Node3D
-	var phones := world.adapter.resolve("F01_HOUSE_TELEPHONE_BOARD") as Node3D
-	await _snap("lobby_mail_bank", Vector3(bank.global_position.x - 3.2, floor_y, bank.global_position.z + 0.6), bank.global_position + Vector3.UP * 1.2)
-	await _snap("lobby_porter_board", Vector3(board.global_position.x + 0.4, floor_y, board.global_position.z - 2.6), board.global_position)
-	await _snap("lobby_whole", world.adapter.root.to_global(Vector3(-3.8, 0.0, -8.4)), world.adapter.root.to_global(Vector3(3.0, 1.3, -5.5)))
+	# Views are given in the blockout's own frame: the world's is turned from it.
+	var frame: Node3D = world.adapter.root
 	world.player.set_lamp_enabled(true)
-	await _snap("house_office_telephone", Vector3(phones.global_position.x - 1.7, floor_y, phones.global_position.z + 0.3), phones.global_position)
-	await _snap("house_office_wide", world.adapter.root.to_global(Vector3(-13.5, 0.0, 2.5)), world.adapter.root.to_global(Vector3(-9.3, 1.1, -1.3)))
-	await _snap("lobby_mail_bank_near", Vector3(bank.global_position.x - 2.0, floor_y, bank.global_position.z + 0.3), bank.global_position + Vector3.UP * 1.1)
-	await _snap("old_mail_room", world.adapter.root.to_global(Vector3(-6.2, 0.0, -1.0)), world.adapter.root.to_global(Vector3(-9.0, 1.2, -1.3)))
+	await _snap("lobby_mail_bank", frame.to_global(Vector3(2.9, 0.0, -6.4)), frame.to_global(Vector3(5.3, 1.2, -7.2)))
+	await _snap("lobby_porter_board", frame.to_global(Vector3(-0.5, 0.0, -6.4)), frame.to_global(Vector3(-0.9, 1.45, -4.05)))
+	await _snap("lobby_whole", frame.to_global(Vector3(-3.8, 0.0, -8.4)), frame.to_global(Vector3(3.0, 1.3, -5.5)))
+	await _snap("house_office_telephone", frame.to_global(Vector3(-11.3, 0.0, -0.8)), frame.to_global(Vector3(-9.4, 1.15, -1.3)))
+	await _snap("house_office_wide", frame.to_global(Vector3(-13.5, 0.0, 2.5)), frame.to_global(Vector3(-9.3, 1.1, -1.3)))
+	await _snap("old_mail_room", frame.to_global(Vector3(-6.2, 0.0, -1.0)), frame.to_global(Vector3(-9.0, 1.2, -1.3)))
 	_finish()
 
 
