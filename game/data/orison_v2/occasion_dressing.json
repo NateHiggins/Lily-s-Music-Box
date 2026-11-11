@@ -1,0 +1,500 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/occasion_dressing.glb",
+  "props": [
+    {
+      "id": "flag",
+      "shadow": true,
+      "reach": 40.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Flag__Bracket_ON_cast_iron",
+          "material": "cast_iron",
+          "tint": [
+            0.3,
+            0.3,
+            0.29
+          ]
+        },
+        {
+          "mesh": "Flag__Staff_ON_oak_quartered",
+          "material": "oak_quartered",
+          "tint": [
+            0.62,
+            0.48,
+            0.34
+          ]
+        },
+        {
+          "mesh": "Flag__Stripes_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.74,
+            0.13,
+            0.12
+          ]
+        },
+        {
+          "mesh": "Flag__Field_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.96,
+            0.94,
+            0.88
+          ]
+        },
+        {
+          "mesh": "Flag__Canton_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.16,
+            0.2,
+            0.44
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bunting",
+      "shadow": true,
+      "reach": 30.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Bunting__Inner_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.16,
+            0.2,
+            0.44
+          ]
+        },
+        {
+          "mesh": "Bunting__Middle_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.96,
+            0.94,
+            0.88
+          ]
+        },
+        {
+          "mesh": "Bunting__Outer_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.74,
+            0.13,
+            0.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bunting_autumn",
+      "shadow": true,
+      "reach": 30.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Bunting__Inner_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.42,
+            0.24,
+            0.12
+          ]
+        },
+        {
+          "mesh": "Bunting__Middle_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.9,
+            0.78,
+            0.48
+          ]
+        },
+        {
+          "mesh": "Bunting__Outer_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.8,
+            0.4,
+            0.1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wreath",
+      "shadow": true,
+      "reach": 30.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Wreath__Boughs_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.34,
+            0.5,
+            0.3
+          ]
+        },
+        {
+          "mesh": "Wreath__Bow_ON_linen",
+          "material": "linen",
+          "tint": [
+            0.74,
+            0.13,
+            0.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tree",
+      "shadow": true,
+      "reach": 30.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Tree__Pot_ON_terracotta",
+          "material": "terracotta",
+          "tint": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "mesh": "Tree__Soil_ON_soil",
+          "material": "soil",
+          "tint": [
+            0.55,
+            0.42,
+            0.32
+          ]
+        },
+        {
+          "mesh": "Tree__Boughs_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.3,
+            0.46,
+            0.28
+          ]
+        },
+        {
+          "mesh": "Tree__Chain_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.86,
+            0.26,
+            0.2
+          ]
+        },
+        {
+          "mesh": "Tree__Balls_ON_mirror_aged",
+          "material": "mirror_aged",
+          "tint": [
+            0.95,
+            0.42,
+            0.3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poppies",
+      "shadow": true,
+      "reach": 16.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Poppies__Jar_ON_milk_glass",
+          "material": "milk_glass",
+          "tint": [
+            0.86,
+            0.9,
+            0.88
+          ]
+        },
+        {
+          "mesh": "Poppies__Stems_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.22,
+            0.3,
+            0.16
+          ]
+        },
+        {
+          "mesh": "Poppies__Petals_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.86,
+            0.14,
+            0.1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poppy_pin",
+      "shadow": false,
+      "reach": 10.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "PoppyPin__Petals_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.86,
+            0.14,
+            0.1
+          ]
+        },
+        {
+          "mesh": "PoppyPin__Stem_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.22,
+            0.3,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carnations",
+      "shadow": true,
+      "reach": 16.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Carnations__Vase_ON_milk_glass",
+          "material": "milk_glass",
+          "tint": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "mesh": "Carnations__Stems_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.36,
+            0.52,
+            0.36
+          ]
+        },
+        {
+          "mesh": "Carnations__Heads_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.94,
+            0.6,
+            0.66
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lilies",
+      "shadow": true,
+      "reach": 20.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Lilies__Pot_ON_terracotta",
+          "material": "terracotta",
+          "tint": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "mesh": "Lilies__Soil_ON_soil",
+          "material": "soil",
+          "tint": [
+            0.55,
+            0.42,
+            0.32
+          ]
+        },
+        {
+          "mesh": "Lilies__Greens_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.34,
+            0.52,
+            0.3
+          ]
+        },
+        {
+          "mesh": "Lilies__Blooms_ON_paper",
+          "material": "paper",
+          "tint": [
+            1.0,
+            0.99,
+            0.95
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pumpkin",
+      "shadow": true,
+      "reach": 30.0,
+      "candle": [
+        0.0,
+        0.085,
+        0.0
+      ],
+      "parts": [
+        {
+          "mesh": "Pumpkin__Shell_ON_terracotta",
+          "material": "terracotta",
+          "tint": [
+            1.0,
+            0.78,
+            0.24
+          ]
+        },
+        {
+          "mesh": "Pumpkin__Stalk_ON_plant",
+          "material": "plant",
+          "tint": [
+            0.52,
+            0.5,
+            0.3
+          ]
+        },
+        {
+          "mesh": "Pumpkin__Candle_ON_milk_glass",
+          "material": "milk_glass",
+          "tint": [
+            0.96,
+            0.9,
+            0.72
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cutout_pumpkins",
+      "shadow": false,
+      "reach": 14.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Cutouts__Pumpkins_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.92,
+            0.48,
+            0.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cutout_hearts",
+      "shadow": false,
+      "reach": 14.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Cutouts__Hearts_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.84,
+            0.12,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cutout_shamrocks",
+      "shadow": false,
+      "reach": 14.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Cutouts__Shamrocks_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.2,
+            0.52,
+            0.22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cutout_eggs",
+      "shadow": false,
+      "reach": 14.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Cutouts__Eggs_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.66,
+            0.8,
+            0.9
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cutout_turkeys",
+      "shadow": false,
+      "reach": 14.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Cutouts__Turkeys_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.5,
+            0.3,
+            0.16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crepe",
+      "shadow": false,
+      "reach": 24.0,
+      "candle": [],
+      "parts": [
+        {
+          "mesh": "Crepe__First_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.74,
+            0.13,
+            0.12
+          ]
+        },
+        {
+          "mesh": "Crepe__Second_ON_paper",
+          "material": "paper",
+          "tint": [
+            0.24,
+            0.52,
+            0.26
+          ]
+        }
+      ]
+    }
+  ],
+  "placements": [],
+  "occasions": []
+}
