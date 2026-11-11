@@ -142,8 +142,19 @@ def in_group(vertex, group):
     return any(g.group == index for g in vertex.groups)
 
 
+_bone_groups = set()
+
+
 def weight(vertex, fragments):
-    return sum(g.weight for g in vertex.groups if any(f in names[g.group] for f in fragments))
+    """The share of a vertex's bone weight on bones whose names carry one of
+    the fragments. A share, because the base leaves palms and feet with only
+    a fifth of a full weight in all."""
+    if not _bone_groups:
+        _bone_groups.update(i for i, n in names.items() if n in rig.data.bones)
+    total = sum(g.weight for g in vertex.groups if g.group in _bone_groups)
+    if total <= 1e-6:
+        return 0.0
+    return sum(g.weight for g in vertex.groups if g.group in _bone_groups and any(f in names[g.group] for f in fragments)) / total
 
 
 ARM = ("Arm", "ForeArm", "Hand")
@@ -361,6 +372,16 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         bm.free()
         print("GARMENT", name, "is empty")
         return None
+    # Hems, cuffs and necklines are cut along the mesh's own faces and come
+    # out toothed; ease every open edge toward its neighbours along the edge.
+    for _ in range(8):
+        moved = {}
+        for v in bm.verts:
+            beside = [e.other_vert(v) for e in v.link_edges if e.is_boundary]
+            if len(beside) == 2:
+                moved[v] = v.co * 0.5 + (beside[0].co + beside[1].co) * 0.25
+        for v, co in moved.items():
+            v.co = co
     if subdivide:
         bmesh.ops.subdivide_edges(bm, edges=bm.edges[:], cuts=subdivide, use_grid_fill=True, smooth=0.6)
     bm.normal_update()
@@ -419,7 +440,8 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
 
 
 def torso(v, low=None, high=None, sleeves=1.0, vee=0.0):
-    low = waist - 0.05 if low is None else low
+    # Nothing cut from the tights hangs below the fork of the legs: it came out as a tongue between them.
+    low = max(hip - 0.075, waist - 0.05 if low is None else low)
     high = neck + 0.02 if high is None else high
     co = v.co
     arm = weight(v, ARM)

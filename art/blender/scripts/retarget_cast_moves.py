@@ -116,7 +116,9 @@ for path, time_scale in SOURCES:
     align = {}
     for n in names:
         to = leads_to(n, names)
-        if to is None or n == "Hips":
+        # Collar bones too: lined up by direction they sat wherever the old
+        # rig's collar pointed, which hunched the shoulders.
+        if to is None or n == "Hips" or n.endswith("Shoulder"):
             align[n] = Quaternion()
             continue
         was = (source_head[to] - source_head[n]).normalized()

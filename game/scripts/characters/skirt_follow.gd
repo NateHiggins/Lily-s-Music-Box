@@ -4,10 +4,11 @@ extends SkeletonModifier3D
 ## every chain's first bone is swung by a share of the swing of the thigh on
 ## its side, about that thigh's own joint: a leg stepping forward carries the
 ## front of the skirt with it, so the leg never comes through the cloth.
-## Spring bones placed after this one then add the sway and the settling.
+## Nothing is simulated: the skirt is skinned cloth, placed from the legs' pose
+## alone, so it is the same every time and costs almost nothing.
 ##
 ## It writes the first two bones of each skirt chain, and reads the hips,
-## thighs and shins; nothing else writes those bones before the springs.
+## thighs and shins; nothing else writes those bones.
 
 const CHAINS := 8
 ## How much of a thigh's swing its side of the skirt takes.
