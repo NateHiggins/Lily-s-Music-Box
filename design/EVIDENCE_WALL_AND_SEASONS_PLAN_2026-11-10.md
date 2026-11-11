@@ -133,4 +133,4 @@ Each step ends with a test and a capture.
 ## 8. Open, for Lily
 
 - The 29 October question above.
-- A conflict to settle: her widget answer on **temporal_loop_canon_20261110** moves the loop's commands off the companion to a bank book and a dial, and keeps the Bible. Her chat directions the same day amended the Bible and gave the companion autonomy to act and hint. As built, the companion takes the typed commands.
+- Settled 2026-11-10: Lily's ruling **temporal_loop_canon_20261110** is to amend the Bible, with fares and the companion's loop commands canon as built.
