@@ -19,6 +19,33 @@ hashes. Generated requests fail safely if a selected reference is unavailable.
 The round's frozen request sheet and profile snapshot stay unchanged when a
 listening decision updates the current registry.
 
+## Production batches
+
+`tools/voice/catalog.py` inventories authored base, mystery, opinion and Mina
+case nodes, including explicit speaker overrides. `guest_turns.json` attributes
+exact Unicode character spans to the two approved guest voices without changing
+the source text. Silent material, missing references and uncast speakers remain
+explicit exclusions. Supplemental dynamic providers use exact source bindings.
+
+```powershell
+python tools/voice/produce.py plan --case C:/ov/reports/voice/new_case --reference-root C:/ov/voice-references/20261111_cast_round01
+python tools/voice/produce.py run --case C:/ov/reports/voice/new_case --reference-root C:/ov/voice-references/20261111_cast_round01
+```
+
+Planning refuses to replace an existing freeze. The producer uses Omni's
+installed clone backend, checks source and reference hashes, and queues bounded
+same-voice batches at medium priority. A kernel-backed case lock prevents duplicate
+producers. Completed audio is verified and reused; original attempt outputs and
+failure receipts remain intact. Each batch records actual native exit, inputs,
+reference/backend hashes and output hashes. Identical words from the same voice
+share a recording. Individual scripts above the word target remain single takes;
+they are never silently rewritten or split. No speech model ships in the game.
+
+Generated WAVs are authoring inputs. OGG encoding, cue alignment, word screening,
+runtime playback, interruption and played face review are separate qualification
+steps. Variable lists and ticket numbers use source-backed component clips;
+their runtime chain must stop as a whole on interruption.
+
 ## Recording sheet
 
 Run from the repository root.
