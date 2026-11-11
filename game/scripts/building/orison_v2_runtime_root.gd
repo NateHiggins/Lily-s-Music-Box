@@ -103,6 +103,8 @@ var temporal_loop: Node
 var loop_stage: Node3D
 var season_fittings: Node
 var occasion_dressing: Node3D
+var commensals: Node
+var period_aircraft: Node
 var corruption_lineages: CorruptionLineageRegistry
 var watch_station_network: WatchStationNetwork
 ## Patrol station anchor -> WatchStationProp.STATIONS id, one box per floor.
@@ -1048,6 +1050,15 @@ func _compose_authorities() -> void:
 	if occasion_dressing == null or not occasion_dressing.errors.is_empty():
 		push_error("ORISON V2 RUNTIME: occasion dressing incomplete")
 	season_fittings.occasion = occasion_dressing
+	# V1's commensals (moths at the street lamps, roaches in 4B's kitchen) and
+	# its period aircraft, with V2 bodies (V1 retirement plan, section B item 12).
+	# The residents' memory art is built but not hung: V1's pictures cannot be
+	# carried (RUL-007, RUL-008) and empty frames wait on Lily's ruling.
+	commensals = preload("res://scripts/building/orison_v2_commensals.gd").mount(self, _blockout, layout, adapter)
+	period_aircraft = preload("res://scripts/building/orison_v2_aircraft.gd").mount(self, _blockout, layout, adapter)
+	for creature: Node in [commensals, period_aircraft]:
+		if creature == null or not (creature.get("errors") as Array).is_empty():
+			push_error("ORISON V2 RUNTIME: a commensal or aircraft composer is incomplete")
 	var installed_fire: RefCounted=adapter.root.get_meta("v2_native_fire_service")
 	fire_maintenance_counter=preload("res://scripts/building/orison_v2_fire_maintenance_counter.gd").mount(self,economy,installed_fire.stations)
 	if fire_maintenance_counter==null:
