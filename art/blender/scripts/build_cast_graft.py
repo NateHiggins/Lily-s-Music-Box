@@ -78,6 +78,12 @@ for kind, name, atype in [("eyes", "low-poly", "Eyes"), ("eyebrows", CFG.get("ey
     part = HS.add_mhclo_asset(asset(kind, name), human, asset_type=atype, subdiv_levels=0, material_type="GAMEENGINE")
     part.name = "Face_" + kind
     parts.append(part)
+hair = None
+if CFG.get("hair"):
+    hair = HS.add_mhclo_asset(asset("hair", CFG["hair"]), human, asset_type="Hair", subdiv_levels=0, material_type="GAMEENGINE")
+    hair.name = "Hair"
+    parts.append(hair)
+eye_at = {side: rig.matrix_world @ rig.data.bones["eye." + side].head_local for side in ("L", "R")}
 FS.load_targets(human, load_microsoft_visemes=False, load_meta_visemes=True, load_arkit_faceunits=True)
 FS.interpolate_targets(human)
 for modifier in list(human.modifiers):
@@ -283,6 +289,7 @@ tree = BVHTree.FromObject(head, depsgraph)
 margin = float(CFG.get("skin_margin", 0.006))
 keep_above = float(CFG.get("keep_above", 99.0))
 neck_z = joint("neck").z
+REBUILD = CFG.get("head", "rebuild") == "rebuild"
 doomed = set()
 face_top = float(CFG.get("face_top", keep_above))
 stub_floor = min(v.co.z for v in head.data.vertices) + 0.012
@@ -302,6 +309,10 @@ for index, vertex in enumerate(shell.data.vertices):
             if past_wrist > float(CFG.get("wrist_cut", 0.0)) or (is_skin(old_colour[index], True) and past_wrist > -0.1):
                 doomed.add(index)
     upper = w.get("Head", 0.0) + w.get("neck", 0.0)
+    if REBUILD and (w.get("Head", 0.0) > 0.4 or (upper > 0.5 and co.z > nose_old.z - 0.075 * scale)):
+        # The whole old head goes: face, hair, hat and all. A new one is built.
+        doomed.add(index)
+        continue
     if co.z > stub_floor and (upper > 0.3 or (upper + w.get("Spine", 0.0) > 0.3 and abs(co.x) < 0.13)):
         if is_skin(old_colour[index], upper > 0.5 and co.z < nose_old.z - 0.03):
             doomed.add(index)
@@ -350,7 +361,7 @@ chin_z = nose_old.z - 0.075 * scale
 tucked = 0
 dropped = 0
 skull_centre = nose_old + Vector((0.0, 0.1 * scale, 0.035 * scale))
-for piece in [head] + list(hands.values()):
+for piece in ([] if REBUILD else [head]):
     blocks = piece.data.shape_keys.key_blocks if piece.data.shape_keys else None
     side = "Left" if piece is hands["L"] else "Right"
     drop = set()
@@ -478,6 +489,119 @@ for side, old_side in (("L", "Left"), ("R", "Right")):
         return old_side + "Hand" if (name is None or name in bones) else None
     reweigh(hands[side], hand_map)
 
+# ---------------------------------------------------------------- hair, hat, spectacles
+def plain(name, colour, rough, metal=0.0):
+    material = bpy.data.materials.new(name)
+    material.use_nodes = True
+    shader = material.node_tree.nodes["Principled BSDF"]
+    shader.inputs["Base Color"].default_value = (*colour, 1.0)
+    shader.inputs["Roughness"].default_value = rough
+    shader.inputs["Metallic"].default_value = metal
+    return material
+
+
+def to_head(obj):
+    obj.vertex_groups.clear()
+    obj.vertex_groups.new(name="Head").add(list(range(len(obj.data.vertices))), 1.0, "REPLACE")
+    obj.parent = old_rig
+    obj.matrix_parent_inverse = old_world.inverted()
+    obj.modifiers.new("Armature", "ARMATURE").object = old_rig
+
+
+extras = []
+skull = [v.co.copy() for v in head.data.vertices]
+top_z = max(p.z for p in skull)
+brow_z = nose_old.z + float(CFG.get('brow_above_nose', 0.066)) * scale
+band = [p for p in skull if p.z > brow_z]
+centre = Vector(((max(p.x for p in band) + min(p.x for p in band)) / 2, (max(p.y for p in band) + min(p.y for p in band)) / 2, 0))
+half_w = (max(p.x for p in band) - min(p.x for p in band)) / 2
+half_d = (max(p.y for p in band) - min(p.y for p in band)) / 2
+if hair is not None and CFG.get("hair_colour"):
+    node, image = base_image(hair)
+    if image is not None:
+        width, height = image.size
+        pixels = numpy.array(image.pixels[:], dtype=numpy.float32).reshape(height, width, 4)
+        grey = pixels[:, :, :3].mean(axis=2, keepdims=True)
+        solid = pixels[:, :, 3] > 0.5
+        grey = grey / max(float(grey[solid].mean()) if solid.any() else 0.5, 0.05)
+        pixels[:, :, :3] = numpy.clip(grey * numpy.array(CFG["hair_colour"], dtype=numpy.float32), 0, 1)
+        dyed = bpy.data.images.new(CID + "_hair", width, height, alpha=True)
+        dyed.pixels = pixels.ravel()
+        dyed.filepath_raw = os.path.join(OUT, CID + "_hair.png")
+        dyed.file_format = "PNG"
+        dyed.save()
+        node.image = dyed
+if CFG.get("hat") == "cloche":
+    lift = 0.012
+    rows = [(0.0, top_z + lift + 0.004), (0.45, top_z + lift + 0.002), (0.8, top_z + lift - 0.014), (1.0, top_z + lift - 0.045),
+            (1.07, top_z - 0.08), (1.09, brow_z + 0.046), (1.11, brow_z + 0.03), (1.2, brow_z + 0.016), (1.3, brow_z + 0.0), (1.34, brow_z - 0.012), (1.32, brow_z - 0.016),
+            (1.06, brow_z + 0.02), (1.05, brow_z + 0.04)]
+    bm = bmesh.new()
+    rings = []
+    steps = 40
+    for r, z in rows:
+        ring = []
+        for k in range(steps):
+            a = math.tau * k / steps
+            # A cloche sits lower at the back than over the brow.
+            dip = 0.022 * (1 + math.sin(a)) if r > 1.0 else 0.0
+            ring.append(bm.verts.new((centre.x + math.cos(a) * r * (half_w + 0.006), centre.y + math.sin(a) * r * (half_d + 0.006), z - dip)))
+        rings.append(ring)
+    for a, b in zip(rings, rings[1:]):
+        for k in range(steps):
+            bm.faces.new((a[k], a[(k + 1) % steps], b[(k + 1) % steps], b[k]))
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    mesh = bpy.data.meshes.new("Hat")
+    bm.to_mesh(mesh)
+    bm.free()
+    for poly in mesh.polygons:
+        poly.use_smooth = True
+    hat = bpy.data.objects.new("Hat", mesh)
+    bpy.context.scene.collection.objects.link(hat)
+    hat.data.materials.append(plain(CID + "_felt", CFG.get("hat_colour", [0.16, 0.16, 0.17]), 0.92))
+    to_head(hat)
+    extras.append(hat)
+    if hair is not None:
+        # Hair the hat covers is not there.
+        covered = {v.index for v in hair.data.vertices if v.co.z > brow_z + 0.03 or v.co.y < nose_old.y + 0.05 * scale}
+        keep_only(hair, set(range(len(hair.data.vertices))) - covered)
+if CFG.get("spectacles"):
+    bm = bmesh.new()
+
+    def tube(a, b, radius=0.0011):
+        a = Vector(a)
+        b = Vector(b)
+        axis = (b - a)
+        made = bmesh.ops.create_cone(bm, cap_ends=True, segments=8, radius1=radius, radius2=radius, depth=axis.length)
+        turn = Vector((0, 0, 1)).rotation_difference(axis.normalized()).to_matrix().to_4x4()
+        bmesh.ops.transform(bm, matrix=Matrix.Translation((a + b) / 2) @ turn, verts=made["verts"])
+
+    lens_r = 0.021 * scale
+    eyes_now = {side: head_move @ eye_at[side] for side in ("L", "R")}
+    front_y = min(e.y for e in eyes_now.values()) - 0.026 * scale
+    centres = {}
+    for side in ("L", "R"):
+        c = Vector((eyes_now[side].x * 1.06 - nose_old.x * 0.06, front_y, eyes_now[side].z - 0.002))
+        centres[side] = c
+        ring = [c + Vector((math.cos(math.tau * k / 24) * lens_r, 0, math.sin(math.tau * k / 24) * lens_r)) for k in range(24)]
+        for k in range(24):
+            tube(ring[k], ring[(k + 1) % 24])
+    inner = sorted(centres.values(), key=lambda c: c.x)
+    tube(inner[0] + Vector((lens_r, 0, 0.004)), inner[1] + Vector((-lens_r, 0, 0.004)))
+    for c in centres.values():
+        out = 1 if c.x > nose_old.x else -1
+        hinge = c + Vector((out * lens_r, 0, 0.004))
+        tube(hinge, hinge + Vector((out * 0.012 * scale, 0.03 * scale, 0)))
+        tube(hinge + Vector((out * 0.012 * scale, 0.03 * scale, 0)), hinge + Vector((out * 0.014 * scale, 0.115 * scale, -0.004)))
+    mesh = bpy.data.meshes.new("Spectacles")
+    bm.to_mesh(mesh)
+    bm.free()
+    glasses = bpy.data.objects.new("Spectacles", mesh)
+    bpy.context.scene.collection.objects.link(glasses)
+    glasses.data.materials.append(plain(CID + "_wire", [0.55, 0.45, 0.2], 0.35, 1.0))
+    to_head(glasses)
+    extras.append(glasses)
+
 for leftover in [human, rig]:
     bpy.data.objects.remove(leftover)
 shell.name = "Clothes"
@@ -539,7 +663,7 @@ for obj in [head] + parts:
         for key in obj.data.shape_keys.key_blocks[1:]:
             key.value = 0.0
 bpy.ops.object.select_all(action="DESELECT")
-for obj in [old_rig, shell, head] + parts + list(hands.values()):
+for obj in [old_rig, shell, head] + parts + extras + list(hands.values()):
     obj.select_set(True)
 bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, CID + ".glb"), use_selection=True, export_format="GLB",
                           export_morph=True, export_morph_normal=False, export_animations=False, export_yup=True)

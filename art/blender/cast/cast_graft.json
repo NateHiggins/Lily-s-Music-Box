@@ -16,10 +16,24 @@
    -0.117,
    1.512
   ],
-  "head_scale": 0.86,
+  "head_scale": 0.9,
   "keep_above": 1.575,
   "eyes": "brownlight",
-  "face_top": 1.553
+  "face_top": 1.553,
+  "head": "rebuild",
+  "hair": "bob02",
+  "hair_colour": [
+   0.07,
+   0.06,
+   0.06
+  ],
+  "hat": "cloche",
+  "hat_colour": [
+   0.035,
+   0.035,
+   0.04
+  ],
+  "spectacles": true
  },
  "cal_dwyer": {
   "macro": {
@@ -39,6 +53,13 @@
   "head_scale": 0.98,
   "keep_above": 1.655,
   "eyes": "grey",
-  "face_top": 1.64
+  "face_top": 1.64,
+  "head": "rebuild",
+  "hair": "short02",
+  "hair_colour": [
+   0.78,
+   0.76,
+   0.7
+  ]
  }
 }
