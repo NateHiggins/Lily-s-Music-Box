@@ -21,7 +21,10 @@ Her rulings of 2026-11-10 on the wall:
 - The case spreads by degrees through every room of 4B: paper on walls, doors and furniture, piles of gathered paper on the floor and the furniture, and a web of red string overhead. At the finished case no surface is clear.
 - Every lead carries its season, the occasion it falls beside and four notes on what its rooms show. The year's table of seventeen holidays says what the house is dressed for on any date. None of that dressing is modelled yet.
 
-All the paper is one plain stock with typed scrawls. The piles are plain stacks. That is what the rest of this plan replaces.
+- The year runs across the board as a tape banded by season, with a tick for each month and holiday and a black gap at the murder hours. The Orison in section hangs to the right with a pin for every flat, the roof and the basement, and a sketch of the neighbourhood hangs under it.
+- Filing is play: a pinned piece's tag is slid along the year and stays only near its own day; string is run from the piece to a room on the map and holds only where it was found. No string runs between two pieces until both are filed.
+
+All the paper is one plain stock with typed scrawls. The piles are plain stacks. The maps are ruled sheets. That is what the rest of this plan replaces.
 
 ## 3. The wall
 
@@ -112,8 +115,8 @@ One date to rule on: **plate** falls on 29 October 1929, the day the stock marke
 
 ## 6. Order of work
 
-1. Timeline and both maps, from layout data; the eleven pieces filed by date and place.
-2. Placing as play, and string across the room.
+1. Done in PR 218: timeline and both maps (ruled by hand, not yet drawn from layout data); the pieces filed by date and place.
+2. Done in PR 218: placing as play. String across the room is done as the overhead web only.
 3. The eleven evidence models.
 4. Clippings from the game's papers; newspaper bundles from the papers collected.
 5. House fittings by season, in the visit and in the present (layer 2).

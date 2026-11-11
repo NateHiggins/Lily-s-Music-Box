@@ -196680,6 +196680,64 @@
    "target_exists": true
   },
   {
+   "key": "52cfd0e89a59e2dc",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/drain/where",
+    "/filing/places[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fcdc1e3d90d64a49",
+   "kind": "floor_reference",
+   "token": "ROOF",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/filing/places[0]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "a359dbab2f7ed79f",
    "kind": "id_reference",
    "token": "2B_story_notions",
@@ -197018,13 +197076,15 @@
    "subsystem": "data",
    "symbols": [
     "/anchors/stairs/place",
-    "/anchors/stairs/steps[0]/unit"
+    "/anchors/stairs/steps[0]/unit",
+    "/anchors/stairs/where"
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -197048,13 +197108,15 @@
    "subsystem": "data",
    "symbols": [
     "/anchors/button/place",
-    "/anchors/button/steps[0]/unit"
+    "/anchors/button/steps[0]/unit",
+    "/anchors/button/where"
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -197078,13 +197140,15 @@
    "subsystem": "data",
    "symbols": [
     "/anchors/bench/place",
-    "/anchors/bench/steps[1]/unit"
+    "/anchors/bench/steps[1]/unit",
+    "/anchors/bench/where"
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -197108,13 +197172,15 @@
    "subsystem": "data",
    "symbols": [
     "/anchors/friday/place",
-    "/anchors/friday/steps[1]/unit"
+    "/anchors/friday/steps[1]/unit",
+    "/anchors/friday/where"
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -197138,13 +197204,15 @@
    "subsystem": "data",
    "symbols": [
     "/anchors/drama/place",
-    "/anchors/drama/steps[0]/unit"
+    "/anchors/drama/steps[0]/unit",
+    "/anchors/drama/where"
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -197169,16 +197237,20 @@
    "symbols": [
     "/anchors/duplicate/place",
     "/anchors/duplicate/steps[1]/unit",
+    "/anchors/duplicate/where",
     "/anchors/plate/place",
-    "/anchors/plate/steps[1]/unit"
+    "/anchors/plate/steps[1]/unit",
+    "/anchors/plate/where"
    ],
    "lines": [
     0,
     0,
     0,
+    0,
+    0,
     0
    ],
-   "count": 4,
+   "count": 6,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -197202,13 +197274,15 @@
    "subsystem": "data",
    "symbols": [
     "/anchors/notebook/place",
-    "/anchors/notebook/steps[0]/unit"
+    "/anchors/notebook/steps[0]/unit",
+    "/anchors/notebook/where"
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -197233,8 +197307,10 @@
    "symbols": [
     "/anchors/tea/place",
     "/anchors/tea/steps[0]/unit",
+    "/anchors/tea/where",
     "/anchors/box/place",
     "/anchors/box/steps[1]/unit",
+    "/anchors/box/where",
     "/scrawls[*]"
    ],
    "lines": [
@@ -197242,9 +197318,11 @@
     0,
     0,
     0,
+    0,
+    0,
     0
    ],
-   "count": 5,
+   "count": 7,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -211897,6 +211975,39 @@
    "target_exists": true
   },
   {
+   "key": "a18920db95e3c8fa",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_dress_wall",
+    "_cell_pulled"
+   ],
+   "lines": [
+    617,
+    677
+   ],
+   "count": 2,
+   "context": [
+    "_lettering(\"BASEMENT\" if code == \"B1\" else code, at + Vector2(0.0, row_height * 0.22), 0.2, 0.006)",
+    "_note(wall, \"THE STRING FALLS\", \"%s was not found in %s.\" % [str(loop.item_text(item_id).title), \"the basement\" if where == \"B1\" else where], \"NO\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "db4880f6b1cc8864",
    "kind": "generated_name",
    "token": "_card_for",
@@ -211907,11 +212018,41 @@
     "_card_for"
    ],
    "lines": [
-    235
+    264
    ],
    "count": 1,
    "context": [
     "\"LoopClue_\" + str(clue.id)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6df983cbdbacf77d",
+   "kind": "generated_name",
+   "token": "_dress_wall",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_dress_wall"
+   ],
+   "lines": [
+    619
+   ],
+   "count": 1,
+   "context": [
+    "\"LoopPlace_\" + code"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -211937,7 +212078,7 @@
     "_grip_for"
    ],
    "lines": [
-    126
+    155
    ],
    "count": 1,
    "context": [
@@ -211967,8 +212108,8 @@
     "_grow"
    ],
    "lines": [
-    591,
-    607
+    826,
+    842
    ],
    "count": 2,
    "context": [
@@ -211999,13 +212140,43 @@
     "_sync"
    ],
    "lines": [
-    442,
-    485
+    473,
+    516
    ],
    "count": 2,
    "context": [
     "\"LoopPinned_\" + item_id",
     "\"LoopDeduction_\" + str(deduction_id)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1ba38498abbf0586",
+   "kind": "generated_name",
+   "token": "_sync_filing",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_sync_filing"
+   ],
+   "lines": [
+    703
+   ],
+   "count": 1,
+   "context": [
+    "\"LoopDated_\" + item_id"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -212031,7 +212202,7 @@
     "<module>"
    ],
    "lines": [
-    29
+    47
    ],
    "count": 1,
    "context": [
@@ -212059,7 +212230,7 @@
     "<module>"
    ],
    "lines": [
-    28
+    46
    ],
    "count": 1,
    "context": [
@@ -212089,7 +212260,7 @@
     "<module>"
    ],
    "lines": [
-    29
+    47
    ],
    "count": 1,
    "context": [
@@ -212117,7 +212288,7 @@
     "<module>"
    ],
    "lines": [
-    29
+    47
    ],
    "count": 1,
    "context": [
@@ -212146,7 +212317,7 @@
    ],
    "lines": [
     14,
-    28
+    46
    ],
    "count": 2,
    "context": [
@@ -212175,7 +212346,7 @@
     "<module>"
    ],
    "lines": [
-    28
+    46
    ],
    "count": 1,
    "context": [
@@ -212203,7 +212374,7 @@
     "<module>"
    ],
    "lines": [
-    28
+    46
    ],
    "count": 1,
    "context": [
@@ -212231,7 +212402,7 @@
     "<module>"
    ],
    "lines": [
-    28
+    46
    ],
    "count": 1,
    "context": [
@@ -212259,7 +212430,7 @@
     "<module>"
    ],
    "lines": [
-    29
+    47
    ],
    "count": 1,
    "context": [
@@ -212289,7 +212460,7 @@
     "<module>"
    ],
    "lines": [
-    29
+    47
    ],
    "count": 1,
    "context": [
@@ -212317,9 +212488,9 @@
     "_survey"
    ],
    "lines": [
-    515,
-    532,
-    547
+    742,
+    767,
+    782
    ],
    "count": 3,
    "context": [
@@ -269277,7 +269448,7 @@
     "_ready"
    ],
    "lines": [
-    328
+    351
    ],
    "count": 1,
    "context": [
@@ -269307,7 +269478,7 @@
     "_ready"
    ],
    "lines": [
-    170
+    178
    ],
    "count": 1,
    "context": [
@@ -269337,8 +269508,8 @@
     "_ready"
    ],
    "lines": [
-    249,
-    257
+    257,
+    265
    ],
    "count": 2,
    "context": [
@@ -269368,10 +269539,12 @@
     "_ready"
    ],
    "lines": [
-    327
+    298,
+    350
    ],
-   "count": 1,
+   "count": 2,
    "context": [
+    "var wrong_place: Dictionary = loop.file_place(\"order_slip\", \"5B\")",
     "loop.observe(\"5B\")"
    ],
    "gameplay_binding": false,
@@ -269398,11 +269571,13 @@
     "_ready"
    ],
    "lines": [
-    172
+    180,
+    300
    ],
-   "count": 1,
+   "count": 2,
    "context": [
-    "loop.observe(\"6C\")"
+    "loop.observe(\"6C\")",
+    "check(loop.file_place(\"order_slip\", \"6C\").held and loop.filed(\"order_slip\"), \"to 6C, where it was found, it holds\")"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -274208,13 +274383,43 @@
    "lines": [
     112,
     177,
-    221
+    251
    ],
    "count": 3,
    "context": [
     "_check(stage.wall != null and world.unit_at_world(stage.wall.global_position) == \"4B\", \"the case wall is in 4B\")",
     "_check(world.player_unit() == \"4B\", \"the player stands at the wall in 4B (%s)\" % world.player_unit())",
     "inside = inside and world.unit_at_world(sheet.global_position) == \"4B\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "315b5ccf5e067afc",
+   "kind": "unit_reference",
+   "token": "5B",
+   "file": "game/tests/v2_loop_stage_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    217
+   ],
+   "count": 1,
+   "context": [
+    "_check(_carry(pull_order) and _carry((stage.cell_pins[\"5B\"] as Node3D).get_meta(\"grip\")) and not loop.placed(\"order_slip\") and stage.place_strings.is_empty(),"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -274240,11 +274445,13 @@
     "_ready"
    ],
    "lines": [
-    143
+    143,
+    219
    ],
-   "count": 1,
+   "count": 2,
    "context": [
-    "_check(world.player_unit() == \"6C\", \"the player stands in 6C (%s)\" % world.player_unit())"
+    "_check(world.player_unit() == \"6C\", \"the player stands in 6C (%s)\" % world.player_unit())",
+    "_check(_carry(pull_order) and _carry((stage.cell_pins[\"6C\"] as Node3D).get_meta(\"grip\")), \"string run to 6C\")"
    ],
    "gameplay_binding": false,
    "authority": [
