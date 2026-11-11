@@ -13,8 +13,6 @@ families={r['id']:r['parts'] for r in data['families']};speakers={r['id']:r['par
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.gltf(filepath=str(ROOT/'game/assets/props/active_household_radios.glb'))
 radios={o.name:o for o in bpy.context.scene.objects if o.type=='MESH'}
-bpy.ops.import_scene.gltf(filepath=str(ROOT/'game/assets/props/active_household_projector.glb'))
-projector={o.name:o for o in bpy.context.selected_objects if o.type=='MESH'}
 mapped={}
 def stock(key,finish='',condition='',family=''):
     token=(key,finish,condition,family)
@@ -34,8 +32,6 @@ def stock(key,finish='',condition='',family=''):
         if key=='linen':tint=[.40,.32,.23,1]
         mat=material(ROOT,key,dict(catalog_key=key,tint=tint,pigment=1,normal=.08,roughness=rough),catalog)
     mapped[token]=mat;return mat
-for obj in projector.values():
-    key=obj.material_slots[0].material.name.split('.')[0];obj.data.materials.clear();obj.data.materials.append(stock(key))
 bpy.ops.mesh.primitive_plane_add(size=3);table=bpy.context.object
 table.data.materials.append(stock('oak_quartered'))
 scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=16;scene.cycles.use_denoising=True
@@ -49,7 +45,7 @@ for profile in profiles:
     chosen=list(families[profile['family']])
     for key,rows in speakers.items():
         if key in profile['speaker']:chosen+=rows
-    for obj in list(radios.values())+list(projector.values()):obj.hide_render=True
+    for obj in radios.values():obj.hide_render=True
     used=[]
     for row in chosen:
         condition=profile['condition']
@@ -68,9 +64,4 @@ for profile in profiles:
     camera.rotation_euler=(center-camera.location).to_track_quat('-Z','Y').to_euler()
     scene.render.filepath=str(OUT/(profile['unit']+'.png'));bpy.ops.render.render(write_still=True)
     observations.append({'unit':profile['unit'],'family':profile['family'],'condition':condition,'native_draws':len(used),'bounds_blender':[list(lo),list(hi)]})
-for obj in radios.values():obj.hide_render=True
-for obj in projector.values():obj.hide_render=False
-for label,at in [('projector',(.70,.8,.55)),('projector_reels',(.45,-.5,.55))]:
-    target=Vector((0,0,.24));camera.location=Vector(at);camera.rotation_euler=(target-camera.location).to_track_quat('-Z','Y').to_euler()
-    scene.render.filepath=str(OUT/(label+'.png'));bpy.ops.render.render(write_still=True)
 (OUT/'review.json').write_text(json.dumps({'evidence_class':'INERT','observations':observations,'scope':'Native profile/base/PBR form review only; installed supports, actual control/decoder and composed appearance require Godot.'},indent=2)+'\n',encoding='utf-8',newline='\n')

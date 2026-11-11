@@ -8,7 +8,7 @@ func _ready() -> void:
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	_authoring_proof = JSON.parse_string(FileAccess.get_file_as_string("res://tests/data/v2_authoring_proof.json"))
 	_check_household_radios(world, retained)
-	await _check_projectors(world, retained)
+	_check_no_projectors(world)
 	_check_ac_supplies(world)
 	_check_battery_supplies(world)
 	for radio: Node in world.find_children("DomesticRadio_*", "Node3D", true, false):
@@ -16,20 +16,12 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(radio.has_meta("v2_native_active_receiver"), "active receiver uses native stock")
 		for draw: MeshInstance3D in radio.find_children("*", "MeshInstance3D", true, false):
 			check(draw.mesh is ArrayMesh and draw.has_meta("native_active_radio_part"), "receiver has no prototype visible stock")
-	for unit in ["2A", "3B", "4B"]:
-		var prop := world.adapter.resolve(unit+"_tv") as ProjectorProp
-		check(prop != null and prop.get_meta("v2_native_active_projector",false), "projector uses native machine stock")
-		if prop == null: continue
-		check(prop.glass.mesh is ArrayMesh and prop.glass.get_meta("native_projector_lens",false), "original lens owner has fitted native optics")
-		check(prop._spin.size() == 8, "original eight reel motions retained")
-		for disc in prop._spin:
-			check(disc.mesh is ArrayMesh and disc.basis.y.normalized().dot(Vector3.LEFT)>.999, "native reel keeps original spindle axis and rotation direction")
 	await _capture_media(world)
 	return {"checks":checks,"failures":failures.duplicate()}
 
 func _check_ac_supplies(world: OrisonV2RuntimeRoot) -> void:
 	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/media_ac_supply.json"))
-	check(data.installations.size()==10,"seven AC receivers and three projectors have fitted supply")
+	check(data.installations.size()==7,"seven AC receivers have fitted supply")
 	for row: Dictionary in data.installations:
 		var appliance := world.adapter.resolve(str(row.id)) as Node3D
 		var support := world.adapter.resolve(str(row.support)) as Node3D
@@ -88,18 +80,6 @@ func _capture_media(world: OrisonV2RuntimeRoot) -> void:
 		camera.look_at(radio.to_global(Vector3(0,.15,0)),Vector3.UP);camera.make_current()
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(directory.path_join("media_radio_"+unit+".png"))
-	for unit in ["2A", "3B", "4B"]:
-		var prop := world.adapter.resolve(unit+"_tv") as ProjectorProp
-		var stance := world.adapter.resolve(unit+"_tv_STANCE") as Node3D
-		if prop == null or stance == null: continue
-		var was_on := prop.player_on
-		if not was_on: prop.interact(world.player)
-		camera.global_position=stance.global_position+Vector3.UP*1.41
-		camera.look_at(prop.to_global(Vector3(0,.25,0)),Vector3.UP);camera.make_current()
-		await get_tree().create_timer(.3).timeout
-		await RenderingServer.frame_post_draw
-		get_viewport().get_texture().get_image().save_png(directory.path_join("media_projector_"+unit+".png"))
-		if not was_on: prop.interact(world.player)
 	var batteries: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/media_battery_supply.json"))
 	for record: Dictionary in batteries.installations:
 		var support := world.adapter.resolve(str(record.support)) as Node3D

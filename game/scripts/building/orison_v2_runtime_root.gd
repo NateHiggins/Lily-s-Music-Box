@@ -753,11 +753,6 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: household radios refused: %s" % [radios.errors])
 		return
-	var projectors := preload("res://scripts/building/orison_v2_projectors.gd").new()
-	if not projectors.mount(adapter):
-		startup_failed = true
-		push_error("ORISON V2 RUNTIME: apartment projectors refused: %s" % [projectors.errors])
-		return
 	var media_supply := preload("res://scripts/building/orison_v2_media_ac_supply.gd").new()
 	if not media_supply.mount(adapter):
 		startup_failed = true
