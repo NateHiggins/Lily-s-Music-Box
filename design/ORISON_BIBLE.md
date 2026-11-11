@@ -644,6 +644,33 @@ including precession/perturbations, not matching Gregorian month/day strings.
 This explanation adds no automatic access prohibition, resource currency,
 cooldown, damage or paradox penalty. Preserve free-order investigation.
 
+*Amended 2026-11-10, at the owner's direction (RUL-016):* a dated visit has
+a fare, and the leads open in order. This replaces "no resource currency" and
+"free-order investigation" above; the rest stands.
+
+- **Leads.** A lead is a place, a date, a start, a length and a question. A
+  lead opens when the question before it is answered. The first is open from
+  the start.
+- **The fare.** Opening the channel to a lead's Temporal Coordinate is paid
+  from banked funds. The fare is fixed by the coordinate and by how far the
+  present stands from it in the year. The first call to the opening lead is
+  free, and an answered lead costs part fare.
+- **The hours again.** Inside a paid visit the lead's hours may be run again
+  without charge, as often as wanted, and begin again by themselves when they
+  run out.
+- **What comes home.** Knowledge only: what was heard, the deductions drawn
+  from it, and the leads it opens. Pocket money, carried things and the
+  visited day itself are as they were. Nothing earned in a visit can be banked.
+- **The bank.** The night man earns by maintenance in the present and puts
+  money by at the savings bank, at home only. The house pays a small daily
+  allowance, so the next fare is always within reach and no lead can be
+  closed for good.
+- **The player's own time.** A visit moves the calendar and nothing else.
+  Rent, deliveries and errands run on the time the player has lived, which
+  never goes back.
+
+There is still no cooldown, damage or paradox penalty.
+
 Phase-Locked information can produce environmental writing and mechanical
 messages without matter transfer. The prologue's incomplete reflected companion
 crosses only through a stabilized, translated Temporal Aperture aligned to the
@@ -1024,6 +1051,13 @@ additional canon or a new simulation authority.
 everything written on it; replies arrive as numbered received copies. The
 companion acts on nothing and knows nothing of what it serves.
 
+*Amended 2026-11-10, at the owner's direction (RUL-016):* one exception. The
+companion's keyboard is where the investigation's orders are typed, and its
+paper is where they are answered: the leads, a jump to one, the hours again,
+home, and the bank (§VIII.2). It is the channel's keyboard, as it was for the
+prologue's date command. The Tenant's apparatus does the work. The companion
+still decides nothing and knows nothing of what it serves.
+
 **VIII.5.l — THE WORLD IS A FIDGET TOY.**
 *(Ruled 2026-10-12, at the owner's direction; RUL-013. Implementation and
 migration requirements: `design/DIRECT_MANIPULATION_2026-10-12.md`.)*
@@ -1111,7 +1145,14 @@ wall, waited behind the roof tank for the first stroke, and took the exposed
 plate from the camera. **The murder hours are dark to the building.**
 Lightning silenced the house from 9:01 p.m. to 3:02 a.m.; nothing of those
 hours is in the record, the Tenant did not hear them, and no visit may enter
-them. The crime is reconstructed, never watched. The mystery's design
+them. The crime is reconstructed, never watched. *Amended 2026-11-10, at the
+owner's direction (RUL-016):* this binds every way time can move, not only
+the choice of a date: a paid visit, its hours run again, the return to the
+present, the prologue's handoff, and time simply running. A visit's hours end
+by 9:00 p.m. on the 19th or begin at 3:02 a.m. on the 20th, and time that
+runs into the dark comes out at 3:02. Maintenance is also no longer only a
+side matter: it is the income that pays the fares (§VIII.2), though it remains
+free of any required repair ladder. The mystery's design
 documents carry the evidence chain; the larger conspiracy is not ruled here.
 Preserve the opening and other owner-authored material in
 **design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md**.
