@@ -1,0 +1,15 @@
+{
+ "schema_version": 1,
+ "asset": "res://assets/props/commensals.glb",
+ "parts": [
+  {"id": "moth_body", "mesh": "Moth__Body_ON_velour", "material": "velour", "tint": "4d331f"},
+  {"id": "moth_wings_left", "mesh": "Moth__WingsLeft_ON_paper", "material": "paper", "tint": "9e733d"},
+  {"id": "moth_wings_right", "mesh": "Moth__WingsRight_ON_paper", "material": "paper", "tint": "9e733d"},
+  {"id": "roach", "mesh": "Roach__Body_ON_bakelite", "material": "bakelite", "tint": "8c401a"}
+ ],
+ "moth_lamps": 2,
+ "moth_range_m": 16.0,
+ "roach_fixture": "F04_4B_KITCHEN_SINK_01",
+ "roach_stance": "F04_4B_KITCHEN_SINK_STANCE",
+ "roach_range_m": 10.0
+}
