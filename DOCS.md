@@ -428,7 +428,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Guarded roof lift machinery driven by the existing passenger car | `design/ORISON_V2_LIFT_DRIVE_PROGRESS_2026-09-26.md` |
 | Basement electrical, workshop, coal, storage and lower service-stair construction | `design/ORISON_V2_BASEMENT_PROGRESS_2026-09-26.md` |
 | Occupied-home radiators, brighter service light and zoo optical-source ownership | `design/ORISON_V2_HEATING_AND_PRIMARY_LIGHT_PROGRESS_2026-09-25.md` |
-| How to launch the V2 default, use V1 rollback, and walk into or inspect the Dream zoo | `game/docs/v2_launch.md` |
+| How to launch V2 and walk into or inspect the Dream zoo (V1 was removed 2026-11-11) | `game/docs/v2_launch.md` |
 | V2 remaining homes, passenger lift, shared roof ventilation and scoped route checks | `design/ORISON_V2_HOMES_AND_LIFT_PROGRESS_2026-09-25.md` |
 | Spatial-only evidence for the six added homes and staff restroom | `design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md` |
 | The landed V2 roof-access shell, Mina's door passages, and remaining architecture/lighting work | `design/ORISON_V2_ROOF_AND_RESIDENT_PROGRESS_2026-09-25.md` |
