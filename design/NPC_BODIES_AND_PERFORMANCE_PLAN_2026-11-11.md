@@ -23,7 +23,7 @@ Not as feared: the presentation script flattens nothing today, because every bod
 
 Codex's plan assumed bodies that could be repaired at source. For seventeen residents there is no source, and what is wrong (a fused shell, painted features, mitten hands, no loops) is not a repair but a rebuild. Three of Lily's wants cannot be met on the present bodies at all: expression, eye movement and lip-sync; a hand closing on a door handle; and period dress.
 
-So the first decision is not how to animate but what to animate. It is Lily's, and is filed as ruling **npc_body_strategy_20261111**:
+So the first decision is not how to animate but what to animate. It was Lily's, as ruling **npc_body_strategy_20261111**. **She ruled A on 2026-11-11: rebuild the cast on one authored base, proven on two residents first.** The three options were:
 
 - **A. Rebuild the cast on one authored base (recommended).** One skeleton for everyone, with eyes, lids, jaw, a face that deforms, five-fingered hands, a common rest pose, and clothes as separate period garments. Each resident keeps their identity, proportions and face. This is the only option that delivers faces, hands and 1929 dress, and it removes the retargeting problem at its root.
 - **B. New heads and hands on the present bodies.** Cheaper. Faces and hands work; the modern costumes, fused clothes and the four rest poses stay, with a seam at neck and wrist.
@@ -49,7 +49,7 @@ Codex's test stands: whether a character appears to notice, listen, think and re
 
 ## 5. Open for Lily
 
-- The body strategy (the ruling above).
-- Under A or B, the tools: a parametric human base and an alignment tool are installs, to be approved by name before anything is downloaded.
+- The tools, as ruling **npc_tools_20261111**: MPFB2 (the MakeHuman add-on for Blender) for the base body, faces, hands and rig, and Rhubarb Lip Sync for mouth-shape timings from her recordings. Both are authoring-time installs; nothing is downloaded until she answers.
+- Because the cast is being rebuilt, the present bodies' own faults (clip speed, blank maps, duplicate albedos, fixed heights) are corrected in the rebuild, not patched on bodies about to be replaced. The clips are retargeted once, to the new skeleton, at their true speed.
 - Whose face is whose: under A each resident's face is rebuilt to match the present model, which she has already accepted as that person; she may want some changed while they are open.
 - Staff with no body (Stacy, the porter): in or out of the first batches.
