@@ -1,6 +1,8 @@
 {
   "schema": "orison.data-consumption-exceptions.v1",
-  "files": {},
+  "files": {
+    "game/data/voice/voice_profiles.json": "Authoring voice directions and selected reference metadata consumed by tools/voice/intake.py for recording sheets and Omni Studio requests. The game plays authored audio and mouth cues; it does not load a speech model or these casting instructions."
+  },
   "fields": {
     "game/data/audio_cues.json:door_knock": "Cue id presented dynamically: AudioPolicy looks every cue up by the id its caller passes (cues[cue_id]), and DoorProp presents interaction.door_knock from a const. Same read shape as every other cue id, which predate the baseline.",
     "game/data/audio_cues.json:klaxon": "Cue id presented dynamically: OrisonV2StreetTraffic presents traffic.klaxon by the id its class record names (street_traffic.json classes[].warning/brake), validated against its WARNING_CUES const; AudioPolicy looks it up by that id (cues[cue_id]).",
@@ -62,6 +64,29 @@
     "game/data/orison_v2/witness_clocks.json:spin_deg": "Read by orison_v2_witness_clock.gd from the record its binder hands it; the gate follows only the script that names the file.",
     "game/data/orison_v2/witness_clocks.json:triangles": "Record kept beside the data for review (units, counts, provenance, the author's note); it has no runtime reader and drives nothing.",
     "game/data/orison_v2/witness_clocks.json:uv": "Record kept beside the data for review (units, counts, provenance, the author's note); it has no runtime reader and drives nothing.",
-    "game/data/orison_v2/witness_clocks.json:winding_reach": "Read by orison_v2_honest_clock.gd from the record its binder hands it; the gate follows only the script that names the file."
+    "game/data/orison_v2/witness_clocks.json:winding_reach": "Read by orison_v2_honest_clock.gd from the record its binder hands it; the gate follows only the script that names the file.",
+    "game/data/voice/voice_profiles.json:approval": "Voice authoring provenance or backend declaration retained for recording and reference review. Runtime playback uses authored audio and mouth cues.",
+    "game/data/voice/voice_profiles.json:delivery": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:delivery_direction": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:description": "Voice authoring provenance or backend declaration retained for recording and reference review. Runtime playback uses authored audio and mouth cues.",
+    "game/data/voice/voice_profiles.json:design_prompt": "Voice authoring provenance or backend declaration retained for recording and reference review. Runtime playback uses authored audio and mouth cues.",
+    "game/data/voice/voice_profiles.json:display_name": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:file": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:id": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:language": "Voice authoring provenance or backend declaration retained for recording and reference review. Runtime playback uses authored audio and mouth cues.",
+    "game/data/voice/voice_profiles.json:model_design": "Voice authoring provenance or backend declaration retained for recording and reference review. Runtime playback uses authored audio and mouth cues.",
+    "game/data/voice/voice_profiles.json:model_reference": "Voice authoring provenance or backend declaration retained for recording and reference review. Runtime playback uses authored audio and mouth cues.",
+    "game/data/voice/voice_profiles.json:profiles": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:recording_direction": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:reference": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:requires_reference": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:schema_version": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:seed": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:sha256": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:sources": "Voice authoring provenance or backend declaration retained for recording and reference review. Runtime playback uses authored audio and mouth cues.",
+    "game/data/voice/voice_profiles.json:studio_job": "Voice authoring provenance or backend declaration retained for recording and reference review. Runtime playback uses authored audio and mouth cues.",
+    "game/data/voice/voice_profiles.json:text": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:variants": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended.",
+    "game/data/voice/voice_profiles.json:voice_description": "Voice authoring input consumed by tools/voice/intake.py for casting, recording sheets and Omni requests; no production GDScript reader is intended."
   }
 }

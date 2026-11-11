@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "description": "Official authoring voice direction requested by Lily on 2026-11-11. Descriptions standardize casting. Cal and Stacy additionally have selected voice references. Other timbres await listening approval.",
+  "language": "English",
+  "model_design": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+  "model_reference": "Qwen3-TTS-12Hz-1.7B-Base",
+  "recording_direction": "Clean close-microphone speech at a conversational level. Preserve authored words, pauses and speaker identity. Produce dry voice audio for later in-game acoustics.",
+  "sources": [
+    "design/ORISON_CAST_VOICE_MAP.md",
+    "game/data/resident_animation_profiles.json",
+    "game/data/dialogue",
+    "game/data/mystery/adela_voss.json",
+    "game/data/mystery/lily.json"
+  ],
+  "profiles": [
+    {
+      "id": "evelyn_marsh",
+      "display_name": "Evelyn Marsh",
+      "voice_description": "A mature, warm lower-middle speaking register with a firm clear tone and precise consonants.",
+      "delivery_direction": "Measured teacherly phrasing. Corrections arrive as care. Anger sharpens the grammar and articulation without raising the volume.",
+      "seed": 19291101,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "teresa_vale",
+      "display_name": "Teresa Vale",
+      "voice_description": "A steady middle-low register, softly textured with audible fatigue and reliable breath support.",
+      "delivery_direction": "Practical and clipped under pressure. Give fuller phrases and a little warmth once danger has passed. Fatigue never makes the words unintelligible.",
+      "seed": 19291102,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "mina_vale",
+      "display_name": "Mina Vale",
+      "voice_description": "A mature clear middle register with a cool, focused tone, controlled breath and very precise consonants.",
+      "delivery_direction": "Accumulate corrections carefully, with small thinking pauses. Official precision can fray into an intimate, less polished confession.",
+      "seed": 19291103,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "lena_ortiz",
+      "display_name": "Lena Ortiz",
+      "voice_description": "A warm resonant middle register with a gently textured tone and comfortable, unhurried breath.",
+      "delivery_direction": "Practical hospitality and steady phrasing. A firm refusal may arrive inside a generous offer. Let a family judgment land quietly.",
+      "seed": 19291104,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "juno_kells",
+      "display_name": "Juno Kells",
+      "voice_description": "A bright flexible middle register with forward resonance and quick, clean articulation.",
+      "delivery_direction": "Rhythmic associative bursts with abrupt changes of direction. Leave a beat around a technical dare. Sincerity arrives directly without a prepared flourish.",
+      "seed": 19291105,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "malcolm_reed",
+      "display_name": "Malcolm Reed",
+      "voice_description": "A low, soft, lightly textured register with rounded resonance and patient breath.",
+      "delivery_direction": "Deliberate, tactile descriptions. Let a pause carry an unspoken qualification. Tenderness is ordinary and restrained.",
+      "seed": 19291106,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "omar_bell",
+      "display_name": "Omar Bell",
+      "voice_description": "A grounded lower-middle register, slightly coarse at the edges, with sturdy resonance and exact consonants.",
+      "delivery_direction": "Short diagnoses and measured mechanical verbs. Quiet professional certainty. Emotional weight belongs to the part he chooses to preserve.",
+      "seed": 19291107,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "rhea_sato",
+      "display_name": "Rhea Sato",
+      "voice_description": "A clear resonant middle register with trained breath, flexible dynamics and an easy supported tone.",
+      "delivery_direction": "Deliberate entrances and expressive timing. Let a small private afterthought escape after a polished public phrase. Preserve the difference between speaking and singing.",
+      "seed": 19291108,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "peter_wren",
+      "display_name": "Peter Wren",
+      "voice_description": "A light, narrow middle register with a little breath in the tone and careful diction.",
+      "delivery_direction": "Nested qualifications and brief permission-seeking hesitations. A rare decisive verb becomes unexpectedly direct and firm.",
+      "seed": 19291109,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "cam_ortiz",
+      "display_name": "Cam Ortiz",
+      "voice_description": "A bright forward middle register with compact energy, fast articulation and short well-supported breaths.",
+      "delivery_direction": "Kinetic and directional. Move quickly through preamble, keep destinations clear, and allow a restless interruption. Slow down when choosing to stay.",
+      "seed": 19291110,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "noel_price",
+      "display_name": "Noel Price",
+      "voice_description": "A smooth restrained lower-middle register with even volume, controlled breath and precise articulation.",
+      "delivery_direction": "Measured conservation-report phrasing. Alarm first appears as a tiny tightening of diction. Personal warmth is small and specific.",
+      "seed": 19291111,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "transient_guest_a",
+      "display_name": "Transient Guest A",
+      "voice_description": "A light middle register with smooth resonance, cautious starts and a gentle rising inflection.",
+      "delivery_direction": "Mirror the other speaker's vocabulary while searching for permission to remain. Keep this voice distinct from Guest B.",
+      "seed": 19291112,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "transient_guest_b",
+      "display_name": "Transient Guest B",
+      "voice_description": "A lower, drier middle register with a little air in the tone and quicker phrase endings.",
+      "delivery_direction": "Answer Guest A with courteous certainty, then expose a small incompatible preference. Keep this voice distinct from Guest A.",
+      "seed": 19291113,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "nadia_quell",
+      "display_name": "Nadia Quell",
+      "voice_description": "A focused lower-middle register with clear projection, controlled breath and firm falling cadences.",
+      "delivery_direction": "Organized causal chains and architectural overview. Decisions sound already built. Uncertainty briefly interrupts the otherwise exact structure.",
+      "seed": 19291114,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "cal_dwyer",
+      "display_name": "Cal Dwyer",
+      "voice_description": "An older man from Queens, New York, with a low dry slightly grainy voice. Quiet conversational delivery close to the microphone.",
+      "delivery_direction": "Deliberate pauses, restrained unease and a trace of stubborn certainty. Patient technical clauses give way to a plain sentence when the carrier falls silent.",
+      "seed": 19291111,
+      "delivery": "spoken",
+      "reference": {
+        "file": "cal_dwyer.wav",
+        "sha256": "7340d8de6d26c23f9b0267afd0e9e7fdd11dc606ac30f5be567f691043cf2996",
+        "text": "Listen. That's last Tuesday. Clear as glass. I didn't record it. The set is receiving it.",
+        "approval": "Lily selected this voice on 2026-11-11.",
+        "studio_job": "1111_095921_aaae",
+        "design_prompt": "An older man from Queens, New York, with a low dry slightly grainy voice. Quiet conversational delivery close to the microphone. Deliberate pauses, restrained unease and a trace of stubborn certainty. Natural speech, no announcer performance, no music."
+      }
+    },
+    {
+      "id": "iris_bell",
+      "display_name": "Iris Bell",
+      "voice_description": "A warm open middle register with a bright edge, slight grain and flexible conversational inflection.",
+      "delivery_direction": "Name color and light before explaining causes. Let apparent spontaneity briefly check its own composition. Candid admissions still care who is listening.",
+      "seed": 19291116,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "sacha_reed",
+      "display_name": "Sacha Reed",
+      "voice_description": "An androgynous middle register with a dry, steady tone, clear diction and economical breath.",
+      "delivery_direction": "Spare observations and considered ethical qualifiers. Give space to what is deliberately left outside the frame. Avoid a theatrical investigator voice.",
+      "seed": 19291117,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "jonah_price",
+      "display_name": "Jonah Price",
+      "voice_description": "A soft lower-middle register with a faint roughness, intimate resonance and hesitant phrase starts.",
+      "delivery_direction": "Allow revisions and alternative clauses to interrupt an unfinished thought. Rare finality should have unusual weight and a clean ending.",
+      "seed": 19291118,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "mae_kessler",
+      "display_name": "Mae Kessler",
+      "voice_description": "A rounded lower-middle register with polished articulation, controlled breath and unhurried authority.",
+      "delivery_direction": "Exact attributions and sovereign declarations. Courtesy can become sharply territorial. Keep the surface composed even when certainty is threatened.",
+      "seed": 19291119,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "stacy",
+      "display_name": "Stacy",
+      "voice_description": "A middle aged woman who runs a small Queens bar in 1929, warm lower register with a lightly husky edge and a natural New York accent.",
+      "delivery_direction": "Brisk conversational timing, dry amusement and affectionate authority. Play a joke straight and give its turn room to land.",
+      "seed": 19291112,
+      "delivery": "spoken",
+      "reference": {
+        "file": "stacy.wav",
+        "sha256": "1774f2a3c7b7de9ec7df7d8ef1c22289cd7346d0c9abc40e35066abaafbb6345",
+        "text": "It's tea. The teapot's legal. The cup's legal. The saucer has never been to court.",
+        "approval": "Lily selected this voice on 2026-11-11.",
+        "studio_job": "1111_095927_270a",
+        "design_prompt": "A middle aged woman who runs a small Queens bar in 1929, warm lower register with a lightly husky edge and a natural New York accent. Brisk conversational timing, dry amusement, affectionate authority. Play the joke straight with a small pause before the final sentence. Clean close microphone speech, no music."
+      }
+    },
+    {
+      "id": "adela_voss",
+      "display_name": "Adela Voss",
+      "voice_description": "A clear, warm, velvety middle register with a singer's supported breath, flexible phrasing and intimate resonance.",
+      "delivery_direction": "An observant, lively conversational wit. Keep private vulnerability close and direct. Spoken lines retain their own rhythm apart from her sung performances.",
+      "seed": 19291121,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "mara_chen",
+      "display_name": "Mara Chen",
+      "voice_description": "A clear, quiet middle register with a lightly breathy edge and restrained tension.",
+      "delivery_direction": "A caller trying to describe what she can actually hear. Thoughtful starts and controlled urgency, leaving enough space to listen.",
+      "seed": 19291122,
+      "delivery": "spoken",
+      "reference": null
+    },
+    {
+      "id": "lily",
+      "display_name": "Lily",
+      "voice_description": "Lily's own recorded speaking voice, preserving her natural register, accent, texture and breath.",
+      "delivery_direction": "Use the delivery in Lily's supplied reference and her direction for the line. Her recorded performance establishes the voice.",
+      "seed": 19291123,
+      "delivery": "spoken",
+      "reference": null,
+      "requires_reference": true
+    },
+    {
+      "id": "companion",
+      "display_name": "Companion",
+      "voice_description": "A compact, dry mechanical speaking tone with precise articulation, a mild inquisitive lift and room for affectionate understatement.",
+      "delivery_direction": "Current articulate exchanges are written. Preserve babble, emotes and the authored progression toward speech. Record spoken English only when the scene explicitly authorizes it.",
+      "seed": 19291124,
+      "delivery": "written",
+      "reference": null
+    },
+    {
+      "id": "night_man",
+      "display_name": "Night man",
+      "voice_description": "The player host has no independent authored speaking performance.",
+      "delivery_direction": "Keep player choice labels and silent actions unvoiced unless an authored scene explicitly assigns a speaker.",
+      "seed": 19291125,
+      "delivery": "silent",
+      "reference": null
+    },
+    {
+      "id": "transient_guests",
+      "display_name": "Transient Guests",
+      "voice_description": "Two distinct recurring voices, Guest A and Guest B, with separate voice identities.",
+      "delivery_direction": "Record marked turns with the corresponding guest profile. The pair may disagree and never delivers omniscient exposition as a chorus.",
+      "seed": 19291126,
+      "delivery": "spoken",
+      "variants": [
+        "transient_guest_a",
+        "transient_guest_b"
+      ],
+      "reference": null
+    }
+  ]
+}
