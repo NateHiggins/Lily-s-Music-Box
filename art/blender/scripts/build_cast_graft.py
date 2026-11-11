@@ -1363,6 +1363,142 @@ for common, own in RENAMED.items():
 
 for leftover in [human, rig]:
     bpy.data.objects.remove(leftover)
+# ---------------------------------------------------------------- long loose curls as simulated strands
+# An attempt at her original hair with TressFX for Godot: guide strands are
+# authored here as Blender hair curves (a centre parting, hair lying over the
+# skull to the sides and back, then falling in ringlets), and written with
+# that addon's own exporter, with closed colliders for the head and the body.
+if CFG.get("hair_style") == "long_curls":
+    import importlib.util
+    exporter_path = CFG.get("tressfx_exporter", "C:/ov/tools/tressfx_godot/addons/tressfx/tools/tressfx_blender_export.py")
+    spec = importlib.util.spec_from_file_location("tressfx_blender_export", exporter_path)
+    tfx = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(tfx)
+    own_name = lambda common: RENAMED.get(common, common)
+    to_own = head_move.inverted()
+    nose_own = to_own @ nose_old
+    hairline = nose_own.z + float(CFG.get("hairline_above_nose", 0.086))
+    mid_y = nose_own.y + 0.1
+    skull_mid = Vector((0.0, mid_y, nose_own.z + 0.055))
+    skull_world = head_move @ skull_mid
+    head_tree = BVHTree.FromPolygons([tuple(v.co) for v in head.data.vertices], [tuple(q.vertices) for q in head.data.polygons])
+    body_tree = BVHTree.FromPolygons([tuple(shell.matrix_world @ v.co) for v in shell.data.vertices], [tuple(q.vertices) for q in shell.data.polygons])
+
+    def scalp(q):
+        if q.y < mid_y - 0.015:
+            return q.z > hairline - max(0.0, abs(q.x) - 0.035) * 0.55
+        if q.y < mid_y + 0.02:
+            return q.z > nose_own.z + 0.04
+        return q.z > nose_own.z - 0.04
+
+    root_pool = [to_own @ v.co for v in head.data.vertices if scalp(to_own @ v.co)]
+    rng = numpy.random.default_rng(23)
+    ringlets = []
+    per_side = int(CFG.get("ringlets_per_side", 20))
+    for side in (1.0, -1.0):
+        for k in range(per_side):
+            angle = math.radians(38.0 + (180.0 - 38.0) * (k + 0.5) / per_side)
+            ringlets.append({"side": side, "angle": angle,
+                             "drop": Vector((side * math.sin(angle) * 0.083, mid_y - math.cos(angle) * 0.09, nose_own.z + float(rng.uniform(-0.01, 0.02)))),
+                             "length": float(rng.uniform(0.27, 0.36)), "phase": float(rng.uniform(0, math.tau)), "turns": float(rng.uniform(3.8, 5.2)) * (1 if k % 2 else -1),
+                             "radius": float(rng.uniform(0.011, 0.016))})
+    points_per = 32
+    lying = 10
+    guides = int(CFG.get("guide_strands", 1500))
+    rows = []
+    for number in range(guides * 3):
+        if len(rows) >= guides:
+            break
+        root = root_pool[int(rng.integers(len(root_pool)))]
+        side = 1.0 if root.x >= 0 else -1.0
+        angle = math.atan2(abs(root.x), -(root.y - mid_y))
+        mine = min((r for r in ringlets if r["side"] == side), key=lambda r: abs(r["angle"] - angle) + float(rng.uniform(0, 0.25)))
+        d0 = (root - skull_mid).normalized()
+        d1 = (mine["drop"] - skull_mid).normalized()
+        own_offset = Vector((float(rng.normal(0, 0.0028)), float(rng.normal(0, 0.0028)), 0.0))
+        strand = []
+        ok = True
+        for i in range(lying):
+            t = i / (lying - 1.0)
+            direction = (head_move.to_3x3() @ d0.slerp(d1, t)).normalized()
+            hit = head_tree.ray_cast(skull_world, direction, 0.4)
+            if hit[0] is None:
+                ok = False
+                break
+            strand.append(hit[0] + direction * (0.004 + 0.012 * t) * scale)
+        if not ok:
+            continue
+        start = strand[-1]
+        down = Vector((0, 0, -1))
+        away = Vector((start.x - skull_world.x, start.y - skull_world.y, 0.0))
+        away = away.normalized() if away.length > 1e-6 else Vector((side, 0, 0))
+        for i in range(1, points_per - lying + 1):
+            sdown = i / float(points_per - lying)
+            grow = min(1.0, sdown * 3.0)
+            turn_ = mine["phase"] + sdown * mine["turns"] * math.tau
+            across = away.cross(down).normalized()
+            where = start + down * mine["length"] * sdown + away * (0.012 * sdown) \
+                + (away * math.cos(turn_) + across * math.sin(turn_)) * mine["radius"] * grow + own_offset * grow
+            # Keep the resting hair off the body: lift any point that would lie in it.
+            for _ in range(3):
+                near = body_tree.find_nearest(where, 0.08)
+                if near[0] is None:
+                    break
+                gap = (where - near[0]).dot(near[1])
+                if gap < 0.014:
+                    where = near[0] + near[1] * 0.016
+            strand.append(where)
+        rows.append(strand)
+    hair_curves = bpy.data.hair_curves.new(CID + "_hair")
+    hair_curves.add_curves([points_per] * len(rows))
+    flat = numpy.array([[c for c in point] for strand in rows for point in strand], dtype=numpy.float32)
+    hair_curves.position_data.foreach_set("vector", flat.ravel())
+    hair_object = bpy.data.objects.new(CID + "_hair", hair_curves)
+    bpy.context.scene.collection.objects.link(hair_object)
+    hair_curves.surface = head
+    hair_curves.surface_uv_map = head.data.uv_layers.active.name
+
+    def hull(name, points, bone, shrink):
+        bm = bmesh.new()
+        for point in points:
+            bm.verts.new(point)
+        made = bmesh.ops.convex_hull(bm, input=bm.verts[:])
+        bmesh.ops.delete(bm, geom=list({g for g in made.get("geom_interior", []) + made.get("geom_unused", []) if isinstance(g, bmesh.types.BMVert)}), context="VERTS")
+        bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
+        middle = sum((v.co for v in bm.verts), Vector()) / max(len(bm.verts), 1)
+        for v in bm.verts:
+            v.co = middle + (v.co - middle) * shrink
+        bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+        mesh = bpy.data.meshes.new(name)
+        bm.to_mesh(mesh)
+        bm.free()
+        obj = bpy.data.objects.new(name, mesh)
+        bpy.context.scene.collection.objects.link(obj)
+        obj.vertex_groups.new(name=bone).add(list(range(len(mesh.vertices))), 1.0, "REPLACE")
+        obj.parent = old_rig
+        obj.matrix_parent_inverse = old_world.inverted()
+        obj.modifiers.new("Armature", "ARMATURE").object = old_rig
+        obj.hide_render = True
+        return obj
+
+    chin_floor = nose_old.z - 0.08 * scale
+    head_points = [v.co.copy() for v in head.data.vertices if v.co.z > chin_floor][::3]
+    spine_z = joint(own_name("Spine")).z
+    arm_groups = [g.index for g in shell.vertex_groups if "arm" in g.name.lower() or "hand" in g.name.lower()]
+    body_points = []
+    for vertex in list(shell.data.vertices)[::4]:
+        where = shell.matrix_world @ vertex.co
+        if spine_z - 0.3 < where.z < spine_z + 0.09 and sum(g.weight for g in vertex.groups if g.group in arm_groups) < 0.35:
+            body_points.append(where)
+    head_collider = hull(CID + "_head_collider", head_points, own_name("Head"), 0.955)
+    body_collider = hull(CID + "_body_collider", body_points, own_name("Spine"), 0.965)
+    bpy.context.view_layer.update()
+    for label, result in (("hair", tfx.export_hair(bpy.context, hair_object, os.path.join(OUT, CID + "_hair.tfx"), points_per, True)),
+                          ("head collider", tfx.export_collider(bpy.context, head_collider, os.path.join(OUT, CID + "_head.tfxmesh"), True)),
+                          ("body collider", tfx.export_collider(bpy.context, body_collider, os.path.join(OUT, CID + "_body.tfxmesh"), True))):
+        print("TRESSFX", label, result)
+    hair_object.hide_render = True
+
 shell.name = "Clothes"
 bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, CID + ".blend"))
 
