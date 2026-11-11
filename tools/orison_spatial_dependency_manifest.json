@@ -128745,6 +128745,74 @@
    "target_exists": true
   },
   {
+   "key": "93459824bc036d9c",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/data/orison_v2/house_office_layout.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/placements[0]/level",
+    "/placements[1]/level",
+    "/placements[2]/level",
+    "/placements[*]/level"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0994a42852eb97f0",
+   "kind": "id_reference",
+   "token": "F01_COMMON_B",
+   "file": "game/data/orison_v2/house_office_layout.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/placements[0]/space",
+    "/placements[1]/space",
+    "/placements[2]/space",
+    "/placements[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "14df63b5e6f84763",
    "kind": "runtime_id",
    "token": "F02_A_TELEPHONE",
@@ -208571,6 +208639,36 @@
    "target_exists": false
   },
   {
+   "key": "6ec97747541dc0cf",
+   "kind": "generated_name",
+   "token": "deal",
+   "file": "game/scripts/building/orison_v2_dead_letters_desk.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "deal"
+   ],
+   "lines": [
+    125
+   ],
+   "count": 1,
+   "context": [
+    "\"Letter_%d\" % index"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "ce71adc963294a94",
    "kind": "floor_reference",
    "token": "F01",
@@ -214072,6 +214170,66 @@
    "target_exists": true
   },
   {
+   "key": "f1e2333b0c9bd834",
+   "kind": "generated_name",
+   "token": "_build_case_wall",
+   "file": "game/scripts/building/orison_v2_maintenance_headquarters.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_case_wall"
+   ],
+   "lines": [
+    58
+   ],
+   "count": 1,
+   "context": [
+    "\"Trophy_\" + case_id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "8f4590cfe0ea2e1d",
+   "kind": "generated_name",
+   "token": "_build_gear_wall",
+   "file": "game/scripts/building/orison_v2_maintenance_headquarters.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_gear_wall"
+   ],
+   "lines": [
+    37
+   ],
+   "count": 1,
+   "context": [
+    "\"Gear_\" + str(spec.name).to_snake_case()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "27bf08b92558e833",
    "kind": "generated_name",
    "token": "mount",
@@ -217101,7 +217259,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1508
+    1514
    ],
    "count": 1,
    "context": [
@@ -217131,7 +217289,7 @@
     "_redistribute_first_floor"
    ],
    "lines": [
-    1615
+    1621
    ],
    "count": 1,
    "context": [
@@ -217161,8 +217319,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1588,
-    1591
+    1594,
+    1597
    ],
    "count": 2,
    "context": [
@@ -217193,7 +217351,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    962
+    968
    ],
    "count": 1,
    "context": [
@@ -217223,7 +217381,7 @@
     "<module>"
    ],
    "lines": [
-    118
+    119
    ],
    "count": 1,
    "context": [
@@ -217253,7 +217411,7 @@
     "<module>"
    ],
    "lines": [
-    113
+    114
    ],
    "count": 1,
    "context": [
@@ -217283,7 +217441,7 @@
     "<module>"
    ],
    "lines": [
-    114
+    115
    ],
    "count": 1,
    "context": [
@@ -217313,7 +217471,7 @@
     "<module>"
    ],
    "lines": [
-    115
+    116
    ],
    "count": 1,
    "context": [
@@ -217343,7 +217501,7 @@
     "<module>"
    ],
    "lines": [
-    116
+    117
    ],
    "count": 1,
    "context": [
@@ -217373,7 +217531,7 @@
     "<module>"
    ],
    "lines": [
-    117
+    118
    ],
    "count": 1,
    "context": [
@@ -217403,7 +217561,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1763
+    1769
    ],
    "count": 1,
    "context": [
@@ -217433,7 +217591,7 @@
     "<module>"
    ],
    "lines": [
-    74
+    75
    ],
    "count": 1,
    "context": [
@@ -217464,9 +217622,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1502,
-    1505,
-    1567
+    1508,
+    1511,
+    1573
    ],
    "count": 3,
    "context": [
@@ -217498,7 +217656,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1517
+    1523
    ],
    "count": 1,
    "context": [
@@ -217528,7 +217686,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1509
+    1515
    ],
    "count": 1,
    "context": [
@@ -217558,7 +217716,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1526
+    1532
    ],
    "count": 1,
    "context": [
@@ -217588,7 +217746,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1761
+    1767
    ],
    "count": 1,
    "context": [
@@ -217618,7 +217776,7 @@
     "<module>"
    ],
    "lines": [
-    112
+    113
    ],
    "count": 1,
    "context": [
@@ -217648,7 +217806,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1518
+    1524
    ],
    "count": 1,
    "context": [
@@ -217678,7 +217836,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1757
+    1763
    ],
    "count": 1,
    "context": [
@@ -217708,7 +217866,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1759
+    1765
    ],
    "count": 1,
    "context": [
@@ -217738,7 +217896,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    862
+    868
    ],
    "count": 1,
    "context": [
@@ -217768,7 +217926,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1759
+    1765
    ],
    "count": 1,
    "context": [
@@ -217798,7 +217956,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1757
+    1763
    ],
    "count": 1,
    "context": [
@@ -217828,7 +217986,7 @@
     "_ready"
    ],
    "lines": [
-    229
+    230
    ],
    "count": 1,
    "context": [
@@ -217858,7 +218016,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    863
+    869
    ],
    "count": 1,
    "context": [
@@ -217888,7 +218046,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    863
+    869
    ],
    "count": 1,
    "context": [
@@ -217918,7 +218076,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1757
+    1763
    ],
    "count": 1,
    "context": [
@@ -217948,7 +218106,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1757
+    1763
    ],
    "count": 1,
    "context": [
@@ -217978,7 +218136,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    862
+    868
    ],
    "count": 1,
    "context": [
@@ -218008,7 +218166,7 @@
     "<module>"
    ],
    "lines": [
-    118
+    119
    ],
    "count": 1,
    "context": [
@@ -218038,9 +218196,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1585,
-    1589,
-    1592
+    1591,
+    1595,
+    1598
    ],
    "count": 3,
    "context": [
@@ -218072,7 +218230,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    656
+    662
    ],
    "count": 1,
    "context": [
@@ -218102,7 +218260,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    656
+    662
    ],
    "count": 1,
    "context": [
@@ -218132,7 +218290,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    655
+    661
    ],
    "count": 1,
    "context": [
@@ -218162,7 +218320,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    655
+    661
    ],
    "count": 1,
    "context": [
@@ -218192,7 +218350,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1493
+    1499
    ],
    "count": 1,
    "context": [
@@ -218222,7 +218380,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1494
+    1500
    ],
    "count": 1,
    "context": [
@@ -218252,7 +218410,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    656
+    662
    ],
    "count": 1,
    "context": [
@@ -218282,7 +218440,7 @@
     "<module>"
    ],
    "lines": [
-    113
+    114
    ],
    "count": 1,
    "context": [
@@ -218312,7 +218470,7 @@
     "<module>"
    ],
    "lines": [
-    114
+    115
    ],
    "count": 1,
    "context": [
@@ -218342,7 +218500,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1395
+    1401
    ],
    "count": 1,
    "context": [
@@ -218372,7 +218530,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    707
+    713
    ],
    "count": 1,
    "context": [
@@ -218403,8 +218561,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1250,
-    1380
+    1256,
+    1386
    ],
    "count": 2,
    "context": [
@@ -218435,7 +218593,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1381
+    1387
    ],
    "count": 1,
    "context": [
@@ -218465,7 +218623,7 @@
     "<module>"
    ],
    "lines": [
-    115
+    116
    ],
    "count": 1,
    "context": [
@@ -218495,7 +218653,7 @@
     "<module>"
    ],
    "lines": [
-    116
+    117
    ],
    "count": 1,
    "context": [
@@ -218525,7 +218683,7 @@
     "<module>"
    ],
    "lines": [
-    117
+    118
    ],
    "count": 1,
    "context": [
@@ -218555,7 +218713,7 @@
     "_ready"
    ],
    "lines": [
-    285
+    286
    ],
    "count": 1,
    "context": [
@@ -218585,7 +218743,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1551
+    1557
    ],
    "count": 1,
    "context": [
@@ -218615,7 +218773,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1552
+    1558
    ],
    "count": 1,
    "context": [
@@ -218645,7 +218803,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1553
+    1559
    ],
    "count": 1,
    "context": [
@@ -218675,7 +218833,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1550
+    1556
    ],
    "count": 1,
    "context": [
@@ -218705,7 +218863,7 @@
     "<module>"
    ],
    "lines": [
-    112
+    113
    ],
    "count": 1,
    "context": [
@@ -218736,7 +218894,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    699
+    705
    ],
    "count": 1,
    "context": [
@@ -218768,8 +218926,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1486,
-    1551
+    1492,
+    1557
    ],
    "count": 2,
    "context": [
@@ -218802,8 +218960,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1489,
-    1552
+    1495,
+    1558
    ],
    "count": 2,
    "context": [
@@ -218836,8 +218994,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1492,
-    1553
+    1498,
+    1559
    ],
    "count": 2,
    "context": [
@@ -218870,8 +219028,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1483,
-    1550
+    1489,
+    1556
    ],
    "count": 2,
    "context": [
@@ -218903,7 +219061,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    697
+    703
    ],
    "count": 1,
    "context": [
@@ -218934,7 +219092,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    573
+    579
    ],
    "count": 1,
    "context": [
@@ -218966,8 +219124,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    280,
-    578
+    281,
+    584
    ],
    "count": 2,
    "context": [
@@ -218999,7 +219157,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    704
+    710
    ],
    "count": 1,
    "context": [
@@ -219030,7 +219188,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    581
+    587
    ],
    "count": 1,
    "context": [
@@ -219062,8 +219220,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    697,
-    1591
+    703,
+    1597
    ],
    "count": 2,
    "context": [
@@ -219094,7 +219252,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1450
+    1456
    ],
    "count": 1,
    "context": [
@@ -219124,7 +219282,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1451
+    1457
    ],
    "count": 1,
    "context": [
@@ -275951,6 +276109,127 @@
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cb259d134e54fd36",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_house_office_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    139
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c77b2a0d37dbc24d",
+   "kind": "id_reference",
+   "token": "F01_COMMON_B",
+   "file": "game/tests/v2_house_office_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    171,
+    176,
+    354
+   ],
+   "count": 3,
+   "context": [
+    "var phones_here: bool = phones != null and world.room_at_world(phones.global_position) == \"F01_COMMON_B\"",
+    "_check(world.room_at_world(piece.global_position + Vector3.UP * 0.3 + piece.global_basis.z * 0.3) == \"F01_COMMON_B\",",
+    "_check(target != null and world.room_at_world(target.global_position) == \"F01_COMMON_B\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "273fdf9e8df38a5d",
+   "kind": "id_reference",
+   "token": "F01_PACKAGE_COMMON_DOOR",
+   "file": "game/tests/v2_house_office_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    168
+   ],
+   "count": 1,
+   "context": [
+    "if str(row.id) == \"F01_PACKAGE_COMMON_DOOR\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1101a4d064fabb43",
+   "kind": "runtime_id",
+   "token": "F01_HOUSE_TELEPHONE_BOARD",
+   "file": "game/tests/v2_house_office_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    170
+   ],
+   "count": 1,
+   "context": [
+    "var phones := world.adapter.resolve(\"F01_HOUSE_TELEPHONE_BOARD\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
   },
   {

@@ -1,0 +1,428 @@
+{
+ "schema_version": 1,
+ "asset": "res://assets/props/house_office.glb",
+ "assemblies": [
+  {
+   "id": "sorting_desk",
+   "parts": [
+    {
+     "name": "sorting_desk__Body_ON_oak_quartered",
+     "component": "Body",
+     "material": "oak_quartered"
+    },
+    {
+     "name": "sorting_desk__Body_ON_paper__cream",
+     "component": "Body",
+     "material": "paper",
+     "tint": [
+      0.93,
+      0.87,
+      0.7
+     ]
+    },
+    {
+     "name": "sorting_desk__Body_ON_brass",
+     "component": "Body",
+     "material": "brass"
+    },
+    {
+     "name": "sorting_desk__Tray_ON_iron_blackened",
+     "component": "Tray",
+     "material": "iron_blackened"
+    },
+    {
+     "name": "sorting_desk__Tray_ON_brass",
+     "component": "Tray",
+     "material": "brass"
+    },
+    {
+     "name": "sorting_desk__Carriage_ON_brass",
+     "component": "Carriage",
+     "material": "brass"
+    },
+    {
+     "name": "sorting_desk__Letter_ON_paper",
+     "component": "Letter",
+     "material": "paper"
+    }
+   ]
+  },
+  {
+   "id": "hq_bench",
+   "parts": [
+    {
+     "name": "hq_bench__Body_ON_oak_work_surface",
+     "component": "Body",
+     "material": "oak_work_surface"
+    },
+    {
+     "name": "hq_bench__Body_ON_cast_iron",
+     "component": "Body",
+     "material": "cast_iron"
+    },
+    {
+     "name": "hq_bench__Body_ON_wood_dark",
+     "component": "Body",
+     "material": "wood_dark"
+    },
+    {
+     "name": "hq_bench__Body_ON_nickel_plated",
+     "component": "Body",
+     "material": "nickel_plated"
+    },
+    {
+     "name": "hq_bench__Body_ON_trim",
+     "component": "Body",
+     "material": "trim"
+    },
+    {
+     "name": "hq_bench__Body_ON_paper__cream",
+     "component": "Body",
+     "material": "paper",
+     "tint": [
+      0.93,
+      0.87,
+      0.7
+     ]
+    },
+    {
+     "name": "hq_bench__Body_ON_brass",
+     "component": "Body",
+     "material": "brass"
+    },
+    {
+     "name": "hq_bench__Gear_light_ON_nickel_plated",
+     "component": "Gear_light",
+     "material": "nickel_plated"
+    },
+    {
+     "name": "hq_bench__Gear_light_ON_brass",
+     "component": "Gear_light",
+     "material": "brass"
+    },
+    {
+     "name": "hq_bench__Gear_light_ON_milk_glass",
+     "component": "Gear_light",
+     "material": "milk_glass"
+    },
+    {
+     "name": "hq_bench__Gear_tape_ON_linen__tape",
+     "component": "Gear_tape",
+     "material": "linen",
+     "tint": [
+      0.3,
+      0.17,
+      0.1
+     ]
+    },
+    {
+     "name": "hq_bench__Gear_fork_ON_nickel_plated",
+     "component": "Gear_fork",
+     "material": "nickel_plated"
+    },
+    {
+     "name": "hq_bench__Gear_stapler_ON_iron_blackened",
+     "component": "Gear_stapler",
+     "material": "iron_blackened"
+    },
+    {
+     "name": "hq_bench__Gear_stapler_ON_nickel_plated",
+     "component": "Gear_stapler",
+     "material": "nickel_plated"
+    },
+    {
+     "name": "hq_bench__Gear_prism_ON_brass",
+     "component": "Gear_prism",
+     "material": "brass"
+    },
+    {
+     "name": "hq_bench__Gear_prism_ON_glass_cut",
+     "component": "Gear_prism",
+     "material": "glass_cut"
+    },
+    {
+     "name": "hq_bench__Gear_key_ON_brass",
+     "component": "Gear_key",
+     "material": "brass"
+    }
+   ]
+  },
+  {
+   "id": "plaque",
+   "parts": [
+    {
+     "name": "plaque__Body_ON_brass",
+     "component": "Body",
+     "material": "brass"
+    },
+    {
+     "name": "plaque__Body_ON_bakelite_black",
+     "component": "Body",
+     "material": "bakelite_black"
+    }
+   ]
+  },
+  {
+   "id": "trophy_wall",
+   "parts": [
+    {
+     "name": "trophy_wall__Body_ON_wood_dark",
+     "component": "Body",
+     "material": "wood_dark"
+    },
+    {
+     "name": "trophy_wall__Body_ON_oak_quartered",
+     "component": "Body",
+     "material": "oak_quartered"
+    },
+    {
+     "name": "trophy_wall__Body_ON_brass",
+     "component": "Body",
+     "material": "brass"
+    },
+    {
+     "name": "trophy_wall__Token_ON_porcelain",
+     "component": "Token",
+     "material": "porcelain"
+    }
+   ]
+  }
+ ],
+ "sorting": {
+  "tray": [
+   -0.76,
+   0.764,
+   0.395
+  ],
+  "rail": [
+   -0.76,
+   0.776,
+   0.33
+  ],
+  "carriage_home": 0.175,
+  "stops": [
+   0.325,
+   0.59,
+   0.855,
+   1.12
+  ],
+  "dead_stop": 1.49,
+  "dead_lift": 0.136,
+  "rows": [
+   0.098,
+   0.228,
+   0.358,
+   0.488,
+   0.618,
+   0.748
+  ],
+  "hole_front": -0.09,
+  "dead_front": -0.075,
+  "sheet": 0.004,
+  "astray": [
+   -0.76,
+   0.766,
+   0.252
+  ],
+  "row_labels": [
+   [
+    [
+     -0.435,
+     0.978,
+     0.2262
+    ],
+    [
+     -0.17,
+     0.978,
+     0.2262
+    ],
+    [
+     0.095,
+     0.978,
+     0.2262
+    ],
+    [
+     0.36,
+     0.978,
+     0.2262
+    ]
+   ],
+   [
+    [
+     -0.435,
+     1.108,
+     0.2262
+    ],
+    [
+     -0.17,
+     1.108,
+     0.2262
+    ],
+    [
+     0.095,
+     1.108,
+     0.2262
+    ],
+    [
+     0.36,
+     1.108,
+     0.2262
+    ]
+   ],
+   [
+    [
+     -0.435,
+     1.238,
+     0.2262
+    ],
+    [
+     -0.17,
+     1.238,
+     0.2262
+    ],
+    [
+     0.095,
+     1.238,
+     0.2262
+    ],
+    [
+     0.36,
+     1.238,
+     0.2262
+    ]
+   ],
+   [
+    [
+     -0.435,
+     1.368,
+     0.2262
+    ],
+    [
+     -0.17,
+     1.368,
+     0.2262
+    ],
+    [
+     0.095,
+     1.368,
+     0.2262
+    ],
+    [
+     0.36,
+     1.368,
+     0.2262
+    ]
+   ],
+   [
+    [
+     -0.435,
+     1.498,
+     0.2262
+    ],
+    [
+     -0.17,
+     1.498,
+     0.2262
+    ],
+    [
+     0.095,
+     1.498,
+     0.2262
+    ],
+    [
+     0.36,
+     1.498,
+     0.2262
+    ]
+   ],
+   [
+    [
+     -0.435,
+     1.628,
+     0.2262
+    ],
+    [
+     -0.17,
+     1.628,
+     0.2262
+    ],
+    [
+     0.095,
+     1.628,
+     0.2262
+    ],
+    [
+     0.36,
+     1.628,
+     0.2262
+    ]
+   ]
+  ],
+  "dead_label": [
+   0.73,
+   1.005,
+   0.2395
+  ],
+  "tally": [
+   0.72,
+   0.7626,
+   0.525
+  ],
+  "tally_width": 0.31
+ },
+ "bench": {
+  "cards": [
+   [
+    -0.76,
+    1.195,
+    0.0518
+   ],
+   [
+    0.0,
+    1.195,
+    0.0518
+   ],
+   [
+    0.76,
+    1.195,
+    0.0518
+   ],
+   [
+    -0.76,
+    1.615,
+    0.0518
+   ],
+   [
+    0.0,
+    1.615,
+    0.0518
+   ],
+   [
+    0.76,
+    1.615,
+    0.0518
+   ]
+  ]
+ },
+ "plaque": {
+  "words": [
+   0,
+   0,
+   0.0105
+  ],
+  "width": 0.76
+ },
+ "trophies": {
+  "columns": 6,
+  "rows": 3,
+  "pitch": [
+   0.36,
+   0.38
+  ],
+  "status": [
+   0,
+   2.03,
+   0.0465
+  ]
+ }
+}
