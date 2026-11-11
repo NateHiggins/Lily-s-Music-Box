@@ -1,4 +1,4 @@
-"""Ten fitted cloth AC leads and reuse of accepted native floor receptacles."""
+"""Seven fitted cloth AC leads and reuse of accepted native floor receptacles."""
 from pathlib import Path
 import ast,collections,hashlib,json,math,sys
 import bpy,bmesh

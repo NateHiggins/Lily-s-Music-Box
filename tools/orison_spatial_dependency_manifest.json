@@ -93343,252 +93343,6 @@
    "target_exists": true
   },
   {
-   "key": "80d10a29854cb334",
-   "kind": "id_reference",
-   "token": "2A_projector_stand",
-   "file": "game/data/orison_v2/domestic_projectors.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/projectors[0]/support"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "6fad4982cbd1834c",
-   "kind": "id_reference",
-   "token": "2A_tv",
-   "file": "game/data/orison_v2/domestic_projectors.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/projectors[0]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F02/furniture",
-   "target_exists": true
-  },
-  {
-   "key": "19719b74fa63b18b",
-   "kind": "id_reference",
-   "token": "3B_projector_stand",
-   "file": "game/data/orison_v2/domestic_projectors.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/projectors[1]/support"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "622748fb81ef66d3",
-   "kind": "id_reference",
-   "token": "3B_tv",
-   "file": "game/data/orison_v2/domestic_projectors.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/projectors[1]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F03/furniture",
-   "target_exists": true
-  },
-  {
-   "key": "7a2d2d1da101915a",
-   "kind": "id_reference",
-   "token": "4B_projector_stand",
-   "file": "game/data/orison_v2/domestic_projectors.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/projectors[2]/support"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "be7bf52355933abb",
-   "kind": "id_reference",
-   "token": "4B_tv",
-   "file": "game/data/orison_v2/domestic_projectors.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/projectors[2]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F04/furniture",
-   "target_exists": true
-  },
-  {
-   "key": "0629fe13f7b1759a",
-   "kind": "unit_reference",
-   "token": "2A",
-   "file": "game/data/orison_v2/domestic_projectors.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/projectors[0]/unit"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "unit",
-   "target_exists": true
-  },
-  {
-   "key": "dd3674ee25b30dfa",
-   "kind": "unit_reference",
-   "token": "3B",
-   "file": "game/data/orison_v2/domestic_projectors.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/projectors[1]/unit"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "unit",
-   "target_exists": true
-  },
-  {
-   "key": "c06d66171b6a46fa",
-   "kind": "unit_reference",
-   "token": "4B",
-   "file": "game/data/orison_v2/domestic_projectors.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/projectors[2]/unit"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "unit",
-   "target_exists": true
-  },
-  {
    "key": "2c3605659f6e29c5",
    "kind": "id_reference",
    "token": "1A_wireless_table",
@@ -139824,60 +139578,6 @@
    "target_exists": true
   },
   {
-   "key": "2b23b38f355a0adc",
-   "kind": "id_reference",
-   "token": "2A_projector_stand",
-   "file": "game/data/orison_v2/media_ac_supply.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/installations[*]/support"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "fa840817a097727d",
-   "kind": "id_reference",
-   "token": "2A_tv",
-   "file": "game/data/orison_v2/media_ac_supply.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/installations[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F02/furniture",
-   "target_exists": true
-  },
-  {
    "key": "86cff771a3cc94e0",
    "kind": "id_reference",
    "token": "2A_wireless_table",
@@ -139901,60 +139601,6 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "134ad85a62deb08a",
-   "kind": "id_reference",
-   "token": "3B_projector_stand",
-   "file": "game/data/orison_v2/media_ac_supply.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/installations[*]/support"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "f09e60251d28f1b0",
-   "kind": "id_reference",
-   "token": "3B_tv",
-   "file": "game/data/orison_v2/media_ac_supply.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/installations[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F03/furniture",
    "target_exists": true
   },
   {
@@ -140007,60 +139653,6 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "be5fc5e56add5339",
-   "kind": "id_reference",
-   "token": "4B_projector_stand",
-   "file": "game/data/orison_v2/media_ac_supply.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/installations[*]/support"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "0fdaeef34b969b2a",
-   "kind": "id_reference",
-   "token": "4B_tv",
-   "file": "game/data/orison_v2/media_ac_supply.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/installations[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F04/furniture",
    "target_exists": true
   },
   {
@@ -210555,96 +210147,6 @@
    "target_exists": null
   },
   {
-   "key": "bf89d32b3fac99d1",
-   "kind": "unit_reference",
-   "token": "2A",
-   "file": "game/scripts/building/orison_v2_projectors.gd",
-   "tier": "production",
-   "subsystem": "building",
-   "symbols": [
-    "validate"
-   ],
-   "lines": [
-    33
-   ],
-   "count": 1,
-   "context": [
-    "if record is not Dictionary or record.get(\"unit\") not in [\"2A\", \"3B\", \"4B\"]:"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
-   "target_exists": true
-  },
-  {
-   "key": "2bf99ac8f58a4c63",
-   "kind": "unit_reference",
-   "token": "3B",
-   "file": "game/scripts/building/orison_v2_projectors.gd",
-   "tier": "production",
-   "subsystem": "building",
-   "symbols": [
-    "validate"
-   ],
-   "lines": [
-    33
-   ],
-   "count": 1,
-   "context": [
-    "if record is not Dictionary or record.get(\"unit\") not in [\"2A\", \"3B\", \"4B\"]:"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
-   "target_exists": true
-  },
-  {
-   "key": "455cc20ac3a8de4f",
-   "kind": "unit_reference",
-   "token": "4B",
-   "file": "game/scripts/building/orison_v2_projectors.gd",
-   "tier": "production",
-   "subsystem": "building",
-   "symbols": [
-    "validate"
-   ],
-   "lines": [
-    33
-   ],
-   "count": 1,
-   "context": [
-    "if record is not Dictionary or record.get(\"unit\") not in [\"2A\", \"3B\", \"4B\"]:"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
-   "target_exists": true
-  },
-  {
    "key": "98fa05223d7d1dfb",
    "kind": "id_reference",
    "token": "F01_FRONT_WEST_BAY",
@@ -211979,7 +211481,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1449
+    1444
    ],
    "count": 1,
    "context": [
@@ -212009,8 +211511,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1529,
-    1532
+    1524,
+    1527
    ],
    "count": 2,
    "context": [
@@ -212041,7 +211543,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    942
+    937
    ],
    "count": 1,
    "context": [
@@ -212251,7 +211753,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1677
+    1672
    ],
    "count": 1,
    "context": [
@@ -212312,9 +211814,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1443,
-    1446,
-    1508
+    1438,
+    1441,
+    1503
    ],
    "count": 3,
    "context": [
@@ -212346,7 +211848,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1458
+    1453
    ],
    "count": 1,
    "context": [
@@ -212376,7 +211878,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1450
+    1445
    ],
    "count": 1,
    "context": [
@@ -212406,7 +211908,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1467
+    1462
    ],
    "count": 1,
    "context": [
@@ -212436,7 +211938,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1675
+    1670
    ],
    "count": 1,
    "context": [
@@ -212496,7 +211998,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1459
+    1454
    ],
    "count": 1,
    "context": [
@@ -212526,7 +212028,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1671
+    1666
    ],
    "count": 1,
    "context": [
@@ -212556,7 +212058,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1673
+    1668
    ],
    "count": 1,
    "context": [
@@ -212586,7 +212088,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    842
+    837
    ],
    "count": 1,
    "context": [
@@ -212616,7 +212118,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1673
+    1668
    ],
    "count": 1,
    "context": [
@@ -212646,7 +212148,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1671
+    1666
    ],
    "count": 1,
    "context": [
@@ -212706,7 +212208,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    843
+    838
    ],
    "count": 1,
    "context": [
@@ -212736,7 +212238,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    843
+    838
    ],
    "count": 1,
    "context": [
@@ -212766,7 +212268,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1671
+    1666
    ],
    "count": 1,
    "context": [
@@ -212796,7 +212298,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1671
+    1666
    ],
    "count": 1,
    "context": [
@@ -212826,7 +212328,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    842
+    837
    ],
    "count": 1,
    "context": [
@@ -212886,9 +212388,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1526,
-    1530,
-    1533
+    1521,
+    1525,
+    1528
    ],
    "count": 3,
    "context": [
@@ -213040,7 +212542,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1434
+    1429
    ],
    "count": 1,
    "context": [
@@ -213070,7 +212572,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1435
+    1430
    ],
    "count": 1,
    "context": [
@@ -213190,7 +212692,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1336
+    1331
    ],
    "count": 1,
    "context": [
@@ -213251,8 +212753,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1191,
-    1321
+    1186,
+    1316
    ],
    "count": 2,
    "context": [
@@ -213283,7 +212785,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1322
+    1317
    ],
    "count": 1,
    "context": [
@@ -213433,7 +212935,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1492
+    1487
    ],
    "count": 1,
    "context": [
@@ -213463,7 +212965,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1493
+    1488
    ],
    "count": 1,
    "context": [
@@ -213493,7 +212995,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1494
+    1489
    ],
    "count": 1,
    "context": [
@@ -213523,7 +213025,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1491
+    1486
    ],
    "count": 1,
    "context": [
@@ -213616,8 +213118,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1427,
-    1492
+    1422,
+    1487
    ],
    "count": 2,
    "context": [
@@ -213650,8 +213152,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1430,
-    1493
+    1425,
+    1488
    ],
    "count": 2,
    "context": [
@@ -213684,8 +213186,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1433,
-    1494
+    1428,
+    1489
    ],
    "count": 2,
    "context": [
@@ -213718,8 +213220,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1424,
-    1491
+    1419,
+    1486
    ],
    "count": 2,
    "context": [
@@ -213911,7 +213413,7 @@
    ],
    "lines": [
     672,
-    1532
+    1527
    ],
    "count": 2,
    "context": [
@@ -213942,7 +213444,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1391
+    1386
    ],
    "count": 1,
    "context": [
@@ -213972,7 +213474,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1392
+    1387
    ],
    "count": 1,
    "context": [
@@ -237658,7 +237160,7 @@
     "_check_bath_details"
    ],
    "lines": [
-    1009
+    902
    ],
    "count": 1,
    "context": [
@@ -237705,34 +237207,6 @@
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F03/furniture+v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "eca35170d235511e",
-   "kind": "id_reference",
-   "token": "3B_projector_stand",
-   "file": "game/tests/orison_v2_apartment_batch_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_check_projectors"
-   ],
-   "lines": [
-    797
-   ],
-   "count": 1,
-   "context": [
-    "elif mutation == \"support\": bad.projectors[0].support = \"3B_projector_stand\""
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -237835,7 +237309,7 @@
     "_check_heating"
    ],
    "lines": [
-    877
+    770
    ],
    "count": 1,
    "context": [
@@ -238039,7 +237513,7 @@
    ],
    "lines": [
     146,
-    882
+    775
    ],
    "count": 2,
    "context": [
@@ -238070,8 +237544,8 @@
     "_check_heating"
    ],
    "lines": [
-    883,
-    887
+    776,
+    780
    ],
    "count": 2,
    "context": [
@@ -238166,7 +237640,8 @@
     "<module>",
     "_check_surface_props",
     "_check_storage_tables_boards",
-    "_check_household_radios"
+    "_check_household_radios",
+    "_check_no_projectors"
    ],
    "lines": [
     4,
@@ -238174,9 +237649,10 @@
     356,
     376,
     508,
-    581
+    581,
+    756
    ],
-   "count": 6,
+   "count": 7,
    "context": [
     "const UNITS := [\"2A\", \"2B\", \"3B\", \"4B\"]",
     "const ALL_DOMESTIC_UNITS := [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\"]",
@@ -238215,8 +237691,8 @@
     356,
     376,
     508,
-    926,
-    952
+    819,
+    845
    ],
    "count": 7,
    "context": [
@@ -238281,7 +237757,7 @@
     "_check_heating"
    ],
    "lines": [
-    916
+    809
    ],
    "count": 1,
    "context": [
@@ -238352,7 +237828,8 @@
     "<module>",
     "_check_surface_props",
     "_check_storage_tables_boards",
-    "_check_prep_cabinets"
+    "_check_prep_cabinets",
+    "_check_no_projectors"
    ],
    "lines": [
     4,
@@ -238360,9 +237837,10 @@
     356,
     376,
     508,
-    610
+    610,
+    756
    ],
-   "count": 6,
+   "count": 7,
    "context": [
     "const UNITS := [\"2A\", \"2B\", \"3B\", \"4B\"]",
     "const ALL_DOMESTIC_UNITS := [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\"]",
@@ -238393,7 +237871,7 @@
     "_check_heating"
    ],
    "lines": [
-    916
+    809
    ],
    "count": 1,
    "context": [
@@ -238496,7 +237974,8 @@
     "_ready",
     "_check_household_accessories",
     "_check_surface_props",
-    "_check_storage_tables_boards"
+    "_check_storage_tables_boards",
+    "_check_no_projectors"
    ],
    "lines": [
     4,
@@ -238506,9 +237985,10 @@
     244,
     356,
     376,
-    508
+    508,
+    756
    ],
-   "count": 8,
+   "count": 9,
    "context": [
     "const UNITS := [\"2A\", \"2B\", \"3B\", \"4B\"]",
     "const ALL_DOMESTIC_UNITS := [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\"]",
@@ -238711,7 +238191,7 @@
     "_check_heating"
    ],
    "lines": [
-    916
+    809
    ],
    "count": 1,
    "context": [
@@ -238846,7 +238326,7 @@
     "_check_heating"
    ],
    "lines": [
-    916
+    809
    ],
    "count": 1,
    "context": [
@@ -238864,37 +238344,6 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
-  },
-  {
-   "key": "1677b505ded75e86",
-   "kind": "vector3_coordinate",
-   "token": "_check_projector_surface_failures",
-   "file": "game/tests/orison_v2_apartment_batch_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_check_projector_surface_failures"
-   ],
-   "lines": [
-    841
-   ],
-   "count": 1,
-   "context": [
-    "holder.global_position = Vector3(0,1000,0)"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
   },
   {
    "key": "cb5387cd45b4689f",
@@ -265927,102 +265376,6 @@
    "confidence": "HIGH",
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
-   "target_exists": true
-  },
-  {
-   "key": "cecfc7f8ac7b36f4",
-   "kind": "unit_reference",
-   "token": "2A",
-   "file": "game/tests/v2_active_media_review.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "validate_in_world",
-    "_capture_media"
-   ],
-   "lines": [
-    19,
-    91
-   ],
-   "count": 2,
-   "context": [
-    "for unit in [\"2A\", \"3B\", \"4B\"]:"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "unit",
-   "target_exists": true
-  },
-  {
-   "key": "384c11d7f6e3f656",
-   "kind": "unit_reference",
-   "token": "3B",
-   "file": "game/tests/v2_active_media_review.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "validate_in_world",
-    "_capture_media"
-   ],
-   "lines": [
-    19,
-    91
-   ],
-   "count": 2,
-   "context": [
-    "for unit in [\"2A\", \"3B\", \"4B\"]:"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "unit",
-   "target_exists": true
-  },
-  {
-   "key": "97124d01aac97f3d",
-   "kind": "unit_reference",
-   "token": "4B",
-   "file": "game/tests/v2_active_media_review.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "validate_in_world",
-    "_capture_media"
-   ],
-   "lines": [
-    19,
-    91
-   ],
-   "count": 2,
-   "context": [
-    "for unit in [\"2A\", \"3B\", \"4B\"]:"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "unit",
    "target_exists": true
   },
   {
