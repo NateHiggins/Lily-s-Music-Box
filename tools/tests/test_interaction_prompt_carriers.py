@@ -336,7 +336,8 @@ class ProductionSmokeTests(unittest.TestCase):
         # Native fire cabinet empty overrides disable inherited legacy input.
         # The readable V2 shelf adds the same deliberate empty legacy override.
         # Named cookbook/knock/paper controls replace the former door prompt.
-        self.assertEqual(summary["prompt_methods"], 99)
+        # The dead letters desk is worked by hand and adds the same empty override.
+        self.assertEqual(summary["prompt_methods"], 100)
         self.assertEqual(summary["legacy_uncovered"], 0)
         self.assertEqual(summary["baseline_stale"], 0)
         self.assertEqual(summary["forbidden"], 0)
