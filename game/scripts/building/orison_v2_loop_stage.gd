@@ -20,7 +20,7 @@ const STRING_RED := Color(0.6, 0.04, 0.05)
 const STRING_WIDTH := 0.005
 const SURVEY_RAYS := 700
 const MAX_STRANDS := 70
-const MAX_SHEETS := 650
+const MAX_SHEETS := 1300
 const MAX_PILES := 60
 ## A stack of paper already in 4B, copied for the gathered newspapers.
 const BUNDLE_SOURCE := "4B_slip_stack"
@@ -175,6 +175,8 @@ func _copy_of(source: Node3D) -> Node3D:
 		copy.material_override = draw.material_override
 		copy.transform = source.global_transform.affine_inverse() * draw.global_transform
 		copy.visibility_range_end = 14.0
+		# Thin sheets and string throw broken shadows; they lie on what they cover.
+		copy.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		sheet.add_child(copy)
 	return sheet
 
@@ -582,7 +584,7 @@ func _grow() -> void:
 		var normal: Vector3 = spot.normal
 		var across := Vector3.UP.cross(normal).normalized()
 		var roll := (fposmod(float(index) * 0.7548776, 1.0) - 0.5) * 0.6
-		var size := 0.14 + 0.15 * fposmod(float(index) * 0.5698403, 1.0)
+		var size := 0.17 + 0.2 * fposmod(float(index) * 0.5698403, 1.0)
 		var level := across.rotated(normal, roll)
 		var facing := _sized(Basis(level, normal.cross(level), normal), size, size * (0.72 + 0.5 * fposmod(float(index) * 0.3247, 1.0)))
 		var sheet := _copy_paper()
