@@ -242,6 +242,10 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: unresolved or duplicate required anchor")
 		return
+	if not _redistribute_first_floor():
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: first-floor redistribution refused")
+		return
 	var cues := CUES.new()
 	cues.show_bed_context = false
 	cues.show_terminal_context = false
@@ -1593,6 +1597,33 @@ func _compose_vantry() -> void:
 	point.bind_order_spine(work_orders)
 	vantry_points.active_owner = point
 	vantry_points.add_child(point)
+
+## Lily's first-floor ruling (v1r_first_floor_layout_20261111): the mail bank
+## and the porter's board stand in the lobby and the telephone board in common
+## room B. The blockout keeps where they were first drawn; this moves their
+## anchors before anything mounts on them, so every consumer finds the new
+## place and the pinned layout file is untouched.
+const FIRST_FLOOR_LAYOUT := "res://data/orison_v2/first_floor_layout.json"
+
+func _redistribute_first_floor() -> bool:
+	var document: Variant = JSON.parse_string(FileAccess.get_file_as_string(FIRST_FLOOR_LAYOUT))
+	if document is not Dictionary or int(document.get("schema_version", 0)) != 1 \
+			or str(document.get("ruling", "")).is_empty() or document.get("moves") is not Array:
+		return false
+	var ground := 0.0
+	for level: Dictionary in layout.get("levels", []):
+		if str(level.id) == "F01":
+			ground = float(level.y)
+	for move: Dictionary in document.moves:
+		var anchor := adapter.resolve(str(move.get("id", ""))) as Node3D
+		var place: Variant = move.get("position")
+		if anchor == null or place is not Array or (place as Array).size() != 3 or not move.has("yaw"):
+			return false
+		anchor.position = Vector3(float(place[0]), ground + float(place[1]), float(place[2]))
+		anchor.rotation.y = float(move.yaw)
+		anchor.set_meta("first_floor_moved", true)
+	return true
+
 
 func _mount(identity: String, consumer: Node3D) -> void:
 	if not adapter.mount_consumer(identity, consumer):

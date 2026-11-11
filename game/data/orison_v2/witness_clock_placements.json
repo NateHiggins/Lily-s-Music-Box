@@ -1,287 +1,287 @@
 {
- "schema_version": 1,
- "frame": "blockout-local metres: position is [x, y, z] under the V2 blockout node (y is absolute height, floors every 3.2 m); a wall clock's position is the dial centre on the wall surface, a table clock's is its footprint centre on the support top; yaw_deg turns the dial (+Z) about Y",
- "measured": "wall surfaces and clear stretches measured in the running V2 world on 2026-11-10 (C:/ov/reports/b_clocks/probe02.log)",
- "witness": {
-  "evelyn_paper_jam": {
-   "unit": "1A",
-   "style": "schoolhouse",
-   "space": "F01_A_MAIN",
-   "mounting": "wall",
-   "beside": "1A_frame_b",
-   "position": [
-    -10.95,
-    1.8,
-    -3.92
-   ],
-   "yaw_deg": 180,
-   "note": "north wall, right of her two frames"
+  "schema_version": 1,
+  "frame": "blockout-local metres: position is [x, y, z] under the V2 blockout node (y is absolute height, floors every 3.2 m); a wall clock's position is the dial centre on the wall surface, a table clock's is its footprint centre on the support top; yaw_deg turns the dial (+Z) about Y",
+  "measured": "wall surfaces and clear stretches measured in the running V2 world on 2026-11-10 (C:/ov/reports/b_clocks/probe02.log)",
+  "witness": {
+    "evelyn_paper_jam": {
+      "unit": "1A",
+      "style": "schoolhouse",
+      "space": "F01_A_MAIN",
+      "mounting": "wall",
+      "beside": "1A_frame_b",
+      "position": [
+        -10.95,
+        1.8,
+        -3.92
+      ],
+      "yaw_deg": 180,
+      "note": "north wall, right of her two frames"
+    },
+    "teresa_call_bells": {
+      "unit": "1D",
+      "style": "hospital",
+      "space": "F01_D_MAIN",
+      "mounting": "wall",
+      "beside": "1D_story_pattern_board",
+      "position": [
+        13.4,
+        1.62,
+        0.23
+      ],
+      "yaw_deg": 180,
+      "note": "north wall, right of her pattern board, over the daybed"
+    },
+    "mina_caption_crisis": {
+      "unit": "2A",
+      "style": "bauhaus",
+      "space": "F02_A_MAIN",
+      "mounting": "wall",
+      "beside": "2A_caption_wall",
+      "position": [
+        -15.58,
+        4.82,
+        -3.42
+      ],
+      "yaw_deg": 90,
+      "note": "west wall with her caption board; the stretch between is window, so the clock hangs at the south end"
+    },
+    "lena_unraveling": {
+      "unit": "2B",
+      "style": "stitch",
+      "space": "F02_B_MAIN",
+      "mounting": "wall",
+      "beside": "2B_story_pattern_board",
+      "position": [
+        13.3,
+        4.82,
+        0.23
+      ],
+      "yaw_deg": 180,
+      "note": "north wall, right of her pattern board"
+    },
+    "juno_feedback_tetris": {
+      "unit": "2C",
+      "style": "vantry_modular",
+      "space": "F02_C_MAIN",
+      "mounting": "wall",
+      "beside": "2C_cable_hooks",
+      "position": [
+        -0.95,
+        4.86,
+        11.58
+      ],
+      "yaw_deg": 180,
+      "note": "north wall over her rig table, left of the cable hooks; the wall beside her two albums is window"
+    },
+    "malcolm_memory_plants": {
+      "unit": "3A",
+      "style": "sunray_1920",
+      "space": "F03_A_MAIN",
+      "mounting": "wall",
+      "beside": "3A_diagram",
+      "position": [
+        -12.8,
+        8.06,
+        3.03
+      ],
+      "yaw_deg": 180,
+      "note": "north wall with his diagram and portrait, on the first clear stretch to their left"
+    },
+    "omar_unrepairable": {
+      "unit": "3B",
+      "style": "industrial",
+      "space": "F03_B_MAIN",
+      "mounting": "wall",
+      "beside": "3B_toolboard",
+      "position": [
+        12.62,
+        8.1,
+        0.23
+      ],
+      "yaw_deg": 180,
+      "note": "north wall over the workbench, left of his toolboard (3B has no picture)"
+    },
+    "rhea_bad_karaoke": {
+      "unit": "3D",
+      "style": "studio",
+      "space": "F03_D_MAIN",
+      "mounting": "wall",
+      "beside": "3D_image_b",
+      "position": [
+        -11.35,
+        8.02,
+        -3.92
+      ],
+      "yaw_deg": 180,
+      "note": "north wall, right of her middle picture"
+    },
+    "peter_form_corridor": {
+      "unit": "4A",
+      "style": "railway",
+      "space": "F04_A_MAIN",
+      "mounting": "wall",
+      "beside": "4A_frame_b",
+      "position": [
+        13.55,
+        11.3,
+        0.23
+      ],
+      "yaw_deg": 180,
+      "note": "north wall, right of his two frames"
+    },
+    "cam_tilted_room": {
+      "unit": "4C",
+      "style": "courier",
+      "space": "F04_C_MAIN",
+      "mounting": "wall",
+      "beside": "4C_story_colorboard",
+      "position": [
+        -5.53,
+        11.22,
+        8.36
+      ],
+      "yaw_deg": 90,
+      "note": "west wall, right of the colour board"
+    },
+    "noel_domestic_museum": {
+      "unit": "4C",
+      "style": "mantel",
+      "space": "F04_C_MAIN",
+      "mounting": "table",
+      "support": "4C_museum_shelf",
+      "position": [
+        -1.5,
+        11.45,
+        11.43
+      ],
+      "yaw_deg": 180,
+      "note": "on top of the museum shelf, where V1 kept it among the museum objects"
+    },
+    "transient_infinite_checkout": {
+      "unit": "4D",
+      "style": "travel_alarm",
+      "space": "F04_D_MAIN",
+      "mounting": "table",
+      "support": "4D_lamp_table",
+      "position": [
+        -10.14,
+        10.345,
+        -4.3
+      ],
+      "yaw_deg": 180,
+      "note": "on the lamp table by the settee"
+    },
+    "nadia_code_pinball": {
+      "unit": "5A",
+      "style": "architect",
+      "space": "F05_A_MAIN",
+      "mounting": "wall",
+      "beside": "5A_plan_wall",
+      "position": [
+        -10.5,
+        14.42,
+        -0.67
+      ],
+      "yaw_deg": 180,
+      "note": "north wall, right of her plan wall"
+    },
+    "cal_memory_radio": {
+      "unit": "5B",
+      "style": "split_flap",
+      "space": "F05_B_MAIN",
+      "mounting": "wall",
+      "beside": "5B_work_a",
+      "position": [
+        -15.05,
+        14.46,
+        0.67
+      ],
+      "yaw_deg": 0,
+      "note": "south wall at the corner by his two framed works; the west wall past them is window"
+    },
+    "iris_runaway_paint": {
+      "unit": "5C",
+      "style": "palette",
+      "space": "F05_C_MAIN",
+      "mounting": "wall",
+      "beside": "5C_canvas_a",
+      "position": [
+        0.43,
+        14.4,
+        9.15
+      ],
+      "yaw_deg": -90,
+      "note": "east wall, left of her two canvases, over the radiator"
+    },
+    "sacha_camera_delay": {
+      "unit": "6A",
+      "style": "nixie",
+      "space": "F06_A_MAIN",
+      "mounting": "wall",
+      "beside": "6A_editorial_c",
+      "position": [
+        -10.88,
+        17.66,
+        -0.67
+      ],
+      "yaw_deg": 180,
+      "note": "north wall, right of the three editorial prints"
+    },
+    "jonah_sentence_insects": {
+      "unit": "6B",
+      "style": "writer",
+      "space": "F06_B_MAIN",
+      "mounting": "wall",
+      "position": [
+        -11.9,
+        17.62,
+        0.67
+      ],
+      "yaw_deg": 0,
+      "note": "6B has nothing hung; south wall of the main room (V1's wall), clear of the radiator"
+    },
+    "mae_contradictory_antiques": {
+      "unit": "6C",
+      "style": "deco",
+      "space": "F06_C_MAIN",
+      "mounting": "wall",
+      "position": [
+        -5.53,
+        17.75,
+        9.3
+      ],
+      "yaw_deg": 90,
+      "note": "6C has nothing hung; west wall over the sofa"
+    }
   },
-  "teresa_call_bells": {
-   "unit": "1D",
-   "style": "hospital",
-   "space": "F01_D_MAIN",
-   "mounting": "wall",
-   "beside": "1D_story_pattern_board",
-   "position": [
-    13.4,
-    1.62,
-    0.23
-   ],
-   "yaw_deg": 180,
-   "note": "north wall, right of her pattern board, over the daybed"
-  },
-  "mina_caption_crisis": {
-   "unit": "2A",
-   "style": "bauhaus",
-   "space": "F02_A_MAIN",
-   "mounting": "wall",
-   "beside": "2A_caption_wall",
-   "position": [
-    -15.58,
-    4.82,
-    -3.42
-   ],
-   "yaw_deg": 90,
-   "note": "west wall with her caption board; the stretch between is window, so the clock hangs at the south end"
-  },
-  "lena_unraveling": {
-   "unit": "2B",
-   "style": "stitch",
-   "space": "F02_B_MAIN",
-   "mounting": "wall",
-   "beside": "2B_story_pattern_board",
-   "position": [
-    13.3,
-    4.82,
-    0.23
-   ],
-   "yaw_deg": 180,
-   "note": "north wall, right of her pattern board"
-  },
-  "juno_feedback_tetris": {
-   "unit": "2C",
-   "style": "vantry_modular",
-   "space": "F02_C_MAIN",
-   "mounting": "wall",
-   "beside": "2C_cable_hooks",
-   "position": [
-    -0.95,
-    4.86,
-    11.58
-   ],
-   "yaw_deg": 180,
-   "note": "north wall over her rig table, left of the cable hooks; the wall beside her two albums is window"
-  },
-  "malcolm_memory_plants": {
-   "unit": "3A",
-   "style": "sunray_1920",
-   "space": "F03_A_MAIN",
-   "mounting": "wall",
-   "beside": "3A_diagram",
-   "position": [
-    -12.8,
-    8.06,
-    3.03
-   ],
-   "yaw_deg": 180,
-   "note": "north wall with his diagram and portrait, on the first clear stretch to their left"
-  },
-  "omar_unrepairable": {
-   "unit": "3B",
-   "style": "industrial",
-   "space": "F03_B_MAIN",
-   "mounting": "wall",
-   "beside": "3B_toolboard",
-   "position": [
-    12.62,
-    8.1,
-    0.23
-   ],
-   "yaw_deg": 180,
-   "note": "north wall over the workbench, left of his toolboard (3B has no picture)"
-  },
-  "rhea_bad_karaoke": {
-   "unit": "3D",
-   "style": "studio",
-   "space": "F03_D_MAIN",
-   "mounting": "wall",
-   "beside": "3D_image_b",
-   "position": [
-    -11.35,
-    8.02,
-    -3.92
-   ],
-   "yaw_deg": 180,
-   "note": "north wall, right of her middle picture"
-  },
-  "peter_form_corridor": {
-   "unit": "4A",
-   "style": "railway",
-   "space": "F04_A_MAIN",
-   "mounting": "wall",
-   "beside": "4A_frame_b",
-   "position": [
-    13.55,
-    11.3,
-    0.23
-   ],
-   "yaw_deg": 180,
-   "note": "north wall, right of his two frames"
-  },
-  "cam_tilted_room": {
-   "unit": "4C",
-   "style": "courier",
-   "space": "F04_C_MAIN",
-   "mounting": "wall",
-   "beside": "4C_story_colorboard",
-   "position": [
-    -5.53,
-    11.22,
-    8.36
-   ],
-   "yaw_deg": 90,
-   "note": "west wall, right of the colour board"
-  },
-  "noel_domestic_museum": {
-   "unit": "4C",
-   "style": "mantel",
-   "space": "F04_C_MAIN",
-   "mounting": "table",
-   "support": "4C_museum_shelf",
-   "position": [
-    -1.5,
-    11.45,
-    11.43
-   ],
-   "yaw_deg": 180,
-   "note": "on top of the museum shelf, where V1 kept it among the museum objects"
-  },
-  "transient_infinite_checkout": {
-   "unit": "4D",
-   "style": "travel_alarm",
-   "space": "F04_D_MAIN",
-   "mounting": "table",
-   "support": "4D_lamp_table",
-   "position": [
-    -10.14,
-    10.345,
-    -4.3
-   ],
-   "yaw_deg": 180,
-   "note": "on the lamp table by the settee"
-  },
-  "nadia_code_pinball": {
-   "unit": "5A",
-   "style": "architect",
-   "space": "F05_A_MAIN",
-   "mounting": "wall",
-   "beside": "5A_plan_wall",
-   "position": [
-    -10.5,
-    14.42,
-    -0.67
-   ],
-   "yaw_deg": 180,
-   "note": "north wall, right of her plan wall"
-  },
-  "cal_memory_radio": {
-   "unit": "5B",
-   "style": "split_flap",
-   "space": "F05_B_MAIN",
-   "mounting": "wall",
-   "beside": "5B_work_a",
-   "position": [
-    -15.05,
-    14.46,
-    0.67
-   ],
-   "yaw_deg": 0,
-   "note": "south wall at the corner by his two framed works; the west wall past them is window"
-  },
-  "iris_runaway_paint": {
-   "unit": "5C",
-   "style": "palette",
-   "space": "F05_C_MAIN",
-   "mounting": "wall",
-   "beside": "5C_canvas_a",
-   "position": [
-    0.43,
-    14.4,
-    9.15
-   ],
-   "yaw_deg": -90,
-   "note": "east wall, left of her two canvases, over the radiator"
-  },
-  "sacha_camera_delay": {
-   "unit": "6A",
-   "style": "nixie",
-   "space": "F06_A_MAIN",
-   "mounting": "wall",
-   "beside": "6A_editorial_c",
-   "position": [
-    -10.88,
-    17.66,
-    -0.67
-   ],
-   "yaw_deg": 180,
-   "note": "north wall, right of the three editorial prints"
-  },
-  "jonah_sentence_insects": {
-   "unit": "6B",
-   "style": "writer",
-   "space": "F06_B_MAIN",
-   "mounting": "wall",
-   "position": [
-    -11.9,
-    17.62,
-    0.67
-   ],
-   "yaw_deg": 0,
-   "note": "6B has nothing hung; south wall of the main room (V1's wall), clear of the radiator"
-  },
-  "mae_contradictory_antiques": {
-   "unit": "6C",
-   "style": "deco",
-   "space": "F06_C_MAIN",
-   "mounting": "wall",
-   "position": [
-    -5.53,
-    17.75,
-    9.3
-   ],
-   "yaw_deg": 90,
-   "note": "6C has nothing hung; west wall over the sofa"
-  }
- },
- "honest": [
-  {
-   "id": "F01_LOBBY_CLOCK_01",
-   "unit": "LOBBY",
-   "variant": "vantry_master",
-   "space": "F01_LOBBY",
-   "mounting": "wall",
-   "position": [
-    5.33,
-    1.95,
-    -6.9
-   ],
-   "yaw_deg": -90,
-   "note": "lobby east wall, 1.95 m up, as V1"
-  },
-  {
-   "id": "F04_B_CLOCK_01",
-   "unit": "4B",
-   "variant": "drop_octagon",
-   "space": "F04_B_MAIN",
-   "mounting": "wall",
-   "position": [
-    -10.4,
-    11.45,
-    -3.78
-   ],
-   "yaw_deg": 0,
-   "note": "4B main room, south wall beyond the couch"
-  }
- ]
+  "honest": [
+    {
+      "id": "F01_LOBBY_CLOCK_01",
+      "unit": "LOBBY",
+      "variant": "vantry_master",
+      "space": "F01_LOBBY",
+      "mounting": "wall",
+      "position": [
+        5.33,
+        2.42,
+        -7.66
+      ],
+      "yaw_deg": -90,
+      "note": "lobby east wall, over the mail bank since the first-floor ruling of 2026-11-11"
+    },
+    {
+      "id": "F04_B_CLOCK_01",
+      "unit": "4B",
+      "variant": "drop_octagon",
+      "space": "F04_B_MAIN",
+      "mounting": "wall",
+      "position": [
+        -10.4,
+        11.45,
+        -3.78
+      ],
+      "yaw_deg": 0,
+      "note": "4B main room, south wall beyond the couch"
+    }
+  ]
 }
