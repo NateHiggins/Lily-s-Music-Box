@@ -100,6 +100,7 @@ var adela_preview_follower: Node3D
 var campaign_clock: CampaignClock
 var temporal_loop: Node
 var loop_stage: Node3D
+var season_fittings: Node
 var corruption_lineages: CorruptionLineageRegistry
 var watch_station_network: WatchStationNetwork
 ## Patrol station anchor -> WatchStationProp.STATIONS id, one box per floor.
@@ -1029,6 +1030,13 @@ func _compose_authorities() -> void:
 	add_child(loop_stage)
 	if not loop_stage.setup(self, temporal_loop, adapter):
 		push_error("ORISON V2 RUNTIME: loop stage incomplete: %s" % [loop_stage.errors])
+	# The house fitted for the day it is: the windows in a visit, and whatever
+	# is hung out for the occasion.
+	season_fittings = preload("res://scripts/building/orison_v2_season_fittings.gd").new()
+	season_fittings.name = "SeasonFittings"
+	add_child(season_fittings)
+	if not season_fittings.setup(self, temporal_loop):
+		push_error("ORISON V2 RUNTIME: season fittings found no windows")
 	var installed_fire: RefCounted=adapter.root.get_meta("v2_native_fire_service")
 	fire_maintenance_counter=preload("res://scripts/building/orison_v2_fire_maintenance_counter.gd").mount(self,economy,installed_fire.stations)
 	if fire_maintenance_counter==null:
