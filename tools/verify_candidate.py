@@ -62,6 +62,16 @@ VERIFY_SCHEMA = "orison.candidate-verification.v1"
 PROTECTED_RECEIPT = "design/ORISON_V2_M11C1_PROTECTED_FINAL_RECEIPT_2026-08-31.json"
 SELECTOR_PATH = "game/scripts/building/building_root_selector.gd"
 EXPECTED_SELECTOR = "v2"
+# V1 was removed on 2026-11-11 by the owner's ruling v1r_rollback_20261109.
+# These protected paths were V1's upper-floor geometry; the receipt still
+# lists them, and the check accepts their absence and nothing else about them.
+RETIRED_WITH_V1 = frozenset(
+    f"game/assets/building/floor_0{n}.{ext}" for n in range(2, 7) for ext in ("gltf", "bin"))
+SELECTOR_V1_REMOVAL_EDITS = (
+    (b" # Future cutover and rollback change this value only.",
+     b" # V1 and its rollback were removed 2026-11-11 (v1r_rollback_20261109)."),
+    (b'\t"v1": "res://scenes/building/orison_root.tscn",\n', b""),
+)
 GATE_PATH_RE = re.compile(
     r"^tools/(audit_[^/]+\.py|[^/]*baseline[^/]*\.json|[^/]*manifest[^/]*\.json|"
     r"[^/]*exceptions[^/]*\.json|tests/.+|run_godot_[^/]+\.ps1|lane_common\.ps1|"
@@ -125,20 +135,31 @@ def protected_check(merge_base: str, cand: str) -> dict:
         cand_oid = git("rev-parse", f"{cand}:{path}", check=False)
         blob = git_bytes("show", f"{cand}:{path}")
         digest = hashlib.sha256(blob).hexdigest() if blob is not None else None
-        unchanged = bool(cand_oid) and cand_oid == base_oid
-        # Owner-authorized 2026-09-21 cutover: only this one literal may
-        # differ. Keep the historical 17-path receipt immutable, and do not
-        # exempt any other selector logic or any spatial authority.
+        # A path retired with V1 (2026-11-11) is settled when it is absent
+        # from the candidate, whether this candidate removed it or the
+        # merge-base already had.
+        retired = path in RETIRED_WITH_V1 and not cand_oid
+        unchanged = (bool(cand_oid) and cand_oid == base_oid) or (retired and not base_oid)
+        # Owner-authorized exceptions, and no others: the 2026-09-21 default
+        # literal cutover, and the 2026-11-11 removal of the V1 entry
+        # (ruling v1r_rollback_20261109). Keep the historical 17-path receipt
+        # immutable, and do not exempt any other selector logic or any
+        # spatial authority.
+        before = git_bytes("show", f"{merge_base}:{path}") if path == SELECTOR_PATH else None
         authorized = (not unchanged and path == SELECTOR_PATH
-                      and selector_default_cutover(
-                          git_bytes("show", f"{merge_base}:{path}"), blob))
-        files.append({"path": path, "unchanged_vs_merge_base": bool(cand_oid) and cand_oid == base_oid,
+                      and (selector_default_cutover(before, blob)
+                           or selector_v1_removal(before, blob)))
+        files.append({"path": path, "unchanged_vs_merge_base": unchanged,
                       "authorized_selector_cutover": authorized,
+                      "retired_with_v1": retired and not unchanged,
                       "matches_recorded_baseline": digest == entry.get("baseline_sha256")})
     matched = sum(1 for f in files if f["unchanged_vs_merge_base"])
     authorized = sum(1 for f in files if f["authorized_selector_cutover"])
-    return {"status": "PASS" if matched + authorized == len(files) else "FAIL", "matched": matched,
+    retired_count = sum(1 for f in files if f["retired_with_v1"])
+    return {"status": "PASS" if matched + authorized + retired_count == len(files) else "FAIL",
+            "matched": matched,
             "authorized_selector_changes": authorized,
+            "retired_with_v1": retired_count,
             "expected": len(files),
             "recorded_baseline_matches": sum(1 for f in files if f["matches_recorded_baseline"]),
             "files": files}
@@ -148,6 +169,20 @@ def selector_default_cutover(before: bytes | None, after: bytes | None) -> bool:
     old, new = b'const DEFAULT_ID := "v1"', b'const DEFAULT_ID := "v2"'
     return (before is not None and after is not None and before.count(old) == 1
             and after == before.replace(old, new, 1))
+
+
+def selector_v1_removal(before: bytes | None, after: bytes | None) -> bool:
+    """The one authorized 2026-11-11 edit: the V1 entry leaves PATHS and the
+    default's comment records it. Nothing else in the selector may differ."""
+    if before is None or after is None:
+        return False
+    old, new = before.replace(b"\r\n", b"\n"), after.replace(b"\r\n", b"\n")
+    expected = old
+    for was, now in SELECTOR_V1_REMOVAL_EDITS:
+        if expected.count(was) != 1:
+            return False
+        expected = expected.replace(was, now, 1)
+    return new == expected
 
 
 def selector_check(cand: str) -> dict:
@@ -353,7 +388,7 @@ def render(result: dict) -> str:
              f"| ledger before | {result['ledger_before']} |",
              f"| ledger after | {result['ledger_after']} |",
              f"| requirements_changed | {comp['requirements_changed']} |",
-             f"| protected | {result['protected']['matched']}/{result['protected']['expected']} unchanged vs merge-base; {result['protected'].get('authorized_selector_changes', 0)} authorized selector change(s) |",
+             f"| protected | {result['protected']['matched']}/{result['protected']['expected']} unchanged vs merge-base; {result['protected'].get('authorized_selector_changes', 0)} authorized selector change(s); {result['protected'].get('retired_with_v1', 0)} removed with V1 |",
              f"| selector | {result['selector']['value']} |",
              f"| design doc lint errors | {sum(1 for f in result['doc_lint'] if f['level'] == 'ERROR')} |",
              f"| gates changed by candidate | {len(result['gate_changes'])} |"]
@@ -510,7 +545,8 @@ def main(argv=None) -> int:
         if result["protected"]["status"] != "PASS":
             changed_protected = [f["path"] for f in result["protected"]["files"]
                                  if not f["unchanged_vs_merge_base"]
-                                 and not f.get("authorized_selector_cutover")]
+                                 and not f.get("authorized_selector_cutover")
+                                 and not f.get("retired_with_v1")]
             blocking.append(f"protected paths changed: {changed_protected or result['protected'].get('detail')}")
         if result["selector"]["status"] != "PASS":
             blocking.append(f"selector is {result['selector']['value']!r}, expected {EXPECTED_SELECTOR!r}")
