@@ -169,6 +169,26 @@ old_meshes = [o for o in fresh if o.type == "MESH" and len(o.data.vertices) > 50
 for junk in [o for o in fresh if o.type == "MESH" and o not in old_meshes]:
     bpy.data.objects.remove(junk)
 shell = old_meshes[0]
+# Some old bodies are authored in centimetres under a rig scaled by 0.01. Bake
+# that out, so the body, its skeleton and everything fitted to it are in
+# metres with no scale on the rig (strand hair is skinned in the rig's units).
+UNIT_BAKED = 1.0
+if abs(old_rig.scale.x - 1.0) > 1e-4:
+    UNIT_BAKED = float(old_rig.scale.x)
+    for mesh_object in old_meshes:
+        world_now = mesh_object.matrix_world.copy()
+        mesh_object.parent = None
+        mesh_object.data.transform(world_now)
+        mesh_object.matrix_world = Matrix.Identity(4)
+    bpy.ops.object.select_all(action="DESELECT")
+    old_rig.select_set(True)
+    bpy.context.view_layer.objects.active = old_rig
+    bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
+    for mesh_object in old_meshes:
+        mesh_object.parent = old_rig
+        mesh_object.matrix_parent_inverse = Matrix.Identity(4)
+    bpy.context.view_layer.update()
+    print("UNITS baked a rig scale of", UNIT_BAKED)
 # Bodies whose skeleton uses other names are worked on under the common names
 # and given their own names back before saving.
 RENAMED = CFG.get("bones", {})
@@ -235,7 +255,15 @@ if CFG.get("nose", "auto") == "auto":
     print("NOSE", [round(c, 4) for c in nose_old])
 else:
     nose_old = Vector(CFG["nose"])
-scale = float(CFG.get("head_scale", 1.0))
+if CFG.get("head_scale", 1.0) == "auto":
+    # Size the new head by the old one: nose to crown, a little under, since
+    # hair and hats sit on top of the old crown.
+    old_crown = max((shell_world @ v.co).z for i, v in enumerate(shell.data.vertices) if old_weights[i].get("Head", 0.0) > 0.5)
+    new_crown = max((head.matrix_world @ v.co).z for v in head.data.vertices)
+    scale = max(0.82, min(1.04, (old_crown - nose_old.z) / (new_crown - nose_new.z) * float(CFG.get("head_scale_trim", 0.95))))
+    print("HEAD scale", round(scale, 3))
+else:
+    scale = float(CFG.get("head_scale", 1.0))
 tilt = Matrix.Rotation(math.radians(float(CFG.get("head_pitch_degrees", 0.0))), 4, "X")
 head_move = Matrix.Translation(nose_old) @ tilt @ Matrix.Scale(scale, 4) @ Matrix.Translation(-nose_new)
 for obj in [head] + parts:
@@ -583,7 +611,9 @@ if CFG.get("own_face"):
                     bw = (d00 * d21 - d01 * d20) / denom
                     uv = old_uv[hit[2]][0] * (1.0 - bv - bw) + old_uv[hit[2]][1] * bv + old_uv[hit[2]][2] * bw
                     taken = paint[int((uv.y % 1.0) * (high - 1)), int((uv.x % 1.0) * (wide - 1)), :3]
-                    if is_hair(taken, 0.08):
+                    if is_hair(taken, float(CFG.get("paint_hair_reach", 0.08))) or float(taken.sum()) < float(CFG.get("paint_dark_floor", 0.0)) * float(skin_ref.sum()):
+                        continue
+                    if "paint_skin_chroma" in CFG and float(numpy.abs(taken / max(float(taken.sum()), 1e-6) - skin_ref / float(skin_ref.sum())).max()) > float(CFG["paint_skin_chroma"]):
                         continue
                     carried[py, px, :3] = taken
                     carried[py, px, 3] = 1.0
@@ -651,12 +681,12 @@ for index, vertex in enumerate(shell.data.vertices):
             if past_wrist > float(CFG.get("wrist_cut", 0.0)) or (is_skin(old_colour[index], True) and past_wrist > -0.1):
                 doomed.add(index)
     upper = w.get("Head", 0.0) + w.get("neck", 0.0)
-    if own_face is not None and CFG.get("old_hair") == "remove":
+    if CFG.get("old_hair") == "remove":
         # A new style is being built: every lock of the old hair goes, wherever
         # it lies, and the whole old head with it.
         if index in hair_pieces or w.get("Head", 0.0) > 0.5:
             doomed.add(index)
-        elif co.z > joint("Spine").z - 0.3 and is_hair(old_colour[index], 0.045 if index in body_piece else 0.09):
+        elif CFG.get("old_hair_on_body", "remove") == "remove" and co.z > joint("Spine").z - 0.3 and is_hair(old_colour[index], 0.045 if index in body_piece else 0.09):
             doomed.add(index)
         continue
     if own_face is not None and not REBUILD:
@@ -683,7 +713,7 @@ for index, vertex in enumerate(shell.data.vertices):
 bm = bmesh.new()
 bm.from_mesh(shell.data)
 bm.verts.ensure_lookup_table()
-if REBUILD or own_face is not None:
+if REBUILD or own_face is not None or CFG.get("old_hair") == "remove":
     # Only faces wholly in the cut go, so a collar's own edge is never nibbled.
     # (With her own face kept, a face mostly in the cut goes: chips of old skin
     # along the hairline are worse than a hair's edge trimmed.)
@@ -699,7 +729,7 @@ if REBUILD or own_face is not None:
             middle = paint[int((u.y % 1.0) * (high - 1)), int((u.x % 1.0) * (wide - 1)), :3]
             if (is_hair(middle, 0.05) if CFG.get("old_hair") == "remove" else not is_hair(middle)):
                 gone.append(f)
-    if CFG.get("old_hair") == "remove":
+    if CFG.get("old_hair") == "remove" and CFG.get("old_hair_on_body", "remove") == "remove":
         # Below the chin, a face any corner of which was hair goes: no flaps.
         taken = set(gone)
         gone += [f for f in bm.faces if f not in taken and any(v.index in doomed for v in f.verts)
@@ -871,7 +901,7 @@ if image is not None:
     new_ref = numpy.median(numpy.array(face), axis=0)
     ratio = numpy.clip(skin_ref / numpy.maximum(new_ref, 0.01), 0.55, 1.35) * float(CFG.get("skin_gain", 1.0))
     pixels[:, :, :3] = numpy.clip(pixels[:, :, :3] * ratio, 0.0, 1.0)
-    if own_face is not None and hair_ref is not None:
+    if (own_face is not None or CFG.get("scalp_colour")) and hair_ref is not None:
         uv_new = head.data.uv_layers.active.data
         scalp_colour = numpy.clip(hair_ref * float(CFG.get("scalp_shade", 0.8)), 0, 1)
         for polygon in head.data.polygons:
@@ -895,6 +925,34 @@ if image is not None:
         cover = numpy.minimum(cover, carried[:, :, 3])[:, :, None] * float(CFG.get("own_face_strength", 1.0))
         pixels[:, :, :3] = pixels[:, :, :3] * (1.0 - cover) + carried[:, :, :3] * cover
         print("OWN FACE carried %.1f%% of the skin picture" % (100.0 * float(cover.mean())))
+    if CFG.get("freckles"):
+        spots = numpy.random.default_rng(int(CFG["freckles"].get("seed", 5)))
+        uv_face = head.data.uv_layers.active.data
+        zone = []
+        for polygon in head.data.polygons:
+            middle = sum((head.data.vertices[v].co for v in polygon.vertices), Vector()) / len(polygon.vertices)
+            across = abs(middle.x - nose_old.x)
+            rise = middle.z - nose_old.z
+            if middle.y < nose_old.y + 0.05 * scale and across < 0.058 * scale and -0.012 * scale < rise < 0.04 * scale:
+                zone.append((polygon, 1.0 if rise < 0.028 * scale else 0.35))
+        made_spots = 0
+        for _ in range(int(CFG["freckles"].get("count", 900))):
+            polygon, chance = zone[int(spots.integers(len(zone)))]
+            if spots.random() > chance:
+                continue
+            loops = list(polygon.loop_indices)
+            a_, b_ = sorted((float(spots.random()), float(spots.random())))
+            w = (a_, b_ - a_, 1.0 - b_)
+            uv = uv_face[loops[0]].uv * w[0] + uv_face[loops[1]].uv * w[1] + uv_face[loops[2]].uv * w[2]
+            px, py = int(uv.x * (width - 1)), int(uv.y * (height - 1))
+            radius = int(spots.integers(1, 3))
+            depth = float(spots.uniform(0.1, 0.3)) * float(CFG["freckles"].get("strength", 1.0))
+            for dy in range(-radius, radius + 1):
+                for dx in range(-radius, radius + 1):
+                    if dx * dx + dy * dy <= radius * radius and 0 <= py + dy < height and 0 <= px + dx < width:
+                        pixels[py + dy, px + dx, :3] *= (1.0 - depth * numpy.array([0.55, 0.85, 1.0], dtype=numpy.float32))
+            made_spots += 1
+        print("FRECKLES", made_spots)
     toned = bpy.data.images.new(CID + "_skin", width, height, alpha=True)
     toned.pixels = pixels.ravel()
     toned.filepath_raw = os.path.join(OUT, CID + "_skin.png")
@@ -902,6 +960,20 @@ if image is not None:
     toned.save()
     node.image = toned
     print("TONE new", [round(float(c), 3) for c in new_ref], "ratio", [round(float(c), 2) for c in ratio])
+if "brow_colour" in CFG:
+    for part in parts:
+        if part.name == "Face_eyebrows":
+            brow_node, brow_image = base_image(part)
+            if brow_image is not None:
+                bw, bh = brow_image.size
+                bp = numpy.array(brow_image.pixels[:], dtype=numpy.float32).reshape(bh, bw, 4)
+                bp[:, :, :3] = numpy.array(CFG["brow_colour"], dtype=numpy.float32)[None, None, :]
+                dyed_brow = bpy.data.images.new(CID + "_brows", bw, bh, alpha=True)
+                dyed_brow.pixels = bp.ravel()
+                dyed_brow.filepath_raw = os.path.join(OUT, CID + "_brows.png")
+                dyed_brow.file_format = "PNG"
+                dyed_brow.save()
+                brow_node.image = dyed_brow
 eye_file = os.path.join(USER, "eyes", "materials", CFG.get("eyes", "brown") + "_eye.png")
 eye_node, eye_image = base_image(parts[0])
 print("EYES", eye_file, os.path.exists(eye_file), eye_node, eye_image.filepath if eye_image else None)
@@ -1392,8 +1464,8 @@ if STRANDS:
                      "guides": 1500, "follow": 5, "follow_radius": 0.006, "local_stiffness": 0.97, "global_stiffness": 0.5, "global_range": 0.34},
         "bob": {"points": 16, "lying": 7, "length": [0.075, 0.105], "radius": [0.003, 0.005], "turns": [0.45, 0.7], "first_angle": 48.0, "per_side": 16,
                 "guides": 1400, "follow": 4, "follow_radius": 0.005, "local_stiffness": 0.98, "global_stiffness": 0.7, "global_range": 0.5},
-        "short": {"points": 8, "lying": 8, "length": [0.05, 0.085], "radius": [0.0, 0.0], "turns": [0.0, 0.0], "first_angle": 30.0, "per_side": 14,
-                  "guides": 2200, "follow": 4, "follow_radius": 0.004, "local_stiffness": 0.99, "global_stiffness": 0.92, "global_range": 0.9},
+        "short": {"points": 16, "lying": 16, "length": [0.05, 0.085], "radius": [0.0, 0.0], "turns": [0.0, 0.0], "first_angle": 30.0, "per_side": 14,
+                  "guides": 2600, "follow": 4, "follow_radius": 0.004, "local_stiffness": 0.995, "global_stiffness": 0.97, "global_range": 1.0},
     }
     STYLE = dict(STYLES[STRANDS.get("style", "ringlets")])
     STYLE.update({k: v for k, v in STRANDS.items() if k != "style"})
@@ -1484,7 +1556,13 @@ if STRANDS:
                 if gap < 0.014:
                     where = near[0] + near[1] * 0.016
             strand.append(where)
+        for _ in range(int(STYLE.get("smoothing", 2))):
+            eased = list(strand)
+            for i in range(max(lying, 1), len(strand) - 1):
+                eased[i] = (strand[i - 1] + strand[i] * 2.0 + strand[i + 1]) / 4.0
+            strand = eased
         rows.append(strand)
+    print("STRAND lengths", round(float(numpy.mean([sum((b - a).length for a, b in zip(r, r[1:])) for r in rows])), 4), "count", len(rows))
     hair_curves = bpy.data.hair_curves.new(CID + "_hair")
     hair_curves.add_curves([points_per] * len(rows))
     flat = numpy.array([[c for c in point] for strand in rows for point in strand], dtype=numpy.float32)
@@ -1536,8 +1614,8 @@ if STRANDS:
     hair_object.hide_render = True
     tone = hair_ref if hair_ref is not None else numpy.array([0.4, 0.3, 0.2], dtype=numpy.float32)
     tone = numpy.array(STRANDS["colour"], dtype=numpy.float32) if "colour" in STRANDS else tone
-    recipe = {"schema_version": 1, "hair": CID + "_hair.tfx", "bones": CID + "_hair.tfxbone",
-              "colliders": [{"file": CID + "_head.tfxmesh", "bone": own_name("Head")}, {"file": CID + "_body.tfxmesh", "bone": own_name("Spine")}],
+    recipe = {"schema_version": 1, "rig_scale_baked": UNIT_BAKED, "hair": CID + "_hair.tfx", "bones": CID + "_hair.tfxbone",
+              "colliders": [] if STRANDS.get("no_colliders") else [{"file": CID + "_head.tfxmesh", "bone": own_name("Head")}, {"file": CID + "_body.tfxmesh", "bone": own_name("Spine")}],
               "follow": int(STYLE["follow"]), "follow_radius": float(STYLE["follow_radius"]), "local_stiffness": float(STYLE["local_stiffness"]),
               "global_stiffness": float(STYLE["global_stiffness"]), "global_range": float(STYLE["global_range"]),
               "base_colour": [round(float(c), 4) for c in numpy.clip(tone * float(STRANDS.get("root_shade", 0.85)), 0, 1)],

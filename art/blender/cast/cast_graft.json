@@ -64,16 +64,18 @@
     0.8,
     0.78,
     0.72
-   ]
+   ],
+   "no_colliders": true,
+   "fibre_radius": 0.0013
   }
  },
  "adela_voss": {
   "macro": {
    "gender": 0.0,
-   "age": 0.46,
-   "muscle": 0.38,
+   "age": 0.5,
+   "muscle": 0.4,
    "weight": 0.4,
-   "proportions": 1.0,
+   "proportions": 0.85,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.5
@@ -92,17 +94,12 @@
    "RightForeArm": "forearm.R"
   },
   "albedo": "assets/building/textures/T_library_resident_adela_voss_albedo.png",
-  "head": "fit",
-  "own_face": true,
-  "keep_above": 1.575,
-  "face_top": 1.585,
+  "head": "rebuild",
   "align": "features",
   "head_weights_from": -0.085,
   "nose_low": -0.05,
   "nose_high": 0.05,
-  "eyebrows": "eyebrow003",
-  "own_face_feather": 24,
-  "eye_paint_radius": 0.017,
+  "eyebrows": "eyebrow001",
   "eye_tone": {
    "colour": 0.45,
    "tint": [
@@ -116,25 +113,519 @@
    "style": "ringlets",
    "first_angle": 62.0,
    "radius": [
-    0.008,
-    0.012
+    0.011,
+    0.015
    ],
    "turns": [
-    3.0,
-    4.0
+    1.5,
+    2.1
    ],
    "length": [
     0.25,
     0.31
    ],
-   "follow_radius": 0.004,
+   "follow_radius": 0.0028,
    "local_stiffness": 0.985,
-   "root_shade": 0.95,
-   "tip_shade": 1.2
+   "root_shade": 1.15,
+   "tip_shade": 1.45,
+   "guides": 2300,
+   "follow": 3,
+   "fibre_radius": 0.0009
   },
   "upright": true,
-  "own_face_shape": 0.0,
-  "own_face_paint_reach": 0.02,
-  "own_face_skip_mouth": true
+  "old_hair_on_body": "keep",
+  "scalp_colour": true,
+  "brow_colour": [
+   0.26,
+   0.12,
+   0.05
+  ],
+  "freckles": {
+   "count": 650,
+   "strength": 0.45,
+   "seed": 5
+  }
+ },
+ "cam_ortiz": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.58,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "young_caucasian_male",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "short",
+   "colour": [
+    0.05,
+    0.045,
+    0.04
+   ]
+  },
+  "race": {
+   "asian": 0.35,
+   "caucasian": 0.65,
+   "african": 0.0
+  }
+ },
+ "evelyn_marsh": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.68,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "middleage_caucasian_female",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "bob",
+   "colour": [
+    0.3,
+    0.19,
+    0.1
+   ]
+  }
+ },
+ "iris_bell": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.52,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "young_caucasian_female",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "bob",
+   "colour": [
+    0.13,
+    0.08,
+    0.05
+   ]
+  },
+  "race": {
+   "asian": 0.35,
+   "caucasian": 0.65,
+   "african": 0.0
+  }
+ },
+ "jonah_price": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.58,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "young_caucasian_male",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "short",
+   "colour": [
+    0.13,
+    0.08,
+    0.05
+   ],
+   "length": [
+    0.08,
+    0.11
+   ]
+  }
+ },
+ "juno_kells": {
+  "macro": {
+   "gender": 0.25,
+   "age": 0.47,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "young_caucasian_female",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "short",
+   "colour": [
+    0.13,
+    0.08,
+    0.05
+   ],
+   "length": [
+    0.06,
+    0.09
+   ]
+  }
+ },
+ "lena_ortiz": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.8,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "old_caucasian_female",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "bob",
+   "colour": [
+    0.62,
+    0.61,
+    0.6
+   ],
+   "length": [
+    0.04,
+    0.06
+   ],
+   "radius": [
+    0.006,
+    0.009
+   ],
+   "turns": [
+    1.2,
+    1.8
+   ]
+  }
+ },
+ "mae_kessler": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.87,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "old_caucasian_female",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "short",
+   "colour": [
+    0.85,
+    0.84,
+    0.8
+   ],
+   "length": [
+    0.07,
+    0.1
+   ]
+  },
+  "spectacles": true
+ },
+ "malcolm_reed": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.72,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "middleage_african_male",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "short",
+   "colour": [
+    0.05,
+    0.045,
+    0.04
+   ],
+   "length": [
+    0.02,
+    0.035
+   ]
+  },
+  "race": {
+   "asian": 0.0,
+   "caucasian": 0.0,
+   "african": 1.0
+  }
+ },
+ "nadia_quell": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.53,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "young_caucasian_female",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "bob",
+   "colour": [
+    0.05,
+    0.045,
+    0.04
+   ],
+   "length": [
+    0.12,
+    0.16
+   ]
+  },
+  "race": {
+   "asian": 0.35,
+   "caucasian": 0.65,
+   "african": 0.0
+  }
+ },
+ "noel_price": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.53,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "young_caucasian_female",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "bob",
+   "colour": [
+    0.6,
+    0.27,
+    0.09
+   ]
+  }
+ },
+ "omar_bell": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.68,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "middleage_caucasian_male",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "short",
+   "colour": [
+    0.05,
+    0.045,
+    0.04
+   ]
+  },
+  "race": {
+   "asian": 0.35,
+   "caucasian": 0.65,
+   "african": 0.0
+  }
+ },
+ "peter_wren": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.63,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "middleage_caucasian_male",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "short",
+   "colour": [
+    0.6,
+    0.27,
+    0.09
+   ]
+  },
+  "spectacles": true
+ },
+ "rhea_sato": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.72,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "middleage_asian_female",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "bob",
+   "colour": [
+    0.05,
+    0.045,
+    0.04
+   ]
+  },
+  "race": {
+   "asian": 1.0,
+   "caucasian": 0.0,
+   "african": 0.0
+  }
+ },
+ "sacha_reed": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.5,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "young_african_male",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "short",
+   "colour": [
+    0.05,
+    0.045,
+    0.04
+   ],
+   "length": [
+    0.03,
+    0.045
+   ]
+  },
+  "race": {
+   "asian": 0.0,
+   "caucasian": 0.0,
+   "african": 1.0
+  }
+ },
+ "teresa_vale": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.64,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "middleage_asian_female",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "bob",
+   "colour": [
+    0.05,
+    0.045,
+    0.04
+   ]
+  },
+  "race": {
+   "asian": 1.0,
+   "caucasian": 0.0,
+   "african": 0.0
+  }
+ },
+ "transient_guests": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.58,
+   "muscle": 0.45,
+   "weight": 0.48,
+   "proportions": 0.6,
+   "height": 0.5,
+   "cupsize": 0.4,
+   "firmness": 0.5
+  },
+  "skin": "young_caucasian_male",
+  "nose": "auto",
+  "head_scale": "auto",
+  "head": "rebuild",
+  "eyes": "brown",
+  "strands": {
+   "style": "bob",
+   "colour": [
+    0.3,
+    0.19,
+    0.1
+   ],
+   "length": [
+    0.1,
+    0.14
+   ]
+  }
  }
 }
