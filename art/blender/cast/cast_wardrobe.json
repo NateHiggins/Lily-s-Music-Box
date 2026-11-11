@@ -23,7 +23,8 @@
     0.06,
     0.05,
     0.05
-   ]
+   ],
+   "root_max_above_nose": 0.1
   },
   "shoes": {
    "asset": "shoes02",
@@ -37,9 +38,9 @@
    {
     "kind": "stockings",
     "colour": [
-     0.82,
-     0.8,
-     0.76
+     0.75,
+     0.7,
+     0.62
     ]
    },
    {
@@ -55,21 +56,42 @@
    {
     "kind": "skirt",
     "colour": [
-     0.08,
-     0.2,
-     0.55
+     0.04,
+     0.12,
+     0.5
     ],
     "hem": 0.42,
-    "flare": 0.12
+    "flare": 0.12,
+    "pleats": 0,
+    "pattern": {
+     "kind": "stripes",
+     "colour": [
+      0.5,
+      0.62,
+      0.95
+     ],
+     "width": 3,
+     "repeat": 14
+    }
    },
    {
     "kind": "jacket",
     "colour": [
-     0.1,
-     0.24,
-     0.62
+     0.04,
+     0.12,
+     0.5
     ],
-    "vee": 0.26
+    "vee": 0.26,
+    "pattern": {
+     "kind": "stripes",
+     "colour": [
+      0.5,
+      0.62,
+      0.95
+     ],
+     "width": 3,
+     "repeat": 14
+    }
    },
    {
     "kind": "collar",
@@ -102,7 +124,21 @@
     "size": 0.011
    }
   ],
-  "bare_chest_vee": 0.07
+  "bare_chest_vee": 0.07,
+  "hat": {
+   "colour": [
+    0.03,
+    0.08,
+    0.36
+   ],
+   "band": [
+    0.8,
+    0.55,
+    0.05
+   ],
+   "brim": 1.0
+  },
+  "spectacles": true
  },
  "cal_dwyer": {
   "macro": {
@@ -140,10 +176,20 @@
    {
     "kind": "trousers",
     "colour": [
-     0.28,
-     0.14,
-     0.07
-    ]
+     0.16,
+     0.07,
+     0.03
+    ],
+    "pattern": {
+     "kind": "checks",
+     "colour": [
+      0.3,
+      0.16,
+      0.06
+     ],
+     "width": 3,
+     "repeat": 16
+    }
    },
    {
     "kind": "shirt",
@@ -156,27 +202,36 @@
    {
     "kind": "jumper",
     "colour": [
-     0.93,
-     0.62,
-     0.05
+     0.72,
+     0.36,
+     0.01
     ],
-    "vee": 0.12
+    "vee": 0.12,
+    "pattern": {
+     "kind": "knit",
+     "colour": [
+      0.5,
+      0.22,
+      0.0
+     ],
+     "repeat": 26
+    }
    },
    {
     "kind": "hem",
     "colour": [
-     0.55,
-     0.3,
-     0.03
+     0.4,
+     0.17,
+     0.0
     ],
     "drop": 0.01
    },
    {
     "kind": "cuffs",
     "colour": [
-     0.55,
-     0.3,
-     0.03
+     0.4,
+     0.17,
+     0.0
     ],
     "at": 0.9
    },
@@ -253,17 +308,28 @@
      0.74
     ],
     "vee": 0.1,
-    "sleeves": 0.55
+    "sleeves": 0.55,
+    "pattern": {
+     "kind": "dots",
+     "colour": [
+      0.75,
+      0.1,
+      0.12
+     ],
+     "width": 6,
+     "repeat": 18
+    }
    },
    {
     "kind": "skirt",
     "colour": [
-     0.05,
-     0.45,
-     0.3
+     0.0,
+     0.28,
+     0.15
     ],
     "hem": 0.3,
-    "flare": 0.45
+    "flare": 0.45,
+    "pleats": 18
    },
    {
     "kind": "belt",

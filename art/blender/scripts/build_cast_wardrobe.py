@@ -122,7 +122,60 @@ def along_arm(co):
 garments = []
 
 
-def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None):
+def patterned(name, colour, pattern, rough):
+    """A cloth material: plain, or a small tiling picture in two colours."""
+    if not pattern:
+        return plain(name, colour, rough)
+    size = 64
+    other = numpy.array(pattern.get("colour", [c * 0.5 for c in colour]), dtype=numpy.float32)
+    first = numpy.array(colour, dtype=numpy.float32)
+    grid = numpy.zeros((size, size, 4), dtype=numpy.float32)
+    grid[:, :, 3] = 1.0
+    ys, xs = numpy.mgrid[0:size, 0:size]
+    kind = pattern.get("kind", "stripes")
+    width = int(pattern.get("width", 6))
+    if kind == "stripes":
+        mask = (xs % size) < width
+    elif kind == "bands":
+        mask = (ys % size) < width
+    elif kind == "checks":
+        mask = ((xs % size) < width) | ((ys % size) < width)
+    elif kind == "dots":
+        mask = ((xs - size // 2) ** 2 + (ys - size // 2) ** 2) < width * width
+    elif kind == "knit":
+        mask = ((ys + (xs // 4) % 2 * 4) % 8) < 2
+    else:
+        mask = numpy.zeros((size, size), dtype=bool)
+    grid[:, :, :3] = numpy.where(mask[:, :, None], other[None, None, :], first[None, None, :])
+    picture = bpy.data.images.new(name + "_cloth", size, size, alpha=True)
+    picture.pixels = grid.ravel()
+    picture.filepath_raw = os.path.join(OUT, name + "_cloth.png")
+    picture.file_format = "PNG"
+    picture.save()
+    material = bpy.data.materials.new(name)
+    material.use_nodes = True
+    node = material.node_tree.nodes.new("ShaderNodeTexImage")
+    node.image = picture
+    shader = material.node_tree.nodes["Principled BSDF"]
+    material.node_tree.links.new(node.outputs[0], shader.inputs["Base Color"])
+    shader.inputs["Roughness"].default_value = rough
+    return material
+
+
+def wrap_uv(out_mesh, repeat):
+    """Round the body and up it: stripes run true on a torso, a leg or a skirt."""
+    layer = out_mesh.uv_layers.new(name="Cloth") if not out_mesh.uv_layers else out_mesh.uv_layers[0]
+    for polygon in out_mesh.polygons:
+        middle = sum((out_mesh.vertices[v].co for v in polygon.vertices), Vector()) / len(polygon.vertices)
+        side = 0.09 if middle.x > 0 else -0.09
+        axis_x = side if (middle.z < hip - 0.06 and abs(middle.x) > 0.04) else 0.0
+        for loop_index in polygon.loop_indices:
+            co = out_mesh.vertices[out_mesh.loops[loop_index].vertex_index].co
+            around = math.atan2(co.x - axis_x, -(co.y - 0.02))
+            layer.data[loop_index].uv = (around / math.tau * repeat, co.z * repeat / 0.9)
+
+
+def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None):
     """A garment: the faces of a clothing helper whose corners all pass `keep`,
     set off from the skin by `offset` metres."""
     bm = bmesh.new()
@@ -157,7 +210,10 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
     bpy.context.scene.collection.objects.link(obj)
     for index, group_name in names.items():
         obj.vertex_groups.new(name=group_name)
-    obj.data.materials.append(plain("%s_%s" % (CID, name), colour, rough))
+    while out.uv_layers:
+        out.uv_layers.remove(out.uv_layers[0])
+    wrap_uv(out, float((pattern or {}).get("repeat", 10.0)))
+    obj.data.materials.append(patterned("%s_%s" % (CID, name), colour, pattern, rough))
     obj.parent = rig
     obj.modifiers.new("Armature", "ARMATURE").object = rig
     garments.append(obj)
@@ -186,7 +242,7 @@ def legs(v, low, high):
     return low < v.co.z < high and weight(v, ARM) < 0.3
 
 
-def skirt_shape(hem, flare):
+def skirt_shape(hem, flare, pleats=0):
     top = hip + 0.07
     natural_hem = 0.12
 
@@ -194,32 +250,35 @@ def skirt_shape(hem, flare):
         t = max(0.0, min(1.0, (top - co.z) / (top - natural_hem)))
         z = top - t * (top - hem)
         spread = 1.0 + flare * t
+        if pleats:
+            spread *= 1.0 + 0.05 * t * math.sin(math.atan2(co.x, -(co.y - 0.02)) * pleats)
         return Vector((co.x * spread, (co.y - 0.02) * spread + 0.02, z))
     return shape
 
 
+pending_collars = []
 for row in CFG["outfit"]:
     kind = row["kind"]
     colour = row["colour"]
     if kind == "shirt":
-        piece(row.get("name", "Shirt"), "helper-tights", lambda v, r=row: torso(v, low=waist - 0.09, sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))), 0.004, colour, 0.85)
+        piece(row.get("name", "Shirt"), "helper-tights", lambda v, r=row: torso(v, low=waist - 0.09, sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))), 0.004, colour, 0.85, pattern=row.get("pattern"))
     elif kind == "jumper":
-        piece("Jumper", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.01, sleeves=1.0, vee=float(r.get("vee", 0.0))), 0.017, colour, 0.95)
+        piece("Jumper", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.01, sleeves=1.0, vee=float(r.get("vee", 0.0))), 0.017, colour, 0.95, pattern=row.get("pattern"))
     elif kind == "waistcoat":
-        piece("Waistcoat", "helper-tights", lambda v, r=row: torso(v, low=waist - 0.04, sleeves=0.0, vee=float(r.get("vee", 0.2))) and weight(v, ARM) < 0.3, 0.011, colour, 0.7)
+        piece("Waistcoat", "helper-tights", lambda v, r=row: torso(v, low=waist - 0.04, sleeves=0.0, vee=float(r.get("vee", 0.2))) and weight(v, ARM) < 0.3, 0.011, colour, 0.7, pattern=row.get("pattern"))
     elif kind == "jacket":
-        piece("Jacket", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.06, sleeves=1.0, vee=float(r.get("vee", 0.3))), 0.016, colour, 0.8)
+        piece("Jacket", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.06, sleeves=1.0, vee=float(r.get("vee", 0.3))), 0.016, colour, 0.8, pattern=row.get("pattern"))
     elif kind == "trousers":
         piece("Trousers", "helper-tights", lambda v: legs(v, ankle + 0.015, waist + 0.02), 0.014, colour, 0.85,
-              thicken=lambda co: float(row.get("width", 0.03)) * max(0.0, min(1.0, (hip - 0.08 - co.z) / (hip - 0.08 - knee))) ** 0.7)
+              thicken=lambda co: float(row.get("width", 0.03)) * max(0.0, min(1.0, (hip - 0.08 - co.z) / (hip - 0.08 - knee))) ** 0.7, pattern=row.get("pattern"))
     elif kind == "stockings":
         piece("Stockings", "helper-tights", lambda v: legs(v, ankle - 0.08, hip - 0.1), 0.002, colour, 0.5)
     elif kind == "skirt":
-        piece(row.get("name", "Skirt"), "helper-skirt", lambda v: True, 0.004, colour, 0.85, reshape=skirt_shape(float(row.get("hem", 0.38)), float(row.get("flare", 0.25))))
+        piece(row.get("name", "Skirt"), "helper-skirt", lambda v: True, 0.004, colour, 0.85, reshape=skirt_shape(float(row.get("hem", 0.38)), float(row.get("flare", 0.25)), int(row.get("pleats", 0))), pattern=row.get("pattern"))
     elif kind == "belt":
-        piece("Belt", "helper-tights", lambda v, r=row: abs(v.co.z - (waist + float(r.get("drop", 0.0)))) < 0.022 and weight(v, ARM) < 0.3, float(row.get("off", 0.014)), colour, 0.4)
+        piece("Belt", "helper-tights", lambda v, r=row: abs(v.co.z - (waist + float(r.get("drop", 0.0)))) < 0.04 and weight(v, ARM) < 0.3, float(row.get("off", 0.014)), colour, 0.4)
     elif kind == "collar":
-        piece("Collar", "helper-tights", lambda v: neck - 0.035 < v.co.z < neck + 0.03 and weight(v, ARM) < 0.3, 0.009, colour, 0.8)
+        pending_collars.append(row)
     elif kind == "cuffs":
         piece("Cuffs", "helper-tights", lambda v, r=row: weight(v, ARM) > 0.45 and abs(along_arm(v.co) - float(r.get("at", 0.9))) < 0.07, float(row.get("off", 0.02)), colour, 0.8)
     elif kind == "hem":
@@ -227,6 +286,47 @@ for row in CFG["outfit"]:
 
 # Buttons and a tie are small made things on the chest's front.
 body_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
+
+# A turned-down collar, open at the front, with points.
+for row in pending_collars:
+    bm = bmesh.new()
+    axis = Vector((0.0, bone("Neck").y + 0.012, 0.0))
+    steps = 44
+    gap = math.radians(float(row.get("gap_degrees", 16.0)))
+    rings = []
+    for k in range(steps + 1):
+        angle = gap + (math.tau - 2 * gap) * k / steps  # 0 is the front
+        direction = Vector((math.sin(angle), -math.cos(angle), 0.0))
+        stand = float(row.get("stand", 0.012))
+        hit = body_tree.ray_cast(axis + Vector((0, 0, neck + stand)), direction, 0.3)
+        if hit[0] is None:
+            continue
+        reach = (hit[0] - axis).length - (neck + stand) * 0.0
+        front = max(0.0, math.cos(angle)) ** 4
+        fall = float(row.get("fall", 0.03)) + float(row.get("point", 0.035)) * front
+        inner = axis + direction * (Vector((hit[0].x, hit[0].y, 0)) - Vector((axis.x, axis.y, 0))).length
+        base = Vector((inner.x, inner.y, neck + stand))
+        rings.append((bm.verts.new(base + direction * 0.005 + Vector((0, 0, 0.012))),
+                      bm.verts.new(base + direction * 0.016 + Vector((0, 0, 0.008))),
+                      bm.verts.new(base + direction * (0.03 + 0.012 * front) + Vector((0, 0, -fall)))))
+    for a, b in zip(rings, rings[1:]):
+        for j in range(2):
+            face = bm.faces.new((a[j], b[j], b[j + 1], a[j + 1]))
+            face.smooth = True
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    collar_mesh = bpy.data.meshes.new("Collar")
+    bm.to_mesh(collar_mesh)
+    bm.free()
+    collar = bpy.data.objects.new("Collar", collar_mesh)
+    bpy.context.scene.collection.objects.link(collar)
+    collar_material = plain(CID + "_collar", row["colour"], 0.8)
+    collar_material.use_backface_culling = False
+    collar.data.materials.append(collar_material)
+    collar.vertex_groups.new(name=PREFIX + "Neck").add(list(range(len(collar_mesh.vertices))), 0.5, "REPLACE")
+    collar.vertex_groups.new(name=PREFIX + "Spine2").add(list(range(len(collar_mesh.vertices))), 0.5, "REPLACE")
+    collar.parent = rig
+    collar.modifiers.new("Armature", "ARMATURE").object = rig
+    garments.append(collar)
 
 
 def chest_front(z, x=0.0, lift=0.02):
@@ -292,7 +392,7 @@ for v in bm.verts:
     arm = weight(source, ARM)
     if co.z > neck_line and arm < 0.5:
         keep_verts.add(v.index)
-    elif hand > 0.4 or (arm > 0.45 and along_arm(co) > min(bare_to, 0.86) - 0.04):
+    elif hand > 0.25 or (arm > 0.45 and along_arm(co) > min(bare_to, 0.78) - 0.04):
         keep_verts.add(v.index)
     elif CFG.get("bare_chest_vee", 0.0) > 0.0 and co.y < bone("Spine2").y and neck - CFG["bare_chest_vee"] - 0.03 < co.z and abs(co.x) < 0.09 and arm < 0.3:
         keep_verts.add(v.index)
@@ -479,6 +579,86 @@ def hull(name, points, bone_name, shrink):
 head_collider = hull(CID + "_head_collider", [v.co.copy() for v in mesh.vertices if v.co.z > nose.z - 0.08][::3], PREFIX + "Head", 0.955)
 torso_points = [Vector(p) for p in cloth_points if waist - 0.2 < p[2] < neck + 0.03 and abs(p[0]) < 0.24][::3]
 body_collider = hull(CID + "_body_collider", torso_points, PREFIX + "Spine2", 0.97)
+
+def on_head(obj):
+    obj.vertex_groups.new(name=PREFIX + "Head").add(list(range(len(obj.data.vertices))), 1.0, "REPLACE")
+    obj.parent = rig
+    obj.modifiers.new("Armature", "ARMATURE").object = rig
+    extras.append(obj)
+
+
+skull = [v.co.copy() for v in mesh.vertices if v.co.z > nose.z + 0.066]
+if CFG.get("hat") and skull:
+    top_z = max(q.z for q in skull)
+    brow_z = nose.z + 0.066
+    centre = Vector(((max(q.x for q in skull) + min(q.x for q in skull)) / 2, (max(q.y for q in skull) + min(q.y for q in skull)) / 2, 0))
+    half_w = (max(q.x for q in skull) - min(q.x for q in skull)) / 2 + 0.008
+    half_d = (max(q.y for q in skull) - min(q.y for q in skull)) / 2 + 0.008
+    crown_top = top_z + 0.014
+    crown_foot = brow_z + 0.034
+    hat_rows = []
+    for k in range(13):
+        t = k / 12.0
+        angle = t * math.pi / 2
+        hat_rows.append((math.sin(angle) ** 0.8 * 1.085, crown_top - (1 - math.cos(angle)) ** 1.25 * (crown_top - crown_foot), t * 0.55))
+    brim = float(CFG["hat"].get("brim", 1.0))
+    hat_rows += [(1.1, brow_z + 0.022, 0.7), (1.1 + 0.06 * brim, brow_z + 0.012, 0.85), (1.1 + 0.15 * brim, brow_z + 0.0, 1.0), (1.1 + 0.22 * brim, brow_z - 0.013, 1.0),
+                 (1.1 + 0.2 * brim, brow_z - 0.016, 1.0), (1.1 + 0.12 * brim, brow_z - 0.003, 1.0), (1.1, brow_z + 0.012, 0.85), (1.05, brow_z + 0.03, 0.6)]
+    bm = bmesh.new()
+    rings = []
+    steps = 56
+    for r, z, low in hat_rows:
+        ring = []
+        for k in range(steps):
+            a = math.tau * k / steps
+            dip = 0.024 * (1 + math.sin(a)) * 0.5 * low
+            ring.append(bm.verts.new((centre.x + math.cos(a) * r * half_w, centre.y + math.sin(a) * r * half_d, z - dip)))
+        rings.append(ring)
+    for index, (a, b) in enumerate(zip(rings, rings[1:])):
+        for k in range(steps):
+            face = bm.faces.new((a[k], a[(k + 1) % steps], b[(k + 1) % steps], b[k]))
+            face.material_index = 1 if index in (12, 13) else 0
+            face.smooth = True
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    hat_mesh = bpy.data.meshes.new("Hat")
+    bm.to_mesh(hat_mesh)
+    bm.free()
+    hat = bpy.data.objects.new("Hat", hat_mesh)
+    bpy.context.scene.collection.objects.link(hat)
+    hat.data.materials.append(plain(CID + "_hat", CFG["hat"]["colour"], 0.9))
+    hat.data.materials.append(plain(CID + "_hat_band", CFG["hat"].get("band", [c * 0.35 for c in CFG["hat"]["colour"]]), 0.5))
+    on_head(hat)
+if CFG.get("spectacles"):
+    bm = bmesh.new()
+
+    def tube(a, b, radius=0.0012):
+        a = Vector(a)
+        b = Vector(b)
+        axis_ = b - a
+        made = bmesh.ops.create_cone(bm, cap_ends=True, segments=8, radius1=radius, radius2=radius, depth=axis_.length)
+        turn = Vector((0, 0, 1)).rotation_difference(axis_.normalized()).to_matrix().to_4x4()
+        bmesh.ops.transform(bm, matrix=Matrix.Translation((a + b) / 2) @ turn, verts=made["verts"])
+
+    eyes_at = [rig.matrix_world @ Vector((side * 0.03, nose.y + 0.06, nose.z + 0.036)) for side in (1, -1)]
+    lens_r = 0.021
+    front_y = nose.y + 0.014
+    centres = [Vector((e.x * 1.06, front_y, e.z)) for e in eyes_at]
+    for c in centres:
+        ring = [c + Vector((math.cos(math.tau * k / 24) * lens_r, 0, math.sin(math.tau * k / 24) * lens_r)) for k in range(24)]
+        for k in range(24):
+            tube(ring[k], ring[(k + 1) % 24])
+        out = 1 if c.x > 0 else -1
+        hinge = c + Vector((out * lens_r, 0, 0.004))
+        tube(hinge, hinge + Vector((out * 0.012, 0.03, 0)))
+        tube(hinge + Vector((out * 0.012, 0.03, 0)), hinge + Vector((out * 0.014, 0.115, -0.004)))
+    tube(centres[1] + Vector((lens_r, 0, 0.004)), centres[0] + Vector((-lens_r, 0, 0.004)))
+    glasses_mesh = bpy.data.meshes.new("Spectacles")
+    bm.to_mesh(glasses_mesh)
+    bm.free()
+    glasses = bpy.data.objects.new("Spectacles", glasses_mesh)
+    bpy.context.scene.collection.objects.link(glasses)
+    glasses.data.materials.append(plain(CID + "_wire", [0.6, 0.45, 0.12], 0.3, 1.0))
+    on_head(glasses)
 
 # One skeleton for the whole cast, under plain names.
 for b in rig.data.bones:
