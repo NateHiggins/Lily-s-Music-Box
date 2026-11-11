@@ -15,6 +15,13 @@ Her rulings of 2026-11-10 on the wall:
 - **Handwriting:** one openly licensed script typeface for Adela's hand, with two or three samples shown to her first.
 - New evidence items may be invented as the need arises.
 
+Her earlier rulings on the detective wall (work order **w24a2f4fa3c06**, answered before this plan) also bind it:
+
+- **wall_place:** a wall in 4B that the player clears first, as a small job. Not built: the board is usable from the start.
+- **wall_strings:** some true links quietly unlock a small reaction. Built as deductions that open leads; "quietly" and "a small reaction" beyond that are not built.
+- **wall_clippings:** clippings are cut out by hand, with scissors, at home, from a paper or comic in the case. Not built.
+- **wall_photos:** the picture taken is kept when the print is made. Not built.
+
 ## 2. What is already built (PR 218)
 
 - The board in 4B (`4B_case_wall`) takes pinned evidence, and red string between pieces draws deductions.
@@ -120,11 +127,14 @@ One date to rule on: **plate** falls on 29 October 1929, the day the stock marke
 3. The eleven evidence models.
 4. Clippings from the game's papers; newspaper bundles from the papers collected.
 5. House fittings by season, in the visit and in the present (layer 2).
+5a. Done in PR 219: windows posed for a visit and put back at home; the occasion told by date.
 6. Occasion props (layer 3), starting with the three the leads touch: Flag Day, Hallowe'en, Armistice Day.
 7. Photographs, drawings, handwriting samples for Lily's choice.
 8. The five named stages of the flat, captured.
 
 Each step ends with a test and a capture.
+
+9. The four detective wall rulings above: clearing the wall as a first job; scissors and clippings from papers in the case; the kept picture.
 
 ## 7. Risks
 
