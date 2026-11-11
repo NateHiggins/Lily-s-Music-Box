@@ -1,0 +1,76 @@
+{
+	"version": 1,
+	"bank_name": "Queens County Savings",
+	"fare": {"base_cents": 25, "days_per_cent": 4, "cap_cents": 150, "worn_groove_divisor": 2},
+	"stipend": {"cents": 15},
+	"opening": ["tea"],
+	"anchors": {
+		"tea": {
+			"title": "The radiator in 6C",
+			"place": "6C",
+			"date": "1929-06-13",
+			"start": "16:20",
+			"minutes": 70,
+			"question": "What did Mrs. Kessler ask about that afternoon?",
+			"evidence": ["mt:mk_tea"],
+			"successors": ["friday"],
+			"first_call_free": true
+		},
+		"friday": {
+			"title": "Friday's errand",
+			"place": "the house",
+			"date": "1929-07-19",
+			"start": "17:30",
+			"minutes": 210,
+			"question": "Who went up to the sixth floor that evening, and carrying what?",
+			"evidence": ["mt:co_envelope", "mt:mr_last"],
+			"successors": ["yard"]
+		},
+		"yard": {
+			"title": "The stairs before light",
+			"place": "1D",
+			"date": "1929-07-20",
+			"start": "03:02",
+			"minutes": 38,
+			"question": "Who was already awake?",
+			"evidence": ["mt:tv_yard"],
+			"successors": ["playback", "ash"]
+		},
+		"playback": {
+			"title": "The twelfth record",
+			"place": "5B",
+			"date": "1929-08-24",
+			"start": "19:00",
+			"minutes": 120,
+			"question": "What was playing behind the wall?",
+			"evidence": ["mt:cd_playback"],
+			"leads": ["m_drama_lead"],
+			"successors": []
+		},
+		"ash": {
+			"title": "The ash pit",
+			"place": "the boiler room",
+			"date": "1929-09-23",
+			"start": "09:00",
+			"minutes": 180,
+			"question": "What did not burn?",
+			"evidence": ["mt:ob_ash"],
+			"leads": ["m_boiler_sheet"],
+			"successors": []
+		}
+	},
+	"deductions": {
+		"same_friday": {
+			"needs": ["mt:mk_tea", "mt:co_envelope"],
+			"line": "The afternoon in June and the errand in July touch the same door."
+		},
+		"between_two_witnesses": {
+			"needs": ["mt:mr_last", "mt:tv_yard"],
+			"line": "One saw the evening begin. One heard the night end. The hours between belong to nobody."
+		},
+		"what_was_arranged": {
+			"needs": ["mt:cd_playback", "mt:ob_ash"],
+			"line": "A sound that was made to be heard, and a thing that was made to be gone."
+		}
+	}
+}

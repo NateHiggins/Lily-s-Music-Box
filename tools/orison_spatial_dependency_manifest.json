@@ -196680,6 +196680,90 @@
    "target_exists": true
   },
   {
+   "key": "89eede681f37cde7",
+   "kind": "unit_reference",
+   "token": "1D",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/yard/place"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "b6e4dbfc18d7cad4",
+   "kind": "unit_reference",
+   "token": "5B",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/playback/place"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "b13ee27ed1f9e83c",
+   "kind": "unit_reference",
+   "token": "6C",
+   "file": "game/data/temporal/anchors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors/tea/place"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "9fd850947756cba0",
    "kind": "asset_path",
    "token": "res://scenes/building/orison_v2_blockout.tscn",
@@ -214376,7 +214460,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1455
+    1465
    ],
    "count": 1,
    "context": [
@@ -214406,8 +214490,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1535,
-    1538
+    1545,
+    1548
    ],
    "count": 2,
    "context": [
@@ -214438,7 +214522,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    948
+    949
    ],
    "count": 1,
    "context": [
@@ -214468,7 +214552,7 @@
     "<module>"
    ],
    "lines": [
-    111
+    112
    ],
    "count": 1,
    "context": [
@@ -214498,7 +214582,7 @@
     "<module>"
    ],
    "lines": [
-    106
+    107
    ],
    "count": 1,
    "context": [
@@ -214528,7 +214612,7 @@
     "<module>"
    ],
    "lines": [
-    107
+    108
    ],
    "count": 1,
    "context": [
@@ -214558,7 +214642,7 @@
     "<module>"
    ],
    "lines": [
-    108
+    109
    ],
    "count": 1,
    "context": [
@@ -214588,7 +214672,7 @@
     "<module>"
    ],
    "lines": [
-    109
+    110
    ],
    "count": 1,
    "context": [
@@ -214618,7 +214702,7 @@
     "<module>"
    ],
    "lines": [
-    110
+    111
    ],
    "count": 1,
    "context": [
@@ -214648,7 +214732,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1683
+    1693
    ],
    "count": 1,
    "context": [
@@ -214709,9 +214793,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1449,
-    1452,
-    1514
+    1459,
+    1462,
+    1524
    ],
    "count": 3,
    "context": [
@@ -214743,7 +214827,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1464
+    1474
    ],
    "count": 1,
    "context": [
@@ -214773,7 +214857,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1456
+    1466
    ],
    "count": 1,
    "context": [
@@ -214803,7 +214887,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1473
+    1483
    ],
    "count": 1,
    "context": [
@@ -214833,7 +214917,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1681
+    1691
    ],
    "count": 1,
    "context": [
@@ -214863,7 +214947,7 @@
     "<module>"
    ],
    "lines": [
-    105
+    106
    ],
    "count": 1,
    "context": [
@@ -214893,7 +214977,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1465
+    1475
    ],
    "count": 1,
    "context": [
@@ -214923,7 +215007,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1677
+    1687
    ],
    "count": 1,
    "context": [
@@ -214953,7 +215037,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1679
+    1689
    ],
    "count": 1,
    "context": [
@@ -214983,7 +215067,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    848
+    849
    ],
    "count": 1,
    "context": [
@@ -215013,7 +215097,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1679
+    1689
    ],
    "count": 1,
    "context": [
@@ -215043,7 +215127,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1677
+    1687
    ],
    "count": 1,
    "context": [
@@ -215073,7 +215157,7 @@
     "_ready"
    ],
    "lines": [
-    222
+    223
    ],
    "count": 1,
    "context": [
@@ -215103,7 +215187,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    849
+    850
    ],
    "count": 1,
    "context": [
@@ -215133,7 +215217,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    849
+    850
    ],
    "count": 1,
    "context": [
@@ -215163,7 +215247,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1677
+    1687
    ],
    "count": 1,
    "context": [
@@ -215193,7 +215277,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1677
+    1687
    ],
    "count": 1,
    "context": [
@@ -215223,7 +215307,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    848
+    849
    ],
    "count": 1,
    "context": [
@@ -215253,7 +215337,7 @@
     "<module>"
    ],
    "lines": [
-    111
+    112
    ],
    "count": 1,
    "context": [
@@ -215283,9 +215367,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1532,
-    1536,
-    1539
+    1542,
+    1546,
+    1549
    ],
    "count": 3,
    "context": [
@@ -215317,7 +215401,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    642
+    643
    ],
    "count": 1,
    "context": [
@@ -215347,7 +215431,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    642
+    643
    ],
    "count": 1,
    "context": [
@@ -215377,7 +215461,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    641
+    642
    ],
    "count": 1,
    "context": [
@@ -215407,7 +215491,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    641
+    642
    ],
    "count": 1,
    "context": [
@@ -215437,7 +215521,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1440
+    1450
    ],
    "count": 1,
    "context": [
@@ -215467,7 +215551,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1441
+    1451
    ],
    "count": 1,
    "context": [
@@ -215497,7 +215581,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    642
+    643
    ],
    "count": 1,
    "context": [
@@ -215527,7 +215611,7 @@
     "<module>"
    ],
    "lines": [
-    106
+    107
    ],
    "count": 1,
    "context": [
@@ -215557,7 +215641,7 @@
     "<module>"
    ],
    "lines": [
-    107
+    108
    ],
    "count": 1,
    "context": [
@@ -215587,7 +215671,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1342
+    1352
    ],
    "count": 1,
    "context": [
@@ -215617,7 +215701,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    693
+    694
    ],
    "count": 1,
    "context": [
@@ -215648,8 +215732,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    1197,
-    1327
+    1207,
+    1337
    ],
    "count": 2,
    "context": [
@@ -215680,7 +215764,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    1328
+    1338
    ],
    "count": 1,
    "context": [
@@ -215710,7 +215794,7 @@
     "<module>"
    ],
    "lines": [
-    108
+    109
    ],
    "count": 1,
    "context": [
@@ -215740,7 +215824,7 @@
     "<module>"
    ],
    "lines": [
-    109
+    110
    ],
    "count": 1,
    "context": [
@@ -215770,7 +215854,7 @@
     "<module>"
    ],
    "lines": [
-    110
+    111
    ],
    "count": 1,
    "context": [
@@ -215800,7 +215884,7 @@
     "_ready"
    ],
    "lines": [
-    274
+    275
    ],
    "count": 1,
    "context": [
@@ -215830,7 +215914,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1498
+    1508
    ],
    "count": 1,
    "context": [
@@ -215860,7 +215944,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1499
+    1509
    ],
    "count": 1,
    "context": [
@@ -215890,7 +215974,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1500
+    1510
    ],
    "count": 1,
    "context": [
@@ -215920,7 +216004,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1497
+    1507
    ],
    "count": 1,
    "context": [
@@ -215950,7 +216034,7 @@
     "<module>"
    ],
    "lines": [
-    105
+    106
    ],
    "count": 1,
    "context": [
@@ -215981,7 +216065,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    685
+    686
    ],
    "count": 1,
    "context": [
@@ -216013,8 +216097,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1433,
-    1498
+    1443,
+    1508
    ],
    "count": 2,
    "context": [
@@ -216047,8 +216131,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1436,
-    1499
+    1446,
+    1509
    ],
    "count": 2,
    "context": [
@@ -216081,8 +216165,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1439,
-    1500
+    1449,
+    1510
    ],
    "count": 2,
    "context": [
@@ -216115,8 +216199,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1430,
-    1497
+    1440,
+    1507
    ],
    "count": 2,
    "context": [
@@ -216148,7 +216232,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    683
+    684
    ],
    "count": 1,
    "context": [
@@ -216179,7 +216263,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    559
+    560
    ],
    "count": 1,
    "context": [
@@ -216211,8 +216295,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    269,
-    564
+    270,
+    565
    ],
    "count": 2,
    "context": [
@@ -216244,7 +216328,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    690
+    691
    ],
    "count": 1,
    "context": [
@@ -216275,7 +216359,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    567
+    568
    ],
    "count": 1,
    "context": [
@@ -216307,8 +216391,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    683,
-    1538
+    684,
+    1548
    ],
    "count": 2,
    "context": [
@@ -216339,7 +216423,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1397
+    1407
    ],
    "count": 1,
    "context": [
@@ -216369,7 +216453,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    1398
+    1408
    ],
    "count": 1,
    "context": [
