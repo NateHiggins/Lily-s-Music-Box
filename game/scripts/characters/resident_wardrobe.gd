@@ -15,7 +15,7 @@ const SKIN_PREFIX := "Skin_"
 const SLOTS: Array[String] = ["bottom", "top", "over", "feet", "head"]
 
 var person_id := ""
-var keep_body := true
+var keep_body := false
 var skeleton: Skeleton3D
 ## Slot to the name of the part worn in it.
 var worn: Dictionary = {}
@@ -100,9 +100,9 @@ func _put_on(part: String, loader: Callable) -> bool:
 	return not mine.is_empty()
 
 
-## The whole body stays under the clothes (keep_body), so a lifted skirt or an
-## open coat shows a person and not a hole. With keep_body off, skin shows only
-## where nothing worn covers it.
+## The body is whole and in parts. A part is hidden only under a garment that
+## fits closely over it (its note lists what it covers), so a lifted skirt or
+## an open coat shows a person and not a hole. keep_body shows every part.
 func _show_skin() -> void:
 	var covered: Dictionary = {}
 	if keep_body:

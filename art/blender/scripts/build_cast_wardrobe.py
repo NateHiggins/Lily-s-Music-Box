@@ -851,25 +851,54 @@ torso_seed = [v.co.copy() for v in mesh.vertices if in_group(v, "body") and wais
 skin_parts = []
 if not OUTFIT:
     neck_cut = neck - 0.03
-    rules = {
-        "head": lambda v: v.co.z > neck_cut and weight(v, ARM) < 0.5,
-        "hands": lambda v: weight(v, ("Hand",)) > 0.25,
-        "arms": lambda v: weight(v, ARM) > 0.45 and weight(v, ("Hand",)) <= 0.25,
-        "chest": lambda v: neck - 0.24 < v.co.z <= neck_cut + 0.012 and v.co.y < bone("Spine2").y + 0.03 and abs(v.co.x) < 0.13 and weight(v, ARM) < 0.3,
-        "legs": lambda v: weight(v, LEG) > 0.5 and v.co.z < hip - 0.1,
-    }
-    for label, rule in rules.items():
+    # The whole body, in parts with no gaps between them: every face of the
+    # body belongs to exactly one part. A part is hidden in the game only
+    # under a garment that fits closely over it; under a skirt, a gown or an
+    # open coat the body is there.
+    # Shares, not raw weights: the base's palm and the back of its hand carry
+    # only a fifth of a full weight in all, and by raw weight they fell out of
+    # the hand and were hidden with the trunk.
+    bone_names = {b.name for b in rig.data.bones}
+
+    def share(v, fragments):
+        total = sum(g.weight for g in v.groups if names[g.group] in bone_names)
+        return weight(v, fragments) / total if total > 1e-6 else 0.0
+
+    rules = [
+        ("hands", lambda v: share(v, ("Hand",)) > 0.25),
+        ("arms", lambda v: share(v, ARM) > 0.45),
+        ("head", lambda v: v.co.z > neck_cut),
+        ("feet", lambda v: share(v, ("Foot", "Toe")) > 0.5 and v.co.z < ankle + 0.02),
+        ("legs", lambda v: share(v, LEG) > 0.5 and v.co.z < hip - 0.1),
+        ("chest", lambda v: neck - 0.24 < v.co.z <= neck_cut + 0.012 and v.co.y < bone("Spine2").y + 0.03 and abs(v.co.x) < 0.13 and weight(v, ARM) < 0.3),
+        ("hips", lambda v: v.co.z < waist - 0.12),
+        ("trunk", lambda v: True),
+    ]
+    label_of = {}
+    for v in human.data.vertices:
+        if not in_group(v, "body"):
+            continue
+        for label, rule in rules:
+            if rule(v):
+                label_of[v.index] = label
+                break
+    face_label = {}
+    for poly in human.data.polygons:
+        labels = [label_of.get(i) for i in poly.vertices]
+        if None in labels:
+            continue
+        face_label[poly.index] = max(labels, key=lambda l: (labels.count(l), -labels.index(l)))
+    for label, rule in rules:
         twin = human.copy()
         twin.data = human.data.copy()
         twin.name = "Skin_" + label
         bpy.context.scene.collection.objects.link(twin)
         if label != "head":
             twin.shape_key_clear()
-        keep = {v.index for v in twin.data.vertices if in_group(v, "body") and rule(v)}
         bm = bmesh.new()
         bm.from_mesh(twin.data)
-        bm.verts.ensure_lookup_table()
-        bmesh.ops.delete(bm, geom=[f for f in bm.faces if not all(v.index in keep for v in f.verts)], context="FACES")
+        bm.faces.ensure_lookup_table()
+        bmesh.ops.delete(bm, geom=[f for f in bm.faces if face_label.get(f.index) != label], context="FACES")
         bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
         bm.to_mesh(twin.data)
         bm.free()

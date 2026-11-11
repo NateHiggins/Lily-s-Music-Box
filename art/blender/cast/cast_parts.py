@@ -185,9 +185,11 @@ def add_parts(cast):
             colour = [c0, NEUTRALS[hash_index(cid) % 3], shade(s0, 0.75)][index]
             over_colour = [shade(s0, 0.9), c0, shade(c0, 0.5)][index]
             rows, trim, covers = top(t, [c0, c0, s0][index], a0, [pale, WHITE, [min(1.0, 0.6 + 0.4 * x) for x in s0]][index])
-            parts[letter + "_top"] = {"slot": "top", "set": letter, "tags": SET_TAGS[index] + (["night"] if t.startswith("pyjama") else []), "covers": covers, "rows": rows, "trim": trim}
+            parts[letter + "_top"] = {"slot": "top", "set": letter, "tags": SET_TAGS[index] + (["night"] if t.startswith("pyjama") else []), "covers": covers + ["trunk"], "rows": rows, "trim": trim}
             parts[letter + "_bottom"] = {"slot": "bottom", "set": letter,
-                                         "tags": SET_TAGS[index] + (["night"] if b.startswith("pyjama") else []) + (["work"] if b == "overalls" else []), "covers": ["legs"],
+                                         "tags": SET_TAGS[index] + (["night"] if b.startswith("pyjama") else []) + (["work"] if b == "overalls" else []),
+                                         # Trousers fit the legs; a skirt hangs clear of them, so the body shows beneath it.
+                                         "covers": [] if b.endswith("skirt") and b != "straight_skirt" else ["hips"] if b == "straight_skirt" else ["legs", "hips"],
                                          "rows": bottom(b, colour, a0, [[0.5, 0.36, 0.26], [0.62, 0.55, 0.45], [0.12, 0.1, 0.1]][index]), "trim": []}
             rows, trim, extra_tags = over(o, over_colour, a0)
             parts[letter + "_over"] = {"slot": "over", "set": letter, "tags": SET_TAGS[index] + extra_tags,
@@ -195,7 +197,7 @@ def add_parts(cast):
             if h != "-":
                 parts[letter + "_head"] = {"slot": "head", "set": letter, "tags": SET_TAGS[index], "covers": [], "rows": [], "trim": [],
                                            "hat": head(h, shade(c0, 0.6) if index else shade(c0, 0.8), a0)}
-            parts[letter + "_feet"] = {"slot": "feet", "set": letter, "tags": SET_TAGS[index], "covers": [], "rows": feet(f, [shade(c0, 0.3), BLACK, shade(a0, 0.5)][index]), "trim": []}
+            parts[letter + "_feet"] = {"slot": "feet", "set": letter, "tags": SET_TAGS[index], "covers": ["feet"], "rows": feet(f, [shade(c0, 0.3), BLACK, shade(a0, 0.5)][index]), "trim": []}
             looks[letter] = [name for name in parts if name.startswith(letter + "_")]
         looks["mix1"] = [n for n in ("a_top", "b_bottom", "c_over", "b_head", "a_feet") if n in parts]
         looks["mix2"] = [n for n in ("c_top", "a_bottom", "b_over", "c_head", "b_feet") if n in parts]

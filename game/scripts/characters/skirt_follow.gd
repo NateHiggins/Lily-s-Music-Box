@@ -68,15 +68,16 @@ func _process_modification() -> void:
 		pivots.append((to_hips_rest * body.get_bone_global_rest(thigh)).origin)
 	for index in _chain_bones.size():
 		var side := _chain_side[index]
-		var left_share := smoothstep(-0.8, 0.4, side)
-		var right_share := smoothstep(-0.8, 0.4, -side)
+		# The front and back of the skirt answer to either leg in full; a side only to its own.
+		var left_share := smoothstep(-0.6, 0.0, side)
+		var right_share := smoothstep(-0.6, 0.0, -side)
 		var rest_in_hips := to_hips_rest * body.get_bone_global_rest(_chain_bones[index])
 		var posed := rest_in_hips
 		for leg in 2:
 			# A leg lifted forward takes the front of the skirt; swung back, the back of it.
 			var toward := (swings[leg] * Vector3.DOWN).z
 			var facing := smoothstep(-0.5, 0.5, signf(toward) * _chain_front[index])
-			var share := (left_share if leg == 0 else right_share) * follow * lerpf(0.3, 1.0, facing)
+			var share := (left_share if leg == 0 else right_share) * follow * facing
 			if share <= 0.001:
 				continue
 			var turn := Basis(Quaternion.IDENTITY.slerp(swings[leg], share))
@@ -94,7 +95,7 @@ func _process_modification() -> void:
 				continue
 			var toward := (swings[leg] * Vector3.DOWN).z
 			var facing := smoothstep(-0.5, 0.5, signf(toward) * _chain_front[index])
-			var share := (left_share if leg == 0 else right_share) * follow_knee * lerpf(0.2, 1.0, facing)
+			var share := (left_share if leg == 0 else right_share) * follow_knee * facing
 			if share <= 0.001:
 				continue
 			var thigh_now := body.get_bone_global_pose(thighs[leg])
