@@ -18,6 +18,11 @@ extends Node
 ## Money can therefore reach the bank only by a deposit made at home, and a
 ## deposit is one committed transaction.
 ##
+## The companion has its own initiative (Bible, ruling of 2026-11-10): it
+## draws the allowance, advises at home, hints and warns during a visit, and
+## brings the player home when the hours end with the question answered.
+## Everything it says is authored here or in the anchors table (RUL-015).
+##
 ## Every entry to the past goes through `jump`, `reset_loop` or `go_home`, and
 ## each of those goes through the clock's rebase, which refuses the murder
 ## hours. An anchor may not start or end inside them either.
@@ -38,6 +43,11 @@ const REWOUND: Array[String] = ["caretaker_economy", "inventories", "door_keys",
 		"shop_stock", "conversation_visits", "resident_trust"]
 const STATES: Array[String] = ["CHOOSE_NEXT_ACTION", "SELECT_ANCHOR", "FUND_JUMP",
 		"EXECUTE_JUMP", "RUN_LOOP", "INVESTIGATE", "RESET_LOOP", "RESOLVE_ANCHOR"]
+
+## The companion's pacing, in minutes of the loop clock.
+const HINT_FIRST_MINUTES := 4.0
+const HINT_EVERY_MINUTES := 12.0
+const WARN_MINUTES := 10.0
 
 var clock: CampaignClock
 var economy: Node
@@ -74,6 +84,8 @@ static func _load_table() -> Dictionary:
 			if not anchor.has(field):
 				return {}
 		anchor["leads"] = anchor.get("leads", [])
+		if anchor.get("hints") is not Array:
+			return {}
 		anchor["first_call_free"] = bool(anchor.get("first_call_free", false))
 		var span := _anchor_span(anchor)
 		# No anchor may touch the murder hours, by its own data.
@@ -284,6 +296,8 @@ func jump(anchor_id: String) -> Dictionary:
 	book.visit = {"anchor": anchor_id, "home_calendar": home, "left_at": clock.elapsed_minutes(),
 			"loop_started": clock.elapsed_minutes(), "world": world}
 	book.state = "RUN_LOOP"
+	aide().warned = false
+	aide().next_hint = HINT_FIRST_MINUTES
 	RealityState.commit()
 	changed.emit()
 	return {"ok": true, "fare": fare, "anchor": anchor_id}
@@ -400,20 +414,126 @@ func _process(delta: float) -> void:
 	if _poll < 1.0 or clock == null or table.is_empty() or RealityState.save_write_blocked:
 		return
 	_poll = 0.0
-	if not RealityState.data.has(KEY) or not in_visit():
+	if not clock.loop_calendar_active():
 		return
+	if in_visit():
+		_attend_visit()
+	else:
+		_attend_home()
+
+
+## The companion's own record: what it has already said and done unasked.
+func aide() -> Dictionary:
+	var book := ledger()
+	if book.get("aide") is not Dictionary:
+		book["aide"] = {"quiet": false, "drawn_day": -1, "nudged_day": -1, "tiers": {},
+				"next_hint": HINT_FIRST_MINUTES, "warned": false}
+	return book.aide
+
+
+## At home the companion acts for the player without being asked: it draws
+## the day's allowance into the bank, and once a day says which line is open
+## or what stands between the player and the next fare.
+func _attend_home() -> void:
+	var notes := aide()
+	var day := int(clock.elapsed_minutes() / CampaignClock.MINUTES_PER_DAY)
+	if int(notes.drawn_day) != day:
+		notes.drawn_day = day
+		var drawn := claim_stipend()
+		if drawn.ok and not bool(notes.quiet):
+			slip.emit("DRAWN FOR YOU", "The day's allowance, %s. Banked %s." % [Economy.money(int(drawn.cents)), Economy.money(bank_cents())])
+		return
+	if int(notes.nudged_day) == day or bool(notes.quiet):
+		return
+	notes.nudged_day = day
+	slip.emit("ADVICE", home_hint())
+
+
+## Away, it watches the hours: it files what the player learns, speaks up
+## with the next hint when a while passes with the question open, warns
+## before the hours end, and at the end either brings the player home with
+## the answer or begins the hours again.
+func _attend_visit() -> void:
+	var notes := aide()
+	var anchor_id := visit_anchor()
 	var news := collect()
 	for deduction_id: String in news.deductions:
 		slip.emit("DEDUCTION", str(table.deductions[deduction_id].line))
+	var answered := evidence_missing(anchor_id).is_empty()
 	if not (news.evidence as Array).is_empty():
 		RealityState.commit_background()
 		changed.emit()
-		if evidence_missing(visit_anchor()).is_empty():
-			slip.emit("ANSWERED", "%s\nHOME when ready. AGAIN to run the hours once more." % str(table.anchors[visit_anchor()].question))
-	if loop_minutes_left() <= 0.0:
+		if answered:
+			slip.emit("ANSWERED", "%s HOME when ready. AGAIN to run the hours once more." % str(table.anchors[anchor_id].question))
+	var left := loop_minutes_left()
+	if left <= 0.0:
+		if answered:
+			var back := go_home()
+			if back.ok:
+				var text := "The hours are done and the question is answered. I have brought you home."
+				for opened: String in back.opened:
+					text += " New lead: %s." % str(table.anchors[opened].title)
+				slip.emit("HOME", text)
+			return
 		var again := reset_loop()
 		if again.ok:
-			slip.emit("AGAIN", "%s. The hours begin again. Run %d." % [str(table.anchors[visit_anchor()].title), int(again.loops) + 1])
+			notes.warned = false
+			notes.next_hint = HINT_FIRST_MINUTES
+			slip.emit("AGAIN", "%s. The hours begin again. Run %d." % [str(table.anchors[anchor_id].title), int(again.loops) + 1])
+		return
+	if bool(notes.quiet) or answered:
+		return
+	if left <= WARN_MINUTES and not bool(notes.warned):
+		notes.warned = true
+		slip.emit("TIME", "%d minutes. Then the hours begin again, and nothing you have learned is lost." % int(ceil(left)))
+	elif loop_minutes() >= float(notes.next_hint):
+		notes.next_hint = loop_minutes() + HINT_EVERY_MINUTES
+		var hint := next_hint(anchor_id)
+		if not hint.is_empty():
+			slip.emit("HINT", hint)
+
+
+## The next authored hint for a lead, a step plainer each time it is asked.
+## The last one repeats.
+func next_hint(anchor_id: String) -> String:
+	var hints: Array = table.anchors[anchor_id].hints
+	if hints.is_empty():
+		return ""
+	var tiers: Dictionary = aide().tiers
+	var tier := mini(int(tiers.get(anchor_id, 0)), hints.size() - 1)
+	tiers[anchor_id] = tier + 1
+	return str(hints[tier])
+
+
+## What the companion would do next, from where the player stands at home.
+func home_hint() -> String:
+	var index := 0
+	var cheapest := -1
+	for anchor_id: String in unlocked():
+		index += 1
+		if bool(ledger().anchors[anchor_id].resolved):
+			continue
+		var fare := fare_cents(anchor_id)
+		if fare <= bank_cents():
+			return "A line is open: %s. Fare %s, banked %s. JUMP %d." % [str(table.anchors[anchor_id].title),
+					Economy.money(fare), Economy.money(bank_cents()), index]
+		cheapest = fare if cheapest < 0 else mini(cheapest, fare)
+	if cheapest < 0:
+		return "Every open question is answered. Read the deductions under LEADS."
+	var pocket := int(economy.book().cash) if economy != null else 0
+	if pocket + bank_cents() >= cheapest:
+		return "The next fare is %s. You have it in your pocket. DEPOSIT %d." % [Economy.money(cheapest), cheapest - bank_cents()]
+	return "The next fare is %s and %s is banked. The house pays for work done: take a job from the board, then DEPOSIT. The allowance comes daily besides." % [
+			Economy.money(cheapest), Economy.money(bank_cents())]
+
+
+## The player asking for a hint outright.
+func asked_hint() -> String:
+	if not in_visit():
+		return home_hint()
+	if evidence_missing(visit_anchor()).is_empty():
+		return "The question here is answered. HOME, or AGAIN."
+	return next_hint(visit_anchor())
 
 
 ## The typed commands the service set answers on paper. Returns {} when the
@@ -423,6 +543,13 @@ func command(raw: String) -> Dictionary:
 	if words.is_empty() or table.is_empty() or RealityState.save_write_blocked:
 		return {}
 	match words[0]:
+		"hint":
+			return {"intent": "temporal", "text": asked_hint()}
+		"quiet", "hints":
+			aide().quiet = words[0] == "quiet"
+			RealityState.commit_background()
+			return {"intent": "temporal", "text": "I will keep to myself. HINT when you want one. HINTS to have me speak up again."
+					if words[0] == "quiet" else "I will speak up when I have something."}
 		"leads":
 			return {"intent": "temporal", "text": leads_text()}
 		"bank", "balance":
@@ -491,5 +618,5 @@ func leads_text() -> String:
 				break
 	for deduction_id: Variant in ledger().deductions:
 		lines.append("* %s" % str(table.deductions[str(deduction_id)].line))
-	lines.append("BANKED %s. JUMP n. AGAIN. HOME. BANK." % Economy.money(bank_cents()))
+	lines.append("BANKED %s. JUMP n. AGAIN. HOME. BANK. HINT." % Economy.money(bank_cents()))
 	return "\n".join(lines)

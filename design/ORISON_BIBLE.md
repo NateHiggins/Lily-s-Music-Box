@@ -1054,12 +1054,26 @@ additional canon or a new simulation authority.
 everything written on it; replies arrive as numbered received copies. The
 companion acts on nothing and knows nothing of what it serves.
 
-*Amended 2026-11-10, at the owner's direction (RUL-016):* one exception. The
-companion's keyboard is where the investigation's orders are typed, and its
-paper is where they are answered: the leads, a jump to one, the hours again,
-home, and the bank (§VIII.2). It is the channel's keyboard, as it was for the
-prologue's date command. The Tenant's apparatus does the work. The companion
-still decides nothing and knows nothing of what it serves.
+*Amended 2026-11-10, at the owner's direction (RUL-016):* this replaces "acts
+on nothing". In the investigation the companion has full autonomy to act and
+to give hints.
+
+- **It takes orders.** Its keyboard is where the investigation's orders are
+  typed and its paper is where they are answered: the leads, a jump to one,
+  the hours again, home, the bank (§VIII.2).
+- **It acts unasked.** It draws the day's allowance into the bank. It files
+  what the player learns. When a visit's hours end with the question
+  answered it brings the player home; otherwise it begins the hours again.
+- **It hints unasked.** At home, once a day, it says which line is open or
+  what stands between the player and the next fare. In a visit it offers a
+  hint when a while passes with the question open, each plainer than the
+  last, and warns before the hours end. Asked for a hint, it gives the next.
+- **It can be told to be quiet,** and then only acts and answers.
+- **It does not spend or risk for the player.** It never pays a fare, banks
+  pocket money or chooses a lead on its own.
+
+Every word it prints is authored (RUL-015). It still knows nothing of what it
+serves: its hints point at a door, a person and an hour, never at the answer.
 
 **VIII.5.l — THE WORLD IS A FIDGET TOY.**
 *(Ruled 2026-10-12, at the owner's direction; RUL-013. Implementation and

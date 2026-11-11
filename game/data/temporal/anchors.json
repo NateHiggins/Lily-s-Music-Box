@@ -1,9 +1,18 @@
 {
 	"version": 1,
 	"bank_name": "Queens County Savings",
-	"fare": {"base_cents": 25, "days_per_cent": 4, "cap_cents": 150, "worn_groove_divisor": 2},
-	"stipend": {"cents": 15},
-	"opening": ["tea"],
+	"fare": {
+		"base_cents": 25,
+		"days_per_cent": 4,
+		"cap_cents": 150,
+		"worn_groove_divisor": 2
+	},
+	"stipend": {
+		"cents": 15
+	},
+	"opening": [
+		"tea"
+	],
 	"anchors": {
 		"tea": {
 			"title": "The radiator in 6C",
@@ -12,9 +21,18 @@
 			"start": "16:20",
 			"minutes": 70,
 			"question": "What did Mrs. Kessler ask about that afternoon?",
-			"evidence": ["mt:mk_tea"],
-			"successors": ["friday"],
-			"first_call_free": true
+			"evidence": [
+				"mt:mk_tea"
+			],
+			"successors": [
+				"friday"
+			],
+			"first_call_free": true,
+			"hints": [
+				"Mrs. Kessler is at home in 6C from half past four to half past five.",
+				"Knock at 6C. The radiator is your reason to be there.",
+				"Speak to Mrs. Kessler about her radiator, and mind what she asks in return."
+			]
 		},
 		"friday": {
 			"title": "Friday's errand",
@@ -23,8 +41,18 @@
 			"start": "17:30",
 			"minutes": 210,
 			"question": "Who went up to the sixth floor that evening, and carrying what?",
-			"evidence": ["mt:co_envelope", "mt:mr_last"],
-			"successors": ["yard"]
+			"evidence": [
+				"mt:co_envelope",
+				"mt:mr_last"
+			],
+			"successors": [
+				"yard"
+			],
+			"hints": [
+				"Two people in this house went up that evening. One lives in 4C, one in 3A.",
+				"Knock at 4C for Cam Ortiz, and at 3A for Malcolm Reed. Be done by nine.",
+				"Ask Cam what went to 6C that Friday. Ask Malcolm about the evening upstairs."
+			]
 		},
 		"yard": {
 			"title": "The stairs before light",
@@ -33,8 +61,18 @@
 			"start": "03:02",
 			"minutes": 38,
 			"question": "Who was already awake?",
-			"evidence": ["mt:tv_yard"],
-			"successors": ["playback", "ash"]
+			"evidence": [
+				"mt:tv_yard"
+			],
+			"successors": [
+				"playback",
+				"ash"
+			],
+			"hints": [
+				"Someone on the first floor is already awake.",
+				"Knock at 1D. Teresa Vale has not slept.",
+				"Let Teresa Vale tell you what she heard from the stairs. You have little more than half an hour."
+			]
 		},
 		"playback": {
 			"title": "The twelfth record",
@@ -43,9 +81,18 @@
 			"start": "19:00",
 			"minutes": 120,
 			"question": "What was playing behind the wall?",
-			"evidence": ["mt:cd_playback"],
-			"leads": ["m_drama_lead"],
-			"successors": []
+			"evidence": [
+				"mt:cd_playback"
+			],
+			"leads": [
+				"m_drama_lead"
+			],
+			"successors": [],
+			"hints": [
+				"Cal Dwyer in 5B keeps his recordings.",
+				"Knock at 5B in the evening and ask to hear the twelfth.",
+				"If he will not play it, something learned elsewhere is wanting. Go home and look to your other leads."
+			]
 		},
 		"ash": {
 			"title": "The ash pit",
@@ -54,22 +101,40 @@
 			"start": "09:00",
 			"minutes": 180,
 			"question": "What did not burn?",
-			"evidence": ["mt:ob_ash"],
-			"leads": ["m_boiler_sheet"],
-			"successors": []
+			"evidence": [
+				"mt:ob_ash"
+			],
+			"leads": [
+				"m_boiler_sheet"
+			],
+			"successors": [],
+			"hints": [
+				"The boiler room is Omar Bell's business. He lives in 3B.",
+				"Ask Omar Bell what is in the ash pit.",
+				"If he has nothing to say, something learned elsewhere is wanting. Go home and look to your other leads."
+			]
 		}
 	},
 	"deductions": {
 		"same_friday": {
-			"needs": ["mt:mk_tea", "mt:co_envelope"],
+			"needs": [
+				"mt:mk_tea",
+				"mt:co_envelope"
+			],
 			"line": "The afternoon in June and the errand in July touch the same door."
 		},
 		"between_two_witnesses": {
-			"needs": ["mt:mr_last", "mt:tv_yard"],
+			"needs": [
+				"mt:mr_last",
+				"mt:tv_yard"
+			],
 			"line": "One saw the evening begin. One heard the night end. The hours between belong to nobody."
 		},
 		"what_was_arranged": {
-			"needs": ["mt:cd_playback", "mt:ob_ash"],
+			"needs": [
+				"mt:cd_playback",
+				"mt:ob_ash"
+			],
 			"line": "A sound that was made to be heard, and a thing that was made to be gone."
 		}
 	}

@@ -142,13 +142,46 @@ func _ready() -> void:
 			"the evidence collected on the trip is home in the valise")
 	check(RealityState.save_game(), "home saves")
 
+	# The companion at home, unasked.
+	var slips: Array[String] = []
+	loop.slip.connect(func(title: String, body: String) -> void: slips.append(title + "|" + body))
+	loop._poll = 5.0
+	loop._process(0.1)
+	check(loop.bank_cents() == 75 and slips.size() == 1 and slips[0].begins_with("DRAWN FOR YOU"),
+			"at home the companion draws the day's allowance itself (%d)" % loop.bank_cents())
+	loop._poll = 5.0
+	loop._process(0.1)
+	check(slips.size() == 2 and slips[1].begins_with("ADVICE") and slips[1].contains("Friday's errand") and slips[1].contains("JUMP 2"),
+			"and then says which line is open")
+	loop._poll = 5.0
+	loop._process(0.1)
+	check(slips.size() == 2 and loop.bank_cents() == 75, "once a day, not every second")
+
 	# Fares.
 	check(loop.fare_cents("friday") == 54, "the fare to 19 July from 10 November is fixed (%d)" % loop.fare_cents("friday"))
 	check(loop.fare_cents("tea") > 0 and loop.fare_cents("tea") < 54, "an answered anchor is a worn groove at part fare (%d)" % loop.fare_cents("tea"))
 	went = loop.jump("friday")
-	check(went.ok and loop.bank_cents() == 6 and (at(1929, 7, 19, 17, 30) or at(1929, 7, 19, 17, 31)), "the fare leaves the bank with the jump (%s)" % stamp())
-	check(not loop._transact("fare:friday:1", -1) and loop.bank_cents() == 6, "the same transaction cannot be booked twice")
-	check(clock.advance_to(clock.elapsed_minutes() + 210.5), "the evening runs to its end")
+	check(went.ok and loop.bank_cents() == 21 and (at(1929, 7, 19, 17, 30) or at(1929, 7, 19, 17, 31)), "the fare leaves the bank with the jump (%s)" % stamp())
+	check(not loop._transact("fare:friday:1", -1) and loop.bank_cents() == 21, "the same transaction cannot be booked twice")
+	# The companion away, unasked.
+	slips.clear()
+	loop._poll = 5.0
+	loop._process(0.1)
+	check(slips.is_empty(), "no hint in the first minutes of a visit")
+	check(clock.advance_to(clock.elapsed_minutes() + 5.0), "five minutes with the question open")
+	loop._poll = 5.0
+	loop._process(0.1)
+	check(slips.size() == 1 and slips[0] == "HINT|" + str(loop.table.anchors.friday.hints[0]), "the companion offers the first hint itself")
+	check(str(loop.command("hint").text) == str(loop.table.anchors.friday.hints[1]), "asked, it gives the next and plainer one")
+	check(str(loop.command("quiet").text).contains("keep to myself") and clock.advance_to(clock.elapsed_minutes() + 30.0), "told to be quiet")
+	loop._poll = 5.0
+	loop._process(0.1)
+	check(slips.size() == 1, "it keeps quiet")
+	check(str(loop.command("hints").text).contains("speak up") and clock.advance_to(clock.elapsed_minutes() + 166.0), "told it may speak; the evening is nearly over")
+	loop._poll = 5.0
+	loop._process(0.1)
+	check(slips.size() == 2 and slips[1].begins_with("TIME|"), "it warns before the hours end")
+	check(clock.advance_to(clock.elapsed_minutes() + 9.5), "the evening runs to its end")
 	loop._poll = 5.0
 	loop._process(0.1)
 	check(loop.in_visit() and (at(1929, 7, 19, 17, 30) or at(1929, 7, 19, 17, 31)) and int(loop.ledger().anchors.friday.loops) == 1,
@@ -158,9 +191,23 @@ func _ready() -> void:
 	before = (RealityState.data.campaign_clock as Dictionary).duplicate(true)
 	went = loop.jump("friday")
 	check(not went.ok and str(went.code) == "fare" and not loop.in_visit() and RealityState.data.campaign_clock == before
-			and loop.bank_cents() == 6, "a fare the bank cannot meet moves nothing")
-	check(loop.claim_stipend().ok and loop.bank_cents() == 21 and not loop.claim_stipend().ok and loop.bank_cents() == 21,
-			"the day's allowance is drawn once")
+			and loop.bank_cents() == 21, "a fare the bank cannot meet moves nothing")
+	check(not loop.claim_stipend().ok and loop.bank_cents() == 21, "the day's allowance is drawn once")
+	check(str(loop.command("hint").text).contains("DEPOSIT 33"), "asked at home, it says what to bank to make the fare (%s)" % str(loop.home_hint()))
+
+	# The companion brings the player home when the hours end with the answer.
+	loop.ledger().bank_cents = 100
+	went = loop.jump("friday")
+	RealityState.grant_knowledge("mt:co_envelope")
+	RealityState.grant_knowledge("mt:mr_last")
+	check(went.ok and clock.advance_to(clock.elapsed_minutes() + 211.0), "the evening again, both accounts heard")
+	slips.clear()
+	loop._poll = 5.0
+	loop._process(0.1)
+	check(not loop.in_visit() and bool(loop.ledger().anchors.friday.resolved) and "yard" in loop.unlocked()
+			and slips.any(func(line: String) -> bool: return line.begins_with("HOME|") and line.contains("The stairs before light")),
+			"it brings the player home itself and names the new lead")
+	check(not CampaignClock.in_blackout(clock.calendar_minutes()), "and home is not in the dark (%s)" % stamp())
 
 	# The paper.
 	var leads: Dictionary = loop.command("leads")
@@ -169,7 +216,8 @@ func _ready() -> void:
 	check(loop.command("how are you").is_empty(), "ordinary correspondence is not a command")
 	check(str(loop.command("jump 9").text).contains("SEE LEADS") and str(loop.command("home").text).contains("ALREADY HOME"),
 			"bad commands answer plainly and change nothing")
-	check(str(loop.command("deposit 10").text).contains("BANKED") and loop.bank_cents() == 31, "DEPOSIT on paper banks")
+	var banked: int = loop.bank_cents()
+	check(str(loop.command("deposit 10").text).contains("BANKED") and loop.bank_cents() == banked + 10, "DEPOSIT on paper banks")
 
 	RealityState.flush_background_saves()
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(RealityState.save_path))
