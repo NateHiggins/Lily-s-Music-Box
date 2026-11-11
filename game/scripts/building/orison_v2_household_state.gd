@@ -509,7 +509,7 @@ func snapshot() -> Dictionary:
 			"light": setting = prop.get("powered")
 			"radiator": setting = prop.mechanism_snapshot()
 			"window": setting = prop.mechanism_snapshot()
-			"prep": setting = prop._slide.position.x/prop.TRAVEL
+			"prep": setting = prop.travel_fraction()
 			"mirror": setting = prop.get("_swing")
 			"blind": setting = prop.call("settings_snapshot")
 			"books": setting = prop.library_snapshot() if prop.has_method("library_snapshot") else prop.get("sorter").order.duplicate()
