@@ -353,21 +353,26 @@ def hang_on_skirt_bones(obj):
             add(above, v.index, part * (1.0 - into))
 
 
-def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0):
+def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0, made=None, weights=None):
     """A garment: the faces of a clothing helper whose corners all pass `keep`,
-    set off from the skin by `offset` metres."""
+    set off from the skin by `offset` metres. Or, with `made`, a shape built
+    outright (made fills the mesh; weights gives each point its bones)."""
     bm = bmesh.new()
-    bm.from_mesh(mesh)
-    bm.verts.ensure_lookup_table()
-    source_index = group_index[source]
-    deform = bm.verts.layers.deform.verify()
-    wanted = set()
-    for v in bm.verts:
-        if source_index in v[deform] and keep(mesh.vertices[v.index]):
-            wanted.add(v.index)
-    lose = [f for f in bm.faces if not all(v.index in wanted for v in f.verts)]
-    bmesh.ops.delete(bm, geom=lose, context="FACES")
-    bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
+    if made is not None:
+        made(bm)
+        bm.verts.ensure_lookup_table()
+    else:
+        bm.from_mesh(mesh)
+        bm.verts.ensure_lookup_table()
+        source_index = group_index[source]
+        deform = bm.verts.layers.deform.verify()
+        wanted = set()
+        for v in bm.verts:
+            if source_index in v[deform] and keep(mesh.vertices[v.index]):
+                wanted.add(v.index)
+        lose = [f for f in bm.faces if not all(v.index in wanted for v in f.verts)]
+        bmesh.ops.delete(bm, geom=lose, context="FACES")
+        bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
     if not bm.faces:
         bm.free()
         print("GARMENT", name, "is empty")
@@ -400,6 +405,11 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
     bpy.context.scene.collection.objects.link(obj)
     for index, group_name in names.items():
         obj.vertex_groups.new(name=group_name)
+    if weights is not None:
+        for v in out.vertices:
+            for bone_name, amount in weights(v.co).items():
+                if amount > 0.001:
+                    obj.vertex_groups[PREFIX + bone_name].add([v.index], amount, "REPLACE")
     if WEAR > 0.0:
         # Grime gathers at hems and cuffs, cloth fades and shines at elbows,
         # knees and seat. Carried as point colours, which multiply the cloth.
@@ -520,13 +530,50 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         piece("Sash", "helper-tights", lambda v, r=row: abs(v.co.z - (hip + float(r.get("up", 0.03)))) < 0.045 and weight(v, ARM) < 0.3, float(row.get("off", 0.014)), colour, 0.5, cloth=cloth or "silk")
     elif kind == "scarf":
         piece("Scarf", "helper-tights", lambda v: neck - 0.05 < v.co.z < neck + 0.03 and weight(v, ARM) < 0.3, 0.014, colour, 0.8, pattern=row.get("pattern"), cloth=cloth or "silk")
-    elif kind == "cape":
-        length = float(row.get("length", 0.3))
-        piece("Cape", "helper-tights", lambda v, L=length: (neck - L < v.co.z < neck + 0.015) and (weight(v, ARM) < 0.45 or along_arm(v.co) < 0.42), 0.02, colour, 0.85,
-              thicken=lambda co, L=length: float(row.get("swing", 0.07)) * max(0.0, min(1.0, (neck - co.z) / L)) ** 0.8, pattern=row.get("pattern"), cloth=cloth or "wool")
-    elif kind == "shawl":
-        piece("Shawl", "helper-tights", lambda v: neck - 0.2 < v.co.z < neck + 0.02 and (weight(v, ARM) < 0.45 or along_arm(v.co) < 0.3) and (v.co.y > bone("Spine2").y - 0.05 or abs(v.co.x) > 0.07),
-              0.024, colour, 0.9, pattern=row.get("pattern"), cloth=cloth or "knit")
+    elif kind in ("cape", "shawl"):
+        # Built outright, not cut from the body: a cone from the neck over
+        # the shoulders that hangs clear of the arms. A shawl is the short
+        # one, with a point down the back.
+        length = float(row.get("length", 0.34 if kind == "cape" else 0.19))
+        point = 0.0 if kind == "cape" else 0.12
+        chest_y = bone("Spine2").y
+        neck_y = bone("Neck").y
+
+        def ease(x):
+            x = max(0.0, min(1.0, x))
+            return x * x * (3 - 2 * x)
+
+        def cape_shape(bm, L=length, P=point):
+            rings = []
+            steps = 44
+            rows = 13
+            for k in range(rows):
+                t = k / (rows - 1.0)
+                ring = []
+                for j in range(steps):
+                    a = math.tau * j / steps
+                    back = max(0.0, math.sin(a))
+                    depth = t * (L + P * back ** 3)
+                    over = ease(depth / 0.12)
+                    rx = 0.068 + (shoulder.x + 0.08 - 0.068) * over + 0.45 * max(0.0, depth - 0.06)
+                    ry = 0.07 + (0.165 if math.sin(a) < 0 else 0.14) * over - 0.07 * over + 0.04 * depth / L
+                    cy = neck_y + (chest_y - neck_y) * over
+                    ring.append(bm.verts.new((math.cos(a) * rx, cy + math.sin(a) * ry, neck + 0.012 - depth)))
+                rings.append(ring)
+            for upper, lower in zip(rings, rings[1:]):
+                for j in range(steps):
+                    bm.faces.new((upper[j], upper[(j + 1) % steps], lower[(j + 1) % steps], lower[j]))
+            bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+
+        def cape_weights(co):
+            depth = neck + 0.012 - co.z
+            side = max(0.0, min(1.0, (abs(co.x) - 0.1) / 0.1)) * max(0.0, min(1.0, depth / 0.12)) * 0.5
+            out_ = {"Spine2": 1.0 - side}
+            out_["LeftArm" if co.x > 0 else "RightArm"] = side
+            return out_
+
+        piece("Cape" if kind == "cape" else "Shawl", None, None, 0.0, colour, 0.85 if kind == "cape" else 0.9, pattern=row.get("pattern"), cloth=cloth or ("wool" if kind == "cape" else "knit"),
+              made=cape_shape, weights=cape_weights)
     elif kind == "boots":
         piece("Boots", "helper-tights", lambda v, r=row: v.co.z < ankle + float(r.get("height", 0.16)) and weight(v, LEG) > 0.3, 0.011, colour, 0.35, cloth="leather")
     elif kind == "lapels":
@@ -1148,10 +1195,10 @@ for HAT in (HATS if skull else []):
     top_z = max(q.z for q in skull)
     brow_z = nose.z + 0.066
     centre = Vector(((max(q.x for q in skull) + min(q.x for q in skull)) / 2, (max(q.y for q in skull) + min(q.y for q in skull)) / 2, 0))
-    half_w = (max(q.x for q in skull) - min(q.x for q in skull)) / 2 + 0.008
-    half_d = (max(q.y for q in skull) - min(q.y for q in skull)) / 2 + 0.008
+    half_w = (max(q.x for q in skull) - min(q.x for q in skull)) / 2 + 0.02
+    half_d = (max(q.y for q in skull) - min(q.y for q in skull)) / 2 + 0.02
     crown_top = top_z + 0.014
-    crown_foot = brow_z + 0.034
+    crown_foot = (brow_z - 0.014) + 0.034
     hat_rows = []
     for k in range(13):
         t = k / 12.0
@@ -1166,8 +1213,8 @@ for HAT in (HATS if skull else []):
             t = k / 12.0
             angle = t * math.pi / 2
             hat_rows.append((math.sin(angle) ** 0.7 * 1.12, crown_top - (1 - math.cos(angle)) ** 1.6 * (crown_top - crown_foot), t * 0.3))
-    hat_rows += [(1.1, brow_z + 0.022, 0.7), (1.1 + 0.06 * brim, brow_z + 0.012, 0.85), (1.1 + 0.15 * brim, brow_z + 0.0, 1.0), (1.1 + 0.22 * brim, brow_z - 0.013, 1.0),
-                 (1.1 + 0.2 * brim, brow_z - 0.016, 1.0), (1.1 + 0.12 * brim, brow_z - 0.003, 1.0), (1.1, brow_z + 0.012, 0.85), (1.05, brow_z + 0.03, 0.6)]
+    hat_rows += [(1.1, (brow_z - 0.014) + 0.022, 0.7), (1.1 + 0.06 * brim, (brow_z - 0.014) + 0.012, 0.85), (1.1 + 0.15 * brim, (brow_z - 0.014) + 0.0, 1.0), (1.1 + 0.22 * brim, (brow_z - 0.014) - 0.013, 1.0),
+                 (1.1 + 0.2 * brim, (brow_z - 0.014) - 0.016, 1.0), (1.1 + 0.12 * brim, (brow_z - 0.014) - 0.003, 1.0), (1.1, (brow_z - 0.014) + 0.012, 0.85), (1.05, (brow_z - 0.014) + 0.03, 0.6)]
     bm = bmesh.new()
     rings = []
     steps = 56
