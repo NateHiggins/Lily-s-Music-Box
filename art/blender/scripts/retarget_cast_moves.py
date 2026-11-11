@@ -36,6 +36,26 @@ MAP = {
     "RightUpLeg": ["RightUpLeg", "thigh.R"], "RightLeg": ["RightLeg", "shin.R"], "RightFoot": ["RightFoot", "foot.R"], "RightToeBase": ["RightToeBase", "toe.R"],
 }
 
+# The numbered clips, named for what they are (from resident_routines.gd).
+NAMES = {"clip_01": "stand_relaxed", "clip_02": "fret", "clip_03": "wait_attentive", "clip_04": "look_up", "clip_05": "glance_over_shoulder",
+         "clip_06": "seated", "clip_07": "busy_at_counter", "clip_08": "reach_out", "walk": "walk_plain", "run": "run_plain"}
+
+# The joint each bone leads to. A bone's direction is measured to that joint,
+# never to its tail: an imported skeleton's tails are guesses. Bones that lead
+# nowhere (head, hands, toes, hips) carry their turn across as it is.
+NEXT = {"Spine": "Spine1", "Spine1": "Spine2", "Spine2": "Neck", "Neck": "Head"}
+for _side in ("Left", "Right"):
+    NEXT.update({_side + "Shoulder": _side + "Arm", _side + "Arm": _side + "ForeArm", _side + "ForeArm": _side + "Hand",
+                 _side + "UpLeg": _side + "Leg", _side + "Leg": _side + "Foot", _side + "Foot": _side + "ToeBase"})
+
+
+def leads_to(name, have):
+    step = NEXT.get(name)
+    while step is not None and step not in have:
+        step = NEXT.get(step)
+    return step
+
+
 bpy.ops.wm.open_mainfile(filepath=PERSON)
 target = [o for o in bpy.data.objects if o.type == "ARMATURE"][0]
 for obj in list(bpy.data.objects):
@@ -59,9 +79,10 @@ for bone in target.data.bones:
     if bone.parent is None:
         walk(bone)
 target_rest = {name: (target_world @ target.data.bones[name].matrix_local).to_quaternion() for name in order}
-target_dir = {name: (target_world.to_3x3() @ (target.data.bones[name].tail_local - target.data.bones[name].head_local)).normalized() for name in order}
+target_head = {name: target_world @ target.data.bones[name].head_local for name in order}
 target_hips = (target_world @ target.data.bones["Hips"].head_local)
 made = []
+taken = set()
 
 for path, time_scale in SOURCES:
     before = set(bpy.data.objects)
@@ -77,15 +98,30 @@ for path, time_scale in SOURCES:
             if old in source.data.bones:
                 names[new_name] = old
                 break
+    if "hips" in source.data.bones:
+        # The generated 22-joint rigs: a short spine under plain lower-case names.
+        for new_name, old in (("Hips", "hips"), ("Spine", "spine"), ("Spine2", "chest"), ("Neck", "neck"), ("Head", "head")):
+            names[new_name] = old
+        names.pop("Spine1", None)
+    if len(names) < len(MAP):
+        print("UNMAPPED", [n for n in MAP if n not in names], "source bones", [b.name for b in source.data.bones][:40])
+    if "Hips" not in names:
+        print("SKIPPED", os.path.basename(path), "no hips found")
+        for obj in fresh:
+            bpy.data.objects.remove(obj)
+        continue
     source_rest = {n: (source_world @ source.data.bones[o].matrix_local).to_quaternion() for n, o in names.items()}
-    source_dir = {n: (source_world.to_3x3() @ (source.data.bones[o].tail_local - source.data.bones[o].head_local)).normalized() for n, o in names.items()}
-    # Line the two rest directions up, bone by bone.
-    align = {n: source_dir[n].rotation_difference(target_dir[n]).inverted() for n in names}
-    # The hips are the body's own frame, not a limb: both bodies stand upright
-    # facing the same way, so their turn carries across as it is. (Lining up
-    # two hip bones that point opposite ways turned a forward lean into a
-    # backward one.)
-    align["Hips"] = Quaternion()
+    source_head = {n: source_world @ source.data.bones[o].head_local for n, o in names.items()}
+    # Line the two rest directions up, bone by bone, joint to joint.
+    align = {}
+    for n in names:
+        to = leads_to(n, names)
+        if to is None or n == "Hips":
+            align[n] = Quaternion()
+            continue
+        was = (source_head[to] - source_head[n]).normalized()
+        want = (target_head[to] - target_head[n]).normalized()
+        align[n] = was.rotation_difference(want).inverted()
     source_hips = source_world @ source.data.bones[names["Hips"]].head_local
     travel = target_hips.z / max(source_hips.z, 1e-6)
     print("SOURCE", os.path.basename(path), "bones", len(names), "of", len(MAP), "actions", len(actions), "travel", round(travel, 3), "time", time_scale)
@@ -98,7 +134,13 @@ for path, time_scale in SOURCES:
         except Exception:
             pass
         first, last = [int(round(v)) for v in action.frame_range]
-        new_action = bpy.data.actions.new(action.name.split("|")[-1].replace("_" + os.path.basename(path).split("_moves")[0], ""))
+        plain_name = action.name.split("|")[-1].split(".")[0]
+        plain_name = NAMES.get(plain_name, plain_name)
+        action.name = "source_" + action.name
+        while plain_name in taken:
+            plain_name += "_b"
+        taken.add(plain_name)
+        new_action = bpy.data.actions.new(plain_name)
         if target.animation_data is None:
             target.animation_data_create()
         target.animation_data.action = new_action
@@ -151,8 +193,7 @@ for path, time_scale in SOURCES:
 target.animation_data.action = None
 for action in made:
     track = target.animation_data.nla_tracks.new()
-    action.name = action.name.split(".")[0] if action.name.split(".")[0] not in bpy.data.actions else action.name
-    track.name = action.name.split(".")[0]
+    track.name = action.name
     track.strips.new(action.name, 1, action)
 for pose_bone in target.pose.bones:
     pose_bone.matrix_basis = Matrix.Identity(4)

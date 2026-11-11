@@ -46,10 +46,10 @@ def top(kind, colour, accent, pale):
 def bottom(kind, colour, accent, legs):
     hose = {"kind": "stockings", "colour": legs}
     table = {
-        "full_skirt": [hose, {"kind": "skirt", "colour": colour, "hem": 0.34, "flare": 0.42, "pleats": 20}],
-        "straight_skirt": [hose, {"kind": "skirt", "colour": colour, "hem": 0.42, "flare": 0.04}],
-        "long_skirt": [hose, {"kind": "skirt", "colour": colour, "hem": 0.14, "flare": 0.28, "pleats": 12, "cloth": "silk"}],
-        "short_skirt": [hose, {"kind": "skirt", "colour": colour, "hem": 0.5, "flare": 0.22, "pleats": 16}],
+        "full_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.34, "flare": 0.42, "pleats": 20}],
+        "straight_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.42, "flare": 0.04}],
+        "long_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.14, "flare": 0.28, "pleats": 12, "cloth": "silk"}],
+        "short_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.5, "flare": 0.22, "pleats": 16}],
         "wide_trousers": [{"kind": "trousers", "colour": colour, "width": 0.06}],
         "narrow_trousers": [{"kind": "trousers", "colour": colour, "width": 0.012, "pattern": stripes(shade(colour, 1.8), 1)}],
         "check_trousers": [{"kind": "trousers", "colour": colour, "width": 0.035, "pattern": checks(shade(colour, 1.8))}],

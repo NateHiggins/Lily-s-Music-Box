@@ -15,6 +15,7 @@ const SKIN_PREFIX := "Skin_"
 const SLOTS: Array[String] = ["bottom", "top", "over", "feet", "head"]
 
 var person_id := ""
+var keep_body := true
 var skeleton: Skeleton3D
 ## Slot to the name of the part worn in it.
 var worn: Dictionary = {}
@@ -99,9 +100,15 @@ func _put_on(part: String, loader: Callable) -> bool:
 	return not mine.is_empty()
 
 
-## Skin shows wherever nothing worn covers it.
+## The whole body stays under the clothes (keep_body), so a lifted skirt or an
+## open coat shows a person and not a hole. With keep_body off, skin shows only
+## where nothing worn covers it.
 func _show_skin() -> void:
 	var covered: Dictionary = {}
+	if keep_body:
+		for area: String in _skin:
+			(_skin[area] as MeshInstance3D).visible = true
+		return
 	for slot: String in worn:
 		for area: Variant in (notes[worn[slot]] as Dictionary).get("covers", []):
 			covered[str(area)] = true
