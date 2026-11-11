@@ -130,6 +130,12 @@ func _ready() -> void:
 	loop.slip.connect(func(title: String, body: String) -> void: slips.append(title + "|" + body))
 	loop.stage_reset.connect(func() -> void: resets += 1)
 	check(loop.table.anchors.size() == 11, "eleven leads (%d)" % loop.table.anchors.size())
+	check(str(loop.dressed_for("1929-07-03").occasion) == "Independence Day" and str(loop.dressed_for("1929-07-03").season) == "high summer"
+			and str(loop.dressed_for("1929-07-19").occasion) == "" and str(loop.dressed_for("1928-12-24").season) == "winter"
+			and str(loop.dressed_for("1929-11-01").occasion) == "Hallowe'en",
+			"the year's table says what the house is dressed for on a date")
+	check(str(loop.anchor_text("box")).contains("LATE AUTUMN") and str(loop.anchor_text("box")).contains("ARMISTICE")
+			and loop.dressing_of("stairs").size() == 4, "each lead carries its season, its occasion and what its rooms show")
 	var most_steps := 0
 	var climbing := true
 	var by_tier := {}

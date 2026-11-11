@@ -211907,7 +211907,7 @@
     "_card_for"
    ],
    "lines": [
-    201
+    235
    ],
    "count": 1,
    "context": [
@@ -211937,7 +211937,7 @@
     "_grip_for"
    ],
    "lines": [
-    99
+    126
    ],
    "count": 1,
    "context": [
@@ -211967,11 +211967,13 @@
     "_grow"
    ],
    "lines": [
-    510
+    591,
+    607
    ],
-   "count": 1,
+   "count": 2,
    "context": [
-    "\"LoopPaper_%d\" % index"
+    "\"LoopPaper_%d\" % index",
+    "\"LoopPile_%d\" % index"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -211997,8 +211999,8 @@
     "_sync"
    ],
    "lines": [
-    402,
-    445
+    442,
+    485
    ],
    "count": 2,
    "context": [
@@ -212019,6 +212021,120 @@
    "target_exists": null
   },
   {
+   "key": "18573335939f8fd9",
+   "kind": "id_reference",
+   "token": "4B_closet_rail",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "\"4B_hallstand\", \"4B_wc\", \"4B_closet_rail\", \"4B_equipment_shelf\", \"4B_wireless_table\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "38ae88eae40c5d89",
+   "kind": "id_reference",
+   "token": "4B_couch",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [
+    "const ROOM_EYES: Array[String] = [\"4B_meal_table\", \"4B_wake_bed\", \"4B_couch\", \"4B_terminal_desk\", \"4B_sink_counter\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0db4879ae3c8f3bf",
+   "kind": "id_reference",
+   "token": "4B_equipment_shelf",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "\"4B_hallstand\", \"4B_wc\", \"4B_closet_rail\", \"4B_equipment_shelf\", \"4B_wireless_table\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c447f9f42dff240d",
+   "kind": "id_reference",
+   "token": "4B_hallstand",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "\"4B_hallstand\", \"4B_wc\", \"4B_closet_rail\", \"4B_equipment_shelf\", \"4B_wireless_table\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "0580faa57c12eeb5",
    "kind": "id_reference",
    "token": "4B_meal_table",
@@ -212029,11 +212145,155 @@
     "<module>"
    ],
    "lines": [
-    14
+    14,
+    28
+   ],
+   "count": 2,
+   "context": [
+    "const ROOM_REFERENCE := \"4B_meal_table\"",
+    "const ROOM_EYES: Array[String] = [\"4B_meal_table\", \"4B_wake_bed\", \"4B_couch\", \"4B_terminal_desk\", \"4B_sink_counter\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fe182f968dbbe7d5",
+   "kind": "id_reference",
+   "token": "4B_sink_counter",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    28
    ],
    "count": 1,
    "context": [
-    "const ROOM_REFERENCE := \"4B_meal_table\""
+    "const ROOM_EYES: Array[String] = [\"4B_meal_table\", \"4B_wake_bed\", \"4B_couch\", \"4B_terminal_desk\", \"4B_sink_counter\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a9ee86b9775395bf",
+   "kind": "id_reference",
+   "token": "4B_terminal_desk",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [
+    "const ROOM_EYES: Array[String] = [\"4B_meal_table\", \"4B_wake_bed\", \"4B_couch\", \"4B_terminal_desk\", \"4B_sink_counter\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8a33259325dac549",
+   "kind": "id_reference",
+   "token": "4B_wake_bed",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [
+    "const ROOM_EYES: Array[String] = [\"4B_meal_table\", \"4B_wake_bed\", \"4B_couch\", \"4B_terminal_desk\", \"4B_sink_counter\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "81ae14d6b6673dfa",
+   "kind": "id_reference",
+   "token": "4B_wc",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "\"4B_hallstand\", \"4B_wc\", \"4B_closet_rail\", \"4B_equipment_shelf\", \"4B_wireless_table\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c3ce915d2a5a0915",
+   "kind": "id_reference",
+   "token": "4B_wireless_table",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "\"4B_hallstand\", \"4B_wc\", \"4B_closet_rail\", \"4B_equipment_shelf\", \"4B_wireless_table\"]"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -212057,11 +212317,15 @@
     "_survey"
    ],
    "lines": [
-    480
+    515,
+    532,
+    547
    ],
-   "count": 1,
+   "count": 3,
    "context": [
-    "if world.unit_at_world(hit.position as Vector3) != \"4B\":"
+    "if thing != null and world.unit_at_world(thing.global_position) == \"4B\":",
+    "if world.unit_at_world(where) != \"4B\":",
+    "if hit.is_empty() or (hit.normal as Vector3).y < 0.9 or world.unit_at_world(hit.position as Vector3) != \"4B\":"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -269013,7 +269277,7 @@
     "_ready"
    ],
    "lines": [
-    322
+    328
    ],
    "count": 1,
    "context": [
@@ -269043,7 +269307,7 @@
     "_ready"
    ],
    "lines": [
-    164
+    170
    ],
    "count": 1,
    "context": [
@@ -269073,8 +269337,8 @@
     "_ready"
    ],
    "lines": [
-    243,
-    251
+    249,
+    257
    ],
    "count": 2,
    "context": [
@@ -269104,7 +269368,7 @@
     "_ready"
    ],
    "lines": [
-    321
+    327
    ],
    "count": 1,
    "context": [
@@ -269134,7 +269398,7 @@
     "_ready"
    ],
    "lines": [
-    166
+    172
    ],
    "count": 1,
    "context": [
@@ -273944,7 +274208,7 @@
    "lines": [
     112,
     177,
-    215
+    221
    ],
    "count": 3,
    "context": [

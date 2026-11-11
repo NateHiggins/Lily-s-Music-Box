@@ -50,6 +50,8 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **Open when pinned:** nothing; this is the opening lead, and its first call is free.
 - **The question:** What did Mrs. Kessler want that afternoon?
 - **Canon beat:** B04. Mae learns of the deed; she asked for the negatives on 13 June and was refused.
+- **The day:** early summer; the day before Flag Day.
+- **What the rooms show of it:** Windows open, awnings down on the street side. Flags laid out in the lobby for tomorrow. Iced tea, not hot: the glasses sweat on the tray. The radiators are cold and the player is there to bleed one anyway.
 - **Steps:**
   1. Be in **6C**. The companion's hint: "Go up to 6C. The radiator is your reason to be there."
   2. Lift **6C_tea_tray** by hand, 18 cm. The companion's hint: "The tea is laid on a tray. Lift the tray."
@@ -63,6 +65,8 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **Open when pinned:** **order_slip**.
 - **The question:** What left 6C that evening, and for whom?
 - **Canon beat:** B08. Cam carries a sealed envelope down from 6C at 18:40; his route book names it.
+- **The day:** high summer; a heat wave breaking.
+- **What the rooms show of it:** Every window open, shades half drawn against the low sun. Electric fans turning in the flats that have them. The sky yellow in the west; awnings cranked in before the storm. The ice card in a window turned to fifty pounds.
 - **Steps:**
   1. Wait until **18:40**. The companion's hint: "Cam Ortiz is still on his round. He is back after twenty to seven. Wait."
   2. Be in **4C**. The companion's hint: "He is home now. Go to 4C."
@@ -77,6 +81,8 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **Open when pinned:** **order_slip**.
 - **The question:** What did the nurse write down?
 - **Canon beat:** B11. Teresa finds her and writes down what was under the nails.
+- **The day:** high summer; the night after the storm.
+- **What the rooms show of it:** Wet sills and puddles on the landings. Lamps out where the lightning took the lights; one candle in 1D. Windows shut in a hurry, curtains soaked. The street washed clean and steaming.
 - **Steps:**
   1. Be in **1D**. The companion's hint: "Someone on the first floor has not slept. Go to 1D."
   2. Lift **1D_flask** by hand, 16 cm. The companion's hint: "Teresa Vale's flask stands by her things. Lift it."
@@ -91,6 +97,8 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **Open when pinned:** **nurse_note**.
 - **The question:** Who came to the seamstress that morning?
 - **Canon beat:** B12 and B20. Lena wrote the pearl button down the morning it came.
+- **The day:** high summer; the morning after the storm.
+- **What the rooms show of it:** First light, grey and cool for once. Washing hung indoors because the yard is wet. A milk bottle and the ice card on the sill. Leaves and grit blown in under the door.
 - **Steps:**
   1. Be in **2B**. The companion's hint: "Lena Ortiz writes every job down the morning it comes. Go to 2B."
   2. Lift **2B_finished_parcel** by hand, 20 cm. The companion's hint: "A parcel is finished and waiting on top. Lift it away."
@@ -106,6 +114,8 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **Open when pinned:** **she_asked_first**.
 - **The question:** What did Jonah Price hear, and what did he make up?
 - **Canon beat:** B16. Jonah composed over what he heard; the built carrier is his 19 July book.
+- **The day:** deep summer; the dog days.
+- **What the rooms show of it:** A fan on the writing table and paper weighted against it. Shades drawn all day. Bottles of soda water in a basin of ice. Moths at the lamp.
 - **Steps:**
   1. Be in **6B**. The companion's hint: "Jonah Price dates his books on their spines. Go to 6B."
   2. Work the existing carrier that grants **m_notebook_spine**. The companion's hint: "On top of his case: draw the book marked 19 July off the stack."
@@ -121,6 +131,8 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **Open when pinned:** **nurse_note**.
 - **The question:** What did the storm wash down?
 - **Canon beat:** B17. The glove scrap and pearl button; the built carrier is the clean-out plug.
+- **The day:** deep summer; the dog days.
+- **What the rooms show of it:** The yard drain still silted from the July storm. The boiler cold and its room the coolest in the house. Flypaper in the basement passage. Coal bin swept and empty.
 - **Steps:**
   1. Wait until **09:10**. The companion's hint: "The work order is for this morning. Go down to the boiler room."
   2. Work the existing carrier that grants **m_glove_scrap**. The companion's hint: "The yard drain's clean-out comes through the boiler room wall. Draw the plug."
@@ -135,6 +147,8 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **The question:** What was playing behind the wall?
 - **Canon beat:** B19. The replayed episode: the door and the tick.
 - **Strict:** lifting a later object before its turn puts the room back to the start.
+- **The day:** late summer; the last Saturday but one of August.
+- **What the rooms show of it:** Wireless sets loud through open windows. The first school notices on the lobby board. A fan still running but the evenings drawing in. Peaches in a bowl.
 - **Steps:**
   1. Be in **5B**. The companion's hint: "Cal Dwyer and Juno Kells trade recordings on Saturdays at three. Go to 5B."
   2. Lift **5B_story_headphones** by hand, 15 cm. The companion's hint: "He files by ear. Lift the headphones off the stack first."
@@ -152,6 +166,8 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **The question:** What did not burn?
 - **Canon beat:** B21, by its later carrier: Omar's bench tag for the dark slide.
 - **Strict:** lifting a later object before its turn puts the room back to the start.
+- **The day:** early autumn; two days after the first fire.
+- **What the rooms show of it:** Radiators knocking for the first time since spring. Windows shut; storm sashes stacked in the hall, not yet hung. Coal dust on the basement stairs. Asters in a jar.
 - **Steps:**
   1. Wait until **12:20**. The companion's hint: "Omar Bell raked the ash pit at eight. Give him time to carry it up to his bench."
   2. Be in **3B**. The companion's hint: "Go to 3B."
@@ -169,6 +185,8 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **The question:** What did Adela give Sacha Reed to keep?
 - **Canon beat:** B22. Sacha's duplicate negative, at the quarterly sleeve check.
 - **Strict:** lifting a later object before its turn puts the room back to the start.
+- **The day:** autumn; the week after Columbus Day, Hallowe'en coming.
+- **What the rooms show of it:** Cut paper pumpkins in the children's window on the second floor. Steam heat on and the windows fogged. Bunting from the Columbus Day parade folded on the lobby shelf. Dark by half past five.
 - **Steps:**
   1. Wait until **19:45**. The companion's hint: "The quarterly sleeve check is at a quarter to eight. Wait for it."
   2. Be in **6A**. The companion's hint: "Go to 6A."
@@ -187,6 +205,8 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **The question:** What is on the half that survived?
 - **Canon beat:** B23. The surviving half of plate 13.
 - **Strict:** lifting a later object before its turn puts the room back to the start.
+- **The day:** autumn; two days before Hallowe'en.
+- **What the rooms show of it:** A jack-o'-lantern on the stoop. Evening papers stacked high at the stand, sold out early. Coats on every hallstand. The radiators hot.
 - **Steps:**
   1. Wait until **19:15**. The companion's hint: "Sacha said Tuesday the twenty-ninth, in the evening. Let the bath warm."
   2. Be in **6A**. The companion's hint: "Go to 6A."
@@ -206,6 +226,8 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **The question:** What did she keep?
 - **Canon beat:** B25. Mae's box, in the hour between her sale day and Mr. Ewald's call.
 - **Strict:** lifting a later object before its turn puts the room back to the start.
+- **The day:** late autumn; the Saturday before Armistice Day.
+- **What the rooms show of it:** Poppies and a flag in the lobby for Monday. Election posters from Tuesday still up on the hoardings. Storm sashes hung; the house smells of coal. Nadia's Armistice card unfinished in the shop window.
 - **Steps:**
   1. Wait until **15:05**. The companion's hint: "Her sale day ends at three. Mr. Ewald calls at four. You have the hour between."
   2. Be in **6C**. The companion's hint: "Go to 6C."
@@ -228,7 +250,7 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 
 ## What is not settled
 
-- Every evidence text and hint is a first draft. Three are not from the treatment and are my invention: the wording of the order slip, Jonah's struck page, and Cal's timing card. Lily ruled on 2026-11-10 that new evidence items may be invented as the need arises.
+- Every evidence text and hint is a first draft. Three are not from the treatment and are my invention: the wording of the order slip, Jonah's struck page, and Cal's timing card.
 - The choice of objects is by name from the V2 furniture data. Whether each lift reads well in the room has been looked at for the tea only.
 - The drain's evidence hangs in the air by the boiler room switch; it needs a surface.
 - Whether the player can get into each flat at each hour (keys, a resident at home) has not been played.

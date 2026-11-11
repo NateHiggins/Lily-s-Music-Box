@@ -85,6 +85,11 @@ static func _load_table() -> Dictionary:
 			if not anchor.has(field):
 				return {}
 		anchor["strict"] = bool(anchor.get("strict", false))
+		# How the day is dressed: its season, what it falls beside, and what
+		# the rooms show of it. The set dressers and the wall both read this.
+		if str(anchor.get("season", "")).is_empty() or str(anchor.get("occasion", "")).is_empty() \
+				or anchor.get("dressing") is not Array or (anchor.dressing as Array).is_empty():
+			return {}
 		anchor["first_call_free"] = bool(anchor.get("first_call_free", false))
 		var span := _anchor_span(anchor)
 		# No anchor may touch the murder hours, by its own data.
@@ -115,8 +120,12 @@ static func _load_table() -> Dictionary:
 							or float(step.get("reach", 0.0)) <= 0.0: return {}
 				"flag":
 					if str(step.get("flag", "")).is_empty(): return {}
-	if parsed.get("deductions") is not Dictionary or parsed.get("scrawls") is not Array:
+	if parsed.get("deductions") is not Dictionary or parsed.get("scrawls") is not Array or parsed.get("calendar") is not Array:
 		return {}
+	for day: Variant in parsed.calendar:
+		if day is not Dictionary or str(day.get("date", "")).split("-").size() != 3 \
+				or str(day.get("name", "")).is_empty() or str(day.get("season", "")).is_empty():
+			return {}
 	for deduction_id: String in parsed.deductions:
 		var deduction: Dictionary = parsed.deductions[deduction_id]
 		if deduction.get("needs") is not Array or (deduction.needs as Array).size() < 2 \
@@ -849,8 +858,38 @@ func command(raw: String) -> Dictionary:
 
 func anchor_text(anchor_id: String) -> String:
 	var anchor: Dictionary = table.anchors[anchor_id]
-	return "%s\n%s, %s, %s. %d MINUTES.\n%s" % [str(anchor.title).to_upper(), str(anchor.place).to_upper(),
-			str(anchor.date), str(anchor.start), int(anchor.minutes), str(anchor.question)]
+	return "%s\n%s, %s, %s. %d MINUTES.\n%s. %s.\n%s" % [str(anchor.title).to_upper(), str(anchor.place).to_upper(),
+			str(anchor.date), str(anchor.start), int(anchor.minutes), str(anchor.season).to_upper(),
+			str(anchor.occasion).to_upper(), str(anchor.question)]
+
+
+## The season and nearest occasion of a calendar date ("1929-07-04"), from the
+## year's table: what the house would be dressed for on that day. The occasion
+## is named from a week before it until two days after.
+func dressed_for(date: String) -> Dictionary:
+	var parts := date.split("-")
+	if parts.size() != 3:
+		return {}
+	var day := CampaignClock.calendar_minute_of(int(parts[0]), int(parts[1]), int(parts[2]), 0.0) / CampaignClock.MINUTES_PER_DAY
+	var season := ""
+	var occasion := ""
+	var nearest := 1.0e9
+	var nearest_occasion := 1.0e9
+	for entry: Dictionary in table.calendar:
+		var at := str(entry.date).split("-")
+		var its_day := CampaignClock.calendar_minute_of(int(at[0]), int(at[1]), int(at[2]), 0.0) / CampaignClock.MINUTES_PER_DAY
+		if absf(its_day - day) < nearest:
+			nearest = absf(its_day - day)
+			season = str(entry.season)
+		if day >= its_day - 7.0 and day <= its_day + 2.0 and absf(its_day - day) < nearest_occasion:
+			nearest_occasion = absf(its_day - day)
+			occasion = str(entry.name)
+	return {"season": season, "occasion": occasion}
+
+
+## What a lead's rooms show of their day, for whoever dresses the set.
+func dressing_of(anchor_id: String) -> Array:
+	return table.anchors[anchor_id].dressing
 
 
 func leads_text() -> String:
