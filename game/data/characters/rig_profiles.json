@@ -1,0 +1,56 @@
+{
+	"schema_version": 1,
+	"families": [
+		{
+			"id": "meshy_biped",
+			"detect": ["Hips", "Spine02", "neck", "Head", "headfront"],
+			"joints": [
+				{"joint": "pelvis", "names": ["Hips"]},
+				{"joint": "spine_low", "names": ["Spine02"]},
+				{"joint": "spine_mid", "names": ["Spine01"]},
+				{"joint": "chest", "names": ["Spine"]},
+				{"joint": "neck", "names": ["neck"]},
+				{"joint": "head", "names": ["Head"]},
+				{"joint": "head_front", "names": ["headfront"]},
+				{"joint": "head_top", "names": ["head_end"]}
+			],
+			"gaze": {"yaw_degrees": 68, "pitch_degrees": 32, "chest_share": 0.18, "neck_share": 0.42},
+			"breath": {"degrees": 0.7, "seconds": 4.2},
+			"lacks": ["eyes", "eyelids", "jaw", "lips", "fingers", "twist"]
+		},
+		{
+			"id": "adela_rigify",
+			"detect": ["spine", "spine.003", "spine.005", "headfront"],
+			"joints": [
+				{"joint": "pelvis", "names": ["spine"]},
+				{"joint": "spine_low", "names": ["spine.001", "spine_001"]},
+				{"joint": "spine_mid", "names": ["spine.002", "spine_002"]},
+				{"joint": "chest", "names": ["spine.003", "spine_003"]},
+				{"joint": "neck", "names": ["spine.004", "spine_004"]},
+				{"joint": "head", "names": ["spine.005", "spine_005"]},
+				{"joint": "head_front", "names": ["headfront"]},
+				{"joint": "head_top", "names": ["head_end"]}
+			],
+			"gaze": {"yaw_degrees": 68, "pitch_degrees": 32, "chest_share": 0.18, "neck_share": 0.42},
+			"breath": {"degrees": 0.7, "seconds": 4.6},
+			"lacks": ["eyes", "eyelids", "jaw", "lips", "fingers", "twist"]
+		},
+		{
+			"id": "doodle",
+			"detect": ["smartrig_Hips", "smartrig_Spine2", "smartrig_Neck", "smartrig_Head", "headfront"],
+			"joints": [
+				{"joint": "pelvis", "names": ["smartrig_Hips"]},
+				{"joint": "spine_low", "names": ["smartrig_Spine"]},
+				{"joint": "spine_mid", "names": ["smartrig_Spine1"]},
+				{"joint": "chest", "names": ["smartrig_Spine2"]},
+				{"joint": "neck", "names": ["smartrig_Neck"]},
+				{"joint": "head", "names": ["smartrig_Head"]},
+				{"joint": "head_front", "names": ["headfront"]},
+				{"joint": "head_top", "names": ["smartrig_HeadTop_End"]}
+			],
+			"gaze": {"yaw_degrees": 60, "pitch_degrees": 28, "chest_share": 0.15, "neck_share": 0.4},
+			"breath": {"degrees": 0.5, "seconds": 3.8},
+			"lacks": ["eyes", "eyelids", "jaw", "lips", "twist"]
+		}
+	]
+}
