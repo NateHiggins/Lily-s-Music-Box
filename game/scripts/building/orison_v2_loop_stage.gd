@@ -444,8 +444,8 @@ func _ribbon(from: Vector3, to: Vector3) -> Node3D:
 
 func _deduction_place(deduction_id: String) -> Vector3:
 	var place: int = (loop.ledger().deductions as Array).find(deduction_id)
-	return _wall_frame * Vector3((-0.32 + 0.32 * float(place % 3)) * _wall_size.x,
-			(-0.26 - 0.16 * float(place / 3)) * _wall_size.y, 0.0)
+	# In a row under the board, where there is room to read them.
+	return _wall_frame * Vector3(-0.36 + 0.26 * float(place), -_wall_size.y * 0.5 - 0.17, 0.0)
 
 
 ## Bring every card in line with the ledger.
@@ -516,7 +516,7 @@ func _sync() -> void:
 		drawn.name = "LoopDeduction_" + str(deduction_id)
 		add_child(drawn)
 		var at := _deduction_place(str(deduction_id)) + _wall_frame.basis.z * 0.005
-		_place(drawn, _sized(_wall_frame.basis, 0.24, 0.15), at)
+		_place(drawn, _sized(_wall_frame.basis, 0.24, 0.25), at)
 		var label := _words(str(loop.table.deductions[str(deduction_id)].line), Basis(), 0.21)
 		drawn.add_child(label)
 		label.global_transform = Transform3D(_wall_frame.basis, at + _wall_frame.basis.z * 0.004)
@@ -759,7 +759,7 @@ func _survey() -> void:
 				continue
 			var where: Vector3 = hit.position
 			var on_board: Vector3 = _wall_frame.affine_inverse() * where
-			if absf(on_board.z) < 0.08 and absf(on_board.x) < _wall_size.x * 0.5 + 0.06 and absf(on_board.y) < _wall_size.y * 0.5 + 0.06:
+			if absf(on_board.z) < 0.08 and absf(on_board.x) < _wall_size.x * 0.5 + 0.3 and on_board.y < _wall_size.y * 0.5 + 0.06 					and on_board.y > -_wall_size.y * 0.5 - 0.34:
 				continue
 			if absf(on_board.z) < 0.08 and absf(on_board.x - MAP_CENTRE.x) < MAP_SIZE.x * 0.5 + 0.04 \
 					and on_board.y < MAP_CENTRE.y + MAP_SIZE.y * 0.5 + 0.04 and on_board.y > AREA_CENTRE.y - AREA_SIZE.y * 0.5 - 0.04:
