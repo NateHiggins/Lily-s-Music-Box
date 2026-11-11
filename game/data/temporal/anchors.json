@@ -56,7 +56,12 @@
 				"Iced tea, not hot: the glasses sweat on the tray.",
 				"The radiators are cold and the player is there to bleed one anyway."
 			],
-			"where": "6C"
+			"where": "6C",
+			"windows": {
+				"raise": 0.7,
+				"tilt_degrees": 15,
+				"curtain_open": 1.0
+			}
 		},
 		"friday": {
 			"title": "Friday's errand",
@@ -109,7 +114,12 @@
 				"The sky yellow in the west; awnings cranked in before the storm.",
 				"The ice card in a window turned to fifty pounds."
 			],
-			"where": "4C"
+			"where": "4C",
+			"windows": {
+				"raise": 0.45,
+				"tilt_degrees": 55,
+				"curtain_open": 0.7
+			}
 		},
 		"stairs": {
 			"title": "The stairs before light",
@@ -168,7 +178,12 @@
 				"Windows shut in a hurry, curtains soaked.",
 				"The street washed clean and steaming."
 			],
-			"where": "1D"
+			"where": "1D",
+			"windows": {
+				"raise": 0.1,
+				"tilt_degrees": 70,
+				"curtain_open": 0.15
+			}
 		},
 		"notebook": {
 			"title": "The writer upstairs",
@@ -233,7 +248,12 @@
 				"Bottles of soda water in a basin of ice.",
 				"Moths at the lamp."
 			],
-			"where": "6B"
+			"where": "6B",
+			"windows": {
+				"raise": 0.5,
+				"tilt_degrees": 40,
+				"curtain_open": 0.9
+			}
 		},
 		"button": {
 			"title": "The mending basket",
@@ -304,7 +324,12 @@
 				"A milk bottle and the ice card on the sill.",
 				"Leaves and grit blown in under the door."
 			],
-			"where": "2B"
+			"where": "2B",
+			"windows": {
+				"raise": 0.2,
+				"tilt_degrees": 60,
+				"curtain_open": 0.3
+			}
 		},
 		"drain": {
 			"title": "The yard drain",
@@ -350,7 +375,12 @@
 				"Flypaper in the basement passage.",
 				"Coal bin swept and empty."
 			],
-			"where": "B1"
+			"where": "B1",
+			"windows": {
+				"raise": 0.5,
+				"tilt_degrees": 40,
+				"curtain_open": 0.9
+			}
 		},
 		"drama": {
 			"title": "The twelfth record",
@@ -434,7 +464,12 @@
 				"A fan still running but the evenings drawing in.",
 				"Peaches in a bowl."
 			],
-			"where": "5B"
+			"where": "5B",
+			"windows": {
+				"raise": 0.7,
+				"tilt_degrees": 20,
+				"curtain_open": 1.0
+			}
 		},
 		"bench": {
 			"title": "Glass from the ash",
@@ -512,7 +547,12 @@
 				"Coal dust on the basement stairs.",
 				"Asters in a jar."
 			],
-			"where": "3B"
+			"where": "3B",
+			"windows": {
+				"raise": 0.8,
+				"tilt_degrees": 10,
+				"curtain_open": 0.8
+			}
 		},
 		"duplicate": {
 			"title": "The sleeve check",
@@ -603,7 +643,12 @@
 				"Bunting from the Columbus Day parade folded on the lobby shelf.",
 				"Dark by half past five."
 			],
-			"where": "6A"
+			"where": "6A",
+			"windows": {
+				"raise": 0.3,
+				"tilt_degrees": 60,
+				"curtain_open": 0.35
+			}
 		},
 		"plate": {
 			"title": "Plate thirteen",
@@ -705,7 +750,12 @@
 				"Coats on every hallstand.",
 				"The radiators hot."
 			],
-			"where": "6A"
+			"where": "6A",
+			"windows": {
+				"raise": 0.25,
+				"tilt_degrees": 65,
+				"curtain_open": 0.3
+			}
 		},
 		"box": {
 			"title": "Mrs. Kessler's box",
@@ -810,7 +860,12 @@
 				"Storm sashes hung; the house smells of coal.",
 				"Nadia's Armistice card unfinished in the shop window."
 			],
-			"where": "6C"
+			"where": "6C",
+			"windows": {
+				"raise": 0.7,
+				"tilt_degrees": 20,
+				"curtain_open": 0.6
+			}
 		}
 	},
 	"deductions": {

@@ -90,6 +90,12 @@ static func _load_table() -> Dictionary:
 		if str(anchor.get("season", "")).is_empty() or str(anchor.get("occasion", "")).is_empty() \
 				or anchor.get("dressing") is not Array or (anchor.dressing as Array).is_empty():
 			return {}
+		# How the house's blinds and curtains stand on that day.
+		var windows: Variant = anchor.get("windows")
+		if windows is not Dictionary or float(windows.get("raise", -1.0)) < 0.0 or float(windows.raise) > 1.0 \
+				or absf(float(windows.get("tilt_degrees", 999.0))) > 75.0 \
+				or float(windows.get("curtain_open", -1.0)) < 0.0 or float(windows.curtain_open) > 1.0:
+			return {}
 		anchor["first_call_free"] = bool(anchor.get("first_call_free", false))
 		var span := _anchor_span(anchor)
 		# No anchor may touch the murder hours, by its own data.
@@ -983,6 +989,11 @@ func dressed_for(date: String) -> Dictionary:
 			nearest_occasion = absf(its_day - day)
 			occasion = str(entry.name)
 	return {"season": season, "occasion": occasion}
+
+
+## How a lead's day has the blinds and curtains: raise, tilt_degrees, curtain_open.
+func windows_of(anchor_id: String) -> Dictionary:
+	return table.anchors[anchor_id].windows
 
 
 ## What a lead's rooms show of their day, for whoever dresses the set.
