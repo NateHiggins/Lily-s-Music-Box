@@ -10,8 +10,8 @@ extends Node
 const Stock := preload("res://scripts/building/orison_v2_evidence_stock.gd")
 const ANCHORS := "res://data/temporal/anchors.json"
 const GENERAL: Array[String] = ["bundle", "pin"]
-## The stretch of 4B's south wall between the couch and the shelf, in plan.
-const WALL_PLAN := Vector2(-10.3, -3.85)
+## The clear stretch of 4B's south wall above the couch, west of the wall clock, in plan.
+const WALL_PLAN := Vector2(-11.95, -3.85)
 const WALL_INTO_ROOM := Vector3(0, 0, 1)
 const EYE_HEIGHT := 1.5
 const GAP := 0.05
@@ -219,6 +219,9 @@ func _ready() -> void:
 			(layer as CanvasLayer).visible = false
 		world.player.set_physics_process(false)
 		world.player.set_lamp_enabled(false)
+		var carrier := world.get("service_set_carrier") as Node3D
+		if carrier != null:
+			carrier.visible = false
 		_eye = world.player.camera.global_position - world.player.global_position
 		await _film(shots, "row_at_2m", middle - out * 0.6, middle + out * 1.4)
 		await _film(shots, "row_left_at_1m", middle - out * 0.6 - across * total * 0.27, middle + out * 0.5 - across * total * 0.27)
@@ -227,7 +230,7 @@ func _ready() -> void:
 			if hung.has(id):
 				var piece: Node3D = hung[id]
 				var reach: float = clampf(stock.size(id).length() * 1.6, 0.12, 0.8)
-				await _film(shots, "wall_" + id, piece.global_position, piece.global_position + out * reach + Vector3.UP * reach * 0.12 + across * reach * 0.25)
+				await _film(shots, "wall_" + id, piece.global_position, piece.global_position + out * reach + Vector3.UP * reach * 0.1)
 		if table_top != Vector3.ZERO and table_node != null:
 			var centre := Vector3(table_node.global_position.x, table_top.y, table_node.global_position.z)
 			var back: Vector3 = (blockout.global_transform.basis * Vector3(1, 0, 0)).normalized()
