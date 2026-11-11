@@ -4,6 +4,7 @@ extends Node
 const State := preload("res://scripts/game/prologue_state.gd")
 const Loop := preload("res://scripts/game/temporal_loop.gd")
 const Economy := preload("res://scripts/game/caretaker_economy.gd")
+const Pocket := preload("res://scripts/game/paper_pocket.gd")
 var failures: Array[String] = []
 var checks := 0
 var clock: CampaignClock
@@ -104,6 +105,7 @@ func _ready() -> void:
 			"no banking, allowance or second jump while away")
 	check(economy.receive("test:odd_job", 500) and int(economy.book().cash) == 540, "money can be earned in the past")
 	RealityState.grant_knowledge("mt:mk_tea")
+	check(Pocket.file_evidence("test_find", "A scrap", "Found on the sixth floor that afternoon."), "a find is collected in the past")
 	check(clock.advance_to(clock.elapsed_minutes() + 60.0), "an hour of the visit passes")
 	loop.collect()
 	check(loop.holds("mt:mk_tea") and loop.state() == "RESOLVE_ANCHOR", "what was heard is in the ledger and the question is answered")
@@ -125,6 +127,8 @@ func _ready() -> void:
 	check(loop.bank_cents() == 60 and is_equal_approx(clock.elapsed_minutes(), elapsed), "a reset costs no fare and no elapsed time")
 	check(int(economy.book().cash) == 40, "what was earned there is gone with the run")
 	check(loop.holds("mt:mk_tea") and RealityState.has_knowledge("mt:mk_tea"), "what was learned there is kept")
+	check(loop.holds("ev:test_find") and Pocket.book().evidence.any(func(found: Variant) -> bool: return str(found.id) == "test_find"),
+			"what was collected there is kept through the rerun")
 
 	# Home: across the annual boundary, with the rent clock untouched.
 	check(clock.advance_to(clock.elapsed_minutes() + 30.0), "half an hour more")
@@ -134,6 +138,8 @@ func _ready() -> void:
 	check(at(1928, 11, 10, 1, 0) or at(1928, 11, 10, 1, 1), "the present moved on by the ninety minutes away, over the turn of the year (%s)" % stamp())
 	check(is_equal_approx(float(economy.book().started), rent_started) and int(economy.book().rent_paid) == 0
 			and int(economy.book().cash) == 40, "the rent ledger never saw the trip")
+	check(loop.holds("ev:test_find") and Pocket.book().evidence.any(func(found: Variant) -> bool: return str(found.id) == "test_find"),
+			"the evidence collected on the trip is home in the valise")
 	check(RealityState.save_game(), "home saves")
 
 	# Fares.

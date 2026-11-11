@@ -658,8 +658,11 @@ a fare, and the leads open in order. This replaces "no resource currency" and
 - **The hours again.** Inside a paid visit the lead's hours may be run again
   without charge, as often as wanted, and begin again by themselves when they
   run out.
-- **What comes home.** Knowledge only: what was heard, the deductions drawn
-  from it, and the leads it opens. Pocket money, carried things and the
+- **Evidence is kept.** That is the purpose of each trip. What was heard,
+  and what was collected into the valise (written finds, letters, papers),
+  comes home and stays through every rerun, with the deductions drawn from
+  it and the leads it opens.
+- **What does not come home.** Pocket money, tools and stores, keys, and the
   visited day itself are as they were. Nothing earned in a visit can be banked.
 - **The bank.** The night man earns by maintenance in the present and puts
   money by at the savings bank, at home only. The house pays a small daily

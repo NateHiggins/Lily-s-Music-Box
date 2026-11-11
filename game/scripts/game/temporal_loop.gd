@@ -9,9 +9,12 @@ extends Node
 ## anchor began) and the player's own (elapsed minutes, which never go back, so
 ## rent and deliveries stay honest through every visit).
 ##
-## What persists: the bank, its transactions, unlocked and resolved anchors,
-## evidence, deductions. What a visit or a reset rewinds: the REWOUND keys of
-## the campaign document, which is where pocket cash and carried things live.
+## Evidence is what each trip is for, and it is kept: what was heard (knowledge
+## flags) and what was collected (the valise's evidence folder, papers and
+## letters, which no visit or rerun touches). Also kept: the bank, its
+## transactions, unlocked and resolved anchors, deductions. What a visit or a
+## rerun puts back: the REWOUND domains, which are pocket cash, tools and
+## stores, keys, shop stock and standing with the residents.
 ## Money can therefore reach the bank only by a deposit made at home, and a
 ## deposit is one committed transaction.
 ##
@@ -25,8 +28,12 @@ signal slip(title: String, body: String)
 const KEY := "temporal"
 const DATA_PATH := "res://data/temporal/anchors.json"
 const Economy := preload("res://scripts/game/caretaker_economy.gd")
-## Campaign domains a visit borrows and gives back. Knowledge is not among
-## them: what was heard stays heard.
+const PaperPocket := preload("res://scripts/game/paper_pocket.gd")
+## A find kept in the valise's evidence folder is held in the ledger under
+## this prefix, so a lead can ask for a thing collected as well as a thing heard.
+const FOUND_PREFIX := "ev:"
+## Campaign domains a visit borrows and gives back. Knowledge and the valise
+## (PaperPocket.KEY) must never be among them: evidence is kept.
 const REWOUND: Array[String] = ["caretaker_economy", "inventories", "door_keys",
 		"shop_stock", "conversation_visits", "resident_trust"]
 const STATES: Array[String] = ["CHOOSE_NEXT_ACTION", "SELECT_ANCHOR", "FUND_JUMP",
@@ -42,7 +49,7 @@ func setup(campaign_clock: CampaignClock, caretaker_economy: Node) -> bool:
 	clock = campaign_clock
 	economy = caretaker_economy
 	table = _load_table()
-	if table.is_empty() or clock == null:
+	if table.is_empty() or clock == null or PaperPocket.KEY in REWOUND or "knowledge_flags" in REWOUND:
 		return false
 	add_to_group("temporal_loop")
 	return true
@@ -364,9 +371,14 @@ func collect() -> Dictionary:
 	var book := ledger()
 	var found: Array[String] = []
 	var drawn: Array[String] = []
+	for find: Variant in PaperPocket.book().evidence:
+		var held := FOUND_PREFIX + str(find.id)
+		if held not in book.evidence:
+			book.evidence.append(held)
+			found.append(held)
 	for anchor_id: String in table.anchors:
 		for flag: Variant in table.anchors[anchor_id].evidence:
-			if str(flag) not in book.evidence and RealityState.has_knowledge(str(flag)):
+			if str(flag) not in book.evidence and not str(flag).begins_with(FOUND_PREFIX) and RealityState.has_knowledge(str(flag)):
 				book.evidence.append(str(flag))
 				found.append(str(flag))
 	for deduction_id: String in table.get("deductions", {}):
@@ -426,7 +438,7 @@ func command(raw: String) -> Dictionary:
 				return {"intent": "temporal", "text": "DEPOSIT n. CENTS."}
 			var put := deposit(int(words[1]))
 			return {"intent": "temporal", "text": "BANKED %s. BALANCE %s." % [Economy.money(int(put.cents)), Economy.money(bank_cents())] if put.ok
-					else ("NOT WHILE AWAY. WHAT IS EARNED THERE STAYS THERE." if put.code == "away" else "THE POCKET IS SHORT.")}
+					else ("NOT WHILE AWAY. MONEY EARNED THERE STAYS THERE. EVIDENCE COMES HOME." if put.code == "away" else "THE POCKET IS SHORT.")}
 		"jump":
 			var ids := unlocked()
 			if words.size() < 2 or not words[1].is_valid_int() or int(words[1]) < 1 or int(words[1]) > ids.size():
