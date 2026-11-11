@@ -656,7 +656,11 @@ def build_pumpkin():
     wax.lathe([(0.0, floor_y - 0.004), (0.016, floor_y - 0.004), (0.016, floor_y + 0.040), (0.013, floor_y + 0.046), (0.0, floor_y + 0.043)], (0, 0, 0), "y", 8)
     wax.tube([(0, floor_y + 0.043, 0), (0.001, floor_y + 0.052, 0)], 0.0012, 4)
     part("Candle", "Pumpkin", "milk_glass", wax, tint=[0.96, 0.90, 0.72], smooth=True)
-    prop("pumpkin", "Pumpkin", reach=30.0, candle=CANDLE_FLAME)
+    # Seat it: the lowest ring of the skin stands on the ground.
+    seat = min(v[1] for v in shell.v)
+    for mb in [shell, stalk, wax] + cuts:
+        mb.v = [(x, y - seat, z) for x, y, z in mb.v]
+    prop("pumpkin", "Pumpkin", reach=30.0, candle=[CANDLE_FLAME[0], round(CANDLE_FLAME[1] - seat, 4), CANDLE_FLAME[2]])
 
 
 # --------------------------------------------------------------------------
