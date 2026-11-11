@@ -666,8 +666,13 @@ a fare, and the leads open in order. This replaces "no resource currency" and
   run out.
 - **Evidence is kept.** That is the purpose of each trip. Evidence taken in
   a visit comes home and stays through every rerun, and so does what was
-  heard and what was collected into the valise. Pinned to the wall, it opens
-  leads and draws deductions.
+  heard and what was collected into the valise.
+- **Making sense of it is a game of its own.** On the wall the player runs
+  red string from one piece to another by hand. A string between pieces that
+  belong together holds; any other falls. When all the pieces of a deduction
+  are strung together it is written out on the wall, and it may open leads.
+- **The wall takes the flat.** As the case grows, paper spreads from the
+  board over 4B's walls, door and furniture.
 - **What does not come home.** Pocket money, tools and stores, keys, and the
   visited day itself are as they were. Nothing earned in a visit can be banked.
 - **The bank.** The night man earns by maintenance in the present and puts

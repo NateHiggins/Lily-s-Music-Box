@@ -4,12 +4,14 @@ Evidence class: **INERT**. Design script, 2026-11-10, written at Lily's directio
 
 ## How one loop goes
 
-1. At home, the case wall in 4B shows which leads are open. A lead is open when every piece of evidence it needs is pinned to the wall.
+1. At home, the case wall in 4B shows which leads are open. A lead is open when everything it needs is on the wall: a piece of evidence pinned, or a deduction drawn.
 2. The player pays the fare and jumps. The room is as it was on that day.
 3. The player works the room, one step at a time. A step is one of four things: be in the flat, wait for an hour, lift a named object out of the way by hand, or work a carrier the world already has.
 4. When the last step is done, one piece of evidence lies where the last object stood. The player picks it up. It is kept from then on.
 5. If the hours run out first, they begin again and the room is put back. Evidence already taken stays taken.
-6. The player goes home and pins the evidence to the wall by hand. The wall opens the next leads and may draw a deduction.
+6. The player goes home and pins the evidence to the wall by hand.
+7. Making sense of it is its own game, played on the wall. The player pulls the pin of one piece to take up the red string, then the pin of another to run it there. If the two pieces belong to the same deduction the string holds; if not it falls. When every piece of a deduction is strung together, the deduction is written out on the wall, and it may open leads.
+8. The wall spreads. Every piece pinned, string that holds and deduction drawn puts more paper up in 4B, outward from the board over the walls, the door and the furniture, until the finished case has taken the flat.
 
 Every object a step names is already in the V2 flat. Nothing was built for this. The evidence itself is a paper slip with its title on it; a modelled object for each (a glove scrap, a glass plate) is owed.
 
@@ -21,13 +23,13 @@ Every object a step names is already in the V2 flat. Nothing was built for this.
 | 2 | **friday** (Friday's errand) | 1929-07-19, 18:20, 100 min | 4C | A Photo Supplies order slip | A leaf from Cam's route book | 3 |
 | 2 | **stairs** (The stairs before light) | 1929-07-20, 03:02, 38 min | 1D | A Photo Supplies order slip | Teresa Vale's note | 3 |
 | 3 | **button** (The mending basket) | 1929-07-20, 05:00, 80 min | 2B | Teresa Vale's note | A leaf from Lena's button book | 4 |
-| 3 | **notebook** (The writer upstairs) | 1929-08-06, 20:00, 90 min | 6B | A leaf from Cam's route book | Jonah's struck page | 4 |
+| 3 | **notebook** (The writer upstairs) | 1929-08-06, 20:00, 90 min | 6B | the deduction **she_asked_first** | Jonah's struck page | 4 |
 | 3 | **drain** (The yard drain) | 1929-08-07, 09:00, 120 min | the boiler room | Teresa Vale's note | A scrap of white kid with a pearl button | 2 |
 | 4 | **drama** (The twelfth record) | 1929-08-24, 15:00, 110 min | 5B | Jonah's struck page | Cal's timing card for the two broadcasts | 5, strict |
-| 4 | **bench** (Glass from the ash) | 1929-09-23, 12:00, 120 min | 3B | A scrap of white kid with a pearl button | A dark slide with Omar's bench tag | 5, strict |
-| 4 | **duplicate** (The sleeve check) | 1929-10-18, 19:30, 90 min | 6A | A leaf from Lena's button book, A leaf from Cam's route book | The duplicate deed negative | 6, strict |
-| 5 | **plate** (Plate thirteen) | 1929-10-29, 19:00, 100 min | 6A | A dark slide with Omar's bench tag, The duplicate deed negative | The surviving half of plate 13 | 7, strict |
-| 6 | **box** (Mrs. Kessler's box) | 1929-11-09, 15:00, 60 min | 6C | The surviving half of plate 13, Cal's timing card for the two broadcasts, A scrap of white kid with a pearl button, A leaf from Lena's button book, A leaf from Cam's route book | What was in Mrs. Kessler's box | 7, strict |
+| 4 | **bench** (Glass from the ash) | 1929-09-23, 12:00, 120 min | 3B | the deduction **the_glove** | A dark slide with Omar's bench tag | 5, strict |
+| 4 | **duplicate** (The sleeve check) | 1929-10-18, 19:30, 90 min | 6A | the deduction **she_asked_first**, A leaf from Lena's button book | The duplicate deed negative | 6, strict |
+| 5 | **plate** (Plate thirteen) | 1929-10-29, 19:00, 100 min | 6A | the deduction **the_reason** | The surviving half of plate 13 | 7, strict |
+| 6 | **box** (Mrs. Kessler's box) | 1929-11-09, 15:00, 60 min | 6C | the deduction **the_glove**, the deduction **the_evening_was_made**, the deduction **the_reason**, The surviving half of plate 13 | What was in Mrs. Kessler's box | 7, strict |
 
 What each tier adds:
 
@@ -53,7 +55,7 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
   2. Lift **6C_tea_tray** by hand, 18 cm. The companion's hint: "The tea is laid on a tray. Lift the tray."
 - **The evidence:** **order_slip**, "A Photo Supplies order slip". It lies where **6C_tea_tray** stood.
 - **It reads:** PHOTO SUPPLIES. THURS. 13 JUNE. MRS. K., 6C. THE DEED NEGATIVES, ALL OF THEM. ACROSS IT IN ANOTHER HAND: NOT FOR SALE. A.V.
-- **Pinned, it helps open:** **friday**, **stairs**.
+- **Pinned, it helps open:** **friday**, **stairs**, **notebook**, **duplicate**.
 
 ### Tier 2: **friday**, "Friday's errand"
 
@@ -67,7 +69,7 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
   3. Lift **4C_jersey** by hand, 25 cm. The companion's hint: "His jersey is thrown down where he came in. Lift it."
 - **The evidence:** **route_leaf**, "A leaf from Cam's route book". It lies where **4C_jersey** stood.
 - **It reads:** FRI. 19 JUL., 6.40 P.M. 6C TO MR. EWALD. HOLD. FIRST RUN SAT. THE FLAP IS MARKED ACROSS IN HIS PENCIL.
-- **Pinned, it helps open:** **notebook**, **duplicate**, **box**.
+- **Pinned, it helps open:** **notebook**, **duplicate**.
 
 ### Tier 2: **stairs**, "The stairs before light"
 
@@ -81,7 +83,7 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
   3. Lift **1D_fob_watch** by hand, 12 cm. The companion's hint: "Her watch lies on a folded paper. Lift the watch."
 - **The evidence:** **nurse_note**, "Teresa Vale's note". It lies where **1D_fob_watch** stood.
 - **It reads:** 3.05 A.M. ADELA VOSS. REAR YARD. RIGHT HAND: SHREDS OF WHITE KID LEATHER UNDER THE NAILS. T.V.
-- **Pinned, it helps open:** **button**, **drain**.
+- **Pinned, it helps open:** **button**, **drain**, **bench**, **box**.
 
 ### Tier 3: **button**, "The mending basket"
 
@@ -96,12 +98,12 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
   4. Lift **2B_story_notions** by hand, 18 cm. The companion's hint: "Now the notions box. Lift it."
 - **The evidence:** **button_leaf**, "A leaf from Lena's button book". It lies where **2B_story_notions** stood.
 - **It reads:** 20 JULY. ONE PEARL. 6C, FOR A GLOVE. WRITTEN THAT MORNING.
-- **Pinned, it helps open:** **duplicate**, **box**.
+- **Pinned, it helps open:** **bench**, **duplicate**, **box**.
 
 ### Tier 3: **notebook**, "The writer upstairs"
 
 - **When and where:** 1929-08-06, from 20:00 for 90 minutes, 6B.
-- **Open when pinned:** **route_leaf**.
+- **Open when pinned:** **she_asked_first**.
 - **The question:** What did Jonah Price hear, and what did he make up?
 - **Canon beat:** B16. Jonah composed over what he heard; the built carrier is his 19 July book.
 - **Steps:**
@@ -111,7 +113,7 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
   4. Lift **6B_wastebasket** by hand, 20 cm. The companion's hint: "He threw the first attempt away. Lift the wastebasket."
 - **The evidence:** **jonah_page**, "Jonah's struck page". It lies where **6B_wastebasket** stood.
 - **It reads:** 19 JULY. STRUCK THROUGH: 'A DOOR, THEN HER VOICE, THEN THE DOOR.' BESIDE IT: NO. THAT IS LAST WEEK'S EPISODE. I HAVE HEARD THIS DOOR.
-- **Pinned, it helps open:** **drama**.
+- **Pinned, it helps open:** **drama**, **box**.
 
 ### Tier 3: **drain**, "The yard drain"
 
@@ -146,7 +148,7 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 ### Tier 4: **bench**, "Glass from the ash"
 
 - **When and where:** 1929-09-23, from 12:00 for 120 minutes, 3B.
-- **Open when pinned:** **glove_scrap**.
+- **Open when pinned:** **the_glove**.
 - **The question:** What did not burn?
 - **Canon beat:** B21, by its later carrier: Omar's bench tag for the dark slide.
 - **Strict:** lifting a later object before its turn puts the room back to the start.
@@ -158,12 +160,12 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
   5. Lift **3B_tray2** by hand, 12 cm. The companion's hint: "Then the second tray. It is under that."
 - **The evidence:** **dark_slide**, "A dark slide with Omar's bench tag". It lies where **3B_tray2** stood.
 - **It reads:** GLASS, DARK SLIDE, A.V. 13, FROM ASH, 23 SEPT. THE PLATE IT HELD IS BROKEN ACROSS.
-- **Pinned, it helps open:** **plate**.
+- **Pinned, it helps open:** **plate**, **box**.
 
 ### Tier 4: **duplicate**, "The sleeve check"
 
 - **When and where:** 1929-10-18, from 19:30 for 90 minutes, 6A.
-- **Open when pinned:** **button_leaf**, **route_leaf**.
+- **Open when pinned:** **she_asked_first**, **button_leaf**.
 - **The question:** What did Adela give Sacha Reed to keep?
 - **Canon beat:** B22. Sacha's duplicate negative, at the quarterly sleeve check.
 - **Strict:** lifting a later object before its turn puts the room back to the start.
@@ -176,12 +178,12 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
   6. Lift **6A_loupe** by hand, 10 cm. The companion's hint: "The sleeve is on the light table under the loupe. Lift the loupe."
 - **The evidence:** **duplicate_negative**, "The duplicate deed negative". It lies where **6A_loupe** stood.
 - **It reads:** ON THE SLEEVE: FROM A.V., JUNE. DEED SCHEDULE. 'TOGETHER WITH THE REVERSION OF THE ADJOINING PARCEL', 1 AUGUST 1929.
-- **Pinned, it helps open:** **plate**.
+- **Pinned, it helps open:** **plate**, **box**.
 
 ### Tier 5: **plate**, "Plate thirteen"
 
 - **When and where:** 1929-10-29, from 19:00 for 100 minutes, 6A.
-- **Open when pinned:** **dark_slide**, **duplicate_negative**.
+- **Open when pinned:** **the_reason**.
 - **The question:** What is on the half that survived?
 - **Canon beat:** B23. The surviving half of plate 13.
 - **Strict:** lifting a later object before its turn puts the room back to the start.
@@ -200,7 +202,7 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 ### Tier 6: **box**, "Mrs. Kessler's box"
 
 - **When and where:** 1929-11-09, from 15:00 for 60 minutes, 6C.
-- **Open when pinned:** **plate_half**, **disc_label**, **glove_scrap**, **button_leaf**, **route_leaf**.
+- **Open when pinned:** **the_glove**, **the_evening_was_made**, **the_reason**, **plate_half**.
 - **The question:** What did she keep?
 - **Canon beat:** B25. Mae's box, in the hour between her sale day and Mr. Ewald's call.
 - **Strict:** lifting a later object before its turn puts the room back to the start.
@@ -216,7 +218,7 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **It reads:** ADELA'S NOTE OF 6.10 P.M., 19 JULY: 'BEFORE THE TENANTS DO ON MONDAY.' THE RECORD OF 26 JUNE, THE LIGHTNING ITEM MARKED. AN AUGUST RENT RECEIPT IN THE ESTATE'S NAME.
 - **Pinned, it helps open:** nothing further; it closes the case.
 
-## Deductions the wall draws
+## Deductions the player strings together
 
 - **she_asked_first** (needs **order_slip**, **route_leaf**): She asked for the negatives in June and was refused. In July something left her flat sealed, an hour before dark.
 - **the_glove** (needs **nurse_note**, **glove_scrap**, **button_leaf**): White kid under the nails, white kid in the drain, and a pearl button sewn back on for 6C the next morning.
@@ -231,4 +233,6 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - The drain's evidence hangs in the air by the boiler room switch; it needs a surface.
 - Whether the player can get into each flat at each hour (keys, a resident at home) has not been played.
 - Residents do not yet react to their things being lifted.
+- The string game has one rule (two pieces belong or they do not). There are no false pieces on the wall to mislead, and the string does not yet run off the board across the room.
+- The paper that spreads is all one plain stock with a few typed scrawls. Clippings, photographs and maps, as in the reference pictures, are art still owed.
 - Leads opening in order replaces the treatment's "leads, not prerequisites" for these eleven; the dated sources in the world are unchanged.

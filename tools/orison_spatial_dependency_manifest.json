@@ -197234,15 +197234,17 @@
     "/anchors/tea/place",
     "/anchors/tea/steps[0]/unit",
     "/anchors/box/place",
-    "/anchors/box/steps[1]/unit"
+    "/anchors/box/steps[1]/unit",
+    "/scrawls[*]"
    ],
    "lines": [
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 4,
+   "count": 5,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -211905,7 +211907,7 @@
     "_card_for"
    ],
    "lines": [
-    185
+    201
    ],
    "count": 1,
    "context": [
@@ -211935,11 +211937,41 @@
     "_grip_for"
    ],
    "lines": [
-    84
+    99
    ],
    "count": 1,
    "context": [
     "\"LoopGrip_\" + object_id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a04cc80ecdb022cc",
+   "kind": "generated_name",
+   "token": "_grow",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_grow"
+   ],
+   "lines": [
+    510
+   ],
+   "count": 1,
+   "context": [
+    "\"LoopPaper_%d\" % index"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -211965,11 +211997,13 @@
     "_sync"
    ],
    "lines": [
-    317
+    402,
+    445
    ],
-   "count": 1,
+   "count": 2,
    "context": [
-    "\"LoopPinned_\" + item_id"
+    "\"LoopPinned_\" + item_id",
+    "\"LoopDeduction_\" + str(deduction_id)"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -212010,6 +212044,36 @@
    "confidence": "MEDIUM",
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c7b56497b9c31dc8",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_survey"
+   ],
+   "lines": [
+    480
+   ],
+   "count": 1,
+   "context": [
+    "if world.unit_at_world(hit.position as Vector3) != \"4B\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
    "target_exists": true
   },
   {
@@ -268949,7 +269013,7 @@
     "_ready"
    ],
    "lines": [
-    291
+    322
    ],
    "count": 1,
    "context": [
@@ -268979,7 +269043,7 @@
     "_ready"
    ],
    "lines": [
-    154
+    164
    ],
    "count": 1,
    "context": [
@@ -269009,8 +269073,8 @@
     "_ready"
    ],
    "lines": [
-    233,
-    241
+    243,
+    251
    ],
    "count": 2,
    "context": [
@@ -269040,7 +269104,7 @@
     "_ready"
    ],
    "lines": [
-    290
+    321
    ],
    "count": 1,
    "context": [
@@ -269070,7 +269134,7 @@
     "_ready"
    ],
    "lines": [
-    156
+    166
    ],
    "count": 1,
    "context": [
@@ -273879,12 +273943,14 @@
    ],
    "lines": [
     112,
-    177
+    177,
+    215
    ],
-   "count": 2,
+   "count": 3,
    "context": [
     "_check(stage.wall != null and world.unit_at_world(stage.wall.global_position) == \"4B\", \"the case wall is in 4B\")",
-    "_check(world.player_unit() == \"4B\", \"the player stands at the wall in 4B (%s)\" % world.player_unit())"
+    "_check(world.player_unit() == \"4B\", \"the player stands at the wall in 4B (%s)\" % world.player_unit())",
+    "inside = inside and world.unit_at_world(sheet.global_position) == \"4B\""
    ],
    "gameplay_binding": false,
    "authority": [
