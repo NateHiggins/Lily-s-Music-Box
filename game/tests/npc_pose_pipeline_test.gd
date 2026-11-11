@@ -48,10 +48,14 @@ func _stand(id: String, at: Vector3, animate: bool) -> Dictionary:
 			found = model.find_children("*", "AnimationPlayer", true, false)
 		if not found.is_empty():
 			player = found[0] as AnimationPlayer
+			var chosen := ""
 			for clip: String in player.get_animation_list():
-				if "idle" in clip.to_lower():
-					player.play(clip)
-					break
+				var plain := clip.to_lower()
+				if "idle" in plain and not ("sit" in plain or "seat" in plain) and (chosen.is_empty() or clip.length() < chosen.length()):
+					chosen = clip
+			print("  %s clips: %s; standing in '%s'" % [id, player.get_animation_list(), chosen])
+			if not chosen.is_empty():
+				player.play(chosen)
 	var skeletons := model.find_children("*", "Skeleton3D", true, false)
 	if skeletons.is_empty():
 		return {}
@@ -150,6 +154,11 @@ func _ready() -> void:
 		_check(actor.player != null and (actor.player as AnimationPlayer).is_playing(), "%s is in an idle clip under the pipeline" % id)
 	_check(not adela.is_empty() and bool(adela.bound) and str(adela.pipeline.profile.family) == "adela_rigify", "Adela's skeleton is read as its own family")
 	_check(not doodle.is_empty() and bool(doodle.bound) and str(doodle.pipeline.profile.family) == "doodle", "the doodle's skeleton is read as its own family")
+	if not doodle.is_empty() and not bool(doodle.bound):
+		var names: Array[String] = []
+		for bone in (doodle.skeleton as Skeleton3D).get_bone_count():
+			names.append((doodle.skeleton as Skeleton3D).get_bone_name(bone))
+		print("  doodle bones: ", names)
 	var front: Vector3 = _axes(_actors.mina_vale).forward
 	_check(front.dot(_axes(_actors.cal_dwyer).forward) > 0.98, "Mina and Cal are measured as facing the same way, whatever their bone frames say")
 
@@ -226,6 +235,7 @@ func _ready() -> void:
 		var limit_pitch := rad_to_deg(float(pipeline.profile.gaze_pitch))
 		_check(yaw <= limit_yaw + 1.5 and yaw > limit_yaw - 6.0, "%s turns as far as a neck goes and stops (%.1f of %.0f degrees)" % [id, yaw, limit_yaw])
 		_check(pitch <= limit_pitch + 1.5 and pitch > limit_pitch - 6.0, "%s tips up as far as a neck goes and stops (%.1f of %.0f degrees)" % [id, pitch, limit_pitch])
+		_check(_degrees(skeleton_basis * (pipeline.last_goal as Vector3), facing) < 0.5, "%s's head lands where the pipeline aimed it (%.2f degrees off)" % [id, _degrees(skeleton_basis * (pipeline.last_goal as Vector3), facing)])
 		_check(int(pipeline.refused_writes) == 0, "%s: still no bone written twice" % id)
 	await _snap("03_behind_is_bounded")
 

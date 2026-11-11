@@ -26,6 +26,8 @@ var writers: Dictionary = {}
 var refused_writes := 0
 ## How quickly attention turns the head, as the time to cover most of the way.
 var gaze_seconds := 0.35
+## The fastest a head turns, in degrees a second.
+var gaze_degrees_per_second := 240.0
 var breathe := true
 ## A phase so a room of people does not breathe together.
 var breath_phase := 0.0
@@ -44,6 +46,7 @@ var fixed_delta := 0.0
 var last_facing := Vector3.ZERO
 var last_chest_forward := Vector3.ZERO
 var last_eye := Vector3.ZERO
+var last_goal := Vector3.ZERO
 var frames := 0
 var cost_usec := 0
 
@@ -179,11 +182,21 @@ func _gaze(body: Skeleton3D, delta: float) -> void:
 		var aim := body.global_transform.affine_inverse() * _target - eye
 		if aim.length() > 0.05:
 			wanted = _bounded(aim.normalized(), chest_forward)
-	_looking = _looking.slerp(wanted, ease).normalized() if _looking.length() > 0.5 else wanted
+	if _attending:
+		# Eased, never faster than a head turns, and kept inside the neck's
+		# limits on the way: the short way between two allowed directions can
+		# pass over the top.
+		var apart := _looking.angle_to(wanted)
+		if apart > 0.0001:
+			var turn_by := minf(apart * ease, deg_to_rad(gaze_degrees_per_second) * delta)
+			_looking = _bounded(_looking.slerp(wanted, turn_by / apart).normalized(), chest_forward)
+	# Released, the direction is held and only its weight lets go, so the head
+	# goes back at the pace it came.
 	if _weight <= 0.0005:
 		_looking = clip_facing
 		return
-	var goal := clip_facing.slerp(_looking, _weight).normalized()
+	var goal := clip_facing.slerp(_looking, smoothstep(0.0, 1.0, _weight)).normalized()
+	last_goal = goal
 	# Chest, then neck, then head, each taking its share of what is left, so
 	# the three add up to the whole turn and the head lands on the goal.
 	var shares := [[chest, float(profile.chest_share)], [neck, float(profile.neck_share) / maxf(1.0 - float(profile.chest_share), 0.01)], [head, 1.0]]
