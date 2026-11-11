@@ -1,0 +1,168 @@
+{
+ "schema_version": 1,
+ "objects": [
+  {
+   "id": "evelyn_mirror",
+   "unit": "1A",
+   "stock": "hall_mirror",
+   "space": "F01_A_MAIN",
+   "support": "",
+   "position": [
+    -9.9,
+    1.48,
+    -3.92
+   ],
+   "yaw_deg": 180
+  },
+  {
+   "id": "mina_intercom",
+   "unit": "2A",
+   "stock": "house_telephone",
+   "space": "F02_A_MAIN",
+   "support": "",
+   "position": [
+    -7.62,
+    4.62,
+    1.25
+   ],
+   "yaw_deg": -90
+  },
+  {
+   "id": "lena_coat_hook",
+   "unit": "2B",
+   "stock": "coat_hooks",
+   "space": "F02_B_MAIN",
+   "support": "",
+   "position": [
+    11.57,
+    4.78,
+    -1.35
+   ],
+   "yaw_deg": 90
+  },
+  {
+   "id": "omar_outlet",
+   "unit": "3B",
+   "stock": "receptacle",
+   "space": "F03_B_MAIN",
+   "support": "",
+   "position": [
+    12.3,
+    6.78,
+    0.23
+   ],
+   "yaw_deg": 180
+  },
+  {
+   "id": "rhea_telephone",
+   "unit": "3D",
+   "stock": "telephone",
+   "space": "F03_D_MAIN",
+   "support": "3D_table",
+   "position": [
+    -13.9,
+    7.145,
+    -5.05
+   ],
+   "yaw_deg": 180
+  },
+  {
+   "id": "peter_thermostat",
+   "unit": "4A",
+   "stock": "thermostat",
+   "space": "F04_A_MAIN",
+   "support": "",
+   "position": [
+    11.57,
+    11.05,
+    -1.35
+   ],
+   "yaw_deg": 90
+  },
+  {
+   "id": "cam_noel_chain",
+   "unit": "4C",
+   "stock": "door_chain",
+   "space": "F04_C_VESTIBULE",
+   "support": "",
+   "position": [
+    -0.2,
+    11.12,
+    3.92
+   ],
+   "yaw_deg": 0
+  },
+  {
+   "id": "guest_luggage_scale",
+   "unit": "4D",
+   "stock": "luggage_scale",
+   "space": "F04_D_VESTIBULE",
+   "support": "",
+   "position": [
+    -7.8,
+    11.2,
+    -3.92
+   ],
+   "yaw_deg": 180
+  },
+  {
+   "id": "nadia_level",
+   "unit": "5A",
+   "stock": "spirit_level",
+   "space": "F05_A_MAIN",
+   "support": "5A_plantable",
+   "position": [
+    -12.1,
+    13.6,
+    -4.85
+   ],
+   "yaw_deg": 0
+  },
+  {
+   "id": "jonah_typewriter",
+   "unit": "6B",
+   "stock": "typewriter",
+   "space": "F06_B_MAIN",
+   "support": "6B_din_t",
+   "position": [
+    -10.25,
+    16.745,
+    4.2
+   ],
+   "yaw_deg": 180
+  },
+  {
+   "id": "mae_key_bowl",
+   "unit": "6C",
+   "stock": "key_bowl",
+   "space": "F06_C_MAIN",
+   "support": "6C_din_t",
+   "position": [
+    -1.62,
+    16.735,
+    9.98
+   ],
+   "yaw_deg": 180
+  },
+  {
+   "id": "player_answering_machine",
+   "unit": "4B",
+   "stock": "telephone",
+   "space": "F04_B_VESTIBULE",
+   "support": "4B_hallstand",
+   "position": [
+    -7.13,
+    10.73,
+    -1.03
+   ],
+   "yaw_deg": 0
+  }
+ ],
+ "bound": [
+  {
+   "id": "player_wrong_mirror",
+   "unit": "4B",
+   "target": "F04_4B_MIRROR_01"
+  }
+ ]
+}
