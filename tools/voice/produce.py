@@ -11,6 +11,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import time
 import wave
 import array
 
@@ -22,6 +23,10 @@ BACKEND = HOME/'local-llm/voice/say.py'
 VOICE_PYTHON = Path('C:/devkit/voice/venv/Scripts/python.exe')
 PRIORITY = HOME/'homebrew-tools/lane_priority.py'
 PRODUCER_SHA256 = intake.fingerprint(Path(__file__))
+
+
+class GenerationPaused(Exception):
+    pass
 
 
 def now():
@@ -98,6 +103,39 @@ def validate_part(case, part):
     return True
 
 
+def reuse_parts(case, source_case):
+    """Adopt equivalent recorded takes into a new freeze; preserve origin evidence."""
+    with exclusive(case):
+        verify_case(case)
+        verify_case(source_case)
+        original = intake.read_json(source_case/'catalog.json')
+        target = intake.read_json(case/'catalog.json')
+        def intent(part):
+            return tuple(part[key] for key in ('profile_id', 'text', 'text_sha256', 'reference_sha256', 'seed'))
+        candidates = {}
+        for part in original['parts']:
+            if validate_part(source_case, part):
+                candidates.setdefault(intent(part), part)
+        copied = 0
+        for part in target['parts']:
+            source_part = candidates.get(intent(part))
+            if source_part is None or validate_part(case, part):
+                continue
+            source_record = source_case/'parts'/(source_part['part_id'] + '.record.json')
+            record = intake.read_json(source_record)
+            output = case/'parts'/(part['part_id'] + '.wav')
+            output.parent.mkdir(exist_ok=True)
+            if output.exists():
+                raise ValueError(f'Unreceipted reuse output exists: {output}')
+            os.link(source_case/'parts'/(source_part['part_id'] + '.wav'), output)
+            record = dict(record, input=part, reuse=dict(source_record=str(source_record),
+                source_record_sha256=intake.fingerprint(source_record), source_part_id=source_part['part_id'],
+                observed_utc=now(), equivalent_voice_text_reference_seed=True))
+            write(output.with_suffix('.record.json'), record)
+            copied += 1
+        return copied
+
+
 def next_batch(parts, completed, max_parts=6, max_words=260):
     candidates = [p for p in parts if p['part_id'] not in completed]
     if not candidates:
@@ -115,13 +153,16 @@ def next_batch(parts, completed, max_parts=6, max_words=260):
     return result
 
 
-def wait_medium():
+def wait_medium(case=None):
     sys.path.insert(0, str(PRIORITY.parent))
     spec = importlib.util.spec_from_file_location('voice_lane_priority', PRIORITY)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     module.POLL_SECONDS = 3
-    module.wait('medium')
+    while not module.turn('medium'):
+        if case is not None and (case/'STOP_AFTER_BATCH').exists():
+            raise GenerationPaused()
+        time.sleep(3)
 
 
 def generate_batch(root, case, registry, batch, reference_root):
@@ -142,7 +183,14 @@ def generate_batch(root, case, registry, batch, reference_root):
         backend_sha256=intake.fingerprint(BACKEND), input=batch, reference_sha256=batch[0]['reference_sha256'],
         job_sha256=intake.fingerprint(folder/'job.json'), state='waiting')
     write(folder/'receipt.json', observation)
-    wait_medium()
+    try:
+        wait_medium(case)
+        if (case/'STOP_AFTER_BATCH').exists():
+            raise GenerationPaused()
+    except GenerationPaused:
+        observation.update(state='paused_before_queue', finished_utc=now())
+        write(folder/'receipt.json', observation)
+        raise
     catalog.verify_sources(root, intake.read_json(case/'catalog.json'))
     intake.voice_request(registry, voice, batch[0]['text'], reference_root)
     observation.update(state='queued', queued_utc=now())
@@ -192,6 +240,7 @@ def generate_batch(root, case, registry, batch, reference_root):
 
 def run(root, case, reference_root, max_batches):
     with exclusive(case):
+        check_unfinished_attempts(case)
         verify_case(case)
         document = intake.read_json(case/'catalog.json')
         registry = intake.load_profiles(case/'profiles.json')
@@ -199,17 +248,23 @@ def run(root, case, reference_root, max_batches):
         completed = {part['part_id'] for part in parts if validate_part(case, part)}
         count = 0
         while batch := next_batch(parts, completed):
+            if (case/'STOP_AFTER_BATCH').exists():
+                break
             verify_case(case)
             catalog.verify_sources(root, document)
             write(case/'progress.json', dict(state='generating', updated_utc=now(), producer_pid=os.getpid(),
                   completed=len(completed), total=len(parts), next_profile=batch[0]['profile_id']))
-            generate_batch(root, case, registry, batch, reference_root)
+            try:
+                generate_batch(root, case, registry, batch, reference_root)
+            except GenerationPaused:
+                break
             completed.update(part['part_id'] for part in batch)
             count += 1
             print(f'{len(completed)}/{len(parts)} clips complete', flush=True)
             if max_batches and count >= max_batches:
                 break
-        state = 'generated' if len(completed) == len(parts) else 'bounded_batch_complete'
+        state = ('generated' if len(completed) == len(parts) else
+                 'paused' if (case/'STOP_AFTER_BATCH').exists() else 'bounded_batch_complete')
         write(case/'progress.json', dict(state=state, updated_utc=now(), completed=len(completed), total=len(parts)))
 
 
@@ -220,6 +275,17 @@ def verify_case(case):
             raise ValueError(f'Frozen {name} changed')
 
 
+def check_unfinished_attempts(case):
+    pending = []
+    for path in (case/'attempts').glob('*/receipt.json'):
+        receipt = intake.read_json(path)
+        if receipt.get('state') in ('waiting', 'queued', 'validating'):
+            pending.append(str(path))
+    if pending:
+        raise ValueError('Unfinished native custody; inspect process identity and preserved outputs before resuming: '
+                         + ', '.join(pending))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=['plan', 'run', 'status'])
@@ -227,9 +293,19 @@ def main():
     parser.add_argument('--case', type=Path, required=True)
     parser.add_argument('--reference-root', type=Path, required=True)
     parser.add_argument('--max-batches', type=int, default=0)
+    parser.add_argument('--dynamic', action='store_true', help='plan finite dynamic lines and source-backed components')
+    parser.add_argument('--reuse-from', type=Path, help='reuse verified equivalent takes in a new freeze')
     args = parser.parse_args()
     if args.command == 'plan':
-        document = catalog.freeze(args.root, args.case)
+        inventory = None
+        if args.dynamic:
+            import dynamic
+            inventory = dynamic.build(args.root)
+        document = catalog.freeze(args.root, args.case, inventory['supplemental_rows'] if inventory else ())
+        if inventory:
+            document['lines'] = [row for row in document['lines'] if 'source_bindings' in row]
+            document['component_recipes'] = inventory['component_recipes']
+            write(args.case/'dynamic_inventory.json', inventory)
         registry = intake.load_profiles(args.case/'profiles.json')
         document['parts'] = make_parts(document, registry)
         for part in document['parts']:
@@ -237,7 +313,8 @@ def main():
         write(args.case/'catalog.json', document)
         (args.case/'catalog.sha256').write_text(intake.fingerprint(args.case/'catalog.json'), encoding='ascii')
         (args.case/'backend.sha256').write_text(intake.fingerprint(BACKEND), encoding='ascii')
-        print(json.dumps(dict(lines=len(document['lines']), parts=len(document['parts']))))
+        reused = reuse_parts(args.case, args.reuse_from) if args.reuse_from else 0
+        print(json.dumps(dict(lines=len(document['lines']), parts=len(document['parts']), reused=reused)))
     elif args.command == 'run':
         run(args.root, args.case, args.reference_root, args.max_batches)
     else:

@@ -1,4 +1,16 @@
-# Current handoff — exterior shadow qualification and Laurel timing
+# Current checkpoint — approved cast production and Omni comms, 2026-11-11
+
+Codex authoring checkout **C:/ov/bho**, branch **codex/voice-line-intake**, draft PR230; base main **64e3845c5**. Lily approved all22 fresh cast voices. Exact reference transcripts/hashes are frozen in voice_profiles.json; files are at **C:/ov/voice-references/20261111_cast_round01/**. Fable owns runtime conversations/face integration after her wardrobe pilot; do not edit her worker.py or runtime paths. Speech projections exclude stage directions while preserving canonical display text. All72 voice CPU tests pass; source authoring verification is distinct from generated-audio and played acceptance.
+
+**Live generation: inherit, never duplicate.** Case **C:/ov/reports/voice_dialogue_20261111/resident_static_02/** has2670 frozen parts. Native producer session19498/PID4400 was generating at the last observation (283verified parts); revalidate PID creation/command line and progress.json before touching it. CPU assembler session22546 is watching the same case, last279 packed OGG/cue entries. Both have independent case locks. Leave frozen catalogs, profiles, guest turns, speech spans, jobs and backend unchanged. To pause safely, create STOP_AFTER_BATCH and let the current native batch finish. Original static_01 stop/failure receipts remain intact;71 valid old parts and5 guest-pilot parts were reused. Dynamic_02 is planned, not bulk-started; number words passed the second short pilot. Source SDK batch benchmark is only a proposal, not selected production.
+
+Runtime manifest contract: **res://data/voice/manifest.json**, content-addressed media, actual speaker segments, original display-text hash plus speech-text hash. Fable consumes one AudioStreamPlayer3D per actual speaker and stops voice/cues on advance/close. Lily67lines need her own reference;33roles remain unmapped;3nonverbal rows stay silent; Juno THE REEL needs recorded-scene treatment. Full corpus generation, final audit, shipped manifest, live lip sync and played acceptance remain open.
+
+**Omni patch completed separately from the game:** Desk353b072, Hub0e5a1cf; live Hub a05d976c65.105 tests passed,1privilegedsymlinkskip; Windows junction protection passed. Session presence, CAS work metadata, accepted handoffs, scoped Talk/Room MCP, remote bridge transport and message-scoped attachment snapshots are deployed. No Git remote exists for either tools repository; committed patch delivered to Fable/Optimus/Lily through the bridge. Artifacts and rollback: **C:/ov/reports/omni_comms_patch_20261111/**. Queued work preserved on reload. Existing MCP processes need normal reconnection; fresh Talk turns load new code. Actual Hub attachment hashes verified; Optimus cross-machine confirmation pending. Omni orderw7c8ff6fc934d is done; voice orderw55379c52f884 remains active.
+
+Historical checkpoint below remains evidence for its original scope.
+
+# Earlier handoff — exterior shadow qualification and Laurel timing
 
 Canonical **C:/PleaseRemainOnTheLine**. Root owns integration. Check both bridge inboxes. Cases below are under **C:/ov/reports/develop_intake_20261104/**.
 

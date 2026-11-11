@@ -184,7 +184,7 @@ def validate_cues(doc: dict) -> None:
 
 
 def align_wavs(wav_dir: Path, output_dir: Path, rows: list[dict],
-               rhubarb: str, timeout: float = 300) -> list[Path]:
+               rhubarb: str, timeout: float = 300, evidence_dir: Path | None = None) -> list[Path]:
     sources = sorted(path for path in wav_dir.iterdir()
                      if path.is_file() and path.suffix.lower() == ".wav")
     if not sources:
@@ -203,10 +203,25 @@ def align_wavs(wav_dir: Path, output_dir: Path, rows: list[dict],
             hint = staging / "dialogue.txt"
             hint.write_text(row["text"], encoding="utf-8")
             pending = staging / "cues.json"
-            result = subprocess.run(
-                [rhubarb, "-f", "json", "--extendedShapes", "GHX", "-d", str(hint),
-                 "-o", str(pending), str(source.resolve())],
-                capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout)
+            command = [rhubarb, "-f", "json", "--extendedShapes", "GHX", "-d", str(hint),
+                       "-o", str(pending), str(source.resolve())]
+            evidence = evidence_dir / source.stem if evidence_dir is not None else None
+            if evidence is not None and evidence.exists():
+                raise ValueError(f"Refusing to overwrite alignment evidence: {evidence}")
+            try:
+                result = subprocess.run(command, capture_output=True, text=True,
+                    encoding="utf-8", errors="replace", timeout=timeout)
+            except Exception as error:
+                if evidence is not None:
+                    shutil.copytree(staging, evidence)
+                    (evidence / "failure.txt").write_text(repr(error), encoding="utf-8")
+                    (evidence / "command.json").write_text(json.dumps(command), encoding="utf-8")
+                raise
+            if evidence is not None:
+                shutil.copytree(staging, evidence)
+                (evidence / "command.json").write_text(json.dumps(command), encoding="utf-8")
+                (evidence / "result.json").write_text(json.dumps({"exit_code": result.returncode,
+                    "stdout": result.stdout, "stderr": result.stderr}), encoding="utf-8")
             if result.returncode:
                 raise ValueError(f"Rhubarb failed for {source.name}: {result.stderr[-2000:]}")
             doc = read_json(pending)

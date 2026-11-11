@@ -24,11 +24,38 @@ def safe_node(value):
     return 'encoded_' + value.encode('utf-8').hex()
 
 
-def build(root: Path, registry: dict, guest_map=None, extra_rows=()):
+def apply_speech_projection(row, entry):
+    text = row['text']
+    if entry['text_sha256'] != row['text_sha256'] or entry['length'] != len(text):
+        raise ValueError(f'Stale speech projection: {row["line_id"]}')
+    spans = [(turn['start'], turn['end']) for turn in entry['turns']]
+    gaps = [(gap['start'], gap['end']) for gap in entry['gaps']]
+    cursor = 0
+    for start, end in sorted(spans + gaps):
+        if type(start) is not int or type(end) is not int or not start == cursor < end <= len(text):
+            raise ValueError(f'Invalid speech projection partition: {row["line_id"]}')
+        cursor = end
+    if cursor != len(text) or spans != sorted(spans):
+        raise ValueError(f'Incomplete speech projection: {row["line_id"]}')
+    if any(gap.get('kind') not in ('stage_direction', 'separator') for gap in entry['gaps']):
+        raise ValueError('Unknown speech projection gap')
+    row['segments'] = [dict(part_id=row['line_id'] if len(spans) == 1 else row['line_id'] + f'_speech_{i:03d}',
+        profile_id=row['profile_id'], text=text[start:end], start_char=start, end_char=end)
+        for i, (start, end) in enumerate(spans)]
+    row['stage_directions'] = entry['gaps']
+    if not spans:
+        row['state'] = 'silent'
+
+
+def build(root: Path, registry: dict, guest_map=None, extra_rows=(), performance_map=None):
     rows, bindings = [], {}
     speakers = {p['display_name'].casefold(): key for key, p in registry['profiles'].items()}
     speakers.update(nadia='nadia_quell', adela='adela_voss', guests='transient_guests')
     guest_entries = {(row['source'], row['pointer']): row for row in (guest_map or {}).get('entries', [])}
+    speech_path = root/'game/data/voice/speech_spans.json'
+    if performance_map is None and speech_path.exists():
+        performance_map = intake.read_json(speech_path)
+    speech_entries = {(row['source'], row['pointer']): row for row in (performance_map or {}).get('entries', [])}
 
     def add(source, pointer, namespace, runtime_node, profile_id, text, node=None, identity=None):
         if not isinstance(text, str) or not text.strip():
@@ -84,6 +111,12 @@ def build(root: Path, registry: dict, guest_map=None, extra_rows=()):
         elif state == 'ready':
             row['segments'] = [dict(part_id=identity, profile_id=profile_id, text=text,
                                     start_char=0, end_char=len(text))]
+        if row['state'] == 'ready' and (relative, pointer) in speech_entries:
+            if profile.get('variants'):
+                raise ValueError('Mixed guest and stage-direction projections need one explicit combined map')
+            apply_speech_projection(row, speech_entries[(relative, pointer)])
+        row['speech_text'] = ' '.join(segment['text'].strip() for segment in row['segments'])
+        row['speech_text_sha256'] = text_hash(row['speech_text'])
         rows.append(row)
 
     for directory, prefix in [('dialogue', ''), ('mystery', 'mystery_')]:
@@ -129,6 +162,21 @@ def build(root: Path, registry: dict, guest_map=None, extra_rows=()):
             row['namespace'], row['runtime_node_id'], row['profile_id'], row['text'], identity=identity)
         rows[-1]['runtime_node_is_pattern'] = row.get('runtime_node_is_pattern', False)
         rows[-1]['source_bindings'] = sources
+        rows[-1]['owner_resident_id'] = row.get('owner_resident_id', row['profile_id'])
+        if 'spoken_form' in row:
+            if row.get('component_kind') != 'ticket' or row['text'] != str(row['component_value']):
+                raise ValueError('Unverified spoken-number projection')
+            import dynamic
+            expected = dynamic.number_words(row['component_value'])
+            if row['spoken_form'] != expected or rows[-1]['state'] != 'ready':
+                raise ValueError('Spoken-number projection does not match the displayed value')
+            rows[-1]['segments'] = [dict(part_id=identity, profile_id=row['profile_id'], text=expected,
+                                         start_char=0, end_char=len(row['text']))]
+            rows[-1]['speech_text'] = expected
+            rows[-1]['speech_text_sha256'] = text_hash(expected)
+        for field in ('component_kind', 'component_value', 'carrier'):
+            if field in row:
+                rows[-1][field] = row[field]
     identities = [row['line_id'] for row in rows]
     if len(set(identities)) != len(identities):
         raise ValueError('Duplicate production speech identity')
@@ -150,6 +198,9 @@ def freeze(root: Path, case: Path, extra_rows=()):
     document['source_bindings']['game/data/voice/voice_profiles.json'] = intake.fingerprint(profiles_path)
     if guests:
         document['source_bindings']['game/data/voice/guest_turns.json'] = intake.fingerprint(guest_path)
+    speech_path = root/'game/data/voice/speech_spans.json'
+    if speech_path.exists():
+        document['source_bindings']['game/data/voice/speech_spans.json'] = intake.fingerprint(speech_path)
     case.mkdir(parents=True, exist_ok=True)
     target = case/'catalog.json'
     if target.exists():
