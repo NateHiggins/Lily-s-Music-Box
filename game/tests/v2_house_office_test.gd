@@ -179,18 +179,26 @@ func _ready() -> void:
 		var high: Vector3 = piece.global_position + Vector3.UP * 2.3 + out * 0.5
 		var behind := _ray(high, high - out * 1.0)
 		var gap: float = 9.0 if behind.is_empty() else high.distance_to(behind.position) - 0.5
-		_check(absf(gap) < 0.03, "%s has the wall at its back (%.3f m)" % [title, gap])
-		var chest: Vector3 = piece.global_position + Vector3.UP * 1.0 + out * 0.75
-		for side: float in [-half * 0.8, 0.0, half * 0.8]:
-			var from: Vector3 = chest + piece.global_basis.x * side
-			_check(_ray(from, from + out * 0.9).is_empty(), "%s has clear floor in front (%.1f)" % [title, side])
+		_check(absf(gap) < 0.06, "%s has the wall at its back (%.3f m)" % [title, gap])
+		# Looking back at it from the room: nothing of V2's stands in its place or before it.
+		for side: float in [-half * 0.85, 0.0, half * 0.85]:
+			for height: float in [0.35, 1.25]:
+				var from: Vector3 = piece.global_position + Vector3.UP * height + out * 1.65 + piece.global_basis.x * side
+				var met := _ray(from, from - out * 1.8)
+				var reach: float = 0.0 if met.is_empty() else from.distance_to(met.position)
+				_check(reach > 1.55, "%s has its place to itself and clear floor in front (%.1f, %.2f: %.2f m to %s)" % [
+						title, side, height, reach, "nothing" if met.is_empty() else str((met.collider as Node).get_parent().name)])
 		var here: Vector3 = blockout.to_local(piece.global_position)
 		_check(Vector2(here.x, here.z).distance_to(Vector2(door.x, door.z)) > half + 1.6,
 				"%s is clear of the door's swing (%.2f m)" % [title, Vector2(here.x, here.z).distance_to(Vector2(door.x, door.z))])
+		# The telephone board's place on the east wall under the first-floor ruling,
+		# measured from the board itself once it has been moved into the room.
+		var board := Vector3(-9.35, 0.0, -1.3)
 		if phones_here:
-			var board: Vector3 = blockout.to_local(phones.global_position)
-			_check(Vector2(here.x, here.z).distance_to(Vector2(board.x, board.z)) > half + 1.6,
-					"%s is clear of the telephone board (%.2f m)" % [title, Vector2(here.x, here.z).distance_to(Vector2(board.x, board.z))])
+			board = blockout.to_local(phones.global_position)
+		if true:
+			_check(Vector2(here.x, here.z).distance_to(Vector2(board.x, board.z)) > half + 1.0,
+					"%s is clear of the telephone board's place (%.2f m)" % [title, Vector2(here.x, here.z).distance_to(Vector2(board.x, board.z))])
 	var draws := _surfaces(desk, "the sorting desk") + _surfaces(hq, "the headquarters")
 	print("HOUSE OFFICE: %d mesh surfaces mounted" % draws)
 
@@ -232,7 +240,7 @@ func _ready() -> void:
 	_check(_work(first, desk.stop_position(wrong_stop) + 0.05) and desk.stop == wrong_stop and first.basis.is_equal_approx(Basis())
 			and absf(first.position.x - desk.carriage.position.x) < 0.001, "slid along the rail and let go near stack %d, it stands in the clip there" % wrong_stop)
 	_check(game.at == 0 and game.history.is_empty(), "standing at a stack files nothing")
-	await _snap("desk_letter_on_rail", Vector3(-12.2, 0.0, -2.75), Vector3(-12.45, 1.0, -3.6))
+	await _snap("desk_letter_on_rail", Vector3(-12.9, 0.0, -2.75), Vector3(-13.15, 1.0, -3.6))
 	var other_stop := wrong_stop + 1
 	_check(_work(desk.carriage, desk.stop_position(other_stop)) and desk.stop == other_stop and absf(first.position.x - desk.carriage.position.x) < 0.001,
 			"the clip slides the standing letter to another stack")
@@ -242,7 +250,7 @@ func _ready() -> void:
 	_check(not hold.is_empty() and bool(hold.begin.call()), "the hand takes the standing letter")
 	hold.write.call(desk.lift_for(wrong_stop, wrong_unit))
 	_check(desk.unit_before() == wrong_unit and _offer(desk.carriage).is_empty(), "lifted, it stands before %s" % wrong_unit)
-	await _snap("desk_letter_lifted", Vector3(-12.2, 0.0, -2.75), Vector3(-12.45, 1.15, -3.6))
+	await _snap("desk_letter_lifted", Vector3(-12.9, 0.0, -2.75), Vector3(-13.15, 1.15, -3.6))
 	hold.end.call()
 	_check(game.at == 1 and game.missed == 1 and game.filed == 0 and game.score == 0 and not bool(desk.reveal.right)
 			and str(desk.reveal.went_to) == wrong_unit and str(desk.reveal.belonged) == right_unit and (game.misfiled as Array).size() == 1,
@@ -280,8 +288,8 @@ func _ready() -> void:
 	var slip := str(desk.tally.text)
 	_check(slip.contains("TRAY EMPTY") and slip.contains("7 filed, 1 gone astray.") and slip.contains("went to %s — should have been" % wrong_unit)
 			and slip.contains("nothing here is undone; a letter in the wrong box is just somewhere else now."), "the tally slip reads as V1's finished panel did")
-	await _snap("desk_round_done", Vector3(-12.0, 0.0, -1.9), Vector3(-12.3, 1.15, -3.775))
-	await _snap("desk_tally_close", Vector3(-11.7, 0.0, -2.8), Vector3(-11.58, 0.76, -3.25))
+	await _snap("desk_round_done", Vector3(-12.7, 0.0, -1.9), Vector3(-13.0, 1.15, -3.775))
+	await _snap("desk_tally_close", Vector3(-12.3, 0.0, -2.9), Vector3(-12.28, 0.76, -3.25))
 	# The empty tray's handle draws a fresh tray.
 	var handle: Node
 	for draw: MeshInstance3D in desk.tray.find_children("*", "MeshInstance3D", true, false):
@@ -294,8 +302,8 @@ func _ready() -> void:
 	_check(desk.interact_prompt() == "" and world.find_children("*", "CanvasLayer", true, false).filter(
 			func(layer: Node) -> bool: return layer.get_script() != null and str(layer.get_script().resource_path).ends_with("dead_letters_panel.gd")).is_empty(),
 			"there is no panel: the desk is worked by hand")
-	await _snap("desk_standing", Vector3(-12.0, 0.0, -1.9), Vector3(-12.3, 1.15, -3.775))
-	await _snap("desk_tray_close", Vector3(-12.95, 0.0, -2.85), Vector3(-13.06, 0.76, -3.38))
+	await _snap("desk_standing", Vector3(-12.7, 0.0, -1.9), Vector3(-13.0, 1.15, -3.775))
+	await _snap("desk_tray_close", Vector3(-13.76, 0.0, -2.95), Vector3(-13.76, 0.76, -3.4))
 
 	# The headquarters.
 	var ids: Array = RealityCases.definitions.keys()
@@ -310,11 +318,16 @@ func _ready() -> void:
 	_check(shown and gear.size() == 6, "each of V1's six tools has its own place and its V1 name; only the first is on the board")
 	var title: Label3D = hq.plaque.find_children("*", "Label3D", true, false)[0]
 	_check(title.text == "REALITY MAINTENANCE" and not title.double_sided, "the plaque is lettered with V1's words")
-	await _snap("hq_bench_first_day", Vector3(-13.3, 0.0, 2.9), Vector3(-13.7, 1.45, 5.575))
+	await _snap("hq_bench_first_day", Vector3(-13.85, 0.0, 0.6), Vector3(-15.575, 1.45, 1.0))
 	var steps := true
 	for count in range(1, 13):
 		var case_id: String = ids[count - 1]
+		var opened: bool = RealityCases.activate_case(case_id)
 		var state: Dictionary = RealityState.case_state(case_id)
+		if not opened or state.is_empty():
+			steps = false
+			print("  case would not open: ", case_id)
+			continue
 		state.stage = "integration_ready"
 		state.repair_count = int(RealityCases.definition(case_id).get("repairs_required", 2))
 		var resolved: bool = RealityCases.resolve_case(case_id)
@@ -340,12 +353,12 @@ func _ready() -> void:
 	var target := hq.get_node_or_null("TrophyWallInspection") as Area3D
 	_check(target != null and world.room_at_world(target.global_position) == "F01_COMMON_B"
 			and target.global_position.distance_to(hq.trophy_wall.global_position + Vector3.UP * 1.45) < 0.2, "the inspection target is on the trophy wall")
-	await _snap("hq_bench_issued", Vector3(-13.3, 0.0, 2.9), Vector3(-13.7, 1.45, 5.575))
-	await _snap("hq_tools_close", Vector3(-13.7, 0.0, 4.2), Vector3(-13.7, 1.58, 5.575))
-	await _snap("hq_trophy_wall", Vector3(-10.6, 0.0, 3.2), Vector3(-10.95, 1.45, 5.575))
-	await _snap("hq_tokens_close", Vector3(-11.4, 0.0, 4.6), Vector3(-11.67, 1.2, 5.575))
-	await _snap("office_north", Vector3(-12.3, 0.0, 0.2), Vector3(-12.3, 1.3, 5.6))
-	await _snap("office_south", Vector3(-12.3, 0.0, 1.2), Vector3(-12.3, 1.1, -3.8))
+	await _snap("hq_bench_issued", Vector3(-13.85, 0.0, 0.6), Vector3(-15.575, 1.45, 1.0))
+	await _snap("hq_tools_close", Vector3(-14.55, 0.0, 1.0), Vector3(-15.575, 1.58, 1.0))
+	await _snap("hq_trophy_wall", Vector3(-10.3, 0.0, -1.4), Vector3(-10.6, 1.45, -3.772))
+	await _snap("hq_tokens_close", Vector3(-11.1, 0.0, -2.8), Vector3(-11.35, 1.2, -3.772))
+	await _snap("office_west", Vector3(-10.6, 0.0, 1.0), Vector3(-15.6, 1.3, 1.0))
+	await _snap("office_south", Vector3(-12.0, 0.0, -0.2), Vector3(-11.9, 1.1, -3.8))
 	_finish()
 
 

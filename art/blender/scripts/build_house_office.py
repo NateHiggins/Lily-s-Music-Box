@@ -457,15 +457,16 @@ def hq_bench():
     tube("nickel_plated", [(0.86, -0.60, top + 0.04), (0.86, -0.72, top + 0.04)], 0.008)
     tube("nickel_plated", [(0.80, -0.715, top + 0.04), (0.92, -0.715, top + 0.04)], 0.004)
     # The painted board, the shelf at its foot and the shelf over it.
-    box("trim", (2.36, 0.02, 1.10), (0, -0.01, 1.50))
-    box("wood_dark", (2.36, 0.14, 0.022), (0, -0.09, 1.04))
+    # The board stands proud of the room's wainscot, which it hangs over.
+    box("trim", (2.36, 0.05, 1.10), (0, -0.025, 1.50))
+    box("wood_dark", (2.36, 0.14, 0.022), (0, -0.12, 1.04))
     box("wood_dark", (2.44, 0.24, 0.025), (0, -0.12, 2.0625))
     for x in (-0.95, 0.95):
-        box(iron, (0.02, 0.012, 0.18), (x, -0.026, 1.955))
-        box(iron, (0.02, 0.18, 0.012), (x, -0.11, 2.044))
+        box(iron, (0.02, 0.012, 0.18), (x, -0.056, 1.955))
+        box(iron, (0.02, 0.17, 0.012), (x, -0.135, 2.044))
     columns = (-0.76, 0.0, 0.76)
     row_z = (1.36, 1.78)
-    face = -0.02
+    face = -0.05
     cards = []
     for index in range(6):
         x, z = columns[index % 3], row_z[index // 3]
@@ -550,21 +551,21 @@ def plaque():
 
 def trophy_wall():
     begin("trophy_wall", "trophy wall: a walnut board of eighteen brass sockets and one porcelain token")
-    box("wood_dark", (2.30, 0.022, 1.30), (0, -0.011, 1.45))
+    box("wood_dark", (2.30, 0.045, 1.30), (0, -0.0225, 1.45))
     for z in (0.78, 2.12):
-        box("oak_quartered", (2.38, 0.035, 0.04), (0, -0.0175, z))
+        box("oak_quartered", (2.38, 0.058, 0.04), (0, -0.029, z))
     for x in (-1.17, 1.17):
-        box("oak_quartered", (0.04, 0.034, 1.30), (x, -0.017, 1.45))
+        box("oak_quartered", (0.04, 0.057, 1.30), (x, -0.0285, 1.45))
     pitch = (0.36, 0.38)
     first = (-2.5 * pitch[0], 1.07)
     for row in range(3):
         for col in range(6):
             lathe("brass", [(0.108, 0.0), (0.104, 0.014), (0.090, 0.014), (0.086, 0.004), (0, 0.004)],
-                  at=(first[0] + col * pitch[0], -0.022, first[1] + row * pitch[1]), rot=(90, 0, 0), segs=16)
-    seat = (first[0], -0.026, first[1])
+                  at=(first[0] + col * pitch[0], -0.045, first[1] + row * pitch[1]), rot=(90, 0, 0), segs=16)
+    seat = (first[0], -0.049, first[1])
     lathe("porcelain", [(0, 0), (0.082, 0), (0.082, 0.010), (0.070, 0.018, "s"), (0, 0.022, "s")], at=seat, rot=(90, 0, 0), segs=16, comp="Token")
     pivot("Token", seat)
-    MEASURES["trophies"] = {"columns": 6, "rows": 3, "pitch": [pitch[0], pitch[1]], "status": godot((0, -0.0235, 2.03))}
+    MEASURES["trophies"] = {"columns": 6, "rows": 3, "pitch": [pitch[0], pitch[1]], "status": godot((0, -0.0465, 2.03))}
 
 
 BUILDERS = [sorting_desk, hq_bench, plaque, trophy_wall]

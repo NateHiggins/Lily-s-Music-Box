@@ -77,18 +77,19 @@ func _build_visual() -> void:
 	var drawer: Label3D = stock.words("DEAD LETTERS", 0.21, 0.02)
 	drawer.position = stock.dead_label
 	add_child(drawer)
-	tally = stock.words("", stock.tally_width, 0.0085)
+	tally = stock.words("", stock.tally_width, 0.011)
 	tally.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-	tally.transform = Transform3D(LYING, stock.tally)
+	# A left-aligned label begins at its own origin: start each at its sheet's margin.
+	tally.transform = Transform3D(LYING, stock.tally - Vector3(stock.tally_width * 0.5, 0.0, 0.0))
 	add_child(tally)
-	_address = stock.words("", 0.21, 0.014)
+	_address = stock.words("", 0.21, 0.016)
 	_address.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	_address.vertical_alignment = VERTICAL_ALIGNMENT_TOP
-	_address.position = Vector3(0.0, 0.124, 0.0024)
-	_clues = stock.words("", 0.21, 0.0085)
+	_address.position = Vector3(-0.105, 0.124, 0.0024)
+	_clues = stock.words("", 0.21, 0.0105)
 	_clues.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	_clues.vertical_alignment = VERTICAL_ALIGNMENT_TOP
-	_clues.position = Vector3(0.0, 0.082, 0.0024)
+	_clues.position = Vector3(-0.105, 0.084, 0.0024)
 	Manipulation.install(carriage, _carriage_grip)
 	for draw: MeshInstance3D in tray.find_children("*", "MeshInstance3D", true, false):
 		if str(draw.get_meta("house_office_part", "")).ends_with("_ON_brass"):
