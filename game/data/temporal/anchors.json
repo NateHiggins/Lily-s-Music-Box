@@ -1,18 +1,16 @@
 {
-	"version": 1,
-	"bank_name": "Queens County Savings",
 	"fare": {
 		"base_cents": 25,
 		"days_per_cent": 4,
 		"cap_cents": 150,
 		"worn_groove_divisor": 2
 	},
+	"version": 2,
+	"bank_name": "Queens County Savings",
+	"wall": "4B_case_wall",
 	"stipend": {
 		"cents": 15
 	},
-	"opening": [
-		"tea"
-	],
 	"anchors": {
 		"tea": {
 			"title": "The radiator in 6C",
@@ -20,122 +18,740 @@
 			"date": "1929-06-13",
 			"start": "16:20",
 			"minutes": 70,
-			"question": "What did Mrs. Kessler ask about that afternoon?",
-			"evidence": [
-				"mt:mk_tea"
-			],
-			"successors": [
-				"friday"
-			],
+			"tier": 1,
 			"first_call_free": true,
-			"hints": [
-				"Mrs. Kessler is at home in 6C from half past four to half past five.",
-				"Knock at 6C. The radiator is your reason to be there.",
-				"Speak to Mrs. Kessler about her radiator, and mind what she asks in return."
-			]
+			"needs": [],
+			"question": "What did Mrs. Kessler want that afternoon?",
+			"steps": [
+				{
+					"id": "in_6c",
+					"kind": "at",
+					"unit": "6C",
+					"hint": "Go up to 6C. The radiator is your reason to be there."
+				},
+				{
+					"id": "lift_6c_tea_tray",
+					"kind": "shift",
+					"object": "6C_tea_tray",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.18,
+					"hint": "The tea is laid on a tray. Lift the tray."
+				}
+			],
+			"clue": {
+				"id": "order_slip",
+				"rest": "6C_tea_tray",
+				"title": "A Photo Supplies order slip",
+				"body": "PHOTO SUPPLIES. THURS. 13 JUNE. MRS. K., 6C. THE DEED NEGATIVES, ALL OF THEM. ACROSS IT IN ANOTHER HAND: NOT FOR SALE. A.V."
+			}
 		},
 		"friday": {
 			"title": "Friday's errand",
-			"place": "the house",
+			"place": "4C",
 			"date": "1929-07-19",
-			"start": "17:30",
-			"minutes": 210,
-			"question": "Who went up to the sixth floor that evening, and carrying what?",
-			"evidence": [
-				"mt:co_envelope",
-				"mt:mr_last"
+			"start": "18:20",
+			"minutes": 100,
+			"tier": 2,
+			"needs": [
+				"order_slip"
 			],
-			"successors": [
-				"yard"
+			"question": "What left 6C that evening, and for whom?",
+			"steps": [
+				{
+					"id": "after_1840",
+					"kind": "after",
+					"time": "18:40",
+					"hint": "Cam Ortiz is still on his round. He is back after twenty to seven. Wait."
+				},
+				{
+					"id": "in_4c",
+					"kind": "at",
+					"unit": "4C",
+					"hint": "He is home now. Go to 4C."
+				},
+				{
+					"id": "lift_4c_jersey",
+					"kind": "shift",
+					"object": "4C_jersey",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.25,
+					"hint": "His jersey is thrown down where he came in. Lift it."
+				}
 			],
-			"hints": [
-				"Two people in this house went up that evening. One lives in 4C, one in 3A.",
-				"Knock at 4C for Cam Ortiz, and at 3A for Malcolm Reed. Be done by nine.",
-				"Ask Cam what went to 6C that Friday. Ask Malcolm about the evening upstairs."
-			]
+			"clue": {
+				"id": "route_leaf",
+				"rest": "4C_jersey",
+				"title": "A leaf from Cam's route book",
+				"body": "FRI. 19 JUL., 6.40 P.M. 6C TO MR. EWALD. HOLD. FIRST RUN SAT. THE FLAP IS MARKED ACROSS IN HIS PENCIL."
+			}
 		},
-		"yard": {
+		"stairs": {
 			"title": "The stairs before light",
 			"place": "1D",
 			"date": "1929-07-20",
 			"start": "03:02",
 			"minutes": 38,
-			"question": "Who was already awake?",
-			"evidence": [
-				"mt:tv_yard"
+			"tier": 2,
+			"needs": [
+				"order_slip"
 			],
-			"successors": [
-				"playback",
-				"ash"
+			"question": "What did the nurse write down?",
+			"steps": [
+				{
+					"id": "in_1d",
+					"kind": "at",
+					"unit": "1D",
+					"hint": "Someone on the first floor has not slept. Go to 1D."
+				},
+				{
+					"id": "lift_1d_flask",
+					"kind": "shift",
+					"object": "1D_flask",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.16,
+					"hint": "Teresa Vale's flask stands by her things. Lift it."
+				},
+				{
+					"id": "lift_1d_fob_watch",
+					"kind": "shift",
+					"object": "1D_fob_watch",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.12,
+					"hint": "Her watch lies on a folded paper. Lift the watch."
+				}
 			],
-			"hints": [
-				"Someone on the first floor is already awake.",
-				"Knock at 1D. Teresa Vale has not slept.",
-				"Let Teresa Vale tell you what she heard from the stairs. You have little more than half an hour."
-			]
+			"clue": {
+				"id": "nurse_note",
+				"rest": "1D_fob_watch",
+				"title": "Teresa Vale's note",
+				"body": "3.05 A.M. ADELA VOSS. REAR YARD. RIGHT HAND: SHREDS OF WHITE KID LEATHER UNDER THE NAILS. T.V."
+			}
 		},
-		"playback": {
+		"notebook": {
+			"title": "The writer upstairs",
+			"place": "6B",
+			"date": "1929-08-06",
+			"start": "20:00",
+			"minutes": 90,
+			"tier": 3,
+			"needs": [
+				"route_leaf"
+			],
+			"question": "What did Jonah Price hear, and what did he make up?",
+			"steps": [
+				{
+					"id": "in_6b",
+					"kind": "at",
+					"unit": "6B",
+					"hint": "Jonah Price dates his books on their spines. Go to 6B."
+				},
+				{
+					"id": "know_m_notebook_spine",
+					"kind": "flag",
+					"flag": "m_notebook_spine",
+					"hint": "On top of his case: draw the book marked 19 July off the stack."
+				},
+				{
+					"id": "lift_6b_story_draft",
+					"kind": "shift",
+					"object": "6B_story_draft",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.15,
+					"hint": "Now his draft on the table. Lift it."
+				},
+				{
+					"id": "lift_6b_wastebasket",
+					"kind": "shift",
+					"object": "6B_wastebasket",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.2,
+					"hint": "He threw the first attempt away. Lift the wastebasket."
+				}
+			],
+			"clue": {
+				"id": "jonah_page",
+				"rest": "6B_wastebasket",
+				"title": "Jonah's struck page",
+				"body": "19 JULY. STRUCK THROUGH: 'A DOOR, THEN HER VOICE, THEN THE DOOR.' BESIDE IT: NO. THAT IS LAST WEEK'S EPISODE. I HAVE HEARD THIS DOOR."
+			}
+		},
+		"button": {
+			"title": "The mending basket",
+			"place": "2B",
+			"date": "1929-07-20",
+			"start": "05:00",
+			"minutes": 80,
+			"tier": 3,
+			"needs": [
+				"nurse_note"
+			],
+			"question": "Who came to the seamstress that morning?",
+			"steps": [
+				{
+					"id": "in_2b",
+					"kind": "at",
+					"unit": "2B",
+					"hint": "Lena Ortiz writes every job down the morning it comes. Go to 2B."
+				},
+				{
+					"id": "lift_2b_finished_parcel",
+					"kind": "shift",
+					"object": "2B_finished_parcel",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.2,
+					"hint": "A parcel is finished and waiting on top. Lift it away."
+				},
+				{
+					"id": "lift_2b_tape_measure",
+					"kind": "shift",
+					"object": "2B_tape_measure",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.12,
+					"hint": "Her tape lies across the box. Lift the tape."
+				},
+				{
+					"id": "lift_2b_story_notions",
+					"kind": "shift",
+					"object": "2B_story_notions",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.18,
+					"hint": "Now the notions box. Lift it."
+				}
+			],
+			"clue": {
+				"id": "button_leaf",
+				"rest": "2B_story_notions",
+				"title": "A leaf from Lena's button book",
+				"body": "20 JULY. ONE PEARL. 6C, FOR A GLOVE. WRITTEN THAT MORNING."
+			}
+		},
+		"drain": {
+			"title": "The yard drain",
+			"place": "the boiler room",
+			"date": "1929-08-07",
+			"start": "09:00",
+			"minutes": 120,
+			"tier": 3,
+			"needs": [
+				"nurse_note"
+			],
+			"question": "What did the storm wash down?",
+			"steps": [
+				{
+					"id": "after_0910",
+					"kind": "after",
+					"time": "09:10",
+					"hint": "The work order is for this morning. Go down to the boiler room."
+				},
+				{
+					"id": "know_m_glove_scrap",
+					"kind": "flag",
+					"flag": "m_glove_scrap",
+					"hint": "The yard drain's clean-out comes through the boiler room wall. Draw the plug."
+				}
+			],
+			"clue": {
+				"id": "glove_scrap",
+				"rest": "B1_BOILER_ROOM_SWITCH",
+				"title": "A scrap of white kid with a pearl button",
+				"body": "FROM THE YARD DRAIN, WED. 7 AUG. WHITE KID LEATHER, TORN. ONE PEARL BUTTON ON ITS SHANK.",
+				"rest_offset": [
+					0.0,
+					-0.35,
+					0.06
+				]
+			}
+		},
+		"drama": {
 			"title": "The twelfth record",
 			"place": "5B",
 			"date": "1929-08-24",
-			"start": "19:00",
-			"minutes": 120,
+			"start": "15:00",
+			"minutes": 110,
+			"tier": 4,
+			"strict": true,
+			"needs": [
+				"jonah_page"
+			],
 			"question": "What was playing behind the wall?",
-			"evidence": [
-				"mt:cd_playback"
+			"steps": [
+				{
+					"id": "in_5b",
+					"kind": "at",
+					"unit": "5B",
+					"hint": "Cal Dwyer and Juno Kells trade recordings on Saturdays at three. Go to 5B."
+				},
+				{
+					"id": "lift_5b_story_headphones",
+					"kind": "shift",
+					"object": "5B_story_headphones",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.15,
+					"hint": "He files by ear. Lift the headphones off the stack first."
+				},
+				{
+					"id": "lift_5b_tapes_a1",
+					"kind": "shift",
+					"object": "5B_tapes_a1",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.14,
+					"hint": "Top shelf, first box: the twelfth of July. Lift it out."
+				},
+				{
+					"id": "lift_5b_tapes_a2",
+					"kind": "shift",
+					"object": "5B_tapes_a2",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.14,
+					"hint": "The box beside it is the nineteenth. Lift that out second."
+				},
+				{
+					"id": "lift_5b_tape_plain",
+					"kind": "shift",
+					"object": "5B_tape_plain",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.14,
+					"hint": "Under where they stood is one with no label. Lift it."
+				}
 			],
-			"leads": [
-				"m_drama_lead"
-			],
-			"successors": [],
-			"hints": [
-				"Cal Dwyer in 5B keeps his recordings.",
-				"Knock at 5B in the evening and ask to hear the twelfth.",
-				"If he will not play it, something learned elsewhere is wanting. Go home and look to your other leads."
-			]
+			"clue": {
+				"id": "disc_label",
+				"rest": "5B_tape_plain",
+				"title": "Cal's timing card for the two broadcasts",
+				"body": "WLBQ. 12 JULY AND 19 JULY. SAME DOOR, SAME TICK, SAME SECOND. THE 19TH WAS THE 12TH PLAYED AGAIN. C.D."
+			}
 		},
-		"ash": {
-			"title": "The ash pit",
-			"place": "the boiler room",
+		"bench": {
+			"title": "Glass from the ash",
+			"place": "3B",
 			"date": "1929-09-23",
-			"start": "09:00",
-			"minutes": 180,
+			"start": "12:00",
+			"minutes": 120,
+			"tier": 4,
+			"strict": true,
+			"needs": [
+				"glove_scrap"
+			],
 			"question": "What did not burn?",
-			"evidence": [
-				"mt:ob_ash"
+			"steps": [
+				{
+					"id": "after_1220",
+					"kind": "after",
+					"time": "12:20",
+					"hint": "Omar Bell raked the ash pit at eight. Give him time to carry it up to his bench."
+				},
+				{
+					"id": "in_3b",
+					"kind": "at",
+					"unit": "3B",
+					"hint": "Go to 3B."
+				},
+				{
+					"id": "lift_3b_partscrate",
+					"kind": "shift",
+					"object": "3B_partscrate",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.2,
+					"hint": "He sorts before he cleans. Lift the parts crate down first."
+				},
+				{
+					"id": "lift_3b_tray1",
+					"kind": "shift",
+					"object": "3B_tray1",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.12,
+					"hint": "Then the first tray."
+				},
+				{
+					"id": "lift_3b_tray2",
+					"kind": "shift",
+					"object": "3B_tray2",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.12,
+					"hint": "Then the second tray. It is under that."
+				}
 			],
-			"leads": [
-				"m_boiler_sheet"
+			"clue": {
+				"id": "dark_slide",
+				"rest": "3B_tray2",
+				"title": "A dark slide with Omar's bench tag",
+				"body": "GLASS, DARK SLIDE, A.V. 13, FROM ASH, 23 SEPT. THE PLATE IT HELD IS BROKEN ACROSS."
+			}
+		},
+		"duplicate": {
+			"title": "The sleeve check",
+			"place": "6A",
+			"date": "1929-10-18",
+			"start": "19:30",
+			"minutes": 90,
+			"tier": 4,
+			"strict": true,
+			"needs": [
+				"button_leaf",
+				"route_leaf"
 			],
-			"successors": [],
-			"hints": [
-				"The boiler room is Omar Bell's business. He lives in 3B.",
-				"Ask Omar Bell what is in the ash pit.",
-				"If he has nothing to say, something learned elsewhere is wanting. Go home and look to your other leads."
-			]
+			"question": "What did Adela give Sacha Reed to keep?",
+			"steps": [
+				{
+					"id": "after_1945",
+					"kind": "after",
+					"time": "19:45",
+					"hint": "The quarterly sleeve check is at a quarter to eight. Wait for it."
+				},
+				{
+					"id": "in_6a",
+					"kind": "at",
+					"unit": "6A",
+					"hint": "Go to 6A."
+				},
+				{
+					"id": "lift_6a_archive_box_c",
+					"kind": "shift",
+					"object": "6A_archive_box_c",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.18,
+					"hint": "Sacha Reed checks the newest box first. Lift box C."
+				},
+				{
+					"id": "lift_6a_archive_box_a",
+					"kind": "shift",
+					"object": "6A_archive_box_a",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.18,
+					"hint": "Then the oldest. Lift box A."
+				},
+				{
+					"id": "lift_6a_archive_box_b",
+					"kind": "shift",
+					"object": "6A_archive_box_b",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.18,
+					"hint": "Then the one between. Lift box B."
+				},
+				{
+					"id": "lift_6a_loupe",
+					"kind": "shift",
+					"object": "6A_loupe",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.1,
+					"hint": "The sleeve is on the light table under the loupe. Lift the loupe."
+				}
+			],
+			"clue": {
+				"id": "duplicate_negative",
+				"rest": "6A_loupe",
+				"title": "The duplicate deed negative",
+				"body": "ON THE SLEEVE: FROM A.V., JUNE. DEED SCHEDULE. 'TOGETHER WITH THE REVERSION OF THE ADJOINING PARCEL', 1 AUGUST 1929."
+			}
+		},
+		"plate": {
+			"title": "Plate thirteen",
+			"place": "6A",
+			"date": "1929-10-29",
+			"start": "19:00",
+			"minutes": 100,
+			"tier": 5,
+			"strict": true,
+			"needs": [
+				"dark_slide",
+				"duplicate_negative"
+			],
+			"question": "What is on the half that survived?",
+			"steps": [
+				{
+					"id": "after_1915",
+					"kind": "after",
+					"time": "19:15",
+					"hint": "Sacha said Tuesday the twenty-ninth, in the evening. Let the bath warm."
+				},
+				{
+					"id": "in_6a",
+					"kind": "at",
+					"unit": "6A",
+					"hint": "Go to 6A."
+				},
+				{
+					"id": "lift_6a_plate_box",
+					"kind": "shift",
+					"object": "6A_plate_box",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.16,
+					"hint": "The plate box first. Lift it to the bench."
+				},
+				{
+					"id": "lift_6a_cans",
+					"kind": "shift",
+					"object": "6A_cans",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.14,
+					"hint": "The chemistry cans stand in front of the light box. Lift them clear."
+				},
+				{
+					"id": "lift_6a_light_box",
+					"kind": "shift",
+					"object": "6A_light_box",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.12,
+					"hint": "Raise the light box lid."
+				},
+				{
+					"id": "lift_6a_loupe",
+					"kind": "shift",
+					"object": "6A_loupe",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.1,
+					"hint": "Now the loupe."
+				},
+				{
+					"id": "lift_6a_plant_print",
+					"kind": "shift",
+					"object": "6A_plant_print",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.14,
+					"hint": "The proof is drying under the other print. Lift that print away."
+				}
+			],
+			"clue": {
+				"id": "plate_half",
+				"rest": "6A_plant_print",
+				"title": "The surviving half of plate 13",
+				"body": "A.V. 13. THE WET DECK. AN ARM AND SHOULDER AT THE NEAR EDGE. A PALE GLOVE. SACHA: I HAVE NOT REPAIRED THE REST INTO IT."
+			}
+		},
+		"box": {
+			"title": "Mrs. Kessler's box",
+			"place": "6C",
+			"date": "1929-11-09",
+			"start": "15:00",
+			"minutes": 60,
+			"tier": 6,
+			"strict": true,
+			"needs": [
+				"plate_half",
+				"disc_label",
+				"glove_scrap",
+				"button_leaf",
+				"route_leaf"
+			],
+			"question": "What did she keep?",
+			"steps": [
+				{
+					"id": "after_1505",
+					"kind": "after",
+					"time": "15:05",
+					"hint": "Her sale day ends at three. Mr. Ewald calls at four. You have the hour between."
+				},
+				{
+					"id": "in_6c",
+					"kind": "at",
+					"unit": "6C",
+					"hint": "Go to 6C."
+				},
+				{
+					"id": "lift_6c_glove_tray",
+					"kind": "shift",
+					"object": "6C_glove_tray",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.14,
+					"hint": "The glove tray stands on the cabinet. Lift it down."
+				},
+				{
+					"id": "lift_6c_hairpin_tin",
+					"kind": "shift",
+					"object": "6C_hairpin_tin",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.1,
+					"hint": "The key is where a careful woman keeps one. Lift the hairpin tin."
+				},
+				{
+					"id": "lift_6c_card_a",
+					"kind": "shift",
+					"object": "6C_card_a",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.1,
+					"hint": "The card index is in the way. Lift the front card."
+				},
+				{
+					"id": "lift_6c_object_under_review",
+					"kind": "shift",
+					"object": "6C_object_under_review",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.16,
+					"hint": "The piece she is appraising stands on the box. Lift it off."
+				},
+				{
+					"id": "lift_6c_ledger",
+					"kind": "shift",
+					"object": "6C_ledger",
+					"axis": [
+						0,
+						1,
+						0
+					],
+					"reach": 0.16,
+					"hint": "Now the ledger box."
+				}
+			],
+			"clue": {
+				"id": "kept_papers",
+				"rest": "6C_ledger",
+				"title": "What was in Mrs. Kessler's box",
+				"body": "ADELA'S NOTE OF 6.10 P.M., 19 JULY: 'BEFORE THE TENANTS DO ON MONDAY.' THE RECORD OF 26 JUNE, THE LIGHTNING ITEM MARKED. AN AUGUST RENT RECEIPT IN THE ESTATE'S NAME."
+			}
 		}
 	},
 	"deductions": {
-		"same_friday": {
+		"she_asked_first": {
 			"needs": [
-				"mt:mk_tea",
-				"mt:co_envelope"
+				"order_slip",
+				"route_leaf"
 			],
-			"line": "The afternoon in June and the errand in July touch the same door."
+			"line": "She asked for the negatives in June and was refused. In July something left her flat sealed, an hour before dark."
 		},
-		"between_two_witnesses": {
+		"the_glove": {
 			"needs": [
-				"mt:mr_last",
-				"mt:tv_yard"
+				"nurse_note",
+				"glove_scrap",
+				"button_leaf"
 			],
-			"line": "One saw the evening begin. One heard the night end. The hours between belong to nobody."
+			"line": "White kid under the nails, white kid in the drain, and a pearl button sewn back on for 6C the next morning."
 		},
-		"what_was_arranged": {
+		"the_evening_was_made": {
 			"needs": [
-				"mt:cd_playback",
-				"mt:ob_ash"
+				"jonah_page",
+				"disc_label"
 			],
-			"line": "A sound that was made to be heard, and a thing that was made to be gone."
+			"line": "What the house heard from 6C that night was a record of the week before."
+		},
+		"the_reason": {
+			"needs": [
+				"duplicate_negative",
+				"dark_slide"
+			],
+			"line": "The deed was the reason, and the plate was what had to go."
+		},
+		"the_case": {
+			"needs": [
+				"kept_papers",
+				"plate_half"
+			],
+			"line": "She kept the note that gave her the date. The case against Mae Kessler stands without a confession."
 		}
 	}
 }

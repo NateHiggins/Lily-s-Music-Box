@@ -1,26 +1,26 @@
 extends Node
 ## The temporal investigation loop. A lead is an anchor: a place, a date, a
 ## start, a length and a question. The player pays a fare from banked funds to
-## be put down at an anchor, may run its hours as often as they like for
-## nothing, and carries home only what they learned.
+## be put down at an anchor. There they work the room, a step at a time,
+## until it gives up one piece of evidence. They take it, go home, pin it to
+## the case wall in 4B, and the wall decides which leads are open next.
 ##
 ## Three clocks: the historical one (the civil calendar, moved by
 ## CampaignClock.rebase_calendar), the loop one (minutes since this run of the
 ## anchor began) and the player's own (elapsed minutes, which never go back, so
 ## rent and deliveries stay honest through every visit).
 ##
-## Evidence is what each trip is for, and it is kept: what was heard (knowledge
-## flags) and what was collected (the valise's evidence folder, papers and
-## letters, which no visit or rerun touches). Also kept: the bank, its
-## transactions, unlocked and resolved anchors, deductions. What a visit or a
-## rerun puts back: the REWOUND domains, which are pocket cash, tools and
-## stores, keys, shop stock and standing with the residents.
+## Evidence is what each trip is for, and it is kept: the items taken (held in
+## this ledger and filed in the valise) and what was heard. Also kept: the
+## bank, its transactions, the wall, deductions. What a visit or a rerun puts
+## back: the room's steps, and the REWOUND domains, which are pocket cash,
+## tools and stores, keys, shop stock and standing with the residents.
 ## Money can therefore reach the bank only by a deposit made at home, and a
 ## deposit is one committed transaction.
 ##
 ## The companion has its own initiative (Bible, ruling of 2026-11-10): it
 ## draws the allowance, advises at home, hints and warns during a visit, and
-## brings the player home when the hours end with the question answered.
+## brings the player home when the hours end with the evidence in hand.
 ## Everything it says is authored here or in the anchors table (RUL-015).
 ##
 ## Every entry to the past goes through `jump`, `reset_loop` or `go_home`, and
@@ -29,21 +29,20 @@ extends Node
 
 signal changed
 signal slip(title: String, body: String)
+## The room's steps were put back: a rerun, an order fault, or leaving.
+signal stage_reset
 
 const KEY := "temporal"
 const DATA_PATH := "res://data/temporal/anchors.json"
 const Economy := preload("res://scripts/game/caretaker_economy.gd")
 const PaperPocket := preload("res://scripts/game/paper_pocket.gd")
-## A find kept in the valise's evidence folder is held in the ledger under
-## this prefix, so a lead can ask for a thing collected as well as a thing heard.
-const FOUND_PREFIX := "ev:"
 ## Campaign domains a visit borrows and gives back. Knowledge and the valise
 ## (PaperPocket.KEY) must never be among them: evidence is kept.
 const REWOUND: Array[String] = ["caretaker_economy", "inventories", "door_keys",
 		"shop_stock", "conversation_visits", "resident_trust"]
 const STATES: Array[String] = ["CHOOSE_NEXT_ACTION", "SELECT_ANCHOR", "FUND_JUMP",
 		"EXECUTE_JUMP", "RUN_LOOP", "INVESTIGATE", "RESET_LOOP", "RESOLVE_ANCHOR"]
-
+const STEP_KINDS: Array[String] = ["at", "after", "shift", "flag"]
 ## The companion's pacing, in minutes of the loop clock.
 const HINT_FIRST_MINUTES := 4.0
 const HINT_EVERY_MINUTES := 12.0
@@ -70,56 +69,92 @@ static func _load_table() -> Dictionary:
 	if file == null:
 		return {}
 	var parsed: Variant = JSON.parse_string(file.get_as_text())
-	if parsed is not Dictionary or int(parsed.get("version", 0)) != 1 or parsed.get("anchors") is not Dictionary:
+	if parsed is not Dictionary or int(parsed.get("version", 0)) != 2 or parsed.get("anchors") is not Dictionary:
 		return {}
 	var fare: Dictionary = parsed.get("fare", {})
 	for field: String in ["base_cents", "days_per_cent", "cap_cents", "worn_groove_divisor"]:
 		if not fare.has(field):
 			return {}
-	if not (parsed.get("stipend", {}) as Dictionary).has("cents") or str(parsed.get("bank_name", "")).is_empty():
+	if not (parsed.get("stipend", {}) as Dictionary).has("cents") or str(parsed.get("bank_name", "")).is_empty() \
+			or str(parsed.get("wall", "")).is_empty():
 		return {}
+	var clues := {}
 	for anchor_id: String in parsed.anchors:
 		var anchor: Dictionary = parsed.anchors[anchor_id]
-		for field: String in ["title", "place", "date", "start", "minutes", "question", "evidence", "successors"]:
+		for field: String in ["title", "place", "date", "start", "minutes", "question", "tier", "needs", "steps", "clue"]:
 			if not anchor.has(field):
 				return {}
-		anchor["leads"] = anchor.get("leads", [])
-		if anchor.get("hints") is not Array:
-			return {}
+		anchor["strict"] = bool(anchor.get("strict", false))
 		anchor["first_call_free"] = bool(anchor.get("first_call_free", false))
 		var span := _anchor_span(anchor)
 		# No anchor may touch the murder hours, by its own data.
 		if span.is_empty() or CampaignClock.in_blackout(span.start) \
 				or (span.start < CampaignClock.blackout_end_minute() and span.end > CampaignClock.blackout_start_minute()):
 			return {}
+		var clue: Dictionary = anchor.clue
+		for field: String in ["id", "title", "body", "rest"]:
+			if str(clue.get(field, "")).is_empty():
+				return {}
+		if clues.has(str(clue.id)) or (anchor.steps as Array).is_empty() \
+				or (clue.has("rest_offset") and (clue.rest_offset as Array).size() != 3):
+			return {}
+		clues[str(clue.id)] = anchor_id
+		var seen := {}
+		for step: Dictionary in anchor.steps:
+			if str(step.get("kind", "")) not in STEP_KINDS or str(step.get("id", "")).is_empty() \
+					or seen.has(str(step.id)) or str(step.get("hint", "")).is_empty():
+				return {}
+			seen[str(step.id)] = true
+			match str(step.kind):
+				"at":
+					if str(step.get("unit", "")).is_empty(): return {}
+				"after":
+					if _minute_of(str(step.get("time", ""))) < 0: return {}
+				"shift":
+					if str(step.get("object", "")).is_empty() or (step.get("axis", []) as Array).size() != 3 \
+							or float(step.get("reach", 0.0)) <= 0.0: return {}
+				"flag":
+					if str(step.get("flag", "")).is_empty(): return {}
+	# The tree: every need is some other anchor's clue, and tiers only climb.
+	for anchor_id: String in parsed.anchors:
+		for need: Variant in parsed.anchors[anchor_id].needs:
+			if not clues.has(str(need)) or str(clues[str(need)]) == anchor_id \
+					or int(parsed.anchors[str(clues[str(need)])].tier) >= int(parsed.anchors[anchor_id].tier):
+				return {}
 	for deduction_id: String in parsed.get("deductions", {}):
 		var deduction: Dictionary = parsed.deductions[deduction_id]
 		if deduction.get("needs") is not Array or str(deduction.get("line", "")).is_empty():
 			return {}
-	if parsed.get("opening") is not Array:
-		return {}
+		for need: Variant in deduction.needs:
+			if not clues.has(str(need)):
+				return {}
+	parsed["clue_anchor"] = clues
 	return parsed
+
+
+static func _minute_of(text: String) -> int:
+	var parts := text.split(":")
+	if parts.size() != 2 or not parts[0].is_valid_int() or not parts[1].is_valid_int():
+		return -1
+	return int(parts[0]) * 60 + int(parts[1])
 
 
 static func _anchor_span(anchor: Dictionary) -> Dictionary:
 	var date := str(anchor.date).split("-")
-	var hour := str(anchor.start).split(":")
-	if date.size() != 3 or hour.size() != 2 or int(anchor.minutes) <= 0:
+	var minute := _minute_of(str(anchor.start))
+	if date.size() != 3 or minute < 0 or int(anchor.minutes) <= 0:
 		return {}
-	var start := CampaignClock.calendar_minute_of(int(date[0]), int(date[1]), int(date[2]),
-			float(int(hour[0]) * 60 + int(hour[1])))
+	var start := CampaignClock.calendar_minute_of(int(date[0]), int(date[1]), int(date[2]), float(minute))
 	return {"start": start, "end": start + float(int(anchor.minutes))}
 
 
-## The persistent ledger. Created on first use with the opening leads.
+## The persistent ledger.
 func ledger() -> Dictionary:
 	var value: Variant = RealityState.data.get(KEY)
-	if value is not Dictionary or int(value.get("version", 0)) != 1:
-		value = {"version": 1, "state": "CHOOSE_NEXT_ACTION", "bank_cents": 0,
-				"transactions": {}, "anchors": {}, "evidence": [], "deductions": [],
+	if value is not Dictionary or int(value.get("version", 0)) != 2:
+		value = {"version": 2, "state": "CHOOSE_NEXT_ACTION", "bank_cents": 0,
+				"transactions": {}, "anchors": {}, "items": {}, "deductions": [],
 				"visit": {}, "selected": ""}
-		for anchor_id: Variant in table.get("opening", []):
-			value.anchors[str(anchor_id)] = {"paid": 0, "loops": 0, "resolved": false}
 		RealityState.data[KEY] = value
 	return value
 
@@ -127,11 +162,13 @@ func ledger() -> Dictionary:
 static func valid(value: Variant) -> bool:
 	if value is not Dictionary:
 		return false
-	for field: String in ["transactions", "anchors", "visit"]:
+	for field: String in ["transactions", "anchors", "visit", "items"]:
 		if value.get(field) is not Dictionary:
 			return false
-	for field: String in ["evidence", "deductions"]:
-		if value.get(field) is not Array:
+	if value.get("deductions") is not Array:
+		return false
+	for item: Variant in (value.items as Dictionary).values():
+		if item is not Dictionary or item.get("pinned") is not bool:
 			return false
 	var bank: Variant = value.get("bank_cents")
 	if (bank is not int and bank is not float) or float(bank) < 0.0 or float(bank) != floorf(float(bank)):
@@ -155,6 +192,13 @@ func visit_anchor() -> String:
 	return str((ledger().visit as Dictionary).get("anchor", ""))
 
 
+func _record(anchor_id: String) -> Dictionary:
+	var anchors: Dictionary = ledger().anchors
+	if not anchors.has(anchor_id):
+		anchors[anchor_id] = {"paid": 0, "loops": 0}
+	return anchors[anchor_id]
+
+
 ## Minutes since this run of the anchor began: the loop clock.
 func loop_minutes() -> float:
 	var visit: Dictionary = ledger().visit
@@ -167,43 +211,199 @@ func loop_minutes_left() -> float:
 	return float(int(table.anchors[visit_anchor()].minutes)) - loop_minutes()
 
 
+# --- Evidence and the wall ---------------------------------------------------
+
+## The evidence item an anchor gives up.
+func clue_of(anchor_id: String) -> Dictionary:
+	return table.anchors[anchor_id].clue
+
+
+func holds(item_id: String) -> bool:
+	return (ledger().items as Dictionary).has(item_id)
+
+
+func pinned(item_id: String) -> bool:
+	return holds(item_id) and bool(ledger().items[item_id].pinned)
+
+
+## Held but not yet on the wall, in the order taken.
+func carried() -> Array[String]:
+	var ids: Array[String] = []
+	for item_id: String in ledger().items:
+		if not bool(ledger().items[item_id].pinned):
+			ids.append(item_id)
+	return ids
+
+
+func on_wall() -> Array[String]:
+	var ids: Array[String] = []
+	for item_id: String in ledger().items:
+		if bool(ledger().items[item_id].pinned):
+			ids.append(item_id)
+	return ids
+
+
+func item_text(item_id: String) -> Dictionary:
+	return clue_of(str(table.clue_anchor[item_id]))
+
+
+## A lead is open when everything it needs is pinned to the wall.
 func unlocked() -> Array[String]:
 	var ids: Array[String] = []
 	for anchor_id: String in table.anchors:
-		if (ledger().anchors as Dictionary).has(anchor_id):
+		var open := true
+		for need: Variant in table.anchors[anchor_id].needs:
+			open = open and pinned(str(need))
+		if open:
 			ids.append(anchor_id)
 	return ids
 
 
-func holds(flag: String) -> bool:
-	return flag in ledger().evidence
+func answered(anchor_id: String) -> bool:
+	return holds(str(clue_of(anchor_id).id))
 
 
-func evidence_missing(anchor_id: String) -> Array[String]:
-	var missing: Array[String] = []
-	for flag: Variant in table.anchors[anchor_id].evidence:
-		if not holds(str(flag)):
-			missing.append(str(flag))
-	return missing
+## Pin the next carried item to the wall. Home only: the wall is in 4B, in the
+## present. Returns the item, the leads it opened and any deduction drawn.
+func pin_next() -> Dictionary:
+	if in_visit():
+		return {"ok": false, "code": "away"}
+	var waiting := carried()
+	if waiting.is_empty():
+		return {"ok": false, "code": "nothing"}
+	var before := unlocked()
+	var item_id := waiting[0]
+	var book := ledger()
+	book.items[item_id]["slot"] = on_wall().size()
+	book.items[item_id].pinned = true
+	var opened: Array[String] = []
+	for anchor_id: String in unlocked():
+		if anchor_id not in before:
+			opened.append(anchor_id)
+	var drawn: Array[String] = []
+	for deduction_id: String in table.get("deductions", {}):
+		if deduction_id in book.deductions:
+			continue
+		var complete := true
+		for need: Variant in table.deductions[deduction_id].needs:
+			complete = complete and pinned(str(need))
+		if complete:
+			book.deductions.append(deduction_id)
+			drawn.append(deduction_id)
+	RealityState.commit()
+	changed.emit()
+	return {"ok": true, "item": item_id, "opened": opened, "deductions": drawn}
 
+
+# --- The room's steps ----------------------------------------------------------
+
+func stage() -> Dictionary:
+	var visit: Dictionary = ledger().visit
+	if visit.is_empty():
+		return {}
+	if visit.get("stage") is not Dictionary:
+		visit["stage"] = {"done": []}
+	return visit.stage
+
+
+func steps_done() -> int:
+	return (stage().get("done", []) as Array).size()
+
+
+## The step the room is waiting on, or {} when the evidence is out.
+func current_step() -> Dictionary:
+	if not in_visit():
+		return {}
+	var steps: Array = table.anchors[visit_anchor()].steps
+	return steps[steps_done()] if steps_done() < steps.size() else {}
+
+
+## True when every step is done and the evidence lies there to be taken.
+func clue_ready() -> bool:
+	return in_visit() and current_step().is_empty() and not answered(visit_anchor())
+
+
+func _advance(step: Dictionary) -> void:
+	(stage().done as Array).append(str(step.id))
+	ledger().state = "RESOLVE_ANCHOR" if current_step().is_empty() else "INVESTIGATE"
+	RealityState.commit_background()
+	changed.emit()
+	if current_step().is_empty() and not answered(visit_anchor()):
+		slip.emit("THERE", "%s. Take it." % str(clue_of(visit_anchor()).title))
+
+
+## What the world layer saw: where the player stands. Steps that only wait on
+## a place, an hour or a thing known pass here.
+func observe(unit: String) -> void:
+	for guard in 8:
+		var step := current_step()
+		if step.is_empty():
+			return
+		var passed := false
+		match str(step.kind):
+			"at": passed = unit == str(step.unit)
+			"after": passed = clock.minute_of_day() >= float(_minute_of(str(step.time)))
+			"flag": passed = RealityState.has_knowledge(str(step.flag))
+		if not passed:
+			return
+		_advance(step)
+
+
+## The player moved a thing in the room by hand, all the way.
+## Returns "step" when it was the thing the room was waiting on, "fault" when
+## a strict room was worked out of order and has put itself back, else "".
+func report_shift(object_id: String) -> String:
+	var step := current_step()
+	if step.is_empty():
+		return ""
+	if str(step.kind) == "shift" and str(step.object) == object_id:
+		_advance(step)
+		return "step"
+	var anchor: Dictionary = table.anchors[visit_anchor()]
+	if not bool(anchor.strict):
+		return ""
+	for later: Dictionary in anchor.steps:
+		if str(later.kind) == "shift" and str(later.object) == object_id and str(later.id) not in stage().done:
+			stage().done = []
+			ledger().state = "RUN_LOOP"
+			RealityState.commit_background()
+			stage_reset.emit()
+			changed.emit()
+			slip.emit("OUT OF ORDER", "It is all as it was. Begin again, and mind the order.")
+			return "fault"
+	return ""
+
+
+## The player took the evidence the room gave up. It is kept from here on.
+func take_clue() -> Dictionary:
+	if not clue_ready():
+		return {"ok": false}
+	var clue := clue_of(visit_anchor())
+	ledger().items[str(clue.id)] = {"pinned": false, "anchor": visit_anchor(), "run": int(_record(visit_anchor()).loops) + 1}
+	PaperPocket.file_evidence("loop:" + str(clue.id), str(clue.title), str(clue.body))
+	RealityState.commit()
+	changed.emit()
+	return {"ok": true, "item": str(clue.id), "title": str(clue.title), "body": str(clue.body)}
+
+
+# --- Fares and the bank -----------------------------------------------------------
 
 ## The fare is fixed by the anchor and by how far the present is from it in
 ## the year: the same question from the same day always costs the same. The
-## first call to an opening lead is on the house, and a resolved anchor is a
+## first call to the opening lead is on the house, and an answered anchor is a
 ## worn groove at a fraction of the fare.
 func fare_cents(anchor_id: String) -> int:
 	if not table.anchors.has(anchor_id):
 		return -1
 	var anchor: Dictionary = table.anchors[anchor_id]
-	var record: Dictionary = (ledger().anchors as Dictionary).get(anchor_id, {})
-	if bool(anchor.first_call_free) and int(record.get("paid", 0)) == 0:
+	if bool(anchor.first_call_free) and int(_record(anchor_id).paid) == 0:
 		return 0
 	var fare: Dictionary = table.fare
 	var year := CampaignClock.loop_length_minutes()
 	var apart := fposmod(_anchor_span(anchor).start - _home_calendar(), year)
 	var days := int(minf(apart, year - apart) / CampaignClock.MINUTES_PER_DAY)
 	var cents := mini(int(fare.cap_cents), int(fare.base_cents) + int(ceil(float(days) / float(int(fare.days_per_cent)))))
-	return cents / int(fare.worn_groove_divisor) if bool(record.get("resolved", false)) else cents
+	return cents / int(fare.worn_groove_divisor) if answered(anchor_id) else cents
 
 
 func _home_calendar() -> float:
@@ -255,6 +455,8 @@ func deposit(cents: int) -> Dictionary:
 	return {"ok": banked, "code": "" if banked else "refused", "cents": cents}
 
 
+# --- Going and coming back ---------------------------------------------------------
+
 func select(anchor_id: String) -> Dictionary:
 	if in_visit():
 		return {"ok": false, "code": "away"}
@@ -273,7 +475,7 @@ func jump(anchor_id: String) -> Dictionary:
 	if not chosen.ok:
 		return chosen
 	var book := ledger()
-	var record: Dictionary = book.anchors[anchor_id]
+	var record := _record(anchor_id)
 	var fare := int(chosen.fare)
 	if fare > int(book.bank_cents):
 		book.state = "CHOOSE_NEXT_ACTION"
@@ -294,11 +496,12 @@ func jump(anchor_id: String) -> Dictionary:
 	record.paid = int(record.paid) + 1
 	var world := _borrow(RealityState.data)
 	book.visit = {"anchor": anchor_id, "home_calendar": home, "left_at": clock.elapsed_minutes(),
-			"loop_started": clock.elapsed_minutes(), "world": world}
+			"loop_started": clock.elapsed_minutes(), "world": world, "stage": {"done": []}}
 	book.state = "RUN_LOOP"
 	aide().warned = false
 	aide().next_hint = HINT_FIRST_MINUTES
 	RealityState.commit()
+	stage_reset.emit()
 	changed.emit()
 	return {"ok": true, "fare": fare, "anchor": anchor_id}
 
@@ -330,22 +533,24 @@ func _restore_world() -> void:
 
 
 ## Run the anchor's hours again. Free: the fare bought the anchor, not the run.
+## The room is as it was; evidence already taken stays taken.
 func reset_loop() -> Dictionary:
 	if not in_visit():
 		return {"ok": false, "code": "home"}
 	var book := ledger()
-	collect()
 	var anchor_id := visit_anchor()
 	book.state = "RESET_LOOP"
 	if not clock.rebase_calendar(_anchor_span(table.anchors[anchor_id]).start):
 		return {"ok": false, "code": "refused"}
 	_restore_world()
 	book.visit.loop_started = clock.elapsed_minutes()
-	book.anchors[anchor_id].loops = int(book.anchors[anchor_id].loops) + 1
+	book.visit.stage = {"done": []}
+	_record(anchor_id).loops = int(_record(anchor_id).loops) + 1
 	book.state = "RUN_LOOP"
 	RealityState.commit()
+	stage_reset.emit()
 	changed.emit()
-	return {"ok": true, "loops": int(book.anchors[anchor_id].loops)}
+	return {"ok": true, "loops": int(_record(anchor_id).loops)}
 
 
 ## Back to the present, which has moved on by exactly the time spent away.
@@ -353,7 +558,6 @@ func go_home() -> Dictionary:
 	if not in_visit():
 		return {"ok": false, "code": "home"}
 	var book := ledger()
-	collect()
 	var anchor_id := visit_anchor()
 	var target := _home_calendar()
 	var beginning := CampaignClock.loop_beginning_minute()
@@ -364,50 +568,15 @@ func go_home() -> Dictionary:
 		return {"ok": false, "code": "refused"}
 	_restore_world()
 	book.visit = {}
-	var opened: Array[String] = []
-	if evidence_missing(anchor_id).is_empty():
-		book.state = "RESOLVE_ANCHOR"
-		book.anchors[anchor_id].resolved = true
-		for successor: Variant in table.anchors[anchor_id].successors:
-			if not (book.anchors as Dictionary).has(str(successor)):
-				book.anchors[str(successor)] = {"paid": 0, "loops": 0, "resolved": false}
-				opened.append(str(successor))
 	book.state = "CHOOSE_NEXT_ACTION"
 	book.selected = ""
 	RealityState.commit()
+	stage_reset.emit()
 	changed.emit()
-	return {"ok": true, "resolved": bool(book.anchors[anchor_id].resolved), "opened": opened}
+	return {"ok": true, "answered": answered(anchor_id), "carried": carried()}
 
 
-## Move what the player now knows into the ledger, and draw any deduction it
-## completes. Returns the new evidence and deduction ids.
-func collect() -> Dictionary:
-	var book := ledger()
-	var found: Array[String] = []
-	var drawn: Array[String] = []
-	for find: Variant in PaperPocket.book().evidence:
-		var held := FOUND_PREFIX + str(find.id)
-		if held not in book.evidence:
-			book.evidence.append(held)
-			found.append(held)
-	for anchor_id: String in table.anchors:
-		for flag: Variant in table.anchors[anchor_id].evidence:
-			if str(flag) not in book.evidence and not str(flag).begins_with(FOUND_PREFIX) and RealityState.has_knowledge(str(flag)):
-				book.evidence.append(str(flag))
-				found.append(str(flag))
-	for deduction_id: String in table.get("deductions", {}):
-		if deduction_id in book.deductions:
-			continue
-		var complete := true
-		for flag: Variant in table.deductions[deduction_id].needs:
-			complete = complete and str(flag) in book.evidence
-		if complete:
-			book.deductions.append(deduction_id)
-			drawn.append(deduction_id)
-	if in_visit() and not found.is_empty():
-		book.state = "RESOLVE_ANCHOR" if evidence_missing(visit_anchor()).is_empty() else "INVESTIGATE"
-	return {"evidence": found, "deductions": drawn}
-
+# --- The companion's own initiative ---------------------------------------------------
 
 func _process(delta: float) -> void:
 	_poll += delta
@@ -426,14 +595,13 @@ func _process(delta: float) -> void:
 func aide() -> Dictionary:
 	var book := ledger()
 	if book.get("aide") is not Dictionary:
-		book["aide"] = {"quiet": false, "drawn_day": -1, "nudged_day": -1, "tiers": {},
+		book["aide"] = {"quiet": false, "drawn_day": -1, "nudged_day": -1,
 				"next_hint": HINT_FIRST_MINUTES, "warned": false}
 	return book.aide
 
 
 ## At home the companion acts for the player without being asked: it draws
-## the day's allowance into the bank, and once a day says which line is open
-## or what stands between the player and the next fare.
+## the day's allowance into the bank, and once a day says what it would do.
 func _attend_home() -> void:
 	var notes := aide()
 	var day := int(clock.elapsed_minutes() / CampaignClock.MINUTES_PER_DAY)
@@ -449,31 +617,18 @@ func _attend_home() -> void:
 	slip.emit("ADVICE", home_hint())
 
 
-## Away, it watches the hours: it files what the player learns, speaks up
-## with the next hint when a while passes with the question open, warns
-## before the hours end, and at the end either brings the player home with
-## the answer or begins the hours again.
+## Away, it watches the hours: it says the next step when a while passes,
+## warns before the hours end, and at the end either brings the player home
+## with the evidence or begins the hours again.
 func _attend_visit() -> void:
 	var notes := aide()
 	var anchor_id := visit_anchor()
-	var news := collect()
-	for deduction_id: String in news.deductions:
-		slip.emit("DEDUCTION", str(table.deductions[deduction_id].line))
-	var answered := evidence_missing(anchor_id).is_empty()
-	if not (news.evidence as Array).is_empty():
-		RealityState.commit_background()
-		changed.emit()
-		if answered:
-			slip.emit("ANSWERED", "%s HOME when ready. AGAIN to run the hours once more." % str(table.anchors[anchor_id].question))
 	var left := loop_minutes_left()
 	if left <= 0.0:
-		if answered:
+		if answered(anchor_id):
 			var back := go_home()
 			if back.ok:
-				var text := "The hours are done and the question is answered. I have brought you home."
-				for opened: String in back.opened:
-					text += " New lead: %s." % str(table.anchors[opened].title)
-				slip.emit("HOME", text)
+				slip.emit("HOME", "The hours are done and you have what you came for. I have brought you home. Pin it to the wall.")
 			return
 		var again := reset_loop()
 		if again.ok:
@@ -481,37 +636,35 @@ func _attend_visit() -> void:
 			notes.next_hint = HINT_FIRST_MINUTES
 			slip.emit("AGAIN", "%s. The hours begin again. Run %d." % [str(table.anchors[anchor_id].title), int(again.loops) + 1])
 		return
-	if bool(notes.quiet) or answered:
+	if bool(notes.quiet) or answered(anchor_id):
 		return
 	if left <= WARN_MINUTES and not bool(notes.warned):
 		notes.warned = true
-		slip.emit("TIME", "%d minutes. Then the hours begin again, and nothing you have learned is lost." % int(ceil(left)))
+		slip.emit("TIME", "%d minutes. Then the hours begin again. What you have taken, you keep." % int(ceil(left)))
 	elif loop_minutes() >= float(notes.next_hint):
 		notes.next_hint = loop_minutes() + HINT_EVERY_MINUTES
-		var hint := next_hint(anchor_id)
-		if not hint.is_empty():
-			slip.emit("HINT", hint)
+		slip.emit("HINT", visit_hint())
 
 
-## The next authored hint for a lead, a step plainer each time it is asked.
-## The last one repeats.
-func next_hint(anchor_id: String) -> String:
-	var hints: Array = table.anchors[anchor_id].hints
-	if hints.is_empty():
-		return ""
-	var tiers: Dictionary = aide().tiers
-	var tier := mini(int(tiers.get(anchor_id, 0)), hints.size() - 1)
-	tiers[anchor_id] = tier + 1
-	return str(hints[tier])
+## The authored hint for the step the room is waiting on.
+func visit_hint() -> String:
+	if answered(visit_anchor()):
+		return "You have it. HOME, and pin it to the wall."
+	var step := current_step()
+	if step.is_empty():
+		return "%s. It is there now. Take it." % str(clue_of(visit_anchor()).title)
+	return str(step.hint)
 
 
 ## What the companion would do next, from where the player stands at home.
 func home_hint() -> String:
+	if not carried().is_empty():
+		return "You are carrying %s. Pin it to the case wall in 4B. The wall decides what opens." % str(item_text(carried()[0]).title)
 	var index := 0
 	var cheapest := -1
 	for anchor_id: String in unlocked():
 		index += 1
-		if bool(ledger().anchors[anchor_id].resolved):
+		if answered(anchor_id):
 			continue
 		var fare := fare_cents(anchor_id)
 		if fare <= bank_cents():
@@ -519,7 +672,7 @@ func home_hint() -> String:
 					Economy.money(fare), Economy.money(bank_cents()), index]
 		cheapest = fare if cheapest < 0 else mini(cheapest, fare)
 	if cheapest < 0:
-		return "Every open question is answered. Read the deductions under LEADS."
+		return "Every open line is worked. Read the wall."
 	var pocket := int(economy.book().cash) if economy != null else 0
 	if pocket + bank_cents() >= cheapest:
 		return "The next fare is %s. You have it in your pocket. DEPOSIT %d." % [Economy.money(cheapest), cheapest - bank_cents()]
@@ -527,14 +680,7 @@ func home_hint() -> String:
 			Economy.money(cheapest), Economy.money(bank_cents())]
 
 
-## The player asking for a hint outright.
-func asked_hint() -> String:
-	if not in_visit():
-		return home_hint()
-	if evidence_missing(visit_anchor()).is_empty():
-		return "The question here is answered. HOME, or AGAIN."
-	return next_hint(visit_anchor())
-
+# --- The paper ---------------------------------------------------------------------
 
 ## The typed commands the service set answers on paper. Returns {} when the
 ## text is not one of them, so ordinary correspondence goes on as before.
@@ -544,7 +690,7 @@ func command(raw: String) -> Dictionary:
 		return {}
 	match words[0]:
 		"hint":
-			return {"intent": "temporal", "text": asked_hint()}
+			return {"intent": "temporal", "text": visit_hint() if in_visit() else home_hint()}
 		"quiet", "hints":
 			aide().quiet = words[0] == "quiet"
 			RealityState.commit_background()
@@ -552,8 +698,10 @@ func command(raw: String) -> Dictionary:
 					if words[0] == "quiet" else "I will speak up when I have something."}
 		"leads":
 			return {"intent": "temporal", "text": leads_text()}
+		"wall":
+			return {"intent": "temporal", "text": wall_text()}
 		"bank", "balance":
-			return {"intent": "temporal", "text": "%s\nBANKED %s   POCKET %s\nDEPOSIT n puts n cents by. ALLOWANCE draws the day's." % [
+			return {"intent": "temporal", "text": "%s\nBANKED %s   POCKET %s\nDEPOSIT n puts n cents by." % [
 					str(table.bank_name).to_upper(), Economy.money(bank_cents()),
 					Economy.money(int(economy.book().cash)) if economy != null else "?"]}
 		"allowance":
@@ -575,7 +723,7 @@ func command(raw: String) -> Dictionary:
 			if went.ok:
 				return {"intent": "temporal", "text": anchor_text(anchor_id) + "\nFARE %s. AGAIN reruns. HOME returns." % Economy.money(int(went.fare))}
 			match str(went.code):
-				"fare": return {"intent": "temporal", "text": "FARE %s. BANKED %s. EARN, DEPOSIT, OR DRAW THE ALLOWANCE." % [Economy.money(int(went.fare)), Economy.money(int(went.bank))]}
+				"fare": return {"intent": "temporal", "text": "FARE %s. BANKED %s. EARN, DEPOSIT, OR WAIT FOR THE ALLOWANCE." % [Economy.money(int(went.fare)), Economy.money(int(went.bank))]}
 				"away": return {"intent": "temporal", "text": "HOME FIRST."}
 			return {"intent": "temporal", "text": "NO LINE TO THAT HOUR."}
 		"again":
@@ -585,10 +733,7 @@ func command(raw: String) -> Dictionary:
 			var back := go_home()
 			if not back.ok:
 				return {"intent": "temporal", "text": "ALREADY HOME."}
-			var text := "HOME. THE PRESENT KEPT ITS OWN TIME."
-			for opened: String in back.opened:
-				text += "\nNEW LEAD: %s." % str(table.anchors[opened].title).to_upper()
-			return {"intent": "temporal", "text": text}
+			return {"intent": "temporal", "text": "HOME. THE PRESENT KEPT ITS OWN TIME." + ("\nPIN WHAT YOU CARRY TO THE WALL IN 4B." if not (back.carried as Array).is_empty() else "")}
 	return {}
 
 
@@ -606,17 +751,23 @@ func leads_text() -> String:
 	for anchor_id: String in unlocked():
 		index += 1
 		var anchor: Dictionary = table.anchors[anchor_id]
-		var record: Dictionary = ledger().anchors[anchor_id]
-		var mark := "ANSWERED" if bool(record.resolved) else "%d OF %d" % [
-				anchor.evidence.size() - evidence_missing(anchor_id).size(), anchor.evidence.size()]
 		lines.append("%d. %s  %s %s  FARE %s  %s" % [index, str(anchor.title).to_upper(), str(anchor.date),
-				str(anchor.start), Economy.money(fare_cents(anchor_id)), mark])
+				str(anchor.start), Economy.money(fare_cents(anchor_id)), "WORKED" if answered(anchor_id) else "OPEN"])
 		lines.append("   %s" % str(anchor.question))
-		for lead: Variant in anchor.leads:
-			if not RealityState.has_knowledge(str(lead)):
-				lines.append("   SOMETHING ELSEWHERE WOULD HELP HERE.")
-				break
+	if not carried().is_empty():
+		lines.append("CARRIED, NOT YET PINNED: %d." % carried().size())
+	lines.append("BANKED %s. JUMP n. AGAIN. HOME. BANK. WALL. HINT." % Economy.money(bank_cents()))
+	return "\n".join(lines)
+
+
+func wall_text() -> String:
+	var lines: Array[String] = ["THE WALL, 4B."]
+	for item_id: String in on_wall():
+		lines.append("- %s" % str(item_text(item_id).title).to_upper())
+	for item_id: String in carried():
+		lines.append("  (carried) %s" % str(item_text(item_id).title))
 	for deduction_id: Variant in ledger().deductions:
 		lines.append("* %s" % str(table.deductions[str(deduction_id)].line))
-	lines.append("BANKED %s. JUMP n. AGAIN. HOME. BANK. HINT." % Economy.money(bank_cents()))
+	if lines.size() == 1:
+		lines.append("NOTHING PINNED YET.")
 	return "\n".join(lines)
