@@ -1,32 +1,287 @@
 {
 	"schema_version": 1,
 	"default_outfit": "casual",
-	"cold_months": [11, 12, 1, 2, 3],
+	"cold_months": [
+		11,
+		12,
+		1,
+		2,
+		3
+	],
 	"cold_below_celsius": 8,
-	"outdoors": ["street", "yard", "roof", "arcade"],
-	"mourning": {"from": "1929-07-20", "days": 14},
+	"outdoors": [
+		"street",
+		"yard",
+		"roof",
+		"arcade"
+	],
+	"mourning": {
+		"from": "1929-07-20",
+		"days": 14
+	},
 	"loops": [
-		{"anchor": "drama", "outfit": "occasion", "people": []},
-		{"anchor": "friday", "outfit": "occasion", "people": ["adela_voss", "rhea_sato", "iris_bell"]}
+		{
+			"anchor": "drama",
+			"outfit": "occasion",
+			"people": []
+		},
+		{
+			"anchor": "friday",
+			"outfit": "occasion",
+			"people": [
+				"adela_voss",
+				"rhea_sato",
+				"iris_bell"
+			]
+		}
 	],
 	"people": [
-		{"person": "jonah_price", "rules": [{"outfit": "night", "places": ["home"]}]},
-		{"person": "teresa_vale", "rules": [{"outfit": "work", "activities": ["work"], "hours": [[19, 24], [0, 8]]}]},
-		{"person": "iris_bell", "rules": [{"outfit": "work", "places": ["home"], "activities": ["work", "rest"], "hours": [[9, 17]]}]}
+		{
+			"person": "jonah_price",
+			"rules": [
+				{
+					"outfit": "night",
+					"places": [
+						"home"
+					]
+				}
+			]
+		},
+		{
+			"person": "teresa_vale",
+			"rules": [
+				{
+					"outfit": "work",
+					"activities": [
+						"work"
+					],
+					"hours": [
+						[
+							19,
+							24
+						],
+						[
+							0,
+							8
+						]
+					]
+				}
+			]
+		},
+		{
+			"person": "iris_bell",
+			"rules": [
+				{
+					"outfit": "work",
+					"places": [
+						"home"
+					],
+					"activities": [
+						"work",
+						"rest"
+					],
+					"hours": [
+						[
+							9,
+							17
+						]
+					]
+				}
+			]
+		}
 	],
 	"rules": [
-		{"outfit": "night", "activities": ["sleep"]},
-		{"outfit": "night", "places": ["home"], "hours": [[22, 24], [0, 6]]},
-		{"outfit": "mourning", "activities": ["funeral"]},
-		{"outfit": "occasion", "activities": ["party", "performance"]},
-		{"outfit": "occasion", "occasions": ["emergence", "not_at_home", "Christmas", "New Year's Day", "Easter", "Thanksgiving", "Independence Day"]},
-		{"outfit": "occasion", "places": ["bar"], "hours": [[18, 24], [0, 3]]},
-		{"outfit": "mourning", "mourning": true, "outdoors": true},
-		{"outfit": "work", "activities": ["work"]},
-		{"outfit": "winter", "outdoors": true, "cold": true},
-		{"outfit": "winter", "outdoors": true, "weather": ["snow", "sleet"]},
-		{"outfit": "formal", "outdoors": true},
-		{"outfit": "formal", "places": ["lobby", "shop", "office"], "hours": [[8, 18]]},
-		{"outfit": "casual"}
+		{
+			"outfit": "night",
+			"activities": [
+				"sleep"
+			]
+		},
+		{
+			"outfit": "night",
+			"places": [
+				"home"
+			],
+			"hours": [
+				[
+					22,
+					24
+				],
+				[
+					0,
+					6
+				]
+			]
+		},
+		{
+			"outfit": "mourning",
+			"activities": [
+				"funeral"
+			]
+		},
+		{
+			"outfit": "occasion",
+			"activities": [
+				"party",
+				"performance"
+			]
+		},
+		{
+			"outfit": "occasion",
+			"occasions": [
+				"emergence",
+				"not_at_home",
+				"Christmas",
+				"New Year's Day",
+				"Easter",
+				"Thanksgiving",
+				"Independence Day"
+			]
+		},
+		{
+			"outfit": "occasion",
+			"places": [
+				"bar"
+			],
+			"hours": [
+				[
+					18,
+					24
+				],
+				[
+					0,
+					3
+				]
+			]
+		},
+		{
+			"outfit": "mourning",
+			"mourning": true,
+			"outdoors": true
+		},
+		{
+			"outfit": "work",
+			"activities": [
+				"work"
+			]
+		},
+		{
+			"outfit": "winter",
+			"outdoors": true,
+			"cold": true
+		},
+		{
+			"outfit": "winter",
+			"outdoors": true,
+			"weather": [
+				"snow",
+				"sleet"
+			]
+		},
+		{
+			"outfit": "formal",
+			"outdoors": true
+		},
+		{
+			"outfit": "formal",
+			"places": [
+				"lobby",
+				"shop",
+				"office"
+			],
+			"hours": [
+				[
+					8,
+					18
+				]
+			]
+		},
+		{
+			"outfit": "casual"
+		}
+	],
+	"looks": [
+		{
+			"outfit": "casual",
+			"sets": [
+				"a",
+				"b"
+			],
+			"over": "sometimes",
+			"over_tag": "",
+			"head": false,
+			"tint": ""
+		},
+		{
+			"outfit": "formal",
+			"sets": [
+				"b"
+			],
+			"over": "always",
+			"over_tag": "",
+			"head": true,
+			"tint": ""
+		},
+		{
+			"outfit": "occasion",
+			"sets": [
+				"c"
+			],
+			"over": "sometimes",
+			"over_tag": "",
+			"head": true,
+			"tint": ""
+		},
+		{
+			"outfit": "night",
+			"sets": [
+				"a"
+			],
+			"over": "tagged",
+			"over_tag": "night",
+			"head": false,
+			"tint": ""
+		},
+		{
+			"outfit": "winter",
+			"sets": [
+				"b",
+				"a"
+			],
+			"over": "tagged",
+			"over_tag": "warm",
+			"head": true,
+			"tint": ""
+		},
+		{
+			"outfit": "work",
+			"sets": [
+				"a"
+			],
+			"over": "tagged",
+			"over_tag": "work",
+			"head": false,
+			"tint": ""
+		},
+		{
+			"outfit": "mourning",
+			"sets": [
+				"b"
+			],
+			"over": "always",
+			"over_tag": "",
+			"head": true,
+			"tint": "mourning"
+		}
+	],
+	"tints": [
+		{
+			"name": "mourning",
+			"colour": [
+				0.16,
+				0.15,
+				0.17
+			]
+		}
 	]
 }

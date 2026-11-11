@@ -54,5 +54,45 @@ func _ready() -> void:
 	_check(rules.choose("mina_vale", {"date": "1929-06-04", "hour": 23.5, "place": "home"}, ["formal"]) == "formal", "someone who owns one outfit wears it")
 	var first := rules.choose("rhea_sato", {"date": "1929-06-08", "hour": 22.0, "place": "bar", "activity": "performance"})
 	_check(first == rules.choose("rhea_sato", {"date": "1929-06-08", "hour": 22.0, "place": "bar", "activity": "performance"}) and first == "occasion", "the same facts give the same outfit")
+	# Parts: three sets of five, as the cast builder writes them.
+	var notes: Dictionary = {}
+	for letter: String in ["a", "b", "c"]:
+		for slot: String in ["top", "bottom", "over", "head", "feet"]:
+			notes["%s_%s" % [letter, slot]] = {"slot": slot, "set": letter, "tags": []}
+	notes["a_over"].tags = ["work"]
+	notes["b_over"].tags = ["warm"]
+	notes["c_over"].tags = ["night"]
+	notes["c_top"].tags = ["night"]
+	notes["c_bottom"].tags = ["night"]
+	var formal: Dictionary = rules.parts_for("mina_vale", "formal", notes, "1929-06-04")
+	_check((formal.parts as Array).size() == 5 and "b_over" in formal.parts and "b_head" in formal.parts and "b_top" in formal.parts, "formal: the street set, coat and hat on (%s)" % [formal.parts])
+	var night: Dictionary = rules.parts_for("mina_vale", "night", notes, "1929-06-04")
+	_check("c_over" in night.parts and "c_top" in night.parts and "c_bottom" in night.parts and not ("b_head" in night.parts or "a_head" in night.parts or "c_head" in night.parts),
+		"night: the parts made for night, and no hat (%s)" % [night.parts])
+	var winter: Dictionary = rules.parts_for("mina_vale", "winter", notes, "1929-01-15")
+	_check("b_over" in winter.parts and (winter.parts as Array).any(func(part: String) -> bool: return part.ends_with("_head")), "winter: the warm outer layer and a hat (%s)" % [winter.parts])
+	var working: Dictionary = rules.parts_for("mina_vale", "work", notes, "1929-06-04")
+	_check("a_over" in working.parts, "work: the working layer (%s)" % [working.parts])
+	var mourning: Dictionary = rules.parts_for("mina_vale", "mourning", notes, "1929-07-24")
+	_check(str(mourning.tint) == "mourning" and rules.tint_colour("mourning").v < 0.3 and rules.tint_colour("") == Color.WHITE, "mourning: the street clothes, darkened")
+	var same: Dictionary = rules.parts_for("mina_vale", "casual", notes, "1929-06-04")
+	_check(same.parts == rules.parts_for("mina_vale", "casual", notes, "1929-06-04").parts, "the same person on the same day wears the same things")
+	var seen: Dictionary = {}
+	var slots_ok := true
+	for day in 28:
+		var worn: Dictionary = rules.parts_for("mina_vale", "casual", notes, "1929-06-%02d" % (day + 1))
+		seen[str(worn.parts)] = true
+		var slots: Dictionary = {}
+		for part: String in worn.parts:
+			slots_ok = slots_ok and not slots.has(notes[part].slot)
+			slots[notes[part].slot] = true
+		slots_ok = slots_ok and slots.has("top") and slots.has("bottom") and slots.has("feet")
+	_check(seen.size() >= 4, "across a month the casual choices vary (%d different)" % seen.size())
+	_check(slots_ok, "every choice has a top, a bottom and footwear, and one part to a slot")
+	var other: Dictionary = {}
+	for day in 28:
+		other[str(rules.parts_for("cal_dwyer", "casual", notes, "1929-06-%02d" % (day + 1)).parts)] = true
+	_check(rules.parts_for("cal_dwyer", "casual", notes, "1929-06-04").parts != same.parts or other.size() >= 4, "two people do not move in step")
+	_check((rules.parts_for("mina_vale", "formal", {"a_top": {"slot": "top", "set": "a", "tags": []}}, "1929-06-04").parts as Array) == ["a_top"], "someone with one part wears it")
 	print("WARDROBE RULES TEST: %s (%d checks, %d failures)" % ["PASS" if _fails == 0 else "FAIL", _checks, _fails])
 	get_tree().quit(0 if _fails == 0 else 1)

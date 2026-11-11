@@ -1,20 +1,26 @@
 extends RefCounted
 ## What a cast member is wearing. A person's own file holds the body once: the
-## skeleton, the skin in named parts, the face. Each outfit is a small file of
-## garments made on the same skeleton, with a note of which parts of the skin
-## it leaves bare. Changing clothes loads one small file and frees another; the
-## body, face and hair are never reloaded. So the number of outfits a person
-## owns costs disk, not memory or frame time: one outfit is in memory at a time.
+## skeleton, the skin in named parts, the face. Their wardrobe is a set of
+## small files, one per part: a top, a bottom, an outer layer, headwear,
+## footwear, three of each, made on the same skeleton. Any part goes with any
+## other. Each part has a note saying which slot it fills, what it is for
+## (tags such as warm, night, work) and which parts of the skin it covers.
+##
+## Changing clothes loads the parts that are new and frees the ones taken off;
+## the body, face and hair are never reloaded. A wardrobe's size costs disk,
+## not memory: only what is worn is loaded.
 
-const PERSON := "res://assets/characters/%s/%s.glb"
-const OUTFIT := "res://assets/characters/%s/%s__%s.glb"
-const NOTE := "res://assets/characters/%s/%s__%s.json"
+const FOLDER := "res://assets/characters/%s"
 const SKIN_PREFIX := "Skin_"
+const SLOTS: Array[String] = ["bottom", "top", "over", "feet", "head"]
 
 var person_id := ""
 var skeleton: Skeleton3D
-var wearing := ""
-var _garments: Array[MeshInstance3D] = []
+## Slot to the name of the part worn in it.
+var worn: Dictionary = {}
+## Part name to its note.
+var notes: Dictionary = {}
+var _meshes: Dictionary = {}
 var _skin: Dictionary = {}
 
 
@@ -30,66 +36,90 @@ func bind(model: Node, id: String) -> bool:
 	return not _skin.is_empty()
 
 
-## The outfits this person has files for.
-func owned() -> Array[String]:
-	var found: Array[String] = []
-	var folder := (PERSON % [person_id, person_id]).get_base_dir()
+## Read the notes of every part this person owns from their folder.
+func read_wardrobe(folder: String = "") -> int:
+	if folder.is_empty():
+		folder = FOLDER % person_id
+	notes.clear()
 	for file: String in DirAccess.get_files_at(folder):
-		if file.begins_with(person_id + "__") and file.ends_with(".json"):
-			found.append(file.trim_prefix(person_id + "__").trim_suffix(".json"))
-	found.sort()
-	return found
+		if not (file.begins_with(person_id + "__") and file.ends_with(".json")):
+			continue
+		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(folder.path_join(file)))
+		if parsed is Dictionary and parsed.has("slot") and parsed.has("part"):
+			notes[str(parsed.part)] = parsed
+	return notes.size()
 
 
-## Put an outfit on. Returns false, and changes nothing, when it cannot be found.
-func wear(outfit: String) -> bool:
-	if outfit == wearing:
-		return true
-	var path := OUTFIT % [person_id, person_id, outfit]
-	var note_path := NOTE % [person_id, person_id, outfit]
-	if skeleton == null or not ResourceLoader.exists(path) or not FileAccess.file_exists(note_path):
+## Wear exactly these parts (one per slot; a later part in the list wins a
+## slot). `loader` turns a part's name into its loaded scene; left out, the
+## part's file is loaded from the person's folder.
+func wear(parts: Array, loader: Callable = Callable()) -> bool:
+	var wanted: Dictionary = {}
+	for part: Variant in parts:
+		if notes.has(str(part)):
+			wanted[str(notes[str(part)].slot)] = str(part)
+	var changed := false
+	for slot: String in SLOTS:
+		var now := str(worn.get(slot, ""))
+		var next := str(wanted.get(slot, ""))
+		if now == next:
+			continue
+		if not now.is_empty():
+			for mesh: MeshInstance3D in _meshes.get(now, []):
+				mesh.queue_free()
+			_meshes.erase(now)
+			worn.erase(slot)
+		if not next.is_empty() and _put_on(next, loader):
+			worn[slot] = next
+		changed = true
+	_show_skin()
+	return changed
+
+
+func _put_on(part: String, loader: Callable) -> bool:
+	var source: Node = null
+	if loader.is_valid():
+		source = loader.call(part)
+	else:
+		var scene := load((FOLDER % person_id).path_join("%s__%s.glb" % [person_id, part])) as PackedScene
+		source = scene.instantiate() if scene != null else null
+	if source == null:
 		return false
-	var note: Variant = JSON.parse_string(FileAccess.get_file_as_string(note_path))
-	var scene := load(path) as PackedScene
-	if note is not Dictionary or scene == null:
-		return false
-	return dress(scene.instantiate(), note.get("show", []), outfit)
-
-
-## Dress from an already loaded garment scene (a test, or a file outside the project).
-func dress(source: Node, show: Array, outfit: String) -> bool:
-	var incoming: Array[MeshInstance3D] = []
+	var mine: Array = []
 	for mesh: MeshInstance3D in source.find_children("*", "MeshInstance3D", true, false):
-		incoming.append(mesh)
-	if incoming.is_empty():
-		source.free()
-		return false
-	for old: MeshInstance3D in _garments:
-		old.queue_free()
-	_garments.clear()
-	for mesh: MeshInstance3D in incoming:
-		# The garment was skinned to a skeleton with the same bones; hand it to this one.
+		# The part was skinned to a skeleton with the same bones; hand it to this one.
 		mesh.get_parent().remove_child(mesh)
 		skeleton.add_child(mesh)
 		mesh.owner = null
 		mesh.skeleton = NodePath("..")
-		mesh.name = "Garment_" + str(mesh.name)
-		_garments.append(mesh)
+		mesh.name = "%s_%s" % [part, mesh.name]
+		mine.append(mesh)
 	source.queue_free()
-	for part: String in _skin:
-		(_skin[part] as MeshInstance3D).visible = part in show
-	wearing = outfit
-	return true
+	_meshes[part] = mine
+	return not mine.is_empty()
 
 
-func garment_count() -> int:
-	return _garments.size()
+## Skin shows wherever nothing worn covers it.
+func _show_skin() -> void:
+	var covered: Dictionary = {}
+	for slot: String in worn:
+		for area: Variant in (notes[worn[slot]] as Dictionary).get("covers", []):
+			covered[str(area)] = true
+	for area: String in _skin:
+		(_skin[area] as MeshInstance3D).visible = area in ["head", "hands"] or not covered.has(area)
 
 
 func bare_parts() -> Array:
 	var bare: Array = []
-	for part: String in _skin:
-		if (_skin[part] as MeshInstance3D).visible:
-			bare.append(part)
+	for area: String in _skin:
+		if (_skin[area] as MeshInstance3D).visible:
+			bare.append(area)
 	bare.sort()
 	return bare
+
+
+func mesh_count() -> int:
+	var count := 0
+	for part: String in _meshes:
+		count += (_meshes[part] as Array).size()
+	return count
