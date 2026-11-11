@@ -185,13 +185,16 @@ func _moth_checks(node: Node) -> void:
 	# They fly: positions change, and the wings beat on their roots.
 	var before: Vector3 = node.moth_position(0)
 	var lifts: Array[float] = []
+	var worst_root := 0.0
 	for i in 40:
 		await get_tree().process_frame
-		var body: Transform3D = node.moth_batch.multimesh.get_instance_transform(0)
-		var wing: Transform3D = node.moth_wing_batches[1].multimesh.get_instance_transform(0)
+		var body: Transform3D = node.moth_body_pose(0)
+		var wing: Transform3D = node.moth_wing_pose(1, 0)
 		lifts.append((body.basis.inverse() * wing.basis).get_euler().z)
-		_check_quiet(absf((body.affine_inverse() * wing.origin).x - 0.004) < 0.0005, "the right wing stays on its root")
+		worst_root = maxf(worst_root, (body.affine_inverse() * wing.origin).distance_to(node._wing_roots[1]))
 	_check(node.moth_position(0).distance_to(before) > 0.01, "a moth moves round its lamp")
+	_check(worst_root < 0.001 and absf(node._wing_roots[1].x - 0.004) < 0.0001 and absf(node._wing_roots[0].x + 0.004) < 0.0001,
+		"each wing pair stays on its root, 4 mm off the body's line (roots %s, worst slip %.2f mm)" % [node._wing_roots, worst_root * 1000.0])
 	_check(lifts.max() - lifts.min() > 0.15 and lifts.min() >= -0.01 and lifts.max() <= acos(0.62) + 0.01,
 		"the wings beat between flat and V1's 0.62 narrowing (%.2f to %.2f rad)" % [lifts.min(), lifts.max()])
 	if not OS.get_environment("SHOT_DIR").is_empty():
@@ -215,7 +218,7 @@ func _moth_checks(node: Node) -> void:
 	node.force_night_for_test(false)
 	_check(not node.moth_batch.visible and not node.moth_wing_batches[0].visible, "no moths by day")
 	node.force_night_for_test(true)
-	node.set_visibility_context(_world.adapter.resolve("F04_4B_KITCHEN_SINK_01").global_position + Vector3.UP)
+	node.set_visibility_context(_world.adapter.resolve(str(node.anchor_ids.kitchen)).global_position + Vector3.UP)
 	_check(not node.moth_batch.visible, "no moths drawn for a player upstairs")
 	node.set_visibility_context(_stand)
 	_check(node.moth_batch.visible, "moths again for a player in the street")
@@ -223,7 +226,7 @@ func _moth_checks(node: Node) -> void:
 
 func _roach_checks(node: Node, blockout: Node3D) -> void:
 	var switches := _world.get_node("V2RoomSwitches") as SwitchSystem
-	var sink: Vector3 = _world.adapter.resolve("F04_4B_KITCHEN_SINK_01").global_position
+	var sink: Vector3 = _world.adapter.resolve(str(node.anchor_ids.kitchen)).global_position
 	var floor_y := blockout.to_global(Vector3(0, 9.6, 0)).y
 	var centre := Vector3.ZERO
 	for roach: Dictionary in node.roaches:

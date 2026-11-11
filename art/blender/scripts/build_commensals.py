@@ -92,6 +92,7 @@ for o in objs:
     print("[COMMENSALS] %s: %d triangles" % (o.name, kit.tri_count(o)))
 
 # Review: the moth with its wings raised a little, the roach beside it.
+bpy.context.view_layer.update()
 rest = [o.matrix_world.copy() for o in objs]
 objs[1].rotation_euler = (0, math.radians(25), 0)
 objs[2].rotation_euler = (0, math.radians(-25), 0)

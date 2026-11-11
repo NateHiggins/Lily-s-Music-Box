@@ -45,6 +45,10 @@ var _wing_roots: Array[Vector3] = []
 var _roach_started := -100.0
 var _f04_height := 0.0
 var _clock := 0.0
+## What was last sent to each batch (a headless renderer keeps no copy).
+var _body_poses: Array[Transform3D] = []
+var _wing_poses: Array = [[], []]
+var _roach_poses: Array[Transform3D] = []
 
 
 static func mount(root: Node3D, blockout: Node3D, layout: Dictionary, _adapter: Variant) -> Node:
@@ -84,7 +88,7 @@ func compose(root: Node3D, blockout: Node3D, layout: Dictionary) -> void:
 	model.free()
 	if not errors.is_empty():
 		return
-	_resolve_v2_anchors(int(data.moth_lamps), str(data.roach_fixture), str(data.roach_stance))
+	_resolve_v2_anchors(int(data.moth_lamps))
 	_derive_shift_state()
 	if not lamp_lights.is_empty():
 		_build_v2_moths(stock, float(data.moth_range_m))
@@ -119,7 +123,7 @@ func _finish(key: String, tint: Color) -> StandardMaterial3D:
 ## V1 chose the two street lamps nearest the entry and 4B's kitchen sink from
 ## its own layout markers. V2's lamps are the lamp clock's lights, nearest the
 ## front-door threshold the street is framed on; the sink is V2's anchor.
-func _resolve_v2_anchors(lamp_count: int, fixture: String, stance: String) -> void:
+func _resolve_v2_anchors(lamp_count: int) -> void:
 	var lights: Array[OmniLight3D] = []
 	var threshold := Vector3.ZERO
 	for clock in get_tree().get_nodes_in_group("v2_street_lamp_clocks"):
@@ -140,15 +144,18 @@ func _resolve_v2_anchors(lamp_count: int, fixture: String, stance: String) -> vo
 		levels[str(level.id)] = float(level.y)
 	var sink: Dictionary = {}
 	var front: Dictionary = {}
+	# As V1 looked for it: the sink in 4B's kitchen, and the stance in front.
 	for anchor: Dictionary in _layout.get("anchors", []):
-		if str(anchor.id) == fixture:
+		if str(anchor.get("space", "")) != KITCHEN_ROOM or not str(anchor.id).contains("SINK"):
+			continue
+		if str(anchor.kind) == "fixture":
 			sink = anchor
-		elif str(anchor.id) == stance:
+		elif str(anchor.kind) == "clearance":
 			front = anchor
-	if sink.is_empty() or front.is_empty() or str(sink.space) != KITCHEN_ROOM:
+	if sink.is_empty() or front.is_empty():
 		errors.append("commensal 4B kitchen owner missing")
 		return
-	anchor_ids.kitchen = fixture
+	anchor_ids.kitchen = str(sink.id)
 	_f04_height = levels[str(sink.level)]
 	var sink_at := Vector3(float(sink.position[0]), levels[str(sink.level)], float(sink.position[2]))
 	var front_at := Vector3(float(front.position[0]), sink_at.y, float(front.position[2]))
@@ -219,16 +226,25 @@ func lamp_lit(lamp: int) -> bool:
 
 ## Where moth `index` is now, in the world.
 func moth_position(index: int) -> Vector3:
-	return to_global(moth_batch.multimesh.get_instance_transform(index).origin)
+	return to_global(_body_poses[index].origin)
 
 
 ## True while moth `index` is drawn at all (a lost moth has no size).
 func moth_present(index: int) -> bool:
-	return moth_batch.visible and moth_batch.multimesh.get_instance_transform(index).basis.x.length() > 0.05
+	return moth_batch.visible and _body_poses[index].basis.x.length() > 0.05
+
+
+## The body's pose and one wing pair's (0 left, 1 right), in this node's frame.
+func moth_body_pose(index: int) -> Transform3D:
+	return _body_poses[index]
+
+
+func moth_wing_pose(side: int, index: int) -> Transform3D:
+	return _wing_poses[side][index]
 
 
 func roach_position(index: int) -> Vector3:
-	return to_global(roach_batch.multimesh.get_instance_transform(index).origin)
+	return to_global(_roach_poses[index].origin)
 
 
 func _process(delta: float) -> void:
@@ -255,6 +271,9 @@ func _moth_at(moth: Dictionary, time: float) -> Vector3:
 
 func _pose_moths() -> void:
 	var inverse := global_transform.affine_inverse()
+	_body_poses.resize(moths.size())
+	_wing_poses[0].resize(moths.size())
+	_wing_poses[1].resize(moths.size())
 	for i in moths.size():
 		var moth: Dictionary = moths[i]
 		var at := _moth_at(moth, _clock)
@@ -265,24 +284,27 @@ func _pose_moths() -> void:
 			basis = Basis.looking_at(heading.normalized(), Vector3.UP)
 		basis = basis * Basis(Vector3.FORWARD, float(moth.tilt) * 0.55)
 		var body := inverse * Transform3D(basis.scaled(Vector3.ONE * size), at)
+		_body_poses[i] = body
 		moth_batch.multimesh.set_instance_transform(i, body)
 		# V1 narrowed the sprite to 0.62..1.0 of its span at 5.4 rad/s; that
 		# foreshortening is this dihedral.
 		var lift := acos(clampf(0.62 + 0.38 * absf(sin(_clock * WING_HZ + float(moth.phase))), -1.0, 1.0))
 		for side in 2:
 			var wing := Transform3D(Basis(Vector3.BACK, lift if side == 1 else -lift), _wing_roots[side])
+			_wing_poses[side][i] = body * wing
 			moth_wing_batches[side].multimesh.set_instance_transform(i, body * wing)
 
 
 func _pose_roaches(run: float) -> void:
 	var inverse := global_transform.affine_inverse()
 	var eased := smoothstep(0.0, 1.0, run)
+	_roach_poses.resize(roaches.size())
 	for i in roaches.size():
 		var roach: Dictionary = roaches[i]
 		var run_to: Vector3 = roach.run
 		var basis := Basis(Vector3.UP, atan2(run_to.x, run_to.z)).scaled(Vector3.ONE * ROACH_SCALE)
-		roach_batch.multimesh.set_instance_transform(i,
-				inverse * Transform3D(basis, (roach.at as Vector3) + run_to * eased * float(roach.reach)))
+		_roach_poses[i] = inverse * Transform3D(basis, (roach.at as Vector3) + run_to * eased * float(roach.reach))
+		roach_batch.multimesh.set_instance_transform(i, _roach_poses[i])
 
 
 ## Stands the roaches on the kitchen's real floor finish.
