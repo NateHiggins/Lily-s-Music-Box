@@ -211986,8 +211986,8 @@
     "_cell_pulled"
    ],
    "lines": [
-    645,
-    705
+    671,
+    731
    ],
    "count": 2,
    "context": [
@@ -212018,7 +212018,7 @@
     "_card_for"
    ],
    "lines": [
-    286
+    318
    ],
    "count": 1,
    "context": [
@@ -212048,7 +212048,7 @@
     "_dress_wall"
    ],
    "lines": [
-    647
+    673
    ],
    "count": 1,
    "context": [
@@ -212078,7 +212078,7 @@
     "_grip_for"
    ],
    "lines": [
-    159
+    169
    ],
    "count": 1,
    "context": [
@@ -212108,13 +212108,15 @@
     "_grow"
    ],
    "lines": [
-    854,
-    870
+    880,
+    896,
+    914
    ],
-   "count": 2,
+   "count": 3,
    "context": [
     "\"LoopPaper_%d\" % index",
-    "\"LoopPile_%d\" % index"
+    "\"LoopPile_%d\" % index",
+    "\"LoopBundle_%d\" % pile_tops.size()"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -212140,8 +212142,8 @@
     "_sync"
    ],
    "lines": [
-    495,
-    538
+    527,
+    564
    ],
    "count": 2,
    "context": [
@@ -212172,7 +212174,7 @@
     "_sync_filing"
    ],
    "lines": [
-    731
+    757
    ],
    "count": 1,
    "context": [
@@ -212202,7 +212204,7 @@
     "<module>"
    ],
    "lines": [
-    51
+    52
    ],
    "count": 1,
    "context": [
@@ -212230,7 +212232,7 @@
     "<module>"
    ],
    "lines": [
-    50
+    51
    ],
    "count": 1,
    "context": [
@@ -212260,7 +212262,7 @@
     "<module>"
    ],
    "lines": [
-    51
+    52
    ],
    "count": 1,
    "context": [
@@ -212288,7 +212290,7 @@
     "<module>"
    ],
    "lines": [
-    51
+    52
    ],
    "count": 1,
    "context": [
@@ -212316,8 +212318,8 @@
     "<module>"
    ],
    "lines": [
-    18,
-    50
+    19,
+    51
    ],
    "count": 2,
    "context": [
@@ -212346,7 +212348,7 @@
     "<module>"
    ],
    "lines": [
-    50
+    51
    ],
    "count": 1,
    "context": [
@@ -212374,7 +212376,7 @@
     "<module>"
    ],
    "lines": [
-    50
+    51
    ],
    "count": 1,
    "context": [
@@ -212402,7 +212404,7 @@
     "<module>"
    ],
    "lines": [
-    50
+    51
    ],
    "count": 1,
    "context": [
@@ -212430,7 +212432,7 @@
     "<module>"
    ],
    "lines": [
-    51
+    52
    ],
    "count": 1,
    "context": [
@@ -212460,7 +212462,7 @@
     "<module>"
    ],
    "lines": [
-    51
+    52
    ],
    "count": 1,
    "context": [
@@ -212488,9 +212490,9 @@
     "_survey"
    ],
    "lines": [
-    770,
-    795,
-    810
+    796,
+    821,
+    836
    ],
    "count": 3,
    "context": [
@@ -272142,6 +272144,152 @@
    "target_exists": false
   },
   {
+   "key": "dc2a72544db44d22",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_evidence_pieces_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    112
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0d8cd81f23a5d0bc",
+   "kind": "id_reference",
+   "token": "4B_coffee",
+   "file": "game/tests/v2_evidence_pieces_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    180
+   ],
+   "count": 1,
+   "context": [
+    "var low_table := world.adapter.resolve(\"4B_coffee\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c76e9400cb9bef8c",
+   "kind": "id_reference",
+   "token": "4B_couch",
+   "file": "game/tests/v2_evidence_pieces_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    134
+   ],
+   "count": 1,
+   "context": [
+    "var couch := world.adapter.resolve(\"4B_couch\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "84f31f5060706081",
+   "kind": "id_reference",
+   "token": "4B_meal_table",
+   "file": "game/tests/v2_evidence_pieces_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    179
+   ],
+   "count": 1,
+   "context": [
+    "var table_node := world.adapter.resolve(\"4B_meal_table\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "285a3cfc95a7571a",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/v2_evidence_pieces_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    162
+   ],
+   "count": 1,
+   "context": [
+    "_check(world.unit_at_world(from) == \"4B\", \"%s hangs in 4B (%s)\" % [id, world.unit_at_world(from)])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "897d4ac3c3571f26",
    "kind": "asset_path",
    "token": "res://scenes/building/orison_v2_runtime.tscn",
@@ -274382,8 +274530,8 @@
    ],
    "lines": [
     112,
-    177,
-    251
+    180,
+    253
    ],
    "count": 3,
    "context": [
@@ -274415,7 +274563,7 @@
     "_ready"
    ],
    "lines": [
-    217
+    219
    ],
    "count": 1,
    "context": [
@@ -274446,7 +274594,7 @@
    ],
    "lines": [
     143,
-    219
+    221
    ],
    "count": 2,
    "context": [
