@@ -2,9 +2,10 @@ Evidence class: **INERT**
 
 # Voice line intake and character direction
 
-Status: implemented and technically verified, draft PR230. All twenty-two
-auditions are generated; eight are selected by Lily and fourteen await review.
-Runtime playback and played facial acceptance remain with Fable's integration.
+Status: intake implemented and technically verified, draft PR230. Lily approved
+all twenty-two fresh auditions and ordered full authored dialogue generation.
+Production generation is active; runtime playback and played facial acceptance
+remain with Fable's integration after her wardrobe pilot.
 
 Codex owns work order **w55379c52f884**. Fable owns the character controller,
 dialogue integration and its playback lifecycle. Lily expanded intake to
@@ -19,11 +20,10 @@ map supplies characterization. Timbre and regional directions are casting
 choices for this pass. Stacy's New Orleans origin comes from her source
 dialogue. Each eligible speaking profile carries a proposed audition line
 and acting intent. Twenty-two voices are in the first casting round.
-Lily judges the performances. She selected the first eight fresh takes: Mina,
-Cal, Stacy, Evelyn, Teresa, Lena, Juno and Malcolm. Their registry references
-preserve exact WAV hashes, transcripts and prompts.
-Remaining timbres await her listening review. The frozen first-round requests
-stay unchanged as those decisions update the current registry.
+Lily selected all twenty-two fresh takes. Their registry references preserve
+exact WAV hashes, transcripts and prompts. The frozen first-round requests stay
+unchanged as those decisions update the current registry. Lily's own profile
+still requires her recorded reference; the companion remains written.
 
 The intake command exports exact dialogue text and stable tree/node IDs,
 prepares Omni Studio requests from the character profile, and aligns named

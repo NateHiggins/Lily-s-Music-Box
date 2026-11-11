@@ -1254,6 +1254,8 @@ they keep their door, schedule, mailbox and place in the web.
   characters; today's eighteen-resident roster stays unchanged. The earlier U2
   assumption that these were disposable non-cast assets is superseded.
 
+- **C5 — Codex/Fable: approved cast dialogue and lip sync.** Lily approved all22 fresh voice references on November11; exact reference hashes/transcripts are in **game/data/voice/voice_profiles.json**, draftPR230. Codex owns frozen-source generation, exact guest A/B turn mapping, OGG/cues and asset validation; Fable owns one-player dialogue/face integration, skip/close cleanup and played verification after her wardrobe pilot. Preserve written companion, Lily-reference-required lines and existing dialogue/save authority. Variable groceries/tickets use source-backed component clips rather than Cartesian renders. Intake15tests and gate comparison pass; generation/in-game speech/played facial acceptance remain open. Evidence and current plan: [voice intake](design/VOICE_LINE_INTAKE_2026-11-11.md).
+
 ## L — Light and decay
 
 - **L1** Bulb burnout and renewal (`design/PROP_ACTIVITIES.md` §4). The
