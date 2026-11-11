@@ -3,9 +3,9 @@
 The per-character entries in `voice_profiles.json` are the official authoring
 voice directions requested by Lily on November 11, 2026. The descriptions
 follow the cast voice map. Lily requested a fresh casting round and superseded
-the initial Cal and Stacy selection. She selected the fresh Mina and Cal takes;
-the remaining voices await her listening review. The earlier WAVs are retained
-as experiment history.
+the initial Cal and Stacy selection. Selected fresh takes carry exact reference
+metadata in their character profiles. Remaining voices await her listening
+review. The earlier WAVs are retained as experiment history.
 
 An active reference, once selected, records its exact transcript, SHA-256,
 original voice-design prompt and Studio job. An authoring machine supplies

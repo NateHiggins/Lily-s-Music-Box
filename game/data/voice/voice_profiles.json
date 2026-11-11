@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "Official authoring voice directions requested by Lily on 2026-11-11. The fresh character-led round supersedes the initial Cal and Stacy selection. Lily selected the fresh Mina and Cal takes; remaining voices await her listening judgment. Audition texts are proposed writing-room drafts, not runtime dialogue.",
+  "description": "Official authoring voice directions requested by Lily on 2026-11-11. The fresh character-led round supersedes the initial Cal and Stacy selection. Selected fresh takes carry exact reference metadata; remaining voices await Lily's listening judgment. Audition texts are proposed writing-room drafts, not runtime dialogue.",
   "language": "English",
   "model_design": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
   "model_reference": "Qwen3-TTS-12Hz-1.7B-Base",
@@ -20,7 +20,14 @@
       "delivery_direction": "Measured teacherly phrasing. Corrections arrive as care. Anger sharpens the grammar and articulation without raising the volume.",
       "seed": 654820282,
       "delivery": "spoken",
-      "reference": null,
+      "reference": {
+        "file": "evelyn_marsh.wav",
+        "sha256": "84d62c08af0f1d9f8fa771d3775b5fae6389c2c4fd8bedda069d2bfcccba10e4",
+        "text": "Give me a moment. Sit down. Both feet on the floor. People hear better when they stop preparing to leave. You may disagree after your tea.",
+        "approval": "Lily: they all sound good (2026-11-11). One of eight completed takes available for that review; future takes excluded.",
+        "studio_job": "1111_111744_7429",
+        "design_prompt": "A mature woman's warm low alto voice, firm and resonant, with very precise consonants and an audible smile held under control. Educated northeastern American English with conservative clear vowels. Keep corrections crisp and personal. Measured teacherly phrasing. Corrections arrive as care. Anger sharpens the grammar and articulation without raising the volume. She wants someone to stay, and disguises the invitation as instruction. Clean close-microphone speech at a conversational level. Preserve authored words, pauses and speaker identity. Produce dry voice audio for later in-game acoustics."
+      },
       "accent_direction": "Educated northeastern American English with conservative clear vowels. Keep corrections crisp and personal.",
       "audition_text": "Give me a moment. Sit down. Both feet on the floor. People hear better when they stop preparing to leave. You may disagree after your tea.",
       "audition_intent": "She wants someone to stay, and disguises the invitation as instruction.",
@@ -35,7 +42,14 @@
       "delivery_direction": "Practical and clipped under pressure. Give fuller phrases and a little warmth once danger has passed. Fatigue never makes the words unintelligible.",
       "seed": 63416236,
       "delivery": "spoken",
-      "reference": null,
+      "reference": {
+        "file": "teresa_vale.wav",
+        "sha256": "95b16d3f57d25c8bfdd81c77f58d6d80f951727c96f575a1dbea3a08f442b572",
+        "text": "Give me a moment. Give me the cup. Your hands are shaking. Mine can shake after the shift. There. If the building wants attention, it can wait behind the people.",
+        "approval": "Lily: they all sound good (2026-11-11). One of eight completed takes available for that review; future takes excluded.",
+        "studio_job": "1111_111835_d504",
+        "design_prompt": "An adult woman's low, softly rough contralto, practical and tired but strongly supported. Short phrases carry clear purposeful stress. Light working New York English. Let fatigue soften the ends of phrases while the instructions remain clear. Practical and clipped under pressure. Give fuller phrases and a little warmth once danger has passed. Fatigue never makes the words unintelligible. She makes another person's comfort urgent so she can postpone noticing her own fatigue. Clean close-microphone speech at a conversational level. Preserve authored words, pauses and speaker identity. Produce dry voice audio for later in-game acoustics."
+      },
       "accent_direction": "Light working New York English. Let fatigue soften the ends of phrases while the instructions remain clear.",
       "audition_text": "Give me a moment. Give me the cup. Your hands are shaking. Mine can shake after the shift. There. If the building wants attention, it can wait behind the people.",
       "audition_intent": "She makes another person's comfort urgent so she can postpone noticing her own fatigue.",
@@ -72,7 +86,14 @@
       "delivery_direction": "Practical hospitality and steady phrasing. A firm refusal may arrive inside a generous offer. Let a family judgment land quietly.",
       "seed": 700096400,
       "delivery": "spoken",
-      "reference": null,
+      "reference": {
+        "file": "lena_ortiz.wav",
+        "sha256": "0493a4cb1fd2e8170ca3bafac7186baf888a2ca0d507dc7e92d6bb74f1357e3d",
+        "text": "Give me a moment. Hold still. You've worn the same seam through again. I can put another stitch in. You might try taking your coat off when you get home.",
+        "approval": "Lily: they all sound good (2026-11-11). One of eight completed takes available for that review; future takes excluded.",
+        "studio_job": "1111_111936_e002",
+        "design_prompt": "An adult woman's warm, round, resonant mezzo voice, gently textured, with steady breath and a comforting unhurried pace. Easy metropolitan New York English. Keep the vowels warm and the practical instructions simple. Practical hospitality and steady phrasing. A firm refusal may arrive inside a generous offer. Let a family judgment land quietly. She notices exhaustion through worn cloth and offers care without demanding a confession. Clean close-microphone speech at a conversational level. Preserve authored words, pauses and speaker identity. Produce dry voice audio for later in-game acoustics."
+      },
       "accent_direction": "Easy metropolitan New York English. Keep the vowels warm and the practical instructions simple.",
       "audition_text": "Give me a moment. Hold still. You've worn the same seam through again. I can put another stitch in. You might try taking your coat off when you get home.",
       "audition_intent": "She notices exhaustion through worn cloth and offers care without demanding a confession.",
@@ -87,7 +108,14 @@
       "delivery_direction": "Rhythmic associative bursts with abrupt changes of direction. Leave a beat around a technical dare. Sincerity arrives directly without a prepared flourish.",
       "seed": 1283403468,
       "delivery": "spoken",
-      "reference": null,
+      "reference": {
+        "file": "juno_kells.wav",
+        "sha256": "69d6b654cf7b1cce13b0e6c593806767f2a3eade01a25c0e4a4c2650fbb8984c",
+        "text": "Give me a moment. Listen to that splice. You can't hear where I borrowed it. I was going to ask. Then it sounded better before the question.",
+        "approval": "Lily: they all sound good (2026-11-11). One of eight completed takes available for that review; future takes excluded.",
+        "studio_job": "1111_112028_e6fe",
+        "design_prompt": "A young-sounding woman's bright slightly husky upper-middle voice, agile and rhythmic, with sudden sincere drops into a quieter lower register. Quick downtown New York English. Use elastic pauses and clean technical nouns rather than swallowed words. Rhythmic associative bursts with abrupt changes of direction. Leave a beat around a technical dare. Sincerity arrives directly without a prepared flourish. She shows off the work and tries to turn her missing permission into an aesthetic choice. Clean close-microphone speech at a conversational level. Preserve authored words, pauses and speaker identity. Produce dry voice audio for later in-game acoustics."
+      },
       "accent_direction": "Quick downtown New York English. Use elastic pauses and clean technical nouns rather than swallowed words.",
       "audition_text": "Give me a moment. Listen to that splice. You can't hear where I borrowed it. I was going to ask. Then it sounded better before the question.",
       "audition_intent": "She shows off the work and tries to turn her missing permission into an aesthetic choice.",
@@ -102,7 +130,14 @@
       "delivery_direction": "Deliberate, tactile descriptions. Let a pause carry an unspoken qualification. Tenderness is ordinary and restrained.",
       "seed": 1175431791,
       "delivery": "spoken",
-      "reference": null,
+      "reference": {
+        "file": "malcolm_reed.wav",
+        "sha256": "d31e53894b1d45064dc2fa11034167dc23bb1ec966fb64666b18d50a17484365",
+        "text": "Give me a moment. Mind the cutting. That one has only just taken. I keep moving it into better light. There's a place by the window, if you'd like to sit.",
+        "approval": "Lily: they all sound good (2026-11-11). One of eight completed takes available for that review; future takes excluded.",
+        "studio_job": "1111_112147_8df7",
+        "design_prompt": "A mature man's soft rounded bass-baritone, lightly breathy at phrase starts, patient and close, with a small dry warmth. Soft northeastern American English with relaxed rounded vowels. Leave real space between observations. Deliberate, tactile descriptions. Let a pause carry an unspoken qualification. Tenderness is ordinary and restrained. He tends a fragile living thing and quietly extends the same care to a visitor. Clean close-microphone speech at a conversational level. Preserve authored words, pauses and speaker identity. Produce dry voice audio for later in-game acoustics."
+      },
       "accent_direction": "Soft northeastern American English with relaxed rounded vowels. Leave real space between observations.",
       "audition_text": "Give me a moment. Mind the cutting. That one has only just taken. I keep moving it into better light. There's a place by the window, if you'd like to sit.",
       "audition_intent": "He tends a fragile living thing and quietly extends the same care to a visitor.",
@@ -319,7 +354,14 @@
       "delivery_direction": "Brisk conversational timing, dry amusement and affectionate authority. Play a joke straight and give its turn room to land.",
       "seed": 478506365,
       "delivery": "spoken",
-      "reference": null,
+      "reference": {
+        "file": "stacy.wav",
+        "sha256": "6efe284e0186fe91f09c6ab99b7cc59888d91f06e177dd9d199ca08d77ee49c1",
+        "text": "Give me a moment. It's tea. The teapot's legal. The cup's legal. The saucer has never been to court. Sit where I can see you. House rule. Everybody gets home.",
+        "approval": "Lily: they all sound good (2026-11-11). One of eight completed takes available for that review; future takes excluded.",
+        "studio_job": "1111_111618_f7da",
+        "design_prompt": "An adult woman's warm lower register, rounded and lightly husky, with lively eyes audible in the voice, brisk practical timing and affectionate authority. Light urban New Orleans English, grounded in Stacy's stated origin. Use relaxed vowels and a quick dry turn. Avoid a broad plantation drawl or a stage accent. Brisk conversational timing, dry amusement and affectionate authority. Play a joke straight and give its turn room to land. Her invented house rule hides a bartender's decision to keep a tired customer safe. Clean close-microphone speech at a conversational level. Preserve authored words, pauses and speaker identity. Produce dry voice audio for later in-game acoustics."
+      },
       "accent_direction": "Light urban New Orleans English, grounded in Stacy's stated origin. Use relaxed vowels and a quick dry turn. Avoid a broad plantation drawl or a stage accent.",
       "audition_text": "Give me a moment. It's tea. The teapot's legal. The cup's legal. The saucer has never been to court. Sit where I can see you. House rule. Everybody gets home.",
       "audition_intent": "Her invented house rule hides a bartender's decision to keep a tired customer safe.",
