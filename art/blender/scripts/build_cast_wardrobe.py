@@ -119,6 +119,13 @@ for kind, name, atype in [] if OUTFIT else [("eyes", "low-poly", "Eyes"), ("eyeb
     part = HS.add_mhclo_asset(asset(kind, name), human, asset_type=atype, subdiv_levels=0, material_type="GAMEENGINE")
     part.name = "Face_" + kind
     parts.append(part)
+PACK_HAIR = CFG["hair"].get("asset") if not OUTFIT else None
+pack_hair = None
+if PACK_HAIR:
+    # Hair from the packs: a modelled cut riding on the head. Fitted now, while the body is untouched; recoloured further down.
+    pack_hair = HS.add_mhclo_asset(asset("hair", PACK_HAIR), human, asset_type="Hair", subdiv_levels=0, material_type="GAMEENGINE")
+    pack_hair.name = "Hair"
+    parts.append(pack_hair)
 if OUTFIT and CFG.get("shoes") and not any(r["kind"] == "shoes" for r in CFG["outfit"]):
     shoes = HS.add_mhclo_asset(asset("clothes", CFG["shoes"]["asset"]), human, asset_type="Clothes", subdiv_levels=0, material_type="GAMEENGINE")
     shoes.name = "Shoes"
@@ -449,6 +456,112 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
     return obj
 
 
+def tinted_image(image, colour, name, size=512, hair=False):
+    """A pack garment's own picture, recoloured to a person's colour: its
+    darks and mids take the colour, its lights go pale, its drawing stays."""
+    small = image.copy()
+    if small.size[0] > size:
+        small.scale(size, max(1, int(size * small.size[1] / small.size[0])))
+    width, height = small.size
+    data = numpy.empty(width * height * 4, dtype=numpy.float32)
+    small.pixels.foreach_get(data)
+    data = data.reshape(height, width, 4)
+    bpy.data.images.remove(small)
+    light = data[..., 0] * 0.3 + data[..., 1] * 0.55 + data[..., 2] * 0.15
+    seen = data[..., 3] > 0.05
+    middle = float(numpy.median(light[seen])) if seen.any() else 0.5
+    light = numpy.clip(light * min(4.0, 0.5 / max(middle, 0.05)), 0.0, 1.0)
+    tone = numpy.array(colour if hair else worn_colour(colour), dtype=numpy.float32)
+    hue = tone / max(float(tone.max()), 1e-3)
+    deep = hue * max(0.32, min(0.8, float(tone.max()) * 1.25))
+    pale = 0.5 + 0.5 * hue
+    if hair:
+        # Hair keeps its own darkness: black stays black, with a sheen no brighter than twice its tone.
+        deep = tone * 1.15
+        pale = numpy.clip(tone * 2.0 + 0.04, 0.0, 1.0)
+    rise = numpy.clip((light - 0.62) / 0.3, 0.0, 1.0)[..., None]
+    out = numpy.clip(light / 0.62, 0.0, 1.0)[..., None] * deep * (1.0 - rise) + pale * light[..., None] * rise
+    result = numpy.concatenate([out, data[..., 3:4]], axis=2).astype(numpy.float32)
+    picture = bpy.data.images.new(name, width, height, alpha=True)
+    picture.pixels.foreach_set(result.ravel())
+    picture.filepath_raw = os.path.join(OUT, name + ".png")
+    picture.file_format = "PNG"
+    picture.save()
+    return picture
+
+
+def shrink_pictures(obj, keep=None, size=512):
+    """The packs' normal and other maps come large; a game part does not need them so."""
+    for slot in obj.material_slots:
+        tree_ = slot.material.node_tree if slot.material and slot.material.use_nodes else None
+        for node in (tree_.nodes if tree_ else []):
+            if node.type == "TEX_IMAGE" and node.image and node is not keep and node.image.size[0] > size:
+                smaller = node.image.copy()
+                smaller.scale(size, max(1, int(size * smaller.size[1] / smaller.size[0])))
+                node.image = smaller
+
+
+def skirt_weights(co):
+    """Bones for a point of cloth below the hips: the two nearest skirt chains."""
+    out_ = {}
+    depth = skirt_top - co.z
+    around = (math.atan2(co.x, -(co.y - SKIRT_AXIS_Y)) % math.tau) / math.tau * SKIRT_CHAINS
+    first = int(around) % SKIRT_CHAINS
+    share = around - int(around)
+    along = min(max(depth, 0.0) / SKIRT_SEGMENT, SKIRT_SEGMENTS - 0.001)
+    segment = int(along)
+    into = min(1.0, (along - segment) / 0.6)
+    for chain, part in ((first, 1.0 - share), ((first + 1) % SKIRT_CHAINS, share)):
+        out_["Skirt%d_%d" % (chain, segment + 1)] = out_.get("Skirt%d_%d" % (chain, segment + 1), 0.0) + part * into
+        above = "Hips" if segment == 0 else "Skirt%d_%d" % (chain, segment)
+        out_[above] = out_.get(above, 0.0) + part * (1.0 - into)
+    return out_
+
+
+def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Clothes"):
+    """A garment from the MakeHuman community packs (CC0), fitted to this body,
+    recoloured to the person's colour. `skirt` rehangs what falls below the
+    hips on the skirt bones, so it does not split between the legs."""
+    obj = HS.add_mhclo_asset(asset(kind, asset_name), human, asset_type=atype, subdiv_levels=0, material_type="GAMEENGINE")
+    obj.name = name
+    node, image = base_image(obj)
+    if image is not None:
+        node.image = tinted_image(image, colour, "%s_%s_%s" % (STEM, CURRENT_PART or "x", name))
+    else:
+        obj.data.materials.clear()
+        obj.data.materials.append(plain("%s_%s" % (STEM, name), worn_colour(colour), 0.8))
+    shrink_pictures(obj, node)
+    # Cloth, not lacquer: the packs' gloss maps made suits shine like oilskin.
+    for slot in obj.material_slots:
+        tree_ = slot.material.node_tree if slot.material and slot.material.use_nodes else None
+        shader_ = tree_.nodes.get("Principled BSDF") if tree_ else None
+        if shader_ is not None:
+            for socket_name, value in (("Roughness", 0.5 if "hoe" in name or "oot" in name else 0.82), ("Metallic", 0.0)):
+                socket = shader_.inputs.get(socket_name)
+                if socket is not None:
+                    for link in list(socket.links):
+                        tree_.links.remove(link)
+                    socket.default_value = value
+    for modifier in [m for m in obj.modifiers if m.type in ("SUBSURF", "MASK")]:
+        obj.modifiers.remove(modifier)
+    if skirt:
+        line = skirt_top - 0.03
+        for v in obj.data.vertices:
+            if v.co.z >= line:
+                continue
+            blend = min(1.0, (line - v.co.z) / 0.08)
+            for g in list(v.groups):
+                obj.vertex_groups[g.group].add([v.index], g.weight * (1.0 - blend), "REPLACE")
+            for bone_name, amount in skirt_weights(v.co).items():
+                group_name = PREFIX + bone_name
+                group = obj.vertex_groups.get(group_name) or obj.vertex_groups.new(name=group_name)
+                group.add([v.index], amount * blend, "ADD")
+    obj["part"] = CURRENT_PART
+    garments.append(obj)
+    print("GARMENT", name, "from pack", asset_name, len(obj.data.polygons), "faces")
+    return obj
+
+
 def torso(v, low=None, high=None, sleeves=1.0, vee=0.0):
     # Nothing cut from the tights hangs below the fork of the legs: it came out as a tongue between them.
     low = max(hip - 0.075, waist - 0.05 if low is None else low)
@@ -491,7 +604,9 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     kind = row["kind"]
     colour = row["colour"]
     cloth = row.get("cloth")
-    if kind == "shoes":
+    if kind == "asset":
+        asset_piece(row.get("name", "Pack"), row["asset"], colour, skirt=bool(row.get("skirt")), atype=row.get("atype", "Clothes"))
+    elif kind == "shoes":
         piece("Shoes", "helper-tights", lambda v: v.co.z < ankle + 0.03 and weight(v, ("Foot", "Toe")) > 0.2, 0.009, colour, 0.35, cloth="leather")
         if row.get("strap"):
             piece("ShoeStraps", "helper-tights", lambda v: ankle + 0.02 < v.co.z < ankle + 0.06 and weight(v, LEG) > 0.3, 0.006, colour, 0.35, cloth="leather")
@@ -1061,7 +1176,17 @@ cap.data.materials.append(plain(CID + "_hair_cap", [float(c) * 0.8 for c in hair
 cap.vertex_groups.new(name=PREFIX + "Head").add(list(range(len(cap_mesh.vertices))), 1.0, "REPLACE")
 cap.parent = rig
 cap.modifiers.new("Armature", "ARMATURE").object = rig
-extras.append(cap)
+if PACK_HAIR:
+    for modifier in [m for m in pack_hair.modifiers if m.type in ("SUBSURF", "MASK")]:
+        pack_hair.modifiers.remove(modifier)
+    hair_node, hair_image = base_image(pack_hair)
+    if hair_image is not None:
+        hair_node.image = tinted_image(hair_image, [float(c) for c in hair_tone], CID + "_hair_picture", 1024, hair=True)
+    shrink_pictures(pack_hair, hair_node)
+    CFG["hair"]["style"] = "short"
+    bpy.data.objects.remove(cap)
+else:
+    extras.append(cap)
 
 STYLES = {
     "ringlets": {"points": 32, "lying": 10, "length": [0.25, 0.31], "radius": [0.011, 0.015], "turns": [1.5, 2.1], "first_angle": 62.0, "per_side": 20,
@@ -1073,7 +1198,7 @@ STYLES = {
 }
 STYLE = dict(STYLES[CFG["hair"].get("style", "bob")])
 STYLE.update({k: v for k, v in CFG["hair"].items() if k in STYLE})
-if OUTFIT:
+if OUTFIT or PACK_HAIR:
     STYLE["guides"] = 8  # an outfit's file carries no hair; do not spend time on it
 head_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
 cloth_points = [tuple(g.matrix_world @ v.co) for g in garments for v in g.data.vertices]
@@ -1319,7 +1444,7 @@ recipe = {"schema_version": 1, "rig_scale_baked": 1.0, "hair": CID + "_hair.tfx"
           "global_stiffness": float(STYLE["global_stiffness"]), "global_range": float(STYLE["global_range"]),
           "base_colour": [round(float(c), 4) for c in numpy.clip(hair_tone * 0.95, 0, 1)], "tip_colour": [round(float(c), 4) for c in numpy.clip(hair_tone * 1.3, 0, 1)],
           "fibre_radius": float(CFG["hair"].get("fibre_radius", 0.001))}
-if not OUTFIT:
+if not OUTFIT and not PACK_HAIR:
     json.dump(recipe, open(os.path.join(OUT, CID + "_hair.json"), "w", encoding="utf-8"), indent=1)
 else:
     show = ["head", "hands"] + (["arms"] if float(CFG.get("bare_arm_from", 1.0)) < 1.0 else []) + (["chest"] if float(CFG.get("bare_chest_vee", 0.0)) > 0.0 else []) + (["legs"] if CFG.get("bare_legs") else [])
@@ -1392,7 +1517,7 @@ if OUTFIT == "parts":
             obj.select_set(True)
         target = os.path.join(OUT, "%s__%s.glb" % (CID, part_name))
         bpy.ops.export_scene.gltf(filepath=target, use_selection=True, export_format="GLB", export_morph=False, export_animations=False, export_yup=True, export_vertex_color="ACTIVE")
-        note = {"schema_version": 1, "person": CID, "part": part_name, "slot": part["slot"], "set": part.get("set", ""), "tags": part.get("tags", []), "covers": part.get("covers", [])}
+        note = {"schema_version": 1, "person": CID, "part": part_name, "slot": part["slot"], "set": part.get("set", ""), "tags": part.get("tags", []), "covers": part.get("covers", []), "replaces": part.get("replaces", [])}
         json.dump(note, open(os.path.join(OUT, "%s__%s.json" % (CID, part_name)), "w", encoding="utf-8"), indent=1)
         print("PART", part_name, part["slot"], os.path.getsize(target))
     print("DONE")

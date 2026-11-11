@@ -59,6 +59,11 @@ func wear(parts: Array, loader: Callable = Callable()) -> bool:
 	for part: Variant in parts:
 		if notes.has(str(part)):
 			wanted[str(notes[str(part)].slot)] = str(part)
+	# A whole outfit (a suit, a dress) takes the slots it replaces.
+	for slot: String in wanted.keys():
+		for taken: Variant in (notes[wanted[slot]] as Dictionary).get("replaces", []):
+			if str(taken) != slot:
+				wanted.erase(str(taken))
 	var changed := false
 	for slot: String in SLOTS:
 		var now := str(worn.get(slot, ""))
