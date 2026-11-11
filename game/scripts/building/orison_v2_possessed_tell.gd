@@ -17,7 +17,9 @@ var tell := ""
 var case_ids: Array = []
 var relay_all := false
 ## What the tell does: {"turn_y": radians}, {"knob_z": radians},
-## {"flip": true}, {"seize": true}; "per_tier" scales the angles.
+## {"flip": true}, {"seize": true}; "per_tier" scales the angles. A seized
+## object with a tell of its own (orison_v2_possessed_object.gd) is first told
+## whose case this is and how bad, through `possess_as`.
 var motion: Dictionary = {}
 var target: Node3D
 var busy := false
@@ -28,6 +30,7 @@ var _knob_home := Vector3.ZERO
 var _tween: Tween
 var _sound: AudioStreamPlayer3D
 var _tier := 0
+var _case := ""
 
 
 func configure(spec: Dictionary, object: Node3D) -> void:
@@ -66,6 +69,7 @@ func stage_haunt(case_id: String, tier: int, player: Node3D) -> bool:
 		return true
 	busy = true
 	_tier = tier
+	_case = case_id
 	if _tween:
 		_tween.kill()
 	_apply(tier)
@@ -103,6 +107,8 @@ func _apply(tier: int) -> void:
 			_knob_home = _knob.rotation
 			_knob.rotation.z += float(motion.knob_z) * scale
 	if bool(motion.get("seize", false)) and target.has_method("set_possessed"):
+		if target.has_method("possess_as"):
+			target.possess_as(_case, tier)
 		target.set_possessed(true)
 
 

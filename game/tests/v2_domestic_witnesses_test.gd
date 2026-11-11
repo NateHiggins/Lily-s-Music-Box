@@ -50,7 +50,7 @@ func _ready() -> void:
 	await _settle(witnesses)
 	_check(witnesses.errors.is_empty() and witnesses.unmatched.is_empty(),
 		"every tell found its V2 object (%s %s)" % [witnesses.errors, witnesses.unmatched])
-	_check(witnesses.tells.size() == 6, "six tells ride V2's own household objects (%d)" % witnesses.tells.size())
+	_check(witnesses.tells.size() == 19, "all nineteen of V1's tells are in V2: six on objects V2 had, thirteen on the possessed objects (%d)" % witnesses.tells.size())
 	_check(world.sanity.intruded.is_connected(witnesses._on_intruded), "the routing is bound to the sanity director")
 
 	# Each tell sits in its resident's flat.
