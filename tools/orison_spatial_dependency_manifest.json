@@ -256858,34 +256858,6 @@
    "target_exists": true
   },
   {
-   "key": "cb1d2002a5e6f940",
-   "kind": "id_reference",
-   "token": "F01_WATCH_MAIL_DOOR",
-   "file": "game/tests/orison_v2_mail_route_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_route"
-   ],
-   "lines": [
-    15
-   ],
-   "count": 1,
-   "context": [
-    "if not await _open_apartment_door(\"F01_WATCH_MAIL_DOOR\"): return"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "d50dce12aabf1fdd",
    "kind": "runtime_id",
    "token": "F01_TOUR_KEY_GUARD",
@@ -256927,7 +256899,7 @@
     "_route"
    ],
    "lines": [
-    18
+    19
    ],
    "count": 1,
    "context": [
@@ -256962,24 +256934,23 @@
     6,
     6,
     6,
-    13,
-    13,
     16,
     16,
-    29,
-    29,
-    29,
+    16,
+    16,
+    17,
+    17,
     30,
     30,
     30,
     30
    ],
-   "count": 15,
+   "count": 14,
    "context": [
     "for point in [Vector3(0,0,-3.35),Vector3(-1.8,0,-3.3),Vector3(-1.8,0,-1.5),Vector3(-4,0,-1.35)]:",
-    "for point in [Vector3(-4.6,0,-1.5),Vector3(-4.9,0,-2.4)]:",
-    "for point in [Vector3(-6.2,0,-2.4),Vector3(-7.1,0,-2.4)]:",
-    "for point in [Vector3(-7.1,0,-2.4),Vector3(-6.2,0,-2.4),Vector3(-4.9,0,-2.4),"
+    "for point in [Vector3(-1.8,0,-1.5),Vector3(-1.8,0,-3.3),Vector3(0,0,-3.35),Vector3(1.925,0,-3.5),",
+    "Vector3(1.925,0,-6.5),Vector3(4.3,0,-7.0)]:",
+    "for point in [Vector3(4.3,0,-7.0),Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5),Vector3(0,0,-3.35)]:"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -274478,6 +274449,507 @@
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4dea8afcf4b2bee1",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    72
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1f9c3f48cac34058",
+   "kind": "id_reference",
+   "token": "F01_COMMON_B",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    86,
+    87,
+    87,
+    87
+   ],
+   "count": 4,
+   "context": [
+    "var rooms := {\"LobbyMailBank\": \"F01_LOBBY\", \"LobbyPorterBoard\": \"F01_LOBBY\", \"F01_HOUSE_TELEPHONE_BOARD\": \"F01_COMMON_B\",",
+    "\"F01_operator_stool\": \"F01_COMMON_B\", \"F01_headset_hook\": \"F01_COMMON_B\", \"F01_cord_pile\": \"F01_COMMON_B\"}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7940f6b9e0fbdd30",
+   "kind": "id_reference",
+   "token": "F01_LOBBY",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    86,
+    86,
+    132,
+    136
+   ],
+   "count": 4,
+   "context": [
+    "var rooms := {\"LobbyMailBank\": \"F01_LOBBY\", \"LobbyPorterBoard\": \"F01_LOBBY\", \"F01_HOUSE_TELEPHONE_BOARD\": \"F01_COMMON_B\",",
+    "_check(chute != null and world.room_at_world(chute.global_position + Vector3.UP * 0.5) == \"F01_LOBBY\"",
+    "_check(mina != null and world.room_at_world((mina.graph.get_point_position(mina.identities.mail) as Vector3) + Vector3.UP * 0.3) == \"F01_LOBBY\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "997899904b948db0",
+   "kind": "id_reference",
+   "token": "F01_WATCH",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    143
+   ],
+   "count": 1,
+   "context": [
+    "_check(thing != null and world.room_at_world(thing.global_position + Vector3.UP * 0.2) == \"F01_WATCH\", identity + \" stays in the watch room\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6288274878aced76",
+   "kind": "id_reference",
+   "token": "F01_cord_pile",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    87
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_operator_stool\": \"F01_COMMON_B\", \"F01_headset_hook\": \"F01_COMMON_B\", \"F01_cord_pile\": \"F01_COMMON_B\"}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c0b652890c8359bb",
+   "kind": "id_reference",
+   "token": "F01_headset_hook",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    87
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_operator_stool\": \"F01_COMMON_B\", \"F01_headset_hook\": \"F01_COMMON_B\", \"F01_cord_pile\": \"F01_COMMON_B\"}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "600f289fb5ac30f8",
+   "kind": "id_reference",
+   "token": "F01_operator_stool",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    87
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_operator_stool\": \"F01_COMMON_B\", \"F01_headset_hook\": \"F01_COMMON_B\", \"F01_cord_pile\": \"F01_COMMON_B\"}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "464ba256d3ba6238",
+   "kind": "node_path",
+   "token": "LobbyMailChute",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    131
+   ],
+   "count": 1,
+   "context": [
+    "var chute := world.find_child(\"LobbyMailChute\", true, false) as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "49bb9c5d08b31e5e",
+   "kind": "runtime_id",
+   "token": "F01_HOUSE_TELEPHONE_BOARD",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    86,
+    102,
+    117
+   ],
+   "count": 3,
+   "context": [
+    "var rooms := {\"LobbyMailBank\": \"F01_LOBBY\", \"LobbyPorterBoard\": \"F01_LOBBY\", \"F01_HOUSE_TELEPHONE_BOARD\": \"F01_COMMON_B\",",
+    "for identity: String in [\"LobbyMailBank\", \"LobbyPorterBoard\", \"F01_HOUSE_TELEPHONE_BOARD\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "cf1cdbd1c7342325",
+   "kind": "runtime_id",
+   "token": "F01_NIGHT_REGISTER",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    141
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_WATCHMAN_DETECTOR\", \"F01_NIGHT_REGISTER\", \"F01_SIGNAL_REGISTER\", \"F01_TOUR_KEY_GUARD\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "47dc94ede6d15854",
+   "kind": "runtime_id",
+   "token": "F01_SIGNAL_REGISTER",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    141
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_WATCHMAN_DETECTOR\", \"F01_NIGHT_REGISTER\", \"F01_SIGNAL_REGISTER\", \"F01_TOUR_KEY_GUARD\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "abeab97eaa89ad91",
+   "kind": "runtime_id",
+   "token": "F01_TOUR_KEY_GUARD",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    141
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_WATCHMAN_DETECTOR\", \"F01_NIGHT_REGISTER\", \"F01_SIGNAL_REGISTER\", \"F01_TOUR_KEY_GUARD\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "9145a3b036b2a68c",
+   "kind": "runtime_id",
+   "token": "F01_WATCHMAN_DETECTOR",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    141
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_WATCHMAN_DETECTOR\", \"F01_NIGHT_REGISTER\", \"F01_SIGNAL_REGISTER\", \"F01_TOUR_KEY_GUARD\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "f50419bb9b9bab33",
+   "kind": "runtime_id",
+   "token": "LobbyMailBank",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    86,
+    102,
+    117,
+    119,
+    130
+   ],
+   "count": 5,
+   "context": [
+    "var rooms := {\"LobbyMailBank\": \"F01_LOBBY\", \"LobbyPorterBoard\": \"F01_LOBBY\", \"F01_HOUSE_TELEPHONE_BOARD\": \"F01_COMMON_B\",",
+    "for identity: String in [\"LobbyMailBank\", \"LobbyPorterBoard\", \"F01_HOUSE_TELEPHONE_BOARD\"]:",
+    "var out: Vector3 = -thing.global_basis.z if identity != \"LobbyMailBank\" else -thing.global_basis.z",
+    "var bank := world.adapter.resolve(\"LobbyMailBank\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "8a738a7c16116e20",
+   "kind": "runtime_id",
+   "token": "LobbyMailChute",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    131
+   ],
+   "count": 1,
+   "context": [
+    "var chute := world.find_child(\"LobbyMailChute\", true, false) as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "9cdbb9e677ad715a",
+   "kind": "runtime_id",
+   "token": "LobbyPorterBoard",
+   "file": "game/tests/v2_first_floor_layout_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    86,
+    102,
+    117
+   ],
+   "count": 3,
+   "context": [
+    "var rooms := {\"LobbyMailBank\": \"F01_LOBBY\", \"LobbyPorterBoard\": \"F01_LOBBY\", \"F01_HOUSE_TELEPHONE_BOARD\": \"F01_COMMON_B\",",
+    "for identity: String in [\"LobbyMailBank\", \"LobbyPorterBoard\", \"F01_HOUSE_TELEPHONE_BOARD\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
   },
   {
