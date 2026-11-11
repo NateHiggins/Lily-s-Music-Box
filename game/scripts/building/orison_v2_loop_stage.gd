@@ -256,15 +256,15 @@ func _words(text: String, facing: Basis, width_m := 0.16) -> Label3D:
 
 
 ## Words in Adela's hand. The outline is the same ink, which thickens the stroke.
-func _hand(text: String, width_m: float) -> Label3D:
+func _hand(text: String, width_m: float, letter_px := 64) -> Label3D:
 	var label := Label3D.new()
 	label.text = text
 	label.font = HAND
-	label.font_size = 64
+	label.font_size = letter_px
 	label.pixel_size = width_m / 430.0
 	label.modulate = HAND_INK
 	label.outline_modulate = HAND_INK
-	label.outline_size = 9
+	label.outline_size = maxi(4, letter_px / 7)
 	label.width = 430.0
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.shaded = true
@@ -539,7 +539,7 @@ func _sync() -> void:
 		add_child(drawn)
 		var at := _deduction_place(str(deduction_id)) + _wall_frame.basis.z * 0.005
 		_place(drawn, _sized(_wall_frame.basis, 0.24, 0.25), at)
-		var label := _hand(str(loop.table.deductions[str(deduction_id)].line), 0.21)
+		var label := _hand(str(loop.table.deductions[str(deduction_id)].line), 0.22, 34)
 		drawn.add_child(label)
 		label.global_transform = Transform3D(_wall_frame.basis, at + _wall_frame.basis.z * 0.004)
 		deduction_cards[str(deduction_id)] = drawn
