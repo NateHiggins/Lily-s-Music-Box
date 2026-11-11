@@ -10,11 +10,16 @@ var track_clean := true
 var _slide: AnimatableBody3D
 var _motion: Tween
 var _held := false
+## Where the panel has been put, in metres. The panel is synchronised to
+## physics, so its node transform is the last physics frame's: reading that at
+## the moment of release loses the final frame of the hand's motion. This is
+## what the hand, a toggle or a restore last asked for, and it is what is saved.
+var _travel := 0.0
 
 func manipulation_target(hit: Dictionary) -> Dictionary:
 	if hit.get("collider") != _slide: return {}
 	return {"owner":self,"part":_slide,"frame":self,"kind":"slide","axis":Vector3.RIGHT,
-		"minimum":0.0,"maximum":TRAVEL,"read":func(): return _slide.position.x,
+		"minimum":0.0,"maximum":TRAVEL,"read":func(): return _travel,
 		"owns":func(): return _held,
 		"begin":func():
 			if _held or RealityState.save_write_blocked: return false
@@ -23,8 +28,9 @@ func manipulation_target(hit: Dictionary) -> Dictionary:
 			return true,
 		"write":func(value: float):
 			if not _held: return
-			_slide.position.x = value
-			opened = value > .001,
+			_travel = clampf(value, 0.0, TRAVEL)
+			_slide.position.x = _travel
+			opened = _travel > .001,
 		"end":func(): _held = false; open_state_changed.emit(opened)}
 
 class SlidingPanel extends AnimatableBody3D:
@@ -77,8 +83,14 @@ func _handle(parent: Node3D, at: Vector3) -> void:
 func interact_prompt() -> String:
 	return "Close kitchen cabinet" if opened else "Open kitchen cabinet"
 
+## The panel's place as a share of its travel, 0 shut to 1 open: the saved value.
+func travel_fraction() -> float:
+	return _travel / TRAVEL
+
+
 func interact(_actor: Node = null) -> Dictionary:
 	opened = not opened
+	_travel = TRAVEL if opened else 0.0
 	if _motion != null and _motion.is_valid(): _motion.kill()
 	_motion = create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	_motion.tween_property(_slide, "position:x", TRAVEL if opened else 0.0, DURATION if track_clean else DURATION*2.0) \
@@ -93,6 +105,7 @@ func restore_travel(fraction: float) -> void:
 	if _motion != null and _motion.is_valid(): _motion.kill()
 	_held = false
 	opened = fraction > .001
+	_travel = TRAVEL*clampf(fraction,0,1)
 	# Reconstruction is a teleport, not a physics animation. The synchronized
 	# body otherwise retains its pre-mount physics transform until the next tick.
 	_slide.sync_to_physics = false
