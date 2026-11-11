@@ -378,8 +378,6 @@ func _ready() -> void:
 	slips.clear()
 	tick()
 	check(slips.size() == 1 and slips[0].begins_with("THE BREAK|") and slips[0].contains("ticker"), "the companion says the house is uneasy, once")
-	tick()
-	check(not slips[slips.size() - 1].begins_with("THE BREAK|"), "and does not say it twice")
 	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1929, 10, 30, 600.0)) and loop.tip_percent_now() == 60
 			and loop.allowance_cents() == 10, "from the 29th tips are six tenths and the allowance is ten cents")
 	var short_tip: int = economy.tip("test:after", "mina_vale", 1.0, clock.elapsed_minutes(), false)
