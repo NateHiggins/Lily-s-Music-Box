@@ -62,16 +62,17 @@
     ],
     "hem": 0.42,
     "flare": 0.12,
-    "pleats": 0,
+    "pleats": 12,
     "pattern": {
      "kind": "stripes",
      "colour": [
-      0.5,
-      0.62,
-      0.95
+      0.55,
+      0.66,
+      0.98
      ],
-     "width": 3,
-     "repeat": 14
+     "width": 2,
+     "cells": 4,
+     "repeat": 5
     }
    },
    {
@@ -85,12 +86,13 @@
     "pattern": {
      "kind": "stripes",
      "colour": [
-      0.5,
-      0.62,
-      0.95
+      0.55,
+      0.66,
+      0.98
      ],
-     "width": 3,
-     "repeat": 14
+     "width": 2,
+     "cells": 4,
+     "repeat": 5
     }
    },
    {
@@ -109,6 +111,24 @@
      0.9
     ],
     "at": 0.92
+   },
+   {
+    "kind": "lapels",
+    "colour": [
+     0.02,
+     0.06,
+     0.3
+    ],
+    "vee": 0.26
+   },
+   {
+    "kind": "shoes",
+    "colour": [
+     0.03,
+     0.03,
+     0.05
+    ],
+    "strap": true
    }
   ],
   "trim": [
@@ -122,6 +142,16 @@
     "step": 0.085,
     "lift": 0.03,
     "size": 0.011
+   },
+   {
+    "kind": "pockets",
+    "colour": [
+     0.02,
+     0.06,
+     0.3
+    ],
+    "up": 0.03,
+    "lift": 0.03
    }
   ],
   "bare_chest_vee": 0.07,
@@ -183,12 +213,13 @@
     "pattern": {
      "kind": "checks",
      "colour": [
-      0.3,
-      0.16,
+      0.34,
+      0.18,
       0.06
      ],
-     "width": 3,
-     "repeat": 16
+     "width": 2,
+     "cells": 4,
+     "repeat": 5
     }
    },
    {
@@ -206,16 +237,7 @@
      0.36,
      0.01
     ],
-    "vee": 0.12,
-    "pattern": {
-     "kind": "knit",
-     "colour": [
-      0.5,
-      0.22,
-      0.0
-     ],
-     "repeat": 26
-    }
+    "vee": 0.12
    },
    {
     "kind": "hem",
@@ -241,7 +263,11 @@
      0.93,
      0.9,
      0.8
-    ]
+    ],
+    "out": 0.006,
+    "stand": 0.014,
+    "fall": 0.022,
+    "point": 0.02
    }
   ],
   "trim": [
@@ -316,9 +342,11 @@
       0.1,
       0.12
      ],
-     "width": 6,
-     "repeat": 18
-    }
+     "width": 3,
+     "cells": 6,
+     "repeat": 6
+    },
+    "cloth": "silk"
    },
    {
     "kind": "skirt",
@@ -329,7 +357,7 @@
     ],
     "hem": 0.3,
     "flare": 0.45,
-    "pleats": 18
+    "pleats": 20
    },
    {
     "kind": "belt",
@@ -348,6 +376,15 @@
      0.93,
      0.74
     ]
+   },
+   {
+    "kind": "shoes",
+    "colour": [
+     0.35,
+     0.14,
+     0.05
+    ],
+    "strap": true
    }
   ],
   "trim": [
