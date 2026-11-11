@@ -38,6 +38,19 @@ def top(kind, colour, accent, pale):
         "shirt_long": ([{"kind": "shirt", "colour": pale, "vee": 0.05, "sleeves": 1.0}], [{"kind": "tie", "colour": accent, "length": 0.2}], ["arms"]),
         "jersey": ([{"kind": "jumper", "colour": colour, "vee": 0.0, "ease": 0.008, "length": 0.0,
                      "pattern": {"kind": "bands", "colour": accent, "width": 3, "cells": 3, "repeat": 4}}], [], ["arms", "chest"]),
+        "wrap_blouse": ([{"kind": "shirt", "name": "Blouse", "colour": pale, "vee": 0.17, "sleeves": 0.75, "blouson": 0.008, "cloth": "silk"},
+                         {"kind": "sash", "colour": accent, "up": 0.1, "off": 0.008}], [], []),
+        "bow_blouse": ([{"kind": "shirt", "name": "Blouse", "colour": pale, "vee": 0.04, "sleeves": 1.0, "blouson": 0.01, "cloth": "silk"}, {"kind": "scarf", "colour": accent}], [], ["arms", "chest"]),
+        "shell": ([{"kind": "shirt", "name": "Shell", "colour": colour, "vee": 0.07, "sleeves": 0.0, "length": 0.05, "cloth": "cotton", "pattern": dots(pale, 2)}], [], []),
+        "tunic": ([{"kind": "jumper", "colour": colour, "vee": 0.1, "sleeves": 0.45, "ease": 0.013, "length": 0.07, "cloth": "cotton", "pattern": stripes(accent, 1)},
+                   {"kind": "belt", "colour": shade(colour, 0.4)}], [], []),
+        "henley": ([{"kind": "jumper", "colour": pale, "vee": 0.12, "sleeves": 0.5, "ease": 0.006, "length": 0.0, "cloth": "cotton"}],
+                   [{"kind": "buttons", "colour": accent, "step": 0.045, "lift": 0.012, "size": 0.006}], []),
+        "work_shirt": ([{"kind": "shirt", "colour": colour, "vee": 0.07, "sleeves": 1.0, "blouson": 0.008, "pattern": checks(pale, 1)}],
+                       [{"kind": "pockets", "colour": shade(colour, 0.7), "up": 0.22, "lift": 0.012}], ["arms"]),
+        "striped_shirt": ([{"kind": "shirt", "colour": pale, "vee": 0.06, "sleeves": 0.55, "pattern": stripes(colour, 1)}], [{"kind": "tie", "colour": accent, "length": 0.14}], []),
+        "fairisle": ([{"kind": "jumper", "colour": colour, "vee": 0.0, "ease": 0.012, "length": 0.02,
+                       "pattern": {"kind": "bands", "colour": accent, "width": 1, "cells": 5, "repeat": 8}}, {"kind": "hem", "colour": shade(colour, 0.6), "drop": -0.01}], [], ["arms", "chest"]),
         "pyjama_top": ([{"kind": "shirt", "colour": pale, "vee": 0.1, "sleeves": 1.0, "ease": 0.012, "length": 0.14, "pattern": stripes(colour, 1)}], [], ["arms"]),
     }
     return table[kind]
@@ -50,6 +63,12 @@ def bottom(kind, colour, accent, legs):
         "straight_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.42, "flare": 0.04}],
         "long_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.14, "flare": 0.28, "pleats": 12, "cloth": "silk"}],
         "short_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.5, "flare": 0.22, "pleats": 16}],
+        "pencil_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.47, "flare": 0.0, "pattern": stripes(shade(colour, 1.7), 1)}],
+        "pleated_midi": [{"kind": "skirt", "colour": colour, "hem": 0.3, "flare": 0.3, "pleats": 30}],
+        "aline_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.4, "flare": 0.16, "pattern": checks(shade(colour, 1.6), 1)}],
+        "slim_trousers": [{"kind": "trousers", "colour": colour, "width": 0.005}],
+        "sailor_trousers": [{"kind": "trousers", "colour": colour, "width": 0.042, "turnups": False}, {"kind": "belt", "colour": accent}],
+        "plus_fours": [{"kind": "stockings", "colour": accent}, {"kind": "trousers", "colour": colour, "width": 0.04, "ends": 0.3, "turnups": False, "pattern": checks(shade(colour, 1.7))}],
         "wide_trousers": [{"kind": "trousers", "colour": colour, "width": 0.03}],
         "narrow_trousers": [{"kind": "trousers", "colour": colour, "width": 0.012, "pattern": stripes(shade(colour, 1.8), 1)}],
         "check_trousers": [{"kind": "trousers", "colour": colour, "width": 0.02, "pattern": checks(shade(colour, 1.8))}],
@@ -64,11 +83,19 @@ def bottom(kind, colour, accent, legs):
 def over(kind, colour, accent):
     table = {
         "cardigan": ([{"kind": "cardigan", "colour": colour, "vee": 0.32}], [], ["warm"]),
-        "boxy_jacket": ([{"kind": "jacket", "colour": colour, "vee": 0.24, "length": 0.01, "ease": 0.016, "shoulders": 0.004}, {"kind": "lapels", "colour": shade(colour, 0.6), "vee": 0.24}],
-                        [{"kind": "buttons", "colour": accent, "step": 0.085, "lift": 0.034, "size": 0.011}], []),
+        "boxy_jacket": ([{"kind": "jacket", "colour": colour, "vee": 0.24, "length": 0.01, "ease": 0.021, "shoulders": 0.004}, {"kind": "lapels", "colour": shade(colour, 0.6), "vee": 0.24}],
+                        [{"kind": "buttons", "colour": accent, "step": 0.085, "lift": 0.038, "size": 0.011}], []),
         "long_jacket": ([{"kind": "jacket", "colour": colour, "vee": 0.3, "length": 0.17, "skirted": 0.012, "pattern": stripes(shade(colour, 1.9), 1)},
-                         {"kind": "lapels", "colour": shade(colour, 0.6), "vee": 0.3}], [{"kind": "pockets", "colour": shade(colour, 0.6), "up": -0.03, "lift": 0.034}], []),
-        "waistcoat": ([{"kind": "waistcoat", "colour": colour, "vee": 0.22}], [{"kind": "buttons", "colour": accent, "step": 0.06, "lift": 0.02, "size": 0.007}], []),
+                         {"kind": "lapels", "colour": shade(colour, 0.6), "vee": 0.3}], [{"kind": "pockets", "colour": shade(colour, 0.6), "up": -0.03, "lift": 0.038}], []),
+        "bolero": ([{"kind": "jacket", "colour": colour, "vee": 0.34, "length": -0.13, "ease": 0.02}], [], []),
+        "blazer": ([{"kind": "jacket", "colour": colour, "vee": 0.28, "length": 0.05, "ease": 0.02, "pattern": stripes(accent, 2)}, {"kind": "lapels", "colour": colour, "vee": 0.28}],
+                   [{"kind": "buttons", "colour": accent, "step": 0.07, "lift": 0.036, "size": 0.01}, {"kind": "pockets", "colour": shade(colour, 0.7), "up": -0.02, "lift": 0.036}], []),
+        "knit_vest": ([{"kind": "waistcoat", "colour": colour, "vee": 0.18, "cloth": "knit", "pattern": {"kind": "bands", "colour": accent, "width": 1, "cells": 4, "repeat": 6}}], [], ["warm"]),
+        "duster": ([{"kind": "coat", "colour": [min(1.0, 0.45 + 0.55 * x) for x in colour], "vee": 0.22, "hem": 0.2, "flare": 0.06, "cloth": "cotton"}], [], []),
+        "trench": ([{"kind": "coat", "colour": colour, "vee": 0.14, "hem": 0.36, "flare": 0.14}, {"kind": "belt", "colour": shade(colour, 0.5), "off": 0.029}, {"kind": "lapels", "colour": shade(colour, 0.8), "vee": 0.14}],
+                   [{"kind": "buttons", "colour": shade(colour, 0.4), "step": 0.08, "lift": 0.036, "size": 0.01}], ["warm"]),
+        "stole": ([{"kind": "shawl", "colour": colour, "length": 0.13, "cloth": "silk"}], [], []),
+        "waistcoat": ([{"kind": "waistcoat", "colour": colour, "vee": 0.22}], [{"kind": "buttons", "colour": accent, "step": 0.06, "lift": 0.026, "size": 0.007}], []),
         "long_coat": ([{"kind": "coat", "colour": colour, "vee": 0.08, "hem": 0.28, "flare": 0.1}, {"kind": "sash", "colour": shade(colour, 0.5), "up": 0.07, "off": 0.027}],
                       [{"kind": "buttons", "colour": shade(colour, 0.5), "step": 0.1, "lift": 0.036, "size": 0.013, "below": 0.12}], ["warm"]),
         "swing_coat": ([{"kind": "coat", "colour": colour, "vee": 0.1, "hem": 0.42, "flare": 0.4, "pattern": checks(shade(colour, 1.7), 1)}], [], ["warm"]),
@@ -82,45 +109,48 @@ def over(kind, colour, accent):
 
 def head(kind, colour, accent):
     table = {
-        "cloche": {"colour": colour, "band": accent, "brim": 1.0},
-        "toque": {"colour": colour, "band": accent, "brim": 0.0, "tall": 0.012},
-        "wide_hat": {"colour": colour, "band": accent, "brim": 2.3},
-        "headscarf": {"colour": accent, "band": colour, "brim": 0.0},
+        "cloche": {"kind": "cloche", "colour": colour, "band": accent, "brim": 1.0},
+        "toque": {"kind": "toque", "colour": colour, "band": accent, "brim": 0.0},
+        "wide_hat": {"kind": "wide", "colour": colour, "band": accent, "brim": 2.3},
+        "boater": {"kind": "boater", "colour": [0.85, 0.76, 0.5], "band": accent, "brim": 1.0},
+        "beret": {"kind": "beret", "colour": colour, "band": colour, "brim": 0.0},
+        "headscarf": {"kind": "headscarf", "colour": accent, "band": colour, "brim": 0.0},
         "cap": {"kind": "cap", "colour": colour, "band": colour, "brim": 1.0},
-        "derby": {"colour": colour, "band": BLACK, "brim": 0.6, "tall": 0.016},
-        "fedora": {"colour": colour, "band": accent, "brim": 1.35, "tall": 0.026},
+        "derby": {"kind": "derby", "colour": colour, "band": BLACK, "brim": 0.6},
+        "fedora": {"kind": "fedora", "colour": colour, "band": accent, "brim": 1.35},
     }
     return table[kind]
 
 
 def feet(kind, colour):
-    table = {"strap": [{"kind": "shoes", "colour": colour, "strap": True}], "oxford": [{"kind": "shoes", "colour": colour}],
+    table = {"strap": [{"kind": "shoes", "colour": colour, "strap": True}], "oxford": [{"kind": "shoes", "colour": colour}], "pumps": [{"kind": "shoes", "colour": shade(colour, 1.6)}],
+             "ankle_boots": [{"kind": "boots", "colour": colour, "height": 0.08}], "tall_boots": [{"kind": "boots", "colour": colour, "height": 0.27}],
              "boots": [{"kind": "boots", "colour": colour, "height": 0.17}]}
     return table[kind]
 
 
 # id: three sets, each (top, bottom, over, head, feet); "-" leaves that slot empty.
 STYLES = {
-    "adela_voss": [("blouse_short", "full_skirt", "cardigan", "-", "strap"), ("blouse_long", "straight_skirt", "boxy_jacket", "cloche", "strap"), ("evening_top", "long_skirt", "shawl", "-", "strap")],
-    "mina_vale": [("knit", "short_skirt", "cardigan", "-", "strap"), ("blouse_long", "straight_skirt", "long_jacket", "cloche", "strap"), ("blouse_short", "long_skirt", "cape", "toque", "boots")],
-    "cal_dwyer": [("jersey", "check_trousers", "waistcoat", "cap", "oxford"), ("shirt_long", "narrow_trousers", "long_jacket", "fedora", "oxford"), ("pyjama_top", "pyjama_trousers", "dressing_gown", "-", "oxford")],
-    "cam_ortiz": [("jersey", "knickerbockers", "waistcoat", "cap", "boots"), ("shirt_long", "narrow_trousers", "boxy_jacket", "cap", "oxford"), ("shirt_rolled", "wide_trousers", "long_coat", "-", "boots")],
-    "evelyn_marsh": [("blouse_long", "long_skirt", "cardigan", "-", "boots"), ("blouse_long", "straight_skirt", "long_coat", "toque", "boots"), ("smock", "full_skirt", "shawl", "wide_hat", "strap")],
-    "iris_bell": [("shirt_rolled", "overalls", "apron", "headscarf", "boots"), ("smock", "full_skirt", "cardigan", "-", "strap"), ("evening_top", "long_skirt", "cape", "wide_hat", "strap")],
-    "jonah_price": [("pyjama_top", "pyjama_trousers", "dressing_gown", "-", "oxford"), ("shirt_long", "narrow_trousers", "long_coat", "-", "oxford"), ("jersey", "wide_trousers", "long_jacket", "fedora", "boots")],
-    "juno_kells": [("knit", "wide_trousers", "waistcoat", "-", "boots"), ("shirt_long", "narrow_trousers", "long_coat", "-", "oxford"), ("evening_top", "short_skirt", "boxy_jacket", "headscarf", "strap")],
-    "lena_ortiz": [("smock", "full_skirt", "apron", "headscarf", "boots"), ("blouse_long", "long_skirt", "shawl", "headscarf", "boots"), ("blouse_long", "straight_skirt", "swing_coat", "toque", "strap")],
-    "mae_kessler": [("blouse_long", "long_skirt", "shawl", "-", "boots"), ("blouse_long", "long_skirt", "long_coat", "toque", "boots"), ("evening_top", "long_skirt", "cape", "wide_hat", "boots")],
-    "malcolm_reed": [("shirt_rolled", "overalls", "apron", "cap", "boots"), ("shirt_long", "check_trousers", "long_jacket", "cap", "oxford"), ("jersey", "wide_trousers", "waistcoat", "fedora", "boots")],
-    "nadia_quell": [("blouse_long", "straight_skirt", "waistcoat", "-", "strap"), ("blouse_long", "straight_skirt", "long_jacket", "cloche", "strap"), ("evening_top", "long_skirt", "swing_coat", "wide_hat", "strap")],
-    "noel_price": [("shirt_rolled", "wide_trousers", "apron", "-", "oxford"), ("shirt_long", "narrow_trousers", "long_coat", "fedora", "oxford"), ("jersey", "check_trousers", "waistcoat", "cap", "boots")],
-    "omar_bell": [("shirt_rolled", "overalls", "apron", "cap", "boots"), ("shirt_long", "check_trousers", "boxy_jacket", "cap", "oxford"), ("jersey", "wide_trousers", "waistcoat", "derby", "boots")],
-    "peter_wren": [("shirt_long", "narrow_trousers", "waistcoat", "-", "oxford"), ("shirt_long", "narrow_trousers", "long_jacket", "derby", "oxford"), ("jersey", "check_trousers", "long_coat", "derby", "oxford")],
-    "rhea_sato": [("blouse_short", "straight_skirt", "shawl", "-", "strap"), ("blouse_long", "short_skirt", "boxy_jacket", "cloche", "strap"), ("evening_top", "long_skirt", "cape", "toque", "strap")],
-    "sacha_reed": [("jersey", "wide_trousers", "waistcoat", "cap", "boots"), ("shirt_long", "narrow_trousers", "long_coat", "cap", "oxford"), ("shirt_rolled", "knickerbockers", "boxy_jacket", "-", "boots")],
-    "teresa_vale": [("blouse_short", "full_skirt", "apron", "toque", "strap"), ("blouse_long", "straight_skirt", "cape", "toque", "boots"), ("knit", "short_skirt", "swing_coat", "cloche", "strap")],
-    "transient_guests_a": [("shirt_rolled", "wide_trousers", "waistcoat", "-", "boots"), ("shirt_long", "check_trousers", "long_jacket", "fedora", "oxford"), ("jersey", "narrow_trousers", "long_coat", "cap", "boots")],
-    "transient_guests_b": [("smock", "short_skirt", "cardigan", "headscarf", "strap"), ("blouse_long", "straight_skirt", "swing_coat", "cloche", "strap"), ("knit", "full_skirt", "shawl", "-", "boots")],
+    "adela_voss": [("wrap_blouse", "full_skirt", "cardigan", "-", "strap"), ("bow_blouse", "pencil_skirt", "bolero", "cloche", "pumps"), ("evening_top", "long_skirt", "stole", "-", "strap")],
+    "mina_vale": [("knit", "pleated_midi", "knit_vest", "-", "strap"), ("blouse_long", "aline_skirt", "blazer", "beret", "oxford"), ("shell", "long_skirt", "cape", "toque", "ankle_boots")],
+    "cal_dwyer": [("henley", "check_trousers", "waistcoat", "cap", "oxford"), ("shirt_long", "slim_trousers", "blazer", "fedora", "oxford"), ("pyjama_top", "pyjama_trousers", "dressing_gown", "-", "oxford")],
+    "cam_ortiz": [("jersey", "knickerbockers", "knit_vest", "cap", "ankle_boots"), ("striped_shirt", "narrow_trousers", "boxy_jacket", "-", "oxford"), ("work_shirt", "sailor_trousers", "duster", "-", "boots")],
+    "evelyn_marsh": [("blouse_long", "long_skirt", "cardigan", "-", "ankle_boots"), ("bow_blouse", "straight_skirt", "trench", "-", "pumps"), ("smock", "full_skirt", "shawl", "wide_hat", "strap")],
+    "iris_bell": [("shirt_rolled", "overalls", "apron", "headscarf", "boots"), ("tunic", "pleated_midi", "cardigan", "-", "strap"), ("evening_top", "long_skirt", "cape", "wide_hat", "strap")],
+    "jonah_price": [("pyjama_top", "pyjama_trousers", "dressing_gown", "-", "oxford"), ("shirt_long", "narrow_trousers", "long_coat", "-", "oxford"), ("fairisle", "wide_trousers", "long_jacket", "fedora", "ankle_boots")],
+    "juno_kells": [("henley", "sailor_trousers", "waistcoat", "-", "ankle_boots"), ("wrap_blouse", "slim_trousers", "duster", "-", "oxford"), ("shell", "short_skirt", "bolero", "beret", "strap")],
+    "lena_ortiz": [("smock", "full_skirt", "apron", "headscarf", "boots"), ("blouse_long", "aline_skirt", "shawl", "-", "ankle_boots"), ("wrap_blouse", "pencil_skirt", "swing_coat", "toque", "pumps")],
+    "mae_kessler": [("blouse_long", "long_skirt", "shawl", "-", "boots"), ("tunic", "aline_skirt", "long_coat", "-", "ankle_boots"), ("evening_top", "pleated_midi", "cape", "wide_hat", "pumps")],
+    "malcolm_reed": [("shirt_rolled", "overalls", "apron", "cap", "boots"), ("work_shirt", "check_trousers", "long_jacket", "derby", "oxford"), ("fairisle", "wide_trousers", "waistcoat", "fedora", "ankle_boots")],
+    "nadia_quell": [("shell", "straight_skirt", "knit_vest", "-", "strap"), ("bow_blouse", "pencil_skirt", "long_jacket", "boater", "pumps"), ("evening_top", "long_skirt", "swing_coat", "wide_hat", "strap")],
+    "noel_price": [("shirt_rolled", "wide_trousers", "apron", "-", "oxford"), ("striped_shirt", "slim_trousers", "trench", "fedora", "oxford"), ("jersey", "plus_fours", "waistcoat", "cap", "boots")],
+    "omar_bell": [("shirt_rolled", "overalls", "apron", "cap", "boots"), ("shirt_long", "check_trousers", "boxy_jacket", "-", "oxford"), ("henley", "wide_trousers", "knit_vest", "derby", "ankle_boots")],
+    "peter_wren": [("shirt_long", "narrow_trousers", "waistcoat", "-", "oxford"), ("striped_shirt", "slim_trousers", "blazer", "derby", "oxford"), ("fairisle", "plus_fours", "long_coat", "-", "oxford")],
+    "rhea_sato": [("blouse_short", "aline_skirt", "stole", "-", "strap"), ("tunic", "short_skirt", "boxy_jacket", "-", "tall_boots"), ("evening_top", "long_skirt", "cape", "beret", "pumps")],
+    "sacha_reed": [("jersey", "wide_trousers", "waistcoat", "cap", "boots"), ("work_shirt", "narrow_trousers", "duster", "boater", "oxford"), ("shirt_rolled", "knickerbockers", "boxy_jacket", "-", "ankle_boots")],
+    "teresa_vale": [("blouse_short", "full_skirt", "apron", "-", "strap"), ("wrap_blouse", "pleated_midi", "cape", "boater", "ankle_boots"), ("knit", "short_skirt", "swing_coat", "cloche", "tall_boots")],
+    "transient_guests_a": [("henley", "wide_trousers", "waistcoat", "-", "boots"), ("shirt_long", "check_trousers", "trench", "fedora", "oxford"), ("jersey", "narrow_trousers", "long_coat", "cap", "boots")],
+    "transient_guests_b": [("smock", "short_skirt", "cardigan", "headscarf", "strap"), ("bow_blouse", "straight_skirt", "swing_coat", "wide_hat", "pumps"), ("knit", "full_skirt", "stole", "-", "tall_boots")],
 }
 SET_TAGS = [["casual", "home"], ["formal", "street"], ["occasion"]]
 # A second colour for each person, chosen to stand against their own.
@@ -189,11 +219,11 @@ def add_parts(cast):
             parts[letter + "_bottom"] = {"slot": "bottom", "set": letter,
                                          "tags": SET_TAGS[index] + (["night"] if b.startswith("pyjama") else []) + (["work"] if b == "overalls" else []),
                                          # Trousers fit the legs; a skirt hangs clear of them, so the body shows beneath it.
-                                         "covers": [] if b.endswith("skirt") and b != "straight_skirt" else ["hips"] if b == "straight_skirt" else ["legs", "hips"],
+                                         "covers": ["hips"] if b in ("straight_skirt", "pencil_skirt") else [] if b.endswith(("skirt", "midi")) else ["legs", "hips"],
                                          "rows": bottom(b, colour, a0, [[0.5, 0.36, 0.26], [0.62, 0.55, 0.45], [0.12, 0.1, 0.1]][index]), "trim": []}
             rows, trim, extra_tags = over(o, over_colour, a0)
             parts[letter + "_over"] = {"slot": "over", "set": letter, "tags": SET_TAGS[index] + extra_tags,
-                                       "covers": [] if o in ("apron", "waistcoat", "shawl", "cape") else ["arms", "chest"], "rows": rows, "trim": trim}
+                                       "covers": [] if o in ("apron", "waistcoat", "knit_vest", "shawl", "stole", "cape") else ["arms", "chest"], "rows": rows, "trim": trim}
             if h != "-":
                 parts[letter + "_head"] = {"slot": "head", "set": letter, "tags": SET_TAGS[index], "covers": [], "rows": [], "trim": [],
                                            "hat": head(h, shade(c0, 0.6) if index else shade(c0, 0.8), a0)}
