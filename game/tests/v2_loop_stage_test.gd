@@ -207,9 +207,15 @@ func _ready() -> void:
 	_check(stage.string_nodes.size() == 1 and stage.deduction_cards.has("she_asked_first") and "notebook" in loop.unlocked(),
 			"it holds: a red string, the deduction written under it, and the writer upstairs open")
 	await _frames(20)
-	_check(stage.surveyed and stage.spots.size() >= 60, "the flat has been surveyed for paper (%d places)" % stage.spots.size())
-	_check(stage.papers.size() == mini(loop.spread(), stage.spots.size()) and stage.papers.size() >= 20,
-			"the wall has begun to spread (%d sheets for a spread of %d)" % [stage.papers.size(), loop.spread()])
+	_check(stage.surveyed and stage.spots.size() >= 300 and stage.pile_spots.size() >= 20 and stage.high_spots.size() >= 20,
+			"the whole flat has been surveyed (%d places for paper, %d for piles, %d overhead)" % [stage.spots.size(), stage.pile_spots.size(), stage.high_spots.size()])
+	var early: int = stage.papers.size()
+	_check(early >= 10 and early < stage.spots.size() / 4 and loop.spread_fraction() < 0.25,
+			"with three pieces and one string the case has only begun to spread (%d sheets, %.2f of the way)" % [early, loop.spread_fraction()])
+	var early_piles := 0
+	for pile: Node3D in stage.piles:
+		early_piles += 1 if pile.visible else 0
+	_check(early_piles >= 1 and early_piles <= 4, "and the first newspapers have been kept (%d piles)" % early_piles)
 	var inside := true
 	for sheet: Node3D in stage.papers:
 		inside = inside and world.unit_at_world(sheet.global_position) == "4B"
@@ -231,8 +237,39 @@ func _ready() -> void:
 					loop.strings().append([str(needs[index - 1]), str(needs[index])])
 			if deduction_id not in loop.ledger().deductions:
 				loop.ledger().deductions.append(deduction_id)
+		# Half way first.
+		var half_items: Dictionary = (loop.ledger().items as Dictionary).duplicate(true)
+		var half_strings: Array = loop.strings().duplicate(true)
+		var half_deductions: Array = (loop.ledger().deductions as Array).duplicate()
+		var kept := 0
+		for item_id: String in half_items.keys():
+			kept += 1
+			if kept > 6:
+				half_items.erase(item_id)
+		var whole_items: Dictionary = loop.ledger().items
+		var whole_strings: Array = loop.strings().duplicate(true)
+		var whole_deductions: Array = (loop.ledger().deductions as Array).duplicate()
+		loop.ledger().items = half_items
+		loop.ledger().strings = half_strings.slice(0, 2)
+		loop.ledger().deductions = half_deductions.slice(0, 2)
 		loop.changed.emit()
 		await _frames(10)
+		print("LOOP STAGE: half way %.2f, %d sheets" % [loop.spread_fraction(), stage.papers.filter(func(n: Node3D) -> bool: return n.visible).size()])
+		var back_off: Vector3 = stage._wall_frame.origin + out * 2.8
+		_feet = Vector3(back_off.x, _feet.y, back_off.z)
+		_look = stage._wall_frame.origin
+		await _snap("stage_half")
+		loop.ledger().items = whole_items
+		loop.ledger().strings = whole_strings
+		loop.ledger().deductions = whole_deductions
+		loop.changed.emit()
+		await _frames(10)
+		_check(is_equal_approx(loop.spread_fraction(), 1.0) and stage.papers.size() == stage.spots.size()
+				and stage.strands.size() == stage.MAX_STRANDS, "at the finished case every place is papered and the web is whole (%d sheets, %d piles, %d strands)" % [
+				stage.papers.size(), stage.piles.size(), stage.strands.size()])
+		await _snap("stage_full")
+		_feet = Vector3(wall_face.x, _feet.y, wall_face.z) + out * 1.3
+		_look = wall_face - Vector3.UP * 0.2
 		await _snap("wall_whole_case")
 		var centre: Vector3 = stage._wall_frame.origin + out * 1.6
 		_feet = Vector3(centre.x, _feet.y, centre.z) + out * 1.2

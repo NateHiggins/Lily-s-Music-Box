@@ -365,6 +365,14 @@ func spread() -> int:
 	return on_wall().size() * 5 + strings().size() * 6 + (ledger().deductions as Array).size() * 12
 
 
+## The same as a share of the finished case, 0 to 1. At 1 the flat is consumed.
+func spread_fraction() -> float:
+	var whole := (table.anchors as Dictionary).size() * 5 + (table.deductions as Dictionary).size() * 12
+	for deduction_id: String in table.deductions:
+		whole += ((table.deductions[deduction_id].needs as Array).size() - 1) * 6
+	return clampf(float(spread()) / float(maxi(1, whole)), 0.0, 1.0)
+
+
 func answered(anchor_id: String) -> bool:
 	return holds(str(clue_of(anchor_id).id))
 

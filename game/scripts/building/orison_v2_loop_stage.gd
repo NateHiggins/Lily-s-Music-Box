@@ -18,7 +18,13 @@ const PIN_REACH := 0.25
 const PULL_REACH := 0.05
 const STRING_RED := Color(0.6, 0.04, 0.05)
 const STRING_WIDTH := 0.005
-const SURVEY_RAYS := 900
+const SURVEY_RAYS := 700
+const MAX_STRANDS := 70
+## A stack of paper already in 4B, copied for the gathered newspapers.
+const BUNDLE_SOURCE := "4B_slip_stack"
+## Things standing in 4B's rooms, to look out from when finding where paper can go.
+const ROOM_EYES: Array[String] = ["4B_meal_table", "4B_wake_bed", "4B_couch", "4B_terminal_desk", "4B_sink_counter",
+		"4B_hallstand", "4B_wc", "4B_closet_rail", "4B_equipment_shelf", "4B_wireless_table"]
 ## The case wall already carries three rows of eight blank slips. Evidence is
 ## written onto them in order. These are the slips' places as fractions of
 ## the board, measured from a capture of the V2 board.
@@ -56,6 +62,13 @@ var deduction_cards: Dictionary = {}
 var spots: Array[Dictionary] = []
 var papers: Array[Node3D] = []
 var surveyed := false
+var pile_spots: Array[Dictionary] = []
+var piles: Array[Node3D] = []
+var high_spots: Array[Dictionary] = []
+var strands: Array[Node3D] = []
+var _bundle: Node3D
+var _bundle_size := Vector3.ONE
+var _bundle_foot := Vector3.ZERO
 ## Turns the copied slip from however it lies in 4B to flat, long side along X,
 ## face along Z.
 var _paper_square := Basis()
@@ -79,6 +92,18 @@ func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
 		_card_for(anchor_id)
 	if _paper != null:
 		_square_paper()
+	_bundle = adapter.resolve(BUNDLE_SOURCE) as Node3D
+	if _bundle == null:
+		errors.append("no stack of paper to copy: " + BUNDLE_SOURCE)
+	else:
+		var box := AABB()
+		var first := true
+		for draw: MeshInstance3D in _bundle.find_children("*", "MeshInstance3D", true, false) + ([_bundle] if _bundle is MeshInstance3D else []):
+			var part_box := (_bundle.global_transform.affine_inverse() * draw.global_transform) * draw.get_aabb()
+			box = part_box if first else box.merge(part_box)
+			first = false
+		_bundle_size = box.size.max(Vector3.ONE * 0.001)
+		_bundle_foot = Vector3(box.get_center().x, box.position.y, box.get_center().z)
 	if wall != null and _paper != null:
 		_frame_wall()
 		_tuck()
@@ -134,14 +159,19 @@ func _put_back() -> void:
 
 
 func _copy_paper() -> Node3D:
+	return _copy_of(_paper)
+
+
+## A copy of an existing V2 object's surfaces: its authored meshes and finishes.
+func _copy_of(source: Node3D) -> Node3D:
 	var sheet := Node3D.new()
-	for draw: MeshInstance3D in _paper.find_children("*", "MeshInstance3D", true, false) + ([_paper] if _paper is MeshInstance3D else []):
+	for draw: MeshInstance3D in source.find_children("*", "MeshInstance3D", true, false) + ([source] if source is MeshInstance3D else []):
 		var copy := MeshInstance3D.new()
 		copy.mesh = draw.mesh
 		for surface in draw.get_surface_override_material_count():
 			copy.set_surface_override_material(surface, draw.get_surface_override_material(surface))
 		copy.material_override = draw.material_override
-		copy.transform = _paper.global_transform.affine_inverse() * draw.global_transform
+		copy.transform = source.global_transform.affine_inverse() * draw.global_transform
 		copy.visibility_range_end = 14.0
 		sheet.add_child(copy)
 	return sheet
@@ -354,16 +384,22 @@ func _place(node: Node3D, facing: Basis, at: Vector3) -> void:
 	node.global_transform = Transform3D(turned, at - facing * _paper_centre)
 
 
-## Red string, as a narrow strip of the same paper stock dyed red.
-func _ribbon(from: Vector3, to: Vector3) -> Node3D:
+func _ribbon_stock() -> Node3D:
 	var strip := _copy_paper()
 	if _string_finish == null:
 		_string_finish = MatLib.get_mat("paper").duplicate() as StandardMaterial3D
 		_string_finish.uv1_triplanar = false
 		_string_finish.albedo_color = STRING_RED
+		_string_finish.cull_mode = BaseMaterial3D.CULL_DISABLED
 	for draw: MeshInstance3D in strip.get_children():
 		draw.material_override = _string_finish
 	add_child(strip)
+	return strip
+
+
+## Red string, as a narrow strip of the same paper stock dyed red.
+func _ribbon(from: Vector3, to: Vector3) -> Node3D:
+	var strip := _ribbon_stock()
 	var out: Vector3 = _wall_frame.basis.z
 	var along := to - from
 	_place(strip, _sized(Basis(along.normalized(), out.cross(along.normalized()), out), along.length(), STRING_WIDTH),
@@ -453,57 +489,87 @@ func _sync() -> void:
 	_grow()
 
 
-# --- The wall takes the flat ------------------------------------------------------
+# --- The case takes the flat -------------------------------------------------------
+# The flat comes unhinged by degrees. Paper spreads from the board over every
+# room of 4B, gathered newspapers pile up along the walls and on the furniture,
+# and red string webs across the rooms overhead. At the finished case there is
+# no clear surface left.
 
 ## Find where paper can go: every upright surface in sight of the middle of
-## the room, nearest the board first. Done once, on a physics frame.
+## each room of 4B, nearest the board first; and under those, where a pile of
+## newspapers can stand. Done once, on a physics frame.
 func _survey() -> void:
 	surveyed = true
 	var space := world.get_world_3d().direct_space_state
 	if space == null:
 		return
 	var out: Vector3 = _wall_frame.basis.z
-	var eye: Vector3 = _wall_frame.origin + out * 1.5
-	var floor_y := floorf((eye.y + 0.05) / 3.2) * 3.2
+	var floor_y := floorf((_wall_frame.origin.y + 0.05) / 3.2) * 3.2
+	var eyes: Array[Vector3] = [_wall_frame.origin + out * 1.5]
+	for object_id: String in ROOM_EYES:
+		var thing := adapter.resolve(object_id) as Node3D
+		if thing != null and world.unit_at_world(thing.global_position) == "4B":
+			eyes.append(thing.global_position)
 	var found: Array[Dictionary] = []
-	for index in SURVEY_RAYS:
-		var yaw := float(index) * 2.399963
-		var height := floor_y + 0.4 + 2.0 * fposmod(float(index) * 0.7548776662, 1.0)
-		var from := Vector3(eye.x, height, eye.z)
-		var query := PhysicsRayQueryParameters3D.create(from, from + Vector3(cos(yaw), 0.0, sin(yaw)) * 9.0)
-		var hit := space.intersect_ray(query)
-		if hit.is_empty() or absf((hit.normal as Vector3).y) > 0.2 or from.distance_to(hit.position) < 0.5:
-			continue
-		var on_board: Vector3 = _wall_frame.affine_inverse() * (hit.position as Vector3)
-		if absf(on_board.z) < 0.08 and absf(on_board.x) < _wall_size.x * 0.5 + 0.06 and absf(on_board.y) < _wall_size.y * 0.5 + 0.06:
-			continue
-		if world.unit_at_world(hit.position as Vector3) != "4B":
-			continue
-		var crowded := false
-		for other: Dictionary in found:
-			crowded = crowded or (other.position as Vector3).distance_to(hit.position) < 0.17
-		if crowded:
-			continue
-		found.append({"position": hit.position, "normal": (hit.normal as Vector3).normalized(),
-				"far": (hit.position as Vector3).distance_to(_wall_frame.origin)})
+	var cells := {}
+	for eye_index in eyes.size():
+		var eye := eyes[eye_index]
+		for index in SURVEY_RAYS:
+			var yaw := float(index) * 2.399963 + float(eye_index)
+			var height := floor_y + 0.25 + 2.3 * fposmod(float(index) * 0.7548776662 + float(eye_index) * 0.37, 1.0)
+			var from := Vector3(eye.x, height, eye.z)
+			var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(from, from + Vector3(cos(yaw), 0.0, sin(yaw)) * 9.0))
+			if hit.is_empty() or absf((hit.normal as Vector3).y) > 0.2 or from.distance_to(hit.position) < 0.35:
+				continue
+			var where: Vector3 = hit.position
+			var on_board: Vector3 = _wall_frame.affine_inverse() * where
+			if absf(on_board.z) < 0.08 and absf(on_board.x) < _wall_size.x * 0.5 + 0.06 and absf(on_board.y) < _wall_size.y * 0.5 + 0.06:
+				continue
+			if world.unit_at_world(where) != "4B":
+				continue
+			var cell := Vector3i((where / 0.19).round())
+			if cells.has(cell):
+				continue
+			cells[cell] = true
+			found.append({"position": where, "normal": (hit.normal as Vector3).normalized(), "far": where.distance_to(_wall_frame.origin)})
 	found.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return float(a.far) < float(b.far))
 	spots = found
+	# Piles: straight down from a little out from each papered place.
+	var piles: Array[Dictionary] = []
+	var pile_cells := {}
+	for spot: Dictionary in spots:
+		var above: Vector3 = (spot.position as Vector3) + (spot.normal as Vector3) * 0.3
+		var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(above, above + Vector3.DOWN * 3.2))
+		if hit.is_empty() or (hit.normal as Vector3).y < 0.9 or world.unit_at_world(hit.position as Vector3) != "4B":
+			continue
+		var cell := Vector3i(((hit.position as Vector3) / 0.42).round())
+		if pile_cells.has(cell):
+			continue
+		pile_cells[cell] = true
+		piles.append({"position": hit.position, "far": float(spot.far)})
+	pile_spots = piles
+	# The web's anchors: papered places above head height.
+	for spot: Dictionary in spots:
+		if (spot.position as Vector3).y > floor_y + 1.85:
+			high_spots.append(spot)
 	_grow()
 
 
-## Paper up to the case's present spread, nearest the board first.
+## Everything up to the case's present spread, nearest the board first.
 func _grow() -> void:
 	if not surveyed or _paper == null:
 		return
-	var count: int = mini(int(loop.spread()), spots.size())
+	var share: float = loop.spread_fraction()
 	var scrawls: Array = loop.table.scrawls
+	# Paper on the walls and furniture.
+	var count: int = int(ceil(float(spots.size()) * pow(share, 1.25)))
 	while papers.size() < count:
 		var index := papers.size()
 		var spot: Dictionary = spots[index]
 		var normal: Vector3 = spot.normal
 		var across := Vector3.UP.cross(normal).normalized()
-		var roll := (fposmod(float(index) * 0.7548776, 1.0) - 0.5) * 0.5
-		var size := 0.14 + 0.13 * fposmod(float(index) * 0.5698403, 1.0)
+		var roll := (fposmod(float(index) * 0.7548776, 1.0) - 0.5) * 0.6
+		var size := 0.14 + 0.15 * fposmod(float(index) * 0.5698403, 1.0)
 		var level := across.rotated(normal, roll)
 		var facing := _sized(Basis(level, normal.cross(level), normal), size, size * (0.72 + 0.5 * fposmod(float(index) * 0.3247, 1.0)))
 		var sheet := _copy_paper()
@@ -518,6 +584,48 @@ func _grow() -> void:
 		papers.append(sheet)
 	for index in papers.size():
 		(papers[index] as Node3D).visible = index < count
+	# Gathered newspapers, in piles that grow.
+	var pile_count: int = int(ceil(float(pile_spots.size()) * pow(share, 1.6))) if _bundle != null else 0
+	while piles.size() < pile_count:
+		var index := piles.size()
+		var pile := _copy_of(_bundle)
+		pile.name = "LoopPile_%d" % index
+		add_child(pile)
+		piles.append(pile)
+	for index in piles.size():
+		var pile: Node3D = piles[index]
+		pile.visible = index < pile_count
+		if not pile.visible:
+			continue
+		# A pile is as tall as the case is far along, and each differs.
+		var tall := 0.04 + (0.1 + 0.55 * fposmod(float(index) * 0.4142, 1.0)) * share
+		var wide := 0.3 + 0.1 * fposmod(float(index) * 0.2718, 1.0)
+		var turn := Basis(Vector3.UP, float(index) * 1.7)
+		var stretch := Basis(turn.x * (wide / _bundle_size.x), Vector3.UP * (tall / _bundle_size.y), turn.z * (wide * 0.72 / _bundle_size.z))
+		pile.global_transform = Transform3D(stretch, (pile_spots[index].position as Vector3) - stretch * _bundle_foot)
+	# The web: red string overhead, from the board outward and wall to wall.
+	var strand_count: int = int(float(MAX_STRANDS) * clampf((share - 0.1) / 0.9, 0.0, 1.0)) if high_spots.size() >= 4 else 0
+	while strands.size() < strand_count:
+		var index := strands.size()
+		var total := high_spots.size()
+		var from: Vector3 = _wall_frame * Vector3((fposmod(float(index) * 0.618, 1.0) - 0.5) * _wall_size.x, _wall_size.y * 0.5, 0.0) \
+				if index % 3 == 0 else (high_spots[(index * 7) % total].position as Vector3)
+		var to: Vector3 = high_spots[(index * 7 + total / 2 + index) % total].position
+		if from.distance_to(to) < 0.4:
+			to = high_spots[(index * 11 + 3) % total].position
+		strands.append(_strand(from, to))
+	for index in strands.size():
+		(strands[index] as Node3D).visible = index < strand_count
+
+
+## Red string through the air between two points.
+func _strand(from: Vector3, to: Vector3) -> Node3D:
+	var strip := _ribbon_stock()
+	var along := to - from
+	var side := along.cross(Vector3.UP)
+	side = Vector3.RIGHT if side.length() < 0.001 else side.normalized()
+	_place(strip, _sized(Basis(along.normalized(), side, along.normalized().cross(side)), maxf(along.length(), 0.01), STRING_WIDTH), (from + to) * 0.5)
+	return strip
 
 
 func _physics_process(_delta: float) -> void:
