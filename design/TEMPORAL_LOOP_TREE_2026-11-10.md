@@ -205,8 +205,8 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **The question:** What is on the half that survived?
 - **Canon beat:** B23. The surviving half of plate 13.
 - **Strict:** lifting a later object before its turn puts the room back to the start.
-- **The day:** autumn; two days before Hallowe'en.
-- **What the rooms show of it:** A jack-o'-lantern on the stoop. Evening papers stacked high at the stand, sold out early. Coats on every hallstand. The radiators hot.
+- **The day:** autumn; the day the market broke, two days before Hallowe'en.
+- **What the rooms show of it:** Extras cried in the street all afternoon; the evening papers are gone from the stand. A wireless on in every flat, all on the market report. A jack-o'-lantern on the stoop that nobody has lit. Coats on every hallstand and doors left ajar for news.
 - **Steps:**
   1. Wait until **19:15**. The companion's hint: "Sacha said Tuesday the twenty-ninth, in the evening. Let the bath warm."
   2. Be in **6A**. The companion's hint: "Go to 6A."
@@ -227,7 +227,7 @@ The branches: the tea opens two lines. **friday** leads through the writer to th
 - **Canon beat:** B25. Mae's box, in the hour between her sale day and Mr. Ewald's call.
 - **Strict:** lifting a later object before its turn puts the room back to the start.
 - **The day:** late autumn; the Saturday before Armistice Day.
-- **What the rooms show of it:** Poppies and a flag in the lobby for Monday. Election posters from Tuesday still up on the hoardings. Storm sashes hung; the house smells of coal. Nadia's Armistice card unfinished in the shop window.
+- **What the rooms show of it:** Poppies and a flag in the lobby for Monday. Election posters from Tuesday still up on the hoardings. The sale room full of things brought in to sell since the market broke, and nobody buying. Nadia's Armistice card unfinished in the shop window.
 - **Steps:**
   1. Wait until **15:05**. The companion's hint: "Her sale day ends at three. Mr. Ewald calls at four. You have the hour between."
   2. Be in **6C**. The companion's hint: "Go to 6C."
