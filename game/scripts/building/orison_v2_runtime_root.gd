@@ -56,6 +56,7 @@ var fire_apparatus: Dictionary = {}
 var lobby_set: Dictionary = {}
 var witness_clocks: Dictionary = {}
 var case_props: Dictionary = {}
+var possessed_objects: Dictionary = {}
 var moon_fill: OmniLight3D
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
@@ -379,6 +380,9 @@ func _ready() -> void:
 	lobby_set = preload("res://scripts/building/orison_v2_lobby_set.gd").mount(self, _blockout, layout, adapter)
 	witness_clocks = preload("res://scripts/building/orison_v2_witness_clocks.gd").mount(self, _blockout, layout, adapter)
 	case_props = preload("res://scripts/building/orison_v2_case_props.gd").mount(self, _blockout, layout, adapter, reality_controllers)
+	# The possessed household objects V2 had nothing to carry (V1 retirement
+	# plan, section B item 8). They must stand before the witnesses look for them.
+	possessed_objects = preload("res://scripts/building/orison_v2_possessed_objects.gd").mount(self, _blockout, layout, adapter)
 	# The domestic witnesses (v1r_witness_tells_20261109): each intrusion reaches
 	# the resident's own household object, and one of 4B's own things answers.
 	domestic_witnesses = preload("res://scripts/building/orison_v2_domestic_witnesses.gd").new()
