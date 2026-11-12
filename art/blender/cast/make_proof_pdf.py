@@ -1,6 +1,6 @@
 """Cast proof sheets: one page per character, for mark-up.
 
-python make_proof_pdf.py <proof shots dir> <cast_parts.py dir> <out.pdf>
+python make_proof_pdf.py <proof shots dir> <cast_parts.py dir> <out.pdf> [round]
 """
 import os, sys
 from PIL import Image, ImageDraw, ImageFont
@@ -36,7 +36,7 @@ def shot(name, box, size):
 pages = []
 cover = Image.new("RGB", (W, H), PAPER)
 d = ImageDraw.Draw(cover)
-d.text((80, 70), "Cast proof sheets, round 5", fill=INK, font=font(84, True))
+d.text((80, 70), "Cast proof sheets, round %s" % (sys.argv[4] if len(sys.argv) > 4 else "?"), fill=INK, font=font(84, True))
 lines = [
     "One page per character. Each page shows the face, then the three outfit sets (home, street, occasion) from the front, and the street set from behind.",
     "",
@@ -51,7 +51,7 @@ lines = [
     "  - Colour sits between bold and realistic, with some wear and tear. Each person has a colour of their own.",
     "  - No lettering, numbers or logos on any cloth.",
     "  - Clothes are skinned meshes with no cloth simulation. Skirts follow the legs.",
-    "  - Hair is strand hair. Bodies come from one shared base and differ by age, build and proportion.",
+    "  - Hair is card hair (art/blender/scripts/build_card_hair.py). Bodies come from one shared base and differ by age, build and proportion.",
     "  - Outfit parts mix across sets, so each part must also work on its own.",
     "",
     "Known faults already on the list: capes are boxy, some garment edges are rough, knee patches read as paper tags,",
