@@ -518,17 +518,18 @@ func visit_restore(records: Dictionary) -> bool:
 	if not _bound or _restoring or _blocked or RealityState.save_write_blocked or not is_inside_tree(): return false
 	var merged := snapshot()
 	if merged.is_empty(): return false
-	var moved := false
+	var moved := {}
 	for identity: String in records:
 		if not merged.records.has(identity) or not _borrowed_in_visit(identity): continue
 		var was: Variant = records[identity]
 		if was is not Dictionary or str(was.get("kind", "")) != str(_kinds[identity]) or merged.records[identity] == was: continue
 		merged.records[identity] = (was as Dictionary).duplicate(true)
-		moved = true
-	if not moved: return true
+		moved[identity] = true
+	if moved.is_empty(): return true
 	if not validate(merged, _kinds): return false
 	RealityState.data[KEY] = merged
-	_restore(merged)
+	# Only what the visit borrowed is touched: nothing else is re-applied.
+	_restore(merged, moved)
 	return true
 
 func snapshot() -> Dictionary:
@@ -555,11 +556,14 @@ func snapshot() -> Dictionary:
 	_profile_end("snapshot",profile_started)
 	return {"schema_version":1, "records":records}
 
-func _restore(saved: Dictionary) -> void:
+## `only`, when given, names the identities to move; every other control is
+## left exactly as it stands (a lift in travel, a clock running).
+func _restore(saved: Dictionary, only: Dictionary = {}) -> void:
 	_restoring = true
 	for player: Node in get_tree().get_nodes_in_group("player_controller"):
 		if player.has_method("cancel_manipulation"): player.cancel_manipulation()
 	for identity: String in _subjects:
+		if not only.is_empty() and not only.has(identity): continue
 		var restore_started:=_profile_start()
 		var record: Dictionary = saved.records.get(identity, _defaults.records[identity])
 		var prop: Node = _subjects[identity]

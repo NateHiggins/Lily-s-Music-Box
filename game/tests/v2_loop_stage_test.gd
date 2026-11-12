@@ -190,7 +190,18 @@ func _ready() -> void:
 	_check(loop.holds("order_slip") and not slip.visible, "the slip is taken and kept")
 
 	# A rerun puts the room back and keeps the evidence.
+	# A door the visit never touched, caught mid-swing: the rerun must leave it alone.
+	var bystander: DoorProp = null
+	for identity: String in house._subjects:
+		var other: Node = house._subjects[identity]
+		if other is DoorProp and other != door and house._kinds[identity] == "mechanism":
+			bystander = other
+			break
+	_check(bystander != null, "there is a second door to stand by")
+	bystander._moving = true
 	_check(loop.reset_loop().ok, "the hours again")
+	_check(bystander._moving, "putting the house back touches only what was moved: a door mid-swing elsewhere swings on")
+	bystander._moving = false
 	await _frames(5)
 	_check(tray.part.visible and tray.part.global_position.distance_to(tray_rest) < 0.002, "the tray is back exactly")
 	_check(absf(float(door.mechanism_snapshot().angle) - door_home) < 0.001 and lamp.get("powered") == lamp_home, "the door and the light are as the hours began")
@@ -203,6 +214,13 @@ func _ready() -> void:
 	await _frames(5)
 	_check(absf(float(door.mechanism_snapshot().angle) - door_home) < 0.001 and lamp.get("powered") == lamp_home, "home, the door and the light are as the tenants left them")
 	door.restore_mechanism({"angle": door_ajar})
+	# A conversation that ended without saying so does not hold the clock for good.
+	var held_pace: CampaignPace = loop._pace_owner()
+	stage._talk_held = true
+	loop.hold_pace("talk")
+	_check(held_pace != null and held_pace.held(), "a conversation holds the clock")
+	await _frames(40)
+	_check(not held_pace.held() and not stage._talk_held, "and with nobody talking the hold is let go")
 	_check(loop.go_home().ok == false and absf(float(door.mechanism_snapshot().angle) - door_ajar) < 0.001, "and at home a door moved stays moved")
 	door.restore_mechanism({"angle": door_home})
 	_check(stage.tucked.visible and stage.tucked_item == "order_slip"

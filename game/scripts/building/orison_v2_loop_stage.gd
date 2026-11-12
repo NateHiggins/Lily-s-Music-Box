@@ -84,6 +84,7 @@ var _house_was: Dictionary = {}
 var _house_run := -1.0
 var _house_held := false
 var _call_held := false
+var _talk_held := false
 var _wall_frame := Transform3D()
 var _wall_size := Vector2.ONE
 var _paper_centre := Vector3.ZERO
@@ -163,8 +164,12 @@ func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
 	# A conversation keeps the clock to its own time while it lasts.
 	var talk: Variant = world.get("conversations")
 	if talk is Node and (talk as Node).has_signal("conversation_started") and (talk as Node).has_signal("conversation_ended"):
-		(talk as Node).connect("conversation_started", func(_resident: String, _entry: String) -> void: loop.hold_pace("talk"))
-		(talk as Node).connect("conversation_ended", func(_resident: String) -> void: loop.release_pace("talk"))
+		(talk as Node).connect("conversation_started", func(_resident: String, _entry: String) -> void:
+			_talk_held = true
+			loop.hold_pace("talk"))
+		(talk as Node).connect("conversation_ended", func(_resident: String) -> void:
+			_talk_held = false
+			loop.release_pace("talk"))
 	# A campaign loaded in the middle of a visit: how the house stood before
 	# it is in the visit's record.
 	if loop.in_visit() and (loop.ledger().visit as Dictionary).get("household") is Dictionary:
@@ -1014,6 +1019,12 @@ func _process(delta: float) -> void:
 	if _poll < 0.25 or loop == null:
 		return
 	_poll = 0.0
+	# A conversation that ended without saying so must not hold the clock for good.
+	if _talk_held:
+		var talk: Variant = world.get("conversations")
+		if talk is not Node or str((talk as Node).get("_active_resident")) == "":
+			_talk_held = false
+			loop.release_pace("talk")
 	# A call at the desk has no start of its own to listen for: it is asked.
 	var desk: Variant = world.get("call_interface")
 	var on_call: bool = desk is Node and int((desk as Node).get("stage")) != 0
