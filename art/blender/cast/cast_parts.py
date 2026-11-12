@@ -254,8 +254,8 @@ def add_parts(cast):
     for cid, sets in STYLES.items():
         person = cast[cid]
         if cid == "adela_voss":
-            # Lily, 11-11: volume up from the scalp, then falling in collected waves (not tight ringlets).
-            person["hair"] = dict(person["hair"], lift=0.03, turns=[0.8, 1.15], radius=[0.016, 0.022])
+            # Lily, 11-11: the short, gathered, pinned style; the long strand curls are dropped.
+            person["hair"] = dict(person["hair"], asset="toigo_curled_under_bob")
         if cid in PACK_HAIR:
             person["hair"] = dict(person["hair"], asset=PACK_HAIR[cid])
         if cid in PACK_SKIN:

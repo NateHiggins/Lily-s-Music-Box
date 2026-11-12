@@ -1234,6 +1234,25 @@ if PACK_HAIR:
     if hair_image is not None:
         hair_node.image = tinted_image(hair_image, [float(c) for c in hair_tone], CID + "_hair_picture", 1024, hair=True)
     shrink_pictures(pack_hair, hair_node)
+    if CFG["hair"].get("clip"):
+        # A pin in the gathered hair, above the right ear.
+        side_points = [v.co for v in pack_hair.data.vertices if nose.z + 0.045 < v.co.z < nose.z + 0.085 and mid_y - 0.05 < v.co.y < mid_y + 0.0 and v.co.x < 0]
+        if side_points:
+            at = min(side_points, key=lambda q: q.x)
+            bm_clip = bmesh.new()
+            bmesh.ops.create_cube(bm_clip, size=1.0)
+            for v in bm_clip.verts:
+                v.co = Vector((at.x - 0.001 + v.co.x * 0.004, at.y + v.co.y * 0.032, at.z + v.co.z * 0.009 - v.co.y * 0.012))
+            clip_mesh = bpy.data.meshes.new("HairClip")
+            bm_clip.to_mesh(clip_mesh)
+            bm_clip.free()
+            clip = bpy.data.objects.new("HairClip", clip_mesh)
+            bpy.context.scene.collection.objects.link(clip)
+            clip.data.materials.append(plain(CID + "_hair_clip", CFG["hair"].get("clip_colour", [0.75, 0.62, 0.3]), 0.3, 1.0))
+            clip.vertex_groups.new(name=PREFIX + "Head").add(list(range(len(clip_mesh.vertices))), 1.0, "REPLACE")
+            clip.parent = rig
+            clip.modifiers.new("Armature", "ARMATURE").object = rig
+            extras.append(clip)
     skull_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
     under_hat = pack_hair.copy()
     under_hat.data = pack_hair.data.copy()
