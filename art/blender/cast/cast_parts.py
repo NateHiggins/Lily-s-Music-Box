@@ -57,7 +57,8 @@ def top(kind, colour, accent, pale):
         "bowtie_suit": ([pack("toigo_suit_with_jacket_and_bowtie", colour, name="Suit")], [], WHOLE),
         "elegant_suit": ([pack("male_elegantsuit01", colour, name="Suit")], [], WHOLE),
         "work_overalls": ([pack("male_worksuit01", colour, name="Overalls")], [], ["trunk", "hips", "legs"]),
-        "robe": ([pack("mindfront_kimono", colour, name="Robe")], [], WHOLE),
+        # A robe is open down the chest: the body under it stays, or the open neck shows the edge of a hidden part.
+        "robe": ([pack("mindfront_kimono", colour, name="Robe")], [], ["arms", "hips", "legs"]),
         "fisherman": ([pack("toigo_fisherman_sweater", colour, name="Sweater")], [], ["arms"]),
         "blouse_short": ([{"kind": "shirt", "name": "Blouse", "colour": pale, "vee": 0.08, "sleeves": 0.5, "blouson": 0.012, "cloth": "silk"}],
                          [{"kind": "buttons", "colour": accent, "step": 0.07, "lift": 0.016, "size": 0.007}], []),

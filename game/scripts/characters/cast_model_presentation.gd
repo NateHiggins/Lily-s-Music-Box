@@ -105,34 +105,7 @@ func _ready() -> void:
 		_fail("shared wardrobe cannot bind base")
 		return
 	wardrobe.read_wardrobe(_source_model.get_base_dir())
-	var slots: Dictionary = {}
-	for part: Variant in _parts:
-		var key := str(part)
-		if not wardrobe.notes.has(key):
-			_fail("missing wardrobe note: " + key)
-			return
-		var note: Dictionary = wardrobe.notes[key]
-		var slot := str(note.get("slot", ""))
-		if int(note.get("schema_version", 0)) != 1 or str(note.get("person", "")) != person_id or str(note.get("part", "")) != key or slot not in ["top", "bottom", "feet"] or slots.has(slot):
-			_fail("invalid or duplicate current wardrobe slot: " + key)
-			return
-		slots[slot] = key
-	if slots.size() != 3:
-		_fail("current intake requires top, bottom and feet; partial dress refused")
-		return
-	wardrobe.wear(_parts, _load_part)
-	if not errors.is_empty():
-		return
-	for slot: String in slots:
-		if str(wardrobe.worn.get(slot, "")) != str(slots[slot]):
-			_fail("requested garment did not mount: " + str(slots[slot]))
-			return
-	if wardrobe.mesh_count() < 3:
-		_fail("wardrobe produced an incomplete visible set")
-		return
-	var material_errors := Recipes.validate(model, person_id)
-	if not material_errors.is_empty():
-		_fail("cast material contract: " + "; ".join(PackedStringArray(material_errors)))
+	if not _dress(_parts):
 		return
 	_stand = Stand.new()
 	if not _stand.load_table() or not _stand.poses.has(_pose_name) or not _stand.apply(skeleton, _pose_name, false, 0.0, 0.0):
@@ -164,6 +137,72 @@ func _ready() -> void:
 		return
 	ready_ok = true
 	set_active(_active)
+
+
+## What a list of parts comes to, slot by slot, or an empty table (with the refusal recorded) when it is not a
+## whole outfit. One part to a slot. An outer layer and headwear are optional. A whole outfit (a suit, a dress,
+## a robe) stands for the slots its note says it replaces. Top, bottom and feet must each be worn or stood for:
+## nobody is shown half dressed.
+func _outfit(parts: Array) -> Dictionary:
+	var slots: Dictionary = {}
+	for part: Variant in parts:
+		var key := str(part)
+		if not wardrobe.notes.has(key):
+			_fail("missing wardrobe note: " + key)
+			return {}
+		var note: Dictionary = wardrobe.notes[key]
+		var slot := str(note.get("slot", ""))
+		if int(note.get("schema_version", 0)) != 1 or str(note.get("person", "")) != person_id or str(note.get("part", "")) != key or slot not in Wardrobe.SLOTS or slots.has(slot):
+			_fail("invalid or duplicate current wardrobe slot: " + key)
+			return {}
+		slots[slot] = key
+	var stood_for: Dictionary = {}
+	for slot: String in slots:
+		for taken: Variant in (wardrobe.notes[slots[slot]] as Dictionary).get("replaces", []):
+			if str(taken) != slot:
+				stood_for[str(taken)] = true
+	for taken: String in stood_for:
+		slots.erase(taken)
+	for needed: String in ["top", "bottom", "feet"]:
+		if not slots.has(needed) and not stood_for.has(needed):
+			_fail("current intake requires top, bottom and feet; partial dress refused")
+			return {}
+	return slots
+
+
+func _dress(parts: Array) -> bool:
+	var slots := _outfit(parts)
+	if slots.is_empty():
+		return false
+	wardrobe.wear(slots.values(), _load_part)
+	if not errors.is_empty():
+		return false
+	for slot: String in slots:
+		if str(wardrobe.worn.get(slot, "")) != str(slots[slot]):
+			_fail("requested garment did not mount: " + str(slots[slot]))
+			return false
+	if wardrobe.worn.size() != slots.size() or wardrobe.mesh_count() < slots.size():
+		_fail("wardrobe produced an incomplete visible set")
+		return false
+	var material_errors := Recipes.validate(model, person_id)
+	if not material_errors.is_empty():
+		_fail("cast material contract: " + "; ".join(PackedStringArray(material_errors)))
+		return false
+	_parts = slots.values()
+	return true
+
+
+## Change clothes. The same rules as at first dressing; a refused change leaves the actor hidden and failed,
+## as any other refusal does, so a caller should only offer whole outfits (WardrobeRules does).
+func wear(parts: Array) -> bool:
+	if not ready_ok:
+		return false
+	return _dress(parts)
+
+
+## The parts now worn, one to a slot.
+func worn_parts() -> Array:
+	return _parts.duplicate()
 
 
 func _load_part(part: String) -> Node:
