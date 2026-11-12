@@ -638,7 +638,7 @@ def skirt_weights(co):
     return out_
 
 
-def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Clothes", deep_only=False, felt=False):
+def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Clothes", deep_only=False, felt=False, made=None, hem_to_calf=False):
     """A garment from the MakeHuman community packs (CC0), fitted to this body,
     recoloured to the person's colour. `skirt` rehangs what falls below the
     hips on the skirt bones, so it does not split between the legs."""
@@ -649,6 +649,15 @@ def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Cl
         # Review: a pack felt hat's picture, stretched for contrast, read as sacking. Plain felt in the person's colour.
         obj.data.materials.clear()
         obj.data.materials.append(patterned("%s_%s_%s" % (STEM, CURRENT_PART or "x", name), colour, None, 0.9, "wool"))
+        node = None
+    elif made:
+        # Ruling cast_period_pass_20261112: a ready-made dress whose own picture tinted to tiger, zebra or camouflage
+        # wears a plain period cloth, with a small pattern or none. Its unwrap is one sheet, so it is scaled for the weave.
+        obj.data.materials.clear()
+        obj.data.materials.append(patterned("%s_%s_%s" % (STEM, CURRENT_PART or "x", name), colour, made.get("pattern"), 0.85, made.get("cloth") or "cotton"))
+        if obj.data.uv_layers.active is not None:
+            for corner in obj.data.uv_layers.active.data:
+                corner.uv = (corner.uv[0] * float(made.get("scale", 9.0)), corner.uv[1] * float(made.get("scale", 9.0)))
         node = None
     elif image is not None:
         node.image = tinted_image(image, colour, "%s_%s_%s" % (STEM, CURRENT_PART or "x", name), deep_only=deep_only)
@@ -684,6 +693,17 @@ def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Cl
         obj.modifiers.remove(modifier)
     if atype == "Clothes" and "hoe" not in name and "oot" not in name:
         smooth_weights(obj)
+    if hem_to_calf:
+        # Ruling cast_period_pass_20261112: a ready-made suit skirt ended above the knee. It is drawn down to the
+        # calf: every point below the hips keeps its place in the skirt's length, and the length grows.
+        lowest = min(v.co.z for v in obj.data.vertices)
+        start = hip - 0.06
+        target = knee - 0.13
+        if lowest > target + 0.01 and start - lowest > 0.05:
+            stretch = (start - target) / (start - lowest)
+            for v in obj.data.vertices:
+                if v.co.z < start:
+                    v.co.z = start - (start - v.co.z) * stretch
     if skirt:
         line = skirt_top - 0.03
         for v in obj.data.vertices:
@@ -708,6 +728,19 @@ W = 0.15        # a bone-weight difference of one counts as this many metres of 
 def band(value, low, high):
     """Margin inside a band: how far the value is from the nearer end."""
     return min(value - low, high - value)
+
+
+def round_min(p, q, r=0.02):
+    """The lesser of two margins, with the corner where their edges meet rounded off. A square corner cut
+    through the body's faces comes out in teeth; a rounded one comes out clean (as the armhole showed)."""
+    if p >= r or q >= r:
+        return min(p, q)
+    return r - math.hypot(r - p, r - q)
+
+
+def round_max(p, q, r=0.02):
+    """The greater of two margins, with the inside corner where their edges meet filled in to a curve."""
+    return max(p, q, math.hypot(max(p + r, 0.0), max(q + r, 0.0)) - r)
 
 
 def out_arm(co):
@@ -759,7 +792,11 @@ def torso(v, low=None, high=None, sleeves=1.0, vee=0.0, inner=False):
         # An open neck: a V from the collar down the chest. Behind the chest the margin grows, so the
         # V closes smoothly over the shoulder and leaves no chips at the collarbones.
         depth = (neck + 0.01) - co.z
-        outside_vee = max(abs(co.x) - (vee - depth) * 0.42, (co.y - (bone("Spine2").y - 0.02)) * 2.0)
+        # Review of cast_r10: seven V necks were stepped or toothed. Two square corners made them: where the V
+        # met the plane behind the chest (a crease across the shoulder), and where it met the level neck cut
+        # (a point standing up beside the neck). Both are rounded.
+        outside_vee = round_max(abs(co.x) - (vee - depth) * 0.42, (co.y - (bone("Spine2").y - 0.02)) * 2.0, 0.02)
+        outside_vee = round_min(outside_vee, high - co.z, 0.018)
         inside = min(inside, outside_vee)
     # The hem is the level line at `low`, which never goes below the fork. Following the legs' bone weights
     # instead scalloped every cardigan and blouse hem.
@@ -861,7 +898,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     colour = row["colour"]
     cloth = row.get("cloth")
     if kind == "asset":
-        asset_piece(row.get("name", "Pack"), row["asset"], colour, skirt=bool(row.get("skirt")), atype=row.get("atype", "Clothes"), deep_only=bool(row.get("deep")), felt=bool(row.get("felt")))
+        asset_piece(row.get("name", "Pack"), row["asset"], colour, skirt=bool(row.get("skirt")), atype=row.get("atype", "Clothes"), deep_only=bool(row.get("deep")), felt=bool(row.get("felt")), made=row.get("made"), hem_to_calf=bool(row.get("hem_to_calf")))
     elif kind == "shoes":
         piece("Shoes", "helper-tights", lambda v: min(ankle + 0.03 - v.co.z, (weight(v, ("Foot", "Toe")) - 0.2) * W), 0.009, colour, 0.35, cloth="leather")
         if row.get("strap"):
@@ -930,8 +967,10 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
               reshape=skirt_shape(max(float(row.get("hem", 0.5)), float(apron_skirt.get("hem", 0.38)) + 0.05) if apron_made else float(row.get("hem", 0.5)),
                                   float(apron_skirt.get("flare", 0.25)) if apron_made else float(row.get("flare", 0.07)),
                                   int(apron_skirt.get("pleats", 0)) if apron_made else 0), cloth=cloth or "cotton", subdivide=1)
-        piece("ApronBib", "helper-tights", lambda v: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - 0.01 - v.co.y, band(v.co.z, waist - 0.02, neck - 0.12), 0.1 - abs(v.co.x)),
-              0.02 + over_pack, colour, 0.85, cloth=cloth or "cotton")
+        # Review of cast_r10: the bib's outline was ragged. Its edge followed the arm's weights, which are uneven,
+        # and its top corners were square. Plain planes, rounded corners, a finer cut.
+        piece("ApronBib", "helper-tights", lambda v: min(bone("Spine2").y - 0.01 - v.co.y, v.co.z - (waist - 0.02), round_min(neck - 0.12 - v.co.z, 0.1 - abs(v.co.x), 0.03)),
+              0.02 + over_pack, colour, 0.85, cloth=cloth or "cotton", subdivide=1)
     elif kind == "sash":
         piece("Sash", "helper-tights", lambda v, r=row: min(0.045 - abs(v.co.z - (hip + float(r.get("up", 0.03)))), (0.3 - weight(v, ARM)) * W), float(row.get("off", 0.017)) + over_pack, colour, 0.5, cloth=cloth or "silk")
     elif kind == "scarf":

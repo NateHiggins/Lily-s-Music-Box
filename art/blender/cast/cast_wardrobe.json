@@ -151,9 +151,9 @@
       "kind": "asset",
       "asset": "cortu_t-bar",
       "colour": [
-       0.0,
-       0.078,
-       0.042
+       0.02,
+       0.02,
+       0.025
       ],
       "name": "Shoes"
      }
@@ -187,7 +187,8 @@
        0.14
       ],
       "name": "Suit",
-      "skirt": true
+      "skirt": true,
+      "hem_to_calf": true
      }
     ],
     "trim": []
@@ -206,9 +207,9 @@
      {
       "kind": "shoes",
       "colour": [
-       0.032,
-       0.032,
-       0.04
+       0.02,
+       0.02,
+       0.025
       ]
      }
     ],
@@ -234,7 +235,12 @@
        0.3
       ],
       "name": "Dress",
-      "skirt": true
+      "skirt": true,
+      "made": {
+       "cloth": "silk",
+       "pattern": null,
+       "scale": 9.0
+      }
      }
     ],
     "trim": []
@@ -248,13 +254,13 @@
     "covers": [],
     "rows": [
      {
-      "kind": "shawl",
+      "kind": "cape",
       "colour": [
        0.0,
        0.13,
        0.07
       ],
-      "length": 0.18,
+      "length": 0.17,
       "cloth": "silk"
      }
     ],
@@ -274,9 +280,9 @@
       "kind": "asset",
       "asset": "toigo_mj_cloth_shoes",
       "colour": [
-       0.375,
-       0.05,
-       0.06
+       0.15,
+       0.04,
+       0.04
       ],
       "name": "Shoes"
      }
@@ -462,9 +468,9 @@
       "kind": "asset",
       "asset": "toigo_mj_cloth_shoes",
       "colour": [
-       0.03,
-       0.06,
-       0.138
+       0.09,
+       0.05,
+       0.03
       ],
       "name": "Shoes"
      }
@@ -497,7 +503,8 @@
        0.46
       ],
       "name": "Outfit",
-      "skirt": true
+      "skirt": true,
+      "hem_to_calf": true
      }
     ],
     "trim": []
@@ -638,7 +645,22 @@
        0.04
       ],
       "name": "Dress",
-      "skirt": true
+      "skirt": true,
+      "made": {
+       "cloth": "cotton",
+       "pattern": {
+        "kind": "checks",
+        "colour": [
+         1.0,
+         0.63,
+         0.06
+        ],
+        "width": 1,
+        "cells": 4,
+        "repeat": 5
+       },
+       "scale": 9.0
+      }
      }
     ],
     "trim": []
@@ -711,9 +733,9 @@
       "kind": "asset",
       "asset": "toigo_ankle_boots_female",
       "colour": [
-       0.425,
-       0.3,
-       0.025
+       0.2,
+       0.1,
+       0.045
       ],
       "name": "Shoes"
      }
@@ -875,9 +897,9 @@
      {
       "kind": "waistcoat",
       "colour": [
-       0.378,
-       0.045,
-       0.054
+       0.216,
+       0.108,
+       0.045
       ],
       "vee": 0.22
      }
@@ -935,9 +957,9 @@
       "kind": "asset",
       "asset": "shoes01",
       "colour": [
-       0.216,
-       0.126,
-       0.003
+       0.2,
+       0.1,
+       0.045
       ],
       "name": "Shoes"
      }
@@ -1033,7 +1055,8 @@
     "covers": [
      "arms",
      "hips",
-     "legs"
+     "legs",
+     "trunk"
     ],
     "replaces": [
      "bottom",
@@ -1041,12 +1064,25 @@
     ],
     "rows": [
      {
+      "kind": "shirt",
+      "name": "Vest",
+      "colour": [
+       0.696,
+       0.648,
+       0.62
+      ],
+      "vee": 0.1,
+      "sleeves": 0.0,
+      "length": 0.14,
+      "cloth": "cotton"
+     },
+     {
       "kind": "asset",
       "asset": "mindfront_kimono",
       "colour": [
-       0.42,
-       0.05,
-       0.06
+       0.24,
+       0.12,
+       0.05
       ],
       "name": "Robe"
      }
@@ -1066,9 +1102,9 @@
      {
       "kind": "shoes",
       "colour": [
-       0.3,
-       0.04,
-       0.05
+       0.09,
+       0.05,
+       0.03
       ]
      }
     ],
@@ -1298,9 +1334,9 @@
      {
       "kind": "boots",
       "colour": [
-       0.126,
-       0.006,
-       0.021
+       0.09,
+       0.05,
+       0.03
       ],
       "height": 0.08
      }
@@ -1396,6 +1432,14 @@
        "cells": 4,
        "repeat": 5
       }
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.75,
+       0.5,
+       0.04
+      ]
      }
     ],
     "trim": [
@@ -1456,17 +1500,50 @@
      {
       "kind": "coat",
       "colour": [
-       0.5655,
-       0.4555,
-       0.46925
+       0.1575,
+       0.0075,
+       0.0263
       ],
       "vee": 0.22,
-      "hem": 0.2,
+      "hem": 0.26,
       "flare": 0.06,
       "cloth": "cotton"
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.126,
+       0.006,
+       0.021
+      ],
+      "vee": 0.22
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.126,
+       0.006,
+       0.021
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
      }
     ],
-    "trim": []
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.084,
+       0.004,
+       0.014
+      ],
+      "step": 0.09,
+      "lift": 0.036,
+      "size": 0.01,
+      "below": 0.1
+     }
+    ]
    },
    "c_feet": {
     "slot": "feet",
@@ -1482,9 +1559,9 @@
       "kind": "asset",
       "asset": "culturalibre_male_boots",
       "colour": [
-       0.425,
-       0.3,
-       0.025
+       0.2,
+       0.1,
+       0.045
       ],
       "name": "Shoes"
      }
@@ -1586,6 +1663,16 @@
       "vee": 0.05,
       "sleeves": 1.0,
       "blouson": 0.014
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.7492,
+       0.6314,
+       0.734
+      ],
+      "fall": 0.022,
+      "point": 0.02
      }
     ],
     "trim": []
@@ -1653,9 +1740,9 @@
       "kind": "asset",
       "asset": "toigo_ankle_boots_female",
       "colour": [
-       0.102,
-       0.009,
-       0.09
+       0.02,
+       0.02,
+       0.025
       ],
       "name": "Shoes"
      }
@@ -1763,6 +1850,17 @@
        0.24
       ],
       "vee": 0.14
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.272,
+       0.024,
+       0.24
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
      }
     ],
     "trim": [
@@ -1804,9 +1902,9 @@
      {
       "kind": "shoes",
       "colour": [
-       0.032,
-       0.032,
-       0.04
+       0.02,
+       0.02,
+       0.025
       ]
      }
     ],
@@ -1832,7 +1930,22 @@
        0.3
       ],
       "name": "Dress",
-      "skirt": true
+      "skirt": true,
+      "made": {
+       "cloth": "cotton",
+       "pattern": {
+        "kind": "stripes",
+        "colour": [
+         0.03,
+         0.45,
+         0.45
+        ],
+        "width": 1,
+        "cells": 4,
+        "repeat": 5
+       },
+       "scale": 9.0
+      }
      }
     ],
     "trim": []
@@ -1905,9 +2018,9 @@
       "kind": "asset",
       "asset": "toigo_ballet_flats",
       "colour": [
-       0.425,
-       0.3,
-       0.025
+       0.15,
+       0.04,
+       0.04
       ],
       "name": "Shoes"
      }
@@ -1997,24 +2110,70 @@
      "home"
     ],
     "covers": [
-     "trunk",
-     "hips",
-     "legs",
      "trunk"
     ],
-    "replaces": [
-     "bottom"
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "colour": [
+       0.6314,
+       0.6428,
+       0.867
+      ],
+      "vee": 0.08,
+      "sleeves": 0.55,
+      "blouson": 0.01
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.6314,
+       0.6428,
+       0.867
+      ]
+     }
+    ],
+    "trim": [
+     {
+      "kind": "braces",
+      "colour": [
+       0.9,
+       0.5,
+       0.05
+      ]
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "work"
+    ],
+    "covers": [
+     "legs",
+     "hips"
     ],
     "rows": [
      {
-      "kind": "asset",
-      "asset": "male_worksuit01",
+      "kind": "trousers",
       "colour": [
        0.03,
        0.06,
        0.65
       ],
-      "name": "Overalls"
+      "width": 0.028
+     },
+     {
+      "kind": "bib",
+      "colour": [
+       0.03,
+       0.06,
+       0.65
+      ]
      }
     ],
     "trim": []
@@ -2081,9 +2240,9 @@
       "kind": "asset",
       "asset": "culturalibre_male_boots",
       "colour": [
-       0.009,
-       0.018,
-       0.195
+       0.02,
+       0.02,
+       0.025
       ],
       "name": "Shoes"
      }
@@ -2235,12 +2394,27 @@
       "kind": "asset",
       "asset": "toigo_keyhole_neck_dress",
       "colour": [
-       0.85,
-       0.42,
-       0.03
+       0.03,
+       0.06,
+       0.65
       ],
       "name": "Dress",
-      "skirt": true
+      "skirt": true,
+      "made": {
+       "cloth": "silk",
+       "pattern": {
+        "kind": "dots",
+        "colour": [
+         0.94,
+         0.768,
+         0.612
+        ],
+        "width": 2,
+        "cells": 6,
+        "repeat": 6
+       },
+       "scale": 9.0
+      }
      }
     ],
     "trim": []
@@ -2257,9 +2431,9 @@
      {
       "kind": "cape",
       "colour": [
-       0.015,
-       0.03,
-       0.325
+       0.595,
+       0.294,
+       0.021
       ],
       "length": 0.36,
       "swing": 0.09
@@ -2313,9 +2487,9 @@
       "kind": "asset",
       "asset": "cortu_t-bar",
       "colour": [
-       0.45,
-       0.25,
-       0.025
+       0.15,
+       0.04,
+       0.04
       ],
       "name": "Shoes"
      }
@@ -2326,6 +2500,7 @@
   "looks": {
    "a": [
     "a_top",
+    "a_bottom",
     "a_over",
     "a_head",
     "a_feet"
@@ -2350,6 +2525,7 @@
    ],
    "mix2": [
     "c_top",
+    "a_bottom",
     "b_over",
     "c_head",
     "b_feet"
@@ -2403,13 +2579,27 @@
     "covers": [
      "arms",
      "hips",
-     "legs"
+     "legs",
+     "trunk"
     ],
     "replaces": [
      "bottom",
      "over"
     ],
     "rows": [
+     {
+      "kind": "shirt",
+      "name": "Vest",
+      "colour": [
+       0.6276,
+       0.639,
+       0.7264
+      ],
+      "vee": 0.1,
+      "sleeves": 0.0,
+      "length": 0.14,
+      "cloth": "cotton"
+     },
      {
       "kind": "asset",
       "asset": "mindfront_kimono",
@@ -2437,9 +2627,9 @@
      {
       "kind": "shoes",
       "colour": [
-       0.006,
-       0.015,
-       0.084
+       0.2,
+       0.1,
+       0.045
       ]
      }
     ],
@@ -2642,9 +2832,9 @@
       "kind": "asset",
       "asset": "toigo_ankle_boots_male",
       "colour": [
-       0.45,
-       0.42,
-       0.33
+       0.09,
+       0.05,
+       0.03
       ],
       "name": "Shoes"
      }
@@ -2851,9 +3041,9 @@
       "kind": "asset",
       "asset": "toigo_ankle_boots_female",
       "colour": [
-       0.0,
-       0.099,
-       0.108
+       0.2,
+       0.1,
+       0.045
       ],
       "name": "Shoes"
      }
@@ -2931,12 +3121,27 @@
       "kind": "asset",
       "asset": "toigo_keyhole_neck_dress",
       "colour": [
-       0.7,
-       0.12,
-       0.25
+       0.0,
+       0.33,
+       0.36
       ],
       "name": "Dress",
-      "skirt": true
+      "skirt": true,
+      "made": {
+       "cloth": "silk",
+       "pattern": {
+        "kind": "dots",
+        "colour": [
+         0.8799999999999999,
+         0.648,
+         0.7
+        ],
+        "width": 2,
+        "cells": 6,
+        "repeat": 6
+       },
+       "scale": 9.0
+      }
      }
     ],
     "trim": []
@@ -2954,9 +3159,9 @@
      {
       "kind": "jacket",
       "colour": [
-       0.0,
-       0.165,
-       0.18
+       0.49,
+       0.084,
+       0.175
       ],
       "vee": 0.34,
       "length": -0.13,
@@ -3003,9 +3208,9 @@
       "kind": "asset",
       "asset": "cortu_t-bar",
       "colour": [
-       0.425,
-       0.1,
-       0.15
+       0.09,
+       0.05,
+       0.03
       ],
       "name": "Shoes"
      }
@@ -3207,9 +3412,9 @@
      {
       "kind": "boots",
       "colour": [
-       0.114,
-       0.003,
-       0.03
+       0.15,
+       0.04,
+       0.04
       ],
       "height": 0.17
      }
@@ -3240,6 +3445,16 @@
       "vee": 0.05,
       "sleeves": 1.0,
       "blouson": 0.014
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "fall": 0.022,
+      "point": 0.02
      }
     ],
     "trim": [
@@ -3371,7 +3586,8 @@
        0.05
       ],
       "name": "Suit",
-      "skirt": true
+      "skirt": true,
+      "hem_to_calf": true
      }
     ],
     "trim": []
@@ -3413,9 +3629,9 @@
      {
       "kind": "shoes",
       "colour": [
-       0.736,
-       0.72,
-       0.672
+       0.02,
+       0.02,
+       0.025
       ]
      }
     ],
@@ -3518,6 +3734,16 @@
       "vee": 0.05,
       "sleeves": 1.0,
       "blouson": 0.014
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.62,
+       0.7036,
+       0.658
+      ],
+      "fall": 0.022,
+      "point": 0.02
      }
     ],
     "trim": [
@@ -3604,9 +3830,9 @@
      {
       "kind": "boots",
       "colour": [
-       0.0,
-       0.066,
-       0.03
+       0.15,
+       0.04,
+       0.04
       ],
       "height": 0.17
      }
@@ -3629,12 +3855,27 @@
       "kind": "asset",
       "asset": "wdg_mycenaean_tunic",
       "colour": [
-       0.0,
-       0.22,
-       0.1
+       0.4,
+       0.34,
+       0.55
       ],
       "name": "Dress",
-      "skirt": true
+      "skirt": true,
+      "made": {
+       "cloth": "cotton",
+       "pattern": {
+        "kind": "stripes",
+        "colour": [
+         0.6,
+         0.51,
+         0.825
+        ],
+        "width": 1,
+        "cells": 4,
+        "repeat": 5
+       },
+       "scale": 9.0
+      }
      }
     ],
     "trim": []
@@ -3654,32 +3895,42 @@
      {
       "kind": "coat",
       "colour": [
-       0.0,
        0.22,
-       0.1
+       0.187,
+       0.3025
       ],
-      "vee": 0.08,
+      "vee": 0.14,
       "hem": 0.28,
-      "flare": 0.1
+      "flare": 0.06
      },
      {
-      "kind": "sash",
+      "kind": "lapels",
       "colour": [
-       0.0,
-       0.11,
-       0.05
+       0.176,
+       0.1496,
+       0.242
       ],
-      "up": 0.07,
-      "off": 0.027
+      "vee": 0.14
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.176,
+       0.1496,
+       0.242
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
      }
     ],
     "trim": [
      {
       "kind": "buttons",
       "colour": [
-       0.0,
        0.11,
-       0.05
+       0.0935,
+       0.1512
       ],
       "step": 0.1,
       "lift": 0.036,
@@ -3767,7 +4018,12 @@
        0.4125
       ],
       "name": "Skirt",
-      "skirt": true
+      "skirt": true,
+      "made": {
+       "cloth": "wool",
+       "pattern": null,
+       "scale": 9.0
+      }
      }
     ],
     "trim": []
@@ -3852,9 +4108,9 @@
       "kind": "asset",
       "asset": "toigo_ballet_flats",
       "colour": [
-       0.46,
-       0.45,
-       0.42
+       0.02,
+       0.02,
+       0.025
       ],
       "name": "Shoes"
      }
@@ -3945,24 +4201,70 @@
      "home"
     ],
     "covers": [
-     "trunk",
-     "hips",
-     "legs",
      "trunk"
     ],
-    "replaces": [
-     "bottom"
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "colour": [
+       0.7036,
+       0.7492,
+       0.6314
+      ],
+      "vee": 0.08,
+      "sleeves": 0.55,
+      "blouson": 0.01
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.7036,
+       0.7492,
+       0.6314
+      ]
+     }
+    ],
+    "trim": [
+     {
+      "kind": "braces",
+      "colour": [
+       0.55,
+       0.2,
+       0.05
+      ]
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "work"
+    ],
+    "covers": [
+     "legs",
+     "hips"
     ],
     "rows": [
      {
-      "kind": "asset",
-      "asset": "male_worksuit01",
+      "kind": "trousers",
       "colour": [
        0.22,
        0.34,
        0.03
       ],
-      "name": "Overalls"
+      "width": 0.028
+     },
+     {
+      "kind": "bib",
+      "colour": [
+       0.22,
+       0.34,
+       0.03
+      ]
      }
     ],
     "trim": []
@@ -4028,9 +4330,9 @@
       "kind": "asset",
       "asset": "culturalibre_male_boots",
       "colour": [
-       0.066,
-       0.102,
-       0.009
+       0.09,
+       0.05,
+       0.03
       ],
       "name": "Shoes"
      }
@@ -4060,9 +4362,9 @@
       "kind": "asset",
       "asset": "toigo_male_suit_3",
       "colour": [
-       0.22,
-       0.34,
-       0.03
+       0.55,
+       0.2,
+       0.05
       ],
       "name": "Suit"
      }
@@ -4236,9 +4538,9 @@
       "kind": "asset",
       "asset": "toigo_ankle_boots_male",
       "colour": [
-       0.275,
+       0.2,
        0.1,
-       0.025
+       0.045
       ],
       "name": "Shoes"
      }
@@ -4249,6 +4551,7 @@
   "looks": {
    "a": [
     "a_top",
+    "a_bottom",
     "a_over",
     "a_head",
     "a_feet"
@@ -4273,6 +4576,7 @@
    ],
    "mix2": [
     "c_top",
+    "a_bottom",
     "c_head",
     "b_feet"
    ]
@@ -4343,6 +4647,16 @@
       "sleeves": 0.5,
       "blouson": 0.012,
       "cloth": "silk"
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.7454000000000001,
+       0.6238,
+       0.6257
+      ],
+      "fall": 0.022,
+      "point": 0.02
      }
     ],
     "trim": [
@@ -4432,9 +4746,9 @@
       "kind": "asset",
       "asset": "cortu_t-bar",
       "colour": [
-       0.099,
-       0.003,
-       0.0045
+       0.15,
+       0.04,
+       0.04
       ],
       "name": "Shoes"
      }
@@ -4463,12 +4777,13 @@
       "kind": "asset",
       "asset": "toigo_female_suit",
       "colour": [
-       0.33,
-       0.01,
-       0.015
+       0.8,
+       0.7,
+       0.5
       ],
       "name": "Suit",
-      "skirt": true
+      "skirt": true,
+      "hem_to_calf": true
      }
     ],
     "trim": []
@@ -4512,9 +4827,9 @@
      {
       "kind": "shoes",
       "colour": [
-       0.032,
-       0.032,
-       0.04
+       0.02,
+       0.02,
+       0.025
       ]
      }
     ],
@@ -4540,7 +4855,12 @@
        0.5
       ],
       "name": "Dress",
-      "skirt": true
+      "skirt": true,
+      "made": {
+       "cloth": "silk",
+       "pattern": null,
+       "scale": 9.0
+      }
      }
     ],
     "trim": []
@@ -4563,9 +4883,9 @@
        0.005,
        0.0075
       ],
-      "vee": 0.1,
+      "vee": 0.14,
       "hem": 0.42,
-      "flare": 0.4,
+      "flare": 0.14,
       "pattern": {
        "kind": "checks",
        "colour": [
@@ -4577,9 +4897,41 @@
        "cells": 4,
        "repeat": 5
       }
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.132,
+       0.004,
+       0.006
+      ],
+      "vee": 0.14
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.132,
+       0.004,
+       0.006
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
      }
     ],
     "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0825,
+       0.0025,
+       0.0037
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.012,
+      "below": 0.1
+     },
      {
       "kind": "decal",
       "cell": "pin",
@@ -4631,9 +4983,9 @@
       "kind": "asset",
       "asset": "toigo_mj_cloth_shoes",
       "colour": [
-       0.01,
-       0.01,
-       0.0125
+       0.02,
+       0.02,
+       0.025
       ],
       "name": "Shoes"
      }
@@ -4728,6 +5080,14 @@
       "vee": 0.08,
       "sleeves": 0.55,
       "blouson": 0.01
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.658,
+       0.6352,
+       0.791
+      ]
      }
     ],
     "trim": [
@@ -4802,9 +5162,9 @@
       "kind": "asset",
       "asset": "shoes01",
       "colour": [
-       0.03,
-       0.012,
-       0.135
+       0.09,
+       0.05,
+       0.03
       ],
       "name": "Shoes"
      }
@@ -5040,9 +5400,9 @@
      {
       "kind": "boots",
       "colour": [
-       0.46,
-       0.45,
-       0.42
+       0.2,
+       0.1,
+       0.045
       ],
       "height": 0.17
      }
@@ -5144,6 +5504,14 @@
       "vee": 0.08,
       "sleeves": 0.55,
       "blouson": 0.01
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.8556,
+       0.7492,
+       0.6352
+      ]
      }
     ],
     "trim": [
@@ -5252,9 +5620,9 @@
       "kind": "asset",
       "asset": "culturalibre_male_boots",
       "colour": [
-       0.186,
-       0.102,
-       0.012
+       0.02,
+       0.02,
+       0.025
       ],
       "name": "Shoes"
      }
@@ -5450,9 +5818,9 @@
       "kind": "asset",
       "asset": "toigo_ankle_boots_male",
       "colour": [
-       0.1,
-       0.05,
-       0.02
+       0.15,
+       0.04,
+       0.04
       ],
       "name": "Shoes"
      }
@@ -5551,6 +5919,14 @@
       ],
       "vee": 0.05,
       "sleeves": 1.0
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.7226,
+       0.6617999999999999,
+       0.6314
+      ]
      }
     ],
     "trim": [
@@ -5659,9 +6035,9 @@
       "kind": "asset",
       "asset": "shoes01",
       "colour": [
-       0.081,
-       0.033,
-       0.009
+       0.15,
+       0.04,
+       0.04
       ],
       "name": "Shoes"
      }
@@ -5771,12 +6147,11 @@
       "kind": "asset",
       "asset": "toigo_suit_with_dinner_jacket",
       "colour": [
-       0.1,
-       0.25,
-       0.22
+       0.02,
+       0.02,
+       0.025
       ],
-      "name": "Suit",
-      "deep": true
+      "name": "Suit"
      }
     ],
     "trim": []
@@ -5795,8 +6170,8 @@
       "kind": "asset",
       "asset": "shoes04",
       "colour": [
-       0.375,
-       0.225,
+       0.02,
+       0.02,
        0.025
       ],
       "name": "Shoes"
@@ -5898,6 +6273,16 @@
       "sleeves": 0.5,
       "blouson": 0.012,
       "cloth": "silk"
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.6504,
+       0.6276,
+       0.7416
+      ],
+      "fall": 0.022,
+      "point": 0.02
      }
     ],
     "trim": [
@@ -5957,13 +6342,13 @@
     "covers": [],
     "rows": [
      {
-      "kind": "shawl",
+      "kind": "cape",
       "colour": [
        0.675,
        0.054,
        0.18
       ],
-      "length": 0.18,
+      "length": 0.17,
       "cloth": "silk"
      }
     ],
@@ -5984,9 +6369,9 @@
       "kind": "asset",
       "asset": "toigo_ballet_flats",
       "colour": [
-       0.024,
-       0.006,
-       0.096
+       0.2,
+       0.1,
+       0.045
       ],
       "name": "Shoes"
      }
@@ -6019,7 +6404,8 @@
        0.32
       ],
       "name": "Outfit",
-      "skirt": true
+      "skirt": true,
+      "hem_to_calf": true
      }
     ],
     "trim": []
@@ -6125,7 +6511,22 @@
        0.2
       ],
       "name": "Dress",
-      "skirt": true
+      "skirt": true,
+      "made": {
+       "cloth": "silk",
+       "pattern": {
+        "kind": "dots",
+        "colour": [
+         0.9,
+         0.624,
+         0.6799999999999999
+        ],
+        "width": 2,
+        "cells": 6,
+        "repeat": 6
+       },
+       "scale": 9.0
+      }
      }
     ],
     "trim": [
@@ -6182,16 +6583,16 @@
     "rows": [],
     "trim": [],
     "hat": {
-     "kind": "beret",
+     "kind": "toque",
      "colour": [
       0.048,
       0.012,
       0.192
      ],
      "band": [
-      0.048,
-      0.012,
-      0.192
+      0.85,
+      0.1,
+      0.25
      ],
      "brim": 0.0
     }
@@ -6209,9 +6610,9 @@
      {
       "kind": "shoes",
       "colour": [
-       0.68,
-       0.08,
-       0.2
+       0.09,
+       0.05,
+       0.03
       ]
      }
     ],
@@ -6426,9 +6827,9 @@
       "kind": "asset",
       "asset": "culturalibre_male_boots",
       "colour": [
-       0.036,
-       0.096,
-       0.078
+       0.15,
+       0.04,
+       0.04
       ],
       "name": "Shoes"
      }
@@ -6537,6 +6938,14 @@
       "vee": 0.08,
       "sleeves": 0.55,
       "blouson": 0.01
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.9,
+       0.8,
+       0.632
+      ]
      }
     ],
     "trim": [
@@ -6642,9 +7051,9 @@
      {
       "kind": "boots",
       "colour": [
-       0.4,
-       0.275,
-       0.05
+       0.02,
+       0.02,
+       0.025
       ],
       "height": 0.08
      }
@@ -6752,6 +7161,16 @@
       "sleeves": 0.5,
       "blouson": 0.012,
       "cloth": "silk"
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.6276,
+       0.639,
+       0.7264
+      ],
+      "fall": 0.022,
+      "point": 0.02
      }
     ],
     "trim": [
@@ -6828,9 +7247,9 @@
       "kind": "asset",
       "asset": "toigo_ballet_flats",
       "colour": [
-       0.006,
-       0.015,
-       0.084
+       0.15,
+       0.04,
+       0.04
       ],
       "name": "Shoes"
      }
@@ -7010,7 +7429,22 @@
        0.03
       ],
       "name": "Dress",
-      "skirt": true
+      "skirt": true,
+      "made": {
+       "cloth": "cotton",
+       "pattern": {
+        "kind": "checks",
+        "colour": [
+         1.0,
+         0.045,
+         0.045
+        ],
+        "width": 1,
+        "cells": 4,
+        "repeat": 5
+       },
+       "scale": 9.0
+      }
      }
     ],
     "trim": []
@@ -7033,9 +7467,9 @@
        0.025,
        0.14
       ],
-      "vee": 0.1,
+      "vee": 0.14,
       "hem": 0.42,
-      "flare": 0.4,
+      "flare": 0.14,
       "pattern": {
        "kind": "checks",
        "colour": [
@@ -7047,9 +7481,42 @@
        "cells": 4,
        "repeat": 5
       }
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.008,
+       0.02,
+       0.112
+      ],
+      "vee": 0.14
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.008,
+       0.02,
+       0.112
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
      }
     ],
-    "trim": []
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.005,
+       0.0125,
+       0.07
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.012,
+      "below": 0.1
+     }
+    ]
    },
    "c_head": {
     "slot": "head",
@@ -7088,9 +7555,9 @@
       "kind": "asset",
       "asset": "cortu_t-bar",
       "colour": [
-       0.36,
-       0.015,
-       0.015
+       0.02,
+       0.02,
+       0.025
       ],
       "name": "Shoes"
      }
@@ -7283,9 +7750,9 @@
       "kind": "asset",
       "asset": "culturalibre_male_boots",
       "colour": [
-       0.09,
-       0.09,
-       0.096
+       0.2,
+       0.1,
+       0.045
       ],
       "name": "Shoes"
      }
@@ -7461,19 +7928,29 @@
        0.15,
        0.16
       ],
-      "vee": 0.08,
+      "vee": 0.14,
       "hem": 0.28,
-      "flare": 0.1
+      "flare": 0.06
      },
      {
-      "kind": "sash",
+      "kind": "lapels",
       "colour": [
-       0.075,
-       0.075,
-       0.08
+       0.12,
+       0.12,
+       0.128
       ],
-      "up": 0.07,
-      "off": 0.027
+      "vee": 0.14
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.12,
+       0.12,
+       0.128
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
      }
     ],
     "trim": [
@@ -7528,9 +8005,9 @@
      {
       "kind": "boots",
       "colour": [
-       0.35,
-       0.275,
-       0.1
+       0.09,
+       0.05,
+       0.03
       ],
       "height": 0.17
      }
@@ -7630,6 +8107,16 @@
       "sleeves": 0.5,
       "blouson": 0.012,
       "cloth": "silk"
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.734,
+       0.734,
+       0.7416
+      ],
+      "fall": 0.022,
+      "point": 0.02
      }
     ],
     "trim": [
@@ -7733,9 +8220,9 @@
       "kind": "asset",
       "asset": "toigo_mj_cloth_shoes",
       "colour": [
-       0.09,
-       0.09,
-       0.096
+       0.15,
+       0.04,
+       0.04
       ],
       "name": "Shoes"
      }
@@ -7768,7 +8255,8 @@
        0.32
       ],
       "name": "Outfit",
-      "skirt": true
+      "skirt": true,
+      "hem_to_calf": true
      }
     ],
     "trim": []
@@ -7792,9 +8280,9 @@
        0.3,
        0.32
       ],
-      "vee": 0.1,
+      "vee": 0.14,
       "hem": 0.42,
-      "flare": 0.4,
+      "flare": 0.14,
       "pattern": {
        "kind": "checks",
        "colour": [
@@ -7806,9 +8294,42 @@
        "cells": 4,
        "repeat": 5
       }
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.24,
+       0.24,
+       0.256
+      ],
+      "vee": 0.14
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.24,
+       0.24,
+       0.256
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
      }
     ],
-    "trim": []
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.15,
+       0.15,
+       0.16
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.012,
+      "below": 0.1
+     }
+    ]
    },
    "b_head": {
     "slot": "head",
@@ -7849,9 +8370,9 @@
      {
       "kind": "shoes",
       "colour": [
-       0.032,
-       0.032,
-       0.04
+       0.02,
+       0.02,
+       0.025
       ]
      }
     ],
@@ -7877,7 +8398,12 @@
        0.25
       ],
       "name": "Dress",
-      "skirt": true
+      "skirt": true,
+      "made": {
+       "cloth": "silk",
+       "pattern": null,
+       "scale": 9.0
+      }
      }
     ],
     "trim": []
@@ -7891,13 +8417,13 @@
     "covers": [],
     "rows": [
      {
-      "kind": "shawl",
+      "kind": "cape",
       "colour": [
        0.15,
        0.15,
        0.16
       ],
-      "length": 0.18,
+      "length": 0.17,
       "cloth": "silk"
      }
     ],
@@ -7916,9 +8442,9 @@
      {
       "kind": "boots",
       "colour": [
-       0.35,
-       0.275,
-       0.1
+       0.02,
+       0.02,
+       0.025
       ],
       "height": 0.27
      }

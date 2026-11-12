@@ -30,6 +30,25 @@ def pack(asset_name, colour, **more):
     return dict({"kind": "asset", "asset": asset_name, "colour": colour}, **more)
 
 
+def collar(colour, **more):
+    """Ruling cast_collars_20261112: collars on everything that would have had one. A soft turned-down collar."""
+    return dict({"kind": "collar", "colour": colour}, **more)
+
+
+def coat_collar(colour):
+    return collar(shade(colour, 0.8), out=0.022, fall=0.04, point=0.03)
+
+
+def made(cloth, pattern=None):
+    """Ruling cast_period_pass_20261112: a ready-made dress whose own picture tints to tiger, zebra or camouflage
+    wears a plain period cloth instead, with a small pattern or none."""
+    return {"cloth": cloth, "pattern": pattern, "scale": 9.0}
+
+
+# Shoes are leather: brown, black, tan, oxblood. Never the colour of the frock.
+LEATHERS = [[0.09, 0.05, 0.03], [0.02, 0.02, 0.025], [0.2, 0.1, 0.045], [0.15, 0.04, 0.04]]
+
+
 # Whole outfits from the packs take more than their own slot.
 REPLACES = {
     "flapper_dress": ["bottom"], "shift_dress": ["bottom"], "keyhole_dress": ["bottom"], "day_dress": ["bottom"], "blouse_pencil": ["bottom"],
@@ -43,31 +62,35 @@ WHOLE = ["arms", "trunk", "hips", "legs"]
 
 def top(kind, colour, accent, pale):
     table = {
-        "flapper_dress": ([pack("aethelraed_flapper_dress", colour, name="Dress", skirt=True)], [], []),
-        "shift_dress": ([pack("toigo_shift_dress", colour, name="Dress", skirt=True)], [], []),
-        "keyhole_dress": ([pack("toigo_keyhole_neck_dress", colour, name="Dress", skirt=True)], [], []),
-        "day_dress": ([pack("wdg_mycenaean_tunic", colour, name="Dress", skirt=True)], [], []),
-        "blouse_pencil": ([pack("female_elegantsuit01", colour, name="Outfit", skirt=True)], [], ["arms", "trunk", "hips"]),
-        "skirt_suit": ([pack("toigo_female_suit", colour, name="Suit", skirt=True)], [], ["arms", "trunk", "hips"]),
+        "flapper_dress": ([pack("aethelraed_flapper_dress", colour, name="Dress", skirt=True, made=made("silk"))], [], []),
+        "shift_dress": ([pack("toigo_shift_dress", colour, name="Dress", skirt=True, made=made("cotton", checks(shade(colour, 1.5), 1)))], [], []),
+        "keyhole_dress": ([pack("toigo_keyhole_neck_dress", colour, name="Dress", skirt=True, made=made("silk", dots(pale, 2)))], [], []),
+        "day_dress": ([pack("wdg_mycenaean_tunic", colour, name="Dress", skirt=True, made=made("cotton", stripes(shade(colour, 1.5), 1)))], [], []),
+        "blouse_pencil": ([pack("female_elegantsuit01", colour, name="Outfit", skirt=True, hem_to_calf=True)], [], ["arms", "trunk", "hips"]),
+        "skirt_suit": ([pack("toigo_female_suit", colour, name="Suit", skirt=True, hem_to_calf=True)], [], ["arms", "trunk", "hips"]),
         "trouser_suit": ([pack("toigo_female_double-breasted_suit", colour, name="Suit")], [], WHOLE),
         "tie_suit": ([pack("toigo_male_suit_tie_and_jacket", colour, name="Suit")], [], WHOLE),
         "db_suit": ([pack("toigo_male_double-breasted_suit", colour, name="Suit")], [], WHOLE),
         "lounge_suit": ([pack("toigo_male_suit_3", colour, name="Suit")], [], WHOLE),
-        "dinner_suit": ([pack("toigo_suit_with_dinner_jacket", colour, name="Suit", deep=True)], [], WHOLE),
+        # A dinner suit is black. Kept pale, it came out mint white.
+        "dinner_suit": ([pack("toigo_suit_with_dinner_jacket", BLACK, name="Suit")], [], WHOLE),
         "bowtie_suit": ([pack("toigo_suit_with_jacket_and_bowtie", colour, name="Suit")], [], WHOLE),
         "elegant_suit": ([pack("male_elegantsuit01", colour, name="Suit")], [], WHOLE),
         "work_overalls": ([pack("male_worksuit01", colour, name="Overalls")], [], ["trunk", "hips", "legs"]),
         # A robe is open down the chest: the body under it stays, or the open neck shows the edge of a hidden part.
-        "robe": ([pack("mindfront_kimono", colour, name="Robe")], [], ["arms", "hips", "legs"]),
+        # Review of cast_r10: skin showed between the robe's front and its sleeve. A vest is worn under it, so what
+        # shows there is cloth, and the trunk under the vest can be hidden like any other.
+        "robe": ([{"kind": "shirt", "name": "Vest", "colour": pale, "vee": 0.1, "sleeves": 0.0, "length": 0.14, "cloth": "cotton"},
+                  pack("mindfront_kimono", colour, name="Robe")], [], ["arms", "hips", "legs"]),
         "fisherman": ([pack("toigo_fisherman_sweater", colour, name="Sweater")], [], ["arms"]),
-        "blouse_short": ([{"kind": "shirt", "name": "Blouse", "colour": pale, "vee": 0.08, "sleeves": 0.5, "blouson": 0.012, "cloth": "silk"}],
+        "blouse_short": ([{"kind": "shirt", "name": "Blouse", "colour": pale, "vee": 0.08, "sleeves": 0.5, "blouson": 0.012, "cloth": "silk"}, collar(pale, fall=0.022, point=0.02)],
                          [{"kind": "buttons", "colour": accent, "step": 0.07, "lift": 0.016, "size": 0.007}], []),
-        "blouse_long": ([{"kind": "shirt", "name": "Blouse", "colour": pale, "vee": 0.05, "sleeves": 1.0, "blouson": 0.014}], [], ["arms"]),
+        "blouse_long": ([{"kind": "shirt", "name": "Blouse", "colour": pale, "vee": 0.05, "sleeves": 1.0, "blouson": 0.014}, collar(pale, fall=0.022, point=0.02)], [], ["arms"]),
         "smock": ([{"kind": "jumper", "colour": colour, "vee": 0.06, "sleeves": 0.7, "ease": 0.018, "length": 0.14, "cloth": "cotton", "pattern": dots(accent, 2)}], [], []),
         "knit": ([{"kind": "jumper", "colour": colour, "vee": 0.09, "ease": 0.012, "length": 0.03}, {"kind": "hem", "colour": shade(colour, 0.6), "drop": -0.01}], [], ["arms"]),
         "evening_top": ([{"kind": "shirt", "name": "Bodice", "colour": colour, "vee": 0.13, "sleeves": 0.0, "length": 0.14, "cloth": "silk"}], [], []),
-        "shirt_rolled": ([{"kind": "shirt", "colour": pale, "vee": 0.08, "sleeves": 0.55, "blouson": 0.01}], [{"kind": "braces", "colour": accent}], []),
-        "shirt_long": ([{"kind": "shirt", "colour": pale, "vee": 0.05, "sleeves": 1.0}], [{"kind": "tie", "colour": accent, "length": 0.2}], ["arms"]),
+        "shirt_rolled": ([{"kind": "shirt", "colour": pale, "vee": 0.08, "sleeves": 0.55, "blouson": 0.01}, collar(pale)], [{"kind": "braces", "colour": accent}], []),
+        "shirt_long": ([{"kind": "shirt", "colour": pale, "vee": 0.05, "sleeves": 1.0}, collar(pale)], [{"kind": "tie", "colour": accent, "length": 0.2}], ["arms"]),
         "jersey": ([{"kind": "jumper", "colour": colour, "vee": 0.0, "ease": 0.008, "length": 0.0,
                      "pattern": {"kind": "bands", "colour": accent, "width": 3, "cells": 3, "repeat": 4}}], [], ["arms"]),
         "wrap_blouse": ([{"kind": "shirt", "name": "Blouse", "colour": pale, "vee": 0.17, "sleeves": 0.75, "blouson": 0.008, "cloth": "silk"},
@@ -78,12 +101,12 @@ def top(kind, colour, accent, pale):
                    {"kind": "belt", "colour": shade(colour, 0.4)}], [], []),
         "henley": ([{"kind": "jumper", "colour": pale, "vee": 0.12, "sleeves": 0.5, "ease": 0.006, "length": 0.0, "cloth": "cotton"}],
                    [{"kind": "buttons", "colour": accent, "step": 0.045, "lift": 0.012, "size": 0.006}], []),
-        "work_shirt": ([{"kind": "shirt", "colour": colour, "vee": 0.07, "sleeves": 1.0, "blouson": 0.008, "pattern": checks(pale, 1)}],
+        "work_shirt": ([{"kind": "shirt", "colour": colour, "vee": 0.07, "sleeves": 1.0, "blouson": 0.008, "pattern": checks(pale, 1)}, collar(colour)],
                        [{"kind": "pockets", "colour": shade(colour, 0.7), "up": 0.22, "lift": 0.012}], ["arms"]),
-        "striped_shirt": ([{"kind": "shirt", "colour": pale, "vee": 0.06, "sleeves": 0.55, "pattern": stripes(colour, 1)}], [{"kind": "tie", "colour": accent, "length": 0.14}], []),
+        "striped_shirt": ([{"kind": "shirt", "colour": pale, "vee": 0.06, "sleeves": 0.55, "pattern": stripes(colour, 1)}, collar(pale)], [{"kind": "tie", "colour": accent, "length": 0.14}], []),
         "fairisle": ([{"kind": "jumper", "colour": colour, "vee": 0.0, "ease": 0.012, "length": 0.02,
                        "pattern": {"kind": "bands", "colour": accent, "width": 1, "cells": 5, "repeat": 8}}, {"kind": "hem", "colour": shade(colour, 0.6), "drop": -0.01}], [], ["arms"]),
-        "pyjama_top": ([{"kind": "shirt", "colour": pale, "vee": 0.1, "sleeves": 1.0, "ease": 0.012, "length": 0.14, "pattern": stripes(colour, 1)}], [], ["arms"]),
+        "pyjama_top": ([{"kind": "shirt", "colour": pale, "vee": 0.1, "sleeves": 1.0, "ease": 0.012, "length": 0.14, "pattern": stripes(colour, 1)}, collar(pale)], [], ["arms"]),
     }
     return table[kind]
 
@@ -95,7 +118,7 @@ def bottom(kind, colour, accent, legs):
         "straight_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.42, "flare": 0.04}],
         "long_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.14, "flare": 0.28, "pleats": 12, "cloth": "silk"}],
         "short_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.5, "flare": 0.22, "pleats": 16}],
-        "pack_full_skirt": [pack("toigo_long_full_skirt", colour, name="Skirt", skirt=True)],
+        "pack_full_skirt": [pack("toigo_long_full_skirt", colour, name="Skirt", skirt=True, made=made("wool"))],
         "pack_ruffle_skirt": [pack("toigo_skirt_with_lace_ruffle", colour, name="Skirt", skirt=True)],
         "pencil_skirt": [{"kind": "skirt", "colour": colour, "hem": 0.47, "flare": 0.0, "pattern": stripes(shade(colour, 1.7), 1)}],
         "pleated_midi": [{"kind": "skirt", "colour": colour, "hem": 0.3, "flare": 0.3, "pleats": 30}],
@@ -125,14 +148,24 @@ def over(kind, colour, accent):
         "blazer": ([{"kind": "jacket", "colour": colour, "vee": 0.28, "length": 0.05, "ease": 0.02, "pattern": stripes(accent, 2)}, {"kind": "lapels", "colour": colour, "vee": 0.28}],
                    [{"kind": "buttons", "colour": accent, "step": 0.07, "lift": 0.036, "size": 0.01}, {"kind": "pockets", "colour": shade(colour, 0.7), "up": -0.02, "lift": 0.036}], []),
         "knit_vest": ([{"kind": "waistcoat", "colour": colour, "vee": 0.18, "cloth": "knit", "pattern": {"kind": "bands", "colour": accent, "width": 1, "cells": 4, "repeat": 6}}], [], ["warm"]),
-        "duster": ([{"kind": "coat", "colour": [min(1.0, 0.45 + 0.55 * x) for x in colour], "vee": 0.22, "hem": 0.2, "flare": 0.06, "cloth": "cotton"}], [], []),
-        "trench": ([{"kind": "coat", "colour": colour, "vee": 0.14, "hem": 0.36, "flare": 0.14}, {"kind": "belt", "colour": shade(colour, 0.5), "off": 0.029}, {"kind": "lapels", "colour": shade(colour, 0.8), "vee": 0.14}],
+        # Review of cast_r10: pale, with no collar, lapels or buttons, the duster read as a bath robe.
+        "duster": ([{"kind": "coat", "colour": shade(colour, 0.75), "vee": 0.22, "hem": 0.26, "flare": 0.06, "cloth": "cotton"}, {"kind": "lapels", "colour": shade(colour, 0.6), "vee": 0.22},
+                    coat_collar(shade(colour, 0.75))],
+                   [{"kind": "buttons", "colour": shade(colour, 0.4), "step": 0.09, "lift": 0.036, "size": 0.01, "below": 0.1}], []),
+        "trench": ([{"kind": "coat", "colour": colour, "vee": 0.14, "hem": 0.36, "flare": 0.14}, {"kind": "belt", "colour": shade(colour, 0.5), "off": 0.029}, {"kind": "lapels", "colour": shade(colour, 0.8), "vee": 0.14},
+                    coat_collar(colour)],
                    [{"kind": "buttons", "colour": shade(colour, 0.4), "step": 0.08, "lift": 0.036, "size": 0.01}], ["warm"]),
-        "stole": ([{"kind": "shawl", "colour": colour, "length": 0.18, "cloth": "silk"}], [], []),
+        # Review of cast_r10: as a short shawl the stole came out as two leaves on the shoulders. It is a short
+        # cape: an even band over the shoulders and upper arms.
+        "stole": ([{"kind": "cape", "colour": colour, "length": 0.17, "cloth": "silk"}], [], []),
         "waistcoat": ([{"kind": "waistcoat", "colour": colour, "vee": 0.22}], [{"kind": "buttons", "colour": accent, "step": 0.06, "lift": 0.026, "size": 0.007}], []),
-        "long_coat": ([{"kind": "coat", "colour": colour, "vee": 0.08, "hem": 0.28, "flare": 0.1}, {"kind": "sash", "colour": shade(colour, 0.5), "up": 0.07, "off": 0.027}],
+        # Review of cast_r10: collarless, buttoned to the throat, sashed and flared, the long coat read as a cassock,
+        # and the swing coat as a tent. Both get a proper V with lapels and a collar; the swing coat hangs straighter.
+        "long_coat": ([{"kind": "coat", "colour": colour, "vee": 0.14, "hem": 0.28, "flare": 0.06}, {"kind": "lapels", "colour": shade(colour, 0.8), "vee": 0.14}, coat_collar(colour)],
                       [{"kind": "buttons", "colour": shade(colour, 0.5), "step": 0.1, "lift": 0.036, "size": 0.013, "below": 0.12}], ["warm"]),
-        "swing_coat": ([{"kind": "coat", "colour": colour, "vee": 0.1, "hem": 0.42, "flare": 0.4, "pattern": checks(shade(colour, 1.7), 1)}], [], ["warm"]),
+        "swing_coat": ([{"kind": "coat", "colour": colour, "vee": 0.14, "hem": 0.42, "flare": 0.14, "pattern": checks(shade(colour, 1.7), 1)}, {"kind": "lapels", "colour": shade(colour, 0.8), "vee": 0.14},
+                        coat_collar(colour)],
+                       [{"kind": "buttons", "colour": shade(colour, 0.5), "step": 0.1, "lift": 0.036, "size": 0.012, "below": 0.1}], ["warm"]),
         "cape": ([{"kind": "cape", "colour": colour, "length": 0.36, "swing": 0.09}, {"kind": "scarf", "colour": accent}], [], ["warm"]),
         "shawl": ([{"kind": "shawl", "colour": colour, "pattern": {"kind": "herringbone", "colour": accent, "cells": 3, "repeat": 4}}], [], ["warm"]),
         "apron": ([{"kind": "apron", "colour": colour, "hem": 0.46}], [], ["work"]),
@@ -161,7 +194,7 @@ def feet(kind, colour):
              "gent_boots": "toigo_ankle_boots_male", "brogues": "shoes01", "dress_shoes": "shoes04", "work_boots": "culturalibre_male_boots"}
     if kind in packs:
         return [pack(packs[kind], colour, name="Shoes")]
-    table = {"strap": [{"kind": "shoes", "colour": colour, "strap": True}], "oxford": [{"kind": "shoes", "colour": colour}], "pumps": [{"kind": "shoes", "colour": shade(colour, 1.6)}],
+    table = {"strap": [{"kind": "shoes", "colour": colour, "strap": True}], "oxford": [{"kind": "shoes", "colour": colour}], "pumps": [{"kind": "shoes", "colour": colour}],
              "ankle_boots": [{"kind": "boots", "colour": colour, "height": 0.08}], "tall_boots": [{"kind": "boots", "colour": colour, "height": 0.27}],
              "boots": [{"kind": "boots", "colour": colour, "height": 0.17}]}
     return table[kind]
@@ -174,17 +207,17 @@ STYLES = {
     "cal_dwyer": [("henley", "check_trousers", "waistcoat", "newsboy", "brogues"), ("tie_suit", "-", "-", "pack_fedora", "dress_shoes"), ("robe", "-", "-", "-", "oxford")],
     "cam_ortiz": [("jersey", "knickerbockers", "knit_vest", "newsboy", "ankle_boots"), ("trouser_suit", "-", "-", "-", "brogues"), ("work_shirt", "sailor_trousers", "duster", "-", "work_boots")],
     "evelyn_marsh": [("blouse_long", "long_skirt", "cardigan", "-", "lady_boots"), ("bow_blouse", "straight_skirt", "trench", "-", "pumps"), ("day_dress", "-", "shawl", "wide_hat", "flats")],
-    "iris_bell": [("work_overalls", "-", "apron", "headscarf", "work_boots"), ("tunic", "pleated_midi", "cardigan", "-", "mary_jane"), ("keyhole_dress", "-", "cape", "wide_hat", "tbar")],
+    "iris_bell": [("shirt_rolled", "overalls", "apron", "headscarf", "work_boots"), ("tunic", "pleated_midi", "cardigan", "-", "mary_jane"), ("keyhole_dress", "-", "cape", "wide_hat", "tbar")],
     "jonah_price": [("robe", "-", "-", "-", "oxford"), ("db_suit", "-", "-", "-", "dress_shoes"), ("fisherman", "wide_trousers", "long_jacket", "fedora", "gent_boots")],
     "juno_kells": [("henley", "sailor_trousers", "waistcoat", "-", "lady_boots"), ("trouser_suit", "-", "-", "-", "brogues"), ("keyhole_dress", "-", "bolero", "beret", "tbar")],
     "lena_ortiz": [("smock", "full_skirt", "apron", "headscarf", "boots"), ("blouse_long", "aline_skirt", "shawl", "-", "lady_boots"), ("skirt_suit", "-", "-", "toque", "pumps")],
     "mae_kessler": [("blouse_long", "long_skirt", "shawl", "-", "boots"), ("day_dress", "-", "long_coat", "-", "lady_boots"), ("evening_top", "pack_full_skirt", "cape", "wide_hat", "flats")],
-    "malcolm_reed": [("work_overalls", "-", "apron", "newsboy", "work_boots"), ("lounge_suit", "-", "-", "derby", "dress_shoes"), ("fisherman", "wide_trousers", "waistcoat", "fedora", "gent_boots")],
+    "malcolm_reed": [("shirt_rolled", "overalls", "apron", "newsboy", "work_boots"), ("lounge_suit", "-", "-", "derby", "dress_shoes"), ("fisherman", "wide_trousers", "waistcoat", "fedora", "gent_boots")],
     "nadia_quell": [("blouse_short", "straight_skirt", "knit_vest", "-", "tbar"), ("skirt_suit", "-", "-", "boater", "pumps"), ("flapper_dress", "-", "swing_coat", "wide_hat", "mary_jane")],
     "noel_price": [("shirt_rolled", "wide_trousers", "apron", "-", "brogues"), ("bowtie_suit", "-", "-", "pack_fedora", "dress_shoes"), ("jersey", "plus_fours", "waistcoat", "newsboy", "boots")],
     "omar_bell": [("shirt_rolled", "overalls", "apron", "cap", "work_boots"), ("elegant_suit", "-", "-", "-", "dress_shoes"), ("henley", "wide_trousers", "knit_vest", "derby", "gent_boots")],
     "peter_wren": [("shirt_long", "narrow_trousers", "waistcoat", "-", "brogues"), ("lounge_suit", "-", "-", "derby", "dress_shoes"), ("dinner_suit", "-", "-", "-", "dress_shoes")],
-    "rhea_sato": [("blouse_short", "aline_skirt", "stole", "-", "flats"), ("blouse_pencil", "-", "boxy_jacket", "-", "tall_boots"), ("keyhole_dress", "-", "cape", "beret", "pumps")],
+    "rhea_sato": [("blouse_short", "aline_skirt", "stole", "-", "flats"), ("blouse_pencil", "-", "boxy_jacket", "-", "tall_boots"), ("keyhole_dress", "-", "cape", "toque", "pumps")],
     "sacha_reed": [("jersey", "wide_trousers", "waistcoat", "newsboy", "work_boots"), ("tie_suit", "-", "-", "boater", "brogues"), ("shirt_rolled", "knickerbockers", "boxy_jacket", "-", "ankle_boots")],
     "teresa_vale": [("blouse_short", "short_skirt", "apron", "-", "flats"), ("wrap_blouse", "pleated_midi", "cape", "boater", "lady_boots"), ("shift_dress", "-", "swing_coat", "cloche", "tbar")],
     "transient_guests_a": [("henley", "wide_trousers", "waistcoat", "-", "work_boots"), ("db_suit", "-", "-", "pack_fedora", "dress_shoes"), ("jersey", "narrow_trousers", "long_coat", "cap", "boots")],
@@ -193,12 +226,18 @@ STYLES = {
 SET_TAGS = [["casual", "home"], ["formal", "street"], ["occasion"]]
 # A second colour for each person, chosen to stand against their own.
 SECOND = {
-    "adela_voss": [0.03, 0.08, 0.3], "mina_vale": [0.72, 0.42, 0.04], "cal_dwyer": [0.42, 0.05, 0.06], "cam_ortiz": [0.75, 0.5, 0.04], "evelyn_marsh": [0.02, 0.3, 0.3],
+    # Cal's second was maroon, the own colour of Cam and Lena beside him: chocolate instead.
+    "adela_voss": [0.03, 0.08, 0.3], "mina_vale": [0.72, 0.42, 0.04], "cal_dwyer": [0.24, 0.12, 0.05], "cam_ortiz": [0.75, 0.5, 0.04], "evelyn_marsh": [0.02, 0.3, 0.3],
     "iris_bell": [0.85, 0.42, 0.03], "jonah_price": [0.5, 0.15, 0.05], "juno_kells": [0.7, 0.12, 0.25], "lena_ortiz": [0.7, 0.45, 0.05], "mae_kessler": [0.4, 0.34, 0.55],
     "malcolm_reed": [0.55, 0.2, 0.05], "nadia_quell": [0.8, 0.7, 0.5], "noel_price": [0.65, 0.3, 0.05], "omar_bell": [0.45, 0.06, 0.06], "peter_wren": [0.1, 0.25, 0.22],
     "rhea_sato": [0.75, 0.06, 0.2], "sacha_reed": [0.75, 0.5, 0.08], "teresa_vale": [0.72, 0.03, 0.03], "transient_guests_a": [0.6, 0.48, 0.12], "transient_guests_b": [0.5, 0.2, 0.25],
 }
 NEUTRALS = [[0.16, 0.13, 0.11], [0.35, 0.3, 0.24], [0.08, 0.08, 0.09]]
+# Ruling cast_colour_clashes_20261112: where two people blurred together, the second is re-coloured, and never in
+# the everyday set, which keeps the person's own colour. "second": that set leads with the person's second colour
+# (Nadia's street suit against Cam's; Mae's and Malcolm's street green against Adela's). "own": the occasion set
+# leads with the person's own colour and takes the second for its outer layer (Iris against Mina, Juno against Rhea).
+RELEAD = {("nadia_quell", 1): "second", ("mae_kessler", 1): "second", ("malcolm_reed", 1): "second", ("iris_bell", 2): "own", ("juno_kells", 2): "own"}
 
 
 def decal(part, cell, at, size=0.05, colour=None, **more):
@@ -274,8 +313,14 @@ def add_parts(cast):
             # dark neutral under their colour, then their second colour.
             colour = [c0, NEUTRALS[hash_index(cid) % 3], shade(s0, 0.75)][index]
             over_colour = [shade(s0, 0.9), c0, shade(c0, 0.5)][index]
-            rows, trim, covers = top(t, [c0, c0, s0][index], a0, [pale, WHITE, [min(1.0, 0.6 + 0.4 * x) for x in s0]][index])
-            parts[letter + "_top"] = {"slot": "top", "set": letter, "tags": SET_TAGS[index] + (["night"] if t.startswith("pyjama") else []), "covers": covers + ([] if t.endswith("dress") or t == "robe" else ["trunk"]), "replaces": REPLACES.get(t, []),
+            top_colour = [c0, c0, s0][index]
+            relead = RELEAD.get((cid, index))
+            if relead == "second":
+                top_colour, over_colour = s0, shade(s0, 0.55)
+            elif relead == "own":
+                top_colour, over_colour = c0, shade(s0, 0.7)
+            rows, trim, covers = top(t, top_colour, a0, [pale, WHITE, [min(1.0, 0.6 + 0.4 * x) for x in s0]][index])
+            parts[letter + "_top"] = {"slot": "top", "set": letter, "tags": SET_TAGS[index] + (["night"] if t.startswith("pyjama") else []), "covers": covers + ([] if t.endswith("dress") else ["trunk"]), "replaces": REPLACES.get(t, []),
                                     "rows": rows, "trim": trim}
             if b != "-":
               parts[letter + "_bottom"] = {"slot": "bottom", "set": letter,
@@ -294,7 +339,7 @@ def add_parts(cast):
             elif h != "-":
                 parts[letter + "_head"] = {"slot": "head", "set": letter, "tags": SET_TAGS[index], "covers": [], "rows": [], "trim": [],
                                            "hat": head(h, shade(c0, 0.6) if index else shade(c0, 0.8), a0)}
-            parts[letter + "_feet"] = {"slot": "feet", "set": letter, "tags": SET_TAGS[index], "covers": ["feet"], "rows": feet(f, [shade(c0, 0.3), BLACK, shade(a0, 0.5)][index]), "trim": []}
+            parts[letter + "_feet"] = {"slot": "feet", "set": letter, "tags": SET_TAGS[index], "covers": ["feet"], "rows": feet(f, [LEATHERS[hash_index(cid) % 4], BLACK, LEATHERS[(hash_index(cid) + 2) % 4]][index]), "trim": []}
             looks[letter] = [name for name in parts if name.startswith(letter + "_")]
         looks["mix1"] = [n for n in ("a_top", "b_bottom", "c_over", "b_head", "a_feet") if n in parts]
         looks["mix2"] = [n for n in ("c_top", "a_bottom", "b_over", "c_head", "b_feet") if n in parts]
