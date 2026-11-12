@@ -77,6 +77,29 @@ controls, historical accuracy or a save/reload route.
 
 ## Measure the real cost
 
+For ordinary cloud revisions, `V2SkySpectacleBench.tscn` supports layer-isolated
+`SKY_BRUSH_REVIEW=1` and four-date `SKY_MOTION_REVIEW=1` reviews. Add
+`SKY_CAMERA_MOTION_REVIEW=1` for a scripted pan with 28 frames; this is not native
+mouse input, and sparse frames cannot exclude fast shimmer. Keep environment
+modes mutually exclusive and compare source-bound shader/include stacks, not
+an old top-level shader with today's includes.
+
+`V2PrecipitationVisibilityProbe.tscn` uses the real player and V2WeatherFX with
+TAA, camera motion and shelter/resumption in an isolated fixture. Its local
+checks do not establish an occupied route, save reconstruction or emitter
+retirement. In particular, cover currently hides the camera-centred field, so
+outdoor particles through an opening still need separate presentation work.
+
+`RoofWeatherPreviewTest.tscn` retains real roof input and restoration checks.
+For sky optics obscured by passing residents, optional `ROOF_SKY_REVIEW=1`
+raises only the camera four metres after those checks, records the offset and
+restores its transform. Label these frames as elevated optical views, not the
+normal player placement. Do not hide residents/buildings to claim a complete
+composition. Inspect stderr even when all test assertions pass: missing imported
+city geometry invalidates that composition. Use the existing autoload-aware
+`CompileChangedScripts.tscn` for script preflights; a standalone `--check-only`
+script invocation does not supply project autoload identifiers.
+
 Compare the same occupied composition, camera, resolution, quality, weather/date
 and warmed state. Report CPU/GPU/frame-time distributions and spikes where
 available, cold shader/radiance/startup separately, and the cost of each affected

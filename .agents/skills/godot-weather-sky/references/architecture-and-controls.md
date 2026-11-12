@@ -91,3 +91,28 @@ large offsets or using per-instance uptime to repair distant-date precision.
 Such shortcuts can introduce midnight, rebuild or reverse-time jumps. Profile
 quality/sample-count changes against the real half-resolution/TAA/upscale and
 radiance path; a declaration list does not describe the actual execution cost.
+
+## Cloud shape and sampling repairs
+
+For flat Ac/Sc/Cu, compare vertical noise scale in kilometres with horizontal
+brush scale before increasing detail. A height-varying family warp can fill one
+slice's clear areas with another slice and turn broken clouds into overcast.
+Keep mass, erosion and coverage distinct, then inspect single layers. The
+ordinary Queens march spends its budget in occupied decks and bounds grazing
+steps. Distance clips and step caps must fit the loop bound, including interval
+boundaries. Fade optical depth before Beer integration so subdividing the same
+ray does not change its opacity.
+
+Coherent midpoint samples can reveal bands. Fixed spatial stratification removes
+that alignment without a new time source, but can leave correlated grain during
+camera movement; inspect both paused and moving native frames. Keep rare
+formations' intervals and lighting separate. Shared powder-light helpers also
+serve spectacle objects; inspect those callers before changing them.
+
+The high plane samples a slice rather than marching a whole deck. A nearly binary
+density response becomes a flat white chip, especially at grazing optical lengths.
+Preserve graded thickness with multiplicative edge detail: subtractive erosion
+can clip a softened fringe back into hard edges. Ci needs translucent packets
+with weak fibre modulation; thresholded strands made white wires. Match changed
+noise frequencies in LivingSky's transport publisher, or apparent wind speed
+changes even when clock math does not.
