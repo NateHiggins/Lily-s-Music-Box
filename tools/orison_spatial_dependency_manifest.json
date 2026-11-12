@@ -269788,6 +269788,68 @@
    "rationale": "Camera station for the isolated real-asset CastModelPresentation fixture only: position (0,1.35,2), target (0,1.3,0). Update this diagnostic fixture if the cast frame changes; it is not a production location or appearance-acceptance claim.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "527351b75270efb1",
+   "kind": "generated_name",
+   "token": "exercise",
+   "file": "game/tests/constrained_grab_scalar_release_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "exercise"
+   ],
+   "lines": [
+    64
+   ],
+   "count": 1,
+   "context": [
+    "\"Scalar_\" + mode"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Test-only Scalar_<mode> owner names identify retain/cancel/notify/reacquire cases and are checked against the production hand motion profiler's original-owner label. Regenerate fixture diagnostics and name consumers together if the template changes; this creates no production roster or save identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "de0980ce7898a6ab",
+   "kind": "vector3_coordinate",
+   "token": "exercise",
+   "file": "game/tests/constrained_grab_scalar_release_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "exercise"
+   ],
+   "lines": [
+    69
+   ],
+   "count": 1,
+   "context": [
+    "owner.part.global_position = player.camera.global_position + Vector3(0,0,-0.8)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test-only scalar part is placed 0.8 m along negative world Z from the fixture camera, fixing descriptor hit-position geometry while the actual PlayerController look path invokes the scalar setter. Acquisition is explicit fixture setup, not ray-picking or installed-room qualification; update the fixture with any geometry change.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
