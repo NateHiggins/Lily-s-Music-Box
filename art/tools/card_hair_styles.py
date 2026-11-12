@@ -68,7 +68,7 @@ CUTS = {
                            fringe={"lift_m": 0.010, "width_m": 0.040, "cup": 0.07, "gravity": 0.1, "comb": 0.85, "comb_to": "back", "sweep_jitter_degrees": 3.0, "twist_degrees": 0.0}),
                zones=SHORT_ZONES, bun={"bearing_degrees": 180.0, "down_degrees": 104.0, "radius_m": 0.038, "stand": 0.6, "depth": 0.72}),
     # A man's cut: parted at the side, the top combed over, the sides and back short.
-    "side_part": cut(BOB, root_spacing_m=0.018, rows=7, tips_from=0.82, shortest_tip=0.9, part__cards=22, part__brush_back=0.5, part__drop_front_corner=False,
+    "side_part": cut(BOB, root_spacing_m=0.018, rows=7, tips_from=0.58, shortest_tip=0.66, part__cards=22, part__brush_back=0.5, part__drop_front_corner=False,
                      hairline_degrees={"front": 48.0, "side": 76.0, "back": 112.0},
                      fringe={"exit_half_width_degrees": 50.0, "hairline_cards": 10},
                      tiers=tiers(part={"lift_m": 0.014, "width_m": 0.034, "cup": 0.07, "gravity": 0.15, "comb": 0.85, "walk_m": 0.075, "sweep_jitter_degrees": 4.0, "twist_degrees": 0.0},
@@ -80,7 +80,7 @@ CUTS = {
     # Longer on top and brushed straight back.
     "swept_back": cut(BOB, root_spacing_m=0.018, rows=8, part__cards=0, part__brush_back=0.0, part__drop_front_corner=False,
                       hairline_degrees={"front": 48.0, "side": 78.0, "back": 114.0},
-                      fringe={"exit_half_width_degrees": 0.0, "hairline_cards": 16, "hairline_span_degrees": 62.0, "both_sides": True}, tips_from=0.82, shortest_tip=0.9,
+                      fringe={"exit_half_width_degrees": 0.0, "hairline_cards": 16, "hairline_span_degrees": 62.0, "both_sides": True}, tips_from=0.58, shortest_tip=0.66,
                       tiers=tiers(part={"lift_m": 0.02, "width_m": 0.034, "cup": 0.07, "gravity": 0.1, "comb": 0.85, "comb_to": "back", "walk_m": 0.11},
                                   crown={"lift_m": 0.018, "width_m": 0.034, "cup": 0.07, "gravity": 0.1, "comb": 0.85, "comb_to": "back", "walk_m": 0.10, "sweep_jitter_degrees": 5.0, "twist_degrees": 0.0},
                                   sides={"lift_m": 0.006, "width_m": 0.03, "cup": 0.06, "gravity": 0.35, "comb": 0.6, "comb_to": "back", "walk_m": 0.045, "sweep_jitter_degrees": 6.0, "twist_degrees": 0.0},
@@ -88,7 +88,7 @@ CUTS = {
                                   fringe={"lift_m": 0.014, "width_m": 0.034, "cup": 0.08, "gravity": 0.0, "comb": 0.9, "comb_to": "back", "walk_m": 0.10, "sweep_jitter_degrees": 4.0, "twist_degrees": 0.0}),
                       zones=SHORT_ZONES),
     # Cropped close all over.
-    "crop": cut(BOB, root_spacing_m=0.014, rows=5, tips_from=0.84, shortest_tip=0.92, part__cards=0, part__brush_back=0.0, part__drop_front_corner=False,
+    "crop": cut(BOB, root_spacing_m=0.014, rows=5, tips_from=0.6, shortest_tip=0.68, part__cards=0, part__brush_back=0.0, part__drop_front_corner=False,
                 hairline_degrees={"front": 47.0, "side": 76.0, "back": 110.0},
                 fringe={"exit_half_width_degrees": 0.0, "hairline_cards": 0},
                 tiers=tiers(part={"lift_m": 0.006, "width_m": 0.028, "cup": 0.06, "gravity": 0.3, "comb": 0.3, "walk_m": 0.03},
@@ -118,6 +118,8 @@ for name, shade, feather, margin in (("crop", 0.92, 0.7, 9.0), ("side_part", 0.8
     CUTS[name]["cap_past_hairline_degrees"] = 2.0
     CUTS[name]["root_margin_degrees"] = margin
     CUTS[name]["ragged_roots"] = 0.14
+    # The shorter the cards, the flatter their tone, or rows of them read as roof tiles.
+    CUTS[name]["tone_ramp"] = {"crop": 0.25, "side_part": 0.5, "swept_back": 0.5}.get(name, 0.7)
 for tier in ("part", "crown", "sides", "fringe"):
     if "wave_degrees" in CUTS["waved_set"]["tiers"][tier]:
         CUTS["waved_set"]["tiers"][tier].update({"wave_degrees": 34.0, "wave_length_m": 0.05, "wave_ridge_m": 0.0045})
