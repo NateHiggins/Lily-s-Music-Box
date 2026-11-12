@@ -115,7 +115,7 @@ def bottom(kind, colour, accent, legs):
 def over(kind, colour, accent):
     table = {
         "cardigan": ([{"kind": "cardigan", "colour": colour, "vee": 0.32}], [], ["warm"]),
-        "boxy_jacket": ([{"kind": "jacket", "colour": colour, "vee": 0.24, "length": 0.01, "ease": 0.021, "shoulders": 0.004}, {"kind": "lapels", "colour": shade(colour, 0.6), "vee": 0.24}],
+        "boxy_jacket": ([{"kind": "jacket", "colour": colour, "vee": 0.24, "length": 0.01, "ease": 0.021, "shoulders": 0.0}, {"kind": "lapels", "colour": shade(colour, 0.6), "vee": 0.24}],
                         [{"kind": "buttons", "colour": accent, "step": 0.085, "lift": 0.038, "size": 0.011}], []),
         "long_jacket": ([{"kind": "jacket", "colour": colour, "vee": 0.3, "length": 0.17, "skirted": 0.012, "pattern": stripes(shade(colour, 1.9), 1)},
                          {"kind": "lapels", "colour": shade(colour, 0.6), "vee": 0.3}], [{"kind": "pockets", "colour": shade(colour, 0.6), "up": -0.03, "lift": 0.038}], []),
@@ -239,9 +239,9 @@ def hash_index(text):
 PACK_HAIR = {
     # Period cuts only: bobs, buns and plain short hair. Nothing swept over an eye.
     "mina_vale": "toigo_blunt_bob_with_bangs", "evelyn_marsh": "rehmanpolanski_hair_bun_brown", "iris_bell": "toigo_blunt_bob", "juno_kells": "littleright_bobcut_hair",
-    "lena_ortiz": "toigo_curled_under_bob", "mae_kessler": "rehmanpolanski_hair_bun_brown", "nadia_quell": "bob02", "rhea_sato": "toigo_curled_under_bob_with_bangs",
-    "teresa_vale": "toigo_inverted_bob_with_bangs", "transient_guests_b": "toigo_inverted_bob", "cal_dwyer": "short02", "cam_ortiz": "short04", "jonah_price": "short02",
-    "malcolm_reed": "short01", "noel_price": "short02", "omar_bell": "short04", "peter_wren": "short02", "sacha_reed": "short01", "transient_guests_a": "short04",
+    "lena_ortiz": "toigo_curled_under_bob", "mae_kessler": "rehmanpolanski_hair_bun_brown", "nadia_quell": "toigo_inverted_bob", "rhea_sato": "toigo_curled_under_bob_with_bangs",
+    "teresa_vale": "toigo_inverted_bob_with_bangs", "transient_guests_b": "toigo_blunt_bob", "cal_dwyer": "short02", "cam_ortiz": "short02", "jonah_price": "short02",
+    "malcolm_reed": "short01", "noel_price": "short02", "omar_bell": "short01", "peter_wren": "short02", "sacha_reed": "short01", "transient_guests_a": "short02",
 }
 PACK_SKIN = {
     "iris_bell": "onlytheghosts_young_eurasian_female", "nadia_quell": "onlytheghosts_young_eurasian_female", "lena_ortiz": "onlytheghosts_old_eurasian_female",
@@ -253,6 +253,9 @@ PACK_SKIN = {
 def add_parts(cast):
     for cid, sets in STYLES.items():
         person = cast[cid]
+        if cid == "adela_voss":
+            # Lily, 11-11: volume up from the scalp, then falling in collected waves (not tight ringlets).
+            person["hair"] = dict(person["hair"], lift=0.03, turns=[0.8, 1.15], radius=[0.016, 0.022])
         if cid in PACK_HAIR:
             person["hair"] = dict(person["hair"], asset=PACK_HAIR[cid])
         if cid in PACK_SKIN:

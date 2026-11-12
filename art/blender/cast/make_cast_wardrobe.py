@@ -24,7 +24,7 @@ def shade(colour, k):
 
 
 def woman(age, skin, hair_style, hair_colour, colour, accent, race=None, weight=0.42, **more):
-    row = {"macro": {"gender": 0.0, "age": age, "muscle": 0.45, "weight": weight, "proportions": 0.88, "height": 0.5, "cupsize": 0.45, "firmness": 0.62},
+    row = {"macro": {"gender": 0.0, "age": age, "muscle": 0.4, "weight": weight, "proportions": 0.75, "height": 0.5, "cupsize": 0.45, "firmness": 0.62},
            "skin": skin, "eyes": more.pop("eyes", "brown"), "hair": {"style": hair_style, "colour": hair_colour}, "colour": colour, "accent": accent}
     if race:
         row["race"] = race
@@ -33,7 +33,7 @@ def woman(age, skin, hair_style, hair_colour, colour, accent, race=None, weight=
 
 
 def man(age, skin, hair_style, hair_colour, colour, accent, race=None, weight=0.5, gender=1.0, **more):
-    row = {"macro": {"gender": gender, "age": age, "muscle": 0.56, "weight": weight, "proportions": 0.85, "height": 0.5},
+    row = {"macro": {"gender": gender, "age": age, "muscle": 0.38, "weight": weight, "proportions": 0.6, "height": 0.5},
            "skin": skin, "eyes": more.pop("eyes", "brown"), "hair": {"style": hair_style, "colour": hair_colour}, "colour": colour, "accent": accent}
     if race:
         row["race"] = race

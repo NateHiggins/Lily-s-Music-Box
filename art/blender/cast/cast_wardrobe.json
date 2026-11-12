@@ -3,9 +3,9 @@
   "macro": {
    "gender": 0.0,
    "age": 0.5,
-   "muscle": 0.45,
+   "muscle": 0.4,
    "weight": 0.42,
-   "proportions": 0.88,
+   "proportions": 0.75,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.62
@@ -18,6 +18,15 @@
     0.72,
     0.3,
     0.07
+   ],
+   "lift": 0.03,
+   "turns": [
+    0.8,
+    1.15
+   ],
+   "radius": [
+    0.016,
+    0.022
    ]
   },
   "skin_tone": [
@@ -317,9 +326,9 @@
   "macro": {
    "gender": 0.0,
    "age": 0.6,
-   "muscle": 0.45,
+   "muscle": 0.4,
    "weight": 0.42,
-   "proportions": 0.88,
+   "proportions": 0.75,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.62
@@ -762,9 +771,9 @@
   "macro": {
    "gender": 1.0,
    "age": 0.88,
-   "muscle": 0.56,
+   "muscle": 0.38,
    "weight": 0.55,
-   "proportions": 0.85,
+   "proportions": 0.6,
    "height": 0.5
   },
   "skin": "old_caucasian_male",
@@ -1113,9 +1122,9 @@
   "macro": {
    "gender": 0.55,
    "age": 0.55,
-   "muscle": 0.56,
+   "muscle": 0.38,
    "weight": 0.42,
-   "proportions": 0.85,
+   "proportions": 0.6,
    "height": 0.5
   },
   "skin": "young_caucasian_male",
@@ -1127,7 +1136,7 @@
     0.04,
     0.04
    ],
-   "asset": "short04"
+   "asset": "short02"
   },
   "race": {
    "asian": 0.35,
@@ -1533,9 +1542,9 @@
   "macro": {
    "gender": 0.0,
    "age": 0.82,
-   "muscle": 0.45,
+   "muscle": 0.4,
    "weight": 0.42,
-   "proportions": 0.88,
+   "proportions": 0.75,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.62
@@ -1963,9 +1972,9 @@
   "macro": {
    "gender": 0.0,
    "age": 0.55,
-   "muscle": 0.45,
+   "muscle": 0.4,
    "weight": 0.42,
-   "proportions": 0.88,
+   "proportions": 0.75,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.62
@@ -2372,9 +2381,9 @@
   "macro": {
    "gender": 1.0,
    "age": 0.58,
-   "muscle": 0.56,
+   "muscle": 0.38,
    "weight": 0.5,
-   "proportions": 0.85,
+   "proportions": 0.6,
    "height": 0.5
   },
   "skin": "toigo_light_skin_male_bronze",
@@ -2702,9 +2711,9 @@
   "macro": {
    "gender": 0.0,
    "age": 0.47,
-   "muscle": 0.45,
+   "muscle": 0.4,
    "weight": 0.38,
-   "proportions": 0.88,
+   "proportions": 0.75,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.62
@@ -3067,9 +3076,9 @@
   "macro": {
    "gender": 0.0,
    "age": 0.78,
-   "muscle": 0.45,
+   "muscle": 0.4,
    "weight": 0.42,
-   "proportions": 0.88,
+   "proportions": 0.75,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.62
@@ -3480,9 +3489,9 @@
   "macro": {
    "gender": 0.0,
    "age": 0.9,
-   "muscle": 0.45,
+   "muscle": 0.4,
    "weight": 0.42,
-   "proportions": 0.88,
+   "proportions": 0.75,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.62
@@ -3921,9 +3930,9 @@
   "macro": {
    "gender": 1.0,
    "age": 0.74,
-   "muscle": 0.56,
+   "muscle": 0.38,
    "weight": 0.5,
-   "proportions": 0.85,
+   "proportions": 0.6,
    "height": 0.5
   },
   "skin": "middleage_african_male",
@@ -4306,9 +4315,9 @@
   "macro": {
    "gender": 0.0,
    "age": 0.58,
-   "muscle": 0.45,
+   "muscle": 0.4,
    "weight": 0.42,
-   "proportions": 0.88,
+   "proportions": 0.75,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.62
@@ -4323,7 +4332,7 @@
     0.04
    ],
    "root_max_above_nose": 0.1,
-   "asset": "bob02"
+   "asset": "toigo_inverted_bob"
   },
   "race": {
    "asian": 0.35,
@@ -4702,9 +4711,9 @@
   "macro": {
    "gender": 1.0,
    "age": 0.57,
-   "muscle": 0.56,
+   "muscle": 0.38,
    "weight": 0.5,
-   "proportions": 0.85,
+   "proportions": 0.6,
    "height": 0.5
   },
   "skin": "toigo_light_skin_male_ginger",
@@ -5112,9 +5121,9 @@
   "macro": {
    "gender": 1.0,
    "age": 0.68,
-   "muscle": 0.56,
+   "muscle": 0.38,
    "weight": 0.5,
-   "proportions": 0.85,
+   "proportions": 0.6,
    "height": 0.5
   },
   "skin": "onlytheghosts_old_eurasian_male",
@@ -5126,7 +5135,7 @@
     0.04,
     0.04
    ],
-   "asset": "short04"
+   "asset": "short01"
   },
   "race": {
    "asian": 0.35,
@@ -5522,9 +5531,9 @@
   "macro": {
    "gender": 1.0,
    "age": 0.64,
-   "muscle": 0.56,
+   "muscle": 0.38,
    "weight": 0.44,
-   "proportions": 0.85,
+   "proportions": 0.6,
    "height": 0.5
   },
   "skin": "middleage_caucasian_male",
@@ -5865,9 +5874,9 @@
   "macro": {
    "gender": 0.0,
    "age": 0.7,
-   "muscle": 0.45,
+   "muscle": 0.4,
    "weight": 0.42,
-   "proportions": 0.88,
+   "proportions": 0.75,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.62
@@ -6075,7 +6084,7 @@
       "vee": 0.24,
       "length": 0.01,
       "ease": 0.021,
-      "shoulders": 0.004
+      "shoulders": 0.0
      },
      {
       "kind": "lapels",
@@ -6284,9 +6293,9 @@
   "macro": {
    "gender": 0.6,
    "age": 0.5,
-   "muscle": 0.56,
+   "muscle": 0.38,
    "weight": 0.42,
-   "proportions": 0.85,
+   "proportions": 0.6,
    "height": 0.5
   },
   "skin": "young_african_male",
@@ -6635,7 +6644,7 @@
       "vee": 0.24,
       "length": 0.01,
       "ease": 0.021,
-      "shoulders": 0.004
+      "shoulders": 0.0
      },
      {
       "kind": "lapels",
@@ -6720,9 +6729,9 @@
   "macro": {
    "gender": 0.0,
    "age": 0.66,
-   "muscle": 0.45,
+   "muscle": 0.4,
    "weight": 0.42,
-   "proportions": 0.88,
+   "proportions": 0.75,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.62
@@ -7170,9 +7179,9 @@
   "macro": {
    "gender": 1.0,
    "age": 0.58,
-   "muscle": 0.56,
+   "muscle": 0.38,
    "weight": 0.5,
-   "proportions": 0.85,
+   "proportions": 0.6,
    "height": 0.5
   },
   "skin": "young_caucasian_male",
@@ -7188,7 +7197,7 @@
     0.1,
     0.14
    ],
-   "asset": "short04"
+   "asset": "short02"
   },
   "palette": {
    "colour": [
@@ -7609,9 +7618,9 @@
   "macro": {
    "gender": 0.0,
    "age": 0.55,
-   "muscle": 0.45,
+   "muscle": 0.4,
    "weight": 0.42,
-   "proportions": 0.88,
+   "proportions": 0.75,
    "height": 0.5,
    "cupsize": 0.45,
    "firmness": 0.62
@@ -7625,7 +7634,7 @@
     0.13,
     0.08
    ],
-   "asset": "toigo_inverted_bob"
+   "asset": "toigo_blunt_bob"
   },
   "palette": {
    "colour": [

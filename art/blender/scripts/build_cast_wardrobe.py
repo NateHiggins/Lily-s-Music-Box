@@ -399,6 +399,9 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
     bm.normal_update()
     for v in bm.verts:
         push = offset + (thicken(v.co) if thicken else 0.0)
+        if abs(v.co.x) > shoulder.x - 0.02 and v.co.z > hip and source == "helper-tights":
+            # Sleeves and shoulder caps sit closer than the body of a garment, or arms read as padded.
+            push = 0.004 + (push - 0.004) * 0.5
         v.co = v.co + v.normal * push
         if reshape:
             v.co = reshape(v.co)
@@ -502,6 +505,30 @@ def shrink_pictures(obj, keep=None, size=512):
                 node.image = smaller
 
 
+_skin_tree = []
+
+
+def slim(obj, keep=0.005):
+    """Bring a pack garment in to the body above the hips. The packs' jackets
+    are cut with padded shoulders and wide sleeves; on a small figure that
+    reads as bulk. What stands off the skin keeps its order, at a fraction of
+    its distance: least of it over the shoulders and upper arms."""
+    if not _skin_tree:
+        _skin_tree.append(BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons]))
+    for v in obj.data.vertices:
+        if v.co.z < hip - 0.02:
+            continue
+        hit = _skin_tree[0].find_nearest(v.co)
+        if hit[0] is None:
+            continue
+        gap = v.co - hit[0]
+        distance = gap.length
+        if distance <= keep:
+            continue
+        upper = v.co.z > shoulder.z - 0.16 and abs(v.co.x) > shoulder.x - 0.08
+        v.co = hit[0] + gap.normalized() * (keep + (distance - keep) * (0.28 if upper else 0.5))
+
+
 def skirt_weights(co):
     """Bones for a point of cloth below the hips: the two nearest skirt chains."""
     out_ = {}
@@ -531,6 +558,8 @@ def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Cl
     else:
         obj.data.materials.clear()
         obj.data.materials.append(plain("%s_%s" % (STEM, name), worn_colour(colour), 0.8))
+    if atype == "Clothes" and "hoe" not in name and "oot" not in name:
+        slim(obj)
     shrink_pictures(obj, node)
     # Cloth, not lacquer: the packs' gloss maps made suits shine like oilskin.
     for slot in obj.material_slots:
@@ -1192,7 +1221,7 @@ bpy.context.scene.collection.objects.link(cap)
 cap.data.materials.clear()
 cap_material = bpy.data.materials.new(CID + "_hair_cap")
 cap_material.use_nodes = True
-cap_material.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (*[float(c) * (0.95 if PACK_HAIR else 0.85) for c in hair_tone], 1.0)
+cap_material.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (*[float(c) * (0.95 if PACK_HAIR else 0.42) for c in hair_tone], 1.0)
 cap_material.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = 0.7
 cap.data.materials.append(cap_material)
 cap.vertex_groups.new(name=PREFIX + "Head").add(list(range(len(cap_mesh.vertices))), 1.0, "REPLACE")
@@ -1280,7 +1309,7 @@ for number in range(int(STYLE["guides"]) * 3):
         if hit[0] is None:
             strand = []
             break
-        strand.append(hit[0] + direction * ((0.004 + 0.007 * math.sin(t * math.pi * 0.9)) if short_cut else (0.005 + 0.012 * t)))
+        strand.append(hit[0] + direction * ((0.004 + 0.007 * math.sin(t * math.pi * 0.9)) if short_cut else (0.005 + 0.012 * t + float(CFG["hair"].get("lift", 0.0)) * (1.0 - (1.0 - t) ** 3))))
     if not strand:
         continue
     begin = strand[-1]
