@@ -1,6 +1,6 @@
 ---
 name: machinima-production
-description: Plan, voice, stage, capture and edit scripted films and music videos using existing game scenes and characters. Use for machinima, sung performances and voiced cinematic proofs; ordinary gameplay recordings do not need the full production workflow.
+description: Direct, stage, voice, capture and edit machinima, music videos and authored in-game cinematic scenes. Use for shot design, character performance, continuity and cinematic control handoffs; ordinary gameplay recordings do not need the full production workflow.
 ---
 
 # Film the existing game
@@ -24,6 +24,25 @@ targets and translates them into testable camera, lighting and edit decisions.
 The style is adopted; a particular scene is not qualified merely by citing it.
 For unrelated games, use their own visual direction rather than imposing this one.
 
+Read [Lily's directing grammar](references/directorial-ruleset.md) for a new beat
+sheet or performance review: a credible baseline, a precise discrepancy, a
+practical consequence and an honest reaction. Give each shot one principal job;
+stillness and listening are deliberate performance. The adopted game style takes
+precedence over the package's general optical and palette examples.
+
+For an authored **interactive** scene, also read
+[agency and continuity](references/interactive-presentation.md). Select the least
+restrictive presentation that works, map actual state/control owners and specify
+normal exit, interruption, skip and recovery. For implementation, read
+[Godot direction contracts](references/godot-direction.md); its patterns are
+design guidance, not an installed framework. Reuse the current owners.
+
+Use [direction review and calibration](references/direction-review.md) for
+creative acceptance and proportionate proof. Its
+[shot manifest example](assets/shot-manifest.example.json) is a noncanonical
+authoring template, not runtime data. A brief, review or skill-update request
+does not itself require building a scene, parser or calibration film.
+
 For a music video, recover the exact approved full track, duration and available
 lyric cues first. Cut picture to musical phrases without shortening the song or
 inventing lyric timing. Keep the selected master unchanged; derive any delivery
@@ -36,6 +55,10 @@ backing vocals, instrument contacts and their combined proof before full capture
 - Recover the authored script, line IDs, shot budgets, cast references and latest
   owner decisions. Preserve words unless rewriting is requested. Separate film
   staging from gameplay/narrative authority.
+- Record the intended feeling, visible physical act, audience knowledge before
+  and after, sound cue, final image and allowed player actions. Extend the existing
+  edit with these fields rather than creating competing timelines. A frame of
+  an unread clue is not evidence that the player or an NPC learned it.
 - Inspect installed actors, skeletons, face shapes, material bindings and usable
   sets/footage before generating anything. Matching filenames do not establish
   matching rig capability. Use the imported result as the practical baseline.
@@ -114,6 +137,11 @@ timing, native recording, encoding or final QA.
 
 Film receipts do not qualify ordinary gameplay, saves or the production rig.
 Do not upload or publish without authorization.
+
+Before sign-off, explain why the frame and motion are needed, what physically
+happened, what each character can know and what the player controls. Remove
+unnecessary embellishment when found; do not cut an approved line or musical
+phrase merely to satisfy a stylistic checklist.
 
 ## Retire an experiment
 
