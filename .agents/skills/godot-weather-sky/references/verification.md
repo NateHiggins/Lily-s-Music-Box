@@ -134,3 +134,29 @@ Close with the tested matrix cells and source-bound receipts, actual visible
 result, performance limits and unverified combinations. Broad configurability
 is an engineering interface with validation, not evidence that all its possible
 outputs have already been rendered or accepted.
+
+
+## Stable sampling and compact moving evidence
+
+Fixed screen-space ray offsets can replace coherent bands with visible grain.
+Use paired native views to distinguish that noise from resolved distant cloud
+shapes. Finite primary footprints must not accidentally switch off the detail
+path: keep sample role explicit. Two Gauss density samples can share midpoint
+lighting, but measure their cost. A high plane needs projected pixel derivatives;
+plain distance is not the same footprint, especially through a telescope.
+Stretch fine cirrus fibres separately from their supporting packets. Never scale
+an already wrapped phase by a noninteger frequency; publish that frequency's
+phase independently or use an integer periodic transform.
+
+For a short actual-city day/night film, use **V2DayNightFilm.tscn** and the bounded
+CPU helper **tools/encode_sky_film.py**. Supply explicit Python/helper/ffmpeg paths
+through SKY_FILM_PYTHON, SKY_FILM_ENCODER_RELAY and SKY_FILM_FFMPEG, a fresh SHOT_DIR,
+and launch through the lane with --fixed-fps 48, a hidden native window and Vulkan.
+The fixture streams 576 ready RGB frames at 24 fps, retains a few native stills,
+and records sources, every date/pose and restoration assertions. Godot consumes
+recognized engine flags; validate actual process delta instead of expecting those
+flags in OS.get_cmdline_args(). Require complete decode, exact dimensions/duration,
+two renderer steps per output, bounded child cleanup and native/moving review.
+Its detached day_info epoch seed belongs only to the preview copy. Keep elevated
+optical placement, frozen agenda and inherited HUD/companion hiding explicit;
+a time-lapse does not establish played routes or real-time frame rate.

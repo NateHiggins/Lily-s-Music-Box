@@ -67,10 +67,9 @@ float cloud_filtered_ramp(float a,float b,float h,float width) {
 	float x=(h-a)/(b-a), w=width/(b-a);
 	return clamp((cloud_ramp_integral(x+w*.5)-cloud_ramp_integral(x-w*.5))/w,0.0,1.0);
 }
-// The primary density uses zero footprint. Self-shadow taps integrate over the
-// view step they illuminate: loaded mips and a box-filtered height ramp suppress
-// undersampled lighting blocks without filtering the visible cloud silhouette.
-float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 flow_state,vec3 footprint) {
+// Footprint is the sampled world interval in km. Sample role is independent:
+// view quadrature retains filtered billow detail; shadow taps omit that octave.
+float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 flow_state,vec3 footprint,bool primary) {
 	float coverage=layer.x;
 	if(coverage<=0.0001 || p.y<layer.y || p.y>layer.y+layer.z) return 0.0;
 	float h=(p.y-layer.y)/layer.z;
@@ -110,11 +109,18 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		// The continuous packet has no binary edge; the existing stroke stock
 		// only modulates its fibres, rather than drawing sharp white ribbons.
 		vec2 uv=vec2(q.x*.08,q.y*.24+sin(q.x*.22+drift.z)*.025)+motion.xy;
-		vec2 ice_noise=textureLod(cloud_noise,vec3(uv,.17+motion.z),1.0).rg;
+		float ice_width=qwidth*.25;
+		float ice_lod=clamp(log2(max(1.0,64.0*ice_width)),1.0,5.0);
+		// Stretch fibres, not their supporting packet. Isotropic packets break
+		// the long coherent blades produced by stretching the whole ice field.
+		// Integer frequency keeps the publisher's periodic motion wrap exact.
+		vec2 packet_uv=uv*vec2(3.0,1.0);
+		vec2 ice_noise=textureLod(cloud_noise,vec3(packet_uv,.17+motion.z),ice_lod).rg;
 		texture_detail=ice_noise.g;
 		float packet=clamp((ice_noise.r-(.38-coverage*.25))/.45,0.0,1.0);
 		vec2 fibre_uv=uv+(ice_noise-.5)*vec2(.60,.35);
-		float strokes=texture(cirrus_tex,fibre_uv).r;
+		float fibre_lod=log2(max(1.0,float(textureSize(cirrus_tex,0).x)*ice_width));
+		float strokes=textureLod(cirrus_tex,fibre_uv,fibre_lod).r;
 		body=packet*packet*mix(.5,1.0,ice_noise.g)*mix(.70,1.0,strokes);
 		// Unresolved distant fibres become a faint veil instead of a repeating
 		// fan of lines aimed at the horizon. This changes ice, not world fog.
@@ -140,11 +146,15 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		float vertical_scale=rounded ? clamp(layer.z*mark_scale/max(brush.x,.1),.10,.65) : .55;
 		vec3 lookup=vec3(marks*mark_scale+motion.xy,h*vertical_scale+motion.z*2.0);
 		vec2 field;
+		float far_family=1.0;
+		float far_field=smoothstep(7.0,22.0,length(p.xz-wx_camera_km.xz));
 		if(living_fluid_enabled) {
 			// Nested Worley deformation is small enough to retain broad families.
 			// A distant view ray covers many texels too: without this the far deck
 			// aliases into fans converging on the horizon.
-			float view_width=length(p.xz-wx_camera_km.xz)*.012/max(brush.x,.1);
+			// The analytic high plane supplies its projected pixel footprint.
+			// Retain the volumetric cone until that march supplies a pixel cone.
+			float view_width=genus==1 ? 0.0 : length(p.xz-wx_camera_km.xz)*.012/max(brush.x,.1);
 			float width=max(qwidth,view_width)*mark_scale;
 			float detail_lod=clamp(log2(max(1.0,64.0*3.0*max(width,hwidth*vertical_scale))),1.0,5.0);
 			float macro_lod=clamp(log2(max(1.0,128.0*max(width,hwidth*vertical_scale))),1.0,6.0);
@@ -154,10 +164,18 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 			// The tile repeats every few kilometres, and in perspective a repeating
 			// grid reads as rays from the horizon. Far away, cross-fade to a slower
 			// rotated copy so the deck has no axis left to show.
-			float far_field=smoothstep(7.0,22.0,length(p.xz-wx_camera_km.xz));
 			if(far_field>.001) {
-				vec2 slow=mat2(vec2(.80,-.60),vec2(.60,.80))*lookup.xy*.31;
-				field.x=mix(field.x,textureLod(cloud_macro,vec3(slow,lookup.z),macro_lod).r,far_field);
+				// Transport the broad field at its own periodic frequency. Scaling
+				// a wrapped fine UV by .31 made it jump at phase wrap boundaries.
+				vec2 broad=q*.043+drift.xy;
+				vec2 slow=vec2(broad.x+broad.y,broad.y-broad.x);
+				float broad_width=max(qwidth*.061,hwidth*vertical_scale);
+				float broad_lod=clamp(log2(max(1.0,128.0*broad_width)),1.0,6.0);
+				float broad_mass=textureLod(cloud_macro,vec3(slow,lookup.z),broad_lod).r;
+				far_family=smoothstep(.30,.65,broad_mass);
+				// Cc keeps its small cells. Replacing those cells with slow noise
+				// stretched them into connected horizon strips.
+				if(genus!=1) field.x=mix(field.x,broad_mass,far_field);
 			}
 		} else field=textureLod(cloud_noise,lookup,1.0).rg;
 		texture_detail=field.y;
@@ -184,13 +202,14 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		}
 		// Billowed edges on the view ray only: the lighting taps keep their
 		// filtered footprint and spend nothing on detail they could not resolve.
-		if(living_fluid_enabled && qwidth==0.0 && body>.001 && body<.999) {
+		if(living_fluid_enabled && primary && body>.001 && body<.999) {
 			// Fine detail fades out before it is smaller than a pixel; unfiltered
 			// it aliased into rays converging on the horizon.
 			float distance_km=length(p.xz-wx_camera_km.xz);
 			float near_detail=1.0-smoothstep(5.0,16.0,distance_km);
 			if(near_detail>.001) {
-				float billow=textureLod(cloud_noise,lookup*7.0,clamp(1.0+log2(1.0+distance_km*.6),1.0,5.0)).g;
+				float billow_lod=max(1.0+log2(1.0+distance_km*.6),log2(max(1.0,64.0*7.0*max(qwidth*mark_scale,hwidth*vertical_scale))));
+				float billow=textureLod(cloud_noise,lookup*7.0,clamp(billow_lod,1.0,5.0)).g;
 				if(genus==1) body*=1.0-(1.0-billow)*.25*near_detail;
 				else body=clamp(body-(1.0-billow)*(rounded ? .28 : .55)*near_detail*(1.0-body),0.0,1.0);
 			}
@@ -199,6 +218,7 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		// Small cells belong to broad families, with open sky between families.
 		// Reuse the existing warp tap rather than adding another noise octave.
 		float family=smoothstep(.36-.20*coverage,.60-.20*coverage,warp.x+.5);
+		if(genus==1 && living_fluid_enabled) family=mix(family,far_family,far_field);
 		body*=mix(family,1.0,smoothstep(.70,.96,coverage));
 		// The high plane reaches 100 km and more. Past what the eye could resolve
 		// it is a thin even veil, not a pattern repeated thirty times over.
