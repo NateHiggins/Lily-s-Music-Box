@@ -1268,7 +1268,8 @@ if PACK_HAIR:
             v.co = v.co.lerp(hit[0] + hit[1] * 0.004, press)
     parts.append(under_hat)
     CFG["hair"]["style"] = "short"
-extras.append(cap)
+if OUTFIT or CFG["hair"].get("set") != "pinned":
+    extras.append(cap)
 
 STYLES = {
     "ringlets": {"points": 32, "lying": 10, "length": [0.25, 0.31], "radius": [0.011, 0.015], "turns": [1.5, 2.1], "first_angle": 62.0, "per_side": 20,
@@ -1280,7 +1281,8 @@ STYLES = {
 }
 STYLE = dict(STYLES[CFG["hair"].get("style", "bob")])
 STYLE.update({k: v for k, v in CFG["hair"].items() if k in STYLE})
-if OUTFIT or PACK_HAIR:
+PINNED = (not OUTFIT) and CFG["hair"].get("set") == "pinned"
+if OUTFIT or PACK_HAIR or PINNED:
     STYLE["guides"] = 8  # an outfit's file carries no hair; do not spend time on it
 head_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
 cloth_points = [tuple(g.matrix_world @ v.co) for g in garments for v in g.data.vertices]
@@ -1398,6 +1400,133 @@ def on_head(obj):
     extras.append(obj)
 
 
+if PINNED:
+    # A set of the late twenties, modelled outright: hair waved close over the
+    # head and ears, gathered low at the nape into a cluster of pin curls, and
+    # a clip above one ear.
+    bm = bmesh.new()
+    bm.from_mesh(mesh)
+    bm.verts.ensure_lookup_table()
+    ear = lambda q: q.z < nose.z + 0.05 and abs(q.x) > 0.067 and abs(q.y - mid_y) < 0.04
+    wanted = [f for f in bm.faces if any(scalp(v.co) for v in f.verts) and not any(ear(v.co) for v in f.verts)]
+    bmesh.ops.delete(bm, geom=[f for f in bm.faces if f not in set(wanted)], context="FACES")
+    bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
+    for _ in range(14):
+        moved = {}
+        for v in bm.verts:
+            beside = [e.other_vert(v) for e in v.link_edges if e.is_boundary]
+            if len(beside) == 2:
+                moved[v] = v.co * 0.5 + (beside[0].co + beside[1].co) * 0.25
+        for v, co in moved.items():
+            v.co = co
+    bmesh.ops.subdivide_edges(bm, edges=bm.edges[:], cuts=1, use_grid_fill=True, smooth=1.0)
+    bm.normal_update()
+    # How far each point is from the hairline, in rings: the edge lies on the skin, the rest stands off it.
+    ring = {v: 0 for v in bm.verts if v.is_boundary}
+    edge_front = list(ring)
+    for step_ in range(1, 4):
+        following = []
+        for v in edge_front:
+            for e in v.link_edges:
+                other = e.other_vert(v)
+                if other not in ring:
+                    ring[other] = step_
+                    following.append(other)
+        edge_front = following
+    crown_z = max(v.co.z for v in bm.verts)
+    for v in bm.verts:
+        rise = (0.12, 0.5, 0.82, 0.95)[ring[v]] if v in ring else 1.0
+        side = max(0.0, min(1.0, (abs(v.co.x) - 0.025) / 0.03)) * max(0.0, min(1.0, (crown_z - 0.012 - v.co.z) / 0.03))
+        wave = math.sin(v.co.z * 105.0 + 2.2 * math.sin(v.co.y * 40.0))
+        top = max(0.0, min(1.0, (v.co.z - (nose.z + 0.095)) / 0.05))
+        v.co = v.co + v.normal * rise * (0.010 + 0.006 * top + 0.0042 * wave * side)
+    hair_faces = len(bm.faces)
+
+    def ring_of(centre, axis, major, minor, around=16, across=8):
+        axis = axis.normalized()
+        first = axis.cross(Vector((0, 0, 1)))
+        first = first.normalized() if first.length > 1e-4 else Vector((1, 0, 0))
+        second = axis.cross(first).normalized()
+        loops_ = []
+        for i in range(around):
+            a = math.tau * i / around
+            out_ = first * math.cos(a) + second * math.sin(a)
+            loops_.append([bm.verts.new(centre + out_ * (major + minor * math.cos(math.tau * j / across)) + axis * (minor * math.sin(math.tau * j / across))) for j in range(across)])
+        for i in range(around):
+            for j in range(across):
+                bm.faces.new((loops_[i][j], loops_[(i + 1) % around][j], loops_[(i + 1) % around][(j + 1) % across], loops_[i][(j + 1) % across]))
+
+    back_way = Vector((0.0, 1.0, -0.6)).normalized()
+    nape = head_tree.ray_cast(skull_mid, back_way, 0.4)[0]
+    if nape is not None:
+        right_ = Vector((1, 0, 0))
+        up_ = back_way.cross(right_).normalized()
+        if up_.z < 0:
+            up_ = -up_
+        # The gathered mass, then the pin curls lying on it.
+        made_ = bmesh.ops.create_uvsphere(bm, u_segments=18, v_segments=10, radius=1.0)
+        for v in made_["verts"]:
+            v.co = nape + back_way * 0.014 + right_ * v.co.x * 0.06 + up_ * v.co.y * 0.034 + back_way * v.co.z * 0.028
+        for dx, dz in ((-0.043, 0.006), (-0.022, 0.02), (0.0, 0.024), (0.022, 0.02), (0.043, 0.006), (-0.03, -0.014), (0.0, -0.012), (0.03, -0.014), (-0.011, 0.004), (0.012, 0.003)):
+            lift_ = 0.036 - (dx * dx) * 9.0 - (dz * dz) * 10.0
+            lean = (back_way + right_ * dx * 6.0 + up_ * dz * 6.0).normalized()
+            ring_of(nape + back_way * lift_ + right_ * dx + up_ * dz, lean, 0.0125, 0.0062)
+    for f in bm.faces:
+        f.smooth = True
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    set_mesh = bpy.data.meshes.new("HairSet")
+    bm.to_mesh(set_mesh)
+    bm.free()
+    hair_set = bpy.data.objects.new("HairSet", set_mesh)
+    bpy.context.scene.collection.objects.link(hair_set)
+    # Combed strands as a picture: fine streaks running with the hair.
+    streaks = numpy.random.default_rng(7).random(256).astype(numpy.float32)
+    for _ in range(3):
+        streaks = (numpy.roll(streaks, 1) + streaks * 2.0 + numpy.roll(streaks, -1)) / 4.0
+    streaks = 0.38 + 0.5 * (streaks - streaks.min()) / max(float(streaks.max() - streaks.min()), 1e-4)
+    grid_ = numpy.ones((32, 256, 4), dtype=numpy.float32)
+    grid_[:, :, :3] = numpy.clip(streaks[None, :, None] * hair_tone[None, None, :], 0.0, 1.0)
+    picture_ = bpy.data.images.new(CID + "_hair_set", 256, 32, alpha=True)
+    picture_.pixels.foreach_set(grid_.ravel())
+    picture_.filepath_raw = os.path.join(OUT, CID + "_hair_set.png")
+    picture_.file_format = "PNG"
+    picture_.save()
+    set_material = bpy.data.materials.new(CID + "_hair_set")
+    set_material.use_nodes = True
+    shader_ = set_material.node_tree.nodes["Principled BSDF"]
+    image_node = set_material.node_tree.nodes.new("ShaderNodeTexImage")
+    image_node.image = picture_
+    set_material.node_tree.links.new(image_node.outputs["Color"], shader_.inputs["Base Color"])
+    shader_.inputs["Roughness"].default_value = 0.5
+    hair_set.data.materials.append(set_material)
+    set_uv = set_mesh.uv_layers.new(name="Hair")
+    for polygon in set_mesh.polygons:
+        for loop_index in polygon.loop_indices:
+            co = set_mesh.vertices[set_mesh.loops[loop_index].vertex_index].co
+            if polygon.index < hair_faces:
+                set_uv.data[loop_index].uv = (math.atan2(co.x, -(co.y - mid_y)) / math.tau * 13.0 + 0.09 * math.sin(co.z * 105.0 + 2.2 * math.sin(co.y * 40.0)), co.z * 4.0)
+            else:
+                set_uv.data[loop_index].uv = ((co.x + co.z) * 28.0, co.y * 9.0)
+    on_head(hair_set)
+    # The clip, above the right ear.
+    clip_way = Vector((-1.0, -0.12, 0.42)).normalized()
+    clip_at = head_tree.ray_cast(skull_mid, clip_way, 0.4)[0]
+    if clip_at is not None:
+        bm = bmesh.new()
+        made_ = bmesh.ops.create_uvsphere(bm, u_segments=12, v_segments=8, radius=1.0)
+        slant = Vector((0.0, 1.0, -0.35)).normalized()
+        across_ = clip_way.cross(slant).normalized()
+        for v in made_["verts"]:
+            v.co = clip_at + clip_way * 0.017 + slant * v.co.x * 0.03 + across_ * v.co.y * 0.008 + clip_way * v.co.z * 0.004
+        for f in bm.faces:
+            f.smooth = True
+        clip_mesh = bpy.data.meshes.new("HairClip")
+        bm.to_mesh(clip_mesh)
+        bm.free()
+        hair_clip = bpy.data.objects.new("HairClip", clip_mesh)
+        bpy.context.scene.collection.objects.link(hair_clip)
+        hair_clip.data.materials.append(plain(CID + "_hair_clip", CFG["hair"].get("clip_colour", [0.93, 0.9, 0.8]), 0.28, 0.0))
+        on_head(hair_clip)
 skull = [v.co.copy() for v in mesh.vertices if v.co.z > nose.z + 0.066]
 for HAT in (HATS if skull else []):
     top_z = max(q.z for q in skull)
@@ -1526,7 +1655,7 @@ recipe = {"schema_version": 1, "rig_scale_baked": 1.0, "hair": CID + "_hair.tfx"
           "global_stiffness": float(STYLE["global_stiffness"]), "global_range": float(STYLE["global_range"]),
           "base_colour": [round(float(c), 4) for c in numpy.clip(hair_tone * 0.95, 0, 1)], "tip_colour": [round(float(c), 4) for c in numpy.clip(hair_tone * 1.3, 0, 1)],
           "fibre_radius": float(CFG["hair"].get("fibre_radius", 0.001))}
-if not OUTFIT and not PACK_HAIR:
+if not OUTFIT and not PACK_HAIR and not PINNED:
     json.dump(recipe, open(os.path.join(OUT, CID + "_hair.json"), "w", encoding="utf-8"), indent=1)
 else:
     show = ["head", "hands"] + (["arms"] if float(CFG.get("bare_arm_from", 1.0)) < 1.0 else []) + (["chest"] if float(CFG.get("bare_chest_vee", 0.0)) > 0.0 else []) + (["legs"] if CFG.get("bare_legs") else [])
