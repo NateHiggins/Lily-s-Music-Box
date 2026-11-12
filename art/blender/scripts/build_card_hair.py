@@ -47,6 +47,8 @@ if STYLE.get("fit") == "head_bone":
 else:
     C = Vector(STYLE["skull_centre"])
 tree = BVHTree.FromBMesh(bm)
+# The tip of the nose: the hat line is measured up from it, as the wardrobe builder measures its hats.
+NOSE = min((v.co for v in bm.verts if v.co.z > CANON_C.z - 0.12), key=lambda co: co.y).copy()
 BALD = math.radians(float(STYLE.get("bald_within_degrees", 0.0)))   # a bare crown, for a man who has lost his
 
 
@@ -565,16 +567,30 @@ if roundness > 0.0:
             radial = radial.normalized() if radial.length > 1e-5 else Vector((0, 0, 1))
             rounded.append(tuple((vertex.normal * (1.0 - roundness) + radial * roundness).normalized()))
         made_mesh.normals_split_custom_set_from_vertices(rounded)
+# The same hair as worn under a hat: everything above the hat line lies flat on the head, so no card
+# stands through the crown of a hat. Kept in the saved scene for whoever dresses the head; not in the GLB.
+hat_mesh = card_mesh.copy()
+hat_mesh.name = "HatHairCards"
+hat_line = NOSE.z + float(STYLE.get("hat_line_above_nose_m", 0.045))
+for vertex in hat_mesh.vertices:
+    press = max(0.0, min(1.0, (vertex.co.z - hat_line) / 0.03))
+    if press > 0.0:
+        hit = tree.find_nearest(vertex.co)
+        if hit[0] is not None:
+            vertex.co = vertex.co.lerp(hit[0] + hit[1] * 0.004, press)
+hat_mesh.update()
 card_mesh.transform(FIT)
 cap_mesh.transform(FIT)
+hat_mesh.transform(FIT)
 card_object = bpy.data.objects.new("HairCards", card_mesh)
 card_object.data.materials.append(material(NAME + "_hair_cards", True))
+hat_object = bpy.data.objects.new("HatHairCards", hat_mesh)
 
 # ---------------------------------------------------------------- export: hair only, in place
 # Everything of the source is dropped from memory (the file on disk is never
 # written), so the export and the saved scene hold the hair and nothing else.
 for other in list(bpy.data.objects):
-    bpy.data.objects.remove(other, do_unlink=True) if other not in (cap, card_object) else None
+    bpy.data.objects.remove(other, do_unlink=True) if other not in (cap, card_object, hat_object) else None
 scene = bpy.context.scene
 scene.collection.objects.link(cap)
 scene.collection.objects.link(card_object)
@@ -584,6 +600,7 @@ for made in (cap, card_object):
 bpy.context.view_layer.objects.active = card_object
 bpy.ops.export_scene.gltf(filepath=str(OUT / (NAME + "_hair_cards.glb")), export_format="GLB", use_selection=True,
         export_yup=True, export_tangents=True, export_materials="EXPORT", export_apply=True)
+scene.collection.objects.link(hat_object)
 bpy.ops.outliner.orphans_purge(do_local_ids=True, do_linked_ids=True, do_recursive=True)
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT / (NAME + "_hair_cards.blend")), copy=True)
 report["triangles"] = len(card_faces) * 2 + len(faces) * 2
