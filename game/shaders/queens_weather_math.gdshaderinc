@@ -85,6 +85,7 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 	float body=0.0;
 	float texture_detail=.6;
 	bool sheet=(genus==2 || genus==4 || genus==5 || genus==7);
+	bool rounded=(genus==3 || genus==6 || genus==8); // Ac, Sc, Cu; not the high ice plane.
 	if(living_fluid_enabled && genus!=0) {
 		// Wind-aligned leaning; cirrus retains its distinct ice-fibre brush.
 		q.x-=h*h*flow_state.y*.55;
@@ -121,15 +122,20 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		// Reuse the existing two-channel volume; no new texture or march steps.
 		vec2 warp;
 		if(living_fluid_enabled) {
-			vec3 roll=curl_noise3d(vec3(q*.043+drift.xy,h*.30+flow_state.x));
+			// Ordinary families share a column-coherent footprint. Independent
+			// height slices otherwise fill one another's holes into an overcast.
+			vec3 roll=curl_noise3d(vec3(q*.043+drift.xy,(rounded ? 0.0 : h*.30)+flow_state.x));
 			warp=roll.xy*.5;
 			h+=roll.z*.13*sin(h*3.14159265359);
 		} else warp=textureLod(cloud_noise,vec3(q*.043+drift.xy,motion.z),1.0).rg-.5;
 		vec2 marks=q+warp*3.0;
 		if(int(brush.z)==4 || int(brush.z)==9) marks.y*=genus==1 ? .70 : .32;
 		// Keep in step with living_sky.gd, which transports the same coordinate.
-		float mark_scale=genus==1 ? .10 : .40;
-		vec3 lookup=vec3(marks*mark_scale+motion.xy,h*.55+motion.z*2.0);
+		float mark_scale=genus==1 ? .30 : .40;
+		// Match horizontal and vertical kilometres for ordinary billows. A fixed
+		// .55 cycles per layer compressed Sc lobes almost fourfold into pancakes.
+		float vertical_scale=rounded ? clamp(layer.z*mark_scale/max(brush.x,.1),.10,.65) : .55;
+		vec3 lookup=vec3(marks*mark_scale+motion.xy,h*vertical_scale+motion.z*2.0);
 		vec2 field;
 		if(living_fluid_enabled) {
 			// Nested Worley deformation is small enough to retain broad families.
@@ -137,8 +143,8 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 			// aliases into fans converging on the horizon.
 			float view_width=length(p.xz-wx_camera_km.xz)*.012/max(brush.x,.1);
 			float width=max(qwidth,view_width)*mark_scale;
-			float detail_lod=clamp(log2(max(1.0,64.0*3.0*max(width,hwidth*.55))),1.0,5.0);
-			float macro_lod=clamp(log2(max(1.0,128.0*max(width,hwidth*.55))),1.0,6.0);
+			float detail_lod=clamp(log2(max(1.0,64.0*3.0*max(width,hwidth*vertical_scale))),1.0,5.0);
+			float macro_lod=clamp(log2(max(1.0,128.0*max(width,hwidth*vertical_scale))),1.0,6.0);
 			vec2 detail=textureLod(cloud_noise,lookup*3.0,detail_lod).rg;
 			lookup.xy+=(detail-.5)*.10;
 			field=vec2(textureLod(cloud_macro,lookup,macro_lod).r,detail.g);
@@ -157,12 +163,16 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		h-=(1.0-field.x)*.35*(1.0-smoothstep(.20,.80,h));
 		h+=(1.0-field.x)*.18*smoothstep(.40,.90,h);
 		float mass=field.x; // Worley is erosion, never a second field of tiny bodies.
-		float upper=(genus==1 || genus==3 || genus==6) ? .43 : .78;
+		float upper=genus==1 ? .43 : ((genus==3 || genus==6) ? .70 : .78);
 		mass-=pow(max(h-.12,0.0)/upper,2.0)*.18;
 		if(int(brush.z)==5) mass+=sin(q.y*2.2+drift.z+warp.x*4.0)*.08;
 		if(int(brush.z)==6) mass+=sin(q.x*.16+drift.w)*.10;
 		if(int(brush.z)==8) mass-=.07*(1.0-field.y);
-		body=smoothstep(.70-.40*sqrt(coverage),.75-.40*sqrt(coverage),mass);
+		// Linear ordinary coverage avoids filling a long ray with many weak
+		// sqrt-coverage hits. A graded interior retains light and shadow relief.
+		float edge_width=(rounded || genus==1) ? .060 : .025;
+		float edge_center=.725-.40*(rounded ? coverage : sqrt(coverage));
+		body=smoothstep(edge_center-edge_width,edge_center+edge_width,mass);
 		// Billowed edges on the view ray only: the lighting taps keep their
 		// filtered footprint and spend nothing on detail they could not resolve.
 		if(living_fluid_enabled && qwidth==0.0 && body>.001 && body<.999) {
@@ -172,7 +182,7 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 			float near_detail=1.0-smoothstep(5.0,16.0,distance_km);
 			if(near_detail>.001) {
 				float billow=textureLod(cloud_noise,lookup*7.0,clamp(1.0+log2(1.0+distance_km*.6),1.0,5.0)).g;
-				body=clamp(body-(1.0-billow)*.55*near_detail*(1.0-body),0.0,1.0);
+				body=clamp(body-(1.0-billow)*(rounded ? .28 : .55)*near_detail*(1.0-body),0.0,1.0);
 			}
 		}
 		body=mix(body,.7+.3*field.x,smoothstep(.88,1.0,coverage));
