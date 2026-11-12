@@ -213984,7 +213984,7 @@
     "_add_batch"
    ],
    "lines": [
-    286
+    289
    ],
    "count": 1,
    "context": [
@@ -214014,7 +214014,7 @@
     "_park"
    ],
    "lines": [
-    306
+    309
    ],
    "count": 1,
    "context": [
@@ -214049,6 +214049,38 @@
    "count": 1,
    "context": [
     "\"%sBody%02d\" % [label, i]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7e903f1f2c47584e",
+   "kind": "generated_name",
+   "token": "_ready",
+   "file": "game/scripts/building/orison_v2_street_vehicle_lights.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    53,
+    63
+   ],
+   "count": 2,
+   "context": [
+    "\"Headlamp%d\" % index",
+    "\"Glow%d\" % index"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -259636,7 +259668,7 @@
     "_ready"
    ],
    "lines": [
-    351
+    353
    ],
    "count": 1,
    "context": [
@@ -259696,8 +259728,8 @@
     "_ready"
    ],
    "lines": [
-    257,
-    265
+    258,
+    267
    ],
    "count": 2,
    "context": [
@@ -259727,8 +259759,8 @@
     "_ready"
    ],
    "lines": [
-    298,
-    350
+    300,
+    352
    ],
    "count": 2,
    "context": [
@@ -259760,7 +259792,7 @@
    ],
    "lines": [
     180,
-    300
+    302
    ],
    "count": 2,
    "context": [
@@ -268350,6 +268382,40 @@
     "for point in [Vector3(7,0,4.2), Vector3(7,-.1,8), Vector3(7,-.1,13.6), Vector3(7,0,14.8)]:",
     "if not await _walk_world(Vector3(5.65,0,17.3)): return",
     "for point in [Vector3(5.65,0,14.8),Vector3(7,0,14.8),Vector3(7,-.1,13.6),Vector3(7,-.1,8),Vector3(7,0,4.2),Vector3(7,0,3)]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "32236ca3d3c31a14",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/v2_street_lights_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    146,
+    193,
+    196
+   ],
+   "count": 3,
+   "context": [
+    "person.position = Vector3(0, 0, 9.5)",
+    "person.position = Vector3(150, 0, 9.5)"
    ],
    "gameplay_binding": true,
    "authority": [
