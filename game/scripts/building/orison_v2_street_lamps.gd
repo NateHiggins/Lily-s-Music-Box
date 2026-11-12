@@ -28,6 +28,8 @@ class LampClock extends Node:
 	## No two mantles burn alike: each light's share of the energy, its own
 	## rhythm, and whether it is one of the lamps that gutter.
 	var flicker := 0.0
+	## The table's light record, kept so lamps adopted later burn the same gas.
+	var record: Dictionary = {}
 	var _share: PackedFloat32Array = []
 	var _phase: PackedFloat32Array = []
 	var _gutters: PackedByteArray = []
@@ -62,8 +64,10 @@ class LampClock extends Node:
 	## Give every lamp its own character, the same every night: `light` is the
 	## table's light record.
 	func temper(light: Dictionary) -> void:
+		record = light
 		flicker = float(light.flicker)
-		var base := lights[0].light_color if not lights.is_empty() else Color.WHITE
+		var tone: Array = light.color_rgb
+		var base := Color(tone[0], tone[1], tone[2])
 		_share.resize(lights.size())
 		_phase.resize(lights.size())
 		_gutters.resize(lights.size())
@@ -75,6 +79,29 @@ class LampClock extends Node:
 			_gutters[index] = 1 if rng.randf() < float(light.sputter_share) else 0
 			var warmth := float(light.warmth_spread) * rng.randf_range(-1.0, 1.0)
 			lights[index].light_color = Color(base.r, clampf(base.g + warmth, 0.0, 1.0), clampf(base.b + warmth * 1.4, 0.0, 1.0))
+
+	## Lamps another owner stands (the mid ground's posts) but nobody lights:
+	## give each a pool like the runs', at the given points in `parent`'s frame.
+	func adopt(points: Array, parent: Node3D) -> int:
+		if record.is_empty() or parent == null:
+			return 0
+		var colour: Array = record.color_rgb
+		for point: Vector3 in points:
+			var light := OmniLight3D.new()
+			light.name = "AdoptedLampPool"
+			light.light_color = Color(colour[0], colour[1], colour[2])
+			light.light_energy = float(record.energy)
+			light.omni_range = float(record.range_m)
+			light.shadow_enabled = false
+			light.distance_fade_enabled = true
+			light.distance_fade_begin = float(record.fade_begin_m)
+			light.distance_fade_length = float(record.fade_length_m)
+			parent.add_child(light)
+			light.position = point
+			lights.append(light)
+		temper(record)
+		refresh()
+		return points.size()
 
 	## How brightly one lamp burns this instant, as a share of the table's energy.
 	func burn(index: int) -> float:

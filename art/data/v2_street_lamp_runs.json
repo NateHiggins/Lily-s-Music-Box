@@ -1,7 +1,7 @@
 {
  "schema": "orison.v2.street-lamp-runs.v1",
  "frame": "ORISON_FRONT_DOOR_THRESHOLD",
- "method": "Kerbside spots found on 2026-11-12 by probing the running V2 world's colliders: both pavements of the avenue and of each cross street inside the walkable radius, one lamp every 30 m with the two sides staggered, 0.9 m back from the kerb, each spot checked for level pavement, room for the post and globe, and clear headroom. Spots that failed were shifted up to 9 m or dropped.",
+ "method": "Kerbside spots found on 2026-11-12 by probing the running V2 world's colliders: both pavements of the avenue and of each cross street inside the walkable radius, one lamp every 30 m with the two sides staggered, 0.9 m back from the kerb, each spot checked for level pavement, room for the post and globe, and clear headroom. Spots that failed were shifted up to 9 m or dropped. Four spots within 5 m of a lamp the city mid ground already stands (art/blender city midground furniture) were then dropped, so no two posts stand side by side.",
  "spacing_m": 30.0,
  "kerb_setback_m": 0.9,
  "lamps": [
@@ -10,15 +10,6 @@
    "at": [
     -126.0,
     -1.345,
-    4.03
-   ],
-   "yaw_degrees": 0.0
-  },
-  {
-   "id": "lamp_run_avenue_n_w105",
-   "at": [
-    -105.0,
-    -1.03,
     4.03
    ],
    "yaw_degrees": 0.0
@@ -76,15 +67,6 @@
     4.03
    ],
    "yaw_degrees": 0.0
-  },
-  {
-   "id": "lamp_run_avenue_s_w120",
-   "at": [
-    -120.0,
-    -1.256,
-    15.03
-   ],
-   "yaw_degrees": 180.0
   },
   {
    "id": "lamp_run_avenue_s_w090",
@@ -231,15 +213,6 @@
    "yaw_degrees": -90.0
   },
   {
-   "id": "lamp_run_cross_w069_n_e_097",
-   "at": [
-    -63.55,
-    -0.409,
-    -87.47
-   ],
-   "yaw_degrees": -90.0
-  },
-  {
    "id": "lamp_run_cross_w069_n_e_127",
    "at": [
     -63.55,
@@ -353,15 +326,6 @@
     -63.65,
     -0.58,
     55.53
-   ],
-   "yaw_degrees": -90.0
-  },
-  {
-   "id": "lamp_run_cross_w069_s_e_097",
-   "at": [
-    -63.55,
-    -0.409,
-    106.53
    ],
    "yaw_degrees": -90.0
   },
