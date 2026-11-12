@@ -146,6 +146,10 @@ bone = lambda name: rig.matrix_world @ rig.data.bones[PREFIX + name].head_local
 names = {g.index: g.name for g in human.vertex_groups}
 group_index = {n: i for i, n in names.items()}
 mesh = human.data
+# The top of the eye, read now: the eye helpers are trimmed off the body further down.
+_eye = group_index.get("helper-l-eye")
+EYE_TOP_Z = max((v.co.z for v in mesh.vertices if any(g.group == _eye for g in v.groups)), default=None) if _eye is not None else None
+print("EYE TOP", EYE_TOP_Z)
 
 
 def in_group(vertex, group):
@@ -777,6 +781,8 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             rings = []
             steps = 44
             rows = 13
+            cape_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
+            reached = [0.0] * steps
             for k in range(rows):
                 t = k / (rows - 1.0)
                 ring = []
@@ -790,7 +796,17 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
                     rx *= fold
                     ry = 0.07 + (0.165 if math.sin(a) < 0 else 0.14) * over - 0.07 * over + 0.04 * depth / L
                     cy = neck_y + (chest_y - neck_y) * over
-                    ring.append(bm.verts.new((math.cos(a) * rx, cy + math.sin(a) * ry * fold, neck + 0.012 - depth)))
+                    # The cloth lies on the shoulders where they hold it up and hangs clear below: its reach is
+                    # the body's own at that height plus the cloth, never more than the cone, and never less
+                    # than it was higher up. A cone alone sat across the shoulders like a box.
+                    z = neck + 0.012 - depth
+                    out = Vector((math.cos(a), math.sin(a), 0.0))
+                    cone = Vector((math.cos(a) * rx, math.sin(a) * ry * fold, 0.0)).length
+                    hit = cape_tree.ray_cast(Vector((0.0, cy, z)) + out * 0.8, -out, 0.8)
+                    reach = cone if hit[0] is None else min(cone, (hit[0] - Vector((0.0, cy, z))).length + 0.024)
+                    reach = max(reach, reached[j] * (1.0 if depth > 0.03 else 0.0))
+                    reached[j] = reach
+                    ring.append(bm.verts.new((out.x * reach, cy + out.y * reach, z)))
                 rings.append(ring)
             for upper, lower in zip(rings, rings[1:]):
                 for j in range(steps):
@@ -1268,9 +1284,8 @@ front = [v.co for v in mesh.vertices if abs(v.co.x) < 0.012 and head_at.z - 0.02
 nose = min(front, key=lambda p: p.y).copy()
 # The brow is measured up from the eyes, not the nose: on the men's longer faces a brow guessed from the
 # nose sat at the eye, and their hats came down over their eyes.
-_eye = group_index.get("helper-l-eye")
-_eye_top = max((v.co.z for v in mesh.vertices if any(g.group == _eye for g in v.groups)), default=nose.z + 0.044) if _eye is not None else nose.z + 0.044
-BROW_Z = _eye_top + 0.022
+BROW_Z = (EYE_TOP_Z if EYE_TOP_Z is not None else nose.z + 0.044) + 0.022
+print("BROW", round(BROW_Z - nose.z, 4), "above the nose")
 hair_tone = numpy.array(CFG["hair"]["colour"], dtype=numpy.float32)
 mid_y = nose.y + 0.1
 skull_mid = Vector((0.0, mid_y, nose.z + 0.055))
@@ -1667,7 +1682,8 @@ for HAT in (HATS if skull else []):
     # Each kind of hat has its own crown and its own brim.
     hat_kind = HAT.get("kind", "cloche")
     brim = float(HAT.get("brim", 1.0))
-    bz = brow_z - 0.014
+    # A brim that turns down hangs 16 mm below the band; it must clear the top of the eye.
+    bz = brow_z + 0.002 if hat_kind in ("cloche", "derby", "fedora", "cap") else brow_z - 0.014
     crown_foot = bz + 0.034
     #            crown: lift, width, roundness of the side, flatness of the top, how far the back dips
     crowns = {"cloche": (0.014, 1.085, 0.8, 1.25, 0.55), "toque": (0.04, 1.14, 0.5, 1.7, 0.3), "wide": (0.004, 1.06, 0.8, 1.1, 0.3),
