@@ -56,6 +56,9 @@ Godot 4.7.1 patched Vulkan/Forward+ captures use 3440 by 1440 pixels with TAA.
 
 ## Final technical results
 
+PR246 merged as **0e7beb605**, with the exact verified **44e8f803a** tree.
+The clean 122-gate comparison has zero new regressions, protected 17/17 and no
+design-lint errors; the only gate-file edit is the reviewed test-only manifest row.
 Implementation checkpoint **843a4cf90**. Cloudlets10: 12 views, zero failures.
 Final matrix03: four moving-camera dates (28 frames), nine optical/temporal checks,
 eight seasonal/night states and six event captures pass with empty stderr.
@@ -96,4 +99,8 @@ Do not claim a speedup from unmatched wall-time averages.
 All comparison images, original failures and provenance remain held for review.
 No report artifact is released or purged in this closeout. Generated untracked
 UIDs in the canonical checkout remain in place. A single temporary clean checkout
-is used for static verification and archived afterward, without another import.
+was used for static verification without another import. Managed archive refused
+its removal because Codex made it the chat's primary checkout. It is therefore
+retained as a clean sparse checkout with root documents and .agents (0.95 MiB),
+removing 25.74 GiB of duplicate files while preserving recoverability. See
+VERIFICATION_CHECKOUT_CUSTODY.json for the exact path and restore command.
