@@ -7654,31 +7654,32 @@
     "replaces": [],
     "rows": [
      {
-      "kind": "jumper",
+      "kind": "shirt",
+      "name": "Blouse",
       "colour": [
-       0.3,
-       0.3,
-       0.32
+       0.734,
+       0.734,
+       0.7416
       ],
-      "vee": 0.06,
-      "sleeves": 0.7,
-      "ease": 0.018,
-      "length": 0.14,
-      "cloth": "cotton",
-      "pattern": {
-       "kind": "dots",
-       "colour": [
-        0.7,
-        0.55,
-        0.2
-       ],
-       "width": 2,
-       "cells": 6,
-       "repeat": 6
-      }
+      "vee": 0.08,
+      "sleeves": 0.5,
+      "blouson": 0.012,
+      "cloth": "silk"
      }
     ],
-    "trim": []
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "step": 0.07,
+      "lift": 0.016,
+      "size": 0.007
+     }
+    ]
    },
    "a_bottom": {
     "slot": "bottom",

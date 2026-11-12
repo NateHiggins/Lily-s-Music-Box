@@ -186,7 +186,7 @@ STYLES = {
     "sacha_reed": [("jersey", "wide_trousers", "waistcoat", "newsboy", "work_boots"), ("tie_suit", "-", "-", "boater", "brogues"), ("shirt_rolled", "knickerbockers", "boxy_jacket", "-", "ankle_boots")],
     "teresa_vale": [("blouse_short", "pack_ruffle_skirt", "apron", "-", "flats"), ("wrap_blouse", "pleated_midi", "cape", "boater", "lady_boots"), ("shift_dress", "-", "swing_coat", "cloche", "tbar")],
     "transient_guests_a": [("henley", "wide_trousers", "waistcoat", "-", "work_boots"), ("db_suit", "-", "-", "pack_fedora", "dress_shoes"), ("jersey", "narrow_trousers", "long_coat", "cap", "boots")],
-    "transient_guests_b": [("smock", "short_skirt", "cardigan", "headscarf", "mary_jane"), ("blouse_pencil", "-", "swing_coat", "wide_hat", "pumps"), ("flapper_dress", "-", "stole", "-", "tall_boots")],
+    "transient_guests_b": [("blouse_short", "short_skirt", "cardigan", "headscarf", "mary_jane"), ("blouse_pencil", "-", "swing_coat", "wide_hat", "pumps"), ("flapper_dress", "-", "stole", "-", "tall_boots")],
 }
 SET_TAGS = [["casual", "home"], ["formal", "street"], ["occasion"]]
 # A second colour for each person, chosen to stand against their own.

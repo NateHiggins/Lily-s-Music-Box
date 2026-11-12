@@ -435,6 +435,10 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         if abs(v.co.x) > shoulder.x - 0.02 and v.co.z > hip and source == "helper-tights":
             # Sleeves and shoulder caps sit closer than the body of a garment, or arms read as padded.
             push = 0.004 + (push - 0.004) * 0.5
+        elif source == "helper-tights" and v.co.z > neck - 0.13:
+            # Room over the collarbones and round the base of the neck: skin came through close shirts there
+            # as chips beside the placket and teeth along the neckline.
+            push += 0.005 * min(1.0, (v.co.z - (neck - 0.13)) / 0.05)
         v.co = v.co + v.normal * push
         if reshape:
             v.co = reshape(v.co)
@@ -637,7 +641,8 @@ def torso(v, low=None, high=None, sleeves=1.0, vee=0.0):
     """The margin (metres, positive inside) of a body garment at a point of the tights."""
     # Nothing cut from the tights hangs below the fork of the legs: it came out as a tongue between them.
     low = max(hip - 0.075, waist - 0.05 if low is None else low)
-    high = neck + 0.02 if high is None else high
+    # A round neck is cut a little below the top of the tights: their own rim is a row of battlements.
+    high = neck - 0.012 if high is None else high
     co = v.co
     arm = weight(v, ARM)
     if sleeves > 0.0 and arm > 0.45:
@@ -652,7 +657,9 @@ def torso(v, low=None, high=None, sleeves=1.0, vee=0.0):
         depth = (neck + 0.01) - co.z
         outside_vee = max(abs(co.x) - (vee - depth) * 0.42, (co.y - (bone("Spine2").y - 0.02)) * 2.0)
         inside = min(inside, outside_vee)
-    return min(inside, max((0.5 - weight(v, LEG)) * W, co.z - (hip - 0.02)))
+    # The hem is the level line at `low`, which never goes below the fork. Following the legs' bone weights
+    # instead scalloped every cardigan and blouse hem.
+    return inside
 
 
 def legs(v, low, high):
@@ -719,9 +726,34 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         piece("Bib", "helper-tights", lambda v: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - 0.01 - v.co.y, band(v.co.z, waist - 0.02, neck - 0.13), 0.11 - abs(v.co.x)),
               0.018, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "cotton")
     elif kind == "apron":
-        piece("ApronStraps", "helper-tights", lambda v: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - v.co.y, band(v.co.z, neck - 0.14, neck + 0.01), band(abs(v.co.x), 0.045, 0.085)),
-              0.022, colour, 0.85, cloth=cloth or "cotton")
-        piece("Apron", "helper-skirt", lambda v: min(-v.co.y, (0.95 - abs(math.atan2(v.co.x, -(v.co.y - 0.02)))) * 0.12), 0.026, colour, 0.85, reshape=skirt_shape(float(row.get("hem", 0.5)), 0.0), cloth=cloth or "cotton", subdivide=1)
+        def strap_shape(bm, lift=0.024):
+            # Each strap is a ribbon found on the body itself: from the bib up over the shoulder and down to
+            # the shoulder blade. Cut out of the body's own faces it came out as ragged flaps round the neck.
+            body_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices if True], [tuple(q.vertices) for q in mesh.polygons])
+            middle = Vector((0.0, bone("Spine2").y, neck - 0.10))
+            for side in (1.0, -1.0):
+                rows = []
+                for k in range(15):
+                    angle = math.radians(-58.0 + 160.0 * k / 14.0)        # from the chest, over the top, to the back
+                    # The strap closes toward the neck as it climbs and opens again behind.
+                    x_mid = side * (0.066 - 0.012 * math.sin(max(0.0, min(math.pi, angle + math.radians(30.0)))))
+                    row = []
+                    outward = Vector((0.0, -math.cos(angle), math.sin(angle)))
+                    for across in (-0.017, 0.017):
+                        # Cast from inside the chest outward: from outside, a ray coming down meets the head first.
+                        hit = body_tree.ray_cast(Vector((x_mid + across, middle.y, middle.z)), outward, 0.3)
+                        if hit[0] is None:
+                            row = None
+                            break
+                        row.append(bm.verts.new(hit[0] + outward * lift))
+                    if row:
+                        rows.append(row)
+                for upper, lower in zip(rows, rows[1:]):
+                    bm.faces.new((upper[0], upper[1], lower[1], lower[0]))
+            bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+
+        piece("ApronStraps", None, None, 0.0, colour, 0.85, cloth=cloth or "cotton", made=strap_shape, weights=lambda co: {"Spine2": 1.0})
+        piece("Apron", "helper-skirt", lambda v: min(-v.co.y, (0.95 - abs(math.atan2(v.co.x, -(v.co.y - 0.02)))) * 0.12), 0.042, colour, 0.85, reshape=skirt_shape(float(row.get("hem", 0.5)), float(row.get("flare", 0.32))), cloth=cloth or "cotton", subdivide=1)
         piece("ApronBib", "helper-tights", lambda v: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - 0.01 - v.co.y, band(v.co.z, waist - 0.02, neck - 0.12), 0.1 - abs(v.co.x)),
               0.02, colour, 0.85, cloth=cloth or "cotton")
     elif kind == "sash":
@@ -1158,6 +1190,9 @@ if not OUTFIT:
         if None in labels:
             continue
         face_label[poly.index] = max(labels, key=lambda l: (labels.count(l), -labels.index(l)))
+    # The body is one surface cut into parts. Each part keeps the whole body's normals, or every cut
+    # shows as a row of flat facets (it did, round the base of the neck).
+    whole_normals = [tuple(v.normal) for v in human.data.vertices]
     for label, rule in rules:
         twin = human.copy()
         twin.data = human.data.copy()
@@ -1168,10 +1203,17 @@ if not OUTFIT:
         bm = bmesh.new()
         bm.from_mesh(twin.data)
         bm.faces.ensure_lookup_table()
+        came_from = bm.verts.layers.int.new("came_from")
+        for v in bm.verts:
+            v[came_from] = v.index
         bmesh.ops.delete(bm, geom=[f for f in bm.faces if face_label.get(f.index) != label], context="FACES")
         bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
         bm.to_mesh(twin.data)
         bm.free()
+        kept = [0] * len(twin.data.vertices)
+        twin.data.attributes["came_from"].data.foreach_get("value", kept)
+        twin.data.attributes.remove(twin.data.attributes["came_from"])
+        twin.data.normals_split_custom_set_from_vertices([whole_normals[i] for i in kept])
         skin_parts.append(twin)
         print("SKIN part", label, len(twin.data.polygons))
 
@@ -1224,6 +1266,11 @@ if eye_node is not None and os.path.exists(eye_file):
 head_at = bone("Head")
 front = [v.co for v in mesh.vertices if abs(v.co.x) < 0.012 and head_at.z - 0.02 < v.co.z < head_at.z + 0.12]
 nose = min(front, key=lambda p: p.y).copy()
+# The brow is measured up from the eyes, not the nose: on the men's longer faces a brow guessed from the
+# nose sat at the eye, and their hats came down over their eyes.
+_eye = group_index.get("helper-l-eye")
+_eye_top = max((v.co.z for v in mesh.vertices if any(g.group == _eye for g in v.groups)), default=nose.z + 0.044) if _eye is not None else nose.z + 0.044
+BROW_Z = _eye_top + 0.022
 hair_tone = numpy.array(CFG["hair"]["colour"], dtype=numpy.float32)
 mid_y = nose.y + 0.1
 skull_mid = Vector((0.0, mid_y, nose.z + 0.055))
@@ -1313,8 +1360,37 @@ if PACK_HAIR:
 if CARD_HAIR:
     bpy.data.objects.remove(cap, do_unlink=True)
     with bpy.data.libraries.load(CARD_HAIR) as (found, wanted):
-        wanted.objects = [n for n in found.objects if n in ("HairCards", "HairUnderCap", "HatHairCards")]
-    for made, worn_name in sorted(((o, {"HairCards": "Hair", "HairUnderCap": "HairCap", "HatHairCards": "HatHair"}[o.name.split(".")[0]]) for o in wanted.objects), key=lambda pair: pair[1]):
+        wanted.objects = [n for n in found.objects if n in ("HairCards", "HairUnderCap")]
+    skull_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
+    band_z = BROW_Z - 0.014        # where a hat's band sits: the same line the hats are built from
+    worn_hair = [(o, {"HairCards": "Hair", "HairUnderCap": "HairCap"}[o.name.split(".")[0]]) for o in wanted.objects]
+    for made, worn_name in list(worn_hair):
+        if worn_name == "HairCap":
+            # Close to the head above the band, so a low hat's crown clears it.
+            for v in made.data.vertices:
+                press = max(0.0, min(1.0, (v.co.z - band_z) / 0.02))
+                hit = skull_tree.find_nearest(v.co) if press > 0.0 else (None,)
+                if hit[0] is not None:
+                    v.co = v.co.lerp(hit[0] + hit[1] * 0.0015, press)
+            continue
+        # The same hair as worn under a hat. Nothing inside the crown is seen, so it is cut away at the band;
+        # just below the band the hair is drawn in to the head, so it comes out from under the hat.
+        under = made.copy()
+        under.data = made.data.copy()
+        bm_hat = bmesh.new()
+        bm_hat.from_mesh(under.data)
+        gone = [f for f in bm_hat.faces if all(v.co.z > band_z + 0.006 for v in f.verts)]
+        bmesh.ops.delete(bm_hat, geom=gone, context="FACES")
+        bmesh.ops.delete(bm_hat, geom=[v for v in bm_hat.verts if not v.link_faces], context="VERTS")
+        for v in bm_hat.verts:
+            press = max(0.0, min(1.0, (v.co.z - (band_z - 0.03)) / 0.03))
+            hit = skull_tree.find_nearest(v.co) if press > 0.0 else (None,)
+            if hit[0] is not None:
+                v.co = v.co.lerp(hit[0] + hit[1] * 0.004, press)
+        bm_hat.to_mesh(under.data)
+        bm_hat.free()
+        worn_hair.append((under, "HatHair"))
+    for made, worn_name in sorted(worn_hair, key=lambda pair: pair[1]):
         made.name = worn_name
         bpy.context.scene.collection.objects.link(made)
         made.vertex_groups.new(name=PREFIX + "Head").add(list(range(len(made.data.vertices))), 1.0, "REPLACE")
@@ -1584,7 +1660,7 @@ if PINNED:
 skull = [v.co.copy() for v in mesh.vertices if v.co.z > nose.z + 0.066]
 for HAT in (HATS if skull else []):
     top_z = max(q.z for q in skull)
-    brow_z = nose.z + 0.066
+    brow_z = BROW_Z
     centre = Vector(((max(q.x for q in skull) + min(q.x for q in skull)) / 2, (max(q.y for q in skull) + min(q.y for q in skull)) / 2, 0))
     half_w = (max(q.x for q in skull) - min(q.x for q in skull)) / 2 + 0.02
     half_d = (max(q.y for q in skull) - min(q.y for q in skull)) / 2 + 0.02
