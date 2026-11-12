@@ -493,6 +493,45 @@ func _valid_book_order(identity: String, value: Variant) -> bool:
 		seen[book] = true
 	return true
 
+## What a visit to another day borrows and gives back: how the doors, windows,
+## lights, radiators, cabinets, mirrors and shelves stand. Work done (the
+## services), the lift, the watch's records and the fire stations are not a
+## visit's to undo, and the blinds in a visit are the season fittings' own.
+const VISIT_KINDS := ["light", "radiator", "prep", "books", "mirror", "window"]
+
+func _borrowed_in_visit(identity: String) -> bool:
+	if not _kinds.has(identity) or not _subjects.has(identity): return false
+	return _kinds[identity] in VISIT_KINDS or (_kinds[identity] == "mechanism" and _subjects[identity] is DoorProp)
+
+## The borrowed part of the household as it stands now, by identity.
+func visit_snapshot() -> Dictionary:
+	var kept := {}
+	if not _bound: return kept
+	var current := snapshot()
+	for identity: String in current.get("records", {}):
+		if _borrowed_in_visit(identity): kept[identity] = (current.records[identity] as Dictionary).duplicate(true)
+	return kept
+
+## Put the borrowed part back as `records` has it; everything else stays as it
+## is. False when the house cannot take it, and then nothing has moved.
+func visit_restore(records: Dictionary) -> bool:
+	if not _bound or _restoring or _blocked or RealityState.save_write_blocked or not is_inside_tree(): return false
+	var merged := snapshot()
+	if merged.is_empty(): return false
+	var moved := {}
+	for identity: String in records:
+		if not merged.records.has(identity) or not _borrowed_in_visit(identity): continue
+		var was: Variant = records[identity]
+		if was is not Dictionary or str(was.get("kind", "")) != str(_kinds[identity]) or merged.records[identity] == was: continue
+		merged.records[identity] = (was as Dictionary).duplicate(true)
+		moved[identity] = true
+	if moved.is_empty(): return true
+	if not validate(merged, _kinds): return false
+	RealityState.data[KEY] = merged
+	# Only what the visit borrowed is touched: nothing else is re-applied.
+	_restore(merged, moved)
+	return true
+
 func snapshot() -> Dictionary:
 	var profile_started:=_profile_start()
 	var records := {}
@@ -517,11 +556,14 @@ func snapshot() -> Dictionary:
 	_profile_end("snapshot",profile_started)
 	return {"schema_version":1, "records":records}
 
-func _restore(saved: Dictionary) -> void:
+## `only`, when given, names the identities to move; every other control is
+## left exactly as it stands (a lift in travel, a clock running).
+func _restore(saved: Dictionary, only: Dictionary = {}) -> void:
 	_restoring = true
 	for player: Node in get_tree().get_nodes_in_group("player_controller"):
 		if player.has_method("cancel_manipulation"): player.cancel_manipulation()
 	for identity: String in _subjects:
+		if not only.is_empty() and not only.has(identity): continue
 		var restore_started:=_profile_start()
 		var record: Dictionary = saved.records.get(identity, _defaults.records[identity])
 		var prop: Node = _subjects[identity]

@@ -990,7 +990,7 @@ func pace_plan() -> Dictionary:
 
 func _set_pace() -> void:
 	var owner := _pace_owner()
-	if owner == null:
+	if owner == null or owner.held():
 		return
 	var plan := pace_plan()
 	if plan.is_empty():
@@ -1018,6 +1018,22 @@ func _input(event: InputEvent) -> void:
 		note_activity()
 
 
+## Something that needs time to be ordinary while it lasts (a conversation,
+## a call) takes a hold by name and gives it back when it ends. While any
+## hold stands the clock keeps its own time and the player is not idle.
+func hold_pace(token: String) -> void:
+	var owner := _pace_owner()
+	if owner != null and not token.is_empty():
+		owner.hold(token)
+	note_activity()
+
+
+func release_pace(token: String) -> void:
+	if pace != null:
+		pace.release(token)
+	_idle = 0.0
+
+
 ## The player did something. Called for input, and by anything else that knows.
 func note_activity() -> void:
 	_idle = 0.0
@@ -1029,7 +1045,7 @@ func note_activity() -> void:
 
 func _process(delta: float) -> void:
 	_poll += delta
-	_idle += delta
+	_idle = 0.0 if pace != null and pace.held() else _idle + delta
 	if _poll < 1.0 or clock == null or table.is_empty() or RealityState.save_write_blocked:
 		return
 	_poll = 0.0

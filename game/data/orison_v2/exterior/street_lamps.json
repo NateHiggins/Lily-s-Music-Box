@@ -14,11 +14,17 @@
  "light": {
   "color_rgb": [
    1.0,
-   0.7,
-   0.42
+   0.66,
+   0.36
   ],
-  "energy": 2.6,
-  "range_m": 10.5
+  "energy": 1.45,
+  "range_m": 9.5,
+  "fade_begin_m": 70.0,
+  "fade_length_m": 25.0,
+  "energy_spread": 0.4,
+  "warmth_spread": 0.08,
+  "flicker": 0.08,
+  "sputter_share": 0.14
  },
  "dusk": [
   1030,
@@ -295,6 +301,591 @@
     14.82
    ],
    "yaw_degrees": 180,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_n_w135",
+   "stock": "bishops_crook",
+   "at": [
+    -126.0,
+    -1.345,
+    4.03
+   ],
+   "yaw_degrees": 0.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_n_w045",
+   "stock": "bishops_crook",
+   "at": [
+    -42.0,
+    -0.255,
+    4.03
+   ],
+   "yaw_degrees": 0.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_n_w015",
+   "stock": "bishops_crook",
+   "at": [
+    -24.0,
+    -0.029,
+    4.03
+   ],
+   "yaw_degrees": 0.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_n_e045",
+   "stock": "bishops_crook",
+   "at": [
+    48.0,
+    0.0,
+    4.03
+   ],
+   "yaw_degrees": 0.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_n_e075",
+   "stock": "bishops_crook",
+   "at": [
+    78.0,
+    0.0,
+    4.03
+   ],
+   "yaw_degrees": 0.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_n_e105",
+   "stock": "bishops_crook",
+   "at": [
+    108.0,
+    -0.02,
+    4.03
+   ],
+   "yaw_degrees": 0.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_n_e135",
+   "stock": "bishops_crook",
+   "at": [
+    135.0,
+    0.0,
+    4.03
+   ],
+   "yaw_degrees": 0.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_s_w090",
+   "stock": "bishops_crook",
+   "at": [
+    -90.0,
+    -0.975,
+    15.03
+   ],
+   "yaw_degrees": 180.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_s_w060",
+   "stock": "bishops_crook",
+   "at": [
+    -60.0,
+    -0.526,
+    15.03
+   ],
+   "yaw_degrees": 180.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_s_w030",
+   "stock": "bishops_crook",
+   "at": [
+    -30.0,
+    -0.081,
+    15.03
+   ],
+   "yaw_degrees": 180.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_s_e030",
+   "stock": "bishops_crook",
+   "at": [
+    30.0,
+    0.0,
+    15.03
+   ],
+   "yaw_degrees": 180.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_s_e060",
+   "stock": "bishops_crook",
+   "at": [
+    60.0,
+    0.0,
+    15.03
+   ],
+   "yaw_degrees": 180.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_s_e090",
+   "stock": "bishops_crook",
+   "at": [
+    90.0,
+    0.0,
+    15.03
+   ],
+   "yaw_degrees": 180.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_avenue_s_e120",
+   "stock": "bishops_crook",
+   "at": [
+    120.0,
+    -0.02,
+    15.23
+   ],
+   "yaw_degrees": 180.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_n_w_022",
+   "stock": "bishops_crook",
+   "at": [
+    -148.4,
+    -1.831,
+    -12.47
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_n_w_052",
+   "stock": "bishops_crook",
+   "at": [
+    -148.4,
+    -1.831,
+    -42.47
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_n_w_082",
+   "stock": "bishops_crook",
+   "at": [
+    -148.4,
+    -1.831,
+    -72.47
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_n_w_112",
+   "stock": "bishops_crook",
+   "at": [
+    -148.4,
+    -1.831,
+    -102.47
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_n_w_142",
+   "stock": "bishops_crook",
+   "at": [
+    -148.4,
+    -1.831,
+    -132.47
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_n_e_037",
+   "stock": "bishops_crook",
+   "at": [
+    -139.1,
+    -1.712,
+    -27.47
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_n_e_067",
+   "stock": "bishops_crook",
+   "at": [
+    -139.1,
+    -1.712,
+    -57.47
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_n_e_097",
+   "stock": "bishops_crook",
+   "at": [
+    -139.0,
+    -1.711,
+    -87.47
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w069_n_e_037",
+   "stock": "bishops_crook",
+   "at": [
+    -63.55,
+    -0.579,
+    -36.47
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w069_n_e_127",
+   "stock": "bishops_crook",
+   "at": [
+    -63.55,
+    -0.579,
+    -117.47
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w069_n_e_157",
+   "stock": "bishops_crook",
+   "at": [
+    -63.55,
+    -0.579,
+    -147.47
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w069_n_e_187",
+   "stock": "bishops_crook",
+   "at": [
+    -63.55,
+    -0.579,
+    -183.47
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_e142_n_w_022",
+   "stock": "bishops_crook",
+   "at": [
+    137.35,
+    0.0,
+    -12.47
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_e142_n_w_142",
+   "stock": "bishops_crook",
+   "at": [
+    137.35,
+    0.15,
+    -132.47
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_e142_n_e_127",
+   "stock": "bishops_crook",
+   "at": [
+    148.35,
+    0.15,
+    -126.47
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_s_w_022",
+   "stock": "bishops_crook",
+   "at": [
+    -148.4,
+    -1.831,
+    31.53
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_s_w_052",
+   "stock": "bishops_crook",
+   "at": [
+    -148.4,
+    -1.831,
+    61.53
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_s_w_082",
+   "stock": "bishops_crook",
+   "at": [
+    -148.4,
+    -1.831,
+    91.53
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_s_w_112",
+   "stock": "bishops_crook",
+   "at": [
+    -148.4,
+    -1.831,
+    118.53
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_s_e_037",
+   "stock": "bishops_crook",
+   "at": [
+    -139.1,
+    -1.712,
+    46.53
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w143_s_e_067",
+   "stock": "bishops_crook",
+   "at": [
+    -139.1,
+    -1.712,
+    76.53
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w069_s_e_037",
+   "stock": "bishops_crook",
+   "at": [
+    -63.65,
+    -0.58,
+    55.53
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w069_s_e_127",
+   "stock": "bishops_crook",
+   "at": [
+    -63.65,
+    -0.58,
+    136.53
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_w069_s_e_157",
+   "stock": "bishops_crook",
+   "at": [
+    -63.65,
+    -0.58,
+    166.53
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_e142_s_w_022",
+   "stock": "bishops_crook",
+   "at": [
+    137.35,
+    0.0,
+    31.53
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_e142_s_w_052",
+   "stock": "bishops_crook",
+   "at": [
+    137.35,
+    0.0,
+    61.53
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_e142_s_w_082",
+   "stock": "bishops_crook",
+   "at": [
+    137.35,
+    0.0,
+    91.53
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_e142_s_w_112",
+   "stock": "bishops_crook",
+   "at": [
+    137.35,
+    0.0,
+    121.53
+   ],
+   "yaw_degrees": 90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_e142_s_e_037",
+   "stock": "bishops_crook",
+   "at": [
+    148.35,
+    0.0,
+    46.53
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_e142_s_e_067",
+   "stock": "bishops_crook",
+   "at": [
+    148.35,
+    0.0,
+    76.53
+   ],
+   "yaw_degrees": -90.0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_run_cross_e142_s_e_097",
+   "stock": "bishops_crook",
+   "at": [
+    148.35,
+    0.0,
+    106.53
+   ],
+   "yaw_degrees": -90.0,
    "replaces": [],
    "authored_light": "",
    "shadows": false
