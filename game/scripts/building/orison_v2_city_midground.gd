@@ -24,6 +24,12 @@ const FADE := 30.0
 var facade_materials: Array[ShaderMaterial] = []
 var window_materials: Array[ShaderMaterial] = []
 var lamp_materials: Array[StandardMaterial3D] = []
+## Where this owner's lamp posts carry their flame, inside the walkable city;
+## the street-lamp clock lights them once it exists.
+const LAMP_POOL_RADIUS_M := 215.0
+var lamp_points: Array = []
+var lamps_adopted := false
+var _lamp_slots: Dictionary = {}
 var data: Dictionary = {}
 var _clock := CampaignClock.new()
 var _elapsed := INF
@@ -188,6 +194,20 @@ func _build_furniture(stock: Dictionary) -> void:
 			for i in items.size():
 				var item: Array = items[i]
 				multimesh.set_instance_transform(i, Transform3D(Basis(Vector3.UP, float(item[3])), Vector3(item[0], item[1], item[2])))
+			if kind == "lamp":
+				var top := source.mesh.get_aabb().end.y
+				for i in items.size():
+					var item: Array = items[i]
+					if Vector2(float(item[0]), float(item[2])).length() > LAMP_POOL_RADIUS_M:
+						continue
+					# The post is several meshes: the flame is under the tallest.
+					var at := Vector3(item[0], float(item[1]) + top - 0.4, item[2])
+					var slot := _lamp_slots.get(i, -1) as int
+					if slot < 0:
+						_lamp_slots[i] = lamp_points.size()
+						lamp_points.append(at)
+					elif at.y > (lamp_points[slot] as Vector3).y:
+						lamp_points[slot] = at
 			var draw := MultiMeshInstance3D.new()
 			draw.name = "Furniture_" + str(source.name)
 			draw.multimesh = multimesh
@@ -341,6 +361,9 @@ func _follow_lamps() -> void:
 	var lit := 0.0
 	for node in get_tree().get_nodes_in_group("v2_street_lamp_clocks"):
 		lit = maxf(lit, float(node.get("lit")))
+		if not lamps_adopted and node.has_method("adopt"):
+			lamps_adopted = true
+			node.adopt(lamp_points, self)
 	for material in lamp_materials:
 		material.emission_energy_multiplier = float(material.get_meta("lamp_energy", 1.0)) * lit
 

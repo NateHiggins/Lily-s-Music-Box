@@ -117,6 +117,16 @@ func _run() -> void:
 					over_globe = over_globe and is_equal_approx(light.distance_fade_begin, float(data.light.fade_begin_m)) and not light.shadow_enabled
 		over_globe = over_globe and found
 	check(over_globe, "each light hangs in its own globe")
+	var midground: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/exterior/city_midground.json"))
+	var crowded := 0
+	for group: Dictionary in midground.furniture:
+		if str(group.kind) != "lamp":
+			continue
+		for item: Array in group["items"]:
+			for lamp: Dictionary in lamps:
+				if Vector2(float(item[0]) - float(lamp.at[0]), float(item[2]) - float(lamp.at[2])).length() < 6.0:
+					crowded += 1
+	check(crowded == 0, "no lamp of the runs stands beside one the mid ground already has (%d)" % crowded)
 	check(fades == lamps.size() - 2, "the runs' pools fade with distance and cast no shadows; the two authored lamps keep theirs (%d)" % fades)
 	clock.clock_override = NIGHT
 	clock.refresh()
@@ -136,6 +146,15 @@ func _run() -> void:
 	GameBoot.settings["reduce_flashing"] = true
 	check(is_equal_approx(clock.burn(5), clock._share[5]), "with reduced flashing the lamps are uneven but steady")
 	GameBoot.settings["reduce_flashing"] = false
+	# Posts another owner stands are lit by the same clock.
+	var before_adopting: int = clock.lights.size()
+	var took: int = clock.adopt([Vector3(300, 4, 0), Vector3(300, 4, 30), Vector3(300, 4, 60)], street)
+	var adopted: Array = clock.lights.slice(before_adopting)
+	var alike := took == 3 and adopted.size() == 3
+	for light: OmniLight3D in adopted:
+		alike = alike and light.visible and light.distance_fade_enabled and not light.shadow_enabled and light.light_energy > 0.5 				and light.light_energy <= float(data.light.energy) * 1.2 and light.get_parent() == street
+	check(alike, "adopted posts burn the same gas, lit with the rest")
+	check(is_equal_approx((adopted[1] as OmniLight3D).position.z, 30.0) and clock._share.size() == clock.lights.size(), "each where it was asked for, with a character of its own")
 	clock.clock_override = NOON
 	clock.refresh()
 	check(clock.lights.all(func(light: OmniLight3D) -> bool: return not light.visible), "by day every lamp is out")
