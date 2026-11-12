@@ -81,6 +81,7 @@ for bone in target.data.bones:
 target_rest = {name: (target_world @ target.data.bones[name].matrix_local).to_quaternion() for name in order}
 target_head = {name: target_world @ target.data.bones[name].head_local for name in order}
 target_hips = (target_world @ target.data.bones["Hips"].head_local)
+GROUND_BONES = ("LeftToeBase", "RightToeBase", "LeftFoot", "RightFoot")
 made = []
 taken = set()
 
@@ -171,6 +172,8 @@ for path, time_scale in SOURCES:
                         pose_bone.rotation_quaternion = Quaternion(axis_, angle_ * more)
                         pose_bone.keyframe_insert("rotation_quaternion", frame=at)
         previous = {}
+        hips_keys = []
+        sink = 0.0
         for frame in range(first, last + 1):
             scene.frame_set(frame)
             out_frame = 1 + (frame - first) * time_scale
@@ -206,7 +209,20 @@ for path, time_scale in SOURCES:
                     moved = Vector(((hips_now.x - source_hips.x) * travel, (hips_now.y - source_hips.y) * travel, (hips_now.z - source_hips.z) * travel))
                     pose_bone.location = (target_world.to_3x3() @ target.data.bones[name].matrix_local.to_3x3()).inverted() @ moved
                     pose_bone.keyframe_insert("location", frame=out_frame)
+                    hips_keys.append((out_frame, moved.copy()))
                 bpy.context.view_layer.update()
+            for foot in GROUND_BONES:
+                if foot in target.pose.bones:
+                    sink = min(sink, (target_world @ target.pose.bones[foot].head).z - (target_world @ target.data.bones[foot].head_local).z)
+        # Review: the borrowed clips stood every body a few centimetres into the floor (the old rigs' legs bend
+        # differently). A clip whose feet ever go below where they rest is lifted, whole, by its deepest sink.
+        if sink < -0.002:
+            hips_bone = target.pose.bones["Hips"]
+            to_bone = (target_world.to_3x3() @ target.data.bones["Hips"].matrix_local.to_3x3()).inverted()
+            for out_frame, moved in hips_keys:
+                hips_bone.location = to_bone @ (moved + Vector((0.0, 0.0, -sink)))
+                hips_bone.keyframe_insert("location", frame=out_frame)
+            print("GROUNDED", plain_name, round(-sink, 4))
         made.append(new_action)
         print("CLIP", new_action.name, last - first + 1, "frames")
     for obj in fresh:

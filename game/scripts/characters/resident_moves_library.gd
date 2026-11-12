@@ -18,7 +18,14 @@ const BIPED_LIB_PATH := "res://assets/characters/evelyn_marsh/evelyn_marsh.gltf"
 ## skeleton, so every hero-mesh resident and creature can play them.
 const GESTURES_LIB_PATH := "res://assets/characters/shared/biped_gestures.glb"
 
+## The rebuilt cast (art/blender/cast/README.md) shares one 76-joint skeleton
+## with skirt chains. art/blender/scripts/retarget_cast_moves.py bakes every
+## clip the residents ask for onto it once, under the same bare names.
+const CAST_LIB_PATH := "res://assets/characters/cast/shared/cast_moves.glb"
+const CAST_MARKER_BONE := "Skirt0_1"
+
 static var _caches: Dictionary = {}
+static var _hip_rests: Dictionary = {}
 static func apply(model_root: Node) -> bool:
 	var player := _find_player(model_root)
 	var skeleton := _find_skeleton(model_root)
@@ -56,6 +63,11 @@ static func apply(model_root: Node) -> bool:
 	if own_moves != "" and ResourceLoader.exists(own_moves):
 		sources = [own_moves]
 		print("[MOVES] personal library: ", own_moves)
+	elif skeleton.find_bone(CAST_MARKER_BONE) != -1:
+		# Checked before the biped family: the cast skeleton also has "Hips".
+		if not ResourceLoader.exists(CAST_LIB_PATH):
+			return false
+		sources = [CAST_LIB_PATH]
 	elif skeleton.find_bone("hips") != -1:
 		sources = [LIB_PATH]
 	elif skeleton.find_bone("Hips") != -1:
@@ -69,6 +81,17 @@ static func apply(model_root: Node) -> bool:
 		return false
 	# No scaling of any kind (final ruling 2026-08-02): models render at
 	# their exported size, and tracks are copied untouched.
+	# The cast is twenty bodies of different build on one skeleton, so the
+	# donor's joint spacing must not ride in: every position track but the
+	# hips' is dropped, and the hips' is scaled to this body's own hip height
+	# so shorter and taller people keep their feet on the floor.
+	var cast_body := sources[0] == CAST_LIB_PATH
+	var hip_scale := 1.0
+	if cast_body:
+		var donor_height: float = _hip_rests.get(CAST_LIB_PATH, 0.0)
+		var hips := skeleton.find_bone("Hips")
+		if donor_height > 0.01 and hips != -1:
+			hip_scale = skeleton.get_bone_rest(hips).origin.y / donor_height
 	var player_root: Node = player.get_node(player.root_node)
 	var skeleton_path := player_root.get_path_to(skeleton)
 	var library: AnimationLibrary
@@ -112,6 +135,13 @@ static func apply(model_root: Node) -> bool:
 				anim.remove_track(t)
 				continue
 			var bone := String(anim.track_get_path(t)).get_slice(":", 1)
+			if cast_body and anim.track_get_type(t) == Animation.TYPE_POSITION_3D:
+				if bone != "Hips":
+					anim.remove_track(t)
+					continue
+				for key in anim.track_get_key_count(t):
+					var at: Vector3 = anim.track_get_key_value(t, key)
+					anim.track_set_key_value(t, key, at * hip_scale)
 			anim.track_set_path(t,
 					NodePath("%s:%s" % [skeleton_path, bone]))
 		anim.loop_mode = Animation.LOOP_LINEAR
@@ -130,6 +160,9 @@ static func _animations(source: String) -> Array:
 		return []
 	var root := scene.instantiate()
 	var player := _find_player(root)
+	var donor := _find_skeleton(root)
+	if donor != null and donor.find_bone("Hips") != -1:
+		_hip_rests[source] = donor.get_bone_rest(donor.find_bone("Hips")).origin.y
 	if player:
 		for animation_name in player.get_animation_list():
 			collected.append({"name": String(animation_name),

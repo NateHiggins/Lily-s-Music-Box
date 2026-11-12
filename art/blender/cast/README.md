@@ -103,3 +103,18 @@ and then checks the result (`check` repeats the checks):
 
 Nothing here is accepted by a tool. Stand the people in the engine and look:
 every set, front and back, the face close, and each hat.
+
+## Clips
+
+The twenty share one skeleton, so they share one clip library, baked once on Mina's body:
+
+    KEEP_NAMES=1 blender -b --python art/blender/scripts/retarget_cast_moves.py -- <mina_vale.blend> <out>/cast_moves.glb \
+        game/assets/characters/mina_vale/mina_vale_moves.glb 1.25 game/assets/characters/shared/biped_gestures.glb \
+        game/assets/characters/evelyn_marsh/evelyn_marsh.gltf
+
+It holds the names the residents ask for (`clip_01` to `clip_08`, `walk`, `run`, the twenty `mina_*`) and the 38
+gestures. A clip whose feet go below where they rest is lifted whole by its deepest sink (`GROUNDED` in the log).
+The file installs as `game/assets/characters/cast/shared/cast_moves.glb`. `ResidentMovesLibrary.apply` gives it to
+any body carrying the skirt chains: rotations only, plus the hips' travel scaled to that body's hip height, so each
+person keeps their own build. `game/tests/CastMovesLibraryTest.tscn` checks every installed body. Bodies of
+another build than Mina's stand up to 2 cm low; the test allows 3.5 cm.
