@@ -89,10 +89,12 @@ func _ready() -> void:
 		slots_ok = slots_ok and slots.has("top") and slots.has("bottom") and slots.has("feet")
 	_check(seen.size() >= 4, "across a month the casual choices vary (%d different)" % seen.size())
 	_check(slots_ok, "every choice has a top, a bottom and footwear, and one part to a slot")
-	var other: Dictionary = {}
+	var apart := 0
 	for day in 28:
-		other[str(rules.parts_for("cal_dwyer", "casual", notes, "1929-06-%02d" % (day + 1)).parts)] = true
-	_check(rules.parts_for("cal_dwyer", "casual", notes, "1929-06-04").parts != same.parts or other.size() >= 4, "two people do not move in step")
+		var date := "1929-06-%02d" % (day + 1)
+		if rules.parts_for("cal_dwyer", "casual", notes, date).parts != rules.parts_for("mina_vale", "casual", notes, date).parts:
+			apart += 1
+	_check(apart >= 14, "two people do not move in step (%d of 28 days differ)" % apart)
 	_check((rules.parts_for("mina_vale", "formal", {"a_top": {"slot": "top", "set": "a", "tags": []}}, "1929-06-04").parts as Array) == ["a_top"], "someone with one part wears it")
 	print("WARDROBE RULES TEST: %s (%d checks, %d failures)" % ["PASS" if _fails == 0 else "FAIL", _checks, _fails])
 	get_tree().quit(0 if _fails == 0 else 1)

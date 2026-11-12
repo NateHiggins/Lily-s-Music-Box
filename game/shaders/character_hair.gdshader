@@ -83,7 +83,7 @@ void fragment() {
 		solid = clamp((ends - UV2.y) * 60.0 + 0.5, 0.0, 1.0);
 		// A bare crown: the hair's upper edge thins out the same way.
 		float begins = cap_bald * cap_feather * 0.3 * (0.2 + 0.5 * bunch + 0.3 * chance);
-		solid *= clamp((UV2.y - begins) * 60.0 + 0.5, 0.0, 1.0);
+		solid *= cap_bald > 0.0 ? clamp((UV2.y - begins) * 60.0 + 0.5, 0.0, 1.0) : 1.0;
 	}
 	ALPHA = is_cap ? solid : clamp(tone.a * (1.0 + 0.35 * level), 0.0, 1.0);
 	ALPHA_SCISSOR_THRESHOLD = cut;

@@ -126,6 +126,15 @@ func run() -> void:
 			for area: String in ["head", "hands", "chest"]:
 				var skin := actor.model.find_children("Skin_" + area, "MeshInstance3D", true, false)
 				check(skin.size() == 1 and (skin[0] as MeshInstance3D).visible, "%s set %s: %s is never hidden" % [id, letter, area])
+			var covered: Dictionary = {}
+			for slot: String in expected:
+				for area: Variant in (notes[expected[slot]] as Dictionary).get("covers", []):
+					covered[str(area)] = true
+			var bare: Array = []
+			for area: String in Presentation.SKIN_AREAS:
+				if area in ["head", "hands"] or not covered.has(area):
+					bare.append(area)
+			check(actor.wardrobe.bare_parts() == bare, "%s set %s: exactly the uncovered skin shows (%s)" % [id, letter, str(actor.wardrobe.bare_parts())])
 			# The same set without its outer layer and hat is still a whole outfit.
 			if full.size() > core.size() and not core.is_empty():
 				check(actor.wear(core), "%s set %s without outer layer or hat: %s" % [id, letter, "; ".join(PackedStringArray(actor.errors))])
@@ -134,10 +143,26 @@ func run() -> void:
 				check(not actor.wardrobe.worn.has("over") and not actor.wardrobe.worn.has("head"), "%s set %s: the outer layer and hat come off" % [id, letter])
 		if actor != null and actor.ready_ok:
 			actor.set_active(false)
-			check(not actor.visible and not actor.hair.is_processing(), id + " off shift hides the model and stops the hair reader")
+			check(not actor.visible and not actor.hair.motion.active, id + " off shift hides the model and stops the hair reader")
 			actor.set_active(true)
 			await frames(2)
 			check(actor.visible and actor.ready_ok, id + " comes back without a reload")
+			# A change that is refused leaves the person as they were: seen, dressed, and still changeable.
+			var before: Dictionary = actor.wardrobe.worn.duplicate()
+			var before_parts: Array = actor.worn_parts()
+			var before_bare: Array = actor.wardrobe.bare_parts()
+			var lone: Array = []
+			for part: String in notes:
+				if str(notes[part].slot) == "top" and (notes[part].get("replaces", []) as Array).is_empty():
+					lone = [part]
+					break
+			for refused: Array in [lone, ["no_such_part"], []]:
+				if refused == lone and lone.is_empty():
+					continue
+				check(not actor.wear(refused) and not actor.last_refusal.is_empty(), "%s refuses %s with a reason" % [id, str(refused)])
+				check(actor.ready_ok and actor.visible and actor.errors.is_empty() and actor.wardrobe.worn == before and actor.worn_parts() == before_parts and actor.wardrobe.bare_parts() == before_bare,
+						"%s is unchanged after refusing %s" % [id, str(refused)])
+			check(actor.wear(before_parts) and actor.last_refusal.is_empty(), id + " can still change clothes after a refusal")
 		if actor != null:
 			# Half dressed is refused, as it is for the first two people.
 			var half := Presentation.new()

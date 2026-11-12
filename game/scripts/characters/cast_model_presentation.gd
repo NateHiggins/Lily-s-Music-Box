@@ -22,6 +22,9 @@ var wardrobe: RefCounted
 var errors: Array[String] = []
 ## Diagnostics only: negative fixtures collect the same strict refusals quietly.
 var report_errors := true
+## Why the last wear() was refused; empty when it was not.
+var last_refusal := ""
+var _trying := false
 var person_id := ""
 var _source_model := ""
 var _parts: Array = []
@@ -46,6 +49,11 @@ func configure(id: String, source_model: String, parts: Array, pose_name: String
 
 
 func _fail(message: String) -> void:
+	if _trying:
+		# A change of clothes being tried out: note the refusal and touch nothing.
+		if last_refusal.is_empty():
+			last_refusal = message
+		return
 	errors.append(message)
 	ready_ok = false
 	visible = false
@@ -177,6 +185,10 @@ func _dress(parts: Array) -> bool:
 	wardrobe.wear(slots.values(), _load_part)
 	if not errors.is_empty():
 		return false
+	return _settle(slots)
+
+
+func _settle(slots: Dictionary) -> bool:
 	for slot: String in slots:
 		if str(wardrobe.worn.get(slot, "")) != str(slots[slot]):
 			_fail("requested garment did not mount: " + str(slots[slot]))
@@ -198,12 +210,41 @@ func _dress(parts: Array) -> bool:
 	return true
 
 
-## Change clothes. The same rules as at first dressing; a refused change leaves the actor hidden and failed,
-## as any other refusal does, so a caller should only offer whole outfits (WardrobeRules does).
+## Change clothes. The same rules as at first dressing. Everything is checked before anything is taken off:
+## the outfit must be whole, every new garment must load, fit the skeleton and pass the material check. A
+## refused change returns false with the reason in last_refusal and leaves the person exactly as they were.
 func wear(parts: Array) -> bool:
 	if not ready_ok:
 		return false
-	return _dress(parts)
+	last_refusal = ""
+	_trying = true
+	var slots := _outfit(parts)
+	var fresh: Dictionary = {}
+	for slot: String in slots:
+		var part := str(slots[slot])
+		if str(wardrobe.worn.get(slot, "")) == part:
+			continue
+		var source := _load_part(part)
+		if source == null:
+			break
+		fresh[part] = source
+		var faults: Array[String] = []
+		if source is Node3D:
+			faults = Recipes.validate(source as Node3D, person_id)
+		else:
+			faults.append("garment scene is not Node3D: " + part)
+		if not faults.is_empty():
+			_fail("cast material contract: " + "; ".join(PackedStringArray(faults)))
+			break
+	_trying = false
+	if slots.is_empty() or not last_refusal.is_empty():
+		for part: String in fresh:
+			(fresh[part] as Node).free()
+		if last_refusal.is_empty():
+			last_refusal = "not a whole outfit"
+		return false
+	wardrobe.wear(slots.values(), func(part: String) -> Node: return fresh.get(part))
+	return _settle(slots)
 
 
 ## The parts now worn, one to a slot.

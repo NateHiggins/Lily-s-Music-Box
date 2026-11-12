@@ -24,6 +24,17 @@ var _body: Skeleton3D
 var _head := -1
 ## The middle of the skull, in the rest space of the Head bone: the rounded shading is centred on it.
 var _centre_in_head := Vector3.ZERO
+var _centre_reader: CentreReader
+
+
+## Reads the head where it is final. The attention layer turns the head inside the skeleton's modifier pass and
+## the engine puts the clip's pose back afterwards, so the pose is only readable from a modifier of its own.
+class CentreReader extends SkeletonModifier3D:
+	var hair: Node
+
+	func _process_modification_with_delta(_delta: float) -> void:
+		if is_instance_valid(hair):
+			hair.follow_head()
 
 
 func _refuse(message: String) -> bool:
@@ -72,6 +83,11 @@ func bind(model: Node3D, person: String) -> bool:
 				return _refuse("hair look file lacks " + key)
 		if parsed.hair_centre is not Array or (parsed.hair_centre as Array).size() != 3:
 			return _refuse("hair look centre must be three numbers")
+		for key: String in LOOK_KEYS:
+			var values: Array = parsed[key] if key == "hair_centre" else [parsed[key]]
+			for value: Variant in values:
+				if typeof(value) != TYPE_FLOAT and typeof(value) != TYPE_INT:
+					return _refuse("hair look value is not a number: " + key)
 		for key: String in ["cap_shade", "cap_feather", "cap_bald", "hair_centre", "roundness", "specular", "roughness_scale", "normal_depth", "anisotropy"]:
 			if not uniforms.has(key):
 				return _refuse("shared hair shader lacks look uniform: " + key)
@@ -152,6 +168,12 @@ func bind(model: Node3D, person: String) -> bool:
 		(_meshes[mesh_name] as MeshInstance3D).set_surface_override_material(0, materials[mesh_name])
 	if _meshes.has(HAT_HAIR):
 		(_meshes[HAT_HAIR] as MeshInstance3D).set_surface_override_material(0, materials["Hair"])
+	if not look.is_empty():
+		# After the pose and skirt modifiers, before the motion observer, which stays last.
+		_centre_reader = CentreReader.new()
+		_centre_reader.name = "HairLookCentre"
+		_centre_reader.hair = self
+		body.add_child(_centre_reader)
 	motion = Motion.new()
 	motion.name = "HeadHairMotion"
 	# Skeleton3D evaluates modifiers in child order. This observer goes last.
@@ -159,7 +181,6 @@ func bind(model: Node3D, person: String) -> bool:
 	if not motion.bind(_meshes["Hair"], materials["Hair"]):
 		return _refuse("hair motion reader refused: " + "; ".join(motion.errors))
 	ready_ok = true
-	set_process(not look.is_empty())
 	return true
 
 
@@ -168,7 +189,7 @@ func _ready() -> void:
 
 
 ## The centre of the rounded shading rides the head: the shader works in the space of the mesh, after skinning.
-func _process(_delta: float) -> void:
+func follow_head() -> void:
 	if not ready_ok or look.is_empty() or not is_instance_valid(_body):
 		return
 	var cards := _meshes.get("Hair") as MeshInstance3D
@@ -202,7 +223,8 @@ func set_presentation_active(enabled: bool) -> void:
 		motion.set_presentation_active(enabled and ready_ok)
 	for material: ShaderMaterial in materials.values():
 		material.set_shader_parameter("sway", Vector3.ZERO)
-	set_process(enabled and ready_ok and not look.is_empty())
+	if _centre_reader != null and is_instance_valid(_centre_reader):
+		_centre_reader.active = enabled and ready_ok
 
 
 func unbind() -> void:
@@ -211,11 +233,14 @@ func unbind() -> void:
 		motion.set_presentation_active(false)
 		motion.queue_free()
 	motion = null
+	if _centre_reader != null and is_instance_valid(_centre_reader):
+		_centre_reader.active = false
+		_centre_reader.queue_free()
+	_centre_reader = null
 	for mesh_name: String in _meshes:
 		var draw := _meshes[mesh_name] as MeshInstance3D
 		if is_instance_valid(draw) and draw.get_surface_override_material(0) == materials.get("Hair" if mesh_name == HAT_HAIR else mesh_name):
 			draw.set_surface_override_material(0, null)
-	set_process(false)
 	look = {}
 	_meshes.clear()
 	materials.clear()

@@ -56,8 +56,10 @@ func read_wardrobe(folder: String = "") -> int:
 		if not (file.begins_with(person_id + "__") and file.ends_with(".json")):
 			continue
 		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(folder.path_join(file)))
-		if parsed is Dictionary and parsed.has("slot") and parsed.has("part"):
-			notes[str(parsed.part)] = parsed
+		# A note is filed under the part its file is named for; a copied note that names another part is not read.
+		var named := file.trim_prefix(person_id + "__").trim_suffix(".json")
+		if parsed is Dictionary and parsed.has("slot") and str(parsed.get("part", "")) == named:
+			notes[named] = parsed
 	return notes.size()
 
 
@@ -71,6 +73,8 @@ func wear(parts: Array, loader: Callable = Callable()) -> bool:
 			wanted[str(notes[str(part)].slot)] = str(part)
 	# A whole outfit (a suit, a dress) takes the slots it replaces.
 	for slot: String in wanted.keys():
+		if not wanted.has(slot):
+			continue
 		for taken: Variant in (notes[wanted[slot]] as Dictionary).get("replaces", []):
 			if str(taken) != slot:
 				wanted.erase(str(taken))
