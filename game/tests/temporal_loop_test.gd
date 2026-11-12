@@ -488,6 +488,23 @@ func _ready() -> void:
 	loop.command("steady")
 	check(not pace.running(), "STEADY stops it")
 	loop.command("pace")
+	# A conversation or a call keeps the clock to its own time.
+	check(str(loop.command("wait").text).contains("TOMORROW") and pace.running(), "a run is asked for again")
+	loop.hold_pace("talk")
+	check(not pace.running() and pace.held() and is_equal_approx(pace.seconds_for(1.0, clock.elapsed_minutes()), 1.0), "a conversation holds the clock to its own time")
+	loop._idle = 60.0
+	loop._process(0.1)
+	check(loop._idle < 1.0, "and nobody talking is standing idle")
+	slips.clear()
+	tick()
+	check(not pace.running() and slips.filter(func(text: String) -> bool: return text.begins_with("CLOCK|")).is_empty(), "nothing is said about the clock while it lasts")
+	loop.hold_pace("call")
+	loop.release_pace("talk")
+	check(not pace.running(), "two holds are two: one let go leaves the other")
+	loop.release_pace("call")
+	check(pace.running() and loop._idle < 1.0, "when the last is let go the run that was asked for goes on")
+	loop.command("steady")
+	loop.command("pace")
 
 	# A ledger that does not agree with itself is put in order, and evidence is never the price.
 	var pieces := (loop.ledger().items as Dictionary).size()
