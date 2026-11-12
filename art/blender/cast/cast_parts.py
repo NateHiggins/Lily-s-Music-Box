@@ -237,10 +237,11 @@ def hash_index(text):
 
 # Hair and skin from the packs. Adela keeps her strand ringlets and both she and Mina keep the skin Lily approved.
 PACK_HAIR = {
-    "mina_vale": "toigo_blunt_bob_with_bangs", "evelyn_marsh": "rehmanpolanski_hair_bun_brown", "iris_bell": "toigo_curled_under_bob", "juno_kells": "littleright_bobcut_hair",
-    "lena_ortiz": "elvs_reverse_french_braid_bun", "mae_kessler": "rehmanpolanski_hair_bun_brown", "nadia_quell": "toigo_inverted_bob", "rhea_sato": "toigo_curled_under_bob_with_bangs",
-    "teresa_vale": "bob01", "transient_guests_b": "toigo_blunt_bob", "cal_dwyer": "short04", "cam_ortiz": "short03", "jonah_price": "short02", "malcolm_reed": "short01",
-    "noel_price": "short02", "omar_bell": "short04", "peter_wren": "short03", "sacha_reed": "short01", "transient_guests_a": "short02",
+    # Period cuts only: bobs, buns and plain short hair. Nothing swept over an eye.
+    "mina_vale": "toigo_blunt_bob_with_bangs", "evelyn_marsh": "rehmanpolanski_hair_bun_brown", "iris_bell": "toigo_blunt_bob", "juno_kells": "littleright_bobcut_hair",
+    "lena_ortiz": "toigo_curled_under_bob", "mae_kessler": "rehmanpolanski_hair_bun_brown", "nadia_quell": "bob02", "rhea_sato": "toigo_curled_under_bob_with_bangs",
+    "teresa_vale": "toigo_inverted_bob_with_bangs", "transient_guests_b": "toigo_inverted_bob", "cal_dwyer": "short02", "cam_ortiz": "short04", "jonah_price": "short02",
+    "malcolm_reed": "short01", "noel_price": "short02", "omar_bell": "short04", "peter_wren": "short02", "sacha_reed": "short01", "transient_guests_a": "short04",
 }
 PACK_SKIN = {
     "iris_bell": "onlytheghosts_young_eurasian_female", "nadia_quell": "onlytheghosts_young_eurasian_female", "lena_ortiz": "onlytheghosts_old_eurasian_female",

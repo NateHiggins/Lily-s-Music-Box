@@ -477,8 +477,9 @@ def tinted_image(image, colour, name, size=512, hair=False, deep_only=False):
     pale = 0.5 + 0.5 * hue
     if hair:
         # Hair keeps its own darkness: black stays black, with a sheen no brighter than twice its tone.
-        deep = tone * 1.15
-        pale = numpy.clip(tone * 2.0 + 0.04, 0.0, 1.0)
+        # Dark hair keeps a sheen; light hair needs shadow between the locks or it reads as a bathing cap.
+        deep = tone * (1.15 if float(tone.max()) < 0.4 else 0.55)
+        pale = numpy.clip(tone * (2.0 if float(tone.max()) < 0.4 else 1.1) + 0.04, 0.0, 1.0)
     rise = numpy.clip((light - (0.93 if deep_only else 0.62)) / (0.07 if deep_only else 0.3), 0.0, 1.0)[..., None]
     out = numpy.clip(light / 0.62, 0.0, 1.0)[..., None] * deep * (1.0 - rise) + pale * light[..., None] * rise
     result = numpy.concatenate([out, data[..., 3:4]], axis=2).astype(numpy.float32)
@@ -1160,6 +1161,9 @@ extras = []
 
 
 def scalp(q):
+    if PACK_HAIR:
+        # Under modelled hair only the crown and back are capped: a cap down to the hairline showed as a band on the forehead.
+        return q.z > nose.z + 0.135 or (q.y > mid_y + 0.035 and q.z > nose.z + 0.03)
     if q.y < mid_y - 0.015:
         return q.z > hairline - max(0.0, abs(q.x) - 0.035) * 0.55
     if q.y < mid_y + 0.02:
@@ -1171,7 +1175,8 @@ def scalp(q):
 bm = bmesh.new()
 bm.from_mesh(mesh)
 bm.verts.ensure_lookup_table()
-keep_faces = [f for f in bm.faces if all(scalp(v.co) for v in f.verts)]
+# Any corner inside keeps the face: asking for all of them left teeth along the parting.
+keep_faces = [f for f in bm.faces if (all if PACK_HAIR else any)(scalp(v.co) for v in f.verts)]
 bmesh.ops.delete(bm, geom=[f for f in bm.faces if f not in set(keep_faces)], context="FACES")
 bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
 bm.normal_update()
@@ -1185,7 +1190,11 @@ while cap_mesh.shape_keys:
 cap = bpy.data.objects.new("HairCap", cap_mesh)
 bpy.context.scene.collection.objects.link(cap)
 cap.data.materials.clear()
-cap.data.materials.append(plain(CID + "_hair_cap", [float(c) * 0.8 for c in hair_tone], 0.6))
+cap_material = bpy.data.materials.new(CID + "_hair_cap")
+cap_material.use_nodes = True
+cap_material.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (*[float(c) * (0.95 if PACK_HAIR else 0.85) for c in hair_tone], 1.0)
+cap_material.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = 0.7
+cap.data.materials.append(cap_material)
 cap.vertex_groups.new(name=PREFIX + "Head").add(list(range(len(cap_mesh.vertices))), 1.0, "REPLACE")
 cap.parent = rig
 cap.modifiers.new("Armature", "ARMATURE").object = rig
