@@ -28,7 +28,7 @@ const FINGERS: Array[String] = ["Thumb", "Index", "Middle", "Ring", "Pinky"]
 var poses: Dictionary = {}
 var people: Dictionary = {}
 ## Which way fingers close; set once by looking.
-var curl_sign := 1.0
+var curl_sign := -1.0
 
 
 func load_table(path: String = DATA) -> bool:

@@ -6,7 +6,7 @@
    "hips": {"turn": 0, "tilt": 0, "shift_x": 0.0, "shift_z": 0.0},
    "spine": {"forward": 1, "side": 0, "twist": 0},
    "head": {"nod": 0, "turn": 0, "tilt": 0},
-   "left": {"shoulder": 0, "arm": [80, 25], "forearm": [76, 55], "hand_turn": 40, "thigh": [3, 1], "shin": [1, -2], "foot": 12, "curl": 26},
+   "left": {"shoulder": 0, "arm": [80, 25], "forearm": [76, 55], "hand_turn": -40, "thigh": [3, 1], "shin": [1, -2], "foot": 12, "curl": 26},
    "right": {"shoulder": 0, "arm": [80, 25], "forearm": [76, 55], "hand_turn": -40, "thigh": [3, 1], "shin": [1, -2], "foot": 12, "curl": 26}},
   {"name": "weight_on_one_leg",
    "hips": {"turn": -4, "tilt": 4, "shift_x": 0.035, "shift_z": 0.0},
@@ -36,8 +36,8 @@
    "hips": {"turn": 0, "tilt": 2, "shift_x": 0.02, "shift_z": 0.0},
    "spine": {"forward": 3, "side": -2, "twist": 0},
    "head": {"nod": 3, "turn": 0, "tilt": 0},
-   "left": {"shoulder": 2, "arm": [74, -25], "forearm": [84, 35], "hand_turn": 40, "thigh": [0, 0], "shin": [0, 0], "foot": 10, "curl": 60},
-   "right": {"shoulder": 2, "arm": [74, -25], "forearm": [84, 35], "hand_turn": 40, "thigh": [6, 5], "shin": [2, -8], "foot": 18, "curl": 60}}
+   "left": {"shoulder": 2, "arm": [74, -25], "forearm": [84, 35], "hand_turn": -40, "thigh": [0, 0], "shin": [0, 0], "foot": 10, "curl": 60},
+   "right": {"shoulder": 2, "arm": [74, -25], "forearm": [84, 35], "hand_turn": -40, "thigh": [6, 5], "shin": [2, -8], "foot": 18, "curl": 60}}
  ],
  "people": [
   {"id": "adela_voss", "pose": "weight_on_one_leg", "mirror": false},
