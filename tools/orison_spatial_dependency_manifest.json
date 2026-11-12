@@ -269997,6 +269997,37 @@
    "rationale": "Test-only environment flag enabling a declared 4 m optical camera offset after ordinary roof input checks. It is not a building identity or save reference. The fixture preserves player placement and restores the camera; update its framing and disclosure together.",
    "resolved_target": null,
    "target_exists": false
+  },
+  {
+   "key": "5a7b1eeb2264e022",
+   "kind": "plan_coordinate",
+   "token": "_finish",
+   "file": "game/tests/v2_day_night_film.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_finish"
+   ],
+   "lines": [
+    224
+   ],
+   "count": 1,
+   "context": [
+    "\"camera_offset_metres\":[0,4,0],\"pan_degrees\":24,\"residents_and_buildings_hidden\":false,"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test-only disclosure of the existing optical camera four metres above the roof preview. The scanner conservatively classifies this vector as a plan coordinate; it is capture metadata, not a new gameplay placement or save authority. Keep it synchronized with camera movement and restore the original transform/context.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
