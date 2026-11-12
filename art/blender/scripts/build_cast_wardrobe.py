@@ -368,6 +368,41 @@ def hang_on_skirt_bones(obj):
             add(above, v.index, part * (1.0 - into))
 
 
+def smooth_weights(obj, passes=2):
+    """Even out a pack garment's bone weights between neighbouring points. The packs fit each point to the
+    nearest body faces, so neighbours along an edge can follow different bones; in a pose a robe's facing
+    came apart from the chest in square teeth."""
+    mesh_ = obj.data
+    near = [[] for _ in mesh_.vertices]
+    for edge in mesh_.edges:
+        a, b = edge.vertices
+        near[a].append(b)
+        near[b].append(a)
+    table = [{g.group: g.weight for g in v.groups} for v in mesh_.vertices]
+    for _ in range(passes):
+        fresh = []
+        for index, own in enumerate(table):
+            if not near[index]:
+                fresh.append(own)
+                continue
+            mixed = {group: 0.5 * weight for group, weight in own.items()}
+            share = 0.5 / len(near[index])
+            for other in near[index]:
+                for group, weight in table[other].items():
+                    mixed[group] = mixed.get(group, 0.0) + share * weight
+            fresh.append(mixed)
+        table = fresh
+    for index, weights_ in enumerate(table):
+        # The engine takes four bones a point: keep the four strongest, made to sum to one.
+        kept = sorted(weights_.items(), key=lambda item: -item[1])[:4]
+        total = sum(weight for _, weight in kept) or 1.0
+        for group in obj.vertex_groups:
+            if group.index in weights_ and group.index not in dict(kept):
+                group.remove([index])
+        for group_index, weight in kept:
+            obj.vertex_groups[group_index].add([index], weight / total, "REPLACE")
+
+
 def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0, made=None, weights=None):
     """A garment: the faces of a clothing helper whose corners all pass `keep`,
     set off from the skin by `offset` metres. Or, with `made`, a shape built
@@ -423,7 +458,7 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         print("GARMENT", name, "is empty")
         return None
     # A little easing along every open edge takes out what the cut left.
-    for _ in range(3 if made is None else 22):
+    for _ in range(8 if made is None else 22):
         moved = {}
         for v in bm.verts:
             beside = [e.other_vert(v) for e in v.link_edges if e.is_boundary]
@@ -635,6 +670,8 @@ def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Cl
                     socket.default_value = value
     for modifier in [m for m in obj.modifiers if m.type in ("SUBSURF", "MASK")]:
         obj.modifiers.remove(modifier)
+    if atype == "Clothes" and "hoe" not in name and "oot" not in name:
+        smooth_weights(obj)
     if skirt:
         line = skirt_top - 0.03
         for v in obj.data.vertices:
@@ -685,12 +722,24 @@ def torso(v, low=None, high=None, sleeves=1.0, vee=0.0, inner=False):
         # An armhole: a clean cut at the point of the shoulder.
         # The arm comes off at the plane square to it through the shoulder joint, and only outboard of the
         # chest (that plane also passes through the hip). Both are plain planes, so the edge is plain.
-        # The plane sits well inboard of the joint. Cloth at the joint is carried by the arm's bones: when the
-        # arm came down it drew the shoulder of a waistcoat down the sleeve as a wing. Below the armpit the
-        # side of the garment is whole. A sleeveless layer worn under another is cut narrower, so it never
-        # shows at the armhole.
-        narrow = 0.025 if inner else 0.0
-        inside = min(inside, max(-(out_arm(co) + 0.075 + narrow), (shoulder.x - 0.085 - narrow) - abs(co.x), (shoulder.z - 0.13) - co.z))
+        # The plane sits seven centimetres inboard of the joint: nearer, the cloth is on the part of the
+        # body the arm carries, and when the arm came down it drew the shoulder of a waistcoat down the
+        # sleeve as a wing. Below the armpit the side of the garment is whole. A sleeveless layer worn under
+        # another is cut narrower, so it never shows at the armhole.
+        narrow = 0.02 if inner else 0.0
+        # What comes away is everything beyond three planes at once: past the plane across the arm, outboard
+        # of the chest, and above the armpit. ("Above the armpit" is waived out on the arm itself: in this
+        # pose the forearms hang below it, and kept, they stood out from a waistcoat as a pair of sleeves.)
+        # Where the chest plane meets the armpit plane the corner is rounded, as an armhole is; left square,
+        # the cut through the body's faces there came out in teeth.
+        past_arm = out_arm(co) + 0.07 + narrow
+        outboard = abs(co.x) - (shoulder.x - 0.075 - narrow)
+        above_armpit = co.z - (shoulder.z - 0.10)
+        on_the_arm = abs(co.x) - (shoulder.x - 0.005)
+        round_ = 0.035
+        corner = round_ - math.hypot(max(round_ - outboard, 0.0), max(round_ - above_armpit, 0.0))
+        away = min(past_arm, max(corner, min(outboard, on_the_arm)))
+        inside = min(inside, -away)
     if vee > 0.0:
         # An open neck: a V from the collar down the chest. Behind the chest the margin grows, so the
         # V closes smoothly over the shoulder and leaves no chips at the collarbones.

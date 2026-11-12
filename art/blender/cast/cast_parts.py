@@ -180,7 +180,7 @@ STYLES = {
     "lena_ortiz": [("smock", "full_skirt", "apron", "headscarf", "boots"), ("blouse_long", "aline_skirt", "shawl", "-", "lady_boots"), ("skirt_suit", "-", "-", "toque", "pumps")],
     "mae_kessler": [("blouse_long", "long_skirt", "shawl", "-", "boots"), ("day_dress", "-", "long_coat", "-", "lady_boots"), ("evening_top", "pack_full_skirt", "cape", "wide_hat", "flats")],
     "malcolm_reed": [("work_overalls", "-", "apron", "newsboy", "work_boots"), ("lounge_suit", "-", "-", "derby", "dress_shoes"), ("fisherman", "wide_trousers", "waistcoat", "fedora", "gent_boots")],
-    "nadia_quell": [("shell", "straight_skirt", "knit_vest", "-", "tbar"), ("skirt_suit", "-", "-", "boater", "pumps"), ("flapper_dress", "-", "swing_coat", "wide_hat", "mary_jane")],
+    "nadia_quell": [("blouse_short", "straight_skirt", "knit_vest", "-", "tbar"), ("skirt_suit", "-", "-", "boater", "pumps"), ("flapper_dress", "-", "swing_coat", "wide_hat", "mary_jane")],
     "noel_price": [("shirt_rolled", "wide_trousers", "apron", "-", "brogues"), ("bowtie_suit", "-", "-", "pack_fedora", "dress_shoes"), ("jersey", "plus_fours", "waistcoat", "newsboy", "boots")],
     "omar_bell": [("shirt_rolled", "overalls", "apron", "cap", "work_boots"), ("elegant_suit", "-", "-", "-", "dress_shoes"), ("henley", "wide_trousers", "knit_vest", "derby", "gent_boots")],
     "peter_wren": [("shirt_long", "narrow_trousers", "waistcoat", "-", "brogues"), ("lounge_suit", "-", "-", "derby", "dress_shoes"), ("dinner_suit", "-", "-", "-", "dress_shoes")],
@@ -275,7 +275,7 @@ def add_parts(cast):
             colour = [c0, NEUTRALS[hash_index(cid) % 3], shade(s0, 0.75)][index]
             over_colour = [shade(s0, 0.9), c0, shade(c0, 0.5)][index]
             rows, trim, covers = top(t, [c0, c0, s0][index], a0, [pale, WHITE, [min(1.0, 0.6 + 0.4 * x) for x in s0]][index])
-            parts[letter + "_top"] = {"slot": "top", "set": letter, "tags": SET_TAGS[index] + (["night"] if t.startswith("pyjama") else []), "covers": covers + ([] if t.endswith("dress") else ["trunk"]), "replaces": REPLACES.get(t, []),
+            parts[letter + "_top"] = {"slot": "top", "set": letter, "tags": SET_TAGS[index] + (["night"] if t.startswith("pyjama") else []), "covers": covers + ([] if t.endswith("dress") or t == "robe" else ["trunk"]), "replaces": REPLACES.get(t, []),
                                     "rows": rows, "trim": trim}
             if b != "-":
               parts[letter + "_bottom"] = {"slot": "bottom", "set": letter,

@@ -1031,8 +1031,7 @@
     "covers": [
      "arms",
      "hips",
-     "legs",
-     "trunk"
+     "legs"
     ],
     "replaces": [
      "bottom",
@@ -2401,8 +2400,7 @@
     "covers": [
      "arms",
      "hips",
-     "legs",
-     "trunk"
+     "legs"
     ],
     "replaces": [
      "bottom",
@@ -4331,30 +4329,31 @@
     "rows": [
      {
       "kind": "shirt",
-      "name": "Shell",
+      "name": "Blouse",
       "colour": [
-       0.33,
-       0.01,
-       0.015
+       0.7454000000000001,
+       0.6238,
+       0.6257
       ],
-      "vee": 0.07,
-      "sleeves": 0.0,
-      "length": 0.05,
-      "cloth": "cotton",
-      "pattern": {
-       "kind": "dots",
-       "colour": [
-        0.7454000000000001,
-        0.6238,
-        0.6257
-       ],
-       "width": 2,
-       "cells": 6,
-       "repeat": 6
-      }
+      "vee": 0.08,
+      "sleeves": 0.5,
+      "blouson": 0.012,
+      "cloth": "silk"
      }
     ],
-    "trim": []
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "step": 0.07,
+      "lift": 0.016,
+      "size": 0.007
+     }
+    ]
    },
    "a_bottom": {
     "slot": "bottom",
