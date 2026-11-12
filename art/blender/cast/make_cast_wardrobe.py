@@ -68,7 +68,7 @@ def house_dress(c, a, pattern=None, apron=False, sleeves=0.5):
 
 def blouse_skirt(c, a, blouse=None, pattern=None, cardigan=None):
     rows = [{"kind": "stockings", "colour": [0.5, 0.36, 0.26]}, {"kind": "shirt", "name": "Blouse", "colour": blouse or CREAM, "vee": 0.09, "sleeves": 0.55, "cloth": "silk", "pattern": pattern},
-            {"kind": "skirt", "colour": c, "hem": 0.36, "flare": 0.3, "pleats": 18}, {"kind": "belt", "colour": a, "off": 0.012}, shoes(shade(c, 0.4), True)]
+            {"kind": "skirt", "colour": c, "hem": 0.36, "flare": 0.3, "pleats": 18}, {"kind": "belt", "colour": a, "off": 0.021}, shoes(shade(c, 0.4), True)]
     out = {"outfit": rows, "trim": [{"kind": "buttons", "colour": a, "step": 0.07, "lift": 0.014, "size": 0.007}], "bare_arm_from": 0.55, "bare_chest_vee": 0.09}
     if cardigan:
         rows.insert(3, {"kind": "cardigan", "colour": cardigan, "vee": 0.3})

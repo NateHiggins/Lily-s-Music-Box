@@ -722,7 +722,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         piece("DressSkirt", "helper-skirt", lambda v: True, 0.01, colour, 0.85, thicken=seat_room,
               reshape=skirt_shape(float(row.get("hem", 0.4)), float(row.get("flare", 0.2)), int(row.get("pleats", 0))), pattern=row.get("pattern"), cloth=cloth or "cotton", subdivide=1)
     elif kind == "cardigan":
-        piece("Cardigan", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.05, sleeves=1.0, vee=float(r.get("vee", 0.34))), 0.018, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
+        piece("Cardigan", "helper-tights", lambda v, r=row: torso(v, low=hip + 0.012, sleeves=1.0, vee=float(r.get("vee", 0.34))), 0.018, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
     elif kind == "coat":
         piece("CoatTop", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.02, sleeves=1.0, vee=float(r.get("vee", 0.2))), 0.023, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "wool")
         piece("CoatSkirt", "helper-skirt", lambda v: True, 0.034, colour, 0.85, thicken=seat_room, reshape=skirt_shape(float(row.get("hem", 0.45)), float(row.get("flare", 0.12))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
@@ -757,7 +757,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
 
         piece("ApronStraps", None, None, 0.0, colour, 0.85, cloth=cloth or "cotton", made=strap_shape, weights=lambda co: {"Spine2": 1.0})
-        piece("Apron", "helper-skirt", lambda v: min(-v.co.y, (0.95 - abs(math.atan2(v.co.x, -(v.co.y - 0.02)))) * 0.12), 0.042, colour, 0.85, reshape=skirt_shape(float(row.get("hem", 0.5)), float(row.get("flare", 0.32))), cloth=cloth or "cotton", subdivide=1)
+        piece("Apron", "helper-skirt", lambda v: min(-v.co.y, (0.95 - abs(math.atan2(v.co.x, -(v.co.y - 0.02)))) * 0.12), 0.034, colour, 0.85, reshape=skirt_shape(float(row.get("hem", 0.5)), float(row.get("flare", 0.22))), cloth=cloth or "cotton", subdivide=1)
         piece("ApronBib", "helper-tights", lambda v: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - 0.01 - v.co.y, band(v.co.z, waist - 0.02, neck - 0.12), 0.1 - abs(v.co.x)),
               0.02, colour, 0.85, cloth=cloth or "cotton")
     elif kind == "sash":
@@ -781,8 +781,6 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             rings = []
             steps = 44
             rows = 13
-            cape_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
-            reached = [0.0] * steps
             for k in range(rows):
                 t = k / (rows - 1.0)
                 ring = []
@@ -796,17 +794,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
                     rx *= fold
                     ry = 0.07 + (0.165 if math.sin(a) < 0 else 0.14) * over - 0.07 * over + 0.04 * depth / L
                     cy = neck_y + (chest_y - neck_y) * over
-                    # The cloth lies on the shoulders where they hold it up and hangs clear below: its reach is
-                    # the body's own at that height plus the cloth, never more than the cone, and never less
-                    # than it was higher up. A cone alone sat across the shoulders like a box.
-                    z = neck + 0.012 - depth
-                    out = Vector((math.cos(a), math.sin(a), 0.0))
-                    cone = Vector((math.cos(a) * rx, math.sin(a) * ry * fold, 0.0)).length
-                    hit = cape_tree.ray_cast(Vector((0.0, cy, z)) + out * 0.8, -out, 0.8)
-                    reach = cone if hit[0] is None else min(cone, (hit[0] - Vector((0.0, cy, z))).length + 0.024)
-                    reach = max(reach, reached[j] * (1.0 if depth > 0.03 else 0.0))
-                    reached[j] = reach
-                    ring.append(bm.verts.new((out.x * reach, cy + out.y * reach, z)))
+                    ring.append(bm.verts.new((math.cos(a) * rx, cy + math.sin(a) * ry * fold, neck + 0.012 - depth)))
                 rings.append(ring)
             for upper, lower in zip(rings, rings[1:]):
                 for j in range(steps):
@@ -1377,7 +1365,7 @@ if CARD_HAIR:
     with bpy.data.libraries.load(CARD_HAIR) as (found, wanted):
         wanted.objects = [n for n in found.objects if n in ("HairCards", "HairUnderCap")]
     skull_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
-    band_z = BROW_Z - 0.014        # where a hat's band sits: the same line the hats are built from
+    band_z = BROW_Z + 0.014        # inside the crown of every kind of hat built below, low beret or high derby
     worn_hair = [(o, {"HairCards": "Hair", "HairUnderCap": "HairCap"}[o.name.split(".")[0]]) for o in wanted.objects]
     for made, worn_name in list(worn_hair):
         if worn_name == "HairCap":
