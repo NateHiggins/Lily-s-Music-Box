@@ -2,6 +2,31 @@
 
 Evidence class: **INERT**. Living observations, not acceptance.
 
+## November12 — process-wide shader globals need publisher retirement custody
+
+An isolated Vulkan probe renders shared wetness and blood values through actual
+QueensWeatherExtension publication and inherited WeatherManager retirement.
+The original run fails four survivor checks: every retiring manager resets both
+globals, including when another world remains. Weak publisher references in
+last-publication order restore a surviving publisher without retaining its
+world; only final retirement resets the values. Repeated publication by the
+current owner uses a constant-time path without allocating another weakref.
+
+The strengthened nearby fixture passes41 checks, including unpublished teardown,
+duplicate publication and promoting an older publisher. Calendar/service tests
+also complete exit0. Originals, source hashes and receipts are under
+`C:/ov/reports/sky_weather_20261112/`. These checks do not establish occupied-city
+PBR appearance, frame-time improvement or artistic acceptance. Prologue temporal
+projection still uses sky parameters without acquiring surface-global custody.
+
+Reusable lesson: a global render value needs explicit multi-instance publication
+and retirement semantics even when each world owns its own material. On this
+pinned engine, runtime global values cannot be read back with the editor-only
+getter; an isolated shader-output probe verifies actual values without copying
+the implementation. The [weather skill](../.agents/skills/godot-weather-sky/SKILL.md)
+maps the installed Queens renderer and warns which capture fixtures clear or
+leave transitions unsettled. It is not a generic forecast or second-clock API.
+
 ## October30 — reversible dates and monotonic deadlines are different coordinates (L1)
 
 Problem: the prologue adopts the user's month/day/time inside the authored
