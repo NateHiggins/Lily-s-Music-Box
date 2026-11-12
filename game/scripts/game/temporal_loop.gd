@@ -23,6 +23,13 @@ extends Node
 ## brings the player home when the hours end with the evidence in hand.
 ## Everything it says is authored here or in the anchors table (RUL-015).
 ##
+## Time does not make the player wait (Lily, 2026-11-11). When a room can only
+## be waited on, when the evidence is taken and the hours are running out, or
+## when the player sits idle at home, the loop asks the campaign pace to run
+## the clock to the next thing worth doing. Any step the player can act on,
+## and any input at home, puts time back to its ordinary rate. WAIT asks for
+## it, STEADY turns it off, PACE turns it back on.
+##
 ## Every entry to the past goes through `jump`, `reset_loop` or `go_home`, and
 ## each of those goes through the clock's rebase, which refuses the murder
 ## hours. An anchor may not start or end inside them either.
@@ -52,6 +59,14 @@ var clock: CampaignClock
 var economy: Node
 var table: Dictionary = {}
 var _poll := 0.0
+## The campaign's pace, found on the clock driver; a test may hand one in.
+var pace: CampaignPace
+## Real seconds since the player last did anything.
+var _idle := 0.0
+## The elapsed minute a typed WAIT runs to, or -1.
+var _wait_until := -1.0
+## The run the companion has already announced.
+var _pace_said := ""
 
 
 func setup(campaign_clock: CampaignClock, caretaker_economy: Node) -> bool:
@@ -63,7 +78,55 @@ func setup(campaign_clock: CampaignClock, caretaker_economy: Node) -> bool:
 	add_to_group("temporal_loop")
 	if economy != null:
 		economy.tip_percent = tip_percent_now
+	mend()
 	return true
+
+
+## Put a ledger that does not agree with itself back in order: a visit to a
+## lead that no longer exists, a state that says away with no visit, or home
+## with one. Returns what was mended, for the log. Evidence is never touched.
+func mend() -> Array[String]:
+	var mended: Array[String] = []
+	var value: Variant = RealityState.data.get(KEY)
+	if value is not Dictionary or int(value.get("version", 0)) != 2 or table.is_empty():
+		return mended
+	var book := ledger()
+	if book.get("visit") is not Dictionary:
+		book["visit"] = {}
+		mended.append("visit")
+	var visit: Dictionary = book.visit
+	if not visit.is_empty() and (not table.anchors.has(str(visit.get("anchor", ""))) or not visit.has("loop_started")):
+		_give_back(RealityState.data, visit.get("world", {}) if visit.get("world") is Dictionary else {})
+		book.visit = {}
+		mended.append("lost_lead")
+	if str(book.get("state", "")) not in STATES:
+		book["state"] = "CHOOSE_NEXT_ACTION"
+		mended.append("state")
+	var away := not (book.visit as Dictionary).is_empty()
+	var away_state := str(book.state) in ["RUN_LOOP", "INVESTIGATE", "RESOLVE_ANCHOR", "RESET_LOOP", "EXECUTE_JUMP"]
+	if away and not away_state:
+		book.state = "INVESTIGATE"
+		mended.append("state_away")
+	elif away and str(book.state) in ["RESET_LOOP", "EXECUTE_JUMP"]:
+		book.state = "RUN_LOOP"
+		mended.append("state_between")
+	elif not away and away_state:
+		book.state = "CHOOSE_NEXT_ACTION"
+		mended.append("state_home")
+	if away:
+		if (book.visit as Dictionary).get("stage") is not Dictionary or ((book.visit as Dictionary).stage as Dictionary).get("done") is not Array:
+			book.visit["stage"] = {"done": []}
+			mended.append("stage")
+		var known: Array = []
+		for step: Dictionary in table.anchors[visit_anchor()].steps:
+			known.append(str(step.id))
+		var done: Array = book.visit.stage.done
+		if done != known.slice(0, done.size()):
+			book.visit.stage.done = []
+			mended.append("steps")
+	if not mended.is_empty():
+		push_warning("temporal loop: mended %s" % [mended])
+	return mended
 
 
 static func _load_table() -> Dictionary:
@@ -76,6 +139,16 @@ static func _load_table() -> Dictionary:
 	var fare: Dictionary = parsed.get("fare", {})
 	for field: String in ["base_cents", "days_per_cent", "cap_cents", "worn_groove_divisor"]:
 		if not fare.has(field):
+			return {}
+	# How time runs when there is nothing to do: rates are campaign seconds a second.
+	var pace_rules: Variant = parsed.get("pace")
+	if pace_rules is not Dictionary:
+		return {}
+	for field: String in ["wait_rate", "done_rate", "idle_rate"]:
+		if float(pace_rules.get(field, 0.0)) < 1.0 or float(pace_rules[field]) > CampaignPace.MAX_RATE:
+			return {}
+	for field: String in ["idle_seconds", "landing_seconds", "ramp_seconds"]:
+		if float(pace_rules.get(field, 0.0)) <= 0.0:
 			return {}
 	if not (parsed.get("stipend", {}) as Dictionary).has("cents") or str(parsed.get("bank_name", "")).is_empty() \
 			or str(parsed.get("wall", "")).is_empty():
@@ -567,11 +640,21 @@ func observe(unit: String) -> void:
 		var passed := false
 		match str(step.kind):
 			"at": passed = unit == str(step.unit)
-			"after": passed = clock.minute_of_day() >= float(_minute_of(str(step.time)))
+			"after": passed = _hour_reached(str(step.time))
 			"flag": passed = RealityState.has_knowledge(str(step.flag))
 		if not passed:
 			return
 		_advance(step)
+
+
+## Whether this run of the anchor has reached a time of day. Counted from the
+## anchor's own start, so a room that begins before midnight and waits on an
+## hour after it is not passed at once, or never.
+func _hour_reached(time: String) -> bool:
+	if not in_visit():
+		return false
+	var began := float(_minute_of(str(table.anchors[visit_anchor()].start)))
+	return loop_minutes() >= fposmod(float(_minute_of(time)) - began, float(CampaignClock.MINUTES_PER_DAY))
 
 
 ## The player moved a thing in the room by hand, all the way.
@@ -794,8 +877,11 @@ func reset_loop() -> Dictionary:
 		return {"ok": false, "code": "home"}
 	var book := ledger()
 	var anchor_id := visit_anchor()
+	var was := str(book.state)
 	book.state = "RESET_LOOP"
 	if not clock.rebase_calendar(_anchor_span(table.anchors[anchor_id]).start):
+		# A refusal changes nothing: the room is where it was.
+		book.state = was
 		return {"ok": false, "code": "refused"}
 	_restore_world()
 	book.visit.loop_started = clock.elapsed_minutes()
@@ -825,25 +911,129 @@ func go_home() -> Dictionary:
 	book.visit = {}
 	book.state = "CHOOSE_NEXT_ACTION"
 	book.selected = ""
+	_settle_pace()
 	RealityState.commit()
 	stage_reset.emit()
 	changed.emit()
 	return {"ok": true, "answered": answered(anchor_id), "carried": carried()}
 
 
+## The last resort when neither a rerun nor the way home will take: the visit
+## is closed where the calendar stands, the borrowed world is given back, and
+## the player is home in every sense but the date. Evidence is kept.
+func _abandon_visit() -> void:
+	_restore_world()
+	var book := ledger()
+	book.visit = {}
+	book.state = "CHOOSE_NEXT_ACTION"
+	book.selected = ""
+	_settle_pace()
+	RealityState.commit()
+	stage_reset.emit()
+	changed.emit()
+
+
+# --- The pace of time ---------------------------------------------------------------------
+
+func _pace_owner() -> CampaignPace:
+	if pace == null and is_inside_tree():
+		var driver := get_tree().get_first_node_in_group("campaign_time_owner")
+		if driver != null and driver.get("pace") is CampaignPace:
+			pace = driver.get("pace")
+	return pace
+
+
+func _settle_pace() -> void:
+	_wait_until = -1.0
+	if pace != null and pace.reason.begins_with("loop:"):
+		pace.settle()
+
+
+## What the clock should run to now, and why: {} when the player has
+## something to do, or has said STEADY. `until` is in elapsed minutes.
+func pace_plan() -> Dictionary:
+	if table.is_empty() or clock == null or bool(aide().get("steady", false)):
+		return {}
+	var rules: Dictionary = table.pace
+	var now := clock.elapsed_minutes()
+	if in_visit():
+		var anchor_id := visit_anchor()
+		var ends := float((ledger().visit as Dictionary).loop_started) + float(int(table.anchors[anchor_id].minutes))
+		if answered(anchor_id):
+			return {"until": ends, "rate": float(rules.done_rate), "why": "done:" + anchor_id,
+					"say": "You have what you came for. I am running the clock to the end of the hours. HOME goes at once."}
+		var step := current_step()
+		if not step.is_empty() and str(step.kind) == "after":
+			var began := float(_minute_of(str(table.anchors[anchor_id].start)))
+			var due := float((ledger().visit as Dictionary).loop_started) \
+					+ fposmod(float(_minute_of(str(step.time))) - began, float(CampaignClock.MINUTES_PER_DAY))
+			if due > now:
+				return {"until": minf(due, ends), "rate": float(rules.wait_rate), "why": "wait:%s:%s" % [anchor_id, str(step.id)],
+						"say": "Nothing to be done here until %s. I am running the clock. STEADY stops it." % str(step.time)}
+		return {}
+	var day := floorf(now / float(CampaignClock.MINUTES_PER_DAY))
+	if _wait_until > now:
+		return {"until": _wait_until, "rate": float(rules.idle_rate), "why": "asked:%d" % int(day),
+				"say": "Running the clock to tomorrow's allowance. STEADY stops it."}
+	if _idle >= float(rules.idle_seconds):
+		return {"until": (day + 1.0) * float(CampaignClock.MINUTES_PER_DAY), "rate": float(rules.idle_rate), "why": "idle:%d" % int(day),
+				"say": "Nothing is pressing. I am running the clock toward tomorrow. Anything you do stops it."}
+	return {}
+
+
+func _set_pace() -> void:
+	var owner := _pace_owner()
+	if owner == null:
+		return
+	var plan := pace_plan()
+	if plan.is_empty():
+		if owner.reason.begins_with("loop:"):
+			owner.settle()
+		return
+	var rules: Dictionary = table.pace
+	owner.run_to(float(plan.until), float(plan.rate), "loop:" + str(plan.why), float(rules.landing_seconds), float(rules.ramp_seconds))
+	if _pace_said != str(plan.why):
+		_pace_said = str(plan.why)
+		if not bool(aide().quiet):
+			slip.emit("CLOCK", str(plan.say))
+
+
+## Anything the player does ends an idle run at home, at once.
+func _input(event: InputEvent) -> void:
+	var acted := false
+	if event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton:
+		acted = event.is_pressed()
+	elif event is InputEventMouseMotion:
+		acted = (event as InputEventMouseMotion).relative.length() > 1.0
+	elif event is InputEventJoypadMotion:
+		acted = absf((event as InputEventJoypadMotion).axis_value) > 0.3
+	if acted:
+		note_activity()
+
+
+## The player did something. Called for input, and by anything else that knows.
+func note_activity() -> void:
+	_idle = 0.0
+	if pace != null and pace.reason.begins_with("loop:idle"):
+		pace.settle()
+
+
 # --- The companion's own initiative ---------------------------------------------------
 
 func _process(delta: float) -> void:
 	_poll += delta
+	_idle += delta
 	if _poll < 1.0 or clock == null or table.is_empty() or RealityState.save_write_blocked:
 		return
 	_poll = 0.0
 	if not clock.loop_calendar_active():
+		_settle_pace()
 		return
 	if in_visit():
 		_attend_visit()
 	else:
 		_attend_home()
+	_set_pace()
 
 
 ## The companion's own record: what it has already said and done unasked.
@@ -899,6 +1089,14 @@ func _attend_visit() -> void:
 			notes.warned = false
 			notes.next_hint = HINT_FIRST_MINUTES
 			slip.emit("AGAIN", "%s. The hours begin again. Run %d." % [str(table.anchors[anchor_id].title), int(again.loops) + 1])
+			return
+		# The hours would not begin again. Home, then; and if even that is
+		# refused, the visit is closed where it stands. Never left hanging.
+		if go_home().ok:
+			slip.emit("HOME", "The hours would not run again. I have brought you home. The lead is still open.")
+		else:
+			_abandon_visit()
+			slip.emit("HOME", "The line dropped. You are home, and the lead is still open.")
 		return
 	if bool(notes.quiet) or answered(anchor_id):
 		return
@@ -907,7 +1105,9 @@ func _attend_visit() -> void:
 		slip.emit("TIME", "%d minutes. Then the hours begin again. What you have taken, you keep." % int(ceil(left)))
 	elif loop_minutes() >= float(notes.next_hint):
 		notes.next_hint = loop_minutes() + HINT_EVERY_MINUTES
-		slip.emit("HINT", visit_hint())
+		# While the clock is being run through a wait, minutes are cheap: no hint for each dozen of them.
+		if pace_plan().is_empty():
+			slip.emit("HINT", visit_hint())
 
 
 ## The authored hint for the step the room is waiting on.
@@ -971,6 +1171,24 @@ func command(raw: String) -> Dictionary:
 			RealityState.commit_background()
 			return {"intent": "temporal", "text": "I will keep to myself. HINT when you want one. HINTS to have me speak up again."
 					if words[0] == "quiet" else "I will speak up when I have something."}
+		"wait":
+			if bool(aide().get("steady", false)):
+				return {"intent": "temporal", "text": "THE CLOCK IS HELD STEADY. PACE LETS IT RUN."}
+			if in_visit():
+				return {"intent": "temporal", "text": "RUNNING THE CLOCK." if not pace_plan().is_empty()
+						else "THERE IS SOMETHING TO DO HERE. HINT SAYS WHAT."}
+			_wait_until = (floorf(clock.elapsed_minutes() / float(CampaignClock.MINUTES_PER_DAY)) + 1.0) * float(CampaignClock.MINUTES_PER_DAY)
+			_set_pace()
+			return {"intent": "temporal", "text": "RUNNING THE CLOCK TO TOMORROW'S ALLOWANCE. STEADY STOPS IT."}
+		"steady", "pace":
+			aide()["steady"] = words[0] == "steady"
+			_wait_until = -1.0
+			_pace_said = ""
+			if words[0] == "steady":
+				_settle_pace()
+			RealityState.commit_background()
+			return {"intent": "temporal", "text": "THE CLOCK KEEPS ITS OWN TIME NOW. PACE LETS IT RUN WHEN NOTHING IS DOING."
+					if words[0] == "steady" else "THE CLOCK WILL RUN WHEN NOTHING IS DOING. WAIT ASKS FOR IT."}
 		"leads":
 			return {"intent": "temporal", "text": leads_text()}
 		"wall":
