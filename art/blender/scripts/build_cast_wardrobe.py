@@ -9,7 +9,7 @@ helpers (a body-hugging shell and a skirt), cut to each garment's shape, set
 off from the skin, and given the character's colours. The world is surreal and
 the cast must read at a distance, so the palettes are bold.
 """
-import bpy, bmesh, os, sys, glob, json, math, importlib, importlib.util, traceback
+import bpy, bmesh, os, sys, glob, json, math, importlib, importlib.util, traceback, zlib
 import numpy
 from mathutils import Matrix, Vector
 from mathutils.bvhtree import BVHTree
@@ -244,8 +244,11 @@ def patterned(name, colour, pattern, rough, cloth="cotton"):
         mask = ((xs + numpy.abs((ys % unit) - unit / 2)) % (unit / 4)) < (unit / 10)
     else:
         mask = numpy.zeros((size, size), dtype=bool)
-    rng = numpy.random.default_rng(abs(hash(name)) % (2 ** 32))
-    fine = rng.random((size, size)).astype(numpy.float32)
+    # Seeds come from a checksum of the name: hash() of a string changes from one run to the next, and a build
+    # must come out the same twice. The weave's own grain is seeded by the cloth alone, so every garment of one
+    # cloth carries the same normal map, byte for byte, and the game keeps it once.
+    rng = numpy.random.default_rng(zlib.crc32(name.encode("utf-8")))
+    fine = numpy.random.default_rng(zlib.crc32(("weave " + cloth).encode("utf-8"))).random((size, size)).astype(numpy.float32)
     tau = math.tau
     if cloth == "wool":
         height_map = 0.5 + 0.5 * numpy.sin((xs + ys) * tau / 6.0) * 0.6 + (fine - 0.5) * 0.5
@@ -503,7 +506,7 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         highest = max(v.co.z for v in out.vertices)
         span = max(highest - lowest, 1e-4)
         layer = out.color_attributes.new(name="Wear", type="BYTE_COLOR", domain="CORNER")
-        noise = numpy.random.default_rng(abs(hash(STEM + name)) % (2 ** 32))
+        noise = numpy.random.default_rng(zlib.crc32((STEM + name).encode("utf-8")))
         jitter = noise.random(len(out.vertices))
         tint = []
         for v in out.vertices:
@@ -1548,7 +1551,7 @@ STYLES = {
 }
 STYLE = dict(STYLES[CFG["hair"].get("style", "bob")])
 STYLE.update({k: v for k, v in CFG["hair"].items() if k in STYLE})
-PINNED = (not OUTFIT) and CFG["hair"].get("set") == "pinned"
+PINNED = (not OUTFIT) and CFG["hair"].get("set") == "pinned" and not CARD_HAIR      # card hair replaces the modelled set
 if OUTFIT or PACK_HAIR or PINNED or CARD_HAIR:
     STYLE["guides"] = 8  # an outfit's file carries no hair; do not spend time on it
 head_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])

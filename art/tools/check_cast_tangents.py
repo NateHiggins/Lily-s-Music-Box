@@ -113,7 +113,9 @@ def check(path, min_agreement):
             # Positive when the binormal points toward falling v (up the picture), the engine's convention.
             handed = np.where(usable, -np.sum(np.cross(normals, actual) * dv[:, None, :], axis=2) * t[index, 3], 1.0)
             row = {"primitive": name, "vertices": int(len(p)), "triangles": int(len(index)), "corners_per_vertex": round(index.size / max(len(p), 1), 3),
-                   "collapsed_uv_triangles": int(flat.sum()), "wrong_handed_corners": int((handed <= 0).sum()),
+                   "collapsed_uv_triangles": int(flat.sum()), "wrong_handed_corners": int((handed < -1e-9).sum()),
+                   # Neither sign is right where the binormal has no component along the picture's height.
+                   "undetermined_handed_corners": int((abs(handed) <= 1e-9).sum()),
                    "minimum_agreement": round(float(agreement.min()), 5), "agreement_1st_percentile": round(float(np.percentile(agreement, 1)), 5),
                    "median_agreement": round(float(np.median(agreement)), 5), "corners_below_strict_0_999": int((agreement <= 0.999).sum()),
                    "corners_below_minimum": int((agreement < min_agreement).sum()), "morph_targets": len(primitive.get("targets", []))}

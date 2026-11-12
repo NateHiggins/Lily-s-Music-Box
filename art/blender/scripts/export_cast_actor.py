@@ -88,12 +88,15 @@ class SmoothTangentRepair:
             tangent = arrays["TANGENT"][indices].copy()
             agreement = np.sum(expected * tangent[:, :, :3], axis=2)
             handed = -np.sum(np.cross(n, tangent[:, :, :3]) * dv[:, None, :], axis=2) * tangent[:, :, 3]
-            bad = np.all(usable, axis=1) & np.any((agreement < MIN_AGREEMENT) | (handed <= 0) | ~np.isfinite(agreement), axis=1)
+            # A corner is judged only where its triangle has a UV derivative to judge it by.
+            bad = np.any(usable & ((agreement < MIN_AGREEMENT) | (handed <= 0) | ~np.isfinite(agreement)), axis=1)
             row = {"mesh": str(mesh.name), "triangles": int(len(indices)), "vertices_before": int(count), "repaired_triangles": int(bad.sum()),
                    "collapsed_uv_triangles": int(flat.sum()), "morph_targets": len(primitive.targets or [])}
             if np.any(bad):
-                tangent[bad, :, :3] = expected[bad].astype("<f4")
-                tangent[bad, :, 3] = np.where(np.sum(np.cross(n[bad], tangent[bad, :, :3].astype(float)) * dv[bad, None, :], axis=2) < 0, 1, -1)
+                fix = bad[:, None] & usable
+                tangent[..., :3] = np.where(fix[..., None], expected.astype("<f4"), tangent[..., :3])
+                sign = np.where(np.sum(np.cross(n, tangent[..., :3].astype(float)) * dv[:, None, :], axis=2) < 0, 1, -1)
+                tangent[..., 3] = np.where(fix, sign, tangent[..., 3])
                 if not np.isfinite(tangent).all():
                     raise ValueError("a repaired tangent is not finite")
                 keys = np.empty(indices.size, dtype=[("vertex", "<u4"), ("frame", "<u4", (4,))])
