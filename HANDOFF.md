@@ -1,22 +1,25 @@
-# Current work — Pull Up a Chair video and Harukiya, November 12
+# Current work — performance film delivered; NPC loop plan next
 
-**Pull Up a Chair is delivered locally:**
-**C:/ov/reports/pull_up_a_chair_music_video_20261112/delivery/Pull_Up_a_Chair_1080p.mp4**.
-1080p24,4372frames,182.166667s,23 native indoor/outdoor shots,97,006,806bytes.
-**delivery/TECHNICAL_QA.json** passes exact stream/frame counts, full decode,
-−14LUFS/−1.9dBTP encoded audio and sampled visual review of all23shots, the
-2399/2400 section seam and final frame. **DELIVERY.md** records scope and limits.
-All Godot/encoder jobs are terminal; both film custody files pass. Root held
-3387inputs unchanged and restored the preview save authority. Continuous
- audiovisual review and Lily's artistic acceptance remain unclaimed.
+**Pull Up a Chair performance recapture delivered November12:**
+**C:/ov/reports/pull_up_a_chair_music_video_20261112/performance_v2/delivery/Pull_Up_a_Chair_Performance_1080p.mp4**.
+1080p24,4372frames,182.166667s,23shots. Adela leads/sings+piano;
+Lily drums+selective harmony; Stacy listens. Full approved audio unchanged.
+Native mouth/contact proofs, all4372-frame reach sweep, deterministic pickup,
+short motion proof, complete final decode/frame counts and all23shot/seam/ending
+samples pass. Sources frozen3392files; all GPU/encoder jobs terminal.
+**performance_v2/DELIVERY.md**, **delivery/TECHNICAL_QA.json** and **REVIEW.json**
+record exact evidence. Original movie/failures remain retained.
 
-The complete182.137333s source and tail are unchanged; the derived48k stereo
-mix applies only−1.95dB gain (−14LUFS,−1.93dBTP). The23-shot film ends inside
-with all three women and existing chairs. Original26 embedded caption windows
-are retained as source evidence, not sung phrase/phoneme alignment. The film
-uses restrained standing/gaze/breathing performance: no singing lip-sync or
-instrument-contact claim. Private director and lighting do not qualify gameplay.
-No publishing/upload is authorized.
+Canonical machinima skill now covers music videos: acoustic singing/harmony timing,
+real instrument contacts, seated gaze, bounded capture and honest review limits.
+Phone subdivisions/harmony identity and instrument fingering are derived staging;
+keys stay passive, inherited clothes/hair remain POC quality. Continuous audiovisual
+viewing and Lily's artistic acceptance remain open. No upload. Private film sources
+are copied in **performance_v2/production/final_source/**; no game rig edits.
+
+Latest owner request: after this film/skill update, plan applying the performance
+workflow to scripting every NPC through each loop. **B-DESTINATION** remains open
+below; the private film proof does not close its gameplay qualification.
 
 Canonical checkout: **codex/harukiya-overhaul-20261112**, based on main
 **35e586b93**. Skill checkpoints **6ce4a812a** and **54ba99239** are pushed;

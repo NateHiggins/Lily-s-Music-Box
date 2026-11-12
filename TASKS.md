@@ -312,7 +312,7 @@ between headings silently.
   counter, the barrels and crowded pictures behind the backbar, the violet
   felt, and light that only ever comes from something you can point at.
 
-- **B-PULL-UP-A-CHAIR-MV — delivered locally November12; artistic review open:** complete **Pull Up a Chair** music video,23 native Harukiya/Queens shots,1080p24,3:02,full approved song. **C:/ov/reports/pull_up_a_chair_music_video_20261112/delivery/Pull_Up_a_Chair_1080p.mp4**. Exact4372frames/full decode/source freeze/restoration pass; all23 final shot samples, section seam and ending reviewed. Encoded audio−14LUFS/−1.9dBTP. **DELIVERY.md** records evidence/limits. Singing lip-sync, instrument-contact performance and rig polish remain unfinished; no continuous audiovisual or artistic acceptance claim. Bible/machinima skill carry adopted Neo-Noir Neon1929 (RUL-017). No upload or gameplay qualification from this film.
+- **B-PULL-UP-A-CHAIR-MV — performance recapture delivered November12:** full1080p24 song,23shots under **C:/ov/reports/pull_up_a_chair_music_video_20261112/performance_v2/delivery/**. Adela lead+piano; Lily drums+selective harmony. Native singing/contact proofs,4372-frame reach sweep, pickup repeat, encoded motion proof, exact final frames/full decode and allshot/seam/ending samples pass. Original audio preserved. Music-video workflow added to canonical machinima skill. Derived timing/harmony/fingering and inherited mesh limitations in **performance_v2/DELIVERY.md**; continuous audiovisual review and artistic acceptance remain open. All jobs terminal; no upload or gameplay qualification claim.
 
 ## E — Entropy: the building gets dirty (owner direction 2026-08-16)
 

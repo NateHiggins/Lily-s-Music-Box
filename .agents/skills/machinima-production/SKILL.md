@@ -1,6 +1,6 @@
 ---
 name: machinima-production
-description: Plan, voice, stage, capture and edit scripted films using existing game scenes and characters. Use for machinima and voiced cinematic proofs; ordinary gameplay recordings do not need the full production workflow.
+description: Plan, voice, stage, capture and edit scripted films and music videos using existing game scenes and characters. Use for machinima, sung performances and voiced cinematic proofs; ordinary gameplay recordings do not need the full production workflow.
 ---
 
 # Film the existing game
@@ -28,6 +28,8 @@ For a music video, recover the exact approved full track, duration and available
 lyric cues first. Cut picture to musical phrases without shortening the song or
 inventing lyric timing. Keep the selected master unchanged; derive any delivery
 gain in a separate mix. An audio-caption window is not phoneme alignment.
+Read [music-video production](references/music-video-production.md) for singing,
+backing vocals, instrument contacts and their combined proof before full capture.
 
 ## Prepare the production
 
