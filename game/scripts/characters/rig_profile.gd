@@ -28,6 +28,8 @@ var neck_share := 0.42
 var breath_radians := 0.0
 var breath_seconds := 4.0
 var errors: Array[String] = []
+## Optional semantic rest landmarks for bodies without an artificial face marker.
+var _rest_frame: Dictionary = {}
 
 
 ## The profile for a skeleton, or null when no family fits it.
@@ -44,6 +46,9 @@ static func for_skeleton(body: Skeleton3D) -> RefCounted:
 		var profile: RefCounted = (load("res://scripts/characters/rig_profile.gd") as GDScript).new()
 		profile.family = str(row.id)
 		profile.skeleton = body
+		profile._rest_frame = row.get("rest_frame", {})
+		if row.has("bone_count") and body.get_bone_count() != int(row.bone_count):
+			profile.errors.append("%s expected %d bones, found %d" % [profile.family, int(row.bone_count), body.get_bone_count()])
 		for joint: Dictionary in row.joints:
 			var index := _find(body, joint.names)
 			if index < 0:
@@ -81,6 +86,9 @@ func can(control: String) -> bool:
 
 ## Read the rest pose: where the face looks and where the crown points.
 func _measure() -> void:
+	if not _rest_frame.is_empty():
+		_measure_landmarks()
+		return
 	if not (has("head") and has("head_front")):
 		errors.append("%s cannot be measured: no head or no face marker" % family)
 		return
@@ -102,5 +110,43 @@ func _measure() -> void:
 	var level := forward - up * forward.dot(up)
 	if level.length() > 0.001:
 		forward = level.normalized()
+	head_forward_local = head.basis.orthonormalized().inverse() * forward
+	head_up_local = head.basis.orthonormalized().inverse() * up
+
+
+## Bilateral foot/toe landmarks define forward; pelvis-to-neck defines up.
+## These are measured rest positions in skeleton space, never a guessed yaw
+## or a bone-axis convention. No pose is written and no marker bone is added.
+func _landmark_mean(joints: Array) -> Vector3:
+	if joints.is_empty():
+		errors.append("%s has an empty rest-frame landmark group" % family)
+		return Vector3.ZERO
+	var total := Vector3.ZERO
+	for joint: Variant in joints:
+		if not has(str(joint)):
+			errors.append("%s lacks rest-frame landmark %s" % [family, str(joint)])
+			return Vector3.ZERO
+		total += skeleton.get_bone_global_rest(int(bones[str(joint)])).origin
+	return total / float(joints.size())
+
+
+func _measure_landmarks() -> void:
+	if not has("head"):
+		errors.append("%s has no head" % family)
+		return
+	var facing := _landmark_mean(_rest_frame.get("forward_to", [])) - _landmark_mean(_rest_frame.get("forward_from", []))
+	var crown := _landmark_mean(_rest_frame.get("up_to", [])) - _landmark_mean(_rest_frame.get("up_from", []))
+	if not errors.is_empty():
+		return
+	if facing.length() < 0.001 or crown.length() < 0.001:
+		errors.append("%s has coincident rest-frame landmarks" % family)
+		return
+	up = crown.normalized()
+	var level := facing - up * facing.dot(up)
+	if level.length() < 0.001:
+		errors.append("%s has parallel forward and up landmarks" % family)
+		return
+	forward = level.normalized()
+	var head := skeleton.get_bone_global_rest(int(bones.head))
 	head_forward_local = head.basis.orthonormalized().inverse() * forward
 	head_up_local = head.basis.orthonormalized().inverse() * up

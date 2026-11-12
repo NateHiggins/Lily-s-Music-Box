@@ -104,7 +104,7 @@ func apply(skeleton: Skeleton3D, pose_name: String, mirror: bool = false, time: 
 		var written := side
 		if mirror and side != "":
 			written = "Right" if side == "Left" else "Left"
-		var limb: Dictionary = pose.get(written.to_lower(), {}) if side != "" else {}
+		var limb: Dictionary = pose.get("left", {}) if written == "Left" else pose.get("right", {}) if written == "Right" else {}
 		var part := label.trim_prefix(side)
 		var delta := before
 		if label == "Hips":

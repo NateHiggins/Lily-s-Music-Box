@@ -104,9 +104,9 @@ func _put_on(part: String, loader: Callable) -> bool:
 	var mine: Array = []
 	for mesh: MeshInstance3D in source.find_children("*", "MeshInstance3D", true, false):
 		# The part was skinned to a skeleton with the same bones; hand it to this one.
+		mesh.owner = null
 		mesh.get_parent().remove_child(mesh)
 		skeleton.add_child(mesh)
-		mesh.owner = null
 		mesh.skeleton = NodePath("..")
 		mesh.name = "%s_%s" % [part, mesh.name]
 		mine.append(mesh)

@@ -269635,6 +269635,221 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "c65146ae4fda86f5",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/characters/harukiya_cast.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "configure"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "if str(storey.id) != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "HarukiyaCast.configure resolves existing F01 and retail_bar_floor to derive the two visual presentations' shoe datum. Preserve the floor identity or supply its alias; attendance and gameplay remain with existing owners.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a40a391c9b76e235",
+   "kind": "generated_name",
+   "token": "_ready",
+   "file": "game/scripts/characters/harukiya_cast.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    42
+   ],
+   "count": 1,
+   "context": [
+    "\"Harukiya_\" + id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "HarukiyaCast creates Harukiya_stacy and Harukiya_lily. Route fixtures enumerate the Harukiya_* node template; regenerate those consumers with any template change. These visual names add no roster or save identities.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b44792ba4c4ae2e4",
+   "kind": "id_reference",
+   "token": "retail_bar_floor",
+   "file": "game/scripts/characters/harukiya_cast.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "configure"
+   ],
+   "lines": [
+    31
+   ],
+   "count": 1,
+   "context": [
+    "if str(row.id) == \"retail_bar_floor\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "HarukiyaCast.configure uses the existing F01 retail_bar_floor furniture top as its presentation ground datum. Preserve this stable bar-floor lookup or update its alias and consumer together.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "aec40d80abc94ddd",
+   "kind": "generated_name",
+   "token": "_put_on",
+   "file": "game/scripts/characters/resident_wardrobe.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "_put_on"
+   ],
+   "lines": [
+    111
+   ],
+   "count": 1,
+   "context": [
+    "\"%s_%s\" % [part, mesh.name]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Wardrobe mounts meshes as <part>_<source mesh>; HarukiyaCast._ground_rest_shoes consumes the work_feet_ prefix. Regenerate the name template and its grounding consumer together.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "ac8d246dd1101dbc",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/cast_model_presentation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    79,
+    80
+   ],
+   "count": 2,
+   "context": [
+    "camera.position = Vector3(0, 1.35, 2)",
+    "camera.look_at(Vector3(0, 1.3, 0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Camera station for the isolated real-asset CastModelPresentation fixture only: position (0,1.35,2), target (0,1.3,0). Update this diagnostic fixture if the cast frame changes; it is not a production location or appearance-acceptance claim.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "527351b75270efb1",
+   "kind": "generated_name",
+   "token": "exercise",
+   "file": "game/tests/constrained_grab_scalar_release_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "exercise"
+   ],
+   "lines": [
+    64
+   ],
+   "count": 1,
+   "context": [
+    "\"Scalar_\" + mode"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Test-only Scalar_<mode> owner names identify retain/cancel/notify/reacquire cases and are checked against the production hand motion profiler's original-owner label. Regenerate fixture diagnostics and name consumers together if the template changes; this creates no production roster or save identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "de0980ce7898a6ab",
+   "kind": "vector3_coordinate",
+   "token": "exercise",
+   "file": "game/tests/constrained_grab_scalar_release_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "exercise"
+   ],
+   "lines": [
+    69
+   ],
+   "count": 1,
+   "context": [
+    "owner.part.global_position = player.camera.global_position + Vector3(0,0,-0.8)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test-only scalar part is placed 0.8 m along negative world Z from the fixture camera, fixing descriptor hit-position geometry while the actual PlayerController look path invokes the scalar setter. Acquisition is explicit fixture setup, not ray-picking or installed-room qualification; update the fixture with any geometry change.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
