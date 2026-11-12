@@ -1,7 +1,10 @@
 extends Node3D
 ## Model presentation only. Caller owns place, attendance and conversations.
 ## StandPose supplies the base before the existing one-writer pose modifier;
-## FaceController is the only morph writer. No clips, collision or interaction.
+## FaceController is the only morph writer. No collision or interaction, and no
+## clips unless the owner asks: drive_with_clips() grafts the shared cast clips
+## and from then on a clip supplies the base pose in the stand pose's place
+## (still one base writer). A caller that never asks is exactly as before.
 const Wardrobe := preload("res://scripts/characters/resident_wardrobe.gd")
 const Face := preload("res://scripts/characters/face_controller.gd")
 const Stand := preload("res://scripts/characters/stand_pose.gd")
@@ -35,6 +38,9 @@ var _configured := false
 var _active := true
 var _applied_active: Variant = null
 var _clock := 0.0
+## True once the owner has asked for clips: the stand pose is silent and the clip player is the base writer.
+var clip_driven := false
+var _clip_player: AnimationPlayer
 
 
 func configure(id: String, source_model: String, parts: Array, pose_name: String = "at_ease") -> void:
@@ -308,6 +314,8 @@ func set_active(enabled: bool) -> void:
 	attention.pipeline.active = enabled
 	_skirt.active = enabled
 	hair.set_presentation_active(enabled)
+	if _clip_player != null and is_instance_valid(_clip_player):
+		_clip_player.active = enabled
 	set_process(enabled)
 
 
@@ -317,10 +325,30 @@ func _process(delta: float) -> void:
 	_clock += delta
 	# Exact imported signature: (skeleton, name, mirror, time, life).
 	# life=0 prevents a second breathing/sway owner beneath PosePipeline.
-	if not _stand.apply(skeleton, _pose_name, false, _clock, 0.0):
-		_fail("base stand pose failed after readiness")
-		return
+	if not clip_driven:
+		if not _stand.apply(skeleton, _pose_name, false, _clock, 0.0):
+			_fail("base stand pose failed after readiness")
+			return
 	_look_with_eyes()
+
+
+## For an owner that moves this person about (a resident on a route): graft the shared cast clips and hand the
+## base pose to them. Returns the clip player, or null when the clips are not installed, in which case nothing
+## changes and the stand pose carries on. The attention layer, the skirt and the face go on as before, over the clip.
+func drive_with_clips() -> AnimationPlayer:
+	if not ready_ok:
+		return null
+	if _clip_player != null and is_instance_valid(_clip_player):
+		return _clip_player
+	if not ResidentMovesLibrary.apply(model):
+		return null
+	var players := model.find_children("*", "AnimationPlayer", true, false)
+	if players.size() != 1:
+		return null
+	_clip_player = players[0] as AnimationPlayer
+	_clip_player.active = _active
+	clip_driven = true
+	return _clip_player
 
 
 func _look_with_eyes() -> void:
