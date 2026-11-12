@@ -5,6 +5,9 @@
 # checkout (M11C2-CLOSE, 2026-09-13).
 game/assets/building/floor_01_cells/** -text
 game/data/floor_01_cell_registry.json -text
+# Imported cast sources and their source-bound wardrobe notes retain exact bytes.
+game/assets/characters/lily/** -text
+game/assets/characters/stacy/** -text
 art/data/m11c2/** -text
 
 # Preserve the generated glTF vertex/normal buffer byte-for-byte on Windows.

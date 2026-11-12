@@ -1,4 +1,16 @@
-# Current handoff — exterior shadow qualification and Laurel timing
+# Current checkpoint — Lily/Stacy intake and Omni live qualification, November 12
+
+Canonical `C:/PleaseRemainOnTheLine`, feature `codex/harukiya-cast-polish-20261112`, base `8f4cdc127` (PR233). Codex owns Lily/Stacy intake; Fable owns her separate cast/street/loop work and generalized hair generator. No merge is qualified. Original title-cover/review work remains separately preserved in local `4942a6f8a`. Clean baseline board: `C:/ov/reports/npc_rig/lily_stacy_codex/polish_01/baseline_main_8f4cdc127/board.json`.
+
+Current consumed cast: frozen Fable r25 hair, corrected native export derivatives, actor-specific material recipes, all three wardrobe slots, unchanged face keys/weights and 76-bone rest ABI. Game assets are now in `game/assets/characters/{lily,stacy}/`; authoritative native/material/export receipts are under `polish_01/cast_game_intake_r25/` and `material_finish_r25/`. Lily hair 9,552 triangles; Stacy 8,064, two hair draws and three 1024 maps. Native r25 six-view capture completed; Stacy's physical red forelock is visible. Old r11/r17/r24 and failed packed-image/derivative experiments remain preserved controls. Fable reported owner approval of Lily r25; this is not installed-world acceptance.
+
+Engine preflight: pinned patched Godot 4.7.1; both imports complete. `cast_game_intake_r25/preflight_03/` has 16 scripts compiling, actual imported cast component **128 checks / 0 failures**, real native MPFB profile **98 / 0**, empty stderr/no script errors. Checks include Head binding, face channels, wardrobe, loaded hair mipmaps, shared shader/green roughness, bounded final-Head sway and inactive reset. Original Variant inference parse failure remains in `preflight_01`; fixed with an explicit Node type, then reran only dependent checks. These are nearby headless diagnostics, **not** rendered appearance, schema2 world qualification or play. Next: actual Harukiya presence/interaction, shared-shader appearance and candidate verification before merge. Source freeze and lane released before Claude's 07:40 return.
+
+Reusable skill `.agents/skills/character-hair-development/` plus native static/skinned export and strict audit helpers are implemented and validated; personal skill is a thin adapter. Fable owns generalized cast styles/batches, Codex owns Lily/Stacy intake and integration. Opus57145e3c claimed reds/windows/greenery in `C:/ov/ored`; keep named paths separate.
+
+Omni is a separate local repository `C:/Users/nate_/local-llm/model_hub`, no remote configured. Source `61edc96`, docs checkpoint `6c63a0c`, live Hub `44a78d3d51`: **116 isolated +14 fresh-package checks**, actual selector→Optimus CPU0/context1024 preload independently verified→actual UI chat, then one billed real CPU job settled once with replay protection. Optimus independently confirmed idle/model-free cleanup; order `wf0d2f90e4895` done. Report `C:/ov/reports/omni_worker_handoff_20261112/live_selector_economy_01/LIVE_QUALIFICATION.md`. Owner chose tradable Omni token and Florida; exchange remains plan-only in `OMNI_ECONOMY_PLAN.md`, no live crypto. GIGASTONE installer already delivered `E:/OmniSetup.exe`. Preserve preexisting Omni `app/models.json` edit. No privileged security install/repair after cancelled UAC.
+
+## Earlier handoff — exterior shadow qualification and Laurel timing
 
 Canonical **C:/PleaseRemainOnTheLine**. Root owns integration. Check both bridge inboxes. Cases below are under **C:/ov/reports/develop_intake_20261104/**.
 

@@ -127,6 +127,11 @@ func _build_stage() -> void:
 
 
 func _ready() -> void:
+	# Explicit real-asset mode; the default legacy regression path is unchanged.
+	if not OS.get_environment("MPFB_GLB_DIR").is_empty():
+		var probe: Node = (load("res://tests/npc_mpfb_profile_test.gd") as GDScript).new()
+		add_child(probe)
+		return
 	_build_stage()
 	_actors["mina_vale"] = _stand("mina_vale", Vector3(-0.55, 0, 0), true)
 	_actors["cal_dwyer"] = _stand("cal_dwyer", Vector3(0.55, 0, 0), true)

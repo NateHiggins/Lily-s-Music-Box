@@ -5,6 +5,8 @@ extends "res://tests/carried_case_route_test.gd"
 ## nobody comes. Released, the glass slides back to the customer's side.
 
 const Glass := preload("res://scripts/props/harukiya_counter_glass.gd")
+const Cast := preload("res://scripts/characters/harukiya_cast.gd")
+const CastModel := preload("res://scripts/characters/cast_model_presentation.gd")
 const THURSDAY := [1928, 11, 15]
 const MONDAY := [1928, 11, 12]
 const EIGHT_PM := 1200
@@ -66,6 +68,15 @@ func _route() -> void:
 	await get_tree().physics_frame
 	player.camera.look_at(counter.glass.global_position)
 	await get_tree().create_timer(0.3).timeout
+	var cast := counter.get("cast") as Cast
+	if not _require(cast != null and cast.ready_ok, "actual two-person cast is ready beside the authoritative counter"): return
+	_require(cast.actors.size() == 2 and cast.actors.has("lily") and cast.actors.has("stacy"), "only Lily and Stacy are presented")
+	_require(cast.get_parent().find_children("HarukiyaCast", "Node3D", false, false).size() == 1,
+			"the bar has one cast manager")
+	_require(cast.find_children("Harukiya_*", "Node3D", false, false).size() == 2,
+			"each person has exactly one actor")
+	for actor: CastModel in cast.actors.values():
+		_require(actor.ready_ok and actor.is_visible_in_tree(), actor.person_id + " appears during the staff attendance window")
 	await _capture_interaction("harukiya_counter")
 
 	var started: Array = []
@@ -76,16 +87,27 @@ func _route() -> void:
 	await get_tree().create_timer(0.3).timeout
 	_require(started == ["stacy"], "Stacy comes over and talks: %s" % str(started))
 	_require(world.conversations.dialogue.attention_active(), "her conversation is open")
+	var displayed: Dictionary = world.conversations.dialogue.displayed_line()
+	_require(str(displayed.get("speaker", "")).strip_edges().to_lower() == "stacy"
+			and not str(displayed.get("text", "")).strip_edges().is_empty(),
+			"the actual dialogue panel displays Stacy's authored line")
+	_require(cast.actors["stacy"].face.is_speaking() and not cast.actors["lily"].face.is_speaking(),
+			"only the displayed speaker receives face speech")
 	_require(not player._grab.active(), "she takes the glass: the hand has let go")
 	await _capture_interaction("harukiya_counter_stacy")
 	world.conversations.dialogue.close()
 	await get_tree().create_timer(1.0).timeout
+	_require(not cast.actors["stacy"].face.is_speaking(), "closing the existing dialogue interrupts Stacy's face speech")
 	_require(counter.glass.global_position.distance_to(home) < 0.02, "released, it slides back to the customer's side")
 
 	# Monday is her night off: the glass crosses, nobody comes.
 	clock.configure_date(MONDAY[0], MONDAY[1], MONDAY[2], EIGHT_PM)
 	_require(str(world.resident_whereabouts("stacy").get("place", "")) != "harukiya_bar", "Monday night she isn't on")
 	await get_tree().create_timer(0.3).timeout
+	for actor: CastModel in cast.actors.values():
+		_require(not actor.visible and not actor.is_processing() and not actor.face.is_processing()
+				and not actor.attention.pipeline.active and not actor.face.is_speaking(),
+				actor.person_id + " disappears and suspends presentation on the existing night off")
 	started.clear()
 	await _slide_across(counter)
 	await get_tree().create_timer(0.3).timeout
@@ -95,3 +117,8 @@ func _route() -> void:
 	_require(not player._grab.active(), "the next click lets go")
 	await get_tree().create_timer(4.0).timeout
 	_require(counter.notice.text == "", "the line clears")
+	clock.configure_date(THURSDAY[0], THURSDAY[1], THURSDAY[2], EIGHT_PM)
+	await get_tree().create_timer(0.3).timeout
+	for actor: CastModel in cast.actors.values():
+		_require(actor.ready_ok and actor.is_visible_in_tree() and not actor.face.is_speaking(),
+				actor.person_id + " returns with attendance without resuming interrupted speech")
