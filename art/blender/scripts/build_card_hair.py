@@ -162,6 +162,10 @@ for cell in range(CELLS):
         alpha = cover
     ramp = v[..., None] ** 0.85
     colour = root_tone * (1 - ramp) + tip_tone * ramp
+    # Short cards stacked in rows each repeat the root-to-tip change of tone and read as roof tiles.
+    # "tone_ramp" below 1 flattens it toward the middle tone.
+    flat = float(STYLE.get("tone_ramp", 1.0))
+    colour = (root_tone + tip_tone) * 0.5 * (1.0 - flat) + colour * flat
     fine = 0.97 + 0.03 * np.sin(x * 400.0 + np.sin(v * 9.0) * 3.0)
     block = np.clip(colour * (shade * fine)[..., None], 0, 1)
     alpha *= np.clip((np.minimum(x, 1.0 - x) - 3.0 / CW) * CW / 2.0, 0, 1)

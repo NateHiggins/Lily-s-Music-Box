@@ -61,7 +61,11 @@ void fragment() {
 		// UV2 runs round the head in x and crown (0) to edge (1) in y. Each narrow column of hair ends at its own length.
 		float column = floor(UV2.x * 340.0);
 		float chance = fract(sin(column * 12.9898) * 43758.5453);
-		float bunch = fract(sin(floor(UV2.x * 46.0) * 78.233) * 12543.123);
+		// Locks of hair end together, but one lock runs into the next: stepped lengths would draw a hairline of square teeth.
+		float lock = UV2.x * 46.0;
+		float here = fract(sin(floor(lock) * 78.233) * 12543.123);
+		float next = fract(sin((floor(lock) + 1.0) * 78.233) * 12543.123);
+		float bunch = mix(here, next, smoothstep(0.0, 1.0, fract(lock)));
 		float ends = 1.0 - cap_feather * 0.24 * (0.15 + 0.5 * chance + 0.35 * bunch);
 		solid = clamp((ends - UV2.y) * 60.0 + 0.5, 0.0, 1.0);
 		// A bare crown: the hair's upper edge thins out the same way.

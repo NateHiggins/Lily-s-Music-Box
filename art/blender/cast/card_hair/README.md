@@ -49,8 +49,9 @@ and each card's path, for diagnosis) and `<person>_hair_look.json`.
 - Re-export through `art/blender/scripts/check_exported_tangents.py`'s owner
   before intake: stock Blender glTF export fails the tangent check for these
   meshes.
-- The cuts were reviewed with the cards casting no shadow and the cap casting
-  one. Cards that shadow each other have not been reviewed.
+- Cards may cast shadows or not. Five heads (red, grey, brown and two black)
+  were reviewed with cards shadowing each other and showed no fault; fair
+  hanging hair was reviewed only with card shadows off.
 
 Rounded shading turns each card's normal toward "out of the head". A card
 wound to face the head has the opposite normal; mixed raw, the two cancel and
@@ -66,7 +67,13 @@ the generator does not read fails the test. Then build the head and look at
 it in the engine from the front, three-quarter, side and back before
 believing it.
 
-Known weak cuts, as reviewed on 2026-11-12: the cropped fringe on a bald
-crown reads as chunks, the close coil crop shows stripes on the cap from the
-front, and the men's short cuts are hard to tell apart. No cut is made to sit
-under a hat yet.
+Short cuts end their cards in points (`tips_from`, `shortest_tip`) and
+flatten the root-to-tip tone (`tone_ramp`): blunt tips draw a hairline of
+square teeth, and rows of short cards that each run dark to light read as
+roof tiles. The cap's feathered edge runs one lock into the next for the same
+reason.
+
+Known weak cuts, as reviewed on 2026-11-12: the coiled cuts still have a
+stepped hairline at the temple, the Eton crop shows a bright fleck at the
+front of the part, and the two swept-back men are close to each other. No cut
+is made to sit under a hat yet: the cast bodies carry no hats to fit one to.

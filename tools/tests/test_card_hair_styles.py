@@ -113,6 +113,15 @@ class CardHairStyles(unittest.TestCase):
         uniforms = set(re.findall(r"^uniform \w+ (\w+)", SHADER, re.MULTILINE))
         self.assertEqual(look - uniforms, set())
 
+    def test_short_cuts_end_in_points_and_keep_a_flat_tone(self):
+        # Blunt tips on short cards drew hairlines of square teeth; a full tone ramp on them read as roof tiles.
+        for name in ("crop", "side_part", "swept_back", "bald_crop", "coil_crop"):
+            with self.subTest(cut=name):
+                self.assertLessEqual(library.CUTS[name]["tips_from"], 0.62)
+                self.assertLessEqual(library.CUTS[name]["shortest_tip"], 0.7)
+                self.assertLessEqual(library.CUTS[name]["tone_ramp"], 0.5)
+        self.assertNotIn("floor(UV2.x * 46.0) * 78.233", SHADER)
+
     def test_rounded_shading_cannot_cancel_on_an_inward_card(self):
         # A card wound to face the head, mixed raw with the outward normal, is lit as if it faced the floor:
         # a dark band round every head of fair hanging hair. The card's own normal is turned outward first.
