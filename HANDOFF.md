@@ -1,98 +1,79 @@
 # Current work — Pull Up a Chair video and Harukiya, November 12
 
-**Latest steering: Lily then said “i gotta see it, make a video.” The film is ACTIVE,
-not deferred.** Root owns video integration and the lane. Editorial **EDIT.json**
-is ready (4372frames,1080p24,23shots); complete PCM mix is−14LUFS/−1.93dBTP.
-Agent remote_gui_verify authors only **game/film_poc_private/music_video/** and
-external production sources; source originals untouched. Agent sky_shader_review
-completed native04retry01 +retirement06 and now diagnoses a stage-entry graph
-obstruction from runtime03. All loaded surfaces,24seats/approaches,source retirement
-and stage/kit/light checks pass; walking stopped at stage_e against a balcony
-column. Original failedrun preserved. That is open gameplay qualification, not
-permission to block a film-only look proof. No movie capture has launched yet.
-Next: semanticcompilefilm, first interior/exterior/closeup renderedlook, review,
-then bounded fulltrack capture throughFIFO; preserveprivatefilm source/audio/hash
-freeze and reconcile this checkpoint when done. The older detail below records
-how the work was held before Lily resumed it; use this paragraph/currentreceipts
-for latestnative/film status.
+**Pull Up a Chair is delivered locally:**
+**C:/ov/reports/pull_up_a_chair_music_video_20261112/delivery/Pull_Up_a_Chair_1080p.mp4**.
+1080p24,4372frames,182.166667s,23 native indoor/outdoor shots,97,006,806bytes.
+**delivery/TECHNICAL_QA.json** passes exact stream/frame counts, full decode,
+−14LUFS/−1.9dBTP encoded audio and sampled visual review of all23shots, the
+2399/2400 section seam and final frame. **DELIVERY.md** records scope and limits.
+All Godot/encoder jobs are terminal; both film custody files pass. Root held
+3387inputs unchanged and restored the preview save authority. Continuous
+ audiovisual review and Lily's artistic acceptance remain unclaimed.
+
+The complete182.137333s source and tail are unchanged; the derived48k stereo
+mix applies only−1.95dB gain (−14LUFS,−1.93dBTP). The23-shot film ends inside
+with all three women and existing chairs. Original26 embedded caption windows
+are retained as source evidence, not sung phrase/phoneme alignment. The film
+uses restrained standing/gaze/breathing performance: no singing lip-sync or
+instrument-contact claim. Private director and lighting do not qualify gameplay.
+No publishing/upload is authorized.
 
 Canonical checkout: **codex/harukiya-overhaul-20261112**, based on main
-**35e586b93**. The machinima skill checkpoint **6ce4a812a** was already pushed.
-Lily's latest request adopts **Neo-Noir Neon 1929** for the game, asks for the
-Bible and machinima skill update, and queues a full **Pull Up a Chair** music
-video with dramatic indoor/outdoor shots. She then asked to record tasks because
-of the remaining context budget and specifically finish building the skill now.
-
-The Bible's dated §VIII.5 ruling, **RUL-017**, and the canonical
-**.agents/skills/machinima-production/references/neo-noir-neon-1929.md** preserve
-her optical, lighting, blocking, movement and editorial rules. Both canonical
-and personal skill validators pass; Bible lint and skill links pass. The personal
-skill remains a thin adapter. No global game lighting change or film capture is
-claimed. **B-PULL-UP-A-CHAIR-MV** is queued. Audio discovery, exact original/shipped
-hashes,26 extracted lyric captions and23 provisional shots are in
-**C:/ov/reports/pull_up_a_chair_music_video_20261112/editorial/EDITORIAL_DISCOVERY.json**.
-The complete shipped song is182.137333s. Original brief and adoption provenance
-are retained in that case's **SOURCE_STYLE_BRIEF.txt** and **STYLE_SOURCE.json**.
-Do not mistake caption display windows for lip-sync or publish without permission.
+**35e586b93**. Skill checkpoints **6ce4a812a** and **54ba99239** are pushed;
+54ba99239 contains only eight style/Bible/skill/tracker documents. **RUL-017**
+and Bible§VIII.5 adopt Neo-Noir Neon1929. Skill validators, links, Bible/design
+lint and rulings check pass. Canonical skill: **.agents/skills/machinima-production/**.
+The branch has not merged; bar source/assets are staged/dirty and unqualified.
 
 ## Bar custody and exact next action
 
-**B-DESTINATION** remains active, uncommitted and unqualified. Root owns canonical
-integration; all bounded agents are stopped, with no owned Godot/Blender job left.
-Fable's cast/rig/wardrobe files are untouched. Reports are under
-**C:/ov/reports/harukiya_overhaul_20261112/**. Preserve unrelated573 generated UIDs
-and original failures. Stage named paths only. Much of the bar is staged from
-runtime_02, with later repairs unstaged; neither index nor working tree is a
-qualified release. Do not merge this branch before completing the following.
+**B-DESTINATION** remains active. Root owns canonical integration; bounded agents
+are idle. Fable's cast/rig/wardrobe sources are untouched. Case:
+**C:/ov/reports/harukiya_overhaul_20261112/**. Preserve original failures and
+unrelated573 generated UIDs. Do not mistake staged work for a qualified release.
 
-1. Read **layout_study/SERVICE_REPAIR_CUSTODY.md**. **native_04 has NOT launched**.
-   The native03 room/kit exists, but builder/layout now repair retained pipe
-   hangers piercing the balcony and one pipe crossing the stair. CPU swept-pipe
-   clearance passes; GLB/blend/inventory are **stale against these latest edits**.
-   Run the documented native04 FIFO build/review, then regenerate source retirement
-   through **prepare_harukiya_destination.py** to a fresh **retirement_06/** case.
-   New expected full retire IDs110 plus mic hull-only,17 native retire parts.
-2. **retirement_05/** added exact collision to five retained stool tops (200faces)
-   without altering the old110-stock retirement payload. Its generated manifest
-   predates the additional pipe retirement and must be renewed after native04.
-   Root also moved the pool light/supports with the table and enabled precision
-   imports for the two new assets, registered in **fix_v2_mesh_imports.py**.
-3. Compile then import/nearby proof through the patched hidden FIFO. Original
-   **runtime_01/** semantic type failure is preserved; corrected **runtime_02/**
-   compiles15scripts and passes80reservation/FIFO checks. It mounts the room and
-   passes independent source-face retirement and stage/kit/backstage/balcony,
-   but fails18compressed metric charts, five stool supports and one obstructed
-   balcony approach. Later repairs have not run. Test now records blocker paths
-   and checks relocated pool light/support/ceiling fit.
-4. Run **HarukiyaDestinationCrowd.tscn** after the room passes. It is authored,
-   semantically compiled, unexecuted;21current presentations, explicit legacy
-   Adela limitation,17candidate skinned-seat fits, matched empty/occupied/empty
-   timings and6captures. Review those fits before replacing the runtime route's
-   explicitly unqualified shared .478 offset. Architecture pigment calibration
-   also needs parity with the kit after SurfacePass (see native handoff).
-5. **attendance_study/ATTENDANCE_TEST_HANDOFF.md** describes the new three-actor
-   **HarukiyaAttendanceTest.tscn**. Grammar only, no semantic/runtime proof yet.
-   Test Juno/Evelyn/Lena arrivals, actual shared stairs, player obstruction,
-   seating/departure/release using ordinary route physics. Then finish affected
-   original bar/counter/strip routes and clean candidate verification.
+- **layout_study/native_04_retry01/** built/reviewed repaired pipe/hangers,
+  25,868triangles/36surfaces. **retirement_06/** exact extraction passes:
+  111stocks,10,652retiredtriangles, five stool supports/200faces,17nativeparts.
+  Original failed native04 is preserved. Assets are current, not stale.
+- **runtime_03/** import and15-script semantic compile pass. The actual loaded
+  room passes UV/PBR/mipmap checks,24supported seats and clear approaches,
+  source retirement, stage/kit/backstage/balcony, pool light/support fit and
+  pigment calibration. Actual walking reaches backstage then stops at stage_e
+  against a balcony column:1263checks/6failures. No complete route or gameplay
+  qualification. Preserve that failure; film captures do not supersede it.
+- **layout_study/STAGE_ROUTE_PREFLIGHT.json** moves only stage_e to
+  [0.99,−35.74,−2.58]. Both complete adjacent segments pass175actual-geometry
+  CPU samples with unchanged.33m player radius and.005m guard. Exported assets
+  are unchanged. **Next run: fresh actual HarukiyaDestinationTest motor retry.**
+- Reservation/FIFO state test already passed80checks in runtime02. After the
+  actual room route passes, run **HarukiyaDestinationCrowd.tscn**: compiled,
+  unexecuted;21presentations,17candidate seat fits and matched crowd timings.
+  Review those fits before replacing the explicitly unqualified shared.478
+  seated-support offset. No old rig/seat fit promoted by the movie.
+- Then semanticcompile/run **HarukiyaAttendanceTest.tscn** (grammar only now):
+  Juno/Evelyn/Lena, real route physics, player obstruction, opposing stair FIFO,
+  seating/departure/release. Handoff: **attendance_study/ATTENDANCE_TEST_HANDOFF.md**.
+  Finish affected original bar/counter/strip routes, retained services and the
+  clean candidate comparison before any merge. Human play/art remain open.
 
-Exact clean baseline122-gate board: **baseline_board/board.json** at
+Exact clean122-gate baseline: **baseline_board/board.json**, commit
 **35e586b939297150c1dca5705f813387fcdb0675**, SHA
 **06bc99d47f26912b56163e72e3f73fac0015163a8d361af6c1c6205b221df55b**.
-117PASS/4existingFAIL/1INCOMPLETE. Existing **sky-verify** checkout is expanded,
-clean and detached at that baseline, static verification only; no Godot there.
-Its **baseline_board/CUSTODY.json** retains the original sparse configuration.
-Reuse it for the exact committed candidate, then restore sparse storage. No new
-worktree was created. Human play and artistic acceptance remain open.
+117PASS/4existingFAIL/1INCOMPLETE. Existing **sky-verify** is expanded, clean and
+ detached at that baseline, static only. Its original sparse configuration is
+preserved in **baseline_board/CUSTODY.json**. Reuse for exact committed candidate
+and restore sparse storage afterwards. No new worktree was created.
 
 ## Retired pilot disposal remains blocked
 
-Lily closed the prior ten-minute pilot as a fun exercise. Its reusable machinima
-skill is built. Automatic approval review rejected the exact904-file disposal
-command before execution, **zero files deleted / zero bytes reclaimed**. Preserve
-**C:/ov/reports/harukiya_pilot_poc_20261112/DISPOSAL_PLAN.json** and
-**DISPOSAL_BLOCKED.json**; do not retry equivalent deletion through another API.
-The prior film is not an active production deliverable.
+Automatic approval review rejected the previous904-file disposal before execution:
+**zero files deleted / zero bytes reclaimed**. Preserve prior pilot
+**DISPOSAL_PLAN.json** and **DISPOSAL_BLOCKED.json**. Do not retry equivalent
+ deletion through another API. The new music video consumes the prior private
+film performance helpers and Adela assets: those now have a new active consumer,
+so re-evaluate any later retention manifest. The prior ten-minute movie itself
+is retired, not a current deliverable.
 
 # Previous checkpoint — sky sampling and film, November 12
 
