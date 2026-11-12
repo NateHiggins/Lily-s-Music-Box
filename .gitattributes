@@ -5,6 +5,9 @@
 # checkout (M11C2-CLOSE, 2026-09-13).
 game/assets/building/floor_01_cells/** -text
 game/data/floor_01_cell_registry.json -text
+# Imported cast sources and their source-bound wardrobe notes retain exact bytes.
+game/assets/characters/lily/** -text
+game/assets/characters/stacy/** -text
 art/data/m11c2/** -text
 
 # Preserve the generated glTF vertex/normal buffer byte-for-byte on Windows.
@@ -3626,3 +3629,5 @@ art/reviews/v2_qualification_far_city_20261107/** -text -whitespace
 game/assets/props/city_midground.glb binary
 art/blender/data/city_midground_survey/*.f32 binary
 art/blender/data/city_midground_survey/*.i32 binary
+game/tests/harukiya_counter_route_test.gd -text
+game/tests/HarukiyaCounterRouteTest.tscn -text

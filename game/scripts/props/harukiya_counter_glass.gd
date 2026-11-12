@@ -28,6 +28,7 @@ var _held := false
 var _slide := 0.0
 var _called := false
 var _notice_left := 0.0
+var cast: Node3D
 var _clink: AudioStreamPlayer3D
 
 
@@ -69,6 +70,10 @@ func configure(runtime: Node3D, region: Node3D, talk: ResidentConversations) -> 
 	notice.add_theme_constant_override("outline_size", 6)
 	notice.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(notice)
+	cast = preload("res://scripts/characters/harukiya_cast.gd").new()
+	if not cast.configure(runtime, region, self, talk):
+		push_error("Harukiya cast presentation refused")
+		return false
 	return true
 
 

@@ -377,3 +377,9 @@ func offered_labels() -> Array:
 		if child is Button:
 			labels.append(str(child.text).substr(4))
 	return labels
+
+
+## Read-only presentation snapshot for an actor face; dialogue remains owned here.
+func displayed_line() -> Dictionary:
+	return {"speaker": _speaker.text if _speaker != null else "",
+		"text": _line.text if _line != null else ""}

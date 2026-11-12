@@ -415,8 +415,14 @@ func move(relative: Vector2) -> void:
 	_expect_motion(value, not is_equal_approx(value,before+step))
 	if is_equal_approx(value,before): return
 	var started := Time.get_ticks_usec() if profiling else 0
-	target.write.call(value)
-	_record_cost("constrained_motion",str(target.owner.name),started)
+	var moving_target := target
+	var owner_name := str(moving_target.owner.name)
+	moving_target.write.call(value)
+	_record_cost("constrained_motion",owner_name,started)
+	# A scalar setter may synchronously open dialogue and release this hand.
+	# A replacement grab also owns its own origin/change state, even if its
+	# descriptor has equal contents. Do not read or continue either one here.
+	if not active() or not is_same(target,moving_target): return
 	if not is_equal_approx(float(target.read.call()),before): changed = true
 	if _continue_grab():follow_holder()
 

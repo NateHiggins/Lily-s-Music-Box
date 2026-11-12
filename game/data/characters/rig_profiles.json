@@ -51,6 +51,367 @@
 			"gaze": {"yaw_degrees": 60, "pitch_degrees": 28, "chest_share": 0.15, "neck_share": 0.4},
 			"breath": {"degrees": 0.5, "seconds": 3.8},
 			"lacks": ["eyes", "eyelids", "jaw", "lips", "twist"]
+		},
+		{
+			"id": "mpfb_mixamo_76",
+			"detect": [
+				"Hips",
+				"Spine",
+				"Spine1",
+				"Spine2",
+				"Neck",
+				"Head",
+				"LeftToeBase",
+				"RightToeBase",
+				"LeftHandThumb3",
+				"RightHandPinky3",
+				"Skirt0_1",
+				"Skirt7_3"
+			],
+			"bone_count": 76,
+			"joints": [
+				{
+					"joint": "pelvis",
+					"names": [
+						"Hips"
+					]
+				},
+				{
+					"joint": "spine_low",
+					"names": [
+						"Spine"
+					]
+				},
+				{
+					"joint": "spine_mid",
+					"names": [
+						"Spine1"
+					]
+				},
+				{
+					"joint": "chest",
+					"names": [
+						"Spine2"
+					]
+				},
+				{
+					"joint": "neck",
+					"names": [
+						"Neck"
+					]
+				},
+				{
+					"joint": "head",
+					"names": [
+						"Head"
+					]
+				},
+				{
+					"joint": "left_shoulder",
+					"names": [
+						"LeftShoulder"
+					]
+				},
+				{
+					"joint": "left_upper_arm",
+					"names": [
+						"LeftArm"
+					]
+				},
+				{
+					"joint": "left_forearm",
+					"names": [
+						"LeftForeArm"
+					]
+				},
+				{
+					"joint": "left_hand",
+					"names": [
+						"LeftHand"
+					]
+				},
+				{
+					"joint": "left_thigh",
+					"names": [
+						"LeftUpLeg"
+					]
+				},
+				{
+					"joint": "left_shin",
+					"names": [
+						"LeftLeg"
+					]
+				},
+				{
+					"joint": "left_foot",
+					"names": [
+						"LeftFoot"
+					]
+				},
+				{
+					"joint": "left_toe",
+					"names": [
+						"LeftToeBase"
+					]
+				},
+				{
+					"joint": "left_thumb_1",
+					"names": [
+						"LeftHandThumb1"
+					]
+				},
+				{
+					"joint": "left_thumb_2",
+					"names": [
+						"LeftHandThumb2"
+					]
+				},
+				{
+					"joint": "left_thumb_3",
+					"names": [
+						"LeftHandThumb3"
+					]
+				},
+				{
+					"joint": "left_index_1",
+					"names": [
+						"LeftHandIndex1"
+					]
+				},
+				{
+					"joint": "left_index_2",
+					"names": [
+						"LeftHandIndex2"
+					]
+				},
+				{
+					"joint": "left_index_3",
+					"names": [
+						"LeftHandIndex3"
+					]
+				},
+				{
+					"joint": "left_middle_1",
+					"names": [
+						"LeftHandMiddle1"
+					]
+				},
+				{
+					"joint": "left_middle_2",
+					"names": [
+						"LeftHandMiddle2"
+					]
+				},
+				{
+					"joint": "left_middle_3",
+					"names": [
+						"LeftHandMiddle3"
+					]
+				},
+				{
+					"joint": "left_ring_1",
+					"names": [
+						"LeftHandRing1"
+					]
+				},
+				{
+					"joint": "left_ring_2",
+					"names": [
+						"LeftHandRing2"
+					]
+				},
+				{
+					"joint": "left_ring_3",
+					"names": [
+						"LeftHandRing3"
+					]
+				},
+				{
+					"joint": "left_pinky_1",
+					"names": [
+						"LeftHandPinky1"
+					]
+				},
+				{
+					"joint": "left_pinky_2",
+					"names": [
+						"LeftHandPinky2"
+					]
+				},
+				{
+					"joint": "left_pinky_3",
+					"names": [
+						"LeftHandPinky3"
+					]
+				},
+				{
+					"joint": "right_shoulder",
+					"names": [
+						"RightShoulder"
+					]
+				},
+				{
+					"joint": "right_upper_arm",
+					"names": [
+						"RightArm"
+					]
+				},
+				{
+					"joint": "right_forearm",
+					"names": [
+						"RightForeArm"
+					]
+				},
+				{
+					"joint": "right_hand",
+					"names": [
+						"RightHand"
+					]
+				},
+				{
+					"joint": "right_thigh",
+					"names": [
+						"RightUpLeg"
+					]
+				},
+				{
+					"joint": "right_shin",
+					"names": [
+						"RightLeg"
+					]
+				},
+				{
+					"joint": "right_foot",
+					"names": [
+						"RightFoot"
+					]
+				},
+				{
+					"joint": "right_toe",
+					"names": [
+						"RightToeBase"
+					]
+				},
+				{
+					"joint": "right_thumb_1",
+					"names": [
+						"RightHandThumb1"
+					]
+				},
+				{
+					"joint": "right_thumb_2",
+					"names": [
+						"RightHandThumb2"
+					]
+				},
+				{
+					"joint": "right_thumb_3",
+					"names": [
+						"RightHandThumb3"
+					]
+				},
+				{
+					"joint": "right_index_1",
+					"names": [
+						"RightHandIndex1"
+					]
+				},
+				{
+					"joint": "right_index_2",
+					"names": [
+						"RightHandIndex2"
+					]
+				},
+				{
+					"joint": "right_index_3",
+					"names": [
+						"RightHandIndex3"
+					]
+				},
+				{
+					"joint": "right_middle_1",
+					"names": [
+						"RightHandMiddle1"
+					]
+				},
+				{
+					"joint": "right_middle_2",
+					"names": [
+						"RightHandMiddle2"
+					]
+				},
+				{
+					"joint": "right_middle_3",
+					"names": [
+						"RightHandMiddle3"
+					]
+				},
+				{
+					"joint": "right_ring_1",
+					"names": [
+						"RightHandRing1"
+					]
+				},
+				{
+					"joint": "right_ring_2",
+					"names": [
+						"RightHandRing2"
+					]
+				},
+				{
+					"joint": "right_ring_3",
+					"names": [
+						"RightHandRing3"
+					]
+				},
+				{
+					"joint": "right_pinky_1",
+					"names": [
+						"RightHandPinky1"
+					]
+				},
+				{
+					"joint": "right_pinky_2",
+					"names": [
+						"RightHandPinky2"
+					]
+				},
+				{
+					"joint": "right_pinky_3",
+					"names": [
+						"RightHandPinky3"
+					]
+				}
+			],
+			"rest_frame": {
+				"forward_from": [
+					"left_foot",
+					"right_foot"
+				],
+				"forward_to": [
+					"left_toe",
+					"right_toe"
+				],
+				"up_from": [
+					"pelvis"
+				],
+				"up_to": [
+					"neck"
+				]
+			},
+			"gaze": {
+				"yaw_degrees": 60,
+				"pitch_degrees": 28,
+				"chest_share": 0.18,
+				"neck_share": 0.42
+			},
+			"breath": {
+				"degrees": 0.5,
+				"seconds": 4.2
+			},
+			"lacks": [
+				"twist"
+			]
 		}
 	]
 }
