@@ -269967,6 +269967,36 @@
    "rationale": "Test-only scalar part is placed 0.8 m along negative world Z from the fixture camera, fixing descriptor hit-position geometry while the actual PlayerController look path invokes the scalar setter. Acquisition is explicit fixture setup, not ray-picking or installed-room qualification; update the fixture with any geometry change.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "c9595817c0a8a28e",
+   "kind": "id_candidate",
+   "token": "ROOF_SKY_REVIEW",
+   "file": "game/tests/roof_weather_preview_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_exercise"
+   ],
+   "lines": [
+    144
+   ],
+   "count": 1,
+   "context": [
+    "var sky_review:=OS.get_environment(\"ROOF_SKY_REVIEW\")==\"1\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Test-only environment flag enabling a declared 4 m optical camera offset after ordinary roof input checks. It is not a building identity or save reference. The fixture preserves player placement and restores the camera; update its framing and disclosure together.",
+   "resolved_target": null,
+   "target_exists": false
   }
  ]
 }

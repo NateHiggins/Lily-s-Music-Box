@@ -64,12 +64,17 @@ reviewed. Ten preexisting resident texture-UID fallback warnings remain.
 Calendar02 (439/0) and precipitation01 (31/0) retain their original receipts.
 See **verification_review/FINAL_EVIDENCE_INDEX.json** for hashes and reuse limits,
 **clean_baseline_board/board.json** for the clean 122-gate merge-base, and
-**verification_01/verification.json** for the candidate result.
+**verification_02/verification.json** for the candidate result.
 **MERGE_CUSTODY.json** records the actual candidate, merge and cleanup outcome.
 
 Final all-layer bench median GPU times at the four dates are 4.407, 5.135, 7.548
 and 4.720 ms. These are observations under variable machine activity, not evidence
 of a speedup or the occupied game's frame-time budget.
+
+The initial clean candidate stopped on one newly reported id-shaped environment
+flag, ROOF_SKY_REVIEW. Its exact test-only manifest row is now registered with
+the optical-camera rationale. Audit logic and all production records remain
+unchanged; verification_01 is preserved as the original blocked result.
 
 ## Limits and next review
 
