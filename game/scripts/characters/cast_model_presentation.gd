@@ -184,7 +184,13 @@ func _dress(parts: Array) -> bool:
 	if wardrobe.worn.size() != slots.size() or wardrobe.mesh_count() < slots.size():
 		_fail("wardrobe produced an incomplete visible set")
 		return false
+	# On a change of clothes the hair already wears its shader; the check is of the imported materials.
+	var hair_bound := hair != null and hair.ready_ok
+	if hair_bound:
+		hair.lift_materials()
 	var material_errors := Recipes.validate(model, person_id)
+	if hair_bound:
+		hair.restore_materials()
 	if not material_errors.is_empty():
 		_fail("cast material contract: " + "; ".join(PackedStringArray(material_errors)))
 		return false

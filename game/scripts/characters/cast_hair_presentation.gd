@@ -179,6 +179,24 @@ func _process(_delta: float) -> void:
 		material.set_shader_parameter("hair_centre", centre)
 
 
+## The material check reads what was imported. The shader steps aside for it and comes straight back; nothing
+## is drawn in between.
+func lift_materials() -> void:
+	for mesh_name: String in _meshes:
+		var draw := _meshes[mesh_name] as MeshInstance3D
+		if is_instance_valid(draw):
+			draw.set_surface_override_material(0, null)
+
+
+func restore_materials() -> void:
+	if not ready_ok:
+		return
+	for mesh_name: String in _meshes:
+		var draw := _meshes[mesh_name] as MeshInstance3D
+		if is_instance_valid(draw):
+			draw.set_surface_override_material(0, materials["Hair" if mesh_name == HAT_HAIR else mesh_name])
+
+
 func set_presentation_active(enabled: bool) -> void:
 	if motion != null and is_instance_valid(motion):
 		motion.set_presentation_active(enabled and ready_ok)
