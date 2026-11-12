@@ -549,7 +549,7 @@ def shrink_pictures(obj, keep=None, size=512):
 _skin_tree = []
 
 
-def slim(obj, keep=0.005):
+def slim(obj, keep=0.005, floor=0.004, ceiling=0.008, whole=False, pull=True):
     """Bring a pack garment in to the body above the hips. The packs' jackets
     are cut with padded shoulders and wide sleeves; on a small figure that
     reads as bulk. What stands off the skin keeps its order, at a fraction of
@@ -557,17 +557,26 @@ def slim(obj, keep=0.005):
     if not _skin_tree:
         _skin_tree.append(BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons]))
     for v in obj.data.vertices:
-        if v.co.z < hip - 0.02:
+        if v.co.z < hip - 0.02 and not whole:
             continue
         hit = _skin_tree[0].find_nearest(v.co)
         if hit[0] is None:
             continue
         gap = v.co - hit[0]
-        distance = gap.length
-        if distance <= keep:
-            continue
-        upper = v.co.z > shoulder.z - 0.16 and abs(v.co.x) > shoulder.x - 0.08
-        v.co = hit[0] + gap.normalized() * (keep + (distance - keep) * (0.28 if upper else 0.5))
+        signed = gap.dot(hit[1])
+        outside = signed > 0.0005
+        way = gap.normalized() if outside else hit[1]
+        distance = gap.length if outside else signed
+        if pull and distance > keep:
+            upper = v.co.z > shoulder.z - 0.16 and abs(v.co.x) > shoulder.x - 0.08
+            distance = keep + (distance - keep) * (0.28 if upper else 0.5)
+        if distance < ceiling:
+            # A floor of clearance. The packs expect the body hidden beneath them; here it is whole. A collar
+            # lying on the neck let skin through in teeth, and so did any wide face lying close across a
+            # curve. Everything from 4 mm under the skin to `ceiling` over it is spread, in its own order,
+            # between `floor` and `ceiling`, so the garment's layers stay stacked as they were made.
+            distance = floor + (max(distance, -0.004) + 0.004) * (ceiling - floor) / (ceiling + 0.004)
+        v.co = hit[0] + way * distance
 
 
 def skirt_weights(co):
@@ -601,7 +610,15 @@ def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Cl
         obj.data.materials.append(plain("%s_%s" % (STEM, name), worn_colour(colour), 0.8))
     if atype == "Clothes" and "hoe" not in name and "oot" not in name:
         slim(obj)
+    elif atype == "Hat":
+        # A ready-made hat is cut close; it must clear the hair that lies flat under it.
+        slim(obj, floor=0.007, ceiling=0.013, whole=True, pull=False)
     shrink_pictures(obj, node)
+    # Both faces are drawn: a collar folded over shows its inside, and with one face culled the engine
+    # showed the neck through it in square teeth.
+    for slot in obj.material_slots:
+        if slot.material:
+            slot.material.use_backface_culling = False
     # Cloth, not lacquer: the packs' gloss maps made suits shine like oilskin.
     for slot in obj.material_slots:
         tree_ = slot.material.node_tree if slot.material and slot.material.use_nodes else None
@@ -654,7 +671,10 @@ def torso(v, low=None, high=None, sleeves=1.0, vee=0.0):
     inside = band(co.z, low, high)
     if sleeves <= 0.0:
         # An armhole: a clean cut at the point of the shoulder.
-        inside = min(inside, (shoulder.x - 0.012) - abs(co.x), (0.75 - arm) * W)
+        # The arm comes off at the plane square to it through the shoulder joint, and only outboard of the
+        # chest (that plane also passes through the hip). Both are plain planes, so the edge is plain.
+        # The plane sits four centimetres inboard of the joint: at the joint itself the garment capped the shoulder.
+        inside = min(inside, max(-(along_arm(co) + 0.09) * 0.5, (shoulder.x - 0.055) - abs(co.x)))
     if vee > 0.0:
         # An open neck: a V from the collar down the chest. Behind the chest the margin grows, so the
         # V closes smoothly over the shoulder and leaves no chips at the collarbones.
@@ -690,10 +710,29 @@ def skirt_shape(hem, flare, pleats=0):
     return shape
 
 
+def worn_with(row):
+    """The other rows of the same set (a, b or c) as this one."""
+    mark = row.get("_part", "")[:1]
+    return [r for r in CFG.get("outfit", []) if r is not row and mark and r.get("_part", "")[:1] == mark]
+
+
+def skirt_under(row):
+    """The skirt this row is worn with, if the set has one: a made one, or one from the packs."""
+    for other in worn_with(row):
+        if other["kind"] == "skirt" or (other["kind"] == "asset" and other.get("skirt")):
+            return other
+    return None
+
+
 pending_collars = []
 for row in (CFG.get("outfit", []) if OUTFIT else []):
     CURRENT_PART = row.get("_part", "")
     kind = row["kind"]
+    # A top worn with a skirt is tucked: it ends just under the skirt's band. Left long, its hem and
+    # ribbing came through the front of the skirt as a dark toothed patch.
+    tucked_low = hip + 0.045 if skirt_under(row) is not None and row.get("_part", "").endswith("_top") else None
+    # Worn over something from the packs (cut fuller than what is made here), an outer layer stands further off.
+    over_pack = 0.012 if row.get("_part", "").endswith("_over") and any(o["kind"] == "asset" and not o.get("_part", "").endswith(("_feet", "_head")) for o in worn_with(row)) else 0.0
     colour = row["colour"]
     cloth = row.get("cloth")
     if kind == "asset":
@@ -703,17 +742,17 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         if row.get("strap"):
             piece("ShoeStraps", "helper-tights", lambda v: min(band(v.co.z, ankle + 0.02, ankle + 0.06), (weight(v, LEG) - 0.3) * W), 0.006, colour, 0.35, cloth="leather")
     elif kind == "shirt":
-        piece(row.get("name", "Shirt"), "helper-tights", lambda v, r=row: torso(v, low=waist - float(r.get("length", 0.09)), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))), float(row.get("ease", 0.004)), colour, 0.85,
+        piece(row.get("name", "Shirt"), "helper-tights", lambda v, r=row, t=tucked_low: torso(v, low=max(waist - float(r.get("length", 0.09)), t or -9.0), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))), float(row.get("ease", 0.004)), colour, 0.85,
               pattern=row.get("pattern"), cloth=cloth or "cotton",
               thicken=lambda co, r=row: 0.5 * float(r.get("blouson", 0.0)) * max(0.0, 1.0 - abs(co.z - (waist + 0.06)) / 0.14))
     elif kind == "jumper":
-        piece("Jumper", "helper-tights", lambda v, r=row: torso(v, low=hip - float(r.get("length", 0.01)), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))),
+        piece("Jumper", "helper-tights", lambda v, r=row, t=tucked_low: torso(v, low=max(hip - float(r.get("length", 0.01)), t or -9.0), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))),
               float(row.get("ease", 0.017)), colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
     elif kind == "waistcoat":
         piece("Waistcoat", "helper-tights", lambda v, r=row: torso(v, low=waist - 0.04, sleeves=0.0, vee=float(r.get("vee", 0.2))), 0.017, colour, 0.7, pattern=row.get("pattern"), cloth=cloth or "wool")
     elif kind == "jacket":
         piece("Jacket", "helper-tights", lambda v, r=row: torso(v, low=hip - float(r.get("length", 0.06)), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.3))),
-              max(0.02, float(row.get("ease", 0.02))), colour, 0.8, pattern=row.get("pattern"), cloth=cloth or "wool",
+              max(0.02, float(row.get("ease", 0.02))) + over_pack, colour, 0.8, pattern=row.get("pattern"), cloth=cloth or "wool",
               thicken=lambda co, r=row: float(r.get("shoulders", 0.0)) * max(0.0, 1.0 - abs(co.z - shoulder.z) / 0.08) + float(r.get("skirted", 0.0)) * max(0.0, min(1.0, (waist - co.z) / 0.2)))
     elif kind == "dress":
         sleeves = float(row.get("sleeves", 0.5))
@@ -724,12 +763,16 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     elif kind == "cardigan":
         piece("Cardigan", "helper-tights", lambda v, r=row: torso(v, low=hip + 0.012, sleeves=1.0, vee=float(r.get("vee", 0.34))), 0.018, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
     elif kind == "coat":
-        piece("CoatTop", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.02, sleeves=1.0, vee=float(r.get("vee", 0.2))), 0.023, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "wool")
-        piece("CoatSkirt", "helper-skirt", lambda v: True, 0.034, colour, 0.85, thicken=seat_room, reshape=skirt_shape(float(row.get("hem", 0.45)), float(row.get("flare", 0.12))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
+        piece("CoatTop", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.02, sleeves=1.0, vee=float(r.get("vee", 0.2))), 0.023 + over_pack, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "wool")
+        piece("CoatSkirt", "helper-skirt", lambda v: True, 0.034 + over_pack, colour, 0.85, thicken=seat_room, reshape=skirt_shape(float(row.get("hem", 0.45)), float(row.get("flare", 0.12))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
     elif kind == "bib":
         piece("Bib", "helper-tights", lambda v: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - 0.01 - v.co.y, band(v.co.z, waist - 0.02, neck - 0.13), 0.11 - abs(v.co.x)),
               0.018, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "cotton")
     elif kind == "apron":
+        apron_skirt = skirt_under(row)
+        apron_made = apron_skirt is not None and apron_skirt["kind"] == "skirt"
+        apron_on_overalls = any(o["kind"] == "asset" and "worksuit" in str(o.get("asset", "")) for o in worn_with(row))
+
         def strap_shape(bm, lift=0.024):
             # Each strap is a ribbon found on the body itself: from the bib up over the shoulder and down to
             # the shoulder blade. Cut out of the body's own faces it came out as ragged flaps round the neck.
@@ -756,8 +799,12 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
                     bm.faces.new((upper[0], upper[1], lower[1], lower[0]))
             bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
 
-        piece("ApronStraps", None, None, 0.0, colour, 0.85, cloth=cloth or "cotton", made=strap_shape, weights=lambda co: {"Spine2": 1.0})
-        piece("Apron", "helper-skirt", lambda v: min(-v.co.y, (0.95 - abs(math.atan2(v.co.x, -(v.co.y - 0.02)))) * 0.12), 0.034, colour, 0.85, reshape=skirt_shape(float(row.get("hem", 0.5)), float(row.get("flare", 0.22))), cloth=cloth or "cotton", subdivide=1)
+        if not apron_on_overalls:
+            piece("ApronStraps", None, None, 0.0, colour, 0.85, cloth=cloth or "cotton", made=strap_shape, weights=lambda co: {"Spine2": 1.0})
+        piece("Apron", "helper-skirt", lambda v: min(-v.co.y, (0.95 - abs(math.atan2(v.co.x, -(v.co.y - 0.02)))) * 0.12), 0.021 if apron_made else 0.034, colour, 0.85, thicken=seat_room if apron_made else None,
+              reshape=skirt_shape(max(float(row.get("hem", 0.5)), float(apron_skirt.get("hem", 0.38)) + 0.05) if apron_made else float(row.get("hem", 0.5)),
+                                  float(apron_skirt.get("flare", 0.25)) if apron_made else float(row.get("flare", 0.22)),
+                                  int(apron_skirt.get("pleats", 0)) if apron_made else 0), cloth=cloth or "cotton", subdivide=1)
         piece("ApronBib", "helper-tights", lambda v: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - 0.01 - v.co.y, band(v.co.z, waist - 0.02, neck - 0.12), 0.1 - abs(v.co.x)),
               0.02, colour, 0.85, cloth=cloth or "cotton")
     elif kind == "sash":
@@ -768,7 +815,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         # Built outright, not cut from the body: a cone from the neck over
         # the shoulders that hangs clear of the arms. A shawl is the short
         # one, with a point down the back.
-        length = float(row.get("length", 0.34 if kind == "cape" else 0.19))
+        length = float(row.get("length", 0.34 if kind == "cape" else 0.22))
         point = 0.0 if kind == "cape" else 0.12
         chest_y = bone("Spine2").y
         neck_y = bone("Neck").y
@@ -787,18 +834,30 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
                 for j in range(steps):
                     a = math.tau * j / steps
                     back = max(0.0, math.sin(a))
-                    depth = t * (L * (0.6 + 0.5 * (0.5 + 0.5 * math.sin(a))) + P * back ** 3)
+                    front = max(0.0, -math.sin(a))
+                    tails = ease((front - 0.5) / 0.4) if P > 0.0 else 0.0     # a shawl's two ends hang down the front
+                    depth = t * (L * (0.6 + 0.5 * (0.5 + 0.5 * math.sin(a))) + P * back ** 3 + 0.9 * L * tails)
                     over = ease(depth / 0.12)
-                    rx = 0.068 + (shoulder.x + (0.08 if P == 0.0 else 0.05) - 0.068) * over + (0.3 if P == 0.0 else 0.24) * max(0.0, depth - 0.06)
-                    fold = 1.0 + 0.04 * math.sin(a * 11.0) * min(1.0, depth / 0.16)
+                    # Out to the point of the shoulder, then nearly straight down: flaring on as it fell, the
+                    # cloth stood out round the body like a shelf. Folds deepen and the hem dips as it hangs.
+                    hang = min(1.0, max(0.0, depth - 0.08) / 0.14)
+                    rx = 0.068 + (shoulder.x + (0.085 if P == 0.0 else 0.06) - 0.068) * over + (0.2 if P == 0.0 else 0.14) * max(0.0, depth - 0.06)
+                    swell = math.sin(a * 9.0 + 0.6 * math.sin(a * 2.0))
+                    fold = 1.0 + (0.015 + 0.05 * hang) * swell
                     rx *= fold
-                    ry = 0.07 + (0.165 if math.sin(a) < 0 else 0.14) * over - 0.07 * over + 0.04 * depth / L
+                    ry = 0.07 + (0.165 if math.sin(a) < 0 else 0.14) * over - 0.07 * over + 0.05 * max(0.0, depth - 0.06)
                     cy = neck_y + (chest_y - neck_y) * over
-                    ring.append(bm.verts.new((math.cos(a) * rx, cy + math.sin(a) * ry * fold, neck + 0.012 - depth)))
+                    dip = 0.014 * hang * t * (0.5 - 0.5 * swell)
+                    ring.append(bm.verts.new((math.cos(a) * rx, cy + math.sin(a) * ry * fold, neck + 0.012 - depth - dip)))
                 rings.append(ring)
+            def open_front(j):
+                return P > 0.0 and -math.sin(math.tau * j / steps) > 0.94
             for upper, lower in zip(rings, rings[1:]):
                 for j in range(steps):
+                    if open_front(j) and open_front((j + 1) % steps):
+                        continue        # a shawl is not joined down the front
                     bm.faces.new((upper[j], upper[(j + 1) % steps], lower[(j + 1) % steps], lower[j]))
+            bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
             bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
 
         def cape_weights(co):
@@ -834,6 +893,8 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         pending_collars.append(row)
     elif kind == "cuffs":
         piece("Cuffs", "helper-tights", lambda v, r=row: min((weight(v, ARM) - 0.45) * W, (0.07 - abs(along_arm(v.co) - float(r.get("at", 0.9)))) * 0.5), float(row.get("off", 0.02)), colour, 0.8, cloth=cloth or "cotton")
+    elif kind == "hem" and tucked_low is not None:
+        pass        # the ribbing of a tucked jumper is inside the skirt
     elif kind == "hem":
         piece("Hem", "helper-tights", lambda v, r=row: min(0.04 - abs(v.co.z - (hip + float(r.get("drop", -0.02)))), (0.3 - weight(v, ARM)) * W), float(row.get("off", 0.021)), colour, 0.9, cloth=cloth or "knit")
 
@@ -1389,7 +1450,7 @@ if CARD_HAIR:
             press = max(0.0, min(1.0, (v.co.z - (band_z - 0.03)) / 0.03))
             hit = skull_tree.find_nearest(v.co) if press > 0.0 else (None,)
             if hit[0] is not None:
-                v.co = v.co.lerp(hit[0] + hit[1] * 0.004, press)
+                v.co = v.co.lerp(hit[0] + hit[1] * 0.002, press)
         bm_hat.to_mesh(under.data)
         bm_hat.free()
         worn_hair.append((under, "HatHair"))
