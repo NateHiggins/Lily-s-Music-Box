@@ -206,7 +206,7 @@ CUTS["coil_top"] = cut(CUTS["coil_crop"])
 for name, tier in CUTS["coil_top"]["tiers"].items():
     tier.update({"lift_m": 0.020 if name in ("part", "crown", "fringe") else 0.010, "walk_m": 0.03})
 # An Eton crop: a woman's hair cut as short as a boy's, sleek, with a side part.
-CUTS["eton"] = cut(CUTS["side_part"], part__brush_back=0.2)
+CUTS["eton"] = cut(CUTS["side_part"], part__brush_back=0.2, part__drop_front_corner=True)
 CUTS["eton"]["tiers"]["part"].update({"walk_m": 0.09, "lift_m": 0.010})
 CUTS["eton"]["tiers"]["crown"].update({"walk_m": 0.075, "lift_m": 0.010})
 CUTS["eton"]["tiers"]["fringe"].update({"walk_m": 0.075, "lift_m": 0.012})
@@ -231,7 +231,7 @@ CAST = {
     "rhea_sato": ("pageboy", [0.045, 0.04, 0.04], {}),
     "sacha_reed": ("coil_top", [0.045, 0.04, 0.04], {}),
     "teresa_vale": ("lob", [0.045, 0.04, 0.04], {"mirror": True}),
-    "transient_guests_a": ("swept_back", [0.28, 0.17, 0.09], {}),
+    "transient_guests_a": ("side_part", [0.28, 0.17, 0.09], {"mirror": True}),
     "transient_guests_b": ("bob_swept", [0.20, 0.13, 0.08], {"mirror": True}),
 }
 BATCHES = [["adela_voss", "mina_vale", "cal_dwyer", "evelyn_marsh", "jonah_price"],

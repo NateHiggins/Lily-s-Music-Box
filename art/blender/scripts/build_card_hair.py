@@ -153,7 +153,9 @@ for cell in range(CELLS):
             shade = np.where(wins, tone, shade)
             lean = np.where(wins, np.clip(dx / size, -1, 1), lean)
             cover = np.maximum(cover, mine)
-        core = np.clip((0.40 - np.abs(x - 0.5)) * 30.0, 0, 1) * np.clip((v - 0.03) * 40.0, 0, 1) * np.clip((0.93 - v) * 30.0, 0, 1)
+        # The solid middle is a rounded mass, not a rectangle: square cards draw a stepped hairline.
+        away = np.sqrt(((x - 0.5) / 0.43) ** 2 + ((v - 0.48) / 0.47) ** 2)
+        core = np.clip((1.0 - away) * 14.0, 0, 1)
         cover = np.maximum(cover, core)
     # The root end is a solid mass; the roots themselves fade so no strip starts with a hard edge.
     body = np.clip((v - ragged) * 40.0, 0, 1) * np.clip((0.985 - np.abs(x - 0.5) * 2.0) * 40.0, 0, 1) * (1.0 - np.clip((v - (float(STYLE.get("tips_from", 0.40)) - 0.1)) / 0.22, 0, 1))
