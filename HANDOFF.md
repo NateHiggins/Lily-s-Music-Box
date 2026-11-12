@@ -1,4 +1,4 @@
-# Current work — performance film delivered; NPC loop plan next
+# Current work — performance film delivered; NPC loop plan documented
 
 **Pull Up a Chair performance recapture delivered November12:**
 **C:/ov/reports/pull_up_a_chair_music_video_20261112/performance_v2/delivery/Pull_Up_a_Chair_Performance_1080p.mp4**.
@@ -17,9 +17,16 @@ keys stay passive, inherited clothes/hair remain POC quality. Continuous audiovi
 viewing and Lily's artistic acceptance remain open. No upload. Private film sources
 are copied in **performance_v2/production/final_source/**; no game rig edits.
 
-Latest owner request: after this film/skill update, plan applying the performance
-workflow to scripting every NPC through each loop. **B-DESTINATION** remains open
-below; the private film proof does not close its gameplay qualification.
+Latest owner request is planned in
+**design/NPC_LOOP_PERFORMANCE_PLAN_2026-11-12.md**: full roster-by-anchor coverage,
+existing eleven-lead/clock/knowledge boundaries, actor reset and voice delivery
+gaps, then one playable tea visit before cast-wide batches. Source audit only;
+implementation remains queued as **K-NPC-LOOP-PERFORMANCE**. The music-video skill
+checkpoint **c22794ceb** is committed/pushed. **B-DESTINATION** remains open below;
+the private film proof does not close its gameplay qualification.
+
+Latest queue addition: **B-DRUM-BRUSHES**, wire brush models plus researched grip,
+sweep/accent/contact animation for Lily on the actual kit. Documented only.
 
 Canonical checkout: **codex/harukiya-overhaul-20261112**, based on main
 **35e586b93**. Skill checkpoints **6ce4a812a** and **54ba99239** are pushed;
