@@ -128,11 +128,41 @@ func _ready() -> void:
 	_check(clock.bind_state() and clock.apply_prologue_destination(), "the prologue hands over the year")
 	world.player.set_physics_process(false)
 
+	# The house before the visit: one door and one light, as the tenants left them.
+	var house: Node = world.household_state
+	var door: DoorProp = null
+	var door_id := ""
+	var lamp: Node = null
+	var lamp_id := ""
+	for identity: String in house._subjects:
+		var subject: Node = house._subjects[identity]
+		if door == null and house._kinds[identity] == "mechanism" and subject is DoorProp and (subject as DoorProp).leaf_state != "locked":
+			door = subject
+			door_id = identity
+		if lamp == null and house._kinds[identity] == "light":
+			lamp = subject
+			lamp_id = identity
+	_check(door != null and lamp != null, "the house has a door and a light to borrow (%s, %s)" % [door_id, lamp_id])
+	var door_home := float(door.mechanism_snapshot().angle)
+	var lamp_home: bool = lamp.get("powered")
+	var door_ajar := door.motion_target_angle(true) * (0.8 if absf(door_home) < 0.2 else 0.0)
+
 	# The first lead, by hand.
 	var tray: Node = stage.grips["6C_tea_tray"]
 	var slip: Node3D = stage.cards["order_slip"]
 	var went: Dictionary = loop.jump("tea")
 	_check(went.ok, "the jump to the tea")
+	_check((loop.ledger().visit as Dictionary).get("household") is Dictionary and (loop.ledger().visit.household as Dictionary).has(door_id)
+			and (loop.ledger().visit.household as Dictionary).has(lamp_id), "the visit borrows the house as it stood")
+	_check(not (loop.ledger().visit.household as Dictionary).values().any(func(record: Variant) -> bool: return str(record.kind) in ["blind", "fuse_service", "tank_service", "boiler_service"]),
+			"and borrows no blind and no work done")
+	_check((loop.ledger().visit.household as Dictionary).keys().all(func(identity: String) -> bool:
+		return house._kinds[identity] in house.VISIT_KINDS or house._subjects[identity] is DoorProp),
+			"only doors, windows, lights, radiators, cabinets, mirrors and shelves: the lift, the clocks and the kitchens keep their own state (%d of %d records)"
+			% [(loop.ledger().visit.household as Dictionary).size(), house._subjects.size()])
+	door.restore_mechanism({"angle": door_ajar})
+	lamp.call("set_powered", not lamp_home)
+	_check(absf(float(door.mechanism_snapshot().angle) - door_home) > 0.5 and lamp.get("powered") != lamp_home, "in the visit a door is moved and a light switched")
 	var tray_rest: Vector3 = tray.part.global_position
 	_check(_carry(tray) and loop.steps_done() == 0 and tray.part.visible and tray.part.global_position.distance_to(tray_rest) < 0.002,
 			"lifted before the player has arrived in 6C, the tray goes straight back and nothing happens")
@@ -163,11 +193,18 @@ func _ready() -> void:
 	_check(loop.reset_loop().ok, "the hours again")
 	await _frames(5)
 	_check(tray.part.visible and tray.part.global_position.distance_to(tray_rest) < 0.002, "the tray is back exactly")
+	_check(absf(float(door.mechanism_snapshot().angle) - door_home) < 0.001 and lamp.get("powered") == lamp_home, "the door and the light are as the hours began")
+	door.restore_mechanism({"angle": door_ajar})
+	lamp.call("set_powered", not lamp_home)
 	_check(loop.holds("order_slip") and not slip.visible, "the slip stays taken")
 
 	# Home, and the wall.
 	_check(loop.go_home().ok, "home")
 	await _frames(5)
+	_check(absf(float(door.mechanism_snapshot().angle) - door_home) < 0.001 and lamp.get("powered") == lamp_home, "home, the door and the light are as the tenants left them")
+	door.restore_mechanism({"angle": door_ajar})
+	_check(loop.go_home().ok == false and absf(float(door.mechanism_snapshot().angle) - door_ajar) < 0.001, "and at home a door moved stays moved")
+	door.restore_mechanism({"angle": door_home})
 	_check(stage.tucked.visible and stage.tucked_item == "order_slip"
 			and absf(stage._wall_frame.basis.z.dot(stage.tucked.global_transform.basis.z.normalized()) - 1.0) < 0.001,
 			"the carried slip waits at the foot of the wall, face out")
