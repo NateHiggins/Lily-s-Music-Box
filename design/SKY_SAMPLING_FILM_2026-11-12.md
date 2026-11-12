@@ -4,6 +4,8 @@ Evidence class: **INERT**
 
 REPORT — sky sampling / film — 2026-11-12
 
+PR247 merged as **df5b68831de22ca7cb89d67a0ddf31f87fbf14f0**, identical to qualified candidate **b96a9b6c930ecb98e91069d31d2fcc90f7253dd6**. Clean122-gate comparison: zero new regressions; protected17/17; selectorV2; zero lint errors; no requirement promotions or accepted regressions. The exact single manifest addition was reviewed. All27 consumed raw input hashes still match merged main. Existing baseline failures remain.
+
 Branch: **codex/sky-sampling-film-20261112**, based on **17b979dc8551e66f1559c7452263bc93e80012a2**. Root Codex is the integration owner. Qualification and merge custody are recorded externally at **C:/ov/reports/sky_sampling_film_20261112/**. This report does not promote completeness-ledger requirements.
 
 ## Implemented
@@ -39,3 +41,5 @@ Independent film review inspected native/decoded samples, 48 half-second frames 
 Named source boundaries: two sky shader files; film scene/script; CPU encoder; checkout attributes; one exact spatial-manifest fixture record; weather verification guidance; this report and the two continuity trackers. No gameplay data or canon changes. Original failure/candidate images and the finished film remain on retention hold; no purge authorization is implied. Unrelated generated UIDs are preserved. Reuse the existing verification checkout, then return it to its compact sparse state.
 
 Decision needed from owner: none for technical integration; artistic review remains hers.
+
+MERGE-CANDIDATE b96a9b6c930ecb98e91069d31d2fcc90f7253dd6
