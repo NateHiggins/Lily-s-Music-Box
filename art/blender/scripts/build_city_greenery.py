@@ -207,7 +207,7 @@ def ailanthus(seed, lod):
             stalk_end = _add(at, (math.cos(a2) * 1.6, math.sin(a2) * 1.6, rng.uniform(-.2, .6)))
             limb(part, at, stalk_end, 0.035, 0.015, 4)
             # Pinnate stalks drooping from the twig ends.
-            for j in range(6 if lod == 0 else 2):
+            for j in range(8 if lod == 0 else 3):
                 b2 = rng.uniform(0, math.tau)
                 droop = _add(stalk_end, (math.cos(b2) * 1.1, math.sin(b2) * 1.1, rng.uniform(-.7, .1)))
                 n = 12 if lod == 0 else 5
@@ -219,7 +219,7 @@ def ailanthus(seed, lod):
                         reach = _len(_sub(p, centre)) / 3.5
                         shade = (0.5 + 0.4 * min(reach, 1)) * rng.uniform(.9, 1.08)
                         leaf(part, rng, _add(p, off), (rng.uniform(-.4, .4), rng.uniform(-.4, .4), 1),
-                             (0.17 if lod == 0 else 0.4) * rng.uniform(.85, 1.15), (shade, shade, shade), narrow=0.3)
+                             (0.3 if lod == 0 else 0.6) * rng.uniform(.85, 1.15), (shade, shade, shade), narrow=0.38)
     return part
 
 

@@ -29,6 +29,9 @@ const SEASONS := {
 		Color(1.05, 1.15, 0.85), Color(1, 1, 1), Color(1.05, 1.02, 0.85), Color(1.15, 1.05, 0.7),
 		Color(1.25, 1.05, 0.65), Color(1.4, 1.05, 0.6), Color(1.35, 1.0, 0.6), Color(1.3, 1.0, 0.6)],
 }
+const FoliageShader := preload("res://shaders/v2_city_foliage.gdshader")
+## Wind for the leaves, read from the weather: km/h at which a crown bends fully.
+const FULL_WIND_KMH := 36.0
 const LEAF_GROUP := {"plane_a": "plane", "plane_b": "plane", "ailanthus": "ailanthus", "shrub": "shrub", "weeds": "weeds"}
 
 var data: Dictionary = {}
@@ -45,6 +48,8 @@ var collider_count := 0
 var month_override := 0
 var _clock := CampaignClock.new()
 var _elapsed := INF
+var _wind_elapsed := INF
+var wind_strength := 0.0
 
 
 static func mount(parent: Node3D) -> Node3D:
@@ -95,6 +100,21 @@ func _finish(key: String) -> StandardMaterial3D:
 	return material
 
 
+## Leaves: the same catalogued plant maps, scale and response, in the foliage shader so
+## they move in the wind (shaders/v2_city_foliage.gdshader).
+func _foliage(plant: StandardMaterial3D) -> ShaderMaterial:
+	var material := ShaderMaterial.new()
+	material.shader = FoliageShader
+	material.set_shader_parameter("albedo_tex", plant.albedo_texture)
+	material.set_shader_parameter("rough_tex", plant.roughness_texture)
+	material.set_shader_parameter("normal_tex", plant.normal_texture)
+	material.set_shader_parameter("uv_scale", Vector2(plant.uv1_scale.x, plant.uv1_scale.y))
+	material.set_shader_parameter("roughness_scale", plant.roughness)
+	material.set_shader_parameter("normal_scale", plant.normal_scale)
+	material.set_meta("v2_surface_stock", "plant")
+	return material
+
+
 ## The stock's own mesh with catalogue finishes, and for trees a bare copy (no leaves).
 func _prepare(name: String, kind: String, source: Mesh, finishes: Dictionary) -> void:
 	var leafy := ArrayMesh.new()
@@ -104,11 +124,11 @@ func _prepare(name: String, kind: String, source: Mesh, finishes: Dictionary) ->
 		if not finishes.has(key):
 			push_error("CITY GREENERY: %s surface %d has no catalogue finish (%s)" % [name, s, key])
 			continue
-		var material: StandardMaterial3D = finishes[key]
+		var material: Material = finishes[key]
 		if key == "plant":
 			var group: String = LEAF_GROUP.get(kind, "plane")
 			if not leaf_materials.has(group):
-				leaf_materials[group] = (finishes.plant as StandardMaterial3D).duplicate()
+				leaf_materials[group] = _foliage(finishes.plant)
 			material = leaf_materials[group]
 		var arrays := source.surface_get_arrays(s)
 		leafy.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
@@ -206,7 +226,8 @@ func _refresh(force := false) -> void:
 	month = now
 	for group: String in leaf_materials:
 		var tone: Variant = (SEASONS[group] as Array)[month - 1]
-		(leaf_materials[group] as StandardMaterial3D).albedo_color = tone if tone is Color else Color.WHITE
+		var tint: Color = tone if tone is Color else Color.WHITE
+		(leaf_materials[group] as ShaderMaterial).set_shader_parameter("season_tint", tint)
 	for draw in tree_draws:
 		var stock_name := str(draw.get_meta("v2_greenery_stock"))
 		var group: String = LEAF_GROUP.get(str(draw.get_meta("v2_city_greenery")), "plane")
@@ -215,8 +236,31 @@ func _refresh(force := false) -> void:
 	bare = (SEASONS.plane as Array)[month - 1] == null
 
 
+## The weather's wind in the leaves: speed sets the bend, gusts its unrest, the bearing
+## which way the crowns lean (as the weather manager reads it).
+func set_wind(weather: Dictionary) -> void:
+	var speed := float(weather.get("wind_speed_kmh", 10.0))
+	var gusts := float(weather.get("wind_gusts_kmh", speed))
+	var bearing := deg_to_rad(float(weather.get("wind_direction_degrees", 285.0)))
+	wind_strength = clampf(speed / FULL_WIND_KMH, 0.05, 1.4)
+	var unrest := clampf((gusts - speed) / maxf(speed, 1.0), 0.0, 1.0)
+	for group: String in leaf_materials:
+		var material: ShaderMaterial = leaf_materials[group]
+		material.set_shader_parameter("wind_direction", Vector2(-sin(bearing), cos(bearing)))
+		material.set_shader_parameter("wind_strength", wind_strength)
+		material.set_shader_parameter("gust", unrest)
+
+
 func _process(delta: float) -> void:
 	_elapsed += delta
+	_wind_elapsed += delta
+	if _wind_elapsed >= 5.0:
+		_wind_elapsed = 0.0
+		var world := get_parent() as OrisonV2RuntimeRoot
+		if world != null:
+			var weather := world.weather_conditions()
+			if not weather.is_empty():
+				set_wind(weather)
 	if _elapsed < 30.0:
 		return
 	_elapsed = 0.0

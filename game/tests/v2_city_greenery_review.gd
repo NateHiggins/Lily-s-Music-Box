@@ -42,7 +42,8 @@ func _views(world: OrisonV2RuntimeRoot) -> Array[Dictionary]:
 			["avenue_east", Vector3(-40.0, 0.0, 9.5), 90.0, 0.02, 70.0],
 			["cross_west", Vector3(-142.9, 0.0, 40.0), 0.0, 0.03, 70.0],
 			["cross_east", Vector3(142.9, 0.0, -30.0), 180.0, 0.03, 70.0],
-			["midground_south", Vector3(0.0, 0.0, 160.0), 180.0, 0.05, 70.0]]:
+			["midground_south", Vector3(0.0, 0.0, 160.0), 180.0, 0.05, 70.0],
+			["near_lot", Vector3(-41.0, 0.0, 40.0), 120.0, 0.08, 72.0]]:
 		var eye := Vector3.INF
 		for nudge: Vector3 in [Vector3.ZERO, Vector3(2, 0, 0), Vector3(-2, 0, 0), Vector3(0, 0, 2), Vector3(0, 0, -2)]:
 			eye = _floor_eye(world, spec[1] + nudge)

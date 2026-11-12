@@ -286,10 +286,80 @@ def midground(rng):
     return out
 
 
+def near_open_ground(rng):
+    """The near city's open lots: weeds, privet and a few ailanthus on the graded soil,
+    weeds along the walls of the asphalt courts. Never on a street or pavement, never
+    near a post, lamp, reserved datum or the Orison."""
+    import build_city_midground as M
+    meta = json.loads(_read("survey.json"))
+    fixtures = json.loads(_read("fixtures.json"))
+    gn, step, glim = meta["n"], meta["step"], meta["limit"]
+    heights = np.frombuffer(_read("heights.f32"), "<f4").reshape(gn, gn)
+    owners = np.frombuffer(_read("owners.i32"), "<i4").reshape(gn, gn)
+    keys = meta["owners"]
+    soil = np.isin(owners, [i for i, k in enumerate(keys) if "GradeCut_soil" in k])
+    court = np.isin(owners, [i for i, k in enumerate(keys) if "Court_asphalt" in k])
+    apron = np.isin(owners, [i for i, k in enumerate(keys) if "DistantApron" in k])
+    # Streets and pavements, drawn without collision, from the surface survey.
+    surfaces = json.loads(_read("surfaces.json"))
+    n = int(round(2 * LIMIT / CELL))
+    drawn = ~np.isnan(raster([t for s in surfaces if s["class"] in ("walk", "kerb") or
+                              (s["class"] == "road" and s["path"].startswith(ROAD_OWNERS)) for t in s["tris"]], n))
+    street = np.zeros((gn, gn), bool)
+    jj, ii = np.nonzero(drawn)
+    street[np.clip(np.rint((-LIMIT + (jj + .5) * CELL + glim) / step).astype(int), 0, gn - 1),
+           np.clip(np.rint((-LIMIT + (ii + .5) * CELL + glim) / step).astype(int), 0, gn - 1)] = True
+    street = dilate(street, 3)
+    open_ground = (soil | court | apron) & ~street
+    blocked = ~open_ground
+    # Distance in metres to anything that is not open ground, out to 4 m.
+    clear = np.zeros((gn, gn), np.int8)
+    reach = blocked.copy()
+    for d in range(1, 5):
+        reach = dilate(reach, 1)
+        clear[~reach & (clear == 0)] = 0
+        clear[reach & (clear == 0) & ~blocked] = d
+    clear[~reach] = 5
+    small = np.array([f[:4] for f in fixtures["small_colliders"]], float).reshape(-1, 4)
+    lamps = np.array([f[:3] for f in fixtures["lamp_lights"]], float).reshape(-1, 3)
+    out = {"ailanthus": [], "shrub": [], "weeds": []}
+    trees = []
+    cells = list(zip(*np.nonzero((soil | court) & ~street)))
+    rng.shuffle(cells)
+    for j, i in cells:
+        x, z = -glim + i * step + rng.uniform(-.45, .45), -glim + j * step + rng.uniform(-.45, .45)
+        if math.hypot(x, z) > WALKABLE_M - 5 or math.hypot(x - DOOR[0], z - DOOR[1]) < 25.0:
+            continue
+        if M.reserved(x - 1.5, z - 1.5, x + 1.5, z + 1.5):
+            continue
+        if len(small) and np.any(np.hypot(small[:, 0] - x, small[:, 2] - z) < small[:, 3] + 1.0):
+            continue
+        if len(lamps) and np.any(np.hypot(lamps[:, 0] - x, lamps[:, 2] - z) < 3.0):
+            continue
+        y = float(heights[j, i])
+        room = int(clear[j, i])
+        if soil[j, i]:
+            roll = rng.random()
+            if room >= 4 and roll < 1 / 120 and all(math.hypot(x - a, z - b) > 9 for a, b in trees):
+                trees.append((x, z))
+                out["ailanthus"].append((x, y, z, rng.uniform(0, math.tau)))
+            elif room >= 2 and roll < 1 / 45:
+                out["shrub"].append((x, y, z, rng.uniform(0, math.tau)))
+            elif room >= 1 and roll < (1 / 6 if room <= 2 else 1 / 14):
+                out["weeds"].append((x, y, z, rng.uniform(0, math.tau)))
+        elif room == 1 and rng.random() < 1 / 8:
+            # Weeds in the cracks at the foot of a court's walls.
+            out["weeds"].append((x, y, z, rng.uniform(0, math.tau)))
+    return out
+
+
 def main():
     rng = random.Random(G.SEED)
     near, rejected = near_city(rng)
     mid = midground(rng)
+    lots = near_open_ground(rng)
+    for kind in lots:
+        mid[kind] += lots[kind]
     kinds = {k: [] for k in G.STOCK}
     colliders = []
     for x, y, z, yaw, pit_scale in near + mid["street"]:
@@ -327,6 +397,7 @@ def main():
     with open(G.DATA, "w", encoding="utf8", newline="\n") as f:
         json.dump(table, f, separators=(",", ":"))
         f.write("\n")
+    print("NEAR CITY OPEN GROUND", json.dumps({k: len(v) for k, v in lots.items()}))
     print("CITY GREENERY PLACEMENT", json.dumps({"counts": {k: len(v) for k, v in kinds.items()}, "colliders": len(colliders),
                                                   "near_city_trees": len(near), "near_city_rejections": rejected}))
 
