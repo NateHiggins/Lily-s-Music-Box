@@ -309,10 +309,9 @@ KNOWN_CONTRACTS: dict[str, dict] = {
         "disposition": "PRESERVE_OR_ALIAS",
         "confidence": "HIGH",
         "rationale": "BuildingRootSelector is the single non-persistent "
-                     "authority for waking-scene selection (v1 default, "
-                     "ORISON_BUILDING_ROOT override); both scene paths are "
-                     "composition contracts and cutover/rollback changes "
-                     "DEFAULT_ID only.",
+                     "authority for waking-scene selection. V1 and its "
+                     "rollback were removed on 2026-11-11; the V2 scene "
+                     "path is the one composition contract left.",
     },
     "id_reference:game/scripts/building/orison_v2_anchor_adapter.gd:bed": {
         "authority": ["RUNTIME_LOOKUP"],

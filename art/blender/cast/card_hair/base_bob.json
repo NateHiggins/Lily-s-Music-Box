@@ -1,0 +1,125 @@
+{
+ "seed": 1929,
+ "head_object": "Skin_head",
+ "hairline_degrees": {
+  "front": 47.0,
+  "side": 84.0,
+  "back": 126.0
+ },
+ "cap_past_hairline_degrees": -2.0,
+ "cap_lift_m": 0.006,
+ "whorl": {
+  "bearing_degrees": 165.0,
+  "down_degrees": 20.0,
+  "cards": 0,
+  "ring": 0.06,
+  "low_within_m": 0.055
+ },
+ "root_spacing_m": 0.021,
+ "rows": 9,
+ "columns": 4,
+ "fringe": {
+  "exit_half_width_degrees": 54.0,
+  "hairline_cards": 16
+ },
+ "tiers": {
+  "part": {
+   "lift_m": 0.036,
+   "width_m": 0.046,
+   "cup": 0.07,
+   "gravity": 0.18,
+   "comb": 0.9,
+   "sweep_jitter_degrees": 3.0,
+   "twist_degrees": 0.0
+  },
+  "crown": {
+   "lift_m": 0.032,
+   "width_m": 0.046,
+   "cup": 0.07,
+   "gravity": 0.25,
+   "comb": 0.75,
+   "sweep_jitter_degrees": 4.0,
+   "twist_degrees": 0.0
+  },
+  "sides": {
+   "lift_m": 0.026,
+   "width_m": 0.038,
+   "cup": 0.09,
+   "gravity": 0.6,
+   "comb": 0.3,
+   "sweep_jitter_degrees": 5.0,
+   "twist_degrees": 0.0
+  },
+  "nape": {
+   "lift_m": 0.02,
+   "width_m": 0.036,
+   "cup": 0.09,
+   "gravity": 0.6,
+   "comb": 0.0,
+   "sweep_jitter_degrees": 5.0,
+   "twist_degrees": 0.0
+  },
+  "fringe": {
+   "lift_m": 0.02,
+   "width_m": 0.038,
+   "cup": 0.09,
+   "gravity": 0.5,
+   "comb": 0.42,
+   "sweep_jitter_degrees": 5.0,
+   "twist_degrees": 0.0
+  }
+ },
+ "root_clear_m": 0.007,
+ "part": {
+  "x_m": 0.028,
+  "front_y_m": -0.108,
+  "back_y_m": 0.034,
+  "cards": 24,
+  "interleave_m": 0.01,
+  "blend_m": 0.07,
+  "cards_back_y_m": 0.0,
+  "brush_back": 1.1,
+  "drop_front_corner": true
+ },
+ "rise_over_m": 0.07,
+ "tips_from": 0.66,
+ "shortest_tip": 0.82,
+ "zones": {
+  "fringe": {
+   "hem_z": 1.358,
+   "hem_slope": 0.35,
+   "bulge_m": 0.02,
+   "curl_m": 0.01,
+   "sweep_m": 0.022
+  },
+  "sides": {
+   "hem_z": 1.262,
+   "bulge_m": 0.066,
+   "curl_m": 0.046,
+   "under_share": 0.42
+  },
+  "nape": {
+   "hem_z": 1.25,
+   "bulge_m": 0.052,
+   "curl_m": 0.04,
+   "under_share": 0.5
+  },
+  "temple": {
+   "hem_z": 1.268,
+   "bulge_m": 0.06,
+   "curl_m": 0.04,
+   "under_share": 0.3,
+   "forward_m": 0.03,
+   "forward_part_side_m": 0.006
+  },
+  "part_side": {
+   "hem_z": 1.268,
+   "bulge_m": 0.06,
+   "curl_m": 0.04,
+   "under_share": 0.3,
+   "forward_m": 0.0,
+   "aside_m": 0.0
+  }
+ },
+ "temple_width_degrees": 38.0
+}

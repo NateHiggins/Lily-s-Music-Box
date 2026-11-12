@@ -4,7 +4,9 @@ First-person navigable blockout of the full building, assembled from the
 procedural art pipeline in `../art/` (see that README for regeneration).
 Run Godot through the repository's shared-lane wrappers; see `AGENTS.md`
 and `tools/engine_patches/README.md` in the repository root. The selector
-defaults to V2 and retains the explicit V1 rollback.
+runs V2, the only building; V1 was removed on 2026-11-11 and the tag
+`before-v1-removal-20261111` keeps it. Sections below that describe the V1
+root, its floors and its passes are history.
 
 On Windows desktop, V2 runs on **Vulkan with Godot's Forward+ renderer**.
 The title launch and the 98-waypoint golden-shift route verified this on the
@@ -503,7 +505,7 @@ kind of cost is invisible until something profiles it.
 
 ```
 scenes/campaign/CampaignShell.tscn persistent one-world campaign boundary
-scenes/building/orison_root.tscn   thin root; building_root.gd assembles
+scenes/building/orison_v2_runtime.tscn  the building; orison_v2_runtime_root.gd assembles
 scenes/dream/DreamMazeRoot.tscn    reconstruction payload; no maze art yet
 scripts/building/                  assembly, elevator
 scripts/dream/                     scene transaction, exclusive WorldSlot,

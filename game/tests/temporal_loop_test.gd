@@ -253,12 +253,14 @@ func _ready() -> void:
 	# The companion away, unasked; a room that waits on the hour.
 	slips.clear()
 	tick()
-	check(slips.is_empty(), "no hint in the first minutes of a visit")
+	check(slips.size() == 1 and slips[0].begins_with("CLOCK|") and slips[0].contains("18:40"),
+			"no hint in the first minutes of a visit; the companion says it is running the clock to the hour the room waits on")
 	loop.observe("4C")
 	check(loop.steps_done() == 0, "being in 4C before he is home is not enough: the room waits on the hour first")
 	check(clock.advance_to(clock.elapsed_minutes() + 5.0), "five minutes with the room unworked")
 	tick()
-	check(slips.size() == 1 and slips[0] == "HINT|" + str(loop.table.anchors.friday.steps[0].hint), "the companion offers the hint for the step itself")
+	check(slips.size() == 1, "while the clock is being run to that hour it does not hint as well")
+	check(str(loop.command("hint").text) == str(loop.table.anchors.friday.steps[0].hint), "asked, it gives the hint for the step itself")
 	check(str(loop.command("quiet").text).contains("keep to myself") and clock.advance_to(clock.elapsed_minutes() + 20.0), "told to be quiet")
 	tick()
 	check(slips.size() == 1, "it keeps quiet")
@@ -387,6 +389,142 @@ func _ready() -> void:
 	check(slips.size() == 1 and slips[0].begins_with("THE BREAK|") and slips[0].contains("cut the allowance"), "the companion says what has been cut")
 	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1928, 11, 12, 600.0)) and loop.tip_percent_now() == 100
 			and loop.allowance_cents() == 15, "when the year turns, money is as it was")
+
+	# The pace of time: nobody waits out an hour.
+	var pace := CampaignPace.new()
+	check(not pace.running() and is_equal_approx(pace.seconds_for(0.5, 100.0), 0.5), "ordinarily a second is a second")
+	check(pace.run_to(130.0, 90.0, "test:wait") and pace.running() and not pace.run_to(130.0, 0.5, "test:slow")
+			and not pace.run_to(INF, 90.0, "test:never"), "a run needs a real goal and a rate above one")
+	var real := 0.0
+	var now := 100.0
+	var fastest := 1.0
+	for frame in 6000:
+		if not pace.running():
+			break
+		var added := pace.seconds_for(1.0 / 60.0, now)
+		fastest = maxf(fastest, pace.rate)
+		now += added / 60.0
+		real += 1.0 / 60.0
+	check(not pace.running() and now >= 130.0 - 0.001 and now < 130.05, "thirty minutes are run to and not past (%.3f)" % now)
+	check(real < 45.0 and fastest > 60.0 and fastest <= 90.0, "in well under a minute of real time (%.1f s, %.0f times at most)" % [real, fastest])
+	check(is_equal_approx(pace.rate, 1.0) and pace.reason.is_empty(), "and time is ordinary again on arrival")
+	pace.run_to(5000.0, 500.0, "test:cap")
+	for frame in 600:
+		pace.seconds_for(1.0 / 60.0, 100.0)
+	check(pace.rate <= CampaignPace.MAX_RATE, "no request runs the clock past the ceiling")
+	pace.hold("talk")
+	check(not pace.running() and is_equal_approx(pace.seconds_for(1.0, 100.0), 1.0), "a hold makes time ordinary while it lasts")
+	pace.release("talk")
+	check(pace.running(), "and the run resumes when the hold is let go")
+	pace.settle()
+
+	# The loop asks for the run. A room that waits on the hour: the Friday errand waits for 18:40.
+	loop.pace = pace
+	loop.aide().quiet = false
+	loop.ledger().bank_cents = 500
+	var friday_clue := str(loop.clue_of("friday").id)
+	var kept: Dictionary = (loop.ledger().items as Dictionary).duplicate(true)
+	(loop.ledger().items as Dictionary).erase(friday_clue)
+	check(loop.pace_plan().is_empty(), "at home, with the player just now busy, time is ordinary")
+	check(loop.jump("friday").ok and loop.in_visit(), "to the Friday errand again, unanswered for the test")
+	var plan: Dictionary = loop.pace_plan()
+	check(str(plan.get("why", "")) == "wait:friday:" + str(loop.current_step().id) and is_equal_approx(float(plan.until), clock.elapsed_minutes() + 20.0),
+			"the room can only be waited on, so the clock is to run twenty minutes")
+	slips.clear()
+	real = 0.0
+	for frame in 6000:
+		clock.advance_seconds(pace.seconds_for(1.0 / 60.0, clock.elapsed_minutes()))
+		real += 1.0 / 60.0
+		if frame % 60 == 0:
+			tick()
+			loop.observe("")
+		if str(loop.current_step().get("kind", "")) != "after":
+			break
+	check(str(loop.current_step().get("kind", "")) == "at" and real < 40.0, "the hour comes in %.1f real seconds, not twenty minutes" % real)
+	check(loop.loop_minutes() >= 20.0 and loop.loop_minutes() < 21.5, "and is not run past (%.2f minutes into the room)" % loop.loop_minutes())
+	check(slips.filter(func(text: String) -> bool: return text.begins_with("CLOCK|")).size() == 1, "the companion says once that it is running the clock")
+	check(slips.filter(func(text: String) -> bool: return text.begins_with("HINT|")).is_empty(), "and does not hint through minutes it is running")
+	tick()
+	check(loop.pace_plan().is_empty() and not pace.running(), "with something to do in the room, time is ordinary")
+	check(str(loop.command("wait").text).contains("SOMETHING TO DO"), "WAIT says so")
+	# The evidence taken: the rest of the hours are run out and the companion brings the player home.
+	work_room()
+	check(loop.take_clue().ok and str(loop.pace_plan().get("why", "")) == "done:friday", "with the evidence in hand the clock is to run to the end of the hours")
+	check(str(loop.command("steady").text).contains("OWN TIME") and loop.pace_plan().is_empty(), "STEADY holds the clock to its own time")
+	tick()
+	check(not pace.running(), "and a run in progress stops")
+	check(str(loop.command("wait").text).contains("HELD STEADY") and str(loop.command("pace").text).contains("WILL RUN")
+			and not loop.pace_plan().is_empty(), "PACE lets it run again")
+	real = 0.0
+	for frame in 9000:
+		clock.advance_seconds(pace.seconds_for(1.0 / 60.0, clock.elapsed_minutes()))
+		real += 1.0 / 60.0
+		if frame % 60 == 0:
+			tick()
+		if not loop.in_visit():
+			break
+	check(not loop.in_visit() and real < 75.0, "the remaining hour and more passes in %.1f real seconds and the player is home" % real)
+	check(not pace.running() and loop.holds(friday_clue), "time is ordinary at home and the evidence came too")
+	check(loop._idle < 1.0, "coming home is not counted as standing idle")
+	loop._idle = 60.0
+	check(not loop.carried().is_empty() and loop.pace_plan().is_empty(), "with evidence to pin, the clock does not run off however long the player stands")
+	tick()
+	check(not pace.running(), "and it does not run")
+	loop.ledger().items = kept
+	# Idle at home.
+	loop._idle = 0.0
+	check(loop.pace_plan().is_empty(), "at home, busy, time is ordinary")
+	loop._idle = 60.0
+	plan = loop.pace_plan()
+	check(str(plan.get("why", "")).begins_with("idle:") and float(plan.until) > clock.elapsed_minutes()
+			and is_zero_approx(fposmod(float(plan.until), 1440.0)), "left idle, the clock is to run to the next day and no further")
+	tick()
+	check(pace.running(), "and it runs")
+	loop.note_activity()
+	check(not pace.running() and loop.pace_plan().is_empty(), "anything the player does stops it at once")
+	check(str(loop.command("wait").text).contains("TOMORROW") and pace.running() and str(loop.pace_plan().why).begins_with("asked:"), "WAIT at home runs to the next allowance")
+	loop.note_activity()
+	check(pace.running(), "and a run that was asked for is not stopped by moving about")
+	loop.command("steady")
+	check(not pace.running(), "STEADY stops it")
+	loop.command("pace")
+	# A conversation or a call keeps the clock to its own time.
+	check(str(loop.command("wait").text).contains("TOMORROW") and pace.running(), "a run is asked for again")
+	loop.hold_pace("talk")
+	check(not pace.running() and pace.held() and is_equal_approx(pace.seconds_for(1.0, clock.elapsed_minutes()), 1.0), "a conversation holds the clock to its own time")
+	loop._idle = 60.0
+	loop._process(0.1)
+	check(loop._idle < 1.0, "and nobody talking is standing idle")
+	slips.clear()
+	tick()
+	check(not pace.running() and slips.filter(func(text: String) -> bool: return text.begins_with("CLOCK|")).is_empty(), "nothing is said about the clock while it lasts")
+	loop.hold_pace("call")
+	loop.release_pace("talk")
+	check(not pace.running(), "two holds are two: one let go leaves the other")
+	loop.release_pace("call")
+	check(pace.running() and loop._idle < 1.0, "when the last is let go the run that was asked for goes on")
+	loop.command("steady")
+	loop.command("pace")
+
+	# A ledger that does not agree with itself is put in order, and evidence is never the price.
+	var pieces := (loop.ledger().items as Dictionary).size()
+	loop.ledger().bank_cents = 500
+	check(loop.jump("tea").ok, "away once more")
+	var pocket_before: Variant = (RealityState.data.get("caretaker_economy", {}) as Dictionary).duplicate(true)
+	loop.ledger().state = "RESET_LOOP"
+	check(loop.mend() == ["state_between"] and loop.state() == "RUN_LOOP", "a save caught between two states is mended")
+	loop.ledger().visit.stage = {"done": ["no_such_step"]}
+	check(loop.mend() == ["steps"] and loop.steps_done() == 0, "steps the room does not have are forgotten")
+	loop.ledger().state = "CHOOSE_NEXT_ACTION"
+	check(loop.mend() == ["state_away"] and loop.in_visit(), "a visit that says it is home is known for a visit")
+	loop._abandon_visit()
+	check(not loop.in_visit() and loop.state() == "CHOOSE_NEXT_ACTION" and (loop.ledger().items as Dictionary).size() == pieces
+			and RealityState.data.get("caretaker_economy", {}) == pocket_before, "a visit that cannot end any other way is closed, the borrowed world given back, the evidence kept")
+	check(clock.rebase_calendar(CampaignClock.calendar_minute_of(1928, 11, 12, 600.0)), "home for the last checks")
+	loop.ledger().visit = {"anchor": "a_lead_since_cut", "loop_started": 0.0, "world": {}}
+	loop.ledger().state = "INVESTIGATE"
+	check("lost_lead" in loop.mend() and not loop.in_visit() and loop.state() == "CHOOSE_NEXT_ACTION", "a visit to a lead that no longer exists ends at home")
+	check(loop.mend().is_empty() and Loop.valid(loop.ledger()), "a ledger in order is left alone")
 
 	RealityState.flush_background_saves()
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(RealityState.save_path))

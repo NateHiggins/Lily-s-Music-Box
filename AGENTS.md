@@ -13,6 +13,10 @@ The owner consolidated development into `C:/PleaseRemainOnTheLine` on
 normal development; clean up temporary verification checkouts after use.
 See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recovery.
 
+V2 is the only building. V1 (its root, scene, scripts, data, geometry, tests
+and tools) was removed on 2026-11-11; the tag `before-v1-removal-20261111`
+keeps it. See section 9 of `design/V1_RETIREMENT_PLAN_2026-11-09.md`.
+
 ## Git in a shared tree (RUL-010)
 
 - Several agents share this repository and its worktrees. Stage **named
@@ -86,11 +90,14 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
   `design/ORISON_V2_INTERIM_MANAGEMENT_DISPATCH_2026-09-13.md` and may add a
   committed JSON sidecar (`orison.dispatch-report.v1`, see
   `tools/PIPELINE_TOOLS.md`) that the verifier checks claim by claim.
-- The owner authorized the selector's default V1-to-V2 change on 2026-09-21.
-  Keep explicit `ORISON_BUILDING_ROOT=v1` rollback. The historical 17-path
-  protected receipt stays unchanged; only the selector's default literal
-  may differ at cutover. The other 16 paths and all other selector logic
-  remain protected (RUL-004).
+- The owner authorized the selector's default V1-to-V2 change on 2026-09-21
+  and, by ruling v1r_rollback_20261109, the removal of V1 and its rollback on
+  2026-11-11. There is no `ORISON_BUILDING_ROOT=v1`: an unknown or `v1` value
+  warns and runs V2. The historical 17-path protected receipt stays
+  unchanged. The verifier accepts the selector's two authorized edits and the
+  absence of V1's upper-floor geometry (ten of the 17 paths), and nothing
+  else; the seven paths that remain and all other selector logic stay
+  protected (RUL-004).
 
 ## Art
 

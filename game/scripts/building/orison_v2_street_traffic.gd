@@ -87,6 +87,9 @@ static func mount(world: Node) -> OrisonV2StreetTraffic:
 	street.add_child(traffic)
 	if trams != null and not traffic.startup_failed:
 		street.add_child(trams)
+	# What the lamps of all of them do to the road after dusk.
+	if not traffic.startup_failed:
+		street.add_child(preload("res://scripts/building/orison_v2_street_vehicle_lights.gd").attach(traffic, world.player))
 	return traffic if not traffic.startup_failed else null
 
 

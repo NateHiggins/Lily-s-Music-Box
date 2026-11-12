@@ -78,6 +78,13 @@ var stock: RefCounted
 var pile_tops: Array[Node3D] = []
 var _paper: Node3D
 var _poll := 0.0
+## How the borrowed part of the house stood when the visit began, and the run
+## of its hours it was last put back for.
+var _house_was: Dictionary = {}
+var _house_run := -1.0
+var _house_held := false
+var _call_held := false
+var _talk_held := false
 var _wall_frame := Transform3D()
 var _wall_size := Vector2.ONE
 var _paper_centre := Vector3.ZERO
@@ -154,8 +161,65 @@ func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
 		_dress_wall()
 	loop.changed.connect(_sync)
 	loop.stage_reset.connect(_put_back)
+	# A conversation keeps the clock to its own time while it lasts.
+	var talk: Variant = world.get("conversations")
+	if talk is Node and (talk as Node).has_signal("conversation_started") and (talk as Node).has_signal("conversation_ended"):
+		(talk as Node).connect("conversation_started", func(_resident: String, _entry: String) -> void:
+			_talk_held = true
+			loop.hold_pace("talk"))
+		(talk as Node).connect("conversation_ended", func(_resident: String) -> void:
+			_talk_held = false
+			loop.release_pace("talk"))
+	# A campaign loaded in the middle of a visit: how the house stood before
+	# it is in the visit's record.
+	if loop.in_visit() and (loop.ledger().visit as Dictionary).get("household") is Dictionary:
+		_house_was = ((loop.ledger().visit as Dictionary).household as Dictionary).duplicate(true)
+		_house_run = float((loop.ledger().visit as Dictionary).get("loop_started", -1.0))
+		_house_held = true
 	_sync()
 	return errors.is_empty()
+
+
+func _exit_tree() -> void:
+	if loop != null and is_instance_valid(loop):
+		loop.release_pace("talk")
+		loop.release_pace("call")
+
+
+## The house in a visit: its doors, windows, lights, radiators, cabinets,
+## mirrors and shelves are borrowed when the visit begins, put back as they
+## were when its hours are run again, and given back when the player comes
+## home. A room merely faulted out of order keeps the doors where they are.
+func _rewind_house() -> void:
+	var house: Variant = world.get("household_state")
+	if house is not Node or not (house as Node).has_method("visit_restore"):
+		return
+	if not loop.in_visit():
+		if _house_held:
+			if not bool(house.visit_restore(_house_was)):
+				push_warning("LOOP STAGE: the house would not be given back as it was")
+			else:
+				RealityState.commit_background()
+		_house_was = {}
+		_house_run = -1.0
+		_house_held = false
+		return
+	var visit: Dictionary = loop.ledger().visit
+	var run := float(visit.get("loop_started", -1.0))
+	if not _house_held:
+		_house_was = house.visit_snapshot()
+		visit["household"] = _house_was.duplicate(true)
+		_house_run = run
+		_house_held = true
+		RealityState.commit_background()
+		return
+	if is_equal_approx(run, _house_run):
+		return
+	_house_run = run
+	if not bool(house.visit_restore(_house_was)):
+		push_warning("LOOP STAGE: the house would not be put back for the rerun")
+	else:
+		RealityState.commit_background()
 
 
 func _grip_for(object_id: String, step: Dictionary) -> void:
@@ -198,6 +262,7 @@ func _carried(object_id: String) -> void:
 
 
 func _put_back() -> void:
+	_rewind_house()
 	for grip: Node in grips.values():
 		grip.put_back()
 	_sync()
@@ -954,5 +1019,20 @@ func _process(delta: float) -> void:
 	if _poll < 0.25 or loop == null:
 		return
 	_poll = 0.0
+	# A conversation that ended without saying so must not hold the clock for good.
+	if _talk_held:
+		var talk: Variant = world.get("conversations")
+		if talk is not Node or str((talk as Node).get("_active_resident")) == "":
+			_talk_held = false
+			loop.release_pace("talk")
+	# A call at the desk has no start of its own to listen for: it is asked.
+	var desk: Variant = world.get("call_interface")
+	var on_call: bool = desk is Node and int((desk as Node).get("stage")) != 0
+	if on_call != _call_held:
+		_call_held = on_call
+		if on_call:
+			loop.hold_pace("call")
+		else:
+			loop.release_pace("call")
 	if loop.in_visit():
 		loop.observe(str(world.player_unit()))

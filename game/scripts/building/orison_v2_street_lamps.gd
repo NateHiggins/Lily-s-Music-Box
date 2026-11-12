@@ -25,6 +25,15 @@ class LampClock extends Node:
 	var lit := -1.0
 	var _accum := INF
 	var ice_level := 0.0
+	## No two mantles burn alike: each light's share of the energy, its own
+	## rhythm, and whether it is one of the lamps that gutter.
+	var flicker := 0.0
+	## The table's light record, kept so lamps adopted later burn the same gas.
+	var record: Dictionary = {}
+	var _share: PackedFloat32Array = []
+	var _phase: PackedFloat32Array = []
+	var _gutters: PackedByteArray = []
+	var _time := 0.0
 	var pillars: Array[MeshInstance3D] = []
 	var pillar_material: ShaderMaterial
 
@@ -52,8 +61,68 @@ class LampClock extends Node:
 			pillar_material.set_shader_parameter("ice_level",ice_level)
 		for beam in pillars:beam.visible=ice_level>.001
 
+	## Give every lamp its own character, the same every night: `light` is the
+	## table's light record.
+	func temper(light: Dictionary) -> void:
+		record = light
+		flicker = float(light.flicker)
+		var tone: Array = light.color_rgb
+		var base := Color(tone[0], tone[1], tone[2])
+		_share.resize(lights.size())
+		_phase.resize(lights.size())
+		_gutters.resize(lights.size())
+		for index in lights.size():
+			var rng := RandomNumberGenerator.new()
+			rng.seed = hash(Vector3i((lights[index].global_position * 10.0).round()))
+			_share[index] = 1.0 - float(light.energy_spread) * rng.randf()
+			_phase[index] = rng.randf() * TAU
+			_gutters[index] = 1 if rng.randf() < float(light.sputter_share) else 0
+			var warmth := float(light.warmth_spread) * rng.randf_range(-1.0, 1.0)
+			lights[index].light_color = Color(base.r, clampf(base.g + warmth, 0.0, 1.0), clampf(base.b + warmth * 1.4, 0.0, 1.0))
+
+	## Lamps another owner stands (the mid ground's posts) but nobody lights:
+	## give each a pool like the runs', at the given points in `parent`'s frame.
+	func adopt(points: Array, parent: Node3D) -> int:
+		if record.is_empty() or parent == null:
+			return 0
+		var colour: Array = record.color_rgb
+		for point: Vector3 in points:
+			var light := OmniLight3D.new()
+			light.name = "AdoptedLampPool"
+			light.light_color = Color(colour[0], colour[1], colour[2])
+			light.light_energy = float(record.energy)
+			light.omni_range = float(record.range_m)
+			light.shadow_enabled = false
+			light.distance_fade_enabled = true
+			light.distance_fade_begin = float(record.fade_begin_m)
+			light.distance_fade_length = float(record.fade_length_m)
+			parent.add_child(light)
+			light.position = point
+			lights.append(light)
+		temper(record)
+		refresh()
+		return points.size()
+
+	## How brightly one lamp burns this instant, as a share of the table's energy.
+	func burn(index: int) -> float:
+		var share := _share[index] if index < _share.size() else 1.0
+		if flicker <= 0.0 or index >= _phase.size() or bool(GameBoot.settings.get("reduce_flashing", false)):
+			return share
+		var phase := _phase[index]
+		var breath := 0.6 * sin(_time * (5.1 + phase * 0.4) + phase) + 0.4 * sin(_time * (11.7 + phase) + phase * 3.0)
+		var level := share * (1.0 + flicker * breath)
+		if _gutters[index] == 1:
+			# Now and then the flame drops and catches again.
+			var drop := sin(_time * 0.41 + phase * 5.0) * sin(_time * 0.173 + phase)
+			level *= 1.0 - 0.6 * smoothstep(0.78, 0.95, drop) * (0.6 + 0.4 * sin(_time * 23.0 + phase))
+		return level
+
 	func _process(delta: float) -> void:
+		_time += delta
 		_accum += delta
+		if lit > 0.01:
+			for index in lights.size():
+				lights[index].light_energy = energy * lit * burn(index)
 		if _accum < CLOCK_PERIOD:
 			return
 		_accum = 0.0
@@ -66,9 +135,9 @@ class LampClock extends Node:
 		if not bool(info.get("valid", true)):
 			return
 		lit = OrisonV2StreetTraffic.lamp_factor(info, dusk, dawn)
-		for light in lights:
-			light.visible = lit > 0.01
-			light.light_energy = energy * lit
+		for index in lights.size():
+			lights[index].visible = lit > 0.01
+			lights[index].light_energy = energy * lit * burn(index)
 		if pillar_material!=null and not lights.is_empty():
 			pillar_material.set_shader_parameter("lamp_colour",lights[0].light_color)
 			pillar_material.set_shader_parameter("lamp_level",lit)
@@ -91,6 +160,14 @@ static func load_table(path := DATA) -> Dictionary:
 			return {}
 	if float(source.lod_error_m) <= 0.:
 		return {}
+	for key: String in ["color_rgb", "energy", "range_m", "fade_begin_m", "fade_length_m", "energy_spread", "warmth_spread", "flicker", "sputter_share"]:
+		if not (source.light as Dictionary).has(key):
+			return {}
+	if float(source.light.fade_begin_m) <= 0. or float(source.light.fade_length_m) <= 0.:
+		return {}
+	for key: String in ["energy_spread", "warmth_spread", "flicker", "sputter_share"]:
+		if float(source.light[key]) < 0. or float(source.light[key]) >= 1.:
+			return {}
 	if (source.dusk as Array).size() != 12 or (source.dawn as Array).size() != 12:
 		return {}
 	# Finish records go to the shared stock binder; refuse a malformed one here.
@@ -203,13 +280,21 @@ static func mount(world: Node) -> Node3D:
 		shape.position.y = 1.2
 		body.add_child(shape)
 		post.add_child(body)
-		var light: OmniLight3D = lights.get(str(lamp.authored_light), null)
+		# A lamp that names no authored light gets its own. (Looking the empty
+		# name up used to hand every such lamp one stray light with no record id.)
+		var wants := str(lamp.authored_light)
+		var light: OmniLight3D = lights.get(wants, null) if not wants.is_empty() else null
 		if light == null:
-			if not str(lamp.authored_light).is_empty():
+			if not wants.is_empty():
 				root.free()
 				return null
 			light = OmniLight3D.new()
 			light.name = "LampPool"
+			# A run of lamps is many pools: each fades out far from the eye.
+			# Its globe is a lit surface and stays bright at any distance.
+			light.distance_fade_enabled = true
+			light.distance_fade_begin = float(data.light.fade_begin_m)
+			light.distance_fade_length = float(data.light.fade_length_m)
 			light.set_meta("authored_record_id", str(lamp.id) + "_pool")
 			root.add_child(light)
 		# The lamp is in the globe now, half a metre higher and out over the
@@ -225,5 +310,6 @@ static func mount(world: Node) -> Node3D:
 		light.shadow_enabled = bool(lamp.shadows)
 		clock.lights.append(light)
 	street.add_child(root)
+	clock.temper(data.light)
 	clock.refresh()
 	return root

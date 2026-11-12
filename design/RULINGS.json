@@ -42,7 +42,7 @@
    "id": "RUL-004",
    "date": "2026-09-04",
    "authority": "astra",
-   "summary": "The committed building selector stays v1 until an authorized cutover; cutover and rollback change only DEFAULT_ID.",
+   "summary": "The committed building selector stays v1 until an authorized cutover; cutover and rollback change only DEFAULT_ID. Cutover to v2 was authorized by the owner on 2026-09-21. Rollback retired 2026-11-11: by the owner's ruling v1r_rollback_20261109 V1 was removed once every kept system was imported, so the selector holds only v2 and an unknown or v1 value falls back to it. The selector and the protected paths that remain stay protected.",
    "source": "ASTRA-D002; game/scripts/building/building_root_selector.gd",
    "scope": [
     "v2",

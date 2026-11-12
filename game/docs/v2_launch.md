@@ -167,7 +167,7 @@ or recaptures it during play. Clicking while deliberately released keeps it free
 and view from before the zoo visit. Press **F1** again after a teleport to close
 the controls and walk; use **Escape** if Building Services remains open.
 The existing hero tentacle, live organelles,
-sixteen Blender critters and fifteen reserved bays are shared with V1.
+sixteen Blender critters and fifteen reserved bays are the ones V1 used.
 
 To launch directly into the walkable zoo:
 
@@ -175,20 +175,15 @@ To launch directly into the walkable zoo:
 pwsh -File tools/lane.ps1 run -Scene res://scenes/debug/ZooVisit.tscn -Windowed -Runner long -TimeoutSeconds 1500 -LogPath tmp/zoo-play.log
 ```
 
-## Explicit V1 rollback
+## V1 is gone
 
-Set **ORISON_BUILDING_ROOT** to **v1** before launching. Remove the override
-to return to the committed V2 default. The choice lasts for that process and
-does not convert the campaign.
-
-```powershell
-$env:ORISON_BUILDING_ROOT = "v1"
-# Run either launch command above.
-Remove-Item Env:ORISON_BUILDING_ROOT
-```
+V1 and its rollback were removed on 2026-11-11 (Lily's ruling
+**v1r_rollback_20261109**). Setting **ORISON_BUILDING_ROOT** to **v1**, or to
+anything unknown, prints a warning and runs V2. The tag
+`before-v1-removal-20261111` keeps the last tree that held V1.
 
 V2 remains an unfinished building. The playable first Mina maintenance/case
-sequence is the supported campaign slice. V1-only apartment corruption and
+sequence is the supported campaign slice. V1's apartment corruption and
 resident debug shortcuts are not exposed as working V2 controls. The separate
 voxel-light seams recorded under TASKS H23 remain open.
 

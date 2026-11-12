@@ -24,6 +24,8 @@ varying flat vec2 optical_size;
 varying flat vec4 room_traits;
 varying flat vec4 decor_traits;
 varying flat vec4 lamp_traits;
+// This pane's draw for the present spell, and how much of an evening its lamp is on.
+varying flat vec2 lamp_spell;
 
 float hash1(float p) { return fract(sin(p * 127.1 + 311.7) * 43758.5453); }
 
@@ -73,6 +75,12 @@ void vertex() {
     room_traits = vec4(hash1(pane_seed+2.0), hash1(pane_seed+5.0), hash1(pane_seed+7.0), hash1(pane_seed+9.0));
     decor_traits = vec4(hash1(pane_seed+11.0), hash1(pane_seed+17.0), hash1(pane_seed+19.0), hash1(pane_seed+23.0));
     lamp_traits = vec4(hash1(pane_seed+29.0), hash1(pane_seed+31.0), hash1(pane_seed+33.0), hash1(pane_seed+13.0));
+    // Nobody keeps one lamp burning all evening. Each pane decides again every
+    // so often (its own interval, its own phase) whether its lamp is on, so
+    // single windows go dark and come back while the street stays lit.
+    float spell = mix(14.0, 70.0, hash1(pane_seed + 37.0));
+    float turn = floor((minute_of_day + hash1(pane_seed + 41.0) * spell) / spell);
+    lamp_spell = vec2(hash1(pane_seed + 43.0 + turn * 1.37), mix(0.5, 0.96, hash1(pane_seed + 47.0)));
 }
 
 void fragment() {
@@ -179,6 +187,10 @@ void fragment() {
         ? smoothstep(16.5 + offset, 18.0 + offset, hour) * (1.0 - smoothstep(22.0 + offset, 24.0, hour))
         : smoothstep(6.0 + offset, 8.0 + offset, hour) * (1.0 - smoothstep(17.0, 19.0 + offset, hour));
     if (weekend && room_kind == 1) { activity *= 0.12; }
+    // The hours set how likely a lamp is to be on; the pane's own draw decides.
+    // A few dwellers sit up after the street has gone to bed.
+    float late = dwelling ? 0.05 * (smoothstep(22.5, 24.0, hour) + 1.0 - smoothstep(0.0, 4.5, hour)) : 0.0;
+    activity = step(lamp_spell.x, max(activity * lamp_spell.y, late));
     activity *= step(0.22, lamp_traits.z);
     float daylight = smoothstep(6.0, 9.0, hour) * (1.0 - smoothstep(16.0, 19.0, hour));
     // Bounded tungsten/lamplight palette, approximately 2300â€“3300 K; no neon hues.
