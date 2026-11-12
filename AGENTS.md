@@ -172,6 +172,11 @@ For texture, material, glass, sky and shader appearance work, also use
 [godot-textures-and-shaders](.agents/skills/godot-textures-and-shaders/SKILL.md).
 Native geometry and UV authoring remain in the Blender asset skill.
 
+For weather, cloud structure, fog, astronomy and temporal sky configurations,
+use [godot-weather-sky](.agents/skills/godot-weather-sky/SKILL.md). It maps the
+installed Queens renderer, control owners and units, supported recipes and
+source-bound verification; it does not replace campaign or narrative authority.
+
 For intentional low-resolution sprites, glyphs and physical tile displays, use
 [godot-pixel-art](.agents/skills/godot-pixel-art/SKILL.md). The canonical skills
 live in `.agents/skills`; Claude Code can consume them through thin personal
