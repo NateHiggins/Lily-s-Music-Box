@@ -105,18 +105,21 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		// coverage must not flatten its bottom into a horizontal card.
 		h-=(1.0-broad)*.22*(1.0-smoothstep(.20,.75,h));
 	} else if(genus==0) {
-		// High ice fibres: anisotropic stretched marks, not scaled cumulus.
-		// The high plane spans tens of kilometres near the horizon. Broad,
-		// wind-aligned fibres need a much larger footprint than small cloudlets;
-		// otherwise this one texture tap repeats as hundreds of identical flecks.
-		vec2 uv=vec2(q.x*.035,q.y*.11+sin(q.x*.22+drift.z)*.035)+motion.xy;
+		// Broad ice packets contain finer curved fibres. Stretching a thresholded
+		// volume alone produced solid white blades tens of kilometres across.
+		// The continuous packet has no binary edge; the existing stroke stock
+		// only modulates its fibres, rather than drawing sharp white ribbons.
+		vec2 uv=vec2(q.x*.08,q.y*.24+sin(q.x*.22+drift.z)*.025)+motion.xy;
 		vec2 ice_noise=textureLod(cloud_noise,vec3(uv,.17+motion.z),1.0).rg;
-		float fibre=ice_noise.r;
 		texture_detail=ice_noise.g;
-		// Thin ice has a translucent feathered interior, not an opaque stretched
-		// cumulus silhouette. The already sampled G channel breaks up its fibres.
-		body=smoothstep(.64-coverage*.36,.74-coverage*.36,fibre)
-			*mix(.25,.70,smoothstep(.18,.78,ice_noise.g));
+		float packet=clamp((ice_noise.r-(.38-coverage*.25))/.45,0.0,1.0);
+		vec2 fibre_uv=uv+(ice_noise-.5)*vec2(.60,.35);
+		float strokes=texture(cirrus_tex,fibre_uv).r;
+		body=packet*packet*mix(.5,1.0,ice_noise.g)*mix(.70,1.0,strokes);
+		// Unresolved distant fibres become a faint veil instead of a repeating
+		// fan of lines aimed at the horizon. This changes ice, not world fog.
+		float distant_ice=smoothstep(25.0,60.0,length(p.xz-wx_camera_km.xz));
+		body=mix(body,coverage*.05,distant_ice);
 	} else {
 		// Continuous warped masses avoid a visible grid of identical ellipsoids.
 		// Reuse the existing two-channel volume; no new texture or march steps.
@@ -197,7 +200,8 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		texture_detail=mix(texture_detail,.5,veil);
 	}
 	float envelope=cloud_filtered_ramp(0.0,.10,h,hwidth)*(1.0-cloud_filtered_ramp(.72,1.0,h,hwidth));
-	float sculpted=living_fluid_enabled && genus!=0 ? wx_height_erosion(body,texture_detail,h,1.0) : max(0.0,body-(1.0-texture_detail)*.12);
+	float sculpted=genus==0 ? body*mix(.75,1.0,texture_detail)
+		: (living_fluid_enabled ? wx_height_erosion(body,texture_detail,h,1.0) : max(0.0,body-(1.0-texture_detail)*.12));
 	return sculpted*envelope*brush.y;
 }
 
