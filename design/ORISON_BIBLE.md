@@ -1351,6 +1351,67 @@ Its timing and drawing live in `scripts/building/star_god.gd` and
 `data/weather/phenomena.json`; **design/ORISON_SUN_2026-11-04.md** records the Sun
 pass it belongs to.
 
+#### Neo-Noir Neon 1929 — owner visual-style ruling, 2026-11-12
+
+Lily adopts **Neo-Noir Neon 1929** as the game's visual style and the grammar
+of its machinima. Her supplied rulebook joins German Expressionist architecture,
+noir fatalism and shadow, saturated contemporary neon colour, and the material
+world of 1929: Art Deco, prohibition and lived-in clubs. This dated ruling governs
+the current palette where older guidance differs. The camera may be modern;
+the objects remain period objects. Read Accords 9 and 15 through this amendment:
+expressive, motivated light illuminates used fabric; it does not make every
+object emissive or every surface wet. This is not a new technological divergence.
+
+**Light and colour.** Use low-key chiaroscuro with a **16:1 key-to-fill ratio**
+(four stops) as the dramatic lighting target. Hard sources project sharp geometric
+shadows through Deco grates, venetian blinds and moving fan blades. Saturated
+**cyan, magenta and deep crimson** replace a default all-tungsten key palette;
+**absinthe green** is an expressive spill, especially through basement windows.
+Characters can step from deep shadow into distinct pools of light. Every scene
+has atmospheric depth from haze, smoke or outdoor air, revealing beams and
+separating planes without hiding faces, construction or operable objects. This
+does not require every character to smoke. Weather and wetness keep their sources.
+
+**Optics.** Extreme-wide and wide shots use **18–24 mm full-frame equivalent**
+lenses to emphasize architectural perspective. **135–200 mm** views compress
+space and look through bottles, curtains or other foreground obstructions.
+Medium and extreme close-ups target **T1.4–T2.0** shallow-focus separation with
+the intended eye, hand or clue sharp. Dialogue uses a **180-degree shutter**;
+a **45-degree shutter** is reserved for bursts of violence or equivalent panic.
+Neon highlights receive **quarter- or half-strength Black Pro-Mist-like**
+diffusion/halation while blacks and subject detail remain legible. These are
+photographic targets, not claims that the engine exposes literal lens, T-stop,
+shutter or branded-filter controls.
+
+**Blocking and viewpoint.** Stage in depth: foreground obstruction, readable
+midground subject and purposeful background action. Do not flatten the cast
+against a wall. **15–30-degree Dutch angles** communicate motivated imbalance;
+low angles can make power oppressive and high angles can diminish a subject.
+Juxtaposed close-ups let the viewer infer emotion or danger through montage,
+without adding unearned case knowledge.
+
+**Movement.** Keep **90 percent of cinematic screen time** controlled on
+locked, tripod, dolly or similarly stable moves. The slow creeping push-in is
+the usual realization shot. Combine a descending pedestal with an upward tilt
+to reveal skyline scale; use lateral tracking for purposeful street movement.
+A dolly zoom belongs at a genuine climactic reversal. Chaotic handheld motion
+is a deliberate rupture when control fails, not a constant texture.
+
+**Editing and sound.** Aim for an **average shot length of 6–10 seconds**,
+with exceptions motivated by the musical phrase or dramatic beat. Use J- and
+L-cuts to carry sound across picture boundaries, graphic or motion match cuts
+to link spaces, and rare smash cuts for a real rupture. Plan against the actual
+selected audio. Do not invent an assault, firearm, death or killer reveal because
+one appeared as a teaching example in the supplied style brief.
+
+This style governs game environments, authored cinematics and promotional
+machinima. Film-only lenses, depth of field, cants and shake do not commandeer
+the ordinary player camera, obscure readable objects or override accessibility
+settings. Preserve campaign/save clocks, sky/weather authorities, authored story,
+cast identities and physical surface requirements. Adoption is canon; actual
+implementation and artistic acceptance still require rendered review. The shared
+**machinima-production** skill applies the ruling; it is not a second authority.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of

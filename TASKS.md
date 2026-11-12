@@ -237,6 +237,8 @@ Network distribution, phrase duels and the House Rig audition are deferred below
 
 ## B — The Harukiya rebuild (owner commission 2026-08-16)
 
+- **B-DESTINATION — Codex, active November 12:** full-cast bar overhaul: drum kit, performance stage/backstage, pool/darts space, 24 seats and balcony. [Program and evidence](design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md). Native03 is built; later pipe/stair repair source passes CPU clearance but native04 is unbuilt and outputs are stale. Prior 15-script compile and 80 reservation/FIFO checks pass. Production room mounts; source retirement and stage/kit contracts pass. Repair loaded UV precision, retained stool collision and pipe supports crossing the new balcony/stair. Then finish actual-input routes, crowd/seat fit, live attendance, original services and clean candidate comparison. Fable’s cast files and narrative/save/calendar owners remain unchanged. Not played or artistically accepted.
+
 - **B-PERFORMANCE — Erica-inspired Adela and Harukiya performance stage — owner direction 2026-11-01; writing/design owners unclaimed.** The plot and first-draft threads are [written](design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md), with November 1 questionnaire rulings recorded in its section 5; writers’ room options for Lily’s own lines still need her review. [Packet](design/V2_ADELA_PERFORMANCE_AND_FOUND_FAMILY_2026-11-01.md) integrates Erica-inspired Adela's regular piano/singing and Lily alternating drums/bass. Next writers' room pass: whole-person portrait, original appearance/costume variants and three found-family scenes; stage integrator must survey current bar and capture swept motion before a measured layout, preserving resident places, circulation, existing bar systems and campaign/save/audio authorities. Actual remodel, character/performance assets, recording, runtime contacts, date/knowledge boundaries and full-audience frame-time qualification remain unbuilt/unverified by this packet. Preserve murder canon and transness never as twist/clue/motive; no deadline. Older immutable small-stage assumptions yield to this new commission; retired arcade cabinets stay retired.
 
 
@@ -309,6 +311,8 @@ between headings silently.
   arcade cabinets immediately left of the entrance, the deep canopy over the
   counter, the barrels and crowded pictures behind the backbar, the violet
   felt, and light that only ever comes from something you can point at.
+
+- **B-PULL-UP-A-CHAIR-MV — Codex, active November12:** make a complete music video for the approved **Pull Up a Chair**, with dramatic Harukiya interiors and Queens exteriors in Lily’s adopted **Neo-Noir Neon1929** style (RUL-017). Bible and machinima skill now record the direction; Lily subsequently resumed filming. Editorial/audio are ready, director and first look proof in progress. Preserve the full182.137333s shipped master and tail, actualcast/periodsets, no invented death/weapon/twist. Exact audio hashes,26 extracted lyric captions and23 provisional6–10s shots: **C:/ov/reports/pull_up_a_chair_music_video_20261112/editorial/EDITORIAL_DISCOVERY.json**. First qualify the active bar repair, then review representative indoor/outdoor/close-up proofs, freeze the edit, capture bounded hidden-desktop FIFO sections and verify the complete encoded video. Default target1080p24; captions are not phoneme alignment. Upload is not authorized.
 
 ## E — Entropy: the building gets dirty (owner direction 2026-08-16)
 

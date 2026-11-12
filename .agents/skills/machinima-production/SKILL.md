@@ -14,6 +14,21 @@ Follow [godot-development](../godot-development/SKILL.md) for native capture.
 Route necessary mesh/material repairs to existing asset/shader skills. Keep
 private likeness sources, prompts and review media outside the public repo.
 
+## Apply the game's cinematic style
+
+For Please Stay on the Line, use **Neo-Noir Neon 1929**, adopted by Lily in
+[the Bible](../../../design/ORISON_BIBLE.md), §VIII.5, dated 2026-11-12
+(RUL-017). Read [the production style guide](references/neo-noir-neon-1929.md)
+before a shot list, lighting pass or capture. It preserves the owner's numeric
+targets and translates them into testable camera, lighting and edit decisions.
+The style is adopted; a particular scene is not qualified merely by citing it.
+For unrelated games, use their own visual direction rather than imposing this one.
+
+For a music video, recover the exact approved full track, duration and available
+lyric cues first. Cut picture to musical phrases without shortening the song or
+inventing lyric timing. Keep the selected master unchanged; derive any delivery
+gain in a separate mix. An audio-caption window is not phoneme alignment.
+
 ## Prepare the production
 
 - Recover the authored script, line IDs, shot budgets, cast references and latest
