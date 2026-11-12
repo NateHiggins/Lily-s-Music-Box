@@ -73,7 +73,6 @@ square teeth, and rows of short cards that each run dark to light read as
 roof tiles. The cap's feathered edge runs one lock into the next for the same
 reason.
 
-Known weak cuts, as reviewed on 2026-11-12: the coiled cuts still have a
-stepped hairline at the temple, the Eton crop shows a bright fleck at the
-front of the part, and the two swept-back men are close to each other. No cut
-is made to sit under a hat yet: the cast bodies carry no hats to fit one to.
+Known limits, as reviewed on 2026-11-12: the fuller coiled cut keeps a
+square corner at the temple, which reads as a barber's line. Hair is cut to
+a hat by the wardrobe build, not here.
