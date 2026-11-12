@@ -139,6 +139,14 @@ func _exercise() -> void:
 	check(pointer and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"repeated Escape cannot acquire capture")
 	await key(KEY_TAB,true);await key(KEY_TAB,false)
 	await key(KEY_C,true);await key(KEY_C,false)
+	# Optional optical composition after the unmodified player/input checks.
+	# Raise only the camera above passing residents; do not hide city geometry.
+	var sky_review:=OS.get_environment("ROOF_SKY_REVIEW")=="1"
+	var capture_camera_transform:=player.camera.transform
+	var capture_player_position:=player.global_position
+	if sky_review:
+		player.camera.global_position+=Vector3.UP*4.0
+		check(player.global_position.is_equal_approx(capture_player_position),"raised optical camera leaves the tested player placement unchanged")
 	for sample: Array in [[0,720,"opening_day"],[44,1260,"christmas_snow"],[269,900,"summer_hail"],[120,1080,"spring_evening"]]:
 		preview_clock.seek(float(sample[0])*1440+float(sample[1]));refresh_weather()
 		for frame in 40:await RenderingServer.frame_post_draw
@@ -147,6 +155,9 @@ func _exercise() -> void:
 		var name:=str(sample[2])+".png"
 		check(get_viewport().get_texture().get_image().save_png(directory.path_join(name))==OK,"rendered roof capture: "+name)
 		captures.append(name)
+	if sky_review:
+		player.camera.transform=capture_camera_transform
+		check(player.camera.transform.is_equal_approx(capture_camera_transform),"optical capture restores the original player camera transform")
 	if profile_refresh:await _profile_year()
 	check(RealityState.data.campaign_clock==original_clock,"forward/reverse/year wrap never changes campaign date")
 	await get_tree().create_timer(8.0).timeout
@@ -165,7 +176,7 @@ func _exercise() -> void:
 	check(environment_restored,"closing restores environment values and absent keys")
 	check(Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"pointer remains free after world retirement")
 	var failures:=checks.filter(func(row: Dictionary):return not row.passed)
-	FileAccess.open(directory.path_join("roof_preview_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"actual roof, engine-dispatched keyboard forward/reverse/run/pause/pointer input, calendar wrapping, rendered weather and original campaign restoration; no OS-native input, explicit mouse-look capture, campaign save reconstruction or full V2 acceptance","checks":checks,"failures":failures,"captures":captures,"other_runtime_data_changed":observations_changed,"frame_columns":["state","wall_ms","preview_update_ms","render_cpu_ms","render_gpu_ms"],"frames":frame_samples,"refresh_samples":refresh_samples,"profile_notes":"Optional fixed 365-noon forward/reverse route. CPU wall phases exclude pipeline-counter reads and sample append; counters may reflect prior renderer work. Frame data includes startup, input, PNG capture and instrumentation; not a matched whole-game performance claim."},"\t"))
+	FileAccess.open(directory.path_join("roof_preview_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"actual roof, engine-dispatched keyboard forward/reverse/run/pause/pointer input, calendar wrapping, rendered weather and original campaign restoration; no OS-native input, explicit mouse-look capture, campaign save reconstruction or full V2 acceptance","checks":checks,"failures":failures,"captures":captures,"capture_camera_offset_metres":4.0 if sky_review else 0.0,"capture_scope":"optical camera raised above residents after ordinary player/input checks" if sky_review else "ordinary player camera","other_runtime_data_changed":observations_changed,"frame_columns":["state","wall_ms","preview_update_ms","render_cpu_ms","render_gpu_ms"],"frames":frame_samples,"refresh_samples":refresh_samples,"profile_notes":"Optional fixed 365-noon forward/reverse route. CPU wall phases exclude pipeline-counter reads and sample append; counters may reflect prior renderer work. Frame data includes startup, input, PNG capture and instrumentation; not a matched whole-game performance claim."},"\t"))
 	print("ROOF WEATHER PREVIEW TEST: %d checks, %d failures"%[checks.size(),failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
