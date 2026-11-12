@@ -949,9 +949,26 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             x = max(0.0, min(1.0, x))
             return x * x * (3 - 2 * x)
 
+        # Review of cast_r10: every cape left the shoulders bare. The cone starts 7 cm wide at the neck and
+        # widens with depth, and the slope of the shoulders is wider than that for the first hand's breadth.
+        # Each point is held clear of the trunk and the shoulder caps (not the arms: the cape hangs free of them).
+        cape_tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
+
+        def clear_of_shoulders(point_, axis_y, room=0.024):
+            axis = Vector((0.0, axis_y, point_.z))
+            out_ = Vector((point_.x, point_.y - axis_y, 0.0))
+            if out_.length < 1e-5:
+                return point_
+            way = out_.normalized()
+            hit = cape_tree.ray_cast(axis + way * 0.7, -way, 0.7)
+            if hit[0] is None or abs(hit[0].x) > shoulder.x + 0.03:
+                return point_
+            need = (Vector((hit[0].x, hit[0].y, point_.z)) - axis).length + room
+            return axis + way * need if out_.length < need else point_
+
         def cape_shape(bm, L=length, P=point):
             rings = []
-            steps = 44
+            steps = 72
             rows = 13
             for k in range(rows):
                 t = k / (rows - 1.0)
@@ -967,13 +984,14 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
                     # cloth stood out round the body like a shelf. Folds deepen and the hem dips as it hangs.
                     hang = min(1.0, max(0.0, depth - 0.08) / 0.14)
                     rx = 0.068 + (shoulder.x + (0.085 if P == 0.0 else 0.06) - 0.068) * over + (0.2 if P == 0.0 else 0.14) * max(0.0, depth - 0.06)
-                    swell = math.sin(a * 9.0 + 0.6 * math.sin(a * 2.0))
+                    swell = math.sin(a * 6.0 + 0.6 * math.sin(a * 2.0))
                     fold = 1.0 + (0.015 + 0.05 * hang) * swell
                     rx *= fold
                     ry = 0.07 + (0.165 if math.sin(a) < 0 else 0.14) * over - 0.07 * over + 0.05 * max(0.0, depth - 0.06)
                     cy = neck_y + (chest_y - neck_y) * over
                     dip = 0.014 * hang * t * (0.5 - 0.5 * swell)
-                    ring.append(bm.verts.new((math.cos(a) * rx, cy + math.sin(a) * ry * fold, neck + 0.012 - depth - dip)))
+                    # Room for what is worn under it: little at the neck, more over a dress's shoulders and sleeve heads.
+                    ring.append(bm.verts.new(clear_of_shoulders(Vector((math.cos(a) * rx, cy + math.sin(a) * ry * fold, neck + 0.012 - depth - dip)), cy, 0.028 + 0.02 * ease(depth / 0.08))))
                 rings.append(ring)
             def open_front(j):
                 return P > 0.0 and -math.sin(math.tau * j / steps) > 0.94
@@ -1876,9 +1894,11 @@ for HAT in (HATS if skull else []):
     bz = brow_z + 0.002 if hat_kind in ("cloche", "derby", "fedora", "cap") else brow_z - 0.014
     crown_foot = bz + 0.034
     #            crown: lift, width, roundness of the side, flatness of the top, how far the back dips
-    crowns = {"cloche": (0.014, 1.085, 0.8, 1.25, 0.55), "toque": (0.04, 1.14, 0.5, 1.7, 0.3), "wide": (0.004, 1.06, 0.8, 1.1, 0.3),
-              "cap": (0.006, 1.12, 0.7, 1.6, 0.3), "derby": (0.03, 1.07, 0.7, 1.5, 0.2), "fedora": (0.042, 1.05, 0.45, 2.6, 0.2),
-              "boater": (0.022, 1.06, 0.22, 7.0, 0.1), "beret": (-0.004, 1.4, 0.5, 1.5, 0.7), "headscarf": (0.008, 1.045, 0.8, 1.25, 0.9)}
+    # Review of cast_r10: the toque read as a fez (tall drum), the beret as a plate under the hair, the cap as a
+    # pillbox, the fedora as a bucket hat (a cylinder with a brim turned down all round), the derby as a helmet.
+    crowns = {"cloche": (0.014, 1.085, 0.8, 1.25, 0.55), "toque": (0.016, 1.07, 0.6, 1.5, 0.3), "wide": (0.004, 1.06, 0.8, 1.1, 0.3),
+              "cap": (0.0, 1.1, 0.6, 2.2, 0.3), "derby": (0.032, 1.06, 0.8, 1.35, 0.2), "fedora": (0.04, 1.04, 0.7, 1.7, 0.2),
+              "boater": (0.022, 1.06, 0.22, 7.0, 0.1), "beret": (0.013, 1.4, 0.5, 1.5, 0.7), "headscarf": (0.008, 1.045, 0.8, 1.25, 0.9)}
     lift, wide_, side_, flat_, dip_ = crowns.get(hat_kind, crowns["cloche"])
     crown_top = top_z + lift + float(HAT.get("tall", 0.0))
     hat_rows = []
@@ -1901,14 +1921,22 @@ for HAT in (HATS if skull else []):
     elif hat_kind in ("toque", "headscarf"):
         hat_rows += [(wide_, bz + 0.03, dip_), (wide_ - 0.01, bz + 0.022, dip_), (wide_ - 0.02, bz + 0.016, dip_), (wide_ - 0.03, bz + 0.012, dip_),
                      (wide_ - 0.04, bz + 0.012, dip_), (wide_ - 0.05, bz + 0.016, dip_), (wide_ - 0.06, bz + 0.022, dip_), (wide_ - 0.07, bz + 0.03, dip_)]
+    elif hat_kind == "derby":
+        # A short brim that curls up at its edge, most at the sides.
+        hat_rows += [(1.08, bz + 0.022, 0.3), (1.1 + 0.05 * brim, bz + 0.015, 0.3), (1.1 + 0.11 * brim, bz + 0.012, 0.3), (1.1 + 0.15 * brim, bz + 0.016, 0.3),
+                     (1.1 + 0.155 * brim, bz + 0.022, 0.3), (1.1 + 0.13 * brim, bz + 0.018, 0.3), (1.1 + 0.05 * brim, bz + 0.011, 0.3), (1.05, bz + 0.03, 0.3)]
+    elif hat_kind == "fedora":
+        # A wider, nearly level brim: snapped down at the front and up at the back, in the ring loop below.
+        hat_rows += [(1.1, bz + 0.022, 0.5), (1.1 + 0.07 * brim, bz + 0.015, 0.5), (1.1 + 0.16 * brim, bz + 0.01, 0.5), (1.1 + 0.24 * brim, bz + 0.007, 0.5),
+                     (1.1 + 0.245 * brim, bz + 0.003, 0.5), (1.1 + 0.16 * brim, bz + 0.004, 0.5), (1.1, bz + 0.012, 0.5), (1.05, bz + 0.03, 0.5)]
     else:
-        # A brim that rolls: derby, fedora, and the cap's peak.
-        hat_rows += [(1.1, bz + 0.022, 0.7), (1.1 + 0.06 * brim, bz + 0.012, 0.85), (1.1 + 0.15 * brim, bz + 0.0, 1.0), (1.1 + 0.22 * brim, bz - 0.013, 1.0),
-                     (1.1 + 0.2 * brim, bz - 0.016, 1.0), (1.1 + 0.12 * brim, bz - 0.003, 1.0), (1.1, bz + 0.012, 0.85), (1.05, bz + 0.03, 0.6)]
+        # The cap's peak: flat, at the front only.
+        hat_rows += [(1.1, bz + 0.02, 0.3), (1.1 + 0.1 * brim, bz + 0.013, 0.3), (1.1 + 0.2 * brim, bz + 0.008, 0.3), (1.1 + 0.24 * brim, bz + 0.005, 0.3),
+                     (1.1 + 0.24 * brim, bz + 0.001, 0.3), (1.1 + 0.12 * brim, bz + 0.005, 0.3), (1.1, bz + 0.012, 0.3), (1.05, bz + 0.03, 0.3)]
     bm = bmesh.new()
     rings = []
     steps = 56
-    for r, z, low in hat_rows:
+    for row_index, (r, z, low) in enumerate(hat_rows):
         ring = []
         for k in range(steps):
             a = math.tau * k / steps
@@ -1917,12 +1945,28 @@ for HAT in (HATS if skull else []):
             if HAT.get("kind") == "cap" and r > 1.1:
                 # The peak: only at the front.
                 reach_ = 1.1 + (r - 1.1) * 1.6 * max(0.0, -math.sin(a)) ** 2
-            ring.append(bm.verts.new((centre.x + math.cos(a) * reach_ * half_w, centre.y + math.sin(a) * reach_ * half_d, z - dip)))
+            shape_ = 0.0
+            if hat_kind == "derby" and r > 1.1:
+                # The curl stands highest at the sides.
+                shape_ = 0.06 * (r - 1.1) * math.cos(a) ** 2
+            elif hat_kind == "fedora":
+                if r > 1.1:
+                    # Up at the back, down over the eyes.
+                    shape_ = (r - 1.1) * (0.075 * max(0.0, math.sin(a)) - 0.05 * max(0.0, -math.sin(a)) ** 2)
+                elif row_index < 13:
+                    # The crease along the top of the crown, front to back.
+                    across = abs(math.cos(a) * reach_ * half_w)
+                    shape_ = -0.014 * max(0.0, 1.0 - across / 0.03) * max(0.0, 1.0 - row_index / 7.0)
+            elif hat_kind == "cap" and row_index < 13:
+                # The crown slopes forward to the peak.
+                shape_ = 0.014 * math.sin(a) * min(1.0, reach_)
+            ring.append(bm.verts.new((centre.x + math.cos(a) * reach_ * half_w, centre.y + math.sin(a) * reach_ * half_d, z - dip + shape_)))
         rings.append(ring)
     for index, (a, b) in enumerate(zip(rings, rings[1:])):
         for k in range(steps):
             face = bm.faces.new((a[k], a[(k + 1) % steps], b[(k + 1) % steps], b[k]))
-            face.material_index = 1 if index in (12, 13) else 0
+            # A cap and a headscarf have no hat band.
+            face.material_index = 1 if index in (12, 13) and hat_kind not in ("cap", "headscarf") else 0
             face.smooth = True
     bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
     hat_mesh = bpy.data.meshes.new("Hat")
