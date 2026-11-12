@@ -838,6 +838,7 @@ func jump(anchor_id: String) -> Dictionary:
 	book.state = "RUN_LOOP"
 	aide().warned = false
 	aide().next_hint = HINT_FIRST_MINUTES
+	_settle_pace()
 	RealityState.commit()
 	stage_reset.emit()
 	changed.emit()
@@ -888,6 +889,7 @@ func reset_loop() -> Dictionary:
 	book.visit.stage = {"done": []}
 	_record(anchor_id).loops = int(_record(anchor_id).loops) + 1
 	book.state = "RUN_LOOP"
+	_settle_pace()
 	RealityState.commit()
 	stage_reset.emit()
 	changed.emit()
@@ -945,6 +947,7 @@ func _pace_owner() -> CampaignPace:
 
 func _settle_pace() -> void:
 	_wait_until = -1.0
+	_pace_said = ""
 	if pace != null and pace.reason.begins_with("loop:"):
 		pace.settle()
 

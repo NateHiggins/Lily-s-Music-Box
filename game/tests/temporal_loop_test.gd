@@ -253,12 +253,14 @@ func _ready() -> void:
 	# The companion away, unasked; a room that waits on the hour.
 	slips.clear()
 	tick()
-	check(slips.is_empty(), "no hint in the first minutes of a visit")
+	check(slips.size() == 1 and slips[0].begins_with("CLOCK|") and slips[0].contains("18:40"),
+			"no hint in the first minutes of a visit; the companion says it is running the clock to the hour the room waits on")
 	loop.observe("4C")
 	check(loop.steps_done() == 0, "being in 4C before he is home is not enough: the room waits on the hour first")
 	check(clock.advance_to(clock.elapsed_minutes() + 5.0), "five minutes with the room unworked")
 	tick()
-	check(slips.size() == 1 and slips[0] == "HINT|" + str(loop.table.anchors.friday.steps[0].hint), "the companion offers the hint for the step itself")
+	check(slips.size() == 1, "while the clock is being run to that hour it does not hint as well")
+	check(str(loop.command("hint").text) == str(loop.table.anchors.friday.steps[0].hint), "asked, it gives the hint for the step itself")
 	check(str(loop.command("quiet").text).contains("keep to myself") and clock.advance_to(clock.elapsed_minutes() + 20.0), "told to be quiet")
 	tick()
 	check(slips.size() == 1, "it keeps quiet")
