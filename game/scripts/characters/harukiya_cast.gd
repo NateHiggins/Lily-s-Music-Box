@@ -75,6 +75,11 @@ func _process(delta: float) -> void:
 	if _accum >= .25:
 		_accum = 0.0
 		refresh_presence()
+		# The shared panel may close between tree nodes without ending the
+		# conversation authority. Hidden text must never keep a mouth moving;
+		# retain the speaker so a following authored node can speak normally.
+		if _speaker != "" and conversations.dialogue != null and not conversations.dialogue.attention_active():
+			actors[_speaker].stop_speaking()
 
 func refresh_presence() -> void:
 	if not ready_ok:return

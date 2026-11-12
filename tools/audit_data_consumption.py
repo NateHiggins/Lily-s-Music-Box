@@ -56,6 +56,10 @@ DYNAMIC_MAP_PATHS_BY_SCHEMA = {
 # These declarations classify record identities only. They grant neither a
 # FILE reader nor a reader for any field in a record value.
 DYNAMIC_MAP_PATHS_BY_FILE = {
+    # CastMaterialRecipes.validate resolves imported cast_<person>_* identities
+    # through _recipes[key]. This declares only root record IDs; every recipe
+    # value (base_color, roughness, metallic, etc.) still needs a real reader.
+    "material_catalog.json": frozenset({""}),
     # OrisonAudioPolicy._load_catalog iterates cues[cue_id]; values still
     # require readers for bus, stream_key, limits, captions and every new field.
     "audio_cues.json": frozenset({"cues"}),

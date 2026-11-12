@@ -1,6 +1,6 @@
 {
  "schema": "orison.material-registry.v1",
- "about": "One record per material id. art/data/material_catalog.json, game/data/material_catalog.json and art/textures/catalog_mapping.json are generated from this file by art/tools/material_registry.py --write.",
+ "about": "One record per material id. art/data/material_catalog.json, game/data/material_catalog.json and art/textures/catalog_mapping.json are generated from this file by art/tools/material_registry.py --write. Cast Lily/Stacy materials use asset-owned glTF PBR maps in game/assets/characters/lily and game/assets/characters/stacy; source_set null and texture_status no_maps refer only to the absence of central canonical T_* texture sets, not to those imported maps.",
  "legacy_order": {
   "catalog_mapping": [
    "nook_woven_wool",
@@ -4622,6 +4622,618 @@
    "source_set": "ai_materials/wood_dark_c",
    "in_game_catalog": false,
    "texture_status": "v1_only",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_lily_face_eyebrows_polished",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_lily_face_eyelashes_polished",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_human_low_poly",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_face_lash_accents_opaque",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_human_teeth_base",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_human_tongue01",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_lily_hair_cards",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_lily_hair_cap",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_human_body",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_lily_concept_skin_pbr",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_lily_skirt",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_lily_stockings",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_lily_shoes",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_lily_shoestraps",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_lily_blouse",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_lily_buttons_0",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_lily_lily_waistcoat",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_face_eyebrows_polished",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_face_eyelashes_polished",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_human_low_poly",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_face_lash_accents_opaque",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_human_teeth_base",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_human_tongue01",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_hair_cards",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_hair_cap",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_human_body",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_concept_skin_pbr",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_skirt",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_stockings",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_shoes",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_shoestraps",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_apron",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_blouse",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_waistcoat",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_costumepolish_jet",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "cast_stacy_stacy_buttons_0",
+   "catalog": {
+    "base_color": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
    "import_tier": "surface"
   }
  ]
