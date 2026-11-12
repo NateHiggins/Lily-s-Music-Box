@@ -928,7 +928,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             piece("ApronStraps", None, None, 0.0, colour, 0.85, cloth=cloth or "cotton", made=strap_shape, weights=lambda co: {"Spine2": 1.0})
         piece("Apron", "helper-skirt", lambda v: min(-v.co.y, (0.95 - abs(math.atan2(v.co.x, -(v.co.y - 0.02)))) * 0.12), 0.021 if apron_made else 0.034 + over_pack, colour, 0.85, thicken=seat_room if apron_made else None,
               reshape=skirt_shape(max(float(row.get("hem", 0.5)), float(apron_skirt.get("hem", 0.38)) + 0.05) if apron_made else float(row.get("hem", 0.5)),
-                                  float(apron_skirt.get("flare", 0.25)) if apron_made else float(row.get("flare", 0.22)),
+                                  float(apron_skirt.get("flare", 0.25)) if apron_made else float(row.get("flare", 0.07)),
                                   int(apron_skirt.get("pleats", 0)) if apron_made else 0), cloth=cloth or "cotton", subdivide=1)
         piece("ApronBib", "helper-tights", lambda v: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - 0.01 - v.co.y, band(v.co.z, waist - 0.02, neck - 0.12), 0.1 - abs(v.co.x)),
               0.02 + over_pack, colour, 0.85, cloth=cloth or "cotton")
