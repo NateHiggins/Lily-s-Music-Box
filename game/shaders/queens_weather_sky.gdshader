@@ -628,6 +628,12 @@ void sky() {
             vec3 ice_color=mix(mix(fog_horizon_color*.7,ice_night,high_night),vec3(.70,.80,.95),high_sun);
             float amber=1.0-smoothstep(.015,.24,abs(sun_direction.y));
             ice_color=mix(ice_color,vec3(1.30,.55,.32),amber*high_sun);
+            if(int(living_layer_2.w)==1) {
+                // Cc cores have shallow relief; retain the original night and
+                // low-Sun tint rather than darkening every ice genus.
+                float core=smoothstep(.10,.85,ice/max(living_brush_2.y,.001));
+                ice_color*=1.0-.22*core*smoothstep(.06,.25,sun_direction.y);
+            }
             base=mix(base,ice_color,ice_alpha);
             point_stars*=1.0-ice_alpha;
         }

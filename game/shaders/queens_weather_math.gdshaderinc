@@ -176,6 +176,12 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		float edge_width=(rounded || genus==1) ? .060 : .025;
 		float edge_center=.725-.40*(rounded ? coverage : sqrt(coverage));
 		body=smoothstep(edge_center-edge_width,edge_center+edge_width,mass);
+		if(genus==1) {
+			// A single high-plane slice must retain graded optical thickness;
+			// saturating it here made Cc read as cut-out white chips.
+			float packet=clamp((mass-(edge_center-.12))/.36,0.0,1.0);
+			body=packet*packet;
+		}
 		// Billowed edges on the view ray only: the lighting taps keep their
 		// filtered footprint and spend nothing on detail they could not resolve.
 		if(living_fluid_enabled && qwidth==0.0 && body>.001 && body<.999) {
@@ -185,7 +191,8 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 			float near_detail=1.0-smoothstep(5.0,16.0,distance_km);
 			if(near_detail>.001) {
 				float billow=textureLod(cloud_noise,lookup*7.0,clamp(1.0+log2(1.0+distance_km*.6),1.0,5.0)).g;
-				body=clamp(body-(1.0-billow)*(rounded ? .28 : .55)*near_detail*(1.0-body),0.0,1.0);
+				if(genus==1) body*=1.0-(1.0-billow)*.25*near_detail;
+				else body=clamp(body-(1.0-billow)*(rounded ? .28 : .55)*near_detail*(1.0-body),0.0,1.0);
 			}
 		}
 		body=mix(body,.7+.3*field.x,smoothstep(.88,1.0,coverage));
@@ -200,7 +207,7 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		texture_detail=mix(texture_detail,.5,veil);
 	}
 	float envelope=cloud_filtered_ramp(0.0,.10,h,hwidth)*(1.0-cloud_filtered_ramp(.72,1.0,h,hwidth));
-	float sculpted=genus==0 ? body*mix(.75,1.0,texture_detail)
+	float sculpted=(genus==0 || genus==1) ? body*mix(.75,1.0,texture_detail)
 		: (living_fluid_enabled ? wx_height_erosion(body,texture_detail,h,1.0) : max(0.0,body-(1.0-texture_detail)*.12));
 	return sculpted*envelope*brush.y;
 }
