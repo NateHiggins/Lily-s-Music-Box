@@ -1,0 +1,450 @@
+{
+ "schema": "orison.v2.street-lamp-runs.v1",
+ "frame": "ORISON_FRONT_DOOR_THRESHOLD",
+ "method": "Kerbside spots found on 2026-11-12 by probing the running V2 world's colliders: both pavements of the avenue and of each cross street inside the walkable radius, one lamp every 30 m with the two sides staggered, 0.9 m back from the kerb, each spot checked for level pavement, room for the post and globe, and clear headroom. Spots that failed were shifted up to 9 m or dropped.",
+ "spacing_m": 30.0,
+ "kerb_setback_m": 0.9,
+ "lamps": [
+  {
+   "id": "lamp_run_avenue_n_w135",
+   "at": [
+    -126.0,
+    -1.345,
+    4.03
+   ],
+   "yaw_degrees": 0.0
+  },
+  {
+   "id": "lamp_run_avenue_n_w105",
+   "at": [
+    -105.0,
+    -1.03,
+    4.03
+   ],
+   "yaw_degrees": 0.0
+  },
+  {
+   "id": "lamp_run_avenue_n_w045",
+   "at": [
+    -42.0,
+    -0.255,
+    4.03
+   ],
+   "yaw_degrees": 0.0
+  },
+  {
+   "id": "lamp_run_avenue_n_w015",
+   "at": [
+    -24.0,
+    -0.029,
+    4.03
+   ],
+   "yaw_degrees": 0.0
+  },
+  {
+   "id": "lamp_run_avenue_n_e045",
+   "at": [
+    48.0,
+    0.0,
+    4.03
+   ],
+   "yaw_degrees": 0.0
+  },
+  {
+   "id": "lamp_run_avenue_n_e075",
+   "at": [
+    78.0,
+    0.0,
+    4.03
+   ],
+   "yaw_degrees": 0.0
+  },
+  {
+   "id": "lamp_run_avenue_n_e105",
+   "at": [
+    108.0,
+    -0.02,
+    4.03
+   ],
+   "yaw_degrees": 0.0
+  },
+  {
+   "id": "lamp_run_avenue_n_e135",
+   "at": [
+    135.0,
+    0.0,
+    4.03
+   ],
+   "yaw_degrees": 0.0
+  },
+  {
+   "id": "lamp_run_avenue_s_w120",
+   "at": [
+    -120.0,
+    -1.256,
+    15.03
+   ],
+   "yaw_degrees": 180.0
+  },
+  {
+   "id": "lamp_run_avenue_s_w090",
+   "at": [
+    -90.0,
+    -0.975,
+    15.03
+   ],
+   "yaw_degrees": 180.0
+  },
+  {
+   "id": "lamp_run_avenue_s_w060",
+   "at": [
+    -60.0,
+    -0.526,
+    15.03
+   ],
+   "yaw_degrees": 180.0
+  },
+  {
+   "id": "lamp_run_avenue_s_w030",
+   "at": [
+    -30.0,
+    -0.081,
+    15.03
+   ],
+   "yaw_degrees": 180.0
+  },
+  {
+   "id": "lamp_run_avenue_s_e030",
+   "at": [
+    30.0,
+    0.0,
+    15.03
+   ],
+   "yaw_degrees": 180.0
+  },
+  {
+   "id": "lamp_run_avenue_s_e060",
+   "at": [
+    60.0,
+    0.0,
+    15.03
+   ],
+   "yaw_degrees": 180.0
+  },
+  {
+   "id": "lamp_run_avenue_s_e090",
+   "at": [
+    90.0,
+    0.0,
+    15.03
+   ],
+   "yaw_degrees": 180.0
+  },
+  {
+   "id": "lamp_run_avenue_s_e120",
+   "at": [
+    120.0,
+    -0.02,
+    15.23
+   ],
+   "yaw_degrees": 180.0
+  },
+  {
+   "id": "lamp_run_cross_w143_n_w_022",
+   "at": [
+    -148.4,
+    -1.831,
+    -12.47
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_n_w_052",
+   "at": [
+    -148.4,
+    -1.831,
+    -42.47
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_n_w_082",
+   "at": [
+    -148.4,
+    -1.831,
+    -72.47
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_n_w_112",
+   "at": [
+    -148.4,
+    -1.831,
+    -102.47
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_n_w_142",
+   "at": [
+    -148.4,
+    -1.831,
+    -132.47
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_n_e_037",
+   "at": [
+    -139.1,
+    -1.712,
+    -27.47
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_n_e_067",
+   "at": [
+    -139.1,
+    -1.712,
+    -57.47
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_n_e_097",
+   "at": [
+    -139.0,
+    -1.711,
+    -87.47
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w069_n_e_037",
+   "at": [
+    -63.55,
+    -0.579,
+    -36.47
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w069_n_e_097",
+   "at": [
+    -63.55,
+    -0.409,
+    -87.47
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w069_n_e_127",
+   "at": [
+    -63.55,
+    -0.579,
+    -117.47
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w069_n_e_157",
+   "at": [
+    -63.55,
+    -0.579,
+    -147.47
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w069_n_e_187",
+   "at": [
+    -63.55,
+    -0.579,
+    -183.47
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_e142_n_w_022",
+   "at": [
+    137.35,
+    0.0,
+    -12.47
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_e142_n_w_142",
+   "at": [
+    137.35,
+    0.15,
+    -132.47
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_e142_n_e_127",
+   "at": [
+    148.35,
+    0.15,
+    -126.47
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_s_w_022",
+   "at": [
+    -148.4,
+    -1.831,
+    31.53
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_s_w_052",
+   "at": [
+    -148.4,
+    -1.831,
+    61.53
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_s_w_082",
+   "at": [
+    -148.4,
+    -1.831,
+    91.53
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_s_w_112",
+   "at": [
+    -148.4,
+    -1.831,
+    118.53
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_s_e_037",
+   "at": [
+    -139.1,
+    -1.712,
+    46.53
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w143_s_e_067",
+   "at": [
+    -139.1,
+    -1.712,
+    76.53
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w069_s_e_037",
+   "at": [
+    -63.65,
+    -0.58,
+    55.53
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w069_s_e_097",
+   "at": [
+    -63.55,
+    -0.409,
+    106.53
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w069_s_e_127",
+   "at": [
+    -63.65,
+    -0.58,
+    136.53
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_w069_s_e_157",
+   "at": [
+    -63.65,
+    -0.58,
+    166.53
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_e142_s_w_022",
+   "at": [
+    137.35,
+    0.0,
+    31.53
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_e142_s_w_052",
+   "at": [
+    137.35,
+    0.0,
+    61.53
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_e142_s_w_082",
+   "at": [
+    137.35,
+    0.0,
+    91.53
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_e142_s_w_112",
+   "at": [
+    137.35,
+    0.0,
+    121.53
+   ],
+   "yaw_degrees": 90.0
+  },
+  {
+   "id": "lamp_run_cross_e142_s_e_037",
+   "at": [
+    148.35,
+    0.0,
+    46.53
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_e142_s_e_067",
+   "at": [
+    148.35,
+    0.0,
+    76.53
+   ],
+   "yaw_degrees": -90.0
+  },
+  {
+   "id": "lamp_run_cross_e142_s_e_097",
+   "at": [
+    148.35,
+    0.0,
+    106.53
+   ],
+   "yaw_degrees": -90.0
+  }
+ ]
+}

@@ -135,7 +135,12 @@ STOCKS = {"bishops_crook": bishops_crook, "signal_box_crook": signal_box_crook}
 # Placement in the street frame (x along the street, +z outward from Orison).
 # The first two stand where the authored placeholder posts stand and take over
 # their authored lights; the new ones fill the far pavement and the west run.
-LIGHT = {"color_rgb": [1.0, 0.70, 0.42], "energy": 2.6, "range_m": 10.5}
+# The runs' own pools fade out with distance from the eye; the globes stay lit.
+# Gas mantles, 1928: a modest warm pool, and no two burn alike. Each lamp burns
+# somewhere between (1 - energy_spread) and 1 of the energy, a little redder or
+# whiter than its neighbour, breathing by `flicker`; a share of them gutter.
+LIGHT = {"color_rgb": [1.0, 0.66, 0.36], "energy": 1.45, "range_m": 9.5, "fade_begin_m": 70.0, "fade_length_m": 25.0,
+         "energy_spread": 0.4, "warmth_spread": 0.08, "flicker": 0.08, "sputter_share": 0.14}
 LAMPS = [
     {"id": "lamp_orison_mid", "stock": "bishops_crook", "at": [8.1, 0.0, 3.975], "yaw_degrees": 0,
      "replaces": ["street_lamp_post", "street_lamp_head", "street_lamp_cap_west"], "authored_light": "street_lamp_pool", "shadows": True},
@@ -146,6 +151,13 @@ LAMPS = [
     {"id": "lamp_arcade_west", "stock": "bishops_crook", "at": [-4.2, 0.0, 14.82], "yaw_degrees": 180,
      "replaces": [], "authored_light": "", "shadows": False},
 ]
+# The runs along the avenue and the cross streets: kerbside spots measured in
+# the running world (art/data/v2_street_lamp_runs.json says how).
+RUNS = json.loads((ROOT / "art/data/v2_street_lamp_runs.json").read_text())
+assert RUNS["schema"] == "orison.v2.street-lamp-runs.v1" and RUNS["frame"] == "ORISON_FRONT_DOOR_THRESHOLD"
+LAMPS += [{"id": row["id"], "stock": "bishops_crook", "at": row["at"], "yaw_degrees": row["yaw_degrees"],
+           "replaces": [], "authored_light": "", "shadows": False} for row in RUNS["lamps"]]
+assert len({row["id"] for row in LAMPS}) == len(LAMPS)
 
 
 def gas_stocks():
@@ -222,6 +234,15 @@ def gas_partition(stocks, exports, mats, catalog, lower=False):
 
 
 def main():
+    if "--table-only" in sys.argv:
+        # Placement and light settings only: the stock is untouched.
+        path = ROOT / "game/data/orison_v2/exterior/street_lamps.json"
+        table = json.loads(path.read_text())
+        table["light"] = LIGHT
+        table["lamps"] = LAMPS
+        path.write_text(json.dumps(table, indent=1) + "\n", newline="\n")
+        print(json.dumps({"table_only": True, "lamps": len(LAMPS)}))
+        return
     bpy.ops.wm.read_factory_settings(use_empty=True)
     native_source,gas=gas_stocks()
     catalog = json.loads((ROOT / "game/data/runtime_material_sets.json").read_text())["materials"]
