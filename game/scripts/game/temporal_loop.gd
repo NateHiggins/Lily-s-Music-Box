@@ -946,6 +946,9 @@ func _pace_owner() -> CampaignPace:
 
 
 func _settle_pace() -> void:
+	# A visit beginning or ending is the player doing something: time spent
+	# away is not time spent idle at home.
+	_idle = 0.0
 	_wait_until = -1.0
 	_pace_said = ""
 	if pace != null and pace.reason.begins_with("loop:"):
@@ -978,7 +981,8 @@ func pace_plan() -> Dictionary:
 	if _wait_until > now:
 		return {"until": _wait_until, "rate": float(rules.idle_rate), "why": "asked:%d" % int(day),
 				"say": "Running the clock to tomorrow's allowance. STEADY stops it."}
-	if _idle >= float(rules.idle_seconds):
+	# Evidence in hand is something to do: the clock does not run off from it.
+	if _idle >= float(rules.idle_seconds) and carried().is_empty():
 		return {"until": (day + 1.0) * float(CampaignClock.MINUTES_PER_DAY), "rate": float(rules.idle_rate), "why": "idle:%d" % int(day),
 				"say": "Nothing is pressing. I am running the clock toward tomorrow. Anything you do stops it."}
 	return {}

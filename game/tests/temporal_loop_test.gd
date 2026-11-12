@@ -465,6 +465,11 @@ func _ready() -> void:
 			break
 	check(not loop.in_visit() and real < 75.0, "the remaining hour and more passes in %.1f real seconds and the player is home" % real)
 	check(not pace.running() and loop.holds(friday_clue), "time is ordinary at home and the evidence came too")
+	check(loop._idle < 1.0, "coming home is not counted as standing idle")
+	loop._idle = 60.0
+	check(not loop.carried().is_empty() and loop.pace_plan().is_empty(), "with evidence to pin, the clock does not run off however long the player stands")
+	tick()
+	check(not pace.running(), "and it does not run")
 	loop.ledger().items = kept
 	# Idle at home.
 	loop._idle = 0.0
