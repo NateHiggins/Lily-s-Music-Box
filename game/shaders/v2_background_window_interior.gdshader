@@ -26,6 +26,10 @@ varying flat vec4 decor_traits;
 varying flat vec4 lamp_traits;
 // This pane's draw for the present spell, and how much of an evening its lamp is on.
 varying flat vec2 lamp_spell;
+// Glazing, dressing and life: x bars and sill, y sash and grime, z dressing, w occupant.
+varying flat vec4 dress_traits;
+uniform vec3 joinery_colour : source_color = vec3(0.16, 0.19, 0.16);
+uniform bool window_detail = true;
 
 float hash1(float p) { return fract(sin(p * 127.1 + 311.7) * 43758.5453); }
 
@@ -63,6 +67,28 @@ void rounded_shade(vec3 ro, vec3 rd, vec3 centre, vec3 radii,
     }
 }
 
+void blob(vec3 ro, vec3 rd, vec3 centre, vec3 radii, vec3 color,
+          inout float nearest, inout vec3 pigment) {
+    vec3 o=(ro-centre)/radii, d=rd/radii;
+    float a=dot(d,d), b=dot(o,d), c=dot(o,o)-1.0;
+    float disc=b*b-a*c;
+    if(disc>0.0) {
+        float t=(-b-sqrt(disc))/a;
+        if(t>0.0 && t<nearest) { nearest=t; pigment=color; }
+    }
+}
+
+// Glazing bars and frame in pane units (st), with antialiasing width aa.
+float bars(vec2 st, vec2 size, vec2 cells, float rail, float width_m, vec2 aa) {
+    vec2 half_w = vec2(width_m) / size * 0.5;
+    vec2 d = abs(fract(st * cells + 0.5) - 0.5) / cells;
+    vec2 m = vec2(1.0) - smoothstep(half_w - aa, half_w + aa, d);
+    float grid = max(m.x, m.y);
+    float meeting = rail > 0.0
+        ? 1.0 - smoothstep(half_w.y * 1.6 - aa.y, half_w.y * 1.6 + aa.y, abs(st.y - rail)) : 0.0;
+    return max(grid, meeting);
+}
+
 void vertex() {
     // INSTANCE_CUSTOM.r is optional normalized identity for MultiMesh batches.
     pane_seed = building_seed + INSTANCE_CUSTOM.r * 8192.0;
@@ -81,6 +107,7 @@ void vertex() {
     float spell = mix(14.0, 70.0, hash1(pane_seed + 37.0));
     float turn = floor((minute_of_day + hash1(pane_seed + 41.0) * spell) / spell);
     lamp_spell = vec2(hash1(pane_seed + 43.0 + turn * 1.37), mix(0.5, 0.96, hash1(pane_seed + 47.0)));
+    dress_traits = vec4(hash1(pane_seed + 53.0), hash1(pane_seed + 59.0), hash1(pane_seed + 61.0), hash1(pane_seed + 67.0));
 }
 
 void fragment() {
@@ -176,6 +203,31 @@ void fragment() {
             furnish(ro, rd, vec3(cabinet_x - 0.27, floor_y, depth - 0.62),
                 vec3(cabinet_x + 0.27, floor_y + cabinet_h, depth - 0.18), timber, nearest, pigment);
         }
+        if (window_detail) {
+            float sill_y = -optical_size.y * 0.5;
+            if (dwelling && dress_traits.x > 0.55) {
+                // A pot plant on the inside sill.
+                float px = (dress_traits.y - 0.5) * optical_size.x * 0.6;
+                furnish(ro, rd, vec3(px - 0.07, sill_y, 0.06), vec3(px + 0.07, sill_y + 0.13, 0.2),
+                    vec3(0.42, 0.20, 0.11), nearest, pigment);
+                blob(ro, rd, vec3(px, sill_y + 0.24, 0.13), vec3(0.17, 0.14, 0.12),
+                    mix(vec3(0.10, 0.20, 0.08), vec3(0.18, 0.26, 0.10), dress_traits.z), nearest, pigment);
+            } else if (dwelling && dress_traits.x > 0.42) {
+                // A bottle or a vase.
+                float bx = (dress_traits.w - 0.5) * optical_size.x * 0.5;
+                furnish(ro, rd, vec3(bx - 0.035, sill_y, 0.08), vec3(bx + 0.035, sill_y + 0.24, 0.15),
+                    mix(vec3(0.30, 0.42, 0.40), vec3(0.55, 0.36, 0.22), dress_traits.z), nearest, pigment);
+            }
+            if (dress_traits.w > 0.62 && room_kind != 2) {
+                // Someone at home, crossing the room now and then.
+                float fx = sin(TIME * mix(0.05, 0.14, dress_traits.y) + pane_seed) * w * 0.55;
+                float fz = mix(1.1, max(1.2, depth - 0.7), dress_traits.z);
+                vec3 figure = vec3(0.05, 0.045, 0.04);
+                furnish(ro, rd, vec3(fx - 0.21, floor_y, fz - 0.12), vec3(fx + 0.21, floor_y + 1.38, fz + 0.12),
+                    figure, nearest, pigment);
+                blob(ro, rd, vec3(fx, floor_y + 1.52, fz), vec3(0.11, 0.13, 0.11), figure, nearest, pigment);
+            }
+        }
     }
     if (nearest < wall_distance) {
         vec3 furniture_point = ro + rd * nearest;
@@ -195,16 +247,77 @@ void fragment() {
     float daylight = smoothstep(6.0, 9.0, hour) * (1.0 - smoothstep(16.0, 19.0, hour));
     // Bounded tungsten/lamplight palette, approximately 2300â€“3300 K; no neon hues.
     vec3 lamp_colour = mix(vec3(1.0, 0.33, 0.085), vec3(1.0, 0.56, 0.28), lamp_traits.x);
+    // Some flats still burn gas: an incandescent mantle reads whiter and greener.
+    if (window_detail && dwelling && dress_traits.z < 0.14) { lamp_colour = vec3(0.92, 1.0, 0.78); }
     float lamp_level = mix(0.35, 1.25, lamp_traits.y);
+    // A few rooms are lit by a coal fire after dark: low, orange and never still.
+    float fire = (window_detail && dwelling && dress_traits.w < 0.09) ? 1.0 - daylight : 0.0;
+    float flicker = 0.82 + 0.18 * sin(TIME * 7.3 + pane_seed) * sin(TIME * 3.1 + pane_seed * 0.7);
     vec3 illumination = vec3(0.025, 0.035, 0.055) + daylight * vec3(0.15, 0.17, 0.18)
-        + activity * lamp_colour * lamp_level;
+        + activity * lamp_colour * lamp_level
+        + fire * vec3(1.0, 0.38, 0.10) * 0.55 * flicker;
     float curtain_width = mix(0.025, dwelling ? 0.38 : 0.18, decor_traits.z);
     float curtain_edge = min(st.x + 0.06 * side, 1.0 - st.x - 0.06 * side);
     float curtain = 1.0 - smoothstep(curtain_width - 0.015, curtain_width + 0.015, curtain_edge);
     float roller = step(0.72, decor_traits.w) * (1.0-smoothstep(mix(0.35,0.75,decor_traits.z)-0.01, mix(0.35,0.75,decor_traits.z)+0.01, UV2.y));
     vec3 interior = mix(pigment, wall * mix(0.48,0.78,decor_traits.x), max(curtain,roller) * detail);
+    vec3 light_in = illumination;
+    if (window_detail && interiors_enabled) {
+        vec2 m = st * optical_size;  // metres across the pane
+        if (dwelling && decor_traits.z > 0.55) {
+            // Lace nets: a fine mesh with a repeating flower, pale by day, amber when lit.
+            vec2 cell = fract(m * 7.0) - 0.5;
+            float mesh = smoothstep(0.38, 0.5, max(abs(cell.x), abs(cell.y)));
+            vec2 motif = fract(m * vec2(1.6, 1.25)) - 0.5;
+            float flower = (1.0 - smoothstep(0.20, 0.24, length(motif)))
+                * (0.6 + 0.4 * sin(atan(motif.y, motif.x) * 6.0));
+            float lace = clamp(mesh * 0.55 + flower * 0.8, 0.0, 1.0) * detail;
+            float cover = 0.55 + 0.25 * lace;
+            interior = mix(interior, vec3(0.86, 0.84, 0.78), cover * 0.85);
+            light_in = illumination * (1.0 - cover * 0.35 + lace * 0.25);
+        } else if (room_kind == 3 && decor_traits.z > 0.4) {
+            // A cafe curtain on a rod across the lower part of a shop window.
+            float rod = 0.42 + 0.08 * decor_traits.y;
+            float cafe = 1.0 - smoothstep(rod - 0.004, rod + 0.004, st.y);
+            float pleat = 0.85 + 0.15 * sin(m.x * 38.0);
+            vec3 cloth = mix(vec3(0.62, 0.55, 0.42), vec3(0.32, 0.42, 0.34), decor_traits.x);
+            interior = mix(interior, cloth * pleat, cafe * detail);
+        } else if (room_kind == 1 && dress_traits.z < 0.65) {
+            // An office Venetian blind let down to its own height, slats at their own tilt.
+            float down = mix(0.35, 0.95, dress_traits.y);
+            float covered = step(1.0 - down, st.y);
+            float slat = smoothstep(0.0, 0.08, abs(fract(m.y * 18.0) - 0.5) - mix(0.05, 0.42, dress_traits.w));
+            interior = mix(interior, vec3(0.78, 0.74, 0.62) * (0.75 + 0.25 * slat),
+                covered * (1.0 - slat * 0.6) * detail);
+        }
+    }
     float fresnel = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), 5.0);
     float pane_valid = step(0.0, UV2.y) * step(UV2.y, 1.0);
-    ALBEDO = glaze;
-    EMISSION = interiors_enabled ? interior * illumination * (1.0 - fresnel * 0.85) * pane_valid : vec3(0.0);
+    vec3 glass_colour = glaze;
+    float glass_strength = 1.0;
+    float frame_mask = 0.0;
+    if (window_detail) {
+        // Glazing bars by type: six-over-six or two-over-two sashes in dwellings,
+        // a meeting rail in offices, a steel grid in workshops, a transom in shops.
+        vec2 cells = dwelling ? (dress_traits.x < 0.5 ? vec2(3.0, 4.0) : vec2(1.0, 2.0))
+            : (room_kind == 2 ? vec2(4.0, 6.0) : vec2(1.0));
+        float rail = room_kind == 1 ? 0.5 : (room_kind == 3 ? 0.82 : 0.0);
+        vec2 aa = fwidth(st) * 0.75 + vec2(0.0005);
+        frame_mask = bars(st, optical_size, cells, rail, room_kind == 2 ? 0.035 : 0.03, aa) * pane_valid;
+        // Now and then a lower sash is pushed up for air: the room shows without glass.
+        if ((dwelling || room_kind == 1) && dress_traits.y < 0.11 && st.y < 0.5) {
+            glass_strength = 0.0;
+        }
+        // City grime gathers at the edges of the glass.
+        vec2 e = min(st, 1.0 - st);
+        float grime = (1.0 - smoothstep(0.0, 0.18, min(e.x, e.y))) * mix(0.15, 0.55, dress_traits.y) * glass_strength;
+        glass_colour = mix(glaze, glaze * vec3(0.72, 0.66, 0.55), grime);
+        light_in *= 1.0 - grime * 0.35;
+    }
+    ALBEDO = mix(mix(vec3(0.02), glass_colour, glass_strength), joinery_colour, frame_mask);
+    ROUGHNESS = mix(mix(0.9, ROUGHNESS, glass_strength), 0.62, frame_mask);
+    SPECULAR = mix(SPECULAR * glass_strength, 0.3, frame_mask);
+    float glass_mute = mix(1.0, 1.0 - fresnel * 0.85, glass_strength);
+    EMISSION = interiors_enabled
+        ? interior * light_in * glass_mute * (1.0 - frame_mask) * pane_valid : vec3(0.0);
 }
