@@ -732,8 +732,11 @@ def torso(v, low=None, high=None, sleeves=1.0, vee=0.0, inner=False):
         # pose the forearms hang below it, and kept, they stood out from a waistcoat as a pair of sleeves.)
         # Where the chest plane meets the armpit plane the corner is rounded, as an armhole is; left square,
         # the cut through the body's faces there came out in teeth.
-        past_arm = out_arm(co) + 0.07 + narrow
-        outboard = abs(co.x) - (shoulder.x - 0.075 - narrow)
+        # Sized to the shoulders, and never nearer the middle than a strap's width beyond the open neck: on a
+        # narrow body a fixed cut met the V and left the garment hanging from two scraps.
+        strap_edge = max(shoulder.x * 0.56, vee * 0.42 + 0.04) - narrow
+        past_arm = out_arm(co) + shoulder.x * 0.4 + narrow
+        outboard = abs(co.x) - strap_edge
         above_armpit = co.z - (shoulder.z - 0.10)
         on_the_arm = abs(co.x) - (shoulder.x - 0.005)
         round_ = 0.035
