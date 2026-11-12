@@ -217,6 +217,28 @@ def recipes(out: Path) -> dict:
     return rows
 
 
+def write_layout_rows(rows: dict) -> int:
+    """The layout source carries the catalogue as one literal (tools/tests/test_material_catalog_persistence.py
+    holds it equal to the registry's). New rows are added to that literal, before its closing brace."""
+    import ast
+    source_path = ROOT / "art/data/gen_layout.py"
+    text = source_path.read_text(encoding="utf-8")
+    tree = ast.parse(text)
+    found = [node for node in tree.body if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "MATERIAL_CATALOG" for t in node.targets)]
+    if len(found) != 1:
+        raise ValueError("gen_layout.py must assign MATERIAL_CATALOG exactly once")
+    present = set(ast.literal_eval(key) for key in found[0].value.keys)
+    lines = text.split("\n")
+    closing = found[0].end_lineno - 1
+    if lines[closing].strip() != "}":
+        raise ValueError("MATERIAL_CATALOG does not close on a line of its own")
+    new = ["    %r: %r," % (name, row) for name, row in rows.items() if name not in present]
+    if new:
+        lines[closing:closing] = ["    # Asset-owned cast glTF factors, written by art/tools/cast_intake.py recipes --write."] + new
+        source_path.write_text("\n".join(lines), encoding="utf-8", newline="\n")
+    return len(new)
+
+
 def write_recipes(rows: dict) -> int:
     registry_path = ROOT / "art/data/material_registry.json"
     registry = json.loads(registry_path.read_text(encoding="utf-8"))
@@ -232,6 +254,7 @@ def write_recipes(rows: dict) -> int:
             added += 1
     registry_path.write_text(json.dumps(registry, indent=1) + "\n", encoding="utf-8", newline="\n")
     done = subprocess.run([sys.executable, str(ROOT / "art/tools/material_registry.py"), "--write"])
+    print("layout source rows added", write_layout_rows(rows))
     return added if done.returncode == 0 else -1
 
 
