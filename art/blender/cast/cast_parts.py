@@ -290,7 +290,7 @@ def add_parts(cast):
             pack_hats = {"cloche": "aethelraed_unraed_cloche_hat", "newsboy": "jujube_newsboy_cap", "pack_fedora": "fedora01"}
             if h in pack_hats:
                 parts[letter + "_head"] = {"slot": "head", "set": letter, "tags": SET_TAGS[index], "covers": [], "trim": [],
-                                           "rows": [pack(pack_hats[h], shade(c0, 0.6) if index else shade(c0, 0.8), name="Hat", atype="Hat")]}
+                                           "rows": [pack(pack_hats[h], shade(c0, 0.6) if index else shade(c0, 0.8), name="Hat", atype="Hat", felt=h != "newsboy")]}
             elif h != "-":
                 parts[letter + "_head"] = {"slot": "head", "set": letter, "tags": SET_TAGS[index], "covers": [], "rows": [], "trim": [],
                                            "hat": head(h, shade(c0, 0.6) if index else shade(c0, 0.8), a0)}

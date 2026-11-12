@@ -527,7 +527,7 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
     while out.uv_layers:
         out.uv_layers.remove(out.uv_layers[0])
     wrap_uv(out, float((pattern or {}).get("repeat", 6.0)))
-    obj.data.materials.append(patterned("%s_%s" % (STEM, name), colour, pattern, rough, cloth))
+    obj.data.materials.append(patterned("%s_%s_%s" % (STEM, CURRENT_PART or "x", name) if CURRENT_PART else "%s_%s" % (STEM, name), colour, pattern, rough, cloth))
     if source == "helper-skirt":
         hang_on_skirt_bones(obj)
     obj.parent = rig
@@ -557,6 +557,10 @@ def tinted_image(image, colour, name, size=512, hair=False, deep_only=False):
     hue = tone / max(float(tone.max()), 1e-3)
     deep = hue * max(0.32, min(0.8, float(tone.max()) * 1.25))
     pale = 0.5 + 0.5 * hue
+    if not hair and float(tone.max()) < 0.26:
+        # Review: black pack shoes rendered silver. Below this the floor of 0.32 lifted the tone itself.
+        deep = hue * max(0.045, float(tone.max()) * 1.25)
+        pale = numpy.clip(tone * 2.4 + 0.07, 0.0, 1.0)
     if hair:
         # Hair keeps its own darkness: black stays black, with a sheen no brighter than twice its tone.
         # Dark hair keeps a sheen; light hair needs shadow between the locks or it reads as a bathing cap.
@@ -634,14 +638,19 @@ def skirt_weights(co):
     return out_
 
 
-def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Clothes", deep_only=False):
+def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Clothes", deep_only=False, felt=False):
     """A garment from the MakeHuman community packs (CC0), fitted to this body,
     recoloured to the person's colour. `skirt` rehangs what falls below the
     hips on the skirt bones, so it does not split between the legs."""
     obj = HS.add_mhclo_asset(asset(kind, asset_name), human, asset_type=atype, subdiv_levels=0, material_type="GAMEENGINE")
     obj.name = name
     node, image = base_image(obj)
-    if image is not None:
+    if felt:
+        # Review: a pack felt hat's picture, stretched for contrast, read as sacking. Plain felt in the person's colour.
+        obj.data.materials.clear()
+        obj.data.materials.append(patterned("%s_%s_%s" % (STEM, CURRENT_PART or "x", name), colour, None, 0.9, "wool"))
+        node = None
+    elif image is not None:
         node.image = tinted_image(image, colour, "%s_%s_%s" % (STEM, CURRENT_PART or "x", name), deep_only=deep_only)
     else:
         obj.data.materials.clear()
@@ -787,6 +796,51 @@ def worn_with(row):
     return [r for r in CFG.get("outfit", []) if r is not row and mark and r.get("_part", "")[:1] == mark]
 
 
+# Garments that close over the chest below a V, and how deep the V is when the row does not say.
+V_DEPTH = {"waistcoat": 0.2, "jacket": 0.3, "cardigan": 0.34, "coat": 0.2}
+
+
+def v_foot(part):
+    """The height of the foot of the V of the garment in this part, or None when nothing in it closes over the chest."""
+    for other in CFG.get("outfit", []):
+        if other.get("_part", "") == part and other["kind"] in V_DEPTH:
+            return neck + 0.01 - float(other.get("vee", V_DEPTH[other["kind"]]))
+    return None
+
+
+def layer_off(part):
+    """How far off the body the garment of this part that closes over the chest stands, or None."""
+    for other in CFG.get("outfit", []):
+        if other.get("_part", "") == part and other["kind"] in V_DEPTH:
+            return {"waistcoat": 0.017, "cardigan": 0.018, "coat": 0.023}.get(other["kind"], max(0.02, float(other.get("ease", 0.02))))
+    return None
+
+
+def lapel_base(row):
+    """How far off the body the layer stands that this row's lapels lie on."""
+    for other in CFG.get("outfit", []):
+        if other.get("_part", "") == row.get("_part", ""):
+            if other["kind"] == "coat":
+                return 0.023
+            if other["kind"] == "jacket":
+                return max(0.02, float(other.get("ease", 0.02)))
+    return 0.02
+
+
+def under_outer_layer(part):
+    """For the trim of a top: a test of where the set's outer layer lies closed over it. Review: braces, pockets
+    and shirt buttons showed on top of aprons, coats and closed jackets."""
+    if not part.endswith("_top"):
+        return lambda x, z: False
+    outer = part[:1] + "_over"
+    foot = v_foot(outer)
+    if foot is not None:
+        return lambda x, z, f=foot: abs(x) > (z - f) * 0.42 - 0.012
+    if any(other.get("_part", "") == outer and other["kind"] in ("apron", "bib") for other in CFG.get("outfit", [])):
+        return lambda x, z: z < neck - 0.12 or abs(x) > 0.03
+    return lambda x, z: False
+
+
 def skirt_under(row):
     """The skirt this row is worn with, if the set has one: a made one, or one from the packs."""
     for other in worn_with(row):
@@ -807,7 +861,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     colour = row["colour"]
     cloth = row.get("cloth")
     if kind == "asset":
-        asset_piece(row.get("name", "Pack"), row["asset"], colour, skirt=bool(row.get("skirt")), atype=row.get("atype", "Clothes"), deep_only=bool(row.get("deep")))
+        asset_piece(row.get("name", "Pack"), row["asset"], colour, skirt=bool(row.get("skirt")), atype=row.get("atype", "Clothes"), deep_only=bool(row.get("deep")), felt=bool(row.get("felt")))
     elif kind == "shoes":
         piece("Shoes", "helper-tights", lambda v: min(ankle + 0.03 - v.co.z, (weight(v, ("Foot", "Toe")) - 0.2) * W), 0.009, colour, 0.35, cloth="leather")
         if row.get("strap"):
@@ -879,9 +933,9 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         piece("ApronBib", "helper-tights", lambda v: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - 0.01 - v.co.y, band(v.co.z, waist - 0.02, neck - 0.12), 0.1 - abs(v.co.x)),
               0.02 + over_pack, colour, 0.85, cloth=cloth or "cotton")
     elif kind == "sash":
-        piece("Sash", "helper-tights", lambda v, r=row: min(0.045 - abs(v.co.z - (hip + float(r.get("up", 0.03)))), (0.3 - weight(v, ARM)) * W), float(row.get("off", 0.017)), colour, 0.5, cloth=cloth or "silk")
+        piece("Sash", "helper-tights", lambda v, r=row: min(0.045 - abs(v.co.z - (hip + float(r.get("up", 0.03)))), (0.3 - weight(v, ARM)) * W), float(row.get("off", 0.017)) + over_pack, colour, 0.5, cloth=cloth or "silk")
     elif kind == "scarf":
-        piece("Scarf", "helper-tights", lambda v: min(band(v.co.z, neck - 0.05, neck + 0.03), (0.3 - weight(v, ARM)) * W), 0.014, colour, 0.8, pattern=row.get("pattern"), cloth=cloth or "silk")
+        piece("Scarf", "helper-tights", lambda v: min(band(v.co.z, neck - 0.05, neck + 0.03), (0.3 - weight(v, ARM)) * W, 0.078 - abs(v.co.x)), 0.014, colour, 0.8, pattern=row.get("pattern"), cloth=cloth or "silk")
     elif kind in ("cape", "shawl"):
         # Built outright, not cut from the body: a cone from the neck over
         # the shoulders that hangs clear of the arms. A shawl is the short
@@ -945,7 +999,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     elif kind == "lapels":
         deep = float(row.get("vee", 0.3))
         piece("Lapels", "helper-tights", lambda v, d=deep: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - 0.02 - v.co.y, band((neck + 0.01) - v.co.z, 0.0, d),
-                                 band(abs(v.co.x) - (d - ((neck + 0.01) - v.co.z)) * 0.42, 0.0, 0.05)), 0.0245, colour, 0.8, cloth=cloth or "wool")
+                                 band(abs(v.co.x) - (d - ((neck + 0.01) - v.co.z)) * 0.42, 0.0, 0.05)), lapel_base(row) + 0.0045 + over_pack, colour, 0.8, cloth=cloth or "wool")
     elif kind == "trousers":
         ends = float(row.get("ends", 0.035))
         piece("Trousers", "helper-tights", lambda v, e=ends: legs(v, ankle + e - 0.02, waist + 0.02), 0.010, colour, 0.85,
@@ -959,7 +1013,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     elif kind == "skirt":
         piece(row.get("name", "Skirt"), "helper-skirt", lambda v: True, 0.009, colour, 0.85, thicken=seat_room, reshape=skirt_shape(float(row.get("hem", 0.38)), float(row.get("flare", 0.25)), int(row.get("pleats", 0))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
     elif kind == "belt":
-        piece("Belt", "helper-tights", lambda v, r=row: min(0.04 - abs(v.co.z - (waist + float(r.get("drop", 0.0)))), (0.3 - weight(v, ARM)) * W), float(row.get("off", 0.0125)), colour, 0.4, cloth="leather")
+        piece("Belt", "helper-tights", lambda v, r=row: min(0.04 - abs(v.co.z - (waist + float(r.get("drop", 0.0)))), (0.3 - weight(v, ARM)) * W), float(row.get("off", 0.0125)) + over_pack, colour, 0.4, cloth="leather")
     elif kind == "collar":
         pending_collars.append(row)
     elif kind == "cuffs":
@@ -1199,10 +1253,19 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
     if row.get("kind") == "decal":
         continue
     faces_before = len(small.faces)
+    trim_part = row.get("_part", "")
+    covered = under_outer_layer(trim_part)
+    # What trims an outer layer that stands off a pack garment stands off with it (lapels, buttons, pockets).
+    trim_off = 0.012 if trim_part.endswith("_over") and any(o["kind"] == "asset" and not o.get("_part", "").endswith(("_feet", "_head")) and o.get("_part", "")[:1] == trim_part[:1] for o in CFG.get("outfit", [])) else 0.0
     if row["kind"] == "buttons":
         z = neck - 0.06
+        own_foot = v_foot(trim_part)
+        if own_foot is not None:
+            # Review: buttons floated on the jersey inside the open V. They begin where the garment closes.
+            z = min(z, own_foot - 0.028)
         while z > waist - 0.02 - float(row.get("below", 0.0)):
-            at = chest_front(z, lift=float(row.get("lift", 0.016)))
+            # A button sits on the cloth it fastens: the layer's own stand-off, not a fixed figure.
+            at = chest_front(z, lift=max(float(row.get("lift", 0.016)), (layer_off(trim_part) or 0.0) + 0.001) + trim_off) if not covered(0.0, z) else None
             if at is not None:
                 made = bmesh.ops.create_uvsphere(small, u_segments=10, v_segments=6, radius=float(row.get("size", 0.008)))
                 for v in made["verts"]:
@@ -1214,11 +1277,12 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
             strip = []
             for k in range(9):
                 z = waist + (neck - 0.07 - waist) * k / 8.0
-                at = chest_front(z, x=side * (0.075 - 0.02 * k / 8.0), lift=float(row.get("lift", 0.012)))
-                if at is not None:
-                    strip.append((small.verts.new(at + Vector((-0.011, 0, 0))), small.verts.new(at + Vector((0.011, 0, 0)))))
+                x = side * (0.075 - 0.02 * k / 8.0)
+                at = chest_front(z, x=x, lift=float(row.get("lift", 0.012))) if not covered(x, z) else None
+                strip.append((small.verts.new(at + Vector((-0.011, 0, 0))), small.verts.new(at + Vector((0.011, 0, 0)))) if at is not None else None)
             for a, b in zip(strip, strip[1:]):
-                small.faces.new((a[0], a[1], b[1], b[0]))
+                if a is not None and b is not None:
+                    small.faces.new((a[0], a[1], b[1], b[0]))
         small_material_rows.append(("Braces", row["colour"], row.get("_part", "")))
     elif row["kind"] == "bow":
         at = chest_front(neck - 0.045, lift=float(row.get("lift", 0.022)))
@@ -1228,7 +1292,7 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
         small_material_rows.append(("Bow", row["colour"], row.get("_part", "")))
     elif row["kind"] == "pockets":
         for side in (1.0, -1.0):
-            at = chest_front(hip + float(row.get("up", 0.05)), x=side * 0.09, lift=float(row.get("lift", 0.027)))
+            at = chest_front(hip + float(row.get("up", 0.05)), x=side * 0.09, lift=float(row.get("lift", 0.027)) + trim_off) if not covered(side * 0.09, hip + float(row.get("up", 0.05))) else None
             if at is None:
                 continue
             w_, h_ = 0.04, 0.014
@@ -1242,11 +1306,12 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
         for k in range(9):
             t = k / 8.0
             z = top - t * length
-            at = chest_front(z, lift=0.021)
+            at = chest_front(z, lift=0.021) if not covered(0.0, z) else None
             half = 0.014 + 0.02 * math.sin(min(t * 1.25, 1.0) * math.pi * 0.5) if t < 0.86 else 0.03 * (1.0 - t) / 0.14
-            rings.append((small.verts.new(at + Vector((-half, 0, 0))), small.verts.new(at + Vector((half, 0, 0)))))
+            rings.append((small.verts.new(at + Vector((-half, 0, 0))), small.verts.new(at + Vector((half, 0, 0)))) if at is not None else None)
         for a, b in zip(rings, rings[1:]):
-            small.faces.new((a[0], a[1], b[1], b[0]))
+            if a is not None and b is not None:
+                small.faces.new((a[0], a[1], b[1], b[0]))
         small_material_rows.append(("Tie", row["colour"], row.get("_part", "")))
     small.faces.ensure_lookup_table()
     for index_ in range(faces_before, len(small.faces)):
