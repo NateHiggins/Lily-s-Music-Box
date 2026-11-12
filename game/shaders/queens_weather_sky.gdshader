@@ -357,7 +357,7 @@ float soft_union(float a,float b,float k) {
 }
 #define QUEENS_CLOUD_DECK
 #include "res://shaders/sky_spectacle.gdshaderinc"
-float density_tagged(vec3 p,out float fire,vec3 footprint) {
+float density_tagged(vec3 p,out float fire,vec3 footprint,bool primary) {
     fire=0.0;
     float base=wx_cloud_base();
     float thickness=mix(0.60,3.0,season_weights.z);
@@ -374,10 +374,10 @@ float density_tagged(vec3 p,out float fire,vec3 footprint) {
     float deck=smoothstep(0.0,0.12,h)*(1.0-smoothstep(0.72,1.0,h));
     float result=0.0;
     if(living_enabled && asperitas<=0.001 && max(vortex_intensity,wx_cyclone)<.001) {
-        result=living_density(p,living_layer_0,living_motion_0,living_brush_0,living_drift_0,living_flow_0,footprint);
+        result=living_density(p,living_layer_0,living_motion_0,living_brush_0,living_drift_0,living_flow_0,footprint,primary);
         // An opaque lower ceiling hides the middle stratum. Keep its observed
         // state, but spend no density/light taps on an invisible second deck.
-        if(living_layer_0.x<.96) result+=living_density(p,living_layer_1,living_motion_1,living_brush_1,living_drift_1,living_flow_1,footprint);
+        if(living_layer_0.x<.96) result+=living_density(p,living_layer_1,living_motion_1,living_brush_1,living_drift_1,living_flow_1,footprint,primary);
     } else if(deck>0.001) {
         float scale=mix(0.30,0.16,season_weights.z);
         vec3 cloud_lookup=q*scale+vec3(wx_cloud_drift.x,0.0,wx_cloud_drift.y);
@@ -416,7 +416,7 @@ float density_tagged(vec3 p,out float fire,vec3 footprint) {
 }
 float density(vec3 p,vec3 footprint) {
     float fire;
-    return density_tagged(p,fire,footprint);
+    return density_tagged(p,fire,footprint,false);
 }
 vec4 wx_volumetric_clouds(vec3 direction,vec2 pixel_coords) {
     vec3 ro=wx_camera_km;
@@ -489,10 +489,9 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 pixel_coords) {
     // holes and draw scan lines. 24 km / .16 km fits the existing 160-step cap.
     if(ordinary_intervals) coarse=min(coarse,.16);
     float fine=max(0.0125,(funnel.y-funnel.x)/80.0);
-    // Fixed spatial stratification breaks coherent horizon bands. No TIME,
-    // frame index or legacy temporal phase: a paused sky cannot shimmer from
-    // a newly randomized field. Rare formations retain midpoint quadrature.
-    float jitter=ordinary_intervals ? fract(52.9829189*fract(dot(pixel_coords,vec2(.06711056,.00583715)))) : .5;
+    // Deterministic two-point Gauss quadrature replaces pixel-hashed offsets.
+    // It integrates each ordinary interval without screen-space grain; both
+    // samples share lighting at its midpoint. Rare formations keep one tap.
     vec3 to_sun=normalize(sun_direction);
     float day=smoothstep(-0.12,0.10,to_sun.y);
     float night=1.0-smoothstep(-.18,-.07,to_sun.y);
@@ -526,9 +525,15 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 pixel_coords) {
         if(t<deck.x) ds=min(ds,deck.x-t);
         ds=min(ds,finish-t);
         if(ds<0.000001) { t+=0.000001; continue; }
-        vec3 p=ro+direction*(t+ds*(ordinary_intervals ? .05+.90*jitter : .25+.50*jitter));
+        vec3 p=ro+direction*(t+ds*.5);
         float fire;
-        float d=density_tagged(p,fire,vec3(0.0));
+        float d;
+        if(ordinary_intervals) {
+            vec3 half_footprint=abs(direction)*ds*.5;
+            float other_fire;
+            d=.5*(density_tagged(p-direction*(ds*.2886751346),fire,half_footprint,true)
+                +density_tagged(p+direction*(ds*.2886751346),other_fire,half_footprint,true));
+        } else d=density_tagged(p,fire,vec3(0.0),true);
         if(d>0.002) {
             // Every light tap calls the same density, including funnel and lenses.
             vec3 footprint=abs(direction)*ds;
@@ -616,9 +621,13 @@ void sky() {
         vec3 point_stars;
         vec3 base=celestial_base(EYEDIR,point_stars);
         if(skywatch_extended_optics)base=skywatch_twilight_geometry(EYEDIR,base)+skywatch_night_dust(EYEDIR);
+        // Plane projection expands radially as 1/elevation squared. Derivatives
+        // must be evaluated outside the horizon branch, across complete quads.
+        vec3 high_p=wx_camera_km+EYEDIR*((living_layer_2.y+living_layer_2.z*.3-wx_camera_km.y)/max(EYEDIR.y,.015));
+        vec3 high_footprint=abs(dFdx(high_p))+abs(dFdy(high_p));
+        high_footprint.y=0.0;
         if(living_enabled && living_layer_2.x>.0001 && EYEDIR.y>.015) {
-            vec3 high_p=wx_camera_km+EYEDIR*((living_layer_2.y+living_layer_2.z*.3-wx_camera_km.y)/EYEDIR.y);
-            float ice=living_density(high_p,living_layer_2,living_motion_2,living_brush_2,living_drift_2,living_flow_2,vec3(0.0));
+            float ice=living_density(high_p,living_layer_2,living_motion_2,living_brush_2,living_drift_2,living_flow_2,high_footprint,true);
             float ice_alpha=1.0-exp(-ice*living_layer_2.z*3.0/max(.12,EYEDIR.y));
             ice_alpha*=smoothstep(.04,.18,EYEDIR.y)*(1.0-(wx_formation==4 ? wx_formation_strength*.8 : 0.0));
             float high_sun=smoothstep(-.065,-.025,sun_direction.y);
