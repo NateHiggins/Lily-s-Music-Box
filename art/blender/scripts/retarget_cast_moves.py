@@ -137,7 +137,9 @@ for path, time_scale in SOURCES:
             pass
         first, last = [int(round(v)) for v in action.frame_range]
         plain_name = action.name.split("|")[-1].split(".")[0]
-        plain_name = NAMES.get(plain_name, plain_name)
+        # KEEP_NAMES=1 leaves the numbered clips under the names the game asks for (clip_01, walk).
+        if os.environ.get("KEEP_NAMES") != "1":
+            plain_name = NAMES.get(plain_name, plain_name)
         action.name = "source_" + action.name
         while plain_name in taken:
             plain_name += "_b"
