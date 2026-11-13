@@ -1,7 +1,10 @@
 extends Node3D
 ## Model presentation only. Caller owns place, attendance and conversations.
 ## StandPose supplies the base before the existing one-writer pose modifier;
-## FaceController is the only morph writer. No clips, collision or interaction.
+## FaceController is the only morph writer. No collision or interaction, and no
+## clips unless the owner asks: drive_with_clips() grafts the shared cast clips
+## and from then on a clip supplies the base pose in the stand pose's place
+## (still one base writer). A caller that never asks is exactly as before.
 const Wardrobe := preload("res://scripts/characters/resident_wardrobe.gd")
 const Face := preload("res://scripts/characters/face_controller.gd")
 const Stand := preload("res://scripts/characters/stand_pose.gd")
@@ -22,6 +25,9 @@ var wardrobe: RefCounted
 var errors: Array[String] = []
 ## Diagnostics only: negative fixtures collect the same strict refusals quietly.
 var report_errors := true
+## Why the last wear() was refused; empty when it was not.
+var last_refusal := ""
+var _trying := false
 var person_id := ""
 var _source_model := ""
 var _parts: Array = []
@@ -32,6 +38,9 @@ var _configured := false
 var _active := true
 var _applied_active: Variant = null
 var _clock := 0.0
+## True once the owner has asked for clips: the stand pose is silent and the clip player is the base writer.
+var clip_driven := false
+var _clip_player: AnimationPlayer
 
 
 func configure(id: String, source_model: String, parts: Array, pose_name: String = "at_ease") -> void:
@@ -46,6 +55,11 @@ func configure(id: String, source_model: String, parts: Array, pose_name: String
 
 
 func _fail(message: String) -> void:
+	if _trying:
+		# A change of clothes being tried out: note the refusal and touch nothing.
+		if last_refusal.is_empty():
+			last_refusal = message
+		return
 	errors.append(message)
 	ready_ok = false
 	visible = false
@@ -105,34 +119,7 @@ func _ready() -> void:
 		_fail("shared wardrobe cannot bind base")
 		return
 	wardrobe.read_wardrobe(_source_model.get_base_dir())
-	var slots: Dictionary = {}
-	for part: Variant in _parts:
-		var key := str(part)
-		if not wardrobe.notes.has(key):
-			_fail("missing wardrobe note: " + key)
-			return
-		var note: Dictionary = wardrobe.notes[key]
-		var slot := str(note.get("slot", ""))
-		if int(note.get("schema_version", 0)) != 1 or str(note.get("person", "")) != person_id or str(note.get("part", "")) != key or slot not in ["top", "bottom", "feet"] or slots.has(slot):
-			_fail("invalid or duplicate current wardrobe slot: " + key)
-			return
-		slots[slot] = key
-	if slots.size() != 3:
-		_fail("current intake requires top, bottom and feet; partial dress refused")
-		return
-	wardrobe.wear(_parts, _load_part)
-	if not errors.is_empty():
-		return
-	for slot: String in slots:
-		if str(wardrobe.worn.get(slot, "")) != str(slots[slot]):
-			_fail("requested garment did not mount: " + str(slots[slot]))
-			return
-	if wardrobe.mesh_count() < 3:
-		_fail("wardrobe produced an incomplete visible set")
-		return
-	var material_errors := Recipes.validate(model, person_id)
-	if not material_errors.is_empty():
-		_fail("cast material contract: " + "; ".join(PackedStringArray(material_errors)))
+	if not _dress(_parts):
 		return
 	_stand = Stand.new()
 	if not _stand.load_table() or not _stand.poses.has(_pose_name) or not _stand.apply(skeleton, _pose_name, false, 0.0, 0.0):
@@ -164,6 +151,138 @@ func _ready() -> void:
 		return
 	ready_ok = true
 	set_active(_active)
+
+
+## What a list of parts comes to, slot by slot, or an empty table (with the refusal recorded) when it is not a
+## whole outfit. One part to a slot. An outer layer and headwear are optional. A whole outfit (a suit, a dress,
+## a robe) stands for the slots its note says it replaces. Top, bottom and feet must each be worn or stood for:
+## nobody is shown half dressed.
+func _outfit(parts: Array) -> Dictionary:
+	var slots: Dictionary = {}
+	for part: Variant in parts:
+		var key := str(part)
+		if not wardrobe.notes.has(key):
+			_fail("missing wardrobe note: " + key)
+			return {}
+		var note: Dictionary = wardrobe.notes[key]
+		var slot := str(note.get("slot", ""))
+		if int(note.get("schema_version", 0)) != 1 or str(note.get("person", "")) != person_id or str(note.get("part", "")) != key or slot not in Wardrobe.SLOTS or slots.has(slot):
+			_fail("invalid or duplicate current wardrobe slot: " + key)
+			return {}
+		slots[slot] = key
+	var stood_for: Dictionary = {}
+	for slot: String in slots:
+		for taken: Variant in (wardrobe.notes[slots[slot]] as Dictionary).get("replaces", []):
+			if str(taken) != slot:
+				stood_for[str(taken)] = true
+	for taken: String in stood_for:
+		slots.erase(taken)
+	for needed: String in ["top", "bottom", "feet"]:
+		if not slots.has(needed) and not stood_for.has(needed):
+			_fail("current intake requires top, bottom and feet; partial dress refused")
+			return {}
+	return slots
+
+
+func _dress(parts: Array) -> bool:
+	var slots := _outfit(parts)
+	if slots.is_empty():
+		return false
+	wardrobe.wear(slots.values(), _load_part)
+	if not errors.is_empty():
+		return false
+	return _settle(slots)
+
+
+func _settle(slots: Dictionary) -> bool:
+	for slot: String in slots:
+		if str(wardrobe.worn.get(slot, "")) != str(slots[slot]):
+			_fail("requested garment did not mount: " + str(slots[slot]))
+			return false
+	if wardrobe.worn.size() != slots.size() or wardrobe.mesh_count() < slots.size():
+		_fail("wardrobe produced an incomplete visible set")
+		return false
+	# On a change of clothes the hair already wears its shader; the check is of the imported materials.
+	var hair_bound := hair != null and hair.ready_ok
+	if hair_bound:
+		hair.lift_materials()
+	var material_errors := Recipes.validate(model, person_id)
+	if hair_bound:
+		hair.restore_materials()
+	if not material_errors.is_empty():
+		_fail("cast material contract: " + "; ".join(PackedStringArray(material_errors)))
+		return false
+	_parts = slots.values()
+	return true
+
+
+## Change clothes. The same rules as at first dressing. Everything is checked before anything is taken off:
+## the outfit must be whole, every new garment must load, fit the skeleton and pass the material check. A
+## refused change returns false with the reason in last_refusal and leaves the person exactly as they were.
+func wear(parts: Array) -> bool:
+	if not ready_ok:
+		return false
+	last_refusal = ""
+	_trying = true
+	var slots := _outfit(parts)
+	var fresh: Dictionary = {}
+	for slot: String in slots:
+		var part := str(slots[slot])
+		if str(wardrobe.worn.get(slot, "")) == part:
+			continue
+		var source := _load_part(part)
+		if source == null:
+			break
+		fresh[part] = source
+		var faults: Array[String] = []
+		if source is Node3D:
+			faults = Recipes.validate(source as Node3D, person_id)
+		else:
+			faults.append("garment scene is not Node3D: " + part)
+		if not faults.is_empty():
+			_fail("cast material contract: " + "; ".join(PackedStringArray(faults)))
+			break
+	_trying = false
+	if slots.is_empty() or not last_refusal.is_empty():
+		for part: String in fresh:
+			(fresh[part] as Node).free()
+		if last_refusal.is_empty():
+			last_refusal = "not a whole outfit"
+		return false
+	wardrobe.wear(slots.values(), func(part: String) -> Node: return fresh.get(part))
+	return _settle(slots)
+
+
+## Paint for the face: a transparent picture in the head's own texture space, made by art/tools/cast_makeup.py
+## and kept beside the model as <person>_makeup_<name>.png. It is laid over the head's skin on the same mesh,
+## so it moves with every expression. An empty name takes it off. Returns false when there is no such picture.
+func set_makeup(makeup: String) -> bool:
+	if not ready_ok:
+		return false
+	var heads := model.find_children("Skin_head", "MeshInstance3D", true, false)
+	if heads.size() != 1:
+		return false
+	var head := heads[0] as MeshInstance3D
+	if makeup.is_empty():
+		head.material_overlay = null
+		return true
+	var path := _source_model.get_base_dir().path_join("%s_makeup_%s.png" % [person_id, makeup])
+	if not ResourceLoader.exists(path):
+		return false
+	var paint := StandardMaterial3D.new()
+	paint.resource_name = "makeup_" + makeup
+	paint.albedo_texture = load(path) as Texture2D
+	paint.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	paint.roughness = 0.42
+	paint.metallic = 0.0
+	paint.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	head.material_overlay = paint
+	return true
+
+
+## The parts now worn, one to a slot.
+func worn_parts() -> Array:
+	return _parts.duplicate()
 
 
 func _load_part(part: String) -> Node:
@@ -222,6 +341,8 @@ func set_active(enabled: bool) -> void:
 	attention.pipeline.active = enabled
 	_skirt.active = enabled
 	hair.set_presentation_active(enabled)
+	if _clip_player != null and is_instance_valid(_clip_player):
+		_clip_player.active = enabled
 	set_process(enabled)
 
 
@@ -231,10 +352,30 @@ func _process(delta: float) -> void:
 	_clock += delta
 	# Exact imported signature: (skeleton, name, mirror, time, life).
 	# life=0 prevents a second breathing/sway owner beneath PosePipeline.
-	if not _stand.apply(skeleton, _pose_name, false, _clock, 0.0):
-		_fail("base stand pose failed after readiness")
-		return
+	if not clip_driven:
+		if not _stand.apply(skeleton, _pose_name, false, _clock, 0.0):
+			_fail("base stand pose failed after readiness")
+			return
 	_look_with_eyes()
+
+
+## For an owner that moves this person about (a resident on a route): graft the shared cast clips and hand the
+## base pose to them. Returns the clip player, or null when the clips are not installed, in which case nothing
+## changes and the stand pose carries on. The attention layer, the skirt and the face go on as before, over the clip.
+func drive_with_clips() -> AnimationPlayer:
+	if not ready_ok:
+		return null
+	if _clip_player != null and is_instance_valid(_clip_player):
+		return _clip_player
+	if not ResidentMovesLibrary.apply(model):
+		return null
+	var players := model.find_children("*", "AnimationPlayer", true, false)
+	if players.size() != 1:
+		return null
+	_clip_player = players[0] as AnimationPlayer
+	_clip_player.active = _active
+	clip_driven = true
+	return _clip_player
 
 
 func _look_with_eyes() -> void:

@@ -1,0 +1,9276 @@
+{
+ "adela_voss": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.5,
+   "muscle": 0.4,
+   "weight": 0.42,
+   "proportions": 0.75,
+   "height": 0.5,
+   "cupsize": 0.45,
+   "firmness": 0.62
+  },
+  "skin": "young_caucasian_female",
+  "eyes": "grey",
+  "hair": {
+   "style": "ringlets",
+   "colour": [
+    0.72,
+    0.3,
+    0.07
+   ],
+   "set": "pinned"
+  },
+  "skin_tone": [
+   0.97,
+   0.9,
+   0.86
+  ],
+  "palette": {
+   "colour": [
+    0.0,
+    0.26,
+    0.14
+   ],
+   "accent": [
+    0.75,
+    0.1,
+    0.12
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.62,
+       0.7188,
+       0.6732
+      ],
+      "vee": 0.17,
+      "sleeves": 0.75,
+      "blouson": 0.008,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.75,
+       0.1,
+       0.12
+      ],
+      "up": 0.1,
+      "off": 0.008
+     }
+    ],
+    "trim": [
+     {
+      "kind": "decal",
+      "cell": "flower",
+      "at": "chest_l",
+      "size": 0.045,
+      "colour": [
+       0.75,
+       0.1,
+       0.12
+      ]
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.0,
+       0.26,
+       0.14
+      ],
+      "hem": 0.34,
+      "flare": 0.42,
+      "pleats": 20
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "warm"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "cardigan",
+      "colour": [
+       0.027,
+       0.072,
+       0.27
+      ],
+      "vee": 0.32
+     }
+    ],
+    "trim": []
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "cortu_t-bar",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_female_suit",
+      "colour": [
+       0.0,
+       0.26,
+       0.14
+      ],
+      "name": "Suit",
+      "skirt": true,
+      "hem_to_calf": true
+     }
+    ],
+    "trim": []
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "aethelraed_flapper_dress",
+      "colour": [
+       0.03,
+       0.08,
+       0.3
+      ],
+      "name": "Dress",
+      "skirt": true,
+      "made": {
+       "cloth": "silk",
+       "pattern": null,
+       "scale": 9.0
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "cape",
+      "colour": [
+       0.0,
+       0.13,
+       0.07
+      ],
+      "length": 0.17,
+      "cloth": "silk"
+     }
+    ],
+    "trim": []
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_mj_cloth_shoes",
+      "colour": [
+       0.15,
+       0.04,
+       0.04
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.72,
+      0.3,
+      0.07
+     ],
+     "length": 0.05,
+     "side": 0.03,
+     "waves": 3.0,
+     "ridge": 0.006,
+     "curly": 0.0035,
+     "lift": 0.013,
+     "front": 0.04,
+     "updo": 11,
+     "ornament": "clip",
+     "part": 1.0,
+     "band": [
+      0.8,
+      0.62,
+      0.22
+     ]
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_over",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "mina_vale": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.6,
+   "muscle": 0.4,
+   "weight": 0.42,
+   "proportions": 0.75,
+   "height": 0.5,
+   "cupsize": 0.45,
+   "firmness": 0.62
+  },
+  "skin": "young_caucasian_female",
+  "eyes": "brownlight",
+  "hair": {
+   "style": "bob",
+   "colour": [
+    0.045,
+    0.04,
+    0.04
+   ],
+   "root_max_above_nose": 0.1,
+   "asset": "toigo_blunt_bob_with_bangs"
+  },
+  "spectacles": true,
+  "skin_tone": [
+   0.92,
+   0.93,
+   0.97
+  ],
+  "palette": {
+   "colour": [
+    0.1,
+    0.2,
+    0.46
+   ],
+   "accent": [
+    0.85,
+    0.6,
+    0.05
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "jumper",
+      "colour": [
+       0.1,
+       0.2,
+       0.46
+      ],
+      "vee": 0.09,
+      "ease": 0.012,
+      "length": 0.03
+     },
+     {
+      "kind": "hem",
+      "colour": [
+       0.06,
+       0.12,
+       0.276
+      ],
+      "drop": -0.01
+     }
+    ],
+    "trim": []
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.1,
+       0.2,
+       0.46
+      ],
+      "hem": 0.3,
+      "flare": 0.3,
+      "pleats": 30
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "warm"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.648,
+       0.378,
+       0.036
+      ],
+      "vee": 0.18,
+      "cloth": "knit",
+      "pattern": {
+       "kind": "bands",
+       "colour": [
+        0.85,
+        0.6,
+        0.05
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 6
+      }
+     }
+    ],
+    "trim": []
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_mj_cloth_shoes",
+      "colour": [
+       0.09,
+       0.05,
+       0.03
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "female_elegantsuit01",
+      "colour": [
+       0.1,
+       0.2,
+       0.46
+      ],
+      "name": "Outfit",
+      "skirt": true,
+      "hem_to_calf": true
+     }
+    ],
+    "trim": []
+   },
+   "b_over": {
+    "slot": "over",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "jacket",
+      "colour": [
+       0.1,
+       0.2,
+       0.46
+      ],
+      "vee": 0.28,
+      "length": 0.05,
+      "ease": 0.02,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.85,
+        0.6,
+        0.05
+       ],
+       "width": 2,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.1,
+       0.2,
+       0.46
+      ],
+      "vee": 0.28
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.85,
+       0.6,
+       0.05
+      ],
+      "step": 0.07,
+      "lift": 0.036,
+      "size": 0.01
+     },
+     {
+      "kind": "pockets",
+      "colour": [
+       0.07,
+       0.14,
+       0.322
+      ],
+      "up": -0.02,
+      "lift": 0.036
+     }
+    ]
+   },
+   "b_head": {
+    "slot": "head",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "beret",
+     "colour": [
+      0.06,
+      0.12,
+      0.276
+     ],
+     "band": [
+      0.06,
+      0.12,
+      0.276
+     ],
+     "brim": 0.0
+    }
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "cortu_t-bar",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_shift_dress",
+      "colour": [
+       0.72,
+       0.42,
+       0.04
+      ],
+      "name": "Dress",
+      "skirt": true,
+      "made": {
+       "cloth": "cotton",
+       "pattern": {
+        "kind": "checks",
+        "colour": [
+         1.0,
+         0.63,
+         0.06
+        ],
+        "width": 1,
+        "cells": 4,
+        "repeat": 5
+       },
+       "scale": 9.0
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion",
+     "warm"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "cape",
+      "colour": [
+       0.05,
+       0.1,
+       0.23
+      ],
+      "length": 0.36,
+      "swing": 0.09
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.85,
+       0.6,
+       0.05
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "toque",
+     "colour": [
+      0.06,
+      0.12,
+      0.276
+     ],
+     "band": [
+      0.85,
+      0.6,
+      0.05
+     ],
+     "brim": 0.0
+    }
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ankle_boots_female",
+      "colour": [
+       0.2,
+       0.1,
+       0.045
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.045,
+      0.04,
+      0.04
+     ],
+     "length": 0.075,
+     "side": 0.07,
+     "waves": 3.5,
+     "ridge": 0.0065,
+     "lift": 0.012,
+     "curl": 0.014,
+     "front": 0.035,
+     "swoop": 0.03,
+     "part": 1.0,
+     "ornament": "clip",
+     "band": [
+      0.8,
+      0.62,
+      0.22
+     ]
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_over",
+    "b_head",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "b_head",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_over",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "cal_dwyer": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.88,
+   "muscle": 0.38,
+   "weight": 0.55,
+   "proportions": 0.6,
+   "height": 0.5
+  },
+  "skin": "old_caucasian_male",
+  "eyes": "grey",
+  "hair": {
+   "style": "short",
+   "colour": [
+    0.85,
+    0.84,
+    0.8
+   ],
+   "asset": "short02"
+  },
+  "palette": {
+   "colour": [
+    0.72,
+    0.42,
+    0.01
+   ],
+   "accent": [
+    0.6,
+    0.08,
+    0.1
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "jumper",
+      "colour": [
+       0.8936,
+       0.7796,
+       0.6238
+      ],
+      "vee": 0.12,
+      "sleeves": 0.5,
+      "ease": 0.006,
+      "length": 0.0,
+      "cloth": "cotton"
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.6,
+       0.08,
+       0.1
+      ],
+      "step": 0.045,
+      "lift": 0.012,
+      "size": 0.006
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.72,
+       0.42,
+       0.01
+      ],
+      "width": 0.02,
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        1.0,
+        0.756,
+        0.018
+       ],
+       "width": 2,
+       "cells": 4,
+       "repeat": 5
+      }
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.216,
+       0.108,
+       0.045
+      ],
+      "vee": 0.22
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.6,
+       0.08,
+       0.1
+      ],
+      "step": 0.06,
+      "lift": 0.026,
+      "size": 0.007
+     }
+    ]
+   },
+   "a_head": {
+    "slot": "head",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "trim": [],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "jujube_newsboy_cap",
+      "colour": [
+       0.576,
+       0.336,
+       0.008
+      ],
+      "name": "Hat",
+      "atype": "Hat",
+      "felt": false
+     }
+    ]
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes01",
+      "colour": [
+       0.2,
+       0.1,
+       0.045
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_male_suit_tie_and_jacket",
+      "colour": [
+       0.72,
+       0.42,
+       0.01
+      ],
+      "name": "Suit"
+     }
+    ],
+    "trim": []
+   },
+   "b_head": {
+    "slot": "head",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "trim": [],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "fedora01",
+      "colour": [
+       0.432,
+       0.252,
+       0.006
+      ],
+      "name": "Hat",
+      "atype": "Hat",
+      "felt": true
+     }
+    ]
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes04",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "arms",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Vest",
+      "colour": [
+       0.696,
+       0.648,
+       0.62
+      ],
+      "vee": 0.1,
+      "sleeves": 0.0,
+      "length": 0.14,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "asset",
+      "asset": "mindfront_kimono",
+      "colour": [
+       0.24,
+       0.12,
+       0.05
+      ],
+      "name": "Robe"
+     }
+    ],
+    "trim": []
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "shoes",
+      "colour": [
+       0.09,
+       0.05,
+       0.03
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.85,
+      0.84,
+      0.8
+     ],
+     "side": 0.02,
+     "length": 0.055,
+     "ridge": 0.0018,
+     "lift": 0.0055,
+     "swoop": 0.0,
+     "sideburn": 0.035,
+     "fade": 0.4,
+     "wave_tone": 0.3,
+     "wisp_side": 0.01,
+     "wisp_nape": 0.018,
+     "wisp_front": 0.004,
+     "wisp_repeats": 9.0,
+     "highlight": 0.6,
+     "shine": 0.6,
+     "gloss_rough": 0.3,
+     "waves": 1.0,
+     "front": 0.046,
+     "part": 1.0
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_head",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_head",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "b_head",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "cam_ortiz": {
+  "macro": {
+   "gender": 0.55,
+   "age": 0.55,
+   "muscle": 0.38,
+   "weight": 0.42,
+   "proportions": 0.6,
+   "height": 0.5
+  },
+  "skin": "young_caucasian_male",
+  "eyes": "brown",
+  "hair": {
+   "style": "short",
+   "colour": [
+    0.045,
+    0.04,
+    0.04
+   ],
+   "asset": "short02"
+  },
+  "race": {
+   "asian": 0.35,
+   "caucasian": 0.65,
+   "african": 0.0
+  },
+  "palette": {
+   "colour": [
+    0.42,
+    0.02,
+    0.07
+   ],
+   "accent": [
+    0.85,
+    0.6,
+    0.05
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "jumper",
+      "colour": [
+       0.42,
+       0.02,
+       0.07
+      ],
+      "vee": 0.0,
+      "ease": 0.008,
+      "length": 0.0,
+      "pattern": {
+       "kind": "bands",
+       "colour": [
+        0.85,
+        0.6,
+        0.05
+       ],
+       "width": 3,
+       "cells": 3,
+       "repeat": 4
+      }
+     }
+    ],
+    "trim": [
+     {
+      "kind": "decal",
+      "cell": "pin",
+      "at": "chest_l",
+      "size": 0.035,
+      "colour": [
+       0.8,
+       0.6,
+       0.1
+      ]
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.85,
+       0.6,
+       0.05
+      ]
+     },
+     {
+      "kind": "trousers",
+      "colour": [
+       0.42,
+       0.02,
+       0.07
+      ],
+      "width": 0.028,
+      "ends": 0.36,
+      "turnups": false
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "warm"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.675,
+       0.45,
+       0.036
+      ],
+      "vee": 0.18,
+      "cloth": "knit",
+      "pattern": {
+       "kind": "bands",
+       "colour": [
+        0.85,
+        0.6,
+        0.05
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 6
+      }
+     }
+    ],
+    "trim": []
+   },
+   "a_head": {
+    "slot": "head",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "trim": [],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "jujube_newsboy_cap",
+      "colour": [
+       0.336,
+       0.016,
+       0.056
+      ],
+      "name": "Hat",
+      "atype": "Hat",
+      "felt": false
+     }
+    ]
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "boots",
+      "colour": [
+       0.09,
+       0.05,
+       0.03
+      ],
+      "height": 0.08
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_female_double-breasted_suit",
+      "colour": [
+       0.42,
+       0.02,
+       0.07
+      ],
+      "name": "Suit"
+     }
+    ],
+    "trim": []
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes01",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "colour": [
+       0.75,
+       0.5,
+       0.04
+      ],
+      "vee": 0.07,
+      "sleeves": 1.0,
+      "blouson": 0.008,
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.9,
+        0.8,
+        0.616
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.75,
+       0.5,
+       0.04
+      ]
+     }
+    ],
+    "trim": [
+     {
+      "kind": "pockets",
+      "colour": [
+       0.525,
+       0.35,
+       0.028
+      ],
+      "up": 0.22,
+      "lift": 0.012
+     }
+    ]
+   },
+   "c_bottom": {
+    "slot": "bottom",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.5625,
+       0.375,
+       0.03
+      ],
+      "width": 0.042,
+      "turnups": false
+     },
+     {
+      "kind": "belt",
+      "colour": [
+       0.85,
+       0.6,
+       0.05
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "coat",
+      "colour": [
+       0.1575,
+       0.0075,
+       0.0263
+      ],
+      "vee": 0.22,
+      "hem": 0.26,
+      "flare": 0.06,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.126,
+       0.006,
+       0.021
+      ],
+      "vee": 0.22
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.126,
+       0.006,
+       0.021
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.084,
+       0.004,
+       0.014
+      ],
+      "step": 0.09,
+      "lift": 0.036,
+      "size": 0.01,
+      "below": 0.1
+     }
+    ]
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "culturalibre_male_boots",
+      "colour": [
+       0.2,
+       0.1,
+       0.045
+      ],
+      "name": "Shoes",
+      "made": {
+       "cloth": "leather",
+       "pattern": null,
+       "wrap": true
+      }
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.045,
+      0.04,
+      0.04
+     ],
+     "side": 0.02,
+     "length": 0.055,
+     "ridge": 0.0018,
+     "lift": 0.009,
+     "swoop": 0.0,
+     "sideburn": 0.035,
+     "fade": 0.4,
+     "wave_tone": 0.3,
+     "wisp_side": 0.01,
+     "wisp_nape": 0.018,
+     "wisp_front": 0.004,
+     "wisp_repeats": 9.0,
+     "highlight": 0.6,
+     "shine": 0.6,
+     "gloss_rough": 0.3,
+     "waves": 1.0,
+     "front": 0.045,
+     "part": -1.0
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_head",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "evelyn_marsh": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.82,
+   "muscle": 0.4,
+   "weight": 0.42,
+   "proportions": 0.75,
+   "height": 0.5,
+   "cupsize": 0.45,
+   "firmness": 0.62
+  },
+  "skin": "old_caucasian_female",
+  "eyes": "grey",
+  "hair": {
+   "style": "bob",
+   "colour": [
+    0.6,
+    0.59,
+    0.58
+   ],
+   "length": [
+    0.03,
+    0.05
+   ],
+   "asset": "rehmanpolanski_hair_bun_brown"
+  },
+  "spectacles": true,
+  "palette": {
+   "colour": [
+    0.34,
+    0.03,
+    0.3
+   ],
+   "accent": [
+    0.85,
+    0.6,
+    0.05
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.7492,
+       0.6314,
+       0.734
+      ],
+      "vee": 0.05,
+      "sleeves": 1.0,
+      "blouson": 0.014
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.7492,
+       0.6314,
+       0.734
+      ],
+      "fall": 0.022,
+      "point": 0.02
+     }
+    ],
+    "trim": []
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.34,
+       0.03,
+       0.3
+      ],
+      "hem": 0.14,
+      "flare": 0.28,
+      "pleats": 12,
+      "cloth": "silk"
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "warm"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "cardigan",
+      "colour": [
+       0.018,
+       0.27,
+       0.27
+      ],
+      "vee": 0.32
+     }
+    ],
+    "trim": []
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ankle_boots_female",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.04,
+      "sleeves": 1.0,
+      "blouson": 0.01,
+      "cloth": "silk"
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.85,
+       0.6,
+       0.05
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "b_bottom": {
+    "slot": "bottom",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.16,
+       0.13,
+       0.11
+      ],
+      "hem": 0.42,
+      "flare": 0.04
+     }
+    ],
+    "trim": []
+   },
+   "b_over": {
+    "slot": "over",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street",
+     "warm"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "coat",
+      "colour": [
+       0.34,
+       0.03,
+       0.3
+      ],
+      "vee": 0.14,
+      "hem": 0.36,
+      "flare": 0.14
+     },
+     {
+      "kind": "belt",
+      "colour": [
+       0.17,
+       0.015,
+       0.15
+      ],
+      "off": 0.029
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.272,
+       0.024,
+       0.24
+      ],
+      "vee": 0.14
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.272,
+       0.024,
+       0.24
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.136,
+       0.012,
+       0.12
+      ],
+      "step": 0.08,
+      "lift": 0.036,
+      "size": 0.01
+     },
+     {
+      "kind": "decal",
+      "cell": "brooch",
+      "at": "throat",
+      "size": 0.035,
+      "colour": [
+       0.8,
+       0.6,
+       0.1
+      ]
+     }
+    ]
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "wdg_mycenaean_tunic",
+      "colour": [
+       0.02,
+       0.3,
+       0.3
+      ],
+      "name": "Dress",
+      "skirt": true,
+      "made": {
+       "cloth": "cotton",
+       "pattern": {
+        "kind": "stripes",
+        "colour": [
+         0.03,
+         0.45,
+         0.45
+        ],
+        "width": 1,
+        "cells": 4,
+        "repeat": 5
+       },
+       "scale": 9.0
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion",
+     "warm"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "shawl",
+      "colour": [
+       0.17,
+       0.015,
+       0.15
+      ],
+      "pattern": {
+       "kind": "herringbone",
+       "colour": [
+        0.85,
+        0.6,
+        0.05
+       ],
+       "cells": 3,
+       "repeat": 4
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "wide",
+     "colour": [
+      0.204,
+      0.018,
+      0.18
+     ],
+     "band": [
+      0.85,
+      0.6,
+      0.05
+     ],
+     "brim": 2.3
+    }
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ballet_flats",
+      "colour": [
+       0.15,
+       0.04,
+       0.04
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.6,
+      0.59,
+      0.58
+     ],
+     "length": 0.05,
+     "side": 0.035,
+     "waves": 2.5,
+     "ridge": 0.005,
+     "lift": 0.012,
+     "front": 0.045,
+     "swoop": 0.012,
+     "part": -1.0,
+     "knot": true,
+     "ornament": "clip",
+     "band": [
+      0.78,
+      0.79,
+      0.82
+     ]
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_bottom",
+    "b_over",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "b_bottom",
+    "c_over",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_over",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "iris_bell": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.55,
+   "muscle": 0.4,
+   "weight": 0.42,
+   "proportions": 0.75,
+   "height": 0.5,
+   "cupsize": 0.45,
+   "firmness": 0.62
+  },
+  "skin": "onlytheghosts_young_eurasian_female",
+  "eyes": "brown",
+  "hair": {
+   "style": "bob",
+   "colour": [
+    0.12,
+    0.075,
+    0.05
+   ],
+   "asset": "toigo_blunt_bob"
+  },
+  "race": {
+   "asian": 0.35,
+   "caucasian": 0.65,
+   "african": 0.0
+  },
+  "palette": {
+   "colour": [
+    0.03,
+    0.06,
+    0.65
+   ],
+   "accent": [
+    0.9,
+    0.5,
+    0.05
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "colour": [
+       0.6314,
+       0.6428,
+       0.867
+      ],
+      "vee": 0.08,
+      "sleeves": 0.55,
+      "blouson": 0.01
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.6314,
+       0.6428,
+       0.867
+      ]
+     }
+    ],
+    "trim": [
+     {
+      "kind": "braces",
+      "colour": [
+       0.9,
+       0.5,
+       0.05
+      ]
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "work"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.03,
+       0.06,
+       0.65
+      ],
+      "width": 0.028
+     },
+     {
+      "kind": "bib",
+      "colour": [
+       0.03,
+       0.06,
+       0.65
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "work"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "apron",
+      "colour": [
+       0.765,
+       0.378,
+       0.027
+      ],
+      "hem": 0.46
+     }
+    ],
+    "trim": []
+   },
+   "a_head": {
+    "slot": "head",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "headscarf",
+     "colour": [
+      0.9,
+      0.5,
+      0.05
+     ],
+     "band": [
+      0.024,
+      0.048,
+      0.52
+     ],
+     "brim": 0.0
+    }
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "culturalibre_male_boots",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes",
+      "made": {
+       "cloth": "leather",
+       "pattern": null,
+       "wrap": true
+      }
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "jumper",
+      "colour": [
+       0.03,
+       0.06,
+       0.65
+      ],
+      "vee": 0.1,
+      "sleeves": 0.45,
+      "ease": 0.013,
+      "length": 0.07,
+      "cloth": "cotton",
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.9,
+        0.5,
+        0.05
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "belt",
+      "colour": [
+       0.012,
+       0.024,
+       0.26
+      ]
+     }
+    ],
+    "trim": [
+     {
+      "kind": "decal",
+      "cell": "flower",
+      "at": "chest_r",
+      "size": 0.05,
+      "colour": [
+       0.9,
+       0.5,
+       0.05
+      ]
+     }
+    ]
+   },
+   "b_bottom": {
+    "slot": "bottom",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.35,
+       0.3,
+       0.24
+      ],
+      "hem": 0.3,
+      "flare": 0.3,
+      "pleats": 30
+     }
+    ],
+    "trim": []
+   },
+   "b_over": {
+    "slot": "over",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street",
+     "warm"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "cardigan",
+      "colour": [
+       0.03,
+       0.06,
+       0.65
+      ],
+      "vee": 0.32
+     }
+    ],
+    "trim": []
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_mj_cloth_shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_keyhole_neck_dress",
+      "colour": [
+       0.03,
+       0.06,
+       0.65
+      ],
+      "name": "Dress",
+      "skirt": true,
+      "made": {
+       "cloth": "silk",
+       "pattern": {
+        "kind": "dots",
+        "colour": [
+         0.94,
+         0.768,
+         0.612
+        ],
+        "width": 2,
+        "cells": 6,
+        "repeat": 6
+       },
+       "scale": 9.0
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion",
+     "warm"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "cape",
+      "colour": [
+       0.595,
+       0.294,
+       0.021
+      ],
+      "length": 0.36,
+      "swing": 0.09
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.9,
+       0.5,
+       0.05
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "wide",
+     "colour": [
+      0.018,
+      0.036,
+      0.39
+     ],
+     "band": [
+      0.9,
+      0.5,
+      0.05
+     ],
+     "brim": 2.3
+    }
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "cortu_t-bar",
+      "colour": [
+       0.15,
+       0.04,
+       0.04
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.12,
+      0.075,
+      0.05
+     ],
+     "length": 0.08,
+     "side": 0.08,
+     "waves": 3.0,
+     "ridge": 0.007,
+     "lift": 0.014,
+     "curl": 0.018,
+     "front": 0.03,
+     "swoop": 0.03,
+     "part": -1.0,
+     "ornament": "bandeau",
+     "band": [
+      0.8,
+      0.62,
+      0.22
+     ],
+     "band_half": 0.0045,
+     "band_height": 0.024
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_head",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_bottom",
+    "b_over",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "b_bottom",
+    "c_over",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_over",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "jonah_price": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.58,
+   "muscle": 0.38,
+   "weight": 0.5,
+   "proportions": 0.6,
+   "height": 0.5
+  },
+  "skin": "toigo_light_skin_male_bronze",
+  "eyes": "brown",
+  "hair": {
+   "style": "short",
+   "colour": [
+    0.12,
+    0.075,
+    0.05
+   ],
+   "length": [
+    0.08,
+    0.11
+   ],
+   "asset": "short02"
+  },
+  "palette": {
+   "colour": [
+    0.02,
+    0.05,
+    0.28
+   ],
+   "accent": [
+    0.9,
+    0.84,
+    0.66
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "arms",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Vest",
+      "colour": [
+       0.6276,
+       0.639,
+       0.7264
+      ],
+      "vee": 0.1,
+      "sleeves": 0.0,
+      "length": 0.14,
+      "cloth": "cotton"
+     },
+     {
+      "kind": "asset",
+      "asset": "mindfront_kimono",
+      "colour": [
+       0.02,
+       0.05,
+       0.28
+      ],
+      "name": "Robe"
+     }
+    ],
+    "trim": []
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "shoes",
+      "colour": [
+       0.2,
+       0.1,
+       0.045
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_male_double-breasted_suit",
+      "colour": [
+       0.02,
+       0.05,
+       0.28
+      ],
+      "name": "Suit"
+     }
+    ],
+    "trim": []
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes04",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_fisherman_sweater",
+      "colour": [
+       0.5,
+       0.15,
+       0.05
+      ],
+      "name": "Sweater"
+     }
+    ],
+    "trim": []
+   },
+   "c_bottom": {
+    "slot": "bottom",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.375,
+       0.1125,
+       0.0375
+      ],
+      "width": 0.03
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "jacket",
+      "colour": [
+       0.01,
+       0.025,
+       0.14
+      ],
+      "vee": 0.3,
+      "length": 0.17,
+      "skirted": 0.012,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.019,
+        0.0475,
+        0.266
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.006,
+       0.015,
+       0.084
+      ],
+      "vee": 0.3
+     }
+    ],
+    "trim": [
+     {
+      "kind": "pockets",
+      "colour": [
+       0.006,
+       0.015,
+       0.084
+      ],
+      "up": -0.03,
+      "lift": 0.038
+     }
+    ]
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "fedora",
+     "colour": [
+      0.012,
+      0.03,
+      0.168
+     ],
+     "band": [
+      0.9,
+      0.84,
+      0.66
+     ],
+     "brim": 1.35
+    }
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ankle_boots_male",
+      "colour": [
+       0.09,
+       0.05,
+       0.03
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.12,
+      0.075,
+      0.05
+     ],
+     "side": 0.026,
+     "length": 0.07,
+     "ridge": 0.003,
+     "lift": 0.01,
+     "swoop": 0.0,
+     "sideburn": 0.035,
+     "fade": 0.3,
+     "wave_tone": 0.3,
+     "wisp_side": 0.01,
+     "wisp_nape": 0.018,
+     "wisp_front": 0.004,
+     "wisp_repeats": 9.0,
+     "highlight": 0.6,
+     "shine": 0.6,
+     "gloss_rough": 0.3,
+     "waves": 1.0,
+     "front": 0.05,
+     "part": 1.0
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "juno_kells": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.47,
+   "muscle": 0.4,
+   "weight": 0.38,
+   "proportions": 0.75,
+   "height": 0.5,
+   "cupsize": 0.45,
+   "firmness": 0.62
+  },
+  "skin": "toigo_light_skin_female_bronze",
+  "eyes": "brown",
+  "hair": {
+   "style": "short",
+   "colour": [
+    0.12,
+    0.075,
+    0.05
+   ],
+   "length": [
+    0.05,
+    0.07
+   ],
+   "asset": "littleright_bobcut_hair"
+  },
+  "palette": {
+   "colour": [
+    0.0,
+    0.33,
+    0.36
+   ],
+   "accent": [
+    0.85,
+    0.2,
+    0.3
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "jumper",
+      "colour": [
+       0.62,
+       0.7454000000000001,
+       0.7568
+      ],
+      "vee": 0.12,
+      "sleeves": 0.5,
+      "ease": 0.006,
+      "length": 0.0,
+      "cloth": "cotton"
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.85,
+       0.2,
+       0.3
+      ],
+      "step": 0.045,
+      "lift": 0.012,
+      "size": 0.006
+     },
+     {
+      "kind": "decal",
+      "cell": "pin",
+      "at": "chest_l",
+      "size": 0.03,
+      "colour": [
+       0.85,
+       0.2,
+       0.3
+      ]
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.0,
+       0.33,
+       0.36
+      ],
+      "width": 0.042,
+      "turnups": false
+     },
+     {
+      "kind": "belt",
+      "colour": [
+       0.85,
+       0.2,
+       0.3
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.63,
+       0.108,
+       0.225
+      ],
+      "vee": 0.22
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.85,
+       0.2,
+       0.3
+      ],
+      "step": 0.06,
+      "lift": 0.026,
+      "size": 0.007
+     }
+    ]
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ankle_boots_female",
+      "colour": [
+       0.2,
+       0.1,
+       0.045
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_female_double-breasted_suit",
+      "colour": [
+       0.0,
+       0.33,
+       0.36
+      ],
+      "name": "Suit"
+     }
+    ],
+    "trim": []
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes01",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_keyhole_neck_dress",
+      "colour": [
+       0.0,
+       0.33,
+       0.36
+      ],
+      "name": "Dress",
+      "skirt": true,
+      "made": {
+       "cloth": "silk",
+       "pattern": {
+        "kind": "dots",
+        "colour": [
+         0.8799999999999999,
+         0.648,
+         0.7
+        ],
+        "width": 2,
+        "cells": 6,
+        "repeat": 6
+       },
+       "scale": 9.0
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "jacket",
+      "colour": [
+       0.49,
+       0.084,
+       0.175
+      ],
+      "vee": 0.34,
+      "length": -0.13,
+      "ease": 0.02
+     }
+    ],
+    "trim": []
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "beret",
+     "colour": [
+      0.0,
+      0.198,
+      0.216
+     ],
+     "band": [
+      0.0,
+      0.198,
+      0.216
+     ],
+     "brim": 0.0
+    }
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "cortu_t-bar",
+      "colour": [
+       0.09,
+       0.05,
+       0.03
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.12,
+      0.075,
+      0.05
+     ],
+     "length": 0.045,
+     "side": 0.03,
+     "waves": 2.0,
+     "ridge": 0.004,
+     "lift": 0.009,
+     "front": 0.04,
+     "swoop": 0.035,
+     "swoop_width": 0.55,
+     "part": 1.0,
+     "wisp_nape": 0.025
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "lena_ortiz": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.78,
+   "muscle": 0.4,
+   "weight": 0.42,
+   "proportions": 0.75,
+   "height": 0.5,
+   "cupsize": 0.45,
+   "firmness": 0.62
+  },
+  "skin": "onlytheghosts_old_eurasian_female",
+  "eyes": "brown",
+  "hair": {
+   "style": "bob",
+   "colour": [
+    0.045,
+    0.04,
+    0.04
+   ],
+   "root_max_above_nose": 0.09,
+   "asset": "toigo_curled_under_bob"
+  },
+  "race": {
+   "asian": 0.35,
+   "caucasian": 0.65,
+   "african": 0.0
+  },
+  "palette": {
+   "colour": [
+    0.38,
+    0.01,
+    0.1
+   ],
+   "accent": [
+    0.92,
+    0.9,
+    0.84
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "jumper",
+      "colour": [
+       0.38,
+       0.01,
+       0.1
+      ],
+      "vee": 0.06,
+      "sleeves": 0.7,
+      "ease": 0.018,
+      "length": 0.14,
+      "cloth": "cotton",
+      "pattern": {
+       "kind": "dots",
+       "colour": [
+        0.92,
+        0.9,
+        0.84
+       ],
+       "width": 2,
+       "cells": 6,
+       "repeat": 6
+      }
+     }
+    ],
+    "trim": []
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.38,
+       0.01,
+       0.1
+      ],
+      "hem": 0.34,
+      "flare": 0.42,
+      "pleats": 20
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "work"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "apron",
+      "colour": [
+       0.63,
+       0.405,
+       0.045
+      ],
+      "hem": 0.46
+     }
+    ],
+    "trim": []
+   },
+   "a_head": {
+    "slot": "head",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "headscarf",
+     "colour": [
+      0.92,
+      0.9,
+      0.84
+     ],
+     "band": [
+      0.304,
+      0.008,
+      0.08
+     ],
+     "brim": 0.0
+    }
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "boots",
+      "colour": [
+       0.15,
+       0.04,
+       0.04
+      ],
+      "height": 0.17
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.05,
+      "sleeves": 1.0,
+      "blouson": 0.014
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "fall": 0.022,
+      "point": 0.02
+     }
+    ],
+    "trim": [
+     {
+      "kind": "decal",
+      "cell": "lace",
+      "at": "throat",
+      "size": 0.07,
+      "colour": [
+       0.95,
+       0.93,
+       0.88
+      ],
+      "wide": 1.6
+     }
+    ]
+   },
+   "b_bottom": {
+    "slot": "bottom",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.08,
+       0.08,
+       0.09
+      ],
+      "hem": 0.4,
+      "flare": 0.16,
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.128,
+        0.128,
+        0.144
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     }
+    ],
+    "trim": []
+   },
+   "b_over": {
+    "slot": "over",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street",
+     "warm"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "shawl",
+      "colour": [
+       0.38,
+       0.01,
+       0.1
+      ],
+      "pattern": {
+       "kind": "herringbone",
+       "colour": [
+        0.92,
+        0.9,
+        0.84
+       ],
+       "cells": 3,
+       "repeat": 4
+      }
+     }
+    ],
+    "trim": []
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ankle_boots_female",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_female_suit",
+      "colour": [
+       0.7,
+       0.45,
+       0.05
+      ],
+      "name": "Suit",
+      "skirt": true,
+      "hem_to_calf": true
+     }
+    ],
+    "trim": []
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "toque",
+     "colour": [
+      0.228,
+      0.006,
+      0.06
+     ],
+     "band": [
+      0.92,
+      0.9,
+      0.84
+     ],
+     "brim": 0.0
+    }
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.045,
+      0.04,
+      0.04
+     ],
+     "length": 0.05,
+     "side": 0.04,
+     "waves": 1.5,
+     "ridge": 0.004,
+     "lift": 0.011,
+     "front": 0.045,
+     "swoop": 0.008,
+     "part": 0.3,
+     "knot": true,
+     "ornament": "clip",
+     "band": [
+      0.92,
+      0.9,
+      0.84
+     ]
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_head",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_bottom",
+    "b_over",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "b_bottom",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_over",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "mae_kessler": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.9,
+   "muscle": 0.4,
+   "weight": 0.42,
+   "proportions": 0.75,
+   "height": 0.5,
+   "cupsize": 0.45,
+   "firmness": 0.62
+  },
+  "skin": "old_caucasian_female",
+  "eyes": "grey",
+  "hair": {
+   "style": "short",
+   "colour": [
+    0.85,
+    0.84,
+    0.8
+   ],
+   "length": [
+    0.06,
+    0.09
+   ],
+   "asset": "rehmanpolanski_hair_bun_brown"
+  },
+  "palette": {
+   "colour": [
+    0.0,
+    0.22,
+    0.1
+   ],
+   "accent": [
+    0.92,
+    0.9,
+    0.84
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.62,
+       0.7036,
+       0.658
+      ],
+      "vee": 0.05,
+      "sleeves": 1.0,
+      "blouson": 0.014
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.62,
+       0.7036,
+       0.658
+      ],
+      "fall": 0.022,
+      "point": 0.02
+     }
+    ],
+    "trim": [
+     {
+      "kind": "decal",
+      "cell": "lace",
+      "at": "throat",
+      "size": 0.07,
+      "colour": [
+       0.95,
+       0.93,
+       0.88
+      ],
+      "wide": 1.6
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.0,
+       0.22,
+       0.1
+      ],
+      "hem": 0.14,
+      "flare": 0.28,
+      "pleats": 12,
+      "cloth": "silk"
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "warm"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "shawl",
+      "colour": [
+       0.36,
+       0.306,
+       0.495
+      ],
+      "pattern": {
+       "kind": "herringbone",
+       "colour": [
+        0.92,
+        0.9,
+        0.84
+       ],
+       "cells": 3,
+       "repeat": 4
+      }
+     }
+    ],
+    "trim": []
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "boots",
+      "colour": [
+       0.15,
+       0.04,
+       0.04
+      ],
+      "height": 0.17
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "wdg_mycenaean_tunic",
+      "colour": [
+       0.4,
+       0.34,
+       0.55
+      ],
+      "name": "Dress",
+      "skirt": true,
+      "made": {
+       "cloth": "cotton",
+       "pattern": {
+        "kind": "stripes",
+        "colour": [
+         0.6,
+         0.51,
+         0.825
+        ],
+        "width": 1,
+        "cells": 4,
+        "repeat": 5
+       },
+       "scale": 9.0
+      }
+     }
+    ],
+    "trim": []
+   },
+   "b_over": {
+    "slot": "over",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street",
+     "warm"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "coat",
+      "colour": [
+       0.22,
+       0.187,
+       0.3025
+      ],
+      "vee": 0.14,
+      "hem": 0.28,
+      "flare": 0.06
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.176,
+       0.1496,
+       0.242
+      ],
+      "vee": 0.14
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.176,
+       0.1496,
+       0.242
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.11,
+       0.0935,
+       0.1512
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     },
+     {
+      "kind": "decal",
+      "cell": "brooch",
+      "at": "throat",
+      "size": 0.04,
+      "colour": [
+       0.05,
+       0.05,
+       0.06
+      ]
+     }
+    ]
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ankle_boots_female",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Bodice",
+      "colour": [
+       0.4,
+       0.34,
+       0.55
+      ],
+      "vee": 0.13,
+      "sleeves": 0.0,
+      "length": 0.14,
+      "cloth": "silk"
+     }
+    ],
+    "trim": []
+   },
+   "c_bottom": {
+    "slot": "bottom",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_long_full_skirt",
+      "colour": [
+       0.3,
+       0.255,
+       0.4125
+      ],
+      "name": "Skirt",
+      "skirt": true,
+      "made": {
+       "cloth": "wool",
+       "pattern": null,
+       "scale": 9.0
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion",
+     "warm"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "cape",
+      "colour": [
+       0.0,
+       0.11,
+       0.05
+      ],
+      "length": 0.36,
+      "swing": 0.09
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ]
+     }
+    ],
+    "trim": [
+     {
+      "kind": "decal",
+      "cell": "brooch",
+      "at": "chest_l",
+      "size": 0.035,
+      "colour": [
+       0.75,
+       0.75,
+       0.7
+      ]
+     }
+    ]
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "wide",
+     "colour": [
+      0.0,
+      0.132,
+      0.06
+     ],
+     "band": [
+      0.92,
+      0.9,
+      0.84
+     ],
+     "brim": 2.3
+    }
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ballet_flats",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.85,
+      0.84,
+      0.8
+     ],
+     "length": 0.045,
+     "side": 0.03,
+     "waves": 2.0,
+     "ridge": 0.004,
+     "curly": 0.002,
+     "lift": 0.014,
+     "front": 0.045,
+     "swoop": 0.0,
+     "part": 0.0,
+     "updo": 9
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_over",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_over",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "malcolm_reed": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.74,
+   "muscle": 0.38,
+   "weight": 0.5,
+   "proportions": 0.6,
+   "height": 0.5
+  },
+  "skin": "middleage_african_male",
+  "eyes": "brown",
+  "hair": {
+   "style": "short",
+   "colour": [
+    0.25,
+    0.24,
+    0.24
+   ],
+   "length": [
+    0.02,
+    0.035
+   ],
+   "asset": "short01"
+  },
+  "race": {
+   "asian": 0.0,
+   "caucasian": 0.0,
+   "african": 1.0
+  },
+  "palette": {
+   "colour": [
+    0.22,
+    0.34,
+    0.03
+   ],
+   "accent": [
+    0.55,
+    0.2,
+    0.05
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "colour": [
+       0.7036,
+       0.7492,
+       0.6314
+      ],
+      "vee": 0.08,
+      "sleeves": 0.55,
+      "blouson": 0.01
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.7036,
+       0.7492,
+       0.6314
+      ]
+     }
+    ],
+    "trim": [
+     {
+      "kind": "braces",
+      "colour": [
+       0.55,
+       0.2,
+       0.05
+      ]
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "work"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.22,
+       0.34,
+       0.03
+      ],
+      "width": 0.028
+     },
+     {
+      "kind": "bib",
+      "colour": [
+       0.22,
+       0.34,
+       0.03
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "work"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "apron",
+      "colour": [
+       0.495,
+       0.18,
+       0.045
+      ],
+      "hem": 0.46
+     }
+    ],
+    "trim": []
+   },
+   "a_head": {
+    "slot": "head",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "trim": [],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "jujube_newsboy_cap",
+      "colour": [
+       0.176,
+       0.272,
+       0.024
+      ],
+      "name": "Hat",
+      "atype": "Hat",
+      "felt": false
+     }
+    ]
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "culturalibre_male_boots",
+      "colour": [
+       0.09,
+       0.05,
+       0.03
+      ],
+      "name": "Shoes",
+      "made": {
+       "cloth": "leather",
+       "pattern": null,
+       "wrap": true
+      }
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_male_suit_3",
+      "colour": [
+       0.55,
+       0.2,
+       0.05
+      ],
+      "name": "Suit"
+     }
+    ],
+    "trim": []
+   },
+   "b_head": {
+    "slot": "head",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "derby",
+     "colour": [
+      0.132,
+      0.204,
+      0.018
+     ],
+     "band": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "brim": 0.6
+    }
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes04",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_fisherman_sweater",
+      "colour": [
+       0.55,
+       0.2,
+       0.05
+      ],
+      "name": "Sweater"
+     }
+    ],
+    "trim": []
+   },
+   "c_bottom": {
+    "slot": "bottom",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.4125,
+       0.15,
+       0.0375
+      ],
+      "width": 0.03
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.11,
+       0.17,
+       0.015
+      ],
+      "vee": 0.22
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.55,
+       0.2,
+       0.05
+      ],
+      "step": 0.06,
+      "lift": 0.026,
+      "size": 0.007
+     }
+    ]
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "fedora",
+     "colour": [
+      0.132,
+      0.204,
+      0.018
+     ],
+     "band": [
+      0.55,
+      0.2,
+      0.05
+     ],
+     "brim": 1.35
+    }
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ankle_boots_male",
+      "colour": [
+       0.2,
+       0.1,
+       0.045
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_head",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_head",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "b_head",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "c_head",
+    "b_feet"
+   ]
+  }
+ },
+ "nadia_quell": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.58,
+   "muscle": 0.4,
+   "weight": 0.42,
+   "proportions": 0.75,
+   "height": 0.5,
+   "cupsize": 0.45,
+   "firmness": 0.62
+  },
+  "skin": "onlytheghosts_young_eurasian_female",
+  "eyes": "brown",
+  "hair": {
+   "style": "bob",
+   "colour": [
+    0.045,
+    0.04,
+    0.04
+   ],
+   "root_max_above_nose": 0.1,
+   "asset": "toigo_inverted_bob"
+  },
+  "race": {
+   "asian": 0.35,
+   "caucasian": 0.65,
+   "african": 0.0
+  },
+  "palette": {
+   "colour": [
+    0.33,
+    0.01,
+    0.015
+   ],
+   "accent": [
+    0.02,
+    0.02,
+    0.025
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.7454000000000001,
+       0.6238,
+       0.6257
+      ],
+      "vee": 0.08,
+      "sleeves": 0.5,
+      "blouson": 0.012,
+      "cloth": "silk"
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.7454000000000001,
+       0.6238,
+       0.6257
+      ],
+      "fall": 0.022,
+      "point": 0.02
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "step": 0.07,
+      "lift": 0.016,
+      "size": 0.007
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.33,
+       0.01,
+       0.015
+      ],
+      "hem": 0.42,
+      "flare": 0.04
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "warm"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.72,
+       0.63,
+       0.45
+      ],
+      "vee": 0.18,
+      "cloth": "knit",
+      "pattern": {
+       "kind": "bands",
+       "colour": [
+        0.02,
+        0.02,
+        0.025
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 6
+      }
+     }
+    ],
+    "trim": []
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "cortu_t-bar",
+      "colour": [
+       0.15,
+       0.04,
+       0.04
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_female_suit",
+      "colour": [
+       0.8,
+       0.7,
+       0.5
+      ],
+      "name": "Suit",
+      "skirt": true,
+      "hem_to_calf": true
+     }
+    ],
+    "trim": []
+   },
+   "b_head": {
+    "slot": "head",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "boater",
+     "colour": [
+      0.85,
+      0.76,
+      0.5
+     ],
+     "band": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "brim": 1.0
+    }
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "aethelraed_flapper_dress",
+      "colour": [
+       0.8,
+       0.7,
+       0.5
+      ],
+      "name": "Dress",
+      "skirt": true,
+      "made": {
+       "cloth": "silk",
+       "pattern": null,
+       "scale": 9.0
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion",
+     "warm"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "coat",
+      "colour": [
+       0.165,
+       0.005,
+       0.0075
+      ],
+      "vee": 0.14,
+      "hem": 0.42,
+      "flare": 0.14,
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.2805,
+        0.0085,
+        0.0127
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.132,
+       0.004,
+       0.006
+      ],
+      "vee": 0.14
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.132,
+       0.004,
+       0.006
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.0825,
+       0.0025,
+       0.0037
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.012,
+      "below": 0.1
+     },
+     {
+      "kind": "decal",
+      "cell": "pin",
+      "at": "lapel_l",
+      "size": 0.035,
+      "colour": [
+       0.8,
+       0.7,
+       0.5
+      ]
+     }
+    ]
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "wide",
+     "colour": [
+      0.198,
+      0.006,
+      0.009
+     ],
+     "band": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "brim": 2.3
+    }
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_mj_cloth_shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.045,
+      0.04,
+      0.04
+     ],
+     "length": 0.06,
+     "side": 0.075,
+     "waves": 4.0,
+     "ridge": 0.0075,
+     "lift": 0.011,
+     "curl": 0.01,
+     "front": 0.03,
+     "swoop": 0.04,
+     "part": -1.0,
+     "ornament": "bandeau_star",
+     "band": [
+      0.8,
+      0.7,
+      0.5
+     ],
+     "band_half": 0.0045,
+     "band_height": 0.024
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_head",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "b_head",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "noel_price": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.57,
+   "muscle": 0.38,
+   "weight": 0.5,
+   "proportions": 0.6,
+   "height": 0.5
+  },
+  "skin": "toigo_light_skin_male_ginger",
+  "eyes": "brown",
+  "hair": {
+   "style": "short",
+   "colour": [
+    0.62,
+    0.27,
+    0.08
+   ],
+   "asset": "short02"
+  },
+  "palette": {
+   "colour": [
+    0.1,
+    0.04,
+    0.45
+   ],
+   "accent": [
+    0.92,
+    0.9,
+    0.84
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "colour": [
+       0.658,
+       0.6352,
+       0.791
+      ],
+      "vee": 0.08,
+      "sleeves": 0.55,
+      "blouson": 0.01
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.658,
+       0.6352,
+       0.791
+      ]
+     }
+    ],
+    "trim": [
+     {
+      "kind": "braces",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ]
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.1,
+       0.04,
+       0.45
+      ],
+      "width": 0.03
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "work"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "apron",
+      "colour": [
+       0.585,
+       0.27,
+       0.045
+      ],
+      "hem": 0.46
+     }
+    ],
+    "trim": []
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes01",
+      "colour": [
+       0.09,
+       0.05,
+       0.03
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_suit_with_jacket_and_bowtie",
+      "colour": [
+       0.1,
+       0.04,
+       0.45
+      ],
+      "name": "Suit"
+     }
+    ],
+    "trim": []
+   },
+   "b_head": {
+    "slot": "head",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "trim": [],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "fedora01",
+      "colour": [
+       0.06,
+       0.024,
+       0.27
+      ],
+      "name": "Hat",
+      "atype": "Hat",
+      "felt": true
+     }
+    ]
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes04",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "jumper",
+      "colour": [
+       0.65,
+       0.3,
+       0.05
+      ],
+      "vee": 0.0,
+      "ease": 0.008,
+      "length": 0.0,
+      "pattern": {
+       "kind": "bands",
+       "colour": [
+        0.92,
+        0.9,
+        0.84
+       ],
+       "width": 3,
+       "cells": 3,
+       "repeat": 4
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_bottom": {
+    "slot": "bottom",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ]
+     },
+     {
+      "kind": "trousers",
+      "colour": [
+       0.4875,
+       0.225,
+       0.0375
+      ],
+      "width": 0.04,
+      "ends": 0.3,
+      "turnups": false,
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.8287,
+        0.3825,
+        0.0638
+       ],
+       "width": 2,
+       "cells": 4,
+       "repeat": 5
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.05,
+       0.02,
+       0.225
+      ],
+      "vee": 0.22
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "step": 0.06,
+      "lift": 0.026,
+      "size": 0.007
+     }
+    ]
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "trim": [],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "jujube_newsboy_cap",
+      "colour": [
+       0.06,
+       0.024,
+       0.27
+      ],
+      "name": "Hat",
+      "atype": "Hat",
+      "felt": false
+     }
+    ]
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "boots",
+      "colour": [
+       0.2,
+       0.1,
+       0.045
+      ],
+      "height": 0.17
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.62,
+      0.27,
+      0.08
+     ],
+     "side": 0.02,
+     "length": 0.055,
+     "ridge": 0.003,
+     "lift": 0.009,
+     "swoop": 0.0,
+     "sideburn": 0.035,
+     "fade": 0.4,
+     "wave_tone": 0.3,
+     "wisp_side": 0.01,
+     "wisp_nape": 0.018,
+     "wisp_front": 0.004,
+     "wisp_repeats": 9.0,
+     "highlight": 0.6,
+     "shine": 0.6,
+     "gloss_rough": 0.3,
+     "waves": 1.0,
+     "front": 0.05,
+     "part": -1.0
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_head",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "b_head",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "omar_bell": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.68,
+   "muscle": 0.38,
+   "weight": 0.5,
+   "proportions": 0.6,
+   "height": 0.5
+  },
+  "skin": "onlytheghosts_old_eurasian_male",
+  "eyes": "brown",
+  "hair": {
+   "style": "short",
+   "colour": [
+    0.045,
+    0.04,
+    0.04
+   ],
+   "asset": "short01"
+  },
+  "race": {
+   "asian": 0.35,
+   "caucasian": 0.65,
+   "african": 0.0
+  },
+  "spectacles": true,
+  "palette": {
+   "colour": [
+    0.62,
+    0.34,
+    0.04
+   ],
+   "accent": [
+    0.2,
+    0.1,
+    0.04
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "colour": [
+       0.8556,
+       0.7492,
+       0.6352
+      ],
+      "vee": 0.08,
+      "sleeves": 0.55,
+      "blouson": 0.01
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.8556,
+       0.7492,
+       0.6352
+      ]
+     }
+    ],
+    "trim": [
+     {
+      "kind": "braces",
+      "colour": [
+       0.2,
+       0.1,
+       0.04
+      ]
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "work"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.62,
+       0.34,
+       0.04
+      ],
+      "width": 0.028
+     },
+     {
+      "kind": "bib",
+      "colour": [
+       0.62,
+       0.34,
+       0.04
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "work"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "apron",
+      "colour": [
+       0.405,
+       0.054,
+       0.054
+      ],
+      "hem": 0.46
+     }
+    ],
+    "trim": []
+   },
+   "a_head": {
+    "slot": "head",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.496,
+      0.272,
+      0.032
+     ],
+     "band": [
+      0.496,
+      0.272,
+      0.032
+     ],
+     "brim": 1.0
+    }
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "culturalibre_male_boots",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes",
+      "made": {
+       "cloth": "leather",
+       "pattern": null,
+       "wrap": true
+      }
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "male_elegantsuit01",
+      "colour": [
+       0.62,
+       0.34,
+       0.04
+      ],
+      "name": "Suit"
+     }
+    ],
+    "trim": []
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes04",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "jumper",
+      "colour": [
+       0.78,
+       0.624,
+       0.624
+      ],
+      "vee": 0.12,
+      "sleeves": 0.5,
+      "ease": 0.006,
+      "length": 0.0,
+      "cloth": "cotton"
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.2,
+       0.1,
+       0.04
+      ],
+      "step": 0.045,
+      "lift": 0.012,
+      "size": 0.006
+     }
+    ]
+   },
+   "c_bottom": {
+    "slot": "bottom",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.3375,
+       0.045,
+       0.045
+      ],
+      "width": 0.03
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion",
+     "warm"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.31,
+       0.17,
+       0.02
+      ],
+      "vee": 0.18,
+      "cloth": "knit",
+      "pattern": {
+       "kind": "bands",
+       "colour": [
+        0.2,
+        0.1,
+        0.04
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 6
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "derby",
+     "colour": [
+      0.372,
+      0.204,
+      0.024
+     ],
+     "band": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "brim": 0.6
+    }
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ankle_boots_male",
+      "colour": [
+       0.15,
+       0.04,
+       0.04
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.045,
+      0.04,
+      0.04
+     ],
+     "side": 0.02,
+     "length": 0.055,
+     "ridge": 0.0018,
+     "lift": 0.007,
+     "swoop": 0.0,
+     "sideburn": 0.035,
+     "fade": 0.4,
+     "wave_tone": 0.3,
+     "wisp_side": 0.01,
+     "wisp_nape": 0.018,
+     "wisp_front": 0.004,
+     "wisp_repeats": 9.0,
+     "highlight": 0.6,
+     "shine": 0.6,
+     "gloss_rough": 0.3,
+     "waves": 1.0,
+     "front": 0.046,
+     "part": 0.0
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_head",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "peter_wren": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.64,
+   "muscle": 0.38,
+   "weight": 0.44,
+   "proportions": 0.6,
+   "height": 0.5
+  },
+  "skin": "middleage_caucasian_male",
+  "eyes": "brown",
+  "hair": {
+   "style": "short",
+   "colour": [
+    0.28,
+    0.17,
+    0.09
+   ],
+   "length": [
+    0.025,
+    0.04
+   ],
+   "asset": "short02"
+  },
+  "palette": {
+   "colour": [
+    0.27,
+    0.11,
+    0.03
+   ],
+   "accent": [
+    0.75,
+    0.45,
+    0.05
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "colour": [
+       0.7226,
+       0.6617999999999999,
+       0.6314
+      ],
+      "vee": 0.05,
+      "sleeves": 1.0
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.7226,
+       0.6617999999999999,
+       0.6314
+      ]
+     }
+    ],
+    "trim": [
+     {
+      "kind": "tie",
+      "colour": [
+       0.75,
+       0.45,
+       0.05
+      ],
+      "length": 0.2
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.27,
+       0.11,
+       0.03
+      ],
+      "width": 0.012,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.486,
+        0.198,
+        0.054
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.09,
+       0.225,
+       0.198
+      ],
+      "vee": 0.22
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.75,
+       0.45,
+       0.05
+      ],
+      "step": 0.06,
+      "lift": 0.026,
+      "size": 0.007
+     },
+     {
+      "kind": "decal",
+      "cell": "stitch",
+      "at": "chest_l",
+      "size": 0.06,
+      "colour": [
+       0.6,
+       0.4,
+       0.1
+      ]
+     }
+    ]
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes01",
+      "colour": [
+       0.15,
+       0.04,
+       0.04
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_male_suit_3",
+      "colour": [
+       0.27,
+       0.11,
+       0.03
+      ],
+      "name": "Suit"
+     }
+    ],
+    "trim": []
+   },
+   "b_head": {
+    "slot": "head",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "derby",
+     "colour": [
+      0.162,
+      0.066,
+      0.018
+     ],
+     "band": [
+      0.02,
+      0.02,
+      0.025
+     ],
+     "brim": 0.6
+    }
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes04",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_suit_with_dinner_jacket",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Suit"
+     }
+    ],
+    "trim": []
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes04",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.28,
+      0.17,
+      0.09
+     ],
+     "side": 0.02,
+     "length": 0.055,
+     "ridge": 0.0018,
+     "lift": 0.007,
+     "swoop": 0.0,
+     "sideburn": 0.035,
+     "fade": 0.4,
+     "wave_tone": 0.3,
+     "wisp_side": 0.01,
+     "wisp_nape": 0.018,
+     "wisp_front": 0.004,
+     "wisp_repeats": 9.0,
+     "highlight": 0.6,
+     "shine": 0.6,
+     "gloss_rough": 0.3,
+     "waves": 1.0,
+     "front": 0.055,
+     "part": 1.0
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_head",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "b_head",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "rhea_sato": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.7,
+   "muscle": 0.4,
+   "weight": 0.42,
+   "proportions": 0.75,
+   "height": 0.5,
+   "cupsize": 0.45,
+   "firmness": 0.62
+  },
+  "skin": "middleage_asian_female",
+  "eyes": "brown",
+  "hair": {
+   "style": "bob",
+   "colour": [
+    0.045,
+    0.04,
+    0.04
+   ],
+   "root_max_above_nose": 0.1,
+   "asset": "toigo_curled_under_bob_with_bangs"
+  },
+  "race": {
+   "asian": 1.0,
+   "caucasian": 0.0,
+   "african": 0.0
+  },
+  "palette": {
+   "colour": [
+    0.08,
+    0.02,
+    0.32
+   ],
+   "accent": [
+    0.85,
+    0.1,
+    0.25
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.6504,
+       0.6276,
+       0.7416
+      ],
+      "vee": 0.08,
+      "sleeves": 0.5,
+      "blouson": 0.012,
+      "cloth": "silk"
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.6504,
+       0.6276,
+       0.7416
+      ],
+      "fall": 0.022,
+      "point": 0.02
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.85,
+       0.1,
+       0.25
+      ],
+      "step": 0.07,
+      "lift": 0.016,
+      "size": 0.007
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.08,
+       0.02,
+       0.32
+      ],
+      "hem": 0.4,
+      "flare": 0.16,
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.128,
+        0.032,
+        0.512
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "cape",
+      "colour": [
+       0.675,
+       0.054,
+       0.18
+      ],
+      "length": 0.17,
+      "cloth": "silk"
+     }
+    ],
+    "trim": []
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ballet_flats",
+      "colour": [
+       0.2,
+       0.1,
+       0.045
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "female_elegantsuit01",
+      "colour": [
+       0.08,
+       0.02,
+       0.32
+      ],
+      "name": "Outfit",
+      "skirt": true,
+      "hem_to_calf": true
+     }
+    ],
+    "trim": []
+   },
+   "b_over": {
+    "slot": "over",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "jacket",
+      "colour": [
+       0.08,
+       0.02,
+       0.32
+      ],
+      "vee": 0.24,
+      "length": 0.01,
+      "ease": 0.021,
+      "shoulders": 0.0
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.048,
+       0.012,
+       0.192
+      ],
+      "vee": 0.24
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.85,
+       0.1,
+       0.25
+      ],
+      "step": 0.085,
+      "lift": 0.038,
+      "size": 0.011
+     },
+     {
+      "kind": "decal",
+      "cell": "pin",
+      "at": "lapel_l",
+      "size": 0.03,
+      "colour": [
+       0.85,
+       0.1,
+       0.25
+      ]
+     }
+    ]
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "boots",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "height": 0.27
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_keyhole_neck_dress",
+      "colour": [
+       0.75,
+       0.06,
+       0.2
+      ],
+      "name": "Dress",
+      "skirt": true,
+      "made": {
+       "cloth": "silk",
+       "pattern": {
+        "kind": "dots",
+        "colour": [
+         0.9,
+         0.624,
+         0.6799999999999999
+        ],
+        "width": 2,
+        "cells": 6,
+        "repeat": 6
+       },
+       "scale": 9.0
+      }
+     }
+    ],
+    "trim": [
+     {
+      "kind": "decal",
+      "cell": "flower",
+      "at": "chest_l",
+      "size": 0.05,
+      "colour": [
+       0.85,
+       0.1,
+       0.25
+      ]
+     }
+    ]
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion",
+     "warm"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "cape",
+      "colour": [
+       0.04,
+       0.01,
+       0.16
+      ],
+      "length": 0.36,
+      "swing": 0.09
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.85,
+       0.1,
+       0.25
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "toque",
+     "colour": [
+      0.048,
+      0.012,
+      0.192
+     ],
+     "band": [
+      0.85,
+      0.1,
+      0.25
+     ],
+     "brim": 0.0
+    }
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "shoes",
+      "colour": [
+       0.09,
+       0.05,
+       0.03
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.045,
+      0.04,
+      0.04
+     ],
+     "length": 0.075,
+     "side": 0.075,
+     "waves": 2.5,
+     "ridge": 0.006,
+     "lift": 0.012,
+     "curl": 0.013,
+     "front": 0.015,
+     "swoop": 0.0,
+     "part": 0.6,
+     "ornament": "clip",
+     "band": [
+      0.85,
+      0.1,
+      0.25
+     ]
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_over",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_over",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "sacha_reed": {
+  "macro": {
+   "gender": 0.6,
+   "age": 0.5,
+   "muscle": 0.38,
+   "weight": 0.42,
+   "proportions": 0.6,
+   "height": 0.5
+  },
+  "skin": "young_african_male",
+  "eyes": "brown",
+  "hair": {
+   "style": "short",
+   "colour": [
+    0.045,
+    0.04,
+    0.04
+   ],
+   "length": [
+    0.03,
+    0.045
+   ],
+   "asset": "short01"
+  },
+  "race": {
+   "asian": 0.0,
+   "caucasian": 0.0,
+   "african": 1.0
+  },
+  "palette": {
+   "colour": [
+    0.12,
+    0.32,
+    0.26
+   ],
+   "accent": [
+    0.8,
+    0.55,
+    0.1
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "jumper",
+      "colour": [
+       0.12,
+       0.32,
+       0.26
+      ],
+      "vee": 0.0,
+      "ease": 0.008,
+      "length": 0.0,
+      "pattern": {
+       "kind": "bands",
+       "colour": [
+        0.8,
+        0.55,
+        0.1
+       ],
+       "width": 3,
+       "cells": 3,
+       "repeat": 4
+      }
+     }
+    ],
+    "trim": []
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.12,
+       0.32,
+       0.26
+      ],
+      "width": 0.03
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.675,
+       0.45,
+       0.072
+      ],
+      "vee": 0.22
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.8,
+       0.55,
+       0.1
+      ],
+      "step": 0.06,
+      "lift": 0.026,
+      "size": 0.007
+     }
+    ]
+   },
+   "a_head": {
+    "slot": "head",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "trim": [],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "jujube_newsboy_cap",
+      "colour": [
+       0.096,
+       0.256,
+       0.208
+      ],
+      "name": "Hat",
+      "atype": "Hat",
+      "felt": false
+     }
+    ]
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "culturalibre_male_boots",
+      "colour": [
+       0.15,
+       0.04,
+       0.04
+      ],
+      "name": "Shoes",
+      "made": {
+       "cloth": "leather",
+       "pattern": null,
+       "wrap": true
+      }
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_male_suit_tie_and_jacket",
+      "colour": [
+       0.12,
+       0.32,
+       0.26
+      ],
+      "name": "Suit"
+     }
+    ],
+    "trim": []
+   },
+   "b_head": {
+    "slot": "head",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "boater",
+     "colour": [
+      0.85,
+      0.76,
+      0.5
+     ],
+     "band": [
+      0.8,
+      0.55,
+      0.1
+     ],
+     "brim": 1.0
+    }
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes01",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "colour": [
+       0.9,
+       0.8,
+       0.632
+      ],
+      "vee": 0.08,
+      "sleeves": 0.55,
+      "blouson": 0.01
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.9,
+       0.8,
+       0.632
+      ]
+     }
+    ],
+    "trim": [
+     {
+      "kind": "braces",
+      "colour": [
+       0.8,
+       0.55,
+       0.1
+      ]
+     }
+    ]
+   },
+   "c_bottom": {
+    "slot": "bottom",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "stockings",
+      "colour": [
+       0.8,
+       0.55,
+       0.1
+      ]
+     },
+     {
+      "kind": "trousers",
+      "colour": [
+       0.5625,
+       0.375,
+       0.06
+      ],
+      "width": 0.028,
+      "ends": 0.36,
+      "turnups": false
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "jacket",
+      "colour": [
+       0.06,
+       0.16,
+       0.13
+      ],
+      "vee": 0.24,
+      "length": 0.01,
+      "ease": 0.021,
+      "shoulders": 0.0
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.036,
+       0.096,
+       0.078
+      ],
+      "vee": 0.24
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.8,
+       0.55,
+       0.1
+      ],
+      "step": 0.085,
+      "lift": 0.038,
+      "size": 0.011
+     }
+    ]
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "boots",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "height": 0.08
+     }
+    ],
+    "trim": []
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_head",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_head",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "b_head",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_feet"
+   ]
+  }
+ },
+ "teresa_vale": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.66,
+   "muscle": 0.4,
+   "weight": 0.42,
+   "proportions": 0.75,
+   "height": 0.5,
+   "cupsize": 0.45,
+   "firmness": 0.62
+  },
+  "skin": "middleage_asian_female",
+  "eyes": "brown",
+  "hair": {
+   "style": "bob",
+   "colour": [
+    0.045,
+    0.04,
+    0.04
+   ],
+   "length": [
+    0.03,
+    0.05
+   ],
+   "asset": "toigo_inverted_bob_with_bangs"
+  },
+  "race": {
+   "asian": 1.0,
+   "caucasian": 0.0,
+   "african": 0.0
+  },
+  "palette": {
+   "colour": [
+    0.02,
+    0.05,
+    0.28
+   ],
+   "accent": [
+    0.72,
+    0.03,
+    0.03
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.6276,
+       0.639,
+       0.7264
+      ],
+      "vee": 0.08,
+      "sleeves": 0.5,
+      "blouson": 0.012,
+      "cloth": "silk"
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.6276,
+       0.639,
+       0.7264
+      ],
+      "fall": 0.022,
+      "point": 0.02
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.72,
+       0.03,
+       0.03
+      ],
+      "step": 0.07,
+      "lift": 0.016,
+      "size": 0.007
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.02,
+       0.05,
+       0.28
+      ],
+      "hem": 0.5,
+      "flare": 0.22,
+      "pleats": 16
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "work"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "apron",
+      "colour": [
+       0.648,
+       0.027,
+       0.027
+      ],
+      "hem": 0.46
+     }
+    ],
+    "trim": []
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ballet_flats",
+      "colour": [
+       0.15,
+       0.04,
+       0.04
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.92,
+       0.9,
+       0.84
+      ],
+      "vee": 0.17,
+      "sleeves": 0.75,
+      "blouson": 0.008,
+      "cloth": "silk"
+     },
+     {
+      "kind": "sash",
+      "colour": [
+       0.72,
+       0.03,
+       0.03
+      ],
+      "up": 0.1,
+      "off": 0.008
+     }
+    ],
+    "trim": []
+   },
+   "b_bottom": {
+    "slot": "bottom",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.08,
+       0.08,
+       0.09
+      ],
+      "hem": 0.3,
+      "flare": 0.3,
+      "pleats": 30
+     }
+    ],
+    "trim": []
+   },
+   "b_over": {
+    "slot": "over",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street",
+     "warm"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "cape",
+      "colour": [
+       0.02,
+       0.05,
+       0.28
+      ],
+      "length": 0.36,
+      "swing": 0.09
+     },
+     {
+      "kind": "scarf",
+      "colour": [
+       0.72,
+       0.03,
+       0.03
+      ]
+     }
+    ],
+    "trim": [
+     {
+      "kind": "decal",
+      "cell": "pin",
+      "at": "chest_l",
+      "size": 0.035,
+      "colour": [
+       0.75,
+       0.75,
+       0.7
+      ]
+     }
+    ]
+   },
+   "b_head": {
+    "slot": "head",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "boater",
+     "colour": [
+      0.85,
+      0.76,
+      0.5
+     ],
+     "band": [
+      0.72,
+      0.03,
+      0.03
+     ],
+     "brim": 1.0
+    }
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_ankle_boots_female",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_shift_dress",
+      "colour": [
+       0.72,
+       0.03,
+       0.03
+      ],
+      "name": "Dress",
+      "skirt": true,
+      "made": {
+       "cloth": "cotton",
+       "pattern": {
+        "kind": "checks",
+        "colour": [
+         1.0,
+         0.045,
+         0.045
+        ],
+        "width": 1,
+        "cells": 4,
+        "repeat": 5
+       },
+       "scale": 9.0
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion",
+     "warm"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "coat",
+      "colour": [
+       0.01,
+       0.025,
+       0.14
+      ],
+      "vee": 0.14,
+      "hem": 0.42,
+      "flare": 0.14,
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.017,
+        0.0425,
+        0.238
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.008,
+       0.02,
+       0.112
+      ],
+      "vee": 0.14
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.008,
+       0.02,
+       0.112
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.005,
+       0.0125,
+       0.07
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.012,
+      "below": 0.1
+     }
+    ]
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "trim": [],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "aethelraed_unraed_cloche_hat",
+      "colour": [
+       0.012,
+       0.03,
+       0.168
+      ],
+      "name": "Hat",
+      "atype": "Hat",
+      "felt": true
+     }
+    ]
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "cortu_t-bar",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.045,
+      0.04,
+      0.04
+     ],
+     "length": 0.05,
+     "side": 0.045,
+     "waves": 3.0,
+     "ridge": 0.0055,
+     "lift": 0.012,
+     "front": 0.035,
+     "swoop": 0.02,
+     "part": 1.0,
+     "knot": true,
+     "ornament": "clip",
+     "band": [
+      0.75,
+      0.75,
+      0.7
+     ]
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_bottom",
+    "b_over",
+    "b_head",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "b_bottom",
+    "c_over",
+    "b_head",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_over",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "transient_guests_a": {
+  "macro": {
+   "gender": 1.0,
+   "age": 0.58,
+   "muscle": 0.38,
+   "weight": 0.5,
+   "proportions": 0.6,
+   "height": 0.5
+  },
+  "skin": "young_caucasian_male",
+  "eyes": "brown",
+  "hair": {
+   "style": "bob",
+   "colour": [
+    0.28,
+    0.17,
+    0.09
+   ],
+   "length": [
+    0.1,
+    0.14
+   ],
+   "asset": "short02"
+  },
+  "palette": {
+   "colour": [
+    0.3,
+    0.3,
+    0.32
+   ],
+   "accent": [
+    0.7,
+    0.55,
+    0.2
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "jumper",
+      "colour": [
+       0.734,
+       0.734,
+       0.7416
+      ],
+      "vee": 0.12,
+      "sleeves": 0.5,
+      "ease": 0.006,
+      "length": 0.0,
+      "cloth": "cotton"
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "step": 0.045,
+      "lift": 0.012,
+      "size": 0.006
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "width": 0.03
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "waistcoat",
+      "colour": [
+       0.54,
+       0.432,
+       0.108
+      ],
+      "vee": 0.22
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "step": 0.06,
+      "lift": 0.026,
+      "size": 0.007
+     }
+    ]
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "culturalibre_male_boots",
+      "colour": [
+       0.2,
+       0.1,
+       0.045
+      ],
+      "name": "Shoes",
+      "made": {
+       "cloth": "leather",
+       "pattern": null,
+       "wrap": true
+      }
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "legs",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom",
+     "over"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_male_double-breasted_suit",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "name": "Suit"
+     }
+    ],
+    "trim": []
+   },
+   "b_head": {
+    "slot": "head",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "trim": [],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "fedora01",
+      "colour": [
+       0.18,
+       0.18,
+       0.192
+      ],
+      "name": "Hat",
+      "atype": "Hat",
+      "felt": true
+     }
+    ]
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "shoes04",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "arms",
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "jumper",
+      "colour": [
+       0.6,
+       0.48,
+       0.12
+      ],
+      "vee": 0.0,
+      "ease": 0.008,
+      "length": 0.0,
+      "pattern": {
+       "kind": "bands",
+       "colour": [
+        0.7,
+        0.55,
+        0.2
+       ],
+       "width": 3,
+       "cells": 3,
+       "repeat": 4
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_bottom": {
+    "slot": "bottom",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "legs",
+     "hips"
+    ],
+    "rows": [
+     {
+      "kind": "trousers",
+      "colour": [
+       0.45,
+       0.36,
+       0.09
+      ],
+      "width": 0.012,
+      "pattern": {
+       "kind": "stripes",
+       "colour": [
+        0.81,
+        0.648,
+        0.162
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion",
+     "warm"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "coat",
+      "colour": [
+       0.15,
+       0.15,
+       0.16
+      ],
+      "vee": 0.14,
+      "hem": 0.28,
+      "flare": 0.06
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.12,
+       0.12,
+       0.128
+      ],
+      "vee": 0.14
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.12,
+       0.12,
+       0.128
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.075,
+       0.075,
+       0.08
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.013,
+      "below": 0.12
+     }
+    ]
+   },
+   "c_head": {
+    "slot": "head",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "cap",
+     "colour": [
+      0.18,
+      0.18,
+      0.192
+     ],
+     "band": [
+      0.18,
+      0.18,
+      0.192
+     ],
+     "brim": 1.0
+    }
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "boots",
+      "colour": [
+       0.09,
+       0.05,
+       0.03
+      ],
+      "height": 0.17
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.28,
+      0.17,
+      0.09
+     ],
+     "side": 0.03,
+     "length": 0.08,
+     "ridge": 0.003,
+     "lift": 0.011,
+     "swoop": 0.0,
+     "sideburn": 0.035,
+     "fade": 0.25,
+     "wave_tone": 0.3,
+     "wisp_side": 0.01,
+     "wisp_nape": 0.018,
+     "wisp_front": 0.004,
+     "wisp_repeats": 9.0,
+     "highlight": 0.6,
+     "shine": 0.6,
+     "gloss_rough": 0.3,
+     "waves": 1.0,
+     "front": 0.045,
+     "part": -1.0
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_head",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_head",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "b_head",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "c_head",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_bottom",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ },
+ "transient_guests_b": {
+  "macro": {
+   "gender": 0.0,
+   "age": 0.55,
+   "muscle": 0.4,
+   "weight": 0.42,
+   "proportions": 0.75,
+   "height": 0.5,
+   "cupsize": 0.45,
+   "firmness": 0.62
+  },
+  "skin": "toigo_light_skin_with_natural_makeup",
+  "eyes": "brown",
+  "hair": {
+   "style": "bob",
+   "colour": [
+    0.2,
+    0.13,
+    0.08
+   ],
+   "asset": "toigo_blunt_bob"
+  },
+  "palette": {
+   "colour": [
+    0.3,
+    0.3,
+    0.32
+   ],
+   "accent": [
+    0.7,
+    0.55,
+    0.2
+   ]
+  },
+  "parts": {
+   "a_top": {
+    "slot": "top",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "trunk"
+    ],
+    "replaces": [],
+    "rows": [
+     {
+      "kind": "shirt",
+      "name": "Blouse",
+      "colour": [
+       0.734,
+       0.734,
+       0.7416
+      ],
+      "vee": 0.08,
+      "sleeves": 0.5,
+      "blouson": 0.012,
+      "cloth": "silk"
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.734,
+       0.734,
+       0.7416
+      ],
+      "fall": 0.022,
+      "point": 0.02
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.7,
+       0.55,
+       0.2
+      ],
+      "step": 0.07,
+      "lift": 0.016,
+      "size": 0.007
+     }
+    ]
+   },
+   "a_bottom": {
+    "slot": "bottom",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "skirt",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "hem": 0.5,
+      "flare": 0.22,
+      "pleats": 16
+     }
+    ],
+    "trim": []
+   },
+   "a_over": {
+    "slot": "over",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home",
+     "warm"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "cardigan",
+      "colour": [
+       0.45,
+       0.18,
+       0.225
+      ],
+      "vee": 0.32
+     }
+    ],
+    "trim": []
+   },
+   "a_head": {
+    "slot": "head",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "headscarf",
+     "colour": [
+      0.7,
+      0.55,
+      0.2
+     ],
+     "band": [
+      0.24,
+      0.24,
+      0.256
+     ],
+     "brim": 0.0
+    }
+   },
+   "a_feet": {
+    "slot": "feet",
+    "set": "a",
+    "tags": [
+     "casual",
+     "home"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "toigo_mj_cloth_shoes",
+      "colour": [
+       0.15,
+       0.04,
+       0.04
+      ],
+      "name": "Shoes"
+     }
+    ],
+    "trim": []
+   },
+   "b_top": {
+    "slot": "top",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "arms",
+     "trunk",
+     "hips",
+     "trunk"
+    ],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "female_elegantsuit01",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "name": "Outfit",
+      "skirt": true,
+      "hem_to_calf": true
+     }
+    ],
+    "trim": []
+   },
+   "b_over": {
+    "slot": "over",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street",
+     "warm"
+    ],
+    "covers": [
+     "arms"
+    ],
+    "rows": [
+     {
+      "kind": "coat",
+      "colour": [
+       0.3,
+       0.3,
+       0.32
+      ],
+      "vee": 0.14,
+      "hem": 0.42,
+      "flare": 0.14,
+      "pattern": {
+       "kind": "checks",
+       "colour": [
+        0.51,
+        0.51,
+        0.544
+       ],
+       "width": 1,
+       "cells": 4,
+       "repeat": 5
+      }
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.24,
+       0.24,
+       0.256
+      ],
+      "vee": 0.14
+     },
+     {
+      "kind": "collar",
+      "colour": [
+       0.24,
+       0.24,
+       0.256
+      ],
+      "out": 0.022,
+      "fall": 0.04,
+      "point": 0.03
+     }
+    ],
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.15,
+       0.15,
+       0.16
+      ],
+      "step": 0.1,
+      "lift": 0.036,
+      "size": 0.012,
+      "below": 0.1
+     }
+    ]
+   },
+   "b_head": {
+    "slot": "head",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hat": {
+     "kind": "wide",
+     "colour": [
+      0.18,
+      0.18,
+      0.192
+     ],
+     "band": [
+      0.7,
+      0.55,
+      0.2
+     ],
+     "brim": 2.3
+    }
+   },
+   "b_feet": {
+    "slot": "feet",
+    "set": "b",
+    "tags": [
+     "formal",
+     "street"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "shoes",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ]
+     }
+    ],
+    "trim": []
+   },
+   "c_top": {
+    "slot": "top",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "replaces": [
+     "bottom"
+    ],
+    "rows": [
+     {
+      "kind": "asset",
+      "asset": "aethelraed_flapper_dress",
+      "colour": [
+       0.5,
+       0.2,
+       0.25
+      ],
+      "name": "Dress",
+      "skirt": true,
+      "made": {
+       "cloth": "silk",
+       "pattern": null,
+       "scale": 9.0
+      }
+     }
+    ],
+    "trim": []
+   },
+   "c_over": {
+    "slot": "over",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [],
+    "rows": [
+     {
+      "kind": "cape",
+      "colour": [
+       0.15,
+       0.15,
+       0.16
+      ],
+      "length": 0.17,
+      "cloth": "silk"
+     }
+    ],
+    "trim": []
+   },
+   "c_feet": {
+    "slot": "feet",
+    "set": "c",
+    "tags": [
+     "occasion"
+    ],
+    "covers": [
+     "feet"
+    ],
+    "rows": [
+     {
+      "kind": "boots",
+      "colour": [
+       0.02,
+       0.02,
+       0.025
+      ],
+      "height": 0.27
+     }
+    ],
+    "trim": []
+   },
+   "f_head": {
+    "slot": "head",
+    "set": "f",
+    "tags": [
+     "occasion",
+     "evening"
+    ],
+    "covers": [],
+    "rows": [],
+    "trim": [],
+    "hair": "replace",
+    "hat": {
+     "kind": "waves",
+     "colour": [
+      0.2,
+      0.13,
+      0.08
+     ],
+     "length": 0.07,
+     "side": 0.07,
+     "waves": 3.5,
+     "ridge": 0.006,
+     "lift": 0.012,
+     "curl": 0.012,
+     "front": 0.035,
+     "swoop": 0.025,
+     "part": 1.0,
+     "ornament": "bandeau",
+     "band": [
+      0.7,
+      0.55,
+      0.2
+     ],
+     "band_half": 0.0045,
+     "band_height": 0.024
+    }
+   }
+  },
+  "looks": {
+   "a": [
+    "a_top",
+    "a_bottom",
+    "a_over",
+    "a_head",
+    "a_feet"
+   ],
+   "b": [
+    "b_top",
+    "b_over",
+    "b_head",
+    "b_feet"
+   ],
+   "c": [
+    "c_top",
+    "c_over",
+    "c_feet"
+   ],
+   "mix1": [
+    "a_top",
+    "c_over",
+    "b_head",
+    "a_feet"
+   ],
+   "mix2": [
+    "c_top",
+    "a_bottom",
+    "b_over",
+    "b_feet"
+   ],
+   "f": [
+    "c_top",
+    "c_over",
+    "c_feet",
+    "f_head"
+   ]
+  }
+ }
+}
