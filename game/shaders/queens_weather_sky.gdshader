@@ -357,7 +357,7 @@ float soft_union(float a,float b,float k) {
 }
 #define QUEENS_CLOUD_DECK
 #include "res://shaders/sky_spectacle.gdshaderinc"
-float density_tagged(vec3 p,out float fire,vec3 footprint) {
+float density_tagged(vec3 p,out float fire,vec3 footprint,bool primary) {
     fire=0.0;
     float base=wx_cloud_base();
     float thickness=mix(0.60,3.0,season_weights.z);
@@ -374,10 +374,10 @@ float density_tagged(vec3 p,out float fire,vec3 footprint) {
     float deck=smoothstep(0.0,0.12,h)*(1.0-smoothstep(0.72,1.0,h));
     float result=0.0;
     if(living_enabled && asperitas<=0.001 && max(vortex_intensity,wx_cyclone)<.001) {
-        result=living_density(p,living_layer_0,living_motion_0,living_brush_0,living_drift_0,living_flow_0,footprint);
+        result=living_density(p,living_layer_0,living_motion_0,living_brush_0,living_drift_0,living_flow_0,footprint,primary);
         // An opaque lower ceiling hides the middle stratum. Keep its observed
         // state, but spend no density/light taps on an invisible second deck.
-        if(living_layer_0.x<.96) result+=living_density(p,living_layer_1,living_motion_1,living_brush_1,living_drift_1,living_flow_1,footprint);
+        if(living_layer_0.x<.96) result+=living_density(p,living_layer_1,living_motion_1,living_brush_1,living_drift_1,living_flow_1,footprint,primary);
     } else if(deck>0.001) {
         float scale=mix(0.30,0.16,season_weights.z);
         vec3 cloud_lookup=q*scale+vec3(wx_cloud_drift.x,0.0,wx_cloud_drift.y);
@@ -416,9 +416,9 @@ float density_tagged(vec3 p,out float fire,vec3 footprint) {
 }
 float density(vec3 p,vec3 footprint) {
     float fire;
-    return density_tagged(p,fire,footprint);
+    return density_tagged(p,fire,footprint,false);
 }
-vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
+vec4 wx_volumetric_clouds(vec3 direction,vec2 pixel_coords) {
     vec3 ro=wx_camera_km;
     float base=wx_cloud_base();
     float ceiling=base+mix(0.60,3.0,season_weights.z);
@@ -442,6 +442,9 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     if(wx_formation==3) ceiling=max(ceiling,wx_lens_center.y+0.55);
     if(wx_formation==2) ceiling=max(ceiling,2.80);
     float lighting_base=base<10000.0 ? base : wx_cloud_base();
+    bool ordinary_intervals=living_enabled && wx_formation==0
+        && max(vortex_intensity,wx_cyclone)<.001
+        && spectacle[S_ASPERITAS]+spectacle[S_MAMMATUS]+spectacle[S_VIRGA]+spectacle[S_FALLSTREAK]<.001;
     vec2 empty_gap=vec2(100000.0,-1.0);
     if(living_enabled && asperitas<=.001 && max(vortex_intensity,wx_cyclone)<.001
         && living_layer_0.x>.0001 && living_layer_0.x<.96 && living_layer_1.x>.0001
@@ -452,8 +455,8 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     }
     vec2 deck=vec2(100000.0,-1.0);
     if(direction.y>0.0001) {
-        float underside=(wx_formation==1 || spectacle[S_ASPERITAS]>0.0) ? 0.75 : 0.50;
-        deck=vec2(max(0.0,(base-underside-ro.y)/direction.y),min(40.0,(ceiling-ro.y)/direction.y));
+        float underside=ordinary_intervals ? 0.0 : ((wx_formation==1 || spectacle[S_ASPERITAS]>0.0) ? 0.75 : 0.50);
+        deck=vec2(max(0.0,(base-underside-ro.y)/direction.y),min(ordinary_intervals ? 24.0 : 40.0,(ceiling-ro.y)/direction.y));
         if(deck.y<=deck.x) deck=vec2(100000.0,-1.0);
     }
     vec2 funnel=vec2(100000.0,-1.0);
@@ -477,12 +480,18 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     float t=min(deck.x,funnel.x), finish=max(deck.y,funnel.y);
     if(t>=finish) return vec4(0.0);
     float base_steps=40.0;
-    float coarse=max(0.02,(deck.y-deck.x)/base_steps);
+    // Allocate the existing budget to actual cloud, not the empty kilometres
+    // between strata. Two thin decks otherwise received only 6-7 samples each.
+    float occupied_length=deck.y-deck.x;
+    if(ordinary_intervals) occupied_length-=max(0.0,min(deck.y,empty_gap.y)-max(deck.x,empty_gap.x));
+    float coarse=max(0.02,occupied_length/base_steps);
+    // At grazing angles a vertical-only budget can step over kilometre-wide
+    // holes and draw scan lines. 24 km / .16 km fits the existing 160-step cap.
+    if(ordinary_intervals) coarse=min(coarse,.16);
     float fine=max(0.0125,(funnel.y-funnel.x)/80.0);
-    // Spatially coherent midpoint quadrature. Random ray-start offsets made
-    // structured erosion/self-shadowing sparkle in the half-resolution pass;
-    // camera TAA did not reliably integrate that independently changing field.
-    float jitter=0.5;
+    // Deterministic two-point Gauss quadrature replaces pixel-hashed offsets.
+    // It integrates each ordinary interval without screen-space grain; both
+    // samples share lighting at its midpoint. Rare formations keep one tap.
     vec3 to_sun=normalize(sun_direction);
     float day=smoothstep(-0.12,0.10,to_sun.y);
     float night=1.0-smoothstep(-.18,-.07,to_sun.y);
@@ -516,9 +525,15 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
         if(t<deck.x) ds=min(ds,deck.x-t);
         ds=min(ds,finish-t);
         if(ds<0.000001) { t+=0.000001; continue; }
-        vec3 p=ro+direction*(t+ds*(0.25+0.50*jitter));
+        vec3 p=ro+direction*(t+ds*.5);
         float fire;
-        float d=density_tagged(p,fire,vec3(0.0));
+        float d;
+        if(ordinary_intervals) {
+            vec3 half_footprint=abs(direction)*ds*.5;
+            float other_fire;
+            d=.5*(density_tagged(p-direction*(ds*.2886751346),fire,half_footprint,true)
+                +density_tagged(p+direction*(ds*.2886751346),other_fire,half_footprint,true));
+        } else d=density_tagged(p,fire,vec3(0.0),true);
         if(d>0.002) {
             // Every light tap calls the same density, including funnel and lenses.
             vec3 footprint=abs(direction)*ds;
@@ -538,9 +553,21 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
             }
             // Past about 10 km a grazing ray steps hundreds of metres at a time and
             // the deck aliases into rays; thin it into the horizon air instead.
-            float alpha=(1.0-exp(-6.0*d*ds))*(1.0-smoothstep(9.0,24.0,t));
+            float horizon_fade=1.0-smoothstep(9.0,24.0,t);
+            // Fade optical depth before Beer integration, so dividing a ray
+            // interval cannot change its opacity. Keep rare formation optics.
+            float alpha=ordinary_intervals ? 1.0-exp(-6.0*d*ds*horizon_fade)
+                : (1.0-exp(-6.0*d*ds))*horizon_fade;
             float h=clamp((p.y-lighting_base)/max(ceiling-lighting_base,0.1),0.0,1.0);
             vec3 cloud_ambient=ambient*mix(1.0,.55+.45*exp(-tau_sun*.2),night);
+            // Ordinary daytime clouds receive less diffuse sky light in their
+            // occluded cores. Reuse the filtered shadow taps; the former uniform
+            // ambient floor erased volume. Keep dated formations and night art.
+            bool ordinary_day=living_enabled && wx_formation==0
+                && max(storm_strength,max(wx_hail,max(wx_cyclone,vortex_intensity)))<.001
+                && spectacle[S_ASPERITAS]+spectacle[S_MAMMATUS]+spectacle[S_VIRGA]+spectacle[S_FALLSTREAK]<.001;
+            float relief_day=ordinary_day ? smoothstep(.06,.25,to_sun.y) : 0.0;
+            cloud_ambient*=mix(1.0,.22+.78*exp(-.90*tau_sun),relief_day);
             vec3 lit=wx_powder_light(d,tau_sun,dot(direction,source),h,
                 celestial_color*(day+moonlight*.35),cloud_ambient,to_sun);
             float asperitas=max(wx_formation==1 ? wx_formation_strength : 0.0,spectacle[S_ASPERITAS]);
@@ -570,8 +597,8 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     }
     return vec4(sum,1.0-transmittance); // Already premultiplied: do not multiply alpha twice.
 }
-vec4 volumetric_clouds(vec3 direction,vec2 screen_uv) {
-    vec4 deck=wx_volumetric_clouds(direction,screen_uv);
+vec4 volumetric_clouds(vec3 direction,vec2 pixel_coords) {
+    vec4 deck=wx_volumetric_clouds(direction,pixel_coords);
     if(direction.y<.005) return deck;
     float jitter=0.5; // Match the deck's stable sample phase for rare formations.
     float near_t;
@@ -588,15 +615,19 @@ void sky() {
 			+vec3(.035,.075,.15)*smoothstep(-.12,.12,sun_direction.y)*(1.0-cloud_coverage);
         COLOR*=1.0-0.12*wetness;
     } else if (AT_HALF_RES_PASS) {
-        vec4 clouds=volumetric_clouds(EYEDIR,SCREEN_UV);
+        vec4 clouds=volumetric_clouds(EYEDIR,FRAGCOORD.xy);
         COLOR=clouds.rgb; ALPHA=clouds.a;
     } else {
         vec3 point_stars;
         vec3 base=celestial_base(EYEDIR,point_stars);
         if(skywatch_extended_optics)base=skywatch_twilight_geometry(EYEDIR,base)+skywatch_night_dust(EYEDIR);
+        // Plane projection expands radially as 1/elevation squared. Derivatives
+        // must be evaluated outside the horizon branch, across complete quads.
+        vec3 high_p=wx_camera_km+EYEDIR*((living_layer_2.y+living_layer_2.z*.3-wx_camera_km.y)/max(EYEDIR.y,.015));
+        vec3 high_footprint=abs(dFdx(high_p))+abs(dFdy(high_p));
+        high_footprint.y=0.0;
         if(living_enabled && living_layer_2.x>.0001 && EYEDIR.y>.015) {
-            vec3 high_p=wx_camera_km+EYEDIR*((living_layer_2.y+living_layer_2.z*.3-wx_camera_km.y)/EYEDIR.y);
-            float ice=living_density(high_p,living_layer_2,living_motion_2,living_brush_2,living_drift_2,living_flow_2,vec3(0.0));
+            float ice=living_density(high_p,living_layer_2,living_motion_2,living_brush_2,living_drift_2,living_flow_2,high_footprint,true);
             float ice_alpha=1.0-exp(-ice*living_layer_2.z*3.0/max(.12,EYEDIR.y));
             ice_alpha*=smoothstep(.04,.18,EYEDIR.y)*(1.0-(wx_formation==4 ? wx_formation_strength*.8 : 0.0));
             float high_sun=smoothstep(-.065,-.025,sun_direction.y);
@@ -606,6 +637,12 @@ void sky() {
             vec3 ice_color=mix(mix(fog_horizon_color*.7,ice_night,high_night),vec3(.70,.80,.95),high_sun);
             float amber=1.0-smoothstep(.015,.24,abs(sun_direction.y));
             ice_color=mix(ice_color,vec3(1.30,.55,.32),amber*high_sun);
+            if(int(living_layer_2.w)==1) {
+                // Cc cores have shallow relief; retain the original night and
+                // low-Sun tint rather than darkening every ice genus.
+                float core=smoothstep(.10,.85,ice/max(living_brush_2.y,.001));
+                ice_color*=1.0-.22*core*smoothstep(.06,.25,sun_direction.y);
+            }
             base=mix(base,ice_color,ice_alpha);
             point_stars*=1.0-ice_alpha;
         }

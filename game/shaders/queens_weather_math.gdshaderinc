@@ -67,10 +67,9 @@ float cloud_filtered_ramp(float a,float b,float h,float width) {
 	float x=(h-a)/(b-a), w=width/(b-a);
 	return clamp((cloud_ramp_integral(x+w*.5)-cloud_ramp_integral(x-w*.5))/w,0.0,1.0);
 }
-// The primary density uses zero footprint. Self-shadow taps integrate over the
-// view step they illuminate: loaded mips and a box-filtered height ramp suppress
-// undersampled lighting blocks without filtering the visible cloud silhouette.
-float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 flow_state,vec3 footprint) {
+// Footprint is the sampled world interval in km. Sample role is independent:
+// view quadrature retains filtered billow detail; shadow taps omit that octave.
+float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 flow_state,vec3 footprint,bool primary) {
 	float coverage=layer.x;
 	if(coverage<=0.0001 || p.y<layer.y || p.y>layer.y+layer.z) return 0.0;
 	float h=(p.y-layer.y)/layer.z;
@@ -85,6 +84,7 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 	float body=0.0;
 	float texture_detail=.6;
 	bool sheet=(genus==2 || genus==4 || genus==5 || genus==7);
+	bool rounded=(genus==3 || genus==6 || genus==8); // Ac, Sc, Cu; not the high ice plane.
 	if(living_fluid_enabled && genus!=0) {
 		// Wind-aligned leaning; cirrus retains its distinct ice-fibre brush.
 		q.x-=h*h*flow_state.y*.55;
@@ -104,51 +104,78 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		// coverage must not flatten its bottom into a horizontal card.
 		h-=(1.0-broad)*.22*(1.0-smoothstep(.20,.75,h));
 	} else if(genus==0) {
-		// High ice fibres: anisotropic stretched marks, not scaled cumulus.
-		// The high plane spans tens of kilometres near the horizon. Broad,
-		// wind-aligned fibres need a much larger footprint than small cloudlets;
-		// otherwise this one texture tap repeats as hundreds of identical flecks.
-		vec2 uv=vec2(q.x*.035,q.y*.11+sin(q.x*.22+drift.z)*.035)+motion.xy;
-		vec2 ice_noise=textureLod(cloud_noise,vec3(uv,.17+motion.z),1.0).rg;
-		float fibre=ice_noise.r;
+		// Broad ice packets contain finer curved fibres. Stretching a thresholded
+		// volume alone produced solid white blades tens of kilometres across.
+		// The continuous packet has no binary edge; the existing stroke stock
+		// only modulates its fibres, rather than drawing sharp white ribbons.
+		vec2 uv=vec2(q.x*.08,q.y*.24+sin(q.x*.22+drift.z)*.025)+motion.xy;
+		float ice_width=qwidth*.25;
+		float ice_lod=clamp(log2(max(1.0,64.0*ice_width)),1.0,5.0);
+		// Stretch fibres, not their supporting packet. Isotropic packets break
+		// the long coherent blades produced by stretching the whole ice field.
+		// Integer frequency keeps the publisher's periodic motion wrap exact.
+		vec2 packet_uv=uv*vec2(3.0,1.0);
+		vec2 ice_noise=textureLod(cloud_noise,vec3(packet_uv,.17+motion.z),ice_lod).rg;
 		texture_detail=ice_noise.g;
-		// Thin ice has a translucent feathered interior, not an opaque stretched
-		// cumulus silhouette. The already sampled G channel breaks up its fibres.
-		body=smoothstep(.64-coverage*.36,.74-coverage*.36,fibre)
-			*mix(.25,.70,smoothstep(.18,.78,ice_noise.g));
+		float packet=clamp((ice_noise.r-(.38-coverage*.25))/.45,0.0,1.0);
+		vec2 fibre_uv=uv+(ice_noise-.5)*vec2(.60,.35);
+		float fibre_lod=log2(max(1.0,float(textureSize(cirrus_tex,0).x)*ice_width));
+		float strokes=textureLod(cirrus_tex,fibre_uv,fibre_lod).r;
+		body=packet*packet*mix(.5,1.0,ice_noise.g)*mix(.70,1.0,strokes);
+		// Unresolved distant fibres become a faint veil instead of a repeating
+		// fan of lines aimed at the horizon. This changes ice, not world fog.
+		float distant_ice=smoothstep(25.0,60.0,length(p.xz-wx_camera_km.xz));
+		body=mix(body,coverage*.05,distant_ice);
 	} else {
 		// Continuous warped masses avoid a visible grid of identical ellipsoids.
 		// Reuse the existing two-channel volume; no new texture or march steps.
 		vec2 warp;
 		if(living_fluid_enabled) {
-			vec3 roll=curl_noise3d(vec3(q*.043+drift.xy,h*.30+flow_state.x));
+			// Ordinary families share a column-coherent footprint. Independent
+			// height slices otherwise fill one another's holes into an overcast.
+			vec3 roll=curl_noise3d(vec3(q*.043+drift.xy,(rounded ? 0.0 : h*.30)+flow_state.x));
 			warp=roll.xy*.5;
 			h+=roll.z*.13*sin(h*3.14159265359);
 		} else warp=textureLod(cloud_noise,vec3(q*.043+drift.xy,motion.z),1.0).rg-.5;
 		vec2 marks=q+warp*3.0;
 		if(int(brush.z)==4 || int(brush.z)==9) marks.y*=genus==1 ? .70 : .32;
 		// Keep in step with living_sky.gd, which transports the same coordinate.
-		float mark_scale=genus==1 ? .10 : .40;
-		vec3 lookup=vec3(marks*mark_scale+motion.xy,h*.55+motion.z*2.0);
+		float mark_scale=genus==1 ? .30 : .40;
+		// Match horizontal and vertical kilometres for ordinary billows. A fixed
+		// .55 cycles per layer compressed Sc lobes almost fourfold into pancakes.
+		float vertical_scale=rounded ? clamp(layer.z*mark_scale/max(brush.x,.1),.10,.65) : .55;
+		vec3 lookup=vec3(marks*mark_scale+motion.xy,h*vertical_scale+motion.z*2.0);
 		vec2 field;
+		float far_family=1.0;
+		float far_field=smoothstep(7.0,22.0,length(p.xz-wx_camera_km.xz));
 		if(living_fluid_enabled) {
 			// Nested Worley deformation is small enough to retain broad families.
 			// A distant view ray covers many texels too: without this the far deck
 			// aliases into fans converging on the horizon.
-			float view_width=length(p.xz-wx_camera_km.xz)*.012/max(brush.x,.1);
+			// The analytic high plane supplies its projected pixel footprint.
+			// Retain the volumetric cone until that march supplies a pixel cone.
+			float view_width=genus==1 ? 0.0 : length(p.xz-wx_camera_km.xz)*.012/max(brush.x,.1);
 			float width=max(qwidth,view_width)*mark_scale;
-			float detail_lod=clamp(log2(max(1.0,64.0*3.0*max(width,hwidth*.55))),1.0,5.0);
-			float macro_lod=clamp(log2(max(1.0,128.0*max(width,hwidth*.55))),1.0,6.0);
+			float detail_lod=clamp(log2(max(1.0,64.0*3.0*max(width,hwidth*vertical_scale))),1.0,5.0);
+			float macro_lod=clamp(log2(max(1.0,128.0*max(width,hwidth*vertical_scale))),1.0,6.0);
 			vec2 detail=textureLod(cloud_noise,lookup*3.0,detail_lod).rg;
 			lookup.xy+=(detail-.5)*.10;
 			field=vec2(textureLod(cloud_macro,lookup,macro_lod).r,detail.g);
 			// The tile repeats every few kilometres, and in perspective a repeating
 			// grid reads as rays from the horizon. Far away, cross-fade to a slower
 			// rotated copy so the deck has no axis left to show.
-			float far_field=smoothstep(7.0,22.0,length(p.xz-wx_camera_km.xz));
 			if(far_field>.001) {
-				vec2 slow=mat2(vec2(.80,-.60),vec2(.60,.80))*lookup.xy*.31;
-				field.x=mix(field.x,textureLod(cloud_macro,vec3(slow,lookup.z),macro_lod).r,far_field);
+				// Transport the broad field at its own periodic frequency. Scaling
+				// a wrapped fine UV by .31 made it jump at phase wrap boundaries.
+				vec2 broad=q*.043+drift.xy;
+				vec2 slow=vec2(broad.x+broad.y,broad.y-broad.x);
+				float broad_width=max(qwidth*.061,hwidth*vertical_scale);
+				float broad_lod=clamp(log2(max(1.0,128.0*broad_width)),1.0,6.0);
+				float broad_mass=textureLod(cloud_macro,vec3(slow,lookup.z),broad_lod).r;
+				far_family=smoothstep(.30,.65,broad_mass);
+				// Cc keeps its small cells. Replacing those cells with slow noise
+				// stretched them into connected horizon strips.
+				if(genus!=1) field.x=mix(field.x,broad_mass,far_field);
 			}
 		} else field=textureLod(cloud_noise,lookup,1.0).rg;
 		texture_detail=field.y;
@@ -157,28 +184,41 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		h-=(1.0-field.x)*.35*(1.0-smoothstep(.20,.80,h));
 		h+=(1.0-field.x)*.18*smoothstep(.40,.90,h);
 		float mass=field.x; // Worley is erosion, never a second field of tiny bodies.
-		float upper=(genus==1 || genus==3 || genus==6) ? .43 : .78;
+		float upper=genus==1 ? .43 : ((genus==3 || genus==6) ? .70 : .78);
 		mass-=pow(max(h-.12,0.0)/upper,2.0)*.18;
 		if(int(brush.z)==5) mass+=sin(q.y*2.2+drift.z+warp.x*4.0)*.08;
 		if(int(brush.z)==6) mass+=sin(q.x*.16+drift.w)*.10;
 		if(int(brush.z)==8) mass-=.07*(1.0-field.y);
-		body=smoothstep(.70-.40*sqrt(coverage),.75-.40*sqrt(coverage),mass);
+		// Linear ordinary coverage avoids filling a long ray with many weak
+		// sqrt-coverage hits. A graded interior retains light and shadow relief.
+		float edge_width=(rounded || genus==1) ? .060 : .025;
+		float edge_center=.725-.40*(rounded ? coverage : sqrt(coverage));
+		body=smoothstep(edge_center-edge_width,edge_center+edge_width,mass);
+		if(genus==1) {
+			// A single high-plane slice must retain graded optical thickness;
+			// saturating it here made Cc read as cut-out white chips.
+			float packet=clamp((mass-(edge_center-.12))/.36,0.0,1.0);
+			body=packet*packet;
+		}
 		// Billowed edges on the view ray only: the lighting taps keep their
 		// filtered footprint and spend nothing on detail they could not resolve.
-		if(living_fluid_enabled && qwidth==0.0 && body>.001 && body<.999) {
+		if(living_fluid_enabled && primary && body>.001 && body<.999) {
 			// Fine detail fades out before it is smaller than a pixel; unfiltered
 			// it aliased into rays converging on the horizon.
 			float distance_km=length(p.xz-wx_camera_km.xz);
 			float near_detail=1.0-smoothstep(5.0,16.0,distance_km);
 			if(near_detail>.001) {
-				float billow=textureLod(cloud_noise,lookup*7.0,clamp(1.0+log2(1.0+distance_km*.6),1.0,5.0)).g;
-				body=clamp(body-(1.0-billow)*.55*near_detail*(1.0-body),0.0,1.0);
+				float billow_lod=max(1.0+log2(1.0+distance_km*.6),log2(max(1.0,64.0*7.0*max(qwidth*mark_scale,hwidth*vertical_scale))));
+				float billow=textureLod(cloud_noise,lookup*7.0,clamp(billow_lod,1.0,5.0)).g;
+				if(genus==1) body*=1.0-(1.0-billow)*.25*near_detail;
+				else body=clamp(body-(1.0-billow)*(rounded ? .28 : .55)*near_detail*(1.0-body),0.0,1.0);
 			}
 		}
 		body=mix(body,.7+.3*field.x,smoothstep(.88,1.0,coverage));
 		// Small cells belong to broad families, with open sky between families.
 		// Reuse the existing warp tap rather than adding another noise octave.
 		float family=smoothstep(.36-.20*coverage,.60-.20*coverage,warp.x+.5);
+		if(genus==1 && living_fluid_enabled) family=mix(family,far_family,far_field);
 		body*=mix(family,1.0,smoothstep(.70,.96,coverage));
 		// The high plane reaches 100 km and more. Past what the eye could resolve
 		// it is a thin even veil, not a pattern repeated thirty times over.
@@ -187,7 +227,8 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		texture_detail=mix(texture_detail,.5,veil);
 	}
 	float envelope=cloud_filtered_ramp(0.0,.10,h,hwidth)*(1.0-cloud_filtered_ramp(.72,1.0,h,hwidth));
-	float sculpted=living_fluid_enabled && genus!=0 ? wx_height_erosion(body,texture_detail,h,1.0) : max(0.0,body-(1.0-texture_detail)*.12);
+	float sculpted=(genus==0 || genus==1) ? body*mix(.75,1.0,texture_detail)
+		: (living_fluid_enabled ? wx_height_erosion(body,texture_detail,h,1.0) : max(0.0,body-(1.0-texture_detail)*.12));
 	return sculpted*envelope*brush.y;
 }
 
