@@ -1,3 +1,28 @@
+# Current authoring checkpoint — voice intake and research closure, November 13
+
+Main-based CPU-only integration at **C:/ov/ldv**, branch
+**codex/order-closures-20261113**, reuses the existing checkout. It delivers the
+approved cast voice-authoring source from old draft PR230, with provenance-bound
+Rhubarb cue intake, and the bounded Queens address research reconciliation.
+No new game audio, runtime controller, production lettering or geometry is added.
+[Voice scope and remaining work](design/VOICE_LINE_INTAKE_2026-11-11.md) ·
+[Address review](design/V2_STOREFRONT_REFIT_PLAN_2026-10-29.md#6-queens-address-research-intake--november-13).
+
+Verification: **C:/ov/reports/order_closures_20261113/**; 78 voice tests pass,
+actual Rhubarb alignment/reuse/refusal passes, reader NEW 0. The complete static
+candidate verdict lives in **verification01/**; inspect it before merging.
+The broader voice corpus, held references and played runtime lip-sync remain open
+as **K-VOICE-PRODUCTION**. The old generation case is interrupted, not live.
+
+Door/loop draft **PR255** remains separately frozen at **9e2b12995** with zero new
+static regressions and player65/0. Its apartment, closer/hose and occupied-world
+renewal remain open. Restore that branch and revalidate source/process custody
+before launching prepared **door_passage_20261113/candidate03/**. The initial
+project mirror backup continues independently; inspect its live receipt before a
+quiet timing run. Athena and Optimus remain on Lily's power-related hold.
+Canonical **C:/PleaseRemainOnTheLine** preserves staged Harukiya work; do not
+replace it with this CPU-only snapshot.
+
 # Current checkpoint — sky sampling and film, November 12
 
 PR247 merged as **df5b68831**, exactly the qualified **b96a9b6c9** tree. Clean122-gate comparison has zero new regressions, protected17/17, selectorV2 and no design-lint errors. The change repairs pixel-hashed cloud grain, filters the projected high plane, shortens cirrus packets and preserves fine distant Cc families with periodic transport. [Implementation and scoped evidence](design/SKY_SAMPLING_FILM_2026-11-12.md). Final hidden Vulkan checks: 12 layer views, nine optical/temporal checks and three rare-weather controls pass. The actual-city film passes capture/restoration and complete decode: **C:/ov/reports/sky_sampling_film_20261112/film_full02/sky_day_night.mp4**, 24 seconds, 1080p24, full historical day/night cycle, elevated roof camera. Original failed launch assertion is retained. Paired performance and clean candidate integration results live in **paired05/** and **verification02/** beneath that report root. Follow **MERGE_CUSTODY.json** for final commit/merge and checkout cleanup. No new worktree was created. Technical verification is distinct from Lily's artistic acceptance; faint grazing bands, busy Cc, the annual art survey and other retained weather debt stay open. Preserve unrelated generated UIDs and original evidence.
