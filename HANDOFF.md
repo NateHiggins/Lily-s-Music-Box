@@ -13,6 +13,11 @@ companion self-inspection recursion guard. The latest fixture/document checkpoin
 retains the same tested production payload. Final static verification must bind
 its actual SHA against merge-base **4b4137767** and the clean board
 **C:/ov/reports/order_closures_20261113/board_4b4137767.json**. No merge yet.
+The first final comparison **candidate_static_03/** matches127PASS/4existingFAIL/
+1INCOMPLETE but blocks one new reported spatial reference: the new regression's
+4B fixture identity. That exact test-only record is now reviewed/registered;
+all previous records and scanner rules are unchanged. Renew the final comparison
+in **candidate_static_04/**; no Godot rerun is needed for this manifest-only fix.
 
 **C:/ov/reports/door_passage_20261113/companion_regression05/** is terminal:
 own-control 91/0, work-clearance schema2 78/0, nearby loop-world schema2 106/0,

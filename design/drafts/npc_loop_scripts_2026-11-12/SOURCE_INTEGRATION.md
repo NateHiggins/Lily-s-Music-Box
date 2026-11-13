@@ -187,5 +187,9 @@ are retained separately, not called stale caches. Initial R: backup runs
 concurrently; these are functional checks, not clean timing measurements.
 Final static renewal must compare to the clean132-gate board of the actual
 merge-base4b4137767; **candidate_static_02/** is prior source evidence only.
+**candidate_static_03/** retains127PASS/4existingFAIL/1INCOMPLETE and blocks only
+the new work-clearance fixture's4B reference. Its exact test-only manifest record
+is reviewed and registered, with no other record or scanner rule changed;
+**candidate_static_04/** is the subsequent final comparison, not a repinned board.
 Broader traffic, historical attendance, populated-frame cost, main merge, human
 play and artistic acceptance remain open. Fable's body/outfit work is separate.
