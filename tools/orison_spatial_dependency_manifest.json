@@ -202185,7 +202185,7 @@
     "_build_tiles"
    ],
    "lines": [
-    152
+    174
    ],
    "count": 1,
    "context": [
@@ -217876,6 +217876,96 @@
    "target_exists": null
   },
   {
+   "key": "c65146ae4fda86f5",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/characters/harukiya_cast.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "configure"
+   ],
+   "lines": [
+    29
+   ],
+   "count": 1,
+   "context": [
+    "if str(storey.id) != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a40a391c9b76e235",
+   "kind": "generated_name",
+   "token": "_ready",
+   "file": "game/scripts/characters/harukiya_cast.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    42
+   ],
+   "count": 1,
+   "context": [
+    "\"Harukiya_\" + id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b44792ba4c4ae2e4",
+   "kind": "id_reference",
+   "token": "retail_bar_floor",
+   "file": "game/scripts/characters/harukiya_cast.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "configure"
+   ],
+   "lines": [
+    31
+   ],
+   "count": 1,
+   "context": [
+    "if str(row.id) == \"retail_bar_floor\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
    "key": "be5093124c2e2286",
    "kind": "node_path",
    "token": "B1_LAUNDRY_DOOR_Leaf",
@@ -218145,6 +218235,36 @@
    "disposition": "REPLACE_WITH_NAMED_ANCHOR",
    "confidence": "MEDIUM",
    "rationale": "Production Godot-space coordinate with gameplay context; candidate named anchor.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "5ca2e204b7decefd",
+   "kind": "generated_name",
+   "token": "install",
+   "file": "game/scripts/characters/resident_hair.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "install"
+   ],
+   "lines": [
+    46
+   ],
+   "count": 1,
+   "context": [
+    "\"HairKeepOut_\" + bone"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
   },
@@ -218760,6 +218880,36 @@
    "disposition": "REPLACE_WITH_NAMED_ANCHOR",
    "confidence": "MEDIUM",
    "rationale": "Production plan-space coordinate literal binds gameplay to the current geometry.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "aec40d80abc94ddd",
+   "kind": "generated_name",
+   "token": "_put_on",
+   "file": "game/scripts/characters/resident_wardrobe.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "_put_on"
+   ],
+   "lines": [
+    115
+   ],
+   "count": 1,
+   "context": [
+    "\"%s_%s\" % [part, mesh.name]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
   },
@@ -231256,6 +231406,136 @@
    "target_exists": null
   },
   {
+   "key": "91db771f3bc29e29",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/cast_clip_presentation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    45,
+    91
+   ],
+   "count": 2,
+   "context": [
+    "camera.position = Vector3(0.0, 1.5, 3.0)",
+    "actor.attention.staged_target = actor.global_position + Vector3(2.0, 1.5, 1.0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "ac8d246dd1101dbc",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/cast_model_presentation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    79,
+    80
+   ],
+   "count": 2,
+   "context": [
+    "camera.position = Vector3(0, 1.35, 2)",
+    "camera.look_at(Vector3(0, 1.3, 0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cad3fd2771f9a91b",
+   "kind": "generated_name",
+   "token": "run",
+   "file": "game/tests/cast_wardrobe_presentation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    94
+   ],
+   "count": 1,
+   "context": [
+    "\"Cast_\" + id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e17eef0221081e18",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/cast_wardrobe_presentation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    69,
+    70
+   ],
+   "count": 2,
+   "context": [
+    "camera.position = Vector3(0, 1.35, 2)",
+    "camera.look_at(Vector3(0, 1.3, 0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "5b9520a1b3f1d051",
    "kind": "unit_reference",
    "token": "4B",
@@ -231329,6 +231609,68 @@
    "count": 1,
    "context": [
     "wall.position = player.camera.global_position + Vector3(0, 0, -3.5)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "527351b75270efb1",
+   "kind": "generated_name",
+   "token": "exercise",
+   "file": "game/tests/constrained_grab_scalar_release_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "exercise"
+   ],
+   "lines": [
+    64
+   ],
+   "count": 1,
+   "context": [
+    "\"Scalar_\" + mode"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "de0980ce7898a6ab",
+   "kind": "vector3_coordinate",
+   "token": "exercise",
+   "file": "game/tests/constrained_grab_scalar_release_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "exercise"
+   ],
+   "lines": [
+    69
+   ],
+   "count": 1,
+   "context": [
+    "owner.part.global_position = player.camera.global_position + Vector3(0,0,-0.8)"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -233039,7 +233381,7 @@
     "_route"
    ],
    "lines": [
-    64
+    77
    ],
    "count": 1,
    "context": [
@@ -233442,7 +233784,7 @@
     "_ready"
    ],
    "lines": [
-    260
+    265
    ],
    "count": 1,
    "context": [
@@ -233472,14 +233814,14 @@
     "_ready"
    ],
    "lines": [
-    133,
-    134,
-    166,
-    167,
-    261,
-    271,
-    274,
-    291
+    138,
+    139,
+    171,
+    172,
+    266,
+    276,
+    279,
+    296
    ],
    "count": 8,
    "context": [
@@ -243275,15 +243617,15 @@
     "exercise"
    ],
    "lines": [
-    171,
-    176,
-    189,
-    229
+    244,
+    250,
+    263,
+    311
    ],
    "count": 4,
    "context": [
     "{\"schema_version\":1,\"records\":[],}, {\"schema_version\":1,\"records\":{\"2A_prep_cabinet\":{\"kind\":false,\"value\":true}}}]",
-    "wrong_type.records[\"2A_prep_cabinet\"].value = 1",
+    "wrong_type.records[\"2A_prep_cabinet\"].value = 1.5",
     "raw_transform.records[\"2A_prep_cabinet\"].position = [0,0,0]",
     "(world.adapter.resolve(\"2A_prep_cabinet\") as Node).call(\"interact\", world.player)"
    ],
@@ -243309,13 +243651,15 @@
     "exercise"
    ],
    "lines": [
-    117,
-    120,
-    124,
-    124
+    60,
+    187,
+    190,
+    194,
+    194
    ],
-   "count": 4,
+   "count": 5,
    "context": [
+    "for id: String in [\"B1_BOILER_AIR_E\", \"B1_FUSE_PANEL\", \"ROOF_TANK_BALLCOCK\", \"B1_BOILER_01\"]:",
     "var boiler := world.adapter.resolve(\"B1_BOILER_01\") as BoilerProp",
     "previous_roster.records.erase(\"B1_BOILER_01\")",
     "expected_previous.records[\"B1_BOILER_01\"] = defaults.records[\"B1_BOILER_01\"].duplicate(true)"
@@ -243344,10 +243688,12 @@
     "exercise"
    ],
    "lines": [
-    111
+    60,
+    181
    ],
-   "count": 1,
+   "count": 2,
    "context": [
+    "for id: String in [\"B1_BOILER_AIR_E\", \"B1_FUSE_PANEL\", \"ROOF_TANK_BALLCOCK\", \"B1_BOILER_01\"]:",
     "var window: Node3D = owner._subjects[\"B1_BOILER_AIR_E\"]"
    ],
    "gameplay_binding": false,
@@ -243372,10 +243718,12 @@
     "exercise"
    ],
    "lines": [
-    113
+    60,
+    183
    ],
-   "count": 1,
+   "count": 2,
    "context": [
+    "for id: String in [\"B1_BOILER_AIR_E\", \"B1_FUSE_PANEL\", \"ROOF_TANK_BALLCOCK\", \"B1_BOILER_01\"]:",
     "var fuse := world.adapter.resolve(\"B1_FUSE_PANEL\") as FusePanelProp"
    ],
    "gameplay_binding": false,
@@ -243400,7 +243748,7 @@
     "exercise"
    ],
    "lines": [
-    49
+    74
    ],
    "count": 1,
    "context": [
@@ -243430,11 +243778,11 @@
     "exercise"
    ],
    "lines": [
-    45
+    68
    ],
    "count": 1,
    "context": [
-    "check(not defaults.records.has(\"F02_B_RADIATOR_01\"), \"Lena's case keeps sole restoration authority\")"
+    "var lena: Dictionary = defaults.records.get(\"F02_B_RADIATOR_01\", {})"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -243460,8 +243808,8 @@
     "exercise"
    ],
    "lines": [
-    183,
-    186
+    257,
+    260
    ],
    "count": 2,
    "context": [
@@ -243492,7 +243840,7 @@
     "exercise"
    ],
    "lines": [
-    49
+    74
    ],
    "count": 1,
    "context": [
@@ -243522,7 +243870,7 @@
     "exercise"
    ],
    "lines": [
-    191
+    265
    ],
    "count": 1,
    "context": [
@@ -243552,10 +243900,12 @@
     "exercise"
    ],
    "lines": [
-    114
+    60,
+    184
    ],
-   "count": 1,
+   "count": 2,
    "context": [
+    "for id: String in [\"B1_BOILER_AIR_E\", \"B1_FUSE_PANEL\", \"ROOF_TANK_BALLCOCK\", \"B1_BOILER_01\"]:",
     "var tank := world.adapter.resolve(\"ROOF_TANK_BALLCOCK\") as RoofTankBallcockProp"
    ],
    "gameplay_binding": false,
@@ -243583,7 +243933,7 @@
     "exercise"
    ],
    "lines": [
-    139
+    209
    ],
    "count": 1,
    "context": [
@@ -243613,7 +243963,7 @@
     "exercise"
    ],
    "lines": [
-    139
+    209
    ],
    "count": 1,
    "context": [
@@ -243643,7 +243993,7 @@
     "exercise"
    ],
    "lines": [
-    139
+    209
    ],
    "count": 1,
    "context": [
@@ -243673,7 +244023,7 @@
     "exercise"
    ],
    "lines": [
-    139
+    209
    ],
    "count": 1,
    "context": [
@@ -243703,7 +244053,7 @@
     "exercise"
    ],
    "lines": [
-    139
+    209
    ],
    "count": 1,
    "context": [
@@ -243733,7 +244083,7 @@
     "exercise"
    ],
    "lines": [
-    139
+    209
    ],
    "count": 1,
    "context": [
@@ -259022,6 +259372,36 @@
    "target_exists": true
   },
   {
+   "key": "c9595817c0a8a28e",
+   "kind": "id_candidate",
+   "token": "ROOF_SKY_REVIEW",
+   "file": "game/tests/roof_weather_preview_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_exercise"
+   ],
+   "lines": [
+    144
+   ],
+   "count": 1,
+   "context": [
+    "var sky_review:=OS.get_environment(\"ROOF_SKY_REVIEW\")==\"1\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "9144f1019a913c34",
    "kind": "id_reference",
    "token": "B1_BOILER_01",
@@ -261331,7 +261711,7 @@
     "_views"
    ],
    "lines": [
-    53
+    54
    ],
    "count": 1,
    "context": [
@@ -262231,6 +262611,37 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "5a7b1eeb2264e022",
+   "kind": "plan_coordinate",
+   "token": "_finish",
+   "file": "game/tests/v2_day_night_film.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_finish"
+   ],
+   "lines": [
+    224
+   ],
+   "count": 1,
+   "context": [
+    "\"camera_offset_metres\":[0,4,0],\"pan_degrees\":24,\"residents_and_buildings_hidden\":false,"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture plan-space coordinate; restation when the geometry moves.",
    "resolved_target": null,
    "target_exists": null
   },
@@ -268360,8 +268771,8 @@
     "_lightning_review"
    ],
    "lines": [
-    699,
-    703
+    708,
+    712
    ],
    "count": 2,
    "context": [
@@ -268424,7 +268835,7 @@
     "_lightning_review"
    ],
    "lines": [
-    767
+    776
    ],
    "count": 1,
    "context": [
@@ -269752,282 +270163,6 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
-  },
-  {
-   "key": "c65146ae4fda86f5",
-   "kind": "floor_reference",
-   "token": "F01",
-   "file": "game/scripts/characters/harukiya_cast.gd",
-   "tier": "production",
-   "subsystem": "characters",
-   "symbols": [
-    "configure"
-   ],
-   "lines": [
-    29
-   ],
-   "count": 1,
-   "context": [
-    "if str(storey.id) != \"F01\": continue"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "FLOOR_MEMBERSHIP"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "HarukiyaCast.configure resolves existing F01 and retail_bar_floor to derive the two visual presentations' shoe datum. Preserve the floor identity or supply its alias; attendance and gameplay remain with existing owners.",
-   "resolved_target": "floor+v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "a40a391c9b76e235",
-   "kind": "generated_name",
-   "token": "_ready",
-   "file": "game/scripts/characters/harukiya_cast.gd",
-   "tier": "production",
-   "subsystem": "characters",
-   "symbols": [
-    "_ready"
-   ],
-   "lines": [
-    42
-   ],
-   "count": 1,
-   "context": [
-    "\"Harukiya_\" + id"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "GENERATED_IDENTITY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "REGENERATE_CONSUMER",
-   "confidence": "MEDIUM",
-   "rationale": "HarukiyaCast creates Harukiya_stacy and Harukiya_lily. Route fixtures enumerate the Harukiya_* node template; regenerate those consumers with any template change. These visual names add no roster or save identities.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "b44792ba4c4ae2e4",
-   "kind": "id_reference",
-   "token": "retail_bar_floor",
-   "file": "game/scripts/characters/harukiya_cast.gd",
-   "tier": "production",
-   "subsystem": "characters",
-   "symbols": [
-    "configure"
-   ],
-   "lines": [
-    31
-   ],
-   "count": 1,
-   "context": [
-    "if str(row.id) == \"retail_bar_floor\":"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "HarukiyaCast.configure uses the existing F01 retail_bar_floor furniture top as its presentation ground datum. Preserve this stable bar-floor lookup or update its alias and consumer together.",
-   "resolved_target": "F01/furniture",
-   "target_exists": true
-  },
-  {
-   "key": "aec40d80abc94ddd",
-   "kind": "generated_name",
-   "token": "_put_on",
-   "file": "game/scripts/characters/resident_wardrobe.gd",
-   "tier": "production",
-   "subsystem": "characters",
-   "symbols": [
-    "_put_on"
-   ],
-   "lines": [
-    111
-   ],
-   "count": 1,
-   "context": [
-    "\"%s_%s\" % [part, mesh.name]"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "GENERATED_IDENTITY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "REGENERATE_CONSUMER",
-   "confidence": "MEDIUM",
-   "rationale": "Wardrobe mounts meshes as <part>_<source mesh>; HarukiyaCast._ground_rest_shoes consumes the work_feet_ prefix. Regenerate the name template and its grounding consumer together.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "ac8d246dd1101dbc",
-   "kind": "vector3_coordinate",
-   "token": "run",
-   "file": "game/tests/cast_model_presentation_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "run"
-   ],
-   "lines": [
-    79,
-    80
-   ],
-   "count": 2,
-   "context": [
-    "camera.position = Vector3(0, 1.35, 2)",
-    "camera.look_at(Vector3(0, 1.3, 0))"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Camera station for the isolated real-asset CastModelPresentation fixture only: position (0,1.35,2), target (0,1.3,0). Update this diagnostic fixture if the cast frame changes; it is not a production location or appearance-acceptance claim.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "527351b75270efb1",
-   "kind": "generated_name",
-   "token": "exercise",
-   "file": "game/tests/constrained_grab_scalar_release_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "exercise"
-   ],
-   "lines": [
-    64
-   ],
-   "count": 1,
-   "context": [
-    "\"Scalar_\" + mode"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "GENERATED_IDENTITY",
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "REGENERATE_CONSUMER",
-   "confidence": "MEDIUM",
-   "rationale": "Test-only Scalar_<mode> owner names identify retain/cancel/notify/reacquire cases and are checked against the production hand motion profiler's original-owner label. Regenerate fixture diagnostics and name consumers together if the template changes; this creates no production roster or save identity.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "de0980ce7898a6ab",
-   "kind": "vector3_coordinate",
-   "token": "exercise",
-   "file": "game/tests/constrained_grab_scalar_release_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "exercise"
-   ],
-   "lines": [
-    69
-   ],
-   "count": 1,
-   "context": [
-    "owner.part.global_position = player.camera.global_position + Vector3(0,0,-0.8)"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test-only scalar part is placed 0.8 m along negative world Z from the fixture camera, fixing descriptor hit-position geometry while the actual PlayerController look path invokes the scalar setter. Acquisition is explicit fixture setup, not ray-picking or installed-room qualification; update the fixture with any geometry change.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "c9595817c0a8a28e",
-   "kind": "id_candidate",
-   "token": "ROOF_SKY_REVIEW",
-   "file": "game/tests/roof_weather_preview_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_exercise"
-   ],
-   "lines": [
-    144
-   ],
-   "count": 1,
-   "context": [
-    "var sky_review:=OS.get_environment(\"ROOF_SKY_REVIEW\")==\"1\""
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "HIGH",
-   "rationale": "Test-only environment flag enabling a declared 4 m optical camera offset after ordinary roof input checks. It is not a building identity or save reference. The fixture preserves player placement and restores the camera; update its framing and disclosure together.",
-   "resolved_target": null,
-   "target_exists": false
-  },
-  {
-   "key": "5a7b1eeb2264e022",
-   "kind": "plan_coordinate",
-   "token": "_finish",
-   "file": "game/tests/v2_day_night_film.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_finish"
-   ],
-   "lines": [
-    224
-   ],
-   "count": 1,
-   "context": [
-    "\"camera_offset_metres\":[0,4,0],\"pan_degrees\":24,\"residents_and_buildings_hidden\":false,"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_PLAN_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test-only disclosure of the existing optical camera four metres above the roof preview. The scanner conservatively classifies this vector as a plan coordinate; it is capture metadata, not a new gameplay placement or save authority. Keep it synchronized with camera movement and restore the original transform/context.",
-   "resolved_target": null,
-   "target_exists": null
   }
  ]
 }
