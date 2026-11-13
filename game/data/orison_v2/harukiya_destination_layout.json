@@ -1,0 +1,5140 @@
+{
+  "schema_version": 1,
+  "evidence_class": "INERT",
+  "status": "native export complete; Godot import, actual-body routes, sightlines and artistic acceptance pending",
+  "source_frame": "Blender XYZ metres; b2g(x,y,z)=(x,z,-y), then OrisonV2BarRegion local-to-world once",
+  "source_cell": "res://assets/building/floor_01_cells/shop_bar.gltf",
+  "source_cell_sha256": "cdf5febdda279dd8c0abd82924052aa2a47892ca2b5886e95376153e43ce1f76",
+  "asset": "res://assets/props/harukiya_destination.glb",
+  "retire_ids": [
+    "retail_bar_cb0_0",
+    "retail_bar_cb0_2",
+    "retail_bar_cb0_4",
+    "retail_bar_cb0_6",
+    "retail_bar_cb0_8",
+    "retail_bar_cb1_1",
+    "retail_bar_cb1_3",
+    "retail_bar_cb1_5",
+    "retail_bar_cb1_7",
+    "retail_bar_cb2_0",
+    "retail_bar_cb2_2",
+    "retail_bar_cb2_4",
+    "retail_bar_cb2_6",
+    "retail_bar_cb2_8",
+    "retail_bar_cb3_1",
+    "retail_bar_cb3_3",
+    "retail_bar_cb3_5",
+    "retail_bar_cb3_7",
+    "retail_bar_cb4_0",
+    "retail_bar_cb4_2",
+    "retail_bar_cb4_4",
+    "retail_bar_cb4_6",
+    "retail_bar_cb4_8",
+    "retail_bar_cb5_1",
+    "retail_bar_cb5_3",
+    "retail_bar_cb5_5",
+    "retail_bar_cb5_7",
+    "retail_bar_cb6_0",
+    "retail_bar_cb6_2",
+    "retail_bar_cb6_4",
+    "retail_bar_cb6_6",
+    "retail_bar_cb6_8",
+    "retail_bar_cb7_1",
+    "retail_bar_cb7_3",
+    "retail_bar_cb7_5",
+    "retail_bar_cb7_7",
+    "retail_bar_deck_s",
+    "retail_bar_deck_n",
+    "retail_bar_deck_nose_s",
+    "retail_bar_deck_nose_n",
+    "retail_bar_step_s",
+    "retail_bar_step_n",
+    "retail_bar_rail0",
+    "retail_bar_bal0_0",
+    "retail_bar_bal0_1",
+    "retail_bar_bal0_2",
+    "retail_bar_bal0_3",
+    "retail_bar_bal0_4",
+    "retail_bar_bal0_5",
+    "retail_bar_bal0_6",
+    "retail_bar_bal0_7",
+    "retail_bar_bal0_8",
+    "retail_bar_bal0_9",
+    "retail_bar_bal0_10",
+    "retail_bar_bal0_11",
+    "retail_bar_bal0_12",
+    "retail_bar_bal0_13",
+    "retail_bar_bal0_14",
+    "retail_bar_bal0_15",
+    "retail_bar_newel0_0",
+    "retail_bar_newel0_1",
+    "retail_bar_rail1",
+    "retail_bar_bal1_0",
+    "retail_bar_bal1_1",
+    "retail_bar_bal1_2",
+    "retail_bar_bal1_3",
+    "retail_bar_bal1_4",
+    "retail_bar_bal1_5",
+    "retail_bar_bal1_6",
+    "retail_bar_bal1_7",
+    "retail_bar_bal1_8",
+    "retail_bar_bal1_9",
+    "retail_bar_bal1_10",
+    "retail_bar_bal1_11",
+    "retail_bar_bal1_12",
+    "retail_bar_newel1_0",
+    "retail_bar_newel1_1",
+    "retail_bar_banq0",
+    "retail_bar_btab0",
+    "retail_bar_banq1",
+    "retail_bar_btab1",
+    "retail_bar_banq2",
+    "retail_bar_tab0",
+    "retail_bar_candle0",
+    "retail_bar_ch0_0",
+    "retail_bar_ch0_1",
+    "retail_bar_ch0_2",
+    "retail_bar_tab1",
+    "retail_bar_candle1",
+    "retail_bar_ch1_0",
+    "retail_bar_ch1_1",
+    "retail_bar_tab2",
+    "retail_bar_candle2",
+    "retail_bar_ch2_0",
+    "retail_bar_ch2_1",
+    "retail_bar_ch2_2",
+    "retail_bar_stage",
+    "retail_bar_stage_lip",
+    "retail_bar_oche",
+    "retail_bar_darts_ledge",
+    "retail_bar_darts_ledge_leg",
+    "retail_bar_tabrod1",
+    "retail_bar_tabrod2",
+    "retail_bar_cue",
+    "retail_bar_palm0",
+    "retail_bar_palm1",
+    "retail_bar_palm2",
+    "retail_bar_pastack0",
+    "retail_bar_pastack1",
+    "retail_bar_pipe1"
+  ],
+  "source_records": [
+    {
+      "id": "retail_bar_cb0_0",
+      "rect": [
+        -3.2,
+        -36.6,
+        -2.6,
+        -36.0
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb0_2",
+      "rect": [
+        -3.2,
+        -35.4,
+        -2.6,
+        -34.8
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb0_4",
+      "rect": [
+        -3.2,
+        -34.2,
+        -2.6,
+        -33.6
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb0_6",
+      "rect": [
+        -3.2,
+        -33.0,
+        -2.6,
+        -32.4
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb0_8",
+      "rect": [
+        -3.2,
+        -31.8,
+        -2.6,
+        -31.2
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb1_1",
+      "rect": [
+        -2.6,
+        -36.0,
+        -2.0,
+        -35.4
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb1_3",
+      "rect": [
+        -2.6,
+        -34.800000000000004,
+        -2.0,
+        -34.2
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb1_5",
+      "rect": [
+        -2.6,
+        -33.6,
+        -2.0,
+        -33.0
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb1_7",
+      "rect": [
+        -2.6,
+        -32.4,
+        -2.0,
+        -31.799999999999997
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb2_0",
+      "rect": [
+        -2.0,
+        -36.6,
+        -1.4,
+        -36.0
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb2_2",
+      "rect": [
+        -2.0,
+        -35.4,
+        -1.4,
+        -34.8
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb2_4",
+      "rect": [
+        -2.0,
+        -34.2,
+        -1.4,
+        -33.6
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb2_6",
+      "rect": [
+        -2.0,
+        -33.0,
+        -1.4,
+        -32.4
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb2_8",
+      "rect": [
+        -2.0,
+        -31.8,
+        -1.4,
+        -31.2
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb3_1",
+      "rect": [
+        -1.4000000000000004,
+        -36.0,
+        -0.8000000000000004,
+        -35.4
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb3_3",
+      "rect": [
+        -1.4000000000000004,
+        -34.800000000000004,
+        -0.8000000000000004,
+        -34.2
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb3_5",
+      "rect": [
+        -1.4000000000000004,
+        -33.6,
+        -0.8000000000000004,
+        -33.0
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb3_7",
+      "rect": [
+        -1.4000000000000004,
+        -32.4,
+        -0.8000000000000004,
+        -31.799999999999997
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb4_0",
+      "rect": [
+        -0.8000000000000003,
+        -36.6,
+        -0.2000000000000003,
+        -36.0
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb4_2",
+      "rect": [
+        -0.8000000000000003,
+        -35.4,
+        -0.2000000000000003,
+        -34.8
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb4_4",
+      "rect": [
+        -0.8000000000000003,
+        -34.2,
+        -0.2000000000000003,
+        -33.6
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb4_6",
+      "rect": [
+        -0.8000000000000003,
+        -33.0,
+        -0.2000000000000003,
+        -32.4
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb4_8",
+      "rect": [
+        -0.8000000000000003,
+        -31.8,
+        -0.2000000000000003,
+        -31.2
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb5_1",
+      "rect": [
+        -0.20000000000000018,
+        -36.0,
+        0.3999999999999998,
+        -35.4
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb5_3",
+      "rect": [
+        -0.20000000000000018,
+        -34.800000000000004,
+        0.3999999999999998,
+        -34.2
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb5_5",
+      "rect": [
+        -0.20000000000000018,
+        -33.6,
+        0.3999999999999998,
+        -33.0
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb5_7",
+      "rect": [
+        -0.20000000000000018,
+        -32.4,
+        0.3999999999999998,
+        -31.799999999999997
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb6_0",
+      "rect": [
+        0.39999999999999947,
+        -36.6,
+        0.9999999999999994,
+        -36.0
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb6_2",
+      "rect": [
+        0.39999999999999947,
+        -35.4,
+        0.9999999999999994,
+        -34.8
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb6_4",
+      "rect": [
+        0.39999999999999947,
+        -34.2,
+        0.9999999999999994,
+        -33.6
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb6_6",
+      "rect": [
+        0.39999999999999947,
+        -33.0,
+        0.9999999999999994,
+        -32.4
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb6_8",
+      "rect": [
+        0.39999999999999947,
+        -31.8,
+        0.9999999999999994,
+        -31.2
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb7_1",
+      "rect": [
+        1.0,
+        -36.0,
+        1.6,
+        -35.4
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb7_3",
+      "rect": [
+        1.0,
+        -34.800000000000004,
+        1.6,
+        -34.2
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb7_5",
+      "rect": [
+        1.0,
+        -33.6,
+        1.6,
+        -33.0
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_cb7_7",
+      "rect": [
+        1.0,
+        -32.4,
+        1.6,
+        -31.799999999999997
+      ],
+      "z0": -2.795,
+      "h": 0.012,
+      "mat": "limestone"
+    },
+    {
+      "id": "retail_bar_deck_s",
+      "rect": [
+        1.8,
+        -37.6,
+        4.0,
+        -34.95
+      ],
+      "z0": -2.8,
+      "h": 0.18,
+      "mat": "quarry_tile"
+    },
+    {
+      "id": "retail_bar_deck_n",
+      "rect": [
+        1.8,
+        -33.9,
+        4.0,
+        -31.75
+      ],
+      "z0": -2.8,
+      "h": 0.18,
+      "mat": "quarry_tile"
+    },
+    {
+      "id": "retail_bar_deck_nose_s",
+      "rect": [
+        1.74,
+        -37.6,
+        1.8,
+        -34.95
+      ],
+      "z0": -2.8,
+      "h": 0.18,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "retail_bar_deck_nose_n",
+      "rect": [
+        1.74,
+        -33.9,
+        1.8,
+        -31.75
+      ],
+      "z0": -2.8,
+      "h": 0.18,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "retail_bar_step_s",
+      "rect": [
+        1.8,
+        -35.040000000000006,
+        4.0,
+        -34.95
+      ],
+      "z0": -2.8,
+      "h": 0.09,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "retail_bar_step_n",
+      "rect": [
+        1.8,
+        -33.9,
+        4.0,
+        -33.809999999999995
+      ],
+      "z0": -2.8,
+      "h": 0.09,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "retail_bar_rail0",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -37.5
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -37.5,
+        -1.6999999999999997
+      ],
+      "p1": [
+        1.77,
+        -34.95,
+        -1.6999999999999997
+      ],
+      "r": 0.035
+    },
+    {
+      "id": "retail_bar_bal0_0",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -37.5
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -37.5,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -37.5,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_1",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -37.33
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -37.33,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -37.33,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_2",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -37.160000000000004
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -37.160000000000004,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -37.160000000000004,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_3",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -36.99
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -36.99,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -36.99,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_4",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -36.82
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -36.82,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -36.82,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_5",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -36.65
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -36.65,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -36.65,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_6",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -36.480000000000004
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -36.480000000000004,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -36.480000000000004,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_7",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -36.31
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -36.31,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -36.31,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_8",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -36.14
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -36.14,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -36.14,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_9",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -35.97
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -35.97,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -35.97,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_10",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -35.800000000000004
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -35.800000000000004,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -35.800000000000004,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_11",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -35.63
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -35.63,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -35.63,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_12",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -35.46
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -35.46,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -35.46,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_13",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -35.29
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -35.29,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -35.29,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_14",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -35.120000000000005
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -35.120000000000005,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -35.120000000000005,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal0_15",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -34.95
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -34.95,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -34.95,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_newel0_0",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -37.5
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -37.5,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -37.5,
+        -1.5999999999999996
+      ],
+      "r": 0.045
+    },
+    {
+      "id": "retail_bar_newel0_1",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -34.95
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -34.95,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -34.95,
+        -1.5999999999999996
+      ],
+      "r": 0.045
+    },
+    {
+      "id": "retail_bar_rail1",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -33.9
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -33.9,
+        -1.6999999999999997
+      ],
+      "p1": [
+        1.77,
+        -31.85,
+        -1.6999999999999997
+      ],
+      "r": 0.035
+    },
+    {
+      "id": "retail_bar_bal1_0",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -33.9
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -33.9,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -33.9,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal1_1",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -33.729166666666664
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -33.729166666666664,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -33.729166666666664,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal1_2",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -33.55833333333333
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -33.55833333333333,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -33.55833333333333,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal1_3",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -33.3875
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -33.3875,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -33.3875,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal1_4",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -33.21666666666667
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -33.21666666666667,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -33.21666666666667,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal1_5",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -33.045833333333334
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -33.045833333333334,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -33.045833333333334,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal1_6",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -32.875
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -32.875,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -32.875,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal1_7",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -32.704166666666666
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -32.704166666666666,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -32.704166666666666,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal1_8",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -32.53333333333333
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -32.53333333333333,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -32.53333333333333,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal1_9",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -32.3625
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -32.3625,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -32.3625,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal1_10",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -32.19166666666667
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -32.19166666666667,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -32.19166666666667,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal1_11",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -32.020833333333336
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -32.020833333333336,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -32.020833333333336,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_bal1_12",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -31.85
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -31.85,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -31.85,
+        -1.7199999999999998
+      ],
+      "r": 0.019
+    },
+    {
+      "id": "retail_bar_newel1_0",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -33.9
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -33.9,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -33.9,
+        -1.5999999999999996
+      ],
+      "r": 0.045
+    },
+    {
+      "id": "retail_bar_newel1_1",
+      "asm": "pipe",
+      "at": [
+        1.77,
+        -31.85
+      ],
+      "yaw": 0,
+      "mat": "handrail_wood",
+      "p0": [
+        1.77,
+        -31.85,
+        -2.6199999999999997
+      ],
+      "p1": [
+        1.77,
+        -31.85,
+        -1.5999999999999996
+      ],
+      "r": 0.045
+    },
+    {
+      "id": "retail_bar_banq0",
+      "asm": "couch",
+      "at": [
+        3.58,
+        -33.3
+      ],
+      "yaw": 270,
+      "exterior": true,
+      "z0": -2.6199999999999997,
+      "variant": 0,
+      "L": 0.95
+    },
+    {
+      "id": "retail_bar_btab0",
+      "rect": [
+        2.05,
+        -33.72,
+        2.85,
+        -32.879999999999995
+      ],
+      "z0": -2.2399999999999998,
+      "h": 0.05,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "retail_bar_banq1",
+      "asm": "couch",
+      "at": [
+        3.58,
+        -32.2
+      ],
+      "yaw": 270,
+      "exterior": true,
+      "z0": -2.6199999999999997,
+      "variant": 1,
+      "L": 0.95
+    },
+    {
+      "id": "retail_bar_btab1",
+      "rect": [
+        2.05,
+        -32.620000000000005,
+        2.85,
+        -31.78
+      ],
+      "z0": -2.2399999999999998,
+      "h": 0.05,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "retail_bar_banq2",
+      "asm": "couch",
+      "at": [
+        2.3,
+        -32.75
+      ],
+      "yaw": 90,
+      "exterior": true,
+      "z0": -2.6199999999999997,
+      "variant": 2,
+      "L": 1.0
+    },
+    {
+      "id": "retail_bar_tab0",
+      "asm": "table_round",
+      "at": [
+        -8.2,
+        -35.3
+      ],
+      "yaw": 0,
+      "exterior": true,
+      "z0": -2.8
+    },
+    {
+      "id": "retail_bar_candle0",
+      "rect": [
+        -8.229999999999999,
+        -35.33,
+        -8.17,
+        -35.269999999999996
+      ],
+      "z0": -2.0599999999999996,
+      "h": 0.16,
+      "mat": "linen"
+    },
+    {
+      "id": "retail_bar_ch0_0",
+      "asm": "chair",
+      "at": [
+        -7.419999999999999,
+        -35.3
+      ],
+      "yaw": 180,
+      "exterior": true,
+      "z0": -2.8
+    },
+    {
+      "id": "retail_bar_ch0_1",
+      "asm": "chair",
+      "at": [
+        -8.59,
+        -34.624500185048134
+      ],
+      "yaw": 300,
+      "exterior": true,
+      "z0": -2.8
+    },
+    {
+      "id": "retail_bar_ch0_2",
+      "asm": "chair",
+      "at": [
+        -8.59,
+        -35.97549981495186
+      ],
+      "yaw": 60,
+      "exterior": true,
+      "z0": -2.8
+    },
+    {
+      "id": "retail_bar_tab1",
+      "asm": "table_round",
+      "at": [
+        -5.2,
+        -35.3
+      ],
+      "yaw": 0,
+      "exterior": true,
+      "z0": -2.8
+    },
+    {
+      "id": "retail_bar_candle1",
+      "rect": [
+        -5.23,
+        -35.33,
+        -5.17,
+        -35.269999999999996
+      ],
+      "z0": -2.0599999999999996,
+      "h": 0.16,
+      "mat": "linen"
+    },
+    {
+      "id": "retail_bar_ch1_0",
+      "asm": "chair",
+      "at": [
+        -4.611326527426238,
+        -34.7882739573874
+      ],
+      "yaw": 221,
+      "exterior": true,
+      "z0": -2.8
+    },
+    {
+      "id": "retail_bar_ch1_1",
+      "asm": "chair",
+      "at": [
+        -5.7886734725737625,
+        -35.81172604261259
+      ],
+      "yaw": 41,
+      "exterior": true,
+      "z0": -2.8
+    },
+    {
+      "id": "retail_bar_tab2",
+      "asm": "table_round",
+      "at": [
+        -1.2,
+        -34.9
+      ],
+      "yaw": 0,
+      "exterior": true,
+      "z0": -2.8
+    },
+    {
+      "id": "retail_bar_candle2",
+      "rect": [
+        -1.23,
+        -34.93,
+        -1.17,
+        -34.87
+      ],
+      "z0": -2.0599999999999996,
+      "h": 0.16,
+      "mat": "linen"
+    },
+    {
+      "id": "retail_bar_ch2_0",
+      "asm": "chair",
+      "at": [
+        -1.0914449812511489,
+        -34.12759090638157
+      ],
+      "yaw": 262,
+      "exterior": true,
+      "z0": -2.8
+    },
+    {
+      "id": "retail_bar_ch2_1",
+      "asm": "chair",
+      "at": [
+        -1.9232034065620942,
+        -35.19219314286441
+      ],
+      "yaw": 22,
+      "exterior": true,
+      "z0": -2.8
+    },
+    {
+      "id": "retail_bar_ch2_2",
+      "asm": "chair",
+      "at": [
+        -0.5853516121867568,
+        -35.380215950754014
+      ],
+      "yaw": 142,
+      "exterior": true,
+      "z0": -2.8
+    },
+    {
+      "id": "retail_bar_stage",
+      "rect": [
+        -2.6,
+        -37.6,
+        1.2,
+        -36.2
+      ],
+      "z0": -2.8,
+      "h": 0.22,
+      "mat": "timber"
+    },
+    {
+      "id": "retail_bar_stage_lip",
+      "rect": [
+        -2.6,
+        -36.25,
+        1.2,
+        -36.2
+      ],
+      "z0": -2.8,
+      "h": 0.22,
+      "mat": "lacquer_red"
+    },
+    {
+      "id": "retail_bar_oche",
+      "rect": [
+        -9.07,
+        -33.38,
+        -9.030000000000001,
+        -32.62
+      ],
+      "z0": -2.8,
+      "h": 0.006,
+      "mat": "brass"
+    },
+    {
+      "id": "retail_bar_darts_ledge",
+      "rect": [
+        -9.23,
+        -34.02,
+        -8.83,
+        -33.72
+      ],
+      "z0": -1.88,
+      "h": 0.05,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "retail_bar_darts_ledge_leg",
+      "asm": "pipe",
+      "at": [
+        -9.030000000000001,
+        -33.87
+      ],
+      "yaw": 0,
+      "mat": "metal",
+      "p0": [
+        -9.030000000000001,
+        -33.87,
+        -2.8
+      ],
+      "p1": [
+        -9.030000000000001,
+        -33.87,
+        -1.88
+      ],
+      "r": 0.03
+    },
+    {
+      "id": "retail_bar_tabrod1",
+      "asm": "pipe",
+      "at": [
+        -5.2,
+        -35.3
+      ],
+      "yaw": 0,
+      "mat": "metal",
+      "p0": [
+        -5.2,
+        -35.3,
+        2.5199999999999996
+      ],
+      "p1": [
+        -5.2,
+        -35.3,
+        -0.62
+      ],
+      "r": 0.016
+    },
+    {
+      "id": "retail_bar_tabrod2",
+      "asm": "pipe",
+      "at": [
+        -1.2,
+        -34.9
+      ],
+      "yaw": 0,
+      "mat": "metal",
+      "p0": [
+        -1.2,
+        -34.9,
+        2.5199999999999996
+      ],
+      "p1": [
+        -1.2,
+        -34.9,
+        -0.62
+      ],
+      "r": 0.016
+    },
+    {
+      "id": "retail_bar_cue",
+      "asm": "pipe",
+      "at": [
+        -6.25,
+        -30.45
+      ],
+      "yaw": 0,
+      "mat": "timber",
+      "p0": [
+        -6.25,
+        -30.45,
+        -2.75
+      ],
+      "p1": [
+        -6.0,
+        -30.65,
+        -1.2999999999999998
+      ],
+      "r": 0.012
+    },
+    {
+      "id": "retail_bar_palm0",
+      "asm": "plant",
+      "at": [
+        -10.2,
+        -29.6
+      ],
+      "yaw": 0,
+      "exterior": true,
+      "z0": -2.8
+    },
+    {
+      "id": "retail_bar_palm1",
+      "asm": "plant",
+      "at": [
+        1.35,
+        -37.2
+      ],
+      "yaw": 0,
+      "exterior": true,
+      "z0": -2.6199999999999997
+    },
+    {
+      "id": "retail_bar_palm2",
+      "asm": "plant",
+      "at": [
+        3.7,
+        -32.45
+      ],
+      "yaw": 0,
+      "exterior": true,
+      "z0": -2.6199999999999997
+    },
+    {
+      "id": "retail_bar_pastack0",
+      "asm": "pipe",
+      "at": [
+        -2.95,
+        -37.3
+      ],
+      "yaw": 0,
+      "mat": "soot",
+      "p0": [
+        -2.95,
+        -37.3,
+        -1.9
+      ],
+      "p1": [
+        -2.95,
+        -37.3,
+        -0.75
+      ],
+      "r": 0.16
+    },
+    {
+      "id": "retail_bar_pastack1",
+      "asm": "pipe",
+      "at": [
+        1.4500000000000002,
+        -37.3
+      ],
+      "yaw": 0,
+      "mat": "soot",
+      "p0": [
+        1.4500000000000002,
+        -37.3,
+        -1.9
+      ],
+      "p1": [
+        1.4500000000000002,
+        -37.3,
+        -0.75
+      ],
+      "r": 0.16
+    },
+    {
+      "id": "retail_bar_pipe1",
+      "asm": "pipe",
+      "at": [
+        -11.4,
+        -34.1
+      ],
+      "yaw": 0,
+      "mat": "metal",
+      "p0": [
+        -11.4,
+        -34.1,
+        -0.34
+      ],
+      "p1": [
+        3.9,
+        -34.1,
+        -0.34
+      ],
+      "r": 0.055
+    }
+  ],
+  "retirement_notes": [
+    "Retire source-matched chair shadows and hull faces as well as visible chair/table/bench/deck stocks.",
+    "Do not retire retained room floor, original entrance/stair, counter/canopy, gallery, receiving retirement, fixture mounts or pipe support geometry.",
+    "Old source cell stays immutable. Run existing native fit adapters against original source, then relocate explicit complete assemblies."
+  ],
+  "architecture": {
+    "stage": {
+      "rect": [
+        -4.3,
+        -37.75,
+        1.2,
+        -34.5
+      ],
+      "floor_z": -2.58,
+      "base_z": -2.8,
+      "piano_bench": {
+        "at": [
+          -3.6,
+          -35.97,
+          -2.58
+        ],
+        "width": 0.9,
+        "depth": 0.38,
+        "height": 0.48
+      }
+    },
+    "backstage": {
+      "rect": [
+        1.35,
+        -37.6,
+        3.9,
+        -34.95
+      ],
+      "floor_z": -2.8,
+      "stage_opening_y": [
+        -36.15,
+        -35.25
+      ],
+      "public_opening_x": [
+        2.7,
+        3.6
+      ],
+      "partition_top_z": -0.25
+    },
+    "lounge": {
+      "rect": [
+        2.1,
+        -33.2,
+        4,
+        -30.8
+      ],
+      "floor_z": -2.62,
+      "base_z": -2.8
+    },
+    "balcony": {
+      "north_rect": [
+        -4.4,
+        -33.25,
+        0.6,
+        -31.0
+      ],
+      "return_rect": [
+        -1.65,
+        -35.9,
+        0.6,
+        -33.25
+      ],
+      "floor_z": 0,
+      "slab_depth": 0.24,
+      "well_rect": [
+        -5.6,
+        -35.9,
+        0.6,
+        -31.0
+      ],
+      "support_columns": [
+        [
+          -4.27,
+          -32.65,
+          -2.8
+        ],
+        [
+          0.49,
+          -32.65,
+          -2.8
+        ],
+        [
+          0.49,
+          -35.78,
+          -2.58
+        ]
+      ]
+    },
+    "stair": {
+      "x0": -5.5,
+      "x1": -4.4,
+      "flight_y": [
+        -35.9,
+        -32.1
+      ],
+      "upper_landing_y": [
+        -32.1,
+        -31.0
+      ],
+      "bottom_z": -2.8,
+      "top_z": 0,
+      "rise": 0.175,
+      "goings": 15,
+      "going": 0.2533333333333333
+    },
+    "darts_backstop": {
+      "rect": [
+        -9.1,
+        -34.64,
+        -6.4,
+        -34.54
+      ],
+      "floor_z": -2.8,
+      "top_z": -0.35,
+      "oche_y": -37.02
+    },
+    "low_ceiling_relief": {
+      "retire_ids": [],
+      "status": "none proposed before native sightline discrimination; far return seat may not show whole drumkit"
+    },
+    "darts_ledge": {
+      "rect": [
+        -8.2,
+        -37.45,
+        -7.85,
+        -36.8
+      ],
+      "floor_z": -2.8,
+      "top_z": -1.88,
+      "actor_at": [
+        -8.0,
+        -37.0,
+        -1.88
+      ]
+    }
+  },
+  "seats": [
+    {
+      "id": "counter_01",
+      "at": [
+        -3.8,
+        -30.85,
+        -2.04
+      ],
+      "floor_z": -2.8,
+      "yaw_deg": 0,
+      "approach": [
+        -3.8,
+        -31.65,
+        -2.8
+      ],
+      "support": "retail_bar_stool0_seat",
+      "kind": "retained_stool",
+      "approach_node": "seat_counter_01"
+    },
+    {
+      "id": "counter_02",
+      "at": [
+        -2.75,
+        -30.85,
+        -2.04
+      ],
+      "floor_z": -2.8,
+      "yaw_deg": 0,
+      "approach": [
+        -2.75,
+        -31.65,
+        -2.8
+      ],
+      "support": "retail_bar_stool1_seat",
+      "kind": "retained_stool",
+      "approach_node": "seat_counter_02"
+    },
+    {
+      "id": "counter_03",
+      "at": [
+        -1.7,
+        -30.85,
+        -2.04
+      ],
+      "floor_z": -2.8,
+      "yaw_deg": 0,
+      "approach": [
+        -1.7,
+        -31.65,
+        -2.8
+      ],
+      "support": "retail_bar_stool2_seat",
+      "kind": "retained_stool",
+      "approach_node": "seat_counter_03"
+    },
+    {
+      "id": "counter_04",
+      "at": [
+        -0.65,
+        -30.85,
+        -2.04
+      ],
+      "floor_z": -2.8,
+      "yaw_deg": 0,
+      "approach": [
+        -0.65,
+        -31.65,
+        -2.8
+      ],
+      "support": "retail_bar_stool3_seat",
+      "kind": "retained_stool",
+      "approach_node": "seat_counter_04"
+    },
+    {
+      "id": "counter_05",
+      "at": [
+        0.4,
+        -30.85,
+        -2.04
+      ],
+      "floor_z": -2.8,
+      "yaw_deg": 0,
+      "approach": [
+        0.4,
+        -31.65,
+        -2.8
+      ],
+      "support": "retail_bar_stool4_seat",
+      "kind": "retained_stool",
+      "approach_node": "seat_counter_05"
+    },
+    {
+      "id": "floor_bench_01",
+      "at": [
+        -3.35,
+        -32.62,
+        -2.32
+      ],
+      "floor_z": -2.8,
+      "yaw_deg": 180,
+      "approach": [
+        -3.35,
+        -33.65,
+        -2.8
+      ],
+      "support": "DestinationAudienceBench",
+      "kind": "bench",
+      "approach_node": "seat_floor_bench_01",
+      "sitter_at": [
+        -3.35,
+        -32.76,
+        -2.32
+      ]
+    },
+    {
+      "id": "floor_bench_02",
+      "at": [
+        -2.45,
+        -32.62,
+        -2.32
+      ],
+      "floor_z": -2.8,
+      "yaw_deg": 180,
+      "approach": [
+        -2.45,
+        -33.65,
+        -2.8
+      ],
+      "support": "DestinationAudienceBench",
+      "kind": "bench",
+      "approach_node": "seat_floor_bench_02",
+      "sitter_at": [
+        -2.45,
+        -32.76,
+        -2.32
+      ]
+    },
+    {
+      "id": "floor_bench_03",
+      "at": [
+        -1.55,
+        -32.62,
+        -2.32
+      ],
+      "floor_z": -2.8,
+      "yaw_deg": 180,
+      "approach": [
+        -1.55,
+        -33.65,
+        -2.8
+      ],
+      "support": "DestinationAudienceBench",
+      "kind": "bench",
+      "approach_node": "seat_floor_bench_03",
+      "sitter_at": [
+        -1.55,
+        -32.76,
+        -2.32
+      ]
+    },
+    {
+      "id": "floor_bench_04",
+      "at": [
+        -0.65,
+        -32.62,
+        -2.32
+      ],
+      "floor_z": -2.8,
+      "yaw_deg": 180,
+      "approach": [
+        -0.65,
+        -33.65,
+        -2.8
+      ],
+      "support": "DestinationAudienceBench",
+      "kind": "bench",
+      "approach_node": "seat_floor_bench_04",
+      "sitter_at": [
+        -0.65,
+        -32.76,
+        -2.32
+      ]
+    },
+    {
+      "id": "lounge_01",
+      "at": [
+        3.53,
+        -32.6,
+        -2.14
+      ],
+      "floor_z": -2.62,
+      "yaw_deg": 90,
+      "approach": [
+        2.65,
+        -32.6,
+        -2.62
+      ],
+      "support": "DestinationLoungeDeck",
+      "kind": "bench",
+      "approach_node": "seat_lounge_01",
+      "sitter_at": [
+        3.39,
+        -32.6,
+        -2.14
+      ]
+    },
+    {
+      "id": "lounge_02",
+      "at": [
+        3.53,
+        -31.9,
+        -2.14
+      ],
+      "floor_z": -2.62,
+      "yaw_deg": 90,
+      "approach": [
+        2.65,
+        -31.9,
+        -2.62
+      ],
+      "support": "DestinationLoungeDeck",
+      "kind": "bench",
+      "approach_node": "seat_lounge_02",
+      "sitter_at": [
+        3.39,
+        -31.9,
+        -2.14
+      ]
+    },
+    {
+      "id": "lounge_03",
+      "at": [
+        3.53,
+        -31.2,
+        -2.14
+      ],
+      "floor_z": -2.62,
+      "yaw_deg": 90,
+      "approach": [
+        2.94,
+        -31.43,
+        -2.62
+      ],
+      "support": "DestinationLoungeDeck",
+      "kind": "bench",
+      "approach_node": "seat_lounge_03",
+      "sitter_at": [
+        3.39,
+        -31.2,
+        -2.14
+      ]
+    },
+    {
+      "id": "lounge_04",
+      "at": [
+        2.34,
+        -31.1,
+        -2.14
+      ],
+      "floor_z": -2.62,
+      "yaw_deg": 180,
+      "approach": [
+        2.55,
+        -32.2,
+        -2.62
+      ],
+      "support": "DestinationLoungeDeck",
+      "kind": "bench",
+      "approach_node": "seat_lounge_04",
+      "sitter_at": [
+        2.34,
+        -31.24,
+        -2.14
+      ]
+    },
+    {
+      "id": "mina_reserved",
+      "at": [
+        3.45,
+        -29.9,
+        -2.32
+      ],
+      "floor_z": -2.8,
+      "yaw_deg": 180,
+      "approach": [
+        2.55,
+        -30.0,
+        -2.8
+      ],
+      "support": "retail_bar_floor",
+      "kind": "chair",
+      "approach_node": "seat_mina_reserved",
+      "sitter_at": [
+        3.45,
+        -30.04,
+        -2.32
+      ]
+    },
+    {
+      "id": "balcony_north_01",
+      "at": [
+        -4.05,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "yaw_deg": 180,
+      "approach": [
+        -4.05,
+        -31.55,
+        0
+      ],
+      "support": "DestinationBalconyNorth",
+      "kind": "stool",
+      "approach_node": "seat_balcony_north_01"
+    },
+    {
+      "id": "balcony_north_02",
+      "at": [
+        -3.44,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "yaw_deg": 180,
+      "approach": [
+        -3.44,
+        -31.55,
+        0
+      ],
+      "support": "DestinationBalconyNorth",
+      "kind": "stool",
+      "approach_node": "seat_balcony_north_02"
+    },
+    {
+      "id": "balcony_north_03",
+      "at": [
+        -2.83,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "yaw_deg": 180,
+      "approach": [
+        -2.83,
+        -31.55,
+        0
+      ],
+      "support": "DestinationBalconyNorth",
+      "kind": "stool",
+      "approach_node": "seat_balcony_north_03"
+    },
+    {
+      "id": "balcony_north_04",
+      "at": [
+        -2.22,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "yaw_deg": 180,
+      "approach": [
+        -2.22,
+        -31.55,
+        0
+      ],
+      "support": "DestinationBalconyNorth",
+      "kind": "stool",
+      "approach_node": "seat_balcony_north_04"
+    },
+    {
+      "id": "balcony_north_05",
+      "at": [
+        -1.61,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "yaw_deg": 180,
+      "approach": [
+        -1.61,
+        -31.55,
+        0
+      ],
+      "support": "DestinationBalconyNorth",
+      "kind": "stool",
+      "approach_node": "seat_balcony_north_05"
+    },
+    {
+      "id": "balcony_north_06",
+      "at": [
+        -1.0,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "yaw_deg": 180,
+      "approach": [
+        -1.0,
+        -31.55,
+        0
+      ],
+      "support": "DestinationBalconyNorth",
+      "kind": "stool",
+      "approach_node": "seat_balcony_north_06"
+    },
+    {
+      "id": "balcony_north_07",
+      "at": [
+        -0.39,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "yaw_deg": 180,
+      "approach": [
+        -0.39,
+        -31.55,
+        0
+      ],
+      "support": "DestinationBalconyNorth",
+      "kind": "stool",
+      "approach_node": "seat_balcony_north_07"
+    },
+    {
+      "id": "balcony_return_01",
+      "at": [
+        -1.08,
+        -33.19,
+        0.48
+      ],
+      "floor_z": 0,
+      "yaw_deg": 110,
+      "approach": [
+        0.1,
+        -33.19,
+        0
+      ],
+      "support": "DestinationBalconyReturn",
+      "kind": "stool",
+      "approach_node": "seat_balcony_return_01"
+    },
+    {
+      "id": "balcony_return_02",
+      "at": [
+        -1.08,
+        -33.85,
+        0.48
+      ],
+      "floor_z": 0,
+      "yaw_deg": 110,
+      "approach": [
+        0.1,
+        -33.85,
+        0
+      ],
+      "support": "DestinationBalconyReturn",
+      "kind": "stool",
+      "approach_node": "seat_balcony_return_02"
+    },
+    {
+      "id": "balcony_return_03",
+      "at": [
+        -1.08,
+        -34.51,
+        0.48
+      ],
+      "floor_z": 0,
+      "yaw_deg": 110,
+      "approach": [
+        0.1,
+        -34.51,
+        0
+      ],
+      "support": "DestinationBalconyReturn",
+      "kind": "stool",
+      "approach_node": "seat_balcony_return_03"
+    }
+  ],
+  "standing_positions": [
+    {
+      "id": "mina_reading",
+      "at": [
+        2.55,
+        -30.0,
+        -2.8
+      ],
+      "seat": "mina_reserved"
+    },
+    {
+      "id": "bass_performer",
+      "at": [
+        -2.65,
+        -35.25,
+        -2.58
+      ]
+    },
+    {
+      "id": "vocal_performer",
+      "at": [
+        -0.7,
+        -34.95,
+        -2.58
+      ]
+    }
+  ],
+  "navigation": {
+    "nodes": [
+      {
+        "id": "entrance",
+        "at": [
+          3.4,
+          -34.4,
+          -2.8
+        ]
+      },
+      {
+        "id": "main_aisle_e",
+        "at": [
+          1.5,
+          -33.9,
+          -2.8
+        ]
+      },
+      {
+        "id": "main_aisle_c",
+        "at": [
+          -1.3,
+          -33.9,
+          -2.8
+        ]
+      },
+      {
+        "id": "main_aisle_w",
+        "at": [
+          -4.0,
+          -33.9,
+          -2.8
+        ]
+      },
+      {
+        "id": "west_bypass",
+        "at": [
+          -5.97,
+          -34.15,
+          -2.8
+        ]
+      },
+      {
+        "id": "stair_approach",
+        "at": [
+          -5.97,
+          -36.45,
+          -2.8
+        ]
+      },
+      {
+        "id": "stair_lower",
+        "at": [
+          -4.95,
+          -36.45,
+          -2.8
+        ]
+      },
+      {
+        "id": "stair_top",
+        "at": [
+          -4.95,
+          -31.55,
+          0
+        ]
+      },
+      {
+        "id": "gallery_rear",
+        "at": [
+          -3.85,
+          -31.55,
+          0
+        ]
+      },
+      {
+        "id": "gallery_rear_e",
+        "at": [
+          0.2,
+          -31.55,
+          0
+        ]
+      },
+      {
+        "id": "gallery_return",
+        "at": [
+          0.2,
+          -34.5,
+          0
+        ]
+      },
+      {
+        "id": "counter_e",
+        "at": [
+          0.75,
+          -31.6,
+          -2.8
+        ]
+      },
+      {
+        "id": "counter_w",
+        "at": [
+          -3.8,
+          -31.6,
+          -2.8
+        ]
+      },
+      {
+        "id": "wc_bypass",
+        "at": [
+          -10.5,
+          -34.15,
+          -2.8
+        ]
+      },
+      {
+        "id": "wc_approach",
+        "at": [
+          -10.5,
+          -35.65,
+          -2.8
+        ]
+      },
+      {
+        "id": "darts_approach",
+        "at": [
+          -5.97,
+          -37.2,
+          -2.8
+        ]
+      },
+      {
+        "id": "darts_oche",
+        "at": [
+          -7.5,
+          -37.35,
+          -2.8
+        ]
+      },
+      {
+        "id": "backstage_entrance",
+        "at": [
+          3.15,
+          -34.4,
+          -2.8
+        ]
+      },
+      {
+        "id": "backstage",
+        "at": [
+          2.7,
+          -35.8,
+          -2.8
+        ]
+      },
+      {
+        "id": "stage_e",
+        "at": [
+          0.99,
+          -35.74,
+          -2.58
+        ]
+      },
+      {
+        "id": "stage_front",
+        "at": [
+          0.67,
+          -34.95,
+          -2.58
+        ]
+      },
+      {
+        "id": "lounge_approach",
+        "at": [
+          2.65,
+          -33.8,
+          -2.8
+        ]
+      },
+      {
+        "id": "lounge_deck",
+        "at": [
+          2.65,
+          -32.9,
+          -2.62
+        ]
+      },
+      {
+        "id": "mina_stand",
+        "at": [
+          2.55,
+          -30.0,
+          -2.8
+        ]
+      },
+      {
+        "id": "balcony_tread_01",
+        "at": [
+          -4.95,
+          -35.77333333333333,
+          -2.625
+        ]
+      },
+      {
+        "id": "balcony_tread_02",
+        "at": [
+          -4.95,
+          -35.519999999999996,
+          -2.45
+        ]
+      },
+      {
+        "id": "balcony_tread_03",
+        "at": [
+          -4.95,
+          -35.266666666666666,
+          -2.275
+        ]
+      },
+      {
+        "id": "balcony_tread_04",
+        "at": [
+          -4.95,
+          -35.013333333333335,
+          -2.1
+        ]
+      },
+      {
+        "id": "balcony_tread_05",
+        "at": [
+          -4.95,
+          -34.76,
+          -1.925
+        ]
+      },
+      {
+        "id": "balcony_tread_06",
+        "at": [
+          -4.95,
+          -34.50666666666667,
+          -1.75
+        ]
+      },
+      {
+        "id": "balcony_tread_07",
+        "at": [
+          -4.95,
+          -34.25333333333333,
+          -1.575
+        ]
+      },
+      {
+        "id": "balcony_tread_08",
+        "at": [
+          -4.95,
+          -34.0,
+          -1.4
+        ]
+      },
+      {
+        "id": "balcony_tread_09",
+        "at": [
+          -4.95,
+          -33.74666666666666,
+          -1.225
+        ]
+      },
+      {
+        "id": "balcony_tread_10",
+        "at": [
+          -4.95,
+          -33.49333333333333,
+          -1.05
+        ]
+      },
+      {
+        "id": "balcony_tread_11",
+        "at": [
+          -4.95,
+          -33.24,
+          -0.875
+        ]
+      },
+      {
+        "id": "balcony_tread_12",
+        "at": [
+          -4.95,
+          -32.986666666666665,
+          -0.7
+        ]
+      },
+      {
+        "id": "balcony_tread_13",
+        "at": [
+          -4.95,
+          -32.733333333333334,
+          -0.525
+        ]
+      },
+      {
+        "id": "balcony_tread_14",
+        "at": [
+          -4.95,
+          -32.48,
+          -0.35
+        ]
+      },
+      {
+        "id": "balcony_tread_15",
+        "at": [
+          -4.95,
+          -32.22666666666667,
+          -0.175
+        ]
+      },
+      {
+        "id": "balcony_tread_16",
+        "at": [
+          -4.95,
+          -31.9,
+          0.0
+        ]
+      },
+      {
+        "id": "under_landing_e",
+        "at": [
+          -4.05,
+          -31.55,
+          -2.8
+        ]
+      },
+      {
+        "id": "under_landing_w",
+        "at": [
+          -5.95,
+          -31.55,
+          -2.8
+        ]
+      },
+      {
+        "id": "pool_approach_s",
+        "at": [
+          -6.5,
+          -33.9,
+          -2.8
+        ]
+      },
+      {
+        "id": "pool_interaction",
+        "at": [
+          -6.6,
+          -30.7,
+          -2.8
+        ]
+      },
+      {
+        "id": "darts_interaction",
+        "at": [
+          -8.55,
+          -37,
+          -2.8
+        ]
+      },
+      {
+        "id": "seat_counter_01",
+        "at": [
+          -3.8,
+          -31.65,
+          -2.8
+        ]
+      },
+      {
+        "id": "seat_counter_02",
+        "at": [
+          -2.75,
+          -31.65,
+          -2.8
+        ]
+      },
+      {
+        "id": "seat_counter_03",
+        "at": [
+          -1.7,
+          -31.65,
+          -2.8
+        ]
+      },
+      {
+        "id": "seat_counter_04",
+        "at": [
+          -0.65,
+          -31.65,
+          -2.8
+        ]
+      },
+      {
+        "id": "seat_counter_05",
+        "at": [
+          0.4,
+          -31.65,
+          -2.8
+        ]
+      },
+      {
+        "id": "seat_floor_bench_01",
+        "at": [
+          -3.35,
+          -33.65,
+          -2.8
+        ]
+      },
+      {
+        "id": "seat_floor_bench_02",
+        "at": [
+          -2.45,
+          -33.65,
+          -2.8
+        ]
+      },
+      {
+        "id": "seat_floor_bench_03",
+        "at": [
+          -1.55,
+          -33.65,
+          -2.8
+        ]
+      },
+      {
+        "id": "seat_floor_bench_04",
+        "at": [
+          -0.65,
+          -33.65,
+          -2.8
+        ]
+      },
+      {
+        "id": "seat_lounge_01",
+        "at": [
+          2.65,
+          -32.6,
+          -2.62
+        ]
+      },
+      {
+        "id": "seat_lounge_02",
+        "at": [
+          2.65,
+          -31.9,
+          -2.62
+        ]
+      },
+      {
+        "id": "seat_lounge_03",
+        "at": [
+          2.94,
+          -31.43,
+          -2.62
+        ]
+      },
+      {
+        "id": "seat_lounge_04",
+        "at": [
+          2.55,
+          -32.2,
+          -2.62
+        ]
+      },
+      {
+        "id": "seat_mina_reserved",
+        "at": [
+          2.55,
+          -30.0,
+          -2.8
+        ]
+      },
+      {
+        "id": "seat_balcony_north_01",
+        "at": [
+          -4.05,
+          -31.55,
+          0
+        ]
+      },
+      {
+        "id": "seat_balcony_north_02",
+        "at": [
+          -3.44,
+          -31.55,
+          0
+        ]
+      },
+      {
+        "id": "seat_balcony_north_03",
+        "at": [
+          -2.83,
+          -31.55,
+          0
+        ]
+      },
+      {
+        "id": "seat_balcony_north_04",
+        "at": [
+          -2.22,
+          -31.55,
+          0
+        ]
+      },
+      {
+        "id": "seat_balcony_north_05",
+        "at": [
+          -1.61,
+          -31.55,
+          0
+        ]
+      },
+      {
+        "id": "seat_balcony_north_06",
+        "at": [
+          -1.0,
+          -31.55,
+          0
+        ]
+      },
+      {
+        "id": "seat_balcony_north_07",
+        "at": [
+          -0.39,
+          -31.55,
+          0
+        ]
+      },
+      {
+        "id": "seat_balcony_return_01",
+        "at": [
+          0.1,
+          -33.19,
+          0
+        ]
+      },
+      {
+        "id": "seat_balcony_return_02",
+        "at": [
+          0.1,
+          -33.85,
+          0
+        ]
+      },
+      {
+        "id": "seat_balcony_return_03",
+        "at": [
+          0.1,
+          -34.51,
+          0
+        ]
+      },
+      {
+        "id": "stair_hold_lower_01",
+        "at": [
+          -5.24,
+          -37.43,
+          -2.8
+        ]
+      },
+      {
+        "id": "stair_hold_lower_02",
+        "at": [
+          -4.6,
+          -37.43,
+          -2.8
+        ]
+      },
+      {
+        "id": "stair_hold_upper_01",
+        "at": [
+          -1.05,
+          -35.36,
+          0
+        ]
+      },
+      {
+        "id": "stair_hold_upper_02",
+        "at": [
+          -0.35,
+          -35.36,
+          0
+        ]
+      },
+      {
+        "id": "gallery_hold_access",
+        "at": [
+          0.2,
+          -35.36,
+          0
+        ]
+      },
+      {
+        "id": "entry_hold_inner_01",
+        "at": [
+          1.85,
+          -34.5,
+          -2.8
+        ]
+      },
+      {
+        "id": "entry_hold_inner_02",
+        "at": [
+          2.5,
+          -34.5,
+          -2.8
+        ]
+      },
+      {
+        "id": "entry_sidewalk",
+        "at": [
+          4.8,
+          -27.795,
+          0.01
+        ]
+      },
+      {
+        "id": "entry_hold_outer_01",
+        "at": [
+          3.5,
+          -27.7,
+          0.01
+        ]
+      },
+      {
+        "id": "entry_hold_outer_02",
+        "at": [
+          2.8,
+          -27.7,
+          0.01
+        ]
+      },
+      {
+        "id": "entry_outside",
+        "at": [
+          4.8,
+          -29.99,
+          0.02
+        ]
+      },
+      {
+        "id": "entry_descent_01",
+        "at": [
+          4.8,
+          -31.07,
+          -0.7
+        ]
+      },
+      {
+        "id": "entry_descent_02",
+        "at": [
+          4.8,
+          -32.15,
+          -1.4
+        ]
+      },
+      {
+        "id": "entry_descent_03",
+        "at": [
+          4.8,
+          -33.23,
+          -2.1
+        ]
+      },
+      {
+        "id": "entry_descent_foot",
+        "at": [
+          4.8,
+          -34.55,
+          -2.8
+        ]
+      },
+      {
+        "id": "entry_threshold",
+        "at": [
+          3.7,
+          -34.5,
+          -2.8
+        ]
+      },
+      {
+        "id": "entry_crate_lower",
+        "at": [
+          5.14,
+          -29.9,
+          0.02
+        ]
+      },
+      {
+        "id": "entry_crate_upper",
+        "at": [
+          5.14,
+          -28.9,
+          0.02
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "entrance",
+        "main_aisle_e"
+      ],
+      [
+        "main_aisle_e",
+        "main_aisle_c"
+      ],
+      [
+        "main_aisle_c",
+        "main_aisle_w"
+      ],
+      [
+        "west_bypass",
+        "stair_approach"
+      ],
+      [
+        "stair_approach",
+        "stair_lower"
+      ],
+      [
+        "stair_top",
+        "gallery_rear"
+      ],
+      [
+        "gallery_rear",
+        "gallery_rear_e"
+      ],
+      [
+        "gallery_rear_e",
+        "gallery_return"
+      ],
+      [
+        "main_aisle_e",
+        "counter_e"
+      ],
+      [
+        "counter_e",
+        "counter_w"
+      ],
+      [
+        "west_bypass",
+        "wc_bypass"
+      ],
+      [
+        "wc_bypass",
+        "wc_approach"
+      ],
+      [
+        "stair_approach",
+        "darts_approach"
+      ],
+      [
+        "darts_approach",
+        "darts_oche"
+      ],
+      [
+        "entrance",
+        "backstage_entrance"
+      ],
+      [
+        "backstage_entrance",
+        "backstage"
+      ],
+      [
+        "backstage",
+        "stage_e"
+      ],
+      [
+        "stage_e",
+        "stage_front"
+      ],
+      [
+        "entrance",
+        "lounge_approach"
+      ],
+      [
+        "lounge_approach",
+        "lounge_deck"
+      ],
+      [
+        "counter_e",
+        "mina_stand"
+      ],
+      [
+        "stair_lower",
+        "balcony_tread_01"
+      ],
+      [
+        "balcony_tread_01",
+        "balcony_tread_02"
+      ],
+      [
+        "balcony_tread_02",
+        "balcony_tread_03"
+      ],
+      [
+        "balcony_tread_03",
+        "balcony_tread_04"
+      ],
+      [
+        "balcony_tread_04",
+        "balcony_tread_05"
+      ],
+      [
+        "balcony_tread_05",
+        "balcony_tread_06"
+      ],
+      [
+        "balcony_tread_06",
+        "balcony_tread_07"
+      ],
+      [
+        "balcony_tread_07",
+        "balcony_tread_08"
+      ],
+      [
+        "balcony_tread_08",
+        "balcony_tread_09"
+      ],
+      [
+        "balcony_tread_09",
+        "balcony_tread_10"
+      ],
+      [
+        "balcony_tread_10",
+        "balcony_tread_11"
+      ],
+      [
+        "balcony_tread_11",
+        "balcony_tread_12"
+      ],
+      [
+        "balcony_tread_12",
+        "balcony_tread_13"
+      ],
+      [
+        "balcony_tread_13",
+        "balcony_tread_14"
+      ],
+      [
+        "balcony_tread_14",
+        "balcony_tread_15"
+      ],
+      [
+        "balcony_tread_15",
+        "balcony_tread_16"
+      ],
+      [
+        "balcony_tread_16",
+        "stair_top"
+      ],
+      [
+        "counter_w",
+        "under_landing_e"
+      ],
+      [
+        "under_landing_e",
+        "under_landing_w"
+      ],
+      [
+        "under_landing_w",
+        "west_bypass"
+      ],
+      [
+        "west_bypass",
+        "pool_approach_s"
+      ],
+      [
+        "pool_approach_s",
+        "pool_interaction"
+      ],
+      [
+        "wc_approach",
+        "darts_interaction"
+      ],
+      [
+        "counter_e",
+        "seat_counter_01"
+      ],
+      [
+        "seat_counter_01",
+        "seat_counter_02"
+      ],
+      [
+        "seat_counter_02",
+        "seat_counter_03"
+      ],
+      [
+        "seat_counter_03",
+        "seat_counter_04"
+      ],
+      [
+        "seat_counter_04",
+        "seat_counter_05"
+      ],
+      [
+        "main_aisle_c",
+        "seat_floor_bench_01"
+      ],
+      [
+        "seat_floor_bench_01",
+        "seat_floor_bench_02"
+      ],
+      [
+        "seat_floor_bench_02",
+        "seat_floor_bench_03"
+      ],
+      [
+        "seat_floor_bench_03",
+        "seat_floor_bench_04"
+      ],
+      [
+        "lounge_deck",
+        "seat_lounge_01"
+      ],
+      [
+        "seat_lounge_01",
+        "seat_lounge_02"
+      ],
+      [
+        "seat_lounge_02",
+        "seat_lounge_03"
+      ],
+      [
+        "seat_lounge_03",
+        "seat_lounge_04"
+      ],
+      [
+        "gallery_rear",
+        "seat_balcony_north_01"
+      ],
+      [
+        "seat_balcony_north_01",
+        "seat_balcony_north_02"
+      ],
+      [
+        "seat_balcony_north_02",
+        "seat_balcony_north_03"
+      ],
+      [
+        "seat_balcony_north_03",
+        "seat_balcony_north_04"
+      ],
+      [
+        "seat_balcony_north_04",
+        "seat_balcony_north_05"
+      ],
+      [
+        "seat_balcony_north_05",
+        "seat_balcony_north_06"
+      ],
+      [
+        "seat_balcony_north_06",
+        "seat_balcony_north_07"
+      ],
+      [
+        "gallery_return",
+        "seat_balcony_return_01"
+      ],
+      [
+        "seat_balcony_return_01",
+        "seat_balcony_return_02"
+      ],
+      [
+        "seat_balcony_return_02",
+        "seat_balcony_return_03"
+      ],
+      [
+        "mina_stand",
+        "seat_mina_reserved"
+      ],
+      [
+        "stair_lower",
+        "stair_hold_lower_01"
+      ],
+      [
+        "stair_lower",
+        "stair_hold_lower_02"
+      ],
+      [
+        "gallery_return",
+        "gallery_hold_access"
+      ],
+      [
+        "gallery_hold_access",
+        "stair_hold_upper_02"
+      ],
+      [
+        "stair_hold_upper_02",
+        "stair_hold_upper_01"
+      ],
+      [
+        "main_aisle_e",
+        "entry_hold_inner_01"
+      ],
+      [
+        "entrance",
+        "entry_hold_inner_02"
+      ],
+      [
+        "entry_outside",
+        "entry_descent_01"
+      ],
+      [
+        "entry_descent_01",
+        "entry_descent_02"
+      ],
+      [
+        "entry_descent_02",
+        "entry_descent_03"
+      ],
+      [
+        "entry_descent_03",
+        "entry_descent_foot"
+      ],
+      [
+        "entry_descent_foot",
+        "entry_threshold"
+      ],
+      [
+        "entry_threshold",
+        "entrance"
+      ],
+      [
+        "entry_sidewalk",
+        "entry_hold_outer_01"
+      ],
+      [
+        "entry_hold_outer_01",
+        "entry_hold_outer_02"
+      ],
+      [
+        "entry_outside",
+        "entry_crate_lower"
+      ],
+      [
+        "entry_crate_lower",
+        "entry_crate_upper"
+      ],
+      [
+        "entry_crate_upper",
+        "entry_sidewalk"
+      ]
+    ],
+    "status": "proposed motor route datums; not navigation or collision proof",
+    "passages": [
+      {
+        "id": "balcony_stair",
+        "a": "stair_lower",
+        "b": "stair_top",
+        "a_holding": [
+          "stair_hold_lower_01",
+          "stair_hold_lower_02"
+        ],
+        "b_holding": [
+          "stair_hold_upper_01",
+          "stair_hold_upper_02"
+        ]
+      },
+      {
+        "id": "entry_descent",
+        "a": "entry_outside",
+        "b": "entrance",
+        "a_holding": [
+          "entry_hold_outer_01",
+          "entry_hold_outer_02"
+        ],
+        "b_holding": [
+          "entry_hold_inner_01",
+          "entry_hold_inner_02"
+        ],
+        "holding_basis": "Original site_sidewalk_s_w top .01; pockets outside shaft accumulation and original source furniture. Full descent protected, not only door leaf."
+      }
+    ]
+  },
+  "relocations": {
+    "pool": {
+      "source_anchor": [
+        -7.4,
+        -31.25,
+        -2.8
+      ],
+      "at": [
+        -8.4,
+        -31.25,
+        -2.8
+      ],
+      "translation": [
+        -1,
+        0,
+        0
+      ],
+      "yaw_deg": 0,
+      "cue": {
+        "source_id": "retail_bar_cue",
+        "p0": [
+          -7.25,
+          -30.45,
+          -2.75
+        ],
+        "p1": [
+          -7,
+          -30.65,
+          -1.3
+        ],
+        "radius": 0.012
+      }
+    },
+    "piano": {
+      "source_anchor": [
+        -1.9,
+        -37.15,
+        -2.58
+      ],
+      "at": [
+        -3.6,
+        -37.1,
+        -2.58
+      ],
+      "yaw_deg": 0
+    },
+    "microphone": {
+      "source_anchor": [
+        -0.7,
+        -36.75,
+        -2.58
+      ],
+      "at": [
+        -0.7,
+        -34.95,
+        -2.58
+      ],
+      "yaw_deg": 0
+    },
+    "darts": {
+      "source_anchor": [
+        -11.4,
+        -33,
+        -1.07
+      ],
+      "at": [
+        -7.5,
+        -34.74,
+        -1.07
+      ],
+      "source_yaw_delta_deg": -90
+    },
+    "stage_curtains": {
+      "source_anchor": [
+        -0.7,
+        -37.55,
+        -2.8
+      ],
+      "at": [
+        -1.55,
+        -37.55,
+        -2.8
+      ],
+      "yaw_deg": 0,
+      "note": "Preserve existing native curtain assembly as backdrop centre; wider side wings are new architecture, not scale-stretch."
+    },
+    "score_panel": {
+      "source_anchor": [
+        -11.44,
+        -31.34,
+        -1.0
+      ],
+      "at": [
+        -8.6,
+        -34.7,
+        -1.0
+      ],
+      "source_yaw_delta_deg": -90,
+      "note": "Independent original ScorePanel draw; target transform would bury it beside the stair."
+    }
+  },
+  "drumkit": {
+    "asset": "res://assets/props/harukiya_drumkit.glb",
+    "at": [
+      -0.95,
+      -36.0,
+      -2.58
+    ],
+    "yaw_deg": 0,
+    "local_frame": "Godot Y-up; performer +Z faces-Z; zero yaw faces source north +Y"
+  },
+  "native_parts": [
+    {
+      "name": "Destination_Backstage_brass",
+      "material": "brass",
+      "assembly": "Backstage",
+      "triangles": 284,
+      "aabb_source": {
+        "min": [
+          1.649999976158142,
+          -37.50600051879883,
+          -0.9148000478744507
+        ],
+        "max": [
+          3.0999999046325684,
+          -37.384307861328125,
+          -0.8340000510215759
+        ]
+      }
+    },
+    {
+      "name": "Destination_Backstage_cloth",
+      "material": "cloth",
+      "assembly": "Backstage",
+      "triangles": 36,
+      "aabb_source": {
+        "min": [
+          1.8899998664855957,
+          -37.42499923706055,
+          -2.5950000286102295
+        ],
+        "max": [
+          3.490000009536743,
+          -37.1349983215332,
+          -2.3450000286102295
+        ]
+      }
+    },
+    {
+      "name": "Destination_Backstage_metal",
+      "material": "metal",
+      "assembly": "Backstage",
+      "triangles": 160,
+      "aabb_source": {
+        "min": [
+          1.590000033378601,
+          -37.86000061035156,
+          -2.2100000381469727
+        ],
+        "max": [
+          3.952500104904175,
+          -35.35000228881836,
+          -0.7800000309944153
+        ]
+      }
+    },
+    {
+      "name": "Destination_Backstage_mirror",
+      "material": "mirror",
+      "assembly": "Backstage",
+      "triangles": 12,
+      "aabb_source": {
+        "min": [
+          3.9240000247955322,
+          -36.41999816894531,
+          -1.6099998950958252
+        ],
+        "max": [
+          3.936000108718872,
+          -35.68000030517578,
+          -0.7299999594688416
+        ]
+      }
+    },
+    {
+      "name": "Destination_Backstage_oak",
+      "material": "oak",
+      "assembly": "Backstage",
+      "triangles": 240,
+      "aabb_source": {
+        "min": [
+          1.1899999380111694,
+          -37.599998474121094,
+          -2.799999952316284
+        ],
+        "max": [
+          3.9749999046325684,
+          -34.935001373291016,
+          -0.25
+        ]
+      }
+    },
+    {
+      "name": "Destination_Backstage_partition",
+      "material": "partition",
+      "assembly": "Backstage",
+      "triangles": 48,
+      "aabb_source": {
+        "min": [
+          1.1999999284744263,
+          -37.599998474121094,
+          -2.799999952316284
+        ],
+        "max": [
+          3.9000000953674316,
+          -34.94999694824219,
+          -0.25
+        ]
+      }
+    },
+    {
+      "name": "Destination_Balcony_brass",
+      "material": "brass",
+      "assembly": "Balcony",
+      "triangles": 384,
+      "aabb_source": {
+        "min": [
+          -5.587500095367432,
+          -35.897499084472656,
+          0.0
+        ],
+        "max": [
+          0.612500011920929,
+          -30.99749755859375,
+          1.0279971361160278
+        ]
+      }
+    },
+    {
+      "name": "Destination_Balcony_floor",
+      "material": "floor",
+      "assembly": "Balcony",
+      "triangles": 492,
+      "aabb_source": {
+        "min": [
+          -4.39900016784668,
+          -35.900001525878906,
+          -0.017999999225139618
+        ],
+        "max": [
+          0.5989999771118164,
+          -31.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Destination_Balcony_metal",
+      "material": "metal",
+      "assembly": "Balcony",
+      "triangles": 4360,
+      "aabb_source": {
+        "min": [
+          -5.539999961853027,
+          -35.869998931884766,
+          -2.8000001907348633
+        ],
+        "max": [
+          0.5800000429153442,
+          -31.034000396728516,
+          1.059999942779541
+        ]
+      }
+    },
+    {
+      "name": "Destination_Balcony_oak",
+      "material": "oak",
+      "assembly": "Balcony",
+      "triangles": 792,
+      "aabb_source": {
+        "min": [
+          -5.567500114440918,
+          -35.900001525878906,
+          -2.799999952316284
+        ],
+        "max": [
+          0.6100000143051147,
+          -31.0,
+          1.1290000677108765
+        ]
+      }
+    },
+    {
+      "name": "Destination_Darts_brass",
+      "material": "brass",
+      "assembly": "Darts",
+      "triangles": 12,
+      "aabb_source": {
+        "min": [
+          -7.900000095367432,
+          -37.03750228881836,
+          -2.799999952316284
+        ],
+        "max": [
+          -7.099999904632568,
+          -37.002498626708984,
+          -2.7920000553131104
+        ]
+      }
+    },
+    {
+      "name": "Destination_Darts_oak",
+      "material": "oak",
+      "assembly": "Darts",
+      "triangles": 96,
+      "aabb_source": {
+        "min": [
+          -9.100000381469727,
+          -37.45000076293945,
+          -2.8000001907348633
+        ],
+        "max": [
+          -6.400000095367432,
+          -34.525001525878906,
+          -0.3499999940395355
+        ]
+      }
+    },
+    {
+      "name": "Destination_Darts_partition",
+      "material": "partition",
+      "assembly": "Darts",
+      "triangles": 12,
+      "aabb_source": {
+        "min": [
+          -9.100000381469727,
+          -34.63999938964844,
+          -2.8000001907348633
+        ],
+        "max": [
+          -6.400000095367432,
+          -34.540000915527344,
+          -0.3500000238418579
+        ]
+      }
+    },
+    {
+      "name": "Destination_LightSupports_brass",
+      "material": "brass",
+      "assembly": "LightSupports",
+      "triangles": 780,
+      "aabb_source": {
+        "min": [
+          -7.0329999923706055,
+          -37.38299560546875,
+          -0.3199999928474426
+        ],
+        "max": [
+          -0.46700000762939453,
+          -32.51700210571289,
+          -0.15399999916553497
+        ]
+      }
+    },
+    {
+      "name": "Destination_LightSupports_metal",
+      "material": "metal",
+      "assembly": "LightSupports",
+      "triangles": 280,
+      "aabb_source": {
+        "min": [
+          -7.045000076293945,
+          -37.394996643066406,
+          -0.3199999928474426
+        ],
+        "max": [
+          -0.45499998331069946,
+          -32.505001068115234,
+          -0.15000000596046448
+        ]
+      }
+    },
+    {
+      "name": "Destination_Lounge_floor",
+      "material": "floor",
+      "assembly": "Lounge",
+      "triangles": 12,
+      "aabb_source": {
+        "min": [
+          2.0999999046325684,
+          -33.20000076293945,
+          -2.799999952316284
+        ],
+        "max": [
+          4.0,
+          -30.799999237060547,
+          -2.620000123977661
+        ]
+      }
+    },
+    {
+      "name": "Destination_Lounge_oak",
+      "material": "oak",
+      "assembly": "Lounge",
+      "triangles": 60,
+      "aabb_source": {
+        "min": [
+          2.0999999046325684,
+          -33.46000289916992,
+          -2.8000001907348633
+        ],
+        "max": [
+          3.830000162124634,
+          -31.48499870300293,
+          -1.962499976158142
+        ]
+      }
+    },
+    {
+      "name": "Destination_PipeOffset_pipe_metal",
+      "material": "pipe_metal",
+      "assembly": "PipeOffset",
+      "triangles": 1116,
+      "aabb_source": {
+        "min": [
+          -11.399999618530273,
+          -34.55500030517578,
+          -0.39236775040626526
+        ],
+        "max": [
+          3.9000000953674316,
+          -34.04499816894531,
+          1.152452826499939
+        ]
+      }
+    },
+    {
+      "name": "Destination_PipeSupports_pipe_brass",
+      "material": "pipe_brass",
+      "assembly": "PipeSupports",
+      "triangles": 3504,
+      "aabb_source": {
+        "min": [
+          -4.429162979125977,
+          -34.5760612487793,
+          -0.3490000069141388
+        ],
+        "max": [
+          -1.3708369731903076,
+          -31.52393913269043,
+          2.5160000324249268
+        ]
+      }
+    },
+    {
+      "name": "Destination_PipeSupports_pipe_iron",
+      "material": "pipe_iron",
+      "assembly": "PipeSupports",
+      "triangles": 6512,
+      "aabb_source": {
+        "min": [
+          -4.445000171661377,
+          -34.582000732421875,
+          -0.39530810713768005
+        ],
+        "max": [
+          -1.3550000190734863,
+          -31.51799964904785,
+          2.5199999809265137
+        ]
+      }
+    },
+    {
+      "name": "Destination_PoolCue_cue",
+      "material": "cue",
+      "assembly": "PoolCue",
+      "triangles": 60,
+      "aabb_source": {
+        "min": [
+          -7.2618255615234375,
+          -30.661890029907227,
+          -2.752568006515503
+        ],
+        "max": [
+          -6.9881744384765625,
+          -30.4381103515625,
+          -1.2974320650100708
+        ]
+      }
+    },
+    {
+      "name": "Destination_SeatingBalcony_cloth",
+      "material": "cloth",
+      "assembly": "SeatingBalcony",
+      "triangles": 120,
+      "aabb_source": {
+        "min": [
+          -4.28000020980835,
+          -34.80992126464844,
+          0.4300000071525574
+        ],
+        "max": [
+          -0.15999996662139893,
+          -32.21500015258789,
+          0.48000001907348633
+        ]
+      }
+    },
+    {
+      "name": "Destination_SeatingBalcony_oak",
+      "material": "oak",
+      "assembly": "SeatingBalcony",
+      "triangles": 1080,
+      "aabb_source": {
+        "min": [
+          -4.289999961853027,
+          -34.82102966308594,
+          0.0
+        ],
+        "max": [
+          -0.1499999761581421,
+          -32.20000076293945,
+          0.4325000047683716
+        ]
+      }
+    },
+    {
+      "name": "Destination_SeatingFloor_brass",
+      "material": "brass",
+      "assembly": "SeatingFloor",
+      "triangles": 120,
+      "aabb_source": {
+        "min": [
+          2.119499921798706,
+          -32.820499420166016,
+          -1.9219998121261597
+        ],
+        "max": [
+          3.7774999141693115,
+          -29.65250015258789,
+          -1.7239998579025269
+        ]
+      }
+    },
+    {
+      "name": "Destination_SeatingFloor_cloth",
+      "material": "cloth",
+      "assembly": "SeatingFloor",
+      "triangles": 204,
+      "aabb_source": {
+        "min": [
+          -3.75,
+          -32.86000061035156,
+          -2.390000104904175
+        ],
+        "max": [
+          3.7649998664855957,
+          -29.66499900817871,
+          -1.7949998378753662
+        ]
+      }
+    },
+    {
+      "name": "Destination_SeatingFloor_oak",
+      "material": "oak",
+      "assembly": "SeatingFloor",
+      "triangles": 1068,
+      "aabb_source": {
+        "min": [
+          -3.815000057220459,
+          -32.877498626708984,
+          -2.799999952316284
+        ],
+        "max": [
+          3.7799999713897705,
+          -29.649999618530273,
+          -1.717499852180481
+        ]
+      }
+    },
+    {
+      "name": "Destination_Stage_brass",
+      "material": "brass",
+      "assembly": "Stage",
+      "triangles": 24,
+      "aabb_source": {
+        "min": [
+          -4.300000190734863,
+          -34.544498443603516,
+          -2.6500000953674316
+        ],
+        "max": [
+          1.1999999284744263,
+          -34.4995002746582,
+          -2.5799999237060547
+        ]
+      }
+    },
+    {
+      "name": "Destination_Stage_cloth",
+      "material": "cloth",
+      "assembly": "Stage",
+      "triangles": 36,
+      "aabb_source": {
+        "min": [
+          -4.184999942779541,
+          -37.5260009765625,
+          -2.1700000762939453
+        ],
+        "max": [
+          1.065000057220459,
+          -35.78000259399414,
+          -0.76500004529953
+        ]
+      }
+    },
+    {
+      "name": "Destination_Stage_floor",
+      "material": "floor",
+      "assembly": "Stage",
+      "triangles": 348,
+      "aabb_source": {
+        "min": [
+          -4.299000263214111,
+          -37.75,
+          -2.5980000495910645
+        ],
+        "max": [
+          1.1990000009536743,
+          -34.5,
+          -2.5799999237060547
+        ]
+      }
+    },
+    {
+      "name": "Destination_Stage_metal",
+      "material": "metal",
+      "assembly": "Stage",
+      "triangles": 312,
+      "aabb_source": {
+        "min": [
+          -4.239999771118164,
+          -37.897499084472656,
+          -1.8199999332427979
+        ],
+        "max": [
+          1.1200000047683716,
+          -37.48999786376953,
+          -0.8179999589920044
+        ]
+      }
+    },
+    {
+      "name": "Destination_Stage_oak",
+      "material": "oak",
+      "assembly": "Stage",
+      "triangles": 132,
+      "aabb_source": {
+        "min": [
+          -4.300000190734863,
+          -37.775001525878906,
+          -2.799999952316284
+        ],
+        "max": [
+          1.6299999952316284,
+          -34.19999694824219,
+          -0.7200000286102295
+        ]
+      }
+    },
+    {
+      "name": "Destination_Stair_brass",
+      "material": "brass",
+      "assembly": "Stair",
+      "triangles": 24,
+      "aabb_source": {
+        "min": [
+          -5.582499980926514,
+          -32.147499084472656,
+          0.0
+        ],
+        "max": [
+          -5.487499713897705,
+          -30.997499465942383,
+          0.01600000075995922
+        ]
+      }
+    },
+    {
+      "name": "Destination_Stair_floor",
+      "material": "floor",
+      "assembly": "Stair",
+      "triangles": 192,
+      "aabb_source": {
+        "min": [
+          -5.534999847412109,
+          -35.91400146484375,
+          -2.6700000762939453
+        ],
+        "max": [
+          -4.364999771118164,
+          -31.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "Destination_Stair_metal",
+      "material": "metal",
+      "assembly": "Stair",
+      "triangles": 1108,
+      "aabb_source": {
+        "min": [
+          -5.546000003814697,
+          -35.75600051879883,
+          -2.625
+        ],
+        "max": [
+          -4.35699987411499,
+          -31.045000076293945,
+          1.059999942779541
+        ]
+      }
+    },
+    {
+      "name": "Destination_Stair_oak",
+      "material": "oak",
+      "assembly": "Stair",
+      "triangles": 768,
+      "aabb_source": {
+        "min": [
+          -5.579999923706055,
+          -35.96577453613281,
+          -2.8323285579681396
+        ],
+        "max": [
+          -4.319999694824219,
+          -31.017499923706055,
+          1.1290000677108765
+        ]
+      }
+    }
+  ],
+  "materials": {
+    "oak": {
+      "catalog_key": "wood_dark",
+      "tint": [
+        0.64,
+        0.54,
+        0.43,
+        1
+      ],
+      "normal": 0.18,
+      "roughness": 1.0,
+      "pigment": 0.9
+    },
+    "floor": {
+      "catalog_key": "oak_quartered",
+      "tint": [
+        0.68,
+        0.52,
+        0.36,
+        1
+      ],
+      "normal": 0.12,
+      "roughness": 1.0,
+      "pigment": 0.9
+    },
+    "cloth": {
+      "catalog_key": "velour",
+      "tint": [
+        0.38,
+        0.1,
+        0.11,
+        1
+      ],
+      "normal": 0.25,
+      "roughness": 1.0,
+      "pigment": 0.9
+    },
+    "metal": {
+      "catalog_key": "iron_blackened",
+      "tint": [
+        0.65,
+        0.67,
+        0.68,
+        1
+      ],
+      "normal": 0.18,
+      "roughness": 1.0,
+      "pigment": 0.9
+    },
+    "brass": {
+      "catalog_key": "door_brass",
+      "tint": [
+        0.8,
+        0.74,
+        0.59,
+        1
+      ],
+      "normal": 0.18,
+      "roughness": 0.8,
+      "pigment": 0.9
+    },
+    "partition": {
+      "catalog_key": "plaster_stained",
+      "tint": [
+        0.7,
+        0.68,
+        0.53,
+        1
+      ],
+      "normal": 0.18,
+      "roughness": 1.0,
+      "pigment": 0.9
+    },
+    "cue": {
+      "catalog_key": "timber",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.1,
+      "roughness": 0.9,
+      "pigment": 1
+    },
+    "mirror": {
+      "catalog_key": "mirror_aged",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.03,
+      "roughness": 0.8,
+      "pigment": 1
+    },
+    "pipe_iron": {
+      "catalog_key": "iron_blackened",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.35,
+      "roughness": 1,
+      "pigment": 1
+    },
+    "pipe_brass": {
+      "catalog_key": "brass_dull",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.35,
+      "roughness": 1,
+      "pigment": 1
+    },
+    "pipe_metal": {
+      "catalog_key": "metal",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.35,
+      "roughness": 1,
+      "pigment": 1
+    }
+  },
+  "retire_components": [
+    {
+      "id": "retail_bar_mic",
+      "component": "collision_hull_only",
+      "reason": "Existing furniture adapter already retires its visible source stock."
+    }
+  ],
+  "fixture_relocations": [
+    {
+      "id": "F01_BAR_LT_TAB1",
+      "source_at": [
+        -5.2,
+        -35.3,
+        -0.62
+      ],
+      "at": [
+        -3.2,
+        -32.55,
+        -0.32
+      ],
+      "support_anchor": [
+        -3.2,
+        -32.55,
+        -0.24
+      ],
+      "note": "Retained shade above audience bench; short real rod bears on balcony underside."
+    },
+    {
+      "id": "F01_BAR_LT_TAB2",
+      "source_at": [
+        -1.2,
+        -34.9,
+        -0.62
+      ],
+      "at": [
+        -0.7,
+        -32.55,
+        -0.32
+      ],
+      "support_anchor": [
+        -0.7,
+        -32.55,
+        -0.24
+      ],
+      "note": "Retained shade above audience bench; old rod would pass through balcony return."
+    },
+    {
+      "id": "F01_BAR_LT_STAGE0",
+      "source_at": [
+        -1.9,
+        -36.55,
+        -0.95
+      ],
+      "at": [
+        -3.6,
+        -37.35,
+        -0.17
+      ],
+      "support_anchor": [
+        -3.6,
+        -37.35,
+        -0.15
+      ],
+      "note": "Retained cage fixture above rear piano; raised clear of standing front-stage route."
+    },
+    {
+      "id": "F01_BAR_LT_STAGE1",
+      "source_at": [
+        0.5,
+        -36.55,
+        -0.95
+      ],
+      "at": [
+        -0.5,
+        -37.35,
+        -0.17
+      ],
+      "support_anchor": [
+        -0.5,
+        -37.35,
+        -0.15
+      ],
+      "note": "Retained cage fixture above rear kit space; raised out of east access aisle."
+    },
+    {
+      "id": "F01_BAR_LT_DARTS",
+      "source_at": [
+        -11.08,
+        -33.0,
+        -0.2899999999999998
+      ],
+      "at": [
+        -7,
+        -34.85,
+        -0.17
+      ],
+      "support_anchor": [
+        -7,
+        -34.85,
+        -0.15
+      ],
+      "note": "Retained cage fixture immediately above target, terminating into original low ceiling."
+    }
+  ],
+  "retire_native_parts": [
+    {
+      "parent": "BarFixtureMounts",
+      "name": "F01_BAR_LT_DARTS__brass_dull"
+    },
+    {
+      "parent": "BarFixtureMounts",
+      "name": "F01_BAR_LT_DARTS__iron_blackened"
+    },
+    {
+      "parent": "BarFixtureMounts",
+      "name": "F01_BAR_LT_DARTS__rubber_aged"
+    },
+    {
+      "parent": "BarFixtureMounts",
+      "name": "F01_BAR_LT_STAGE0__brass_dull"
+    },
+    {
+      "parent": "BarFixtureMounts",
+      "name": "F01_BAR_LT_STAGE0__iron_blackened"
+    },
+    {
+      "parent": "BarFixtureMounts",
+      "name": "F01_BAR_LT_STAGE0__rubber_aged"
+    },
+    {
+      "parent": "BarFixtureMounts",
+      "name": "F01_BAR_LT_STAGE1__brass_dull"
+    },
+    {
+      "parent": "BarFixtureMounts",
+      "name": "F01_BAR_LT_STAGE1__iron_blackened"
+    },
+    {
+      "parent": "BarFixtureMounts",
+      "name": "F01_BAR_LT_STAGE1__rubber_aged"
+    },
+    {
+      "parent": "BarPipeSupports",
+      "name": "retail_bar_pipe1_Hanger2__brass_dull"
+    },
+    {
+      "parent": "BarPipeSupports",
+      "name": "retail_bar_pipe1_Hanger2__iron_blackened"
+    },
+    {
+      "parent": "BarPipeSupports",
+      "name": "retail_bar_pipe1_Hanger3__brass_dull"
+    },
+    {
+      "parent": "BarPipeSupports",
+      "name": "retail_bar_pipe1_Hanger3__iron_blackened"
+    },
+    {
+      "parent": "BarPipeSupports",
+      "name": "retail_bar_pipe2_Hanger2__brass_dull"
+    },
+    {
+      "parent": "BarPipeSupports",
+      "name": "retail_bar_pipe2_Hanger2__iron_blackened"
+    },
+    {
+      "parent": "BarPipeSupports",
+      "name": "retail_bar_pipe2_Hanger3__brass_dull"
+    },
+    {
+      "parent": "BarPipeSupports",
+      "name": "retail_bar_pipe2_Hanger3__iron_blackened"
+    }
+  ],
+  "notes": [
+    "All 24 seats are physical; staff and performer working datums do not count as seats.",
+    "Ground-floor west circulation passes beneath upper landing with 2.56m clearance, never through middle stair treads.",
+    "Native layout is the sole new placement authority. Original shop_bar source remains immutable retirement witness.",
+    "Native review and actual-player Godot route/contact checks remain required; these numbers are not gameplay proof."
+  ],
+  "seat_contacts": [
+    {
+      "id": "lounge_01",
+      "at": [
+        3.39,
+        -32.6,
+        -2.14
+      ],
+      "floor_z": -2.62,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 90,
+      "support": "DestinationLoungeDeck",
+      "native_stock": "lounge_01 upholstered seat"
+    },
+    {
+      "id": "lounge_02",
+      "at": [
+        3.39,
+        -31.9,
+        -2.14
+      ],
+      "floor_z": -2.62,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 90,
+      "support": "DestinationLoungeDeck",
+      "native_stock": "lounge_02 upholstered seat"
+    },
+    {
+      "id": "lounge_03",
+      "at": [
+        3.39,
+        -31.2,
+        -2.14
+      ],
+      "floor_z": -2.62,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 90,
+      "support": "DestinationLoungeDeck",
+      "native_stock": "lounge_03 upholstered seat"
+    },
+    {
+      "id": "lounge_04",
+      "at": [
+        2.34,
+        -31.24,
+        -2.14
+      ],
+      "floor_z": -2.62,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "DestinationLoungeDeck",
+      "native_stock": "lounge_04 upholstered seat"
+    },
+    {
+      "id": "mina_reserved",
+      "at": [
+        3.45,
+        -30.04,
+        -2.32
+      ],
+      "floor_z": -2.8,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "retail_bar_floor",
+      "native_stock": "mina_reserved upholstered seat"
+    },
+    {
+      "id": "balcony_north_01",
+      "at": [
+        -4.05,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "DestinationBalconyNorth",
+      "native_stock": "balcony_north_01 upholstered seat"
+    },
+    {
+      "id": "balcony_north_02",
+      "at": [
+        -3.44,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "DestinationBalconyNorth",
+      "native_stock": "balcony_north_02 upholstered seat"
+    },
+    {
+      "id": "balcony_north_03",
+      "at": [
+        -2.83,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "DestinationBalconyNorth",
+      "native_stock": "balcony_north_03 upholstered seat"
+    },
+    {
+      "id": "balcony_north_04",
+      "at": [
+        -2.22,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "DestinationBalconyNorth",
+      "native_stock": "balcony_north_04 upholstered seat"
+    },
+    {
+      "id": "balcony_north_05",
+      "at": [
+        -1.61,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "DestinationBalconyNorth",
+      "native_stock": "balcony_north_05 upholstered seat"
+    },
+    {
+      "id": "balcony_north_06",
+      "at": [
+        -1.0,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "DestinationBalconyNorth",
+      "native_stock": "balcony_north_06 upholstered seat"
+    },
+    {
+      "id": "balcony_north_07",
+      "at": [
+        -0.39,
+        -32.45,
+        0.48
+      ],
+      "floor_z": 0,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "DestinationBalconyNorth",
+      "native_stock": "balcony_north_07 upholstered seat"
+    },
+    {
+      "id": "balcony_return_01",
+      "at": [
+        -1.08,
+        -33.19,
+        0.48
+      ],
+      "floor_z": 0,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 110,
+      "support": "DestinationBalconyReturn",
+      "native_stock": "balcony_return_01 upholstered seat"
+    },
+    {
+      "id": "balcony_return_02",
+      "at": [
+        -1.08,
+        -33.85,
+        0.48
+      ],
+      "floor_z": 0,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 110,
+      "support": "DestinationBalconyReturn",
+      "native_stock": "balcony_return_02 upholstered seat"
+    },
+    {
+      "id": "balcony_return_03",
+      "at": [
+        -1.08,
+        -34.51,
+        0.48
+      ],
+      "floor_z": 0,
+      "width_m": 0.46,
+      "depth_m": 0.48,
+      "yaw_deg": 110,
+      "support": "DestinationBalconyReturn",
+      "native_stock": "balcony_return_03 upholstered seat"
+    },
+    {
+      "id": "floor_bench_01",
+      "at": [
+        -3.35,
+        -32.76,
+        -2.32
+      ],
+      "floor_z": -2.8,
+      "width_m": 0.8,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "DestinationAudienceBench",
+      "native_stock": "floor_bench_01 upholstered seat"
+    },
+    {
+      "id": "floor_bench_02",
+      "at": [
+        -2.45,
+        -32.76,
+        -2.32
+      ],
+      "floor_z": -2.8,
+      "width_m": 0.8,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "DestinationAudienceBench",
+      "native_stock": "floor_bench_02 upholstered seat"
+    },
+    {
+      "id": "floor_bench_03",
+      "at": [
+        -1.55,
+        -32.76,
+        -2.32
+      ],
+      "floor_z": -2.8,
+      "width_m": 0.8,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "DestinationAudienceBench",
+      "native_stock": "floor_bench_03 upholstered seat"
+    },
+    {
+      "id": "floor_bench_04",
+      "at": [
+        -0.65,
+        -32.76,
+        -2.32
+      ],
+      "floor_z": -2.8,
+      "width_m": 0.8,
+      "depth_m": 0.48,
+      "yaw_deg": 180,
+      "support": "DestinationAudienceBench",
+      "native_stock": "floor_bench_04 upholstered seat"
+    }
+  ],
+  "support_contacts": [
+    {
+      "id": "Balcony column 0",
+      "foot": [
+        -4.27,
+        -32.65,
+        -2.8
+      ],
+      "head": [
+        -4.27,
+        -32.65,
+        -0.24
+      ]
+    },
+    {
+      "id": "Balcony column 1",
+      "foot": [
+        0.49,
+        -32.65,
+        -2.8
+      ],
+      "head": [
+        0.49,
+        -32.65,
+        -0.24
+      ]
+    },
+    {
+      "id": "Balcony column 2",
+      "foot": [
+        0.49,
+        -35.78,
+        -2.58
+      ],
+      "head": [
+        0.49,
+        -35.78,
+        -0.24
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_TAB1",
+      "foot": [
+        -3.2,
+        -32.55,
+        -0.32
+      ],
+      "head": [
+        -3.2,
+        -32.55,
+        -0.24
+      ],
+      "kind": "fixture bearing"
+    },
+    {
+      "id": "F01_BAR_LT_TAB2",
+      "foot": [
+        -0.7,
+        -32.55,
+        -0.32
+      ],
+      "head": [
+        -0.7,
+        -32.55,
+        -0.24
+      ],
+      "kind": "fixture bearing"
+    },
+    {
+      "id": "F01_BAR_LT_STAGE0",
+      "foot": [
+        -3.6,
+        -37.35,
+        -0.17
+      ],
+      "head": [
+        -3.6,
+        -37.35,
+        -0.15
+      ],
+      "kind": "fixture bearing"
+    },
+    {
+      "id": "F01_BAR_LT_STAGE1",
+      "foot": [
+        -0.5,
+        -37.35,
+        -0.17
+      ],
+      "head": [
+        -0.5,
+        -37.35,
+        -0.15
+      ],
+      "kind": "fixture bearing"
+    },
+    {
+      "id": "F01_BAR_LT_DARTS",
+      "foot": [
+        -7,
+        -34.85,
+        -0.17
+      ],
+      "head": [
+        -7,
+        -34.85,
+        -0.15
+      ],
+      "kind": "fixture bearing"
+    },
+    {
+      "id": "retail_bar_pipe1_Hanger2",
+      "foot": [
+        -4.400000095367432,
+        -34.5,
+        1.1553081274032593
+      ],
+      "head": [
+        -4.400000095367432,
+        -34.5,
+        2.5199999809265137
+      ],
+      "kind": "original split clamp, new real bearing",
+      "source_stock_count": 17
+    },
+    {
+      "id": "retail_bar_pipe1_Hanger3",
+      "foot": [
+        -1.399999976158142,
+        -34.099998474121094,
+        -0.2846919000148773
+      ],
+      "head": [
+        -1.399999976158142,
+        -34.099998474121094,
+        -0.23999999463558197
+      ],
+      "kind": "original split clamp, new real bearing",
+      "source_stock_count": 17
+    },
+    {
+      "id": "retail_bar_pipe2_Hanger2",
+      "foot": [
+        -4.400000095367432,
+        -31.600000381469727,
+        -0.2846919000148773
+      ],
+      "head": [
+        -4.400000095367432,
+        -31.600000381469727,
+        -0.23999999463558197
+      ],
+      "kind": "original split clamp, new real bearing",
+      "source_stock_count": 17
+    },
+    {
+      "id": "retail_bar_pipe2_Hanger3",
+      "foot": [
+        -1.399999976158142,
+        -31.600000381469727,
+        -0.2846919000148773
+      ],
+      "head": [
+        -1.399999976158142,
+        -31.600000381469727,
+        -0.23999999463558197
+      ],
+      "kind": "original split clamp, new real bearing",
+      "source_stock_count": 17
+    }
+  ],
+  "pipe_adaptation": {
+    "source_id": "retail_bar_pipe1",
+    "source_record": {
+      "id": "retail_bar_pipe1",
+      "asm": "pipe",
+      "at": [
+        -11.4,
+        -34.1
+      ],
+      "yaw": 0,
+      "mat": "metal",
+      "p0": [
+        -11.4,
+        -34.1,
+        -0.34
+      ],
+      "p1": [
+        3.9,
+        -34.1,
+        -0.34
+      ],
+      "r": 0.055
+    },
+    "radius": 0.055,
+    "elbow_radius": 0.1,
+    "path": [
+      [
+        -11.4,
+        -34.1,
+        -0.34
+      ],
+      [
+        -5.75,
+        -34.1,
+        -0.34
+      ],
+      [
+        -5.53,
+        -34.5,
+        -0.34
+      ],
+      [
+        -5.53,
+        -34.5,
+        1.1
+      ],
+      [
+        -4.25,
+        -34.5,
+        1.1
+      ],
+      [
+        -4.25,
+        -34.1,
+        1.1
+      ],
+      [
+        -4.25,
+        -34.1,
+        -0.34
+      ],
+      [
+        3.9,
+        -34.1,
+        -0.34
+      ]
+    ],
+    "reason": "Local raised offset clears real stair capsule and sloping handrail; preserve all endpoints, original ten-sided profile, material and other runs."
+  },
+  "pipe_support_adaptations": [
+    {
+      "id": "retail_bar_pipe1_Hanger2",
+      "source_blend": "art/blender/bar_pipe_supports.blend",
+      "translation": [
+        0,
+        -0.4,
+        1.44
+      ],
+      "bearing_z": 2.52
+    },
+    {
+      "id": "retail_bar_pipe1_Hanger3",
+      "source_blend": "art/blender/bar_pipe_supports.blend",
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "bearing_z": -0.24
+    },
+    {
+      "id": "retail_bar_pipe2_Hanger2",
+      "source_blend": "art/blender/bar_pipe_supports.blend",
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "bearing_z": -0.24
+    },
+    {
+      "id": "retail_bar_pipe2_Hanger3",
+      "source_blend": "art/blender/bar_pipe_supports.blend",
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "bearing_z": -0.24
+    }
+  ]
+}

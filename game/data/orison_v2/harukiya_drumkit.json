@@ -1,0 +1,732 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/harukiya_drumkit.glb",
+  "coordinates": "Godot metres; Y up; performer at +Z facing -Z",
+  "aabb": {
+    "min": [
+      -0.9017600417137146,
+      0.0,
+      -0.639836311340332
+    ],
+    "max": [
+      1.0923088788986206,
+      1.244692325592041,
+      0.9211663603782654
+    ],
+    "size": [
+      1.9940688610076904,
+      1.244692325592041,
+      1.5610027313232422
+    ]
+  },
+  "partitions": [
+    {
+      "mesh": "DrumKit_BassBeater_KitHide",
+      "materials": [
+        "KitHide"
+      ],
+      "group": "BassBeater",
+      "triangles": 92
+    },
+    {
+      "mesh": "DrumKit_BassBeater_KitNickel",
+      "materials": [
+        "KitNickel"
+      ],
+      "group": "BassBeater",
+      "triangles": 44
+    },
+    {
+      "mesh": "DrumKit_BassPedal_KitNickel",
+      "materials": [
+        "KitNickel"
+      ],
+      "group": "BassPedal",
+      "triangles": 12
+    },
+    {
+      "mesh": "DrumKit_HiHatPedal_KitNickel",
+      "materials": [
+        "KitNickel"
+      ],
+      "group": "HiHatPedal",
+      "triangles": 12
+    },
+    {
+      "mesh": "DrumKit_HiHatUpper_KitBronze",
+      "materials": [
+        "KitBronze"
+      ],
+      "group": "HiHatUpper",
+      "triangles": 1536
+    },
+    {
+      "mesh": "DrumKit_StickLeft_KitSticks",
+      "materials": [
+        "KitSticks"
+      ],
+      "group": "StickLeft",
+      "triangles": 116
+    },
+    {
+      "mesh": "DrumKit_StickRight_KitSticks",
+      "materials": [
+        "KitSticks"
+      ],
+      "group": "StickRight",
+      "triangles": 116
+    },
+    {
+      "mesh": "DrumKit_static_KitBronze",
+      "materials": [
+        "KitBronze"
+      ],
+      "group": "static",
+      "triangles": 4608
+    },
+    {
+      "mesh": "DrumKit_static_KitHide",
+      "materials": [
+        "KitHide"
+      ],
+      "group": "static",
+      "triangles": 1880
+    },
+    {
+      "mesh": "DrumKit_static_KitNickel",
+      "materials": [
+        "KitNickel"
+      ],
+      "group": "static",
+      "triangles": 18596
+    },
+    {
+      "mesh": "DrumKit_static_KitRubber",
+      "materials": [
+        "KitRubber"
+      ],
+      "group": "static",
+      "triangles": 2540
+    },
+    {
+      "mesh": "DrumKit_static_KitSeat",
+      "materials": [
+        "KitSeat"
+      ],
+      "group": "static",
+      "triangles": 380
+    },
+    {
+      "mesh": "DrumKit_static_KitWalnut",
+      "materials": [
+        "KitWalnut"
+      ],
+      "group": "static",
+      "triangles": 1536
+    }
+  ],
+  "materials": [
+    {
+      "key": "KitWalnut",
+      "catalog_key": "wood_dark",
+      "tint": [
+        0.7,
+        0.62,
+        0.55,
+        1
+      ],
+      "normal": 0.1,
+      "roughness": 0.75,
+      "pigment": 1,
+      "meters_per_tile": 1.2
+    },
+    {
+      "key": "KitHide",
+      "catalog_key": "leather_worn",
+      "tint": [
+        1.4,
+        1.65,
+        2.0,
+        1
+      ],
+      "normal": 0.035,
+      "roughness": 0.78,
+      "pigment": 0.42,
+      "meters_per_tile": 0.12
+    },
+    {
+      "key": "KitNickel",
+      "catalog_key": "nickel_plated",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.12,
+      "roughness": 0.82,
+      "pigment": 1,
+      "meters_per_tile": 0.32
+    },
+    {
+      "key": "KitBronze",
+      "catalog_key": "bronze_sheet",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.25,
+      "roughness": 0.78,
+      "pigment": 1,
+      "meters_per_tile": 0.6
+    },
+    {
+      "key": "KitRubber",
+      "catalog_key": "rubber_aged",
+      "tint": [
+        0.35,
+        0.35,
+        0.35,
+        1
+      ],
+      "normal": 0.12,
+      "roughness": 0.95,
+      "pigment": 1,
+      "meters_per_tile": 0.26
+    },
+    {
+      "key": "KitSeat",
+      "catalog_key": "leather_worn",
+      "tint": [
+        0.16,
+        0.15,
+        0.14,
+        1
+      ],
+      "normal": 0.22,
+      "roughness": 0.85,
+      "pigment": 1,
+      "meters_per_tile": 0.12
+    },
+    {
+      "key": "KitSticks",
+      "catalog_key": "timber",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.08,
+      "roughness": 0.85,
+      "pigment": 1,
+      "meters_per_tile": 1.0
+    }
+  ],
+  "contacts": {
+    "Bass": {
+      "position": [
+        0.18000000715255737,
+        0.33500000834465027,
+        -0.003800004720687866
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "radius_m": 0.2788,
+      "role": "strike surface"
+    },
+    "RackTomLeft": {
+      "position": [
+        -0.11999999731779099,
+        1.041890263557434,
+        -0.22435137629508972
+      ],
+      "normal": [
+        0.0,
+        0.9847533702850342,
+        0.17395642399787903
+      ],
+      "radius_m": 0.1264,
+      "role": "strike surface"
+    },
+    "RackTomRight": {
+      "position": [
+        0.26499998569488525,
+        1.0717377662658691,
+        -0.21261180937290192
+      ],
+      "normal": [
+        0.0,
+        0.9847533702850342,
+        0.17395642399787903
+      ],
+      "radius_m": 0.15180000000000002,
+      "role": "strike surface"
+    },
+    "FloorTom": {
+      "position": [
+        0.6600000262260437,
+        0.7511999607086182,
+        0.14000000059604645
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_m": 0.1772,
+      "role": "strike surface"
+    },
+    "Snare": {
+      "position": [
+        -0.2849999964237213,
+        0.7161999940872192,
+        0.2199999988079071
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "radius_m": 0.15180000000000002,
+      "role": "strike surface"
+    },
+    "Crash": {
+      "position": [
+        -0.6321621537208557,
+        1.1522523164749146,
+        -0.2225906401872635
+      ],
+      "normal": [
+        0.11661044508218765,
+        0.957177460193634,
+        0.26497799158096313
+      ],
+      "radius_m": 0.03429,
+      "role": "drummer-facing strike bow; actual authored top vertex, clear of central spindle"
+    },
+    "Ride": {
+      "position": [
+        0.7513128519058228,
+        1.0891691446304321,
+        -0.09218065440654755
+      ],
+      "normal": [
+        -0.11777899414300919,
+        0.9716767072677612,
+        0.20487171411514282
+      ],
+      "radius_m": 0.0381,
+      "role": "drummer-facing strike bow; actual authored top vertex, clear of central spindle"
+    },
+    "HiHatLower": {
+      "position": [
+        -0.6600000262260437,
+        0.9440000057220459,
+        0.28868401050567627
+      ],
+      "normal": [
+        -1.302604158542983e-17,
+        0.977110743522644,
+        0.21273140609264374
+      ],
+      "radius_m": 0.026670000000000003,
+      "role": "drummer-facing strike bow; actual authored top vertex, clear of central spindle"
+    },
+    "HiHatUpper": {
+      "position": [
+        -0.6600000262260437,
+        0.9649999737739563,
+        0.28868401050567627
+      ],
+      "normal": [
+        -1.302604158542983e-17,
+        0.977110743522644,
+        0.21273140609264374
+      ],
+      "radius_m": 0.026670000000000003,
+      "role": "drummer-facing strike bow; actual authored top vertex, clear of central spindle"
+    },
+    "BassPedal": {
+      "position": [
+        0.18000000715255737,
+        0.06490378826856613,
+        0.23751087486743927
+      ],
+      "normal": [
+        0.0,
+        0.9876883029937744,
+        0.15643452107906342
+      ],
+      "role": "foot contact on actual tilted footboard top"
+    },
+    "HiHatPedal": {
+      "position": [
+        -0.5199999809265137,
+        0.06490378826856613,
+        0.3625108599662781
+      ],
+      "normal": [
+        0.0,
+        0.9876883029937744,
+        0.15643452107906342
+      ],
+      "role": "foot contact on actual tilted footboard top"
+    },
+    "right_foot": {
+      "position": [
+        0.18000000715255737,
+        0.06490378826856613,
+        0.23751087486743927
+      ],
+      "normal": [
+        0.0,
+        0.9876883029937744,
+        0.15643452107906342
+      ],
+      "role": "foot contact on actual tilted footboard top"
+    },
+    "left_foot": {
+      "position": [
+        -0.5199999809265137,
+        0.06490378826856613,
+        0.3625108599662781
+      ],
+      "normal": [
+        0.0,
+        0.9876883029937744,
+        0.15643452107906342
+      ],
+      "role": "foot contact on actual tilted footboard top"
+    },
+    "seat": {
+      "position": [
+        0,
+        0.589,
+        0.72
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "role": "pelvis support; fit the actual cast rig separately"
+    },
+    "performer_forward": {
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    "standing_approach": {
+      "position": [
+        0,
+        0,
+        1.35
+      ],
+      "role": "layout reservation outside kit footprint; not collision qualification"
+    },
+    "StickLeft": {
+      "position": [
+        -0.32680949568748474,
+        0.7329999804496765,
+        0.22980806231498718
+      ],
+      "tip": [
+        -0.20000000298023224,
+        0.7329999804496765,
+        -0.03500000014901161
+      ],
+      "role": "grip and tip; runtime must validate actual hand contact"
+    },
+    "StickRight": {
+      "position": [
+        -0.3245299756526947,
+        0.7459999918937683,
+        0.14320503175258636
+      ],
+      "tip": [
+        -0.1599999964237213,
+        0.7459999918937683,
+        0.38999998569488525
+      ],
+      "role": "grip and tip; runtime must validate actual hand contact"
+    }
+  },
+  "pivots": {
+    "HiHatUpper": {
+      "position": [
+        -0.66,
+        0.965,
+        0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "motion": "translate",
+      "travel_m": 0.021
+    },
+    "BassPedal": {
+      "position": [
+        0.18000000715255737,
+        0.03999999910593033,
+        0.3499999940395355
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "motion": "rotate",
+      "rest_degrees": 0,
+      "pressed_degrees": -9
+    },
+    "BassBeater": {
+      "position": [
+        0.18,
+        0.19,
+        0.09
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "motion": "rotate",
+      "rest_degrees": 0,
+      "strike_degrees": -12
+    },
+    "HiHatPedal": {
+      "position": [
+        -0.5199999809265137,
+        0.03999999910593033,
+        0.4749999940395355
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "motion": "rotate",
+      "rest_degrees": 0,
+      "pressed_degrees": -9
+    },
+    "StickLeft": {
+      "position": [
+        -0.32680949568748474,
+        0.7329999804496765,
+        0.22980806231498718
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "motion": "held prop; bind to existing hand target without adding bones"
+    },
+    "StickRight": {
+      "position": [
+        -0.3245299756526947,
+        0.7459999918937683,
+        0.14320503175258636
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "motion": "held prop; bind to existing hand target without adding bones"
+    }
+  },
+  "floor_supports": [
+    {
+      "id": "Bass spur foot",
+      "floor_contact": [
+        -0.14175000000000001,
+        0,
+        -0.48
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Bass spur foot",
+      "floor_contact": [
+        0.62775,
+        0,
+        -0.48
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Floor tom foot 0",
+      "floor_contact": [
+        0.9150000214576721,
+        0,
+        0.14000000059604645
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Floor tom foot 1",
+      "floor_contact": [
+        0.5325000286102295,
+        0,
+        0.3608364760875702
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Floor tom foot 2",
+      "floor_contact": [
+        0.5325000286102295,
+        0,
+        -0.0808364748954773
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Snare basket rubber foot 0",
+      "floor_contact": [
+        -0.06192967675062638,
+        0,
+        0.2939231417447877
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Snare basket rubber foot 1",
+      "floor_contact": [
+        -0.46055448030323076,
+        0,
+        0.3762229958919703
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Snare basket rubber foot 2",
+      "floor_contact": [
+        -0.3325158429461428,
+        0,
+        -0.01014613763675784
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Crash stand rubber foot 0",
+      "floor_contact": [
+        -0.4526911454793897,
+        0,
+        -0.2913583598459706
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Crash stand rubber foot 1",
+      "floor_contact": [
+        -0.8767600854289689,
+        0,
+        -0.20380532351918057
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Crash stand rubber foot 2",
+      "floor_contact": [
+        -0.7405487690916412,
+        0,
+        -0.6148363166348487
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Ride stand rubber foot 0",
+      "floor_contact": [
+        1.0673088545206102,
+        0,
+        -0.20135835984597059
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Ride stand rubber foot 1",
+      "floor_contact": [
+        0.643239914571031,
+        0,
+        -0.1138053235191806
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Ride stand rubber foot 2",
+      "floor_contact": [
+        0.7794512309083587,
+        0,
+        -0.5248363166348489
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "HiHat stand rubber foot 0",
+      "floor_contact": [
+        -0.44642203093145083,
+        0,
+        0.2207774761386265
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "HiHat stand rubber foot 1",
+      "floor_contact": [
+        -0.828084076886072,
+        0,
+        0.29957520883273747
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "HiHat stand rubber foot 2",
+      "floor_contact": [
+        -0.7054938921824772,
+        0,
+        -0.0703526849713639
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Throne rubber foot 0",
+      "floor_contact": [
+        0.2515473857918468,
+        0,
+        0.8033601385632712
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Throne rubber foot 1",
+      "floor_contact": [
+        -0.19796569055470706,
+        0,
+        0.8961663570696685
+      ],
+      "radius_m": 0.025
+    },
+    {
+      "id": "Throne rubber foot 2",
+      "floor_contact": [
+        -0.05358169523713976,
+        0,
+        0.46047350436706025
+      ],
+      "radius_m": 0.025
+    }
+  ],
+  "integration": "Root assembly transform applies exactly once. Named moving groups preserve local pivots. No collisions, scripts, animation, sound or gameplay authority are authored here."
+}
