@@ -267014,6 +267014,92 @@
    "target_exists": null
   },
   {
+   "key": "07e0b9b7ca82f078",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_performance_matrix.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    17
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b2d94279b61b2ff1",
+   "kind": "id_reference",
+   "token": "F04_B_MONITOR_STANCE",
+   "file": "game/tests/v2_performance_matrix.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    35
+   ],
+   "count": 1,
+   "context": [
+    "{\"name\": \"flat_4b_desk\", \"anchor\": \"F04_B_MONITOR_STANCE\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bb223818229b7076",
+   "kind": "id_reference",
+   "token": "roof_deck",
+   "file": "game/tests/v2_performance_matrix.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    37
+   ],
+   "count": 1,
+   "context": [
+    "{\"name\": \"roof_deck\", \"local\": Vector3(8.2, 19.22, 3.0)},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "ROOF/furniture",
+   "target_exists": true
+  },
+  {
    "key": "a41ce4eabdbed90f",
    "kind": "vector3_coordinate",
    "token": "_play_route",
