@@ -5,7 +5,7 @@
   "voice_prefix": "m_li_",
   "voice_status": "draft_unvoiced",
   "status": "PROPOSED",
-  "notes": "The owner's self-insert. Every line here is a placeholder for her to rewrite. Drums on one number, bass on another, never both. Holds nothing in the case, is on no record of 19 July, and never learns who rides the night man: a good ear is not recognition. No biography beyond the count-in. She said yes to the test once she was asked, and she has a life this file does not write. Adela is the focus: these threads exist to show Adela."
+  "notes": "The owner's self-insert, now Lily Fern by her ruling of 2026-11-13 (lily_surname_20261113). Drums on one number, bass on another, never both; she sings the harmony; the piano is Adela's, then Juno's (lily_instruments_20261113). She works for a price, residents and the night man alike, always offscreen and never explicit (lily_occupation_20261113); appointments stay held until the economy charges the fare. Holds nothing in the main case, is on no record of 19 July, has no thread from 14 to 26 July, and never learns who rides the night man: a good ear is not recognition. Her five cases (lf1_ to lf5_, design/ORISON_LILY_INVESTIGATOR_2026-11-13.md) are outside the solve chain; case 5 runs beside Stacy's and stands on Stacy's card. She calls the companion the Vantry. The earlier threads still exist to show Adela."
  },
  "entries": {
   "li_count": "li_c1",
@@ -20,7 +20,28 @@
   "li_cup": "li_m1",
   "li_moon": "li_m3",
   "li_bill": "li_m6",
-  "li_wait": "li_w1"
+  "li_wait": "li_w1",
+  "lfa_rates": "lfa_r1",
+  "lfa_rates_after": "lfa_r1b",
+  "lfa_book": "lfa_b1",
+  "lf1_gone": "lf1_a1",
+  "lf1_register": "lf1_b1",
+  "lf1_choice": "lf1_c1",
+  "lf1_close": "lf1_d1",
+  "lf2_phrase": "lf2_a1",
+  "lf2_music": "lf2_b1",
+  "lf2_close": "lf2_c1",
+  "lf3_offer": "lf3_a1",
+  "lf3_price": "lf3_b1",
+  "lf3_choice": "lf3_c1",
+  "lf3_close": "lf3_d1",
+  "lf4_mask": "lf4_a1",
+  "lf4_face": "lf4_b1",
+  "lf4_close": "lf4_c1",
+  "lf5_chair": "lf5_a1",
+  "lf5_portrait": "lf5_b1",
+  "lf5_fight": "lf5_c1",
+  "lf5_song": "lf5_d1"
  },
  "threads": [
   {
@@ -174,6 +195,217 @@
    "topic": "You look tired.",
    "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. She thinks it failed. She never says what.",
    "root": "li_w1"
+  },
+  {
+   "id": "lfa_rates",
+   "from": "1928-11-17",
+   "until": "1929-07-13",
+   "topic": "Are you working tonight, Miss Fern?",
+   "source": "Ruling lily_occupation_20261113. Offscreen and never explicit: the curtain, the clock, what she says after. HOLD until the fare is charged by the economy; nothing here is free.",
+   "root": "lfa_r1",
+   "hold": "economy: an appointment's price"
+  },
+  {
+   "id": "lfa_rates_after",
+   "from": "1929-07-27",
+   "until": "1929-11-09",
+   "topic": "Are you working tonight, Miss Fern?",
+   "source": "Ruling lily_occupation_20261113. Offscreen and never explicit: the curtain, the clock, what she says after. HOLD until the fare is charged by the economy; nothing here is free.",
+   "root": "lfa_r1b",
+   "hold": "economy: an appointment's price"
+  },
+  {
+   "id": "lfa_book",
+   "from": "1928-12-01",
+   "until": "1929-07-13",
+   "topic": "What's in the little book?",
+   "source": "Ruling lily_occupation_20261113. Offscreen and never explicit: the curtain, the clock, what she says after.",
+   "root": "lfa_b1"
+  },
+  {
+   "id": "lf1_gone",
+   "from": "1928-12-11",
+   "until": "1929-02-28",
+   "topic": "Where's your friend from the rooming house?",
+   "source": "Lily's case 1, ruling lily_case_register_20261113: no paper from the future; crosses Stacy's case 1 through the grey hat.",
+   "root": "lf1_a1"
+  },
+  {
+   "id": "lf1_register",
+   "from": "1928-12-18",
+   "until": "1929-02-28",
+   "topic": "Mrs. Hackett's register.",
+   "source": "Lily's case 1, ruling lily_case_register_20261113: no paper from the future; crosses Stacy's case 1 through the grey hat.",
+   "root": "lf1_b1",
+   "requires": [
+    "lf1_note"
+   ]
+  },
+  {
+   "id": "lf1_choice",
+   "from": "1929-01-08",
+   "until": "1929-02-28",
+   "topic": "The man in the camel coat.",
+   "source": "Lily's case 1, ruling lily_case_register_20261113: no paper from the future; crosses Stacy's case 1 through the grey hat.",
+   "root": "lf1_c1",
+   "requires": [
+    "lf1_register"
+   ]
+  },
+  {
+   "id": "lf1_close",
+   "from": "1929-01-22",
+   "until": "1929-03-15",
+   "topic": "Did Minnie's debts go away?",
+   "source": "Lily's case 1, ruling lily_case_register_20261113: no paper from the future; crosses Stacy's case 1 through the grey hat.",
+   "root": "lf1_d1",
+   "requires": [
+    "lf1_quiet"
+   ]
+  },
+  {
+   "id": "lf2_phrase",
+   "from": "1929-03-12",
+   "until": "1929-05-31",
+   "topic": "You were humming something after closing.",
+   "source": "Lily's case 2, ruling lily_case_piano_20261113 with lily_instruments_20261113: the piano is Adela's, Lily is the ear; a human answer; one remembered phrase stays unexplained and is never attributed.",
+   "root": "lf2_a1"
+  },
+  {
+   "id": "lf2_music",
+   "from": "1929-03-26",
+   "until": "1929-05-31",
+   "topic": "The sheet music in the bench.",
+   "source": "Lily's case 2, ruling lily_case_piano_20261113 with lily_instruments_20261113: the piano is Adela's, Lily is the ear; a human answer; one remembered phrase stays unexplained and is never attributed.",
+   "root": "lf2_b1",
+   "requires": [
+    "lf2_phrase"
+   ]
+  },
+  {
+   "id": "lf2_close",
+   "from": "1929-04-16",
+   "until": "1929-06-15",
+   "topic": "Did Adela get her song back?",
+   "source": "Lily's case 2, ruling lily_case_piano_20261113 with lily_instruments_20261113: the piano is Adela's, Lily is the ear; a human answer; one remembered phrase stays unexplained and is never attributed.",
+   "root": "lf2_c1",
+   "requires": [
+    "lf2_found"
+   ]
+  },
+  {
+   "id": "lf3_offer",
+   "from": "1929-05-07",
+   "until": "1929-06-30",
+   "topic": "Who was the man with the good stationery?",
+   "source": "Lily's case 3, ruling lily_case_alibi_20261113: the stationery man from Stacy's case 2, an unrelated crime, Adela's dated developing slip; nothing near 19 July.",
+   "root": "lf3_a1"
+  },
+  {
+   "id": "lf3_price",
+   "from": "1929-05-14",
+   "until": "1929-06-30",
+   "topic": "Did you take Mr. Truesdale's money?",
+   "source": "Lily's case 3, ruling lily_case_alibi_20261113: the stationery man from Stacy's case 2, an unrelated crime, Adela's dated developing slip; nothing near 19 July.",
+   "root": "lf3_b1",
+   "requires": [
+    "lf3_offer"
+   ]
+  },
+  {
+   "id": "lf3_choice",
+   "from": "1929-05-21",
+   "until": "1929-06-30",
+   "topic": "Adela's developing slip.",
+   "source": "Lily's case 3, ruling lily_case_alibi_20261113: the stationery man from Stacy's case 2, an unrelated crime, Adela's dated developing slip; nothing near 19 July.",
+   "root": "lf3_c1",
+   "requires": [
+    "lf3_slip"
+   ]
+  },
+  {
+   "id": "lf3_close",
+   "from": "1929-05-28",
+   "until": "1929-07-13",
+   "topic": "What became of Mr. Truesdale?",
+   "source": "Lily's case 3, ruling lily_case_alibi_20261113: the stationery man from Stacy's case 2, an unrelated crime, Adela's dated developing slip; nothing near 19 July.",
+   "root": "lf3_d1",
+   "requires_any": [
+    "lf3_sent",
+    "lf3_refused"
+   ]
+  },
+  {
+   "id": "lf4_mask",
+   "from": "1929-06-04",
+   "until": "1929-07-13",
+   "topic": "Someone says they saw you in a mask.",
+   "source": "Lily's case 4, ruling lily_case_mirror_20261113: the impostor dresses as LILITH; LILITH stays unexplained; no Lily thread 14 to 26 July.",
+   "root": "lf4_a1"
+  },
+  {
+   "id": "lf4_face",
+   "from": "1929-06-18",
+   "until": "1929-07-13",
+   "topic": "Whose shoulders are whose?",
+   "source": "Lily's case 4, ruling lily_case_mirror_20261113: the impostor dresses as LILITH; LILITH stays unexplained; no Lily thread 14 to 26 July.",
+   "root": "lf4_b1",
+   "requires": [
+    "lf4_mask"
+   ]
+  },
+  {
+   "id": "lf4_close",
+   "from": "1929-06-25",
+   "until": "1929-07-13",
+   "topic": "So Lilith is a pickpocket from Corona?",
+   "source": "Lily's case 4, ruling lily_case_mirror_20261113: the impostor dresses as LILITH; LILITH stays unexplained; no Lily thread 14 to 26 July.",
+   "root": "lf4_c1",
+   "requires": [
+    "lf4_caught"
+   ]
+  },
+  {
+   "id": "lf5_chair",
+   "from": "1929-08-06",
+   "until": "1929-10-31",
+   "topic": "You've kept Adela's chair.",
+   "source": "Lily's case 5, ruling lily_case_lastsong_20261113: beside Stacy's case 5; the card stays Stacy's; Lily's false lead is the Ravenswood portrait; the new lead is Stacy's card. Nothing names the killer or opens the dark hours.",
+   "root": "lf5_a1"
+  },
+  {
+   "id": "lf5_portrait",
+   "from": "1929-08-20",
+   "until": "1929-10-31",
+   "topic": "What did you want to show me?",
+   "source": "Lily's case 5, ruling lily_case_lastsong_20261113: beside Stacy's case 5; the card stays Stacy's; Lily's false lead is the Ravenswood portrait; the new lead is Stacy's card. Nothing names the killer or opens the dark hours.",
+   "root": "lf5_b1",
+   "requires": [
+    "lf5_chair"
+   ]
+  },
+  {
+   "id": "lf5_fight",
+   "from": "1929-09-03",
+   "until": "1929-10-31",
+   "topic": "Stacy says you haven't eaten.",
+   "source": "Lily's case 5, ruling lily_case_lastsong_20261113: beside Stacy's case 5; the card stays Stacy's; Lily's false lead is the Ravenswood portrait; the new lead is Stacy's card. Nothing names the killer or opens the dark hours.",
+   "root": "lf5_c1",
+   "requires": [
+    "lf5_wrong"
+   ]
+  },
+  {
+   "id": "lf5_song",
+   "from": "1929-09-10",
+   "until": "1929-11-09",
+   "topic": "Did you finish the song?",
+   "source": "Lily's case 5, ruling lily_case_lastsong_20261113: beside Stacy's case 5; the card stays Stacy's; Lily's false lead is the Ravenswood portrait; the new lead is Stacy's card. Nothing names the killer or opens the dark hours.",
+   "root": "lf5_d1",
+   "requires": [
+    "lf5_truce",
+    "sc5_card"
+   ]
   }
  ],
  "nodes": {
@@ -337,6 +569,398 @@
   },
   "li_w1": {
    "line": "I've been up on roofs. Nothing's the matter. It's a very good moon. There isn't a mark on it. There's a professor in the Record on about smudges. I've told myself that's the plate."
+  },
+  "lfa_r1": {
+   "line": "Working is a strong word for it lately. But yes. Two dollars the hour, paid before the curtain, and I keep the clock. You may have conversation, company, or the other thing, and you may change your mind at any point and keep your manners.",
+   "choices": [
+    {
+     "label": "Two dollars. Here.",
+     "goto": "lfa_r2",
+     "trust": 0
+    },
+    {
+     "label": "Not tonight.",
+     "goto": "lfa_r3"
+    }
+   ],
+   "silence_goto": "lfa_r2"
+  },
+  "lfa_r2": {
+   "line": "She counts it, twice, then draws the curtain. The hour goes at her pace. Afterwards she ties her robe and asks what you were really hoping for, and doesn't wait for an answer.",
+   "flag": "lfa_hour"
+  },
+  "lfa_r3": {
+   "line": "Then I'll play you something for nothing, which is worth about the same and costs me less."
+  },
+  "lfa_r1b": {
+   "line": "I've been keeping fewer hours since July. The ones I keep, I keep properly. Two dollars, before the curtain. Same rules as ever.",
+   "choices": [
+    {
+     "label": "Two dollars. Here.",
+     "goto": "lfa_r2b",
+     "trust": 0
+    },
+    {
+     "label": "Not tonight.",
+     "goto": "lfa_r3b"
+    }
+   ],
+   "silence_goto": "lfa_r2b"
+  },
+  "lfa_r2b": {
+   "line": "She counts it, twice, then draws the curtain. The hour goes at her pace. Afterwards she ties her robe and asks what you were really hoping for, and doesn't wait for an answer.",
+   "flag": "lfa_hour_after"
+  },
+  "lfa_r3b": {
+   "line": "Then I'll play you something for nothing, which is worth about the same and costs me less."
+  },
+  "lfa_b1": {
+   "line": "Appointments. Initials, never names. A gentleman's wife once read it and found nothing but the weather, because I write the weather beside every one. You'd be surprised what a gentleman will confess while insisting he's never done anything wrong.",
+   "choices": [
+    {
+     "label": "Do you ever tell?",
+     "goto": "lfa_b2"
+    }
+   ],
+   "silence_goto": "lfa_b2"
+  },
+  "lfa_b2": {
+   "line": "What someone is lonely about, never. What someone means to do to somebody else, that's a different ledger. I keep that one in my head.",
+   "flag": "lfa_ledger"
+  },
+  "lf1_a1": {
+   "line": "Minnie. Rooms at Mrs. Hackett's on Thirty-first Street, or did. Mrs. Hackett says she left on the fourth, paid up, no forwarding. Her trunk went to the church sale. Her name's gone out of the register like it was never ink. And I have a note from her, in her hand, asking me to come.",
+   "choices": [
+    {
+     "label": "When is the note dated?",
+     "goto": "lf1_a2"
+    },
+    {
+     "label": "Maybe she did just leave.",
+     "goto": "lf1_a3"
+    }
+   ],
+   "silence_goto": "lf1_a2"
+  },
+  "lf1_a2": {
+   "line": "The sixth. Two days after Mrs. Hackett says she'd gone. Either Minnie wrote me from somewhere she can't say, or someone is very confident about the fourth.",
+   "flag": "lf1_note"
+  },
+  "lf1_a3": {
+   "line": "Women do. Not without their good shoes. She left her good shoes. Anyway, the note's dated the sixth, and Mrs. Hackett says the fourth.",
+   "flag": "lf1_note"
+  },
+  "lf1_b1": {
+   "line": "Two of her lodgers will talk to me who'd never talk to a policeman. One swears Minnie went out on the fourth with a man in a camel coat. The other swears she heard Minnie crying through the wall on the fifth. They don't agree, and they both think I'm unwell for asking.",
+   "choices": [
+    {
+     "label": "And the register?",
+     "goto": "lf1_b2"
+    }
+   ],
+   "silence_goto": "lf1_b2"
+  },
+  "lf1_b2": {
+   "line": "Scraped out on the fourth and written back in, in another hand, on a day the house says she was gone. And, darling, the page above has a lodger Stacy would know: a woman in a grey hat, one night in October. Small city. Ask her.",
+   "flag": "lf1_register"
+  },
+  "lf1_c1": {
+   "line": "He holds Minnie's debts. Bought them, from three shops and a doctor, and he collects in person. Minnie isn't missing. She's hiding. I could put his name in front of the right paper tomorrow. It would also tell him exactly which friends of hers to watch.",
+   "choices": [
+    {
+     "label": "Protect her first.",
+     "goto": "lf1_c2",
+     "trust": 1
+    },
+    {
+     "label": "Publish it.",
+     "goto": "lf1_c3"
+    }
+   ],
+   "silence_goto": "lf1_c2"
+  },
+  "lf1_c2": {
+   "line": "Yes. I was always going to say that; I wanted to hear you say it too. We'll take his paper apart quietly: the debts, the doctor, the dates. Nobody needs her address for that.",
+   "flag": "lf1_quiet"
+  },
+  "lf1_c3": {
+   "line": "No. Not while she's on the run from him. I'll do it the slow way and you can be cross with me later. We take his paper apart quietly.",
+   "flag": "lf1_quiet"
+  },
+  "lf1_d1": {
+   "line": "The doctor's bill was written after the doctor died, which was clumsy of somebody. Two shops took theirs back. He can't collect on paper that's lying. Minnie sent word through a girl at the ferry: she's well and she's not coming back.",
+   "choices": [
+    {
+     "label": "And the fifth of December?",
+     "goto": "lf1_d2"
+    }
+   ],
+   "silence_goto": "lf1_d2"
+  },
+  "lf1_d2": {
+   "line": "One of them heard her cry through a wall she'd already left. I've decided to believe both lodgers. Funny how a respectable man can lose a fortune and remain respectable. A woman loses her room and suddenly nobody remembers she existed.",
+   "flag": "lf1_closed"
+  },
+  "lf2_a1": {
+   "line": "Five notes. I heard them on Adela's piano last night with the lid down and nobody on the bench. Before you say it, Stacy already said it.",
+   "choices": [
+    {
+     "label": "Said what?",
+     "goto": "lf2_a2"
+    }
+   ],
+   "silence_goto": "lf2_a2"
+  },
+  "lf2_a2": {
+   "line": "Stacy, I think the piano remembers tomorrow.",
+   "choices": [
+    {
+     "label": "And?",
+     "goto": "lf2_a3"
+    }
+   ],
+   "silence_goto": "lf2_a3"
+  },
+  "lf2_a3": {
+   "line": "It's out of tune today.",
+   "speaker": "STACY",
+   "choices": [
+    {
+     "label": "…",
+     "goto": "lf2_a4"
+    }
+   ],
+   "silence_goto": "lf2_a4"
+  },
+  "lf2_a4": {
+   "line": "That is a separate and considerably less interesting problem. I've written the five notes down. There's sheet music in the bench with them on it, and it isn't Adela's hand or mine.",
+   "flag": "lf2_phrase"
+  },
+  "lf2_b1": {
+   "line": "A song-plugger's copy. Somebody sat in the back three Tuesdays running and wrote our arrangement out for a publisher on Twenty-eighth Street. And there's a tuner's boy across the light well who practises at night on a shop upright. Sound comes through that wall like it pays rent.",
+   "choices": [
+    {
+     "label": "So it was him you heard.",
+     "goto": "lf2_b2"
+    },
+    {
+     "label": "And the five notes?",
+     "goto": "lf2_b2"
+    }
+   ],
+   "silence_goto": "lf2_b2"
+  },
+  "lf2_b2": {
+   "line": "Mostly. He learned our tune from the plugger's copy and plays it badly at one in the morning. That's the piano with the lid down, and the paper in the bench. Adela wants the copy back, with interest.",
+   "flag": "lf2_found"
+  },
+  "lf2_c1": {
+   "line": "The publisher sent a cheque and an apology, in that order, which is the right order. The tuner's boy plays something else now. It's worse. I like him.",
+   "choices": [
+    {
+     "label": "Then it's settled.",
+     "goto": "lf2_c2"
+    }
+   ],
+   "silence_goto": "lf2_c2"
+  },
+  "lf2_c2": {
+   "line": "Nearly. Old Mr. Haskell at the end of the bar says I played those five notes at Christmas. I wrote them in March. He's never wrong about a tune. I'm not saying what that means. I'm saying I've stopped playing them.",
+   "flag": "lf2_closed"
+  },
+  "lf3_a1": {
+   "line": "Mr. Truesdale. The one Stacy's exchange business nearly drowned in March; he swam. He's offered me fifty dollars to say he spent the night of the second of May with me, start to finish.",
+   "choices": [
+    {
+     "label": "Fifty dollars is a lot of rent.",
+     "goto": "lf3_a2"
+    },
+    {
+     "label": "What happened on the second?",
+     "goto": "lf3_a3"
+    }
+   ],
+   "silence_goto": "lf3_a2"
+  },
+  "lf3_a2": {
+   "line": "It is, and I'd like it, and that's exactly why I'm telling you instead of buying a coat. You can purchase my company, darling. My conscience is a separate establishment.",
+   "flag": "lf3_offer"
+  },
+  "lf3_a3": {
+   "line": "A mail clerk at the exchange had her desk ledger burned that night, the one that would have put him in front of a judge. I'm going to pretend to think about his fifty dollars.",
+   "flag": "lf3_offer"
+  },
+  "lf3_b1": {
+   "line": "I let him think so. He talks when he thinks he's bought something. He has the clerk's brother on his payroll, and the brother has four children. If I go to the police, Truesdale loses a ledger and the brother loses a living. I don't want to be the reason four children eat less.",
+   "choices": [
+    {
+     "label": "Then what were you doing on the second?",
+     "goto": "lf3_b2"
+    }
+   ],
+   "silence_goto": "lf3_b2"
+  },
+  "lf3_b2": {
+   "line": "Holding a dish of developer in Adela's darkroom till two in the morning, being told off for breathing. She writes every batch on a slip with the date and the time. If I'm going to refuse him, I'd like it on paper first.",
+   "flag": "lf3_slip"
+  },
+  "lf3_c1": {
+   "line": "Second of May, ten to two, two batches, my initials where she made me sign for the spilt hypo. I wasn't with him. I can't be his alibi and I won't be. Now: do I send the slip to the clerk's lawyer, or keep it and tell Truesdale no to his face?",
+   "choices": [
+    {
+     "label": "Send it. Don't stand in front of him.",
+     "goto": "lf3_c2",
+     "trust": 1
+    },
+    {
+     "label": "Tell him yourself. With Stacy there.",
+     "goto": "lf3_c3",
+     "trust": 1
+    }
+   ],
+   "silence_goto": "lf3_c2"
+  },
+  "lf3_c2": {
+   "line": "Sensible. Stacy will say you put me up to it. I'll let her.",
+   "flag": "lf3_sent"
+  },
+  "lf3_c3": {
+   "line": "He'll hate that. He'll hate it in front of a witness who pours his drinks. Good.",
+   "flag": "lf3_refused"
+  },
+  "lf3_d1": {
+   "line": "No alibi, no fifty dollars, a lawyer with a slip in her file. The clerk keeps her job, and so does her brother, because I asked her lawyer nicely to leave him out of it.",
+   "choices": [
+    {
+     "label": "And Truesdale himself?",
+     "goto": "lf3_d2"
+    }
+   ],
+   "silence_goto": "lf3_d2"
+  },
+  "lf3_d2": {
+   "line": "Still at large, as they say, and still very well dressed. Somebody pays for that stationery. I'd love to know who. I'm told that's how women like me end up in rivers.",
+   "flag": "lf3_closed"
+  },
+  "lf4_a1": {
+   "line": "In my comic's mask, darling. A tall woman in black silk and a little domino going in and out of Steinway Street hotels, telling the night clerks she's Lilith. And telling one of them she's me, which is how a gentleman came to accuse me of taking his wallet in a room I've never seen.",
+   "choices": [
+    {
+     "label": "Is it someone you know?",
+     "goto": "lf4_a2"
+    },
+    {
+     "label": "Is it funny?",
+     "goto": "lf4_a3"
+    }
+   ],
+   "silence_goto": "lf4_a2"
+  },
+  "lf4_a2": {
+   "line": "Someone who reads the strip. That narrows it to everybody who can read. Adela's portraits will tell us whose shoulders are whose.",
+   "flag": "lf4_mask"
+  },
+  "lf4_a3": {
+   "line": "It was, until the wallet. I spent years becoming myself. If someone intends to impersonate me, I insist on better workmanship.",
+   "flag": "lf4_mask"
+  },
+  "lf4_b1": {
+   "line": "Stacy sat the night clerks down one at a time. Three describe a woman my height. Two describe a man in a long coat and a lot of powder. One describes me, exactly, on the night of the ninth, when I was on this stage in front of fifty people playing the bass badly.",
+   "choices": [
+    {
+     "label": "Then the ninth is wrong.",
+     "goto": "lf4_b2"
+    }
+   ],
+   "silence_goto": "lf4_b2"
+  },
+  "lf4_b2": {
+   "line": "Or he is. The rest is a pickpocket from Corona in borrowed silk who worked out that a hotel clerk looks at a mask and not at a man. Stacy has his name. I have my wallet back, figuratively.",
+   "flag": "lf4_caught"
+  },
+  "lf4_c1": {
+   "line": "No. A pickpocket from Corona wore her clothes for three weeks. That's not the same thing at all, and I'll thank you not to say it in front of the strip.",
+   "choices": [
+    {
+     "label": "And the clerk who saw you on the ninth?",
+     "goto": "lf4_c2"
+    }
+   ],
+   "silence_goto": "lf4_c2"
+  },
+  "lf4_c2": {
+   "line": "He's sure. I was here. I don't need to be the more real one; I only need the wallet to be his and the night to be mine. He can keep the rest of it.",
+   "flag": "lf4_closed"
+  },
+  "lf5_a1": {
+   "line": "Nobody sits there. I play to it. Stacy hasn't asked me to stop, which is how I know she wants to. We had a song half done. I'm going to finish it if it kills me, which is the kind of thing you shouldn't say in this bar any more.",
+   "choices": [
+    {
+     "label": "What was the song?",
+     "goto": "lf5_a2"
+    },
+    {
+     "label": "Lily. Sleep first.",
+     "goto": "lf5_a3",
+     "trust": 1
+    }
+   ],
+   "silence_goto": "lf5_a2"
+  },
+  "lf5_a2": {
+   "line": "It doesn't have words yet. She used to say a song finds its words when it knows what it's for. I can remember every ridiculous thing she ever said to me. I can't remember whether I told her I loved her that morning.",
+   "flag": "lf5_chair"
+  },
+  "lf5_a3": {
+   "line": "I sleep. I just do it at the piano. Fine. Tomorrow I'll show you something.",
+   "flag": "lf5_chair"
+  },
+  "lf5_b1": {
+   "line": "The Ravenswood portrait. Her and my elbow. Look behind us, in the doorway: a man in a soft hat, looking at her, not at the camera. I think he's the one. I think I should have seen him.",
+   "choices": [
+    {
+     "label": "Who is he?",
+     "goto": "lf5_b2"
+    }
+   ],
+   "silence_goto": "lf5_b2"
+  },
+  "lf5_b2": {
+   "line": "I found him. It took me nine days and I was rude to two people I love. He's the Ravenswood's bookkeeper. He was looking at her because she owed for the hall. That's all he is. I wanted him to be the answer so badly I made him one.",
+   "flag": "lf5_wrong"
+  },
+  "lf5_c1": {
+   "line": "Stacy says a great many things, all of them true and none of them helpful. She says loving Adela can't mean I put myself in the river after her. I say stopping is leaving her.",
+   "choices": [
+    {
+     "label": "She's frightened for you.",
+     "goto": "lf5_c2",
+     "trust": 1
+    },
+    {
+     "label": "You're both right.",
+     "goto": "lf5_c2"
+    }
+   ],
+   "silence_goto": "lf5_c2"
+  },
+  "lf5_c2": {
+   "line": "I know. That's the unbearable part. She's found something, she says. A card in Adela's own pencil. Real, and dull, and true. I'm going to go and look at it like a grown woman.",
+   "flag": "lf5_truce"
+  },
+  "lf5_d1": {
+   "line": "Stacy's card asks a question, and it's a real one, and it's on your wall where it belongs. The song had been waiting for that. Not for an answer. For something true to stand on.",
+   "choices": [
+    {
+     "label": "Will you play it?",
+     "goto": "lf5_d2"
+    }
+   ],
+   "silence_goto": "lf5_d2"
+  },
+  "lf5_d2": {
+   "line": "Tonight, after closing, for one listener and an empty chair. She made me feel like I was something worth remembering. I don't know what I'm supposed to do with that now. Play, I suppose.",
+   "flag": "lf5_closed"
   }
  }
 }
