@@ -1,8 +1,9 @@
 # Harukiya as a full-cast destination
 
 Evidence class: **INERT**. Owner commission and implementation plan, November 12.
-Integration owner: Codex. Native and narrow technical checks are listed below;
-installed room, attendance and artistic acceptance remain pending.
+Integration owner: Codex. Room/controller checkpoint merged in PR258; scoped
+technical receipts are below. Full-roster scheduling, cast fit, performance,
+play and artistic acceptance remain open.
 
 ## Owner's current program
 
@@ -19,7 +20,7 @@ standing positions do not count as seats. Mina needs a reserved seat and a nearb
 standing position until an approved seated presentation exists. Do not manufacture
 an extra guest or ignore Adela's chronology merely to fill a review scene.
 
-## Existing constraints and implementation findings
+## Initial constraints and findings (November12; historical)
 
 - The current main room spans source x -11.50..4.00, y -37.90..-28.70, floor
   z -2.80. The east descent remains 1.60 m clear; preserve the red door, threshold
@@ -172,3 +173,17 @@ Claude owns the new Stacy investigator brief and confirms no competing owner of
 those two route drafts. Preserve one Stacy actor; her future travel must not
 accidentally hide Lily. Do not confuse posed crowd evidence with full-roster
 attendance or a wrapper receipt with a test-written runtime contract.
+
+## Merged checkpoint and remaining roster intake
+
+PR258 merged **971e651ea**, identical tree to qualified **8bd9cba07**. Candidate
+comparison reports zero regressions,17/17 protected paths, V2 and clean document
+lint. Three audit changes were reviewed; all9327 prior spatial records remain
+exactly, plus257 additions. No new file-reader exceptions or gate waivers.
+
+Root's follow-up **codex/harukiya-roster-20261113** locally registers the two
+reviewed Rhea/guest drafts through the existing route table. They are not engine
+qualified or merged. Only the obsolete mail chain changed from the preserved
+historical sources. Current geometry/registered-owner movement and then conditional
+natural attendance remain required; Juno's presence can legitimately deter Rhea.
+The cast/main/lane hold is released to Claude, with future source freezes coordinated.
