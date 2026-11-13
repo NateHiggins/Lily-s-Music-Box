@@ -56,6 +56,10 @@ DYNAMIC_MAP_PATHS_BY_SCHEMA = {
 # These declarations classify record identities only. They grant neither a
 # FILE reader nor a reader for any field in a record value.
 DYNAMIC_MAP_PATHS_BY_FILE = {
+    # Reviewed Harukiya native record IDs; value fields remain audited.
+    'orison_v2/harukiya_destination_layout.json': frozenset({'materials'}),
+    'orison_v2/harukiya_destination_retirement.json': frozenset({'retirement[].owners', 'stock_counts', 'stock_counts[]'}),
+    'orison_v2/harukiya_drumkit.json': frozenset({'contacts', 'pivots'}),
     # CastMaterialRecipes.validate resolves imported cast_<person>_* identities
     # through _recipes[key]. This declares only root record IDs; every recipe
     # value (base_color, roughness, metallic, etc.) still needs a real reader.

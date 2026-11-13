@@ -25,6 +25,7 @@ var source_layout: Dictionary
 var surface_pass: RefCounted
 var hours: HarukiyaStateDirector
 var resident_places: Node3D
+var destination: Node3D
 var _acoustic_originals: Dictionary = {}
 
 func _ready() -> void:
@@ -84,15 +85,18 @@ func _ready() -> void:
 		geometry.free()
 		_fail("native receiving cases differ from their source cases and shared hull")
 		return
-	if not preload("res://scripts/building/orison_v2_bar_cafe_seating.gd").mount(geometry, source_layout):
+	destination = preload("res://scripts/building/orison_v2_bar_destination.gd").new()
+	if not destination.mount(geometry, source_layout):
+		if destination.get_parent() == null: destination.free()
 		geometry.free()
-		_fail("cafe chairs do not match their original geometry and shared hull")
+		_fail("destination architecture does not match its source retirement and native layout")
 		return
 	add_child(geometry)
 	surface_pass = Surface.new()
 	surface_pass.apply({"shop_bar": geometry})
 	preload("res://scripts/building/orison_v2_bar_furniture.gd").calibrate(geometry)
 	preload("res://scripts/building/orison_v2_bar_receiving.gd").calibrate(geometry)
+	destination.calibrate()
 	actors = Node3D.new()
 	actors.name = "BarActors"
 	add_child(actors)
@@ -101,7 +105,8 @@ func _ready() -> void:
 		if floor.id != "F01": continue
 		for marker: Dictionary in floor.markers:
 			if marker.id not in owners: continue
-			if seen.has(marker.id) or not _mount_marker(marker):
+			var fitted: Dictionary = destination.marker_record(marker)
+			if fitted.is_empty() or seen.has(marker.id) or not _mount_marker(fitted):
 				_fail("duplicate or unsupported bar marker: " + str(marker.id))
 				return
 			seen[marker.id] = true
@@ -120,12 +125,6 @@ func _ready() -> void:
 	for child in actors.get_children():
 		if child is Node3D and child not in before and child != hands:
 			child.position = child.global_position
-	resident_places = preload("res://scripts/building/orison_v2_bar_resident_places.gd").new()
-	resident_places.name = "ResidentPlaces"
-	add_child(resident_places)
-	if not resident_places.setup(self):
-		_fail("resident places do not match their physical furniture")
-		return
 	if not preload("res://scripts/building/orison_v2_bar_gallery.gd").fit_inspections(geometry,actors):
 		_fail("native gallery lost an original picture inspection target")
 		return
@@ -142,6 +141,15 @@ func _ready() -> void:
 		(rect[0] + rect[2]) * .5, (rect[1] + rect[3]) * .5, float(pool.z0) + .85])
 	if not preload("res://scripts/building/orison_v2_bar_pool.gd").fit_inspection(actors.get_node("BAR_POOL_TABLE")):
 		_fail("native pool inspection target is missing or invalid")
+		return
+	if not destination.fit_actors(self):
+		_fail("destination interactions lost their retained owners")
+		return
+	resident_places = preload("res://scripts/building/orison_v2_bar_resident_places.gd").new()
+	resident_places.name = "ResidentPlaces"
+	add_child(resident_places)
+	if not resident_places.setup(self):
+		_fail("resident places do not match their physical furniture")
 		return
 	# Cabinets are retired from play. Their native/baked bodies were removed
 	# above; do not construct game screens, interaction targets or audio actors.
