@@ -3649,3 +3649,13 @@ game/shaders/queens_weather_sky.gdshader -text
 game/tests/v2_day_night_film.gd -text
 game/tests/V2DayNightFilm.tscn -text
 tools/encode_sky_film.py -text
+
+# Voice authoring freezes and cue provenance bind these exact source bytes.
+game/data/voice/*.json -text
+tools/voice/*.py -text
+
+# Source-bound companion work-clearance regression.
+game/tests/companion_work_clearance_test.gd -text
+game/tests/CompanionWorkClearanceTest.tscn -text
+game/tests/companion_world_hand_bench.gd -text
+game/tests/CompanionWorldHandBench.tscn -text

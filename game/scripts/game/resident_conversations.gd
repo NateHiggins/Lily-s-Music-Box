@@ -155,6 +155,9 @@ var errors: Array[String] = []
 var _unit_resolver: Callable = Callable()
 var _home_resolver: Callable = Callable()
 var _active_resident := ""
+var _performance_active := false
+var _performance_tree: Dictionary = {}
+var _active_tree: Dictionary = {}
 
 
 ## `player_unit` answers "which apartment is the player standing in" ("" when
@@ -252,6 +255,12 @@ func start(resident_id: String) -> bool:
 			RealityCases.interact_with_resident(resident_id)
 			return true
 		return false
+	# A door/counter has already admitted this interaction. Residents without
+	# a walking-body target can use the same bounded, consequence-free entry.
+	var performance := get_tree().get_first_node_in_group("loop_performances") if is_inside_tree() else null
+	if performance != null and performance.try_entry(resident_id,
+			get_tree().get_first_node_in_group("player_controller")):
+		return true
 	var tree: Dictionary = with_music(resident_id, with_gifts(resident_id, with_parcel(resident_id, with_errand(resident_id, with_weather(resident_id,with_opinions(resident_id,
 			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today()))))))
 	var entry_id := entry_for(resident_id)
@@ -261,6 +270,7 @@ func start(resident_id: String) -> bool:
 		errors.append("%s: entry '%s' names no node" % [resident_id, entry_id])
 		return false
 	_active_resident = resident_id
+	_active_tree = tree
 	RealityState.record_conversation_visit(resident_id)
 	if entry_id == "integration":
 		RealityState.grant_knowledge(_integration_flag(resident_id))
@@ -292,6 +302,90 @@ func entry_for(resident_id: String) -> String:
 	if visits > 0 and trust < 0:
 		return "fallback"
 	return "first_stable"
+
+
+## Optional authored visit business, opened through an actual resident target.
+## Unlike a case conversation, this has no trust, flags, visit counters or notes.
+func start_performance(resident_id: String, line: String, player: Node) -> bool:
+	return start_performance_sequence(resident_id, [{"speaker": resident_id, "text": line}], player)
+
+
+## Linear authored exchanges keep the panel's deliberate choices and departure.
+## They carry text/speakers only: no flags, trust, actions or invented props.
+func start_performance_sequence(resident_id: String, lines: Array, player: Node) -> bool:
+	if dialogue == null or dialogue.attention_active() or _active_resident != "" \
+			or not trees.has(resident_id) or lines.is_empty() or player == null:
+		return false
+	var nodes := {}
+	for i in lines.size():
+		var row: Variant = lines[i]
+		if row is not Dictionary or not trees.has(str(row.get("speaker", ""))) or str(row.get("text", "")).is_empty():
+			return false
+		var actor := str(row.speaker)
+		var key := "loop_business" if i == 0 else "loop_business_%d" % i
+		var choices: Array = []
+		if i + 1 < lines.size():
+			choices.append({"label": str(row.get("choice", "Listen.")), "goto": "loop_business_%d" % (i + 1)})
+		choices.append({"label": "I'll let you get on."})
+		nodes[key] = {"line": str(row.text), "actor": actor,
+				"speaker": str(trees[actor].get("meta", {}).get("speaker_default", actor)), "choices": choices}
+	var tree := {"meta": {}, "nodes": nodes}
+	_active_resident = str(lines[0].speaker)
+	_performance_active = true
+	_performance_tree = tree
+	_active_tree = tree
+	if not dialogue.node_shown.is_connected(_performance_node_shown):
+		dialogue.node_shown.connect(_performance_node_shown)
+	dialogue.run_tree(tree, "loop_business", Callable())
+	conversation_started.emit(_active_resident, "loop_business")
+	return true
+
+
+func _performance_node_shown(node_id: String) -> void:
+	if not _performance_active or not is_same(dialogue._tree, _performance_tree):
+		return
+	var actor := str(_performance_tree.get("nodes", {}).get(node_id, {}).get("actor", ""))
+	if actor.is_empty() or actor == _active_resident:
+		return
+	conversation_ended.emit(_active_resident)
+	_active_resident = actor
+	conversation_started.emit(actor, "loop_business")
+
+
+func performance_active() -> bool:
+	if _performance_active and dialogue != null and not is_same(dialogue._tree, _performance_tree):
+		# A successor can replace the panel without ending the old tree. Release
+		# only our conversation/pace notification, never the successor's panel.
+		_on_tree_ended()
+	return _performance_active
+
+
+func cancel_performance() -> void:
+	if not _performance_active or dialogue == null:
+		return
+	if not is_same(dialogue._tree, _performance_tree):
+		_on_tree_ended()
+		return
+	dialogue.close()
+	dialogue._end_tree()
+
+
+## A calendar transition/load retires date-gated choices. Already granted
+## knowledge stays with its owner; ending this old presentation cannot print
+## a first-conversation slip or commit into the newly loaded campaign.
+func cancel_for_transition() -> void:
+	if _active_resident.is_empty():
+		return
+	var resident := _active_resident
+	var owns_panel := dialogue != null and is_same(dialogue._tree, _active_tree)
+	_active_resident = ""
+	_active_tree = {}
+	_performance_active = false
+	_performance_tree = {}
+	if owns_panel:
+		dialogue.close()
+		dialogue._end_tree()
+	conversation_ended.emit(resident)
 
 
 ## First contact only, and a warm reply only, so it can't sour anyone or close a door.
@@ -372,6 +466,12 @@ func _on_tree_ended() -> void:
 		return
 	var resident_id := _active_resident
 	_active_resident = ""
+	_active_tree = {}
+	if _performance_active:
+		_performance_active = false
+		_performance_tree = {}
+		conversation_ended.emit(resident_id)
+		return
 	if note_pending("first_conversation"):
 		file_note("first_conversation", _last_player)
 	RealityState.commit()
@@ -739,6 +839,7 @@ func start_mystery(resident_id: String) -> bool:
 		menu.choices.append({"label": str(thread.topic), "goto": str(thread.root)})
 	tree.nodes[MYSTERY_MENU] = menu
 	_active_resident = resident_id
+	_active_tree = tree
 	dialogue.run_tree(tree, MYSTERY_MENU,
 			func(flag: String, trust: int): _record(resident_id, flag, trust),
 			Callable(),

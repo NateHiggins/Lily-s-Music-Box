@@ -2,6 +2,7 @@ class_name PlayerController
 extends CharacterBody3D
 
 const PauseServicesScript := preload("res://scripts/ui/pause_services.gd")
+const DoorPassageGuide := preload("res://scripts/player/door_passage_guide.gd")
 
 ## THE PLAYER CHANGED SOMETHING IN THE WORLD.
 ##
@@ -66,6 +67,7 @@ var _step_cap_exceptions: Array=[]
 var _native_contact_agent: RefCounted
 var _native_contact_layers:=0
 var _grab: RefCounted
+var _door_passage := DoorPassageGuide.new()
 var telegram_hud: TelegramHud
 var _interaction_hud: CanvasLayer
 var pause_services: CanvasLayer
@@ -1091,6 +1093,11 @@ func use_key_interaction() -> void:
 	var hit := get_world_3d().direct_space_state.intersect_ray(query)
 	var owner: Node = hit.get("collider")
 	while owner:
+		# The barrel's primary-click area is still the same physical key owner.
+		# Keep K / controller key use working when the ray reaches that area.
+		if owner is PropControlArea and owner.control_id == "keyhole":
+			owner = owner.get_parent()
+			continue
 		if owner.has_method("interact_key"):
 			var result: Variant = owner.call("interact_key",self)
 			_present_interaction_telegram(owner,result)
@@ -1137,9 +1144,11 @@ func _physics_process(delta: float) -> void:
 		_native_contact_agent.sync()
 	var native_sync_ms: float=(Time.get_ticks_usec()-sync_started)/1000. if profile_physics else 0.
 	if inspecting():
+		_door_passage.reset()
 		velocity=Vector3.ZERO
 		return
 	if is_instance_valid(seated_on):
+		_door_passage.reset()
 		velocity = Vector3.ZERO
 		_clear_stagger()
 		_stride_last = Vector3.INF
@@ -1147,6 +1156,7 @@ func _physics_process(delta: float) -> void:
 		seated_on.hold_player(delta)
 		return
 	if call_locked:
+		_door_passage.reset()
 		velocity = Vector3.ZERO
 		_clear_stagger()
 		camera.rotation.z = lerpf(camera.rotation.z, 0.0,
@@ -1160,6 +1170,7 @@ func _physics_process(delta: float) -> void:
 				"move_forward", "move_back")
 		wish = (transform.basis * Vector3(input.x, 0, input.y))
 	if noclip:
+		_door_passage.reset()
 		_clear_stagger()
 		var up := (0.0 if _inspection_jump_consumed else Input.get_action_strength("jump")) \
 				- Input.get_action_strength("crouch")
@@ -1186,6 +1197,11 @@ func _physics_process(delta: float) -> void:
 	var speed := CROUCH_SPEED if crouched \
 			else (RUN if Input.is_action_pressed("run") else WALK)
 	var input_gain := 1.0 - stagger_weight * STAGGER_INPUT_DAMP
+	if gravity_direction.dot(Vector3.DOWN) > 0.98 and stagger_weight == 0.0 \
+			and not (_grab != null and _grab.active() and not _grab.holding_pickup()):
+		wish = _door_passage.steer(self, wish, delta, speed)
+	else:
+		_door_passage.reset()
 	velocity.x = wish.x * speed * input_gain + _stagger_velocity.x
 	velocity.z = wish.z * speed * input_gain + _stagger_velocity.z
 	if not is_on_floor():
@@ -1412,6 +1428,7 @@ func _exit_tree() -> void:
 
 
 func cancel_manipulation() -> void:
+	_door_passage.reset()
 	end_inspection(false)
 	if _grab != null: _grab.release(false)
 
