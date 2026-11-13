@@ -14,9 +14,12 @@ chain changed from the preserved originals. Source/connectivity/model-presence
 checks pass in **roster_intake_02/INTAKE.json**. Reader tests30/0 and NEW0;
 spatial9602/zero drift, original9584 records preserved exactly. No root engine run.
 
-Next: review/apply the private agent's **roster_intake_02/test_proposal/**, compile,
-probe current apartment/mail geometry and exercise both exact registered owners
-through home/bar/return before natural schedule proof. Use one composed world,
+Applied the private agent's **roster_intake_02/test_proposal/**. Cheap engine
+compile3/0 (**roster_compile_02**), after preserving/fixing its original type
+inference failure. Independent review strengthened physical socket arrival,
+per-leg passage admission and full standing-body collision checks. Those final
+assertions await recompile. Next: probe current apartment/mail geometry and
+exercise both exact registered owners through home/bar/return before natural schedule proof. Use one composed world,
 ordinary movement and separate contracts. **roster_intake_01/NATURAL_ATTENDANCE_PLAN.md**
 explains genuine conditional nonattendance: Rhea avoids Juno; a forced visit is
 not natural schedule proof. Preserve one alternating guest identity. Private
