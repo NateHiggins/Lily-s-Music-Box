@@ -3649,3 +3649,7 @@ game/shaders/queens_weather_sky.gdshader -text
 game/tests/v2_day_night_film.gd -text
 game/tests/V2DayNightFilm.tscn -text
 tools/encode_sky_film.py -text
+
+# Voice authoring freezes and cue provenance bind these exact source bytes.
+game/data/voice/*.json -text
+tools/voice/*.py -text
