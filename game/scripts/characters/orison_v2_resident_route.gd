@@ -213,6 +213,10 @@ func _physics_process(delta: float) -> void:
 		actor._set_walking(false)
 		return
 	var next := at + flat.limit_length(delta*route_speed)
+	if not _route_step_allowed(next):
+		blocked_reason = "yielding to a resident during the visit"
+		_blocked(delta)
+		return
 	var ray := PhysicsRayQueryParameters3D.create(next+Vector3.UP*.34,next-Vector3.UP*.5,1)
 	var space := actor.get_world_3d().direct_space_state
 	var floor_hit := space.intersect_ray(ray)
@@ -440,3 +444,8 @@ func _observed() -> bool:
 			ray.exclude = [world.player.get_rid()]
 			if space.intersect_ray(ray).is_empty(): return true
 	return false
+
+
+## Optional route-specific courtesy, evaluated at every actual motor step.
+func _route_step_allowed(_next: Vector3) -> bool:
+	return true

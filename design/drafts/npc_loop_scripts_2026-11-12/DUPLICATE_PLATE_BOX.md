@@ -17,6 +17,19 @@ All three scenes use the existing gameplay camera. Look, move, inspect and leave
 remain available outside the existing dialogue owner's UI contract. No forced
 close-up, new lock, teleported resident or scripted hand completing a player step.
 
+**PROPOSED whole-visit coverage.** Entry, investigation and departure below are
+conditional on the actual resident being present, within conversation reach and
+free to respond. They are not three compulsory speeches. Use at most one new
+connective per approach, never over an existing source line or its listening
+pause. The ordinary schedule continues while the player browses. A resident
+may notice a departure and return within the same uninterrupted visit; a reset
+does not give them that memory. No queued welcome or farewell follows the player
+through a closed door. Late entry omits the settling business rather than
+rushing every beat. After a take, resume the selected activity instead of holding
+a tableau until expiry. Empty-hand poses and existing personal idles suffice;
+new dishwashing, chemistry, packing or paper-sorting simulation is not required.
+All new lines remain optional PROPOSED text with no flags or consequences.
+
 ## 1. DUPLICATE — The sleeve check
 
 **Contract.** Friday **1929-10-18, 19:30–21:00**, 90 minutes, **6A**, tier 4,
@@ -42,12 +55,28 @@ the actual route. Their schedule places eating at 19:00–19:45 and desk work
 afterward; do not seat them at the bench early for composition. The discrepancy
 is small: a copy routinely kept without inspection now deserves attention.
 
+**19:30–19:45, entry.** Keep doorway → kitchen route → clear side of the archive
+surface open. Sacha can acknowledge a nearby visitor without abandoning the meal.
+Optional **PROPOSED DUP-P00, SACHA:** “Come in. Leave the order as it is, even
+where it looks wrong.” They glance toward the working side, then back to the
+visitor, giving the instruction a place. This is not permission overriding the
+door/access owner. If the player waits silently, Sacha lets them; do not mime
+the same last mouthful for fifteen minutes. At the schedule change, use their
+existing walk, waiting at the first safe point if the player occupies the route.
+
 At 19:45, Sacha looks at the available work surface, then at the player's hands.
 **PROPOSED DUP-P01, SACHA:** “Leave me somewhere to put the next one.” No pointing
 through boxes, no handling the player's target. Let the three lifts create three
 usable spaces. Sacha follows the exposed edges with their eyes; their mouth stays
 still while the player works. The dry instruction becomes a practical arrangement,
 not a joke requiring an answering quip.
+
+**19:45 onward, middle.** Sacha has their own task: checking the visible filing
+order without rearranging any anchor target. Their attention travels from the
+vacated space to the next exposed edge, then to the player's grip. They stop
+this small inventory when addressed. The hand that might have straightened a
+box stays against their own body while the player holds it. No simultaneous
+sorting action steals progress or quietly resets the room.
 
 **Optional existing exchange, unchanged.** Only offer **sr_duplicate** when
 **m_backup_ledger** is already known, the dated thread is eligible and its heard
@@ -73,6 +102,14 @@ reading space clear; the same physical clue remains available. Seeing the sleeve
 does not grant knowledge. Taking it belongs to TemporalLoop/PaperPocket. Sacha
 waits for the player's hand to clear, then returns their gaze to the empty place
 in the filing order. That is the afterbeat; no explanation of the lease follows.
+
+Only after **sr_d1** has actually occurred in this encounter, optional
+**PROPOSED DUP-P02, SACHA:** “Take your time. I'm trying not to put it away.”
+They make room for looking instead of supplying an interpretation. This courtesy
+does not extend the visit. If the player leaves before inspecting, Sacha resumes
+their desk idle; they do not close the evidence or call the player back. If the
+player returns, a visible change of attention is enough—no second sleeve-check
+speech and no suggestion that Sacha remembers another loop.
 
 Leaving stops proposed speech, not earned progress. Re-entry reads current steps
 and eligible threads; it does not replay an already-heard root. A strict-order
@@ -107,11 +144,29 @@ Until attendance is reconciled, an early player gets the intact silent object
 sequence; Sacha's performance waits for their real arrival. No invisible worker
 must be assumed to have explained the image.
 
+**19:00–19:15, entry; 19:15–19:45, early access.** Sacha is still in the ordinary
+kitchen block. A nearby greeting may interrupt that activity through the current
+conversation owner, but the investigation objects do not move to them. Keep the
+player's path from doorway to the plate box clear. If the player completes the
+physical sequence before Sacha approaches, do not manufacture a second print or
+restart the reveal for an audience that has already seen it.
+
 Keep the path between the boxes, light box and exit readable. The player's first
 lifts clear the working surface. Sacha, when actually present, keeps their hands
-outside the player's grip volume. **PROPOSED PLT-P01, SACHA:** “The dry place is
-getting smaller.” Their eyes stay on the chemistry cans. The player may respond
-by making room, ignoring them or walking away. No reaction score is added.
+outside the player's grip volume. **PROPOSED PLT-P01, SACHA:** “Leave a dry place
+for your hand. Then you won't
+have to be brave.” They indicate the clear support beside the work, then take
+their own hand out of the way. This needs no spill or moving liquid. The player
+may make room, ignore them or leave; no reaction score or new puzzle is added.
+
+**19:45 onward, middle.** The existing Tuesday darkroom activity starts. A scene
+at the print requires Sacha's actual reachable presence, not a hidden change to
+that destination. Where the installed route does not support the approach, keep
+them at their real mark and omit the close performance. Once present, their useful
+work is inspection: weight on a supported foot, head adjustment to avoid their own
+shadow, then stillness so the player can look. Do not invent a developing bath,
+extra image or cleaning tool. If the player speaks while carrying a target,
+Sacha listens to the voice first and looks back to the hands before moving.
 
 The plant print is the last obstruction, not a substitute view of the murder.
 Let the player choose to look. No push into the image, animated reconstruction,
@@ -142,6 +197,13 @@ No branch names the attacker or converts Sacha's restraint into secret knowledge
 Afterward, their hand stops short of the print. They leave the edge visible and
 move aside for the player's inspection. Keep the practical room sound; no reveal
 sting answers a question the surviving image cannot answer.
+
+**Exit/continued stay.** Their attention returns to the surviving boundary rather
+than following the player with a knowing look. If the player remains, Sacha
+resumes the selected darkroom idle, leaving the approach free. If the player turns
+away mid-answer, stop through the conversation owner; an unfinished sentence is
+not permission for a summarizing clue on return. No farewell is needed after
+“I can't make it more there.” Let their refusal to improve the image stand.
 
 **Silent route/recovery.** Every physical step works without the optional talk.
 Only the actual pickup files evidence; no framed image or finished voice line
@@ -178,11 +240,30 @@ If she has not arrived, the carrier sequence remains governed by its existing
 access owner. Do not invent consent, a new latch, an extra key transaction, or
 the player stealing permission from a cinematic.
 
+**15:00–15:05, entry.** Keep landing → actual doorway → clear front-room approach
+available to both bodies. Mae returns by her existing route; the player does not
+have to stand aside for a choreographed entrance. If blocked, she uses the current
+yield/wait behavior rather than stepping through them. After she has arrived and
+normal access already permits the encounter, optional **PROPOSED BOX-P00, MAE:**
+“Do come in. I like to see what people touch.” She first looks at the work in the
+room, then includes the visitor in that attention. The line changes no access rule.
+
 The room contains things waiting to be sold. Mae inspects the arrangement rather
 than studying the player's face. **PROPOSED BOX-P01, MAE:** “That space is not
-spare.” She has noticed where the player means to set something. A fractional
-glance at a neighbouring object supplies her meaning; no new obstruction or
-required answer follows. Her concern is ownership, not a performance of guilt.
+spare. It's how I get things out.” She has noticed where the player means to set
+something. A fractional glance along the clear working edge supplies her meaning;
+no new obstruction or required answer follows. Her concern is ownership, not a
+performance of guilt. She yields her own standing space instead of moving a
+target, preserving a useful route for the player's hands.
+
+**15:05–16:00, middle.** Her selected activity is cataloguing her own collection.
+Use an existing non-investigation appraisal idle if supported, otherwise let her
+compare the visible arrangement with her eyes and straighten her own sleeve.
+No invisible certificate is signed and no anchor card changes position. When
+addressed, she finishes a look rather than a mandatory timed action, then listens.
+She need not stare at the ledger: the player's interesting fact is not automatically
+hers. If the player pauses or silently reads, she returns to her own concern;
+the room need not become a threat while nobody speaks.
 
 If the player opens the existing, eligible **mk_afterward** thread and chooses
 **“She copied your deed.”**, preserve the exact reply, **mk_a2**:
@@ -199,9 +280,18 @@ The final ledger lift reveals **kept_papers** at **6C_ledger**. Exact existing c
 > ADELA'S NOTE OF 6.10 P.M., 19 JULY: 'BEFORE THE TENANTS DO ON MONDAY.' THE RECORD OF 26 JUNE, THE LIGHTNING ITEM MARKED. AN AUGUST RENT RECEIPT IN THE ESTATE'S NAME.
 
 Let the player read, take or leave it. Mae looks at the cleared place, then draws
-her own sleeve cuff straight. **PROPOSED BOX-P02, MAE:** “Mind the corner.” Her
-attention is on the furniture. Nothing in that small action admits the murder,
+her own sleeve cuff straight. **PROPOSED BOX-P02, MAE:** “Mind the corner. I still
+have to live with it.” Her attention is on the furniture. Use the line only for
+an actual departure with a clear view of the player's handling. Nothing in that
+small action admits the murder,
 authenticates the papers or recognizes Adela. The unanswered room is the ending.
+
+If the player puts the object down or stays to read, omit the departure line.
+Mae resumes cataloguing with no triumphant or defeated pose. If they leave,
+she does not follow into the landing or require an answer; if they return before
+expiry, current access and visit state decide what remains available. Do not
+replace a taken object to make her usual arrangement look complete. Her certainty
+and the player's conclusions need not meet in this room.
 
 **Do not import the later confrontation.** Existing **mk_box/mk_b1–mk_b5** requires
 **m_letter_compared** and **16:00–21:00**, outside this visit. Thus **mk_b1**,

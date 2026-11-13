@@ -236,6 +236,10 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 
 
 func interact_prompt() -> String:
+	var loop_performances := get_tree().get_first_node_in_group("loop_performances") if is_inside_tree() else null
+	if loop_performances != null:
+		var topic := str(loop_performances.conversation_prompt(resident_id))
+		if not topic.is_empty(): return "[E]  " + topic
 	return "[E]  Speak with %s" % display_name
 
 
@@ -253,6 +257,9 @@ func interact(_player: Node) -> void:
 		if Vector2(toward.x,toward.z).length_squared() > .001:
 			var target := global_rotation.y + wrapf(atan2(toward.x,toward.z)-global_rotation.y,-PI,PI)
 			create_tween().tween_property(self,"global_rotation:y",target,.35)
+	var loop_performances := get_tree().get_first_node_in_group("loop_performances")
+	if loop_performances != null and loop_performances.try_conversation(resident_id, _player):
+		return
 	var music := get_tree().get_first_node_in_group("music_director")
 	if music and music.try_music_conversation(resident_id):
 		return

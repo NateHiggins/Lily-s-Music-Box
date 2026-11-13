@@ -3,6 +3,8 @@ extends AnimatedResident
 ## authorities remain owners; each actor receives a local V2 atlas material.
 var _local_libraries: Dictionary = {}
 var _local_loops: Dictionary = {}
+var _loop_activity := ""
+var _loop_activity_clip := ""
 
 static func roster() -> Array[Dictionary]:
 	var profiles: Variant = JSON.parse_string(FileAccess.get_file_as_string(
@@ -51,10 +53,73 @@ func _local_loop(clip: String) -> bool:
 	_local_loops[clip] = true
 	return true
 
+## An arrived resident may wait attentively between their ordinary tasks.
+## These are standing attitudes, never claims of touching props or sitting.
+func set_loop_activity(activity: String) -> void:
+	if resident_id == "mina_vale" or mina_animation != null: return
+	if activity.is_empty():
+		clear_loop_activity()
+		return
+	if _animation_player == null: return
+	if _walking or _loop_talking() or _loop_seated():
+		clear_loop_activity()
+		return
+	var clip := "clip_03"
+	if activity in ["rest", "idle", "resting"]:
+		# Some personal idles are working clips. Do not borrow those as a
+		# performed chore when no corresponding contact has been authored.
+		clip = preferred_idle if preferred_idle in ["clip_01", "clip_02", "clip_03", "clip_04", "clip_05"] else "clip_01"
+	if _loop_activity == activity and _loop_activity_clip == clip \
+			and str(_animation_player.current_animation) == clip and _animation_player.is_playing():
+		return
+	if not _local_loop(clip):
+		clear_loop_activity()
+		return
+	_loop_activity = activity
+	_loop_activity_clip = clip
+	# Different authored tasks may share the same attentive attitude; do
+	# not restart its motion just because the schedule's wording changed.
+	if str(_animation_player.current_animation) != clip or not _animation_player.is_playing():
+		_animation_player.play(clip, .22)
+
+func clear_loop_activity() -> void:
+	var owned_clip := _loop_activity_clip
+	_loop_activity = ""
+	_loop_activity_clip = ""
+	if resident_id == "mina_vale" or mina_animation != null or _animation_player == null: return
+	# Another owner may already have started walking, talking or sitting.
+	# Only release the clip we actually borrowed, leaving their clip alone.
+	if not owned_clip.is_empty() and not _walking \
+			and str(_animation_player.current_animation) == owned_clip:
+		_play_named("idle")
+
+func _loop_talking() -> bool:
+	if is_instance_valid(attention) and bool(attention.get("conversing")): return true
+	var player := get_tree().get_first_node_in_group("player_controller") as PlayerController
+	return player != null and player.call_locked
+
+func _loop_seated() -> bool:
+	var clip := str(_animation_player.current_animation) if _animation_player != null else ""
+	return clip == "clip_06" or clip.ends_with("/clip_06")
+
+func _process(delta: float) -> void:
+	super._process(delta)
+	if not _loop_activity.is_empty() and (_walking or _loop_talking() or _loop_seated()):
+		clear_loop_activity()
+
+func _set_walking(on: bool) -> void:
+	if on and not _loop_activity.is_empty(): clear_loop_activity()
+	super._set_walking(on)
+
+func play_case_role(fragment: String) -> bool:
+	if not _loop_activity.is_empty(): clear_loop_activity()
+	return super.play_case_role(fragment)
+
 func play_seated() -> bool:
 	# Mina's supplied twenty clips have no seated motion. Her owner retains
 	# its own idle and standing spot; never graft a retired donor pose onto her.
 	if mina_animation != null or not _local_loop("clip_06"): return false
+	clear_loop_activity()
 	_animation_player.play("clip_06", .25)
 	var animation := _animation_player.get_animation("clip_06")
 	# Deterministic per-person phase avoids a room of synchronized gestures.

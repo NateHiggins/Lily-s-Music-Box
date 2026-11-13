@@ -42,6 +42,73 @@ All durations are reading estimates, not measured takes. Subtitle text, selected
 voice, facial cues and contact timing remain unproduced. New gestures require
 native model review; no assumption that the current rigs can already perform them.
 
+## PROPOSED coverage through the year, not continuous chatter
+
+Early means November 10, 1928–March 31, 1929; middle means April 1–July 19;
+late means July 20–November 9. These are editorial coverage bands, **not new
+schedule phases or flags**. Date-specific sources and special days win. An early
+visit after a late discovery still meets an early resident: no one recognizes a
+previous traversal. Within every band give the current agenda a beginning,
+middle and end: prepare/arrive, do the work/rest, finish/leave. Sleeping, being
+out, being unavailable and doing quiet work are useful truthful states. Do not
+wake a nurse, invent a historical appointment or make a shared surname a biography.
+
+The additions below are optional **PROPOSED** solo/listening material, not an
+automatic three-step improvement story. A glimpse can be missed. None completes
+a wound, grants an inventory item, supplies testimony or replaces a dated thread.
+
+| Cast / encounter IDs | Early coverage | Middle coverage | Late coverage |
+|---|---|---|---|
+| Evelyn / Peter — **OY01** | Notice correction at their legitimate overlap; solo Evelyn prepares her pencil, Peter checks an ordinary heading. | A correction runs out of margin. **OY01.M EVELYN:** “Leave the back. I haven't corrected it yet.” He turns the sheet over without interpreting this as permission to alter a real form. | Same ordinary business, with practical light/coat conditions from the current world. Each keeps their own errand; no sudden resolve or perfect friendship. |
+| Teresa / Cam — **OY02** | Rest belongs before/after their actual work, not another route. A supported bag/thermos placement can replace talk. | On an eligible non-emergency overlap Cam notices Teresa's pause before she notices his strap. **OY02.M CAM:** “I'll move when you do.” She does not accept a medical bargain; both can leave. | Exclude the immediate death-response windows. The same small courtesy can survive without a healing speech. Separate sleep/shift blocks remain unavailable. |
+| Lena / Omar — **OY03** | Lena sorts her own ordinary work; Omar checks an existing tag. Neither seeks a new fault for the player. | Their knot business is optional. **OY03.M OMAR:** “You could put a date on it.” **LENA:** “You'd wait for the date.” Then let him make the repair himself. | Work continues without a montage of endless sacrifice. Alone, Lena sets her tools safely down; Omar stops at a legitimate break rather than fixing a new invented hazard. |
+| Juno / Cal — **OY04** | Solo Juno listens before reaching for equipment; Cal checks an existing setting without changing an evidence source. | Pair only at a real visit. Give them the unaltered broadcast long enough to disagree about listening, then quiet. | **OY04.L CAL:** “You're staying for the end?” **JUNO:** “I'm staying for a bit.” No promise to finish his recording or resolve his case. Either can hear without working a machine. |
+| Malcolm / Sacha — **OY05** | Each prepares existing equipment/working space; weather and routes determine whether roof work is possible. | Leaf/strap exchange, then the ordinary task resumes. Sacha is still allowed to take the photograph; direct looking is not a cure. | **OY05.L MALCOLM:** “Leave room for the pot.” Sacha makes space for the actual pot, not a symbolic final relinquishment. Keep protected cutting and images untouched. |
+| Rhea / Iris — **OY06** | Separate preparation: Rhea settles before a legitimate practice; Iris considers an existing scrap. No new route is installed. | Sleeve exchange only if clothing and attendance support it. Let the compliment be about paint, not an appraisal of the woman's worth. | **OY06.L RHEA:** “Still the sleeve?” **IRIS:** “The other blue, now.” Only if both have actually shared the earlier beat on this date's valid encounter history; otherwise omit this follow-up rather than invent memory. Solo work remains available. |
+| Noel / Jonah — **OY07** | Ordinary table space and unfinished work; never move a protected keepsake for this vignette. | Cup business, then Jonah can fail to recover the sentence without a joke announcing defeat. Noel keeps his own task. | **OY07.L JONAH:** “May I leave it there?” **NOEL:** “Until I need the corner.” It is bounded hospitality, not relinquishment of the family shrine or a finished ending. |
+| Guests / Nadia — **OY08** | Guests wait; Nadia passes on her actual round. Their luggage stays in their own custody. | The passage exchange may happen once if the overlap exists. Waiting later becomes silent handle/coat adjustment, not another gag. | Nadia leaves a usable route; guests may still wait. No spontaneous checked-out state, named destination, reconciled past or completed departure. |
+| Mina — **OY09** | Existing work-page attention and scheduled rest. No authored silence interrupts golden shift/case speech. | The quiet beat can end unfinished when her actual work calls; no new correction or missing record is produced. | Keep the same restraint. A look or safe hand release may replace a line; **mv_struck** remains held regardless of player knowledge. |
+| Mae — **OY10** | Appraisal preparation, ordinary courtesies, gloves handled only while hers and unheld. | Her room continues around the June tea visit; reserve its source window and props. Never use ordinary chatter as a substitute motive clue. | Respect aftermath/box eligibility. **OY10.L MAE:** “You may leave it on. I wasn't offering to appraise it.” Only about the player's coat, not evidence. Her manners do not become a confession or absolution. |
+| Stacy / Lily / Adela — **OY11** | Starting November 17 within the existing window: service, preparation and actual breaks. No continuous number; Lily's contribution remains an owner-review performance placeholder. | Living Adela only at eligible source dates/attendance; pre-set, set and post-set are different jobs. The supper continuation keeps its own narrower window. | No living Adela after death, and no invented Lily conversation July 14–26. Stacy works/rests under her schedule. Later Lily solo/listening business remains owner-review; do not keep an empty chair permanently reserved as a compulsory memorial. |
+| Emil — **SU01** | No new presence or invented domestic vignette. | No new support testimony before July 22. | July 22 only: prepare paper, existing choice, protect corner/finish or pause. Outside that window absence stays absence until an attendance/text owner supplies a legitimate encounter. |
+| Ewald / Vantry / Patrolman — **SU02–04** | No backfilled clue encounters. Existing professional lives may be offscreen; that is preferable to a new ungated lead. | No early version of their later support testimony. Preserve their actual source windows rather than advertising a pending clue. | Ewald's July 22 appointment/recovery route, Vantry's November 2 testimony and the patrolman's July 20 window remain separate. Each returns to work or leaves through a real path; none becomes a roaming hint service. |
+| The party — **SU05** | Absent; no invitation invented. | Absent; no preview that identifies the room. | November 1–8 source only, presentation held and zero-time exception preserved. It is not a citizen assigned a normal walk cycle. |
+
+### PROPOSED entrances, travel margins and interrupted work
+
+Use existing **resident_schedules.json**, special-day records, **ResidentAgenda**
+and each actual route owner. For example, Evelyn/Peter already have a weekday
+18:00–18:20 mail-bank overlap in Evelyn's source blocks; do not move their other
+appointments to make OY01 universally available. Every candidate requires both
+actors' current eligibility, not just one schedule row. A free conversation slot
+must include the measured route to the location, safe prop release/settling and
+travel onward before the next hard block. No arbitrary universal walking speed
+or invented fixed buffer is claimed. If there is insufficient margin, choose the
+solo beat or omit speech. Do not accelerate an actor to recover lost minutes.
+
+Arrival order is path clearance → safe stop → supported weight → gaze → words.
+Exit order is acknowledge current attention ending → release only owned contacts
+and reservations → look to the actual route → move under navigation. Stairs and
+doors need their real travel time. Offscreen scheduling may reconstruct authorized
+state; it is not permission for a visible actor to pop to their next mark. Rest
+and work can have stationary bodies with specific small actions and long silence.
+
+Only one actor/player owns a held prop. If Cam still carries his bag, Teresa
+does not animate a copy. If a player occupies the chair, Lily's placeholder can
+offer attention without moving it. A blocked doorway cancels the vignette, not
+the occupant. On interruption, Juno leaves an active recording to its current
+owner; a vignette cannot stop it. Paint, apron, cup and paper gestures finish a
+safe support/release or remain unperformed if the contact cannot be guaranteed.
+No half-completed sewing animation is allowed to stab or drag a moving actor.
+
+When the player returns, inherit the current work state and knowledge eligibility.
+Do not reset everyone to the opening pose, reissue an already-held object or run
+the punchline again. A future presentation cursor may remember where an exchange
+stopped only within its valid date/run; it must not replay node grants, override
+heard-at-entry semantics or become NPC memory across resets. No such consumer is
+installed by this document. Missing paired attendance always permits the specified
+solo work, a quiet rest, an unavailable door or honest absence.
+
 ## OY01 — The margin (Evelyn / Peter; about 30 seconds)
 
 **Candidate:** a natural lobby/mail-bank overlap; Peter must not be pulled from
@@ -70,7 +137,7 @@ Cam shifts a delivery strap from one shoulder to the other. Teresa notices befor
 noticing the player. Her hand stays off Cam's bag.
 
 - **OY02.01 TERESA:** “Other shoulder.”
-- **OY02.02 CAM:** “I've got two. I keep track.”
+- **OY02.02 CAM:** “I've got two. One's always complaining.”
 - **OY02.03 TERESA:** “Then give the first one a minute.”
 - **OY02.04 CAM:** “How long have you been up?”
 
@@ -89,7 +156,7 @@ offers a temporary knot; Omar wants it described accurately.
 - **OY03.01 LENA:** “Hold still. It's temporary.”
 - **OY03.02 OMAR:** “How temporary?”
 - **OY03.03 LENA:** “Until you let me do it properly.”
-- **OY03.04 OMAR:** “That's what I put on the tags.”
+- **OY03.04 OMAR:** “Mine usually outlive the tags.”
 
 She stops reaching and holds out the loose end. He takes it, making the knot
 himself. She points to the missed loop; he corrects it. The affection is in giving
@@ -166,7 +233,7 @@ the notebook anchor's manuscript.
 Jonah lifts the cup, loses his place, searches with his free finger. Noel clears
 one bare corner of the table, moving only his own loose things.
 **OY07.04 JONAH:** “There was a sentence here.”
-**OY07.05 NOEL:** “Put the cup down. It may come back.”
+**OY07.05 NOEL:** “Put the cup down. Leave it somewhere to come back to.”
 
 Hold on the small accommodation. They need not become friends or finish the
 sentence. If the surface is occupied, omit the cup business. Solo Noel checks a
@@ -210,7 +277,8 @@ No fresh white-kid evidence, missing button or conspicuous concealed object.
 - **OY10.02 PLAYER, optional:** “I can keep it on.”
 - **OY10.03 MAE:** “Then the clear space may remain clear.”
 
-She makes a little more room anyway. Courtesy without a secret smile; don't play
+She makes a little more room anyway, stopping short of moving the coat herself.
+The offer remains real when refused. Courtesy without a secret smile; don't play
 her culpability to the audience in every ordinary scene. In silence she resumes
 the appraisal. If the player moves a real object, its existing owner handles it;
 this vignette neither authorizes handling nor supplies provenance or an alibi.

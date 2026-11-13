@@ -31,6 +31,54 @@ those results only. At expiry cancel presentation and release owned contacts;
 let the existing visit owner rerun/return. Do not extend its hours. Repetition
 restores dated NPC knowledge, not a resident memory of the player's earlier trip.
 
+### PROPOSED sustained visit rhythm and movement
+
+The opening exchange is a small part of each visit, not its entire population
+simulation. The following intervals are writing coverage inside the source
+windows, **not additional eligibility gates**. Source ambiguities below remain
+unresolved. Between beats residents work, listen, eat or rest; no actor patrols
+merely to look alive. Earlier-period knowledge does not inherit a later confession.
+
+| Visit | Beginning | Middle | End / safe departure |
+|---|---|---|---|
+| **tea** | 16:20–16:30: Mae occupies her own room; service access and the existing tray action remain visible. No early **mk_tea**. | 16:30–17:15: eligible exchange, then appraisal/tea business. Nadia is a visitor only if her attendance owner supports arrival; she is not made to wait forever for the player. | 17:15–17:30: finish the current safe placement; Mae returns attention to her room. Nadia's departure needs an actual doorway path and an arrival/exit interval, never an offscreen disappearance. |
+| **friday** | 18:20–18:40: Cam is on his round. Keep his room's quiet physical search distinct from a conversation with a missing actor. | 18:40–19:40: owner-supported arrival, jersey/route business, food or ordinary rest only when his schedule permits. One moving foot is enough; he need not circle the table. | 19:40–20:00: conversational attention gives way to the next legitimate task. Leave the egress clear; the player can continue the permitted carrier action without holding Cam hostage. |
+| **stairs** | 03:02 onward: after the blackout, urgency belongs to Teresa's yard task. Do not invent access to an already written future note. | After the existing owner establishes note time/custody: room-carrier action and a possible return are separate from yard testimony. No new fixed minute is decided here. | Before 03:40: Teresa completes a safe hand action or remains at essential care; she does not abandon the yard to perform an exit. Visit expiry clears only presentation, not the care task. |
+| **button** | 05:00 onward: Lena's quiet work and reachable existing carriers; no retrospective 06:00 speech yet. | A valid post-arrival **lo_book** opportunity, once the owner reconciles the source times; practical conversation between work actions. | Through 06:20: complete a knot/placement or set the work down. Do not rush a needle gesture to finish a line. The player may leave without a social penalty. |
+
+**Travel and contact policy, PROPOSED.** Actor marks must be places reachable by
+their actual path, not cinematic coordinates. Before an optional exchange, allow
+the existing route its measured door/stair/corridor travel plus settling and
+release time. If that margin would consume a hard appointment, omit the exchange;
+do not speed-walk, slide, stretch the visit or hold an endpoint until the player
+arrives. Arrival is observable: clear the threshold, stop with weight supported,
+then turn eyes/head toward the speaker. A departing actor looks to the path,
+releases a reserved surface, and walks out under navigation. No fixed travel
+seconds are claimed without route measurement.
+
+For an interrupted tray/parcel move, the interaction owner retains the player's
+held object; an actor never takes a duplicate to finish the gesture. An interrupted
+NPC action releases only its own prop after a safe supported placement, or stays
+in the current safe hold until its owner can release it. Voice stops when attention
+ends; a gesture already touching something finishes safely without speaking on
+at a departing player. On return, use current work state, not the earlier tableau.
+
+**Optional PROPOSED connective lines** — each may be omitted for silence; none
+explains evidence or creates a new branch:
+
+- **TEA-P02 MAE**, after a genuine service interruption: “One moment. That was where I had it.”
+  She compares the real table space with her intended placement, then handles only
+  an unheld ordinary item. Her certainty is local, not a disguised confession.
+- **FRIDAY-P02 CAM**, if still legitimately present after answering: “You can look. I'm eating.”
+  If no existing food/meal is available, omit both line and eating gesture. A
+  route book can matter while the courier also needs his supper.
+- **STAIRS-P02 TERESA**, only during a supported pause in care: “You can stand there. Just leave me the way through.”
+  She waits for a clear path rather than physically pushing the player. No joke,
+  diagnosis, new command objective or clue is attached.
+- **BUTTON-P02 LENA**, after an ordinary work item has been safely set down: “There. Now your hands are your own.”
+  Let her notice the hands remain tense and choose not to ask. Do not award trust,
+  mend the player's clothing or assume they helped if they did not.
+
 ## TEA — a room already being used
 
 **Source-derived contract.** **tea**, “The radiator in 6C,” 1929-06-13,

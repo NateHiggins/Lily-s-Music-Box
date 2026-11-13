@@ -17,6 +17,13 @@ require **Cal first for body/clip compatibility**, with wardrobe changes out of
 sight; then qualified Mae for the first playable tea slice. That technical
 prerequisite does not reorder the narrative leads.
 
+Subsequent November 12 instruction authorized punch-up and loop integration now,
+without runtime tests. [Source integration](drafts/npc_loop_scripts_2026-11-12/SOURCE_INTEGRATION.md)
+connects selected replies, full-window actor phases, real visitor paths and safe
+standing attitudes. Wider choreography, historical attendance and qualification
+remain open. This supersedes the earlier “runtime has not started” status only;
+it does not qualify bodies or lift the music-video capture hold.
+
 ## Scope and existing authority
 
 Give every character a coherent life: an intention, a place, physical business,

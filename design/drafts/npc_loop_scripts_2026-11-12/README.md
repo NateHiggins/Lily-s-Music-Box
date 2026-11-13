@@ -2,6 +2,13 @@
 
 Evidence class: **INERT**. November 12, 2026. **Draft writing, not new canon.**
 
+**Punch-up/source integration update:** Lily subsequently requested fuller activity
+through every sequence and integration without runtime testing. The scripts now
+include whole-window behavior and stronger connective dialogue. Selected replies
+and 47 timed phases are connected to actual routes/conversation/presentation;
+read [the integration scope and remaining gaps](SOURCE_INTEGRATION.md). The full
+ensemble choreography is not yet implemented or played. Captures remain held.
+
 Eleven existing historical visits now have scene drafts. Eleven ordinary-life
 vignettes and five supporting encounters give the wider cast practical business,
 relationships, listening and exits. This is the writing delivery requested while
@@ -143,9 +150,9 @@ new Mae confession, new date travel, runtime language model or automatic case aw
    derive lips from that audio and review native hands, gaze and listener reactions.
    Keep the film's capture hold and separate Harukiya gameplay gates intact.
 
-**State:** 27 scene drafts assembled: 11 anchors, 11 ordinary vignettes, 5 support
-encounters. Source/continuity review is an editorial pass only. Design lint, exact
-source-quote checks, anchor contracts and local links are checked before committing.
-No new dialogue is approved by Lily, voiced, integrated, technically verified in
-game, played or artistically accepted. No runtime files, saves, source voices,
-wardrobe assets or captures were changed by this writing delivery.
+**Current state:** 27 scene drafts punched up: 11 anchors, 11 ordinary vignettes,
+5 support encounters. Selected single-speaker lines and 47 phase records are now
+connected to the runtime as described in [SOURCE_INTEGRATION](SOURCE_INTEGRATION.md).
+Full ensemble/prop choreography is still direction, not implemented animation.
+No new voice takes, runtime testing, gameplay acceptance or artistic acceptance;
+no saves, wardrobe assets or captures changed. Source review is not a played pass.

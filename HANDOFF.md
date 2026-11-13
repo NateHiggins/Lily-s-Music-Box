@@ -1,6 +1,16 @@
 # Current work — Lily bass trio, then NPC loop implementation
 
-**Latest writing delivery:** while captures are held for Fable's outfits, Lily
+**Latest: loop punch-up integrated in source at Lily's request, without runtime
+tests.** [Scope and remaining gaps](design/drafts/npc_loop_scripts_2026-11-12/SOURCE_INTEGRATION.md).
+The 27 scripts now have full-window/year behavior. **performances.json** supplies
+47 phases across12 actor/anchor assignments and19 profiles; root mounts
+**LoopPerformances** for schedule overrides, route-arrival-gated optional lines,
+standing/listening attitudes and visit cleanup. Nadia/Juno gain graph-derived
+visitor paths. No engine launch, voice, capture, main merge or runtime acceptance.
+Three static review defects corrected; detailed choreography, historical attendance,
+missing routes and native clearance remain open. Fable's outfits/capture hold stands.
+
+**Original writing delivery:** while captures were held for Fable's outfits, Lily
 requested loop script drafts. [The packet](design/drafts/npc_loop_scripts_2026-11-12/README.md)
 contains eleven anchor scenes, eleven ordinary-life vignettes, five supporting
 encounters and explicit cast-by-visit dispositions. Source quotes/anchor contracts,
@@ -52,7 +62,8 @@ After the trio, Lily authorized **K-NPC-LOOP-PERFORMANCE** implementation. Owner
 widget rulings **cast_swap_first_20261112** and **cast_swap_clothes_20261112** were
 read: Cal is the compatibility pilot; clothes follow wardrobe rules out of sight.
 Then qualified Mae supports the existing tea visit. Preserve case/clock/knowledge
-owners. Runtime loop work has not started. **B-DESTINATION** remains separately
+owners. First loop performance source integration is above, still untested.
+**B-DESTINATION** remains separately
 unqualified, with its staged files untouched by the film work.
 
 **Pull Up a Chair performance recapture delivered November12:**
