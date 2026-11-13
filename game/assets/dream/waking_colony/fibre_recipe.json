@@ -1,0 +1,21 @@
+{
+ "material_key": "waking_colony_fibre",
+ "source": "art/tools/build_waking_colony_maps.py",
+ "provenance": "analytic, seeded and periodic: two crossed families of wandering fibrils with an over-and-under mask",
+ "pixels": 256,
+ "meters_per_tile": 0.035,
+ "relief_m": 0.00021,
+ "normal_convention": "OpenGL",
+ "albedo_role": "pale neutral structure; the shader multiplies the organelle colour",
+ "reference_policy": "No reference image was read, baked, projected or stored.",
+ "maps": {
+  "albedo": "fibre_albedo.png",
+  "roughness": "fibre_roughness.png",
+  "normal": "fibre_normal.png"
+ },
+ "map_sha256": {
+  "albedo": "28573e7c4f072b32315fd12a0ba68e161ec92956f0dd5c648561adadd9f290db",
+  "roughness": "420d811982215da22a72fe1272e6e39424d31417c6f07103ee733a4c433ec4cc",
+  "normal": "e8c2fa4b83618d703071ec94651c1979f8bc1f82efc6bd019e530ae7386b834e"
+ }
+}
