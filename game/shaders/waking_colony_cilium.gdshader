@@ -20,6 +20,13 @@ uniform float stroke = 0.55;         // root swing, radians
 uniform vec3 base_color : source_color = vec3(0.62, 0.42, 0.72);
 uniform vec3 tip_color : source_color = vec3(0.95, 0.78, 1.0);
 uniform float opal_gain = 0.7;
+// The limb's cuticle is a registered recipe on the cilium's authored UVs
+// (u around, v along): art/tools/build_waking_colony_maps.py, RUL-012.
+uniform sampler2D albedo_tex : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D rough_tex : hint_default_white, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D normal_tex : hint_normal, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform vec2 uv_tile = vec2(1.0, 3.0);
+uniform float normal_depth = 0.8;
 
 // The Blender rest pose (build_waking_colony.py): segment lengths and the
 // turn at each knuckle about local X. Blender X is Godot X; Blender's Z-up
@@ -79,8 +86,11 @@ void fragment() {
 	float cos_v = clamp(dot(NORMAL, VIEW), 0.0, 1.0);
 	float fres = pow(1.0 - cos_v, 2.0);
 	vec3 opal = 0.5 + 0.5 * cos(6.2831853 * (vec3(0.0, 0.33, 0.67) + fres * 1.4 + v_along * 0.8));
-	ALBEDO = mix(base_color, tip_color, smoothstep(0.4, 1.0, v_along));
-	ROUGHNESS = 0.22;
+	vec2 uv = UV * uv_tile;
+	ALBEDO = mix(base_color, tip_color, smoothstep(0.4, 1.0, v_along)) * texture(albedo_tex, uv).rgb * 1.22;
+	ROUGHNESS = clamp(texture(rough_tex, uv).r, 0.04, 1.0);
+	NORMAL_MAP = texture(normal_tex, uv).rgb;
+	NORMAL_MAP_DEPTH = normal_depth;
 	SPECULAR = 0.75;
 	SSS_STRENGTH = 0.5;
 	BACKLIGHT = ALBEDO * 0.5;

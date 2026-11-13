@@ -14,6 +14,43 @@ func _check(ok: bool, label: String) -> void:
 		print("  [FAIL] ", label)
 
 
+## RUL-012 for the cell's physical parts: every organelle and the cilia draw a
+## registered recipe's three maps, with a full mip chain, on real mesh UVs.
+## The lensing membrane is the one optical effect and is not held to this.
+func _check_colony_surfaces(moss: Node3D, cilia: MultiMeshInstance3D) -> void:
+	var drawn: Array = []
+	for row: Dictionary in moss._organelles:
+		var mi := row.node as MeshInstance3D
+		drawn.append([str(mi.name), mi.mesh, mi.material_override as ShaderMaterial])
+	if cilia != null:
+		drawn.append(["WakingCilia", cilia.multimesh.mesh, cilia.material_override as ShaderMaterial])
+	var recipes := {}
+	for entry: Array in drawn:
+		var label: String = entry[0]
+		var mesh: Mesh = entry[1]
+		var material: ShaderMaterial = entry[2]
+		var uvs: PackedVector2Array = mesh.surface_get_arrays(0)[Mesh.ARRAY_TEX_UV] if mesh != null else PackedVector2Array()
+		var spread := Rect2()
+		if uvs.size() > 0:
+			spread = Rect2(uvs[0], Vector2.ZERO)
+			for uv in uvs:
+				spread = spread.expand(uv)
+		_check(uvs.size() > 0 and spread.size.x > 0.05 and spread.size.y > 0.05, "%s has real UVs" % label)
+		var recipe := str(material.get_meta("recipe", "")) if material != null else ""
+		_check(recipe.begins_with("waking_colony_"), "%s names its registered recipe (%s)" % [label, recipe])
+		recipes[recipe] = true
+		for uniform: String in ["albedo_tex", "rough_tex", "normal_tex"]:
+			var texture := material.get_shader_parameter(uniform) as Texture2D if material != null else null
+			var image := texture.get_image() if texture != null else null
+			_check(image != null and image.has_mipmaps(), "%s %s is a mipmapped map" % [label, uniform])
+	for recipe: String in recipes:
+		var path := "res://assets/dream/waking_colony/%s_recipe.json" % recipe.trim_prefix("waking_colony_")
+		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path)) if FileAccess.file_exists(path) else null
+		_check(parsed is Dictionary and str((parsed as Dictionary).get("material_key", "")) == recipe,
+			"%s has its recipe record" % recipe)
+	_check(recipes.size() >= 6, "the cell draws six recipes (%d)" % recipes.size())
+
+
 func _ready() -> void:
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
@@ -72,6 +109,7 @@ func _ready() -> void:
 			var cilia := moss._waking.find_child("WakingCilia", true, false) as MultiMeshInstance3D
 			_check(cilia != null and cilia.multimesh.instance_count == moss.WAKING_CILIA, "the jointed cilia fringe the skirt")
 			_check(not moss._heart.visible and not moss._cilia.visible, "the procedural colony is hidden")
+			_check_colony_surfaces(moss, cilia)
 	_check(enc.surface_tendrils == null and enc.critters == null, "V2 builds no tendrils and no critters")
 	_check(enc.margin != null and enc.palp_renderer != null, "the margin and its palps are built")
 	# The margin runs only on the storey the dream field was seeded on.

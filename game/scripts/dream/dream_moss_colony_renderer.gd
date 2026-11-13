@@ -561,14 +561,35 @@ static func _hash01(value: int) -> float:
 
 # ------------------------------------------------------------------ waking
 
+# region, pigment, glow colour, glow, glassy, recipe, uv_tile. The recipe is a
+# registered material (waking_colony_<recipe>, RUL-012) whose three maps
+# art/tools/build_waking_colony_maps.py writes; uv_tile is the mesh's metres
+# per UV unit over the recipe's meters_per_tile. Sphere-projected organelles
+# take whole repeats around so the seam closes.
 const ORGANELLE_LOOK := {
-	"Nucleus": [1.0, Color(0.55, 0.18, 0.42), Color(0.9, 0.4, 0.8), 0.22, 0.0],
-	"Nucleolus": [2.0, Color(0.30, 0.05, 0.25), Color(1.0, 0.5, 0.9), 0.5, 0.0],
-	"Vacuole": [3.0, Color(0.55, 0.78, 0.85), Color(0.6, 0.9, 1.0), 0.08, 1.0],
-	"Mito": [4.0, Color(0.85, 0.45, 0.20), Color(1.0, 0.6, 0.3), 0.3, 0.0],
-	"Granules": [5.0, Color(0.95, 0.85, 0.40), Color(1.0, 0.9, 0.5), 0.4, 0.0],
-	"Filaments": [6.0, Color(0.60, 0.30, 0.75), Color(0.8, 0.5, 1.0), 0.2, 0.0],
+	"Nucleus": [1.0, Color(0.55, 0.18, 0.42), Color(0.9, 0.4, 0.8), 0.22, 0.0, "chromatin", Vector2(4.0, 2.0)],
+	"Nucleolus": [2.0, Color(0.30, 0.05, 0.25), Color(1.0, 0.5, 0.9), 0.5, 0.0, "chromatin", Vector2(2.0, 1.0)],
+	"Vacuole": [3.0, Color(0.55, 0.78, 0.85), Color(0.6, 0.9, 1.0), 0.08, 1.0, "vesicle", Vector2(2.0, 1.0)],
+	"Mito": [4.0, Color(0.85, 0.45, 0.20), Color(1.0, 0.6, 0.3), 0.3, 0.0, "cristae", Vector2(2.0, 2.0)],
+	"Granules": [5.0, Color(0.95, 0.85, 0.40), Color(1.0, 0.9, 0.5), 0.4, 0.0, "granule", Vector2(4.0, 4.0)],
+	"Filaments": [6.0, Color(0.60, 0.30, 0.75), Color(0.8, 0.5, 1.0), 0.2, 0.0, "fibre", Vector2(12.0, 12.0)],
 }
+const WAKING_RECIPE_DIR := "res://assets/dream/waking_colony/"
+const WAKING_CILIUM_RECIPE := "cuticle"
+const WAKING_CILIUM_TILE := Vector2(1.0, 6.0)
+
+
+## Binds one registered recipe's three maps to a colony material.
+func _bind_waking_recipe(material: ShaderMaterial, recipe: String, tile: Vector2) -> void:
+	for pair: Array in [["albedo_tex", "albedo"], ["rough_tex", "roughness"], ["normal_tex", "normal"]]:
+		var path := "%s%s_%s.png" % [WAKING_RECIPE_DIR, recipe, pair[1]]
+		var texture := load(path) as Texture2D
+		if texture == null:
+			push_error("waking colony recipe map missing: " + path)
+			continue
+		material.set_shader_parameter(pair[0], texture)
+	material.set_shader_parameter("uv_tile", tile)
+	material.set_meta("recipe", "waking_colony_" + recipe)
 
 
 func _build_waking() -> void:
@@ -603,6 +624,7 @@ func _build_waking() -> void:
 			material.set_shader_parameter("glow_color", look[2])
 			material.set_shader_parameter("glow", look[3])
 			material.set_shader_parameter("glassy", look[4])
+			_bind_waking_recipe(material, str(look[5]), look[6])
 			# Cyclosis: each organelle streams around the cell at its own pace,
 			# on its own ellipse, so the interior keeps rearranging under the lens.
 			var h := _hash01(key.hash() + int(colony.seed))
@@ -617,6 +639,7 @@ func _build_waking() -> void:
 func _build_waking_cilia(mesh: Mesh) -> void:
 	var material := ShaderMaterial.new()
 	material.shader = preload("res://shaders/waking_colony_cilium.gdshader")
+	_bind_waking_recipe(material, WAKING_CILIUM_RECIPE, WAKING_CILIUM_TILE)
 	_waking_materials.append(material)
 	var cilia := MultiMeshInstance3D.new()
 	cilia.name = "WakingCilia"
