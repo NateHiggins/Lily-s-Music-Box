@@ -137,20 +137,15 @@ func _initialize() -> bool:
 		last[identity] = {"at": owner.actor.global_position, "phase": "", "transition": ""}
 		starts[identity] = {"node": node_id, "world_feet": owner.actor.global_position, "source_path": owner.source_path,
 			"model": owner.actor.model_path, "route_speed": owner.route_speed}
-	# Select a real clear standing point beside the counter cushion. If neither
-	# side has room for the full player capsule, fail rather than shrink it.
+	# Test only nearby positions derived from this installed socket/approach.
+	# Keep the full player capsule and an initially clear NPC approach.
 	var place: Dictionary = bar.resident_places.preferred("juno_kells")
-	var socket: Marker3D = place.marker
-	var approach: Vector3 = bar.resident_places.to_global(place.approach)
-	var toward := Vector3(approach.x-socket.global_position.x, 0, approach.z-socket.global_position.z).normalized()
-	var candidate := Vector3.INF
-	var shape := CapsuleShape3D.new(); shape.radius = PlayerController.BODY_RADIUS; shape.height = PlayerController.STANDING_HEIGHT
-	for side: float in [-1.0, 1.0]:
-		var at := socket.global_position + Vector3.RIGHT * .58 * side + toward * .1
-		at.y = approach.y + .02
-		var query := PhysicsShapeQueryParameters3D.new(); query.shape = shape; query.collision_mask = 1
-		query.transform.origin = at + Vector3.UP * (shape.height * .5); query.exclude = [player.get_rid()]
-		if world.get_world_3d().direct_space_state.intersect_shape(query, 1).is_empty(): candidate = at; break
+	var occupied_starts: Array[Vector3] = [routes.juno_kells.actor.global_position]
+	for identity: String in routes:
+		if identity != "juno_kells": occupied_starts.append(routes[identity].actor.global_position)
+	var placement := blocking_stance(bar, player, place, occupied_starts, routes.juno_kells._capsule.radius)
+	details.initial_stance = placement
+	var candidate: Vector3 = placement.candidate
 	if not _check(candidate != Vector3.INF, "full player capsule has a real blocking stance beside counter cushion"): return false
 	player.global_position = candidate; player.velocity = Vector3.ZERO; player.camera.make_current()
 	player.enable_low_step_probe(); player.set_mouse_released(false)
@@ -159,6 +154,68 @@ func _initialize() -> bool:
 		"destination_selector": "Existing force_destination test hook only; no timetable qualification.",
 		"initial_placement_count": 4, "actor_reposition_after_start": false, "speed_multiplier": 1.0}
 	return true
+
+## Shared with the nearby geometry preflight; this selects a declared initial
+## fixture placement only. It does not move a body or prove NPC attendance.
+static func blocking_stance(region: OrisonV2BarRegion, body: PlayerController,
+		place: Dictionary, occupied_starts: Array[Vector3], resident_radius: float = .28) -> Dictionary:
+	var result := {"candidate": Vector3.INF, "attempts": [],
+		"radius_m": PlayerController.BODY_RADIUS, "height_m": PlayerController.STANDING_HEIGHT,
+		"resident_radius_m": resident_radius}
+	if occupied_starts.is_empty(): return result
+	var socket: Marker3D = place.marker
+	var approach: Vector3 = region.resident_places.to_global(place.approach)
+	var toward := Vector3(approach.x-socket.global_position.x, 0, approach.z-socket.global_position.z).normalized()
+	if toward.length_squared() < .99: return result
+	var sideways := Vector3.UP.cross(toward).normalized()
+	var space := region.get_world_3d().direct_space_state
+	var shape := CapsuleShape3D.new()
+	shape.radius = PlayerController.BODY_RADIUS; shape.height = PlayerController.STANDING_HEIGHT
+	# Log the original pair unchanged. Accepted pairs keep physical-radius
+	# separation even during straight retreat, yet trigger the .65 m courtesy
+	# stop. Values are (lateral, aisleward), measured from the installed socket.
+	for offsets: Vector2 in [Vector2(.58, .10), Vector2(.62, .40), Vector2(.62, .35), Vector2(.62, .45)]:
+		for side: float in [-1.0, 1.0]:
+			var at := socket.global_position + sideways * offsets.x * side + toward * offsets.y
+			at.y = approach.y + .02
+			var query := PhysicsShapeQueryParameters3D.new()
+			query.shape = shape; query.collision_mask = 1
+			query.transform.origin = at + Vector3.UP * (shape.height * .5)
+			query.exclude = [body.get_rid()]
+			var hits := space.intersect_shape(query, 16)
+			var colliders: Array[Dictionary] = []
+			for hit: Dictionary in hits:
+				var collider: Object = hit.collider
+				colliders.append({"path": str(collider.get_path()) if collider is Node else str(collider), "shape": hit.shape})
+			var floor_query := PhysicsRayQueryParameters3D.create(at + Vector3.UP * .2, at - Vector3.UP * .15, 1)
+			floor_query.exclude = [body.get_rid()]
+			var floor_hit := space.intersect_ray(floor_query)
+			var floor_ok: bool = not floor_hit.is_empty() and floor_hit.normal.y > .8 \
+				and at.y-floor_hit.position.y >= 0.0 and at.y-floor_hit.position.y <= .05
+			var nearest_start := INF
+			for initial: Vector3 in occupied_starts:
+				if absf(initial.y-at.y) < 1.6:
+					nearest_start = minf(nearest_start, Vector2(initial.x-at.x, initial.z-at.z).length())
+			var segment_start := Vector3(occupied_starts[0].x, at.y, occupied_starts[0].z)
+			var segment_end := Vector3(socket.global_position.x, at.y, socket.global_position.z)
+			var near := Geometry3D.get_closest_point_to_segment(at, segment_start, segment_end)
+			var future_gap := near.distance_to(at)
+			# Same .65 m player separation as production _people_clear. A later
+			# approach point must be blocked, while all initial bodies stay clear.
+			var radial_clear := future_gap >= shape.radius + resident_radius
+			var accepted: bool = hits.is_empty() and floor_ok and nearest_start >= .65 and radial_clear and future_gap < .65
+			var attempt := {"world_feet": at, "bar_feet": region.to_local(at),
+				"aisle_offset_m": offsets.y, "lateral_offset_m": offsets.x * side,
+				"colliders": colliders, "floor_supported": floor_ok, "nearest_start_m": nearest_start,
+				"future_approach_gap_m": future_gap, "physical_radii_clear": radial_clear, "accepted": accepted}
+			if not floor_hit.is_empty():
+				attempt.floor_point = floor_hit.position
+				attempt.floor_path = str(floor_hit.collider.get_path()) if floor_hit.collider is Node else str(floor_hit.collider)
+			result.attempts.append(attempt)
+			if accepted:
+				result.candidate = at
+				return result
+	return result
 
 func _phase(identity: String) -> String:
 	return str(bar.resident_places.phase(identity, routes[identity].actor))

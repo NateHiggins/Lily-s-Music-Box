@@ -32,6 +32,7 @@ var prior_data: Dictionary
 var prior_mode: int
 var prior_mouse: int
 var games_only := false
+var stance_only := false
 
 func _ready() -> void:
 	_run.call_deferred()
@@ -50,6 +51,8 @@ func _end_contract(name: String, before: int) -> void:
 
 func _run() -> void:
 	games_only = OS.get_environment("ORISON_HARUKIYA_GAMES_PREFLIGHT") == "1"
+	stance_only = OS.get_environment("ORISON_HARUKIYA_ATTENDANCE_STANCE_PREFLIGHT") == "1"
+	if stance_only: games_only = false
 	directory = OS.get_environment("SHOT_DIR")
 	if not _check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory) == OK, "explicit writable SHOT_DIR"):
 		get_tree().quit(2); return
@@ -106,6 +109,9 @@ func _run() -> void:
 		"real_motor": true, "low_step_probe": true, "noclip": false, "collision_mask": player.collision_mask,
 		"lighting": "Production LightRig and authored practicals; neutral ambient 0.18, no exterior sky/crowd.", "taa": get_viewport().use_taa}
 	_check(DisplayServer.get_name() != "headless", "actual renderer required for this destination proof")
+	if stance_only:
+		_attendance_stance()
+		await _finish(); return
 	if games_only:
 		await _games()
 		await _finish(); return
@@ -116,6 +122,18 @@ func _run() -> void:
 	await _capture("front", [-2.0, -35.0, -.9])
 	if failures.is_empty(): await _route()
 	await _finish()
+
+func _attendance_stance() -> void:
+	var before := _begin_contract("destination_attendance_obstruction_stance")
+	var place: Dictionary = bar.resident_places.preferred("juno_kells")
+	if not _check(not place.is_empty(), "installed Juno counter place exists"):
+		_end_contract("destination_attendance_obstruction_stance", before); return
+	var approach: Vector3 = bar.resident_places.to_global(place.approach)
+	var initial_positions: Array[Vector3] = [approach]
+	var result: Dictionary = preload("res://tests/harukiya_attendance_test.gd").blocking_stance(bar, player, place, initial_positions)
+	details.initial_stance = result
+	_check(result.candidate != Vector3.INF, "installed counter has a supported nonoverlapping initial player stance that blocks the later seat approach")
+	_end_contract("destination_attendance_obstruction_stance", before)
 
 func _native_surfaces() -> void:
 	var before := _begin_contract("destination_native_uv_pbr_mips")
@@ -632,10 +650,11 @@ func _finish() -> void:
 	_check(OS.execute("git", ["-C", root, "rev-parse", "HEAD"], head) == 0 and not head.is_empty(), "repository provenance")
 	var expected := ["destination_native_uv_pbr_mips", "destination_retired_stock", "destination_twenty_four_supported_seats", "destination_kit_stage_backstage_balcony", "destination_nearby_motor_routes", "destination_blocked_stair_negative_control", "destination_seat_input_and_reservation", "destination_original_games_cancel_reopen"]
 	if games_only: expected = ["destination_original_games_cancel_reopen"]
+	if stance_only: expected = ["destination_attendance_obstruction_stance"]
 	for name: String in expected:
 		if not contracts.has(name): contracts[name] = {"executed": false, "status": "FAIL"}
 		_check(bool(contracts[name].executed) and contracts[name].status == "PASS", "required contract " + name)
-	if not games_only: _check(captures.size() == 5, "five actual player views captured")
+	if not games_only and not stance_only: _check(captures.size() == 5, "five actual player views captured")
 	var passed := failures.is_empty()
 	var receipt := {"schema_version": 2, "evidence_kind": "runtime_contract", "selector": "v2", "production_runtime": true,
 		"scope": "Nearby production OrisonV2BarRegion and real PlayerController: destination UV/PBR/mips, independent source-face retirement scan, 24 supported markers, actual grip/motion/release seating and reservation denial, motor stage/backstage/balcony round trip and blocked stair, original game cancel/reopen. Declared initial entrance placement, isolated nonpersistent context, production LightRig with neutral ambient. No street-to-bar, full-world/crowd/performance, save reconstruction, native-art or artistic acceptance claim.",
@@ -648,6 +667,8 @@ func _finish() -> void:
 		"viewport": {"width": get_viewport().get_visible_rect().size.x, "height": get_viewport().get_visible_rect().size.y}}
 	if games_only:
 		receipt.scope = "Nearby games-only preflight: production bar, actual PlayerController, real primary-click/Escape input opens/cancels/reopens original darts and pool panels; ordinary motor between authored interaction stations. Declared initial darts-interaction placement. No full destination route, seat, surface, crowd, save reconstruction or artistic acceptance."
+	if stance_only:
+		receipt.scope = "Nearby initial-stance geometry preflight only: installed production Harukiya, real full-size player capsule, collision-layer-1 overlap and floor-support queries at bounded socket-derived candidates, start and future-approach distances. Does not execute or qualify NPC attendance, player withdrawal, full-world composition, save behavior or artistic acceptance."
 	var file := FileAccess.open(directory.path_join("runtime_contract.json"), FileAccess.WRITE)
 	if file == null: push_error("destination receipt could not open"); get_tree().quit(2); return
 	file.store_string(JSON.stringify(receipt, "\t")); file.flush()
