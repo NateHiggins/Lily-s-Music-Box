@@ -648,6 +648,19 @@ const WAKING_VAPOR_COLOR := Color(0.50, 0.28, 0.70)
 const WAKING_VAPOR_SHEETS := 11
 const WAKING_VAPOR_TOP := 0.17          # metres
 const WAKING_VAPOR_REACH := 0.80        # metres from the middle
+## Where the cell has been (Lily, 2026-11-13: "colour the floor where it's
+## traveled in a negative spectral trail that ripples in normal map reverting
+## back to the floor texture"): a soft disc laid every few centimetres of its
+## way, each stamped with when, shown by the trail shader as the floor's own
+## negative and let go after a while.
+const WAKING_TRAIL_STEP := 0.07         # metres between discs
+const WAKING_TRAIL_RADIUS := 0.40       # metres
+const WAKING_TRAIL_FADE := 45.0         # seconds from laid to gone
+const WAKING_TRAIL_MAX := 96            # discs kept at most
+var _trail: MeshInstance3D
+var _trail_material: ShaderMaterial
+var _trail_marks: Array[Dictionary] = []
+var _trail_dirty := false
 const WAKING_LIMB_COLOR := Color(0.62, 0.42, 0.72)
 
 
@@ -733,6 +746,81 @@ func _build_waking() -> void:
 	if cilium_mesh != null:
 		_build_waking_cilia(cilium_mesh, _waking_cilium_roots(root_mesh))
 	_build_waking_vapor()
+	_build_waking_trail()
+
+
+## The floor the cell has crossed. It is this node's child, not the cell's: it
+## stays where it was laid while the cell moves on.
+func _build_waking_trail() -> void:
+	_trail_material = ShaderMaterial.new()
+	_trail_material.shader = preload("res://shaders/waking_colony_trail.gdshader")
+	_trail_material.set_shader_parameter("cloud_tex", load(WAKING_RECIPE_DIR + "cytoplasm_web.png"))
+	_trail_material.set_shader_parameter("fade_s", WAKING_TRAIL_FADE)
+	_trail_material.set_shader_parameter("stain_color", WAKING_VAPOR_COLOR)
+	# Before the membrane and the vapour, which lie over it.
+	_trail_material.render_priority = -1
+	_waking_materials.append(_trail_material)
+	_trail = MeshInstance3D.new()
+	_trail.name = "WakingTrail"
+	_trail.mesh = ArrayMesh.new()
+	_trail.material_override = _trail_material
+	_trail.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_trail.custom_aabb = AABB(Vector3(-WAKING_CRAWL_LEASH - 1.0, -0.05, -WAKING_CRAWL_LEASH - 1.0),
+			Vector3(2.0 * WAKING_CRAWL_LEASH + 2.0, 0.2, 2.0 * WAKING_CRAWL_LEASH + 2.0))
+	add_child(_trail)
+
+
+## Lay a disc where the cell is if it has moved a step on from the last one,
+## and let go of the ones whose time is up.
+func _mark_trail() -> void:
+	if _trail == null:
+		return
+	var at := _waking.position
+	if _trail_marks.is_empty() or (_trail_marks[-1].at as Vector3).distance_to(at) >= WAKING_TRAIL_STEP:
+		_trail_marks.append({"at": Vector3(at.x, 0.0, at.z), "born": _clock})
+		_trail_dirty = true
+	while not _trail_marks.is_empty() and (_clock - float(_trail_marks[0].born) > WAKING_TRAIL_FADE
+			or _trail_marks.size() > WAKING_TRAIL_MAX):
+		_trail_marks.pop_front()
+		_trail_dirty = true
+	if _trail_dirty:
+		_rebuild_trail()
+
+
+func _rebuild_trail() -> void:
+	_trail_dirty = false
+	var mesh := _trail.mesh as ArrayMesh
+	mesh.clear_surfaces()
+	if _trail_marks.is_empty():
+		return
+	var points := PackedVector3Array()
+	var normals := PackedVector3Array()
+	var tangents := PackedFloat32Array()
+	var uvs := PackedVector2Array()
+	var stamps := PackedVector2Array()
+	var indices := PackedInt32Array()
+	var corners := [Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(0, 1)]
+	for mark: Dictionary in _trail_marks:
+		var first := points.size()
+		var at: Vector3 = mark.at
+		for corner: Vector2 in corners:
+			# Later discs lie a hair above earlier ones so they never fight.
+			points.append(Vector3(at.x + (corner.x * 2.0 - 1.0) * WAKING_TRAIL_RADIUS,
+					0.003 + 0.00002 * float(first), at.z + (corner.y * 2.0 - 1.0) * WAKING_TRAIL_RADIUS))
+			normals.append(Vector3.UP)
+			tangents.append_array(PackedFloat32Array([1.0, 0.0, 0.0, 1.0]))
+			uvs.append(corner)
+			stamps.append(Vector2(float(mark.born), WAKING_TRAIL_RADIUS))
+		indices.append_array(PackedInt32Array([first, first + 1, first + 2, first, first + 2, first + 3]))
+	var arrays := []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = points
+	arrays[Mesh.ARRAY_NORMAL] = normals
+	arrays[Mesh.ARRAY_TANGENT] = tangents
+	arrays[Mesh.ARRAY_TEX_UV] = uvs
+	arrays[Mesh.ARRAY_TEX_UV2] = stamps
+	arrays[Mesh.ARRAY_INDEX] = indices
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 
 
 ## Where the drawn cell is now, in the world. The encroachment's field grows
@@ -1063,6 +1151,9 @@ func _animate_waking() -> void:
 		material.set_shader_parameter("cell_time", _clock)
 		material.set_shader_parameter("effort", _crawl_effort)
 		material.set_shader_parameter("heading", _crawl_heading)
+	if _trail_material != null:
+		_trail_material.set_shader_parameter("cell_at", _waking.position)
+		_mark_trail()
 	var rx := 0.27
 	var rz := 0.23
 	for row: Dictionary in _organelles:

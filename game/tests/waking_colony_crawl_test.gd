@@ -70,6 +70,15 @@ func _ready() -> void:
 		_check(reach.position.y > 0.0 and reach.end.y <= moss.WAKING_VAPOR_TOP + 0.001 and reach.end.x > 0.5,
 			"it lies low and wider than the cell")
 	_check(moss.waking_cell_position().is_equal_approx(moss._waking.global_position), "the cell says where it is")
+	# The mark it leaves on the floor.
+	var trail := moss.find_child("WakingTrail", true, false) as MeshInstance3D
+	_check(trail != null and trail.get_parent() == moss, "the trail lies with the colony, not on the cell")
+	if trail != null:
+		var mark := trail.material_override as ShaderMaterial
+		_check(mark.shader.resource_path.ends_with("waking_colony_trail.gdshader"), "the trail is the negative of the floor")
+		_check(mark.render_priority < 0, "the trail is drawn under the membrane and the vapour")
+		_check(trail.cast_shadow == GeometryInstance3D.SHADOW_CASTING_SETTING_OFF, "the trail casts no shadow")
+		_check(is_equal_approx(float(mark.get_shader_parameter("fade_s")), moss.WAKING_TRAIL_FADE), "it is told how long a mark lasts")
 
 	# Feeling, before it moves: the post is in reach on one side only.
 	moss._clock = 0.0
@@ -146,11 +155,14 @@ func _ready() -> void:
 	var rests := 0
 	var working := 0
 	var standing := 0
+	var most_marks := 0
 	for step in 7200:
 		moss._clock += 1.0 / 60.0
 		if moss._crawl_rest > 0.0:
 			rests += 1
 		moss._crawl(1.0 / 60.0)
+		moss._mark_trail()
+		most_marks = maxi(most_marks, moss._trail_marks.size())
 		if step % 18 == 0:
 			moss._feel()
 		if moss._crawl_effort > 0.3:
@@ -182,6 +194,38 @@ func _ready() -> void:
 	_check(absf(moss._waking.position.y) < 0.001, "it stays on the floor")
 	_check(moss.global_position.is_equal_approx(rooted), "the colony stays rooted")
 	_check(moss.waking_cell_position().distance_to(rooted) > 0.05, "and the cell says where it has got to")
+	# The trail: laid along the way, never more than it may keep, each mark
+	# stamped, the newest where the cell is, and gone when its time is up.
+	_check(most_marks >= 8 and most_marks <= moss.WAKING_TRAIL_MAX, "it marks the floor as it goes (%d marks at most)" % most_marks)
+	var marks: Array = moss._trail_marks
+	_check(not marks.is_empty() and (marks[-1].at as Vector3).distance_to(moss._waking.position) <= moss.WAKING_TRAIL_STEP + 0.001,
+		"the newest mark is where the cell is")
+	var ordered := true
+	var fresh := true
+	for i in marks.size():
+		if i > 0 and float(marks[i].born) < float(marks[i - 1].born):
+			ordered = false
+		if moss._clock - float(marks[i].born) > moss.WAKING_TRAIL_FADE + 0.05:
+			fresh = false
+	_check(ordered and fresh, "marks are in the order they were laid and none is older than a mark lasts")
+	var drawn := (trail.mesh as ArrayMesh).surface_get_arrays(0) if trail != null and trail.mesh.get_surface_count() > 0 else []
+	_check(not drawn.is_empty() and (drawn[Mesh.ARRAY_VERTEX] as PackedVector3Array).size() == marks.size() * 4,
+		"each mark is one disc on the floor")
+	if not drawn.is_empty():
+		var low := INF
+		var high := -INF
+		for point: Vector3 in drawn[Mesh.ARRAY_VERTEX]:
+			low = minf(low, point.y)
+			high = maxf(high, point.y)
+		_check(low > 0.0 and high < 0.01, "the discs lie on the floor (%.4f to %.4f m)" % [low, high])
+		_check(absf((drawn[Mesh.ARRAY_TEX_UV2] as PackedVector2Array)[0].x - float(marks[0].born)) < 0.01, "each disc carries when it was laid")
+	# It stands still for longer than a mark lasts: the floor is given back,
+	# all but the mark it stands on.
+	moss._crawl_rest = 1000.0
+	for step in int((moss.WAKING_TRAIL_FADE + 2.0) * 60.0):
+		moss._clock += 1.0 / 60.0
+		moss._mark_trail()
+	_check(moss._trail_marks.size() <= 1, "left alone, the floor goes back to itself (%d marks left)" % moss._trail_marks.size())
 	_check(not moss._crawl_clear(Vector3(0.40, 0.0, 0.0)), "the post's place is not open floor")
 	_check(not moss._crawl_clear(Vector3(0.0, 0.0, -0.75)), "the wall's place is not open floor")
 	_check(not moss._crawl_clear(Vector3(0.0, 0.0, 6.0)), "off the floor is not open floor")
