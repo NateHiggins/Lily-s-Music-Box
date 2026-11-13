@@ -225614,7 +225614,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
+    "{\"label\": \"kettle · polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
     "if unit == \"1A\":"
    ],
    "gameplay_binding": false,
@@ -225687,7 +225687,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 aged copper\", \"properties\": {\"unit\": \"3D\"}},",
+    "{\"label\": \"kettle · aged copper\", \"properties\": {\"unit\": \"3D\"}},",
     "_body_color = BODY_COPPER if unit in [\"3D\", \"4C\", \"6C\"] else BODY_NICKEL"
    ],
    "gameplay_binding": false,
@@ -229083,7 +229083,7 @@
     "_answer_service_pattern"
    ],
    "lines": [
-    546
+    550
    ],
    "count": 1,
    "context": [
@@ -229113,7 +229113,7 @@
     "_place_lights"
    ],
    "lines": [
-    811
+    825
    ],
    "count": 1,
    "context": [
@@ -229145,7 +229145,7 @@
    ],
    "lines": [
     61,
-    535
+    539
    ],
    "count": 2,
    "context": [
@@ -229179,8 +229179,8 @@
    ],
    "lines": [
     59,
-    536,
-    561
+    540,
+    565
    ],
    "count": 3,
    "context": [
@@ -231625,6 +231625,36 @@
    "target_exists": null
   },
   {
+   "key": "18e11e2c6462285c",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/companion_work_clearance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    83
+   ],
+   "count": 1,
+   "context": [
+    "bath.prop_type = \"shower\"; bath.fixture = \"shower\"; bath.unit = \"4B\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "527351b75270efb1",
    "kind": "generated_name",
    "token": "exercise",
@@ -231807,6 +231837,98 @@
    "count": 1,
    "context": [
     "player.global_position=Vector3(30,1,30)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "3efb257890d0d530",
+   "kind": "generated_name",
+   "token": "_run",
+   "file": "game/tests/door_passage_player_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    89
+   ],
+   "count": 1,
+   "context": [
+    "\"GuidedDoor\" + str(swing)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7428f8f4a9c6f49a",
+   "kind": "unit_reference",
+   "token": "6C",
+   "file": "game/tests/door_passage_player_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    145
+   ],
+   "count": 1,
+   "context": [
+    "var locked := make_door(); locked.name = \"PrivateNoKey\"; locked.unit = \"6C\"; locked.leaf_state = \"locked\"; add_child(locked)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "47c4ae7cf2f39844",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/door_passage_policy_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    150
+   ],
+   "count": 1,
+   "context": [
+    "stock.global_position = Vector3(4, 1, 4)"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -233690,6 +233812,197 @@
    "count": 1,
    "context": [
     "player.global_position = counter.global_position + Vector3(-0.85, -1.05, 0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "671745289a35c1bb",
+   "kind": "unit_reference",
+   "token": "6C",
+   "file": "game/tests/loop_performance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    122
+   ],
+   "count": 1,
+   "context": [
+    "conversations.setup(panel, func(): return \"6C\", func(_resident): return true)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "8f94bf26efd77863",
+   "kind": "vector3_coordinate",
+   "token": "_gaze_and_activity",
+   "file": "game/tests/loop_performance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_gaze_and_activity"
+   ],
+   "lines": [
+    286
+   ],
+   "count": 1,
+   "context": [
+    "focus.global_position = route.actor.global_position + Vector3(0, 1, 1)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c6abc4e249e9c2f6",
+   "kind": "vector3_coordinate",
+   "token": "_move_yield",
+   "file": "game/tests/loop_performance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_move_yield"
+   ],
+   "lines": [
+    365,
+    366,
+    367,
+    369,
+    374,
+    375,
+    376
+   ],
+   "count": 7,
+   "context": [
+    "b.actor.global_position = a.actor.global_position + Vector3(0.6, 0, 0)",
+    "check(not performance.allow_step(\"mae_kessler\", a.actor.global_position + Vector3(0.1, 0, 0)), \"approach yields before neighboring body\")",
+    "check(performance.allow_step(\"mae_kessler\", a.actor.global_position - Vector3(0.1, 0, 0)), \"moving apart remains permitted\")",
+    "check(performance.allow_step(\"mae_kessler\", a.actor.global_position + Vector3(0.1, 0, 0)), \"absent body does not block a route\")"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "41734ebafe92d2ba",
+   "kind": "vector3_coordinate",
+   "token": "_ordinary_exchanges",
+   "file": "game/tests/loop_performance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ordinary_exchanges"
+   ],
+   "lines": [
+    512
+   ],
+   "count": 1,
+   "context": [
+    "blocker.global_position = Vector3(1000, 1.35, 0.55)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "696ae7098c5143e3",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/loop_performance_world_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c733fa7ad4c9c5a4",
+   "kind": "vector3_coordinate",
+   "token": "_case",
+   "file": "game/tests/loop_performance_world_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_case"
+   ],
+   "lines": [
+    174
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position = world.adapter.root.to_global(Vector3(0, 0.02, -8.5))"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -247023,6 +247336,36 @@
    "context": [
     "mina.setup(\"Mina Vale\", \"mina_vale\", \"2A\", \"res://assets/characters/mina_vale/mina_vale.gltf\")",
     "door.unit = \"2A\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "6cc3df31dc688d92",
+   "kind": "unit_reference",
+   "token": "6C",
+   "file": "game/tests/orison_v2_mina_door_safety_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_context"
+   ],
+   "lines": [
+    100
+   ],
+   "count": 1,
+   "context": [
+    "door.unit = \"6C\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -269429,7 +269772,7 @@
     "_ready"
    ],
    "lines": [
-    20
+    118
    ],
    "count": 1,
    "context": [],
@@ -269975,6 +270318,38 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F04/room+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "009be4746ce5c003",
+   "kind": "vector3_coordinate",
+   "token": "_ready",
+   "file": "game/tests/waking_colony_crawl_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    312,
+    318
+   ],
+   "count": 2,
+   "context": [
+    "walker.global_position = moss._waking.global_position + Vector3(0.0, 0.85, 1.0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "196ae94fe2b9e7e8",

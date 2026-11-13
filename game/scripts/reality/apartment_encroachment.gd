@@ -396,6 +396,10 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 						case_id.hash(), field.sources[source_index].position)
 				var renderer = DreamMossRendererScript.new()
 				renderer.waking_style = moss_waking_style
+				if units.has(case_id):
+					# The drawn cell may roam its own flat and no farther.
+					var flat: Vector4 = units[case_id].rect
+					renderer.crawl_bounds = Rect2(flat.x, flat.y, flat.z - flat.x, flat.w - flat.y)
 				add_child(renderer)
 				renderer.setup(colony)
 				moss_presentations[colony_id] = renderer
@@ -601,6 +605,16 @@ func _physics_process(delta: float) -> void:
 		if fields.has(floor_id):
 			fields[floor_id].set_source_intensity(int(field_source[case_id]),
 					float(intensities.get(case_id, 0.0)))
+			# The field emanates from the cell where it is now (Lily,
+			# 2026-11-13): as the drawn cell roams its flat, its source goes
+			# with it, at the floor height it was rooted on.
+			var cell = moss_presentations.get(int(ecology_source.get(case_id, -1)))
+			var source_index := int(field_source[case_id])
+			if cell != null and is_instance_valid(cell) and cell.waking_style \
+					and source_index >= 0 and source_index < fields[floor_id].sources.size():
+				var cell_at: Vector3 = cell.waking_cell_position()
+				var rooted: Vector3 = fields[floor_id].sources[source_index].position
+				fields[floor_id].sources[source_index].position = Vector3(cell_at.x, rooted.y, cell_at.z)
 	# Only the player's storey ticks (LIVING_ALL=1 ticks every storey): the
 	# organism elsewhere waits, which is what a field costing a few
 	# milliseconds a frame has to do in a building with seven storeys.

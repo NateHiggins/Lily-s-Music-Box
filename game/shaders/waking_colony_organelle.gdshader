@@ -6,6 +6,11 @@ render_mode cull_back, depth_draw_opaque, diffuse_burley, specular_schlick_ggx, 
 // rather than one material. Region and phase come from the Blender build's
 // Anatomy color (B region, G phase); the GDScript owner streams each
 // organelle around the cell (cyclosis), this shader moves its surface.
+//
+// The substance is a registered recipe on the mesh's own UVs (RUL-012):
+// art/tools/build_waking_colony_maps.py writes the three maps, the owner
+// binds one recipe per organelle kind. The albedo map is a pale neutral that
+// carries structure only; base_color is the organelle's pigment.
 
 uniform float cell_time = 0.0;
 uniform float region = 1.0;          // set per material: 1 nucleus .. 6 filament
@@ -13,6 +18,11 @@ uniform vec3 base_color : source_color = vec3(0.6, 0.2, 0.4);
 uniform vec3 glow_color : source_color = vec3(0.9, 0.5, 1.0);
 uniform float glow = 0.2;
 uniform float glassy = 0.0;          // vacuoles: clear and reflective
+uniform sampler2D albedo_tex : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D rough_tex : hint_default_white, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D normal_tex : hint_normal, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform vec2 uv_tile = vec2(1.0);    // repeats of the recipe across the mesh's UV square
+uniform float normal_depth = 0.8;
 
 varying float v_phase;
 varying vec3 v_local;
@@ -46,8 +56,13 @@ void fragment() {
 	float fres = pow(1.0 - cos_v, 2.5);
 	float bands = 0.5 + 0.5 * sin(v_local.x * 180.0 + v_local.y * 140.0 + cell_time * 0.4 + v_phase * 9.0);
 	vec3 opal = 0.5 + 0.5 * cos(6.2831853 * (vec3(0.0, 0.33, 0.67) + fres * 1.3 + bands * 0.25));
-	ALBEDO = mix(base_color, base_color * 0.4 + opal * 0.25, glassy);
-	ROUGHNESS = mix(0.42, 0.06, glassy);
+	vec2 uv = UV * uv_tile;
+	// The maps average about 0.8; the gain keeps the pigment's own value.
+	vec3 body = base_color * texture(albedo_tex, uv).rgb * 1.22;
+	ALBEDO = mix(body, body * 0.4 + opal * 0.25, glassy);
+	ROUGHNESS = clamp(texture(rough_tex, uv).r, 0.04, 1.0);
+	NORMAL_MAP = texture(normal_tex, uv).rgb;
+	NORMAL_MAP_DEPTH = normal_depth;
 	SPECULAR = mix(0.5, 0.9, glassy);
 	SSS_STRENGTH = mix(0.55, 0.1, glassy);
 	float pulse = 0.5 + 0.5 * sin(cell_time * 1.7 + v_phase * 6.2831853);

@@ -228,7 +228,7 @@ func _extract_installed_nozzle(actor: Node3D, hose: Node3D, joint: Node3D) -> bo
 	return true
 
 # B1 is an opt-in diagnostic in the same occupied runtime. Keep the native
-# storage closer active and include its leaf in independent geometry queries.
+# storage leaf active and include it in independent geometry queries.
 func _b1_payout(native: RefCounted) -> void:
 	var actor: Node3D = native.stations.B1_FIRE_LINE_STAIR.get_ref()
 	var hose: Node3D = actor._live_hose
@@ -256,7 +256,7 @@ func _b1_payout(native: RefCounted) -> void:
 		file.store_string(JSON.stringify(outcome, "\t", true, true))
 
 func _b1_payout_attempt(actor: Node3D, hose: Node3D, joint: Node3D, door: DoorProp, mask: int, outcome: Dictionary, rows: Array[Dictionary]) -> void:
-	if not _check(door != null and is_instance_valid(door._body) and door._easy != null, "B1 storage uses the mounted physical leaf and ordinary closer"):
+	if not _check(door != null and is_instance_valid(door._body), "B1 storage uses the mounted physical leaf"):
 		return
 	var from := Vector3(4.95,-3.2,-2.35)
 	var stair_exit := Vector3(4.95,-3.2,1.95)
@@ -301,8 +301,8 @@ func _b1_payout_attempt(actor: Node3D, hose: Node3D, joint: Node3D, door: DoorPr
 		if not await _payout_walk(leg[0],leg[1],actor,hose,joint,door,mask,rows,true):
 			outcome.geometry = _payout_result(rows)
 			return
-	# The leaf has had time to swing back since the empty-handed pass.
-	# Put down the same nozzle, reopen with the free hand, then pick it up.
+	# The ordinary storage leaf stays open. Still exercise same-nozzle support
+	# and reacquisition at the doorway without moving stock or bypassing solids.
 	helper.click()
 	if not _check(not player._grab.active() and hose.release_support.last_result.get("placed", false),
 			"B1 approach parks the original nozzle on real support before opening the leaf"):
@@ -326,13 +326,12 @@ func _b1_payout_attempt(actor: Node3D, hose: Node3D, joint: Node3D, door: DoorPr
 			var closure := _payout_sample(actor,hose,joint,door,mask,true)
 			closure.target = "stationary_after_storage_threshold"
 			rows.append(closure)
-			if not _check(closure.held and closure.crossing.is_empty() and closure.envelope.is_empty(),"ordinary storage closer leaves sampled held line clear"):
+			if not _check(closure.held and closure.crossing.is_empty() and closure.envelope.is_empty(),"open storage leaf leaves sampled held line clear"):
 				outcome.geometry = _payout_result(rows)
 				return
-		if not _check(door._easy.remaining <= .001 and not door._easy.closing
-				and absf(door._body.rotation.y - angle_at_crossing) < .001
+		if not _check(door.is_ready_for_passage() and absf(door._body.rotation.y - angle_at_crossing) < .001
 				and hose.crosses_doorway(door.global_transform, door.closed_leaf_bounds()),
-				"B1 closer reaches its deadline and waits for the actual strand across the shut-leaf envelope"):
+				"B1 leaf without return hardware stays open with the actual strand across its shut-leaf envelope"):
 			return
 	if _payout_mode() == "full":
 		# Keep the trailing line in the storage opening as the player turns
@@ -392,11 +391,15 @@ func _b1_payout_attempt(actor: Node3D, hose: Node3D, joint: Node3D, door: DoorPr
 	if not _check(not player._grab.active() and hose.deployed and not door.hose_blocks_close(),
 			"B1 supported dry hose on the near side leaves the doorway clear"):
 		return
-	for tick in 26:
-		if not door.open:
-			break
-		await get_tree().create_timer(.5).timeout
-	_check(not door.open and absf(door._body.rotation.y) < .001, "B1 automatic closer shuts normally after the hose clears")
+	var clear_angle: float = door._body.rotation.y
+	await get_tree().create_timer(4.0).timeout
+	if not _check(door.open and is_equal_approx(door._body.rotation.y, clear_angle),
+			"B1 leaf still needs explicit closure after the hose clears"): return
+	if not await _payout_click_leaf(door): return
+	for frame in 180:
+		await get_tree().physics_frame
+		if not door._moving: break
+	_check(not door.open and absf(door._body.rotation.y) < .001, "B1 primary click shuts the clear leaf normally")
 
 func _payout_refuse_manual_close(door: DoorProp) -> bool:
 	var angle: float = door._body.rotation.y
@@ -407,31 +410,38 @@ func _payout_refuse_manual_close(door: DoorProp) -> bool:
 	if not _check(door.open and not door._moving and is_equal_approx(door._body.rotation.y, angle),
 			"B1 resident close command respects the hose on the floor"):
 		return false
-	await helper.aim(door._body.to_global(Vector3(door.width * .5, 1.1, 0.)))
-	driver.click()
-	if not _check(player._grab.active() and player._grab.target.owner == door,
-			"B1 manual close attempt grabs the actual storage leaf"):
-		return false
-	var event := InputEventMouseMotion.new()
-	event.relative = player._grab._gesture_axis * (-signf(angle) * 24.0)
-	player._unhandled_input(event)
+	if not await _payout_click_leaf(door): return false
 	for frame in 3:
 		await get_tree().physics_frame
-	var blocked: bool = player._grab.active() and player._grab.feedback({}).state == "blocked"
+	return _check(not player._grab.active() and door.open and not door._moving
+			and is_equal_approx(door._body.rotation.y, angle) and door.hose_blocks_close(),
+			"B1 actual primary close refuses the hose and leaves the crossed doorway open")
+
+func _payout_click_leaf(door: DoorProp) -> bool:
+	await helper.aim(door._body.to_global(Vector3(door.width * .5, 1.1, 0.)))
+	var ray := PhysicsRayQueryParameters3D.create(player.camera.global_position,
+			player.camera.global_position-player.camera.global_basis.z*2.1)
+	ray.collide_with_areas=true
+	ray.exclude=[player.get_rid()]
+	var hit := player.get_world_3d().direct_space_state.intersect_ray(ray)
+	var node := hit.get("collider") as Node
+	var matched := false
+	while node != null:
+		if node == door: matched=true
+		node=node.get_parent()
+	if not _check(matched and not player._grab.active(), "B1 actual primary ray reaches the storage leaf"): return false
 	driver.click()
-	return _check(blocked and door.open and is_equal_approx(door._body.rotation.y, angle),
-			"B1 hand drag reports blocked and leaves the crossed doorway open")
+	return _check(not player._grab.active(), "B1 passage click leaves the hand free")
 
 func _payout_open_leaf(door: DoorProp) -> bool:
 	var goal := door.motion_target_angle(true)
-	if door.is_ready_for_passage() and absf(door._body.rotation.y-goal)<.03 and not door._easy.closing:
+	if door.is_ready_for_passage() and absf(door._body.rotation.y-goal)<.03:
 		return true
-	# Open or reopen through the actual leaf. Leave the closer and its
-	# ordinary temporary player/stock collision accommodations intact.
-	var handle: Vector3 = door._body.to_global(Vector3(door.width*.5,1.1,0.))
-	if not _check(await driver.operate(handle,goal,door),"actual B1 storage leaf grab, motion and release"):
-		return false
-	await get_tree().physics_frame
+	# Explicit primary command; preserve player, nozzle and leaf collisions.
+	if not await _payout_click_leaf(door): return false
+	for frame in 180:
+		await get_tree().physics_frame
+		if not door._moving: break
 	return _check(door.is_ready_for_passage() and absf(door._body.rotation.y-goal)<.03,"actual B1 storage opening settles")
 
 func _payout_turn(local_direction: Vector3) -> bool:

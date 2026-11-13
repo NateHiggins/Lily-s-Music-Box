@@ -153,6 +153,9 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "orison_v2/witness_clocks.json": frozenset({"styles"}),
     # The temporal loop: anchors and deductions keyed by id, read by temporal_loop.gd.
     "temporal/anchors.json": frozenset({"anchors", "deductions"}),
+    # LoopPerformances indexes profiles by resident and phases by anchor/resident.
+    # Only those identity keys are dynamic; every profile/phase field is audited.
+    "temporal/performances.json": frozenset({"profiles", "anchors", "anchors[].actors"}),
     "carried_case.json": frozenset({"forms"}),
     "shops/bodega.json": frozenset({"groups"}),
     "shops/funeral_parlour.json": frozenset({"groups"}),

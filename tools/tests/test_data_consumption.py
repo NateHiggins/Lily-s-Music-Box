@@ -12,6 +12,20 @@ import audit_data_consumption as audit
 
 
 class DataConsumptionTests(unittest.TestCase):
+    def test_loop_performance_identity_maps_preserve_unread_phase_fields(self):
+        document = {
+            "profiles": {"some_resident": {"line": "Hello", "unused_profile": 1}},
+            "anchors": {"some_visit": {"actors": {
+                "some_resident": [{"until": 10, "unused_phase": 1}]
+            }}}
+        }
+        fields = audit.data_json_fields(document, "temporal/performances.json")
+        self.assertIn("profiles[].unused_profile", fields)
+        self.assertIn("anchors[].actors[][].unused_phase", fields)
+        self.assertFalse(any("some_resident" in key or "some_visit" in key for key in fields))
+        other = audit.data_json_fields(document, "unrelated.json")
+        self.assertIn("anchors.some_visit.actors.some_resident[].unused_phase", other)
+
     def test_readable_library_identity_maps_do_not_exempt_record_fields(self):
         for filename, document, expected in [
             ("material_catalog.json", {"arbitrary_title":{"roughness":0.5, "unread_probe":1}}, "[].unread_probe"),

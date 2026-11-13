@@ -1,0 +1,21 @@
+{
+ "material_key": "waking_colony_tubule",
+ "source": "art/tools/build_waking_colony_maps.py",
+ "provenance": "analytic, seeded and periodic: cross-striation of dense and pale bands with a line in the pale band, and protofilament lines along the fibre",
+ "pixels": 256,
+ "meters_per_tile": 0.03,
+ "relief_m": 0.00016,
+ "normal_convention": "OpenGL",
+ "albedo_role": "pale neutral structure; the shader multiplies the organelle colour",
+ "reference_policy": "No reference image was read, baked, projected or stored.",
+ "maps": {
+  "albedo": "tubule_albedo.png",
+  "roughness": "tubule_roughness.png",
+  "normal": "tubule_normal.png"
+ },
+ "map_sha256": {
+  "albedo": "0133afa816640f030d7e40a83583d5b70d0b1b450495398671d5bafe49dbba42",
+  "roughness": "138a1274efd2e6a77953e090931237bc6374182464c2f4cff5853c4b9aae16af",
+  "normal": "f10b1964786a1e9e687849f1e9d0180b2856470f3839e9756daf28f9de74efbf"
+ }
+}

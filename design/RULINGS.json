@@ -201,6 +201,34 @@
     "economy"
    ],
    "supersedes": []
+  },
+  {
+   "id": "RUL-017",
+   "date": "2026-11-12",
+   "authority": "owner",
+   "summary": "Neo-Noir Neon 1929 is the game and machinima visual style: Expressionist depth and geometry, period1929 material culture, motivated saturated cyan/magenta/crimson and absinthe-green spill,16:1 low-key contrast, atmospheric depth, photographic lens/focus/shutter/diffusion targets, deliberate camera movement and6–10s average editing. The dated Bible ruling preserves gameplay readability, practical material sources, historical authorities and authored plot; teaching examples do not become canon.",
+   "source": "Lily, supplied style rulebook and explicit adoption in chat, 2026-11-12; design/ORISON_BIBLE.md VIII.5 Neo-Noir Neon 1929",
+   "scope": [
+    "art",
+    "lighting",
+    "cinematics",
+    "machinima"
+   ],
+   "supersedes": []
+  },
+  {
+   "id": "RUL-018",
+   "date": "2026-11-13",
+   "authority": "owner",
+   "summary": "Directional movement automatically opens an accessible doorway, unlocking only when the particular player or NPC has authority. Guide through frame and leaf clearance, then release ordinary movement. Traversable doors have explicit click open/close and lock controls; doors without functional return mechanisms stay open until explicitly closed. Preserve real collision, access, save and hose authorities. Door-specific exception to the default direct-manipulation verb; other objects retain it.",
+   "source": "Lily, direct chat request, 2026-11-13; design/ORISON_BIBLE.md VIII.5.l Effortless doorway passage",
+   "scope": [
+    "game",
+    "interaction",
+    "doors",
+    "residents"
+   ],
+   "supersedes": []
   }
  ]
 }

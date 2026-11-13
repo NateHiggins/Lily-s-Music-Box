@@ -1,0 +1,21 @@
+{
+ "material_key": "waking_colony_chromatin",
+ "source": "art/tools/build_waking_colony_maps.py",
+ "provenance": "analytic, seeded and periodic: wrapping cellular islands with channels between them and pore dimples",
+ "pixels": 512,
+ "meters_per_tile": 0.11,
+ "relief_m": 0.0009,
+ "normal_convention": "OpenGL",
+ "albedo_role": "pale neutral structure; the shader multiplies the organelle colour",
+ "reference_policy": "No reference image was read, baked, projected or stored.",
+ "maps": {
+  "albedo": "chromatin_albedo.png",
+  "roughness": "chromatin_roughness.png",
+  "normal": "chromatin_normal.png"
+ },
+ "map_sha256": {
+  "albedo": "f22162021ca917ac17ef440471f11e0129b9a58a23c4e09b930b62ca50c07130",
+  "roughness": "2c55ed18d5fe1c689435c1eb0cd138daea2aa7583fca4b2876ef3381c8b57afd",
+  "normal": "66d0ca26b4bae7b25a403c647f1e0eeb29dc802cc05345ecde5cfb4eb205c931"
+ }
+}

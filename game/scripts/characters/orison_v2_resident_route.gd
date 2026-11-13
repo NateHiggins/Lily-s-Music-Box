@@ -47,9 +47,6 @@ var _sample := 0.0
 var _capsule := CapsuleShape3D.new()
 var _doors: Array[DoorProp] = []
 var _door_passages: Dictionary = {}
-var _closing_door: DoorProp
-var _closing_phase := ""
-var _closing_revision := -1
 var route_speed := 1.05
 
 static func valid_route_header(source: Variant, expected: String) -> bool:
@@ -165,8 +162,8 @@ func _speed() -> float:
 
 func _physics_process(delta: float) -> void:
 	if actor == null or not is_instance_valid(world): return
-	_close_passed_doors()
-	if _talking() or is_instance_valid(_closing_door):
+	_release_passed_doors()
+	if _talking():
 		actor._set_walking(false)
 		return
 	_sample -= delta
@@ -188,13 +185,14 @@ func _physics_process(delta: float) -> void:
 	if path.is_empty() and current_id == desired_id:
 		actor._set_walking(false)
 		return
-	if path.is_empty() or planned_id != desired_id:
-		# Finish the current edge before replanning, avoiding a wall-cutting
-		# nearest-node shortcut when a clock jump arrives mid-flight.
-		if path.size() <= 1:
-			planned_id = desired_id
-			path = graph.get_id_path(current_id,desired_id)
-			if not path.is_empty(): path.remove_at(0)
+	if not path.is_empty() and planned_id != desired_id:
+		# Keep the existing next vertex even on a one-edge path. Replanning
+		# from current_id midway to that vertex would cut across the room.
+		path.resize(1)
+	elif path.is_empty():
+		planned_id = desired_id
+		path = graph.get_id_path(current_id,desired_id)
+		if not path.is_empty(): path.remove_at(0)
 	if path.is_empty():
 		actor._set_walking(false)
 		return
@@ -213,6 +211,10 @@ func _physics_process(delta: float) -> void:
 		actor._set_walking(false)
 		return
 	var next := at + flat.limit_length(delta*route_speed)
+	if not _route_step_allowed(next):
+		blocked_reason = "yielding to a resident during the visit"
+		_blocked(delta)
+		return
 	var ray := PhysicsRayQueryParameters3D.create(next+Vector3.UP*.34,next-Vector3.UP*.5,1)
 	var space := actor.get_world_3d().direct_space_state
 	var floor_hit := space.intersect_ray(ray)
@@ -284,17 +286,24 @@ func _route_doors_ready(step: float) -> bool:
 			# stance inside it): it is not this step's door yet.
 			if not path.is_empty() and graph.get_point_position(path[0]).distance_to(door.global_position) \
 					> actor.global_position.distance_to(door.global_position) + .05: continue
-			_door_passages[door] = {"side": signf(door.to_local(actor.global_position).z), "opened": false, "revision": -1, "gesture": false}
+			_door_passages[door] = {"side": signf(door.to_local(actor.global_position).z), "opened": false, "revision": door.motion_revision, "gesture": false}
 		var passage: Dictionary = _door_passages[door]
-		# A crossed door belongs to the close queue, not the next approach.
+		# A crossed door is released, not acquired again from the far side.
 		if door.to_local(actor.global_position).z * float(passage.side) < -.3: continue
+		var key_holder := actor.resident_id if not actor.resident_id.is_empty() else "__unidentified_npc__"
+		if door.passage_allowed(key_holder):
+			door.hold_passage(actor)
+		else:
+			door.release_passage(actor)
 		if not door.is_ready_for_passage():
-			if not door.open and not door._moving \
+			# A restored or interrupted leaf may be open but not wide enough.
+			# Complete its real sweep through the same gesture and access owner.
+			if not door._moving \
 					and _door_motion_clear(door, true):
 				if actor.mina_animation == null:
-					door.npc_set_open(true,actor.resident_id)
-					passage.opened = door.open
-					passage.revision = door.motion_revision
+					if door.request_passage(actor, key_holder):
+						passage.opened = true
+						passage.revision = door.motion_revision
 					ready = false
 					continue
 				if door.leaf_state == "locked" and not DoorKeyring.resident_has_key(actor.resident_id, door):
@@ -309,58 +318,33 @@ func _route_doors_ready(step: float) -> bool:
 					passage.gesture = actor.mina_animation.route_action("push" if pushing else "pull")
 					if passage.gesture: _face_door(door)
 				elif bool(passage.gesture) and actor.mina_animation.action_contact_ready():
-					door.npc_set_open(true,actor.resident_id)
-					passage.opened = door.open
-					passage.revision = door.motion_revision
+					if door.request_passage(actor, key_holder):
+						passage.opened = true
+						passage.revision = door.motion_revision
 			blocked_reason = "waiting for door: " + str(door.name)
 			ready = false
 	return ready
 
-func _close_passed_doors() -> void:
-	if is_instance_valid(_closing_door):
-		if _talking() or _closing_door.motion_revision != _closing_revision:
-			actor.mina_animation.cancel_route_action()
-			_closing_door = null
-			return
-		if _closing_phase == "close" and _closing_door.open \
-				and actor.mina_animation.action_contact_ready() and _door_motion_clear(_closing_door, false):
-			_closing_door.npc_set_open(false,actor.resident_id)
-			if not _closing_door.open:
-				_closing_revision = _closing_door.motion_revision
-				_door_passages.erase(_closing_door)
-		if not actor.mina_animation.route_busy:
-			if _closing_phase == "close" and not _closing_door.open and _closing_door.leaf_state == "locked":
-				actor.mina_animation.route_action("lock")
-				_closing_phase = "lock"
-			else:
-				_closing_door = null
-		return
+## Finishing a crossing releases route custody only. A door without an actual
+## closer stays where it was left until an explicit operation asks it to move.
+## Installed closer hardware and the leaf owner retain their own safety checks.
+func _release_passed_doors() -> void:
 	for door: DoorProp in _door_passages.keys():
 		if not is_instance_valid(door):
 			_door_passages.erase(door)
 			continue
 		var passage: Dictionary = _door_passages[door]
-		# A later accepted operation supersedes our opening, even if it ends
+		# A later accepted operation supersedes our approach, even if it ends
 		# open again. Rejected/locked interactions do not change the revision.
-		if bool(passage.opened) and int(passage.revision) != door.motion_revision:
+		if int(passage.revision) != door.motion_revision:
+			door.release_passage(actor)
 			_door_passages.erase(door)
 			continue
 		var passed := door.to_local(actor.global_position).z * float(passage.side) < -.3
 		var abandoned := not _route_crosses_door(door) and actor.global_position.distance_to(door.global_position) > door.width + .5
-		if not passed and not abandoned: continue
-		# Leave a previously propped-open door alone. Only finish our own request.
-		if not bool(passage.opened):
+		if passed or abandoned:
+			door.release_passage(actor)
 			_door_passages.erase(door)
-		elif not door._moving and _door_motion_clear(door, false):
-			if actor.mina_animation == null:
-				door.npc_set_open(false,actor.resident_id)
-				if not door.open: _door_passages.erase(door)
-			elif actor.mina_animation.route_action("close"):
-				_closing_door = door
-				_closing_phase = "close"
-				_closing_revision = door.motion_revision
-				_face_door(door)
-				return
 
 ## In conversation: Mina's own behaviour knows; anyone else is held by the
 ## dialogue that locks the player.
@@ -440,3 +424,13 @@ func _observed() -> bool:
 			ray.exclude = [world.player.get_rid()]
 			if space.intersect_ray(ray).is_empty(): return true
 	return false
+
+func _exit_tree() -> void:
+	for door: DoorProp in _door_passages:
+		if is_instance_valid(door): door.release_passage(actor)
+	_door_passages.clear()
+
+
+## Optional route-specific courtesy, evaluated at every actual motor step.
+func _route_step_allowed(_next: Vector3) -> bool:
+	return true

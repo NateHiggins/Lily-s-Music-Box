@@ -1,0 +1,14 @@
+{
+ "map": "cytoplasm_web.png",
+ "source": "art/tools/build_waking_colony_maps.py",
+ "role": "optical density for the waking colony membrane's interior layers; not a surface",
+ "channels": {
+  "r": "irregular web of fibres",
+  "g": "milky cloud",
+  "b": "fine streaks"
+ },
+ "provenance": "analytic, seeded and periodic: warped cell borders at two scales, a smooth cloud and directional streaks",
+ "pixels": 512,
+ "reference_policy": "No reference image was read, baked, projected or stored.",
+ "sha256": "e0fca281d88ca63dcf343092530aa97d97ccb1af7923628fb30fcc894a086e13"
+}

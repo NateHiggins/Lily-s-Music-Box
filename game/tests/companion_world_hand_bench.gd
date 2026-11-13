@@ -31,6 +31,8 @@ func _run() -> void:
 	directory = OS.get_environment("SHOT_DIR")
 	if directory.is_empty(): get_tree().quit(1); return
 	DirAccess.make_dir_recursive_absolute(directory)
+	if not check(get_viewport() is SubViewport, "detached input viewport owns diagnostic pointer without desktop warps"):
+		finish(); return
 	old_cap = Engine.max_fps
 	Engine.max_fps = 120
 	var floor_body := StaticBody3D.new()
@@ -62,7 +64,7 @@ func _run() -> void:
 	check(carrier._hand.descriptor("lamp").is_empty(), "world reticle and grab share refusal before the device is presented")
 	await exercise()
 	await _tap_switch(KEY_R)
-	check(carrier.radio_is_powered(), "actual radio contact powers face reactions")
+	check(carrier.radio_is_powered(), "actual radio shortcut reaches its original power owner")
 	var native_rig: Node = carrier.get("rig")
 	# Returning from physical controls now folds a real deployed tray. Let the
 	# powered printer finish and the face become exposed before asking it to
@@ -126,11 +128,12 @@ func key(code: Key) -> void:
 	for pressed in [true, false]:
 		var event := InputEventKey.new()
 		event.keycode = code; event.physical_keycode = code; event.pressed = pressed
-		Input.parse_input_event(event)
-		Input.flush_buffered_events()
+		get_viewport().push_input(event, true)
 		await RenderingServer.frame_post_draw
 	await get_tree().physics_frame
 	await get_tree().process_frame
+	if code == KEY_SPACE and player.inspecting() and player.inspect_owner == carrier:
+		check(carrier.inspected_readable_stock() == null, "own instrument inspection never forwards readable-stock lookup to itself")
 	if code == KEY_E and carrier.reading:
 		for index in 240:
 			await get_tree().physics_frame
@@ -142,20 +145,16 @@ func click() -> void:
 		var event := InputEventMouseButton.new()
 		event.button_index = MOUSE_BUTTON_LEFT; event.pressed = pressed
 		event.position = get_viewport().get_mouse_position()
-		Input.parse_input_event(event)
-		# Injected events share Godot's buffered input queue. Dispatch each edge
-		# before a new aim/warp can change the authoritative free cursor.
-		Input.flush_buffered_events()
+		get_viewport().push_input(event, true)
 		await RenderingServer.frame_post_draw
 	await get_tree().physics_frame
 	await get_tree().process_frame
 
 func drag(amount: Vector2) -> void:
-	Input.flush_buffered_events()
 	var event := InputEventMouseMotion.new()
-	event.relative = amount; event.position = get_viewport().get_mouse_position()
-	Input.parse_input_event(event)
-	Input.flush_buffered_events()
+	event.relative = amount; event.position = get_viewport().get_mouse_position() + amount
+	event.global_position = event.position
+	get_viewport().push_input(event, true)
 	await RenderingServer.frame_post_draw
 	await get_tree().physics_frame
 	await get_tree().process_frame
@@ -170,17 +169,20 @@ func aim(part: Node3D) -> bool:
 		if player.camera.is_position_behind(point): continue
 		var pixel := player.camera.unproject_position(point)
 		for offset in [Vector2.ZERO, Vector2(3,0), Vector2(-3,0), Vector2(0,3), Vector2(0,-3), Vector2(6,0), Vector2(-6,0), Vector2(0,6), Vector2(0,-6)]:
-			Input.warp_mouse(pixel + offset)
+			var wanted: Vector2 = (pixel + offset).round()
+			if not get_viewport().get_visible_rect().has_point(wanted): continue
+			var motion := InputEventMouseMotion.new()
+			motion.position = wanted; motion.global_position = wanted
+			get_viewport().push_input(motion, true)
 			await get_tree().physics_frame
 			await get_tree().process_frame
 			await get_tree().process_frame
+			if get_viewport().get_mouse_position().distance_to(wanted) > .6: continue
 			var target: Dictionary = player._grab.find_target()
 			if target.get("part") == part:
-				# OS pointer warps can arrive after process_frame. Flush only before
-				# acquisition, then require the same authoritative hit in a rendered
-				# frame; never hide a blocker or fabricate the grab descriptor.
+				# Require the same authoritative hit in a rendered frame; never hide
+				# a blocker or fabricate the grab descriptor.
 				await RenderingServer.frame_post_draw
-				Input.flush_buffered_events()
 				await get_tree().physics_frame
 				if player._grab.find_target().get("part") == part: return true
 	print("WORLD PICK MISS ", part.name, " hit ", carrier._hand.last_hit)
@@ -193,9 +195,17 @@ func finish() -> void:
 	super.finish()
 
 func _tap_switch(code: Key) -> void:
+	# These retained shortcuts poll global action state in PlayerController's
+	# process callback, unlike E/Space's viewport events. Publish each edge at
+	# process_frame, before that callback, rather than after the draw boundary.
+	var before := {"lamp": player.lamp_is_enabled(), "radio": carrier.radio_is_powered()}
 	for pressed in [true, false]:
+		await get_tree().process_frame
 		var event := InputEventKey.new()
 		event.keycode = code; event.physical_keycode = code; event.pressed = pressed
 		Input.parse_input_event(event)
 		Input.flush_buffered_events()
 		await RenderingServer.frame_post_draw
+	observations.append({"shortcut": code, "before": before,
+		"after": {"lamp": player.lamp_is_enabled(), "radio": carrier.radio_is_powered()},
+		"reaction": carrier.rig.reaction_player.current})

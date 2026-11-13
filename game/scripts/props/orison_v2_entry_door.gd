@@ -13,6 +13,7 @@ func _ready() -> void:
 	StaticMeshBatcher.merge(self,[_body])
 	_build_audio()
 	apply_hinge_setback()
+	_configure_easy_motion()
 
 func _build_materials() -> void:
 	super._build_materials()
