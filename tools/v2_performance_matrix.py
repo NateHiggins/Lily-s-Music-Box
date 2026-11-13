@@ -40,6 +40,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RECEIPT = ROOT / "art/renders/orison_v2/performance_matrix/performance_matrix.json"
 SAMPLES_SCHEMA = "orison.v2-performance-samples.v1"
+GENERATED_SIDECARS = (".uid", ".import")
 RECEIPT_SCHEMA = "orison.v2-performance-matrix.v1"
 
 # The stations a receipt must cover. The test's own table may grow; a receipt
@@ -184,13 +185,18 @@ def checkout_facts(checkout: Path) -> dict:
     """Is the measured checkout its commit? The lane's own count cannot say:
     it includes untracked scratch and the line-ending-only rewrites Godot makes
     to .import files on import. Content changes and untracked game files can
-    change what was measured; those are what is held to zero."""
+    change what was measured; those are what is held to zero. Godot also
+    writes a .uid beside every script and shader that has none committed; a
+    fresh checkout gains several hundred, and they carry no behaviour, so
+    they are counted and not held against the run."""
+    untracked = [line[3:].strip('"') for line in _git_in(
+        checkout, "status", "--porcelain", "--untracked-files=all", "--", "game")
+        if line.startswith("??")]
     return {
         "head": "".join(_git_in(checkout, "rev-parse", "HEAD")),
         "content_changed": _git_in(checkout, "diff", "--ignore-cr-at-eol", "--name-only", "HEAD"),
-        "untracked_game_paths": [line[3:] for line in _git_in(
-            checkout, "status", "--porcelain", "--untracked-files=all", "--", "game")
-            if line.startswith("??")],
+        "untracked_game_paths": [path for path in untracked if not path.endswith(GENERATED_SIDECARS)],
+        "generated_sidecars": sum(1 for path in untracked if path.endswith(GENERATED_SIDECARS)),
     }
 
 
