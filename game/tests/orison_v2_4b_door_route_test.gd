@@ -166,21 +166,31 @@ func _use_water_valves(identity: String) -> bool:
 			and hot_grip.get("part") == tap._handles[0] and cold_grip.get("part") == tap._handles[1]
 			and hot_grip.get("kind") == "hinge" and cold_grip.get("kind") == "hinge",
 			"hot and cold targets preserve their exact fixture and handle identities: " + identity): return false
-	if not await _drag_part(tap, tap._handles[0].global_position, PI*.5, identity + "_hot"): return false
+	if not await _drag_valve(tap, 0, PI*.5, identity + "_hot"): return false
 	var hot_flow := tap.get_flow_state()
 	if not _require(hot_flow.hot and not hot_flow.cold and float(hot_flow.temperature) > 0,
 			"hot valve supplies boiler-heated water through input"): return false
-	if not await _drag_part(tap, tap._handles[1].global_position, PI*.5, identity + "_mix"): return false
+	if not await _drag_valve(tap, 1, PI*.5, identity + "_mix"): return false
 	var mix := tap.get_flow_state()
 	if not _require(mix.hot and mix.cold and float(mix.temperature) < float(hot_flow.temperature),
 			"independent cold valve dilutes the hot supply"): return false
-	if not await _drag_part(tap, tap._handles[0].global_position, 0.0, identity + "_hot_off"): return false
+	if not await _drag_valve(tap, 0, 0.0, identity + "_hot_off"): return false
 	var cold_flow := tap.get_flow_state()
 	if not _require(not cold_flow.hot and cold_flow.cold and float(cold_flow.temperature) == 0,
 			"closing hot leaves only cold water"): return false
-	if not await _drag_part(tap, tap._handles[1].global_position, 0.0, identity + "_cold_off"): return false
+	if not await _drag_valve(tap, 1, 0.0, identity + "_cold_off"): return false
 	var stopped := tap.get_flow_state()
 	return _require(not stopped.hot and not stopped.cold, "both valves shut through input")
+
+func _drag_valve(tap: TapProp, index: int, goal: float, label: String) -> bool:
+	var part: Node3D = tap._handles[index]
+	var target := part.get_node("ManipulationTarget") as Area3D
+	# Native end-mounted handles have their mesh beyond the hinge pivot.
+	# Use the actual moving collision box, never an assumed part-origin hit.
+	for child: Node in target.get_children():
+		if child is CollisionShape3D and not child.disabled and child.shape != null:
+			return await _drag_part(tap, child.global_position, goal, label, part)
+	return _require(false, "valve has a physical selection shape: " + label)
 
 ## Inherited callers use the passage click exception or acquire a cabinet or
 ## other part and drive its existing physical constraints.
@@ -253,14 +263,19 @@ func _part_gesture(grip: Dictionary,goal: float) -> Vector2:
 
 ## Drive only player input. Read the constraint to choose a screen-space gesture;
 ## never call its writer, bypass collision, or move the walking player.
-func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String) -> bool:
+func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String, expected_part: Node3D = null) -> bool:
 	player.camera.look_at(aim)
 	await get_tree().physics_frame
 	# Ground settling/head motion may move the eye during that physics tick.
 	# Re-aim from its actual new position before sampling the small valve target.
 	player.camera.look_at(aim)
 	var grip: Dictionary = player._grab.find_target()
-	if not _require(grip.get("owner") == owner_node, "actual player ray selects operable part: " + label): return false
+	var selected: bool = grip.get("owner") == owner_node and (expected_part == null or grip.get("part") == expected_part)
+	if not selected:
+		print("GRAB RAY DIAGNOSTIC: ", label, " eye=", player.camera.global_position,
+				" aim=", aim, " reach_m=", player.camera.global_position.distance_to(aim),
+				" hit=", player._grab.last_hit, " expected_part=", expected_part, " selected_part=", grip.get("part"))
+	if not _require(selected, "actual player ray selects operable part: " + label): return false
 	var initial: float = grip.read.call()
 	var click := InputEventMouseButton.new()
 	click.button_index = MOUSE_BUTTON_LEFT

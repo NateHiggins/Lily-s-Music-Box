@@ -18,8 +18,13 @@ under **K-VOICE-PRODUCTION**. Never repin original frozen production receipts.
 
 **candidate03** was prepared but never launched; it is superseded by the fresh
 combined-source case **door_passage_20261113/candidate04/**. Revalidate resources,
-lane, process identities and patched engine before starting. Apartment500s,
-closer/hose and renewed nearby-world verification remain required. Original
+lane, process identities and patched engine before starting. Candidate04 finished176.37s with16successful waypoints, then missed the native
+hot-valve selection: the fixture aimed at a hinge pivot outside the mesh.
+**valve_preflight03/** confirms actual target-center rays and the repaired route
+helper operate both exact handles (12diagnostic+16helper checks; empty stderr).
+Only fixture aim/part identity changed. Original failure and the intermediate
+preflight02 parse error remain. **candidate05/** renews the complete apartment
+under unchanged500s; closer/hose and nearby-world verification still required. Original
 failures below remain evidence. Static qualification must be renewed for the
 combined source against the clean board **order_closures_20261113/board_4b4137767.json**.
 Canonical staged Harukiya work is preserved; Athena/Optimus remain held.
