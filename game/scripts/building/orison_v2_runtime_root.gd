@@ -94,13 +94,14 @@ var resident_agenda: ResidentAgenda
 var _iceboxes: Array[Node] = []
 var _pantries: Dictionary = {}
 var mina_routine: Node3D
-const ResidentRoute := preload("res://scripts/characters/orison_v2_resident_route.gd")
+const ResidentRoute := preload("res://scripts/characters/loop_resident_route.gd")
 ## The other walking residents' route owners, by resident id.
 var resident_routes: Dictionary = {}
 ## Temporary visual follower requested by Lily; no resident/case/save registration.
 var adela_preview_follower: Node3D
 var campaign_clock: CampaignClock
 var temporal_loop: Node
+var loop_performances: Node
 var loop_stage: Node3D
 var season_fittings: Node
 var occasion_dressing: Node3D
@@ -1039,6 +1040,13 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: temporal loop refused its anchors")
 		return
+	loop_performances = preload("res://scripts/characters/loop_performances.gd").new()
+	loop_performances.name = "LoopPerformances"
+	add_child(loop_performances)
+	if not loop_performances.setup(self, temporal_loop, conversations):
+		push_warning("ORISON V2 RUNTIME: loop performances refused: %s" % [loop_performances.errors])
+		loop_performances.queue_free()
+		loop_performances = null
 	# The loop in the rooms: the things each lead's steps lift, the evidence
 	# they uncover, and the case wall in 4B. A room it cannot stage is an
 	# error to fix, not a reason to refuse the building.
@@ -1703,6 +1711,10 @@ func resident_whereabouts(npc: String) -> Dictionary:
 	if not bool(info.get("valid", false)):
 		return {}
 	var minute := campaign_clock.minute_of_day()
+	if loop_performances != null:
+		var performed: Dictionary = loop_performances.whereabouts(npc)
+		if not performed.is_empty():
+			return performed
 	if resident_agenda != null and resident_agenda.enabled:
 		return resident_agenda.decide(npc, str(info.day), minute, int(info.doy), bool(info.first_sat))
 	return resident_presence.resolve(npc, str(info.day), minute, int(info.doy), bool(info.first_sat))

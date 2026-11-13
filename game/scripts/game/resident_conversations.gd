@@ -155,6 +155,7 @@ var errors: Array[String] = []
 var _unit_resolver: Callable = Callable()
 var _home_resolver: Callable = Callable()
 var _active_resident := ""
+var _performance_active := false
 
 
 ## `player_unit` answers "which apartment is the player standing in" ("" when
@@ -252,6 +253,12 @@ func start(resident_id: String) -> bool:
 			RealityCases.interact_with_resident(resident_id)
 			return true
 		return false
+	# A door/counter has already admitted this interaction. Residents without
+	# a walking-body target can use the same bounded, consequence-free entry.
+	var performance := get_tree().get_first_node_in_group("loop_performances") if is_inside_tree() else null
+	if performance != null and performance.try_entry(resident_id,
+			get_tree().get_first_node_in_group("player_controller")):
+		return true
 	var tree: Dictionary = with_music(resident_id, with_gifts(resident_id, with_parcel(resident_id, with_errand(resident_id, with_weather(resident_id,with_opinions(resident_id,
 			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today()))))))
 	var entry_id := entry_for(resident_id)
@@ -292,6 +299,34 @@ func entry_for(resident_id: String) -> String:
 	if visits > 0 and trust < 0:
 		return "fallback"
 	return "first_stable"
+
+
+## Optional authored visit business, opened through an actual resident target.
+## Unlike a case conversation, this has no trust, flags, visit counters or notes.
+func start_performance(resident_id: String, line: String, player: Node) -> bool:
+	if dialogue == null or dialogue.attention_active() or _active_resident != "" \
+			or not trees.has(resident_id) or line.is_empty() or player == null:
+		return false
+	var meta: Dictionary = trees[resident_id].get("meta", {})
+	var tree := {"meta": {"speaker_default": str(meta.get("speaker_default", resident_id))},
+			"nodes": {"loop_business": {"line": line,
+					"choices": [{"label": "I'll let you get on."}]}}}
+	_active_resident = resident_id
+	_performance_active = true
+	dialogue.run_tree(tree, "loop_business", Callable())
+	conversation_started.emit(resident_id, "loop_business")
+	return true
+
+
+func performance_active() -> bool:
+	return _performance_active
+
+
+func cancel_performance() -> void:
+	if not _performance_active or dialogue == null:
+		return
+	dialogue.close()
+	dialogue._end_tree()
 
 
 ## First contact only, and a warm reply only, so it can't sour anyone or close a door.
@@ -372,6 +407,10 @@ func _on_tree_ended() -> void:
 		return
 	var resident_id := _active_resident
 	_active_resident = ""
+	if _performance_active:
+		_performance_active = false
+		conversation_ended.emit(resident_id)
+		return
 	if note_pending("first_conversation"):
 		file_note("first_conversation", _last_player)
 	RealityState.commit()

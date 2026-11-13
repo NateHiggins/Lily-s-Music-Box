@@ -1,4 +1,185 @@
-# Current checkpoint — sky sampling and film, November 12
+# Current work — trio film delivered; loop source awaiting verification
+
+**Latest November12: approved r17 performance outfits exported/intaken and the
+full bass trio recaptured.** Delivery:
+**C:/ov/reports/pull_up_a_chair_music_video_20261112/bass_v3/delivery/Pull_Up_a_Chair_Bass_1080p.mp4**.
+Adela lead/piano, Lily bass/harmony behind and beside the instrument, Stacy drums.
+1080p24,4372frames,182.166667s,23shots; approved audio unchanged.
+Lily's two transparent skin materials were repaired in the exact native Blender
+source and re-exported; binary geometry/rig/morphs and all texture bytes match.
+Fable received **outfit_intake_01/game_assets/lily/** and the packed native source
+for her cast integration. Canonical gameplay bodies were not overwritten.
+
+Private fixture pins Fable's frozen r17 parts/makeup and matching presentation
+code. Adela's seated skirt controller stays active; Lily's stance was refitted
+for the gown and bass reach. Loaded outfit UV/PBR/mipmap checks pass. All4372
+frames pass the contact sweep, maximum3.51mm against6mm; a10s moving proof and
+both final chunks pass.3649 capture inputs unchanged,359 private source/tool
+files preserved. Final full decode, counts, all23shot samples, section seam and
+ending checked. **bass_v3/DELIVERY.md**, **REVIEW.json** and
+**delivery/TECHNICAL_QA.json** distinguish evidence and limitations. Original
+failures retained; owned capture/encoder jobs terminal and source freeze released.
+Continuous audiovisual review and Lily's artistic acceptance remain open.
+Fine hand poses, close cloth/prop contact, armhole edges and static fringe remain
+POC limits. No upload, main merge or gameplay/cast qualification claim.
+
+**Latest: loop punch-up integrated in source at Lily's request, without runtime
+tests.** [Scope and remaining gaps](design/drafts/npc_loop_scripts_2026-11-12/SOURCE_INTEGRATION.md).
+The 27 scripts now have full-window/year behavior. **performances.json** supplies
+47 phases across12 actor/anchor assignments and19 profiles; root mounts
+**LoopPerformances** for schedule overrides, route-arrival-gated optional lines,
+standing/listening attitudes and visit cleanup. Nadia/Juno gain graph-derived
+visitor paths. No engine launch, voice, capture, main merge or runtime acceptance.
+Three static review defects corrected; detailed choreography, historical attendance,
+missing routes and native clearance remain open. The outfit hold is now resolved.
+
+**Original writing delivery:** while captures were held for Fable's outfits, Lily
+requested loop script drafts. [The packet](design/drafts/npc_loop_scripts_2026-11-12/README.md)
+contains eleven anchor scenes, eleven ordinary-life vignettes, five supporting
+encounters and explicit cast-by-visit dispositions. Source quotes/anchor contracts,
+local links and design lint checked; source/continuity review corrected three
+support-scene issues. All new material remains PROPOSED, unvoiced/unimplemented.
+Timing mismatches (including box ending when its confrontation opens), missing
+carrier access and attendance dependencies remain explicit work, not silent fixes.
+Cal compatibility still precedes Mae/tea. No new capture or runtime work.
+
+November12: **Pull Up a Chair** is Adela lead/piano, Lily double bass/harmony,
+and Stacy drums. Lily is framed between the others; Adela's angled piano exposes
+her body and opens her audience sightline. Root owns private **music_video_bass.gd**,
+**music_bass.gd**, **MusicVideoBass.tscn** and
+**C:/ov/reports/pull_up_a_chair_music_video_20261112/bass_v3/**.
+
+**B-PULL-UP-BASS — delivered for review above.** Fable's approved/frozen r17
+handoff resolved Lily's capture hold. **bass_v3/WAITING_FOR_OUTFITS.json** records
+terminal custody; **production/awaiting_outfits_source/** retains the old held
+fixture and **production/final_source/** preserves the delivered private inputs.
+
+Native bass07_retry02/review04/import02 pass for POC use; four supported geared
+shafts/string windings replace rejected tuning pegs.20,812triangles/11surfaces;
+precision exception prevents13 compressed UV collapses. Original failures kept.
+Earlier full4372frame sweep02 passed the former stance. Lily then requested a
+behind-and-side stance and supplied a bassist reference. New bass-relative stance,
+slight instrument lean and forward elbow poles pass sampled **pose06** contacts;
+front/side/harmony views reviewed. Drum camera14 now clears its column and includes
+Stacy's face/kit. The final r17 gown fit in **outfit_intake_01/candidate09** replaces
+pose06 and passes full-song/moving proof. Pose05 was cancelled at its priority wait before
+Godot started; exploratory stance01 retains rejected fits. Motion01 is an old-
+stance10s audio-aligned proof only, not evidence for the new stance/outfits.
+
+Fable's r17 handoff was consumed only in the private film fixture. Native opacity,
+seated skirt and bass reach intake/failures are retained under **outfit_intake_01/**.
+No final-film artistic acceptance or whole-cast r12 gameplay install is claimed.
+
+Claude owns the cast overhaul. New **cast_r12** freeze at5059922e9 and **cast_game_stage_r12** received;
+Claude reports0 collapsed UV triangles across247 models and passing engine suites.
+Root has not qualified or installed r12. Original **cast_r11** retained. Bounded export
+review found source-degenerate UVs incorrectly passing intake, sent to Claude
+for repair: **C:/ov/reports/npc_rig/cast_freeze_r11_review_codex/**. Completed
+review:839 collapsed/near-zero UV faces silently pass; frozen hashes and focused
+remap preservation checks pass. Detailed reports sent to Claude. Private
+performance poses sent to her. This film uses r12 Adela and the matching repaired
+Codex Lily body; other gameplay cast integration remains Fable's work.
+
+After the trio, Lily authorized **K-NPC-LOOP-PERFORMANCE** implementation. Owner
+widget rulings **cast_swap_first_20261112** and **cast_swap_clothes_20261112** were
+read: Cal is the compatibility pilot; clothes follow wardrobe rules out of sight.
+Then qualified Mae supports the existing tea visit. Preserve case/clock/knowledge
+owners. First loop performance source integration is above, still untested.
+**B-DESTINATION** remains separately
+unqualified, with its staged files untouched by the film work.
+
+**Pull Up a Chair performance recapture delivered November12:**
+**C:/ov/reports/pull_up_a_chair_music_video_20261112/performance_v2/delivery/Pull_Up_a_Chair_Performance_1080p.mp4**.
+1080p24,4372frames,182.166667s,23shots. Adela leads/sings+piano;
+Lily drums+selective harmony; Stacy listens. Full approved audio unchanged.
+Native mouth/contact proofs, all4372-frame reach sweep, deterministic pickup,
+short motion proof, complete final decode/frame counts and all23shot/seam/ending
+samples pass. Sources frozen3392files; all GPU/encoder jobs terminal.
+**performance_v2/DELIVERY.md**, **delivery/TECHNICAL_QA.json** and **REVIEW.json**
+record exact evidence. Original movie/failures remain retained.
+
+Canonical machinima skill integrates Lily's supplied cinematography ZIP:
+restrained directing, continuity, interactive ownership/recovery, explicit optical
+units, a noncanonical shot template and proportional review. It preserves RUL017
+and protected prologue timing; no runtime framework or new canon installed.
+
+The music-video reference covers acoustic singing/harmony timing,
+real instrument contacts, seated gaze, bounded capture and honest review limits.
+Phone subdivisions/harmony identity and instrument fingering are derived staging;
+keys stay passive, inherited clothes/hair remain POC quality. Continuous audiovisual
+viewing and Lily's artistic acceptance remain open. No upload. Private film sources
+are copied in **performance_v2/production/final_source/**; no game rig edits.
+
+The runtime follow-through remains planned in
+**design/NPC_LOOP_PERFORMANCE_PLAN_2026-11-12.md**: full roster-by-anchor coverage,
+existing eleven-lead/clock/knowledge boundaries, actor reset and voice delivery
+gaps, then one playable tea visit before cast-wide batches. First scripts are in
+the packet above; runtime implementation remains queued as
+**K-NPC-LOOP-PERFORMANCE**. The music-video skill
+checkpoint **c22794ceb** is committed/pushed. **B-DESTINATION** remains open below;
+the private film proof does not close its gameplay qualification.
+
+Latest queue addition: **B-DRUM-BRUSHES**, wire brush models plus researched grip,
+sweep/accent/contact animation for Lily on the actual kit. Documented only.
+
+Canonical checkout: **codex/harukiya-overhaul-20261112**, based on main
+**35e586b93**. Skill checkpoints **6ce4a812a** and **54ba99239** are pushed;
+54ba99239 contains only eight style/Bible/skill/tracker documents. **RUL-017**
+and Bible§VIII.5 adopt Neo-Noir Neon1929. Skill validators, links, Bible/design
+lint and rulings check pass. Canonical skill: **.agents/skills/machinima-production/**.
+The branch has not merged; bar source/assets are staged/dirty and unqualified.
+
+## Bar custody and exact next action
+
+**B-DESTINATION** remains active. Root owns canonical integration; bounded agents
+are idle. Fable's cast/rig/wardrobe sources are untouched. Case:
+**C:/ov/reports/harukiya_overhaul_20261112/**. Preserve original failures and
+unrelated573 generated UIDs. Do not mistake staged work for a qualified release.
+
+- **layout_study/native_04_retry01/** built/reviewed repaired pipe/hangers,
+  25,868triangles/36surfaces. **retirement_06/** exact extraction passes:
+  111stocks,10,652retiredtriangles, five stool supports/200faces,17nativeparts.
+  Original failed native04 is preserved. Assets are current, not stale.
+- **runtime_03/** import and15-script semantic compile pass. The actual loaded
+  room passes UV/PBR/mipmap checks,24supported seats and clear approaches,
+  source retirement, stage/kit/backstage/balcony, pool light/support fit and
+  pigment calibration. Actual walking reaches backstage then stops at stage_e
+  against a balcony column:1263checks/6failures. No complete route or gameplay
+  qualification. Preserve that failure; film captures do not supersede it.
+- **layout_study/STAGE_ROUTE_PREFLIGHT.json** moves only stage_e to
+  [0.99,−35.74,−2.58]. Both complete adjacent segments pass175actual-geometry
+  CPU samples with unchanged.33m player radius and.005m guard. Exported assets
+  are unchanged. **Next run: fresh actual HarukiyaDestinationTest motor retry.**
+- Reservation/FIFO state test already passed80checks in runtime02. After the
+  actual room route passes, run **HarukiyaDestinationCrowd.tscn**: compiled,
+  unexecuted;21presentations,17candidate seat fits and matched crowd timings.
+  Review those fits before replacing the explicitly unqualified shared.478
+  seated-support offset. No old rig/seat fit promoted by the movie.
+- Then semanticcompile/run **HarukiyaAttendanceTest.tscn** (grammar only now):
+  Juno/Evelyn/Lena, real route physics, player obstruction, opposing stair FIFO,
+  seating/departure/release. Handoff: **attendance_study/ATTENDANCE_TEST_HANDOFF.md**.
+  Finish affected original bar/counter/strip routes, retained services and the
+  clean candidate comparison before any merge. Human play/art remain open.
+
+Exact clean122-gate baseline: **baseline_board/board.json**, commit
+**35e586b939297150c1dca5705f813387fcdb0675**, SHA
+**06bc99d47f26912b56163e72e3f73fac0015163a8d361af6c1c6205b221df55b**.
+117PASS/4existingFAIL/1INCOMPLETE. Existing **sky-verify** is expanded, clean and
+ detached at that baseline, static only. Its original sparse configuration is
+preserved in **baseline_board/CUSTODY.json**. Reuse for exact committed candidate
+and restore sparse storage afterwards. No new worktree was created.
+
+## Retired pilot disposal remains blocked
+
+Automatic approval review rejected the previous904-file disposal before execution:
+**zero files deleted / zero bytes reclaimed**. Preserve prior pilot
+**DISPOSAL_PLAN.json** and **DISPOSAL_BLOCKED.json**. Do not retry equivalent
+ deletion through another API. The new music video consumes the prior private
+film performance helpers and Adela assets: those now have a new active consumer,
+so re-evaluate any later retention manifest. The prior ten-minute movie itself
+is retired, not a current deliverable.
+
+# Previous checkpoint — sky sampling and film, November 12
 
 PR247 merged as **df5b68831**, exactly the qualified **b96a9b6c9** tree. Clean122-gate comparison has zero new regressions, protected17/17, selectorV2 and no design-lint errors. The change repairs pixel-hashed cloud grain, filters the projected high plane, shortens cirrus packets and preserves fine distant Cc families with periodic transport. [Implementation and scoped evidence](design/SKY_SAMPLING_FILM_2026-11-12.md). Final hidden Vulkan checks: 12 layer views, nine optical/temporal checks and three rare-weather controls pass. The actual-city film passes capture/restoration and complete decode: **C:/ov/reports/sky_sampling_film_20261112/film_full02/sky_day_night.mp4**, 24 seconds, 1080p24, full historical day/night cycle, elevated roof camera. Original failed launch assertion is retained. Paired performance and clean candidate integration results live in **paired05/** and **verification02/** beneath that report root. Follow **MERGE_CUSTODY.json** for final commit/merge and checkout cleanup. No new worktree was created. Technical verification is distinct from Lily's artistic acceptance; faint grazing bands, busy Cc, the annual art survey and other retained weather debt stay open. Preserve unrelated generated UIDs and original evidence.
 
