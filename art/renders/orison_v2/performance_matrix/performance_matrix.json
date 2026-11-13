@@ -2,7 +2,7 @@
  "schema": "orison.v2-performance-matrix.v1",
  "evidence_class": "MEASUREMENT",
  "about": "One measurement of one commit on one machine. Not bound to source hashes; read the commit and the date before leaning on it.",
- "captured_utc": "2026-11-13T16:11:45Z",
+ "captured_utc": "2026-11-13T16:28:22Z",
  "commit": "624f783a11a4d5ca8cae1b239b70398c8901a960",
  "tree": "d580264c98f573a14aa471b4bfee5182f95876bb",
  "machine": {
@@ -33,14 +33,19 @@
  "samples_sha256": "d20fbdaae20716357cdb07f6ad86a171d9024385d2121b3ff87abf4bf3ce739d",
  "budgets": {
   "frame_ms_median": {
-   "limit": 16.6,
+   "limit": 33.3,
    "blocking": true,
-   "source": "the retired release matrix's FRAME_BUDGET_MS (60 frames a second), applied to each station's worst heading"
+   "source": "Lily's ruling v2_frame_target_20261113 (2026-11-13): 30 frames a second at 1440p for now, raised to 60 later; applied to each station's worst heading"
+  },
+  "frame_ms_goal": {
+   "limit": 16.6,
+   "blocking": false,
+   "source": "the same ruling's later target, 60 frames a second; reported, not yet held"
   },
   "frame_ms_p95": {
-   "limit": 33.3,
+   "limit": 50.0,
    "blocking": false,
-   "source": "two frames at 60 a second; recorded, not ruled"
+   "source": "one and a half frames at 30 a second; recorded, not ruled"
   },
   "startup_ms": {
    "limit": null,
@@ -55,30 +60,27 @@
  },
  "result": "FAIL",
  "defects": [
-  "over budget: street_arrival 42.02 ms median (budget 16.6)",
-  "over budget: lobby 41.98 ms median (budget 16.6)",
-  "over budget: main_stair_first_flight 50.62 ms median (budget 16.6)",
-  "over budget: second_floor_landing 69.20 ms median (budget 16.6)",
-  "over budget: third_floor_crossing 92.32 ms median (budget 16.6)",
-  "over budget: fourth_floor_service_hall 66.25 ms median (budget 16.6)",
-  "over budget: flat_4b_desk 52.26 ms median (budget 16.6)",
-  "over budget: sixth_floor_landing 61.66 ms median (budget 16.6)",
-  "over budget: roof_deck 54.45 ms median (budget 16.6)",
-  "over budget: basement_landing 37.58 ms median (budget 16.6)",
-  "over budget: passage_nave 54.67 ms median (budget 16.6)"
+  "over budget: street_arrival 42.02 ms median (budget 33.3)",
+  "over budget: lobby 41.98 ms median (budget 33.3)",
+  "over budget: main_stair_first_flight 50.62 ms median (budget 33.3)",
+  "over budget: second_floor_landing 69.20 ms median (budget 33.3)",
+  "over budget: third_floor_crossing 92.32 ms median (budget 33.3)",
+  "over budget: fourth_floor_service_hall 66.25 ms median (budget 33.3)",
+  "over budget: flat_4b_desk 52.26 ms median (budget 33.3)",
+  "over budget: sixth_floor_landing 61.66 ms median (budget 33.3)",
+  "over budget: roof_deck 54.45 ms median (budget 33.3)",
+  "over budget: basement_landing 37.58 ms median (budget 33.3)",
+  "over budget: passage_nave 54.67 ms median (budget 33.3)"
  ],
  "notes": [
-  "street_arrival p95 48.38 ms (unruled mark 33.3)",
-  "lobby p95 47.30 ms (unruled mark 33.3)",
-  "main_stair_first_flight p95 57.02 ms (unruled mark 33.3)",
-  "second_floor_landing p95 79.06 ms (unruled mark 33.3)",
-  "third_floor_crossing p95 101.45 ms (unruled mark 33.3)",
-  "fourth_floor_service_hall p95 73.09 ms (unruled mark 33.3)",
-  "flat_4b_desk p95 58.28 ms (unruled mark 33.3)",
-  "sixth_floor_landing p95 68.70 ms (unruled mark 33.3)",
-  "roof_deck p95 61.09 ms (unruled mark 33.3)",
-  "basement_landing p95 41.55 ms (unruled mark 33.3)",
-  "passage_nave p95 62.09 ms (unruled mark 33.3)"
+  "main_stair_first_flight p95 57.02 ms (unruled mark 50.0)",
+  "second_floor_landing p95 79.06 ms (unruled mark 50.0)",
+  "third_floor_crossing p95 101.45 ms (unruled mark 50.0)",
+  "fourth_floor_service_hall p95 73.09 ms (unruled mark 50.0)",
+  "flat_4b_desk p95 58.28 ms (unruled mark 50.0)",
+  "sixth_floor_landing p95 68.70 ms (unruled mark 50.0)",
+  "roof_deck p95 61.09 ms (unruled mark 50.0)",
+  "passage_nave p95 62.09 ms (unruled mark 50.0)"
  ],
  "summary": [
   {

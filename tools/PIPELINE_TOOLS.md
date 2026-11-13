@@ -456,8 +456,10 @@ The receipt is a measurement of one commit on one machine at one resolution. It
 is not bound to source hashes, so it does not expire when a file changes; read
 its commit and date before leaning on it, and measure again after work that
 could move the frame. The only blocking budget is the frame median at each
-station's worst heading (16.6 ms, inherited from the retired release matrix).
-Startup and memory are recorded with no budget until the owner rules one.
+station's worst heading: 33.3 ms, by the owner's ruling `v2_frame_target_20261113`
+(30 frames a second at 1440p for now, 60 later). The later target, 16.6 ms, is
+reported as a note. Startup and memory are recorded with no budget until the
+owner rules one.
 
 ## Local image generation
 

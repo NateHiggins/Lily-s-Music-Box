@@ -55,12 +55,15 @@ REQUIRED_STATIONS = (
 # gate: it marks a number nobody has ruled on yet.
 BUDGETS = {
     "frame_ms_median": {
-        "limit": 16.6, "blocking": True,
-        "source": "the retired release matrix's FRAME_BUDGET_MS (60 frames a second), "
-                  "applied to each station's worst heading"},
+        "limit": 33.3, "blocking": True,
+        "source": "Lily's ruling v2_frame_target_20261113 (2026-11-13): 30 frames a second "
+                  "at 1440p for now, raised to 60 later; applied to each station's worst heading"},
+    "frame_ms_goal": {
+        "limit": 16.6, "blocking": False,
+        "source": "the same ruling's later target, 60 frames a second; reported, not yet held"},
     "frame_ms_p95": {
-        "limit": 33.3, "blocking": False,
-        "source": "two frames at 60 a second; recorded, not ruled"},
+        "limit": 50.0, "blocking": False,
+        "source": "one and a half frames at 30 a second; recorded, not ruled"},
     "startup_ms": {
         "limit": None, "blocking": False,
         "source": "no startup budget has been ruled; the number is recorded"},
@@ -116,6 +119,7 @@ def judge(samples: dict) -> dict:
     rows = []
     worst = {"frame_ms_median": 0.0, "frame_ms_p95": 0.0, "draw_calls": 0, "video_bytes": 0}
     frame = BUDGETS["frame_ms_median"]
+    goal = BUDGETS["frame_ms_goal"]
     tail = BUDGETS["frame_ms_p95"]
     for name, row in stations.items():
         if not row.get("valid"):
@@ -133,6 +137,9 @@ def judge(samples: dict) -> dict:
         over = median > frame["limit"]
         if over:
             defects.append("over budget: %s %.2f ms median (budget %.1f)" % (name, median, frame["limit"]))
+        if not over and median > goal["limit"]:
+            notes.append("%s %.2f ms median: within the budget, short of the later target (%.1f)"
+                         % (name, median, goal["limit"]))
         if p95 > tail["limit"]:
             notes.append("%s p95 %.2f ms (unruled mark %.1f)" % (name, p95, tail["limit"]))
         rows.append({"station": name, "room": row.get("room", ""),

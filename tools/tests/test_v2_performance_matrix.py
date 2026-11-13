@@ -43,7 +43,7 @@ class Judge(unittest.TestCase):
 
     def test_a_station_over_the_frame_budget_is_a_defect(self):
         data = samples()
-        data["stations"][1] = station(matrix.REQUIRED_STATIONS[1], median=19.4)
+        data["stations"][1] = station(matrix.REQUIRED_STATIONS[1], median=36.4, p95=44.0)
         verdict = matrix.judge(data)
         self.assertEqual(len(verdict["defects"]), 1)
         self.assertIn("over budget: " + matrix.REQUIRED_STATIONS[1], verdict["defects"][0])
@@ -51,10 +51,19 @@ class Judge(unittest.TestCase):
 
     def test_an_unruled_mark_is_a_note_and_never_a_defect(self):
         data = samples()
-        data["stations"][0] = station(matrix.REQUIRED_STATIONS[0], median=12.0, p95=40.0)
+        data["stations"][0] = station(matrix.REQUIRED_STATIONS[0], median=12.0, p95=60.0)
         verdict = matrix.judge(data)
         self.assertEqual(verdict["defects"], [])
         self.assertEqual(len(verdict["notes"]), 1)
+
+    def test_the_ruled_budget_is_thirty_and_sixty_is_only_noted(self):
+        self.assertEqual(matrix.BUDGETS["frame_ms_median"]["limit"], 33.3)
+        self.assertIn("v2_frame_target_20261113", matrix.BUDGETS["frame_ms_median"]["source"])
+        data = samples()
+        data["stations"][0] = station(matrix.REQUIRED_STATIONS[0], median=24.0, p95=30.0)
+        verdict = matrix.judge(data)
+        self.assertEqual(verdict["defects"], [])
+        self.assertIn("short of the later target", verdict["notes"][0])
 
     def test_what_cannot_be_trusted_fails_closed(self):
         cases = {
