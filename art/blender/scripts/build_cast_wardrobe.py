@@ -428,17 +428,21 @@ def smooth_weights(obj, passes=2):
             obj.vertex_groups[group_index].add([index], weight / total, "REPLACE")
 
 
-_FORM = None
+_FORMS = {}
 
 
-def dressing_form():
-    """The body as cloth lies on it: the skin smoothed until nothing smaller than a hand is left in it (so cloth
-    spans from one fullness to the next and prints none of them), then lifted wherever the smoothing sank below
-    the skin, the lift spread wide and eased so that it is level over each fullness and has no small shape of
-    its own. Made once for the person. Returns where each point of the body lies on the form."""
-    global _FORM
-    if _FORM is not None:
-        return _FORM
+def dressing_form(kind="close"):
+    """The body as cloth lies on it. Made once for the person, in three weights; each returns where every point of
+    the body lies on that form.
+      close  for what is worn next the skin (shirts, blouses, trousers): the skin smoothed without shrinking, so
+             small relief is gone and limbs keep their size, then lifted wherever that still sank below the skin.
+      full   for what is worn over (jumpers, waistcoats, jackets, coats): the close form with the hollows of the
+             chest filled, so heavier cloth spans from one fullness to the next. A coat cut from the close form
+             printed the bust as sharply as a vest (cast_r13's first engine line-up). Never inside the close form.
+      silk   for a gown's bodice, as Lily approved it on 2026-11-12: smoothed until the bust's cone is gone, and
+             what that took away given back as a lift that is level over each fullness and falls away round it."""
+    if kind in _FORMS:
+        return _FORMS[kind]
     smooth_, spread_, ease_ = [int(n) for n in os.environ.get("CLING_TUNE", "%d,%d,%d" % (CLING_SMOOTH, CLING_SPREAD, CLING_EASE)).split(",")]
     aside = {index for index, group_name in names.items() if group_name.startswith(("helper-", "joint-"))}
     bm = bmesh.new()
@@ -449,22 +453,31 @@ def dressing_form():
     index_of = {v: v.index for v in bm.verts}
     bmesh.ops.delete(bm, geom=lose, context="VERTS")
     skin = {v: v.co.copy() for v in bm.verts}
-    # Smoothed without shrinking (a pass that draws each point toward its neighbours, then one that pushes it a
-    # little further back). Plain smoothing shrank arms and legs to sticks, and the lift that put them back made
-    # every sleeve a wing and filled the armpits (all twenty, 2026-11-12).
     bm.verts.index_update()
-    points = numpy.array([v.co[:] for v in bm.verts], dtype=numpy.float64)
     pairs_ = numpy.array([(e.verts[0].index, e.verts[1].index) for e in bm.edges], dtype=numpy.int64)
-    count = numpy.zeros(len(points))
+    count = numpy.zeros(len(bm.verts))
     numpy.add.at(count, pairs_[:, 0], 1.0)
     numpy.add.at(count, pairs_[:, 1], 1.0)
     count = numpy.maximum(count, 1.0)[:, None]
-    for _ in range(smooth_):
-        for factor in (0.5, -0.53):
-            total = numpy.zeros_like(points)
-            numpy.add.at(total, pairs_[:, 0], points[pairs_[:, 1]])
-            numpy.add.at(total, pairs_[:, 1], points[pairs_[:, 0]])
-            points = points + (total / count - points) * factor
+
+    def middle_of_neighbours(points):
+        total = numpy.zeros_like(points)
+        numpy.add.at(total, pairs_[:, 0], points[pairs_[:, 1]])
+        numpy.add.at(total, pairs_[:, 1], points[pairs_[:, 0]])
+        return total / count
+
+    points = numpy.array([v.co[:] for v in bm.verts], dtype=numpy.float64)
+    if kind == "silk":
+        for _ in range(smooth_):
+            points = points + (middle_of_neighbours(points) - points) * 0.5
+        spread_, ease_ = 8, 6
+    else:
+        # Smoothed without shrinking (a pass that draws each point toward its neighbours, then one that pushes it
+        # a little further back). Plain smoothing shrank arms and legs to sticks, and the lift that put them back
+        # made every sleeve a wing and filled the armpits (all twenty, 2026-11-12).
+        for _ in range(smooth_):
+            for factor in (0.5, -0.53):
+                points = points + (middle_of_neighbours(points) - points) * factor
     for v, co in zip(bm.verts, points):
         v.co = co
     bm.normal_update()
@@ -475,10 +488,36 @@ def dressing_form():
         need = {v: max([need[v]] + [need[o] for o in beside[v]]) for v in bm.verts}
     for _ in range(ease_):
         need = {v: (need[v] + sum(need[o] for o in beside[v])) / (1 + len(beside[v])) for v in bm.verts}
-    _FORM = {index_of[v]: v.co + v.normal * need[v] for v in bm.verts}
+    for v in bm.verts:
+        v.co = v.co + v.normal * need[v]
+    filled = 0.0
+    if kind == "full":
+        # Fill the hollows of the chest: each point there moves toward the middle of its neighbours only when
+        # that is outward. Fullnesses stay; what lies between and under them comes up level with them. Only on
+        # the front of the trunk between the armholes: filled at the armpit, the hollow under the arm is a wing.
+        bm.normal_update()
+        points = numpy.array([v.co[:] for v in bm.verts], dtype=numpy.float64)
+        ways = numpy.array([v.normal[:] for v in bm.verts], dtype=numpy.float64)
+        spine_y = bone("Spine2").y
+        share = numpy.zeros(len(points))
+        for v in bm.verts:
+            at_ = skin[v]
+            up = min(1.0, max(0.0, (at_.z - (waist - 0.02)) / 0.06)) * min(1.0, max(0.0, (neck - 0.07 - at_.z) / 0.05))
+            across = min(1.0, max(0.0, (shoulder.x * 0.78 - abs(at_.x)) / 0.03))
+            ahead = min(1.0, max(0.0, (spine_y - 0.01 - at_.y) / 0.03))
+            share[v.index] = up * across * ahead
+        start = points.copy()
+        for _ in range(int(os.environ.get("CLING_FILL", "300"))):
+            step = middle_of_neighbours(points) - points
+            outward = numpy.maximum(0.0, (step * ways).sum(axis=1))
+            points = points + ways * (outward * share * 0.6)[:, None]
+        filled = float(numpy.abs(points - start).max())
+        for v, co in zip(bm.verts, points):
+            v.co = co
+    _FORMS[kind] = {index_of[v]: v.co.copy() for v in bm.verts}
     bm.free()
-    print("DRESSING FORM", len(_FORM), "points, smoothing took away up to", round(relief, 4))
-    return _FORM
+    print("DRESSING FORM", kind, len(_FORMS[kind]), "points, smoothing took away up to", round(relief, 4), "hollows filled by up to", round(filled, 4))
+    return _FORMS[kind]
 
 
 def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0, made=None, weights=None, alpha=1.0, fit=False, hug=False):
@@ -505,7 +544,7 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         if source == "body":
             # Every garment cut from the body is cut from the one dressing form, so what is worn over another
             # always lies outside it. Each point remembers the skin it stands over.
-            form = dressing_form()
+            form = dressing_form("silk" if hug else "full" if offset >= 0.012 else "close")
             skin_at = bm.verts.layers.float_vector.new("skin_at")
             skin_way = bm.verts.layers.float_vector.new("skin_way")
             for v in bm.verts:
@@ -564,8 +603,8 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         print("GARMENT", name, "is empty")
         return None
     # A little easing along every open edge takes out what the cut left.
-    # An apron's sides are cut down through the skirt helper's long faces, and want as much easing as a made shape.
-    for _ in range(22 if made is not None or source == "body" or name.startswith("Apron") else 8):
+    # (More easing on an apron's sides was tried for cast_r13 and took bites out of them; they keep eight.)
+    for _ in range(22 if made is not None or source == "body" else 8):
         moved = {}
         for v in bm.verts:
             beside = [e.other_vert(v) for e in v.link_edges if e.is_boundary]
@@ -979,16 +1018,17 @@ def seat_room(co):
 _FRONT = None
 
 
-def hang_flat(co):
+def hang_flat(co, over=0.0):
     """A bib hangs from the fullest part of the chest in a plane; it does not follow the bust. Each point is
-    brought most of the way forward to that plane, less toward the waist, where the bib is tied in."""
+    brought most of the way forward to that plane, less toward the waist, where the bib is tied in. `over`
+    sets a bib worn over another bib that much further forward (in one plane the two tore through each other)."""
     global _FRONT
     if _FRONT is None:
         body_ = group_index.get("body")
         chest_ = [v.co.y for v in mesh.vertices if waist + 0.04 < v.co.z < neck - 0.12 and abs(v.co.x) < 0.11 and (body_ is None or any(g.group == body_ for g in v.groups))]
         _FRONT = min(chest_) if chest_ else co.y
     high = max(0.0, min(1.0, (co.z - waist) / 0.1))
-    plane = _FRONT - 0.02
+    plane = _FRONT - 0.02 - over
     return Vector((co.x, co.y + (plane - co.y) * 0.8 * high * high * (3.0 - 2.0 * high), co.z)) if co.y > plane else co
 
 
@@ -1261,7 +1301,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         # Review of cast_r10: the bib's outline was ragged. Its edge followed the arm's weights, which are uneven,
         # and its top corners were square. Plain planes, rounded corners, a finer cut.
         piece("ApronBib", "helper-tights", lambda v: min(bone("Spine2").y - 0.01 - v.co.y, v.co.z - (waist - 0.02), round_min(neck - 0.12 - v.co.z, 0.1 - abs(v.co.x), 0.03)),
-              0.02 + over_pack, colour, 0.85, cloth=cloth or "cotton", subdivide=1, reshape=hang_flat)
+              0.02 + over_pack, colour, 0.85, cloth=cloth or "cotton", subdivide=1, reshape=lambda co: hang_flat(co, 0.009))
     elif kind == "sash":
         piece("Sash", "helper-tights", lambda v, r=row: min(0.045 - abs(v.co.z - (hip + float(r.get("up", 0.03)))), (0.3 - weight(v, ARM)) * W), float(row.get("off", 0.017)) + over_pack, colour, 0.5, cloth=cloth or "silk")
     elif kind == "scarf":
