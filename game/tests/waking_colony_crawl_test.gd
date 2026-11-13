@@ -55,6 +55,22 @@ func _ready() -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 
+	# The bank of vapour round its foot.
+	var vapor := moss._waking.find_child("WakingVapor", true, false) as MeshInstance3D
+	_check(vapor != null, "the cell has its vapour")
+	if vapor != null:
+		var fog := vapor.material_override as ShaderMaterial
+		_check(fog.shader.resource_path.ends_with("waking_colony_vapor.gdshader"), "the vapour is the purple bank")
+		_check(fog.render_priority > 0, "the vapour is drawn over the membrane")
+		_check(vapor.cast_shadow == GeometryInstance3D.SHADOW_CASTING_SETTING_OFF, "the vapour casts no shadow")
+		_check((fog.get_shader_parameter("vapor_color") as Color).is_equal_approx(moss.WAKING_VAPOR_COLOR), "it is the encroachment's purple")
+		var cloud := fog.get_shader_parameter("cloud_tex") as Texture2D
+		_check(cloud != null and cloud.get_image().has_mipmaps(), "its billows are a mipmapped map")
+		var reach := vapor.mesh.get_aabb()
+		_check(reach.position.y > 0.0 and reach.end.y <= moss.WAKING_VAPOR_TOP + 0.001 and reach.end.x > 0.5,
+			"it lies low and wider than the cell")
+	_check(moss.waking_cell_position().is_equal_approx(moss._waking.global_position), "the cell says where it is")
+
 	# Feeling, before it moves: the post is in reach on one side only.
 	moss._clock = 0.0
 	moss._feel()
@@ -165,6 +181,7 @@ func _ready() -> void:
 	_check(entered == 0, "it never enters the post or the wall (%d bad places)" % entered)
 	_check(absf(moss._waking.position.y) < 0.001, "it stays on the floor")
 	_check(moss.global_position.is_equal_approx(rooted), "the colony stays rooted")
+	_check(moss.waking_cell_position().distance_to(rooted) > 0.05, "and the cell says where it has got to")
 	_check(not moss._crawl_clear(Vector3(0.40, 0.0, 0.0)), "the post's place is not open floor")
 	_check(not moss._crawl_clear(Vector3(0.0, 0.0, -0.75)), "the wall's place is not open floor")
 	_check(not moss._crawl_clear(Vector3(0.0, 0.0, 6.0)), "off the floor is not open floor")

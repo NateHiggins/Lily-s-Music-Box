@@ -228,6 +228,19 @@ func _ready() -> void:
 			moved += 1
 			if origin[2]:
 				_check(moss._crawl_clear(offset), "where the cell has crawled to is open floor")
+	# The purple field grows from where each cell is now, not where it began.
+	var following := 0
+	for case_id: String in enc.field_source:
+		var cell = enc.moss_presentations.get(int(enc.ecology_source.get(case_id, -1)))
+		if cell == null:
+			continue
+		var source: Vector3 = enc.fields[enc._floor_of(case_id)].sources[int(enc.field_source[case_id])].position
+		var cell_at: Vector3 = cell.waking_cell_position()
+		_check(Vector2(source.x, source.z).distance_to(Vector2(cell_at.x, cell_at.z)) < 0.02,
+			"%s's field emanates from its cell" % case_id)
+		_check(absf(source.y - float(enc.units[case_id].floor_y)) < 0.5, "%s's field source stays at its floor" % case_id)
+		following += 1
+	_check(following == enc.field_source.size(), "every field has its cell (%d of %d)" % [following, enc.field_source.size()])
 	print("[V2 WAKING ORGANISM] %d of %d cells crawled in four seconds" % [moved, started.size()])
 	_check(moved >= 1, "at least one cell crawls (%d of %d)" % [moved, started.size()])
 	print("[V2 WAKING ORGANISM] startup_ms %.0f" % world.startup_ms)

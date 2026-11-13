@@ -30,6 +30,15 @@ uniform float gait_waves = 1.0;      // how far behind the back company steps
 uniform float cohorts = 12.0;        // companies around the cell
 uniform vec2 heading = vec2(0.0);    // the way the cell is going, in its own frame (x, z); zero at rest
 uniform float effort = 0.0;          // 0 standing .. 1 surging
+// Life (Lily, 2026-11-13: "add a bit more life to the cilias movement, the
+// waves of activity was nice in the original design"). Under the companies'
+// deliberate stepping the first design's ripple runs again: a quick stroke
+// that travels round the fringe, three crests at a time, each limb a shade
+// off its neighbours. It is strongest when the cell stands, so a standing
+// cell is never still, and it gives way as the companies take up the work.
+uniform float ripple = 0.55;         // how much of the old ripple shows
+uniform float ripple_rate = 2.6;     // strokes a second, under what strobes on film
+uniform float ripple_waves = 3.0;    // crests round the fringe
 uniform float stroke = 0.55;         // root swing, radians
 uniform vec3 base_color : source_color = vec3(0.62, 0.42, 0.72);
 uniform vec3 tip_color : source_color = vec3(0.95, 0.78, 1.0);
@@ -87,6 +96,7 @@ void vertex() {
 	v_along = COLOR.r;
 	int seg = int(COLOR.g * 2.0 + 0.5);
 	float around = INSTANCE_CUSTOM.x;
+	float own = INSTANCE_CUSTOM.y;       // this limb's own fixed number
 	// Feeling something (INSTANCE_CUSTOM.z, eased by the owner): the limb
 	// stops stepping, straightens out to the thing and presses it. The owner
 	// aims and sizes the instance so the straightened tip lands on the spot.
@@ -105,13 +115,21 @@ void vertex() {
 	float recover = smoothstep(0.44, 0.96, s);
 	float swing = s < 0.40 ? mix(-1.0, 1.0, power) : mix(1.0, -1.0, recover);
 	float lift = (s < 0.40 ? 0.0 : sin(recover * 3.14159)) * effort;
+	// The ripple: a quick stroke and a lifted return, passing round the cell.
+	float life = ripple * (1.0 - 0.5 * effort) * (0.8 + 0.4 * own);
+	float rs = fract(cell_time * ripple_rate * (0.97 + 0.06 * own) - around * ripple_waves + own * 0.08);
+	float r_power = smoothstep(0.0, 0.33, rs);
+	float r_recover = smoothstep(0.33, 1.0, rs);
+	float r_swing = rs < 0.33 ? mix(-1.0, 1.0, r_power) : mix(1.0, -1.0, r_recover);
+	float r_lift = rs < 0.33 ? 0.0 : sin(r_recover * 3.14159);
+	lift += r_lift * 0.6 * life;
 	// Its fibre's pull: the same beat the cytoskeleton shows at this place.
 	float pull = beat_pull(cell_time * pull_rate - around * pull_waves);
 	pull *= 0.5 + 0.5 * (0.5 + 0.5 * sin(cell_time * 0.17 + around * 11.0));
 	float reach = stroke * (0.60 + 0.70 * pull) * effort;
 	// A positive turn about the limb carries its tip against the counter-
 	// clockwise way round the cell, so this sign always pushes backward.
-	float root = swing * reach * side;
+	float root = swing * reach * side + r_swing * stroke * 0.45 * life;
 	// Standing, the fringe breathes as one.
 	float breath = (1.0 - effort) * (0.5 + 0.5 * sin(cell_time * 0.9));
 	// Limbs ahead fold in as they pull; limbs behind straighten as they push.
@@ -138,6 +156,7 @@ void vertex() {
 	// How fast the limb is moving: the power stroke peaks mid-swing, the
 	// recovery is a slow return. Wider strokes move faster.
 	v_speed = (s < 0.40 ? sin(power * 3.14159265) : 0.22 * sin(recover * 3.14159265)) * (0.55 + 0.75 * pull) * effort;
+	v_speed += (rs < 0.33 ? sin(r_power * 3.14159265) : 0.2 * sin(r_recover * 3.14159265)) * 0.55 * life;
 	// A feeling limb warms with each press instead of each step.
 	v_speed = mix(v_speed, 0.20 + 0.80 * press, touch);
 	v_pull = pull;

@@ -642,6 +642,12 @@ const WAKING_WORK_COLOR := Color(0.72, 0.36, 0.92)
 const WAKING_STRIKE_COLOR := Color(1.0, 0.62, 0.38)
 ## The cilia step in this many companies around the cell, each as one.
 const WAKING_COHORTS := 12.0
+## The bank of vapour round the cell's foot (Lily, 2026-11-13): the
+## encroachment's purple, in level sheets from the floor up.
+const WAKING_VAPOR_COLOR := Color(0.50, 0.28, 0.70)
+const WAKING_VAPOR_SHEETS := 11
+const WAKING_VAPOR_TOP := 0.17          # metres
+const WAKING_VAPOR_REACH := 0.80        # metres from the middle
 const WAKING_LIMB_COLOR := Color(0.62, 0.42, 0.72)
 
 
@@ -666,6 +672,7 @@ func _bind_waking_work(material: ShaderMaterial) -> void:
 	material.set_shader_parameter("strike_color", WAKING_STRIKE_COLOR)
 	material.set_shader_parameter("limb_color", WAKING_LIMB_COLOR)
 	material.set_shader_parameter("cohorts", WAKING_COHORTS)
+	material.set_shader_parameter("vapor_color", WAKING_VAPOR_COLOR)
 
 
 func _build_waking() -> void:
@@ -725,6 +732,51 @@ func _build_waking() -> void:
 		_waking_materials.append(material)
 	if cilium_mesh != null:
 		_build_waking_cilia(cilium_mesh, _waking_cilium_roots(root_mesh))
+	_build_waking_vapor()
+
+
+## Where the drawn cell is now, in the world. The encroachment's field grows
+## from here, so the purple follows the cell as it roams.
+func waking_cell_position() -> Vector3:
+	return _waking.global_position if _waking != null else global_position
+
+
+## Level sheets round the cell's foot; the shader shapes them into a bank that
+## hides where the membrane and the cilia meet the floor.
+func _build_waking_vapor() -> void:
+	var points := PackedVector3Array()
+	var colors := PackedColorArray()
+	var indices := PackedInt32Array()
+	for sheet in WAKING_VAPOR_SHEETS:
+		var rise := float(sheet) / float(WAKING_VAPOR_SHEETS - 1)
+		var y := 0.004 + rise * (WAKING_VAPOR_TOP - 0.004)
+		var first := points.size()
+		for corner: Vector2 in [Vector2(-1, -1), Vector2(1, -1), Vector2(1, 1), Vector2(-1, 1)]:
+			points.append(Vector3(corner.x * WAKING_VAPOR_REACH, y, corner.y * WAKING_VAPOR_REACH))
+			colors.append(Color(rise, 0.0, 0.0, 1.0))
+		indices.append_array(PackedInt32Array([first, first + 1, first + 2, first, first + 2, first + 3]))
+	var arrays := []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = points
+	arrays[Mesh.ARRAY_COLOR] = colors
+	arrays[Mesh.ARRAY_INDEX] = indices
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	var material := ShaderMaterial.new()
+	material.shader = preload("res://shaders/waking_colony_vapor.gdshader")
+	material.set_shader_parameter("cloud_tex", load(WAKING_RECIPE_DIR + "cytoplasm_web.png"))
+	material.set_shader_parameter("sheets", float(WAKING_VAPOR_SHEETS))
+	_bind_waking_work(material)
+	# After the membrane, which is drawn in the same pass and keeps depth: the
+	# vapour in front of the dome must lie over it.
+	material.render_priority = 1
+	_waking_materials.append(material)
+	var vapor := MeshInstance3D.new()
+	vapor.name = "WakingVapor"
+	vapor.mesh = mesh
+	vapor.material_override = material
+	vapor.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_waking.add_child(vapor)
 
 
 ## The basal bodies the Blender build placed just inside the membrane: for each
