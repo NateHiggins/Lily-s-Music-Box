@@ -435,6 +435,30 @@ sidecars; `fix_runtime_texture_imports.py` owns the other keys. Dream plates and
 the two fixture-pinned sidecars are left alone. Run `--check` before committing
 new roughness maps, then re-import twice.
 
+## V2 performance matrix
+
+`game/tests/V2PerformanceMatrix.tscn` measures the composed V2 world with the real
+player and renderer, vsync off: startup time, then frame time, draw calls and
+memory at eleven named stations, four headings each. It needs a real window, so
+run it `-Windowed` (hidden desktop) through the lane with the long runner and a
+`-ShotDir`; it writes `performance_matrix.json` there and judges nothing.
+
+`python tools/v2_performance_matrix.py --admit <shot dir>/performance_matrix.json
+--run-receipt <log>.receipt.json` checks the samples, binds them to the lane run's
+commit and judges them against the budgets in that tool. It writes the receipt at
+`art/renders/orison_v2/performance_matrix/performance_matrix.json`. A run on a
+dirty checkout, a failed run, a headless run or a missing station is recorded as
+a defect, not admitted clean. The gate board's `v2_performance_matrix` gate runs
+`--check`: exit 0 within budget, 1 over budget or invalid, 2 when no receipt is
+committed.
+
+The receipt is a measurement of one commit on one machine at one resolution. It
+is not bound to source hashes, so it does not expire when a file changes; read
+its commit and date before leaning on it, and measure again after work that
+could move the frame. The only blocking budget is the frame median at each
+station's worst heading (16.6 ms, inherited from the retired release matrix).
+Startup and memory are recorded with no budget until the owner rules one.
+
 ## Local image generation
 
 `art/tools/imagegen.py` runs SDXL base 1.0 on this machine's RTX 4080. Every agent
