@@ -1,4 +1,27 @@
-# Current work — Lily bass trio, then NPC loop implementation
+# Current work — trio film delivered; loop source awaiting verification
+
+**Latest November12: approved r17 performance outfits exported/intaken and the
+full bass trio recaptured.** Delivery:
+**C:/ov/reports/pull_up_a_chair_music_video_20261112/bass_v3/delivery/Pull_Up_a_Chair_Bass_1080p.mp4**.
+Adela lead/piano, Lily bass/harmony behind and beside the instrument, Stacy drums.
+1080p24,4372frames,182.166667s,23shots; approved audio unchanged.
+Lily's two transparent skin materials were repaired in the exact native Blender
+source and re-exported; binary geometry/rig/morphs and all texture bytes match.
+Fable received **outfit_intake_01/game_assets/lily/** and the packed native source
+for her cast integration. Canonical gameplay bodies were not overwritten.
+
+Private fixture pins Fable's frozen r17 parts/makeup and matching presentation
+code. Adela's seated skirt controller stays active; Lily's stance was refitted
+for the gown and bass reach. Loaded outfit UV/PBR/mipmap checks pass. All4372
+frames pass the contact sweep, maximum3.51mm against6mm; a10s moving proof and
+both final chunks pass.3649 capture inputs unchanged,359 private source/tool
+files preserved. Final full decode, counts, all23shot samples, section seam and
+ending checked. **bass_v3/DELIVERY.md**, **REVIEW.json** and
+**delivery/TECHNICAL_QA.json** distinguish evidence and limitations. Original
+failures retained; owned capture/encoder jobs terminal and source freeze released.
+Continuous audiovisual review and Lily's artistic acceptance remain open.
+Fine hand poses, close cloth/prop contact, armhole edges and static fringe remain
+POC limits. No upload, main merge or gameplay/cast qualification claim.
 
 **Latest: loop punch-up integrated in source at Lily's request, without runtime
 tests.** [Scope and remaining gaps](design/drafts/npc_loop_scripts_2026-11-12/SOURCE_INTEGRATION.md).
@@ -8,7 +31,7 @@ The 27 scripts now have full-window/year behavior. **performances.json** supplie
 standing/listening attitudes and visit cleanup. Nadia/Juno gain graph-derived
 visitor paths. No engine launch, voice, capture, main merge or runtime acceptance.
 Three static review defects corrected; detailed choreography, historical attendance,
-missing routes and native clearance remain open. Fable's outfits/capture hold stands.
+missing routes and native clearance remain open. The outfit hold is now resolved.
 
 **Original writing delivery:** while captures were held for Fable's outfits, Lily
 requested loop script drafts. [The packet](design/drafts/npc_loop_scripts_2026-11-12/README.md)
@@ -26,11 +49,10 @@ her body and opens her audience sightline. Root owns private **music_video_bass.
 **music_bass.gd**, **MusicVideoBass.tscn** and
 **C:/ov/reports/pull_up_a_chair_music_video_20261112/bass_v3/**.
 
-**B-PULL-UP-BASS — capture HOLD at Lily's request:** Fable is building performance
-outfits; do not capture again until they are ready. No owned capture is live and
-no final freeze/full trio capture exists. **bass_v3/WAITING_FOR_OUTFITS.json**
-records custody and preserves current private sources under
-**production/awaiting_outfits_source/**. Original audio/master/cues remain intact.
+**B-PULL-UP-BASS — delivered for review above.** Fable's approved/frozen r17
+handoff resolved Lily's capture hold. **bass_v3/WAITING_FOR_OUTFITS.json** records
+terminal custody; **production/awaiting_outfits_source/** retains the old held
+fixture and **production/final_source/** preserves the delivered private inputs.
 
 Native bass07_retry02/review04/import02 pass for POC use; four supported geared
 shafts/string windings replace rejected tuning pegs.20,812triangles/11surfaces;
@@ -39,15 +61,14 @@ Earlier full4372frame sweep02 passed the former stance. Lily then requested a
 behind-and-side stance and supplied a bassist reference. New bass-relative stance,
 slight instrument lean and forward elbow poles pass sampled **pose06** contacts;
 front/side/harmony views reviewed. Drum camera14 now clears its column and includes
-Stacy's face/kit. **The new stance still needs a full-song sweep and moving proof**
-after the new outfits arrive. Pose05 was cancelled at its priority wait before
+Stacy's face/kit. The final r17 gown fit in **outfit_intake_01/candidate09** replaces
+pose06 and passes full-song/moving proof. Pose05 was cancelled at its priority wait before
 Godot started; exploratory stance01 retains rejected fits. Motion01 is an old-
 stance10s audio-aligned proof only, not evidence for the new stance/outfits.
 
-Fable was sent the actual trio, Lily side/harmony and seated Stacy poses for fit.
-Await her actor/outfit paths, body revision and ready handoff; recheck Adela's
-seated skirt, Stacy's sleeves/waist and Lily's bass reach in the private fixture
-before freezing sources and capturing. No artistic acceptance or r12 install.
+Fable's r17 handoff was consumed only in the private film fixture. Native opacity,
+seated skirt and bass reach intake/failures are retained under **outfit_intake_01/**.
+No final-film artistic acceptance or whole-cast r12 gameplay install is claimed.
 
 Claude owns the cast overhaul. New **cast_r12** freeze at5059922e9 and **cast_game_stage_r12** received;
 Claude reports0 collapsed UV triangles across247 models and passing engine suites.
@@ -56,7 +77,8 @@ review found source-degenerate UVs incorrectly passing intake, sent to Claude
 for repair: **C:/ov/reports/npc_rig/cast_freeze_r11_review_codex/**. Completed
 review:839 collapsed/near-zero UV faces silently pass; frozen hashes and focused
 remap preservation checks pass. Detailed reports sent to Claude. Private
-performance poses sent to her; existing film bodies are older than r11.
+performance poses sent to her. This film uses r12 Adela and the matching repaired
+Codex Lily body; other gameplay cast integration remains Fable's work.
 
 After the trio, Lily authorized **K-NPC-LOOP-PERFORMANCE** implementation. Owner
 widget rulings **cast_swap_first_20261112** and **cast_swap_clothes_20261112** were
