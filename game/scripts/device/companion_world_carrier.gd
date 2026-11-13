@@ -305,6 +305,10 @@ func inspected_readable_stock() -> PhysicsBody3D:
 	if not is_instance_valid(_player) or not _player.inspecting():
 		return null
 	var owner: Node = _player.inspect_owner
+	# Inspecting this instrument is not inspecting a separate book. Forwarding
+	# back to this method recurses while the actual lamp/radio controls are open.
+	if not is_instance_valid(owner) or owner == self:
+		return null
 	if owner.has_method("inspected_readable_stock"):
 		return owner.inspected_readable_stock()
 	return null

@@ -205,6 +205,16 @@ func _ready() -> void:
 	await _frames(5)
 	_check(tray.part.visible and tray.part.global_position.distance_to(tray_rest) < 0.002, "the tray is back exactly")
 	_check(absf(float(door.mechanism_snapshot().angle) - door_home) < 0.001 and lamp.get("powered") == lamp_home, "the door and the light are as the hours began")
+	# No frame/campaign tick between these reruns: loop_started is identical,
+	# but the existing anchor rerun counter identifies a new borrowed household.
+	_check(loop.reset_loop().ok, "prepare an immediate rerun")
+	var same_minute := float(loop.ledger().visit.loop_started)
+	door.restore_mechanism({"angle": door_ajar})
+	lamp.call("set_powered", not lamp_home)
+	_check(loop.reset_loop().ok and float(loop.ledger().visit.loop_started) == same_minute,
+			"AGAIN at the identical elapsed minute is a new run")
+	_check(absf(float(door.mechanism_snapshot().angle) - door_home) < 0.001 and lamp.get("powered") == lamp_home,
+			"same-minute AGAIN restores the actual door and light")
 	door.restore_mechanism({"angle": door_ajar})
 	lamp.call("set_powered", not lamp_home)
 	_check(loop.holds("order_slip") and not slip.visible, "the slip stays taken")

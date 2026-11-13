@@ -35,6 +35,10 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 | The Year You Died murder treatment: Adela Voss, the night man, the evidence chain, both endings and the conspiracy option A (INERT; Lily reads her lines by playtest) | `design/THE_YEAR_YOU_DIED_TREATMENT_2026-10-30.md` |
+| Neo-Noir Neon1929 game visual direction and cinematic optical/lighting/edit targets (owner adopted November12) | `design/ORISON_BIBLE.md` §VIII.5; `.agents/skills/machinima-production/references/neo-noir-neon-1929.md` |
+| Direct machinima, music videos and interactive scenes: Lily's camera/performance grammar, continuity, control recovery, shot template and review | `.agents/skills/machinima-production/SKILL.md` (canonical skill; supplied cinematography package integrated November12) |
+| Apply the machinima workflow to every NPC across the repeating year and eleven earned visits: current cast/dialogue gaps, writing coverage, authority boundaries and staged implementation (INERT plan) | `design/NPC_LOOP_PERFORMANCE_PLAN_2026-11-12.md` |
+| Loop scripts and punch-up: eleven visits, eleven ordinary-life vignettes, five supporting encounters; focused636/0 and renewed nearby-world106/0; apartment/closer/hose checks pass, final candidate merge and choreography/access debt remain | `design/drafts/npc_loop_scripts_2026-11-12/README.md`, `design/drafts/npc_loop_scripts_2026-11-12/SOURCE_INTEGRATION.md` |
 | Approved cast voice directions, recording IDs, offline cue intake and remaining corpus/runtime obligations (INERT) | `design/VOICE_LINE_INTAKE_2026-11-11.md`, `game/data/voice/README.md` |
 | Erica-inspired Adela, regular Harukiya performances, Lily on alternating drums/bass, found-family writing and the measured stage commission (INERT) | `design/V2_ADELA_PERFORMANCE_AND_FOUND_FAMILY_2026-11-01.md` |
 | Four background oddities, first draft: the Unlisted Stop, the Extra pigeon, the Society for the Prevention, the Ash Man (INERT) | `design/ORISON_BACKGROUND_ODDITIES_2026-11-01.md` |

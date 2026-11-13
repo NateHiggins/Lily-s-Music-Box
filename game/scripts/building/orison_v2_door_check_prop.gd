@@ -20,8 +20,8 @@ extends "res://scripts/props/door_check_closer_prop.gd"
 ## links onto the shoe pin, so a leaf held half open by a hand has an arm that
 ## reaches it.
 ##
-## LETTING GO OF THE LEAF IS THE PROOF. Every other V2 door eases itself shut. On
-## this leaf the check decides: with the arm shipped and the port passing, the
+## LETTING GO OF THE LEAF IS THE PROOF. Ordinary V2 doors now stay open. On
+## this leaf the actual check decides: with the arm shipped and the port passing, the
 ## spring brings the leaf home at the rate the port allows and it latches; with
 ## the arm off or the port screwed shut (as found) the leaf stands where the hand
 ## left it, and V1's own `prove_close()` records that it stopped short. The leaf
@@ -223,9 +223,13 @@ func _bind_leaf() -> void:
 		_leaf_signal_bound = true
 
 
-## A hand has just let go of the leaf. That is the only test this apparatus has
-## ever had, so V1's proof runs on it.
+## A hand, accepted leaf command or final passage owner has let go. The
+## apparatus retains its own refusal and proof authority at that handoff.
 func _on_leaf_let_go() -> void:
+	var leaf := door()
+	# Check custody first: pruning an expired final lease can itself publish
+	# one release. Its nested handler may already have begun this proof.
+	if leaf != null and leaf.has_method("passage_held") and bool(leaf.call("passage_held")): return
 	if closing or leaf_in_hand() or not leaf_open():
 		return
 	prove_close()
@@ -264,7 +268,8 @@ func _physics_process(delta: float) -> void:
 		closing = false
 		_watching = false
 		return
-	if leaf_in_hand() or leaf_moving() or bool(leaf.get("_key_turning")) or leaf_locked():
+	if leaf_in_hand() or leaf_moving() or bool(leaf.get("_key_turning")) or leaf_locked() \
+			or (leaf.has_method("passage_held") and bool(leaf.call("passage_held"))):
 		# Somebody else has the leaf. Whatever happens now is not this spring's.
 		closing = false
 		_watching = false
@@ -272,13 +277,9 @@ func _physics_process(delta: float) -> void:
 		return
 	var rate := close_rate()
 	if rate <= 0.0 or bool(leaf.call("hose_blocks_close")) or _someone_in_the_swing(leaf):
-		# The leaf stands. Re-seat it now and then so the building's ordinary
-		# easy-closing never shuts a leaf this check would not have shut.
+		# No generic timer competes with this mechanism. A stopped spring or
+		# occupied sweep simply leaves the actual leaf where it is.
 		closing = false
-		_station_clock -= delta
-		if _station_clock <= 0.0:
-			_station_clock = 1.0
-			leaf.call("restore_mechanism", {"angle": angle})
 		return
 	closing = true
 	var next := move_toward(angle, 0.0, rate * delta)
@@ -303,10 +304,14 @@ func _latched(leaf: Node, rate: float) -> void:
 
 ## A resident has no say over a spring: never bring the leaf home on one.
 func _someone_in_the_swing(leaf: Node) -> bool:
+	if leaf.has_method("motion_clear"):
+		return not bool(leaf.call("motion_clear", false))
 	var frame := leaf as Node3D
 	if frame == null:
 		return false
-	for node: Node in get_tree().get_nodes_in_group("animated_residents"):
+	var people: Array[Node] = get_tree().get_nodes_in_group("animated_residents")
+	people.append_array(get_tree().get_nodes_in_group("player_controller"))
+	for node: Node in people:
 		var body := node as Node3D
 		if body == null or not body.visible:
 			continue
