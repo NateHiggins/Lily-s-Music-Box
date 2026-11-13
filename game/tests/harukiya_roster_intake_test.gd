@@ -121,6 +121,18 @@ func _run() -> void:
 func _preflight() -> bool:
 	var probe := RouteProbe.new() # Never add_child: _ready resets the real campaign.
 	_check(not probe.is_inside_tree(), "route probe stays untree'd; unsafe _ready never runs")
+	details.beds = []
+	for name: String in ["3D_bed", "4D_bed"]:
+		var body := world.find_child(name, true, false) as StaticBody3D
+		if not _check(body != null, "installed native bed available for geometry witness " + name): continue
+		var shapes: Array[Dictionary] = []
+		for child in body.get_children():
+			if child is CollisionShape3D:
+				shapes.append({"type": child.shape.get_class(), "local_transform": child.transform})
+		details.beds.append({"identity": name, "path": str(body.get_path()),
+			"route_origin": world.adapter.root.to_local(body.global_position),
+			"global_transform": body.global_transform, "layer": body.collision_layer,
+			"mask": body.collision_mask, "native_shapes": shapes})
 	door_book_existed = RealityState.data.has(DoorKeyring.KEY)
 	door_book = (RealityState.data.get(DoorKeyring.KEY, {}) as Dictionary).duplicate(true)
 	inventory_book = (RealityState.data.get(PersonInventory.KEY, {}) as Dictionary).duplicate(true)
@@ -311,7 +323,8 @@ func _physics_process(delta: float) -> void:
 			_check(false, "actual route obstruction " + identity + ": " + str(route.blocked_reason))
 		if absf(float(route.route_speed) - 1.05) > .0001: _check(false, "unchanged walking speed " + identity)
 		if not route.actor.visible or route.outside: _check(false, "actor remains physically present on home/bar route " + identity)
-		var seated := phase == "occupied" or moving_seat
+		# Previous transition is relevant to motion bounds, not current posture.
+		var seated := phase == "occupied" or not transition.is_empty()
 		var hits := _world_hits(route, seated)
 		if not hits.is_empty():
 			details.motion_failures.append({"resident": identity, "at": at, "colliders": hits, "seated_torso": seated})

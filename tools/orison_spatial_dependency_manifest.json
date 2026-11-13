@@ -279108,6 +279108,150 @@
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "6ddef86314e78315",
+   "kind": "unit_reference",
+   "token": "3D",
+   "file": "game/tests/harukiya_remaining_roster_checks.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "\"rhea_sato\": {\"unit\": \"3D\", \"source\": \"res://data/orison_v2/rhea_sato_routine.json\", \"seat\": \"balcony_north_03\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "5d401275049dd3c6",
+   "kind": "unit_reference",
+   "token": "4D",
+   "file": "game/tests/harukiya_remaining_roster_checks.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "\"transient_guests\": {\"unit\": \"4D\", \"source\": \"res://data/orison_v2/transient_guests_routine.json\", \"seat\": \"balcony_north_07\"}}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "68e48f1c5af1d022",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/harukiya_roster_intake_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "16e9e708e7636df4",
+   "kind": "id_reference",
+   "token": "3D_bed",
+   "file": "game/tests/harukiya_roster_intake_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_preflight"
+   ],
+   "lines": [
+    125
+   ],
+   "count": 1,
+   "context": [
+    "for name: String in [\"3D_bed\", \"4D_bed\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cc43b94dbc19ae46",
+   "kind": "id_reference",
+   "token": "4D_bed",
+   "file": "game/tests/harukiya_roster_intake_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_preflight"
+   ],
+   "lines": [
+    125
+   ],
+   "count": 1,
+   "context": [
+    "for name: String in [\"3D_bed\", \"4D_bed\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

@@ -187,3 +187,15 @@ qualified or merged. Only the obsolete mail chain changed from the preserved
 historical sources. Current geometry/registered-owner movement and then conditional
 natural attendance remain required; Juno's presence can legitimately deter Rhea.
 The cast/main/lane hold is released to Claude, with future source freezes coordinated.
+
+## Roster intake diagnosis, November 13
+
+**roster_runtime_01** at **d6f725ebe**: registration and exact preview/input custody
+PASS; first Rhea closed-leaf bedroom chain fails at the native bed corner. Guest,
+open-leaf and all travel contracts are unexecuted. No ordinary-walker failure is
+claimed: this is the unchanged 0.30m authoring probe (walker radius0.28m). The
+original receipt remains intact. One source-supported graph detour is applied
+to each matching apartment, preserving endpoints/furniture/keys/capsules; both
+new segments require actual validation. See **roster_intake_03/** for native
+part equivalence, limitations and proposed/current source hashes. No full order
+closure, played or artistic acceptance follows.

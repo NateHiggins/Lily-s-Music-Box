@@ -8,22 +8,27 @@ harukiya_overhaul_20261112/candidate_01/** and **integration_intake_01/MERGE.jso
 Root continues in **C:/ov/ldv**, the existing sky-verify checkout, branch
 **codex/harukiya-roster-20261113**, branched from merged main. Canonical
 **C:/PleaseRemainOnTheLine** and its dirty index remain untouched. No new worktree.
-The two reviewed historical Rhea/guest routine JSONs and existing ROUTES table
-entries form a source checkpoint, NOT engine-qualified or merged. Only the obsolete mail
-chain changed from the preserved originals. Source/connectivity/model-presence
-checks pass in **roster_intake_02/INTAKE.json**. Reader tests30/0 and NEW0;
-spatial9602/zero drift, original9584 records preserved exactly. No root engine run.
+The two reviewed Rhea/guest routes and existing-owner registration are committed/
+pushed through **d6f725ebe**, not merged. **roster_runtime_01** then proved exact
+17-general-plus-Mina registration and campaign/door/frozen-input custody, but
+FAILED the first Rhea closed-leaf bedroom edge against native **3D_bed**. No
+open-leaf/guest geometry or mechanical journeys executed. Receipt142.768s;
+startup115.183s. Original failure and eight shader warnings are retained.
 
-Applied the private agent's **roster_intake_02/test_proposal/**. Cheap engine
-compile3/0 (**roster_compile_02**), after preserving/fixing its original type
-inference failure. Independent review strengthened physical socket arrival,
-per-leg passage admission and full standing-body collision checks. Those final
-assertions await recompile. Next: probe current apartment/mail geometry and
-exercise both exact registered owners through home/bar/return before natural schedule proof. Use one composed world,
-ordinary movement and separate contracts. **roster_intake_01/NATURAL_ATTENDANCE_PLAN.md**
-explains genuine conditional nonattendance: Rhea avoids Juno; a forced visit is
-not natural schedule proof. Preserve one alternating guest identity. Private
-proposals are not qualification until consumed and executed.
+The actual probe suggested one intermediate **bed_approach** point. Applied to
+Rhea and the structurally matching guest graph; original endpoints, bed/native
+collision, keys and capsules remain unchanged. **roster_intake_03/** binds the
+review and conditional guest equivalence; neither new segment is yet qualified.
+The test now also records actual installed bed transforms/shapes and separates
+current standing envelopes from prior seat-transition motion bounds. Original
+compiler failure and independent-review fixes remain in **roster_compile_01/02**
+and **roster_intake_02/test_proposal/**. These latest edits await engine checks.
+
+Next: integrate qualified main updates without changing live source, import
+changed caps, run cheap compile then the one-world closed/open graph and actual
+home/bar/home fixture. Do not repeat unchanged room/crowd suites. Natural
+attendance stays separate: **roster_intake_01/NATURAL_ATTENDANCE_PLAN.md** explains
+Rhea's legitimate avoidance of Juno. Preserve one alternating guest identity.
 
 Qualified room/controller evidence under the same report root:
 
@@ -45,18 +50,22 @@ Qualified room/controller evidence under the same report root:
 - Reader NEW0; spatial9584/zero drift. **CLEANUP_02.json** records2088 exact
   CRLF-only import restorations and597 generated UIDs preserved privately.
 
-Claude's main/cast/lane hold is RELEASED; she owns PR257 roughness caps (including
-six Lily/Stacy followups), Cal-first cast swap and Stacy investigator initiative.
-Coordinate the next source freeze before any engine run; do not touch her cast
-files. Preserve one Stacy actor and do not hide Lily when Stacy later travels.
+Claude's hold is RELEASED. Her **PR257** is merged at **f68a4d225** (26 roughness
+caps with loaded mip proof); her Stacy authored-data candidate **c06ed17e7** is
+queued/qualifying. Cal-first cast swap and these authored initiatives remain
+hers. Coordinate source freezes; preserve one Stacy body and Lily's presence.
 Athena/Optimus remain held for power; no remote calls/jobs/patches.
 
-Full bar order stays open for registered/conditional natural roster attendance,
+Full bar order remains open for mechanical/conditional natural attendance,
 current-model fit, occupied gameplay, whole-world cost, play and art acceptance.
-Ledger47 open includes Claude's new Stacy order. Private Omni security-history
-**adapter_02/** has23 isolated passes and an unapplied patch; UI/package/source
-admission/peer proof remain open. Full mirrored VSS project backup COMPLETE,
-snapshot05a8fc6e, repository check exit0; nightly SYSTEM schedule remains installed.
+Omni security history is locally committed **eaf5204** in its separate repository:
+collector, Health UI, guide/package support; applied-source26Python+8JS pass.
+Original CRLF portability failures fixed/retained. No remote is configured there,
+so not pushed/deployed; source/host admission, release/live/peer and visual review
+remain open (preview-server approval review blocked). See **C:/ov/reports/
+omni_security_history_20261113/integration_01/RESULTS.json**. Preexisting models
+edit preserved. Full mirrored VSS backup COMPLETE, snapshot05a8fc6e/check0;
+nightly SYSTEM schedule remains installed.
 
 # Prior door/loop evidence and canonical custody (November 13)
 
