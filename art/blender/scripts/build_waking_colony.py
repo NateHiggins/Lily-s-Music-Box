@@ -16,6 +16,11 @@ cilium: its centre is a basal body just inside the membrane, its normal the
 way out through it), and the cilium has a basal body and rootlet below its
 origin so it visibly starts inside the cell.
 
+Lily, later the same day: connect the cilia to the microtubules. Every basal
+body is the end of a fibre that leaves a fascicle; the fibre carries its
+cilium's place around the cell, so Godot can pull the fibre and drive the
+limb in the same beat. Anatomy A marks those fibres (0.5; the canopy is 1).
+
 Deterministic: one seed, no randomness outside it. Blender Z-up metres; the
 glTF exporter converts to Godot's Y-up once.
 
@@ -191,9 +196,9 @@ def tube_mesh(name, points, radius, region, phase):
     return obj
 
 
-def add_strand(bm, uv_layer, record, points, radius, phase, taper=0.55, seg=5):
+def add_strand(bm, uv_layer, record, points, radius, phase, taper=0.55, seg=5, kind=1.0):
     """One fibre as a tube with authored UVs (u around, v metres along over
-    the recipe's tile) and Anatomy data (along, phase) per vertex."""
+    the recipe's tile) and Anatomy data (along, phase, kind) per vertex."""
     count = len(points)
     lengths = [0.0]
     for i in range(1, count):
@@ -211,7 +216,7 @@ def add_strand(bm, uv_layer, record, points, radius, phase, taper=0.55, seg=5):
         for k in range(seg):
             a = k / seg * math.tau
             v = bm.verts.new(point + (side * math.cos(a) + other * math.sin(a)) * r)
-            record[v] = (along, phase)
+            record[v] = (along, phase, kind)
             row.append(v)
         rows.append(row)
     for i in range(count - 1):
@@ -224,12 +229,28 @@ def add_strand(bm, uv_layer, record, points, radius, phase, taper=0.55, seg=5):
     return total
 
 
+def root_sites():
+    """Where each cilium starts: (place around the cell, azimuth, elevation,
+    basal body position, the way out through the membrane, two fixed random
+    numbers). The basal body is a tenth of the way in from the membrane, on
+    the low flank."""
+    sites = []
+    for i in range(CILIA):
+        around = (i + rng(i, 80) * 0.8) / CILIA
+        az = around * math.tau
+        el = math.radians(7.0 + 31.0 * rng(i, 81) ** 1.6)
+        sites.append((around % 1.0, az, el, membrane_point(dir_at(az, el), 0.90),
+                      membrane_normal(az, el), rng(i, 82), rng(i, 83)))
+    return sites
+
+
 def cytoskeleton():
     """Microtubule fascicles under the membrane. They fan from an organising
-    centre under the crown down the inside of the dome to the flank, where the
-    cilia are rooted; cross ties bind neighbours and thin strands end blind in
-    the cytoplasm. Anatomy R = along the fibre, G = phase (its place around
-    the cell, so a contraction can travel), B = region."""
+    centre under the crown down the inside of the dome to the flank; cross
+    ties bind neighbours, thin strands end blind in the cytoplasm, and one
+    fibre leaves a fascicle for every cilium and ends at its basal body.
+    Anatomy R = along the fibre, G = phase (its place around the cell, so a
+    contraction can travel), B = region, A = 1 canopy, 0.5 a cilium's fibre."""
     bm = bmesh.new()
     uv_layer = bm.loops.layers.uv.new("UVMap")
     record = {}
@@ -238,8 +259,11 @@ def cytoskeleton():
     def rib_azimuth(r):
         return (r + (rng(r, 60) - 0.5) * 0.7) / ribs * math.tau
 
+    def rib_top(r):
+        return 80.0 + 6.0 * (rng(r, 64) - 0.5)
+
     def rib_point(r, t, strand=0.0):
-        top = 80.0 + 6.0 * (rng(r, 64) - 0.5)
+        top = rib_top(r)
         el = math.radians(top - t * (top - 11.0))
         az = rib_azimuth(r) + 0.20 * noise.noise(Vector((r * 1.7, t * 2.4, 0.3))) \
             + strand * 0.030 * (0.25 + t)
@@ -286,6 +310,24 @@ def cytoskeleton():
         points[0] = start
         add_strand(bm, uv_layer, record, points, 0.0008, (rib_azimuth(r) / math.tau + 0.31) % 1.0, taper=0.25)
         strands += 1
+    # One fibre to every cilium: it leaves the nearest fascicle a little above
+    # the basal body and ends on it. Its phase is the cilium's own place, so
+    # the pull that travels the canopy reaches the limb it is tied to.
+    connectors = 0
+    for around, az, el, centre, _out, _a, _b in root_sites():
+        r = min(range(ribs), key=lambda k: abs((rib_azimuth(k) - az + math.pi) % math.tau - math.pi))
+        top = rib_top(r)
+        t0 = min(0.97, max(0.45, (top - (math.degrees(el) + 9.0)) / (top - 11.0)))
+        start = rib_point(r, t0)
+        points = []
+        for i in range(7):
+            u = i / 6.0
+            mid = onto_shell(start.lerp(centre, u), 0.932 - 0.032 * u - 0.012 * math.sin(u * math.pi))
+            points.append(mid)
+        points[0], points[-1] = start, centre
+        add_strand(bm, uv_layer, record, points, 0.0011, around, taper=0.7, seg=4, kind=0.5)
+        connectors += 1
+        strands += 1
     bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
     bm.verts.index_update()
     data = {v.index: record[v] for v in bm.verts}
@@ -296,12 +338,13 @@ def cytoskeleton():
     bpy.context.collection.objects.link(obj)
     colors = mesh.color_attributes.new(name="Anatomy", type="FLOAT_COLOR", domain="POINT")
     for v in mesh.vertices:
-        along, phase = data[v.index]
-        colors.data[v.index].color = (along, phase, REGIONS["tubule"] / 255.0, 1.0)
+        along, phase, kind = data[v.index]
+        colors.data[v.index].color = (along, phase, REGIONS["tubule"] / 255.0, kind)
     for polygon in mesh.polygons:
         polygon.use_smooth = True
     obj["region"] = "tubule"
     obj["strands"] = strands
+    obj["cilium_fibres"] = connectors
     return obj
 
 
@@ -312,19 +355,14 @@ def cilium_roots():
     the cell, G and B = two fixed random numbers for that cilium."""
     bm = bmesh.new()
     record = {}
-    for i in range(CILIA):
-        around = (i + rng(i, 80) * 0.8) / CILIA
-        az = around * math.tau
-        el = math.radians(7.0 + 31.0 * rng(i, 81) ** 1.6)
-        centre = membrane_point(dir_at(az, el), 0.90)
-        out = membrane_normal(az, el)
+    for around, _az, _el, centre, out, first, second in root_sites():
         a = out.orthogonal().normalized()
         b = out.cross(a)
         size = 0.002
         corners = [centre + (a * math.cos(k * math.tau / 3) + b * math.sin(k * math.tau / 3)) * size for k in range(3)]
         verts = [bm.verts.new(c) for c in corners]
         for v in verts:
-            record[v] = (around % 1.0, rng(i, 82), rng(i, 83))
+            record[v] = (around, first, second)
         face = bm.faces.new(verts)
         face.normal_update()
         if face.normal.dot(out) < 0.0:
@@ -595,7 +633,8 @@ def export(objs):
                               export_vertex_color="NAME", export_vertex_color_name="Anatomy",
                               export_animations=False)
     manifest = {"schema_version": 1, "seed": SEED, "membrane_half_extents_m": [RX, RY, RZ],
-                "regions": REGIONS, "cilia": CILIA, "tubule_tile_m": TUBULE_TILE_M, "objects": [{"name": o.name, "region": o["region"], "triangles": tris[o.name],
+                "regions": REGIONS, "cilia": CILIA, "tubule_tile_m": TUBULE_TILE_M,
+                "cilium_fibres": int(bpy.data.objects["Cytoskeleton"]["cilium_fibres"]), "objects": [{"name": o.name, "region": o["region"], "triangles": tris[o.name],
                                                  "location": list(o.matrix_world.translation)} for o in objs],
                 "triangles_total": sum(tris.values())}
     (OUT / "waking_colony.json").write_text(json.dumps(manifest, indent=1))

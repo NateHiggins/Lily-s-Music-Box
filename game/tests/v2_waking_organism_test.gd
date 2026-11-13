@@ -50,6 +50,41 @@ func _check_colony_surfaces(moss: Node3D, cilia: MultiMeshInstance3D) -> void:
 				outward += 1
 		_check(inside == roots.size(), "the basal bodies sit inside the cell (%d of %d)" % [inside, roots.size()])
 		_check(outward == roots.size(), "each cilium leaves outward through the membrane (%d of %d)" % [outward, roots.size()])
+		# Every cilium is tied to the cytoskeleton: a fibre ends on its basal
+		# body and carries its place, so fibre and limb work in one beat.
+		if skeleton != null:
+			var arrays := skeleton.mesh.surface_get_arrays(0)
+			var points: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+			var anatomy: PackedColorArray = arrays[Mesh.ARRAY_COLOR]
+			var ends: Array[Vector3] = []
+			var places: Array[float] = []
+			for i in points.size():
+				if anatomy[i].a < 0.75 and anatomy[i].r > 0.985:
+					ends.append(points[i])
+					places.append(anatomy[i].g)
+			var tied := 0
+			var in_step := 0
+			for root: Dictionary in roots:
+				var nearest := INF
+				var place := -1.0
+				for i in ends.size():
+					var d := ends[i].distance_to(root.position)
+					if d < nearest:
+						nearest = d
+						place = places[i]
+				if nearest < 0.004:
+					tied += 1
+				if absf(place - float(root.around)) < 0.002:
+					in_step += 1
+			_check(tied == roots.size(), "a microtubule ends on every basal body (%d of %d)" % [tied, roots.size()])
+			_check(in_step == roots.size(), "each cilium's fibre carries its place around the cell (%d of %d)" % [in_step, roots.size()])
+			var tubule := skeleton.material_override as ShaderMaterial
+			var limb := cilia.material_override as ShaderMaterial
+			_check(tubule.get_shader_parameter("pull_rate") == limb.get_shader_parameter("pull_rate")
+				and tubule.get_shader_parameter("pull_waves") == limb.get_shader_parameter("pull_waves")
+				and tubule.get_shader_parameter("work_color") == limb.get_shader_parameter("work_color")
+				and tubule.get_shader_parameter("limb_color") == limb.get_shader_parameter("base_color"),
+				"fibres and cilia share one beat and one palette")
 	var recipes := {}
 	for entry: Array in drawn:
 		var label: String = entry[0]
@@ -168,6 +203,28 @@ func _ready() -> void:
 		await get_tree().physics_frame
 	for floor_id: String in enc.fields:
 		_check(int(enc.fields[floor_id].steps) > int(before[floor_id]), "the %s field advances" % floor_id)
+	# The drawn cell crawls on its leash while the colony stays rooted.
+	var started := {}
+	for moss: Node3D in mosses:
+		if moss._waking != null:
+			# A cell rooted against something may be leaving it; only one that
+			# starts on open floor is held to staying on open floor.
+			started[moss] = [moss.global_position, moss._waking.position, moss._crawl_clear(moss._waking.position)]
+	for i in 240:
+		await get_tree().physics_frame
+	var moved := 0
+	for moss: Node3D in started:
+		var before: Array = started[moss]
+		_check(moss.global_position.is_equal_approx(before[0]), "a crawling cell leaves its colony rooted")
+		var offset: Vector3 = moss._waking.position
+		_check(absf(offset.y) < 0.001 and offset.length() <= moss.WAKING_CRAWL_LEASH + 0.01,
+			"the cell keeps to the floor and its leash (%.2f m out)" % offset.length())
+		if offset.distance_to(before[1]) > 0.004:
+			moved += 1
+			if before[2]:
+				_check(moss._crawl_clear(offset), "where the cell has crawled to is open floor")
+	print("[V2 WAKING ORGANISM] %d of %d cells crawled in four seconds" % [moved, started.size()])
+	_check(moved >= 1, "at least one cell crawls (%d of %d)" % [moved, started.size()])
 	print("[V2 WAKING ORGANISM] startup_ms %.0f" % world.startup_ms)
 	var last := 0.0
 	for row: Dictionary in world.startup_milestones:

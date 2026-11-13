@@ -15,6 +15,13 @@ render_mode cull_back, depth_draw_opaque, diffuse_burley, specular_schlick_ggx, 
 // authored UVs (u around, v along): cross-striated, like muscle (RUL-012).
 // Translucency is hashed, not blended, so the fibres are in the picture the
 // lensing membrane bends.
+//
+// Colour follows the work (Lily, 2026-11-13: "blend colors dynamically based
+// on motion"). At rest a fibre is milk. As it pulls it takes the cilia's own
+// violet; in the instant of the strike, when it moves fastest, it flashes
+// warm. One fibre runs to every cilium (Anatomy A 0.5): it carries that
+// cilium's place, so the pull it shows is the pull that drives the limb, and
+// toward the basal body it takes the limb's colour and the two are one thing.
 
 uniform float cell_time = 0.0;
 uniform float pull_rate = 0.42;      // contractions a second; well under what strobes on film
@@ -22,6 +29,9 @@ uniform float pull_waves = 2.0;      // how many pulls are travelling around the
 uniform float slack = 0.007;         // metres a released fibre hangs in
 uniform float milk = 0.86;           // how much of a fibre is there at rest
 uniform vec3 base_color : source_color = vec3(0.86, 0.88, 0.96);
+uniform vec3 work_color : source_color = vec3(0.80, 0.50, 0.90);    // pulled: the cilia's violet
+uniform vec3 strike_color : source_color = vec3(1.0, 0.72, 0.52);   // the fast instant of a pull
+uniform vec3 limb_color : source_color = vec3(0.62, 0.42, 0.72);    // the cilium shader's base_color
 uniform vec3 glow_color : source_color = vec3(0.80, 0.70, 1.0);
 uniform sampler2D albedo_tex : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
 uniform sampler2D rough_tex : hint_default_white, filter_linear_mipmap_anisotropic, repeat_enable;
@@ -31,6 +41,8 @@ uniform float normal_depth = 0.8;
 
 varying float v_along;
 varying float v_pull;
+varying float v_strike;
+varying float v_to_limb;
 
 // A twitch: up in the first fifth of the cycle, down over the rest.
 float twitch(float t) {
@@ -41,7 +53,14 @@ float twitch(float t) {
 void vertex() {
 	v_along = COLOR.r;
 	float place = COLOR.g;
-	float pull = twitch(cell_time * pull_rate - place * pull_waves);
+	float beat = cell_time * pull_rate - place * pull_waves;
+	float pull = twitch(beat);
+	// The strike: the fifth of the beat in which the fibre shortens, peaking
+	// when it moves fastest.
+	float s = fract(beat);
+	v_strike = s < 0.2 ? sin(s * 15.7079633) : 0.0;
+	// A cilium's fibre becomes the limb toward its basal body.
+	v_to_limb = COLOR.a < 0.75 ? smoothstep(0.45, 1.0, COLOR.r) : 0.0;
 	// A slower swell of effort, different for every fascicle, so the wave
 	// never repeats exactly.
 	pull *= 0.5 + 0.5 * (0.5 + 0.5 * sin(cell_time * 0.17 + place * 11.0));
@@ -53,6 +72,7 @@ void vertex() {
 	// Pulled, it thickens in the belly and trembles.
 	VERTEX += NORMAL * belly * pull * (0.0012 + 0.0003 * sin(v_along * 44.0 - cell_time * 9.0));
 	v_pull = pull;
+	v_strike *= 0.5 + 0.5 * pull;
 }
 
 void fragment() {
@@ -62,17 +82,23 @@ void fragment() {
 	float cos_v = clamp(dot(NORMAL, VIEW), 0.0, 1.0);
 	float fres = pow(1.0 - cos_v, 2.0);
 	vec3 opal = 0.5 + 0.5 * cos(6.2831853 * (vec3(0.0, 0.33, 0.67) + fres * 1.2 + v_along * 0.6));
-	ALBEDO = base_color * surf * 1.12;
+	// Milk at rest, the cilia's violet under load, the limb's own colour where
+	// a fibre meets its cilium.
+	vec3 body = mix(base_color, work_color, v_pull * 0.85);
+	body = mix(body, strike_color, v_strike * 0.55);
+	body = mix(body, mix(limb_color, strike_color, v_strike * 0.5), v_to_limb);
+	ALBEDO = body * surf * 1.12;
 	ROUGHNESS = clamp(texture(rough_tex, uv).r, 0.04, 1.0);
 	NORMAL_MAP = texture(normal_tex, uv).rgb;
 	NORMAL_MAP_DEPTH = normal_depth;
 	SPECULAR = 0.6;
 	SSS_STRENGTH = 0.7;
-	BACKLIGHT = base_color * 0.7;
-	EMISSION = glow_color * (0.03 + 0.20 * v_pull * sin(v_along * 3.14159265)) + opal * fres * 0.18;
+	BACKLIGHT = body * 0.7;
+	EMISSION = mix(glow_color, strike_color, v_strike) * (0.03 + 0.20 * v_pull * sin(v_along * 3.14159265) + 0.22 * v_strike)
+			+ opal * fres * 0.18;
 	// Milk: a tube of it is densest at its edge, in its dense bands and when
 	// it is pulled short.
 	float dense_band = 1.0 - surf.g;
-	ALPHA = clamp(milk * (0.66 + 0.34 * fres) * (0.86 + 1.3 * dense_band) * (0.72 + 0.50 * v_pull), 0.0, 1.0);
+	ALPHA = clamp(milk * (0.66 + 0.34 * fres) * (0.86 + 1.3 * dense_band) * (0.72 + 0.50 * v_pull) + v_to_limb * 0.5, 0.0, 1.0);
 	ALPHA_HASH_SCALE = 1.0;
 }

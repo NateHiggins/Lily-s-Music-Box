@@ -24,6 +24,15 @@ uniform float stroke = 0.55;         // root swing, radians
 uniform vec3 base_color : source_color = vec3(0.62, 0.42, 0.72);
 uniform vec3 tip_color : source_color = vec3(0.95, 0.78, 1.0);
 uniform float opal_gain = 0.7;
+// Tied to the cytoskeleton (Lily, 2026-11-13): a fibre ends on every basal
+// body, and the pull that travels the canopy (the tubule shader's own beat,
+// at this cilium's place) is what the limb works with. Under load it strokes
+// wider; colour follows the motion: the limb warms as it moves fastest and
+// takes the pulled fibre's violet while its fibre is taut.
+uniform float pull_rate = 0.42;
+uniform float pull_waves = 2.0;
+uniform vec3 work_color : source_color = vec3(0.80, 0.50, 0.90);
+uniform vec3 strike_color : source_color = vec3(1.0, 0.72, 0.52);
 // The limb's cuticle is a registered recipe on the cilium's authored UVs
 // (u around, v along): art/tools/build_waking_colony_maps.py, RUL-012.
 uniform sampler2D albedo_tex : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
@@ -38,9 +47,17 @@ uniform float normal_depth = 0.8;
 const float L0 = 0.050;
 const float L1 = 0.044;
 const float TURN1 = 0.55;
+const float TURN2 = 0.75;
 
 varying float v_along;
 varying float v_flash;
+varying float v_speed;
+varying float v_pull;
+
+float beat_pull(float t) {
+	float s = fract(t);
+	return s < 0.2 ? smoothstep(0.0, 0.2, s) : 1.0 - smoothstep(0.2, 1.0, s);
+}
 
 vec3 rot_x(vec3 p, float a) {
 	float c = cos(a), s = sin(a);
@@ -61,18 +78,31 @@ void vertex() {
 	int seg = int(COLOR.g * 2.0 + 0.5);
 	float around = INSTANCE_CUSTOM.x;
 	float jitter = INSTANCE_CUSTOM.y;
+	// Feeling something (INSTANCE_CUSTOM.z, eased by the owner): the limb
+	// stops stepping, straightens out to the thing and pats it. The owner
+	// aims and sizes the instance so the straightened tip lands on the spot.
+	float touch = INSTANCE_CUSTOM.z;
+	float feel = cell_time * 2.3 + jitter * 20.0;
 	float t = cell_time * gait_rate * (0.9 + 0.2 * jitter);
 	float s = fract(t - around * gait_waves + jitter * 0.15);
 	// Power stroke over the first third, recovery over the rest.
 	float power = smoothstep(0.0, 0.33, s);
 	float recover = smoothstep(0.33, 1.0, s);
-	float root = s < 0.33 ? mix(-stroke, stroke, power) : mix(stroke, -stroke, recover);
+	// Its fibre's pull: the same beat the cytoskeleton shows at this place.
+	float pull = beat_pull(cell_time * pull_rate - around * pull_waves);
+	pull *= 0.5 + 0.5 * (0.5 + 0.5 * sin(cell_time * 0.17 + around * 11.0));
+	float reach = stroke * (0.60 + 0.70 * pull);
+	float root = s < 0.33 ? mix(-reach, reach, power) : mix(reach, -reach, recover);
 	float lift = s < 0.33 ? 0.0 : sin(recover * 3.14159);
 	// Knuckles fold on the recovery (the leg lifts) and snap straight on the
 	// power stroke; a rare twitch rides the tarsus.
 	float twitch = pow(max(0.0, sin(cell_time * 0.9 + jitter * 40.0)), 24.0);
 	float k1 = 0.15 + 0.65 * lift;
 	float k2 = 0.10 + 0.55 * lift + 0.7 * twitch * sin(cell_time * 31.0 + jitter * 9.0);
+	root *= 1.0 - touch;
+	lift *= 1.0 - touch;
+	k1 = mix(k1, -TURN1 * 0.82 + 0.10 * sin(feel * 0.7), touch);
+	k2 = mix(k2, -TURN2 * 0.82 + 0.16 * sin(feel), touch);
 	// Joint pivots in the rest pose (Godot axes: up is +Y, the curl is about X).
 	vec3 p1 = vec3(0.0, L0, 0.0);
 	vec3 p2 = p1 + rot_x(vec3(0.0, L1, 0.0), TURN1);
@@ -80,10 +110,16 @@ void vertex() {
 	if (seg >= 2) { v = about(v, p2, k2); }
 	if (seg >= 1) { v = about(v, p1, k1); }
 	// The whole limb: lifted and swung at the root.
-	v = rot_x(v, root * 0.35 + lift * 0.25);
-	v = rot_y(v, root);
+	v = rot_x(v, root * 0.35 + lift * 0.25 + touch * 0.05 * sin(feel * 0.53));
+	v = rot_y(v, root + touch * 0.06 * sin(feel * 0.41 + 1.0));
 	VERTEX = v;
 	v_flash = 1.0 - power;
+	// How fast the limb is moving: the power stroke peaks mid-swing, the
+	// recovery is a slow return. Wider strokes move faster.
+	v_speed = (s < 0.33 ? sin(power * 3.14159265) : 0.22 * sin(recover * 3.14159265)) * (0.55 + 0.75 * pull);
+	// A feeling limb warms with each pat instead of each step.
+	v_speed = mix(v_speed, 0.35 + 0.45 * abs(cos(feel)), touch);
+	v_pull = pull;
 }
 
 void fragment() {
@@ -91,12 +127,19 @@ void fragment() {
 	float fres = pow(1.0 - cos_v, 2.0);
 	vec3 opal = 0.5 + 0.5 * cos(6.2831853 * (vec3(0.0, 0.33, 0.67) + fres * 1.4 + v_along * 0.8));
 	vec2 uv = UV * uv_tile;
-	ALBEDO = mix(base_color, tip_color, smoothstep(0.4, 1.0, v_along)) * texture(albedo_tex, uv).rgb * 1.22;
+	// Colour by motion: the resting violet, the pulled fibre's colour while
+	// its fibre is taut (strongest at the root, where the fibre joins), and a
+	// warm flush that rides out along the limb with its speed.
+	vec3 limb = mix(base_color, tip_color, smoothstep(0.4, 1.0, v_along));
+	limb = mix(limb, work_color, v_pull * 0.55 * (1.0 - 0.6 * v_along));
+	limb = mix(limb, strike_color, clamp(v_speed, 0.0, 1.0) * (0.25 + 0.45 * v_along));
+	ALBEDO = limb * texture(albedo_tex, uv).rgb * 1.22;
 	ROUGHNESS = clamp(texture(rough_tex, uv).r, 0.04, 1.0);
 	NORMAL_MAP = texture(normal_tex, uv).rgb;
 	NORMAL_MAP_DEPTH = normal_depth;
 	SPECULAR = 0.75;
 	SSS_STRENGTH = 0.5;
 	BACKLIGHT = ALBEDO * 0.5;
-	EMISSION = opal * fres * opal_gain * 0.35 + tip_color * 0.06 * smoothstep(0.85, 1.0, v_along);
+	EMISSION = opal * fres * opal_gain * 0.35 + tip_color * 0.06 * smoothstep(0.85, 1.0, v_along)
+			+ strike_color * 0.10 * clamp(v_speed, 0.0, 1.0) * v_along;
 }

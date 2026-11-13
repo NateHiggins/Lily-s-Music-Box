@@ -28,6 +28,33 @@ const WAKING_CILIA := 150
 var _waking: Node3D
 var _waking_materials: Array[ShaderMaterial] = []
 var _waking_skeleton: MeshInstance3D
+## The waking cell crawls and feels (Lily, 2026-11-13: "slowly crawl around
+## the floor with the cilia touching objects in its reach ... exploratively").
+## Presentation only: the colony record, its source point and everything the
+## ecology reads stay where the colony is rooted. The drawn cell wanders on a
+## leash around that point, keeps to open floor, and its cilia reach out to
+## whatever the feelers find near its rim.
+const WAKING_CRAWL_SPEED := 0.022        # metres a second at full pace
+const WAKING_CRAWL_LEASH := 1.1          # metres from where it is rooted
+const WAKING_BODY_RADIUS := 0.26
+const WAKING_TOUCH_REACH := 0.20         # metres beyond the membrane
+const WAKING_FEELERS := 16
+const WAKING_LIMB_LENGTH := 0.124        # a cilium's reach, straightened, at scale one
+var crawl_enabled := true
+var _crawl_target := Vector3.ZERO
+var _crawl_rest := 0.0
+var _crawl_check := 0.0
+var _crawl_travelled := 0.0
+var _crawl_rng := RandomNumberGenerator.new()
+var _feel_clock := 0.0
+var _feel_hits: Array[Dictionary] = []
+var _waking_cilia: MultiMeshInstance3D
+var _cilia_roots: Array[Dictionary] = []
+var _cilia_rest_basis: Array[Basis] = []
+var _cilia_rest_scale := PackedFloat32Array()
+var _cilia_touch := PackedFloat32Array()
+var _cilia_want := PackedFloat32Array()
+var _cilia_aim: Array[Vector3] = []
 var _organelles: Array[Dictionary] = []
 var _heart: MeshInstance3D
 var _sheet: MeshInstance3D
@@ -94,12 +121,23 @@ func _process(delta: float) -> void:
 		_refresh_clock = 0.20
 	if waking_style and _waking != null:
 		_animate_waking()
+		_animate_touch(delta)
 		return
 	_animate_heart()
 	_animate_cilia()
 	_animate_ether()
 	_animate_report(delta)
 	_animate_proteins()
+
+
+func _physics_process(delta: float) -> void:
+	if not waking_style or _waking == null or not crawl_enabled or not is_visible_in_tree():
+		return
+	_crawl(delta)
+	_feel_clock -= delta
+	if _feel_clock <= 0.0:
+		_feel_clock = 0.3
+		_feel()
 
 
 func _build_materials() -> void:
@@ -582,6 +620,13 @@ const WAKING_CILIUM_TILE := Vector2(1.0, 6.0)
 ## along over the recipe's tile, so the repeat is one.
 const WAKING_TUBULE_RECIPE := "tubule"
 const WAKING_TUBULE_TILE := Vector2(1.0, 1.0)
+## One beat and one palette for the fibres, the limbs tied to them and the
+## milky web: a pull shows the same colour, at the same moment, in all three.
+const WAKING_PULL_RATE := 0.42
+const WAKING_PULL_WAVES := 2.0
+const WAKING_WORK_COLOR := Color(0.80, 0.50, 0.90)
+const WAKING_STRIKE_COLOR := Color(1.0, 0.72, 0.52)
+const WAKING_LIMB_COLOR := Color(0.62, 0.42, 0.72)
 
 
 ## Binds one registered recipe's three maps to a colony material.
@@ -595,6 +640,15 @@ func _bind_waking_recipe(material: ShaderMaterial, recipe: String, tile: Vector2
 		material.set_shader_parameter(pair[0], texture)
 	material.set_shader_parameter("uv_tile", tile)
 	material.set_meta("recipe", "waking_colony_" + recipe)
+
+
+## The shared beat and palette; a shader ignores the ones it does not declare.
+func _bind_waking_work(material: ShaderMaterial) -> void:
+	material.set_shader_parameter("pull_rate", WAKING_PULL_RATE)
+	material.set_shader_parameter("pull_waves", WAKING_PULL_WAVES)
+	material.set_shader_parameter("work_color", WAKING_WORK_COLOR)
+	material.set_shader_parameter("strike_color", WAKING_STRIKE_COLOR)
+	material.set_shader_parameter("limb_color", WAKING_LIMB_COLOR)
 
 
 func _build_waking() -> void:
@@ -628,11 +682,13 @@ func _build_waking() -> void:
 			material.shader = membrane_shader
 			material.set_shader_parameter("tardi_normal", load("res://assets/dream/microscopy/tardigrade_membrane/normal.png"))
 			material.set_shader_parameter("cytoplasm_web", load(WAKING_RECIPE_DIR + "cytoplasm_web.png"))
+			_bind_waking_work(material)
 		elif key == "Cytoskeleton":
 			# The microtubule canopy is fixed to the cell: it works in place
 			# and does not stream with the organelles.
 			material.shader = preload("res://shaders/waking_colony_tubule.gdshader")
 			_bind_waking_recipe(material, WAKING_TUBULE_RECIPE, WAKING_TUBULE_TILE)
+			_bind_waking_work(material)
 			_waking_skeleton = mi
 		else:
 			material.shader = organelle_shader
@@ -688,6 +744,8 @@ func _build_waking_cilia(mesh: Mesh, roots: Array[Dictionary]) -> void:
 	var material := ShaderMaterial.new()
 	material.shader = preload("res://shaders/waking_colony_cilium.gdshader")
 	_bind_waking_recipe(material, WAKING_CILIUM_RECIPE, WAKING_CILIUM_TILE)
+	_bind_waking_work(material)
+	material.set_shader_parameter("base_color", WAKING_LIMB_COLOR)
 	_waking_materials.append(material)
 	var cilia := MultiMeshInstance3D.new()
 	cilia.name = "WakingCilia"
@@ -707,12 +765,177 @@ func _build_waking_cilia(mesh: Mesh, roots: Array[Dictionary]) -> void:
 		# The cilium's own frame: length along +Y, the rest curl toward +Z.
 		var basis := Basis(length_axis.cross(curl), length_axis, curl)
 		basis = basis.rotated(length_axis, (float(root.b) - 0.5) * 0.5)
-		basis = basis.scaled(Vector3.ONE * (0.9 + 0.5 * float(root.a)))
-		multimesh.set_instance_transform(i, Transform3D(basis, root.position))
+		var size := 0.9 + 0.5 * float(root.a)
+		_cilia_rest_basis.append(basis)
+		_cilia_rest_scale.append(size)
+		_cilia_aim.append(Vector3.ZERO)
+		multimesh.set_instance_transform(i, Transform3D(basis.scaled(Vector3.ONE * size), root.position))
 		multimesh.set_instance_custom_data(i, Color(float(root.around), float(root.a), 0.0, 1.0))
+	_cilia_roots = roots
+	_cilia_touch.resize(roots.size())
+	_cilia_want.resize(roots.size())
+	_waking_cilia = cilia
+	_crawl_rng.seed = int(colony.seed) * 7919 + 13 if colony != null else 13
 	cilia.multimesh = multimesh
 	cilia.custom_aabb = AABB(Vector3(-0.7, -0.05, -0.7), Vector3(1.4, 0.5, 1.4))
 	_waking.add_child(cilia)
+
+
+# ------------------------------------------------------------ crawl and touch
+
+## Is there room for the cell here, on the same floor? `at` is in this node's
+## own space. A flat cylinder the size of the cell must be free of every
+## collider, and the floor must be under it at the height it is rooted on.
+func _crawl_clear(at: Vector3) -> bool:
+	var world := get_world_3d()
+	if world == null:
+		return false
+	var space := world.direct_space_state
+	var here := to_global(at)
+	var body := CylinderShape3D.new()
+	body.radius = WAKING_BODY_RADIUS
+	body.height = 0.12
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = body
+	query.transform = Transform3D(Basis.IDENTITY, here + Vector3.UP * 0.10)
+	query.collide_with_areas = false
+	if not space.intersect_shape(query, 1).is_empty():
+		return false
+	var down := PhysicsRayQueryParameters3D.create(here + Vector3.UP * 0.25, here + Vector3.DOWN * 0.15)
+	var floor_hit := space.intersect_ray(down)
+	return not floor_hit.is_empty() and absf(float(floor_hit.position.y) - here.y) < 0.04
+
+
+func _choose_crawl_target() -> void:
+	var here := _waking.position
+	for attempt in 8:
+		var angle := _crawl_rng.randf() * TAU
+		var far := _crawl_rng.randf_range(0.25, 0.70)
+		var candidate := Vector3(here.x + cos(angle) * far, 0.0, here.z + sin(angle) * far)
+		if candidate.length() > WAKING_CRAWL_LEASH:
+			continue
+		if _crawl_clear(candidate) and _crawl_clear(here.lerp(candidate, 0.5)):
+			_crawl_target = candidate
+			return
+	# Hemmed in: stay, and look again in a while.
+	_crawl_target = here
+	_crawl_rest = 2.5
+
+
+func _crawl(delta: float) -> void:
+	if _crawl_rest > 0.0:
+		_crawl_rest -= delta
+		return
+	var here := _waking.position
+	var ahead := Vector3(_crawl_target.x - here.x, 0.0, _crawl_target.z - here.z)
+	if ahead.length() < 0.03:
+		# Arrived: feel about for a while, then choose somewhere else.
+		_crawl_rest = _crawl_rng.randf_range(1.5, 5.0) if _crawl_travelled > 0.0 else 0.0
+		_choose_crawl_target()
+		return
+	var way := ahead.normalized()
+	_crawl_check -= delta
+	if _crawl_check <= 0.0:
+		_crawl_check = 0.25
+		if not _crawl_clear(here + way * 0.06):
+			# Something is in the way now (a chair moved, someone stands there).
+			_crawl_rest = 1.0
+			_choose_crawl_target()
+			return
+	# It moves in surges, not at a glide.
+	var pace := 0.55 + 0.45 * sin(_clock * 0.9)
+	var step := way * WAKING_CRAWL_SPEED * pace * delta
+	_waking.position = here + step
+	_crawl_travelled += step.length()
+
+
+## Feelers: low rays out from the rim, turning slowly so the cell sweeps the
+## space between them. Each hit is something a cilium can reach for.
+func _feel() -> void:
+	_feel_hits.clear()
+	var world := get_world_3d()
+	if world == null:
+		return
+	var space := world.direct_space_state
+	var rx := 0.27
+	var rz := 0.23
+	for k in WAKING_FEELERS:
+		var angle := (float(k) / float(WAKING_FEELERS)) * TAU + _clock * 0.07
+		var way := Vector3(cos(angle), 0.0, sin(angle))
+		var rim := 1.0 / sqrt(pow(way.x / rx, 2.0) + pow(way.z / rz, 2.0))
+		var from := _waking.to_global(way * rim * 0.6 + Vector3.UP * 0.07)
+		var to := _waking.to_global(way * (rim + WAKING_TOUCH_REACH) + Vector3.UP * 0.07)
+		var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(from, to))
+		if hit.is_empty():
+			continue
+		_feel_hits.append({"angle": angle, "point": _waking.to_local(hit.position)})
+	# Which cilia answer: those on that side whose reach covers the thing, and
+	# only some at a time, taking turns, so the cell feels rather than grabs.
+	var turn := int(floor(_clock / 2.5))
+	for i in _cilia_roots.size():
+		_cilia_want[i] = 0.0
+		if _feel_hits.is_empty():
+			continue
+		var root_at: Vector3 = _cilia_roots[i].position
+		var side := atan2(root_at.z, root_at.x)
+		for hit: Dictionary in _feel_hits:
+			if absf(angle_difference(side, float(hit.angle))) > TAU / float(WAKING_FEELERS) * 0.75:
+				continue
+			# Each cilium feels its own spot on the thing, a little off the ray.
+			var spot: Vector3 = hit.point + Vector3(0.0, (_hash01(i * 37 + turn) - 0.4) * 0.07, 0.0) \
+					+ Vector3(-sin(side), 0.0, cos(side)) * (_hash01(i * 53 + turn) - 0.5) * 0.05
+			var far := root_at.distance_to(spot)
+			if far < 0.05 or far > WAKING_LIMB_LENGTH * 1.65:
+				continue
+			if _hash01(i * 71 + turn * 13) < 0.42:
+				continue
+			_cilia_want[i] = 1.0
+			_cilia_aim[i] = spot
+			break
+
+
+## Where cilium `i` is now: at rest on its root, or eased toward the thing it
+## is feeling, turned to it and sized so its straightened tip lands on the spot.
+func waking_cilium_pose(i: int) -> Transform3D:
+	var root_at: Vector3 = _cilia_roots[i].position
+	var basis := _cilia_rest_basis[i]
+	var size := _cilia_rest_scale[i]
+	var now := _cilia_touch[i]
+	if now > 0.0:
+		var to_spot := _cilia_aim[i] - root_at
+		var along := to_spot.normalized()
+		var curl := Vector3.DOWN - along * Vector3.DOWN.dot(along)
+		curl = curl.normalized() if curl.length() > 0.01 else basis.z
+		var aim := Basis(along.cross(curl), along, curl).orthonormalized()
+		var ease := smoothstep(0.0, 1.0, now)
+		basis = basis.orthonormalized().slerp(aim, ease)
+		size = lerpf(size, clampf(to_spot.length() / WAKING_LIMB_LENGTH, 0.8, 1.7), ease)
+	return Transform3D(basis.scaled(Vector3.ONE * size), root_at)
+
+
+## Ease each cilium between its resting place and the thing it is feeling.
+func _animate_touch(delta: float) -> void:
+	if _waking_cilia == null:
+		return
+	var multimesh := _waking_cilia.multimesh
+	for i in _cilia_roots.size():
+		var now := _cilia_touch[i]
+		var want := _cilia_want[i]
+		if now == want and now == 0.0:
+			continue
+		_cilia_touch[i] = move_toward(now, want, delta * (0.9 if want > now else 1.4))
+		var root: Dictionary = _cilia_roots[i]
+		multimesh.set_instance_transform(i, waking_cilium_pose(i))
+		multimesh.set_instance_custom_data(i, Color(float(root.around), float(root.a), _cilia_touch[i], 1.0))
+
+
+## How many cilia are reaching for something now (for tests and the census).
+func waking_touching() -> int:
+	var count := 0
+	for value in _cilia_touch:
+		if value > 0.5:
+			count += 1
+	return count
 
 
 func _animate_waking() -> void:

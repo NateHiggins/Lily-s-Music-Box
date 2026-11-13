@@ -32,6 +32,7 @@ uniform float breathe = 1.0;
 uniform sampler2D cytoplasm_web : filter_linear_mipmap_anisotropic, repeat_enable;
 uniform float milk = 0.66;
 uniform vec3 milk_color : source_color = vec3(0.90, 0.93, 1.0);
+uniform vec3 work_color : source_color = vec3(0.80, 0.50, 0.90);   // the pulled fibres' colour
 uniform float web_scale = 5.5;       // repeats of the web per metre... of a half-metre cell
 uniform float pull_rate = 0.42;      // the cytoskeleton shader's own
 uniform float pull_waves = 2.0;
@@ -125,7 +126,9 @@ void fragment() {
 	float through = mix(1.0, 0.55, v_thick) / facing;
 	float milky = clamp(milk * (0.22 * cloud * through + 0.85 * fibres), 0.0, 0.88);
 
-	ALBEDO = mix(opal * 0.03, milk_color, milky);
+	// The web takes the working fibres' colour where the pull is passing.
+	vec3 milk_now = mix(milk_color, work_color, pull * 0.45 * clamp(fibres * 1.6, 0.0, 1.0));
+	ALBEDO = mix(opal * 0.03, milk_now, milky);
 	EMISSION = behind * tint * (1.0 - sheen * 0.6) * (1.0 - milky) + opal * opal_gain * (0.03 + sheen * 0.9);
 	ROUGHNESS = 0.04 + 0.08 * (1.0 - fres);
 	SPECULAR = 0.9;
