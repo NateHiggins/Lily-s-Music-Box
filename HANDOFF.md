@@ -16,17 +16,32 @@ templates and the other eight provider files are unchanged. Loop/ordinary
 performance text remains outside the current voice catalog; retain that scope
 under **K-VOICE-PRODUCTION**. Never repin original frozen production receipts.
 
-**candidate03** was prepared but never launched; it is superseded by the fresh
-combined-source case **door_passage_20261113/candidate04/**. Revalidate resources,
-lane, process identities and patched engine before starting. Candidate04 finished176.37s with16successful waypoints, then missed the native
-hot-valve selection: the fixture aimed at a hinge pivot outside the mesh.
-**valve_preflight03/** confirms actual target-center rays and the repaired route
-helper operate both exact handles (12diagnostic+16helper checks; empty stderr).
-Only fixture aim/part identity changed. Original failure and the intermediate
-preflight02 parse error remain. **candidate05/** renews the complete apartment
-under unchanged500s; closer/hose and nearby-world verification still required. Original
-failures below remain evidence. Static qualification must be renewed for the
-combined source against the clean board **order_closures_20261113/board_4b4137767.json**.
+Current pushed checkpoint **755ac96e4**. **candidate07/** completes the actual
+apartment route:34waypoints,0failures, empty stderr,189.86s under the original500s
+ceiling. Native valve/curtain tests now select their actual moving grip geometry;
+the closet can already be open after an authorized directional approach. The
+installed reproduction also exposed the companion's real casing crossing a held
+curtain ray. She now yields through the existing swept shoulder path for foreign
+hand work, retaining the pick mesh and successor input/presentation owners.
+**installed_bath_probe02/** passes11checks; earlier failures remain unaltered.
+
+**candidate08/** is terminal: closer161/0, installed hose preflight167assertions/0,
+renewed nearby loop-world106/0, all stderr empty. The world schema2 contract's
+runtime, physical and test signatures match the current source. Hose evidence
+covers actual carried/released doorway crossing, player/resident close refusal
+and normal close after clearing; its repaired-line precondition does not qualify
+procurement, full payout or spray. Independent isolated
+**companion_regression01/** first passes the78-check foreign-hand/ownership
+contract. The actual E/Space own-control bench then exposes recursive dispatch:
+the companion forwards inspected_readable_stock to herself. Original stack
+overflow retained; exact owned engine stopped at138.35s, wrapper exit-1, no pass.
+A narrow self/invalid-owner guard is now implemented; separate book owners still
+delegate normally. Repeat small own-control/foreign-work checks first, then renew
+the world aggregate. Earlier world106/0 is preserved at755ac96e4, not repinned.
+No live root engine remains from these cases. Revalidate every queue custody.
+No performance acceptance: the initial R: backup remains concurrent.
+Static qualification must be renewed against the actual merge-base4b4137767's
+clean board **order_closures_20261113/board_4b4137767.json**. Do not repin it.
 Canonical staged Harukiya work is preserved; Athena/Optimus remain held.
 Questions belong in Omni Waiting for You. Human play/artistic acceptance remain open.
 

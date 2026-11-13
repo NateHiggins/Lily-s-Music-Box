@@ -3653,3 +3653,7 @@ tools/encode_sky_film.py -text
 # Voice authoring freezes and cue provenance bind these exact source bytes.
 game/data/voice/*.json -text
 tools/voice/*.py -text
+
+# Source-bound companion work-clearance regression.
+game/tests/companion_work_clearance_test.gd -text
+game/tests/CompanionWorkClearanceTest.tscn -text

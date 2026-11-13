@@ -146,13 +146,36 @@ on1396cb822 found two new legacy input carriers plus unregistered audit records.
 The two prompts now return semantic action text for the player's existing device
 formatter; carrier audit and28tests pass. The focused636/0 contract's consumed
 inputs remain unchanged. The world106/0 contract's aggregate includes those prompt
-owners, so that original proof is preserved as historical pending renewal.
+owners, so that original proof is preserved as historical. **candidate08/** now
+renews106/0 with empty stderr; its schema2 runtime, physical and test bindings
+match755ac96e4. Campaign restoration and all four nearby arrival/locked cases
+pass. This retains the limited placement/clock/actor scope stated above.
 
-Installed4B candidate01 passed16waypoints before an obsolete shower-control test
-lookup; the fixture now targets the actual mounted hot/cold handles. Candidate02
-then failed a movement wall deadline after348.869s startup and timed out503.65s.
-After heavy backup/disk work ends, repeat that apartment scene alone under the
-same500s ceiling before closer/hose checks. Preserve both original failures.
-Static renewal lives in **candidate_static_02/**; inspect the recorded verdict.
+Installed4B **candidate07/** at755ac96e4 now completes34waypoints/0failures with
+empty stderr under the original500s ceiling. Tests select native valve contact
+centers and the moving curtain grip; a closet already opened by directional
+approach is a valid mechanism state. The actual installed curtain reproduction
+identified the companion's fixed casing as a held-ray blocker. Foreign hand work
+now invokes her existing swept shoulder path, retaining physical pick occlusion;
+own-control/protected/story/typing ownership is guarded. Nearby installed
+**installed_bath_probe02/** passes11checks; independent ownership regression is
+passes78checks in **companion_regression01/**. Its subsequent actual own-control
+E/Space programme exposes recursive self-forwarding in inspected_readable_stock;
+the stopped failure is retained. A narrow invalid/self-owner guard is implemented
+without changing separate book delegation; small controls and the world aggregate
+must renew before merge. **candidate08/** also completes closer
+161/0 and installed hose preflight167assertions/0, empty stderr. Actual held and
+released hose blocks player/resident close; clearing it restores normal closure.
+The staged repaired-line precondition is not procurement, full payout or spray
+qualification. The final hose capture is a close mechanism view, not a useful
+presentation/beauty proof; apartment and loop captures were inspected separately.
+
+Original cases01/02/04/05/06 retain the stale-root lookup, movement deadline,
+out-of-mesh valve pivot, retired curtain coordinates and actual companion-blocker
+failures respectively. Prepared03 never launched. Isolated preflight parse errors
+are retained separately, not called stale caches. Initial R: backup runs
+concurrently; these are functional checks, not clean timing measurements.
+Final static renewal must compare to the clean132-gate board of the actual
+merge-base4b4137767; **candidate_static_02/** is prior source evidence only.
 Broader traffic, historical attendance, populated-frame cost, main merge, human
 play and artistic acceptance remain open. Fable's body/outfit work is separate.
