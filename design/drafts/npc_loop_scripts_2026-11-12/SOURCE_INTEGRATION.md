@@ -163,7 +163,17 @@ passes78checks in **companion_regression01/**. Its subsequent actual own-control
 E/Space programme exposes recursive self-forwarding in inspected_readable_stock;
 the stopped failure is retained. A narrow invalid/self-owner guard is implemented
 without changing separate book delegation; small controls and the world aggregate
-must renew before merge. **candidate08/** also completes closer
+must renew before merge. The02retry has no engine errors but its hidden native
+cursor never reaches the requested positions (32checks/13failures). The bench
+is being renewed through the existing detached event-owned viewport pattern,
+retaining physical ray/part selection and actual gestures; no mouse warp on
+Lily's desktop or fabricated selected target. The03/04retries preserved missed
+global shortcut edges; correct process-frame publication for the polled owner
+now passes own-controls91/0 and work-clearance78/0 in **companion_regression05/**.
+Its world aggregate also renews106/0 after the self-inspection guard at6622f7f9c,
+with current runtime/physical/test bindings, restored campaign and empty stderr.
+The final bench-only commit preserves those consumed bytes; original receipts
+keep their original SHA and are not repinned. **candidate08/** also completes closer
 161/0 and installed hose preflight167assertions/0, empty stderr. Actual held and
 released hose blocks player/resident close; clearing it restores normal closure.
 The staged repaired-line precondition is not procurement, full payout or spray

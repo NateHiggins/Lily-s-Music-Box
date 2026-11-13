@@ -1,49 +1,46 @@
-# Current integration — merged voice intake; door/loop qualification (November 13)
+# Current integration — PR255 final qualification (November 13)
 
-**PR256 merged as a20b2320d**, exact qualified4b4137767 tree. Recording-intake
+**PR256 merged as a20b2320d**, exact qualified 4b4137767 tree. Recording-intake
 **w55379c52f884** and Queens research-review **w0e43f4d4f9bf** are closed.
-132 static gates:127PASS,4existingFAIL,1INCOMPLETE; zero new regressions,
-protected17/17, reader NEW0.78 voice tests and actual Rhubarb alignment/reuse/
-stale-hint refusal pass. Evidence: **C:/ov/reports/order_closures_20261113/**.
-Old draftPR230 is closed as superseded; its branch and private partial production
-remain preserved. No generated voice bank or played lip-sync is claimed.
+Its 132-gate board has zero new regressions; 78 voice tests and actual Rhubarb
+alignment/reuse/stale-hint refusal pass. No generated voice bank or played
+lip-sync is claimed. Old draft PR230 is closed as superseded; branch, experiments
+and partial private production remain preserved.
 
-This existing checkout **C:/ov/ldv** is back on
-**codex/door-loop-integration-20261113**, draftPR255. Qualified voice/research
-commit4b4137767 is incorporated without another checkout. Only the reviewed
-resident-conversations provider pin changes: all extracted dynamic functions,
-templates and the other eight provider files are unchanged. Loop/ordinary
-performance text remains outside the current voice catalog; retain that scope
-under **K-VOICE-PRODUCTION**. Never repin original frozen production receipts.
+**C:/ov/ldv**, branch **codex/door-loop-integration-20261113**, draft **PR255**,
+is the integration candidate. Runtime checkpoint **6622f7f9c** adds the narrow
+companion self-inspection recursion guard. The latest fixture/document checkpoint
+retains the same tested production payload. Final static verification must bind
+its actual SHA against merge-base **4b4137767** and the clean board
+**C:/ov/reports/order_closures_20261113/board_4b4137767.json**. No merge yet.
 
-Current pushed checkpoint **755ac96e4**. **candidate07/** completes the actual
-apartment route:34waypoints,0failures, empty stderr,189.86s under the original500s
-ceiling. Native valve/curtain tests now select their actual moving grip geometry;
-the closet can already be open after an authorized directional approach. The
-installed reproduction also exposed the companion's real casing crossing a held
-curtain ray. She now yields through the existing swept shoulder path for foreign
-hand work, retaining the pick mesh and successor input/presentation owners.
-**installed_bath_probe02/** passes11checks; earlier failures remain unaltered.
+**C:/ov/reports/door_passage_20261113/companion_regression05/** is terminal:
+own-control 91/0, work-clearance schema2 78/0, nearby loop-world schema2 106/0,
+all stderr empty. Runtime, physical and fixture signatures were rechecked.
+The bench now uses a detached input viewport and publishes global keyboard
+edges before the player's process callback; real picking/gesture owners remain.
+At preceding 755ac96e4, **candidate07/** passes the installed apartment route
+(34 waypoints), and **candidate08/** passes closer 161/0 and hose crossing
+167 assertions/0. The later guard only refuses readable-stock forwarding to
+self/invalid owners; door, hose, apartment handlers and native assets are unchanged.
+These earlier diagnostic receipts retain their original source, never repinned.
+Hose scope is repaired-line doorway preflight, not procurement/full payout/spray.
 
-**candidate08/** is terminal: closer161/0, installed hose preflight167assertions/0,
-renewed nearby loop-world106/0, all stderr empty. The world schema2 contract's
-runtime, physical and test signatures match the current source. Hose evidence
-covers actual carried/released doorway crossing, player/resident close refusal
-and normal close after clearing; its repaired-line precondition does not qualify
-procurement, full payout or spray. Independent isolated
-**companion_regression01/** first passes the78-check foreign-hand/ownership
-contract. The actual E/Space own-control bench then exposes recursive dispatch:
-the companion forwards inspected_readable_stock to herself. Original stack
-overflow retained; exact owned engine stopped at138.35s, wrapper exit-1, no pass.
-A narrow self/invalid-owner guard is now implemented; separate book owners still
-delegate normally. Repeat small own-control/foreign-work checks first, then renew
-the world aggregate. Earlier world106/0 is preserved at755ac96e4, not repinned.
-No live root engine remains from these cases. Revalidate every queue custody.
-No performance acceptance: the initial R: backup remains concurrent.
-Static qualification must be renewed against the actual merge-base4b4137767's
-clean board **order_closures_20261113/board_4b4137767.json**. Do not repin it.
-Canonical staged Harukiya work is preserved; Athena/Optimus remain held.
-Questions belong in Omni Waiting for You. Human play/artistic acceptance remain open.
+All original failures remain: native valve/curtain fixture coordinates, actual
+companion casing interrupting a held ray, self-inspection recursion, hidden-window
+pointer delivery and polled-key timing. The existing swept shoulder path now
+clears foreign hand work without disabling physical pick occlusion. Guarded
+own-control, protected/story/typing ownership remains with its original owners.
+No live root Godot run remains from these cases. The R: backup is independent;
+functional checks are not uncontended performance measurements.
+
+Canonical staged Harukiya work remains untouched. Athena/Optimus remain held.
+Claude waits for the exact PR255 merge SHA before PR251/252/253/254 and the
+remaining qualified batches. Tea staging, ordinary meeting marks, historical
+attendance, voice corpus/playback, human play and artistic acceptance stay open.
+**NEXT_SCOPED_WORK.json** in the door report case records read-only tea and bar
+continuation recommendations; they are not implementation or acceptance.
+Questions belong in Omni Waiting for You.
 
 # Prior door/loop evidence and canonical custody (November 13)
 
