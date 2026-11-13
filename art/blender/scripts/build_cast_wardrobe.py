@@ -9,7 +9,7 @@ helpers (a body-hugging shell and a skirt), cut to each garment's shape, set
 off from the skin, and given the character's colours. The world is surreal and
 the cast must read at a distance, so the palettes are bold.
 """
-import bpy, bmesh, os, sys, glob, json, math, importlib, importlib.util, traceback, zlib
+import bpy, bmesh, os, sys, glob, json, math, importlib, importlib.util, shutil, traceback, zlib
 import numpy
 from mathutils import Matrix, Vector
 from mathutils.bvhtree import BVHTree
@@ -197,12 +197,20 @@ def along_arm(co):
 garments = []
 
 
+# Silk that follows the body (a gown's `cling`): how many times the skin under it is smoothed, and how widely
+# (in faces) the lift that clears what the smoothing took away is spread and then eased.
+CLING_SMOOTH = 30
+CLING_SPREAD = 8
+CLING_EASE = 6
+
+
 CLOTHS = {
     "cotton": {"rough": 0.85, "depth": 0.5, "shade": 0.05},
     "wool": {"rough": 0.92, "depth": 0.9, "shade": 0.09},
     "knit": {"rough": 0.96, "depth": 1.6, "shade": 0.14},
     "felt": {"rough": 0.95, "depth": 0.35, "shade": 0.06},
     "silk": {"rough": 0.6, "depth": 0.12, "shade": 0.03},
+    "satin": {"rough": 0.52, "depth": 0.03, "shade": 0.008},
     "leather": {"rough": 0.32, "depth": 0.25, "shade": 0.05},
 }
 
@@ -216,7 +224,7 @@ def worn_colour(colour):
     return [min(1.0, (c + (grey - c) * MUTE) * (0.94 + 0.1 * MUTE)) for c in colour]
 
 
-def patterned(name, colour, pattern, rough, cloth="cotton"):
+def patterned(name, colour, pattern, rough, cloth="cotton", alpha=1.0):
     colour = worn_colour(colour)
     if pattern and "colour" in pattern:
         pattern = dict(pattern, colour=worn_colour(pattern["colour"]))
@@ -290,6 +298,9 @@ def patterned(name, colour, pattern, rough, cloth="cotton"):
     normal[:, :, 1] = (-dy / length) * 0.5 + 0.5
     normal[:, :, 2] = (1.0 / length) * 0.5 + 0.5
     normal[:, :, 3] = 1.0
+    if alpha < 1.0:
+        # Sheer cloth: the whole picture lets this much light through.
+        grid[:, :, 3] = alpha
     pictures = []
     for suffix, data, space in (("_cloth", grid, "sRGB"), ("_cloth_normal", normal, "Non-Color")):
         picture = bpy.data.images.new(name + suffix, size, size, alpha=True)
@@ -324,6 +335,13 @@ def patterned(name, colour, pattern, rough, cloth="cotton"):
     links.new(normal_picture.outputs[0], normal_node.inputs["Color"])
     links.new(normal_node.outputs[0], shader.inputs["Normal"])
     shader.inputs["Roughness"].default_value = kind_of["rough"]
+    if alpha < 1.0:
+        links.new(colour_node.outputs["Alpha"], shader.inputs["Alpha"])
+        for setting, value in (("blend_method", "BLEND"), ("surface_render_method", "BLENDED")):
+            try:
+                setattr(material, setting, value)
+            except Exception:
+                pass
     return material
 
 
@@ -406,7 +424,7 @@ def smooth_weights(obj, passes=2):
             obj.vertex_groups[group_index].add([index], weight / total, "REPLACE")
 
 
-def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0, made=None, weights=None):
+def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0, made=None, weights=None, alpha=1.0):
     """A garment: the faces of a clothing helper whose corners all pass `keep`,
     set off from the skin by `offset` metres. Or, with `made`, a shape built
     outright (made fills the mesh; weights gives each point its bones)."""
@@ -419,13 +437,17 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         bm.verts.ensure_lookup_table()
         source_index = group_index[source]
         deform = bm.verts.layers.deform.verify()
+        # Cloth cut from the body takes all of the body: every point that is not a clothing helper or a joint
+        # marker. (The group called "body" leaves out patches of it, the nipples among them, and cloth cut from
+        # that group alone had holes there.)
+        aside = {index for index, group_name in names.items() if group_name.startswith(("helper-", "joint-"))} if source == "body" else set()
         # `keep` gives each point a margin in metres: positive inside the garment, negative outside (True and
         # False count as far inside and far outside). The cloth is cut where the margin crosses zero, through
         # the faces. Cutting along the faces' own edges left teeth at every armhole, neckline and hem.
         # Margins are read before anything is deleted: deleting renumbers the points.
         margin = {}
         for v in bm.verts:
-            if source_index not in v[deform]:
+            if (source == "body" and any(index in aside for index in v[deform].keys())) or (source != "body" and source_index not in v[deform]):
                 continue
             value = keep(mesh.vertices[v.index])
             if value is True:
@@ -461,7 +483,7 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         print("GARMENT", name, "is empty")
         return None
     # A little easing along every open edge takes out what the cut left.
-    for _ in range(8 if made is None else 22):
+    for _ in range(22 if made is not None or source == "body" else 8):
         moved = {}
         for v in bm.verts:
             beside = [e.other_vert(v) for e in v.link_edges if e.is_boundary]
@@ -472,6 +494,8 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
     if subdivide:
         bmesh.ops.subdivide_edges(bm, edges=bm.edges[:], cuts=subdivide, use_grid_fill=True, smooth=0.6)
     bm.normal_update()
+    # Cloth cut from the body's own surface remembers where the skin is under each of its points.
+    under_skin = {v: (v.co.copy(), v.normal.copy()) for v in bm.verts} if source == "body" else None
     for v in bm.verts:
         push = offset + (thicken(v.co) if thicken else 0.0)
         if abs(v.co.x) > shoulder.x - 0.02 and v.co.z > hip and source == "helper-tights":
@@ -484,6 +508,63 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         v.co = v.co + v.normal * push
         if reshape:
             v.co = reshape(v.co)
+    if under_skin is not None:
+        # Silk does not print the body: it spans from one fullness to the next. The cloth follows the body's
+        # surface smoothed (so small relief is gone from it), stood off far enough to clear what the smoothing
+        # took away, and no point of it is left nearer than a finger's thickness to its own patch of skin.
+        # Silk does not print the body. What was tried, and what each round showed:
+        #   r12  the skin smoothed nine times, one stand-off for all of it along the skin's own normals: those fan
+        #        out at every small fullness, and drew it again.
+        #   r13  thirty passes and a lift that peaked at the bust's point: a hill with the point on top.
+        #   r15  twelve passes and a wide level lift: the twelve left the bust's own cone in the surface.
+        #   r16  drawn smooth afterwards, held clear of the skin: cloth pulled tight over a point is a tent.
+        # So: the skin is smoothed until the bust's cone is gone from it (CLING_SMOOTH passes); what that took away
+        # is given back as a lift that is level over each fullness and falls away round it (the need, spread
+        # CLING_SPREAD faces wide and eased), so the silk is a dome there and touches the point without rising to
+        # it; and nothing is smoothed afterwards. The proudest point left is measured and printed.
+        smooth_, spread_, ease_ = [int(n) for n in os.environ.get("CLING_TUNE", "%d,%d,%d" % (CLING_SMOOTH, CLING_SPREAD, CLING_EASE)).split(",")]
+        inner = [v for v in bm.verts if not v.is_boundary]
+        for v in bm.verts:
+            v.co = under_skin[v][0]
+        for _ in range(smooth_):
+            bmesh.ops.smooth_vert(bm, verts=inner, factor=0.5, use_axis_x=True, use_axis_y=True, use_axis_z=True)
+        bm.normal_update()
+        beside = {v: [e.other_vert(v) for e in v.link_edges] for v in bm.verts}
+        need = {v: max(0.0, (under_skin[v][0] - v.co).dot(v.normal)) for v in bm.verts}
+        relief = max(need.values(), default=0.0)
+        # The bust's two points: where the smoothing took most away, one each side, above the waist and in front.
+        tips = []
+        for side_ in (1.0, -1.0):
+            front_ = [v for v in inner if under_skin[v][0].z > waist + 0.02 and under_skin[v][0].x * side_ > 0.02 and under_skin[v][1].y < -0.5]
+            if front_:
+                tips.append(max(front_, key=lambda v: need[v]))
+        for _ in range(spread_):
+            need = {v: max([need[v]] + [need[o] for o in beside[v]]) for v in bm.verts}
+        for _ in range(ease_):
+            need = {v: (need[v] + sum(need[o] for o in beside[v])) / (1 + len(beside[v])) if not v.is_boundary else need[v] * 0.5 for v in bm.verts}
+        floor_ = max(offset, 0.003)
+        chest = list({o2 for tip in tips for o in beside[tip] for o2 in beside[o]} | set(tips))
+        on_chest = set(chest)
+        short = 0
+        for v in bm.verts:
+            at_, normal_ = under_skin[v]
+            v.co = v.co + v.normal * (floor_ + need[v])
+            off_ = (v.co - at_).dot(normal_)
+            if off_ < floor_:
+                v.co = v.co + normal_ * (floor_ - off_)
+                short += 1 if v in on_chest else 0
+        bm.normal_update()
+        proudest, where = 0.0, None
+        for v in chest:
+            ring = list({o2 for o in beside[v] for o2 in beside[o]} - {v})
+            middle_ = Vector((0.0, 0.0, 0.0))
+            for o in ring:
+                middle_ += o.co
+            height_ = (v.co - middle_ / len(ring)).dot(v.normal)
+            if height_ > proudest:
+                proudest, where = height_, v.co.copy()
+        print("CLING", name, "relief", round(relief, 4), "greatest lift", round(floor_ + max(need.values(), default=0.0), 4), "lifted again over the bust", short, "of", len(chest),
+              "proudest point of the bust", round(proudest, 4), "at", [round(c, 3) for c in where] if where is not None else None)
     for f in bm.faces:
         f.smooth = True
     out = bpy.data.meshes.new(name)
@@ -527,7 +608,7 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
     while out.uv_layers:
         out.uv_layers.remove(out.uv_layers[0])
     wrap_uv(out, float((pattern or {}).get("repeat", 6.0)))
-    obj.data.materials.append(patterned("%s_%s_%s" % (STEM, CURRENT_PART or "x", name) if CURRENT_PART else "%s_%s" % (STEM, name), colour, pattern, rough, cloth))
+    obj.data.materials.append(patterned("%s_%s_%s" % (STEM, CURRENT_PART or "x", name) if CURRENT_PART else "%s_%s" % (STEM, name), colour, pattern, rough, cloth, alpha))
     if source == "helper-skirt":
         hang_on_skirt_bones(obj)
     obj.parent = rig
@@ -758,7 +839,7 @@ def out_arm(co):
     return ((co.x * side - shoulder.x) * across + (co.z - shoulder.z) * down) / length
 
 
-def torso(v, low=None, high=None, sleeves=1.0, vee=0.0, inner=False, back=0.0, one_shoulder=0.0, strap=0.0):
+def torso(v, low=None, high=None, sleeves=1.0, vee=0.0, inner=False, back=0.0, one_shoulder=0.0, strap=0.0, under=0.12, armpit=0.10):
     """The margin (metres, positive inside) of a body garment at a point of the tights."""
     # Nothing cut from the tights hangs below the fork of the legs: it came out as a tongue between them.
     low = max(hip - 0.075, waist - 0.05 if low is None else low)
@@ -767,6 +848,8 @@ def torso(v, low=None, high=None, sleeves=1.0, vee=0.0, inner=False, back=0.0, o
     co = v.co
     arm = weight(v, ARM)
     if sleeves > 0.0 and arm > 0.45:
+        if one_shoulder and co.x * (1.0 if one_shoulder > 0 else -1.0) < 0.0:
+            return -0.05        # the bare arm of a one-shoulder gown has no sleeve
         return (sleeves - along_arm(co)) * 0.5
     inside = band(co.z, low, high)
     if sleeves <= 0.0:
@@ -791,7 +874,8 @@ def torso(v, low=None, high=None, sleeves=1.0, vee=0.0, inner=False, back=0.0, o
             strap_edge = (vee - 0.02) * 0.42 + strap
         past_arm = out_arm(co) + shoulder.x * 0.4 + narrow
         outboard = abs(co.x) - strap_edge
-        above_armpit = co.z - (shoulder.z - 0.10)
+        # `armpit`: how far below the shoulder the armhole ends. On a high bust the usual depth runs under it.
+        above_armpit = co.z - (shoulder.z - armpit)
         on_the_arm = abs(co.x) - (shoulder.x - 0.005)
         round_ = 0.035
         corner = round_ - math.hypot(max(round_ - outboard, 0.0), max(round_ - above_armpit, 0.0))
@@ -822,7 +906,8 @@ def torso(v, low=None, high=None, sleeves=1.0, vee=0.0, inner=False, back=0.0, o
         # One shoulder: everything above a line from under the bare arm up to the other side of the neck comes
         # away, front and back alike. +1 keeps the wearer's left shoulder, -1 the right.
         side = 1.0 if one_shoulder > 0 else -1.0
-        low_x, low_z = -side * shoulder.x * 0.8, shoulder.z - 0.12
+        # `under`: how far below the shoulder the line starts under the bare arm. Too low, and it does not cover the bust.
+        low_x, low_z = -side * shoulder.x * 0.8, shoulder.z - under
         high_x, high_z = side * shoulder.x * 0.4, neck + 0.012
         line_z = low_z + (high_z - low_z) * (co.x - low_x) / (high_x - low_x)
         inside = min(inside, (line_z - co.z) * abs(high_x - low_x) / math.hypot(high_x - low_x, high_z - low_z))
@@ -855,6 +940,101 @@ def skirt_shape(hem, flare, pleats=0, kick=0.0):
             spread *= 1.0 + 0.09 * t * math.sin(math.atan2(co.x, -(co.y - 0.02)) * pleats)
         return Vector((co.x * spread, (co.y - 0.02) * spread + 0.02, z))
     return shape
+
+
+def embroider(row):
+    """Embroidery on a gown (Lily, 2026-11-12: detailed, with relief, elegant but bold). The design is a picture
+    with its own normal map (art/tools/cast_embroidery.py makes both from a drawing on black). It is wrapped
+    round the body like a label round a bottle, from `from` above the floor up to `below_neck` under the neck,
+    centred `turn` degrees round from the front and `around` of a full turn wide. It lies a hair off the
+    outermost cloth of its part and is cut from that cloth, so it moves exactly as the cloth does."""
+    part = row.get("_part", "")
+    cloths = [g for g in garments if g.get("part", "") == part and g.name.split(".")[0] in ("DressTop", "Veil")]
+    if not any(g.name.startswith("Veil") for g in cloths):
+        cloths += [g for g in garments if g.get("part", "") == part and g.name.split(".")[0] == "DressSkirt"]
+    if not cloths:
+        print("EMBROIDERY found no gown in", part)
+        return
+    low = float(row.get("from", 0.04))
+    high = neck - float(row.get("below_neck", 0.1))
+    centre = math.radians(float(row.get("turn", 0.0)))
+    span = float(row.get("around", 0.95)) * math.tau
+    name = "%s_%s_Embroidery" % (STEM, part or "x")
+    pictures = []
+    for key, suffix, space in (("picture", "_cloth", "sRGB"), ("normal", "_cloth_normal", "Non-Color")):
+        target = os.path.join(OUT, name + suffix + ".png")
+        shutil.copyfile(row[key], target)
+        picture = bpy.data.images.load(target)
+        picture.colorspace_settings.name = space
+        pictures.append(picture)
+    material = bpy.data.materials.new(name)
+    material.use_nodes = True
+    nodes, links = material.node_tree.nodes, material.node_tree.links
+    shader = nodes["Principled BSDF"]
+    colour_node = nodes.new("ShaderNodeTexImage")
+    colour_node.image = pictures[0]
+    links.new(colour_node.outputs[0], shader.inputs["Base Color"])
+    # Stitches are there or not there: cut out, not blended, so they are drawn with the solid things and sort
+    # rightly over sheer cloth.
+    cut = nodes.new("ShaderNodeMath")
+    cut.operation = "ROUND"
+    links.new(colour_node.outputs["Alpha"], cut.inputs[0])
+    links.new(cut.outputs[0], shader.inputs["Alpha"])
+    normal_picture = nodes.new("ShaderNodeTexImage")
+    normal_picture.image = pictures[1]
+    normal_node = nodes.new("ShaderNodeNormalMap")
+    normal_node.inputs["Strength"].default_value = float(row.get("relief", 1.0))
+    links.new(normal_picture.outputs[0], normal_node.inputs["Color"])
+    links.new(normal_node.outputs[0], shader.inputs["Normal"])
+    shader.inputs["Roughness"].default_value = float(row.get("rough", 0.42))
+    for setting, value in (("blend_method", "CLIP"), ("alpha_threshold", 0.5)):
+        try:
+            setattr(material, setting, value)
+        except Exception:
+            pass
+    material.use_backface_culling = False
+    # Stitches need more picture than plain cloth does: the exporter lets this one keep 1024.
+    material["picture_limit"] = 1024
+    for cloth_ in cloths:
+        work = cloth_.copy()
+        work.data = cloth_.data.copy()
+        work.name = "Embroidery"
+        bpy.context.scene.collection.objects.link(work)
+        bm = bmesh.new()
+        bm.from_mesh(work.data)
+        bm.normal_update()
+        layer = bm.loops.layers.uv.verify()
+        for v in bm.verts:
+            v.co = v.co + v.normal * float(row.get("lift", 0.0014))
+        lose = []
+        for face in bm.faces:
+            middle = face.calc_center_median()
+            middle_turn = math.atan2(middle.x, -(middle.y - 0.02))
+            middle_from_centre = (middle_turn - centre + math.pi) % math.tau - math.pi
+            inside = False
+            for loop in face.loops:
+                co = loop.vert.co
+                turn_ = math.atan2(co.x, -(co.y - 0.02))
+                step = (turn_ - middle_turn + math.pi) % math.tau - math.pi      # this corner, measured from the face's middle: no seam
+                u = 0.5 + (middle_from_centre + step) / span
+                v = (co.z - low) / (high - low)
+                loop[layer].uv = (u, v)
+                inside = inside or (0.0 < u < 1.0 and 0.0 < v < 1.0)
+            if not inside:
+                lose.append(face)
+        bmesh.ops.delete(bm, geom=lose, context="FACES")
+        bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
+        kept = len(bm.faces)
+        bm.to_mesh(work.data)
+        bm.free()
+        if not kept:
+            bpy.data.objects.remove(work)
+            continue
+        work.data.materials.clear()
+        work.data.materials.append(material)
+        work["part"] = part
+        garments.append(work)
+        print("GARMENT Embroidery on", cloth_.name, kept, "faces")
 
 
 def worn_with(row):
@@ -925,7 +1105,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     tucked_low = hip + 0.045 if skirt_under(row) is not None and row.get("_part", "").endswith("_top") else None
     # Worn over something from the packs (cut fuller than what is made here), an outer layer stands further off.
     over_pack = 0.012 if row.get("_part", "").endswith("_over") and any(o["kind"] == "asset" and not o.get("_part", "").endswith(("_feet", "_head")) for o in worn_with(row)) else 0.0
-    colour = row["colour"]
+    colour = row.get("colour", (0.5, 0.5, 0.5))      # embroidery brings its own
     cloth = row.get("cloth")
     if kind == "asset":
         asset_piece(row.get("name", "Pack"), row["asset"], colour, skirt=bool(row.get("skirt")), atype=row.get("atype", "Clothes"), deep_only=bool(row.get("deep")), felt=bool(row.get("felt")), made=row.get("made"), hem_to_calf=bool(row.get("hem_to_calf")))
@@ -948,12 +1128,25 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
               thicken=lambda co, r=row: float(r.get("shoulders", 0.0)) * max(0.0, 1.0 - abs(co.z - shoulder.z) / 0.08) + float(r.get("skirted", 0.0)) * max(0.0, min(1.0, (waist - co.z) / 0.2)))
     elif kind == "dress":
         sleeves = float(row.get("sleeves", 0.5))
-        piece("DressTop", "helper-tights", lambda v, r=row, sl=sleeves: torso(v, low=hip - 0.02, high=neck - float(r.get("top", 0.012)), sleeves=sl, vee=float(r.get("vee", 0.06)),
-                                                                             back=float(r.get("back", 0.0)), one_shoulder=float(r.get("one_shoulder", 0.0)), strap=float(r.get("strap", 0.0))),
-              float(row.get("ease", 0.006)), colour, float(row.get("rough", 0.85)), pattern=row.get("pattern"), cloth=cloth or "cotton")
-        piece("DressSkirt", "helper-skirt", lambda v: True, 0.01, colour, float(row.get("rough", 0.85)), thicken=seat_room,
+        # "cling": silk that follows the body like a web. The bodice is cut from the body's own surface, so it
+        # keeps every contour and moves exactly as the skin does (nothing can come through it, however close it
+        # lies); it is opaque, and it reaches down to the fork. The skirt lies close and may be sheer.
+        cling = bool(row.get("cling")) and "body" in group_index
+        piece("DressTop", "body" if cling else "helper-tights",
+              lambda v, r=row, sl=sleeves, c=cling: torso(v, low=hip - (0.075 if c else 0.02), high=neck - float(r.get("top", 0.012)), sleeves=sl, vee=float(r.get("vee", 0.06)),
+                                                         back=float(r.get("back", 0.0)), one_shoulder=float(r.get("one_shoulder", 0.0)), strap=float(r.get("strap", 0.0)),
+                                                         under=float(r.get("under", 0.12)), armpit=float(r.get("armpit", 0.10))),
+              float(row.get("ease", 0.003 if cling else 0.006)), colour, float(row.get("rough", 0.85)), pattern=row.get("pattern"), cloth=cloth or "cotton")
+        piece("DressSkirt", "helper-skirt", lambda v: True, 0.005 if cling else 0.01, colour, float(row.get("rough", 0.85)), thicken=(lambda co: seat_room(co) * 0.6) if cling else seat_room,
               reshape=skirt_shape(float(row.get("hem", 0.4)), float(row.get("flare", 0.2)), int(row.get("pleats", 0)), float(row.get("kick", 0.0))),
-              pattern=row.get("pattern"), cloth=cloth or "cotton", subdivide=1)
+              pattern=row.get("pattern"), cloth=cloth or "cotton", subdivide=1, alpha=float(row.get("sheer", 1.0)))
+    elif kind == "embroidery":
+        embroider(row)
+    elif kind == "veil":
+        # Gossamer: a second, far sheerer skirt that floats over the first.
+        piece("Veil", "helper-skirt", lambda v: True, float(row.get("off", 0.02)), colour, 0.5,
+              reshape=skirt_shape(float(row.get("hem", 0.05)), float(row.get("flare", 0.3)), int(row.get("pleats", 12)), float(row.get("kick", 0.0))),
+              cloth=cloth or "silk", subdivide=1, alpha=float(row.get("sheer", 0.3)))
     elif kind == "cardigan":
         piece("Cardigan", "helper-tights", lambda v, r=row: torso(v, low=hip + 0.012, sleeves=1.0, vee=float(r.get("vee", 0.34))), 0.018, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
     elif kind == "coat":
@@ -1995,6 +2188,165 @@ if PINNED:
         hair_clip.data.materials.append(plain(CID + "_hair_clip", CFG["hair"].get("clip_colour", [0.93, 0.9, 0.8]), 0.28, 0.0))
         on_head(hair_clip)
 
+def wisp_material(name, colour, HAT):
+    """Loose strands for the edge of dressed hair: a picture of separate hairs, thick with them at the top (where
+    it meets the hair) and each running out to its own point below. Cut out, not blended."""
+    size = 512
+    rng = numpy.random.default_rng(zlib.crc32(name.encode("utf-8")))
+    u = (numpy.arange(size, dtype=numpy.float32) + 0.5) / size
+    v = (numpy.arange(size, dtype=numpy.float32) + 0.5) / size
+    U, V = numpy.meshgrid(u, v)
+    down = 1.0 - V                                    # 0 at the root, 1 at the longest tip
+    cover = numpy.zeros((size, size), dtype=numpy.float32)
+    tone = numpy.zeros((size, size), dtype=numpy.float32)
+    # Round r16: single hairs a third of a millimetre wide were lost at any distance (a cut-out picture seen small
+    # averages to nothing). These are fine locks, one to three millimetres at the root.
+    for _ in range(int(HAT.get("wisp_strands", 46))):
+        at, reach = rng.random(), 0.35 + 0.65 * rng.random() ** 0.7
+        thick, bend, light = 0.012 + 0.022 * rng.random(), (rng.random() - 0.5) * 0.2, 0.55 + 0.45 * rng.random()
+        along = numpy.clip(down / reach, 0.0, 1.0)
+        middle = at + bend * along * along
+        half = thick * (1.0 - along) ** 0.75
+        away_ = numpy.abs((U - middle + 0.5) % 1.0 - 0.5)
+        strand = numpy.clip((half - away_) * size * 0.4 + 0.5, 0.0, 1.0) * (down < reach)
+        tone = numpy.where(strand > cover, light, tone)
+        cover = numpy.maximum(cover, strand)
+    # Where it meets the hair it is whole.
+    cover = numpy.maximum(cover, numpy.clip((V - 0.86) / 0.05, 0.0, 1.0))
+    tone = numpy.where(tone > 0.0, tone, 0.7)
+    base = numpy.array(colour[:3], dtype=numpy.float32)
+    shine = base + (1.0 - base) * 0.45
+    lit = numpy.clip((tone - 0.86) / 0.14, 0.0, 1.0)
+    grid = numpy.ones((size, size, 4), dtype=numpy.float32)
+    grid[:, :, :3] = base[None, None, :] * (0.55 + 0.4 * tone * (1.0 - 0.25 * down))[:, :, None] + shine[None, None, :] * (lit * 0.3)[:, :, None]
+    grid[:, :, :3] = numpy.clip(grid[:, :, :3], 0.0, 1.0)
+    grid[:, :, 3] = cover
+    flat = numpy.ones((size, size, 4), dtype=numpy.float32)
+    flat[:, :, 0] = 0.5
+    flat[:, :, 1] = 0.5
+    pictures = []
+    for suffix, data, space in (("_cloth", grid, "sRGB"), ("_cloth_normal", flat, "Non-Color")):
+        picture = bpy.data.images.new(name + suffix, size, size, alpha=True)
+        picture.pixels = data.ravel()
+        picture.filepath_raw = os.path.join(OUT, name + suffix + ".png")
+        picture.file_format = "PNG"
+        picture.save()
+        picture.colorspace_settings.name = space
+        pictures.append(picture)
+    material = bpy.data.materials.new(name)
+    material.use_nodes = True
+    nodes, links = material.node_tree.nodes, material.node_tree.links
+    shader = nodes["Principled BSDF"]
+    colour_node = nodes.new("ShaderNodeTexImage")
+    colour_node.image = pictures[0]
+    links.new(colour_node.outputs[0], shader.inputs["Base Color"])
+    cut = nodes.new("ShaderNodeMath")
+    cut.operation = "ROUND"
+    links.new(colour_node.outputs["Alpha"], cut.inputs[0])
+    links.new(cut.outputs[0], shader.inputs["Alpha"])
+    normal_picture = nodes.new("ShaderNodeTexImage")
+    normal_picture.image = pictures[1]
+    normal_node = nodes.new("ShaderNodeNormalMap")
+    links.new(normal_picture.outputs[0], normal_node.inputs["Color"])
+    links.new(normal_node.outputs[0], shader.inputs["Normal"])
+    shader.inputs["Roughness"].default_value = float(HAT.get("gloss_rough", 0.42)) + 0.1
+    for setting, value in (("blend_method", "CLIP"), ("alpha_threshold", 0.5)):
+        try:
+            setattr(material, setting, value)
+        except Exception:
+            pass
+    material["picture_limit"] = 512
+    return material
+
+
+def dressed_hair_material(name, colour, HAT, phase_at, part_angle):
+    """The picture for sculpted stage hair, painted to the shape it lies on. Across the picture is once round the
+    head; from the top down to a fifth from the bottom is crown to ends; the bottom strip is for coils and knots
+    (round the coil across, base to top upward). Light is painted where a comb and a lamp would put it."""
+    size = 1024
+    rng = numpy.random.default_rng(zlib.crc32(name.encode("utf-8")))
+    u = (numpy.arange(size, dtype=numpy.float32) + 0.5) / size
+    v = (numpy.arange(size, dtype=numpy.float32) + 0.5) / size
+    U, V = numpy.meshgrid(u, v)
+    A = U * math.tau
+    T = numpy.clip((1.0 - V) / 0.8, 0.0, 1.06)
+    phase = phase_at(A, T, numpy.sin)
+    swing = numpy.sin(math.tau * phase)                      # +1 on a crest, -1 in a trough
+    settle = numpy.clip(T / 0.2, 0.0, 1.0)                    # the waves begin a little way from the crown
+
+    def strands(count, soften):
+        line = rng.random(count).astype(numpy.float32)
+        for _ in range(soften):
+            line = (numpy.roll(line, 1) + line * 2.0 + numpy.roll(line, -1)) / 4.0
+        line = (line - line.min()) / max(float(line.max() - line.min()), 1e-6)
+        return line
+
+    fine, clumps = strands(size, 1), strands(48, 1)
+    # Strands lie crown to ends and swing sideways with each wave, which is what makes a wave read as a wave.
+    across = U + 0.011 * swing * settle + 0.004 * numpy.sin(T * 23.0 + A * 2.0)
+    fine_at = fine[(numpy.floor(across * size).astype(numpy.int64)) % size]
+    clump_at = numpy.interp((across * 48.0) % 48.0, numpy.arange(49, dtype=numpy.float32), numpy.append(clumps, clumps[0]))
+    strand = 0.6 * fine_at + 0.4 * clump_at
+    crest = 0.5 + 0.5 * swing
+    tone = 0.56 + 0.4 * crest ** 1.2 * settle + 0.2 * (1.0 - settle)
+    # The band of light sits just on the lamp's side of each crest, and is broken by the strands it crosses.
+    along = (phase - 0.21) % 1.0
+    band = numpy.exp(-((numpy.minimum(along, 1.0 - along)) / 0.075) ** 2) * settle * (0.5 + 0.5 * fine_at)
+    gap = (A - part_angle + math.pi) % math.tau - math.pi
+    root = numpy.exp(-(gap / 0.055) ** 2) * numpy.clip(T / 0.08, 0.0, 1.0) * numpy.clip((0.85 - T) / 0.15, 0.0, 1.0)
+    ends = numpy.clip((T - 0.9) / 0.1, 0.0, 1.0)
+    tone = tone * (0.84 + 0.16 * strand) * (1.0 - 0.4 * root) * (1.0 - 0.32 * ends)
+    base = numpy.array(colour[:3], dtype=numpy.float32)
+    shine = base + (1.0 - base) * float(HAT.get("shine", 0.55))
+    grid = numpy.ones((size, size, 4), dtype=numpy.float32)
+    grid[:, :, :3] = base[None, None, :] * tone[:, :, None] + shine[None, None, :] * (band * float(HAT.get("highlight", 0.5)))[:, :, None]
+    height = strand * 0.6 + 0.4 * fine_at
+    # The coil strip: strands wind round the coil, light along its upper turn, shade at its foot.
+    strip = V < 0.16
+    up = numpy.clip(V / 0.15, 0.0, 1.0)
+    rows = strands(size, 2)
+    wound = rows[(numpy.floor(V * 6.0 * size + U * 20.0).astype(numpy.int64)) % size]
+    coil_tone = (0.5 + 0.48 * up ** 0.8) * (0.82 + 0.18 * wound)
+    coil_band = numpy.exp(-((up - 0.7) / 0.12) ** 2) * (0.45 + 0.55 * wound)
+    coil = base[None, None, :] * coil_tone[:, :, None] + shine[None, None, :] * (coil_band * float(HAT.get("highlight", 0.5)))[:, :, None]
+    grid[:, :, :3] = numpy.where(strip[:, :, None], coil, grid[:, :, :3])
+    height = numpy.where(strip, wound, height)
+    grid[:, :, :3] = numpy.clip(grid[:, :, :3], 0.0, 1.0)
+    depth = float(HAT.get("strand_depth", 1.6))
+    dx = (numpy.roll(height, -1, 1) - numpy.roll(height, 1, 1)) * depth
+    dy = (numpy.roll(height, -1, 0) - numpy.roll(height, 1, 0)) * depth
+    length = numpy.sqrt(dx * dx + dy * dy + 1.0)
+    normal = numpy.ones((size, size, 4), dtype=numpy.float32)
+    normal[:, :, 0] = (-dx / length) * 0.5 + 0.5
+    normal[:, :, 1] = (-dy / length) * 0.5 + 0.5
+    normal[:, :, 2] = (1.0 / length) * 0.5 + 0.5
+    pictures = []
+    for suffix, data, space in (("_cloth", grid, "sRGB"), ("_cloth_normal", normal, "Non-Color")):
+        picture = bpy.data.images.new(name + suffix, size, size, alpha=True)
+        picture.pixels = data.ravel()
+        picture.filepath_raw = os.path.join(OUT, name + suffix + ".png")
+        picture.file_format = "PNG"
+        picture.save()
+        picture.colorspace_settings.name = space
+        pictures.append(picture)
+    material = bpy.data.materials.new(name)
+    material.use_nodes = True
+    nodes, links = material.node_tree.nodes, material.node_tree.links
+    shader = nodes["Principled BSDF"]
+    colour_node = nodes.new("ShaderNodeTexImage")
+    colour_node.image = pictures[0]
+    links.new(colour_node.outputs[0], shader.inputs["Base Color"])
+    normal_picture = nodes.new("ShaderNodeTexImage")
+    normal_picture.image = pictures[1]
+    normal_node = nodes.new("ShaderNodeNormalMap")
+    links.new(normal_picture.outputs[0], normal_node.inputs["Color"])
+    links.new(normal_node.outputs[0], shader.inputs["Normal"])
+    shader.inputs["Roughness"].default_value = float(HAT.get("gloss_rough", 0.42))
+    # Painted to its shape, so it is not a repeating cloth: the exporter lets it keep its size.
+    material["picture_limit"] = 1024
+    return material
+
+
 def wave_hair(HAT, top_z, brow_z, centre):
     """Dressed hair for the stage, 1929: finger waves set close to the head, modelled outright as one glossy
     shell that follows the skull (ridges running round the head in S-curves, a parting, the ends either
@@ -2042,14 +2394,19 @@ def wave_hair(HAT, top_z, brow_z, centre):
                 high = mid
         return (low + high) / 2
 
+    def phase_at(a, t, sin=math.sin):
+        """Where in its wave the hair is at this place (whole numbers one wave apart). The picture reads it too."""
+        return waves * t + 0.16 * sin(3.0 * a + 1.0) + 0.1 * sin(a - part_angle)
+
     def away(a, t):
         """How far off the skin the hair stands at this place: its body, its waves, its parting, its ends."""
-        phase = waves * t + 0.16 * math.sin(3.0 * a + 1.0) + 0.1 * math.sin(a - part_angle)
+        phase = phase_at(a, t)
         body = lift * min(1.0, t / 0.12 + 0.35) * (1.0 - 0.45 * max(0.0, (t - 0.86) / 0.14))
         wave = ridge * math.sin(math.tau * phase) * min(1.0, t / 0.2)
         gap = (a - part_angle + math.pi) % math.tau - math.pi
         parting = 0.007 * math.exp(-(gap / 0.06) ** 2) * min(1.0, t / 0.08) * (1.0 if t < 0.7 else max(0.0, (0.85 - t) / 0.15))
-        under = curl * math.sin(math.pi * min(1.0, max(0.0, (t - 0.72) / 0.28))) if curl > 0.0 else 0.0
+        # The ends curl under at the sides and back. Over the forehead they lie flat, or the front reads as a brim.
+        under = curl * math.sin(math.pi * min(1.0, max(0.0, (t - 0.72) / 0.28))) * (1.0 - 0.8 * max(0.0, -math.sin(a)) ** 1.5) if curl > 0.0 else 0.0
         ringlets = curly * math.sin(9.0 * a + 2.5 * math.sin(math.tau * 2.2 * t)) * math.sin(math.tau * 3.1 * t + 2.0 * a) * min(1.0, t / 0.15)
         return max(0.0025, body + wave - parting + under + ringlets)
 
@@ -2057,7 +2414,7 @@ def wave_hair(HAT, top_z, brow_z, centre):
     uv_of = {}
     edge_polar = [polar_at(math.tau * j / steps, edge_height(math.tau * j / steps)) for j in range(steps)]
     crown = bm.verts.new(skin(0.0, 0.0)[0] + Vector((0, 0, away(0.0, 0.0))))
-    uv_of[crown] = (0.0, 0.0)
+    uv_of[crown] = (0.0, 1.0)
     rings = []
     for k in range(1, rows + 1):
         t = k / rows
@@ -2066,7 +2423,7 @@ def wave_hair(HAT, top_z, brow_z, centre):
             a = math.tau * j / steps
             at, way = skin(a, edge_polar[j] * t)
             v = bm.verts.new(at + way * away(a, t))
-            uv_of[v] = (j / steps * 16.0, t * 3.0)
+            uv_of[v] = (j / steps, 1.0 - 0.8 * t)
             ring.append(v)
         rings.append(ring)
     # The ends turn in to the head, so nobody sees up inside the hair.
@@ -2075,7 +2432,7 @@ def wave_hair(HAT, top_z, brow_z, centre):
         a = math.tau * j / steps
         at, way = skin(a, edge_polar[j] * 1.02)
         v = bm.verts.new(at + way * 0.0015)
-        uv_of[v] = (j / steps * 16.0, 3.15)
+        uv_of[v] = (j / steps, 1.0 - 0.8 * 1.02)
         tuck.append(v)
     rings.append(tuck)
     for j in range(steps):
@@ -2099,8 +2456,8 @@ def wave_hair(HAT, top_z, brow_z, centre):
             for v in made["verts"]:
                 turn = math.atan2(v.co.z, v.co.x)
                 coil = 1.0 + 0.1 * math.sin(2.0 * turn + 5.0 * v.co.y + k)
+                uv_of[v] = (turn / math.tau + k * 0.37, 0.012 + 0.136 * (v.co.y * 0.5 + 0.5))
                 v.co = at + way * (lift + 0.008 + v.co.y * size * 0.62) + around_ * v.co.x * size * coil + up_ * v.co.z * size * coil
-                uv_of[v] = (turn / math.tau * 2.0 + k * 0.37, 3.2 + v.co.z * 6.0)
         hair_faces = len(bm.faces)
     if HAT.get("knot"):
         # Gathered low at the nape into a coil.
@@ -2109,8 +2466,8 @@ def wave_hair(HAT, top_z, brow_z, centre):
         for v in made["verts"]:
             turn = math.atan2(v.co.z, v.co.x)
             swell = 1.0 + 0.07 * math.sin(3.0 * turn + 6.0 * v.co.y)
+            uv_of[v] = (turn / math.tau, 0.012 + 0.136 * (v.co.y * 0.5 + 0.5))
             v.co = at + way * 0.022 + Vector((v.co.x * 0.05 * swell, v.co.y * 0.034, v.co.z * 0.04 * swell))
-            uv_of[v] = (turn / math.tau * 3.0, 3.2 + v.co.z * 4.0)
         hair_faces = len(bm.faces)
     ornament = HAT.get("ornament", "")
     if ornament in ("bandeau", "bandeau_star"):
@@ -2157,15 +2514,49 @@ def wave_hair(HAT, top_z, brow_z, centre):
             uv_of[spine[-1][1]] = (s * 2.0, 0.0)
         for a_, b_ in zip(spine, spine[1:]):
             bm.faces.new((a_[0], a_[1], b_[1], b_[0]))
+    feather_faces = len(bm.faces)
+    wisps = float(HAT.get("wisps", 1.0))
+    if wisps > 0.0:
+        # Loose hair all round the edge: where sculpted hair simply stopped, it read as the rim of a cap. A fringe
+        # of fine strands starts just under the edge and runs out along the skin, each to its own point: short
+        # over the forehead and the ears, longest down the nape.
+        wisp_side, wisp_nape, wisp_front = float(HAT.get("wisp_side", 0.018)), float(HAT.get("wisp_nape", 0.045)), float(HAT.get("wisp_front", 0.008))
+        deep = 4
+        columns = []
+        for j in range(steps + 1):
+            a = math.tau * (j % steps) / steps
+            front, back = max(0.0, -math.sin(a)), max(0.0, math.sin(a))
+            reach = wisps * (wisp_side + (wisp_nape - wisp_side) * back ** 1.5 + (wisp_front - wisp_side) * front ** 1.5)
+            begin = away(a, 1.0) + 0.0012
+            column = []
+            for k in range(deep + 1):
+                s_ = k / deep
+                at, way = skin(a, edge_polar[j % steps] * 0.965 + reach * s_ / 0.09)
+                v = bm.verts.new(at + way * (0.0035 + (begin - 0.0035) * (1.0 - s_) ** 1.6))
+                uv_of[v] = (j / steps * float(HAT.get("wisp_repeats", 5.0)), 1.0 - s_)
+                column.append(v)
+            columns.append(column)
+        for left, right in zip(columns, columns[1:]):
+            for k in range(deep):
+                bm.faces.new((left[k], left[k + 1], right[k + 1], right[k]))
     bm.faces.ensure_lookup_table()
     for index, face in enumerate(bm.faces):
         face.smooth = True
-        face.material_index = 0 if index < hair_faces else 1 if index < jewel_faces else 2
+        face.material_index = 0 if index < hair_faces else 1 if index < jewel_faces else 2 if index < feather_faces else 3
     bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
     layer = bm.loops.layers.uv.new("Cloth")
-    for face in bm.faces:
-        for loop in face.loops:
-            loop[layer].uv = uv_of.get(loop.vert, (0.0, 0.0))
+    for index, face in enumerate(bm.faces):
+        corners = [uv_of.get(loop.vert, (0.0, 0.0)) for loop in face.loops]
+        if index < hair_faces:
+            # The picture goes once round: a face that spans the join reads on from the far side of it, and the
+            # crown, which has no place round the head of its own, takes the middle of its face's.
+            others = [c[0] for loop, c in zip(face.loops, corners) if loop.vert is not crown]
+            if max(others) - min(others) > 0.5:
+                corners = [(c[0] + 1.0 if c[0] < 0.5 else c[0], c[1]) for c in corners]
+                others = [c + 1.0 if c < 0.5 else c for c in others]
+            corners = [(sum(others) / len(others), c[1]) if loop.vert is crown else c for loop, c in zip(face.loops, corners)]
+        for loop, corner in zip(face.loops, corners):
+            loop[layer].uv = corner
     hair_mesh = bpy.data.meshes.new("StageHair")
     bm.to_mesh(hair_mesh)
     bm.free()
@@ -2173,11 +2564,10 @@ def wave_hair(HAT, top_z, brow_z, centre):
     stage = bpy.data.objects.new("HatStage", hair_mesh)
     bpy.context.scene.collection.objects.link(stage)
     part_name = HAT.get("_part", "x")
-    # Combed hair: fine darker streaks running from the parting to the ends, as strands lie.
-    streaks = {"kind": "stripes", "colour": [c * float(HAT.get("streak", 0.88)) for c in HAT["colour"]], "width": 1, "cells": 3, "repeat": 1}
-    stage.data.materials.append(patterned("%s_stage_hair_%s" % (CID, part_name), HAT["colour"], streaks, float(HAT.get("gloss_rough", 0.36)), "silk"))
+    stage.data.materials.append(dressed_hair_material("%s_stage_hair_%s" % (CID, part_name), HAT["colour"], HAT, phase_at, part_angle))
     stage.data.materials.append(plain("%s_stage_jewel_%s" % (CID, part_name), HAT.get("band", [0.83, 0.68, 0.3]), 0.28, 1.0))
     stage.data.materials.append(plain("%s_stage_feather_%s" % (CID, part_name), HAT.get("feather", [0.05, 0.35, 0.32]), 0.55))
+    stage.data.materials.append(wisp_material("%s_stage_wisps_%s" % (CID, part_name), HAT["colour"], HAT))
     for slot in stage.material_slots:
         slot.material.use_backface_culling = False
     stage["part"] = part_name

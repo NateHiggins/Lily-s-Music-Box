@@ -261,7 +261,8 @@ def prepare(objects, limit, renamed, completed):
             slug = "cast_%s_%s" % (WHO, re.sub("[^a-z0-9]+", "_", material.name.lower()).strip("_"))
             if slug in bpy.data.materials:
                 raise ValueError("two materials come to the same catalogue name: " + slug)
-            finish_material(material, slug, limit, completed)
+            # A material may ask for more picture than its kind gets (embroidery does), up to the body's own limit.
+            finish_material(material, slug, min(BODY_PICTURE_LIMIT, max(limit, int(material.get("picture_limit", 0)))), completed)
             renamed[material.name] = slug
             material.name = slug
 

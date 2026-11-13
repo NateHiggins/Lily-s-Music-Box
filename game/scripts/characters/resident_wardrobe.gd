@@ -113,6 +113,12 @@ func _put_on(part: String, loader: Callable) -> bool:
 		skeleton.add_child(mesh)
 		mesh.skeleton = NodePath("..")
 		mesh.name = "%s_%s" % [part, mesh.name]
+		# Sheer cloth is drawn after whatever else on the person is blended (lashes, brows, on some bodies the
+		# skin itself). Left to sort by distance, a leg was drawn over the skirt in front of it.
+		for surface: int in mesh.mesh.get_surface_count() if mesh.mesh != null else 0:
+			var cloth := mesh.mesh.surface_get_material(surface) as BaseMaterial3D
+			if cloth != null and cloth.transparency == BaseMaterial3D.TRANSPARENCY_ALPHA:
+				mesh.sorting_offset = 0.75
 		mine.append(mesh)
 	source.queue_free()
 	_meshes[part] = mine
