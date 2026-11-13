@@ -8,6 +8,15 @@ at **c22794ceb2ee4dac83ae951e376c382f6544217b**, including the explicitly unqual
 Harukiya route/seat work in progress. No gameplay changes or tests were made for
 this plan. Read-only cast and temporal audits informed it.
 
+November 12 writing addendum: Lily requested draft scripts while the performance
+outfits are being built. The [first script packet](drafts/npc_loop_scripts_2026-11-12/README.md)
+now contains all eleven anchor scenes, eleven ordinary-life vignettes, five support
+encounters and the cast-by-visit writing matrix. Timing, carrier and attendance
+conflicts are recorded there; no runtime changes, voices or captures. Owner rulings
+require **Cal first for body/clip compatibility**, with wardrobe changes out of
+sight; then qualified Mae for the first playable tea slice. That technical
+prerequisite does not reorder the narrative leads.
+
 ## Scope and existing authority
 
 Give every character a coherent life: an intention, a place, physical business,
@@ -175,7 +184,7 @@ speakers and a full bar need tests, not twenty simultaneous foreground monologue
 | Batch | Work | Exit requirement |
 |---|---|---|
 | 0: reconcile | Recover Fable's latest cast ownership; complete roster/anchor matrix, line and carrier audit, voice-source custody | No unknown coverage cell; distinguish missing asset, missing encounter and held writing |
-| 1: one playable visit | **tea**, Mae in 6C: existing radiator reason, tray action and order slip; background roster coverage; coordinate one qualified Mae body/face first | Actual normal entry, authored exchange/listening, interruption, save/load and rerun; clue only from its existing physical owner |
+| 1: one playable visit | First qualify Cal body/clip compatibility under the owner's ruling; then qualified Mae for **tea** in 6C, existing radiator reason, tray action and order slip; background roster coverage | Actual normal entry, authored exchange/listening, interruption, save/load and rerun; clue only from its existing physical owner |
 | 2: cast compatibility | Apply the same contract to one walking resident and Lily/Stacy's normal bar encounters; historical Adela only where allowed | Routes, reservations, mixed/current rigs and actual voice/face playback work together; coordinate dependency on Fable's qualified bodies |
 | 3: immediate chronology | **friday** (Cam), **stairs** (Teresa), **button** (Lena) | Correct pre/post-murder presence and tone; blackout and missed-window checks |
 | 4: parallel investigation | **notebook** (Jonah), **drain** (existing carrier), **drama** (Cal/Juno), **bench** (Omar) | Existing prerequisites, strict steps and clue owners preserved; no invented speaker for the drain |

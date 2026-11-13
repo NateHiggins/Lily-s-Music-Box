@@ -1,5 +1,15 @@
 # Current work — Lily bass trio, then NPC loop implementation
 
+**Latest writing delivery:** while captures are held for Fable's outfits, Lily
+requested loop script drafts. [The packet](design/drafts/npc_loop_scripts_2026-11-12/README.md)
+contains eleven anchor scenes, eleven ordinary-life vignettes, five supporting
+encounters and explicit cast-by-visit dispositions. Source quotes/anchor contracts,
+local links and design lint checked; source/continuity review corrected three
+support-scene issues. All new material remains PROPOSED, unvoiced/unimplemented.
+Timing mismatches (including box ending when its confrontation opens), missing
+carrier access and attendance dependencies remain explicit work, not silent fixes.
+Cal compatibility still precedes Mae/tea. No new capture or runtime work.
+
 November12: **Pull Up a Chair** is Adela lead/piano, Lily double bass/harmony,
 and Stacy drums. Lily is framed between the others; Adela's angled piano exposes
 her body and opens her audience sightline. Root owns private **music_video_bass.gd**,
@@ -67,11 +77,12 @@ keys stay passive, inherited clothes/hair remain POC quality. Continuous audiovi
 viewing and Lily's artistic acceptance remain open. No upload. Private film sources
 are copied in **performance_v2/production/final_source/**; no game rig edits.
 
-Latest owner request is planned in
+The runtime follow-through remains planned in
 **design/NPC_LOOP_PERFORMANCE_PLAN_2026-11-12.md**: full roster-by-anchor coverage,
 existing eleven-lead/clock/knowledge boundaries, actor reset and voice delivery
-gaps, then one playable tea visit before cast-wide batches. Source audit only;
-implementation remains queued as **K-NPC-LOOP-PERFORMANCE**. The music-video skill
+gaps, then one playable tea visit before cast-wide batches. First scripts are in
+the packet above; runtime implementation remains queued as
+**K-NPC-LOOP-PERFORMANCE**. The music-video skill
 checkpoint **c22794ceb** is committed/pushed. **B-DESTINATION** remains open below;
 the private film proof does not close its gameplay qualification.
 
