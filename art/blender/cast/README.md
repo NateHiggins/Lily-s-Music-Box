@@ -42,6 +42,12 @@ installed from the stage 5 folder.
   occasion), each a top, a bottom, an outer layer, headwear and footwear. A
   whole outfit (a suit, a dress, a robe) fills one slot and its note says
   which others it stands for.
+- Hair dressed for an occasion (`f_head`, table `FORMAL_HAIR` in
+  `cast_parts.py`), for everyone but the two men who wear a close crop:
+  sculpted and painted like the stage heads, where everyday hair is card
+  hair. It is headwear whose note says `"hair": "replace"`, so it is worn in
+  place of a hat and no other hair shows with it. `wardrobe_rules.gd` puts
+  it on with the occasion outfit indoors.
 - A note beside each part: its slot, its set, what it is for, and which skin
   parts it hides. Nothing hides the chest; a robe hides no trunk. A hidden
   part's edge follows the body's faces, so anything open at the neck would

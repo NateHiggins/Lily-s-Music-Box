@@ -141,6 +141,31 @@ func run() -> void:
 				if not actor.ready_ok:
 					break
 				check(not actor.wardrobe.worn.has("over") and not actor.wardrobe.worn.has("head"), "%s set %s: the outer layer and hat come off" % [id, letter])
+		# Hair dressed for an occasion is headwear that is the hair: with it on, neither the everyday hair nor the
+		# hair cut for a hat shows, and the occasion clothes under it are still a whole outfit.
+		if actor != null and actor.ready_ok and notes.has("f_head"):
+			var occasion := _set_parts(notes, "c")
+			var evening: Array = []
+			for slot: String in ["top", "bottom", "feet"]:
+				if occasion.has(slot):
+					evening.append(occasion[slot])
+			evening.append("f_head")
+			check(str(notes["f_head"].get("slot", "")) == "head" and str(notes["f_head"].get("hair", "")) == "replace", id + " dressed hair is headwear whose note says it is the hair")
+			check(actor.wear(evening), "%s dresses the hair for an occasion: %s" % [id, "; ".join(PackedStringArray(actor.errors))])
+			if actor.ready_ok:
+				await frames(2)
+				check(str(actor.wardrobe.worn.get("head", "")) == "f_head", id + " dressed hair is mounted as headwear")
+				var shown := false
+				for mesh: Node in actor.model.find_children("Hair", "MeshInstance3D", true, false) + actor.model.find_children("HatHair", "MeshInstance3D", true, false):
+					shown = shown or (mesh as MeshInstance3D).visible
+				check(not shown, id + " with the hair dressed, no other hair shows")
+				var back: Array = []
+				for slot: String in ["top", "bottom", "feet"]:
+					if occasion.has(slot):
+						back.append(occasion[slot])
+				check(actor.wear(back), id + " lets the dressed hair down again")
+				var everyday := actor.model.find_children("Hair", "MeshInstance3D", true, false)
+				check(everyday.size() == 1 and (everyday[0] as MeshInstance3D).visible, id + " everyday hair returns when the dressed hair comes off")
 		if actor != null and actor.ready_ok:
 			actor.set_active(false)
 			check(not actor.visible and not actor.hair.motion.active, id + " off shift hides the model and stops the hair reader")

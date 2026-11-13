@@ -520,10 +520,13 @@ def dressing_form(kind="close"):
     return _FORMS[kind]
 
 
-def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0, made=None, weights=None, alpha=1.0, fit=False, hug=False):
+def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0, made=None, weights=None, alpha=1.0, fit=False, hug=False, way=None):
     """A garment: the faces of a clothing helper whose corners all pass `keep`,
     set off from the skin by `offset` metres. Or, with `made`, a shape built
-    outright (made fills the mesh; weights gives each point its bones)."""
+    outright (made fills the mesh; weights gives each point its bones).
+    `way` gives the direction a point is set off in, where its own normal will not do: a flat piece with open
+    sides (an apron, a bib) set off four centimetres along its points' normals had every edge point leaning its
+    own way, and the sides came out torn."""
     bm = bmesh.new()
     skin_at = skin_way = None
     if FIT_FROM_BODY and source == "helper-tights" and "body" in group_index and made is None and not name.startswith(("Shoe", "Boot", "Stocking", "Bib", "ApronBib")):
@@ -649,7 +652,7 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
                 v.co = v.co + normal_ * (min(floor_, push) - off_)
                 close_ += 1
         else:
-            v.co = v.co + v.normal * push
+            v.co = v.co + (way(v.co) if way else v.normal) * push
         if reshape:
             v.co = reshape(v.co)
     if skin_at is not None:
@@ -1032,7 +1035,10 @@ def hang_flat(co, over=0.0):
     return Vector((co.x, co.y + (plane - co.y) * 0.8 * high * high * (3.0 - 2.0 * high), co.z)) if co.y > plane else co
 
 
-def skirt_shape(hem, flare, pleats=0, kick=0.0):
+def skirt_shape(hem, flare, pleats=0, kick=0.0, clear=0.009):
+    """`clear`: once shaped, no point of a skirt is left nearer the body than this (zero leaves it be). A skirt
+    shorter than the helper draws the helper's lower, closer rings up over the seat, and a pleat's fold can dip
+    under the skin there: a short pleated skirt had the seat showing through it in two places."""
     top = hip + 0.07
     natural_hem = 0.12
     # Where the knee falls along the skirt: a gown cut close to the knee and let out below it "kicks" from there.
@@ -1044,7 +1050,97 @@ def skirt_shape(hem, flare, pleats=0, kick=0.0):
         spread = 1.0 + flare * t + kick * max(0.0, (t - knee_t) / (1.0 - knee_t)) ** 1.6
         if pleats:
             spread *= 1.0 + 0.09 * t * math.sin(math.atan2(co.x, -(co.y - 0.02)) * pleats)
-        return Vector((co.x * spread, (co.y - 0.02) * spread + 0.02, z))
+        x, y = co.x * spread, (co.y - 0.02) * spread
+        if clear > 0.0 and z > hip - 0.2:
+            reach = math.hypot(x, y)
+            need = skin_out(math.atan2(x, -y), z) + clear
+            if 0.0 < reach < need:
+                x, y = x * need / reach, y * need / reach
+        return Vector((x, y + 0.02, z))
+    return shape
+
+
+_FALL_TREES = None
+
+
+def fall_trees():
+    """The skirt helper and the skin, each as a tree to cast rays at."""
+    global _FALL_TREES
+    if _FALL_TREES is None:
+        helper = group_index["helper-skirt"]
+        aside = {index for index, group_name in names.items() if group_name.startswith(("helper-", "joint-"))}
+        in_helper = {v.index for v in mesh.vertices if any(g.group == helper for g in v.groups)}
+        in_skin = {v.index for v in mesh.vertices if not any(g.group in aside for g in v.groups)}
+        points = [tuple(v.co) for v in mesh.vertices]
+        _FALL_TREES = (BVHTree.FromPolygons(points, [tuple(q.vertices) for q in mesh.polygons if all(i in in_helper for i in q.vertices)]),
+                       BVHTree.FromPolygons(points, [tuple(q.vertices) for q in mesh.polygons if all(i in in_skin for i in q.vertices)]))
+    return _FALL_TREES
+
+
+_SKIN_OUT = {}
+
+
+def skin_out(angle, z):
+    """How far out from the skirt's axis the body reaches at this height, this way round: its outermost skin.
+    Looked for from a third of a metre out, so an arm hanging beside the hips is not taken for them."""
+    key = (round(angle * 40.0), round(z * 100.0))
+    if key not in _SKIN_OUT:
+        a, height = key[0] / 40.0, key[1] / 100.0
+        out = Vector((math.sin(a), -math.cos(a), 0.0))
+        hit = fall_trees()[1].ray_cast(Vector((0.0, SKIRT_AXIS_Y, height)) + out * 0.33, -out, 0.33)
+        _SKIN_OUT[key] = 0.33 - hit[3] if hit[0] is not None else 0.0
+    return _SKIN_OUT[key]
+
+
+def coat_fall(hem, flare, clearance, top_clear):
+    """The skirt of a coat. Shaped like any skirt from the skirt helper it began as a shelf standing out from the
+    coat's body at the hip, swelled, and tucked in again at the hem: a bell. Here it starts on the coat's own
+    body at the waist, eases out to clear the seat and hips, and from there falls in a straight line to a hem
+    no narrower than the widest the helper ever is (what is worn under it is cut from the same helper)."""
+    helper_tree, skin_tree = fall_trees()
+    top = hip + 0.07
+    natural_hem = 0.128
+    full = hip - 0.07
+    t_full = (top - full) / (top - natural_hem)
+    rings = {}
+
+    def ring(key):
+        if key not in rings:
+            angle = key / 40.0
+            out = Vector((math.sin(angle), -math.cos(angle), 0.0))
+
+            def reach(tree, z):
+                hit = tree.ray_cast(Vector((0.0, SKIRT_AXIS_Y, z)), out, 1.5)
+                return hit[3] if hit[0] is not None else None
+            upper = [r for r in (reach(helper_tree, full + (top - full) * k / 6.0) for k in range(7)) if r]
+            whole = [r for r in (reach(helper_tree, natural_hem + 0.01 + (top - natural_hem - 0.01) * k / 15.0) for k in range(16)) if r]
+            skin = reach(skin_tree, top)
+            r_full = (max(upper) if upper else 0.2) + clearance
+            r_top = min(r_full, (skin if skin else r_full - top_clear) + top_clear)
+            r_hem = max((max(whole) if whole else r_full) + clearance, r_full) * (1.0 + flare)
+            # Room for the legs and what is on them all the way down: wide trousers came through the back of a
+            # coat at the calf. The line from hip to hem is lifted until it clears every height.
+            for k in range(1, 13):
+                t_leg = t_full + (1.0 - t_full) * k / 12.0
+                z_leg = top - t_leg * (top - hem)
+                need = skin_out(angle, z_leg) + 0.055
+                if need > r_full + (r_hem - r_full) * k / 12.0:
+                    r_hem = r_full + (need - r_full) * 12.0 / k
+            rings[key] = (r_top, r_full, r_hem)
+        return rings[key]
+
+    def shape(co):
+        t = max(0.0, min(1.0, (top - co.z) / (top - natural_hem)))
+        angle = math.atan2(co.x, -(co.y - SKIRT_AXIS_Y))
+        low = math.floor(angle * 40.0)
+        part = angle * 40.0 - low
+        r_top, r_full, r_hem = (a + (b - a) * part for a, b in zip(ring(low), ring(low + 1)))
+        if t < t_full:
+            s = t / t_full
+            r = r_top + (r_full - r_top) * s * s * (3.0 - 2.0 * s)
+        else:
+            r = r_full + (r_hem - r_full) * (t - t_full) / (1.0 - t_full)
+        return Vector((math.sin(angle) * r, SKIRT_AXIS_Y - math.cos(angle) * r, top - t * (top - hem)))
     return shape
 
 
@@ -1244,7 +1340,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
                                                          under=float(r.get("under", 0.12)), armpit=float(r.get("armpit", 0.10))),
               float(row.get("ease", 0.003 if cling else 0.006)), colour, float(row.get("rough", 0.85)), pattern=row.get("pattern"), cloth=cloth or "cotton", hug=cling)
         piece("DressSkirt", "helper-skirt", lambda v: True, 0.005 if cling else 0.01, colour, float(row.get("rough", 0.85)), thicken=(lambda co: seat_room(co) * 0.6) if cling else seat_room,
-              reshape=skirt_shape(float(row.get("hem", 0.4)), float(row.get("flare", 0.2)), int(row.get("pleats", 0)), float(row.get("kick", 0.0))),
+              reshape=skirt_shape(float(row.get("hem", 0.4)), float(row.get("flare", 0.2)), int(row.get("pleats", 0)), float(row.get("kick", 0.0)), clear=0.004 if cling else 0.009),
               pattern=row.get("pattern"), cloth=cloth or "cotton", subdivide=1, alpha=float(row.get("sheer", 1.0)))
     elif kind == "embroidery":
         embroider(row)
@@ -1257,10 +1353,11 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         piece("Cardigan", "helper-tights", lambda v, r=row: torso(v, low=hip + 0.012, sleeves=1.0, vee=float(r.get("vee", 0.34))), 0.018, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit", fit=True)
     elif kind == "coat":
         piece("CoatTop", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.02, sleeves=1.0, vee=float(r.get("vee", 0.2))), 0.023 + over_pack, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "wool")
-        piece("CoatSkirt", "helper-skirt", lambda v: True, 0.034 + over_pack, colour, 0.85, thicken=seat_room, reshape=skirt_shape(float(row.get("hem", 0.45)), float(row.get("flare", 0.12))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
+        piece("CoatSkirt", "helper-skirt", lambda v: True, 0.0, colour, 0.85, reshape=coat_fall(float(row.get("hem", 0.45)), float(row.get("flare", 0.12)), 0.04 + over_pack, 0.0265 + over_pack),
+              pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
     elif kind == "bib":
         piece("Bib", "helper-tights", lambda v: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - 0.01 - v.co.y, band(v.co.z, waist - 0.02, neck - 0.13), 0.11 - abs(v.co.x)),
-              0.018, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "cotton", reshape=hang_flat)
+              0.018, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "cotton", reshape=hang_flat, way=lambda co: Vector((0.0, -1.0, 0.0)))
     elif kind == "apron":
         apron_skirt = skirt_under(row)
         apron_made = apron_skirt is not None and apron_skirt["kind"] == "skirt"
@@ -1295,13 +1392,14 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         if not apron_on_overalls:
             piece("ApronStraps", None, None, 0.0, colour, 0.85, cloth=cloth or "cotton", made=strap_shape, weights=lambda co: {"Spine2": 1.0})
         piece("Apron", "helper-skirt", lambda v: min(-v.co.y, (0.95 - abs(math.atan2(v.co.x, -(v.co.y - 0.02)))) * 0.12), 0.021 if apron_made else 0.046 + over_pack, colour, 0.85, thicken=seat_room if apron_made else None,
+              way=lambda co: Vector((co.x, co.y - 0.02, 0.0)).normalized(),
               reshape=skirt_shape(max(float(row.get("hem", 0.5)), float(apron_skirt.get("hem", 0.38)) + 0.05) if apron_made else float(row.get("hem", 0.5)),
                                   float(apron_skirt.get("flare", 0.25)) if apron_made else float(row.get("flare", 0.11)),
                                   int(apron_skirt.get("pleats", 0)) if apron_made else 0), cloth=cloth or "cotton", subdivide=1)
         # Review of cast_r10: the bib's outline was ragged. Its edge followed the arm's weights, which are uneven,
         # and its top corners were square. Plain planes, rounded corners, a finer cut.
         piece("ApronBib", "helper-tights", lambda v: min(bone("Spine2").y - 0.01 - v.co.y, v.co.z - (waist - 0.02), round_min(neck - 0.12 - v.co.z, 0.1 - abs(v.co.x), 0.03)),
-              0.02 + over_pack, colour, 0.85, cloth=cloth or "cotton", subdivide=1, reshape=lambda co: hang_flat(co, 0.009))
+              0.02 + over_pack, colour, 0.85, cloth=cloth or "cotton", subdivide=1, reshape=lambda co: hang_flat(co, 0.009), way=lambda co: Vector((0.0, -1.0, 0.0)))
     elif kind == "sash":
         piece("Sash", "helper-tights", lambda v, r=row: min(0.045 - abs(v.co.z - (hip + float(r.get("up", 0.03)))), (0.3 - weight(v, ARM)) * W), float(row.get("off", 0.017)) + over_pack, colour, 0.5, cloth=cloth or "silk")
     elif kind == "scarf":
@@ -2394,7 +2492,9 @@ def dressed_hair_material(name, colour, HAT, phase_at, part_angle):
     clump_at = numpy.interp((across * 48.0) % 48.0, numpy.arange(49, dtype=numpy.float32), numpy.append(clumps, clumps[0]))
     strand = 0.6 * fine_at + 0.4 * clump_at
     crest = 0.5 + 0.5 * swing
-    tone = 0.56 + 0.4 * crest ** 1.2 * settle + 0.2 * (1.0 - settle)
+    # Hair brushed flat has no waves to light and shade: "wave_tone" under one evens the crests and troughs out.
+    wave_tone = float(HAT.get("wave_tone", 1.0))
+    tone = 0.56 + 0.4 * (wave_tone * crest ** 1.2 + (1.0 - wave_tone) * 0.5) * settle + 0.2 * (1.0 - settle)
     # The band of light sits just on the lamp's side of each crest, and is broken by the strands it crosses.
     along = (phase - 0.21) % 1.0
     band = numpy.exp(-((numpy.minimum(along, 1.0 - along)) / 0.075) ** 2) * settle * (0.5 + 0.5 * fine_at)
@@ -2471,6 +2571,8 @@ def wave_hair(HAT, top_z, brow_z, centre):
     front_rise = float(HAT.get("front", 0.05))     # how far above the brow the hairline sits at the front
     swoop = float(HAT.get("swoop", 0.03))          # how low the wave over one temple comes
     curly = float(HAT.get("curly", 0.0))           # curls worked into the surface, as well as the waves
+    sideburn = float(HAT.get("sideburn", 0.0))     # how far the hair comes down in front of each ear
+    fade = float(HAT.get("fade", 0.0))             # the share of the hair's length, at its edge, over which it thins to the skin
     part_angle = -math.pi / 2 + part_side * 0.5
     swoop_angle = -math.pi / 2 - part_side * 0.75   # the wave that comes low over the other temple
 
@@ -2488,6 +2590,9 @@ def wave_hair(HAT, top_z, brow_z, centre):
         front = max(0.0, -math.sin(a))
         back = max(0.0, math.sin(a))
         z = brow_z - side_fall + (front_rise + side_fall) * front ** 1.5 - (length - side_fall) * back ** 1.2
+        if sideburn > 0.0:
+            for ear in (-float(HAT.get("sideburn_at", 0.4)), math.pi + float(HAT.get("sideburn_at", 0.4))):
+                z -= sideburn * math.exp(-(((a - ear + math.pi) % math.tau - math.pi) / 0.17) ** 2)
         return z - swoop * math.exp(-(((a - swoop_angle + math.pi) % math.tau - math.pi) / float(HAT.get("swoop_width", 0.45))) ** 2)
 
     def polar_at(a, height):
@@ -2508,6 +2613,9 @@ def wave_hair(HAT, top_z, brow_z, centre):
         """How far off the skin the hair stands at this place: its body, its waves, its parting, its ends."""
         phase = phase_at(a, t)
         body = lift * min(1.0, t / 0.12 + 0.35) * (1.0 - 0.45 * max(0.0, (t - 0.86) / 0.14))
+        if fade > 0.0:
+            # Cut short at the sides and the nape: the hair thins to the skin, where set hair ends in a rolled edge.
+            body *= 1.0 - 0.85 * max(0.0, (t - (1.0 - fade)) / fade) ** 1.5
         wave = ridge * math.sin(math.tau * phase) * min(1.0, t / 0.2)
         gap = (a - part_angle + math.pi) % math.tau - math.pi
         parting = 0.007 * math.exp(-(gap / 0.06) ** 2) * min(1.0, t / 0.08) * (1.0 if t < 0.7 else max(0.0, (0.85 - t) / 0.15))
@@ -2582,11 +2690,14 @@ def wave_hair(HAT, top_z, brow_z, centre):
         lower_ring, upper_ring = [], []
         for j in range(steps):
             a = math.tau * j / steps
-            for ring, dz in ((lower_ring, -0.007), (upper_ring, 0.007)):
+            band_half = float(HAT.get("band_half", 0.007))
+            for ring, dz in ((lower_ring, -band_half), (upper_ring, band_half)):
                 polar = polar_at(a, band_z + dz)
                 at, way = skin(a, polar)
-                covered = edge_height(a) < band_z + dz
-                stand = (lift + ridge + 0.0025) if covered else 0.003
+                # The band lies on whatever is under it: the hair with its waves, or the forehead. Stood off by
+                # one height all round, it was a hoop that the head sat inside.
+                along_hair = polar / edge_polar[j]
+                stand = (away(a, along_hair) + 0.002) if along_hair < 1.0 else 0.003
                 v = bm.verts.new(at + way * stand)
                 uv_of[v] = (j / steps * 8.0, 0.5 + dz * 30.0)
                 ring.append(v)
@@ -2873,6 +2984,20 @@ def repair_flat_uv(obj):
             flat_faces.add(triangle.polygon_index)
         else:
             densities.append(abs(det) * 0.5 / area)
+    # A four-cornered face can be cut along either diagonal, and the exporter need not cut it as this does: both
+    # ways are read. (Stacy's hair under a hat had two faces whose other diagonal left a triangle with no UV area.)
+    for polygon in mesh_.polygons:
+        if polygon.loop_total != 4 or polygon.index in flat_faces:
+            continue
+        loops = list(polygon.loop_indices)
+        for trio in ((0, 1, 3), (1, 2, 3), (0, 1, 2), (0, 2, 3)):
+            p0, p1, p2 = (at[mesh_.loops[loops[k]].vertex_index] for k in trio)
+            if (p1 - p0).cross(p2 - p0).length * 0.5 <= 1e-10:
+                continue
+            u0, u1, u2 = (layer.data[loops[k]].uv for k in trio)
+            if abs((u1.x - u0.x) * (u2.y - u0.y) - (u1.y - u0.y) * (u2.x - u0.x)) <= 1e-9:
+                flat_faces.add(polygon.index)
+                break
     if not flat_faces:
         return 0
     densities.sort()

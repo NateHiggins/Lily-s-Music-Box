@@ -96,5 +96,21 @@ func _ready() -> void:
 			apart += 1
 	_check(apart >= 14, "two people do not move in step (%d of 28 days differ)" % apart)
 	_check((rules.parts_for("mina_vale", "formal", {"a_top": {"slot": "top", "set": "a", "tags": []}}, "1929-06-04").parts as Array) == ["a_top"], "someone with one part wears it")
+	# Dressed hair: worn to an occasion indoors in place of a hat, and by nothing else.
+	var plain: Dictionary = rules.parts_for("mina_vale", "occasion", notes, "1929-06-08", {"place": "bar"})
+	_check("c_head" in plain.parts, "an occasion with no dressed hair owned: the hat (%s)" % [plain.parts])
+	notes["f_head"] = {"slot": "head", "set": "f", "tags": ["occasion", "evening"], "hair": "replace"}
+	var evening: Dictionary = rules.parts_for("mina_vale", "occasion", notes, "1929-06-08", {"place": "bar"})
+	_check("f_head" in evening.parts and not ("c_head" in evening.parts) and "c_top" in evening.parts, "an occasion indoors: hair dressed, no hat (%s)" % [evening.parts])
+	_check("f_head" in rules.parts_for("mina_vale", "occasion", notes, "1929-06-08").parts, "with no place given, an occasion is taken to be indoors")
+	var roof: Dictionary = rules.parts_for("mina_vale", "occasion", notes, "1929-10-12", {"place": "roof"})
+	_check("c_head" in roof.parts and not ("f_head" in roof.parts), "an occasion out of doors: the hat goes on (%s)" % [roof.parts])
+	var never := true
+	for day in 28:
+		for outfit: String in ["casual", "formal", "winter", "work", "night", "mourning"]:
+			never = never and not ("f_head" in rules.parts_for("mina_vale", outfit, notes, "1929-06-%02d" % (day + 1), {"place": "street"}).parts)
+	_check(never, "dressed hair is never picked as a hat by any other outfit")
+	var only_dressed := {"b_top": {"slot": "top", "set": "b", "tags": []}, "f_head": notes["f_head"]}
+	_check((rules.parts_for("mina_vale", "formal", only_dressed, "1929-06-04").parts as Array) == ["b_top"], "someone whose only headwear is dressed hair goes out bare-headed")
 	print("WARDROBE RULES TEST: %s (%d checks, %d failures)" % ["PASS" if _fails == 0 else "FAIL", _checks, _fails])
 	get_tree().quit(0 if _fails == 0 else 1)

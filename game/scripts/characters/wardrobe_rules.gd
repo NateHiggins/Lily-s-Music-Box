@@ -123,7 +123,14 @@ func _holds(rule: Dictionary, situation: Dictionary) -> bool:
 ## layer is worn and of what kind, and whether the head is covered. Within
 ## that, the choice turns on the person and the day, so someone is not in the
 ## same blouse every morning, but is in the same one all of that day.
-func parts_for(person: String, outfit: String, notes: Dictionary, date: String) -> Dictionary:
+##
+## An outfit whose row says `"hair": "dressed"` is worn with the hair dressed
+## (a part whose note says `"hair": "replace"`: waved and set, or brushed flat)
+## by anyone who owns such a part, in place of a hat, except out of doors,
+## where the hat goes on. `situation` is the one given to `choose`; without
+## one, the person is taken to be indoors. Dressed hair is never a hat: no
+## other outfit picks it.
+func parts_for(person: String, outfit: String, notes: Dictionary, date: String, situation: Dictionary = {}) -> Dictionary:
 	var look: Dictionary = {}
 	for row: Dictionary in table.get("looks", []):
 		if str(row.outfit) == outfit:
@@ -151,13 +158,36 @@ func parts_for(person: String, outfit: String, notes: Dictionary, date: String) 
 			over = _owned(notes, "over", [], tag)
 	if not over.is_empty():
 		chosen.append(over[_turn(person, date, "over") % over.size()])
-	if bool(look.head):
-		var hats := _owned(notes, "head", sets, "")
+	var dressed: Array = _dressed_hair(notes) if str(look.get("hair", "")) == "dressed" and not is_outdoors(situation) else []
+	if not dressed.is_empty():
+		chosen.append(dressed[_turn(person, date, "hair") % dressed.size()])
+	elif bool(look.head):
+		var hats := _hats(notes, sets)
 		if hats.is_empty():
-			hats = _owned(notes, "head", [], "")
+			hats = _hats(notes, [])
 		if not hats.is_empty():
 			chosen.append(hats[_turn(person, date, "head") % hats.size()])
 	return {"parts": chosen, "tint": str(look.tint)}
+
+
+## Headwear that is the hair itself, dressed.
+static func _dressed_hair(notes: Dictionary) -> Array:
+	var names: Array = []
+	for part: String in notes:
+		if str((notes[part] as Dictionary).get("slot", "")) == "head" and str((notes[part] as Dictionary).get("hair", "")) == "replace":
+			names.append(part)
+	names.sort()
+	return names
+
+
+## Hats proper: headwear that is not dressed hair.
+static func _hats(notes: Dictionary, sets: Array) -> Array:
+	var dressed := _dressed_hair(notes)
+	var names: Array = []
+	for part: String in _owned(notes, "head", sets, ""):
+		if not (part in dressed):
+			names.append(part)
+	return names
 
 
 ## The colour a named tint lays over what is worn, or white for none.

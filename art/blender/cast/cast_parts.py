@@ -294,6 +294,42 @@ PACK_SKIN = {
 }
 
 
+GOLD = [0.8, 0.62, 0.22]
+SILVER = [0.78, 0.79, 0.82]
+
+
+def gent(**more):
+    """A man's evening hair: brushed flat with brilliantine from a parting, short over the ear and at the nape."""
+    return dict({"side": 0.02, "length": 0.055, "ridge": 0.0018, "lift": 0.007, "swoop": 0.0, "sideburn": 0.035, "fade": 0.4, "wave_tone": 0.3,
+                 "wisp_side": 0.01, "wisp_nape": 0.018, "wisp_front": 0.004, "wisp_repeats": 9.0, "highlight": 0.6, "shine": 0.6, "gloss_rough": 0.3}, **more)
+
+
+# Lily, 2026-11-13: formal hair with the sculpted look of the two stage heads for everyone who needs it; everyday
+# hair stays card hair. One dressed head each, worn as headwear that is the hair (see the builder's wave_hair):
+# the women waved and set, in a bob, a knot or pinned up by age; the men brushed flat from a parting. Malcolm and
+# Sacha wear a close crop that needs no dressing and have none. Adela's is her approved stage hair.
+FORMAL_HAIR = {
+    "adela_voss": {"length": 0.05, "side": 0.03, "waves": 3.0, "ridge": 0.006, "curly": 0.0035, "lift": 0.013, "front": 0.04, "updo": 11, "ornament": "clip", "part": 1.0, "band": GOLD},
+    "mina_vale": {"length": 0.075, "side": 0.07, "waves": 3.5, "ridge": 0.0065, "lift": 0.012, "curl": 0.014, "front": 0.035, "swoop": 0.03, "part": 1.0, "ornament": "clip", "band": GOLD},
+    "evelyn_marsh": {"length": 0.05, "side": 0.035, "waves": 2.5, "ridge": 0.005, "lift": 0.012, "front": 0.045, "swoop": 0.012, "part": -1.0, "knot": True, "ornament": "clip", "band": SILVER},
+    "iris_bell": {"length": 0.08, "side": 0.08, "waves": 3.0, "ridge": 0.007, "lift": 0.014, "curl": 0.018, "front": 0.03, "swoop": 0.03, "part": -1.0, "ornament": "bandeau", "band": GOLD, "band_half": 0.0045, "band_height": 0.024},
+    "juno_kells": {"length": 0.045, "side": 0.03, "waves": 2.0, "ridge": 0.004, "lift": 0.009, "front": 0.04, "swoop": 0.035, "swoop_width": 0.55, "part": 1.0, "wisp_nape": 0.025},
+    "lena_ortiz": {"length": 0.05, "side": 0.04, "waves": 1.5, "ridge": 0.004, "lift": 0.011, "front": 0.045, "swoop": 0.008, "part": 0.3, "knot": True, "ornament": "clip", "band": WHITE},
+    "mae_kessler": {"length": 0.045, "side": 0.03, "waves": 2.0, "ridge": 0.004, "curly": 0.002, "lift": 0.014, "front": 0.045, "swoop": 0.0, "part": 0.0, "updo": 9},
+    "nadia_quell": {"length": 0.06, "side": 0.075, "waves": 4.0, "ridge": 0.0075, "lift": 0.011, "curl": 0.01, "front": 0.03, "swoop": 0.04, "part": -1.0, "ornament": "bandeau_star", "band": [0.8, 0.7, 0.5], "band_half": 0.0045, "band_height": 0.024},
+    "rhea_sato": {"length": 0.075, "side": 0.075, "waves": 2.5, "ridge": 0.006, "lift": 0.012, "curl": 0.013, "front": 0.015, "swoop": 0.0, "part": 0.6, "ornament": "clip", "band": [0.85, 0.1, 0.25]},
+    "teresa_vale": {"length": 0.05, "side": 0.045, "waves": 3.0, "ridge": 0.0055, "lift": 0.012, "front": 0.035, "swoop": 0.02, "part": 1.0, "knot": True, "ornament": "clip", "band": [0.75, 0.75, 0.7]},
+    "transient_guests_b": {"length": 0.07, "side": 0.07, "waves": 3.5, "ridge": 0.006, "lift": 0.012, "curl": 0.012, "front": 0.035, "swoop": 0.025, "part": 1.0, "ornament": "bandeau", "band": [0.7, 0.55, 0.2], "band_half": 0.0045, "band_height": 0.024},
+    "cal_dwyer": gent(waves=1.0, front=0.065, part=1.0, lift=0.0055),
+    "cam_ortiz": gent(waves=1.0, front=0.045, part=-1.0, lift=0.009),
+    "jonah_price": gent(waves=1.0, front=0.05, part=1.0, lift=0.01, ridge=0.003, length=0.07, side=0.026, fade=0.3),
+    "noel_price": gent(waves=1.0, front=0.05, part=-1.0, lift=0.009, ridge=0.003),
+    "omar_bell": gent(waves=1.0, front=0.06, part=0.0),
+    "peter_wren": gent(waves=1.0, front=0.055, part=1.0),
+    "transient_guests_a": gent(waves=1.0, front=0.045, part=-1.0, lift=0.011, ridge=0.003, length=0.08, side=0.03, fade=0.25),
+}
+
+
 def add_parts(cast):
     for cid, sets in STYLES.items():
         person = cast[cid]
@@ -346,6 +382,11 @@ def add_parts(cast):
             looks[letter] = [name for name in parts if name.startswith(letter + "_")]
         looks["mix1"] = [n for n in ("a_top", "b_bottom", "c_over", "b_head", "a_feet") if n in parts]
         looks["mix2"] = [n for n in ("c_top", "a_bottom", "b_over", "c_head", "b_feet") if n in parts]
+        if cid in FORMAL_HAIR:
+            # The dressed head, and the look it belongs to: the occasion clothes with the hat left off.
+            parts["f_head"] = {"slot": "head", "set": "f", "tags": ["occasion", "evening"], "covers": [], "rows": [], "trim": [], "hair": "replace",
+                               "hat": dict({"kind": "waves", "colour": person["hair"]["colour"]}, **FORMAL_HAIR[cid])}
+            looks["f"] = [n for n in looks["c"] if not n.endswith("_head")] + ["f_head"]
         for row in DETAILS.get(cid, []):
             if row.get("cell") in ("patch", "pocket", "ticket", "darn", "stain", "stripe"):
                 continue
