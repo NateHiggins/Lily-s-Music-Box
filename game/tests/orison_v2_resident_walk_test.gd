@@ -4,14 +4,15 @@ extends Node
 ## route file (res://data/orison_v2/<resident>_routine.json) is composed the
 ## way the runtime composes a registered one, and they walk a tour of every
 ## place it names, home between each, without a teleport, a block or their
-## capsule ever overlapping a door leaf, closing every door of their own unit
-## behind them. Windowed: the runtime refuses headless.
+## capsule ever overlapping a door leaf. Unit leaves opened for passage stay
+## open until explicitly operated. Windowed: the runtime refuses headless.
 
 const ResidentRoute := preload("res://scripts/characters/orison_v2_resident_route.gd")
 var failures: Array[String] = []
 var _route: Node3D
 var _metres := 0.0
 var _resident := ""
+var _opened_doors: Dictionary = {}
 
 
 func _check(label: String, ok: bool) -> void:
@@ -23,6 +24,9 @@ func _check(label: String, ok: bool) -> void:
 func _physics_process(_delta: float) -> void:
 	if not is_instance_valid(_route) or _route.actor == null:
 		return
+	for door: DoorProp in _route._door_passages:
+		if is_instance_valid(door) and bool(_route._door_passages[door].opened):
+			_opened_doors[door] = true
 	var query := PhysicsShapeQueryParameters3D.new()
 	query.shape = _route._capsule
 	query.collision_mask = 1
@@ -90,9 +94,9 @@ func _run(world: OrisonV2RuntimeRoot) -> void:
 		await _walk(place)
 		_route.force_destination = "unit"
 		await _walk("unit")
-	for door: DoorProp in _route._doors:
+	for door: DoorProp in _opened_doors:
 		if is_instance_valid(door) and door.unit == unit:
-			_check("%s left closed behind them" % door.name, not door.open)
+			_check("%s remains open after its route passage" % door.name, door.open and door.is_ready_for_passage())
 	await _capture_body(world)
 	_route.force_destination = ""
 
@@ -142,7 +146,7 @@ func _walk(place: String) -> void:
 		if _route.current_id == _route.desired_id and _route.path.is_empty():
 			break
 	if _route.current_id != _route.desired_id or not _route.path.is_empty():
-		print("STALLED on the way to ", place, ": ", _route.blocked_reason, " closing=", _route._closing_door, " busy=", actor.mina_animation.route_busy if actor.mina_animation != null else false)
+		print("STALLED on the way to ", place, ": ", _route.blocked_reason, " passages=", _route._door_passages.size(), " busy=", actor.mina_animation.route_busy if actor.mina_animation != null else false)
 		_print_block_state()
 	_check("reaches %s (%.0f s)" % [place, elapsed], _route.current_id == _route.desired_id and _route.desired_id >= 0)
 

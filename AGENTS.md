@@ -118,6 +118,10 @@ keeps it. See section 9 of `design/V1_RETIREMENT_PLAN_2026-11-09.md`.
 
 ## Interaction (RUL-013)
 
+- Traversable doors use Lily's RUL-018 exception: directional input opens an
+  authorized passage and guides the character through real frame/leaf clearance;
+  primary click operates the leaf and keyhole. Doors without a functional return
+  mechanism stay open. Cabinets and other controls retain direct manipulation.
 - The cursor indicates an operable part. Primary click grabs it, mouse motion
   moves it within its physical constraints, and the next click releases it.
   Replace player click-to-toggle and minigame flows with direct manipulation;
@@ -185,6 +189,11 @@ skill adapters without a duplicate guide or a directory junction.
 For sequential comics, panel/lettering revisions and marked draft reviews, use
 [comic-book-development](.agents/skills/comic-book-development/SKILL.md).
 Private likeness assets, prompts and review copies stay outside this public repo.
+
+For scripted game-engine films and voiced cinematic proofs, use
+[machinima-production](.agents/skills/machinima-production/SKILL.md). It covers
+performance staging, voice/edit timing, native capture, assembly and retirement;
+film evidence does not replace gameplay qualification or artistic acceptance.
 
 The owner keeps a widget bar outside the repo. Between tasks, agents on this machine read
 `~/homebrew-tools/data/work_orders.json` (the top open order is what she wants next) and

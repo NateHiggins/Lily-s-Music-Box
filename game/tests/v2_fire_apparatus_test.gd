@@ -523,13 +523,44 @@ func _check_place(check: Node3D, blockout: Node3D) -> void:
 	await get_tree().process_frame
 
 
-## Open the leaf the way a hand does, through the leaf's own grip, and let go.
-func _open_and_let_go(leaf: Node3D, angle: float) -> void:
-	var grip: Dictionary = leaf.manipulation_target({"collider": leaf._body})
-	grip.begin.call()
-	grip.write.call(angle)
-	await get_tree().physics_frame
-	grip.end.call()
+## Passage leaves use primary click under RUL-018. Hardware on the check
+## retains its separate constrained hand controls. This is a positioned
+## mechanism fixture, not a test of walking through the doorway.
+func _command_leaf(leaf: Node3D, want_open: bool, check: Node3D = null) -> bool:
+	var point: Vector3 = leaf._body.to_global(Vector3(leaf.width * .5, 1.15, .03))
+	await _aim(leaf, leaf.to_local(point), Vector3(leaf.width * .5, 1.55, 1.15))
+	var ray := PhysicsRayQueryParameters3D.create(_player.camera.global_position,
+			_player.camera.global_position - _player.camera.global_basis.z * 2.1)
+	ray.collide_with_areas = true
+	ray.exclude = [_player.get_rid()]
+	var hit := _space.intersect_ray(ray)
+	var node := hit.get("collider") as Node
+	var matched := false
+	while node != null:
+		if node == leaf: matched = true
+		node = node.get_parent()
+	if not _check(matched and not _holding(), "actual primary ray reaches the physical leaf"): return false
+	_click()
+	if not _check(not _holding() and leaf.open == want_open, "primary commands the leaf without acquiring a grip"): return false
+	var intermediate := false
+	for tick in 180:
+		await get_tree().physics_frame
+		var angle: float = leaf._body.rotation.y
+		if angle > .05 and angle < leaf.motion_target_angle(true) - .05: intermediate = true
+		if not leaf._moving and not leaf._key_turning: break
+	if check != null:
+		_check(intermediate, "the commanded leaf traverses real intermediate angles")
+		await get_tree().process_frame
+		_check(check.forearm_eye().distance_to(check.shoe_pin_world()) < .003,
+				"the arm follows the commanded leaf onto its shoe")
+	return _check(leaf.open == want_open and not leaf._moving
+			and _near(leaf._body.rotation.y, leaf.motion_target_angle(want_open), .03),
+			"primary drives the leaf to its physical stop open=" + str(want_open))
+
+
+func _open_and_let_go(leaf: Node3D) -> void:
+	if leaf.open and not await _command_leaf(leaf, false): return
+	await _command_leaf(leaf, true)
 
 
 func _ticks(count: int) -> void:
@@ -553,20 +584,20 @@ func _check_authority(check: Node3D) -> void:
 	_check(not check.ship_arm() and check.balk_focus() == "hold", "the arm is not shipped with the catch off")
 	# As found, a leaf let go stands where it was left: longer than the
 	# building's ordinary easy-closing would have waited.
-	await _open_and_let_go(leaf, 1.2)
+	await _open_and_let_go(leaf)
 	_check(_proved.is_empty() and check.balk_focus() == "arm", "nobody has looked at the arm: V1 records nothing")
 	await _ticks(330)
-	_check(_near(check.leaf_angle(), 1.2, 0.0005) and leaf.open and not check.closing,
-			"as found, the leaf let go at 69 degrees is still there five and a half seconds later")
+	_check(_near(check.leaf_angle(), full, 0.0005) and leaf.open and not check.closing,
+			"as found, the clicked-open leaf is still at its stop five and a half seconds later")
 	check.read_arm()
-	await _open_and_let_go(leaf, 1.2)
+	await _open_and_let_go(leaf)
 	_check(_proved.size() == 1 and check.last_attempt == "stopped_short" and _proved[0].stopped_short == true
 			and _proved[0].requested_by_closer == false and not check.closes_itself(),
 			"the arm seen, the leaf let go: V1 records that it stopped short")
 	# Arm shipped, port still shut: the spring has nothing to move the liquid through.
 	_check(check.hold_leaf() and check.ship_arm() and check.release_leaf() and check.connected() and not bool(check.call("ready")),
 			"catch thrown, arm shipped, catch off: connected, and not ready")
-	await _open_and_let_go(leaf, full)
+	await _open_and_let_go(leaf)
 	await _ticks(120)
 	_check(_near(check.leaf_angle(), full, 0.0005) and check.last_attempt == "stopped_short" and check.balk_focus() == "valve",
 			"with the port screwed shut the leaf comes off the hand and stops")
@@ -577,7 +608,7 @@ func _check_authority(check: Node3D) -> void:
 			"three turns of the screw: ready, and the card says so")
 	var rate: float = check.close_rate()
 	_proved.clear()
-	await _open_and_let_go(leaf, full)
+	await _open_and_let_go(leaf)
 	await _ticks(3)
 	var from: float = check.leaf_angle()
 	await _ticks(60)
@@ -585,13 +616,14 @@ func _check_authority(check: Node3D) -> void:
 	_check(check.closing and _near(travelled, rate * 60.0 * tick, rate * 3.0 * tick),
 			"let go, the leaf comes home at the checked rate: %.3f rad in a second against %.3f" % [travelled, rate * 60.0 * tick])
 	_check(_near(check.forearm_eye().distance_to(check.shoe_pin_world()), 0.0, 0.003), "and the arm is on the shoe all the way")
-	# A hand on the leaf takes it from the spring.
-	var grip: Dictionary = leaf.manipulation_target({"collider": leaf._body})
-	grip.begin.call()
+	# An active approach pauses the spring without acquiring a legacy hand grip.
+	leaf.hold_passage(_player)
 	var held: float = check.leaf_angle()
-	await _ticks(20)
-	_check(not check.closing and _near(check.leaf_angle(), held, 0.0005), "a hand on the leaf stops it: the spring does not fight the hand")
-	grip.end.call()
+	for frame in 20:
+		leaf.hold_passage(_player)
+		await get_tree().physics_frame
+	_check(not check.closing and _near(check.leaf_angle(), held, 0.0005), "active passage holds the spring at its real current angle")
+	leaf.release_passage(_player)
 	var waited := 0
 	while check.leaf_angle() > 0.0 and waited < 900:
 		await get_tree().physics_frame
@@ -604,7 +636,7 @@ func _check_authority(check: Node3D) -> void:
 	# The port decides the speed.
 	check.port_turns = 1.0
 	var wide: float = check.close_rate()
-	await _open_and_let_go(leaf, full)
+	await _open_and_let_go(leaf)
 	await _ticks(3)
 	from = check.leaf_angle()
 	await _ticks(30)
@@ -718,19 +750,9 @@ func _check_hand(check: Node3D) -> void:
 	_check(_near(check.port_turns, 0.6, 0.001) and bool(check.call("ready")), "set back to three of five")
 	# -- the real leaf, by mouse, and the spring --
 	_proved.clear()
-	grip = await _aim(leaf, Vector3(0.62, 1.15, 0.03), Vector3(0.62, 1.55, 1.05))
-	_check(grip.get("owner") == leaf, "the cursor ray finds the leaf itself, not the check")
-	_click()
-	_check(_holding() and is_zero_approx(check.leaf_angle()), "taking the leaf opens nothing")
-	await _drag(Vector2(120, 0), 3)
-	var half: float = check.leaf_angle()
-	_check(_near(half, leaf.motion_target_angle(true) * 0.5, 0.01) and check.forearm_eye().distance_to(check.shoe_pin_world()) < 0.003,
-			"the leaf follows the mouse half open, and the arm goes with it")
-	await _drag(Vector2(160, 0), 3)
-	_check(is_equal_approx(check.leaf_angle(), leaf.motion_target_angle(true)), "to its stop")
-	_click()
+	if not await _command_leaf(leaf, true, check): return
 	await _ticks(4)
-	_check(not _holding() and check.closing, "let go, the spring takes it")
+	_check(not _holding() and check.closing, "after the click opening settles, the spring takes it")
 	var waited := 0
 	while check.leaf_angle() > 0.0 and waited < 900:
 		await get_tree().physics_frame

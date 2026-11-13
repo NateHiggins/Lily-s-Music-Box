@@ -3,6 +3,11 @@
 Evidence class: **INERT**. Work and diagnostic continuation; no runtime
 qualification, human acceptance or completeness promotion.
 
+**Historical October22 behavior below.** Lily's November13 **RUL-018** supersedes
+architectural grab/drag and default slow return: see Bible §VIII.5.l and
+[current doorway controls](../game/docs/door_passage.md). Preserve these original
+diagnostics; they do not qualify the current directional/click contract.
+
 The owner directs fixed mouse travel, moving the player back to make room,
 slow automatic closing, and passage priority over door collisions. This
 supersedes the earlier instruction to retain obstruction tests for these

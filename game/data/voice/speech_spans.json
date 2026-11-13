@@ -1,0 +1,671 @@
+{
+  "schema_version": 1,
+  "description": "Explicit editorial speech spans for action-bearing dialogue. Display text and its hash remain original. Only these exact reviewed source fields project speech; parentheses and third-person sentences elsewhere are not automatically removed.",
+  "entries": [
+    {
+      "source": "game/data/dialogue/stacy.json",
+      "pointer": "/nodes/st_coin/line",
+      "text_sha256": "7dc8c92f5d5d07d160d7949fcf477afa26cde35d92762e792db7405f8a9e5ec6",
+      "length": 179,
+      "turns": [
+        {
+          "start": 125,
+          "end": 179
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 124,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 124,
+          "end": 125,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/stacy.json",
+      "pointer": "/nodes/st_int_open/line",
+      "text_sha256": "c1571487e4fcf4fcc3444bad14ac937bcf4845944d9e3ff7e0c8fad75dbac56a",
+      "length": 192,
+      "turns": [
+        {
+          "start": 135,
+          "end": 192
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 134,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 134,
+          "end": 135,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/stacy.json",
+      "pointer": "/nodes/st_rt_cup/line",
+      "text_sha256": "958f2afd13a6cd9adf3996f59c9bec45599ec89ce6b91dc0944a21597d59f887",
+      "length": 217,
+      "turns": [
+        {
+          "start": 0,
+          "end": 124
+        }
+      ],
+      "gaps": [
+        {
+          "start": 124,
+          "end": 125,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        },
+        {
+          "start": 125,
+          "end": 217,
+          "kind": "stage_direction",
+          "reason": "Silent cup service after the spoken hiring joke; the direction explicitly says without a word."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_e5/line",
+      "text_sha256": "a6d449dc3e2e940a456b47d7005be6ce833a3498fda0fec0284badee65015c73",
+      "length": 116,
+      "turns": [
+        {
+          "start": 0,
+          "end": 27
+        },
+        {
+          "start": 110,
+          "end": 116
+        }
+      ],
+      "gaps": [
+        {
+          "start": 27,
+          "end": 28,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        },
+        {
+          "start": 28,
+          "end": 109,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 109,
+          "end": 110,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_f5/line",
+      "text_sha256": "6a75a7fcfbf9debd249f1ebc834bae98572336944a515ba438e5e4535e9090ec",
+      "length": 132,
+      "turns": [
+        {
+          "start": 51,
+          "end": 132
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 50,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 50,
+          "end": 51,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o10/line",
+      "text_sha256": "7657a578bcf632c6ea7b8a2553d9dbdafd21bfec29df04a08c2aa7b6d22d00fe",
+      "length": 191,
+      "turns": [
+        {
+          "start": 0,
+          "end": 30
+        },
+        {
+          "start": 103,
+          "end": 191
+        }
+      ],
+      "gaps": [
+        {
+          "start": 30,
+          "end": 31,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        },
+        {
+          "start": 31,
+          "end": 102,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 102,
+          "end": 103,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o12/line",
+      "text_sha256": "511a269419ddfe296e8f198a2249244fc1ab0f91de4823c6f17e52d1c94409e1",
+      "length": 96,
+      "turns": [
+        {
+          "start": 62,
+          "end": 96
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 61,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 61,
+          "end": 62,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o18/line",
+      "text_sha256": "8805cf91b81512d45c4238aef30884c177910ca1c480edf046954360d2959159",
+      "length": 371,
+      "turns": [
+        {
+          "start": 0,
+          "end": 46
+        },
+        {
+          "start": 94,
+          "end": 135
+        },
+        {
+          "start": 365,
+          "end": 371
+        }
+      ],
+      "gaps": [
+        {
+          "start": 46,
+          "end": 47,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        },
+        {
+          "start": 47,
+          "end": 93,
+          "kind": "stage_direction",
+          "reason": "Authored laughter, piano or wordless singing performance; preserve for stage integration, never narrate it as dialogue."
+        },
+        {
+          "start": 93,
+          "end": 94,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        },
+        {
+          "start": 135,
+          "end": 136,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        },
+        {
+          "start": 136,
+          "end": 364,
+          "kind": "stage_direction",
+          "reason": "Authored laughter, piano or wordless singing performance; preserve for stage integration, never narrate it as dialogue."
+        },
+        {
+          "start": 364,
+          "end": 365,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o22/line",
+      "text_sha256": "f383269dad2c7dbe83d5386ef199947c3bfe8453daf63d3e92b026ef985edcd9",
+      "length": 86,
+      "turns": [
+        {
+          "start": 64,
+          "end": 86
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 63,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 63,
+          "end": 64,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o34/line",
+      "text_sha256": "14870d714a584930b69fd9222f566bcea1cfefafb8b404d8b841fc56a3164a91",
+      "length": 109,
+      "turns": [
+        {
+          "start": 88,
+          "end": 109
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 87,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 87,
+          "end": 88,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o38/line",
+      "text_sha256": "6e180ae5acb4db6480222d101b205ae9989a58addb2db28ad4e72746824eb67e",
+      "length": 47,
+      "turns": [
+        {
+          "start": 31,
+          "end": 47
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 30,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 30,
+          "end": 31,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o4/line",
+      "text_sha256": "5d75b0df26fbdc084af8d160242459df09a382db2254a8128461b21eeac003ce",
+      "length": 65,
+      "turns": [
+        {
+          "start": 0,
+          "end": 12
+        }
+      ],
+      "gaps": [
+        {
+          "start": 12,
+          "end": 13,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        },
+        {
+          "start": 13,
+          "end": 65,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o40/line",
+      "text_sha256": "6a99364d73554a82bb0fa49e38b5935452f2a902e431844ddd83d98f29ad6a60",
+      "length": 152,
+      "turns": [
+        {
+          "start": 56,
+          "end": 152
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 55,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 55,
+          "end": 56,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o48/line",
+      "text_sha256": "53a0637bf402ef4c4ae48c6093aa01b379498c3eff6b1a2f8c70a5aa2b2b4b72",
+      "length": 158,
+      "turns": [
+        {
+          "start": 63,
+          "end": 85
+        },
+        {
+          "start": 128,
+          "end": 158
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 62,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 62,
+          "end": 63,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        },
+        {
+          "start": 85,
+          "end": 86,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        },
+        {
+          "start": 86,
+          "end": 127,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 127,
+          "end": 128,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o54/line",
+      "text_sha256": "3887811d182470524efdbdacf49c113cfed51c63e19935e548d742d8e0fa07a0",
+      "length": 68,
+      "turns": [],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 68,
+          "kind": "stage_direction",
+          "reason": "Entire node is a contained smile with no authored words to say."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o58/line",
+      "text_sha256": "a40b2068564f4b7d43c24b9ce488b0113271daf689eebdb57905b3c805462565",
+      "length": 82,
+      "turns": [
+        {
+          "start": 46,
+          "end": 82
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 45,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 45,
+          "end": 46,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o62/line",
+      "text_sha256": "d66f6a3b22f4ce95472c5211765fcaf9e739bca522f6433f1d545bd8b223c14f",
+      "length": 89,
+      "turns": [
+        {
+          "start": 80,
+          "end": 89
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 79,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 79,
+          "end": 80,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o66/line",
+      "text_sha256": "e88d5d4eb3b5fd2b0b41714d5510bb2e7f557a4e67e2a78e9c861878c7112256",
+      "length": 60,
+      "turns": [
+        {
+          "start": 27,
+          "end": 60
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 26,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 26,
+          "end": 27,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_o8/line",
+      "text_sha256": "c1eaf5d90016ace39eee76111d8bb6740fcef2005a8350f07c44460c9bff484e",
+      "length": 185,
+      "turns": [
+        {
+          "start": 113,
+          "end": 185
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 112,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 112,
+          "end": 113,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/adela_voss.json",
+      "pointer": "/nodes/av_v2/line",
+      "text_sha256": "1e02eadec47b33d0d78a48b526690f22e81ccca27bba0ac68ee90f742df89894",
+      "length": 171,
+      "turns": [
+        {
+          "start": 0,
+          "end": 17
+        }
+      ],
+      "gaps": [
+        {
+          "start": 17,
+          "end": 18,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        },
+        {
+          "start": 18,
+          "end": 171,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/lena_ortiz.json",
+      "pointer": "/nodes/lo_h4/line",
+      "text_sha256": "49cdd73ad0e0d0efa256b2e4e69d1cddd293856f89d7e4c869acb2d520f00c03",
+      "length": 223,
+      "turns": [
+        {
+          "start": 61,
+          "end": 223
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 60,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 60,
+          "end": 61,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/teresa_vale.json",
+      "pointer": "/nodes/tv_o3/line",
+      "text_sha256": "7026a7c700e764fcf251907a42dad9a51a6ce77e7cf6a077311bcf369fe0e9db",
+      "length": 138,
+      "turns": [
+        {
+          "start": 74,
+          "end": 138
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 73,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 73,
+          "end": 74,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/nadia_quell.json",
+      "pointer": "/nodes/nq_c5/line",
+      "text_sha256": "4d842a4b3aa4663e5a34be5a9576face58bedc53fc0e5dcdb1c65b7aea1a077c",
+      "length": 40,
+      "turns": [],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 40,
+          "kind": "stage_direction",
+          "reason": "Unmarked nonverbal handwriting-recognition beat: Nadia looks or retains the pencil; these are actions, not her dialogue."
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/nadia_quell.json",
+      "pointer": "/nodes/nq_c9/line",
+      "text_sha256": "88f3090f7604f0e3d83f7b64fb8550cf5899d7b089efe046eefbb9e9c774d7d6",
+      "length": 21,
+      "turns": [],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 21,
+          "kind": "stage_direction",
+          "reason": "Unmarked nonverbal handwriting-recognition beat: Nadia looks or retains the pencil; these are actions, not her dialogue."
+        }
+      ]
+    }
+  ]
+}

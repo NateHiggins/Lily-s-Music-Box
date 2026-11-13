@@ -81,7 +81,7 @@ var _poll := 0.0
 ## How the borrowed part of the house stood when the visit began, and the run
 ## of its hours it was last put back for.
 var _house_was: Dictionary = {}
-var _house_run := -1.0
+var _house_run := ""
 var _house_held := false
 var _call_held := false
 var _talk_held := false
@@ -174,7 +174,7 @@ func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
 	# it is in the visit's record.
 	if loop.in_visit() and (loop.ledger().visit as Dictionary).get("household") is Dictionary:
 		_house_was = ((loop.ledger().visit as Dictionary).household as Dictionary).duplicate(true)
-		_house_run = float((loop.ledger().visit as Dictionary).get("loop_started", -1.0))
+		_house_run = _house_run_identity()
 		_house_held = true
 	_sync()
 	return errors.is_empty()
@@ -190,6 +190,16 @@ func _exit_tree() -> void:
 ## mirrors and shelves are borrowed when the visit begins, put back as they
 ## were when its hours are run again, and given back when the player comes
 ## home. A room merely faulted out of order keeps the doors where they are.
+func _house_run_identity() -> String:
+	if not loop.in_visit():
+		return ""
+	var book: Dictionary = loop.ledger()
+	var visit: Dictionary = book.visit
+	var record: Dictionary = book.anchors.get(str(visit.anchor), {})
+	return "%s|%s|%s|%d|%d" % [visit.anchor, str(float(visit.left_at)), str(float(visit.loop_started)),
+			int(record.get("paid", 0)), int(record.get("loops", 0))]
+
+
 func _rewind_house() -> void:
 	var house: Variant = world.get("household_state")
 	if house is not Node or not (house as Node).has_method("visit_restore"):
@@ -201,11 +211,11 @@ func _rewind_house() -> void:
 			else:
 				RealityState.commit_background()
 		_house_was = {}
-		_house_run = -1.0
+		_house_run = ""
 		_house_held = false
 		return
 	var visit: Dictionary = loop.ledger().visit
-	var run := float(visit.get("loop_started", -1.0))
+	var run := _house_run_identity()
 	if not _house_held:
 		_house_was = house.visit_snapshot()
 		visit["household"] = _house_was.duplicate(true)
@@ -213,7 +223,7 @@ func _rewind_house() -> void:
 		_house_held = true
 		RealityState.commit_background()
 		return
-	if is_equal_approx(run, _house_run):
+	if run == _house_run:
 		return
 	_house_run = run
 	if not bool(house.visit_restore(_house_was)):
