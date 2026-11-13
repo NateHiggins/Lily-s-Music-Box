@@ -200,12 +200,12 @@ garments = []
 # Silk that follows the body (a gown's `cling`): how many times the skin under it is smoothed, and how widely
 # (in faces) the lift that clears what the smoothing took away is spread and then eased.
 # Close garments made here (shirts, jumpers, waistcoats, cardigans) are cut from the body in the same way.
-# Off unless asked for (FIT_FROM_BODY=1): built for all twenty on 2026-11-12 but not yet looked at, so the
-# builder still makes cast_r12's shapes by default.
-FIT_FROM_BODY = os.environ.get("FIT_FROM_BODY", "0") == "1"
+# On since cast_r13 (all twenty looked at in three sets, 2026-11-12). FIT_FROM_BODY=0 makes cast_r12's shapes.
+FIT_FROM_BODY = os.environ.get("FIT_FROM_BODY", "1") != "0"
+SKIRT_HEM_CUT = os.environ.get("SKIRT_HEM_CUT", "1") != "0"
 CLING_SMOOTH = 30
-CLING_SPREAD = 8
-CLING_EASE = 6
+CLING_SPREAD = 4
+CLING_EASE = 4
 
 
 CLOTHS = {
@@ -449,9 +449,24 @@ def dressing_form():
     index_of = {v: v.index for v in bm.verts}
     bmesh.ops.delete(bm, geom=lose, context="VERTS")
     skin = {v: v.co.copy() for v in bm.verts}
-    inner = [v for v in bm.verts if not v.is_boundary]
+    # Smoothed without shrinking (a pass that draws each point toward its neighbours, then one that pushes it a
+    # little further back). Plain smoothing shrank arms and legs to sticks, and the lift that put them back made
+    # every sleeve a wing and filled the armpits (all twenty, 2026-11-12).
+    bm.verts.index_update()
+    points = numpy.array([v.co[:] for v in bm.verts], dtype=numpy.float64)
+    pairs_ = numpy.array([(e.verts[0].index, e.verts[1].index) for e in bm.edges], dtype=numpy.int64)
+    count = numpy.zeros(len(points))
+    numpy.add.at(count, pairs_[:, 0], 1.0)
+    numpy.add.at(count, pairs_[:, 1], 1.0)
+    count = numpy.maximum(count, 1.0)[:, None]
     for _ in range(smooth_):
-        bmesh.ops.smooth_vert(bm, verts=inner, factor=0.5, use_axis_x=True, use_axis_y=True, use_axis_z=True)
+        for factor in (0.5, -0.53):
+            total = numpy.zeros_like(points)
+            numpy.add.at(total, pairs_[:, 0], points[pairs_[:, 1]])
+            numpy.add.at(total, pairs_[:, 1], points[pairs_[:, 0]])
+            points = points + (total / count - points) * factor
+    for v, co in zip(bm.verts, points):
+        v.co = co
     bm.normal_update()
     beside = {v: [e.other_vert(v) for e in v.link_edges] for v in bm.verts}
     need = {v: max(0.0, (skin[v] - v.co).dot(v.normal)) for v in bm.verts}
@@ -472,11 +487,12 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
     outright (made fills the mesh; weights gives each point its bones)."""
     bm = bmesh.new()
     skin_at = skin_way = None
-    if FIT_FROM_BODY and source == "helper-tights" and "body" in group_index and made is None and not name.startswith(("Shoe", "Boot", "Stocking")):
+    if FIT_FROM_BODY and source == "helper-tights" and "body" in group_index and made is None and not name.startswith(("Shoe", "Boot", "Stocking", "Bib", "ApronBib")):
         # Cut from the body's own surface, as the stage gowns are: the clothing helper is coarse and stands off
         # unevenly, which is where padded shirts and stepped necklines came from. Everything that lies on the
         # body is cut from the one dressing form, or a shirt cut from it would lie outside trousers that were not.
-        # Footwear keeps the helper, which has a foot without toes.
+        # Footwear keeps the helper, which has a foot without toes; so do bibs, which hang flat from the chest
+        # (cut from the form, an apron's bib clung to the bust like wet cloth).
         source = "body"
     if made is not None:
         made(bm)
@@ -510,6 +526,11 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
             if (source == "body" and any(index in aside for index in v[deform].keys())) or (source != "body" and source_index not in v[deform]):
                 continue
             value = keep(mesh.vertices[v.index])
+            if source == "helper-skirt" and SKIRT_HEM_CUT:
+                # The skirt helper turns in under itself below its hem. Shaped, that rim lay as a floor inside
+                # the hem and the skirt read as a bubble. It is cut off just above the turn.
+                below = mesh.vertices[v.index].co.z - 0.128
+                value = below if value is True else min(float(value), below) if value is not False else value
             if value is True:
                 value = 1.0
             elif value is False:
@@ -543,7 +564,8 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         print("GARMENT", name, "is empty")
         return None
     # A little easing along every open edge takes out what the cut left.
-    for _ in range(22 if made is not None or source == "body" else 8):
+    # An apron's sides are cut down through the skirt helper's long faces, and want as much easing as a made shape.
+    for _ in range(22 if made is not None or source == "body" or name.startswith("Apron") else 8):
         moved = {}
         for v in bm.verts:
             beside = [e.other_vert(v) for e in v.link_edges if e.is_boundary]
@@ -954,6 +976,22 @@ def seat_room(co):
     return 0.02 * max(0.0, 1.0 - abs(co.z - (hip - 0.08)) / 0.16) * (1.0 if co.y > 0.0 else 0.3)
 
 
+_FRONT = None
+
+
+def hang_flat(co):
+    """A bib hangs from the fullest part of the chest in a plane; it does not follow the bust. Each point is
+    brought most of the way forward to that plane, less toward the waist, where the bib is tied in."""
+    global _FRONT
+    if _FRONT is None:
+        body_ = group_index.get("body")
+        chest_ = [v.co.y for v in mesh.vertices if waist + 0.04 < v.co.z < neck - 0.12 and abs(v.co.x) < 0.11 and (body_ is None or any(g.group == body_ for g in v.groups))]
+        _FRONT = min(chest_) if chest_ else co.y
+    high = max(0.0, min(1.0, (co.z - waist) / 0.1))
+    plane = _FRONT - 0.02
+    return Vector((co.x, co.y + (plane - co.y) * 0.8 * high * high * (3.0 - 2.0 * high), co.z)) if co.y > plane else co
+
+
 def skirt_shape(hem, flare, pleats=0, kick=0.0):
     top = hip + 0.07
     natural_hem = 0.12
@@ -1182,7 +1220,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         piece("CoatSkirt", "helper-skirt", lambda v: True, 0.034 + over_pack, colour, 0.85, thicken=seat_room, reshape=skirt_shape(float(row.get("hem", 0.45)), float(row.get("flare", 0.12))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
     elif kind == "bib":
         piece("Bib", "helper-tights", lambda v: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - 0.01 - v.co.y, band(v.co.z, waist - 0.02, neck - 0.13), 0.11 - abs(v.co.x)),
-              0.018, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "cotton")
+              0.018, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "cotton", reshape=hang_flat)
     elif kind == "apron":
         apron_skirt = skirt_under(row)
         apron_made = apron_skirt is not None and apron_skirt["kind"] == "skirt"
@@ -1223,7 +1261,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         # Review of cast_r10: the bib's outline was ragged. Its edge followed the arm's weights, which are uneven,
         # and its top corners were square. Plain planes, rounded corners, a finer cut.
         piece("ApronBib", "helper-tights", lambda v: min(bone("Spine2").y - 0.01 - v.co.y, v.co.z - (waist - 0.02), round_min(neck - 0.12 - v.co.z, 0.1 - abs(v.co.x), 0.03)),
-              0.02 + over_pack, colour, 0.85, cloth=cloth or "cotton", subdivide=1)
+              0.02 + over_pack, colour, 0.85, cloth=cloth or "cotton", subdivide=1, reshape=hang_flat)
     elif kind == "sash":
         piece("Sash", "helper-tights", lambda v, r=row: min(0.045 - abs(v.co.z - (hip + float(r.get("up", 0.03)))), (0.3 - weight(v, ARM)) * W), float(row.get("off", 0.017)) + over_pack, colour, 0.5, cloth=cloth or "silk")
     elif kind == "scarf":
