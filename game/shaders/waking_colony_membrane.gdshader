@@ -34,6 +34,14 @@ uniform float milk = 0.66;
 uniform vec3 milk_color : source_color = vec3(0.90, 0.93, 1.0);
 uniform vec3 work_color : source_color = vec3(0.72, 0.36, 0.92);   // the pulled fibres' colour
 uniform float effort = 0.0;          // the cell is going somewhere
+// Amoeba (Lily, 2026-11-13: "deform towards its movement destination like an
+// amoeba, elongating and stretching while traveling, congealing into a more
+// regular mass when stationary feeling an obstacle"). The owner stretches the
+// whole cell along its way; here the film itself pushes a lobe out ahead,
+// working in and out as it goes, and its wandering waves calm when the cell
+// gathers itself.
+uniform vec2 heading = vec2(0.0);    // the way it is going, in its own frame (x, z)
+uniform float stretch = 0.0;         // 0 gathered .. 1 drawn out
 uniform float web_scale = 5.5;       // repeats of the web per metre... of a half-metre cell
 uniform float pull_rate = 0.42;      // the cytoskeleton shader's own
 uniform float pull_waves = 2.0;
@@ -65,7 +73,14 @@ void vertex() {
 	// Slow peristalsis: two travelling waves over the dome, never in step.
 	float w = sin(cell_time * 0.9 + VERTEX.x * 22.0 + VERTEX.z * 9.0)
 			+ 0.6 * sin(cell_time * 1.37 - VERTEX.z * 26.0 + VERTEX.x * 5.0);
-	VERTEX += NORMAL * w * 0.0035 * breathe * smoothstep(0.0, 0.25, v_thick);
+	VERTEX += NORMAL * w * 0.0035 * breathe * smoothstep(0.0, 0.25, v_thick) * mix(0.45, 1.25, stretch);
+	// The leading lobe: only ever outward, so nothing inside is pinched.
+	if (stretch > 0.0 && dot(heading, heading) > 0.0001) {
+		vec2 lead = normalize(heading);
+		float ahead = dot(normalize(VERTEX.xz + vec2(0.00001)), lead);
+		float lobe = smoothstep(0.1, 1.0, ahead) * stretch * (1.0 - 0.55 * v_thick);
+		VERTEX.xz += lead * 0.085 * lobe * (0.72 + 0.28 * sin(cell_time * 0.9));
+	}
 }
 
 vec3 film(float d_nm, float cos_t) {

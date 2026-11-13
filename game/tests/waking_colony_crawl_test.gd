@@ -52,6 +52,13 @@ func _ready() -> void:
 	if moss._waking == null:
 		_finish()
 		return
+	# It begins under the floor. Most of this test drives a cell that is
+	# already out; its rising and sinking are tested at the end.
+	_check(moss._arc == moss.WakingArc.SUBMERGED and not moss._waking.visible, "the cell begins under the floor, unseen")
+	moss._arc = moss.WakingArc.ROAMING
+	moss._arc_out = 1.0
+	moss._shape_body(0.0)
+	_check(moss._waking.visible, "out of the floor it is seen")
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 
@@ -156,11 +163,23 @@ func _ready() -> void:
 	var working := 0
 	var standing := 0
 	var most_marks := 0
+	var drawn_out := 0
+	var drawn_right := 0
+	var most_stretch := 0.0
 	for step in 7200:
 		moss._clock += 1.0 / 60.0
 		if moss._crawl_rest > 0.0:
 			rests += 1
 		moss._crawl(1.0 / 60.0)
+		moss._shape_body(1.0 / 60.0)
+		most_stretch = maxf(most_stretch, moss._stretch)
+		if moss._stretch > 0.5:
+			# Drawn out along its way, drawn in across it.
+			drawn_out += 1
+			var way3 := Vector3(moss._crawl_heading.x, 0.0, moss._crawl_heading.y).normalized()
+			var body: Basis = moss._waking.basis
+			if (body * way3).length() > 1.12 and (body * Vector3.UP.cross(way3)).length() < 0.96:
+				drawn_right += 1
 		moss._mark_trail()
 		most_marks = maxi(most_marks, moss._trail_marks.size())
 		if step % 18 == 0:
@@ -181,6 +200,9 @@ func _ready() -> void:
 	_check(widest <= 2.0 - moss.WAKING_BODY_RADIUS + 0.01, "it keeps inside its room (%.2f m from the middle)" % widest)
 	_check(working > 600 and standing > 60, "the cilia take up the work and lay it down (%d working, %d standing steps)" % [working, standing])
 	_check(moss._crawl_heading.length() <= 1.001, "its heading is a direction")
+	# Amoeba: drawn out toward where it is going while it travels.
+	_check(most_stretch > 0.6 and drawn_out > 120, "travelling, the body draws out (%.2f at most, %d steps)" % [most_stretch, drawn_out])
+	_check(drawn_out > 0 and drawn_right == drawn_out, "longer along its way and narrower across it (%d of %d)" % [drawn_right, drawn_out])
 	moss._animate_waking()
 	var limb_material := moss._waking_cilia.material_override as ShaderMaterial
 	_check(is_equal_approx(float(limb_material.get_shader_parameter("effort")), moss._crawl_effort)
@@ -231,13 +253,98 @@ func _ready() -> void:
 		var last_way: Vector2 = marks[-1].way
 		var read_back := Vector2(told[told.size() - 1].r, told[told.size() - 1].g) * 2.0 - Vector2.ONE
 		_check(told.size() == marks.size() * 4 and read_back.distance_to(last_way) < 0.02, "each disc carries its heading to the shader")
+	# Feeling something, it gathers itself however hard it was going.
+	moss._stretch = 1.0
+	moss._crawl_effort = 1.0
+	moss._attend_want = 1.0
+	for step in 150:
+		moss._shape_body(1.0 / 60.0)
+	_check(moss._stretch == 0.0, "feeling something, it gathers into a regular mass")
+	moss._attend_want = 0.0
+	# Standing, it is a regular mass too.
+	moss._crawl_rest = 1000.0
+	for step in 240:
+		moss._crawl(1.0 / 60.0)
+		moss._shape_body(1.0 / 60.0)
+	var gathered: Basis = moss._waking.basis
+	_check(moss._stretch == 0.0 and gathered.x.is_equal_approx(Vector3.RIGHT) and gathered.y.is_equal_approx(Vector3.UP)
+		and gathered.z.is_equal_approx(Vector3.BACK), "standing, it is its own regular shape")
 	# It stands still for longer than a mark lasts: the floor is given back,
 	# all but the mark it stands on.
-	moss._crawl_rest = 1000.0
 	for step in int((moss.WAKING_TRAIL_FADE + 2.0) * 60.0):
 		moss._clock += 1.0 / 60.0
 		moss._mark_trail()
 	_check(moss._trail_marks.size() <= 1, "left alone, the floor goes back to itself (%d marks left)" % moss._trail_marks.size())
+
+	# Its life in the room: under the floor, up through it, about, and down
+	# again when something moves fast near it.
+	var dt := 1.0 / 60.0
+	moss._arc = moss.WakingArc.SUBMERGED
+	moss._arc_out = 0.0
+	moss._arc_clock = 0.5
+	moss._crawl_rest = 0.0
+	moss._waking_arc(dt)
+	_check(not moss._waking.visible, "under the floor it is not seen")
+	var came_up_flat := false
+	var stayed_on_floor := true
+	for step in 900:
+		moss._clock += dt
+		moss._waking_arc(dt)
+		if moss._arc == moss.WakingArc.EMERGING and moss._waking.visible and moss._waking.basis.y.length() < 0.5:
+			came_up_flat = true
+		if absf(moss._waking.position.y) > 0.0001:
+			stayed_on_floor = false
+		if moss._arc == moss.WakingArc.ROAMING:
+			break
+	_check(moss._arc == moss.WakingArc.ROAMING and moss._waking.visible and is_equal_approx(moss._arc_out, 1.0), "it comes up out of the floor")
+	_check(came_up_flat, "rising, it swells up from flat on the floor")
+	_check(stayed_on_floor, "and no part of it is put below the floor")
+	_check(moss._crawl_clear(moss._waking.position), "it comes up where there is room")
+	# Someone standing near it does not disturb it.
+	var walker := CharacterBody3D.new()
+	var walker_shape := CollisionShape3D.new()
+	var capsule := CapsuleShape3D.new()
+	capsule.radius = 0.2
+	capsule.height = 1.6
+	walker_shape.shape = capsule
+	walker.add_child(walker_shape)
+	add_child(walker)
+	walker.global_position = moss._waking.global_position + Vector3(0.0, 0.85, 1.0)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	for step in 240:
+		moss._clock += dt
+		moss._waking_arc(dt)
+		walker.global_position = moss._waking.global_position + Vector3(0.0, 0.85, 1.0)
+	_check(moss._arc == moss.WakingArc.ROAMING, "someone standing near it does not disturb it")
+	# Someone coming at it does.
+	walker.velocity = Vector3(0.0, 0.0, -1.4)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	var went_down_at := -1
+	for step in 600:
+		moss._clock += dt
+		moss._waking_arc(dt)
+		if moss._arc == moss.WakingArc.SUBMERGED:
+			went_down_at = step
+			break
+	_check(went_down_at >= 0 and not moss._waking.visible, "something moving fast near it sends it back into the floor (%d steps)" % went_down_at)
+	_check(went_down_at >= 0 and went_down_at < 60 * 4, "and quickly")
+	var holding := 0
+	for value in moss._cilia_want:
+		if value > 0.0:
+			holding += 1
+	_check(holding == 0 and moss._attend_want == 0.0, "it lets go of everything as it goes")
+	# When things are quiet it comes up again, somewhere there is room.
+	walker.velocity = Vector3.ZERO
+	var before_emergences: int = moss._arc_emergences
+	for step in 60 * 30:
+		moss._clock += dt
+		moss._waking_arc(dt)
+		if moss._arc == moss.WakingArc.ROAMING:
+			break
+	_check(moss._arc == moss.WakingArc.ROAMING and moss._arc_emergences == before_emergences + 1, "when things are quiet it comes up again")
+	_check(moss._crawl_clear(moss._waking.position), "again where there is room")
 	_check(not moss._crawl_clear(Vector3(0.40, 0.0, 0.0)), "the post's place is not open floor")
 	_check(not moss._crawl_clear(Vector3(0.0, 0.0, -0.75)), "the wall's place is not open floor")
 	_check(not moss._crawl_clear(Vector3(0.0, 0.0, 6.0)), "off the floor is not open floor")

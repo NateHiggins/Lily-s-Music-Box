@@ -147,11 +147,110 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if not waking_style or _waking == null or not crawl_enabled or not is_visible_in_tree():
 		return
-	_crawl(delta)
-	_feel_clock -= delta
-	if _feel_clock <= 0.0:
-		_feel_clock = 0.3
-		_feel()
+	_waking_arc(delta)
+
+
+## Rise, sweep, sink. Under the floor it waits; it comes up where there is
+## room; out, it sweeps the room and feels what it meets; if something moves
+## fast near it, it lets go of whatever it holds and goes back into the floor,
+## to come up again later, somewhere else.
+func _waking_arc(delta: float) -> void:
+	if not arc_enabled:
+		_arc = WakingArc.ROAMING
+		_arc_out = 1.0
+	match _arc:
+		WakingArc.SUBMERGED:
+			_arc_clock -= delta
+			if _arc_clock <= 0.0:
+				_surface()
+		WakingArc.EMERGING:
+			_arc_out = move_toward(_arc_out, 1.0, delta / WAKING_EMERGE_S)
+			if _arc_out >= 1.0:
+				_arc = WakingArc.ROAMING
+		WakingArc.ROAMING:
+			_crawl(delta)
+			_feel_clock -= delta
+			if _feel_clock <= 0.0:
+				_feel_clock = 0.3
+				_feel()
+				if arc_enabled and _is_disturbed():
+					_arc = WakingArc.SUBMERGING
+					_attend_want = 0.0
+					for i in _cilia_want.size():
+						_cilia_want[i] = 0.0
+		WakingArc.SUBMERGING:
+			_crawl_effort = move_toward(_crawl_effort, 0.0, delta * 2.0)
+			_arc_out = move_toward(_arc_out, 0.0, delta / WAKING_SUBMERGE_S)
+			if _arc_out <= 0.0:
+				_arc = WakingArc.SUBMERGED
+				_arc_clock = _crawl_rng.randf_range(10.0, 20.0)
+				_feel_hits.clear()
+	_shape_body(delta)
+
+
+## Come up: where it went down the first time, and after that at some other
+## open place in the room it may roam.
+func _surface() -> void:
+	if _arc_emergences > 0:
+		for attempt in 16:
+			var angle := _crawl_rng.randf() * TAU
+			var far := sqrt(_crawl_rng.randf()) * WAKING_CRAWL_LEASH
+			var place := Vector3(cos(angle) * far, 0.0, sin(angle) * far)
+			if _crawl_clear(place):
+				_waking.position = place
+				break
+	_crawl_target = _waking.position
+	_crawl_rest = 0.0
+	_crawl_effort = 0.0
+	_arc_emergences += 1
+	_arc = WakingArc.EMERGING
+
+
+## Something moving fast close by: a person walking at it, a thing thrown.
+func _is_disturbed() -> bool:
+	var world := get_world_3d()
+	if world == null:
+		return false
+	var near := SphereShape3D.new()
+	near.radius = WAKING_STARTLE_REACH
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = near
+	query.transform = Transform3D(Basis.IDENTITY, _waking.global_position + Vector3.UP * 0.4)
+	query.collide_with_areas = false
+	for hit: Dictionary in world.direct_space_state.intersect_shape(query, 12):
+		var body: Object = hit.collider
+		var speed := 0.0
+		if body is CharacterBody3D:
+			speed = (body as CharacterBody3D).velocity.length()
+		elif body is RigidBody3D:
+			speed = (body as RigidBody3D).linear_velocity.length()
+		if speed >= WAKING_STARTLE_SPEED:
+			return true
+	return false
+
+
+## The body's shape: drawn out along its way while it travels, gathered into
+## a regular mass when it stands or attends to something, and flattened into
+## the floor while it rises or sinks. One transform for the whole cell, so
+## everything in it and on it goes with it.
+func _shape_body(delta: float) -> void:
+	var want := _crawl_effort if (_arc == WakingArc.ROAMING and _attend_want == 0.0) else 0.0
+	_stretch = move_toward(_stretch, want, delta * (0.45 if want > _stretch else 0.8))
+	var along := 1.0 + WAKING_STRETCH * _stretch
+	var across := 1.0 / sqrt(along)
+	var out := smoothstep(0.0, 1.0, _arc_out)
+	var up := maxf(0.001, (1.0 - 0.08 * _stretch) * out)
+	var wide := lerpf(0.5, 1.0, out)
+	var way := Vector3(_crawl_heading.x, 0.0, _crawl_heading.y)
+	way = way.normalized() if way.length() > 0.05 else Vector3.RIGHT
+	var side := Vector3.UP.cross(way)
+	# Stretch along `way`, squeeze along `side`, scale up: a symmetric shape
+	# change with no turn in it, so the cell's own axes stay the room's.
+	var columns: Array[Vector3] = []
+	for axis: Vector3 in [Vector3.RIGHT, Vector3.UP, Vector3.BACK]:
+		columns.append(way * way.dot(axis) * along * wide + side * side.dot(axis) * across * wide + Vector3.UP * Vector3.UP.dot(axis) * up)
+	_waking.basis = Basis(columns[0], columns[1], columns[2])
+	_waking.visible = _arc_out > 0.0
 
 
 func _build_materials() -> void:
@@ -655,8 +754,25 @@ const WAKING_VAPOR_REACH := 0.80        # metres from the middle
 ## negative and let go after a while.
 const WAKING_TRAIL_STEP := 0.07         # metres between discs
 const WAKING_TRAIL_RADIUS := 0.40       # metres
-const WAKING_TRAIL_FADE := 45.0         # seconds from laid to gone
-const WAKING_TRAIL_MAX := 96            # discs kept at most
+const WAKING_TRAIL_FADE := 95.0         # seconds from laid to gone
+const WAKING_TRAIL_MAX := 180           # discs kept at most
+## Its life in the room (Lily, 2026-11-13: "emerge up through the floor, move
+## around like a roomba then submerge again when disturbed"), and its body
+## ("deform towards its movement destination like an amoeba, elongating and
+## stretching while traveling, congealing into a more regular mass when
+## stationary feeling an obstacle").
+enum WakingArc { SUBMERGED, EMERGING, ROAMING, SUBMERGING }
+const WAKING_EMERGE_S := 3.5            # seconds to rise out of the floor
+const WAKING_SUBMERGE_S := 1.6          # seconds to go back into it
+const WAKING_STRETCH := 0.40            # how much longer it draws out along its way
+const WAKING_STARTLE_REACH := 1.3       # metres within which something moving disturbs it
+const WAKING_STARTLE_SPEED := 0.8       # metres a second
+var arc_enabled := true
+var _arc := WakingArc.SUBMERGED
+var _arc_clock := 0.0                   # seconds left under the floor
+var _arc_out := 0.0                     # 0 under the floor .. 1 fully out
+var _stretch := 0.0                     # 0 gathered .. 1 drawn out
+var _arc_emergences := 0
 var _trail: MeshInstance3D
 var _trail_material: ShaderMaterial
 var _trail_marks: Array[Dictionary] = []
@@ -943,6 +1059,11 @@ func _build_waking_cilia(mesh: Mesh, roots: Array[Dictionary]) -> void:
 	_cilia_want.resize(roots.size())
 	_waking_cilia = cilia
 	_crawl_rng.seed = int(colony.seed) * 7919 + 13 if colony != null else 13
+	# It begins under the floor and comes up in its own time.
+	_arc = WakingArc.SUBMERGED
+	_arc_out = 0.0
+	_arc_clock = _crawl_rng.randf_range(0.5, 2.0)
+	_waking.visible = false
 	cilia.multimesh = multimesh
 	cilia.custom_aabb = AABB(Vector3(-0.7, -0.05, -0.7), Vector3(1.4, 0.5, 1.4))
 	_waking.add_child(cilia)
@@ -986,15 +1107,22 @@ func _crawl_way_clear(from: Vector3, to: Vector3) -> bool:
 
 
 func _choose_crawl_target() -> void:
+	# Like a sweeper: turn by some chance amount from the way it was going,
+	# then go straight until something stops it.
 	var here := _waking.position
-	for attempt in 10:
-		var angle := _crawl_rng.randf() * TAU
-		var far := _crawl_rng.randf_range(0.5, 1.8)
-		var candidate := Vector3(here.x + cos(angle) * far, 0.0, here.z + sin(angle) * far)
-		if candidate.length() > WAKING_CRAWL_LEASH:
-			continue
-		if _crawl_way_clear(here, candidate):
-			_crawl_target = candidate
+	var was := atan2(_crawl_heading.y, _crawl_heading.x) if _crawl_heading.length() > 0.1 else _crawl_rng.randf() * TAU
+	for attempt in 12:
+		var turn := _crawl_rng.randf_range(deg_to_rad(55.0), deg_to_rad(180.0)) * (1.0 if _crawl_rng.randf() < 0.5 else -1.0)
+		var angle := was + (turn if _crawl_travelled > 0.0 else _crawl_rng.randf() * TAU)
+		var way := Vector3(cos(angle), 0.0, sin(angle))
+		var reach := 0.0
+		while reach < 3.0:
+			var next := here + way * (reach + 0.3)
+			if next.length() > WAKING_CRAWL_LEASH or not _crawl_clear(next):
+				break
+			reach += 0.3
+		if reach >= 0.3:
+			_crawl_target = here + way * reach
 			return
 	# Hemmed in: stay, and look again in a while.
 	_crawl_target = here
@@ -1018,7 +1146,7 @@ func _crawl(delta: float) -> void:
 			var open := true
 			if _crawl_check <= 0.0:
 				_crawl_check = 0.2
-				open = _crawl_clear(here + way * 0.08)
+				open = _crawl_clear(here + way * (0.08 + WAKING_BODY_RADIUS * WAKING_STRETCH * _stretch))
 			if not open:
 				# Something is in the way now (a chair moved, someone stands there).
 				_crawl_rest = 1.0
@@ -1161,6 +1289,7 @@ func _animate_waking() -> void:
 		material.set_shader_parameter("cell_time", _clock)
 		material.set_shader_parameter("effort", _crawl_effort)
 		material.set_shader_parameter("heading", _crawl_heading)
+		material.set_shader_parameter("stretch", _stretch)
 	if _trail_material != null:
 		_trail_material.set_shader_parameter("cell_at", _waking.position)
 		_mark_trail()

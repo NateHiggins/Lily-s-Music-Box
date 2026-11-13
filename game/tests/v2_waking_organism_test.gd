@@ -210,8 +210,14 @@ func _ready() -> void:
 			# A cell rooted against something may be leaving it; only one that
 			# starts on open floor is held to staying on open floor.
 			started[moss] = [moss.global_position, moss._waking.position, moss._crawl_clear(moss._waking.position)]
-	for i in 240:
+	# Each begins under the floor, rises in its own time, then sweeps its flat.
+	for i in 780:
 		await get_tree().physics_frame
+	var risen := 0
+	for moss: Node3D in started:
+		if moss._arc == moss.WakingArc.ROAMING and moss._waking.visible:
+			risen += 1
+	_check(risen == started.size(), "every cell has come up out of its floor (%d of %d)" % [risen, started.size()])
 	var moved := 0
 	for moss: Node3D in started:
 		var origin: Array = started[moss]
@@ -241,7 +247,7 @@ func _ready() -> void:
 		_check(absf(source.y - float(enc.units[case_id].floor_y)) < 0.5, "%s's field source stays at its floor" % case_id)
 		following += 1
 	_check(following == enc.field_source.size(), "every field has its cell (%d of %d)" % [following, enc.field_source.size()])
-	print("[V2 WAKING ORGANISM] %d of %d cells crawled in four seconds" % [moved, started.size()])
+	print("[V2 WAKING ORGANISM] %d of %d cells crawled in thirteen seconds" % [moved, started.size()])
 	_check(moved >= 1, "at least one cell crawls (%d of %d)" % [moved, started.size()])
 	print("[V2 WAKING ORGANISM] startup_ms %.0f" % world.startup_ms)
 	var last := 0.0

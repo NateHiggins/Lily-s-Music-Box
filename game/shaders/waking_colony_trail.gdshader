@@ -24,7 +24,12 @@ render_mode blend_mix, depth_draw_never, cull_disabled, shadows_disabled, diffus
 
 uniform float cell_time = 0.0;
 uniform vec3 cell_at = vec3(0.0);     // where the cell is now, in this mesh's space
-uniform float fade_s = 45.0;          // seconds from laid to gone
+uniform float fade_s = 95.0;          // seconds from laid to gone
+// A mark's life (Lily: "make the ripples return to a negative afterimage
+// before returning to the bare floor as a longer trail"): first the rippling
+// spectrum; that settles, over the first two fifths, into the floor's plain
+// negative, still and a little fainter, an afterimage; and over the last
+// third the afterimage goes back to the bare floor.
 uniform float strength = 0.92;        // how far toward its negative the floor goes
 uniform float split = 0.009;          // how far the ripples pull the spectrum apart, in screen units
 uniform float rainbow_share = 0.72;   // how much of the mark is the rainbow, the rest the plain negative
@@ -69,7 +74,7 @@ void fragment() {
 	vec2 p = v_local.xz;
 	// Ripples. The slope is worked out, not sampled, so it is the same ripple
 	// in the picture and in the light.
-	float calm = 1.0 - smoothstep(fade_s * 0.25, fade_s * 0.9, age);
+	float calm = 1.0 - smoothstep(fade_s * 0.14, fade_s * 0.42, age);
 	float moving = smoothstep(0.2, 0.7, length(v_way));
 	vec2 way = moving > 0.0 ? normalize(v_way) : vec2(1.0, 0.0);
 	vec2 across_way = vec2(-way.y, way.x);
@@ -91,7 +96,7 @@ void fragment() {
 	// How much of the mark is here: soft at the disc's edge, coming up over
 	// the first second, and going back raggedly as it ages.
 	float cloud = texture(cloud_tex, p * 1.3).g * 0.7 + texture(cloud_tex, p * 3.1 + 0.3).g * 0.3;
-	float going = smoothstep(fade_s * 0.30, fade_s, age + (0.5 - cloud) * fade_s * 0.45);
+	float going = smoothstep(fade_s * 0.66, fade_s, age + (0.5 - cloud) * fade_s * 0.25);
 	float disc = 1.0 - smoothstep(0.35, 1.0, length(v_disc) + (0.5 - cloud) * 0.35);
 	float mark = disc * smoothstep(0.0, 1.2, age) * (1.0 - going);
 	// The floor under it, bent by the ripples and pulled apart into its
@@ -114,12 +119,12 @@ void fragment() {
 	float hue = mix(ring_phase, wake_phase, moving) * 0.045 + far * 1.3 + cloud * 0.9 + light * 1.6 - cell_time * 0.07;
 	vec3 spectrum = 0.5 + 0.5 * cos(6.2831853 * (vec3(0.0, 0.33, 0.67) + hue));
 	vec3 rainbow = spectrum * (0.30 + 1.25 * light) + 0.10 * spectrum * crest;
-	turned = mix(turned, rainbow, rainbow_share * (0.75 + 0.25 * calm));
+	turned = mix(turned, rainbow, rainbow_share * calm);
 	turned = mix(turned, stain_color * (0.3 + dot(under, vec3(0.33))), 0.06);
 	// The picture is the floor's own light already; show it as it is and let
 	// the lamps add only their glint on the ripples.
 	ALBEDO = vec3(0.0);
-	EMISSION = mix(under, turned, strength);
+	EMISSION = mix(under, turned, strength * mix(0.78, 1.0, calm));
 	NORMAL_MAP = vec3(0.5 - 0.5 * clamp(slope.x * ripple_depth, -1.0, 1.0), 0.5 + 0.5 * clamp(slope.y * ripple_depth, -1.0, 1.0), 1.0);
 	NORMAL_MAP_DEPTH = 1.0;
 	ROUGHNESS = mix(0.55, 0.22, calm);
