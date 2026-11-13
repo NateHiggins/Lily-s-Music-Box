@@ -104,6 +104,25 @@ func _run() -> void:
 		var kind := lamp.get_class() + (" shadowed" if lamp.shadow_enabled else "")
 		lamp_kinds[kind] = int(lamp_kinds.get(kind, 0)) + 1
 	print("[V2 CENSUS] lit lamps: %s" % str(lamp_kinds))
+	# Which lamps cast shadows, and how far off they are: the building ranks
+	# eight local shadow casters (LightRig) and fades service lights by
+	# distance, so a shadowed lamp far from the eye is one neither governs.
+	var roster: Array[Dictionary] = []
+	for lamp in lamps:
+		if not lamp.shadow_enabled:
+			continue
+		var reach := 0.0
+		if lamp is OmniLight3D:
+			reach = (lamp as OmniLight3D).omni_range
+		elif lamp is SpotLight3D:
+			reach = (lamp as SpotLight3D).spot_range
+		roster.append({"path": str(world.get_path_to(lamp)), "kind": lamp.get_class(),
+			"metres_away": snappedf(lamp.global_position.distance_to(_at), 0.1), "range_m": snappedf(reach, 0.1),
+			"fades_with_distance": lamp.distance_fade_enabled, "energy": snappedf(lamp.light_energy, 0.01)})
+	roster.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return float(a.metres_away) < float(b.metres_away))
+	for row: Dictionary in roster:
+		print("[V2 CENSUS] shadow lamp %5.1f m away, range %4.1f m, %s  %s" % [row.metres_away, row.range_m,
+			"fades" if row.fades_with_distance else "no fade", row.path])
 	for kind: String in ["", "OmniLight3D", "SpotLight3D", "DirectionalLight3D"]:
 		var mine: Array[Light3D] = []
 		for lamp in lamps:
@@ -218,7 +237,7 @@ func _run() -> void:
 			"schema": CENSUS_SCHEMA, "evidence_class": "INERT", "kind": "performance_diagnostic",
 			"scope": "One station, one heading, the world as it stands at 20:00 on 10 Nov 1928. A group's cost is the fall in the frame's draw calls when it is taken away, each reading the middle of %d settled frames. Hiding a group also removes it from every shadow pass, and culling can shift, so the groups do not add up to the whole. A fall inside a row's spread is nothing." % TAKE_FRAMES,
 			"station": wanted, "yaw_degrees": rad_to_deg(_yaw), "resolution": [int(size.x), int(size.y)],
-			"whole": whole, "lit_lamps": lamp_kinds, "rows": _rows, "standing": standing,
+			"whole": whole, "lit_lamps": lamp_kinds, "shadow_lamps": roster, "rows": _rows, "standing": standing,
 			"cut_short": _cut_short, "budget_s": budget, "failures": failures,
 		}, "\t"))
 		file.close()
