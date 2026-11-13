@@ -1116,6 +1116,21 @@ where they conflict. Existing implementations are migration debt, not exceptions
 The dated ruling changes design authority now; runtime compliance requires
 independent proof and must not be inferred from this text.
 
+**Effortless doorway passage — owner addendum, 2026-11-13 (RUL-018).**
+Directional movement toward a doorway automatically requests opening, including
+unlocking when that particular character has the required access. Player and
+residents follow the logical clearance route through the frame and past the
+leaf, then seamlessly resume ordinary movement. Physical movement, key and save
+owners remain authoritative; an inaccessible lock or real obstruction refuses
+passage. The player's look remains free, and stopping or reversing direction
+releases the assist. Clicking a traversable door operates open/close; its lock
+remains explicitly operable. This is a specific door exception to the default
+grab/drag verb above. Cabinet and other object manipulation retain that verb.
+Doors without a functional return mechanism stay open until someone explicitly
+closes them. Installed closers obey their actual mechanism and occupancy/hose
+clearance. An automatically unlocked door must reload consistently with its
+saved open angle; passage does not silently relock it.
+
 **Close inspection and carried messages — owner addendum, 2026-10-13.**
 After grabbing an inspectable part, Space enters a fixed, unobstructed view of
 its mechanism. The mouse becomes a free pointer for selecting and manipulating

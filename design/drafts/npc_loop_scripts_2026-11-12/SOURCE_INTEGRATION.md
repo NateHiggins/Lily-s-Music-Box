@@ -1,8 +1,8 @@
 # Loop punch-up and first source integration
 
-Evidence class: **INERT**. November 12, 2026. Implemented in source, **not run in
-Godot, played or artistically accepted**. Lily requested integration with no time
-for testing now. No engine, capture, voice or animation batch was launched.
+Evidence class: **INERT**. Updated November 13, 2026. Source integration and
+qualification in progress at Lily's request. Focused owner tests have run;
+native world qualification, main merge, play and artistic acceptance remain open.
 
 ## What changed
 
@@ -19,9 +19,17 @@ phases cover twelve actor/anchor assignments. The drain is deliberately silent.
 Nadia and Juno each share a visit with its host; other residents retain their
 existing agendas, appointments, rest and work rather than joining every scene.
 
-The actual playable lines are the selected single-speaker replies in that JSON.
-The longer multi-person script exchanges and complex prop handling remain direction
-for later implementation; they have **not** all been converted into runtime scenes.
+The selected single-speaker replies in that JSON now have seven additional
+ordinary exchanges (33 lines) in
+[ordinary_performances.json](../../../game/data/temporal/ordinary_performances.json).
+The shared conversation owner plays these authored sequences with their exact
+speaker/text and optional player reply; every line also permits departure.
+All participants must have physically arrived, be available, share a floor,
+stand 0.65–2.8m apart and have an unobstructed sightline. A participant leaving,
+becoming unavailable, or losing that sightline cancels the exchange. This consumer
+does not create an overlap in the residents' schedules or invent a shared prop.
+The other multi-person scripts and complex prop handling remain direction for
+later implementation; the whole packet has **not** become playable choreography.
 Lily's spoken placeholders remain owner-reviewed, not newly generated dialogue.
 
 ## Existing owners and new connections
@@ -39,10 +47,14 @@ Lily's spoken placeholders remain owner-reviewed, not newly generated dialogue.
   and **alcove** in Cal's route, away from the host's main/kitchen travel. These
   visitor mappings also make the existing weekly timetable destinations reachable
   in principle; they are not limited to an anchor's hours.
-  A thin route subclass yields before approaching another walking resident during
-  visits; the original motor still owns every actual step. Mae/Cal move to the
+  A thin route subclass yields before approaching the authored host/guest partner
+  during that pair's visit; the original motor still owns every actual step.
+  Unrelated corridor traffic retains its existing owner: blanket symmetric
+  yielding could stop two approaching residents forever. Mae/Cal move to the
   kitchen while their visitor comes through, then resume their phase after the
-  guest arrives. There is no new sidestep or collision exemption. Narrow two-way
+  guest arrives, or resume their own work after30seconds of movement opportunity
+  if a lock/obstruction prevents arrival. Conversation and scene-tree pause do
+  not consume that opportunity. There is no new sidestep or collision exemption. Narrow two-way
   passages can still require a later passing policy; this is not crowd qualification.
 - Actors offer the authored question only once they reach their actual destination.
   A deliberate interaction uses ResidentConversations' consequence-free performance
@@ -58,12 +70,43 @@ Lily's spoken placeholders remain owner-reviewed, not newly generated dialogue.
   verified grip. Complex sewing, nursing, tea, photograph, cup and tool work still
   require actual contacts and appropriate models/clips.
 - Visit identity includes the anchor, departure/start stamps and paid/rerun counts.
-  A same-minute rerun is distinct; an object-order fault is not. Home/real rerun
-  clears this owner's transient replies, attitudes and dedicated conversation.
+  A same-minute rerun is distinct; an object-order fault is not. Numeric identity
+  fields are normalized across validated JSON save/load. Home/real rerun/load
+  clears this owner's transient replies and attitudes; obsolete owned ordinary,
+  mystery and dedicated dialogue is cancelled without effects in the new context.
+  An unrelated successor panel is not closed. The household stage uses the same
+  paid/rerun identity so immediate AGAIN restores its snapshot even when civil
+  time has not advanced. Ordinary replies renew on a new civil day.
   Phase changes cancel its dedicated line. Nothing rewinds knowledge or extends
   a visit. Existing mystery heard-at-entry semantics are unchanged.
 
 ## Honest limits and next verification
+
+Private evidence case: **C:/ov/reports/npc_loop_integration_20261112/**.
+**preflight01** passes the existing temporal169checks, conversation and agenda
+programmes. **contract04/shots/runtime_contract.json** passes624checks across
+all11anchors/47phases and seven ordinary exchanges/33lines, including real clock,
+dialogue and validated-save owners, foreign panel custody, transitions and a real
+physics sightline blocker. Its route endpoints are deliberately synthetic and
+the receipt says **production_runtime:false**. It proves the consumer/lifecycle,
+not native attendance, clearance, full journeys or clue earning. **contract03**
+retains the original JSON numeric-identity failure;01/02 retain parse failures.
+
+**stage01** reports202/0 assertions in the actual building, including same-minute
+household AGAIN, but its stderr contains AStar self-edge errors. Coincident graph
+vertices are now guarded; do not call that original run a clean world pass.
+Fresh **contract05** and **world01** qualify the later scoped-yield and
+interrupted-wait repairs; their result must be read before claiming success.
+The reader gate has no new findings for either loop data file;30tool tests pass
+after registering the precise dynamic identity maps, with value fields still
+audited. The shared checkout retains unrelated bar/bass reader debt.
+
+Ordinary attendance has specific unimplemented cases: **OY02** currently selects
+Teresa/Cam corridors on different floors; **OY05** selects Malcolm/Sacha's
+different homes; **OY04** has Juno5.49m from Cal's main mark. Shared mail endpoints
+also need qualified spacing. These fail closed and leave solo authored business
+available; their synthetic positive controls are not natural encounters. Add
+qualified meeting routes/marks before claiming those sequences can occur.
 
 Read-only review caught and corrected three issues before this checkpoint: guest
 arrival vertices were on the hosts' kitchen paths; a proposed ordinary-tree graft

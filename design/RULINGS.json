@@ -215,6 +215,20 @@
     "machinima"
    ],
    "supersedes": []
+  },
+  {
+   "id": "RUL-018",
+   "date": "2026-11-13",
+   "authority": "owner",
+   "summary": "Directional movement automatically opens an accessible doorway, unlocking only when the particular player or NPC has authority. Guide through frame and leaf clearance, then release ordinary movement. Traversable doors have explicit click open/close and lock controls; doors without functional return mechanisms stay open until explicitly closed. Preserve real collision, access, save and hose authorities. Door-specific exception to the default direct-manipulation verb; other objects retain it.",
+   "source": "Lily, direct chat request, 2026-11-13; design/ORISON_BIBLE.md VIII.5.l Effortless doorway passage",
+   "scope": [
+    "game",
+    "interaction",
+    "doors",
+    "residents"
+   ],
+   "supersedes": []
   }
  ]
 }

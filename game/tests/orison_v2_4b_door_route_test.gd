@@ -13,12 +13,16 @@ func _route() -> void:
 	if not _require(entry != null and entry.door_kind == "apartment_entry"
 			and entry.unit == "4B" and entry.is_in_group("apartment_doors"),
 			"4B entry has its production subtype and apartment identity"): return
-	if not await _open_door("F04_DOOR_03"): return
+	# The apartment entry is the installed directional-only passage proof:
+	# no preceding leaf click, key command or angle assignment.
+	if not await _walk(Vector3(-6.65, 9.6, 0)): return
+	if not _require(entry.is_ready_for_passage(), "directional input alone opens and clears installed 4B entry"): return
 	for point in [Vector3(-6.65, 9.6, 0), Vector3(-8.3, 9.6, 0),
 			Vector3(-10.8, 9.6, 0), Vector3(-13, 9.6, 0),
 			Vector3(-13, 9.6, 4.7), Vector3(-14.42, 9.6, 4.7)]:
 		if not await _walk(point): return
 	if not await _use_water_valves("F04_4B_KITCHEN_SINK_01"): return
+	if not _require(entry.is_ready_for_passage(), "entry stays open during kitchen work without return hardware"): return
 	for point in [Vector3(-13, 9.6, 4.7), Vector3(-13, 9.6, 0),
 			Vector3(-10.8, 9.6, 0), Vector3(-10.8, 9.6, 2.25),
 			Vector3(-10.05, 9.6, 2.25)]:
@@ -44,6 +48,8 @@ func _route() -> void:
 	if not _require(wc._refilling,"walking approach reaches the actual flush"): return
 	await get_tree().create_timer(5.0).timeout
 	if not _require(not wc._refilling,"toilet refills before leaving the bathroom"): return
+	if not _require(_leaf("F04_B_BATH_DOOR").is_ready_for_passage(),
+			"bathroom leaf stays open throughout the visit until explicitly closed"): return
 	for point in [Vector3(-7.9, 9.6, 4.75), Vector3(-10.5, 9.6, 4.75)]:
 		if not await _walk(point): return
 	# The open bathroom leaf projects into the private hall. Close it from a
@@ -81,25 +87,57 @@ func _open_door(identity: String) -> bool:
 	if not _require(door != null, "production leaf exists: " + identity): return false
 	if not _require(not door.open and door.leaf_state == "closed",
 			"leaf starts closed and usable: " + identity): return false
-	if not await _drag_part(door, door.to_global(Vector3(door.width * .5, 1.1, 0)), door.motion_target_angle(true), identity): return false
-	await get_tree().create_timer(.6).timeout
-	# This route closes its doors by hand later. Prop the leaf against the slow
-	# self-close a settled door now schedules (V2EasyDoorBench proves that).
-	if door._easy != null:
-		door._easy.stop()
-	var body := door.get_node_or_null("HingedLeaf") as AnimatableBody3D
-	return _require(door.open and body != null
-			and absf(body.rotation.y - door.motion_target_angle(true)) < .01,
-			"input opens physical leaf to its stop: " + identity)
+	return await _operate_leaf(door, true, identity)
 
 func _close_door(identity: String) -> bool:
 	var door := _leaf(identity)
 	if not _require(door != null and door.open, "open leaf ready to close: " + identity): return false
+	return await _operate_leaf(door, false, identity + "_close")
+
+## RUL-018 passage leaves use click commands. The ray, reach, tween and solid
+## sweep remain production authorities; neither this helper nor the route
+## writes a leaf angle or moves the walking player's body.
+func _click_leaf(door: DoorProp, label: String) -> bool:
 	var body := door.get_node("HingedLeaf") as AnimatableBody3D
-	if not await _drag_part(door, body.to_global(Vector3(door.width * .5, 1.1, 0)), 0.0, identity + "_close"): return false
-	await get_tree().create_timer(.6).timeout
-	return _require(not door.open and absf(body.rotation.y) < .01,
-			"input closes physical leaf: " + identity)
+	var aim := body.to_global(Vector3(door.width * .5, 1.1, 0))
+	player.camera.look_at(aim)
+	await get_tree().physics_frame
+	player.camera.look_at(aim)
+	var ray := PhysicsRayQueryParameters3D.create(player.camera.global_position,
+			player.camera.global_position - player.camera.global_basis.z * 2.1)
+	ray.collide_with_areas = true
+	ray.exclude = [player.get_rid()]
+	var hit := player.get_world_3d().direct_space_state.intersect_ray(ray)
+	var node := hit.get("collider") as Node
+	var matched := false
+	while node != null:
+		if node == door: matched = true
+		node = node.get_parent()
+	if not _require(matched and not player._grab.active(), "actual click ray reaches leaf: " + label): return false
+	var click := InputEventMouseButton.new()
+	click.button_index = MOUSE_BUTTON_LEFT
+	click.pressed = true
+	player._unhandled_input(click)
+	return _require(not player._grab.active(), "passage click does not acquire a hand grip: " + label)
+
+func _operate_leaf(door: DoorProp, want_open: bool, label: String) -> bool:
+	if not await _click_leaf(door, label): return false
+	for frame in 180:
+		await get_tree().physics_frame
+		if label == "F02_B_ENTRY_DOOR_close" and frame == 0:
+			var live_angle: float = door._body.rotation.y
+			var live_revision := door.motion_revision
+			var live_moving := door._moving
+			RealityState.commit()
+			if not _require(is_equal_approx(live_angle, door._body.rotation.y)
+					and live_revision == door.motion_revision and live_moving == door._moving,
+					"unrelated commit preserves commanded physical leaf motion: " + label): return false
+		if not door._moving and not door._key_turning: break
+	var target := door.motion_target_angle(want_open)
+	var reached := door.open == want_open and absf(door._body.rotation.y - target) < .01
+	if want_open: reached = reached and door.is_ready_for_passage()
+	if not _require(door.valid_mechanism(door.mechanism_snapshot()), "physical leaf stop remains saveable: " + label): return false
+	return _require(reached, "click reaches physical leaf stop open=" + str(want_open) + ": " + label)
 
 func _use_shower() -> bool:
 	var shower := world.adapter.resolve("F04_4B_SHOWER_01") as TapProp
@@ -113,9 +151,21 @@ func _use_shower() -> bool:
 func _use_water_valves(identity: String) -> bool:
 	var tap := world.adapter.resolve(identity) as TapProp
 	if not _require(tap != null, "water fixture exists: " + identity): return false
-	var hot := tap.get_node_or_null("HotValveControl") as Area3D
-	var cold := tap.get_node_or_null("ColdValveControl") as Area3D
-	if not _require(hot != null and cold != null, "independent valve targets exist: " + identity): return false
+	if not _require(tap._handles.size() == 2 and is_instance_valid(tap._handles[0])
+			and is_instance_valid(tap._handles[1]) and tap._handles[0] != tap._handles[1],
+			"independent physical valve handles exist: " + identity): return false
+	# Both TapProp and the native clawfoot bath put targets on the moving
+	# handles. Root HotValveControl/ColdValveControl are legacy wall-cap fittings.
+	var hot := tap._handles[0].get_node_or_null("ManipulationTarget") as Area3D
+	var cold := tap._handles[1].get_node_or_null("ManipulationTarget") as Area3D
+	if not _require(hot != null and cold != null and hot != cold,
+			"independent moving valve targets exist: " + identity): return false
+	var hot_grip: Dictionary = hot.call("manipulation_target", {})
+	var cold_grip: Dictionary = cold.call("manipulation_target", {})
+	if not _require(hot_grip.get("owner") == tap and cold_grip.get("owner") == tap
+			and hot_grip.get("part") == tap._handles[0] and cold_grip.get("part") == tap._handles[1]
+			and hot_grip.get("kind") == "hinge" and cold_grip.get("kind") == "hinge",
+			"hot and cold targets preserve their exact fixture and handle identities: " + identity): return false
 	if not await _drag_part(tap, tap._handles[0].global_position, PI*.5, identity + "_hot"): return false
 	var hot_flow := tap.get_flow_state()
 	if not _require(hot_flow.hot and not hot_flow.cold and float(hot_flow.temperature) > 0,
@@ -132,24 +182,35 @@ func _use_water_valves(identity: String) -> bool:
 	var stopped := tap.get_flow_state()
 	return _require(not stopped.hot and not stopped.cold, "both valves shut through input")
 
-## Inherited route callers describe a desired operation, not an E-key toggle.
-## Acquire the actual part and drive its existing physical constraints.
+## Inherited callers use the passage click exception or acquire a cabinet or
+## other part and drive its existing physical constraints.
 func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
+	if owner_node is DoorProp and owner_node.height >= 1.2 and owner_node.door_kind != "cabinet":
+		var door := owner_node as DoorProp
+		if door.leaf_state=="locked" and not door.passage_allowed():return await _try_locked_leaf(door,label)
+		return await _operate_leaf(door,not door.open,label)
 	player.camera.look_at(target)
 	await get_tree().physics_frame
 	player.camera.look_at(target)
 	var grip: Dictionary=player._grab.find_target()
 	if not _require(grip.get("owner")==owner_node,"actual player ray selects route part: "+label):return false
 	if owner_node is DoorProp:
-		var door := owner_node as DoorProp
-		if door.leaf_state=="locked":return await _try_locked_leaf(door,grip,label)
-		return await _drag_part(door,target,0.0 if door.open else door.motion_target_angle(true),label)
+		var cabinet := owner_node as DoorProp
+		if cabinet.leaf_state=="locked":return await _try_locked_cabinet_leaf(cabinet,grip,label)
+		return await _drag_part(cabinet,target,0.0 if cabinet.open else cabinet.motion_target_angle(true),label)
 	if not _require(grip.kind in ["hinge","slide"],"route part has a physical scalar constraint: "+label):return false
 	var current: float=grip.read.call()
 	var goal := float(grip.maximum) if absf(current-float(grip.minimum))<=absf(current-float(grip.maximum)) else float(grip.minimum)
 	return await _drag_part(owner_node,target,goal,label)
 
-func _try_locked_leaf(door: DoorProp,grip: Dictionary,label: String) -> bool:
+func _try_locked_leaf(door: DoorProp,label: String) -> bool:
+	var initial: float=door._body.rotation.y
+	if not await _click_leaf(door,label):return false
+	await get_tree().create_timer(.6).timeout
+	var refused := is_equal_approx(initial,door._body.rotation.y) and not door.open and door.leaf_state=="locked"
+	return _require(refused and not player._grab.active(),"inaccessible locked leaf refuses actual click: "+label)
+
+func _try_locked_cabinet_leaf(door: DoorProp,grip: Dictionary,label: String) -> bool:
 	var initial: float=grip.read.call()
 	var click := InputEventMouseButton.new()
 	click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
@@ -205,7 +266,9 @@ func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String) ->
 	click.button_index = MOUSE_BUTTON_LEFT
 	click.pressed = true
 	player._unhandled_input(click)
-	if not _require(player._grab.active() and is_equal_approx(initial, float(grip.read.call())), "click grabs without toggling: " + label): return false
+	if not _require(player._grab.active() and player._grab.target.get("owner") == owner_node
+			and player._grab.target.get("part") == grip.get("part")
+			and is_equal_approx(initial, float(grip.read.call())), "click grabs the selected part without toggling: " + label): return false
 	for step in 160:
 		if absf(float(grip.read.call()) - goal) < .00001: break
 		if not player._grab.active(): break
@@ -213,11 +276,6 @@ func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String) ->
 		motion.relative = _part_gesture(grip,goal)
 		player._unhandled_input(motion)
 		await get_tree().physics_frame
-		if label == "F02_B_ENTRY_DOOR_close" and step == 0:
-			var live_angle: float = grip.read.call()
-			RealityState.commit()
-			if not _require(player._grab.active() and is_equal_approx(live_angle,float(grip.read.call())),
-					"unrelated commit preserves installed held leaf: " + label): return false
 	var reached: bool = absf(float(grip.read.call())-goal)<.00001
 	if not reached:
 		print("GRAB DIAGNOSTIC: ",label," value=",grip.read.call()," goal=",goal," held=",player._grab.active()," player=",world.adapter.root.to_local(player.global_position)," part=",part_path(grip.part)," reach_m=",player.camera.global_position.distance_to(grip.part.to_global(player._grab.contact)))

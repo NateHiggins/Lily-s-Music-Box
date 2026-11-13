@@ -1,4 +1,67 @@
-# Current work — trio film delivered; loop source awaiting verification
+# Current work — doors and loop candidate verification (November 13)
+
+Canonical **C:/PleaseRemainOnTheLine** remains on **codex/harukiya-overhaul-20261112**,
+HEAD **89d247498**. Preserve all unrelated staged bar work and import churn.
+Door/loop repairs remain uncommitted here. Original failures are retained in
+**C:/ov/reports/npc_loop_integration_20261112/** and
+**C:/ov/reports/door_passage_20261113/**.
+
+Latest technical checks: policy47/0; actual directional/click/key player65/0;
+keys/save362/0; NPC115/0; authored loop636/0. **world02** completed106/0,
+all four actual nearby host/guest cases, physical capsule/leaf checks, real lock
+refusal, host waiting/return and optional dialogue. Original campaign restored,
+source signatures unchanged. UID fallback warnings remain in canonical logs.
+Its staged bar/old-main environment is not exact candidate qualification.
+The tea guest reaches the wardrobe-facing alcove; reachable is not good social
+staging. Ordinary pair marks and historical attendance remain explicit debt.
+One prior NPC lease assertion failed intermittently; observation now snapshots
+before logging so stdout cannot consume a disabled fixture's one-second lease.
+
+**CANDIDATE:** existing sky-verify checkout, short junction **C:/ov/ldv**,
+branch **codex/door-loop-integration-20261113**, integration base **222a83ae3**.
+Based on **origin/main68e644f46** plus committed89d history and named door/loop
+repairs. Excludes
+unrelated staged bar implementation; generic mid-edge replanning repair retained.
+Private **.codex-remote-attachments/** is preserved; do not clean it as churn.
+**candidate01** is terminal exit1 (broker8208/session1037 ended). Imports twice,
+compile25/0, player65/0, NPC115/0, loop636/0 and composed-world106/0 pass.
+Installed4B reached16 waypoints and44 true checks, then failed its obsolete
+root-level shower-control lookup. The fixture now selects the actual mounted
+hot/cold handle targets; its production valve authority was not changed.
+**candidate02/** compiled the corrected fixture, then recorded a route failure
+followed by wrapper timeout124 at503.65s. Startup was348.869s versus95.926s in
+candidate01 with the same runtime-input hash. It passed directional entry and
+three waypoints; the fourth moved2.000m in40 iterations/41 physics ticks across
+11.738 wall seconds, short of its2.596m target with no recorded wall contact.
+Disk contention is a supported hypothesis, not a proven cause. Wrapper counters
+missed the route error; preserve stderr and route.json as well as the receipt.
+Corrected shower checks and genuine closer/hose tests remain unexecuted. No main
+merge. After the owner's initial project backup and other heavy disk jobs end,
+run the unchanged apartment scene alone under the same500s ceiling; reuse imports
+and unchanged evidence. Do not relax movement deadlines to conceal poor throughput.
+No live Godot job remains in these cases. The local backup has durable independent
+custody; Athena and Optimus are on Lily's November13 power-related hold.
+
+Bounded door/loop source reviews found no new concrete regression. Isolated-player
+contract source hashes match the current candidate; it is not occupied-world
+qualification. Candidate cleanup restored2066 byte-equivalent-normalized imports
+and preserved584 generated UID companions in an exact-path private quarantine;
+six UIDs for new scripts remain. No production source or original evidence was
+removed. Manifest: **C:/ov/reports/door_passage_20261113/candidate_cleanup_01/**.
+Main68e644f46 clean123-gate baseline is **C:/ov/reports/68e644f46/board_68e644f46.json**,
+SHA256 **fca93dd5695927c061d6318c1758a4788daccc4397d5d924c61131bedf727a34**.
+Fable's cast swap and texture fold still await integration handoff.
+
+**Stepped Down** comic markup delivered to Lily and Claude: marked four-page PDF
+and **REVISION_NOTES.md** under
+**C:/ov/reports/lilith_comic/library/daily/2026-11-13/review_codex/**.
+Original sources untouched. Revision2 passed the bounded follow-up review in
+**REVISION_02_FOLLOWUP.md**; Lily's artistic acceptance remains separate. PR252 is
+still held behind this integration candidate.
+
+Owner questions go to Omni **Waiting for you**.
+
+# Previous checkpoint — trio film delivered; loop source awaiting verification
 
 **Latest November12: approved r17 performance outfits exported/intaken and the
 full bass trio recaptured.** Delivery:

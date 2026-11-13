@@ -3,6 +3,8 @@ extends Node
 ## Phase time selects a destination; only the route's actual arrival admits a
 ## performance. No evidence, trust, inventory, door key or calendar writes here.
 const SOURCE := "res://data/temporal/performances.json"
+const Encounters := preload("res://scripts/characters/loop_encounters.gd")
+const VISIT_PAIRS := {"tea": ["mae_kessler", "nadia_quell"], "drama": ["cal_dwyer", "juno_kells"]}
 
 var world: Node3D
 var loop: Node
@@ -10,11 +12,16 @@ var conversations: ResidentConversations
 var data: Dictionary = {}
 var errors: Array[String] = []
 var _identity := ""
+var _campaign: Dictionary = {}
+var _ordinary_day := ""
+var ordinary: RefCounted
+var _talk_encounter: Dictionary = {}
 var _heard: Dictionary = {}
 var _presenting: Dictionary = {}
 var _gaze: Dictionary = {}
 var _poll := 0.0
 var _talk_phase := ""
+var _guest_waits: Dictionary = {}
 
 
 func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool:
@@ -59,6 +66,10 @@ func setup(runtime: Node3D, temporal: Node, talk: ResidentConversations) -> bool
 				errors.append("phases do not cover visit: " + anchor + "/" + resident)
 	if not errors.is_empty():
 		return false
+	ordinary = Encounters.new()
+	if not ordinary.setup(world, conversations, _arrived):
+		errors.append_array(ordinary.errors)
+		return false
 	# These visits already exist in the timetable; reuse their hosts' actual
 	# graph geometry, not an invented straight line through the flats.
 	# Off-travel room endpoints keep a parked guest off the host's kitchen
@@ -95,6 +106,10 @@ func _extend_visit(guest: String, host: String, place: String, arrival_node: Str
 			mapped[host_id] = visitor._point(place + ":" + str(host_id), resident.graph.get_point_position(host_id))
 	for host_id: int in resident.graph.get_point_ids():
 		for next: int in resident.graph.get_point_connections(host_id):
+			# Distinct host identities may share one physical point. Their
+			# zero-length edge vanishes when both alias the same guest vertex.
+			if int(mapped[host_id]) == int(mapped[next]):
+				continue
 			if not visitor.graph.are_points_connected(int(mapped[host_id]), int(mapped[next])):
 				visitor.graph.connect_points(int(mapped[host_id]), int(mapped[next]))
 	if not mapped.has(target):
@@ -148,8 +163,14 @@ func whereabouts(resident: String) -> Dictionary:
 	if not guest.is_empty():
 		var visitor := phase_for(guest)
 		if not visitor.is_empty() and str(visitor.place).begins_with("visit:") and not _arrived(guest):
-			destination = "unit:kitchen"
-			activity = "chores"
+			var key := str(visitor.phase_id)
+			if not _guest_waits.has(key):
+				_guest_waits[key] = 0.0
+			# Make room for an arrival, but do not abandon the host's own work
+			# forever when a real lock or obstruction prevents the visitor.
+			if float(_guest_waits[key]) < 30.0:
+				destination = "unit:kitchen"
+				activity = "chores"
 	return {"place": destination, "activity": activity,
 			"start_min": minute + float(phase.start), "end_min": minute + float(phase.until),
 			"source": "loop_performance"}
@@ -158,12 +179,18 @@ func whereabouts(resident: String) -> Dictionary:
 func allow_step(resident: String, next: Vector3) -> bool:
 	if loop == null or not loop.in_visit():
 		return true
+	# Only the authored host/guest pair has a coordinated waiting destination.
+	# Applying symmetric yielding to unrelated corridor traffic would stop both
+	# approaching residents forever: this is not a general crowd controller.
+	var pair: Array = VISIT_PAIRS.get(str(loop.visit_anchor()), [])
+	if resident not in pair or not str(phase_for(str(pair[1])).get("place", "")).begins_with("visit:"):
+		return true
 	var route: Node = world.resident_routes.get(resident)
 	if route == null or route.actor == null:
 		return true
 	var at: Vector3 = route.actor.global_position
-	for other: String in world.resident_routes:
-		if other == resident:
+	for other: String in pair:
+		if other == resident or not world.resident_routes.has(other):
 			continue
 		var other_route: Node = world.resident_routes[other]
 		var body: Node3D = other_route.actor as Node3D
@@ -184,19 +211,26 @@ func _visit_identity() -> String:
 	var ledger: Dictionary = loop.ledger()
 	var visit: Dictionary = ledger.visit
 	var record: Dictionary = ledger.anchors.get(str(visit.anchor), {})
-	return "%s|%s|%s|%s|%s" % [visit.anchor, visit.left_at, visit.loop_started,
-			record.get("paid", 0), record.get("loops", 0)]
+	return "%s|%s|%s|%d|%d" % [visit.anchor, str(float(visit.left_at)), str(float(visit.loop_started)),
+			int(record.get("paid", 0)), int(record.get("loops", 0))]
 
 
 func _sync_visit() -> void:
 	var current := _visit_identity()
-	if current == _identity:
+	var day := conversations.today() if conversations != null else ""
+	if current == _identity and is_same(_campaign, RealityState.data) and day == _ordinary_day:
 		return # A strict-object order fault is not a new visit or a new performance.
+	# A validated live load replaces the document even when it returns to the
+	# same visit and minute. Its transient presentation must match a fresh load.
+	_campaign = RealityState.data
+	_ordinary_day = day
 	_identity = current
 	_heard.clear()
+	_guest_waits.clear()
 	_talk_phase = ""
+	_talk_encounter = {}
 	if conversations != null:
-		conversations.cancel_performance()
+		conversations.cancel_for_transition()
 	_clear_activities()
 	# Existing bodies walk from their actual positions toward the reconstructed
 	# phase. No visible teleport on jump, home, load or immediate rerun.
@@ -212,7 +246,7 @@ func _arrived(resident: String) -> bool:
 
 
 func _line_for(resident: String, entry_admitted := false) -> Dictionary:
-	if _identity.is_empty() or resident == "mina_vale":
+	if resident == "mina_vale":
 		return {}
 	if not _arrived(resident) and not (entry_admitted and not world.resident_routes.has(resident)):
 		return {}
@@ -224,9 +258,13 @@ func _line_for(resident: String, entry_admitted := false) -> Dictionary:
 		# Inherited travel/arrival phases deliberately have no replacement line.
 		if str(phase.place).is_empty():
 			return {}
-		if world.resident_routes[resident].destination != str(phase.place):
+		var route: Node = world.resident_routes.get(resident)
+		if route == null or route.destination != str(phase.place):
 			return {}
 	else:
+		var encounter: Dictionary = ordinary.for_resident(resident, str(loop.visit_anchor()) if loop.in_visit() else "", _heard)
+		if not encounter.is_empty():
+			return encounter
 		phase = (data.profiles.get(resident, {}) as Dictionary).duplicate()
 		phase["phase_id"] = "baseline:" + resident
 	var key := str(phase.get("phase_id", ""))
@@ -258,9 +296,12 @@ func try_conversation(resident: String, player: Node) -> bool:
 func _begin_line(resident: String, line: Dictionary, player: Node) -> bool:
 	if line.is_empty() or conversations == null:
 		return false
-	if not conversations.start_performance(resident, str(line.line), player):
+	var accepted: bool = conversations.start_performance_sequence(resident, line.sequence, player) \
+			if line.has("sequence") else conversations.start_performance(resident, str(line.line), player)
+	if not accepted:
 		return false
 	_talk_phase = str(line.phase_id)
+	_talk_encounter = line.get("encounter", {})
 	_heard[_talk_phase] = true # Presentation only; never a knowledge/visit grant.
 	return true
 
@@ -271,8 +312,19 @@ func _process(delta: float) -> void:
 	_poll += delta
 	if _poll < 0.25:
 		return
+	var elapsed := _poll
 	_poll = 0.0
 	_sync_visit()
+	# Route motors stop during conversation. A player taking time to read must
+	# not consume the host's opportunity to clear the approach. Process time also
+	# naturally stops with the scene tree, unlike a wall-clock deadline.
+	var player: Node = world.get("player")
+	if player == null or not bool(player.get("call_locked")):
+		for key: String in _guest_waits:
+			_guest_waits[key] = minf(30.0, float(_guest_waits[key]) + elapsed)
+	if conversations != null and conversations.performance_active() and not _talk_encounter.is_empty() \
+			and not ordinary.eligible(_talk_encounter, str(loop.visit_anchor()) if loop.in_visit() else ""):
+		conversations.cancel_performance()
 	if _identity.is_empty():
 		return
 	for resident: String in world.resident_routes:
@@ -280,7 +332,7 @@ func _process(delta: float) -> void:
 		var actor: Node = route.actor
 		var phase := phase_for(resident)
 		var talking := conversations != null and conversations._active_resident == resident
-		if talking and not _talk_phase.is_empty() and conversations.performance_active() \
+		if talking and _talk_encounter.is_empty() and not _talk_phase.is_empty() and conversations.performance_active() \
 				and _talk_phase != str(phase.get("phase_id", "baseline:" + resident)):
 			conversations.cancel_performance()
 		if actor == null or not actor.has_method("set_loop_activity"):
@@ -304,8 +356,10 @@ func _process(delta: float) -> void:
 			_release_gaze(resident)
 			continue
 		var target: Node3D = world.adapter.resolve(focus) as Node3D
+		var still_owned: bool = _gaze.has(resident) and _gaze[resident].owner == attention \
+				and attention.staged_target == _gaze[resident].point
 		if target != null and target.global_position.distance_to(route.actor.global_position) < 3.2 \
-				and (attention.staged_target == null or _gaze.has(resident)):
+				and (attention.staged_target == null or still_owned):
 			attention.staged_target = target.global_position
 			_gaze[resident] = {"owner": attention, "point": target.global_position}
 		else:

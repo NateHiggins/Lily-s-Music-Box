@@ -118,6 +118,10 @@ keeps it. See section 9 of `design/V1_RETIREMENT_PLAN_2026-11-09.md`.
 
 ## Interaction (RUL-013)
 
+- Traversable doors use Lily's RUL-018 exception: directional input opens an
+  authorized passage and guides the character through real frame/leaf clearance;
+  primary click operates the leaf and keyhole. Doors without a functional return
+  mechanism stay open. Cabinets and other controls retain direct manipulation.
 - The cursor indicates an operable part. Primary click grabs it, mouse motion
   moves it within its physical constraints, and the next click releases it.
   Replace player click-to-toggle and minigame flows with direct manipulation;
