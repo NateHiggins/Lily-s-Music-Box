@@ -192,6 +192,9 @@ def head(kind, colour, accent):
 def feet(kind, colour):
     packs = {"tbar": "cortu_t-bar", "mary_jane": "toigo_mj_cloth_shoes", "flats": "toigo_ballet_flats", "lady_boots": "toigo_ankle_boots_female",
              "gent_boots": "toigo_ankle_boots_male", "brogues": "shoes01", "dress_shoes": "shoes04", "work_boots": "culturalibre_male_boots"}
+    if kind == "work_boots":
+        # Half of this pack boot is drawn on a single point of its picture: it wears made leather, unwrapped here.
+        return [pack(packs[kind], colour, name="Shoes", made={"cloth": "leather", "pattern": None, "wrap": True})]
     if kind in packs:
         return [pack(packs[kind], colour, name="Shoes")]
     table = {"strap": [{"kind": "shoes", "colour": colour, "strap": True}], "oxford": [{"kind": "shoes", "colour": colour}], "pumps": [{"kind": "shoes", "colour": colour}],

@@ -77,6 +77,12 @@ class Model:
         return values
 
 
+# Below this a triangle has no area to speak of (square metres), and no UV area is asked of it.
+MIN_AREA = 1e-10
+# How far a tangent may lean out of the surface (the cosine of its angle with the normal).
+MAX_LEAN = 0.02
+
+
 def check(path, min_agreement):
     model = Model(path)
     rows = []
@@ -97,10 +103,23 @@ def check(path, min_agreement):
             if np.max(abs(np.linalg.norm(n, axis=1) - 1)) > 0.001 or np.max(abs(np.linalg.norm(t[:, :3], axis=1) - 1)) > 0.001:
                 failures.append(name + ": a normal or tangent is not of unit length")
                 continue
+            # A tangent's fourth number is its handedness: +1 or -1 and nothing else (0 would give no binormal).
+            if np.max(abs(abs(t[:, 3]) - 1)) > 0.001:
+                failures.append(name + ": a tangent's handedness is not +1 or -1")
+                continue
+            # A tangent lies in the surface: square to its normal.
+            lean = abs(np.sum(n * t[:, :3], axis=1))
+            if np.max(lean) > MAX_LEAN:
+                failures.append("%s: %d tangents are not square to their normals (worst %.3f)" % (name, int((lean > MAX_LEAN).sum()), float(np.max(lean))))
+                continue
             points, tex = p[index], uv[index]
             a, b = tex[:, 1] - tex[:, 0], tex[:, 2] - tex[:, 0]
             det = a[:, 0] * b[:, 1] - a[:, 1] * b[:, 0]
             flat = abs(det) <= 1e-12
+            # RUL-012: every triangle with real area has UV area. A flat-UV triangle has no derivative to compare
+            # a tangent with, so it cannot be let through as agreeing: on real geometry it is a failure of its own.
+            area = np.linalg.norm(np.cross(points[:, 1] - points[:, 0], points[:, 2] - points[:, 0]), axis=1) * 0.5
+            collapsed = flat & (area > MIN_AREA)
             safe = np.where(flat, 1.0, det)
             du = ((points[:, 1] - points[:, 0]) * b[:, 1, None] - (points[:, 2] - points[:, 0]) * a[:, 1, None]) / safe[:, None]
             dv = ((points[:, 2] - points[:, 0]) * a[:, 0, None] - (points[:, 1] - points[:, 0]) * b[:, 0, None]) / safe[:, None]
@@ -113,13 +132,16 @@ def check(path, min_agreement):
             # Positive when the binormal points toward falling v (up the picture), the engine's convention.
             handed = np.where(usable, -np.sum(np.cross(normals, actual) * dv[:, None, :], axis=2) * t[index, 3], 1.0)
             row = {"primitive": name, "vertices": int(len(p)), "triangles": int(len(index)), "corners_per_vertex": round(index.size / max(len(p), 1), 3),
-                   "collapsed_uv_triangles": int(flat.sum()), "wrong_handed_corners": int((handed < -1e-9).sum()),
+                   "collapsed_uv_triangles": int(collapsed.sum()), "degenerate_triangles": int((area <= MIN_AREA).sum()),
+                   "wrong_handed_corners": int((handed < -1e-9).sum()),
                    # Neither sign is right where the binormal has no component along the picture's height.
                    "undetermined_handed_corners": int((abs(handed) <= 1e-9).sum()),
                    "minimum_agreement": round(float(agreement.min()), 5), "agreement_1st_percentile": round(float(np.percentile(agreement, 1)), 5),
                    "median_agreement": round(float(np.median(agreement)), 5), "corners_below_strict_0_999": int((agreement <= 0.999).sum()),
                    "corners_below_minimum": int((agreement < min_agreement).sum()), "morph_targets": len(primitive.get("targets", []))}
             rows.append(row)
+            if row["collapsed_uv_triangles"]:
+                failures.append("%s: %d triangles with real area have no UV area" % (name, row["collapsed_uv_triangles"]))
             if row["wrong_handed_corners"]:
                 failures.append("%s: %d corners have the wrong handedness" % (name, row["wrong_handed_corners"]))
             if row["corners_below_minimum"]:

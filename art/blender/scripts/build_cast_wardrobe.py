@@ -655,12 +655,18 @@ def asset_piece(name, asset_name, colour, skirt=False, kind="clothes", atype="Cl
         # wears a plain period cloth, with a small pattern or none. Its unwrap is one sheet, so it is scaled for the weave.
         obj.data.materials.clear()
         obj.data.materials.append(patterned("%s_%s_%s" % (STEM, CURRENT_PART or "x", name), colour, made.get("pattern"), 0.85, made.get("cloth") or "cotton"))
-        if obj.data.uv_layers.active is not None:
+        if made.get("wrap"):
+            # Its own unwrap is no use for cloth (half of one pack boot sat on a single point of its picture).
+            while obj.data.uv_layers:
+                obj.data.uv_layers.remove(obj.data.uv_layers[0])
+            wrap_uv(obj.data, float(made.get("repeat", 5.0)))
+        elif obj.data.uv_layers.active is not None:
             for corner in obj.data.uv_layers.active.data:
                 corner.uv = (corner.uv[0] * float(made.get("scale", 9.0)), corner.uv[1] * float(made.get("scale", 9.0)))
         node = None
     elif image is not None:
         node.image = tinted_image(image, colour, "%s_%s_%s" % (STEM, CURRENT_PART or "x", name), deep_only=deep_only)
+        obj["uv_picture"] = True
     else:
         obj.data.materials.clear()
         obj.data.materials.append(plain("%s_%s" % (STEM, name), worn_colour(colour), 0.8))
@@ -2081,6 +2087,65 @@ else:
     json.dump({"schema_version": 1, "person": CID, "outfit": OUTFIT, "show": show, "garments": [g.name for g in garments]},
               open(os.path.join(OUT, STEM + ".json"), "w", encoding="utf-8"), indent=1)
 
+
+
+def repair_flat_uv(obj):
+    """RUL-012: every triangle with real area has UV area. Codex's review of cast_r11 found faces that had none:
+    level faces of cloth unwrapped round the body and up it (a waistband's top, a brim's flat), and faces of pack
+    garments drawn on a single point of their picture. Each such face is laid flat in its own plane. On cloth it
+    takes the density of the faces round it, so the weave carries on; on a pack garment that keeps its picture it
+    stays within a texel or two of where it was, so it keeps its colour."""
+    mesh_ = obj.data
+    layer = mesh_.uv_layers.active
+    if layer is None or not mesh_.polygons:
+        return 0
+    mesh_.calc_loop_triangles()
+    at = [v.co.copy() for v in mesh_.vertices]
+    flat_faces = set()
+    densities = []
+    for triangle in mesh_.loop_triangles:
+        p0, p1, p2 = (at[i] for i in triangle.vertices)
+        area = (p1 - p0).cross(p2 - p0).length * 0.5
+        if area <= 1e-10:
+            continue
+        u0, u1, u2 = (layer.data[i].uv for i in triangle.loops)
+        det = (u1.x - u0.x) * (u2.y - u0.y) - (u1.y - u0.y) * (u2.x - u0.x)
+        if abs(det) <= 1e-9:
+            flat_faces.add(triangle.polygon_index)
+        else:
+            densities.append(abs(det) * 0.5 / area)
+    if not flat_faces:
+        return 0
+    densities.sort()
+    per_metre = math.sqrt(densities[len(densities) // 2]) if densities else 6.0
+    keeps_picture = bool(obj.get("uv_picture"))
+    for index in flat_faces:
+        polygon = mesh_.polygons[index]
+        normal = polygon.normal
+        if normal.length < 1e-6:
+            continue
+        along = normal.cross(Vector((0.0, 0.0, 1.0)))
+        if along.length < 1e-4:
+            along = Vector((1.0, 0.0, 0.0))
+        along.normalize()
+        across = normal.cross(along).normalized()
+        origin = at[polygon.vertices[0]]
+        anchor = layer.data[polygon.loop_indices[0]].uv.copy()
+        scale = per_metre
+        if keeps_picture:
+            longest = max((at[a] - at[b]).length for a, b in polygon.edge_keys)
+            scale = 0.0015 / max(longest, 1e-5)
+        for loop_index in polygon.loop_indices:
+            offset = at[mesh_.loops[loop_index].vertex_index] - origin
+            layer.data[loop_index].uv = (anchor.x + offset.dot(along) * scale, anchor.y + offset.dot(across) * scale)
+    return len(flat_faces)
+
+
+for candidate in list(bpy.data.objects):
+    if candidate.type == "MESH" and candidate.data.uv_layers:
+        repaired = repair_flat_uv(candidate)
+        if repaired:
+            print("UV REPAIR", candidate.name, repaired, "faces")
 bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, STEM + ".blend"))
 
 # ---------------------------------------------------------------- look at it, export

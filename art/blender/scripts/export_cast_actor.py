@@ -72,12 +72,36 @@ class SmoothTangentRepair:
             arrays = {key: _read(accessor) for key, accessor in attributes.items()}
             count = len(arrays["POSITION"])
             indices = _read(primitive.indices).astype(np.int64).reshape(-1, 3)
+            # A tangent lies in the surface. Where the normals were set by hand (hair cards, rounded seams) the
+            # exporter's tangent can lean out of it; each is laid back square to its normal. Codex's review of
+            # cast_r11 asked for this to be a check; the stricter checker then found 54 meshes that leaned.
+            normal_ = arrays["NORMAL"].astype(float)
+            along_ = arrays["TANGENT"][:, :3].astype(float)
+            lean = np.sum(normal_ * along_, axis=1)
+            squared_ = along_ - normal_ * lean[:, None]
+            size_ = np.linalg.norm(squared_, axis=1)
+            lost = size_ < 1e-6
+            if np.any(lost):
+                # A tangent that ran along its normal has no direction in the surface. It is given one square to the
+                # normal; the corner check below then turns it to its triangle's own UV direction where that differs.
+                spare = np.cross(normal_[lost], np.where(abs(normal_[lost, :1]) < 0.9, [[1.0, 0.0, 0.0]], [[0.0, 1.0, 0.0]]))
+                squared_[lost] = spare
+                size_[lost] = np.linalg.norm(spare, axis=1)
+            leaning = int((abs(lean) > 1e-4).sum())
+            if leaning:
+                arrays["TANGENT"] = arrays["TANGENT"].copy()
+                arrays["TANGENT"][:, :3] = (squared_ / size_[:, None]).astype(arrays["TANGENT"].dtype)
             p = arrays["POSITION"][indices].astype(float)
             n = arrays["NORMAL"][indices].astype(float)
             uv = arrays["TEXCOORD_0"][indices].astype(float)
             a, b = uv[:, 1] - uv[:, 0], uv[:, 2] - uv[:, 0]
             det = a[:, 0] * b[:, 1] - a[:, 1] * b[:, 0]
             flat = ~np.isfinite(det) | (abs(det) <= 1e-12)
+            # RUL-012: a triangle with real area has UV area. One that has none is a fault in the built source
+            # (art/blender/scripts/build_cast_wardrobe.py repairs them there); it is refused here, not skipped.
+            real = np.linalg.norm(np.cross(p[:, 1] - p[:, 0], p[:, 2] - p[:, 0]), axis=1) * 0.5 > 1e-10
+            if np.any(flat & real):
+                raise ValueError("%d triangles with real area have no UV area" % int((flat & real).sum()))
             safe = np.where(flat, 1.0, det)
             du = ((p[:, 1] - p[:, 0]) * b[:, 1, None] - (p[:, 2] - p[:, 0]) * a[:, 1, None]) / safe[:, None]
             dv = ((p[:, 2] - p[:, 0]) * a[:, 0, None] - (p[:, 1] - p[:, 0]) * b[:, 0, None]) / safe[:, None]
@@ -91,7 +115,7 @@ class SmoothTangentRepair:
             # A corner is judged only where its triangle has a UV derivative to judge it by.
             bad = np.any(usable & ((agreement < MIN_AGREEMENT) | (handed <= 0) | ~np.isfinite(agreement)), axis=1)
             row = {"mesh": str(mesh.name), "triangles": int(len(indices)), "vertices_before": int(count), "repaired_triangles": int(bad.sum()),
-                   "collapsed_uv_triangles": int(flat.sum()), "morph_targets": len(primitive.targets or [])}
+                   "degenerate_triangles": int(flat.sum()), "tangents_squared": leaning, "morph_targets": len(primitive.targets or [])}
             if np.any(bad):
                 fix = bad[:, None] & usable
                 tangent[..., :3] = np.where(fix[..., None], expected.astype("<f4"), tangent[..., :3])
@@ -120,6 +144,8 @@ class SmoothTangentRepair:
                 primitive.indices.component_type = 5125
                 row["vertices_after"] = int(len(origin))
             else:
+                if leaning:
+                    attributes["TANGENT"] = _remap(attributes["TANGENT"], arrays["TANGENT"].astype("<f4"), sparse=False)
                 row["vertices_after"] = int(count)
             type(self).reports.append(row)
 

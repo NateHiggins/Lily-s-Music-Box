@@ -22,14 +22,15 @@ UVS = np.array([[0, 1], [1, 1], [1, 0], [0, 0]], "<f4")
 TRIANGLES = np.array([[0, 1, 2], [0, 2, 3]])
 
 
-def model(path, sign=1.0, split=False, nudge=0.0, morph=None, material="cast_someone_cloth", pictures=("a.png", "b.png", "c.png")):
+def model(path, sign=1.0, split=False, nudge=0.0, morph=None, material="cast_someone_cloth", pictures=("a.png", "b.png", "c.png"),
+          uvs=None, tangent_xyz=(1, 0, 0), points=None):
     """A unit quad facing +z. `split` writes one point per corner instead of sharing them."""
     order = TRIANGLES.ravel() if split else np.arange(4)
-    position = POINTS[order].copy()
+    position = (POINTS if points is None else np.array(points, "<f4"))[order].copy()
     position[0, 0] += nudge
     normal = np.tile(np.array([[0, 0, 1]], "<f4"), (len(order), 1))
-    uv = UVS[order]
-    tangent = np.tile(np.array([[1, 0, 0, sign]], "<f4"), (len(order), 1))
+    uv = (UVS if uvs is None else np.array(uvs, "<f4"))[order]
+    tangent = np.tile(np.array([list(tangent_xyz) + [sign]], "<f4"), (len(order), 1))
     index = (np.arange(6) if split else TRIANGLES.ravel()).astype("<u2")
     blocks = [position.tobytes(), normal.tobytes(), uv.tobytes(), tangent.tobytes(), index.tobytes()]
     accessors = [{"componentType": 5126, "count": len(order), "type": "VEC3", "min": position.min(0).tolist(), "max": position.max(0).tolist()},
@@ -84,6 +85,32 @@ class CastTangents(unittest.TestCase):
         minus = check_cast_tangents.check(self.root / "minus.gltf", 0.5)
         self.assertEqual(minus["status"], "FAIL")
         self.assertEqual(minus["primitives"][0]["wrong_handed_corners"], 6)
+
+    def test_real_triangles_with_no_uv_area_fail(self):
+        # Codex's review of cast_r11: collapsed UVs on real geometry were let through as agreeing.
+        model(self.root / "flat.gltf", uvs=[[0.3, 0.3]] * 4)
+        report = check_cast_tangents.check(self.root / "flat.gltf", 0.5)
+        self.assertEqual(report["status"], "FAIL")
+        self.assertEqual(report["primitives"][0]["collapsed_uv_triangles"], 2)
+        self.assertTrue(any("no UV area" in line for line in report["failures"]))
+        # One of the two triangles collapsed is still a failure.
+        model(self.root / "half.gltf", uvs=[[0, 1], [1, 1], [1, 1], [0, 1]])
+        self.assertEqual(check_cast_tangents.check(self.root / "half.gltf", 0.5)["status"], "FAIL")
+
+    def test_a_triangle_with_no_area_owes_no_uv_area(self):
+        model(self.root / "sliver.gltf", points=[[0, 0, 0], [1, 0, 0], [1, 0, 0], [0, 0, 0]], uvs=[[0.3, 0.3]] * 4)
+        report = check_cast_tangents.check(self.root / "sliver.gltf", 0.5)
+        self.assertEqual((report["status"], report["primitives"][0]["collapsed_uv_triangles"], report["primitives"][0]["degenerate_triangles"]), ("PASS", 0, 2))
+
+    def test_a_tangent_without_a_hand_or_out_of_the_surface_fails(self):
+        model(self.root / "nohand.gltf", sign=0.0)
+        report = check_cast_tangents.check(self.root / "nohand.gltf", 0.5)
+        self.assertEqual(report["status"], "FAIL")
+        self.assertTrue(any("handedness" in line for line in report["failures"]))
+        model(self.root / "leaning.gltf", tangent_xyz=(0.8, 0, 0.6))
+        report = check_cast_tangents.check(self.root / "leaning.gltf", 0.5)
+        self.assertEqual(report["status"], "FAIL")
+        self.assertTrue(any("square to their normals" in line for line in report["failures"]))
 
     def test_shared_points_are_not_a_failure(self):
         model(self.root / "shared.gltf")
