@@ -36,7 +36,7 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
 
 1928-11-10 to 1929-07-19
 
-- **ADELA VOSS** (av_d1): I have been expelled from twenty-four literary societies. One of them was founded expressly to hear my appeal. The Derby is the only body that keeps writing back. Here's Saturday's. Why did the portrait sue? It had been framed.
+- **ADELA VOSS** (av_d1): I have been expelled from twenty-four literary societies. One of them was founded expressly to hear my appeal. The Derby is the only body that keeps writing back. Here's Saturday's. What do the French call a travelling lunch? Snail cargo.
   - > That's terrible. → av_d2
   - > He'll print it. → av_d3
   - (silence) → av_d1s
@@ -95,7 +95,7 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
 
 ### "Evening, Miss Voss."
 
-1929-07-19 to 1929-07-19 · 18:05-20:59
+1929-07-19 to 1929-07-19 · 18:05-18:25
 
 - **ADELA VOSS** (av_n1): Night man. Your clock and my watch have just agreed about something, which makes one of us. You're carrying the book. Storm's coming over the Gate and I'd like my door.
   - > Here's the key. → av_n2
@@ -106,7 +106,7 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
   - (silence) → av_n1s
 - **ADELA VOSS** (av_n2): Good. Nineteenth, A.V., roof, storm. Spell it how you like, the E's your own problem now.
 - **ADELA VOSS** (av_n3): All right. It's your roof. I don't know what I've done to it, but I'm sure there's a form.
-- **ADELA VOSS** (av_n4): Is that the maintenance department's view of the weather? No, don't. You've gone a very bad colour. Fine. I've got prints to wash. Nobody ever died of an evening with a clean enlarger.
+- **ADELA VOSS** (av_n4): Is that the maintenance department's view of the weather? No, don't. You've gone a very bad colour. Fine. I've got prints to wash, and the enlarger's been sulking since Tuesday anyway.
   - > Thank you. → av_n4b
   - (silence) → av_n4b
 - **ADELA VOSS** (av_n5): Can you hold a focusing cloth in a gale and not talk? Then you're better staffed than the Record.
@@ -334,7 +334,7 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
   - (silence) → av_e2
 - **LILY** (av_e2): You changed it.
   - (silence) → av_e3
-- **ADELA VOSS** (av_e3): I improved it.
+- **ADELA VOSS** (av_e3): I improved it. Only two bars.
   - (silence) → av_e4
 - **LILY** (av_e4): You changed it. For Astoria. Are we showing them the act, or the next one?
   - (silence) → av_e5
@@ -411,7 +411,7 @@ The living woman, met on visited dates before 19 July 1929. She is good company 
 
 1929-06-29 to 1929-07-13 · 19:00-23:59
 
-- **ADELA VOSS** (av_u1): Was it? Yes. It went where it goes. Is the kitchen shut? I want something with rice in it and I don't want to hear about the bridge.
+- **ADELA VOSS** (av_u1): Was it? Yes. It went where it goes. Is the kitchen shut? I want something with rice in it and I don't want to hear about the bridge. If the rice needs two more bars, we'll eat somewhere else.
   - > Do you want company? → av_u2
   - (silence) → av_u2
 - **ADELA VOSS** (av_u2): Yes. Don't make me useful for a minute. Tell me something about pipes. I mean it. Something nobody could sing.
@@ -439,7 +439,7 @@ Controls, repeatability, a grudge against bad reception. Near the bulkhead befor
 
 1928-11-10 to 1929-11-09
 
-- **CAL DWYER** (cd_b1): Have you a good joke? No? Even better. The receiver prefers the bad ones; they travel farther. I'm serious. Clean signal dies at the river. A really poor pun you can pick up in Yonkers.
+- **CAL DWYER** (cd_b1): Have you a good joke? Keep it. I'm collecting the other kind. The receiver prefers the bad ones; they travel farther. I'm serious. Clean signal dies at the river. A really poor pun you can pick up in Yonkers.
   - > Do you ever pick up the ones overhead? → cd_b2
   - (silence) → cd_b2
 - **CAL DWYER** (cd_b2): Everyone's had a go. Not a peep on any band I own. They aren't talking to you. I find that restful. It's more than I can say for WLBQ.
@@ -474,7 +474,7 @@ Controls, repeatability, a grudge against bad reception. Near the bulkhead befor
   - > Why don't you? → cd_l2
   - (silence) → cd_l3
 - **CAL DWYER** (cd_l2): Then it's finished.
-- **CAL DWYER** (cd_l3): Yeah. Everybody stands there. Sit down, it comes round again.
+- **CAL DWYER** (cd_l3): Yes. Everybody stands there. Sit down, it comes round again.
 
 ## CAM ORTIZ
 
@@ -545,7 +545,7 @@ Not a sidekick, and he does not validate her. He came with wrapping paper. No jo
   - > The paper said she lodged at the Orison. → ev_3
   - (silence) → ev_1s
 - **EMIL VOSS** (ev_2): Mind the corner. No, you've got it. She did that one the winter the pipes froze. Don't look at it, it isn't for looking at, it's for the wall.
-- **EMIL VOSS** (ev_3): Over this shop. Eleven years. Her rent book is in the drawer the thief didn't want. I don't know who told them lodged. Nobody told me anything, I had it from the paper too.
+- **EMIL VOSS** (ev_3): Over this shop, since the day it opened. Her rent book is in the drawer the thief didn't want. I don't know who told them lodged. Nobody told me anything, I had it from the paper too.
   - > I'll hold the paper. → ev_2
   - (silence) → ev_3s
 - **EMIL VOSS** (ev_1s): He puts the pin carefully back in its hole and does not begin.
@@ -570,7 +570,7 @@ Instructions so correct they rearrange other people's work. Carried Mae's box in
 
 1929-07-20 to 1929-11-09 · needs **m_register**
 
-- **EVELYN MARSH** (em_a1): "Mrs. K., certificate plates, Mon. 4 Feb." Yes. There's the seven, in the fourth line, still open at the top. I gave her that note in February. I find I have not forgiven it. One ought to be allowed to finish marking.
+- **EVELYN MARSH** (em_a1): "Mrs. K., certificate plates, 7, Mon. 4 Feb." Yes. There's the seven, still open at the top. I gave her that note in February. I find I have not forgiven it. One ought to be allowed to finish marking.
   - > It's a perfectly good seven. → em_a2
   - > Then why did you keep the slip? → em_a3
   - (silence) → em_a2
@@ -613,6 +613,12 @@ Instructions so correct they rearrange other people's work. Carried Mae's box in
 
 - **EVELYN MARSH** (em_p1): The seating was a disgrace. I moved three of them. Nobody remarked on it. I moved them back, to see, and nobody remarked on that. I have taught children who would not look at me, and I know how it is done, and it was done well.
 
+### "It's on your log, Mrs. Marsh?"
+
+1929-10-19 to 1929-11-09
+
+- **EVELYN MARSH** (em_mn1): Moon, by my opera glass: incorrect. I wrote smudges for a month, and it was not smudges. Miss Lily's cup was returned on the Tuesday, washed. I will say that for her. Somebody ought to tell her that a person's name is not a thing one does in a hurry. Evidently she did not.
+
 ## H. VANTRY
 
 Long-delayed plain speech after a life of indirect carriers. Says "Correct." Does not explain the conspiracy, the Hum, or himself.
@@ -633,7 +639,7 @@ Long-delayed plain speech after a life of indirect carriers. Says "Correct." Doe
 - **H. VANTRY** (hv_1s): You can stand there. It is a free pavement. I had a hand in that.
   - > What did you see on the nineteenth of July? → hv_2
   - (silence) → hv_2
-- **H. VANTRY** (hv_4): Air. I am not supposed to be in that house. That stretch of the wall has no window in it. I built a great many listening rooms and I know what a blank wall is worth.
+- **H. VANTRY** (hv_4): Air. I am not supposed to be in that house. That stretch of the wall has no window in it. I have stood beside a great many walls, and I know what a blank one is worth.
 - **H. VANTRY** (hv_5): No. That is the question and that is the answer. I saw her leave. I saw no fall. I'll say that to anyone with a pencil.
 
 ## IRIS BELL
@@ -651,11 +657,11 @@ Color before cause; a small fight over composition. Paint on the coping, the dat
 - **IRIS BELL** (ib_s2): I don't do who. I do what colour. The tripod's where she'd put it, and the plate's gone, and it's the only part of that roof that's been tidied. I'd never have composed it that way, it looks arranged.
 - **IRIS BELL** (ib_s3): "July 20, one o'clock." Yes, I dated it, I date everything, it's so they'll know I was there. It's bad. The hat's too good. Nobody would believe that hat. It was there.
 
-### "She's got your canvas in her window."
+### "She's got your canvas beside her window."
 
 1928-11-10 to 1929-07-19
 
-- **IRIS BELL** (ib_a1): A fortnight, with a card. "NOBODY ASKED THE PAINTER." I've been waiting ten years for someone to write that about me. I'm furious. Do you think people stopped?
+- **IRIS BELL** (ib_a1): Two weeks, beside her window, with a card. "NOBODY ASKED THE PAINTER." I've been waiting ten years for someone to write that about me. I'm furious. Do you think people stopped?
   - > A few. → ib_a2
   - (silence) → ib_a2
 - **IRIS BELL** (ib_a2): A few. How few? Don't tell me. Tell her she's hung it in the wrong light, and that I've been past three times to check.
@@ -665,6 +671,12 @@ Color before cause; a small fight over composition. Paint on the coping, the dat
 1929-03-24 to 1929-11-09
 
 - **IRIS BELL** (ir_a1): That's the best grey in Queens, out there. Six greys, and I went to paint them. Somebody had got there first and sorted them, warm to cold, like a palette. I don't know who he is. He has an eye. It's insulting.
+
+### "You've painted the Moon again."
+
+1929-06-01 to 1929-11-09
+
+- **IRIS BELL** (ir_mn1): Same window, same canvas, every month since November. Look at them in a row. It doesn't fit the last one. Malcolm says I'm getting closer to the glass. The man at the supply shop says it's my eye. It's my eye. I've gone up a size of canvas.
 
 ## JONAH PRICE
 
@@ -788,6 +800,12 @@ Admits a smaller recording offense quickly. Roof mic, wall tape, the Harukiya po
 
 - **JUNO KELLS** (jk_s1): I asked! Me! I wrote "may I" on a piece of paper! He said "one" every night for four months, I could cut you a beauty out of January, you'd cry. He sent a catalogue. So that's a no, or it's a mattress. I'm taking it as a no. Don't look at me like that, I'm as surprised as you are.
 
+### "You've seen the moon."
+
+1929-10-26 to 1929-11-09
+
+- **JUNO KELLS** (jk_mn1): I asked Lily, did you ask. She said who. That's, I didn't have anything for that. I gave her two cups. They aren't mine, don't ask me whose. It doesn't make a noise, that's what gets me. It's the only thing in this borough I can't keep.
+
 ## LENA ORTIZ
 
 Judgment hidden in useful advice. Has the bag; has the dated button book. No grief-unlocked confession: the book is evidence on request. Another woman's death is never a key.
@@ -815,7 +833,7 @@ Judgment hidden in useful advice. Has the bag; has the dated button book. No gri
 - **LENA ORTIZ** (lo_k2): Six in the morning, before I'd got my shoes on. You'd be surprised who can't wait.
   - > Pearl? [needs m_glove_scrap] → lo_k3
   - (silence) → lo_k3
-- **LENA ORTIZ** (lo_k3): Six C. For a glove. I wrote it down that morning. One pearl, and she wanted it matched by noon, and I had one near enough. It's the book I use.
+- **LENA ORTIZ** (lo_k3): Six C. For a glove. I wrote it down that morning. One pearl, and she wanted it matched by nine, and I had one near enough. It's the book I use.
 - **LENA ORTIZ** (lo_k1s): You don't have to think of a question. I can always use someone to hold the other end of a sheet.
 
 ### "What is that, a hat?"
@@ -836,6 +854,12 @@ Judgment hidden in useful advice. Has the bag; has the dated button book. No gri
 
 - **LENA ORTIZ** (lo_q1): Four hours, and not one soul had thought about the glasses. So I did the glasses. Nobody thanked me. Nobody stopped me either, and I'll say this for them, that's more than my sister does.
 
+### "They've got the hat in Altman's."
+
+1929-10-29 to 1929-11-09
+
+- **LENA ORTIZ** (lo_mn1): Low on the left. That isn't how it goes. It has four pins and it sits level, I tested that. Lily came and told me one of them let go. I said what did you hang off it. Try one of those on sitting down and see where you get.
+
 ## LILY
 
 The owner's self-insert. Every line here is a placeholder for her to rewrite. Drums on one number, bass on another, never both. Holds nothing in the case, is on no record of 19 July, and never learns who rides the night man: a good ear is not recognition. No biography beyond the count-in. She said yes to the test once she was asked, and she has a life this file does not write. Adela is the focus: these threads exist to show Adela.
@@ -844,7 +868,7 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 
 1928-11-17 to 1929-07-13 · 19:00-23:59
 
-- **LILY** (li_c1): Count her in and find out. She writes my entrance on the chart big enough to read in a coal hole, and then she moves it.
+- **LILY** (li_c1): Count her in and find out. I can bang things with a stick. She writes my entrance big enough to read in a coal hole, then moves it while I am still obeying.
   - > Why stay? → li_c2
   - (silence) → li_c2
 - **LILY** (li_c2): Because of the finish on the second one. When we both mean it, you can't get a glass filled in this room for a full minute. Some nights we look at each other and drop it and just laugh. That's good too. Mind the stand.
@@ -920,7 +944,39 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 
 1929-10-12 to 1929-10-12 · 19:00-23:59
 
-- **LILY** (li_n1): After the set. Juno's got a left hand now. I don't know where she got it. Nobody's listening, they've all got one eye on the door, and it's the most fun I've had since spring.
+- **LILY** (li_n1): After the set. Juno's got a left hand now. I don't know where she got it. Nobody's listening, they've all got one eye on the door. I'm calling it a rehearsal. It's the most fun I've had since spring.
+
+### "That's a nice cup."
+
+1929-09-17 to 1929-09-21
+
+- **LILY** (li_m1): Thursday. I was telling Juno about a B flat. I've never been so badly received in my life. She always wanted to know what the light was like. Nobody could tell her. Nobody looks at the light. I looked.
+  - > What's it like? → li_m2
+  - (silence) → li_m2
+- **LILY** (li_m2): It's on its way somewhere else. Mind, it pours away from you. Do you know anyone else with one of these? I want eleven. I'm asking everybody who's been asked.
+
+### "It's crooked."
+
+1929-10-26 to 1929-11-09
+
+- **LILY** (li_m3): On the left. I know it's on the left. It was fine for eight bars. I put her two back, and in the ninth the left pin let go. Five weeks I went up and looked at nothing. It comes in slow. You want the light from the side. She'd have told me that.
+  - > Leave it. → li_m4
+  - > She'd want it straight. → li_m5
+  - (silence) → li_m4
+- **LILY** (li_m4): You've got eyes, for a man with a wrench. I've still got the tracing, on glass. I could go back. I've done the sums. I'm not going to.
+- **LILY** (li_m5): She'd want it eleven ways and a hat, and she'd want it to be my fault. It is my fault. Don't look at me, look at it, everybody else is.
+
+### "Have they written?"
+
+1929-11-01 to 1929-11-09
+
+- **LILY** (li_m6): Tuesday. To the bar. "We note your client's billing. Under clause six, the Company retains the negative. Suggest smaller letters. Kindly advise." That's eight in the bench. I haven't got anyone to correct them.
+
+### "You look tired."
+
+1929-09-22 to 1929-10-25
+
+- **LILY** (li_w1): I've been up on roofs. Nothing's the matter. It's a very good moon. There isn't a mark on it. There's a professor in the Record on about smudges. I've told myself that's the plate.
 
 ## MAE KESSLER
 
@@ -997,6 +1053,12 @@ Ownership spoken as grammar. Offended at the handling before the accusation. Her
 
 - **MAE KESSLER** (mk_e1): I am carrying a chair up, if that's what you mean. You may sit. The chair is mine.
 
+### "There are people on your stair, Mrs. Kessler."
+
+1929-10-26 to 1929-11-09
+
+- **MAE KESSLER** (mk_mn1): They stand on my stair and look up. It is a stair. It is not a viewing platform, and there is a mat. I have said so to the proper people.
+
 ## MALCOLM REED
 
 Time measured by what can grow; a very possessive pot. Last on the roof with her before dark. Roof user, not a suspect by default. Quiet oldest fact.
@@ -1008,7 +1070,7 @@ Time measured by what can grow; a very possessive pot. Last on the roof with her
 - **MALCOLM REED** (mr_r1): I was told to get closer to nature. The roses have thorns, the nettles have knives, and the goose has a lawyer. Don't laugh, you haven't met the goose. Mind the cutting.
   - > Who else comes up here? → mr_r2
   - (silence) → mr_r2
-- **MALCOLM REED** (mr_r2): Everyone with a grievance. Sacha Reed with the camera, Thursdays. The young lady with the wire. Lately the photographer from over the road, who stands in my beans and tells me my light's wrong. It is wrong. I have told the beans.
+- **MALCOLM REED** (mr_r2): Everyone with a grievance. Sacha Reed with the camera, Thursdays. The young lady with the wire. And the photographer from over the road, who looks up at it from her window and tells me my light's wrong. It is wrong. I have told the beans.
 
 ### "You were up there that evening."
 
@@ -1067,7 +1129,7 @@ Arcade tenants' counsel. Commissioned the deed copy for the Arcade's rent and re
 
 1929-07-23 to 1929-11-09
 
-- **MR. EWALD** (ew_n1): On the Saturday, by the first post. Telling me I need not attend, about a woman I had already heard was dead from a boy with a bicycle. "The person who kept the counter." I've had forty years of landlords. It's on my file with its envelope.
+- **MR. EWALD** (ew_n1): On the Saturday, by the Ortiz boy's first run. Telling me I need not attend, about a woman I had already heard was dead from a boy with a bicycle. "The person who kept the counter." I've had forty years of landlords. It's on my file with its envelope.
   - > Why keep it? → ew_n2
   - (silence) → ew_n2
 - **MR. EWALD** (ew_n2): My clerk pins everything. I have asked him not to. It is the only reason I know what my wife wrote me in 1911.
@@ -1137,7 +1199,7 @@ A plan that includes everybody before asking anybody. Chairs the tenants' associ
   - > You told her what the clause meant. → nq_t2
   - > You couldn't have known. → nq_t3
   - (silence) → nq_t1s
-- **NADIA QUELL** (nq_t2): Yes. In her own parlour. With the date. Six weeks later I'm reading a schedule on a dead woman's bench with a borrowed glass. Put the wrench down or use it.
+- **NADIA QUELL** (nq_t2): Yes. In her own parlour. That there was a clause, and that Miss Voss had found it. I didn't ask what it said. She was going to show me on the Monday. Six weeks later I'm reading a schedule on a dead woman's bench with a borrowed glass. Put the wrench down or use it.
 - **NADIA QUELL** (nq_t3): I know exactly what I could have known. That's the whole of my profession. Don't do that.
 - **NADIA QUELL** (nq_t1s): Don't stand there being tactful. It's a load-bearing silence and I didn't sign for it.
 
@@ -1195,17 +1257,17 @@ A plan that includes everybody before asking anybody. Chairs the tenants' associ
 
 1929-07-29 to 1929-11-09
 
-- **NADIA QUELL** (nq_l1): Her log, so you get my capitals. "Sat. 27 Jul., 3.10. Gentleman asks Mr. Ewald what is left in the bottom drawer. Good hat. No name." He's the third this fortnight. Nobody asks that about a shop unless they know what a shop keeps.
+- **NADIA QUELL** (nq_l1): Her log, so you get my capitals. "Sat. 27 Jul., 3.10. Gentleman asks Mr. Ewald what is left in the bottom drawer. Good hat. No name." He's the third in two weeks. Nobody asks that about a shop unless they know what a shop keeps.
   - > What is left in it? → nq_l2
   - (silence) → nq_l1s
-- **NADIA QUELL** (nq_l2): Nothing. I looked, after the third one. A clean bottom drawer, and you'd have to know to open it. I don't know what it held. Her register has the deed's plates filed to it, and those aren't anywhere either. I tell every good hat the same. None of them believes me.
+- **NADIA QUELL** (nq_l2): Nothing. I looked, after the third one. A clean bottom drawer, and you'd have to know to open it. I don't know what it held. Her register has the deed's plates filed to it, and those aren't anywhere either. Miss Sato's were in the middle drawer, and those went too. I tell every good hat the same. None of them believes me.
 - **NADIA QUELL** (nq_l1s): If you came to dust, the pins are in the tin. Mind the card in the corner. I haven't finished being rude to it.
 
 ### "Is Miss Voss singing at the Association supper?"
 
 1929-02-02 to 1929-07-13
 
-- **NADIA QUELL** (nq_p1): Yes. Two numbers, the raffle, and I've put her down to photograph the committee. She asked me whether she'd agreed to that. I've started asking people. I do it directly after.
+- **NADIA QUELL** (nq_p1): Yes. Two numbers, the raffle, and I've put her down to photograph the committee. She asked when she'd agreed. I said I was coming to that. I've begun asking people. Directly after.
 
 ### "Any reply from those people?"
 
@@ -1273,7 +1335,7 @@ Offense at workmanship; an economical answer. Spare shop key, the recorder, the 
 
 ### ""Photo Supplies, door trigger." That's your tag."
 
-1929-05-15 to 1929-11-09
+1929-05-14 to 1929-11-09
 
 - **OMAR BELL** (ob_b1): Bell starts it. Wet cell keeps it going if the house goes out. That's all it does.
   - > So it tells you who came in. → ob_b2
@@ -1323,6 +1385,18 @@ Offense at workmanship; an economical answer. Spare shop key, the recorder, the 
 1929-10-12 to 1929-10-12 · 19:00-23:59
 
 - **OMAR BELL** (ob_l9): Hundred and twelve. Slab will take it. It's the stairs I don't like, they've all got something in their hands. Go and stand at the door, you've got the shoulders for it.
+
+### "You've been looking up."
+
+1929-10-19 to 1929-11-09
+
+- **OMAR BELL** (ob_mn1): Told Lily nothing'd hold eleven. Held. It's a sixth out on the left, you can see it through a decent glass, and it's still going down, slow, like a bad footing. I've been out in the yard with a level like a fool. I've got a ladder somewhere. I know. I know how far it is. Hold that end.
+
+### "Did you change a lock on the third floor in March?"
+
+1929-04-09 to 1929-05-31 · needs **sc3_round**
+
+- **OMAR BELL** (ob_lo1): Not my order. Not my cylinder either: that's a hardware-store lock, a dollar and a quarter, put in by a man who doesn't own a level. I'd have charged the Estate three and done it straight. Somebody didn't want it on my sheet.
 
 ## PATROLMAN
 
@@ -1412,6 +1486,12 @@ A qualification that suddenly leaves him responsible for the answer. His firm's 
 
 - **PETER WREN** (pw_so1): We file their notices. That is, the firm does, I wouldn't say I do. One word, each November, paid in advance. I asked what it is they prevent. I was told I should be glad it hadn't happened. I can't say that's an answer. I can't say it isn't.
 
+### "Whose is it, legally?"
+
+1929-10-22 to 1929-11-09
+
+- **PETER WREN** (pw_mn1): The firm didn't ask me to find out. That is, I found out. No court sits there. I wanted to know who I should write to. I can't say there's anybody. I can't say I've stopped drafting it.
+
 ## RHEA SATO
 
 Manages how a moment appears until a plain objection arrives. A real privacy claim on negatives later stolen. Privacy never reads as guilt. She is right about the window.
@@ -1466,7 +1546,7 @@ Manages how a moment appears until a plain objection arrives. A real privacy cla
 
 ### "You were at the Harukiya, that Saturday in May."
 
-1929-05-19 to 1929-06-29
+1929-05-19 to 1929-05-29
 
 - **RHEA SATO** (rs_h1b): I joined in. A person may join in. Twenty years I've never come in on a chorus for nothing, and I do it with a drink in my hand, and it splits, and the Kells girl has a machine in her coat.
   - > Miss Voss says it's the best thing on the tape. → rs_h2b
@@ -1477,7 +1557,7 @@ Manages how a moment appears until a plain objection arrives. A real privacy cla
 
 ### "Did Miss Kells come to see you?"
 
-1929-08-31 to 1929-11-09 · needs **m_asked_about_dub**
+1929-08-04 to 1929-08-30 · needs **m_asked_about_dub**
 
 - **RHEA SATO** (rs_u1): She stood on my mat and confessed. I've had that girl's confessions, they come small. She offered to play it to me. I was there when it happened. I don't need it twice.
   - > Will you keep it? → rs_u2
@@ -1489,6 +1569,12 @@ Manages how a moment appears until a plain objection arrives. A real privacy cla
 1929-10-01 to 1929-10-31
 
 - **RHEA SATO** (rs_o1): One. No. One. There's nothing to the Professor's trick, you know. It's breath. You bring a house down on the outgoing, and you never let it catch you doing it. One. I've done it forty ways this week, and in every one of them you can hear a woman saying "one" very well.
+
+### "You can see it from your window."
+
+1929-10-26 to 1929-11-09
+
+- **RHEA SATO** (rs_mn1): I can, some nights. I asked Lily whether Miss Voss said she could, and she said no, and I asked her to have that noted, and she went and did it. It's her name. Nobody asked her. I have the blind down on that side, and I notice I know exactly where it is.
 
 ## SACHA REED
 
@@ -1527,10 +1613,205 @@ One dry frame-edge observation. They/them. Thursday roof rota, the duplicate, pr
 
 1929-07-20 to 1929-11-09
 
-- **SACHA REED** (sr_l1): Twenty to nine. My door was open a hand for the fumes. White gloves, at the bottom of 6B, stooping, the back of one hand to the sill. That's the edge of it. I can't tell you what's in the middle.
+- **SACHA REED** (sr_l1): Twenty to nine. My door was open a hand; I'd mixed fixer for Saturday. White gloves, at the bottom of 6B, stooping, the back of one hand to the sill. That's the edge of it. I can't tell you what's in the middle.
   - > Whose gloves? → sr_l2
   - (silence) → sr_l2
 - **SACHA REED** (sr_l2): Mr. Price, from the fourth floor. Not his door. He looked round and I shut mine. That proves I shut mine.
+
+## STACY
+
+Stacy's five cases, first drafts (design/ORISON_STACY_INVESTIGATOR_2026-11-13.md, owner's rulings of 2026-11-13). Optional and outside the solve chain: no m_ flag, no carrier, nothing about 19 July, the dark hours, the killer or who rides the night man. Flags sc1_ to sc5_. Each case ends with something put right and something left open that nobody explains. She calls the companion the Vantry, by its maker. Before 19 July her threads may concern what Adela does; case 5 runs after it. Talk only in this draft: the tabs, receipts, books, tags and the card become handled papers in a later pass.
+
+### "Who was the woman in the grey hat?"
+
+1928-12-04 to 1929-01-31
+
+- **STACY** (sc1_a1): Paid for a coffee she didn't drink and asked me not to have seen her. So I didn't. I'm only telling you because you were looking at the door the same way she was.
+  - > Was she frightened? → sc1_a2
+  - > Not my business. → sc1_a3
+  - (silence) → sc1_a2
+- **STACY** (sc1_a2): Frightened people sit with their back to the wall. She sat with her back to the window, so she could see her own face in the bar mirror. That's someone checking she's still there.
+- **STACY** (sc1_a3): No. But you'll be back, and so will she.
+
+### "Did the woman in the grey hat come back?"
+
+1928-12-27 to 1929-01-31 · needs **sc1_seen**
+
+- **STACY** (sc1_b1): Left this on the saucer. A tab, my hand, my pencil, two coffees and a slice. Dated Christmas night. We were shut Christmas night. I locked up at four on the twenty-fourth and I have the key on a string to prove it.
+  - > Could someone have copied your hand? → sc1_b2
+  - > Who says you were shut? → sc1_b3
+  - (silence) → sc1_b2
+- **STACY** (sc1_b2): Nobody copies how I make a seven. My mother couldn't. It's mine. I don't need to believe it to take it seriously.
+- **STACY** (sc1_b3): I do. And Mr. Dunne, who stood outside in the snow banging on the glass. And Mrs. Kearney from the paper stand, who says she sat right there with a coffee and a woman in a grey hat. One of them can't be wrong.
+
+### "Has anyone asked after her?"
+
+1929-01-02 to 1929-01-31 · needs **sc1_tab**
+
+- **STACY** (sc1_c1): A husband. Good coat, a photograph and a doctor's letter that says she's not herself. He'd like her found so she can be looked after. He was very particular about the house on Ditmars being in his name now.
+  - > You don't believe him. → sc1_c2
+  - > A doctor's letter is a doctor's letter. → sc1_c3
+  - (silence) → sc1_c2
+- **STACY** (sc1_c2): I believe the letter's real. I'd like to know who paid for it. There's a paper at the county office about her property. Read it with me before either of us does anything clever.
+- **STACY** (sc1_c3): So's a bar tab. Look where that got us. There's a paper at the county office about her property. Read it with me before either of us does anything clever.
+
+### "The county paper on the house on Ditmars."
+
+1929-01-08 to 1929-02-28 · needs **sc1_husband**
+
+- **STACY** (sc1_d1): He filed to manage her estate the week before he came in here asking. So. We can find her, which is what he's paying someone to do. Or we can find out why she mustn't be found, which nobody's paying for.
+  - > Find her. She should know what he filed. → sc1_d2
+  - > Find out why first. → sc1_d3
+  - (silence) → sc1_d2
+- **STACY** (sc1_d2): Then I'll leave word with Mrs. Kearney. If the woman comes to the stand, Mrs. Kearney gives her the clerk's name and the date. What she does with it is hers.
+- **STACY** (sc1_d3): Then I'll go to the clerk on my Monday and ask the questions a barmaid isn't supposed to know to ask. Bring your machine if you like. The Vantry listens better than most of my regulars.
+
+### "Did the woman in the grey hat get her house?"
+
+1929-01-15 to 1929-02-28 · needs any of **sc1_warned**, **sc1_asked**
+
+- **STACY** (sc1_e1): The claim's withdrawn. The clerk found a signature that didn't agree with itself, once someone asked him to look. She sent a postcard. No name. A drawing of a hat.
+  - > And Christmas night? → sc1_e2
+  - (silence) → sc1_e2
+- **STACY** (sc1_e2): Mr. Dunne stood in the snow. Mrs. Kearney drank a coffee in here. I've stopped asking which. I keep the tab under the till with the others people owe.
+
+### "The girl from the exchange looks done in."
+
+1929-02-05 to 1929-03-31
+
+- **STACY** (sc2_a1): Dot. Works a position at the Queens Exchange, nights. She says she hears people on lines that were taken out. People who've passed. She says it like she's reporting the weather, which is how I know it's bothering her.
+  - > Do you believe her? → sc2_a2
+  - > Lines cross. It happens. → sc2_a3
+  - (silence) → sc2_a2
+- **STACY** (sc2_a2): I believe she hears something. That's all believing has to cover tonight. What I don't like is the other thing she said. Families are paying to listen.
+- **STACY** (sc2_a3): They do. Crossed lines don't send a bill, though. Families are paying to listen.
+
+### "Who's charging families to listen?"
+
+1929-02-12 to 1929-03-31 · needs **sc2_heard**
+
+- **STACY** (sc2_b1): Something calling itself a Society. Subscriptions by the month. They send a man round with a letter that knows things only the family should know. Dot says the letters are opened at the exchange's mail desk before they ever get to the house.
+  - > Then someone inside reads the mail. → sc2_b2
+  - > Then the dead aren't doing the talking. → sc2_b2
+  - (silence) → sc2_b2
+- **STACY** (sc2_b2): Her ticket book shows which pairs she was put on. A lineman told her one of those pairs was cut at the frame in January. Cut. Nothing on it. I'd like to see the ticket book and the frame both, and I'd like it before the Society sends its next bill.
+
+### "Dot's ticket book."
+
+1929-02-19 to 1929-03-31 · needs **sc2_book**
+
+- **STACY** (sc2_c1): Here's the trouble. We go to the company now, the ring is done by Friday and Dot's the girl who brought it, and they'll put her off the board for hearing things. Or we keep her out of it a week and two more families pay.
+  - > Expose them now. → sc2_c2
+  - > Shelter her first. → sc2_c3
+  - (silence) → sc2_c2
+- **STACY** (sc2_c2): Then I'll write it out plain and you carry it. Nobody fires the person who didn't sign it.
+- **STACY** (sc2_c3): Then I'll find her a day shift with a friend at the Flushing board, and we go to the company Monday with the book and without her name.
+
+### "What happened to the Society?"
+
+1929-02-26 to 1929-04-15 · needs any of **sc2_exposed**, **sc2_sheltered**
+
+- **STACY** (sc2_d1): Two clerks from the mail desk and a man with very good stationery. The families got letters of a different kind. Dot's still on nights. She asked to be.
+  - > And the cut pair? → sc2_d2
+  - (silence) → sc2_d2
+- **STACY** (sc2_d2): The ring never touched it. Their lines were all live. There's one call in her book on that pair, two in the morning, nine minutes long, and she won't tell me who it was. I didn't push. Some things a person gets to keep.
+
+### "Somebody upstairs is paying rent twice?"
+
+1929-04-02 to 1929-05-31
+
+- **STACY** (sc3_a1): A girl from your building came in with two receipts. Same room, same month, both on the Estate's paper, both signed. One she paid at the office. One she paid at her door to a man who said the office had lost the first.
+  - > Which one's real? → sc3_a2
+  - > Ask the Estate. → sc3_a3
+  - (silence) → sc3_a2
+- **STACY** (sc3_a2): Both look it. That's what makes one of them a lie. I'd like to see the collector's round book before I say that out loud.
+- **STACY** (sc3_a3): She'd lose the room for complaining before they'd lose a minute of sleep. We'll ask the round book first.
+
+### "The collector's round book."
+
+1929-04-09 to 1929-05-31 · needs **sc3_receipts**
+
+- **STACY** (sc3_b1): The collector's round book has her room on it every week, ticked. The office ledger has it once a month. And the lock on her door was changed in March without anybody asking her. Your Mr. Bell would know who put in that order.
+
+### "Mr. Bell says the lock order wasn't his."
+
+1929-04-23 to 1929-05-31 · needs **sc3_lock**
+
+- **STACY** (sc3_c1): Then the collector changed it himself, so the girl would have to come to him for a key. We can take the receipts to the office in the open and make a noise. Or I keep her housed quietly and let the collector find the office already knows.
+  - > In the open. → sc3_c2
+  - > Quietly. → sc3_c3
+  - (silence) → sc3_c2
+- **STACY** (sc3_c2): Loud's honest. Loud also gets you remembered. Mind that for later.
+- **STACY** (sc3_c3): Quiet costs us nothing and costs him his job. I like those sums.
+
+### "Did she keep her room?"
+
+1929-04-30 to 1929-06-15 · needs any of **sc3_open**, **sc3_quiet**
+
+- **STACY** (sc3_d1): She did. The collector's gone, and the Estate sent a very polite letter about its regret, which is the most an estate can feel. Funny thing, though.
+  - > What's funny? → sc3_d2
+  - (silence) → sc3_d2
+- **STACY** (sc3_d2): His round book counted one more room on her floor than your hall has doors. He collected from it every week. Ticked. I counted the doors twice on my way out. I'm not counting them a third time.
+
+### "Something's hurt in the service passage."
+
+1929-05-21 to 1929-06-30
+
+- **STACY** (sc4_a1): A dog. Big, grey, one ear wrong, a cut down the shoulder that somebody stitched badly a while ago and something opened again. He won't come out. He's not mean, he's sensible. Three cats and a terrier gone off this block in a fortnight.
+  - > Is he the reason? → sc4_a2
+  - > Who's taking them? → sc4_a3
+  - (silence) → sc4_a2
+- **STACY** (sc4_a2): That shoulder wasn't done by a cat. Look at the tags in the passage. Three of them. Somebody's been taking collars off.
+- **STACY** (sc4_a3): A man collecting for the Society for the Prevention says he'll take the dangerous ones away. For a donation. Look at the tags in the passage. Three of them.
+
+### "The man collecting for the Society."
+
+1929-05-28 to 1929-06-30 · needs **sc4_stray**
+
+- **STACY** (sc4_b1): His donation book has the Society's name and a branch that doesn't exist. Three people saw him on the block last Tuesday: one says with a cart, one says with a cage, one says with nothing at all but a lot of collars in his pocket.
+  - > They can't all be right. → sc4_b2
+  - (silence) → sc4_b2
+- **STACY** (sc4_b2): No. And I can't watch him tonight. The dog's shoulder has gone bad and I'm the one with the needle. You can watch him or not. I'm seeing to the animal.
+
+### "How's the dog?"
+
+1929-06-04 to 1929-07-15 · needs **sc4_watch**
+
+- **STACY** (sc4_c1): He's called Counsel now. Judge doesn't approve, which is how they get on. The Society's real office took the collector's book off him and gave two cats back. The terrier's a lost cause and I said so to its owner, gently.
+  - > And what the three of them saw? → sc4_c2
+  - (silence) → sc4_c2
+- **STACY** (sc4_c2): A cart, a cage, and nothing. I've had all three in here since. They still don't agree, and none of them has ever lied to me about a drink.
+
+### "You won't let them close her last job."
+
+1929-08-06 to 1929-10-31
+
+- **STACY** (sc5_a1): The paper filed Miss Voss's last commission as finished. She'd have said so if it was. She'd have sat there and said 'finished' like it tasted of something. She didn't.
+  - > Where's the work? → sc5_a2
+  - > Let it go, Stacy. → sc5_a3
+  - (silence) → sc5_a2
+- **STACY** (sc5_a2): The supply house kept a receipt for the paper she bought that week. The printed sheet went to the magazine. I want both in front of me.
+- **STACY** (sc5_a3): I let a lot go. This one owes me money. The supply house kept a receipt for the paper she bought that week. I want it in front of me.
+
+### "The printed contact sheet."
+
+1929-08-20 to 1929-10-31 · needs **sc5_open**
+
+- **STACY** (sc5_b1): Look at the caption under the sixth frame. That isn't hers. She never wrote 'unidentified' in her life. She wrote what she saw and put a question mark after it if she had to. Somebody knows who changed it, and they're frightened.
+  - > Then lean on them. → sc5_b2
+  - > Find it another way. → sc5_b3
+  - (silence) → sc5_b2
+- **STACY** (sc5_b2): No. I've been leaned on. You don't get the truth, you get the shape of whatever stops the leaning. We find it another way.
+- **STACY** (sc5_b3): Good. She corrected her captions on cards, in grease pencil, the way she argued with me about the coffee. If she corrected this one, the card's somewhere.
+
+### "Adela's correction card."
+
+1929-09-03 to 1929-10-31 · needs **sc5_caption**
+
+- **STACY** (sc5_c1): Her card. Grease pencil, her hand, the frame number, and what the caption should have said. It doesn't name anybody. It asks a question. Put it on your wall. I'm not having it filed as finished twice.
+  - > What does it ask? → sc5_c2
+  - (silence) → sc5_c2
+- **STACY** (sc5_c2): Read it yourself. It's hers. I only pour the coffee.
 
 ## TERESA VALE
 
@@ -1549,10 +1830,11 @@ Practical instruction that puts someone to work. Never a joke at the body. She n
 
 ### "You wrote something down, that night."
 
-1929-07-21 to 1929-11-09 · needs **m_patrol_sheet**
+1929-07-21 to 1929-11-09 · needs any of **m_patrol_sheet**, **m_c_n16**
 
 - **TERESA VALE** (tv_n1): Everything goes in the book. You chart it or it didn't happen, and then it happens to the next person. Why are you asking? You weren't on shift.
-  - > The sheet says "nails torn." Is that all? → tv_n2
+  - > The sheet says "nails torn." Is that all? [needs m_patrol_sheet] → tv_n2
+  - > The paper says she fell. Is that all anyone wrote? [needs m_c_n16] → tv_n2
   - > Were you close? → tv_n3
   - (silence) → tv_n1s
 - **TERESA VALE** (tv_n2): That's what he copied. Right hand. Three-ten by my watch. "White kid under the nails, shreds. Not hers." Her gloves were in her bag and they were cotton, for the plates. I wrote what she was holding, because nobody else was going to ask her. Now you've asked.
@@ -1587,6 +1869,12 @@ Practical instruction that puts someone to work. Never a joke at the body. She n
 - **TERESA VALE** (tv_o4): No. All right. I've asked worse.
 - **TERESA VALE** (tv_o5): That's what I thought. It's all right. Mind the door.
 
+### "Can you see it from the ward?"
+
+1929-10-26 to 1929-11-09
+
+- **TERESA VALE** (tv_mn1): East windows, some nights. Fellow in the end bed won't look. He's frightened, he says that's fifteen hundred miles of somebody's name and nobody's said what for. I said a friend of mine had terrible capitals, drink your water. He thought I was being funny. Go on, you're in the light.
+
 ## THE ROOM
 
 Not a person. The player's one trip to a party, late in the year. They are standoffish and rude and have nothing to say. No word passes, no message, no face, and nothing here says what the night man is. Zero time passes. No door yet; read through the playtest panel.
@@ -1618,7 +1906,7 @@ Agree with different questions; a concrete question separates them. Their agreem
 
 ### "You told the officer she lodged here."
 
-1929-07-20 to 1929-11-09 · needs **m_patrol_sheet**
+1929-07-20 to 1929-11-09 · needs any of **m_patrol_sheet**, **m_c_n16**
 
 - **THE GUESTS** (tg_l1): We agreed she lodged. — She was always on the roof. — Where would a person go up, if she didn't live up? — Quite.
   - > Did you ever see her come home? → tg_l2
@@ -1632,7 +1920,7 @@ Agree with different questions; a concrete question separates them. Their agreem
 
 1929-07-20 to 1929-11-09 · needs **m_guests_lodger_source**
 
-- **THE GUESTS** (tg_s1): We agreed it was late. — Quite late. — Before. — After the lift.
+- **THE GUESTS** (tg_s1): We agreed it was late. — Quite late. — Before. — After the elevator.
   - > Which? You first. On the stairs, that night. What did you see? → tg_s2
   - (silence) → tg_s1s
 - **THE GUESTS** (tg_s2): A lady in gloves going down, with a lamp she did not light. — Ten to eleven. — I'd have said a gentleman. — You'd have said anything. — I would. It's very restful. — She had a good bag. — Did she? — I don't know now.

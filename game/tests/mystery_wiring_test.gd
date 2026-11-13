@@ -38,7 +38,7 @@ func _run() -> void:
 	_check("no load errors", conversations.errors.is_empty())
 	if not conversations.errors.is_empty():
 		print(conversations.errors)
-	_check("25 speakers load", conversations.mystery.size() == 25)
+	_check("26 speakers load", conversations.mystery.size() == 26)
 	_check("playtest panel absent without its variable",
 			not conversations.get_children().any(func(c): return c.get_script() != null and str(c.get_script().resource_path).ends_with("mystery_playtest.gd")))
 
@@ -51,6 +51,11 @@ func _run() -> void:
 	_check("hours gate", "ev_home" not in thread_ids.call("emil_voss", "1929-07-22", 9 * 60))
 	_check("hours open", "ev_home" in thread_ids.call("emil_voss", "1929-07-22", 12 * 60))
 	_check("requires hides", "nq_told" not in thread_ids.call("nadia_quell", "1929-08-01", 720))
+	# Stacy's own cases sit beside the main case: dated, chained by sc flags.
+	_check("Stacy's first case opens in December", "sc1_coffee" in thread_ids.call("stacy", "1928-12-10", 18 * 60))
+	_check("Stacy's second step waits for the first", "sc1_tab" not in thread_ids.call("stacy", "1928-12-28", 18 * 60))
+	RealityState.grant_knowledge("sc1_seen")
+	_check("Stacy's second step follows the first", "sc1_tab" in thread_ids.call("stacy", "1928-12-28", 18 * 60))
 	RealityState.grant_knowledge("m_tea_seen")
 	_check("requires opens", "nq_told" in thread_ids.call("nadia_quell", "1929-08-01", 720))
 	RealityState.grant_knowledge("m_mina_log")
